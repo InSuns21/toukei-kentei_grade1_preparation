@@ -1,0 +1,31 @@
+id: "P2-02"
+title: "期待値・分散・共分散・母関数"
+volume: "probability"
+status: reviewed
+prerequisites: [P2-01]
+official_scope: [期待値, 分散, 共分散, 確率母関数, モーメント母関数]
+learning_objectives:
+  - 絶対可積分性を確認して期待値を計算できる
+  - LOTUSと線形性を離散・連続分布へ使える
+  - 分散・共分散・相関係数を存在条件付きで計算できる
+  - 全期待値・全分散公式を有限分割へ適用できる
+  - PGF・MGFからモーメントを導き存在範囲を確認できる
+definitions:
+  - { id: P2-DEF-06, name: 期待値と絶対可積分性 }
+  - { id: P2-DEF-07, name: 分散・標準偏差 }
+  - { id: P2-DEF-08, name: 共分散・相関係数 }
+  - { id: P2-DEF-09, name: 確率母関数 }
+  - { id: P2-DEF-10, name: モーメント母関数 }
+theorems:
+  - { id: P2-THM-05, name: LOTUSと期待値の線形性 }
+  - { id: P2-THM-06, name: 分散・共分散の計算公式 }
+  - { id: P2-THM-07, name: 全期待値・全分散公式 }
+  - { id: P2-THM-08, name: 母関数の微分と独立和 }
+canonical_examples: [離散分布の平均分散, 混合分布の全分散, 共分散と無相関, PGFとMGFの微分]
+problem_patterns: [MOMENT-1, VAR-1, COV-1, TOTALVAR-1, PGF-1, MGF-1, COV-BOUND-1, ANSWER-1]
+exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 10, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

@@ -1,0 +1,9 @@
+terms:
+  - { term: 期待値, symbol: "E[X]", definition: "絶対可積分な確率変数の分布加重平均" }
+  - { term: 分散, symbol: "\\operatorname{Var}(X)", definition: "平均からの二乗偏差の期待値" }
+  - { term: 共分散, symbol: "\\operatorname{Cov}(X,Y)", definition: "中心化した二変量の積の期待値" }
+  - { term: 相関係数, symbol: "\\rho(X,Y)", definition: "共分散を標準偏差の積で標準化した量" }
+  - { term: 確率母関数, symbol: "G_X(s)", definition: "非負整数値変数のE[s^X]" }
+  - { term: モーメント母関数, symbol: "M_X(t)", definition: "E[e^{tX}]" }
+  - { term: 階乗モーメント, definition: "E[X(X-1)…(X-r+1)]" }
+  - { term: 全分散, definition: "群内分散の平均と群平均の分散の和" }
