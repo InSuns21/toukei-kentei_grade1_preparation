@@ -1,0 +1,9 @@
+terms:
+  - { term: Bernoulli分布, definition: "一回の成功指示変数の分布" }
+  - { term: 二項分布, definition: "独立な固定回数試行の成功数" }
+  - { term: 超幾何分布, definition: "有限母集団からの非復元標本の成功数" }
+  - { term: 幾何分布, definition: "初成功までの試行回数" }
+  - { term: 負の二項分布, definition: "r回目成功までの試行回数" }
+  - { term: Poisson分布, definition: "一定区間の発生件数を表す分布" }
+  - { term: 多項分布, definition: "独立反復の多カテゴリ度数ベクトル" }
+  - { term: 有限母集団補正, definition: "非復元抽出の分散に掛かる(N-n)/(N-1)" }
