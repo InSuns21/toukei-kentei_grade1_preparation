@@ -11,7 +11,7 @@ const targets = ['volumes', 'templates', 'prompts', 'agents', 'references']
 for (const file of targets) {
   const source = fs.readFileSync(file, 'utf8');
   if (source.includes('\uFFFD')) errors.push(`${relative(file)}: 置換文字 U+FFFD があります`);
-  const control = [...source].findIndex((character) => character.charCodeAt(0) < 32 && !['\n', '\r', '\t'].includes(character));
+  const control = [...source].findIndex((character) => character.charCodeAt(0) < 32 && !['\n', '\r'].includes(character));
   if (control >= 0) errors.push(`${relative(file)}: 制御文字があります`);
   if (/\b(?:TODO|TBD)(?!\(reference\))/i.test(source) && file.includes(`${path.sep}volumes${path.sep}`) && isReviewedChapter(file)) {
     errors.push(`${relative(file)}: 査読完了成果物に TODO/TBD が残っています`);
