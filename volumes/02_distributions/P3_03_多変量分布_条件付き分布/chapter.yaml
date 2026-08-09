@@ -1,0 +1,33 @@
+id: "P3-03"
+title: "多変量分布・条件付き分布"
+volume: "distributions"
+status: reviewed
+prerequisites: [P3-01, P3-02, F0-01]
+official_scope: [平均ベクトル, 分散共分散行列, 相関行列, 多変量正規分布, 線形変換, 周辺分布, 条件付き分布, 独立性, 相関係数, 偏相関係数, 二次形式]
+learning_objectives:
+  - 確率ベクトルの平均・共分散と線形変換を次元付きで計算できる
+  - 多変量正規分布の周辺・条件付き分布をブロック行列から導ける
+  - 無相関と独立を区別し、正規分布での同値条件を使える
+  - 偏相関を残差・共分散行列・精度行列から計算できる
+  - Mahalanobis二次形式を標準化して解釈できる
+definitions:
+  - { id: P3M-DEF-01, name: 確率ベクトルと共分散行列 }
+  - { id: P3M-DEF-02, name: 相関行列と偏相関 }
+  - { id: P3M-DEF-03, name: 多変量正規分布 }
+  - { id: P3M-DEF-04, name: 条件付き密度 }
+  - { id: P3M-DEF-05, name: 二次形式とMahalanobis距離 }
+theorems:
+  - { id: P3M-THM-01, name: 平均共分散のアフィン変換 }
+  - { id: P3M-THM-02, name: 多変量正規のアフィン変換と周辺分布 }
+  - { id: P3M-THM-03, name: 多変量正規の条件付き分布 }
+  - { id: P3M-THM-04, name: 多変量正規における無相関と独立 }
+  - { id: P3M-THM-05, name: 偏相関と精度行列 }
+  - { id: P3M-THM-06, name: Mahalanobis二次形式 }
+canonical_examples: [線形結合, 二変量正規の条件付き分布, ブロック条件付け, 残差偏相関, Mahalanobis距離]
+problem_patterns: [DIM-1, AFFINE-1, BLOCK-1, COND-NORMAL-1, INDEP-NORMAL-1, PARTIAL-1, QUAD-MVN-1, ANSWER-1]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 14, review: 4 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
