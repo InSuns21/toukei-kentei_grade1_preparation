@@ -14,7 +14,7 @@ for (const file of targets) {
   const control = [...source].findIndex((character) => character.charCodeAt(0) < 32 && !['\n', '\r'].includes(character));
   if (control >= 0) errors.push(`${relative(file)}: 制御文字があります`);
   for (const match of source.matchAll(/(\${1,2})([\s\S]*?)\1/g)) {
-    const bareCommand = /(?<![\\A-Za-z])(?:qquad|quad|ldots)\b/.exec(match[2]);
+    const bareCommand = /(?<![\\A-Za-z])(?:qquad|quad|ldots)(?![A-Za-z])/.exec(match[2]);
     if (!bareCommand) continue;
     const offset = (match.index ?? 0) + match[1].length + bareCommand.index;
     const line = source.slice(0, offset).split('\n').length;
