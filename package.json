@@ -1,0 +1,19 @@
+{
+  "name": "toukei-kentei-grade1-preparation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "統計検定1級の独習教材・問題集・詳細解答集の生成検証基盤",
+  "scripts": {
+    "validate": "npm run validate:structure && npm run validate:math && npm run validate:text",
+    "validate:structure": "node scripts/validate_structure.mjs",
+    "validate:math": "node scripts/validate_math.mjs",
+    "validate:text": "node scripts/validate_text.mjs",
+    "new:chapter": "node scripts/scaffold_chapter.mjs",
+    "progress": "node scripts/curriculum_progress.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.16.11",
+    "yaml": "^2.5.1"
+  }
+}
+
