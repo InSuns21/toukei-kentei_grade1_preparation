@@ -1,0 +1,10 @@
+terms:
+  - { term: 条件付き確率, symbol: "P(A\\mid B)", definition: "P(B)>0のときP(A∩B)/P(B)" }
+  - { term: 独立, symbol: "P(A\\cap B)=P(A)P(B)", definition: "一方の情報が他方の確率を変えない関係" }
+  - { term: 対独立, definition: "全ての二事象の組が独立であること" }
+  - { term: 相互独立, definition: "全ての2個以上の部分族で積公式が成り立つこと" }
+  - { term: 全確率公式, definition: "分割ごとの条件付き確率と事前確率の積を足す公式" }
+  - { term: 事前確率, definition: "観測前の原因事象の確率" }
+  - { term: 事後確率, definition: "観測事象を条件とした原因事象の確率" }
+  - { term: 感度, definition: "有病を条件とする陽性確率" }
+  - { term: 特異度, definition: "非有病を条件とする陰性確率" }

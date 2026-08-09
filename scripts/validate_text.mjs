@@ -13,6 +13,13 @@ for (const file of targets) {
   if (source.includes('\uFFFD')) errors.push(`${relative(file)}: 置換文字 U+FFFD があります`);
   const control = [...source].findIndex((character) => character.charCodeAt(0) < 32 && !['\n', '\r'].includes(character));
   if (control >= 0) errors.push(`${relative(file)}: 制御文字があります`);
+  for (const match of source.matchAll(/(\${1,2})([\s\S]*?)\1/g)) {
+    const bareCommand = /(?<![\\A-Za-z])(?:qquad|quad|ldots)\b/.exec(match[2]);
+    if (!bareCommand) continue;
+    const offset = (match.index ?? 0) + match[1].length + bareCommand.index;
+    const line = source.slice(0, offset).split('\n').length;
+    errors.push(`${relative(file)}:${line}: 数式内の ${bareCommand[0]} にバックスラッシュがありません`);
+  }
   if (/\b(?:TODO|TBD)(?!\(reference\))/i.test(source) && file.includes(`${path.sep}volumes${path.sep}`) && isReviewedChapter(file)) {
     errors.push(`${relative(file)}: 査読完了成果物に TODO/TBD が残っています`);
   }
