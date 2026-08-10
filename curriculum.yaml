@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-08-10
   current_chapter: null
-  next_chapter: P4-01
+  next_chapter: P4-02
   next_work:
     type: chapter
-    id: P4-01
-  last_completed_chapter: P3-03
+    id: P4-02
+  last_completed_chapter: P4-01
   summary:
     total: 32
-    planned: 24
+    planned: 23
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 8
+    reviewed: 9
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -43,7 +43,7 @@ progress:
     P3-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P3-02: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P3-03: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
-    P4-01: { status: planned }
+    P4-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P4-02: { status: planned }
     S1-01: { status: planned }
     S1-02: { status: planned }
@@ -90,7 +90,7 @@ chapters:
   - { id: P3-01, title: 主要な離散分布, volume: distributions, prerequisites: [ P2-02 ], official_scope: [ ベルヌーイ分布, 二項分布, 超幾何分布, 幾何分布, ポアソン分布, 負の二項分布, 多項分布 ] }
   - { id: P3-02, title: 主要な連続分布, volume: distributions, prerequisites: [ P2-02 ], official_scope: [ 一様分布, 正規分布, 指数分布, ガンマ分布, ベータ分布, コーシー分布, 対数正規分布, ワイブル分布, ロジスティック分布 ] }
   - { id: P3-03, title: 多変量分布・条件付き分布, volume: distributions, prerequisites: [ P3-01, P3-02, F0-01 ], official_scope: [ 平均ベクトル, 分散共分散行列, 相関行列, 多変量正規分布, 線形変換, 周辺分布, 条件付き分布, 独立性, 相関係数, 偏相関係数, 二次形式 ] }
-  - { id: P4-01, title: 変数変換・順序統計量, volume: distributions, prerequisites: [ P3-03 ], official_scope: [ 変数変換, 順序統計量 ] }
+  - { id: P4-01, title: 変数変換・順序統計量, volume: distributions, prerequisites: [ P3-03 ], official_scope: [ 1変数変換, 多変数変換, Jacobian, 和, 差, 積, 比, 最大値, 最小値, 順序統計量 ] }
   - { id: P4-02, title: 確率変数の収束・大数則・中心極限定理, volume: distributions, prerequisites: [ P2-02, P3-02 ], official_scope: [ 大数の弱法則, 中心極限定理, 正規近似, ポアソン近似 ] }
   - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
   - { id: S1-02, title: 統計量・十分性・分解定理, volume: inference, prerequisites: [ S1-01, P4-01 ], official_scope: [ 十分統計量, ネイマンの分解定理 ] }

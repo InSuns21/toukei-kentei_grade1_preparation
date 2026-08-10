@@ -1,0 +1,8 @@
+chapter: "P4-01"
+terms:
+  - { term: 逆像, meaning: 変換後の一点へ写る変換前の点の集合 }
+  - { term: Jacobian, meaning: 多変数変換の局所的な体積倍率を表す行列式 }
+  - { term: 畳込み, meaning: 独立確率変数の和の密度を得る積分 }
+  - { term: 順序統計量, meaning: 標本を小さい順に並べた各順位の値 }
+  - { term: 標本範囲, meaning: 最大値と最小値の差 }
+  - { term: 確率積分変換, meaning: 連続CDFを確率変数へ適用して一様分布へ移す変換 }
