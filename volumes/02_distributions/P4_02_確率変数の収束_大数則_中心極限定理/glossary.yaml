@@ -1,0 +1,6 @@
+terms:
+  - {term: 確率収束, definition: 任意の誤差幅を超える確率が0へ行く収束}
+  - {term: 概収束, definition: 確率1で標本ごとに収束すること}
+  - {term: 分布収束, definition: CDFが連続点で収束すること}
+  - {term: 大数の法則, definition: 標本平均が母平均へ近づく定理}
+  - {term: 中心極限定理, definition: 標本平均を標準化すると標準正規へ収束する定理}
