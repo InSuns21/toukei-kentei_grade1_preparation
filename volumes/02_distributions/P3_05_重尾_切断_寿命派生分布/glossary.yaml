@@ -1,0 +1,6 @@
+terms:
+  - { term: 生存関数, definition: 寿命が時刻xを超える確率 S(x)=P(X>x) }
+  - { term: ハザード関数, definition: その時刻まで生存した個体が直後に故障する割合 }
+  - { term: 累積ハザード, definition: ハザードを0から積分した量 H(x)=-log S(x) }
+  - { term: 右切断, definition: Xが指定範囲内の個体だけを観測すること }
+  - { term: 右打切り, definition: Xが観測終了時刻を超えたことだけを記録すること }

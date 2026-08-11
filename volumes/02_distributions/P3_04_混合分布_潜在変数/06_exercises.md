@@ -1,6 +1,8 @@
 # 演習問題
 
-## 問題文で使う分布の定義
+## 問題で使う分布の定義
+
+確率質量関数（probability mass function; PMF）は離散型で $P(X=x)$、累積分布関数（cumulative distribution function; CDF）は $F(x)=P(X\leq x)$ である。
 
 以下では $Z\in\{1,2\}$、$P(Z=1)=\pi$、$P(Z=2)=1-\pi$、$0\leq\pi\leq1$ とする。$X\mid Z=j$ の質量関数または密度を $g_j$ と書くと、周辺分布は $g(x)=\pi g_1(x)+(1-\pi)g_2(x)$ である。Poissonは
 $$P(X=k\mid\lambda)=e^{-\lambda}\lambda^k/k!,\quad k\in\mathbb N_0,\ \lambda>0,$$
