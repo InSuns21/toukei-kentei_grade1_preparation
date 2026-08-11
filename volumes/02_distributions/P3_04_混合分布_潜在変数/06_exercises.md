@@ -122,6 +122,8 @@ $X_i\mid\Lambda_i\sim\operatorname{Poisson}(\Lambda_i)$、$\Lambda_i\overset{\ma
 4. $\beta$ が既知のとき、$\alpha$ のモーメント推定量を求めよ。
 5. $\operatorname{Var}(\bar X)$ を求め、$\bar X$ が $\alpha/\beta$ に確率収束することをChebyshev不等式 $P(|Y-EY|\geq\varepsilon)\leq\operatorname{Var}(Y)/\varepsilon^2$ で示せ。
 
+第1問を得られない場合、第2問以降では $E[X_i]=\alpha/\beta$、$\operatorname{Var}(X_i)=\alpha/\beta+\alpha/\beta^2$ を用いてよい。
+
 ### P3L-C02 二成分Poisson混合と責務
 
 - level: C
@@ -138,6 +140,8 @@ $P(Z=1)=\pi$、$X\mid Z=1\sim\operatorname{Poisson}(2)$、$X\mid Z=2\sim\operato
 3. $P(Y=0\mid X=3)$ を責務で表せ。
 4. $\pi=1/2$ のとき $P(Y=0\mid X=3)$ を計算せよ。
 5. 観測後の予測で事前の $\pi$ をそのまま使えない理由を一文で説明せよ。
+
+第2問を得られない場合、第3問以降では $\tau_1=P(Z=1\mid X=3)$ を既知として用いてよい。
 
 ### P3L-C03 正規混合と閾値分類
 
@@ -156,6 +160,8 @@ $P(Z=1)=P(Z=2)=1/2$、$X\mid Z=1\sim N(-1,1)$、$X\mid Z=2\sim N(1,1)$ とする
 4. $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
 5. 成分平均が既知で混合比が未知のとき、$\bar X$ による混合比のモーメント推定量を求めよ。推定量を $[0,1]$ に制約する場合の投影も述べよ。
 
+第2問を得られない場合、第3問以降では分類境界が0であることを用いてよい。
+
 ### P3L-C04 潜在指標が一部観測される場合
 
 - level: C
@@ -165,13 +171,15 @@ $P(Z=1)=P(Z=2)=1/2$、$X\mid Z=1\sim N(-1,1)$、$X\mid Z=2\sim N(1,1)$ とする
 - calculation: medium
 - finishability: 24分で完全尤度・観測尤度・責務まで完答可能
 
-$Z_i\in\{1,2\}$、$P(Z_i=1)=\pi$、$X_i\mid Z_i=j\sim N(\mu_j,1)$ とし、$\mu_1=0,\mu_2=2$ とする。
+$(X_i,Z_i)$、$i=1,\ldots,n$ は互いに独立で同じ分布に従うとする。$Z_i\in\{1,2\}$、$P(Z_i=1)=\pi$、$X_i\mid Z_i=j\sim N(\mu_j,1)$ とし、$\mu_1=0,\mu_2=2$ とする。
 
 1. $(X_i,Z_i)$ の完全データ尤度を書け。
 2. $Z_i$ が観測されたときの $\pi$ の最尤推定量を求めよ。成分1の観測数が0または$n$の場合も含める。
 3. $Z_i$ が観測されないときの観測データ尤度を書け。
 4. 現在の $\pi=1/2$ で $X_i=x_i$ を観測したときの責務 $\tau_{i1}$ を書け。
 5. 完全データの指示関数を責務に置き換える操作の意味を説明せよ。
+
+第1・2問を得られなくても、第3問以降は各観測の周辺密度 $\pi f_1(x_i)+(1-\pi)f_2(x_i)$ を用いて開始してよい。
 
 ### P3L-C05 混合モデルの識別可能性
 
@@ -189,6 +197,11 @@ $Z_i\in\{1,2\}$、$P(Z_i=1)=\pi$、$X_i\mid Z_i=j\sim N(\mu_j,1)$ とし、$\mu_
 3. $E[X]$ と $\operatorname{Var}(X)$ を $\pi,\mu_1,\mu_2$ で表せ。
 4. 平均と分散だけでは一般に3母数を一意に定められないことを、具体例で示せ。
 5. 実データで正規混合を使う前に確認すべきモデル上の注意を2つ挙げよ。
+
+第3問を得られない場合、第4問では
+$E[X]=\pi\mu_1+(1-\pi)\mu_2$、
+$\operatorname{Var}(X)=1+\pi(1-\pi)(\mu_1-\mu_2)^2$
+を用いてよい。
 
 ## Level D
 
@@ -208,3 +221,10 @@ $X_i\mid\Lambda_i\sim\operatorname{Poisson}(\Lambda_i)$、$\Lambda_i\overset{\ma
 3. $\widehat\alpha=\beta\bar X$ が不偏で、$n\to\infty$ で $\alpha$ に確率収束することを示せ。
 4. 共有潜在率 $\Lambda_1$ による $Y\mid\Lambda_1=\lambda\sim\operatorname{Poisson}(\lambda)$ に対し、観測 $X_1=x$ 後の $P(Y=0\mid X_1=x)$ を求めよ。
 5. $\beta$ が未知になるとき、平均だけでは識別できない量を説明し、追加で必要な情報を述べよ。
+
+第1問を得られない場合、第2・3問では
+$E[X_i]=\alpha/\beta$、
+$\operatorname{Var}(X_i)=\alpha/\beta+\alpha/\beta^2$
+を用いてよい。第4問は
+$\Lambda_1\mid X_1=x\sim\operatorname{Gamma}(\alpha+x,\beta+1)$
+を用いて開始してよい。

@@ -1,7 +1,7 @@
 id: "P3-04"
 title: "混合分布と潜在変数"
 volume: "distributions"
-status: drafting
+status: reviewed
 prerequisites:
   - P1-02
   - P3-01

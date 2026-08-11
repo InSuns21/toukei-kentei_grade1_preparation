@@ -32,7 +32,12 @@ $$
 
 ## P3L-THM-03 正規混合の平均・分散
 
-$Z\in\{1,2\}$、$P(Z=1)=\pi$、$P(Z=2)=1-\pi$、$X\mid Z=j\sim N(\mu_j,\sigma_j^2)$、$0\leq\pi\leq1$ とする。すると
+$Z\in\{1,2\}$、$P(Z=1)=\pi$、$P(Z=2)=1-\pi$、$0\leq\pi\leq1$ とする。正規分布 $N(\mu_j,\sigma_j^2)$ は $\mu_j\in\mathbb R$、$\sigma_j>0$、台 $\mathbb R$、密度
+$$
+f_j(x)=\frac1{\sigma_j\sqrt{2\pi}}
+\exp\left\{-\frac{(x-\mu_j)^2}{2\sigma_j^2}\right\}
+$$
+をもつものとし、$X\mid Z=j\sim N(\mu_j,\sigma_j^2)$ とする。すると
 $$
 E[X]=\pi\mu_1+(1-\pi)\mu_2,
 $$
@@ -66,20 +71,127 @@ $$
 
 ## 導出の確認
 
-全分散公式は $X-E[X]=(X-E[X\mid Z])+(E[X\mid Z]-E[X])$ と分解する。二乗して期待値を取ると、交差項は
-$$
-E[(X-E[X\mid Z])(E[X\mid Z]-E[X])]=0
-$$
-である。残る二項を $Z=j$ ごとに分ければ、P3L-THM-01の式になる。
+### P3L-THM-01
 
-P3L-THM-02では、Gamma積分
+周辺質量または密度は、$Z=1,\ldots,m$ という排反な場合を足して
 $$
-\int_0^\infty \lambda^{r-1}e^{-c\lambda}\,d\lambda=\frac{\Gamma(r)}{c^r},\qquad r,c>0
+g(x)=\sum_{j=1}^mP(Z=j)g_j(x)
+=\sum_{j=1}^m\pi_jg_j(x)
 $$
-を $r=k+\alpha$、$c=\beta+1$ に適用する。P3L-THM-03は全分散公式に $E[X\mid Z=1]=\mu_1$、$E[X\mid Z=2]=\mu_2$、各群内分散 $\sigma_j^2$ を代入したものである。
+となる。$E[|X|]<\infty$ なら有限和と期待値を交換できるので
+$$
+\begin{aligned}
+E[X]
+&=\sum_{j=1}^mE[X\boldsymbol1_{\{Z=j\}}]\\
+&=\sum_{j=1}^mP(Z=j)E[X\mid Z=j]\\
+&=\sum_{j=1}^m\pi_jE[X\mid Z=j].
+\end{aligned}
+$$
 
-P3L-THM-05の観測データ尤度は、各 $i$ について $Z_i=1,\ldots,m$ の排反な場合を足して得る。EMの一歩では
+分散について
 $$
-E[\boldsymbol{1}_{\{Z_i=j\}}\mid X_i=x_i]=P(Z_i=j\mid X_i=x_i)=\tau_{ij}
+X-E[X]
+=\{X-E[X\mid Z]\}+\{E[X\mid Z]-E[X]\}
 $$
-を使うので、責務は単なる重みではなく指示関数の条件付き期待値である。
+と分ける。交差項の期待値は、$Z$ で条件付けると
+$$
+\begin{aligned}
+&E[\{X-E[X\mid Z]\}\{E[X\mid Z]-E[X]\}]\\
+&=E\left[
+\{E[X\mid Z]-E[X]\}
+E\{X-E[X\mid Z]\mid Z\}
+\right]=0.
+\end{aligned}
+$$
+従って二乗後に残る二項は
+$$
+E[\{X-E[X\mid Z]\}^2]
+=E\{\operatorname{Var}(X\mid Z)\},
+$$
+$$
+E[\{E[X\mid Z]-E[X]\}^2]
+=\operatorname{Var}\{E[X\mid Z]\}.
+$$
+$Z=j$ ごとの有限和へ直せばP3L-THM-01の表示を得る。
+
+### P3L-THM-02
+
+条件付き質量とGamma密度の積を整理すると
+$$
+\begin{aligned}
+P(X=k)
+&=\frac{\beta^\alpha}{k!\Gamma(\alpha)}
+\int_0^\infty
+\lambda^{k+\alpha-1}e^{-(\beta+1)\lambda}\,d\lambda.
+\end{aligned}
+$$
+$t=(\beta+1)\lambda$ と置けば
+$$
+\begin{aligned}
+\int_0^\infty
+\lambda^{k+\alpha-1}e^{-(\beta+1)\lambda}\,d\lambda
+&=\frac1{(\beta+1)^{k+\alpha}}
+\int_0^\infty t^{k+\alpha-1}e^{-t}\,dt\\
+&=\frac{\Gamma(k+\alpha)}{(\beta+1)^{k+\alpha}}.
+\end{aligned}
+$$
+これを前の係数へ戻せば周辺質量を得る。モーメントは
+$$
+E[X]=E[\Lambda]=\frac{\alpha}{\beta},
+$$
+$$
+\operatorname{Var}(X)
+=E[\Lambda]+\operatorname{Var}(\Lambda)
+=\frac{\alpha}{\beta}+\frac{\alpha}{\beta^2}
+$$
+である。最後の正の項が混合による過分散である。
+
+### P3L-THM-03
+
+P3L-THM-01へ
+$$
+E[X\mid Z=1]=\mu_1,\quad E[X\mid Z=2]=\mu_2
+$$
+と条件付き分散 $\sigma_1^2,\sigma_2^2$ を代入する。群間項は
+$$
+\pi(\mu_1-\mu)^2+(1-\pi)(\mu_2-\mu)^2,
+\quad \mu=\pi\mu_1+(1-\pi)\mu_2.
+$$
+$\mu_1-\mu=(1-\pi)(\mu_1-\mu_2)$、
+$\mu_2-\mu=-\pi(\mu_1-\mu_2)$ なので
+$$
+\begin{aligned}
+&\pi(1-\pi)^2(\mu_1-\mu_2)^2
++(1-\pi)\pi^2(\mu_1-\mu_2)^2\\
+&=\pi(1-\pi)(\mu_1-\mu_2)^2.
+\end{aligned}
+$$
+これが定理の第三項である。
+
+### P3L-THM-04
+
+連続変数の一点条件付けは密度によるBayes公式で計算する。分子は成分1と観測 $x$ の同時密度
+$$\pi f_1(x),$$
+分母は全成分を足した周辺密度
+$$f(x)=\pi f_1(x)+(1-\pi)f_2(x).$$
+$f(x)>0$ の範囲で両者の比を取れば責務を得る。二つの責務を足すと分子が分母に一致するため、和は1である。
+
+### P3L-THM-05
+
+独立標本では各観測の同時密度を掛ける。$I_{ij}=\boldsymbol1_{\{Z_i=j\}}$ とおくと、実際に選ばれた成分の因子だけを残す書き方が
+$$
+L_c=\prod_{i=1}^n\prod_{j=1}^m
+\{\pi_jg_j(x_i;\vartheta_j)\}^{I_{ij}}
+$$
+である。$Z_i$ が見えない場合は、各 $i$ について排反な $j$ を足して
+$$
+p(x_i)=\sum_{j=1}^m\pi_jg_j(x_i;\vartheta_j)
+$$
+とし、独立性から $\prod_i p(x_i)$ を取る。
+
+さらに
+$$
+E[I_{ij}\mid X_i=x_i]
+=P(Z_i=j\mid X_i=x_i)=\tau_{ij}
+$$
+なので、責務は単なる便宜的な重みではなく、見えない所属指示変数の条件付き期待値である。
