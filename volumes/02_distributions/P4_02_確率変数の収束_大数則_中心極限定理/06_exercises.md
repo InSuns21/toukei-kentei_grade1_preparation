@@ -1,5 +1,7 @@
 # 演習問題
 
+確率質量関数（probability mass function; PMF）は $p_X(k)=P(X=k)$、累積分布関数（cumulative distribution function; CDF）は $F_X(x)=P(X\le x)$ と定義する。
+
 正規分布 $N(\mu,\sigma^2)$ は $\mu\in\mathbb R,\sigma^2>0$、台 $\mathbb R$、密度
 $$f(x)=\frac1{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/(2\sigma^2)}$$
 をもつ。$X\sim\operatorname{Bernoulli}(p)$ は $P(X=0)=1-p,P(X=1)=p$、$B\sim\operatorname{Bin}(n,p)$ は $P(B=k)=\binom nkp^k(1-p)^{n-k}$（$k=0,\ldots,n$）とする。

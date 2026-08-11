@@ -1,0 +1,6 @@
+terms:
+  - {term: 経験分布関数, definition: 観測値以下の標本割合}
+  - {term: 逆関数法, definition: 一様乱数へCDFの一般化逆関数を適用する生成法}
+  - {term: 棄却法, definition: 提案乱数を密度比で受理する生成法}
+  - {term: Monte Carlo法, definition: 期待値を標本平均で近似する方法}
+  - {term: 標準誤差, definition: 推定量の標準偏差}

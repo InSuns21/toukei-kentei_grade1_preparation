@@ -1,7 +1,7 @@
 id: "P4-02"
 title: "確率変数の収束・大数則・中心極限定理"
 volume: "distributions"
-status: drafting
+status: reviewed
 prerequisites: [P2-02, P3-02]
 official_scope: [確率変数の収束, 大数の法則, 中心極限定理, 正規近似, ポアソン近似]
 learning_objectives:
@@ -18,8 +18,14 @@ theorems:
 canonical_examples: [標本平均, ベルヌーイ標本, ポアソン和, 二項正規近似]
 problem_patterns: [収束概念の判定, LLN適用, CLT標準化, 近似確率, 推定量の漸近評価]
 past_exam_alignment:
-  - {ref: MATH-2023-Q1, source_type: third_party_topic_index, evidence: "Poissonモーメントから不偏性・一致性へ連結", confidence: medium}
-  - {ref: MATH-2017-Q1, source_type: third_party_topic_index, evidence: "標本平均の高次モーメントと標本平均の漸近評価", confidence: medium}
+  - id: MATH-2023-Q1
+    source_type: third_party_topic_index
+    evidence: "Poissonモーメントから不偏性・一致性へ連結"
+    confidence: medium
+  - id: MATH-2017-Q1
+    source_type: third_party_topic_index
+    evidence: "標本平均の高次モーメントと標本平均の漸近評価"
+    confidence: medium
 integrated_exam_problems: [P4T-DRILL-01]
 exercise_counts: {level_a: 4, level_b: 4, level_c: 5, level_d: 1}
 estimated_hours: {reading: 4, exercises: 8, review: 3}
