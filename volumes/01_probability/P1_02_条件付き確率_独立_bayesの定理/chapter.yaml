@@ -30,6 +30,10 @@ canonical_examples:
   - 非復元抽出を乗法公式で計算する
   - 対独立だが相互独立でない三事象
 problem_patterns: [COND-1, MULT-1, INDEP-1, TOTAL-1, BAYES-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2021-Q2, current_skills: [条件付き確率, Bayes更新, 事後最大化], later_skills: [Bayes推定] }
+  - { id: MATH-2022-Q3, current_skills: [階層化, 条件付き独立, 周辺化], later_skills: [混合分布, 事後予測] }
+integrated_exam_problems: [P1-DRILL-02]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 5, exercises: 10, review: 3 }
 completion_criteria:

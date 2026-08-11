@@ -1,7 +1,7 @@
 id: "{{chapter_id}}"
 title: "{{chapter_title}}"
 volume: "{{volume}}"
-status: draft
+status: drafting
 prerequisites:
 {{prerequisites_yaml}}
 official_scope:
@@ -11,10 +11,11 @@ definitions: []
 theorems: []
 canonical_examples: []
 problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
 exercise_counts: { level_a: 6, level_b: 6, level_c: 6, level_d: 2 }
 estimated_hours: { reading: 4, exercises: 8, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
   exam_problem_minutes_at_most: 30
-

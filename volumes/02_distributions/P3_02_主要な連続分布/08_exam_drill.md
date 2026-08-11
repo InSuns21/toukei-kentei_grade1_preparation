@@ -3,88 +3,113 @@
 - 制限時間: 30分
 - level: C
 
+## 過去問傾向との対応
+
+MATH-2023-Q3とSCI-2019-Q1の「寿命分布、生存関数、変換、尤度、推定量評価」の連鎖を校正対象とする。Weibullの設定と設問は独自である。一致性に必要な不等式は問題文で与える。
+
 ## P3C-DRILL-01 問題
 
-部品の寿命$X$がWeibull$(2,10)$に従う。形状を第1、尺度を第2パラメータとする。
+部品寿命$X$は、形状2、未知尺度$\eta>0$のWeibull分布に従う。独立同分布標本を$X_1,\ldots,X_n$とする。
 
-1. 密度、生存関数、ハザードを求めよ。（25点）
-2. $P(X>5)$を求めよ。（15点）
-3. $P(X>10\mid X>5)$を求めよ。（20点）
-4. 中央値を求めよ。（15点）
-5. $Y=(X/10)^2$の分布を示し、$E[X]$を求めよ。（25点）
+任意の有限分散な確率変数$T$と$\varepsilon>0$に対するChebyshev不等式
+$$
+P(|T-E[T]|\geq\varepsilon)\leq\frac{\operatorname{Var}(T)}{\varepsilon^2}
+$$
+を用いてよい。
+
+1. $X$の密度、生存関数、ハザードを求めよ。（20点）
+2. $P(X>\eta)$と$P(X>\eta\mid X>\eta/2)$を求めよ。（15点）
+3. $Y=(X/\eta)^2$の分布を求め、$E[X^2]$と$\operatorname{Var}(X^2)$を求めよ。（20点）
+4. $\eta$の尤度を台の条件とともに書き、$\widehat{\eta^2}=n^{-1}\sum_iX_i^2$が$\eta^2$の最尤推定量であることを示せ。（25点）
+5. $\widehat{\eta^2}$の不偏性と分散を求め、Chebyshev不等式で$\eta^2$へ確率収束することを示せ。（20点）
 
 ## 詳細解答
 
 $x>0$で
 $$
-f(x)=\frac{x}{50}e^{-(x/10)^2},\qquad
-S(x)=e^{-(x/10)^2},\qquad
-h(x)=\frac{x}{50}.
+f_\eta(x)=\frac{2x}{\eta^2}e^{-(x/\eta)^2},\qquad
+h_\eta(x)=\frac{2x}{\eta^2}.
+$$
+密度は$x\leq0$で0である。
+生存関数は全実数上で
+$$
+S_\eta(x)=
+\begin{cases}
+1,&x\leq0,\\
+e^{-(x/\eta)^2},&x>0
+\end{cases}
 $$
 従って
 $$
-P(X>5)=S(5)=e^{-1/4}.
-$$
-条件付き確率は生存関数の比なので
-$$
-P(X>10\mid X>5)=\frac{S(10)}{S(5)}
+P(X>\eta)=e^{-1},\qquad
+P(X>\eta\mid X>\eta/2)
 =\frac{e^{-1}}{e^{-1/4}}=e^{-3/4}.
 $$
-中央値$m$は$S(m)=1/2$を満たすため
+
+$y\geq0$で
 $$
-m=10\sqrt{\log2}.
+P(Y\leq y)=P(X\leq\eta\sqrt y)=1-e^{-y},
 $$
-$y\geq0$に対し
+よって$Y\sim\operatorname{Exp}(1)$。$X^2=\eta^2Y$だから
 $$
-P(Y\leq y)=P(X\leq10\sqrt y)=1-e^{-y},
+E[X^2]=\eta^2,\qquad \operatorname{Var}(X^2)=\eta^4.
 $$
-よって$Y\sim\operatorname{Exp}(1)$です。Weibullのモーメント公式から
+
+観測値$x_i>0$に対する尤度は
 $$
-E[X]=10\Gamma\left(1+\frac12\right)
-=10\Gamma\left(\frac32\right)=5\sqrt\pi.
+L(\eta)=\prod_{i=1}^n\frac{2x_i}{\eta^2}
+\exp\left(-\frac{x_i^2}{\eta^2}\right),\qquad \eta>0.
 $$
-ハザード$x/50$が増加することも摩耗故障モデルとしての検算になります。
+$Q=\sum_i x_i^2$と置くと、$\eta$に依存する対数尤度は
+$$
+\ell(\eta)=-2n\log\eta-\frac{Q}{\eta^2}+\text{constant}.
+$$
+従って
+$$
+\ell'(\eta)=-\frac{2n}{\eta}+\frac{2Q}{\eta^3}
+=\frac{2(Q-n\eta^2)}{\eta^3}.
+$$
+$\eta^2<Q/n$で正、$\eta^2>Q/n$で負なので一意な最大点は
+$$
+\widehat{\eta^2}=\frac1n\sum_{i=1}^nX_i^2.
+$$
+独立性と前問のモーメントより
+$$
+E[\widehat{\eta^2}]=\eta^2,\qquad
+\operatorname{Var}(\widehat{\eta^2})
+=\frac{1}{n^2}\sum_i\eta^4=\frac{\eta^4}{n}.
+$$
+従って任意の$\varepsilon>0$で
+$$
+P(|\widehat{\eta^2}-\eta^2|\geq\varepsilon)
+\leq\frac{\eta^4}{n\varepsilon^2}\longrightarrow0.
+$$
 
 ## 完成形の本番答案
 
-$x>0$で
 $$
-f(x)=\frac{x}{50}e^{-(x/10)^2},\quad
-S(x)=e^{-(x/10)^2},\quad h(x)=\frac{x}{50}.
+f_\eta(x)=\frac{2x}{\eta^2}e^{-(x/\eta)^2},\quad
+S_\eta(x)=
+\begin{cases}1,&x\leq0,\\e^{-(x/\eta)^2},&x>0,\end{cases}
+\quad h_\eta(x)=2x/\eta^2
 $$
-従って$P(X>5)=e^{-1/4}$、
-$$
-P(X>10\mid X>5)=\frac{e^{-1}}{e^{-1/4}}=e^{-3/4}.
-$$
-$S(m)=1/2$より中央値$m=10\sqrt{\log2}$。また
-$$
-P\{(X/10)^2\leq y\}=1-e^{-y}\quad(y\geq0)
-$$
-なので$Y\sim\operatorname{Exp}(1)$。$E[X]=10\Gamma(3/2)=5\sqrt\pi$。
+（密度とハザードは$x>0$で、密度は$x\leq0$で0）。従って尾確率は$e^{-1}$と$e^{-3/4}$。$Y=(X/\eta)^2\sim$Exp$(1)$より$E[X^2]=\eta^2$、$\operatorname{Var}(X^2)=\eta^4$。
+
+$Q=\sum x_i^2$とすると$\ell(\eta)=-2n\log\eta-Q/\eta^2+C$で、$\ell'(\eta)=2(Q-n\eta^2)/\eta^3$。符号変化から$\widehat{\eta^2}=Q/n$が一意なMLE。さらに平均$\eta^2$、分散$\eta^4/n$なので不偏で、Chebyshev不等式から$\eta^2$へ確率収束する。
 
 ## 採点基準・時間配分・選択判断
 
-初動3分、(1)6分、(2)2分、(3)5分、(4)4分、(5)7分、見直し3分です。3分で$S(x)=e^{-(x/10)^2}$が書ければ選択します。15分で条件付き生存確率まで進めば継続し、25分では変換後のExp$(1)$とGamma関数形の平均を残して閉じます。各小問の配点は問題文のとおりで、(1)は密度8点・生存8点・ハザード9点、(5)は変換15点・平均10点です。
+密度・生存・ハザード20点、尾確率15点、指数変換とモーメント20点、尤度とMLE25点、不偏性・一致性20点。初動3分、(1)4分、(2)3分、(3)5分、(4)8分、(5)4分、見直し3分。15分で$Y\sim$Exp$(1)$まで進めば継続し、25分では対数尤度と$Q/n$、分散$\eta^4/n$を優先する。
 
 ## 復習カード
 
-1. 一様分布は区間長で正規化する。
-2. 正規の第2パラメータは分散。
-3. 標準化では標準偏差で割る。
-4. 指数分布は一定ハザード。
-5. 指数分布だけが連続型の無記憶分布。
-6. Gammaは形状と率を宣言する。
-7. 共通率のGamma独立和はGamma。
-8. Beta分布の台は$(0,1)$。
-9. BetaモーメントはBeta関数の比。
-10. Cauchyの平均は存在しない。
-11. 対称主値と期待値を混同しない。
-12. 対数正規の中央値は$e^\mu$。
-13. 対数正規の正のMGFは発散する。
-14. Weibull変換$(X/\eta)^c$はExp$(1)$。
-15. Weibull形状$c$がハザードの増減を決める。
-16. Logistic分位点は対数オッズ。
-17. 生存関数は$1-F$。
-18. ハザードは$f/S$。
-19. 分位点は$F(q_u)=u$を解く。
-20. 台・規約・存在条件を答案の最初と最後で確認する。
+1. Weibullの台は正の半直線。
+2. 生存関数から密度とハザードを得る。
+3. 条件付き尾確率は生存関数の比。
+4. Weibullのべき変換は指数分布。
+5. 変換後のモーメントを元の統計量へ戻す。
+6. 尤度には台とパラメータ範囲を書く。
+7. 停留点だけでなく導関数の符号で最大を示す。
+8. MLEの不偏性は別計算で確認する。
+9. 標本平均型推定量の分散は$1/n$。
+10. 分布論を推定量評価へ再利用する。

@@ -42,3 +42,9 @@
 - [x] 独立数理査読が fatal 0 / major 0 / minor 0
 - [x] 試験適合性査読が fatal 0 / major 0 / minor 0
 - [x] メイン担当の最終 `npm run validate` が成功（2026-08-09）
+
+## 過去問傾向対応改訂（2026-08-11）
+
+- 独立数理査読担当: `/root/f0_math_review`。横断初回 fatal 0 / major 2 / minor 6。数理前提、台外枝、索引逆参照、全面改稿ドリルを修正し、同担当の全文再査読で fatal 0 / major 0 / minor 0。
+- 試験適合性査読担当: `/root/f0_exam_review`。横断初回 fatal 0 / major 4 / minor 5。証拠メタデータ、単一設定の技能連鎖、時間判断、入手先表記を修正し、同担当の全文再査読で fatal 0 / major 0 / minor 0。
+- [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 146 Markdown、text 161 files）

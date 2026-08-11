@@ -8,13 +8,15 @@
 
 ## 入力
 
-`notation.md`、`style-guide.md`、対象 `chapter.yaml`、対象章全ファイル、前提章、`prompts/review-chapter.md`。
+`notation.md`、`style-guide.md`、`references/past-exam-trends.md`、`references/past-exam-index.yaml`、対象 `chapter.yaml`、対象章全ファイル、前提章、`prompts/review-chapter.md`。
 
 ## 出力契約
 
 `review/validation.md` に、各指摘の severity、ファイルと見出し、根拠、独立計算、修正案を記録する。再査読時は旧指摘を消さず、解消確認を追記する。最終行に `fatal / major / minor` の件数を示す。
 
 初回査読と修正後再査読の終了時にそれぞれ `npm run validate` を実行し、コマンドの成否を記録する。数式や論理展開の行間についても、単なる読みやすさではなく解答再現可能性の問題として検査する。
+
+実過去問参照課題については問題文を転載していないことを確認し、独自の過去問型問題については設定・数値・設問順が十分に独自であること、かつ対応先の技能連鎖を数学的に再現していることを確認する。
 
 ## 独立性
 

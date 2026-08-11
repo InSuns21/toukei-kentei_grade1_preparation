@@ -31,6 +31,10 @@ canonical_examples:
   - 少なくとも一度起こる事象
   - limsup事象の読み替え
 problem_patterns: [SET-1, IE-1, COUNT-1, LIMIT-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2022-Q1, current_skills: [事象演算, 確率の上下界, 実現可能性], later_skills: [独立性, 検定のサイズ] }
+  - { id: MATH-2022-Q2, current_skills: [領域事象, 確率計算], later_skills: [条件付き密度, 相関] }
+integrated_exam_problems: [P1-DRILL-01]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 3, level_d: 1 }
 level_distribution_note: "確率公理を初導入する基礎章のためA/Bを厚くし、別枠の30分ドリルをLevel C相当の必須問題としてC01--C03と合わせて評価する。"
 estimated_hours: { reading: 4, exercises: 8, review: 3 }

@@ -34,6 +34,10 @@ canonical_examples:
   - 二変数変換のJacobian
   - 最小二乗法と射影行列
 problem_patterns: [CALC-1, JAC-1, QUAD-1, PROJ-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2024-Q1, current_skills: [微分, 二次式, 推定量の分散比較], later_skills: [最尤推定, 検定, 検出力] }
+  - { id: MATH-2021-Q5, current_skills: [行列, 線形変換, 共分散], later_skills: [多変量正規, 独立性] }
+integrated_exam_problems: [F0-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
 estimated_hours: { reading: 4, exercises: 8, review: 3 }
 completion_criteria:

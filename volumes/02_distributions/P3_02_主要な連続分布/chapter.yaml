@@ -27,6 +27,11 @@ theorems:
   - { id: P3C-THM-05, name: 対数変換で得られる分布 }
 canonical_examples: [区間上の一様性, 正規標準化, 待ち時間, 割合, 重い裾, 寿命ハザード, 対数尺度]
 problem_patterns: [SUPPORT-1, STANDARDIZE-1, GAMMA-1, BETA-1, SURVIVAL-1, TRANSFORM-1, HEAVYTAIL-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2023-Q3, current_skills: [指数分布, MGF, 期待値], later_skills: [母数推定] }
+  - { id: MATH-2014-Q2, current_skills: [Gamma分布, Beta分布, 変数変換], later_skills: [標本分布] }
+  - { id: SCI-2019-Q1, current_skills: [Weibull分布, 生存関数, ハザード], later_skills: [平均残存寿命, 信頼性評価] }
+integrated_exam_problems: [P3C-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 8, exercises: 13, review: 4 }
 completion_criteria:

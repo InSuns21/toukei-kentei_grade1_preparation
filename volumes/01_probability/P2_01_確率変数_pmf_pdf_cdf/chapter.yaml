@@ -23,6 +23,10 @@ theorems:
   - { id: P2-THM-04, name: 周辺化公式 }
 canonical_examples: [離散CDFの段差, 連続密度の正規化, 混合分布の跳躍, 同時密度の周辺化]
 problem_patterns: [NORM-1, CDF-1, ATOM-1, MARG-1, JOINT-1, INDEP-RV-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2024-Q4, current_skills: [CDF, 混合分布, 点質量], later_skills: [経験分布, 推定] }
+  - { id: MATH-2022-Q2, current_skills: [支持領域, 同時密度, 周辺密度], later_skills: [条件付き密度, 条件付き期待値, 相関] }
+integrated_exam_problems: [P2-DRILL-01]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 5, exercises: 10, review: 3 }
 completion_criteria:

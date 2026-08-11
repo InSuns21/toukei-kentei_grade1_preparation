@@ -149,3 +149,32 @@
 - major: 0
 - minor: 0
 - 判定: **承認**。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: 横断参照2ファイル、`chapter.yaml`、`09_past_exam_practice.md`、全面改稿後のP4-DRILL-01
+- 独立再計算: $f_{U,V}$ と $f_{U\mid V}$、$E[U\mid V=v]=v/n$、$R/\theta\sim\operatorname{Beta}(n-1,2)$、$E[R]$、$\operatorname{Var}(R)$、$T_1,T_2$ の不偏性と分散比 $2n/(n-1)$ を再確認した。$n=2$ の境界ケースでも式は有効である。
+
+### PAST-MATH-P4-001 — minor
+
+- 場所: `08_exam_drill.md` 問1、詳細解答、完成形の本番答案
+- 根拠: 設問は $V$ のCDFを求めるが、解答は $0\le v\le\theta$ の式だけで、$v<0$ の0と $v\ge\theta$ の1を示さない。CDFは全実数上の関数なので、台外枝を読者に補完させている。
+- 修正案: $F_V(v)=0$ ($v<0$)、$(v/\theta)^n$ ($0\le v<\theta$)、1 ($v\ge\theta$) のcases表示を詳細解答と本番答案へ追加する。
+
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 1`
+- 判定: **未承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、修正後P4-DRILL-01
+- PAST-MATH-P4-001: **解消**。最大値CDFは $v<0$、$0\le v\le\theta$、$v>\theta$ の全枝を詳細解答・本番答案に示した。
+- 再計算結果: 条件付き最小値、rangeのBeta分布、二つの不偏推定量と分散比較を $n=2$ も含めて再確認し、誤りはない。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。

@@ -121,3 +121,25 @@
 - major: 0
 - minor: 0
 - 判定: **承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、P3M-DRILL-01
+- 確認結果: 周辺・差の分布、条件付き正規、尾確率、Mahalanobis二次形式を再計算し、全数値と前提は整合する。参照課題・横断索引にも新規不整合はない。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: 横断参照2ファイル、`chapter.yaml`、`09_past_exam_practice.md`、P3M-DRILL-01
+- 独立再計算: 周辺分布、$\rho=1/3$、$Y-X\sim N(1,9)$、$Y\mid X=3\sim N(3,8)$、条件付き尾確率 $1/2$、$\Sigma^{-1}$、観測点でのMahalanobis値 $Q=1$ を確認した。技能対応と必要前提も章内で閉じている。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。

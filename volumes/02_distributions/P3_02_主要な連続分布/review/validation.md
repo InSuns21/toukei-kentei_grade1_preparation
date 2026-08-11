@@ -42,3 +42,9 @@
 - [x] 独立数理査読が fatal 0 / major 0 / minor 0
 - [x] 試験適合性査読が fatal 0 / major 0 / minor 0
 - [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 111 Markdown、text 121 files）
+
+## 過去問傾向対応改訂（2026-08-11）
+
+- 独立数理査読担当: `/root/f0_math_review`。横断初回 fatal 0 / major 2 / minor 6。Weibullの台、MLE、不偏性・一致性を独立再計算し、最終 fatal 0 / major 0 / minor 0。
+- 試験適合性査読担当: `/root/f0_exam_review`。横断初回 fatal 0 / major 4 / minor 5。SCI-2019-Q1参照を含む寿命モデルの技能連鎖と時間判断を確認し、最終 fatal 0 / major 0 / minor 0。
+- [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 146 Markdown、text 161 files）

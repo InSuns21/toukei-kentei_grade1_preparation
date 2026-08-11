@@ -184,3 +184,32 @@ $$
 - minor: 0
 
 独立数理査読として **承認** する。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: 横断参照2ファイル、`chapter.yaml`、`09_past_exam_practice.md`、全面改稿後のP2-DRILL-02
+- 独立再計算: $E[X]=1+3p$、$\operatorname{Var}(X)=2+8p-9p^2$、$\operatorname{Cov}(X,I)=3p(1-p)$、$E[\hat p]=p$、$\operatorname{Var}(\hat p)=(2+8p-9p^2)/(9n)$ とChebyshev評価を再確認した。推定に使う不等式は問題文に明記されている。
+
+### PAST-MATH-P2M-001 — minor
+
+- 場所: `chapter.yaml` と `09_past_exam_practice.md` のMATH-2023-Q1、`references/past-exam-index.yaml`
+- 根拠: P2-02側はMATH-2023-Q1を章対応に採用する一方、横断索引の同問題の `chapters` は `[P3-01, P4-02, I1-02]` でP2-02を含まない。
+- 修正案: モーメント・線形統計量の平均分散をP2-02技能として採るなら索引へP2-02を追加する。
+
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 1`
+- 判定: **未承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、P2-DRILL-02
+- PAST-MATH-P2M-001: **解消**。MATH-2023-Q1の横断索引にP2-02が追加され、章側との逆参照が一致した。
+- 再計算結果: 混合平均・全分散・指示変数との共分散・推定量の期待値と分散・Chebyshev評価は全て前回値と一致する。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。

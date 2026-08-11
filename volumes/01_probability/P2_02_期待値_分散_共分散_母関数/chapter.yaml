@@ -23,6 +23,10 @@ theorems:
   - { id: P2-THM-08, name: 母関数の微分と独立和 }
 canonical_examples: [離散分布の平均分散, 混合分布の全分散, 共分散と無相関, PGFとMGFの微分]
 problem_patterns: [MOMENT-1, VAR-1, COV-1, TOTALVAR-1, PGF-1, MGF-1, COV-BOUND-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2023-Q1, current_skills: [期待値, 分散, PGF], later_skills: [不偏推定, 一致性] }
+  - { id: MATH-2023-Q3, current_skills: [指数分布, MGF, モーメント], later_skills: [重み付き分布, 推定] }
+integrated_exam_problems: [P2-DRILL-02]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 5, exercises: 10, review: 3 }
 completion_criteria:

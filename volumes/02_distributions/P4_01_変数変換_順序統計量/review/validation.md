@@ -42,3 +42,9 @@
 - [x] 独立数理査読が fatal 0 / major 0 / minor 0
 - [x] 試験適合性査読が fatal 0 / major 0 / minor 0
 - [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 135 Markdown、text 149 files）
+
+## 過去問傾向対応改訂（2026-08-11）
+
+- 独立数理査読担当: `/root/f0_math_review`。横断初回 fatal 0 / major 2 / minor 6。CDFの台外枝、順序統計量、条件付き期待値、推定量分散を再計算し、最終 fatal 0 / major 0 / minor 0。
+- 試験適合性査読担当: `/root/f0_exam_review`。横断初回 fatal 0 / major 4 / minor 5。実過去問参照、単一設定の5小問、分散比較、時間判断を確認し、最終 fatal 0 / major 0 / minor 0。
+- [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 146 Markdown、text 161 files）

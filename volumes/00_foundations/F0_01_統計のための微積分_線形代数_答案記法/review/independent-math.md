@@ -176,3 +176,41 @@ MATH-009、010 が残るため、本章を `reviewed` としてはならない�
 `fatal: 0 / major: 0 / minor: 0`
 
 独立数理査読の完了条件を満たす。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: `references/past-exam-trends.md`、`references/past-exam-index.yaml`、`chapter.yaml`、`09_past_exam_practice.md`、`08_exam_drill.md`
+- 独立再計算: F0-DRILL-01の正規化、対数変換、尤度最大化、固有値分解を再計算した。$\hat\theta=-n/\sum_i\log x_i>0$、固有値 $8,2$、変換後の分散 $8,2$、共分散0はいずれも正しい。MATH-2024-Q1・MATH-2021-Q5との技能対応も索引と整合する。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、全面改稿後のF0-DRILL-01
+- 再計算結果: $Y_i\sim\operatorname{Exp}(\theta)$、$E[Y_i]=1/\theta$、$\operatorname{Var}(Y_i)=1/\theta^2$、$\hat\theta=n/\sum_iY_i$、共分散行列 $\theta^{-2}\begin{pmatrix}1&1\\1&2\end{pmatrix}$ と固有値 $(3\pm\sqrt5)/(2\theta^2)$ は正しい。一つの標本モデル内で前問の結果を再利用する構成も成立する。
+
+### PAST-MATH-F0-001 — major（新規）
+
+- 場所: `08_exam_drill.md` 問題冒頭と問5
+- 根拠: 標本サイズ $n$ の範囲がなく、$n=1$ を排除していない。問5は $Y_2$ と $\boldsymbol Z=(Y_1,Y_1+Y_2)^{\mathsf T}$ を用いるため、$n=1$ では問題自体が未定義となる。
+- 修正案: 問題冒頭で $n\ge2$ を明記する。
+
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 1 / minor: 0`
+- 判定: **未承認**。
+
+## 過去問傾向対応改訂の最終追補再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:21:42+09:00
+- PAST-MATH-F0-001: **解消**。問題冒頭に $n\ge2$ が追加され、$Y_2$ と $\boldsymbol Z$ は全許容標本サイズで定義される。
+- 追加確認: MATH-2024-Q1の入手先は現行の公式問題集だけに統一された。全面改稿ドリルを再計算し、新規指摘はない。
+- 機械検証: 追加修正後の `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。

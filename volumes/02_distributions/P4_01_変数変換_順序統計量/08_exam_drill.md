@@ -3,87 +3,119 @@
 - 制限時間: 30分
 - level: C
 
+## 過去問傾向との対応
+
+MATH-2024-Q5、MATH-2018-Q5、MATH-2024-Q2の「順序統計量、条件付き量、不偏推定、分散比較」の連鎖を校正対象とする。一様分布の設定は標準的だが、数値・設問順・比較する推定量は独自に再構成した。
+
 ## P4-DRILL-01 問題
 
-$X_1,\ldots,X_n$を独立なUnif$(0,\theta)$標本とし、$n\geq2$, $U=X_{(1)}$, $V=X_{(n)}$, $R=V-U$とする。
+$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Unif}(0,\theta)$とし、$n\geq2$、$U=X_{(1)}$、$V=X_{(n)}$、$R=V-U$とする。
 
-1. $V$のCDFと密度を求めよ。（20点）
-2. $E[V]$を求めよ。（15点）
-3. $V$を用いて$\theta$の不偏推定量を一つ作れ。（15点）
-4. $(U,V)$の同時密度を求めよ。（25点）
-5. $R$の密度を変数変換で求めよ。（25点）
+1. $V$のCDF、密度、期待値を求めよ。（20点）
+2. $(U,V)$の同時密度と、$0<u<v<\theta$における$f_{U\mid V}(u\mid v)$を求めよ。（25点）
+3. $E[U\mid V=v]$を求め、その値を標本配置から解釈せよ。（10点）
+4. $R$の密度、期待値、分散を求めよ。（25点）
+5. $T_1=(n+1)V/n$と$T_2=(n+1)R/(n-1)$がともに$\theta$の不偏推定量であることを示し、分散を比較せよ。（20点）
 
 ## 詳細解答
 
-$0\leq v\leq\theta$で
+$V$のCDFは全実数上で
 $$
-F_V(v)=P(X_1\leq v,\ldots,X_n\leq v)
-=\left(\frac v\theta\right)^n,
+F_V(v)=
+\begin{cases}
+0,&v<0,\\
+(v/\theta)^n,&0\leq v\leq\theta,\\
+1,&v>\theta.
+\end{cases}
 $$
+$0<v<\theta$で$f_V(v)=nv^{n-1}/\theta^n$、台の外では0であり、$E[V]=n\theta/(n+1)$である。
+$0<u<v<\theta$で
 $$
-f_V(v)=\frac{nv^{n-1}}{\theta^n}.
+f_{U,V}(u,v)=\frac{n(n-1)}{\theta^n}(v-u)^{n-2}.
 $$
 従って
 $$
-E[V]=\int_0^\theta v\frac{nv^{n-1}}{\theta^n}dv
-=\frac{n}{n+1}\theta.
+f_{U\mid V}(u\mid v)
+=\frac{f_{U,V}(u,v)}{f_V(v)}
+=\frac{(n-1)(v-u)^{n-2}}{v^{n-1}},\qquad0<u<v.
 $$
-よって$\widehat\theta=(n+1)V/n$は不偏です。
-
-$0<u<v<\theta$で最小と最大の間に残り$n-2$個が入るため
+正規化は$z=u/v$により
 $$
-f_{U,V}(u,v)=\frac{n(n-1)}{\theta^n}(v-u)^{n-2}.
+\int_0^v\frac{(n-1)(v-u)^{n-2}}{v^{n-1}}du
+=(n-1)\int_0^1(1-z)^{n-2}dz=1.
 $$
-$r=v-u$, $w=u$と置けば$v=w+r$、絶対Jacobianは1です。像の領域は$0<r<\theta$, $0<w<\theta-r$なので
+また
 $$
 \begin{aligned}
-f_R(r)
-&=\int_0^{\theta-r}\frac{n(n-1)}{\theta^n}r^{n-2}dw\\
-&=\frac{n(n-1)}{\theta^n}r^{n-2}(\theta-r),
-\quad0<r<\theta.
+E[U\mid V=v]
+&=\int_0^v u\frac{(n-1)(v-u)^{n-2}}{v^{n-1}}du\\
+&=v(n-1)\int_0^1z(1-z)^{n-2}dz=\frac vn.
 \end{aligned}
 $$
-範囲外は0です。正規化は$x=r/\theta$により$n(n-1)\int_0^1x^{n-2}(1-x)dx=1$で確認できます。
+$V=v$の下では残り$n-1$個が$(0,v)$の一様標本として配置され、$U$はその最小値なので平均$v/n$となる。
+
+$r=v-u,w=u$と置くとJacobianは1、像は$0<r<\theta$, $0<w<\theta-r$である。従って
+$$
+f_R(r)=\int_0^{\theta-r}\frac{n(n-1)}{\theta^n}r^{n-2}dw
+=\frac{n(n-1)}{\theta^n}r^{n-2}(\theta-r).
+$$
+$Z=R/\theta$はBeta$(n-1,2)$だから
+$$
+E[R]=\theta\frac{n-1}{n+1},\qquad
+\operatorname{Var}(R)=\theta^2\frac{2(n-1)}{(n+1)^2(n+2)}.
+$$
+また$V/\theta\sim\operatorname{Beta}(n,1)$なので
+$$
+\operatorname{Var}(V)=\theta^2\frac{n}{(n+1)^2(n+2)}.
+$$
+期待値から$T_1,T_2$はともに不偏であり、
+$$
+\operatorname{Var}(T_1)=\frac{\theta^2}{n(n+2)},\qquad
+\operatorname{Var}(T_2)=\frac{2\theta^2}{(n-1)(n+2)}.
+$$
+比は$2n/(n-1)>1$なので、全ての$n\geq2$で$T_1$の分散が小さい。
 
 ## 完成形の本番答案
 
-$0\leq v\leq\theta$で
 $$
-F_V(v)=(v/\theta)^n,\qquad f_V(v)=nv^{n-1}/\theta^n.
+F_V(v)=
+\begin{cases}
+0,&v<0,\\
+(v/\theta)^n,&0\leq v\leq\theta,\\
+1,&v>\theta,
+\end{cases}
+\quad
+f_V(v)=\frac{nv^{n-1}}{\theta^n}\boldsymbol{1}_{(0,\theta)}(v),
+\quad E[V]=\frac{n\theta}{n+1}.
 $$
-従って$E[V]=n\theta/(n+1)$、$\widehat\theta=(n+1)V/n$は不偏。$0<u<v<\theta$で
+$0<u<v<\theta$で
 $$
-f_{U,V}(u,v)=\frac{n(n-1)}{\theta^n}(v-u)^{n-2}.
+f_{U,V}(u,v)=\frac{n(n-1)}{\theta^n}(v-u)^{n-2},\quad
+f_{U\mid V}(u\mid v)=\frac{(n-1)(v-u)^{n-2}}{v^{n-1}}.
 $$
-$r=v-u,w=u$ではJacobian 1、$0<w<\theta-r$なので
+$u=vz$で積分すると$E[U\mid V=v]=v/n$。また$r=v-u,w=u$の像は$0<w<\theta-r$なので
 $$
-f_R(r)=\frac{n(n-1)}{\theta^n}r^{n-2}(\theta-r)
-\boldsymbol{1}_{(0,\theta)}(r).
+f_R(r)=\frac{n(n-1)}{\theta^n}r^{n-2}(\theta-r),\quad0<r<\theta.
+$$
+$R/\theta\sim$Beta$(n-1,2)$より$E[R]=(n-1)\theta/(n+1)$、$\operatorname{Var}(R)=2(n-1)\theta^2/\{(n+1)^2(n+2)\}$。従って$T_1,T_2$は不偏で
+$$
+\operatorname{Var}(T_1)=\frac{\theta^2}{n(n+2)}
+<\frac{2\theta^2}{(n-1)(n+2)}=\operatorname{Var}(T_2).
 $$
 
 ## 採点基準・時間配分・選択判断
 
-初動3分、(1)5分、(2)3分、(3)2分、(4)7分、(5)7分、見直し3分です。3分で最大値CDFと$0<u<v<\theta$が見えれば選択します。15分で同時密度の係数まで進めば継続し、25分では範囲変換$0<w<\theta-r$とJacobianを残して閉じます。(5)は逆変換5点、像領域8点、積分と密度12点です。
+最大値20点、同時・条件付き密度25点、条件付き期待値10点、range25点、推定量比較20点。初動3分、(1)4分、(2)7分、(3)3分、(4)7分、(5)3分、見直し3分。15分で条件付き密度まで進めば継続する。25分では$E[R]$と二つの不偏化係数を先に残し、Beta分散を思い出せなければ積分式を書いて打ち切る。前半を落としても、問題文の$T_1,T_2$を使って(5)の期待値計算へ進める。
 
 ## 復習カード
 
-1. 一変数変換は逆像を全て足す。
-2. 密度変換は微分の絶対値。
-3. 多変数変換は像領域を先に書く。
-4. 逆変換Jacobianを使う。
-5. 和の密度は畳込み。
-6. 差では$y=x-u$。
-7. 積ではJacobian$1/|x|$。
-8. 比では$x=uv,y=v$、Jacobian$|v|$。
-9. 極座標Jacobianは$r$。
-10. 最大CDFは$F^n$。
-11. 最小生存関数は$(1-F)^n$。
-12. 第$k$順序統計量は左$k-1$個。
-13. 配置係数は多項係数。
-14. $F(X_{(k)})$はBeta$(k,n-k+1)$。
-15. 一様標本の最大はBeta$(n,1)$型。
-16. 最小・最大の間に$n-2$個入る。
-17. 順序統計量の同値は連続分布で確率0。
-18. 変換後密度は積分して1を検算する。
-19. 台の境界も答案へ書く。
-20. 非単調性・絶対値・領域の三点を見直す。
+1. 最大値CDFは全標本が閾値以下の確率。
+2. 最小・最大の同時密度は配置係数$n(n-1)$。
+3. 条件付き密度は同時密度を周辺密度で割る。
+4. 条件付き分布の台も書き直す。
+5. 最大値を固定すると残りは縮小一様標本となる。
+6. range変換では像領域を先に求める。
+7. 一様rangeの尺度化はBeta分布。
+8. 不偏化は期待値の係数を逆にする。
+9. 不偏推定量同士は分散で比較する。
+10. 前半の分布結果を推定量評価へ再利用する。

@@ -10,16 +10,16 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-10
+  updated_at: 2026-08-11
   current_chapter: null
-  next_chapter: P4-02
+  next_chapter: P3-04
   next_work:
     type: chapter
-    id: P4-02
+    id: P3-04
   last_completed_chapter: P4-01
   summary:
-    total: 32
-    planned: 23
+    total: 38
+    planned: 29
     drafting: 0
     self_review: 0
     independent_review: 0
@@ -43,10 +43,14 @@ progress:
     P3-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P3-02: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P3-03: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
+    P3-04: { status: planned }
+    P3-05: { status: planned }
     P4-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P4-02: { status: planned }
+    P4-03: { status: planned }
     S1-01: { status: planned }
     S1-02: { status: planned }
+    S1-03: { status: planned }
     I1-01: { status: planned }
     I1-02: { status: planned }
     I2-01: { status: planned }
@@ -54,6 +58,8 @@ progress:
     I3-01: { status: planned }
     I3-02: { status: planned }
     I3-03: { status: planned }
+    I4-01: { status: planned }
+    I4-02: { status: planned }
     L1-01: { status: planned }
     L1-02: { status: planned }
     L1-03: { status: planned }
@@ -90,10 +96,14 @@ chapters:
   - { id: P3-01, title: 主要な離散分布, volume: distributions, prerequisites: [ P2-02 ], official_scope: [ ベルヌーイ分布, 二項分布, 超幾何分布, 幾何分布, ポアソン分布, 負の二項分布, 多項分布 ] }
   - { id: P3-02, title: 主要な連続分布, volume: distributions, prerequisites: [ P2-02 ], official_scope: [ 一様分布, 正規分布, 指数分布, ガンマ分布, ベータ分布, コーシー分布, 対数正規分布, ワイブル分布, ロジスティック分布 ] }
   - { id: P3-03, title: 多変量分布・条件付き分布, volume: distributions, prerequisites: [ P3-01, P3-02, F0-01 ], official_scope: [ 平均ベクトル, 分散共分散行列, 相関行列, 多変量正規分布, 線形変換, 周辺分布, 条件付き分布, 独立性, 相関係数, 偏相関係数, 二次形式 ] }
+  - { id: P3-04, title: 混合分布・潜在変数, volume: distributions, prerequisites: [ P1-02, P3-01, P3-02 ], official_scope: [ 有限混合分布, Poisson--Gamma混合, 正規混合分布, 潜在変数, 事後所属確率, 混合による過分散 ] }
+  - { id: P3-05, title: 重尾・切断・寿命派生分布, volume: distributions, prerequisites: [ P3-02 ], official_scope: [ Pareto分布, Laplace分布, Rayleigh分布, 切断分布, 打切り分布, 平均残存寿命, 累積ハザード ] }
   - { id: P4-01, title: 変数変換・順序統計量, volume: distributions, prerequisites: [ P3-03 ], official_scope: [ 1変数変換, 多変数変換, Jacobian, 和, 差, 積, 比, 最大値, 最小値, 順序統計量 ] }
   - { id: P4-02, title: 確率変数の収束・大数則・中心極限定理, volume: distributions, prerequisites: [ P2-02, P3-02 ], official_scope: [ 大数の弱法則, 中心極限定理, 正規近似, ポアソン近似 ] }
+  - { id: P4-03, title: 経験分布・乱数生成・Monte Carlo, volume: distributions, prerequisites: [ P2-01, P4-01, P4-02 ], official_scope: [ 経験分布関数, 標本分位点, 逆関数法, 棄却法, Monte Carlo積分, シミュレーション誤差 ] }
   - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
   - { id: S1-02, title: 統計量・十分性・分解定理, volume: inference, prerequisites: [ S1-01, P4-01 ], official_scope: [ 十分統計量, ネイマンの分解定理 ] }
+  - { id: S1-03, title: 有限母集団・標本抽出, volume: inference, prerequisites: [ P3-01, P4-02 ], official_scope: [ 単純無作為抽出, Horvitz--Thompson推定量, 有限母集団補正, 層化抽出, 比推定量, 標本設計 ] }
   - { id: I1-01, title: 尤度・最尤推定, volume: inference, prerequisites: [ S1-02 ], official_scope: [ 尤度関数, 対数尤度関数, 有効スコア関数, 最尤推定 ] }
   - { id: I1-02, title: 推定法と推定量の評価, volume: inference, prerequisites: [ I1-01 ], official_scope: [ モーメント法, 最小二乗法, BLUE, 不偏性, 一致性, 有効性, フィッシャー情報量, クラーメル・ラオの不等式 ] }
   - { id: I2-01, title: 漸近推測・Delta法, volume: inference, prerequisites: [ I1-02, P4-02 ], official_scope: [ 最尤推定量の漸近正規性, デルタ法, 漸近分散 ] }
@@ -101,6 +111,8 @@ chapters:
   - { id: I3-01, title: 検定の基礎とNeyman--Pearson理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理 ] }
   - { id: I3-02, title: 尤度比・Wald・Score検定, volume: inference, prerequisites: [ I2-01, I3-01 ], official_scope: [ 尤度比検定, ワルド型検定, スコア型検定 ] }
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
+  - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
+  - { id: I4-02, title: 欠測・不完全データ・EM法, volume: inference, prerequisites: [ I4-01, P3-04, L1-02 ], official_scope: [ MCAR, MAR, MNAR, 観測データ尤度, EM法, 打切り, 切断, 欠測を含むモデル診断 ] }
   - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ I1-02, F0-01 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差 ] }
   - { id: L1-02, title: 重回帰・線形モデルの行列表現, volume: linear_models, prerequisites: [ L1-01 ], official_scope: [ 線形重回帰, ガウス・マルコフの定理, 線形対比, 線形制約 ] }
   - { id: L1-03, title: 分散分析, volume: linear_models, prerequisites: [ L1-02, S1-01 ], official_scope: [ 一元配置分散分析, 二元配置分散分析, 交互作用, 多重比較 ] }

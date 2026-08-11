@@ -1,272 +1,161 @@
 # 30分ドリル
 
 - 制限時間: 30分
-- 目標: 論述答案の完答
+- 目標: 一つの標本モデルで変数変換、尤度、最大化、共分散行列をつなぐ
+- level: C
+
+## 過去問傾向との対応
+
+MATH-2024-Q1とMATH-2021-Q5に現れる微分、尤度、線形変換、共分散行列の答案部品を、一つのデータ生成モデルで連結する。分布、数値、設問は独自であり、過去問原文の再現ではない。基礎章なので、必要な確率公式は設問内で与え、導出と再利用を問う。
 
 ## F0-DRILL-01 問題
 
-### 第I部：変換と最尤推定（60点）
-
-$\theta>0$ とし、確率変数 $X$ の密度を
-
+$\theta>0$とし、確率変数$X$の密度を
 $$
 f_\theta(x)=\theta x^{\theta-1}\boldsymbol{1}_{(0,1)}(x)
 $$
+とする。$n\geq2$とし、$X_1,\ldots,X_n$は独立同分布標本であり、$Y_i=-\log X_i$とおく。
 
-とする。
-
-1. この密度が1へ積分されることを確認せよ。（10点）
-2. $Y=-\log X$ の密度を、変数変換によって求めよ。（15点）
-3. $X_1,\ldots,X_n$ を独立同分布標本とする。尤度と対数尤度を書き、$\theta$ の最尤推定量を求めよ。（20点）
-4. 得られた停留点が一意な最大点であることを示せ。（15点）
-
-### 第II部：固有値と線形結合（40点）
-
-平均 $\boldsymbol{0}$、共分散行列
-
+1. $f_\theta$が密度であることを確認せよ。（10点）
+2. $Y_i$の密度を変数変換で求め、$E[Y_i]=1/\theta$、$\operatorname{Var}(Y_i)=1/\theta^2$を積分で示せ。（25点）
+3. $Y_1,\ldots,Y_n$の尤度と対数尤度を書き、$\theta$の最尤推定量を求めよ。（20点）
+4. 得られた停留点が一意な大域的最大点であることを示せ。（15点）
+5. $\boldsymbol Z=(Y_1,Y_1+Y_2)^{\mathsf T}$の共分散行列を求め、その固有値が
 $$
-\boldsymbol{\Sigma}=
-\begin{pmatrix}
-5&3\\
-3&5
-\end{pmatrix}
+\frac{3+\sqrt5}{2\theta^2},\qquad \frac{3-\sqrt5}{2\theta^2}
 $$
-
-をもつ確率ベクトル $\boldsymbol{Z}=(Z_1,Z_2)^{\mathsf T}$ を考える。
-
-5. $\boldsymbol{\Sigma}$ の固有値と正規直交固有ベクトルを求め、
-
-   $$
-   W_1=\frac{Z_1+Z_2}{\sqrt2},
-   \qquad
-   W_2=\frac{Z_1-Z_2}{\sqrt2}
-   $$
-
-   の分散と共分散を求めよ。（40点）
+であることを示し、正定値性を確認せよ。（30点）
 
 ## 詳細解答
 
 ### (1)
 
-$\theta>0$ なので $x^{\theta-1}$ は0の近くで可積分です。したがって
-
+$\theta>0$なので$x^{\theta-1}$は0の近くで可積分であり、
 $$
-\int_{-\infty}^{\infty}f_\theta(x)\,dx
+\int_{\mathbb R}f_\theta(x)\,dx
 =\theta\int_0^1x^{\theta-1}\,dx
-=\theta\left[\frac{x^\theta}{\theta}\right]_0^1
-=1.
+=\theta\left[\frac{x^\theta}{\theta}\right]_0^1=1.
 $$
+非負性も成り立つから$f_\theta$は密度である。
 
 ### (2)
 
-$y=-\log x$ の逆変換は $x=e^{-y}$ です。$0<x<1$ は $y>0$ と対応します。また
-
+$y=-\log x$の逆変換は$x=e^{-y}$、像は$y>0$、Jacobian絶対値は$e^{-y}$である。従って
 $$
-\left|\frac{dx}{dy}\right|=e^{-y}.
+f_Y(y)=\theta(e^{-y})^{\theta-1}e^{-y}\boldsymbol{1}_{(0,\infty)}(y)
+=\theta e^{-\theta y}\boldsymbol{1}_{(0,\infty)}(y).
 $$
-
-したがって
-
+部分積分により
+$$
+E[Y]=\int_0^\infty y\theta e^{-\theta y}\,dy
+=\left[-ye^{-\theta y}\right]_0^\infty+\int_0^\infty e^{-\theta y}\,dy
+=\frac1\theta.
+$$
+同様に
 $$
 \begin{aligned}
-f_Y(y)
-&=\theta(e^{-y})^{\theta-1}e^{-y}
-\boldsymbol{1}_{(0,\infty)}(y)\\
-&=\theta e^{-\theta y}
-\boldsymbol{1}_{(0,\infty)}(y).
+E[Y^2]
+&=\int_0^\infty y^2\theta e^{-\theta y}\,dy\\
+&=\left[-y^2e^{-\theta y}\right]_0^\infty+2\int_0^\infty ye^{-\theta y}\,dy\\
+&=\frac{2}{\theta^2}.
 \end{aligned}
 $$
-
-よって $Y$ は率 $\theta$ の指数分布に従います。
+よって
+$$
+\operatorname{Var}(Y)=E[Y^2]-E[Y]^2=\frac1{\theta^2}.
+$$
 
 ### (3)
 
-観測値が全て $(0,1)$ にあるとき、
-
+観測値$y_i>0$に対し
 $$
-L(\theta)
-=\prod_{i=1}^n\theta x_i^{\theta-1}
-=\theta^n\prod_{i=1}^nx_i^{\theta-1}.
+L(\theta)=\prod_{i=1}^n\theta e^{-\theta y_i}
+=\theta^n\exp\left(-\theta\sum_{i=1}^ny_i\right).
 $$
-
-対数尤度は
-
+従って
 $$
-\ell(\theta)
-=n\log\theta+(\theta-1)\sum_{i=1}^n\log x_i.
+\ell(\theta)=n\log\theta-\theta\sum_{i=1}^ny_i,
+\qquad
+\ell'(\theta)=\frac n\theta-\sum_{i=1}^ny_i.
 $$
-
-各 $0<x_i<1$ から $\log x_i<0$ です。微分すると
-
+各$y_i>0$なので、停留点はパラメータ空間内の
 $$
-\ell'(\theta)
-=\frac{n}{\theta}+\sum_{i=1}^n\log x_i.
+\widehat\theta=\frac n{\sum_{i=1}^ny_i}
+=-\frac n{\sum_{i=1}^n\log x_i}
 $$
-
-従って停留点は
-
-$$
-\widehat\theta
-=-\frac{n}{\sum_{i=1}^n\log x_i}.
-$$
-
-分母は負なので $\widehat\theta>0$ であり、パラメータ空間の内部にあります。
+である。
 
 ### (4)
 
-二階微分は
-
 $$
-\ell''(\theta)=-\frac{n}{\theta^2}<0
+\ell''(\theta)=-\frac n{\theta^2}<0
 $$
-
-です。よって対数尤度は $(0,\infty)$ 上で狭義凹であり、停留点 $\widehat\theta$ は一意な大域的最大点です。
+なので、$\ell$は$(0,\infty)$上で狭義凹である。従って停留点$\widehat\theta$は一意な大域的最大点である。
 
 ### (5)
 
-特性多項式は
-
-$$
-(5-\lambda)^2-9=(\lambda-8)(\lambda-2)
-$$
-
-です。固有値8に対応する単位固有ベクトルは $\boldsymbol{q}_1=2^{-1/2}(1,1)^{\mathsf T}$、固有値2に対応するものは $\boldsymbol{q}_2=2^{-1/2}(1,-1)^{\mathsf T}$ です。
-
-$W_i=\boldsymbol{q}_i^{\mathsf T}\boldsymbol{Z}$ なので、
-
-$$
-\operatorname{Var}(W_i)
-=\boldsymbol{q}_i^{\mathsf T}\boldsymbol{\Sigma}\boldsymbol{q}_i.
-$$
-
-固有ベクトルの関係から
-
-$$
-\operatorname{Var}(W_1)=8,
-\qquad
-\operatorname{Var}(W_2)=2.
-$$
-
-また
-
+$Y_1,Y_2$は独立で分散$1/\theta^2$だから
 $$
 \begin{aligned}
-\operatorname{Cov}(W_1,W_2)
-&=\boldsymbol{q}_1^{\mathsf T}\boldsymbol{\Sigma}\boldsymbol{q}_2\\
-&=\boldsymbol{q}_1^{\mathsf T}(2\boldsymbol{q}_2)\\
-&=2\boldsymbol{q}_1^{\mathsf T}\boldsymbol{q}_2\\
-&=0.
+\operatorname{Var}(Y_1)&=\frac1{\theta^2},\\
+\operatorname{Cov}(Y_1,Y_1+Y_2)&=\operatorname{Var}(Y_1)=\frac1{\theta^2},\\
+\operatorname{Var}(Y_1+Y_2)&=\frac2{\theta^2}.
 \end{aligned}
 $$
-
-最後の等号では、異なる正規直交固有ベクトルの直交性を使いました。
-
-## 本番答案の骨格
-
-- (1) 台と $\theta>0$ を書いて積分する。
-- (2) $x=e^{-y}$、$y>0$、Jacobian $e^{-y}$ の三点を示す。
-- (3) 対数尤度を微分し、分母が負なので推定量が正であることまで書く。
-- (4) $\ell''(\theta)<0$ により狭義凹性と一意性を結論する。
-- (5) 固有値・単位固有ベクトルを示し、$\boldsymbol{q}_i^{\mathsf T}\boldsymbol{\Sigma}\boldsymbol{q}_j$ で分散・共分散をまとめる。
+従って
+$$
+\operatorname{Cov}(\boldsymbol Z)
+=\frac1{\theta^2}
+\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+$$
+$\boldsymbol A=\begin{pmatrix}1&1\\1&2\end{pmatrix}$とおくと
+$$
+\det(\boldsymbol A-\lambda\boldsymbol I_2)
+=(1-\lambda)(2-\lambda)-1
+=\lambda^2-3\lambda+1.
+$$
+従って$\boldsymbol A$の固有値は$(3\pm\sqrt5)/2$であり、共分散行列の固有値は設問の二値である。$\theta>0$かつ$3>\sqrt5$なので両固有値は正であり、共分散行列は正定値である。
 
 ## 完成形の本番答案
 
-(1) $\theta>0$ より $x^{\theta-1}$ は0の近くで可積分であり、
-
 $$
-\int_{\mathbb{R}}f_\theta(x)\,dx
+\int_{\mathbb R}f_\theta(x)\,dx
 =\theta\int_0^1x^{\theta-1}\,dx=1.
 $$
-
-(2) $y=-\log x$ の逆変換は $x=e^{-y}$、像は $y>0$、Jacobian絶対値は $e^{-y}$ である。従って
-
+$x=e^{-y}$、$y>0$、$|dx/dy|=e^{-y}$より
 $$
 f_Y(y)=\theta e^{-\theta y}\boldsymbol{1}_{(0,\infty)}(y).
 $$
+部分積分から$E[Y]=1/\theta$、$E[Y^2]=2/\theta^2$、従って$\operatorname{Var}(Y)=1/\theta^2$。
 
-(3) 全観測値が $(0,1)$ にあるとき
-
+また
 $$
-\ell(\theta)=n\log\theta+(\theta-1)\sum_{i=1}^n\log x_i.
-$$
-
-従って
-
-$$
-\ell'(\theta)=\frac n\theta+\sum_{i=1}^n\log x_i=0
-$$
-
-から
-
-$$
-\widehat\theta=-\frac{n}{\sum_{i=1}^n\log x_i}>0.
-$$
-
-(4) $\ell''(\theta)=-n/\theta^2<0$ なので $\ell$ は $(0,\infty)$ 上で狭義凹であり、$\widehat\theta$ は一意な大域的最大点である。
-
-(5)
-
-$$
-\det(\boldsymbol{\Sigma}-\lambda\boldsymbol{I}_2)
-=(\lambda-8)(\lambda-2)
-$$
-
-より、固有値と対応する単位固有ベクトルは
-
-$$
-8,\quad \boldsymbol{q}_1=\frac{1}{\sqrt2}(1,1)^{\mathsf T},
+\ell(\theta)=n\log\theta-\theta\sum_i y_i,
 \qquad
-2,\quad \boldsymbol{q}_2=\frac{1}{\sqrt2}(1,-1)^{\mathsf T}.
+\widehat\theta=\frac n{\sum_i y_i}=-\frac n{\sum_i\log x_i}.
 $$
+$\ell''(\theta)=-n/\theta^2<0$より、これは一意な大域的最大点である。
 
-$W_i=\boldsymbol{q}_i^{\mathsf T}\boldsymbol Z$ なので
-
+独立性と前問の分散から
 $$
-\operatorname{Var}(W_1)=8,\qquad
-\operatorname{Var}(W_2)=2,\qquad
-\operatorname{Cov}(W_1,W_2)
-=\boldsymbol{q}_1^{\mathsf T}\boldsymbol{\Sigma}\boldsymbol{q}_2=0.
+\operatorname{Cov}(\boldsymbol Z)
+=\frac1{\theta^2}\begin{pmatrix}1&1\\1&2\end{pmatrix}.
 $$
+括弧内の特性多項式は$\lambda^2-3\lambda+1$なので、固有値は$(3\pm\sqrt5)/(2\theta^2)$。両方正であるから正定値である。
 
-詳細解答からは、部分積分を要しない反復説明と行列積の説明文を圧縮しました。一方、台、逆変換、Jacobian、推定量の正値性、最大性の根拠、固有ベクトルの正規化は残しています。
+## 採点基準・時間配分・選択判断
 
-## 時間配分と撤退基準
-
-| 作業 | 目安 |
-|---|---:|
-| 問題把握 | 2分 |
-| (1) | 3分 |
-| (2) | 5分 |
-| (3) | 7分 |
-| (4) | 4分 |
-| (5) | 7分 |
-| 見直し | 2分 |
-
-20分時点で第I部が完了していれば継続します。(2)の変換後の台が決まらない、または(3)の対数尤度が立たない場合は、第II部を先に完答して部分点を確保します。
-
-## 問題選択の判断材料
-
-最初の2分で、変換が一対一、対数尤度が一変数、共分散行列が対称な $2\times2$ 行列であることが見えます。`JAC-1`、`CALC-1`、`QUAD-1` が直ちに起動するため、これらを得意とする受験者には選択価値の高い問題です。
+正規化10点、変換と2モーメント25点、尤度とMLE20点、最大性15点、共分散行列・固有値・正定値性30点。初動3分、(1)2分、(2)7分、(3)5分、(4)3分、(5)7分、見直し3分。3分で逆変換と台が見えれば選択する。15分で指数密度と2モーメントまで得られれば継続する。25分で固有値計算が残った場合も、共分散行列と特性多項式を答案に残して部分点を確保する。
 
 ## 復習カード
 
-1. 密度は非負で全体積分が1。
-2. 台とパラメータ空間を分ける。
-3. $E[g(X)]$ の存在は絶対可積分性で確認する。
-4. 対数は正の尤度上で最大点を保つ。
-5. スコア方程式は最大化の十分条件ではない。
-6. 境界解は微分だけでは見つからない。
-7. 変数変換は逆変換、領域、Jacobianの順。
-8. 密度にはJacobianの絶対値を掛ける。
-9. 非単射変換では全ての逆像の寄与を足す。
-10. 勾配は列ベクトル、Hessianは二階偏微分行列。
-11. 実対称行列は正規直交固有基底をもつ。
-12. 正定値性は全固有値が正であることと同値。
-13. 共分散行列は半正定値。
-14. 線形結合の分散は $\boldsymbol{a}^{\mathsf T}\boldsymbol{\Sigma}\boldsymbol{a}$。
-15. 射影行列は対称かつ冪等。
-16. 最小二乗残差は計画行列の列空間と直交する。
-17. 逆行列表示の前にrankを確認する。
-18. $A\Longrightarrow B$ では $A$ が十分条件。
-19. 同値記号は各操作が可逆なときだけ使う。
-20. 本番答案でも台、主要な根拠、結論は削らない。
+1. 密度は非負性と全体積分1を確認する。
+2. 変数変換は逆変換、像、Jacobianの順に書く。
+3. 部分積分では境界項の極限を確認する。
+4. 対数尤度にはパラメータ空間を書く。
+5. スコア方程式だけでは最大性を保証しない。
+6. 二階微分の符号から大域的な凹性を確認する。
+7. 前問のモーメントを共分散行列へ再利用する。
+8. 独立なら共分散は0である。
+9. 対称行列の正定値性は固有値で判定できる。
+10. 25分時点では特性多項式までを必ず残す。

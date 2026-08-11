@@ -1,0 +1,67 @@
+schema_version: 2
+checked_at: "2026-08-11"
+policy:
+  official_problem_source: "統計検定公式公開問題または日本統計学会公式認定問題集"
+  third_party_role: "年度別テーマ索引と別解確認のみ"
+  reproduction: "問題文・図表は転載せず、年度・科目・大問番号で参照する"
+  evidence_rule: "テーマ確認に第三者索引だけを用いたentryはofficial_problemと表示しない"
+sources:
+  official_exam: "https://www.toukei-kentei.jp/grade/grade1/"
+  official_past: "https://www.toukei-kentei.jp/preparation/kakomon/"
+  official_books: "https://www.toukei-kentei.jp/preparation/books/"
+  official_archive_note: "公式過去問題ページは掲載年度が更新される。2024年問題は現在の公式問題集［2022〜2024年］を正本として参照する"
+  starpentagon: "https://starpentagon.net/analytics/stat_certificate_past_problems/"
+  satolog: "https://satolog.org/toukeikentei-grade1-kaitouitiran/"
+  academ_aid: "https://academ-aid.com/statistics/jssc-toc"
+retired_sources:
+  official_2024_math:
+    url: "https://www.toukei-kentei.jp/hubfs/files/past/pbt/202411grade1suri.pdf"
+    status: unavailable_as_of_2026-08-11
+    replacement: official_books
+evidence_profiles:
+  math_topic: &math_topic
+    source_type: third_party_topic_index
+    confirmed_by: [academ_aid]
+    confidence: medium
+    problem_source: official_books
+  math_crosschecked: &math_crosschecked
+    source_type: third_party_topic_index
+    confirmed_by: [academ_aid, satolog]
+    confidence: high
+    problem_source: official_books
+  science_topic: &science_topic
+    source_type: third_party_topic_index
+    confirmed_by: [starpentagon]
+    confidence: medium
+    problem_source: official_books
+entries:
+  - { id: MATH-2024-Q1, year: 2024, exam: 統計数理, question: 1, theme: 回帰係数の推定・検定・検出力, chapters: [F0-01, I1-01, I1-02, I3-01, L1-01], evidence: *math_topic }
+  - { id: MATH-2024-Q2, year: 2024, exam: 統計数理, question: 2, theme: 半径の分布・順序統計量・推定量, chapters: [F0-01, P2-01, P2-02, P4-01, I1-01], evidence: *math_topic }
+  - { id: MATH-2024-Q4, year: 2024, exam: 統計数理, question: 4, theme: 経験分布・混合分布, chapters: [P2-01, P2-02, P3-01, P3-02, P4-02], evidence: *math_topic }
+  - { id: MATH-2024-Q5, year: 2024, exam: 統計数理, question: 5, theme: 一様分布の順序統計量・条件付き期待値, chapters: [P1-02, P2-02, P4-01], evidence: *math_topic }
+  - { id: MATH-2023-Q1, year: 2023, exam: 統計数理, question: 1, theme: Poisson分布の不偏推定量・一致推定量, chapters: [P2-02, P3-01, P4-02, I1-02], evidence: *math_topic }
+  - { id: MATH-2023-Q2, year: 2023, exam: 統計数理, question: 2, theme: カイ二乗分布・逆関数法, chapters: [P2-01, P3-02, P4-01, S1-01], evidence: *math_topic }
+  - { id: MATH-2023-Q3, year: 2023, exam: 統計数理, question: 3, theme: 指数分布・モーメント母関数, chapters: [P2-02, P3-02, I1-01], evidence: *math_topic }
+  - { id: MATH-2022-Q1, year: 2022, exam: 統計数理, question: 1, theme: 確率空間・独立性, chapters: [P1-01, P1-02], evidence: *math_topic }
+  - { id: MATH-2022-Q2, year: 2022, exam: 統計数理, question: 2, theme: 一様分布・条件付き分布, chapters: [P1-01, P1-02, P2-01, P4-01], evidence: *math_topic }
+  - { id: MATH-2022-Q3, year: 2022, exam: 統計数理, question: 3, theme: Poisson分布・Gamma混合, chapters: [P1-02, P2-02, P3-01, P3-02], evidence: *math_topic }
+  - { id: MATH-2022-Q4, year: 2022, exam: 統計数理, question: 4, theme: Pareto分布・最尤推定, chapters: [P3-05, I1-01], evidence: *math_topic }
+  - { id: MATH-2021-Q1, year: 2021, exam: 統計数理, question: 1, theme: 指数分布・一様分布・畳込み, chapters: [P2-01, P3-02, P4-01], evidence: *math_topic }
+  - { id: MATH-2021-Q2, year: 2021, exam: 統計数理, question: 2, theme: 超幾何分布・事後確率最大化, chapters: [P1-02, P3-01], evidence: *math_topic }
+  - { id: MATH-2021-Q4, year: 2021, exam: 統計数理, question: 4, theme: 正規分布のモーメント, chapters: [P2-02, P3-02], evidence: *math_topic }
+  - { id: MATH-2021-Q5, year: 2021, exam: 統計数理, question: 5, theme: 多変量正規分布の線形変換・独立性, chapters: [F0-01, P3-03], evidence: *math_topic }
+  - { id: MATH-2018-Q4, year: 2018, exam: 統計数理, question: 4, theme: 条件付き2変量正規分布・Markov性, chapters: [P1-02, P3-03, E2-01], evidence: *math_crosschecked }
+  - { id: MATH-2018-Q5, year: 2018, exam: 統計数理, question: 5, theme: 順序統計量の確率密度, chapters: [P2-01, P4-01], evidence: *math_crosschecked }
+  - { id: MATH-2017-Q1, year: 2017, exam: 統計数理, question: 1, theme: 標本平均の歪度・尖度, chapters: [P2-02, P4-02], evidence: *math_topic }
+  - { id: MATH-2017-Q4, year: 2017, exam: 統計数理, question: 4, theme: 正規分布の線形変換・条件付き分布, chapters: [F0-01, P3-03], evidence: *math_topic }
+  - { id: MATH-2014-Q2, year: 2014, exam: 統計数理, question: 2, theme: Gamma分布・Beta分布, chapters: [P3-02, P4-01], evidence: *math_topic }
+  - { id: MATH-2012-Q1, year: 2012, exam: 統計数理, question: 1, theme: 一様分布・確率積分変換, chapters: [P2-01, P4-01], evidence: *math_topic }
+  - { id: SCI-2019-Q1, year: 2019, exam: 統計応用理工学, question: 1, theme: 生存関数・平均残存寿命・Weibull変換, chapters: [P3-02, P3-05, E4-02], evidence: *science_topic }
+  - { id: SCI-2019-Q2, year: 2019, exam: 統計応用理工学, question: 2, theme: 管理図・分散成分・工程判断, chapters: [L1-03, E4-01], evidence: *science_topic }
+  - { id: SCI-2019-Q4, year: 2019, exam: 統計応用理工学, question: 4, theme: AR1・自己相関行列・行列式, chapters: [F0-01, E2-03], evidence: *science_topic }
+  - { id: SCI-2018-Q1, year: 2018, exam: 統計応用理工学, question: 1, theme: 指数和・Gamma分布・逆関数乱数, chapters: [P3-02, P4-03], evidence: *science_topic }
+  - { id: SCI-2017-Q1, year: 2017, exam: 統計応用理工学, question: 1, theme: Gammaモーメント・2母数尤度方程式, chapters: [P3-02, I1-01], evidence: *science_topic }
+  - { id: SCI-2017-Q2, year: 2017, exam: 統計応用理工学, question: 2, theme: Poisson過程・指数待時間・故障率, chapters: [P3-01, P3-02, E2-02, E4-02], evidence: *science_topic }
+  - { id: SCI-2016-Q1, year: 2016, exam: 統計応用理工学, question: 1, theme: 不完備ブロック計画・推定可能性, chapters: [L1-02, E3-01], evidence: *science_topic }
+  - { id: SCI-2016-Q3, year: 2016, exam: 統計応用理工学, question: 3, theme: 工程能力・不良率・区間推定, chapters: [I2-02, E4-01], evidence: *science_topic }
+  - { id: SCI-2016-Q4, year: 2016, exam: 統計応用理工学, question: 4, theme: Poisson最尤推定・ゼロ切断分布, chapters: [P3-01, P3-05, I1-01], evidence: *science_topic }

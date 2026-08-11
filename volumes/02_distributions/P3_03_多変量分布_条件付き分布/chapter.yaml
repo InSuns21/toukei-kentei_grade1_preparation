@@ -25,6 +25,10 @@ theorems:
   - { id: P3M-THM-06, name: Mahalanobis二次形式 }
 canonical_examples: [線形結合, 二変量正規の条件付き分布, ブロック条件付け, 残差偏相関, Mahalanobis距離]
 problem_patterns: [DIM-1, AFFINE-1, BLOCK-1, COND-NORMAL-1, INDEP-NORMAL-1, PARTIAL-1, QUAD-MVN-1, ANSWER-1]
+past_exam_alignment:
+  - { id: MATH-2021-Q5, current_skills: [多変量正規, 線形変換, 独立性], later_skills: [回帰] }
+  - { id: MATH-2018-Q4, current_skills: [条件付き正規, 条件付き独立], later_skills: [Markov性] }
+integrated_exam_problems: [P3M-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 8, exercises: 14, review: 4 }
 completion_criteria:

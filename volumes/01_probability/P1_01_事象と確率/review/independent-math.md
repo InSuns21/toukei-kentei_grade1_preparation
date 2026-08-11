@@ -160,3 +160,38 @@ P1-MATH-006、007 が残るため、独立数理査読は未承認である。
 `fatal: 0 / major: 0 / minor: 0`
 
 P1-01は独立数理査読の完了条件を満たす。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: 横断参照2ファイル、`chapter.yaml`、`09_past_exam_practice.md`、全面改稿後のP1-DRILL-01
+- 独立再計算: 8領域は $t,50-t,45-t,40-t,15+t,t,t-5,55-t$、非負整数条件は $5\leq t\leq40$、和事象は $145+t$、$t=20$ の1領域・0領域は70人・35人であり、数値計算は正しい。
+
+### PAST-MATH-P1-001 — major
+
+- 場所: `00_overview.md`「公式出題範囲との対応」、`chapter.yaml` のMATH-2022-Q1、`09_past_exam_practice.md` PAST-P1-01、`08_exam_drill.md` 問4と両解答
+- 根拠: `00_overview.md` は「統計的独立…は次章P1-02で扱う」と明記し、本章には独立性の定義 $P(A\cap B)=P(A)P(B)$ がない。それにもかかわらず改訂後ドリルは説明なしに独立性判定を要求し、過去問参照も独立性を「現在解く範囲」に置く。書かれた内容だけでは未修概念を補完しなければ解けず、章内の前提宣言とも矛盾する。
+- 修正案: ドリル問題文に独立性の判定基準を所与の定義として明記するか、問4と過去問の独立性部分をP1-02修了後へ移す。`chapter.yaml` の `current_skills` も同じ扱いにそろえる。
+
+### PAST-MATH-P1-002 — minor
+
+- 場所: `chapter.yaml` と `09_past_exam_practice.md` のMATH-2022-Q2、`references/past-exam-index.yaml`
+- 根拠: P1-01側はMATH-2022-Q2を章対応に採用する一方、横断索引の同問題の `chapters` は `[P1-02, P2-01, P4-01]` でP1-01を含まず、双方向対応が不整合である。
+- 修正案: 領域事象・面積比をP1-01技能として採るなら索引へP1-01を追加し、採らないなら章側の対応問題を差し替える。
+
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 1 / minor: 1`
+- 判定: **未承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、修正後P1-DRILL-01
+- PAST-MATH-P1-001: **解消**。問題文が独立性の積条件と、正確率条件付きの条件付き確率を明示した。問5も $P(C\mid A\cup B)=65/150=13/30>2/5$ と再計算できる。`chapter.yaml` と実過去問課題は独立性を後続P1-02へ移している。
+- PAST-MATH-P1-002: **解消**。`past-exam-index.yaml` のMATH-2022-Q2にP1-01が追加され、双方向対応が一致した。
+- 新規指摘: なし。8領域、$5\le t\le40$、和事象150〜185人、独立性反証、条件付き確率を全文再計算して整合を確認した。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。

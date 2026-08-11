@@ -215,3 +215,32 @@ $$
 - minor: 0
 
 独立数理査読として **承認** する。
+
+## 過去問傾向対応改訂の再査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:03:22+09:00
+- 対象: 横断参照2ファイル、`chapter.yaml`、`09_past_exam_practice.md`、全面改稿後のP3-DRILL-01
+- 独立再計算: $N\sim\operatorname{Poisson}(2\lambda)$、$U\mid N=3\sim\operatorname{Bin}(3,1/4)$、$27/64$、thinning後の率 $\lambda/2,3\lambda/2$、独立性、$\operatorname{Var}(\tilde\lambda)=\lambda/(2m)$ を再確認した。
+
+### PAST-MATH-P3D-001 — minor
+
+- 場所: `08_exam_drill.md`「過去問傾向との対応」と問題5
+- 根拠: 前文は「一致性に必要なChebyshev不等式は問題文で与える」と宣言するが、問題5は「Chebyshev不等式を用いて」と名称を挙げるだけで、不等式の式を与えていない。P2-DRILL-02で既出なので未修前提ではないが、自己完結性の宣言とは一致しない。
+- 修正案: $P(|Z-EZ|\ge\varepsilon)\le\operatorname{Var}(Z)/\varepsilon^2$ を問題文に所与の式として追加するか、前文を「前章のChebyshev不等式を用いる」へ直す。
+
+- 機械検証: `npm run validate` 成功（structure成功、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 1`
+- 判定: **未承認**。
+
+## 過去問傾向対応改訂の修正後再査読
+
+- 担当ID: `/root/f0_math_review`
+- 再査読日時: 2026-08-11T10:18:58+09:00
+- 対象: 横断索引、章全文、修正後P3-DRILL-01
+- PAST-MATH-P3D-001: **解消**。有限分散の $T$ に対するChebyshev不等式が問題文に式で与えられ、自己完結性の宣言と一致した。
+- 再計算結果: 2時間Poisson、条件付き二項、thinningの同時PMF因数分解、率推定量の不偏性・分散・確率収束を再確認した。
+- 新規指摘: なし。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`
+- 判定: **承認**。
