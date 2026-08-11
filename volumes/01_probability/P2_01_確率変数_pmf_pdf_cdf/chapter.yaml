@@ -1,5 +1,5 @@
 id: "P2-01"
-title: "確率変数・PMF・PDF・CDF"
+title: "確率変数・確率質量関数・確率密度関数・累積分布関数"
 volume: "probability"
 status: reviewed
 prerequisites: [P1-02]

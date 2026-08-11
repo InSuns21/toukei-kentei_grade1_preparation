@@ -48,3 +48,31 @@
 - 独立数理査読担当: `/root/f0_math_review`。横断初回 fatal 0 / major 2 / minor 6。Weibullの台、MLE、不偏性・一致性を独立再計算し、最終 fatal 0 / major 0 / minor 0。
 - 試験適合性査読担当: `/root/f0_exam_review`。横断初回 fatal 0 / major 4 / minor 5。SCI-2019-Q1参照を含む寿命モデルの技能連鎖と時間判断を確認し、最終 fatal 0 / major 0 / minor 0。
 - [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 146 Markdown、text 161 files）
+
+## 独習入口・用語・分布式横断改訂（初回独立数理査読）
+
+- 担当ID: `/root/f0_math_review`、実行日時: 2026-08-11T10:54:59+09:00。
+- 指摘: ENTRY-MATH-P3C-001〜002。定理・問題集の9分布表に母数範囲がなく、CDF/MGFが正式導入より先に出る。
+- `npm run validate`: 成功（KaTeX strict 147 Markdown、text 162ファイル）。validatorの内容検査には横断残件あり。
+- 初回件数: `fatal: 0 / major: 1 / minor: 1`。**未承認**。
+
+### 修正後独立数理再査読
+
+- `/root/f0_math_review`、2026-08-11T11:06:42+09:00。ENTRY-MATH-P3C-001〜002を解消、全文再査読で新規指摘なし。
+- `npm run validate`成功。最終 `fatal: 0 / major: 0 / minor: 0`。**承認**。
+
+- 2026-08-11T11:16:39+09:00 `/root/f0_math_review`: 連続9分布の行単位契約強化後もvalidate成功。最終0/0/0、承認維持。
+
+## 独習入口・用語・分布式 横断改訂の試験適合性査読（2026-08-11）
+
+- 担当ID: `/root/f0_exam_review`、実行日時: 2026-08-11 10:54:28 +09:00。
+- 初回指摘: P3C-SELF-MAJ-01（共通索引）、MAJ-02（validator）、MAJ-03（定理・演習再掲の母数条件不足）。fatal 0 / major 3 / minor 0、非承認。
+- `npm run validate`: 成功（structure、KaTeX strict 147 Markdown、text 162ファイル）。
+
+### 修正後再査読（2026-08-11 11:07:22 +09:00）
+
+- MAJ-03は解消。共通索引のBin母数・Cauchy台とvalidator偽陰性が残存。新規指摘なし。`npm run validate`成功。最終 fatal 0 / major 2 / minor 0、非承認。
+
+- 第2回修正確認: 索引本文は解消。行非限定validatorのみ残存。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+- 最終再査読（2026-08-11 11:17:00 +09:00）: 共通索引・P3C表の行単位検査を確認。`npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。

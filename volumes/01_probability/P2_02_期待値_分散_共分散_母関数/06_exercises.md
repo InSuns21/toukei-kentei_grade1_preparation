@@ -1,5 +1,7 @@
 # 問題集
 
+確率母関数（probability generating function; PGF）は$G_X(s)=E[s^X]$、モーメント母関数（moment generating function; MGF）は$M_X(t)=E[e^{tX}]$である。
+
 ## Level A：基礎部品
 
 ### P2-A04 離散平均・分散

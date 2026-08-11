@@ -27,6 +27,21 @@
 
 ところまでを一体として設計する。
 
+## 0.1 略語は日本語名と式から導入する
+
+本文では、略語を暗記済みとは仮定しない。最初に日本語名、必要なら英語名、略語、定義式の順で導入する。特に頻出する用語は次のとおりである。
+
+- 確率質量関数（probability mass function; PMF）: $p_X(x)=P(X=x)$
+- 確率密度関数（probability density function; PDF）: $P(a<X\leq b)=\int_a^bf_X(x)dx$
+- 累積分布関数（cumulative distribution function; CDF）: $F_X(x)=P(X\leq x)$
+- 確率母関数（probability generating function; PGF）: $G_X(s)=E[s^X]$
+- モーメント母関数（moment generating function; MGF）: $M_X(t)=E[e^{tX}]$
+- 最尤推定量（maximum likelihood estimator; MLE）、最良線形不偏推定量（best linear unbiased estimator; BLUE）、平均二乗誤差（mean squared error; MSE）
+- 大数の法則（law of large numbers; LLN）、中心極限定理（central limit theorem; CLT）、分散分析（analysis of variance; ANOVA）
+- 自己回帰（AR）、移動平均（MA）、自己回帰和分移動平均（ARIMA）、自己相関関数（ACF）、偏自己相関関数（PACF）、平均故障間隔（MTBF）
+
+各章では、分布名だけで式を省略せず、定理または問題の直前に台・母数・確率質量関数または確率密度関数を再掲する。共通の完全一覧は`references/distribution-notation-guide.md`を正本とする。
+
 ---
 
 # 1. 必ず参照する資料

@@ -1,5 +1,19 @@
 # 問題集
 
+## 問題で使う分布の定義
+
+以下では$q=1-p$とし、表に書かれていない点での確率は0とする。表の関数を確率質量関数（probability mass function; PMF）という。確率母関数（probability generating function; PGF）は$G_X(s)=E[s^X]$である。
+
+| 分布 | 台 | 確率質量関数 |
+|---|---|---|
+| Bernoulli$(p)$ | $0\leq p\leq1$; $k\in\{0,1\}$ | $P(X=0)=1-p$, $P(X=1)=p$ |
+| Bin$(n,p)$ | $n\in\mathbb N$, $0\leq p\leq1$; $k=0,\ldots,n$ | $P(X=k)=\binom nkp^kq^{n-k}$ |
+| Hypergeom$(N,K,n)$ | $N\in\mathbb N$, $K,n\in\{0,\ldots,N\}$; $\max(0,n-N+K)\leq k\leq\min(n,K)$ | $P(X=k)=\binom Kk\binom{N-K}{n-k}/\binom Nn$ |
+| Geom$(p)$ | $0<p\leq1$; $k=1,2,\ldots$ | $P(X=k)=q^{k-1}p$ |
+| NegBin$(r,p)$ | $r\in\mathbb N$, $0<p\leq1$; $k=r,r+1,\ldots$ | $P(X=k)=\binom{k-1}{r-1}p^rq^{k-r}$ |
+| Poisson$(\lambda)$ | $\lambda>0$; $k\in\mathbb N_0$ | $P(X=k)=e^{-\lambda}\lambda^k/k!$ |
+| Multinomial$(n;p_1,\ldots,p_m)$ | $m\geq2$, $n\in\mathbb N$, $p_i\geq0$, $\sum_i p_i=1$; $x_i\in\mathbb N_0$, $\sum_i x_i=n$ | $P(\boldsymbol X=\boldsymbol x)=n!\prod_i p_i^{x_i}/\prod_i x_i!$ |
+
 ## Level A
 
 ### P3-A01 二項確率
@@ -143,7 +157,7 @@ $\boldsymbol X\sim\operatorname{Multinomial}(n;p_1,p_2,p_3)$ とし、$p_1>0$, $
 1. 成功確率0.1の独立試行20回の成功数。
 2. 50個中成功10個から非復元で8個選ぶ成功数。
 3. 成功確率0.2で初成功までの回数。
-4. Poisson過程に従う到着の、平均3件となる区間内の発生件数。
+4. 長さ$t$の区間の発生件数がPoisson$(\lambda t)$に従うPoisson過程について、平均3件となる指定区間内の発生件数。
 5. 10回の独立試行を確率$(0.2,0.3,0.5)$の三分類へ分けた度数。
 
 ## Level D

@@ -16,7 +16,7 @@ Bernoulliでは $q+p=1$ です。二項分布でも二項定理から
 $$
 \sum_{k=0}^n\binom nkp^kq^{n-k}=(p+q)^n=1
 $$
-となり、PMFは正規化されています。
+となり、確率質量関数（probability mass function; PMF）は正規化されています。
 
 ## P3-DEF-02 超幾何分布
 

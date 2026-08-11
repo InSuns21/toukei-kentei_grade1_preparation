@@ -151,6 +151,22 @@
 - 件数: fatal 0 / major 2 / minor 0
 - 判定: 非承認
 
+## 独習入口・用語・分布式 横断改訂の修正後再査読
+
+- 担当ID: `/root/f0_exam_review`、再査読日時: 2026-08-11 11:07:22 +09:00
+- P1S-SELF-MAJ-01: 一部解消、残存。共通索引のBinに$0\leq p\leq1$、Cauchyに台$x\in\mathbb R$がない。
+- P1S-SELF-MAJ-02: 一部解消、残存。validatorは強化されたが上記欠落とP3-01遠隔参照を検出しない。
+- 本章本文の再査読では新規指摘なし。`npm run validate`成功。
+- 最終件数: fatal 0 / major 2 / minor 0。判定: 非承認
+
+### 第2回修正確認（2026-08-11 11:11:59 +09:00）
+
+- P1S-SELF-MAJ-01は解消。MAJ-02は共通索引の母数条件を行単位で検査せず、Bin/Lognormal/Logistic行の欠落を別行の文字列で見逃せるため残存。新規教材指摘なし。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+### 最終再査読（2026-08-11 11:17:00 +09:00）
+
+- P1S-SELF-MAJ-02は解消。共通索引16分布の行単位契約と章別検査を確認。本章全文・演習・ドリルに新規指摘なし。`npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。
+
 ## 過去問傾向対応改訂の修正後再査読
 
 - 担当ID: `/root/f0_exam_review`
@@ -162,3 +178,13 @@
 - `npm run validate`: 成功（structure成功、KaTeX strict 146、text 161）
 - 最終件数: fatal 0 / major 0 / minor 0
 - 判定: 承認
+
+## 独習入口・用語・分布式 横断改訂の初回査読
+
+- 担当ID: `/root/f0_exam_review`
+- 査読日時: 2026-08-11 10:54:28 +09:00
+- P1S-SELF-MAJ-01（横断 major）: `00_overview.md` が共通入口に指定する `references/distribution-notation-guide.md:21-41` に、超幾何の台、負の二項の $p$、多項分布の確率ベクトル条件、対数正規・Logisticの位置母数範囲等がない。Bernoulli端点では $0^0$ も生じ得る。全母数・台を補い、Bernoulliは二点表示にすること。
+- P1S-SELF-MAJ-02（横断 major）: `scripts/validate_structure.mjs:106-135` は禁止語と演習見出しの有無だけで、略語初出、式・台・母数、定理/ドリルの近接定義を検査しない。内容検査を追加すること。
+- 本章本文の有限標本空間からの導入、集合・確率語の順序、演習とドリルの自己完結性には新規指摘なし。Borel/Lebesgue等の前提語もない。
+- 初回件数: fatal 0 / major 2 / minor 0
+- 判定: 非承認

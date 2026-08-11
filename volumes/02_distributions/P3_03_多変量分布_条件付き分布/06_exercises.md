@@ -1,5 +1,14 @@
 # 問題集
 
+## 問題で使う分布の定義
+
+$p\in\mathbb N$、$\boldsymbol\mu\in\mathbb R^p$、$\boldsymbol\Sigma\in\mathbb R^{p\times p}$とする。$N_p(\boldsymbol\mu,\boldsymbol\Sigma)$は平均$\boldsymbol\mu$、共分散行列$\boldsymbol\Sigma$の$p$変量正規分布を表す。$\boldsymbol\Sigma$が正定値なら密度は
+$$
+f(\boldsymbol x)=\frac{\exp\{-\tfrac12(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\}}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}},
+\qquad \boldsymbol x\in\mathbb R^p.
+$$
+また$X\sim\operatorname{Unif}(-1,1)$では$f_X(x)=\tfrac12\boldsymbol{1}_{(-1,1)}(x)$である。特異な多変量正規分布は`02_definitions.md`の「全ての線形結合が一変量正規」という定義を使う。
+
 ## Level A：基礎部品
 
 ### P3M-A01 線形結合
@@ -184,7 +193,7 @@ $\boldsymbol X\sim N_p(\boldsymbol\mu,\Sigma)$、$\Sigma$は正定値とする�
 
 1. 任意の共分散行列は対称半正定値である。
 2. 二乗可積分な$X,Y$で$\operatorname{Cov}(X,Y)=0$なら独立である。
-3. jointly normalな$X,Y$で共分散0なら独立である。
+3. 結合分布が二変量正規である$X,Y$で共分散0なら独立である。
 4. 多変量正規の条件付き共分散は条件付けた観測値に依存する。
 5. 多変量正規の任意の部分ベクトルは多変量正規である。
 
@@ -201,6 +210,6 @@ P3M-THM-03の設定で、全共分散行列を正定値とする。
 
 1. $B=\Sigma_{12}\Sigma_{22}^{-1}$、$\boldsymbol R=\boldsymbol X_1-\boldsymbol\mu_1-B(\boldsymbol X_2-\boldsymbol\mu_2)$と置き、$\operatorname{Cov}(\boldsymbol R,\boldsymbol X_2)=0$を示せ。
 2. $\operatorname{Cov}(\boldsymbol R)$がSchur補$\Sigma_{1\mid2}$であることを示せ。
-3. $(\boldsymbol R,\boldsymbol X_2)$がjointly normalであることを示せ。
+3. $(\boldsymbol R,\boldsymbol X_2)$の結合分布が多変量正規であることを示せ。
 4. $\boldsymbol R$と$\boldsymbol X_2$の独立性を示せ。
 5. 以上から$\boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)$の分布を導け。

@@ -2,6 +2,18 @@
 
 各問題に `id`、`level`、`minutes`、`topics`、`techniques`、`calculation_load` を付ける。
 
+## 問題で使う分布の定義
+
+本章には前提章がないため、入力分布をここに示す。台の外では密度を0とする。
+$$
+\begin{aligned}
+X\sim\operatorname{Unif}(a,b),\ a<b&:\quad f_X(x)=\frac1{b-a}\boldsymbol{1}_{(a,b)}(x),\\
+X\sim\operatorname{Exp}(\lambda),\ \lambda>0&:\quad f_X(x)=\lambda e^{-\lambda x}\boldsymbol{1}_{(0,\infty)}(x),\\
+X\sim N(0,1)&:\quad f_X(x)=\frac1{\sqrt{2\pi}}e^{-x^2/2},\quad x\in\mathbb R.
+\end{aligned}
+$$
+独立な連続変数の同時密度は各密度の積である。期待値、分散、尤度、最尤推定量は`02_definitions.md`冒頭の最小定義を用いる。
+
 ## Level A：基礎部品
 
 ### F0-A01 端点での可積分性
@@ -85,7 +97,7 @@ $$
 - techniques: JAC-1
 - calculation_load: medium
 
-$X,Y$ は独立に $(0,1)$ 上の一様分布に従う。$U=X+Y$、$V=X-Y$ とする。$(U,V)$ の同時密度を、台を明記して求めよ。
+$X,Y$ は独立に $(0,1)$ 上の一様分布に従う。すなわち$f_X(x)=f_Y(x)=\boldsymbol{1}_{(0,1)}(x)$である。$U=X+Y$、$V=X-Y$ とする。$(U,V)$ の同時密度を、台を明記して求めよ。
 
 ### F0-B03 線形変換の共分散
 
@@ -117,7 +129,11 @@ $E[\boldsymbol{X}]=\boldsymbol{\mu}$、$\operatorname{Cov}(\boldsymbol{X})=\bold
 - techniques: CALC-1、ANSWER-1
 - calculation_load: medium
 
-$X_1,\ldots,X_n$ は独立に $[0,\theta]$ 上の一様分布に従う。ただし $\theta>0$、$n\geq2$ とする。密度は端点を含む指示関数 $\boldsymbol{1}_{[0,\theta]}$ を用いて定義する。
+$X_1,\ldots,X_n$ は独立に $[0,\theta]$ 上の一様分布に従う。ただし $\theta>0$、$n\geq2$ とし、各変数の密度は
+$$
+f_\theta(x)=\frac1\theta\boldsymbol{1}_{[0,\theta]}(x)
+$$
+とする。
 
 1. 尤度を書き、$\theta$ の最尤推定量を求めよ。
 2. $M=X_{(n)}=\max_iX_i$ の分布関数と密度を求めよ。
@@ -172,7 +188,12 @@ $$
 - techniques: JAC-1、ANSWER-1
 - calculation_load: high
 
-$X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$ は独立で、$\lambda,\mu>0$ とする。$U=X+Y$、$V=X/(X+Y)$ とおく。
+$X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$ は独立で、$\lambda,\mu>0$ とする。すなわち
+$$
+f_X(x)=\lambda e^{-\lambda x}\boldsymbol{1}_{(0,\infty)}(x),\qquad
+f_Y(y)=\mu e^{-\mu y}\boldsymbol{1}_{(0,\infty)}(y).
+$$
+$U=X+Y$、$V=X/(X+Y)$ とおく。
 
 1. $(U,V)$ の台を求めよ。
 2. $(U,V)$ の同時密度を求めよ。
@@ -189,7 +210,11 @@ $X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$ は独立で
 - techniques: JAC-1、逆像の枝
 - calculation_load: high
 
-$X\sim N(0,1)$ とし、$Y=X^2$ とする。
+$X\sim N(0,1)$、すなわち
+$$
+f_X(x)=\frac1{\sqrt{2\pi}}e^{-x^2/2},\qquad x\in\mathbb R,
+$$
+とし、$Y=X^2$ とする。
 
 1. $y>0$ に対する逆像を全て求めよ。
 2. 各逆像の寄与を足して $Y$ の密度を導け。

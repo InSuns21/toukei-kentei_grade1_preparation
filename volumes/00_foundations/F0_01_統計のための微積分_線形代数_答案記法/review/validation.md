@@ -48,3 +48,32 @@
 - 独立数理査読担当: `/root/f0_math_review`。横断初回 fatal 0 / major 2 / minor 6。数理前提、台外枝、索引逆参照、全面改稿ドリルを修正し、同担当の全文再査読で fatal 0 / major 0 / minor 0。
 - 試験適合性査読担当: `/root/f0_exam_review`。横断初回 fatal 0 / major 4 / minor 5。証拠メタデータ、単一設定の技能連鎖、時間判断、入手先表記を修正し、同担当の全文再査読で fatal 0 / major 0 / minor 0。
 - [x] メイン担当の最終 `npm run validate` が成功（KaTeX strict 146 Markdown、text 161 files）
+
+## 独習入口・用語・分布式 横断改訂の試験適合性査読（2026-08-11）
+
+- 担当ID: `/root/f0_exam_review`、実行日時: 2026-08-11 10:54:28 +09:00。
+- 初回指摘: F0-SELF-MAJ-01（共通分布索引の母数・台不足）、F0-SELF-MAJ-02（validatorが内容を検査せず偽陰性）、F0-SELF-MIN-01（Jacobianの日本語導入前使用）。fatal 0 / major 2 / minor 1、非承認。
+- `npm run validate`: 成功（structure成功、KaTeX strict 147 Markdown成功、text 162ファイル成功）。成功は上記の意味検査欠落を解消しない。
+
+### 修正後再査読（2026-08-11 11:07:22 +09:00）
+
+- F0-SELF-MIN-01は解消。MAJ-01はBinの$p$範囲とCauchyの台が共通索引に残り、MAJ-02はその欠落とP3-01遠隔参照をvalidatorが見逃すため残存。
+- `npm run validate`成功。最終 fatal 0 / major 2 / minor 0、非承認。
+
+- 第2回修正確認（2026-08-11 11:11:59 +09:00）: 共通索引本文は解消。行非限定のvalidator偽陰性のみ残存。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+- 最終再査読（2026-08-11 11:17:00 +09:00）: 16分布の行単位検査を確認。新規指摘なし。`npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。
+
+## 独習入口・用語・分布式横断改訂（初回独立数理査読）
+
+- 担当ID: `/root/f0_math_review`、実行日時: 2026-08-11T10:54:59+09:00。
+- 指摘: ENTRY-MATH-F0-001〜003。尤度積の独立同分布仮定、期待値の絶対可積分性、分布表の母数範囲が不足。
+- `npm run validate`: 成功（KaTeX strict 147 Markdown、text 162ファイル）。validatorの名前付き分布検出・内容検査には横断残件あり。
+- 初回件数: `fatal: 0 / major: 1 / minor: 2`。**未承認**。
+
+### 修正後独立数理再査読
+
+- 担当ID `/root/f0_math_review`、2026-08-11T11:06:42+09:00。ENTRY-MATH-F0-001〜003を解消し、全文再査読で新規指摘なし。
+- `npm run validate` 成功（KaTeX strict 147 Markdown、text 162ファイル）。最終 `fatal: 0 / major: 0 / minor: 0`。**承認**。
+
+- 2026-08-11T11:16:39+09:00 `/root/f0_math_review`: validator行単位契約強化後も `npm run validate` 成功。最終 `fatal: 0 / major: 0 / minor: 0`、承認維持。

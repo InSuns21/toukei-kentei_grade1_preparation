@@ -262,6 +262,27 @@ Level構成は A 3 / B 3 / C 5 / D 1、比率は25% / 25% / 41.7% / 8.3%で、�
 - 件数: fatal 0 / major 1 / minor 1
 - 判定: 非承認
 
+## 独習入口・用語・分布式 横断改訂の修正後再査読
+
+- 担当ID: `/root/f0_exam_review`、再査読日時: 2026-08-11 11:07:22 +09:00
+- P3D-SELF-MIN-01: 解消。C05は長さ$t$の件数がPoisson$(\lambda t)$に従うことを問題内で説明する。
+- P3D-SELF-MAJ-01: 一部解消、残存。共通索引のBinに$0\leq p\leq1$、Cauchyに台$x\in\mathbb R$がない。
+- P3D-SELF-MAJ-03: 一部解消、残存。`03_theorems.md`の母数・台・PMFと`06_exercises.md`の掲載4分布は完全化されたが、Hypergeom/NegBinは演習前置きにもB01/B02直前にも式がなく、依然`02_definitions.md`への遠隔参照である。
+- P3D-SELF-MAJ-02: 一部解消、残存。validatorのP3-01契約はHypergeom/NegBinの近接式を要求せず、共通索引の二欠落も検出しない。
+- 新規指摘なし。`npm run validate`成功。
+- 最終件数: fatal 0 / major 3 / minor 0。判定: 非承認
+
+### 第2回修正確認（2026-08-11 11:11:59 +09:00）
+
+- P3D-SELF-MAJ-01とMAJ-03は解消。`06_exercises.md`はBernoulli/Hypergeom/NegBinを含む7分布の完全表を持ち、遠隔参照を削除した。
+- P3D-SELF-MAJ-02は、共通索引の母数条件を行単位で検査せず別行の同一文字列で欠落を見逃せるため残存。P3-01固有契約の追加自体は確認した。
+- 新規教材指摘なし。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+### 最終再査読（2026-08-11 11:17:00 +09:00）
+
+- P3D-SELF-MAJ-02は解消。共通索引16分布とP3-01演習の離散分布を行単位で母数・台・式まで検査する。章全文・全13問・答案・30分ドリルを再確認し新規指摘なし。
+- `npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。
+
 ## 過去問傾向対応改訂の修正後再査読
 
 - 担当ID: `/root/f0_exam_review`
@@ -273,3 +294,14 @@ Level構成は A 3 / B 3 / C 5 / D 1、比率は25% / 25% / 41.7% / 8.3%で、�
 - `npm run validate`: 成功（structure成功、KaTeX strict 146、text 161）
 - 最終件数: fatal 0 / major 0 / minor 0
 - 判定: 承認
+
+## 独習入口・用語・分布式 横断改訂の初回査読
+
+- 担当ID: `/root/f0_exam_review`
+- 査読日時: 2026-08-11 10:54:28 +09:00
+- P3D-SELF-MAJ-01（横断 major）: `references/distribution-notation-guide.md:21-27` は超幾何の正確な $k$ の台、負の二項の $p$、多項分布の $n,m,p_i$ 条件を欠き、Bernoulli端点で $0^0$ が生じ得る。全母数・台を補いBernoulliは二点表示にすること。
+- P3D-SELF-MAJ-02（横断 major）: `scripts/validate_structure.mjs:106-135` は演習見出しの存在しか確認せず、以下の母数条件欠落や定理・ドリルを検出しない。式・台・母数と初出展開の意味検査を追加すること。
+- P3D-SELF-MAJ-03（major）: `03_theorems.md:3-23` と `06_exercises.md:3-14` の再掲はPMFの母数条件を欠く。さらに超幾何・負の二項は「`02_definitions.md`を参照」とし、同一節または問題直前への近接掲載という規則を満たさない。各再掲表に完全な母数条件・台・PMFを置くこと。
+- P3D-SELF-MIN-01（minor）: `06_exercises.md:159` の「Poisson過程」は章内の演習問題として初出だが定義がなく、同じ章のドリルでのみ後から定義される。C05直前に「指定区間の件数が平均を母数とするPoisson分布」となる定義を一文で与えること。
+- 初回件数: fatal 0 / major 3 / minor 1
+- 判定: 非承認

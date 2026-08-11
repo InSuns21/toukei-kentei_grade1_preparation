@@ -1,5 +1,27 @@
 # 定義と記法
 
+## この章で先取りする確率・推定の最小定義
+
+本章には前提章がないため、演習に必要な用語をここで定義します。連続確率変数の確率密度関数（probability density function; PDF）$f_X$は非負で全体積分が1となる関数で、
+$$
+P(a<X\leq b)=\int_a^bf_X(x)\,dx
+$$
+により区間確率を与えます。累積分布関数（cumulative distribution function; CDF）は$F_X(x)=P(X\leq x)$です。
+
+$E[|X|]=\int|x|f_X(x)dx<\infty$なら
+$$
+E[X]=\int xf_X(x)\,dx,
+\qquad
+\operatorname{Var}(X)=E[(X-E[X])^2]
+$$
+を期待値と分散と呼びます。$X_1,\ldots,X_n$が独立同分布とは、各変数が同じ分布をもち、同時確率または同時密度が各分布の積へ分解することです。
+
+$X_1,\ldots,X_n$が独立同分布で、各変数が母数$\theta$をもつ密度$f_\theta$に従うとします。観測値$x_1,\ldots,x_n$に対し、母数$\theta$の関数
+$$
+L(\theta;x_1,\ldots,x_n)=\prod_{i=1}^nf_\theta(x_i)
+$$
+を尤度と呼びます。これをパラメータ範囲内で最大にする統計量を最尤推定量（maximum likelihood estimator; MLE）と呼びます。推定量$T$が$E[T]=\theta$を満たすとき、$T$は$\theta$の不偏推定量です。これらは後続章で体系的に学び、本章では微積分と行列計算の入力として使います。
+
 ## F0-DEF-01 台
 
 確率変数 $X$ の確率質量関数または確率密度関数を $f_X$ とします。この章では、
@@ -44,7 +66,7 @@ $$
 
 と定義します。正の部分と負の部分がともに無限大になる積分を、対称性によって相殺してはいけません。
 
-## F0-DEF-02 勾配とHessian
+## F0-DEF-02 勾配とヘッセ行列
 
 $g:\mathbb{R}^p\to\mathbb{R}$ が各変数について偏微分可能であるとき、勾配を列ベクトル
 
@@ -57,7 +79,7 @@ $$
 \end{pmatrix}
 $$
 
-と定めます。二階偏微分が存在するとき、Hessianを
+と定めます。二階偏微分が存在するとき、ヘッセ行列（Hessian）を
 
 $$
 \nabla^2 g(\boldsymbol{x})=
@@ -70,7 +92,7 @@ $$
 
 $g$ が点 $\boldsymbol{x}_0$ の近傍で二階連続微分可能で、$\nabla g(\boldsymbol{x}_0)=\boldsymbol{0}$ であるとします。このとき $\nabla^2g(\boldsymbol{x}_0)$ が負定値なら $\boldsymbol{x}_0$ は狭義局所最大点、正定値なら狭義局所最小点です。Hessianの符号だけでは不十分です。たとえば $g(x)=x-x^2$ は $g''(0)<0$ ですが $g'(0)\neq0$ なので、0は局所最大点ではありません。
 
-## F0-DEF-03 Jacobian
+## F0-DEF-03 ヤコビ行列とヤコビアン
 
 写像 $T:\mathbb{R}^p\to\mathbb{R}^p$ を
 
@@ -83,7 +105,7 @@ T_p(\boldsymbol{x})
 \end{pmatrix}
 $$
 
-とします。$T$ のJacobian行列は
+とします。$T$のヤコビ行列（Jacobian matrix）は
 
 $$
 D T(\boldsymbol{x})=
@@ -92,15 +114,15 @@ D T(\boldsymbol{x})=
 \right)_{1\leq i,j\leq p}
 $$
 
-です。その行列式 $\det D T(\boldsymbol{x})$ をJacobian determinantと呼びます。
+です。その行列式$\det D T(\boldsymbol{x})$をヤコビアン（ヤコビ行列式）と呼びます。
 
-確率密度の変換では、通常は逆変換 $\boldsymbol{x}=T^{-1}(\boldsymbol{y})$ のJacobianの絶対値
+確率密度の変換では、通常は逆変換$\boldsymbol{x}=T^{-1}(\boldsymbol{y})$のヤコビアンの絶対値
 
 $$
 \left|\det D T^{-1}(\boldsymbol{y})\right|
 $$
 
-を使います。絶対値を落とすこと、順変換と逆変換のJacobianを混同することが典型的な誤りです。
+を使います。絶対値を落とすこと、順変換と逆変換のヤコビアンを混同することが典型的な誤りです。
 
 ## ベクトルと行列の次元
 

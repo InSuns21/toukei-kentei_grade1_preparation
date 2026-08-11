@@ -1,5 +1,9 @@
 # 問題集
 
+## 問題で使う分布の定義
+
+離散型では確率質量関数（probability mass function; PMF）$p_X(x)=P(X=x)$、連続型では確率密度関数（probability density function; PDF）$f_X$、両者に共通して累積分布関数（cumulative distribution function; CDF）$F_X(x)=P(X\leq x)$を使う。値$x$は実数$x\in\mathbb R$とし、各問題で$p_X$、$f_X$または$F_X$を式として与えるので、その台の外では確率または密度を0とする。
+
 ## Level A：基礎部品
 
 ### P2-A01 離散分布の正規化

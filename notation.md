@@ -13,7 +13,9 @@
 
 ## 分布と標本
 
-- 確率質量関数は $p_X(x)$、確率密度関数は $f_X(x)$、累積分布関数は $F_X(x)$ とする。
+- 確率質量関数（probability mass function; PMF）は $p_X(x)$、確率密度関数（probability density function; PDF）は $f_X(x)$、累積分布関数（cumulative distribution function; CDF）は $F_X(x)$ とする。略語だけで説明を始めない。
+- 確率母関数（probability generating function; PGF）は $G_X(s)=E[s^X]$、モーメント母関数（moment generating function; MGF）は $M_X(t)=E[e^{tX}]$ とする。
+- 分布の台・母数・確率関数または密度は、初出箇所と問題集の冒頭に示す。共通一覧は `references/distribution-notation-guide.md` とする。
 - 独立同分布標本は $X_1,\ldots,X_n \overset{\mathrm{i.i.d.}}{\sim} P_\theta$ とする。
 - 観測値は小文字 $x_1,\ldots,x_n$、確率変数は大文字で区別する。
 - 標本平均は $\overline{X}=n^{-1}\sum_{i=1}^n X_i$、不偏標本分散は $S^2=(n-1)^{-1}\sum_{i=1}^n(X_i-\overline{X})^2$ とする。
@@ -41,4 +43,4 @@
 - 自然数は $\mathbb{N}=\{1,2,\ldots\}$、非負整数は $\mathbb{N}_0$ とする。
 - 定義としての等号は必要に応じて $\coloneqq$ を使う。
 - 同じ章内で記号の意味を変更しない。教科書・過去問と規約が異なる場合は対応を明記する。
-
+- Borel集合、Lebesgue測度、ほとんど至る所などの測度論用語を本文の前提にしない。必要な厳密性は「区間・長方形」「面積0の例外を除く」など、通常の和と積分で説明する。

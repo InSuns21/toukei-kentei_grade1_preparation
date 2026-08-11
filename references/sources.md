@@ -8,6 +8,7 @@
 - [統計検定公式過去問題](https://www.toukei-kentei.jp/preparation/kakomon/): 公開中の直近問題・略解の正本。
 - [統計検定公式問題集](https://www.toukei-kentei.jp/preparation/books/): 過年度の問題文・詳細解説の正規の入手先。
 - `past-exam-trends.md` と `past-exam-index.yaml`: 過去問構造の分析と章別対応。
+- `distribution-notation-guide.md`: 分布の台・母数・確率質量関数・確率密度関数と略語導入の正本。
 
 ## 過去問テーマ索引・別解確認
 

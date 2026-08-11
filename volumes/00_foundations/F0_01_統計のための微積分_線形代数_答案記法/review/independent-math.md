@@ -188,6 +188,47 @@ MATH-009、010 が残るため、本章を `reviewed` としてはならない�
 - 最終件数: `fatal: 0 / major: 0 / minor: 0`
 - 判定: **承認**。
 
+## 独習入口・用語・分布式横断改訂の初回独立数理査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:54:59+09:00
+- 対象: 章全文、全13演習・詳細解答・本番答案・F0-DRILL-01、共通分布ガイド、notation/style、validator。既承認部分も含めて再計算した。
+
+### ENTRY-MATH-F0-001 — major
+
+- 場所: `02_definitions.md`「この章で先取りする確率・推定の最小定義」尤度式。
+- 根拠: 観測値を与えただけで $L(\theta)=\prod_i f_\theta(x_i)$ としている。この積形は、$X_1,\ldots,X_n$ が独立で、各変数が共通密度 $f_\theta$ をもつ場合に限る。依存標本なら同時密度を使うため、現記述は一般の尤度定義として偽である。
+- 修正案: 「$X_1,\ldots,X_n$ が独立同分布で各密度が $f_\theta$」を式の直前に明記し、一般には同時密度を観測値で評価することを補足する。
+
+### ENTRY-MATH-F0-002 — minor
+
+- 場所: `02_definitions.md` 同節の期待値。
+- 根拠: 「積分が有限なら」は条件収束する広義積分も含むように読める。直後のF0-DEF-01では $\int|x|f_X(x)dx<\infty$ を要求しており、入口定義と不整合である。
+- 修正案: $E[|X|]<\infty$、すなわち $\int|x|f_X(x)dx<\infty$ のとき、と入口でも明記する。
+
+### ENTRY-MATH-F0-003 — minor
+
+- 場所: `06_exercises.md`「問題で使う分布の定義」。
+- 根拠: UnifとExpの式に母数条件 $a<b$、$\lambda>0$ がない。問題集冒頭で台・母数・密度を揃える契約を満たさない。
+- 修正案: 各式に母数範囲を併記する。
+
+- 横断validator指摘: `scripts/validate_structure.mjs` の名前付き分布検出は $N,N_p$、Bernoulli、Hypergeom、NegBin、Multinomial等を拾わず、見出しの存在しか確認しないため、母数・台・式が欠けても成功する。対象分布の網羅と、少なくとも母数・台・式の各要素の検査が必要である。
+- 機械検証: `npm run validate` 成功（structure、KaTeX strict 147 Markdown、text 162ファイル）。成功は上記意味検証を含まない。
+- 初回件数: `fatal: 0 / major: 1 / minor: 2`
+- 判定: **未承認**。
+
+## 独習入口・用語・分布式横断改訂の修正後全文再査読
+
+- 担当ID: `/root/f0_math_review`、再査読日時: 2026-08-11T11:06:42+09:00。
+- ENTRY-MATH-F0-001: **解消**。独立同分布標本で各密度が$f_\theta$である仮定が尤度積の直前に明記された。
+- ENTRY-MATH-F0-002: **解消**。$E[|X|]=\int|x|f_X(x)dx<\infty$を入口でも要求し、後続の絶対可積分性定義と一致した。
+- ENTRY-MATH-F0-003: **解消**。Unifの$a<b$、Expの$\lambda>0$が問題集冒頭表へ追加された。
+- 全13演習・答案・ドリルを再確認し、新規指摘なし。最終件数: `fatal: 0 / major: 0 / minor: 0`。**承認**。
+
+### validator行単位契約強化後の影響確認
+
+- 担当ID `/root/f0_math_review`、2026-08-11T11:16:39+09:00。共通索引・分布表を行単位で検査する変更はF0の数理内容を変えない。F0固有のUnif/Exp母数・密度契約も成功し、新規指摘なし。最終 `fatal: 0 / major: 0 / minor: 0`、承認維持。
+
 ## 過去問傾向対応改訂の修正後再査読
 
 - 担当ID: `/root/f0_math_review`

@@ -9,6 +9,15 @@ MATH-2021-Q5とMATH-2018-Q4の「線形変換、条件付き正規、独立性�
 
 ## P3M-DRILL-01 問題
 
+$N_2(\boldsymbol\mu,\boldsymbol\Sigma)$は、平均$\boldsymbol\mu\in\mathbb R^2$、正定値な共分散行列$\boldsymbol\Sigma$をもつ二変量正規分布を表す。その密度は
+$$
+f(\boldsymbol z)=\frac{1}{2\pi|\boldsymbol\Sigma|^{1/2}}
+\exp\left[-\frac12(\boldsymbol z-\boldsymbol\mu)^{\mathsf T}
+\boldsymbol\Sigma^{-1}(\boldsymbol z-\boldsymbol\mu)\right],
+\qquad \boldsymbol z\in\mathbb R^2.
+$$
+以下の共分散行列は、第1主座小行列式が4、第2主座小行列式が$4\cdot9-2^2=32$でともに正なので正定値である。
+
 $$
 \begin{pmatrix}X\\Y\end{pmatrix}
 \sim N_2\left(
@@ -21,7 +30,13 @@ $$
 2. $W=Y-X$の分布を求めよ。（20点）
 3. $Y\mid(X=3)$の分布を求めよ。（25点）
 4. $P(Y>3\mid X=3)$を求めよ。（15点）
-5. Mahalanobis二次形式$Q$の分布を示し、観測値$(x,y)=(3,3)$での値を求めよ。（25点）
+5. Mahalanobis二次形式
+$$
+Q=\{(X,Y)^{\mathsf T}-\boldsymbol\mu\}^{\mathsf T}
+\boldsymbol\Sigma^{-1}
+\{(X,Y)^{\mathsf T}-\boldsymbol\mu\}
+$$
+の分布を示し、観測値$(x,y)=(3,3)$での値を求めよ。（25点）
 
 ## 詳細解答
 

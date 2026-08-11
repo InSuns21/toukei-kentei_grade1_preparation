@@ -142,6 +142,30 @@ Level構成は A 4 / B 4 / C 4 / D 1、比率は約31% / 31% / 31% / 8%である
 - 件数: fatal 0 / major 2 / minor 1
 - 判定: 非承認
 
+### 第2回修正確認（2026-08-11 11:11:59 +09:00）
+
+- F0-SELF-MAJ-01は解消。共通索引のBin母数とCauchy台を確認した。
+- F0-SELF-MAJ-02は残存。`validateDistributionGuide`の`0\\leq p\\leq1`と`\\mu\\in\\mathbb R`は表全体の単純包含なので、Bin行やLognormal/Logistic行から条件を削除しても別行の同じ文字列で合格する。対象行単位の契約にすること。
+- 新規教材指摘なし。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+### 最終再査読（2026-08-11 11:17:00 +09:00）
+
+- F0-SELF-MAJ-02: 解消。共通索引の離散7・連続9分布を行単位で母数・台・第3列の式まで検査し、章別03/06/08契約も維持される。F0の入口・全演習・答案・ドリルへの影響を全文再確認し、新規指摘なし。
+- `npm run validate`: 成功（structure、KaTeX strict 147 Markdown、text 162ファイル）。
+- 最終件数: fatal 0 / major 0 / minor 0。判定: 承認
+
+## 独習入口・用語・分布式 横断改訂の修正後再査読
+
+- 担当ID: `/root/f0_exam_review`
+- 再査読日時: 2026-08-11 11:07:22 +09:00
+- F0-SELF-MIN-01: 解消。`00_overview.md`の初出は「ヤコビアン（ヤコビ行列式）」となり、`01_motivation.md`も日本語表記へ統一された。
+- F0-SELF-MAJ-01: 一部解消、残存。Bernoulli端点、超幾何、負の二項、多項、対数正規・Logisticは補完されたが、共通索引の Bin$(n,p)$ 行に $0\leq p\leq1$、Cauchy行に台 $x\in\mathbb R$ がない。
+- F0-SELF-MAJ-02: 一部解消、残存。略語・章別契約の検査は大幅に強化されたが、`validateDistributionGuide` は上記二欠落を必須要素に含めず、P3-01の遠隔参照も検出しないため、意味検査の偽陰性が残る。
+- 新規指摘: なし。
+- `npm run validate`: 成功（structure、KaTeX strict 147 Markdown、text 162ファイル）。
+- 最終件数: fatal 0 / major 2 / minor 0
+- 判定: 非承認
+
 ## 過去問傾向対応改訂の修正後再査読
 
 - 担当ID: `/root/f0_exam_review`
@@ -154,3 +178,13 @@ Level構成は A 4 / B 4 / C 4 / D 1、比率は約31% / 31% / 31% / 8%である
 - `npm run validate`: 成功（structure成功、KaTeX strict 146 Markdown成功、text 161ファイル成功）
 - 最終件数: fatal 0 / major 0 / minor 0
 - 判定: 承認
+
+## 独習入口・用語・分布式 横断改訂の初回査読
+
+- 担当ID: `/root/f0_exam_review`
+- 査読日時: 2026-08-11 10:54:28 +09:00
+- F0-SELF-MAJ-01（横断 major）: `references/distribution-notation-guide.md:21-41` の「母数と台」欄は、超幾何分布の $k$ の台、負の二項分布の $p$ の範囲、多項分布の $n,m,p_i$ の条件、対数正規・Logistic分布の位置母数の範囲などを欠く。Bernoulliの $p=0,1$ では $p^kq^{1-k}$ が $0^0$ を含み得る。全章が共通入口として案内する索引なので、初学者が台・母数を答案に復元できず、厳密性を損なう。各行へ全母数条件と正確な台を補い、Bernoulliは二点の確率を列挙すること。
+- F0-SELF-MAJ-02（横断 major）: `scripts/validate_structure.mjs:106-135` は高度語の字面と `06_exercises.md` の見出しの存在だけを検査する。表が空でも通り、母数条件・台・式、略語の初出、`03_theorems.md`・`08_exam_drill.md` の近接定義を検査しないため、今回の実在する欠落を全て見逃して `npm run validate` が成功した。最低限、対象語を定理・演習・ドリルで走査し、同一節/問題前置きの台・母数・PMF/PDF/CDFと初出展開を検証すること。
+- F0-SELF-MIN-01（minor）: `00_overview.md:17,26,48` と `01_motivation.md:62` で `Jacobian` が先に現れ、日本語の「ヤコビ行列（Jacobian matrix）」「ヤコビアン」は `02_definitions.md:95-120` まで出ない。前提章なしの入口では最初から「ヤコビアン（ヤコビ行列式）」と書くこと。
+- 初回件数: fatal 0 / major 2 / minor 1
+- 判定: 非承認

@@ -1,5 +1,17 @@
 # 問題集
 
+## 問題で使う分布の定義
+
+台の外では密度を0とする。
+$$
+\begin{aligned}
+X\sim\operatorname{Unif}(a,b),\ a<b&:\quad f_X(x)=\frac1{b-a}\boldsymbol{1}_{(a,b)}(x),\\
+X\sim\operatorname{Exp}(\lambda),\ \lambda>0&:\quad f_X(x)=\lambda e^{-\lambda x}\boldsymbol{1}_{(0,\infty)}(x),\\
+X\sim N(0,1)&:\quad f_X(x)=\frac1{\sqrt{2\pi}}e^{-x^2/2},\quad x\in\mathbb R.
+\end{aligned}
+$$
+Beta$(a,b)$分布（$a,b>0$）を同定するときは、$0<z<1$で$f(z)=z^{a-1}(1-z)^{b-1}/B(a,b)$となることを用いる。累積分布関数（cumulative distribution function; CDF）は$F_X(x)=P(X\leq x)$、モーメント母関数（moment generating function; MGF）は$M_X(t)=E[e^{tX}]$である。
+
 ## Level A：基礎部品
 
 ### P4-A01 平方変換
@@ -18,7 +30,7 @@ $X\sim\operatorname{Unif}(-1,1)$、$Y=X^2$とする。$Y$の台、CDF、密度�
 - techniques: PREIMAGE-1
 - calculation_load: low
 
-$X\sim\operatorname{Exp}(\lambda)$、$Y=2X$とする。$Y$の密度と分布名・パラメータを求めよ。
+$\lambda>0$とし、$X\sim\operatorname{Exp}(\lambda)$、$Y=2X$とする。$Y$の密度と分布名・パラメータを求めよ。
 
 ### P4-A03 一様標本の最大値
 - level: A
@@ -56,7 +68,7 @@ $X_1,\ldots,X_5$を独立なUnif$(0,1)$とする。$X_{(2)}$の分布、平均�
 - techniques: RATIO-1
 - calculation_load: medium
 
-独立な$X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$について$R=X/Y$の台、密度、CDFを求めよ。
+$\lambda,\mu>0$とし、独立な$X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$について$R=X/Y$の台、密度、CDFを求めよ。
 
 ### P4-B03 極座標変換
 - level: B
@@ -100,7 +112,7 @@ $X\sim N(0,1)$、$Y=X^2$とする。
 - techniques: JACOBIAN-1, SUPPORT-MAP-1
 - calculation_load: high
 
-独立な$X,Y\sim\operatorname{Exp}(\lambda)$とし
+$\lambda>0$とし、独立な$X,Y\sim\operatorname{Exp}(\lambda)$とする。
 $$
 S=X+Y,\qquad U=\frac{X}{X+Y}
 $$
@@ -108,7 +120,7 @@ $$
 
 1. 逆変換を求めよ。
 2. 変換後の台を求めよ。
-3. 絶対Jacobianを求めよ。
+3. 逆変換のヤコビアンの絶対値を求めよ。
 4. $(S,U)$の同時密度と各周辺分布を求めよ。
 5. $S,U$の独立性を示せ。
 
@@ -119,7 +131,7 @@ $$
 - techniques: ORDER-1
 - calculation_load: high
 
-連続CDF$F$、密度$f$からの独立同分布標本$X_1,\ldots,X_n$を考える。
+$n\in\mathbb N$、$1\leq k\leq n$とし、連続な累積分布関数$F$と密度$f$からの独立同分布標本$X_1,\ldots,X_n$を考える。
 
 1. $X_{(k)}\in(x,x+dx)$となる標本配置を分類せよ。
 2. $X_{(k)}$の密度を導け。
@@ -134,7 +146,7 @@ $$
 - techniques: EXTREME-1
 - calculation_load: medium
 
-$X_1,\ldots,X_n$を独立なExp$(\lambda)$とし、$U=X_{(1)}$, $V=X_{(n)}$とする。
+$n\in\mathbb N$、$\lambda>0$とし、$X_1,\ldots,X_n$を独立なExp$(\lambda)$とする。$U=X_{(1)}$, $V=X_{(n)}$とする。
 
 1. $U$の生存関数と分布を求めよ。
 2. $E[U]$を求めよ。

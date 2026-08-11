@@ -9,7 +9,13 @@ MATH-2023-Q1とMATH-2022-Q3の「Poissonモデル、条件付き分布、モー�
 
 ## P3-DRILL-01 問題
 
-到着は1時間当たり未知の率$\lambda>0$の斉時Poisson過程に従い、各到着は独立に確率$q=1/4$で緊急、$3/4$で通常へ分類される。2時間の総件数を$N$、緊急件数を$U$、通常件数を$V$とする。
+到着は1時間当たり未知の率$\lambda>0$の斉時Poisson過程に従う。すなわち、長さ$t$の区間の到着数$N(t)$は
+$$
+P\{N(t)=k\}=e^{-\lambda t}\frac{(\lambda t)^k}{k!},\qquad k=0,1,2,\ldots,
+$$
+に従い、重ならない時間区間の到着数は独立である。各到着は、他の到着と独立に確率$q=1/4$で緊急、$3/4$で通常へ分類される。2時間の総件数を$N$、緊急件数を$U$、通常件数を$V$とする。この独立分類によって種類別件数を作る操作を間引き（thinning）という。
+
+推定量$T$が$E[T]=\lambda$を満たすとき$\lambda$の不偏推定量という。また、任意の$\varepsilon>0$について$P(|T_m-\lambda|\geq\varepsilon)\to0$となることを、$T_m$が$\lambda$へ確率収束するという。
 
 任意の有限分散な確率変数$T$と$\varepsilon>0$に対するChebyshev不等式
 $$
@@ -37,7 +43,7 @@ U\mid(N=3)\sim\operatorname{Bin}(3,1/4),\qquad
 P(U=1\mid N=3)=\binom31\frac14\left(\frac34\right)^2=\frac{27}{64}.
 $$
 
-Poisson thinningにより
+Poisson過程の独立な間引きにより
 $$
 U\sim\operatorname{Poisson}(\lambda/2),\qquad
 V\sim\operatorname{Poisson}(3\lambda/2).

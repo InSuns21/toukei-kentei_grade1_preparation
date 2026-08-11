@@ -119,6 +119,35 @@
 - minor: 0
 - 判定: 承認
 
+## 独習入口・用語・分布式 横断改訂の初回査読
+
+- 担当ID: `/root/f0_exam_review`
+- 査読日時: 2026-08-11 10:54:28 +09:00
+- P3C-SELF-MAJ-01（横断 major）: `references/distribution-notation-guide.md:39-41` は対数正規・Logisticの $mu\in\mathbb R$ を欠き、離散表にも複数の母数・台欠落がある。全分布の母数と台を完全化すること。
+- P3C-SELF-MAJ-02（横断 major）: `scripts/validate_structure.mjs:106-135` は見出し存在のみで、式・台・母数、略語初出、定理/ドリルの近接掲載を検査しない。内容検査を追加すること。
+- P3C-SELF-MAJ-03（major）: `03_theorems.md:3-17` と `06_exercises.md:3-17` は「台・母数・密度の再掲」と案内しながら、$a<b$、$\sigma>0$、$\lambda>0$、$\alpha,\beta>0$、$\gamma>0$、$c,\eta>0$、$s>0$ 等の母数条件を再掲していない。初学者が式の有効範囲を補完する必要があり、答案の厳密性を落とす。表を「母数と台」欄へ改め全条件を列挙すること。
+- Borel/Lebesgue/Tonelli等の前提語はなく、反復積分・通常の積分へ平易化されている。ドリルはWeibullの生存関数と推定語を問題文で与え、自己完結性を保つ。
+- 初回件数: fatal 0 / major 3 / minor 0
+- 判定: 非承認
+
+## 独習入口・用語・分布式 横断改訂の修正後再査読
+
+- 担当ID: `/root/f0_exam_review`、再査読日時: 2026-08-11 11:07:22 +09:00
+- P3C-SELF-MAJ-03: 解消。`03_theorems.md`と`06_exercises.md`は9分布の全母数条件・台・密度/CDFを近接掲載する。
+- P3C-SELF-MAJ-01: 一部解消、残存。共通索引のBinに$0\leq p\leq1$、Cauchyに台$x\in\mathbb R$がない。
+- P3C-SELF-MAJ-02: 一部解消、残存。P3C章契約は強化されたが共通索引二欠落とP3-01遠隔参照を検出しない。
+- 全14問・答案・ドリルへの追加表の影響を再確認し新規指摘なし。`npm run validate`成功。
+- 最終件数: fatal 0 / major 2 / minor 0。判定: 非承認
+
+### 第2回修正確認（2026-08-11 11:11:59 +09:00）
+
+- P3C-SELF-MAJ-01は解消。MAJ-02は共通索引の$\mu$等を行単位で検査せず、Normal行の文字列でLognormal/Logistic行の欠落を見逃せるため残存。新規教材指摘なし。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+### 最終再査読（2026-08-11 11:17:00 +09:00）
+
+- P3C-SELF-MAJ-02は解消。共通索引16分布とP3Cの03/06全9分布を行単位で母数・台・式まで検査する。章全文・全14問・答案・ドリルを再確認し新規指摘なし。
+- `npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。
+
 ## P3C-MATH-005対応後の最終影響確認
 
 - 担当ID: `/root/f0_exam_review`

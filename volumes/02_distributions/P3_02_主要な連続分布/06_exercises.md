@@ -1,5 +1,21 @@
 # 問題集
 
+## 問題で使う分布の定義
+
+台の外では密度を0とする。正規分布の第2引数は分散、Gamma分布は形状・率、Weibull分布は形状・尺度である。累積分布関数（cumulative distribution function; CDF）は$F_X(x)=P(X\leq x)$、モーメント母関数（moment generating function; MGF）は$M_X(t)=E[e^{tX}]$である。
+
+| 分布 | 母数と台 | 確率密度関数または累積分布関数 |
+|---|---|---|
+| Unif$(a,b)$ | $a<b$; $a<x<b$ | $f(x)=1/(b-a)$ |
+| $N(\mu,\sigma^2)$ | $\mu\in\mathbb R$, $\sigma>0$; $x\in\mathbb R$ | $f(x)=e^{-(x-\mu)^2/(2\sigma^2)}/(\sqrt{2\pi}\sigma)$ |
+| Exp$(\lambda)$ | $\lambda>0$; $x>0$ | $f(x)=\lambda e^{-\lambda x}$ |
+| Gamma$(\alpha,\beta)$ | $\alpha,\beta>0$; $x>0$ | $f(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ |
+| Beta$(\alpha,\beta)$ | $\alpha,\beta>0$; $0<x<1$ | $f(x)=x^{\alpha-1}(1-x)^{\beta-1}/B(\alpha,\beta)$ |
+| Cauchy$(x_0,\gamma)$ | $x_0\in\mathbb R$, $\gamma>0$; $x\in\mathbb R$ | $f(x)=1/[\pi\gamma\{1+((x-x_0)/\gamma)^2\}]$ |
+| Lognormal$(\mu,\sigma^2)$ | $\mu\in\mathbb R$, $\sigma>0$; $x>0$ | $f(x)=e^{-(\log x-\mu)^2/(2\sigma^2)}/(x\sigma\sqrt{2\pi})$ |
+| Weibull$(c,\eta)$ | $c,\eta>0$; $x>0$ | $f(x)=c(x/\eta)^{c-1}e^{-(x/\eta)^c}/\eta$ |
+| Logistic$(\mu,s)$ | $\mu\in\mathbb R$, $s>0$; $x\in\mathbb R$ | $F(x)=1/[1+e^{-(x-\mu)/s}]$ |
+
 ## Level A：基礎部品
 
 ### P3C-A01 一様分布

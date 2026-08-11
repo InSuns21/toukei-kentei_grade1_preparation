@@ -156,7 +156,7 @@ $$
 $$
 P(A\cap B)=0,\qquad P(A)P(B)=\frac14\cdot\frac12=\frac18.
 $$
-従って独立ではありません。一方、$(X,Y)$がjointly normalなら、共分散0から独立が従います。
+従って独立ではありません。一方、$(X,Y)$の結合分布が二変量正規なら、共分散0から独立が従います。
 
 ### 本番答案
 
@@ -356,7 +356,7 @@ $$
 =L^{-1}\Sigma L^{-\mathsf T}
 =L^{-1}LL^{\mathsf T}L^{-\mathsf T}=I_p.
 $$
-アフィン変換の閉性から$\boldsymbol Z\sim N_p(\boldsymbol0,I_p)$で、交差共分散0のjointly normalな成分なので$Z_1,\ldots,Z_p$は独立です。$\Sigma^{-1}=L^{-\mathsf T}L^{-1}$より
+定数項を含む線形変換をしても正規分布であることから$\boldsymbol Z\sim N_p(\boldsymbol0,I_p)$で、結合分布が多変量正規かつ交差共分散0なので$Z_1,\ldots,Z_p$は独立です。$\Sigma^{-1}=L^{-\mathsf T}L^{-1}$より
 $$
 (\boldsymbol X-\boldsymbol\mu)^{\mathsf T}\Sigma^{-1}(\boldsymbol X-\boldsymbol\mu)
 =\boldsymbol Z^{\mathsf T}\boldsymbol Z.
@@ -426,7 +426,7 @@ $$
 =\Sigma_{1\mid2}.
 \end{aligned}
 $$
-$\Sigma_{22}$は対称なので逆行列も対称であることを使いました。$(\boldsymbol R,\boldsymbol X_2)$は$(\boldsymbol X_1,\boldsymbol X_2)$のアフィン変換なのでjointly normalです。交差共分散が0であるため、正規分布の性質から$\boldsymbol R$と$\boldsymbol X_2$は独立です。また
+$\Sigma_{22}$は対称なので逆行列も対称であることを使いました。$(\boldsymbol R,\boldsymbol X_2)$は$(\boldsymbol X_1,\boldsymbol X_2)$の定数項を含む線形変換なので、その結合分布も多変量正規です。交差共分散が0であるため、正規分布の性質から$\boldsymbol R$と$\boldsymbol X_2$は独立です。また
 $$
 \boldsymbol R\sim N_p(\boldsymbol0,\Sigma_{1\mid2}).
 $$
@@ -458,7 +458,7 @@ $$
 &=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}=\Sigma_{1\mid2}.
 \end{aligned}
 $$
-$(\boldsymbol R,\boldsymbol X_2)$はjointly normalで無相関なので独立し、$\boldsymbol R\sim N_p(\boldsymbol0,\Sigma_{1\mid2})$。$\boldsymbol X_1=\boldsymbol\mu_1+B(\boldsymbol X_2-\boldsymbol\mu_2)+\boldsymbol R$へ$\boldsymbol X_2=\boldsymbol x_2$を入れれば
+$(\boldsymbol R,\boldsymbol X_2)$の結合分布は多変量正規で無相関なので独立し、$\boldsymbol R\sim N_p(\boldsymbol0,\Sigma_{1\mid2})$。$\boldsymbol X_1=\boldsymbol\mu_1+B(\boldsymbol X_2-\boldsymbol\mu_2)+\boldsymbol R$へ$\boldsymbol X_2=\boldsymbol x_2$を入れれば
 $$
 \boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)\sim N_p\left(\boldsymbol\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol x_2-\boldsymbol\mu_2),\Sigma_{1\mid2}\right).
 $$

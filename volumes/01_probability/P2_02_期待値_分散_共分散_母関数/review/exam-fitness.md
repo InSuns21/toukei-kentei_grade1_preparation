@@ -222,3 +222,29 @@ Level構成は A 3 / B 3 / C 5 / D 1、比率は25% / 25% / 41.7% / 8.3%で、�
 - `npm run validate`: 成功（structure成功、KaTeX strict 146、text 161）
 - 最終件数: fatal 0 / major 0 / minor 0
 - 判定: 承認
+
+## 独習入口・用語・分布式 横断改訂の初回査読
+
+- 担当ID: `/root/f0_exam_review`
+- 査読日時: 2026-08-11 10:54:28 +09:00
+- P2M-SELF-MAJ-01（横断 major）: `references/distribution-notation-guide.md:21-41` は複数分布の母数条件・台を欠き、Bernoulli端点表現も曖昧である。全母数・台を補うこと。
+- P2M-SELF-MAJ-02（横断 major）: `scripts/validate_structure.mjs:106-135` は略語初出、分布式・台・母数、定理/ドリルの近接定義を検査しない。見出しだけでなく内容を検査すること。
+- 本章内のPGF/MGFは日本語名・英語名・略語・式の順で導入され、微分交換も一般定理名を前提にせず非負項級数と共通上界で説明されている。演習・ドリルにも未導入分布式の要求はなく、新規の章内指摘なし。
+- 初回件数: fatal 0 / major 2 / minor 0
+- 判定: 非承認
+
+## 独習入口・用語・分布式 横断改訂の修正後再査読
+
+- 担当ID: `/root/f0_exam_review`、再査読日時: 2026-08-11 11:07:22 +09:00
+- P2M-SELF-MAJ-01: 一部解消、残存。共通索引のBinに$0\leq p\leq1$、Cauchyに台$x\in\mathbb R$がない。
+- P2M-SELF-MAJ-02: 一部解消、残存。validatorは略語と章別契約を検査するようになったが、上記欠落とP3-01遠隔参照を検出しない。
+- PGF/MGFの初出・微分交換・全演習とドリルを再確認し新規指摘なし。`npm run validate`成功。
+- 最終件数: fatal 0 / major 2 / minor 0。判定: 非承認
+
+### 第2回修正確認（2026-08-11 11:11:59 +09:00）
+
+- P2M-SELF-MAJ-01は解消。MAJ-02は共通索引の母数条件が行単位契約でなく、別行の文字列で欠落を見逃せるため残存。新規教材指摘なし。`npm run validate`成功。最終 fatal 0 / major 1 / minor 0、非承認。
+
+### 最終再査読（2026-08-11 11:17:00 +09:00）
+
+- P2M-SELF-MAJ-02は解消。共通索引16分布の行単位契約、PGF/MGF初出、演習定義節を確認。本章全文・答案・ドリルに新規指摘なし。`npm run validate`成功。最終 fatal 0 / major 0 / minor 0、承認。

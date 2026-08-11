@@ -37,7 +37,7 @@ $$
 $$
 と書きます。ここで$\boldsymbol\Sigma$は半正定値です。
 
-$\boldsymbol\Sigma$が正定値のときに限り、Lebesgue密度は
+$\boldsymbol\Sigma$が正定値のときに限り、$p$次元空間で通常の体積$d\boldsymbol x$に関する密度は
 $$
 f(\boldsymbol x)=
 \frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
@@ -47,14 +47,14 @@ f(\boldsymbol x)=
 (\boldsymbol x-\boldsymbol\mu)\right\},
 \quad\boldsymbol x\in\mathbb R^p.
 $$
-正規化も白色化で確認できます。$LL^{\mathsf T}=\boldsymbol\Sigma$を満たす可逆$L$を取り、$\boldsymbol z=L^{-1}(\boldsymbol x-\boldsymbol\mu)$と置くと、Jacobianは
+正規化も、平均を引いて共分散が単位行列になるように線形変換する操作（白色化）で確認できます。$LL^{\mathsf T}=\boldsymbol\Sigma$を満たす可逆$L$を取り、$\boldsymbol z=L^{-1}(\boldsymbol x-\boldsymbol\mu)$と置くと、ヤコビアンは
 $$
 d\boldsymbol x=|\det L|d\boldsymbol z
 =|\det\boldsymbol\Sigma|^{1/2}d\boldsymbol z
 $$
 です。密度積分は独立標準正規$p$個の積密度の積分へ戻るため1です。
 
-特異な場合は低次元のアフィン部分空間上に集中するため、この$p$次元密度式は使えません。
+特異な場合は、ある線形制約を必ず満たして低次元の平面上に集中するため、この$p$次元密度式は使えません。
 
 ## P3M-DEF-04 条件付き密度
 
@@ -65,7 +65,7 @@ f_{\boldsymbol X\mid\boldsymbol Y}
 =\frac{f_{\boldsymbol X,\boldsymbol Y}(\boldsymbol x,\boldsymbol y)}
 {f_{\boldsymbol Y}(\boldsymbol y)}.
 $$
-密度の値は零集合上で変更できるため、条件付き密度も通常はほとんど至る所で扱います。
+長さ・面積・体積が0の例外集合上で密度の値を変更しても、積分で求める確率は変わりません。したがって条件付き密度の式も、そのような例外点を除いて一致すれば同じ分布を表します。
 
 ## P3M-DEF-05 二次形式とMahalanobis距離
 

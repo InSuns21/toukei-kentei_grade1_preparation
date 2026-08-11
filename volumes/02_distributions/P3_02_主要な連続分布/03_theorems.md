@@ -1,6 +1,24 @@
 # 基本命題と主要定理
 
-## 平均・分散・MGF一覧
+## この章で使う分布の式
+
+本ファイルを単独で読めるよう、定理で使う確率密度関数を先に示す。表の範囲外では密度を0とする。
+
+| 分布 | 母数と台 | 確率密度関数 $f(x)$ |
+|---|---|---|
+| Unif$(a,b)$ | $a<b$; $a<x<b$ | $f(x)=1/(b-a)$ |
+| $N(\mu,\sigma^2)$ | $\mu\in\mathbb R$, $\sigma>0$; $x\in\mathbb R$ | $f(x)=e^{-(x-\mu)^2/(2\sigma^2)}/(\sigma\sqrt{2\pi})$ |
+| Exp$(\lambda)$ | $\lambda>0$; $x>0$ | $f(x)=\lambda e^{-\lambda x}$ |
+| Gamma$(\alpha,\beta)$ | $\alpha,\beta>0$; $x>0$ | $f(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ |
+| Beta$(\alpha,\beta)$ | $\alpha,\beta>0$; $0<x<1$ | $f(x)=x^{\alpha-1}(1-x)^{\beta-1}/B(\alpha,\beta)$ |
+| Cauchy$(x_0,\gamma)$ | $x_0\in\mathbb R$, $\gamma>0$; $x\in\mathbb R$ | $f(x)=1/[\pi\gamma\{1+((x-x_0)/\gamma)^2\}]$ |
+| Lognormal$(\mu,\sigma^2)$ | $\mu\in\mathbb R$, $\sigma>0$; $x>0$ | $f(x)=e^{-(\log x-\mu)^2/(2\sigma^2)}/(x\sigma\sqrt{2\pi})$ |
+| Weibull$(c,\eta)$ | $c,\eta>0$; $x>0$ | $f(x)=(c/\eta)(x/\eta)^{c-1}e^{-(x/\eta)^c}$ |
+| Logistic$(\mu,s)$ | $\mu\in\mathbb R$, $s>0$; $x\in\mathbb R$ | $f(x)=e^{-(x-\mu)/s}/[s\{1+e^{-(x-\mu)/s}\}^2]$ |
+
+モーメント母関数（moment generating function; MGF）は$M_X(t)=E[e^{tX}]$であり、有限となる$t$の範囲も定理の一部である。
+
+## 平均・分散・モーメント母関数一覧
 
 | 分布 | 平均 | 分散 | MGF $M(t)$ と存在範囲 |
 |---|---:|---:|---|
@@ -32,7 +50,7 @@ $$
 
 ## P3C-THM-01 正規分布の標準化とMGF
 
-標準正規密度の正規化を確認します。$I=\int_{-\infty}^{\infty}e^{-x^2/2}dx$ と置くと、非負関数なのでTonelliの定理と極座標変換を使えて
+標準正規密度の正規化を確認します。$I=\int_{-\infty}^{\infty}e^{-x^2/2}dx$と置きます。被積分関数は非負なので二重積分を反復積分として計算でき、極座標変換を使うと
 $$
 I^2=\int_{\mathbb R^2}e^{-(x^2+y^2)/2}\,dx\,dy
 =\int_0^{2\pi}\int_0^\infty e^{-r^2/2}r\,dr\,d\theta=2\pi.

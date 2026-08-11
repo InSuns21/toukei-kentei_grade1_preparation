@@ -9,7 +9,11 @@ MATH-2024-Q5、MATH-2018-Q5、MATH-2024-Q2の「順序統計量、条件付き�
 
 ## P4-DRILL-01 問題
 
-$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Unif}(0,\theta)$とし、$n\geq2$、$U=X_{(1)}$、$V=X_{(n)}$、$R=V-U$とする。
+$X_1,\ldots,X_n$は互いに独立で同じ一様分布$\operatorname{Unif}(0,\theta)$に従い、
+$$
+f_\theta(x)=\frac1\theta\boldsymbol{1}_{(0,\theta)}(x),\qquad \theta>0
+$$
+とする。$n\geq2$とし、$U=X_{(1)}=\min_iX_i$、$V=X_{(n)}=\max_iX_i$、範囲（range）を$R=V-U$とする。
 
 1. $V$のCDF、密度、期待値を求めよ。（20点）
 2. $(U,V)$の同時密度と、$0<u<v<\theta$における$f_{U\mid V}(u\mid v)$を求めよ。（25点）
@@ -59,7 +63,11 @@ $$
 f_R(r)=\int_0^{\theta-r}\frac{n(n-1)}{\theta^n}r^{n-2}dw
 =\frac{n(n-1)}{\theta^n}r^{n-2}(\theta-r).
 $$
-$Z=R/\theta$はBeta$(n-1,2)$だから
+$Z=R/\theta$はBeta$(n-1,2)$に従う。その密度は
+$$
+f_Z(z)=n(n-1)z^{n-2}(1-z),\qquad 0<z<1,
+$$
+であり、Beta$(a,b)$の平均$a/(a+b)$、分散$ab/\{(a+b)^2(a+b+1)\}$を使うと
 $$
 E[R]=\theta\frac{n-1}{n+1},\qquad
 \operatorname{Var}(R)=\theta^2\frac{2(n-1)}{(n+1)^2(n+2)}.

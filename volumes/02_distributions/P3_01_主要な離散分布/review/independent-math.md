@@ -233,6 +233,19 @@ $$
 - 最終件数: `fatal: 0 / major: 0 / minor: 1`
 - 判定: **未承認**。
 
+## 独習入口・用語・分布式横断改訂の修正後全文再査読
+
+- 担当ID: `/root/f0_math_review`、再査読日時: 2026-08-11T11:06:42+09:00。
+- ENTRY-MATH-P3-001: **解消**。P3-THM-01に$q=1-p$とBernoulli/Bin/Geom/NegBin/Poissonの全母数範囲（Binの$n\in\mathbb N$を含む）が明記された。各再掲PMFの確率変数表記も正しい。
+- ENTRY-MATH-P3-002: **解消**。共通ガイドと問題集冒頭にBernoulli、Bin、Hypergeom、Geom、NegBin、Poisson、Multinomialの完全な母数・台・PMFが置かれた。超幾何の整数条件・台上下限、多項の$p_i$条件も一致する。
+- ENTRY-MATH-P3-003: **解消**。P3-DEF-01の初出は「確率質量関数（probability mass function; PMF）」となった。
+- 7分布の正規化・平均分散、全13演習・答案、Poisson過程・間引き・推定ドリルを再計算し、新規指摘なし。
+- 最終件数: `fatal: 0 / major: 0 / minor: 0`。**承認**。
+
+### validator行単位契約強化後の影響確認
+
+- `/root/f0_math_review`、2026-08-11T11:16:39+09:00。共通索引の離散7行とP3-01/06の各行について、母数・台・第3列PMFが同一行から検査されることを確認した。Hypergeomの$K,n$と台上下限、Multinomialの$\sum p_i=1$・$\sum x_i=n$も維持される。数式は既承認定義と一致し、新規指摘なし。最終0/0/0、承認維持。
+
 ## 過去問傾向対応改訂の修正後再査読
 
 - 担当ID: `/root/f0_math_review`
@@ -244,3 +257,32 @@ $$
 - 機械検証: `npm run validate` 成功（structure、KaTeX strict 146 Markdown、text 161ファイル）。
 - 最終件数: `fatal: 0 / major: 0 / minor: 0`
 - 判定: **承認**。
+
+## 独習入口・用語・分布式横断改訂の初回独立数理査読
+
+- 担当ID: `/root/f0_math_review`
+- 実行日時: 2026-08-11T10:54:59+09:00
+- 対象: 章全文、全13演習・答案・P3-DRILL-01、共通分布ガイド。7分布の正規化・平均分散、Poisson過程・間引き・推定を再計算した。
+
+### ENTRY-MATH-P3-001 — major
+
+- 場所: `03_theorems.md` P3-THM-01の再掲表・再掲PMF。
+- 根拠: $q$を使うが同ファイル内に $q=1-p$ がなく、$p,n,r,\lambda$ の許容範囲もない。確率式の左辺を $X\sim$分布の形へ直した修正は確認したが、同じ定理節に母数・台・PMFを置く契約は未充足である。
+- 修正案: $q=1-p$、Bernoulli/Binの $0\le p\le1$、Geom/NegBinの $0<p\le1$、$n,r\in\mathbb N$、Poissonの $\lambda>0$ を再掲する。
+
+### ENTRY-MATH-P3-002 — major
+
+- 場所: `06_exercises.md` 冒頭表、`references/distribution-notation-guide.md` 離散分布表。
+- 根拠: 問題集表はBin/Geom/Poisson/Multinomialの母数範囲を示さず、多項分布の台も $x_i\ge0$ だけで整数条件がない。共通ガイドはHypergeomの $N,K,n$ の整数条件と $\max(0,n-N+K)\le k\le\min(n,K)$、Multinomialの $m,n,p_i$ 条件を欠く。書かれた条件だけでは二項係数やPMFが定義されない入力を許す。
+- 修正案: `02_definitions.md` と同じ母数・台条件を両表へ完全に移す。問題集から定義ファイルを参照させるだけにはしない。
+
+### ENTRY-MATH-P3-003 — minor
+
+- 場所: `02_definitions.md` P3-DEF-01。
+- 根拠: 本章でのPMF初出が略語だけで、日本語正式名・英語・略語・定義式を同時に示していない。`06_exercises.md`では後から正しく定義している。
+- 修正案: 初出を「確率質量関数（probability mass function; PMF）」へ直す。
+
+- Poisson過程の定義は $N(t)\sim\operatorname{Poisson}(\lambda t)$ と非重複区間の独立性を明記し、2時間の間引き計算 $U\sim\operatorname{Poisson}(\lambda/2)$、$V\sim\operatorname{Poisson}(3\lambda/2)$、率推定の分散・確率収束は正しい。
+- 機械検証: `npm run validate` 成功（KaTeX strict 147 Markdown、text 162ファイル）。validatorは上記欠落を検出しない。
+- 初回件数: `fatal: 0 / major: 2 / minor: 1`
+- 判定: **未承認**。

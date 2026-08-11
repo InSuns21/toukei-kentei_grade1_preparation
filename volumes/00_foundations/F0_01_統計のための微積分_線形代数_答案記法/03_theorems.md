@@ -36,7 +36,7 @@ $$
 
 ## F0-THM-01 多変数変換の密度公式
 
-$\mathcal{X},\mathcal{Y}$ を $\mathbb{R}^p$ の開集合とし、$\boldsymbol{X}$ が $\mathcal{X}$ 上で密度 $f_{\boldsymbol{X}}$ をもつとします。$T:\mathcal{X}\to\mathcal{Y}$ は $C^1$ 級微分同相、すなわち一対一かつ全射で、$T$ と $T^{-1}$ がともに連続微分可能であるとします。さらに全ての $\boldsymbol{y}\in\mathcal{Y}$ で $\det D T^{-1}(\boldsymbol{y})\neq0$ とします。このとき $\boldsymbol{Y}=T(\boldsymbol{X})$ の密度は
+$\mathcal{X},\mathcal{Y}$を$\mathbb{R}^p$の開集合とし、$\boldsymbol{X}$が$\mathcal{X}$上で密度$f_{\boldsymbol{X}}$をもつとします。$T:\mathcal{X}\to\mathcal{Y}$は一対一かつ全射で、$T$と逆変換$T^{-1}$がともに連続微分可能であるとします。さらに全ての$\boldsymbol{y}\in\mathcal{Y}$で$\det D T^{-1}(\boldsymbol{y})\neq0$とします。このとき$\boldsymbol{Y}=T(\boldsymbol{X})$の密度は
 
 $$
 f_{\boldsymbol{Y}}(\boldsymbol{y})
@@ -53,7 +53,7 @@ $$
 
 ### 証明方針
 
-任意のBorel可測集合 $A\subset\mathcal{Y}$ に対して $P(\boldsymbol{Y}\in A)$ を $\boldsymbol{X}$ の密度で表し、$C^1$ 級微分同相に対する多変数積分の変数変換公式を適用します。
+確率を積分で表せる任意の領域$A\subset\mathcal{Y}$に対し、$P(\boldsymbol{Y}\in A)$を$\boldsymbol{X}$の密度で表し、通常の多変数積分の変数変換公式を適用します。
 
 ### 証明
 

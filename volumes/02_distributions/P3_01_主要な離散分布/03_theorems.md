@@ -2,6 +2,8 @@
 
 ## P3-THM-01 母関数とモーメント
 
+確率母関数（probability generating function; PGF）は$G_X(s)=E[s^X]$である。以下では$q=1-p$とする。母数範囲はBernoulliで$0\leq p\leq1$、二項で$n\in\mathbb N$かつ$0\leq p\leq1$、幾何で$0<p\leq1$、負の二項で$r\in\mathbb N$かつ$0<p\leq1$、Poissonで$\lambda>0$である。以下の分布の確率質量関数は`02_definitions.md`に加え、この表の直後にもまとめる。
+
 | 分布 | PGF | 平均 | 分散 |
 |---|---|---:|---:|
 | Bernoulli$(p)$ | $q+ps$ | $p$ | $pq$ |
@@ -9,6 +11,16 @@
 | Geom$(p)$ | $ps/(1-qs)$ | $1/p$ | $q/p^2$ |
 | NegBin$(r,p)$ | $\{ps/(1-qs)\}^r$ | $r/p$ | $rq/p^2$ |
 | Poisson$(\lambda)$ | $\exp\{\lambda(s-1)\}$ | $\lambda$ | $\lambda$ |
+
+$$
+\begin{aligned}
+X\sim\operatorname{Bernoulli}(p)&:\quad P(X=0)=q,\quad P(X=1)=p,\\
+X\sim\operatorname{Bin}(n,p)&:\quad P(X=k)=\binom nkp^kq^{n-k},&&0\leq k\leq n,\\
+X\sim\operatorname{Geom}(p)&:\quad P(X=k)=q^{k-1}p,&&k\geq1,\\
+X\sim\operatorname{NegBin}(r,p)&:\quad P(X=k)=\binom{k-1}{r-1}p^rq^{k-r},&&k\geq r,\\
+X\sim\operatorname{Poisson}(\lambda)&:\quad P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!},&&k\in\mathbb N_0.
+\end{aligned}
+$$
 
 P2-THM-08より、PGF $G$ に対して
 $$

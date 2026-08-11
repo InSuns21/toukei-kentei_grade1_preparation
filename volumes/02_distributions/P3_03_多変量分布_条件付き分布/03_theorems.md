@@ -1,8 +1,17 @@
 # 基本命題と主要定理
 
-## P3M-THM-01 平均・共分散のアフィン変換
+本章の定理では$p\in\mathbb N$、$\boldsymbol\mu\in\mathbb R^p$、$\boldsymbol\Sigma\in\mathbb R^{p\times p}$とする。$N_p(\boldsymbol\mu,\boldsymbol\Sigma)$は$p$変量正規分布である。$\boldsymbol\Sigma$が正定値なら、その密度は
+$$
+f(\boldsymbol x)=
+\frac{\exp\{-\tfrac12(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\}}
+{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}},
+\qquad \boldsymbol x\in\mathbb R^p.
+$$
+特異な場合はこの密度式を使わず、「全ての線形結合が一変量正規」という`02_definitions.md`の定義を使う。
 
-$A\in\mathbb R^{q\times p}$、$\boldsymbol b\in\mathbb R^q$、$\boldsymbol Y=A\boldsymbol X+\boldsymbol b$なら
+## P3M-THM-01 平均・共分散の定数項を含む線形変換
+
+$A\in\mathbb R^{q\times p}$、$\boldsymbol b\in\mathbb R^q$とします。$\boldsymbol Y=A\boldsymbol X+\boldsymbol b$の形の変換を、定数項を含む線形変換（アフィン変換）といいます。このとき
 $$
 E[\boldsymbol Y]=A\boldsymbol\mu+\boldsymbol b,
 \qquad
@@ -24,7 +33,7 @@ A\boldsymbol X+\boldsymbol b
 $$
 右辺は特異でもよいものとします。任意の$\boldsymbol c\in\mathbb R^q$について$\boldsymbol c^{\mathsf T}(A\boldsymbol X+\boldsymbol b)=(A^{\mathsf T}\boldsymbol c)^{\mathsf T}\boldsymbol X+\boldsymbol c^{\mathsf T}\boldsymbol b$が正規なので、定義から従います。
 
-特に成分を選ぶ行列$A$を使えば、任意の部分ベクトルの周辺分布は、対応する平均部分ベクトルと共分散主部分行列を持つ多変量正規分布です。MGFは全$\boldsymbol t\in\mathbb R^p$で
+特に成分を選ぶ行列$A$を使えば、任意の部分ベクトルの周辺分布は、対応する平均部分ベクトルと共分散主部分行列を持つ多変量正規分布です。モーメント母関数（moment generating function; MGF）は全$\boldsymbol t\in\mathbb R^p$で
 $$
 M_{\boldsymbol X}(\boldsymbol t)
 =\exp\left(\boldsymbol t^{\mathsf T}\boldsymbol\mu
@@ -44,7 +53,7 @@ $$
 \end{pmatrix}
 \right)
 $$
-とし、全共分散行列を正定値とします。すると$\Sigma_{22}$は可逆で、任意の$\boldsymbol x_2\in\mathbb R^q$に対する正則条件付き分布は
+とし、全共分散行列を正定値とします。すると$\Sigma_{22}$は可逆で、任意の$\boldsymbol x_2\in\mathbb R^q$に対する条件付き分布は
 $$
 \boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)
 \sim N_p(\boldsymbol\mu_{1\mid2},\Sigma_{1\mid2}),
@@ -67,7 +76,7 @@ $$
 \boldsymbol R=\boldsymbol X_1-\boldsymbol\mu_1
 -B(\boldsymbol X_2-\boldsymbol\mu_2)
 $$
-と置きます。アフィン変換の閉性から$(\boldsymbol R,\boldsymbol X_2)$はjointly normalで、
+と置きます。定数項を含む線形変換をしても正規分布であることから、$(\boldsymbol R,\boldsymbol X_2)$の結合分布は多変量正規（同時正規）で、
 $$
 \operatorname{Cov}(\boldsymbol R,\boldsymbol X_2)
 =\Sigma_{12}-B\Sigma_{22}=0.
@@ -108,7 +117,7 @@ $$
 
 ## P3M-THM-04 多変量正規における無相関と独立
 
- jointly normal な部分ベクトル$\boldsymbol X_1,\boldsymbol X_2$について
+結合分布が多変量正規である部分ベクトル$\boldsymbol X_1,\boldsymbol X_2$について
 $$
 \boldsymbol X_1\perp\!\!\!\perp\boldsymbol X_2
 \quad\Longleftrightarrow\quad
