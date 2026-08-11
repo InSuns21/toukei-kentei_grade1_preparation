@@ -1,0 +1,5 @@
+terms:
+  - { term: 潜在指標, definition: 観測されない成分を表す確率変数 }
+  - { term: 責務, definition: 観測後に各成分へ属する確率 }
+  - { term: 混合分布, definition: 成分分布を混合比で重み付けした周辺分布 }
+  - { term: ラベル交換, definition: 成分名を入れ替えても同じ分布になる性質 }

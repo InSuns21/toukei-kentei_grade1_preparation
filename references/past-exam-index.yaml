@@ -37,14 +37,14 @@ evidence_profiles:
 entries:
   - { id: MATH-2024-Q1, year: 2024, exam: 統計数理, question: 1, theme: 回帰係数の推定・検定・検出力, chapters: [F0-01, I1-01, I1-02, I3-01, L1-01], evidence: *math_topic }
   - { id: MATH-2024-Q2, year: 2024, exam: 統計数理, question: 2, theme: 半径の分布・順序統計量・推定量, chapters: [F0-01, P2-01, P2-02, P4-01, I1-01], evidence: *math_topic }
-  - { id: MATH-2024-Q4, year: 2024, exam: 統計数理, question: 4, theme: 経験分布・混合分布, chapters: [P2-01, P2-02, P3-01, P3-02, P4-02], evidence: *math_topic }
+  - { id: MATH-2024-Q4, year: 2024, exam: 統計数理, question: 4, theme: 経験分布・混合分布, chapters: [P2-01, P2-02, P3-01, P3-02, P3-04, P4-02], evidence: *math_topic }
   - { id: MATH-2024-Q5, year: 2024, exam: 統計数理, question: 5, theme: 一様分布の順序統計量・条件付き期待値, chapters: [P1-02, P2-02, P4-01], evidence: *math_topic }
   - { id: MATH-2023-Q1, year: 2023, exam: 統計数理, question: 1, theme: Poisson分布の不偏推定量・一致推定量, chapters: [P2-02, P3-01, P4-02, I1-02], evidence: *math_topic }
   - { id: MATH-2023-Q2, year: 2023, exam: 統計数理, question: 2, theme: カイ二乗分布・逆関数法, chapters: [P2-01, P3-02, P4-01, S1-01], evidence: *math_topic }
   - { id: MATH-2023-Q3, year: 2023, exam: 統計数理, question: 3, theme: 指数分布・モーメント母関数, chapters: [P2-02, P3-02, I1-01], evidence: *math_topic }
   - { id: MATH-2022-Q1, year: 2022, exam: 統計数理, question: 1, theme: 確率空間・独立性, chapters: [P1-01, P1-02], evidence: *math_topic }
   - { id: MATH-2022-Q2, year: 2022, exam: 統計数理, question: 2, theme: 一様分布・条件付き分布, chapters: [P1-01, P1-02, P2-01, P4-01], evidence: *math_topic }
-  - { id: MATH-2022-Q3, year: 2022, exam: 統計数理, question: 3, theme: Poisson分布・Gamma混合, chapters: [P1-02, P2-02, P3-01, P3-02], evidence: *math_topic }
+  - { id: MATH-2022-Q3, year: 2022, exam: 統計数理, question: 3, theme: Poisson分布・Gamma混合, chapters: [P1-02, P2-02, P3-01, P3-02, P3-04], evidence: *math_topic }
   - { id: MATH-2022-Q4, year: 2022, exam: 統計数理, question: 4, theme: Pareto分布・最尤推定, chapters: [P3-05, I1-01], evidence: *math_topic }
   - { id: MATH-2021-Q1, year: 2021, exam: 統計数理, question: 1, theme: 指数分布・一様分布・畳込み, chapters: [P2-01, P3-02, P4-01], evidence: *math_topic }
   - { id: MATH-2021-Q2, year: 2021, exam: 統計数理, question: 2, theme: 超幾何分布・事後確率最大化, chapters: [P1-02, P3-01], evidence: *math_topic }
