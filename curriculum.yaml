@@ -10,21 +10,21 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-11
+  updated_at: 2026-08-13
   current_chapter: null
-  next_chapter: S1-01
+  next_chapter: S1-02
   next_work:
     type: chapter
-    id: S1-01
-  last_completed_chapter: P3-05
+    id: S1-02
+  last_completed_chapter: S1-01
   summary:
     total: 38
-    planned: 25
+    planned: 24
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 13
+    reviewed: 14
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -48,7 +48,7 @@ progress:
     P4-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P4-02: { status: reviewed, started_at: 2026-08-11, completed_at: 2026-08-11, review_result: { fatal: 0, major: 0, minor: 0 } }
     P4-03: { status: reviewed, started_at: 2026-08-11, completed_at: 2026-08-11, review_result: { fatal: 0, major: 0, minor: 0 } }
-    S1-01: { status: planned }
+    S1-01: { status: reviewed, started_at: 2026-08-13, completed_at: 2026-08-13, review_result: { fatal: 0, major: 0, minor: 0 } }
     S1-02: { status: planned }
     S1-03: { status: planned }
     I1-01: { status: planned }
@@ -101,7 +101,7 @@ chapters:
   - { id: P4-01, title: 変数変換・順序統計量, volume: distributions, prerequisites: [ P3-03 ], official_scope: [ 1変数変換, 多変数変換, Jacobian, 和, 差, 積, 比, 最大値, 最小値, 順序統計量 ] }
   - { id: P4-02, title: 確率変数の収束・大数則・中心極限定理, volume: distributions, prerequisites: [ P2-02, P3-02 ], official_scope: [ 大数の弱法則, 中心極限定理, 正規近似, ポアソン近似 ] }
   - { id: P4-03, title: 経験分布・乱数生成・Monte Carlo, volume: distributions, prerequisites: [ P2-01, P4-01, P4-02 ], official_scope: [ 経験分布関数, 標本分位点, 逆関数法, 棄却法, Monte Carlo積分, シミュレーション誤差 ] }
-  - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
+  - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P3-03, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
   - { id: S1-02, title: 統計量・十分性・分解定理, volume: inference, prerequisites: [ S1-01, P4-01 ], official_scope: [ 十分統計量, ネイマンの分解定理 ] }
   - { id: S1-03, title: 有限母集団・標本抽出, volume: inference, prerequisites: [ P3-01, P4-02 ], official_scope: [ 単純無作為抽出, Horvitz--Thompson推定量, 有限母集団補正, 層化抽出, 比推定量, 標本設計 ] }
   - { id: I1-01, title: 尤度・最尤推定, volume: inference, prerequisites: [ S1-02 ], official_scope: [ 尤度関数, 対数尤度関数, 有効スコア関数, 最尤推定 ] }
