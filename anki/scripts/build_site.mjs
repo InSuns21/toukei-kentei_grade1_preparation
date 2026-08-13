@@ -10,7 +10,8 @@ const progress = YAML.parse(fs.readFileSync(path.join(ROOT, "progress.yaml"), "u
 const pageSize = Number(process.env.ANKI_PAGE_SIZE || progress.cards_per_page);
 if (!Number.isInteger(pageSize) || pageSize < 1 || pageSize > 200) throw new Error("1ページの上限は1〜200枚です");
 const order = new Map(syllabus.categories.map((item) => [item.id, item.order]));
-const categoryName = new Map(syllabus.categories.map((item) => [item.id, item.name]));
+const displayCategoryName = (item) => item.display_name || item.name;
+const categoryName = new Map(syllabus.categories.map((item) => [item.id, displayCategoryName(item)]));
 const subcategoryName = new Map(Object.entries(syllabus.subcategories));
 const cards = readCards().sort((a, b) => order.get(a.category) - order.get(b.category) || a.id.localeCompare(b.id, "ja"));
 const escape = (value = "") => String(value).replace(/[&<>\"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[ch]);
@@ -110,11 +111,11 @@ const pageFile = (page) => {
 };
 const pageLabel = (page) => page.subcategory
   ? `${subcategoryName.get(page.subcategory)}${page.part > 1 ? ` ${page.part}` : ""}`
-  : page.category.name;
+  : displayCategoryName(page.category);
 const renderNavigation = (active) => `<nav class="page-nav" aria-label="カテゴリー別カードページ"><a href="./index.html">カテゴリー一覧</a>${pages.map((page) => `<a href="./${pageFile(page)}"${page === active ? ' aria-current="page"' : ""}>${escape(pageLabel(page))}</a>`).join("")}</nav>`;
 const renderPage = (page) => {
   const pageCards = page.cards;
-  const categoryOptions = `<option value="${escape(page.category.id)}">${escape(page.category.name)}</option>`;
+  const categoryOptions = `<option value="${escape(page.category.id)}">${escape(displayCategoryName(page.category))}</option>`;
   const subcategories = [...new Set(pageCards.map((card) => card.subcategory))].sort((a, b) => subcategoryName.get(a).localeCompare(subcategoryName.get(b), "ja"));
   const subcategoryOptions = subcategories.map((item) => `<option value="${escape(item)}">${escape(subcategoryName.get(item))}</option>`).join("");
   const allTags = [...new Set(pageCards.flatMap((card) => card.hashtags))].sort((a, b) => a.localeCompare(b, "ja"));
@@ -134,7 +135,7 @@ const categoryLinks = syllabus.categories.map((category) => {
   const ownedPages = pages.filter((page) => page.category.id === category.id);
   const count = ownedPages.reduce((sum, page) => sum + page.cards.length, 0);
   const links = ownedPages.map((page) => `<a href="./${pageFile(page)}">${escape(pageLabel(page))}<span>${page.cards.length}枚</span></a>`).join("");
-  return `<section class="category-entry"><p>${escape(category.section)}</p><h2>${escape(category.name)}</h2><strong>${count}枚</strong><div>${links}</div></section>`;
+  return `<section class="category-entry"><p>${escape(category.display_section || category.section)}</p><h2>${escape(displayCategoryName(category))}</h2><strong>${count}枚</strong><div>${links}</div></section>`;
 }).join("\n");
 const categoryIndex = categoryTemplate
   .replaceAll("{{TOTAL_COUNT}}", String(cards.length))

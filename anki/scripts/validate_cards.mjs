@@ -13,6 +13,7 @@ const categoryIdList = syllabus.categories.map((item) => item.id);
 const childIdList = syllabus.categories.flatMap((item) => item.children);
 const categoryIds = new Set(categoryIdList);
 const subcategoryIds = new Set(childIdList);
+const displayCategoryName = (item) => item.display_name || item.name;
 const allowedTypes = new Set(["formula", "theorem", "condition", "proof_step", "calc_step", "expansion", "recognition", "strategy", "reverse", "pitfall"]);
 const allowedPriorities = new Set(["S", "A", "B", "C", "D"]);
 const ids = new Set();
@@ -29,6 +30,9 @@ const officialProjection = {
 };
 const officialScopeHash = createHash("sha256").update(JSON.stringify(officialProjection)).digest("hex");
 if (officialScopeHash !== "cfba46381c4839c1732a6b311125a8ea31c1efe1c262c2e5c7382ed35411ca74") errors.push("画像版公式出題範囲から転記した対象・階層・用語例が変更されています");
+const expectedApplicationDisplayNames = new Map([["applied-common", "統計応用（共通事項）"], ["applied-engineering", "統計応用（理工学）"]]);
+for (const [id, expected] of expectedApplicationDisplayNames) if (syllabus.categories.find((category) => category.id === id)?.display_name !== expected) errors.push(`${id}: display_nameは「${expected}」にします`);
+for (const id of expectedApplicationDisplayNames.keys()) if (syllabus.categories.find((category) => category.id === id)?.display_section !== "統計応用") errors.push(`${id}: display_sectionは「統計応用」にします`);
 if (syllabus.schema_version !== 2) errors.push("syllabus.yaml は公式画像階層schema_version 2にします");
 if (scopeCoverage.schema_version !== 2) errors.push("coverage.yaml はschema_version 2にします");
 if (progress.schema_version !== 3) errors.push("progress.yaml は1〜2サブカテゴリー作業schema_version 3にします");
@@ -179,7 +183,7 @@ for (const card of cards) {
 }
 
 const coverage = syllabus.categories.map((category) => ({
-  category: category.name,
+  category: displayCategoryName(category),
   count: cards.filter((card) => card.category === category.id).length,
   missing: category.children.filter((sub) => !cards.some((card) => card.subcategory === sub)),
 }));
@@ -194,7 +198,7 @@ const coverageLines = ["# シラバス coverage", "", `- 公開カード: ${card
   const owned = cards.filter((card) => card.category === category.id);
   const covered = category.children.filter((sub) => owned.some((card) => card.subcategory === sub)).length;
   const types = typeNames.filter((type) => owned.some((card) => card.type === type)).join(", ");
-  return `| ${category.name} | ${owned.length} | ${covered}/${category.children.length} | ${types} |`;
+  return `| ${displayCategoryName(category)} | ${owned.length} | ${covered}/${category.children.length} | ${types} |`;
 }), "", "## 公式範囲の小項目", "", "`card` は計算カードあり、`reference` は正本に定義あり、`planned` は対象範囲内の拡張対象を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${syllabus.subcategories[item.id]} | ${item.status} | ${(item.cards || []).join(", ")} |`)];
 fs.writeFileSync(path.join(reportDir, "coverage.md"), `${coverageLines.join("\n")}\n`);
 const moves = [...new Set(cards.flatMap((card) => card.hashtags))]

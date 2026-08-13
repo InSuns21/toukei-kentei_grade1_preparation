@@ -9,8 +9,8 @@
 | 統計的推測（推定） | 10 | 7/7 | formula, theorem, proof_step, calc_step, strategy |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
-| 共通した事項 | 6 | 3/7 | condition, calc_step, recognition, strategy |
-| 理工学分野 | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
+| 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
+| 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
 
