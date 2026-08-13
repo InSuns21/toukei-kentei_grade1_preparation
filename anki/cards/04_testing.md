@@ -1,8 +1,8 @@
 ﻿---
 id: test-normal-ci
 title: 母分散既知の正規平均の信頼区間を作る
-category: testing
-subcategory: confidence
+category: math-estimation
+subcategory: math-interval-estimation
 topic: confidence-interval
 type: formula
 difficulty: 2
@@ -28,8 +28,8 @@ $$\begin{aligned}\overline x\pm z_{0.975}\frac{\sigma}{\sqrt n}&=10\pm1.96\frac2
 ---
 id: test-np-bernoulli
 title: Neyman--Pearson補題で棄却方向を決める
-category: testing
-subcategory: hypothesis-testing
+category: math-testing
+subcategory: math-test-derivation
 topic: neyman-pearson
 type: strategy
 difficulty: 3
@@ -56,8 +56,8 @@ $$\frac{R(x+1)}{R(x)}=\frac{p_1(1-p_0)}{p_0(1-p_1)}>1.$$
 ---
 id: test-chi-square-fit
 title: 適合度検定の自由度を数える
-category: testing
-subcategory: goodness-of-fit
+category: math-testing
+subcategory: math-various-tests
 topic: chi-square-goodness-fit
 type: pitfall
 difficulty: 2
@@ -82,8 +82,8 @@ $$\mathrm{df}=k-1-r=5-1-1=3.$$
 ---
 id: test-sign-test
 title: 符号検定を二項分布へ帰着する
-category: testing
-subcategory: nonparametric
+category: math-testing
+subcategory: math-various-tests
 topic: sign-test
 type: recognition
 difficulty: 2

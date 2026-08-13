@@ -1,8 +1,8 @@
 ﻿---
 id: eng-capability-index
 title: 工程能力指数を規格幅と工程幅から求める
-category: engineering
-subcategory: quality
+category: applied-engineering
+subcategory: engineering-quality
 topic: process-capability
 type: formula
 difficulty: 1
@@ -27,8 +27,8 @@ $C_p$ は工程平均の偏りを反映しない。偏りには $C_{pk}$ を使�
 ---
 id: eng-series-reliability
 title: 直列系の信頼度を積で求める
-category: engineering
-subcategory: reliability
+category: applied-engineering
+subcategory: engineering-quality
 topic: series-system
 type: formula
 difficulty: 1
@@ -53,8 +53,8 @@ $$R_{\mathrm{series}}(t)=0.9\cdot0.8=0.72.$$
 ---
 id: eng-blocking
 title: ブロック化で誤差分散を減らす条件を見抜く
-category: engineering
-subcategory: design
+category: applied-engineering
+subcategory: engineering-design
 topic: randomized-block-design
 type: strategy
 difficulty: 2

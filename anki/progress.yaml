@@ -6,8 +6,8 @@ current_work: null
 next_work: C02-probability
 last_completed_work: C01-pilot
 summary:
-  total: 10
-  planned: 9
+  total: 8
+  planned: 7
   drafting: 0
   self_review: 0
   independent_review: 0
@@ -34,38 +34,30 @@ legacy_runs:
       minor: 0
 work:
   C02-probability:
-    category: probability
+    category: math-probability
     status: planned
     review_dir: review/C02-probability
   C02-distributions:
-    category: distributions
+    category: math-distributions
     status: planned
     review_dir: review/C02-distributions
   C02-estimation:
-    category: estimation
+    category: math-estimation
     status: planned
     review_dir: review/C02-estimation
   C02-testing:
-    category: testing
+    category: math-testing
     status: planned
     review_dir: review/C02-testing
   C02-data-analysis:
-    category: data-analysis
+    category: math-data-analysis
     status: planned
     review_dir: review/C02-data-analysis
-  C02-multivariate:
-    category: multivariate
+  C02-applied-common:
+    category: applied-common
     status: planned
-    review_dir: review/C02-multivariate
-  C02-stochastic-process:
-    category: stochastic-process
+    review_dir: review/C02-applied-common
+  C02-applied-engineering:
+    category: applied-engineering
     status: planned
-    review_dir: review/C02-stochastic-process
-  C02-engineering-models:
-    category: engineering-models
-    status: planned
-    review_dir: review/C02-engineering-models
-  C02-engineering:
-    category: engineering
-    status: planned
-    review_dir: review/C02-engineering
+    review_dir: review/C02-applied-engineering

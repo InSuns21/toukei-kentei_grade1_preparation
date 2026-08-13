@@ -1,8 +1,8 @@
 ﻿---
 id: data-ols-slope
 title: 単回帰の傾きを中心化平方和から求める
-category: data-analysis
-subcategory: regression
+category: math-data-analysis
+subcategory: math-regression
 topic: ordinary-least-squares
 type: formula
 difficulty: 2
@@ -29,8 +29,8 @@ $$\begin{aligned}S_{xy}&=(-1)(-5/3)+0(-2/3)+1(7/3)=4,\\S_{xx}&=(-1)^2+0^2+1^2=2.
 ---
 id: data-anova-decomposition
 title: 一元配置分散分析の平方和を分解する
-category: data-analysis
-subcategory: anova
+category: math-data-analysis
+subcategory: math-anova
 topic: sums-of-squares
 type: expansion
 difficulty: 2
@@ -59,8 +59,8 @@ $$SS_T=5,\qquad SS_B=1,\qquad SS_W=4,$$
 ---
 id: data-odds-ratio
 title: 2×2分割表のオッズ比を計算する
-category: data-analysis
-subcategory: categorical
+category: math-data-analysis
+subcategory: math-contingency-tables
 topic: odds-ratio
 type: formula
 difficulty: 1
@@ -84,8 +84,8 @@ $$\widehat{\mathrm{OR}}=\frac{20\cdot15}{10\cdot5}=6.$$
 ---
 id: data-bootstrap-mean
 title: bootstrapで標準誤差を推定する
-category: data-analysis
-subcategory: bayes-missing-simulation
+category: math-data-analysis
+subcategory: math-simulation
 topic: bootstrap
 type: strategy
 difficulty: 2

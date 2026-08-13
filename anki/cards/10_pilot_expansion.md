@@ -1,8 +1,8 @@
 ﻿---
 id: dist-mgf-poisson
 title: Poisson分布のモーメント母関数から平均を取り出す
-category: distributions
-subcategory: moments
+category: math-probability
+subcategory: math-distribution-functions
 topic: moment-generating-function
 type: calc_step
 difficulty: 2
@@ -26,8 +26,8 @@ $$\begin{aligned}M_X'(t)&=\lambda e^t\exp\{\lambda(e^t-1)\},\\M_X'(0)&=\lambda\c
 ---
 id: dist-convolution-uniform
 title: 一様分布の和を畳み込みで求める
-category: distributions
-subcategory: transformations
+category: math-probability
+subcategory: math-transformations
 topic: convolution
 type: strategy
 difficulty: 3
@@ -52,8 +52,8 @@ $$f_Z(z)=\begin{cases}\int_0^z1\,dx=z&(0<z<1),\\\int_{z-1}^11\,dx=2-z&(1\le z<2)
 ---
 id: dist-order-max
 title: 最大値の分布を累積分布関数から求める
-category: distributions
-subcategory: transformations
+category: math-estimation
+subcategory: math-population-sample-statistic
 topic: order-statistics
 type: strategy
 difficulty: 2
@@ -79,8 +79,8 @@ $$F_M(m)=m^2,\qquad f_M(m)=\frac{d}{dm}m^2=2m.$$
 ---
 id: est-moments-exponential
 title: 指数分布のモーメント法推定量を求める
-category: estimation
-subcategory: likelihood
+category: math-estimation
+subcategory: math-estimation-methods
 topic: method-of-moments
 type: strategy
 difficulty: 2
@@ -105,8 +105,8 @@ rate母数化を使っている。
 ---
 id: est-fisher-bernoulli
 title: Bernoulli分布のFisher情報量を求める
-category: estimation
-subcategory: estimation-quality
+category: math-estimation
+subcategory: math-asymptotic-estimation
 topic: fisher-information
 type: calc_step
 difficulty: 3
@@ -130,8 +130,8 @@ $$\begin{aligned}\ell(p;X)&=X\log p+(1-X)\log(1-p),\\\ell''(p;X)&=-\frac X{p^2}-
 ---
 id: est-cramer-rao-bernoulli
 title: Cramér--Rao下限へ情報量を代入する
-category: estimation
-subcategory: estimation-quality
+category: math-estimation
+subcategory: math-asymptotic-estimation
 topic: cramer-rao
 type: formula
 difficulty: 2
@@ -157,8 +157,8 @@ $T=\overline X$ はこの下限に等しい。
 ---
 id: est-aic-choice
 title: AICでモデルを比較する
-category: estimation
-subcategory: asymptotic-inference
+category: math-estimation
+subcategory: math-model-selection
 topic: aic
 type: formula
 difficulty: 1
@@ -184,8 +184,8 @@ $206<208$ なのでAを選ぶ。
 ---
 id: test-z-rejection
 title: 両側Z検定の棄却域を作る
-category: testing
-subcategory: hypothesis-testing
+category: math-testing
+subcategory: math-testing-foundations
 topic: z-test
 type: strategy
 difficulty: 2
@@ -210,8 +210,8 @@ $2.5>1.96$ だから $H_0$ を棄却する。
 ---
 id: test-likelihood-ratio
 title: 尤度比検定統計量を制約付きMLEから作る
-category: testing
-subcategory: hypothesis-testing
+category: math-testing
+subcategory: math-test-derivation
 topic: likelihood-ratio-test
 type: strategy
 difficulty: 3
@@ -237,8 +237,8 @@ $$-2\log\Lambda=2\{-40-(-42)\}=2\cdot2=4.$$
 ---
 id: data-bayes-beta
 title: Beta--Bernoulli共役更新を行う
-category: data-analysis
-subcategory: bayes-missing-simulation
+category: math-data-analysis
+subcategory: math-bayesian-methods
 topic: bayes-estimation
 type: strategy
 difficulty: 2
@@ -263,8 +263,8 @@ $$\pi(p\mid x)\propto p^{2-1}(1-p)^{3-1}p^3(1-p)^2=p^4(1-p)^4.$$
 ---
 id: data-em-responsibility
 title: 2成分混合分布のE-stepを計算する
-category: data-analysis
-subcategory: bayes-missing-simulation
+category: math-data-analysis
+subcategory: math-incomplete-data
 topic: em-algorithm
 type: calc_step
 difficulty: 3
@@ -288,8 +288,8 @@ $$\begin{aligned}r_1(x)&=\frac{0.4\cdot0.3}{0.4\cdot0.3+0.6\cdot0.1}\\&=\frac{0.
 ---
 id: data-monte-carlo-integral
 title: Monte Carlo平均で積分を推定する
-category: data-analysis
-subcategory: bayes-missing-simulation
+category: math-data-analysis
+subcategory: math-simulation
 topic: monte-carlo
 type: strategy
 difficulty: 2
@@ -314,8 +314,8 @@ $$\widehat I_3=\frac{(1/4)^2+(1/2)^2+(3/4)^2}{3}=\frac7{24}\approx0.292.$$
 ---
 id: multi-conditional-normal
 title: 2変量正規分布の条件付き平均を求める
-category: multivariate
-subcategory: multivariate-normal
+category: applied-engineering
+subcategory: engineering-multivariate
 topic: conditional-normal
 type: formula
 difficulty: 3
@@ -339,8 +339,8 @@ $$\begin{aligned}E[X\mid Y=4]&=0+\frac39(4-1)\\&=\frac13\cdot3=1.\end{aligned}$$
 ---
 id: process-stationary-markov
 title: 2状態Markov連鎖の定常分布を解く
-category: stochastic-process
-subcategory: markov
+category: applied-common
+subcategory: applied-stochastic-processes
 topic: stationary-distribution
 type: strategy
 difficulty: 2
@@ -365,8 +365,8 @@ $$\boldsymbol\pi=(3/5,2/5)^{\mathsf T}.$$
 ---
 id: process-ma1-autocovariance
 title: MA(1)過程の自己共分散を求める
-category: stochastic-process
-subcategory: time-series
+category: applied-engineering
+subcategory: engineering-stochastic-processes
 topic: ma1
 type: calc_step
 difficulty: 3
@@ -390,8 +390,8 @@ $|h|>1$ では重なる革新がなく $\gamma(h)=0$。
 ---
 id: model-poisson-glm
 title: Poisson回帰係数を平均比で読む
-category: engineering-models
-subcategory: glm
+category: applied-common
+subcategory: applied-multivariate
 topic: poisson-regression
 type: recognition
 difficulty: 2
@@ -415,8 +415,8 @@ $$\begin{aligned}\log\frac{\mu(x+2)}{\mu(x)}&=0.4(x+2)-0.4x=0.8,\\\frac{\mu(x+2)
 ---
 id: eng-xbar-limits
 title: X̄管理図の3σ管理限界を求める
-category: engineering
-subcategory: quality
+category: applied-engineering
+subcategory: engineering-quality
 topic: control-chart
 type: formula
 difficulty: 2
@@ -441,8 +441,8 @@ $$UCL=13,\qquad CL=10,\qquad LCL=7.$$
 ---
 id: eng-exponential-reliability
 title: 指数寿命の信頼度とMTBFを求める
-category: engineering
-subcategory: reliability
+category: applied-engineering
+subcategory: engineering-quality
 topic: exponential-lifetime
 type: formula
 difficulty: 2
@@ -467,8 +467,8 @@ $$\operatorname{MTBF}=E[T]=1/0.01=100.$$
 ---
 id: eng-two-factor-interaction
 title: 2因子実験の交互作用を差の差で読む
-category: engineering
-subcategory: design
+category: applied-engineering
+subcategory: engineering-design
 topic: interaction
 type: recognition
 difficulty: 2

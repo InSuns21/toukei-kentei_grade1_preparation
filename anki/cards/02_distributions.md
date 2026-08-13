@@ -1,8 +1,8 @@
 ﻿---
 id: dist-variance-moment
 title: 二次モーメントから分散を計算する
-category: distributions
-subcategory: moments
+category: math-probability
+subcategory: math-distribution-characteristics
 topic: variance
 type: reverse
 difficulty: 1
@@ -28,8 +28,8 @@ $E[X^2]$ と $E[X]^2$ は異なる。
 ---
 id: dist-gamma-recognition
 title: Gamma型積分を正規化定数へ結び付ける
-category: distributions
-subcategory: named-distributions
+category: math-distributions
+subcategory: math-continuous-distributions
 topic: gamma-integral
 type: recognition
 difficulty: 2
@@ -56,8 +56,8 @@ $b^{-a}$ を落とさない。
 ---
 id: dist-jacobian-scale
 title: 1変数変換でJacobianの絶対値を使う
-category: distributions
-subcategory: transformations
+category: math-probability
+subcategory: math-transformations
 topic: jacobian
 type: strategy
 difficulty: 2
@@ -86,8 +86,8 @@ $$\begin{aligned}f_Y(y)&=f_X(y/2)\left|\frac{d(y/2)}{dy}\right|\\&=e^{-y/2}\cdot
 ---
 id: dist-clt-standardize
 title: 標本平均を中心極限定理で標準化する
-category: distributions
-subcategory: asymptotics
+category: math-probability
+subcategory: math-limit-approximations
 topic: central-limit-theorem
 type: strategy
 difficulty: 2

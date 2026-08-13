@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import katex from "katex";
 import YAML from "yaml";
 import { ROOT, loadSyllabus, readCards } from "./lib.mjs";
@@ -8,15 +9,54 @@ const cards = readCards();
 const syllabus = loadSyllabus();
 const progress = YAML.parse(fs.readFileSync(path.join(ROOT, "progress.yaml"), "utf8"));
 const scopeCoverage = YAML.parse(fs.readFileSync(path.join(ROOT, "syllabus", "coverage.yaml"), "utf8"));
-const categoryIds = new Set(syllabus.categories.map((item) => item.id));
-const subcategoryIds = new Set(syllabus.categories.flatMap((item) => item.children));
+const categoryIdList = syllabus.categories.map((item) => item.id);
+const childIdList = syllabus.categories.flatMap((item) => item.children);
+const categoryIds = new Set(categoryIdList);
+const subcategoryIds = new Set(childIdList);
 const allowedTypes = new Set(["formula", "theorem", "condition", "proof_step", "calc_step", "expansion", "recognition", "strategy", "reverse", "pitfall"]);
 const allowedPriorities = new Set(["S", "A", "B", "C", "D"]);
 const ids = new Set();
 const errors = [];
 const warnings = [];
+// 画像1.jpg〜4.jpgから目視転記した対象範囲だけを固定する。aim_summaryは要約なので対象外。
+const officialProjection = {
+  scope: syllabus.scope,
+  categories: syllabus.categories.map(({ id, name, section, source_section, page, children, prerequisite }) => ({
+    id, name, section, source_section: source_section ?? null, page, children, prerequisite: prerequisite ?? null,
+  })),
+  subcategories: syllabus.subcategories,
+  items: syllabus.items,
+};
+const officialScopeHash = createHash("sha256").update(JSON.stringify(officialProjection)).digest("hex");
+if (officialScopeHash !== "cfba46381c4839c1732a6b311125a8ea31c1efe1c262c2e5c7382ed35411ca74") errors.push("画像版公式出題範囲から転記した対象・階層・用語例が変更されています");
+if (syllabus.schema_version !== 2) errors.push("syllabus.yaml は公式画像階層schema_version 2にします");
+if (scopeCoverage.schema_version !== 2) errors.push("coverage.yaml はschema_version 2にします");
 if (progress.schema_version !== 2) errors.push("progress.yaml はカテゴリー作業schema_version 2にします");
-for (const subcategory of subcategoryIds) if (!syllabus.subcategories?.[subcategory]) errors.push(`subcategory ${subcategory} の日本語表示名がありません`);
+if (categoryIds.size !== categoryIdList.length) errors.push("syllabus.categoriesのIDが重複しています");
+if (subcategoryIds.size !== childIdList.length) errors.push("同じ小項目IDが複数の大項目に登録されています");
+if (new Set(syllabus.categories.map((item) => item.order)).size !== syllabus.categories.length) errors.push("syllabus.categoriesのorderが重複しています");
+const syllabusItemIds = (syllabus.items || []).map((item) => item.id);
+if (new Set(syllabusItemIds).size !== syllabusItemIds.length) errors.push("syllabus.itemsのIDが重複しています");
+for (const subcategory of subcategoryIds) {
+  if (!syllabus.subcategories?.[subcategory]) errors.push(`subcategory ${subcategory} の日本語表示名がありません`);
+  const item = syllabus.items?.find((candidate) => candidate.id === subcategory);
+  if (!item) errors.push(`subcategory ${subcategory} の公式用語項目がありません`);
+  else if (!Array.isArray(item.terms) || !item.terms.length) errors.push(`subcategory ${subcategory} の公式用語例がありません`);
+}
+for (const itemId of syllabusItemIds) if (!subcategoryIds.has(itemId)) errors.push(`公式用語項目 ${itemId} がカテゴリー階層にありません`);
+const sourcePdf = path.resolve(ROOT, "syllabus", syllabus.source?.pdf || "");
+if (!syllabus.source?.pdf || !fs.existsSync(sourcePdf)) errors.push(`公式シラバスPDFがありません: ${syllabus.source?.pdf || "未指定"}`);
+const sourceImages = syllabus.source?.images || [];
+if (sourceImages.length !== 4) errors.push("目視転記の根拠画像は1.jpgから4.jpgまでの4ページを登録します");
+if (new Set(sourceImages.map((image) => image.page)).size !== sourceImages.length) errors.push("公式シラバス画像のpageが重複しています");
+for (const image of sourceImages) {
+  const imagePath = path.resolve(ROOT, "syllabus", image.file);
+  if (!fs.existsSync(imagePath)) errors.push(`公式シラバス画像がありません: ${image.file}`);
+}
+const includedApplicationRows = new Set(syllabus.scope?.included_application_rows || []);
+const excludedApplicationRows = new Set(syllabus.scope?.excluded_application_rows || []);
+for (const row of includedApplicationRows) if (!syllabus.categories.some((category) => category.name === row)) errors.push(`対象の統計応用行がカテゴリーにありません: ${row}`);
+for (const row of excludedApplicationRows) if (syllabus.categories.some((category) => category.name === row)) errors.push(`対象外の統計応用行をカテゴリーへ登録しています: ${row}`);
 if (!Number.isInteger(progress.cards_per_page) || progress.cards_per_page < 1 || progress.cards_per_page > 200) errors.push("cards_per_page は1〜200にします");
 const notation = fs.readFileSync(path.join(ROOT, "notation.md"), "utf8");
 if (!notation.includes("記法の正本")) errors.push("notation.md に正本の宣言がありません");
@@ -30,6 +70,8 @@ for (const [name, source] of [["notation.md", notation], ["formulae.md", formula
 }
 const allowedStatuses = new Set(["planned", "drafting", "self_review", "independent_review", "revision", "reviewed", "blocked"]);
 const reviewDirs = new Set();
+const progressCategoryIds = Object.values(progress.work || {}).map((item) => item.category);
+if (new Set(progressCategoryIds).size !== progressCategoryIds.length || progressCategoryIds.length !== categoryIds.size || progressCategoryIds.some((id) => !categoryIds.has(id))) errors.push("progress.workは対象7カテゴリーを重複なく1件ずつ登録します");
 for (const [workId, item] of Object.entries(progress.work || {})) {
   if (!categoryIds.has(item.category)) errors.push(`${workId}: 未知のcategory ${item.category}`);
   if (!allowedStatuses.has(item.status)) errors.push(`${workId}: 未知のstatus ${item.status}`);
@@ -109,10 +151,21 @@ for (const card of cards) {
     if (symbol.test(question) && !question.includes(japanese)) error(card, `問題では記号より先に日本語名「${japanese}」を明記します`);
   }
 }
+const coverageIds = (scopeCoverage.items || []).map((item) => item.id);
+const coveredCardIds = new Set((scopeCoverage.items || []).flatMap((item) => item.cards || []));
+if (new Set(coverageIds).size !== coverageIds.length) errors.push("coverage.itemsのIDが重複しています");
+for (const itemId of syllabusItemIds) if (!coverageIds.includes(itemId)) errors.push(`coverageに公式小項目 ${itemId} がありません`);
+for (const itemId of coverageIds) if (!subcategoryIds.has(itemId)) errors.push(`coverage ${itemId}: 対象範囲にない小項目です`);
 for (const item of scopeCoverage.items) {
   if (!new Set(["card", "reference", "planned"]).has(item.status)) errors.push(`coverage ${item.id}: 未知のstatus`);
   for (const cardId of item.cards || []) if (!ids.has(cardId)) errors.push(`coverage ${item.id}: 未知のcard ID ${cardId}`);
   if (item.status === "card" && !(item.cards || []).length) errors.push(`coverage ${item.id}: card statusにカードがありません`);
+  if (item.status !== "card" && (item.cards || []).length) errors.push(`coverage ${item.id}: ${item.status} statusにカードIDを登録できません`);
+}
+for (const card of cards) {
+  if (!coveredCardIds.has(card.id)) errors.push(`coverageにカード ${card.id} がありません`);
+  const primaryCoverage = scopeCoverage.items.find((item) => item.id === card.subcategory);
+  if (!primaryCoverage?.cards?.includes(card.id)) errors.push(`coverage ${card.subcategory} にカード ${card.id} の主分類がありません`);
 }
 
 const coverage = syllabus.categories.map((category) => ({
@@ -122,7 +175,6 @@ const coverage = syllabus.categories.map((category) => ({
 }));
 for (const item of coverage) {
   if (item.count === 0) errors.push(`シラバス category「${item.category}」にカードがありません`);
-  if (item.missing.length) errors.push(`シラバス category「${item.category}」の未収録 subcategory: ${item.missing.join(", ")}`);
 }
 
 const reportDir = path.join(ROOT, "reports");
@@ -133,7 +185,7 @@ const coverageLines = ["# シラバス coverage", "", `- 公開カード: ${card
   const covered = category.children.filter((sub) => owned.some((card) => card.subcategory === sub)).length;
   const types = typeNames.filter((type) => owned.some((card) => card.type === type)).join(", ");
   return `| ${category.name} | ${owned.length} | ${covered}/${category.children.length} | ${types} |`;
-}), "", "## 公式範囲の原子項目", "", "`card` はpilot内で計算カードあり、`reference` は正本に定義あり、`planned` はpilot後の拡張対象を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${item.name} | ${item.status} | ${(item.cards || []).join(", ")} |`)];
+}), "", "## 公式範囲の小項目", "", "`card` は計算カードあり、`reference` は正本に定義あり、`planned` は対象範囲内の拡張対象を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${syllabus.subcategories[item.id]} | ${item.status} | ${(item.cards || []).join(", ")} |`)];
 fs.writeFileSync(path.join(reportDir, "coverage.md"), `${coverageLines.join("\n")}\n`);
 const moves = [...new Set(cards.flatMap((card) => card.hashtags))]
   .map((tag) => ({ tag, count: cards.filter((card) => card.hashtags.includes(tag)).length }))

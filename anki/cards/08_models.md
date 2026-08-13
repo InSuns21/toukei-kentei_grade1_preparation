@@ -1,8 +1,8 @@
 ﻿---
 id: model-gauss-markov
 title: Gauss--Markov定理の使用条件を列挙する
-category: engineering-models
-subcategory: linear-model
+category: applied-common
+subcategory: applied-multiple-regression
 topic: blue
 type: condition
 difficulty: 2
@@ -29,8 +29,8 @@ $$\begin{aligned}E[\widehat{\boldsymbol\beta}]&=(\boldsymbol X^{\mathsf T}\bolds
 ---
 id: model-logistic-odds
 title: ロジスティック回帰係数をオッズ比で読む
-category: engineering-models
-subcategory: glm
+category: applied-common
+subcategory: applied-multivariate
 topic: logistic-regression
 type: recognition
 difficulty: 2
@@ -54,8 +54,8 @@ $$\exp\{(\beta_0+0.7(x+1))-(\beta_0+0.7x)\}=e^{0.7}\approx2.01.$$
 ---
 id: model-contrast
 title: 線形対比の係数条件を確認する
-category: engineering-models
-subcategory: contrasts
+category: applied-engineering
+subcategory: engineering-linear-inference
 topic: linear-contrast
 type: condition
 difficulty: 2

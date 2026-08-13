@@ -1,8 +1,8 @@
 ﻿---
 id: multi-linear-combination
 title: 多変量正規分布の線形結合を求める
-category: multivariate
-subcategory: multivariate-normal
+category: applied-engineering
+subcategory: engineering-multivariate
 topic: linear-combination
 type: theorem
 difficulty: 2
@@ -27,8 +27,8 @@ $$E[Y]=\boldsymbol a^{\mathsf T}\boldsymbol\mu=-1,\qquad \operatorname{Var}(Y)=\
 ---
 id: multi-covariance-psd
 title: 共分散行列の半正定値性を二次形式で確認する
-category: multivariate
-subcategory: covariance
+category: applied-engineering
+subcategory: engineering-multivariate
 topic: covariance-matrix
 type: proof_step
 difficulty: 2
@@ -53,8 +53,8 @@ $$\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\operatorname{Var}(\bo
 ---
 id: multi-pca-eigen
 title: 最大分散方向を固有ベクトルで求める
-category: multivariate
-subcategory: eigen
+category: applied-engineering
+subcategory: engineering-multivariate
 topic: principal-component
 type: strategy
 difficulty: 3

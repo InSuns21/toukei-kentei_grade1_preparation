@@ -1,8 +1,8 @@
 ﻿---
 id: prob-inclusion-exclusion
 title: 2事象の和事象を包除原理で求める
-category: probability
-subcategory: events
+category: math-probability
+subcategory: math-events
 topic: inclusion-exclusion
 type: formula
 difficulty: 1
@@ -29,8 +29,8 @@ $0.6+0.5=1.1$ のままにしない。
 ---
 id: prob-bayes-diagnostic
 title: 診断結果からBayesの定理で逆確率を求める
-category: probability
-subcategory: conditional
+category: math-probability
+subcategory: math-events
 topic: bayes-theorem
 type: strategy
 difficulty: 2
@@ -59,8 +59,8 @@ $$\begin{aligned}P(D\mid +)&=\frac{0.9\cdot0.01}{0.9\cdot0.01+0.05\cdot0.99}\\&=
 ---
 id: prob-cdf-from-pmf
 title: 確率質量関数から累積分布関数を作る
-category: probability
-subcategory: random-variables
+category: math-probability
+subcategory: math-distribution-functions
 topic: cdf
 type: calc_step
 difficulty: 1

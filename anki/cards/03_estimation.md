@@ -1,8 +1,8 @@
 ﻿---
 id: est-factorization
 title: 因子分解定理で十分統計量を見抜く
-category: estimation
-subcategory: sufficiency
+category: math-estimation
+subcategory: math-population-sample-statistic
 topic: factorization-theorem
 type: theorem
 difficulty: 2
@@ -27,8 +27,8 @@ $$L(p;x)=\prod_{i=1}^np^{x_i}(1-p)^{1-x_i}=p^T(1-p)^{n-T}\cdot1.$$
 ---
 id: est-bernoulli-mle
 title: Bernoulli標本の最尤推定量を求める
-category: estimation
-subcategory: likelihood
+category: math-estimation
+subcategory: math-likelihood-mle
 topic: maximum-likelihood
 type: strategy
 difficulty: 2
@@ -55,8 +55,8 @@ $$\begin{aligned}\ell(p)&=3\log p+2\log(1-p),\\\ell'(p)&=\frac3p-\frac2{1-p}\\&=
 ---
 id: est-bias-variance
 title: 平均二乗誤差を分散とバイアスに分解する
-category: estimation
-subcategory: estimation-quality
+category: math-estimation
+subcategory: math-point-estimator-properties
 topic: mse-decomposition
 type: proof_step
 difficulty: 2
@@ -81,8 +81,8 @@ $$E[(T-\theta)^2]=\operatorname{Var}(T)+(E[T]-\theta)^2.$$
 ---
 id: est-delta-log
 title: Delta法で対数変換後の漸近分散を求める
-category: estimation
-subcategory: asymptotic-inference
+category: math-estimation
+subcategory: math-asymptotic-estimation
 topic: delta-method
 type: strategy
 difficulty: 3

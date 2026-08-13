@@ -1,8 +1,8 @@
 ﻿---
 id: process-markov-two-step
 title: Markov連鎖の2期推移確率を行列積で求める
-category: stochastic-process
-subcategory: markov
+category: applied-common
+subcategory: applied-stochastic-processes
 topic: transition-matrix
 type: calc_step
 difficulty: 2
@@ -26,8 +26,8 @@ $$\begin{aligned}P_{12}^{(2)}&=P_{11}P_{12}+P_{12}P_{22}\\&=0.8\cdot0.2+0.2\cdot
 ---
 id: process-poisson-wait
 title: Poisson過程の待ち時間を指数分布へ結び付ける
-category: stochastic-process
-subcategory: poisson-process
+category: applied-common
+subcategory: applied-stochastic-processes
 topic: waiting-time
 type: recognition
 difficulty: 2
@@ -53,8 +53,8 @@ $$P(T_1>1)=P(N(1)=0)=e^{-2}.$$
 ---
 id: process-ar1-stationary
 title: AR(1)過程の定常分散を解く
-category: stochastic-process
-subcategory: time-series
+category: applied-engineering
+subcategory: engineering-stochastic-processes
 topic: ar1
 type: strategy
 difficulty: 3
