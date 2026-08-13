@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171914'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' fill='%23d8ff37'%3EΣ%3C/text%3E%3C/svg%3E">
+  <title>カテゴリー一覧 | 統計検定1級 解法定跡カード</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .category-index{width:min(1120px,calc(100% - 3rem));margin:3rem auto 5rem}.category-index>header{display:flex;justify-content:space-between;align-items:end;gap:2rem;border-bottom:4px solid #171914;margin-bottom:2rem}.category-index h1{font-size:clamp(2.4rem,7vw,5.5rem);line-height:.9;margin:.3rem 0 1.4rem}.category-index .total{font-size:1.25rem;font-weight:900;margin-bottom:1.4rem}.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.category-entry{position:relative;border:3px solid #171914;background:#fff;padding:1.1rem;box-shadow:5px 5px 0 #171914}.category-entry p{font-size:.75rem;font-weight:900;letter-spacing:.08em;margin:0}.category-entry h2{font-size:1.45rem;margin:.25rem 4rem 1rem 0}.category-entry>strong{position:absolute;right:1rem;top:1.2rem}.category-entry div{display:flex;flex-wrap:wrap;gap:.5rem}.category-entry a{display:flex;justify-content:space-between;gap:1rem;min-height:44px;padding:.65rem .8rem;border:2px solid #171914;background:#d8ff37;color:#171914;font-weight:900;text-decoration:none;flex:1 1 14rem}.category-entry a span{white-space:nowrap}.reference-links{margin-top:2rem}.reference-links a{color:#171914;font-weight:900}@media(max-width:760px){.category-grid{grid-template-columns:1fr}.category-index>header{align-items:start;flex-direction:column;gap:0}.category-index{width:min(100% - 1.5rem,1120px)}}
+  </style>
+</head>
+<body>
+  <main class="category-index">
+    <header><div><p class="eyebrow">STATISTICS / GRADE 1</p><h1>カテゴリー<br>一覧</h1></div><p class="total">全 {{TOTAL_COUNT}} 枚</p></header>
+    <p>公式シラバスのカテゴリーから学習する分野を選んでください。</p>
+    <div class="category-grid">{{CATEGORY_LINKS}}</div>
+    <p class="reference-links"><a href="notation.html">記法・分布一覧 →</a>　<a href="formulae.html">公式・定理・定義 →</a></p>
+  </main>
+</body>
+</html>

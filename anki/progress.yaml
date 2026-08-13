@@ -1,0 +1,17 @@
+schema_version: 1
+cards_per_batch: 50
+cards_per_page: 200
+updated_at: 2026-08-13
+current_batch: null
+next_batch: batch-002
+batches:
+  batch-001:
+    range: [1, 50]
+    status: reviewed
+    completed_at: 2026-08-13
+    review_dir: review
+    review_result: { fatal: 0, major: 0, minor: 0 }
+  batch-002:
+    range: [51, 100]
+    status: planned
+    review_dir: review/batch-002

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171914'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' fill='%23d8ff37'%3EΣ%3C/text%3E%3C/svg%3E">
+  <title>{{PAGE_TITLE}} | 統計検定1級 解法定跡カード</title>
+  <link rel="stylesheet" href="assets/katex.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>.notation-link{color:#d8ff37;font-weight:900}.page-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:2rem 0}.page-nav a{display:grid;place-items:center;min-width:44px;min-height:44px;padding:.25rem .6rem;border:2px solid #171914;background:#fff;color:#171914;font-weight:900;text-decoration:none}.page-nav a[aria-current=page]{background:#d8ff37}</style>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">STATISTICS / GRADE 1</p>
+      <h1>{{PAGE_TITLE}}<br><span>カード</span></h1>
+      <p>局面を見抜く。次の一手を決める。短い計算で、最後まで動かす。</p>
+      <p><a class="notation-link" href="notation.html">記法・分布一覧 →</a>　<a class="notation-link" href="formulae.html">公式・定理・定義 →</a></p>
+    </div>
+    <div class="hero-stats" aria-label="教材情報">
+      <strong>{{TOTAL_COUNT}}</strong><span>CARDS</span>
+      <strong>2</strong><span>SECTIONS</span>
+      <strong>OFFLINE</strong><span>READY</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="カードの絞り込み">
+      <div class="search-wrap">
+        <label for="search">全文検索</label>
+        <input id="search" type="search" placeholder="例：尤度、Jacobian、AR(1)" autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <div class="control-grid">
+        <label>カテゴリー<select id="category"><option value="">すべて</option>{{CATEGORY_OPTIONS}}</select></label>
+        <label>サブカテゴリー<select id="subcategory"><option value="">すべて</option>{{SUBCATEGORY_OPTIONS}}</select></label>
+        <label>並び順<select id="sort"><option value="syllabus">シラバス順</option><option value="difficulty">難易度順</option><option value="priority">優先度順</option><option value="frequency">頻度順</option><option value="title">タイトル順</option></select></label>
+      </div>
+      <fieldset class="difficulty"><legend>難易度（同一軸は OR）</legend>
+        <label><input type="checkbox" name="difficulty" value="1">1</label><label><input type="checkbox" name="difficulty" value="2">2</label><label><input type="checkbox" name="difficulty" value="3">3</label><label><input type="checkbox" name="difficulty" value="4">4</label><label><input type="checkbox" name="difficulty" value="5">5</label>
+      </fieldset>
+      <details class="tag-filter"><summary>タグで絞る</summary><div>{{TAG_BUTTONS}}</div></details>
+      <div class="control-foot"><p id="result-count" aria-live="polite">このページで表示中 {{CARD_COUNT}} / {{CARD_COUNT}} cards（全{{TOTAL_COUNT}}枚）</p><button id="reset" type="button">条件をリセット</button></div>
+    </section>
+
+    <noscript><p class="noscript">JavaScriptが無効です。検索・絞り込みは使えませんが、全カードの問題と答えは閲覧できます。</p></noscript>
+    {{PAGE_NAV}}
+    <section id="cards" class="cards" aria-label="解法カード一覧">{{CARDS}}</section>
+    {{PAGE_NAV}}
+    <p id="empty" class="empty" hidden>条件に合うカードがありません。絞り込みを減らしてください。</p>
+  </main>
+
+  <footer class="site-foot"><p>公式出題範囲（2015-05-08）準拠 / static pilot</p><a href="#top" onclick="scrollTo({top:0,behavior:'smooth'});return false">上へ戻る ↑</a></footer>
+</body>
+</html>

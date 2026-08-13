@@ -1,0 +1,85 @@
+# 利用公式・定理・定義
+
+このファイルをカード教材で利用する公式・定理・定義の正本とする。カードでは、ここへのリンクだけで済ませず、実際に使う項目を「使用公式・定理」欄へ再掲する。
+
+## 確率
+
+- 包除原理：$P(A\cup B)=P(A)+P(B)-P(A\cap B)$。
+- 条件付き確率：$P(A\mid B)=P(A\cap B)/P(B)$（$P(B)>0$）。
+- Bayesの定理：$P(A_i\mid B)=P(B\mid A_i)P(A_i)/\sum_jP(B\mid A_j)P(A_j)$。
+- 全確率の公式：分割 $A_1,\ldots,A_k$ に対し $P(B)=\sum_jP(B\mid A_j)P(A_j)$。
+- 独立性：$A,B$ が独立なら $P(A\cap B)=P(A)P(B)$。
+
+## 分布・モーメント
+
+- 累積分布関数：離散分布では $F_X(x)=\sum_{u\le x}p_X(u)$。
+- Gamma積分：$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du$、$\int_0^\infty x^{a-1}e^{-bx}\,dx=\Gamma(a)/b^a$。
+- 分散公式：$\operatorname{Var}(X)=E[X^2]-E[X]^2$。
+- 共分散公式：$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$。
+- 全期待値：$E[X]=E[E[X\mid Y]]$。
+- 全分散：$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y])$。
+- 畳み込み：独立な連続確率変数の和 $Z=X+Y$ では $f_Z(z)=\int f_X(x)f_Y(z-x)\,dx$。
+- 最大値：独立同分布標本の $M=\max_iX_i$ では $F_M(m)=F_X(m)^n$。
+- 1変数変換：単調な $Y=g(X)$ では $f_Y(y)=f_X(g^{-1}(y))|(g^{-1})'(y)|$。
+- MGF：$M_X(t)=E[e^{tX}]$、存在すれば $E[X^r]=M_X^{(r)}(0)$。
+- Poisson分布のモーメント母関数：$M_X(t)=\exp\{\lambda(e^t-1)\}$。
+
+## 極限定理・標本分布
+
+- 大数の法則：独立同分布で $E[|X_1|]<\infty$ なら $\overline X\xrightarrow{p}E[X_1]$。
+- 中心極限定理：独立同分布で平均 $\mu$、有限な正の分散 $\sigma^2$ なら $\sqrt n(\overline X-\mu)/\sigma\xrightarrow{d}N(0,1)$。
+- Delta法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら、$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$。
+
+## 推定
+
+- 最尤推定量：$\widehat\theta\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)=\operatorname*{arg\,max}_{\theta\in\Theta}\ell(\theta;x)$。
+- モーメント法：母モーメントを対応する標本モーメントへ等置し、母数について解く。
+- 因子分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と分解できれば $T$ は十分統計量。
+- Fisher情報量：$I_1(\theta)=E[U(\theta)^2]$。台が局所的に母数へ依存せず、対数尤度が2回微分可能で、微分と積分の交換ができ、情報量が有限なら $I_1(\theta)=-E[\ell''(\theta)]$。
+- Cramér--Rao不等式：共通の台、微分と積分の交換、有限で正の情報量という正則条件の下で、$g(\theta)$ の不偏推定量 $T$ は $\operatorname{Var}_\theta(T)\ge g'(\theta)^2/I_n(\theta)$ を満たす。
+- AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$。
+- 平均二乗誤差：$E[(T-\theta)^2]=\operatorname{Var}(T)+\operatorname{Bias}(T)^2$。
+
+## 検定
+
+- 母分散既知の正規平均：$(\overline X-\mu)/(\sigma/\sqrt n)\sim N(0,1)$。信頼係数 $1-\alpha$ の区間は $\overline X\pm z_{1-\alpha/2}\sigma/\sqrt n$。
+- 符号検定：連続分布の中央値の帰無仮説下で、正符号数は二項分布 $\operatorname{Binomial}(n,1/2)$ に従う。
+- Neyman--Pearson補題：単純仮説同士では尤度比が大きい標本点から棄却域へ入れる。
+- 尤度比検定：真値が母数空間の内部にあり、モデルが識別可能、尤度が十分滑らか、Fisher情報行列が正定値という正則条件の下で $-2\log\Lambda\xrightarrow{d}\chi_r^2$。$r$ は独立な制約数。
+- Pearson適合度統計量：区分確率が正で期待度数が増大し、識別可能な正則 $r$ 母数モデルを最尤法等で当てはめると $\sum_j(O_j-E_j)^2/E_j\xrightarrow{d}\chi^2_{k-1-r}$。
+
+## 線形モデル・多変量・時系列
+
+- 単回帰の傾き：$\widehat\beta_1=S_{xy}/S_{xx}$。
+- オッズ比：2×2表 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ では $ad/(bc)$。
+- bootstrap標準誤差：$\{(B-1)^{-1}\sum_b(T^{*(b)}-\overline T^*)^2\}^{1/2}$。
+- 共分散二次形式：$\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$。
+- Rayleigh商：対称行列では $\max_{\boldsymbol a^{\mathsf T}\boldsymbol a=1}\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\lambda_{\max}$。
+- 多変量正規分布の条件付き平均：$E[X\mid Y=y]=\mu_X+\sigma_{XY}(y-\mu_Y)/\sigma_Y^2$。
+- OLS：$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。
+- Gauss--Markov定理：固定・列フルランク計画、誤差平均0、共分散 $\sigma^2\boldsymbol I_n$ の下でOLSはBLUE。
+- 多変量正規の線形変換：$\boldsymbol a^{\mathsf T}\boldsymbol X\sim N(\boldsymbol a^{\mathsf T}\boldsymbol\mu,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a)$。
+- Chapman--Kolmogorov関係：$P_{ij}^{(m+n)}=\sum_kP_{ik}^{(m)}P_{kj}^{(n)}$。
+- 定常分布：$\boldsymbol\pi^{\mathsf T}\boldsymbol P=\boldsymbol\pi^{\mathsf T}$、$\sum_i\pi_i=1$。
+- Poisson過程の待ち時間：$P(T_1>t)=P(N(t)=0)=e^{-\lambda t}$。
+- AR(1)定常分散：$X_t=\phi X_{t-1}+\varepsilon_t$、$|\phi|<1$、革新が平均0、分散 $\sigma_\varepsilon^2$ で過去と無相関なら $\gamma(0)=\sigma_\varepsilon^2/(1-\phi^2)$。
+- MA(1)自己共分散：$X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ なら $\gamma(0)=(1+\theta^2)\sigma_\varepsilon^2$、$\gamma(1)=\theta\sigma_\varepsilon^2$、$|h|>1$ で $\gamma(h)=0$。
+- ロジスティック回帰：説明変数が $c$ 増えるとオッズは $e^{c\beta_1}$ 倍。
+- Poisson回帰：説明変数が $c$ 増えると条件付き平均は $e^{c\beta_1}$ 倍。
+- 線形対比：$\sum_ic_i=0$ を満たす $\sum_ic_i\mu_i$。
+
+## 品質・信頼性・実験計画
+
+- 工程能力指数：$C_p=(USL-LSL)/(6\sigma)$。
+- 独立な直列系：$R(t)=\prod_iR_i(t)$。
+- $\overline X$ 管理図：$UCL=\mu+3\sigma/\sqrt n$、$CL=\mu$、$LCL=\mu-3\sigma/\sqrt n$。
+- 一元配置平方和：$SS_T=SS_B+SS_W$。
+- 指数寿命：$R(t)=e^{-\lambda t}$、$\operatorname{MTBF}=1/\lambda$。
+- 乱塊法：$Y_{ij}=\mu+\tau_i+\beta_j+\varepsilon_{ij}$、識別制約は $\sum_i\tau_i=\sum_j\beta_j=0$。
+- 2因子交互作用：$(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})$ という差の差で測る。
+
+## Bayes・不完全データ・simulation
+
+- Beta--Bernoulli共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
+- EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
+- Monte Carlo積分：$\int_0^1g(x)\,dx=E[g(U)]$ を $n^{-1}\sum_ig(U_i)$ で推定する。

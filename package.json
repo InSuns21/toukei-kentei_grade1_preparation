@@ -9,11 +9,13 @@
     "validate:math": "node scripts/validate_math.mjs",
     "validate:text": "node scripts/validate_text.mjs",
     "new:chapter": "node scripts/scaffold_chapter.mjs",
-    "progress": "node scripts/curriculum_progress.mjs"
+    "progress": "node scripts/curriculum_progress.mjs",
+    "anki:build": "node anki/scripts/build_site.mjs",
+    "anki:validate": "node anki/scripts/validate_cards.mjs && node anki/scripts/build_site.mjs --check",
+    "anki:progress": "node anki/scripts/progress.mjs"
   },
   "dependencies": {
     "katex": "^0.16.11",
     "yaml": "^2.5.1"
   }
 }
-

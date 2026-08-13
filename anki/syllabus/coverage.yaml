@@ -1,0 +1,56 @@
+schema_version: 1
+meaning:
+  card: pilot内に計算を完遂する代表カードがある
+  reference: notation.md または formulae.md に定義・公式があるが独立カードは未収録
+  planned: pilot後の拡張対象
+items:
+  - { id: math-probability, name: 事象・条件付き確率・Bayes, status: card, cards: [prob-inclusion-exclusion, prob-bayes-diagnostic] }
+  - { id: math-joint, name: 同時・周辺・条件付き分布, status: card, cards: [multi-conditional-normal] }
+  - { id: math-cdf, name: 分布関数, status: card, cards: [prob-cdf-from-pmf, dist-order-max] }
+  - { id: math-generating, name: 母関数, status: card, cards: [dist-mgf-poisson] }
+  - { id: math-moments, name: 期待値・分散・共分散, status: card, cards: [dist-variance-moment, multi-covariance-psd] }
+  - { id: math-skew-kurtosis, name: 歪度・尖度, status: planned, cards: [] }
+  - { id: math-transform, name: 変数変換・畳み込み・順序統計量, status: card, cards: [dist-jacobian-scale, dist-convolution-uniform, dist-order-max] }
+  - { id: math-discrete, name: 主要な離散分布, status: card, cards: [dist-mgf-poisson, est-fisher-bernoulli, test-np-bernoulli] }
+  - { id: math-continuous, name: 主要な連続分布, status: card, cards: [dist-gamma-recognition, est-moments-exponential, dist-convolution-uniform] }
+  - { id: math-t-chi-f, name: t・カイ二乗・F分布, status: reference, cards: [] }
+  - { id: math-lln, name: 大数の法則, status: card, cards: [data-monte-carlo-integral] }
+  - { id: math-clt, name: 中心極限定理, status: card, cards: [dist-clt-standardize] }
+  - { id: math-approximations, name: 二項分布の正規・Poisson近似, status: planned, cards: [] }
+  - { id: math-sufficiency, name: 十分統計量, status: card, cards: [est-factorization] }
+  - { id: math-likelihood, name: 尤度・最尤法, status: card, cards: [est-bernoulli-mle] }
+  - { id: math-mom, name: モーメント法, status: card, cards: [est-moments-exponential] }
+  - { id: math-ls-blue, name: 最小二乗法・BLUE, status: card, cards: [data-ols-slope, model-gauss-markov] }
+  - { id: math-estimator-quality, name: 不偏性・一致性・有効性, status: card, cards: [est-bias-variance, est-cramer-rao-bernoulli] }
+  - { id: math-information, name: Fisher情報量・Cramér--Rao不等式, status: card, cards: [est-fisher-bernoulli, est-cramer-rao-bernoulli] }
+  - { id: math-mle-asymptotic, name: MLE漸近正規性, status: planned, cards: [] }
+  - { id: math-delta, name: Delta法, status: card, cards: [est-delta-log] }
+  - { id: math-kl, name: KL情報量, status: planned, cards: [] }
+  - { id: math-aic, name: AIC, status: card, cards: [est-aic-choice] }
+  - { id: math-cross-validation, name: 交差検証, status: planned, cards: [] }
+  - { id: math-confidence, name: 区間推定・被覆確率, status: card, cards: [test-normal-ci] }
+  - { id: math-testing, name: Neyman--Pearson・尤度比検定, status: card, cards: [test-np-bernoulli, test-likelihood-ratio] }
+  - { id: math-wald-score, name: Wald・Score検定, status: planned, cards: [] }
+  - { id: math-gof-nonparametric, name: 適合度・ノンパラメトリック検定, status: card, cards: [test-chi-square-fit, test-sign-test] }
+  - { id: math-regression-anova, name: 回帰・分散分析, status: card, cards: [data-ols-slope, data-anova-decomposition] }
+  - { id: math-categorical, name: 分割表, status: card, cards: [data-odds-ratio] }
+  - { id: math-bayes, name: Bayes法, status: card, cards: [data-bayes-beta] }
+  - { id: math-missing, name: 不完全データ・EM法, status: card, cards: [data-em-responsibility] }
+  - { id: math-simulation, name: simulation・bootstrap・Monte Carlo, status: card, cards: [data-bootstrap-mean, data-monte-carlo-integral] }
+  - { id: math-mcmc, name: MCMC, status: planned, cards: [] }
+  - { id: eng-multivariate, name: 多変量正規・共分散・固有値, status: card, cards: [multi-linear-combination, multi-covariance-psd, multi-pca-eigen] }
+  - { id: eng-markov, name: Markov過程・連鎖, status: card, cards: [process-markov-two-step, process-stationary-markov] }
+  - { id: eng-poisson, name: Poisson過程, status: card, cards: [process-poisson-wait] }
+  - { id: eng-ar, name: AR過程, status: card, cards: [process-ar1-stationary] }
+  - { id: eng-ma, name: MA過程, status: card, cards: [process-ma1-autocovariance] }
+  - { id: eng-arima, name: ARIMA過程, status: planned, cards: [] }
+  - { id: eng-glm, name: 一般化線形モデル, status: card, cards: [model-logistic-odds, model-poisson-glm] }
+  - { id: eng-contrasts, name: 線形対比・制約, status: card, cards: [model-contrast] }
+  - { id: eng-quality, name: 管理図・工程能力, status: card, cards: [eng-xbar-limits, eng-capability-index] }
+  - { id: eng-reliability, name: 信頼性, status: card, cards: [eng-series-reliability, eng-exponential-reliability] }
+  - { id: eng-maintainability, name: 保全性, status: planned, cards: [] }
+  - { id: eng-fixed-effects, name: 固定効果, status: card, cards: [eng-two-factor-interaction] }
+  - { id: eng-random-effects, name: 変量効果, status: planned, cards: [] }
+  - { id: eng-block, name: ブロック化, status: card, cards: [eng-blocking] }
+  - { id: eng-orthogonal-array, name: 直交表, status: planned, cards: [] }
+  - { id: eng-confounding, name: 交絡法, status: planned, cards: [] }

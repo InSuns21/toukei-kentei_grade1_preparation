@@ -1,0 +1,13 @@
+{
+  "name": "stat1-solution-cards",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build_site.mjs",
+    "validate": "node scripts/validate_cards.mjs && node scripts/build_site.mjs --check"
+  },
+  "dependencies": {
+    "katex": "^0.16.11",
+    "yaml": "^2.5.1"
+  }
+}

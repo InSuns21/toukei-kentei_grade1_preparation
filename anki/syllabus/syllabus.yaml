@@ -1,0 +1,83 @@
+schema_version: 1
+title: 統計検定1級 解法定跡カード
+source:
+  file: ../pdfs/grade1_hani_20150508_2.pdf
+  published: 2015-05-08
+categories:
+  - id: probability
+    name: 確率
+    section: 統計数理
+    order: 10
+    children: [events, conditional, random-variables]
+  - id: distributions
+    name: 分布・変数変換
+    section: 統計数理
+    order: 20
+    children: [moments, named-distributions, transformations, asymptotics]
+  - id: estimation
+    name: 推定・漸近論
+    section: 統計数理
+    order: 30
+    children: [sufficiency, likelihood, estimation-quality, asymptotic-inference]
+  - id: testing
+    name: 区間推定・検定
+    section: 統計数理
+    order: 40
+    children: [confidence, hypothesis-testing, goodness-of-fit, nonparametric]
+  - id: data-analysis
+    name: データ解析
+    section: 統計数理
+    order: 50
+    children: [regression, anova, categorical, bayes-missing-simulation]
+  - id: multivariate
+    name: 多変量解析
+    section: 統計応用（理工学）
+    order: 60
+    children: [multivariate-normal, covariance, eigen]
+  - id: stochastic-process
+    name: 確率過程・時系列
+    section: 統計応用（理工学）
+    order: 70
+    children: [markov, poisson-process, time-series]
+  - id: engineering-models
+    name: 線形・一般化線形モデル
+    section: 統計応用（理工学）
+    order: 80
+    children: [linear-model, glm, contrasts]
+  - id: engineering
+    name: 品質・信頼性・実験計画
+    section: 統計応用（理工学）
+    order: 90
+    children: [quality, reliability, design]
+subcategories:
+  events: 事象と確率
+  conditional: 条件付き確率・独立・Bayes
+  random-variables: 確率変数・分布関数
+  moments: モーメント・分散・共分散
+  named-distributions: 主要な確率分布
+  transformations: 変数変換・畳み込み・順序統計量
+  asymptotics: 大数則・中心極限定理
+  sufficiency: 十分統計量
+  likelihood: 尤度・推定法
+  estimation-quality: 推定量の評価
+  asymptotic-inference: 漸近推測
+  confidence: 区間推定
+  hypothesis-testing: 仮説検定
+  goodness-of-fit: 適合度検定
+  nonparametric: ノンパラメトリック法
+  regression: 回帰分析
+  anova: 分散分析
+  categorical: カテゴリカルデータ・分割表
+  bayes-missing-simulation: Bayes・不完全データ・シミュレーション
+  multivariate-normal: 多変量正規分布
+  covariance: 共分散・相関行列
+  eigen: 固有値・主成分
+  markov: Markov連鎖
+  poisson-process: Poisson過程
+  time-series: 時系列
+  linear-model: 線形モデル
+  glm: 一般化線形モデル
+  contrasts: 線形対比・制約
+  quality: 品質管理・工程管理
+  reliability: 信頼性・保全性
+  design: 実験計画
