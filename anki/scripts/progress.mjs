@@ -21,12 +21,31 @@ const save = () => {
 };
 const summary = () => {
   refreshSummary();
-  console.log(YAML.stringify({ cards: readCards().length, current_work: progress.current_work, next_work: progress.next_work, status_counts: Object.fromEntries(Object.entries(progress.summary).filter(([key]) => key !== "total")) }));
+  console.log(YAML.stringify({
+    cards: readCards().length,
+    current_work: progress.current_work,
+    current_work_title: progress.current_work ? progress.work[progress.current_work]?.title : null,
+    next_work: progress.next_work,
+    next_work_title: progress.next_work ? progress.work[progress.next_work]?.title : null,
+    status_counts: Object.fromEntries(Object.entries(progress.summary).filter(([key]) => key !== "total")),
+  }));
 };
 const getWork = (id) => {
   const item = progress.work[id];
   if (!item) throw new Error(`未知のAnki作業ID: ${id}`);
   return item;
+};
+const inspectWorkScope = (id, item, requireAdded = false) => {
+  const cards = readCards();
+  const currentById = new Map(cards.map((card) => [card.id, card]));
+  const baselineById = new Map((item.baseline_cards || []).map((card) => [card.id, `${card.category}/${card.subcategory}`]));
+  if (baselineById.size !== progress.reviewed_card_count) throw new Error(`${id} のbaseline_cardsがreviewed_card_countと一致しません`);
+  if ([...baselineById].some(([cardId, location]) => !currentById.has(cardId) || `${currentById.get(cardId).category}/${currentById.get(cardId).subcategory}` !== location)) throw new Error(`${id} で既存カードが削除または別カテゴリー・サブカテゴリーへ移動されています`);
+  const added = cards.filter((card) => !baselineById.has(card.id));
+  if (added.some((card) => card.category !== item.category || !item.subcategories.includes(card.subcategory))) throw new Error(`${id} の対象外サブカテゴリーに新規カードがあります`);
+  if (cards.length !== progress.reviewed_card_count + added.length) throw new Error(`${id} 以外のカテゴリー変更またはカード削除があります`);
+  if (requireAdded && !added.length) throw new Error(`${id} に新規カードがありません`);
+  return { cards, added };
 };
 
 if (!command) summary();
@@ -36,9 +55,12 @@ else if (command === "start") {
   if (progress.current_work && progress.current_work !== id) throw new Error(`${progress.current_work} が進行中です`);
   if (!progress.current_work && id !== progress.next_work) throw new Error(`次の作業は ${progress.next_work} です`);
   if (!new Set(["planned", "drafting", "revision"]).has(item.status)) throw new Error(`${id} は開始できません: ${item.status}`);
-  if (item.status === "planned") item.status = "drafting";
+  if (item.status === "planned") {
+    if (readCards().length !== progress.reviewed_card_count) throw new Error(`${id} の開始前に未追跡のカード差分があります`);
+    item.status = "drafting";
+  } else inspectWorkScope(id, item);
   item.started_at ||= new Date().toISOString();
-  item.baseline_cards ||= readCards().map((card) => ({ id: card.id, category: card.category })).sort((a, b) => a.id.localeCompare(b.id));
+  item.baseline_cards ||= readCards().map((card) => ({ id: card.id, category: card.category, subcategory: card.subcategory })).sort((a, b) => a.id.localeCompare(b.id));
   progress.current_work = id;
   fs.mkdirSync(path.join(ROOT, item.review_dir), { recursive: true });
   save(); summary();
@@ -48,6 +70,7 @@ else if (command === "start") {
   const item = getWork(id);
   const transitions = { drafting: "self_review", self_review: "independent_review", independent_review: "revision" };
   if (transitions[item.status] !== status || progress.current_work !== id) throw new Error("状態遷移は drafting -> self_review -> independent_review -> revision の順です");
+  inspectWorkScope(id, item);
   item.status = status;
   item[`${status}_at`] = new Date().toISOString();
   save(); summary();
@@ -75,15 +98,8 @@ else if (command === "start") {
     if (initialAt < independentReviewAt || initialAt >= revisionAt || finalAt <= revisionAt) throw new Error(`日時は independent_review開始 <= 初回査読 < 修正開始 < 再査読 の順にします: ${path.relative(ROOT, review)}`);
     if (!/初回指摘/.test(body) || !/修正確認/.test(body)) throw new Error(`初回指摘・修正確認の記録がありません: ${path.relative(ROOT, review)}`);
   }
-  const cards = readCards();
-  const currentById = new Map(cards.map((card) => [card.id, card]));
-  const baselineById = new Map((item.baseline_cards || []).map((card) => [card.id, card.category]));
-  if ([...baselineById].some(([cardId, category]) => !currentById.has(cardId) || currentById.get(cardId).category !== category)) throw new Error(`${id} で既存カードが削除または別カテゴリーへ移動されています`);
-  const newCards = cards.filter((card) => !baselineById.has(card.id));
-  if (newCards.some((card) => card.category !== item.category)) throw new Error(`${id} の対象外カテゴリーに新規カードがあります`);
-  const added = newCards.map((card) => card.id).sort();
-  if (!added.length) throw new Error(`${id} に新規カードがありません`);
-  if (cards.length !== progress.reviewed_card_count + added.length) throw new Error(`${id} 以外のカテゴリー変更またはカード削除があります`);
+  const { cards, added: addedCards } = inspectWorkScope(id, item, true);
+  const added = addedCards.map((card) => card.id).sort();
   const projectRoot = path.resolve(ROOT, "..");
   const npmCli = process.env.npm_execpath;
   if (!npmCli || !fs.existsSync(npmCli)) throw new Error("npm CLIのパスを取得できません。npm run anki:progress -- complete <WORK-ID> で実行してください");

@@ -33,23 +33,23 @@
 
 ## Ankiカード教材の継続手順
 
-ユーザーが「ankiの続きを書いて」と指定した場合は、通常章ではなく `anki/` の次カテゴリー作業を質問せず進める。
+ユーザーが「ankiの続きを書いて」と指定した場合は、通常章ではなく `anki/` の次サブカテゴリー作業を質問せず進める。
 
 1. `npm run anki:progress` で `current_work` と `next_work` を確認する。
 2. 進行中の作業を再開し、なければ `npm run anki:progress -- start <WORK-ID>` で `next_work` を開始する。
-3. `anki/progress.yaml` が示す単一カテゴリーについて、必要な論点数のカードをメイン担当が執筆する。機械的な枚数ノルマは設けず、カードの正本は `anki/cards/**/*.md` とする。
+3. `anki/progress.yaml` が示す意味的に関連する1〜2サブカテゴリーについて、必要な論点数のカードをメイン担当が執筆する。重い論点は1サブカテゴリー、密接な論点は2サブカテゴリーを単位とし、枚数による機械分割はしない。カードの正本は `anki/cards/**/*.md` とする。
 4. `anki/notation.md`、`anki/formulae.md`、`anki/syllabus/syllabus.yaml`、`anki/syllabus/coverage.yaml` を同期する。分布はカード内で日本語名を明記し、台・母数化・確率質量関数／密度は `anki/notation.md` を正本とする。使用公式・定理はカードにも再掲する。
-5. `npm run anki:progress -- stage <WORK-ID> self_review` を実行し、対象カテゴリーの追加カードについて1カード1論点、公式提示、目で追える式展開、具体例完遂を自己査読する。
-6. `npm run anki:progress -- stage <WORK-ID> independent_review` とし、完成稿に対して、`model: "gpt-5.6-sol"` の独立数理査読と試験適合性査読の2サブエージェントをカテゴリー作業全体単位で起動する。カード1枚ごとの起動は禁止する。
+5. `npm run anki:progress -- stage <WORK-ID> self_review` を実行し、対象サブカテゴリー群の追加カードについて1カード1論点、公式提示、目で追える式展開、具体例完遂を自己査読する。
+6. `npm run anki:progress -- stage <WORK-ID> independent_review` とし、完成稿に対して、`model: "gpt-5.6-sol"` の独立数理査読と試験適合性査読の2サブエージェントを作業単位全体で起動する。カード1枚ごとの起動は禁止する。
 7. 査読記録は作業ごとに新設する `anki/progress.yaml` の `review_dir` 内の `math-review.md` と `exam-review.md` へ残す。別作業の査読ファイルへ追記しない。
-8. `npm run anki:progress -- stage <WORK-ID> revision` としてメイン担当が修正し、初回と同じ2担当へ対象カテゴリー全体の再査読を依頼する。
-9. 両査読がそれぞれ `fatal: 0 / major: 0 / minor: 0` になった後、`npm run anki:build` で配信HTMLを更新し、`npm run anki:progress -- complete <WORK-ID>` を実行する。このコマンドは対象カテゴリーの追加カードID、査読記録、生成物の一致、`npm run anki:validate`、`npm run validate` を確認して作業専用の最終検証記録を生成する。
-10. 対象カテゴリーのカード、正本、シラバス・coverage、レポート、作業専用査読記録、`anki/progress.yaml`、直接必要なスクリプトだけを選択的にステージし、`complete <WORK-ID> anki <カテゴリー名>` の形式でコミットする。`anki/dist/` は生成物なので含めない。
+8. `npm run anki:progress -- stage <WORK-ID> revision` としてメイン担当が修正し、初回と同じ2担当へ対象作業単位全体の再査読を依頼する。
+9. 両査読がそれぞれ `fatal: 0 / major: 0 / minor: 0` になった後、`npm run anki:build` で配信HTMLを更新し、`npm run anki:progress -- complete <WORK-ID>` を実行する。このコマンドは対象サブカテゴリー群の追加カードID、査読記録、生成物の一致、`npm run anki:validate`、`npm run validate` を確認して作業専用の最終検証記録を生成する。
+10. 対象サブカテゴリー群のカード、正本、シラバス・coverage、レポート、作業専用査読記録、`anki/progress.yaml`、直接必要なスクリプトだけを選択的にステージし、`complete <WORK-ID> anki <日本語サブカテゴリー名>` の形式でコミットする。`anki/dist/` は生成物なので含めない。
 11. コミット後に `git status --short` と `npm run anki:progress` を確認し、対象変更が残っておらず `next_work` が正しいことを確認する。
 
-Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `category-<カテゴリーID>.html` へ公式シラバスのカテゴリー単位で分ける。単一カテゴリーが200枚を超えた場合は、まずシラバス上のサブカテゴリー境界で意味的に分割し、単一サブカテゴリー自体が200枚を超える場合に限ってその内部を最大200枚で分割する。サブカテゴリーの内部IDは英語でもよいが、Web表示は必ず `anki/syllabus/syllabus.yaml` の日本語名を使う。Ankiカテゴリー作業の進捗正本は `anki/progress.yaml` とし、通常章の `curriculum.yaml` と同じ状態遷移を使う。
+Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `category-<カテゴリーID>.html` へ公式シラバスのカテゴリー単位で分ける。単一カテゴリーが200枚を超えた場合は、まずシラバス上のサブカテゴリー境界で意味的に分割し、単一サブカテゴリー自体が200枚を超える場合に限ってその内部を最大200枚で分割する。配信ページの分割と執筆進捗の単位は独立させる。サブカテゴリーの内部IDは英語でもよいが、Web表示は必ず `anki/syllabus/syllabus.yaml` の日本語名を使う。Anki作業の進捗正本は `anki/progress.yaml` とし、通常章の `curriculum.yaml` と同じ状態遷移を使う。
 
-上記の2名査読は、新規カードを含むカテゴリー作業を完成させる場合に適用する。カード本文・記法・公式・coverageを変更しない配信実装、生成物配置、リンク、ビルド手順だけの変更は、変更領域に合う独立査読者1名と機械検証でよく、数理査読と試験適合性査読の両方を起動しない。
+上記の2名査読は、新規カードを含むサブカテゴリー作業を完成させる場合に適用する。カード本文・記法・公式・coverageを変更しない進捗管理、検証スクリプト、配信実装、生成物配置、リンク、ビルド手順などの基盤変更は、変更領域に合う独立査読者1名と機械検証でよく、数理査読と試験適合性査読の両方を起動しない。
 
 ## サブエージェント査読の必須実行契約
 

@@ -31,7 +31,7 @@ const officialScopeHash = createHash("sha256").update(JSON.stringify(officialPro
 if (officialScopeHash !== "cfba46381c4839c1732a6b311125a8ea31c1efe1c262c2e5c7382ed35411ca74") errors.push("画像版公式出題範囲から転記した対象・階層・用語例が変更されています");
 if (syllabus.schema_version !== 2) errors.push("syllabus.yaml は公式画像階層schema_version 2にします");
 if (scopeCoverage.schema_version !== 2) errors.push("coverage.yaml はschema_version 2にします");
-if (progress.schema_version !== 2) errors.push("progress.yaml はカテゴリー作業schema_version 2にします");
+if (progress.schema_version !== 3) errors.push("progress.yaml は1〜2サブカテゴリー作業schema_version 3にします");
 if (categoryIds.size !== categoryIdList.length) errors.push("syllabus.categoriesのIDが重複しています");
 if (subcategoryIds.size !== childIdList.length) errors.push("同じ小項目IDが複数の大項目に登録されています");
 if (new Set(syllabus.categories.map((item) => item.order)).size !== syllabus.categories.length) errors.push("syllabus.categoriesのorderが重複しています");
@@ -70,10 +70,20 @@ for (const [name, source] of [["notation.md", notation], ["formulae.md", formula
 }
 const allowedStatuses = new Set(["planned", "drafting", "self_review", "independent_review", "revision", "reviewed", "blocked"]);
 const reviewDirs = new Set();
-const progressCategoryIds = Object.values(progress.work || {}).map((item) => item.category);
-if (new Set(progressCategoryIds).size !== progressCategoryIds.length || progressCategoryIds.length !== categoryIds.size || progressCategoryIds.some((id) => !categoryIds.has(id))) errors.push("progress.workは対象7カテゴリーを重複なく1件ずつ登録します");
+const workProjection = Object.entries(progress.work || {}).map(([id, item]) => ({
+  id, title: item.title, category: item.category, subcategories: item.subcategories, review_dir: item.review_dir,
+}));
+const workPlanHash = createHash("sha256").update(JSON.stringify(workProjection)).digest("hex");
+if (workPlanHash !== "62396f9703a1f88147008b25c734f4751a410f0e874da67dd1fbbfefbd83c8a9") errors.push("意味的に編成した26作業の組合せ・順序・日本語名が変更されています");
+const progressSubcategoryIds = Object.values(progress.work || {}).flatMap((item) => item.subcategories || []);
+if (new Set(progressSubcategoryIds).size !== progressSubcategoryIds.length || progressSubcategoryIds.length !== subcategoryIds.size || progressSubcategoryIds.some((id) => !subcategoryIds.has(id))) errors.push("progress.workは対象39サブカテゴリーを重複なく1件ずつ登録します");
 for (const [workId, item] of Object.entries(progress.work || {})) {
   if (!categoryIds.has(item.category)) errors.push(`${workId}: 未知のcategory ${item.category}`);
+  if (typeof item.title !== "string" || !/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(item.title)) errors.push(`${workId}: 日本語のtitleが必要です`);
+  for (const subcategory of item.subcategories || []) if (!item.title.includes(syllabus.subcategories[subcategory])) errors.push(`${workId}: titleに日本語サブカテゴリー名「${syllabus.subcategories[subcategory]}」がありません`);
+  if (!Array.isArray(item.subcategories) || item.subcategories.length < 1 || item.subcategories.length > 2) errors.push(`${workId}: subcategoriesは1〜2件にします`);
+  const parent = syllabus.categories.find((category) => category.id === item.category);
+  if ((item.subcategories || []).some((subcategory) => !parent?.children.includes(subcategory))) errors.push(`${workId}: 対象サブカテゴリーは同じcategory ${item.category} の子にします`);
   if (!allowedStatuses.has(item.status)) errors.push(`${workId}: 未知のstatus ${item.status}`);
   if (item.review_dir !== `review/${workId}`) errors.push(`${workId}: review_dir は review/${workId} にします`);
   if (reviewDirs.has(item.review_dir)) errors.push(`${workId}: review_dir ${item.review_dir} が重複しています`);
@@ -93,11 +103,11 @@ for (const legacyName of ["math-review.md", "exam-review.md", "validation.md"]) 
 if (!progress.current_work && cards.length !== progress.reviewed_card_count) errors.push(`公開カード数 ${cards.length} はreviewed_card_count ${progress.reviewed_card_count} と一致しません`);
 if (activeWork) {
   const currentById = new Map(cards.map((card) => [card.id, card]));
-  const baselineById = new Map((activeWork.baseline_cards || []).map((card) => [card.id, card.category]));
+  const baselineById = new Map((activeWork.baseline_cards || []).map((card) => [card.id, `${card.category}/${card.subcategory}`]));
   if (baselineById.size !== progress.reviewed_card_count) errors.push(`${progress.current_work}: baseline_cardsがreviewed_card_countと一致しません`);
-  if ([...baselineById].some(([cardId, category]) => !currentById.has(cardId) || currentById.get(cardId).category !== category)) errors.push(`${progress.current_work}: 既存カードが削除または別カテゴリーへ移動されています`);
+  if ([...baselineById].some(([cardId, location]) => !currentById.has(cardId) || `${currentById.get(cardId).category}/${currentById.get(cardId).subcategory}` !== location)) errors.push(`${progress.current_work}: 既存カードが削除または別カテゴリー・サブカテゴリーへ移動されています`);
   const added = cards.filter((card) => !baselineById.has(card.id));
-  if (added.some((card) => card.category !== activeWork.category)) errors.push(`${progress.current_work}: 対象外カテゴリーに新規カードがあります`);
+  if (added.some((card) => card.category !== activeWork.category || !activeWork.subcategories.includes(card.subcategory))) errors.push(`${progress.current_work}: 対象外サブカテゴリーに新規カードがあります`);
   if (cards.length !== progress.reviewed_card_count + added.length) errors.push(`${progress.current_work}: カード総数が進捗と一致しません`);
 }
 
