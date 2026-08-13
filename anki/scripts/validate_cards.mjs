@@ -15,6 +15,7 @@ const allowedPriorities = new Set(["S", "A", "B", "C", "D"]);
 const ids = new Set();
 const errors = [];
 const warnings = [];
+if (progress.schema_version !== 2) errors.push("progress.yaml はカテゴリー作業schema_version 2にします");
 for (const subcategory of subcategoryIds) if (!syllabus.subcategories?.[subcategory]) errors.push(`subcategory ${subcategory} の日本語表示名がありません`);
 if (!Number.isInteger(progress.cards_per_page) || progress.cards_per_page < 1 || progress.cards_per_page > 200) errors.push("cards_per_page は1〜200にします");
 const notation = fs.readFileSync(path.join(ROOT, "notation.md"), "utf8");
@@ -27,10 +28,36 @@ for (const [name, source] of [["notation.md", notation], ["formulae.md", formula
     catch (err) { errors.push(`${name}: KaTeX: ${err.message}`); }
   }
 }
-const reviewedEnd = Math.max(0, ...Object.values(progress.batches).filter((batch) => batch.status === "reviewed").map((batch) => batch.range[1]));
-const activeBatch = progress.current_batch ? progress.batches[progress.current_batch] : null;
-const allowedEnd = activeBatch ? activeBatch.range[1] : reviewedEnd;
-if (cards.length < reviewedEnd || cards.length > allowedEnd) errors.push(`カード数 ${cards.length} は進捗範囲 ${reviewedEnd}〜${allowedEnd} と一致しません`);
+const allowedStatuses = new Set(["planned", "drafting", "self_review", "independent_review", "revision", "reviewed", "blocked"]);
+const reviewDirs = new Set();
+for (const [workId, item] of Object.entries(progress.work || {})) {
+  if (!categoryIds.has(item.category)) errors.push(`${workId}: 未知のcategory ${item.category}`);
+  if (!allowedStatuses.has(item.status)) errors.push(`${workId}: 未知のstatus ${item.status}`);
+  if (item.review_dir !== `review/${workId}`) errors.push(`${workId}: review_dir は review/${workId} にします`);
+  if (reviewDirs.has(item.review_dir)) errors.push(`${workId}: review_dir ${item.review_dir} が重複しています`);
+  reviewDirs.add(item.review_dir);
+}
+const activeWork = progress.current_work ? progress.work?.[progress.current_work] : null;
+const activeStatuses = new Set(["drafting", "self_review", "independent_review", "revision"]);
+const activeWorkIds = Object.entries(progress.work || {}).filter(([, item]) => activeStatuses.has(item.status)).map(([workId]) => workId);
+if (progress.current_work && !activeWork) errors.push(`current_work ${progress.current_work} がworkにありません`);
+if (progress.current_work && (activeWorkIds.length !== 1 || activeWorkIds[0] !== progress.current_work)) errors.push("active statusはcurrent_workの1件だけにします");
+if (!progress.current_work && activeWorkIds.length) errors.push("current_workがnullのときactive statusを残せません");
+if (progress.current_work && progress.next_work !== progress.current_work) errors.push("進行中はnext_workをcurrent_workと一致させます");
+if (!progress.current_work && progress.next_work && (!progress.work?.[progress.next_work] || progress.work[progress.next_work].status !== "planned")) errors.push(`next_work ${progress.next_work} はplanned作業ではありません`);
+const expectedNextWork = Object.entries(progress.work || {}).find(([, item]) => item.status === "planned")?.[0] || null;
+if (!progress.current_work && progress.next_work !== expectedNextWork) errors.push(`next_work は先頭のplanned作業 ${expectedNextWork} にします`);
+for (const legacyName of ["math-review.md", "exam-review.md", "validation.md"]) if (fs.existsSync(path.join(ROOT, "review", legacyName))) errors.push(`review/${legacyName} へ追記せず作業別directoryへ移します`);
+if (!progress.current_work && cards.length !== progress.reviewed_card_count) errors.push(`公開カード数 ${cards.length} はreviewed_card_count ${progress.reviewed_card_count} と一致しません`);
+if (activeWork) {
+  const currentById = new Map(cards.map((card) => [card.id, card]));
+  const baselineById = new Map((activeWork.baseline_cards || []).map((card) => [card.id, card.category]));
+  if (baselineById.size !== progress.reviewed_card_count) errors.push(`${progress.current_work}: baseline_cardsがreviewed_card_countと一致しません`);
+  if ([...baselineById].some(([cardId, category]) => !currentById.has(cardId) || currentById.get(cardId).category !== category)) errors.push(`${progress.current_work}: 既存カードが削除または別カテゴリーへ移動されています`);
+  const added = cards.filter((card) => !baselineById.has(card.id));
+  if (added.some((card) => card.category !== activeWork.category)) errors.push(`${progress.current_work}: 対象外カテゴリーに新規カードがあります`);
+  if (cards.length !== progress.reviewed_card_count + added.length) errors.push(`${progress.current_work}: カード総数が進捗と一致しません`);
+}
 
 function error(card, message) {
   errors.push(`${path.relative(ROOT, card.file)}: ${message}`);

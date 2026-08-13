@@ -1,17 +1,71 @@
-schema_version: 1
-cards_per_batch: 50
+schema_version: 2
 cards_per_page: 200
-updated_at: 2026-08-13
-current_batch: null
-next_batch: batch-002
-batches:
-  batch-001:
-    range: [1, 50]
+updated_at: 2026-08-14
+reviewed_card_count: 50
+current_work: null
+next_work: C02-probability
+last_completed_work: C01-pilot
+summary:
+  total: 10
+  planned: 9
+  drafting: 0
+  self_review: 0
+  independent_review: 0
+  revision: 0
+  reviewed: 1
+  blocked: 0
+status_definitions:
+  planned: 未着手
+  drafting: カテゴリーのカードを執筆中
+  self_review: 執筆担当による自己検査中
+  independent_review: 独立査読中
+  revision: 査読指摘を修正中
+  reviewed: 独立再査読・自動検証まで完了
+  blocked: 外部判断または権限待ち
+legacy_runs:
+  C01-pilot:
+    scope: 全カテゴリー横断pilot 50枚
     status: reviewed
     completed_at: 2026-08-13
-    review_dir: review
-    review_result: { fatal: 0, major: 0, minor: 0 }
-  batch-002:
-    range: [51, 100]
+    review_dir: review/C01-pilot
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+work:
+  C02-probability:
+    category: probability
     status: planned
-    review_dir: review/batch-002
+    review_dir: review/C02-probability
+  C02-distributions:
+    category: distributions
+    status: planned
+    review_dir: review/C02-distributions
+  C02-estimation:
+    category: estimation
+    status: planned
+    review_dir: review/C02-estimation
+  C02-testing:
+    category: testing
+    status: planned
+    review_dir: review/C02-testing
+  C02-data-analysis:
+    category: data-analysis
+    status: planned
+    review_dir: review/C02-data-analysis
+  C02-multivariate:
+    category: multivariate
+    status: planned
+    review_dir: review/C02-multivariate
+  C02-stochastic-process:
+    category: stochastic-process
+    status: planned
+    review_dir: review/C02-stochastic-process
+  C02-engineering-models:
+    category: engineering-models
+    status: planned
+    review_dir: review/C02-engineering-models
+  C02-engineering:
+    category: engineering
+    status: planned
+    review_dir: review/C02-engineering

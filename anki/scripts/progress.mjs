@@ -6,47 +6,61 @@ import { ROOT, readCards } from "./lib.mjs";
 
 const file = path.join(ROOT, "progress.yaml");
 const progress = YAML.parse(fs.readFileSync(file, "utf8"));
-const [command, batchId] = process.argv.slice(2);
+const [command, requestedId] = process.argv.slice(2);
+const workEntries = () => Object.entries(progress.work);
+const refreshSummary = () => {
+  const counts = [...Object.values(progress.legacy_runs || {}), ...Object.values(progress.work)]
+    .reduce((out, item) => ({ ...out, [item.status]: (out[item.status] || 0) + 1 }), {});
+  progress.summary = { total: Object.values(counts).reduce((sum, count) => sum + count, 0), planned: 0, drafting: 0, self_review: 0, independent_review: 0, revision: 0, reviewed: 0, blocked: 0, ...counts };
+};
 const save = () => {
-  progress.updated_at = new Date().toISOString().slice(0, 10);
+  refreshSummary();
+  progress.next_work = progress.current_work || workEntries().find(([, item]) => item.status === "planned")?.[0] || null;
+  progress.updated_at = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(new Date());
   fs.writeFileSync(file, YAML.stringify(progress));
 };
 const summary = () => {
-  const counts = Object.values(progress.batches).reduce((out, batch) => ({ ...out, [batch.status]: (out[batch.status] || 0) + 1 }), {});
-  console.log(YAML.stringify({ cards: readCards().length, current_batch: progress.current_batch, next_batch: progress.next_batch, status_counts: counts }));
+  refreshSummary();
+  console.log(YAML.stringify({ cards: readCards().length, current_work: progress.current_work, next_work: progress.next_work, status_counts: Object.fromEntries(Object.entries(progress.summary).filter(([key]) => key !== "total")) }));
+};
+const getWork = (id) => {
+  const item = progress.work[id];
+  if (!item) throw new Error(`未知のAnki作業ID: ${id}`);
+  return item;
 };
 
 if (!command) summary();
 else if (command === "start") {
-  const id = batchId || progress.next_batch;
-  const batch = progress.batches[id];
-  if (!batch) throw new Error(`未知のbatch: ${id}`);
-  if (progress.current_batch && progress.current_batch !== id) throw new Error(`${progress.current_batch} が進行中です`);
-  if (!new Set(["planned", "drafting", "revision"]).has(batch.status)) throw new Error(`${id} は開始できません: ${batch.status}`);
-  if (batch.status === "planned") batch.status = "drafting";
-  batch.started_at ||= new Date().toISOString();
-  progress.current_batch = id;
-  fs.mkdirSync(path.join(ROOT, batch.review_dir), { recursive: true });
+  const id = requestedId || progress.next_work;
+  const item = getWork(id);
+  if (progress.current_work && progress.current_work !== id) throw new Error(`${progress.current_work} が進行中です`);
+  if (!progress.current_work && id !== progress.next_work) throw new Error(`次の作業は ${progress.next_work} です`);
+  if (!new Set(["planned", "drafting", "revision"]).has(item.status)) throw new Error(`${id} は開始できません: ${item.status}`);
+  if (item.status === "planned") item.status = "drafting";
+  item.started_at ||= new Date().toISOString();
+  item.baseline_cards ||= readCards().map((card) => ({ id: card.id, category: card.category })).sort((a, b) => a.id.localeCompare(b.id));
+  progress.current_work = id;
+  fs.mkdirSync(path.join(ROOT, item.review_dir), { recursive: true });
   save(); summary();
 } else if (command === "stage") {
-  const id = batchId || progress.current_batch;
+  const id = requestedId || progress.current_work;
   const status = process.argv[4];
+  const item = getWork(id);
   const transitions = { drafting: "self_review", self_review: "independent_review", independent_review: "revision" };
-  if (!progress.batches[id] || transitions[progress.batches[id].status] !== status || progress.current_batch !== id) throw new Error("状態遷移は drafting -> self_review -> independent_review -> revision の順です");
-  progress.batches[id].status = status;
-  progress.batches[id][`${status}_at`] = new Date().toISOString();
+  if (transitions[item.status] !== status || progress.current_work !== id) throw new Error("状態遷移は drafting -> self_review -> independent_review -> revision の順です");
+  item.status = status;
+  item[`${status}_at`] = new Date().toISOString();
   save(); summary();
 } else if (command === "complete") {
-  const id = batchId || progress.current_batch;
-  const batch = progress.batches[id];
-  if (!batch) throw new Error(`未知のbatch: ${id}`);
-  if (batch.status !== "revision") throw new Error(`${id} は修正・再査読前のため完了できません: ${batch.status}`);
-  const independentReviewAt = Date.parse(batch.independent_review_at || "");
-  const revisionAt = Date.parse(batch.revision_at || "");
+  const id = requestedId || progress.current_work;
+  const item = getWork(id);
+  if (item.status !== "revision") throw new Error(`${id} は修正・再査読前のため完了できません: ${item.status}`);
+  const independentReviewAt = Date.parse(item.independent_review_at || "");
+  const revisionAt = Date.parse(item.revision_at || "");
   if (!Number.isFinite(independentReviewAt) || !Number.isFinite(revisionAt) || independentReviewAt >= revisionAt) throw new Error(`${id} の独立査読・修正開始日時が不正です`);
-  const reviewDir = path.join(ROOT, batch.review_dir);
-  const reviews = ["math-review.md", "exam-review.md"].map((name) => path.join(reviewDir, name));
-  for (const review of reviews) {
+  const reviewDir = path.join(ROOT, item.review_dir);
+  for (const name of ["math-review.md", "exam-review.md"]) {
+    const review = path.join(reviewDir, name);
     if (!fs.existsSync(review)) throw new Error(`査読記録がありません: ${path.relative(ROOT, review)}`);
     const body = fs.readFileSync(review, "utf8");
     const verdicts = [...body.matchAll(/fatal:\s*(\d+)\s*\/\s*major:\s*(\d+)\s*\/\s*minor:\s*(\d+)/gi)];
@@ -61,22 +75,29 @@ else if (command === "start") {
     if (initialAt < independentReviewAt || initialAt >= revisionAt || finalAt <= revisionAt) throw new Error(`日時は independent_review開始 <= 初回査読 < 修正開始 < 再査読 の順にします: ${path.relative(ROOT, review)}`);
     if (!/初回指摘/.test(body) || !/修正確認/.test(body)) throw new Error(`初回指摘・修正確認の記録がありません: ${path.relative(ROOT, review)}`);
   }
-  const cardCount = readCards().length;
-  if (cardCount !== batch.range[1]) throw new Error(`${id} 完了時の公開カード数は ${batch.range[1]} 枚です（現在 ${cardCount} 枚）`);
+  const cards = readCards();
+  const currentById = new Map(cards.map((card) => [card.id, card]));
+  const baselineById = new Map((item.baseline_cards || []).map((card) => [card.id, card.category]));
+  if ([...baselineById].some(([cardId, category]) => !currentById.has(cardId) || currentById.get(cardId).category !== category)) throw new Error(`${id} で既存カードが削除または別カテゴリーへ移動されています`);
+  const newCards = cards.filter((card) => !baselineById.has(card.id));
+  if (newCards.some((card) => card.category !== item.category)) throw new Error(`${id} の対象外カテゴリーに新規カードがあります`);
+  const added = newCards.map((card) => card.id).sort();
+  if (!added.length) throw new Error(`${id} に新規カードがありません`);
+  if (cards.length !== progress.reviewed_card_count + added.length) throw new Error(`${id} 以外のカテゴリー変更またはカード削除があります`);
   const projectRoot = path.resolve(ROOT, "..");
-  const ankiResult = execFileSync("npm.cmd", ["run", "anki:validate"], { cwd: projectRoot, encoding: "utf8" });
-  const allResult = execFileSync("npm.cmd", ["run", "validate"], { cwd: projectRoot, encoding: "utf8" });
+  const npmCli = process.env.npm_execpath;
+  if (!npmCli || !fs.existsSync(npmCli)) throw new Error("npm CLIのパスを取得できません。npm run anki:progress -- complete <WORK-ID> で実行してください");
+  const runNpm = (script) => execFileSync(process.execPath, [npmCli, "run", script], { cwd: projectRoot, encoding: "utf8" });
+  const ankiResult = runNpm("anki:validate");
+  const allResult = runNpm("validate");
   fs.writeFileSync(path.join(reviewDir, "validation.md"), `# 最終機械検証\n\n- 実行日時: ${new Date().toISOString()}\n- npm run anki:validate: success\n- npm run validate: success\n\n## 出力\n\n\`\`\`text\n${ankiResult.trim()}\n${allResult.trim()}\n\`\`\`\n`);
-  batch.status = "reviewed";
-  batch.completed_at = new Date().toISOString();
-  batch.review_result = { fatal: 0, major: 0, minor: 0 };
-  progress.current_batch = null;
-  const number = Number(id.match(/\d+$/)?.[0] || 0) + 1;
-  const next = `batch-${String(number).padStart(3, "0")}`;
-  if (!progress.batches[next]) {
-    const start = batch.range[1] + 1;
-    progress.batches[next] = { range: [start, start + progress.cards_per_batch - 1], status: "planned", review_dir: `review/${next}` };
-  }
-  progress.next_batch = next;
+  item.status = "reviewed";
+  item.completed_at = new Date().toISOString();
+  item.added_card_ids = added;
+  delete item.baseline_cards;
+  item.review_result = { fatal: 0, major: 0, minor: 0 };
+  progress.reviewed_card_count = cards.length;
+  progress.last_completed_work = id;
+  progress.current_work = null;
   save(); summary();
 } else throw new Error("usage: anki:progress -- [start ID|stage ID STATUS|complete ID]");
