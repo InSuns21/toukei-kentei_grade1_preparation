@@ -111,7 +111,7 @@ const pageFile = (page) => {
 const pageLabel = (page) => page.subcategory
   ? `${subcategoryName.get(page.subcategory)}${page.part > 1 ? ` ${page.part}` : ""}`
   : page.category.name;
-const renderNavigation = (active) => `<nav class="page-nav" aria-label="カテゴリー別カードページ"><a href="index.html">カテゴリー一覧</a>${pages.map((page) => `<a href="${pageFile(page)}"${page === active ? ' aria-current="page"' : ""}>${escape(pageLabel(page))}</a>`).join("")}</nav>`;
+const renderNavigation = (active) => `<nav class="page-nav" aria-label="カテゴリー別カードページ"><a href="./index.html">カテゴリー一覧</a>${pages.map((page) => `<a href="./${pageFile(page)}"${page === active ? ' aria-current="page"' : ""}>${escape(pageLabel(page))}</a>`).join("")}</nav>`;
 const renderPage = (page) => {
   const pageCards = page.cards;
   const categoryOptions = `<option value="${escape(page.category.id)}">${escape(page.category.name)}</option>`;
@@ -133,7 +133,7 @@ const generatedPages = pages.map((page) => ({ page, html: renderPage(page) }));
 const categoryLinks = syllabus.categories.map((category) => {
   const ownedPages = pages.filter((page) => page.category.id === category.id);
   const count = ownedPages.reduce((sum, page) => sum + page.cards.length, 0);
-  const links = ownedPages.map((page) => `<a href="${pageFile(page)}">${escape(pageLabel(page))}<span>${page.cards.length}枚</span></a>`).join("");
+  const links = ownedPages.map((page) => `<a href="./${pageFile(page)}">${escape(pageLabel(page))}<span>${page.cards.length}枚</span></a>`).join("");
   return `<section class="category-entry"><p>${escape(category.section)}</p><h2>${escape(category.name)}</h2><strong>${count}枚</strong><div>${links}</div></section>`;
 }).join("\n");
 const categoryIndex = categoryTemplate
@@ -141,9 +141,9 @@ const categoryIndex = categoryTemplate
   .replace("{{CATEGORY_LINKS}}", categoryLinks);
 const notationBody = markdown(fs.readFileSync(path.join(ROOT, "notation.md"), "utf8"));
 const favicon = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171914'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' fill='%23d8ff37'%3EΣ%3C/text%3E%3C/svg%3E">`;
-const notationHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記法一覧 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="assets/katex.min.css"><link rel="stylesheet" href="assets/style.css"></head><body><main class="notation-page"><p><a href="index.html">← カードへ戻る</a></p>${notationBody}</main></body></html>`;
+const notationHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記法一覧 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カードへ戻る</a></p>${notationBody}</main></body></html>`;
 const formulaeBody = markdown(fs.readFileSync(path.join(ROOT, "formulae.md"), "utf8"));
-const formulaeHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>公式・定理・定義 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="assets/katex.min.css"><link rel="stylesheet" href="assets/style.css"></head><body><main class="notation-page"><p><a href="index.html">← カードへ戻る</a></p>${formulaeBody}</main></body></html>`;
+const formulaeHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>公式・定理・定義 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カードへ戻る</a></p>${formulaeBody}</main></body></html>`;
 const dist = path.join(ROOT, "dist");
 const expectedHtml = new Map([
   ["index.html", categoryIndex],
@@ -151,6 +151,11 @@ const expectedHtml = new Map([
   ["formulae.html", formulaeHtml],
   ...generatedPages.map(({ page, html }) => [pageFile(page), html]),
 ]);
+for (const [name, html] of expectedHtml) {
+  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    if (!/^(?:\.\/|#|data:)/.test(match[1])) throw new Error(`ローカルリンクは ./ で始めます: ${name}: ${match[1]}`);
+  }
+}
 
 if (!checkOnly) {
   fs.mkdirSync(path.join(dist, "assets", "fonts"), { recursive: true });

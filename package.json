@@ -11,7 +11,7 @@
     "new:chapter": "node scripts/scaffold_chapter.mjs",
     "progress": "node scripts/curriculum_progress.mjs",
     "anki:build": "node anki/scripts/build_site.mjs",
-    "anki:validate": "node anki/scripts/validate_cards.mjs && node anki/scripts/build_site.mjs --check",
+    "anki:validate": "node anki/scripts/validate_cards.mjs && node anki/scripts/build_site.mjs && node anki/scripts/build_site.mjs --check",
     "anki:progress": "node anki/scripts/progress.mjs"
   },
   "dependencies": {

@@ -710,3 +710,46 @@ if (!new Set(["independent_review", "revision"]).has(batch.status)) ...
 - 構造検証: 成功
 - KaTeX strict: Markdown 232ファイルを検証し成功
 - テキスト検証: 生成対象237件を検証し成功
+
+---
+
+# dist非追跡・相対リンク統一変更の試験適合性再査読
+
+- 担当ID: `/root/anki_exam_review`（直前の配信アーキテクチャ査読と同一担当）
+- 実行日時: 2026-08-14T00:22:40+09:00
+- 対象: `.gitignore`、`dist/` のGit index削除、`package.json`、`build_site.mjs`、両HTML template、`validate_cards.mjs`、`validation_errors.md`、`anki/README.md`
+- 対象外: 公開50枚のカード内容
+- 判定: **合格**
+- 最終件数: **fatal: 0 / major: 0 / minor: 0**
+
+## 指摘・修正確認
+
+- 今回差分に新たなfatal・major・minor指摘はない。
+- `anki/dist/` は `.gitignore` の対象で、Git indexから削除されている一方、ローカル作業用生成物は保持される。READMEもカード・分類・記法・公式・template・static・KaTeX資産を正本とし、`dist/` を再生成物として扱う契約へ一致した。
+- `anki:validate` はカード検証の後にbuildと`--check`を順に実行する。`dist/` を削除した隔離コピーで実行し、50枚を9カテゴリーへ生成してcheckまで成功した。生成物はHTML 12、CSS 2、JavaScript 1、woff2 20の計35ファイルであり、clean clone相当の空状態から復元できる。
+- 生成HTMLのローカル`href` / `src` は `./`、ページ内fragmentは`#`、埋め込みfaviconは`data:`で始まる。生成時の検査もこれ以外を拒否する。
+- `dist/*.html` 内の `./assets/style.css` は同じ`dist/`を基準に `dist/assets/style.css` へ解決する。READMEの「`./dist/assets/style.css` は `dist/dist/assets/style.css` を指す」という説明は妥当である。
+- `validation_errors.md` から実行日時が除去され、連続実行前後のSHA-256は `24AFECE35270ACE10AE10B652C6C07D4D9CDA9B75893BCE82F9C7ED1813676A8` で一致した。検証だけで不要な差分を生じない。
+
+## Web・オフライン回帰確認
+
+- clean clone相当の生成物をChromium 768×1024で確認した。`innerWidth=768`、`scrollWidth=768` で横あふれはない。
+- カテゴリー一覧は公式シラバスに沿う日本語9カテゴリー、合計50枚を表示する。「確率」から `./category-probability.html` へ遷移し、日本語subcategory、検索・filter、カード展開、カテゴリー間ナビゲーションを維持する。
+- 実ブラウザのconsoleはerrors 0 / warnings 0。要求されたHTML、CSS、JavaScript、KaTeX fontの10件はすべて同一配信元の `dist/` 内URLへ解決し、HTTP 200だった。`./assets/*` が誤って `./dist/assets/*` へ解決される回帰はない。
+- 生成予定HTML/CSS/JavaScriptの外部network URL検査、KaTeX CSS・woff2の集合およびバイト一致検査も成功し、`dist/` 単体のオフライン配信要件を維持する。
+
+## 最終機械検証
+
+### `npm run anki:validate`
+
+- 実行結果: **成功**（exit code 0）
+- `validated 50 cards (0 warnings)`
+- `built 50 cards in 9 category page(s), max 200 per page`
+- `checked 50 cards in 9 category page(s), max 200 per page`
+
+### `npm run validate`
+
+- 実行結果: **成功**（exit code 0）
+- 構造検証: 成功
+- KaTeX strict: Markdown 233ファイルを検証し成功
+- テキスト検証: 生成対象237件を検証し成功

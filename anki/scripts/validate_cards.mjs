@@ -119,7 +119,6 @@ fs.writeFileSync(path.join(reportDir, "duplicate_candidates.md"), `# 重複候�
 const report = [
   "# カード検証結果",
   "",
-  `- 実行日時: ${new Date().toISOString()}`,
   `- カード数: ${cards.length}`,
   `- errors: ${errors.length}`,
   `- warnings: ${warnings.length}`,

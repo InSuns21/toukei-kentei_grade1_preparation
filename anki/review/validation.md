@@ -25,3 +25,12 @@
   - KaTeX CSS・woff2全20ファイルの原本一致
   - 外部ネットワーク資産なし
 
+## 生成物非追跡・相対リンク変更
+
+- 実行日時: 2026-08-14T00:22:40+09:00
+- 変更単位の独立査読: `fatal: 0 / major: 0 / minor: 0`
+- `anki/dist/` なしの隔離コピーから35ファイルを再生成: success
+- `./assets/*` の `dist/assets/*` への解決: success
+- 768 × 1024 px 実ブラウザ確認: success（横あふれ・console error なし）
+- `npm run anki:validate`: success（50 cards / warnings 0 / 9 category pages）
+- `npm run validate`: success（233 Markdown files / 237 generated texts）
