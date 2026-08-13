@@ -142,9 +142,9 @@ const categoryIndex = categoryTemplate
   .replace("{{CATEGORY_LINKS}}", categoryLinks);
 const notationBody = markdown(fs.readFileSync(path.join(ROOT, "notation.md"), "utf8"));
 const favicon = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23171914'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' fill='%23d8ff37'%3EΣ%3C/text%3E%3C/svg%3E">`;
-const notationHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記法一覧 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カードへ戻る</a></p>${notationBody}</main></body></html>`;
+const notationHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記法一覧 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カテゴリー一覧へ戻る</a></p>${notationBody}</main></body></html>`;
 const formulaeBody = markdown(fs.readFileSync(path.join(ROOT, "formulae.md"), "utf8"));
-const formulaeHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>公式・定理・定義 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カードへ戻る</a></p>${formulaeBody}</main></body></html>`;
+const formulaeHtml = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>公式・定理・定義 | 統計検定1級 解法定跡カード</title>${favicon}<link rel="stylesheet" href="./assets/katex.min.css"><link rel="stylesheet" href="./assets/style.css"></head><body><main class="notation-page"><p><a href="./index.html">← カテゴリー一覧へ戻る</a></p>${formulaeBody}</main></body></html>`;
 const dist = path.join(ROOT, "dist");
 const expectedHtml = new Map([
   ["index.html", categoryIndex],
