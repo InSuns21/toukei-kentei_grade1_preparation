@@ -336,3 +336,91 @@ $$
 ## 最終判定
 
 `fatal: 0 / major: 0 / minor: 0`（承認）
+
+## 詳細化改訂の独立数理査読（`/root/p305_detail_math_review`）
+
+- 担当ID: `/root/p305_detail_math_review`
+- 実行モデル: `gpt-5.6-sol`（リポジトリ既定）
+- 初回査読日時: 2026-08-11T17:25:56+09:00
+- 対象: 最新版の `chapter.yaml`、`03_theorems.md`、`04_examples.md`、`06_exercises.md`、`07_solutions.md`、`08_exam_drill.md`。整合確認のため章内の他ファイル、前提章P3-02、記号・スタイル・公式範囲・過去問索引も確認した。
+
+### 独立再計算の要約
+
+| 対象 | 独立計算で確認した結論 |
+|---|---|
+| P3T-A01--A04 | $P(X>4)=1/8$、Paretoの平均・分散の有限条件はそれぞれ $\alpha>1,\alpha>2$、指数分布では $h=1/5,H=x/5$、$m(x)=4$。 |
+| P3T-B01 | $S(x)=(x_m/x)^\alpha$、$0<r<\alpha$ で $E[X^r]=\alpha x_m^r/(\alpha-r)$、$\alpha=3$ で $\operatorname{Var}(X)=3x_m^2/4$。 |
+| P3T-B02 | LaplaceのCDFは左右で $\frac12e^{(x-\mu)/b}$、$1-\frac12e^{-(x-\mu)/b}$、分散 $2b^2$、両側尾 $e^{-t/b}$。 |
+| P3T-B03 | $U=X^2/(2\sigma^2)\sim\operatorname{Exp}(1)$、$E[X]=\sigma\sqrt{\pi/2}$。 |
+| P3T-B04 | $f_{\mathrm{tr}}(x)=\lambda e^{-\lambda x}/(1-e^{-\lambda c})$、$F_{\mathrm{tr}}(t)=(1-e^{-\lambda t})/(1-e^{-\lambda c})$（$0\leq x,t\leq c$）。 |
+| P3T-C01 | $M\sim\operatorname{Pareto}(x_m,n\alpha)$、$n\alpha>1$ で $E[M]=n\alpha x_m/(n\alpha-1)$、MLEは $M$、不偏補正は $(n\alpha-1)M/(n\alpha)$。 |
+| P3T-C02 | Weibullで $h=cx^{c-1}/\eta^c$、$H=(x/\eta)^c$、$c=1$ で $m(x)=\eta$、$c=2,\eta=5$ で $(S,H,h)=(e^{-1},1,2/5)$。 |
+| P3T-C03 | $T=t_1+t_2+c_1+c_2$ として $L=\lambda^2e^{-\lambda T}$、$\widehat\lambda=2/T$。全件打切りでは $\lambda>0$ 内にMLEはない。 |
+| P3T-C04 | $L=(2b)^{-n}e^{-\sum|x_i-\mu|/b}$、位置のMLEとして標本中央値、$A(\mu)>0$ で $\widehat b=A(\mu)/n$、$A(\mu)=0$ では内部MLEなし。 |
+| P3T-C05 | 故障時刻2・打切り時刻4で正しい $L=\lambda e^{-6\lambda}$ と誤った $\widetilde L=\lambda^2e^{-6\lambda}$ から、$\widehat\lambda=1/6$、$\widetilde\lambda=1/3$、$e^{-2/3}>e^{-4/3}$。 |
+| P3T-D01 | $d=\sum\delta_i>0$、$A=\sum\{\delta_i y_i^c+(1-\delta_i)c_i^c\}$ で $\widehat\eta^c=A/d$。$d=0$ では内部MLEなし。 |
+| P3T-DRILL-01 | $L=32\eta^{-4}e^{-45/\eta^2}$、$\widehat\eta^2=45/2$、$\widehat h(5)=4/9$、$\widehat S(5)=e^{-10/9}$。全5小問の詳細解答と本番答案は一致する。 |
+
+主要な数値・尤度・最尤推定・境界結論には誤りを認めなかった。次の5件は、正しい結論を読者が本文だけで再現するための局所的な不足である。
+
+### 初回指摘
+
+#### minor
+
+1. `03_theorems.md` P3T-THM-03 — 見出しは「切断密度と打切り尤度」だが、本文には打切り尤度しかない。右切断について $F_\theta(c)>0$、元の台と $x\leq c$ の共通部分で
+   $$f_{\mathrm{tr},\theta}(x)=\frac{f_\theta(x)}{F_\theta(c)}$$
+   と置き、積分が1になる計算を追加する。
+2. `03_theorems.md` P3T-THM-03 および `07_solutions.md` P3T-D01 — $\prod f^\delta S^{1-\delta}$ を寿命母数の尤度とするには、$c_i$ が事前に固定された打切り点、または寿命と独立で寿命母数 $\theta$ に情報を持たない打切り機構であることが必要である。現在はこの仮定を記載していない。定理冒頭とD01の「使用結果と仮定」に1文追加する。
+3. `06_exercises.md` P3T-B02 と `07_solutions.md` P3T-B02(1) — 問題はLaplace密度の正規化を明示的に要求するが、解答はCDFと端点だけで、左右の密度積分を示していない。CDFの前に
+   $$\int_{-\infty}^{\mu}f(x)\,dx=\frac12,\qquad \int_{\mu}^{\infty}f(x)\,dx=\frac12$$
+   を置き、合計1を確認する。
+4. `07_solutions.md` P3T-D01(5) — $m'(x)=h(x)m(x)-1<0$ のうち、不等号の根拠が詳細解答内にない。$a=x/\eta>0$ として
+   $$\int_a^\infty e^{-v^2}\,dv<\frac{e^{-a^2}}{2a}$$
+   を部分積分または $v/a>1$ による比較で示し、$h(x)m(x)<1$ へ接続する。完成形答案だけに根拠を置かない。
+5. `07_solutions.md` 「完成形本番答案」P3T-C01 — 詳細解答では台を場合分けしているが、本番答案の密度式には適用範囲がなく、$t<x_m$ でも正の密度と読める。$f_M(t)=0$（$t<x_m$）、$n\alpha x_m^{n\alpha}t^{-n\alpha-1}$（$t\geq x_m$）と圧縮答案にも台を残す。
+
+### 初回機械検証
+
+- 実行日時: 2026-08-11T17:25:56+09:00
+- `npm run validate`: 成功（KaTeX strict 199 Markdown、本文検査222ファイル）
+- 機械検証成功は上記の仮定・行間・答案境界の不足を否定しない。
+
+### 初回判定
+
+`fatal: 0 / major: 0 / minor: 5`（未承認）
+
+### 修正後最終全文再査読
+
+- 再査読日時: 2026-08-11T17:30:09+09:00
+- 担当ID: `/root/p305_detail_math_review`（初回と同一担当）
+- 再査読範囲: 指摘箇所だけでなく、最新版の指定6ファイル、A4/B4/C5/D1の全14問、全詳細解答、C/D完成形本番答案、P3T-DRILL-01の全5小問を再度照合した。
+
+#### 初回5件の解消確認
+
+1. P3T-THM-03に $F_\theta(c)>0$ の右切断密度と、$\int f_\theta/F_\theta(c)=1$ の正規化が追加された。
+2. P3T-THM-03に打切り点が固定、または寿命と独立に決まるという仮定が追加された。D01の尤度は同定理の $y_i=\min(X_i,c_i)$ 表示と一致する。
+3. P3T-B02はLaplace密度の左右の積分をそれぞれ $1/2$ と評価し、CDF導出とは別に正規化を確認する形へ修正された。
+4. P3T-D01(5)は $a=x/\eta>0$、$1<v/a$（$v>a$）から
+   $$
+   \int_a^\infty e^{-v^2}\,dv
+   <\frac1a\int_a^\infty ve^{-v^2}\,dv
+   =\frac{e^{-a^2}}{2a}
+   $$
+   を逐行で示し、$m(x)<\eta^2/(2x)$、$h(x)m(x)<1$、$m'(x)<0$ へ接続した。
+5. P3T-C01の完成形本番答案は $P(M>t)$ と $f_M(t)$ を $t<x_m$、$t\geq x_m$ で場合分けし、台外の密度0を残した。
+
+#### 追加補強の確認
+
+- P3T-C04は絶対偏差和の区分的な傾き $2k-n$ を用い、奇数標本と偶数標本の中央値集合を区別した。尺度MLEの退化境界も詳細解答・本番答案で一致する。
+- P3T-C05は指数右切断密度の台 $0\leq x\leq c$、故障寄与 $\lambda e^{-\lambda t}$、打切り寄与 $e^{-\lambda c}$ を具体式で示す。正しい尤度と誤尤度の微分から $1/6$ と $1/3$ を得る計算に行間はない。
+- P3T-DRILL-01は再計算して、尤度係数32、指数部45、$\widehat\eta^2=45/2$、$\widehat h(5)=4/9$、$\widehat S(5)=e^{-10/9}$ のすべてが詳細解答・本番答案・救済式で一致した。
+- 全14問題IDと解答IDは一対一であり、台、母数範囲、存在条件、全打切り境界、詳細解答と完成形本番答案の結論に新規不整合はない。
+
+### 最終機械検証
+
+- 実行日時: 2026-08-11T17:30:09+09:00
+- `npm run validate`: 成功（構造・依存関係・進捗メタデータ成功、KaTeX strict 199 Markdown、本文検査222ファイル）
+
+### 最終判定
+
+`fatal: 0 / major: 0 / minor: 0`（承認）

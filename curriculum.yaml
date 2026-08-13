@@ -16,7 +16,7 @@ progress:
   next_work:
     type: chapter
     id: S1-01
-  last_completed_chapter: P3-04
+  last_completed_chapter: P3-05
   summary:
     total: 38
     planned: 25
