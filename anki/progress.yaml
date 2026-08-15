@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 140
+reviewed_card_count: 166
 current_work: null
-next_work: C04-limit-approximations
-last_completed_work: C03-characteristics-transformations
+next_work: C05-discrete-continuous-distributions
+last_completed_work: C04-limit-approximations
 summary:
   total: 27
-  planned: 24
+  planned: 23
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 3
+  reviewed: 4
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -173,8 +173,44 @@ work:
     target:
       min: 20
       max: 26
-    status: planned
+    status: reviewed
     review_dir: review/C04-limit-approximations
+    started_at: 2026-08-15T17:01:51.156Z
+    self_review_at: 2026-08-15T17:15:22.459Z
+    independent_review_at: 2026-08-15T17:21:37.664Z
+    revision_at: 2026-08-15T17:41:19.679Z
+    completed_at: 2026-08-15T18:00:50.639Z
+    added_card_ids:
+      - dist-approximation-choice
+      - dist-approximation-error
+      - dist-binomial-normal-conditions
+      - dist-binomial-normal-probability
+      - dist-binomial-normal-tail
+      - dist-binomial-poisson-conditions
+      - dist-binomial-poisson-probability
+      - dist-clt-bernoulli-count
+      - dist-clt-bernoulli-proportion
+      - dist-clt-finite-variance
+      - dist-clt-sample-mean
+      - dist-clt-standard-error
+      - dist-clt-statement
+      - dist-clt-sum-variance
+      - dist-continuity-correction-interval
+      - dist-continuity-correction-single
+      - dist-continuity-correction-tail
+      - dist-law-small-numbers
+      - dist-normal-approximation-continuity-full
+      - dist-poisson-approximation-complement
+      - dist-poisson-limit-derivation
+      - dist-poisson-tail-approximation
+      - dist-weak-law-bernoulli-frequency
+      - dist-weak-law-chebyshev
+      - dist-weak-law-mean-identification
+      - dist-weak-law-sample-mean
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C05-discrete-continuous-distributions:
     title: 離散型分布・連続型分布
     category: math-distributions

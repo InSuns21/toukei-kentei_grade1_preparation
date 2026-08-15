@@ -290,26 +290,52 @@ items:
         status: card
         cards: [dist-convolution-uniform, prob-transform-sum-density, prob-linear-combination-normal, prob-linear-combination-moments]
   - id: math-limit-approximations
-    status: partial
+    status: complete
     cards:
       - dist-clt-standardize
       - data-monte-carlo-integral
+      - dist-weak-law-chebyshev
+      - dist-weak-law-sample-mean
+      - dist-clt-statement
+      - dist-clt-sample-mean
+      - dist-clt-bernoulli-proportion
+      - dist-clt-sum-variance
+      - dist-binomial-normal-conditions
+      - dist-binomial-normal-probability
+      - dist-binomial-normal-tail
+      - dist-continuity-correction-interval
+      - dist-continuity-correction-tail
+      - dist-binomial-poisson-conditions
+      - dist-binomial-poisson-probability
+      - dist-poisson-limit-derivation
+      - dist-law-small-numbers
+      - dist-approximation-choice
+      - dist-approximation-error
+      - dist-clt-standard-error
+      - dist-poisson-tail-approximation
+      - dist-normal-approximation-continuity-full
+      - dist-weak-law-mean-identification
+      - dist-clt-bernoulli-count
+      - dist-continuity-correction-single
+      - dist-poisson-approximation-complement
+      - dist-clt-finite-variance
+      - dist-weak-law-bernoulli-frequency
     terms:
       - name: 大数の弱法則
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-weak-law-chebyshev, dist-weak-law-sample-mean, dist-weak-law-mean-identification, dist-weak-law-bernoulli-frequency]
       - name: 中心極限定理
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-clt-standardize, dist-clt-statement, dist-clt-sample-mean, dist-clt-bernoulli-proportion, dist-clt-sum-variance, dist-clt-standard-error, dist-clt-bernoulli-count, dist-clt-finite-variance]
       - name: 二項分布の正規近似とポアソン近似
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-binomial-normal-conditions, dist-binomial-normal-probability, dist-binomial-normal-tail, dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-approximation-choice, dist-approximation-error, dist-normal-approximation-continuity-full]
       - name: 少数法則
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-law-small-numbers, dist-poisson-tail-approximation, dist-poisson-approximation-complement]
       - name: 連続修正
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-continuity-correction-interval, dist-continuity-correction-tail, dist-normal-approximation-continuity-full, dist-continuity-correction-single]
   - id: math-discrete-distributions
     status: partial
     cards:
