@@ -39,19 +39,37 @@ function markdown(text = "") {
   const out = [];
   let paragraph = [];
   let list = false;
+  let table = [];
+  const flushTable = () => {
+    if (!table.length) return;
+    const rows = table.filter((row) => !/^\|[\s\-:|]+\|$/.test(row));
+    const parseRow = (row) => row.replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
+    const header = parseRow(rows[0]);
+    const body = rows.slice(1);
+    out.push(`<table><thead><tr>${header.map((cell) => `<th>${inline(cell)}</th>`).join("")}</tr></thead><tbody>${body.map((row) => `<tr>${parseRow(row).map((cell) => `<td>${inline(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table>`);
+    table = [];
+  };
   const flush = () => {
     if (paragraph.length) {
       const joined = paragraph.join("\n");
-      out.push(/^\$\$[\s\S]*\$\$$/.test(joined.trim()) ? inline(joined) : `<p>${inline(paragraph.join(" "))}</p>`);
+      out.push(/^\$\$[\s\S]*\$\$/.test(joined.trim()) ? inline(joined) : `<p>${inline(paragraph.join(" "))}</p>`);
     }
     paragraph = [];
     if (list) out.push("</ul>");
     list = false;
+    flushTable();
   };
   for (const line of lines) {
     if (!line.trim()) { flush(); continue; }
     const heading = line.match(/^(#{1,3})\s+(.+)/);
     if (heading) { flush(); out.push(`<h${heading[1].length}>${inline(heading[2])}</h${heading[1].length}>`); continue; }
+    if (/^\|.*\|$/.test(line.trim())) {
+      if (paragraph.length) { out.push(`<p>${inline(paragraph.join(" "))}</p>`); paragraph = []; }
+      if (list) { out.push("</ul>"); list = false; }
+      table.push(line.trim());
+      continue;
+    }
+    flushTable();
     const bullet = line.match(/^[-*]\s+(.+)/);
     if (bullet) {
       if (paragraph.length) { out.push(`<p>${inline(paragraph.join(" "))}</p>`); paragraph = []; }

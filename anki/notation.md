@@ -42,31 +42,35 @@
 
 ## 離散分布
 
-- Bernoulli分布 $\operatorname{Bernoulli}(p)$：台 $\{0,1\}$、$0\le p\le1$、$p_X(x)=p^x(1-p)^{1-x}$。平均 $p$、分散 $p(1-p)$。
-- 二項分布 $\operatorname{Binomial}(n,p)$：台 $\{0,1,\ldots,n\}$、$n\in\mathbb N$、$0\le p\le1$、$p_X(x)=\binom nxp^x(1-p)^{n-x}$。平均 $np$、分散 $np(1-p)$。
-- Poisson分布 $\operatorname{Poisson}(\lambda)$：台 $\mathbb N_0$、$\lambda>0$、$p_X(x)=e^{-\lambda}\lambda^x/x!$。平均・分散はともに $\lambda$。
-- 幾何分布 $\operatorname{Geometric}(p)$：台 $\{1,2,\ldots\}$、$0<p\le1$、$p_X(x)=p(1-p)^{x-1}$。平均 $1/p$、分散 $(1-p)/p^2$。
-- 負の二項分布 $\operatorname{NegBin}(r,p)$：$r$ 回目の成功までの試行回数を $X$ とし、台 $\{r,r+1,\ldots\}$、$r\in\mathbb N$、$0<p\le1$、$p_X(x)=\binom{x-1}{r-1}p^r(1-p)^{x-r}$。平均 $r/p$、分散 $r(1-p)/p^2$。
-- 超幾何分布：母集団サイズ $N$、成功個体数 $K$ から非復元で $n$ 個抽出した成功数 $X$。$p_X(x)=\binom Kx\binom{N-K}{n-x}/\binom Nn$。台は組合せが定義できる整数、平均 $nK/N$。
-- 多項分布 $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$：$x_j\in\mathbb N_0$、$\sum_jx_j=n$、$p_j\ge0$、$\sum_jp_j=1$、確率質量は $n!\prod_jp_j^{x_j}/\prod_jx_j!$。
+| 分布 | 台 | 母数 | 確率質量関数 | 平均 | 分散 | モーメント母関数 |
+|---|---|---|---|---|---|---|
+| Bernoulli分布 $\operatorname{Bernoulli}(p)$ | $\{0,1\}$ | $0\le p\le1$ | $p_X(x)=p^x(1-p)^{1-x}$ | $p$ | $p(1-p)$ | $1-p+pe^t$ |
+| 二項分布 $\operatorname{Binomial}(n,p)$ | $\{0,1,\ldots,n\}$ | $n\in\mathbb N$、$0\le p\le1$ | $p_X(x)=\binom nxp^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ | $(1-p+pe^t)^n$ |
+| Poisson分布 $\operatorname{Poisson}(\lambda)$ | $\mathbb N_0$ | $\lambda>0$ | $p_X(x)=e^{-\lambda}\lambda^x/x!$ | $\lambda$ | $\lambda$ | $\exp\{\lambda(e^t-1)\}$ |
+| 幾何分布 $\operatorname{Geometric}(p)$ | $\{1,2,\ldots\}$ | $0<p\le1$ | $p_X(x)=p(1-p)^{x-1}$ | $1/p$ | $(1-p)/p^2$ | $pe^t/\{1-(1-p)e^t\}$（$t<-\log(1-p)$） |
+| 負の二項分布 $\operatorname{NegBin}(r,p)$ | $\{r,r+1,\ldots\}$ | $r\in\mathbb N$、$0<p\le1$ | $p_X(x)=\binom{x-1}{r-1}p^r(1-p)^{x-r}$ | $r/p$ | $r(1-p)/p^2$ | $\{pe^t/(1-(1-p)e^t)\}^r$（$t<-\log(1-p)$） |
+| 超幾何分布 | 組合せが定義できる整数 | 母集団 $N$、成功 $K$、抽出 $n$ | $p_X(x)=\binom Kx\binom{N-K}{n-x}/\binom Nn$ | $nK/N$ | $n\frac KN\frac{N-K}N\frac{N-n}{N-1}$ | 存在するが初等的な表示はない |
+| 多項分布 $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ | $x_j\in\mathbb N_0$、$\sum_jx_j=n$ | $p_j\ge0$、$\sum_jp_j=1$ | $n!\prod_jp_j^{x_j}/\prod_jx_j!$ | $E[X_j]=np_j$ | $\operatorname{Var}(X_j)=np_j(1-p_j)$ | $(\sum_jp_je^{t_j})^n$ |
 
 ## 連続分布
 
-- 一様分布 $U(a,b)$：台 $a<x<b$、$a<b$、$f_X(x)=1/(b-a)$。平均 $(a+b)/2$、分散 $(b-a)^2/12$。
-- 正規分布 $N(\mu,\sigma^2)$：台 $\mathbb R$、$\mu\in\mathbb R$、$\sigma^2>0$、$f_X(x)=(2\pi\sigma^2)^{-1/2}\exp\{-(x-\mu)^2/(2\sigma^2)\}$。平均 $\mu$、分散 $\sigma^2$。
-- 指数分布 $\operatorname{Exp}(\lambda)$：台 $x>0$、rate $\lambda>0$、$f_X(x)=\lambda e^{-\lambda x}$。平均 $1/\lambda$、分散 $1/\lambda^2$。
-- Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$：台 $x>0$、shape $\alpha>0$、rate $\beta>0$、$f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$。平均 $\alpha/\beta$、分散 $\alpha/\beta^2$。
-- Beta分布 $\operatorname{Beta}(a,b)$：台 $0<x<1$、$a,b>0$、$f_X(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$。平均 $a/(a+b)$、分散 $ab/\{(a+b)^2(a+b+1)\}$。
-- カイ二乗分布 $\chi^2_\nu$：台 $x>0$、自由度 $\nu>0$、$\operatorname{Gamma}(\nu/2,1/2)$ と同じ分布。平均 $\nu$、分散 $2\nu$。
-- Studentの $t$ 分布 $t_\nu$：$Z\sim N(0,1)$、$V\sim\chi^2_\nu$ が独立なら $T=Z/\sqrt{V/\nu}$。台 $\mathbb R$、$\nu>0$、密度 $f_T(t)=\Gamma\{(\nu+1)/2\}[\sqrt{\nu\pi}\Gamma(\nu/2)]^{-1}(1+t^2/\nu)^{-(\nu+1)/2}$。
-- $F$ 分布 $F_{\nu_1,\nu_2}$：独立な $U\sim\chi^2_{\nu_1}$、$V\sim\chi^2_{\nu_2}$ に対し $(U/\nu_1)/(V/\nu_2)$。台 $x>0$、$\nu_1,\nu_2>0$、密度 $f_X(x)=B(\nu_1/2,\nu_2/2)^{-1}(\nu_1/\nu_2)^{\nu_1/2}x^{\nu_1/2-1}(1+\nu_1x/\nu_2)^{-(\nu_1+\nu_2)/2}$。
-- Cauchy分布 $\operatorname{Cauchy}(x_0,\gamma)$：台 $\mathbb R$、$\gamma>0$、$f_X(x)=\{\pi\gamma[1+((x-x_0)/\gamma)^2]\}^{-1}$。平均・分散は存在しない。
-- 対数正規分布：$\log X\sim N(\mu,\sigma^2)$、台 $x>0$。密度は $f_X(x)=\{x\sigma\sqrt{2\pi}\}^{-1}\exp[-(\log x-\mu)^2/(2\sigma^2)]$。
-- Weibull分布 $\operatorname{Weibull}(k,\lambda)$：台 $x>0$、shape $k>0$、scale $\lambda>0$、$f_X(x)=(k/\lambda)(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$。
-- logistic分布：台 $\mathbb R$、位置 $\mu\in\mathbb R$、scale $s>0$、$F_X(x)=\{1+e^{-(x-\mu)/s}\}^{-1}$、密度 $f_X(x)=e^{-(x-\mu)/s}/[s\{1+e^{-(x-\mu)/s}\}^2]$。
-- Pareto分布 $\operatorname{Pareto}(x_m,\alpha)$：台 $x\ge x_m$、$x_m,\alpha>0$、$f_X(x)=\alpha x_m^\alpha/x^{\alpha+1}$。
-- Laplace分布 $\operatorname{Laplace}(\mu,b)$：台 $\mathbb R$、$b>0$、$f_X(x)=(2b)^{-1}e^{-|x-\mu|/b}$。
-- Rayleigh分布 $\operatorname{Rayleigh}(\sigma)$：台 $x>0$、$\sigma>0$、$f_X(x)=x\sigma^{-2}e^{-x^2/(2\sigma^2)}$。
+| 分布 | 台 | 母数 | 確率密度関数 | 平均 | 分散 | モーメント母関数 |
+|---|---|---|---|---|---|---|
+| 一様分布 $U(a,b)$ | $a<x<b$ | $a<b$ | $f_X(x)=1/(b-a)$ | $(a+b)/2$ | $(b-a)^2/12$ | $(e^{tb}-e^{ta})/\{t(b-a)\}$（$t\ne0$） |
+| 正規分布 $N(\mu,\sigma^2)$ | $\mathbb R$ | $\mu\in\mathbb R$、$\sigma^2>0$ | $f_X(x)=(2\pi\sigma^2)^{-1/2}\exp\{-(x-\mu)^2/(2\sigma^2)\}$ | $\mu$ | $\sigma^2$ | $\exp(\mu t+\sigma^2t^2/2)$ |
+| 指数分布 $\operatorname{Exp}(\lambda)$ | $x>0$ | rate $\lambda>0$ | $f_X(x)=\lambda e^{-\lambda x}$ | $1/\lambda$ | $1/\lambda^2$ | $\lambda/(\lambda-t)$（$t<\lambda$） |
+| Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ | $x>0$ | shape $\alpha>0$、rate $\beta>0$ | $f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ | $\alpha/\beta$ | $\alpha/\beta^2$ | $\{\beta/(\beta-t)\}^\alpha$（$t<\beta$） |
+| Beta分布 $\operatorname{Beta}(a,b)$ | $0<x<1$ | $a,b>0$ | $f_X(x)=x^{a-1}(1-x)^{b-1}/B(a,b)$ | $a/(a+b)$ | $ab/\{(a+b)^2(a+b+1)\}$ | 存在するが初等的な表示はない |
+| カイ二乗分布 $\chi^2_\nu$ | $x>0$ | 自由度 $\nu>0$ | $\operatorname{Gamma}(\nu/2,1/2)$ と同じ | $\nu$ | $2\nu$ | $(1-2t)^{-\nu/2}$（$t<1/2$） |
+| Studentの $t$ 分布 $t_\nu$ | $\mathbb R$ | 自由度 $\nu>0$ | $f_T(t)=\Gamma\{(\nu+1)/2\}[\sqrt{\nu\pi}\Gamma(\nu/2)]^{-1}(1+t^2/\nu)^{-(\nu+1)/2}$ | $0$（$\nu>1$） | $\nu/(\nu-2)$（$\nu>2$） | 存在しない |
+| $F$ 分布 $F_{\nu_1,\nu_2}$ | $x>0$ | $\nu_1,\nu_2>0$ | $f_X(x)=B(\nu_1/2,\nu_2/2)^{-1}(\nu_1/\nu_2)^{\nu_1/2}x^{\nu_1/2-1}(1+\nu_1x/\nu_2)^{-(\nu_1+\nu_2)/2}$ | $\nu_2/(\nu_2-2)$（$\nu_2>2$） | 存在するが複雑 | 存在しない |
+| Cauchy分布 $\operatorname{Cauchy}(x_0,\gamma)$ | $\mathbb R$ | $\gamma>0$ | $f_X(x)=\{\pi\gamma[1+((x-x_0)/\gamma)^2]\}^{-1}$ | 存在しない | 存在しない | 存在しない |
+| 対数正規分布 | $x>0$ | $\log X\sim N(\mu,\sigma^2)$ | $f_X(x)=\{x\sigma\sqrt{2\pi}\}^{-1}\exp[-(\log x-\mu)^2/(2\sigma^2)]$ | $e^{\mu+\sigma^2/2}$ | $(e^{\sigma^2}-1)e^{2\mu+\sigma^2}$ | 存在しない |
+| Weibull分布 $\operatorname{Weibull}(k,\lambda)$ | $x>0$ | shape $k>0$、scale $\lambda>0$ | $f_X(x)=(k/\lambda)(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$ | $\lambda\Gamma(1+1/k)$ | $\lambda^2\{\Gamma(1+2/k)-\Gamma(1+1/k)^2\}$ | 存在するが初等的な表示はない |
+| logistic分布 | $\mathbb R$ | 位置 $\mu\in\mathbb R$、scale $s>0$ | $f_X(x)=e^{-(x-\mu)/s}/[s\{1+e^{-(x-\mu)/s}\}^2]$ | $\mu$ | $\pi^2s^2/3$ | $e^{\mu t}\Gamma(1-st)\Gamma(1+st)$（$|t|<1/s$） |
+| Pareto分布 $\operatorname{Pareto}(x_m,\alpha)$ | $x\ge x_m$ | $x_m,\alpha>0$ | $f_X(x)=\alpha x_m^\alpha/x^{\alpha+1}$ | $\alpha x_m/(\alpha-1)$（$\alpha>1$） | 存在するが $\alpha>2$ で有限 | 存在しない |
+| Laplace分布 $\operatorname{Laplace}(\mu,b)$ | $\mathbb R$ | $b>0$ | $f_X(x)=(2b)^{-1}e^{-|x-\mu|/b}$ | $\mu$ | $2b^2$ | $e^{\mu t}/(1-b^2t^2)$（$|t|<1/b$） |
+| Rayleigh分布 $\operatorname{Rayleigh}(\sigma)$ | $x>0$ | $\sigma>0$ | $f_X(x)=x\sigma^{-2}e^{-x^2/(2\sigma^2)}$ | $\sigma\sqrt{\pi/2}$ | $(2-\pi/2)\sigma^2$ | 存在するが初等的な表示はない |
 
 ## 多変量分布
 
