@@ -218,8 +218,8 @@ work:
       - math-discrete-distributions
       - math-continuous-distributions
     target:
-      min: 34
-      max: 46
+      min: 50
+      max: 60
     status: planned
     review_dir: review/C05-discrete-continuous-distributions
   C06-sampling-distributions:
