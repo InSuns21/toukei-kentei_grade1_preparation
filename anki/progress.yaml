@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 166
+reviewed_card_count: 223
 current_work: null
-next_work: C05-discrete-continuous-distributions
-last_completed_work: C04-limit-approximations
+next_work: C06-sampling-distributions
+last_completed_work: C05-discrete-continuous-distributions
 summary:
   total: 27
-  planned: 23
+  planned: 22
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 4
+  reviewed: 5
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -220,8 +220,75 @@ work:
     target:
       min: 50
       max: 60
-    status: planned
+    status: reviewed
     review_dir: review/C05-discrete-continuous-distributions
+    started_at: 2026-08-15T18:27:15.847Z
+    self_review_at: 2026-08-15T18:48:04.848Z
+    independent_review_at: 2026-08-15T19:14:03.148Z
+    revision_at: 2026-08-15T19:14:18.388Z
+    completed_at: 2026-08-15T19:59:30.993Z
+    added_card_ids:
+      - dist-basic-discrete-uniform
+      - dist-basic-discrete-uniform-moments
+      - dist-bernoulli-complement
+      - dist-bernoulli-definition
+      - dist-bernoulli-moments
+      - dist-beta-definition
+      - dist-beta-moments
+      - dist-binomial-bernoulli-sum
+      - dist-binomial-complement-tail
+      - dist-binomial-definition
+      - dist-binomial-factorial-moment
+      - dist-binomial-moments
+      - dist-binomial-ratio
+      - dist-cauchy-no-moments
+      - dist-continuous-uniform-cdf
+      - dist-continuous-uniform-definition
+      - dist-continuous-uniform-interval
+      - dist-continuous-uniform-moments
+      - dist-discrete-identification
+      - dist-exponential-cdf-survival
+      - dist-exponential-definition
+      - dist-exponential-hazard
+      - dist-exponential-memoryless
+      - dist-exponential-moments
+      - dist-gamma-definition
+      - dist-gamma-moments
+      - dist-gamma-sum-exponential
+      - dist-geometric-definition
+      - dist-geometric-memoryless
+      - dist-geometric-moments
+      - dist-hypergeometric-binomial-choice
+      - dist-hypergeometric-definition
+      - dist-hypergeometric-moments
+      - dist-logistic-definition
+      - dist-logistic-quantile
+      - dist-lognormal-median
+      - dist-lognormal-moments
+      - dist-lognormal-transformation
+      - dist-multinomial-binomial-reduction
+      - dist-multinomial-definition
+      - dist-multinomial-moments
+      - dist-multivariate-normal-conditional
+      - dist-multivariate-normal-density
+      - dist-negative-binomial-definition
+      - dist-negative-binomial-moments
+      - dist-normal-definition
+      - dist-normal-linear-transform
+      - dist-normal-moments
+      - dist-normal-standardize
+      - dist-normal-sum
+      - dist-normal-symmetry
+      - dist-poisson-definition
+      - dist-poisson-moments
+      - dist-poisson-ratio-mode
+      - dist-poisson-splitting
+      - dist-weibull-mean
+      - dist-weibull-survival-hazard
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C06-sampling-distributions:
     title: 標本分布
     category: math-distributions

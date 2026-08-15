@@ -337,73 +337,67 @@ items:
         status: card
         cards: [dist-continuity-correction-interval, dist-continuity-correction-tail, dist-normal-approximation-continuity-full, dist-continuity-correction-single]
   - id: math-discrete-distributions
-    status: partial
-    cards:
-      - dist-mgf-poisson
-      - est-fisher-bernoulli
-      - test-np-bernoulli
+    status: complete
+    cards: [dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments, dist-bernoulli-definition, dist-bernoulli-moments, dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice, dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments, dist-negative-binomial-definition, dist-negative-binomial-moments, dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting, dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction, dist-discrete-identification, dist-bernoulli-complement, dist-binomial-factorial-moment]
     terms:
       - name: 一様分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments]
       - name: ベルヌーイ分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-bernoulli-definition, dist-bernoulli-moments, dist-bernoulli-complement]
       - name: 二項分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-binomial-factorial-moment]
       - name: 超幾何分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice]
       - name: 幾何分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments]
       - name: ポアソン分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting]
       - name: 負の二項分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-negative-binomial-definition, dist-negative-binomial-moments]
       - name: 多項分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction]
   - id: math-continuous-distributions
-    status: partial
-    cards:
-      - dist-gamma-recognition
-      - est-moments-exponential
-      - dist-convolution-uniform
+    status: complete
+    cards: [dist-gamma-recognition, dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval, dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum, dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential, dist-beta-definition, dist-beta-moments, dist-cauchy-no-moments, dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median, dist-weibull-survival-hazard, dist-weibull-mean, dist-logistic-definition, dist-logistic-quantile, dist-multivariate-normal-density, dist-multivariate-normal-conditional]
     terms:
       - name: 一様分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval]
       - name: 正規分布（ガウス分布）
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum]
       - name: 指数分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard]
       - name: ガンマ分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-gamma-recognition, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential]
       - name: ベータ分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-beta-definition, dist-beta-moments]
       - name: コーシー分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-cauchy-no-moments]
       - name: 対数正規分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median]
       - name: ワイブル分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-weibull-survival-hazard, dist-weibull-mean]
       - name: ロジスティック分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-logistic-definition, dist-logistic-quantile]
       - name: 多変量正規分布
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-multivariate-normal-density, dist-multivariate-normal-conditional]
   - id: math-sampling-distributions
     status: planned
     cards: []

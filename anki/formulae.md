@@ -132,3 +132,20 @@
 - Beta--Bernoulli共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
 - EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
 - Monte Carlo積分：$\int_0^1g(x)\,dx=E[g(U)]$ を $n^{-1}\sum_ig(U_i)$ で推定する。
+
+## 基本分布の公式
+
+- 離散一様分布：$X\in\{1,\ldots,m\}$ で $p_X(k)=1/m$、$E[X]=(m+1)/2$、$\operatorname{Var}(X)=(m^2-1)/12$。
+- ベルヌーイ分布：$P(X=x)=p^x(1-p)^{1-x}$ $(x\in\{0,1\})$、$E[X]=p$、$\operatorname{Var}(X)=p(1-p)$。
+- 二項分布：$P(X=k)=\binom nkp^k(1-p)^{n-k}$ $(k=0,\ldots,n)$、$E[X]=np$、$\operatorname{Var}(X)=np(1-p)$。
+- 超幾何分布：$P(X=k)=\binom Kk\binom{N-K}{n-k}/\binom Nn$、$E[X]=nK/N$、$\operatorname{Var}(X)=n(K/N)(1-K/N)(N-n)/(N-1)$。
+- 幾何分布（台1始まり）：$P(X=k)=(1-p)^{k-1}p$、$E[X]=1/p$、$\operatorname{Var}(X)=(1-p)/p^2$。
+- 負の二項分布（失敗回数）：$P(Y=k)=\binom{k+r-1}{k}p^r(1-p)^k$、$E[Y]=r(1-p)/p$、$\operatorname{Var}(Y)=r(1-p)/p^2$。
+- ポアソン分布：$P(X=k)=e^{-\lambda}\lambda^k/k!$、$E[X]=\operatorname{Var}(X)=\lambda$。
+- 多項分布：$P(\boldsymbol X=\boldsymbol k)=n!\prod_i p_i^{k_i}/\prod_i k_i!$、$E[X_i]=np_i$、$\operatorname{Cov}(X_i,X_j)=-np_ip_j$ $(i\ne j)$。
+- 連続一様分布：$f(x)=1/(b-a)$ $(a\le x\le b)$、$E[X]=(a+b)/2$、$\operatorname{Var}(X)=(b-a)^2/12$。
+- 指数分布：$f(x)=\lambda e^{-\lambda x}$ $(x\ge0)$、$S(x)=e^{-\lambda x}$、$E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$。
+- Gamma分布（shape-rate）：$f(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$、$E[X]=\alpha/\beta$、$\operatorname{Var}(X)=\alpha/\beta^2$。
+- Beta分布：$f(x)=x^{\alpha-1}(1-x)^{\beta-1}/B(\alpha,\beta)$ $(0<x<1)$、$E[X]=\alpha/(\alpha+\beta)$。
+- Weibull分布（shape-scale）：$S(x)=e^{-(x/\lambda)^k}$、$h(x)=k(x/\lambda)^{k-1}/\lambda$、$E[X]=\lambda\Gamma(1+1/k)$。
+- ロジスティック分布：$F(x)=1/(1+e^{-(x-\mu)/s})$、$E[X]=\mu$、$\operatorname{Var}(X)=\pi^2s^2/3$。

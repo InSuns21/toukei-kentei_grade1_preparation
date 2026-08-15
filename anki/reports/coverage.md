@@ -1,11 +1,11 @@
 # シラバス coverage
 
-- 公開カード: 166
+- 公開カード: 223
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 124 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
-| 種々の確率分布 | 1 | 1/3 | recognition |
+| 種々の確率分布 | 58 | 2/3 | theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 10 | 7/7 | formula, theorem, proof_step, calc_step, strategy |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
@@ -23,8 +23,8 @@
 | 分布の特性値 | complete | dist-variance-moment, prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function, prob-variance-affine, prob-variance-independent-sum, prob-standard-deviation-standardize, prob-moment-central-relation, prob-moment-third-central, prob-skewness-definition, prob-skewness-shape, prob-kurtosis-definition, prob-kurtosis-shape, prob-coefficient-of-variation, prob-percentile-from-cdf, prob-median-from-density, prob-quartiles-iqr, prob-range-definition, prob-mode-from-density, prob-covariance-computation, prob-correlation-coefficient, prob-correlation-independence, prob-partial-correlation, prob-shape-summary |
 | 変数変換 | complete | dist-jacobian-scale, dist-convolution-uniform, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-sum-density, prob-transform-ratio, prob-linear-combination-normal, prob-linear-combination-moments, prob-transform-log |
 | 極限定理と確率分布の近似 | complete | dist-clt-standardize, data-monte-carlo-integral, dist-weak-law-chebyshev, dist-weak-law-sample-mean, dist-clt-statement, dist-clt-sample-mean, dist-clt-bernoulli-proportion, dist-clt-sum-variance, dist-binomial-normal-conditions, dist-binomial-normal-probability, dist-binomial-normal-tail, dist-continuity-correction-interval, dist-continuity-correction-tail, dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-law-small-numbers, dist-approximation-choice, dist-approximation-error, dist-clt-standard-error, dist-poisson-tail-approximation, dist-normal-approximation-continuity-full, dist-weak-law-mean-identification, dist-clt-bernoulli-count, dist-continuity-correction-single, dist-poisson-approximation-complement, dist-clt-finite-variance, dist-weak-law-bernoulli-frequency |
-| 離散型分布 | partial | dist-mgf-poisson, est-fisher-bernoulli, test-np-bernoulli |
-| 連続型分布 | partial | dist-gamma-recognition, est-moments-exponential, dist-convolution-uniform |
+| 離散型分布 | complete | dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments, dist-bernoulli-definition, dist-bernoulli-moments, dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice, dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments, dist-negative-binomial-definition, dist-negative-binomial-moments, dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting, dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction, dist-discrete-identification, dist-bernoulli-complement, dist-binomial-factorial-moment |
+| 連続型分布 | complete | dist-gamma-recognition, dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval, dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum, dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential, dist-beta-definition, dist-beta-moments, dist-cauchy-no-moments, dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median, dist-weibull-survival-hazard, dist-weibull-mean, dist-logistic-definition, dist-logistic-quantile, dist-multivariate-normal-density, dist-multivariate-normal-conditional |
 | 標本分布 | planned |  |
 | 母集団と標本・統計量 | partial | est-factorization, dist-order-max |
 | 尤度と最尤推定 | partial | est-bernoulli-mle |
@@ -102,24 +102,24 @@
 | 極限定理と確率分布の近似 | 二項分布の正規近似とポアソン近似 | card | dist-binomial-normal-conditions, dist-binomial-normal-probability, dist-binomial-normal-tail, dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-approximation-choice, dist-approximation-error, dist-normal-approximation-continuity-full |
 | 極限定理と確率分布の近似 | 少数法則 | card | dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-law-small-numbers, dist-poisson-tail-approximation, dist-poisson-approximation-complement |
 | 極限定理と確率分布の近似 | 連続修正 | card | dist-continuity-correction-interval, dist-continuity-correction-tail, dist-normal-approximation-continuity-full, dist-continuity-correction-single |
-| 離散型分布 | 一様分布 | planned |  |
-| 離散型分布 | ベルヌーイ分布 | planned |  |
-| 離散型分布 | 二項分布 | planned |  |
-| 離散型分布 | 超幾何分布 | planned |  |
-| 離散型分布 | 幾何分布 | planned |  |
-| 離散型分布 | ポアソン分布 | planned |  |
-| 離散型分布 | 負の二項分布 | planned |  |
-| 離散型分布 | 多項分布 | planned |  |
-| 連続型分布 | 一様分布 | planned |  |
-| 連続型分布 | 正規分布（ガウス分布） | planned |  |
-| 連続型分布 | 指数分布 | planned |  |
-| 連続型分布 | ガンマ分布 | planned |  |
-| 連続型分布 | ベータ分布 | planned |  |
-| 連続型分布 | コーシー分布 | planned |  |
-| 連続型分布 | 対数正規分布 | planned |  |
-| 連続型分布 | ワイブル分布 | planned |  |
-| 連続型分布 | ロジスティック分布 | planned |  |
-| 連続型分布 | 多変量正規分布 | planned |  |
+| 離散型分布 | 一様分布 | card | dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments |
+| 離散型分布 | ベルヌーイ分布 | card | dist-bernoulli-definition, dist-bernoulli-moments, dist-bernoulli-complement |
+| 離散型分布 | 二項分布 | card | dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-binomial-factorial-moment |
+| 離散型分布 | 超幾何分布 | card | dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice |
+| 離散型分布 | 幾何分布 | card | dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments |
+| 離散型分布 | ポアソン分布 | card | dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting |
+| 離散型分布 | 負の二項分布 | card | dist-negative-binomial-definition, dist-negative-binomial-moments |
+| 離散型分布 | 多項分布 | card | dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction |
+| 連続型分布 | 一様分布 | card | dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval |
+| 連続型分布 | 正規分布（ガウス分布） | card | dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum |
+| 連続型分布 | 指数分布 | card | dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard |
+| 連続型分布 | ガンマ分布 | card | dist-gamma-recognition, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential |
+| 連続型分布 | ベータ分布 | card | dist-beta-definition, dist-beta-moments |
+| 連続型分布 | コーシー分布 | card | dist-cauchy-no-moments |
+| 連続型分布 | 対数正規分布 | card | dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median |
+| 連続型分布 | ワイブル分布 | card | dist-weibull-survival-hazard, dist-weibull-mean |
+| 連続型分布 | ロジスティック分布 | card | dist-logistic-definition, dist-logistic-quantile |
+| 連続型分布 | 多変量正規分布 | card | dist-multivariate-normal-density, dist-multivariate-normal-conditional |
 | 標本分布 | t分布 | planned |  |
 | 標本分布 | カイ二乗分布 | planned |  |
 | 標本分布 | F分布 | planned |  |

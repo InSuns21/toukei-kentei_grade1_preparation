@@ -76,3 +76,5 @@
 
 - 多変量正規分布 $N_p(\boldsymbol\mu,\boldsymbol\Sigma)$：台 $\mathbb R^p$、$\boldsymbol\mu\in\mathbb R^p$、$\boldsymbol\Sigma$ は $p\times p$ 正定値対称行列。密度は $(2\pi)^{-p/2}|\boldsymbol\Sigma|^{-1/2}\exp[-(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)/2]$。
 - 混合分布：潜在変数 $Z$ の確率を $\pi_k$ とすると $f_X(x)=\sum_k\pi_k f_{X\mid Z=k}(x)$、$\pi_k\ge0$、$\sum_k\pi_k=1$。
+- 離散一様分布は $\{1,\ldots,m\}$ 上で定義する。幾何分布は初成功までの試行回数を数える台 $\{1,2,\ldots\}$、負の二項分布は $r$ 回成功までの失敗回数を数える台 $\{0,1,\ldots\}$ とする。
+- Gamma分布は shape-rate 表示 $\operatorname{Gamma}(\alpha,\beta)$、Weibull分布は shape-scale 表示 $\operatorname{Weibull}(k,\lambda)$、ロジスティック分布は location-scale 表示 $(\mu,s)$ とする。
