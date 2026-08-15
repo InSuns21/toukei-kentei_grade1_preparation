@@ -4,3 +4,4 @@ build/
 anki/dist/
 anki/.state/
 .playwright-cli/
+.codex_tmp_*
