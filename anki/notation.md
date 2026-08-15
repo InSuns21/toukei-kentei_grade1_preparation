@@ -67,9 +67,9 @@
 | Cauchy分布 $\operatorname{Cauchy}(x_0,\gamma)$ | $\mathbb R$ | $\gamma>0$ | $f_X(x)=\{\pi\gamma[1+((x-x_0)/\gamma)^2]\}^{-1}$ | 存在しない | 存在しない | 存在しない |
 | 対数正規分布 | $x>0$ | $\log X\sim N(\mu,\sigma^2)$ | $f_X(x)=\{x\sigma\sqrt{2\pi}\}^{-1}\exp[-(\log x-\mu)^2/(2\sigma^2)]$ | $e^{\mu+\sigma^2/2}$ | $(e^{\sigma^2}-1)e^{2\mu+\sigma^2}$ | 存在しない |
 | Weibull分布 $\operatorname{Weibull}(k,\lambda)$ | $x>0$ | shape $k>0$、scale $\lambda>0$ | $f_X(x)=(k/\lambda)(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$ | $\lambda\Gamma(1+1/k)$ | $\lambda^2\{\Gamma(1+2/k)-\Gamma(1+1/k)^2\}$ | 存在するが初等的な表示はない |
-| logistic分布 | $\mathbb R$ | 位置 $\mu\in\mathbb R$、scale $s>0$ | $f_X(x)=e^{-(x-\mu)/s}/[s\{1+e^{-(x-\mu)/s}\}^2]$ | $\mu$ | $\pi^2s^2/3$ | $e^{\mu t}\Gamma(1-st)\Gamma(1+st)$（$|t|<1/s$） |
+| logistic分布 | $\mathbb R$ | 位置 $\mu\in\mathbb R$、scale $s>0$ | $f_X(x)=e^{-(x-\mu)/s}/[s\{1+e^{-(x-\mu)/s}\}^2]$ | $\mu$ | $\pi^2s^2/3$ | $e^{\mu t}\Gamma(1-st)\Gamma(1+st)$（$\lvert t\rvert<1/s$） |
 | Pareto分布 $\operatorname{Pareto}(x_m,\alpha)$ | $x\ge x_m$ | $x_m,\alpha>0$ | $f_X(x)=\alpha x_m^\alpha/x^{\alpha+1}$ | $\alpha x_m/(\alpha-1)$（$\alpha>1$） | 存在するが $\alpha>2$ で有限 | 存在しない |
-| Laplace分布 $\operatorname{Laplace}(\mu,b)$ | $\mathbb R$ | $b>0$ | $f_X(x)=(2b)^{-1}e^{-|x-\mu|/b}$ | $\mu$ | $2b^2$ | $e^{\mu t}/(1-b^2t^2)$（$|t|<1/b$） |
+| Laplace分布 $\operatorname{Laplace}(\mu,b)$ | $\mathbb R$ | $b>0$ | $f_X(x)=(2b)^{-1}e^{-\lvert x-\mu\rvert/b}$ | $\mu$ | $2b^2$ | $e^{\mu t}/(1-b^2t^2)$（$\lvert t\rvert<1/b$） |
 | Rayleigh分布 $\operatorname{Rayleigh}(\sigma)$ | $x>0$ | $\sigma>0$ | $f_X(x)=x\sigma^{-2}e^{-x^2/(2\sigma^2)}$ | $\sigma\sqrt{\pi/2}$ | $(2-\pi/2)\sigma^2$ | 存在するが初等的な表示はない |
 
 ## 多変量分布
