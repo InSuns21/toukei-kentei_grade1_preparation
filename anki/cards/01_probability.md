@@ -34,10 +34,10 @@ subcategory: math-events
 topic: bayes-theorem
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [Bayes, 条件付き確率, 計算の一手]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bayesの定理 }]
+frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
+sources: [{ type: official_syllabus, topic: Bayesの定理 }, { type: past_exam, id: MATH-2021-Q2, topic: 事後確率最大化 }]
 ---
 ## 問題
 罹患率が $0.01$、感度が $0.9$、偽陽性率が $0.05$ である。陽性者が罹患している確率は？

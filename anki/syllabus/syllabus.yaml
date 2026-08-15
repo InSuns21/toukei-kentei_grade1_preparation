@@ -1,4 +1,4 @@
-schema_version: 2
+schema_version: 3
 title: 統計検定1級 解法定跡カード
 source:
   title: 統計検定1級出題範囲表
@@ -25,35 +25,57 @@ categories:
     section: 統計数理
     page: 1
     order: 10
-    aim_summary: 確率と確率分布に関する基礎的な事項を理解し、種々の場面に応じた確率計算が正しくできる。
+    aims:
+      - subcategories: [math-events, math-distribution-functions]
+        text: 確率と確率分布に関する基礎的な事項を理解し、種々の場面に応じた確率計算が正しくできる。
+      - subcategories: [math-distribution-characteristics]
+        text: 分布の各種特性値の意味を理解すると共に、特性値の値から分布の形状が推測できる。
+      - subcategories: [math-transformations]
+        text: 変数変換後の分布が導出できる。
+      - subcategories: [math-limit-approximations]
+        text: 確率分布の極限的な性質を理解すると共に、分布の近似に応用できる。
     children: [math-events, math-distribution-functions, math-distribution-characteristics, math-transformations, math-limit-approximations]
   - id: math-distributions
     name: 種々の確率分布
     section: 統計数理
     page: 1
     order: 20
-    aim_summary: 基本的な離散型・連続型分布と標本分布を理解し、各種の確率計算と応用ができる。
+    aims:
+      - subcategories: [math-discrete-distributions, math-continuous-distributions]
+        text: 基本的な離散型分布を理解すると共に、各種の確率計算ができる。
+      - subcategories: [math-sampling-distributions]
+        text: 標本分布を理解し、応用に用いることができる。
     children: [math-discrete-distributions, math-continuous-distributions, math-sampling-distributions]
   - id: math-estimation
     name: 統計的推測（推定）
     section: 統計数理
     page: 1
     order: 30
-    aim_summary: 尤度など統計的推測に重要な概念、パラメータ推定の原理、推定量の良さの定式化、区間推定と信頼区間の性質を理解する。
+    aims:
+      - subcategories: [math-population-sample-statistic, math-likelihood-mle, math-estimation-methods, math-point-estimator-properties, math-model-selection, math-asymptotic-estimation, math-interval-estimation]
+        text: 尤度などの統計的推測に重要な役割を果たす概念を理解すると共に、パラメータの推定法の原理を知り、推定量の良さを数学的に定式化できる。また、区間推定とは何かを理解し、信頼区間の性質を正しく述べることができる。
     children: [math-population-sample-statistic, math-likelihood-mle, math-estimation-methods, math-point-estimator-properties, math-model-selection, math-asymptotic-estimation, math-interval-estimation]
   - id: math-testing
     name: 統計的推測（検定）
     section: 統計数理
     page: 1
     order: 40
-    aim_summary: 統計的検定の原理と最適性を理解し、正規分布および代表的な分布に関する検定を正しく理解する。
+    aims:
+      - subcategories: [math-testing-foundations, math-test-derivation, math-normal-tests, math-various-tests]
+        text: 統計的検定の原理を理解し、種々の最適性で検定が構成でき、その性質を数学的に記述できる。特に正規分布に関する検定を正しく理解すると共に、その他の代表的な分布に関する検定ができる。
     children: [math-testing-foundations, math-test-derivation, math-normal-tests, math-various-tests]
   - id: math-data-analysis
     name: データ解析法の考え方と各種分析手法
     section: 統計数理
     page: 2
     order: 50
-    aim_summary: 分散分析・回帰分析・分割表・ノンパラメトリック法を理解して実践し、不完全データ、シミュレーション、ベイズ法をモデル構築に用いる。
+    aims:
+      - subcategories: [math-anova, math-regression]
+        text: データ解析法の中でも重要な位置を占める分散分析と回帰分析について正しく理解し、応用することができる。
+      - subcategories: [math-contingency-tables, math-nonparametric]
+        text: 実際問題で遭遇する分割表の解析ならびにノンパラメトリックな方法について理解し、実践することができる。
+      - subcategories: [math-incomplete-data, math-simulation, math-bayesian-methods]
+        text: 不完全データの分析について理解すると共に、コンピュータを用いたシミュレーションができる。モデル構築に役立てる。
     children: [math-anova, math-regression, math-contingency-tables, math-nonparametric, math-incomplete-data, math-simulation, math-bayesian-methods]
   - id: applied-common
     name: 共通した事項
@@ -64,7 +86,11 @@ categories:
     page: 3
     order: 60
     prerequisite: 確率・統計の基礎事項（統計検定2級の範囲）に加え、各応用分野に共通した事項
-    aim_summary: 研究法・標本調査・実験計画と、重回帰・多変量解析・確率過程・時系列解析を各応用分野に共通する基礎として理解する。
+    aims:
+      - subcategories: [applied-research-types, applied-sampling, applied-design]
+        text: 研究法の違いを理解すると共に、データの取り方に関する基礎事項を理解し実践に応用できる。
+      - subcategories: [applied-multiple-regression, applied-multivariate, applied-stochastic-processes, applied-time-series]
+        text: 重回帰分析・各種多変量解析法・確率過程・時系列解析について正しく理解すると共に、ソフトウェアの出力結果の解釈ができる。
     children: [applied-research-types, applied-sampling, applied-design, applied-multiple-regression, applied-multivariate, applied-stochastic-processes, applied-time-series]
   - id: applied-engineering
     name: 理工学分野
@@ -74,7 +100,11 @@ categories:
     source_section: 統計応用
     page: 4
     order: 70
-    aim_summary: 統計手法の数理的側面を理解し、実際の問題へ正しく適用するとともに、品質管理に関する統計手法を用いる。
+    aims:
+      - subcategories: [engineering-multivariate, engineering-stochastic-processes, engineering-linear-inference, engineering-asymptotics]
+        text: 統計手法の数理的な側面を正しく理解し、応用に結び付けることができる。特に、解析や線形代数などの数学的な理論が実際の応用にどう結び付くのかを理解する。
+      - subcategories: [engineering-quality, engineering-design]
+        text: 品質管理に関する種々の統計手法を正しく使うことができる。
     assumed_fields: [数学, 物理, 化学, 地学, 工学, 環境]
     children: [engineering-multivariate, engineering-stochastic-processes, engineering-linear-inference, engineering-asymptotics, engineering-quality, engineering-design]
 

@@ -4,15 +4,46 @@
 
 ## 確率
 
+- 等確率な有限標本空間：各結果が等確率なら、事象 $A$ について $P(A)=|A|/|\Omega|$。
 - 包除原理：$P(A\cup B)=P(A)+P(B)-P(A\cap B)$。
+- 3事象の包除原理：$P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)$。
 - 条件付き確率：$P(A\mid B)=P(A\cap B)/P(B)$（$P(B)>0$）。
+- 乗法公式：$P(A\cap B)=P(A\mid B)P(B)$（$P(B)>0$）。
+- 連鎖則：必要な条件付き確率が定義できるとき、$P(A\cap B\cap C)=P(A)P(B\mid A)P(C\mid A\cap B)$。
+- 補集合：$P(A)=1-P(A^c)$。
 - Bayesの定理：$P(A_i\mid B)=P(B\mid A_i)P(A_i)/\sum_jP(B\mid A_j)P(A_j)$。
 - 全確率の公式：分割 $A_1,\ldots,A_k$ に対し $P(B)=\sum_jP(B\mid A_j)P(A_j)$。
 - 独立性：$A,B$ が独立なら $P(A\cap B)=P(A)P(B)$。
+- 相互独立：$A_1,\ldots,A_n$ は、2個以上を選ぶすべての部分集合 $J$ について $P(\bigcap_{j\in J}A_j)=\prod_{j\in J}P(A_j)$ を満たすとき相互独立である。ペアごとの独立だけでは足りない。
 
 ## 分布・モーメント
 
 - 累積分布関数：離散分布では $F_X(x)=\sum_{u\le x}p_X(u)$。
+- 確率質量関数の条件：$p_X(x)\ge0$ かつ $\sum_xp_X(x)=1$。
+- 累積分布関数の条件：$F_X$ は非減少かつ右連続で、$\lim_{x\to-\infty}F_X(x)=0$、$\lim_{x\to\infty}F_X(x)=1$。
+- 連続分布の累積分布関数：$F_X(x)=\int_{-\infty}^x f_X(u)\,du$。$F_X$ が微分可能な点では $f_X(x)=F_X'(x)$。
+- 区間確率：$P(a<X\le b)=F_X(b)-F_X(a)$、$P(a\le X\le b)=F_X(b)-F_X(a-)$。
+- 累積分布関数の跳び：$P(X=a)=F_X(a)-F_X(a-)$、$F_X(a-)=\lim_{x\uparrow a}F_X(x)$。
+- 混合分布の累積分布関数：点質量と連続部分があるとき、$F_X(x)=\sum_{u\le x}P(X=u)+\int_{-\infty}^x f_{\mathrm{cont}}(u)\,du$。
+- 密度の正規化：$f_X(x)\ge0$ かつ $\int_{-\infty}^{\infty}f_X(x)\,dx=1$。
+- 生存関数と危険率：$S_X(x)=1-F_X(x)$、$S_X(x)>0$ なら $h_X(x)=f_X(x)/S_X(x)$。
+- 累積危険率：$S_X(x)>0$ で $H_X(x)=-\log S_X(x)$。非負で絶対連続な寿命分布かつ $S_X(0)=1$ なら $H_X(x)=\int_0^x h_X(u)\,du$、従って $S_X(x)=e^{-H_X(x)}$。
+- 周辺密度と条件付き密度：$f_X(x)=\int_{-\infty}^{\infty}f_{X,Y}(x,y)\,dy$、$f_X(x)>0$ なら $f_{Y\mid X}(y\mid x)=f_{X,Y}(x,y)/f_X(x)$。
+- 離散分布の周辺・条件付き分布：$p_X(x)=\sum_y p_{X,Y}(x,y)$、$p_X(x)>0$ なら $p_{Y\mid X}(y\mid x)=p_{X,Y}(x,y)/p_X(x)$。
+- 同時分布による独立判定：同時確率質量関数または同時確率密度関数と台が周辺分布の積に分解できるとき、$X,Y$ は独立である。
+- 同時累積分布関数：$F_{X,Y}(x,y)=P(X\le x,Y\le y)$。長方形確率は4隅を $+,-,-,+$ で組み合わせ、独立なら $F_{X,Y}(x,y)=F_X(x)F_Y(y)$。
+- 同時密度からの累積分布関数：$F_{X,Y}(x,y)=\int_{-\infty}^x\int_{-\infty}^y f_{X,Y}(u,v)\,dv\,du$。
+- 条件付き累積分布関数：$F_{Y\mid X}(y\mid x)=\int_{-\infty}^y f_{Y\mid X}(v\mid x)\,dv$。
+- 事象 $B$ による切断密度：$P(X\in B)>0$ なら $f_{X\mid X\in B}(x)=f_X(x)\boldsymbol1_B(x)/P(X\in B)$。
+- 混合分布：離散潜在変数 $Z$ に対し $f_X(x)=\sum_zf_{X\mid Z}(x\mid z)P(Z=z)$。連続観測によるBayes更新は $P(Z=k\mid X=x)=P(Z=k)f_{X\mid Z}(x\mid k)/\sum_jP(Z=j)f_{X\mid Z}(x\mid j)$。
+- 確率母関数：非負整数値の $X$ では $G_X(s)=E[s^X]$、$E[X]=G_X'(1)$、$E[X(X-1)]=G_X''(1)$（各微分値が有限なとき）。
+- 確率母関数の判定：$G(s)=\sum_{k\ge0}p_ks^k$ が非負整数値分布の確率母関数であるには、$p_k\ge0$ かつ $G(1)=\sum_{k\ge0}p_k=1$ が必要である。
+- 独立な和の母関数：$X,Y$ が独立で各母関数が存在する範囲では $G_{X+Y}(s)=G_X(s)G_Y(s)$、$M_{X+Y}(t)=M_X(t)M_Y(t)$。
+- 代表的な確率母関数：二項分布は $(1-p+ps)^n$、幾何分布（初成功までの回数）は $ps/\{1-(1-p)s\}$、Poisson分布は $\exp\{\lambda(s-1)\}$。
+- 確率母関数の合成：$N$ 個の要素を独立に確率 $q$ で残した個数 $Y$ は $G_Y(s)=G_N(1-q+qs)$。
+- モーメント母関数の線形変換：$Y=aX+b$ なら $M_Y(t)=e^{bt}M_X(at)$。
+- 代表的なモーメント母関数：指数分布 $\operatorname{Exp}(\lambda)$ は $\lambda/(\lambda-t)$（$t<\lambda$）、Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ は $\{\beta/(\beta-t)\}^\alpha$（$t<\beta$）、正規分布 $N(\mu,\sigma^2)$ は $\exp(\mu t+\sigma^2t^2/2)$。
+- モーメント母関数の一意性：原点を含む開区間で有限なモーメント母関数は分布を一意に定める。
 - Gamma積分：$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du$、$\int_0^\infty x^{a-1}e^{-bx}\,dx=\Gamma(a)/b^a$。
 - 分散公式：$\operatorname{Var}(X)=E[X^2]-E[X]^2$。
 - 共分散公式：$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$。

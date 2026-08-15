@@ -2,3 +2,5 @@ pdfs/
 node_modules/
 build/
 anki/dist/
+anki/.state/
+.playwright-cli/

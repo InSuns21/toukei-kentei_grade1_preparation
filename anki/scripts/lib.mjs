@@ -54,6 +54,15 @@ export function loadSyllabus() {
   return YAML.parse(fs.readFileSync(path.join(ROOT, "syllabus", "syllabus.yaml"), "utf8"));
 }
 
+export function baselineFile(workId) {
+  return path.join(ROOT, ".state", `${workId}-baseline.yaml`);
+}
+
+export function readBaseline(workId) {
+  const file = baselineFile(workId);
+  return fs.existsSync(file) ? YAML.parse(fs.readFileSync(file, "utf8")) : null;
+}
+
 export function plainText(value = "") {
   return value
     .replace(/```[\s\S]*?```/g, " ")

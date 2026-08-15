@@ -1,18 +1,18 @@
-schema_version: 3
+schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-14
-reviewed_card_count: 50
+updated_at: 2026-08-16
+reviewed_card_count: 108
 current_work: null
-next_work: C02-events-distribution-functions
-last_completed_work: C01-pilot
+next_work: C03-characteristics-transformations
+last_completed_work: C02-events-distribution-functions
 summary:
   total: 27
-  planned: 26
+  planned: 25
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 1
+  reviewed: 2
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -33,29 +33,344 @@ legacy_runs:
       major: 0
       minor: 0
 work:
-  C02-events-distribution-functions: { title: 事象と確率・確率分布と母関数, category: math-probability, subcategories: [math-events, math-distribution-functions], status: planned, review_dir: review/C02-events-distribution-functions }
-  C03-characteristics-transformations: { title: 分布の特性値・変数変換, category: math-probability, subcategories: [math-distribution-characteristics, math-transformations], status: planned, review_dir: review/C03-characteristics-transformations }
-  C04-limit-approximations: { title: 極限定理と確率分布の近似, category: math-probability, subcategories: [math-limit-approximations], status: planned, review_dir: review/C04-limit-approximations }
-  C05-discrete-continuous-distributions: { title: 離散型分布・連続型分布, category: math-distributions, subcategories: [math-discrete-distributions, math-continuous-distributions], status: planned, review_dir: review/C05-discrete-continuous-distributions }
-  C06-sampling-distributions: { title: 標本分布, category: math-distributions, subcategories: [math-sampling-distributions], status: planned, review_dir: review/C06-sampling-distributions }
-  C07-population-likelihood: { title: 母集団と標本・統計量／尤度と最尤推定, category: math-estimation, subcategories: [math-population-sample-statistic, math-likelihood-mle], status: planned, review_dir: review/C07-population-likelihood }
-  C08-estimation-methods-properties: { title: 各種推定法・点推定量の性質, category: math-estimation, subcategories: [math-estimation-methods, math-point-estimator-properties], status: planned, review_dir: review/C08-estimation-methods-properties }
-  C09-model-selection: { title: モデル評価基準, category: math-estimation, subcategories: [math-model-selection], status: planned, review_dir: review/C09-model-selection }
-  C10-asymptotic-estimation: { title: 漸近的性質など, category: math-estimation, subcategories: [math-asymptotic-estimation], status: planned, review_dir: review/C10-asymptotic-estimation }
-  C11-interval-estimation: { title: 区間推定, category: math-estimation, subcategories: [math-interval-estimation], status: planned, review_dir: review/C11-interval-estimation }
-  C12-testing-foundations-derivation: { title: 検定の基礎・検定法の導出, category: math-testing, subcategories: [math-testing-foundations, math-test-derivation], status: planned, review_dir: review/C12-testing-foundations-derivation }
-  C13-normal-various-tests: { title: 正規分布に関する検定・種々の検定法, category: math-testing, subcategories: [math-normal-tests, math-various-tests], status: planned, review_dir: review/C13-normal-various-tests }
-  C14-anova-regression: { title: 分散分析・回帰分析, category: math-data-analysis, subcategories: [math-anova, math-regression], status: planned, review_dir: review/C14-anova-regression }
-  C15-contingency-nonparametric: { title: 分割表の解析・ノンパラメトリック法, category: math-data-analysis, subcategories: [math-contingency-tables, math-nonparametric], status: planned, review_dir: review/C15-contingency-nonparametric }
-  C16-incomplete-data: { title: 不完全データ, category: math-data-analysis, subcategories: [math-incomplete-data], status: planned, review_dir: review/C16-incomplete-data }
-  C17-simulation: { title: シミュレーション, category: math-data-analysis, subcategories: [math-simulation], status: planned, review_dir: review/C17-simulation }
-  C18-bayesian-methods: { title: ベイズ法, category: math-data-analysis, subcategories: [math-bayesian-methods], status: planned, review_dir: review/C18-bayesian-methods }
-  C19-research-sampling: { title: 研究の種類・標本調査法, category: applied-common, subcategories: [applied-research-types, applied-sampling], status: planned, review_dir: review/C19-research-sampling }
-  C20-experimental-design: { title: 実験計画法, category: applied-common, subcategories: [applied-design], status: planned, review_dir: review/C20-experimental-design }
-  C21-regression-multivariate: { title: 重回帰分析・各種多変量解析法, category: applied-common, subcategories: [applied-multiple-regression, applied-multivariate], status: planned, review_dir: review/C21-regression-multivariate }
-  C22-stochastic-time-series: { title: 確率過程・時系列解析, category: applied-common, subcategories: [applied-stochastic-processes, applied-time-series], status: planned, review_dir: review/C22-stochastic-time-series }
-  C23-engineering-multivariate: { title: 多変量解析法, category: applied-engineering, subcategories: [engineering-multivariate], status: planned, review_dir: review/C23-engineering-multivariate }
-  C24-engineering-processes: { title: 確率過程, category: applied-engineering, subcategories: [engineering-stochastic-processes], status: planned, review_dir: review/C24-engineering-processes }
-  C25-engineering-inference-asymptotics: { title: 線形推測・漸近理論, category: applied-engineering, subcategories: [engineering-linear-inference, engineering-asymptotics], status: planned, review_dir: review/C25-engineering-inference-asymptotics }
-  C26-engineering-quality: { title: 品質管理, category: applied-engineering, subcategories: [engineering-quality], status: planned, review_dir: review/C26-engineering-quality }
-  C27-engineering-design: { title: 実験計画, category: applied-engineering, subcategories: [engineering-design], status: planned, review_dir: review/C27-engineering-design }
+  C02-events-distribution-functions:
+    title: 事象と確率・確率分布と母関数
+    category: math-probability
+    subcategories:
+      - math-events
+      - math-distribution-functions
+    target:
+      min: 55
+      max: 65
+    status: reviewed
+    review_dir: review/C02-events-distribution-functions
+    started_at: 2026-08-13T16:41:09.543Z
+    self_review_at: 2026-08-13T17:03:52.789Z
+    independent_review_at: 2026-08-13T17:04:04.899Z
+    revision_at: 2026-08-13T17:20:39.292Z
+    completed_at: 2026-08-15T15:29:44.215Z
+    added_card_ids:
+      - prob-cdf-endpoint-choice
+      - prob-cdf-from-density
+      - prob-cdf-jump-mass
+      - prob-cdf-validity
+      - prob-chain-rule-three
+      - prob-complement-at-least-one
+      - prob-conditional-cdf-from-density
+      - prob-conditional-definition-direct
+      - prob-conditional-density
+      - prob-conditional-equals-marginal
+      - prob-conditional-multiplication
+      - prob-conditioning-breaks-independence
+      - prob-counting-sample-space
+      - prob-cumulative-hazard
+      - prob-density-bayes-two-class
+      - prob-density-from-cdf-derivative
+      - prob-density-normalization
+      - prob-discrete-conditional
+      - prob-discrete-independence-cross-product
+      - prob-discrete-marginal
+      - prob-inclusion-exclusion-three
+      - prob-independent-complements
+      - prob-independent-events
+      - prob-interval-from-cdf
+      - prob-joint-cdf-from-density
+      - prob-joint-cdf-independence
+      - prob-joint-density-normalization
+      - prob-joint-factorization-independence
+      - prob-joint-pmf-normalization
+      - prob-marginal-density
+      - prob-mgf-affine-transform
+      - prob-mgf-exponential-domain
+      - prob-mgf-gamma
+      - prob-mgf-identify-normal
+      - prob-mgf-iid-sum
+      - prob-mgf-independent-sum
+      - prob-mgf-mean-variance
+      - prob-mgf-nonexistence
+      - prob-mgf-uniqueness-domain
+      - prob-mixed-cdf
+      - prob-mixture-marginal
+      - prob-pairwise-not-mutual
+      - prob-pgf-binomial
+      - prob-pgf-factorial-moment
+      - prob-pgf-geometric
+      - prob-pgf-independent-sum
+      - prob-pgf-moments
+      - prob-pgf-poisson
+      - prob-pgf-recover-pmf
+      - prob-pgf-thinning
+      - prob-pgf-validity
+      - prob-pmf-normalization
+      - prob-rectangle-from-joint-cdf
+      - prob-survival-from-cdf
+      - prob-survival-from-hazard
+      - prob-survival-hazard
+      - prob-total-probability
+      - prob-truncated-conditional-density
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+  C03-characteristics-transformations:
+    title: 分布の特性値・変数変換
+    category: math-probability
+    subcategories:
+      - math-distribution-characteristics
+      - math-transformations
+    target:
+      min: 26
+      max: 34
+    status: planned
+    review_dir: review/C03-characteristics-transformations
+  C04-limit-approximations:
+    title: 極限定理と確率分布の近似
+    category: math-probability
+    subcategories:
+      - math-limit-approximations
+    target:
+      min: 20
+      max: 26
+    status: planned
+    review_dir: review/C04-limit-approximations
+  C05-discrete-continuous-distributions:
+    title: 離散型分布・連続型分布
+    category: math-distributions
+    subcategories:
+      - math-discrete-distributions
+      - math-continuous-distributions
+    target:
+      min: 34
+      max: 46
+    status: planned
+    review_dir: review/C05-discrete-continuous-distributions
+  C06-sampling-distributions:
+    title: 標本分布
+    category: math-distributions
+    subcategories:
+      - math-sampling-distributions
+    target:
+      min: 22
+      max: 28
+    status: planned
+    review_dir: review/C06-sampling-distributions
+  C07-population-likelihood:
+    title: 母集団と標本・統計量／尤度と最尤推定
+    category: math-estimation
+    subcategories:
+      - math-population-sample-statistic
+      - math-likelihood-mle
+    target:
+      min: 24
+      max: 30
+    status: planned
+    review_dir: review/C07-population-likelihood
+  C08-estimation-methods-properties:
+    title: 各種推定法・点推定量の性質
+    category: math-estimation
+    subcategories:
+      - math-estimation-methods
+      - math-point-estimator-properties
+    target:
+      min: 24
+      max: 30
+    status: planned
+    review_dir: review/C08-estimation-methods-properties
+  C09-model-selection:
+    title: モデル評価基準
+    category: math-estimation
+    subcategories:
+      - math-model-selection
+    target:
+      min: 18
+      max: 22
+    status: planned
+    review_dir: review/C09-model-selection
+  C10-asymptotic-estimation:
+    title: 漸近的性質など
+    category: math-estimation
+    subcategories:
+      - math-asymptotic-estimation
+    target:
+      min: 20
+      max: 26
+    status: planned
+    review_dir: review/C10-asymptotic-estimation
+  C11-interval-estimation:
+    title: 区間推定
+    category: math-estimation
+    subcategories:
+      - math-interval-estimation
+    target:
+      min: 18
+      max: 22
+    status: planned
+    review_dir: review/C11-interval-estimation
+  C12-testing-foundations-derivation:
+    title: 検定の基礎・検定法の導出
+    category: math-testing
+    subcategories:
+      - math-testing-foundations
+      - math-test-derivation
+    target:
+      min: 26
+      max: 34
+    status: planned
+    review_dir: review/C12-testing-foundations-derivation
+  C13-normal-various-tests:
+    title: 正規分布に関する検定・種々の検定法
+    category: math-testing
+    subcategories:
+      - math-normal-tests
+      - math-various-tests
+    target:
+      min: 28
+      max: 36
+    status: planned
+    review_dir: review/C13-normal-various-tests
+  C14-anova-regression:
+    title: 分散分析・回帰分析
+    category: math-data-analysis
+    subcategories:
+      - math-anova
+      - math-regression
+    target:
+      min: 28
+      max: 36
+    status: planned
+    review_dir: review/C14-anova-regression
+  C15-contingency-nonparametric:
+    title: 分割表の解析・ノンパラメトリック法
+    category: math-data-analysis
+    subcategories:
+      - math-contingency-tables
+      - math-nonparametric
+    target:
+      min: 24
+      max: 30
+    status: planned
+    review_dir: review/C15-contingency-nonparametric
+  C16-incomplete-data:
+    title: 不完全データ
+    category: math-data-analysis
+    subcategories:
+      - math-incomplete-data
+    target:
+      min: 18
+      max: 22
+    status: planned
+    review_dir: review/C16-incomplete-data
+  C17-simulation:
+    title: シミュレーション
+    category: math-data-analysis
+    subcategories:
+      - math-simulation
+    target:
+      min: 20
+      max: 24
+    status: planned
+    review_dir: review/C17-simulation
+  C18-bayesian-methods:
+    title: ベイズ法
+    category: math-data-analysis
+    subcategories:
+      - math-bayesian-methods
+    target:
+      min: 20
+      max: 26
+    status: planned
+    review_dir: review/C18-bayesian-methods
+  C19-research-sampling:
+    title: 研究の種類・標本調査法
+    category: applied-common
+    subcategories:
+      - applied-research-types
+      - applied-sampling
+    target:
+      min: 20
+      max: 26
+    status: planned
+    review_dir: review/C19-research-sampling
+  C20-experimental-design:
+    title: 実験計画法
+    category: applied-common
+    subcategories:
+      - applied-design
+    target:
+      min: 20
+      max: 26
+    status: planned
+    review_dir: review/C20-experimental-design
+  C21-regression-multivariate:
+    title: 重回帰分析・各種多変量解析法
+    category: applied-common
+    subcategories:
+      - applied-multiple-regression
+      - applied-multivariate
+    target:
+      min: 26
+      max: 34
+    status: planned
+    review_dir: review/C21-regression-multivariate
+  C22-stochastic-time-series:
+    title: 確率過程・時系列解析
+    category: applied-common
+    subcategories:
+      - applied-stochastic-processes
+      - applied-time-series
+    target:
+      min: 26
+      max: 34
+    status: planned
+    review_dir: review/C22-stochastic-time-series
+  C23-engineering-multivariate:
+    title: 多変量解析法
+    category: applied-engineering
+    subcategories:
+      - engineering-multivariate
+    target:
+      min: 22
+      max: 28
+    status: planned
+    review_dir: review/C23-engineering-multivariate
+  C24-engineering-processes:
+    title: 確率過程
+    category: applied-engineering
+    subcategories:
+      - engineering-stochastic-processes
+    target:
+      min: 26
+      max: 34
+    status: planned
+    review_dir: review/C24-engineering-processes
+  C25-engineering-inference-asymptotics:
+    title: 線形推測・漸近理論
+    category: applied-engineering
+    subcategories:
+      - engineering-linear-inference
+      - engineering-asymptotics
+    target:
+      min: 24
+      max: 30
+    status: planned
+    review_dir: review/C25-engineering-inference-asymptotics
+  C26-engineering-quality:
+    title: 品質管理
+    category: applied-engineering
+    subcategories:
+      - engineering-quality
+    target:
+      min: 22
+      max: 28
+    status: planned
+    review_dir: review/C26-engineering-quality
+  C27-engineering-design:
+    title: 実験計画
+    category: applied-engineering
+    subcategories:
+      - engineering-design
+    target:
+      min: 22
+      max: 28
+    status: planned
+    review_dir: review/C27-engineering-design

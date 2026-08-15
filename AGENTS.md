@@ -37,10 +37,10 @@
 
 1. `npm run anki:progress` で `current_work` と `next_work` を確認する。
 2. 進行中の作業を再開し、なければ `npm run anki:progress -- start <WORK-ID>` で `next_work` を開始する。
-3. `anki/progress.yaml` が示す意味的に関連する1〜2サブカテゴリーについて、必要な論点数のカードをメイン担当が執筆する。重い論点は1サブカテゴリー、密接な論点は2サブカテゴリーを単位とし、枚数による機械分割はしない。カードの正本は `anki/cards/**/*.md` とする。
+3. `anki/progress.yaml` が示す意味的に関連する1〜2サブカテゴリーについて、必要な論点数のカードをメイン担当が執筆する。重い論点は1サブカテゴリー、密接な論点は2サブカテゴリーを単位とし、枚数による機械分割はしない。各作業の `target.min`〜`target.max` は過少・過多を防ぐ新規カード枚数の目安とし、枚数だけで知識充足を判定しない。カードの正本は `anki/cards/**/*.md` とする。
 4. `anki/notation.md`、`anki/formulae.md`、`anki/syllabus/syllabus.yaml`、`anki/syllabus/coverage.yaml` を同期する。分布はカード内で日本語名を明記し、台・母数化・確率質量関数／密度は `anki/notation.md` を正本とする。使用公式・定理はカードにも再掲する。
 5. `npm run anki:progress -- stage <WORK-ID> self_review` を実行し、対象サブカテゴリー群の追加カードについて1カード1論点、公式提示、目で追える式展開、具体例完遂を自己査読する。
-6. `npm run anki:progress -- stage <WORK-ID> independent_review` とし、完成稿に対して、`model: "gpt-5.6-sol"` の独立数理査読と試験適合性査読の2サブエージェントを作業単位全体で起動する。カード1枚ごとの起動は禁止する。
+6. `npm run anki:progress -- stage <WORK-ID> independent_review` とし、完成稿に対して、`model: "gpt-5.6-sol"` の独立数理査読と試験適合性査読の2サブエージェントを作業単位全体で起動する。カード1枚ごとの起動は禁止する。試験適合性査読は、対象サブカテゴリーに対応する公式「ねらい」全文 `aims[].text` の到達行動、公式用語の実質的な扱い、合格に必要な再生・計算・判定技能の不足、重複・過剰、過去問IDに基づく優先度をカードID付きの「ねらい適合性」「知識充足性」「過不足」「優先度根拠」として記録する。
 7. 査読記録は作業ごとに新設する `anki/progress.yaml` の `review_dir` 内の `math-review.md` と `exam-review.md` へ残す。別作業の査読ファイルへ追記しない。
 8. `npm run anki:progress -- stage <WORK-ID> revision` としてメイン担当が修正し、初回と同じ2担当へ対象作業単位全体の再査読を依頼する。
 9. 両査読がそれぞれ `fatal: 0 / major: 0 / minor: 0` になった後、`npm run anki:build` で配信HTMLを更新し、`npm run anki:progress -- complete <WORK-ID>` を実行する。このコマンドは対象サブカテゴリー群の追加カードID、査読記録、生成物の一致、`npm run anki:validate`、`npm run validate` を確認して作業専用の最終検証記録を生成する。

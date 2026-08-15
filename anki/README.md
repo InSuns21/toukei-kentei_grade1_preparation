@@ -24,6 +24,10 @@ npm run anki:progress
 
 ## 継続執筆
 
-「ankiの続きを書いて」では `progress.yaml` の `next_work` にある、意味的に関連する1〜2サブカテゴリーを1単位として進めます。重い論点は1件、密接な論点は2件とし、枚数による機械分割はしません。通常教材と同じ `planned → drafting → self_review → independent_review → revision → reviewed` を使います。査読記録は `review/<WORK-ID>/` に作業ごとに新設し、過去の記録へ追記しません。双方が `fatal: 0 / major: 0 / minor: 0` になった後に検証・進捗更新・作業単位のコミットまで行います。
+「ankiの続きを書いて」では `progress.yaml` の `next_work` にある、意味的に関連する1〜2サブカテゴリーを1単位として進めます。重い論点は1件、密接な論点は2件とし、枚数による機械分割はしません。各作業の `target.min`〜`target.max` は新規カード枚数の目安として `anki:progress` に表示し、自己査読へ進む前に範囲を検査します。枚数だけで合否を決めず、試験適合性査読がシラバスのねらいにある到達行動、公式用語と合格に必要な技能の充足、重複・過剰、具体的な過去問IDに基づく優先度をカードID単位で確認します。通常教材と同じ `planned → drafting → self_review → independent_review → revision → reviewed` を使います。査読記録は `review/<WORK-ID>/` に作業ごとに新設し、過去の記録へ追記しません。双方が `fatal: 0 / major: 0 / minor: 0` になった後に検証・進捗更新・作業単位のコミットまで行います。
+
+`syllabus/coverage.yaml` は公式表の「項目（学習しておくべき用語）例」を用語単位で保持します。対象作業を自己査読以降へ進めるには、各用語が `card` 状態で、その操作を実行する同一サブカテゴリーのカードIDを1件以上持つ必要があります。未着手用語は `planned` とし、サブカテゴリー単位の粗い収録判定で代用しません。
+
+開始時点の既存カード一覧は差分検査のため `anki/.state/` に一時保存します。`progress.yaml` には一時ファイルのパスと件数だけを持ち、作業完了時に削除します。`anki/.state/` はGit管理しません。
 
 既存の全カテゴリー横断pilot査読は `review/C01-pilot/` に固定保存します。今後は `C02-events-distribution-functions` から `C27-engineering-design` まで、公式表の39サブカテゴリーを26個の意味的な作業単位で進めます。具体的な組合せと順序の正本は `progress.yaml` です。人文科学・社会科学・医薬生物学分野はこの教材の対象外なので進捗へ登録しません。

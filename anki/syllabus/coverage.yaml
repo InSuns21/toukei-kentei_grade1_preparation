@@ -1,46 +1,983 @@
-schema_version: 2
+schema_version: 3
 scope: 統計数理・統計応用（理工学）
 meaning:
-  card: 計算を完遂する代表カードがある
-  reference: notation.md または formulae.md に定義・公式があるが独立カードは未収録
+  complete: 全公式用語を操作するカードがある
+  partial: 既存カードはあるが公式用語の全件対応は未完成
   planned: 対象範囲内で今後カードを追加する
+  term_card: 公式用語を実際に操作するカードがある
+  term_planned: 対象範囲内だが対応カードは未完成
 items:
-  - { id: math-events, status: card, cards: [prob-inclusion-exclusion, prob-bayes-diagnostic] }
-  - { id: math-distribution-functions, status: card, cards: [prob-cdf-from-pmf, dist-mgf-poisson] }
-  - { id: math-distribution-characteristics, status: card, cards: [dist-variance-moment] }
-  - { id: math-transformations, status: card, cards: [dist-jacobian-scale, dist-convolution-uniform] }
-  - { id: math-limit-approximations, status: card, cards: [dist-clt-standardize, data-monte-carlo-integral] }
-  - { id: math-discrete-distributions, status: card, cards: [dist-mgf-poisson, est-fisher-bernoulli, test-np-bernoulli] }
-  - { id: math-continuous-distributions, status: card, cards: [dist-gamma-recognition, est-moments-exponential, dist-convolution-uniform] }
-  - { id: math-sampling-distributions, status: reference, cards: [] }
-  - { id: math-population-sample-statistic, status: card, cards: [est-factorization, dist-order-max] }
-  - { id: math-likelihood-mle, status: card, cards: [est-bernoulli-mle] }
-  - { id: math-estimation-methods, status: card, cards: [est-moments-exponential, data-ols-slope] }
-  - { id: math-point-estimator-properties, status: card, cards: [est-bias-variance] }
-  - { id: math-model-selection, status: card, cards: [est-aic-choice] }
-  - { id: math-asymptotic-estimation, status: card, cards: [est-fisher-bernoulli, est-cramer-rao-bernoulli, est-delta-log] }
-  - { id: math-interval-estimation, status: card, cards: [test-normal-ci] }
-  - { id: math-testing-foundations, status: card, cards: [test-z-rejection] }
-  - { id: math-test-derivation, status: card, cards: [test-np-bernoulli, test-likelihood-ratio] }
-  - { id: math-normal-tests, status: planned, cards: [] }
-  - { id: math-various-tests, status: card, cards: [test-chi-square-fit, test-sign-test] }
-  - { id: math-anova, status: card, cards: [data-anova-decomposition] }
-  - { id: math-regression, status: card, cards: [data-ols-slope] }
-  - { id: math-contingency-tables, status: card, cards: [data-odds-ratio] }
-  - { id: math-nonparametric, status: card, cards: [test-sign-test] }
-  - { id: math-incomplete-data, status: card, cards: [data-em-responsibility] }
-  - { id: math-simulation, status: card, cards: [data-bootstrap-mean, data-monte-carlo-integral] }
-  - { id: math-bayesian-methods, status: card, cards: [data-bayes-beta] }
-  - { id: applied-research-types, status: planned, cards: [] }
-  - { id: applied-sampling, status: planned, cards: [] }
-  - { id: applied-design, status: card, cards: [eng-blocking] }
-  - { id: applied-multiple-regression, status: card, cards: [model-gauss-markov, data-ols-slope] }
-  - { id: applied-multivariate, status: card, cards: [model-logistic-odds, model-poisson-glm] }
-  - { id: applied-stochastic-processes, status: card, cards: [process-markov-two-step, process-stationary-markov, process-poisson-wait] }
-  - { id: applied-time-series, status: planned, cards: [] }
-  - { id: engineering-multivariate, status: card, cards: [multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal] }
-  - { id: engineering-stochastic-processes, status: card, cards: [process-ar1-stationary, process-ma1-autocovariance] }
-  - { id: engineering-linear-inference, status: card, cards: [model-gauss-markov, model-contrast] }
-  - { id: engineering-asymptotics, status: card, cards: [dist-clt-standardize, est-delta-log] }
-  - { id: engineering-quality, status: card, cards: [eng-xbar-limits, eng-capability-index, eng-series-reliability, eng-exponential-reliability] }
-  - { id: engineering-design, status: card, cards: [eng-two-factor-interaction, eng-blocking] }
+  - id: math-events
+    status: complete
+    cards:
+      - prob-inclusion-exclusion
+      - prob-bayes-diagnostic
+      - prob-conditional-multiplication
+      - prob-total-probability
+      - prob-independent-events
+      - prob-pairwise-not-mutual
+      - prob-complement-at-least-one
+      - prob-inclusion-exclusion-three
+      - prob-chain-rule-three
+      - prob-independent-complements
+      - prob-conditioning-breaks-independence
+      - prob-counting-sample-space
+      - prob-conditional-definition-direct
+    terms:
+      - name: 確率の計算
+        status: card
+        cards:
+          - prob-total-probability
+          - prob-complement-at-least-one
+          - prob-counting-sample-space
+      - name: 統計的独立
+        status: card
+        cards:
+          - prob-independent-events
+          - prob-pairwise-not-mutual
+          - prob-independent-complements
+          - prob-conditioning-breaks-independence
+      - name: 条件付き確率
+        status: card
+        cards:
+          - prob-conditional-multiplication
+          - prob-chain-rule-three
+          - prob-conditioning-breaks-independence
+          - prob-conditional-definition-direct
+      - name: ベイズの定理
+        status: card
+        cards:
+          - prob-bayes-diagnostic
+      - name: 包除原理
+        status: card
+        cards:
+          - prob-inclusion-exclusion
+          - prob-inclusion-exclusion-three
+  - id: math-distribution-functions
+    status: complete
+    cards:
+      - prob-cdf-from-pmf
+      - dist-mgf-poisson
+      - prob-cdf-from-density
+      - prob-survival-hazard
+      - prob-marginal-density
+      - prob-conditional-density
+      - prob-pgf-moments
+      - prob-mgf-independent-sum
+      - prob-density-normalization
+      - prob-cdf-jump-mass
+      - prob-discrete-marginal
+      - prob-discrete-conditional
+      - prob-joint-factorization-independence
+      - prob-pmf-normalization
+      - prob-cdf-validity
+      - prob-interval-from-cdf
+      - prob-cdf-endpoint-choice
+      - prob-mixed-cdf
+      - prob-joint-cdf-from-density
+      - prob-rectangle-from-joint-cdf
+      - prob-survival-from-cdf
+      - prob-cumulative-hazard
+      - prob-survival-from-hazard
+      - prob-joint-density-normalization
+      - prob-joint-pmf-normalization
+      - prob-discrete-independence-cross-product
+      - prob-conditional-equals-marginal
+      - prob-joint-cdf-independence
+      - prob-mixture-marginal
+      - prob-truncated-conditional-density
+      - prob-density-bayes-two-class
+      - prob-conditional-cdf-from-density
+      - prob-pgf-recover-pmf
+      - prob-pgf-binomial
+      - prob-pgf-geometric
+      - prob-pgf-poisson
+      - prob-pgf-independent-sum
+      - prob-pgf-thinning
+      - prob-pgf-factorial-moment
+      - prob-pgf-validity
+      - prob-mgf-mean-variance
+      - prob-mgf-affine-transform
+      - prob-mgf-iid-sum
+      - prob-mgf-exponential-domain
+      - prob-mgf-gamma
+      - prob-mgf-identify-normal
+      - prob-mgf-nonexistence
+      - prob-mgf-uniqueness-domain
+      - prob-density-from-cdf-derivative
+    terms:
+      - name: 確率関数
+        status: card
+        cards:
+          - prob-pmf-normalization
+          - prob-cdf-from-pmf
+      - name: 確率密度関数
+        status: card
+        cards:
+          - prob-density-normalization
+          - prob-cdf-from-density
+          - prob-density-from-cdf-derivative
+      - name: 累積分布関数
+        status: card
+        cards:
+          - prob-cdf-from-pmf
+          - prob-cdf-from-density
+          - prob-density-from-cdf-derivative
+          - prob-cdf-jump-mass
+          - prob-cdf-validity
+          - prob-interval-from-cdf
+          - prob-cdf-endpoint-choice
+          - prob-mixed-cdf
+      - name: 生存関数
+        status: card
+        cards:
+          - prob-survival-hazard
+          - prob-survival-from-cdf
+          - prob-survival-from-hazard
+      - name: 危険率
+        status: card
+        cards:
+          - prob-survival-hazard
+          - prob-cumulative-hazard
+          - prob-survival-from-hazard
+      - name: 同時分布
+        status: card
+        cards:
+          - prob-marginal-density
+          - prob-joint-factorization-independence
+          - prob-discrete-marginal
+          - prob-joint-cdf-from-density
+          - prob-rectangle-from-joint-cdf
+          - prob-joint-density-normalization
+          - prob-joint-pmf-normalization
+          - prob-discrete-independence-cross-product
+          - prob-joint-cdf-independence
+      - name: 周辺分布
+        status: card
+        cards:
+          - prob-marginal-density
+          - prob-discrete-marginal
+          - prob-mixture-marginal
+      - name: 条件付き分布
+        status: card
+        cards:
+          - prob-conditional-density
+          - prob-discrete-conditional
+          - prob-conditional-equals-marginal
+          - prob-truncated-conditional-density
+          - prob-density-bayes-two-class
+          - prob-conditional-cdf-from-density
+      - name: 確率母関数
+        status: card
+        cards:
+          - prob-pgf-moments
+          - prob-pgf-recover-pmf
+          - prob-pgf-binomial
+          - prob-pgf-geometric
+          - prob-pgf-poisson
+          - prob-pgf-independent-sum
+          - prob-pgf-thinning
+          - prob-pgf-factorial-moment
+          - prob-pgf-validity
+      - name: モーメント母関数（積率母関数）
+        status: card
+        cards:
+          - dist-mgf-poisson
+          - prob-mgf-independent-sum
+          - prob-mgf-mean-variance
+          - prob-mgf-affine-transform
+          - prob-mgf-iid-sum
+          - prob-mgf-exponential-domain
+          - prob-mgf-gamma
+          - prob-mgf-identify-normal
+          - prob-mgf-nonexistence
+          - prob-mgf-uniqueness-domain
+  - id: math-distribution-characteristics
+    status: partial
+    cards:
+      - dist-variance-moment
+    terms:
+      - name: モーメント
+        status: planned
+        cards: []
+      - name: 期待値
+        status: planned
+        cards: []
+      - name: 分散
+        status: planned
+        cards: []
+      - name: 標準偏差
+        status: planned
+        cards: []
+      - name: 歪度
+        status: planned
+        cards: []
+      - name: 尖度
+        status: planned
+        cards: []
+      - name: 変動係数
+        status: planned
+        cards: []
+      - name: パーセント点
+        status: planned
+        cards: []
+      - name: 中央値
+        status: planned
+        cards: []
+      - name: 四分位数
+        status: planned
+        cards: []
+      - name: 範囲
+        status: planned
+        cards: []
+      - name: 四分位範囲
+        status: planned
+        cards: []
+      - name: 最頻値
+        status: planned
+        cards: []
+      - name: 共分散
+        status: planned
+        cards: []
+      - name: 相関係数
+        status: planned
+        cards: []
+      - name: 偏相関係数
+        status: planned
+        cards: []
+  - id: math-transformations
+    status: partial
+    cards:
+      - dist-jacobian-scale
+      - dist-convolution-uniform
+    terms:
+      - name: 変数変換
+        status: planned
+        cards: []
+      - name: 確率変数の線形結合
+        status: planned
+        cards: []
+  - id: math-limit-approximations
+    status: partial
+    cards:
+      - dist-clt-standardize
+      - data-monte-carlo-integral
+    terms:
+      - name: 大数の弱法則
+        status: planned
+        cards: []
+      - name: 中心極限定理
+        status: planned
+        cards: []
+      - name: 二項分布の正規近似とポアソン近似
+        status: planned
+        cards: []
+      - name: 少数法則
+        status: planned
+        cards: []
+      - name: 連続修正
+        status: planned
+        cards: []
+  - id: math-discrete-distributions
+    status: partial
+    cards:
+      - dist-mgf-poisson
+      - est-fisher-bernoulli
+      - test-np-bernoulli
+    terms:
+      - name: 一様分布
+        status: planned
+        cards: []
+      - name: ベルヌーイ分布
+        status: planned
+        cards: []
+      - name: 二項分布
+        status: planned
+        cards: []
+      - name: 超幾何分布
+        status: planned
+        cards: []
+      - name: 幾何分布
+        status: planned
+        cards: []
+      - name: ポアソン分布
+        status: planned
+        cards: []
+      - name: 負の二項分布
+        status: planned
+        cards: []
+      - name: 多項分布
+        status: planned
+        cards: []
+  - id: math-continuous-distributions
+    status: partial
+    cards:
+      - dist-gamma-recognition
+      - est-moments-exponential
+      - dist-convolution-uniform
+    terms:
+      - name: 一様分布
+        status: planned
+        cards: []
+      - name: 正規分布（ガウス分布）
+        status: planned
+        cards: []
+      - name: 指数分布
+        status: planned
+        cards: []
+      - name: ガンマ分布
+        status: planned
+        cards: []
+      - name: ベータ分布
+        status: planned
+        cards: []
+      - name: コーシー分布
+        status: planned
+        cards: []
+      - name: 対数正規分布
+        status: planned
+        cards: []
+      - name: ワイブル分布
+        status: planned
+        cards: []
+      - name: ロジスティック分布
+        status: planned
+        cards: []
+      - name: 多変量正規分布
+        status: planned
+        cards: []
+  - id: math-sampling-distributions
+    status: planned
+    cards: []
+    terms:
+      - name: t分布
+        status: planned
+        cards: []
+      - name: カイ二乗分布
+        status: planned
+        cards: []
+      - name: F分布
+        status: planned
+        cards: []
+  - id: math-population-sample-statistic
+    status: partial
+    cards:
+      - est-factorization
+      - dist-order-max
+    terms:
+      - name: 十分統計量
+        status: planned
+        cards: []
+      - name: ネイマンの分解定理
+        status: planned
+        cards: []
+      - name: 順序統計量
+        status: planned
+        cards: []
+  - id: math-likelihood-mle
+    status: partial
+    cards:
+      - est-bernoulli-mle
+    terms:
+      - name: 尤度関数
+        status: planned
+        cards: []
+      - name: 対数尤度関数
+        status: planned
+        cards: []
+      - name: 有効スコア関数
+        status: planned
+        cards: []
+      - name: 最尤推定
+        status: planned
+        cards: []
+  - id: math-estimation-methods
+    status: partial
+    cards:
+      - est-moments-exponential
+      - data-ols-slope
+    terms:
+      - name: モーメント法
+        status: planned
+        cards: []
+      - name: 最小二乗法
+        status: planned
+        cards: []
+      - name: 線形推定（BLUE）
+        status: planned
+        cards: []
+      - name: その他の手法
+        status: planned
+        cards: []
+  - id: math-point-estimator-properties
+    status: partial
+    cards:
+      - est-bias-variance
+    terms:
+      - name: 不偏性
+        status: planned
+        cards: []
+      - name: 一致性
+        status: planned
+        cards: []
+      - name: 十分性
+        status: planned
+        cards: []
+      - name: 有効性
+        status: planned
+        cards: []
+      - name: 推定量の相対効率
+        status: planned
+        cards: []
+  - id: math-model-selection
+    status: partial
+    cards:
+      - est-aic-choice
+    terms:
+      - name: カルバック・ライブラー情報量
+        status: planned
+        cards: []
+      - name: 情報量規準AIC
+        status: planned
+        cards: []
+      - name: クロスバリデーション
+        status: planned
+        cards: []
+  - id: math-asymptotic-estimation
+    status: partial
+    cards:
+      - est-fisher-bernoulli
+      - est-cramer-rao-bernoulli
+      - est-delta-log
+    terms:
+      - name: クラーメル・ラオの不等式
+        status: planned
+        cards: []
+      - name: フィッシャー情報量（1次元）
+        status: planned
+        cards: []
+      - name: 最尤推定量の漸近正規性
+        status: planned
+        cards: []
+      - name: デルタ法
+        status: planned
+        cards: []
+  - id: math-interval-estimation
+    status: partial
+    cards:
+      - test-normal-ci
+    terms:
+      - name: 信頼係数
+        status: planned
+        cards: []
+      - name: 信頼区間の構成
+        status: planned
+        cards: []
+      - name: 被覆確率
+        status: planned
+        cards: []
+  - id: math-testing-foundations
+    status: partial
+    cards:
+      - test-z-rejection
+    terms:
+      - name: 仮説
+        status: planned
+        cards: []
+      - name: 検定統計量
+        status: planned
+        cards: []
+      - name: P値
+        status: planned
+        cards: []
+      - name: 有意水準
+        status: planned
+        cards: []
+      - name: 棄却域
+        status: planned
+        cards: []
+      - name: 第一種の過誤
+        status: planned
+        cards: []
+      - name: 第二種の過誤
+        status: planned
+        cards: []
+      - name: 検出力（検定力）
+        status: planned
+        cards: []
+      - name: 検出力曲線
+        status: planned
+        cards: []
+  - id: math-test-derivation
+    status: partial
+    cards:
+      - test-np-bernoulli
+      - test-likelihood-ratio
+    terms:
+      - name: ネイマン・ピアソンの基本定理
+        status: planned
+        cards: []
+      - name: 尤度比検定
+        status: planned
+        cards: []
+      - name: ワルド型検定
+        status: planned
+        cards: []
+      - name: スコア型検定
+        status: planned
+        cards: []
+  - id: math-normal-tests
+    status: planned
+    cards: []
+    terms:
+      - name: 平均値と分散に関する検定
+        status: planned
+        cards: []
+      - name: 複数の平均に関する検定
+        status: planned
+        cards: []
+  - id: math-various-tests
+    status: partial
+    cards:
+      - test-chi-square-fit
+      - test-sign-test
+    terms:
+      - name: 二項分布・ポアソン分布など基本的な分布に関する検定
+        status: planned
+        cards: []
+      - name: 適合度の検定
+        status: planned
+        cards: []
+      - name: ノンパラメトリック検定
+        status: planned
+        cards: []
+  - id: math-anova
+    status: partial
+    cards:
+      - data-anova-decomposition
+    terms:
+      - name: 一元配置分散分析
+        status: planned
+        cards: []
+      - name: 二元配置分散分析
+        status: planned
+        cards: []
+      - name: 交互作用
+        status: planned
+        cards: []
+      - name: 共分散分析
+        status: planned
+        cards: []
+      - name: 多重比較
+        status: planned
+        cards: []
+  - id: math-regression
+    status: partial
+    cards:
+      - data-ols-slope
+    terms:
+      - name: 線形単回帰
+        status: planned
+        cards: []
+      - name: 線形重回帰
+        status: planned
+        cards: []
+      - name: 最小二乗推定
+        status: planned
+        cards: []
+      - name: 回帰の分散分析
+        status: planned
+        cards: []
+      - name: 重相関係数
+        status: planned
+        cards: []
+      - name: 決定係数
+        status: planned
+        cards: []
+      - name: 残差
+        status: planned
+        cards: []
+      - name: 変数変換
+        status: planned
+        cards: []
+      - name: 平均への回帰（回帰効果）
+        status: planned
+        cards: []
+  - id: math-contingency-tables
+    status: partial
+    cards:
+      - data-odds-ratio
+    terms:
+      - name: カイ二乗検定
+        status: planned
+        cards: []
+      - name: フィッシャー検定
+        status: planned
+        cards: []
+      - name: マクネマー検定
+        status: planned
+        cards: []
+      - name: イェーツの補正
+        status: planned
+        cards: []
+  - id: math-nonparametric
+    status: partial
+    cards:
+      - test-sign-test
+    terms:
+      - name: 符号検定
+        status: planned
+        cards: []
+      - name: ウィルコクソン順位和検定（マン・ホイットニーU検定）
+        status: planned
+        cards: []
+      - name: ウィルコクソン符号付き順位和検定
+        status: planned
+        cards: []
+      - name: 順位相関係数
+        status: planned
+        cards: []
+  - id: math-incomplete-data
+    status: partial
+    cards:
+      - data-em-responsibility
+    terms:
+      - name: 欠測（欠損）
+        status: planned
+        cards: []
+      - name: 打ち切り
+        status: planned
+        cards: []
+      - name: トランケーション
+        status: planned
+        cards: []
+  - id: math-simulation
+    status: partial
+    cards:
+      - data-bootstrap-mean
+      - data-monte-carlo-integral
+    terms:
+      - name: 乱数
+        status: planned
+        cards: []
+      - name: モンテカルロシミュレーション
+        status: planned
+        cards: []
+      - name: MCMC
+        status: planned
+        cards: []
+      - name: ブートストラップ
+        status: planned
+        cards: []
+  - id: math-bayesian-methods
+    status: partial
+    cards:
+      - data-bayes-beta
+    terms:
+      - name: 事前分布
+        status: planned
+        cards: []
+      - name: 事後分布
+        status: planned
+        cards: []
+      - name: 階層ベイズモデル
+        status: planned
+        cards: []
+      - name: ギブスサンプリング
+        status: planned
+        cards: []
+  - id: applied-research-types
+    status: planned
+    cards: []
+    terms:
+      - name: 実験研究
+        status: planned
+        cards: []
+      - name: 観察研究
+        status: planned
+        cards: []
+      - name: 調査
+        status: planned
+        cards: []
+  - id: applied-sampling
+    status: planned
+    cards: []
+    terms:
+      - name: 完全無作為抽出
+        status: planned
+        cards: []
+      - name: 層化抽出
+        status: planned
+        cards: []
+      - name: 二段階抽出
+        status: planned
+        cards: []
+      - name: サンプルサイズの設計
+        status: planned
+        cards: []
+  - id: applied-design
+    status: partial
+    cards:
+      - eng-blocking
+    terms:
+      - name: フィッシャーの3原則
+        status: planned
+        cards: []
+      - name: 一元配置法
+        status: planned
+        cards: []
+      - name: 二元配置法
+        status: planned
+        cards: []
+      - name: ブロック化
+        status: planned
+        cards: []
+      - name: 乱塊法
+        status: planned
+        cards: []
+      - name: 一部実施要因計画
+        status: planned
+        cards: []
+  - id: applied-multiple-regression
+    status: partial
+    cards:
+      - model-gauss-markov
+      - data-ols-slope
+    terms:
+      - name: 重回帰モデル
+        status: planned
+        cards: []
+      - name: 変数選択
+        status: planned
+        cards: []
+      - name: 残差分析
+        status: planned
+        cards: []
+      - name: 一般化最小二乗推定
+        status: planned
+        cards: []
+      - name: ガウス・マルコフの定理
+        status: planned
+        cards: []
+      - name: 多重共線性
+        status: planned
+        cards: []
+      - name: L1正則化法
+        status: planned
+        cards: []
+      - name: 回帰診断法
+        status: planned
+        cards: []
+  - id: applied-multivariate
+    status: partial
+    cards:
+      - model-logistic-odds
+      - model-poisson-glm
+    terms:
+      - name: 主成分分析
+        status: planned
+        cards: []
+      - name: 因子分析
+        status: planned
+        cards: []
+      - name: 判別分析
+        status: planned
+        cards: []
+      - name: クラスター分析
+        status: planned
+        cards: []
+      - name: ロジスティック回帰分析
+        status: planned
+        cards: []
+      - name: プロビット分析
+        status: planned
+        cards: []
+      - name: トービット分析
+        status: planned
+        cards: []
+      - name: 一般化線形モデル
+        status: planned
+        cards: []
+      - name: 非線形回帰モデル
+        status: planned
+        cards: []
+      - name: サポートベクターマシン
+        status: planned
+        cards: []
+  - id: applied-stochastic-processes
+    status: partial
+    cards:
+      - process-markov-two-step
+      - process-stationary-markov
+      - process-poisson-wait
+    terms:
+      - name: マルコフ連鎖
+        status: planned
+        cards: []
+      - name: ランダムウォーク
+        status: planned
+        cards: []
+      - name: ポアソン過程
+        status: planned
+        cards: []
+      - name: ブラウン運動
+        status: planned
+        cards: []
+  - id: applied-time-series
+    status: planned
+    cards: []
+    terms:
+      - name: ARIMAモデル
+        status: planned
+        cards: []
+      - name: 状態空間モデル
+        status: planned
+        cards: []
+  - id: engineering-multivariate
+    status: partial
+    cards:
+      - multi-linear-combination
+      - multi-covariance-psd
+      - multi-pca-eigen
+      - multi-conditional-normal
+    terms:
+      - name: 多変量正規分布
+        status: planned
+        cards: []
+      - name: 平均ベクトル
+        status: planned
+        cards: []
+      - name: 分散共分散行列
+        status: planned
+        cards: []
+      - name: 相関行列
+        status: planned
+        cards: []
+      - name: 固有値・固有ベクトル
+        status: planned
+        cards: []
+  - id: engineering-stochastic-processes
+    status: partial
+    cards:
+      - process-ar1-stationary
+      - process-ma1-autocovariance
+    terms:
+      - name: ランダムウォーク
+        status: planned
+        cards: []
+      - name: マルコフ過程
+        status: planned
+        cards: []
+      - name: ポアソン過程
+        status: planned
+        cards: []
+      - name: マルコフ連鎖
+        status: planned
+        cards: []
+      - name: 時系列解析
+        status: planned
+        cards: []
+      - name: 自己回帰過程
+        status: planned
+        cards: []
+      - name: 移動平均過程
+        status: planned
+        cards: []
+      - name: ARIMA過程
+        status: planned
+        cards: []
+  - id: engineering-linear-inference
+    status: partial
+    cards:
+      - model-gauss-markov
+      - model-contrast
+    terms:
+      - name: 線形モデル
+        status: planned
+        cards: []
+      - name: 一般化線形モデル
+        status: planned
+        cards: []
+      - name: 線形結合の分布
+        status: planned
+        cards: []
+      - name: 線形対比
+        status: planned
+        cards: []
+      - name: 線形制約
+        status: planned
+        cards: []
+  - id: engineering-asymptotics
+    status: partial
+    cards:
+      - dist-clt-standardize
+      - est-delta-log
+    terms:
+      - name: 大数の法則
+        status: planned
+        cards: []
+      - name: 中心極限定理
+        status: planned
+        cards: []
+      - name: 最尤推定量の漸近正規性
+        status: planned
+        cards: []
+      - name: 漸近分散
+        status: planned
+        cards: []
+      - name: 一致性
+        status: planned
+        cards: []
+      - name: デルタ法
+        status: planned
+        cards: []
+  - id: engineering-quality
+    status: partial
+    cards:
+      - eng-xbar-limits
+      - eng-capability-index
+      - eng-series-reliability
+      - eng-exponential-reliability
+    terms:
+      - name: 管理図
+        status: planned
+        cards: []
+      - name: 信頼性
+        status: planned
+        cards: []
+      - name: 保全性
+        status: planned
+        cards: []
+      - name: プロセス管理
+        status: planned
+        cards: []
+      - name: 工程能力指数
+        status: planned
+        cards: []
+  - id: engineering-design
+    status: partial
+    cards:
+      - eng-two-factor-interaction
+      - eng-blocking
+    terms:
+      - name: 実験の計画と実施
+        status: planned
+        cards: []
+      - name: 固定効果
+        status: planned
+        cards: []
+      - name: 変量効果
+        status: planned
+        cards: []
+      - name: 交絡因子
+        status: planned
+        cards: []
+      - name: ブロック化
+        status: planned
+        cards: []
+      - name: 直交表
+        status: planned
+        cards: []
+      - name: 交絡法
+        status: planned
+        cards: []

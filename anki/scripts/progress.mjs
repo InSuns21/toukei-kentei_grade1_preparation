@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import YAML from "yaml";
-import { ROOT, readCards } from "./lib.mjs";
+import { ROOT, baselineFile, readBaseline, readCards } from "./lib.mjs";
 
 const file = path.join(ROOT, "progress.yaml");
 const progress = YAML.parse(fs.readFileSync(file, "utf8"));
@@ -25,8 +25,10 @@ const summary = () => {
     cards: readCards().length,
     current_work: progress.current_work,
     current_work_title: progress.current_work ? progress.work[progress.current_work]?.title : null,
+    current_work_target: progress.current_work ? progress.work[progress.current_work]?.target : null,
     next_work: progress.next_work,
     next_work_title: progress.next_work ? progress.work[progress.next_work]?.title : null,
+    next_work_target: progress.next_work ? progress.work[progress.next_work]?.target : null,
     status_counts: Object.fromEntries(Object.entries(progress.summary).filter(([key]) => key !== "total")),
   }));
 };
@@ -38,8 +40,10 @@ const getWork = (id) => {
 const inspectWorkScope = (id, item, requireAdded = false) => {
   const cards = readCards();
   const currentById = new Map(cards.map((card) => [card.id, card]));
-  const baselineById = new Map((item.baseline_cards || []).map((card) => [card.id, `${card.category}/${card.subcategory}`]));
-  if (baselineById.size !== progress.reviewed_card_count) throw new Error(`${id} のbaseline_cardsがreviewed_card_countと一致しません`);
+  const baseline = readBaseline(id);
+  if (!baseline) throw new Error(`${id} の一時baselineがありません: ${item.baseline_file}`);
+  const baselineById = new Map(baseline.map((card) => [card.id, `${card.category}/${card.subcategory}`]));
+  if (baselineById.size !== progress.reviewed_card_count || item.baseline_card_count !== baselineById.size) throw new Error(`${id} のbaseline件数がreviewed_card_countと一致しません`);
   if ([...baselineById].some(([cardId, location]) => !currentById.has(cardId) || `${currentById.get(cardId).category}/${currentById.get(cardId).subcategory}` !== location)) throw new Error(`${id} で既存カードが削除または別カテゴリー・サブカテゴリーへ移動されています`);
   const added = cards.filter((card) => !baselineById.has(card.id));
   if (added.some((card) => card.category !== item.category || !item.subcategories.includes(card.subcategory))) throw new Error(`${id} の対象外サブカテゴリーに新規カードがあります`);
@@ -58,9 +62,13 @@ else if (command === "start") {
   if (item.status === "planned") {
     if (readCards().length !== progress.reviewed_card_count) throw new Error(`${id} の開始前に未追跡のカード差分があります`);
     item.status = "drafting";
+    const snapshot = readCards().map((card) => ({ id: card.id, category: card.category, subcategory: card.subcategory })).sort((a, b) => a.id.localeCompare(b.id));
+    fs.mkdirSync(path.dirname(baselineFile(id)), { recursive: true });
+    fs.writeFileSync(baselineFile(id), YAML.stringify(snapshot));
+    item.baseline_file = `.state/${id}-baseline.yaml`;
+    item.baseline_card_count = snapshot.length;
   } else inspectWorkScope(id, item);
   item.started_at ||= new Date().toISOString();
-  item.baseline_cards ||= readCards().map((card) => ({ id: card.id, category: card.category, subcategory: card.subcategory })).sort((a, b) => a.id.localeCompare(b.id));
   progress.current_work = id;
   fs.mkdirSync(path.join(ROOT, item.review_dir), { recursive: true });
   save(); summary();
@@ -70,7 +78,8 @@ else if (command === "start") {
   const item = getWork(id);
   const transitions = { drafting: "self_review", self_review: "independent_review", independent_review: "revision" };
   if (transitions[item.status] !== status || progress.current_work !== id) throw new Error("状態遷移は drafting -> self_review -> independent_review -> revision の順です");
-  inspectWorkScope(id, item);
+  const { added } = inspectWorkScope(id, item);
+  if (item.status === "drafting" && (added.length < item.target.min || added.length > item.target.max)) throw new Error(`${id} の新規カード${added.length}枚は目安${item.target.min}〜${item.target.max}枚の範囲外です`);
   item.status = status;
   item[`${status}_at`] = new Date().toISOString();
   save(); summary();
@@ -97,8 +106,10 @@ else if (command === "start") {
     if (!Number.isFinite(initialAt) || !Number.isFinite(finalAt)) throw new Error(`初回・再査読日時がありません: ${path.relative(ROOT, review)}`);
     if (initialAt < independentReviewAt || initialAt >= revisionAt || finalAt <= revisionAt) throw new Error(`日時は independent_review開始 <= 初回査読 < 修正開始 < 再査読 の順にします: ${path.relative(ROOT, review)}`);
     if (!/初回指摘/.test(body) || !/修正確認/.test(body)) throw new Error(`初回指摘・修正確認の記録がありません: ${path.relative(ROOT, review)}`);
+    if (name === "exam-review.md" && (!/ねらい適合性/.test(body) || !/知識充足性/.test(body) || !/過不足/.test(body) || !/優先度根拠/.test(body))) throw new Error(`試験適合性査読にねらい適合性・知識充足性・過不足・優先度根拠の判定がありません: ${path.relative(ROOT, review)}`);
   }
   const { cards, added: addedCards } = inspectWorkScope(id, item, true);
+  if (addedCards.length < item.target.min || addedCards.length > item.target.max) throw new Error(`${id} の新規カード${addedCards.length}枚は目安${item.target.min}〜${item.target.max}枚の範囲外です`);
   const added = addedCards.map((card) => card.id).sort();
   const projectRoot = path.resolve(ROOT, "..");
   const npmCli = process.env.npm_execpath;
@@ -110,7 +121,9 @@ else if (command === "start") {
   item.status = "reviewed";
   item.completed_at = new Date().toISOString();
   item.added_card_ids = added;
-  delete item.baseline_cards;
+  fs.unlinkSync(baselineFile(id));
+  delete item.baseline_file;
+  delete item.baseline_card_count;
   item.review_result = { fatal: 0, major: 0, minor: 0 };
   progress.reviewed_card_count = cards.length;
   progress.last_completed_work = id;

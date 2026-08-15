@@ -3,12 +3,14 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import katex from "katex";
 import YAML from "yaml";
-import { ROOT, loadSyllabus, readCards } from "./lib.mjs";
+import { ROOT, loadSyllabus, readBaseline, readCards } from "./lib.mjs";
 
 const cards = readCards();
 const syllabus = loadSyllabus();
 const progress = YAML.parse(fs.readFileSync(path.join(ROOT, "progress.yaml"), "utf8"));
 const scopeCoverage = YAML.parse(fs.readFileSync(path.join(ROOT, "syllabus", "coverage.yaml"), "utf8"));
+const pastExamIndex = YAML.parse(fs.readFileSync(path.resolve(ROOT, "..", "references", "past-exam-index.yaml"), "utf8"));
+const pastExamIds = new Set((pastExamIndex.entries || []).map((entry) => entry.id));
 const categoryIdList = syllabus.categories.map((item) => item.id);
 const childIdList = syllabus.categories.flatMap((item) => item.children);
 const categoryIds = new Set(categoryIdList);
@@ -19,23 +21,23 @@ const allowedPriorities = new Set(["S", "A", "B", "C", "D"]);
 const ids = new Set();
 const errors = [];
 const warnings = [];
-// 画像1.jpg〜4.jpgから目視転記した対象範囲だけを固定する。aim_summaryは要約なので対象外。
+// 画像1.jpg〜4.jpgから目視転記した対象範囲と「ねらい」を固定する。
 const officialProjection = {
   scope: syllabus.scope,
-  categories: syllabus.categories.map(({ id, name, section, source_section, page, children, prerequisite }) => ({
-    id, name, section, source_section: source_section ?? null, page, children, prerequisite: prerequisite ?? null,
+  categories: syllabus.categories.map(({ id, name, section, source_section, page, children, prerequisite, aims }) => ({
+    id, name, section, source_section: source_section ?? null, page, children, prerequisite: prerequisite ?? null, aims,
   })),
   subcategories: syllabus.subcategories,
   items: syllabus.items,
 };
 const officialScopeHash = createHash("sha256").update(JSON.stringify(officialProjection)).digest("hex");
-if (officialScopeHash !== "cfba46381c4839c1732a6b311125a8ea31c1efe1c262c2e5c7382ed35411ca74") errors.push("画像版公式出題範囲から転記した対象・階層・用語例が変更されています");
+if (officialScopeHash !== "a3d347dad185b8f5add4a88ceeef25f5723e44cfcaa46410296bca8d09ce9f97") errors.push("画像版公式出題範囲から転記した対象・階層・ねらい・用語例が変更されています");
 const expectedApplicationDisplayNames = new Map([["applied-common", "統計応用（共通事項）"], ["applied-engineering", "統計応用（理工学）"]]);
 for (const [id, expected] of expectedApplicationDisplayNames) if (syllabus.categories.find((category) => category.id === id)?.display_name !== expected) errors.push(`${id}: display_nameは「${expected}」にします`);
 for (const id of expectedApplicationDisplayNames.keys()) if (syllabus.categories.find((category) => category.id === id)?.display_section !== "統計応用") errors.push(`${id}: display_sectionは「統計応用」にします`);
-if (syllabus.schema_version !== 2) errors.push("syllabus.yaml は公式画像階層schema_version 2にします");
-if (scopeCoverage.schema_version !== 2) errors.push("coverage.yaml はschema_version 2にします");
-if (progress.schema_version !== 3) errors.push("progress.yaml は1〜2サブカテゴリー作業schema_version 3にします");
+if (syllabus.schema_version !== 3) errors.push("syllabus.yaml は公式画像階層・ねらいschema_version 3にします");
+if (scopeCoverage.schema_version !== 3) errors.push("coverage.yaml は公式用語単位のschema_version 3にします");
+if (progress.schema_version !== 4) errors.push("progress.yaml はカード枚数目安付きschema_version 4にします");
 if (categoryIds.size !== categoryIdList.length) errors.push("syllabus.categoriesのIDが重複しています");
 if (subcategoryIds.size !== childIdList.length) errors.push("同じ小項目IDが複数の大項目に登録されています");
 if (new Set(syllabus.categories.map((item) => item.order)).size !== syllabus.categories.length) errors.push("syllabus.categoriesのorderが重複しています");
@@ -46,6 +48,11 @@ for (const subcategory of subcategoryIds) {
   const item = syllabus.items?.find((candidate) => candidate.id === subcategory);
   if (!item) errors.push(`subcategory ${subcategory} の公式用語項目がありません`);
   else if (!Array.isArray(item.terms) || !item.terms.length) errors.push(`subcategory ${subcategory} の公式用語例がありません`);
+}
+for (const category of syllabus.categories || []) {
+  const coveredByAims = (category.aims || []).flatMap((aim) => aim.subcategories || []);
+  if (!Array.isArray(category.aims) || !category.aims.length || category.aims.some((aim) => typeof aim.text !== "string" || !aim.text.trim())) errors.push(`category ${category.id}: 公式シラバスのねらい aims がありません`);
+  if (coveredByAims.length !== category.children.length || new Set(coveredByAims).size !== category.children.length || coveredByAims.some((id) => !category.children.includes(id))) errors.push(`category ${category.id}: aims は全サブカテゴリーを重複なく対応付けます`);
 }
 for (const itemId of syllabusItemIds) if (!subcategoryIds.has(itemId)) errors.push(`公式用語項目 ${itemId} がカテゴリー階層にありません`);
 const sourcePdf = path.resolve(ROOT, "syllabus", syllabus.source?.pdf || "");
@@ -75,10 +82,10 @@ for (const [name, source] of [["notation.md", notation], ["formulae.md", formula
 const allowedStatuses = new Set(["planned", "drafting", "self_review", "independent_review", "revision", "reviewed", "blocked"]);
 const reviewDirs = new Set();
 const workProjection = Object.entries(progress.work || {}).map(([id, item]) => ({
-  id, title: item.title, category: item.category, subcategories: item.subcategories, review_dir: item.review_dir,
+  id, title: item.title, category: item.category, subcategories: item.subcategories, target: item.target, review_dir: item.review_dir,
 }));
 const workPlanHash = createHash("sha256").update(JSON.stringify(workProjection)).digest("hex");
-if (workPlanHash !== "62396f9703a1f88147008b25c734f4751a410f0e874da67dd1fbbfefbd83c8a9") errors.push("意味的に編成した26作業の組合せ・順序・日本語名が変更されています");
+if (workPlanHash !== "fe1c73472d395957f002699472f71adc0e0f2516220f6222386b0612897c7caa") errors.push("意味的に編成した26作業の組合せ・順序・日本語名・枚数目安が変更されています");
 const progressSubcategoryIds = Object.values(progress.work || {}).flatMap((item) => item.subcategories || []);
 if (new Set(progressSubcategoryIds).size !== progressSubcategoryIds.length || progressSubcategoryIds.length !== subcategoryIds.size || progressSubcategoryIds.some((id) => !subcategoryIds.has(id))) errors.push("progress.workは対象39サブカテゴリーを重複なく1件ずつ登録します");
 for (const [workId, item] of Object.entries(progress.work || {})) {
@@ -86,6 +93,7 @@ for (const [workId, item] of Object.entries(progress.work || {})) {
   if (typeof item.title !== "string" || !/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(item.title)) errors.push(`${workId}: 日本語のtitleが必要です`);
   for (const subcategory of item.subcategories || []) if (!item.title.includes(syllabus.subcategories[subcategory])) errors.push(`${workId}: titleに日本語サブカテゴリー名「${syllabus.subcategories[subcategory]}」がありません`);
   if (!Array.isArray(item.subcategories) || item.subcategories.length < 1 || item.subcategories.length > 2) errors.push(`${workId}: subcategoriesは1〜2件にします`);
+  if (!Number.isInteger(item.target?.min) || !Number.isInteger(item.target?.max) || item.target.min < 1 || item.target.min > item.target.max) errors.push(`${workId}: targetは正の整数で min <= max にします`);
   const parent = syllabus.categories.find((category) => category.id === item.category);
   if ((item.subcategories || []).some((subcategory) => !parent?.children.includes(subcategory))) errors.push(`${workId}: 対象サブカテゴリーは同じcategory ${item.category} の子にします`);
   if (!allowedStatuses.has(item.status)) errors.push(`${workId}: 未知のstatus ${item.status}`);
@@ -107,12 +115,17 @@ for (const legacyName of ["math-review.md", "exam-review.md", "validation.md"]) 
 if (!progress.current_work && cards.length !== progress.reviewed_card_count) errors.push(`公開カード数 ${cards.length} はreviewed_card_count ${progress.reviewed_card_count} と一致しません`);
 if (activeWork) {
   const currentById = new Map(cards.map((card) => [card.id, card]));
-  const baselineById = new Map((activeWork.baseline_cards || []).map((card) => [card.id, `${card.category}/${card.subcategory}`]));
-  if (baselineById.size !== progress.reviewed_card_count) errors.push(`${progress.current_work}: baseline_cardsがreviewed_card_countと一致しません`);
+  const baseline = readBaseline(progress.current_work);
+  const expectedBaselineFile = `.state/${progress.current_work}-baseline.yaml`;
+  if (activeWork.baseline_file !== expectedBaselineFile || !baseline) errors.push(`${progress.current_work}: 一時baseline ${expectedBaselineFile} がありません`);
+  const baselineById = new Map((baseline || []).map((card) => [card.id, `${card.category}/${card.subcategory}`]));
+  if (baselineById.size !== progress.reviewed_card_count || activeWork.baseline_card_count !== baselineById.size) errors.push(`${progress.current_work}: baseline件数がreviewed_card_countと一致しません`);
   if ([...baselineById].some(([cardId, location]) => !currentById.has(cardId) || `${currentById.get(cardId).category}/${currentById.get(cardId).subcategory}` !== location)) errors.push(`${progress.current_work}: 既存カードが削除または別カテゴリー・サブカテゴリーへ移動されています`);
   const added = cards.filter((card) => !baselineById.has(card.id));
   if (added.some((card) => card.category !== activeWork.category || !activeWork.subcategories.includes(card.subcategory))) errors.push(`${progress.current_work}: 対象外サブカテゴリーに新規カードがあります`);
   if (cards.length !== progress.reviewed_card_count + added.length) errors.push(`${progress.current_work}: カード総数が進捗と一致しません`);
+  if (["self_review", "independent_review", "revision"].includes(activeWork.status) && (added.length < activeWork.target.min || added.length > activeWork.target.max)) errors.push(`${progress.current_work}: 新規カード${added.length}枚は目安${activeWork.target.min}〜${activeWork.target.max}枚の範囲外です`);
+  if (["self_review", "independent_review", "revision"].includes(activeWork.status) && added.length >= 10 && new Set(added.map((card) => card.priority)).size < 2) errors.push(`${progress.current_work}: 10枚以上の新規カードでpriorityが全件同一です。過去問根拠と依存度を比較して優先度を査定します`);
 }
 
 function error(card, message) {
@@ -133,6 +146,9 @@ for (const card of cards) {
   if (!Number.isInteger(card.difficulty) || card.difficulty < 1 || card.difficulty > 5) error(card, "difficulty は1〜5の整数です");
   if (!allowedPriorities.has(card.priority)) error(card, `未知の priority: ${card.priority}`);
   const hasConcreteSource = card.sources.some((source) => source.type === "past_exam" || source.type === "textbook" || source.type === "independent_problem");
+  const pastExamSources = card.sources.filter((source) => source.type === "past_exam");
+  for (const source of pastExamSources) if (!source.id || !pastExamIds.has(source.id)) error(card, `past_exam sourceはpast-exam-index.yamlの具体的IDを使います: ${source.id || "未指定"}`);
+  if (card.frequency.past_exam !== new Set(pastExamSources.map((source) => source.id)).size) error(card, "frequency.past_examは重複を除くpast_exam source ID数と一致させます");
   const claimedFrequency = Object.values(card.frequency || {}).some((value) => Number(value) > 0);
   if (claimedFrequency && !hasConcreteSource) error(card, "正のfrequencyには具体的な過去問・教科書・独自問題sourceが必要です");
   if (["S", "A"].includes(card.priority) && !hasConcreteSource) error(card, "priority S/Aには具体的sourceが必要です");
@@ -171,10 +187,33 @@ if (new Set(coverageIds).size !== coverageIds.length) errors.push("coverage.item
 for (const itemId of syllabusItemIds) if (!coverageIds.includes(itemId)) errors.push(`coverageに公式小項目 ${itemId} がありません`);
 for (const itemId of coverageIds) if (!subcategoryIds.has(itemId)) errors.push(`coverage ${itemId}: 対象範囲にない小項目です`);
 for (const item of scopeCoverage.items) {
-  if (!new Set(["card", "reference", "planned"]).has(item.status)) errors.push(`coverage ${item.id}: 未知のstatus`);
+  if (!new Set(["complete", "partial", "planned"]).has(item.status)) errors.push(`coverage ${item.id}: 未知のstatus`);
   for (const cardId of item.cards || []) if (!ids.has(cardId)) errors.push(`coverage ${item.id}: 未知のcard ID ${cardId}`);
-  if (item.status === "card" && !(item.cards || []).length) errors.push(`coverage ${item.id}: card statusにカードがありません`);
-  if (item.status !== "card" && (item.cards || []).length) errors.push(`coverage ${item.id}: ${item.status} statusにカードIDを登録できません`);
+  if (["complete", "partial"].includes(item.status) && !(item.cards || []).length) errors.push(`coverage ${item.id}: ${item.status} statusにカードがありません`);
+  if (item.status === "planned" && (item.cards || []).length) errors.push(`coverage ${item.id}: planned statusにカードIDを登録できません`);
+  const officialTerms = syllabus.items.find((candidate) => candidate.id === item.id)?.terms || [];
+  const coveredTerms = (item.terms || []).map((term) => term.name);
+  if (JSON.stringify(coveredTerms) !== JSON.stringify(officialTerms)) errors.push(`coverage ${item.id}: 公式の「項目（学習しておくべき用語）例」を同じ順序で全件登録します`);
+  for (const term of item.terms || []) {
+    if (!new Set(["card", "planned"]).has(term.status)) errors.push(`coverage ${item.id}/${term.name}: statusはcardまたはplannedにします`);
+    if (term.status === "card" && !(term.cards || []).length) errors.push(`coverage ${item.id}/${term.name}: card statusに対応カードがありません`);
+    if (term.status === "planned" && (term.cards || []).length) errors.push(`coverage ${item.id}/${term.name}: planned statusにカードIDを登録できません`);
+    for (const cardId of term.cards || []) {
+      const card = cards.find((candidate) => candidate.id === cardId);
+      if (!card) errors.push(`coverage ${item.id}/${term.name}: 未知のcard ID ${cardId}`);
+      else if (card.subcategory !== item.id) errors.push(`coverage ${item.id}/${term.name}: ${cardId} は別サブカテゴリー ${card.subcategory} です`);
+    }
+  }
+  const allTermsComplete = (item.terms || []).length > 0 && item.terms.every((term) => term.status === "card" && (term.cards || []).length);
+  if ((item.status === "complete") !== allTermsComplete) errors.push(`coverage ${item.id}: 全公式用語のcard対応とcomplete statusを一致させます`);
+}
+const worksRequiringCompleteTerms = Object.entries(progress.work || {}).filter(([id, item]) => item.status === "reviewed" || (id === progress.current_work && ["self_review", "independent_review", "revision"].includes(item.status)));
+for (const [workId, work] of worksRequiringCompleteTerms) {
+  for (const subcategory of work.subcategories || []) {
+    const item = scopeCoverage.items.find((candidate) => candidate.id === subcategory);
+    const missingTerms = (item?.terms || []).filter((term) => term.status !== "card" || !(term.cards || []).length).map((term) => term.name);
+    if (missingTerms.length) errors.push(`${workId}: 公式用語の対応カードが未完成です（${subcategory}: ${missingTerms.join("、")}）`);
+  }
 }
 for (const card of cards) {
   if (!coveredCardIds.has(card.id)) errors.push(`coverageにカード ${card.id} がありません`);
@@ -199,7 +238,7 @@ const coverageLines = ["# シラバス coverage", "", `- 公開カード: ${card
   const covered = category.children.filter((sub) => owned.some((card) => card.subcategory === sub)).length;
   const types = typeNames.filter((type) => owned.some((card) => card.type === type)).join(", ");
   return `| ${displayCategoryName(category)} | ${owned.length} | ${covered}/${category.children.length} | ${types} |`;
-}), "", "## 公式範囲の小項目", "", "`card` は計算カードあり、`reference` は正本に定義あり、`planned` は対象範囲内の拡張対象を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${syllabus.subcategories[item.id]} | ${item.status} | ${(item.cards || []).join(", ")} |`)];
+}), "", "## 公式範囲の小項目", "", "`complete` は全公式用語に操作カードあり、`partial` は既存カードがあるが未完、`planned` は未着手を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${syllabus.subcategories[item.id]} | ${item.status} | ${(item.cards || []).join(", ")} |`), "", "## 項目（学習しておくべき用語）例", "", "作業を完了するには、対象サブカテゴリーの全用語が `card` で、実際に操作するカードIDを持つ必要がある。", "", "| item | term | status | cards |", "|---|---|---|---|", ...scopeCoverage.items.flatMap((item) => (item.terms || []).map((term) => `| ${syllabus.subcategories[item.id]} | ${term.name} | ${term.status} | ${(term.cards || []).join(", ")} |`))];
 fs.writeFileSync(path.join(reportDir, "coverage.md"), `${coverageLines.join("\n")}\n`);
 const moves = [...new Set(cards.flatMap((card) => card.hashtags))]
   .map((tag) => ({ tag, count: cards.filter((card) => card.hashtags.includes(tag)).length }))
