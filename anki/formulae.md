@@ -49,9 +49,27 @@
 - 共分散公式：$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$。
 - 全期待値：$E[X]=E[E[X\mid Y]]$。
 - 全分散：$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y])$。
+- 期待値の線形性：期待値が存在すれば $E[aX+bY+c]=aE[X]+bE[Y]+c$。独立性は不要。
+- 関数の期待値：連続型では $E[g(X)]=\int g(x)f_X(x)\,dx$、離散型では $E[g(X)]=\sum_xg(x)p_X(x)$（絶対収束時）。
+- 分散のスケール変換：$\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$。
+- 和の分散：$\operatorname{Var}(aX+bY)=a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y)+2ab\operatorname{Cov}(X,Y)$。独立なら共分散項は0。
+- 標準化：$\sigma=\sqrt{\operatorname{Var}(X)}>0$ なら $Z=(X-\mu)/\sigma$ は $E[Z]=0$、$\operatorname{Var}(Z)=1$。
+- 中心モーメント：$\mu_k=E[(X-\mu)^k]$。$E[X^2]<\infty$ で $\mu_2=\mu_2'-(\mu_1')^2$、$E[|X|^3]<\infty$ で $\mu_3=\mu_3'-3\mu_2'\mu_1'+2(\mu_1')^3$。
+- 歪度：$E[(X-\mu)^3]/\sigma^3$。正なら右側の偏差が優勢で典型的には右に歪んだ形状を示唆するが、符号だけで裾の長さを断定はできない。
+- 尖度：$E[(X-\mu)^4]/\sigma^4$。正規分布は3。超過尖度は尖度$-3$。値だけで尾確率の大小を一意に断定はできない。
+- 変動係数：$CV=\sigma/\mu$（比率尺度で $\mu>0$）。
+- パーセント点：第 $p$ 分位点は $q_p=\inf\{x:F_X(x)\ge p\}$。連続かつ狭義単調増加な累積分布関数では $F_X(q_p)=p$ の解に一致する。中央値は $p=1/2$、四分位数は $p=1/4,3/4$。
+- 四分位範囲：$\mathrm{IQR}=Q_3-Q_1$。範囲は台の上限と下限の差。
+- 最頻値：密度を最大にする点。離散では確率質量を最大にする値。
+- 相関係数：$\rho_{X,Y}=\operatorname{Cov}(X,Y)/(\sigma_X\sigma_Y)$、$-1\le\rho\le1$。独立なら無相関だが逆は一般に不成立。
+- 偏相関係数：$\rho_{XY\cdot Z}=(\rho_{XY}-\rho_{XZ}\rho_{YZ})/\sqrt{(1-\rho_{XZ}^2)(1-\rho_{YZ}^2)}$。
 - 畳み込み：独立な連続確率変数の和 $Z=X+Y$ では $f_Z(z)=\int f_X(x)f_Y(z-x)\,dx$。
 - 最大値：独立同分布標本の $M=\max_iX_i$ では $F_M(m)=F_X(m)^n$。
 - 1変数変換：単調な $Y=g(X)$ では $f_Y(y)=f_X(g^{-1}(y))|(g^{-1})'(y)|$。
+- 逆関数法：$F$ が連続で狭義単調増加なら $U\sim U(0,1)$ に対し $X=F^{-1}(U)$ は $F$ に従う。
+- 非単調変換：$F_Y(y)=P(g(X)\le y)$ を領域積分で求め、$f_Y(y)=F_Y'(y)$ とする。
+- 2変数変換：1対1変換では $f_{U,V}(u,v)=f_{X,Y}(x(u,v),y(u,v))|\det\partial(x,y)/\partial(u,v)|$。
+- 独立正規の線形結合：$aX+bY\sim N(a\mu_X+b\mu_Y,a^2\sigma_X^2+b^2\sigma_Y^2)$。
 - MGF：$M_X(t)=E[e^{tX}]$、存在すれば $E[X^r]=M_X^{(r)}(0)$。
 - Poisson分布のモーメント母関数：$M_X(t)=\exp\{\lambda(e^t-1)\}$。
 

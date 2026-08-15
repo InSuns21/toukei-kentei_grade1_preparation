@@ -1,10 +1,10 @@
 # シラバス coverage
 
-- 公開カード: 108
+- 公開カード: 140
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
-| 確率と確率変数 | 66 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
+| 確率と確率変数 | 98 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 1 | 1/3 | recognition |
 | 統計的推測（推定） | 10 | 7/7 | formula, theorem, proof_step, calc_step, strategy |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
@@ -20,8 +20,8 @@
 |---|---|---|
 | 事象と確率 | complete | prob-inclusion-exclusion, prob-bayes-diagnostic, prob-conditional-multiplication, prob-total-probability, prob-independent-events, prob-pairwise-not-mutual, prob-complement-at-least-one, prob-inclusion-exclusion-three, prob-chain-rule-three, prob-independent-complements, prob-conditioning-breaks-independence, prob-counting-sample-space, prob-conditional-definition-direct |
 | 確率分布と母関数 | complete | prob-cdf-from-pmf, dist-mgf-poisson, prob-cdf-from-density, prob-survival-hazard, prob-marginal-density, prob-conditional-density, prob-pgf-moments, prob-mgf-independent-sum, prob-density-normalization, prob-cdf-jump-mass, prob-discrete-marginal, prob-discrete-conditional, prob-joint-factorization-independence, prob-pmf-normalization, prob-cdf-validity, prob-interval-from-cdf, prob-cdf-endpoint-choice, prob-mixed-cdf, prob-joint-cdf-from-density, prob-rectangle-from-joint-cdf, prob-survival-from-cdf, prob-cumulative-hazard, prob-survival-from-hazard, prob-joint-density-normalization, prob-joint-pmf-normalization, prob-discrete-independence-cross-product, prob-conditional-equals-marginal, prob-joint-cdf-independence, prob-mixture-marginal, prob-truncated-conditional-density, prob-density-bayes-two-class, prob-conditional-cdf-from-density, prob-pgf-recover-pmf, prob-pgf-binomial, prob-pgf-geometric, prob-pgf-poisson, prob-pgf-independent-sum, prob-pgf-thinning, prob-pgf-factorial-moment, prob-pgf-validity, prob-mgf-mean-variance, prob-mgf-affine-transform, prob-mgf-iid-sum, prob-mgf-exponential-domain, prob-mgf-gamma, prob-mgf-identify-normal, prob-mgf-nonexistence, prob-mgf-uniqueness-domain, prob-density-from-cdf-derivative |
-| 分布の特性値 | partial | dist-variance-moment |
-| 変数変換 | partial | dist-jacobian-scale, dist-convolution-uniform |
+| 分布の特性値 | complete | dist-variance-moment, prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function, prob-variance-affine, prob-variance-independent-sum, prob-standard-deviation-standardize, prob-moment-central-relation, prob-moment-third-central, prob-skewness-definition, prob-skewness-shape, prob-kurtosis-definition, prob-kurtosis-shape, prob-coefficient-of-variation, prob-percentile-from-cdf, prob-median-from-density, prob-quartiles-iqr, prob-range-definition, prob-mode-from-density, prob-covariance-computation, prob-correlation-coefficient, prob-correlation-independence, prob-partial-correlation, prob-shape-summary |
+| 変数変換 | complete | dist-jacobian-scale, dist-convolution-uniform, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-sum-density, prob-transform-ratio, prob-linear-combination-normal, prob-linear-combination-moments, prob-transform-log |
 | 極限定理と確率分布の近似 | partial | dist-clt-standardize, data-monte-carlo-integral |
 | 離散型分布 | partial | dist-mgf-poisson, est-fisher-bernoulli, test-np-bernoulli |
 | 連続型分布 | partial | dist-gamma-recognition, est-moments-exponential, dist-convolution-uniform |
@@ -79,24 +79,24 @@
 | 確率分布と母関数 | 条件付き分布 | card | prob-conditional-density, prob-discrete-conditional, prob-conditional-equals-marginal, prob-truncated-conditional-density, prob-density-bayes-two-class, prob-conditional-cdf-from-density |
 | 確率分布と母関数 | 確率母関数 | card | prob-pgf-moments, prob-pgf-recover-pmf, prob-pgf-binomial, prob-pgf-geometric, prob-pgf-poisson, prob-pgf-independent-sum, prob-pgf-thinning, prob-pgf-factorial-moment, prob-pgf-validity |
 | 確率分布と母関数 | モーメント母関数（積率母関数） | card | dist-mgf-poisson, prob-mgf-independent-sum, prob-mgf-mean-variance, prob-mgf-affine-transform, prob-mgf-iid-sum, prob-mgf-exponential-domain, prob-mgf-gamma, prob-mgf-identify-normal, prob-mgf-nonexistence, prob-mgf-uniqueness-domain |
-| 分布の特性値 | モーメント | planned |  |
-| 分布の特性値 | 期待値 | planned |  |
-| 分布の特性値 | 分散 | planned |  |
-| 分布の特性値 | 標準偏差 | planned |  |
-| 分布の特性値 | 歪度 | planned |  |
-| 分布の特性値 | 尖度 | planned |  |
-| 分布の特性値 | 変動係数 | planned |  |
-| 分布の特性値 | パーセント点 | planned |  |
-| 分布の特性値 | 中央値 | planned |  |
-| 分布の特性値 | 四分位数 | planned |  |
-| 分布の特性値 | 範囲 | planned |  |
-| 分布の特性値 | 四分位範囲 | planned |  |
-| 分布の特性値 | 最頻値 | planned |  |
-| 分布の特性値 | 共分散 | planned |  |
-| 分布の特性値 | 相関係数 | planned |  |
-| 分布の特性値 | 偏相関係数 | planned |  |
-| 変数変換 | 変数変換 | planned |  |
-| 変数変換 | 確率変数の線形結合 | planned |  |
+| 分布の特性値 | モーメント | card | prob-moment-central-relation, prob-moment-third-central |
+| 分布の特性値 | 期待値 | card | prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function |
+| 分布の特性値 | 分散 | card | dist-variance-moment, prob-variance-affine, prob-variance-independent-sum |
+| 分布の特性値 | 標準偏差 | card | prob-standard-deviation-standardize |
+| 分布の特性値 | 歪度 | card | prob-skewness-definition, prob-skewness-shape |
+| 分布の特性値 | 尖度 | card | prob-kurtosis-definition, prob-kurtosis-shape |
+| 分布の特性値 | 変動係数 | card | prob-coefficient-of-variation |
+| 分布の特性値 | パーセント点 | card | prob-percentile-from-cdf |
+| 分布の特性値 | 中央値 | card | prob-median-from-density |
+| 分布の特性値 | 四分位数 | card | prob-quartiles-iqr |
+| 分布の特性値 | 範囲 | card | prob-range-definition |
+| 分布の特性値 | 四分位範囲 | card | prob-quartiles-iqr |
+| 分布の特性値 | 最頻値 | card | prob-mode-from-density |
+| 分布の特性値 | 共分散 | card | prob-covariance-computation |
+| 分布の特性値 | 相関係数 | card | prob-correlation-coefficient, prob-correlation-independence |
+| 分布の特性値 | 偏相関係数 | card | prob-partial-correlation |
+| 変数変換 | 変数変換 | card | dist-jacobian-scale, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-ratio, prob-transform-log |
+| 変数変換 | 確率変数の線形結合 | card | dist-convolution-uniform, prob-transform-sum-density, prob-linear-combination-normal, prob-linear-combination-moments |
 | 極限定理と確率分布の近似 | 大数の弱法則 | planned |  |
 | 極限定理と確率分布の近似 | 中心極限定理 | planned |  |
 | 極限定理と確率分布の近似 | 二項分布の正規近似とポアソン近似 | planned |  |

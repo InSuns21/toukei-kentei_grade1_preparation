@@ -193,70 +193,102 @@ items:
           - prob-mgf-nonexistence
           - prob-mgf-uniqueness-domain
   - id: math-distribution-characteristics
-    status: partial
+    status: complete
     cards:
       - dist-variance-moment
+      - prob-expected-value-linearity
+      - prob-expected-value-discrete
+      - prob-expected-value-integral
+      - prob-expected-value-function
+      - prob-variance-affine
+      - prob-variance-independent-sum
+      - prob-standard-deviation-standardize
+      - prob-moment-central-relation
+      - prob-moment-third-central
+      - prob-skewness-definition
+      - prob-skewness-shape
+      - prob-kurtosis-definition
+      - prob-kurtosis-shape
+      - prob-coefficient-of-variation
+      - prob-percentile-from-cdf
+      - prob-median-from-density
+      - prob-quartiles-iqr
+      - prob-range-definition
+      - prob-mode-from-density
+      - prob-covariance-computation
+      - prob-correlation-coefficient
+      - prob-correlation-independence
+      - prob-partial-correlation
+      - prob-shape-summary
     terms:
       - name: モーメント
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-moment-central-relation, prob-moment-third-central]
       - name: 期待値
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function]
       - name: 分散
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-variance-moment, prob-variance-affine, prob-variance-independent-sum]
       - name: 標準偏差
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-standard-deviation-standardize]
       - name: 歪度
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-skewness-definition, prob-skewness-shape]
       - name: 尖度
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-kurtosis-definition, prob-kurtosis-shape]
       - name: 変動係数
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-coefficient-of-variation]
       - name: パーセント点
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-percentile-from-cdf]
       - name: 中央値
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-median-from-density]
       - name: 四分位数
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-quartiles-iqr]
       - name: 範囲
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-range-definition]
       - name: 四分位範囲
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-quartiles-iqr]
       - name: 最頻値
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-mode-from-density]
       - name: 共分散
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-covariance-computation]
       - name: 相関係数
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-correlation-coefficient, prob-correlation-independence]
       - name: 偏相関係数
-        status: planned
-        cards: []
+        status: card
+        cards: [prob-partial-correlation]
   - id: math-transformations
-    status: partial
+    status: complete
     cards:
       - dist-jacobian-scale
       - dist-convolution-uniform
+      - prob-transform-inverse-cdf
+      - prob-transform-nonmonotonic
+      - prob-transform-jacobian-2d
+      - prob-transform-sum-density
+      - prob-transform-ratio
+      - prob-linear-combination-normal
+      - prob-linear-combination-moments
+      - prob-transform-log
     terms:
       - name: 変数変換
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-jacobian-scale, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-ratio, prob-transform-log]
       - name: 確率変数の線形結合
-        status: planned
-        cards: []
+        status: card
+        cards: [dist-convolution-uniform, prob-transform-sum-density, prob-linear-combination-normal, prob-linear-combination-moments]
   - id: math-limit-approximations
     status: partial
     cards:

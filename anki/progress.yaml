@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 108
+reviewed_card_count: 140
 current_work: null
-next_work: C03-characteristics-transformations
-last_completed_work: C02-events-distribution-functions
+next_work: C04-limit-approximations
+last_completed_work: C03-characteristics-transformations
 summary:
   total: 27
-  planned: 25
+  planned: 24
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 2
+  reviewed: 3
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -121,8 +121,50 @@ work:
     target:
       min: 26
       max: 34
-    status: planned
+    status: reviewed
     review_dir: review/C03-characteristics-transformations
+    started_at: 2026-08-15T15:33:47.737Z
+    self_review_at: 2026-08-15T15:48:48.476Z
+    independent_review_at: 2026-08-15T15:50:10.333Z
+    revision_at: 2026-08-15T15:56:12.649Z
+    completed_at: 2026-08-15T16:09:57.372Z
+    added_card_ids:
+      - prob-coefficient-of-variation
+      - prob-correlation-coefficient
+      - prob-correlation-independence
+      - prob-covariance-computation
+      - prob-expected-value-discrete
+      - prob-expected-value-function
+      - prob-expected-value-integral
+      - prob-expected-value-linearity
+      - prob-kurtosis-definition
+      - prob-kurtosis-shape
+      - prob-linear-combination-moments
+      - prob-linear-combination-normal
+      - prob-median-from-density
+      - prob-mode-from-density
+      - prob-moment-central-relation
+      - prob-moment-third-central
+      - prob-partial-correlation
+      - prob-percentile-from-cdf
+      - prob-quartiles-iqr
+      - prob-range-definition
+      - prob-shape-summary
+      - prob-skewness-definition
+      - prob-skewness-shape
+      - prob-standard-deviation-standardize
+      - prob-transform-inverse-cdf
+      - prob-transform-jacobian-2d
+      - prob-transform-log
+      - prob-transform-nonmonotonic
+      - prob-transform-ratio
+      - prob-transform-sum-density
+      - prob-variance-affine
+      - prob-variance-independent-sum
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C04-limit-approximations:
     title: 極限定理と確率分布の近似
     category: math-probability
