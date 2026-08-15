@@ -46,31 +46,31 @@
 |---|---|---|---|---|---|---|
 | Bernoulli分布 $\operatorname{Bernoulli}(p)$ | $\{0,1\}$ | $0\le p\le1$ | $p_X(x)=p^x(1-p)^{1-x}$ | $p$ | $p(1-p)$ | $1-p+pe^t$ |
 | 二項分布 $\operatorname{Binomial}(n,p)$ | $\{0,1,\ldots,n\}$ | $n\in\mathbb N$、$0\le p\le1$ | $p_X(x)=\binom nxp^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ | $(1-p+pe^t)^n$ |
-| Poisson分布 $\operatorname{Poisson}(\lambda)$ | $\mathbb N_0$ | $\lambda>0$ | $p_X(x)=e^{-\lambda}\frac{\lambda^x}{x!}$ | $\lambda$ | $\lambda$ | $\exp\{\lambda(e^t-1)\}$ |
-| 幾何分布 $\operatorname{Geometric}(p)$ | $\{1,2,\ldots\}$ | $0<p\le1$ | $p_X(x)=p(1-p)^{x-1}$ | $\frac1p$ | $\frac{1-p}{p^2}$ | $\frac{pe^t}{1-(1-p)e^t}$（$t<-\log(1-p)$） |
-| 負の二項分布 $\operatorname{NegBin}(r,p)$ | $\{r,r+1,\ldots\}$ | $r\in\mathbb N$、$0<p\le1$ | $p_X(x)=\binom{x-1}{r-1}p^r(1-p)^{x-r}$ | $\frac rp$ | $\frac{r(1-p)}{p^2}$ | $\left\{\frac{pe^t}{1-(1-p)e^t}\right\}^r$（$t<-\log(1-p)$） |
-| 超幾何分布 | 組合せが定義できる整数 | 母集団 $N$、成功 $K$、抽出 $n$ | $p_X(x)=\binom Kx\binom{N-K}{n-x}/\binom Nn$ | $\frac{nK}N$ | $n\frac KN\frac{N-K}N\frac{N-n}{N-1}$ | 存在するが初等的な表示はない |
+| Poisson分布 $\operatorname{Poisson}(\lambda)$ | $\mathbb N_0$ | $\lambda>0$ | $p_X(x)=e^{-\lambda}\dfrac{\lambda^x}{x!}$ | $\lambda$ | $\lambda$ | $\exp\{\lambda(e^t-1)\}$ |
+| 幾何分布 $\operatorname{Geometric}(p)$ | $\{1,2,\ldots\}$ | $0<p\le1$ | $p_X(x)=p(1-p)^{x-1}$ | $\dfrac1p$ | $\dfrac{1-p}{p^2}$ | $\dfrac{pe^t}{1-(1-p)e^t}$（$t<-\log(1-p)$） |
+| 負の二項分布 $\operatorname{NegBin}(r,p)$ | $\{r,r+1,\ldots\}$ | $r\in\mathbb N$、$0<p\le1$ | $p_X(x)=\binom{x-1}{r-1}p^r(1-p)^{x-r}$ | $\dfrac rp$ | $\dfrac{r(1-p)}{p^2}$ | $\left\{\dfrac{pe^t}{1-(1-p)e^t}\right\}^r$（$t<-\log(1-p)$） |
+| 超幾何分布 | 組合せが定義できる整数 | 母集団 $N$、成功 $K$、抽出 $n$ | $p_X(x)=\binom Kx\binom{N-K}{n-x}/\binom Nn$ | $\dfrac{nK}N$ | $n\dfrac KN\dfrac{N-K}N\dfrac{N-n}{N-1}$ | 存在するが初等的な表示はない |
 | 多項分布 $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ | $x_j\in\mathbb N_0$、$\sum_jx_j=n$ | $p_j\ge0$、$\sum_jp_j=1$ | $n!\prod_jp_j^{x_j}/\prod_jx_j!$ | $E[X_j]=np_j$ | $\operatorname{Var}(X_j)=np_j(1-p_j)$ | $(\sum_jp_je^{t_j})^n$ |
 
 ## 連続分布
 
 | 分布 | 台 | 母数 | 確率密度関数 | 平均 | 分散 | モーメント母関数 |
 |---|---|---|---|---|---|---|
-| 一様分布 $U(a,b)$ | $a<x<b$ | $a<b$ | $f_X(x)=\frac1{b-a}$ | $\frac{a+b}2$ | $\frac{(b-a)^2}{12}$ | $\frac{e^{tb}-e^{ta}}{t(b-a)}$（$t\ne0$） |
-| 正規分布 $N(\mu,\sigma^2)$ | $\mathbb R$ | $\mu\in\mathbb R$、$\sigma^2>0$ | $f_X(x)=\frac1{\sqrt{2\pi\sigma^2}}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}$ | $\mu$ | $\sigma^2$ | $\exp(\mu t+\sigma^2t^2/2)$ |
-| 指数分布 $\operatorname{Exp}(\lambda)$ | $x>0$ | rate $\lambda>0$ | $f_X(x)=\lambda e^{-\lambda x}$ | $\frac1\lambda$ | $\frac1{\lambda^2}$ | $\frac\lambda{\lambda-t}$（$t<\lambda$） |
-| Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ | $x>0$ | shape $\alpha>0$、rate $\beta>0$ | $f_X(x)=\frac{\beta^\alpha x^{\alpha-1}e^{-\beta x}}{\Gamma(\alpha)}$ | $\frac\alpha\beta$ | $\frac\alpha{\beta^2}$ | $\left\{\frac\beta{\beta-t}\right\}^\alpha$（$t<\beta$） |
-| Beta分布 $\operatorname{Beta}(a,b)$ | $0<x<1$ | $a,b>0$ | $f_X(x)=\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)}$ | $\frac a{a+b}$ | $\frac{ab}{(a+b)^2(a+b+1)}$ | 存在するが初等的な表示はない |
+| 一様分布 $U(a,b)$ | $a<x<b$ | $a<b$ | $f_X(x)=\dfrac1{b-a}$ | $\dfrac{a+b}2$ | $\dfrac{(b-a)^2}{12}$ | $\dfrac{e^{tb}-e^{ta}}{t(b-a)}$（$t\ne0$） |
+| 正規分布 $N(\mu,\sigma^2)$ | $\mathbb R$ | $\mu\in\mathbb R$、$\sigma^2>0$ | $f_X(x)=\dfrac1{\sqrt{2\pi\sigma^2}}\exp\left\{-\dfrac{(x-\mu)^2}{2\sigma^2}\right\}$ | $\mu$ | $\sigma^2$ | $\exp(\mu t+\sigma^2t^2/2)$ |
+| 指数分布 $\operatorname{Exp}(\lambda)$ | $x>0$ | rate $\lambda>0$ | $f_X(x)=\lambda e^{-\lambda x}$ | $\dfrac1\lambda$ | $\dfrac1{\lambda^2}$ | $\dfrac\lambda{\lambda-t}$（$t<\lambda$） |
+| Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ | $x>0$ | shape $\alpha>0$、rate $\beta>0$ | $f_X(x)=\dfrac{\beta^\alpha x^{\alpha-1}e^{-\beta x}}{\Gamma(\alpha)}$ | $\dfrac\alpha\beta$ | $\dfrac\alpha{\beta^2}$ | $\left\{\dfrac\beta{\beta-t}\right\}^\alpha$（$t<\beta$） |
+| Beta分布 $\operatorname{Beta}(a,b)$ | $0<x<1$ | $a,b>0$ | $f_X(x)=\dfrac{x^{a-1}(1-x)^{b-1}}{B(a,b)}$ | $\dfrac a{a+b}$ | $\dfrac{ab}{(a+b)^2(a+b+1)}$ | 存在するが初等的な表示はない |
 | カイ二乗分布 $\chi^2_\nu$ | $x>0$ | 自由度 $\nu>0$ | $\operatorname{Gamma}(\nu/2,1/2)$ と同じ | $\nu$ | $2\nu$ | $(1-2t)^{-\nu/2}$（$t<1/2$） |
-| Studentの $t$ 分布 $t_\nu$ | $\mathbb R$ | 自由度 $\nu>0$ | $f_T(t)=\frac{\Gamma\left\{\frac{\nu+1}2\right\}}{\sqrt{\nu\pi}\,\Gamma\left(\frac\nu2\right)}\left(1+\frac{t^2}\nu\right)^{-(\nu+1)/2}$ | $0$（$\nu>1$） | $\frac\nu{\nu-2}$（$\nu>2$） | 存在しない |
-| $F$ 分布 $F_{\nu_1,\nu_2}$ | $x>0$ | $\nu_1,\nu_2>0$ | $f_X(x)=\frac{(\nu_1/\nu_2)^{\nu_1/2}x^{\nu_1/2-1}}{B\left(\frac{\nu_1}2,\frac{\nu_2}2\right)}\left(1+\frac{\nu_1x}{\nu_2}\right)^{-(\nu_1+\nu_2)/2}$ | $\frac{\nu_2}{\nu_2-2}$（$\nu_2>2$） | 存在するが複雑 | 存在しない |
-| Cauchy分布 $\operatorname{Cauchy}(x_0,\gamma)$ | $\mathbb R$ | $\gamma>0$ | $f_X(x)=\frac1{\pi\gamma\left\{1+\left(\frac{x-x_0}\gamma\right)^2\right\}}$ | 存在しない | 存在しない | 存在しない |
-| 対数正規分布 | $x>0$ | $\log X\sim N(\mu,\sigma^2)$ | $f_X(x)=\frac1{x\sigma\sqrt{2\pi}}\exp\left\{-\frac{(\log x-\mu)^2}{2\sigma^2}\right\}$ | $e^{\mu+\sigma^2/2}$ | $(e^{\sigma^2}-1)e^{2\mu+\sigma^2}$ | 存在しない |
-| Weibull分布 $\operatorname{Weibull}(k,\lambda)$ | $x>0$ | shape $k>0$、scale $\lambda>0$ | $f_X(x)=\frac k\lambda\left(\frac x\lambda\right)^{k-1}e^{-(x/\lambda)^k}$ | $\lambda\Gamma\left(1+\frac1k\right)$ | $\lambda^2\left\{\Gamma\left(1+\frac2k\right)-\Gamma\left(1+\frac1k\right)^2\right\}$ | 存在するが初等的な表示はない |
-| logistic分布 | $\mathbb R$ | 位置 $\mu\in\mathbb R$、scale $s>0$ | $f_X(x)=\frac{e^{-(x-\mu)/s}}{s\left\{1+e^{-(x-\mu)/s}\right\}^2}$ | $\mu$ | $\frac{\pi^2s^2}3$ | $e^{\mu t}\Gamma(1-st)\Gamma(1+st)$（$\lvert t\rvert<\frac1s$） |
-| Pareto分布 $\operatorname{Pareto}(x_m,\alpha)$ | $x\ge x_m$ | $x_m,\alpha>0$ | $f_X(x)=\frac{\alpha x_m^\alpha}{x^{\alpha+1}}$ | $\frac{\alpha x_m}{\alpha-1}$（$\alpha>1$） | 存在するが $\alpha>2$ で有限 | 存在しない |
-| Laplace分布 $\operatorname{Laplace}(\mu,b)$ | $\mathbb R$ | $b>0$ | $f_X(x)=\frac1{2b}e^{-\lvert x-\mu\rvert/b}$ | $\mu$ | $2b^2$ | $\frac{e^{\mu t}}{1-b^2t^2}$（$\lvert t\rvert<\frac1b$） |
-| Rayleigh分布 $\operatorname{Rayleigh}(\sigma)$ | $x>0$ | $\sigma>0$ | $f_X(x)=\frac{x}{\sigma^2}e^{-x^2/(2\sigma^2)}$ | $\sigma\sqrt{\frac\pi2}$ | $\left(2-\frac\pi2\right)\sigma^2$ | 存在するが初等的な表示はない |
+| Studentの $t$ 分布 $t_\nu$ | $\mathbb R$ | 自由度 $\nu>0$ | $f_T(t)=\dfrac{\Gamma\left\{\dfrac{\nu+1}2\right\}}{\sqrt{\nu\pi}\,\Gamma\left(\dfrac\nu2\right)}\left(1+\dfrac{t^2}\nu\right)^{-(\nu+1)/2}$ | $0$（$\nu>1$） | $\dfrac\nu{\nu-2}$（$\nu>2$） | 存在しない |
+| $F$ 分布 $F_{\nu_1,\nu_2}$ | $x>0$ | $\nu_1,\nu_2>0$ | $f_X(x)=\dfrac{(\nu_1/\nu_2)^{\nu_1/2}x^{\nu_1/2-1}}{B\left(\dfrac{\nu_1}2,\dfrac{\nu_2}2\right)}\left(1+\dfrac{\nu_1x}{\nu_2}\right)^{-(\nu_1+\nu_2)/2}$ | $\dfrac{\nu_2}{\nu_2-2}$（$\nu_2>2$） | 存在するが複雑 | 存在しない |
+| Cauchy分布 $\operatorname{Cauchy}(x_0,\gamma)$ | $\mathbb R$ | $\gamma>0$ | $f_X(x)=\dfrac1{\pi\gamma\left\{1+\left(\dfrac{x-x_0}\gamma\right)^2\right\}}$ | 存在しない | 存在しない | 存在しない |
+| 対数正規分布 | $x>0$ | $\log X\sim N(\mu,\sigma^2)$ | $f_X(x)=\dfrac1{x\sigma\sqrt{2\pi}}\exp\left\{-\dfrac{(\log x-\mu)^2}{2\sigma^2}\right\}$ | $e^{\mu+\sigma^2/2}$ | $(e^{\sigma^2}-1)e^{2\mu+\sigma^2}$ | 存在しない |
+| Weibull分布 $\operatorname{Weibull}(k,\lambda)$ | $x>0$ | shape $k>0$、scale $\lambda>0$ | $f_X(x)=\dfrac k\lambda\left(\dfrac x\lambda\right)^{k-1}e^{-(x/\lambda)^k}$ | $\lambda\Gamma\left(1+\dfrac1k\right)$ | $\lambda^2\left\{\Gamma\left(1+\dfrac2k\right)-\Gamma\left(1+\dfrac1k\right)^2\right\}$ | 存在するが初等的な表示はない |
+| logistic分布 | $\mathbb R$ | 位置 $\mu\in\mathbb R$、scale $s>0$ | $f_X(x)=\dfrac{e^{-(x-\mu)/s}}{s\left\{1+e^{-(x-\mu)/s}\right\}^2}$ | $\mu$ | $\dfrac{\pi^2s^2}3$ | $e^{\mu t}\Gamma(1-st)\Gamma(1+st)$（$\lvert t\rvert<\dfrac1s$） |
+| Pareto分布 $\operatorname{Pareto}(x_m,\alpha)$ | $x\ge x_m$ | $x_m,\alpha>0$ | $f_X(x)=\dfrac{\alpha x_m^\alpha}{x^{\alpha+1}}$ | $\dfrac{\alpha x_m}{\alpha-1}$（$\alpha>1$） | 存在するが $\alpha>2$ で有限 | 存在しない |
+| Laplace分布 $\operatorname{Laplace}(\mu,b)$ | $\mathbb R$ | $b>0$ | $f_X(x)=\dfrac1{2b}e^{-\lvert x-\mu\rvert/b}$ | $\mu$ | $2b^2$ | $\dfrac{e^{\mu t}}{1-b^2t^2}$（$\lvert t\rvert<\dfrac1b$） |
+| Rayleigh分布 $\operatorname{Rayleigh}(\sigma)$ | $x>0$ | $\sigma>0$ | $f_X(x)=\dfrac{x}{\sigma^2}e^{-x^2/(2\sigma^2)}$ | $\sigma\sqrt{\dfrac\pi2}$ | $\left(2-\dfrac\pi2\right)\sigma^2$ | 存在するが初等的な表示はない |
 
 ## 多変量分布
 
