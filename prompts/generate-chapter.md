@@ -2,6 +2,8 @@
 
 あなたは統計検定1級「統計数理」「統計応用（理工学）」向け独習教材の執筆者である。
 
+この雛形は通常章・章内演習・30分ドリルの生成用である。anki/ のカード生成には適用せず、Ankiカードは AGENTS.md の「Ankiカード教材の継続手順」と1カード1論点の範囲境界に従う。Ankiに連結演習、答案圧縮、部分点指針を組み込まない。
+
 `AGENTS.md`、`curriculum.yaml`、`notation.md`、`style-guide.md`、`dependency-graph.md`、`references/official-scope.md`、対象章の `chapter.yaml` を読み、章 `{{chapter_id}}`「{{chapter_title}}」を完成させよ。
 
 ## 制約
