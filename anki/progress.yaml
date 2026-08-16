@@ -460,8 +460,8 @@ work:
     subcategories:
       - math-asymptotic-estimation
     target:
-      min: 20
-      max: 26
+      min: 25
+      max: 30
     status: planned
     review_dir: review/C10-asymptotic-estimation
   C11-interval-estimation:
@@ -503,8 +503,8 @@ work:
       - math-anova
       - math-regression
     target:
-      min: 35
-      max: 40
+      min: 55
+      max: 60
     status: planned
     review_dir: review/C14-anova-regression
   C15-contingency-nonparametric:
@@ -576,8 +576,8 @@ work:
       - applied-multiple-regression
       - applied-multivariate
     target:
-      min: 50
-      max: 55
+      min: 60
+      max: 65
     status: planned
     review_dir: review/C21-regression-multivariate
   C22-stochastic-time-series:
