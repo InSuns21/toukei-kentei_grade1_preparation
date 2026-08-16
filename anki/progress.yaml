@@ -361,8 +361,8 @@ work:
     subcategories:
       - math-sampling-distributions
     target:
-      min: 22
-      max: 28
+      min: 45
+      max: 50
     status: planned
     review_dir: review/C06-sampling-distributions
   C07-population-likelihood:
@@ -372,8 +372,8 @@ work:
       - math-population-sample-statistic
       - math-likelihood-mle
     target:
-      min: 24
-      max: 30
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C07-population-likelihood
   C08-estimation-methods-properties:
@@ -383,8 +383,8 @@ work:
       - math-estimation-methods
       - math-point-estimator-properties
     target:
-      min: 24
-      max: 30
+      min: 40
+      max: 50
     status: planned
     review_dir: review/C08-estimation-methods-properties
   C09-model-selection:
@@ -413,8 +413,8 @@ work:
     subcategories:
       - math-interval-estimation
     target:
-      min: 18
-      max: 22
+      min: 30
+      max: 35
     status: planned
     review_dir: review/C11-interval-estimation
   C12-testing-foundations-derivation:
@@ -424,8 +424,8 @@ work:
       - math-testing-foundations
       - math-test-derivation
     target:
-      min: 26
-      max: 34
+      min: 45
+      max: 50
     status: planned
     review_dir: review/C12-testing-foundations-derivation
   C13-normal-various-tests:
@@ -435,8 +435,8 @@ work:
       - math-normal-tests
       - math-various-tests
     target:
-      min: 28
-      max: 36
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C13-normal-various-tests
   C14-anova-regression:
@@ -446,8 +446,8 @@ work:
       - math-anova
       - math-regression
     target:
-      min: 28
-      max: 36
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C14-anova-regression
   C15-contingency-nonparametric:
@@ -457,8 +457,8 @@ work:
       - math-contingency-tables
       - math-nonparametric
     target:
-      min: 24
-      max: 30
+      min: 40
+      max: 50
     status: planned
     review_dir: review/C15-contingency-nonparametric
   C16-incomplete-data:
@@ -477,8 +477,8 @@ work:
     subcategories:
       - math-simulation
     target:
-      min: 20
-      max: 24
+      min: 30
+      max: 40
     status: planned
     review_dir: review/C17-simulation
   C18-bayesian-methods:
@@ -487,8 +487,8 @@ work:
     subcategories:
       - math-bayesian-methods
     target:
-      min: 20
-      max: 26
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C18-bayesian-methods
   C19-research-sampling:
@@ -498,8 +498,8 @@ work:
       - applied-research-types
       - applied-sampling
     target:
-      min: 20
-      max: 26
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C19-research-sampling
   C20-experimental-design:
@@ -508,8 +508,8 @@ work:
     subcategories:
       - applied-design
     target:
-      min: 20
-      max: 26
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C20-experimental-design
   C21-regression-multivariate:
@@ -519,8 +519,8 @@ work:
       - applied-multiple-regression
       - applied-multivariate
     target:
-      min: 26
-      max: 34
+      min: 50
+      max: 55
     status: planned
     review_dir: review/C21-regression-multivariate
   C22-stochastic-time-series:
@@ -530,8 +530,8 @@ work:
       - applied-stochastic-processes
       - applied-time-series
     target:
-      min: 26
-      max: 34
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C22-stochastic-time-series
   C23-engineering-multivariate:
@@ -540,8 +540,8 @@ work:
     subcategories:
       - engineering-multivariate
     target:
-      min: 22
-      max: 28
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C23-engineering-multivariate
   C24-engineering-processes:
@@ -550,8 +550,8 @@ work:
     subcategories:
       - engineering-stochastic-processes
     target:
-      min: 26
-      max: 34
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C24-engineering-processes
   C25-engineering-inference-asymptotics:
@@ -561,8 +561,8 @@ work:
       - engineering-linear-inference
       - engineering-asymptotics
     target:
-      min: 24
-      max: 30
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C25-engineering-inference-asymptotics
   C26-engineering-quality:
@@ -571,8 +571,8 @@ work:
     subcategories:
       - engineering-quality
     target:
-      min: 22
-      max: 28
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C26-engineering-quality
   C27-engineering-design:
@@ -581,7 +581,7 @@ work:
     subcategories:
       - engineering-design
     target:
-      min: 22
-      max: 28
+      min: 35
+      max: 40
     status: planned
     review_dir: review/C27-engineering-design
