@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 284
+reviewed_card_count: 289
 current_work: null
 next_work: C07-population-likelihood
-last_completed_work: C06-sampling-distributions
+last_completed_work: ADHOC-20260816-moments-by-definition
 summary:
-  total: 28
+  total: 29
   planned: 21
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 7
+  reviewed: 8
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -97,7 +97,52 @@ legacy_runs:
     validation:
       anki_validate: success
       validate: success
-planned_work: {}
+planned_work:
+  ADHOC-20260816-moments-by-definition:
+    title: 代表的確率分布（離散型分布・連続型分布）の平均・分散を定義から導出するカード
+    category: math-distributions
+    subcategories:
+      - math-discrete-distributions
+      - math-continuous-distributions
+    target:
+      min: 5
+      max: 7
+    review_dir: review/ADHOC-20260816-moments-by-definition
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 代表的確率分布
+    title_ids:
+      - "015"
+      - "016"
+      - "017"
+      - "018"
+      - "019"
+      - "020"
+      - "021"
+      - "022"
+      - "023"
+      - "024"
+      - "026"
+    priority_counts:
+      S: 6
+      A: 5
+      B: 0
+      C: 0
+    status: reviewed
+    started_at: 2026-08-16T11:31:09.618Z
+    self_review_at: 2026-08-16T11:55:40.400Z
+    independent_review_at: 2026-08-16T12:04:39.572Z
+    revision_at: 2026-08-16T12:04:42.141Z
+    completed_at: 2026-08-16T12:25:34.774Z
+    added_card_ids:
+      - dist-beta-moments-by-definition
+      - dist-gamma-moments-by-definition
+      - dist-hypergeometric-moments-by-definition
+      - dist-lognormal-moments-by-definition
+      - dist-poisson-moments-by-definition
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
 work:
   C02-events-distribution-functions:
     title: 事象と確率・確率分布と母関数

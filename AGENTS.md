@@ -49,33 +49,34 @@
 
 ### 親優先度一覧からAnki作業を起票する経路
 
-Use this route for additions based on a parent heading with S/A/B/C priority titles, such as `pdfs/statistics_grade1_card_titles_by_parent_priority.md`. Keep the fixed 26-work `work` plan unchanged.
+この経路は、`pdfs/statistics_grade1_card_titles_by_parent_priority.md` のような S/A/B/C 優先度付きタイトルを持つ親見出しに基づく追加作業に使う。固定の26作業 `work` プランは変更しない。
 
-A queue entry follows this shape:
+キューエントリは次の形になる：
 
 ```yaml
 planning:
   queue:
     PLAN-ID:
       work_id: ADHOC-ID
-      title: <Japanese title including the subcategory name>
+      title: <サブカテゴリー名を含む日本語タイトル>
       category: math-probability
       subcategories: [math-events]
       target: { min: 10, max: 16 }
       review_dir: review/ADHOC-ID
       source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
-      parent: <parent heading>
+      parent: <親見出し>
       title_ids: ["001", "002"]
       priority_counts: { S: 1, A: 1, B: 0, C: 0 }
 ```
 
-1. Add one entry per parent heading to `anki/progress.yaml` under `planning.queue`. Required fields are `work_id`, Japanese `title`, `category`, one or two `subcategories`, `target`, `review_dir`, `source`, `parent`, `title_ids`, and `priority_counts`.
-2. Run `npm run anki:validate` to check the source path, work metadata, subcategories, and card-count target.
-3. Promote an approved queue entry with `npm run anki:progress -- plan <PLAN-ID>`. This moves it to `planned_work`, where the normal `start` / `stage` / `complete` state flow applies.
-4. Write, review, validate, and commit a `planned_work` item with the same Anki workflow as the fixed plan.
-5. Preserve the source and priority evidence in `planned_work` or `planning.history` after completion. Do not edit the fixed `work` order, grouping, or hash for an ad hoc addition.
+1. 親見出しごとに1エントリを `anki/progress.yaml` の `planning.queue` へ追加する。必須項目は `work_id`、日本語の `title`、`category`、1〜2個の `subcategories`、`target`、`review_dir`、`source`、`parent`、`title_ids`、`priority_counts` である。
+2. `npm run anki:validate` を実行し、sourceパス、作業メタデータ、サブカテゴリー、カード枚数目安を確認する。
+3. 承認済みのキューエントリは `npm run anki:progress -- plan <PLAN-ID>` で昇格させる。これで `planned_work` へ移り、通常の `start` / `stage` / `complete` 状態遷移が適用される。
+4. `planned_work` の項目（追加作業）は `npm run anki:progress -- start <WORK-ID>` で直接開始する。`next_work` の順序ガードは固定 `work` プランにのみ適用されるため、追加作業は固定26作業の順序や定義を変えずに割り込ませて開始できる。固定 `work` の項目は従来どおり `next_work` の順序でのみ開始できる。
+5. `planned_work` の項目は、固定プランと同じ Anki のフローで執筆・査読・検証・コミットする。
+6. 完了後は `planned_work` または `planning.history` に source と優先度の根拠を残す。追加作業のために固定 `work` の順序・グループ化・ハッシュを編集しない。
 
-The current `C02A-basic-probability-laws` entry is recorded in `planning.history` as the reference example.
+現在は `C02A-basic-probability-laws` のエントリが `planning.history` に参考例として記録されている。
 
 ## 優先度の意味
 

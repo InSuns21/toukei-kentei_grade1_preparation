@@ -76,7 +76,8 @@ else if (command === "plan") {
   const id = requestedId || progress.next_work;
   const item = getWork(id);
   if (progress.current_work && progress.current_work !== id) throw new Error(`${progress.current_work} が進行中です`);
-  if (!progress.current_work && id !== progress.next_work) throw new Error(`次の作業は ${progress.next_work} です`);
+  const isAdhoc = Boolean(progress.planned_work?.[id]);
+  if (!progress.current_work && !isAdhoc && id !== progress.next_work) throw new Error(`次の作業は ${progress.next_work} です`);
   if (!new Set(["planned", "drafting", "revision"]).has(item.status)) throw new Error(`${id} は開始できません: ${item.status}`);
   if (item.status === "planned") {
     if (readCards().length !== progress.reviewed_card_count) throw new Error(`${id} の開始前に未追跡のカード差分があります`);

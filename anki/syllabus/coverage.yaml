@@ -446,6 +446,8 @@ items:
       - dist-discrete-identification
       - dist-bernoulli-complement
       - dist-binomial-factorial-moment
+      - dist-poisson-moments-by-definition
+      - dist-hypergeometric-moments-by-definition
     terms:
       - name: 一様分布
         status: card
@@ -473,6 +475,7 @@ items:
           - dist-hypergeometric-definition
           - dist-hypergeometric-moments
           - dist-hypergeometric-binomial-choice
+          - dist-hypergeometric-moments-by-definition
       - name: 幾何分布
         status: card
         cards:
@@ -486,6 +489,7 @@ items:
           - dist-poisson-moments
           - dist-poisson-ratio-mode
           - dist-poisson-splitting
+          - dist-poisson-moments-by-definition
       - name: 負の二項分布
         status: card
         cards:
@@ -531,6 +535,9 @@ items:
       - dist-logistic-quantile
       - dist-multivariate-normal-density
       - dist-multivariate-normal-conditional
+      - dist-gamma-moments-by-definition
+      - dist-beta-moments-by-definition
+      - dist-lognormal-moments-by-definition
     terms:
       - name: 一様分布
         status: card
@@ -563,11 +570,13 @@ items:
           - dist-gamma-definition
           - dist-gamma-moments
           - dist-gamma-sum-exponential
+          - dist-gamma-moments-by-definition
       - name: ベータ分布
         status: card
         cards:
           - dist-beta-definition
           - dist-beta-moments
+          - dist-beta-moments-by-definition
       - name: コーシー分布
         status: card
         cards:
@@ -578,6 +587,7 @@ items:
           - dist-lognormal-transformation
           - dist-lognormal-moments
           - dist-lognormal-median
+          - dist-lognormal-moments-by-definition
       - name: ワイブル分布
         status: card
         cards:
