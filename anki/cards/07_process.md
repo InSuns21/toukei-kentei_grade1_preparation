@@ -1,6 +1,6 @@
 ﻿---
 id: process-markov-two-step
-title: Markov連鎖の2期推移確率を行列積で求める
+title: マルコフ連鎖の2期推移確率を行列積で求める
 category: applied-common
 subcategory: applied-stochastic-processes
 topic: transition-matrix
@@ -25,7 +25,7 @@ $$\begin{aligned}P_{12}^{(2)}&=P_{11}P_{12}+P_{12}P_{22}\\&=0.8\cdot0.2+0.2\cdot
 <!-- CARD -->
 ---
 id: process-poisson-wait
-title: Poisson過程の待ち時間を指数分布へ結び付ける
+title: ポアソン過程の待ち時間を指数分布へ結び付ける
 category: applied-common
 subcategory: applied-stochastic-processes
 topic: waiting-time
@@ -34,14 +34,14 @@ difficulty: 2
 priority: B
 hashtags: [ポアソン過程, 指数分布, 待ち時間]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Poisson過程 }]
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
 ---
 ## 問題
-率 $\lambda=2$ のPoisson過程で、最初の到着時刻 $T_1$ が1を超える確率を求めよ。
+率 $\lambda=2$ のポアソン過程で、最初の到着時刻 $T_1$ が1を超える確率を求めよ。
 ## 答え
 $T_1>t$ は時刻 $t$ まで到着が0回という事象である。
 ## 使用公式・定理
-率 $\lambda$ のPoisson過程では、計数 $N(t)$ はPoisson分布 $\operatorname{Poisson}(\lambda t)$ に従うので
+率 $\lambda$ のポアソン過程では、計数 $N(t)$ はポアソン分布 $\operatorname{Poisson}(\lambda t)$ に従うので
 $$P(T_1>t)=P(N(t)=0)=e^{-\lambda t}.$$
 ## 計算例
 $$P(T_1>1)=P(N(1)=0)=e^{-2}.$$

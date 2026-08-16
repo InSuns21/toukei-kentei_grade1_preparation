@@ -93,7 +93,7 @@ $$M_{X_1+\cdots+X_n}(t)=\prod_{i=1}^nM_{X_i}(t).$$
 
 ## 計算例
 $$\begin{aligned}M_S(t)&=M_{X_1}(t)M_{X_2}(t)M_{X_3}(t)\\&=(1-t)^{-3},\qquad t<1.\end{aligned}$$
-これはshape $3$、rate $1$ のGamma分布のモーメント母関数である。
+これはshape $3$、rate $1$ のガンマ分布のモーメント母関数である。
 
 ## 一手
 同じ分布の独立和では、1個分の母関数を個数乗する。
@@ -136,7 +136,7 @@ $t\ge\lambda$ では積分が発散する。
 <!-- CARD -->
 ---
 id: prob-mgf-gamma
-title: Gamma分布のモーメント母関数をGamma積分で求める
+title: ガンマ分布のモーメント母関数をGamma積分で求める
 category: math-probability
 subcategory: math-distribution-functions
 topic: mgf-gamma
@@ -148,7 +148,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
 ## 問題
-$X$ はshape $\alpha>0$、rate $\beta>0$ のGamma分布に従う。台は $x>0$、確率密度関数は $f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ である。$M_X(t)$ を求めよ。
+$X$ はshape $\alpha>0$、rate $\beta>0$ のガンマ分布に従う。台は $x>0$、確率密度関数は $f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ である。$M_X(t)$ を求めよ。
 
 ## 答え
 指数のrateを $\beta-t$ にまとめ、Gamma積分へ合わせる。

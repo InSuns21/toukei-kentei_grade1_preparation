@@ -75,7 +75,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ベルヌーイ分布 }]
 ---
 ## 問題
-Bernoulli分布 $X\sim\operatorname{Bernoulli}(p)$ の $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
+ベルヌーイ分布 $X\sim\operatorname{Bernoulli}(p)$ の $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
 ## 答え
 $$E[X]=p,\qquad \operatorname{Var}(X)=p(1-p).$$
 ## 使用公式・定理
@@ -535,7 +535,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
 ## 問題
-Poisson分布 $X\sim\operatorname{Poisson}(\lambda)$ の平均と分散を答えよ。
+ポアソン分布 $X\sim\operatorname{Poisson}(\lambda)$ の平均と分散を答えよ。
 ## 答え
 $$E[X]=\lambda,\qquad \operatorname{Var}(X)=\lambda.$$
 ## 使用公式・定理
@@ -565,7 +565,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
 ## 問題
-Poisson分布 $X\sim\operatorname{Poisson}(\lambda)$ について $P(X=k+1)/P(X=k)$ を求め、最頻値を述べよ。
+ポアソン分布 $X\sim\operatorname{Poisson}(\lambda)$ について $P(X=k+1)/P(X=k)$ を求め、最頻値を述べよ。
 ## 答え
 $$\frac{P(X=k+1)}{P(X=k)}=\frac{\lambda}{k+1}.$$
 $\lambda$ が整数でなければ最頻値は $\lfloor\lambda\rfloor$、$\lambda$ が整数なら $\lambda-1$ と $\lambda$ の2つである。
@@ -594,7 +594,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
 ## 問題
-Poisson分布 $N\sim\operatorname{Poisson}(\lambda)$ の各発生を確率 $q$ で種類1、確率 $1-q$ で種類2に独立に分類する。分類後の個数の分布を答えよ。
+ポアソン分布 $N\sim\operatorname{Poisson}(\lambda)$ の各発生を確率 $q$ で種類1、確率 $1-q$ で種類2に独立に分類する。分類後の個数の分布を答えよ。
 ## 答え
 $$N_1\sim\operatorname{Poisson}(\lambda q),\qquad N_2\sim\operatorname{Poisson}(\lambda(1-q)),$$
 しかも $N_1,N_2$ は独立である。
@@ -608,7 +608,7 @@ $$=e^{-\lambda q}\frac{(\lambda q)^i}{i!}\,e^{-\lambda(1-q)}\frac{(\lambda(1-q))
 ## 一手
 全体の発生を独立に分類する場合は、強度を確率で割り振る。
 ## 注意
-分割前の合計は $N_1+N_2=N$。独立なのはPoisson分布の分割後の成分である。
+分割前の合計は $N_1+N_2=N$。独立なのはポアソン分布の分割後の成分である。
 
 <!-- CARD -->
 ---
@@ -750,7 +750,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ベルヌーイ分布 }]
 ---
 ## 問題
-Bernoulli分布 $X\sim\operatorname{Bernoulli}(p)$ に対し、$P(X=0)$、$P(X\ge1)$、$P(X=1\mid X\ge1)$ を求めよ。
+ベルヌーイ分布 $X\sim\operatorname{Bernoulli}(p)$ に対し、$P(X=0)$、$P(X\ge1)$、$P(X=1\mid X\ge1)$ を求めよ。
 ## 答え
 $$P(X=0)=1-p,\qquad P(X\ge1)=p,\qquad P(X=1\mid X\ge1)=1.$$
 ## 使用公式・定理
@@ -928,7 +928,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
 ## 問題
-正規分布 $X\sim N(\mu,\sigma^2)$ に対し $P(a<X\le b)$ を標準正規分布のCDF $\Phi$ で表せ。
+正規分布 $X\sim N(\mu,\sigma^2)$ に対し $P(a<X\le b)$ を標準正規分布の累積分布関数 $\Phi$ で表せ。
 ## 答え
 $$P(a<X\le b)=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right).$$
 ## 使用公式・定理
@@ -1034,7 +1034,7 @@ $$N(1-6,4+4\times9)=N(-5,40).$$
 ---
 id: dist-exponential-definition
 published: true
-title: 指数分布の密度・CDF・生存関数
+title: 指数分布の密度・累積分布関数・生存関数
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: exponential
@@ -1152,7 +1152,7 @@ $$h_X(x)=\frac{\lambda e^{-\lambda x}}{e^{-\lambda x}}=\lambda.$$
 ---
 id: dist-gamma-definition
 published: true
-title: Gamma分布のshape-rate密度を記述する
+title: ガンマ分布のshape-rate密度を記述する
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: gamma
@@ -1181,7 +1181,7 @@ scale表示では第2引数が $1/\beta$ になるため、文献の表示を確
 ---
 id: dist-gamma-moments
 published: true
-title: Gamma分布の平均と分散からshape-rateを読み取る
+title: ガンマ分布の平均と分散からshape-rateを読み取る
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: gamma-moments
@@ -1209,7 +1209,7 @@ $$E[X]=3/2,\qquad \operatorname{Var}(X)=3/2^2=3/4.$$
 ---
 id: dist-gamma-sum-exponential
 published: true
-title: 同率指数分布の和をGamma分布に結び付ける
+title: 同率指数分布の和をガンマ分布に結び付ける
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: gamma-sum
@@ -1233,13 +1233,13 @@ $$M_T(t)=\left(\frac\beta{\beta-t}\right)^r,$$
 ## 一手
 同じrateの指数待ち時間を足したらshapeが個数分だけ増える。
 ## 注意
-rateが異なる指数分布の和は一般に単純なGamma分布ではない。
+rateが異なる指数分布の和は一般に単純なガンマ分布ではない。
 
 <!-- CARD -->
 ---
 id: dist-beta-definition
 published: true
-title: Beta分布の密度と台を記述する
+title: ベータ分布の密度と台を記述する
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: beta
@@ -1251,7 +1251,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ベータ分布 }]
 ---
 ## 問題
-Beta分布 $\operatorname{Beta}(\alpha,\beta)$ の密度と台を答えよ。
+ベータ分布 $\operatorname{Beta}(\alpha,\beta)$ の密度と台を答えよ。
 ## 答え
 台は $0<x<1$（$x\notin(0,1)$ では $f_X(x)=0$）、
 $$f_X(x)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1},\qquad \alpha,\beta>0.$$
@@ -1261,15 +1261,15 @@ $$B(\alpha,\beta)=\int_0^1x^{\alpha-1}(1-x)^{\beta-1}dx=\frac{\Gamma(\alpha)\Gam
 ## 計算例
 $\alpha=\beta=1$ なら密度は1で、$U(0,1)$ に一致する。
 ## 一手
-台が $(0,1)$ の比率・確率・確率パラメータならBeta分布を候補にする。
+台が $(0,1)$ の比率・確率・確率パラメータならベータ分布を候補にする。
 ## 注意
-Beta分布の第2パラメータはrateではなく、もう一つのshapeである。
+ベータ分布の第2パラメータはrateではなく、もう一つのshapeである。
 
 <!-- CARD -->
 ---
 id: dist-beta-moments
 published: true
-title: Beta分布の平均と分散を計算する
+title: ベータ分布の平均と分散を計算する
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: beta-moments
@@ -1281,7 +1281,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ベータ分布 }]
 ---
 ## 問題
-Beta分布 $X\sim\operatorname{Beta}(\alpha,\beta)$ の平均と分散を答え、$\alpha=2,\beta=3$ の値を計算せよ。
+ベータ分布 $X\sim\operatorname{Beta}(\alpha,\beta)$ の平均と分散を答え、$\alpha=2,\beta=3$ の値を計算せよ。
 ## 答え
 $$E[X]=\frac\alpha{\alpha+\beta},$$
 $$\operatorname{Var}(X)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
@@ -1299,7 +1299,7 @@ $$E[X]=2/5,\qquad \operatorname{Var}(X)=\frac{2\cdot3}{5^2\cdot6}=\frac1{25}.$$
 ---
 id: dist-cauchy-no-moments
 published: true
-title: Cauchy分布で平均・分散が存在しないことを判定する
+title: コーシー分布で平均・分散が存在しないことを判定する
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: cauchy
@@ -1311,7 +1311,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: コーシー分布 }]
 ---
 ## 問題
-標準Cauchy分布の密度
+標準コーシー分布の密度
 $f(x)=\frac1{\pi(1+x^2)}$
 について、平均と分散の存在を判定せよ。
 ## 答え
@@ -1377,7 +1377,7 @@ sources: [{ type: official_syllabus, topic: 対数正規分布 }]
 $$E[X]=e^{\mu+\sigma^2/2},$$
 $$\operatorname{Var}(X)=(e^{\sigma^2}-1)e^{2\mu+\sigma^2},$$
 ## 使用公式・定理
-正規分布のMGF $M_Y(t)=e^{\mu t+\sigma^2t^2/2}$ を $t=1,2$ で使う。
+正規分布のモーメント母関数（積率母関数） $M_Y(t)=e^{\mu t+\sigma^2t^2/2}$ を $t=1,2$ で使う。
 ## 計算例
 $$E[X]=E[e^Y]=M_Y(1)=e^{\mu+\sigma^2/2},$$
 $$E[X^2]=M_Y(2)=e^{2\mu+2\sigma^2}.$$
@@ -1391,7 +1391,7 @@ $X=e^Y$ なら $E[X^r]=M_Y(r)$ と置く。
 ---
 id: dist-weibull-survival-hazard
 published: true
-title: Weibull分布の生存関数と危険率を求める
+title: ワイブル分布の生存関数と危険率を求める
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: weibull
@@ -1400,10 +1400,10 @@ difficulty: 2
 priority: B
 hashtags: [ワイブル分布, 生存関数, 危険率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Weibull分布 }]
+sources: [{ type: official_syllabus, topic: ワイブル分布 }]
 ---
 ## 問題
-shape $k>0$、scale $\lambda>0$ のWeibull分布のCDF、生存関数、危険率を答えよ。
+shape $k>0$、scale $\lambda>0$ のワイブル分布の累積分布関数、生存関数、危険率を答えよ。
 ## 答え
 $$F(x)=1-e^{-(x/\lambda)^k},\qquad S(x)=e^{-(x/\lambda)^k},\quad x\ge0,$$
 $$h(x)=\frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1}.$$
@@ -1421,7 +1421,7 @@ $k=1$ なら指数分布、$k>1$ なら危険率増加、$k<1$ なら減少。
 ---
 id: dist-weibull-mean
 published: true
-title: Weibull分布の平均をGamma関数で表す
+title: ワイブル分布の平均をGamma関数で表す
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: weibull-moment
@@ -1433,7 +1433,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ワイブル分布 }]
 ---
 ## 問題
-shape $k>0$、scale $\lambda>0$ の密度 $f(x)=\frac{k}{\lambda}(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$ $(x\ge0)$ を持つWeibull分布の平均を答えよ。
+shape $k>0$、scale $\lambda>0$ の密度 $f(x)=\frac{k}{\lambda}(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$ $(x\ge0)$ を持つワイブル分布の平均を答えよ。
 ## 答え
 $$E[X]=\lambda\Gamma\left(1+\frac1k\right).$$
 ## 使用公式・定理
@@ -1451,7 +1451,7 @@ $\lambda$ は平均ではなくscale。$k=1$ なら平均は $\lambda$ になる
 ---
 id: dist-logistic-definition
 published: true
-title: ロジスティック分布のCDF・密度・分位点
+title: ロジスティック分布の累積分布関数・密度・分位点
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: logistic
@@ -1463,7 +1463,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ロジスティック分布 }]
 ---
 ## 問題
-位置 $\mu$、scale $s>0$ のロジスティック分布のCDFと密度を答えよ。
+位置 $\mu$、scale $s>0$ のロジスティック分布の累積分布関数と密度を答えよ。
 
 ## 答え
 $F(x)=\frac1{1+e^{-(x-\mu)/s}},$
@@ -1633,7 +1633,7 @@ $X\sim N(3,4)$ なら $E[X]=3$、$\operatorname{Var}(X)=4$、標準偏差は $2$
 ---
 id: dist-exponential-cdf-survival
 published: true
-title: 指数分布のCDFと生存関数を密度から求める
+title: 指数分布の累積分布関数と生存関数を密度から求める
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: exponential-cdf-survival
@@ -1645,7 +1645,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 指数分布 }]
 ---
 ## 問題
-指数分布 $\operatorname{Exponential}(\lambda)$ $(\lambda>0)$ のCDFと生存関数を求めよ。
+指数分布 $\operatorname{Exponential}(\lambda)$ $(\lambda>0)$ の累積分布関数と生存関数を求めよ。
 ## 答え
 $$F_X(x)=1-e^{-\lambda x},\qquad S_X(x)=e^{-\lambda x},\qquad x\ge0.$$
 ## 使用公式・定理

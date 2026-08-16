@@ -12,7 +12,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-$X_i$ は独立同分布にBernoulli分布 $\operatorname{Bernoulli}(p)$ に従うとする。ただし $X_i\in\{0,1\}$、$0\le p\le1$、$P(X_i=x)=p^x(1-p)^{1-x}$ である。$T=\sum_iX_i$ が十分統計量であることを示せ。
+$X_i$ は独立同分布にベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従うとする。ただし $X_i\in\{0,1\}$、$0\le p\le1$、$P(X_i=x)=p^x(1-p)^{1-x}$ である。$T=\sum_iX_i$ が十分統計量であることを示せ。
 ## 答え
 尤度を $T$ と母数だけの因子と、母数を含まない因子に分ける。
 ## 使用公式・定理
@@ -38,7 +38,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 最尤法 }]
 ---
 ## 問題
-Bernoulli分布 $P(X=x)=p^x(1-p)^{1-x}$（$x\in\{0,1\}$、$p\in[0,1]$）からの独立同分布標本が $1,0,1,1,0$ のとき、最尤推定値を求めよ。
+ベルヌーイ分布 $P(X=x)=p^x(1-p)^{1-x}$（$x\in\{0,1\}$、$p\in[0,1]$）からの独立同分布標本が $1,0,1,1,0$ のとき、最尤推定値を求めよ。
 ## 方針
 積を対数で和にし、内部解と境界を比較する。
 ## 使用公式・定理

@@ -248,7 +248,7 @@ $$f_{X\mid X>1}(x)=\frac{1/2}{1/2}=1\qquad(1<x<2),$$
 <!-- CARD -->
 ---
 id: prob-density-bayes-two-class
-title: 連続観測にBayesの公式を適用する
+title: 連続観測にベイズの定理の公式を適用する
 category: math-probability
 subcategory: math-distribution-functions
 topic: density-bayes

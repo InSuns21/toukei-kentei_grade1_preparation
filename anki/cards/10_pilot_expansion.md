@@ -1,6 +1,6 @@
 ﻿---
 id: dist-mgf-poisson
-title: Poisson分布のモーメント母関数から平均を取り出す
+title: ポアソン分布のモーメント母関数から平均を取り出す
 category: math-probability
 subcategory: math-distribution-functions
 topic: moment-generating-function
@@ -12,7 +12,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 母関数 }]
 ---
 ## 問題
-$X$ はPoisson分布 $\operatorname{Poisson}(\lambda)$ に従うとする。台は $\mathbb N_0$、$\lambda>0$、$P(X=x)=e^{-\lambda}\lambda^x/x!$ である。MGFから $E[X]$ を求めよ。
+$X$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ に従うとする。台は $\mathbb N_0$、$\lambda>0$、$P(X=x)=e^{-\lambda}\lambda^x/x!$ である。モーメント母関数（積率母関数）から $E[X]$ を求めよ。
 ## 答え
 モーメント母関数 $M_X(t)=E[e^{tX}]$ を1回微分して $t=0$ を代入する。
 ## 使用公式・定理
@@ -104,7 +104,7 @@ rate母数化を使っている。
 <!-- CARD -->
 ---
 id: est-fisher-bernoulli
-title: Bernoulli分布のFisher情報量を求める
+title: ベルヌーイ分布のフィッシャー情報量（1次元）量を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: fisher-information
@@ -113,10 +113,10 @@ difficulty: 3
 priority: B
 hashtags: [フィッシャー情報量（1次元）, ベルヌーイ分布, スコア]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Fisher情報量 }]
+sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元）量 }]
 ---
 ## 問題
-$X$ はBernoulli分布 $\operatorname{Bernoulli}(p)$ に従い、$X\in\{0,1\}$、$0<p<1$、$P(X=x)=p^x(1-p)^{1-x}$ とする。1観測当たりのFisher情報量を求めよ。
+$X$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従い、$X\in\{0,1\}$、$0<p<1$、$P(X=x)=p^x(1-p)^{1-x}$ とする。1観測当たりのフィッシャー情報量（1次元）量を求めよ。
 ## 答え
 対数尤度を2回微分し、負の期待値を取る。
 ## 使用公式・定理
@@ -209,7 +209,7 @@ $2.5>1.96$ だから $H_0$ を棄却する。
 <!-- CARD -->
 ---
 id: test-likelihood-ratio
-title: 尤度比検定統計量を制約付きMLEから作る
+title: 尤度比検定統計量を制約付き最尤推定から作る
 category: math-testing
 subcategory: math-test-derivation
 topic: likelihood-ratio-test
@@ -245,14 +245,14 @@ difficulty: 2
 priority: B
 hashtags: [ベイズの定理, 共役事前分布, 事後分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bayes法 }]
+sources: [{ type: official_syllabus, topic: ベイズの定理法 }]
 ---
 ## 問題
-$p$ はBeta分布 $\operatorname{Beta}(2,3)$ に従うとし、Bernoulli試行5回で成功3回とする。事後分布を求めよ。
+$p$ はベータ分布 $\operatorname{Beta}(2,3)$ に従うとし、Bernoulli試行5回で成功3回とする。事後分布を求めよ。
 ## 方針
 事前密度の $p$ と $1-p$ の指数へ成功数・失敗数を足す。
 ## 使用公式・定理
-Beta分布の台は $0<p<1$、密度は $p^{a-1}(1-p)^{b-1}/B(a,b)$。成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
+ベータ分布の台は $0<p<1$、密度は $p^{a-1}(1-p)^{b-1}/B(a,b)$。成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
 ## 計算例
 $$\pi(p\mid x)\propto p^{2-1}(1-p)^{3-1}p^3(1-p)^2=p^4(1-p)^4.$$
 よって $p\mid x\sim\operatorname{Beta}(5,5)$。
@@ -276,7 +276,7 @@ sources: [{ type: official_syllabus, topic: 不完全データ }]
 ## 問題
 混合比 $\pi=0.4$、観測 $x$ における成分密度が $f_1(x)=0.3$, $f_2(x)=0.1$ のとき、成分1の負担率を求めよ。
 ## 答え
-潜在成分についてBayesの定理を使う。
+潜在成分についてベイズの定理を使う。
 ## 使用公式・定理
 $$r_1(x)=P(Z=1\mid x)=\frac{\pi f_1(x)}{\pi f_1(x)+(1-\pi)f_2(x)}.$$
 ## 計算例
@@ -338,7 +338,7 @@ $$\begin{aligned}E[X\mid Y=4]&=0+\frac39(4-1)\\&=\frac13\cdot3=1.\end{aligned}$$
 <!-- CARD -->
 ---
 id: process-stationary-markov
-title: 2状態Markov連鎖の定常分布を解く
+title: 2状態マルコフ連鎖の定常分布を解く
 category: applied-common
 subcategory: applied-stochastic-processes
 topic: stationary-distribution
@@ -347,7 +347,7 @@ difficulty: 2
 priority: B
 hashtags: [マルコフ連鎖, 定常分布, 連立方程式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Markov連鎖 }]
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
 ---
 ## 問題
 $\boldsymbol P=\begin{pmatrix}0.8&0.2\\0.3&0.7\end{pmatrix}$ の定常分布 $\boldsymbol\pi$ を求めよ。
@@ -401,7 +401,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---
 ## 問題
-$Y\mid x$ はPoisson分布 $\operatorname{Poisson}(\mu(x))$ に従い、$\log\mu(x)=\beta_0+0.4x$ とする。$x$ が2増えたとき条件付き平均は何倍か。
+$Y\mid x$ はポアソン分布 $\operatorname{Poisson}(\mu(x))$ に従い、$\log\mu(x)=\beta_0+0.4x$ とする。$x$ が2増えたとき条件付き平均は何倍か。
 ## 答え
 対数平均の差を取り、指数化する。
 ## 使用公式・定理

@@ -28,7 +28,7 @@ $0.6+0.5=1.1$ のままにしない。
 <!-- CARD -->
 ---
 id: prob-bayes-diagnostic
-title: 診断結果からBayesの定理で逆確率を求める
+title: 診断結果からベイズの定理で逆確率を求める
 category: math-probability
 subcategory: math-events
 topic: bayes-theorem
@@ -37,7 +37,7 @@ difficulty: 2
 priority: A
 hashtags: [ベイズの定理, 条件付き確率, 計算の一手]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: Bayesの定理 }, { type: past_exam, id: MATH-2021-Q2, topic: 事後確率最大化 }]
+sources: [{ type: official_syllabus, topic: ベイズの定理 }, { type: past_exam, id: MATH-2021-Q2, topic: 事後確率最大化 }]
 ---
 ## 問題
 罹患率が $0.01$、感度が $0.9$、偽陽性率が $0.05$ である。陽性者が罹患している確率は？

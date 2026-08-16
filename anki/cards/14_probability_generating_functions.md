@@ -103,7 +103,7 @@ $$\begin{aligned}G_X(s)&=\sum_{k=1}^{\infty}p(1-p)^{k-1}s^k\\&=ps\sum_{j=0}^{\in
 <!-- CARD -->
 ---
 id: prob-pgf-poisson
-title: Poisson分布の確率母関数を指数級数で求める
+title: ポアソン分布の確率母関数を指数級数で求める
 category: math-probability
 subcategory: math-distribution-functions
 topic: pgf-poisson
@@ -115,7 +115,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
 ## 問題
-$X$ はPoisson分布 $\operatorname{Poisson}(\lambda)$ に従う。台は $0,1,\ldots$、確率質量関数は $P(X=k)=e^{-\lambda}\lambda^k/k!$ である。$G_X(s)$ を求めよ。
+$X$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ に従う。台は $0,1,\ldots$、確率質量関数は $P(X=k)=e^{-\lambda}\lambda^k/k!$ である。$G_X(s)$ を求めよ。
 
 ## 答え
 $(\lambda s)^k/k!$ の和を指数関数へまとめる。
@@ -147,7 +147,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
 ## 問題
-$X_1,X_2,X_3$ は独立で、それぞれ成功確率 $p$ のBernoulli分布に従う。$S=X_1+X_2+X_3$ の確率母関数を求めよ。
+$X_1,X_2,X_3$ は独立で、それぞれ成功確率 $p$ のベルヌーイ分布に従う。$S=X_1+X_2+X_3$ の確率母関数を求めよ。
 
 ## 答え
 各確率母関数を掛け、二項分布の形を得る。
@@ -157,7 +157,7 @@ $X_1,X_2,X_3$ は独立で、それぞれ成功確率 $p$ のBernoulli分布に�
 $$G_{X_1+\cdots+X_n}(s)=\prod_{i=1}^nG_{X_i}(s).$$
 
 ## 計算例
-Bernoulli分布の確率母関数は
+ベルヌーイ分布の確率母関数は
 $$G_{X_i}(s)=1-p+ps.$$
 したがって
 $$G_S(s)=(1-p+ps)^3.$$
@@ -184,7 +184,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
 ## 問題
-個数 $N$ の各要素を独立に確率 $q$ で残し、残った個数を $Y$ とする。$G_Y(s)$ を $G_N$ で表せ。さらに $N$ がPoisson分布 $\operatorname{Poisson}(\lambda)$ のときを求めよ。
+個数 $N$ の各要素を独立に確率 $q$ で残し、残った個数を $Y$ とする。$G_Y(s)$ を $G_N$ で表せ。さらに $N$ がポアソン分布 $\operatorname{Poisson}(\lambda)$ のときを求めよ。
 
 ## 答え
 $N=n$ の下で $Y$ は二項分布なので、条件付き確率母関数を $N$ について平均する。
@@ -197,7 +197,7 @@ $$G_Y(s)=G_N(1-q+qs).$$
 ## 計算例
 $G_N(u)=\exp\{\lambda(u-1)\}$ だから
 $$\begin{aligned}G_Y(s)&=\exp[\lambda\{(1-q+qs)-1\}]\\&=\exp\{\lambda q(s-1)\}.\end{aligned}$$
-よって $Y$ はPoisson分布 $\operatorname{Poisson}(\lambda q)$ に従う。
+よって $Y$ はポアソン分布 $\operatorname{Poisson}(\lambda q)$ に従う。
 
 ## 一手
 ランダム個の独立な選別では、元の確率母関数へ1要素分の確率母関数を代入する。
@@ -220,7 +220,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
 ## 問題
-$X$ はPoisson分布 $\operatorname{Poisson}(\lambda)$ に従い、$G_X(s)=\exp\{\lambda(s-1)\}$ である。$E[X(X-1)]$ を求めよ。
+$X$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ に従い、$G_X(s)=\exp\{\lambda(s-1)\}$ である。$E[X(X-1)]$ を求めよ。
 
 ## 答え
 確率母関数を2回微分して $s=1$ を代入する。

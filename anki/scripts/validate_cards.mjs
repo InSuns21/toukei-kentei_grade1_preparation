@@ -177,7 +177,7 @@ for (const card of cards) {
     if (pattern.test(card.body)) error(card, message);
   }
   const question = card.sections["問題"] || "";
-  for (const [symbol, japanese] of [[/(?<!\\mathbb\s)N(?:_|\()/, "正規分布"], [/U\(/, "一様分布"], [/\\operatorname\{Poisson\}/, "Poisson分布"], [/\\operatorname\{Binomial\}/, "二項分布"], [/\\operatorname\{Bernoulli\}/, "Bernoulli分布"], [/\\operatorname\{Exp\}/, "指数分布"], [/\\operatorname\{Beta\}/, "Beta分布"]]) {
+  for (const [symbol, japanese] of [[/(?<!\\mathbb\s)N(?:_|\()/, "\u6b63\u898f\u5206\u5e03"], [/U\(/, "\u4e00\u69d8\u5206\u5e03"], [/\\operatorname\{Poisson\\}/, "\u30dd\u30a2\u30bd\u30f3\u5206\u5e03"], [/\\operatorname\{Binomial\\}/, "\u4e8c\u9805\u5206\u5e03"], [/\\operatorname\{Bernoulli\\}/, "\u30d9\u30eb\u30cc\u30fc\u30a4\u5206\u5e03"], [/\\operatorname\{Exp\\}/, "\u6307\u6570\u5206\u5e03"], [/\\operatorname\{Beta\\}/, "\u30d9\u30fc\u30bf\u5206\u5e03"]]) {
     if (symbol.test(question) && !question.includes(japanese)) error(card, `問題では記号より先に日本語名「${japanese}」を明記します`);
   }
 }
@@ -289,6 +289,34 @@ const frequentMoveAliases = new Map([
   ["ポアソン近似", "二項分布の正規近似とポアソン近似"],
   ["大数則", "大数の弱法則"]
 ]);
+const displayTermAliases = new Map([
+  ["PDF", "\u78ba\u7387\u5bc6\u5ea6\u95a2\u6570"],
+  ["CDF", "\u7d2f\u7a4d\u5206\u5e03\u95a2\u6570"],
+  ["PMF", "\u78ba\u7387\u95a2\u6570"],
+  ["MGF", "\u30e2\u30fc\u30e1\u30f3\u30c8\u6bcd\u95a2\u6570\uff08\u7a4d\u7387\u6bcd\u95a2\u6570\uff09"],
+  ["Gamma\u5206\u5e03", "\u30ac\u30f3\u30de\u5206\u5e03"],
+  ["Beta\u5206\u5e03", "\u30d9\u30fc\u30bf\u5206\u5e03"],
+  ["Cauchy\u5206\u5e03", "\u30b3\u30fc\u30b7\u30fc\u5206\u5e03"],
+  ["Weibull\u5206\u5e03", "\u30ef\u30a4\u30d6\u30eb\u5206\u5e03"],
+  ["Poisson\u5206\u5e03", "\u30dd\u30a2\u30bd\u30f3\u5206\u5e03"],
+  ["Bernoulli\u5206\u5e03", "\u30d9\u30eb\u30cc\u30fc\u30a4\u5206\u5e03"],
+  ["Bayes\u306e\u5b9a\u7406", "\u30d9\u30a4\u30ba\u306e\u5b9a\u7406"],
+  ["Bayes", "\u30d9\u30a4\u30ba\u306e\u5b9a\u7406"],
+  ["Fisher\u60c5\u5831", "\u30d5\u30a3\u30c3\u30b7\u30e3\u30fc\u60c5\u5831\u91cf\uff081\u6b21\u5143\uff09"],
+  ["GLM", "\u4e00\u822c\u5316\u7dda\u5f62\u30e2\u30c7\u30eb"],
+  ["MLE", "\u6700\u5c24\u63a8\u5b9a"],
+  ["CLT", "\u4e2d\u5fc3\u6975\u9650\u5b9a\u7406"],
+  ["DeltaMethod", "\u30c7\u30eb\u30bf\u6cd5"],
+  ["NeymanPearson", "\u30cd\u30a4\u30de\u30f3\u30fb\u30d4\u30a2\u30bd\u30f3\u306e\u57fa\u672c\u5b9a\u7406"],
+  ["ANOVA", "\u5206\u6563\u5206\u6790"],
+  ["OLS", "\u6700\u5c0f\u4e8c\u4e57\u6cd5"],
+  ["Markov\u9023\u9396", "\u30de\u30eb\u30b3\u30d5\u9023\u9396"],
+  ["Poisson\u904e\u7a0b", "\u30dd\u30a2\u30bd\u30f3\u904e\u7a0b"]
+]);
+for (const card of cards) {
+  const displayText = `${card.title}\n${card.body}\n${card.hashtags.join(" ")}`.replaceAll("\u60c5\u5831\u91cf\u898f\u6e96AIC", "");
+  for (const alias of displayTermAliases.keys()) if (displayText.includes(alias)) errors.push(`${card.id}: noncanonical display term ${alias}`);
+}
 const normalizeFrequentMove = (tag) => frequentMoveAliases.get(tag) ?? tag;
 const moveCounts = new Map();
 for (const card of cards) {

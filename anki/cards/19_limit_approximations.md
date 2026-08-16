@@ -934,7 +934,7 @@ $$z_a=\frac{\sqrt n(a-\mu)}\sigma,\qquad z_b=\frac{\sqrt n(b-\mu)}\sigma.$$
 $$P(a\le\overline X_n\le b)\approx\Phi(z_b)-\Phi(z_a).$$
 
 ## 一手
-原スケールの区間を標準化スケールの区間へ写してから、CDFの差を取る。
+原スケールの区間を標準化スケールの区間へ写してから、累積分布関数の差を取る。
 
 ## 注意
 標準化端点の分母は母標準偏差 $\sigma$ ではなく、標本平均の標準偏差 $\sigma/\sqrt n$ と同値な形である。

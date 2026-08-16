@@ -305,7 +305,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
 ## 問題
-$X$ は成功確率 $1/3$ のBernoulli分布に従う。すなわち $P(X=0)=2/3$、$P(X=1)=1/3$ である。確率母関数から $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
+$X$ は成功確率 $1/3$ のベルヌーイ分布に従う。すなわち $P(X=0)=2/3$、$P(X=1)=1/3$ である。確率母関数から $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
 
 ## 答え
 確率母関数を微分し、$s=1$ を代入して階乗モーメントを得る。
@@ -344,7 +344,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
 ## 問題
-$X,Y$ は独立で、それぞれ成功確率 $1/2$ のBernoulli分布に従う。すなわち $P(X=0)=P(X=1)=1/2$ で、$Y$ も同様である。$S=X+Y$ のモーメント母関数を求め、$S$ の確率質量を読み取れ。
+$X,Y$ は独立で、それぞれ成功確率 $1/2$ のベルヌーイ分布に従う。すなわち $P(X=0)=P(X=1)=1/2$ で、$Y$ も同様である。$S=X+Y$ のモーメント母関数を求め、$S$ の確率質量を読み取れ。
 
 ## 答え
 独立性により和のモーメント母関数を積へ分解し、$e^{kt}$ の係数を $P(S=k)$ として読む。

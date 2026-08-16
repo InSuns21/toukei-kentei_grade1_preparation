@@ -35,7 +35,7 @@ topic: sums-of-squares
 type: expansion
 difficulty: 2
 priority: B
-hashtags: [ANOVA, 平方和, 分散分析]
+hashtags: [分散分析, 平方和, 分散分析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 分散分析 }]
 ---
