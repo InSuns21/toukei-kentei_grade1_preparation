@@ -6,7 +6,7 @@ subcategory: math-transformations
 topic: inverse-cdf-method
 type: strategy
 difficulty: 2
-priority: A
+priority: S
 hashtags: [変数変換, 逆関数法, 一様分布]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 変数変換 }, { type: past_exam, id: MATH-2023-Q2, topic: カイ二乗分布・逆関数法 }]
@@ -42,7 +42,7 @@ subcategory: math-transformations
 topic: nonmonotonic-transform
 type: calc_step
 difficulty: 3
-priority: B
+priority: S
 hashtags: [変数変換, 非単調, 二乗変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
@@ -78,7 +78,7 @@ subcategory: math-transformations
 topic: jacobian-2d
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [変数変換, 同時分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
@@ -115,7 +115,7 @@ subcategory: math-transformations
 topic: convolution-general
 type: calc_step
 difficulty: 3
-priority: B
+priority: S
 hashtags: [変数変換, 畳み込み, 独立和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
@@ -150,7 +150,7 @@ subcategory: math-transformations
 topic: ratio-distribution
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [変数変換, 比の分布, 累積分布関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
@@ -189,7 +189,7 @@ subcategory: math-transformations
 topic: linear-combination-normal
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [確率変数の線形結合, 正規分布（ガウス分布）, 統計的独立]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }, { type: past_exam, id: MATH-2021-Q5, topic: 多変量正規分布の線形変換・独立性 }]
@@ -227,7 +227,7 @@ subcategory: math-transformations
 topic: linear-combination-moments
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率変数の線形結合, 期待値, 分散, 共分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
@@ -264,7 +264,7 @@ subcategory: math-transformations
 topic: log-transform
 type: calc_step
 difficulty: 3
-priority: B
+priority: S
 hashtags: [変数変換, 対数正規分布, 単調変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]

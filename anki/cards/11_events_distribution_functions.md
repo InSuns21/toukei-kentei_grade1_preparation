@@ -6,7 +6,7 @@ subcategory: math-events
 topic: conditional-probability
 type: formula
 difficulty: 1
-priority: B
+priority: S
 hashtags: [条件付き確率, 乗法公式, 確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き確率 }]
@@ -41,7 +41,7 @@ subcategory: math-events
 topic: total-probability
 type: calc_step
 difficulty: 1
-priority: B
+priority: S
 hashtags: [全確率, 条件付き確率, 場合分け]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率の計算 }]
@@ -76,7 +76,7 @@ subcategory: math-events
 topic: independence
 type: condition
 difficulty: 1
-priority: A
+priority: S
 hashtags: [統計的独立, 共通部分, 条件]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }, { type: past_exam, id: MATH-2022-Q1, topic: 確率空間・独立性 }]
@@ -114,7 +114,7 @@ subcategory: math-events
 topic: mutual-independence
 type: pitfall
 difficulty: 2
-priority: B
+priority: A
 hashtags: [統計的独立, 相互独立, 典型的な罠]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }]
@@ -152,7 +152,7 @@ subcategory: math-distribution-functions
 topic: cdf-density
 type: calc_step
 difficulty: 1
-priority: A
+priority: S
 hashtags: [累積分布関数, 確率密度関数, 積分]
 frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
 sources: [{ type: official_syllabus, topic: 累積分布関数 }, { type: past_exam, id: MATH-2024-Q2, topic: 半径の分布 }, { type: past_exam, id: MATH-2018-Q5, topic: 順序統計量の確率密度 }]
@@ -189,7 +189,7 @@ subcategory: math-distribution-functions
 topic: survival-hazard
 type: formula
 difficulty: 2
-priority: A
+priority: S
 hashtags: [生存関数, 危険率, 指数分布]
 frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
 sources: [{ type: official_syllabus, topic: 生存関数と危険率 }, { type: past_exam, id: SCI-2019-Q1, topic: 生存関数・平均残存寿命 }, { type: past_exam, id: SCI-2017-Q2, topic: 指数待時間・故障率 }]
@@ -224,7 +224,7 @@ subcategory: math-distribution-functions
 topic: marginal-density
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [同時分布, 周辺分布, 積分範囲]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 同時分布と周辺分布 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }]
@@ -260,7 +260,7 @@ subcategory: math-distribution-functions
 topic: conditional-density
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [条件付き分布, 同時分布, 周辺分布]
 frequency: { past_exam: 3, textbook: 0, independent_problems: 0, source_confirmations: 3 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }, { type: past_exam, id: MATH-2018-Q4, topic: 条件付き2変量正規分布 }, { type: past_exam, id: MATH-2017-Q4, topic: 正規分布の条件付き分布 }]
@@ -299,7 +299,7 @@ subcategory: math-distribution-functions
 topic: probability-generating-function
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, モーメント, ベルヌーイ分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -338,7 +338,7 @@ subcategory: math-distribution-functions
 topic: mgf-independent-sum
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [モーメント母関数（積率母関数）, 統計的独立, 確率変数の和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
@@ -377,7 +377,7 @@ subcategory: math-events
 topic: complement-rule
 type: strategy
 difficulty: 1
-priority: B
+priority: A
 hashtags: [補集合, 少なくとも, 独立試行]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率の計算 }]
@@ -414,7 +414,7 @@ subcategory: math-events
 topic: inclusion-exclusion-three
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [包除原理, 3事象, 和事象]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 包除原理 }]
@@ -446,7 +446,7 @@ subcategory: math-events
 topic: probability-chain-rule
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [条件付き確率, 連鎖則, 共通部分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き確率 }]
@@ -479,7 +479,7 @@ subcategory: math-events
 topic: independence-complements
 type: proof_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [統計的独立, 補事象, 証明の一手]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }]
@@ -515,7 +515,7 @@ subcategory: math-events
 topic: conditional-independence-pitfall
 type: pitfall
 difficulty: 2
-priority: B
+priority: S
 hashtags: [条件付き確率, 統計的独立, 典型的な罠]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き確率と統計的独立 }]
@@ -552,7 +552,7 @@ subcategory: math-distribution-functions
 topic: density-normalization
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [確率密度関数, 正規化, 積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率密度関数 }]
@@ -588,7 +588,7 @@ subcategory: math-distribution-functions
 topic: cdf-jump
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [累積分布関数, 点確率, 左極限]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 累積分布関数 }]
@@ -621,7 +621,7 @@ subcategory: math-distribution-functions
 topic: discrete-marginal
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [同時分布, 周辺分布, 離散分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と周辺分布 }]
@@ -656,7 +656,7 @@ subcategory: math-distribution-functions
 topic: discrete-conditional
 type: calc_step
 difficulty: 1
-priority: B
+priority: S
 hashtags: [条件付き分布, 同時分布, 離散分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }]
@@ -694,7 +694,7 @@ subcategory: math-distribution-functions
 topic: joint-independence
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 統計的独立, 周辺密度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]

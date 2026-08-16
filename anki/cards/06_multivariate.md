@@ -6,7 +6,7 @@ subcategory: engineering-multivariate
 topic: linear-combination
 type: theorem
 difficulty: 2
-priority: B
+priority: S
 hashtags: [多変量正規分布, 線形変換, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
@@ -32,7 +32,7 @@ subcategory: engineering-multivariate
 topic: covariance-matrix
 type: proof_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [分散共分散行列, 半正定値, 二次形式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 共分散行列 }]
@@ -58,7 +58,7 @@ subcategory: engineering-multivariate
 topic: principal-component
 type: strategy
 difficulty: 3
-priority: B
+priority: A
 hashtags: [主成分分析, 固有値, Rayleigh商]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 固有値と固有ベクトル }]

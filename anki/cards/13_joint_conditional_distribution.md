@@ -6,7 +6,7 @@ subcategory: math-distribution-functions
 topic: joint-density-normalization
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 正規化, 三角形の台]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
@@ -41,7 +41,7 @@ subcategory: math-distribution-functions
 topic: joint-pmf-normalization
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 正規化, 二重和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
@@ -77,7 +77,7 @@ subcategory: math-distribution-functions
 topic: discrete-independence
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 統計的独立, 交差積]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]
@@ -113,7 +113,7 @@ subcategory: math-distribution-functions
 topic: conditional-independence
 type: condition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [条件付き分布, 周辺分布, 統計的独立]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布と統計的独立 }]
@@ -151,7 +151,7 @@ subcategory: math-distribution-functions
 topic: joint-cdf-independence
 type: theorem
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 統計的独立, 積分解]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]
@@ -185,7 +185,7 @@ subcategory: math-distribution-functions
 topic: mixture-marginalization
 type: formula
 difficulty: 2
-priority: A
+priority: S
 hashtags: [混合分布, 周辺分布, 全確率]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 周辺分布 }, { type: past_exam, id: MATH-2024-Q4, topic: 経験分布・混合分布 }]
@@ -218,7 +218,7 @@ subcategory: math-distribution-functions
 topic: conditional-density-event
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [条件付き分布, 切断分布, 正規化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }]
@@ -254,7 +254,7 @@ subcategory: math-distribution-functions
 topic: density-bayes
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [条件付き分布, ベイズの定理, 混合密度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }]
@@ -286,7 +286,7 @@ subcategory: math-distribution-functions
 topic: conditional-cdf
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [条件付き分布, 累積分布関数, 積分]
 frequency: { past_exam: 3, textbook: 0, independent_problems: 0, source_confirmations: 3 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }, { type: past_exam, id: MATH-2018-Q4, topic: 条件付き2変量正規分布 }, { type: past_exam, id: MATH-2017-Q4, topic: 正規分布の条件付き分布 }]

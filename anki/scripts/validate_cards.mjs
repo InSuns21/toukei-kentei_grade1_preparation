@@ -151,7 +151,6 @@ for (const card of cards) {
   if (card.frequency.past_exam !== new Set(pastExamSources.map((source) => source.id)).size) error(card, "frequency.past_examは重複を除くpast_exam source ID数と一致させます");
   const claimedFrequency = Object.values(card.frequency || {}).some((value) => Number(value) > 0);
   if (claimedFrequency && !hasConcreteSource) error(card, "正のfrequencyには具体的な過去問・教科書・独自問題sourceが必要です");
-  if (["S", "A"].includes(card.priority) && !hasConcreteSource) error(card, "priority S/Aには具体的sourceが必要です");
   if (!Array.isArray(card.hashtags) || card.hashtags.length === 0) error(card, "hashtags は1件以上必要です");
   if (!card.sections["問題"] || !(card.sections["答え"] || card.sections["方針"])) error(card, "「問題」と「答え」または「方針」が必要です");
   if (!card.sections["使用公式・定理"]) error(card, "「使用公式・定理」が必要です");

@@ -6,7 +6,7 @@ subcategory: math-distribution-functions
 topic: pmf-normalization
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [確率関数, 正規化, 総和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率関数 }]
@@ -41,7 +41,7 @@ subcategory: math-distribution-functions
 topic: cdf-properties
 type: condition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [累積分布関数, 単調性, 右連続]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 累積分布関数 }]
@@ -75,7 +75,7 @@ subcategory: math-distribution-functions
 topic: interval-probability-cdf
 type: formula
 difficulty: 1
-priority: B
+priority: A
 hashtags: [累積分布関数, 区間確率, 差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 累積分布関数 }]
@@ -107,7 +107,7 @@ subcategory: math-distribution-functions
 topic: cdf-endpoints
 type: pitfall
 difficulty: 2
-priority: B
+priority: A
 hashtags: [累積分布関数, 左極限, 点確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 累積分布関数 }]
@@ -140,7 +140,7 @@ subcategory: math-distribution-functions
 topic: mixed-distribution-cdf
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [混合分布, 累積分布関数, 点質量]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 確率分布 }, { type: past_exam, id: MATH-2024-Q4, topic: 経験分布・混合分布 }]
@@ -174,7 +174,7 @@ subcategory: math-distribution-functions
 topic: joint-cdf
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 同時密度, 二重積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
@@ -206,7 +206,7 @@ subcategory: math-distribution-functions
 topic: joint-cdf-rectangle
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [同時分布, 長方形確率, 包除原理]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
@@ -238,7 +238,7 @@ subcategory: math-distribution-functions
 topic: survival-function
 type: formula
 difficulty: 1
-priority: A
+priority: S
 hashtags: [生存関数, 累積分布関数, 補集合]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 生存関数 }, { type: past_exam, id: SCI-2019-Q1, topic: 生存関数・平均残存寿命 }]
@@ -272,7 +272,7 @@ subcategory: math-distribution-functions
 topic: cumulative-hazard
 type: formula
 difficulty: 2
-priority: A
+priority: S
 hashtags: [累積危険率, 生存関数, 対数]
 frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
 sources: [{ type: official_syllabus, topic: 危険率 }, { type: past_exam, id: SCI-2019-Q1, topic: 生存関数 }, { type: past_exam, id: SCI-2017-Q2, topic: 故障率 }]
@@ -306,7 +306,7 @@ subcategory: math-distribution-functions
 topic: hazard-to-survival
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [危険率, 生存関数, 累積危険率]
 frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
 sources: [{ type: official_syllabus, topic: 危険率 }, { type: past_exam, id: SCI-2019-Q1, topic: 生存関数 }, { type: past_exam, id: SCI-2017-Q2, topic: 故障率 }]

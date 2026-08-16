@@ -6,7 +6,7 @@ subcategory: math-distribution-characteristics
 topic: expectation-linearity
 type: formula
 difficulty: 1
-priority: B
+priority: S
 hashtags: [期待値, 線形性, 和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値 }]
@@ -40,7 +40,7 @@ subcategory: math-distribution-characteristics
 topic: expectation-discrete
 type: calc_step
 difficulty: 1
-priority: B
+priority: S
 hashtags: [期待値, 確率関数, 定義]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値 }]
@@ -73,7 +73,7 @@ subcategory: math-distribution-characteristics
 topic: expectation-continuous
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [期待値, 確率密度関数, 積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値 }]
@@ -107,7 +107,7 @@ subcategory: math-distribution-characteristics
 topic: expectation-function
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [期待値, 関数の期待値, LOTUS]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値 }]
@@ -140,7 +140,7 @@ subcategory: math-distribution-characteristics
 topic: variance-affine
 type: formula
 difficulty: 1
-priority: B
+priority: A
 hashtags: [分散, 線形変換, スケール]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 分散 }]
@@ -173,7 +173,7 @@ subcategory: math-distribution-characteristics
 topic: variance-sum
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [分散, 統計的独立, 和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 分散 }]
@@ -209,7 +209,7 @@ subcategory: math-distribution-characteristics
 topic: standardization
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [標準偏差, 標準化, 変数変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 標準偏差 }]
@@ -245,7 +245,7 @@ subcategory: math-distribution-characteristics
 topic: moments-central
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [モーメント, 中心モーメント, 変数変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント }]
@@ -279,7 +279,7 @@ subcategory: math-distribution-characteristics
 topic: moments-third
 type: calc_step
 difficulty: 3
-priority: A
+priority: S
 hashtags: [モーメント, 中心モーメント, 歪度]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: モーメント }, { type: past_exam, id: MATH-2017-Q1, topic: 標本平均の歪度・尖度 }]
@@ -313,7 +313,7 @@ subcategory: math-distribution-characteristics
 topic: skewness
 type: calc_step
 difficulty: 3
-priority: A
+priority: S
 hashtags: [歪度, モーメント, 分布の形状]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 歪度 }, { type: past_exam, id: MATH-2017-Q1, topic: 標本平均の歪度・尖度 }]
@@ -389,7 +389,7 @@ subcategory: math-distribution-characteristics
 topic: kurtosis
 type: calc_step
 difficulty: 3
-priority: A
+priority: S
 hashtags: [尖度, モーメント, 分布の形状]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 尖度 }, { type: past_exam, id: MATH-2017-Q1, topic: 標本平均の歪度・尖度 }]
@@ -461,7 +461,7 @@ subcategory: math-distribution-characteristics
 topic: coefficient-of-variation
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [変動係数, 標準偏差, 相対ばらつき]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変動係数 }]
@@ -496,7 +496,7 @@ subcategory: math-distribution-characteristics
 topic: percentile
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [パーセント点, 累積分布関数, 逆関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: パーセント点 }]
@@ -529,7 +529,7 @@ subcategory: math-distribution-characteristics
 topic: median
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [中央値, 累積分布関数, 分割]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中央値 }]
@@ -564,7 +564,7 @@ subcategory: math-distribution-characteristics
 topic: quartiles
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [四分位数, 四分位範囲, 累積分布関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 四分位数 }]
@@ -598,7 +598,7 @@ subcategory: math-distribution-characteristics
 topic: range
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [範囲, 台, 分布の特性値]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 範囲 }]
@@ -632,7 +632,7 @@ subcategory: math-distribution-characteristics
 topic: mode
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [最頻値, 密度の最大化, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 最頻値 }]
@@ -667,7 +667,7 @@ subcategory: math-distribution-characteristics
 topic: covariance
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [共分散, 同時分布, 期待値]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 共分散 }]
@@ -705,7 +705,7 @@ subcategory: math-distribution-characteristics
 topic: correlation
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [相関係数, 共分散, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 相関係数 }]
@@ -740,7 +740,7 @@ subcategory: math-distribution-characteristics
 topic: correlation-independence
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [相関係数, 統計的独立, 無相関]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 相関係数 }]
@@ -776,7 +776,7 @@ subcategory: math-distribution-characteristics
 topic: partial-correlation
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [偏相関係数, 相関係数, 第三変数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 偏相関係数 }]

@@ -6,7 +6,7 @@ subcategory: math-population-sample-statistic
 topic: factorization-theorem
 type: theorem
 difficulty: 2
-priority: B
+priority: S
 hashtags: [十分統計量, 因子分解, 尤度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
@@ -32,7 +32,7 @@ subcategory: math-likelihood-mle
 topic: maximum-likelihood
 type: strategy
 difficulty: 2
-priority: B
+priority: S
 hashtags: [最尤推定, 尤度, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 最尤法 }]
@@ -60,7 +60,7 @@ subcategory: math-point-estimator-properties
 topic: mse-decomposition
 type: proof_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [不偏性, MSE, 証明の一手]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 推定量の評価 }]
@@ -86,7 +86,7 @@ subcategory: math-asymptotic-estimation
 topic: delta-method
 type: strategy
 difficulty: 3
-priority: B
+priority: S
 hashtags: [デルタ法, 漸近分布, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Delta法 }]

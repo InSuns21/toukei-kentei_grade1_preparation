@@ -6,7 +6,7 @@ subcategory: math-interval-estimation
 topic: confidence-interval
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [信頼区間, 正規分布（ガウス分布）, 被覆確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 区間推定 }]
@@ -33,7 +33,7 @@ subcategory: math-test-derivation
 topic: neyman-pearson
 type: strategy
 difficulty: 3
-priority: B
+priority: S
 hashtags: [ネイマン・ピアソンの基本定理, 検定, 尤度比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Neyman--Pearsonの補題 }]
@@ -61,7 +61,7 @@ subcategory: math-various-tests
 topic: chi-square-goodness-fit
 type: pitfall
 difficulty: 2
-priority: B
+priority: A
 hashtags: [適合度の検定, カイ二乗, 自由度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 適合度の検定 }]
@@ -87,7 +87,7 @@ subcategory: math-various-tests
 topic: sign-test
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [ノンパラメトリック, 符号検定, 二項分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック法 }]

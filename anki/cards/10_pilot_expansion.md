@@ -6,7 +6,7 @@ subcategory: math-distribution-functions
 topic: moment-generating-function
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [モーメント母関数（積率母関数）, ポアソン分布, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 母関数 }]
@@ -31,7 +31,7 @@ subcategory: math-transformations
 topic: convolution
 type: strategy
 difficulty: 3
-priority: B
+priority: S
 hashtags: [畳み込み, 台, 一様分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数の和 }]
@@ -57,7 +57,7 @@ subcategory: math-population-sample-statistic
 topic: order-statistics
 type: strategy
 difficulty: 2
-priority: B
+priority: S
 hashtags: [順序統計量, 累積分布関数, 最大値]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 順序統計量 }]
@@ -84,7 +84,7 @@ subcategory: math-estimation-methods
 topic: method-of-moments
 type: strategy
 difficulty: 2
-priority: B
+priority: S
 hashtags: [モーメント法, 指数分布, 標本平均]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント法 }]
@@ -110,7 +110,7 @@ subcategory: math-asymptotic-estimation
 topic: fisher-information
 type: calc_step
 difficulty: 3
-priority: B
+priority: S
 hashtags: [フィッシャー情報量（1次元）, ベルヌーイ分布, スコア]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元）量 }]
@@ -135,7 +135,7 @@ subcategory: math-asymptotic-estimation
 topic: cramer-rao
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [CRLB, フィッシャー情報量（1次元）, 不偏性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Cramér--Rao不等式 }]
@@ -189,7 +189,7 @@ subcategory: math-testing-foundations
 topic: z-test
 type: strategy
 difficulty: 2
-priority: B
+priority: S
 hashtags: [検定, 棄却域, 正規分布（ガウス分布）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規母集団の検定 }]
@@ -215,7 +215,7 @@ subcategory: math-test-derivation
 topic: likelihood-ratio-test
 type: strategy
 difficulty: 3
-priority: B
+priority: S
 hashtags: [尤度比検定, 最尤推定, 漸近分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 尤度比検定 }]
@@ -242,7 +242,7 @@ subcategory: math-bayesian-methods
 topic: bayes-estimation
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [ベイズの定理, 共役事前分布, 事後分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベイズの定理法 }]
@@ -319,7 +319,7 @@ subcategory: engineering-multivariate
 topic: conditional-normal
 type: formula
 difficulty: 3
-priority: B
+priority: S
 hashtags: [多変量正規分布, 条件付き分布, 回帰分析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
@@ -344,7 +344,7 @@ subcategory: applied-stochastic-processes
 topic: stationary-distribution
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [マルコフ連鎖, 定常分布, 連立方程式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
@@ -370,7 +370,7 @@ subcategory: engineering-stochastic-processes
 topic: ma1
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [MA, 自己共分散, 時系列解析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: MA過程 }]
@@ -395,7 +395,7 @@ subcategory: applied-multivariate
 topic: poisson-regression
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [一般化線形モデル, Poisson回帰, 平均比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
@@ -420,7 +420,7 @@ subcategory: engineering-quality
 topic: control-chart
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [管理図, 工程管理, 標準誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 管理図 }]
@@ -446,7 +446,7 @@ subcategory: engineering-quality
 topic: exponential-lifetime
 type: formula
 difficulty: 2
-priority: B
+priority: A
 hashtags: [信頼性, 指数分布, MTBF]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: MTBF }]
@@ -472,7 +472,7 @@ subcategory: engineering-design
 topic: interaction
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [実験計画法, 交互作用, 差の差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 交互作用 }]

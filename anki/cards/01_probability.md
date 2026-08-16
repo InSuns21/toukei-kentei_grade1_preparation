@@ -6,7 +6,7 @@ subcategory: math-events
 topic: inclusion-exclusion
 type: formula
 difficulty: 1
-priority: B
+priority: A
 hashtags: [確率, 包除原理, 頻出]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 事象と確率 }]
@@ -34,7 +34,7 @@ subcategory: math-events
 topic: bayes-theorem
 type: strategy
 difficulty: 2
-priority: A
+priority: S
 hashtags: [ベイズの定理, 条件付き確率, 計算の一手]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: ベイズの定理 }, { type: past_exam, id: MATH-2021-Q2, topic: 事後確率最大化 }]
@@ -64,7 +64,7 @@ subcategory: math-distribution-functions
 topic: cdf
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [累積分布関数, 確率関数, 確率変数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数と分布関数 }]

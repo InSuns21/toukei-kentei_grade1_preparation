@@ -6,7 +6,7 @@ subcategory: math-events
 topic: counting-probability
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [確率の計算, 場合の数, 標本空間]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 確率の計算 }, { type: past_exam, id: MATH-2022-Q1, topic: 確率空間・独立性 }]
@@ -44,7 +44,7 @@ subcategory: math-events
 topic: conditional-probability-definition
 type: formula
 difficulty: 2
-priority: A
+priority: S
 hashtags: [条件付き確率, 共通部分, 定義]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 条件付き確率 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }]
@@ -77,7 +77,7 @@ subcategory: math-distribution-functions
 topic: density-from-cdf
 type: calc_step
 difficulty: 2
-priority: A
+priority: S
 hashtags: [累積分布関数, 確率密度関数, 微分]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 累積分布関数・確率密度関数 }, { type: past_exam, id: MATH-2018-Q5, topic: 順序統計量の確率密度 }]

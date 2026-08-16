@@ -6,7 +6,7 @@ subcategory: engineering-quality
 topic: process-capability
 type: formula
 difficulty: 1
-priority: B
+priority: A
 hashtags: [工程能力, 品質管理, Cp]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 工程能力指数 }]
@@ -32,7 +32,7 @@ subcategory: engineering-quality
 topic: series-system
 type: formula
 difficulty: 1
-priority: B
+priority: A
 hashtags: [信頼性, 直列系, 独立]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 信頼性 }]
@@ -58,7 +58,7 @@ subcategory: engineering-design
 topic: randomized-block-design
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [実験計画法, ブロック化, 変動要因]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ブロック化 }]

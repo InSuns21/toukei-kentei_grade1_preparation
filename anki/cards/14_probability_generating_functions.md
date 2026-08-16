@@ -6,7 +6,7 @@ subcategory: math-distribution-functions
 topic: pgf-coefficients
 type: recognition
 difficulty: 1
-priority: B
+priority: S
 hashtags: [確率母関数, 確率関数, 係数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -41,7 +41,7 @@ subcategory: math-distribution-functions
 topic: pgf-binomial
 type: expansion
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, 二項分布, 二項定理]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -75,7 +75,7 @@ subcategory: math-distribution-functions
 topic: pgf-geometric
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, 幾何分布, 等比級数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -109,7 +109,7 @@ subcategory: math-distribution-functions
 topic: pgf-poisson
 type: expansion
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, ポアソン分布, 指数級数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -141,7 +141,7 @@ subcategory: math-distribution-functions
 topic: pgf-independent-sum
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, 独立和, 二項分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -178,7 +178,7 @@ subcategory: math-distribution-functions
 topic: pgf-thinning
 type: strategy
 difficulty: 3
-priority: B
+priority: S
 hashtags: [確率母関数, 二項間引き, 合成]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -214,7 +214,7 @@ subcategory: math-distribution-functions
 topic: pgf-factorial-moment
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, 階乗モーメント, ポアソン分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
@@ -250,7 +250,7 @@ subcategory: math-distribution-functions
 topic: pgf-validity
 type: condition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [確率母関数, 係数, 正規化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]

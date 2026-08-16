@@ -6,7 +6,7 @@ subcategory: math-limit-approximations
 topic: weak-law-chebyshev
 type: expansion
 difficulty: 3
-priority: B
+priority: S
 hashtags: [大数の弱法則, チェビシェフの不等式, 確率収束]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
@@ -44,7 +44,7 @@ subcategory: math-limit-approximations
 topic: weak-law-sample-mean
 type: recognition
 difficulty: 1
-priority: C
+priority: S
 hashtags: [大数の弱法則, 標本平均, 確率収束]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
@@ -83,7 +83,7 @@ subcategory: math-limit-approximations
 topic: weak-law-conditions
 type: recognition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [大数の弱法則, 仮定, 有限分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
@@ -123,7 +123,7 @@ subcategory: math-limit-approximations
 topic: central-limit-theorem
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 標準化, 正規分布（ガウス分布）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -161,7 +161,7 @@ subcategory: math-limit-approximations
 topic: central-limit-sample-mean
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 標本平均, 確率近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -199,7 +199,7 @@ subcategory: math-limit-approximations
 topic: central-limit-bernoulli
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, ベルヌーイ分布, 標本比率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -236,7 +236,7 @@ subcategory: math-limit-approximations
 topic: central-limit-quantile
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 標本平均, 二項分布の正規近似とポアソン近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -273,7 +273,7 @@ subcategory: math-limit-approximations
 topic: central-limit-sum
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 和, 標準偏差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -310,7 +310,7 @@ subcategory: math-limit-approximations
 topic: binomial-normal-conditions
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 近似条件]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -349,7 +349,7 @@ subcategory: math-limit-approximations
 topic: binomial-normal-probability
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -388,7 +388,7 @@ subcategory: math-limit-approximations
 topic: binomial-normal-tail
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 上側確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -426,7 +426,7 @@ subcategory: math-limit-approximations
 topic: continuity-correction-interval
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [連続修正, 二項分布, 区間確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続修正 }]
@@ -461,7 +461,7 @@ subcategory: math-limit-approximations
 topic: continuity-correction-tail
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [連続修正, 上側確率, 下側確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続修正 }]
@@ -503,7 +503,7 @@ subcategory: math-limit-approximations
 topic: binomial-poisson-conditions
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 少数法則]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -539,7 +539,7 @@ subcategory: math-limit-approximations
 topic: binomial-poisson-probability
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 確率の計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -577,7 +577,7 @@ subcategory: math-limit-approximations
 topic: poisson-limit
 type: expansion
 difficulty: 3
-priority: B
+priority: A
 hashtags: [少数法則, ポアソン分布, 極限]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
@@ -615,7 +615,7 @@ subcategory: math-limit-approximations
 topic: law-of-small-numbers
 type: recognition
 difficulty: 1
-priority: B
+priority: A
 hashtags: [少数法則, 希少事象, ポアソン分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
@@ -652,7 +652,7 @@ subcategory: math-limit-approximations
 topic: approximation-choice
 type: recognition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -690,7 +690,7 @@ subcategory: math-limit-approximations
 topic: approximation-error
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [近似, 連続修正, 誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続修正 }]
@@ -725,7 +725,7 @@ subcategory: math-limit-approximations
 topic: convergence-distinction
 type: recognition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [大数の弱法則, 中心極限定理, 分布収束, 確率収束]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }, { type: official_syllabus, topic: 中心極限定理 }]
@@ -762,7 +762,7 @@ subcategory: math-limit-approximations
 topic: central-limit-standard-error
 type: calc_step
 difficulty: 1
-priority: B
+priority: S
 hashtags: [中心極限定理, 標本平均, 標準誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -800,7 +800,7 @@ subcategory: math-limit-approximations
 topic: poisson-approximation-check
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [少数法則, 二項分布の正規近似とポアソン近似, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
@@ -838,7 +838,7 @@ subcategory: math-limit-approximations
 topic: binomial-normal-symmetry
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 対称性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -876,7 +876,7 @@ subcategory: math-limit-approximations
 topic: weak-law-error-rate
 type: calc_step
 difficulty: 2
-priority: B
+priority: S
 hashtags: [大数の弱法則, チェビシェフの不等式, 誤差確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
@@ -911,7 +911,7 @@ subcategory: math-limit-approximations
 topic: central-limit-approximation-limit
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 分布収束, 確率近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -948,7 +948,7 @@ subcategory: math-limit-approximations
 topic: poisson-tail
 type: calc_step
 difficulty: 1
-priority: B
+priority: A
 hashtags: [二項分布の正規近似とポアソン近似, 少数法則, 補集合]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
@@ -983,7 +983,7 @@ subcategory: math-limit-approximations
 topic: normal-approximation-continuity-full
 type: calc_step
 difficulty: 3
-priority: B
+priority: A
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 連続修正, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }, { type: official_syllabus, topic: 連続修正 }]
@@ -1020,7 +1020,7 @@ subcategory: math-limit-approximations
 topic: weak-law-mean-identification
 type: calc_step
 difficulty: 1
-priority: C
+priority: S
 hashtags: [大数の弱法則, 期待値, 標本平均]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
@@ -1056,7 +1056,7 @@ subcategory: math-limit-approximations
 topic: central-limit-binomial-count
 type: formula
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 二項分布, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }, { type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -1091,7 +1091,7 @@ subcategory: math-limit-approximations
 topic: continuity-correction-point
 type: calc_step
 difficulty: 1
-priority: C
+priority: A
 hashtags: [連続修正, 二項分布, 一点確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続修正 }]
@@ -1128,7 +1128,7 @@ subcategory: math-limit-approximations
 topic: poisson-approximation-complement
 type: calc_step
 difficulty: 2
-priority: B
+priority: A
 hashtags: [二項分布の正規近似とポアソン近似, 補集合, 確率の計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -1165,7 +1165,7 @@ subcategory: math-limit-approximations
 topic: central-limit-conditions
 type: recognition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 有限分散, 仮定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
@@ -1202,7 +1202,7 @@ subcategory: math-limit-approximations
 topic: binomial-normal-standardization
 type: formula
 difficulty: 1
-priority: B
+priority: S
 hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
@@ -1238,7 +1238,7 @@ subcategory: math-limit-approximations
 topic: weak-law-frequency
 type: calc_step
 difficulty: 1
-priority: B
+priority: S
 hashtags: [大数の弱法則, ベルヌーイ分布, 相対度数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 大数の弱法則 }]

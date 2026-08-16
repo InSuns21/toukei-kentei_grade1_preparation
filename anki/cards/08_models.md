@@ -6,7 +6,7 @@ subcategory: applied-multiple-regression
 topic: blue
 type: condition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [BLUE, 線形モデル, GaussMarkov]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 線形モデル }]
@@ -34,7 +34,7 @@ subcategory: applied-multivariate
 topic: logistic-regression
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [一般化線形モデル, ロジスティック回帰, オッズ比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
@@ -59,7 +59,7 @@ subcategory: engineering-linear-inference
 topic: linear-contrast
 type: condition
 difficulty: 2
-priority: B
+priority: S
 hashtags: [線形対比, 制約, 分散分析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 線形対比と制約 }]

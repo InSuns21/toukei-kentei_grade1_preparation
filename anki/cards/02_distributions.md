@@ -6,7 +6,7 @@ subcategory: math-distribution-characteristics
 topic: variance
 type: reverse
 difficulty: 1
-priority: B
+priority: A
 hashtags: [分散, 期待値, 頻出]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値と分散 }]
@@ -33,7 +33,7 @@ subcategory: math-continuous-distributions
 topic: gamma-integral
 type: recognition
 difficulty: 2
-priority: B
+priority: A
 hashtags: [ガンマ分布, 積分, 形の認識]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続分布 }]
@@ -61,7 +61,7 @@ subcategory: math-transformations
 topic: jacobian
 type: strategy
 difficulty: 2
-priority: B
+priority: A
 hashtags: [変数変換, 台]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
@@ -91,7 +91,7 @@ subcategory: math-limit-approximations
 topic: central-limit-theorem
 type: strategy
 difficulty: 2
-priority: B
+priority: S
 hashtags: [中心極限定理, 標準化, 漸近分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
