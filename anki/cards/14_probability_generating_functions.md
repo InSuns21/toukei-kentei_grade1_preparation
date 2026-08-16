@@ -7,7 +7,7 @@ topic: pgf-coefficients
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [確率母関数, 確率質量関数, 係数]
+hashtags: [確率母関数, 確率関数, 係数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
@@ -110,7 +110,7 @@ topic: pgf-poisson
 type: expansion
 difficulty: 2
 priority: B
-hashtags: [確率母関数, Poisson分布, 指数級数]
+hashtags: [確率母関数, ポアソン分布, 指数級数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
@@ -215,7 +215,7 @@ topic: pgf-factorial-moment
 type: formula
 difficulty: 2
 priority: B
-hashtags: [確率母関数, 階乗モーメント, Poisson分布]
+hashtags: [確率母関数, 階乗モーメント, ポアソン分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---

@@ -35,7 +35,7 @@ topic: bayes-theorem
 type: strategy
 difficulty: 2
 priority: A
-hashtags: [Bayes, 条件付き確率, 計算の一手]
+hashtags: [ベイズの定理, 条件付き確率, 計算の一手]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: Bayesの定理 }, { type: past_exam, id: MATH-2021-Q2, topic: 事後確率最大化 }]
 ---
@@ -65,7 +65,7 @@ topic: cdf
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [CDF, PMF, 確率変数]
+hashtags: [累積分布関数, 確率関数, 確率変数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数と分布関数 }]
 ---

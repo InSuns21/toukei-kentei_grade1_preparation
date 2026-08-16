@@ -59,7 +59,7 @@ topic: randomized-block-design
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [実験計画, ブロック化, 変動要因]
+hashtags: [実験計画法, ブロック化, 変動要因]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ブロック化 }]
 ---

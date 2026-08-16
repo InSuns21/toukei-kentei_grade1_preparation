@@ -7,7 +7,7 @@ topic: joint-density-normalization
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [同時確率密度関数, 正規化, 三角形の台]
+hashtags: [同時分布, 正規化, 三角形の台]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
 ---
@@ -42,7 +42,7 @@ topic: joint-pmf-normalization
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [同時確率質量関数, 正規化, 二重和]
+hashtags: [同時分布, 正規化, 二重和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
 ---
@@ -78,7 +78,7 @@ topic: discrete-independence
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [同時分布, 独立性, 交差積]
+hashtags: [同時分布, 統計的独立, 交差積]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]
 ---
@@ -114,7 +114,7 @@ topic: conditional-independence
 type: condition
 difficulty: 2
 priority: B
-hashtags: [条件付き分布, 周辺分布, 独立性]
+hashtags: [条件付き分布, 周辺分布, 統計的独立]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布と統計的独立 }]
 ---
@@ -152,7 +152,7 @@ topic: joint-cdf-independence
 type: theorem
 difficulty: 2
 priority: B
-hashtags: [同時累積分布関数, 独立性, 積分解]
+hashtags: [同時分布, 統計的独立, 積分解]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]
 ---
@@ -255,7 +255,7 @@ topic: density-bayes
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [条件付き分布, Bayesの定理, 混合密度]
+hashtags: [条件付き分布, ベイズの定理, 混合密度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }]
 ---

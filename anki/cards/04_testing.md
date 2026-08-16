@@ -7,7 +7,7 @@ topic: confidence-interval
 type: formula
 difficulty: 2
 priority: B
-hashtags: [信頼区間, 正規分布, 被覆確率]
+hashtags: [信頼区間, 正規分布（ガウス分布）, 被覆確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 区間推定 }]
 ---
@@ -34,7 +34,7 @@ topic: neyman-pearson
 type: strategy
 difficulty: 3
 priority: B
-hashtags: [NeymanPearson, 検定, 尤度比]
+hashtags: [ネイマン・ピアソンの基本定理, 検定, 尤度比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Neyman--Pearsonの補題 }]
 ---
@@ -62,7 +62,7 @@ topic: chi-square-goodness-fit
 type: pitfall
 difficulty: 2
 priority: B
-hashtags: [適合度検定, カイ二乗, 自由度]
+hashtags: [適合度の検定, カイ二乗, 自由度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 適合度の検定 }]
 ---

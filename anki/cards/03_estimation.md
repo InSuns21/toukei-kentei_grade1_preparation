@@ -33,7 +33,7 @@ topic: maximum-likelihood
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [MLE, 尤度, 微分]
+hashtags: [最尤推定, 尤度, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 最尤法 }]
 ---
@@ -61,7 +61,7 @@ topic: mse-decomposition
 type: proof_step
 difficulty: 2
 priority: B
-hashtags: [不偏推定, MSE, 証明の一手]
+hashtags: [不偏性, MSE, 証明の一手]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 推定量の評価 }]
 ---
@@ -87,7 +87,7 @@ topic: delta-method
 type: strategy
 difficulty: 3
 priority: B
-hashtags: [DeltaMethod, 漸近分布, 微分]
+hashtags: [デルタ法, 漸近分布, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Delta法 }]
 ---

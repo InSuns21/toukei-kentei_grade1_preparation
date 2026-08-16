@@ -41,7 +41,7 @@ topic: expectation-discrete
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [期待値, 確率質量関数, 定義]
+hashtags: [期待値, 確率関数, 定義]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 期待値 }]
 ---
@@ -174,7 +174,7 @@ topic: variance-sum
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [分散, 独立性, 和]
+hashtags: [分散, 統計的独立, 和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 分散 }]
 ---
@@ -210,7 +210,7 @@ topic: standardization
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [標準偏差, 標準化, 変換]
+hashtags: [標準偏差, 標準化, 変数変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 標準偏差 }]
 ---
@@ -246,7 +246,7 @@ topic: moments-central
 type: formula
 difficulty: 2
 priority: B
-hashtags: [モーメント, 中心モーメント, 変換]
+hashtags: [モーメント, 中心モーメント, 変数変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント }]
 ---
@@ -741,7 +741,7 @@ topic: correlation-independence
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [相関係数, 独立性, 無相関]
+hashtags: [相関係数, 統計的独立, 無相関]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 相関係数 }]
 ---

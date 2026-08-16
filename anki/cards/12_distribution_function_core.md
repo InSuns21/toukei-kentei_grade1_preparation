@@ -7,7 +7,7 @@ topic: pmf-normalization
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [確率質量関数, 正規化, 総和]
+hashtags: [確率関数, 正規化, 総和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率関数 }]
 ---
@@ -175,7 +175,7 @@ topic: joint-cdf
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [同時累積分布関数, 同時密度, 二重積分]
+hashtags: [同時分布, 同時密度, 二重積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
 ---
@@ -207,7 +207,7 @@ topic: joint-cdf-rectangle
 type: formula
 difficulty: 2
 priority: B
-hashtags: [同時累積分布関数, 長方形確率, 包除原理]
+hashtags: [同時分布, 長方形確率, 包除原理]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布 }]
 ---

@@ -8,7 +8,7 @@ topic: discrete-uniform
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [離散一様分布, 台, 平均, 分散]
+hashtags: [一様分布, 台, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -40,7 +40,7 @@ topic: bernoulli
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [ベルヌーイ分布, PMF, 成功確率]
+hashtags: [ベルヌーイ分布, 確率関数, 成功確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベルヌーイ分布 }]
 ---
@@ -103,7 +103,7 @@ topic: binomial
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [二項分布, PMF, 独立試行]
+hashtags: [二項分布, 確率関数, 独立試行]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布 }]
 ---
@@ -133,7 +133,7 @@ topic: binomial-moments
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [二項分布, 平均, 分散]
+hashtags: [二項分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布 }]
 ---
@@ -256,7 +256,7 @@ topic: hypergeometric
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [超幾何分布, 非復元抽出, PMF]
+hashtags: [超幾何分布, 非復元抽出, 確率関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 超幾何分布 }]
 ---
@@ -286,7 +286,7 @@ topic: hypergeometric-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [超幾何分布, 平均, 有限母集団補正]
+hashtags: [超幾何分布, 期待値, 有限母集団補正]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 超幾何分布 }]
 ---
@@ -404,7 +404,7 @@ topic: geometric-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [幾何分布, 平均, 分散]
+hashtags: [幾何分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 幾何分布 }]
 ---
@@ -436,7 +436,7 @@ topic: negative-binomial
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [負の二項分布, PMF, 成功回数]
+hashtags: [負の二項分布, 確率関数, 成功回数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 負の二項分布 }]
 ---
@@ -466,7 +466,7 @@ topic: negative-binomial-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [負の二項分布, 平均, 分散]
+hashtags: [負の二項分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 負の二項分布 }]
 ---
@@ -498,7 +498,7 @@ topic: poisson
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [ポアソン分布, PMF, 発生回数]
+hashtags: [ポアソン分布, 確率関数, 発生回数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
@@ -530,7 +530,7 @@ topic: poisson-moments
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [ポアソン分布, 平均, 分散]
+hashtags: [ポアソン分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
@@ -589,7 +589,7 @@ topic: poisson-splitting
 type: theorem
 difficulty: 2
 priority: B
-hashtags: [ポアソン分布, 分割, 独立性]
+hashtags: [ポアソン分布, 分割, 統計的独立]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ポアソン分布 }]
 ---
@@ -621,7 +621,7 @@ topic: multinomial
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [多項分布, PMF, カテゴリー]
+hashtags: [多項分布, 確率関数, カテゴリー]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多項分布 }]
 ---
@@ -745,7 +745,7 @@ topic: bernoulli-complement
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [ベルヌーイ分布, 補集合, 確率計算]
+hashtags: [ベルヌーイ分布, 補集合, 確率の計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベルヌーイ分布 }]
 ---
@@ -803,7 +803,7 @@ topic: continuous-uniform
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [連続一様分布, PDF]
+hashtags: [一様分布, 確率密度関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -834,7 +834,7 @@ topic: continuous-uniform-moments
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [連続一様分布, 平均, 分散]
+hashtags: [一様分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -864,7 +864,7 @@ topic: continuous-uniform-probability
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [連続一様分布, 区間確率, 長さ]
+hashtags: [一様分布, 区間確率, 長さ]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -892,7 +892,7 @@ topic: normal
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [正規分布, ガウス分布, PDF]
+hashtags: [正規分布（ガウス分布）, 確率密度関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -923,7 +923,7 @@ topic: normal-standardization
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [正規分布, 標準化, 標準正規分布]
+hashtags: [正規分布（ガウス分布）, 標準化, 標準正規分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -952,7 +952,7 @@ topic: normal-symmetry
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [正規分布, 対称性, 両側確率]
+hashtags: [正規分布（ガウス分布）, 対称性, 両側確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -981,7 +981,7 @@ topic: normal-linear-transform
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [正規分布, 線形変換, 分散]
+hashtags: [正規分布（ガウス分布）, 線形変換, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -1012,7 +1012,7 @@ topic: normal-sum
 type: theorem
 difficulty: 2
 priority: B
-hashtags: [正規分布, 和, 独立性]
+hashtags: [正規分布（ガウス分布）, 和, 統計的独立]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -1041,7 +1041,7 @@ topic: exponential
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [指数分布, PDF, 生存関数]
+hashtags: [指数分布, 確率密度関数, 生存関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 指数分布 }]
 ---
@@ -1072,7 +1072,7 @@ topic: exponential-moments
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [指数分布, 平均, 分散]
+hashtags: [指数分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 指数分布 }]
 ---
@@ -1159,7 +1159,7 @@ topic: gamma
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [Gamma分布, shape-rate, PDF]
+hashtags: [ガンマ分布, shape-rate, 確率密度関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ガンマ分布 }]
 ---
@@ -1188,7 +1188,7 @@ topic: gamma-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [Gamma分布, 平均, 分散]
+hashtags: [ガンマ分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ガンマ分布 }]
 ---
@@ -1216,7 +1216,7 @@ topic: gamma-sum
 type: theorem
 difficulty: 2
 priority: B
-hashtags: [Gamma分布, 指数分布, 和]
+hashtags: [ガンマ分布, 指数分布, 和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ガンマ分布 }]
 ---
@@ -1246,7 +1246,7 @@ topic: beta
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [Beta分布, PDF, 台]
+hashtags: [ベータ分布, 確率密度関数, 台]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベータ分布 }]
 ---
@@ -1276,7 +1276,7 @@ topic: beta-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [Beta分布, 平均, 分散]
+hashtags: [ベータ分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベータ分布 }]
 ---
@@ -1306,7 +1306,7 @@ topic: cauchy
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [Cauchy分布, 平均, 分散, 存在性]
+hashtags: [コーシー分布, 期待値, 分散, 存在性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: コーシー分布 }]
 ---
@@ -1337,7 +1337,7 @@ topic: lognormal
 type: expansion
 difficulty: 2
 priority: B
-hashtags: [対数正規分布, 変数変換, 正規分布]
+hashtags: [対数正規分布, 変数変換, 正規分布（ガウス分布）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 対数正規分布 }]
 ---
@@ -1367,7 +1367,7 @@ topic: lognormal-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [対数正規分布, 平均, 分散]
+hashtags: [対数正規分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 対数正規分布 }]
 ---
@@ -1398,7 +1398,7 @@ topic: weibull
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [Weibull分布, 生存関数, 危険率]
+hashtags: [ワイブル分布, 生存関数, 危険率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Weibull分布 }]
 ---
@@ -1428,7 +1428,7 @@ topic: weibull-moment
 type: calc_step
 difficulty: 2
 priority: C
-hashtags: [Weibull分布, 平均, Gamma関数]
+hashtags: [ワイブル分布, 期待値, Gamma関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ワイブル分布 }]
 ---
@@ -1458,7 +1458,7 @@ topic: logistic
 type: recognition
 difficulty: 2
 priority: C
-hashtags: [ロジスティック分布, CDF, 分位点]
+hashtags: [ロジスティック分布, 累積分布関数, パーセント点]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ロジスティック分布 }]
 ---
@@ -1490,7 +1490,7 @@ topic: multivariate-normal
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [多変量正規分布, 密度, 共分散行列]
+hashtags: [多変量正規分布, 密度, 分散共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
 ---
@@ -1520,7 +1520,7 @@ topic: multivariate-normal-conditional
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [多変量正規分布, 条件付き分布, 回帰]
+hashtags: [多変量正規分布, 条件付き分布, 回帰分析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
 ---
@@ -1552,7 +1552,7 @@ topic: discrete-uniform-moments
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [離散一様分布, 平均, 分散]
+hashtags: [一様分布, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -1582,7 +1582,7 @@ topic: continuous-uniform-cdf
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [連続一様分布, CDF, 区分関数]
+hashtags: [一様分布, 累積分布関数, 区分関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一様分布 }]
 ---
@@ -1612,7 +1612,7 @@ topic: normal-moments
 type: recognition
 difficulty: 1
 priority: B
-hashtags: [正規分布, 平均, 分散]
+hashtags: [正規分布（ガウス分布）, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
 ---
@@ -1640,7 +1640,7 @@ topic: exponential-cdf-survival
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [指数分布, CDF, 生存関数]
+hashtags: [指数分布, 累積分布関数, 生存関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 指数分布 }]
 ---
@@ -1669,7 +1669,7 @@ topic: logistic-quantile
 type: calc_step
 difficulty: 2
 priority: C
-hashtags: [ロジスティック分布, 分位点, ロジット]
+hashtags: [ロジスティック分布, パーセント点, ロジット]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ロジスティック分布 }]
 ---

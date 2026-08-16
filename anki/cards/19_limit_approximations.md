@@ -124,7 +124,7 @@ topic: central-limit-theorem
 type: formula
 difficulty: 2
 priority: B
-hashtags: [中心極限定理, 標準化, 正規分布]
+hashtags: [中心極限定理, 標準化, 正規分布（ガウス分布）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ---
@@ -237,7 +237,7 @@ topic: central-limit-quantile
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [中心極限定理, 標本平均, 正規近似]
+hashtags: [中心極限定理, 標本平均, 二項分布の正規近似とポアソン近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ---
@@ -311,7 +311,7 @@ topic: binomial-normal-conditions
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [二項分布, 正規近似, 近似条件]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 近似条件]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -350,7 +350,7 @@ topic: binomial-normal-probability
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [二項分布, 正規近似, 標準化]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -389,7 +389,7 @@ topic: binomial-normal-tail
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [二項分布, 正規近似, 上側確率]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 上側確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -504,7 +504,7 @@ topic: binomial-poisson-conditions
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [二項分布, ポアソン近似, 少数法則]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 少数法則]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -540,7 +540,7 @@ topic: binomial-poisson-probability
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [二項分布, ポアソン近似, 確率計算]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 確率の計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -653,7 +653,7 @@ topic: approximation-choice
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [二項分布, 正規近似, ポアソン近似]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -801,7 +801,7 @@ topic: poisson-approximation-check
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [少数法則, ポアソン近似, 平均, 分散]
+hashtags: [少数法則, 二項分布の正規近似とポアソン近似, 期待値, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
 ---
@@ -839,7 +839,7 @@ topic: binomial-normal-symmetry
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [二項分布, 正規近似, 対称性]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 対称性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -949,7 +949,7 @@ topic: poisson-tail
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [ポアソン近似, 少数法則, 補集合]
+hashtags: [二項分布の正規近似とポアソン近似, 少数法則, 補集合]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 少数法則 }]
 ---
@@ -984,7 +984,7 @@ topic: normal-approximation-continuity-full
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [二項分布, 正規近似, 連続修正, 標準化]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 連続修正, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }, { type: official_syllabus, topic: 連続修正 }]
 ---
@@ -1129,7 +1129,7 @@ topic: poisson-approximation-complement
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [ポアソン近似, 補集合, 確率計算]
+hashtags: [二項分布の正規近似とポアソン近似, 補集合, 確率の計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---
@@ -1203,7 +1203,7 @@ topic: binomial-normal-standardization
 type: formula
 difficulty: 1
 priority: B
-hashtags: [二項分布, 正規近似, 標準化]
+hashtags: [二項分布, 二項分布の正規近似とポアソン近似, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポアソン近似 }]
 ---

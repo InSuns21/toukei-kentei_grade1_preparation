@@ -33,7 +33,7 @@ topic: covariance-matrix
 type: proof_step
 difficulty: 2
 priority: B
-hashtags: [共分散行列, 半正定値, 二次形式]
+hashtags: [分散共分散行列, 半正定値, 二次形式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 共分散行列 }]
 ---

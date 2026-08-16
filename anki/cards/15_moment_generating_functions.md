@@ -7,7 +7,7 @@ topic: mgf-moments
 type: formula
 difficulty: 2
 priority: A
-hashtags: [モーメント母関数, 平均, 分散]
+hashtags: [モーメント母関数（積率母関数）, 期待値, 分散]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }, { type: past_exam, id: MATH-2023-Q3, topic: 指数分布・モーメント母関数 }]
 ---
@@ -44,7 +44,7 @@ topic: mgf-affine-transform
 type: formula
 difficulty: 2
 priority: B
-hashtags: [モーメント母関数, 線形変換, 引数変換]
+hashtags: [モーメント母関数（積率母関数）, 線形変換, 引数変換]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -77,7 +77,7 @@ topic: mgf-iid-sum
 type: formula
 difficulty: 2
 priority: B
-hashtags: [モーメント母関数, 独立同分布, 和]
+hashtags: [モーメント母関数（積率母関数）, 独立同分布, 和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -111,7 +111,7 @@ topic: mgf-exponential
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [モーメント母関数, 指数分布, 存在範囲]
+hashtags: [モーメント母関数（積率母関数）, 指数分布, 存在範囲]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }, { type: past_exam, id: MATH-2023-Q3, topic: 指数分布・モーメント母関数 }]
 ---
@@ -143,7 +143,7 @@ topic: mgf-gamma
 type: expansion
 difficulty: 3
 priority: B
-hashtags: [モーメント母関数, Gamma分布, Gamma積分]
+hashtags: [モーメント母関数（積率母関数）, ガンマ分布, Gamma積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -175,7 +175,7 @@ topic: mgf-identification-normal
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [モーメント母関数, 正規分布, 分布同定]
+hashtags: [モーメント母関数（積率母関数）, 正規分布（ガウス分布）, 分布同定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -211,7 +211,7 @@ topic: mgf-nonexistence
 type: pitfall
 difficulty: 3
 priority: B
-hashtags: [モーメント母関数, 存在条件, 対数正規分布]
+hashtags: [モーメント母関数（積率母関数）, 存在条件, 対数正規分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -246,7 +246,7 @@ topic: mgf-uniqueness
 type: condition
 difficulty: 2
 priority: B
-hashtags: [モーメント母関数, 一意性, 存在範囲]
+hashtags: [モーメント母関数（積率母関数）, 一意性, 存在範囲]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---

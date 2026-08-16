@@ -7,7 +7,7 @@ topic: moment-generating-function
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [MGF, Poisson分布, 微分]
+hashtags: [モーメント母関数（積率母関数）, ポアソン分布, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 母関数 }]
 ---
@@ -32,7 +32,7 @@ topic: convolution
 type: strategy
 difficulty: 3
 priority: B
-hashtags: [畳み込み, support, 一様分布]
+hashtags: [畳み込み, 台, 一様分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数の和 }]
 ---
@@ -58,7 +58,7 @@ topic: order-statistics
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [順序統計量, CDF, 最大値]
+hashtags: [順序統計量, 累積分布関数, 最大値]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 順序統計量 }]
 ---
@@ -111,7 +111,7 @@ topic: fisher-information
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Fisher情報, Bernoulli分布, スコア]
+hashtags: [フィッシャー情報量（1次元）, ベルヌーイ分布, スコア]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Fisher情報量 }]
 ---
@@ -136,7 +136,7 @@ topic: cramer-rao
 type: formula
 difficulty: 2
 priority: B
-hashtags: [CRLB, Fisher情報, 不偏推定]
+hashtags: [CRLB, フィッシャー情報量（1次元）, 不偏性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Cramér--Rao不等式 }]
 ---
@@ -163,7 +163,7 @@ topic: aic
 type: formula
 difficulty: 1
 priority: B
-hashtags: [AIC, モデル選択, 尤度]
+hashtags: [情報量規準AIC, モデル選択, 尤度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: AIC }]
 ---
@@ -190,7 +190,7 @@ topic: z-test
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [検定, 棄却域, 正規分布]
+hashtags: [検定, 棄却域, 正規分布（ガウス分布）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 正規母集団の検定 }]
 ---
@@ -216,7 +216,7 @@ topic: likelihood-ratio-test
 type: strategy
 difficulty: 3
 priority: B
-hashtags: [尤度比検定, MLE, 漸近分布]
+hashtags: [尤度比検定, 最尤推定, 漸近分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 尤度比検定 }]
 ---
@@ -243,7 +243,7 @@ topic: bayes-estimation
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [Bayes, 共役事前分布, 事後分布]
+hashtags: [ベイズの定理, 共役事前分布, 事後分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Bayes法 }]
 ---
@@ -294,7 +294,7 @@ topic: monte-carlo
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [MonteCarlo, 積分, 大数則]
+hashtags: [MonteCarlo, 積分, 大数の弱法則]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: シミュレーション }]
 ---
@@ -320,7 +320,7 @@ topic: conditional-normal
 type: formula
 difficulty: 3
 priority: B
-hashtags: [多変量正規分布, 条件付き分布, 回帰]
+hashtags: [多変量正規分布, 条件付き分布, 回帰分析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
 ---
@@ -345,7 +345,7 @@ topic: stationary-distribution
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [Markov連鎖, 定常分布, 連立方程式]
+hashtags: [マルコフ連鎖, 定常分布, 連立方程式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Markov連鎖 }]
 ---
@@ -371,7 +371,7 @@ topic: ma1
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [MA, 自己共分散, 時系列]
+hashtags: [MA, 自己共分散, 時系列解析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: MA過程 }]
 ---
@@ -396,7 +396,7 @@ topic: poisson-regression
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [GLM, Poisson回帰, 平均比]
+hashtags: [一般化線形モデル, Poisson回帰, 平均比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---
@@ -473,7 +473,7 @@ topic: interaction
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [実験計画, 交互作用, 差の差]
+hashtags: [実験計画法, 交互作用, 差の差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 交互作用 }]
 ---

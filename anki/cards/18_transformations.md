@@ -79,7 +79,7 @@ topic: jacobian-2d
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [変数変換, Jacobian, 同時分布]
+hashtags: [変数変換, 同時分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
 ---
@@ -190,7 +190,7 @@ topic: linear-combination-normal
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [線形結合, 正規分布, 独立性]
+hashtags: [確率変数の線形結合, 正規分布（ガウス分布）, 統計的独立]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }, { type: past_exam, id: MATH-2021-Q5, topic: 多変量正規分布の線形変換・独立性 }]
 ---
@@ -228,7 +228,7 @@ topic: linear-combination-moments
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [線形結合, 期待値, 分散, 共分散]
+hashtags: [確率変数の線形結合, 期待値, 分散, 共分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
 ---

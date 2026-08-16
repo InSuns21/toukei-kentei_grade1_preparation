@@ -34,7 +34,7 @@ topic: gamma-integral
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [Gamma分布, 積分, 形の認識]
+hashtags: [ガンマ分布, 積分, 形の認識]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 連続分布 }]
 ---
@@ -62,7 +62,7 @@ topic: jacobian
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [Jacobian, 変数変換, support]
+hashtags: [変数変換, 台]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
 ---
@@ -92,7 +92,7 @@ topic: central-limit-theorem
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [CLT, 標準化, 漸近分布]
+hashtags: [中心極限定理, 標準化, 漸近分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ---

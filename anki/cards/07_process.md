@@ -7,7 +7,7 @@ topic: transition-matrix
 type: calc_step
 difficulty: 2
 priority: B
-hashtags: [Markov連鎖, 推移行列, 行列積]
+hashtags: [マルコフ連鎖, 推移行列, 行列積]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Markov過程 }]
 ---
@@ -32,7 +32,7 @@ topic: waiting-time
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [Poisson過程, 指数分布, 待ち時間]
+hashtags: [ポアソン過程, 指数分布, 待ち時間]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Poisson過程 }]
 ---
@@ -59,7 +59,7 @@ topic: ar1
 type: strategy
 difficulty: 3
 priority: B
-hashtags: [AR, 時系列, 定常性]
+hashtags: [AR, 時系列解析, 定常性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: AR・MA・ARIMA }]
 ---

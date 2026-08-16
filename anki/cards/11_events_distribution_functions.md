@@ -77,7 +77,7 @@ topic: independence
 type: condition
 difficulty: 1
 priority: A
-hashtags: [独立性, 共通部分, 条件]
+hashtags: [統計的独立, 共通部分, 条件]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }, { type: past_exam, id: MATH-2022-Q1, topic: 確率空間・独立性 }]
 ---
@@ -115,7 +115,7 @@ topic: mutual-independence
 type: pitfall
 difficulty: 2
 priority: B
-hashtags: [独立性, 相互独立, 典型的な罠]
+hashtags: [統計的独立, 相互独立, 典型的な罠]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }]
 ---
@@ -300,7 +300,7 @@ topic: probability-generating-function
 type: formula
 difficulty: 2
 priority: B
-hashtags: [確率母関数, モーメント, Bernoulli分布]
+hashtags: [確率母関数, モーメント, ベルヌーイ分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 確率母関数 }]
 ---
@@ -339,7 +339,7 @@ topic: mgf-independent-sum
 type: formula
 difficulty: 2
 priority: B
-hashtags: [モーメント母関数, 独立性, 確率変数の和]
+hashtags: [モーメント母関数（積率母関数）, 統計的独立, 確率変数の和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -480,7 +480,7 @@ topic: independence-complements
 type: proof_step
 difficulty: 2
 priority: B
-hashtags: [独立性, 補事象, 証明の一手]
+hashtags: [統計的独立, 補事象, 証明の一手]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 統計的独立 }]
 ---
@@ -516,7 +516,7 @@ topic: conditional-independence-pitfall
 type: pitfall
 difficulty: 2
 priority: B
-hashtags: [条件付き確率, 独立性, 典型的な罠]
+hashtags: [条件付き確率, 統計的独立, 典型的な罠]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き確率と統計的独立 }]
 ---
@@ -622,7 +622,7 @@ topic: discrete-marginal
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [同時確率質量関数, 周辺分布, 離散分布]
+hashtags: [同時分布, 周辺分布, 離散分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と周辺分布 }]
 ---
@@ -657,7 +657,7 @@ topic: discrete-conditional
 type: calc_step
 difficulty: 1
 priority: B
-hashtags: [条件付き分布, 同時確率質量関数, 離散分布]
+hashtags: [条件付き分布, 同時分布, 離散分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 条件付き分布 }]
 ---
@@ -695,7 +695,7 @@ topic: joint-independence
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [同時分布, 独立性, 周辺密度]
+hashtags: [同時分布, 統計的独立, 周辺密度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 同時分布と統計的独立 }]
 ---

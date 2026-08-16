@@ -7,7 +7,7 @@ topic: ordinary-least-squares
 type: formula
 difficulty: 2
 priority: B
-hashtags: [回帰, OLS, 平方和]
+hashtags: [回帰分析, 最小二乗法, 平方和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 回帰分析 }]
 ---
