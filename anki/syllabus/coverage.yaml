@@ -448,6 +448,7 @@ items:
       - dist-binomial-factorial-moment
       - dist-poisson-moments-by-definition
       - dist-hypergeometric-moments-by-definition
+      - dist-poisson-reproductivity
     terms:
       - name: 一様分布
         status: card
@@ -490,6 +491,7 @@ items:
           - dist-poisson-ratio-mode
           - dist-poisson-splitting
           - dist-poisson-moments-by-definition
+          - dist-poisson-reproductivity
       - name: 負の二項分布
         status: card
         cards:
@@ -538,6 +540,16 @@ items:
       - dist-gamma-moments-by-definition
       - dist-beta-moments-by-definition
       - dist-lognormal-moments-by-definition
+      - dist-bivariate-normal-definition
+      - dist-bivariate-normal-marginal
+      - multi-exchangeability
+      - prob-conditional-expectation
+      - prob-transform-difference
+      - prob-transform-product
+      - prob-transform-box-muller
+      - dist-gamma-beta-relation
+      - process-poisson-orderstat
+      - dist-limit-map
     terms:
       - name: 一様分布
         status: card
@@ -571,12 +583,14 @@ items:
           - dist-gamma-moments
           - dist-gamma-sum-exponential
           - dist-gamma-moments-by-definition
+          - dist-gamma-beta-relation
       - name: ベータ分布
         status: card
         cards:
           - dist-beta-definition
           - dist-beta-moments
           - dist-beta-moments-by-definition
+          - dist-gamma-beta-relation
       - name: コーシー分布
         status: card
         cards:
@@ -603,6 +617,8 @@ items:
         cards:
           - dist-multivariate-normal-density
           - dist-multivariate-normal-conditional
+          - dist-bivariate-normal-definition
+          - dist-bivariate-normal-marginal
   - id: math-sampling-distributions
     status: complete
     cards:

@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 289
+reviewed_card_count: 300
 current_work: null
 next_work: C07-population-likelihood
-last_completed_work: ADHOC-20260816-moments-by-definition
+last_completed_work: ADHOC-20260816-missing-topics-multivariate-transform-relations
 summary:
-  total: 29
+  total: 30
   planned: 21
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 8
+  reviewed: 9
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -139,6 +139,58 @@ planned_work:
       - dist-hypergeometric-moments-by-definition
       - dist-lognormal-moments-by-definition
       - dist-poisson-moments-by-definition
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+  ADHOC-20260816-missing-topics-multivariate-transform-relations:
+    title: 離散型分布・連続型分布の欠落論点カード（多変量分布・変換・分布間関係）を追加する
+    category: math-distributions
+    subcategories:
+      - math-discrete-distributions
+      - math-continuous-distributions
+    target:
+      min: 9
+      max: 11
+    review_dir: review/ADHOC-20260816-missing-topics-multivariate-transform-relations
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 多変量分布・条件付き分布（一部）・確率変数の変換・分布間の関係
+    title_ids:
+      - "036"
+      - "040"
+      - "041"
+      - "046"
+      - "047"
+      - "052"
+      - "058"
+      - "061"
+      - "065"
+      - "073"
+      - "075"
+      - "079"
+    priority_counts:
+      S: 6
+      A: 4
+      B: 2
+      C: 0
+    status: reviewed
+    started_at: 2026-08-16T12:33:58.566Z
+    self_review_at: 2026-08-16T12:56:29.796Z
+    independent_review_at: 2026-08-16T13:05:31.819Z
+    revision_at: 2026-08-16T13:05:33.020Z
+    completed_at: 2026-08-16T13:39:36.690Z
+    added_card_ids:
+      - dist-bivariate-normal-definition
+      - dist-bivariate-normal-marginal
+      - dist-gamma-beta-relation
+      - dist-limit-map
+      - dist-poisson-reproductivity
+      - multi-exchangeability
+      - prob-conditional-expectation
+      - prob-transform-box-muller
+      - prob-transform-difference
+      - prob-transform-product
+      - process-poisson-orderstat
     review_result:
       fatal: 0
       major: 0
