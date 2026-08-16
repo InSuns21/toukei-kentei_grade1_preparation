@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 237
+reviewed_card_count: 284
 current_work: null
-next_work: C06-sampling-distributions
-last_completed_work: C02A-basic-probability-laws
+next_work: C07-population-likelihood
+last_completed_work: C06-sampling-distributions
 summary:
   total: 28
-  planned: 22
+  planned: 21
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 6
+  reviewed: 7
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -363,8 +363,65 @@ work:
     target:
       min: 45
       max: 50
-    status: planned
+    status: reviewed
     review_dir: review/C06-sampling-distributions
+    started_at: 2026-08-16T09:21:06.809Z
+    self_review_at: 2026-08-16T10:28:28.541Z
+    independent_review_at: 2026-08-16T10:49:13.586Z
+    revision_at: 2026-08-16T10:49:34.916Z
+    completed_at: 2026-08-16T11:12:43.788Z
+    added_card_ids:
+      - samp-chisq-additive
+      - samp-chisq-definition
+      - samp-chisq-degree-of-freedom
+      - samp-chisq-expectation-squared
+      - samp-chisq-from-normal
+      - samp-chisq-gamma-relation
+      - samp-chisq-mean-var-indep
+      - samp-chisq-mean-variance
+      - samp-chisq-percentile
+      - samp-ci-mean-t
+      - samp-ci-variance-chisq
+      - samp-clt-approx-mean
+      - samp-cochran-theorem
+      - samp-continuity-correction
+      - samp-f-anova-ratio
+      - samp-f-distribution-definition
+      - samp-f-inverse-relation
+      - samp-f-percentile
+      - samp-f-ratio-of-variances
+      - samp-iid-sum-variance
+      - samp-max-distribution
+      - samp-min-distribution
+      - samp-noncentral-chisq
+      - samp-noncentral-t
+      - samp-normal-linear-combo
+      - samp-order-statistics-distribution
+      - samp-poisson-normal-approx
+      - samp-quantile-approx
+      - samp-range-statistic
+      - samp-sample-proportion
+      - samp-sample-size-mean
+      - samp-sample-size-proportion
+      - samp-sample-variance-expectation
+      - samp-sqrt-f-t
+      - samp-t-converges-normal
+      - samp-t-distribution-definition
+      - samp-t-distribution-limits
+      - samp-t-distribution-variance-unknown
+      - samp-t-percentile-symmetry
+      - samp-t-squared-f
+      - samp-t-statistic-mean-test
+      - samp-two-proportion-diff
+      - samp-two-sample-pooled-variance
+      - samp-welch-t
+      - samp-xbar-normal-distribution
+      - samp-xbar-unbiased
+      - samp-z-statistic-known-variance
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C07-population-likelihood:
     title: 母集団と標本・統計量／尤度と最尤推定
     category: math-estimation

@@ -1,4 +1,4 @@
-schema_version: 3
+﻿schema_version: 3
 scope: 統計数理・統計応用（理工学）
 meaning:
   complete: 全公式用語を操作するカードがある
@@ -237,52 +237,77 @@ items:
     terms:
       - name: モーメント
         status: card
-        cards: [prob-moment-central-relation, prob-moment-third-central]
+        cards:
+          - prob-moment-central-relation
+          - prob-moment-third-central
       - name: 期待値
         status: card
-        cards: [prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function]
+        cards:
+          - prob-expected-value-linearity
+          - prob-expected-value-discrete
+          - prob-expected-value-integral
+          - prob-expected-value-function
       - name: 分散
         status: card
-        cards: [dist-variance-moment, prob-variance-affine, prob-variance-independent-sum]
+        cards:
+          - dist-variance-moment
+          - prob-variance-affine
+          - prob-variance-independent-sum
       - name: 標準偏差
         status: card
-        cards: [prob-standard-deviation-standardize]
+        cards:
+          - prob-standard-deviation-standardize
       - name: 歪度
         status: card
-        cards: [prob-skewness-definition, prob-skewness-shape]
+        cards:
+          - prob-skewness-definition
+          - prob-skewness-shape
       - name: 尖度
         status: card
-        cards: [prob-kurtosis-definition, prob-kurtosis-shape]
+        cards:
+          - prob-kurtosis-definition
+          - prob-kurtosis-shape
       - name: 変動係数
         status: card
-        cards: [prob-coefficient-of-variation]
+        cards:
+          - prob-coefficient-of-variation
       - name: パーセント点
         status: card
-        cards: [prob-percentile-from-cdf]
+        cards:
+          - prob-percentile-from-cdf
       - name: 中央値
         status: card
-        cards: [prob-median-from-density]
+        cards:
+          - prob-median-from-density
       - name: 四分位数
         status: card
-        cards: [prob-quartiles-iqr]
+        cards:
+          - prob-quartiles-iqr
       - name: 範囲
         status: card
-        cards: [prob-range-definition]
+        cards:
+          - prob-range-definition
       - name: 四分位範囲
         status: card
-        cards: [prob-quartiles-iqr]
+        cards:
+          - prob-quartiles-iqr
       - name: 最頻値
         status: card
-        cards: [prob-mode-from-density]
+        cards:
+          - prob-mode-from-density
       - name: 共分散
         status: card
-        cards: [prob-covariance-computation]
+        cards:
+          - prob-covariance-computation
       - name: 相関係数
         status: card
-        cards: [prob-correlation-coefficient, prob-correlation-independence]
+        cards:
+          - prob-correlation-coefficient
+          - prob-correlation-independence
       - name: 偏相関係数
         status: card
-        cards: [prob-partial-correlation]
+        cards:
+          - prob-partial-correlation
   - id: math-transformations
     status: complete
     cards:
@@ -299,10 +324,20 @@ items:
     terms:
       - name: 変数変換
         status: card
-        cards: [dist-jacobian-scale, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-ratio, prob-transform-log]
+        cards:
+          - dist-jacobian-scale
+          - prob-transform-inverse-cdf
+          - prob-transform-nonmonotonic
+          - prob-transform-jacobian-2d
+          - prob-transform-ratio
+          - prob-transform-log
       - name: 確率変数の線形結合
         status: card
-        cards: [dist-convolution-uniform, prob-transform-sum-density, prob-linear-combination-normal, prob-linear-combination-moments]
+        cards:
+          - dist-convolution-uniform
+          - prob-transform-sum-density
+          - prob-linear-combination-normal
+          - prob-linear-combination-moments
   - id: math-limit-approximations
     status: complete
     cards:
@@ -337,94 +372,318 @@ items:
     terms:
       - name: 大数の弱法則
         status: card
-        cards: [dist-weak-law-chebyshev, dist-weak-law-sample-mean, dist-weak-law-mean-identification, dist-weak-law-bernoulli-frequency]
+        cards:
+          - dist-weak-law-chebyshev
+          - dist-weak-law-sample-mean
+          - dist-weak-law-mean-identification
+          - dist-weak-law-bernoulli-frequency
       - name: 中心極限定理
         status: card
-        cards: [dist-clt-standardize, dist-clt-statement, dist-clt-sample-mean, dist-clt-bernoulli-proportion, dist-clt-sum-variance, dist-clt-standard-error, dist-clt-bernoulli-count, dist-clt-finite-variance]
+        cards:
+          - dist-clt-standardize
+          - dist-clt-statement
+          - dist-clt-sample-mean
+          - dist-clt-bernoulli-proportion
+          - dist-clt-sum-variance
+          - dist-clt-standard-error
+          - dist-clt-bernoulli-count
+          - dist-clt-finite-variance
       - name: 二項分布の正規近似とポアソン近似
         status: card
-        cards: [dist-binomial-normal-conditions, dist-binomial-normal-probability, dist-binomial-normal-tail, dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-approximation-choice, dist-approximation-error, dist-normal-approximation-continuity-full]
+        cards:
+          - dist-binomial-normal-conditions
+          - dist-binomial-normal-probability
+          - dist-binomial-normal-tail
+          - dist-binomial-poisson-conditions
+          - dist-binomial-poisson-probability
+          - dist-poisson-limit-derivation
+          - dist-approximation-choice
+          - dist-approximation-error
+          - dist-normal-approximation-continuity-full
       - name: 少数法則
         status: card
-        cards: [dist-binomial-poisson-conditions, dist-binomial-poisson-probability, dist-poisson-limit-derivation, dist-law-small-numbers, dist-poisson-tail-approximation, dist-poisson-approximation-complement]
+        cards:
+          - dist-binomial-poisson-conditions
+          - dist-binomial-poisson-probability
+          - dist-poisson-limit-derivation
+          - dist-law-small-numbers
+          - dist-poisson-tail-approximation
+          - dist-poisson-approximation-complement
       - name: 連続修正
         status: card
-        cards: [dist-continuity-correction-interval, dist-continuity-correction-tail, dist-normal-approximation-continuity-full, dist-continuity-correction-single]
+        cards:
+          - dist-continuity-correction-interval
+          - dist-continuity-correction-tail
+          - dist-normal-approximation-continuity-full
+          - dist-continuity-correction-single
   - id: math-discrete-distributions
     status: complete
-    cards: [dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments, dist-bernoulli-definition, dist-bernoulli-moments, dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice, dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments, dist-negative-binomial-definition, dist-negative-binomial-moments, dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting, dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction, dist-discrete-identification, dist-bernoulli-complement, dist-binomial-factorial-moment]
+    cards:
+      - dist-basic-discrete-uniform
+      - dist-basic-discrete-uniform-moments
+      - dist-bernoulli-definition
+      - dist-bernoulli-moments
+      - dist-binomial-definition
+      - dist-binomial-moments
+      - dist-binomial-ratio
+      - dist-binomial-complement-tail
+      - dist-binomial-bernoulli-sum
+      - dist-hypergeometric-definition
+      - dist-hypergeometric-moments
+      - dist-hypergeometric-binomial-choice
+      - dist-geometric-definition
+      - dist-geometric-memoryless
+      - dist-geometric-moments
+      - dist-negative-binomial-definition
+      - dist-negative-binomial-moments
+      - dist-poisson-definition
+      - dist-poisson-moments
+      - dist-poisson-ratio-mode
+      - dist-poisson-splitting
+      - dist-multinomial-definition
+      - dist-multinomial-moments
+      - dist-multinomial-binomial-reduction
+      - dist-discrete-identification
+      - dist-bernoulli-complement
+      - dist-binomial-factorial-moment
     terms:
       - name: 一様分布
         status: card
-        cards: [dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments]
+        cards:
+          - dist-basic-discrete-uniform
+          - dist-basic-discrete-uniform-moments
       - name: ベルヌーイ分布
         status: card
-        cards: [dist-bernoulli-definition, dist-bernoulli-moments, dist-bernoulli-complement]
+        cards:
+          - dist-bernoulli-definition
+          - dist-bernoulli-moments
+          - dist-bernoulli-complement
       - name: 二項分布
         status: card
-        cards: [dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-binomial-factorial-moment]
+        cards:
+          - dist-binomial-definition
+          - dist-binomial-moments
+          - dist-binomial-ratio
+          - dist-binomial-complement-tail
+          - dist-binomial-bernoulli-sum
+          - dist-binomial-factorial-moment
       - name: 超幾何分布
         status: card
-        cards: [dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice]
+        cards:
+          - dist-hypergeometric-definition
+          - dist-hypergeometric-moments
+          - dist-hypergeometric-binomial-choice
       - name: 幾何分布
         status: card
-        cards: [dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments]
+        cards:
+          - dist-geometric-definition
+          - dist-geometric-memoryless
+          - dist-geometric-moments
       - name: ポアソン分布
         status: card
-        cards: [dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting]
+        cards:
+          - dist-poisson-definition
+          - dist-poisson-moments
+          - dist-poisson-ratio-mode
+          - dist-poisson-splitting
       - name: 負の二項分布
         status: card
-        cards: [dist-negative-binomial-definition, dist-negative-binomial-moments]
+        cards:
+          - dist-negative-binomial-definition
+          - dist-negative-binomial-moments
       - name: 多項分布
         status: card
-        cards: [dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction]
+        cards:
+          - dist-multinomial-definition
+          - dist-multinomial-moments
+          - dist-multinomial-binomial-reduction
   - id: math-continuous-distributions
     status: complete
-    cards: [dist-gamma-recognition, dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval, dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum, dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential, dist-beta-definition, dist-beta-moments, dist-cauchy-no-moments, dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median, dist-weibull-survival-hazard, dist-weibull-mean, dist-logistic-definition, dist-logistic-quantile, dist-multivariate-normal-density, dist-multivariate-normal-conditional]
+    cards:
+      - dist-gamma-recognition
+      - dist-continuous-uniform-definition
+      - dist-continuous-uniform-cdf
+      - dist-continuous-uniform-moments
+      - dist-continuous-uniform-interval
+      - dist-normal-definition
+      - dist-normal-moments
+      - dist-normal-standardize
+      - dist-normal-symmetry
+      - dist-normal-linear-transform
+      - dist-normal-sum
+      - dist-exponential-definition
+      - dist-exponential-cdf-survival
+      - dist-exponential-moments
+      - dist-exponential-memoryless
+      - dist-exponential-hazard
+      - dist-gamma-definition
+      - dist-gamma-moments
+      - dist-gamma-sum-exponential
+      - dist-beta-definition
+      - dist-beta-moments
+      - dist-cauchy-no-moments
+      - dist-lognormal-transformation
+      - dist-lognormal-moments
+      - dist-lognormal-median
+      - dist-weibull-survival-hazard
+      - dist-weibull-mean
+      - dist-logistic-definition
+      - dist-logistic-quantile
+      - dist-multivariate-normal-density
+      - dist-multivariate-normal-conditional
     terms:
       - name: 一様分布
         status: card
-        cards: [dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval]
+        cards:
+          - dist-continuous-uniform-definition
+          - dist-continuous-uniform-cdf
+          - dist-continuous-uniform-moments
+          - dist-continuous-uniform-interval
       - name: 正規分布（ガウス分布）
         status: card
-        cards: [dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum]
+        cards:
+          - dist-normal-definition
+          - dist-normal-moments
+          - dist-normal-standardize
+          - dist-normal-symmetry
+          - dist-normal-linear-transform
+          - dist-normal-sum
       - name: 指数分布
         status: card
-        cards: [dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard]
+        cards:
+          - dist-exponential-definition
+          - dist-exponential-cdf-survival
+          - dist-exponential-moments
+          - dist-exponential-memoryless
+          - dist-exponential-hazard
       - name: ガンマ分布
         status: card
-        cards: [dist-gamma-recognition, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential]
+        cards:
+          - dist-gamma-recognition
+          - dist-gamma-definition
+          - dist-gamma-moments
+          - dist-gamma-sum-exponential
       - name: ベータ分布
         status: card
-        cards: [dist-beta-definition, dist-beta-moments]
+        cards:
+          - dist-beta-definition
+          - dist-beta-moments
       - name: コーシー分布
         status: card
-        cards: [dist-cauchy-no-moments]
+        cards:
+          - dist-cauchy-no-moments
       - name: 対数正規分布
         status: card
-        cards: [dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median]
+        cards:
+          - dist-lognormal-transformation
+          - dist-lognormal-moments
+          - dist-lognormal-median
       - name: ワイブル分布
         status: card
-        cards: [dist-weibull-survival-hazard, dist-weibull-mean]
+        cards:
+          - dist-weibull-survival-hazard
+          - dist-weibull-mean
       - name: ロジスティック分布
         status: card
-        cards: [dist-logistic-definition, dist-logistic-quantile]
+        cards:
+          - dist-logistic-definition
+          - dist-logistic-quantile
       - name: 多変量正規分布
         status: card
-        cards: [dist-multivariate-normal-density, dist-multivariate-normal-conditional]
+        cards:
+          - dist-multivariate-normal-density
+          - dist-multivariate-normal-conditional
   - id: math-sampling-distributions
-    status: planned
-    cards: []
+    status: complete
+    cards:
+      - samp-xbar-normal-distribution
+      - samp-chisq-definition
+      - samp-chisq-additive
+      - samp-chisq-mean-variance
+      - samp-chisq-mean-var-indep
+      - samp-chisq-expectation-squared
+      - samp-t-distribution-definition
+      - samp-t-statistic-mean-test
+      - samp-t-distribution-variance-unknown
+      - samp-t-converges-normal
+      - samp-t-distribution-limits
+      - samp-f-distribution-definition
+      - samp-f-inverse-relation
+      - samp-t-squared-f
+      - samp-sqrt-f-t
+      - samp-f-ratio-of-variances
+      - samp-z-statistic-known-variance
+      - samp-clt-approx-mean
+      - samp-sample-proportion
+      - samp-sample-variance-expectation
+      - samp-two-sample-pooled-variance
+      - samp-order-statistics-distribution
+      - samp-max-distribution
+      - samp-min-distribution
+      - samp-range-statistic
+      - samp-quantile-approx
+      - samp-xbar-unbiased
+      - samp-iid-sum-variance
+      - samp-chisq-from-normal
+      - samp-chisq-gamma-relation
+      - samp-chisq-degree-of-freedom
+      - samp-normal-linear-combo
+      - samp-continuity-correction
+      - samp-poisson-normal-approx
+      - samp-cochran-theorem
+      - samp-ci-mean-t
+      - samp-ci-variance-chisq
+      - samp-chisq-percentile
+      - samp-f-percentile
+      - samp-t-percentile-symmetry
+      - samp-sample-size-mean
+      - samp-sample-size-proportion
+      - samp-welch-t
+      - samp-two-proportion-diff
+      - samp-noncentral-chisq
+      - samp-noncentral-t
+      - samp-f-anova-ratio
     terms:
       - name: t分布
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - samp-t-distribution-definition
+          - samp-t-statistic-mean-test
+          - samp-t-distribution-variance-unknown
+          - samp-t-converges-normal
+          - samp-t-distribution-limits
+          - samp-t-squared-f
+          - samp-sqrt-f-t
+          - samp-ci-mean-t
+          - samp-t-percentile-symmetry
+          - samp-welch-t
+          - samp-noncentral-t
+          - samp-two-sample-pooled-variance
       - name: カイ二乗分布
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - samp-chisq-definition
+          - samp-chisq-additive
+          - samp-chisq-mean-variance
+          - samp-chisq-mean-var-indep
+          - samp-chisq-expectation-squared
+          - samp-chisq-from-normal
+          - samp-chisq-gamma-relation
+          - samp-chisq-degree-of-freedom
+          - samp-ci-variance-chisq
+          - samp-chisq-percentile
+          - samp-noncentral-chisq
+          - samp-cochran-theorem
       - name: F分布
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - samp-f-distribution-definition
+          - samp-f-inverse-relation
+          - samp-t-squared-f
+          - samp-sqrt-f-t
+          - samp-f-ratio-of-variances
+          - samp-f-percentile
+          - samp-f-anova-ratio
   - id: math-population-sample-statistic
     status: partial
     cards:
