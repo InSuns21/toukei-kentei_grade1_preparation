@@ -1,10 +1,10 @@
 # シラバス coverage
 
-- 公開カード: 223
+- 公開カード: 237
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
-| 確率と確率変数 | 124 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
+| 確率と確率変数 | 138 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 58 | 2/3 | theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 10 | 7/7 | formula, theorem, proof_step, calc_step, strategy |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
@@ -18,7 +18,7 @@
 
 | item | status | cards |
 |---|---|---|
-| 事象と確率 | complete | prob-inclusion-exclusion, prob-bayes-diagnostic, prob-conditional-multiplication, prob-total-probability, prob-independent-events, prob-pairwise-not-mutual, prob-complement-at-least-one, prob-inclusion-exclusion-three, prob-chain-rule-three, prob-independent-complements, prob-conditioning-breaks-independence, prob-counting-sample-space, prob-conditional-definition-direct |
+| 事象と確率 | complete | prob-inclusion-exclusion, prob-bayes-diagnostic, prob-conditional-multiplication, prob-total-probability, prob-independent-events, prob-pairwise-not-mutual, prob-complement-at-least-one, prob-inclusion-exclusion-three, prob-chain-rule-three, prob-independent-complements, prob-conditioning-breaks-independence, prob-counting-sample-space, prob-conditional-definition-direct, prob-basic-sample-space, prob-basic-addition-complement, prob-basic-conditional-probability, prob-basic-chain-rule, prob-basic-independent-vs-disjoint, prob-basic-total-probability, prob-basic-bayes, prob-basic-inclusion-exclusion, prob-basic-symmetry, prob-basic-combination-probability, prob-basic-conditional-independence, prob-basic-event-limsup-liminf, prob-basic-boole-inequality, prob-basic-borel-cantelli |
 | 確率分布と母関数 | complete | prob-cdf-from-pmf, dist-mgf-poisson, prob-cdf-from-density, prob-survival-hazard, prob-marginal-density, prob-conditional-density, prob-pgf-moments, prob-mgf-independent-sum, prob-density-normalization, prob-cdf-jump-mass, prob-discrete-marginal, prob-discrete-conditional, prob-joint-factorization-independence, prob-pmf-normalization, prob-cdf-validity, prob-interval-from-cdf, prob-cdf-endpoint-choice, prob-mixed-cdf, prob-joint-cdf-from-density, prob-rectangle-from-joint-cdf, prob-survival-from-cdf, prob-cumulative-hazard, prob-survival-from-hazard, prob-joint-density-normalization, prob-joint-pmf-normalization, prob-discrete-independence-cross-product, prob-conditional-equals-marginal, prob-joint-cdf-independence, prob-mixture-marginal, prob-truncated-conditional-density, prob-density-bayes-two-class, prob-conditional-cdf-from-density, prob-pgf-recover-pmf, prob-pgf-binomial, prob-pgf-geometric, prob-pgf-poisson, prob-pgf-independent-sum, prob-pgf-thinning, prob-pgf-factorial-moment, prob-pgf-validity, prob-mgf-mean-variance, prob-mgf-affine-transform, prob-mgf-iid-sum, prob-mgf-exponential-domain, prob-mgf-gamma, prob-mgf-identify-normal, prob-mgf-nonexistence, prob-mgf-uniqueness-domain, prob-density-from-cdf-derivative |
 | 分布の特性値 | complete | dist-variance-moment, prob-expected-value-linearity, prob-expected-value-discrete, prob-expected-value-integral, prob-expected-value-function, prob-variance-affine, prob-variance-independent-sum, prob-standard-deviation-standardize, prob-moment-central-relation, prob-moment-third-central, prob-skewness-definition, prob-skewness-shape, prob-kurtosis-definition, prob-kurtosis-shape, prob-coefficient-of-variation, prob-percentile-from-cdf, prob-median-from-density, prob-quartiles-iqr, prob-range-definition, prob-mode-from-density, prob-covariance-computation, prob-correlation-coefficient, prob-correlation-independence, prob-partial-correlation, prob-shape-summary |
 | 変数変換 | complete | dist-jacobian-scale, dist-convolution-uniform, prob-transform-inverse-cdf, prob-transform-nonmonotonic, prob-transform-jacobian-2d, prob-transform-sum-density, prob-transform-ratio, prob-linear-combination-normal, prob-linear-combination-moments, prob-transform-log |

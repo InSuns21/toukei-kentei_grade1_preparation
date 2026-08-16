@@ -15,6 +15,9 @@
 - 全確率の公式：分割 $A_1,\ldots,A_k$ に対し $P(B)=\sum_jP(B\mid A_j)P(A_j)$。
 - 独立性：$A,B$ が独立なら $P(A\cap B)=P(A)P(B)$。
 - 相互独立：$A_1,\ldots,A_n$ は、2個以上を選ぶすべての部分集合 $J$ について $P(\bigcap_{j\in J}A_j)=\prod_{j\in J}P(A_j)$ を満たすとき相互独立である。ペアごとの独立だけでは足りない。
+- 事象列の上極限・下極限：$\limsup_{n\to\infty}A_n=\bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}A_k$ は無限回起こる事象、$\liminf_{n\to\infty}A_n=\bigcup_{n=1}^{\infty}\bigcap_{k=n}^{\infty}A_k$ は十分先では常に起こる事象。
+- Booleの不等式：有限または可算個の事象に対して $P(\bigcup_iA_i)\le\sum_iP(A_i)$。
+- Borel--Cantelliの補題（基本形）：$\sum_{n=1}^{\infty}P(A_n)<\infty$ なら $P(\limsup_{n\to\infty}A_n)=0$。この向きには独立性を仮定しない。
 
 ## 分布・モーメント
 

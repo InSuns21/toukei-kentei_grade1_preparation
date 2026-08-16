@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-16
-reviewed_card_count: 223
+reviewed_card_count: 237
 current_work: null
 next_work: C06-sampling-distributions
-last_completed_work: C05-discrete-continuous-distributions
+last_completed_work: C02A-basic-probability-laws
 summary:
-  total: 27
+  total: 28
   planned: 22
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 5
+  reviewed: 6
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -32,6 +32,34 @@ legacy_runs:
       fatal: 0
       major: 0
       minor: 0
+  C02A-basic-probability-laws:
+    title: 確率の基本法則（カードタイトル001～014）
+    scope: 確率の基本法則カード001～014
+    status: reviewed
+    completed_at: 2026-08-16
+    review_dir: review/C02A-basic-probability-laws
+    added_card_ids:
+      - prob-basic-sample-space
+      - prob-basic-addition-complement
+      - prob-basic-conditional-probability
+      - prob-basic-chain-rule
+      - prob-basic-independent-vs-disjoint
+      - prob-basic-total-probability
+      - prob-basic-bayes
+      - prob-basic-inclusion-exclusion
+      - prob-basic-symmetry
+      - prob-basic-combination-probability
+      - prob-basic-conditional-independence
+      - prob-basic-event-limsup-liminf
+      - prob-basic-boole-inequality
+      - prob-basic-borel-cantelli
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+    validation:
+      anki_validate: success
+      validate: success
 work:
   C02-events-distribution-functions:
     title: 事象と確率・確率分布と母関数

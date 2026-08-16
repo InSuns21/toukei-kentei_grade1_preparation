@@ -23,6 +23,20 @@ items:
       - prob-conditioning-breaks-independence
       - prob-counting-sample-space
       - prob-conditional-definition-direct
+      - prob-basic-sample-space
+      - prob-basic-addition-complement
+      - prob-basic-conditional-probability
+      - prob-basic-chain-rule
+      - prob-basic-independent-vs-disjoint
+      - prob-basic-total-probability
+      - prob-basic-bayes
+      - prob-basic-inclusion-exclusion
+      - prob-basic-symmetry
+      - prob-basic-combination-probability
+      - prob-basic-conditional-independence
+      - prob-basic-event-limsup-liminf
+      - prob-basic-boole-inequality
+      - prob-basic-borel-cantelli
     terms:
       - name: 確率の計算
         status: card
