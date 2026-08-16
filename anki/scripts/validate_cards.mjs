@@ -81,6 +81,21 @@ for (const [name, source] of [["notation.md", notation], ["formulae.md", formula
 }
 const allowedStatuses = new Set(["planned", "drafting", "self_review", "independent_review", "revision", "reviewed", "blocked"]);
 const reviewDirs = new Set();
+const plannedWork = progress.planned_work || {};
+const allWork = { ...(progress.work || {}), ...plannedWork };
+for (const workId of Object.keys(progress.work || {})) if (Object.prototype.hasOwnProperty.call(plannedWork, workId)) errors.push(`${workId}: duplicate ID in work and planned_work`);
+const planSource = progress.planning?.source_index;
+if (!planSource || !fs.existsSync(path.resolve(ROOT, "..", planSource))) errors.push(`planning.source_index file is missing: ${planSource || "unspecified"}`);
+const queuedPlans = progress.planning?.queue || {};
+for (const [planId, item] of Object.entries(queuedPlans)) {
+  const required = ["work_id", "title", "category", "subcategories", "target", "review_dir", "source", "parent", "title_ids", "priority_counts"];
+  for (const key of required) if (item[key] === undefined) errors.push(`planning.queue.${planId}: missing ${key}`);
+  if (item.work_id && (allWork[item.work_id] || Object.values(queuedPlans).filter((candidate) => candidate.work_id === item.work_id).length > 1)) errors.push(`planning.queue.${planId}: work_id is already used or duplicated`);
+  if (item.review_dir && item.work_id && item.review_dir !== `review/${item.work_id}`) errors.push(`planning.queue.${planId}: review_dir must be review/${item.work_id}`);
+  if (item.source && !fs.existsSync(path.resolve(ROOT, "..", item.source))) errors.push(`planning.queue.${planId}: source file is missing: ${item.source}`);
+  if (!Array.isArray(item.title_ids) || !item.title_ids.length) errors.push(`planning.queue.${planId}: title_ids must not be empty`);
+  if (!item.priority_counts || typeof item.priority_counts !== "object" || Array.isArray(item.priority_counts)) errors.push(`planning.queue.${planId}: priority_counts is missing`);
+}
 const workProjection = Object.entries(progress.work || {}).map(([id, item]) => ({
   id, title: item.title, category: item.category, subcategories: item.subcategories, target: item.target, review_dir: item.review_dir,
 }));
@@ -88,7 +103,7 @@ const workPlanHash = createHash("sha256").update(JSON.stringify(workProjection))
 if (workPlanHash !== "34e4905067a8b4eb4d79429da8f9e85c6a9f48db09e919d61f3864bff3389260") errors.push("意味的に編成した26作業の組合せ・順序・日本語名・枚数目安が変更されています");
 const progressSubcategoryIds = Object.values(progress.work || {}).flatMap((item) => item.subcategories || []);
 if (new Set(progressSubcategoryIds).size !== progressSubcategoryIds.length || progressSubcategoryIds.length !== subcategoryIds.size || progressSubcategoryIds.some((id) => !subcategoryIds.has(id))) errors.push("progress.workは対象39サブカテゴリーを重複なく1件ずつ登録します");
-for (const [workId, item] of Object.entries(progress.work || {})) {
+for (const [workId, item] of Object.entries(allWork)) {
   if (!categoryIds.has(item.category)) errors.push(`${workId}: 未知のcategory ${item.category}`);
   if (typeof item.title !== "string" || !/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(item.title)) errors.push(`${workId}: 日本語のtitleが必要です`);
   for (const subcategory of item.subcategories || []) if (!item.title.includes(syllabus.subcategories[subcategory])) errors.push(`${workId}: titleに日本語サブカテゴリー名「${syllabus.subcategories[subcategory]}」がありません`);
@@ -101,16 +116,15 @@ for (const [workId, item] of Object.entries(progress.work || {})) {
   if (reviewDirs.has(item.review_dir)) errors.push(`${workId}: review_dir ${item.review_dir} が重複しています`);
   reviewDirs.add(item.review_dir);
 }
-const activeWork = progress.current_work ? progress.work?.[progress.current_work] : null;
+const activeWork = progress.current_work ? allWork[progress.current_work] : null;
 const activeStatuses = new Set(["drafting", "self_review", "independent_review", "revision"]);
-const activeWorkIds = Object.entries(progress.work || {}).filter(([, item]) => activeStatuses.has(item.status)).map(([workId]) => workId);
+const activeWorkIds = Object.entries(allWork).filter(([, item]) => activeStatuses.has(item.status)).map(([workId]) => workId);
 if (progress.current_work && !activeWork) errors.push(`current_work ${progress.current_work} がworkにありません`);
 if (progress.current_work && (activeWorkIds.length !== 1 || activeWorkIds[0] !== progress.current_work)) errors.push("active statusはcurrent_workの1件だけにします");
 if (!progress.current_work && activeWorkIds.length) errors.push("current_workがnullのときactive statusを残せません");
 if (progress.current_work && progress.next_work !== progress.current_work) errors.push("進行中はnext_workをcurrent_workと一致させます");
-if (!progress.current_work && progress.next_work && (!progress.work?.[progress.next_work] || progress.work[progress.next_work].status !== "planned")) errors.push(`next_work ${progress.next_work} はplanned作業ではありません`);
-const expectedNextWork = Object.entries(progress.work || {}).find(([, item]) => item.status === "planned")?.[0] || null;
-if (!progress.current_work && progress.next_work !== expectedNextWork) errors.push(`next_work は先頭のplanned作業 ${expectedNextWork} にします`);
+if (!progress.current_work && progress.next_work && (!allWork[progress.next_work] || allWork[progress.next_work].status !== "planned")) errors.push(`next_work ${progress.next_work} must be planned`);
+const expectedNextWork = Object.entries(allWork).find(([, item]) => item.status === "planned")?.[0] || null;
 for (const legacyName of ["math-review.md", "exam-review.md", "validation.md"]) if (fs.existsSync(path.join(ROOT, "review", legacyName))) errors.push(`review/${legacyName} へ追記せず作業別directoryへ移します`);
 if (!progress.current_work && cards.length !== progress.reviewed_card_count) errors.push(`公開カード数 ${cards.length} はreviewed_card_count ${progress.reviewed_card_count} と一致しません`);
 if (activeWork) {

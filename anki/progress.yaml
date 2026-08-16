@@ -22,6 +22,43 @@ status_definitions:
   revision: 査読指摘を修正中
   reviewed: 独立再査読・自動検証まで完了
   blocked: 外部判断または権限待ち
+planning:
+  source_index: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+  selection_rule: group a parent heading and its priority-tagged title range into
+    one semantic Anki work unit
+  queue: {}
+  history:
+    C02A-basic-probability-laws:
+      source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+      parent: 確率の基本法則
+      title_ids:
+        - "001"
+        - "002"
+        - "003"
+        - "004"
+        - "005"
+        - "006"
+        - "007"
+        - "008"
+        - "009"
+        - "010"
+        - "011"
+        - "012"
+        - "013"
+        - "014"
+      priority_counts:
+        S: 5
+        A: 8
+        B: 1
+        C: 0
+      category: math-probability
+      subcategories:
+        - math-events
+      target:
+        min: 14
+        max: 14
+      work_id: C02A-basic-probability-laws
+      status: reviewed
 legacy_runs:
   C01-pilot:
     scope: 全カテゴリー横断pilot 50枚
@@ -60,6 +97,7 @@ legacy_runs:
     validation:
       anki_validate: success
       validate: success
+planned_work: {}
 work:
   C02-events-distribution-functions:
     title: 事象と確率・確率分布と母関数

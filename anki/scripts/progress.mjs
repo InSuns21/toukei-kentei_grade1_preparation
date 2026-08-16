@@ -7,15 +7,18 @@ import { ROOT, baselineFile, readBaseline, readCards } from "./lib.mjs";
 const file = path.join(ROOT, "progress.yaml");
 const progress = YAML.parse(fs.readFileSync(file, "utf8"));
 const [command, requestedId] = process.argv.slice(2);
-const workEntries = () => Object.entries(progress.work);
+const workEntries = () => Object.entries(progress.work || {});
+const plannedWorkEntries = () => Object.entries(progress.planned_work || {});
+const allWorkEntries = () => [...workEntries(), ...plannedWorkEntries()];
+const allWorkMap = () => Object.fromEntries(allWorkEntries());
 const refreshSummary = () => {
-  const counts = [...Object.values(progress.legacy_runs || {}), ...Object.values(progress.work)]
+  const counts = [...Object.values(progress.legacy_runs || {}), ...Object.values(progress.work || {}), ...Object.values(progress.planned_work || {})]
     .reduce((out, item) => ({ ...out, [item.status]: (out[item.status] || 0) + 1 }), {});
   progress.summary = { total: Object.values(counts).reduce((sum, count) => sum + count, 0), planned: 0, drafting: 0, self_review: 0, independent_review: 0, revision: 0, reviewed: 0, blocked: 0, ...counts };
 };
 const save = () => {
   refreshSummary();
-  progress.next_work = progress.current_work || workEntries().find(([, item]) => item.status === "planned")?.[0] || null;
+  progress.next_work = progress.current_work || allWorkEntries().find(([, item]) => item.status === "planned")?.[0] || null;
   progress.updated_at = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(new Date());
   fs.writeFileSync(file, YAML.stringify(progress));
 };
@@ -24,16 +27,16 @@ const summary = () => {
   console.log(YAML.stringify({
     cards: readCards().length,
     current_work: progress.current_work,
-    current_work_title: progress.current_work ? progress.work[progress.current_work]?.title : null,
-    current_work_target: progress.current_work ? progress.work[progress.current_work]?.target : null,
+    current_work_title: progress.current_work ? allWorkMap()[progress.current_work]?.title : null,
+    current_work_target: progress.current_work ? allWorkMap()[progress.current_work]?.target : null,
     next_work: progress.next_work,
-    next_work_title: progress.next_work ? progress.work[progress.next_work]?.title : null,
-    next_work_target: progress.next_work ? progress.work[progress.next_work]?.target : null,
+    next_work_title: progress.next_work ? allWorkMap()[progress.next_work]?.title : null,
+    next_work_target: progress.next_work ? allWorkMap()[progress.next_work]?.target : null,
     status_counts: Object.fromEntries(Object.entries(progress.summary).filter(([key]) => key !== "total")),
   }));
 };
 const getWork = (id) => {
-  const item = progress.work[id];
+  const item = progress.work?.[id] || progress.planned_work?.[id];
   if (!item) throw new Error(`未知のAnki作業ID: ${id}`);
   return item;
 };
@@ -53,7 +56,23 @@ const inspectWorkScope = (id, item, requireAdded = false) => {
 };
 
 if (!command) summary();
-else if (command === "start") {
+else if (command === "plan") {
+  const planId = requestedId;
+  const queue = progress.planning?.queue;
+  const plan = queue?.[planId];
+  if (!plan) throw new Error(`unknown plan ID or missing planning.queue entry: ${planId}`);
+  const workId = plan.work_id || planId;
+  if (progress.work?.[workId] || progress.planned_work?.[workId]) throw new Error(`${workId} is already registered`);
+  const required = ["title", "category", "subcategories", "target", "review_dir", "source", "parent", "title_ids", "priority_counts"];
+  const missing = required.filter((key) => plan[key] === undefined);
+  if (missing.length) throw new Error(`${planId} is missing required fields: ${missing.join(", ")}`);
+  progress.planned_work ||= {};
+  const { work_id: ignoredWorkId, ...planned } = plan;
+  planned.status = "planned";
+  progress.planned_work[workId] = planned;
+  delete queue[planId];
+  save(); summary();
+} else if (command === "start") {
   const id = requestedId || progress.next_work;
   const item = getWork(id);
   if (progress.current_work && progress.current_work !== id) throw new Error(`${progress.current_work} が進行中です`);
@@ -129,4 +148,4 @@ else if (command === "start") {
   progress.last_completed_work = id;
   progress.current_work = null;
   save(); summary();
-} else throw new Error("usage: anki:progress -- [start ID|stage ID STATUS|complete ID]");
+} else throw new Error("usage: anki:progress -- [plan PLAN-ID|start ID|stage ID STATUS|complete ID]");

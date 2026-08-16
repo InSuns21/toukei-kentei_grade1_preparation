@@ -47,6 +47,36 @@
 10. 対象サブカテゴリー群のカード、正本、シラバス・coverage、レポート、作業専用査読記録、`anki/progress.yaml`、直接必要なスクリプトだけを選択的にステージし、`complete <WORK-ID> anki <日本語サブカテゴリー名>` の形式でコミットする。`anki/dist/` は生成物なので含めない。
 11. コミット後に `git status --short` と `npm run anki:progress` を確認し、対象変更が残っておらず `next_work` が正しいことを確認する。
 
+### 親優先度一覧からAnki作業を起票する経路
+
+Use this route for additions based on a parent heading with S/A/B/C priority titles, such as `pdfs/statistics_grade1_card_titles_by_parent_priority.md`. Keep the fixed 26-work `work` plan unchanged.
+
+A queue entry follows this shape:
+
+```yaml
+planning:
+  queue:
+    PLAN-ID:
+      work_id: ADHOC-ID
+      title: <Japanese title including the subcategory name>
+      category: math-probability
+      subcategories: [math-events]
+      target: { min: 10, max: 16 }
+      review_dir: review/ADHOC-ID
+      source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+      parent: <parent heading>
+      title_ids: ["001", "002"]
+      priority_counts: { S: 1, A: 1, B: 0, C: 0 }
+```
+
+1. Add one entry per parent heading to `anki/progress.yaml` under `planning.queue`. Required fields are `work_id`, Japanese `title`, `category`, one or two `subcategories`, `target`, `review_dir`, `source`, `parent`, `title_ids`, and `priority_counts`.
+2. Run `npm run anki:validate` to check the source path, work metadata, subcategories, and card-count target.
+3. Promote an approved queue entry with `npm run anki:progress -- plan <PLAN-ID>`. This moves it to `planned_work`, where the normal `start` / `stage` / `complete` state flow applies.
+4. Write, review, validate, and commit a `planned_work` item with the same Anki workflow as the fixed plan.
+5. Preserve the source and priority evidence in `planned_work` or `planning.history` after completion. Do not edit the fixed `work` order, grouping, or hash for an ad hoc addition.
+
+The current `C02A-basic-probability-laws` entry is recorded in `planning.history` as the reference example.
+
 ## 優先度の意味
 
 - **S**：最優先。過去問対応・他論点の前提として先に固める
