@@ -240,10 +240,64 @@ const coverageLines = ["# シラバス coverage", "", `- 公開カード: ${card
   return `| ${displayCategoryName(category)} | ${owned.length} | ${covered}/${category.children.length} | ${types} |`;
 }), "", "## 公式範囲の小項目", "", "`complete` は全公式用語に操作カードあり、`partial` は既存カードがあるが未完、`planned` は未着手を表す。", "", "| item | status | cards |", "|---|---|---|", ...scopeCoverage.items.map((item) => `| ${syllabus.subcategories[item.id]} | ${item.status} | ${(item.cards || []).join(", ")} |`), "", "## 項目（学習しておくべき用語）例", "", "作業を完了するには、対象サブカテゴリーの全用語が `card` で、実際に操作するカードIDを持つ必要がある。", "", "| item | term | status | cards |", "|---|---|---|---|", ...scopeCoverage.items.flatMap((item) => (item.terms || []).map((term) => `| ${syllabus.subcategories[item.id]} | ${term.name} | ${term.status} | ${(term.cards || []).join(", ")} |`))];
 fs.writeFileSync(path.join(reportDir, "coverage.md"), `${coverageLines.join("\n")}\n`);
-const moves = [...new Set(cards.flatMap((card) => card.hashtags))]
-  .map((tag) => ({ tag, count: cards.filter((card) => card.hashtags.includes(tag)).length }))
+const frequentMoveAliases = new Map([
+  ["PDF", "確率密度関数"],
+  ["CDF", "累積分布関数"],
+  ["PMF", "確率関数"],
+  ["MGF", "モーメント母関数（積率母関数）"],
+  ["Gamma\u5206\u5e03", "ガンマ分布"],
+  ["Beta\u5206\u5e03", "ベータ分布"],
+  ["Cauchy\u5206\u5e03", "コーシー分布"],
+  ["Weibull\u5206\u5e03", "ワイブル分布"],
+  ["Poisson\u5206\u5e03", "ポアソン分布"],
+  ["Bernoulli\u5206\u5e03", "ベルヌーイ分布"],
+  ["Bayes", "ベイズの定理"],
+  ["Bayes\u306e\u5b9a\u7406", "ベイズの定理"],
+  ["Fisher\u60c5\u5831", "フィッシャー情報量（1次元）"],
+  ["GLM", "一般化線形モデル"],
+  ["MLE", "最尤推定"],
+  ["CLT", "中心極限定理"],
+  ["DeltaMethod", "デルタ法"],
+  ["NeymanPearson", "ネイマン・ピアソンの基本定理"],
+  ["AIC", "情報量規準AIC"],
+  ["OLS", "最小二乗法"],
+  ["Jacobian", "変数変換"],
+  ["support", "台"],
+  ["Markov\u9023\u9396", "マルコフ連鎖"],
+  ["Poisson\u904e\u7a0b", "ポアソン過程"],
+  ["正規分布", "正規分布（ガウス分布）"],
+  ["ガウス分布", "正規分布（ガウス分布）"],
+  ["離散一様分布", "一様分布"],
+  ["連続一様分布", "一様分布"],
+  ["確率計算", "確率の計算"],
+  ["確率質量関数", "確率関数"],
+  ["同時確率質量関数", "同時分布"],
+  ["同時確率密度関数", "同時分布"],
+  ["同時累積分布関数", "同時分布"],
+  ["独立性", "統計的独立"],
+  ["不偏推定", "不偏性"],
+  ["分位点", "パーセント点"],
+  ["変換", "変数変換"],
+  ["線形結合", "確率変数の線形結合"],
+  ["共分散行列", "分散共分散行列"],
+  ["適合度検定", "適合度の検定"],
+  ["実験計画", "実験計画法"],
+  ["時系列", "時系列解析"],
+  ["回帰", "回帰分析"],
+  ["平均", "期待値"],
+  ["正規近似", "二項分布の正規近似とポアソン近似"],
+  ["ポアソン近似", "二項分布の正規近似とポアソン近似"],
+  ["大数則", "大数の弱法則"]
+]);
+const normalizeFrequentMove = (tag) => frequentMoveAliases.get(tag) ?? tag;
+const moveCounts = new Map();
+for (const card of cards) {
+  for (const tag of new Set(card.hashtags.map(normalizeFrequentMove))) moveCounts.set(tag, (moveCounts.get(tag) ?? 0) + 1);
+}
+const moves = [...moveCounts.entries()]
+  .map(([tag, count]) => ({ tag, count }))
   .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, "ja"));
-fs.writeFileSync(path.join(reportDir, "frequent_moves.md"), `# 頻出 move（pilot内）\n\n| tag | cards |\n|---|---:|\n${moves.map((item) => `| ${item.tag} | ${item.count} |`).join("\n")}\n`);
+fs.writeFileSync(path.join(reportDir, "frequent_moves.md"), `# \u983b\u51fa move\uff08pilot\u5185\u30fb\u30b7\u30e9\u30d0\u30b9\u7528\u8a9e\u8868\u8a18\uff09\n\n| term | cards |\n|---|---:|\n${moves.map((item) => `| ${item.tag} | ${item.count} |`).join("\n")}\n`);
 const normalized = (card) => `${card.title} ${card.topic}`.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
 const duplicates = [];
 for (let i = 0; i < cards.length; i += 1) for (let j = i + 1; j < cards.length; j += 1) if (normalized(cards[i]) === normalized(cards[j])) duplicates.push(`${cards[i].id} / ${cards[j].id}`);
