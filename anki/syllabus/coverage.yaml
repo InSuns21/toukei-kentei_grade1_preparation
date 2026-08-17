@@ -692,6 +692,10 @@ items:
       - samp-noncentral-chisq
       - samp-noncentral-t
       - samp-f-anova-ratio
+      - samp-statistic-definition
+      - samp-two-sample-mean-diff
+      - samp-multinomial-cell-counts
+      - samp-sample-correlation-basic
     terms:
       - name: t分布
         status: card

@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-17
-reviewed_card_count: 315
+reviewed_card_count: 319
 current_work: null
 next_work: C07-population-likelihood
-last_completed_work: ADHOC-20260817-characteristic-cumulant
+last_completed_work: ADHOC-20260817-sampling-extra
 summary:
   total: 33
-  planned: 22
+  planned: 21
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 11
+  reviewed: 12
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -327,7 +327,21 @@ planned_work:
       A: 5
       B: 0
       C: 0
-    status: planned
+    status: reviewed
+    started_at: 2026-08-17T02:02:11.787Z
+    self_review_at: 2026-08-17T02:20:49.706Z
+    independent_review_at: 2026-08-17T02:21:05.781Z
+    revision_at: 2026-08-17T02:36:43.462Z
+    completed_at: 2026-08-17T02:57:16.472Z
+    added_card_ids:
+      - samp-multinomial-cell-counts
+      - samp-sample-correlation-basic
+      - samp-statistic-definition
+      - samp-two-sample-mean-diff
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
 work:
   C02-events-distribution-functions:
     title: 事象と確率・確率分布と母関数

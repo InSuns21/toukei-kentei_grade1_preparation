@@ -87,6 +87,9 @@
 - 大数の法則：独立同分布で $E[|X_1|]<\infty$ なら $\overline X\xrightarrow{p}E[X_1]$。
 - 中心極限定理：独立同分布で平均 $\mu$、有限な正の分散 $\sigma^2$ なら $\sqrt n(\overline X-\mu)/\sigma\xrightarrow{d}N(0,1)$。
 - Delta法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら、$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$。
+- 統計量：観測値 $X_1,\ldots,X_n$ の関数で未知母数を含まない確率変数。その分布を標本分布と呼ぶ。
+- 2標本平均差：独立な $\overline X\sim N(\mu_1,\sigma_1^2/n_1)$、$\overline Y\sim N(\mu_2,\sigma_2^2/n_2)$ なら $\overline X-\overline Y\sim N(\mu_1-\mu_2,\ \sigma_1^2/n_1+\sigma_2^2/n_2)$。
+- 標本相関係数の定義：$r=\frac{\sum_i(X_i-\overline X)(Y_i-\overline Y)}{\sqrt{\sum_i(X_i-\overline X)^2}\,\sqrt{\sum_i(Y_i-\overline Y)^2}}$。$\rho=0$ 下で $t=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}\sim t_{n-2}$。
 
 ## 推定
 
