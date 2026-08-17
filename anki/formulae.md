@@ -47,6 +47,12 @@
 - モーメント母関数の線形変換：$Y=aX+b$ なら $M_Y(t)=e^{bt}M_X(at)$。
 - 代表的なモーメント母関数：指数分布 $\operatorname{Exp}(\lambda)$ は $\lambda/(\lambda-t)$（$t<\lambda$）、Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ は $\{\beta/(\beta-t)\}^\alpha$（$t<\beta$）、正規分布 $N(\mu,\sigma^2)$ は $\exp(\mu t+\sigma^2t^2/2)$。
 - モーメント母関数の一意性：原点を含む開区間で有限なモーメント母関数は分布を一意に定める。
+- 特性関数：$\varphi_X(t)=E[e^{itX}]$。$\lvert e^{itX}\rvert=1$ により実数 $t$ 全体で存在する。
+- 独立な和の特性関数：$X,Y$ が独立なら $\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)$。
+- 代表的な特性関数：正規分布 $N(\mu,\sigma^2)$ は $\exp(i\mu t-\sigma^2t^2/2)$、Cauchy$\operatorname{Cauchy}(0,\gamma)$ は $e^{-\gamma\lvert t\rvert}$。
+- 特性関数の一意性：すべての実数 $t$ で $\varphi_X(t)=\varphi_Y(t)$ なら $X,Y$ は同分布。
+- キュムラント母関数：$M_X(t)>0$ の範囲で $K_X(t)=\log M_X(t)$。$K_X(t)=\sum_{r\ge1}\kappa_r t^r/r!$ の係数 $\kappa_r$ を第 $r$ キュムラントとし、$\kappa_1=E[X]$、$\kappa_2=\operatorname{Var}(X)$。
+- キュムラントの加法性：独立な $X,Y$ なら $\kappa_r(X+Y)=\kappa_r(X)+\kappa_r(Y)$（$r\ge1$）。
 - Gamma積分：$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du$、$\int_0^\infty x^{a-1}e^{-bx}\,dx=\Gamma(a)/b^a$。
 - 分散公式：$\operatorname{Var}(X)=E[X^2]-E[X]^2$。
 - 共分散公式：$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$。

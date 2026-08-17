@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-16
-reviewed_card_count: 300
+updated_at: 2026-08-17
+reviewed_card_count: 315
 current_work: null
 next_work: C07-population-likelihood
-last_completed_work: ADHOC-20260816-missing-topics-multivariate-transform-relations
+last_completed_work: ADHOC-20260817-characteristic-cumulant
 summary:
-  total: 30
-  planned: 21
+  total: 33
+  planned: 22
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 9
+  reviewed: 11
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -195,6 +195,139 @@ planned_work:
       fatal: 0
       major: 0
       minor: 0
+  ADHOC-20260817-expectation-covariance:
+    title: 分布の特性値の欠落論点カード（全期待値・全分散・条件付き共分散・共分散行列・不等式）
+    category: math-probability
+    subcategories:
+      - math-distribution-characteristics
+    target:
+      min: 8
+      max: 8
+    review_dir: review/ADHOC-20260817-expectation-covariance
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 期待値・分散・共分散
+    title_ids:
+      - "080"
+      - "081"
+      - "082"
+      - "083"
+      - "084"
+      - "085"
+      - "086"
+      - "087"
+      - "088"
+      - "089"
+      - "090"
+      - "091"
+      - "092"
+      - "093"
+      - "094"
+      - "095"
+    priority_counts:
+      S: 12
+      A: 4
+      B: 0
+      C: 0
+    status: reviewed
+    started_at: 2026-08-16T15:08:38.884Z
+    self_review_at: 2026-08-16T15:16:51.231Z
+    independent_review_at: 2026-08-16T15:17:42.345Z
+    revision_at: 2026-08-16T15:30:15.194Z
+    completed_at: 2026-08-16T15:33:18.587Z
+    added_card_ids:
+      - prob-cauchy-schwarz-correlation
+      - prob-chebyshev-inequality
+      - prob-conditional-covariance
+      - prob-covariance-matrix-components
+      - prob-jensen-inequality
+      - prob-markov-inequality
+      - prob-total-expectation
+      - prob-total-variance
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+  ADHOC-20260817-characteristic-cumulant:
+    title: 確率分布と母関数の欠落論点カード（特性関数・キュムラント母関数）
+    category: math-probability
+    subcategories:
+      - math-distribution-functions
+    target:
+      min: 7
+      max: 7
+    review_dir: review/ADHOC-20260817-characteristic-cumulant
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 母関数・特性関数
+    title_ids:
+      - "096"
+      - "097"
+      - "098"
+      - "099"
+      - "100"
+      - "101"
+      - "102"
+      - "103"
+      - "104"
+      - "105"
+      - "106"
+      - "107"
+      - "108"
+      - "109"
+    priority_counts:
+      S: 10
+      A: 4
+      B: 0
+      C: 0
+    status: reviewed
+    started_at: 2026-08-16T15:33:59.936Z
+    self_review_at: 2026-08-16T15:45:33.559Z
+    independent_review_at: 2026-08-16T15:46:46.557Z
+    revision_at: 2026-08-17T00:52:13.877Z
+    completed_at: 2026-08-17T01:43:12.170Z
+    added_card_ids:
+      - prob-characteristic-function-definition
+      - prob-characteristic-function-normal
+      - prob-characteristic-function-sum
+      - prob-characteristic-function-uniqueness
+      - prob-characteristic-nonexistence-mgf
+      - prob-cumulant-mgf
+      - prob-cumulant-sum
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
+  ADHOC-20260817-sampling-extra:
+    title: 標本分布の欠落論点カード（統計量・2標本平均差・多項標本・標本相関係数）
+    category: math-distributions
+    subcategories:
+      - math-sampling-distributions
+    target:
+      min: 4
+      max: 4
+    review_dir: review/ADHOC-20260817-sampling-extra
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 標本分布
+    title_ids:
+      - "110"
+      - "111"
+      - "112"
+      - "113"
+      - "114"
+      - "115"
+      - "116"
+      - "117"
+      - "118"
+      - "119"
+      - "120"
+      - "121"
+      - "122"
+      - "123"
+    priority_counts:
+      S: 9
+      A: 5
+      B: 0
+      C: 0
+    status: planned
 work:
   C02-events-distribution-functions:
     title: 事象と確率・確率分布と母関数

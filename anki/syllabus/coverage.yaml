@@ -119,6 +119,13 @@ items:
       - prob-mgf-nonexistence
       - prob-mgf-uniqueness-domain
       - prob-density-from-cdf-derivative
+      - prob-characteristic-function-definition
+      - prob-characteristic-function-sum
+      - prob-characteristic-function-uniqueness
+      - prob-characteristic-function-normal
+      - prob-cumulant-mgf
+      - prob-cumulant-sum
+      - prob-characteristic-nonexistence-mgf
     terms:
       - name: 確率関数
         status: card
@@ -234,6 +241,14 @@ items:
       - prob-correlation-independence
       - prob-partial-correlation
       - prob-shape-summary
+      - prob-total-expectation
+      - prob-total-variance
+      - prob-conditional-covariance
+      - prob-covariance-matrix-components
+      - prob-cauchy-schwarz-correlation
+      - prob-jensen-inequality
+      - prob-markov-inequality
+      - prob-chebyshev-inequality
     terms:
       - name: モーメント
         status: card
@@ -247,12 +262,17 @@ items:
           - prob-expected-value-discrete
           - prob-expected-value-integral
           - prob-expected-value-function
+          - prob-total-expectation
+          - prob-jensen-inequality
+          - prob-markov-inequality
       - name: 分散
         status: card
         cards:
           - dist-variance-moment
           - prob-variance-affine
           - prob-variance-independent-sum
+          - prob-total-variance
+          - prob-chebyshev-inequality
       - name: 標準偏差
         status: card
         cards:
@@ -299,11 +319,14 @@ items:
         status: card
         cards:
           - prob-covariance-computation
+          - prob-conditional-covariance
+          - prob-covariance-matrix-components
       - name: 相関係数
         status: card
         cards:
           - prob-correlation-coefficient
           - prob-correlation-independence
+          - prob-cauchy-schwarz-correlation
       - name: 偏相関係数
         status: card
         cards:
