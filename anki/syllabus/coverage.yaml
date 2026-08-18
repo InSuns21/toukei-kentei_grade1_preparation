@@ -826,43 +826,86 @@ items:
           - mle-normal-both
           - mle-information-inequality
   - id: math-estimation-methods
-    status: partial
+    status: complete
     cards:
       - est-moments-exponential
       - data-ols-slope
+      - est-method-of-moments
+      - est-moments-uniform
+      - est-plug-in
+      - est-ols-bline
+      - est-ols-normal-equations
+      - est-gauss-markov
     terms:
       - name: モーメント法
-        status: planned
-        cards: []
+        status: card
+        cards: [est-method-of-moments, est-moments-exponential, est-moments-uniform]
       - name: 最小二乗法
-        status: planned
-        cards: []
+        status: card
+        cards: [est-ols-bline, est-ols-normal-equations, est-gauss-markov]
       - name: 線形推定（BLUE）
-        status: planned
-        cards: []
+        status: card
+        cards: [est-ols-bline, est-gauss-markov]
       - name: その他の手法
-        status: planned
-        cards: []
+        status: card
+        cards: [est-plug-in]
   - id: math-point-estimator-properties
-    status: partial
+    status: complete
     cards:
       - est-bias-variance
+      - est-estimator-estimate-parameter
+      - est-unbiasedness
+      - est-consistency
+      - est-consistency-bias
+      - est-mse-definition
+      - est-bias-variance-tradeoff
+      - est-bias-variance-comparison
+      - est-relative-efficiency
+      - est-unbiased-construction
+      - est-transform-bias
+      - est-shape-parameter-transform
+      - est-rao-blackwell
+      - est-sufficiency-completeness
+      - est-lehmann-scheffe
+      - est-umvu-idea
+      - est-loss-risk
+      - est-posterior-risk
+      - est-estimator-comparison
+      - est-score-mean-zero
+      - est-fisher-information-def
+      - est-fisher-two-forms
+      - est-fisher-additivity
+      - est-fisher-bernoulli-example
+      - est-fisher-poisson-example
+      - est-fisher-exponential
+      - est-fisher-normal-example
+      - est-cramer-rao-lower-bound
+      - est-crlb-equality
+      - est-crlb-exponential
+      - est-efficient-estimator
+      - est-asymptotic-efficiency
+      - est-mle-fisher-information
+      - est-asymptotic-normality-mle
+      - est-fisher-param-transform
+      - est-information-matrix
+      - est-normal-information-matrix
+      - est-information-inequality-summary
     terms:
       - name: 不偏性
-        status: planned
-        cards: []
+        status: card
+        cards: [est-unbiasedness, est-unbiased-construction, est-consistency-bias]
       - name: 一致性
-        status: planned
-        cards: []
+        status: card
+        cards: [est-consistency, est-consistency-bias]
       - name: 十分性
-        status: planned
-        cards: []
+        status: card
+        cards: [est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea]
       - name: 有効性
-        status: planned
-        cards: []
+        status: card
+        cards: [est-relative-efficiency, est-efficient-estimator, est-asymptotic-efficiency, est-information-inequality-summary]
       - name: 推定量の相対効率
-        status: planned
-        cards: []
+        status: card
+        cards: [est-relative-efficiency]
   - id: math-model-selection
     status: partial
     cards:

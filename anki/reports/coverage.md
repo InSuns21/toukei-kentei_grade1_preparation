@@ -1,12 +1,12 @@
 # シラバス coverage
 
-- 公開カード: 354
+- 公開カード: 397
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 153 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 125 | 3/3 | theorem, calc_step, expansion, recognition |
-| 統計的推測（推定） | 45 | 7/7 | formula, theorem, condition, proof_step, calc_step, strategy |
+| 統計的推測（推定） | 88 | 7/7 | formula, theorem, condition, proof_step, calc_step, strategy, reverse, pitfall |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
@@ -28,8 +28,8 @@
 | 標本分布 | complete | samp-xbar-normal-distribution, samp-chisq-definition, samp-chisq-additive, samp-chisq-mean-variance, samp-chisq-mean-var-indep, samp-chisq-expectation-squared, samp-t-distribution-definition, samp-t-statistic-mean-test, samp-t-distribution-variance-unknown, samp-t-converges-normal, samp-t-distribution-limits, samp-f-distribution-definition, samp-f-inverse-relation, samp-t-squared-f, samp-sqrt-f-t, samp-f-ratio-of-variances, samp-z-statistic-known-variance, samp-clt-approx-mean, samp-sample-proportion, samp-sample-variance-expectation, samp-two-sample-pooled-variance, samp-order-statistics-distribution, samp-max-distribution, samp-min-distribution, samp-range-statistic, samp-quantile-approx, samp-xbar-unbiased, samp-iid-sum-variance, samp-chisq-from-normal, samp-chisq-gamma-relation, samp-chisq-degree-of-freedom, samp-normal-linear-combo, samp-continuity-correction, samp-poisson-normal-approx, samp-cochran-theorem, samp-ci-mean-t, samp-ci-variance-chisq, samp-chisq-percentile, samp-f-percentile, samp-t-percentile-symmetry, samp-sample-size-mean, samp-sample-size-proportion, samp-welch-t, samp-two-proportion-diff, samp-noncentral-chisq, samp-noncentral-t, samp-f-anova-ratio, samp-statistic-definition, samp-two-sample-mean-diff, samp-multinomial-cell-counts, samp-sample-correlation-basic |
 | 母集団と標本・統計量 | complete | est-factorization, dist-order-max, suff-statistic-definition, neyman-factorization, suff-bernoulli, suff-poisson, suff-normal, suff-minimal, suff-likelihood-ratio-minimal, complete-statistic, exponential-family-completeness, suff-complete, rao-blackwell, lehmann-scheffe, umvu-construction, basu-theorem, order-statistic-sufficiency |
 | 尤度と最尤推定 | complete | est-bernoulli-mle, mle-likelihood-vs-probability, mle-likelihood-construction, mle-log-likelihood, mle-score-equation, mle-normal-mean, mle-normal-variance, mle-bernoulli-binomial, mle-poisson, mle-exponential, mle-uniform-endpoint, mle-constrained, mle-invariance, mle-consistency, mle-asymptotic-normality, mle-boundary-nonregular, score-function-definition, mle-multiparameter, likelihood-regularity, mle-normal-both, mle-information-inequality |
-| 各種推定法 | partial | est-moments-exponential, data-ols-slope |
-| 点推定量の性質 | partial | est-bias-variance |
+| 各種推定法 | complete | est-moments-exponential, data-ols-slope, est-method-of-moments, est-moments-uniform, est-plug-in, est-ols-bline, est-ols-normal-equations, est-gauss-markov |
+| 点推定量の性質 | complete | est-bias-variance, est-estimator-estimate-parameter, est-unbiasedness, est-consistency, est-consistency-bias, est-mse-definition, est-bias-variance-tradeoff, est-bias-variance-comparison, est-relative-efficiency, est-unbiased-construction, est-transform-bias, est-shape-parameter-transform, est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea, est-loss-risk, est-posterior-risk, est-estimator-comparison, est-score-mean-zero, est-fisher-information-def, est-fisher-two-forms, est-fisher-additivity, est-fisher-bernoulli-example, est-fisher-poisson-example, est-fisher-exponential, est-fisher-normal-example, est-cramer-rao-lower-bound, est-crlb-equality, est-crlb-exponential, est-efficient-estimator, est-asymptotic-efficiency, est-mle-fisher-information, est-asymptotic-normality-mle, est-fisher-param-transform, est-information-matrix, est-normal-information-matrix, est-information-inequality-summary |
 | モデル評価基準 | partial | est-aic-choice |
 | 漸近的性質など | partial | est-fisher-bernoulli, est-cramer-rao-bernoulli, est-delta-log |
 | 区間推定 | partial | test-normal-ci |
@@ -130,15 +130,15 @@
 | 尤度と最尤推定 | 対数尤度関数 | card | mle-log-likelihood, mle-score-equation |
 | 尤度と最尤推定 | 有効スコア関数 | card | score-function-definition |
 | 尤度と最尤推定 | 最尤推定 | card | mle-score-equation, mle-normal-mean, mle-poisson, mle-exponential, mle-boundary-nonregular, mle-consistency, mle-normal-both, mle-information-inequality |
-| 各種推定法 | モーメント法 | planned |  |
-| 各種推定法 | 最小二乗法 | planned |  |
-| 各種推定法 | 線形推定（BLUE） | planned |  |
-| 各種推定法 | その他の手法 | planned |  |
-| 点推定量の性質 | 不偏性 | planned |  |
-| 点推定量の性質 | 一致性 | planned |  |
-| 点推定量の性質 | 十分性 | planned |  |
-| 点推定量の性質 | 有効性 | planned |  |
-| 点推定量の性質 | 推定量の相対効率 | planned |  |
+| 各種推定法 | モーメント法 | card | est-method-of-moments, est-moments-exponential, est-moments-uniform |
+| 各種推定法 | 最小二乗法 | card | est-ols-bline, est-ols-normal-equations, est-gauss-markov |
+| 各種推定法 | 線形推定（BLUE） | card | est-ols-bline, est-gauss-markov |
+| 各種推定法 | その他の手法 | card | est-plug-in |
+| 点推定量の性質 | 不偏性 | card | est-unbiasedness, est-unbiased-construction, est-consistency-bias |
+| 点推定量の性質 | 一致性 | card | est-consistency, est-consistency-bias |
+| 点推定量の性質 | 十分性 | card | est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea |
+| 点推定量の性質 | 有効性 | card | est-relative-efficiency, est-efficient-estimator, est-asymptotic-efficiency, est-information-inequality-summary |
+| 点推定量の性質 | 推定量の相対効率 | card | est-relative-efficiency |
 | モデル評価基準 | カルバック・ライブラー情報量 | planned |  |
 | モデル評価基準 | 情報量規準AIC | planned |  |
 | モデル評価基準 | クロスバリデーション | planned |  |

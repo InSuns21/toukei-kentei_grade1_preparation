@@ -100,6 +100,10 @@
 - Cramér--Rao不等式：共通の台、微分と積分の交換、有限で正の情報量という正則条件の下で、$g(\theta)$ の不偏推定量 $T$ は $\operatorname{Var}_\theta(T)\ge g'(\theta)^2/I_n(\theta)$ を満たす。
 - AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$。
 - 平均二乗誤差：$E[(T-\theta)^2]=\operatorname{Var}(T)+\operatorname{Bias}(T)^2$。
+- Fisher情報行列：$\theta=(\theta_1,\ldots,\theta_k)$ のとき $I(\theta)_{ij}=E[\partial\log f/\partial\theta_i\cdot\partial\log f/\partial\theta_j]=-E[\partial^2\log f/\partial\theta_i\partial\theta_j]$。正則条件下で対称・半正定値。
+- 情報量の加法性：独立同分布標本では $I_n(\theta)=nI_1(\theta)$。パラメータ変換 $\eta=\eta(\theta)$ では $I(\eta)=I(\theta)(d\theta/d\eta)^2$。
+- Rao--Blackwellの定理：$T$ を十分統計量、$U$ を不偏推定量とすると $\widehat\theta=E[U\mid T]$ は不偏かつ $\operatorname{Var}(\widehat\theta)\le\operatorname{Var}(U)$。
+- Lehmann--Schefféの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意なUMVU推定量である。
 
 ## 検定
 

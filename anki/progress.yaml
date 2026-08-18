@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-18
-reviewed_card_count: 354
+updated_at: 2026-08-19
+reviewed_card_count: 397
 current_work: null
-next_work: C08-estimation-methods-properties
-last_completed_work: C07-population-likelihood
+next_work: C09-model-selection
+last_completed_work: C08-estimation-methods-properties
 summary:
   total: 33
-  planned: 20
+  planned: 19
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 13
+  reviewed: 14
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -768,7 +768,7 @@ work:
     target:
       min: 40
       max: 50
-    status: planned
+    status: reviewed
     review_dir: review/C08-estimation-methods-properties
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 点推定・Fisher情報・推定量の効率
@@ -806,6 +806,59 @@ work:
       A: 13
       B: 0
       C: 0
+    started_at: 2026-08-18T15:29:58.622Z
+    self_review_at: 2026-08-18T16:23:41.511Z
+    independent_review_at: 2026-08-18T16:24:20.960Z
+    revision_at: 2026-08-18T16:45:27.387Z
+    completed_at: 2026-08-18T17:10:34.960Z
+    added_card_ids:
+      - est-asymptotic-efficiency
+      - est-asymptotic-normality-mle
+      - est-bias-variance-comparison
+      - est-bias-variance-tradeoff
+      - est-consistency
+      - est-consistency-bias
+      - est-cramer-rao-lower-bound
+      - est-crlb-equality
+      - est-crlb-exponential
+      - est-efficient-estimator
+      - est-estimator-comparison
+      - est-estimator-estimate-parameter
+      - est-fisher-additivity
+      - est-fisher-bernoulli-example
+      - est-fisher-exponential
+      - est-fisher-information-def
+      - est-fisher-normal-example
+      - est-fisher-param-transform
+      - est-fisher-poisson-example
+      - est-fisher-two-forms
+      - est-gauss-markov
+      - est-information-inequality-summary
+      - est-information-matrix
+      - est-lehmann-scheffe
+      - est-loss-risk
+      - est-method-of-moments
+      - est-mle-fisher-information
+      - est-moments-uniform
+      - est-mse-definition
+      - est-normal-information-matrix
+      - est-ols-bline
+      - est-ols-normal-equations
+      - est-plug-in
+      - est-posterior-risk
+      - est-rao-blackwell
+      - est-relative-efficiency
+      - est-score-mean-zero
+      - est-shape-parameter-transform
+      - est-sufficiency-completeness
+      - est-transform-bias
+      - est-umvu-idea
+      - est-unbiased-construction
+      - est-unbiasedness
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C09-model-selection:
     title: モデル評価基準
     category: math-estimation

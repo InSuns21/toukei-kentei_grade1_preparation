@@ -1,3 +1,3 @@
 # 重複候補
 
-なし
+- lehmann-scheffe / est-lehmann-scheffe
