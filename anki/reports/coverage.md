@@ -1,12 +1,12 @@
 # シラバス coverage
 
-- 公開カード: 319
+- 公開カード: 354
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 153 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 125 | 3/3 | theorem, calc_step, expansion, recognition |
-| 統計的推測（推定） | 10 | 7/7 | formula, theorem, proof_step, calc_step, strategy |
+| 統計的推測（推定） | 45 | 7/7 | formula, theorem, condition, proof_step, calc_step, strategy |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
@@ -26,8 +26,8 @@
 | 離散型分布 | complete | dist-basic-discrete-uniform, dist-basic-discrete-uniform-moments, dist-bernoulli-definition, dist-bernoulli-moments, dist-binomial-definition, dist-binomial-moments, dist-binomial-ratio, dist-binomial-complement-tail, dist-binomial-bernoulli-sum, dist-hypergeometric-definition, dist-hypergeometric-moments, dist-hypergeometric-binomial-choice, dist-geometric-definition, dist-geometric-memoryless, dist-geometric-moments, dist-negative-binomial-definition, dist-negative-binomial-moments, dist-poisson-definition, dist-poisson-moments, dist-poisson-ratio-mode, dist-poisson-splitting, dist-multinomial-definition, dist-multinomial-moments, dist-multinomial-binomial-reduction, dist-discrete-identification, dist-bernoulli-complement, dist-binomial-factorial-moment, dist-poisson-moments-by-definition, dist-hypergeometric-moments-by-definition, dist-poisson-reproductivity |
 | 連続型分布 | complete | dist-gamma-recognition, dist-continuous-uniform-definition, dist-continuous-uniform-cdf, dist-continuous-uniform-moments, dist-continuous-uniform-interval, dist-normal-definition, dist-normal-moments, dist-normal-standardize, dist-normal-symmetry, dist-normal-linear-transform, dist-normal-sum, dist-exponential-definition, dist-exponential-cdf-survival, dist-exponential-moments, dist-exponential-memoryless, dist-exponential-hazard, dist-gamma-definition, dist-gamma-moments, dist-gamma-sum-exponential, dist-beta-definition, dist-beta-moments, dist-cauchy-no-moments, dist-lognormal-transformation, dist-lognormal-moments, dist-lognormal-median, dist-weibull-survival-hazard, dist-weibull-mean, dist-logistic-definition, dist-logistic-quantile, dist-multivariate-normal-density, dist-multivariate-normal-conditional, dist-gamma-moments-by-definition, dist-beta-moments-by-definition, dist-lognormal-moments-by-definition, dist-bivariate-normal-definition, dist-bivariate-normal-marginal, multi-exchangeability, prob-conditional-expectation, prob-transform-difference, prob-transform-product, prob-transform-box-muller, dist-gamma-beta-relation, process-poisson-orderstat, dist-limit-map |
 | 標本分布 | complete | samp-xbar-normal-distribution, samp-chisq-definition, samp-chisq-additive, samp-chisq-mean-variance, samp-chisq-mean-var-indep, samp-chisq-expectation-squared, samp-t-distribution-definition, samp-t-statistic-mean-test, samp-t-distribution-variance-unknown, samp-t-converges-normal, samp-t-distribution-limits, samp-f-distribution-definition, samp-f-inverse-relation, samp-t-squared-f, samp-sqrt-f-t, samp-f-ratio-of-variances, samp-z-statistic-known-variance, samp-clt-approx-mean, samp-sample-proportion, samp-sample-variance-expectation, samp-two-sample-pooled-variance, samp-order-statistics-distribution, samp-max-distribution, samp-min-distribution, samp-range-statistic, samp-quantile-approx, samp-xbar-unbiased, samp-iid-sum-variance, samp-chisq-from-normal, samp-chisq-gamma-relation, samp-chisq-degree-of-freedom, samp-normal-linear-combo, samp-continuity-correction, samp-poisson-normal-approx, samp-cochran-theorem, samp-ci-mean-t, samp-ci-variance-chisq, samp-chisq-percentile, samp-f-percentile, samp-t-percentile-symmetry, samp-sample-size-mean, samp-sample-size-proportion, samp-welch-t, samp-two-proportion-diff, samp-noncentral-chisq, samp-noncentral-t, samp-f-anova-ratio, samp-statistic-definition, samp-two-sample-mean-diff, samp-multinomial-cell-counts, samp-sample-correlation-basic |
-| 母集団と標本・統計量 | partial | est-factorization, dist-order-max |
-| 尤度と最尤推定 | partial | est-bernoulli-mle |
+| 母集団と標本・統計量 | complete | est-factorization, dist-order-max, suff-statistic-definition, neyman-factorization, suff-bernoulli, suff-poisson, suff-normal, suff-minimal, suff-likelihood-ratio-minimal, complete-statistic, exponential-family-completeness, suff-complete, rao-blackwell, lehmann-scheffe, umvu-construction, basu-theorem, order-statistic-sufficiency |
+| 尤度と最尤推定 | complete | est-bernoulli-mle, mle-likelihood-vs-probability, mle-likelihood-construction, mle-log-likelihood, mle-score-equation, mle-normal-mean, mle-normal-variance, mle-bernoulli-binomial, mle-poisson, mle-exponential, mle-uniform-endpoint, mle-constrained, mle-invariance, mle-consistency, mle-asymptotic-normality, mle-boundary-nonregular, score-function-definition, mle-multiparameter, likelihood-regularity, mle-normal-both, mle-information-inequality |
 | 各種推定法 | partial | est-moments-exponential, data-ols-slope |
 | 点推定量の性質 | partial | est-bias-variance |
 | モデル評価基準 | partial | est-aic-choice |
@@ -123,13 +123,13 @@
 | 標本分布 | t分布 | card | samp-t-distribution-definition, samp-t-statistic-mean-test, samp-t-distribution-variance-unknown, samp-t-converges-normal, samp-t-distribution-limits, samp-t-squared-f, samp-sqrt-f-t, samp-ci-mean-t, samp-t-percentile-symmetry, samp-welch-t, samp-noncentral-t, samp-two-sample-pooled-variance |
 | 標本分布 | カイ二乗分布 | card | samp-chisq-definition, samp-chisq-additive, samp-chisq-mean-variance, samp-chisq-mean-var-indep, samp-chisq-expectation-squared, samp-chisq-from-normal, samp-chisq-gamma-relation, samp-chisq-degree-of-freedom, samp-ci-variance-chisq, samp-chisq-percentile, samp-noncentral-chisq, samp-cochran-theorem |
 | 標本分布 | F分布 | card | samp-f-distribution-definition, samp-f-inverse-relation, samp-t-squared-f, samp-sqrt-f-t, samp-f-ratio-of-variances, samp-f-percentile, samp-f-anova-ratio |
-| 母集団と標本・統計量 | 十分統計量 | planned |  |
-| 母集団と標本・統計量 | ネイマンの分解定理 | planned |  |
-| 母集団と標本・統計量 | 順序統計量 | planned |  |
-| 尤度と最尤推定 | 尤度関数 | planned |  |
-| 尤度と最尤推定 | 対数尤度関数 | planned |  |
-| 尤度と最尤推定 | 有効スコア関数 | planned |  |
-| 尤度と最尤推定 | 最尤推定 | planned |  |
+| 母集団と標本・統計量 | 十分統計量 | card | suff-statistic-definition, suff-bernoulli, suff-poisson, suff-minimal, complete-statistic |
+| 母集団と標本・統計量 | ネイマンの分解定理 | card | neyman-factorization |
+| 母集団と標本・統計量 | 順序統計量 | card | order-statistic-sufficiency, dist-order-max |
+| 尤度と最尤推定 | 尤度関数 | card | mle-likelihood-vs-probability, mle-likelihood-construction |
+| 尤度と最尤推定 | 対数尤度関数 | card | mle-log-likelihood, mle-score-equation |
+| 尤度と最尤推定 | 有効スコア関数 | card | score-function-definition |
+| 尤度と最尤推定 | 最尤推定 | card | mle-score-equation, mle-normal-mean, mle-poisson, mle-exponential, mle-boundary-nonregular, mle-consistency, mle-normal-both, mle-information-inequality |
 | 各種推定法 | モーメント法 | planned |  |
 | 各種推定法 | 最小二乗法 | planned |  |
 | 各種推定法 | 線形推定（BLUE） | planned |  |

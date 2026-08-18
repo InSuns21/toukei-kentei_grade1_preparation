@@ -738,37 +738,93 @@ items:
           - samp-f-percentile
           - samp-f-anova-ratio
   - id: math-population-sample-statistic
-    status: partial
+    status: complete
     cards:
       - est-factorization
       - dist-order-max
+      - suff-statistic-definition
+      - neyman-factorization
+      - suff-bernoulli
+      - suff-poisson
+      - suff-normal
+      - suff-minimal
+      - suff-likelihood-ratio-minimal
+      - complete-statistic
+      - exponential-family-completeness
+      - suff-complete
+      - rao-blackwell
+      - lehmann-scheffe
+      - umvu-construction
+      - basu-theorem
+      - order-statistic-sufficiency
     terms:
       - name: 十分統計量
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - suff-statistic-definition
+          - suff-bernoulli
+          - suff-poisson
+          - suff-minimal
+          - complete-statistic
       - name: ネイマンの分解定理
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - neyman-factorization
       - name: 順序統計量
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - order-statistic-sufficiency
+          - dist-order-max
   - id: math-likelihood-mle
-    status: partial
+    status: complete
     cards:
       - est-bernoulli-mle
+      - mle-likelihood-vs-probability
+      - mle-likelihood-construction
+      - mle-log-likelihood
+      - mle-score-equation
+      - mle-normal-mean
+      - mle-normal-variance
+      - mle-bernoulli-binomial
+      - mle-poisson
+      - mle-exponential
+      - mle-uniform-endpoint
+      - mle-constrained
+      - mle-invariance
+      - mle-consistency
+      - mle-asymptotic-normality
+      - mle-boundary-nonregular
+      - score-function-definition
+      - mle-multiparameter
+      - likelihood-regularity
+      - mle-normal-both
+      - mle-information-inequality
     terms:
       - name: 尤度関数
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - mle-likelihood-vs-probability
+          - mle-likelihood-construction
       - name: 対数尤度関数
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - mle-log-likelihood
+          - mle-score-equation
       - name: 有効スコア関数
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - score-function-definition
       - name: 最尤推定
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - mle-score-equation
+          - mle-normal-mean
+          - mle-poisson
+          - mle-exponential
+          - mle-boundary-nonregular
+          - mle-consistency
+          - mle-normal-both
+          - mle-information-inequality
   - id: math-estimation-methods
     status: partial
     cards:

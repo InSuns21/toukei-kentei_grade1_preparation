@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-17
-reviewed_card_count: 319
+updated_at: 2026-08-18
+reviewed_card_count: 354
 current_work: null
-next_work: C07-population-likelihood
-last_completed_work: ADHOC-20260817-sampling-extra
+next_work: C08-estimation-methods-properties
+last_completed_work: C07-population-likelihood
 summary:
   total: 33
-  planned: 21
+  planned: 20
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 12
+  reviewed: 13
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -675,7 +675,7 @@ work:
     target:
       min: 35
       max: 40
-    status: planned
+    status: reviewed
     review_dir: review/C07-population-likelihood
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 最尤法・十分性・完備性
@@ -714,6 +714,51 @@ work:
       A: 10
       B: 0
       C: 0
+    started_at: 2026-08-18T12:43:46.366Z
+    self_review_at: 2026-08-18T13:40:13.510Z
+    independent_review_at: 2026-08-18T13:40:43.501Z
+    revision_at: 2026-08-18T14:17:14.321Z
+    completed_at: 2026-08-18T14:41:12.067Z
+    added_card_ids:
+      - basu-theorem
+      - complete-statistic
+      - exponential-family-completeness
+      - lehmann-scheffe
+      - likelihood-regularity
+      - mle-asymptotic-normality
+      - mle-bernoulli-binomial
+      - mle-boundary-nonregular
+      - mle-consistency
+      - mle-constrained
+      - mle-exponential
+      - mle-information-inequality
+      - mle-invariance
+      - mle-likelihood-construction
+      - mle-likelihood-vs-probability
+      - mle-log-likelihood
+      - mle-multiparameter
+      - mle-normal-both
+      - mle-normal-mean
+      - mle-normal-variance
+      - mle-poisson
+      - mle-score-equation
+      - mle-uniform-endpoint
+      - neyman-factorization
+      - order-statistic-sufficiency
+      - rao-blackwell
+      - score-function-definition
+      - suff-bernoulli
+      - suff-complete
+      - suff-likelihood-ratio-minimal
+      - suff-minimal
+      - suff-normal
+      - suff-poisson
+      - suff-statistic-definition
+      - umvu-construction
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C08-estimation-methods-properties:
     title: 各種推定法・点推定量の性質
     category: math-estimation
