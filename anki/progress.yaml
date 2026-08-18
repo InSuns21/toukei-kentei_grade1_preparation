@@ -677,6 +677,43 @@ work:
       max: 40
     status: planned
     review_dir: review/C07-population-likelihood
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 最尤法・十分性・完備性
+    title_ids:
+      - "138"
+      - "139"
+      - "140"
+      - "141"
+      - "142"
+      - "143"
+      - "144"
+      - "145"
+      - "146"
+      - "147"
+      - "148"
+      - "149"
+      - "150"
+      - "151"
+      - "152"
+      - "153"
+      - "154"
+      - "155"
+      - "156"
+      - "157"
+      - "158"
+      - "159"
+      - "160"
+      - "161"
+      - "162"
+      - "163"
+      - "164"
+      - "165"
+      - "166"
+    priority_counts:
+      S: 19
+      A: 10
+      B: 0
+      C: 0
   C08-estimation-methods-properties:
     title: 各種推定法・点推定量の性質
     category: math-estimation
@@ -688,6 +725,42 @@ work:
       max: 50
     status: planned
     review_dir: review/C08-estimation-methods-properties
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 点推定・Fisher情報・推定量の効率
+    title_ids:
+      - "124"
+      - "125"
+      - "126"
+      - "127"
+      - "128"
+      - "129"
+      - "130"
+      - "131"
+      - "132"
+      - "133"
+      - "134"
+      - "135"
+      - "136"
+      - "137"
+      - "167"
+      - "168"
+      - "169"
+      - "170"
+      - "171"
+      - "172"
+      - "173"
+      - "174"
+      - "175"
+      - "176"
+      - "177"
+      - "178"
+      - "179"
+      - "180"
+    priority_counts:
+      S: 15
+      A: 13
+      B: 0
+      C: 0
   C09-model-selection:
     title: モデル評価基準
     category: math-estimation
@@ -698,6 +771,29 @@ work:
       max: 22
     status: planned
     review_dir: review/C09-model-selection
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: モデル選択・正則化
+    title_ids:
+      - "455"
+      - "456"
+      - "457"
+      - "458"
+      - "459"
+      - "460"
+      - "461"
+      - "462"
+      - "463"
+      - "464"
+      - "465"
+      - "466"
+      - "467"
+      - "468"
+      - "469"
+    priority_counts:
+      S: 0
+      A: 0
+      B: 6
+      C: 9
   C10-asymptotic-estimation:
     title: 漸近的性質など
     category: math-estimation
@@ -708,6 +804,32 @@ work:
       max: 30
     status: planned
     review_dir: review/C10-asymptotic-estimation
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 漸近理論
+    title_ids:
+      - "227"
+      - "228"
+      - "229"
+      - "230"
+      - "231"
+      - "232"
+      - "233"
+      - "234"
+      - "235"
+      - "236"
+      - "237"
+      - "238"
+      - "239"
+      - "240"
+      - "241"
+      - "242"
+      - "243"
+      - "244"
+    priority_counts:
+      S: 9
+      A: 9
+      B: 0
+      C: 0
   C11-interval-estimation:
     title: 区間推定
     category: math-estimation
@@ -718,6 +840,28 @@ work:
       max: 35
     status: planned
     review_dir: review/C11-interval-estimation
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 区間推定
+    title_ids:
+      - "181"
+      - "182"
+      - "183"
+      - "184"
+      - "185"
+      - "186"
+      - "187"
+      - "188"
+      - "189"
+      - "190"
+      - "191"
+      - "192"
+      - "193"
+      - "194"
+    priority_counts:
+      S: 11
+      A: 3
+      B: 0
+      C: 0
   C12-testing-foundations-derivation:
     title: 検定の基礎・検定法の導出
     category: math-testing
@@ -729,6 +873,46 @@ work:
       max: 50
     status: planned
     review_dir: review/C12-testing-foundations-derivation
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 仮説検定・尤度比・Neyman–Pearson
+    title_ids:
+      - "195"
+      - "196"
+      - "197"
+      - "198"
+      - "199"
+      - "200"
+      - "201"
+      - "202"
+      - "203"
+      - "204"
+      - "205"
+      - "206"
+      - "207"
+      - "208"
+      - "209"
+      - "210"
+      - "211"
+      - "212"
+      - "213"
+      - "214"
+      - "215"
+      - "216"
+      - "217"
+      - "218"
+      - "219"
+      - "220"
+      - "221"
+      - "222"
+      - "223"
+      - "224"
+      - "225"
+      - "226"
+    priority_counts:
+      S: 11
+      A: 21
+      B: 0
+      C: 0
   C13-normal-various-tests:
     title: 正規分布に関する検定・種々の検定法
     category: math-testing
@@ -740,6 +924,32 @@ work:
       max: 45
     status: planned
     review_dir: review/C13-normal-various-tests
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 仮説検定
+    title_ids:
+      - "195"
+      - "196"
+      - "197"
+      - "198"
+      - "199"
+      - "200"
+      - "201"
+      - "202"
+      - "203"
+      - "204"
+      - "205"
+      - "206"
+      - "207"
+      - "208"
+      - "209"
+      - "210"
+      - "211"
+      - "212"
+    priority_counts:
+      S: 5
+      A: 13
+      B: 0
+      C: 0
   C14-anova-regression:
     title: 分散分析・回帰分析
     category: math-data-analysis
@@ -751,6 +961,51 @@ work:
       max: 60
     status: planned
     review_dir: review/C14-anova-regression
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 線形回帰・分散分析
+    title_ids:
+      - "245"
+      - "246"
+      - "247"
+      - "248"
+      - "249"
+      - "250"
+      - "251"
+      - "252"
+      - "253"
+      - "254"
+      - "255"
+      - "256"
+      - "257"
+      - "258"
+      - "259"
+      - "260"
+      - "261"
+      - "262"
+      - "263"
+      - "264"
+      - "265"
+      - "266"
+      - "267"
+      - "268"
+      - "269"
+      - "270"
+      - "271"
+      - "272"
+      - "273"
+      - "274"
+      - "275"
+      - "276"
+      - "277"
+      - "278"
+      - "279"
+      - "280"
+      - "281"
+    priority_counts:
+      S: 19
+      A: 18
+      B: 0
+      C: 0
   C15-contingency-nonparametric:
     title: 分割表の解析・ノンパラメトリック法
     category: math-data-analysis
@@ -762,6 +1017,42 @@ work:
       max: 50
     status: planned
     review_dir: review/C15-contingency-nonparametric
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: カテゴリカルデータ・ノンパラメトリック法
+    title_ids:
+      - "398"
+      - "399"
+      - "400"
+      - "401"
+      - "402"
+      - "403"
+      - "404"
+      - "405"
+      - "406"
+      - "407"
+      - "408"
+      - "409"
+      - "410"
+      - "411"
+      - "329"
+      - "330"
+      - "331"
+      - "332"
+      - "333"
+      - "334"
+      - "335"
+      - "336"
+      - "337"
+      - "338"
+      - "339"
+      - "340"
+      - "341"
+      - "342"
+    priority_counts:
+      S: 0
+      A: 4
+      B: 24
+      C: 0
   C16-incomplete-data:
     title: 不完全データ
     category: math-data-analysis
@@ -772,6 +1063,27 @@ work:
       max: 22
     status: planned
     review_dir: review/C16-incomplete-data
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 生存時間解析
+    title_ids:
+      - "429"
+      - "430"
+      - "431"
+      - "432"
+      - "433"
+      - "434"
+      - "435"
+      - "436"
+      - "437"
+      - "438"
+      - "439"
+      - "440"
+      - "441"
+    priority_counts:
+      S: 0
+      A: 0
+      B: 1
+      C: 12
   C17-simulation:
     title: シミュレーション
     category: math-data-analysis
@@ -782,6 +1094,27 @@ work:
       max: 40
     status: planned
     review_dir: review/C17-simulation
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: リサンプリング
+    title_ids:
+      - "442"
+      - "443"
+      - "444"
+      - "445"
+      - "446"
+      - "447"
+      - "448"
+      - "449"
+      - "450"
+      - "451"
+      - "452"
+      - "453"
+      - "454"
+    priority_counts:
+      S: 0
+      A: 0
+      B: 0
+      C: 13
   C18-bayesian-methods:
     title: ベイズ法
     category: math-data-analysis
@@ -792,6 +1125,31 @@ work:
       max: 45
     status: planned
     review_dir: review/C18-bayesian-methods
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: ベイズ統計
+    title_ids:
+      - "312"
+      - "313"
+      - "314"
+      - "315"
+      - "316"
+      - "317"
+      - "318"
+      - "319"
+      - "320"
+      - "321"
+      - "322"
+      - "323"
+      - "324"
+      - "325"
+      - "326"
+      - "327"
+      - "328"
+    priority_counts:
+      S: 0
+      A: 6
+      B: 11
+      C: 0
   C19-research-sampling:
     title: 研究の種類・標本調査法
     category: applied-common
@@ -803,6 +1161,31 @@ work:
       max: 40
     status: planned
     review_dir: review/C19-research-sampling
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 標本調査
+    title_ids:
+      - "412"
+      - "413"
+      - "414"
+      - "415"
+      - "416"
+      - "417"
+      - "418"
+      - "419"
+      - "420"
+      - "421"
+      - "422"
+      - "423"
+      - "424"
+      - "425"
+      - "426"
+      - "427"
+      - "428"
+    priority_counts:
+      S: 0
+      A: 3
+      B: 14
+      C: 0
   C20-experimental-design:
     title: 実験計画法
     category: applied-common
@@ -813,6 +1196,28 @@ work:
       max: 40
     status: planned
     review_dir: review/C20-experimental-design
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 実験計画
+    title_ids:
+      - "282"
+      - "283"
+      - "284"
+      - "285"
+      - "286"
+      - "287"
+      - "288"
+      - "289"
+      - "290"
+      - "291"
+      - "292"
+      - "293"
+      - "294"
+      - "295"
+    priority_counts:
+      S: 0
+      A: 1
+      B: 13
+      C: 0
   C21-regression-multivariate:
     title: 重回帰分析・各種多変量解析法
     category: applied-common
@@ -824,6 +1229,69 @@ work:
       max: 65
     status: planned
     review_dir: review/C21-regression-multivariate
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 多変量解析・一般化線形モデル・線形回帰
+    title_ids:
+      - "343"
+      - "344"
+      - "345"
+      - "346"
+      - "347"
+      - "348"
+      - "349"
+      - "350"
+      - "351"
+      - "352"
+      - "353"
+      - "354"
+      - "355"
+      - "356"
+      - "357"
+      - "358"
+      - "359"
+      - "296"
+      - "297"
+      - "298"
+      - "299"
+      - "300"
+      - "301"
+      - "302"
+      - "303"
+      - "304"
+      - "305"
+      - "306"
+      - "307"
+      - "308"
+      - "309"
+      - "310"
+      - "311"
+      - "245"
+      - "246"
+      - "247"
+      - "248"
+      - "249"
+      - "250"
+      - "251"
+      - "252"
+      - "253"
+      - "254"
+      - "255"
+      - "256"
+      - "257"
+      - "258"
+      - "259"
+      - "260"
+      - "261"
+      - "262"
+      - "263"
+      - "264"
+      - "265"
+      - "266"
+    priority_counts:
+      S: 14
+      A: 16
+      B: 24
+      C: 1
   C22-stochastic-time-series:
     title: 確率過程・時系列解析
     category: applied-common
@@ -835,6 +1303,52 @@ work:
       max: 45
     status: planned
     review_dir: review/C22-stochastic-time-series
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 確率過程・時系列解析
+    title_ids:
+      - "381"
+      - "382"
+      - "383"
+      - "384"
+      - "385"
+      - "386"
+      - "387"
+      - "388"
+      - "389"
+      - "390"
+      - "391"
+      - "392"
+      - "393"
+      - "394"
+      - "395"
+      - "396"
+      - "397"
+      - "360"
+      - "361"
+      - "362"
+      - "363"
+      - "364"
+      - "365"
+      - "366"
+      - "367"
+      - "368"
+      - "369"
+      - "370"
+      - "371"
+      - "372"
+      - "373"
+      - "374"
+      - "375"
+      - "376"
+      - "377"
+      - "378"
+      - "379"
+      - "380"
+    priority_counts:
+      S: 0
+      A: 18
+      B: 20
+      C: 0
   C23-engineering-multivariate:
     title: 多変量解析法
     category: applied-engineering
@@ -845,6 +1359,31 @@ work:
       max: 40
     status: planned
     review_dir: review/C23-engineering-multivariate
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 多変量解析
+    title_ids:
+      - "343"
+      - "344"
+      - "345"
+      - "346"
+      - "347"
+      - "348"
+      - "349"
+      - "350"
+      - "351"
+      - "352"
+      - "353"
+      - "354"
+      - "355"
+      - "356"
+      - "357"
+      - "358"
+      - "359"
+    priority_counts:
+      S: 0
+      A: 2
+      B: 14
+      C: 1
   C24-engineering-processes:
     title: 確率過程
     category: applied-engineering
@@ -855,6 +1394,52 @@ work:
       max: 45
     status: planned
     review_dir: review/C24-engineering-processes
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 確率過程・時系列解析
+    title_ids:
+      - "381"
+      - "382"
+      - "383"
+      - "384"
+      - "385"
+      - "386"
+      - "387"
+      - "388"
+      - "389"
+      - "390"
+      - "391"
+      - "392"
+      - "393"
+      - "394"
+      - "395"
+      - "396"
+      - "397"
+      - "360"
+      - "361"
+      - "362"
+      - "363"
+      - "364"
+      - "365"
+      - "366"
+      - "367"
+      - "368"
+      - "369"
+      - "370"
+      - "371"
+      - "372"
+      - "373"
+      - "374"
+      - "375"
+      - "376"
+      - "377"
+      - "378"
+      - "379"
+      - "380"
+    priority_counts:
+      S: 0
+      A: 18
+      B: 20
+      C: 0
   C25-engineering-inference-asymptotics:
     title: 線形推測・漸近理論
     category: applied-engineering
@@ -866,6 +1451,70 @@ work:
       max: 45
     status: planned
     review_dir: review/C25-engineering-inference-asymptotics
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 線形回帰・一般化線形モデル・漸近理論
+    title_ids:
+      - "245"
+      - "246"
+      - "247"
+      - "248"
+      - "249"
+      - "250"
+      - "251"
+      - "252"
+      - "253"
+      - "254"
+      - "255"
+      - "256"
+      - "257"
+      - "258"
+      - "259"
+      - "260"
+      - "261"
+      - "262"
+      - "263"
+      - "264"
+      - "265"
+      - "266"
+      - "296"
+      - "297"
+      - "298"
+      - "299"
+      - "300"
+      - "301"
+      - "302"
+      - "303"
+      - "304"
+      - "305"
+      - "306"
+      - "307"
+      - "308"
+      - "309"
+      - "310"
+      - "311"
+      - "227"
+      - "228"
+      - "229"
+      - "230"
+      - "231"
+      - "232"
+      - "233"
+      - "234"
+      - "235"
+      - "236"
+      - "237"
+      - "238"
+      - "239"
+      - "240"
+      - "241"
+      - "242"
+      - "243"
+      - "244"
+    priority_counts:
+      S: 23
+      A: 23
+      B: 10
+      C: 0
   C26-engineering-quality:
     title: 品質管理
     category: applied-engineering
@@ -876,6 +1525,47 @@ work:
       max: 40
     status: planned
     review_dir: review/C26-engineering-quality
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 分散分析・仮説検定
+    title_ids:
+      - "267"
+      - "268"
+      - "269"
+      - "270"
+      - "271"
+      - "272"
+      - "273"
+      - "274"
+      - "275"
+      - "276"
+      - "277"
+      - "278"
+      - "279"
+      - "280"
+      - "281"
+      - "195"
+      - "196"
+      - "197"
+      - "198"
+      - "199"
+      - "200"
+      - "201"
+      - "202"
+      - "203"
+      - "204"
+      - "205"
+      - "206"
+      - "207"
+      - "208"
+      - "209"
+      - "210"
+      - "211"
+      - "212"
+    priority_counts:
+      S: 10
+      A: 23
+      B: 0
+      C: 0
   C27-engineering-design:
     title: 実験計画
     category: applied-engineering
@@ -886,3 +1576,25 @@ work:
       max: 40
     status: planned
     review_dir: review/C27-engineering-design
+    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
+    parent: 実験計画
+    title_ids:
+      - "282"
+      - "283"
+      - "284"
+      - "285"
+      - "286"
+      - "287"
+      - "288"
+      - "289"
+      - "290"
+      - "291"
+      - "292"
+      - "293"
+      - "294"
+      - "295"
+    priority_counts:
+      S: 0
+      A: 1
+      B: 13
+      C: 0
