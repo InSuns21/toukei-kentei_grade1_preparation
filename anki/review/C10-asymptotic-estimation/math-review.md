@@ -108,3 +108,51 @@ No remaining mathematical issue was found in the 27 cards. No essay or connectio
 - `npm run anki:validate`: SUCCESS on 2026-08-19 Asia/Tokyo. It validated 445 cards with 0 warnings, built 445 cards in 7 category pages, and passed the site build check.
 
 fatal: 0 / major: 0 / minor: 0
+
+## Second independent re-review after revision (third pass)
+
+- Reviewer: independent MATHEMATICAL reviewer
+- Reviewer ID: agent-math-C10
+- Date/time: 2026-08-19T13:10:00.000Z Asia/Tokyo
+- Scope: independent verification that the three previous minor fixes are actually present in `anki/cards/31_asymptotic_estimation.md`, plus an independent formula/number sweep of all 27 cards. No essay/connection-drill requirement applied (Anki scope).
+
+### Direct confirmation of the three previous fixes (read from the card body, not the author's claim)
+
+1. `asym-convergence-almost-sure`: CONFIRMED. The calculation-example field reads: 非負な $Y_n\ge0$ で $\sum E[Y_n]<\infty$ なら単調収束定理から $E[\sum Y_n]=\sum E[Y_n]<\infty$ となる。よって $\sum Y_n$ はほとんど確実に有限（すなわち収束）し、独立であることは不要である。 The result is attributed to the monotone convergence theorem, and independence is explicitly stated as unnecessary. The earlier Kolmogorov three-series attribution is gone.
+
+2. `asym-delta-method` and `asym-delta-method-sqrt`: CONFIRMED. Both question fields now read "…が正規分布（ガウス分布） $N(0,\sigma^2)$ へ分布収束する…". Neither says 標準正規分布. Since $N(0,\sigma^2)$ has variance $\sigma^2$ and is standard normal only when $\sigma^2=1$, the displayed naming is correct.
+
+3. `asym-as-conv-prob`: CONFIRMED. The calculation-example field reads: $B_n=\bigcup_{k\ge n}\{|X_k-\theta|>\varepsilon\}$ は減少列で、その極限 $B$ は $A^c$ の部分集合である。よって $P(B)=0$ かつ上からの連続性により $P(B_n)\to0$。 The earlier over-simplification $P(\bigcup_{k\ge n}\cdots)=P(\emptyset)=0$ is gone; the decreasing sequence, the subset relation $B\subset A^c$, $P(A^c)=0$, and continuity from above are all stated.
+
+### Independent formula and numerical sweep of all 27 cards
+
+Every numerical example was independently recomputed and reaches a final concrete value:
+
+- `asym-prob-conv-chebyshev`: Var=1/n, $\varepsilon=0.1$, $n=100$ gives $(1/100)/0.01=1$; $n=400$ gives $0.0025/0.01=0.25$. Correct upper bound; note correctly says it is an upper bound, not the probability.
+- `asym-sample-mean-normality`: $SE=4/\sqrt{100}=0.4$, half-width $1.96\times0.4=0.784$. Correct.
+- `asym-sample-proportion-normality`: $\sqrt{0.3\times0.7/400}=\sqrt{0.21/400}=\sqrt{0.000525}\approx0.0229$. Correct.
+- `asym-clt-binomial-normal`: $np=40$, $np(1-p)=24$, $SE=\sqrt{24}\approx4.90$, $z=(46.5-40)/4.90\approx1.33$, $\Phi(1.33)\approx0.908$. Continuity correction $46.5$ present. Correct.
+- `asym-delta-method`: with $g(x)=e^x$, variance $e^{2\mu}\sigma^2$. Correct.
+- `asym-delta-method-sqrt`: $\sigma^2=4,\mu=9$ gives variance $4/(4\cdot9)=1/9$ and ASE $\sqrt{1/(9n)}=1/(3\sqrt n)$. Correct.
+- `asym-mle-av-binomial`: $I_1(p)=1/\{p(1-p)\}$, AVar($\sqrt n\widehat p)=p(1-p)$, AVar($\widehat p)=p(1-p)/n$; at $p=0.5$ gives $0.25/n$ and ASE $0.5/\sqrt n$. Correct and matches the sample-proportion CLT.
+- `asym-mle-av-normal`: $I_1(\mu)=1/\sigma^2$, AVar($\overline X_n)=\sigma^2/n$; at $\sigma^2=9$ gives $9/n$ and ASE $3/\sqrt n$. Correct.
+- `asym-are-median-mean`: ARE $=2/\pi\approx0.637$. Correct.
+- `asym-order-notation`: $\overline X_n-\mu=O_p(n^{-1/2})$, $\sqrt n(\overline X_n-\mu)=O_p(1)$, third centered moment $=o_p(1)$ under finite third moment. Correct.
+
+Definitions, theorems, and implication hierarchies were independently re-derived:
+
+- Convergence definitions (probability, a.s., distribution, mean-square) and the hierarchy a.s. ⇒ p ⇒ d, qm ⇒ p, no general a.s.↔qm implication, are correctly stated.
+- WLLN ($E[X_i]=\mu$ in $\mathbb R$ ⇒ $\xrightarrow{p}\mu$) and SLLN ($E[|X_i|]<\infty$ ⇒ $\xrightarrow{a.s.}\mu$) conditions/conclusions are correct.
+- CLT: i.i.d. with $0<\sigma^2<\infty$ ⇒ $\sqrt n(\overline X_n-\mu)/\sigma\to_d N(0,1)$; Bernoulli specialization correct.
+- Slutsky sum/product/quotient (with $c\ne0$ quotient condition) and the t-statistic example yielding $N(0,1)$ from $S_n^2\to_p\sigma^2$ are correct.
+- Continuous mapping theorem and $Z_n^2\to_d\chi^2_1$ are correct.
+- MLE asymptotic normality $\sqrt n(\widehat\theta-\theta_0)\to_d N(0,I_1(\theta_0)^{-1})$ is correct; Bernoulli and normal-mean information quantities correct.
+- Asymptotic variance/SE and ARE definitions are internally consistent.
+
+No new fatal, major, or minor mathematical issue was found in the 27 cards. The previously recorded three minor findings are resolved in the card body. No essay/connection-drill or answer-compression requirement was applied, consistent with Anki scope.
+
+### Machine validation for third pass
+
+- `npm run validate`: SUCCESS on 2026-08-19T13:10:00.000Z Asia/Tokyo. All three sub-validations passed (structure, math/KaTeX strict over 305 Markdown files, text over 237 generated targets). Exit code 0.
+
+fatal: 0 / major: 0 / minor: 0
