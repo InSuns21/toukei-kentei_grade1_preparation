@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-19
-reviewed_card_count: 397
+reviewed_card_count: 418
 current_work: null
-next_work: C09-model-selection
-last_completed_work: C08-estimation-methods-properties
+next_work: C10-asymptotic-estimation
+last_completed_work: C09-model-selection
 summary:
   total: 33
-  planned: 19
+  planned: 18
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 14
+  reviewed: 15
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -867,7 +867,7 @@ work:
     target:
       min: 18
       max: 22
-    status: planned
+    status: reviewed
     review_dir: review/C09-model-selection
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: モデル選択・正則化
@@ -892,6 +892,37 @@ work:
       A: 0
       B: 6
       C: 9
+    started_at: 2026-08-19T04:01:39.898Z
+    self_review_at: 2026-08-19T04:10:29.195Z
+    independent_review_at: 2026-08-19T04:17:39.415Z
+    revision_at: 2026-08-19T04:17:41.308Z
+    completed_at: 2026-08-19T04:25:37.135Z
+    added_card_ids:
+      - ms-aic-asymptotic-loo
+      - ms-aic-formula
+      - ms-bic-consistency
+      - ms-bic-formula
+      - ms-cv-loo
+      - ms-cv-model-selection
+      - ms-elastic-net
+      - ms-info-criterion-likelihood
+      - ms-kl-divergence
+      - ms-kl-nonnegativity
+      - ms-l1-l2-difference
+      - ms-lasso-regression
+      - ms-lasso-selection
+      - ms-multicollinearity-ridge
+      - ms-overfitting-generalization
+      - ms-prediction-vs-inference
+      - ms-regularization-bias-variance
+      - ms-ridge-regression
+      - ms-ridge-shrinkage
+      - ms-train-test-error
+      - ms-variable-selection-stepwise
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C10-asymptotic-estimation:
     title: 漸近的性質など
     category: math-estimation

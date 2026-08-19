@@ -1,12 +1,12 @@
 # シラバス coverage
 
-- 公開カード: 397
+- 公開カード: 418
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 153 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 125 | 3/3 | theorem, calc_step, expansion, recognition |
-| 統計的推測（推定） | 88 | 7/7 | formula, theorem, condition, proof_step, calc_step, strategy, reverse, pitfall |
+| 統計的推測（推定） | 109 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
@@ -30,7 +30,7 @@
 | 尤度と最尤推定 | complete | est-bernoulli-mle, mle-likelihood-vs-probability, mle-likelihood-construction, mle-log-likelihood, mle-score-equation, mle-normal-mean, mle-normal-variance, mle-bernoulli-binomial, mle-poisson, mle-exponential, mle-uniform-endpoint, mle-constrained, mle-invariance, mle-consistency, mle-asymptotic-normality, mle-boundary-nonregular, score-function-definition, mle-multiparameter, likelihood-regularity, mle-normal-both, mle-information-inequality |
 | 各種推定法 | complete | est-moments-exponential, data-ols-slope, est-method-of-moments, est-moments-uniform, est-plug-in, est-ols-bline, est-ols-normal-equations, est-gauss-markov |
 | 点推定量の性質 | complete | est-bias-variance, est-estimator-estimate-parameter, est-unbiasedness, est-consistency, est-consistency-bias, est-mse-definition, est-bias-variance-tradeoff, est-bias-variance-comparison, est-relative-efficiency, est-unbiased-construction, est-transform-bias, est-shape-parameter-transform, est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea, est-loss-risk, est-posterior-risk, est-estimator-comparison, est-score-mean-zero, est-fisher-information-def, est-fisher-two-forms, est-fisher-additivity, est-fisher-bernoulli-example, est-fisher-poisson-example, est-fisher-exponential, est-fisher-normal-example, est-cramer-rao-lower-bound, est-crlb-equality, est-crlb-exponential, est-efficient-estimator, est-asymptotic-efficiency, est-mle-fisher-information, est-asymptotic-normality-mle, est-fisher-param-transform, est-information-matrix, est-normal-information-matrix, est-information-inequality-summary |
-| モデル評価基準 | partial | est-aic-choice |
+| モデル評価基準 | complete | est-aic-choice, ms-overfitting-generalization, ms-train-test-error, ms-kl-divergence, ms-kl-nonnegativity, ms-aic-formula, ms-aic-asymptotic-loo, ms-bic-formula, ms-bic-consistency, ms-info-criterion-likelihood, ms-variable-selection-stepwise, ms-cv-model-selection, ms-cv-loo, ms-ridge-regression, ms-ridge-shrinkage, ms-lasso-regression, ms-l1-l2-difference, ms-regularization-bias-variance, ms-lasso-selection, ms-elastic-net, ms-multicollinearity-ridge, ms-prediction-vs-inference |
 | 漸近的性質など | partial | est-fisher-bernoulli, est-cramer-rao-bernoulli, est-delta-log |
 | 区間推定 | partial | test-normal-ci |
 | 検定の基礎 | partial | test-z-rejection |
@@ -139,9 +139,9 @@
 | 点推定量の性質 | 十分性 | card | est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea |
 | 点推定量の性質 | 有効性 | card | est-relative-efficiency, est-efficient-estimator, est-asymptotic-efficiency, est-information-inequality-summary |
 | 点推定量の性質 | 推定量の相対効率 | card | est-relative-efficiency |
-| モデル評価基準 | カルバック・ライブラー情報量 | planned |  |
-| モデル評価基準 | 情報量規準AIC | planned |  |
-| モデル評価基準 | クロスバリデーション | planned |  |
+| モデル評価基準 | カルバック・ライブラー情報量 | card | ms-kl-divergence, ms-kl-nonnegativity |
+| モデル評価基準 | 情報量規準AIC | card | est-aic-choice, ms-aic-formula, ms-aic-asymptotic-loo, ms-bic-formula, ms-bic-consistency, ms-info-criterion-likelihood |
+| モデル評価基準 | クロスバリデーション | card | ms-cv-model-selection, ms-cv-loo, ms-variable-selection-stepwise |
 | 漸近的性質など | クラーメル・ラオの不等式 | planned |  |
 | 漸近的性質など | フィッシャー情報量（1次元） | planned |  |
 | 漸近的性質など | 最尤推定量の漸近正規性 | planned |  |

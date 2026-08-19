@@ -149,6 +149,17 @@
 - EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
 - Monte Carlo積分：$\int_0^1g(x)\,dx=E[g(U)]$ を $n^{-1}\sum_ig(U_i)$ で推定する。
 
+## モデル評価・正則化
+
+- 情報量規準AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$（$\ell$ は最大化対数尤度、$k$ は推定母数数）。小さいほど良い。
+- ベイズ情報量規準BIC：$\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n$。真のモデルが候補にあれば大標本で一致して選ぶ。
+- Kullback–Leibler情報量（KLダイバージェンス）：離散 $D_{\mathrm{KL}}(P\|Q)=\sum_xP(x)\log\dfrac{P(x)}{Q(x)}$、連続 $D_{\mathrm{KL}}(P\|Q)=\int P(x)\log\dfrac{P(x)}{Q(x)}\,dx$。非対称で $D_{\mathrm{KL}}(P\|Q)\ge0$（ギブスの不等式）。
+- 交差検証：k分割は $\operatorname{CV}_{(k)}=k^{-1}\sum_{j=1}^k|I_j|^{-1}\sum_{i\in I_j}L(\widehat f_{-j}(X_i),Y_i)$、leave-one-outは $n^{-1}\sum_{i=1}^nL(\widehat f_{-i}(X_i),Y_i)$。
+- Ridge回帰（L2正則化）：$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I_p)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。$\lambda=0$ はOLS、$\lambda\to\infty$ で $\boldsymbol0$。
+- Lasso回帰（L1正則化）：$\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=\arg\min_{\boldsymbol\beta}\{\sum_i(Y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2+\lambda\sum_j|\beta_j|\}$。係数をぴったり0にし変数選択する。
+- Elastic Net：$\arg\min_{\boldsymbol\beta}\{\sum_i(Y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2+\lambda(\alpha\sum_j|\beta_j|+(1-\alpha)\tfrac12\sum_j\beta_j^2)\}$。$\alpha=0$ はRidge、$\alpha=1$ はLasso。
+- バイアス・バリアンス分解：$\operatorname{Err}=\operatorname{Bias}^2+\operatorname{Var}+\sigma^2$。正則化はバイアスを増やしてバリアンスを減らす。
+
 ## 基本分布の公式
 
 - 離散一様分布：$X\in\{1,\ldots,m\}$ で $p_X(k)=1/m$、$E[X]=(m+1)/2$、$\operatorname{Var}(X)=(m^2-1)/12$。

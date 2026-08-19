@@ -907,19 +907,51 @@ items:
         status: card
         cards: [est-relative-efficiency]
   - id: math-model-selection
-    status: partial
+    status: complete
     cards:
       - est-aic-choice
+      - ms-overfitting-generalization
+      - ms-train-test-error
+      - ms-kl-divergence
+      - ms-kl-nonnegativity
+      - ms-aic-formula
+      - ms-aic-asymptotic-loo
+      - ms-bic-formula
+      - ms-bic-consistency
+      - ms-info-criterion-likelihood
+      - ms-variable-selection-stepwise
+      - ms-cv-model-selection
+      - ms-cv-loo
+      - ms-ridge-regression
+      - ms-ridge-shrinkage
+      - ms-lasso-regression
+      - ms-l1-l2-difference
+      - ms-regularization-bias-variance
+      - ms-lasso-selection
+      - ms-elastic-net
+      - ms-multicollinearity-ridge
+      - ms-prediction-vs-inference
     terms:
       - name: カルバック・ライブラー情報量
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - ms-kl-divergence
+          - ms-kl-nonnegativity
       - name: 情報量規準AIC
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - est-aic-choice
+          - ms-aic-formula
+          - ms-aic-asymptotic-loo
+          - ms-bic-formula
+          - ms-bic-consistency
+          - ms-info-criterion-likelihood
       - name: クロスバリデーション
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - ms-cv-model-selection
+          - ms-cv-loo
+          - ms-variable-selection-stepwise
   - id: math-asymptotic-estimation
     status: partial
     cards:
