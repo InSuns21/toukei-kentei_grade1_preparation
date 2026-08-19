@@ -160,6 +160,20 @@
 - Elastic Net：$\arg\min_{\boldsymbol\beta}\{\sum_i(Y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2+\lambda(\alpha\sum_j|\beta_j|+(1-\alpha)\tfrac12\sum_j\beta_j^2)\}$。$\alpha=0$ はRidge、$\alpha=1$ はLasso。
 - バイアス・バリアンス分解：$\operatorname{Err}=\operatorname{Bias}^2+\operatorname{Var}+\sigma^2$。正則化はバイアスを増やしてバリアンスを減らす。
 
+## 漸近理論
+
+- 確率収束：$X_n\xrightarrow{p}\theta\iff\forall\varepsilon>0,\ P(|X_n-	heta|>\varepsilon)\to0$。
+- 概収束：$P(\lim_{n\to\infty}X_n=\theta)=1$。平均二乗収束：$E[(X_n-	heta)^2]\to0$。包含関係は 概収束 $\Rightarrow$ 確率収束 $\Rightarrow$ 分布収束、平均二乗収束 $\Rightarrow$ 確率収束。
+- 大数の弱法則：独立同分布で $E[X_i]=\mu$ なら $\overline X_n\xrightarrow{p}\mu$。強法則は $E[|X_i|]<\infty$ で $\overline X_n\xrightarrow{a.s.}\mu$。
+- 中心極限定理：独立同分布で $E[X_i]=\mu$、$0<\operatorname{Var}(X_i)=\sigma^2<\infty$ なら $\sqrt n(\overline X_n-\mu)/\sigma\xrightarrow{d}N(0,1)$。
+- Slutskyの定理：$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$（定数）なら $X_n+Y_n\xrightarrow{d}X+c$、$X_nY_n\xrightarrow{d}cX$、$X_n/Y_n\xrightarrow{d}X/c$（$c\ne0$）。
+- 連続写像定理：$X_n\xrightarrow{d}X$ かつ $g$ 連続なら $g(X_n)\xrightarrow{d}g(X)$。
+- デルタ法：$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ 微分可能なら $\sqrt n(g(T_n)-g(\theta))\xrightarrow{d}N(0,\{g'(\theta)\}^2\sigma^2)$。
+- 最尤推定量の漸近正規性：正則条件の下で $\sqrt n(\widehat\theta_{\mathrm{MLE}}-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1})$。$I_1$ は1観測当たりのフィッシャー情報量（1次元）。
+- 漸近分散・標準誤差：$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ のとき漸近分散 $v$、漸近標準誤差 $\approx\sqrt{v/n}$。
+- 漸近相対効率：$\operatorname{ARE}(T,U)=v_U/v_T$（$v_T=\operatorname{AVar}(\sqrt n\,T_n)$、$v_U=\operatorname{AVar}(\sqrt n\,U_n)$）。
+- オーダー記号：$X_n=O_p(a_n)$ は確率的有界、$X_n=o_p(1)$ は $X_n\xrightarrow{p}0$。
+
 ## 基本分布の公式
 
 - 離散一様分布：$X\in\{1,\ldots,m\}$ で $p_X(k)=1/m$、$E[X]=(m+1)/2$、$\operatorname{Var}(X)=(m^2-1)/12$。

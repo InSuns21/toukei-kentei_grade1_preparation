@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-19
-reviewed_card_count: 418
+reviewed_card_count: 445
 current_work: null
-next_work: C10-asymptotic-estimation
-last_completed_work: C09-model-selection
+next_work: C11-interval-estimation
+last_completed_work: C10-asymptotic-estimation
 summary:
   total: 33
-  planned: 18
+  planned: 17
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 15
+  reviewed: 16
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -931,7 +931,7 @@ work:
     target:
       min: 25
       max: 30
-    status: planned
+    status: reviewed
     review_dir: review/C10-asymptotic-estimation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 漸近理論
@@ -959,6 +959,43 @@ work:
       A: 9
       B: 0
       C: 0
+    started_at: 2026-08-19T04:28:36.311Z
+    self_review_at: 2026-08-19T12:03:39.831Z
+    independent_review_at: 2026-08-19T12:21:32.075Z
+    revision_at: 2026-08-19T12:21:33.509Z
+    completed_at: 2026-08-19T14:06:00.253Z
+    added_card_ids:
+      - asym-are-median-mean
+      - asym-as-conv-prob
+      - asym-asymptotic-relative-efficiency
+      - asym-asymptotic-variance-se
+      - asym-clt
+      - asym-clt-binomial-normal
+      - asym-continuous-mapping
+      - asym-convergence-almost-sure
+      - asym-convergence-distribution
+      - asym-convergence-ms
+      - asym-convergence-probability
+      - asym-convergence-relations
+      - asym-delta-method
+      - asym-delta-method-sqrt
+      - asym-mle-asymptotic-normality
+      - asym-mle-av-binomial
+      - asym-mle-av-normal
+      - asym-mle-consistency
+      - asym-ms-conv-prob
+      - asym-order-notation
+      - asym-prob-conv-chebyshev
+      - asym-sample-mean-normality
+      - asym-sample-proportion-normality
+      - asym-slln
+      - asym-slutsky
+      - asym-slutsky-example
+      - asym-wlln
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C11-interval-estimation:
     title: 区間推定
     category: math-estimation
