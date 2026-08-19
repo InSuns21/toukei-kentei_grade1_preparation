@@ -1008,19 +1008,67 @@ items:
           - asym-delta-method
           - asym-delta-method-sqrt
   - id: math-interval-estimation
-    status: partial
+    status: complete
     cards:
       - test-normal-ci
+      - ci-coverage-probability
+      - ci-coverage-frequentist
+      - ci-pivot-definition
+      - ci-pivot-construction
+      - ci-normal-mean-known
+      - ci-normal-mean-known-calc
+      - ci-t-interval-pivot
+      - ci-t-vs-z
+      - ci-variance-chi-derivation
+      - ci-variance-chi-calc
+      - ci-f-variance-ratio
+      - ci-f-variance-ratio-calc
+      - ci-two-sample-mean-diff
+      - ci-two-sample-mean-diff-calc
+      - ci-welch-interval
+      - ci-welch-calc
+      - ci-proportion
+      - ci-proportion-calc
+      - ci-proportion-diff
+      - ci-proportion-diff-calc
+      - ci-one-sided
+      - ci-one-sided-calc
+      - ci-test-duality
+      - ci-duality-acceptance
+      - ci-asymptotic-def
+      - ci-asymptotic-mle
+      - ci-asymptotic-mle-calc
+      - ci-delta-method
+      - ci-delta-method-calc
+      - ci-length-confidence-tradeoff
+      - ci-sample-size-for-width
     terms:
       - name: 信頼係数
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - ci-coverage-probability
+          - ci-coverage-frequentist
+          - ci-one-sided
       - name: 信頼区間の構成
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - ci-pivot-definition
+          - ci-pivot-construction
+          - ci-normal-mean-known
+          - ci-t-interval-pivot
+          - ci-variance-chi-derivation
+          - ci-f-variance-ratio
+          - ci-two-sample-mean-diff
+          - ci-welch-interval
+          - ci-proportion
+          - ci-proportion-diff
+          - ci-delta-method
       - name: 被覆確率
-        status: planned
-        cards: []
+        status: card
+        cards:
+          - ci-coverage-probability
+          - ci-coverage-frequentist
+          - ci-asymptotic-def
   - id: math-testing-foundations
     status: partial
     cards:

@@ -1,12 +1,12 @@
 # シラバス coverage
 
-- 公開カード: 445
+- 公開カード: 476
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 153 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 125 | 3/3 | theorem, calc_step, expansion, recognition |
-| 統計的推測（推定） | 136 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
+| 統計的推測（推定） | 167 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 5 | 3/4 | recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 7 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
@@ -32,7 +32,7 @@
 | 点推定量の性質 | complete | est-bias-variance, est-estimator-estimate-parameter, est-unbiasedness, est-consistency, est-consistency-bias, est-mse-definition, est-bias-variance-tradeoff, est-bias-variance-comparison, est-relative-efficiency, est-unbiased-construction, est-transform-bias, est-shape-parameter-transform, est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea, est-loss-risk, est-posterior-risk, est-estimator-comparison, est-score-mean-zero, est-fisher-information-def, est-fisher-two-forms, est-fisher-additivity, est-fisher-bernoulli-example, est-fisher-poisson-example, est-fisher-exponential, est-fisher-normal-example, est-cramer-rao-lower-bound, est-crlb-equality, est-crlb-exponential, est-efficient-estimator, est-asymptotic-efficiency, est-mle-fisher-information, est-asymptotic-normality-mle, est-fisher-param-transform, est-information-matrix, est-normal-information-matrix, est-information-inequality-summary |
 | モデル評価基準 | complete | est-aic-choice, ms-overfitting-generalization, ms-train-test-error, ms-kl-divergence, ms-kl-nonnegativity, ms-aic-formula, ms-aic-asymptotic-loo, ms-bic-formula, ms-bic-consistency, ms-info-criterion-likelihood, ms-variable-selection-stepwise, ms-cv-model-selection, ms-cv-loo, ms-ridge-regression, ms-ridge-shrinkage, ms-lasso-regression, ms-l1-l2-difference, ms-regularization-bias-variance, ms-lasso-selection, ms-elastic-net, ms-multicollinearity-ridge, ms-prediction-vs-inference |
 | 漸近的性質など | complete | est-fisher-bernoulli, est-cramer-rao-bernoulli, est-delta-log, asym-convergence-probability, asym-convergence-almost-sure, asym-convergence-distribution, asym-convergence-ms, asym-convergence-relations, asym-wlln, asym-slln, asym-clt, asym-slutsky, asym-continuous-mapping, asym-delta-method, asym-sample-mean-normality, asym-sample-proportion-normality, asym-mle-consistency, asym-mle-asymptotic-normality, asym-asymptotic-variance-se, asym-asymptotic-relative-efficiency, asym-order-notation, asym-prob-conv-chebyshev, asym-as-conv-prob, asym-ms-conv-prob, asym-clt-binomial-normal, asym-delta-method-sqrt, asym-mle-av-binomial, asym-mle-av-normal, asym-slutsky-example, asym-are-median-mean |
-| 区間推定 | partial | test-normal-ci |
+| 区間推定 | complete | test-normal-ci, ci-coverage-probability, ci-coverage-frequentist, ci-pivot-definition, ci-pivot-construction, ci-normal-mean-known, ci-normal-mean-known-calc, ci-t-interval-pivot, ci-t-vs-z, ci-variance-chi-derivation, ci-variance-chi-calc, ci-f-variance-ratio, ci-f-variance-ratio-calc, ci-two-sample-mean-diff, ci-two-sample-mean-diff-calc, ci-welch-interval, ci-welch-calc, ci-proportion, ci-proportion-calc, ci-proportion-diff, ci-proportion-diff-calc, ci-one-sided, ci-one-sided-calc, ci-test-duality, ci-duality-acceptance, ci-asymptotic-def, ci-asymptotic-mle, ci-asymptotic-mle-calc, ci-delta-method, ci-delta-method-calc, ci-length-confidence-tradeoff, ci-sample-size-for-width |
 | 検定の基礎 | partial | test-z-rejection |
 | 検定法の導出 | partial | test-np-bernoulli, test-likelihood-ratio |
 | 正規分布に関する検定 | planned |  |
@@ -146,9 +146,9 @@
 | 漸近的性質など | フィッシャー情報量（1次元） | card | est-fisher-bernoulli |
 | 漸近的性質など | 最尤推定量の漸近正規性 | card | asym-mle-consistency, asym-mle-asymptotic-normality, asym-mle-av-binomial, asym-mle-av-normal |
 | 漸近的性質など | デルタ法 | card | est-delta-log, asym-delta-method, asym-delta-method-sqrt |
-| 区間推定 | 信頼係数 | planned |  |
-| 区間推定 | 信頼区間の構成 | planned |  |
-| 区間推定 | 被覆確率 | planned |  |
+| 区間推定 | 信頼係数 | card | ci-coverage-probability, ci-coverage-frequentist, ci-one-sided |
+| 区間推定 | 信頼区間の構成 | card | ci-pivot-definition, ci-pivot-construction, ci-normal-mean-known, ci-t-interval-pivot, ci-variance-chi-derivation, ci-f-variance-ratio, ci-two-sample-mean-diff, ci-welch-interval, ci-proportion, ci-proportion-diff, ci-delta-method |
+| 区間推定 | 被覆確率 | card | ci-coverage-probability, ci-coverage-frequentist, ci-asymptotic-def |
 | 検定の基礎 | 仮説 | planned |  |
 | 検定の基礎 | 検定統計量 | planned |  |
 | 検定の基礎 | P値 | planned |  |

@@ -80,3 +80,10 @@
 - 混合分布：潜在変数 $Z$ の確率を $\pi_k$ とすると $f_X(x)=\sum_k\pi_k f_{X\mid Z=k}(x)$、$\pi_k\ge0$、$\sum_k\pi_k=1$。
 - 離散一様分布は $\{1,\ldots,m\}$ 上で定義する。幾何分布は初成功までの試行回数を数える台 $\{1,2,\ldots\}$、負の二項分布は $r$ 回成功までの失敗回数を数える台 $\{0,1,\ldots\}$ とする。
 - Gamma分布は shape-rate 表示 $\operatorname{Gamma}(\alpha,\beta)$、Weibull分布は shape-scale 表示 $\operatorname{Weibull}(k,\lambda)$、ロジスティック分布は location-scale 表示 $(\mu,s)$ とする。
+
+## 区間推定
+
+- 信頼係数（被覆確率）は $1-\alpha$ とし、区間推定量を $I(X)=[L(X),U(X)]$ とする。
+- ピボット量（pivotal quantity）は標本と未知パラメータの関数 $Q(X,\theta)$ で、その分布が $\theta$ に依存しないものとする。
+- 上側 $\alpha$ 点を $z_\alpha,t_{\nu,\alpha},\chi^2_{\nu,\alpha},F_{\nu_1,\nu_2,\alpha}$ とし、両側区間には $z_{\alpha/2}$ 等を用いる。
+- 結合不偏分散を $S_p^2=((n_1-1)S_1^2+(n_2-1)S_2^2)/(n_1+n_2-2)$、Welch の近似自由度を $\nu$ とする。

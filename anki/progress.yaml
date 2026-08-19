@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-19
-reviewed_card_count: 445
+updated_at: 2026-08-20
+reviewed_card_count: 476
 current_work: null
-next_work: C11-interval-estimation
-last_completed_work: C10-asymptotic-estimation
+next_work: C12-testing-foundations-derivation
+last_completed_work: C11-interval-estimation
 summary:
   total: 33
-  planned: 17
+  planned: 16
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 16
+  reviewed: 17
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1004,7 +1004,7 @@ work:
     target:
       min: 30
       max: 35
-    status: planned
+    status: reviewed
     review_dir: review/C11-interval-estimation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 区間推定
@@ -1028,6 +1028,47 @@ work:
       A: 3
       B: 0
       C: 0
+    started_at: 2026-08-19T14:20:00.873Z
+    self_review_at: 2026-08-19T14:37:43.534Z
+    independent_review_at: 2026-08-19T14:38:38.296Z
+    revision_at: 2026-08-19T14:52:08.653Z
+    completed_at: 2026-08-19T15:07:09.575Z
+    added_card_ids:
+      - ci-asymptotic-def
+      - ci-asymptotic-mle
+      - ci-asymptotic-mle-calc
+      - ci-coverage-frequentist
+      - ci-coverage-probability
+      - ci-delta-method
+      - ci-delta-method-calc
+      - ci-duality-acceptance
+      - ci-f-variance-ratio
+      - ci-f-variance-ratio-calc
+      - ci-length-confidence-tradeoff
+      - ci-normal-mean-known
+      - ci-normal-mean-known-calc
+      - ci-one-sided
+      - ci-one-sided-calc
+      - ci-pivot-construction
+      - ci-pivot-definition
+      - ci-proportion
+      - ci-proportion-calc
+      - ci-proportion-diff
+      - ci-proportion-diff-calc
+      - ci-sample-size-for-width
+      - ci-t-interval-pivot
+      - ci-t-vs-z
+      - ci-test-duality
+      - ci-two-sample-mean-diff
+      - ci-two-sample-mean-diff-calc
+      - ci-variance-chi-calc
+      - ci-variance-chi-derivation
+      - ci-welch-calc
+      - ci-welch-interval
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C12-testing-foundations-derivation:
     title: 検定の基礎・検定法の導出
     category: math-testing

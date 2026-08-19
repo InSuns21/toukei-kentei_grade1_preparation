@@ -105,6 +105,22 @@
 - Rao--Blackwellの定理：$T$ を十分統計量、$U$ を不偏推定量とすると $\widehat\theta=E[U\mid T]$ は不偏かつ $\operatorname{Var}(\widehat\theta)\le\operatorname{Var}(U)$。
 - Lehmann--Schefféの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意なUMVU推定量である。
 
+## 区間推定
+
+- 被覆確率：区間推定量 $I(X)=[L(X),U(X)]$ が $P_\theta(L(X)\le\theta\le U(X))=1-\alpha$ を満たすとき $1-\alpha$ を被覆確率（信頼係数）という。
+- ピボット量：標本と未知パラメータの関数 $Q(X,\theta)$ の分布が $\theta$ に依存しないとき、 $P(a\le Q\le b)=1-\alpha$ を $\theta$ について解いて区間を得る。
+- 正規平均・分散既知：$\overline X\pm z_{\alpha/2}\,\sigma/\sqrt n$。
+- 正規平均・分散未知：$\overline X\pm t_{n-1,\alpha/2}\,S/\sqrt n$。
+- 正規分散：$\left[(n-1)S^2/\chi^2_{n-1,\alpha/2},\ (n-1)S^2/\chi^2_{n-1,1-\alpha/2}\right]$。
+- 2正規母分散比：$\left[(S_1^2/S_2^2)/F_{n_1-1,n_2-1,\alpha/2},\ (S_1^2/S_2^2)/F_{n_1-1,n_2-1,1-\alpha/2}\right]$。
+- 2標本平均差（等分散）：$(\overline X-\overline Y)\pm t_{n_1+n_2-2,\alpha/2}\,S_p\sqrt{1/n_1+1/n_2}$（$S_p^2$ は結合不偏分散）。
+- Welch区間：$(\overline X-\overline Y)\pm t_{\nu,\alpha/2}\sqrt{S_1^2/n_1+S_2^2/n_2}$、$\nu$ は Satterthwaite 近似自由度。
+- 母比率：$\widehat p\pm z_{\alpha/2}\sqrt{\widehat p(1-\widehat p)/n}$。
+- 母比率差：$(\widehat p_1-\widehat p_2)\pm z_{\alpha/2}\sqrt{\widehat p_1(1-\widehat p_1)/n_1+\widehat p_2(1-\widehat p_2)/n_2}$。
+- 漸近区間（最尤推定量）：$\widehat\theta\pm z_{\alpha/2}/\sqrt{n\,I_1(\widehat\theta)}$。
+- デルタ法区間：$g(T_n)\pm z_{\alpha/2}\,|g'(T_n)|\,\widehat\sigma/\sqrt n$。
+- 双対性：水準 $\alpha$ の検定で棄却されない $\theta$ の集合がちょうど信頼係数 $1-\alpha$ の信頼区間になる。
+
 ## 検定
 
 - 母分散既知の正規平均：$(\overline X-\mu)/(\sigma/\sqrt n)\sim N(0,1)$。信頼係数 $1-\alpha$ の区間は $\overline X\pm z_{1-\alpha/2}\sigma/\sqrt n$。
