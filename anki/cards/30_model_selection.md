@@ -560,3 +560,166 @@ sources: [{ type: official_syllabus, topic: モデル評価基準 }]
 目的を混同すると、解釈に使えないモデルを選びかねない。
 
 <!-- CARD -->
+
+---
+id: ms-aic-numeric-comparison
+title: 対数尤度と母数数からAICを計算して比較する
+category: math-estimation
+subcategory: math-model-selection
+topic: aic-numeric-comparison
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [AIC, 対数尤度, モデル選択]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 赤池情報量規準 }]
+---
+## 問題
+モデルAは最大対数尤度 $-120$、推定母数数3、モデルBは最大対数尤度 $-117.5$、推定母数数6である。AICで選択せよ。
+
+## 答え
+$$\operatorname{AIC}_A=246,\qquad \operatorname{AIC}_B=247.$$
+小さいモデルAを選ぶ。
+
+## 使用公式・定理
+$$\operatorname{AIC}=-2\ell(\widehat\theta)+2k,$$
+ここで $k$ は推定した自由母数の個数である。AICは小さいほどよい。
+
+## 計算例
+$$\operatorname{AIC}_A=-2(-120)+2(3)=240+6=246,$$
+$$\operatorname{AIC}_B=-2(-117.5)+2(6)=235+12=247.$$
+Bは当てはまりの項を5改善したが、罰則が6増えたため総合的にはAが1だけ小さい。
+
+## 一手
+対数尤度は大きいほどよいが、AICへ変換した後は小さい方を選ぶ。
+
+## 注意
+全モデルで同じデータと同じ尤度の定義を使って比較する。
+
+<!-- CARD -->
+
+---
+id: ms-bic-numeric-comparison
+title: 標本サイズを含むBICの罰則を数値で比較する
+category: math-estimation
+subcategory: math-model-selection
+topic: bic-numeric-comparison
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [BIC, 標本サイズ, モデル選択]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ベイズ情報量規準 }]
+---
+## 問題
+$n=200$ で、モデルAは $-2\ell(\widehat\theta)=300,k=4$、モデルBは $-2\ell(\widehat\theta)=294,k=7$ である。BICで選択せよ。
+
+## 答え
+$$\operatorname{BIC}_A\approx321.19,\qquad
+\operatorname{BIC}_B\approx331.09.$$
+小さいモデルAを選ぶ。
+
+## 使用公式・定理
+$$\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n.$$
+標本サイズが増えると、1母数当たりの罰則 $\log n$ が大きくなる。
+
+## 計算例
+$\log200\approx5.2983$ なので
+$$\operatorname{BIC}_A=300+4(5.2983)\approx321.19,$$
+$$\operatorname{BIC}_B=294+7(5.2983)\approx331.09.$$
+Bは適合度を6改善したが、追加3母数の罰則は約 $3(5.2983)=15.89$ である。
+
+## 一手
+BICでは先に $\log n$ を計算し、追加母数1個当たりの代償を見る。
+
+## 注意
+$\log$ は自然対数である。
+
+<!-- CARD -->
+
+---
+id: ms-kfold-cv-numeric
+title: k分割交差検証の損失を平均してモデルを選ぶ
+category: math-estimation
+subcategory: math-model-selection
+topic: kfold-cv-numeric
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [交差検証, 検証誤差, モデル選択]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 交差検証 }]
+---
+## 問題
+5分割交差検証で、モデルAの各foldの平均二乗誤差が $(4.0,5.0,3.5,4.5,3.0)$、モデルBが $(3.8,4.2,4.0,4.1,4.4)$ だった。平均検証誤差で選択せよ。
+
+## 答え
+$$\operatorname{CV}_A=4.00,\qquad
+\operatorname{CV}_B=4.10.$$
+平均検証誤差が小さいモデルAを選ぶ。
+
+## 使用公式・定理
+各foldの大きさが等しいとき
+$$\operatorname{CV}=\frac1K\sum_{j=1}^K L_j.$$
+foldの大きさが異なる場合は、各観測の損失へ戻して標本数で重み付けする。
+
+## 計算例
+$$\operatorname{CV}_A=\frac{4.0+5.0+3.5+4.5+3.0}{5}
+=\frac{20.0}{5}=4.00,$$
+$$\operatorname{CV}_B=\frac{3.8+4.2+4.0+4.1+4.4}{5}
+=\frac{20.5}{5}=4.10.$$
+
+## 一手
+訓練誤差ではなく、各foldで学習に使わなかったデータの損失を平均する。
+
+## 注意
+差が小さい場合は、fold間変動や1標準誤差ルールも考慮する。
+
+<!-- CARD -->
+
+---
+id: ms-ridge-lasso-orthogonal-numeric
+title: 直交設計でRidge縮小とLasso閾値処理を計算する
+category: math-estimation
+subcategory: math-model-selection
+topic: orthogonal-regularization-numeric
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [Ridge回帰, Lasso回帰, ソフト閾値処理]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 正則化 }]
+---
+## 問題
+(1) $\boldsymbol X^\top\boldsymbol X=\operatorname{diag}(4,1)$、$\boldsymbol X^\top\boldsymbol y=(8,2)^\top$ で $\lambda=1$ のRidge推定量を求めよ。(2) $\boldsymbol X^\top\boldsymbol X=I$、$\boldsymbol X^\top\boldsymbol y=(3,0.5,-2)^\top$ で $\lambda=1$ のLasso推定量を求めよ。
+
+## 答え
+(1)
+$$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(\boldsymbol X^\top\boldsymbol X+\lambda I)^{-1}\boldsymbol X^\top\boldsymbol y
+=(1.6,1.0)^\top.$$
+(2)
+$$\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=(2,0,-1)^\top.$$
+
+## 使用公式・定理
+Ridgeの各固有方向では $z_j/(d_j+\lambda)$ へ縮小する。目的関数
+$$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
++\lambda\sum_j|\beta_j|$$
+のLassoは直交設計で
+$$\widehat\beta_j=S(z_j,\lambda),\qquad
+S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+$$
+となる。
+
+## 計算例
+Ridgeは
+$$\left(\frac8{4+1},\frac2{1+1}\right)=(1.6,1.0).$$
+Lassoは
+$$S(3,1)=2,\qquad S(0.5,1)=0,\qquad S(-2,1)=-1.$$
+
+## 一手
+Ridgeは連続的に割り縮め、Lassoは絶対値から $\lambda$ を引いて0未満を0にする。
+
+## 注意
+Lassoの閾値は、目的関数の二乗誤差に $1/2$ を付けるかどうかで定数が変わる。
+
+<!-- CARD -->

@@ -22,6 +22,140 @@ $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ の平均の推定量 $\wideh
 ## 一手
 推定量は「関数」で確率変数、推定値は「代入した数」。分散・期待値は推定量に対して取る。
 <!-- CARD -->
+
+---
+id: est-crlb-poisson-mean-efficiency
+title: ポアソン平均のクラーメル・ラオ下界と有効性を計算する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: crlb-poisson
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [クラーメル・ラオの不等式, ポアソン分布, 有効推定量]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
+---
+## 問題
+$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ とする。$\lambda$ の不偏推定量の分散下界を求め、$\overline X$ が下界を達成することを示せ。
+## 答え
+1観測の対数確率質量関数は
+$$\ell(\lambda;x)=-\lambda+x\log\lambda-\log(x!),$$
+したがって
+$$-E\left[\frac{\partial^2\ell}{\partial\lambda^2}\right]
+=-E\left[-\frac{X}{\lambda^2}\right]=\frac1\lambda.$$
+よって $I_n(\lambda)=n/\lambda$ であり、クラーメル・ラオ下界は
+$$\operatorname{Var}(T)\ge\frac1{I_n(\lambda)}=\frac\lambda n.$$
+$E[\overline X]=\lambda$、$\operatorname{Var}(\overline X)=\lambda/n$ なので、$\overline X$ は下界を達成する。
+## 使用公式・定理
+正則条件の下で、$lambda$ の任意の不偏推定量 $T$ は
+$$\operatorname{Var}(T)\ge\frac1{I_n(\lambda)},\qquad I_n(\lambda)=nI_1(\lambda).$$
+## 計算例
+$n=20,\lambda=4$ なら下界は $4/20=0.2$ であり、$\operatorname{Var}(\overline X)=0.2$。
+## 一手
+情報量を1観測で求め、独立標本なので $n$ 倍してから逆数を取る。
+## 注意
+下界を達成したと言うには、不偏性と分散の両方を確認する。
+<!-- CARD -->
+
+---
+id: est-crlb-normal-mean-known-variance
+title: 分散既知の正規平均についてクラーメル・ラオ下界を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: crlb-normal-mean
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [クラーメル・ラオの不等式, 正規分布, フィッシャー情報量（1次元）]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
+---
+## 問題
+正規分布 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\sigma^2$ は既知とする。$\mu$ の不偏推定量の分散下界を求めよ。
+## 答え
+1観測の対数密度から
+$$\frac{\partial^2\ell}{\partial\mu^2}=-\frac1{\sigma^2},$$
+ゆえに $I_1(\mu)=1/\sigma^2$、$I_n(\mu)=n/\sigma^2$。したがって
+$$\operatorname{Var}(T)\ge\frac{\sigma^2}{n}.$$
+$\overline X$ は不偏で $\operatorname{Var}(\overline X)=\sigma^2/n$ だから有効である。
+## 使用公式・定理
+$$I_1(\mu)=-E\left[\frac{\partial^2\ell}{\partial\mu^2}\right],\qquad
+\operatorname{Var}(T)\ge\frac1{nI_1(\mu)}.$$
+## 計算例
+$n=25,\sigma^2=9$ なら分散下界は $9/25=0.36$、標準偏差の下界は $0.6$。
+## 一手
+分散下界と標準偏差を混同せず、必要なら最後に平方根を取る。
+## 注意
+$\sigma^2$ も未知なら2母数の情報行列を扱う問題になる。
+<!-- CARD -->
+
+---
+id: est-crlb-bernoulli-square
+title: ベルヌーイ母数の二乗を推定するときのクラーメル・ラオ下界を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: crlb-function
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [クラーメル・ラオの不等式, ベルヌーイ分布, 母数の関数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
+---
+## 問題
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ とする。$p^2$ の不偏推定量 $T$ に対する分散下界を求めよ。
+## 答え
+$g(p)=p^2$ と置けば $g'(p)=2p$。また
+$$I_n(p)=\frac{n}{p(1-p)}.$$
+母数の関数に対するクラーメル・ラオの不等式より
+$$\operatorname{Var}(T)\ge
+\frac{\{g'(p)\}^2}{I_n(p)}
+=\frac{4p^2}{n/[p(1-p)]}
+=\frac{4p^3(1-p)}n.$$
+## 使用公式・定理
+$E[T]=g(\theta)$ なら
+$$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
+## 計算例
+$p=0.4,n=100$ なら下界は $4(0.4)^3(0.6)/100=0.001536$。
+## 一手
+推定対象が $	heta$ そのものか $g(\theta)$ かを最初に判定する。
+## 注意
+$g'(p)$ を掛け忘れて単に $1/I_n(p)$ としない。
+<!-- CARD -->
+
+---
+id: est-fisher-geometric
+title: 幾何分布のフィッシャー情報量を導出する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: fisher-information-geometric
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [フィッシャー情報量（1次元）, 幾何分布, 計算]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
+---
+## 問題
+$X\sim\operatorname{Geometric}(p)$、台 $x=1,2,\ldots$、確率質量関数 $P(X=x)=p(1-p)^{x-1}$ とする。1観測の $p$ に関するフィッシャー情報量を求めよ。
+## 答え
+$$\ell(p;x)=\log p+(x-1)\log(1-p),$$
+$$\frac{\partial^2\ell}{\partial p^2}
+=-\frac1{p^2}-\frac{x-1}{(1-p)^2}.$$
+$E[X-1]=(1-p)/p$ を代入すると
+$$I_1(p)=-E[\ell''(p;X)]
+=\frac1{p^2}+\frac{(1-p)/p}{(1-p)^2}
+=\frac1{p^2(1-p)}.$$
+## 使用公式・定理
+$$I_1(p)=-E\left[\frac{\partial^2\ell(p;X)}{\partial p^2}\right].$$
+## 計算例
+$p=1/2$ なら $I_1(p)=1/[(1/4)(1/2)]=8$。$n$ 観測なら $I_n(p)=8n$。
+## 一手
+2階微分後に、幾何分布の $E[X]=1/p$ を使う。
+## 注意
+台を $0,1,\ldots$ とする別の定義でも情報量は同じだが、対数確率質量関数の形は変わる。
+<!-- CARD -->
 ---
 id: est-unbiasedness
 title: 不偏性の定義
@@ -1082,4 +1216,534 @@ $\operatorname{Var}_\theta(T)=1/I_n(\theta)$ が等号条件。
 正規平均 $\overline X$、Bernoulli の $\overline X$、Poisson の $\overline X$（$\lambda$ の有効推定量）はCRLB達成。
 ## 一手
 「分散＝1/情報量」なら有効かつUMVU。逆は一般に成り立たない（UMVUでもCRLB未達成がありうる）。
+<!-- CARD -->
+
+---
+id: est-rao-blackwell-bernoulli
+title: ベルヌーイ標本でRao–Blackwell化を具体的に計算する
+category: math-estimation
+subcategory: math-point-estimator-properties
+topic: rao-blackwell-bernoulli-example
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [Rao–Blackwell, ベルヌーイ分布, 十分統計量, 分散減少]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 十分統計量と推定量の改善 }]
+---
+## 問題
+$X_1,\ldots,X_n$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ からの独立同分布標本である。不偏推定量 $T=X_1$ を十分統計量 $S=\sum_iX_i$ でRao–Blackwell化し、分散を比較せよ。
+
+## 答え
+$$T^*=E[X_1\mid S]=\frac Sn=\overline X.$$
+$$\operatorname{Var}(T)=p(1-p),\qquad
+\operatorname{Var}(T^*)=\frac{p(1-p)}n.$$
+
+## 使用公式・定理
+Rao–Blackwellの定理より、十分統計量 $S$ による条件付き期待値は不偏性を保ち、分散を増加させない。$S=s$ の条件下では成功した位置が対称なので
+$$P(X_1=1\mid S=s)=\frac sn.$$
+
+## 計算例
+$$E[X_1\mid S=s]=1\cdot\frac sn+0\cdot\left(1-\frac sn\right)=\frac sn.$$
+$p=0.4,n=10$ なら
+$$\operatorname{Var}(X_1)=0.24,\qquad
+\operatorname{Var}(\overline X)=0.024.$$
+分散は10分の1になる。
+
+## 一手
+条件付き分布を総当たりせず、$S=s$ の下で各観測位置が対称であることを使う。
+
+## 注意
+$T=X_1$ は不偏だが、標本の残りを捨てているため非効率である。
+
+<!-- CARD -->
+
+---
+id: est-generalized-crlb-poisson-zero
+title: ポアソン分布のゼロ確率推定に一般化CRLBを使う
+category: math-estimation
+subcategory: math-point-estimator-properties
+topic: generalized-crlb-function
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [Cramer–Rao下界, ポアソン分布, 母数関数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
+---
+## 問題
+$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本である。$g(\lambda)=P_\lambda(X=0)=e^{-\lambda}$ の任意の不偏推定量 $T$ に対する分散下界を求めよ。
+
+## 答え
+$$\operatorname{Var}_\lambda(T)\ge
+\frac{\{g'(\lambda)\}^2}{I_n(\lambda)}
+=\frac{\lambda e^{-2\lambda}}n.$$
+
+## 使用公式・定理
+母数関数 $g(\theta)$ の不偏推定量に対する一般化Cramer–Rao下界は
+$$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
+ポアソン分布では $I_n(\lambda)=n/\lambda$。
+
+## 計算例
+$$g'(\lambda)=-e^{-\lambda}$$
+なので
+$$\frac{\{g'(\lambda)\}^2}{I_n(\lambda)}
+=\frac{e^{-2\lambda}}{n/\lambda}
+=\frac{\lambda e^{-2\lambda}}n.$$
+$\lambda=2,n=50$ なら下界は
+$$\frac{2e^{-4}}{50}\approx0.000733.$$
+
+## 一手
+推定対象が $\theta$ 自身でなければ、分子を1にせず $g'(\theta)^2$ を入れる。
+
+## 注意
+下界を求めただけでは、その下界を達成する不偏推定量の存在は保証されない。
+
+<!-- CARD -->
+
+---
+id: est-poisson-square-umvu
+title: Poisson母数の2乗のUMVU推定量を階乗モーメントで作る
+category: math-estimation
+subcategory: math-point-estimator-properties
+topic: poisson-square-umvu
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [UMVU, ポアソン分布, 完備十分統計量, 階乗モーメント]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 完備十分統計量とUMVU推定量 }]
+---
+## 問題
+$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$S=\sum_iX_i$ とする。$\lambda^2$ のUMVU推定量を構成せよ。
+
+## 答え
+$$T(S)=\frac{S(S-1)}{n^2}$$
+が $\lambda^2$ のUMVU推定量である。
+
+## 使用公式・定理
+$$S\sim\operatorname{Poisson}(n\lambda),\qquad
+E[S(S-1)]=(n\lambda)^2.$$
+また、ポアソン1母数指数型分布族では $S$ は完備十分統計量である。Lehmann–Schefféの定理により、$S$ の関数である不偏推定量はUMVUである。
+
+## 計算例
+$$E\left[\frac{S(S-1)}{n^2}\right]
+=\frac{E[S(S-1)]}{n^2}
+=\frac{(n\lambda)^2}{n^2}
+=\lambda^2.$$
+$n=5$、観測標本和 $s=8$ なら推定値は
+$$\frac{8\cdot7}{5^2}=\frac{56}{25}=2.24.$$
+
+## 一手
+Poisson母数の累乗は、通常のモーメントより階乗モーメントで作る。
+
+## 注意
+$S^2/n^2$ は期待値に $\lambda/n$ が余分に入り、不偏ではない。
+
+<!-- CARD -->
+
+---
+id: est-moments-normal-numeric
+title: 正規分布の2母数を標本モーメントから数値で推定する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: method-of-moments-normal
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [モーメント法, 正規分布, 連立方程式]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: モーメント法 }]
+---
+## 問題
+$X_1,X_2,X_3$ は正規分布 $N(\mu,\sigma^2)$ からの標本で、観測値は $(1,2,4)$ だった。1次・2次モーメントを用いて $(\mu,\sigma^2)$ を推定せよ。
+## 答え
+$$\widehat\mu_{\mathrm{MM}}=\frac73,\qquad
+\widehat\sigma_{\mathrm{MM}}^2=\frac{14}{9}.$$
+## 使用公式・定理
+$$E[X]=\mu,\qquad E[X^2]=\mu^2+\sigma^2.$$
+これらを標本モーメント $\overline X$、$\overline{X^2}$ に等置する。
+## 計算例
+$$\overline x=\frac{1+2+4}{3}=\frac73,\qquad
+\overline{x^2}=\frac{1+4+16}{3}=7.$$
+よって
+$$\widehat\sigma^2=7-\left(\frac73\right)^2
+=\frac{63-49}{9}=\frac{14}{9}.$$
+## 一手
+2次モーメントから平均の2乗を引いて分散を出す。
+## 注意
+分母が $n$ の分散になり、不偏分散とは異なる。
+
+<!-- CARD -->
+---
+id: est-moments-gamma-two-parameter
+title: ガンマ分布のshapeとrateをモーメント法で解く
+category: math-estimation
+subcategory: math-estimation-methods
+topic: method-of-moments-gamma
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [モーメント法, ガンマ分布, shape-rate]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: モーメント法 }]
+---
+## 問題
+shape $\alpha$、rate $\beta$ のガンマ分布に対し、標本平均 $m_1=3$、分母 $n$ の標本分散 $m_2=2$ を得た。モーメント法推定値を求めよ。
+## 答え
+$$\widehat\alpha=\frac{m_1^2}{m_2}=4.5,\qquad
+\widehat\beta=\frac{m_1}{m_2}=1.5.$$
+## 使用公式・定理
+shape-rate表記では
+$$E[X]=\frac\alpha\beta,\qquad
+\operatorname{Var}(X)=\frac\alpha{\beta^2}.$$
+## 計算例
+$\alpha/\beta=m_1$ から $\alpha=m_1\beta$。これを $\alpha/\beta^2=m_2$ へ代入すると
+$$\frac{m_1\beta}{\beta^2}=m_2
+\Rightarrow\beta=\frac{m_1}{m_2}.$$
+さらに $\alpha=m_1^2/m_2$。数値を入れて $(4.5,1.5)$。
+## 一手
+平均式から一方の母数を表し、分散式へ代入する。
+## 注意
+scale表記なら $\widehat{\text{scale}}=m_2/m_1$ となる。
+
+<!-- CARD -->
+---
+id: est-moments-beta-two-parameter
+title: ベータ分布の2母数を平均と分散から解く
+category: math-estimation
+subcategory: math-estimation-methods
+topic: method-of-moments-beta
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [モーメント法, ベータ分布, 連立方程式]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: モーメント法 }]
+---
+## 問題
+ベータ分布 $\operatorname{Beta}(a,b)$ について標本平均 $m=0.4$、分母 $n$ の標本分散 $v=0.02$ を得た。$(a,b)$ のモーメント法推定値を求めよ。
+## 答え
+$$\widehat a=4.4,\qquad \widehat b=6.6.$$
+## 使用公式・定理
+$s=a+b$ とおくと
+$$E[X]=\frac as=m,\qquad
+\operatorname{Var}(X)=\frac{m(1-m)}{s+1}=v.$$
+## 計算例
+分散式から
+$$s=\frac{m(1-m)}v-1
+=\frac{0.4(0.6)}{0.02}-1=12-1=11.$$
+したがって
+$$a=ms=0.4(11)=4.4,\qquad
+b=(1-m)s=0.6(11)=6.6.$$
+## 一手
+$a,b$ を直接解かず、和 $s=a+b$ を導入する。
+## 注意
+標本分散が $m(1-m)$ 以上だと正の $a,b$ が得られず、モーメント法が母数空間外へ出る。
+
+<!-- CARD -->
+---
+id: est-moments-uniform-two-endpoints
+title: 一様分布の両端点を平均と分散から推定する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: method-of-moments-uniform-endpoints
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [モーメント法, 一様分布, 端点母数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: モーメント法 }]
+---
+## 問題
+一様分布 $U(a,b)$ について標本平均 $m=5$、分母 $n$ の標本分散 $v=3$ を得た。$(a,b)$ のモーメント法推定値を求めよ。
+## 答え
+$$\widehat a=m-\sqrt{3v}=2,\qquad
+\widehat b=m+\sqrt{3v}=8.$$
+## 使用公式・定理
+$$E[X]=\frac{a+b}{2},\qquad
+\operatorname{Var}(X)=\frac{(b-a)^2}{12}.$$
+## 計算例
+平均式から $a+b=2m$、分散式から $b-a=\sqrt{12v}=2\sqrt{3v}$。加減法により
+$$a=m-\sqrt{3v},\qquad b=m+\sqrt{3v}.$$
+$m=5,v=3$ では $\sqrt{3v}=3$。
+## 一手
+端点そのものより、中心 $(a+b)/2$ と幅 $b-a$ を先に解く。
+## 注意
+推定された区間が実際の標本最小値・最大値を含まない場合があり、最尤法とは性質が異なる。
+
+<!-- CARD -->
+---
+id: est-ols-simple-numeric
+title: 単回帰の切片と傾きを観測値から計算する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: ordinary-least-squares-numeric
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [最小二乗法, 単回帰, 回帰係数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最小二乗法 }]
+---
+## 問題
+データ $(x_i,y_i)=(1,2),(2,3),(3,5)$ に単回帰 $y_i=\beta_0+\beta_1x_i+\varepsilon_i$ を当てはめよ。
+## 答え
+$$\widehat\beta_1=\frac32,\qquad
+\widehat\beta_0=\frac13.$$
+## 使用公式・定理
+$$\widehat\beta_1=\frac{S_{xy}}{S_{xx}},\quad
+\widehat\beta_0=\overline y-\widehat\beta_1\overline x.$$
+## 計算例
+$$\overline x=2,\qquad\overline y=\frac{10}{3},$$
+$$S_{xx}=(-1)^2+0^2+1^2=2,$$
+$$S_{xy}=(-1)\left(-\frac43\right)+0+\left(\frac53\right)=3.$$
+よって傾きは $3/2$、切片は $10/3-(3/2)2=1/3$。
+## 一手
+中心化した平方和と積和を表にしてから割る。
+## 注意
+$S_{xy}$ を $n$ や $n-1$ で割る必要はない。比で相殺される。
+
+<!-- CARD -->
+---
+id: est-ols-matrix-numeric
+title: 行列の正規方程式を解いて最小二乗係数を求める
+category: math-estimation
+subcategory: math-estimation-methods
+topic: ordinary-least-squares-matrix-numeric
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [最小二乗法, 正規方程式, 行列計算]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最小二乗法 }]
+---
+## 問題
+$$X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad
+\boldsymbol y=\begin{pmatrix}1\\2\\2\end{pmatrix}$$
+について $\widehat{\boldsymbol\beta}$ を求めよ。
+## 答え
+$$\widehat{\boldsymbol\beta}
+=\begin{pmatrix}7/6\\1/2\end{pmatrix}.$$
+## 使用公式・定理
+$$X^\top X\widehat{\boldsymbol\beta}=X^\top\boldsymbol y,\qquad
+\widehat{\boldsymbol\beta}=(X^\top X)^{-1}X^\top\boldsymbol y.$$
+## 計算例
+$$X^\top X=\begin{pmatrix}3&3\\3&5\end{pmatrix},\quad
+X^\top y=\begin{pmatrix}5\\6\end{pmatrix},$$
+$$ (X^\top X)^{-1}=\frac16
+\begin{pmatrix}5&-3\\-3&3\end{pmatrix}.$$
+したがって
+$$\widehat{\boldsymbol\beta}
+=\frac16\begin{pmatrix}25-18\\-15+18\end{pmatrix}
+=\begin{pmatrix}7/6\\1/2\end{pmatrix}.$$
+## 一手
+$X^\top X$ と $X^\top y$ を別々に計算してから連立方程式を解く。
+## 注意
+逆行列を明示せず消去法で正規方程式を解いてもよい。
+
+<!-- CARD -->
+---
+id: est-ols-slope-standard-error
+title: 単回帰の残差から傾きの標準誤差を計算する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: ols-slope-standard-error
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [最小二乗法, 残差分散, 標準誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最小二乗法 }]
+---
+## 問題
+データ $(1,2),(2,3),(3,5)$ の最小二乗直線が $\widehat y=1/3+(3/2)x$ である。傾きの標準誤差を求めよ。
+## 答え
+$$\widehat{\operatorname{SE}}(\widehat\beta_1)
+=\sqrt{\frac{\widehat\sigma^2}{S_{xx}}}
+=\sqrt{\frac1{12}}\approx0.2887.$$
+## 使用公式・定理
+切片あり単回帰では
+$$\widehat\sigma^2=\frac{\operatorname{SSE}}{n-2},\qquad
+\operatorname{Var}(\widehat\beta_1\mid X)=\frac{\sigma^2}{S_{xx}}.$$
+## 計算例
+予測値は $(11/6,10/3,29/6)$、残差は $(1/6,-1/3,1/6)$。したがって
+$$\operatorname{SSE}=\frac1{36}+\frac19+\frac1{36}=\frac16.$$
+$n-2=1$ なので $\widehat\sigma^2=1/6$、また $S_{xx}=2$。よって
+$$\widehat{\operatorname{SE}}=\sqrt{(1/6)/2}=\sqrt{1/12}.$$
+## 一手
+係数を求めた後、残差→SSE→誤差分散→係数標準誤差の順に進む。
+## 注意
+誤差分散の自由度は、推定した切片と傾きの2個を引いた $n-2$。
+
+<!-- CARD -->
+---
+id: est-wls-through-origin
+title: 不均一分散に重み付き最小二乗法を適用する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: weighted-least-squares
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [重み付き最小二乗法, 不均一分散, BLUE]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 線形推定（BLUE） }]
+---
+## 問題
+$Y_i=\beta x_i+\varepsilon_i$ で $(x_1,x_2)=(1,2)$、$(y_1,y_2)=(1,4)$、誤差分散が $(1,4)$ と既知である。重み付き最小二乗推定値を求めよ。
+## 答え
+$$\widehat\beta_{\mathrm{WLS}}=1.5.$$
+## 使用公式・定理
+$w_i=1/\sigma_i^2$ とすると、原点回帰のWLSは
+$$\widehat\beta_{\mathrm{WLS}}
+=\frac{\sum_iw_ix_iy_i}{\sum_iw_ix_i^2}.$$
+## 計算例
+$w_1=1,w_2=1/4$ なので
+$$\sum_iw_ix_iy_i=1\cdot1\cdot1+\frac14\cdot2\cdot4=3,$$
+$$\sum_iw_ix_i^2=1\cdot1^2+\frac14\cdot2^2=2.$$
+よって $\widehat\beta=3/2$。参考に通常の最小二乗法では $(1+8)/(1+4)=1.8$。
+## 一手
+分散が大きい観測ほど重みを小さくする。
+## 注意
+既知分散に比例する共通定数は重みの比で消える。
+
+<!-- CARD -->
+---
+id: est-blue-correlated-estimators
+title: 相関する2つの不偏推定量を最小分散で結合する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: blue-correlated-estimators
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [BLUE, 線形不偏推定量, 共分散]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 線形推定（BLUE） }]
+---
+## 問題
+$T_1,T_2$ は $\theta$ の不偏推定量で、分散が $4,9$、共分散が1である。$T=aT_1+(1-a)T_2$ の分散を最小にせよ。
+## 答え
+$$a=\frac8{11},\qquad1-a=\frac3{11},\qquad
+\operatorname{Var}(T)=\frac{35}{11}\approx3.182.$$
+## 使用公式・定理
+$$\operatorname{Var}(T)=a^2v_1+(1-a)^2v_2+2a(1-a)c.$$
+微分して
+$$a=\frac{v_2-c}{v_1+v_2-2c}.$$
+## 計算例
+$$a=\frac{9-1}{4+9-2}=\frac8{11}.$$
+最小分散は
+$$\frac{v_1v_2-c^2}{v_1+v_2-2c}
+=\frac{36-1}{11}=\frac{35}{11}.$$
+## 一手
+相関があれば共分散項を残して重みを微分する。
+## 注意
+独立の場合の単純な逆分散重みをそのまま使わない。
+
+<!-- CARD -->
+---
+id: est-gls-common-mean
+title: 相関誤差の下で一般化最小二乗推定量を計算する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: generalized-least-squares
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [一般化最小二乗法, GLS, BLUE, 相関誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 線形推定（BLUE） }]
+---
+## 問題
+$\boldsymbol Y=\mu\boldsymbol1+\boldsymbol\varepsilon$、$\boldsymbol y=(2,5)^\top$、誤差共分散行列
+$$\Sigma=\begin{pmatrix}1&0.5\\0.5&4\end{pmatrix}$$
+とする。$\mu$ のGLS推定値と分散を求めよ。
+## 答え
+$$\widehat\mu_{\mathrm{GLS}}=2.375,\qquad
+\operatorname{Var}(\widehat\mu_{\mathrm{GLS}})=0.9375.$$
+## 使用公式・定理
+$$\widehat\mu_{\mathrm{GLS}}
+=\frac{\boldsymbol1^\top\Sigma^{-1}\boldsymbol y}
+{\boldsymbol1^\top\Sigma^{-1}\boldsymbol1},\qquad
+\operatorname{Var}(\widehat\mu_{\mathrm{GLS}})
+=\frac1{\boldsymbol1^\top\Sigma^{-1}\boldsymbol1}.$$
+## 計算例
+$$\Sigma^{-1}=\frac1{3.75}
+\begin{pmatrix}4&-0.5\\-0.5&1\end{pmatrix}.$$
+共通因子 $1/3.75$ を約分すると、分子は
+$$4(2)-0.5(5)-0.5(2)+1(5)=9.5,$$
+分母は $4-0.5-0.5+1=4$。よって $9.5/4=2.375$。分散は $3.75/4=0.9375$。
+## 一手
+相関・不均一分散を $\Sigma^{-1}$ で重み付けする。
+## 注意
+$\Sigma=\sigma^2I$ のときGLSは通常の標本平均へ戻る。
+
+<!-- CARD -->
+---
+id: est-plugin-survival-probability
+title: 経験分布から生存確率をプラグイン推定する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: plugin-survival-function
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [プラグイン法, 経験分布, 生存関数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: その他の手法 }]
+---
+## 問題
+完全観測された寿命データが $(1,2,2,5,7)$ だった。生存確率 $S(3)=P(X>3)$ を経験分布へプラグインして推定せよ。
+## 答え
+$$\widehat S(3)=\frac25=0.4.$$
+## 使用公式・定理
+$$S(t)=1-F(t),\qquad
+\widehat F_n(t)=\frac1n\sum_{i=1}^nI(X_i\le t),$$
+したがって
+$$\widehat S_n(t)=\frac1n\sum_{i=1}^nI(X_i>t).$$
+## 計算例
+3を超える観測値は5と7の2個なので $\widehat S(3)=2/5$。同じく
+$$\widehat F(3)=3/5,\qquad1-\widehat F(3)=2/5.$$
+## 一手
+未知分布 $F$ を経験分布 $\widehat F_n$ へ置き換える。
+## 注意
+右打切りがある寿命データでは単純な経験割合でなくKaplan–Meier推定量を使う。
+
+<!-- CARD -->
+---
+id: est-plugin-coefficient-variation
+title: 平均と分散を代入して変動係数を推定する
+category: math-estimation
+subcategory: math-estimation-methods
+topic: plugin-coefficient-of-variation
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [プラグイン法, 変動係数, 経験分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: その他の手法 }]
+---
+## 問題
+データ $(2,4,6)$ から、母変動係数 $\operatorname{CV}=\sigma/\mu$ を経験分布へのプラグインで推定せよ。
+## 答え
+$$\widehat{\operatorname{CV}}
+=\frac{\sqrt{8/3}}4
+=\frac1{\sqrt6}\approx0.4082.$$
+## 使用公式・定理
+経験分布へ代入すると
+$$\widehat\mu=\overline X,\qquad
+\widehat\sigma^2=\frac1n\sum_i(X_i-\overline X)^2.$$
+## 計算例
+$$\overline x=4,\qquad
+\widehat\sigma^2=\frac{(2-4)^2+(4-4)^2+(6-4)^2}{3}
+=\frac83.$$
+したがって
+$$\widehat{\operatorname{CV}}=\frac{\sqrt{8/3}}4
+=\sqrt{\frac16}.$$
+## 一手
+汎関数の中の未知量を、それぞれ経験分布から得た標本対応量へ置き換える。
+## 注意
+不偏分散を使う推定法もある。ここでは経験分布への厳密なプラグインなので分母は $n$。
+
 <!-- CARD -->

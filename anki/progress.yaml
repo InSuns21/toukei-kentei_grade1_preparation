@@ -1,7 +1,7 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-20
-reviewed_card_count: 476
+reviewed_card_count: 560
 current_work: null
 next_work: C12-testing-foundations-derivation
 last_completed_work: C11-interval-estimation

@@ -25,6 +25,494 @@ $E[X_n]=\theta$、$\operatorname{Var}(X_n)=\sigma_n^2$ なら $P(|X_n-\theta|>\v
 <!-- CARD -->
 
 ---
+id: asym-mle-poisson-tail-probability
+title: ポアソン最尤推定量の漸近正規分布で確率を近似する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: mle-asymptotic-probability
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [最尤推定量の漸近正規性, ポアソン分布, 確率近似]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
+---
+## 問題
+$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$n=100$、$\lambda=4$ とする。最尤推定量 $\widehat\lambda=\overline X$ について $P(\widehat\lambda>4.3)$ を漸近近似せよ。
+## 答え
+$I_1(\lambda)=1/\lambda$ なので
+$$\widehat\lambda\ \dot\sim\ N\left(\lambda,\frac1{nI_1(\lambda)}\right)
+=N\left(4,\frac4{100}\right).$$
+標準誤差は $0.2$。よって
+$$P(\widehat\lambda>4.3)
+\approx1-\Phi\left(\frac{4.3-4}{0.2}\right)
+=1-\Phi(1.5)\approx0.0668.$$
+## 使用公式・定理
+正則条件の下で
+$$\widehat\theta_{\mathrm{ML}}\ \dot\sim\ N\left(\theta,\frac1{nI_1(\theta)}\right).$$
+## 計算例
+標準化値は $(4.3-4)/\sqrt{4/100}=1.5$ なので、上側確率は約 $0.0668$。
+## 一手
+情報量から分散を出し、標準誤差で標準化する。
+## 注意
+$1/I_1(\theta)$ は $\sqrt n(\widehat\theta-\theta)$ の極限分散であり、$\widehat\theta$ 自身の分散は $1/[nI_1(\theta)]$。
+<!-- CARD -->
+
+---
+id: asym-mle-exponential-rate-numeric
+title: 指数分布の率の最尤推定量について漸近標準誤差を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: mle-exponential-rate
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [最尤推定量の漸近正規性, 指数分布, 漸近標準誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
+---
+## 問題
+$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$、密度 $f(x)=\lambda e^{-\lambda x}$（$x>0$）とする。$n=64,\overline x=0.5$ のとき、$\widehat\lambda_{\mathrm{ML}}$ とその漸近標準誤差を求めよ。
+## 答え
+$$\widehat\lambda_{\mathrm{ML}}=\frac1{\overline x}=2.$$
+$I_1(\lambda)=1/\lambda^2$ なので
+$$\operatorname{Avar}(\widehat\lambda)=\frac1{nI_1(\lambda)}=\frac{\lambda^2}{n}.$$
+$\lambda$ を $\widehat\lambda=2$ で置き換えると
+$$\widehat{\operatorname{SE}}(\widehat\lambda)
+=\frac{\widehat\lambda}{\sqrt n}=\frac2{8}=0.25.$$
+## 使用公式・定理
+$$\widehat\theta_{\mathrm{ML}}\ \dot\sim\ N\left(\theta,\frac1{nI_1(\theta)}\right).$$
+## 計算例
+$n=64$、$\widehat\lambda=2$ なら推定漸近分散は $2^2/64=1/16$、標準誤差は $1/4$。
+## 一手
+未知母数を含む標準誤差は最尤推定値を代入して推定する。
+## 注意
+ここでの $\lambda$ は率であり、平均は $1/\lambda$。
+<!-- CARD -->
+
+---
+id: asym-mle-normal-variance-known-mean
+title: 正規分散の最尤推定量の漸近分布を情報量から求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: mle-normal-variance
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [最尤推定量の漸近正規性, 正規分布, 分散母数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
+---
+## 問題
+正規分布 $X_i\overset{iid}{\sim}N(\mu,\tau)$ で平均 $\mu$ は既知、分散母数 $\tau>0$ は未知とする。$\widehat\tau=n^{-1}\sum_i(X_i-\mu)^2$ の漸近分布を求めよ。
+## 答え
+1観測の対数密度について
+$$\frac{\partial^2\ell}{\partial\tau^2}
+=\frac1{2\tau^2}-\frac{(X-\mu)^2}{\tau^3}.$$
+$E[(X-\mu)^2]=\tau$ より
+$$I_1(\tau)=-E[\ell''(\tau;X)]=\frac1{2\tau^2}.$$
+したがって
+$$\sqrt n(\widehat\tau-\tau)\xrightarrow{d}N(0,2\tau^2),$$
+すなわち $\widehat\tau\ \dot\sim\ N(\tau,2\tau^2/n)$。
+## 使用公式・定理
+$$\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
+\xrightarrow{d}N\left(0,I_1(\theta)^{-1}\right).$$
+## 計算例
+$\tau=4,n=100$ なら漸近分散は $2\cdot16/100=0.32$、漸近標準誤差は $\sqrt{0.32}\approx0.566$。
+## 一手
+分散そのものを母数 $\tau$ と置くと微分の混乱が減る。
+## 注意
+$\tau=\sigma^2$ である。標準偏差 $\sigma$ の漸近分布にはさらにデルタ法が必要。
+<!-- CARD -->
+
+---
+id: asym-delta-exponential-mean
+title: デルタ法で指数分布の平均の最尤推定量を扱う
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: delta-mle-invariance
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [デルタ法, 最尤推定量の漸近正規性, 指数分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$（率表示）とする。$\widehat\lambda=1/\overline X$ から平均 $\mu=1/\lambda$ を $\widehat\mu=1/\widehat\lambda$ で推定するとき、その漸近分布を求めよ。
+## 答え
+$$\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda^2).$$
+$g(\lambda)=1/\lambda$、$g'(\lambda)=-1/\lambda^2$ なので、デルタ法より
+$$\sqrt n(\widehat\mu-\mu)
+\xrightarrow{d}N\left(0,\frac1{\lambda^4}\lambda^2\right)
+=N(0,\mu^2).$$
+実際、$\widehat\mu=1/(1/\overline X)=\overline X$ であり、中心極限定理の結果と一致する。
+## 使用公式・定理
+$$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,V)
+\Rightarrow
+\sqrt n\{g(T_n)-g(\theta)\}\xrightarrow{d}N(0,\{g'(\theta)\}^2V).$$
+## 計算例
+$\lambda=2$、$n=100$ なら $\mu=1/2$ であり、$\widehat\mu$ の漸近標準誤差は $\mu/\sqrt n=0.05$。
+## 一手
+変換の微分を二乗し、元の極限分散に掛ける。
+## 注意
+最尤推定量の不変性だけでは分散は出ない。分散計算にはデルタ法を使う。
+<!-- CARD -->
+
+---
+id: asym-delta-bernoulli-odds
+title: デルタ法でベルヌーイ確率のオッズの漸近分散を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: delta-odds
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [デルタ法, ベルヌーイ分布, オッズ]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+$\widehat p=\overline X$、$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ とする。オッズ $g(p)=p/(1-p)$ の推定量 $g(\widehat p)$ の漸近分散を求めよ。
+## 答え
+$$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p)),$$
+$$g'(p)=\frac1{(1-p)^2}.$$
+したがって
+$$\sqrt n\{g(\widehat p)-g(p)\}
+\xrightarrow{d}N\left(0,\frac{p}{(1-p)^3}\right).$$
+よって $g(\widehat p)$ 自身の漸近分散は $p/[n(1-p)^3]$。
+## 使用公式・定理
+1次元デルタ法：極限分散を $V$ とすると、変換後は $\{g'(p)\}^2V$。
+## 計算例
+$p=0.4,n=100$ なら漸近分散は $0.4/[100(0.6)^3]\approx0.01852$、漸近標準誤差は約 $0.1361$。
+## 一手
+$g'(p)$ を商の微分で求めてから二乗する。
+## 注意
+$p$ が0または1に近いと微分が大きくなり、正規近似は不安定になる。
+<!-- CARD -->
+
+---
+id: asym-delta-arcsine-proportion
+title: デルタ法で標本比率の分散安定化変換を導く
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: delta-variance-stabilizing
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [デルタ法, 分散安定化, ベルヌーイ分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+$\widehat p=\overline X$、$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ とする。$g(p)=\arcsin\sqrt p$ の漸近分散が $p$ に依存しないことを示せ。
+## 答え
+連鎖律より
+$$g'(p)=\frac1{\sqrt{1-p}}\cdot\frac1{2\sqrt p}
+=\frac1{2\sqrt{p(1-p)}}.$$
+また $\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p))$。デルタ法から
+$$\sqrt n\{g(\widehat p)-g(p)\}
+\xrightarrow{d}N\left(0,
+\frac1{4p(1-p)}p(1-p)\right)
+=N\left(0,\frac14\right).$$
+したがって $g(\widehat p)$ の漸近分散は $1/(4n)$。
+## 使用公式・定理
+$$\operatorname{Avar}\{g(T_n)\}=\{g'(\theta)\}^2\operatorname{Avar}(T_n).$$
+## 計算例
+$p=0.36$、$n=100$ でも、変換後の漸近標準誤差は $\sqrt{1/(4n)}=0.05$ と $p$ に依存しない。
+## 一手
+微分の二乗が元の分散 $p(1-p)$ を打ち消すことを確認する。
+## 注意
+$p=0,1$ では微分が発散するため、通常のデルタ法をそのまま適用できない。
+<!-- CARD -->
+
+---
+id: asym-delta-two-sample-log-risk-ratio
+title: 多変量デルタ法で二標本の対数リスク比の分散を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: multivariate-delta-risk-ratio
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [デルタ法, 二標本, リスク比]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+独立な2群で $Y_1\sim\operatorname{Binomial}(n_1,p_1)$、$Y_2\sim\operatorname{Binomial}(n_2,p_2)$ とし、$\widehat p_j=Y_j/n_j$ とする。$\log(\widehat p_1/\widehat p_2)$ の漸近分散を求めよ。
+## 答え
+$g(p_1,p_2)=\log p_1-\log p_2$ だから
+$$\nabla g=\begin{pmatrix}1/p_1\\-1/p_2\end{pmatrix}.$$
+独立性から共分散は0であり、
+$$\operatorname{Avar}(\widehat p_j)=\frac{p_j(1-p_j)}{n_j}.$$
+よって
+$$\operatorname{Avar}\left\{\log\frac{\widehat p_1}{\widehat p_2}\right\}
+\approx
+\frac{1-p_1}{n_1p_1}+\frac{1-p_2}{n_2p_2}.$$
+## 使用公式・定理
+多変量デルタ法の分散公式：
+$$\operatorname{Avar}\{g(\widehat{\boldsymbol\theta})\}
+\approx\nabla g(\boldsymbol\theta)^T
+\operatorname{Cov}(\widehat{\boldsymbol\theta})
+\nabla g(\boldsymbol\theta).$$
+## 計算例
+$n_1=n_2=100$、$\widehat p_1=0.4$、$\widehat p_2=0.2$ を代入すると、推定分散は $0.6/40+0.8/20=0.055$、標準誤差は $\sqrt{0.055}\approx0.2345$。
+## 一手
+独立二標本なら共分散行列が対角になり、2項の和になる。
+## 注意
+成功数が0なら対数を取れないため、この近似をそのまま使えない。
+<!-- CARD -->
+
+---
+id: asym-delta-normal-standard-deviation
+title: デルタ法で正規分布の標準偏差推定量の漸近分布を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: delta-standard-deviation
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [デルタ法, 正規分布, 標準偏差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+正規分布の分散の最尤推定量 $\widehat\tau$ が
+$$\sqrt n(\widehat\tau-\tau)\xrightarrow{d}N(0,2\tau^2)$$
+を満たすとする。標準偏差 $\sigma=\sqrt\tau$ の推定量 $\widehat\sigma=\sqrt{\widehat\tau}$ の漸近分布を求めよ。
+## 答え
+$g(\tau)=\sqrt\tau$ と置くと
+$$g'(\tau)=\frac1{2\sqrt\tau}=\frac1{2\sigma}.$$
+デルタ法より極限分散は
+$$\{g'(\tau)\}^2\,2\tau^2
+=\frac1{4\tau}\,2\tau^2
+=\frac\tau2=\frac{\sigma^2}{2}.$$
+したがって
+$$\sqrt n(\widehat\sigma-\sigma)
+\xrightarrow{d}N\left(0,\frac{\sigma^2}{2}\right).$$
+## 使用公式・定理
+1次元デルタ法を $g(\tau)=\sqrt\tau$ に適用する。
+## 計算例
+$\sigma=3,n=200$ なら $\widehat\sigma$ の漸近分散は $9/(2\cdot200)=0.0225$、漸近標準誤差は $0.15$。
+## 一手
+極限分散 $\sigma^2/2$ を推定量自身の分散と読むときは $n$ で割る。
+## 注意
+分散母数を $\tau=\sigma^2$ と置いてから平方根変換すると追いやすい。
+<!-- CARD -->
+
+---
+id: asym-exponential-mean-tail
+title: 指数標本平均の上側確率を中心極限定理で近似する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: exponential-sample-mean-clt
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [中心極限定理, 指数分布, 標本平均, 確率近似]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+---
+## 問題
+$X_1,\ldots,X_{100}$ は率 $\lambda=1/2$ の指数分布からの独立同分布標本である。$P(\overline X>2.4)$ を中心極限定理で近似せよ。
+
+## 答え
+指数分布の平均は $2$、分散は $4$ なので
+$$P(\overline X>2.4)\approx P(Z>2)\approx0.0228.$$
+
+## 使用公式・定理
+率 $\lambda$ の指数分布では
+$$E[X_i]=\frac1\lambda,\qquad \operatorname{Var}(X_i)=\frac1{\lambda^2}.$$
+有限分散を持つ独立同分布標本に対する中心極限定理より
+$$\frac{\sqrt n(\overline X-\mu)}{\sigma}\xrightarrow{d}N(0,1).$$
+
+## 計算例
+ここでは $\mu=2$、$\sigma=2$、$n=100$ だから
+$$\frac{2.4-2}{2/\sqrt{100}}=\frac{0.4}{0.2}=2.$$
+したがって
+$$P(\overline X>2.4)\approx P(Z>2)=1-\Phi(2)\approx0.0228.$$
+
+## 一手
+分布名から平均・分散を出し、標本平均の標準誤差 $\sigma/\sqrt n$ を作る。
+
+## 注意
+指数分布自体は右に歪むが、標本平均は大標本で正規近似できる。
+
+<!-- CARD -->
+
+---
+id: asym-poisson-mle-numeric
+title: ポアソン率の最尤推定量に漸近標準誤差を付ける
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: poisson-mle-asymptotic-se
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [最尤推定量, ポアソン分布, 漸近標準誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近分布 }]
+---
+## 問題
+$X_1,\ldots,X_{100}$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$\overline x=4.41$ だった。$\widehat\lambda$ とその漸近標準誤差を求めよ。
+
+## 答え
+$$\widehat\lambda=\overline x=4.41,\qquad
+\widehat{\operatorname{SE}}(\widehat\lambda)
+=\sqrt{\frac{\widehat\lambda}{n}}
+=\sqrt{\frac{4.41}{100}}=0.21.$$
+
+## 使用公式・定理
+ポアソン分布の1観測当たりのフィッシャー情報量は $I_1(\lambda)=1/\lambda$ なので
+$$\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda),\qquad
+\operatorname{Avar}(\widehat\lambda)=\frac{\lambda}{n}.$$
+未知の $\lambda$ は一致推定量 $\widehat\lambda$ で置き換える。
+
+## 計算例
+帰無値 $\lambda_0=4$ からのずれを漸近的に標準化すると
+$$z=\frac{4.41-4}{\sqrt{4/100}}=\frac{0.41}{0.2}=2.05.$$
+推定精度の表示ではプラグイン標準誤差 $0.21$ を用いる。
+
+## 一手
+漸近分散 $I_n(\lambda)^{-1}$ を出し、未知母数を最尤推定量でプラグインする。
+
+## 注意
+検定で帰無仮説下の標準化を行う場合は、分母に帰無値 $\lambda_0$ を使う方式と区別する。
+
+<!-- CARD -->
+
+---
+id: asym-exponential-rate-mle
+title: 指数分布の率の最尤推定量をデルタ法で標準化する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: exponential-rate-mle-asymptotics
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [指数分布, 最尤推定量, デルタ法]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近分布 }]
+---
+## 問題
+$X_1,\ldots,X_n$ は率 $\lambda$ の指数分布からの独立同分布標本である。$\widehat\lambda=1/\overline X$ の漸近分布を求め、$n=100$、$\overline x=0.4$ の漸近標準誤差を計算せよ。
+
+## 答え
+$$\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda^2).$$
+観測値から $\widehat\lambda=2.5$ なので
+$$\widehat{\operatorname{SE}}(\widehat\lambda)
+=\frac{\widehat\lambda}{\sqrt n}=\frac{2.5}{10}=0.25.$$
+
+## 使用公式・定理
+指数分布では $E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$ だから
+$$\sqrt n\left(\overline X-\frac1\lambda\right)
+\xrightarrow{d}N\left(0,\frac1{\lambda^2}\right).$$
+$g(x)=1/x$ に対するデルタ法を使い、$g'(1/\lambda)=-\lambda^2$ とする。
+
+## 計算例
+デルタ法の極限分散は
+$$\{g'(1/\lambda)\}^2\frac1{\lambda^2}
+=\lambda^4\frac1{\lambda^2}=\lambda^2.$$
+したがって推定量自体の漸近分散は $\lambda^2/n$ となる。
+
+## 一手
+$1/\overline X$ を直接扱わず、まず $\overline X$ の中心極限定理に $g(x)=1/x$ を適用する。
+
+## 注意
+率 $\lambda$ と平均 $1/\lambda$ を取り違えない。
+
+<!-- CARD -->
+
+---
+id: asym-logit-proportion-delta
+title: 標本比率のロジット変換へデルタ法を適用する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: logit-proportion-delta-method
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [デルタ法, 標本比率, ロジット変換]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+$X\sim\operatorname{Binomial}(n,p)$、$\widehat p=X/n$ とする。$g(p)=\log\{p/(1-p)\}$ のプラグイン推定量 $g(\widehat p)$ の漸近分散を求め、$n=200$、$\widehat p=0.30$ で標準誤差を計算せよ。
+
+## 答え
+$$\sqrt n\{g(\widehat p)-g(p)\}
+\xrightarrow{d}N\left(0,\frac1{p(1-p)}\right).$$
+したがって
+$$\widehat{\operatorname{SE}}\{g(\widehat p)\}
+=\sqrt{\frac1{n\widehat p(1-\widehat p)}}\approx0.1543.$$
+
+## 使用公式・定理
+$$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p)),$$
+$$g'(p)=\frac1p+\frac1{1-p}=\frac1{p(1-p)}.$$
+デルタ法の極限分散は $\{g'(p)\}^2p(1-p)$ である。
+
+## 計算例
+$$\{g'(p)\}^2p(1-p)
+=\frac{1}{p^2(1-p)^2}p(1-p)
+=\frac1{p(1-p)}.$$
+$\widehat p=0.30$ なら
+$$\sqrt{\frac1{200(0.30)(0.70)}}=\sqrt{\frac1{42}}\approx0.1543.$$
+点推定値は $g(0.30)=\log(3/7)\approx-0.8473$。
+
+## 一手
+変換後の分散は「変換の微分の2乗×変換前の分散」で作る。
+
+## 注意
+$\widehat p=0$ または1ではロジットが発散し、この近似をそのまま使えない。
+
+<!-- CARD -->
+
+---
+id: asym-ratio-two-means-delta
+title: 2標本平均の比に多変量デルタ法を使う
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: ratio-estimator-multivariate-delta
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [多変量デルタ法, 比推定量, 2標本]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+独立な2標本について、各標本サイズを $n$、母平均を $\mu_X,\mu_Y$、母分散を $\sigma_X^2,\sigma_Y^2$ とする。$\mu_Y\ne0$ のとき、$R=\overline X/\overline Y$ の漸近分布を求めよ。
+
+## 答え
+$$\sqrt n\left(R-\frac{\mu_X}{\mu_Y}\right)
+\xrightarrow{d}N(0,V),$$
+$$V=\frac{\sigma_X^2}{\mu_Y^2}
++\frac{\mu_X^2\sigma_Y^2}{\mu_Y^4}.$$
+
+## 使用公式・定理
+$g(x,y)=x/y$ の勾配は
+$$\nabla g(\mu_X,\mu_Y)
+=\left(\frac1{\mu_Y},-\frac{\mu_X}{\mu_Y^2}\right)^\top.$$
+2標本は独立なので極限共分散行列は
+$$\Sigma=\begin{pmatrix}\sigma_X^2&0\\0&\sigma_Y^2\end{pmatrix}.$$
+多変量デルタ法では $V=\nabla g^\top\Sigma\nabla g$ となる。
+
+## 計算例
+$\mu_X=4,\mu_Y=2,\sigma_X^2=4,\sigma_Y^2=1$ なら
+$$V=\frac4{2^2}+\frac{4^2\cdot1}{2^4}=1+1=2.$$
+$n=100$ では比推定量の漸近標準誤差は
+$$\sqrt{\frac Vn}=\sqrt{\frac2{100}}\approx0.1414.$$
+
+## 一手
+比の分母が確率変数なら、分子だけでなく分母方向の微分も含める。
+
+## 注意
+$\mu_Y$ が0に近いと比の正規近似は不安定になる。
+
+<!-- CARD -->
+
+---
 id: asym-convergence-almost-sure
 title: 概収束（ほとんど確実な収束）の定義を書く
 category: math-estimation
@@ -715,5 +1203,222 @@ $\operatorname{AVar}(\sqrt n\,\overline X)=\sigma^2$、$\operatorname{AVar}(\sqr
 $\operatorname{ARE}(\widetilde X,\overline X)=\sigma^2/(\pi\sigma^2/2)=2/\pi\approx0.637$。
 ## 注意
 正規では平均がより効率的。裾が重い分布では逆転しうる。
+
+<!-- CARD -->
+
+---
+id: asym-second-order-delta-square
+title: 1階微分が0のとき2次デルタ法で極限分布を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: second-order-delta-method
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [2次デルタ法, カイ二乗分布, 標本平均]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: デルタ法 }]
+---
+## 問題
+$E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2<\infty$ の独立同分布標本について、$n(\overline X-\mu)^2$ の極限分布を求めよ。
+
+## 答え
+$$n(\overline X-\mu)^2\xrightarrow{d}\sigma^2\chi_1^2.$$
+
+## 使用公式・定理
+中心極限定理から
+$$\sqrt n(\overline X-\mu)\xrightarrow{d}Z,\qquad Z\sim N(0,\sigma^2).$$
+連続写像定理で両辺を2乗する。また $Z/\sigma\sim N(0,1)$ なので $(Z/\sigma)^2\sim\chi_1^2$ である。
+
+## 計算例
+$$n(\overline X-\mu)^2
+=\{\sqrt n(\overline X-\mu)\}^2
+\xrightarrow{d}Z^2
+=\sigma^2\left(\frac Z\sigma\right)^2.$$
+$\sigma^2=4$ なら極限分布は $4\chi_1^2$。したがって
+$$P\{n(\overline X-\mu)^2>15.37\}
+\to P(\chi_1^2>15.37/4)
+\approx P(\chi_1^2>3.842)\approx0.05.$$
+
+## 一手
+$g(x)=(x-\mu)^2$ は $g'(\mu)=0$ なので、通常の $\sqrt n$ デルタ法ではなく尺度 $n$ を疑う。
+
+## 注意
+1階デルタ法を形式的に使うと分散0の退化分布しか得られない。
+
+<!-- CARD -->
+
+---
+id: asym-sample-variance-fourth-moment
+title: 標本分散の漸近分散を4次中心モーメントから求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: sample-variance-asymptotic-normality
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [標本分散, 4次中心モーメント, 漸近正規性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+---
+## 問題
+$E[(X_i-\mu)^4]=\mu_4<\infty$ とし
+$$V_n=\frac1n\sum_{i=1}^n(X_i-\overline X)^2$$
+とする。$V_n$ の漸近分布を求め、正規分布で $\sigma^2=4,n=100$ の漸近標準誤差を計算せよ。
+
+## 答え
+$$\sqrt n(V_n-\sigma^2)
+\xrightarrow{d}N(0,\mu_4-\sigma^4).$$
+正規分布では $\mu_4=3\sigma^4$ なので、漸近標準誤差は
+$$\sqrt{\frac{2\sigma^4}{n}}
+=\sqrt{\frac{2\cdot16}{100}}\approx0.5657.$$
+
+## 使用公式・定理
+恒等式
+$$V_n=\frac1n\sum_{i=1}^n(X_i-\mu)^2-(\overline X-\mu)^2$$
+を使う。第1項には確率変数 $(X_i-\mu)^2$ の中心極限定理を適用し、第2項は $O_p(n^{-1})$ なので $\sqrt n$ 尺度では消える。
+
+## 計算例
+$$\operatorname{Var}\{(X_i-\mu)^2\}
+=E[(X_i-\mu)^4]-\{E[(X_i-\mu)^2]\}^2
+=\mu_4-\sigma^4.$$
+したがって第1項の $\sqrt n$ 極限分散が $\mu_4-\sigma^4$ となる。
+
+## 一手
+標本平均からの平方和を、真の平均からの平方和と平均誤差の2乗へ分解する。
+
+## 注意
+4次中心モーメントの有限性が必要であり、有限分散だけではこの結論は保証されない。
+
+<!-- CARD -->
+
+---
+id: asym-exponential-sample-median
+title: 指数分布の標本中央値の漸近分布を数値化する
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: sample-median-asymptotic-example
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [標本中央値, 指数分布, 漸近正規性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+---
+## 問題
+$X_1,\ldots,X_n$ は率1の指数分布からの独立同分布標本で、標本中央値を $M_n$ とする。$M_n$ の漸近分布を求め、$n=100$ での漸近標準誤差を計算せよ。
+
+## 答え
+母中央値は $m=\log2$ であり
+$$\sqrt n(M_n-\log2)\xrightarrow{d}N(0,1).$$
+したがって $n=100$ での漸近標準誤差は $1/\sqrt{100}=0.1$。
+
+## 使用公式・定理
+連続分布の母中央値 $m$ で $f(m)>0$ なら
+$$\sqrt n(M_n-m)
+\xrightarrow{d}N\left(0,\frac1{4f(m)^2}\right).$$
+率1の指数分布では $F(x)=1-e^{-x}$、$f(x)=e^{-x}$（$x>0$）。
+
+## 計算例
+中央値は
+$$F(m)=\frac12
+\Rightarrow1-e^{-m}=\frac12
+\Rightarrow m=\log2.$$
+さらに $f(m)=e^{-\log2}=1/2$ だから
+$$\frac1{4f(m)^2}=\frac1{4(1/2)^2}=1.$$
+$M_{100}=0.80$ なら標準化値は
+$$\frac{0.80-\log2}{0.1}\approx1.07.$$
+
+## 一手
+まず母中央値を $F(m)=1/2$ から求め、その点の密度を公式へ代入する。
+
+## 注意
+中央値の漸近分散には母分散ではなく、中央値における密度 $f(m)$ が入る。
+
+<!-- CARD -->
+
+---
+id: asym-bernoulli-plugin-se
+title: 標本比率の標準誤差へ一致推定量をプラグインする
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: plugin-standard-error-consistency
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [標本比率, プラグイン法, 標準誤差, Slutskyの定理]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 漸近標準誤差 }]
+---
+## 問題
+ベルヌーイ標本の標本比率を $\widehat p$ とする。未知の $p$ を含まない漸近標準誤差を作り、$n=400$、$\widehat p=0.36$ で計算せよ。
+
+## 答え
+$$\widehat{\operatorname{SE}}(\widehat p)
+=\sqrt{\frac{\widehat p(1-\widehat p)}n}
+=\sqrt{\frac{0.36\cdot0.64}{400}}=0.024.$$
+
+## 使用公式・定理
+$$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p)),$$
+かつ大数の法則により $\widehat p\xrightarrow{p}p$。連続写像定理から
+$$\widehat p(1-\widehat p)\xrightarrow{p}p(1-p).$$
+よってSlutskyの定理により
+$$\frac{\widehat p-p}{\sqrt{\widehat p(1-\widehat p)/n}}
+\xrightarrow{d}N(0,1).$$
+
+## 計算例
+$$\widehat p(1-\widehat p)=0.36(0.64)=0.2304,$$
+$$\frac{0.2304}{400}=0.000576,\qquad
+\sqrt{0.000576}=0.024.$$
+
+## 一手
+未知の漸近分散に一致推定量を代入し、Slutskyの定理で正当化する。
+
+## 注意
+$n\widehat p$ または $n(1-\widehat p)$ が小さいと、正規近似の精度が悪い。
+
+<!-- CARD -->
+
+---
+id: asym-uniform-moment-estimator
+title: 一様分布のモーメント法推定量の漸近分布を求める
+category: math-estimation
+subcategory: math-asymptotic-estimation
+topic: uniform-moment-estimator-asymptotics
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [モーメント法, 一様分布, 中心極限定理]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+---
+## 問題
+$X_1,\ldots,X_n$ は一様分布 $U(0,\theta)$ からの独立同分布標本である。モーメント法推定量 $\widetilde\theta=2\overline X$ の漸近分布を求め、$n=75$、$\overline x=3.1$ で漸近標準誤差を計算せよ。
+
+## 答え
+$$\sqrt n(\widetilde\theta-\theta)
+\xrightarrow{d}N\left(0,\frac{\theta^2}{3}\right).$$
+$\widetilde\theta=6.2$ をプラグインすると
+$$\widehat{\operatorname{SE}}(\widetilde\theta)
+=\frac{\widetilde\theta}{\sqrt{3n}}
+=\frac{6.2}{\sqrt{225}}\approx0.4133.$$
+
+## 使用公式・定理
+一様分布 $U(0,\theta)$ では
+$$E[X_i]=\frac\theta2,\qquad \operatorname{Var}(X_i)=\frac{\theta^2}{12}.$$
+中心極限定理と定数倍の分散公式を使う。
+
+## 計算例
+$$\sqrt n(2\overline X-\theta)
+=2\sqrt n\left(\overline X-\frac\theta2\right).$$
+右辺の極限分散は
+$$2^2\frac{\theta^2}{12}=\frac{\theta^2}{3}.$$
+推定量自体の漸近分散は $\theta^2/(3n)$ である。
+
+## 一手
+モーメント法の式を標本平均の線形変換として読み、中心極限定理をそのまま移す。
+
+## 注意
+最尤推定量 $X_{(n)}$ は異なる $n$ 尺度の非正規極限を持つため、同じ扱いをしない。
 
 <!-- CARD -->

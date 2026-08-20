@@ -249,6 +249,7 @@ items:
       - prob-jensen-inequality
       - prob-markov-inequality
       - prob-chebyshev-inequality
+      - mathstat-total-covariance
     terms:
       - name: モーメント
         status: card
@@ -344,6 +345,28 @@ items:
       - prob-linear-combination-normal
       - prob-linear-combination-moments
       - prob-transform-log
+      - prob-transform-affine-decreasing
+      - prob-transform-reciprocal-uniform
+      - prob-transform-half-normal
+      - prob-transform-normal-square
+      - prob-transform-uniform-product
+      - prob-transform-iid-maximum-density
+      - prob-transform-iid-minimum-density
+      - prob-transform-uniform-sum-triangular
+      - prob-transform-uniform-difference-triangular
+      - prob-transform-unequal-exponential-sum
+      - prob-transform-exponential-ratio
+      - prob-transform-normal-polar
+      - prob-transform-normal-square-sum
+      - prob-transform-student-t
+      - prob-transform-f-ratio
+      - prob-transform-bivariate-normal-decorrelation
+      - prob-transform-uniform-min-max-joint
+      - prob-transform-probability-integral
+      - prob-transform-discrete-many-to-one
+      - prob-transform-standardization-density
+      - prob-transform-normal-ratio-cauchy
+      - prob-transform-logit-uniform
     terms:
       - name: 変数変換
         status: card
@@ -472,6 +495,9 @@ items:
       - dist-poisson-moments-by-definition
       - dist-hypergeometric-moments-by-definition
       - dist-poisson-reproductivity
+      - mathstat-binomial-beta-tail
+      - mathstat-poisson-gamma-tail
+      - mathstat-poisson-conditioned-multinomial
     terms:
       - name: 一様分布
         status: card
@@ -573,6 +599,7 @@ items:
       - dist-gamma-beta-relation
       - process-poisson-orderstat
       - dist-limit-map
+      - mathstat-mean-residual-life
     terms:
       - name: 一様分布
         status: card
@@ -696,6 +723,8 @@ items:
       - samp-two-sample-mean-diff
       - samp-multinomial-cell-counts
       - samp-sample-correlation-basic
+      - mathstat-exponential-spacings
+      - mathstat-empirical-cdf-pointwise-clt
     terms:
       - name: t分布
         status: card
@@ -799,6 +828,9 @@ items:
       - likelihood-regularity
       - mle-normal-both
       - mle-information-inequality
+      - mle-gamma-rate-known-shape
+      - mle-exponential-right-censoring
+      - mle-normal-mean-nonnegative
     terms:
       - name: 尤度関数
         status: card
@@ -836,19 +868,31 @@ items:
       - est-ols-bline
       - est-ols-normal-equations
       - est-gauss-markov
+      - est-moments-normal-numeric
+      - est-moments-gamma-two-parameter
+      - est-moments-beta-two-parameter
+      - est-moments-uniform-two-endpoints
+      - est-ols-simple-numeric
+      - est-ols-matrix-numeric
+      - est-ols-slope-standard-error
+      - est-wls-through-origin
+      - est-blue-correlated-estimators
+      - est-gls-common-mean
+      - est-plugin-survival-probability
+      - est-plugin-coefficient-variation
     terms:
       - name: モーメント法
         status: card
-        cards: [est-method-of-moments, est-moments-exponential, est-moments-uniform]
+        cards: [est-method-of-moments, est-moments-exponential, est-moments-uniform, est-moments-normal-numeric, est-moments-gamma-two-parameter, est-moments-beta-two-parameter, est-moments-uniform-two-endpoints]
       - name: 最小二乗法
         status: card
-        cards: [est-ols-bline, est-ols-normal-equations, est-gauss-markov]
+        cards: [est-ols-bline, est-ols-normal-equations, est-gauss-markov, est-ols-simple-numeric, est-ols-matrix-numeric, est-ols-slope-standard-error, est-wls-through-origin, est-gls-common-mean]
       - name: 線形推定（BLUE）
         status: card
-        cards: [est-ols-bline, est-gauss-markov]
+        cards: [est-ols-bline, est-gauss-markov, est-wls-through-origin, est-blue-correlated-estimators, est-gls-common-mean]
       - name: その他の手法
         status: card
-        cards: [est-plug-in]
+        cards: [est-plug-in, est-plugin-survival-probability, est-plugin-coefficient-variation]
   - id: math-point-estimator-properties
     status: complete
     cards:
@@ -890,6 +934,10 @@ items:
       - est-information-matrix
       - est-normal-information-matrix
       - est-information-inequality-summary
+      - mathstat-inverse-variance-weighting
+      - est-rao-blackwell-bernoulli
+      - est-generalized-crlb-poisson-zero
+      - est-poisson-square-umvu
     terms:
       - name: 不偏性
         status: card
@@ -931,6 +979,10 @@ items:
       - ms-elastic-net
       - ms-multicollinearity-ridge
       - ms-prediction-vs-inference
+      - ms-aic-numeric-comparison
+      - ms-bic-numeric-comparison
+      - ms-kfold-cv-numeric
+      - ms-ridge-lasso-orthogonal-numeric
     terms:
       - name: カルバック・ライブラー情報量
         status: card
@@ -958,6 +1010,10 @@ items:
       - est-fisher-bernoulli
       - est-cramer-rao-bernoulli
       - est-delta-log
+      - est-crlb-poisson-mean-efficiency
+      - est-crlb-normal-mean-known-variance
+      - est-crlb-bernoulli-square
+      - est-fisher-geometric
       - asym-convergence-probability
       - asym-convergence-almost-sure
       - asym-convergence-distribution
@@ -985,15 +1041,37 @@ items:
       - asym-mle-av-normal
       - asym-slutsky-example
       - asym-are-median-mean
+      - asym-exponential-mean-tail
+      - asym-poisson-mle-numeric
+      - asym-exponential-rate-mle
+      - asym-logit-proportion-delta
+      - asym-ratio-two-means-delta
+      - asym-second-order-delta-square
+      - asym-sample-variance-fourth-moment
+      - asym-exponential-sample-median
+      - asym-bernoulli-plugin-se
+      - asym-uniform-moment-estimator
+      - asym-mle-poisson-tail-probability
+      - asym-mle-exponential-rate-numeric
+      - asym-mle-normal-variance-known-mean
+      - asym-delta-exponential-mean
+      - asym-delta-bernoulli-odds
+      - asym-delta-arcsine-proportion
+      - asym-delta-two-sample-log-risk-ratio
+      - asym-delta-normal-standard-deviation
     terms:
       - name: クラーメル・ラオの不等式
         status: card
         cards:
           - est-cramer-rao-bernoulli
+          - est-crlb-poisson-mean-efficiency
+          - est-crlb-normal-mean-known-variance
+          - est-crlb-bernoulli-square
       - name: フィッシャー情報量（1次元）
         status: card
         cards:
           - est-fisher-bernoulli
+          - est-fisher-geometric
       - name: 最尤推定量の漸近正規性
         status: card
         cards:
@@ -1001,12 +1079,20 @@ items:
           - asym-mle-asymptotic-normality
           - asym-mle-av-binomial
           - asym-mle-av-normal
+          - asym-mle-poisson-tail-probability
+          - asym-mle-exponential-rate-numeric
+          - asym-mle-normal-variance-known-mean
       - name: デルタ法
         status: card
         cards:
           - est-delta-log
           - asym-delta-method
           - asym-delta-method-sqrt
+          - asym-delta-exponential-mean
+          - asym-delta-bernoulli-odds
+          - asym-delta-arcsine-proportion
+          - asym-delta-two-sample-log-risk-ratio
+          - asym-delta-normal-standard-deviation
   - id: math-interval-estimation
     status: complete
     cards:
@@ -1042,6 +1128,12 @@ items:
       - ci-delta-method-calc
       - ci-length-confidence-tradeoff
       - ci-sample-size-for-width
+      - mathstat-shortest-probability-interval
+      - mathstat-fisher-z-confidence-interval
+      - mathstat-uniform-endpoint-shortest-ci
+      - ci-poisson-rate-exact
+      - ci-clopper-pearson-zero-success
+      - ci-paired-mean-difference
     terms:
       - name: 信頼係数
         status: card
@@ -1073,6 +1165,7 @@ items:
     status: partial
     cards:
       - test-z-rejection
+      - mathstat-p-value-uniformity
     terms:
       - name: 仮説
         status: planned
@@ -1134,6 +1227,8 @@ items:
     cards:
       - test-chi-square-fit
       - test-sign-test
+      - mathstat-exact-poisson-rate-test
+      - mathstat-mcnemar-exact-test
     terms:
       - name: 二項分布・ポアソン分布など基本的な分布に関する検定
         status: planned
@@ -1266,6 +1361,7 @@ items:
     status: partial
     cards:
       - data-bayes-beta
+      - mathstat-gamma-poisson-posterior
     terms:
       - name: 事前分布
         status: planned

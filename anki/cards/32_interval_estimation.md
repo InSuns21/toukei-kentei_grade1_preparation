@@ -835,3 +835,132 @@ $\sigma=2,z_{0.025}=1.96,E=0.5$ なら $n\ge(3.92/0.5)^2=(7.84)^2=61.5$ で $n=6
 $\sigma$ 未知なら事前見積もりか保存的値を用いる。
 
 <!-- CARD -->
+
+---
+id: ci-poisson-rate-exact
+title: ポアソン率の正確信頼区間をカイ二乗分位点で作る
+category: math-estimation
+subcategory: math-interval-estimation
+topic: exact-poisson-rate-confidence-interval
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [ポアソン分布, 正確信頼区間, カイ二乗分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 区間推定 }]
+---
+## 問題
+観測時間 $T$ における事象数 $K$ がポアソン分布 $\operatorname{Poisson}(T\lambda)$ に従う。観測値 $k=5$、$T=10$ のとき、$\lambda$ の95%正確信頼区間を求めよ。下側確率 $q$ のカイ二乗分位点を $\chi^2_{\nu;q}$ とし、$\chi^2_{10;0.025}=3.247$、$\chi^2_{12;0.975}=23.337$ を用いよ。
+
+## 答え
+$$\lambda\in
+\left[\frac{\chi^2_{2k;0.025}}{2T},
+\frac{\chi^2_{2(k+1);0.975}}{2T}\right]
+=\left[\frac{3.247}{20},\frac{23.337}{20}\right]
+\approx[0.162,1.167].$$
+
+## 使用公式・定理
+$K\sim\operatorname{Poisson}(\Lambda)$ の観測値が $k>0$ のとき、信頼係数 $1-\alpha$ の正確区間は
+$$\Lambda_L=\frac12\chi^2_{2k;\alpha/2},\qquad
+\Lambda_U=\frac12\chi^2_{2(k+1);1-\alpha/2}.$$
+$\Lambda=T\lambda$ なので両端を $T$ で割る。
+
+## 計算例
+まず平均事象数 $\Lambda$ の区間を作ると
+$$\Lambda_L=\frac12(3.247)=1.6235,\qquad
+\Lambda_U=\frac12(23.337)=11.6685.$$
+次に $T=10$ で割って
+$$\lambda_L=0.16235,\qquad \lambda_U=1.16685.$$
+
+## 一手
+ポアソン平均の区間を先に作り、最後に観測時間で割って率へ戻す。
+
+## 注意
+$k=0$ のとき下端は0とする。
+
+<!-- CARD -->
+
+---
+id: ci-clopper-pearson-zero-success
+title: 成功0回の二項比率にClopper–Pearson正確区間を作る
+category: math-estimation
+subcategory: math-interval-estimation
+topic: clopper-pearson-zero-success
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [二項分布, 正確信頼区間, Clopper–Pearson区間]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 区間推定 }]
+---
+## 問題
+$X\sim\operatorname{Binomial}(n,p)$ で $n=20$、観測成功数が $x=0$ だった。Clopper–Pearsonの95%両側正確信頼区間を求めよ。
+
+## 答え
+$$p\in\left[0,\ 1-(0.025)^{1/20}\right]\approx[0,0.1684].$$
+
+## 使用公式・定理
+観測値 $x=0$ の両側区間では下端を0とし、上端 $p_U$ は
+$$P_{p_U}(X=0)=(1-p_U)^n=\frac\alpha2$$
+を満たすように定める。したがって
+$$p_U=1-(\alpha/2)^{1/n}.$$
+
+## 計算例
+$\alpha=0.05,n=20$ だから
+$$p_U=1-0.025^{1/20}.$$
+対数を使うと
+$$0.025^{1/20}
+=\exp\left(\frac{\log0.025}{20}\right)
+\approx\exp(-0.18444)\approx0.8316,$$
+よって $p_U\approx1-0.8316=0.1684$。
+
+## 一手
+成功0回では、二項確率のうち $P(X=0)=(1-p)^n$ だけで上端を解ける。
+
+## 注意
+Wald区間は $x=0$ で幅0になってしまうため、この状況には不適切である。
+
+<!-- CARD -->
+
+---
+id: ci-paired-mean-difference
+title: 対応のある平均差のt信頼区間を数値で作る
+category: math-estimation
+subcategory: math-interval-estimation
+topic: paired-mean-confidence-interval
+type: calc_step
+difficulty: 2
+priority: S
+hashtags: [対応のあるデータ, 平均差, t分布, 信頼区間]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 区間推定 }]
+---
+## 問題
+同じ10人の処置前後の差を $D_i=Y_i-X_i$ とし、$\overline d=2.4$、$s_D=1.5$ を得た。差が正規分布に従うとして、母平均差 $\mu_D$ の95%信頼区間を求めよ。$t_{9;0.975}=2.262$ とする。
+
+## 答え
+$$\mu_D\in
+\overline d\pm t_{n-1;0.975}\frac{s_D}{\sqrt n}
+=2.4\pm2.262\frac{1.5}{\sqrt{10}}
+\approx[1.327,3.473].$$
+
+## 使用公式・定理
+対応のあるデータは各ペアの差 $D_i$ を1標本として扱う。
+$$\frac{\overline D-\mu_D}{S_D/\sqrt n}\sim t_{n-1}.$$
+
+## 計算例
+標準誤差は
+$$\frac{1.5}{\sqrt{10}}\approx0.4743.$$
+半幅は
+$$2.262(0.4743)\approx1.073.$$
+したがって
+$$2.4-1.073=1.327,\qquad
+2.4+1.073=3.473.$$
+
+## 一手
+対応ありでは2群の分散を別々に足さず、最初に個体内差を作る。
+
+## 注意
+自由度はペア数から1を引いた $n-1=9$ である。
+
+<!-- CARD -->

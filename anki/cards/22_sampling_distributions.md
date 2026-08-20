@@ -1122,7 +1122,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: カイ二乗分布 }]
 ---
 ## 問題
-正規標本 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ について、全平方和を標本平均の平方和と残差平方和へ分解し、それぞれの分布と独立性を述べよ。
+正規分布 $N(\mu,\sigma^2)$ からの標本 $X_1,\ldots,X_n$ について、全平方和を標本平均の平方和と残差平方和へ分解し、それぞれの分布と独立性を述べよ。
 
 ## 答え
 $$\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}

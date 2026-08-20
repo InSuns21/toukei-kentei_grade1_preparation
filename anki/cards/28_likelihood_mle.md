@@ -905,3 +905,124 @@ $E_{\theta_0}\!\left[\log\frac{f(X;\theta)}{f(X;\theta_0)}\right]\le\log E_{\the
 ## 一手
 「対数尤度比の期待値 ≤ 0、等号は同一分布のみ」が最尤一致性の核心。
 <!-- CARD -->
+
+---
+id: mle-gamma-rate-known-shape
+title: shape既知のガンマ分布でrateの最尤推定量を計算する
+category: math-estimation
+subcategory: math-likelihood-mle
+topic: gamma-rate-mle
+type: calc_step
+difficulty: 3
+priority: S
+hashtags: [ガンマ分布, 最尤推定量, スコア方程式]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+---
+## 問題
+$X_1,\ldots,X_n$ はshape $\alpha>0$ が既知、rate $\beta>0$ が未知のガンマ分布に従う。$\widehat\beta$ を求め、$\alpha=3,n=5,\sum x_i=12$ で計算せよ。
+
+## 答え
+$$\widehat\beta=\frac{n\alpha}{\sum_i x_i}=\frac{\alpha}{\overline x}.$$
+数値例では $\widehat\beta=15/12=1.25$。
+
+## 使用公式・定理
+shape-rate表記の密度は
+$$f(x;\alpha,\beta)=\frac{\beta^\alpha}{\Gamma(\alpha)}
+x^{\alpha-1}e^{-\beta x},\qquad x>0.$$
+独立標本の対数尤度を微分し、2階微分で最大を確認する。
+
+## 計算例
+$\beta$ に依存する項だけ残すと
+$$\ell(\beta)=n\alpha\log\beta-\beta\sum_i x_i+C,$$
+$$\ell'(\beta)=\frac{n\alpha}{\beta}-\sum_i x_i.$$
+$\ell'(\beta)=0$ より $\widehat\beta=n\alpha/\sum_i x_i$。さらに
+$$\ell''(\beta)=-\frac{n\alpha}{\beta^2}<0$$
+なので一意な最大点である。
+
+## 一手
+Gammaのrateは、対数項の係数を標本和で割る。
+
+## 注意
+scale母数 $\theta=1/\beta$ の最尤推定量は $\widehat\theta=\overline x/\alpha$ である。
+
+<!-- CARD -->
+
+---
+id: mle-exponential-right-censoring
+title: 右打切りを含む指数寿命データの最尤推定量を求める
+category: math-estimation
+subcategory: math-likelihood-mle
+topic: censored-exponential-mle
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [打切り, 指数分布, 尤度, 生存関数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+---
+## 問題
+率 $\lambda$ の指数寿命を観測し、各個体について観測時間 $t_i$ と故障指標 $\delta_i$（故障なら1、右打切りなら0）を得た。$\lambda$ の最尤推定量を求めよ。故障数3、総観測時間12ならいくらか。
+
+## 答え
+$$\widehat\lambda=\frac{\sum_i\delta_i}{\sum_i t_i}.$$
+故障数3、総観測時間12なら $\widehat\lambda=3/12=0.25$。
+
+## 使用公式・定理
+指数分布の密度と生存関数は
+$$f(t)=\lambda e^{-\lambda t},\qquad S(t)=e^{-\lambda t}.$$
+故障観測は $f(t_i)$、右打切り観測は $S(t_i)$ を尤度へ掛ける。
+
+## 計算例
+$$L(\lambda)=\prod_i f(t_i)^{\delta_i}S(t_i)^{1-\delta_i}
+=\prod_i\lambda^{\delta_i}e^{-\lambda t_i}
+=\lambda^d e^{-\lambda T},$$
+ここで $d=\sum_i\delta_i$、$T=\sum_i t_i$。よって
+$$\ell(\lambda)=d\log\lambda-\lambda T,\qquad
+\ell'(\lambda)=\frac d\lambda-T.$$
+$d>0$ なら $\ell'(\lambda)=0$ から $\widehat\lambda=d/T$。
+
+## 一手
+打切りは「密度」でなく「その時点まで生存した確率」を尤度へ入れる。
+
+## 注意
+$d=0$ なら有限の内部解はなく、尤度は境界 $\lambda=0$ に向かって最大化される。
+
+<!-- CARD -->
+
+---
+id: mle-normal-mean-nonnegative
+title: 非負制約付き正規平均の最尤推定量を境界まで比較する
+category: math-estimation
+subcategory: math-likelihood-mle
+topic: constrained-normal-mean-mle
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [制約付き最尤推定, 正規分布, 境界解]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+---
+## 問題
+$X_1,\ldots,X_n$ は分散 $\sigma^2$ 既知の正規分布 $N(\mu,\sigma^2)$ に従い、母数空間は $\mu\ge0$ とする。最尤推定量を求め、$\overline x=-0.7$ の場合を判定せよ。
+
+## 答え
+$$\widehat\mu=\max(0,\overline X).$$
+$\overline x=-0.7$ なら制約なしの解は許されないので、境界解 $\widehat\mu=0$。
+
+## 使用公式・定理
+$\mu$ に関する対数尤度は
+$$\ell(\mu)=C-\frac{n}{2\sigma^2}(\mu-\overline x)^2.$$
+したがって、制約集合 $[0,\infty)$ の中で $\overline x$ に最も近い点を選ぶ。
+
+## 計算例
+$$\ell'(\mu)=\frac n{\sigma^2}(\overline x-\mu).$$
+$\overline x=-0.7$ ではすべての $\mu\ge0$ に対して $\ell'(\mu)<0$ なので、$\ell(\mu)$ は許容範囲で単調減少する。ゆえに左端 $\mu=0$ が最大点となる。
+
+## 一手
+スコア方程式の解が母数空間外なら、境界を含めて尤度を比較する。
+
+## 注意
+境界真値 $\mu=0$ では通常の内部点を仮定した漸近正規性をそのまま使えない。
+
+<!-- CARD -->
