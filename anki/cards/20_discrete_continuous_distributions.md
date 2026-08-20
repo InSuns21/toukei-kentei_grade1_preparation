@@ -173,7 +173,15 @@ sources: [{ type: official_syllabus, topic: 二項分布 }]
 $$\frac{P(X=k+1)}{P(X=k)}=\frac{n-k}{k+1}\frac{p}{1-p}.$$
 通常の一意な最頻値は $\lfloor(n+1)p\rfloor$。$(n+1)p$ が整数 $m$ のときは $m-1$ と $m$ の2つが最頻値である。
 ## 使用公式・定理
-$$\frac{\binom n{k+1}}{\binom nk}=\frac{n-k}{k+1}.$$
+二項分布の確率質量関数を隣り合う2点で割ると
+$$\begin{aligned}
+\frac{P(X=k+1)}{P(X=k)}
+&=\frac{\binom n{k+1}p^{k+1}(1-p)^{n-k-1}}
+{\binom nkp^k(1-p)^{n-k}}\\
+&=\frac{\binom n{k+1}}{\binom nk}\frac{p}{1-p}\\
+&=\frac{n-k}{k+1}\frac{p}{1-p}.
+\end{aligned}$$
+ここで $\binom n{k+1}/\binom nk=(n-k)/(k+1)$ を使った。
 ## 計算例
 比が1以上の範囲では確率が増加し、1未満では減少する。比を1以上とすると
 $$\frac{n-k}{k+1}\frac p{1-p}\ge1
@@ -296,8 +304,20 @@ $X\sim\operatorname{Hypergeometric}(N,K,n)$ の平均と分散を答えよ。
 $$E[X]=n\frac KN,$$
 $$\operatorname{Var}(X)=n\frac KN\left(1-\frac KN\right)\frac{N-n}{N-1}.$$
 ## 使用公式・定理
-非復元抽出では、二項分布の分散に有限母集団補正 $(N-n)/(N-1)$ が掛かる。
+各抽出位置の成功指示変数を $I_j$ とすると $X=\sum_{j=1}^n I_j$ である。非復元抽出では
+$$E[I_j]=\frac KN,\qquad \operatorname{Var}(I_j)=\frac KN\left(1-\frac KN\right),$$
+$$E[I_iI_j]=\frac KN\frac{K-1}{N-1},$$
+$$\operatorname{Cov}(I_i,I_j)=E[I_iI_j]-E[I_i]E[I_j]
+=-\frac{K}{N}\left(1-\frac KN\right)\frac1{N-1}\qquad(i\ne j).$$
+また、和の分散公式は
+$$\operatorname{Var}\left(\sum_{j=1}^n I_j\right)
+=\sum_{j=1}^n\operatorname{Var}(I_j)+2\sum_{1\le i<j\le n}\operatorname{Cov}(I_i,I_j).$$
 ## 計算例
+$q=K/N$ と置くと
+$$E[X]=\sum_{j=1}^nE[I_j]=nq,$$
+$$\operatorname{Var}(X)=nq(1-q)+n(n-1)\left\{-\frac{q(1-q)}{N-1}\right\}$$
+$$=nq(1-q)\left(1-\frac{n-1}{N-1}\right)
+=nq(1-q)\frac{N-n}{N-1}.$$ 
 $N=100,K=30,n=10$ なら
 $$E[X]=10(0.3)=3,$$
 $$\operatorname{Var}(X)=10(0.3)(0.7)\frac{90}{99}=\frac{21}{11}\approx1.909.$$
@@ -418,7 +438,11 @@ $$\sum_{k=1}^{\infty}kr^{k-1}=\frac1{(1-r)^2},\qquad
 ## 計算例
 $r=1-p$ と置くと
 $$E[X]=p\sum_{k=1}^{\infty}k(1-p)^{k-1}=p\frac1{p^2}=\frac1p.$$
-二次モーメントから整理すると $E[X^2]=(2-p)/p^2$ なので
+二次モーメントも同じ級数公式から
+$$E[X^2]=p\sum_{k=1}^{\infty}k^2r^{k-1}
+=p\frac{1+r}{(1-r)^3}
+=p\frac{2-p}{p^3}=\frac{2-p}{p^2}.$$ 
+したがって、分散公式 $\operatorname{Var}(X)=E[X^2]-E[X]^2$ より
 $$\operatorname{Var}(X)=\frac{2-p}{p^2}-\frac1{p^2}=\frac{1-p}{p^2}.$$
 ## 一手
 台の定義を確認してから、平均が $1/p$ か $(1-p)/p$ かを決める。
@@ -662,8 +686,17 @@ $$E[X_i]=np_i,$$
 $$\operatorname{Var}(X_i)=np_i(1-p_i),$$
 $$\operatorname{Cov}(X_i,X_j)=-np_ip_j\quad(i\ne j).$$
 ## 使用公式・定理
-各試行のカテゴリー指示変数を使う。異なるカテゴリーの同一試行では積が0になる。
+第 $r$ 試行がカテゴリー $i$ なら1となる指示変数を $I_{ri}$ とすると
+$$X_i=\sum_{r=1}^n I_{ri},\qquad E[I_{ri}]=p_i.$$
+異なるカテゴリーでは同じ試行に同時に入らないので、$i\ne j$ に対して
+$$I_{ri}I_{rj}=0,\qquad \operatorname{Cov}(I_{ri},I_{rj})=0-p_ip_j=-p_ip_j.$$ 
 ## 計算例
+$X_i$ は独立なベルヌーイ指示変数の和だから
+$$E[X_i]=\sum_{r=1}^n p_i=np_i,\qquad
+\operatorname{Var}(X_i)=\sum_{r=1}^n p_i(1-p_i)=np_i(1-p_i).$$
+また異なる試行間の共分散は0なので
+$$\operatorname{Cov}(X_i,X_j)
+=\sum_{r=1}^n\operatorname{Cov}(I_{ri},I_{rj})=-np_ip_j.$$ 
 $n=10,p_1=0.3,p_2=0.2$ なら
 $$\operatorname{Var}(X_1)=10(0.3)(0.7)=2.1,$$
 $$\operatorname{Cov}(X_1,X_2)=-10(0.3)(0.2)=-0.6.$$
@@ -847,7 +880,11 @@ $$E[X]=\int_a^bx\frac{dx}{b-a},\qquad E[X^2]=\int_a^bx^2\frac{dx}{b-a}.$$
 ## 計算例
 $$E[X]=\frac{b^2-a^2}{2(b-a)}=\frac{a+b}{2},$$
 $$E[X^2]=\frac{b^3-a^3}{3(b-a)}=\frac{a^2+ab+b^2}{3}.$$
-差を取ると $(b-a)^2/12$ になる。
+分散公式に代入すると
+$$\operatorname{Var}(X)=E[X^2]-E[X]^2
+=\frac{a^2+ab+b^2}{3}-\left(\frac{a+b}{2}\right)^2$$
+$$=\frac{4a^2+4ab+4b^2-3a^2-6ab-3b^2}{12}
+=\frac{(b-a)^2}{12}.$$ 
 ## 一手
 一次・二次モーメントを積分してから分散公式に入れる。
 ## 注意
@@ -1034,7 +1071,7 @@ $$N(1-6,4+4\times9)=N(-5,40).$$
 ---
 id: dist-exponential-definition
 published: true
-title: 指数分布の密度・累積分布関数・生存関数
+title: 指数分布の密度と台を記述する
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: exponential
@@ -1052,7 +1089,9 @@ sources: [{ type: official_syllabus, topic: 指数分布 }]
 台は $x\ge0$、$x<0$ では $f_X(x)=0$、$f_X(x)=\lambda e^{-\lambda x}\quad(x\ge0).$
 
 ## 使用公式・定理
-$$F_X(x)=\int_0^x\lambda e^{-\lambda u}du.$$
+確率密度関数は非負で、台全体での積分が1になる：
+$$\int_0^\infty\lambda e^{-\lambda x}dx
+=\left[-e^{-\lambda x}\right]_0^\infty=1.$$ 
 ## 計算例
 $\int_0^\infty\lambda e^{-\lambda x}dx=1.$
 
@@ -1287,9 +1326,21 @@ $$E[X]=\frac\alpha{\alpha+\beta},$$
 $$\operatorname{Var}(X)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
 $\alpha=2,\beta=3$ では平均 $2/5$、分散 $6/(25\times6)=1/25$。
 ## 使用公式・定理
-Beta積分の比から $E[X]$ と $E[X^2]$ を得て分散公式を使う。
+Beta積分の漸化式
+$$\frac{B(\alpha+1,\beta)}{B(\alpha,\beta)}=\frac{\alpha}{\alpha+\beta},\qquad
+\frac{B(\alpha+2,\beta)}{B(\alpha,\beta)}
+=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}$$
+と $\operatorname{Var}(X)=E[X^2]-E[X]^2$ を使う。
 ## 計算例
-$$E[X]=2/5,\qquad \operatorname{Var}(X)=\frac{2\cdot3}{5^2\cdot6}=\frac1{25}.$$
+一般に
+$$E[X]=\frac{B(\alpha+1,\beta)}{B(\alpha,\beta)}=\frac{\alpha}{\alpha+\beta},$$
+$$E[X^2]=\frac{B(\alpha+2,\beta)}{B(\alpha,\beta)}
+=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}.$$ 
+よって
+$$\operatorname{Var}(X)=E[X^2]-E[X]^2
+=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$ 
+$\alpha=2,\beta=3$ では
+$$E[X]=\frac25,\qquad \operatorname{Var}(X)=\frac{2\cdot3}{5^2\cdot6}=\frac1{25}.$$ 
 ## 一手
 分母を $(\alpha+\beta)^2(\alpha+\beta+1)$ とまとめる。
 ## 注意
@@ -1381,7 +1432,10 @@ $$\operatorname{Var}(X)=(e^{\sigma^2}-1)e^{2\mu+\sigma^2},$$
 ## 計算例
 $$E[X]=E[e^Y]=M_Y(1)=e^{\mu+\sigma^2/2},$$
 $$E[X^2]=M_Y(2)=e^{2\mu+2\sigma^2}.$$
-差を取ると分散式になる。
+したがって
+$$\operatorname{Var}(X)=E[X^2]-E[X]^2
+=e^{2\mu+2\sigma^2}-e^{2\mu+\sigma^2}$$
+$$=e^{2\mu+\sigma^2}(e^{\sigma^2}-1).$$ 
 ## 一手
 $X=e^Y$ なら $E[X^r]=M_Y(r)$ と置く。
 ## 注意
@@ -1440,7 +1494,11 @@ $$E[X]=\lambda\Gamma\left(1+\frac1k\right).$$
 $$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}du.$$
 ## 計算例
 密度は $f(x)=\frac{k}{\lambda}(x/\lambda)^{k-1}e^{-(x/\lambda)^k}$。$u=(x/\lambda)^k$ と置くと
-$$E[X]=\lambda\int_0^\infty u^{1/k}e^{-u}du
+$$x=\lambda u^{1/k},\qquad dx=\frac{\lambda}{k}u^{1/k-1}du,$$
+$$f(x)dx=\frac{k}{\lambda}u^{(k-1)/k}e^{-u}
+\frac{\lambda}{k}u^{1/k-1}du=e^{-u}du.$$ 
+したがって
+$$E[X]=\int_0^\infty \lambda u^{1/k}e^{-u}du
 =\lambda\Gamma(1+1/k).$$
 ## 一手
 $u=(x/\lambda)^k$ の置換でGamma積分へ寄せる。
@@ -1451,7 +1509,7 @@ $\lambda$ は平均ではなくscale。$k=1$ なら平均は $\lambda$ になる
 ---
 id: dist-logistic-definition
 published: true
-title: ロジスティック分布の累積分布関数・密度・分位点
+title: ロジスティック分布の累積分布関数と密度
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: logistic
@@ -1470,9 +1528,13 @@ $F(x)=\frac1{1+e^{-(x-\mu)/s}},$
 $f(x)=\frac{e^{-(x-\mu)/s}}{s\{1+e^{-(x-\mu)/s}\}^2}.$
 
 ## 使用公式・定理
-$F(q_p)=p$ を解く。
+連続分布では密度は累積分布関数の微分：
+$$f(x)=F'(x).$$
 ## 計算例
-$F(x)$ を微分すると $f(x)$ が得られる。
+$z=(x-\mu)/s$ と置くと $dz/dx=1/s$ であり、連鎖律から
+$$f(x)=\frac{d}{dx}(1+e^{-z})^{-1}$$
+$$=-(1+e^{-z})^{-2}\left(-e^{-z}\frac{dz}{dx}\right)
+=\frac{e^{-z}}{s(1+e^{-z})^2}.$$ 
 
 ## 一手
 ロジット変換 $\log\frac p{1-p}$ を使う。
