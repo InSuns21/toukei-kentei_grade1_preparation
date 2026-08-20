@@ -250,13 +250,27 @@
 - log-rank検定：各死亡時点で群1の観測死亡数を $d_{1j}$、期待死亡数を $e_{1j}=d_jn_{1j}/n_j$ とし、$Z=\sum_j(d_{1j}-e_{1j})/\sqrt{\sum_jv_{1j}}$。ここで $v_{1j}=d_j(n_j-d_j)n_{1j}n_{0j}/[n_j^2(n_j-1)]$。
 - Cox比例ハザードモデル：$h(t\mid\boldsymbol x)=h_0(t)e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x}$、部分尤度は $L_p(\boldsymbol\beta)=\prod_{i:\delta_i=1}e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x_i}/\sum_{k\in R(Y_i)}e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x_k}$。共変量が1増えたときのハザード比は $e^{\beta}$。
 - Monte Carlo積分：$\int_0^1g(x)\,dx=E[g(U)]$ を $n^{-1}\sum_ig(U_i)$ で推定する。
+- 逆関数法：一様分布 $U\sim U(0,1)$ に対し $X=F^{-1}(U)$ とおけば $P(X\le x)=F(x)$。率 $\lambda$ の指数分布なら $X=-\log(1-U)/\lambda$。
+- 棄却法：$f(x)\le Mg(x)$ のとき $Y\sim g$ を $U\le f(Y)/[Mg(Y)]$ なら受理する。受理確率は $1/M$。
+- Box--Muller法：$R=\sqrt{-2\log U_1}$、$\Theta=2\pi U_2$ とし、$(Z_1,Z_2)=(R\cos\Theta,R\sin\Theta)$。
+- Monte Carlo標準誤差：独立反復の標準偏差を $\sigma$、反復数をmとすると $\operatorname{SE}(\bar Y)=\sigma/\sqrt m$。
+- 制御変量法：$E[C]=\mu_C$ が既知なら $Y-b(C-\mu_C)$ を用い、最適係数は $b^*=\operatorname{Cov}(Y,C)/\operatorname{Var}(C)$。
+- 重点サンプリング：$E_f[h(X)]=E_g[h(X)f(X)/g(X)]$。$f(x)h(x)\ne0$ の領域で $g(x)>0$ を要する。
+- 定常分布：遷移行列Pに対し $\boldsymbol\pi P=\boldsymbol\pi$。詳細釣合い $\pi_iP_{ij}=\pi_jP_{ji}$ は定常性の十分条件。
+- Metropolis--Hastings法：$\alpha(x,y)=\min\{1,\pi(y)q(x\mid y)/[\pi(x)q(y\mid x)]\}$。
+- 有限状態MCMCの収束：既約かつ非周期的なら定常分布は一意で、任意の初期分布から収束する。
+- MCMCの有効標本サイズ：$m_{\mathrm{eff}}=m/[1+2\sum_{k\ge1}\rho_k]$、$\operatorname{MCSE}(\bar h)\approx\sigma/\sqrt{m_{\mathrm{eff}}}$。
+- Bootstrap標準誤差：$\widehat{\operatorname{SE}}_{\mathrm{boot}}=\{(B-1)^{-1}\sum_b(\widehat\theta_b^*-\bar\theta^*)^2\}^{1/2}$。バイアス推定値は $\bar\theta^*-\widehat\theta$。
+- Bootstrap区間：percentile区間は $[q_{\alpha/2}^*,q_{1-\alpha/2}^*]$、basic区間は $[2\widehat\theta-q_{1-\alpha/2}^*,2\widehat\theta-q_{\alpha/2}^*]$。
+- Jackknife：$\widehat{\operatorname{SE}}_{\mathrm{jack}}=[(n-1)n^{-1}\sum_i(\widehat\theta_{(-i)}-\bar\theta_{(-\cdot)})^2]^{1/2}$、バイアス推定値は $(n-1)(\bar\theta_{(-\cdot)}-\widehat\theta)$。
+- k-fold交差検証：$\operatorname{CV}_k=n^{-1}\sum_j\sum_{i\in I_j}L\{Y_i,\widehat f^{(-j)}(X_i)\}$。
 
 ## モデル評価・正則化
 
 - 情報量規準AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$（$\ell$ は最大化対数尤度、$k$ は推定母数数）。小さいほど良い。
 - ベイズ情報量規準BIC：$\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n$。真のモデルが候補にあれば大標本で一致して選ぶ。
 - Kullback–Leibler情報量（KLダイバージェンス）：離散 $D_{\mathrm{KL}}(P\|Q)=\sum_xP(x)\log\dfrac{P(x)}{Q(x)}$、連続 $D_{\mathrm{KL}}(P\|Q)=\int P(x)\log\dfrac{P(x)}{Q(x)}\,dx$。非対称で $D_{\mathrm{KL}}(P\|Q)\ge0$（ギブスの不等式）。
-- 交差検証：k分割は $\operatorname{CV}_{(k)}=k^{-1}\sum_{j=1}^k|I_j|^{-1}\sum_{i\in I_j}L(\widehat f_{-j}(X_i),Y_i)$、leave-one-outは $n^{-1}\sum_{i=1}^nL(\widehat f_{-i}(X_i),Y_i)$。
+- 交差検証：k分割は $\operatorname{CV}_{(k)}=n^{-1}\sum_{j=1}^k\sum_{i\in I_j}L(\widehat f_{-j}(X_i),Y_i)$、leave-one-outは $n^{-1}\sum_{i=1}^nL(\widehat f_{-i}(X_i),Y_i)$。
 - Ridge回帰（L2正則化）：$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I_p)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。$\lambda=0$ はOLS、$\lambda\to\infty$ で $\boldsymbol0$。
 - Lasso回帰（L1正則化）：$\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=\arg\min_{\boldsymbol\beta}\{\sum_i(Y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2+\lambda\sum_j|\beta_j|\}$。係数をぴったり0にし変数選択する。
 - Elastic Net：$\arg\min_{\boldsymbol\beta}\{\sum_i(Y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2+\lambda(\alpha\sum_j|\beta_j|+(1-\alpha)\tfrac12\sum_j\beta_j^2)\}$。$\alpha=0$ はRidge、$\alpha=1$ はLasso。

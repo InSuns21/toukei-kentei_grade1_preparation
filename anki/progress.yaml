@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 814
+reviewed_card_count: 851
 current_work: null
-next_work: C17-simulation
-last_completed_work: C16-incomplete-data
+next_work: C18-bayesian-methods
+last_completed_work: C17-simulation
 summary:
   total: 33
-  planned: 11
+  planned: 10
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 22
+  reviewed: 23
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1603,7 +1603,7 @@ work:
     target:
       min: 35
       max: 45
-    status: planned
+    status: reviewed
     review_dir: review/C17-simulation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: リサンプリング
@@ -1626,6 +1626,53 @@ work:
       A: 0
       B: 0
       C: 13
+    started_at: 2026-08-20T16:59:58.034Z
+    self_review_at: 2026-08-20T17:08:49.273Z
+    independent_review_at: 2026-08-20T17:08:51.936Z
+    revision_at: 2026-08-20T17:13:38.420Z
+    completed_at: 2026-08-20T17:15:26.760Z
+    added_card_ids:
+      - boot-basic-ci
+      - boot-bias-corrected-estimator
+      - boot-bias-estimate
+      - boot-empirical-distribution
+      - boot-parametric-nonparametric
+      - boot-percentile-ci
+      - boot-sampling-distribution-relation
+      - cv-kfold-estimator
+      - cv-loocv-kfold
+      - jackknife-bias
+      - jackknife-leave-one-out
+      - jackknife-standard-error
+      - perm-test-numeric
+      - perm-test-principle
+      - randomization-vs-permutation
+      - sim-accept-reject
+      - sim-antithetic-variates
+      - sim-box-muller
+      - sim-burnin-thinning
+      - sim-control-variate
+      - sim-detailed-balance
+      - sim-ess-mcse
+      - sim-gibbs-bivariate-normal
+      - sim-importance-numeric
+      - sim-importance-sampling
+      - sim-inverse-transform-continuous
+      - sim-inverse-transform-discrete
+      - sim-inverse-transform-exponential-numeric
+      - sim-markov-stationary
+      - sim-mc-ci-numeric
+      - sim-mc-standard-error
+      - sim-mcmc-convergence-conditions
+      - sim-mh-algorithm
+      - sim-mh-numeric
+      - sim-random-walk-mh
+      - sim-stratified-sampling
+      - sim-uniform-prng-definition
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C18-bayesian-methods:
     title: ベイズ法
     category: math-data-analysis

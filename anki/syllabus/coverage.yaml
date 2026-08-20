@@ -1594,23 +1594,60 @@ items:
         status: card
         cards: [surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-delayed-entry-risk-set]
   - id: math-simulation
-    status: partial
+    status: complete
     cards:
       - data-bootstrap-mean
       - data-monte-carlo-integral
+      - sim-uniform-prng-definition
+      - sim-inverse-transform-continuous
+      - sim-inverse-transform-exponential-numeric
+      - sim-inverse-transform-discrete
+      - sim-accept-reject
+      - sim-box-muller
+      - sim-mc-standard-error
+      - sim-mc-ci-numeric
+      - sim-antithetic-variates
+      - sim-control-variate
+      - sim-stratified-sampling
+      - sim-importance-sampling
+      - sim-importance-numeric
+      - sim-markov-stationary
+      - sim-detailed-balance
+      - sim-mh-algorithm
+      - sim-mh-numeric
+      - sim-random-walk-mh
+      - sim-gibbs-bivariate-normal
+      - sim-mcmc-convergence-conditions
+      - sim-burnin-thinning
+      - sim-ess-mcse
+      - boot-empirical-distribution
+      - boot-bias-estimate
+      - boot-bias-corrected-estimator
+      - boot-percentile-ci
+      - boot-basic-ci
+      - boot-parametric-nonparametric
+      - jackknife-leave-one-out
+      - jackknife-standard-error
+      - jackknife-bias
+      - perm-test-principle
+      - perm-test-numeric
+      - randomization-vs-permutation
+      - cv-kfold-estimator
+      - cv-loocv-kfold
+      - boot-sampling-distribution-relation
     terms:
       - name: 乱数
-        status: planned
-        cards: []
+        status: card
+        cards: [sim-uniform-prng-definition, sim-inverse-transform-continuous, sim-inverse-transform-exponential-numeric, sim-inverse-transform-discrete, sim-accept-reject, sim-box-muller]
       - name: モンテカルロシミュレーション
-        status: planned
-        cards: []
+        status: card
+        cards: [data-monte-carlo-integral, sim-mc-standard-error, sim-mc-ci-numeric, sim-antithetic-variates, sim-control-variate, sim-stratified-sampling, sim-importance-sampling, sim-importance-numeric]
       - name: MCMC
-        status: planned
-        cards: []
+        status: card
+        cards: [sim-markov-stationary, sim-detailed-balance, sim-mh-algorithm, sim-mh-numeric, sim-random-walk-mh, sim-gibbs-bivariate-normal, sim-mcmc-convergence-conditions, sim-burnin-thinning, sim-ess-mcse]
       - name: ブートストラップ
-        status: planned
-        cards: []
+        status: card
+        cards: [data-bootstrap-mean, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation]
   - id: math-bayesian-methods
     status: partial
     cards:

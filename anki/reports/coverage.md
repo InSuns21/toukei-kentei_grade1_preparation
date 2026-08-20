@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 814
+- 公開カード: 851
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -8,7 +8,7 @@
 | 種々の確率分布 | 131 | 3/3 | formula, theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
-| データ解析法の考え方と各種分析手法 | 158 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
+| データ解析法の考え方と各種分析手法 | 195 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
@@ -42,7 +42,7 @@
 | 分割表の解析 | complete | data-odds-ratio, cat-table-margins, cat-multinomial-model, cat-product-multinomial, cat-expected-counts-independence, cat-pearson-shortcut-2x2, cat-likelihood-ratio-g2, cat-standardized-residual, cat-odds-ratio-formula, cat-log-odds-ratio-ci, cat-relative-risk, cat-risk-difference, cat-or-versus-rr, cat-fisher-hypergeometric, cat-yates-corrected-shortcut, cat-mcnemar-choice, cat-mantel-haenszel-or, cat-mantel-haenszel-numeric, cat-simpson-paradox, cat-independence-homogeneity, cat-loglinear-independence, cat-loglinear-deviance-df, cat-logistic-odds-ratio, cat-logistic-2x2-equivalence, cat-zero-cell-correction, cat-trend-test-scores, cat-measure-selection |
 | ノンパラメトリック法 | complete | test-sign-test, np-sign-median-ci, np-wilcoxon-null-moments, np-wilcoxon-normal-approx, np-mann-whitney-ranksum-equivalence, np-mann-whitney-null-moments, np-mann-whitney-normal-numeric, np-kruskal-wallis-formula, np-kruskal-wallis-numeric, np-friedman-formula, np-friedman-numeric, np-ks-two-sample, np-spearman-formula, np-spearman-numeric, np-kendall-tau, np-runs-test-moments, np-runs-test-numeric, np-median-test, np-permutation-difference-means, np-exchangeability-condition, np-rank-null-distribution, np-tie-correction, np-asymptotic-relative-efficiency, np-hodges-lehmann-paired, np-rank-biserial-effect, np-method-choice-summary |
 | 不完全データ | complete | data-em-responsibility, inc-mcar-mar-mnar, inc-missing-indicator-likelihood, inc-complete-case-bias, inc-mean-imputation-variance, inc-ipw-mean, inc-em-observed-likelihood, inc-multiple-imputation-rubin, surv-censoring-definition, surv-right-censored-likelihood, surv-exponential-censored-mle, surv-type-i-type-ii-censoring, surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-kaplan-meier-formula, surv-kaplan-meier-numeric, surv-greenwood-formula, surv-greenwood-numeric, surv-logrank-statistic, surv-logrank-numeric, surv-cox-model, surv-cox-partial-likelihood, surv-hazard-ratio-interpretation, surv-proportional-hazards-check, surv-delayed-entry-risk-set |
-| シミュレーション | partial | data-bootstrap-mean, data-monte-carlo-integral |
+| シミュレーション | complete | data-bootstrap-mean, data-monte-carlo-integral, sim-uniform-prng-definition, sim-inverse-transform-continuous, sim-inverse-transform-exponential-numeric, sim-inverse-transform-discrete, sim-accept-reject, sim-box-muller, sim-mc-standard-error, sim-mc-ci-numeric, sim-antithetic-variates, sim-control-variate, sim-stratified-sampling, sim-importance-sampling, sim-importance-numeric, sim-markov-stationary, sim-detailed-balance, sim-mh-algorithm, sim-mh-numeric, sim-random-walk-mh, sim-gibbs-bivariate-normal, sim-mcmc-convergence-conditions, sim-burnin-thinning, sim-ess-mcse, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation |
 | ベイズ法 | partial | data-bayes-beta, mathstat-gamma-poisson-posterior |
 | 研究の種類 | planned |  |
 | 標本調査法 | planned |  |
@@ -192,10 +192,10 @@
 | 不完全データ | 欠測（欠損） | card | data-em-responsibility, inc-mcar-mar-mnar, inc-missing-indicator-likelihood, inc-complete-case-bias, inc-mean-imputation-variance, inc-ipw-mean, inc-em-observed-likelihood, inc-multiple-imputation-rubin |
 | 不完全データ | 打ち切り | card | surv-censoring-definition, surv-right-censored-likelihood, surv-exponential-censored-mle, surv-type-i-type-ii-censoring, surv-kaplan-meier-formula, surv-kaplan-meier-numeric, surv-greenwood-formula, surv-greenwood-numeric, surv-logrank-statistic, surv-logrank-numeric, surv-cox-model, surv-cox-partial-likelihood, surv-hazard-ratio-interpretation, surv-proportional-hazards-check |
 | 不完全データ | トランケーション | card | surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-delayed-entry-risk-set |
-| シミュレーション | 乱数 | planned |  |
-| シミュレーション | モンテカルロシミュレーション | planned |  |
-| シミュレーション | MCMC | planned |  |
-| シミュレーション | ブートストラップ | planned |  |
+| シミュレーション | 乱数 | card | sim-uniform-prng-definition, sim-inverse-transform-continuous, sim-inverse-transform-exponential-numeric, sim-inverse-transform-discrete, sim-accept-reject, sim-box-muller |
+| シミュレーション | モンテカルロシミュレーション | card | data-monte-carlo-integral, sim-mc-standard-error, sim-mc-ci-numeric, sim-antithetic-variates, sim-control-variate, sim-stratified-sampling, sim-importance-sampling, sim-importance-numeric |
+| シミュレーション | MCMC | card | sim-markov-stationary, sim-detailed-balance, sim-mh-algorithm, sim-mh-numeric, sim-random-walk-mh, sim-gibbs-bivariate-normal, sim-mcmc-convergence-conditions, sim-burnin-thinning, sim-ess-mcse |
+| シミュレーション | ブートストラップ | card | data-bootstrap-mean, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation |
 | ベイズ法 | 事前分布 | planned |  |
 | ベイズ法 | 事後分布 | planned |  |
 | ベイズ法 | 階層ベイズモデル | planned |  |
