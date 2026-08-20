@@ -49,7 +49,9 @@ $Z_1,\ldots,Z_\nu$ を独立に標準正規分布 $N(0,1)$ に従う確率変数
 
 ## 答え
 $$X=Z_1^2+\cdots+Z_\nu^2\sim\chi^2_\nu.$$
-台は $x>0$、密度は $\operatorname{Gamma}(\nu/2,1/2)$ と同じである（期待値・分散は自由度のカードで扱う）。
+台は $x>0$ で、密度は
+$$f_X(x)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}
+x^{\nu/2-1}e^{-x/2}\qquad(x>0).$$
 
 ## 使用公式・定理
 カイ二乗分布 $\chi^2_\nu$ は shape-rate 表示で $\operatorname{Gamma}(\nu/2,1/2)$ に一致する。標準正規の平方 $Z^2\sim\chi^2_1$。
@@ -309,9 +311,13 @@ sources: [{ type: official_syllabus, topic: t分布 }]
 正規標本では
 $$T=\frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}.$$
 $\overline X$ の分散推定に1個の線形制約（$\sum_i(X_i-\overline X)=0$）があり、自由度が $n-1$ になる。
+また、$n\to\infty$ では
+$$T\xrightarrow{d}N(0,1).$$
 
 ## 使用公式・定理
-$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ を使い、t分布の定義へ当てはめる。
+$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ を使い、t分布の定義へ当てはめる。さらに大数則から $S\xrightarrow{p}\sigma$、中心極限定理から
+$$\frac{\sqrt n(\overline X-\mu)}{\sigma}\xrightarrow{d}N(0,1)$$
+なので、Slutskyの定理により $S$ で標準化した $T$ も標準正規分布へ分布収束する。
 
 ## 計算例
 $n=10$ では $T=(\overline X-\mu)/(S/\sqrt{10})\sim t_9$。$n$ が大きいほど標準正規に近い。
@@ -339,7 +345,8 @@ sources: [{ type: official_syllabus, topic: t分布 }]
 $\nu\to\infty$ のとき $t_\nu$ はどの分布に収束するか。また $\nu=1$ の場合の分布と特徴を答えよ。
 
 ## 答え
-$$\lim_{\nu\to\infty}t_\nu=N(0,1).$$
+自由度 $\nu$ ごとに $T_\nu\sim t_\nu$ とすると
+$$T_\nu\xrightarrow{d}N(0,1)\qquad(\nu\to\infty).$$
 $\nu=1$ は標準のコーシー分布であり、平均・分散は存在しない。
 
 ## 使用公式・定理
@@ -571,7 +578,7 @@ $$\sqrt n\,\frac{\overline X-\mu}{\sigma}\xrightarrow{d}N(0,1).$$
 $n=100$ なら $\overline X\mathrel{\dot{\sim}}N(\mu,\sigma^2/100)$。
 
 ## 一手
-母集団分布が何でも、$n$ が大きければ標本平均は正規で近似できる。
+独立同分布かつ有限分散を確認し、$n$ が大きければ標本平均を正規分布で近似する。
 
 ## 注意
 あくまで近似。歪みが強い分布では $n$ を大きめに取る。
@@ -598,7 +605,10 @@ $n$ が大きければ
 $$\widehat p\mathrel{\dot{\sim}}N\left(p,\frac{p(1-p)}{n}\right).$$
 
 ## 使用公式・定理
-ベルヌーイ分布の平均 $p$、分散 $p(1-p)$。独立和の分散は和。中心極限定理で正規近似。
+ベルヌーイ分布の平均は $p$、分散は $p(1-p)$。また
+$$n\widehat p=\sum_{i=1}^nX_i\sim\operatorname{Binomial}(n,p).$$
+独立和の分散公式と中心極限定理を使うと
+$$\frac{\widehat p-p}{\sqrt{p(1-p)/n}}\xrightarrow{d}N(0,1).$$
 
 ## 計算例
 $n=100,p=0.3$ では $E[\widehat p]=0.3$、$\operatorname{Var}(\widehat p)=0.3\times0.7/100=0.0021$、標準偏差 $\approx0.0458$。
@@ -698,6 +708,11 @@ $$f_{X_{(k)}}(x)=\frac{n!}{(k-1)!(n-k)!}F_X(x)^{k-1}\{1-F_X(x)\}^{n-k}f_X(x).$$
 
 ## 使用公式・定理
 $X_{(k)}\le x$ は「$x$ 以下の標本が $k$ 個以上」と同値で、個数は $\operatorname{Binomial}(n,F_X(x))$。
+密度は、$k-1$ 個が $x$ 未満、1個が微小区間 $[x,x+dx]$、残る $n-k$ 個が $x$ より大きい配置を数えて
+$$P(x<X_{(k)}\le x+dx)$$
+$$\approx\frac{n!}{(k-1)!1!(n-k)!}
+F_X(x)^{k-1}\{f_X(x)dx\}\{1-F_X(x)\}^{n-k}.$$ 
+$dx$ で割ると答えの密度になる。
 
 ## 計算例
 最小値 $X_{(1)}$ は $k=1$ で $P(X_{(1)}\le x)=1-\{1-F_X(x)\}^n$。最大値 $X_{(n)}$ は $F_X(x)^n$。
@@ -819,7 +834,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 順序統計量 }]
 ---
 ## 問題
-密度 $f$、累積分布関数 $F$ の連続分布からの標本の第 $p$ 分位数 $\widehat q_p$ について、$n$ が大きいときの漸近分布を答えよ。
+密度 $f$、累積分布関数 $F$ の連続分布からの標本の第 $p$ 分位数 $\widehat q_p$ について、$q_p=F^{-1}(p)$ の近傍で $f$ が連続かつ $f(q_p)>0$ とする。$n$ が大きいときの漸近分布を答えよ。
 
 ## 答え
 $f(q_p)>0$ なら
@@ -921,6 +936,10 @@ $$X=Z^2\sim\chi^2_1.$$
 
 ## 使用公式・定理
 $Z$ の密度 $f_Z(z)=e^{-z^2/2}/\sqrt{2\pi}$ を $z=\pm\sqrt x$ の2点で変換すると
+$$\left|\frac{d}{dx}\sqrt x\right|
+=\left|\frac{d}{dx}(-\sqrt x)\right|=\frac1{2\sqrt x},$$
+$$f_X(x)=f_Z(\sqrt x)\frac1{2\sqrt x}
++f_Z(-\sqrt x)\frac1{2\sqrt x}$$
 $$f_X(x)=\frac{1}{\sqrt{2\pi x}}e^{-x/2},\qquad x>0,$$
 これは $\operatorname{Gamma}(1/2,1/2)$ であり $\chi^2_1$ と一致する。
 
@@ -1103,16 +1122,28 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: カイ二乗分布 }]
 ---
 ## 問題
-標準正規分布 $N(0,1)$ からの独立同分布標本 $X_1,\ldots,X_n$ を直交変換した $Y$ について、$\sum_iY_i^2$ の分布と各 $Y_i$ の性質を述べよ。
+正規標本 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ について、全平方和を標本平均の平方和と残差平方和へ分解し、それぞれの分布と独立性を述べよ。
 
 ## 答え
-$\boldsymbol Y=\boldsymbol H\boldsymbol X$（$\boldsymbol H$ は直交行列）なら $Y_1,\ldots,Y_n$ は独立に $N(0,1)$ に従い、$\sum_iY_i^2=\sum_iX_i^2\sim\chi^2_n$。
+$$\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}
+=\frac{n(\overline X-\mu)^2}{\sigma^2}
++\frac{\sum_{i=1}^n(X_i-\overline X)^2}{\sigma^2}.$$ 
+右辺の2項は独立で、
+$$\frac{n(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,$$
+$$\frac{\sum_{i=1}^n(X_i-\overline X)^2}{\sigma^2}
+=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.$$ 
 
 ## 使用公式・定理
-コクランの定理：正規標本の平方和を独立な二次形式へ分解でき、各二次形式は対応する自由度の $\chi^2$ に従う。
+平方和の恒等式
+$$\sum_{i=1}^n(X_i-\mu)^2
+=\sum_{i=1}^n(X_i-\overline X)^2+n(\overline X-\mu)^2$$
+とCochranの定理を使う。Cochranの定理は、標準正規ベクトルの全平方和を対称べき等行列に対応する平方和へ分解し、行列の階数の和が $n$ なら、各平方和が独立なカイ二乗分布に従うことを与える。
 
 ## 計算例
-$n=3$ で平均方向の成分と残差平方和が独立になり、残差は $\chi^2_2$ に従う。
+$n=3$ なら
+$$\frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
+\qquad \frac{2S^2}{\sigma^2}\sim\chi^2_2,$$
+かつ両者は独立で、その和は $\chi^2_3$ に従う。
 
 ## 一手
 直交変換で独立な標準正規の平方和に分解。自由度は変換後の成分数。
@@ -1142,6 +1173,10 @@ $\overline X\pm t_{n-1,\alpha/2}\,\frac{S}{\sqrt n}.$
 ## 使用公式・定理
 $\dfrac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}$ から
 $$P\left(-t_{n-1,\alpha/2}\le\frac{\overline X-\mu}{S/\sqrt n}\le t_{n-1,\alpha/2}\right)=1-\alpha.$$
+ここで $c=t_{n-1,\alpha/2}S/\sqrt n>0$ と置くと
+$$-c\le\overline X-\mu\le c$$
+$$\Longleftrightarrow\quad \overline X-c\le\mu\le\overline X+c,$$
+となり、答えの区間を得る。
 
 ## 計算例
 $n=16,\overline x=10,S=2,\alpha=0.05$ では $t_{15,0.025}\approx2.131$ で区間は $10\pm2.131\times\frac{2}{4}=[8.93,11.07]$。
@@ -1173,6 +1208,16 @@ $$\left[\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\ \frac{(n-1)S^2}{\chi^2_{n-1,1-\
 
 ## 使用公式・定理
 $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$ を使う。$\chi^2$ は非対称なので上下の分位点が異なる。
+上側確率で定義した分位点を使うと
+$$P\left(\chi^2_{n-1,1-\alpha/2}
+\le\frac{(n-1)S^2}{\sigma^2}
+\le\chi^2_{n-1,\alpha/2}\right)=1-\alpha.$$ 
+全て正なので逆数を取って不等号を反転し、$(n-1)S^2$ を掛けると
+$$P\left(
+\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}}
+\le\sigma^2\le
+\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}
+\right)=1-\alpha.$$ 
 
 ## 計算例
 $n=10,S^2=4,\alpha=0.05$ では $\chi^2_{9,0.975}\approx2.700$、$\chi^2_{9,0.025}\approx19.023$ で区間は $[36/19.023,\ 36/2.700]=[1.89,13.33]$。
@@ -1299,6 +1344,11 @@ $$n=\left(\frac{z_{\alpha/2}\,\sigma}{d}\right)^2,$$
 
 ## 使用公式・定理
 区間の半幅は $z_{\alpha/2}\sigma/\sqrt n$。これを $d$ 以下にする。
+$$\frac{z_{\alpha/2}\sigma}{\sqrt n}\le d
+\quad\Longleftrightarrow\quad
+\sqrt n\ge\frac{z_{\alpha/2}\sigma}{d}
+\quad\Longleftrightarrow\quad
+n\ge\left(\frac{z_{\alpha/2}\sigma}{d}\right)^2.$$ 
 
 ## 計算例
 $\sigma=10,d=2,\alpha=0.05$ では $z_{0.025}\approx1.96$ で $n=(1.96\times10/2)^2=96.04\approx97$。

@@ -94,12 +94,21 @@ $X\sim\operatorname{Gamma}(\alpha,\beta)$ が密度 $f_X(x)=\dfrac{\beta^\alpha}
 $$E[X]=\frac{\alpha}{\beta},\qquad E[X^2]=\frac{\alpha(\alpha+1)}{\beta^2},\qquad \operatorname{Var}(X)=\frac{\alpha}{\beta^2}.$$
 
 ## 使用公式・定理
-$\Gamma(\alpha)$ の定義 ${\Gamma(\alpha)=\int_0^\infty u^{\alpha-1}e^{-u}du}$ と性質 $\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ を使う。計算では $x$ の指数が $\alpha-1$ から $\alpha+r-1$ に移る。
+$\Gamma(\alpha)$ の定義
+$$\Gamma(\alpha)=\int_0^\infty u^{\alpha-1}e^{-u}du$$
+と漸化式 $\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ を使う。$u=\beta x$ と置くと
+$$x=\frac{u}{\beta},\qquad dx=\frac{du}{\beta}.$$ 
+このため、一般に
+$$\int_0^\infty x^{c-1}e^{-\beta x}dx
+=\frac1{\beta^c}\int_0^\infty u^{c-1}e^{-u}du
+=\frac{\Gamma(c)}{\beta^c}.$$ 
 
 ## 計算例
-$$E[X]=\int_0^\infty x\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}\,dx.$$
-$x$ の指数は $\alpha$、$u=\beta x$ と置換して
-$$=\frac{\beta^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}=\frac{\alpha}{\beta}.$$
+$$E[X]=\frac{\beta^\alpha}{\Gamma(\alpha)}
+\int_0^\infty x^\alpha e^{-\beta x}\,dx$$
+$$=\frac{\beta^\alpha}{\Gamma(\alpha)}
+\frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}
+=\frac{\alpha\Gamma(\alpha)}{\beta\Gamma(\alpha)}=\frac{\alpha}{\beta}.$$ 
 $E[X^2]$ も $u=\beta x$ と置いて同様に
 $E[X^2]=\frac{\beta^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha+1}e^{-\beta x}dx=\frac{\beta^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha+2)}{\beta^{\alpha+2}}=\frac{\alpha(\alpha+1)}{\beta^2}.$
 よって

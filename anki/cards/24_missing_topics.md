@@ -19,7 +19,22 @@ $\sigma_1,\sigma_2>0,\ -1<\rho<1$ のとき
 $$f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\right)\right\}.$$
 
 ## 使用公式・定理
-5個のパラメータ $(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ で指定される。密度の指数部は共分散行列の逆行列から来る。
+5個のパラメータ $(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ で指定される。共分散行列は
+$$\boldsymbol\Sigma=
+\begin{pmatrix}\sigma_1^2&\rho\sigma_1\sigma_2\\
+\rho\sigma_1\sigma_2&\sigma_2^2\end{pmatrix},$$
+$$|\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),$$
+$$\boldsymbol\Sigma^{-1}=\frac1{1-\rho^2}
+\begin{pmatrix}
+1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
+-\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
+\end{pmatrix}.$$ 
+多変量正規密度
+$$f(\boldsymbol x)=\frac{
+\exp\{-\tfrac12(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\}}
+{2\pi|\boldsymbol\Sigma|^{1/2}}$$
+へ代入すると答えの式になる。
 
 ## 計算例
 $\mu_1=\mu_2=0,\sigma_1=\sigma_2=1,\rho=0$ なら標準二変量正規になり、密度は $f=\frac1{2\pi}\exp\{-\frac{x^2+y^2}{2}\}$。
@@ -52,10 +67,19 @@ $$X_1\sim N(\mu_1,\sigma_1^2),\qquad X_2\sim N(\mu_2,\sigma_2^2).$$
 周辺分布はそれぞれ1変量の正規分布であり、$\rho$ に依存しない。
 
 ## 使用公式・定理
-同時密度を一方の変数で積分すると、もう一方の周辺正規分布になる。相関係数 $\rho$ は周辺分布に現れない。
+独立な $Z_1,Z_2\sim N(0,1)$ を使うと、二変量正規分布は
+$$X_1=\mu_1+\sigma_1Z_1,$$
+$$X_2=\mu_2+\sigma_2\{\rho Z_1+\sqrt{1-\rho^2}Z_2\}$$
+と表せる。正規分布の独立な線形結合は正規分布であり、
+$$\operatorname{Var}\{\rho Z_1+\sqrt{1-\rho^2}Z_2\}
+=\rho^2+(1-\rho^2)=1.$$ 
 
 ## 計算例
-標準二変量正規（各 $\rho$）の $X_1$ の周辺は $N(0,1)$。
+上の表現から直ちに
+$$X_1\sim N(\mu_1,\sigma_1^2),$$
+$$X_2\sim N\left(\mu_2,\sigma_2^2
+\{\rho^2+(1-\rho^2)\}\right)=N(\mu_2,\sigma_2^2).$$
+したがって周辺分布には $\rho$ が現れない。
 
 ## 一手
 周辺密度は密度を他方で積分して得る。結果の分散は $\sigma_1^2$ で、$\rho$ を含まない。
@@ -116,7 +140,11 @@ $$E[Y\mid X=x]=\int_{-\infty}^{\infty}y\,f_{Y\mid X}(y\mid x)\,dy.$$
 条件付き期待値は、条件 $X=x$ の下での $Y$ の期待値を条件付き密度で計算する。$E[Y]=E[E[Y\mid X]]$（全期待値の公式）が成り立つ。
 
 ## 計算例
-$f_{Y\mid X}(y\mid x)=\frac1x e^{-y/x}$（$x>0,\ y>0$）なら $E[Y\mid X=x]=\int_0^\infty y\frac1x e^{-y/x}dy=x$。
+$f_{Y\mid X}(y\mid x)=\frac1x e^{-y/x}$（$x>0,\ y>0$）なら
+$$E[Y\mid X=x]=\int_0^\infty y\frac1x e^{-y/x}dy.$$ 
+$u=y/x$、すなわち $y=xu,\ dy=xdu$ と置くと
+$$E[Y\mid X=x]=x\int_0^\infty ue^{-u}du
+=x\Gamma(2)=x.$$ 
 
 ## 一手
 「条件を固定してから期待値を取る」。条件付き密度に $y$ を掛けて全区間で積分する。
@@ -149,7 +177,18 @@ $$f_Z(z)=\int_{-\infty}^{\infty}f_X(x)\,f_Y(x-z)\,dx.$$
 $Z=X+(-Y)$ と見て畳み込みを適用する。$-Y$ の密度は $f_{-Y}(u)=f_Y(-u)$。
 
 ## 計算例
-$X,Y\sim \operatorname{Exp}(\lambda)$ 独立なら $Z=X-Y$ は両側指数（Laplace）型の密度になる。
+$X,Y\sim \operatorname{Exponential}(\lambda)$ 独立なら、$x>0$ と $x-z>0$ を同時に満たす範囲は $x>\max(0,z)$ である。よって
+$$f_Z(z)=\int_{\max(0,z)}^\infty
+\lambda e^{-\lambda x}\lambda e^{-\lambda(x-z)}dx$$
+$$=\lambda^2e^{\lambda z}
+\int_{\max(0,z)}^\infty e^{-2\lambda x}dx
+=\frac{\lambda}{2}e^{\lambda z-2\lambda\max(0,z)}.$$ 
+したがって
+$$f_Z(z)=\begin{cases}
+(\lambda/2)e^{\lambda z},&z<0,\\
+(\lambda/2)e^{-\lambda z},&z\ge0
+\end{cases}
+=\frac{\lambda}{2}e^{-\lambda|z|}.$$ 
 
 ## 一手
 $X$ を固定して $Y=x-z$ を代入し、$x$ で積分する。
@@ -180,7 +219,13 @@ sources: [{ type: official_syllabus, topic: 変数変換 }]
 $$f_Z(z)=\int_{0}^{\infty}\frac1w f_X(w)\,f_Y\!\left(\frac zw\right)dw.$$
 
 ## 使用公式・定理
-$W=X$、$Y=Z/W$ という変換。$X=W$ を第1変数に取り、$Y=Z/W$ の従属関係から Jacobian は $|\partial(x,y)/\partial(w,z)|=1/w$ である。
+$W=X$、$Z=XY$ と置くと逆変換は $x=w,\ y=z/w$。したがって
+$$\left|\frac{\partial(x,y)}{\partial(w,z)}\right|
+=\left|\begin{matrix}1&0\\-z/w^2&1/w\end{matrix}\right|
+=\frac1w.$$ 
+変数変換公式から
+$$f_{W,Z}(w,z)=f_X(w)f_Y(z/w)\frac1w,$$
+これを $w$ について積分して $f_Z$ を得る。
 
 ## 計算例
 $X,Y\sim U(0,1)$ 独立なら $f_Z(z)=\int_{z}^{1}\frac{1}{w}\,dw=-\ln z$（$0<z<1$）。
@@ -274,9 +319,21 @@ sources: [{ type: official_syllabus, topic: ガンマ分布 }, { type: official_
 $$\frac{X_1}{X_1+X_2}\sim\operatorname{Beta}(\alpha,\beta).$$
 また $X_1+X_2\sim\operatorname{Gamma}(\alpha+\beta,\lambda)$。
 ## 使用公式・定理
-同じ率の独立ガンマの「一方と和の比」はベータ。$U=X_1/(X_1+X_2)$、$V=X_1+X_2$ の Jacobian で導かれる。
+同じ率の独立ガンマに対して
+$$U=\frac{X_1}{X_1+X_2},\qquad V=X_1+X_2$$
+と置く。逆変換は $x_1=uv,\ x_2=(1-u)v$ で、
+$$\left|\frac{\partial(x_1,x_2)}{\partial(u,v)}\right|
+=\left|\begin{matrix}v&u\\-v&1-u\end{matrix}\right|=v.$$ 
 ## 計算例
-$\alpha=\beta=1$ なら $U\sim\operatorname{Beta}(1,1)=U(0,1)$。
+独立性と変数変換公式から、$0<u<1,\ v>0$ で
+$$f_{U,V}(u,v)
+=\frac{\lambda^{\alpha+\beta}}{\Gamma(\alpha)\Gamma(\beta)}
+u^{\alpha-1}(1-u)^{\beta-1}v^{\alpha+\beta-1}e^{-\lambda v}.$$ 
+これを
+$$\frac{u^{\alpha-1}(1-u)^{\beta-1}}{B(\alpha,\beta)}
+\frac{\lambda^{\alpha+\beta}}{\Gamma(\alpha+\beta)}
+v^{\alpha+\beta-1}e^{-\lambda v}$$
+と因数分解できるので、$U\sim\operatorname{Beta}(\alpha,\beta)$、$V\sim\operatorname{Gamma}(\alpha+\beta,\lambda)$ で、さらに $U,V$ は独立である。$\alpha=\beta=1$ なら $U\sim U(0,1)$。
 ## 一手
 分母を和にして Beta へ帰着。rate が共通であることが条件。
 ## 注意
@@ -300,9 +357,17 @@ sources: [{ type: official_syllabus, topic: ポアソン過程 }]
 ## 答え
 $\mathcal N=n$ の下で、到着時刻は $(0,1]$ 上の独立な一様分布標本の順序統計量と同じ分布を持つ。
 ## 使用公式・定理
-到着時刻を昇順 $S_{(1)}<\cdots<S_{(n)}$ とすると、$\mathcal N=n$ という条件の下で、それらは一様分布 $U(0,1)$ の順序統計量と同分布である。
+到着時刻を昇順 $S_{(1)}<\cdots<S_{(n)}$ とすると、$\mathcal N=n$ という条件の下での同時密度は
+$$f(s_1,\ldots,s_n\mid\mathcal N=n)
+=n!\boldsymbol1_{\{0<s_1<\cdots<s_n<1\}}.$$ 
+これは独立な $U(0,1)$ 標本の順序統計量の同時密度である。
 ## 計算例
-$(0,1]$ に2件到着したとき、最初の到着時刻 $S_{(1)}$ は $\min(U_1,U_2)\sim\operatorname{Beta}(1,2)$。
+$(0,1]$ に2件到着したとき、$0<s<1$ に対して
+$$P(S_{(1)}>s\mid\mathcal N=2)=P(U_1>s,U_2>s)=(1-s)^2.$$ 
+したがって
+$$F_{S_{(1)}}(s)=1-(1-s)^2,\qquad
+f_{S_{(1)}}(s)=2(1-s),$$
+すなわち $S_{(1)}\sim\operatorname{Beta}(1,2)$。
 ## 一手
 到着件数 $\mathcal N$ を条件付けると「$n$ 個の独立一様標本の順序統計量」へ帰着させる。
 ## 注意
@@ -326,9 +391,10 @@ sources: [{ type: official_syllabus, topic: 極限近似 }]
 ## 答え
 - $n\to\infty$, $p\to0$, $np\to\lambda\in(0,\infty)$ なら $\operatorname{Binomial}(n,p)$ は $\operatorname{Poisson}(\lambda)$ に収束する。実用上は $p$ が小さく $np$ が中程度のときにポアソン近似を使う。
 - 二項分布は $np$ と $n(1-p)$ がともに十分大きいとき、ポアソン分布は平均 $\lambda$ が十分大きいとき、それぞれ正規分布で近似できる。
-- 標本平均は中心極限定理で正規分布に収束する。
+- 平均 $\mu$、分散 $0<\sigma^2<\infty$ の独立同分布標本では、標準化した標本平均 $\sqrt n(\overline X_n-\mu)/\sigma$ が $N(0,1)$ に分布収束する。標準化しない $\overline X_n$ 自体は大数則により $\mu$ へ確率収束する。
 ## 使用公式・定理
-中心極限定理：平均 $\mu$、分散 $\sigma^2>0$ の独立同分布標本を $\sqrt n(\overline X-\mu)/\sigma$ と正規化して $N(0,1)$ へ収束させる。
+中心極限定理：平均 $\mu$、分散 $0<\sigma^2<\infty$ の独立同分布標本について
+$$\frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1).$$
 ## 計算例
 $n=50,p=0.02$ なら $np=1$ で $\operatorname{Binomial}(50,0.02)\approx\operatorname{Poisson}(1)$。$n=100,p=0.3$ は平均 $30$、分散 $21$ の正規近似。
 ## 一手
