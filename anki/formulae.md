@@ -2,6 +2,26 @@
 
 このファイルをカード教材で利用する公式・定理・定義の正本とする。カードでは、ここへのリンクだけで済ませず、実際に使う項目を「使用公式・定理」欄へ再掲する。
 
+## 正規分布に関する検定・種々の検定法
+
+- 正規母平均（母分散既知）：$Z=(\overline X-\mu_0)/(\sigma/\sqrt n)\sim N(0,1)$。両側検定では $|Z|\ge z_{\alpha/2}$ で棄却する。
+- 正規母平均（母分散未知）：$T=(\overline X-\mu_0)/(S/\sqrt n)\sim t_{n-1}$。母集団の正規性を仮定する。
+- 対応のある $t$ 検定：$D_i=X_i-Y_i$ とし、$T=(\overline D-\mu_{D,0})/(S_D/\sqrt n)\sim t_{n-1}$ を使う。
+- 2標本 $t$ 検定（等分散）：$S_p^2=\{(n_1-1)S_1^2+(n_2-1)S_2^2\}/(n_1+n_2-2)$、$T=\{(\overline X-\overline Y)-\Delta_0\}/\{S_p\sqrt{1/n_1+1/n_2}\}\sim t_{n_1+n_2-2}$。
+- Welch検定：$T=\{(\overline X-\overline Y)-\Delta_0\}/\sqrt{S_1^2/n_1+S_2^2/n_2}$。自由度は $\nu=\dfrac{(S_1^2/n_1+S_2^2/n_2)^2}{(S_1^2/n_1)^2/(n_1-1)+(S_2^2/n_2)^2/(n_2-1)}$。
+- 正規母分散：$(n-1)S^2/\sigma_0^2\sim\chi^2_{n-1}$。2母分散比では $(S_1^2/S_2^2)/(\sigma_1^2/\sigma_2^2)\sim F_{n_1-1,n_2-1}$。
+- 1母比率のScore統計量：$Z=(\widehat p-p_0)/\sqrt{p_0(1-p_0)/n}$。
+- 2母比率差：$\widetilde p=(X_1+X_2)/(n_1+n_2)$、$Z=(\widehat p_1-\widehat p_2)/\sqrt{\widetilde p(1-\widetilde p)(1/n_1+1/n_2)}$。
+- Pearson適合度検定：$X^2=\sum_{j=1}^k(O_j-E_j)^2/E_j\xrightarrow{d}\chi^2_{k-1-r}$。$r$ は標本から推定した母数の個数。
+- 分割表の独立性検定：$E_{ij}=n_{i\cdot}n_{\cdot j}/n$、$X^2=\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}\xrightarrow{d}\chi^2_{(r-1)(c-1)}$。
+- Fisherの正確検定：周辺和を固定した $2\times2$ 表の左上セルは超幾何分布に従う。
+- 符号検定：連続分布の中央値が帰無値なら、同順位を除いた正符号数は $\operatorname{Binomial}(n,1/2)$ に従う。
+- Wilcoxon符号付順位検定：差の絶対値に順位を付け、正の差の順位和を統計量とする。差の分布の対称性を仮定する。
+- Mann--Whitney検定：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説の下で $E[U_1]=n_1n_2/2$。
+- 1標本Kolmogorov--Smirnov検定：$D_n=\sup_x|F_n(x)-F_0(x)|$。連続で完全に指定された $F_0$ に対して分布によらない。
+- McNemar検定：対応のある二値データの不一致数を $b,c$ とすると、$(b-c)^2/(b+c)\xrightarrow{d}\chi_1^2$。
+- Holm法：$p_{(1)}\le\cdots\le p_{(m)}$ を並べ、順に $p_{(i)}\le\alpha/(m-i+1)$ を満たす間だけ棄却する。
+
 ## 確率
 
 - 等確率な有限標本空間：各結果が等確率なら、事象 $A$ について $P(A)=|A|/|\Omega|$。

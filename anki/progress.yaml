@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 613
+reviewed_card_count: 664
 current_work: null
-next_work: C13-normal-various-tests
-last_completed_work: C12-testing-foundations-derivation
+next_work: C14-anova-regression
+last_completed_work: C13-normal-various-tests
 summary:
   total: 33
-  planned: 15
+  planned: 14
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 18
+  reviewed: 19
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1192,7 +1192,7 @@ work:
     target:
       min: 45
       max: 55
-    status: planned
+    status: reviewed
     review_dir: review/C13-normal-various-tests
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 仮説検定
@@ -1220,6 +1220,67 @@ work:
       A: 13
       B: 0
       C: 0
+    started_at: 2026-08-20T15:36:59.281Z
+    self_review_at: 2026-08-20T15:48:17.427Z
+    independent_review_at: 2026-08-20T15:48:24.961Z
+    revision_at: 2026-08-20T15:56:18.960Z
+    completed_at: 2026-08-20T16:01:38.616Z
+    added_card_ids:
+      - test-binomial-exact-one-sample
+      - test-f-reciprocal-quantile
+      - test-fisher-exact-2x2
+      - test-goodness-fit-estimated-parameters
+      - test-goodness-fit-expected-counts
+      - test-goodness-fit-numeric
+      - test-goodness-fit-statistic
+      - test-holm-stepdown
+      - test-independence-2x2-numeric
+      - test-independence-chisquare
+      - test-ks-one-sample
+      - test-ks-one-sample-numeric
+      - test-mann-whitney-u
+      - test-mann-whitney-u-numeric
+      - test-mcnemar-asymptotic
+      - test-nonparametric-choice
+      - test-normal-t-assumptions
+      - test-normal-t-numeric
+      - test-normal-t-pivot
+      - test-normal-variance-chisquare
+      - test-normal-variance-chisquare-numeric
+      - test-normal-variance-one-sided
+      - test-normal-variance-ratio-f
+      - test-normal-variance-ratio-numeric
+      - test-normal-z-known-formula
+      - test-normal-z-left-sided
+      - test-normal-z-one-sided-numeric
+      - test-normal-z-two-sided-pvalue
+      - test-normality-test-selection
+      - test-one-proportion-continuity
+      - test-one-proportion-score
+      - test-paired-t-construction
+      - test-paired-t-numeric
+      - test-paired-versus-independent
+      - test-permutation-two-sample
+      - test-poisson-one-rate-exact
+      - test-poisson-rate-score
+      - test-pooled-two-sample-t
+      - test-pooled-two-sample-t-numeric
+      - test-pooled-versus-welch
+      - test-procedure-selection-summary
+      - test-rank-ties
+      - test-sign-test-numeric
+      - test-two-poisson-unequal-exposure
+      - test-two-proportion-numeric
+      - test-two-proportion-pooled
+      - test-welch-two-sample-formula
+      - test-welch-two-sample-numeric
+      - test-wilcoxon-signed-rank
+      - test-wilcoxon-signed-rank-numeric
+      - test-yates-correction
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C14-anova-regression:
     title: 分散分析・回帰分析
     category: math-data-analysis

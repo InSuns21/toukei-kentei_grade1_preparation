@@ -1266,32 +1266,83 @@ items:
         status: card
         cards: [test-score-general, test-score-bernoulli-numeric, test-lr-wald-score-comparison, test-score-observed-expected-information]
   - id: math-normal-tests
-    status: planned
-    cards: []
+    status: complete
+    cards:
+      - test-normal-z-known-formula
+      - test-normal-z-one-sided-numeric
+      - test-normal-z-left-sided
+      - test-normal-z-two-sided-pvalue
+      - test-normal-t-pivot
+      - test-normal-t-numeric
+      - test-normal-t-assumptions
+      - test-paired-t-construction
+      - test-paired-t-numeric
+      - test-paired-versus-independent
+      - test-pooled-two-sample-t
+      - test-pooled-two-sample-t-numeric
+      - test-welch-two-sample-formula
+      - test-welch-two-sample-numeric
+      - test-pooled-versus-welch
+      - test-normal-variance-chisquare
+      - test-normal-variance-chisquare-numeric
+      - test-normal-variance-one-sided
+      - test-normal-variance-ratio-f
+      - test-normal-variance-ratio-numeric
+      - test-f-reciprocal-quantile
+      - test-normality-test-selection
     terms:
       - name: 平均値と分散に関する検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-normal-z-known-formula, test-normal-z-one-sided-numeric, test-normal-z-left-sided, test-normal-z-two-sided-pvalue, test-normal-t-pivot, test-normal-t-numeric, test-normal-t-assumptions, test-normal-variance-chisquare, test-normal-variance-chisquare-numeric, test-normal-variance-one-sided, test-normal-variance-ratio-f, test-normal-variance-ratio-numeric, test-f-reciprocal-quantile, test-normality-test-selection]
       - name: 複数の平均に関する検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-paired-t-construction, test-paired-t-numeric, test-paired-versus-independent, test-pooled-two-sample-t, test-pooled-two-sample-t-numeric, test-welch-two-sample-formula, test-welch-two-sample-numeric, test-pooled-versus-welch, test-normality-test-selection]
   - id: math-various-tests
-    status: partial
+    status: complete
     cards:
       - test-chi-square-fit
       - test-sign-test
       - mathstat-exact-poisson-rate-test
       - mathstat-mcnemar-exact-test
+      - test-binomial-exact-one-sample
+      - test-one-proportion-score
+      - test-one-proportion-continuity
+      - test-two-proportion-pooled
+      - test-two-proportion-numeric
+      - test-poisson-one-rate-exact
+      - test-poisson-rate-score
+      - test-two-poisson-unequal-exposure
+      - test-goodness-fit-statistic
+      - test-goodness-fit-numeric
+      - test-goodness-fit-estimated-parameters
+      - test-goodness-fit-expected-counts
+      - test-independence-chisquare
+      - test-independence-2x2-numeric
+      - test-yates-correction
+      - test-fisher-exact-2x2
+      - test-sign-test-numeric
+      - test-wilcoxon-signed-rank
+      - test-mann-whitney-u
+      - test-ks-one-sample
+      - test-permutation-two-sample
+      - test-mcnemar-asymptotic
+      - test-holm-stepdown
+      - test-nonparametric-choice
+      - test-rank-ties
+      - test-procedure-selection-summary
+      - test-wilcoxon-signed-rank-numeric
+      - test-mann-whitney-u-numeric
+      - test-ks-one-sample-numeric
     terms:
       - name: 二項分布・ポアソン分布など基本的な分布に関する検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test]
       - name: 適合度の検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-chi-square-fit, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2]
       - name: ノンパラメトリック検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-sign-test, test-sign-test-numeric, test-wilcoxon-signed-rank, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u, test-mann-whitney-u-numeric, test-ks-one-sample, test-ks-one-sample-numeric, test-permutation-two-sample, mathstat-mcnemar-exact-test, test-mcnemar-asymptotic, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary]
   - id: math-anova
     status: partial
     cards:

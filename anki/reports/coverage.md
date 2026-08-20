@@ -1,13 +1,13 @@
 # シラバス coverage
 
-- 公開カード: 613
+- 公開カード: 664
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 176 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 131 | 3/3 | formula, theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
-| 統計的推測（検定） | 61 | 3/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
+| 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 8 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
@@ -35,8 +35,8 @@
 | 区間推定 | complete | test-normal-ci, ci-coverage-probability, ci-coverage-frequentist, ci-pivot-definition, ci-pivot-construction, ci-normal-mean-known, ci-normal-mean-known-calc, ci-t-interval-pivot, ci-t-vs-z, ci-variance-chi-derivation, ci-variance-chi-calc, ci-f-variance-ratio, ci-f-variance-ratio-calc, ci-two-sample-mean-diff, ci-two-sample-mean-diff-calc, ci-welch-interval, ci-welch-calc, ci-proportion, ci-proportion-calc, ci-proportion-diff, ci-proportion-diff-calc, ci-one-sided, ci-one-sided-calc, ci-test-duality, ci-duality-acceptance, ci-asymptotic-def, ci-asymptotic-mle, ci-asymptotic-mle-calc, ci-delta-method, ci-delta-method-calc, ci-length-confidence-tradeoff, ci-sample-size-for-width, mathstat-shortest-probability-interval, mathstat-fisher-z-confidence-interval, mathstat-uniform-endpoint-shortest-ci, ci-poisson-rate-exact, ci-clopper-pearson-zero-success, ci-paired-mean-difference |
 | 検定の基礎 | complete | test-z-rejection, mathstat-p-value-uniformity, test-null-alternative-definition, test-simple-composite-hypotheses, test-statistic-definition, test-critical-region-size, test-type-errors-definition, test-level-versus-size, test-pvalue-definition, test-pvalue-two-sided, test-pvalue-smallest-level, test-power-function-definition, test-power-normal-one-sided, test-sample-size-power-z, test-one-two-sided-critical-values, test-randomized-boundary, test-unbiased-definition, test-consistency-definition, test-ci-duality, test-function-randomized-definition, test-composite-null-pvalue, test-discrete-pvalue-conservative, test-power-curve-reading, test-standardized-effect-power, test-familywise-error, test-bonferroni-threshold, test-data-dependent-sidedness |
 | 検定法の導出 | complete | test-np-bernoulli, test-likelihood-ratio, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-most-powerful-definition, test-monotone-likelihood-ratio, test-karlin-rubin-principle, test-ump-binomial-one-sided, test-ump-normal-one-sided, test-no-ump-two-sided, test-likelihood-ratio-ordering, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-wilks-restriction-rank, test-wilks-boundary-failure, test-wald-general, test-wald-bernoulli-numeric, test-score-general, test-score-bernoulli-numeric, test-lr-bernoulli-numeric, test-lr-wald-score-comparison, test-local-alternative-power, test-power-binomial-exact, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square, test-score-observed-expected-information |
-| 正規分布に関する検定 | planned |  |
-| 種々の検定法 | partial | test-chi-square-fit, test-sign-test, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test |
+| 正規分布に関する検定 | complete | test-normal-z-known-formula, test-normal-z-one-sided-numeric, test-normal-z-left-sided, test-normal-z-two-sided-pvalue, test-normal-t-pivot, test-normal-t-numeric, test-normal-t-assumptions, test-paired-t-construction, test-paired-t-numeric, test-paired-versus-independent, test-pooled-two-sample-t, test-pooled-two-sample-t-numeric, test-welch-two-sample-formula, test-welch-two-sample-numeric, test-pooled-versus-welch, test-normal-variance-chisquare, test-normal-variance-chisquare-numeric, test-normal-variance-one-sided, test-normal-variance-ratio-f, test-normal-variance-ratio-numeric, test-f-reciprocal-quantile, test-normality-test-selection |
+| 種々の検定法 | complete | test-chi-square-fit, test-sign-test, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test, test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2, test-sign-test-numeric, test-wilcoxon-signed-rank, test-mann-whitney-u, test-ks-one-sample, test-permutation-two-sample, test-mcnemar-asymptotic, test-holm-stepdown, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u-numeric, test-ks-one-sample-numeric |
 | 分散分析 | partial | data-anova-decomposition |
 | 回帰分析 | partial | data-ols-slope |
 | 分割表の解析 | partial | data-odds-ratio |
@@ -162,11 +162,11 @@
 | 検定法の導出 | 尤度比検定 | card | test-likelihood-ratio, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-lr-bernoulli-numeric, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square |
 | 検定法の導出 | ワルド型検定 | card | test-wald-general, test-wald-bernoulli-numeric, test-lr-wald-score-comparison |
 | 検定法の導出 | スコア型検定 | card | test-score-general, test-score-bernoulli-numeric, test-lr-wald-score-comparison, test-score-observed-expected-information |
-| 正規分布に関する検定 | 平均値と分散に関する検定 | planned |  |
-| 正規分布に関する検定 | 複数の平均に関する検定 | planned |  |
-| 種々の検定法 | 二項分布・ポアソン分布など基本的な分布に関する検定 | planned |  |
-| 種々の検定法 | 適合度の検定 | planned |  |
-| 種々の検定法 | ノンパラメトリック検定 | planned |  |
+| 正規分布に関する検定 | 平均値と分散に関する検定 | card | test-normal-z-known-formula, test-normal-z-one-sided-numeric, test-normal-z-left-sided, test-normal-z-two-sided-pvalue, test-normal-t-pivot, test-normal-t-numeric, test-normal-t-assumptions, test-normal-variance-chisquare, test-normal-variance-chisquare-numeric, test-normal-variance-one-sided, test-normal-variance-ratio-f, test-normal-variance-ratio-numeric, test-f-reciprocal-quantile, test-normality-test-selection |
+| 正規分布に関する検定 | 複数の平均に関する検定 | card | test-paired-t-construction, test-paired-t-numeric, test-paired-versus-independent, test-pooled-two-sample-t, test-pooled-two-sample-t-numeric, test-welch-two-sample-formula, test-welch-two-sample-numeric, test-pooled-versus-welch, test-normality-test-selection |
+| 種々の検定法 | 二項分布・ポアソン分布など基本的な分布に関する検定 | card | test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test |
+| 種々の検定法 | 適合度の検定 | card | test-chi-square-fit, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2 |
+| 種々の検定法 | ノンパラメトリック検定 | card | test-sign-test, test-sign-test-numeric, test-wilcoxon-signed-rank, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u, test-mann-whitney-u-numeric, test-ks-one-sample, test-ks-one-sample-numeric, test-permutation-two-sample, mathstat-mcnemar-exact-test, test-mcnemar-asymptotic, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary |
 | 分散分析 | 一元配置分散分析 | planned |  |
 | 分散分析 | 二元配置分散分析 | planned |  |
 | 分散分析 | 交互作用 | planned |  |

@@ -397,10 +397,10 @@ frequency: { past_exam: 0, textbook: 1, independent_problems: 0, source_confirma
 sources: [{ type: textbook, id: MATHSTAT-CH7-Q13, topic: 2標本ポアソン正確検定 }]
 ---
 ## 問題
-$X_1,ldots,X_n\sim\operatorname{Poisson}(\lambda)$、$Y_1,ldots,Y_m\sim\operatorname{Poisson}(\mu)$ は独立とする。$H_0:\lambda=\mu$ の正確な検定を二項分布へ帰着せよ。
+$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$、$Y_1,\ldots,Y_m\sim\operatorname{Poisson}(\mu)$ は独立とする。$H_0:\lambda=\mu$ の正確な検定を二項分布へ帰着せよ。
 
 ## 答え
-$$S=\sum_{i=1}^nX_i,qquad T=\sum_{j=1}^mY_j,qquad K=S+T$$
+$$S=\sum_{i=1}^nX_i,\qquad T=\sum_{j=1}^mY_j,\qquad K=S+T$$
 とすると、$H_0$ の下で
 $$S\mid K=k\sim\operatorname{Binomial}\left(k,\frac{n}{n+m}\right).$$
 したがって、片側対立 $H_1:\lambda>\mu$ では観測値 $s$ に対する $P(S\ge s\mid K=k)$ を正確な $p$ 値に使える。
