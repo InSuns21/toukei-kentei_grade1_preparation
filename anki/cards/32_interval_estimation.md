@@ -15,9 +15,9 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 問題
 信頼区間の「被覆確率（coverage probability）」と「信頼係数」を定義せよ。
 ## 答え
-標本から作る区間推定量 $I(X)=[L(X),U(X)]$ が、真のパラメータ $\theta$ を含む確率が $1-\alpha$ なら、$1-\alpha$ を被覆確率（信頼係数）という。
+標本から作る区間推定量 $I(X)=[L(X),U(X)]$ に対し、$C(\theta)=P_\theta\{\theta\in I(X)\}$ を被覆確率という。$C(\theta)=1-\alpha$ がすべての $\theta$ で成り立つ区間は、信頼係数 $1-\alpha$ の正確な信頼区間である。一般には $\inf_{\theta\in\Theta}C(\theta)$ を信頼係数と呼ぶ。
 ## 使用公式・定理
-$$P_\theta\bigl(L(X)\le \theta\le U(X)\bigr)=1-\alpha \quad (\forall \theta\in\Theta).$$
+$$C(\theta)=P_\theta\bigl(L(X)\le \theta\le U(X)\bigr),\qquad \inf_{\theta\in\Theta}C(\theta)\ge1-\alpha.$$
 ## 計算例
 信頼係数 $0.95$ なら、同じ手順で繰り返し区間を作ると約 $95\%$ が真値を覆う。
 ## 注意
@@ -203,7 +203,7 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 計算例
 $n$ が大きいと $t_{n-1,\alpha/2}\approx z_{\alpha/2}$ となり両者は近づく。
 ## 注意
-$t$ の方が同じ信頼係数で区間が広い（不確実性の追加分）。
+同じ標準誤差の数値を用いるなら $t_{n-1,\alpha/2}>z_{\alpha/2}$ なので $t$ 区間の半幅が大きい。ただし実際には $S$ と $\sigma$ も異なるため、得られた個々の区間幅を無条件には比較できない。
 
 <!-- CARD -->
 
@@ -225,6 +225,7 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 答え
 ピボット量 $(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ を用い、両側の分位点が異なる区間を作る。
 ## 使用公式・定理
+ここで $\chi^2_{\nu,\gamma}$ は上側確率が $\gamma$ となる点、すなわち $P(\chi^2_\nu\ge\chi^2_{\nu,\gamma})=\gamma$ とする。この記法で
 $$P\left(\chi^2_{n-1,1-\alpha/2}\le\frac{(n-1)S^2}{\sigma^2}\le\chi^2_{n-1,\alpha/2}\right)=1-\alpha,$$
 区間は $\left[\dfrac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\ \dfrac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right]$。
 ## 計算例
@@ -278,6 +279,7 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 答え
 ピボット量 $(S_1^2/\sigma_1^2)/(S_2^2/\sigma_2^2)\sim F_{n_1-1,n_2-1}$ を用い、比 $S_1^2/S_2^2$ を両側のF分位点で割る。
 ## 使用公式・定理
+$F_{\nu_1,\nu_2,\gamma}$ を上側確率が $\gamma$ となる点とすると、区間は
 $$\left[\frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,\alpha/2}},\ \frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,1-\alpha/2}}\right].$$
 ## 計算例
 $F_{n_1-1,n_2-1,1-\alpha/2}=1/F_{n_2-1,n_1-1,\alpha/2}$ で計算できる。
@@ -592,7 +594,7 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 答え
 水準 $\alpha$ の検定で棄却されない $\theta$ の集合が、ちょうど信頼係数 $1-\alpha$ の信頼区間になる。
 ## 使用公式・定理
-$$CI_{1-\alpha}(x)=\{\theta: \text{観測 }x\text{ で }H_0:\theta=\theta_0\text{ を棄却しない}\}.$$
+$$CI_{1-\alpha}(x)=\{\theta_0: \text{観測 }x\text{ で }H_0:\theta=\theta_0\text{ を棄却しない}\}.$$
 ## 計算例
 棄却域の補集合（受容域）が $1-\alpha$ 区間に対応する。
 ## 注意
@@ -622,7 +624,7 @@ $|z|=|\overline x-\mu|/(\sigma/\sqrt n)\le z_{\alpha/2}$ を $\mu$ について�
 ## 計算例
 検定で棄却しない $\mu$ は、区間内の $\mu$ と一致する。
 ## 注意
-$p$ 値は「棄却されない境界」の尤度からも読める。
+検定と区間は同じ統計量・同じ片側または両側の棄却域を使って反転する。異なる検定を反転すれば異なる信頼集合になる。
 
 <!-- CARD -->
 
@@ -701,7 +703,7 @@ $SE=\sqrt{0.0024}=0.0490$。半幅 $=1.96\times0.0490=0.0960$。区間 $0.4\pm0.
 ## 計算例
 区間は $[0.304,0.496]$。
 ## 注意
-正規近似区間と一致する（べルヌーイの情報量が分散と等しいため）。
+Wald型の母比率正規近似区間と一致する（1観測当たりの情報量の逆数 $I_1(p)^{-1}=p(1-p)$ がベルヌーイ分散に等しいため）。
 
 <!-- CARD -->
 

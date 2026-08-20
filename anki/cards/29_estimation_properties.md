@@ -340,7 +340,9 @@ sources: [{ type: official_syllabus, topic: 推定量の相対効率 }]
 ## 使用公式・定理
 $$\operatorname{MSE}(T)=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.$$
 ## 計算例
-正規標本で $\widehat\sigma^2_1=\frac1n\sum(X_i-\overline X)^2$（最尤推定量）と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$：$E[\widehat\sigma^2_1]=\frac{n-1}{n}\sigma^2$（負バイアス）、$S^2$ は不偏。MSEは一般にどちらが小さいか $\sigma^2$ と $n$ で決まる。
+正規標本で $\widehat\sigma^2_1=\frac1n\sum(X_i-\overline X)^2$（最尤推定量）と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$：$E[\widehat\sigma^2_1]=\frac{n-1}{n}\sigma^2$（負バイアス）、$S^2$ は不偏。一方、
+$$\operatorname{MSE}(\widehat\sigma^2_1)=\frac{2n-1}{n^2}\sigma^4,\qquad \operatorname{MSE}(S^2)=\frac{2}{n-1}\sigma^4,$$
+なので $n>1$ では最尤推定量のMSEの方が小さい。不偏性だけで優劣を決めない例である。
 ## 一手
 まず不偏性、次に分散、総合ならMSE。比較は固定した $\theta$ の関数として全母数空間で考える。
 <!-- CARD -->
@@ -937,7 +939,7 @@ title: 不偏性と一致性の混同
 ## 使用公式・定理
 一致の十分条件：$E[T_n]\to\theta$ かつ $\operatorname{Var}(T_n)\to0$。
 ## 計算例
-$T_n=\frac{x_{(1)}+x_{(n)}}{2}$（レンジ中点）は正規分布で不偏だが $n\to\infty$ で $\mu$ に確率収束しない（分散が0へ行かない）。
+各 $n$ で $T_n=X_n$（その標本の最後の1観測だけを使う）とすれば $E[T_n]=\mu$ で不偏だが、$\operatorname{Var}(T_n)=\sigma^2$ のままなので一致しない。
 ## 一手
 不偏性は中心、一致性は収束。不偏でも分散が減らないと一致しない。逆に、一致でも有限標本でバイアスがありうる。
 <!-- CARD -->
@@ -1027,9 +1029,9 @@ sources: [{ type: official_syllabus, topic: 推定量の評価 }]
 title: 二乗損失での最良推定量
 ---
 ## 問題
-二乗損失 $L(T,\theta)=(T-\theta)^2$ の下でリスクを最小にするのはどのような推定量か。
+二乗損失 $L(a,\theta)=(a-\theta)^2$ の下で、事後期待損失を最小にするベイズ推定量は何か。頻度論的リスクとの違いも述べよ。
 ## 答え
-固定した $\theta$ ではリスク $=\operatorname{MSE}(T)=\operatorname{Var}(T)+\operatorname{Bias}^2$。ベイズ的には事後分布 $\pi(\theta\mid x)$ の下で事後リスク $E[(T-\theta)^2\mid x]$ を最小にするのは事後平均 $E[\theta\mid x]$。
+事後分布 $\pi(\theta\mid x)$ の下で $E[(a-\theta)^2\mid x]$ を最小にする作用は事後平均 $a^*(x)=E[\theta\mid x]$ である。一方、頻度論的リスク $R(\theta,T)=E_\theta[(T-	heta)^2]=\operatorname{MSE}_\theta(T)$ は $\theta$ の関数であり、事前分布なしに全ての $\theta$ で一律に最小となる推定量が存在するとは限らない。
 ## 使用公式・定理
 $\arg\min_T E[(T-\theta)^2\mid x]=E[\theta\mid x].$
 ## 計算例

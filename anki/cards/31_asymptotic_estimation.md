@@ -44,7 +44,7 @@ $X_n\xrightarrow{a.s.}\theta$ の定義を書け。
 ## 使用公式・定理
 $$P\left(\lim_{n\to\infty}X_n=\theta\right)=1.$$
 ## 計算例
-非負な $Y_n\ge0$ で $\sum_{n=1}^\infty E[Y_n]<\infty$ なら単調収束定理から $E[\sum_{n=1}^\infty Y_n]=\sum_{n=1}^\infty E[Y_n]<\infty$ となる。よって $\sum_{n=1}^\infty Y_n$ はほとんど確実に有限（すなわち収束）し、独立であることは不要である。
+非負な $Y_n\ge0$ で $\sum_{n=1}^\infty E[Y_n]<\infty$ なら単調収束定理から $E[\sum_{n=1}^\infty Y_n]<\infty$ となる。よって $\sum_{n=1}^\infty Y_n<\infty$ がほとんど確実に成り立ち、特に $Y_n\to0$ は概収束する。独立性は不要である。
 ## 注意
 概収束は確率収束より強い含意関係にある。
 
@@ -404,7 +404,7 @@ sources: [{ type: official_syllabus, topic: 漸近理論 }]
 ## 問題
 推定量 $T_n$ の漸近分散と漸近標準誤差を定義せよ。
 ## 答え
-$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ のとき $v$ を漸近分散とし、$v/n$ をその推定量からの標準誤差として使う。
+$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ のとき $v$ を $\sqrt n(T_n-\theta)$ の漸近分散と呼ぶ。したがって $T_n$ の分散は大標本で $v/n$、漸近標準誤差は $\sqrt{v/n}$ と近似する。
 ## 使用公式・定理
 漸近分散 $=v$、漸近標準誤差 $=\sqrt{v/n}$（$v$ を $\widehat v$ で置換）。
 ## 計算例
@@ -434,7 +434,7 @@ sources: [{ type: official_syllabus, topic: 漸近理論 }]
 ## 使用公式・定理
 $$\operatorname{ARE}(T,U)=\frac{v_U}{v_T},\qquad v_T=\operatorname{AVar}(\sqrt n\,T_n),\ v_U=\operatorname{AVar}(\sqrt n\,U_n).$$
 ## 計算例
-正規母集団で標本平均の極限分散 $\sigma^2$、標本中央値の極限分散 $\pi\sigma^2/2$ なら $\operatorname{ARE}=2/\pi\approx0.637$。
+正規母集団で $T_n=$ 標本中央値、$U_n=$ 標本平均とすると、$v_T=\pi\sigma^2/2$、$v_U=\sigma^2$ なので $\operatorname{ARE}(T,U)=2/\pi\approx0.637$。
 ## 注意
 1より小さいほど相対的に情報量が少ない。
 
@@ -458,9 +458,9 @@ sources: [{ type: official_syllabus, topic: 漸近理論 }]
 ## 答え
 確率的有界 $O_p$ と、確率収束して0になる $o_p$ を定義する。
 ## 使用公式・定理
-$X_n=O_p(a_n)\iff\forall\varepsilon\ \exists M\ \forall n:\ P(|X_n/a_n|>M)<\varepsilon$。$X_n=o_p(1)\iff X_n\xrightarrow{p}0$。
+$X_n=O_p(a_n)$ とは、任意の $\varepsilon>0$ に対して、ある $M>0$ と $N$ が存在し、すべての $n\ge N$ で $P(|X_n/a_n|>M)<\varepsilon$ となること。$X_n=o_p(a_n)$ とは $X_n/a_n\xrightarrow{p}0$ となることであり、特に $X_n=o_p(1)\iff X_n\xrightarrow{p}0$。
 ## 計算例
-$\overline X_n-\mu=O_p(n^{-1/2})$、$\sqrt n(\overline X_n-\mu)=O_p(1)$、$n^{-1}\sum_{i=1}^n(X_i-\mu)^3=o_p(1)$（3次モーメント有限下）。
+$\overline X_n-\mu=O_p(n^{-1/2})$、$\sqrt n(\overline X_n-\mu)=O_p(1)$。また $E|X_i|^3<\infty$ なら、$m_3=E[(X_i-\mu)^3]$ として $n^{-1}\sum_{i=1}^n(X_i-\mu)^3-m_3=o_p(1)$。
 ## 注意
 $O_p$ は確率的有界、$o_p$ は確率収束して0。
 

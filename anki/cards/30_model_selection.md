@@ -12,9 +12,9 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: モデル評価基準 }]
 ---
 ## 問題
-モデルの複雑さを増やしたとき、訓練データでの誤差と未知データでの誤差（汎化誤差）がどう変化するか説明せよ。
+入れ子になったモデル族で複雑さを増やしたとき、訓練データでの誤差と未知データでの誤差（汎化誤差）がどう変化するか説明せよ。
 ## 答え
-訓練誤差は単調に減るが、汎化誤差は最小点を過ぎると増え始める。この最小点を過ぎた後の汎化誤差の増大を過学習という。
+入れ子のモデル族では訓練誤差は非増加だが、汎化誤差は複雑さとともに減少した後、増加に転じることがある。訓練データへ過度に適合して未知データでの誤差が大きくなる状態を過学習という。
 ## 使用公式・定理
 汎化誤差 $= E_{(X,Y)}[L(\widehat f(X),Y)]$。期待は未知データの分布について取る。
 ## 計算例
@@ -26,7 +26,7 @@ sources: [{ type: official_syllabus, topic: モデル評価基準 }]
 
 ---
 id: ms-train-test-error
-title: 訓練誤差とテスト誤差を比較してモデルを選ぶ
+title: 訓練誤差と検証誤差を比較してモデルを選ぶ
 category: math-estimation
 subcategory: math-model-selection
 topic: train-test-error
@@ -38,15 +38,15 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: モデル評価基準 }]
 ---
 ## 問題
-候補モデルが2つある。訓練MSEとテストMSEがそれぞれ $(0.30,0.55)$ と $(0.50,0.48)$ のとき、未知データへの適応でどちらを選ぶか。
+候補モデルが2つある。訓練MSEと検証MSEがそれぞれ $(0.30,0.55)$ と $(0.50,0.48)$ のとき、未知データへの予測を目的としてどちらを選ぶか。
 ## 答え
-汎化性能の指標であるテスト誤差が小さい方を選ぶ。
+モデル選択に使う検証誤差が小さい方を選ぶ。
 ## 使用公式・定理
-テスト誤差 $= \dfrac1{m_{\mathrm{test}}}\sum_{i=1}^{m_{\mathrm{test}}}L(\widehat f(X_i),Y_i)$（未知データで評価）。
+検証誤差 $= \dfrac1{m_{\mathrm{val}}}\sum_{i=1}^{m_{\mathrm{val}}}L(\widehat f(X_i),Y_i)$。学習に使わない検証データで候補を比較する。
 ## 計算例
-モデル1のテストMSE $0.55$ > モデル2の $0.48$。よってモデル2を選ぶ。モデル1は訓練誤差 $0.30$ が小さいが過学習の疑い。
+モデル1の検証MSE $0.55$ > モデル2の $0.48$。よってモデル2を選ぶ。モデル1は訓練誤差 $0.30$ が小さいが過学習の疑いがある。
 ## 注意
-テストデータは模型選択に一度しか使えない。
+テストデータはモデル選択に使わず、モデルと調整値を確定した後の最終評価にだけ使う。検証データを繰り返し見て調整すると、検証データにも過学習しうる。
 
 <!-- CARD -->
 
@@ -118,7 +118,7 @@ sources: [{ type: official_syllabus, topic: AIC }]
 ## 問題
 標本サイズ $n$、最大化対数尤度 $\ell(\widehat\theta)$、推定母数数 $k$ のモデルのAICを定義せよ。
 ## 答え
-予測誤差の不偏推定量を $2$ 倍したもので、対数尤度が大きいほど、母数が少ないほど小さくなる。
+正則なモデルで、期待KL損失を定数差を除いて推定する規準である。対数尤度が大きいほど、推定母数数が少ないほど小さくなる。
 ## 使用公式・定理
 $\operatorname{AIC}=-2\ell(\widehat\theta)+2k$。
 ## 計算例
@@ -146,7 +146,9 @@ sources: [{ type: official_syllabus, topic: AIC }]
 ## 答え
 予測対数尤度の期待値と訓練対数尤度の差が $k$ で漸近評価できるため。
 ## 使用公式・定理
-$\operatorname{AIC}\approx -2\sum_{i=1}^n\log f(X_i;\widehat\theta_{-i})+2k$ の形へ展開（$f$ は密度、$\widehat\theta_{-i}$ は $i$ 件目を抜いた推定量）。
+正則なモデルでは、AICとLOOCVの負の予測対数尤度は、モデル比較に共通な定数と尺度を除いて漸近的に同じ評価を与える。すなわち
+$$\operatorname{AIC}=-2\ell(\widehat\theta)+2k\ \approx\ -2\sum_{i=1}^n\log f(X_i;\widehat\theta_{-i}).$$
+$f$ は密度、$\widehat\theta_{-i}$ は $i$ 番目を除いて求めた推定量である。LOOCV側へさらに $2k$ を加えない。
 ## 計算例
 線形回帰・正規誤差モデルでは $\operatorname{AIC}=n\log(\widehat\sigma^2)+2k+C$（$C$ は定数）。これは $\widehat\sigma^2$ によるLOOCV評価と $n\to\infty$ で一致する。
 ## 注意
@@ -176,7 +178,7 @@ $\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n$。
 ## 計算例
 $\ell(\widehat\theta)=-100$、$k=3$、$n=200$ なら $\operatorname{BIC}=-2(-100)+3\log200\approx200+3\cdot5.30=215.9$。
 ## 注意
-小さいBICを選ぶ。AICより複雑なモデルに強くペナルティを置く。
+小さいBICを選ぶ。$n>e^2$ なら $\log n>2$ なので、同じ $k$ に対するペナルティはAICより強い。
 
 <!-- CARD -->
 
@@ -196,7 +198,7 @@ sources: [{ type: official_syllabus, topic: モデル評価基準 }]
 ## 問題
 真の分布が候補モデル群に含まれるとき、BICによるモデル選択の大標本極限の性質は何か。
 ## 答え
-真のモデル（最も小さい真を含む）を確率1で選ぶ。すなわちBICは一致性を持つ。
+正則性などの条件の下で、真のモデル（真の分布を含む最小の候補）を選ぶ確率が $1$ へ収束する。すなわちBICはモデル選択一致性を持つ。
 ## 使用公式・定理
 $n\to\infty$ で $P(\text{BICが真のモデルを選ぶ})\to1$。
 ## 計算例
@@ -332,7 +334,7 @@ $\widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(\boldsymbol X^{\mathsf T}\boldsymb
 ## 計算例
 $p=2$、$\boldsymbol X^{\mathsf T}\boldsymbol X=\begin{pmatrix}1&0.99\\0.99&1\end{pmatrix}$、$\lambda=0.1$ なら $\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I=\begin{pmatrix}1.1&0.99\\0.99&1.1\end{pmatrix}$ となり逆行列が安定する。
 ## 注意
-$\lambda=0$ は最小二乗法推定量に一致する。$\lambda\to\infty$ で $\boldsymbol0$ へ収束。
+$\lambda=0$ は最小二乗法推定量に一致する。$\lambda\to\infty$ で、ペナルティ対象の係数は $\boldsymbol0$ へ収束する。通常は説明変数を標準化し、切片はペナルティから除く。
 
 <!-- CARD -->
 
@@ -384,7 +386,7 @@ $\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=\arg\min_{\boldsymbol\beta}\left\{\
 ## 計算例
 $\lambda=1$、$p=3$ なら $\sum|\beta_j|\le s$ の菱形領域で二乗誤差を最小化する。$\beta_2,\beta_3$ がちょうど0になることがある。
 ## 注意
-$\lambda$ が大きいと多くの係数が0になる。
+$\lambda$ が大きいと多くの係数が0になる。通常は説明変数を標準化し、切片はペナルティから除く。
 
 <!-- CARD -->
 
@@ -442,7 +444,7 @@ $\lambda=0$（最小二乗法）でバリアンス大・バイアス0、$\lambda
 
 ---
 id: ms-lasso-selection
-title: Lassoの変数選択性（オラクル性）を確認する
+title: Lassoの変数選択性と成立条件を確認する
 category: math-estimation
 subcategory: math-model-selection
 topic: lasso-selection
@@ -454,15 +456,15 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: L1正則化法 }]
 ---
 ## 問題
-真の係数がスパース（多くが0）のとき、Lassoが持つ変数選択に関する性質を述べよ。
+真の係数がスパース（多くが0）のとき、Lassoが持つ変数選択性と、その限界を述べよ。
 ## 答え
-適切な $\lambda$ の下で、真に非零な変数を選び、零な変数の係数を0にする方向へ寄る（オラクル性に近い）。
+Lassoは係数を厳密に0にできるため変数選択を同時に行える。ただし、通常のLassoが自動的に選択一致性やオラクル性を持つわけではない。真の変数集合を確率1で回復するには、設計行列に対する条件（irrepresentable conditionなど）、信号強度、$\lambda$ の減少速度に条件が要る。
 ## 使用公式・定理
-非ゼロ係数数 $s\ll p$ の下で $\lambda\asymp\sqrt{\log p/n}$ 程度で一致性・選択一致性が示される。
+直交設計では各最小二乗係数へのsoft-thresholdingとなり、しきい値を超えない係数が0になる。一般の設計では、$\ell_1$ 推定誤差の一致性と、真の変数集合を当てる選択一致性は別の性質である。
 ## 計算例
-真が $\beta=(1,0,0,2,0)$ のとき、Lassoは $j=2,5$ の係数を0にし、$1,3,4$ を残す選択を行いうる。
+真が $\beta=(1,0,0,2,0)$ のとき、適切な条件下で目標となる選択は $j=1,4$ を残し、$j=2,3,5$ を0にすることである。
 ## 注意
-強相関変数があると選択が不安定になりうる。
+強相関変数があると選択が不安定になり、選択一致性の条件が破れることがある。「Lassoは常に真の変数を選ぶ」とは書かない。
 
 <!-- CARD -->
 

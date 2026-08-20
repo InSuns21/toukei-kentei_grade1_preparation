@@ -87,7 +87,7 @@ $n$ 個の独立試行が確率 $p_j$（$\sum_jp_j=1$）で $d$ カテゴリー�
 $$X^2=\sum_{j=1}^d\frac{(O_j-E_j)^2}{E_j}\ \overset{d}{\longrightarrow}\ \chi^2_{d-1}.$$
 自由度は $d-1$ である。これは多項標本の度数分布 $O_j$ と期待度数 $E_j=np_j$ の隔たりを測り、適合度検定として使う。
 ## 使用公式・定理
-各部分 $\frac{O_j-np_j}{\sqrt{np_j}}$ は平均0・分散1に漸近正規だが、$\sum_j(O_j-np_j)=0$ の1本の線形制約で自由度が1減る。既存の多項分布の確率質量関数（$\operatorname{Multinomial}(n;p_1,\ldots,p_d)$、周辺は二項、共分散は負）は `dist-multinomial-definition` を参照。
+度数ベクトルの平均は $np$、共分散行列は $n\{\operatorname{diag}(p)-pp^{\mathsf T}\}$ である。標準化残差は互いに相関し、$\sum_j(O_j-np_j)=0$ という1本の線形制約があるため、二次形式 $X^2$ の自由度は $d-1$ となる。既存の多項分布の確率質量関数（$\operatorname{Multinomial}(n;p_1,\ldots,p_d)$、周辺は二項、共分散は負）は `dist-multinomial-definition` を参照。
 ## 計算例
 $n=200$、$d=3$、帰無仮説 $p=(0.5,0.3,0.2)$、観測 $(94,63,43)$ なら $E=(100,60,40)$ で
 $$X^2=\frac{(94-100)^2}{100}+\frac{(63-60)^2}{60}+\frac{(43-40)^2}{40}=0.36+0.15+0.225=0.735,$$
@@ -95,7 +95,7 @@ $$X^2=\frac{(94-100)^2}{100}+\frac{(63-60)^2}{60}+\frac{(43-40)^2}{40}=0.36+0.15
 ## 一手
 「多項標本の度数分布」を扱うときは期待度数 $E_j=np_j$ を先に計算し、$(O_j-E_j)^2/E_j$ の和を取り、自由度 $d-1$ のカイ二乗分布と比較する。
 ## 注意
-各セルの期待度数 $E_j=np_j$ が十分大きい（慣例として5以上）必要がある。多項分布の確率質量関数そのものは既存 `dist-multinomial-definition`・`dist-multinomial-moments` と重複するため、本カードは標本分布としての漸近・検定への接続に限定する。
+各セルの期待度数 $E_j=np_j$ が十分大きい必要がある。$p_j$ をデータから $q$ 個の独立な母数で推定した場合、自由度は $d-1-q$ になる。多項分布の確率質量関数そのものは既存 `dist-multinomial-definition`・`dist-multinomial-moments` と重複するため、本カードは標本分布としての漸近・検定への接続に限定する。
 <!-- CARD -->
 ---
 id: samp-sample-correlation-basic

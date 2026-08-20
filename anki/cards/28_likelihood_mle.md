@@ -251,7 +251,7 @@ $\widehat\theta=X_{(n)}=\max_i X_i.$
 $L(\theta;x)=\theta^{-n}\prod_i 1\{0<x_i<\theta\}.$
 これは $\theta\ge X_{(n)}$ で $\theta^{-n}$ であり、$\theta$ が小さいほど大きい。よって $\widehat\theta=X_{(n)}$。
 ## 計算例
-観測値 $2,5,3,0$ なら $\widehat\theta=5$。
+観測値 $2,5,3,1$ なら $\widehat\theta=5$。
 ## 注意
 台が母数に依存する例。スコア方程式は使えず、指示関数込みで最大化する。
 <!-- CARD -->
@@ -300,7 +300,7 @@ $\widehat\theta$ が $\theta$ の最尤推定量であるとき、関数 $g$ に
 $\widehat{g(\theta)}=g(\widehat\theta).$
 最尤推定量は任意の関数 $g$ に対して変換不変である。単調性は不要。
 ## 使用公式・定理
-$\mathop{\rm arg\,max}_\theta L(\theta)=\theta_0$ のとき、$\phi=g(\theta)$ の再母数化 $L(g^{-1}(\phi))$ の最大点は $\phi_0=g(\theta_0)$。$g$ が全射で逆を持つ仮定の下で成り立つ。
+$\phi=g(\theta)$ の尤度を $L^*(\phi)=\sup_{\theta:g(\theta)=\phi}L(\theta)$ と定めると、$\widehat\theta$ が $L$ を最大化するため $g(\widehat\theta)$ は $L^*$ を最大化する。したがって $g$ が1対1でなくてもよく、単調性も不要である。最大点が複数ある場合は推定値も集合として扱う。
 ## 計算例
 $X\sim\operatorname{Poisson}(\lambda)$、$\widehat\lambda=\overline X$ なら $\sqrt\lambda$ の最尤推定量は $\sqrt{\overline X}$。
 ## 一手
@@ -348,7 +348,7 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 答え
 $\sqrt n(\widehat\theta_n-\theta_0)\xrightarrow{d}N\left(0,\frac1{I_1(\theta_0)}\right).$
 ## 使用公式・定理
-スコアの期待値0・分散 $I_n=nI_1$、中心極限定理より $n^{-1/2}U(\theta_0)\xrightarrow{d}N(0,I_1)$。対数尤度の二階導関数は $nI_1$ へ収束し、一次近似を解くと上記を得る。
+スコアの期待値0・分散 $I_n=nI_1$、中心極限定理より $n^{-1/2}U(\theta_0)\xrightarrow{d}N(0,I_1)$。また $-n^{-1}\ell''(\theta_0)\xrightarrow{p}I_1(\theta_0)$ である。スコア方程式を真値のまわりで一次展開して解くと上記を得る。
 ## 計算例
 $X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$I_1(\lambda)=1/\lambda$ なので
 $\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda).$
@@ -428,7 +428,7 @@ $f(x;\theta)=g_\theta(T(x))\,h(x)$
 ## 計算例
 $\operatorname{Bernoulli}(p)$ の $T=\sum_i x_i$：$p^T(1-p)^{n-T}\cdot1$ と書け、$h(x)=1$、$g_p(T)=p^T(1-p)^{n-T}$。
 ## 一手
-「$\theta$ と $x$ が分離可能な因子 $g_\theta(T(x))$ と $h(x)$ に分解できる」ことを確認する。台の指示関数は $h(x)$ へ。
+「$\theta$ と $x$ が分離可能な因子 $g_\theta(T(x))$ と $h(x)$ に分解できる」ことを確認する。台が母数に依存しない指示関数だけを $h(x)$ に入れられる。$U(0,\theta)$ の $1\{X_{(n)}\le\theta\}$ のような母数依存の指示関数は $g_\theta(T(x))$ 側へ入れる。
 <!-- CARD -->
 ---
 id: suff-bernoulli
@@ -546,13 +546,15 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 問題
 観測値 $x$ と $y$ の対数尤度比が $\theta$ に依存しないことを用いて、$T$ が最小十分統計量であることを判定する方法を述べよ。
 ## 答え
-任意の $\theta_1,\theta_2$ に対して
-$\frac{L(\theta_1;x)}{L(\theta_2;x)}=\frac{L(\theta_1;y)}{L(\theta_2;y)}\iff T(x)=T(y)$
-が成り立てば $T$ は最小十分。
+共通の台を持つ密度族で、任意の標本点 $x,y$ に対し
+$$\frac{f_\theta(x)}{f_\theta(y)}\text{ が }\theta\text{ に依存しない}\iff T(x)=T(y)$$
+が成り立てば $T$ は最小十分である。
 ## 使用公式・定理
-$\theta$ に依らないことと $T$ の同一値が同値になる統計量が最小十分。
+標本点 $x,y$ の尤度が母数によらない定数倍になることと、$T(x)=T(y)$ が同値になる統計量が最小十分。
 ## 計算例
-Bernoulli の $T=\sum x_i$：$L(p_1;x)/L(p_2;x)=(p_1/p_2)^{\sum x_i}\{(1-p_1)/(1-p_2)\}^{n-\sum x_i}$ は $\sum x_i=T(x)$ でのみ決まり、$T$ は最小十分。
+Bernoulli では
+$$\frac{f_p(x)}{f_p(y)}=\left(\frac{p}{1-p}\right)^{\sum_i x_i-\sum_i y_i}$$
+である。これが $p$ に依存しないことと $\sum_i x_i=\sum_i y_i$ は同値なので、$T=\sum_iX_i$ は最小十分である。
 ## 一手
 対数尤度比が $T$ の関数にしか依存しないことを示す。
 <!-- CARD -->
@@ -630,7 +632,7 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 計算例
 $\operatorname{Poisson}(\lambda)$ の $T=\sum X_i$ は完備十分。$\overline X$ は $\lambda$ の不偏で、$T$ の関数なので UMVU である。
 ## 一手
-「完備十十分」$\Rightarrow$ 不変・一意・最良。$\delta(T)$ を $T$ の関数で見つければ UMVU。
+「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ UMVU。
 <!-- CARD -->
 ---
 id: rao-blackwell
@@ -799,7 +801,7 @@ sources: [{ type: official_syllabus, topic: 順序統計量 }]
 ## 問題
 順序統計量が常に十分統計量であることを説明せよ。
 ## 答え
-任意の分布族（台が母数に依存しない場合）で、順序統計量 $X_{(1)}<\cdots<X_{(n)}$ は十分統計量。観測値の並び（順序）は母数についての情報を持たないから。
+独立同分布標本では、順序統計量全体 $X_{(1)}\le\cdots\le X_{(n)}$ は十分統計量である。観測値に付いた添字の並びは母数についての情報を持たないからである。
 ## 使用公式・定理
 母数の情報は値の集合にのみ含まれ、順列は $\theta$ に依存しない因子 $1/n!$ でしか効かない。
 ## 計算例
@@ -873,13 +875,13 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 有効スコア関数 }]
 ---
 ## 問題
-$\theta\ne\theta_0$ のとき、真分布 $f_\theta$ のもとで $E_{\theta_0}[\log f(X;\theta)] < E_{\theta_0}[\log f(X;\theta_0)]$ が成り立つことを説明せよ。
+$\theta\ne\theta_0$ のとき、真分布 $f_{\theta_0}$ のもとで $E_{\theta_0}[\log f(X;\theta)] < E_{\theta_0}[\log f(X;\theta_0)]$ が成り立つことを説明せよ。
 ## 答え
 Jensenの不等式を $\log$（凹関数）と密度比 $f_\theta/f_{\theta_0}$ に用いる：
 $E_{\theta_0}\!\left[\log\frac{f(X;\theta)}{f(X;\theta_0)}\right]\le\log E_{\theta_0}\!\left[\frac{f(X;\theta)}{f(X;\theta_0)}\right]=\log1=0.$
 不等式で起こり、$\theta\ne\theta_0$ では真に $<0$（識別可能性）。
 ## 使用公式・定理
-$E_{\theta_0}[f(X;\theta)/f(X;\theta_0)]=1$。$\log$ が狭い意味で凹なので、$f_\theta\ne f_{\theta_0}$ なら期待値は負。
+共通の台を持つとき $E_{\theta_0}[f(X;\theta)/f(X;\theta_0)]=1$。$\log$ が狭い意味で凹なので、$f_\theta\ne f_{\theta_0}$ なら期待値は負。台が異なる場合はKL情報量を用いた別扱いが必要になる。
 ## 計算例
 平均のみが異なる2つの正規分布では、真の平均で対数尤度の期待値が最大。
 ## 一手
