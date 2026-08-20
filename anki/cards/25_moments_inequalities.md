@@ -207,7 +207,7 @@ $$E[X^2]=2\ge g(E[X])=1^2=1.$$
 凸なら「関数の期待値 ≥ 期待値の関数」、凹なら逆向き。$x^2,e^x$ は凸、$\log x,\sqrt x$ は凹。
 
 ## 注意
-等号 $E[g(X)]=g(E[X])$ は、$X$ が退化分布（確率1で定数）のときに成り立つ。ただし $g$ が線形関数（$g(x)=ax+b$）の場合は非退化でも両辺が一致するので、関数と分布の両方を確認する。分散が正の非退化分布かつ凸関数が非線形なら狭く成り立つ。
+等号 $E[g(X)]=g(E[X])$ は、$X$ が確率1で定数なら成り立つ。非退化な $X$ でも、$g$ が $X$ の値域の凸包上で線形なら等号になりうる。したがって、非退化な $X$ に対して狭義不等号を結論するには、$g$ がその値域の凸包上で狭義凸であることを確認する。
 
 <!-- CARD -->
 ---
@@ -258,7 +258,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 分散 }]
 ---
 ## 問題
-$E[X]=\mu,\ \operatorname{Var}(X)=\sigma^2$ のとき、$P(\lvert X-\mu\rvert\ge k\sigma)$ の上界を求めよ。
+$E[X]=\mu,\ 0<\operatorname{Var}(X)=\sigma^2<\infty$ のとき、$P(\lvert X-\mu\rvert\ge k\sigma)$ の上界を求めよ。
 
 ## 答え
 $$P(\lvert X-\mu\rvert\ge k\sigma)\le\frac{1}{k^2},\quad k>0.$$

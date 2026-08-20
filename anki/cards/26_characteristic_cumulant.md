@@ -6,7 +6,7 @@ subcategory: math-distribution-functions
 topic: characteristic-function-definition
 type: recognition
 difficulty: 2
-priority: S
+priority: A
 hashtags: [特性関数, 定義, 存在]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -31,7 +31,7 @@ $t$ が虚数でない実数なら $\lvert e^{it}\rvert=1$ で収束が保証さ
 $\lvert e^{itX}\rvert=1$ だから、どんな分布でも $\varphi_X(t)$ は絶対収束する。母関数と使い分ける。
 
 ## 注意
-特性関数は実軸全体で定義される。モーメント母関数と異なり、$t$ の虚数部を持たないことが存在の鍵。
+特性関数は実軸全体で定義される。$t$ は実数だが指数が $itX$ となり、$e^{itX}$ の絶対値が常に1であることが存在の鍵。
 
 <!-- CARD -->
 ---
@@ -42,7 +42,7 @@ subcategory: math-distribution-functions
 topic: characteristic-function-sum
 type: theorem
 difficulty: 2
-priority: S
+priority: A
 hashtags: [特性関数, 独立和, 積]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -77,7 +77,7 @@ subcategory: math-distribution-functions
 topic: characteristic-function-uniqueness
 type: theorem
 difficulty: 3
-priority: S
+priority: A
 hashtags: [特性関数, 一意性, 分布の同定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -109,7 +109,7 @@ subcategory: math-distribution-functions
 topic: characteristic-function-normal
 type: calc_step
 difficulty: 3
-priority: S
+priority: B
 hashtags: [特性関数, 正規分布, モーメント母関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -131,7 +131,7 @@ $X\sim N(2,9)$ なら $\varphi_X(t)=e^{i2t-\frac{9t^2}{2}}$。$t$ は実数で�
 正規分布は特性関数が既知の代表例。$it$ の置き換えでモーメント母関数から得る。モーメント母関数の形の同定は既存の `prob-mgf-identify-normal` を参照。
 
 ## 注意
-$N(\mu,\sigma^2)$ の第2引数は分散。$N(\mu,\sigma^2)$ のモーメント母関数は指数部が $t$ の整関数（多項式）なので、$t\mapsto it$ の置き換えはこの場合に解析接続として正当化される。一般の分布では $M_X(it)=E[e^{itX}]$ がモーメント母関数への $it$ の形式的代入と必ずしも一致しない点に注意。指数部の符号が $-\sigma^2t^2/2$ になる点も確認する。
+$N(\mu,\sigma^2)$ の第2引数は分散。正規分布のモーメント母関数の公式は複素平面へ延長できるので、この場合は $t\mapsto it$ の置き換えが正当化される。一般には、実変数のモーメント母関数の公式へ形式的に $it$ を代入せず、特性関数 $E[e^{itX}]$ を定義から扱う。指数部の符号が $-\sigma^2t^2/2$ になる点も確認する。
 
 <!-- CARD -->
 ---
@@ -142,7 +142,7 @@ subcategory: math-distribution-functions
 topic: cumulant-mgf
 type: recognition
 difficulty: 3
-priority: S
+priority: B
 hashtags: [キュムラント母関数, 対数, モーメント母関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: キュムラント母関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -151,7 +151,7 @@ sources: [{ type: additional, topic: キュムラント母関数（公式MGF/PGF
 キュムラント母関数 $K_X(t)=\log M_X(t)$ を定義し、その展開 $K_X(t)=\sum_{r\ge1}\kappa_r t^r/r!$ の係数 $\kappa_r$（第 $r$ キュムラント）から、第1・第2キュムラントと期待値・分散の関係を述べよ。
 
 ## 答え
-$M_X(t)$ をモーメント母関数とし、原点の近傍で $M_X(t)>0$ のとき
+$M_X(t)$ をモーメント母関数とし、原点を含む開区間で $M_X(t)$ が有限であるとき
 $$K_X(t)=\log M_X(t).$$
 これを $t=0$ で展開し、$\kappa_r$ を第 $r$ キュムラントとすると
 $$K_X(t)=\sum_{r=1}^{\infty}\kappa_r\frac{t^r}{r!},\qquad \kappa_1=E[X],\quad \kappa_2=\operatorname{Var}(X).$$
@@ -179,7 +179,7 @@ subcategory: math-distribution-functions
 topic: cumulant-sum
 type: theorem
 difficulty: 3
-priority: A
+priority: B
 hashtags: [キュムラント, 独立和, 加法性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: キュムラント母関数（公式MGF/PGFの拡張・ユーザー要請） }]
@@ -204,7 +204,7 @@ $$\kappa_1=\mu_1+\mu_2,\quad \kappa_2=\sigma_1^2+\sigma_2^2,$$
 和の母関数＝積 → 対数で和 → キュムラントの加法性が瞬時に出る。
 
 ## 注意
-期待値・分散だけでなくすべての次数で加法性が成り立ち、「和の分布の同定」に強力。
+$0$ の共通近傍で各モーメント母関数が有限なら、期待値・分散だけでなくすべての次数で加法性が成り立ち、「和の分布の同定」に強力。独立性も不可欠である。
 
 <!-- CARD -->
 ---
@@ -215,13 +215,13 @@ subcategory: math-distribution-functions
 topic: characteristic-no-mgf
 type: pitfall
 difficulty: 3
-priority: S
+priority: B
 hashtags: [特性関数, モーメント母関数, 存在]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
 ---
 ## 問題
-対数正規分布やコーシー分布ではモーメント母関数が存在しない。それらでも特性関数は定義されるか。
+対数正規分布やコーシー分布では、原点を含む開区間で有限なモーメント母関数が存在しない。それらでも特性関数は定義されるか。
 
 ## 答え
 定義される。特性関数 $\varphi_X(t)=E[e^{itX}]$ は $\lvert e^{itX}\rvert=1$ により常に絶対収束する。モーメント母関数の不存在と特性関数の存在は両立する。
