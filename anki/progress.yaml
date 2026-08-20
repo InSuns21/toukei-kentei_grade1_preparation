@@ -1,6 +1,6 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-20
+updated_at: 2026-08-21
 reviewed_card_count: 560
 current_work: null
 next_work: C12-testing-foundations-derivation
@@ -1076,8 +1076,8 @@ work:
       - math-testing-foundations
       - math-test-derivation
     target:
-      min: 45
-      max: 50
+      min: 50
+      max: 60
     status: planned
     review_dir: review/C12-testing-foundations-derivation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1127,8 +1127,8 @@ work:
       - math-normal-tests
       - math-various-tests
     target:
-      min: 40
-      max: 45
+      min: 45
+      max: 55
     status: planned
     review_dir: review/C13-normal-various-tests
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1164,8 +1164,8 @@ work:
       - math-anova
       - math-regression
     target:
-      min: 55
-      max: 60
+      min: 65
+      max: 75
     status: planned
     review_dir: review/C14-anova-regression
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1220,8 +1220,8 @@ work:
       - math-contingency-tables
       - math-nonparametric
     target:
-      min: 40
-      max: 50
+      min: 45
+      max: 55
     status: planned
     review_dir: review/C15-contingency-nonparametric
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1266,8 +1266,8 @@ work:
     subcategories:
       - math-incomplete-data
     target:
-      min: 18
-      max: 22
+      min: 25
+      max: 30
     status: planned
     review_dir: review/C16-incomplete-data
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1297,8 +1297,8 @@ work:
     subcategories:
       - math-simulation
     target:
-      min: 30
-      max: 40
+      min: 35
+      max: 45
     status: planned
     review_dir: review/C17-simulation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1328,8 +1328,8 @@ work:
     subcategories:
       - math-bayesian-methods
     target:
-      min: 40
-      max: 45
+      min: 45
+      max: 55
     status: planned
     review_dir: review/C18-bayesian-methods
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1364,8 +1364,8 @@ work:
       - applied-research-types
       - applied-sampling
     target:
-      min: 35
-      max: 40
+      min: 40
+      max: 45
     status: planned
     review_dir: review/C19-research-sampling
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1399,8 +1399,8 @@ work:
     subcategories:
       - applied-design
     target:
-      min: 35
-      max: 40
+      min: 40
+      max: 50
     status: planned
     review_dir: review/C20-experimental-design
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1432,8 +1432,8 @@ work:
       - applied-multiple-regression
       - applied-multivariate
     target:
-      min: 60
-      max: 65
+      min: 70
+      max: 80
     status: planned
     review_dir: review/C21-regression-multivariate
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1506,8 +1506,8 @@ work:
       - applied-stochastic-processes
       - applied-time-series
     target:
-      min: 40
-      max: 45
+      min: 50
+      max: 60
     status: planned
     review_dir: review/C22-stochastic-time-series
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1562,8 +1562,8 @@ work:
     subcategories:
       - engineering-multivariate
     target:
-      min: 35
-      max: 40
+      min: 40
+      max: 50
     status: planned
     review_dir: review/C23-engineering-multivariate
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1597,8 +1597,8 @@ work:
     subcategories:
       - engineering-stochastic-processes
     target:
-      min: 40
-      max: 45
+      min: 50
+      max: 60
     status: planned
     review_dir: review/C24-engineering-processes
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1654,8 +1654,8 @@ work:
       - engineering-linear-inference
       - engineering-asymptotics
     target:
-      min: 40
-      max: 45
+      min: 65
+      max: 75
     status: planned
     review_dir: review/C25-engineering-inference-asymptotics
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1728,8 +1728,8 @@ work:
     subcategories:
       - engineering-quality
     target:
-      min: 35
-      max: 40
+      min: 45
+      max: 55
     status: planned
     review_dir: review/C26-engineering-quality
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
@@ -1779,8 +1779,8 @@ work:
     subcategories:
       - engineering-design
     target:
-      min: 35
-      max: 40
+      min: 40
+      max: 50
     status: planned
     review_dir: review/C27-engineering-design
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md

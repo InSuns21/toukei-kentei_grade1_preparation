@@ -100,7 +100,7 @@ const workProjection = Object.entries(progress.work || {}).map(([id, item]) => (
   id, title: item.title, category: item.category, subcategories: item.subcategories, target: item.target, review_dir: item.review_dir,
 }));
 const workPlanHash = createHash("sha256").update(JSON.stringify(workProjection)).digest("hex");
-if (workPlanHash !== "03dd1ff588d2870884aa7f9cee6bc19f623203d9765c5558c484340c3efc28d6") errors.push("意味的に編成した26作業の組合せ・順序・日本語名・枚数目安が変更されています");
+if (workPlanHash !== "a10ab9f4f453fc5977d4528b85af58c12377cccfcff6f5eb6d33070edd3ecb39") errors.push("意味的に編成した26作業の組合せ・順序・日本語名・枚数目安が変更されています");
 const progressSubcategoryIds = Object.values(progress.work || {}).flatMap((item) => item.subcategories || []);
 if (new Set(progressSubcategoryIds).size !== progressSubcategoryIds.length || progressSubcategoryIds.length !== subcategoryIds.size || progressSubcategoryIds.some((id) => !subcategoryIds.has(id))) errors.push("progress.workは対象39サブカテゴリーを重複なく1件ずつ登録します");
 for (const [workId, item] of Object.entries(allWork)) {
