@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 664
+- 公開カード: 738
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -8,7 +8,7 @@
 | 種々の確率分布 | 131 | 3/3 | formula, theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
-| データ解析法の考え方と各種分析手法 | 8 | 6/7 | formula, calc_step, expansion, strategy |
+| データ解析法の考え方と各種分析手法 | 82 | 6/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
@@ -37,8 +37,8 @@
 | 検定法の導出 | complete | test-np-bernoulli, test-likelihood-ratio, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-most-powerful-definition, test-monotone-likelihood-ratio, test-karlin-rubin-principle, test-ump-binomial-one-sided, test-ump-normal-one-sided, test-no-ump-two-sided, test-likelihood-ratio-ordering, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-wilks-restriction-rank, test-wilks-boundary-failure, test-wald-general, test-wald-bernoulli-numeric, test-score-general, test-score-bernoulli-numeric, test-lr-bernoulli-numeric, test-lr-wald-score-comparison, test-local-alternative-power, test-power-binomial-exact, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square, test-score-observed-expected-information |
 | 正規分布に関する検定 | complete | test-normal-z-known-formula, test-normal-z-one-sided-numeric, test-normal-z-left-sided, test-normal-z-two-sided-pvalue, test-normal-t-pivot, test-normal-t-numeric, test-normal-t-assumptions, test-paired-t-construction, test-paired-t-numeric, test-paired-versus-independent, test-pooled-two-sample-t, test-pooled-two-sample-t-numeric, test-welch-two-sample-formula, test-welch-two-sample-numeric, test-pooled-versus-welch, test-normal-variance-chisquare, test-normal-variance-chisquare-numeric, test-normal-variance-one-sided, test-normal-variance-ratio-f, test-normal-variance-ratio-numeric, test-f-reciprocal-quantile, test-normality-test-selection |
 | 種々の検定法 | complete | test-chi-square-fit, test-sign-test, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test, test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2, test-sign-test-numeric, test-wilcoxon-signed-rank, test-mann-whitney-u, test-ks-one-sample, test-permutation-two-sample, test-mcnemar-asymptotic, test-holm-stepdown, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u-numeric, test-ks-one-sample-numeric |
-| 分散分析 | partial | data-anova-decomposition |
-| 回帰分析 | partial | data-ols-slope |
+| 分散分析 | complete | data-anova-decomposition, anova-oneway-model-assumptions, anova-oneway-ss-numeric, anova-oneway-degrees-freedom, anova-oneway-f-statistic, anova-oneway-table-numeric, anova-expected-mean-squares, anova-contrast-definition, anova-contrast-se, anova-contrast-numeric, anova-orthogonal-contrasts, anova-tukey-hsd-formula, anova-tukey-numeric, anova-bonferroni-comparisons, anova-scheffe-bound, anova-multiple-comparison-choice, anova-twoway-model, anova-twoway-ss-balanced, anova-twoway-degrees-freedom, anova-twoway-f-tests, anova-interaction-definition, anova-interaction-contrast-test, anova-interaction-interpretation, anova-no-replication-limitation, anova-randomized-block-model, anova-ancova-model, anova-ancova-adjusted-mean, anova-ancova-parallel-slopes, anova-fixed-random-effects, anova-residual-diagnostics, anova-regression-equivalence |
+| 回帰分析 | complete | data-ols-slope, reg-simple-model-assumptions, reg-ols-normal-equations-simple, reg-ols-simple-formula, reg-fitted-residual-numeric, reg-residual-orthogonality, reg-sst-decomposition, reg-r-squared, reg-simple-r2-correlation, reg-adjusted-r-squared, reg-slope-variance, reg-intercept-variance, reg-error-variance-estimator, reg-slope-t-test, reg-slope-t-numeric, reg-slope-confidence-interval, reg-mean-response-ci, reg-prediction-interval, reg-ci-versus-pi-numeric, reg-multiple-model-matrix, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-coefficient-t-multiple, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared, reg-multiple-correlation, reg-dummy-variable, reg-interaction-dummy-continuous, reg-polynomial-turning-point, reg-log-response-interpretation, reg-multicollinearity-vif, reg-omitted-variable-bias, reg-heteroskedasticity-pattern, reg-gauss-markov-theorem, reg-cooks-distance, reg-regression-to-mean, reg-model-diagnostics-summary, reg-slope-geometric-projection |
 | 分割表の解析 | partial | data-odds-ratio |
 | ノンパラメトリック法 | partial | test-sign-test |
 | 不完全データ | partial | data-em-responsibility |
@@ -167,20 +167,20 @@
 | 種々の検定法 | 二項分布・ポアソン分布など基本的な分布に関する検定 | card | test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test |
 | 種々の検定法 | 適合度の検定 | card | test-chi-square-fit, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2 |
 | 種々の検定法 | ノンパラメトリック検定 | card | test-sign-test, test-sign-test-numeric, test-wilcoxon-signed-rank, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u, test-mann-whitney-u-numeric, test-ks-one-sample, test-ks-one-sample-numeric, test-permutation-two-sample, mathstat-mcnemar-exact-test, test-mcnemar-asymptotic, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary |
-| 分散分析 | 一元配置分散分析 | planned |  |
-| 分散分析 | 二元配置分散分析 | planned |  |
-| 分散分析 | 交互作用 | planned |  |
-| 分散分析 | 共分散分析 | planned |  |
-| 分散分析 | 多重比較 | planned |  |
-| 回帰分析 | 線形単回帰 | planned |  |
-| 回帰分析 | 線形重回帰 | planned |  |
-| 回帰分析 | 最小二乗推定 | planned |  |
-| 回帰分析 | 回帰の分散分析 | planned |  |
-| 回帰分析 | 重相関係数 | planned |  |
-| 回帰分析 | 決定係数 | planned |  |
-| 回帰分析 | 残差 | planned |  |
-| 回帰分析 | 変数変換 | planned |  |
-| 回帰分析 | 平均への回帰（回帰効果） | planned |  |
+| 分散分析 | 一元配置分散分析 | card | data-anova-decomposition, anova-oneway-model-assumptions, anova-oneway-ss-numeric, anova-oneway-degrees-freedom, anova-oneway-f-statistic, anova-oneway-table-numeric, anova-expected-mean-squares, anova-contrast-definition, anova-contrast-se, anova-contrast-numeric, anova-orthogonal-contrasts, anova-regression-equivalence, anova-residual-diagnostics |
+| 分散分析 | 二元配置分散分析 | card | anova-twoway-model, anova-twoway-ss-balanced, anova-twoway-degrees-freedom, anova-twoway-f-tests, anova-no-replication-limitation, anova-randomized-block-model, anova-fixed-random-effects |
+| 分散分析 | 交互作用 | card | anova-twoway-model, anova-interaction-definition, anova-interaction-contrast-test, anova-interaction-interpretation |
+| 分散分析 | 共分散分析 | card | anova-ancova-model, anova-ancova-adjusted-mean, anova-ancova-parallel-slopes |
+| 分散分析 | 多重比較 | card | anova-tukey-hsd-formula, anova-tukey-numeric, anova-bonferroni-comparisons, anova-scheffe-bound, anova-multiple-comparison-choice |
+| 回帰分析 | 線形単回帰 | card | data-ols-slope, reg-simple-model-assumptions, reg-ols-simple-formula, reg-slope-geometric-projection, reg-slope-variance, reg-intercept-variance, reg-slope-t-test, reg-slope-t-numeric, reg-slope-confidence-interval, reg-mean-response-ci, reg-prediction-interval, reg-ci-versus-pi-numeric |
+| 回帰分析 | 線形重回帰 | card | reg-multiple-model-matrix, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-coefficient-t-multiple, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared, reg-dummy-variable, reg-interaction-dummy-continuous, reg-multicollinearity-vif, reg-omitted-variable-bias |
+| 回帰分析 | 最小二乗推定 | card | data-ols-slope, reg-ols-normal-equations-simple, reg-ols-simple-formula, reg-slope-geometric-projection, reg-residual-orthogonality, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-hat-matrix-properties, reg-gauss-markov-theorem |
+| 回帰分析 | 回帰の分散分析 | card | reg-sst-decomposition, reg-error-variance-estimator, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared |
+| 回帰分析 | 重相関係数 | card | reg-simple-r2-correlation, reg-multiple-correlation |
+| 回帰分析 | 決定係数 | card | reg-sst-decomposition, reg-r-squared, reg-simple-r2-correlation, reg-adjusted-r-squared, reg-overall-f-r2 |
+| 回帰分析 | 残差 | card | reg-fitted-residual-numeric, reg-residual-orthogonality, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-heteroskedasticity-pattern, reg-cooks-distance, reg-model-diagnostics-summary |
+| 回帰分析 | 変数変換 | card | reg-polynomial-turning-point, reg-log-response-interpretation |
+| 回帰分析 | 平均への回帰（回帰効果） | card | reg-regression-to-mean |
 | 分割表の解析 | カイ二乗検定 | planned |  |
 | 分割表の解析 | フィッシャー検定 | planned |  |
 | 分割表の解析 | マクネマー検定 | planned |  |

@@ -1344,57 +1344,131 @@ items:
         status: card
         cards: [test-sign-test, test-sign-test-numeric, test-wilcoxon-signed-rank, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u, test-mann-whitney-u-numeric, test-ks-one-sample, test-ks-one-sample-numeric, test-permutation-two-sample, mathstat-mcnemar-exact-test, test-mcnemar-asymptotic, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary]
   - id: math-anova
-    status: partial
+    status: complete
     cards:
       - data-anova-decomposition
+      - anova-oneway-model-assumptions
+      - anova-oneway-ss-numeric
+      - anova-oneway-degrees-freedom
+      - anova-oneway-f-statistic
+      - anova-oneway-table-numeric
+      - anova-expected-mean-squares
+      - anova-contrast-definition
+      - anova-contrast-se
+      - anova-contrast-numeric
+      - anova-orthogonal-contrasts
+      - anova-tukey-hsd-formula
+      - anova-tukey-numeric
+      - anova-bonferroni-comparisons
+      - anova-scheffe-bound
+      - anova-multiple-comparison-choice
+      - anova-twoway-model
+      - anova-twoway-ss-balanced
+      - anova-twoway-degrees-freedom
+      - anova-twoway-f-tests
+      - anova-interaction-definition
+      - anova-interaction-contrast-test
+      - anova-interaction-interpretation
+      - anova-no-replication-limitation
+      - anova-randomized-block-model
+      - anova-ancova-model
+      - anova-ancova-adjusted-mean
+      - anova-ancova-parallel-slopes
+      - anova-fixed-random-effects
+      - anova-residual-diagnostics
+      - anova-regression-equivalence
     terms:
       - name: 一元配置分散分析
-        status: planned
-        cards: []
+        status: card
+        cards: [data-anova-decomposition, anova-oneway-model-assumptions, anova-oneway-ss-numeric, anova-oneway-degrees-freedom, anova-oneway-f-statistic, anova-oneway-table-numeric, anova-expected-mean-squares, anova-contrast-definition, anova-contrast-se, anova-contrast-numeric, anova-orthogonal-contrasts, anova-regression-equivalence, anova-residual-diagnostics]
       - name: 二元配置分散分析
-        status: planned
-        cards: []
+        status: card
+        cards: [anova-twoway-model, anova-twoway-ss-balanced, anova-twoway-degrees-freedom, anova-twoway-f-tests, anova-no-replication-limitation, anova-randomized-block-model, anova-fixed-random-effects]
       - name: 交互作用
-        status: planned
-        cards: []
+        status: card
+        cards: [anova-twoway-model, anova-interaction-definition, anova-interaction-contrast-test, anova-interaction-interpretation]
       - name: 共分散分析
-        status: planned
-        cards: []
+        status: card
+        cards: [anova-ancova-model, anova-ancova-adjusted-mean, anova-ancova-parallel-slopes]
       - name: 多重比較
-        status: planned
-        cards: []
+        status: card
+        cards: [anova-tukey-hsd-formula, anova-tukey-numeric, anova-bonferroni-comparisons, anova-scheffe-bound, anova-multiple-comparison-choice]
   - id: math-regression
-    status: partial
+    status: complete
     cards:
       - data-ols-slope
+      - reg-simple-model-assumptions
+      - reg-ols-normal-equations-simple
+      - reg-ols-simple-formula
+      - reg-fitted-residual-numeric
+      - reg-residual-orthogonality
+      - reg-sst-decomposition
+      - reg-r-squared
+      - reg-simple-r2-correlation
+      - reg-adjusted-r-squared
+      - reg-slope-variance
+      - reg-intercept-variance
+      - reg-error-variance-estimator
+      - reg-slope-t-test
+      - reg-slope-t-numeric
+      - reg-slope-confidence-interval
+      - reg-mean-response-ci
+      - reg-prediction-interval
+      - reg-ci-versus-pi-numeric
+      - reg-multiple-model-matrix
+      - reg-matrix-ols-derivation
+      - reg-beta-unbiased-covariance
+      - reg-hat-matrix-properties
+      - reg-leverage-meaning
+      - reg-residual-variance-leverage
+      - reg-studentized-residual
+      - reg-coefficient-t-multiple
+      - reg-overall-f-test
+      - reg-overall-f-r2
+      - reg-partial-f-test
+      - reg-partial-f-numeric
+      - reg-f-equals-t-squared
+      - reg-multiple-correlation
+      - reg-dummy-variable
+      - reg-interaction-dummy-continuous
+      - reg-polynomial-turning-point
+      - reg-log-response-interpretation
+      - reg-multicollinearity-vif
+      - reg-omitted-variable-bias
+      - reg-heteroskedasticity-pattern
+      - reg-gauss-markov-theorem
+      - reg-cooks-distance
+      - reg-regression-to-mean
+      - reg-model-diagnostics-summary
+      - reg-slope-geometric-projection
     terms:
       - name: 線形単回帰
-        status: planned
-        cards: []
+        status: card
+        cards: [data-ols-slope, reg-simple-model-assumptions, reg-ols-simple-formula, reg-slope-geometric-projection, reg-slope-variance, reg-intercept-variance, reg-slope-t-test, reg-slope-t-numeric, reg-slope-confidence-interval, reg-mean-response-ci, reg-prediction-interval, reg-ci-versus-pi-numeric]
       - name: 線形重回帰
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-multiple-model-matrix, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-coefficient-t-multiple, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared, reg-dummy-variable, reg-interaction-dummy-continuous, reg-multicollinearity-vif, reg-omitted-variable-bias]
       - name: 最小二乗推定
-        status: planned
-        cards: []
+        status: card
+        cards: [data-ols-slope, reg-ols-normal-equations-simple, reg-ols-simple-formula, reg-slope-geometric-projection, reg-residual-orthogonality, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-hat-matrix-properties, reg-gauss-markov-theorem]
       - name: 回帰の分散分析
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-sst-decomposition, reg-error-variance-estimator, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared]
       - name: 重相関係数
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-simple-r2-correlation, reg-multiple-correlation]
       - name: 決定係数
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-sst-decomposition, reg-r-squared, reg-simple-r2-correlation, reg-adjusted-r-squared, reg-overall-f-r2]
       - name: 残差
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-fitted-residual-numeric, reg-residual-orthogonality, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-heteroskedasticity-pattern, reg-cooks-distance, reg-model-diagnostics-summary]
       - name: 変数変換
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-polynomial-turning-point, reg-log-response-interpretation]
       - name: 平均への回帰（回帰効果）
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-regression-to-mean]
   - id: math-contingency-tables
     status: partial
     cards:

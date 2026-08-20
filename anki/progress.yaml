@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 664
+reviewed_card_count: 738
 current_work: null
-next_work: C14-anova-regression
-last_completed_work: C13-normal-various-tests
+next_work: C15-contingency-nonparametric
+last_completed_work: C14-anova-regression
 summary:
   total: 33
-  planned: 14
+  planned: 13
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 19
+  reviewed: 20
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1290,7 +1290,7 @@ work:
     target:
       min: 65
       max: 75
-    status: planned
+    status: reviewed
     review_dir: review/C14-anova-regression
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 線形回帰・分散分析
@@ -1337,6 +1337,90 @@ work:
       A: 18
       B: 0
       C: 0
+    started_at: 2026-08-20T16:02:38.995Z
+    self_review_at: 2026-08-20T16:18:26.675Z
+    independent_review_at: 2026-08-20T16:18:33.106Z
+    revision_at: 2026-08-20T16:23:32.103Z
+    completed_at: 2026-08-20T16:26:06.079Z
+    added_card_ids:
+      - anova-ancova-adjusted-mean
+      - anova-ancova-model
+      - anova-ancova-parallel-slopes
+      - anova-bonferroni-comparisons
+      - anova-contrast-definition
+      - anova-contrast-numeric
+      - anova-contrast-se
+      - anova-expected-mean-squares
+      - anova-fixed-random-effects
+      - anova-interaction-contrast-test
+      - anova-interaction-definition
+      - anova-interaction-interpretation
+      - anova-multiple-comparison-choice
+      - anova-no-replication-limitation
+      - anova-oneway-degrees-freedom
+      - anova-oneway-f-statistic
+      - anova-oneway-model-assumptions
+      - anova-oneway-ss-numeric
+      - anova-oneway-table-numeric
+      - anova-orthogonal-contrasts
+      - anova-randomized-block-model
+      - anova-regression-equivalence
+      - anova-residual-diagnostics
+      - anova-scheffe-bound
+      - anova-tukey-hsd-formula
+      - anova-tukey-numeric
+      - anova-twoway-degrees-freedom
+      - anova-twoway-f-tests
+      - anova-twoway-model
+      - anova-twoway-ss-balanced
+      - reg-adjusted-r-squared
+      - reg-beta-unbiased-covariance
+      - reg-ci-versus-pi-numeric
+      - reg-coefficient-t-multiple
+      - reg-cooks-distance
+      - reg-dummy-variable
+      - reg-error-variance-estimator
+      - reg-f-equals-t-squared
+      - reg-fitted-residual-numeric
+      - reg-gauss-markov-theorem
+      - reg-hat-matrix-properties
+      - reg-heteroskedasticity-pattern
+      - reg-interaction-dummy-continuous
+      - reg-intercept-variance
+      - reg-leverage-meaning
+      - reg-log-response-interpretation
+      - reg-matrix-ols-derivation
+      - reg-mean-response-ci
+      - reg-model-diagnostics-summary
+      - reg-multicollinearity-vif
+      - reg-multiple-correlation
+      - reg-multiple-model-matrix
+      - reg-ols-normal-equations-simple
+      - reg-ols-simple-formula
+      - reg-omitted-variable-bias
+      - reg-overall-f-r2
+      - reg-overall-f-test
+      - reg-partial-f-numeric
+      - reg-partial-f-test
+      - reg-polynomial-turning-point
+      - reg-prediction-interval
+      - reg-r-squared
+      - reg-regression-to-mean
+      - reg-residual-orthogonality
+      - reg-residual-variance-leverage
+      - reg-simple-model-assumptions
+      - reg-simple-r2-correlation
+      - reg-slope-confidence-interval
+      - reg-slope-geometric-projection
+      - reg-slope-t-numeric
+      - reg-slope-t-test
+      - reg-slope-variance
+      - reg-sst-decomposition
+      - reg-studentized-residual
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C15-contingency-nonparametric:
     title: 分割表の解析・ノンパラメトリック法
     category: math-data-analysis

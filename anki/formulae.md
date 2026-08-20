@@ -2,6 +2,31 @@
 
 このファイルをカード教材で利用する公式・定理・定義の正本とする。カードでは、ここへのリンクだけで済ませず、実際に使う項目を「使用公式・定理」欄へ再掲する。
 
+## 分散分析・回帰分析
+
+- 一元配置モデル：$Y_{ij}=\mu+\alpha_i+\varepsilon_{ij}$、$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2)$。帰無仮説は $\mu_1=\cdots=\mu_a$。
+- 一元配置の平方和：$SS_T=SS_A+SS_E$、$SS_A=\sum_i n_i(\overline Y_{i\cdot}-\overline Y_{\cdot\cdot})^2$、$SS_E=\sum_{i,j}(Y_{ij}-\overline Y_{i\cdot})^2$。
+- 一元配置のF統計量：$F=\{SS_A/(a-1)\}/\{SS_E/(N-a)\}\sim F_{a-1,N-a}$（帰無仮説下）。
+- 対比：$L=\sum_i c_i\mu_i$、$\sum_i c_i=0$。$\operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i c_i^2/n_i}$。
+- Tukey法（等サイズ）：$|\overline Y_i-\overline Y_j|>q_{a,N-a,\alpha}\sqrt{MS_E/n}$ なら群対差を有意とする。
+- Scheffé法：$\widehat L^2/\{MS_E\sum_i c_i^2/n_i\}>(a-1)F_{a-1,N-a,\alpha}$ なら対比を棄却する。
+- 二元配置モデル：$Y_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk}$。
+- 二元配置の自由度：Aは $a-1$、Bは $b-1$、交互作用は $(a-1)(b-1)$、各セル $n$ 反復の誤差は $ab(n-1)$。
+- 2×2交互作用：$(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})$。
+- 共分散分析：$Y_{ij}=\mu+\alpha_i+\beta(X_{ij}-\overline X)+\varepsilon_{ij}$。調整平均は $\overline Y_{i,\mathrm{adj}}=\overline Y_i-\widehat\beta(\overline X_i-\overline X)$。
+- 単回帰の最小二乗推定：$\widehat\beta_1=S_{xy}/S_{xx}$、$\widehat\beta_0=\overline Y-\widehat\beta_1\overline x$。
+- 回帰平方和分解：$SST=SSR+SSE$。決定係数は $R^2=SSR/SST=1-SSE/SST$。
+- 単回帰係数の分散：$\operatorname{Var}(\widehat\beta_1)=\sigma^2/S_{xx}$、$\operatorname{Var}(\widehat\beta_0)=\sigma^2\{1/n+\overline x^2/S_{xx}\}$。
+- 傾きのt検定：$T=(\widehat\beta_1-\beta_{1,0})/\sqrt{MS_E/S_{xx}}\sim t_{n-2}$。
+- 平均応答の信頼区間：$\widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{1/n+(x_0-\overline x)^2/S_{xx}}$。
+- 新観測の予測区間：$\widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{1+1/n+(x_0-\overline x)^2/S_{xx}}$。
+- 重回帰の最小二乗推定：$\widehat{\boldsymbol\beta}=(X^{\mathsf T}X)^{-1}X^{\mathsf T}Y$、$\operatorname{Var}(\widehat{\boldsymbol\beta})=\sigma^2(X^{\mathsf T}X)^{-1}$。
+- ハット行列：$H=X(X^{\mathsf T}X)^{-1}X^{\mathsf T}$ は対称かつ冪等。$\widehat Y=HY$、$e=(I-H)Y$。
+- 回帰全体F検定：$F=\{SSR/p\}/\{SSE/(n-p-1)\}\sim F_{p,n-p-1}$。
+- 部分F検定：$F=\{(SSE_R-SSE_F)/q\}/\{SSE_F/(n-p_F-1)\}\sim F_{q,n-p_F-1}$。
+- Gauss–Markovの定理：$E[\varepsilon\mid X]=0$、$\operatorname{Var}(\varepsilon\mid X)=\sigma^2I$、$X$ 列フルランクの下で最小二乗推定量はBLUE。
+- レバレッジと残差分散：$h_{ii}=H_{ii}$、$\sum_i h_{ii}=p+1$、$\operatorname{Var}(e_i)=\sigma^2(1-h_{ii})$。
+
 ## 正規分布に関する検定・種々の検定法
 
 - 正規母平均（母分散既知）：$Z=(\overline X-\mu_0)/(\sigma/\sqrt n)\sim N(0,1)$。両側検定では $|Z|\ge z_{\alpha/2}$ で棄却する。
