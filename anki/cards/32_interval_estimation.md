@@ -97,7 +97,12 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 使用公式・定理
 $P(a\le Q(X,\theta)\le b)=1-\alpha$ を $\theta$ について同値変形し、$\theta$ を含む区間として表す。
 ## 計算例
-$Q=(\overline X-\mu)/(\sigma/\sqrt n)$ で $a=-z_{\alpha/2},b=z_{\alpha/2}$ とすると $\mu\in[\overline X-z_{\alpha/2}\sigma/\sqrt n,\ \overline X+z_{\alpha/2}\sigma/\sqrt n]$。
+$Q=(\overline X-\mu)/(\sigma/\sqrt n)$ で $a=-z_{\alpha/2},b=z_{\alpha/2}$ とすると
+$$-z_{\alpha/2}\le\frac{\overline X-\mu}{\sigma/\sqrt n}\le z_{\alpha/2}.$$
+$\sigma/\sqrt n>0$ を掛け、全辺から $\overline X$ を引いて符号を反転すると
+$$\overline X-z_{\alpha/2}\frac{\sigma}{\sqrt n}
+\le\mu\le
+\overline X+z_{\alpha/2}\frac{\sigma}{\sqrt n}.$$
 ## 注意
 $Q$ が $\theta$ について単調でないと区間が非連結になることがある。
 
@@ -173,7 +178,12 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 答え
 $T=(\overline X-\mu)/(S/\sqrt n)\sim t_{n-1}$ がピボット量となる。この分布形は母集団が正規であることから導かれる。
 ## 使用公式・定理
-$\overline X$ と $S^2$ の独立性・$\overline X$ の正規性・$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ より $T\sim t_{n-1}$。
+$Z=(\overline X-\mu)/(\sigma/\sqrt n)\sim N(0,1)$ と
+$$V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$$
+は正規標本では独立である。したがってt分布の定義から
+$$\frac{Z}{\sqrt{V/(n-1)}}
+=\frac{(\overline X-\mu)/(\sigma/\sqrt n)}{S/\sigma}
+=\frac{\overline X-\mu}{S/\sqrt n}sim t_{n-1}.$$
 ## 計算例
 区間は $\overline X\pm t_{n-1,\alpha/2}\,S/\sqrt n$。
 ## 注意
@@ -227,7 +237,13 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ## 使用公式・定理
 ここで $\chi^2_{\nu,\gamma}$ は上側確率が $\gamma$ となる点、すなわち $P(\chi^2_\nu\ge\chi^2_{\nu,\gamma})=\gamma$ とする。この記法で
 $$P\left(\chi^2_{n-1,1-\alpha/2}\le\frac{(n-1)S^2}{\sigma^2}\le\chi^2_{n-1,\alpha/2}\right)=1-\alpha,$$
-区間は $\left[\dfrac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\ \dfrac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right]$。
+$A=(n-1)S^2>0$、$c_L=\chi^2_{n-1,1-\alpha/2}$、$c_U=\chi^2_{n-1,\alpha/2}$ と置く。$0<c_L<c_U$ なので
+$$c_L\le\frac{A}{\sigma^2}\le c_U
+\quad\Longleftrightarrow\quad
+\frac{A}{c_U}\le\sigma^2\le\frac{A}{c_L}.$$
+よって区間は
+$$\left[\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\ 
+\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right].$$
 ## 計算例
 $\chi^2$ は右に裾が長いので、上側端点は下側分位点 $\chi^2_{n-1,1-\alpha/2}$ で割る。
 ## 注意
@@ -280,6 +296,15 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 ピボット量 $(S_1^2/\sigma_1^2)/(S_2^2/\sigma_2^2)\sim F_{n_1-1,n_2-1}$ を用い、比 $S_1^2/S_2^2$ を両側のF分位点で割る。
 ## 使用公式・定理
 $F_{\nu_1,\nu_2,\gamma}$ を上側確率が $\gamma$ となる点とすると、区間は
+$$F_{\nu_1,\nu_2,1-\alpha/2}
+\le
+\frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}
+\le F_{\nu_1,\nu_2,\alpha/2}.$$
+$R=S_1^2/S_2^2$、$\rho=\sigma_1^2/\sigma_2^2$ と置き、正数の不等式を $\rho$ について解くと
+$$\frac{R}{F_{\nu_1,\nu_2,\alpha/2}}
+\le\rho\le
+\frac{R}{F_{\nu_1,\nu_2,1-\alpha/2}}.$$
+したがって区間は
 $$\left[\frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,\alpha/2}},\ \frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,1-\alpha/2}}\right].$$
 ## 計算例
 $F_{n_1-1,n_2-1,1-\alpha/2}=1/F_{n_2-1,n_1-1,\alpha/2}$ で計算できる。

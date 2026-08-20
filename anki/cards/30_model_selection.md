@@ -330,7 +330,17 @@ sources: [{ type: official_syllabus, topic: 重回帰モデル }]
 ## 答え
 係数の二乗和にペナルティを置いた最小化、または制約付き最小二乗の解法として得る。
 ## 使用公式・定理
-$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I_p)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。
+目的関数を
+$$Q(\boldsymbol\beta)=\|\boldsymbol Y-\boldsymbol X\boldsymbol\beta\|^2+\lambda\|\boldsymbol\beta\|^2$$
+と置く。勾配は
+$$\nabla Q(\boldsymbol\beta)
+=-2\boldsymbol X^{\mathsf T}(\boldsymbol Y-\boldsymbol X\boldsymbol\beta)+2\lambda\boldsymbol\beta.$$
+これを0と置くと
+$$\left(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I_p\right)\widehat{\boldsymbol\beta}
+=\boldsymbol X^{\mathsf T}\boldsymbol Y,$$
+したがって
+$$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I_p)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y.$$
 ## 計算例
 $p=2$、$\boldsymbol X^{\mathsf T}\boldsymbol X=\begin{pmatrix}1&0.99\\0.99&1\end{pmatrix}$、$\lambda=0.1$ なら $\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I=\begin{pmatrix}1.1&0.99\\0.99&1.1\end{pmatrix}$ となり逆行列が安定する。
 ## 注意
@@ -356,7 +366,12 @@ $\boldsymbol X$ の列が直交（$\boldsymbol X^{\mathsf T}\boldsymbol X=\bolds
 ## 答え
 各係数を $1/(\lambda+1)$ 倍に縮小する。L2は係数を0にしない。
 ## 使用公式・定理
-$\widehat\beta_j^{\mathrm{LS}}=(\boldsymbol X^{\mathsf T}\boldsymbol Y)_j$、$\widehat\beta_j^{\mathrm{ridge}}=\dfrac1{1+\lambda}\widehat\beta_j^{\mathrm{LS}}$。
+$\boldsymbol X^{\mathsf T}\boldsymbol X=\boldsymbol I$ をRidge公式へ代入すると
+$$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(\boldsymbol I+\lambda\boldsymbol I)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y
+=\frac1{1+\lambda}\boldsymbol X^{\mathsf T}\boldsymbol Y.$$
+一方、$\widehat{\boldsymbol\beta}^{\mathrm{LS}}=\boldsymbol X^{\mathsf T}\boldsymbol Y$ なので
+$$\widehat\beta_j^{\mathrm{ridge}}=\frac1{1+\lambda}\widehat\beta_j^{\mathrm{LS}}.$$
 ## 計算例
 $\widehat\beta_1^{\mathrm{LS}}=3$、$\lambda=0.5$ なら $\widehat\beta_1^{\mathrm{ridge}}=3/1.5=2$。符号も大きさも最小二乗法より小さい。
 ## 注意

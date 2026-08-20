@@ -148,7 +148,11 @@ $$\widehat\sigma^2=\frac1n\sum_{i=1}^n(X_i-\mu)^2.$$
 不偏推定量は分散を $n-1$ で割る $n$ でなく、最尤推定量は $n$ で割る点に注意（不偏性は保証されない）。
 ## 使用公式・定理
 $$\ell(\sigma^2)=-\frac n2\log\sigma^2-\frac1{2\sigma^2}\sum_i(x_i-\mu)^2.$$
-$\partial\ell/\partial\sigma^2=0$ を解くと $\widehat\sigma^2=n^{-1}\sum_i(x_i-\mu)^2$。
+$Q=\sum_i(x_i-\mu)^2$ と置けば
+$$\frac{\partial\ell}{\partial\sigma^2}
+=-\frac{n}{2\sigma^2}+\frac{Q}{2(\sigma^2)^2}=0.$$
+両辺に $2(\sigma^2)^2$ を掛けると $-n\sigma^2+Q=0$ なので
+$$\widehat\sigma^2=\frac{Q}{n}=\frac1n\sum_i(x_i-\mu)^2.$$
 ## 計算例
 $\mu=0$、観測値 $-1,2,0,1,-2$ なら $\widehat\sigma^2=(1+4+0+1+4)/5=2$。
 ## 一手
@@ -198,6 +202,9 @@ $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ の $\lambda$
 $$\widehat\lambda=\overline X.$$
 ## 使用公式・定理
 密度は $P(X=x)=\lambda^x e^{-\lambda}/x!$。スコア方程式から
+$$\ell(\lambda)=\left(\sum_i x_i\right)\log\lambda-n\lambda-\sum_i\log(x_i!),$$
+$$\ell'(\lambda)=\frac{\sum_i x_i}{\lambda}-n=0.$$
+したがって
 $$\widehat\lambda=\frac1n\sum_i x_i=\overline x.$$
 ## 計算例
 $n=4$、観測値 $2,5,3,0$ なら $\widehat\lambda=2.5$（すでに離散分布の最尤推定量カードで算出）。
@@ -854,7 +861,18 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 答え
 $\widehat\mu=\overline X,\qquad \widehat\sigma^2=\frac1n\sum_{i=1}^n(X_i-\overline X)^2.$
 ## 使用公式・定理
-$\partial\ell/\partial\mu=0$，$\partial\ell/\partial\sigma^2=0$ を連立で解く。$\widehat\mu=\overline x$ を代入して $\widehat\sigma^2$ を得る。
+$Q(\mu)=\sum_i(x_i-\mu)^2$ と置くと
+$$\ell(\mu,\sigma^2)=-\frac n2\log(2\pi)-\frac n2\log\sigma^2-\frac{Q(\mu)}{2\sigma^2}.$$
+まず
+$$\frac{\partial\ell}{\partial\mu}=\frac1{\sigma^2}\sum_i(x_i-\mu)=0
+\quad\Longrightarrow\quad \widehat\mu=\overline x.$$
+次に
+$$\frac{\partial\ell}{\partial\sigma^2}
+=-\frac{n}{2\sigma^2}+\frac{Q(\mu)}{2(\sigma^2)^2}=0
+\quad\Longrightarrow\quad \sigma^2=\frac{Q(\mu)}n.$$
+$\mu=\widehat\mu=\overline x$ を代入して
+$$\widehat\sigma^2=\frac1n\sum_i(x_i-\overline x)^2$$
+を得る。
 $\widehat\sigma^2$ は不偏分散 $s^2$（分母 $n-1$）より小さい。
 ## 計算例
 $n=5$、$\overline x=5$、$\sum(x_i-5)^2=40$ なら $\widehat\sigma^2=40/5=8$、$\widehat\mu=5$。

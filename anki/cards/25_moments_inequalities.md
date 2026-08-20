@@ -56,6 +56,12 @@ $$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mi
 ## 使用公式・定理
 $E[X^2]<\infty$ のとき、全分散の法則
 $$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y]).$$
+実際、$m(Y)=E[X\mid Y]$ と置くと
+$$X-E[X]=\{X-m(Y)\}+\{m(Y)-E[X]\}.$$
+両辺を2乗して期待値を取る。交差項は
+$$E[(X-m(Y))(m(Y)-E[X])]
+=E[E[X-m(Y)\mid Y](m(Y)-E[X])]=0$$
+なので、残る2項がそれぞれ $E[\operatorname{Var}(X\mid Y)]$ と $\operatorname{Var}(E[X\mid Y])$ になる。
 
 ## 計算例
 $E[\operatorname{Var}(X\mid Y)]=4$、$\operatorname{Var}(E[X\mid Y])=3$ なら
@@ -91,6 +97,13 @@ $$\operatorname{Cov}(X,Y)=E[\operatorname{Cov}(X,Y\mid Z)]+\operatorname{Cov}(E[
 ## 使用公式・定理
 全分散の法則を2変数へ拡張した共分散の分解
 $$\operatorname{Cov}(X,Y)=E[\operatorname{Cov}(X,Y\mid Z)]+\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).$$
+$m_X(Z)=E[X\mid Z]$、$m_Y(Z)=E[Y\mid Z]$ と置くと
+$$X-E[X]=\{X-m_X(Z)\}+\{m_X(Z)-E[X]\},$$
+$$Y-E[Y]=\{Y-m_Y(Z)\}+\{m_Y(Z)-E[Y]\}.$$
+積を展開して期待値を取る。混合する2つの交差項は、例えば
+$$E[(X-m_X(Z))(m_Y(Z)-E[Y])]
+=E[E[X-m_X(Z)\mid Z](m_Y(Z)-E[Y])]=0$$
+となるため、条件付き共分散の平均と条件平均どうしの共分散だけが残る。
 
 ## 計算例
 $E[\operatorname{Cov}(X,Y\mid Z)]=2$、$\operatorname{Cov}(E[X\mid Z],E[Y\mid Z])=3$ なら $\operatorname{Cov}(X,Y)=2+3=5$。
@@ -233,6 +246,11 @@ $$P(X\ge a)\le\frac{E[X]}{a},\qquad a>0.$$
 ## 使用公式・定理
 非負変数 $X\ge0$ に対するMarkovの不等式
 $$aP(X\ge a)\le E[X],\qquad a>0.$$
+指示関数を $\mathbf 1_{\{X\ge a\}}$ と書けば、各標本点で
+$$X\ge a\mathbf 1_{\{X\ge a\}}$$
+だから、期待値を取って
+$$E[X]\ge aE[\mathbf 1_{\{X\ge a\}}]=aP(X\ge a)$$
+を得る。
 
 ## 計算例
 $$P(X\ge10)\le\frac2{10}=0.2.$$

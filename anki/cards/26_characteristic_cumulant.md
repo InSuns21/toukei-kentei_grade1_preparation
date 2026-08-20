@@ -123,6 +123,10 @@ $$\varphi_X(t)=e^{i\mu t-\frac{\sigma^2t^2}{2}}.$$
 ## 使用公式・定理
 正規分布のモーメント母関数 $M_X(t)=e^{\mu t+\frac{\sigma^2t^2}{2}}$ に対し、$t$ を $it$ に置き換えた形
 $$\varphi_X(t)=M_X(it)=e^{i\mu t+\frac{\sigma^2(it)^2}{2}}=e^{i\mu t-\frac{\sigma^2t^2}{2}}.$$
+ここで $(it)^2=i^2t^2=-t^2$ を使った。直接積分する場合も、指数部を
+$$itx-\frac{(x-\mu)^2}{2\sigma^2}
+=-\frac{(x-\mu-i\sigma^2t)^2}{2\sigma^2}+i\mu t-\frac{\sigma^2t^2}{2}$$
+と平方完成すれば同じ式を得る。
 
 ## 計算例
 $X\sim N(2,9)$ なら $\varphi_X(t)=e^{i2t-\frac{9t^2}{2}}$。$t$ は実数で常に定義される。
@@ -158,6 +162,12 @@ $$K_X(t)=\sum_{r=1}^{\infty}\kappa_r\frac{t^r}{r!},\qquad \kappa_1=E[X],\quad \k
 
 ## 使用公式・定理
 $K_X(t)=\log M_X(t)$ を $t=0$ で展開した $K_X(t)=\sum_{r\ge1}\kappa_r t^r/r!$ の係数 $\kappa_r$ を第 $r$ キュムラントとする。
+微分すると
+$$K_X'(t)=\frac{M_X'(t)}{M_X(t)},\qquad
+K_X''(t)=\frac{M_X''(t)}{M_X(t)}-\left\{\frac{M_X'(t)}{M_X(t)}\right\}^2.$$
+$M_X(0)=1$、$M_X'(0)=E[X]$、$M_X''(0)=E[X^2]$ より
+$$\kappa_1=K_X'(0)=E[X],$$
+$$\kappa_2=K_X''(0)=E[X^2]-E[X]^2=\operatorname{Var}(X).$$
 
 ## 計算例
 $X\sim N(\mu,\sigma^2)$ なら $M_X(t)=e^{\mu t+\frac{\sigma^2t^2}{2}}$ より

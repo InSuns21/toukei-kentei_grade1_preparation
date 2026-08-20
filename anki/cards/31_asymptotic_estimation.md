@@ -276,6 +276,12 @@ $\sqrt n(T_n-\theta)$ が正規分布（ガウス分布） $N(0,\sigma^2)$ へ�
 ## 答え
 導関数 $g'(\theta)$ を漸近分散に掛けて $\{g'(\theta)\}^2\sigma^2$ にする。
 ## 使用公式・定理
+1次のTaylor展開より、$T_n\xrightarrow{p}\theta$ の下で
+$$g(T_n)-g(\theta)=g'(\theta)(T_n-\theta)+o_p(|T_n-\theta|).$$
+$T_n-\theta=O_p(n^{-1/2})$ なので両辺に $\sqrt n$ を掛けると
+$$\sqrt n\{g(T_n)-g(\theta)\}
+=g'(\theta)\sqrt n(T_n-\theta)+o_p(1).$$
+右辺にSlutskyの定理を適用して
 $$\sqrt n(g(T_n)-g(\theta))\xrightarrow{d}N(0,\{g'(\theta)\}^2\sigma^2).$$
 ## 計算例
 $T_n=\overline X_n$、$\theta=\mu$、$g(x)=e^x$ なら $\sqrt n(e^{\overline X_n}-e^\mu)\xrightarrow{d}N(0,e^{2\mu}\sigma^2)$（$\sigma^2=\operatorname{Var}(X_i)$）。
@@ -302,7 +308,8 @@ sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ## 答え
 中心極限定理より $\overline X_n\approx N(\mu,\sigma^2/n)$ として、標準誤差 $\sigma/\sqrt n$ に95%点を掛ける。
 ## 使用公式・定理
-$\overline X_n\xrightarrow{d}N(\mu,\sigma^2/n)$（漸近）、標準誤差 $SE=\sigma/\sqrt n$。
+$$\frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1),$$
+したがって大標本では $\overline X_n\mathrel{\dot\sim}N(\mu,\sigma^2/n)$、標準誤差は $SE=\sigma/\sqrt n$。
 ## 計算例
 $SE=4/\sqrt{100}=0.4$。95%点 $z_{0.975}\approx1.96$ より半幅 $1.96\times0.4\approx0.784$。
 ## 注意
@@ -328,7 +335,8 @@ sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ## 答え
 中心極限定理より $\widehat p\approx N(p,p(1-p)/n)$ として、標準誤差を出す。
 ## 使用公式・定理
-$\widehat p\xrightarrow{d}N(p,p(1-p)/n)$、標準誤差 $\sqrt{p(1-p)/n}$。
+$$\frac{\sqrt n(\widehat p-p)}{\sqrt{p(1-p)}}\xrightarrow{d}N(0,1),$$
+したがって大標本では $\widehat p\mathrel{\dot\sim}N(p,p(1-p)/n)$、標準誤差は $\sqrt{p(1-p)/n}$。
 ## 計算例
 $\sqrt{0.3\times0.7/400}=\sqrt{0.21/400}=\sqrt{0.000525}\approx0.0229$。
 ## 注意
@@ -380,7 +388,17 @@ sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
 ## 答え
 標準化した最尤推定量は標準正規分布へ分布収束し、漸近分散は1観測当たりのフィッシャー情報量（1次元）の逆数になる。
 ## 使用公式・定理
-$\sqrt n(\widehat\theta-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1}).$
+スコア方程式 $U_n(\widehat\theta)=0$ を真値 $\theta_0$ の周りでTaylor展開すると
+$$0=U_n(\theta_0)+U_n'(\widetilde\theta)(\widehat\theta-\theta_0),$$
+したがって
+$$\sqrt n(\widehat\theta-\theta_0)
+=\left\{-\frac1nU_n'(\widetilde\theta)\right\}^{-1}
+\frac{U_n(\theta_0)}{\sqrt n}.$$
+正則条件の下で
+$$-\frac1nU_n'(\widetilde\theta)\xrightarrow{p}I_1(\theta_0),qquad
+\frac{U_n(\theta_0)}{\sqrt n}\xrightarrow{d}N(0,I_1(\theta_0)).$$
+よってSlutskyの定理から
+$$\sqrt n(\widehat\theta-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1}).$$
 ## 計算例
 ベルヌーイなら $I_1(p)=1/\{p(1-p)\}$ なので $\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p))$。
 ## 注意

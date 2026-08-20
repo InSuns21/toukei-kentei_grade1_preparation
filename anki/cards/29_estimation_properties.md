@@ -190,6 +190,14 @@ sources: [{ type: official_syllabus, topic: 不偏性 }]
 $\overline X$ は $\mu$ の不偏推定量。母分散には自由度補正した $S^2=\frac1{n-1}\sum_i(X_i-\overline X)^2$ を使うと不偏になる。
 ## 使用公式・定理
 $$E[\overline X]=\mu,\qquad E\!\left[\frac1{n-1}\sum_i(X_i-\overline X)^2\right]=\sigma^2.$$
+後者は平方和の恒等式
+$$\sum_i(X_i-\overline X)^2
+=\sum_i(X_i-\mu)^2-n(\overline X-\mu)^2$$
+の期待値を取って
+$$E\left[\sum_i(X_i-\overline X)^2\right]
+=n\sigma^2-n\operatorname{Var}(\overline X)
+=n\sigma^2-n\frac{\sigma^2}{n}=(n-1)\sigma^2$$
+と得る。
 ## 計算例
 $E[\sum_i(X_i-\overline X)^2]=(n-1)\sigma^2$ より $n-1$ で割ると不偏。
 ## 一手
@@ -538,7 +546,14 @@ Cramer--Raoの不等式を述べよ。$g(\theta)$ の不偏推定量 $T$ の分�
 $$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
 $g(\theta)=\theta$ のときは $\operatorname{Var}_\theta(T)\ge1/I_n(\theta)$。
 ## 使用公式・定理
-Cov$(T,U)^2\le\operatorname{Var}(T)\operatorname{Var}(U)$（Cauchy--Schwarz）にスコア $U$ を代入。
+標本全体のスコアを $U=\partial\log L(\theta;X)/\partial\theta$ とする。$E_\theta[T]=g(\theta)$ を微分すると
+$$g'(\theta)=\frac{\partial}{\partial\theta}\int T(x)L(\theta;x)\,dx
+=\int T(x)U(\theta;x)L(\theta;x)\,dx=E_\theta[TU].$$
+$E_\theta[U]=0$ なので $E_\theta[TU]=\operatorname{Cov}_\theta(T,U)$。Cauchy--Schwarzの不等式から
+$$\{g'(\theta)\}^2=\operatorname{Cov}(T,U)^2
+\le\operatorname{Var}(T)\operatorname{Var}(U)
+=\operatorname{Var}(T)I_n(\theta).$$
+両辺を $I_n(\theta)>0$ で割ればCRLBを得る。
 ## 計算例
 $\operatorname{Bernoulli}(p)$ 標本で $g(p)=p$：$I_n(p)=n/[p(1-p)]$ より $\operatorname{Var}(\overline X)\ge p(1-p)/n$。$\overline X$ は等号で下限を達成。
 ## 一手
@@ -1033,7 +1048,12 @@ title: 二乗損失での最良推定量
 ## 答え
 事後分布 $\pi(\theta\mid x)$ の下で $E[(a-\theta)^2\mid x]$ を最小にする作用は事後平均 $a^*(x)=E[\theta\mid x]$ である。一方、頻度論的リスク $R(\theta,T)=E_\theta[(T-	heta)^2]=\operatorname{MSE}_\theta(T)$ は $\theta$ の関数であり、事前分布なしに全ての $\theta$ で一律に最小となる推定量が存在するとは限らない。
 ## 使用公式・定理
-$\arg\min_T E[(T-\theta)^2\mid x]=E[\theta\mid x].$
+$m(x)=E[\theta\mid x]$ と置くと
+$$a-\theta=\{a-m(x)\}+\{m(x)-\theta\}.$$
+条件付き期待値を取れば交差項は $E[m(x)-\theta\mid x]=0$ により消え、
+$$E[(a-\theta)^2\mid x]
+=(a-m(x))^2+\operatorname{Var}(\theta\mid x).$$
+第2項は $a$ に依存しないので、最小値は $a=m(x)=E[\theta\mid x]$ で達成される。
 ## 計算例
 $X\mid\mu\sim N(\mu,\sigma^2)$、事前 $N(\mu_0,\tau^2)$ なら事後平均が最良予測。
 ## 一手
