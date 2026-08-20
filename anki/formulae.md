@@ -123,10 +123,20 @@
 
 ## 検定
 
-- 母分散既知の正規平均：$(\overline X-\mu)/(\sigma/\sqrt n)\sim N(0,1)$。信頼係数 $1-\alpha$ の区間は $\overline X\pm z_{1-\alpha/2}\sigma/\sqrt n$。
+- 検定関数：標本 $x$ で棄却する確率を $0\le\phi(x)\le1$ とし、検出力関数を $\pi(\theta)=E_\theta[\phi(X)]$ とする。非無作為化検定では $\phi(x)=\boldsymbol1_R(x)$。
+- サイズと有意水準：棄却域 $R$ のサイズは $\sup_{\theta\in\Theta_0}P_\theta(X\in R)$。これが $\alpha$ 以下なら有意水準 $\alpha$ の検定。
+- 過誤と検出力：第一種過誤確率は $P_\theta(X\in R)$（$\theta\in\Theta_0$）、第二種過誤確率は $\beta(\theta)=P_\theta(X\notin R)$（$\theta\in\Theta_1$）、検出力は $1-\beta(\theta)$。
+- P値：検定統計量 $T$ が大きいほど対立仮説寄りなら、単純帰無仮説で $P_{H_0}(T\ge t_{\rm obs})$、複合帰無仮説では基本形 $\sup_{\theta\in\Theta_0}P_\theta(T\ge t_{\rm obs})$。
+- 正規平均の右片側検出力：$\pi(\mu)=1-\Phi\{z_{\alpha}-\sqrt n(\mu-\mu_0)/\sigma\}$。ここで $z_\alpha$ は上側 $\alpha$ 点。
+- 正規平均検定の標本サイズ：差 $\delta>0$ を片側有意水準 $\alpha$、検出力 $1-\beta$ で検出するには $n\ge\{(z_\alpha+z_\beta)\sigma/\delta\}^2$。
+- 母分散既知の正規平均：$(\overline X-\mu)/(\sigma/\sqrt n)\sim N(0,1)$。信頼係数 $1-\alpha$ の区間は $\overline X\pm z_{\alpha/2}\sigma/\sqrt n$。
 - 符号検定：連続分布の中央値の帰無仮説下で、正符号数は二項分布 $\operatorname{Binomial}(n,1/2)$ に従う。
-- Neyman--Pearson補題：単純仮説同士では尤度比が大きい標本点から棄却域へ入れる。
-- 尤度比検定：真値が母数空間の内部にあり、モデルが識別可能、尤度が十分滑らか、Fisher情報行列が正定値という正則条件の下で $-2\log\Lambda\xrightarrow{d}\chi_r^2$。$r$ は独立な制約数。
+- Neyman--Pearson補題：単純仮説同士では尤度比が大きい標本点から棄却域へ入れ、閾値と境界無作為化によりサイズを $\alpha$ まで使う検定が最強力となる。
+- 単調尤度比：$\theta_2>\theta_1$ のとき $f(x;\theta_2)/f(x;\theta_1)$ が $T(x)$ の非減少関数なら、右片側検定は $T$ が大きいとき棄却する形でUMPとなる。
+- 一般化尤度比：$\Lambda=\sup_{\theta\in\Theta_0}L(\theta)/\sup_{\theta\in\Theta}L(\theta)$。真値が母数空間の内部にあり、モデルが識別可能、尤度が十分滑らか、Fisher情報行列が正定値という正則条件の下で $-2\log\Lambda\xrightarrow{d}\chi_r^2$。$r$ は独立な制約数。
+- Wald統計量：$Z_W=(\widehat\theta-\theta_0)/\widehat{\operatorname{SE}}(\widehat\theta)\xrightarrow{d}N(0,1)$、$W=Z_W^2\xrightarrow{d}\chi_1^2$。
+- Score統計量：$U_n(\theta)=\partial\ell_n(\theta)/\partial\theta$ として $S=U_n(\theta_0)^2/I_n(\theta_0)\xrightarrow{d}\chi_1^2$。
+- LR・Wald・Score：正則条件下で帰無仮説における極限分布は同じで、統計量間の差は $o_p(1)$。
 - Pearson適合度統計量：区分確率が正で期待度数が増大し、識別可能な正則 $r$ 母数モデルを最尤法等で当てはめると $\sum_j(O_j-E_j)^2/E_j\xrightarrow{d}\chi^2_{k-1-r}$。
 
 ## 線形モデル・多変量・時系列

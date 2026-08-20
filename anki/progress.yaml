@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 560
+reviewed_card_count: 613
 current_work: null
-next_work: C12-testing-foundations-derivation
-last_completed_work: C11-interval-estimation
+next_work: C13-normal-various-tests
+last_completed_work: C12-testing-foundations-derivation
 summary:
   total: 33
-  planned: 16
+  planned: 15
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 17
+  reviewed: 18
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1078,7 +1078,7 @@ work:
     target:
       min: 50
       max: 60
-    status: planned
+    status: reviewed
     review_dir: review/C12-testing-foundations-derivation
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 仮説検定・尤度比・Neyman–Pearson
@@ -1120,6 +1120,69 @@ work:
       A: 21
       B: 0
       C: 0
+    started_at: 2026-08-20T15:11:44.774Z
+    self_review_at: 2026-08-20T15:23:08.647Z
+    independent_review_at: 2026-08-20T15:23:54.800Z
+    revision_at: 2026-08-20T15:28:53.643Z
+    completed_at: 2026-08-20T15:36:16.907Z
+    added_card_ids:
+      - test-bonferroni-threshold
+      - test-ci-duality
+      - test-composite-null-pvalue
+      - test-consistency-definition
+      - test-critical-region-size
+      - test-data-dependent-sidedness
+      - test-discrete-pvalue-conservative
+      - test-familywise-error
+      - test-function-randomized-definition
+      - test-glrt-definition
+      - test-glrt-normal-mean-known-variance
+      - test-glrt-normal-variance-known-mean
+      - test-karlin-rubin-principle
+      - test-level-versus-size
+      - test-likelihood-ratio-ordering
+      - test-local-alternative-power
+      - test-lr-bernoulli-numeric
+      - test-lr-deviance-statistic
+      - test-lr-pvalue-chi-square
+      - test-lr-wald-score-comparison
+      - test-monotone-likelihood-ratio
+      - test-most-powerful-definition
+      - test-no-ump-two-sided
+      - test-np-exponential-rate
+      - test-np-lemma-statement
+      - test-np-normal-mean
+      - test-null-alternative-definition
+      - test-one-two-sided-critical-values
+      - test-power-binomial-exact
+      - test-power-curve-reading
+      - test-power-function-definition
+      - test-power-normal-one-sided
+      - test-profile-likelihood-nuisance
+      - test-pvalue-definition
+      - test-pvalue-smallest-level
+      - test-pvalue-two-sided
+      - test-randomized-boundary
+      - test-sample-size-power-z
+      - test-score-bernoulli-numeric
+      - test-score-general
+      - test-score-observed-expected-information
+      - test-simple-composite-hypotheses
+      - test-standardized-effect-power
+      - test-statistic-definition
+      - test-type-errors-definition
+      - test-ump-binomial-one-sided
+      - test-ump-normal-one-sided
+      - test-unbiased-definition
+      - test-wald-bernoulli-numeric
+      - test-wald-general
+      - test-wilks-boundary-failure
+      - test-wilks-restriction-rank
+      - test-wilks-theorem
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C13-normal-various-tests:
     title: 正規分布に関する検定・種々の検定法
     category: math-testing

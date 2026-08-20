@@ -1162,56 +1162,109 @@ items:
           - ci-coverage-frequentist
           - ci-asymptotic-def
   - id: math-testing-foundations
-    status: partial
+    status: complete
     cards:
       - test-z-rejection
       - mathstat-p-value-uniformity
+      - test-null-alternative-definition
+      - test-simple-composite-hypotheses
+      - test-statistic-definition
+      - test-critical-region-size
+      - test-type-errors-definition
+      - test-level-versus-size
+      - test-pvalue-definition
+      - test-pvalue-two-sided
+      - test-pvalue-smallest-level
+      - test-power-function-definition
+      - test-power-normal-one-sided
+      - test-sample-size-power-z
+      - test-one-two-sided-critical-values
+      - test-randomized-boundary
+      - test-unbiased-definition
+      - test-consistency-definition
+      - test-ci-duality
+      - test-function-randomized-definition
+      - test-composite-null-pvalue
+      - test-discrete-pvalue-conservative
+      - test-power-curve-reading
+      - test-standardized-effect-power
+      - test-familywise-error
+      - test-bonferroni-threshold
+      - test-data-dependent-sidedness
     terms:
       - name: 仮説
-        status: planned
-        cards: []
+        status: card
+        cards: [test-null-alternative-definition, test-simple-composite-hypotheses, test-ci-duality]
       - name: 検定統計量
-        status: planned
-        cards: []
+        status: card
+        cards: [test-statistic-definition, test-function-randomized-definition]
       - name: P値
-        status: planned
-        cards: []
+        status: card
+        cards: [test-pvalue-definition, test-pvalue-two-sided, test-pvalue-smallest-level, test-composite-null-pvalue, test-discrete-pvalue-conservative, mathstat-p-value-uniformity]
       - name: 有意水準
-        status: planned
-        cards: []
+        status: card
+        cards: [test-critical-region-size, test-level-versus-size, test-randomized-boundary, test-bonferroni-threshold]
       - name: 棄却域
-        status: planned
-        cards: []
+        status: card
+        cards: [test-critical-region-size, test-one-two-sided-critical-values, test-data-dependent-sidedness, test-z-rejection]
       - name: 第一種の過誤
-        status: planned
-        cards: []
+        status: card
+        cards: [test-type-errors-definition, test-familywise-error, test-bonferroni-threshold, test-data-dependent-sidedness]
       - name: 第二種の過誤
-        status: planned
-        cards: []
+        status: card
+        cards: [test-type-errors-definition, test-power-curve-reading]
       - name: 検出力（検定力）
-        status: planned
-        cards: []
+        status: card
+        cards: [test-power-function-definition, test-power-normal-one-sided, test-sample-size-power-z, test-standardized-effect-power, test-unbiased-definition, test-consistency-definition]
       - name: 検出力曲線
-        status: planned
-        cards: []
+        status: card
+        cards: [test-power-function-definition, test-power-normal-one-sided, test-power-curve-reading, test-standardized-effect-power]
   - id: math-test-derivation
-    status: partial
+    status: complete
     cards:
       - test-np-bernoulli
       - test-likelihood-ratio
+      - test-np-lemma-statement
+      - test-np-normal-mean
+      - test-np-exponential-rate
+      - test-most-powerful-definition
+      - test-monotone-likelihood-ratio
+      - test-karlin-rubin-principle
+      - test-ump-binomial-one-sided
+      - test-ump-normal-one-sided
+      - test-no-ump-two-sided
+      - test-likelihood-ratio-ordering
+      - test-glrt-definition
+      - test-glrt-normal-mean-known-variance
+      - test-glrt-normal-variance-known-mean
+      - test-lr-deviance-statistic
+      - test-wilks-theorem
+      - test-wilks-restriction-rank
+      - test-wilks-boundary-failure
+      - test-wald-general
+      - test-wald-bernoulli-numeric
+      - test-score-general
+      - test-score-bernoulli-numeric
+      - test-lr-bernoulli-numeric
+      - test-lr-wald-score-comparison
+      - test-local-alternative-power
+      - test-power-binomial-exact
+      - test-profile-likelihood-nuisance
+      - test-lr-pvalue-chi-square
+      - test-score-observed-expected-information
     terms:
       - name: ネイマン・ピアソンの基本定理
-        status: planned
-        cards: []
+        status: card
+        cards: [test-np-bernoulli, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-likelihood-ratio-ordering]
       - name: 尤度比検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-likelihood-ratio, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-lr-bernoulli-numeric, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square]
       - name: ワルド型検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-wald-general, test-wald-bernoulli-numeric, test-lr-wald-score-comparison]
       - name: スコア型検定
-        status: planned
-        cards: []
+        status: card
+        cards: [test-score-general, test-score-bernoulli-numeric, test-lr-wald-score-comparison, test-score-observed-expected-information]
   - id: math-normal-tests
     status: planned
     cards: []

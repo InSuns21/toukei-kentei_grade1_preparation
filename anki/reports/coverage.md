@@ -1,13 +1,13 @@
 # シラバス coverage
 
-- 公開カード: 560
+- 公開カード: 613
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
 | 確率と確率変数 | 176 | 5/5 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 種々の確率分布 | 131 | 3/3 | formula, theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
-| 統計的推測（検定） | 8 | 3/4 | theorem, recognition, strategy, pitfall |
+| 統計的推測（検定） | 61 | 3/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 8 | 6/7 | formula, calc_step, expansion, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
@@ -33,8 +33,8 @@
 | モデル評価基準 | complete | est-aic-choice, ms-overfitting-generalization, ms-train-test-error, ms-kl-divergence, ms-kl-nonnegativity, ms-aic-formula, ms-aic-asymptotic-loo, ms-bic-formula, ms-bic-consistency, ms-info-criterion-likelihood, ms-variable-selection-stepwise, ms-cv-model-selection, ms-cv-loo, ms-ridge-regression, ms-ridge-shrinkage, ms-lasso-regression, ms-l1-l2-difference, ms-regularization-bias-variance, ms-lasso-selection, ms-elastic-net, ms-multicollinearity-ridge, ms-prediction-vs-inference, ms-aic-numeric-comparison, ms-bic-numeric-comparison, ms-kfold-cv-numeric, ms-ridge-lasso-orthogonal-numeric |
 | 漸近的性質など | complete | est-fisher-bernoulli, est-cramer-rao-bernoulli, est-delta-log, est-crlb-poisson-mean-efficiency, est-crlb-normal-mean-known-variance, est-crlb-bernoulli-square, est-fisher-geometric, asym-convergence-probability, asym-convergence-almost-sure, asym-convergence-distribution, asym-convergence-ms, asym-convergence-relations, asym-wlln, asym-slln, asym-clt, asym-slutsky, asym-continuous-mapping, asym-delta-method, asym-sample-mean-normality, asym-sample-proportion-normality, asym-mle-consistency, asym-mle-asymptotic-normality, asym-asymptotic-variance-se, asym-asymptotic-relative-efficiency, asym-order-notation, asym-prob-conv-chebyshev, asym-as-conv-prob, asym-ms-conv-prob, asym-clt-binomial-normal, asym-delta-method-sqrt, asym-mle-av-binomial, asym-mle-av-normal, asym-slutsky-example, asym-are-median-mean, asym-exponential-mean-tail, asym-poisson-mle-numeric, asym-exponential-rate-mle, asym-logit-proportion-delta, asym-ratio-two-means-delta, asym-second-order-delta-square, asym-sample-variance-fourth-moment, asym-exponential-sample-median, asym-bernoulli-plugin-se, asym-uniform-moment-estimator, asym-mle-poisson-tail-probability, asym-mle-exponential-rate-numeric, asym-mle-normal-variance-known-mean, asym-delta-exponential-mean, asym-delta-bernoulli-odds, asym-delta-arcsine-proportion, asym-delta-two-sample-log-risk-ratio, asym-delta-normal-standard-deviation |
 | 区間推定 | complete | test-normal-ci, ci-coverage-probability, ci-coverage-frequentist, ci-pivot-definition, ci-pivot-construction, ci-normal-mean-known, ci-normal-mean-known-calc, ci-t-interval-pivot, ci-t-vs-z, ci-variance-chi-derivation, ci-variance-chi-calc, ci-f-variance-ratio, ci-f-variance-ratio-calc, ci-two-sample-mean-diff, ci-two-sample-mean-diff-calc, ci-welch-interval, ci-welch-calc, ci-proportion, ci-proportion-calc, ci-proportion-diff, ci-proportion-diff-calc, ci-one-sided, ci-one-sided-calc, ci-test-duality, ci-duality-acceptance, ci-asymptotic-def, ci-asymptotic-mle, ci-asymptotic-mle-calc, ci-delta-method, ci-delta-method-calc, ci-length-confidence-tradeoff, ci-sample-size-for-width, mathstat-shortest-probability-interval, mathstat-fisher-z-confidence-interval, mathstat-uniform-endpoint-shortest-ci, ci-poisson-rate-exact, ci-clopper-pearson-zero-success, ci-paired-mean-difference |
-| 検定の基礎 | partial | test-z-rejection, mathstat-p-value-uniformity |
-| 検定法の導出 | partial | test-np-bernoulli, test-likelihood-ratio |
+| 検定の基礎 | complete | test-z-rejection, mathstat-p-value-uniformity, test-null-alternative-definition, test-simple-composite-hypotheses, test-statistic-definition, test-critical-region-size, test-type-errors-definition, test-level-versus-size, test-pvalue-definition, test-pvalue-two-sided, test-pvalue-smallest-level, test-power-function-definition, test-power-normal-one-sided, test-sample-size-power-z, test-one-two-sided-critical-values, test-randomized-boundary, test-unbiased-definition, test-consistency-definition, test-ci-duality, test-function-randomized-definition, test-composite-null-pvalue, test-discrete-pvalue-conservative, test-power-curve-reading, test-standardized-effect-power, test-familywise-error, test-bonferroni-threshold, test-data-dependent-sidedness |
+| 検定法の導出 | complete | test-np-bernoulli, test-likelihood-ratio, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-most-powerful-definition, test-monotone-likelihood-ratio, test-karlin-rubin-principle, test-ump-binomial-one-sided, test-ump-normal-one-sided, test-no-ump-two-sided, test-likelihood-ratio-ordering, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-wilks-restriction-rank, test-wilks-boundary-failure, test-wald-general, test-wald-bernoulli-numeric, test-score-general, test-score-bernoulli-numeric, test-lr-bernoulli-numeric, test-lr-wald-score-comparison, test-local-alternative-power, test-power-binomial-exact, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square, test-score-observed-expected-information |
 | 正規分布に関する検定 | planned |  |
 | 種々の検定法 | partial | test-chi-square-fit, test-sign-test, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test |
 | 分散分析 | partial | data-anova-decomposition |
@@ -149,19 +149,19 @@
 | 区間推定 | 信頼係数 | card | ci-coverage-probability, ci-coverage-frequentist, ci-one-sided |
 | 区間推定 | 信頼区間の構成 | card | ci-pivot-definition, ci-pivot-construction, ci-normal-mean-known, ci-t-interval-pivot, ci-variance-chi-derivation, ci-f-variance-ratio, ci-two-sample-mean-diff, ci-welch-interval, ci-proportion, ci-proportion-diff, ci-delta-method |
 | 区間推定 | 被覆確率 | card | ci-coverage-probability, ci-coverage-frequentist, ci-asymptotic-def |
-| 検定の基礎 | 仮説 | planned |  |
-| 検定の基礎 | 検定統計量 | planned |  |
-| 検定の基礎 | P値 | planned |  |
-| 検定の基礎 | 有意水準 | planned |  |
-| 検定の基礎 | 棄却域 | planned |  |
-| 検定の基礎 | 第一種の過誤 | planned |  |
-| 検定の基礎 | 第二種の過誤 | planned |  |
-| 検定の基礎 | 検出力（検定力） | planned |  |
-| 検定の基礎 | 検出力曲線 | planned |  |
-| 検定法の導出 | ネイマン・ピアソンの基本定理 | planned |  |
-| 検定法の導出 | 尤度比検定 | planned |  |
-| 検定法の導出 | ワルド型検定 | planned |  |
-| 検定法の導出 | スコア型検定 | planned |  |
+| 検定の基礎 | 仮説 | card | test-null-alternative-definition, test-simple-composite-hypotheses, test-ci-duality |
+| 検定の基礎 | 検定統計量 | card | test-statistic-definition, test-function-randomized-definition |
+| 検定の基礎 | P値 | card | test-pvalue-definition, test-pvalue-two-sided, test-pvalue-smallest-level, test-composite-null-pvalue, test-discrete-pvalue-conservative, mathstat-p-value-uniformity |
+| 検定の基礎 | 有意水準 | card | test-critical-region-size, test-level-versus-size, test-randomized-boundary, test-bonferroni-threshold |
+| 検定の基礎 | 棄却域 | card | test-critical-region-size, test-one-two-sided-critical-values, test-data-dependent-sidedness, test-z-rejection |
+| 検定の基礎 | 第一種の過誤 | card | test-type-errors-definition, test-familywise-error, test-bonferroni-threshold, test-data-dependent-sidedness |
+| 検定の基礎 | 第二種の過誤 | card | test-type-errors-definition, test-power-curve-reading |
+| 検定の基礎 | 検出力（検定力） | card | test-power-function-definition, test-power-normal-one-sided, test-sample-size-power-z, test-standardized-effect-power, test-unbiased-definition, test-consistency-definition |
+| 検定の基礎 | 検出力曲線 | card | test-power-function-definition, test-power-normal-one-sided, test-power-curve-reading, test-standardized-effect-power |
+| 検定法の導出 | ネイマン・ピアソンの基本定理 | card | test-np-bernoulli, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-likelihood-ratio-ordering |
+| 検定法の導出 | 尤度比検定 | card | test-likelihood-ratio, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-lr-bernoulli-numeric, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square |
+| 検定法の導出 | ワルド型検定 | card | test-wald-general, test-wald-bernoulli-numeric, test-lr-wald-score-comparison |
+| 検定法の導出 | スコア型検定 | card | test-score-general, test-score-bernoulli-numeric, test-lr-wald-score-comparison, test-score-observed-expected-information |
 | 正規分布に関する検定 | 平均値と分散に関する検定 | planned |  |
 | 正規分布に関する検定 | 複数の平均に関する検定 | planned |  |
 | 種々の検定法 | 二項分布・ポアソン分布など基本的な分布に関する検定 | planned |  |
