@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 738
+- 公開カード: 789
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -8,7 +8,7 @@
 | 種々の確率分布 | 131 | 3/3 | formula, theorem, calc_step, expansion, recognition |
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
-| データ解析法の考え方と各種分析手法 | 82 | 6/7 | formula, condition, calc_step, expansion, recognition, strategy |
+| データ解析法の考え方と各種分析手法 | 133 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
@@ -39,8 +39,8 @@
 | 種々の検定法 | complete | test-chi-square-fit, test-sign-test, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test, test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2, test-sign-test-numeric, test-wilcoxon-signed-rank, test-mann-whitney-u, test-ks-one-sample, test-permutation-two-sample, test-mcnemar-asymptotic, test-holm-stepdown, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u-numeric, test-ks-one-sample-numeric |
 | 分散分析 | complete | data-anova-decomposition, anova-oneway-model-assumptions, anova-oneway-ss-numeric, anova-oneway-degrees-freedom, anova-oneway-f-statistic, anova-oneway-table-numeric, anova-expected-mean-squares, anova-contrast-definition, anova-contrast-se, anova-contrast-numeric, anova-orthogonal-contrasts, anova-tukey-hsd-formula, anova-tukey-numeric, anova-bonferroni-comparisons, anova-scheffe-bound, anova-multiple-comparison-choice, anova-twoway-model, anova-twoway-ss-balanced, anova-twoway-degrees-freedom, anova-twoway-f-tests, anova-interaction-definition, anova-interaction-contrast-test, anova-interaction-interpretation, anova-no-replication-limitation, anova-randomized-block-model, anova-ancova-model, anova-ancova-adjusted-mean, anova-ancova-parallel-slopes, anova-fixed-random-effects, anova-residual-diagnostics, anova-regression-equivalence |
 | 回帰分析 | complete | data-ols-slope, reg-simple-model-assumptions, reg-ols-normal-equations-simple, reg-ols-simple-formula, reg-fitted-residual-numeric, reg-residual-orthogonality, reg-sst-decomposition, reg-r-squared, reg-simple-r2-correlation, reg-adjusted-r-squared, reg-slope-variance, reg-intercept-variance, reg-error-variance-estimator, reg-slope-t-test, reg-slope-t-numeric, reg-slope-confidence-interval, reg-mean-response-ci, reg-prediction-interval, reg-ci-versus-pi-numeric, reg-multiple-model-matrix, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-coefficient-t-multiple, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared, reg-multiple-correlation, reg-dummy-variable, reg-interaction-dummy-continuous, reg-polynomial-turning-point, reg-log-response-interpretation, reg-multicollinearity-vif, reg-omitted-variable-bias, reg-heteroskedasticity-pattern, reg-gauss-markov-theorem, reg-cooks-distance, reg-regression-to-mean, reg-model-diagnostics-summary, reg-slope-geometric-projection |
-| 分割表の解析 | partial | data-odds-ratio |
-| ノンパラメトリック法 | partial | test-sign-test |
+| 分割表の解析 | complete | data-odds-ratio, cat-table-margins, cat-multinomial-model, cat-product-multinomial, cat-expected-counts-independence, cat-pearson-shortcut-2x2, cat-likelihood-ratio-g2, cat-standardized-residual, cat-odds-ratio-formula, cat-log-odds-ratio-ci, cat-relative-risk, cat-risk-difference, cat-or-versus-rr, cat-fisher-hypergeometric, cat-yates-corrected-shortcut, cat-mcnemar-choice, cat-mantel-haenszel-or, cat-mantel-haenszel-numeric, cat-simpson-paradox, cat-independence-homogeneity, cat-loglinear-independence, cat-loglinear-deviance-df, cat-logistic-odds-ratio, cat-logistic-2x2-equivalence, cat-zero-cell-correction, cat-trend-test-scores, cat-measure-selection |
+| ノンパラメトリック法 | complete | test-sign-test, np-sign-median-ci, np-wilcoxon-null-moments, np-wilcoxon-normal-approx, np-mann-whitney-ranksum-equivalence, np-mann-whitney-null-moments, np-mann-whitney-normal-numeric, np-kruskal-wallis-formula, np-kruskal-wallis-numeric, np-friedman-formula, np-friedman-numeric, np-ks-two-sample, np-spearman-formula, np-spearman-numeric, np-kendall-tau, np-runs-test-moments, np-runs-test-numeric, np-median-test, np-permutation-difference-means, np-exchangeability-condition, np-rank-null-distribution, np-tie-correction, np-asymptotic-relative-efficiency, np-hodges-lehmann-paired, np-rank-biserial-effect, np-method-choice-summary |
 | 不完全データ | partial | data-em-responsibility |
 | シミュレーション | partial | data-bootstrap-mean, data-monte-carlo-integral |
 | ベイズ法 | partial | data-bayes-beta, mathstat-gamma-poisson-posterior |
@@ -181,14 +181,14 @@
 | 回帰分析 | 残差 | card | reg-fitted-residual-numeric, reg-residual-orthogonality, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-heteroskedasticity-pattern, reg-cooks-distance, reg-model-diagnostics-summary |
 | 回帰分析 | 変数変換 | card | reg-polynomial-turning-point, reg-log-response-interpretation |
 | 回帰分析 | 平均への回帰（回帰効果） | card | reg-regression-to-mean |
-| 分割表の解析 | カイ二乗検定 | planned |  |
-| 分割表の解析 | フィッシャー検定 | planned |  |
-| 分割表の解析 | マクネマー検定 | planned |  |
-| 分割表の解析 | イェーツの補正 | planned |  |
-| ノンパラメトリック法 | 符号検定 | planned |  |
-| ノンパラメトリック法 | ウィルコクソン順位和検定（マン・ホイットニーU検定） | planned |  |
-| ノンパラメトリック法 | ウィルコクソン符号付き順位和検定 | planned |  |
-| ノンパラメトリック法 | 順位相関係数 | planned |  |
+| 分割表の解析 | カイ二乗検定 | card | cat-table-margins, cat-expected-counts-independence, cat-pearson-shortcut-2x2, cat-likelihood-ratio-g2, cat-standardized-residual, cat-independence-homogeneity, cat-loglinear-deviance-df |
+| 分割表の解析 | フィッシャー検定 | card | cat-fisher-hypergeometric, cat-zero-cell-correction |
+| 分割表の解析 | マクネマー検定 | card | cat-mcnemar-choice |
+| 分割表の解析 | イェーツの補正 | card | cat-yates-corrected-shortcut |
+| ノンパラメトリック法 | 符号検定 | card | np-sign-median-ci |
+| ノンパラメトリック法 | ウィルコクソン順位和検定（マン・ホイットニーU検定） | card | np-mann-whitney-ranksum-equivalence, np-mann-whitney-null-moments, np-mann-whitney-normal-numeric, np-rank-biserial-effect |
+| ノンパラメトリック法 | ウィルコクソン符号付き順位和検定 | card | np-wilcoxon-null-moments, np-wilcoxon-normal-approx, np-hodges-lehmann-paired |
+| ノンパラメトリック法 | 順位相関係数 | card | np-spearman-formula, np-spearman-numeric, np-kendall-tau |
 | 不完全データ | 欠測（欠損） | planned |  |
 | 不完全データ | 打ち切り | planned |  |
 | 不完全データ | トランケーション | planned |  |

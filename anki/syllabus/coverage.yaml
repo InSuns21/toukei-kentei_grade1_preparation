@@ -1470,39 +1470,90 @@ items:
         status: card
         cards: [reg-regression-to-mean]
   - id: math-contingency-tables
-    status: partial
+    status: complete
     cards:
       - data-odds-ratio
+      - cat-table-margins
+      - cat-multinomial-model
+      - cat-product-multinomial
+      - cat-expected-counts-independence
+      - cat-pearson-shortcut-2x2
+      - cat-likelihood-ratio-g2
+      - cat-standardized-residual
+      - cat-odds-ratio-formula
+      - cat-log-odds-ratio-ci
+      - cat-relative-risk
+      - cat-risk-difference
+      - cat-or-versus-rr
+      - cat-fisher-hypergeometric
+      - cat-yates-corrected-shortcut
+      - cat-mcnemar-choice
+      - cat-mantel-haenszel-or
+      - cat-mantel-haenszel-numeric
+      - cat-simpson-paradox
+      - cat-independence-homogeneity
+      - cat-loglinear-independence
+      - cat-loglinear-deviance-df
+      - cat-logistic-odds-ratio
+      - cat-logistic-2x2-equivalence
+      - cat-zero-cell-correction
+      - cat-trend-test-scores
+      - cat-measure-selection
     terms:
       - name: カイ二乗検定
-        status: planned
-        cards: []
+        status: card
+        cards: [cat-table-margins, cat-expected-counts-independence, cat-pearson-shortcut-2x2, cat-likelihood-ratio-g2, cat-standardized-residual, cat-independence-homogeneity, cat-loglinear-deviance-df]
       - name: フィッシャー検定
-        status: planned
-        cards: []
+        status: card
+        cards: [cat-fisher-hypergeometric, cat-zero-cell-correction]
       - name: マクネマー検定
-        status: planned
-        cards: []
+        status: card
+        cards: [cat-mcnemar-choice]
       - name: イェーツの補正
-        status: planned
-        cards: []
+        status: card
+        cards: [cat-yates-corrected-shortcut]
   - id: math-nonparametric
-    status: partial
+    status: complete
     cards:
       - test-sign-test
+      - np-sign-median-ci
+      - np-wilcoxon-null-moments
+      - np-wilcoxon-normal-approx
+      - np-mann-whitney-ranksum-equivalence
+      - np-mann-whitney-null-moments
+      - np-mann-whitney-normal-numeric
+      - np-kruskal-wallis-formula
+      - np-kruskal-wallis-numeric
+      - np-friedman-formula
+      - np-friedman-numeric
+      - np-ks-two-sample
+      - np-spearman-formula
+      - np-spearman-numeric
+      - np-kendall-tau
+      - np-runs-test-moments
+      - np-runs-test-numeric
+      - np-median-test
+      - np-permutation-difference-means
+      - np-exchangeability-condition
+      - np-rank-null-distribution
+      - np-tie-correction
+      - np-asymptotic-relative-efficiency
+      - np-hodges-lehmann-paired
+      - np-rank-biserial-effect
+      - np-method-choice-summary
     terms:
       - name: 符号検定
-        status: planned
-        cards: []
+        status: card
+        cards: [np-sign-median-ci]
       - name: ウィルコクソン順位和検定（マン・ホイットニーU検定）
-        status: planned
-        cards: []
+        status: card
+        cards: [np-mann-whitney-ranksum-equivalence, np-mann-whitney-null-moments, np-mann-whitney-normal-numeric, np-rank-biserial-effect]
       - name: ウィルコクソン符号付き順位和検定
-        status: planned
-        cards: []
+        status: card
+        cards: [np-wilcoxon-null-moments, np-wilcoxon-normal-approx, np-hodges-lehmann-paired]
       - name: 順位相関係数
-        status: planned
-        cards: []
+        status: card
+        cards: [np-spearman-formula, np-spearman-numeric, np-kendall-tau]
   - id: math-incomplete-data
     status: partial
     cards:

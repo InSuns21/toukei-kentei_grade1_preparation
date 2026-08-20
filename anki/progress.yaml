@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 738
+reviewed_card_count: 789
 current_work: null
-next_work: C15-contingency-nonparametric
-last_completed_work: C14-anova-regression
+next_work: C16-incomplete-data
+last_completed_work: C15-contingency-nonparametric
 summary:
   total: 33
-  planned: 13
+  planned: 12
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 20
+  reviewed: 21
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1430,7 +1430,7 @@ work:
     target:
       min: 45
       max: 55
-    status: planned
+    status: reviewed
     review_dir: review/C15-contingency-nonparametric
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: カテゴリカルデータ・ノンパラメトリック法
@@ -1468,6 +1468,67 @@ work:
       A: 4
       B: 24
       C: 0
+    started_at: 2026-08-20T16:26:47.018Z
+    self_review_at: 2026-08-20T16:35:03.954Z
+    independent_review_at: 2026-08-20T16:35:10.370Z
+    revision_at: 2026-08-20T16:40:21.826Z
+    completed_at: 2026-08-20T16:45:22.060Z
+    added_card_ids:
+      - cat-expected-counts-independence
+      - cat-fisher-hypergeometric
+      - cat-independence-homogeneity
+      - cat-likelihood-ratio-g2
+      - cat-log-odds-ratio-ci
+      - cat-logistic-2x2-equivalence
+      - cat-logistic-odds-ratio
+      - cat-loglinear-deviance-df
+      - cat-loglinear-independence
+      - cat-mantel-haenszel-numeric
+      - cat-mantel-haenszel-or
+      - cat-mcnemar-choice
+      - cat-measure-selection
+      - cat-multinomial-model
+      - cat-odds-ratio-formula
+      - cat-or-versus-rr
+      - cat-pearson-shortcut-2x2
+      - cat-product-multinomial
+      - cat-relative-risk
+      - cat-risk-difference
+      - cat-simpson-paradox
+      - cat-standardized-residual
+      - cat-table-margins
+      - cat-trend-test-scores
+      - cat-yates-corrected-shortcut
+      - cat-zero-cell-correction
+      - np-asymptotic-relative-efficiency
+      - np-exchangeability-condition
+      - np-friedman-formula
+      - np-friedman-numeric
+      - np-hodges-lehmann-paired
+      - np-kendall-tau
+      - np-kruskal-wallis-formula
+      - np-kruskal-wallis-numeric
+      - np-ks-two-sample
+      - np-mann-whitney-normal-numeric
+      - np-mann-whitney-null-moments
+      - np-mann-whitney-ranksum-equivalence
+      - np-median-test
+      - np-method-choice-summary
+      - np-permutation-difference-means
+      - np-rank-biserial-effect
+      - np-rank-null-distribution
+      - np-runs-test-moments
+      - np-runs-test-numeric
+      - np-sign-median-ci
+      - np-spearman-formula
+      - np-spearman-numeric
+      - np-tie-correction
+      - np-wilcoxon-normal-approx
+      - np-wilcoxon-null-moments
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C16-incomplete-data:
     title: 不完全データ
     category: math-data-analysis

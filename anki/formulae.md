@@ -2,6 +2,27 @@
 
 このファイルをカード教材で利用する公式・定理・定義の正本とする。カードでは、ここへのリンクだけで済ませず、実際に使う項目を「使用公式・定理」欄へ再掲する。
 
+## 分割表の解析・ノンパラメトリック法
+
+- 独立性の期待度数：$E_{ij}=n_{i\cdot}n_{\cdot j}/n$。Pearson統計量は $X^2=\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}$、自由度は $(r-1)(c-1)$。
+- 尤度比統計量：$G^2=2\sum_{i,j}O_{ij}\log(O_{ij}/E_{ij})$。
+- 2×2オッズ比：$\widehat{OR}=ad/(bc)$、$\operatorname{SE}(\log\widehat{OR})=\sqrt{1/a+1/b+1/c+1/d}$。
+- 相対リスク：$RR=\widehat p_1/\widehat p_0$。リスク差：$RD=\widehat p_1-\widehat p_0$。
+- Fisher正確検定：固定周辺和の下で左上セルは超幾何分布に従う。
+- McNemar検定：不一致対 $(b,c)$ について帰無仮説下で $b\mid(b+c)\sim\operatorname{Binomial}(b+c,1/2)$。
+- Mantel–Haenszel共通オッズ比：$\widehat{OR}_{MH}=\{\sum_ka_kd_k/n_k\}/\{\sum_kb_kc_k/n_k\}$。
+- 独立対数線形モデル：$\log m_{ij}=\lambda+\lambda_i^A+\lambda_j^B$。
+- ロジスティック回帰：$\operatorname{logit}(p)=\beta_0+\beta_1x$ なら、xが1増えるオッズ比は $e^{\beta_1}$。
+- Wilcoxon符号付順位和：独立同分布な差が連続で0対称、0差・同順位なしなら $E[W_+]=n(n+1)/4$、$\operatorname{Var}(W_+)=n(n+1)(2n+1)/24$。
+- Mann–Whitney U：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説下で $E[U]=n_1n_2/2$、$\operatorname{Var}(U)=n_1n_2(n_1+n_2+1)/12$。
+- Kruskal–Wallis検定：$H=12\sum_iR_i^2/n_i\,/\{N(N+1)\}-3(N+1)\xrightarrow{d}\chi_{k-1}^2$。
+- Friedman検定：$Q=12\sum_jR_j^2/\{bk(k+1)\}-3b(k+1)\xrightarrow{d}\chi_{k-1}^2$。
+- 2標本Kolmogorov–Smirnov統計量：$D_{m,n}=\sup_x|F_m(x)-G_n(x)|$。
+- Spearman順位相関（同順位なし）：$r_S=1-6\sum_id_i^2/\{n(n^2-1)\}$。
+- Kendall順位相関（同順位なし）：$\tau=(C-D)/\binom n2$。
+- 連の数：$E[R]=1+2n_1n_2/(n_1+n_2)$、$\operatorname{Var}(R)=2n_1n_2(2n_1n_2-n_1-n_2)/\{(n_1+n_2)^2(n_1+n_2-1)\}$。
+- Kruskal–Wallisの同順位補正：$C=1-\sum_g(t_g^3-t_g)/(N^3-N)$、$H_{\mathrm{corr}}=H/C$。
+
 ## 分散分析・回帰分析
 
 - 一元配置モデル：$Y_{ij}=\mu+\alpha_i+\varepsilon_{ij}$、$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2)$。帰無仮説は $\mu_1=\cdots=\mu_a$。
