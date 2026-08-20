@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 789
+reviewed_card_count: 814
 current_work: null
-next_work: C16-incomplete-data
-last_completed_work: C15-contingency-nonparametric
+next_work: C17-simulation
+last_completed_work: C16-incomplete-data
 summary:
   total: 33
-  planned: 12
+  planned: 11
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 21
+  reviewed: 22
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1537,7 +1537,7 @@ work:
     target:
       min: 25
       max: 30
-    status: planned
+    status: reviewed
     review_dir: review/C16-incomplete-data
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 生存時間解析
@@ -1560,6 +1560,41 @@ work:
       A: 0
       B: 1
       C: 12
+    started_at: 2026-08-20T16:46:09.626Z
+    self_review_at: 2026-08-20T16:52:44.532Z
+    independent_review_at: 2026-08-20T16:52:47.058Z
+    revision_at: 2026-08-20T16:57:12.280Z
+    completed_at: 2026-08-20T16:59:21.864Z
+    added_card_ids:
+      - inc-complete-case-bias
+      - inc-em-observed-likelihood
+      - inc-ipw-mean
+      - inc-mcar-mar-mnar
+      - inc-mean-imputation-variance
+      - inc-missing-indicator-likelihood
+      - inc-multiple-imputation-rubin
+      - surv-censoring-definition
+      - surv-censoring-vs-truncation
+      - surv-cox-model
+      - surv-cox-partial-likelihood
+      - surv-delayed-entry-risk-set
+      - surv-exponential-censored-mle
+      - surv-greenwood-formula
+      - surv-greenwood-numeric
+      - surv-hazard-ratio-interpretation
+      - surv-kaplan-meier-formula
+      - surv-kaplan-meier-numeric
+      - surv-left-truncated-exponential
+      - surv-logrank-numeric
+      - surv-logrank-statistic
+      - surv-proportional-hazards-check
+      - surv-right-censored-likelihood
+      - surv-truncation-density
+      - surv-type-i-type-ii-censoring
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C17-simulation:
     title: シミュレーション
     category: math-data-analysis

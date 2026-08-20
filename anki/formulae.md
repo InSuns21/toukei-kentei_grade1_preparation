@@ -239,6 +239,16 @@
 
 - Beta--Bernoulli共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
 - EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
+- 逆確率重み付き平均：観測確率を $\pi_i=P(R_i=1\mid X_i)$ とすると $\widehat\mu_{\mathrm{IPW}}=n^{-1}\sum_iR_iY_i/\pi_i$。
+- 多重代入のRubin則：$\overline Q=m^{-1}\sum_j\widehat Q_j$、$\overline U=m^{-1}\sum_jU_j$、$B=(m-1)^{-1}\sum_j(\widehat Q_j-\overline Q)^2$、$T=\overline U+(1+m^{-1})B$。
+- 生存関数・ハザード・累積ハザード：$S(t)=P(T>t)=1-F(t)$、$h(t)=f(t)/S(t)$、$H(t)=\int_0^th(u)\,du=-\log S(t)$、$S(t)=e^{-H(t)}$。
+- 独立な右側打ち切りの尤度：$Y_i=\min(T_i,C_i)$、$\delta_i=I(T_i\le C_i)$ に対し $L(\theta)\propto\prod_i f(Y_i;\theta)^{\delta_i}S(Y_i;\theta)^{1-\delta_i}$。
+- 指数生存モデルの右側打ち切り最尤推定量：$T_i\sim\operatorname{Exp}(\lambda)$ なら $\widehat\lambda=\sum_i\delta_i/\sum_iY_i$。
+- 左トランケーション：$T>L$ の個体だけを観測するとき、条件付き密度は $f(t\mid T>L)=f(t)/S(L)$（$t>L$）。
+- Kaplan--Meier推定量：各死亡時点 $t_j$ の直前リスク集合人数を $n_j$、死亡数を $d_j$ とすると $\widehat S(t)=\prod_{t_j\le t}(1-d_j/n_j)$。
+- Greenwoodの公式：$\widehat{\operatorname{Var}}\{\widehat S(t)\}=\widehat S(t)^2\sum_{t_j\le t}d_j/[n_j(n_j-d_j)]$。
+- log-rank検定：各死亡時点で群1の観測死亡数を $d_{1j}$、期待死亡数を $e_{1j}=d_jn_{1j}/n_j$ とし、$Z=\sum_j(d_{1j}-e_{1j})/\sqrt{\sum_jv_{1j}}$。ここで $v_{1j}=d_j(n_j-d_j)n_{1j}n_{0j}/[n_j^2(n_j-1)]$。
+- Cox比例ハザードモデル：$h(t\mid\boldsymbol x)=h_0(t)e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x}$、部分尤度は $L_p(\boldsymbol\beta)=\prod_{i:\delta_i=1}e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x_i}/\sum_{k\in R(Y_i)}e^{\boldsymbol\beta^{\mathsf T}\boldsymbol x_k}$。共変量が1増えたときのハザード比は $e^{\beta}$。
 - Monte Carlo積分：$\int_0^1g(x)\,dx=E[g(U)]$ を $n^{-1}\sum_ig(U_i)$ で推定する。
 
 ## モデル評価・正則化

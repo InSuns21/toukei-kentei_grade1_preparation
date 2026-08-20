@@ -1555,19 +1555,44 @@ items:
         status: card
         cards: [np-spearman-formula, np-spearman-numeric, np-kendall-tau]
   - id: math-incomplete-data
-    status: partial
+    status: complete
     cards:
       - data-em-responsibility
+      - inc-mcar-mar-mnar
+      - inc-missing-indicator-likelihood
+      - inc-complete-case-bias
+      - inc-mean-imputation-variance
+      - inc-ipw-mean
+      - inc-em-observed-likelihood
+      - inc-multiple-imputation-rubin
+      - surv-censoring-definition
+      - surv-right-censored-likelihood
+      - surv-exponential-censored-mle
+      - surv-type-i-type-ii-censoring
+      - surv-truncation-density
+      - surv-left-truncated-exponential
+      - surv-censoring-vs-truncation
+      - surv-kaplan-meier-formula
+      - surv-kaplan-meier-numeric
+      - surv-greenwood-formula
+      - surv-greenwood-numeric
+      - surv-logrank-statistic
+      - surv-logrank-numeric
+      - surv-cox-model
+      - surv-cox-partial-likelihood
+      - surv-hazard-ratio-interpretation
+      - surv-proportional-hazards-check
+      - surv-delayed-entry-risk-set
     terms:
       - name: 欠測（欠損）
-        status: planned
-        cards: []
+        status: card
+        cards: [data-em-responsibility, inc-mcar-mar-mnar, inc-missing-indicator-likelihood, inc-complete-case-bias, inc-mean-imputation-variance, inc-ipw-mean, inc-em-observed-likelihood, inc-multiple-imputation-rubin]
       - name: 打ち切り
-        status: planned
-        cards: []
+        status: card
+        cards: [surv-censoring-definition, surv-right-censored-likelihood, surv-exponential-censored-mle, surv-type-i-type-ii-censoring, surv-kaplan-meier-formula, surv-kaplan-meier-numeric, surv-greenwood-formula, surv-greenwood-numeric, surv-logrank-statistic, surv-logrank-numeric, surv-cox-model, surv-cox-partial-likelihood, surv-hazard-ratio-interpretation, surv-proportional-hazards-check]
       - name: トランケーション
-        status: planned
-        cards: []
+        status: card
+        cards: [surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-delayed-entry-risk-set]
   - id: math-simulation
     status: partial
     cards:
