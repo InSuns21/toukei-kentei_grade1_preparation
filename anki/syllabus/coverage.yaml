@@ -1783,28 +1783,72 @@ items:
         status: card
         cards: [sampling-mean-sample-size, sampling-proportion-sample-size, sampling-design-effect, sampling-effective-sample-size]
   - id: applied-design
-    status: partial
+    status: complete
     cards:
       - eng-blocking
+      - design-fisher-three-principles
+      - design-randomization-purpose
+      - design-replication-purpose
+      - design-local-control
+      - design-experimental-observational-unit
+      - design-pseudoreplication
+      - design-crd-allocation-count
+      - design-crd-difference-means
+      - design-blocking-paired-variance
+      - design-rcbd-relative-efficiency
+      - design-rcbd-sums-squares
+      - design-rcbd-degrees-freedom
+      - design-rcbd-anova-numeric
+      - design-latin-square-definition
+      - design-latin-square-model
+      - design-latin-square-degrees-freedom
+      - design-latin-square-anova-numeric
+      - design-oneway-vs-block
+      - design-twoway-crossed-nested
+      - design-factorial-definition
+      - design-two-by-two-effects
+      - design-two-by-two-numeric
+      - design-interaction-plot
+      - design-factorial-effect-ss
+      - design-random-oneway-components
+      - design-random-intercept-covariance
+      - design-two-level-coding
+      - design-two-level-effect-contrast
+      - design-two-cubed-effects-numeric
+      - design-block-confounding
+      - design-fraction-generator
+      - design-defining-relation
+      - design-alias-structure
+      - design-resolution-levels
+      - design-fraction-run-saving
+      - design-orthogonal-array-basic
+      - design-orthogonality-check
+      - design-balanced-orthogonality
+      - design-power-determinants
+      - design-two-sample-size
+      - design-paired-sample-size
+      - design-anova-effect-size-power
+      - design-split-plot-error-strata
+      - design-rcbd-missing-value
     terms:
       - name: フィッシャーの3原則
-        status: planned
-        cards: []
+        status: card
+        cards: [design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control]
       - name: 一元配置法
-        status: planned
-        cards: []
+        status: card
+        cards: [design-crd-allocation-count, design-crd-difference-means, design-oneway-vs-block, design-anova-effect-size-power]
       - name: 二元配置法
-        status: planned
-        cards: []
+        status: card
+        cards: [design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss]
       - name: ブロック化
-        status: planned
-        cards: []
+        status: card
+        cards: [design-local-control, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-block-confounding, design-split-plot-error-strata]
       - name: 乱塊法
-        status: planned
-        cards: []
+        status: card
+        cards: [design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-oneway-vs-block]
       - name: 一部実施要因計画
-        status: planned
-        cards: []
+        status: card
+        cards: [design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality]
   - id: applied-multiple-regression
     status: partial
     cards:

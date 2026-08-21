@@ -233,7 +233,15 @@
 - 一元配置平方和：$SS_T=SS_B+SS_W$。
 - 指数寿命：$R(t)=e^{-\lambda t}$、$\operatorname{MTBF}=1/\lambda$。
 - 乱塊法：$Y_{ij}=\mu+\tau_i+\beta_j+\varepsilon_{ij}$、識別制約は $\sum_i\tau_i=\sum_j\beta_j=0$。
+- 乱塊法の平方和：$SS_T=SS_{\mathrm{tr}}+SS_{\mathrm{bl}}+SS_E$。自由度は順に $ab-1,a-1,b-1,(a-1)(b-1)$。
+- ラテン方格法：$Y_{ij}=\mu+\rho_i+\kappa_j+\tau_{k(i,j)}+\varepsilon_{ij}$。p次なら誤差自由度は $(p-1)(p-2)$。
 - 2因子交互作用：$(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})$ という差の差で測る。
+- $2^k$ 要因計画の効果：各処置組合せのセル平均を $\bar y_j$、符号化水準を $x_j\in\{-1,+1\}$ とすると、主効果Aは $2^{-(k-1)}\sum_jx_{Aj}\bar y_j$、交互作用ABは $2^{-(k-1)}\sum_jx_{Aj}x_{Bj}\bar y_j$。r反復の生データを直接足すなら分母は $r2^{k-1}$。
+- 一部実施要因計画：生成関係から定義関係を作り、任意の効果を定義関係へ掛けて別名構造を得る。$2^{3-1}$ 計画で $C=AB$ なら $I=ABC$、$A=BC$。
+- 解像度IIIでは主効果と2因子交互作用、解像度IVでは主効果同士・主効果と2因子交互作用、解像度Vでは主効果・2因子交互作用同士をそれぞれ分離できる。
+- 変量切片モデル：$Y_{ij}=\mu+U_i+\varepsilon_{ij}$、$\operatorname{Var}(U_i)=\tau^2$ なら同じ群の2観測の共分散は $\tau^2$。
+- 等標本数2標本比較の概算：各群 $n\approx2(z_{1-\alpha/2}+z_{1-\beta})^2\sigma^2/\Delta^2$。対応あり比較では $n\approx(z_{1-\alpha/2}+z_{1-\beta})^2\sigma_D^2/\Delta^2$。
+- 一元配置分散分析の効果量：$f^2=\sum_iw_i(\mu_i-\mu)^2/\sigma^2$、総標本数Nに対する非心度は $\lambda=Nf^2$。
 
 ## 研究デザイン・標本調査
 

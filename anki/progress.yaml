@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 938
+reviewed_card_count: 982
 current_work: null
-next_work: C20-experimental-design
-last_completed_work: C19-research-sampling
+next_work: C21-regression-multivariate
+last_completed_work: C20-experimental-design
 summary:
   total: 33
-  planned: 8
+  planned: 7
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 25
+  reviewed: 26
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1859,7 +1859,7 @@ work:
     target:
       min: 40
       max: 50
-    status: planned
+    status: reviewed
     review_dir: review/C20-experimental-design
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 実験計画
@@ -1883,6 +1883,60 @@ work:
       A: 1
       B: 13
       C: 0
+    started_at: 2026-08-21T00:51:24.054Z
+    self_review_at: 2026-08-21T00:59:11.269Z
+    independent_review_at: 2026-08-21T00:59:13.856Z
+    revision_at: 2026-08-21T01:08:38.656Z
+    completed_at: 2026-08-21T01:11:47.481Z
+    added_card_ids:
+      - design-alias-structure
+      - design-anova-effect-size-power
+      - design-balanced-orthogonality
+      - design-block-confounding
+      - design-blocking-paired-variance
+      - design-crd-allocation-count
+      - design-crd-difference-means
+      - design-defining-relation
+      - design-experimental-observational-unit
+      - design-factorial-definition
+      - design-factorial-effect-ss
+      - design-fisher-three-principles
+      - design-fraction-generator
+      - design-fraction-run-saving
+      - design-interaction-plot
+      - design-latin-square-anova-numeric
+      - design-latin-square-definition
+      - design-latin-square-degrees-freedom
+      - design-latin-square-model
+      - design-local-control
+      - design-oneway-vs-block
+      - design-orthogonal-array-basic
+      - design-orthogonality-check
+      - design-paired-sample-size
+      - design-power-determinants
+      - design-pseudoreplication
+      - design-random-intercept-covariance
+      - design-random-oneway-components
+      - design-randomization-purpose
+      - design-rcbd-anova-numeric
+      - design-rcbd-degrees-freedom
+      - design-rcbd-missing-value
+      - design-rcbd-relative-efficiency
+      - design-rcbd-sums-squares
+      - design-replication-purpose
+      - design-resolution-levels
+      - design-split-plot-error-strata
+      - design-two-by-two-effects
+      - design-two-by-two-numeric
+      - design-two-cubed-effects-numeric
+      - design-two-level-coding
+      - design-two-level-effect-contrast
+      - design-two-sample-size
+      - design-twoway-crossed-nested
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C21-regression-multivariate:
     title: 重回帰分析・各種多変量解析法
     category: applied-common

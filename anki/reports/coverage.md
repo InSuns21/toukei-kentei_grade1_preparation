@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 938
+- 公開カード: 982
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -9,7 +9,7 @@
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
-| 統計応用（共通事項） | 48 | 5/7 | formula, condition, calc_step, recognition, strategy |
+| 統計応用（共通事項） | 92 | 6/7 | formula, condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
@@ -46,7 +46,7 @@
 | ベイズ法 | complete | data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-squared-loss-mean, bayes-absolute-loss-median, bayes-zero-one-map, bayes-asymmetric-loss-quantile, bayes-posterior-risk-numeric, bayes-normal-credible-interval, bayes-beta-equal-tail-interval, bayes-hpd-interval, bayes-credible-vs-confidence, bayes-factor-definition, bayes-factor-beta-binomial, bayes-factor-discrete-numeric, bayes-factor-prior-sensitivity, bayes-factor-improper-prior, bayes-hierarchical-definition, bayes-normal-hierarchical-shrinkage, bayes-hierarchical-conditional-independence, bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu, bayes-beta-binomial-hierarchy, bayes-empirical-bayes, bayes-posterior-predictive-check, bayes-prior-sensitivity, bayes-evidence-discrete, bayes-posterior-odds, bayes-conjugate-definition, bayes-proper-improper, bayes-prior-predictive, bayes-likelihood-principle, bayes-beta-posterior-mean-mode, bayes-beta-binomial-predictive, bayes-gamma-poisson-predictive, bayes-gamma-exponential-update, bayes-gamma-exponential-numeric, bayes-exponential-predictive, bayes-normal-normal-update, bayes-normal-normal-numeric, bayes-normal-normal-predictive, bayes-normal-precision-update, bayes-nig-update, bayes-nig-student-predictive, bayes-dirichlet-multinomial-update, bayes-dirichlet-predictive |
 | 研究の種類 | complete | research-experimental-observational, research-randomization-causal, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample |
 | 標本調査法 | complete | sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance, sampling-mean-sample-size, sampling-proportion-sample-size, sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified, sampling-one-stage-cluster-mean, sampling-two-stage-inclusion, sampling-two-stage-total, sampling-systematic-rule, sampling-systematic-periodicity, sampling-ht-definition, sampling-ht-numeric, sampling-ht-unbiased, sampling-ht-variance, sampling-ratio-estimator, sampling-ratio-linearization, sampling-regression-estimator, sampling-design-effect, sampling-effective-sample-size, sampling-nonresponse-bias, sampling-nonresponse-weighting, sampling-coverage-error |
-| 実験計画法 | partial | eng-blocking |
+| 実験計画法 | complete | eng-blocking, design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control, design-experimental-observational-unit, design-pseudoreplication, design-crd-allocation-count, design-crd-difference-means, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-latin-square-definition, design-latin-square-model, design-latin-square-degrees-freedom, design-latin-square-anova-numeric, design-oneway-vs-block, design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss, design-random-oneway-components, design-random-intercept-covariance, design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality, design-power-determinants, design-two-sample-size, design-paired-sample-size, design-anova-effect-size-power, design-split-plot-error-strata, design-rcbd-missing-value |
 | 重回帰分析 | partial | model-gauss-markov, data-ols-slope |
 | 各種多変量解析法 | partial | model-logistic-odds, model-poisson-glm |
 | 確率過程 | partial | process-markov-two-step, process-stationary-markov, process-poisson-wait |
@@ -207,12 +207,12 @@
 | 標本調査法 | 層化抽出 | card | sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified |
 | 標本調査法 | 二段階抽出 | card | sampling-two-stage-inclusion, sampling-two-stage-total |
 | 標本調査法 | サンプルサイズの設計 | card | sampling-mean-sample-size, sampling-proportion-sample-size, sampling-design-effect, sampling-effective-sample-size |
-| 実験計画法 | フィッシャーの3原則 | planned |  |
-| 実験計画法 | 一元配置法 | planned |  |
-| 実験計画法 | 二元配置法 | planned |  |
-| 実験計画法 | ブロック化 | planned |  |
-| 実験計画法 | 乱塊法 | planned |  |
-| 実験計画法 | 一部実施要因計画 | planned |  |
+| 実験計画法 | フィッシャーの3原則 | card | design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control |
+| 実験計画法 | 一元配置法 | card | design-crd-allocation-count, design-crd-difference-means, design-oneway-vs-block, design-anova-effect-size-power |
+| 実験計画法 | 二元配置法 | card | design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss |
+| 実験計画法 | ブロック化 | card | design-local-control, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-block-confounding, design-split-plot-error-strata |
+| 実験計画法 | 乱塊法 | card | design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-oneway-vs-block |
+| 実験計画法 | 一部実施要因計画 | card | design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality |
 | 重回帰分析 | 重回帰モデル | planned |  |
 | 重回帰分析 | 変数選択 | planned |  |
 | 重回帰分析 | 残差分析 | planned |  |
