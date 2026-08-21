@@ -1,0 +1,1945 @@
+
+
+---
+id: mv-mean-covariance-numeric
+title: 多変量標本の平均ベクトルと共分散行列を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: multivariate-mean-covariance
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [平均ベクトル, 共分散行列, 多変量解析]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと共分散行列 }]
+---
+## 問題
+2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本共分散行列を求めよ。
+## 答え
+$$\bar{\boldsymbol x}=(2,3)^{\mathsf T}.$$
+偏差は $(-1,-1)^{\mathsf T},(1,1)^{\mathsf T}$ なので
+$$\boldsymbol S=\frac1{2-1}\sum_i(\boldsymbol x_i-\bar{\boldsymbol x})(\boldsymbol x_i-\bar{\boldsymbol x})^{\mathsf T}
+=\begin{pmatrix}2&2\\2&2\end{pmatrix}.$$
+## 使用公式・定理
+$\boldsymbol S=(n-1)^{-1}\sum_i(\boldsymbol x_i-\bar{\boldsymbol x})(\boldsymbol x_i-\bar{\boldsymbol x})^{\mathsf T}$。
+## 計算例
+完全な直線関係のためSは特異。
+## 注意
+対角は分散、非対角は共分散。
+<!-- CARD -->
+
+---
+id: reg-software-output-interpretation
+title: 重回帰の係数表と分散分析出力を解釈する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: regression-software-output
+type: recognition
+difficulty: 3
+priority: S
+hashtags: [重回帰モデル, ソフトウェア出力, F検定]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解釈 }]
+---
+## 問題
+重回帰出力で $X_1$ の Estimate=1.20、Std. Error=0.40、t=3.00、p=0.004、回帰全体はF=8.0、p=0.001だった。何を結論するか。
+## 答え
+他の説明変数を一定とすると、$X_1$ の1単位増加に対する平均応答差の推定値は1.20。$H_0:\beta_1=0$ はp=0.004なので5%で棄却する。全傾き0という帰無仮説もF検定のp=0.001なので棄却する。
+## 使用公式・定理
+$t=\widehat\beta_j/\operatorname{SE}(\widehat\beta_j)$。全体F検定と個別t検定は異なる帰無仮説を扱う。
+## 計算例
+$1.20/0.40=3.00$ と出力内の整合性を確認できる。
+## 注意
+有意性だけで効果の大きさ・因果性を結論しない。
+<!-- CARD -->
+
+---
+id: glm-software-deviance-output
+title: 一般化線形モデルの逸脱度出力を解釈する
+category: applied-common
+subcategory: applied-multivariate
+topic: glm-software-output
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [一般化線形モデル, ソフトウェア出力, 逸脱度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解釈 }]
+---
+## 問題
+一般化線形モデルの出力でNull deviance=120（自由度99）、Residual deviance=90（自由度97）だった。追加した2係数の尤度比統計量と解釈を述べよ。
+## 答え
+$$G^2=120-90=30,\qquad df=99-97=2.$$
+帰無仮説下で自由度2のカイ二乗分布へ近似する。30は5%臨界値5.991を上回るので、追加係数を同時に0とする帰無仮説を棄却する。
+## 使用公式・定理
+入れ子モデルの尤度比統計量は逸脱度差 $D_R-D_F$。
+## 計算例
+Residual deviance/dfは $90/97\approx0.928$ だが、これだけで適合を確定しない。
+## 注意
+分散固定の二項・ポアソンモデルでは近似条件と過分散も確認する。
+<!-- CARD -->
+
+---
+id: mv-pca-software-output
+title: PCAの固有値・負荷量出力を解釈する
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-software-output
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [主成分分析, ソフトウェア出力, 主成分負荷量]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解釈 }]
+---
+## 問題
+標準化PCAの出力で固有値が2.4,0.5,0.1、第1主成分の固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ だった。第1主成分の寄与率と解釈を述べよ。
+## 答え
+相関行列の総分散は3なので、寄与率は
+$$2.4/(2.4+0.5+0.1)=0.80.$$
+第1主成分は全標準化分散の80%を表し、第1・第2変数へ同方向に大きな重み、第3変数へ小さな重みを置く総合指標と読める。
+## 使用公式・定理
+寄与率は固有値を固有値総和で割る。主成分得点は固有ベクトルと標準化観測の内積。
+## 計算例
+固有ベクトルの符号を全て反転しても同じ主成分軸。
+## 注意
+固有ベクトル成分と変数・主成分間相関を区別する。
+<!-- CARD -->
+
+---
+id: reg-general-linear-hypothesis
+title: 一般線形仮説のF統計量を計算する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: general-linear-hypothesis
+type: calc_step
+difficulty: 4
+priority: S
+hashtags: [重回帰モデル, 一般線形仮説, F検定]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 重回帰モデル }]
+---
+## 問題
+$H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ の制約数をqとする。$\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r=(2,1)^{\mathsf T}$、$\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}=\boldsymbol I_2$、$s^2=5$ のときF統計量を求めよ。
+## 答え
+$$F=\frac{(\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r)^{\mathsf T}
+[\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}]^{-1}
+(\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r)}{qs^2}
+=\frac{2^2+1^2}{2\cdot5}=0.5.$$
+## 使用公式・定理
+正規線形モデルの帰無仮説下で $F\sim F_{q,n-p}$。
+## 計算例
+q=1なら対応するt統計量の二乗と一致する。
+## 注意
+Rは行フルランクとする。
+<!-- CARD -->
+
+---
+id: reg-press-loocv
+title: PRESS残差からLOOCV誤差を計算する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: press-loocv
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [回帰診断法, PRESS, 交差検証]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 回帰診断法 }]
+---
+## 問題
+最小二乗法の残差が $e_i=2$、レバレッジが $h_{ii}=0.2$ の観測について、leave-one-out残差を求めよ。
+## 答え
+$$e_{(i)}=y_i-\widehat y_{(i)}=\frac{e_i}{1-h_{ii}}
+=\frac2{0.8}=2.5.$$
+## 使用公式・定理
+$PRESS=\sum_i\{e_i/(1-h_{ii})\}^2$ なので、モデルをn回再推定せずLOOCVを計算できる。
+## 計算例
+この観測のPRESS寄与は $2.5^2=6.25$。
+## 注意
+式は線形最小二乗法に対する恒等式。
+<!-- CARD -->
+
+---
+id: reg-dffits-numeric
+title: DFFITSで予測への影響を測る
+category: applied-common
+subcategory: applied-multiple-regression
+topic: dffits
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [回帰診断法, DFFITS, 影響点]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 回帰診断法 }]
+---
+## 問題
+外的スチューデント化残差 $t_i=2$、$h_{ii}=0.2$ のときDFFITSを求めよ。
+## 答え
+$$\operatorname{DFFITS}_i=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
+=2\sqrt{\frac{0.2}{0.8}}=1.$$
+## 使用公式・定理
+DFFITSは観測iを除いたときのi自身の当てはめ値変化を尺度化する。
+## 計算例
+符号は変化の方向を表す。
+## 注意
+大残差または高レバレッジで絶対値が大きくなる。
+<!-- CARD -->
+
+---
+id: reg-dfbeta-meaning
+title: DFBETAの符号と大きさを解釈する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: dfbeta
+type: formula
+difficulty: 3
+priority: B
+hashtags: [回帰診断法, DFBETA, 影響点]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 回帰診断法 }]
+---
+## 問題
+係数jに対する観測iのDFBETAを定義し、正の値を解釈せよ。
+## 答え
+$$\operatorname{DFBETA}_{ij}=\widehat\beta_j-\widehat\beta_{j(i)},$$
+ここで $\widehat\beta_{j(i)}$ は観測iを除いた推定値。正なら観測iを含めることで係数jが大きくなる。
+## 使用公式・定理
+標準誤差で割った尺度化版をDFBETASと呼ぶ。
+## 計算例
+$\widehat\beta_j=1.2,\widehat\beta_{j(i)}=0.8$ ならDFBETA=0.4。
+## 注意
+各係数ごとに影響が異なる。
+<!-- CARD -->
+
+---
+id: reg-hc3-sandwich
+title: HC3頑健共分散のレバレッジ補正を書く
+category: applied-common
+subcategory: applied-multiple-regression
+topic: hc3-standard-error
+type: formula
+difficulty: 4
+priority: A
+hashtags: [異分散, HC3, サンドイッチ推定量]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 異分散と標準誤差 }]
+---
+## 問題
+HC3型の異分散頑健共分散推定量を書け。
+## 答え
+$$\widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat{\boldsymbol\beta})
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\operatorname{diag}\left\{\frac{e_i^2}{(1-h_{ii})^2}\right\}
+\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.$$
+## 使用公式・定理
+HC3は各残差をレバレッジで強く補正するサンドイッチ推定量。
+## 計算例
+$h_{ii}=0$ ならその観測の補正倍率は1。
+## 注意
+誤差の独立性はなお必要で、系列相関には別の補正を使う。
+<!-- CARD -->
+
+---
+id: reg-feasible-gls-steps
+title: 実行可能一般化最小二乗法の手順を答える
+category: applied-common
+subcategory: applied-multiple-regression
+topic: feasible-gls
+type: recognition
+difficulty: 3
+priority: B
+hashtags: [一般化最小二乗推定, FGLS, 分散モデル]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
+---
+## 問題
+誤差共分散行列Ωが未知だが母数化できるとき、実行可能一般化最小二乗法（FGLS）の手順を述べよ。
+## 答え
+まず最小二乗法などで残差を得て分散・相関モデルの母数を推定し $\widehat\Omega$ を作る。次に
+$$\widehat{\boldsymbol\beta}_{\mathrm{FGLS}}
+=(\boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol y$$
+を計算する。
+## 使用公式・定理
+既知Ωの一般化最小二乗推定量へ推定Ωを代入する。
+## 計算例
+必要なら分散モデルと係数推定を反復更新する。
+## 注意
+Ωの誤指定は効率や標準誤差へ影響する。
+<!-- CARD -->
+
+---
+id: reg-elastic-net-objective
+title: Elastic Netの目的関数を書く
+category: applied-common
+subcategory: applied-multiple-regression
+topic: elastic-net
+type: formula
+difficulty: 3
+priority: B
+hashtags: [L1正則化法, Elastic Net, 変数選択]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: L1正則化法 }]
+---
+## 問題
+Elastic Netの目的関数を書き、LassoとRidgeを含むことを示せ。
+## 答え
+$$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
++\lambda\left\{\alpha\sum_j|\beta_j|+\frac{1-\alpha}{2}\sum_j\beta_j^2\right\}.$$
+$\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
+## 使用公式・定理
+L1とL2罰則の凸結合。
+## 計算例
+相関する変数群をまとめて残しつつ疎性も得やすい。
+## 注意
+通常は切片を罰せず説明変数を標準化する。
+<!-- CARD -->
+
+---
+id: reg-lasso-kkt-zero
+title: Lasso係数が0となるKKT条件を判定する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: lasso-kkt
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [L1正則化法, Lasso, KKT条件]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: L1正則化法 }]
+---
+## 問題
+$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2+\lambda\sum_j|\beta_j|$ を最小化するLassoで、係数jが0となり得る条件を書け。現在の部分残差との内積が0.7、$\lambda=1$ なら判定せよ。
+## 答え
+$$|\boldsymbol x_j^{\mathsf T}(\boldsymbol y-\boldsymbol X\widehat{\boldsymbol\beta})|\le\lambda$$
+なら $\widehat\beta_j=0$ がKKT条件を満たす。$0.7\le1$ なので0となり得る。
+## 使用公式・定理
+絶対値の0における劣勾配は区間 $[-1,1]$。
+## 計算例
+絶対値がλを超えれば非零係数が必要。
+## 注意
+列の尺度と目的関数の係数規約に依存する。
+<!-- CARD -->
+
+---
+id: reg-ridge-svd-shrinkage
+title: Ridgeの固有方向別縮小率を計算する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: ridge-svd
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [Ridge回帰, 特異値分解, 多重共線性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多重共線性 }]
+---
+## 問題
+デザイン行列の特異値が $d=2$、Ridge罰則が $\lambda=3$ の方向について、最小二乗係数に対する縮小率を求めよ。
+## 答え
+$$\frac{d^2}{d^2+\lambda}=\frac4{4+3}=\frac47.$$
+## 使用公式・定理
+特異値分解ではRidgeは各右特異ベクトル方向を $d_j^2/(d_j^2+\lambda)$ 倍に縮小する。
+## 計算例
+小さい特異値方向ほど強く縮小される。
+## 注意
+分散低下と引換えにバイアスを導入する。
+<!-- CARD -->
+
+---
+id: reg-mallows-cp
+title: MallowsのCpを計算する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: mallows-cp
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [変数選択, MallowsのCp, モデル比較]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 変数選択 }]
+---
+## 問題
+候補モデルの $SSE_p=80$、完全モデルから得た $\widehat\sigma^2=4$、標本数n=30、候補の切片込み係数数p=6とする。Cpを求めよ。
+## 答え
+$$C_p=\frac{SSE_p}{\widehat\sigma^2}-n+2p
+=\frac{80}{4}-30+12=2.$$
+## 使用公式・定理
+$C_p=SSE_p/\widehat\sigma^2-n+2p$。
+## 計算例
+適切に指定された候補ではCpがp付近となることを目安にする。
+## 注意
+分散推定値を共通の十分大きいモデルから得る。
+<!-- CARD -->
+
+---
+id: reg-bic-selection
+title: BICで回帰モデルを比較する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: bic-selection
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [変数選択, BIC, モデル比較]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 変数選択 }]
+---
+## 問題
+n=100で、モデル1は最大対数尤度-120・母数5個、モデル2は-116・母数8個である。BICで選べ。$\log100\approx4.605$ とする。
+## 答え
+$$BIC_1=240+5(4.605)=263.025,$$
+$$BIC_2=232+8(4.605)=268.84.$$
+小さいモデル1を選ぶ。
+## 使用公式・定理
+$BIC=-2\ell(\widehat\theta)+k\log n$。
+## 計算例
+このnでは1母数当たり罰則4.605でAICの2より強い。
+## 注意
+同じ応答データに対する尤度で比較する。
+<!-- CARD -->
+
+---
+id: reg-nested-cross-validation
+title: 入れ子交差検証の役割を説明する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: nested-cross-validation
+type: recognition
+difficulty: 3
+priority: B
+hashtags: [変数選択, 交差検証, 予測評価]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 変数選択 }]
+---
+## 問題
+正則化強度を交差検証で選ぶとき、同じ交差検証値を最終性能として報告せず入れ子交差検証を使う理由を述べよ。
+## 答え
+内側分割でハイパーパラメータを選び、外側の未使用分割で選択手順全体を評価することで、調整に使ったデータへの楽観的バイアスを避ける。
+## 使用公式・定理
+評価対象は固定モデルでなく「学習・選択手順全体」。
+## 計算例
+外側5分割それぞれで内側交差検証をやり直す。
+## 注意
+前処理や標準化も内側の学習データだけで推定する。
+<!-- CARD -->
+
+---
+id: mv-covariance-linear-transform
+title: 線形変換後の共分散行列を求める
+category: applied-common
+subcategory: applied-multivariate
+topic: covariance-transform
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [共分散行列, 線形変換, 多変量解析]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと共分散行列 }]
+---
+## 問題
+$\operatorname{Var}(\boldsymbol X)=\operatorname{diag}(1,4)$、$Y=X_1+2X_2$ の分散を求めよ。
+## 答え
+$\boldsymbol a=(1,2)^{\mathsf T}$ として
+$$\operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+=1^2(1)+2^2(4)=17.$$
+## 使用公式・定理
+$\operatorname{Var}(\boldsymbol A\boldsymbol X)=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}$。
+## 計算例
+共分散0なので交差項はない。
+## 注意
+相関があれば $2a_1a_2\sigma_{12}$ を含む。
+<!-- CARD -->
+
+---
+id: mv-mahalanobis-distance
+title: Mahalanobis距離を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: mahalanobis-distance
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [Mahalanobis距離, 共分散行列, 外れ値]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: Mahalanobis距離 }]
+---
+## 問題
+$\boldsymbol x-\boldsymbol\mu=(2,1)^{\mathsf T}$、$\boldsymbol\Sigma=\operatorname{diag}(4,1)$ のときMahalanobis距離を求めよ。
+## 答え
+$$d^2=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)
+=\frac{2^2}{4}+\frac{1^2}{1}=2,$$
+よって $d=\sqrt2$。
+## 使用公式・定理
+分散の大きい方向の差を小さく重み付けする。
+## 計算例
+標準化座標ではEuclid距離になる。
+## 注意
+共分散行列の可逆性が必要。
+<!-- CARD -->
+
+---
+id: mv-hotelling-one-sample
+title: 1標本HotellingのT²を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: hotelling-t-squared
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [HotellingのT2検定, 平均ベクトル, 多変量正規分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: HotellingのT²検定 }]
+---
+## 問題
+n=10、$\bar{\boldsymbol x}-\boldsymbol\mu_0=(1,2)^{\mathsf T}$、$\boldsymbol S=\operatorname{diag}(2,4)$ のときT²を求めよ。
+## 答え
+$$T^2=n(\bar{\boldsymbol x}-\boldsymbol\mu_0)^{\mathsf T}\boldsymbol S^{-1}(\bar{\boldsymbol x}-\boldsymbol\mu_0)
+=10\left(\frac12+\frac44\right)=15.$$
+## 使用公式・定理
+p次元正規母集団と可逆なSを仮定する。
+## 計算例
+各方向の標準化差を同時に評価する。
+## 注意
+各成分別t検定の寄せ集めではない。
+<!-- CARD -->
+
+---
+id: mv-hotelling-f-transform
+title: HotellingのT²をF統計量へ変換する
+category: applied-common
+subcategory: applied-multivariate
+topic: hotelling-f-transform
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [HotellingのT2検定, F分布, 多変量正規分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: HotellingのT²検定 }]
+---
+## 問題
+独立な10個の観測が2次元正規分布から得られ、標本共分散行列Sが可逆である。1標本T²検定で $T^2=15$ のときF統計量を求めよ。
+## 答え
+$$F=\frac{n-p}{p(n-1)}T^2
+=\frac{8}{2\cdot9}15=\frac{20}{3}\approx6.67.$$
+帰無仮説下で $F_{2,8}$ に従う。
+## 使用公式・定理
+多変量正規母集団からの独立標本でSが可逆なら、帰無仮説下で $\{(n-p)/(p(n-1))\}T^2\sim F_{p,n-p}$。
+## 計算例
+n>pが必要。
+## 注意
+標本共分散の分母をn-1とする規約。
+<!-- CARD -->
+
+---
+id: mv-pca-variance-max
+title: PCAを分散最大化として導く
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-variance-maximization
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [主成分分析, 分散最大化, 固有値]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 主成分分析 }]
+---
+## 問題
+第1主成分方向が共分散行列の最大固有値に対応することを示せ。
+## 答え
+$\|\boldsymbol a\|=1$ の下で
+$$\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$$
+を最大化する。Lagrange関数を微分すると
+$$\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.$$
+目的値はλなので最大固有値の固有ベクトルを選ぶ。
+## 使用公式・定理
+Rayleigh商の最大値は最大固有値。
+## 計算例
+第2主成分は第1方向に直交する中で最大化する。
+## 注意
+データは中心化しておく。
+<!-- CARD -->
+
+---
+id: mv-pca-eigen-numeric
+title: 2変量共分散行列の主成分を求める
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-eigenproblem
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [主成分分析, 固有値, 固有ベクトル]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: PCAと固有値問題 }]
+---
+## 問題
+$\boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ の固有値と第1主成分方向を求めよ。
+## 答え
+$$|\boldsymbol S-\lambda\boldsymbol I|=(2-\lambda)^2-1=0$$
+より固有値は3,1。λ=3では $a_1=a_2$ なので、単位固有ベクトルは
+$$\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.$$
+## 使用公式・定理
+主成分方向は共分散行列の固有ベクトル。
+## 計算例
+第2方向は $(1,-1)^{\mathsf T}/\sqrt2$。
+## 注意
+固有ベクトルの符号は任意。
+<!-- CARD -->
+
+---
+id: mv-pca-contribution-rate
+title: PCAの寄与率と累積寄与率を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-contribution-rate
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [主成分分析, 寄与率, 累積寄与率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 寄与率・累積寄与率 }]
+---
+## 問題
+固有値が5,3,1,1のとき、第1・第2主成分の寄与率と第2までの累積寄与率を求めよ。
+## 答え
+総分散は10。寄与率は $5/10=0.5$、$3/10=0.3$、累積寄与率は0.8。
+## 使用公式・定理
+第j寄与率は $\lambda_j/\sum_k\lambda_k$。
+## 計算例
+第2までで全分散の80%を保持する。
+## 注意
+寄与率だけで解釈可能性は保証されない。
+<!-- CARD -->
+
+---
+id: mv-pca-score
+title: 主成分得点を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-score
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [主成分分析, 主成分得点, 固有ベクトル]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 主成分分析 }]
+---
+## 問題
+中心化観測が $(2,-1)^{\mathsf T}$、第1主成分方向が $(1,1)^{\mathsf T}/\sqrt2$ のとき得点を求めよ。
+## 答え
+$$z_1=\boldsymbol a_1^{\mathsf T}(\boldsymbol x-\bar{\boldsymbol x})
+=\frac{2-1}{\sqrt2}=\frac1{\sqrt2}.$$
+## 使用公式・定理
+主成分得点は中心化データの固有ベクトルへの射影。
+## 計算例
+全主成分を使えば直交変換で情報を失わない。
+## 注意
+標準化PCAでは先に各変数を標準化する。
+<!-- CARD -->
+
+---
+id: mv-pca-loading
+title: 主成分負荷量を固有値から求める
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-loading
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [主成分分析, 主成分負荷量, 相関]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 主成分負荷量 }]
+---
+## 問題
+共分散PCAで固有値 $\lambda_j=4$、固有ベクトルのk成分 $a_{kj}=0.3$、元変数の標準偏差 $s_k=1.5$。$X_k$ と主成分jの相関を求めよ。
+## 答え
+$$\operatorname{Corr}(X_k,Z_j)=\frac{\sqrt{\lambda_j}a_{kj}}{s_k}
+=\frac{2(0.3)}{1.5}=0.4.$$
+## 使用公式・定理
+$\operatorname{Cov}(X_k,Z_j)=\lambda_ja_{kj}$、$\operatorname{SD}(Z_j)=\sqrt{\lambda_j}$。
+## 計算例
+相関を負荷量と呼ぶ規約を採用した。
+## 注意
+文献により固有ベクトル成分自体を負荷量と呼ぶ。
+<!-- CARD -->
+
+---
+id: mv-pca-covariance-vs-correlation
+title: 共分散PCAと相関PCAを選び分ける
+category: applied-common
+subcategory: applied-multivariate
+topic: standardized-pca
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [主成分分析, 標準化PCA, 相関行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 標準化PCAと相関行列 }]
+---
+## 問題
+測定単位や分散が大きく異なる変数群では、共分散行列と相関行列のどちらでPCAを行うべきか。
+## 答え
+尺度差を主成分へ反映させる科学的理由がなければ、各変数を標準化した相関行列PCAを用いる。共分散PCAは元単位の大分散変数を強く重視する。
+## 使用公式・定理
+標準化変数 $Z_j=(X_j-\bar X_j)/s_j$ の共分散行列が相関行列。
+## 計算例
+cmとkgをそのまま混ぜると単位選択で結果が変わる。
+## 注意
+標準化が常に正しいわけではない。
+<!-- CARD -->
+
+---
+id: mv-pca-reconstruction
+title: 切り捨てPCAの再構成誤差を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: pca-reconstruction
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [主成分分析, 次元削減, 再構成誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 主成分分析 }]
+---
+## 問題
+固有値が6,2,1である。第1主成分だけ残すと1観測当たりの平均二乗再構成誤差の総和はいくらか。
+## 答え
+捨てた方向の分散和なので
+$$\lambda_2+\lambda_3=2+1=3.$$
+## 使用公式・定理
+上位m主成分による最小再構成誤差は $\sum_{j>m}\lambda_j$。
+## 計算例
+第2まで残せば誤差は1。
+## 注意
+データを中心化したEuclid距離での結果。
+<!-- CARD -->
+
+---
+id: mv-factor-model-covariance
+title: 因子分析モデルの共分散を導く
+category: applied-common
+subcategory: applied-multivariate
+topic: factor-analysis-model
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [因子分析, 因子負荷量, 共分散行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 因子分析モデル }]
+---
+## 問題
+$\boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon$、$\operatorname{Var}(\boldsymbol F)=\boldsymbol I$、$\operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi$、両者独立のときXの共分散を求めよ。
+## 答え
+$$\operatorname{Var}(\boldsymbol X)
+=\boldsymbol\Lambda\operatorname{Var}(\boldsymbol F)\boldsymbol\Lambda^{\mathsf T}+\operatorname{Var}(\boldsymbol\varepsilon)
+=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.$$
+## 使用公式・定理
+独立な和の共分散は共分散行列の和。
+## 計算例
+通常Ψは対角行列。
+## 注意
+PCAは確率的潜在因子モデルと同じではない。
+<!-- CARD -->
+
+---
+id: mv-factor-communality
+title: 共通性と独自性を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: communality-uniqueness
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [因子分析, 共通性, 独自性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 共通性と独自性 }]
+---
+## 問題
+標準化変数の2因子負荷量が0.6,0.5である。共通性と独自性を求めよ。
+## 答え
+$$h_i^2=0.6^2+0.5^2=0.61,$$
+標準化されているので
+$$\psi_i=1-h_i^2=0.39.$$
+## 使用公式・定理
+$h_i^2=\sum_j\lambda_{ij}^2$。
+## 計算例
+共通因子が分散の61%を説明する。
+## 注意
+斜交回転では単純な平方和解釈に注意する。
+<!-- CARD -->
+
+---
+id: mv-factor-rotation
+title: 因子回転の目的を説明する
+category: applied-common
+subcategory: applied-multivariate
+topic: factor-rotation
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [因子分析, 因子回転, Varimax回転]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 因子回転の考え方 }]
+---
+## 問題
+因子分析で直交回転を行う目的と、共分散再現が変わらない理由を述べよ。
+## 答え
+各変数が少数因子へ高く負荷する単純構造を得て解釈しやすくする。直交行列Tに対し $\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T$ とすると
+$$\boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
+=\boldsymbol\Lambda\boldsymbol T\boldsymbol T^{\mathsf T}\boldsymbol\Lambda^{\mathsf T}
+=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.$$
+## 使用公式・定理
+$\boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I$。
+## 計算例
+Varimaxは負荷量平方の分散を大きくする直交回転。
+## 注意
+回転後の因子順序・符号は一意でない。
+<!-- CARD -->
+
+---
+id: mv-factor-score-regression
+title: 回帰法による因子得点係数を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: factor-score
+type: formula
+difficulty: 4
+priority: B
+hashtags: [因子分析, 因子得点, 回帰法]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 因子分析モデル }]
+---
+## 問題
+因子分析モデル $\boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon$ で $\operatorname{Var}(\boldsymbol F)=\boldsymbol I$、$\operatorname{Var}(\boldsymbol X)=\boldsymbol\Sigma$ とする。回帰法による因子得点予測式を書け。
+## 答え
+共分散は
+$$\operatorname{Cov}(\boldsymbol F,\boldsymbol X)=\boldsymbol\Lambda^{\mathsf T}.$$
+したがって線形回帰による因子得点は
+$$\widehat{\boldsymbol F}
+=\boldsymbol\Lambda^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol X-\boldsymbol\mu).$$
+## 使用公式・定理
+多変量線形回帰の最良線形予測係数は $\operatorname{Cov}(F,X)\operatorname{Var}(X)^{-1}$。
+## 計算例
+1因子なら負荷量ベクトルと逆共分散で観測を重み付けする。
+## 注意
+因子得点は観測された真値ではなく推定値で、推定法により異なる。
+<!-- CARD -->
+
+---
+id: mv-lda-direction
+title: Fisher線形判別の方向を求める
+category: applied-common
+subcategory: applied-multivariate
+topic: fisher-linear-discriminant
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [判別分析, Fisherの線形判別, 共分散行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: Fisherの線形判別 }]
+---
+## 問題
+2群の平均を $\boldsymbol\mu_1,\boldsymbol\mu_0$、共通群内共分散を $\boldsymbol\Sigma$ とする。Fisher線形判別方向を書け。
+## 答え
+群間分離と群内分散の比
+$$J(\boldsymbol w)=\frac{\{\boldsymbol w^{\mathsf T}(\boldsymbol\mu_1-\boldsymbol\mu_0)\}^2}{\boldsymbol w^{\mathsf T}\boldsymbol\Sigma\boldsymbol w}$$
+を最大化すると
+$$\boldsymbol w\propto\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0).$$
+## 使用公式・定理
+一般化Rayleigh商。
+## 計算例
+共分散がIなら平均差方向。
+## 注意
+倍率は分類境界を変えない。
+<!-- CARD -->
+
+---
+id: mv-lda-numeric
+title: 線形判別得点を数値計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: lda-numeric
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [判別分析, 線形判別, 分類]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 判別分析 }]
+---
+## 問題
+$\boldsymbol\mu_1=(2,1)^{\mathsf T}$、$\boldsymbol\mu_0=(0,0)^{\mathsf T}$、$\boldsymbol\Sigma=\operatorname{diag}(2,1)$ のときFisher方向を求めよ。
+## 答え
+$$\boldsymbol w=\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0)
+=\begin{pmatrix}1/2&0\\0&1\end{pmatrix}
+\begin{pmatrix}2\\1\end{pmatrix}
+=\begin{pmatrix}1\\1\end{pmatrix}.$$
+## 使用公式・定理
+$\boldsymbol w\propto\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0)$。
+## 計算例
+判別得点は $x_1+x_2$。
+## 注意
+事前確率と誤分類費用が閾値を変える。
+<!-- CARD -->
+
+---
+id: mv-lda-classification-rule
+title: 正規2群のLDA分類規則を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: lda-classification
+type: formula
+difficulty: 4
+priority: B
+hashtags: [判別分析, LDA, 事前確率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 判別分析 }]
+---
+## 問題
+共通共分散Σ、平均 $\boldsymbol\mu_k$、事前確率 $\pi_k$ の正規K群LDAで判別関数を書け。
+## 答え
+$$\delta_k(\boldsymbol x)=\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+-\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k+\log\pi_k.$$
+$\delta_k$ が最大の群へ分類する。
+## 使用公式・定理
+多変量正規密度の対数を群間で比較し、共通項を除く。
+## 計算例
+等事前確率なら $\log\pi_k$ は比較から消える。
+## 注意
+群ごとに共分散が異なる場合はQDAで境界が二次になる。
+<!-- CARD -->
+
+---
+id: mv-lda-vs-qda
+title: LDAとQDAの仮定を区別する
+category: applied-common
+subcategory: applied-multivariate
+topic: lda-qda-comparison
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [判別分析, LDA, QDA]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 判別分析 }]
+---
+## 問題
+線形判別分析（LDA）と二次判別分析（QDA）の共分散仮定と境界を比較せよ。
+## 答え
+LDAは全群で共通共分散行列を仮定し、判別境界は線形。QDAは群別共分散行列を許し、対数密度比に二次項が残るため境界は二次。
+## 使用公式・定理
+正規密度の二次形式 $-(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}\boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)/2$。
+## 計算例
+QDAは柔軟だが推定母数が多い。
+## 注意
+小標本・高次元ではLDAの方が安定しやすい。
+<!-- CARD -->
+
+---
+id: mv-hierarchical-linkage
+title: 階層的クラスタリングの連結法を区別する
+category: applied-common
+subcategory: applied-multivariate
+topic: hierarchical-clustering
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [クラスター分析, 階層法, 連結法]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラスタリング階層法 }]
+---
+## 問題
+単連結法、完全連結法、群平均法のクラスタ間距離を述べよ。
+## 答え
+単連結は点対距離の最小、完全連結は最大、群平均は全点対距離の平均を用いる。
+## 使用公式・定理
+凝集型階層法は最も近いクラスタ対を逐次併合する。
+## 計算例
+点対距離が2,4,6,8なら群平均距離は5。
+## 注意
+単連結は鎖状化しやすい。
+<!-- CARD -->
+
+---
+id: mv-ward-increase
+title: Ward法の平方和増加を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: ward-method
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [クラスター分析, Ward法, 群内平方和]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: クラスタリング階層法 }]
+---
+## 問題
+サイズ $n_A=2,n_B=3$、重心間距離が5の2クラスタを併合する際のWard法の群内平方和増加を求めよ。
+## 答え
+$$\Delta WSS=\frac{n_An_B}{n_A+n_B}\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2
+=\frac{2\cdot3}{5}25=30.$$
+## 使用公式・定理
+Ward法は併合による群内平方和増加が最小の対を選ぶ。
+## 計算例
+距離だけでなくクラスタサイズも影響する。
+## 注意
+通常は平方Euclid距離を前提とする。
+<!-- CARD -->
+
+---
+id: mv-kmeans-one-iteration
+title: k-means法の割当てと重心更新を行う
+category: applied-common
+subcategory: applied-multivariate
+topic: k-means
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [クラスター分析, k-means法, 重心]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: k-means法 }]
+---
+## 問題
+1次元データ0,2,8,10、初期重心0,10でk-meansを1回更新せよ。
+## 答え
+近い重心へ割り当てると $C_1=\{0,2\}$、$C_2=\{8,10\}$。新重心は
+$$\bar x_{C_1}=1,\qquad \bar x_{C_2}=9.$$
+## 使用公式・定理
+割当てと重心更新を群内平方和が変わらなくなるまで交互に行う。
+## 計算例
+更新後の群内平方和は $1+1+1+1=4$。
+## 注意
+初期値により局所解が変わる。
+<!-- CARD -->
+
+---
+id: mv-kmeans-objective
+title: k-meansの目的関数を判定する
+category: applied-common
+subcategory: applied-multivariate
+topic: k-means-objective
+type: formula
+difficulty: 2
+priority: B
+hashtags: [クラスター分析, k-means法, 群内平方和]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: k-means法 }]
+---
+## 問題
+k-means法が最小化する目的関数を書け。
+## 答え
+$$W(C_1,\ldots,C_K)=\sum_{k=1}^K\sum_{i\in C_k}\|\boldsymbol x_i-\bar{\boldsymbol x}_k\|^2.$$
+固定した割当てに対して最適な代表点は各クラスタの標本平均。
+## 使用公式・定理
+平方距離和は平均で最小になる。
+## 計算例
+Kを増やすとWは増えない。
+## 注意
+カテゴリ変数や外れ値に弱い。
+<!-- CARD -->
+
+---
+id: mv-canonical-correlation
+title: 正準相関を固有値問題で表す
+category: applied-common
+subcategory: applied-multivariate
+topic: canonical-correlation
+type: formula
+difficulty: 4
+priority: C
+hashtags: [正準相関分析, 固有値, 多変量解析]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 正準相関分析 }]
+---
+## 問題
+変数群X,Yの第1正準相関を共分散ブロックから表せ。
+## 答え
+$\boldsymbol a^{\mathsf T}\boldsymbol X$ と $\boldsymbol b^{\mathsf T}\boldsymbol Y$ の相関を最大化する。正準相関の二乗 $\rho^2$ は
+$$\boldsymbol\Sigma_{XX}^{-1}\boldsymbol\Sigma_{XY}
+\boldsymbol\Sigma_{YY}^{-1}\boldsymbol\Sigma_{YX}$$
+の最大固有値。
+## 使用公式・定理
+両線形結合の分散を1と制約したLagrange最適化。
+## 計算例
+各群が1変数なら通常の相関係数の絶対値。
+## 注意
+共分散ブロックの可逆性が必要。
+<!-- CARD -->
+
+---
+id: mv-mds-double-centering
+title: 古典的MDSで距離から内積行列を作る
+category: applied-common
+subcategory: applied-multivariate
+topic: multidimensional-scaling
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [多次元尺度構成法, 二重中心化, 距離行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多次元尺度構成法 }]
+---
+## 問題
+平方距離行列 $\boldsymbol D^{(2)}=(d_{ij}^2)$ から、古典的多次元尺度構成法（MDS）の中心化Gram行列を作る公式を書け。
+## 答え
+$$\boldsymbol J=\boldsymbol I-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T},\qquad
+\boldsymbol B=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J.$$
+Bを固有分解し、正の上位固有値と固有ベクトルから座標を得る。
+## 使用公式・定理
+$d_{ij}^2=b_{ii}+b_{jj}-2b_{ij}$ を行・列中心化して逆算する。
+## 計算例
+m次元座標は $\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}$。
+## 注意
+負の固有値が大きいとEuclid距離としての再現が悪い。
+<!-- CARD -->
+
+---
+id: reg-robust-sandwich
+title: 異分散頑健共分散行列を書く
+category: applied-common
+subcategory: applied-multiple-regression
+topic: robust-standard-error
+type: formula
+difficulty: 4
+priority: S
+hashtags: [異分散, 標準誤差, サンドイッチ推定量]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 異分散と標準誤差 }]
+---
+## 問題
+最小二乗法のHC0型異分散頑健共分散推定量を書け。
+## 答え
+$$\widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\operatorname{diag}(e_1^2,\ldots,e_n^2)\boldsymbol X
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.$$
+## 使用公式・定理
+一般形は bread–meat–bread のサンドイッチ形。
+## 計算例
+等分散を仮定せず係数の標準誤差を補正する。
+## 注意
+係数推定値自体は最小二乗法のまま。
+<!-- CARD -->
+
+---
+id: reg-aic-variable-selection
+title: AICで回帰モデルを比較する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: variable-selection-aic
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [変数選択, AIC, モデル比較]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 変数選択 }]
+---
+## 問題
+モデル1は最大対数尤度-100・母数5個、モデル2は-96・母数8個である。AICで選べ。
+## 答え
+$$AIC_1=-2(-100)+2(5)=210,$$
+$$AIC_2=-2(-96)+2(8)=208.$$
+小さいモデル2を選ぶ。
+## 使用公式・定理
+$AIC=-2\ell(\widehat\theta)+2k$。
+## 計算例
+尤度改善8が罰則増加6を上回った。
+## 注意
+AIC差が小さいと選択の不確実性も大きい。
+<!-- CARD -->
+
+---
+id: reg-stepwise-selection-warning
+title: ステップワイズ選択後推論の問題を説明する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: stepwise-selection
+type: recognition
+difficulty: 3
+priority: B
+hashtags: [変数選択, ステップワイズ法, 選択後推論]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 変数選択 }]
+---
+## 問題
+同じデータで変数選択した後、通常のt検定をそのまま報告する問題点は何か。
+## 答え
+選択過程を固定済みとみなす通常の標準誤差・p値は選択の不確実性を無視し、第一種過誤や係数の過大評価を招き得る。
+## 使用公式・定理
+推論手順の標本分布にはモデル選択規則も含める必要がある。
+## 計算例
+予測評価は独立テスト標本や入れ子交差検証で行う。
+## 注意
+自動選択は因果的交絡調整の代替ではない。
+<!-- CARD -->
+
+---
+id: reg-frisch-waugh-lovell
+title: 部分回帰係数を残差同士の回帰で求める
+category: applied-common
+subcategory: applied-multiple-regression
+topic: partial-regression
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [重回帰モデル, 部分回帰, Frisch-Waugh-Lovell]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 重回帰モデル }]
+---
+## 問題
+$Y$ を $X_1,X_2$ へ回帰するとき、$X_1$ の係数を残差化で求める手順を述べよ。
+## 答え
+YをX2へ回帰した残差を $\widetilde Y$、X1をX2へ回帰した残差を $\widetilde X_1$ とすれば
+$$\widehat\beta_1=\frac{\widetilde{\boldsymbol X}_1^{\mathsf T}\widetilde{\boldsymbol Y}}
+{\widetilde{\boldsymbol X}_1^{\mathsf T}\widetilde{\boldsymbol X}_1}.$$
+## 使用公式・定理
+Frisch–Waugh–Lovell定理。
+## 計算例
+X2で説明できる部分を両方から除いて関係を見る。
+## 注意
+必要な切片も残差化に含める。
+<!-- CARD -->
+
+---
+id: reg-condition-number
+title: 条件数から共線性を判定する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: condition-number
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [多重共線性, 条件数, 固有値]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多重共線性 }]
+---
+## 問題
+標準化したデザイン行列の特異値の最大が10、最小が0.2である。条件数を求めよ。
+## 答え
+$$\kappa(\boldsymbol X)=\frac{s_{\max}}{s_{\min}}=\frac{10}{0.2}=50.$$
+小さなデータ変動で係数が大きく変わり得る。
+## 使用公式・定理
+$\kappa(\boldsymbol X^{\mathsf T}\boldsymbol X)=\kappa(\boldsymbol X)^2$。
+## 計算例
+この例ではGram行列の条件数は2500。
+## 注意
+尺度の影響を避けるため標準化後に見る。
+<!-- CARD -->
+
+---
+id: reg-breusch-pagan-idea
+title: Breusch–Pagan検定の構成を説明する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: heteroscedasticity-test
+type: recognition
+difficulty: 3
+priority: B
+hashtags: [残差分析, 異分散, Breusch-Pagan検定]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 残差分析 }]
+---
+## 問題
+Breusch–Pagan検定の補助回帰と帰無仮説を述べよ。
+## 答え
+最小二乗法残差の二乗 $e_i^2$ を分散を説明しそうな変数へ回帰し、帰無仮説を「補助回帰の傾きがすべて0、すなわち等分散」とする。
+## 使用公式・定理
+大標本では $LM=nR_{\mathrm{aux}}^2$ が傾き数自由度のカイ二乗分布へ近似する。
+## 計算例
+n=100、補助回帰 $R^2=0.08$ ならLM=8。
+## 注意
+正規性や小標本では近似精度に注意する。
+<!-- CARD -->
+
+---
+id: glm-three-components
+title: 一般化線形モデルの3要素を答える
+category: applied-common
+subcategory: applied-multivariate
+topic: glm-components
+type: recognition
+difficulty: 2
+priority: A
+hashtags: [一般化線形モデル, リンク関数, 線形予測子]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 一般化線形モデルの3要素 }]
+---
+## 問題
+一般化線形モデル（一般化線形モデル）の3要素を述べよ。
+## 答え
+応答の指数型分布族、線形予測子 $\eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta$、平均 $\mu_i=E[Y_i\mid\boldsymbol x_i]$ と線形予測子を結ぶリンク関数 $g(\mu_i)=\eta_i$。
+## 使用公式・定理
+$g$ は平均空間を実数直線上の線形予測子へ写す。
+## 計算例
+二項分布＋logitリンクでロジスティック回帰。
+## 注意
+誤差を応答へ加える通常の線形回帰とは表現が異なる。
+<!-- CARD -->
+
+---
+id: glm-exponential-family
+title: 1母数指数型分布族の形を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: exponential-family
+type: formula
+difficulty: 3
+priority: B
+hashtags: [一般化線形モデル, 指数型分布族, 自然母数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 指数型分布族 }]
+---
+## 問題
+一般化線形モデルで使う指数型分布族の密度・確率質量関数の標準形を書け。
+## 答え
+$$f(y;\theta,\phi)=\exp\left\{\frac{y\theta-b(\theta)}{a(\phi)}+c(y,\phi)\right\}.$$
+$$E[Y]=b'(\theta),\qquad \operatorname{Var}(Y)=a(\phi)b''(\theta).$$
+## 使用公式・定理
+$\theta$ は自然母数、$\phi$ は分散母数。
+## 計算例
+ポアソン分布では $\theta=\log\mu,b(\theta)=e^\theta,a(\phi)=1$。
+## 注意
+分布ごとに台を確認する。
+<!-- CARD -->
+
+---
+id: glm-canonical-links
+title: 代表的一般化線形モデルの正準リンクを対応させる
+category: applied-common
+subcategory: applied-multivariate
+topic: canonical-link
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [一般化線形モデル, 正準リンク, リンク関数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 正準リンク }]
+---
+## 問題
+正規分布、二項分布、ポアソン分布の正準リンクを答えよ。
+## 答え
+正規分布は恒等リンク $g(\mu)=\mu$、二項分布はlogitリンク $g(p)=\log\{p/(1-p)\}$、ポアソン分布は対数リンク $g(\mu)=\log\mu$。
+## 使用公式・定理
+正準リンクは $g(\mu)=\theta$ として線形予測子を自然母数へ一致させる。
+## 計算例
+ガンマ分布の正準リンクは逆数型。
+## 注意
+正準リンク以外も使用できる。
+<!-- CARD -->
+
+---
+id: glm-logistic-probability
+title: ロジットから予測確率を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: logistic-probability
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [ロジスティック回帰分析, ロジット変換, 予測確率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ロジスティック回帰 }]
+---
+## 問題
+$\operatorname{logit}(p)=-1+0.5x$ でx=2の予測確率を求めよ。
+## 答え
+$\eta=-1+0.5(2)=0$ なので
+$$p=\frac{e^\eta}{1+e^\eta}=\frac12.$$
+## 使用公式・定理
+$\operatorname{logit}(p)=\log\{p/(1-p)\}$ の逆関数は $p=e^\eta/(1+e^\eta)$。
+## 計算例
+$\eta=\log3$ ならp=3/4。
+## 注意
+線形なのは確率ではなく対数オッズ。
+<!-- CARD -->
+
+---
+id: glm-logistic-odds-ratio
+title: ロジスティック係数をオッズ比へ変換する
+category: applied-common
+subcategory: applied-multivariate
+topic: logistic-odds-ratio
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [ロジスティック回帰分析, オッズ比, 回帰係数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: オッズとオッズ比 }]
+---
+## 問題
+ロジスティック回帰の係数が $\beta=\log1.5$ のとき、xが2増える際のオッズ比を求めよ。
+## 答え
+$$OR=e^{2\beta}=e^{2\log1.5}=1.5^2=2.25.$$
+## 使用公式・定理
+他の変数一定でxがc増えるとオッズは $e^{c\beta}$ 倍。
+## 計算例
+1単位なら1.5倍。
+## 注意
+オッズ比を確率差と混同しない。
+<!-- CARD -->
+
+---
+id: glm-binomial-loglikelihood
+title: 二項一般化線形モデルの対数尤度を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: binomial-likelihood
+type: formula
+difficulty: 3
+priority: B
+hashtags: [一般化線形モデル, 二項分布, 尤度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 二項一般化線形モデルの尤度 }]
+---
+## 問題
+$Y_i\sim\operatorname{Bin}(m_i,p_i)$ が独立な二項一般化線形モデルの対数尤度を、母数に依存しない項を除いて書け。
+## 答え
+$$\ell(\boldsymbol\beta)=\sum_i\{y_i\log p_i+(m_i-y_i)\log(1-p_i)\},$$
+$\operatorname{logit}(p_i)=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta$。
+## 使用公式・定理
+二項分布の確率質量関数は $P(Y=y)=\binom myp^y(1-p)^{m-y}$、$y=0,\ldots,m$。
+## 計算例
+m=1ならBernoulli尤度。
+## 注意
+独立性を仮定して尤度を積にする。
+<!-- CARD -->
+
+---
+id: glm-logistic-score
+title: ロジスティック回帰のスコアを導く
+category: applied-common
+subcategory: applied-multivariate
+topic: logistic-score
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [ロジスティック回帰分析, スコア, 最尤法]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 一般化線形モデルの推定 }]
+---
+## 問題
+独立なBernoulli応答のロジスティック回帰でスコア方程式を書け。
+## 答え
+$p_i=e^{\eta_i}/(1+e^{\eta_i})$、$\partial p_i/\partial\eta_i=p_i(1-p_i)$ より
+$$\frac{\partial\ell}{\partial\boldsymbol\beta}
+=\sum_i\boldsymbol x_i(y_i-p_i)
+=\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p).$$
+したがって $\boldsymbol X^{\mathsf T}(\boldsymbol y-\widehat{\boldsymbol p})=0$ を解く。
+## 使用公式・定理
+連鎖律とBernoulli対数尤度。
+## 計算例
+一般には閉形式がなく反復法を使う。
+## 注意
+完全分離では有限の最尤推定値が存在しないことがある。
+<!-- CARD -->
+
+---
+id: glm-irls-update
+title: IRLS更新式の各量を説明する
+category: applied-common
+subcategory: applied-multivariate
+topic: iteratively-reweighted-least-squares
+type: formula
+difficulty: 4
+priority: A
+hashtags: [一般化線形モデル, IRLS, 最尤法]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 反復重み付き最小二乗 }]
+---
+## 問題
+一般化線形モデルの反復重み付き最小二乗法（IRLS）の更新式を書け。
+## 答え
+現在値で作る作業応答
+$$z_i=\eta_i+(y_i-\mu_i)\frac{d\eta_i}{d\mu_i}$$
+と重み
+$$w_i=\left\{\operatorname{Var}(Y_i)\left(\frac{d\eta_i}{d\mu_i}\right)^2\right\}^{-1}$$
+を用い、
+$$\boldsymbol\beta^{\mathrm{new}}=(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol z.$$
+## 使用公式・定理
+Newton–Raphson/Fisher scoringを重み付き最小二乗として表す。
+## 計算例
+収束までzとWを更新する。
+## 注意
+初期値や分離により収束しない場合がある。
+<!-- CARD -->
+
+---
+id: glm-poisson-mean-ratio
+title: ポアソン回帰の平均比を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: poisson-regression
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [ポアソン回帰, 対数リンク, 平均比]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン回帰 }]
+---
+## 問題
+$\log\mu=0.2+0.4x$ のポアソン回帰でxが3増えると平均は何倍になるか。
+## 答え
+$$\frac{\mu(x+3)}{\mu(x)}=e^{3(0.4)}=e^{1.2}\approx3.32.$$
+## 使用公式・定理
+対数リンクでは $\mu=e^\eta$。
+## 計算例
+1増加なら $e^{0.4}\approx1.49$ 倍。
+## 注意
+係数は平均の差でなく平均比を表す。
+<!-- CARD -->
+
+---
+id: glm-poisson-offset
+title: 曝露量をoffsetとして組み込む
+category: applied-common
+subcategory: applied-multivariate
+topic: poisson-offset
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ポアソン回帰, offset, 発生率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 対数リンク }]
+---
+## 問題
+観測時間tに比例する件数Yをポアソン回帰し、率 $\lambda$ に $\log\lambda=\beta_0+\beta_1x$ を仮定する。平均の式を書け。
+## 答え
+$$E[Y\mid x,t]=t\lambda=t\exp(\beta_0+\beta_1x),$$
+したがって
+$$\log E[Y\mid x,t]=\log t+\beta_0+\beta_1x.$$
+## 使用公式・定理
+$\log t$ を係数1に固定したoffsetとする。
+## 計算例
+観測時間2倍なら同じ率で期待件数も2倍。
+## 注意
+t>0が必要。
+<!-- CARD -->
+
+---
+id: glm-deviance-definition
+title: 一般化線形モデルの逸脱度を尤度から計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: deviance
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [一般化線形モデル, 逸脱度, 尤度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 逸脱度 }]
+---
+## 問題
+飽和モデルの最大対数尤度が-40、当てはめモデルが-47のとき逸脱度を求めよ。
+## 答え
+$$D=2\{\ell_{\mathrm{sat}}-\ell_{\mathrm{fit}}\}
+=2\{-40-(-47)\}=14.$$
+## 使用公式・定理
+飽和モデルは各観測を完全に当てはめる基準モデル。
+## 計算例
+同じ応答分布なら小さい逸脱度ほど飽和モデルに近い。
+## 注意
+モデル間比較では自由度も考慮する。
+<!-- CARD -->
+
+---
+id: glm-pearson-chi-square
+title: Pearsonカイ二乗統計量を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: pearson-chi-square
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [一般化線形モデル, Pearsonカイ二乗, 適合度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: Pearsonカイ二乗統計量 }]
+---
+## 問題
+3観測について $(y_i,\widehat\mu_i,V(\widehat\mu_i))=(2,1,1),(3,4,4),(5,5,5)$ のときPearson統計量を求めよ。
+## 答え
+$$X_P^2=\sum_i\frac{(y_i-\widehat\mu_i)^2}{V(\widehat\mu_i)}
+=\frac{1^2}{1}+\frac{(-1)^2}{4}+0=1.25.$$
+## 使用公式・定理
+各Pearson残差の二乗和。
+## 計算例
+分散母数推定では $X_P^2/(n-p)$ を用いることがある。
+## 注意
+小標本でのカイ二乗近似に注意する。
+<!-- CARD -->
+
+---
+id: glm-likelihood-ratio-test
+title: 一般化線形モデルの尤度比検定を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: glm-likelihood-ratio
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [一般化線形モデル, 尤度比検定, モデル比較]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 尤度比によるモデル比較 }]
+---
+## 問題
+縮小一般化線形モデルの逸脱度が30、完全一般化線形モデルが22、追加母数2個である。尤度比統計量を求めよ。
+## 答え
+$$G^2=D_R-D_F=30-22=8.$$
+帰無仮説下で漸近的に自由度2のカイ二乗分布へ従う。
+## 使用公式・定理
+$G^2=2(\ell_F-\ell_R)$。
+## 計算例
+5%臨界値5.991なら8>5.991なので棄却する。
+## 注意
+モデルは入れ子で、通常の正則性条件が必要。
+<!-- CARD -->
+
+---
+id: glm-categorical-interaction
+title: ロジスティック交互作用のオッズ比を読む
+category: applied-common
+subcategory: applied-multivariate
+topic: glm-interaction
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ロジスティック回帰分析, 交互作用, オッズ比]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 交互作用とカテゴリ変数 }]
+---
+## 問題
+$\operatorname{logit}(p)=\beta_0+\beta_1D+\beta_2x+\beta_3Dx$ で、xが1増えるオッズ比をD=0,1それぞれ求めよ。
+## 答え
+D=0では $e^{\beta_2}$、D=1では $e^{\beta_2+\beta_3}$。両者の比は $e^{\beta_3}$。
+## 使用公式・定理
+対数オッズのx傾きは $\beta_2+\beta_3D$。
+## 計算例
+$\beta_2=0.2,\beta_3=0.5$ なら1.22倍と2.01倍。
+## 注意
+確率尺度の交互作用とは一致しないことがある。
+<!-- CARD -->
+
+---
+id: glm-overdispersion-diagnostic
+title: 過分散をPearson統計量で診断する
+category: applied-common
+subcategory: applied-multivariate
+topic: overdispersion
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [一般化線形モデル, 過分散, 分散母数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 過分散 }]
+---
+## 問題
+ポアソン回帰で $X_P^2=180$、残差自由度90である。分散倍率を推定し解釈せよ。
+## 答え
+$$\widehat\phi=\frac{X_P^2}{df_E}=\frac{180}{90}=2.$$
+ポアソン仮定の約2倍の条件付き分散がある過分散を示す。
+## 使用公式・定理
+擬似尤度では $\operatorname{Var}(Y_i)=\phi V(\mu_i)$。
+## 計算例
+標準誤差は概ね $\sqrt2$ 倍へ補正される。
+## 注意
+欠落変数、群内相関、ゼロ過剰も原因になり得る。
+<!-- CARD -->
+
+---
+id: glm-logistic-marginal-effect
+title: ロジスティック回帰の限界効果を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: marginal-effect
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ロジスティック回帰分析, 限界効果, 予測確率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 予測確率と限界効果 }]
+---
+## 問題
+ロジスティック回帰で係数 $\beta=0.8$、評価点の予測確率p=0.25のとき連続変数xの限界効果を求めよ。
+## 答え
+$$\frac{\partial p}{\partial x}=\beta p(1-p)
+=0.8(0.25)(0.75)=0.15.$$
+## 使用公式・定理
+$dp/d\eta=p(1-p)$、$d\eta/dx=\beta$。
+## 計算例
+同じ係数でもpにより確率差は変わる。
+## 注意
+交互作用があれば微分式に追加項が入る。
+<!-- CARD -->
+
+---
+id: glm-probit-probability
+title: プロビットモデルの確率を計算する
+category: applied-common
+subcategory: applied-multivariate
+topic: probit-model
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [プロビット分析, 標準正規分布, 予測確率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: プロビット分析 }]
+---
+## 問題
+プロビットモデル $P(Y=1\mid x)=\Phi(-0.5+x)$ でx=0.5の確率を求めよ。
+## 答え
+線形予測子は0なので
+$$P(Y=1\mid x=0.5)=\Phi(0)=0.5.$$
+## 使用公式・定理
+プロビットリンクは $\Phi^{-1}(p)=\eta$。
+## 計算例
+潜在変数 $Y^*=\eta+\varepsilon$、$\varepsilon\sim N(0,1)$ の閾値モデルで導ける。
+## 注意
+係数尺度はlogitモデルと異なる。
+<!-- CARD -->
+
+---
+id: glm-tobit-likelihood-parts
+title: Tobitモデルの尤度寄与を区別する
+category: applied-common
+subcategory: applied-multivariate
+topic: tobit-model
+type: formula
+difficulty: 4
+priority: B
+hashtags: [トービット分析, 打ち切り, 尤度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: トービット分析 }]
+---
+## 問題
+$Y^*=\boldsymbol x^{\mathsf T}\boldsymbol\beta+\varepsilon$、$\varepsilon$ は正規分布 $N(0,\sigma^2)$、$Y=\max(0,Y^*)$ の左側打ち切りTobitモデルで尤度寄与を書け。
+## 答え
+$y_i>0$ なら
+$$\frac1\sigma\phi\left(\frac{y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta}{\sigma}\right),$$
+$y_i=0$ なら
+$$P(Y_i^*\le0)=\Phi\left(-\frac{\boldsymbol x_i^{\mathsf T}\boldsymbol\beta}{\sigma}\right).$$
+## 使用公式・定理
+観測された正値は密度、打ち切り値は累積確率を尤度へ入れる。
+## 計算例
+全尤度は各寄与の積。
+## 注意
+0が真の値として生じる切断・ゼロ過剰モデルとは異なる。
+<!-- CARD -->
+
+---
+id: glm-nonlinear-regression-gradient
+title: 非線形回帰のGauss–Newton更新を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: nonlinear-regression
+type: formula
+difficulty: 4
+priority: B
+hashtags: [非線形回帰モデル, Gauss-Newton法, ヤコビ行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 非線形回帰モデル }]
+---
+## 問題
+$y_i=f(x_i,\boldsymbol\theta)+\varepsilon_i$ の非線形最小二乗でGauss–Newton更新を書け。
+## 答え
+現在値で残差 $\boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)$、ヤコビ行列 $J_{ij}=\partial f_i/\partial\theta_j$ を作り、
+$$\boldsymbol\theta^{\mathrm{new}}
+=\boldsymbol\theta+(\boldsymbol J^{\mathsf T}\boldsymbol J)^{-1}\boldsymbol J^{\mathsf T}\boldsymbol r.$$
+## 使用公式・定理
+一次近似 $\boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)\approx\boldsymbol f(\boldsymbol\theta)+\boldsymbol J\boldsymbol\delta$。
+## 計算例
+線形モデルでは1回で最小二乗法解へ達する。
+## 注意
+初期値や局所解に依存し得る。更新式には現在値でヤコビ行列Jが列フルランクであることが必要。
+<!-- CARD -->
+
+---
+id: glm-svm-margin
+title: ハードマージンSVMの制約と幅を書く
+category: applied-common
+subcategory: applied-multivariate
+topic: support-vector-machine
+type: formula
+difficulty: 3
+priority: B
+hashtags: [サポートベクターマシン, マージン, 分類]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: サポートベクターマシン }]
+---
+## 問題
+$y_i\in\{-1,+1\}$ の線形分離可能データに対するハードマージンSVMを書け。
+## 答え
+$$\min_{\boldsymbol w,b}\frac12\|\boldsymbol w\|^2
+\quad\text{subject to}\quad
+y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\ge1.$$
+2本の支持超平面間の幅は $2/\|\boldsymbol w\|$。
+## 使用公式・定理
+ノルム最小化は幾何学的マージン最大化と同値。
+## 計算例
+等号となる点がサポートベクトル。
+## 注意
+非分離データではスラック変数と罰則Cを用いる。
+<!-- CARD -->
+
+---
+id: reg-leverage-threshold
+title: レバレッジを平均値と比較する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: leverage
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [回帰診断法, レバレッジ, ハット行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 回帰診断法 }]
+---
+## 問題
+n=50、切片を含む係数総数k=5の回帰で観測iの $h_{ii}=0.30$ である。平均レバレッジの2倍を目安に判定せよ。
+## 答え
+平均は $k/n=5/50=0.10$、2倍は0.20。$0.30>0.20$ なので説明変数空間で高レバレッジの観測と判定する。
+## 使用公式・定理
+$\sum_i h_{ii}=\operatorname{tr}(\boldsymbol H)=k$。ここでkは切片を含む係数総数。
+## 計算例
+$0\le h_{ii}\le1$。
+## 注意
+$2k/n$ は機械的な棄却基準ではなく診断の目安。
+<!-- CARD -->
+
+---
+id: reg-gls-estimator
+title: 一般化最小二乗推定量を導く
+category: applied-common
+subcategory: applied-multiple-regression
+topic: generalized-least-squares
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [一般化最小二乗推定, GLS, 相関誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
+---
+## 問題
+$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol\Omega$、$\boldsymbol\Omega$ が既知の正定値行列のときGLS推定量を書け。
+## 答え
+重み付き平方和
+$$Q=(\boldsymbol y-\boldsymbol X\boldsymbol\beta)^{\mathsf T}\boldsymbol\Omega^{-1}(\boldsymbol y-\boldsymbol X\boldsymbol\beta)$$
+を微分して0と置くと
+$$\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+=\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y,$$
+$$\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y.$$
+## 使用公式・定理
+$\partial Q/\partial\boldsymbol\beta=-2\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}(\boldsymbol y-\boldsymbol X\boldsymbol\beta)$。
+## 計算例
+$\boldsymbol\Omega=\boldsymbol I$ なら最小二乗法へ戻る。
+## 注意
+$\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X$ の可逆性が必要。
+<!-- CARD -->
+
+---
+id: reg-wls-two-points
+title: 重み付き最小二乗の重みを分散から決める
+category: applied-common
+subcategory: applied-multiple-regression
+topic: weighted-least-squares
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [一般化最小二乗推定, WLS, 不均一分散]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
+---
+## 問題
+独立な2観測の誤差分散がそれぞれ1と4である。WLSの相対重みを求めよ。
+## 答え
+分散の逆数を用いるので
+$$w_1:w_2=1/1:1/4=4:1.$$
+第1観測を第2観測の4倍重く扱う。
+## 使用公式・定理
+$Q=\sum_iw_i(y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2$、$w_i\propto1/\sigma_i^2$。
+## 計算例
+共通倍率は推定係数を変えない。
+## 注意
+分散モデルを誤ると効率が落ち得る。
+<!-- CARD -->
+
+---
+id: reg-ridge-closed-form
+title: Ridge回帰の解を導く
+category: applied-common
+subcategory: applied-multiple-regression
+topic: ridge-regression
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [Ridge回帰, 正則化, 多重共線性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 多重共線性 }]
+---
+## 問題
+切片を除いて標準化した説明変数に対するRidge回帰の目的関数と解を書け。
+## 答え
+$$\min_{\boldsymbol\beta}
+\{\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2+\lambda\|\boldsymbol\beta\|^2\}.$$
+微分して
+$$-2\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol X\boldsymbol\beta)+2\lambda\boldsymbol\beta=0,$$
+$$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol y.$$
+## 使用公式・定理
+二乗L2罰則。
+## 計算例
+$\lambda=0$ なら最小二乗法。
+## 注意
+通常は切片を罰せず、説明変数を標準化する。
+<!-- CARD -->
+
+---
+id: reg-lasso-soft-threshold
+title: 直交計画のLasso解を計算する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: lasso
+type: calc_step
+difficulty: 4
+priority: A
+hashtags: [L1正則化法, Lasso, ソフト閾値]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: L1正則化法 }]
+---
+## 問題
+$\boldsymbol X^{\mathsf T}\boldsymbol X=\boldsymbol I$ で、目的関数を $\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2+\lambda\sum_j|\beta_j|$ とする。最小二乗法係数z=3、$\lambda=1$ のLasso係数を求めよ。
+## 答え
+ソフト閾値関数より
+$$\widehat\beta=\operatorname{sign}(z)(|z|-\lambda)_+
+=1(3-1)=2.$$
+## 使用公式・定理
+$S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+$。
+## 計算例
+$|z|\le\lambda$ なら係数は0。
+## 注意
+目的関数の係数規約により閾値の表記は変わる。
+<!-- CARD -->
+
+---
+id: reg-lasso-vs-ridge
+title: LassoとRidgeの役割を区別する
+category: applied-common
+subcategory: applied-multiple-regression
+topic: lasso-ridge-comparison
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [L1正則化法, Ridge回帰, 変数選択]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: L1正則化法 }]
+---
+## 問題
+LassoとRidgeを、罰則と係数が厳密に0になり得るかで比較せよ。
+## 答え
+LassoはL1罰則 $\lambda\sum_j|\beta_j|$ で疎な解を作り、変数選択を同時に行える。RidgeはL2罰則 $\lambda\sum_j\beta_j^2$ で係数を連続的に縮小するが、通常は厳密な0にしない。
+## 使用公式・定理
+L1球には軸上の角があり、二次損失の等高線が角で接しやすい。
+## 計算例
+強く相関する変数群ではRidgeは分散を安定化しやすい。
+## 注意
+$\lambda$ は交差検証などで選び、尺度依存を避けるため標準化する。
+<!-- CARD -->

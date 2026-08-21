@@ -1850,71 +1850,144 @@ items:
         status: card
         cards: [design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality]
   - id: applied-multiple-regression
-    status: partial
+    status: complete
     cards:
       - model-gauss-markov
       - data-ols-slope
+      - reg-robust-sandwich
+      - reg-aic-variable-selection
+      - reg-stepwise-selection-warning
+      - reg-frisch-waugh-lovell
+      - reg-condition-number
+      - reg-breusch-pagan-idea
+      - reg-leverage-threshold
+      - reg-gls-estimator
+      - reg-wls-two-points
+      - reg-ridge-closed-form
+      - reg-lasso-soft-threshold
+      - reg-lasso-vs-ridge
+      - reg-general-linear-hypothesis
+      - reg-press-loocv
+      - reg-dffits-numeric
+      - reg-dfbeta-meaning
+      - reg-hc3-sandwich
+      - reg-feasible-gls-steps
+      - reg-elastic-net-objective
+      - reg-lasso-kkt-zero
+      - reg-ridge-svd-shrinkage
+      - reg-mallows-cp
+      - reg-bic-selection
+      - reg-nested-cross-validation
+      - reg-software-output-interpretation
     terms:
       - name: 重回帰モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-frisch-waugh-lovell, reg-general-linear-hypothesis, reg-software-output-interpretation]
       - name: 変数選択
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-aic-variable-selection, reg-stepwise-selection-warning, reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-mallows-cp, reg-bic-selection, reg-nested-cross-validation]
       - name: 残差分析
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-breusch-pagan-idea, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich]
       - name: 一般化最小二乗推定
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-gls-estimator, reg-wls-two-points, reg-feasible-gls-steps]
       - name: ガウス・マルコフの定理
-        status: planned
-        cards: []
+        status: card
+        cards: [model-gauss-markov, reg-gls-estimator]
       - name: 多重共線性
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-condition-number, reg-ridge-closed-form, reg-ridge-svd-shrinkage]
       - name: L1正則化法
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-lasso-kkt-zero]
       - name: 回帰診断法
-        status: planned
-        cards: []
+        status: card
+        cards: [reg-leverage-threshold, reg-breusch-pagan-idea, reg-robust-sandwich, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich]
   - id: applied-multivariate
-    status: partial
+    status: complete
     cards:
       - model-logistic-odds
       - model-poisson-glm
+      - mv-mean-covariance-numeric
+      - mv-covariance-linear-transform
+      - mv-mahalanobis-distance
+      - mv-hotelling-one-sample
+      - mv-hotelling-f-transform
+      - mv-pca-variance-max
+      - mv-pca-eigen-numeric
+      - mv-pca-contribution-rate
+      - mv-pca-score
+      - mv-pca-loading
+      - mv-pca-covariance-vs-correlation
+      - mv-pca-reconstruction
+      - mv-factor-model-covariance
+      - mv-factor-communality
+      - mv-factor-rotation
+      - mv-factor-score-regression
+      - mv-lda-direction
+      - mv-lda-numeric
+      - mv-lda-classification-rule
+      - mv-lda-vs-qda
+      - mv-hierarchical-linkage
+      - mv-ward-increase
+      - mv-kmeans-one-iteration
+      - mv-kmeans-objective
+      - mv-canonical-correlation
+      - mv-mds-double-centering
+      - glm-three-components
+      - glm-exponential-family
+      - glm-canonical-links
+      - glm-logistic-probability
+      - glm-logistic-odds-ratio
+      - glm-binomial-loglikelihood
+      - glm-logistic-score
+      - glm-irls-update
+      - glm-poisson-mean-ratio
+      - glm-poisson-offset
+      - glm-deviance-definition
+      - glm-pearson-chi-square
+      - glm-likelihood-ratio-test
+      - glm-categorical-interaction
+      - glm-overdispersion-diagnostic
+      - glm-logistic-marginal-effect
+      - glm-probit-probability
+      - glm-tobit-likelihood-parts
+      - glm-nonlinear-regression-gradient
+      - glm-svm-margin
+      - glm-software-deviance-output
+      - mv-pca-software-output
     terms:
       - name: 主成分分析
-        status: planned
-        cards: []
+        status: card
+        cards: [mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-pca-software-output]
       - name: 因子分析
-        status: planned
-        cards: []
+        status: card
+        cards: [mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression]
       - name: 判別分析
-        status: planned
-        cards: []
+        status: card
+        cards: [mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda]
       - name: クラスター分析
-        status: planned
-        cards: []
+        status: card
+        cards: [mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective]
       - name: ロジスティック回帰分析
-        status: planned
-        cards: []
+        status: card
+        cards: [model-logistic-odds, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-categorical-interaction, glm-logistic-marginal-effect]
       - name: プロビット分析
-        status: planned
-        cards: []
+        status: card
+        cards: [glm-probit-probability]
       - name: トービット分析
-        status: planned
-        cards: []
+        status: card
+        cards: [glm-tobit-likelihood-parts]
       - name: 一般化線形モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [model-poisson-glm, glm-three-components, glm-exponential-family, glm-canonical-links, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-software-deviance-output]
       - name: 非線形回帰モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [glm-nonlinear-regression-gradient]
       - name: サポートベクターマシン
-        status: planned
-        cards: []
+        status: card
+        cards: [glm-svm-margin]
   - id: applied-stochastic-processes
     status: partial
     cards:

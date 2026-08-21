@@ -47,6 +47,24 @@
 - 部分F検定：$F=\{(SSE_R-SSE_F)/q\}/\{SSE_F/(n-p_F-1)\}\sim F_{q,n-p_F-1}$。
 - Gauss–Markovの定理：$E[\varepsilon\mid X]=0$、$\operatorname{Var}(\varepsilon\mid X)=\sigma^2I$、$X$ 列フルランクの下で最小二乗推定量はBLUE。
 - レバレッジと残差分散：$h_{ii}=H_{ii}$、$\sum_i h_{ii}=p+1$、$\operatorname{Var}(e_i)=\sigma^2(1-h_{ii})$。
+- 自由度調整済み決定係数：切片込み係数数をkとすると $\bar R^2=1-(1-R^2)(n-1)/(n-k)$。
+- 分散拡大係数：$X_j$ を他の説明変数へ回帰した決定係数を $R_j^2$ とすると $\operatorname{VIF}_j=1/(1-R_j^2)$。
+- Cookの距離：内的スチューデント化残差 $r_i$ に対し $D_i=(r_i^2/k)h_{ii}/(1-h_{ii})$。
+- 一般化最小二乗推定：$\operatorname{Var}(\varepsilon)=\sigma^2\Omega$ なら $\widehat\beta_{\mathrm{GLS}}=(X^{\mathsf T}\Omega^{-1}X)^{-1}X^{\mathsf T}\Omega^{-1}Y$。
+- Ridge回帰：$\widehat\beta=(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}Y$。直交計画のLassoはソフト閾値 $S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+$。
+- 一般化線形モデル：指数型分布族 $f(y;\theta,\phi)=\exp[\{y\theta-b(\theta)\}/a(\phi)+c(y,\phi)]$、線形予測子 $\eta=X\beta$、リンク $g(\mu)=\eta$。
+- 正準リンク：正規分布は恒等、二項分布はlogit、ポアソン分布は対数リンク。
+- 一般化線形モデルのIRLS：$z_i=\eta_i+(y_i-\mu_i)d\eta_i/d\mu_i$、$w_i=[\operatorname{Var}(Y_i)(d\eta_i/d\mu_i)^2]^{-1}$ として $\beta^{\mathrm{new}}=(X^{\mathsf T}WX)^{-1}X^{\mathsf T}Wz$。
+- 逸脱度：$D=2(\ell_{\mathrm{sat}}-\ell_{\mathrm{fit}})$。Pearson統計量は $X_P^2=\sum_i(y_i-\widehat\mu_i)^2/V(\widehat\mu_i)$。
+- 過分散の概算：$\widehat\phi=X_P^2/(n-k)$。標準誤差は分散倍率の平方根に比例する。
+- Mahalanobis距離：$d^2=(x-\mu)^{\mathsf T}\Sigma^{-1}(x-\mu)$。
+- 1標本Hotelling統計量：p次元正規母集団からの独立標本でSが可逆かつ $n>p$ なら、$T^2=n(\bar x-\mu_0)^{\mathsf T}S^{-1}(\bar x-\mu_0)$、帰無仮説下で $(n-p)T^2/\{p(n-1)\}\sim F_{p,n-p}$。
+- 主成分分析：$\max_{\|a\|=1}a^{\mathsf T}\Sigma a$ から $\Sigma a=\lambda a$。寄与率は $\lambda_j/\sum_k\lambda_k$。
+- 因子分析：$X=\mu+\Lambda F+\varepsilon$、$\operatorname{Var}(F)=I$、$\operatorname{Var}(\varepsilon)=\Psi$、$\operatorname{Cov}(F,\varepsilon)=0$ なら $\Sigma=\Lambda\Lambda^{\mathsf T}+\Psi$。
+- Fisher線形判別：共通群内共分散Σの2群では $w\propto\Sigma^{-1}(\mu_1-\mu_0)$。
+- Ward法：2クラスタ併合時の群内平方和増加は $\Delta WSS=n_An_B\|\bar x_A-\bar x_B\|^2/(n_A+n_B)$。
+- k-means法：$\sum_k\sum_{i\in C_k}\|x_i-\bar x_k\|^2$ を割当てと重心更新で減少させる。
+- 古典的多次元尺度構成法：$J=I-11^{\mathsf T}/n$、平方距離行列 $D^{(2)}$ から $B=-JD^{(2)}J/2$。
 
 ## 正規分布に関する検定・種々の検定法
 

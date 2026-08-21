@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 982
+reviewed_card_count: 1055
 current_work: null
-next_work: C21-regression-multivariate
-last_completed_work: C20-experimental-design
+next_work: C22-stochastic-time-series
+last_completed_work: C21-regression-multivariate
 summary:
   total: 33
-  planned: 7
+  planned: 6
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 26
+  reviewed: 27
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1946,7 +1946,7 @@ work:
     target:
       min: 70
       max: 80
-    status: planned
+    status: reviewed
     review_dir: review/C21-regression-multivariate
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 多変量解析・一般化線形モデル・線形回帰
@@ -2011,6 +2011,89 @@ work:
       A: 16
       B: 24
       C: 1
+    started_at: 2026-08-21T03:26:13.174Z
+    self_review_at: 2026-08-21T03:43:40.780Z
+    independent_review_at: 2026-08-21T03:43:43.153Z
+    revision_at: 2026-08-21T03:50:05.523Z
+    completed_at: 2026-08-21T03:54:42.451Z
+    added_card_ids:
+      - glm-binomial-loglikelihood
+      - glm-canonical-links
+      - glm-categorical-interaction
+      - glm-deviance-definition
+      - glm-exponential-family
+      - glm-irls-update
+      - glm-likelihood-ratio-test
+      - glm-logistic-marginal-effect
+      - glm-logistic-odds-ratio
+      - glm-logistic-probability
+      - glm-logistic-score
+      - glm-nonlinear-regression-gradient
+      - glm-overdispersion-diagnostic
+      - glm-pearson-chi-square
+      - glm-poisson-mean-ratio
+      - glm-poisson-offset
+      - glm-probit-probability
+      - glm-software-deviance-output
+      - glm-svm-margin
+      - glm-three-components
+      - glm-tobit-likelihood-parts
+      - mv-canonical-correlation
+      - mv-covariance-linear-transform
+      - mv-factor-communality
+      - mv-factor-model-covariance
+      - mv-factor-rotation
+      - mv-factor-score-regression
+      - mv-hierarchical-linkage
+      - mv-hotelling-f-transform
+      - mv-hotelling-one-sample
+      - mv-kmeans-objective
+      - mv-kmeans-one-iteration
+      - mv-lda-classification-rule
+      - mv-lda-direction
+      - mv-lda-numeric
+      - mv-lda-vs-qda
+      - mv-mahalanobis-distance
+      - mv-mds-double-centering
+      - mv-mean-covariance-numeric
+      - mv-pca-contribution-rate
+      - mv-pca-covariance-vs-correlation
+      - mv-pca-eigen-numeric
+      - mv-pca-loading
+      - mv-pca-reconstruction
+      - mv-pca-score
+      - mv-pca-software-output
+      - mv-pca-variance-max
+      - mv-ward-increase
+      - reg-aic-variable-selection
+      - reg-bic-selection
+      - reg-breusch-pagan-idea
+      - reg-condition-number
+      - reg-dfbeta-meaning
+      - reg-dffits-numeric
+      - reg-elastic-net-objective
+      - reg-feasible-gls-steps
+      - reg-frisch-waugh-lovell
+      - reg-general-linear-hypothesis
+      - reg-gls-estimator
+      - reg-hc3-sandwich
+      - reg-lasso-kkt-zero
+      - reg-lasso-soft-threshold
+      - reg-lasso-vs-ridge
+      - reg-leverage-threshold
+      - reg-mallows-cp
+      - reg-nested-cross-validation
+      - reg-press-loocv
+      - reg-ridge-closed-form
+      - reg-ridge-svd-shrinkage
+      - reg-robust-sandwich
+      - reg-software-output-interpretation
+      - reg-stepwise-selection-warning
+      - reg-wls-two-points
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C22-stochastic-time-series:
     title: 確率過程・時系列解析
     category: applied-common

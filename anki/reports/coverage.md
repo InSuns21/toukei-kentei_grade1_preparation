@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 982
+- 公開カード: 1055
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -9,7 +9,7 @@
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
-| 統計応用（共通事項） | 92 | 6/7 | formula, condition, calc_step, recognition, strategy |
+| 統計応用（共通事項） | 165 | 6/7 | formula, condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
@@ -47,8 +47,8 @@
 | 研究の種類 | complete | research-experimental-observational, research-randomization-causal, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample |
 | 標本調査法 | complete | sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance, sampling-mean-sample-size, sampling-proportion-sample-size, sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified, sampling-one-stage-cluster-mean, sampling-two-stage-inclusion, sampling-two-stage-total, sampling-systematic-rule, sampling-systematic-periodicity, sampling-ht-definition, sampling-ht-numeric, sampling-ht-unbiased, sampling-ht-variance, sampling-ratio-estimator, sampling-ratio-linearization, sampling-regression-estimator, sampling-design-effect, sampling-effective-sample-size, sampling-nonresponse-bias, sampling-nonresponse-weighting, sampling-coverage-error |
 | 実験計画法 | complete | eng-blocking, design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control, design-experimental-observational-unit, design-pseudoreplication, design-crd-allocation-count, design-crd-difference-means, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-latin-square-definition, design-latin-square-model, design-latin-square-degrees-freedom, design-latin-square-anova-numeric, design-oneway-vs-block, design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss, design-random-oneway-components, design-random-intercept-covariance, design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality, design-power-determinants, design-two-sample-size, design-paired-sample-size, design-anova-effect-size-power, design-split-plot-error-strata, design-rcbd-missing-value |
-| 重回帰分析 | partial | model-gauss-markov, data-ols-slope |
-| 各種多変量解析法 | partial | model-logistic-odds, model-poisson-glm |
+| 重回帰分析 | complete | model-gauss-markov, data-ols-slope, reg-robust-sandwich, reg-aic-variable-selection, reg-stepwise-selection-warning, reg-frisch-waugh-lovell, reg-condition-number, reg-breusch-pagan-idea, reg-leverage-threshold, reg-gls-estimator, reg-wls-two-points, reg-ridge-closed-form, reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-general-linear-hypothesis, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich, reg-feasible-gls-steps, reg-elastic-net-objective, reg-lasso-kkt-zero, reg-ridge-svd-shrinkage, reg-mallows-cp, reg-bic-selection, reg-nested-cross-validation, reg-software-output-interpretation |
+| 各種多変量解析法 | complete | model-logistic-odds, model-poisson-glm, mv-mean-covariance-numeric, mv-covariance-linear-transform, mv-mahalanobis-distance, mv-hotelling-one-sample, mv-hotelling-f-transform, mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression, mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda, mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective, mv-canonical-correlation, mv-mds-double-centering, glm-three-components, glm-exponential-family, glm-canonical-links, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-logistic-marginal-effect, glm-probit-probability, glm-tobit-likelihood-parts, glm-nonlinear-regression-gradient, glm-svm-margin, glm-software-deviance-output, mv-pca-software-output |
 | 確率過程 | partial | process-markov-two-step, process-stationary-markov, process-poisson-wait |
 | 時系列解析 | planned |  |
 | 多変量解析法 | partial | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal |
@@ -213,24 +213,24 @@
 | 実験計画法 | ブロック化 | card | design-local-control, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-block-confounding, design-split-plot-error-strata |
 | 実験計画法 | 乱塊法 | card | design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-oneway-vs-block |
 | 実験計画法 | 一部実施要因計画 | card | design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality |
-| 重回帰分析 | 重回帰モデル | planned |  |
-| 重回帰分析 | 変数選択 | planned |  |
-| 重回帰分析 | 残差分析 | planned |  |
-| 重回帰分析 | 一般化最小二乗推定 | planned |  |
-| 重回帰分析 | ガウス・マルコフの定理 | planned |  |
-| 重回帰分析 | 多重共線性 | planned |  |
-| 重回帰分析 | L1正則化法 | planned |  |
-| 重回帰分析 | 回帰診断法 | planned |  |
-| 各種多変量解析法 | 主成分分析 | planned |  |
-| 各種多変量解析法 | 因子分析 | planned |  |
-| 各種多変量解析法 | 判別分析 | planned |  |
-| 各種多変量解析法 | クラスター分析 | planned |  |
-| 各種多変量解析法 | ロジスティック回帰分析 | planned |  |
-| 各種多変量解析法 | プロビット分析 | planned |  |
-| 各種多変量解析法 | トービット分析 | planned |  |
-| 各種多変量解析法 | 一般化線形モデル | planned |  |
-| 各種多変量解析法 | 非線形回帰モデル | planned |  |
-| 各種多変量解析法 | サポートベクターマシン | planned |  |
+| 重回帰分析 | 重回帰モデル | card | reg-frisch-waugh-lovell, reg-general-linear-hypothesis, reg-software-output-interpretation |
+| 重回帰分析 | 変数選択 | card | reg-aic-variable-selection, reg-stepwise-selection-warning, reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-mallows-cp, reg-bic-selection, reg-nested-cross-validation |
+| 重回帰分析 | 残差分析 | card | reg-breusch-pagan-idea, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich |
+| 重回帰分析 | 一般化最小二乗推定 | card | reg-gls-estimator, reg-wls-two-points, reg-feasible-gls-steps |
+| 重回帰分析 | ガウス・マルコフの定理 | card | model-gauss-markov, reg-gls-estimator |
+| 重回帰分析 | 多重共線性 | card | reg-condition-number, reg-ridge-closed-form, reg-ridge-svd-shrinkage |
+| 重回帰分析 | L1正則化法 | card | reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-lasso-kkt-zero |
+| 重回帰分析 | 回帰診断法 | card | reg-leverage-threshold, reg-breusch-pagan-idea, reg-robust-sandwich, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich |
+| 各種多変量解析法 | 主成分分析 | card | mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-pca-software-output |
+| 各種多変量解析法 | 因子分析 | card | mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression |
+| 各種多変量解析法 | 判別分析 | card | mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda |
+| 各種多変量解析法 | クラスター分析 | card | mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective |
+| 各種多変量解析法 | ロジスティック回帰分析 | card | model-logistic-odds, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-categorical-interaction, glm-logistic-marginal-effect |
+| 各種多変量解析法 | プロビット分析 | card | glm-probit-probability |
+| 各種多変量解析法 | トービット分析 | card | glm-tobit-likelihood-parts |
+| 各種多変量解析法 | 一般化線形モデル | card | model-poisson-glm, glm-three-components, glm-exponential-family, glm-canonical-links, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-software-deviance-output |
+| 各種多変量解析法 | 非線形回帰モデル | card | glm-nonlinear-regression-gradient |
+| 各種多変量解析法 | サポートベクターマシン | card | glm-svm-margin |
 | 確率過程 | マルコフ連鎖 | planned |  |
 | 確率過程 | ランダムウォーク | planned |  |
 | 確率過程 | ポアソン過程 | planned |  |
