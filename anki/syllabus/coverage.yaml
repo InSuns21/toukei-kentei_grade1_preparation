@@ -1649,23 +1649,68 @@ items:
         status: card
         cards: [data-bootstrap-mean, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation]
   - id: math-bayesian-methods
-    status: partial
+    status: complete
     cards:
       - data-bayes-beta
       - mathstat-gamma-poisson-posterior
+      - bayes-density-formula
+      - bayes-squared-loss-mean
+      - bayes-absolute-loss-median
+      - bayes-zero-one-map
+      - bayes-asymmetric-loss-quantile
+      - bayes-posterior-risk-numeric
+      - bayes-normal-credible-interval
+      - bayes-beta-equal-tail-interval
+      - bayes-hpd-interval
+      - bayes-credible-vs-confidence
+      - bayes-factor-definition
+      - bayes-factor-beta-binomial
+      - bayes-factor-discrete-numeric
+      - bayes-factor-prior-sensitivity
+      - bayes-factor-improper-prior
+      - bayes-hierarchical-definition
+      - bayes-normal-hierarchical-shrinkage
+      - bayes-hierarchical-conditional-independence
+      - bayes-gibbs-full-conditionals
+      - bayes-normal-hierarchical-gibbs-theta
+      - bayes-normal-hierarchical-gibbs-mu
+      - bayes-beta-binomial-hierarchy
+      - bayes-empirical-bayes
+      - bayes-posterior-predictive-check
+      - bayes-prior-sensitivity
+      - bayes-evidence-discrete
+      - bayes-posterior-odds
+      - bayes-conjugate-definition
+      - bayes-proper-improper
+      - bayes-prior-predictive
+      - bayes-likelihood-principle
+      - bayes-beta-posterior-mean-mode
+      - bayes-beta-binomial-predictive
+      - bayes-gamma-poisson-predictive
+      - bayes-gamma-exponential-update
+      - bayes-gamma-exponential-numeric
+      - bayes-exponential-predictive
+      - bayes-normal-normal-update
+      - bayes-normal-normal-numeric
+      - bayes-normal-normal-predictive
+      - bayes-normal-precision-update
+      - bayes-nig-update
+      - bayes-nig-student-predictive
+      - bayes-dirichlet-multinomial-update
+      - bayes-dirichlet-predictive
     terms:
       - name: 事前分布
-        status: planned
-        cards: []
+        status: card
+        cards: [data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-conjugate-definition, bayes-proper-improper, bayes-prior-predictive, bayes-likelihood-principle, bayes-gamma-exponential-update, bayes-normal-normal-update, bayes-nig-update, bayes-dirichlet-multinomial-update, bayes-factor-prior-sensitivity, bayes-factor-improper-prior, bayes-prior-sensitivity]
       - name: 事後分布
-        status: planned
-        cards: []
+        status: card
+        cards: [data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-evidence-discrete, bayes-posterior-odds, bayes-beta-posterior-mean-mode, bayes-beta-binomial-predictive, bayes-gamma-poisson-predictive, bayes-gamma-exponential-numeric, bayes-exponential-predictive, bayes-normal-normal-numeric, bayes-normal-normal-predictive, bayes-nig-student-predictive, bayes-dirichlet-predictive, bayes-squared-loss-mean, bayes-absolute-loss-median, bayes-zero-one-map, bayes-normal-credible-interval, bayes-beta-equal-tail-interval, bayes-hpd-interval, bayes-credible-vs-confidence, bayes-posterior-predictive-check]
       - name: 階層ベイズモデル
-        status: planned
-        cards: []
+        status: card
+        cards: [bayes-hierarchical-definition, bayes-normal-hierarchical-shrinkage, bayes-hierarchical-conditional-independence, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu, bayes-beta-binomial-hierarchy, bayes-empirical-bayes]
       - name: ギブスサンプリング
-        status: planned
-        cards: []
+        status: card
+        cards: [bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu]
   - id: applied-research-types
     status: planned
     cards: []

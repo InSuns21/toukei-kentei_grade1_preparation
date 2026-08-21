@@ -237,7 +237,17 @@
 
 ## Bayes・不完全データ・simulation
 
+- ベイズの公式：$\pi(\theta\mid x)=f(x\mid\theta)\pi(\theta)/m(x)$、$m(x)=\int f(x\mid u)\pi(u)\,du$。
+- 事後予測分布：$p(y\mid x)=\int p(y\mid\theta)\pi(\theta\mid x)\,d\theta$。
 - Beta--Bernoulli共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
+- Gamma--Exponential共役更新：指数分布の率に $\operatorname{Gamma}(a,b)$（shape--rate）事前分布を置くと、事後分布は $\operatorname{Gamma}(a+n,b+\sum_i x_i)$。
+- Normal--Normal共役更新：$X_i\mid\mu\sim N(\mu,\sigma^2)$、$\mu\sim N(m_0,s_0^2)$ なら $s_n^2=(s_0^{-2}+n\sigma^{-2})^{-1}$、$m_n=s_n^2(m_0s_0^{-2}+n\bar x\sigma^{-2})$。
+- Dirichlet--Multinomial共役更新：$\boldsymbol p\sim\operatorname{Dirichlet}(\alpha_1,\ldots,\alpha_K)$ に度数 $n_k$ を観測すると事後超母数は $\alpha_k+n_k$。
+- 損失とベイズ推定量：二乗損失は事後平均、絶対損失は事後中央値、離散母数の0--1損失はMAPを与える。
+- 信用区間：等裾区間は事後分位点 $[q_{\alpha/2},q_{1-\alpha/2}]$。HPD領域は $\{\theta:\pi(\theta\mid x)\ge c\}$ の事後確率が $1-\alpha$ となるcで定める。
+- ベイズファクター：$BF_{10}=m_1(x)/m_0(x)$、事後オッズ＝$BF_{10}$×事前オッズ。不適切事前分布では通常のモデル間比較に使えない。
+- 正規階層モデルの縮小：$\bar Y_j\mid\theta_j\sim N(\theta_j,v_j)$、$\theta_j\mid\mu,\tau^2\sim N(\mu,\tau^2)$ なら $E[\theta_j\mid-]=B_j\bar Y_j+(1-B_j)\mu$、$B_j=\tau^2/(\tau^2+v_j)$。
+- Gibbs完全条件付き分布：$\pi(\theta_k\mid\boldsymbol\theta_{-k},y)\propto_{\theta_k}\pi(\boldsymbol\theta\mid y)$。
 - EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
 - 逆確率重み付き平均：観測確率を $\pi_i=P(R_i=1\mid X_i)$ とすると $\widehat\mu_{\mathrm{IPW}}=n^{-1}\sum_iR_iY_i/\pi_i$。
 - 多重代入のRubin則：$\overline Q=m^{-1}\sum_j\widehat Q_j$、$\overline U=m^{-1}\sum_jU_j$、$B=(m-1)^{-1}\sum_j(\widehat Q_j-\overline Q)^2$、$T=\overline U+(1+m^{-1})B$。

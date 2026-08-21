@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 851
+reviewed_card_count: 896
 current_work: null
-next_work: C18-bayesian-methods
-last_completed_work: C17-simulation
+next_work: C19-research-sampling
+last_completed_work: C18-bayesian-methods
 summary:
   total: 33
-  planned: 10
+  planned: 9
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 23
+  reviewed: 24
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1681,7 +1681,7 @@ work:
     target:
       min: 45
       max: 55
-    status: planned
+    status: reviewed
     review_dir: review/C18-bayesian-methods
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: ベイズ統計
@@ -1708,6 +1708,61 @@ work:
       A: 6
       B: 11
       C: 0
+    started_at: 2026-08-21T00:19:47.274Z
+    self_review_at: 2026-08-21T00:29:50.113Z
+    independent_review_at: 2026-08-21T00:29:52.794Z
+    revision_at: 2026-08-21T00:33:18.813Z
+    completed_at: 2026-08-21T00:34:56.465Z
+    added_card_ids:
+      - bayes-absolute-loss-median
+      - bayes-asymmetric-loss-quantile
+      - bayes-beta-binomial-hierarchy
+      - bayes-beta-binomial-predictive
+      - bayes-beta-equal-tail-interval
+      - bayes-beta-posterior-mean-mode
+      - bayes-conjugate-definition
+      - bayes-credible-vs-confidence
+      - bayes-density-formula
+      - bayes-dirichlet-multinomial-update
+      - bayes-dirichlet-predictive
+      - bayes-empirical-bayes
+      - bayes-evidence-discrete
+      - bayes-exponential-predictive
+      - bayes-factor-beta-binomial
+      - bayes-factor-definition
+      - bayes-factor-discrete-numeric
+      - bayes-factor-improper-prior
+      - bayes-factor-prior-sensitivity
+      - bayes-gamma-exponential-numeric
+      - bayes-gamma-exponential-update
+      - bayes-gamma-poisson-predictive
+      - bayes-gibbs-full-conditionals
+      - bayes-hierarchical-conditional-independence
+      - bayes-hierarchical-definition
+      - bayes-hpd-interval
+      - bayes-likelihood-principle
+      - bayes-nig-student-predictive
+      - bayes-nig-update
+      - bayes-normal-credible-interval
+      - bayes-normal-hierarchical-gibbs-mu
+      - bayes-normal-hierarchical-gibbs-theta
+      - bayes-normal-hierarchical-shrinkage
+      - bayes-normal-normal-numeric
+      - bayes-normal-normal-predictive
+      - bayes-normal-normal-update
+      - bayes-normal-precision-update
+      - bayes-posterior-odds
+      - bayes-posterior-predictive-check
+      - bayes-posterior-risk-numeric
+      - bayes-prior-predictive
+      - bayes-prior-sensitivity
+      - bayes-proper-improper
+      - bayes-squared-loss-mean
+      - bayes-zero-one-map
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C19-research-sampling:
     title: 研究の種類・標本調査法
     category: applied-common
