@@ -1712,34 +1712,76 @@ items:
         status: card
         cards: [bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu]
   - id: applied-research-types
-    status: planned
-    cards: []
+    status: complete
+    cards:
+      - research-experimental-observational
+      - research-randomization-causal
+      - research-confounding-definition
+      - research-cohort-design
+      - research-case-control-design
+      - research-cross-sectional-design
+      - research-prospective-retrospective
+      - research-census-sample-survey
+      - research-sampling-nonsampling-error
+      - research-target-frame-sample
     terms:
       - name: 実験研究
-        status: planned
-        cards: []
+        status: card
+        cards: [research-experimental-observational, research-randomization-causal]
       - name: 観察研究
-        status: planned
-        cards: []
+        status: card
+        cards: [research-experimental-observational, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective]
       - name: 調査
-        status: planned
-        cards: []
+        status: card
+        cards: [research-cross-sectional-design, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample]
   - id: applied-sampling
-    status: planned
-    cards: []
+    status: complete
+    cards:
+      - sampling-srs-definition
+      - sampling-srs-pair-inclusion
+      - sampling-mean-unbiased
+      - sampling-fpc-mean-variance
+      - sampling-srs-se-numeric
+      - sampling-total-estimator
+      - sampling-proportion-variance
+      - sampling-mean-sample-size
+      - sampling-proportion-sample-size
+      - sampling-stratified-mean
+      - sampling-stratified-variance
+      - sampling-proportional-allocation
+      - sampling-neyman-allocation
+      - sampling-neyman-numeric
+      - sampling-cluster-vs-stratified
+      - sampling-one-stage-cluster-mean
+      - sampling-two-stage-inclusion
+      - sampling-two-stage-total
+      - sampling-systematic-rule
+      - sampling-systematic-periodicity
+      - sampling-ht-definition
+      - sampling-ht-numeric
+      - sampling-ht-unbiased
+      - sampling-ht-variance
+      - sampling-ratio-estimator
+      - sampling-ratio-linearization
+      - sampling-regression-estimator
+      - sampling-design-effect
+      - sampling-effective-sample-size
+      - sampling-nonresponse-bias
+      - sampling-nonresponse-weighting
+      - sampling-coverage-error
     terms:
       - name: 完全無作為抽出
-        status: planned
-        cards: []
+        status: card
+        cards: [sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance]
       - name: 層化抽出
-        status: planned
-        cards: []
+        status: card
+        cards: [sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified]
       - name: 二段階抽出
-        status: planned
-        cards: []
+        status: card
+        cards: [sampling-two-stage-inclusion, sampling-two-stage-total]
       - name: サンプルサイズの設計
-        status: planned
-        cards: []
+        status: card
+        cards: [sampling-mean-sample-size, sampling-proportion-sample-size, sampling-design-effect, sampling-effective-sample-size]
   - id: applied-design
     status: partial
     cards:

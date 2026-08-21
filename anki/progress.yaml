@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-21
-reviewed_card_count: 896
+reviewed_card_count: 938
 current_work: null
-next_work: C19-research-sampling
-last_completed_work: C18-bayesian-methods
+next_work: C20-experimental-design
+last_completed_work: C19-research-sampling
 summary:
   total: 33
-  planned: 9
+  planned: 8
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 24
+  reviewed: 25
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -1772,7 +1772,7 @@ work:
     target:
       min: 40
       max: 45
-    status: planned
+    status: reviewed
     review_dir: review/C19-research-sampling
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 標本調査
@@ -1799,6 +1799,58 @@ work:
       A: 3
       B: 14
       C: 0
+    started_at: 2026-08-21T00:35:35.020Z
+    self_review_at: 2026-08-21T00:43:58.789Z
+    independent_review_at: 2026-08-21T00:44:01.844Z
+    revision_at: 2026-08-21T00:48:26.905Z
+    completed_at: 2026-08-21T00:50:46.754Z
+    added_card_ids:
+      - research-case-control-design
+      - research-census-sample-survey
+      - research-cohort-design
+      - research-confounding-definition
+      - research-cross-sectional-design
+      - research-experimental-observational
+      - research-prospective-retrospective
+      - research-randomization-causal
+      - research-sampling-nonsampling-error
+      - research-target-frame-sample
+      - sampling-cluster-vs-stratified
+      - sampling-coverage-error
+      - sampling-design-effect
+      - sampling-effective-sample-size
+      - sampling-fpc-mean-variance
+      - sampling-ht-definition
+      - sampling-ht-numeric
+      - sampling-ht-unbiased
+      - sampling-ht-variance
+      - sampling-mean-sample-size
+      - sampling-mean-unbiased
+      - sampling-neyman-allocation
+      - sampling-neyman-numeric
+      - sampling-nonresponse-bias
+      - sampling-nonresponse-weighting
+      - sampling-one-stage-cluster-mean
+      - sampling-proportion-sample-size
+      - sampling-proportion-variance
+      - sampling-proportional-allocation
+      - sampling-ratio-estimator
+      - sampling-ratio-linearization
+      - sampling-regression-estimator
+      - sampling-srs-definition
+      - sampling-srs-pair-inclusion
+      - sampling-srs-se-numeric
+      - sampling-stratified-mean
+      - sampling-stratified-variance
+      - sampling-systematic-periodicity
+      - sampling-systematic-rule
+      - sampling-total-estimator
+      - sampling-two-stage-inclusion
+      - sampling-two-stage-total
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C20-experimental-design:
     title: 実験計画法
     category: applied-common

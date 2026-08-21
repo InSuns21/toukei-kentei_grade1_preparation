@@ -235,6 +235,21 @@
 - 乱塊法：$Y_{ij}=\mu+\tau_i+\beta_j+\varepsilon_{ij}$、識別制約は $\sum_i\tau_i=\sum_j\beta_j=0$。
 - 2因子交互作用：$(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})$ という差の差で測る。
 
+## 研究デザイン・標本調査
+
+- 実験研究は研究者が処置を割り付け、観察研究は自然に生じた曝露と結果を観察する。無作為割付は因果比較、無作為抽出は母集団への一般化を支える。
+- 単純無作為非復元抽出：$\pi_i=n/N$、$\pi_{ij}=n(n-1)/[N(N-1)]$。
+- 母平均：$\widehat{\bar Y}=\bar y_s$、$\operatorname{Var}_d(\bar y_s)=(1-n/N)S_Y^2/n$。母合計は $\widehat T_Y=N\bar y_s$。
+- 母比率：$\operatorname{Var}_d(p)=(1-n/N)\{N/(N-1)\}P(1-P)/n$、推定式は $\widehat{\operatorname{Var}}_d(p)=(1-n/N)p(1-p)/(n-1)$。
+- 母平均の必要標本数：標準正規分布の臨界値z、許容半幅d、計画分散 $S^2$ に対し $n\ge Nz^2S^2/(Nd^2+z^2S^2)$。
+- 層化平均：$\widehat{\bar Y}_{\mathrm{st}}=\sum_hW_h\bar y_h$、$\operatorname{Var}_d(\widehat{\bar Y}_{\mathrm{st}})=\sum_hW_h^2(1-n_h/N_h)S_h^2/n_h$。
+- 比例配分：$n_h=nN_h/N$。等費用のNeyman配分：$n_h=nN_hS_h/\sum_\ell N_\ell S_\ell$。
+- 二段階抽出：第1段が $g/G$、集落h内の第2段が $m_h/M_h$ なら最終包含確率は $\pi_{hi}=(g/G)(m_h/M_h)$。
+- Horvitz--Thompson母合計推定量：$\widehat T_{\mathrm{HT}}=\sum_{i\in s}y_i/\pi_i$。
+- 比推定：$\widehat{\bar Y}_R=(\bar y_s/\bar x_s)\bar X$。回帰推定：$\widehat{\bar Y}_{\mathrm{reg}}=\bar y_s+b(\bar X-\bar x_s)$。
+- 設計効果：$\operatorname{DEFF}=\operatorname{Var}_{\mathrm{design}}(\widehat\theta)/\operatorname{Var}_{\mathrm{SRS}}(\widehat\theta)$、$n_{\mathrm{eff}}=n/\operatorname{DEFF}$。
+- 非回答バイアス：回答率r、回答・非回答平均を $\mu_R,\mu_N$ とすると回答者平均のバイアスは $(1-r)(\mu_R-\mu_N)$。
+
 ## Bayes・不完全データ・simulation
 
 - ベイズの公式：$\pi(\theta\mid x)=f(x\mid\theta)\pi(\theta)/m(x)$、$m(x)=\int f(x\mid u)\pi(u)\,du$。

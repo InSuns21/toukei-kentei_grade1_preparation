@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 896
+- 公開カード: 938
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -9,7 +9,7 @@
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
-| 統計応用（共通事項） | 6 | 3/7 | condition, calc_step, recognition, strategy |
+| 統計応用（共通事項） | 48 | 5/7 | formula, condition, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
@@ -44,8 +44,8 @@
 | 不完全データ | complete | data-em-responsibility, inc-mcar-mar-mnar, inc-missing-indicator-likelihood, inc-complete-case-bias, inc-mean-imputation-variance, inc-ipw-mean, inc-em-observed-likelihood, inc-multiple-imputation-rubin, surv-censoring-definition, surv-right-censored-likelihood, surv-exponential-censored-mle, surv-type-i-type-ii-censoring, surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-kaplan-meier-formula, surv-kaplan-meier-numeric, surv-greenwood-formula, surv-greenwood-numeric, surv-logrank-statistic, surv-logrank-numeric, surv-cox-model, surv-cox-partial-likelihood, surv-hazard-ratio-interpretation, surv-proportional-hazards-check, surv-delayed-entry-risk-set |
 | シミュレーション | complete | data-bootstrap-mean, data-monte-carlo-integral, sim-uniform-prng-definition, sim-inverse-transform-continuous, sim-inverse-transform-exponential-numeric, sim-inverse-transform-discrete, sim-accept-reject, sim-box-muller, sim-mc-standard-error, sim-mc-ci-numeric, sim-antithetic-variates, sim-control-variate, sim-stratified-sampling, sim-importance-sampling, sim-importance-numeric, sim-markov-stationary, sim-detailed-balance, sim-mh-algorithm, sim-mh-numeric, sim-random-walk-mh, sim-gibbs-bivariate-normal, sim-mcmc-convergence-conditions, sim-burnin-thinning, sim-ess-mcse, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation |
 | ベイズ法 | complete | data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-squared-loss-mean, bayes-absolute-loss-median, bayes-zero-one-map, bayes-asymmetric-loss-quantile, bayes-posterior-risk-numeric, bayes-normal-credible-interval, bayes-beta-equal-tail-interval, bayes-hpd-interval, bayes-credible-vs-confidence, bayes-factor-definition, bayes-factor-beta-binomial, bayes-factor-discrete-numeric, bayes-factor-prior-sensitivity, bayes-factor-improper-prior, bayes-hierarchical-definition, bayes-normal-hierarchical-shrinkage, bayes-hierarchical-conditional-independence, bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu, bayes-beta-binomial-hierarchy, bayes-empirical-bayes, bayes-posterior-predictive-check, bayes-prior-sensitivity, bayes-evidence-discrete, bayes-posterior-odds, bayes-conjugate-definition, bayes-proper-improper, bayes-prior-predictive, bayes-likelihood-principle, bayes-beta-posterior-mean-mode, bayes-beta-binomial-predictive, bayes-gamma-poisson-predictive, bayes-gamma-exponential-update, bayes-gamma-exponential-numeric, bayes-exponential-predictive, bayes-normal-normal-update, bayes-normal-normal-numeric, bayes-normal-normal-predictive, bayes-normal-precision-update, bayes-nig-update, bayes-nig-student-predictive, bayes-dirichlet-multinomial-update, bayes-dirichlet-predictive |
-| 研究の種類 | planned |  |
-| 標本調査法 | planned |  |
+| 研究の種類 | complete | research-experimental-observational, research-randomization-causal, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample |
+| 標本調査法 | complete | sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance, sampling-mean-sample-size, sampling-proportion-sample-size, sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified, sampling-one-stage-cluster-mean, sampling-two-stage-inclusion, sampling-two-stage-total, sampling-systematic-rule, sampling-systematic-periodicity, sampling-ht-definition, sampling-ht-numeric, sampling-ht-unbiased, sampling-ht-variance, sampling-ratio-estimator, sampling-ratio-linearization, sampling-regression-estimator, sampling-design-effect, sampling-effective-sample-size, sampling-nonresponse-bias, sampling-nonresponse-weighting, sampling-coverage-error |
 | 実験計画法 | partial | eng-blocking |
 | 重回帰分析 | partial | model-gauss-markov, data-ols-slope |
 | 各種多変量解析法 | partial | model-logistic-odds, model-poisson-glm |
@@ -200,13 +200,13 @@
 | ベイズ法 | 事後分布 | card | data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-evidence-discrete, bayes-posterior-odds, bayes-beta-posterior-mean-mode, bayes-beta-binomial-predictive, bayes-gamma-poisson-predictive, bayes-gamma-exponential-numeric, bayes-exponential-predictive, bayes-normal-normal-numeric, bayes-normal-normal-predictive, bayes-nig-student-predictive, bayes-dirichlet-predictive, bayes-squared-loss-mean, bayes-absolute-loss-median, bayes-zero-one-map, bayes-normal-credible-interval, bayes-beta-equal-tail-interval, bayes-hpd-interval, bayes-credible-vs-confidence, bayes-posterior-predictive-check |
 | ベイズ法 | 階層ベイズモデル | card | bayes-hierarchical-definition, bayes-normal-hierarchical-shrinkage, bayes-hierarchical-conditional-independence, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu, bayes-beta-binomial-hierarchy, bayes-empirical-bayes |
 | ベイズ法 | ギブスサンプリング | card | bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu |
-| 研究の種類 | 実験研究 | planned |  |
-| 研究の種類 | 観察研究 | planned |  |
-| 研究の種類 | 調査 | planned |  |
-| 標本調査法 | 完全無作為抽出 | planned |  |
-| 標本調査法 | 層化抽出 | planned |  |
-| 標本調査法 | 二段階抽出 | planned |  |
-| 標本調査法 | サンプルサイズの設計 | planned |  |
+| 研究の種類 | 実験研究 | card | research-experimental-observational, research-randomization-causal |
+| 研究の種類 | 観察研究 | card | research-experimental-observational, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective |
+| 研究の種類 | 調査 | card | research-cross-sectional-design, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample |
+| 標本調査法 | 完全無作為抽出 | card | sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance |
+| 標本調査法 | 層化抽出 | card | sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified |
+| 標本調査法 | 二段階抽出 | card | sampling-two-stage-inclusion, sampling-two-stage-total |
+| 標本調査法 | サンプルサイズの設計 | card | sampling-mean-sample-size, sampling-proportion-sample-size, sampling-design-effect, sampling-effective-sample-size |
 | 実験計画法 | フィッシャーの3原則 | planned |  |
 | 実験計画法 | 一元配置法 | planned |  |
 | 実験計画法 | 二元配置法 | planned |  |
