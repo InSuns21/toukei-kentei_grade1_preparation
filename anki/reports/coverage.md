@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 1325
+- 公開カード: 1368
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -10,7 +10,7 @@
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 222 | 7/7 | formula, condition, proof_step, calc_step, recognition, strategy |
-| 統計応用（理工学） | 226 | 6/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
+| 統計応用（理工学） | 269 | 6/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
 
@@ -56,7 +56,7 @@
 | 線形推測 | complete | model-gauss-markov, model-contrast, enginf-linear-model-dimensions, enginf-vif-numeric, enginf-wls-two-weights, enginf-gls-whitening, enginf-robust-sandwich-se, enginf-dummy-reference-contrast, enginf-interaction-design-matrix, enginf-interaction-slope-test, enginf-logistic-wald-output, enginf-glm-three-components, enginf-logistic-irls-one-step, enginf-poisson-mean, enginf-poisson-offset-rate, enginf-exponential-family-mean-variance, enginf-glm-deviance-residual-output, enginf-glm-link-selection, enginf-glm-wald-joint, enginf-binomial-glm-loglikelihood, enginf-nonlinear-gradient-se, enginf-coefficient-output-engineering, enginf-adjusted-r2-output, enginf-estimability-linear-function, enginf-restricted-least-squares, enginf-ols-matrix-numeric, enginf-normal-equations-orthogonality, enginf-ols-unbiased-condition, enginf-ols-covariance-matrix, enginf-gauss-markov-comparison, enginf-linear-combination-normal, enginf-contrast-estimate-se, enginf-contrast-t-test, enginf-linear-restriction-wald-f, enginf-extra-sum-squares, enginf-regression-anova-output, enginf-overall-regression-f, enginf-coefficient-confidence-interval, enginf-mean-response-ci, enginf-new-observation-pi, enginf-leverage-numeric, enginf-studentized-residual, enginf-cooks-distance |
 | 漸近理論 | complete | dist-clt-standardize, est-delta-log, engasym-slutsky-studentization, engasym-continuous-mapping-plugin, engasym-empirical-cdf-point, engasym-sample-quantile-variance, engasym-sample-variance-normal, engasym-method-moments-consistency, engasym-asymptotic-bias-mse, engasym-relative-efficiency, engasym-estimating-equation-linearization, engasym-sandwich-m-estimator, engasym-multivariate-linear-combination, engasym-score-wald-lr-equivalence, engasym-sample-size-mean-precision, engasym-proportion-standardization, engasym-local-alternative-power, engasym-lln-sensor-average, engasym-consistency-from-mse, engasym-clt-sum-probability, engasym-clt-sample-mean-tolerance, engasym-binomial-continuity-correction, engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio, engasym-mle-asymptotic-normality, engasym-poisson-mle-variance, engasym-bernoulli-fisher-information, engasym-wald-ci-generic |
 | 品質管理 | complete | eng-xbar-limits, eng-capability-index, eng-series-reliability, eng-exponential-reliability, engqc-control-chart-selection, engqc-xbar-r-chart-limits, engqc-r-chart-limits, engqc-s-chart-limits, engqc-p-chart-constant-n, engqc-p-chart-varying-n, engqc-np-chart, engqc-c-chart, engqc-u-chart, engqc-imr-moving-range, engqc-control-vs-specification, engqc-common-special-causes, engqc-rational-subgrouping, engqc-phase1-phase2, engqc-three-sigma-false-alarm, engqc-arl0-three-sigma, engqc-arl1-mean-shift, engqc-run-rule-eight-one-side, engqc-ewma-update, engqc-ewma-steady-variance, engqc-cusum-one-step, engqc-control-chart-sample-size, engqc-process-adjustment-overcontrol, engqc-p-chart-baseline-estimation, engqc-cpk-offcenter, engqc-cp-cpk-relationship, engqc-cpm-target, engqc-capability-defect-rate, engqc-capability-stability-first, engqc-one-sided-cpu, engqc-nonnormal-capability, engrel-parallel-common-cause, engrel-parallel-system, engrel-k-out-of-n, engrel-series-component-requirement, engrel-exponential-mtbf, engrel-weibull-hazard-shape, engrel-weibull-reliability, engmaint-steady-availability, engmaint-maintainability-exponential, engmaint-two-state-availability, engrel-failure-rate-exact-ci, engrel-competing-risks-exponential, engrel-bathtub-curve, engmaint-preventive-replacement-rate, engmaint-series-availability, engmaint-reliability-vs-availability |
-| 実験計画 | partial | eng-two-factor-interaction, eng-blocking |
+| 実験計画 | complete | eng-two-factor-interaction, eng-blocking, engdesign-objective-response-factor, engdesign-weighted-contrast-covariance, engdesign-missing-run-nonorthogonality, engdesign-factorial-pure-error, engdesign-centerpoint-curvature, engdesign-lack-of-fit-decomposition, engdesign-two-generator-defining-group, engdesign-alias-estimability-choice, engdesign-fractional-run-table, engdesign-wordlength-aberration, engdesign-foldover-dealias, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding, engdesign-oa-l4-assignment, engdesign-subsampling-variance, engdesign-randomization-permutation, engdesign-rerandomization-balance, engdesign-precision-weighted-block-difference, engdesign-rcbd-adjusted-difference, engdesign-cyclic-incomplete-blocks, engdesign-graeco-latin-df, engdesign-latin-square-treatment-mean, engdesign-random-slope-covariance, engdesign-fixed-effect-hypothesis, engdesign-random-effect-blup, engdesign-gage-rr-variance, engdesign-confounder-randomization, engdesign-block-vs-covariate, engdesign-oa-column-df, engdesign-oa-level-effect, engdesign-oa-interaction-conflict, engdesign-snr-smaller-better, engdesign-split-plot-randomization, engdesign-split-plot-degrees-freedom, engdesign-incomplete-incidence-matrix, engdesign-bibd-parameter-check, engdesign-bibd-contrast-variance, engdesign-incomplete-block-connectivity, engdesign-nested-df, engdesign-repeated-measures-unit, engdesign-replication-power-ratio, engdesign-choice-integrated |
 
 ## 項目（学習しておくべき用語）例
 
@@ -266,10 +266,10 @@
 | 品質管理 | 保全性 | card | engmaint-steady-availability, engmaint-maintainability-exponential, engmaint-two-state-availability, engmaint-preventive-replacement-rate, engmaint-series-availability, engmaint-reliability-vs-availability |
 | 品質管理 | プロセス管理 | card | engqc-control-chart-selection, engqc-p-chart-baseline-estimation, engqc-control-vs-specification, engqc-common-special-causes, engqc-rational-subgrouping, engqc-phase1-phase2, engqc-process-adjustment-overcontrol, engqc-capability-stability-first |
 | 品質管理 | 工程能力指数 | card | engqc-cpk-offcenter, engqc-cp-cpk-relationship, engqc-cpm-target, engqc-capability-defect-rate, engqc-capability-stability-first, engqc-one-sided-cpu, engqc-nonnormal-capability |
-| 実験計画 | 実験の計画と実施 | planned |  |
-| 実験計画 | 固定効果 | planned |  |
-| 実験計画 | 変量効果 | planned |  |
-| 実験計画 | 交絡因子 | planned |  |
-| 実験計画 | ブロック化 | planned |  |
-| 実験計画 | 直交表 | planned |  |
-| 実験計画 | 交絡法 | planned |  |
+| 実験計画 | 実験の計画と実施 | card | engdesign-objective-response-factor, engdesign-subsampling-variance, engdesign-randomization-permutation, engdesign-rerandomization-balance, engdesign-factorial-pure-error, engdesign-centerpoint-curvature, engdesign-lack-of-fit-decomposition, engdesign-split-plot-randomization, engdesign-split-plot-degrees-freedom, engdesign-nested-df, engdesign-repeated-measures-unit, engdesign-replication-power-ratio, engdesign-choice-integrated |
+| 実験計画 | 固定効果 | card | engdesign-fixed-effect-hypothesis |
+| 実験計画 | 変量効果 | card | engdesign-random-slope-covariance, engdesign-random-effect-blup, engdesign-gage-rr-variance |
+| 実験計画 | 交絡因子 | card | engdesign-confounder-randomization, engdesign-block-vs-covariate |
+| 実験計画 | ブロック化 | card | engdesign-precision-weighted-block-difference, engdesign-rcbd-adjusted-difference, engdesign-cyclic-incomplete-blocks, engdesign-graeco-latin-df, engdesign-latin-square-treatment-mean, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding, engdesign-split-plot-randomization, engdesign-incomplete-incidence-matrix, engdesign-bibd-parameter-check, engdesign-bibd-contrast-variance, engdesign-incomplete-block-connectivity |
+| 実験計画 | 直交表 | card | engdesign-weighted-contrast-covariance, engdesign-missing-run-nonorthogonality, engdesign-oa-l4-assignment, engdesign-oa-column-df, engdesign-oa-level-effect, engdesign-oa-interaction-conflict, engdesign-snr-smaller-better |
+| 実験計画 | 交絡法 | card | engdesign-two-generator-defining-group, engdesign-alias-estimability-choice, engdesign-fractional-run-table, engdesign-wordlength-aberration, engdesign-foldover-dealias, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding |

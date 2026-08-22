@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-22
-reviewed_card_count: 1325
+reviewed_card_count: 1368
 current_work: null
-next_work: C27-engineering-design
-last_completed_work: C26-engineering-quality
+next_work: null
+last_completed_work: C27-engineering-design
 summary:
   total: 33
-  planned: 1
+  planned: 0
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 32
+  reviewed: 33
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2657,7 +2657,7 @@ work:
     target:
       min: 40
       max: 50
-    status: planned
+    status: reviewed
     review_dir: review/C27-engineering-design
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 実験計画
@@ -2681,3 +2681,56 @@ work:
       A: 1
       B: 13
       C: 0
+    started_at: 2026-08-22T12:55:48.895Z
+    self_review_at: 2026-08-22T13:03:44.511Z
+    independent_review_at: 2026-08-22T13:04:19.352Z
+    revision_at: 2026-08-22T13:08:23.160Z
+    completed_at: 2026-08-22T13:25:17.034Z
+    added_card_ids:
+      - engdesign-alias-estimability-choice
+      - engdesign-bibd-contrast-variance
+      - engdesign-bibd-parameter-check
+      - engdesign-block-generator-count
+      - engdesign-block-generator-protect-effects
+      - engdesign-block-vs-covariate
+      - engdesign-centerpoint-curvature
+      - engdesign-choice-integrated
+      - engdesign-confounder-randomization
+      - engdesign-cyclic-incomplete-blocks
+      - engdesign-factorial-pure-error
+      - engdesign-fixed-effect-hypothesis
+      - engdesign-foldover-dealias
+      - engdesign-fractional-run-table
+      - engdesign-gage-rr-variance
+      - engdesign-graeco-latin-df
+      - engdesign-incomplete-block-connectivity
+      - engdesign-incomplete-incidence-matrix
+      - engdesign-lack-of-fit-decomposition
+      - engdesign-latin-square-treatment-mean
+      - engdesign-missing-run-nonorthogonality
+      - engdesign-nested-df
+      - engdesign-oa-column-df
+      - engdesign-oa-interaction-conflict
+      - engdesign-oa-l4-assignment
+      - engdesign-oa-level-effect
+      - engdesign-objective-response-factor
+      - engdesign-partial-confounding
+      - engdesign-precision-weighted-block-difference
+      - engdesign-random-effect-blup
+      - engdesign-random-slope-covariance
+      - engdesign-randomization-permutation
+      - engdesign-rcbd-adjusted-difference
+      - engdesign-repeated-measures-unit
+      - engdesign-replication-power-ratio
+      - engdesign-rerandomization-balance
+      - engdesign-snr-smaller-better
+      - engdesign-split-plot-degrees-freedom
+      - engdesign-split-plot-randomization
+      - engdesign-subsampling-variance
+      - engdesign-two-generator-defining-group
+      - engdesign-weighted-contrast-covariance
+      - engdesign-wordlength-aberration
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0

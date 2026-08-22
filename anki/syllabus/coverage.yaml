@@ -2301,29 +2301,72 @@ items:
         status: card
         cards: [engqc-cpk-offcenter, engqc-cp-cpk-relationship, engqc-cpm-target, engqc-capability-defect-rate, engqc-capability-stability-first, engqc-one-sided-cpu, engqc-nonnormal-capability]
   - id: engineering-design
-    status: partial
+    status: complete
     cards:
       - eng-two-factor-interaction
       - eng-blocking
+      - engdesign-objective-response-factor
+      - engdesign-weighted-contrast-covariance
+      - engdesign-missing-run-nonorthogonality
+      - engdesign-factorial-pure-error
+      - engdesign-centerpoint-curvature
+      - engdesign-lack-of-fit-decomposition
+      - engdesign-two-generator-defining-group
+      - engdesign-alias-estimability-choice
+      - engdesign-fractional-run-table
+      - engdesign-wordlength-aberration
+      - engdesign-foldover-dealias
+      - engdesign-block-generator-protect-effects
+      - engdesign-block-generator-count
+      - engdesign-partial-confounding
+      - engdesign-oa-l4-assignment
+      - engdesign-subsampling-variance
+      - engdesign-randomization-permutation
+      - engdesign-rerandomization-balance
+      - engdesign-precision-weighted-block-difference
+      - engdesign-rcbd-adjusted-difference
+      - engdesign-cyclic-incomplete-blocks
+      - engdesign-graeco-latin-df
+      - engdesign-latin-square-treatment-mean
+      - engdesign-random-slope-covariance
+      - engdesign-fixed-effect-hypothesis
+      - engdesign-random-effect-blup
+      - engdesign-gage-rr-variance
+      - engdesign-confounder-randomization
+      - engdesign-block-vs-covariate
+      - engdesign-oa-column-df
+      - engdesign-oa-level-effect
+      - engdesign-oa-interaction-conflict
+      - engdesign-snr-smaller-better
+      - engdesign-split-plot-randomization
+      - engdesign-split-plot-degrees-freedom
+      - engdesign-incomplete-incidence-matrix
+      - engdesign-bibd-parameter-check
+      - engdesign-bibd-contrast-variance
+      - engdesign-incomplete-block-connectivity
+      - engdesign-nested-df
+      - engdesign-repeated-measures-unit
+      - engdesign-replication-power-ratio
+      - engdesign-choice-integrated
     terms:
       - name: 実験の計画と実施
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-objective-response-factor, engdesign-subsampling-variance, engdesign-randomization-permutation, engdesign-rerandomization-balance, engdesign-factorial-pure-error, engdesign-centerpoint-curvature, engdesign-lack-of-fit-decomposition, engdesign-split-plot-randomization, engdesign-split-plot-degrees-freedom, engdesign-nested-df, engdesign-repeated-measures-unit, engdesign-replication-power-ratio, engdesign-choice-integrated]
       - name: 固定効果
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-fixed-effect-hypothesis]
       - name: 変量効果
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-random-slope-covariance, engdesign-random-effect-blup, engdesign-gage-rr-variance]
       - name: 交絡因子
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-confounder-randomization, engdesign-block-vs-covariate]
       - name: ブロック化
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-precision-weighted-block-difference, engdesign-rcbd-adjusted-difference, engdesign-cyclic-incomplete-blocks, engdesign-graeco-latin-df, engdesign-latin-square-treatment-mean, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding, engdesign-split-plot-randomization, engdesign-incomplete-incidence-matrix, engdesign-bibd-parameter-check, engdesign-bibd-contrast-variance, engdesign-incomplete-block-connectivity]
       - name: 直交表
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-weighted-contrast-covariance, engdesign-missing-run-nonorthogonality, engdesign-oa-l4-assignment, engdesign-oa-column-df, engdesign-oa-level-effect, engdesign-oa-interaction-conflict, engdesign-snr-smaller-better]
       - name: 交絡法
-        status: planned
-        cards: []
+        status: card
+        cards: [engdesign-two-generator-defining-group, engdesign-alias-estimability-choice, engdesign-fractional-run-table, engdesign-wordlength-aberration, engdesign-foldover-dealias, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding]
