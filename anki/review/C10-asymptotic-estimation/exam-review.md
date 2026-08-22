@@ -93,6 +93,17 @@ Anki に要求されない連結演習、20〜30分完答演習、答案圧縮�
 
 fatal: 0 / major: 0 / minor: 0
 
+## 計算例展開の試験適合性査読（2026-08-23）
+
+- 担当ID: /root/exam_review_population_cards
+- 対象: `math-asymptotic-estimation` 全文（4ファイル）
+- 初回結果: fatal 0 / major 2 / minor 2
+- 初回指摘: 数式コマンド脱落、7カードの計算例が上欄参照で単独完結しない、分布収束例が定義を使わない、Slutskyと漸近相対効率の例が重複。
+- 修正: 分布・対数尤度から情報量・漸近分散・数値結論まで再掲し、累積分布関数の例と役割の異なる計算例へ変更。
+- シラバス正本: `sources.topic` を「最尤推定量の漸近正規性」へ統一。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0
+
 <!-- initial_reviewer_id: agent-exam-C10 final_reviewer_id: agent-exam-C10 -->
 
 ## 機械検証

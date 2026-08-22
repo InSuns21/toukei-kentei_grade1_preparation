@@ -109,6 +109,17 @@ No remaining mathematical issue was found in the 27 cards. No essay or connectio
 
 fatal: 0 / major: 0 / minor: 0
 
+## 計算例展開の独立数理査読（2026-08-23）
+
+- 担当ID: /root/math_review_population_cards
+- 対象: `math-asymptotic-estimation` 全文（4ファイル）
+- 初回結果: fatal 0 / major 1 / minor 3
+- 初回指摘: 最尤推定量の一致性のargmax条件不足、数式コマンド脱落、デルタ法の退化極限の説明。
+- 修正: 期待対数尤度の一意最大性、一様収束、コンパクト性または外側制御を明記し、数式表記と退化極限を修正。
+- 独立再計算: ベルヌーイ・ポアソン・幾何・正規・指数の情報量、クラーメル・ラオの不等式による下界、デルタ法、標本分散、一様分布のモーメント法はすべて整合。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0
+
 ## Second independent re-review after revision (third pass)
 
 - Reviewer: independent MATHEMATICAL reviewer

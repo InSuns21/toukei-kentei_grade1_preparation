@@ -122,7 +122,15 @@ $X$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従い、$X\in\{0,
 ## 使用公式・定理
 正則条件の下で $I_1(p)=-E[\ell''(p;X)]$。
 ## 計算例
-$$\begin{aligned}\ell(p;X)&=X\log p+(1-X)\log(1-p),\\\ell''(p;X)&=-\frac X{p^2}-\frac{1-X}{(1-p)^2},\\I_1(p)&=\frac p{p^2}+\frac{1-p}{(1-p)^2}=\frac1{p(1-p)}.\end{aligned}$$
+まず対数尤度は
+$$\ell(p;X)=X\log p+(1-X)\log(1-p).$$
+これを2回微分すると
+$$\ell''(p;X)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
+$E_p[X]=p$、$E_p[1-X]=1-p$ を代入して
+$$I_1(p)=-E_p[\ell''(p;X)]
+=\frac p{p^2}+\frac{1-p}{(1-p)^2}
+=\frac1p+\frac1{1-p}
+=\frac1{p(1-p)}.$$
 ## 注意
 標本全体なら $I_n(p)=nI_1(p)$。
 
@@ -148,8 +156,21 @@ sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式
 $g(p)=p$ の不偏推定量 $T$ に対し、正則条件の下で
 $$\operatorname{Var}_p(T)\ge\frac{\{g'(p)\}^2}{I_n(p)}.$$
 ## 計算例
-$$\begin{aligned}I_n(p)&=\frac n{p(1-p)},\\\operatorname{Var}_p(T)&\ge\frac1{I_n(p)}=\frac{p(1-p)}n.\end{aligned}$$
-$T=\overline X$ はこの下限に等しい。
+1観測の対数尤度
+$$\ell_1(p;X)=X\log p+(1-X)\log(1-p)$$
+を2回微分すると
+$$\ell_1''(p;X)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
+$E_p[X]=p$ を代入して
+$$-E_p[\ell_1''(p;X)]=\frac1{p(1-p)}$$
+なので、独立な $n$ 観測では
+$$I_n(p)=nI_1(p)=\frac n{p(1-p)}.$$
+$g(p)=p$ だから $g'(p)=1$ であり、クラーメル・ラオの不等式へ代入すると
+$$\operatorname{Var}_p(T)\ge\frac{\{g'(p)\}^2}{I_n(p)}
+=\frac{p(1-p)}n.$$
+一方、$T=\overline X$ は
+$$E_p[\overline X]=p,
+\qquad \operatorname{Var}_p(\overline X)=\frac{p(1-p)}n$$
+なので、この下限を達成する。
 ## 注意
 不偏性と正則条件が必要である。
 

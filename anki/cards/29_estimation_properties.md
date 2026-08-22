@@ -48,10 +48,18 @@ $$-E\left[\frac{\partial^2\ell}{\partial\lambda^2}\right]
 $$\operatorname{Var}(T)\ge\frac1{I_n(\lambda)}=\frac\lambda n.$$
 $E[\overline X]=\lambda$、$\operatorname{Var}(\overline X)=\lambda/n$ なので、$\overline X$ は下界を達成する。
 ## 使用公式・定理
-正則条件の下で、$lambda$ の任意の不偏推定量 $T$ は
+正則条件の下で、$\lambda$ の任意の不偏推定量 $T$ は
 $$\operatorname{Var}(T)\ge\frac1{I_n(\lambda)},\qquad I_n(\lambda)=nI_1(\lambda).$$
 ## 計算例
-$n=20,\lambda=4$ なら下界は $4/20=0.2$ であり、$\operatorname{Var}(\overline X)=0.2$。
+$X\sim\operatorname{Poisson}(\lambda)$ の1観測の対数尤度は
+$$\ell_1(\lambda;X)=X\log\lambda-\lambda-\log(X!).$$
+よって
+$$\ell_1''(\lambda)=-\frac X{\lambda^2},
+\qquad I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]
+=\frac1\lambda.$$
+$n=20,\lambda=4$ なら $I_n(4)=20/4=5$ なので
+$$\operatorname{Var}(T)\ge\frac1{I_n(4)}=\frac15=0.2.$$
+また $\operatorname{Var}(\overline X)=\lambda/n=4/20=0.2$ だから、$\overline X$ は下界を達成する。
 ## 一手
 情報量を1観測で求め、独立標本なので $n$ 倍してから逆数を取る。
 ## 注意
@@ -83,7 +91,15 @@ $\overline X$ は不偏で $\operatorname{Var}(\overline X)=\sigma^2/n$ だか�
 $$I_1(\mu)=-E\left[\frac{\partial^2\ell}{\partial\mu^2}\right],\qquad
 \operatorname{Var}(T)\ge\frac1{nI_1(\mu)}.$$
 ## 計算例
-$n=25,\sigma^2=9$ なら分散下界は $9/25=0.36$、標準偏差の下界は $0.6$。
+1観測の対数尤度は
+$$\ell_1(\mu;X)=C-\frac{(X-\mu)^2}{2\sigma^2}.$$
+したがって
+$$\ell_1''(\mu)=-\frac1{\sigma^2},
+\qquad I_1(\mu)=-E_\mu[\ell_1''(\mu)]=\frac1{\sigma^2}.$$
+$n=25,\sigma^2=9$ なら
+$$I_n(\mu)=\frac{25}{9},
+\qquad \operatorname{Var}(T)\ge\frac1{I_n(\mu)}=\frac9{25}=0.36.$$
+分散下界の平方根は $\sqrt{0.36}=0.6$ である。
 ## 一手
 分散下界と標準偏差を混同せず、必要なら最後に平方根を取る。
 ## 注意
@@ -117,9 +133,23 @@ $$\operatorname{Var}(T)\ge
 $E[T]=g(\theta)$ なら
 $$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
 ## 計算例
-$p=0.4,n=100$ なら下界は $4(0.4)^3(0.6)/100=0.001536$。
+ベルヌーイ1観測の対数尤度は
+$$\ell_1(p;X)=X\log p+(1-X)\log(1-p).$$
+2回微分して期待値を取ると
+$$\ell_1''(p)=-\frac X{p^2}-\frac{1-X}{(1-p)^2},$$
+$$I_1(p)=-E_p[\ell_1''(p)]
+=\frac p{p^2}+\frac{1-p}{(1-p)^2}
+=\frac1{p(1-p)},
+\qquad I_n(p)=\frac n{p(1-p)}.$$
+推定対象は $g(p)=p^2$ なので $g'(p)=2p$。したがって
+$$\operatorname{Var}_p(T)\ge
+\frac{(2p)^2}{n/[p(1-p)]}
+=\frac{4p^3(1-p)}n.$$
+$p=0.4,n=100$ を代入すると
+$$\frac{4(0.4)^3(0.6)}{100}
+=\frac{0.1536}{100}=0.001536.$$
 ## 一手
-推定対象が $	heta$ そのものか $g(\theta)$ かを最初に判定する。
+推定対象が $\theta$ そのものか $g(\theta)$ かを最初に判定する。
 ## 注意
 $g'(p)$ を掛け忘れて単に $1/I_n(p)$ としない。
 <!-- CARD -->
@@ -150,7 +180,15 @@ $$I_1(p)=-E[\ell''(p;X)]
 ## 使用公式・定理
 $$I_1(p)=-E\left[\frac{\partial^2\ell(p;X)}{\partial p^2}\right].$$
 ## 計算例
-$p=1/2$ なら $I_1(p)=1/[(1/4)(1/2)]=8$。$n$ 観測なら $I_n(p)=8n$。
+$p=1/2$ とする。1観測の対数尤度と二階微分は
+$$\ell_1(p;X)=\log p+(X-1)\log(1-p),$$
+$$\ell_1''(p)=-\frac1{p^2}-\frac{X-1}{(1-p)^2}.$$
+$E_{1/2}[X-1]=(1-p)/p=1$ なので
+$$I_1(1/2)
+=\frac1{(1/2)^2}+\frac{1}{(1-1/2)^2}
+=4+4=8.$$
+独立な $n$ 観測では情報量が加法的なので
+$$I_n(1/2)=nI_1(1/2)=8n.$$
 ## 一手
 2階微分後に、幾何分布の $E[X]=1/p$ を使う。
 ## 注意

@@ -24,7 +24,13 @@ $$X_n\xrightarrow{p}\theta\iff\forall\varepsilon>0,\ P(|X_n-\theta|>\varepsilon)
 任意の正の $\varepsilon$ に対し $P(|X_n-\theta|>\varepsilon)\to0$ と定義する。分散既知なら Chebyshev（チェビシェフ）不等式で上界をとる。
 
 ## 計算例
-$E[X_n]=\theta$、$\operatorname{Var}(X_n)=\sigma_n^2$ なら $P(|X_n-\theta|>\varepsilon)\le\sigma_n^2/\varepsilon^2$。標本平均は $E[\overline X_n]=\mu$、$\operatorname{Var}(\overline X_n)=\sigma^2/n\to0$ なので $\overline X_n\xrightarrow{p}\mu$。
+$E[X_i]=\mu$、$\operatorname{Var}(X_i)=4$ の独立同分布標本を考える。$n=400$、$\varepsilon=0.5$ なら
+$$E[\overline X_{400}]=\mu,
+\qquad \operatorname{Var}(\overline X_{400})=\frac4{400}=0.01.$$
+チェビシェフの不等式より
+$$P(|\overline X_{400}-\mu|>0.5)
+\le\frac{0.01}{0.5^2}=0.04.$$
+一般の $n$ では上界が $4/(n\varepsilon^2)\to0$ なので、$\overline X_n\xrightarrow{p}\mu$ である。
 
 ## 注意
 確率収束は「確率1の例外を除いて値が近づく」ことではなく、確率の極限をいう。
@@ -76,7 +82,20 @@ $$P(\widehat\lambda>4.3)
 =1-\Phi(1.5)\approx0.0668.$$
 
 ## 計算例
-標準化値は $(4.3-4)/\sqrt{4/100}=1.5$ なので、上側確率は約 $0.0668$。
+まず1観測の対数尤度を作る：
+$$\ell_1(\lambda;x)=x\log\lambda-\lambda-\log(x!).$$
+したがって
+$$\ell_1'(\lambda)=\frac x\lambda-1,
+\qquad \ell_1''(\lambda)=-\frac x{\lambda^2}.$$
+$E_\lambda[X]=\lambda$ より
+$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]
+=\frac{E_\lambda[X]}{\lambda^2}=\frac1\lambda.$$
+$\lambda=4,n=100$ を代入すると
+$$\operatorname{Avar}(\widehat\lambda)
+=\frac1{nI_1(4)}=\frac4{100}=0.04,$$
+よって標準誤差は $\sqrt{0.04}=0.2$。最後に
+$$z=\frac{4.3-4}{0.2}=1.5,
+\qquad P(\widehat\lambda>4.3)\approx1-\Phi(1.5)=0.0668.$$
 
 ## 注意
 $1/I_1(\theta)$ は $\sqrt n(\widehat\theta-\theta)$ の極限分散であり、$\widehat\theta$ 自身の分散は $1/[nI_1(\theta)]$。
@@ -119,7 +138,21 @@ $$\widehat{\operatorname{SE}}(\widehat\lambda)
 =\frac{\widehat\lambda}{\sqrt n}=\frac2{8}=0.25.$$
 
 ## 計算例
-$n=64$、$\widehat\lambda=2$ なら推定漸近分散は $2^2/64=1/16$、標準誤差は $1/4$。
+1観測の対数尤度は
+$$\ell_1(\lambda;x)=\log\lambda-\lambda x,$$
+したがって
+$$\ell_1'(\lambda)=\frac1\lambda-x,
+\qquad \ell_1''(\lambda)=-\frac1{\lambda^2}.$$
+よって
+$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]=\frac1{\lambda^2}.$$
+また標本対数尤度のスコア方程式は
+$$\frac n\lambda-\sum_i x_i=0
+\iff \widehat\lambda=\frac1{\overline x}=\frac1{0.5}=2.$$
+$n=64$ なので
+$$\widehat{\operatorname{Avar}}(\widehat\lambda)
+=\frac1{64I_1(2)}=\frac4{64}=\frac1{16},$$
+$$\widehat{\operatorname{SE}}(\widehat\lambda)
+=\sqrt{\frac1{16}}=\frac14=0.25.$$
 
 ## 注意
 ここでの $\lambda$ は率であり、平均は $1/\lambda$。
@@ -155,7 +188,11 @@ $$\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
 分散そのものを母数 $\tau$ と置くと微分の混乱が減る。
 
 ## 答え
-1観測の対数密度について
+1観測の対数尤度は
+$$\ell_1(\tau;x)
+=-\frac12\log(2\pi)-\frac12\log\tau
+-\frac{(x-\mu)^2}{2\tau}.$$
+これを $\tau$ で2回微分すると
 $$\frac{\partial^2\ell}{\partial\tau^2}
 =\frac1{2\tau^2}-\frac{(X-\mu)^2}{\tau^3}.$$
 $E[(X-\mu)^2]=\tau$ より
@@ -165,7 +202,18 @@ $$\sqrt n(\widehat\tau-\tau)\xrightarrow{d}N(0,2\tau^2),$$
 すなわち $\widehat\tau\ \dot\sim\ N(\tau,2\tau^2/n)$。
 
 ## 計算例
-$\tau=4,n=100$ なら漸近分散は $2\cdot16/100=0.32$、漸近標準誤差は $\sqrt{0.32}\approx0.566$。
+$X\sim N(\mu,\tau)$ で $\mu$ は既知とする。1観測の対数尤度は
+$$\ell_1(\tau;X)=C-\frac12\log\tau-\frac{(X-\mu)^2}{2\tau}.$$
+2回微分すると
+$$\ell_1''(\tau)=\frac1{2\tau^2}-\frac{(X-\mu)^2}{\tau^3}.$$
+$E[(X-\mu)^2]=\tau$ より
+$$I_1(\tau)=-E[\ell_1''(\tau)]=\frac1{2\tau^2}.$$
+$\tau=4,n=100$ を代入すると
+$$I_1(4)=\frac1{2\cdot4^2}=\frac1{32}.$$
+したがって
+$$\operatorname{Avar}(\widehat\tau)
+=\frac1{100I_1(4)}=\frac{32}{100}=0.32,$$
+$$\operatorname{ASE}(\widehat\tau)=\sqrt{0.32}\approx0.566.$$
 
 ## 注意
 $\tau=\sigma^2$ である。標準偏差 $\sigma$ の漸近分布にはさらにデルタ法が必要。
@@ -210,7 +258,15 @@ $$\sqrt n(\widehat\mu-\mu)
 実際、$\widehat\mu=1/(1/\overline X)=\overline X$ であり、中心極限定理の結果と一致する。
 
 ## 計算例
-$\lambda=2$、$n=100$ なら $\mu=1/2$ であり、$\widehat\mu$ の漸近標準誤差は $\mu/\sqrt n=0.05$。
+$g(\lambda)=1/\lambda$ だから
+$$g'(\lambda)=-\frac1{\lambda^2}.$$
+元の極限分散 $\lambda^2$ に微分の二乗を掛けると
+$$\{g'(\lambda)\}^2\lambda^2
+=\frac1{\lambda^4}\lambda^2
+=\frac1{\lambda^2}=\mu^2.$$
+$\lambda=2,n=100$ なら $\mu=1/2$ なので
+$$\operatorname{Avar}(\widehat\mu)=\frac{(1/2)^2}{100}=0.0025,
+\qquad \operatorname{ASE}(\widehat\mu)=0.05.$$
 
 ## 注意
 最尤推定量の不変性だけでは分散は出ない。分散計算にはデルタ法を使う。
@@ -253,7 +309,12 @@ $$\sqrt n\{g(\widehat p)-g(p)\}
 よって $g(\widehat p)$ 自身の漸近分散は $p/[n(1-p)^3]$。
 
 ## 計算例
-$p=0.4,n=100$ なら漸近分散は $0.4/[100(0.6)^3]\approx0.01852$、漸近標準誤差は約 $0.1361$。
+$g(p)=p/(1-p)$ を微分すると
+$$g'(p)=\frac{(1-p)+p}{(1-p)^2}=\frac1{(1-p)^2}.$$
+$p=0.4$ では元の極限分散が $p(1-p)=0.24$ なので、変換後の極限分散は
+$$\{g'(0.4)\}^2(0.24)
+=\frac{0.24}{0.6^4}=\frac{0.4}{0.6^3}\approx1.85185.$$
+$n=100$ では推定量自身の漸近分散が $1.85185/100\approx0.01852$、漸近標準誤差が $\sqrt{0.01852}\approx0.1361$ となる。
 
 ## 注意
 $p$ が0または1に近いと微分が大きくなり、正規近似は不安定になる。
@@ -299,7 +360,13 @@ $$\sqrt n\{g(\widehat p)-g(p)\}
 したがって $g(\widehat p)$ の漸近分散は $1/(4n)$。
 
 ## 計算例
-$p=0.36$、$n=100$ でも、変換後の漸近標準誤差は $\sqrt{1/(4n)}=0.05$ と $p$ に依存しない。
+$p=0.36$ では
+$$g'(0.36)=\frac1{2\sqrt{0.36\cdot0.64}}
+=\frac1{0.96}.$$
+元の極限分散 $0.36\cdot0.64=0.2304$ を掛けると
+$$\{g'(0.36)\}^2(0.2304)
+=\frac{0.2304}{0.96^2}=\frac14.$$
+$n=100$ では漸近分散が $1/(4\cdot100)=0.0025$、漸近標準誤差が $0.05$ となる。
 
 ## 注意
 $p=0,1$ では微分が発散するため、通常のデルタ法をそのまま適用できない。
@@ -345,7 +412,17 @@ $$\operatorname{Avar}\left\{\log\frac{\widehat p_1}{\widehat p_2}\right\}
 \frac{1-p_1}{n_1p_1}+\frac{1-p_2}{n_2p_2}.$$
 
 ## 計算例
-$n_1=n_2=100$、$\widehat p_1=0.4$、$\widehat p_2=0.2$ を代入すると、推定分散は $0.6/40+0.8/20=0.055$、標準誤差は $\sqrt{0.055}\approx0.2345$。
+$g(p_1,p_2)=\log p_1-\log p_2$ なので
+$$\nabla g(0.4,0.2)=\begin{pmatrix}1/0.4\\-1/0.2\end{pmatrix}
+=\begin{pmatrix}2.5\\-5\end{pmatrix}.$$
+$n_1=n_2=100$ では
+$$\widehat{\operatorname{Var}}(\widehat p_1)=\frac{0.4(0.6)}{100}=0.0024,$$
+$$\widehat{\operatorname{Var}}(\widehat p_2)=\frac{0.2(0.8)}{100}=0.0016.$$
+独立性から共分散項は0なので
+$$\widehat{\operatorname{Avar}}\left(\log\frac{\widehat p_1}{\widehat p_2}\right)
+=(2.5)^2(0.0024)+(-5)^2(0.0016)
+=0.015+0.04=0.055.$$
+したがって標準誤差は $\sqrt{0.055}\approx0.2345$ である。
 
 ## 注意
 成功数が0なら対数を取れないため、この近似をそのまま使えない。
@@ -393,7 +470,13 @@ $$\sqrt n(\widehat\sigma-\sigma)
 \xrightarrow{d}N\left(0,\frac{\sigma^2}{2}\right).$$
 
 ## 計算例
-$\sigma=3,n=200$ なら $\widehat\sigma$ の漸近分散は $9/(2\cdot200)=0.0225$、漸近標準誤差は $0.15$。
+$g(\tau)=\sqrt\tau$ だから $g'(\tau)=1/(2\sqrt\tau)$。$\sigma=3$ なら $\tau=9$ なので
+$$g'(9)=\frac16.$$
+元の極限分散 $2\tau^2=2\cdot9^2=162$ に微分の二乗を掛けると
+$$\left(\frac16\right)^2 162=\frac92.$$
+$n=200$ では $\widehat\sigma$ の漸近分散は
+$$\frac{9/2}{200}=0.0225,$$
+したがって漸近標準誤差は $\sqrt{0.0225}=0.15$ である。
 
 ## 注意
 分散母数を $\tau=\sigma^2$ と置いてから平方根変換すると追いやすい。
@@ -456,7 +539,7 @@ difficulty: 3
 priority: S
 hashtags: [最尤推定量, ポアソン分布, 漸近標準誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近分布 }]
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
 ---
 
 ## 問題
@@ -485,7 +568,19 @@ $$\widehat\lambda=\overline x=4.41,\qquad
 =\sqrt{\frac{4.41}{100}}=0.21.$$
 
 ## 計算例
-帰無値 $\lambda_0=4$ からのずれを漸近的に標準化すると
+1観測の対数尤度
+$$\ell_1(\lambda;x)=x\log\lambda-\lambda-\log(x!)$$
+を2回微分すると
+$$\ell_1''(\lambda)=-\frac x{\lambda^2}.$$
+したがって $E_\lambda[X]=\lambda$ より
+$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]=\frac1\lambda.$$
+標本対数尤度のスコア方程式から
+$$\widehat\lambda=\overline x=4.41.$$
+情報量へ最尤推定値を代入して
+$$\widehat{\operatorname{SE}}(\widehat\lambda)
+=\{100I_1(4.41)\}^{-1/2}
+=\sqrt{\frac{4.41}{100}}=0.21.$$
+参考に、帰無値 $\lambda_0=4$ からのずれを標準化すると
 $$z=\frac{4.41-4}{\sqrt{4/100}}=\frac{0.41}{0.2}=2.05.$$
 推定精度の表示ではプラグイン標準誤差 $0.21$ を用いる。
 
@@ -504,7 +599,7 @@ difficulty: 3
 priority: S
 hashtags: [指数分布, 最尤推定量, デルタ法]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近分布 }]
+sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
 ---
 
 ## 問題
@@ -532,10 +627,18 @@ $$\widehat{\operatorname{SE}}(\widehat\lambda)
 =\frac{\widehat\lambda}{\sqrt n}=\frac{2.5}{10}=0.25.$$
 
 ## 計算例
+$E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$ だから中心極限定理より
+$$\sqrt n\left(\overline X-\frac1\lambda\right)
+\xrightarrow{d}N\left(0,\frac1{\lambda^2}\right).$$
+$g(x)=1/x$ とおけば $\widehat\lambda=g(\overline X)$ であり
+$$g'(1/\lambda)=-\frac1{(1/\lambda)^2}=-\lambda^2.$$
 デルタ法の極限分散は
 $$\{g'(1/\lambda)\}^2\frac1{\lambda^2}
 =\lambda^4\frac1{\lambda^2}=\lambda^2.$$
 したがって推定量自体の漸近分散は $\lambda^2/n$ となる。
+$n=100,\overline x=0.4$ なら $\widehat\lambda=1/0.4=2.5$ なので
+$$\widehat{\operatorname{SE}}(\widehat\lambda)
+=\frac{2.5}{\sqrt{100}}=0.25.$$
 
 ## 注意
 率 $\lambda$ と平均 $1/\lambda$ を取り違えない。
@@ -701,7 +804,11 @@ $X_n\xrightarrow{d}X$ の定義を書け。
 極限分布の累積分布関数の連続点ですべての点で、累積分布関数が一致する極限をとる。
 
 ## 計算例
-標準化標本平均 $Z_n=\sqrt n(\overline X_n-\mu)/\sigma$ は、正規分布 $N(0,1)$ へ分布収束する（$Z_n\xrightarrow{d}N(0,1)$）。
+$X_n\sim N(0,1+1/n)$、$X\sim N(0,1)$ とする。累積分布関数は
+$$F_{X_n}(x)=\Phi\left(\frac{x}{\sqrt{1+1/n}}\right).$$
+任意の実数 $x$ で $x/\sqrt{1+1/n}\to x$ であり、$\Phi$ は連続だから
+$$F_{X_n}(x)\longrightarrow\Phi(x)=F_X(x).$$
+よって定義から $X_n\xrightarrow{d}N(0,1)$ である。
 
 ## 注意
 分布収束は極限の分布の形だけをいい、確率変数同士の近さを要求しない。
@@ -902,7 +1009,13 @@ $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$（定数）なら $X_n+Y_n\xrighta
 分布収束する列と、定数へ確率収束する列の和・積・商は、極限分布の対応する演算の分布へ収束する。
 
 ## 計算例
-$Z_n\xrightarrow{d}N(0,1)$、$S_n^2\xrightarrow{p}\sigma^2>0$ なら $Z_n/(S_n/\sigma)=(\overline X_n-\mu)/(S_n/\sqrt n)\xrightarrow{d}N(0,1)$。
+$\sigma=2$ とし、$Z_n=\sqrt n(\overline X_n-\mu)/2\xrightarrow{d}N(0,1)$、$S_n^2\xrightarrow{p}4$ とする。連続写像定理より
+$$\frac{S_n}{2}=\sqrt{\frac{S_n^2}{4}}\xrightarrow{p}1.$$
+したがってSlutskyの定理から
+$$\frac{\overline X_n-\mu}{S_n/\sqrt n}
+=\frac{\sqrt n(\overline X_n-\mu)/2}{S_n/2}
+=\frac{Z_n}{S_n/2}
+\xrightarrow{d}N(0,1).$$
 
 ## 注意
 $Y_n$ が定数でない確率変数へ確率収束する場合、積の極限は一般に成り立たない。
@@ -981,7 +1094,7 @@ $$\sqrt n(g(T_n)-g(\theta))\xrightarrow{d}N(0,\{g'(\theta)\}^2\sigma^2).$$
 $T_n=\overline X_n$、$\theta=\mu$、$g(x)=e^x$ なら $\sqrt n(e^{\overline X_n}-e^\mu)\xrightarrow{d}N(0,e^{2\mu}\sigma^2)$（$\sigma^2=\operatorname{Var}(X_i)$）。
 
 ## 注意
-$g'(\theta)=0$ のときは $\sqrt n$ の次数では収束せず、第2次デルタ法が必要になる。
+$g'(\theta)=0$ のとき $\sqrt n$ 尺度では0への退化極限となる。非退化な極限を得るには第2次デルタ法を検討する。
 <!-- CARD -->
 
 ---
@@ -1077,13 +1190,19 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-正則条件の下で最尤推定量 $\widehat\theta\xrightarrow{p}\theta_0$。
+代表的なargmax条件は、(1) 識別可能性により期待対数尤度が真値 $\theta_0$ で一意に最大、(2) $n^{-1}\ell_n(\theta)$ が期待対数尤度へ母数について一様収束、(3) 母数空間がコンパクト、または遠方での最大化を防ぐ外側制御があること、である。通常は $\theta_0$ が内部点であることも仮定する。
 
 ## 答え
-識別可能性と正則性（尤度が真値で一意に最大、モデルが滑らか等）の下で、標本サイズ増大とともに真の母数へ確率収束する。
+期待対数尤度の一意最大性と標本対数尤度の一様収束により、標本対数尤度の最大点が真値へ近づく。点ごとの大数の法則だけでは、移動する最大点の収束は保証できない。
 
 ## 計算例
-正規平均の最尤推定量 $\overline X_n$ は大数の弱法則から $\xrightarrow{p}\mu$。ベルヌーイの最尤推定量 $\widehat p$ も $\xrightarrow{p}p$。
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では最尤推定量は $\widehat p=\overline X$ である。$E[\widehat p]=p$、$\operatorname{Var}(\widehat p)=p(1-p)/n$ だから、任意の $\varepsilon>0$ に対して
+$$P_p(|\widehat p-p|>\varepsilon)
+\le\frac{p(1-p)}{n\varepsilon^2}
+\le\frac1{4n\varepsilon^2}\longrightarrow0.$$
+例えば $n=400,\varepsilon=0.1$ なら上界は
+$$\frac1{4\cdot400\cdot0.1^2}=0.0625.$$
+よって $\widehat p\xrightarrow{p}p$ である。
 
 ## 注意
 境界解などの非正則な場合は一致性が崩れることがある。
@@ -1120,7 +1239,7 @@ $$\sqrt n(\widehat\theta-\theta_0)
 =\left\{-\frac1nU_n'(\widetilde\theta)\right\}^{-1}
 \frac{U_n(\theta_0)}{\sqrt n}.$$
 正則条件の下で
-$$-\frac1nU_n'(\widetilde\theta)\xrightarrow{p}I_1(\theta_0),qquad
+$$-\frac1nU_n'(\widetilde\theta)\xrightarrow{p}I_1(\theta_0),\qquad
 \frac{U_n(\theta_0)}{\sqrt n}\xrightarrow{d}N(0,I_1(\theta_0)).$$
 よってSlutskyの定理から
 $$\sqrt n(\widehat\theta-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1}).$$
@@ -1129,7 +1248,20 @@ $$\sqrt n(\widehat\theta-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1}).$$
 標準化した最尤推定量は標準正規分布へ分布収束し、漸近分散は1観測当たりのフィッシャー情報量（1次元）の逆数になる。
 
 ## 計算例
-ベルヌーイなら $I_1(p)=1/\{p(1-p)\}$ なので $\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p))$。
+ベルヌーイ1観測の対数尤度は
+$$\ell_1(p;X)=X\log p+(1-X)\log(1-p).$$
+したがって
+$$\ell_1''(p)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
+$E_p[X]=p$ を使うと
+$$I_1(p)=-E_p[\ell_1''(p)]
+=\frac1p+\frac1{1-p}
+=\frac1{p(1-p)}.$$
+よって正則条件の下で
+$$\sqrt n(\widehat p-p)
+\xrightarrow{d}N\left(0,I_1(p)^{-1}\right)
+=N(0,p(1-p)).$$
+$p=0.4,n=100$ なら $\widehat p$ の漸近標準誤差は
+$$\sqrt{\frac{0.4(0.6)}{100}}\approx0.0490.$$
 
 ## 注意
 偏差スコアの期待値0とフィッシャー情報量（1次元）の加法性を用いる。
@@ -1164,7 +1296,11 @@ sources: [{ type: official_syllabus, topic: 漸近理論 }]
 $\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ のとき $v$ を $\sqrt n(T_n-\theta)$ の漸近分散と呼ぶ。したがって $T_n$ の分散は大標本で $v/n$、漸近標準誤差は $\sqrt{v/n}$ と近似する。
 
 ## 計算例
-$\overline X_n$ に対し $v=\sigma^2$ なら漸近標準誤差 $\sigma/\sqrt n$；不偏分散 $S^2$ で $S/\sqrt n$。
+$\sqrt n(\overline X_n-\mu)\xrightarrow{d}N(0,\sigma^2)$ だから、$\overline X_n$ 自身の漸近標準誤差は $\sigma/\sqrt n$。$\sigma^2=4,n=100$ なら
+$$\operatorname{ASE}(\overline X_n)=\frac2{10}=0.2.$$
+$\sigma$ は未知なので、例えば観測された不偏分散が $S^2=4.41$ なら $S=2.1$ を代入して
+$$\widehat{\operatorname{ASE}}(\overline X_n)
+=\frac{S}{\sqrt n}=\frac{2.1}{10}=0.21.$$
 
 ## 注意
 標本分散そのものではなく $1/\sqrt n$ のオーダーである。
@@ -1199,7 +1335,9 @@ $$\operatorname{ARE}(T,U)=\frac{v_U}{v_T},\qquad v_T=\operatorname{AVar}(\sqrt n
 極限分散の逆数の比として定義する。
 
 ## 計算例
-正規母集団で $T_n=$ 標本中央値、$U_n=$ 標本平均とすると、$v_T=\pi\sigma^2/2$、$v_U=\sigma^2$ なので $\operatorname{ARE}(T,U)=2/\pi\approx0.637$。
+$\operatorname{AVar}(\sqrt n\,T_n)=v_T=4$、$\operatorname{AVar}(\sqrt n\,U_n)=v_U=9$ なら
+$$\operatorname{ARE}(T,U)=\frac{v_U}{v_T}=\frac94=2.25.$$
+同じ標本数なら $T_n$ の極限分散の方が小さく、$T_n$ の方が漸近的に効率的である。
 
 ## 注意
 1より小さいほど相対的に情報量が少ない。
@@ -1327,7 +1465,11 @@ $$P(|X_n-\theta|>\varepsilon)\le\frac{E[(X_n-\theta)^2]}{\varepsilon^2}.$$
 Markov（Chebyshev）不等式を二乗平均に適用する。
 
 ## 計算例
-$E[(X_n-\theta)^2]=1/n$ なら上界は $1/(n\varepsilon^2)\to0$。
+$E[(X_n-\theta)^2]=1/n$ とする。$\varepsilon=0.1,n=400$ では
+$$P(|X_n-\theta|>0.1)
+\le\frac{E[(X_n-\theta)^2]}{0.1^2}
+=\frac{1/400}{0.01}=0.25.$$
+一般の $n$ では上界が $100/n\to0$ なので $X_n\xrightarrow{p}\theta$ である。
 
 ## 注意
 平均二乗収束の直接な含意である。
@@ -1398,7 +1540,13 @@ $$\sqrt n(\sqrt{\overline X_n}-\sqrt\mu)\xrightarrow{d}N\left(0,\frac{\sigma^2}{
 $g'(\mu)=1/(2\sqrt\mu)$ を漸近分散に掛ける。
 
 ## 計算例
-$\sigma^2=4$、$\mu=9$ なら漸近分散 $4/(4\cdot9)=1/9$、漸近標準誤差 $\sqrt{1/(9n)}=1/(3\sqrt n)$。
+$g(x)=\sqrt x$ だから
+$$g'(\mu)=\frac1{2\sqrt\mu}.$$
+$\sigma^2=4,\mu=9$ なら変換後の極限分散は
+$$\{g'(9)\}^2\sigma^2
+=\left(\frac16\right)^2 4
+=\frac19.$$
+したがって $\sqrt{\overline X_n}$ 自身の漸近分散は $1/(9n)$、漸近標準誤差は $1/(3\sqrt n)$ である。
 
 ## 注意
 $\mu>0$ が必要（平方根の定義域）。
@@ -1433,7 +1581,19 @@ $$I_1(p)=\frac1{p(1-p)},\qquad \operatorname{AVar}(\sqrt n\,\widehat p)=p(1-p),\
 漸近分散は1観測当たりの情報量の逆数を標本サイズで割ったもの。
 
 ## 計算例
-$p=0.5$ なら $\operatorname{AVar}(\widehat p)=0.25/n$、漸近標準誤差 $0.5/\sqrt n$。
+1観測 $X\sim\operatorname{Bernoulli}(p)$ の対数尤度は
+$$\ell_1(p;X)=X\log p+(1-X)\log(1-p).$$
+2回微分して
+$$\ell_1''(p)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
+$E_p[X]=p$ を代入すると
+$$I_1(p)=-E_p[\ell_1''(p)]
+=\frac p{p^2}+\frac{1-p}{(1-p)^2}
+=\frac1p+\frac1{1-p}
+=\frac1{p(1-p)}.$$
+したがって $p=0.5$ では
+$$\operatorname{Avar}(\widehat p)
+=\frac1{nI_1(0.5)}=\frac{0.25}{n},$$
+漸近標準誤差は $0.5/\sqrt n$ である。
 
 ## 注意
 標本比率の中心極限定理の分散と一致する。
@@ -1465,7 +1625,17 @@ $$I_1(\mu)=\frac1{\sigma^2},\qquad \operatorname{AVar}(\sqrt n\,\overline X_n)=\
 1観測当たりの情報量の逆数を標本サイズで割る。
 
 ## 計算例
-$\sigma^2=9$ なら $\operatorname{AVar}(\overline X_n)=9/n$、漸近標準誤差 $3/\sqrt n$。
+1観測 $X\sim N(\mu,\sigma^2)$ の対数尤度は
+$$\ell_1(\mu;X)=C-\frac{(X-\mu)^2}{2\sigma^2}.$$
+よって
+$$\ell_1'(\mu)=\frac{X-\mu}{\sigma^2},
+\qquad \ell_1''(\mu)=-\frac1{\sigma^2},$$
+したがって
+$$I_1(\mu)=-E_\mu[\ell_1''(\mu)]=\frac1{\sigma^2}.$$
+$\sigma^2=9$ なら
+$$\operatorname{Avar}(\overline X_n)
+=\frac1{nI_1(\mu)}=\frac9n,$$
+漸近標準誤差は $3/\sqrt n$ である。
 
 ## 注意
 正規母集団では正確にもこの分散になる。
@@ -1473,20 +1643,20 @@ $\sigma^2=9$ なら $\operatorname{AVar}(\overline X_n)=9/n$、漸近標準誤�
 
 ---
 id: asym-slutsky-example
-title: Slutskyの定理でt統計量の漸近分布を出す
+title: Slutskyの定理で確率収束する分母を置き換える
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: slutsky-example
+topic: slutsky-ratio-example
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Slutskyの定理, 分布収束, 漸近正規性]
+hashtags: [Slutskyの定理, 分布収束, 確率収束]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 収束の概念 }]
 ---
 
 ## 問題
-$\overline X_n$、$S_n^2$ が独立同分布標本から作られるとする。$(\overline X_n-\mu)/(S_n/\sqrt n)$ の漸近分布を求めよ。
+$X_n$ は正規分布 $N(0,4)$ へ分布収束し、$Y_n\xrightarrow{p}2$ とする。$X_n/Y_n$ の極限分布を求めよ。
 
 ## 記号・用語
 - $\xrightarrow{d}$：分布収束
@@ -1494,16 +1664,21 @@ $\overline X_n$、$S_n^2$ が独立同分布標本から作られるとする。
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-$Z_n=\sqrt n(\overline X_n-\mu)/\sigma\xrightarrow{d}N(0,1)$、$S_n^2\xrightarrow{p}\sigma^2$ ゆえ $Z_n/(S_n/\sigma)\xrightarrow{d}N(0,1)$。
+Slutskyの定理：$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ で $c\ne0$ なら
+$$\frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.$$
 
 ## 答え
-分子の標準化を $N(0,1)$ へ、分母の $S_n/\sigma$ を1へ、Slutskyで割る。
+$X\sim N(0,4)$ を定数2で割るので、極限分布は $N(0,1)$ である。
 
 ## 計算例
-$\sigma=2$、$S_n^2=4.1$ でも $n$ 大で $S_n^2/\sigma^2\to1$ なので極限は標準正規。
+$X\sim N(0,4)$ なら $X/2$ の分散は
+$$\operatorname{Var}\left(\frac X2\right)
+=\frac1{2^2}\operatorname{Var}(X)=\frac44=1.$$
+したがって
+$$\frac{X_n}{Y_n}\xrightarrow{d}\frac X2\sim N(0,1).$$
 
 ## 注意
-正規性を仮定しない大標本のt統計量の根拠。
+$Y_n$ の極限が0なら、除算にこの形のSlutskyの定理は使えない。
 <!-- CARD -->
 
 ---
@@ -1632,6 +1807,12 @@ $$\operatorname{Var}\{(X_i-\mu)^2\}
 =E[(X_i-\mu)^4]-\{E[(X_i-\mu)^2]\}^2
 =\mu_4-\sigma^4.$$
 したがって第1項の $\sqrt n$ 極限分散が $\mu_4-\sigma^4$ となる。
+正規分布で $\sigma^2=4$ なら
+$$\sigma^4=16,
+\qquad \mu_4=3\sigma^4=48,$$
+$$\mu_4-\sigma^4=48-16=32.$$
+$n=100$ では $V_n$ 自身の漸近分散は $32/100=0.32$、漸近標準誤差は
+$$\sqrt{0.32}\approx0.5657.$$
 
 ## 注意
 4次中心モーメントの有限性が必要であり、有限分散だけではこの結論は保証されない。
@@ -1780,6 +1961,11 @@ $$\sqrt n(2\overline X-\theta)
 右辺の極限分散は
 $$2^2\frac{\theta^2}{12}=\frac{\theta^2}{3}.$$
 推定量自体の漸近分散は $\theta^2/(3n)$ である。
+$n=75,\overline x=3.1$ なら $\widetilde\theta=2\overline x=6.2$。未知の $\theta$ を $\widetilde\theta$ で置き換えて
+$$\widehat{\operatorname{SE}}(\widetilde\theta)
+=\sqrt{\frac{6.2^2}{3\cdot75}}
+=\frac{6.2}{15}
+\approx0.4133.$$
 
 ## 注意
 最尤推定量 $X_{(n)}$ は異なる $n$ 尺度の非正規極限を持つため、同じ扱いをしない。
