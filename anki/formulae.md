@@ -245,7 +245,7 @@
 
 ## 線形モデル・多変量・時系列
 
-**この節の記号**：$\boldsymbol X$ は確率ベクトルまたは文脈により計画行列、$\boldsymbol\Sigma$ は共分散行列、$\boldsymbol I_n$ は単位行列である。時系列では $t$ は時点、$h$ はラグ、$\gamma(h)$ は自己共分散、$\rho(h)$ は自己相関を表す。
+**この節の記号**：$\boldsymbol X$ は確率ベクトルまたは文脈により計画行列、$\boldsymbol\Sigma$ は共分散行列、$\boldsymbol I_n$ は単位行列である。確率過程では $P_{ij}^{(n)}$ は状態 $i$ から $j$ への $n$ 段階遷移確率、$N(t)$ は時刻 $t$ までの事象数、$B_t$ は標準ブラウン運動を表す。時系列では $t$ は時点、$h$ はラグ、$\gamma(h)$ は自己共分散、$\rho(h)$ は自己相関、$BX_t=X_{t-1}$ はバックシフト演算子、$\varepsilon_t$ はホワイトノイズを表す。
 
 - 単回帰の傾き：$\widehat\beta_1=S_{xy}/S_{xx}$。
 - オッズ比：2×2表 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ では $ad/(bc)$。
@@ -258,9 +258,21 @@
 - 多変量正規の線形変換：$\boldsymbol a^{\mathsf T}\boldsymbol X\sim N(\boldsymbol a^{\mathsf T}\boldsymbol\mu,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a)$。
 - Chapman--Kolmogorov関係：$P_{ij}^{(m+n)}=\sum_kP_{ik}^{(m)}P_{kj}^{(n)}$。
 - 定常分布：$\boldsymbol\pi^{\mathsf T}\boldsymbol P=\boldsymbol\pi^{\mathsf T}$、$\sum_i\pi_i=1$。
+- 初回帰還時刻 $T_i=\inf\{n\ge1:X_n=i\}$ に対し、$P_i(T_i<\infty)=1$ なら状態 $i$ は再帰的、1未満なら過渡的。
+- 吸収確率と平均到達時間：境界値を固定し、非吸収状態ではそれぞれ $h_i=\sum_jP_{ij}h_j$、$m_i=1+\sum_jP_{ij}m_j$ を解く。
 - Poisson過程の待ち時間：$P(T_1>t)=P(N(t)=0)=e^{-\lambda t}$。
+- 率 $\lambda$ のPoisson過程：$N(t)-N(s)\sim\operatorname{Poisson}(\lambda(t-s))$。第 $k$ 到着時刻は $\operatorname{Gamma}(k,\lambda)$、$N(t)=n$ の条件下では $N(s)\sim\operatorname{Binomial}(n,s/t)$。
+- 複合Poisson過程 $S(t)=\sum_{i=1}^{N(t)}Y_i$：$E[S(t)]=\lambda tE[Y_1]$、$\operatorname{Var}(S(t))=\lambda tE[Y_1^2]$。
+- 標準ブラウン運動：$B_t-B_s\sim N(0,t-s)$（$0\le s<t$）、$\operatorname{Cov}(B_s,B_t)=\min(s,t)$。
 - AR(1)定常分散：$X_t=\phi X_{t-1}+\varepsilon_t$、$|\phi|<1$、革新が平均0、分散 $\sigma_\varepsilon^2$ で過去と無相関なら $\gamma(0)=\sigma_\varepsilon^2/(1-\phi^2)$。
+- AR(1)の自己相関と予測：$\rho(h)=\phi^{|h|}$、$\widehat X_{t+h\mid t}=\mu+\phi^h(X_t-\mu)$、予測誤差分散は $\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}$。
 - MA(1)自己共分散：$X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ なら $\gamma(0)=(1+\theta^2)\sigma_\varepsilon^2$、$\gamma(1)=\theta\sigma_\varepsilon^2$、$|h|>1$ で $\gamma(h)=0$。
+- ARIMA$(p,d,q)$：$\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t$。周期 $s$ の季節差分は $(1-B^s)X_t=X_t-X_{t-s}$。
+- 標本自己相関：$\widehat\rho_k=\sum_{t=k+1}^n(x_t-\bar x)(x_{t-k}-\bar x)/\sum_{t=1}^n(x_t-\bar x)^2$。
+- 単純指数平滑法：$S_t=\alpha X_t+(1-\alpha)S_{t-1}$、$\widehat X_{t+1\mid t}=S_t$。
+- AR(1)のスペクトル密度：$f(\lambda)=\sigma_\varepsilon^2/[2\pi(1+\phi^2-2\phi\cos\lambda)]$。
+- 線形状態空間モデル：$\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t$、$\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t$。カルマン予測は $a_{t\mid t-1}=Ta_{t-1\mid t-1}$、$P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q$。
+- カルマン更新：予測誤差 $\boldsymbol v_t=\boldsymbol y_t-Za_{t\mid t-1}$、その共分散 $F_t=ZP_{t\mid t-1}Z^{\mathsf T}+H$、ゲイン $K_t=P_{t\mid t-1}Z^{\mathsf T}F_t^{-1}$ として、$a_{t\mid t}=a_{t\mid t-1}+K_t\boldsymbol v_t$、$P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}$。
 - ロジスティック回帰：説明変数が $c$ 増えるとオッズは $e^{c\beta_1}$ 倍。
 - Poisson回帰：説明変数が $c$ 増えると条件付き平均は $e^{c\beta_1}$ 倍。
 - 線形対比：$\sum_ic_i=0$ を満たす $\sum_ic_i\mu_i$。

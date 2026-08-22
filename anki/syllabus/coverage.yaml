@@ -1989,34 +1989,31 @@ items:
         status: card
         cards: [glm-svm-margin]
   - id: applied-stochastic-processes
-    status: partial
-    cards:
-      - process-markov-two-step
-      - process-stationary-markov
-      - process-poisson-wait
+    status: complete
+    cards: [process-markov-two-step, process-stationary-markov, process-poisson-wait, stoch-markov-property, stoch-finite-dimensional-distribution, stoch-recurrence-definition, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution]
     terms:
       - name: マルコフ連鎖
-        status: planned
-        cards: []
+        status: card
+        cards: [process-markov-two-step, process-stationary-markov, stoch-markov-property, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-recurrence-definition]
       - name: ランダムウォーク
-        status: planned
-        cards: []
+        status: card
+        cards: [stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale]
       - name: ポアソン過程
-        status: planned
-        cards: []
+        status: card
+        cards: [process-poisson-wait, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments]
       - name: ブラウン運動
-        status: planned
-        cards: []
+        status: card
+        cards: [stoch-finite-dimensional-distribution, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution]
   - id: applied-time-series
-    status: planned
-    cards: []
+    status: complete
+    cards: [ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma]
     terms:
       - name: ARIMAモデル
-        status: planned
-        cards: []
+        status: card
+        cards: [ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-linear-detrend, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check]
       - name: 状態空間モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [ts-state-space-definition, ts-kalman-prediction, ts-kalman-update]
   - id: engineering-multivariate
     status: partial
     cards:

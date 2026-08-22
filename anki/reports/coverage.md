@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 1055
+- 公開カード: 1112
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -9,7 +9,7 @@
 | 統計的推測（推定） | 218 | 7/7 | formula, theorem, condition, proof_step, calc_step, expansion, recognition, strategy, reverse, pitfall |
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
-| 統計応用（共通事項） | 165 | 6/7 | formula, condition, calc_step, recognition, strategy |
+| 統計応用（共通事項） | 222 | 7/7 | formula, condition, proof_step, calc_step, recognition, strategy |
 | 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
@@ -49,8 +49,8 @@
 | 実験計画法 | complete | eng-blocking, design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control, design-experimental-observational-unit, design-pseudoreplication, design-crd-allocation-count, design-crd-difference-means, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-latin-square-definition, design-latin-square-model, design-latin-square-degrees-freedom, design-latin-square-anova-numeric, design-oneway-vs-block, design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss, design-random-oneway-components, design-random-intercept-covariance, design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality, design-power-determinants, design-two-sample-size, design-paired-sample-size, design-anova-effect-size-power, design-split-plot-error-strata, design-rcbd-missing-value |
 | 重回帰分析 | complete | model-gauss-markov, data-ols-slope, reg-robust-sandwich, reg-aic-variable-selection, reg-stepwise-selection-warning, reg-frisch-waugh-lovell, reg-condition-number, reg-breusch-pagan-idea, reg-leverage-threshold, reg-gls-estimator, reg-wls-two-points, reg-ridge-closed-form, reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-general-linear-hypothesis, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich, reg-feasible-gls-steps, reg-elastic-net-objective, reg-lasso-kkt-zero, reg-ridge-svd-shrinkage, reg-mallows-cp, reg-bic-selection, reg-nested-cross-validation, reg-software-output-interpretation |
 | 各種多変量解析法 | complete | model-logistic-odds, model-poisson-glm, mv-mean-covariance-numeric, mv-covariance-linear-transform, mv-mahalanobis-distance, mv-hotelling-one-sample, mv-hotelling-f-transform, mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression, mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda, mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective, mv-canonical-correlation, mv-mds-double-centering, glm-three-components, glm-exponential-family, glm-canonical-links, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-logistic-marginal-effect, glm-probit-probability, glm-tobit-likelihood-parts, glm-nonlinear-regression-gradient, glm-svm-margin, glm-software-deviance-output, mv-pca-software-output |
-| 確率過程 | partial | process-markov-two-step, process-stationary-markov, process-poisson-wait |
-| 時系列解析 | planned |  |
+| 確率過程 | complete | process-markov-two-step, process-stationary-markov, process-poisson-wait, stoch-markov-property, stoch-finite-dimensional-distribution, stoch-recurrence-definition, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution |
+| 時系列解析 | complete | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma |
 | 多変量解析法 | partial | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal |
 | 確率過程 | partial | process-ar1-stationary, process-ma1-autocovariance |
 | 線形推測 | partial | model-gauss-markov, model-contrast |
@@ -231,12 +231,12 @@
 | 各種多変量解析法 | 一般化線形モデル | card | model-poisson-glm, glm-three-components, glm-exponential-family, glm-canonical-links, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-software-deviance-output |
 | 各種多変量解析法 | 非線形回帰モデル | card | glm-nonlinear-regression-gradient |
 | 各種多変量解析法 | サポートベクターマシン | card | glm-svm-margin |
-| 確率過程 | マルコフ連鎖 | planned |  |
-| 確率過程 | ランダムウォーク | planned |  |
-| 確率過程 | ポアソン過程 | planned |  |
-| 確率過程 | ブラウン運動 | planned |  |
-| 時系列解析 | ARIMAモデル | planned |  |
-| 時系列解析 | 状態空間モデル | planned |  |
+| 確率過程 | マルコフ連鎖 | card | process-markov-two-step, process-stationary-markov, stoch-markov-property, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-recurrence-definition |
+| 確率過程 | ランダムウォーク | card | stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale |
+| 確率過程 | ポアソン過程 | card | process-poisson-wait, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments |
+| 確率過程 | ブラウン運動 | card | stoch-finite-dimensional-distribution, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution |
+| 時系列解析 | ARIMAモデル | card | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-linear-detrend, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check |
+| 時系列解析 | 状態空間モデル | card | ts-state-space-definition, ts-kalman-prediction, ts-kalman-update |
 | 多変量解析法 | 多変量正規分布 | planned |  |
 | 多変量解析法 | 平均ベクトル | planned |  |
 | 多変量解析法 | 分散共分散行列 | planned |  |

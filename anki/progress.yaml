@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
-updated_at: 2026-08-21
-reviewed_card_count: 1055
+updated_at: 2026-08-22
+reviewed_card_count: 1112
 current_work: null
-next_work: C22-stochastic-time-series
-last_completed_work: C21-regression-multivariate
+next_work: C23-engineering-multivariate
+last_completed_work: C22-stochastic-time-series
 summary:
   total: 33
-  planned: 6
+  planned: 5
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 27
+  reviewed: 28
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2103,7 +2103,7 @@ work:
     target:
       min: 50
       max: 60
-    status: planned
+    status: reviewed
     review_dir: review/C22-stochastic-time-series
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 確率過程・時系列解析
@@ -2151,6 +2151,73 @@ work:
       A: 18
       B: 20
       C: 0
+    started_at: 2026-08-22T10:05:24.742Z
+    self_review_at: 2026-08-22T10:17:31.153Z
+    independent_review_at: 2026-08-22T10:19:39.756Z
+    revision_at: 2026-08-22T10:30:06.336Z
+    completed_at: 2026-08-22T10:50:59.237Z
+    added_card_ids:
+      - stoch-absorption-probability
+      - stoch-brownian-covariance
+      - stoch-brownian-definition
+      - stoch-brownian-drift
+      - stoch-brownian-increment-probability
+      - stoch-brownian-scaling
+      - stoch-communicating-classes
+      - stoch-compound-poisson-moments
+      - stoch-detailed-balance-check
+      - stoch-expected-hitting-time
+      - stoch-finite-dimensional-distribution
+      - stoch-gambler-ruin
+      - stoch-geometric-brownian-solution
+      - stoch-markov-property
+      - stoch-period-computation
+      - stoch-poisson-arrival-gamma
+      - stoch-poisson-conditional-binomial
+      - stoch-poisson-count-numeric
+      - stoch-poisson-increments
+      - stoch-poisson-superposition
+      - stoch-poisson-thinning
+      - stoch-random-walk-martingale
+      - stoch-random-walk-mean-variance
+      - stoch-recurrence-definition
+      - stoch-three-state-stationary
+      - stoch-three-state-two-step
+      - stoch-transition-matrix-check
+      - ts-acf-pacf-identification
+      - ts-ar-causality-check
+      - ts-ar1-acf
+      - ts-ar1-forecast-error-variance
+      - ts-ar1-hstep-forecast
+      - ts-ar1-mean
+      - ts-ar1-one-step-forecast
+      - ts-ar2-stationarity
+      - ts-arima-definition
+      - ts-arma11-mean
+      - ts-autocovariance-properties
+      - ts-backshift-arma
+      - ts-difference-random-walk
+      - ts-kalman-prediction
+      - ts-kalman-update
+      - ts-linear-detrend
+      - ts-ma1-invertibility
+      - ts-maq-acf-cutoff
+      - ts-pacf-lag2-calculation
+      - ts-random-walk-nonstationary
+      - ts-sample-acf
+      - ts-seasonal-difference
+      - ts-simple-exponential-smoothing
+      - ts-software-arima-coefficients
+      - ts-software-residual-diagnostics
+      - ts-spectral-density-ar1
+      - ts-state-space-definition
+      - ts-weak-vs-strong-stationarity
+      - ts-white-noise-identification
+      - ts-yule-walker-ar2
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C23-engineering-multivariate:
     title: 多変量解析法
     category: applied-engineering
