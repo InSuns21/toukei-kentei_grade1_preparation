@@ -133,3 +133,14 @@ fatal: 0 / major: 0 / minor: 0
 
 - `npm run validate`: success
 - fatal: 0 / major: 0 / minor: 0
+
+## 計算例展開の試験適合性査読（2026-08-23）
+
+- 担当ID: /root/exam_review_population_cards
+- 対象: 結論だけだった7つの計算例と基礎順序統計量カード
+- 初回結果: fatal 0 / major 3 / minor 0
+- 初回指摘: 数式コマンド脱落、連続点確率の誤用、`suff-minimal` 内で使用する最小十分性判定の未再掲。
+- 修正: 数式表記を復元し、離散PMFによる厳密な条件付き確率へ変更。最小十分性の尤度比判定を同カードに再掲。
+- 再確認: 各カードは単独で途中式を追え、1カード1論点、用語、重複・過剰、シラバス到達技能に問題なし。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0

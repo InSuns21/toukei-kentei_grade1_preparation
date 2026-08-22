@@ -522,7 +522,7 @@ sources: [{ type: official_syllabus, topic: 順序統計量 }]
 $$X_{(1)}\le X_{(2)}\le\cdots\le X_{(n)}$$
 と書く。丸括弧付き添字は小さい方からの順位を表し、観測した順番を表す $X_i$ とは異なる。
 ## 使用公式・定理
-$$X_{(1)}=\min_iX_i,qquad X_{(n)}=\max_iX_i.$$
+$$X_{(1)}=\min_iX_i,\qquad X_{(n)}=\max_iX_i.$$
 ## 計算例
 観測値が $(4,1,4,2)$ なら、並べ替えて $(1,2,4,4)$ だから
 $$x_{(1)}=1,\quad x_{(2)}=2,\quad x_{(3)}=4,\quad x_{(4)}=4.$$
@@ -687,8 +687,22 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 どんな十分統計量 $T'$ に対しても $T$ が $T'$ の関数として書ける（$T=\phi(T')$）十分統計量を最小十分統計量と呼ぶ。すなわちデータを最も強く圧縮した十分統計量。
 ## 使用公式・定理
 $T$ が十分かつ任意の十分 $T'$ に対して $T=\phi(T')$ となる関数 $\phi$ が存在するとき最小十分。
+また、母数空間の内部で密度が正となる共通の台を持つ密度族では、任意の標本点 $x,y$ に対して
+$$\frac{f_\theta(x)}{f_\theta(y)}\text{ が }\theta\text{ に依存しない}
+\iff T(x)=T(y)$$
+が成り立てば、$T$ は最小十分統計量である。
 ## 計算例
-$N(\mu,\sigma^2)$ では $(\sum x_i,\sum x_i^2)$ が最小十分。ベルヌーイ分布の $\sum x_i$ も最小十分。
+正規分布 $N(\mu,\sigma^2)$ の2母数族で、標本点 $x,y$ の尤度比を取る。正規化定数は打ち消し合うので
+$$\log\frac{f_{\mu,\sigma^2}(x)}{f_{\mu,\sigma^2}(y)}
+=-\frac{1}{2\sigma^2}
+\left\{\sum_i x_i^2-\sum_i y_i^2
+-2\mu\left(\sum_i x_i-\sum_i y_i\right)\right\}.$$
+これがすべての $\mu\in\mathbb R,\sigma^2>0$ に依存しないためには
+$$\sum_i x_i=\sum_i y_i,\qquad
+\sum_i x_i^2=\sum_i y_i^2$$
+が必要十分である。したがって
+$$T=\left(\sum_iX_i,\sum_iX_i^2\right)$$
+は最小十分統計量である。
 ## 一手
 十分統計量同士を比べた「最も粗いもの」。一意ではないが関数関係で比較できる。
 <!-- CARD -->
@@ -742,7 +756,15 @@ $E_\theta[g(T)]=0\;(\forall\theta)\;\Rightarrow\;P_\theta(g(T)=0)=1\;(\forall\th
 ## 使用公式・定理
 完備性は指数型分布族でよく成り立つ（次カード）。完備な十分統計量は一様最小分散不偏（UMVU）推定量の構成の要である。
 ## 計算例
-$X\sim\operatorname{Poisson}(\lambda)$ の $T=X$ は完備：$E[g(T)]=\sum_{x}g(x)\lambda^x e^{-\lambda}/x!=0$ が全 $\lambda$ で成り立つには $g(x)=0$。
+$X\sim\operatorname{Poisson}(\lambda)$ とし、すべての $\lambda>0$ について $E_\lambda[g(X)]=0$ と仮定する。このとき
+$$0=E_\lambda[g(X)]
+=\sum_{x=0}^{\infty}g(x)e^{-\lambda}\frac{\lambda^x}{x!}.$$
+両辺に $e^\lambda>0$ を掛けると
+$$\sum_{x=0}^{\infty}\frac{g(x)}{x!}\lambda^x=0
+\qquad(\forall\lambda>0).$$
+左辺は $\lambda$ のべき級数であり、区間上で恒等的に0だから各係数が0である。よって
+$$\frac{g(x)}{x!}=0\quad(x=0,1,\ldots),$$
+すなわち $P_\lambda(g(X)=0)=1$ である。したがって $X$ は完備統計量である。
 ## 一手
 「$g(T)$ の期待値が恒等的に0なら $g$ は恒等的に0」という $T$ の性質。
 <!-- CARD -->
@@ -768,7 +790,13 @@ $T=(T_1,\ldots,T_k)$ は完備な十分統計量である（自然母数が開�
 ## 使用公式・定理
 十分性は因子分解、完備性はラプラス変換の一意性に帰着。$k$ 次元指数型で自然母数空間が開集合なら $T$ は完備十分。
 ## 計算例
-$N(\mu,\sigma^2)$ の $(\sum x_i,\sum x_i^2)$、$\operatorname{Poisson}$ の $\sum x_i$、二項の $\sum x_i$ はすべて完備十分。
+$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$0<p<1$ とする。$T=\sum_iX_i$、自然母数
+$$\eta=\log\frac{p}{1-p}\in\mathbb R$$
+を使うと、$p=e^\eta/(1+e^\eta)$ なので尤度は
+$$L(\eta;x)
+=p^T(1-p)^{n-T}
+=\exp\!\left\{\eta T-n\log(1+e^\eta)\right\}.$$
+したがって $T$ は因子分解により十分統計量である。さらに自然母数空間は実数全体 $\mathbb R$ で開集合だから、指数型分布族の完備性定理により $T$ は完備である。よって $T$ は完備十分統計量である。
 ## 一手
 指数型分布族の自然母数が開集合なら十分統計量は自動的に完備。多くの標準分布が該当。
 <!-- CARD -->
@@ -792,7 +820,14 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 使用公式・定理
 完備十分統計量 $T$ に対して、$\theta$ の不偏推定量 $\delta(T)$ は（存在すれば）一意的に定まる。
 ## 計算例
-$\operatorname{Poisson}(\lambda)$ の $T=\sum X_i$ は完備十分。$\overline X$ は $\lambda$ の不偏で、$T$ の関数なので一様最小分散不偏（UMVU）推定量である。
+$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ とする。$T=\sum_iX_i$ は完備十分統計量であり、
+$$\overline X=\frac Tn$$
+は $T$ の関数である。また
+$$E_\lambda[\overline X]
+=\frac1n\sum_{i=1}^nE_\lambda[X_i]
+=\frac1n\cdot n\lambda
+=\lambda$$
+だから不偏である。レーマン・シェッフェの定理より、$\overline X$ は $\lambda$ の一様最小分散不偏（UMVU）推定量である。
 ## 一手
 「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ一様最小分散不偏（UMVU）推定量になる。
 <!-- CARD -->
@@ -858,7 +893,14 @@ $T$ が完備十分統計量であり、$\delta(T)$ が $\theta$ の不偏推定
 ## 使用公式・定理
 完備性により $T$ の関数で不偏なものは一意。よってそのような $\delta(T)$ が存在すれば、これが一様最小分散不偏（UMVU）推定量であり、一意に定まる。
 ## 計算例
-$\operatorname{Poisson}(\lambda)$ の $\overline X$ は完備十分 $T=\sum X_i$ の関数であり不偏なので、$\lambda$ の一様最小分散不偏（UMVU）推定量である。
+$X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ とし、$\sigma^2$ は既知とする。尤度は
+$$L(\mu;x)
+=h(x)\exp\!\left\{\frac{\mu}{\sigma^2}\sum_i x_i
+-\frac{n\mu^2}{2\sigma^2}\right\}$$
+と書ける。自然母数 $\eta=\mu/\sigma^2$ は $\mathbb R$ 全体を動くので、$T=\sum_iX_i$ は完備十分統計量である。さらに
+$$\overline X=\frac Tn,\qquad
+E_\mu[\overline X]=\frac1n\sum_iE_\mu[X_i]=\mu.$$
+よってレーマン・シェッフェの定理から、$\overline X$ は $\mu$ の一様最小分散不偏（UMVU）推定量である。
 ## 一手
 「完備十分 $T$ の不偏な関数＝一様最小分散不偏（UMVU）推定量」を確認する。存在すれば一意である。
 <!-- CARD -->
@@ -910,7 +952,13 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 使用公式・定理
 $T$ 完備十分 $\Rightarrow$ $T$ と補助統計量 $V$ は独立。
 ## 計算例
-$N(\mu,\sigma^2)$ で $\mu$ のみ未知（$\sigma^2$ 既知）のとき、$S^2=\sum(X_i-\overline X)^2$ の分布は $\mu$ に依存せず補助統計量である。完備十分な $\overline X$ はバスーの定理より $S^2$ から独立である。これは標本平均と分散の独立性（コクランの定理）の基礎となる。
+$X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\mu$ のみ未知、$\sigma^2$ は既知とする。上の計算と同様に $T=\sum_iX_i$ は $\mu$ の完備十分統計量である。一方、残差平方和
+$$R=\sum_{i=1}^n(X_i-\overline X)^2$$
+について
+$$\frac{R}{\sigma^2}\sim\chi^2_{n-1}$$
+であり、この分布は $\mu$ に依存しない。したがって $R$ は補助統計量である。バスーの定理より
+$$T\ \text{と}\ R\ \text{は独立}.$$
+$\overline X=T/n$ は $T$ の関数なので、$\overline X$ と $R$ も独立である。
 ## 一手
 完備十分統計量と分布に依らない量は独立。標本平均と分散の独立性に直結。
 <!-- CARD -->
@@ -984,7 +1032,19 @@ sources: [{ type: official_syllabus, topic: 順序統計量 }]
 ## 使用公式・定理
 独立同分布標本の同時尤度 $\prod_{i=1}^nf_\theta(x_i)$ は標本の並べ替えで変わらない。したがって、順序統計量全体を固定したときに元の観測順序がどの並びになるかという条件付き確率は $\theta$ に依存しない。全値が異なる連続標本では各並びの確率は $1/n!$ であり、同順位がある場合も異なる並びの個数だけが変わる。
 ## 計算例
-$U(0,\theta)$ の最大値 $X_{(n)}$ は（最小）十分だが、順序統計量全体も十分。
+$n=3$ とし、離散分布の異なる3点 $a<b<c$ で確率質量 $p_\theta(a),p_\theta(b),p_\theta(c)$ が正とする。独立同分布性から
+$$P_\theta(X_1=a,X_2=b,X_3=c)
+=p_\theta(a)p_\theta(b)p_\theta(c)$$
+であり、6通りの並べ替えはすべて同じ積を持つ。したがって
+$$P_\theta\!\left((X_1,X_2,X_3)=(a,b,c)\mid
+(X_{(1)},X_{(2)},X_{(3)})=(a,b,c)\right)$$
+$$=\frac{p_\theta(a)p_\theta(b)p_\theta(c)}
+{6p_\theta(a)p_\theta(b)p_\theta(c)}
+=\frac16,$$
+となり $\theta$ に依存しない。同順位の例として順序統計量が $(a,a,c)$ なら異なる並べ替えは3通りであり、各条件付き確率は
+$$\frac{p_\theta(a)^2p_\theta(c)}
+{3p_\theta(a)^2p_\theta(c)}=\frac13$$
+となる。したがって同順位があっても母数に依存しない。
 ## 一手
 「順序統計量は常に十分」という事実を、並びの情報は無意味という視点で覚える。
 <!-- CARD -->

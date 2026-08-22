@@ -83,3 +83,14 @@ fatal: 0 / major: 1 / minor: 3
 
 - `npm run validate`: success
 - fatal: 0 / major: 0 / minor: 0
+
+## 計算例展開の独立数理査読（2026-08-23）
+
+- 担当ID: /root/math_review_population_cards
+- 対象: `suff-minimal`、`complete-statistic`、`exponential-family-completeness`、`suff-complete`、`lehmann-scheffe`、`basu-theorem`、`order-statistic-sufficiency`
+- 初回結果: fatal 0 / major 2 / minor 0
+- 初回指摘: 数式コマンドのバックスラッシュ脱落、連続分布の密度を点確率として扱った条件付き確率。
+- 修正: コマンドを復元し、順序統計量の例を正の確率質量を持つ離散3点へ変更。同順位 $(a,a,c)$ も含めて条件付き確率を再計算。
+- 独立再計算: 正規2母数の最小十分性、ポアソンの完備性、ベルヌーイ指数型分布族、正規・ポアソンのUMVU、バスーの定理、順序統計量の $1/6$ と $1/3$ はすべて整合。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0
