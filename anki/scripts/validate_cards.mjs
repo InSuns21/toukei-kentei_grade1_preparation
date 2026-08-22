@@ -73,6 +73,23 @@ const notation = fs.readFileSync(path.join(ROOT, "notation.md"), "utf8");
 if (!notation.includes("記法の正本")) errors.push("notation.md に正本の宣言がありません");
 const formulae = fs.readFileSync(path.join(ROOT, "formulae.md"), "utf8");
 if (!formulae.includes("公式・定理・定義の正本")) errors.push("formulae.md に正本の宣言がありません");
+const formulaSections = formulae.split(/^## /m).slice(1).map((chunk) => {
+  const newline = chunk.indexOf("\n");
+  return [chunk.slice(0, newline).trim(), chunk.slice(newline + 1)];
+});
+for (const [sectionName, sectionBody] of formulaSections) {
+  if (!sectionBody.includes("**この節の記号**")) {
+    errors.push("formulae.md/" + sectionName + ": 「この節の記号」で分野固有の記号を定義してください");
+  }
+}
+for (const requiredNotation of [
+  "## 共通の記号",
+  "$\\phi(z)$",
+  "$\\Phi(z)",
+  "$z_\\alpha$",
+  "$I_1(\\theta)$",
+  "$\\boldsymbol I(\\boldsymbol\\theta)$",
+]) if (!notation.includes(requiredNotation)) errors.push("notation.md: 共通記号 " + requiredNotation + " がありません");
 for (const [name, source] of [["notation.md", notation], ["formulae.md", formulae]]) {
   for (const match of source.matchAll(/\$\$([\s\S]*?)\$\$|(?<!\$)\$([^\n$]+?)\$(?!\$)/g)) {
     try { katex.renderToString(match[1] ?? match[2], { displayMode: match[1] !== undefined, throwOnError: true, strict: "error" }); }

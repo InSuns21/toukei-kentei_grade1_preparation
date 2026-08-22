@@ -2,7 +2,11 @@
 
 このファイルをカード教材で利用する公式・定理・定義の正本とする。カードでは、ここへのリンクだけで済ませず、実際に使う項目を「使用公式・定理」欄へ再掲する。
 
+記号の共通規約は notation.md に従う。ただし、分野固有の添字・統計量・母数は、以下の各節にある「この節の記号」で定義する。帽子は推定量、横棒は標本平均、下付き添字 $0$ は帰無仮説で指定する値を表す。
+
 ## 分割表の解析・ノンパラメトリック法
+
+**この節の記号**：$O_{ij}$ と $E_{ij}$ は $r\times c$ 分割表の観測度数と期待度数、$n_{i\cdot}$ と $n_{\cdot j}$ は行和と列和、$n$ は総度数である。2×2表ではセルを行順に $a,b,c,d$ とする。順位検定では $R_i$ は順位和、$n_i$ は群 $i$ の標本数、$N=\sum_i n_i$ は総標本数である。
 
 - 独立性の期待度数：$E_{ij}=n_{i\cdot}n_{\cdot j}/n$。Pearson統計量は $X^2=\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}$、自由度は $(r-1)(c-1)$。
 - 尤度比統計量：$G^2=2\sum_{i,j}O_{ij}\log(O_{ij}/E_{ij})$。
@@ -24,6 +28,8 @@
 - Kruskal–Wallisの同順位補正：$C=1-\sum_g(t_g^3-t_g)/(N^3-N)$、$H_{\mathrm{corr}}=H/C$。
 
 ## 分散分析・回帰分析
+
+**この節の記号**：分散分析では $i$ は群、$j$ は群内観測、$n_i$ は群サイズ、$N=\sum_i n_i$ は総標本数、$SS$ と $MS$ は平方和と平均平方である。回帰では $\boldsymbol Y$ は応答ベクトル、$\boldsymbol X$ は切片列を含むことがある計画行列、$\boldsymbol\beta$ は係数ベクトル、$p$ は説明変数数、$k$ は切片を含む係数数とする。$S_{xx}=\sum_i(x_i-\bar x)^2$、$S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)$ である。
 
 - 一元配置モデル：$Y_{ij}=\mu+\alpha_i+\varepsilon_{ij}$、$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2)$。帰無仮説は $\mu_1=\cdots=\mu_a$。
 - 一元配置の平方和：$SS_T=SS_A+SS_E$、$SS_A=\sum_i n_i(\overline Y_{i\cdot}-\overline Y_{\cdot\cdot})^2$、$SS_E=\sum_{i,j}(Y_{ij}-\overline Y_{i\cdot})^2$。
@@ -68,6 +74,8 @@
 
 ## 正規分布に関する検定・種々の検定法
 
+**この節の記号**：$n$ は標本数、$\mu_0$、$\sigma_0^2$、$p_0$ は帰無仮説で指定する母平均・母分散・母比率である。$S^2$ は不偏標本分散、$X_j$ はカテゴリ $j$ の観測度数、$O_j,E_j$ は観測度数と期待度数、$z_\alpha$ などの分位点は notation.md の上側確率点規約に従う。
+
 - 正規母平均（母分散既知）：$Z=(\overline X-\mu_0)/(\sigma/\sqrt n)\sim N(0,1)$。両側検定では $|Z|\ge z_{\alpha/2}$ で棄却する。
 - 正規母平均（母分散未知）：$T=(\overline X-\mu_0)/(S/\sqrt n)\sim t_{n-1}$。母集団の正規性を仮定する。
 - 対応のある $t$ 検定：$D_i=X_i-Y_i$ とし、$T=(\overline D-\mu_{D,0})/(S_D/\sqrt n)\sim t_{n-1}$ を使う。
@@ -88,6 +96,8 @@
 
 ## 確率
 
+**この節の記号**：$A,B,C,A_i$ は事象、$\Omega$ は標本空間、$A^c$ は補事象、$|A|$ は有限集合 $A$ の要素数である。$P(A\mid B)$ は $P(B)>0$ のときの条件付き確率を表す。
+
 - 等確率な有限標本空間：各結果が等確率なら、事象 $A$ について $P(A)=|A|/|\Omega|$。
 - 包除原理：$P(A\cup B)=P(A)+P(B)-P(A\cap B)$。
 - 3事象の包除原理：$P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)$。
@@ -104,6 +114,8 @@
 - Borel--Cantelliの補題（基本形）：$\sum_{n=1}^{\infty}P(A_n)<\infty$ なら $P(\limsup_{n\to\infty}A_n)=0$。この向きには独立性を仮定しない。
 
 ## 分布・モーメント
+
+**この節の記号**：$F_X,p_X,f_X$ は確率変数 $X$ の累積分布関数・確率質量関数・確率密度関数、$G_X,M_X,\varphi_X,K_X$ は確率母関数・モーメント母関数・特性関数・キュムラント母関数である。$\mu=E[X]$、$\sigma^2=\operatorname{Var}(X)$ とする。
 
 - 累積分布関数：離散分布では $F_X(x)=\sum_{u\le x}p_X(u)$。
 - 確率質量関数の条件：$p_X(x)\ge0$ かつ $\sum_xp_X(x)=1$。
@@ -168,6 +180,8 @@
 
 ## 極限定理・標本分布
 
+**この節の記号**：$X_1,\ldots,X_n$ は特に断らない限り独立同分布標本、$\bar X$ と $S^2$ は標本平均と不偏標本分散である。$\xrightarrow{p}$ と $\xrightarrow{d}$ は確率収束と分布収束を表す。
+
 - 大数の法則：独立同分布で $E[|X_1|]<\infty$ なら $\overline X\xrightarrow{p}E[X_1]$。
 - 中心極限定理：独立同分布で平均 $\mu$、有限な正の分散 $\sigma^2$ なら $\sqrt n(\overline X-\mu)/\sigma\xrightarrow{d}N(0,1)$。
 - Delta法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら、$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$。
@@ -176,6 +190,8 @@
 - 標本相関係数の定義：$r=\frac{\sum_i(X_i-\overline X)(Y_i-\overline Y)}{\sqrt{\sum_i(X_i-\overline X)^2}\,\sqrt{\sum_i(Y_i-\overline Y)^2}}$。$\rho=0$ 下で $t=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}\sim t_{n-2}$。
 
 ## 推定
+
+**この節の記号**：$\theta$ は母数、$\widehat\theta$ は推定量、$L(\theta;x)$、$\ell(\theta;x)$、$U(\theta)$ は尤度・対数尤度・スコアである。$I_1(\theta)$ と $I_n(\theta)$ は1観測当たりと標本全体のフィッシャー情報量（1次元）、多母数では $\boldsymbol I(\boldsymbol\theta)$ をフィッシャー情報行列とする。
 
 - 最尤推定量：$\widehat\theta\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)=\operatorname*{arg\,max}_{\theta\in\Theta}\ell(\theta;x)$。
 - モーメント法：母モーメントを対応する標本モーメントへ等置し、母数について解く。
@@ -190,6 +206,8 @@
 - Lehmann--Schefféの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意なUMVU推定量である。
 
 ## 区間推定
+
+**この節の記号**：$\alpha$ は非被覆確率、$1-\alpha$ は信頼係数、$L(X),U(X)$ は信頼区間の下端と上端である。$z_\alpha,t_{\nu,\alpha},\chi^2_{\nu,\alpha},F_{\nu_1,\nu_2,\alpha}$ は上側 $\alpha$ 点、$\nu$ は自由度を表す。
 
 - 被覆確率：区間推定量 $I(X)=[L(X),U(X)]$ が $P_\theta(L(X)\le\theta\le U(X))=1-\alpha$ を満たすとき $1-\alpha$ を被覆確率（信頼係数）という。
 - ピボット量：標本と未知パラメータの関数 $Q(X,\theta)$ の分布が $\theta$ に依存しないとき、 $P(a\le Q\le b)=1-\alpha$ を $\theta$ について解いて区間を得る。
@@ -206,6 +224,8 @@
 - 双対性：水準 $\alpha$ の検定で棄却されない $\theta$ の集合がちょうど信頼係数 $1-\alpha$ の信頼区間になる。
 
 ## 検定
+
+**この節の記号**：$\Theta$ は母数空間、$\Theta_0,\Theta_1$ は帰無仮説と対立仮説に対応する部分集合、$R$ は棄却域、$\alpha$ は有意水準である。$\phi(x)$ は検定関数、$\pi(\theta)$ は検出力関数、$\beta(\theta)$ は第二種過誤確率を表す。
 
 - 検定関数：標本 $x$ で棄却する確率を $0\le\phi(x)\le1$ とし、検出力関数を $\pi(\theta)=E_\theta[\phi(X)]$ とする。非無作為化検定では $\phi(x)=\boldsymbol1_R(x)$。
 - サイズと有意水準：棄却域 $R$ のサイズは $\sup_{\theta\in\Theta_0}P_\theta(X\in R)$。これが $\alpha$ 以下なら有意水準 $\alpha$ の検定。
@@ -224,6 +244,8 @@
 - Pearson適合度統計量：区分確率が正で期待度数が増大し、識別可能な正則 $r$ 母数モデルを最尤法等で当てはめると $\sum_j(O_j-E_j)^2/E_j\xrightarrow{d}\chi^2_{k-1-r}$。
 
 ## 線形モデル・多変量・時系列
+
+**この節の記号**：$\boldsymbol X$ は確率ベクトルまたは文脈により計画行列、$\boldsymbol\Sigma$ は共分散行列、$\boldsymbol I_n$ は単位行列である。時系列では $t$ は時点、$h$ はラグ、$\gamma(h)$ は自己共分散、$\rho(h)$ は自己相関を表す。
 
 - 単回帰の傾き：$\widehat\beta_1=S_{xy}/S_{xx}$。
 - オッズ比：2×2表 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ では $ad/(bc)$。
@@ -245,6 +267,8 @@
 
 ## 品質・信頼性・実験計画
 
+**この節の記号**：$USL,LSL$ は上側・下側規格限界、$UCL,CL,LCL$ は上側管理限界・中心線・下側管理限界である。実験計画では $a,b,p$ は処置数・ブロック数・方格次数、$SS_{\mathrm{tr}},SS_{\mathrm{bl}},SS_E$ は処置・ブロック・誤差平方和を表す。
+
 - 工程能力指数：$C_p=(USL-LSL)/(6\sigma)$。
 - 独立な直列系：$R(t)=\prod_iR_i(t)$。
 - $\overline X$ 管理図：$UCL=\mu+3\sigma/\sqrt n$、$CL=\mu$、$LCL=\mu-3\sigma/\sqrt n$。
@@ -263,6 +287,8 @@
 
 ## 研究デザイン・標本調査
 
+**この節の記号**：$N$ は有限母集団サイズ、$n$ は標本サイズ、$\pi_i$ と $\pi_{ij}$ は1次・2次包含確率である。層化抽出では $h$ は層、$N_h,n_h,W_h=N_h/N,S_h^2$ は層サイズ・層標本数・層ウェイト・層内分散を表す。下付き $d$ の分散は標本設計に関する分散である。
+
 - 実験研究は研究者が処置を割り付け、観察研究は自然に生じた曝露と結果を観察する。無作為割付は因果比較、無作為抽出は母集団への一般化を支える。
 - 単純無作為非復元抽出：$\pi_i=n/N$、$\pi_{ij}=n(n-1)/[N(N-1)]$。
 - 母平均：$\widehat{\bar Y}=\bar y_s$、$\operatorname{Var}_d(\bar y_s)=(1-n/N)S_Y^2/n$。母合計は $\widehat T_Y=N\bar y_s$。
@@ -277,6 +303,8 @@
 - 非回答バイアス：回答率r、回答・非回答平均を $\mu_R,\mu_N$ とすると回答者平均のバイアスは $(1-r)(\mu_R-\mu_N)$。
 
 ## Bayes・不完全データ・simulation
+
+**この節の記号**：$\theta$ は母数、$\pi(\theta)$ と $\pi(\theta\mid x)$ は事前分布と事後分布、$m(x)$ は周辺尤度である。欠測では $R_i$ は観測指示変数、$\pi_i=P(R_i=1\mid X_i)$ は観測確率である。生存解析では $T_i,C_i,Y_i,\delta_i$ は生存時間・打ち切り時間・観測時間・死亡指示変数である。simulationでは $m$ または $B$ は反復数を表す。
 
 - ベイズの公式：$\pi(\theta\mid x)=f(x\mid\theta)\pi(\theta)/m(x)$、$m(x)=\int f(x\mid u)\pi(u)\,du$。
 - 事後予測分布：$p(y\mid x)=\int p(y\mid\theta)\pi(\theta\mid x)\,d\theta$。
@@ -318,6 +346,8 @@
 
 ## モデル評価・正則化
 
+**この節の記号**：$\ell(\widehat\theta)$ は最大化対数尤度、$k$ は推定母数数、$n$ は標本数である。交差検証では $I_j$ は第 $j$ foldの検証添字集合、$\widehat f_{-j}$ はそのfoldを除いて学習した予測則、$L$ は予測損失である。正則化では $\lambda\ge0$ は罰則強度である。
+
 - 情報量規準AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$（$\ell$ は最大化対数尤度、$k$ は推定母数数）。小さいほど良い。
 - ベイズ情報量規準BIC：$\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n$。真のモデルが候補にあれば大標本で一致して選ぶ。
 - Kullback–Leibler情報量（KLダイバージェンス）：離散 $D_{\mathrm{KL}}(P\|Q)=\sum_xP(x)\log\dfrac{P(x)}{Q(x)}$、連続 $D_{\mathrm{KL}}(P\|Q)=\int P(x)\log\dfrac{P(x)}{Q(x)}\,dx$。非対称で $D_{\mathrm{KL}}(P\|Q)\ge0$（ギブスの不等式）。
@@ -329,8 +359,10 @@
 
 ## 漸近理論
 
-- 確率収束：$X_n\xrightarrow{p}\theta\iff\forall\varepsilon>0,\ P(|X_n-	heta|>\varepsilon)\to0$。
-- 概収束：$P(\lim_{n\to\infty}X_n=\theta)=1$。平均二乗収束：$E[(X_n-	heta)^2]\to0$。包含関係は 概収束 $\Rightarrow$ 確率収束 $\Rightarrow$ 分布収束、平均二乗収束 $\Rightarrow$ 確率収束。
+**この節の記号**：$\xrightarrow{p}$、$\xrightarrow{d}$、$\xrightarrow{a.s.}$ は確率収束・分布収束・概収束を表す。$O_p(a_n)$ は $a_n$ で割った列が確率的有界、$o_p(a_n)$ は $a_n$ で割った列が確率収束で0へ収束することを表す。
+
+- 確率収束：$X_n\xrightarrow{p}\theta\iff\forall\varepsilon>0,\ P(|X_n-\theta|>\varepsilon)\to0$。
+- 概収束：$P(\lim_{n\to\infty}X_n=\theta)=1$。平均二乗収束：$E[(X_n-\theta)^2]\to0$。包含関係は 概収束 $\Rightarrow$ 確率収束 $\Rightarrow$ 分布収束、平均二乗収束 $\Rightarrow$ 確率収束。
 - 大数の弱法則：独立同分布で $E[X_i]=\mu$ なら $\overline X_n\xrightarrow{p}\mu$。強法則は $E[|X_i|]<\infty$ で $\overline X_n\xrightarrow{a.s.}\mu$。
 - 中心極限定理：独立同分布で $E[X_i]=\mu$、$0<\operatorname{Var}(X_i)=\sigma^2<\infty$ なら $\sqrt n(\overline X_n-\mu)/\sigma\xrightarrow{d}N(0,1)$。
 - Slutskyの定理：$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$（定数）なら $X_n+Y_n\xrightarrow{d}X+c$、$X_nY_n\xrightarrow{d}cX$、$X_n/Y_n\xrightarrow{d}X/c$（$c\ne0$）。
@@ -342,6 +374,8 @@
 - オーダー記号：$X_n=O_p(a_n)$ は確率的有界、$X_n=o_p(1)$ は $X_n\xrightarrow{p}0$。
 
 ## 基本分布の公式
+
+**この節の記号**：各項で $X$ または $Y$ はその分布に従う確率変数、$p_X$ と $f_X$ は確率質量関数と確率密度関数である。$n,N,K,r$ などの母数は各分布の項で示す台・母数化に従い、同じ文字を別分布へ持ち越さない。
 
 - 離散一様分布：$X\in\{1,\ldots,m\}$ で $p_X(k)=1/m$、$E[X]=(m+1)/2$、$\operatorname{Var}(X)=(m^2-1)/12$。
 - ベルヌーイ分布：$P(X=x)=p^x(1-p)^{1-x}$ $(x\in\{0,1\})$、$E[X]=p$、$\operatorname{Var}(X)=p(1-p)$。

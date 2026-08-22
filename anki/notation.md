@@ -2,6 +2,17 @@
 
 このファイルをカード教材の記法の正本とする。カード査読では、以下との一致を確認する。
 
+## 共通の記号
+
+- 添字 $i,j,k$ は、特に断らない限り観測・群・成分を走る添字とする。和記号の範囲は、その公式で定義した標本数・群数・成分数に従う。
+- $n$ は標本数、$N$ は母集団サイズまたは全観測数を表す。両方を使う公式では、その公式内で意味を再定義する。
+- $\widehat\theta$ は母数 $\theta$ の推定量、$\overline X$ は標本平均、下付き添字 $0$ は帰無仮説で指定する値を表す。
+- 太字小文字 $\boldsymbol x$ はベクトル、太字大文字 $\boldsymbol X$ は行列とする。$\boldsymbol X^{\mathsf T}$ は転置、$\boldsymbol X^{-1}$ は逆行列、$\boldsymbol I_p$ は $p$ 次単位行列である。
+- $Z\sim N(0,1)$ の確率密度関数を $\phi(z)$、累積分布関数を $\Phi(z)=P(Z\le z)$ とする。
+- $z_\alpha$ は標準正規分布の上側 $\alpha$ 点、すなわち $P(Z>z_\alpha)=\alpha$ とする。$t_{\nu,\alpha}$、$\chi^2_{\nu,\alpha}$、$F_{\nu_1,\nu_2,\alpha}$ も同じ上側確率点の規約を使う。
+- $L(\theta;x)$ は尤度、$\ell(\theta;x)=\log L(\theta;x)$ は対数尤度、$U(\theta)=\partial\ell(\theta;x)/\partial\theta$ はスコアとする。
+- $I_1(\theta)$ は1観測当たりのフィッシャー情報量（1次元）、$I_n(\theta)$ は標本全体の情報量、$\boldsymbol I(\boldsymbol\theta)$ はフィッシャー情報行列とする。
+
 ## 確率・分布
 
 - 確率測度は $P$、期待値は $E[X]$、分散は $\operatorname{Var}(X)$、共分散は $\operatorname{Cov}(X,Y)$ とする。
