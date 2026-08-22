@@ -109,3 +109,20 @@
 - $T$、$Z$：状態空間モデルの状態遷移行列、観測行列。
 - $Q$、$H$：状態雑音、観測雑音の共分散行列。
 - $a_{t\mid s}$、$P_{t\mid s}$：時刻 $s$ までの観測による状態 $\boldsymbol\alpha_t$ の条件付き平均、条件付き共分散。
+## 多変量解析
+
+- $\boldsymbol X\sim N_p(\boldsymbol\mu,\Sigma)$：平均ベクトル $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ をもつ $p$ 変量正規分布。
+- $\bar{\boldsymbol X}$、$S$：標本平均ベクトル、不偏標本分散共分散行列。
+- $R$：相関行列。対角成分は1。
+- $W_p(\Sigma,\nu)$：尺度行列 $\Sigma$、自由度 $\nu$ のWishart分布。
+- $\lambda_j$、$\boldsymbol v_j$：対称行列の第 $j$ 固有値、対応する単位固有ベクトル。
+- $\Lambda$、$\Psi$：因子分析の因子負荷量行列、独自因子の対角分散共分散行列。
+- $S_W$：判別分析の群内分散共分散行列。
+- $\Sigma_{XY}$：確率ベクトル $\boldsymbol X$ と $\boldsymbol Y$ の交差共分散行列。
+- $d_M$：Mahalanobis距離。
+- $T^2$、$S_p$：HotellingのT二乗統計量、2群のプールした不偏分散共分散行列。
+- $c_j$、$y_{ij}$：第 $j$ 主成分の寄与率、第 $i$ 観測の第 $j$ 主成分得点。
+- $\ell_{ij}$：第 $i$ 変数と第 $j$ 主成分の相関として定義する主成分負荷量。
+- $h_i^2$：因子分析で第 $i$ 変数の共通性。
+- $\boldsymbol w$：Fisherの線形判別方向。
+- $\Delta(A,B)$：Ward法でクラスター $A,B$ を併合したときの群内平方和増加。

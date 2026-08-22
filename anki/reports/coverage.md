@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 1112
+- 公開カード: 1156
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -10,7 +10,7 @@
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 222 | 7/7 | formula, condition, proof_step, calc_step, recognition, strategy |
-| 統計応用（理工学） | 13 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
+| 統計応用（理工学） | 57 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
 
@@ -51,7 +51,7 @@
 | 各種多変量解析法 | complete | model-logistic-odds, model-poisson-glm, mv-mean-covariance-numeric, mv-covariance-linear-transform, mv-mahalanobis-distance, mv-hotelling-one-sample, mv-hotelling-f-transform, mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression, mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda, mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective, mv-canonical-correlation, mv-mds-double-centering, glm-three-components, glm-exponential-family, glm-canonical-links, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-logistic-marginal-effect, glm-probit-probability, glm-tobit-likelihood-parts, glm-nonlinear-regression-gradient, glm-svm-margin, glm-software-deviance-output, mv-pca-software-output |
 | 確率過程 | complete | process-markov-two-step, process-stationary-markov, process-poisson-wait, stoch-markov-property, stoch-finite-dimensional-distribution, stoch-recurrence-definition, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution |
 | 時系列解析 | complete | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma |
-| 多変量解析法 | partial | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal |
+| 多変量解析法 | complete | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal, engmv-normal-density-numeric, engmv-sample-mean-vector, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-correlation-from-covariance, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-unit-change-correlation-invariance, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-pca-rayleigh-process-variance, engmv-factor-covariance-numeric, engmv-factor-communality-numeric, engmv-factor-rotation-invariance, engmv-lda-one-dimensional-boundary, engmv-fisher-discriminant-direction, engmv-lda-prior-probability, engmv-lda-pooled-covariance, engmv-qda-quadratic-term, engmv-single-linkage-update, engmv-complete-linkage-update, engmv-ward-merge-increase, engmv-kmeans-assignment, engmv-kmeans-centroid-update, engmv-silhouette-coefficient, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue, engmv-classical-mds-three-points, engmv-mds-stress |
 | 確率過程 | partial | process-ar1-stationary, process-ma1-autocovariance |
 | 線形推測 | partial | model-gauss-markov, model-contrast |
 | 漸近理論 | partial | dist-clt-standardize, est-delta-log |
@@ -237,11 +237,11 @@
 | 確率過程 | ブラウン運動 | card | stoch-finite-dimensional-distribution, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution |
 | 時系列解析 | ARIMAモデル | card | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-linear-detrend, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check |
 | 時系列解析 | 状態空間モデル | card | ts-state-space-definition, ts-kalman-prediction, ts-kalman-update |
-| 多変量解析法 | 多変量正規分布 | planned |  |
-| 多変量解析法 | 平均ベクトル | planned |  |
-| 多変量解析法 | 分散共分散行列 | planned |  |
-| 多変量解析法 | 相関行列 | planned |  |
-| 多変量解析法 | 固有値・固有ベクトル | planned |  |
+| 多変量解析法 | 多変量正規分布 | card | multi-linear-combination, multi-conditional-normal, engmv-normal-density-numeric, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov |
+| 多変量解析法 | 平均ベクトル | card | engmv-sample-mean-vector, engmv-sample-mean-distribution, engmv-hotelling-two-sample, engmv-confidence-ellipsoid-known-cov |
+| 多変量解析法 | 分散共分散行列 | card | multi-covariance-psd, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-unit-change-correlation-invariance, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence |
+| 多変量解析法 | 相関行列 | card | engmv-correlation-from-covariance, engmv-unit-change-correlation-invariance, engmv-standardized-pca-2x2 |
+| 多変量解析法 | 固有値・固有ベクトル | card | multi-pca-eigen, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-pca-rayleigh-process-variance, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue |
 | 確率過程 | ランダムウォーク | planned |  |
 | 確率過程 | マルコフ過程 | planned |  |
 | 確率過程 | ポアソン過程 | planned |  |

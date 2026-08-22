@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-22
-reviewed_card_count: 1112
+reviewed_card_count: 1156
 current_work: null
-next_work: C23-engineering-multivariate
-last_completed_work: C22-stochastic-time-series
+next_work: C24-engineering-processes
+last_completed_work: C23-engineering-multivariate
 summary:
   total: 33
-  planned: 5
+  planned: 4
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 28
+  reviewed: 29
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2226,7 +2226,7 @@ work:
     target:
       min: 40
       max: 50
-    status: planned
+    status: reviewed
     review_dir: review/C23-engineering-multivariate
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 多変量解析
@@ -2253,6 +2253,60 @@ work:
       A: 2
       B: 14
       C: 1
+    started_at: 2026-08-22T10:52:21.342Z
+    self_review_at: 2026-08-22T11:01:40.050Z
+    independent_review_at: 2026-08-22T11:03:50.475Z
+    revision_at: 2026-08-22T11:16:13.906Z
+    completed_at: 2026-08-22T11:24:43.741Z
+    added_card_ids:
+      - engmv-canonical-correlation-diagonal
+      - engmv-canonical-eigenvalue
+      - engmv-classical-mds-three-points
+      - engmv-complete-linkage-update
+      - engmv-conditional-normal-numeric
+      - engmv-confidence-ellipsoid-known-cov
+      - engmv-correlation-from-covariance
+      - engmv-covariance-matrix-validity
+      - engmv-eigenvalues-covariance-2x2
+      - engmv-eigenvectors-covariance-2x2
+      - engmv-factor-communality-numeric
+      - engmv-factor-covariance-numeric
+      - engmv-factor-rotation-invariance
+      - engmv-fisher-discriminant-direction
+      - engmv-hotelling-two-sample
+      - engmv-hotelling-two-sample-decision
+      - engmv-kmeans-assignment
+      - engmv-kmeans-centroid-update
+      - engmv-lda-one-dimensional-boundary
+      - engmv-lda-pooled-covariance
+      - engmv-lda-prior-probability
+      - engmv-linear-combination-normal
+      - engmv-mahalanobis-control-limit
+      - engmv-mds-stress
+      - engmv-normal-density-numeric
+      - engmv-normal-marginal-numeric
+      - engmv-normal-mean-cov-independence
+      - engmv-normal-uncorrelated-independent
+      - engmv-pca-loading-numeric
+      - engmv-pca-monitoring-score
+      - engmv-pca-rayleigh-process-variance
+      - engmv-precision-conditional-independence
+      - engmv-qda-quadratic-term
+      - engmv-sample-covariance-matrix
+      - engmv-sample-mean-distribution
+      - engmv-sample-mean-vector
+      - engmv-silhouette-coefficient
+      - engmv-single-linkage-update
+      - engmv-spectral-reconstruction
+      - engmv-standardized-pca-2x2
+      - engmv-unit-change-correlation-invariance
+      - engmv-ward-merge-increase
+      - engmv-wishart-definition
+      - engmv-wishart-expectation
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C24-engineering-processes:
     title: 確率過程
     category: applied-engineering

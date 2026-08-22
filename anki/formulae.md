@@ -256,6 +256,19 @@
 - OLS：$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。
 - Gauss--Markov定理：固定・列フルランク計画、誤差平均0、共分散 $\sigma^2\boldsymbol I_n$ の下でOLSはBLUE。
 - 多変量正規の線形変換：$\boldsymbol a^{\mathsf T}\boldsymbol X\sim N(\boldsymbol a^{\mathsf T}\boldsymbol\mu,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a)$。
+- $p$ 変量正規分布：正定値な $\Sigma$ に対し、$f(\boldsymbol x)=(2\pi)^{-p/2}|\Sigma|^{-1/2}\exp[-(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)/2]$。
+- 標本平均・標本共分散：$\bar{\boldsymbol X}=n^{-1}\sum_i\boldsymbol X_i$、$S=(n-1)^{-1}\sum_i(\boldsymbol X_i-\bar{\boldsymbol X})(\boldsymbol X_i-\bar{\boldsymbol X})^{\mathsf T}$。
+- 正規標本の標本分布：$\bar{\boldsymbol X}\sim N_p(\boldsymbol\mu,\Sigma/n)$、$(n-1)S\sim W_p(\Sigma,n-1)$、かつ $\bar{\boldsymbol X}$ と $S$ は独立。
+- Wishart分布：独立な $\boldsymbol Z_i\sim N_p(\boldsymbol0,\Sigma)$ に対し、$W=\sum_{i=1}^{\nu}\boldsymbol Z_i\boldsymbol Z_i^{\mathsf T}\sim W_p(\Sigma,\nu)$、$E[W]=\nu\Sigma$。
+- 共分散と相関の変換：$\operatorname{Cov}(A\boldsymbol X)=A\Sigma A^{\mathsf T}$、$R=D^{-1/2}\Sigma D^{-1/2}$、$D=\operatorname{diag}(\sigma_{11},\ldots,\sigma_{pp})$。
+- Mahalanobis距離：$d_M^2=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)$。
+- 2標本Hotelling統計量：$S_p=\{(n_1-1)S_1+(n_2-1)S_2\}/(n_1+n_2-2)$ をプールした不偏分散共分散行列として、$T^2=n_1n_2(\bar{\boldsymbol X}_1-\bar{\boldsymbol X}_2)^{\mathsf T}S_p^{-1}(\bar{\boldsymbol X}_1-\bar{\boldsymbol X}_2)/(n_1+n_2)$。
+- PCAの寄与率：$c_j=\lambda_j/\sum_k\lambda_k$。主成分得点は $y_{ij}=\boldsymbol v_j^{\mathsf T}(\boldsymbol x_i-\bar{\boldsymbol x})$。
+- 主成分負荷量：第 $j$ 主成分 $Y_j=\boldsymbol v_j^{\mathsf T}\boldsymbol X$ と第 $i$ 変数の相関は $\ell_{ij}=\operatorname{Corr}(X_i,Y_j)=\sqrt{\lambda_j}v_{ij}/\sigma_i$。
+- 因子分析：$\boldsymbol X=\boldsymbol\mu+\Lambda\boldsymbol F+\boldsymbol\varepsilon$、$\operatorname{Cov}(\boldsymbol F,\boldsymbol\varepsilon)=0$、$\Sigma=\Lambda\Lambda^{\mathsf T}+\Psi$。直交因子の共通性は $h_i^2=\sum_j\lambda_{ij}^2$。
+- Fisherの線形判別方向：$\boldsymbol w\propto S_W^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_2)$。
+- Ward法の併合増分：$\Delta(A,B)=n_An_B\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2/(n_A+n_B)$。
+- 正準相関の二乗：$\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}$ の固有値。
 - Chapman--Kolmogorov関係：$P_{ij}^{(m+n)}=\sum_kP_{ik}^{(m)}P_{kj}^{(n)}$。
 - 定常分布：$\boldsymbol\pi^{\mathsf T}\boldsymbol P=\boldsymbol\pi^{\mathsf T}$、$\sum_i\pi_i=1$。
 - 初回帰還時刻 $T_i=\inf\{n\ge1:X_n=i\}$ に対し、$P_i(T_i<\infty)=1$ なら状態 $i$ は再帰的、1未満なら過渡的。
