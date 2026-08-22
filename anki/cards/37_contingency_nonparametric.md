@@ -978,14 +978,14 @@ kが大きいほど区間は狭いが被覆確率は下がる。
 
 ---
 id: np-wilcoxon-null-moments
-title: Wilcoxon符号付順位和の平均と分散を求める
+title: ウィルコクソン符号付き順位和の平均と分散を求める
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: signed-rank-moments
 type: formula
 difficulty: 3
 priority: B
-hashtags: [Wilcoxon符号付順位検定, 帰無分布, 正規近似]
+hashtags: [ウィルコクソン符号付き順位和検定, 帰無分布, 正規近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン符号付き順位和検定 }]
 ---
@@ -1013,14 +1013,14 @@ n=5なら平均7.5、分散13.75。
 
 ---
 id: np-wilcoxon-normal-approx
-title: Wilcoxon符号付順位検定を正規近似する
+title: ウィルコクソン符号付き順位和検定を正規近似する
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: signed-rank-normal
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Wilcoxon符号付順位検定, 正規近似, 連続修正]
+hashtags: [ウィルコクソン符号付き順位和検定, 正規近似, 連続修正]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン符号付き順位和検定 }]
 ---
@@ -1048,20 +1048,20 @@ $$Z=\frac{150-105}{\sqrt{717.5}}\approx1.68.$$
 
 ---
 id: np-mann-whitney-ranksum-equivalence
-title: Mann–Whitney Uと順位和を結ぶ
+title: マン・ホイットニーU統計量と順位和を結ぶ
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: mann-whitney-ranksum
 type: formula
 difficulty: 3
 priority: B
-hashtags: [Mann-Whitney U検定, Wilcoxon順位和検定, 順位和]
+hashtags: [マン・ホイットニーU検定, ウィルコクソン順位和検定, 順位和]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン順位和検定（マン・ホイットニーU検定） }]
 ---
 
 ## 問題
-第1群の順位和を $R_1$ としたときのMann–Whitney統計量を書け。
+第1群の順位和を $R_1$ としたときのマン・ホイットニーU統計量を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1081,14 +1081,14 @@ Uの向きは定義流儀により逆になるため式を確認する。
 
 ---
 id: np-mann-whitney-null-moments
-title: Mann–Whitney Uの帰無平均と分散を書く
+title: マン・ホイットニーU統計量の帰無平均と分散を書く
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: mann-whitney-moments
 type: formula
 difficulty: 3
 priority: B
-hashtags: [Mann-Whitney U検定, 帰無分布, 正規近似]
+hashtags: [マン・ホイットニーU検定, 帰無分布, 正規近似]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン順位和検定（マン・ホイットニーU検定） }]
 ---
@@ -1115,14 +1115,14 @@ $n_1=4,n_2=5$ なら平均10、分散 $4\cdot5\cdot10/12=50/3$。
 
 ---
 id: np-mann-whitney-normal-numeric
-title: Mann–Whitney Uを正規近似で判定する
+title: マン・ホイットニーU統計量を正規近似で判定する
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: mann-whitney-normal
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Mann-Whitney U検定, 正規近似, 数値計算]
+hashtags: [マン・ホイットニーU検定, 正規近似, 数値計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン順位和検定（マン・ホイットニーU検定） }]
 ---
@@ -1657,20 +1657,20 @@ $$H_{\mathrm{corr}}=H/C$$
 
 ---
 id: np-asymptotic-relative-efficiency
-title: Wilcoxon検定の漸近相対効率を解釈する
+title: ウィルコクソン検定の漸近相対効率を解釈する
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: nonparametric-efficiency
 type: recognition
 difficulty: 3
 priority: B
-hashtags: [漸近相対効率, Wilcoxon検定, t検定]
+hashtags: [漸近相対効率, ウィルコクソン検定, t検定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック法の効率 }]
 ---
 
 ## 問題
-正規分布の位置差に対するWilcoxon順位和検定のt検定に対する漸近相対効率が $3/\pi\approx0.955$ とは何を意味するか。
+正規分布の位置差に対するウィルコクソン順位和検定のt検定に対する漸近相対効率が $3/\pi\approx0.955$ とは何を意味するか。
 
 ## 記号・用語
 - ARE：漸近相対効率（asymptotic relative efficiency）
@@ -1682,7 +1682,7 @@ sources: [{ type: official_syllabus, topic: ノンパラメトリック法の効
 $\operatorname{ARE}(W,T)$ は同一検出力を得るための必要標本数比の逆比。
 
 ## 答え
-同じ局所的検出力を得るため、Wilcoxon検定は漸近的にt検定の約
+同じ局所的検出力を得るため、ウィルコクソン検定は漸近的にt検定の約
 $$1/(3/\pi)=\pi/3\approx1.047$$
 倍の標本数を要するという意味。
 
@@ -1695,25 +1695,25 @@ $$1/(3/\pi)=\pi/3\approx1.047$$
 
 ---
 id: np-hodges-lehmann-paired
-title: 対応差のHodges–Lehmann推定量を求める
+title: 対応差のホッジス–レーマン推定量を求める
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: hodges-lehmann
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [Hodges-Lehmann推定量, Wilcoxon符号付順位検定, 位置差]
+hashtags: [ホッジス–レーマン推定量, ウィルコクソン符号付き順位和検定, 位置差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン符号付き順位和検定 }]
 ---
 
 ## 問題
-対応差が $(1,3)$ のとき、Walsh平均に基づくHodges–Lehmann推定量を求めよ。
+対応差が $(1,3)$ のとき、ウォルシュ平均に基づくホッジス–レーマン推定量を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-1標本・対応ありのHodges–Lehmann推定量は全Walsh平均 $(D_i+D_j)/2$ の中央値。
+1標本・対応ありのホッジス–レーマン推定量は全ウォルシュ平均 $(D_i+D_j)/2$ の中央値。
 
 ## 答え
 $i\le j$ のWalsh平均は
@@ -1724,19 +1724,19 @@ $$\frac{1+1}{2}=1,\qquad \frac{1+3}{2}=2,\qquad \frac{3+3}{2}=3.$$
 単なる差の中央値も2だが一般には一致しない。
 
 ## 注意
-Wilcoxon符号付順位検定に対応する効果推定量。
+ウィルコクソン符号付き順位和検定に対応する効果推定量。
 <!-- CARD -->
 
 ---
 id: np-rank-biserial-effect
-title: Mann–Whitney Uから確率的優越度を求める
+title: マン・ホイットニーU統計量から確率的優越度を求める
 category: math-data-analysis
 subcategory: math-nonparametric
 topic: probabilistic-superiority
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Mann-Whitney U検定, 効果量, 確率的優越度]
+hashtags: [マン・ホイットニーU検定, 効果量, 確率的優越度]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ウィルコクソン順位和検定（マン・ホイットニーU検定） }]
 ---
@@ -1783,7 +1783,7 @@ sources: [{ type: official_syllabus, topic: ノンパラメトリック法の効
 独立・対応と群数を先に判定する。
 
 ## 答え
-(a) Wilcoxon符号付順位検定、(b) Mann–Whitney U検定（Wilcoxon順位和検定）、(c) Kruskal–Wallis検定、(d) Friedman検定。
+(a) ウィルコクソン符号付き順位和検定、(b) マン・ホイットニーU検定（ウィルコクソン順位和検定）、(c) クラスカル–ウォリス検定、(d) フリードマン検定。
 
 ## 計算例
 同じ被験者を3条件で測定したらFriedman検定。

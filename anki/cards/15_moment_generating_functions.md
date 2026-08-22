@@ -136,14 +136,14 @@ $t\ge\lambda$ では積分が発散する。
 <!-- CARD -->
 ---
 id: prob-mgf-gamma
-title: ガンマ分布のモーメント母関数をGamma積分で求める
+title: ガンマ分布のモーメント母関数をガンマ積分で求める
 category: math-probability
 subcategory: math-distribution-functions
 topic: mgf-gamma
 type: expansion
 difficulty: 3
 priority: S
-hashtags: [モーメント母関数（積率母関数）, ガンマ分布, Gamma積分]
+hashtags: [モーメント母関数（積率母関数）, ガンマ分布, ガンマ積分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 ---
@@ -151,7 +151,7 @@ sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 $X$ はshape $\alpha>0$、rate $\beta>0$ のガンマ分布に従う。台は $x>0$、確率密度関数は $f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ である。$M_X(t)$ を求めよ。
 
 ## 答え
-指数のrateを $\beta-t$ にまとめ、Gamma積分へ合わせる。
+指数の率を $\beta-t$ にまとめ、ガンマ積分へ合わせる。
 
 ## 使用公式・定理
 $$\int_0^\infty x^{\alpha-1}e^{-cx}\,dx=\frac{\Gamma(\alpha)}{c^\alpha}\qquad(c>0).$$

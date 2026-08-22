@@ -160,7 +160,7 @@ $\mu$ も未知なら $\widehat\mu=\overline x$ を代入し $\widehat\sigma^2=n
 <!-- CARD -->
 ---
 id: mle-bernoulli-binomial
-title: Bernoulli・二項分布の最尤推定量
+title: ベルヌーイ分布・二項分布の最尤推定量
 category: math-estimation
 subcategory: math-likelihood-mle
 topic: bernoulli-mle
@@ -209,7 +209,7 @@ $$\widehat\lambda=\frac1n\sum_i x_i=\overline x.$$
 ## 計算例
 $n=4$、観測値 $2,5,3,0$ なら $\widehat\lambda=2.5$（すでに離散分布の最尤推定量カードで算出）。
 ## 一手
-平均 = 分散 $=\lambda$ の分布で、最尤推定量は標本平均。Poisson の再生成性にもつながる。
+平均 = 分散 $=\lambda$ の分布で、最尤推定量は標本平均。ポアソン分布の再生成性にもつながる。
 <!-- CARD -->
 ---
 id: mle-exponential
@@ -284,7 +284,7 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 $\mathcal L(\theta,\nu)=\ell(\theta;x)-\nu g(\theta).$
 $\partial\mathcal L/\partial\theta_j=0$ と $g(\theta)=0$ を連立して解く。
 ## 計算例
-Bernoulli の $p_1,p_2$（$p_1+p_2=1$、単純化）なら制約から $p_2=1-p_1$ を代入して1変数で最大化する。
+ベルヌーイ分布の $p_1,p_2$（$p_1+p_2=1$、単純化）なら制約から $p_2=1-p_1$ を代入して1変数で最大化する。
 ## 一手
 等式制約は代入またはラグランジュ乗数法。不等式制約は境界のチェックを加える。
 <!-- CARD -->
@@ -387,6 +387,150 @@ $U(0,\theta)$ の $\widehat\theta=X_{(n)}$ は真値を下から超えない範�
 微分が使えないのは「内部解が存在しない」か「台が母数依存」のとき。非正則では漸近正規性を疑う。
 <!-- CARD -->
 ---
+id: population-sample-definition
+category: math-estimation
+subcategory: math-population-sample-statistic
+title: 母集団・標本・母数を区別する
+topic: population-sample-definition
+type: recognition
+difficulty: 1
+priority: S
+hashtags: [母集団, 標本, 母数]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 母集団と標本・統計量 }]
+---
+## 問題
+母集団、標本、母数の違いを、ベルヌーイ分布の例で説明せよ。
+## 答え
+- 母集団：調べたい対象を生み出す確率分布。例ではベルヌーイ分布 $\operatorname{Bernoulli}(p)$。
+- 標本：母集団から取り出す確率変数 $X_1,\ldots,X_n$。観測後の値は $x_1,\ldots,x_n$ と小文字で書く。
+- 母数：母集団の分布を定める未知の定数。例では成功確率 $p$。
+## 使用公式・定理
+ベルヌーイ分布では、台は $\{0,1\}$、母数範囲は $0\le p\le1$、確率質量関数は
+$$P_p(X=x)=p^x(1-p)^{1-x}\qquad(x\in\{0,1\})$$
+である。
+## 計算例
+$n=5$ で観測値が $(1,0,1,1,0)$ なら、標本サイズは $5$、成功数は $3$ である。未知の母数 $p$ と、観測から得た比率 $3/5$ は別物である。
+## 一手
+「母集団＝分布」「標本＝そこから得るデータ」「母数＝分布を決める未知定数」と分ける。
+<!-- CARD -->
+---
+id: random-sample-iid-definition
+category: math-estimation
+subcategory: math-population-sample-statistic
+title: 無作為標本と独立同分布の意味
+topic: random-sample-iid
+type: recognition
+difficulty: 1
+priority: S
+hashtags: [無作為標本, 独立同分布, 標本]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 母集団と標本・統計量 }]
+---
+## 問題
+$X_1,\ldots,X_n\overset{iid}{\sim}F_\theta$ は何を意味するか。
+## 答え
+$X_1,\ldots,X_n$ が互いに独立で、すべて同じ分布 $F_\theta$ に従うことを意味する。この組を大きさ $n$ の無作為標本という。
+## 使用公式・定理
+独立性から、同時確率質量関数または同時確率密度関数は
+$$f_\theta(x_1,\ldots,x_n)=\prod_{i=1}^n f_\theta(x_i)$$
+と積に分かれる。
+## 計算例
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ なら
+$$P_p(X_1=1,X_2=0,X_3=1)
+=p(1-p)p=p^2(1-p).$$
+同じ分布に従うだけでは積に分けられず、独立性も必要である。
+## 一手
+「iid」は independent（独立）と identically distributed（同じ分布）の両方を含む。
+<!-- CARD -->
+---
+id: statistic-definition-basic
+category: math-estimation
+subcategory: math-population-sample-statistic
+title: 統計量の定義と母数を含まない条件
+topic: statistic-definition
+type: recognition
+difficulty: 1
+priority: S
+hashtags: [統計量, 標本平均, 標本分散]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 母集団と標本・統計量 }]
+---
+## 問題
+統計量とは何か。標本平均と標本分散を例に述べよ。
+## 答え
+統計量とは、標本 $X_1,\ldots,X_n$ だけの既知の関数 $T(X_1,\ldots,X_n)$ であり、未知の母数を式の中に含まない確率変数である。
+## 使用公式・定理
+代表例は
+$$\overline X=\frac1n\sum_{i=1}^nX_i,\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2$$
+である。
+## 計算例
+観測値が $(2,4,6)$ なら
+$$\overline x=\frac{2+4+6}{3}=4,$$
+$$s^2=\frac{(2-4)^2+(4-4)^2+(6-4)^2}{3-1}
+=\frac{4+0+4}{2}=4.$$
+$\overline X-\mu$ は未知母数 $\mu$ を含むため、$\mu$ が未知の問題では統計量ではない。
+## 一手
+データを入れる前の $T(X)$ は確率変数、データを入れた後の $T(x)$ は数値である。
+<!-- CARD -->
+---
+id: estimator-estimate-distinction
+category: math-estimation
+subcategory: math-population-sample-statistic
+title: 推定量・推定値・統計量を区別する
+topic: estimator-estimate-distinction
+type: recognition
+difficulty: 1
+priority: S
+hashtags: [推定量, 推定値, 統計量]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 母集団と標本・統計量 }]
+---
+## 問題
+統計量、推定量、推定値の関係を説明せよ。
+## 答え
+統計量は標本の関数の総称である。そのうち未知量の推定に使うものを推定量と呼ぶ。推定量へ観測値を代入して得た数値が推定値である。
+## 使用公式・定理
+$$\widehat\theta=T(X_1,\ldots,X_n)\quad\longrightarrow\quad
+\widehat\theta_{\rm obs}=T(x_1,\ldots,x_n).$$
+左辺は標本を取る前には確率変数、右辺は観測後の数値である。
+## 計算例
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ で $\widehat p=\overline X$ は $p$ の推定量。観測値 $(1,0,1,1,0)$ では
+$$\widehat p_{\rm obs}=\frac{1+0+1+1+0}{5}=\frac35=0.6$$
+が推定値である。
+## 一手
+「式・確率変数」が推定量、「データを代入した数」が推定値。
+<!-- CARD -->
+---
+id: order-statistic-definition-basic
+category: math-estimation
+subcategory: math-population-sample-statistic
+title: 順序統計量の定義と添字
+topic: order-statistic-definition
+type: recognition
+difficulty: 1
+priority: S
+hashtags: [順序統計量, 最小値, 最大値]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 順序統計量 }]
+---
+## 問題
+順序統計量 $X_{(1)},\ldots,X_{(n)}$ を定義し、通常の添字 $X_i$ との違いを説明せよ。
+## 答え
+標本値を小さい順に並べたものを順序統計量といい、
+$$X_{(1)}\le X_{(2)}\le\cdots\le X_{(n)}$$
+と書く。丸括弧付き添字は小さい方からの順位を表し、観測した順番を表す $X_i$ とは異なる。
+## 使用公式・定理
+$$X_{(1)}=\min_iX_i,qquad X_{(n)}=\max_iX_i.$$
+## 計算例
+観測値が $(4,1,4,2)$ なら、並べ替えて $(1,2,4,4)$ だから
+$$x_{(1)}=1,\quad x_{(2)}=2,\quad x_{(3)}=4,\quad x_{(4)}=4.$$
+同じ値があっても順位ごとに数える。
+## 一手
+$X_{(i)}$ の括弧は「第 $i$ 観測」ではなく「第 $i$ 順位」の印。
+<!-- CARD -->
+---
 id: suff-statistic-definition
 category: math-estimation
 subcategory: math-population-sample-statistic
@@ -407,7 +551,12 @@ $T$ を与えたときの $X$ の条件付き分布が $\theta$ に依存しな�
 $X\mid T=t\text{ の条件付き分布が }\theta\text{ に依存しない}$
 であれば $T$ は十分統計量。
 ## 計算例
-$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の $T=\sum_i X_i$ は十分：$T=t$ のもとでの $X$ の条件付き分布は $p$ に依存しない。
+$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ とし、$T=\sum_iX_i$ とする。$\sum_i x_i=t$ を満たす各0--1列 $x$ について
+$$P_p(X=x\mid T=t)
+=\frac{P_p(X=x)}{P_p(T=t)}
+=\frac{p^t(1-p)^{n-t}}{\binom ntp^t(1-p)^{n-t}}
+=\frac1{\binom nt}.$$
+右辺は $p$ に依存しないので、定義から $T$ は $p$ の十分統計量である。
 ## 一手
 「$T$ で要約しても情報を失わない」「$\theta$ について $T$ が全情報」が定義の直観。
 <!-- CARD -->
@@ -415,23 +564,23 @@ $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の $T=\sum_i X_i
 id: neyman-factorization
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: Neyman因子分解定理
+title: ネイマンの分解定理
 topic: neyman-factorization
 type: theorem
 difficulty: 2
 priority: S
-hashtags: [十分統計量, 因子分解定理, ネイマンの分解定理]
+hashtags: [十分統計量, ネイマンの分解定理]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ネイマンの分解定理 }]
 ---
 ## 問題
-Neyman（ネイマン）の因子分解定理を述べよ。
+ネイマンの分解定理を述べよ。
 ## 答え
 $T$ が $\theta$ の十分統計量であることと、同時密度が
 $f(x;\theta)=g_\theta(T(x))\,h(x)$
 と分解できることは同値。$h(x)$ は $\theta$ に依存しない。
 ## 使用公式・定理
-十分統計量の判定を条件付き分布でなく密度の分解に帰着させる（$\text{sufficient}\iff$ 因子分解）。
+十分統計量の判定を条件付き分布でなく密度の分解に帰着させる（十分性 $\iff$ 因子分解）。
 ## 計算例
 $\operatorname{Bernoulli}(p)$ の $T=\sum_i x_i$：$p^T(1-p)^{n-T}\cdot1$ と書け、$h(x)=1$、$g_p(T)=p^T(1-p)^{n-T}$。
 ## 一手
@@ -441,7 +590,7 @@ $\operatorname{Bernoulli}(p)$ の $T=\sum_i x_i$：$p^T(1-p)^{n-T}\cdot1$ と書
 id: suff-bernoulli
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: Bernoulli・二項族の十分統計量
+title: ベルヌーイ分布・二項分布族の十分統計量
 topic: suff-bernoulli
 type: strategy
 difficulty: 2
@@ -451,12 +600,16 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の十分統計量を因子分解定理で求めよ。
+$X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の十分統計量をネイマンの分解定理で求めよ。
 ## 答え
 $T=\sum_{i=1}^n X_i\;(\text{成功回数}).$
 ## 使用公式・定理
-$L(p;x)=p^{\sum x_i}(1-p)^{n-\sum x_i}\cdot1=g_p(T(x))\cdot h(x)$
-と分解でき、$T=\sum_i x_i$ は十分。
+ベルヌーイ分布の確率質量関数を標本について掛けると
+$$L(p;x)=\prod_{i=1}^np^{x_i}(1-p)^{1-x_i}
+=p^{\sum_i x_i}(1-p)^{n-\sum_i x_i}.$$
+$T(x)=\sum_i x_i$ と置けば
+$$L(p;x)=\underbrace{p^{T(x)}(1-p)^{n-T(x)}}_{g_p(T(x))}\underbrace{1}_{h(x)}$$
+と分解できるので、ネイマンの分解定理から $T$ は十分である。
 ## 計算例
 $n=10$ の標本で成功回数 $\sum x_i=7$。十分統計量は $T=7$ で、標本の並び自体は不要。
 ## 一手
@@ -466,7 +619,7 @@ $n=10$ の標本で成功回数 $\sum x_i=7$。十分統計量は $T=7$ で、�
 id: suff-poisson
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: Poisson族の十分統計量
+title: ポアソン分布族の十分統計量
 topic: suff-poisson
 type: strategy
 difficulty: 2
@@ -506,8 +659,10 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 $T=(\sum_i X_i,\;\sum_i X_i^2).$
 平均と2乗和（または $\overline X$ と $\sum_i(X_i-\overline X)^2$）の組。
 ## 使用公式・定理
-$L(\mu,\sigma^2;x)\propto(\sigma^2)^{-n/2}\exp\!\left[-\frac{1}{2\sigma^2}\sum_i x_i^2+\frac{\mu}{\sigma^2}\sum_i x_i\right]$
-より $T=(\sum x_i,\sum x_i^2)$ が十分。
+$$L(\mu,\sigma^2;x)
+=(2\pi\sigma^2)^{-n/2}
+\exp\!\left[-\frac{\sum_i x_i^2-2\mu\sum_i x_i+n\mu^2}{2\sigma^2}\right].$$
+したがって母数に依存する部分は標本を $\sum_i x_i$ と $\sum_i x_i^2$ を通じてのみ含み、$T=(\sum_iX_i,\sum_iX_i^2)$ は十分である。
 ## 計算例
 $n=5$ で $\sum x_i=25$、$\sum x_i^2=145$ なら十分統計量は $(25,145)$。
 ## 一手
@@ -533,7 +688,7 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 使用公式・定理
 $T$ が十分かつ任意の十分 $T'$ に対して $T=\phi(T')$ となる関数 $\phi$ が存在するとき最小十分。
 ## 計算例
-$N(\mu,\sigma^2)$ では $(\sum x_i,\sum x_i^2)$ が最小十分。成功回数のみの Bernoulli の $\sum x_i$ も最小十分。
+$N(\mu,\sigma^2)$ では $(\sum x_i,\sum x_i^2)$ が最小十分。ベルヌーイ分布の $\sum x_i$ も最小十分。
 ## 一手
 十分統計量同士を比べた「最も粗いもの」。一意ではないが関数関係で比較できる。
 <!-- CARD -->
@@ -553,13 +708,13 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 問題
 観測値 $x$ と $y$ の対数尤度比が $\theta$ に依存しないことを用いて、$T$ が最小十分統計量であることを判定する方法を述べよ。
 ## 答え
-共通の台を持つ密度族で、任意の標本点 $x,y$ に対し
+母数空間の内部で密度が正となる共通の台を持つ密度族で、任意の標本点 $x,y$ に対し
 $$\frac{f_\theta(x)}{f_\theta(y)}\text{ が }\theta\text{ に依存しない}\iff T(x)=T(y)$$
 が成り立てば $T$ は最小十分である。
 ## 使用公式・定理
 標本点 $x,y$ の尤度が母数によらない定数倍になることと、$T(x)=T(y)$ が同値になる統計量が最小十分。
 ## 計算例
-Bernoulli では
+ベルヌーイ分布では $0<p<1$ とすると
 $$\frac{f_p(x)}{f_p(y)}=\left(\frac{p}{1-p}\right)^{\sum_i x_i-\sum_i y_i}$$
 である。これが $p$ に依存しないことと $\sum_i x_i=\sum_i y_i$ は同値なので、$T=\sum_iX_i$ は最小十分である。
 ## 一手
@@ -585,7 +740,7 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 $E_\theta[g(T)]=0\;(\forall\theta)\;\Rightarrow\;P_\theta(g(T)=0)=1\;(\forall\theta)$
 が成り立つとき $T$ は完備統計量。すなわち $T$ に基づく $\theta$ に依らない可積分関数で期待値が恒等的に0になるものは $0$ だけ。
 ## 使用公式・定理
-完備性は指数型分布族でよく成り立つ（次カード）。完備な十分統計量はUMVU構成の要。
+完備性は指数型分布族でよく成り立つ（次カード）。完備な十分統計量は一様最小分散不偏（UMVU）推定量の構成の要である。
 ## 計算例
 $X\sim\operatorname{Poisson}(\lambda)$ の $T=X$ は完備：$E[g(T)]=\sum_{x}g(x)\lambda^x e^{-\lambda}/x!=0$ が全 $\lambda$ で成り立つには $g(x)=0$。
 ## 一手
@@ -633,36 +788,53 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 問題
 十分かつ完備な統計量がなぜ重要か。
 ## 答え
-十分かつ完備（complete sufficient）な統計量は、普遍的に最良の不偏推定量（UMVU）を構成する基盤になる。完備性は「$θ$ に依らない偏りのない推定量は一意」を保証し、十分性は情報の損失がないことを保証する。
+十分かつ完備（complete sufficient）な統計量は、一様最小分散不偏（UMVU）推定量を構成する基盤になる。完備性は「$\theta$ に依らない偏りのない推定量は一意」を保証し、十分性は情報の損失がないことを保証する。
 ## 使用公式・定理
 完備十分統計量 $T$ に対して、$\theta$ の不偏推定量 $\delta(T)$ は（存在すれば）一意的に定まる。
 ## 計算例
-$\operatorname{Poisson}(\lambda)$ の $T=\sum X_i$ は完備十分。$\overline X$ は $\lambda$ の不偏で、$T$ の関数なので UMVU である。
+$\operatorname{Poisson}(\lambda)$ の $T=\sum X_i$ は完備十分。$\overline X$ は $\lambda$ の不偏で、$T$ の関数なので一様最小分散不偏（UMVU）推定量である。
 ## 一手
-「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ UMVU。
+「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ一様最小分散不偏（UMVU）推定量になる。
 <!-- CARD -->
 ---
 id: rao-blackwell
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: Rao–Blackwellの定理
+title: ラオ・ブラックウェルの定理
 topic: rao-blackwell
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [Rao–Blackwell, 十分統計量, 不偏性]
+hashtags: [ラオ・ブラックウェルの定理, 十分統計量, 不偏性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-Rao–Blackwellの定理を述べよ。十分統計量 $T$ と不偏推定量 $\delta(X)$ が与えられたとき、$\delta_T=E[\delta(X)\mid T]$ はどうなるか。
+ラオ・ブラックウェルの定理を述べよ。十分統計量 $T$ と、$E_\theta[\delta(X)^2]<\infty$ を満たす不偏推定量 $\delta(X)$ が与えられたとき、$\delta_T=E[\delta(X)\mid T]$ はどうなるか。
 ## 答え
-$\delta_T=E[\delta(X)\mid T]$ は不偏で、$\operatorname{Var}_\theta(\delta_T)\le\operatorname{Var}_\theta(\delta(X))$（$\forall\theta$）。すなわち条件付き期待値を取る（Rao–Blackwell化）と分散が減る。
+$\delta_T=E[\delta(X)\mid T]$ は不偏で、$\operatorname{Var}_\theta(\delta_T)\le\operatorname{Var}_\theta(\delta(X))$（$\forall\theta$）。すなわち条件付き期待値を取る（ラオ・ブラックウェル化）と分散が減る。
 ## 使用公式・定理
-$E_\theta[\delta_T]=E_\theta[\delta]$（条件付き期待値の全期待値）。分散分解
-$\operatorname{Var}(\delta)=\operatorname{Var}(E[\delta\mid T])+E[\operatorname{Var}(\delta\mid T)]\ge\operatorname{Var}(E[\delta\mid T]).$
+不偏性は条件付き期待値の全期待値から
+$$E_\theta[\delta_T]
+=E_\theta\!\left[E_\theta[\delta(X)\mid T]\right]
+=E_\theta[\delta(X)]
+=\theta$$
+と確認できる。分散分解から
+$$\operatorname{Var}(\delta)
+=\operatorname{Var}(E[\delta\mid T])
++E[\operatorname{Var}(\delta\mid T)]
+\ge\operatorname{Var}(E[\delta\mid T])$$
+である。
 ## 計算例
-$X_1,X_2$ を $\operatorname{Bernoulli}(p)$ とし、$\delta_1=X_1$（不偏・高分散）を $\delta_2=(X_1+X_2)/2$ へ Rao–Blackwell化すると分散が下がる。
+$X_1,X_2$ をベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従う独立同分布標本とし、$T=X_1+X_2$ とする。$T=t$ のもとで成功位置は対称だから
+$$P(X_1=1\mid T=t)=\frac t2,$$
+$$E[X_1\mid T=t]=1\cdot\frac t2+0\cdot\left(1-\frac t2\right)=\frac t2.$$
+よって $E[X_1\mid T]=T/2=(X_1+X_2)/2$。さらに
+$$\operatorname{Var}(X_1)=p(1-p),$$
+$$\operatorname{Var}\!\left(\frac{X_1+X_2}{2}\right)
+=\frac14\{\operatorname{Var}(X_1)+\operatorname{Var}(X_2)\}
+=\frac{p(1-p)}2$$
+となり、分散は半分になる。
 ## 一手
 不偏なまま $T$ の関数に直すことで分散を下げる。
 <!-- CARD -->
@@ -670,75 +842,75 @@ $X_1,X_2$ を $\operatorname{Bernoulli}(p)$ とし、$\delta_1=X_1$（不偏・�
 id: lehmann-scheffe
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: Lehmann–Schefféの定理
+title: レーマン・シェッフェの定理
 topic: lehmann-scheffe
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [Lehmann–Scheffé, UMVU, 完備十分]
+hashtags: [レーマン・シェッフェの定理, 一様最小分散不偏推定量, 完備十分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-Lehmann–Schefféの定理を述べよ。
+レーマン・シェッフェの定理を述べよ。
 ## 答え
-$T$ が完備十分統計量であり、$\delta(T)$ が $\theta$ の不偏推定量なら、$\delta(T)$ は $\theta$ の一意な UMVU（一様最小分散不偏）推定量である。
+$T$ が完備十分統計量であり、$\delta(T)$ が $\theta$ の不偏推定量なら、$\delta(T)$ は $\theta$ の一意な一様最小分散不偏（UMVU）推定量である。
 ## 使用公式・定理
-完備性により $T$ の関数で不偏なものは一意。よってそのような $\delta(T)$ が存在すればこれが最良（UMVU）であり、一意に定まる。
+完備性により $T$ の関数で不偏なものは一意。よってそのような $\delta(T)$ が存在すれば、これが一様最小分散不偏（UMVU）推定量であり、一意に定まる。
 ## 計算例
-$\operatorname{Poisson}(\lambda)$ の $\overline X$ は完備十分 $T=\sum X_i$ の関数であり不偏なので、$\lambda$ の UMVU。
+$\operatorname{Poisson}(\lambda)$ の $\overline X$ は完備十分 $T=\sum X_i$ の関数であり不偏なので、$\lambda$ の一様最小分散不偏（UMVU）推定量である。
 ## 一手
-「完備十分 $T$ の不偏な関数 = UMVU」を確認する。存在すれば一意。
+「完備十分 $T$ の不偏な関数＝一様最小分散不偏（UMVU）推定量」を確認する。存在すれば一意である。
 <!-- CARD -->
 ---
 id: umvu-construction
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: UMVU推定量の構成
+title: 一様最小分散不偏（UMVU）推定量の構成
 topic: umvu-construction
 type: strategy
 difficulty: 3
 priority: A
-hashtags: [UMVU, 推定量, 完備十分]
+hashtags: [一様最小分散不偏推定量, 推定量, 完備十分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-完備十分統計量 $T$ を使って $g(\theta)$ の UMVU を構成する手順を述べよ。
+完備十分統計量 $T$ を使って $g(\theta)$ の一様最小分散不偏（UMVU）推定量を構成する手順を述べよ。
 ## 答え
 1. $g(\theta)$ の不偏推定量 $\delta(X)$ を見つける。
-2. Rao–Blackwell化 $\delta_T=E[\delta(X)\mid T]$ して $T$ の関数にする。
-3. $T$ が完備十分なら Lehmann–Scheffé から $\delta_T$ が UMVU になる。
+2. ラオ・ブラックウェル化 $\delta_T=E[\delta(X)\mid T]$ して $T$ の関数にする。
+3. $T$ が完備十分ならレーマン・シェッフェの定理から $\delta_T$ が一様最小分散不偏（UMVU）推定量になる。
 ## 使用公式・定理
-$\delta_T=E[\delta(X)\mid T]$ は不偏かつ $T$ の関数。完備十分なら一意な UMVU。
+$\delta_T=E[\delta(X)\mid T]$ は不偏かつ $T$ の関数である。$T$ が完備十分なら一意な一様最小分散不偏（UMVU）推定量になる。
 ## 計算例
 $X_1,X_2\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$Y=X_1+X_2\sim\operatorname{Binomial}(2,p)$ は $p$ の完備十分統計量。$p^2$ の不偏推定量
 $\delta(Y)=\frac{Y(Y-1)}{2}.$
-$E[Y]=2p$、$E[Y^2]=\operatorname{Var}(Y)+E[Y]^2=2p(1-p)+4p^2=2p+2p^2$ より $E[Y(Y-1)]=2p^2$，すなわち $E[\delta]=p^2$。$Y$ の関数で不偏なので Lehmann–Scheffé より UMVU。
+$E[Y]=2p$、$E[Y^2]=\operatorname{Var}(Y)+E[Y]^2=2p(1-p)+4p^2=2p+2p^2$ より $E[Y(Y-1)]=2p^2$，すなわち $E[\delta]=p^2$。$Y$ の関数で不偏なので、レーマン・シェッフェの定理より一様最小分散不偏（UMVU）推定量である。
 ## 一手
-「不偏な既知推定量 → $T$ で条件付け → 完備十分なら UMVU」の3段。
+「既知の不偏推定量 → $T$ で条件付け → 完備十分なら一様最小分散不偏（UMVU）推定量」の3段。
 <!-- CARD -->
 ---
 id: basu-theorem
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: 補助統計量とBasuの定理
+title: 補助統計量とバスーの定理
 topic: basu-theorem
 type: theorem
 difficulty: 3
 priority: A
-hashtags: [Basuの定理, 補助統計量, 完備十分]
+hashtags: [バスーの定理, 補助統計量, 完備十分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-補助統計量（ancillary）の定義と Basuの定理を述べよ。
+補助統計量（ancillary statistic）の定義とバスーの定理を述べよ。
 ## 答え
-分布が $\theta$ に依存しない統計量を補助統計量と呼ぶ。Basuの定理：$T$ が完備十分統計量なら、$T$ は$\theta$ に依存しない任意の補助統計量 $V$ から独立である。
+分布が $\theta$ に依存しない統計量を補助統計量と呼ぶ。バスーの定理：$T$ が完備十分統計量なら、$T$ は $\theta$ に依存しない任意の補助統計量 $V$ から独立である。
 ## 使用公式・定理
-$T$ 完備十分 $\Rightarrow$ $T$ と ancillary な $V$ は独立。
+$T$ 完備十分 $\Rightarrow$ $T$ と補助統計量 $V$ は独立。
 ## 計算例
-$N(\mu,\sigma^2)$ で $\mu$ のみ未知（$\sigma^2$ 既知）のとき、$S^2=\sum(X_i-\overline X)^2$ の分布は $\mu$ に依存せず補助統計量。完備十分な $\overline X$ は Basuの定理より $S^2$ から独立。これは標本平均と分散の独立性（Cochranの定理）の基礎。
+$N(\mu,\sigma^2)$ で $\mu$ のみ未知（$\sigma^2$ 既知）のとき、$S^2=\sum(X_i-\overline X)^2$ の分布は $\mu$ に依存せず補助統計量である。完備十分な $\overline X$ はバスーの定理より $S^2$ から独立である。これは標本平均と分散の独立性（コクランの定理）の基礎となる。
 ## 一手
 完備十分統計量と分布に依らない量は独立。標本平均と分散の独立性に直結。
 <!-- CARD -->
@@ -796,7 +968,7 @@ $N(\mu,\sigma^2)$：$\partial\ell/\partial\mu=0$ と $\partial\ell/\partial\sigm
 id: order-statistic-sufficiency
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: 順序統計量と十分性
+title: 順序統計量全体と十分性
 topic: order-statistic-sufficiency
 type: condition
 difficulty: 3
@@ -810,7 +982,7 @@ sources: [{ type: official_syllabus, topic: 順序統計量 }]
 ## 答え
 独立同分布標本では、順序統計量全体 $X_{(1)}\le\cdots\le X_{(n)}$ は十分統計量である。観測値に付いた添字の並びは母数についての情報を持たないからである。
 ## 使用公式・定理
-母数の情報は値の集合にのみ含まれ、順列は $\theta$ に依存しない因子 $1/n!$ でしか効かない。
+独立同分布標本の同時尤度 $\prod_{i=1}^nf_\theta(x_i)$ は標本の並べ替えで変わらない。したがって、順序統計量全体を固定したときに元の観測順序がどの並びになるかという条件付き確率は $\theta$ に依存しない。全値が異なる連続標本では各並びの確率は $1/n!$ であり、同順位がある場合も異なる並びの個数だけが変わる。
 ## 計算例
 $U(0,\theta)$ の最大値 $X_{(n)}$ は（最小）十分だが、順序統計量全体も十分。
 ## 一手
@@ -839,7 +1011,7 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 使用公式・定理
 正則条件が崩れる例：一様分布 $U(0,\theta)$（台依存）ではスコアも漸近正規性も通常の形で成立しない。
 ## 計算例
-正規・Poisson・指数・二項は正則。$U(0,\theta)$ や三角分布は非正則。
+正規分布・ポアソン分布・指数分布・二項分布は正則。$U(0,\theta)$ や三角分布は非正則。
 ## 一手
 正則条件を満たすか最初に確認。非正則なら漸近正規性を一般には使えない。
 <!-- CARD -->

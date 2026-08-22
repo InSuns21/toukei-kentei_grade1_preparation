@@ -1,32 +1,34 @@
 ﻿---
 id: est-factorization
-title: 因子分解定理で十分統計量を見抜く
+title: ネイマンの分解定理で一様分布の十分統計量を見抜く
 category: math-estimation
 subcategory: math-population-sample-statistic
 topic: factorization-theorem
 type: theorem
 difficulty: 2
 priority: S
-hashtags: [十分統計量, 因子分解, 尤度]
+hashtags: [十分統計量, ネイマンの分解定理, 一様分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 十分統計量 }]
+sources: [{ type: official_syllabus, topic: ネイマンの分解定理 }]
 ---
 ## 問題
-$X_i$ は独立同分布にベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従うとする。ただし $X_i\in\{0,1\}$、$0\le p\le1$、$P(X_i=x)=p^x(1-p)^{1-x}$ である。$T=\sum_iX_i$ が十分統計量であることを示せ。
+$X_1,\ldots,X_n$ は一様分布 $U(0,\theta)$ からの独立同分布標本とする。ただし $\theta>0$、確率密度関数は $f_\theta(x)=\theta^{-1}\mathbf 1\{0\le x\le\theta\}$ である。ネイマンの分解定理を使い、$\theta$ の十分統計量を求めよ。
 ## 答え
-尤度を $T$ と母数だけの因子と、母数を含まない因子に分ける。
+$T=X_{(n)}=\max_iX_i$ が $\theta$ の十分統計量である。
 ## 使用公式・定理
-因子分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と書ければ $T$ は $\theta$ の十分統計量である。
+ネイマンの分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と書ければ $T$ は $\theta$ の十分統計量である。
 ## 計算例
-$$L(p;x)=\prod_{i=1}^np^{x_i}(1-p)^{1-x_i}=p^T(1-p)^{n-T}\cdot1.$$
-よって因子分解定理から $T$ は十分である。
+$$L(\theta;x)=\prod_{i=1}^n\frac1\theta\mathbf 1\{0\le x_i\le\theta\}$$
+$$=\underbrace{\theta^{-n}\mathbf 1\{x_{(n)}\le\theta\}}_{g_\theta(x_{(n)})}
+\underbrace{\mathbf 1\{x_{(1)}\ge0\}}_{h(x)}.$$
+$h(x)$ は $\theta$ に依存しないので、ネイマンの分解定理から $T=X_{(n)}=\max_iX_i$ は十分統計量である。
 ## 条件
-この例では台 $\{0,1\}^n$ が $p$ に依存せず、その指示関数を $h(x)$ に含められる。
+台の上端が $\theta$ に依存するため、$\mathbf 1\{x_{(n)}\le\theta\}$ を $h(x)$ 側へ移してはいけない。
 
 <!-- CARD -->
 ---
 id: est-bernoulli-mle
-title: Bernoulli標本の最尤推定量を求める
+title: ベルヌーイ標本の最尤推定量を求める
 category: math-estimation
 subcategory: math-likelihood-mle
 topic: maximum-likelihood
@@ -80,7 +82,7 @@ $$E[(T-\theta)^2]=\operatorname{Var}(T)+(E[T]-\theta)^2.$$
 <!-- CARD -->
 ---
 id: est-delta-log
-title: Delta法で対数変換後の漸近分散を求める
+title: デルタ法で対数変換後の漸近分散を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: delta-method
@@ -89,14 +91,14 @@ difficulty: 3
 priority: S
 hashtags: [デルタ法, 漸近分布, 微分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Delta法 }]
+sources: [{ type: official_syllabus, topic: デルタ法 }]
 ---
 ## 問題
 $0<\sigma^2<\infty$、$\theta>0$ とし、正値推定量 $\widehat\theta$ が $\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$、すなわち正規分布 $N(0,\sigma^2)$ へ分布収束するとする。$\log\widehat\theta$ の漸近分布を求めよ。
 ## 方針
 $g(x)=\log x$ の真値での導関数を漸近分散へ掛ける。
 ## 使用公式・定理
-Delta法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら
+デルタ法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら
 $$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,\{g'(\theta)\}^2\sigma^2).$$
 ## 計算例
 $g'(\theta)=1/\theta$ より

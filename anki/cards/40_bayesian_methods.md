@@ -260,7 +260,7 @@ $$[0.647,4.153].$$
 
 ---
 id: bayes-beta-equal-tail-interval
-title: Beta事後分布の等裾信用区間を書く
+title: ベータ事後分布の等裾信用区間を書く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: credible-interval-beta
@@ -411,14 +411,14 @@ $BF_{10}=5$ はデータが $M_0$ より $M_1$ の下で5倍予測されやす�
 
 ---
 id: bayes-factor-beta-binomial
-title: 点帰無対Beta事前のベイズファクターを計算する
+title: 点帰無対ベータ事前のベイズファクターを計算する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: bayes-factor-beta-binomial
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [ベイズ統計, ベイズファクター, Beta-Binomial]
+hashtags: [ベイズ統計, ベイズファクター, ベータ–二項]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ベイズファクター（基本） }]
 ---
@@ -678,7 +678,7 @@ $$p(\theta_j,\theta_k\mid\eta)
 
 ---
 id: bayes-gibbs-full-conditionals
-title: Gibbsサンプリング用の完全条件付き分布を書く
+title: ギブスサンプリング用の完全条件付き分布を書く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gibbs-full-conditionals
@@ -691,7 +691,7 @@ sources: [{ type: official_syllabus, topic: ギブスサンプリング }]
 ---
 
 ## 問題
-事後密度 $\pi(\theta_1,\ldots,\theta_K\mid y)$ からGibbsサンプリングで使う第k成分の完全条件付き分布を比例式で書け。
+事後密度 $\pi(\theta_1,\ldots,\theta_K\mid y)$ からギブスサンプリングで使う第 $k$ 成分の完全条件付き分布を比例式で書け。
 
 ## 記号・用語
 - 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
@@ -717,7 +717,7 @@ $\theta_k$ に依存しない因子を落として既知分布の核を同定す
 
 ---
 id: bayes-normal-hierarchical-gibbs-theta
-title: 正規階層モデルの群効果Gibbs更新を導く
+title: 正規階層モデルの群効果のギブス更新を導く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gibbs-normal-theta
@@ -748,7 +748,7 @@ $$M_j=V_j\left(\frac{n_j\bar y_j}{\sigma^2}
 $$\theta_j\mid-\sim N(M_j,V_j).$$
 
 ## 計算例
-各Gibbs掃引で現在の $\mu,\tau^2$ を代入する。
+各ギブス掃引で現在の $\mu,\tau^2$ を代入する。
 
 ## 注意
 記号「$-$」は他の全母数とデータを条件付ける意味。
@@ -756,7 +756,7 @@ $$\theta_j\mid-\sim N(M_j,V_j).$$
 
 ---
 id: bayes-normal-hierarchical-gibbs-mu
-title: 正規階層モデルの全体平均Gibbs更新を導く
+title: 正規階層モデルの全体平均のギブス更新を導く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gibbs-normal-mu
@@ -794,14 +794,14 @@ $$\mu\mid-\sim N(M_\mu,V_\mu).$$
 
 ---
 id: bayes-beta-binomial-hierarchy
-title: Beta–Binomial階層モデルの群間情報共有を説明する
+title: ベータ–二項階層モデルの群間情報共有を説明する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: hierarchical-beta-binomial
 type: recognition
 difficulty: 3
 priority: B
-hashtags: [ベイズ統計, 階層ベイズモデル, Beta-Binomial]
+hashtags: [ベイズ統計, 階層ベイズモデル, ベータ–二項]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 階層ベイズの考え方 }]
 ---
@@ -812,7 +812,7 @@ $X_j\mid p_j\sim\operatorname{Bin}(n_j,p_j)$、$p_j\mid a,b\sim\operatorname{Bet
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-Beta–Binomial共役更新と階層的部分プーリング。
+ベータ–二項共役更新と階層的部分プーリング。
 
 ## 答え
 $a,b$ が既知なら
@@ -1163,7 +1163,7 @@ $$\pi(\theta\mid x)\propto_\theta L(\theta;x)\pi(\theta)$$
 
 ---
 id: bayes-beta-posterior-mean-mode
-title: Beta事後分布の平均とMAPを比較する
+title: ベータ事後分布の平均とMAPを比較する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: beta-posterior-summary
@@ -1201,7 +1201,7 @@ $$p_{\mathrm{MAP}}=\frac{9-1}{9+6-2}
 
 ---
 id: bayes-beta-binomial-predictive
-title: Beta–Binomial事後予測確率を求める
+title: ベータ–二項事後予測確率を求める
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: beta-binomial-predictive
@@ -1214,7 +1214,7 @@ sources: [{ type: official_syllabus, topic: 事後予測分布 }]
 ---
 
 ## 問題
-$p\mid x\sim\operatorname{Beta}(\alpha,\beta)$ のとき、次のBernoulli試行 $Y$ が成功する事後予測確率を求めよ。
+$p\mid x\sim\operatorname{Beta}(\alpha,\beta)$ のとき、次のベルヌーイ試行 $Y$ が成功する事後予測確率を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1236,7 +1236,7 @@ $\operatorname{Beta}(9,6)$ なら次回成功確率は0.6。
 
 ---
 id: bayes-gamma-poisson-predictive
-title: Gamma–Poisson事後予測分布を導く
+title: ガンマ–ポアソン事後予測分布を導く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gamma-poisson-predictive
@@ -1245,7 +1245,7 @@ difficulty: 4
 priority: B
 hashtags: [ベイズ統計, ガンマ分布, 負の二項分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Gamma–Poissonモデル }]
+sources: [{ type: official_syllabus, topic: ガンマ分布・ポアソン分布 }]
 ---
 
 ## 問題
@@ -1274,7 +1274,7 @@ $$=\frac{\Gamma(\alpha+y)}{\Gamma(\alpha)y!}
 
 ---
 id: bayes-gamma-exponential-update
-title: Gamma–Exponential事後分布を導く
+title: ガンマ–指数事後分布を導く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gamma-exponential
@@ -1283,7 +1283,7 @@ difficulty: 3
 priority: B
 hashtags: [ベイズ統計, ガンマ分布, 指数分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Gamma–Exponentialモデル }]
+sources: [{ type: official_syllabus, topic: ガンマ分布・指数分布 }]
 ---
 
 ## 問題
@@ -1315,7 +1315,7 @@ scale母数化なら第2母数の更新式が異なる。
 
 ---
 id: bayes-gamma-exponential-numeric
-title: Gamma–Exponential更新を数値計算する
+title: ガンマ–指数更新を数値計算する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: gamma-exponential-numeric
@@ -1324,7 +1324,7 @@ difficulty: 2
 priority: B
 hashtags: [ベイズ統計, ガンマ分布, 数値計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Gamma–Exponentialモデル }]
+sources: [{ type: official_syllabus, topic: ガンマ分布・指数分布 }]
 ---
 
 ## 問題
@@ -1352,7 +1352,7 @@ $$E[\lambda\mid\boldsymbol x]=\frac56.$$
 
 ---
 id: bayes-exponential-predictive
-title: Gamma–Exponential事後予測密度を求める
+title: ガンマ–指数事後予測密度を求める
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: exponential-predictive
@@ -1389,7 +1389,7 @@ $$=\frac{\alpha\beta^\alpha}{(\beta+y)^{\alpha+1}}.$$
 
 ---
 id: bayes-normal-normal-update
-title: Normal–Normal事後分布を平方完成する
+title: 正規–正規事後分布を平方完成する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: normal-normal
@@ -1432,7 +1432,7 @@ $m_n$ は事前平均と標本平均の精度加重平均。
 
 ---
 id: bayes-normal-normal-numeric
-title: Normal–Normal更新を数値で計算する
+title: 正規–正規更新を数値で計算する
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: normal-normal-numeric
@@ -1476,7 +1476,7 @@ $$m_n=\frac45\left(\frac0{4}+\frac{9(3)}9\right)
 
 ---
 id: bayes-normal-normal-predictive
-title: Normal–Normal事後予測分布を求める
+title: 正規–正規事後予測分布を求める
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: normal-predictive
@@ -1545,7 +1545,7 @@ $\tau_0=2,n\tau=8$ なら事前平均の重み0.2、標本平均の重み0.8。
 
 ---
 id: bayes-nig-update
-title: 正規–逆Gamma共役更新を書く
+title: 正規–逆ガンマ共役更新を書く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: normal-inverse-gamma
@@ -1585,7 +1585,7 @@ $$\beta_n=\beta_0+\frac12\sum_i(x_i-\bar x)^2
 
 ---
 id: bayes-nig-student-predictive
-title: 正規–逆Gammaの事後予測分布を書く
+title: 正規–逆ガンマの事後予測分布を書く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: normal-inverse-gamma-predictive
@@ -1621,7 +1621,7 @@ t分布の第2母数を分散とするか尺度とするかを明示する。
 
 ---
 id: bayes-dirichlet-multinomial-update
-title: Dirichlet–Multinomial事後分布を導く
+title: ディリクレ–多項事後分布を導く
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: dirichlet-multinomial

@@ -17,8 +17,8 @@
 - Mantel–Haenszel共通オッズ比：$\widehat{OR}_{MH}=\{\sum_ka_kd_k/n_k\}/\{\sum_kb_kc_k/n_k\}$。
 - 独立対数線形モデル：$\log m_{ij}=\lambda+\lambda_i^A+\lambda_j^B$。
 - ロジスティック回帰：$\operatorname{logit}(p)=\beta_0+\beta_1x$ なら、xが1増えるオッズ比は $e^{\beta_1}$。
-- Wilcoxon符号付順位和：独立同分布な差が連続で0対称、0差・同順位なしなら $E[W_+]=n(n+1)/4$、$\operatorname{Var}(W_+)=n(n+1)(2n+1)/24$。
-- Mann–Whitney U：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説下で $E[U]=n_1n_2/2$、$\operatorname{Var}(U)=n_1n_2(n_1+n_2+1)/12$。
+- ウィルコクソン符号付き順位和：独立同分布な差が連続で0対称、0差・同順位なしなら $E[W_+]=n(n+1)/4$、$\operatorname{Var}(W_+)=n(n+1)(2n+1)/24$。
+- マン・ホイットニーU検定：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説下で $E[U]=n_1n_2/2$、$\operatorname{Var}(U)=n_1n_2(n_1+n_2+1)/12$。
 - Kruskal–Wallis検定：$H=12\sum_iR_i^2/n_i\,/\{N(N+1)\}-3(N+1)\xrightarrow{d}\chi_{k-1}^2$。
 - Friedman検定：$Q=12\sum_jR_j^2/\{bk(k+1)\}-3b(k+1)\xrightarrow{d}\chi_{k-1}^2$。
 - 2標本Kolmogorov–Smirnov統計量：$D_{m,n}=\sup_x|F_m(x)-G_n(x)|$。
@@ -36,7 +36,7 @@
 - 一元配置のF統計量：$F=\{SS_A/(a-1)\}/\{SS_E/(N-a)\}\sim F_{a-1,N-a}$（帰無仮説下）。
 - 対比：$L=\sum_i c_i\mu_i$、$\sum_i c_i=0$。$\operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i c_i^2/n_i}$。
 - Tukey法（等サイズ）：$|\overline Y_i-\overline Y_j|>q_{a,N-a,\alpha}\sqrt{MS_E/n}$ なら群対差を有意とする。
-- Scheffé法：$\widehat L^2/\{MS_E\sum_i c_i^2/n_i\}>(a-1)F_{a-1,N-a,\alpha}$ なら対比を棄却する。
+- シェッフェ法：$\widehat L^2/\{MS_E\sum_i c_i^2/n_i\}>(a-1)F_{a-1,N-a,\alpha}$ なら対比を棄却する。
 - 二元配置モデル：$Y_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk}$。
 - 二元配置の自由度：Aは $a-1$、Bは $b-1$、交互作用は $(a-1)(b-1)$、各セル $n$ 反復の誤差は $ab(n-1)$。
 - 2×2交互作用：$(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})$。
@@ -71,7 +71,7 @@
 - 1標本Hotelling統計量：p次元正規母集団からの独立標本でSが可逆かつ $n>p$ なら、$T^2=n(\bar x-\mu_0)^{\mathsf T}S^{-1}(\bar x-\mu_0)$、帰無仮説下で $(n-p)T^2/\{p(n-1)\}\sim F_{p,n-p}$。
 - 主成分分析：$\max_{\|a\|=1}a^{\mathsf T}\Sigma a$ から $\Sigma a=\lambda a$。寄与率は $\lambda_j/\sum_k\lambda_k$。
 - 因子分析：$X=\mu+\Lambda F+\varepsilon$、$\operatorname{Var}(F)=I$、$\operatorname{Var}(\varepsilon)=\Psi$、$\operatorname{Cov}(F,\varepsilon)=0$ なら $\Sigma=\Lambda\Lambda^{\mathsf T}+\Psi$。
-- Fisher線形判別：共通群内共分散Σの2群では $w\propto\Sigma^{-1}(\mu_1-\mu_0)$。
+- フィッシャーの線形判別：共通群内共分散Σの2群では $w\propto\Sigma^{-1}(\mu_1-\mu_0)$。
 - Ward法：2クラスタ併合時の群内平方和増加は $\Delta WSS=n_An_B\|\bar x_A-\bar x_B\|^2/(n_A+n_B)$。
 - k-means法：$\sum_k\sum_{i\in C_k}\|x_i-\bar x_k\|^2$ を割当てと重心更新で減少させる。
 - 古典的多次元尺度構成法：$J=I-11^{\mathsf T}/n$、平方距離行列 $D^{(2)}$ から $B=-JD^{(2)}J/2$。
@@ -92,7 +92,7 @@
 - 分割表の独立性検定：$E_{ij}=n_{i\cdot}n_{\cdot j}/n$、$X^2=\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}\xrightarrow{d}\chi^2_{(r-1)(c-1)}$。
 - フィッシャー検定：周辺和を固定した $2\times2$ 表の左上セルは超幾何分布に従う。
 - 符号検定：連続分布の中央値が帰無値なら、同順位を除いた正符号数は $\operatorname{Binomial}(n,1/2)$ に従う。
-- Wilcoxon符号付順位検定：差の絶対値に順位を付け、正の差の順位和を統計量とする。差の分布の対称性を仮定する。
+- ウィルコクソン符号付き順位和検定：差の絶対値に順位を付け、正の差の順位和を統計量とする。差の分布の対称性を仮定する。
 - Mann--Whitney検定：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説の下で $E[U_1]=n_1n_2/2$。
 - 1標本Kolmogorov--Smirnov検定：$D_n=\sup_x|F_n(x)-F_0(x)|$。連続で完全に指定された $F_0$ に対して分布によらない。
 - McNemar検定：対応のある二値データの不一致数を $b,c$ とすると、$(b-c)^2/(b+c)\xrightarrow{d}\chi_1^2$。
@@ -142,7 +142,7 @@
 - 確率母関数：非負整数値の $X$ では $G_X(s)=E[s^X]$、$E[X]=G_X'(1)$、$E[X(X-1)]=G_X''(1)$（各微分値が有限なとき）。
 - 確率母関数の判定：$G(s)=\sum_{k\ge0}p_ks^k$ が非負整数値分布の確率母関数であるには、$p_k\ge0$ かつ $G(1)=\sum_{k\ge0}p_k=1$ が必要である。
 - 独立な和の母関数：$X,Y$ が独立で各母関数が存在する範囲では $G_{X+Y}(s)=G_X(s)G_Y(s)$、$M_{X+Y}(t)=M_X(t)M_Y(t)$。
-- 代表的な確率母関数：二項分布は $(1-p+ps)^n$、幾何分布（初成功までの回数）は $ps/\{1-(1-p)s\}$、Poisson分布は $\exp\{\lambda(s-1)\}$。
+- 代表的な確率母関数：二項分布は $(1-p+ps)^n$、幾何分布（初成功までの回数）は $ps/\{1-(1-p)s\}$、ポアソン分布は $\exp\{\lambda(s-1)\}$。
 - 確率母関数の合成：$N$ 個の要素を独立に確率 $q$ で残した個数 $Y$ は $G_Y(s)=G_N(1-q+qs)$。
 - モーメント母関数の線形変換：$Y=aX+b$ なら $M_Y(t)=e^{bt}M_X(at)$。
 - 代表的なモーメント母関数：指数分布 $\operatorname{Exp}(\lambda)$ は $\lambda/(\lambda-t)$（$t<\lambda$）、Gamma分布 $\operatorname{Gamma}(\alpha,\beta)$ は $\{\beta/(\beta-t)\}^\alpha$（$t<\beta$）、正規分布 $N(\mu,\sigma^2)$ は $\exp(\mu t+\sigma^2t^2/2)$。
@@ -153,7 +153,7 @@
 - 特性関数の一意性：すべての実数 $t$ で $\varphi_X(t)=\varphi_Y(t)$ なら $X,Y$ は同分布。
 - キュムラント母関数：$M_X(t)>0$ の範囲で $K_X(t)=\log M_X(t)$。$K_X(t)=\sum_{r\ge1}\kappa_r t^r/r!$ の係数 $\kappa_r$ を第 $r$ キュムラントとし、$\kappa_1=E[X]$、$\kappa_2=\operatorname{Var}(X)$。
 - キュムラントの加法性：独立な $X,Y$ なら $\kappa_r(X+Y)=\kappa_r(X)+\kappa_r(Y)$（$r\ge1$）。
-- Gamma積分：$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du$、$\int_0^\infty x^{a-1}e^{-bx}\,dx=\Gamma(a)/b^a$。
+- ガンマ積分：$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du$、$\int_0^\infty x^{a-1}e^{-bx}\,dx=\Gamma(a)/b^a$。
 - 分散公式：$\operatorname{Var}(X)=E[X^2]-E[X]^2$。
 - 共分散公式：$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$。
 - 全期待値：$E[X]=E[E[X\mid Y]]$。
@@ -180,7 +180,7 @@
 - 2変数変換：1対1変換では $f_{U,V}(u,v)=f_{X,Y}(x(u,v),y(u,v))|\det\partial(x,y)/\partial(u,v)|$。
 - 独立正規の線形結合：$aX+bY\sim N(a\mu_X+b\mu_Y,a^2\sigma_X^2+b^2\sigma_Y^2)$。
 - MGF：$M_X(t)=E[e^{tX}]$、存在すれば $E[X^r]=M_X^{(r)}(0)$。
-- Poisson分布のモーメント母関数：$M_X(t)=\exp\{\lambda(e^t-1)\}$。
+- ポアソン分布のモーメント母関数：$M_X(t)=\exp\{\lambda(e^t-1)\}$。
 
 ## 極限定理・標本分布
 
@@ -188,7 +188,7 @@
 
 - 大数の法則：独立同分布で $E[|X_1|]<\infty$ なら $\overline X\xrightarrow{p}E[X_1]$。
 - 中心極限定理：独立同分布で平均 $\mu$、有限な正の分散 $\sigma^2$ なら $\sqrt n(\overline X-\mu)/\sigma\xrightarrow{d}N(0,1)$。
-- Delta法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら、$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$。
+- デルタ法：$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ が $\theta$ で微分可能なら、$\sqrt n\{g(\widehat\theta)-g(\theta)\}\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$。
 - 統計量：観測値 $X_1,\ldots,X_n$ の関数で未知母数を含まない確率変数。その分布を標本分布と呼ぶ。
 - 2標本平均差：独立な $\overline X\sim N(\mu_1,\sigma_1^2/n_1)$、$\overline Y\sim N(\mu_2,\sigma_2^2/n_2)$ なら $\overline X-\overline Y\sim N(\mu_1-\mu_2,\ \sigma_1^2/n_1+\sigma_2^2/n_2)$。
 - 標本相関係数の定義：$r=\frac{\sum_i(X_i-\overline X)(Y_i-\overline Y)}{\sqrt{\sum_i(X_i-\overline X)^2}\,\sqrt{\sum_i(Y_i-\overline Y)^2}}$。$\rho=0$ 下で $t=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}\sim t_{n-2}$。
@@ -199,15 +199,15 @@
 
 - 最尤推定量：$\widehat\theta\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)=\operatorname*{arg\,max}_{\theta\in\Theta}\ell(\theta;x)$。
 - モーメント法：母モーメントを対応する標本モーメントへ等置し、母数について解く。
-- 因子分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と分解できれば $T$ は十分統計量。
+- ネイマンの分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と分解できれば $T$ は十分統計量。
 - フィッシャー情報量（1次元）：$I_1(\theta)=E[U(\theta)^2]$。台が局所的に母数へ依存せず、対数尤度が2回微分可能で、微分と積分の交換ができ、情報量が有限なら $I_1(\theta)=-E[\ell''(\theta)]$。
 - クラーメル・ラオの不等式：共通の台、微分と積分の交換、有限で正の情報量という正則条件の下で、$g(\theta)$ の不偏推定量 $T$ は $\operatorname{Var}_\theta(T)\ge g'(\theta)^2/I_n(\theta)$ を満たす。
 - AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$。
 - 平均二乗誤差：$E[(T-\theta)^2]=\operatorname{Var}(T)+\operatorname{Bias}(T)^2$。
 - フィッシャー情報行列：$\theta=(\theta_1,\ldots,\theta_k)$ のとき $I(\theta)_{ij}=E[\partial\log f/\partial\theta_i\cdot\partial\log f/\partial\theta_j]=-E[\partial^2\log f/\partial\theta_i\partial\theta_j]$。正則条件下で対称・半正定値。
 - 情報量の加法性：独立同分布標本では $I_n(\theta)=nI_1(\theta)$。パラメータ変換 $\eta=\eta(\theta)$ では $I(\eta)=I(\theta)(d\theta/d\eta)^2$。
-- Rao--Blackwellの定理：$T$ を十分統計量、$U$ を不偏推定量とすると $\widehat\theta=E[U\mid T]$ は不偏かつ $\operatorname{Var}(\widehat\theta)\le\operatorname{Var}(U)$。
-- Lehmann--Schefféの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意なUMVU推定量である。
+- ラオ・ブラックウェルの定理：$T$ を十分統計量、$U$ を $E_\theta[U^2]<\infty$ を満たす不偏推定量とすると、$\widehat\theta=E[U\mid T]$ は不偏かつ $\operatorname{Var}(\widehat\theta)\le\operatorname{Var}(U)$。
+- レーマン・シェッフェの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意な一様最小分散不偏（UMVU）推定量である。
 
 ## 区間推定
 
@@ -253,7 +253,7 @@
 
 - 単回帰の傾き：$\widehat\beta_1=S_{xy}/S_{xx}$。
 - オッズ比：2×2表 $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ では $ad/(bc)$。
-- bootstrap標準誤差：$\{(B-1)^{-1}\sum_b(T^{*(b)}-\overline T^*)^2\}^{1/2}$。
+- ブートストラップ標準誤差：$\{(B-1)^{-1}\sum_b(T^{*(b)}-\overline T^*)^2\}^{1/2}$。
 - 共分散二次形式：$\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$。
 - Rayleigh商：対称行列では $\max_{\boldsymbol a^{\mathsf T}\boldsymbol a=1}\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\lambda_{\max}$。
 - 多変量正規分布の条件付き平均：$E[X\mid Y=y]=\mu_X+\sigma_{XY}(y-\mu_Y)/\sigma_Y^2$。
@@ -277,7 +277,7 @@
 - PCAの寄与率：$c_j=\lambda_j/\sum_k\lambda_k$。主成分得点は $y_{ij}=\boldsymbol v_j^{\mathsf T}(\boldsymbol x_i-\bar{\boldsymbol x})$。
 - 主成分負荷量：第 $j$ 主成分 $Y_j=\boldsymbol v_j^{\mathsf T}\boldsymbol X$ と第 $i$ 変数の相関は $\ell_{ij}=\operatorname{Corr}(X_i,Y_j)=\sqrt{\lambda_j}v_{ij}/\sigma_i$。
 - 因子分析：$\boldsymbol X=\boldsymbol\mu+\Lambda\boldsymbol F+\boldsymbol\varepsilon$、$\operatorname{Cov}(\boldsymbol F,\boldsymbol\varepsilon)=0$、$\Sigma=\Lambda\Lambda^{\mathsf T}+\Psi$。直交因子の共通性は $h_i^2=\sum_j\lambda_{ij}^2$。
-- Fisherの線形判別方向：$\boldsymbol w\propto S_W^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_2)$。
+- フィッシャーの線形判別方向：$\boldsymbol w\propto S_W^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_2)$。
 - Ward法の併合増分：$\Delta(A,B)=n_An_B\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2/(n_A+n_B)$。
 - 正準相関の二乗：$\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}$ の固有値。
 - Chapman--Kolmogorov関係：$P_{ij}^{(m+n)}=\sum_kP_{ik}^{(m)}P_{kj}^{(n)}$。
@@ -305,7 +305,7 @@
 - 線形状態空間モデル：$\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t$、$\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t$。カルマン予測は $a_{t\mid t-1}=Ta_{t-1\mid t-1}$、$P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q$。
 - カルマン更新：予測誤差 $\boldsymbol v_t=\boldsymbol y_t-Za_{t\mid t-1}$、その共分散 $F_t=ZP_{t\mid t-1}Z^{\mathsf T}+H$、ゲイン $K_t=P_{t\mid t-1}Z^{\mathsf T}F_t^{-1}$ として、$a_{t\mid t}=a_{t\mid t-1}+K_t\boldsymbol v_t$、$P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}$。
 - ロジスティック回帰：説明変数が $c$ 増えるとオッズは $e^{c\beta_1}$ 倍。
-- Poisson回帰：説明変数が $c$ 増えると条件付き平均は $e^{c\beta_1}$ 倍。
+- ポアソン回帰：説明変数が $c$ 増えると条件付き平均は $e^{c\beta_1}$ 倍。
 - 線形対比：$\sum_ic_i=0$ を満たす $\sum_ic_i\mu_i$。
 
 ## 品質・信頼性・実験計画
@@ -370,7 +370,7 @@
 
 - ベイズの公式：$\pi(\theta\mid x)=f(x\mid\theta)\pi(\theta)/m(x)$、$m(x)=\int f(x\mid u)\pi(u)\,du$。
 - 事後予測分布：$p(y\mid x)=\int p(y\mid\theta)\pi(\theta\mid x)\,d\theta$。
-- Beta--Bernoulli共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
+- ベータ–ベルヌーイ共役更新：事前分布 $\operatorname{Beta}(a,b)$、成功 $s$、失敗 $f$ なら事後分布は $\operatorname{Beta}(a+s,b+f)$。
 - Gamma--Exponential共役更新：指数分布の率に $\operatorname{Gamma}(a,b)$（shape--rate）事前分布を置くと、事後分布は $\operatorname{Gamma}(a+n,b+\sum_i x_i)$。
 - Normal--Normal共役更新：$X_i\mid\mu\sim N(\mu,\sigma^2)$、$\mu\sim N(m_0,s_0^2)$ なら $s_n^2=(s_0^{-2}+n\sigma^{-2})^{-1}$、$m_n=s_n^2(m_0s_0^{-2}+n\bar x\sigma^{-2})$。
 - Dirichlet--Multinomial共役更新：$\boldsymbol p\sim\operatorname{Dirichlet}(\alpha_1,\ldots,\alpha_K)$ に度数 $n_k$ を観測すると事後超母数は $\alpha_k+n_k$。
@@ -378,7 +378,7 @@
 - 信用区間：等裾区間は事後分位点 $[q_{\alpha/2},q_{1-\alpha/2}]$。HPD領域は $\{\theta:\pi(\theta\mid x)\ge c\}$ の事後確率が $1-\alpha$ となるcで定める。
 - ベイズファクター：$BF_{10}=m_1(x)/m_0(x)$、事後オッズ＝$BF_{10}$×事前オッズ。不適切事前分布では通常のモデル間比較に使えない。
 - 正規階層モデルの縮小：$\bar Y_j\mid\theta_j\sim N(\theta_j,v_j)$、$\theta_j\mid\mu,\tau^2\sim N(\mu,\tau^2)$ なら $E[\theta_j\mid-]=B_j\bar Y_j+(1-B_j)\mu$、$B_j=\tau^2/(\tau^2+v_j)$。
-- Gibbs完全条件付き分布：$\pi(\theta_k\mid\boldsymbol\theta_{-k},y)\propto_{\theta_k}\pi(\boldsymbol\theta\mid y)$。
+- ギブスサンプリングの完全条件付き分布：$\pi(\theta_k\mid\boldsymbol\theta_{-k},y)\propto_{\theta_k}\pi(\boldsymbol\theta\mid y)$。
 - EM法の負担率：$r_k(x)=\pi_kf_k(x)/\sum_j\pi_jf_j(x)$。
 - 逆確率重み付き平均：観測確率を $\pi_i=P(R_i=1\mid X_i)$ とすると $\widehat\mu_{\mathrm{IPW}}=n^{-1}\sum_iR_iY_i/\pi_i$。
 - 多重代入のRubin則：$\overline Q=m^{-1}\sum_j\widehat Q_j$、$\overline U=m^{-1}\sum_jU_j$、$B=(m-1)^{-1}\sum_j(\widehat Q_j-\overline Q)^2$、$T=\overline U+(1+m^{-1})B$。
@@ -401,9 +401,9 @@
 - Metropolis--Hastings法：$\alpha(x,y)=\min\{1,\pi(y)q(x\mid y)/[\pi(x)q(y\mid x)]\}$。
 - 有限状態MCMCの収束：既約かつ非周期的なら定常分布は一意で、任意の初期分布から収束する。
 - MCMCの有効標本サイズ：$m_{\mathrm{eff}}=m/[1+2\sum_{k\ge1}\rho_k]$、$\operatorname{MCSE}(\bar h)\approx\sigma/\sqrt{m_{\mathrm{eff}}}$。
-- Bootstrap標準誤差：$\widehat{\operatorname{SE}}_{\mathrm{boot}}=\{(B-1)^{-1}\sum_b(\widehat\theta_b^*-\bar\theta^*)^2\}^{1/2}$。バイアス推定値は $\bar\theta^*-\widehat\theta$。
-- Bootstrap区間：percentile区間は $[q_{\alpha/2}^*,q_{1-\alpha/2}^*]$、basic区間は $[2\widehat\theta-q_{1-\alpha/2}^*,2\widehat\theta-q_{\alpha/2}^*]$。
-- Jackknife：$\widehat{\operatorname{SE}}_{\mathrm{jack}}=[(n-1)n^{-1}\sum_i(\widehat\theta_{(-i)}-\bar\theta_{(-\cdot)})^2]^{1/2}$、バイアス推定値は $(n-1)(\bar\theta_{(-\cdot)}-\widehat\theta)$。
+- ブートストラップ標準誤差：$\widehat{\operatorname{SE}}_{\mathrm{boot}}=\{(B-1)^{-1}\sum_b(\widehat\theta_b^*-\bar\theta^*)^2\}^{1/2}$。バイアス推定値は $\bar\theta^*-\widehat\theta$。
+- ブートストラップ区間：パーセンタイル区間は $[q_{\alpha/2}^*,q_{1-\alpha/2}^*]$、基本区間（basic区間）は $[2\widehat\theta-q_{1-\alpha/2}^*,2\widehat\theta-q_{\alpha/2}^*]$。
+- ジャックナイフ法：$\widehat{\operatorname{SE}}_{\mathrm{jack}}=[(n-1)n^{-1}\sum_i(\widehat\theta_{(-i)}-\bar\theta_{(-\cdot)})^2]^{1/2}$、バイアス推定値は $(n-1)(\bar\theta_{(-\cdot)}-\widehat\theta)$。
 - k-fold交差検証：$\operatorname{CV}_k=n^{-1}\sum_j\sum_{i\in I_j}L\{Y_i,\widehat f^{(-j)}(X_i)\}$。
 
 ## モデル評価・正則化

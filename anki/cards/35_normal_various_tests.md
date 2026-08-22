@@ -1329,20 +1329,20 @@ $X_i=m_0$ の同値は除き、有効標本数を減らす。
 
 ---
 id: test-wilcoxon-signed-rank
-title: Wilcoxon符号付順位検定統計量を作る
+title: ウィルコクソン符号付き順位和検定の統計量を作る
 category: math-testing
 subcategory: math-various-tests
 topic: wilcoxon-signed-rank
 type: strategy
 difficulty: 3
 priority: A
-hashtags: [Wilcoxon符号付順位検定, 対応あり, ノンパラメトリック検定]
+hashtags: [ウィルコクソン符号付き順位和検定, 対応あり, ノンパラメトリック検定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 ---
 
 ## 問題
-対応差 $D_i$ からWilcoxon符号付順位統計量 $W_+$ を作る手順を述べよ。
+対応差 $D_i$ からウィルコクソン符号付き順位和統計量 $W_+$ を作る手順を述べよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1363,14 +1363,14 @@ $$W_+=\sum_{D_i>0}R_i$$
 
 ---
 id: test-mann-whitney-u
-title: Mann–WhitneyのU統計量を対比較で計算する
+title: マン・ホイットニーU統計量を対比較で計算する
 category: math-testing
 subcategory: math-various-tests
 topic: mann-whitney
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Mann-Whitney検定, 独立2標本, ノンパラメトリック検定]
+hashtags: [マン・ホイットニーU検定, 独立2標本, ノンパラメトリック検定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 ---
@@ -1549,10 +1549,10 @@ sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 標本の対応構造、帰無仮説、対称性・交換可能性の条件から選ぶ。
 
 ## 答え
-(a) 符号検定、(b) Wilcoxon符号付順位検定、(c) Mann–Whitney検定、(d) 1標本Kolmogorov–Smirnov検定。
+(a) 符号検定、(b) ウィルコクソン符号付き順位和検定、(c) マン・ホイットニーU検定、(d) 1標本コルモゴロフ–スミルノフ検定。
 
 ## 計算例
-同一患者の前後差なら独立2標本Mann–Whitneyではなく、符号検定またはWilcoxon符号付順位検定。
+同一患者の前後差なら独立2標本のマン・ホイットニーU検定ではなく、符号検定またはウィルコクソン符号付き順位和検定を使う。
 
 ## 注意
 「ノンパラメトリック」は無仮定という意味ではない。
@@ -1624,20 +1624,20 @@ sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 
 ---
 id: test-wilcoxon-signed-rank-numeric
-title: Wilcoxon符号付順位検定を正確P値まで完遂する
+title: ウィルコクソン符号付き順位和検定を正確P値まで完遂する
 category: math-testing
 subcategory: math-various-tests
 topic: wilcoxon-signed-rank-numeric
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Wilcoxon符号付順位検定, 正確検定, 対応あり]
+hashtags: [ウィルコクソン符号付き順位和検定, 正確検定, 対応あり]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 ---
 
 ## 問題
-独立同分布な対応差が $(-1,-2,-3,-4,-5,-6)$ である。0中心の連続対称分布を帰無仮説とし、Wilcoxon符号付順位検定の両側正確P値を求め、5%で判定せよ。
+独立同分布な対応差が $(-1,-2,-3,-4,-5,-6)$ である。0中心の連続対称分布を帰無仮説とし、ウィルコクソン符号付き順位和検定の両側正確P値を求め、5%で判定せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1660,20 +1660,20 @@ $$p=2\times\frac1{2^6}=\frac1{32}=0.03125<0.05.$$
 
 ---
 id: test-mann-whitney-u-numeric
-title: Mann–Whitney検定を正確P値まで完遂する
+title: マン・ホイットニーU検定を正確P値まで完遂する
 category: math-testing
 subcategory: math-various-tests
 topic: mann-whitney-numeric
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Mann-Whitney検定, 正確検定, 独立2標本]
+hashtags: [マン・ホイットニーU検定, 正確検定, 独立2標本]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 ---
 
 ## 問題
-独立2標本 $X=(1,2,3,4)$、$Y=(5,6,7,8)$ について、連続な同一分布を帰無仮説とするMann–Whitney検定の両側正確P値を求め、5%で判定せよ。
+独立2標本 $X=(1,2,3,4)$、$Y=(5,6,7,8)$ について、連続な同一分布を帰無仮説とするマン・ホイットニーU検定の両側正確P値を求め、5%で判定せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**

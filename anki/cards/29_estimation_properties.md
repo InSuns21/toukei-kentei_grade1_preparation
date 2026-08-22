@@ -388,21 +388,21 @@ $E[\overline X^2]=\mu^2+\sigma^2/n\ne \mu^2$。不偏な $\overline X$ の2乗�
 <!-- CARD -->
 ---
 id: est-rao-blackwell
-title: Rao--Blackwell化
+title: ラオ・ブラックウェル化
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: rao-blackwell
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [Rao-Blackwell, 十分統計量, 分散減少]
+hashtags: [ラオ・ブラックウェル化, 十分統計量, 分散減少]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-Rao--Blackwellの定理を述べよ。十分統計量 $T$ と不偏推定量 $U$ からどう改善するか。
+ラオ・ブラックウェルの定理を述べよ。十分統計量 $T$ と、$E_\theta[U^2]<\infty$ を満たす不偏推定量 $U$ からどう改善するか。
 ## 答え
-$T$ を $\theta$ の十分統計量、$U$ を不偏推定量とする。$\widehat\theta=E[U\mid T]$ は不偏かつ
+$T$ を $\theta$ の十分統計量、$U$ を $E_\theta[U^2]<\infty$ を満たす不偏推定量とする。$\widehat\theta=E[U\mid T]$ は不偏かつ
 $$\operatorname{Var}_\theta(\widehat\theta)\le\operatorname{Var}_\theta(U),$$
 等号は $\widehat\theta=U$（a.s.）のときのみ。
 ## 使用公式・定理
@@ -415,27 +415,27 @@ $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$U=X_1$ は不偏。$T=\su
 <!-- CARD -->
 ---
 id: est-umvu-idea
-title: UMVU推定量の考え方
+title: 一様最小分散不偏（UMVU）推定量の考え方
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: umvu
 type: condition
 difficulty: 3
 priority: A
-hashtags: [UMVU, 一様最小分散, 十分統計量]
+hashtags: [一様最小分散不偏推定量, 十分統計量]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分性 }]
 ---
 ## 問題
 一様最小分散不偏推定量（UMVU）とは何か。
 ## 答え
-$\theta$ の全ての不偏推定量の中で、全ての $\theta$ に対して分散が最小となる不偏推定量。存在すれば完備十分統計量の関数として一意に表せる。
+$\theta$ のすべての不偏推定量の中で、すべての $\theta$ に対して分散が最小となる不偏推定量。完備十分統計量 $T$ が存在し、$T$ の関数として不偏推定量が得られれば、レーマン・シェッフェの定理によりそれが一意な一様最小分散不偏（UMVU）推定量となる。
 ## 使用公式・定理
-Rao--Blackwell化で十分統計量の関数へ改善し、完備性で一意性（Lehmann--Schefféの定理）を得る。
+ラオ・ブラックウェル化で十分統計量の関数へ改善し、完備性で一意性（レーマン・シェッフェの定理）を得る。
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では $\overline X$ が $p$ のUMVU。$T=\sum_iX_i$ は完備十分。
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では $\overline X$ が $p$ の一様最小分散不偏（UMVU）推定量である。$T=\sum_iX_i$ は完備十分である。
 ## 一手
-「不偏の中の分散最小」＋「十分統計量の関数」。完備十分統計量があればUMVUを構成できる。
+「不偏の中の分散最小」＋「十分統計量の関数」。完備十分統計量があれば一様最小分散不偏（UMVU）推定量を構成できる。
 <!-- CARD -->
 ---
 id: est-loss-risk
@@ -589,14 +589,14 @@ $\operatorname{Bernoulli}(p)$ 標本なら $I_n(p)=n/[p(1-p)]$。
 <!-- CARD -->
 ---
 id: est-fisher-bernoulli-example
-title: Bernoulliのフィッシャー情報量（1次元）
+title: ベルヌーイ分布のフィッシャー情報量（1次元）
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: fisher-info-bernoulli
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [フィッシャー情報量（1次元）, Bernoulli, 計算]
+hashtags: [フィッシャー情報量（1次元）, ベルヌーイ分布, 計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
@@ -613,14 +613,14 @@ $$I_1(p)=-E[\ell''(p;X)]=\frac{p}{p^2}+\frac{1-p}{(1-p)^2}=\frac1{p(1-p)}.$$
 <!-- CARD -->
 ---
 id: est-fisher-poisson-example
-title: Poissonのフィッシャー情報量（1次元）
+title: ポアソン分布のフィッシャー情報量（1次元）
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: fisher-info-poisson
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [フィッシャー情報量（1次元）, Poisson, 計算]
+hashtags: [フィッシャー情報量（1次元）, ポアソン分布, 計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
@@ -634,7 +634,7 @@ $$\ell'(\lambda;x)=\frac{x}{\lambda}-1,\qquad \ell''(\lambda;x)=-\frac{x}{\lambd
 ## 計算例
 $$I_1(\lambda)=-E[\ell''(\lambda;X)]=\frac{E[X]}{\lambda^2}=\frac{\lambda}{\lambda^2}=\frac1\lambda.$$
 ## 一手
-$E[X]=\lambda$ を代入。Poissonの情報量は $\lambda$ の逆数。
+$E[X]=\lambda$ を代入。ポアソン分布の情報量は $\lambda$ の逆数。
 <!-- CARD -->
 ---
 id: est-fisher-normal-example
@@ -715,7 +715,7 @@ $$T-g(\theta)=a(\theta)U(\theta)\quad\text{(a.s.)}$$
 ## 使用公式・定理
 Cauchy--Schwarzで等号は $T$ と $U$ が線形従属のとき。
 ## 計算例
-$\overline X$（Bernoulliで $p$）は $U(p)=n(\overline X-p)/[p(1-p)]$ と書け、$T-p$ が $U$ に比例するので等号成立。
+$\overline X$（ベルヌーイ分布で母数 $p$）は $U(p)=n(\overline X-p)/[p(1-p)]$ と書け、$T-p$ が $U$ に比例するので等号成立。
 ## 一手
 クラーメル・ラオの不等式による下界を達成する推定量は、指数型分布族で十分統計量の線形関数になる傾向がある。
 <!-- CARD -->
@@ -738,9 +738,9 @@ sources: [{ type: official_syllabus, topic: 有効性 }]
 $\theta$ の不偏推定量のうち、その分散がクラーメル・ラオの不等式による下界に等しいもの：
 $$\operatorname{Var}_\theta(T)=\frac1{I_n(\theta)}\quad(\text{または一般の }g(\theta)\text{ では }\{g'(\theta)\}^2/I_n(\theta)).$$
 ## 使用公式・定理
-有効推定量はクラーメル・ラオの不等式による下界を達成するから、不偏推定量の中で最小分散（UMVU）でもある。
+有効推定量はクラーメル・ラオの不等式による下界を達成するから、不偏推定量の中で一様最小分散不偏（UMVU）推定量でもある。
 ## 計算例
-正規標本の $\overline X$ は $\operatorname{Var}(\overline X)=\sigma^2/n=1/I_n(\mu)$ で有効。Bernoulli の $\overline X$ も $p$ に対して有効。
+正規標本の $\overline X$ は $\operatorname{Var}(\overline X)=\sigma^2/n=1/I_n(\mu)$ で有効。ベルヌーイ標本の $\overline X$ も $p$ に対して有効。
 ## 一手
 「クラーメル・ラオの不等式による下界を達成する不偏推定量」＝最小分散不偏。存在しない場合も多い。
 <!-- CARD -->
@@ -1132,13 +1132,13 @@ title: 完備十分統計量と指数型分布族
 ## 問題
 指数型分布族 $f(x;\theta)=\exp\{\eta(\theta)T(x)-A(\theta)\}\cdot h(x)$ で、$T(x)$ が完備十分統計量になる条件を述べよ。
 ## 答え
-自然母数空間が空でない開集合（内点）を含むとき、$T=\sum_i T(X_i)$ は指数型分布族の完備十分統計量になる。したがってLehmann--Schefféの定理より $T$ の関数で不偏な推定量はUMVU。
+自然母数空間が空でない開集合（内点）を含むとき、$T=\sum_i T(X_i)$ は指数型分布族の完備十分統計量になる。したがってレーマン・シェッフェの定理より、$T$ の関数で不偏な推定量は一様最小分散不偏（UMVU）推定量である。
 ## 使用公式・定理
 指数型分布族の十分統計量 $T=\sum_i T(X_i)$。自然母数空間に内点（空でない開集合）が存在すれば完備性が成り立つ。
 ## 計算例
-$\operatorname{Bernoulli}(p)$：$T=\sum_i X_i$ は $p$ の完備十分統計量で、$\overline X$ が $p$ のUMVU。
+$\operatorname{Bernoulli}(p)$：$T=\sum_i X_i$ は $p$ の完備十分統計量で、$\overline X$ が $p$ の一様最小分散不偏（UMVU）推定量である。
 ## 一手
-指数型分布族＋開集合なら完備十分。完備十分統計量の関数で不偏ならUMVU。
+指数型分布族＋開集合なら完備十分である。完備十分統計量の関数で不偏なら一様最小分散不偏（UMVU）推定量である。
 <!-- CARD -->
 ---
 id: est-lehmann-scheffe
@@ -1148,21 +1148,21 @@ topic: lehmann-scheffe
 type: theorem
 difficulty: 3
 priority: A
-hashtags: [Lehmann-Scheffe, UMVU, 完備十分]
+hashtags: [レーマン・シェッフェの定理, 一様最小分散不偏推定量, 完備十分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分性 }]
-title: Lehmann--Schefféの定理
+title: レーマン・シェッフェの定理
 ---
 ## 問題
-Lehmann--Schefféの定理を述べよ。
+レーマン・シェッフェの定理を述べよ。
 ## 答え
-$T$ を $\theta$ の完備十分統計量とする。$g(T)$ が $\theta$ の不偏推定量ならば、$g(T)$ は $\theta$ の一意なUMVU推定量である。
+$T$ を $\theta$ の完備十分統計量とする。$g(T)$ が $\theta$ の不偏推定量ならば、$g(T)$ は $\theta$ の一意な一様最小分散不偏（UMVU）推定量である。
 ## 使用公式・定理
-完備十分統計量の関数で不偏な推定量は一意（完備性）かつRao--Blackwell化で最小分散。
+完備十分統計量の関数で不偏な推定量は一意（完備性）であり、ラオ・ブラックウェル化により最小分散となる。
 ## 計算例
-$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$（$\sigma^2$既知）で $\overline X$ は $\mu$ のUMVU。
+$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$（$\sigma^2$既知）で $\overline X$ は $\mu$ の一様最小分散不偏（UMVU）推定量である。
 ## 一手
-「完備十分統計量の関数」＋「不偏」⇒ UMVU。存在の証明はRao--Blackwell＋完備性。
+「完備十分統計量の関数」＋「不偏」$\Rightarrow$ 一様最小分散不偏（UMVU）推定量。存在の証明はラオ・ブラックウェル化と完備性を使う。
 <!-- CARD -->
 ---
 id: est-posterior-risk
@@ -1209,30 +1209,30 @@ title: クラーメル・ラオの不等式による下界達成の判定
 ## 問題
 不偏推定量 $T$ の分散がクラーメル・ラオの不等式による下界 $1/I_n(\theta)$ に等しいとき、何が言えるか。
 ## 答え
-$T$ は有効推定量（efficient）であり、不偏推定量の中で一様に最小分散（UMVU）。またスコア $U$ と $T-g(\theta)=a(\theta)U$ で線形関係。
+$T$ は有効推定量（efficient estimator）であり、不偏推定量の中で一様最小分散不偏（UMVU）推定量である。またスコア $U$ と $T-g(\theta)=a(\theta)U$ で線形関係にある。
 ## 使用公式・定理
 $\operatorname{Var}_\theta(T)=1/I_n(\theta)$ が等号条件。
 ## 計算例
-正規平均 $\overline X$、Bernoulli の $\overline X$、Poisson の $\overline X$（$\lambda$ の有効推定量）はクラーメル・ラオの不等式による下界を達成する。
+正規平均 $\overline X$、ベルヌーイ標本の $\overline X$、ポアソン標本の $\overline X$（$\lambda$ の有効推定量）はクラーメル・ラオの不等式による下界を達成する。
 ## 一手
-「分散＝1/情報量」なら有効かつUMVU。逆は一般に成り立たない（UMVUでもクラーメル・ラオの不等式による下界を達成しない場合がある）。
+「分散＝1/情報量」なら有効かつ一様最小分散不偏（UMVU）推定量である。逆は一般に成り立たない（一様最小分散不偏推定量でもクラーメル・ラオの不等式による下界を達成しない場合がある）。
 <!-- CARD -->
 
 ---
 id: est-rao-blackwell-bernoulli
-title: ベルヌーイ標本でRao–Blackwell化を具体的に計算する
+title: ベルヌーイ標本でラオ・ブラックウェル化を具体的に計算する
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: rao-blackwell-bernoulli-example
 type: calc_step
 difficulty: 3
 priority: S
-hashtags: [Rao–Blackwell, ベルヌーイ分布, 十分統計量, 分散減少]
+hashtags: [ラオ・ブラックウェル化, ベルヌーイ分布, 十分統計量, 分散減少]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 十分統計量と推定量の改善 }]
 ---
 ## 問題
-$X_1,\ldots,X_n$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ からの独立同分布標本である。不偏推定量 $T=X_1$ を十分統計量 $S=\sum_iX_i$ でRao–Blackwell化し、分散を比較せよ。
+$X_1,\ldots,X_n$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ からの独立同分布標本である。不偏推定量 $T=X_1$ を十分統計量 $S=\sum_iX_i$ でラオ・ブラックウェル化し、分散を比較せよ。
 
 ## 答え
 $$T^*=E[X_1\mid S]=\frac Sn=\overline X.$$
@@ -1240,7 +1240,7 @@ $$\operatorname{Var}(T)=p(1-p),\qquad
 \operatorname{Var}(T^*)=\frac{p(1-p)}n.$$
 
 ## 使用公式・定理
-Rao–Blackwellの定理より、十分統計量 $S$ による条件付き期待値は不偏性を保ち、分散を増加させない。$S=s$ の条件下では成功した位置が対称なので
+ラオ・ブラックウェルの定理より、十分統計量 $S$ による条件付き期待値は不偏性を保ち、分散を増加させない。$S=s$ の条件下では成功した位置が対称なので
 $$P(X_1=1\mid S=s)=\frac sn.$$
 
 ## 計算例
@@ -1303,28 +1303,28 @@ $$\frac{2e^{-4}}{50}\approx0.000733.$$
 
 ---
 id: est-poisson-square-umvu
-title: Poisson母数の2乗のUMVU推定量を階乗モーメントで作る
+title: ポアソン母数の2乗の一様最小分散不偏（UMVU）推定量を階乗モーメントで作る
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: poisson-square-umvu
 type: calc_step
 difficulty: 4
 priority: S
-hashtags: [UMVU, ポアソン分布, 完備十分統計量, 階乗モーメント]
+hashtags: [一様最小分散不偏推定量, ポアソン分布, 完備十分統計量, 階乗モーメント]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 完備十分統計量とUMVU推定量 }]
+sources: [{ type: official_syllabus, topic: 十分性 }]
 ---
 ## 問題
-$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$S=\sum_iX_i$ とする。$\lambda^2$ のUMVU推定量を構成せよ。
+$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$S=\sum_iX_i$ とする。$\lambda^2$ の一様最小分散不偏（UMVU）推定量を構成せよ。
 
 ## 答え
 $$T(S)=\frac{S(S-1)}{n^2}$$
-が $\lambda^2$ のUMVU推定量である。
+が $\lambda^2$ の一様最小分散不偏（UMVU）推定量である。
 
 ## 使用公式・定理
 $$S\sim\operatorname{Poisson}(n\lambda),\qquad
 E[S(S-1)]=(n\lambda)^2.$$
-また、ポアソン1母数指数型分布族では $S$ は完備十分統計量である。Lehmann–Schefféの定理により、$S$ の関数である不偏推定量はUMVUである。
+また、ポアソン1母数指数型分布族では $S$ は完備十分統計量である。レーマン・シェッフェの定理により、$S$ の関数である不偏推定量は一様最小分散不偏（UMVU）推定量である。
 
 ## 計算例
 $$E\left[\frac{S(S-1)}{n^2}\right]
@@ -1335,7 +1335,7 @@ $n=5$、観測標本和 $s=8$ なら推定値は
 $$\frac{8\cdot7}{5^2}=\frac{56}{25}=2.24.$$
 
 ## 一手
-Poisson母数の累乗は、通常のモーメントより階乗モーメントで作る。
+ポアソン母数の累乗は、通常のモーメントより階乗モーメントで作る。
 
 ## 注意
 $S^2/n^2$ は期待値に $\lambda/n$ が余分に入り、不偏ではない。

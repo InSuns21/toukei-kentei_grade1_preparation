@@ -32,3 +32,17 @@ checked 354 cards in 7 category page(s), max 200 per page
 
 237 個の生成対象テキストを検証しました。
 ```
+
+## 追加カード・表記統一の最終検証（2026-08-23）
+
+- メイン担当: /root
+- 独立数理査読: /root/math_review_population_cards
+- 試験適合性査読: /root/exam_review_population_cards
+- 両査読最終結果: fatal 0 / major 0 / minor 0
+- `npm run anki:validate`: success
+  - validated 1373 cards (0 warnings)
+  - built and checked 1373 cards in 30 category pages
+- `npm run validate`: success
+  - structure: success
+  - math: KaTeX strict 377 Markdown files
+  - text: 237 generated texts

@@ -1475,14 +1475,14 @@ $k=1$ なら指数分布、$k>1$ なら危険率増加、$k<1$ なら減少。
 ---
 id: dist-weibull-mean
 published: true
-title: ワイブル分布の平均をGamma関数で表す
+title: ワイブル分布の平均をガンマ関数で表す
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: weibull-moment
 type: calc_step
 difficulty: 2
 priority: C
-hashtags: [ワイブル分布, 期待値, Gamma関数]
+hashtags: [ワイブル分布, 期待値, ガンマ関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ワイブル分布 }]
 ---
@@ -1501,7 +1501,7 @@ $$f(x)dx=\frac{k}{\lambda}u^{(k-1)/k}e^{-u}
 $$E[X]=\int_0^\infty \lambda u^{1/k}e^{-u}du
 =\lambda\Gamma(1+1/k).$$
 ## 一手
-$u=(x/\lambda)^k$ の置換でGamma積分へ寄せる。
+$u=(x/\lambda)^k$ の置換でガンマ積分へ寄せる。
 ## 注意
 $\lambda$ は平均ではなくscale。$k=1$ なら平均は $\lambda$ になる。
 

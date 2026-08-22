@@ -859,23 +859,23 @@ $x=3$ は群2へ分類される。
 
 ---
 id: engmv-fisher-discriminant-direction
-title: Fisher判別方向から分類境界まで計算する
+title: フィッシャーの判別方向から分類境界まで計算する
 category: applied-engineering
 subcategory: engineering-multivariate
 topic: fisher-linear-discriminant
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Fisherの線形判別, 判別分析, 分散共分散行列]
+hashtags: [フィッシャーの線形判別, 判別分析, 分散共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Fisherの線形判別 }]
+sources: [{ type: official_syllabus, topic: フィッシャーの線形判別 }]
 ---
 ## 問題
-2群の平均が $\boldsymbol\mu_1=(2,1)^\top$、$\boldsymbol\mu_2=(0,0)^\top$、群内分散共分散行列が $S_W=\operatorname{diag}(4,1)$ である。Fisher判別方向と、等事前確率での射影得点の中点境界を求めよ。
+2群の平均が $\boldsymbol\mu_1=(2,1)^\top$、$\boldsymbol\mu_2=(0,0)^\top$、群内分散共分散行列が $S_W=\operatorname{diag}(4,1)$ である。フィッシャーの判別方向と、等事前確率での射影得点の中点境界を求めよ。
 ## 記号・用語
 判別方向は定数倍まで同じ方向とみなす。射影得点は $z=\boldsymbol w^\top\boldsymbol x$ である。
 ## 使用公式・定理
-**Fisher判別方向**：$\boldsymbol w\propto S_W^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_2)$。
+**フィッシャーの判別方向**：$\boldsymbol w\propto S_W^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_2)$。
 ## 一手／方針
 判別方向を求め、2つの群平均を射影して中点を取る。
 ## 答え

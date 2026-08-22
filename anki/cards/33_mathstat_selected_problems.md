@@ -588,20 +588,20 @@ $$[-z_{0.975},z_{0.975}]=[-1.96,1.96]$$
 <!-- CARD -->
 ---
 id: mathstat-fisher-z-confidence-interval
-title: Fisherのz変換で相関係数の信頼区間を作る
+title: フィッシャーのz変換で相関係数の信頼区間を作る
 category: math-estimation
 subcategory: math-interval-estimation
 topic: fisher-z-confidence-interval
 type: calc_step
 difficulty: 3
 priority: S
-hashtags: [相関係数, Fisherのz変換, 信頼区間]
+hashtags: [相関係数, フィッシャーのz変換, 信頼区間]
 frequency: { past_exam: 0, textbook: 1, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: textbook, id: MATHSTAT-CH8-Q12, topic: Fisherのz変換 }]
+sources: [{ type: textbook, id: MATHSTAT-CH8-Q12, topic: フィッシャーのz変換 }]
 ---
 
 ## 問題
-2変量正規標本の標本相関係数が $r$、標本サイズが $n$ のとき、Fisherの $z$ 変換による母相関係数 $\rho$ の近似信頼区間を作れ。
+2変量正規標本の標本相関係数が $r$、標本サイズが $n$ のとき、フィッシャーの $z$ 変換による母相関係数 $\rho$ の近似信頼区間を作れ。
 
 ## 記号・用語
 - SE：標準誤差（standard error）

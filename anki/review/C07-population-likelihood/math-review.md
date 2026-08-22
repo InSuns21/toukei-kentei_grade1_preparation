@@ -58,3 +58,28 @@ fatal: 0 / major: 1 / minor: 3
 ### 再査読の結論
 - 初回指摘（major-1 / minor-1 / minor-2 / minor-3）は全て解消・対応済み。
 - fatal: 0 / major: 0 / minor: 0
+
+## 追加カード・表記統一の独立数理査読（2026-08-23）
+
+- 担当ID: /root/math_review_population_cards
+- 実行日時: 2026-08-23（Asia/Tokyo）
+- 対象: `math-population-sample-statistic` 全文、新規基礎5カード、`29_estimation_properties.md` のラオ・ブラックウェル／一様最小分散不偏推定量、`notation.md`、`formulae.md`
+
+### 初回指摘
+
+- fatal: 0 / major: 2 / minor: 4
+- major: `suff-normal` の尤度から $-n\mu^2/(2\sigma^2)$ が欠落。
+- major: `est-umvu-idea` に「一様最小分散不偏推定量の存在なら完備十分統計量の関数」という一般には成り立たない逆向きの記述。
+- minor: ラオ・ブラックウェルの定理の二乗可積分条件、最小十分性判定の正値・共通台条件、離散標本で同順位がある場合の順序統計量の説明、固有名・略語の表記統一。
+
+### 修正確認
+
+- 正規尤度を定数項と $n\mu^2$ を含む完全な式へ修正。
+- 完備十分統計量の存在を仮定してレーマン・シェッフェの定理を適用する正しい向きへ修正。
+- 二乗可積分条件、$0<p<1$、同順位を含む条件付き並びの説明を追加。
+- 「ラオ・ブラックウェル」「レーマン・シェッフェ」「一様最小分散不偏（UMVU）推定量」へ統一。
+
+### 再査読結論
+
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0

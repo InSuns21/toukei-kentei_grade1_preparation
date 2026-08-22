@@ -27,7 +27,7 @@ $E[X^2]$ と $E[X]^2$ は異なる。
 <!-- CARD -->
 ---
 id: dist-gamma-recognition
-title: Gamma型積分を正規化定数へ結び付ける
+title: ガンマ型積分を正規化定数へ結び付ける
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: gamma-integral
@@ -41,7 +41,7 @@ sources: [{ type: official_syllabus, topic: 連続分布 }]
 ## 問題
 $a,b>0$ のとき $\int_0^\infty x^{a-1}e^{-bx}\,dx$ を評価せよ。
 ## 答え
-$u=bx$ と置いてGamma関数へ寄せる。
+$u=bx$ と置いてガンマ関数へ寄せる。
 ## 使用公式・定理
 $$\Gamma(a)=\int_0^\infty u^{a-1}e^{-u}\,du,\qquad a>0.$$
 ## 計算例

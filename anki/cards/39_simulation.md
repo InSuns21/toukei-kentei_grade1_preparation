@@ -643,20 +643,20 @@ sources: [{ type: official_syllabus, topic: MCMC }]
 
 ---
 id: sim-gibbs-bivariate-normal
-title: 二変量正規分布のGibbs更新式を書く
+title: 二変量正規分布のギブス更新式を書く
 category: math-data-analysis
 subcategory: math-simulation
 topic: gibbs-sampling
 type: formula
 difficulty: 4
 priority: C
-hashtags: [MCMC, Gibbsサンプリング, 二変量正規分布]
+hashtags: [MCMC, ギブスサンプリング, 二変量正規分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: MCMC }]
 ---
 
 ## 問題
-$(X,Y)$ が平均0、分散1、相関係数 $|\rho|<1$ の二変量正規分布に従う。Gibbs更新の完全条件付き分布を書け。
+$(X,Y)$ が平均0、分散1、相関係数 $|\rho|<1$ の二変量正規分布に従う。ギブス更新の完全条件付き分布を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -789,7 +789,7 @@ $\sigma=2$ ならMCSEは $2/\sqrt{200}\approx0.141$。
 
 ---
 id: boot-empirical-distribution
-title: ノンパラメトリックBootstrapの経験分布を書く
+title: ノンパラメトリック・ブートストラップの経験分布を書く
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-empirical-distribution
@@ -798,11 +798,11 @@ difficulty: 2
 priority: B
 hashtags: [ブートストラップ, 経験分布, リサンプリング]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bootstrapの基本原理 }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-標本 $x_1,\ldots,x_n$ に基づくノンパラメトリックBootstrapの再標本化分布を書け。
+標本 $x_1,\ldots,x_n$ に基づくノンパラメトリック・ブートストラップの再標本化分布を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -823,7 +823,7 @@ $n=3$ なら順序付き再標本は $3^3=27$ 通り。
 
 ---
 id: boot-bias-estimate
-title: Bootstrapバイアス推定値を計算する
+title: ブートストラップのバイアス推定値を計算する
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-bias
@@ -832,16 +832,16 @@ difficulty: 2
 priority: C
 hashtags: [ブートストラップ, バイアス, 数値計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bootstrapバイアス推定 }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-元の推定値が $\widehat\theta=10$、Bootstrap反復平均が $\bar\theta^*=10.6$ だった。Bootstrapバイアス推定値を求めよ。
+元の推定値が $\widehat\theta=10$、ブートストラップ反復平均が $\bar\theta^*=10.6$ だった。ブートストラップのバイアス推定値を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-Bootstrap世界で $E_{\widehat F}[\widehat\theta^*]-\widehat\theta$ が元のバイアスを近似する。
+ブートストラップ標本の世界で $E_{\widehat F}[\widehat\theta^*]-\widehat\theta$ が元のバイアスを近似する。
 
 ## 答え
 $$\widehat{\operatorname{bias}}_{\mathrm{boot}}
@@ -856,7 +856,7 @@ $$\widehat{\operatorname{bias}}_{\mathrm{boot}}
 
 ---
 id: boot-bias-corrected-estimator
-title: Bootstrapバイアス補正値を求める
+title: ブートストラップのバイアス補正値を求める
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-bias-correction
@@ -865,11 +865,11 @@ difficulty: 2
 priority: C
 hashtags: [ブートストラップ, バイアス補正, 推定量]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bootstrapバイアス推定 }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-$\widehat\theta=10,\ \bar\theta^*=10.6$ のとき、1次のBootstrapバイアス補正値を求めよ。
+$\widehat\theta=10,\ \bar\theta^*=10.6$ のとき、1次のブートストラップ・バイアス補正値を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -892,25 +892,25 @@ $$\widehat\theta_{\mathrm{bc}}
 
 ---
 id: boot-percentile-ci
-title: Bootstrap percentile区間を求める
+title: ブートストラップのパーセンタイル区間を求める
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-percentile-interval
 type: calc_step
 difficulty: 3
 priority: C
-hashtags: [ブートストラップ, percentile区間, 区間推定]
+hashtags: [ブートストラップ, パーセンタイル区間, 区間推定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Percentile区間 }]
 ---
 
 ## 問題
-Bootstrap反復分布の2.5%点が1.2、97.5%点が3.8である。95% percentile区間を答えよ。
+ブートストラップ反復分布の2.5%点が1.2、97.5%点が3.8である。95%パーセンタイル区間を答えよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-percentile区間はBootstrap統計量の両側分位点をそのまま端点にする。
+パーセンタイル区間はブートストラップ統計量の両側分位点をそのまま端点にする。
 
 ## 答え
 $$[q_{0.025}^*,q_{0.975}^*]=[1.2,3.8].$$
@@ -919,25 +919,25 @@ $$[q_{0.025}^*,q_{0.975}^*]=[1.2,3.8].$$
 単調増加変換gについて端点をgで変換できる。
 
 ## 注意
-元の推定値を中心に反射するbasic区間と混同しない。
+元の推定値を中心に反射する基本区間（basic区間）と混同しない。
 <!-- CARD -->
 
 ---
 id: boot-basic-ci
-title: Bootstrap basic区間を計算する
+title: ブートストラップの基本区間（basic区間）を計算する
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-basic-interval
 type: calc_step
 difficulty: 3
 priority: C
-hashtags: [ブートストラップ, basic区間, 区間推定]
+hashtags: [ブートストラップ, 基本区間, 区間推定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Percentile区間 }]
 ---
 
 ## 問題
-$\widehat\theta=2.5$、Bootstrap分位点が $q_{0.025}^*=0.8,\ q_{0.975}^*=3.4$ のとき95% basic区間を求めよ。
+$\widehat\theta=2.5$、ブートストラップ分位点が $q_{0.025}^*=0.8,\ q_{0.975}^*=3.4$ のとき95%基本区間（basic区間）を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -949,7 +949,7 @@ $$[2\widehat\theta-q_{0.975}^*,\,2\widehat\theta-q_{0.025}^*]
 =[5-3.4,\,5-0.8]=[1.6,4.2].$$
 
 ## 計算例
-percentile区間 $[0.8,3.4]$ とは異なる。
+パーセンタイル区間 $[0.8,3.4]$ とは異なる。
 
 ## 注意
 上下の分位点の順序が反転する。
@@ -957,20 +957,20 @@ percentile区間 $[0.8,3.4]$ とは異なる。
 
 ---
 id: boot-parametric-nonparametric
-title: ParametricとNonparametric Bootstrapを区別する
+title: パラメトリック・ブートストラップとノンパラメトリック・ブートストラップを区別する
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-types
 type: recognition
 difficulty: 2
 priority: C
-hashtags: [ブートストラップ, Parametric-Bootstrap, Nonparametric-Bootstrap]
+hashtags: [ブートストラップ, パラメトリック, ノンパラメトリック]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Parametric Bootstrap }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-Parametric BootstrapとNonparametric Bootstrapの再標本生成元を述べよ。
+パラメトリック・ブートストラップとノンパラメトリック・ブートストラップの再標本生成元を述べよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -989,20 +989,20 @@ Parametric法はモデルが正しければ効率的だが、誤指定の影響�
 
 ---
 id: jackknife-leave-one-out
-title: Jackknifeのleave-one-out推定値を作る
+title: ジャックナイフ法の1個抜き推定値を作る
 category: math-data-analysis
 subcategory: math-simulation
 topic: jackknife
 type: calc_step
 difficulty: 2
 priority: C
-hashtags: [Jackknife, leave-one-out, リサンプリング]
+hashtags: [ジャックナイフ法, 1個抜き法, リサンプリング]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Jackknife }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-標本 $(1,2,6)$ について、統計量を標本平均として3個のleave-one-out推定値を求めよ。
+標本 $(1,2,6)$ について、統計量を標本平均として3個の1個抜き推定値を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1018,25 +1018,25 @@ $$\widehat\theta_{(-1)}=\frac{2+6}{2}=4,\quad
 平均は $\bar\theta_{(-\cdot)}=(4+3.5+1.5)/3=3$。
 
 ## 注意
-Bootstrapと異なり、標準的Jackknife反復数はn個。
+ブートストラップと異なり、標準的なジャックナイフ法の反復数は $n$ 個。
 <!-- CARD -->
 
 ---
 id: jackknife-standard-error
-title: Jackknife標準誤差を計算する
+title: ジャックナイフ法の標準誤差を計算する
 category: math-data-analysis
 subcategory: math-simulation
 topic: jackknife-standard-error
 type: calc_step
 difficulty: 3
 priority: C
-hashtags: [Jackknife, 標準誤差, 数値計算]
+hashtags: [ジャックナイフ法, 標準誤差, 数値計算]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Jackknife }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-$n=3$ のleave-one-out推定値が $(4,3.5,1.5)$ で平均が3である。Jackknife標準誤差を求めよ。
+$n=3$ の1個抜き推定値が $(4,3.5,1.5)$ で平均が3である。ジャックナイフ法の標準誤差を求めよ。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -1044,7 +1044,7 @@ $n=3$ のleave-one-out推定値が $(4,3.5,1.5)$ で平均が3である。Jackkn
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-Jackknife分散係数は $(n-1)/n$。
+ジャックナイフ法の分散係数は $(n-1)/n$。
 
 ## 答え
 $$\widehat{\operatorname{SE}}_{\mathrm{jack}}
@@ -1063,20 +1063,20 @@ $$\sqrt{\frac23\{1^2+0.5^2+(-1.5)^2\}}
 
 ---
 id: jackknife-bias
-title: Jackknifeバイアス推定値を計算する
+title: ジャックナイフ法のバイアス推定値を計算する
 category: math-data-analysis
 subcategory: math-simulation
 topic: jackknife-bias
 type: calc_step
 difficulty: 3
 priority: C
-hashtags: [Jackknife, バイアス, バイアス補正]
+hashtags: [ジャックナイフ法, バイアス, バイアス補正]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Jackknifeバイアス推定 }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-$n=5$、元の推定値 $\widehat\theta=2.0$、leave-one-out平均 $\bar\theta_{(-\cdot)}=2.1$。Jackknifeバイアス推定値と補正値を求めよ。
+$n=5$、元の推定値 $\widehat\theta=2.0$、1個抜き推定値の平均 $\bar\theta_{(-\cdot)}=2.1$。ジャックナイフ法のバイアス推定値と補正値を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1094,7 +1094,7 @@ $$\widehat{\operatorname{bias}}_{\mathrm{jack}}
 $5(2.0)-4(2.1)=1.6$。
 
 ## 注意
-Bootstrapバイアス式にはない係数 $n-1$ が付く。
+ブートストラップのバイアス式にはない係数 $n-1$ が付く。
 <!-- CARD -->
 
 ---
@@ -1275,7 +1275,7 @@ $n=100$ ならLOOCVは100回、5-foldは5回のモデル適合。
 
 ---
 id: boot-sampling-distribution-relation
-title: Bootstrap分布と標本抽出分布の対応を書く
+title: ブートストラップ分布と標本抽出分布の対応を書く
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap-sampling-distribution
@@ -1284,11 +1284,11 @@ difficulty: 4
 priority: C
 hashtags: [ブートストラップ, 標本抽出分布, プラグイン原理]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Bootstrapと標本抽出分布の関係 }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 
 ## 問題
-Bootstrap分布が近似する標本抽出分布を、条件付き分布の形で書け。
+ブートストラップ分布が近似する標本抽出分布を、条件付き分布の形で書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1304,8 +1304,8 @@ $$\mathcal L_{\widehat F_n}
 で近似する。
 
 ## 計算例
-この近似分布の標準偏差がBootstrap標準誤差。
+この近似分布の標準偏差がブートストラップ標準誤差。
 
 ## 注意
-非滑らかな統計量、境界母数、極端値では通常のBootstrapが一致しないことがある。
+非滑らかな統計量、境界母数、極端値では通常のブートストラップが一致しないことがある。
 <!-- CARD -->

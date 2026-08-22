@@ -312,9 +312,9 @@ sources: [{ type: official_syllabus, topic: 中心極限定理 }]
 ## 記号・用語
 $F_n(x)=n^{-1}\sum_{i=1}^n\boldsymbol1_{\{X_i\le x\}}$、$F(x)=P(X_i\le x)$。
 ## 使用公式・定理
-指示変数は成功確率 $F(x)$ のBernoulli変数なので標本平均の中心極限定理を使う。
+指示変数は成功確率 $F(x)$ のベルヌーイ変数なので標本平均の中心極限定理を使う。
 ## 一手／方針
-経験分布関数をBernoulli標本平均と見なす。
+経験分布関数をベルヌーイ標本平均と見なす。
 ## 答え
 $$\sqrt n\{F_n(x)-F(x)\}\xrightarrow{d}
 N(0,F(x)\{1-F(x)\}).$$
@@ -988,7 +988,7 @@ N\left(0,I_1(\theta_0)^{-1}\right).$$
 
 ---
 id: engasym-poisson-mle-variance
-title: Poisson平均の最尤推定量の漸近分散を求める
+title: ポアソン平均の最尤推定量の漸近分散を求める
 category: applied-engineering
 subcategory: engineering-asymptotics
 topic: poisson-mle-asymptotic-variance
@@ -1018,7 +1018,7 @@ $n=100,\widehat\lambda=4$ なら推定標準誤差は $\sqrt{4/100}=0.2$。
 
 ---
 id: engasym-bernoulli-fisher-information
-title: Bernoulli母数のフィッシャー情報量（1次元）を導く
+title: ベルヌーイ母数のフィッシャー情報量（1次元）を導く
 category: applied-engineering
 subcategory: engineering-asymptotics
 topic: fisher-information
@@ -1259,19 +1259,19 @@ $y=0$ なら同じ重みで $z=-2$。
 
 ---
 id: enginf-poisson-mean
-title: Poisson回帰から期待件数を計算する
+title: ポアソン回帰から期待件数を計算する
 category: applied-engineering
 subcategory: engineering-linear-inference
 topic: poisson-regression
 type: calc_step
 difficulty: 1
 priority: S
-hashtags: [一般化線形モデル, Poisson回帰, 期待件数]
+hashtags: [一般化線形モデル, ポアソン回帰, 期待件数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---
 ## 問題
-$\log\mu=1.2+0.3x$ のPoisson回帰で $x=2$ の期待件数を求めよ。
+$\log\mu=1.2+0.3x$ のポアソン回帰で $x=2$ の期待件数を求めよ。
 ## 記号・用語
 $\mu=E[Y\mid x]$ は条件付き期待件数、対数リンクは $\log\mu=\eta$ である。
 ## 使用公式・定理
@@ -1283,19 +1283,19 @@ $$\eta=1.2+0.3(2)=1.8,\qquad \mu=e^{1.8}\approx6.05.$$
 ## 計算例
 $x$ が1増えると期待件数は $e^{0.3}\approx1.35$ 倍。
 ## 注意
-Poisson回帰では条件付き分散も基本モデル上は $\mu$ である。
+ポアソン回帰では条件付き分散も基本モデル上は $\mu$ である。
 <!-- CARD -->
 
 ---
 id: enginf-poisson-offset-rate
-title: オフセット付きPoisson回帰で発生率を扱う
+title: オフセット付きポアソン回帰で発生率を扱う
 category: applied-engineering
 subcategory: engineering-linear-inference
 topic: poisson-offset
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [一般化線形モデル, Poisson回帰, オフセット]
+hashtags: [一般化線形モデル, ポアソン回帰, オフセット]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---
@@ -1359,17 +1359,17 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---
 ## 問題
-正規・二項・Poisson応答に対する代表的な標準リンクを答えよ。
+正規・二項・ポアソン応答に対する代表的な標準リンクを答えよ。
 ## 記号・用語
 リンク関数 $g$ は条件付き平均 $\mu$ と線形予測子 $\eta=X\beta$ を $g(\mu)=\eta$ で結ぶ。
 ## 使用公式・定理
-代表的な正準リンクは、正規で恒等、二項でロジット、Poissonで対数である。
+代表的な正準リンクは、正規で恒等、二項でロジット、ポアソンで対数である。
 ## 一手／方針
 平均の取り得る範囲を実数全体へ写す変換を対応させる。
 ## 答え
 $$\text{正規}:g(\mu)=\mu,\quad
 \text{二項}:g(p)=\log\frac p{1-p},\quad
-\text{Poisson}:g(\mu)=\log\mu.$$
+\text{ポアソン}:g(\mu)=\log\mu.$$
 ## 計算例
 ロジットと対数リンクは、それぞれ確率を $(0,1)$、平均を $(0,\infty)$ に保つ。
 ## 注意

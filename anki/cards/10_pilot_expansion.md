@@ -141,7 +141,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
 ---
 ## 問題
-Bernoulli標本 $X_1,\ldots,X_n$ から $p$ を不偏推定する。クラーメル・ラオの不等式による分散の下限を求めよ。
+ベルヌーイ標本 $X_1,\ldots,X_n$ から $p$ を不偏推定する。クラーメル・ラオの不等式による分散の下限を求めよ。
 ## 答え
 1観測当たりの情報量 $I_1(p)=1/[p(1-p)]$ を標本全体の情報量へ直す。
 ## 使用公式・定理
@@ -236,7 +236,7 @@ $$-2\log\Lambda=2\{-40-(-42)\}=2\cdot2=4.$$
 <!-- CARD -->
 ---
 id: data-bayes-beta
-title: Beta--Bernoulli共役更新を行う
+title: ベータ–ベルヌーイ共役更新を行う
 category: math-data-analysis
 subcategory: math-bayesian-methods
 topic: bayes-estimation
@@ -248,7 +248,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ベイズの定理法 }]
 ---
 ## 問題
-$p$ はベータ分布 $\operatorname{Beta}(2,3)$ に従うとし、Bernoulli試行5回で成功3回とする。事後分布を求めよ。
+$p$ はベータ分布 $\operatorname{Beta}(2,3)$ に従うとし、ベルヌーイ試行5回で成功3回とする。事後分布を求めよ。
 ## 方針
 事前密度の $p$ と $1-p$ の指数へ成功数・失敗数を足す。
 ## 使用公式・定理
@@ -389,14 +389,14 @@ $|h|>1$ では重なる革新がなく $\gamma(h)=0$。
 <!-- CARD -->
 ---
 id: model-poisson-glm
-title: Poisson回帰係数を平均比で読む
+title: ポアソン回帰係数を平均比で読む
 category: applied-common
 subcategory: applied-multivariate
 topic: poisson-regression
 type: recognition
 difficulty: 2
 priority: A
-hashtags: [一般化線形モデル, Poisson回帰, 平均比]
+hashtags: [一般化線形モデル, ポアソン回帰, 平均比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
 ---

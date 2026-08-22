@@ -83,23 +83,23 @@ $$\widehat{\mathrm{OR}}=\frac{20\cdot15}{10\cdot5}=6.$$
 <!-- CARD -->
 ---
 id: data-bootstrap-mean
-title: bootstrapで標準誤差を推定する
+title: ブートストラップで標準誤差を推定する
 category: math-data-analysis
 subcategory: math-simulation
 topic: bootstrap
 type: strategy
 difficulty: 2
 priority: B
-hashtags: [bootstrap, シミュレーション, 標準誤差]
+hashtags: [ブートストラップ, シミュレーション, 標準誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: bootstrap }]
+sources: [{ type: official_syllabus, topic: ブートストラップ }]
 ---
 ## 問題
-標本 $x=(1,2,3)$ から標本平均の標準誤差をbootstrapで推定する手順は？
+標本 $x=(1,2,3)$ から標本平均の標準誤差をブートストラップで推定する手順は？
 ## 方針
 経験分布からサイズ3の復元抽出を繰り返し、再標本平均の標準偏差を取る。
 ## 使用公式・定理
-bootstrap標準誤差は、再標本統計量 $T^{*(1)},\ldots,T^{*(B)}$ の標本標準偏差
+ブートストラップ標準誤差は、再標本統計量 $T^{*(1)},\ldots,T^{*(B)}$ の標本標準偏差
 $$\widehat{\operatorname{se}}_{\mathrm{boot}}=\sqrt{\frac1{B-1}\sum_{b=1}^B(T^{*(b)}-\overline T^*)^2}.$$
 ## 計算例
 再標本 $(1,1,3),(2,3,3),(1,2,2)$ の平均は $5/3,8/3,5/3$。実際には多数回 $B$ 反復し、

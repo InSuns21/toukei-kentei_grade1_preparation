@@ -1095,20 +1095,20 @@ $$\widehat{\boldsymbol F}
 
 ---
 id: mv-lda-direction
-title: Fisher線形判別の方向を求める
+title: フィッシャーの線形判別の方向を求める
 category: applied-common
 subcategory: applied-multivariate
 topic: fisher-linear-discriminant
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [判別分析, Fisherの線形判別, 共分散行列]
+hashtags: [判別分析, フィッシャーの線形判別, 共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Fisherの線形判別 }]
+sources: [{ type: official_syllabus, topic: フィッシャーの線形判別 }]
 ---
 
 ## 問題
-2群の平均を $\boldsymbol\mu_1,\boldsymbol\mu_0$、共通群内共分散を $\boldsymbol\Sigma$ とする。Fisher線形判別方向を書け。
+2群の平均を $\boldsymbol\mu_1,\boldsymbol\mu_0$、共通群内共分散を $\boldsymbol\Sigma$ とする。フィッシャーの線形判別方向を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1143,7 +1143,7 @@ sources: [{ type: official_syllabus, topic: 判別分析 }]
 ---
 
 ## 問題
-$\boldsymbol\mu_1=(2,1)^{\mathsf T}$、$\boldsymbol\mu_0=(0,0)^{\mathsf T}$、$\boldsymbol\Sigma=\operatorname{diag}(2,1)$ のときFisher方向を求めよ。
+$\boldsymbol\mu_1=(2,1)^{\mathsf T}$、$\boldsymbol\mu_0=(0,0)^{\mathsf T}$、$\boldsymbol\Sigma=\operatorname{diag}(2,1)$ のときフィッシャー方向を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1843,7 +1843,7 @@ $$\ell(\boldsymbol\beta)=\sum_i\{y_i\log p_i+(m_i-y_i)\log(1-p_i)\},$$
 $\operatorname{logit}(p_i)=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta$。
 
 ## 計算例
-m=1ならBernoulli尤度。
+$m=1$ ならベルヌーイ尤度。
 
 ## 注意
 独立性を仮定して尤度を積にする。
@@ -1864,7 +1864,7 @@ sources: [{ type: official_syllabus, topic: 一般化線形モデルの推定 }]
 ---
 
 ## 問題
-独立なBernoulli応答のロジスティック回帰でスコア方程式を書け。
+独立なベルヌーイ応答のロジスティック回帰でスコア方程式を書け。
 
 ## 記号・用語
 - $\ell$：対数尤度
@@ -1872,7 +1872,7 @@ sources: [{ type: official_syllabus, topic: 一般化線形モデルの推定 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-連鎖律とBernoulli対数尤度。
+連鎖律とベルヌーイ対数尤度。
 
 ## 答え
 $p_i=e^{\eta_i}/(1+e^{\eta_i})$、$\partial p_i/\partial\eta_i=p_i(1-p_i)$ より
@@ -1911,7 +1911,7 @@ sources: [{ type: official_syllabus, topic: 反復重み付き最小二乗 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-対数尤度を $\ell(\boldsymbol\beta)$、スコアを $\boldsymbol U(\boldsymbol\beta)=\partial\ell/\partial\boldsymbol\beta$、フィッシャー情報行列を $\boldsymbol I(\boldsymbol\beta)$ とすると、Fisher scoringは
+対数尤度を $\ell(\boldsymbol\beta)$、スコアを $\boldsymbol U(\boldsymbol\beta)=\partial\ell/\partial\boldsymbol\beta$、フィッシャー情報行列を $\boldsymbol I(\boldsymbol\beta)$ とすると、フィッシャー・スコアリング法は
 $$\boldsymbol\beta^{\mathrm{new}}
 =\boldsymbol\beta^{\mathrm{old}}
 +\boldsymbol I(\boldsymbol\beta^{\mathrm{old}})^{-1}

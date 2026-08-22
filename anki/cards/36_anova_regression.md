@@ -464,20 +464,20 @@ $$\alpha/(2m)=0.005.$$
 
 ---
 id: anova-scheffe-bound
-title: Scheffé法の全対比棄却条件を書く
+title: シェッフェ法の全対比棄却条件を書く
 category: math-data-analysis
 subcategory: math-anova
 topic: scheffe
 type: formula
 difficulty: 4
 priority: A
-hashtags: [Scheffe法, 多重比較, 対比]
+hashtags: [シェッフェ法, 多重比較, 対比]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
 
 ## 問題
-一元配置で任意の対比 $L=\sum_i c_i\mu_i$ をScheffé法で検定する条件を書け。
+一元配置で任意の対比 $L=\sum_i c_i\mu_i$ をシェッフェ法で検定する条件を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -519,7 +519,7 @@ sources: [{ type: official_syllabus, topic: 多重比較 }]
 同時推測の対象集合が広いほど臨界値は一般に厳しくなる。
 
 ## 答え
-(a) Tukey法、(b) Bonferroni法または計画対比、(c) Scheffé法。
+(a) テューキー法、(b) ボンフェローニ法または計画対比、(c) シェッフェ法。
 
 ## 計算例
 4群の6群対を全て比較するならTukey法が自然。

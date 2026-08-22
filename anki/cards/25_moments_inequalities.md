@@ -153,14 +153,14 @@ $$\operatorname{Cov}(\boldsymbol X)=\begin{pmatrix}4&3\\3&9\end{pmatrix}.$$
 <!-- CARD -->
 ---
 id: prob-cauchy-schwarz-correlation
-title: Cauchy–Schwarzの不等式で相関係数の範囲を確定する
+title: コーシー–シュワルツの不等式で相関係数の範囲を確定する
 category: math-probability
 subcategory: math-distribution-characteristics
 topic: cauchy-schwarz-correlation
 type: theorem
 difficulty: 2
 priority: A
-hashtags: [Cauchy-Schwarz, 相関係数, 不等式]
+hashtags: [コーシー–シュワルツの不等式, 相関係数, 不等式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 相関係数 }]
 ---

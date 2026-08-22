@@ -771,6 +771,11 @@ items:
     cards:
       - est-factorization
       - dist-order-max
+      - population-sample-definition
+      - random-sample-iid-definition
+      - statistic-definition-basic
+      - estimator-estimate-distinction
+      - order-statistic-definition-basic
       - suff-statistic-definition
       - neyman-factorization
       - suff-bernoulli
@@ -802,6 +807,7 @@ items:
       - name: 順序統計量
         status: card
         cards:
+          - order-statistic-definition-basic
           - order-statistic-sufficiency
           - dist-order-max
   - id: math-likelihood-mle

@@ -80,9 +80,9 @@
 
 | 分布 | 台 | 母数 | 確率質量関数 | 平均 | 分散 | モーメント母関数 |
 |---|---|---|---|---|---|---|
-| Bernoulli分布 $\operatorname{Bernoulli}(p)$ | $\{0,1\}$ | $0\le p\le1$ | $p_X(x)=p^x(1-p)^{1-x}$ | $p$ | $p(1-p)$ | $1-p+pe^t$ |
+| ベルヌーイ分布 $\operatorname{Bernoulli}(p)$ | $\{0,1\}$ | $0\le p\le1$ | $p_X(x)=p^x(1-p)^{1-x}$ | $p$ | $p(1-p)$ | $1-p+pe^t$ |
 | 二項分布 $\operatorname{Binomial}(n,p)$ | $\{0,1,\ldots,n\}$ | $n\in\mathbb N$、$0\le p\le1$ | $p_X(x)=\binom nxp^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ | $(1-p+pe^t)^n$ |
-| Poisson分布 $\operatorname{Poisson}(\lambda)$ | $\mathbb N_0$ | $\lambda>0$ | $p_X(x)=e^{-\lambda}\dfrac{\lambda^x}{x!}$ | $\lambda$ | $\lambda$ | $\exp\{\lambda(e^t-1)\}$ |
+| ポアソン分布 $\operatorname{Poisson}(\lambda)$ | $\mathbb N_0$ | $\lambda>0$ | $p_X(x)=e^{-\lambda}\dfrac{\lambda^x}{x!}$ | $\lambda$ | $\lambda$ | $\exp\{\lambda(e^t-1)\}$ |
 | 幾何分布 $\operatorname{Geometric}(p)$ | $\{1,2,\ldots\}$ | $0<p\le1$ | $p_X(x)=p(1-p)^{x-1}$ | $\dfrac1p$ | $\dfrac{1-p}{p^2}$ | $\dfrac{pe^t}{1-(1-p)e^t}$（$t<-\log(1-p)$） |
 | 負の二項分布 $\operatorname{NegBin}(r,p)$ | $\{r,r+1,\ldots\}$ | $r\in\mathbb N$、$0<p\le1$ | $p_X(x)=\binom{x-1}{r-1}p^r(1-p)^{x-r}$ | $\dfrac rp$ | $\dfrac{r(1-p)}{p^2}$ | $\left\{\dfrac{pe^t}{1-(1-p)e^t}\right\}^r$（$t<-\log(1-p)$） |
 | 超幾何分布 | 組合せが定義できる整数 | 母集団 $N$、成功 $K$、抽出 $n$ | $p_X(x)=\binom Kx\binom{N-K}{n-x}/\binom Nn$ | $\dfrac{nK}N$ | $n\dfrac KN\dfrac{N-K}N\dfrac{N-n}{N-1}$ | 存在するが初等的な表示はない |
@@ -152,5 +152,5 @@
 - $c_j$、$y_{ij}$：第 $j$ 主成分の寄与率、第 $i$ 観測の第 $j$ 主成分得点。
 - $\ell_{ij}$：第 $i$ 変数と第 $j$ 主成分の相関として定義する主成分負荷量。
 - $h_i^2$：因子分析で第 $i$ 変数の共通性。
-- $\boldsymbol w$：Fisherの線形判別方向。
+- $\boldsymbol w$：フィッシャーの線形判別方向。
 - $\Delta(A,B)$：Ward法でクラスター $A,B$ を併合したときの群内平方和増加。
