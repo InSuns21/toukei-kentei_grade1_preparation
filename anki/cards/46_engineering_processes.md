@@ -1,0 +1,1558 @@
+---
+id: engproc-random-walk-drift-calibration
+title: ドリフト付きランダムウォークの平均と分散を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: random-walk-drift
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [ランダムウォーク, ドリフト, センサー誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ランダムウォーク }]
+---
+## 問題
+センサーの累積誤差を $X_n=\sum_{k=1}^n\xi_k$ とし、増分は独立同分布で $E[\xi_k]=0.02$、$\operatorname{Var}(\xi_k)=0.09$ とする。50時点後の平均と標準偏差を求めよ。
+## 記号・用語
+$X_n$ は累積誤差、$\xi_k$ は1時点ごとの誤差増分、$\operatorname{SD}(X_n)=\sqrt{\operatorname{Var}(X_n)}$ は標準偏差である。
+## 使用公式・定理
+独立な和について $E[X_n]=nE[\xi_1]$、$\operatorname{Var}(X_n)=n\operatorname{Var}(\xi_1)$。
+## 一手／方針
+平均は増分平均を50倍し、分散は増分分散を50倍してから平方根を取る。
+## 答え
+$$E[X_{50}]=50(0.02)=1,$$
+$$\operatorname{Var}(X_{50})=50(0.09)=4.5,\qquad \operatorname{SD}(X_{50})=\sqrt{4.5}\approx2.121.$$
+## 計算例
+ドリフト補正後 $X_n-0.02n$ の平均は0になる。
+## 注意
+標準偏差を50倍せず、分散を50倍する。
+<!-- CARD -->
+
+---
+id: engproc-ma1-autocovariance-numeric
+title: MA(1)工程変動の自己共分散を数値計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ma1-autocovariance
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, 移動平均過程, 自己共分散]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 移動平均過程 }]
+---
+## 問題
+$X_t=\varepsilon_t+0.5\varepsilon_{t-1}$、$\operatorname{Var}(\varepsilon_t)=4$ とする。$\gamma(0),\gamma(1),\gamma(2)$ を求めよ。
+## 記号・用語
+$\gamma(h)=\operatorname{Cov}(X_t,X_{t-h})$ はラグ $h$ の自己共分散であり、革新 $\varepsilon_t$ は平均0で互いに無相関とする。
+## 使用公式・定理
+MA(1) $X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ では
+$$\gamma(0)=(1+\theta^2)\sigma_\varepsilon^2,\qquad \gamma(1)=\theta\sigma_\varepsilon^2,\qquad \gamma(h)=0\ (h\ge2).$$
+## 一手／方針
+同じ革新を共有する項だけが共分散に残る。
+## 答え
+$$\gamma(0)=(1+0.5^2)4=5,\qquad \gamma(1)=0.5\cdot4=2,\qquad \gamma(2)=0.$$
+## 計算例
+$\rho(1)=\gamma(1)/\gamma(0)=2/5=0.4$ である。
+## 注意
+MA(1)の自己共分散はラグ2以降で0になるが、有限標本の標本自己共分散は厳密に0とは限らない。
+<!-- CARD -->
+
+---
+id: engproc-ma1-invertible-shock-recovery
+title: 可逆MA(1)から直近の革新を復元する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ma1-invertibility
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [時系列解析, 移動平均過程, 可逆性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 移動平均過程 }]
+---
+## 問題
+$X_t=\varepsilon_t+0.4\varepsilon_{t-1}$ で、$X_t=3.0$、$\varepsilon_{t-1}=-0.5$ とする。$\varepsilon_t$ を求め、可逆性も判定せよ。
+## 記号・用語
+$\varepsilon_t$ は時点 $t$ の革新、可逆性は観測系列から革新を一意に安定復元できる性質である。
+## 使用公式・定理
+MA(1)では $\varepsilon_t=X_t-\theta\varepsilon_{t-1}$。規約 $X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ では $|\theta|<1$ が可逆条件である。
+## 一手／方針
+観測式を現在の革新について解き、係数の絶対値を1と比較する。
+## 答え
+$$\varepsilon_t=3.0-0.4(-0.5)=3.2,$$
+かつ $|0.4|<1$ なので可逆である。
+## 計算例
+次期観測が $X_{t+1}=1.8$ なら、$\varepsilon_{t+1}=1.8-0.4(3.2)=0.52$ と逐次復元できる。
+## 注意
+MA多項式を $1-\theta B$ と置く別規約では係数の符号が変わるため、モデル式を先に確認する。
+<!-- CARD -->
+
+---
+id: engproc-arma11-long-run-mean
+title: 切片付きARMA(1,1)の長期平均を求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: arma11-mean
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, ARMA過程, 長期平均]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+$X_t=6+0.7X_{t-1}+\varepsilon_t+0.2\varepsilon_{t-1}$、$E[\varepsilon_t]=0$ とする。定常なときの長期平均を求めよ。
+## 記号・用語
+$\varepsilon_t$ は平均0の革新、長期平均 $\mu$ は定常時の $E[X_t]$ である。
+## 使用公式・定理
+$X_t=c+\phi X_{t-1}+\varepsilon_t+\theta\varepsilon_{t-1}$ では、$|\phi|<1$ のもとで $\mu=c/(1-\phi)$。
+## 一手／方針
+両辺の期待値を取り、革新項の期待値を0にする。
+## 答え
+$$\mu=6+0.7\mu+0+0,$$
+$$\mu=\frac6{1-0.7}=20.$$
+## 計算例
+中心化系列 $Y_t=X_t-20$ は $Y_t=0.7Y_{t-1}+\varepsilon_t+0.2\varepsilon_{t-1}$ を満たす。
+## 注意
+MA係数 $0.2$ は自己共分散には影響するが、革新の平均が0なら長期平均には現れない。
+<!-- CARD -->
+
+---
+id: engproc-arma11-one-step-forecast
+title: ARMA(1,1)の1期先予測を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: arma11-forecast
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [時系列解析, ARMA過程, 予測]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+$X_t=2+0.6X_{t-1}+\varepsilon_t-0.3\varepsilon_{t-1}$ で、$X_t=10$、推定革新 $\widehat\varepsilon_t=1$ とする。$X_{t+1}$ の1期先予測値を求めよ。
+## 記号・用語
+$\widehat\varepsilon_t$ は時点 $t$ までの情報から復元した革新、$\widehat X_{t+1\mid t}$ は条件付き平均による予測値である。
+## 使用公式・定理
+未来の革新の条件付き期待値は0なので
+$$\widehat X_{t+1\mid t}=c+\phi X_t+\theta\widehat\varepsilon_t$$
+である。ここでは $\theta=-0.3$。
+## 一手／方針
+モデルを1期進め、未知の $\varepsilon_{t+1}$ だけを0で置き換える。
+## 答え
+$$\widehat X_{t+1\mid t}=2+0.6(10)-0.3(1)=7.7.$$
+## 計算例
+実測値が8.2なら新しい革新推定値は $8.2-7.7=0.5$ である。
+## 注意
+MA項の符号をモデル式からそのまま読む。係数の規約を暗記だけで処理しない。
+<!-- CARD -->
+
+---
+id: engproc-backshift-polynomial-expansion
+title: 後退作用素の式を通常の時系列式へ展開する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: backshift-polynomial
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [時系列解析, 後退作用素, ARMA過程]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+---
+## 問題
+$(1-0.5B+0.2B^2)X_t=(1+0.3B)\varepsilon_t$ を通常の添字表示へ展開せよ。
+## 記号・用語
+$B$ は後退作用素で、$BX_t=X_{t-1}$、$B^2X_t=X_{t-2}$ と定義する。
+## 使用公式・定理
+多項式を各系列へ分配し、$B^kZ_t=Z_{t-k}$ を使う。
+## 一手／方針
+左辺と右辺を別々に展開してから、現在値 $X_t$ について解く。
+## 答え
+$$X_t-0.5X_{t-1}+0.2X_{t-2}=\varepsilon_t+0.3\varepsilon_{t-1},$$
+したがって
+$$X_t=0.5X_{t-1}-0.2X_{t-2}+\varepsilon_t+0.3\varepsilon_{t-1}.$$
+## 計算例
+$B^2X_t$ は $X_{t-2}$ であり、$(X_{t-1})^2$ ではない。
+## 注意
+AR多項式を右辺へ移すと各AR項の符号が変わる。
+<!-- CARD -->
+
+---
+id: engproc-arima010-drift-forecast
+title: ドリフト付きARIMA(0,1,0)の多期予測を求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: arima010-forecast
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, ARIMA過程, ドリフト]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+---
+## 問題
+$\Delta X_t=1.5+\varepsilon_t$、$X_t=100$ とする。$3$ 期先の点予測を求めよ。
+## 記号・用語
+$\Delta X_t=X_t-X_{t-1}$、定数1.5は1期当たりのドリフトである。
+## 使用公式・定理
+ドリフト付きARIMA(0,1,0)では
+$$\widehat X_{t+h\mid t}=X_t+hd$$
+である。$d$ はドリフト。
+## 一手／方針
+未来の各革新の条件付き期待値を0とし、ドリフトを $h$ 回累積する。
+## 答え
+$$\widehat X_{t+3\mid t}=100+3(1.5)=104.5.$$
+## 計算例
+1期先から順に $101.5,103.0,104.5$ と増える。
+## 注意
+ドリフト $d$ と水準系列の切片を混同しない。差分系列の平均が $d$ である。
+<!-- CARD -->
+
+---
+id: engproc-arima110-difference-forecast
+title: ARIMA(1,1,0)を差分系列で予測する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: arima110-forecast
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [時系列解析, ARIMA過程, 差分]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+---
+## 問題
+$Y_t=\Delta X_t$ が $Y_t=0.5Y_{t-1}+\varepsilon_t$ に従う。$X_t=50$、$Y_t=4$ のとき $X_{t+2}$ の点予測を求めよ。
+## 記号・用語
+$Y_t$ は水準 $X_t$ の1階差分、$\widehat Y_{t+h\mid t}$ は将来の増分予測である。
+## 使用公式・定理
+AR(1)差分の予測は $\widehat Y_{t+h\mid t}=\phi^hY_t$、水準予測は
+$$\widehat X_{t+h\mid t}=X_t+\sum_{j=1}^h\widehat Y_{t+j\mid t}.$$
+## 一手／方針
+まず各期の差分を予測し、その差分を現在の水準へ足し戻す。
+## 答え
+$$\widehat Y_{t+1\mid t}=0.5(4)=2,\qquad \widehat Y_{t+2\mid t}=0.5^2(4)=1,$$
+$$\widehat X_{t+2\mid t}=50+2+1=53.$$
+## 計算例
+1期先水準は $50+2=52$ である。
+## 注意
+$Y_{t+2}$ の予測値1だけを $X_t$ に足すのではなく、途中の差分もすべて累積する。
+<!-- CARD -->
+
+---
+id: engproc-seasonal-difference-monthly
+title: 月次系列の季節差分を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: seasonal-differencing
+type: calc_step
+difficulty: 1
+priority: B
+hashtags: [時系列解析, ARIMA過程, 季節差分]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+---
+## 問題
+月次需要が2025年3月に120、2026年3月に138であった。周期12の季節差分を求めよ。
+## 記号・用語
+周期 $s$ の季節差分は $\Delta_sX_t=X_t-X_{t-s}$ である。月次系列では通常 $s=12$。
+## 使用公式・定理
+後退作用素では $\Delta_sX_t=(1-B^s)X_t$。
+## 一手／方針
+同じ月の1年前を対応させ、現在値から引く。
+## 答え
+$$\Delta_{12}X_t=138-120=18.$$
+## 計算例
+18は前年同月比の差であり、比率なら $(138/120-1)\times100=15\%$ と別計算になる。
+## 注意
+通常差分 $X_t-X_{t-1}$ と季節差分 $X_t-X_{t-12}$ を区別する。
+<!-- CARD -->
+
+---
+id: engproc-acf-pacf-model-selection
+title: ACFとPACFの切れ方からAR・MA候補を選ぶ
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: acf-pacf-identification
+type: recognition
+difficulty: 2
+priority: A
+hashtags: [時系列解析, 自己相関, 偏自己相関]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+定常化後の系列で、ACFは徐々に減衰し、PACFはラグ2まで有意でラグ3以降はほぼ0であった。第一候補のモデルを答えよ。
+## 記号・用語
+ACFは自己相関関数、PACFは中間ラグの線形効果を除いた偏自己相関関数である。
+## 使用公式・定理
+純粋なAR($p$)ではPACFがラグ $p$ で打ち切られ、ACFは減衰する。純粋なMA($q$)ではACFがラグ $q$ で打ち切られる。
+## 一手／方針
+どちらの関数が有限ラグで切れているかを先に見る。
+## 答え
+PACFがラグ2で打ち切られているので、第一候補はAR(2)である。
+## 計算例
+逆にACFだけがラグ2で切れ、PACFが減衰するならMA(2)を候補にする。
+## 注意
+これは候補選択の経験則であり、残差診断や情報量規準による確認が必要である。
+<!-- CARD -->
+
+---
+id: engproc-pacf-significance-output
+title: PACF出力から有意なラグを判定する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: pacf-output
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, 偏自己相関, ソフトウェア出力]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+$n=100$ の系列のPACF出力がラグ1で0.55、ラグ2で$-0.24$、ラグ3で0.12であった。近似95%限界 $\pm1.96/\sqrt n$ で有意なラグを判定せよ。
+## 記号・用語
+PACFは偏自己相関関数、$n$ は観測数である。有意とは近似限界の外側にあることをいう。
+## 使用公式・定理
+大標本での目安は $\pm1.96/\sqrt n$。
+## 一手／方針
+限界を数値化し、各PACFの絶対値と比較する。
+## 答え
+$$1.96/\sqrt{100}=0.196.$$
+$|0.55|,|-0.24|>0.196$、$|0.12|<0.196$ なので、ラグ1と2が有意でラグ3は有意でない。
+## 計算例
+この切れ方はAR(2)候補と整合する。
+## 注意
+複数ラグの同時検定ではなく、次数選択の近似的な診断である。
+<!-- CARD -->
+
+---
+id: engproc-ljung-box-numeric
+title: Ljung--Box統計量を残差自己相関から計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ljung-box-test
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [時系列解析, 残差診断, Ljung-Box検定]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+$n=50$、残差自己相関が $r_1=0.20,r_2=-0.10$ である。ラグ2までのLjung--Box統計量 $Q$ を計算せよ。
+## 記号・用語
+$r_h$ はラグ $h$ の残差自己相関、帰無仮説は指定ラグまで残差が無相関であること。
+## 使用公式・定理
+$$Q=n(n+2)\sum_{h=1}^m\frac{r_h^2}{n-h}.$$
+ARMA($p,q$)残差では近似的に $\chi^2_{m-p-q}$ と比較する。季節AR・MA項があれば、その動的係数数も自由度から引く。
+## 一手／方針
+各ラグの二乗を $n-h$ で割って足し、最後に $n(n+2)$ を掛ける。
+## 答え
+$$Q=50(52)\left(\frac{0.20^2}{49}+\frac{(-0.10)^2}{48}\right)$$
+$$=2600(0.0008163+0.0002083)\approx2.66.$$
+## 計算例
+モデル母数を推定していない比較なら、自由度2の5%上側点5.991より小さく、帰無仮説を棄却しない。
+## 注意
+切片と革新分散は自由度から引く動的係数数に含めない。比較自由度が正になるよう $m$ を選ぶ。
+<!-- CARD -->
+
+---
+id: engproc-exponential-smoothing-update
+title: 単純指数平滑法で逐次予測を更新する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: exponential-smoothing
+type: calc_step
+difficulty: 1
+priority: B
+hashtags: [時系列解析, 指数平滑法, 予測]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+平滑化係数 $\alpha=0.3$、前期予測 $F_t=100$、実績 $X_t=110$ とする。次期予測 $F_{t+1}$ を求めよ。
+## 記号・用語
+$F_t$ は時点 $t$ の1期先予測として用いた水準、$\alpha$ は新しい実績へ置く重みである。
+## 使用公式・定理
+単純指数平滑法は
+$$F_{t+1}=\alpha X_t+(1-\alpha)F_t=F_t+\alpha(X_t-F_t).$$
+## 一手／方針
+実績と前期予測の差に $\alpha$ を掛け、前期予測へ加える。
+## 答え
+$$F_{t+1}=100+0.3(110-100)=103.$$
+## 計算例
+次の実績が106なら $F_{t+2}=103+0.3(106-103)=103.9$。
+## 注意
+$\alpha$ が大きいほど直近の変化へ速く反応するが、予測も変動しやすい。
+<!-- CARD -->
+
+---
+id: engproc-ar1-spectral-ratio
+title: AR(1)スペクトルの低周波・高周波比を求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-spectrum
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [時系列解析, スペクトル密度, 自己回帰過程]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+$X_t=0.6X_{t-1}+\varepsilon_t$ のスペクトル密度について、$f(0)/f(\pi)$ を求めよ。
+## 記号・用語
+$f(\omega)$ は角周波数 $\omega$ におけるスペクトル密度である。$\omega=0$ は低周波、$\omega=\pi$ は最高周波側を表す。
+## 使用公式・定理
+AR(1)では
+$$f(\omega)=\frac{\sigma_\varepsilon^2}{2\pi\{1+\phi^2-2\phi\cos\omega\}}.$$
+## 一手／方針
+$\cos0=1$、$\cos\pi=-1$ を代入し、共通因子を約分する。
+## 答え
+$$\frac{f(0)}{f(\pi)}=\frac{(1+\phi)^2}{(1-\phi)^2}
+=\left(\frac{1.6}{0.4}\right)^2=16.$$
+## 計算例
+正のAR係数により、ゆっくりした工程変動の強さが高周波変動の16倍になる。
+## 注意
+$f(0)$ と $f(\pi)$ の分母の比を逆向きにしない。
+<!-- CARD -->
+
+---
+id: engproc-periodogram-period-identification
+title: ピリオドグラムのピークから工程周期を読む
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: periodogram
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [時系列解析, ピリオドグラム, 周期]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+等間隔に観測した工程系列のピリオドグラムが角周波数 $\omega=\pi/6$ で最大となった。対応する周期を求めよ。
+## 記号・用語
+$\omega$ は1観測当たりの角周波数、周期 $T$ は同じ位相へ戻るまでの観測間隔数である。
+## 使用公式・定理
+角周波数と周期の関係は
+$$T=\frac{2\pi}{\omega}.$$
+## 一手／方針
+ピーク周波数を周期の換算式へ代入する。
+## 答え
+$$T=\frac{2\pi}{\pi/6}=12.$$
+したがって12観測ごとの周期成分が強い。
+## 計算例
+月次観測なら12か月周期、日次観測なら12日周期に対応する。
+## 注意
+周波数が cycles/sample で与えられた場合は $T=1/f$ を使う。角周波数との単位差に注意する。
+<!-- CARD -->
+
+---
+id: engproc-arima-forecast-output
+title: ARIMA予測出力から予測区間を復元する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: arima-software-output
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, ARIMA過程, ソフトウェア出力]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+---
+## 問題
+ARIMAモデルの1期先予測出力が `forecast = 80.0`, `standard error = 2.5` であった。正規近似による95%予測区間を求めよ。
+## 記号・用語
+`forecast` は条件付き平均、`standard error` は将来観測の予測誤差標準偏差である。
+## 使用公式・定理
+正規革新を仮定した近似95%予測区間は
+$$\widehat X_{t+h\mid t}\pm1.96\operatorname{se}_h.$$
+## 一手／方針
+標準誤差を1.96倍し、点予測の両側へ加減する。
+## 答え
+$$80.0\pm1.96(2.5)=80.0\pm4.9,$$
+よって予測区間は $(75.1,84.9)$。
+## 計算例
+実現値85.3はこの区間の上側外にあり、予測モデルの再点検材料になる。
+## 注意
+係数推定の標準誤差ではなく、予測誤差の標準誤差を用いる。
+<!-- CARD -->
+
+---
+id: engproc-biased-walk-hit-upper
+title: 偏りのあるランダムウォークの上側到達確率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: gambler-ruin-biased
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [ランダムウォーク, 到達確率, 差分方程式]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ランダムウォーク }]
+---
+## 問題
+状態 $0,1,\ldots,5$ 上で、確率 $p=0.6$ で $+1$、$q=0.4$ で $-1$ 進む。状態2から出発し、0より先に5へ到達する確率を求めよ。
+## 記号・用語
+$h_i=P_i(T_5<T_0)$、$T_j$ は状態 $j$ への初到達時刻である。
+## 使用公式・定理
+$p\ne q$ の吸収ランダムウォークでは
+$$h_i=\frac{1-(q/p)^i}{1-(q/p)^N},\qquad h_0=0, h_N=1.$$
+## 一手／方針
+$q/p=2/3$、$i=2$、$N=5$ を公式へ代入する。
+## 答え
+$$h_2=\frac{1-(2/3)^2}{1-(2/3)^5}=\frac{5/9}{211/243}=\frac{135}{211}\approx0.640.$$
+## 計算例
+公平な場合の $i/N=2/5$ より、上向きドリフトにより到達確率が大きい。
+## 注意
+$p=q$ のときは比の公式でなく $h_i=i/N$ を使う。
+<!-- CARD -->
+
+---
+id: engproc-random-walk-expected-absorption
+title: 公平なランダムウォークの平均吸収時間を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: random-walk-absorption-time
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ランダムウォーク, 平均到達時間, 吸収]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ランダムウォーク }]
+---
+## 問題
+状態 $0,1,\ldots,6$ 上の公平なランダムウォークが状態2から出発する。0または6へ吸収されるまでの平均時点数を求めよ。
+## 記号・用語
+$m_i=E_i[T_{\{0,N\}}]$ はいずれかの境界への平均吸収時間である。
+## 使用公式・定理
+公平な吸収ランダムウォークでは $m_i=i(N-i)$。
+## 一手／方針
+出発状態 $i=2$ と上側境界 $N=6$ を代入する。
+## 答え
+$$m_2=2(6-2)=8.$$
+## 計算例
+中央の状態3では $m_3=3\cdot3=9$ で最大になる。
+## 注意
+これは吸収までの時点数の期待値で、上側へ到達する条件付き時間ではない。
+<!-- CARD -->
+
+---
+id: engproc-ctmc-generator-check
+title: 連続時間マルコフ連鎖の生成行列を判定する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ctmc-generator
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [マルコフ過程, 連続時間マルコフ連鎖, 生成行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+$Q=\begin{pmatrix}-3&2&1\\1&-1&0\\0&4&-4\end{pmatrix}$ は連続時間マルコフ連鎖の生成行列になり得るか。
+## 記号・用語
+$q_{ij}$ は状態 $i$ から $j$ への遷移率、$q_{ii}$ は状態 $i$ から出る総率の負値である。
+## 使用公式・定理
+生成行列は $i\ne j$ で $q_{ij}\ge0$、各行和が0を満たす。
+## 一手／方針
+非対角成分の符号と各行和を確認する。
+## 答え
+非対角成分はすべて非負で、行和は $-3+2+1=0$、$1-1=0$、$4-4=0$。よって生成行列になり得る。
+## 計算例
+状態1の保持時間は率3の指数分布に従う。
+## 注意
+離散時間の遷移行列と異なり、対角成分は負で行和は1でなく0である。
+<!-- CARD -->
+
+---
+id: engproc-ctmc-holding-jump-probability
+title: 生成行列から保持時間と遷移先確率を求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ctmc-holding-time
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ過程, 保持時間, ジャンプ連鎖]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+生成行列の状態1の行が $(-3,2,1)$ である。状態1の平均保持時間と、離脱時に状態2へ移る確率を求めよ。
+## 記号・用語
+離脱率は $\nu_i=-q_{ii}$、ジャンプ先確率は $q_{ij}/\nu_i$ である。$H_1$ は状態1の保持時間を表す。
+## 使用公式・定理
+保持時間は率 $\nu_i$ の指数分布に従い、平均は $1/\nu_i$。
+## 一手／方針
+対角成分から総離脱率を読み、非対角率を総率で割る。
+## 答え
+$$\nu_1=3,\qquad E[H_1]=\frac13,$$
+$$P(1\to2\mid\text{離脱})=\frac{q_{12}}{\nu_1}=\frac23.$$
+## 計算例
+状態3へ移る確率は $1/3$ で、合計1になる。
+## 注意
+遷移率2は確率ではないため、そのまま確率として読まない。
+<!-- CARD -->
+
+---
+id: engproc-two-state-ctmc-transition
+title: 2状態連続時間マルコフ連鎖の遷移確率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ctmc-transition-probability
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ過程, 遷移確率, 可用性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+稼働状態0から故障状態1への率が $\lambda=2$、修復率が $\mu=3$ である。稼働状態から出発したとき、時刻 $t$ に稼働中である確率を求めよ。
+## 記号・用語
+$p_{00}(t)=P(X(t)=0\mid X(0)=0)$ である。
+## 使用公式・定理
+2状態連続時間マルコフ連鎖では
+$$p_{00}(t)=\frac{\mu}{\lambda+\mu}+\frac{\lambda}{\lambda+\mu}e^{-(\lambda+\mu)t}.$$
+## 一手／方針
+定常稼働確率と初期状態からの過渡項に分けて代入する。
+## 答え
+$$p_{00}(t)=\frac35+\frac25e^{-5t}.$$
+## 計算例
+$t\to\infty$ では $p_{00}(t)\to3/5$ で、長期可用率に一致する。
+## 注意
+$t=0$ で $p_{00}(0)=1$ になることを確認する。
+<!-- CARD -->
+
+---
+id: engproc-poisson-failure-count
+title: 一定故障率から期間内故障件数を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: poisson-failure-count
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [ポアソン過程, 故障件数, 信頼性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+設備の故障が1日当たり率0.2のポアソン過程に従う。10日間に故障が2件以下である確率を求めよ。
+## 記号・用語
+$N(t)$ は期間 $t$ までの故障件数、平均は $\lambda t$ である。
+## 使用公式・定理
+$N(t)\sim\operatorname{Poisson}(\lambda t)$、$P(N=k)=e^{-m}m^k/k!$。
+## 一手／方針
+平均件数 $m=0.2\cdot10$ を求め、$k=0,1,2$ の確率を足す。
+## 答え
+$$P(N(10)\le2)=e^{-2}\left(1+2+\frac{2^2}{2}\right)=5e^{-2}\approx0.6767.$$
+## 計算例
+3件以上の確率は $1-5e^{-2}\approx0.3233$。
+## 注意
+「2件以下」には0件と1件も含む。
+<!-- CARD -->
+
+---
+id: engproc-nhpp-cumulative-intensity
+title: 非定常ポアソン過程の累積強度を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: nonhomogeneous-poisson
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ポアソン過程, 非定常ポアソン過程, 累積強度]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+時刻依存の到着強度が $\lambda(t)=2t$（$t\ge0$）である。区間 $[0,3]$ の平均到着数と無到着確率を求めよ。
+## 記号・用語
+$\Lambda(t)=\int_0^t\lambda(u)du$ は累積強度である。
+## 使用公式・定理
+非定常ポアソン過程では $N(t)\sim\operatorname{Poisson}(\Lambda(t))$、$P(N(t)=0)=e^{-\Lambda(t)}$。
+## 一手／方針
+強度関数を積分して平均件数を求める。
+## 答え
+$$\Lambda(3)=\int_0^3 2u\,du=[u^2]_0^3=9,$$
+$$P(N(3)=0)=e^{-9}\approx0.000123.$$
+## 計算例
+区間 $[1,3]$ の平均到着数は $\Lambda(3)-\Lambda(1)=8$。
+## 注意
+強度 $\lambda(t)$ と累積強度 $\Lambda(t)$ を取り違えない。
+<!-- CARD -->
+
+---
+id: engproc-poisson-rate-estimate-exposure
+title: ポアソン過程の到着率を総曝露時間から推定する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: poisson-rate-estimation
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [ポアソン過程, 最尤推定, 曝露時間]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+独立な5台の装置を各100時間観測し、合計8件の故障を観測した。一定故障率 $\lambda$ の最尤推定値を求めよ。
+## 記号・用語
+総曝露時間は全装置の観測時間の和である。
+## 使用公式・定理
+ポアソン過程の率の最尤推定量は $\widehat\lambda=(\text{総件数})/(\text{総曝露時間})$。
+## 一手／方針
+装置数と1台当たり時間を掛けて総曝露時間を求める。
+## 答え
+$$T=5\cdot100=500,$$
+$$\widehat\lambda=\frac8{500}=0.016\quad\text{件/時間}.$$
+## 計算例
+平均故障間隔の推定値は $1/0.016=62.5$ 時間。
+## 注意
+装置数だけで割らず、観測時間を含む曝露量で割る。
+<!-- CARD -->
+
+---
+id: engproc-compound-poisson-cost
+title: 複合ポアソン過程の総費用の平均と分散を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: compound-poisson-cost
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [ポアソン過程, 複合ポアソン過程, 総費用]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+1か月の故障数 $N\sim\operatorname{Poisson}(4)$、各修理費 $Y_i$ は独立同分布で $E[Y_i]=3$、$\operatorname{Var}(Y_i)=5$、かつ $N$ と独立である。総費用 $S=\sum_{i=1}^NY_i$ の平均と分散を求めよ。
+## 記号・用語
+空和は $N=0$ のとき0とする。
+## 使用公式・定理
+複合ポアソン和では $E[S]=\lambda E[Y]$、$\operatorname{Var}(S)=\lambda E[Y^2]=\lambda\{\operatorname{Var}(Y)+E[Y]^2\}$。
+## 一手／方針
+修理費の二次モーメントを計算してポアソン率を掛ける。
+## 答え
+$$E[S]=4\cdot3=12,$$
+$$\operatorname{Var}(S)=4(5+3^2)=56.$$
+## 計算例
+標準偏差は $\sqrt{56}\approx7.48$。
+## 注意
+$\lambda\operatorname{Var}(Y)=20$ だけでは件数変動の寄与を落としている。
+<!-- CARD -->
+
+---
+id: engproc-brownian-bridge-conditional
+title: ブラウン運動の終点条件付き分布を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: brownian-bridge
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ過程, ブラウン運動, 条件付き正規分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+標準ブラウン運動について、$B(4)=2$ の下での $B(1)$ の条件付き平均と分散を求めよ。
+## 記号・用語
+$\operatorname{Cov}(B(s),B(t))=\min(s,t)$ で、$(B(1),B(4))$ は2変量正規分布に従う。
+## 使用公式・定理
+2変量正規分布の条件付き平均・分散を用いる。
+## 一手／方針
+$\operatorname{Var}(B(1))=1$、$\operatorname{Var}(B(4))=4$、共分散1を条件付き正規公式へ入れる。
+## 答え
+$$E[B(1)\mid B(4)=2]=\frac14\cdot2=\frac12,$$
+$$\operatorname{Var}(B(1)\mid B(4)=2)=1-\frac{1^2}{4}=\frac34.$$
+## 計算例
+条件付き平均は直線補間 $(1/4)B(4)$ になる。
+## 注意
+終点を条件とすると、増分の独立性はそのまま残らない。
+<!-- CARD -->
+
+---
+id: engproc-ou-mean-variance
+title: Ornstein--Uhlenbeck過程の平均と分散を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ornstein-uhlenbeck
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ過程, Ornstein-Uhlenbeck過程, 平均回帰]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+$dX_t=-2X_tdt+3dB_t$、$X_0=4$ のOrnstein--Uhlenbeck過程について $E[X_t]$ と $\operatorname{Var}(X_t)$ を求めよ。
+## 記号・用語
+$B_t$ は標準ブラウン運動、係数2は平均回帰速度、係数3は拡散係数である。
+## 使用公式・定理
+$dX_t=-\theta X_tdt+\sigma dB_t$ では
+$$E[X_t]=X_0e^{-\theta t},\qquad \operatorname{Var}(X_t)=\frac{\sigma^2}{2\theta}(1-e^{-2\theta t}).$$
+## 一手／方針
+$\theta=2,\sigma=3,X_0=4$ を公式へ代入する。
+## 答え
+$$E[X_t]=4e^{-2t},$$
+$$\operatorname{Var}(X_t)=\frac94(1-e^{-4t}).$$
+## 計算例
+$t\to\infty$ で平均0、分散 $9/4$ の定常分布へ近づく。
+## 注意
+ランダムウォークと異なり分散は無限に増えず、平均回帰により上限へ収束する。
+<!-- CARD -->
+
+---
+id: engproc-degradation-two-step
+title: 劣化マルコフ連鎖の2段階故障確率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: markov-degradation
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [マルコフ連鎖, 遷移行列, 劣化モデル]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+状態を正常0、劣化1、故障2とし、遷移行列が $P=\begin{pmatrix}0.8&0.2&0\\0&0.6&0.4\\0&0&1\end{pmatrix}$ である。正常から2期後に故障している確率を求めよ。
+## 記号・用語
+$p_{ij}^{(2)}$ は状態 $i$ から2段階後に状態 $j$ にいる確率である。
+## 使用公式・定理
+$P^{(2)}=P^2$、$p_{ij}^{(2)}=\sum_kp_{ik}p_{kj}$。
+## 一手／方針
+正常から故障へ2期で至る経路 $0\to1\to2$ の確率積を求める。
+## 答え
+$$p_{02}^{(2)}=0.8(0)+0.2(0.4)+0(1)=0.08.$$
+## 計算例
+1期目に正常のままでは2期目に直接故障しない設定である。
+## 注意
+故障状態は吸収状態である。
+<!-- CARD -->
+
+---
+id: engproc-repair-chain-stationary-availability
+title: 故障修復連鎖の定常可用率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: stationary-availability
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [マルコフ連鎖, 定常分布, 可用率]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+稼働0・故障1の遷移行列が $P=\begin{pmatrix}0.9&0.1\\0.4&0.6\end{pmatrix}$ である。長期可用率を求めよ。
+## 記号・用語
+定常分布 $\boldsymbol\pi=(\pi_0,\pi_1)$ の $\pi_0$ が長期可用率である。
+## 使用公式・定理
+$\boldsymbol\pi^\top P=\boldsymbol\pi^\top$、$\pi_0+\pi_1=1$。
+## 一手／方針
+稼働から故障への定常流量と故障から修復への流量を等置する。
+## 答え
+$$0.1\pi_0=0.4\pi_1,\qquad \pi_0+\pi_1=1,$$
+より $\pi_0=0.8,\pi_1=0.2$。長期可用率は0.8。
+## 計算例
+長期的には観測時点の20%で故障状態にいる。
+## 注意
+初期状態によらず収束するには既約性・非周期性を確認する。
+<!-- CARD -->
+
+---
+id: engproc-stationary-mean-recurrence
+title: 定常確率から平均再帰時間を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: mean-recurrence-time
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ連鎖, 再帰時間, 定常分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+有限既約マルコフ連鎖の状態Aの定常確率が $\pi_A=0.2$ である。Aから出発して次にAへ戻るまでの平均時点数を求めよ。
+## 記号・用語
+初回再帰時間は時点1以降で初めて同じ状態へ戻る時刻である。
+## 使用公式・定理
+**Kacの公式**：有限既約連鎖で平均再帰時間は $E_A[T_A^+]=1/\pi_A$。
+## 一手／方針
+定常確率の逆数を取る。
+## 答え
+$$E_A[T_A^+]=\frac1{0.2}=5.$$
+## 計算例
+長期的に5時点に1回現れる状態へは平均5時点で再帰する。
+## 注意
+滞在時間ではなく、離脱しない場合も含む次の再訪までの時点数である。
+<!-- CARD -->
+
+---
+id: engproc-birth-death-detailed-balance
+title: 出生死亡過程の定常比を詳細釣合いから求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: birth-death-process
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ過程, 出生死亡過程, 詳細釣合い]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+出生率が全状態で $\lambda$、死亡率が正の状態で $\mu$ の出生死亡過程について、定常確率の比 $\pi_{n+1}/\pi_n$ を求めよ。
+## 記号・用語
+$\pi_n$ は定常状態で系内個数が $n$ である確率である。
+## 使用公式・定理
+詳細釣合い式は $\pi_n\lambda=\pi_{n+1}\mu$。
+## 一手／方針
+隣接状態間の流入率と流出率を等置して比を解く。
+## 答え
+$$\frac{\pi_{n+1}}{\pi_n}=\frac\lambda\mu=\rho.$$
+## 計算例
+$\rho<1$ なら $\pi_n=(1-\rho)\rho^n$ と正規化できる。
+## 注意
+$\rho\ge1$ では無限状態空間上の定常確率分布を正規化できない。
+<!-- CARD -->
+
+---
+id: engproc-mm1-stationary-probability
+title: M/M/1待ち行列の定常確率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: mm1-stationary
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ過程, M-M-1待ち行列, 定常分布]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+到着率 $\lambda=2$/時、サービス率 $\mu=3$/時のM/M/1待ち行列で、定常時に系内人数が3人である確率を求めよ。
+## 記号・用語
+$\rho=\lambda/\mu$ は利用率で、定常分布には $\rho<1$ が必要である。
+## 使用公式・定理
+M/M/1の定常確率は $\pi_n=(1-\rho)\rho^n$。
+## 一手／方針
+利用率を計算し、幾何分布型の定常確率へ代入する。
+## 答え
+$$\rho=\frac23,$$
+$$\pi_3=\left(1-\frac23\right)\left(\frac23\right)^3=\frac8{81}\approx0.0988.$$
+## 計算例
+空系確率は $\pi_0=1/3$。
+## 注意
+系内人数にはサービス中の1人も含む。
+<!-- CARD -->
+
+---
+id: engproc-mm1-little-law
+title: M/M/1待ち行列の平均人数と平均滞在時間を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: mm1-performance
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ過程, M-M-1待ち行列, Littleの法則]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+$\lambda=2$/時、$\mu=3$/時のM/M/1待ち行列で、平均系内人数 $L$ と平均系内時間 $W$ を求めよ。
+## 記号・用語
+$L$ はサービス中を含む平均人数、$W$ は待ち時間とサービス時間を含む平均滞在時間である。
+## 使用公式・定理
+$L=\rho/(1-\rho)=\lambda/(\mu-\lambda)$、Littleの法則 $L=\lambda W$。
+## 一手／方針
+まず平均人数を求め、到着率で割って平均時間へ変換する。
+## 答え
+$$L=\frac2{3-2}=2,$$
+$$W=\frac L\lambda=\frac22=1\text{ 時間}.$$
+## 計算例
+平均待ち人数は $L_q=\rho^2/(1-\rho)=4/3$。
+## 注意
+$W$ は待ち時間だけでなくサービス時間も含む。
+<!-- CARD -->
+
+---
+id: engproc-absorbing-fundamental-matrix
+title: 吸収連鎖の基本行列を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: absorbing-fundamental-matrix
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ連鎖, 吸収連鎖, 基本行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+2つの一時状態の部分行列が $Q=\begin{pmatrix}0.5&0.2\\0.1&0.6\end{pmatrix}$ である。基本行列 $N$ を求めよ。
+## 記号・用語
+$N_{ij}$ は状態 $i$ から出発して吸収前に一時状態 $j$ を訪れる期待回数である。
+## 使用公式・定理
+吸収連鎖の基本行列は $N=(I-Q)^{-1}$。
+## 一手／方針
+$I-Q$ を作り、2次逆行列公式を使う。
+## 答え
+$$I-Q=\begin{pmatrix}0.5&-0.2\\-0.1&0.4\end{pmatrix},\qquad |I-Q|=0.18,$$
+$$N=\frac1{0.18}\begin{pmatrix}0.4&0.2\\0.1&0.5\end{pmatrix}=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}.$$
+## 計算例
+第1行和 $10/3$ は状態1から吸収まで一時状態にいる平均時点数。
+## 注意
+ここでの $N$ は計数過程でなく基本行列の記号である。
+<!-- CARD -->
+
+---
+id: engproc-absorbing-probability-matrix
+title: 基本行列から吸収先確率を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: absorbing-probability
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ連鎖, 吸収確率, 基本行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+一時状態から2つの吸収状態への遷移部分を $R=\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}$、基本行列を $N=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}$ とする。吸収確率行列を求めよ。
+## 記号・用語
+$B_{ij}$ は一時状態 $i$ から最終的に吸収状態 $j$ へ入る確率である。
+## 使用公式・定理
+吸収確率行列は $B=NR$。
+## 一手／方針
+基本行列と吸収遷移部分を行列乗算する。
+## 答え
+$$B=\begin{pmatrix}5/9&4/9\\7/18&11/18\end{pmatrix}.$$
+## 計算例
+各行和は1で、いずれかの吸収状態へ最終的に入る。
+## 注意
+行が出発する一時状態、列が吸収先に対応する。
+<!-- CARD -->
+
+---
+id: engproc-markov-reward-long-run
+title: マルコフ報酬過程の長期平均報酬を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: markov-reward
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [マルコフ連鎖, 定常分布, 報酬過程]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+定常分布が $\boldsymbol\pi=(0.7,0.2,0.1)$、各状態の1期報酬が $\boldsymbol r=(10,4,-6)^\top$ である。長期平均報酬を求めよ。
+## 記号・用語
+状態報酬 $r_i$ はその状態に1期いる間に得る報酬である。
+## 使用公式・定理
+定常状態の長期平均報酬は $\bar r=\boldsymbol\pi^\top\boldsymbol r$。
+## 一手／方針
+各状態報酬を定常確率で加重平均する。
+## 答え
+$$\bar r=0.7(10)+0.2(4)+0.1(-6)=7.2.$$
+## 計算例
+100期では長期的に約720の総報酬を見込む。
+## 注意
+初期過渡期間を含む有限期間期待値とは異なる。
+<!-- CARD -->
+
+---
+id: engproc-ctmc-uniformization
+title: 一様化で連続時間連鎖の埋込行列を作る
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ctmc-uniformization
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [マルコフ過程, 一様化, 生成行列]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+---
+## 問題
+$Q=\begin{pmatrix}-2&2\\1&-1\end{pmatrix}$ を率 $\nu=2$ で一様化した離散時間遷移行列を求めよ。
+## 記号・用語
+一様化は仮想的な自己遷移を加えて連続時間連鎖をポアソン時点の離散連鎖として扱う方法である。
+## 使用公式・定理
+$P=I+Q/\nu$、ただし $\nu\ge\max_i(-q_{ii})$。
+## 一手／方針
+生成行列を2で割り、単位行列を足す。
+## 答え
+$$P=\begin{pmatrix}1&0\\0&1\end{pmatrix}+\frac12\begin{pmatrix}-2&2\\1&-1\end{pmatrix}=\begin{pmatrix}0&1\\0.5&0.5\end{pmatrix}.$$
+## 計算例
+各成分は非負で行和1になっている。
+## 注意
+$\nu$ を最大離脱率より小さくすると負の確率が生じ得る。
+<!-- CARD -->
+
+---
+id: engproc-poisson-thinning-defects
+title: ポアソン欠陥流を種類別に分割する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: poisson-thinning
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [ポアソン過程, 間引き, 欠陥分類]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+欠陥が率12/時のポアソン過程で発生し、各欠陥は独立に確率0.25で重大欠陥である。2時間の重大欠陥数の分布を求めよ。
+## 記号・用語
+独立間引きでは各到着を他と独立に分類する。
+## 使用公式・定理
+率 $\lambda$ のポアソン過程を確率 $p$ で残すと、率 $p\lambda$ のポアソン過程になる。
+## 一手／方針
+重大欠陥率を求め、観測時間2を掛ける。
+## 答え
+重大欠陥率は $12(0.25)=3$/時。したがって
+$$N_{\mathrm{major}}(2)\sim\operatorname{Poisson}(6).$$
+## 計算例
+軽微欠陥数は平均 $12(0.75)2=18$ のポアソン分布。
+## 注意
+独立分類の下では2種類の計数過程も独立である。
+<!-- CARD -->
+
+---
+id: engproc-poisson-superposition-machines
+title: 複数設備の故障過程を重ね合わせる
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: poisson-superposition
+type: calc_step
+difficulty: 2
+priority: B
+hashtags: [ポアソン過程, 重ね合わせ, 故障過程]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ポアソン過程 }]
+---
+## 問題
+独立な3台の設備の故障率がそれぞれ $0.1,0.2,0.3$/日である。全設備を合わせた5日間の故障数の分布を求めよ。
+## 記号・用語
+重ね合わせは複数の計数過程の到着を一つにまとめる操作である。
+## 使用公式・定理
+独立なポアソン過程の重ね合わせは率の和をもつポアソン過程である。
+## 一手／方針
+3つの故障率を足し、期間5日を掛ける。
+## 答え
+合計率は $0.1+0.2+0.3=0.6$/日なので
+$$N(5)\sim\operatorname{Poisson}(3).$$
+## 計算例
+5日間の無故障確率は $e^{-3}$。
+## 注意
+設備間の故障過程の独立性が必要である。
+<!-- CARD -->
+
+---
+id: engproc-chapman-kolmogorov-maintenance
+title: 保全状態の多段階遷移を中間状態で分解する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: chapman-kolmogorov
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [マルコフ連鎖, Chapman-Kolmogorov関係, 保全]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+---
+## 問題
+正常0、要保全1、停止2の連鎖の推移行列を
+$$P=\begin{pmatrix}0.7&0.3&0\\0.2&0.4&0.4\\0&0&1\end{pmatrix}$$
+とする。正常から2期後に停止する確率を求めよ。
+## 記号・用語
+$p_{ij}^{(2)}$ は2段階遷移確率である。
+## 使用公式・定理
+Chapman--Kolmogorov関係：$p_{ij}^{(2)}=\sum_kp_{ik}p_{kj}$。
+## 一手／方針
+1期後の全中間状態を経由する確率積を足す。
+## 答え
+$$p_{02}^{(2)}=p_{00}p_{02}+p_{01}p_{12}+p_{02}p_{22}=0+0.3(0.4)+0=0.12.$$
+## 計算例
+この設定では経路 $0\to1\to2$ だけが寄与する。
+## 注意
+各中間状態 $k=0,1,2$ を漏れなく足す。
+<!-- CARD -->
+
+---
+id: engproc-stationarity-window-judgment
+title: 区間別統計量から弱定常性を診断する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: weak-stationarity-diagnostic
+type: recognition
+difficulty: 2
+priority: A
+hashtags: [時系列解析, 弱定常性, 工程データ]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+工程時系列の前半・後半で標本平均が $(10.1,14.8)$、標本分散が $(2.0,2.1)$ であった。弱定常性について何が疑われるか。
+## 記号・用語
+弱定常過程は平均が時点によらず、自己共分散が時差だけに依存する。
+## 使用公式・定理
+区間別平均・分散は定常性を調べる記述的診断である。
+## 一手／方針
+前後半で平均と分散の安定性を別々に比較する。
+## 答え
+分散はほぼ一定だが平均が大きく変化しており、平均一定条件に反するトレンドまたは水準変化が疑われる。
+## 計算例
+後半平均は前半より4.7高い。
+## 注意
+有限標本の差だけで非定常性を確定せず、図示や検定も併用する。
+<!-- CARD -->
+
+---
+id: engproc-sample-autocovariance-numeric
+title: 工程系列の標本自己共分散を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: sample-autocovariance
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [時系列解析, 自己共分散, 数値計算]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+系列 $(1,3,2,4)$ のラグ1標本自己共分散を分母 $n$ の定義で求めよ。
+## 記号・用語
+$\widehat\gamma(1)=n^{-1}\sum_{t=2}^n(x_t-\bar x)(x_{t-1}-\bar x)$ とする。
+## 使用公式・定理
+標本平均は $\bar x=n^{-1}\sum_tx_t$。
+## 一手／方針
+平均を引いた偏差列を作り、隣接偏差の積を足す。
+## 答え
+$\bar x=2.5$、偏差は $(-1.5,0.5,-0.5,1.5)$。よって
+$$\widehat\gamma(1)=\frac{0.5(-1.5)+(-0.5)(0.5)+1.5(-0.5)}4=-\frac{1.75}{4}=-0.4375.$$
+## 計算例
+ラグ0では偏差平方和を4で割る。
+## 注意
+分母 $n-k$ の定義もあるため問題文の規約に従う。
+<!-- CARD -->
+
+---
+id: engproc-residual-white-noise-bounds
+title: 残差ACFから白色性を診断する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: white-noise-diagnostic
+type: recognition
+difficulty: 2
+priority: B
+hashtags: [時系列解析, ホワイトノイズ, 残差診断]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 時系列解析 }]
+---
+## 問題
+標本数 $n=100$ のモデル残差でラグ1標本自己相関が0.28であった。近似95%限界 $\pm1.96/\sqrt n$ を使って白色性を診断せよ。
+## 記号・用語
+白色雑音では異なる時点の自己相関が0である。
+## 使用公式・定理
+大標本の標本自己相関の目安は $\pm1.96/\sqrt n$。
+## 一手／方針
+限界を数値化し、残差自己相関の絶対値と比較する。
+## 答え
+$$1.96/\sqrt{100}=0.196.$$
+$0.28>0.196$ なのでラグ1相関が残っており、白色雑音残差とは考えにくい。
+## 計算例
+AR項の不足などを再検討する。
+## 注意
+多数ラグを個別比較すると多重性が生じるためLjung--Box検定も使う。
+<!-- CARD -->
+
+---
+id: engproc-random-walk-difference-data
+title: 累積工程系列を差分して増分へ戻す
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: differencing-random-walk
+type: calc_step
+difficulty: 1
+priority: A
+hashtags: [時系列解析, ランダムウォーク, 差分]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: ランダムウォーク }]
+---
+## 問題
+累積系列 $(X_0,X_1,X_2,X_3)=(10,12,11,15)$ の1階差分を求め、ランダムウォークの増分として解釈せよ。
+## 記号・用語
+$\Delta X_t=X_t-X_{t-1}$ は1階差分である。
+## 使用公式・定理
+ランダムウォーク $X_t=X_{t-1}+\varepsilon_t$ では $\Delta X_t=\varepsilon_t$。
+## 一手／方針
+隣接する累積値を後の値から前の値を引く。
+## 答え
+$$\Delta X_1=2,\qquad \Delta X_2=-1,\qquad \Delta X_3=4.$$
+したがって観測された増分列は $(2,-1,4)$。
+## 計算例
+増分を累積すると $10+2-1+4=15$ に戻る。
+## 注意
+差分後の平均が0とは限らず、ドリフトが残る場合がある。
+<!-- CARD -->
+
+---
+id: engproc-ar1-intercept-long-run-mean
+title: 切片付きAR(1)の長期平均を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-mean
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [自己回帰過程, ARモデル, 長期平均]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+$X_t=4+0.8X_{t-1}+\varepsilon_t$、$E[\varepsilon_t]=0$ の定常AR(1)過程の平均を求めよ。
+## 記号・用語
+$|0.8|<1$ なので定常解が存在する。
+## 使用公式・定理
+切片付きAR(1) $X_t=c+\phi X_{t-1}+\varepsilon_t$ の平均は $\mu=c/(1-\phi)$。
+## 一手／方針
+両辺の期待値を取り、定常平均を同じ記号で置いて解く。
+## 答え
+$$\mu=4+0.8\mu,$$
+$$\mu=\frac4{1-0.8}=20.$$
+## 計算例
+平均中心化すると $X_t-20=0.8(X_{t-1}-20)+\varepsilon_t$。
+## 注意
+切片4をそのまま長期平均と読まない。
+<!-- CARD -->
+
+---
+id: engproc-ar1-stationary-variance
+title: AR(1)工程変動の定常分散を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-variance
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [自己回帰過程, ARモデル, 定常分散]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+$X_t=0.6X_{t-1}+\varepsilon_t$、$\operatorname{Var}(\varepsilon_t)=4$ の定常AR(1)過程の分散を求めよ。
+## 記号・用語
+革新 $\varepsilon_t$ は過去の系列と無相関である。
+## 使用公式・定理
+$\gamma(0)=\sigma_\varepsilon^2/(1-\phi^2)$。
+## 一手／方針
+革新分散とAR係数を定常分散公式へ代入する。
+## 答え
+$$\gamma(0)=\frac4{1-0.6^2}=\frac4{0.64}=6.25.$$
+## 計算例
+標準偏差は $2.5$。
+## 注意
+$1-\phi$ でなく $1-\phi^2$ で割る。
+<!-- CARD -->
+
+---
+id: engproc-ar1-correlation-half-life
+title: AR(1)自己相関の半減時点を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-correlation-decay
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [自己回帰過程, 自己相関, 半減期]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+AR(1)係数が $\phi=0.8$ のとき、自己相関が0.5以下になる最小ラグを求めよ。
+## 記号・用語
+定常AR(1)のラグ $h$ 自己相関は $\rho(h)=\phi^h$。
+## 使用公式・定理
+$0<\phi<1$ では $\phi^h\le0.5$ を対数で解く。
+## 一手／方針
+$h\ge\log(0.5)/\log(0.8)$ を計算し、最小整数へ切り上げる。
+## 答え
+$$\frac{\log0.5}{\log0.8}\approx3.106,$$
+よって最小ラグは $h=4$。実際 $0.8^3=0.512>0.5$、$0.8^4=0.4096$。
+## 計算例
+係数が1に近いほど相関の減衰は遅い。
+## 注意
+負のAR係数では自己相関の符号が交互に変わる。
+<!-- CARD -->
+
+---
+id: engproc-ar1-forecast-mean-reversion
+title: AR(1)の多段階予測で平均回帰を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-forecast
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [自己回帰過程, 予測, 平均回帰]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+平均20、AR係数0.5の定常AR(1)で現在値 $X_t=28$ のとき、2期先予測値を求めよ。
+## 記号・用語
+$\widehat X_{t+h\mid t}$ は時刻 $t$ までの情報による $h$ 期先予測である。
+## 使用公式・定理
+$\widehat X_{t+h\mid t}=\mu+\phi^h(X_t-\mu)$。
+## 一手／方針
+現在値の平均からの偏差を2期分減衰させる。
+## 答え
+$$\widehat X_{t+2\mid t}=20+0.5^2(28-20)=20+2=22.$$
+## 計算例
+1期先は24、長期先では20へ近づく。
+## 注意
+現在値28を単純に $0.5^2$ 倍せず、平均からの偏差を減衰させる。
+<!-- CARD -->
+
+---
+id: engproc-ar1-forecast-interval
+title: AR(1)の2期先予測区間を計算する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar1-forecast-interval
+type: calc_step
+difficulty: 3
+priority: B
+hashtags: [自己回帰過程, 予測区間, 予測誤差]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+AR(1)係数 $\phi=0.5$、革新分散 $\sigma_\varepsilon^2=4$、2期先点予測22のとき、正規革新を仮定した近似95%予測区間を求めよ。
+## 記号・用語
+2期先予測誤差は $\varepsilon_{t+2}+\phi\varepsilon_{t+1}$。
+## 使用公式・定理
+$V_2=\sigma_\varepsilon^2(1+\phi^2)$、予測区間は点予測 $\pm1.96\sqrt{V_2}$。
+## 一手／方針
+予測誤差分散を求め、標準偏差へ直して点予測に加減する。
+## 答え
+$$V_2=4(1+0.25)=5,$$
+$$22\pm1.96\sqrt5\approx22\pm4.383,$$
+よって約 $(17.62,26.38)$。
+## 計算例
+1期先誤差分散4より2期先の5が大きい。
+## 注意
+係数推定の不確実性は含めていない。
+<!-- CARD -->
+
+---
+id: engproc-ar2-root-stability
+title: AR(2)工程モデルの定常性を根で判定する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ar2-stationarity
+type: calc_step
+difficulty: 3
+priority: A
+hashtags: [自己回帰過程, AR2モデル, 定常性]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+$X_t=0.4X_{t-1}+0.2X_{t-2}+\varepsilon_t$ は定常か、AR多項式の根で判定せよ。
+## 記号・用語
+AR多項式は $\phi(z)=1-0.4z-0.2z^2$。
+## 使用公式・定理
+すべての根の絶対値が1より大きければ因果的定常解をもつ。
+## 一手／方針
+二次方程式を解き、2根の絶対値を比較する。
+## 答え
+$$0.2z^2+0.4z-1=0,$$
+$$z=\frac{-0.4\pm\sqrt{0.96}}{0.4}\approx1.449,-3.449.$$
+両方の絶対値が1を超えるので定常。
+## 計算例
+係数和 $0.6<1$ もこの例では安定性と整合する。
+## 注意
+一般のAR(2)で係数の絶対値だけを個別に見る判定は不十分。
+<!-- CARD -->
+
+---
+id: engproc-yule-walker-estimate-ar1
+title: 標本自己相関からAR(1)係数をYule--Walker推定する
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: yule-walker-estimation
+type: calc_step
+difficulty: 2
+priority: A
+hashtags: [自己回帰過程, Yule-Walker方程式, 推定]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
+---
+## 問題
+中心化済み系列の標本自己共分散が $\widehat\gamma(0)=10$、$\widehat\gamma(1)=6$ である。AR(1)係数と革新分散をYule--Walker法で推定せよ。
+## 記号・用語
+$\widehat\phi$ はAR係数、$\widehat\sigma_\varepsilon^2$ は革新分散推定値である。
+## 使用公式・定理
+$\phi=\gamma(1)/\gamma(0)$、$\sigma_\varepsilon^2=\gamma(0)(1-\phi^2)$。
+## 一手／方針
+ラグ1とラグ0の比で係数を求め、定常分散式を逆に解く。
+## 答え
+$$\widehat\phi=6/10=0.6,$$
+$$\widehat\sigma_\varepsilon^2=10(1-0.6^2)=6.4.$$
+## 計算例
+推定係数は定常域 $|\widehat\phi|<1$ にある。
+## 注意
+有限標本では推定値に偏りがあり得る。
+<!-- CARD -->
+
+---
+id: engproc-ma1-moment-identification
+title: MA(1)の自己相関から係数候補を求める
+category: applied-engineering
+subcategory: engineering-stochastic-processes
+topic: ma1-moment-estimation
+type: calc_step
+difficulty: 4
+priority: B
+hashtags: [移動平均過程, MA1モデル, 自己相関]
+frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
+sources: [{ type: official_syllabus, topic: 移動平均過程 }]
+---
+## 問題
+$X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ のラグ1自己相関が $\rho(1)=0.4$ である。可逆な係数 $\theta$ を求めよ。
+## 記号・用語
+可逆性条件は $|\theta|<1$ である。
+## 使用公式・定理
+MA(1)では $\rho(1)=\theta/(1+\theta^2)$。
+## 一手／方針
+二次方程式へ変形して2根を求め、可逆性で1つを選ぶ。
+## 答え
+$$0.4(1+\theta^2)=\theta\iff2\theta^2-5\theta+2=0,$$
+$$\theta=0.5\ \text{または}\ 2.$$
+可逆な解は $\theta=0.5$。
+## 計算例
+2つの係数は同じ自己相関を与えるため可逆性が識別に必要。
+## 注意
+自己相関だけでは可逆・非可逆の2表現を区別できない。
+<!-- CARD -->

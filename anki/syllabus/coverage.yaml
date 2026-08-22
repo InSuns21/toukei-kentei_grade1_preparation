@@ -2034,35 +2034,87 @@ items:
         status: card
         cards: [multi-pca-eigen, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-pca-rayleigh-process-variance, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue]
   - id: engineering-stochastic-processes
-    status: partial
+    status: complete
     cards:
       - process-ar1-stationary
       - process-ma1-autocovariance
+      - engproc-random-walk-drift-calibration
+      - engproc-biased-walk-hit-upper
+      - engproc-random-walk-expected-absorption
+      - engproc-ctmc-generator-check
+      - engproc-ctmc-holding-jump-probability
+      - engproc-two-state-ctmc-transition
+      - engproc-poisson-failure-count
+      - engproc-nhpp-cumulative-intensity
+      - engproc-poisson-rate-estimate-exposure
+      - engproc-compound-poisson-cost
+      - engproc-brownian-bridge-conditional
+      - engproc-ou-mean-variance
+      - engproc-degradation-two-step
+      - engproc-repair-chain-stationary-availability
+      - engproc-stationary-mean-recurrence
+      - engproc-birth-death-detailed-balance
+      - engproc-mm1-stationary-probability
+      - engproc-mm1-little-law
+      - engproc-absorbing-fundamental-matrix
+      - engproc-absorbing-probability-matrix
+      - engproc-markov-reward-long-run
+      - engproc-ctmc-uniformization
+      - engproc-poisson-thinning-defects
+      - engproc-poisson-superposition-machines
+      - engproc-chapman-kolmogorov-maintenance
+      - engproc-stationarity-window-judgment
+      - engproc-sample-autocovariance-numeric
+      - engproc-residual-white-noise-bounds
+      - engproc-random-walk-difference-data
+      - engproc-ar1-intercept-long-run-mean
+      - engproc-ar1-stationary-variance
+      - engproc-ar1-correlation-half-life
+      - engproc-ar1-forecast-mean-reversion
+      - engproc-ar1-forecast-interval
+      - engproc-ar2-root-stability
+      - engproc-yule-walker-estimate-ar1
+      - engproc-ma1-moment-identification
+      - engproc-ma1-autocovariance-numeric
+      - engproc-ma1-invertible-shock-recovery
+      - engproc-arma11-long-run-mean
+      - engproc-arma11-one-step-forecast
+      - engproc-backshift-polynomial-expansion
+      - engproc-arima010-drift-forecast
+      - engproc-arima110-difference-forecast
+      - engproc-seasonal-difference-monthly
+      - engproc-acf-pacf-model-selection
+      - engproc-pacf-significance-output
+      - engproc-ljung-box-numeric
+      - engproc-exponential-smoothing-update
+      - engproc-ar1-spectral-ratio
+      - engproc-periodogram-period-identification
+      - engproc-arima-forecast-output
     terms:
       - name: ランダムウォーク
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-random-walk-drift-calibration, engproc-biased-walk-hit-upper, engproc-random-walk-expected-absorption, engproc-random-walk-difference-data]
       - name: マルコフ過程
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-ctmc-generator-check, engproc-ctmc-holding-jump-probability, engproc-two-state-ctmc-transition, engproc-ctmc-uniformization, engproc-ou-mean-variance, engproc-brownian-bridge-conditional, engproc-birth-death-detailed-balance, engproc-mm1-stationary-probability, engproc-mm1-little-law]
       - name: ポアソン過程
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-poisson-failure-count, engproc-nhpp-cumulative-intensity, engproc-poisson-rate-estimate-exposure, engproc-compound-poisson-cost, engproc-poisson-thinning-defects, engproc-poisson-superposition-machines]
       - name: マルコフ連鎖
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-degradation-two-step, engproc-repair-chain-stationary-availability, engproc-stationary-mean-recurrence, engproc-birth-death-detailed-balance, engproc-absorbing-fundamental-matrix, engproc-absorbing-probability-matrix, engproc-markov-reward-long-run, engproc-chapman-kolmogorov-maintenance]
       - name: 時系列解析
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-stationarity-window-judgment, engproc-sample-autocovariance-numeric, engproc-residual-white-noise-bounds, engproc-acf-pacf-model-selection, engproc-pacf-significance-output, engproc-ljung-box-numeric, engproc-exponential-smoothing-update, engproc-ar1-spectral-ratio, engproc-periodogram-period-identification]
       - name: 自己回帰過程
-        status: planned
-        cards: []
+        status: card
+        cards: [process-ar1-stationary, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast]
       - name: 移動平均過程
-        status: planned
-        cards: []
+        status: card
+        cards: [process-ma1-autocovariance, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-one-step-forecast]
       - name: ARIMA過程
-        status: planned
-        cards: []
+        status: card
+        cards: [engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-arima-forecast-output]
   - id: engineering-linear-inference
     status: partial
     cards:

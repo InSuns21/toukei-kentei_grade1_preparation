@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 1156
+- 公開カード: 1208
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -10,7 +10,7 @@
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 222 | 7/7 | formula, condition, proof_step, calc_step, recognition, strategy |
-| 統計応用（理工学） | 57 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
+| 統計応用（理工学） | 109 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
 
@@ -52,7 +52,7 @@
 | 確率過程 | complete | process-markov-two-step, process-stationary-markov, process-poisson-wait, stoch-markov-property, stoch-finite-dimensional-distribution, stoch-recurrence-definition, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution |
 | 時系列解析 | complete | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma |
 | 多変量解析法 | complete | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal, engmv-normal-density-numeric, engmv-sample-mean-vector, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-correlation-from-covariance, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-unit-change-correlation-invariance, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-pca-rayleigh-process-variance, engmv-factor-covariance-numeric, engmv-factor-communality-numeric, engmv-factor-rotation-invariance, engmv-lda-one-dimensional-boundary, engmv-fisher-discriminant-direction, engmv-lda-prior-probability, engmv-lda-pooled-covariance, engmv-qda-quadratic-term, engmv-single-linkage-update, engmv-complete-linkage-update, engmv-ward-merge-increase, engmv-kmeans-assignment, engmv-kmeans-centroid-update, engmv-silhouette-coefficient, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue, engmv-classical-mds-three-points, engmv-mds-stress |
-| 確率過程 | partial | process-ar1-stationary, process-ma1-autocovariance |
+| 確率過程 | complete | process-ar1-stationary, process-ma1-autocovariance, engproc-random-walk-drift-calibration, engproc-biased-walk-hit-upper, engproc-random-walk-expected-absorption, engproc-ctmc-generator-check, engproc-ctmc-holding-jump-probability, engproc-two-state-ctmc-transition, engproc-poisson-failure-count, engproc-nhpp-cumulative-intensity, engproc-poisson-rate-estimate-exposure, engproc-compound-poisson-cost, engproc-brownian-bridge-conditional, engproc-ou-mean-variance, engproc-degradation-two-step, engproc-repair-chain-stationary-availability, engproc-stationary-mean-recurrence, engproc-birth-death-detailed-balance, engproc-mm1-stationary-probability, engproc-mm1-little-law, engproc-absorbing-fundamental-matrix, engproc-absorbing-probability-matrix, engproc-markov-reward-long-run, engproc-ctmc-uniformization, engproc-poisson-thinning-defects, engproc-poisson-superposition-machines, engproc-chapman-kolmogorov-maintenance, engproc-stationarity-window-judgment, engproc-sample-autocovariance-numeric, engproc-residual-white-noise-bounds, engproc-random-walk-difference-data, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast, engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-acf-pacf-model-selection, engproc-pacf-significance-output, engproc-ljung-box-numeric, engproc-exponential-smoothing-update, engproc-ar1-spectral-ratio, engproc-periodogram-period-identification, engproc-arima-forecast-output |
 | 線形推測 | partial | model-gauss-markov, model-contrast |
 | 漸近理論 | partial | dist-clt-standardize, est-delta-log |
 | 品質管理 | partial | eng-xbar-limits, eng-capability-index, eng-series-reliability, eng-exponential-reliability |
@@ -242,14 +242,14 @@
 | 多変量解析法 | 分散共分散行列 | card | multi-covariance-psd, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-unit-change-correlation-invariance, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence |
 | 多変量解析法 | 相関行列 | card | engmv-correlation-from-covariance, engmv-unit-change-correlation-invariance, engmv-standardized-pca-2x2 |
 | 多変量解析法 | 固有値・固有ベクトル | card | multi-pca-eigen, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-pca-rayleigh-process-variance, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue |
-| 確率過程 | ランダムウォーク | planned |  |
-| 確率過程 | マルコフ過程 | planned |  |
-| 確率過程 | ポアソン過程 | planned |  |
-| 確率過程 | マルコフ連鎖 | planned |  |
-| 確率過程 | 時系列解析 | planned |  |
-| 確率過程 | 自己回帰過程 | planned |  |
-| 確率過程 | 移動平均過程 | planned |  |
-| 確率過程 | ARIMA過程 | planned |  |
+| 確率過程 | ランダムウォーク | card | engproc-random-walk-drift-calibration, engproc-biased-walk-hit-upper, engproc-random-walk-expected-absorption, engproc-random-walk-difference-data |
+| 確率過程 | マルコフ過程 | card | engproc-ctmc-generator-check, engproc-ctmc-holding-jump-probability, engproc-two-state-ctmc-transition, engproc-ctmc-uniformization, engproc-ou-mean-variance, engproc-brownian-bridge-conditional, engproc-birth-death-detailed-balance, engproc-mm1-stationary-probability, engproc-mm1-little-law |
+| 確率過程 | ポアソン過程 | card | engproc-poisson-failure-count, engproc-nhpp-cumulative-intensity, engproc-poisson-rate-estimate-exposure, engproc-compound-poisson-cost, engproc-poisson-thinning-defects, engproc-poisson-superposition-machines |
+| 確率過程 | マルコフ連鎖 | card | engproc-degradation-two-step, engproc-repair-chain-stationary-availability, engproc-stationary-mean-recurrence, engproc-birth-death-detailed-balance, engproc-absorbing-fundamental-matrix, engproc-absorbing-probability-matrix, engproc-markov-reward-long-run, engproc-chapman-kolmogorov-maintenance |
+| 確率過程 | 時系列解析 | card | engproc-stationarity-window-judgment, engproc-sample-autocovariance-numeric, engproc-residual-white-noise-bounds, engproc-acf-pacf-model-selection, engproc-pacf-significance-output, engproc-ljung-box-numeric, engproc-exponential-smoothing-update, engproc-ar1-spectral-ratio, engproc-periodogram-period-identification |
+| 確率過程 | 自己回帰過程 | card | process-ar1-stationary, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast |
+| 確率過程 | 移動平均過程 | card | process-ma1-autocovariance, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-one-step-forecast |
+| 確率過程 | ARIMA過程 | card | engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-arima-forecast-output |
 | 線形推測 | 線形モデル | planned |  |
 | 線形推測 | 一般化線形モデル | planned |  |
 | 線形推測 | 線形結合の分布 | planned |  |

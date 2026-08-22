@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-22
-reviewed_card_count: 1156
+reviewed_card_count: 1208
 current_work: null
-next_work: C24-engineering-processes
-last_completed_work: C23-engineering-multivariate
+next_work: C25-engineering-inference-asymptotics
+last_completed_work: C24-engineering-processes
 summary:
   total: 33
-  planned: 4
+  planned: 3
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 29
+  reviewed: 30
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2315,7 +2315,7 @@ work:
     target:
       min: 50
       max: 60
-    status: planned
+    status: reviewed
     review_dir: review/C24-engineering-processes
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 確率過程・時系列解析
@@ -2363,6 +2363,68 @@ work:
       A: 18
       B: 20
       C: 0
+    started_at: 2026-08-22T11:25:31.348Z
+    self_review_at: 2026-08-22T11:37:36.356Z
+    independent_review_at: 2026-08-22T11:38:04.441Z
+    revision_at: 2026-08-22T11:41:53.778Z
+    completed_at: 2026-08-22T11:48:37.681Z
+    added_card_ids:
+      - engproc-absorbing-fundamental-matrix
+      - engproc-absorbing-probability-matrix
+      - engproc-acf-pacf-model-selection
+      - engproc-ar1-correlation-half-life
+      - engproc-ar1-forecast-interval
+      - engproc-ar1-forecast-mean-reversion
+      - engproc-ar1-intercept-long-run-mean
+      - engproc-ar1-spectral-ratio
+      - engproc-ar1-stationary-variance
+      - engproc-ar2-root-stability
+      - engproc-arima-forecast-output
+      - engproc-arima010-drift-forecast
+      - engproc-arima110-difference-forecast
+      - engproc-arma11-long-run-mean
+      - engproc-arma11-one-step-forecast
+      - engproc-backshift-polynomial-expansion
+      - engproc-biased-walk-hit-upper
+      - engproc-birth-death-detailed-balance
+      - engproc-brownian-bridge-conditional
+      - engproc-chapman-kolmogorov-maintenance
+      - engproc-compound-poisson-cost
+      - engproc-ctmc-generator-check
+      - engproc-ctmc-holding-jump-probability
+      - engproc-ctmc-uniformization
+      - engproc-degradation-two-step
+      - engproc-exponential-smoothing-update
+      - engproc-ljung-box-numeric
+      - engproc-ma1-autocovariance-numeric
+      - engproc-ma1-invertible-shock-recovery
+      - engproc-ma1-moment-identification
+      - engproc-markov-reward-long-run
+      - engproc-mm1-little-law
+      - engproc-mm1-stationary-probability
+      - engproc-nhpp-cumulative-intensity
+      - engproc-ou-mean-variance
+      - engproc-pacf-significance-output
+      - engproc-periodogram-period-identification
+      - engproc-poisson-failure-count
+      - engproc-poisson-rate-estimate-exposure
+      - engproc-poisson-superposition-machines
+      - engproc-poisson-thinning-defects
+      - engproc-random-walk-difference-data
+      - engproc-random-walk-drift-calibration
+      - engproc-random-walk-expected-absorption
+      - engproc-repair-chain-stationary-availability
+      - engproc-residual-white-noise-bounds
+      - engproc-sample-autocovariance-numeric
+      - engproc-seasonal-difference-monthly
+      - engproc-stationarity-window-judgment
+      - engproc-stationary-mean-recurrence
+      - engproc-two-state-ctmc-transition
+      - engproc-yule-walker-estimate-ar1
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C25-engineering-inference-asymptotics:
     title: 線形推測・漸近理論
     category: applied-engineering
