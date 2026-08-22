@@ -25,7 +25,7 @@ $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ の平均の推定量 $\wideh
 
 ---
 id: est-crlb-poisson-mean-efficiency
-title: ポアソン平均のクラーメル・ラオ下界と有効性を計算する
+title: ポアソン平均のクラーメル・ラオの不等式による下界と有効性を計算する
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: crlb-poisson
@@ -44,7 +44,7 @@ $$\ell(\lambda;x)=-\lambda+x\log\lambda-\log(x!),$$
 したがって
 $$-E\left[\frac{\partial^2\ell}{\partial\lambda^2}\right]
 =-E\left[-\frac{X}{\lambda^2}\right]=\frac1\lambda.$$
-よって $I_n(\lambda)=n/\lambda$ であり、クラーメル・ラオ下界は
+よって $I_n(\lambda)=n/\lambda$ であり、クラーメル・ラオの不等式による下界は
 $$\operatorname{Var}(T)\ge\frac1{I_n(\lambda)}=\frac\lambda n.$$
 $E[\overline X]=\lambda$、$\operatorname{Var}(\overline X)=\lambda/n$ なので、$\overline X$ は下界を達成する。
 ## 使用公式・定理
@@ -60,7 +60,7 @@ $n=20,\lambda=4$ なら下界は $4/20=0.2$ であり、$\operatorname{Var}(\ove
 
 ---
 id: est-crlb-normal-mean-known-variance
-title: 分散既知の正規平均についてクラーメル・ラオ下界を求める
+title: 分散既知の正規平均についてクラーメル・ラオの不等式による下界を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: crlb-normal-mean
@@ -92,7 +92,7 @@ $\sigma^2$ も未知なら2母数の情報行列を扱う問題になる。
 
 ---
 id: est-crlb-bernoulli-square
-title: ベルヌーイ母数の二乗を推定するときのクラーメル・ラオ下界を求める
+title: ベルヌーイ母数の二乗を推定するときのクラーメル・ラオの不等式による下界を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: crlb-function
@@ -126,7 +126,7 @@ $g'(p)$ を掛け忘れて単に $1/I_n(p)$ としない。
 
 ---
 id: est-fisher-geometric
-title: 幾何分布のフィッシャー情報量を導出する
+title: 幾何分布のフィッシャー情報量（1次元）を導出する
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: fisher-information-geometric
@@ -138,7 +138,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
 ## 問題
-$X\sim\operatorname{Geometric}(p)$、台 $x=1,2,\ldots$、確率質量関数 $P(X=x)=p(1-p)^{x-1}$ とする。1観測の $p$ に関するフィッシャー情報量を求めよ。
+$X\sim\operatorname{Geometric}(p)$、台 $x=1,2,\ldots$、確率質量関数 $P(X=x)=p(1-p)^{x-1}$ とする。1観測の $p$ に関するフィッシャー情報量（1次元）を求めよ。
 ## 答え
 $$\ell(p;x)=\log p+(x-1)\log(1-p),$$
 $$\frac{\partial^2\ell}{\partial p^2}
@@ -662,19 +662,19 @@ $$I_1(\mu)=-E\!\left[-\frac1{\sigma^2}\right]=\frac1{\sigma^2}.$$
 <!-- CARD -->
 ---
 id: est-cramer-rao-lower-bound
-title: Cramer--Rao下界
+title: クラーメル・ラオの不等式
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: cramer-rao
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [Cramer-Rao, CRLB, フィッシャー情報量（1次元）]
+hashtags: [クラーメル・ラオの不等式, 分散下界, フィッシャー情報量（1次元）]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
 ---
 ## 問題
-Cramer--Raoの不等式を述べよ。$g(\theta)$ の不偏推定量 $T$ の分散の下界は何か。
+クラーメル・ラオの不等式を述べよ。$g(\theta)$ の不偏推定量 $T$ の分散の下界は何か。
 ## 答え
 正則条件の下で、$E[T]=g(\theta)$ なる $T$ に対し
 $$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
@@ -687,7 +687,7 @@ $E_\theta[U]=0$ なので $E_\theta[TU]=\operatorname{Cov}_\theta(T,U)$。Cauchy
 $$\{g'(\theta)\}^2=\operatorname{Cov}(T,U)^2
 \le\operatorname{Var}(T)\operatorname{Var}(U)
 =\operatorname{Var}(T)I_n(\theta).$$
-両辺を $I_n(\theta)>0$ で割ればCRLBを得る。
+両辺を $I_n(\theta)>0$ で割ればクラーメル・ラオの不等式を得る。
 ## 計算例
 $\operatorname{Bernoulli}(p)$ 標本で $g(p)=p$：$I_n(p)=n/[p(1-p)]$ より $\operatorname{Var}(\overline X)\ge p(1-p)/n$。$\overline X$ は等号で下限を達成。
 ## 一手
@@ -695,19 +695,19 @@ $\operatorname{Bernoulli}(p)$ 標本で $g(p)=p$：$I_n(p)=n/[p(1-p)]$ より $\
 <!-- CARD -->
 ---
 id: est-crlb-equality
-title: CRLBの等号成立条件
+title: クラーメル・ラオの不等式の等号成立条件
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: cramer-rao
 type: theorem
 difficulty: 3
 priority: A
-hashtags: [Cramer-Rao, 等号, 指数型分布族]
+hashtags: [クラーメル・ラオの不等式, 等号, 指数型分布族]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
 ---
 ## 問題
-Cramer--Rao下界の等号が成立する条件を述べよ。
+クラーメル・ラオの不等式で等号が成立する条件を述べよ。
 ## 答え
 $T-g(\theta)$ がスコア $U(\theta)$ と線形関係にあること：
 $$T-g(\theta)=a(\theta)U(\theta)\quad\text{(a.s.)}$$
@@ -717,7 +717,7 @@ Cauchy--Schwarzで等号は $T$ と $U$ が線形従属のとき。
 ## 計算例
 $\overline X$（Bernoulliで $p$）は $U(p)=n(\overline X-p)/[p(1-p)]$ と書け、$T-p$ が $U$ に比例するので等号成立。
 ## 一手
-CRLBを達成する推定量は指数型分布族で十分統計量の線形関数になる傾向がある。
+クラーメル・ラオの不等式による下界を達成する推定量は、指数型分布族で十分統計量の線形関数になる傾向がある。
 <!-- CARD -->
 ---
 id: est-efficient-estimator
@@ -728,21 +728,21 @@ topic: efficiency
 type: condition
 difficulty: 2
 priority: A
-hashtags: [有効推定量, CRLB, 分散]
+hashtags: [有効推定量, クラーメル・ラオの不等式, 分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 有効性 }]
 ---
 ## 問題
 有効推定量（efficient estimator）とは何か。
 ## 答え
-$\theta$ の不偏推定量のうち、その分散がCramer--Rao下界に等しいもの：
+$\theta$ の不偏推定量のうち、その分散がクラーメル・ラオの不等式による下界に等しいもの：
 $$\operatorname{Var}_\theta(T)=\frac1{I_n(\theta)}\quad(\text{または一般の }g(\theta)\text{ では }\{g'(\theta)\}^2/I_n(\theta)).$$
 ## 使用公式・定理
-有効推定量はCRLBを達成するから、不偏推定量の中で最小分散（UMVU）でもある。
+有効推定量はクラーメル・ラオの不等式による下界を達成するから、不偏推定量の中で最小分散（UMVU）でもある。
 ## 計算例
 正規標本の $\overline X$ は $\operatorname{Var}(\overline X)=\sigma^2/n=1/I_n(\mu)$ で有効。Bernoulli の $\overline X$ も $p$ に対して有効。
 ## 一手
-「CRLBを達成する不偏推定量」＝最小分散不偏。存在しない場合も多い。
+「クラーメル・ラオの不等式による下界を達成する不偏推定量」＝最小分散不偏。存在しない場合も多い。
 <!-- CARD -->
 ---
 id: est-asymptotic-efficiency
@@ -760,7 +760,7 @@ sources: [{ type: official_syllabus, topic: 有効性 }]
 ## 問題
 推定量の漸近効率とは何か。
 ## 答え
-標本サイズ $n$ で $\sqrt n(T_n-\theta)\xrightarrow{d}N(0,\sigma^2_\infty)$ のとき、漸近分散 $\sigma^2_\infty$ を比較する。CRLB相当の $1/I_1(\theta)$ に漸近分散が一致すれば漸近有効という。
+標本サイズ $n$ で $\sqrt n(T_n-\theta)\xrightarrow{d}N(0,\sigma^2_\infty)$ のとき、漸近分散 $\sigma^2_\infty$ を比較する。クラーメル・ラオの不等式に対応する $1/I_1(\theta)$ に漸近分散が一致すれば漸近有効という。
 ## 使用公式・定理
 漸近分散の逆比で相対漸近効率 $\operatorname{ARE}=\dfrac{\sigma^2_{\infty,2}}{\sigma^2_{\infty,1}}$ を定義。
 ## 計算例
@@ -791,7 +791,7 @@ $$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N\!\left(0,\frac1{I_1(\theta)}\ri
 ## 計算例
 $\operatorname{Poisson}(\lambda)$：$I_1(\lambda)=1/\lambda$ より $\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda)$。
 ## 一手
-最尤推定量の漸近分散は「$1/I_n(\theta)$」＝CRLB。ここが最尤推定量が漸近有効である理由。
+最尤推定量の漸近分散は「$1/I_n(\theta)$」であり、クラーメル・ラオの不等式による下界に一致する。ここが最尤推定量が漸近有効である理由。
 <!-- CARD -->
 ---
 id: est-fisher-param-transform
@@ -821,19 +821,19 @@ $X\sim N(\theta,1)$、$\eta=2\theta$ とすると $I(\theta)=1$、$d\theta/d\eta
 <!-- CARD -->
 ---
 id: est-information-matrix
-title: 情報行列（多母数）
+title: フィッシャー情報行列（多母数）
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: fisher-information-matrix
 type: condition
 difficulty: 3
 priority: A
-hashtags: [情報行列, フィッシャー情報量, 多母数]
+hashtags: [フィッシャー情報行列, 多母数, スコアベクトル]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量 }]
+sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
 ## 問題
-$\theta=(\theta_1,\ldots,\theta_k)$ のときの情報行列 $I(\theta)$ を定義せよ。
+$\theta=(\theta_1,\ldots,\theta_k)$ のときのフィッシャー情報行列 $I(\theta)$ を定義せよ。
 ## 答え
 $k\times k$ 行列で、$(i,j)$成分は
 $$I(\theta)_{ij}=E_\theta\!\left[\frac{\partial\log f}{\partial\theta_i}\frac{\partial\log f}{\partial\theta_j}\right]=-E_\theta\!\left[\frac{\partial^2\log f}{\partial\theta_i\partial\theta_j}\right].$$
@@ -842,7 +842,7 @@ $$I(\theta)_{ij}=E_\theta\!\left[\frac{\partial\log f}{\partial\theta_i}\frac{\p
 ## 計算例
 $X\sim N(\mu,\sigma^2)$、$\theta=(\mu,\sigma^2)$：$I(\theta)=\begin{pmatrix}1/\sigma^2&0\\0&1/(2\sigma^4)\end{pmatrix}$。
 ## 一手
-多母数では逆行列 $I(\theta)^{-1}$ が漸近共分散行列。対角成分が各母数のCRLB相当。
+多母数では逆行列 $I(\theta)^{-1}$ が漸近共分散行列。対角成分が各母数に対するクラーメル・ラオの不等式の下界に相当する。
 <!-- CARD -->
 ---
 id: est-normal-information-matrix
@@ -855,7 +855,7 @@ difficulty: 3
 priority: A
 hashtags: [情報行列, 正規分布, 2母数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量 }]
+sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
 ## 問題
 正規分布 $X\sim N(\mu,\sigma^2)$、$\theta=(\mu,\sigma^2)$ の情報行列を求めよ。
@@ -1025,23 +1025,23 @@ topic: crlb-exponential
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [CRLB, 指数分布, 不偏推定量]
+hashtags: [クラーメル・ラオの不等式, 指数分布, 不偏推定量]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
-title: 指数分布のCRLBの利用
+title: 指数分布にクラーメル・ラオの不等式を使う
 ---
 ## 問題
-$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$（rate表示、密度 $f(x)=\lambda e^{-\lambda x}$、平均 $\mu=1/\lambda$）の標本から $\mu$ を不偏推定するときのCramer--Rao下界を求めよ。また $\lambda$ 自身の下界も示せ。
+$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$（rate表示、密度 $f(x)=\lambda e^{-\lambda x}$、平均 $\mu=1/\lambda$）の標本から $\mu$ を不偏推定するときのクラーメル・ラオの不等式による下界を求めよ。また $\lambda$ 自身の下界も示せ。
 ## 答え
 $I_1(\lambda)=1/\lambda^2$ より標本全体 $I_n(\lambda)=n/\lambda^2$。$\mu=1/\lambda$ は $g(\lambda)=1/\lambda$、$g'(\lambda)=-1/\lambda^2$ だから
 $\operatorname{Var}(T)\ge\frac{\{g'(\lambda)\}^2}{I_n(\lambda)}=\frac{1/\lambda^4}{n/\lambda^2}=\frac1{n\lambda^2}.$
-$\lambda$ 自身は $\lambda\,\text{のCRLB}\,=\lambda^2/n$。
+$\lambda$ 自身について、クラーメル・ラオの不等式による下界は $\lambda^2/n$。
 ## 使用公式・定理
-$g(\theta)$ に対するCRLB：$\operatorname{Var}_\theta(T)\ge\{g'(\theta)\}^2/I_n(\theta)$。$g(\theta)=\theta$ なら $1/I_n(\theta)$。
+$g(\theta)$ に対するクラーメル・ラオの不等式：$\operatorname{Var}_\theta(T)\ge\{g'(\theta)\}^2/I_n(\theta)$。$g(\theta)=\theta$ なら $1/I_n(\theta)$。
 ## 計算例
-$\sum_iX_i\sim\operatorname{Gamma}(n,\lambda)$（rate）より $\overline X\sim\operatorname{Gamma}(n,n\lambda)$，$\operatorname{Var}(\overline X)=n/(n\lambda)^2=1/(n\lambda^2)$ でCRLBと一致。よって $\overline X$ は $\mu$ の有効推定量。$\lambda$ 自身は $\operatorname{Var}(\overline X)=\lambda^2/n$ ではないので注意。
+$\sum_iX_i\sim\operatorname{Gamma}(n,\lambda)$（rate）より $\overline X\sim\operatorname{Gamma}(n,n\lambda)$，$\operatorname{Var}(\overline X)=n/(n\lambda)^2=1/(n\lambda^2)$ でクラーメル・ラオの不等式による下界と一致。よって $\overline X$ は $\mu$ の有効推定量。$\lambda$ 自身は $\operatorname{Var}(\overline X)=\lambda^2/n$ ではないので注意。
 ## 一手
-$\overline X$（$\mu$ の推定量）はCRLBを達成する有効推定量。$\lambda$ 自身は $1/\overline X$ で推定する（バイアスあり）。$\lambda^2/n$ は $\lambda$ の下界であり $\bar X$ の分散ではない。
+$\overline X$（$\mu$ の推定量）はクラーメル・ラオの不等式による下界を達成する有効推定量。$\lambda$ 自身は $1/\overline X$ で推定する（バイアスあり）。$\lambda^2/n$ は $\lambda$ の下界であり $\bar X$ の分散ではない。
 <!-- CARD -->
 ---
 id: est-asymptotic-normality-mle
@@ -1066,7 +1066,7 @@ $\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,1/I_1(\theta))$。
 ## 計算例
 $\operatorname{Var}(\overline X)=p(1-p)/n$ で、有限標本でも漸近分散と一致。
 ## 一手
-$\widehat p=\overline X$ は有限標本でも分散が $p(1-p)/n$ でCRLBを達成する有効・漸近有効。
+$\widehat p=\overline X$ は有限標本でも分散が $p(1-p)/n$ でクラーメル・ラオの不等式による下界を達成する有効・漸近有効。
 <!-- CARD -->
 ---
 id: est-consistency-bias
@@ -1201,21 +1201,21 @@ topic: crlb-equality-judgment
 type: reverse
 difficulty: 3
 priority: A
-hashtags: [CRLB, 有効性, 判定]
+hashtags: [クラーメル・ラオの不等式, 有効性, 判定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
-title: CRLB達成の判定
+title: クラーメル・ラオの不等式による下界達成の判定
 ---
 ## 問題
-不偏推定量 $T$ の分散がCRLB $1/I_n(\theta)$ に等しいとき、何が言えるか。
+不偏推定量 $T$ の分散がクラーメル・ラオの不等式による下界 $1/I_n(\theta)$ に等しいとき、何が言えるか。
 ## 答え
 $T$ は有効推定量（efficient）であり、不偏推定量の中で一様に最小分散（UMVU）。またスコア $U$ と $T-g(\theta)=a(\theta)U$ で線形関係。
 ## 使用公式・定理
 $\operatorname{Var}_\theta(T)=1/I_n(\theta)$ が等号条件。
 ## 計算例
-正規平均 $\overline X$、Bernoulli の $\overline X$、Poisson の $\overline X$（$\lambda$ の有効推定量）はCRLB達成。
+正規平均 $\overline X$、Bernoulli の $\overline X$、Poisson の $\overline X$（$\lambda$ の有効推定量）はクラーメル・ラオの不等式による下界を達成する。
 ## 一手
-「分散＝1/情報量」なら有効かつUMVU。逆は一般に成り立たない（UMVUでもCRLB未達成がありうる）。
+「分散＝1/情報量」なら有効かつUMVU。逆は一般に成り立たない（UMVUでもクラーメル・ラオの不等式による下界を達成しない場合がある）。
 <!-- CARD -->
 
 ---
@@ -1260,14 +1260,14 @@ $T=X_1$ は不偏だが、標本の残りを捨てているため非効率であ
 
 ---
 id: est-generalized-crlb-poisson-zero
-title: ポアソン分布のゼロ確率推定に一般化CRLBを使う
+title: ポアソン分布のゼロ確率推定にクラーメル・ラオの不等式を使う
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: generalized-crlb-function
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [Cramer–Rao下界, ポアソン分布, 母数関数]
+hashtags: [クラーメル・ラオの不等式, ポアソン分布, 母数関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
 ---
@@ -1280,7 +1280,7 @@ $$\operatorname{Var}_\lambda(T)\ge
 =\frac{\lambda e^{-2\lambda}}n.$$
 
 ## 使用公式・定理
-母数関数 $g(\theta)$ の不偏推定量に対する一般化Cramer–Rao下界は
+母数関数 $g(\theta)$ の不偏推定量に対するクラーメル・ラオの不等式は
 $$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
 ポアソン分布では $I_n(\lambda)=n/\lambda$。
 

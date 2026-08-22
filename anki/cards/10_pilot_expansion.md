@@ -104,7 +104,7 @@ rate母数化を使っている。
 <!-- CARD -->
 ---
 id: est-fisher-bernoulli
-title: ベルヌーイ分布のフィッシャー情報量（1次元）量を求める
+title: ベルヌーイ分布のフィッシャー情報量（1次元）を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: fisher-information
@@ -113,10 +113,10 @@ difficulty: 3
 priority: S
 hashtags: [フィッシャー情報量（1次元）, ベルヌーイ分布, スコア]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元）量 }]
+sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
 ---
 ## 問題
-$X$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従い、$X\in\{0,1\}$、$0<p<1$、$P(X=x)=p^x(1-p)^{1-x}$ とする。1観測当たりのフィッシャー情報量（1次元）量を求めよ。
+$X$ はベルヌーイ分布 $\operatorname{Bernoulli}(p)$ に従い、$X\in\{0,1\}$、$0<p<1$、$P(X=x)=p^x(1-p)^{1-x}$ とする。1観測当たりのフィッシャー情報量（1次元）を求めよ。
 ## 答え
 対数尤度を2回微分し、負の期待値を取る。
 ## 使用公式・定理
@@ -129,19 +129,19 @@ $$\begin{aligned}\ell(p;X)&=X\log p+(1-X)\log(1-p),\\\ell''(p;X)&=-\frac X{p^2}-
 <!-- CARD -->
 ---
 id: est-cramer-rao-bernoulli
-title: Cramér--Rao下限へ情報量を代入する
+title: クラーメル・ラオの不等式へ情報量を代入する
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: cramer-rao
 type: formula
 difficulty: 2
 priority: S
-hashtags: [CRLB, フィッシャー情報量（1次元）, 不偏性]
+hashtags: [クラーメル・ラオの不等式, フィッシャー情報量（1次元）, 不偏性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Cramér--Rao不等式 }]
+sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
 ---
 ## 問題
-Bernoulli標本 $X_1,\ldots,X_n$ から $p$ を不偏推定する。分散のCramér--Rao下限を求めよ。
+Bernoulli標本 $X_1,\ldots,X_n$ から $p$ を不偏推定する。クラーメル・ラオの不等式による分散の下限を求めよ。
 ## 答え
 1観測当たりの情報量 $I_1(p)=1/[p(1-p)]$ を標本全体の情報量へ直す。
 ## 使用公式・定理

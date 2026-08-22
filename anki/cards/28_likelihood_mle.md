@@ -351,7 +351,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 ## 問題
-正則条件下で最尤推定量 $\widehat\theta_n$ の漸近分布を述べよ。$I_1(\theta)$ は1観測当たりのフィッシャー情報量。
+正則条件下で最尤推定量 $\widehat\theta_n$ の漸近分布を述べよ。$I_1(\theta)$ は1観測当たりのフィッシャー情報量（1次元）。
 ## 答え
 $\sqrt n(\widehat\theta_n-\theta_0)\xrightarrow{d}N\left(0,\frac1{I_1(\theta_0)}\right).$
 ## 使用公式・定理
@@ -360,7 +360,7 @@ $\sqrt n(\widehat\theta_n-\theta_0)\xrightarrow{d}N\left(0,\frac1{I_1(\theta_0)}
 $X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$I_1(\lambda)=1/\lambda$ なので
 $\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda).$
 ## 一手
-漸近分散は フィッシャー情報量の逆数 $1/I_1$。標準誤差は $1/\sqrt{nI_1}$。
+漸近分散はフィッシャー情報量（1次元）の逆数 $1/I_1$。標準誤差は $1/\sqrt{nI_1}$。
 <!-- CARD -->
 ---
 id: mle-boundary-nonregular
@@ -759,13 +759,13 @@ sources: [{ type: official_syllabus, topic: 有効スコア関数 }]
 有効スコア関数（スコア関数）の定義と、その期待値・分散を述べよ。
 ## 答え
 $U(\theta)=\frac{\partial}{\partial\theta}\log f(X;\theta).$
-正則条件のもとで $E_\theta[U(\theta)]=0$、$\operatorname{Var}_\theta(U(\theta))=I_1(\theta)$（1観測当たりの Fisher 情報量）。
+正則条件のもとで $E_\theta[U(\theta)]=0$、$\operatorname{Var}_\theta(U(\theta))=I_1(\theta)$（1観測当たりのフィッシャー情報量（1次元））。
 ## 使用公式・定理
-$E[U]=0$ は $\int f=1$ を微分して得る。$\operatorname{Var}(U)=I_1$ が Fisher 情報量の定義と一致。
+$E[U]=0$ は $\int f=1$ を微分して得る。$\operatorname{Var}(U)=I_1$ がフィッシャー情報量（1次元）の定義と一致。
 ## 計算例
 $X\sim\operatorname{Poisson}(\lambda)$：$\log f=x\log\lambda-\lambda-\log x!$ より $U(\lambda)=x/\lambda-1$。$E[U]=\lambda/\lambda-1=0$。
 ## 一手
-スコアは Fisher 情報量を生む母数導関数。期待値0が最尤の正則性の要。
+スコアはフィッシャー情報量（1次元）を生む母数導関数。期待値0が最尤の正則性の要。
 <!-- CARD -->
 ---
 id: mle-multiparameter
@@ -835,7 +835,7 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 1. 台が母数 $\theta$ に依存しない
 2. $\log f(x;\theta)$ が $\theta$ について微分可能
 3. 積分と微分の順序交換が可能
-4. Fisher 情報量 $I_1(\theta)$ が有限で正
+4. フィッシャー情報量（1次元） $I_1(\theta)$ が有限で正
 ## 使用公式・定理
 正則条件が崩れる例：一様分布 $U(0,\theta)$（台依存）ではスコアも漸近正規性も通常の形で成立しない。
 ## 計算例

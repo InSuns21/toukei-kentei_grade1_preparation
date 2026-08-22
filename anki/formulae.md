@@ -8,7 +8,7 @@
 - 尤度比統計量：$G^2=2\sum_{i,j}O_{ij}\log(O_{ij}/E_{ij})$。
 - 2×2オッズ比：$\widehat{OR}=ad/(bc)$、$\operatorname{SE}(\log\widehat{OR})=\sqrt{1/a+1/b+1/c+1/d}$。
 - 相対リスク：$RR=\widehat p_1/\widehat p_0$。リスク差：$RD=\widehat p_1-\widehat p_0$。
-- Fisher正確検定：固定周辺和の下で左上セルは超幾何分布に従う。
+- フィッシャー検定：固定周辺和の下で左上セルは超幾何分布に従う。
 - McNemar検定：不一致対 $(b,c)$ について帰無仮説下で $b\mid(b+c)\sim\operatorname{Binomial}(b+c,1/2)$。
 - Mantel–Haenszel共通オッズ比：$\widehat{OR}_{MH}=\{\sum_ka_kd_k/n_k\}/\{\sum_kb_kc_k/n_k\}$。
 - 独立対数線形モデル：$\log m_{ij}=\lambda+\lambda_i^A+\lambda_j^B$。
@@ -78,7 +78,7 @@
 - 2母比率差：$\widetilde p=(X_1+X_2)/(n_1+n_2)$、$Z=(\widehat p_1-\widehat p_2)/\sqrt{\widetilde p(1-\widetilde p)(1/n_1+1/n_2)}$。
 - Pearson適合度検定：$X^2=\sum_{j=1}^k(O_j-E_j)^2/E_j\xrightarrow{d}\chi^2_{k-1-r}$。$r$ は標本から推定した母数の個数。
 - 分割表の独立性検定：$E_{ij}=n_{i\cdot}n_{\cdot j}/n$、$X^2=\sum_{i,j}(O_{ij}-E_{ij})^2/E_{ij}\xrightarrow{d}\chi^2_{(r-1)(c-1)}$。
-- Fisherの正確検定：周辺和を固定した $2\times2$ 表の左上セルは超幾何分布に従う。
+- フィッシャー検定：周辺和を固定した $2\times2$ 表の左上セルは超幾何分布に従う。
 - 符号検定：連続分布の中央値が帰無値なら、同順位を除いた正符号数は $\operatorname{Binomial}(n,1/2)$ に従う。
 - Wilcoxon符号付順位検定：差の絶対値に順位を付け、正の差の順位和を統計量とする。差の分布の対称性を仮定する。
 - Mann--Whitney検定：$U_1=R_1-n_1(n_1+1)/2$。帰無仮説の下で $E[U_1]=n_1n_2/2$。
@@ -180,11 +180,11 @@
 - 最尤推定量：$\widehat\theta\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)=\operatorname*{arg\,max}_{\theta\in\Theta}\ell(\theta;x)$。
 - モーメント法：母モーメントを対応する標本モーメントへ等置し、母数について解く。
 - 因子分解定理：$L(\theta;x)=g_\theta(T(x))h(x)$ と分解できれば $T$ は十分統計量。
-- Fisher情報量：$I_1(\theta)=E[U(\theta)^2]$。台が局所的に母数へ依存せず、対数尤度が2回微分可能で、微分と積分の交換ができ、情報量が有限なら $I_1(\theta)=-E[\ell''(\theta)]$。
-- Cramér--Rao不等式：共通の台、微分と積分の交換、有限で正の情報量という正則条件の下で、$g(\theta)$ の不偏推定量 $T$ は $\operatorname{Var}_\theta(T)\ge g'(\theta)^2/I_n(\theta)$ を満たす。
+- フィッシャー情報量（1次元）：$I_1(\theta)=E[U(\theta)^2]$。台が局所的に母数へ依存せず、対数尤度が2回微分可能で、微分と積分の交換ができ、情報量が有限なら $I_1(\theta)=-E[\ell''(\theta)]$。
+- クラーメル・ラオの不等式：共通の台、微分と積分の交換、有限で正の情報量という正則条件の下で、$g(\theta)$ の不偏推定量 $T$ は $\operatorname{Var}_\theta(T)\ge g'(\theta)^2/I_n(\theta)$ を満たす。
 - AIC：$\operatorname{AIC}=-2\ell(\widehat\theta)+2k$。
 - 平均二乗誤差：$E[(T-\theta)^2]=\operatorname{Var}(T)+\operatorname{Bias}(T)^2$。
-- Fisher情報行列：$\theta=(\theta_1,\ldots,\theta_k)$ のとき $I(\theta)_{ij}=E[\partial\log f/\partial\theta_i\cdot\partial\log f/\partial\theta_j]=-E[\partial^2\log f/\partial\theta_i\partial\theta_j]$。正則条件下で対称・半正定値。
+- フィッシャー情報行列：$\theta=(\theta_1,\ldots,\theta_k)$ のとき $I(\theta)_{ij}=E[\partial\log f/\partial\theta_i\cdot\partial\log f/\partial\theta_j]=-E[\partial^2\log f/\partial\theta_i\partial\theta_j]$。正則条件下で対称・半正定値。
 - 情報量の加法性：独立同分布標本では $I_n(\theta)=nI_1(\theta)$。パラメータ変換 $\eta=\eta(\theta)$ では $I(\eta)=I(\theta)(d\theta/d\eta)^2$。
 - Rao--Blackwellの定理：$T$ を十分統計量、$U$ を不偏推定量とすると $\widehat\theta=E[U\mid T]$ は不偏かつ $\operatorname{Var}(\widehat\theta)\le\operatorname{Var}(U)$。
 - Lehmann--Schefféの定理：$T$ が完備十分統計量で $g(T)$ が不偏ならば $g(T)$ は一意なUMVU推定量である。
@@ -217,7 +217,7 @@
 - 符号検定：連続分布の中央値の帰無仮説下で、正符号数は二項分布 $\operatorname{Binomial}(n,1/2)$ に従う。
 - Neyman--Pearson補題：単純仮説同士では尤度比が大きい標本点から棄却域へ入れ、閾値と境界無作為化によりサイズを $\alpha$ まで使う検定が最強力となる。
 - 単調尤度比：$\theta_2>\theta_1$ のとき $f(x;\theta_2)/f(x;\theta_1)$ が $T(x)$ の非減少関数なら、右片側検定は $T$ が大きいとき棄却する形でUMPとなる。
-- 一般化尤度比：$\Lambda=\sup_{\theta\in\Theta_0}L(\theta)/\sup_{\theta\in\Theta}L(\theta)$。真値が母数空間の内部にあり、モデルが識別可能、尤度が十分滑らか、Fisher情報行列が正定値という正則条件の下で $-2\log\Lambda\xrightarrow{d}\chi_r^2$。$r$ は独立な制約数。
+- 一般化尤度比：$\Lambda=\sup_{\theta\in\Theta_0}L(\theta)/\sup_{\theta\in\Theta}L(\theta)$。真値が母数空間の内部にあり、モデルが識別可能、尤度が十分滑らか、フィッシャー情報行列が正定値という正則条件の下で $-2\log\Lambda\xrightarrow{d}\chi_r^2$。$r$ は独立な制約数。
 - Wald統計量：$Z_W=(\widehat\theta-\theta_0)/\widehat{\operatorname{SE}}(\widehat\theta)\xrightarrow{d}N(0,1)$、$W=Z_W^2\xrightarrow{d}\chi_1^2$。
 - Score統計量：$U_n(\theta)=\partial\ell_n(\theta)/\partial\theta$ として $S=U_n(\theta_0)^2/I_n(\theta_0)\xrightarrow{d}\chi_1^2$。
 - LR・Wald・Score：正則条件下で帰無仮説における極限分布は同じで、統計量間の差は $o_p(1)$。

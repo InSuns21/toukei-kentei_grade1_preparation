@@ -435,14 +435,14 @@ ORを「リスクが何倍」とそのまま読むのは避ける。
 
 ---
 id: cat-fisher-hypergeometric
-title: Fisher正確検定の条件付き確率を計算する
+title: フィッシャー検定の条件付き確率を計算する
 category: math-data-analysis
 subcategory: math-contingency-tables
 topic: fisher-exact
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Fisher正確検定, 超幾何分布, 2×2表]
+hashtags: [フィッシャー検定, 超幾何分布, 2×2表]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: フィッシャー検定 }]
 ---
@@ -497,7 +497,7 @@ $$X_Y^2=\frac{n\{\max(0,|ad-bc|-n/2)\}^2}
 修正により通常のPearson統計量以下になる。
 
 ## 注意
-小標本ではFisher正確検定の方が直接的なことが多い。
+小標本ではフィッシャー検定の方が直接的なことが多い。
 <!-- CARD -->
 
 ---
@@ -532,7 +532,7 @@ $$b\mid(b+c)\sim\operatorname{Binomial}(b+c,1/2).$$
 $b+c$ が小さければ正確二項検定を使う。
 
 ## 注意
-独立2群のFisher検定と混同しない。
+独立2群のフィッシャー検定と混同しない。
 <!-- CARD -->
 
 ---

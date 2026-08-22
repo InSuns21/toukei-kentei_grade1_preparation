@@ -26,7 +26,7 @@
 
 - 分布収束は $X_n\xrightarrow{d}X$、確率収束は $X_n\xrightarrow{p}X$ とする。
 - 推定量は $\widehat\theta$、尤度は $L(\theta;x)$、対数尤度は $\ell(\theta;x)$ とする。
-- 1観測当たりのFisher情報量は $I_1(\theta)$、標本全体は $I_n(\theta)$ とする。
+- 1観測当たりのフィッシャー情報量（1次元）は $I_1(\theta)$、標本全体は $I_n(\theta)$ とする。
 - 帰無仮説は $H_0$、対立仮説は $H_1$、有意水準は $\alpha$ とする。
 
 ## 線形代数・時系列

@@ -1263,14 +1263,14 @@ $O=12,E=10$ のセル寄与は未修正 $4/10=0.4$、修正後 $(2-0.5)^2/10=0.2
 
 ---
 id: test-fisher-exact-2x2
-title: Fisherの正確検定を超幾何分布へ帰着する
+title: フィッシャー検定を超幾何分布へ帰着する
 category: math-testing
 subcategory: math-various-tests
 topic: fisher-exact
 type: formula
 difficulty: 4
 priority: A
-hashtags: [Fisherの正確検定, 2×2表, 超幾何分布]
+hashtags: [フィッシャー検定, 2×2表, 超幾何分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 ---
@@ -1613,10 +1613,10 @@ sources: [{ type: official_syllabus, topic: ノンパラメトリック検定 }]
 データ型、独立・対応、期待度数、帰無仮説の構造で選択する。
 
 ## 答え
-(a) 正確二項検定、(b) Fisherの正確検定、(c) McNemar検定、(d) 独立性のカイ二乗検定。
+(a) 正確二項検定、(b) フィッシャー検定、(c) McNemar検定、(d) 独立性のカイ二乗検定。
 
 ## 計算例
-同じ対象の治療前後2値反応は、独立表のFisher検定ではなくMcNemar検定。
+同じ対象の治療前後2値反応は、独立表のフィッシャー検定ではなくMcNemar検定。
 
 ## 注意
 「2×2表」という形だけで検定を決めず、標本設計を確認する。
