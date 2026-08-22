@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-22
-reviewed_card_count: 1208
+reviewed_card_count: 1278
 current_work: null
-next_work: C25-engineering-inference-asymptotics
-last_completed_work: C24-engineering-processes
+next_work: C26-engineering-quality
+last_completed_work: C25-engineering-inference-asymptotics
 summary:
   total: 33
-  planned: 3
+  planned: 2
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 30
+  reviewed: 31
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2434,7 +2434,7 @@ work:
     target:
       min: 65
       max: 75
-    status: planned
+    status: reviewed
     review_dir: review/C25-engineering-inference-asymptotics
     source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
     parent: 線形回帰・一般化線形モデル・漸近理論
@@ -2500,6 +2500,86 @@ work:
       A: 23
       B: 10
       C: 0
+    started_at: 2026-08-22T11:49:19.762Z
+    self_review_at: 2026-08-22T12:03:43.768Z
+    independent_review_at: 2026-08-22T12:06:33.721Z
+    revision_at: 2026-08-22T12:12:16.796Z
+    completed_at: 2026-08-22T12:23:38.566Z
+    added_card_ids:
+      - engasym-asymptotic-bias-mse
+      - engasym-bernoulli-fisher-information
+      - engasym-binomial-continuity-correction
+      - engasym-clt-sample-mean-tolerance
+      - engasym-clt-sum-probability
+      - engasym-consistency-from-mse
+      - engasym-continuous-mapping-plugin
+      - engasym-delta-log
+      - engasym-delta-odds-ratio
+      - engasym-delta-ratio
+      - engasym-delta-risk-ratio
+      - engasym-delta-square-root
+      - engasym-empirical-cdf-point
+      - engasym-estimating-equation-linearization
+      - engasym-lln-sensor-average
+      - engasym-local-alternative-power
+      - engasym-method-moments-consistency
+      - engasym-mle-asymptotic-normality
+      - engasym-multivariate-linear-combination
+      - engasym-poisson-mle-variance
+      - engasym-proportion-standardization
+      - engasym-relative-efficiency
+      - engasym-sample-quantile-variance
+      - engasym-sample-size-mean-precision
+      - engasym-sample-variance-normal
+      - engasym-sandwich-m-estimator
+      - engasym-score-wald-lr-equivalence
+      - engasym-slutsky-studentization
+      - engasym-wald-ci-generic
+      - enginf-adjusted-r2-output
+      - enginf-binomial-glm-loglikelihood
+      - enginf-coefficient-confidence-interval
+      - enginf-coefficient-output-engineering
+      - enginf-contrast-estimate-se
+      - enginf-contrast-t-test
+      - enginf-cooks-distance
+      - enginf-dummy-reference-contrast
+      - enginf-estimability-linear-function
+      - enginf-exponential-family-mean-variance
+      - enginf-extra-sum-squares
+      - enginf-gauss-markov-comparison
+      - enginf-glm-deviance-residual-output
+      - enginf-glm-link-selection
+      - enginf-glm-three-components
+      - enginf-glm-wald-joint
+      - enginf-gls-whitening
+      - enginf-interaction-design-matrix
+      - enginf-interaction-slope-test
+      - enginf-leverage-numeric
+      - enginf-linear-combination-normal
+      - enginf-linear-model-dimensions
+      - enginf-linear-restriction-wald-f
+      - enginf-logistic-irls-one-step
+      - enginf-logistic-wald-output
+      - enginf-mean-response-ci
+      - enginf-new-observation-pi
+      - enginf-nonlinear-gradient-se
+      - enginf-normal-equations-orthogonality
+      - enginf-ols-covariance-matrix
+      - enginf-ols-matrix-numeric
+      - enginf-ols-unbiased-condition
+      - enginf-overall-regression-f
+      - enginf-poisson-mean
+      - enginf-poisson-offset-rate
+      - enginf-regression-anova-output
+      - enginf-restricted-least-squares
+      - enginf-robust-sandwich-se
+      - enginf-studentized-residual
+      - enginf-vif-numeric
+      - enginf-wls-two-weights
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C26-engineering-quality:
     title: 品質管理
     category: applied-engineering

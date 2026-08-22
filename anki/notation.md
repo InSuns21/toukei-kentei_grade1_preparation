@@ -36,6 +36,7 @@
 ## 収束・推測
 
 - 分布収束は $X_n\xrightarrow{d}X$、確率収束は $X_n\xrightarrow{p}X$ とする。
+- $T_n\dot\sim D_n$：$T_n$ の大標本近似分布が $D_n$ であることを表す。厳密な分布一致や収束矢印とは区別する。
 - 推定量は $\widehat\theta$、尤度は $L(\theta;x)$、対数尤度は $\ell(\theta;x)$ とする。
 - 1観測当たりのフィッシャー情報量（1次元）は $I_1(\theta)$、標本全体は $I_n(\theta)$ とする。
 - 帰無仮説は $H_0$、対立仮説は $H_1$、有意水準は $\alpha$ とする。
@@ -45,6 +46,9 @@
 - ベクトルは太字小文字 $\boldsymbol x$、行列は太字大文字 $\boldsymbol X$ とする。
 - 転置は $\boldsymbol X^{\mathsf T}$、逆行列は $\boldsymbol X^{-1}$、単位行列は $\boldsymbol I_n$ とする。
 - 線形モデルは $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ とし、初出時に次元を示す。
+- $R$、$\boldsymbol r$：線形制約 $R\boldsymbol\beta=\boldsymbol r$ の制約行列と帰無値ベクトル。$q=\operatorname{rank}(R)$ は独立な制約数。
+- $\widehat V$：推定量の推定分散共分散行列。漸近理論では文脈により漸近分散の推定値を表す。
+- $\operatorname{Avar}(\widehat\theta)$：推定量自体の近似分散。$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,V)$ の $V$ を漸近分散定数と呼び、本教材では $\operatorname{Avar}(\widehat\theta)=V/n$ と書く。
 - 自己共分散は $\gamma(h)$、自己相関は $\rho(h)$ とする。
 
 ## 表示規則

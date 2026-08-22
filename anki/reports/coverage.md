@@ -1,6 +1,6 @@
 # シラバス coverage
 
-- 公開カード: 1208
+- 公開カード: 1278
 
 | category | cards | subcategory coverage | types |
 |---|---:|---:|---|
@@ -10,7 +10,7 @@
 | 統計的推測（検定） | 112 | 4/4 | formula, theorem, condition, calc_step, recognition, strategy, pitfall |
 | データ解析法の考え方と各種分析手法 | 240 | 7/7 | formula, condition, calc_step, expansion, recognition, strategy |
 | 統計応用（共通事項） | 222 | 7/7 | formula, condition, proof_step, calc_step, recognition, strategy |
-| 統計応用（理工学） | 109 | 5/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
+| 統計応用（理工学） | 179 | 6/6 | formula, theorem, condition, proof_step, calc_step, recognition, strategy |
 
 ## 公式範囲の小項目
 
@@ -53,8 +53,8 @@
 | 時系列解析 | complete | ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma |
 | 多変量解析法 | complete | multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal, engmv-normal-density-numeric, engmv-sample-mean-vector, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-correlation-from-covariance, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-unit-change-correlation-invariance, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-pca-rayleigh-process-variance, engmv-factor-covariance-numeric, engmv-factor-communality-numeric, engmv-factor-rotation-invariance, engmv-lda-one-dimensional-boundary, engmv-fisher-discriminant-direction, engmv-lda-prior-probability, engmv-lda-pooled-covariance, engmv-qda-quadratic-term, engmv-single-linkage-update, engmv-complete-linkage-update, engmv-ward-merge-increase, engmv-kmeans-assignment, engmv-kmeans-centroid-update, engmv-silhouette-coefficient, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue, engmv-classical-mds-three-points, engmv-mds-stress |
 | 確率過程 | complete | process-ar1-stationary, process-ma1-autocovariance, engproc-random-walk-drift-calibration, engproc-biased-walk-hit-upper, engproc-random-walk-expected-absorption, engproc-ctmc-generator-check, engproc-ctmc-holding-jump-probability, engproc-two-state-ctmc-transition, engproc-poisson-failure-count, engproc-nhpp-cumulative-intensity, engproc-poisson-rate-estimate-exposure, engproc-compound-poisson-cost, engproc-brownian-bridge-conditional, engproc-ou-mean-variance, engproc-degradation-two-step, engproc-repair-chain-stationary-availability, engproc-stationary-mean-recurrence, engproc-birth-death-detailed-balance, engproc-mm1-stationary-probability, engproc-mm1-little-law, engproc-absorbing-fundamental-matrix, engproc-absorbing-probability-matrix, engproc-markov-reward-long-run, engproc-ctmc-uniformization, engproc-poisson-thinning-defects, engproc-poisson-superposition-machines, engproc-chapman-kolmogorov-maintenance, engproc-stationarity-window-judgment, engproc-sample-autocovariance-numeric, engproc-residual-white-noise-bounds, engproc-random-walk-difference-data, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast, engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-acf-pacf-model-selection, engproc-pacf-significance-output, engproc-ljung-box-numeric, engproc-exponential-smoothing-update, engproc-ar1-spectral-ratio, engproc-periodogram-period-identification, engproc-arima-forecast-output |
-| 線形推測 | partial | model-gauss-markov, model-contrast |
-| 漸近理論 | partial | dist-clt-standardize, est-delta-log |
+| 線形推測 | complete | model-gauss-markov, model-contrast, enginf-linear-model-dimensions, enginf-vif-numeric, enginf-wls-two-weights, enginf-gls-whitening, enginf-robust-sandwich-se, enginf-dummy-reference-contrast, enginf-interaction-design-matrix, enginf-interaction-slope-test, enginf-logistic-wald-output, enginf-glm-three-components, enginf-logistic-irls-one-step, enginf-poisson-mean, enginf-poisson-offset-rate, enginf-exponential-family-mean-variance, enginf-glm-deviance-residual-output, enginf-glm-link-selection, enginf-glm-wald-joint, enginf-binomial-glm-loglikelihood, enginf-nonlinear-gradient-se, enginf-coefficient-output-engineering, enginf-adjusted-r2-output, enginf-estimability-linear-function, enginf-restricted-least-squares, enginf-ols-matrix-numeric, enginf-normal-equations-orthogonality, enginf-ols-unbiased-condition, enginf-ols-covariance-matrix, enginf-gauss-markov-comparison, enginf-linear-combination-normal, enginf-contrast-estimate-se, enginf-contrast-t-test, enginf-linear-restriction-wald-f, enginf-extra-sum-squares, enginf-regression-anova-output, enginf-overall-regression-f, enginf-coefficient-confidence-interval, enginf-mean-response-ci, enginf-new-observation-pi, enginf-leverage-numeric, enginf-studentized-residual, enginf-cooks-distance |
+| 漸近理論 | complete | dist-clt-standardize, est-delta-log, engasym-slutsky-studentization, engasym-continuous-mapping-plugin, engasym-empirical-cdf-point, engasym-sample-quantile-variance, engasym-sample-variance-normal, engasym-method-moments-consistency, engasym-asymptotic-bias-mse, engasym-relative-efficiency, engasym-estimating-equation-linearization, engasym-sandwich-m-estimator, engasym-multivariate-linear-combination, engasym-score-wald-lr-equivalence, engasym-sample-size-mean-precision, engasym-proportion-standardization, engasym-local-alternative-power, engasym-lln-sensor-average, engasym-consistency-from-mse, engasym-clt-sum-probability, engasym-clt-sample-mean-tolerance, engasym-binomial-continuity-correction, engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio, engasym-mle-asymptotic-normality, engasym-poisson-mle-variance, engasym-bernoulli-fisher-information, engasym-wald-ci-generic |
 | 品質管理 | partial | eng-xbar-limits, eng-capability-index, eng-series-reliability, eng-exponential-reliability |
 | 実験計画 | partial | eng-two-factor-interaction, eng-blocking |
 
@@ -250,17 +250,17 @@
 | 確率過程 | 自己回帰過程 | card | process-ar1-stationary, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast |
 | 確率過程 | 移動平均過程 | card | process-ma1-autocovariance, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-one-step-forecast |
 | 確率過程 | ARIMA過程 | card | engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-arima-forecast-output |
-| 線形推測 | 線形モデル | planned |  |
-| 線形推測 | 一般化線形モデル | planned |  |
-| 線形推測 | 線形結合の分布 | planned |  |
-| 線形推測 | 線形対比 | planned |  |
-| 線形推測 | 線形制約 | planned |  |
-| 漸近理論 | 大数の法則 | planned |  |
-| 漸近理論 | 中心極限定理 | planned |  |
-| 漸近理論 | 最尤推定量の漸近正規性 | planned |  |
-| 漸近理論 | 漸近分散 | planned |  |
-| 漸近理論 | 一致性 | planned |  |
-| 漸近理論 | デルタ法 | planned |  |
+| 線形推測 | 線形モデル | card | enginf-linear-model-dimensions, enginf-ols-matrix-numeric, enginf-normal-equations-orthogonality, enginf-ols-unbiased-condition, enginf-ols-covariance-matrix, enginf-gauss-markov-comparison, enginf-regression-anova-output, enginf-overall-regression-f, enginf-coefficient-confidence-interval, enginf-mean-response-ci, enginf-new-observation-pi, enginf-leverage-numeric, enginf-studentized-residual, enginf-cooks-distance, enginf-vif-numeric, enginf-wls-two-weights, enginf-gls-whitening, enginf-robust-sandwich-se, enginf-dummy-reference-contrast, enginf-interaction-design-matrix, enginf-interaction-slope-test, enginf-coefficient-output-engineering, enginf-adjusted-r2-output |
+| 線形推測 | 一般化線形モデル | card | enginf-logistic-wald-output, enginf-glm-three-components, enginf-logistic-irls-one-step, enginf-poisson-mean, enginf-poisson-offset-rate, enginf-exponential-family-mean-variance, enginf-glm-deviance-residual-output, enginf-glm-link-selection, enginf-glm-wald-joint, enginf-binomial-glm-loglikelihood |
+| 線形推測 | 線形結合の分布 | card | enginf-linear-combination-normal, enginf-mean-response-ci, enginf-new-observation-pi, enginf-nonlinear-gradient-se, enginf-estimability-linear-function |
+| 線形推測 | 線形対比 | card | model-contrast, enginf-contrast-estimate-se, enginf-contrast-t-test, enginf-dummy-reference-contrast |
+| 線形推測 | 線形制約 | card | enginf-linear-restriction-wald-f, enginf-extra-sum-squares, enginf-glm-wald-joint, enginf-restricted-least-squares |
+| 漸近理論 | 大数の法則 | card | engasym-lln-sensor-average, engasym-method-moments-consistency |
+| 漸近理論 | 中心極限定理 | card | engasym-clt-sum-probability, engasym-clt-sample-mean-tolerance, engasym-binomial-continuity-correction, engasym-empirical-cdf-point, engasym-sample-variance-normal, engasym-sample-size-mean-precision, engasym-proportion-standardization, engasym-slutsky-studentization |
+| 漸近理論 | 最尤推定量の漸近正規性 | card | engasym-mle-asymptotic-normality, engasym-poisson-mle-variance, engasym-bernoulli-fisher-information, engasym-wald-ci-generic, engasym-score-wald-lr-equivalence, engasym-local-alternative-power |
+| 漸近理論 | 漸近分散 | card | engasym-poisson-mle-variance, engasym-sample-quantile-variance, engasym-sample-variance-normal, engasym-asymptotic-bias-mse, engasym-relative-efficiency, engasym-estimating-equation-linearization, engasym-sandwich-m-estimator, engasym-multivariate-linear-combination |
+| 漸近理論 | 一致性 | card | engasym-lln-sensor-average, engasym-consistency-from-mse, engasym-continuous-mapping-plugin, engasym-method-moments-consistency |
+| 漸近理論 | デルタ法 | card | engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio |
 | 品質管理 | 管理図 | planned |  |
 | 品質管理 | 信頼性 | planned |  |
 | 品質管理 | 保全性 | planned |  |

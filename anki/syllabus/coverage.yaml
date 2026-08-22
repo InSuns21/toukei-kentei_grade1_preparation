@@ -2116,50 +2116,120 @@ items:
         status: card
         cards: [engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-arima-forecast-output]
   - id: engineering-linear-inference
-    status: partial
+    status: complete
     cards:
       - model-gauss-markov
       - model-contrast
+      - enginf-linear-model-dimensions
+      - enginf-vif-numeric
+      - enginf-wls-two-weights
+      - enginf-gls-whitening
+      - enginf-robust-sandwich-se
+      - enginf-dummy-reference-contrast
+      - enginf-interaction-design-matrix
+      - enginf-interaction-slope-test
+      - enginf-logistic-wald-output
+      - enginf-glm-three-components
+      - enginf-logistic-irls-one-step
+      - enginf-poisson-mean
+      - enginf-poisson-offset-rate
+      - enginf-exponential-family-mean-variance
+      - enginf-glm-deviance-residual-output
+      - enginf-glm-link-selection
+      - enginf-glm-wald-joint
+      - enginf-binomial-glm-loglikelihood
+      - enginf-nonlinear-gradient-se
+      - enginf-coefficient-output-engineering
+      - enginf-adjusted-r2-output
+      - enginf-estimability-linear-function
+      - enginf-restricted-least-squares
+      - enginf-ols-matrix-numeric
+      - enginf-normal-equations-orthogonality
+      - enginf-ols-unbiased-condition
+      - enginf-ols-covariance-matrix
+      - enginf-gauss-markov-comparison
+      - enginf-linear-combination-normal
+      - enginf-contrast-estimate-se
+      - enginf-contrast-t-test
+      - enginf-linear-restriction-wald-f
+      - enginf-extra-sum-squares
+      - enginf-regression-anova-output
+      - enginf-overall-regression-f
+      - enginf-coefficient-confidence-interval
+      - enginf-mean-response-ci
+      - enginf-new-observation-pi
+      - enginf-leverage-numeric
+      - enginf-studentized-residual
+      - enginf-cooks-distance
     terms:
       - name: 線形モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [enginf-linear-model-dimensions, enginf-ols-matrix-numeric, enginf-normal-equations-orthogonality, enginf-ols-unbiased-condition, enginf-ols-covariance-matrix, enginf-gauss-markov-comparison, enginf-regression-anova-output, enginf-overall-regression-f, enginf-coefficient-confidence-interval, enginf-mean-response-ci, enginf-new-observation-pi, enginf-leverage-numeric, enginf-studentized-residual, enginf-cooks-distance, enginf-vif-numeric, enginf-wls-two-weights, enginf-gls-whitening, enginf-robust-sandwich-se, enginf-dummy-reference-contrast, enginf-interaction-design-matrix, enginf-interaction-slope-test, enginf-coefficient-output-engineering, enginf-adjusted-r2-output]
       - name: 一般化線形モデル
-        status: planned
-        cards: []
+        status: card
+        cards: [enginf-logistic-wald-output, enginf-glm-three-components, enginf-logistic-irls-one-step, enginf-poisson-mean, enginf-poisson-offset-rate, enginf-exponential-family-mean-variance, enginf-glm-deviance-residual-output, enginf-glm-link-selection, enginf-glm-wald-joint, enginf-binomial-glm-loglikelihood]
       - name: 線形結合の分布
-        status: planned
-        cards: []
+        status: card
+        cards: [enginf-linear-combination-normal, enginf-mean-response-ci, enginf-new-observation-pi, enginf-nonlinear-gradient-se, enginf-estimability-linear-function]
       - name: 線形対比
-        status: planned
-        cards: []
+        status: card
+        cards: [model-contrast, enginf-contrast-estimate-se, enginf-contrast-t-test, enginf-dummy-reference-contrast]
       - name: 線形制約
-        status: planned
-        cards: []
+        status: card
+        cards: [enginf-linear-restriction-wald-f, enginf-extra-sum-squares, enginf-glm-wald-joint, enginf-restricted-least-squares]
   - id: engineering-asymptotics
-    status: partial
+    status: complete
     cards:
       - dist-clt-standardize
       - est-delta-log
+      - engasym-slutsky-studentization
+      - engasym-continuous-mapping-plugin
+      - engasym-empirical-cdf-point
+      - engasym-sample-quantile-variance
+      - engasym-sample-variance-normal
+      - engasym-method-moments-consistency
+      - engasym-asymptotic-bias-mse
+      - engasym-relative-efficiency
+      - engasym-estimating-equation-linearization
+      - engasym-sandwich-m-estimator
+      - engasym-multivariate-linear-combination
+      - engasym-score-wald-lr-equivalence
+      - engasym-sample-size-mean-precision
+      - engasym-proportion-standardization
+      - engasym-local-alternative-power
+      - engasym-lln-sensor-average
+      - engasym-consistency-from-mse
+      - engasym-clt-sum-probability
+      - engasym-clt-sample-mean-tolerance
+      - engasym-binomial-continuity-correction
+      - engasym-delta-log
+      - engasym-delta-square-root
+      - engasym-delta-ratio
+      - engasym-delta-risk-ratio
+      - engasym-delta-odds-ratio
+      - engasym-mle-asymptotic-normality
+      - engasym-poisson-mle-variance
+      - engasym-bernoulli-fisher-information
+      - engasym-wald-ci-generic
     terms:
       - name: 大数の法則
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-lln-sensor-average, engasym-method-moments-consistency]
       - name: 中心極限定理
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-clt-sum-probability, engasym-clt-sample-mean-tolerance, engasym-binomial-continuity-correction, engasym-empirical-cdf-point, engasym-sample-variance-normal, engasym-sample-size-mean-precision, engasym-proportion-standardization, engasym-slutsky-studentization]
       - name: 最尤推定量の漸近正規性
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-mle-asymptotic-normality, engasym-poisson-mle-variance, engasym-bernoulli-fisher-information, engasym-wald-ci-generic, engasym-score-wald-lr-equivalence, engasym-local-alternative-power]
       - name: 漸近分散
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-poisson-mle-variance, engasym-sample-quantile-variance, engasym-sample-variance-normal, engasym-asymptotic-bias-mse, engasym-relative-efficiency, engasym-estimating-equation-linearization, engasym-sandwich-m-estimator, engasym-multivariate-linear-combination]
       - name: 一致性
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-lln-sensor-average, engasym-consistency-from-mse, engasym-continuous-mapping-plugin, engasym-method-moments-consistency]
       - name: デルタ法
-        status: planned
-        cards: []
+        status: card
+        cards: [engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio]
   - id: engineering-quality
     status: partial
     cards:

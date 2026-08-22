@@ -59,10 +59,14 @@
 - 一般化最小二乗推定：$\operatorname{Var}(\varepsilon)=\sigma^2\Omega$ なら $\widehat\beta_{\mathrm{GLS}}=(X^{\mathsf T}\Omega^{-1}X)^{-1}X^{\mathsf T}\Omega^{-1}Y$。
 - Ridge回帰：$\widehat\beta=(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}Y$。直交計画のLassoはソフト閾値 $S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+$。
 - 一般化線形モデル：指数型分布族 $f(y;\theta,\phi)=\exp[\{y\theta-b(\theta)\}/a(\phi)+c(y,\phi)]$、線形予測子 $\eta=X\beta$、リンク $g(\mu)=\eta$。
+- 一般化線形モデルの3要素：確率成分（指数型分布族）、系統成分（線形予測子 $\eta=X\beta$）、リンク関数 $g(\mu)=\eta$。
+- 指数型分布族の平均・分散：$E[Y]=b'(\theta)$、$\operatorname{Var}(Y)=a(\phi)b''(\theta)$。
+- ダミー変数との交互作用：$E[Y]=\beta_0+\beta_1x+\beta_2D+\beta_3xD$ では、$D=0$ の傾きは $\beta_1$、$D=1$ の傾きは $\beta_1+\beta_3$。
 - 正準リンク：正規分布は恒等、二項分布はlogit、ポアソン分布は対数リンク。
 - 一般化線形モデルのIRLS：$z_i=\eta_i+(y_i-\mu_i)d\eta_i/d\mu_i$、$w_i=[\operatorname{Var}(Y_i)(d\eta_i/d\mu_i)^2]^{-1}$ として $\beta^{\mathrm{new}}=(X^{\mathsf T}WX)^{-1}X^{\mathsf T}Wz$。
 - 逸脱度：$D=2(\ell_{\mathrm{sat}}-\ell_{\mathrm{fit}})$。Pearson統計量は $X_P^2=\sum_i(y_i-\widehat\mu_i)^2/V(\widehat\mu_i)$。
 - 過分散の概算：$\widehat\phi=X_P^2/(n-k)$。標準誤差は分散倍率の平方根に比例する。
+- GLMのWald制約検定：$W=(R\widehat\beta-r)^{\mathsf T}(R\widehat V R^{\mathsf T})^{-1}(R\widehat\beta-r)\xrightarrow{d}\chi_q^2$。
 - Mahalanobis距離：$d^2=(x-\mu)^{\mathsf T}\Sigma^{-1}(x-\mu)$。
 - 1標本Hotelling統計量：p次元正規母集団からの独立標本でSが可逆かつ $n>p$ なら、$T^2=n(\bar x-\mu_0)^{\mathsf T}S^{-1}(\bar x-\mu_0)$、帰無仮説下で $(n-p)T^2/\{p(n-1)\}\sim F_{p,n-p}$。
 - 主成分分析：$\max_{\|a\|=1}a^{\mathsf T}\Sigma a$ から $\Sigma a=\lambda a$。寄与率は $\lambda_j/\sum_k\lambda_k$。
@@ -254,6 +258,13 @@
 - Rayleigh商：対称行列では $\max_{\boldsymbol a^{\mathsf T}\boldsymbol a=1}\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\lambda_{\max}$。
 - 多変量正規分布の条件付き平均：$E[X\mid Y=y]=\mu_X+\sigma_{XY}(y-\mu_Y)/\sigma_Y^2$。
 - OLS：$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y$。
+- 正規方程式と残差：$\boldsymbol X^{\mathsf T}\boldsymbol e=\boldsymbol0$、$\boldsymbol e=\boldsymbol Y-\boldsymbol X\widehat{\boldsymbol\beta}$。
+- OLSの分散：$\operatorname{Var}(\widehat{\boldsymbol\beta}\mid X)=\sigma^2(X^{\mathsf T}X)^{-1}$。線形結合 $c^{\mathsf T}\widehat{\boldsymbol\beta}$ の分散は $\sigma^2c^{\mathsf T}(X^{\mathsf T}X)^{-1}c$。
+- 一般線形制約：$H_0:R\boldsymbol\beta=\boldsymbol r$（独立な制約数 $q$）の有限標本F統計量は
+  $$F=\frac{(R\widehat{\boldsymbol\beta}-\boldsymbol r)^{\mathsf T}[R(X^{\mathsf T}X)^{-1}R^{\mathsf T}]^{-1}(R\widehat{\boldsymbol\beta}-\boldsymbol r)}{q s^2}\sim F_{q,n-k}.$$
+- 入れ子線形モデルの部分F検定：$F=\{(SSE_R-SSE_F)/q\}/\{SSE_F/(n-k_F)\}$。
+- 平均応答と新観測：平均応答の標準誤差は $s\sqrt{x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}x_0}$、新観測の予測標準誤差は $s\sqrt{1+x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}x_0}$。
+- HC0サンドイッチ分散：$(X^{\mathsf T}X)^{-1}\{\sum_i e_i^2x_ix_i^{\mathsf T}\}(X^{\mathsf T}X)^{-1}$。
 - Gauss--Markov定理：固定・列フルランク計画、誤差平均0、共分散 $\sigma^2\boldsymbol I_n$ の下でOLSはBLUE。
 - 多変量正規の線形変換：$\boldsymbol a^{\mathsf T}\boldsymbol X\sim N(\boldsymbol a^{\mathsf T}\boldsymbol\mu,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a)$。
 - $p$ 変量正規分布：正定値な $\Sigma$ に対し、$f(\boldsymbol x)=(2\pi)^{-p/2}|\Sigma|^{-1/2}\exp[-(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)/2]$。
@@ -401,8 +412,8 @@
 - 連続写像定理：$X_n\xrightarrow{d}X$ かつ $g$ 連続なら $g(X_n)\xrightarrow{d}g(X)$。
 - デルタ法：$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,\sigma^2)$ かつ $g$ 微分可能なら $\sqrt n(g(T_n)-g(\theta))\xrightarrow{d}N(0,\{g'(\theta)\}^2\sigma^2)$。
 - 最尤推定量の漸近正規性：正則条件の下で $\sqrt n(\widehat\theta_{\mathrm{MLE}}-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1})$。$I_1$ は1観測当たりのフィッシャー情報量（1次元）。
-- 漸近分散・標準誤差：$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ のとき漸近分散 $v$、漸近標準誤差 $\approx\sqrt{v/n}$。
-- 漸近相対効率：$\operatorname{ARE}(T,U)=v_U/v_T$（$v_T=\operatorname{AVar}(\sqrt n\,T_n)$、$v_U=\operatorname{AVar}(\sqrt n\,U_n)$）。
+- 漸近分散定数・近似分散：$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v)$ の $v$ を漸近分散定数と呼び、推定量 $T_n$ 自体の近似分散を本教材では $\operatorname{Avar}(T_n)=v/n$ と書く。漸近標準誤差は $\sqrt{v/n}$。
+- 漸近相対効率：漸近分散定数を $v_T,v_U$ として $\operatorname{ARE}(T,U)=v_U/v_T$。
 - オーダー記号：$X_n=O_p(a_n)$ は確率的有界、$X_n=o_p(1)$ は $X_n\xrightarrow{p}0$。
 
 ## 基本分布の公式
