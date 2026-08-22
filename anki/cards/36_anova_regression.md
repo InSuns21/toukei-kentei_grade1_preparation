@@ -13,7 +13,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-一元配置分散分析の固定効果モデルと誤差の仮定を書け。
+処理・群を表す因子が $a$ 個の水準を持ち、群 $i$ に $n_i$ 個の観測 $Y_{ij}$ があるとする。全体平均を $\mu$、群 $i$ の固定された効果を $\alpha_i$、個体差を誤差 $\varepsilon_{ij}$ とするとき、一元配置分散分析のモデルと誤差の仮定を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -27,7 +27,15 @@ $$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2).$$
 したがって各群は独立な正規分布 $N(\mu_i,\sigma^2)$ に従い、母分散は共通である。
 
 ## 計算例
-$a=3$ なら独立な平均差は2個なので、群間自由度は $a-1=2$。
+$a=3$ で各群の標本サイズが等しく、$\mu=10$、$(\alpha_1,\alpha_2,\alpha_3)=(-2,0,2)$、$\sigma^2=4$ とする。このとき $\sum_i n_i\alpha_i=0$ であり、
+$$E[Y_{1j}]=10-2=8,
+\quad E[Y_{2j}]=10,
+\quad E[Y_{3j}]=10+2=12.$$
+誤差が独立に正規分布 $N(0,4)$ に従うので
+$$Y_{1j}\sim N(8,4),
+\quad Y_{2j}\sim N(10,4),
+\quad Y_{3j}\sim N(12,4).$$
+平均は群ごとに異なるが、分散4は全群で共通である。
 
 ## 注意
 独立性・正規性・等分散性がF分布による正確検定の前提である。
@@ -48,7 +56,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-3群 $(1,2),(3,4),(5,6)$ の $SS_T,SS_A,SS_E$ を求めよ。
+3群の観測値が順に $(1,2)$、$(3,4)$、$(5,6)$ である。全平方和 $SS_T$、群間平方和 $SS_A$、群内（誤差）平方和 $SS_E$ を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -68,7 +76,17 @@ $$SS_E=6(0.5)^2=1.5.$$
 $$SS_T=SS_A+SS_E=17.5.$$
 
 ## 計算例
-直接計算でも $6.25+2.25+0.25+0.25+2.25+6.25=17.5$。
+全平均との差を各観測について計算すると
+$$1-3.5=-2.5, 2-3.5=-1.5, 3-3.5=-0.5,$$
+$$4-3.5=0.5, 5-3.5=1.5, 6-3.5=2.5.$$
+したがって
+$$SS_T=(-2.5)^2+(-1.5)^2+(-0.5)^2+0.5^2+1.5^2+2.5^2$$
+$$=6.25+2.25+0.25+0.25+2.25+6.25=17.5,$$
+群平均は $(1.5,3.5,5.5)$ なので
+$$SS_A=2\{(1.5-3.5)^2+(3.5-3.5)^2+(5.5-3.5)^2\}=16.$$
+各群内では平均からの偏差が $(-0.5,0.5)$ だから
+$$SS_E=3\{(-0.5)^2+0.5^2\}=1.5.$$
+よって $SS_A+SS_E=16+1.5=17.5=SS_T$ と一致する。
 
 ## 注意
 群間平方和では各群平均の偏差を群サイズ倍する。
@@ -123,7 +141,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-一元配置分散分析の平均平方とF統計量を書け。
+各観測が独立な正規分布に従い、全群で分散が共通である一元配置分散分析を考える。$a$ 群、総標本数 $N$、群間平方和 $SS_A$、群内（誤差）平方和 $SS_E$ として、群間平均平方 $MS_A$、誤差平均平方 $MS_E$、および全群の母平均が等しいという帰無仮説を検定するF統計量を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -137,7 +155,12 @@ $H_0:\mu_1=\cdots=\mu_a$ の下で
 $$F\sim F_{a-1,N-a}.$$
 
 ## 計算例
-$MS_A=8,MS_E=2$ なら $F=4$。
+$a=3,N=15,SS_A=16,SS_E=24$ なら
+$$MS_A=\frac{16}{3-1}=8,
+\qquad MS_E=\frac{24}{15-3}=2.$$
+したがって
+$$F=\frac{MS_A}{MS_E}=\frac82=4,$$
+帰無仮説の下では自由度 $(2,12)$ のF分布と比較する。
 
 ## 注意
 群間変動が大きい右片側で棄却する。
@@ -158,7 +181,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-$a=3,N=15,SS_A=36,SS_E=24$。5%上側点 $F_{2,12,0.05}=3.89$ として検定せよ。
+各観測が独立な正規分布に従い、全群で分散が共通である一元配置分散分析で、群数 $a=3$、総標本数 $N=15$、群間平方和 $SS_A=36$、群内平方和 $SS_E=24$ を得た。自由度 $(2,12)$ のF分布の5%上側臨界値が3.89であるとして、$H_0:\mu_1=\mu_2=\mu_3$ を検定せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -171,7 +194,17 @@ $$F=18/2=9.$$
 $9>3.89$ なので $H_0$ を棄却し、少なくとも1群の母平均が異なると判断する。
 
 ## 計算例
-全平方和は $SS_T=36+24=60$、全自由度は14。
+群間・誤差の自由度は
+$$\nu_A=a-1=2,
+\qquad \nu_E=N-a=12.$$
+したがって
+$$MS_A=\frac{36}{2}=18,
+\qquad MS_E=\frac{24}{12}=2,
+\qquad F=\frac{18}{2}=9.$$
+$9>3.89$ なので帰無仮説を棄却する。また
+$$SS_T=36+24=60,
+\qquad \nu_T=2+12=14$$
+と平方和・自由度の加法性も確認できる。
 
 ## 注意
 棄却しても、どの群対が異なるかまでは分からない。
@@ -192,7 +225,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-各群サイズが $n$ の固定効果モデルで $E[MS_A]$ と $E[MS_E]$ を書け。
+$a$ 群があり、各群に $n$ 個の観測を持つ固定効果モデル $Y_{ij}=\mu+\alpha_i+\varepsilon_{ij}$ を考える。群間平均平方を $MS_A$、誤差平均平方を $MS_E$ とするとき、それぞれの期待値を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -206,7 +239,12 @@ $$E[MS_A]=\sigma^2+\frac{n\sum_{i=1}^a\alpha_i^2}{a-1}.$$
 したがって $H_0:\alpha_i=0\ (\forall i)$ のときだけ両者の期待値が一致する。
 
 ## 計算例
-$a=3,n=4,\alpha=(-1,0,1)$ なら $E[MS_A]=\sigma^2+4$。
+$a=3,n=4,\alpha=(-1,0,1)$ なら
+$$\sum_{i=1}^3\alpha_i^2=(-1)^2+0^2+1^2=2.$$
+したがって
+$$E[MS_A]=\sigma^2+\frac{4\cdot2}{3-1}
+=\sigma^2+4,$$
+一方 $E[MS_E]=\sigma^2$ である。
 
 ## 注意
 変量効果モデルの期待平均平方とは形が異なる。
@@ -240,7 +278,10 @@ $$\sum_{i=1}^a c_i=0$$
 $$\widehat L=\sum_i c_i\overline Y_{i\cdot}.$$
 
 ## 計算例
-3群で群1と群2・3の平均を比べる係数は $(1,-1/2,-1/2)$。
+3群で群1と群2・3の平均を比べる係数を $(1,-1/2,-1/2)$ とすると
+$$1-\frac12-\frac12=0$$
+なので対比である。群平均が $(10,13,15)$ なら
+$$\widehat L=10-\frac{13}{2}-\frac{15}{2}=-4.$$
 
 ## 注意
 係数和が0でない単なる線形結合は対比ではない。
@@ -277,7 +318,10 @@ $$\operatorname{Var}(\widehat L)=\sigma^2\sum_i\frac{c_i^2}{n_i}$$
 $$\operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i\frac{c_i^2}{n_i}}.$$
 
 ## 計算例
-2群差 $(1,-1)$ なら $\operatorname{SE}=\sqrt{MS_E(1/n_1+1/n_2)}$。
+2群差の係数を $(c_1,c_2)=(1,-1)$、$n_1=5,n_2=8,MS_E=4$ とすると
+$$\operatorname{SE}(\widehat L)
+=\sqrt{4\left(\frac{1^2}{5}+\frac{(-1)^2}{8}\right)}
+=\sqrt{1.3}\approx1.140.$$
 
 ## 注意
 t統計量の自由度は分散分析の誤差自由度 $N-a$。
@@ -298,7 +342,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-3群各5個、群平均 $(10,13,15)$、$MS_E=4$。対比 $L=\mu_1-(\mu_2+\mu_3)/2$ を検定せよ。
+各観測が独立な正規分布に従い、全群で分散が共通であるとする。3群に各5個の観測があり、群平均は $(10,13,15)$、誤差平均平方は $MS_E=4$ だった。対比 $L=\mu_1-(\mu_2+\mu_3)/2$ について $H_0:L=0$ を両側5%で検定せよ。誤差自由度12のt分布の両側臨界値を2.179とする。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -317,7 +361,14 @@ $$t=\frac{-4}{\sqrt{1.2}}\approx-3.65,$$
 自由度は $15-3=12$。両側5%点 $t_{12,0.025}=2.179$ より棄却する。
 
 ## 計算例
-係数和は $1-1/2-1/2=0$。
+まず係数和は $1-1/2-1/2=0$ なので対比である。推定値は
+$$\widehat L=10-\frac{13+15}{2}=-4.$$
+標準誤差は
+$$\sqrt{4\left(\frac15+\frac{1/4}{5}+\frac{1/4}{5}\right)}
+=\sqrt{1.2}\approx1.095.$$
+したがって
+$$t=\frac{-4}{1.095}\approx-3.65.$$
+$|t|=3.65>2.179$ なので $H_0:L=0$ を棄却する。
 
 ## 注意
 データ確認後に選んだ対比では多重性への配慮が必要。
@@ -338,7 +389,7 @@ sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
 ---
 
 ## 問題
-不均衡な一元配置で、対比係数 $c_i,d_i$ が直交する条件を書け。
+群ごとの標本サイズ $n_i$ が等しくない一元配置を不均衡配置という。2つの対比係数を $c_i,d_i$ とするとき、対応する対比推定量が直交する条件を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -350,7 +401,14 @@ $$\sum_{i=1}^a\frac{c_id_i}{n_i}=0.$$
 群サイズが等しいときは $\sum_i c_id_i=0$ に簡約される。
 
 ## 計算例
-等サイズ3群の $(1,-1,0)$ と $(1,1,-2)$ は内積 $1-1+0=0$ で直交。
+不均衡な3群で $(n_1,n_2,n_3)=(2,4,8)$ とし
+$$c=(1,-1,0),
+\qquad d=(1,2,-3)$$
+を考える。どちらも係数和が0なので対比であり、重み付き内積は
+$$\sum_i\frac{c_id_i}{n_i}
+=\frac{1\cdot1}{2}+\frac{(-1)\cdot2}{4}+\frac{0\cdot(-3)}8
+=\frac12-\frac12+0=0.$$
+したがって不均衡配置でも、この2対比は直交する。
 
 ## 注意
 等サイズ用の単純な内積条件を不均衡データへ流用しない。
@@ -358,20 +416,20 @@ $$\sum_{i=1}^a\frac{c_id_i}{n_i}=0.$$
 
 ---
 id: anova-tukey-hsd-formula
-title: Tukey法の同時比較幅を書く
+title: テューキー法の同時比較幅を書く
 category: math-data-analysis
 subcategory: math-anova
 topic: tukey-hsd
 type: formula
 difficulty: 3
 priority: A
-hashtags: [Tukey法, 多重比較, Studentized-range]
+hashtags: [テューキー法, 多重比較, Student化範囲分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
 
 ## 問題
-各群サイズ $n$ が等しいときのTukey HSD法の棄却条件を書け。
+各観測が独立な正規分布に従い、全群で分散が共通であるとする。$a$ 群の各標本サイズが共通に $n$、誤差平均平方が $MS_E$ であるとき、Student化範囲分布の上側臨界値 $q_{a,N-a,\alpha}$ を使うテューキーHSD法の棄却条件を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -385,28 +443,31 @@ q_{a,N-a,\alpha}\sqrt{\frac{MS_E}{n}}$$
 ならその群対差を有意とする。$q$ はStudent化範囲分布の上側確率点。
 
 ## 計算例
-$q=4,MS_E=9,n=9$ ならHSD幅は $4\sqrt{9/9}=4$。
+$q=4,MS_E=9,n=9$ なら
+$$\mathrm{HSD}=q\sqrt{\frac{MS_E}{n}}
+=4\sqrt{\frac99}=4.$$
+例えば2群の標本平均差が $|15-10|=5$ なら $5>4$ なので有意、$|13-10|=3$ なら $3<4$ なので有意でない。
 
 ## 注意
-不等群サイズではTukey–Kramer法を使う。
+不等群サイズではテューキー・クレーマー法を使う。
 <!-- CARD -->
 
 ---
 id: anova-tukey-numeric
-title: Tukey法で有意な群対を選ぶ
+title: テューキー法で有意な群対を選ぶ
 category: math-data-analysis
 subcategory: math-anova
 topic: tukey-numeric
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Tukey法, 多重比較, 群間差]
+hashtags: [テューキー法, 多重比較, 群間差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
 
 ## 問題
-群平均 $(10,13,16)$、$MS_E=4$、各群 $n=4$、Tukey臨界値 $q=3.5$。有意な群対を求めよ。
+各観測が独立な正規分布に従い、全群で分散が共通であるとする。3群の標本平均が $(10,13,16)$、誤差平均平方が $MS_E=4$、各群の標本サイズが $n=4$ である。テューキー法のStudent化範囲分布の臨界値を $q=3.5$ として、有意な群対を求めよ。
 
 ## 記号・用語
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
@@ -421,7 +482,13 @@ $$\mathrm{HSD}=3.5\sqrt{4/4}=3.5.$$
 差は $|10-13|=3$、$|10-16|=6$、$|13-16|=3$。3.5を超える群1–群3だけが有意。
 
 ## 計算例
-全体F検定の棄却後でも全群対が有意とは限らない。
+同時比較幅は
+$$3.5\sqrt{\frac44}=3.5.$$
+3つの絶対差は
+$$|10-13|=3,
+\qquad |10-16|=6,
+\qquad |13-16|=3.$$
+3.5を超えるのは6だけなので、群1と群3の差だけが有意である。
 
 ## 注意
 境界と等しい場合の扱いは棄却域の不等号規約に従う。
@@ -429,14 +496,14 @@ $$\mathrm{HSD}=3.5\sqrt{4/4}=3.5.$$
 
 ---
 id: anova-bonferroni-comparisons
-title: Bonferroni法の比較ごとの水準を決める
+title: ボンフェローニ法の比較ごとの水準を決める
 category: math-data-analysis
 subcategory: math-anova
 topic: bonferroni
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [Bonferroni法, 多重比較, 第一種過誤]
+hashtags: [ボンフェローニ法, 多重比較, 第一種過誤]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
@@ -450,13 +517,17 @@ sources: [{ type: official_syllabus, topic: 多重比較 }]
 Booleの不等式より $P(\text{1件以上の誤棄却})\le\sum_{j=1}^m\alpha_j$。
 
 ## 答え
-Bonferroni法により各比較の両側水準は
+ボンフェローニ法により各比較の両側水準は
 $$\alpha/m=0.05/5=0.01.$$
 両側なので各裾は
 $$\alpha/(2m)=0.005.$$
 
 ## 計算例
-臨界値は $t_{N-a,0.005}$。
+各比較の両側水準は
+$$\frac{0.05}{5}=0.01,$$
+片側裾確率は
+$$\frac{0.01}{2}=0.005.$$
+例えば誤差自由度が12なら、絶対値を比較する臨界値は $t_{12,0.005}\approx3.055$ となる。
 
 ## 注意
 比較数が多いと保守的になりやすい。
@@ -477,7 +548,7 @@ sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
 
 ## 問題
-一元配置で任意の対比 $L=\sum_i c_i\mu_i$ をシェッフェ法で検定する条件を書け。
+各観測が独立な正規分布に従い、全群で分散が共通である一元配置で、任意の対比 $L=\sum_i c_i\mu_i$ をシェッフェ法で検定する条件を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -490,10 +561,14 @@ $$\frac{\widehat L^2}{MS_E\sum_i c_i^2/n_i}>
 なら棄却する。
 
 ## 計算例
-$a=4,F_{3,16,0.05}=3.24$ なら右辺は $3\times3.24=9.72$。
+$a=4,F_{3,16,0.05}=3.24$ なら棄却境界の右辺は
+$$ (a-1)F_{3,16,0.05}=3\times3.24=9.72.$$
+$\widehat L=6$、$MS_E=4$、$\sum_i c_i^2/n_i=0.5$ なら左辺は
+$$\frac{6^2}{4\cdot0.5}=18.$$
+$18>9.72$ なので、この対比について $H_0:L=0$ を棄却する。
 
 ## 注意
-全群対だけを比べるTukey法より一般的だが、群対比較には通常より保守的。
+全群対だけを比べるテューキー法より一般的だが、群対比較には通常より保守的。
 <!-- CARD -->
 
 ---
@@ -505,7 +580,7 @@ topic: multiple-comparison-choice
 type: recognition
 difficulty: 2
 priority: A
-hashtags: [多重比較, Tukey法, Bonferroni法]
+hashtags: [多重比較, テューキー法, ボンフェローニ法]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 多重比較 }]
 ---
@@ -522,7 +597,9 @@ sources: [{ type: official_syllabus, topic: 多重比較 }]
 (a) テューキー法、(b) ボンフェローニ法または計画対比、(c) シェッフェ法。
 
 ## 計算例
-4群の6群対を全て比較するならTukey法が自然。
+(a) 4群の全 $\binom42=6$ 群対を比べるならテューキー法を使う。
+(b) 「対照群対3群」など事前指定した3比較だけなら、ボンフェローニ法または計画対比を使う。
+(c) 平均表を見た後に選ぶ任意の対比全体を保護するなら、シェッフェ法を使う。
 
 ## 注意
 全体F検定を先に通すことだけでは、任意の事後比較の誤差率は自動制御されない。
@@ -543,7 +620,7 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 ---
 
 ## 問題
-因子Aが $a$ 水準、因子Bが $b$ 水準、各セル $n$ 反復の固定効果モデルを書け。
+因子Aの水準を $i=1,\ldots,a$、因子Bの水準を $j=1,\ldots,b$、各水準組合せ（セル）内の反復を $k=1,\ldots,n$ とする。観測 $Y_{ijk}$ の固定効果モデル、誤差の仮定、識別制約を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -553,10 +630,17 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 ## 答え
 $$Y_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk},$$
 $$\varepsilon_{ijk}\overset{\mathrm{iid}}\sim N(0,\sigma^2).$$
-識別制約として各効果の添字方向の和を0とする。
+識別制約は
+$$\sum_i\alpha_i=0,
+\qquad\sum_j\beta_j=0,$$
+$$\sum_i(\alpha\beta)_{ij}=0\quad(j=1,\ldots,b),
+\qquad\sum_j(\alpha\beta)_{ij}=0\quad(i=1,\ldots,a)$$
+とする。
 
 ## 計算例
-$a=2,b=3$ なら交互作用自由度は $(2-1)(3-1)=2$。
+$a=2,b=3$、$\mu=10$、$\alpha=(-1,1)$、$\beta=(-2,0,2)$、交互作用が全て0とする。例えばAの第2水準、Bの第3水準の平均は
+$$E[Y_{23k}]=10+1+2+0=13.$$
+誤差が独立に $N(0,4)$ に従うなら $Y_{23k}\sim N(13,4)$ であり、全セルで同じ誤差分散4を持つ。
 
 ## 注意
 交互作用が有意なら主効果だけの一律な解釈を避ける。
@@ -577,7 +661,7 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 ---
 
 ## 問題
-各セル $n$ 反復の二元配置で $SS_A,SS_B,SS_{AB},SS_E$ を書け。
+因子Aの水準を $i=1,\ldots,a$、因子Bの水準を $j=1,\ldots,b$、反復を $k=1,\ldots,n$ とし、観測を $Y_{ijk}$ とする。$\overline Y_{ij\cdot}$ はセル $(i,j)$ の平均、$\overline Y_{i\cdot\cdot}$ と $\overline Y_{\cdot j\cdot}$ はA・B各水準の周辺平均、$\overline Y_{\cdot\cdot\cdot}$ は全平均を表す。釣合い二元配置の $SS_A,SS_B,SS_{AB},SS_E$ を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -592,7 +676,17 @@ $$SS_E=\sum_{i,j,k}(Y_{ijk}-\overline Y_{ij\cdot})^2,$$
 かつ $SS_T=SS_A+SS_B+SS_{AB}+SS_E$。
 
 ## 計算例
-セル平均との差が0なら $SS_E=0$。
+$a=b=2,n=2$ で、行をA、列をBとして4セルの観測を
+$$Y_{11\cdot}=(1,3),\quad Y_{12\cdot}=(3,5),$$
+$$Y_{21\cdot}=(5,7),\quad Y_{22\cdot}=(11,13)$$
+とする。セル平均は $(2,4,6,12)$、Aの周辺平均は $(3,9)$、Bの周辺平均は $(4,8)$、全平均は6である。したがって
+$$SS_A=2\cdot2\{(3-6)^2+(9-6)^2\}=72,$$
+$$SS_B=2\cdot2\{(4-6)^2+(8-6)^2\}=32.$$
+交互作用偏差は $(1,-1,-1,1)$ なので
+$$SS_{AB}=2(1^2+(-1)^2+(-1)^2+1^2)=8.$$
+各セル内偏差は $(-1,1)$ だから
+$$SS_E=4\{(-1)^2+1^2\}=8.$$
+よって $SS_T=72+32+8+8=120$ である。
 
 ## 注意
 不均衡配置では平方和の型と投入順序で結果が変わり得る。
@@ -628,7 +722,13 @@ $$abn-1=(a-1)+(b-1)+(a-1)(b-1)+ab(n-1)$$
 を満たす。
 
 ## 計算例
-$a=2,b=3,n=4$ なら自由度はA:1、B:2、AB:2、E:18、全体23。
+$a=2,b=3,n=4$ なら
+$$\nu_A=2-1=1,
+\quad\nu_B=3-1=2,
+\quad\nu_{AB}=(2-1)(3-1)=2,$$
+$$\nu_E=2\cdot3(4-1)=18,
+\quad\nu_T=2\cdot3\cdot4-1=23.$$
+$1+2+2+18=23$ と自由度の加法性も確認できる。
 
 ## 注意
 反復なし $n=1$ では純粋誤差自由度が0になる。
@@ -649,7 +749,7 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 ---
 
 ## 問題
-両因子を固定効果とする反復あり二元配置で、A・B・交互作用のF統計量を書け。
+独立な正規誤差が共通分散 $\sigma^2$ を持つ反復あり二元配置固定効果モデルで、A・B・交互作用の各平均平方を $MS_A,MS_B,MS_{AB}$、誤差平均平方を $MS_E$ とする。3つのF統計量を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -661,7 +761,11 @@ $$F_A=MS_A/MS_E,\qquad F_B=MS_B/MS_E,\qquad F_{AB}=MS_{AB}/MS_E.$$
 分子自由度は順に $a-1,b-1,(a-1)(b-1)$、分母自由度は全て $ab(n-1)$。
 
 ## 計算例
-$MS_{AB}=12,MS_E=3$ なら $F_{AB}=4$。
+$MS_A=18,MS_B=6,MS_{AB}=12,MS_E=3$ なら
+$$F_A=18/3=6,
+\quad F_B=6/3=2,
+\quad F_{AB}=12/3=4.$$
+対応する5%臨界値を順に4.5、3.5、3.6とすれば、Aと交互作用は棄却し、Bは棄却しない。
 
 ## 注意
 変量効果・混合効果モデルでは適切な分母平均平方が変わることがある。
@@ -716,7 +820,7 @@ sources: [{ type: official_syllabus, topic: 交互作用 }]
 ---
 
 ## 問題
-2×2各セル5反復、セル平均 $\begin{pmatrix}10&12\\14&20\end{pmatrix}$、$MS_E=5$。交互作用を検定せよ。
+独立な正規誤差が共通分散を持つ2×2二元配置で、各セル5反復、セル平均 $\begin{pmatrix}10&12\\14&20\end{pmatrix}$、誤差平均平方 $MS_E=5$ を得た。交互作用なしを両側5%で検定せよ。誤差自由度16のt分布の両側臨界値を2.120とする。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -734,7 +838,15 @@ $$\operatorname{SE}(\widehat\Delta_{AB})=\sqrt{5(1/5+1/5+1/5+1/5)}=2.$$
 したがって $t=4/2=2$、また $F=t^2=4$。誤差自由度は $2\cdot2(5-1)=16$。
 
 ## 計算例
-両側5%点 $t_{16,0.025}=2.120$ なら棄却しない。
+差の差は
+$$\widehat\Delta_{AB}=10-12-14+20=4.$$
+各セル平均の推定分散は $MS_E/5=1$ なので
+$$\operatorname{SE}(\widehat\Delta_{AB})
+=\sqrt{1+1+1+1}=2.$$
+したがって
+$$t=\frac42=2,
+\qquad F=t^2=4.$$
+$|t|=2<2.120$ なので、5%水準では交互作用なしを棄却しない。
 
 ## 注意
 結論まで出すには指定された有意水準と臨界値を使う。
@@ -792,7 +904,7 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 各A×Bセルに観測が1個しかない二元配置で、交互作用を独立に検定できない理由を述べよ。
 
 ## 記号・用語
-- 交絡：処置・曝露と結果の双方に関係する第三の要因によって効果比較が歪むこと
+- 交絡（ここでの意味）：交互作用と誤差の寄与を観測データから別々に識別できないこと
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -826,7 +938,7 @@ sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
 ---
 
 ## 問題
-$a$ 処理、$b$ ブロックで各組合せ1観測の乱塊法モデルを書け。
+処理を $i=1,\ldots,a$、ブロックを $j=1,\ldots,b$ とし、各処理・ブロックの組合せに1観測 $Y_{ij}$ がある。処理効果を $\alpha_i$、ブロック効果を $\beta_j$ とする乱塊法の加法モデルと誤差の仮定を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -840,7 +952,9 @@ $$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2).$$
 誤差自由度は $(a-1)(b-1)$。
 
 ## 計算例
-4処理×5ブロックなら誤差自由度は12。
+$a=2,b=3$、$\mu=10$、処理効果 $\alpha=(-1,1)$、ブロック効果 $\beta=(-2,0,2)$ とする。第2処理・第3ブロックの平均は
+$$E[Y_{23}]=10+1+2=13.$$
+誤差が独立に $N(0,4)$ に従うなら $Y_{23}\sim N(13,4)$ であり、処理×ブロック交互作用はモデルに含めていない。
 
 ## 注意
 処理×ブロック交互作用がないことを仮定する。
@@ -860,7 +974,7 @@ sources: [{ type: official_syllabus, topic: 共分散分析 }]
 ---
 
 ## 問題
-処理群 $i$ と連続共変量 $X_{ij}$ を持つ共分散分析モデルを書け。
+処理群を $i$、群内個体を $j$、処理前に測定した連続変数を共変量 $X_{ij}$、応答を $Y_{ij}$ とする。群ごとの切片差と共通の共変量傾きを持つ共分散分析モデルを書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -875,7 +989,13 @@ $$\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2).$$
 処理効果の帰無仮説は $H_0:\alpha_i=0\ (\forall i)$。
 
 ## 計算例
-群平均共変量が異なる場合、未調整の平均差と調整後の差は一致しない。
+$\mu=10$、群効果を $(\alpha_1,\alpha_2)=(-1,1)$、共通傾きを $\beta=0.5$、全体共変量平均を $\overline X_{\cdot\cdot}=10$ とする。$X=8$ の群1個体の条件付き平均は
+$$E[Y\mid i=1,X=8]
+=10-1+0.5(8-10)=8.$$
+$X=12$ の群2個体では
+$$E[Y\mid i=2,X=12]
+=10+1+0.5(12-10)=12.$$
+同じ $X=10$ へそろえた調整平均は群1が9、群2が11である。
 
 ## 注意
 共変量は原則として処理割付け前に測定された変数を使う。
@@ -911,7 +1031,11 @@ $$\overline Y_{2,\mathrm{adj}}=18-0.5(12-10)=17.$$
 未調整差3は調整後差1になる。
 
 ## 計算例
-群1はXが平均より2低いためYを1上方調整する。
+群1は
+$$15-0.5(8-10)=15+1=16,$$
+群2は
+$$18-0.5(12-10)=18-1=17.$$
+したがって未調整の群平均差は $18-15=3$ だが、調整後は $17-16=1$ になる。
 
 ## 注意
 傾きの符号を確認して補正方向を決める。
@@ -932,7 +1056,7 @@ sources: [{ type: official_syllabus, topic: 共分散分析 }]
 ---
 
 ## 問題
-群間で共変量の傾きが等しいという仮定をどう検討するか。
+処理群 $i=1,\ldots,a$ と連続共変量 $X$ の共分散分析で、群間で回帰傾きが等しいという平行回帰仮定を、識別可能なモデルと部分F検定でどう検討するか。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -940,14 +1064,18 @@ sources: [{ type: official_syllabus, topic: 共分散分析 }]
 平行回帰仮定は群×共変量交互作用がないこと。
 
 ## 答え
-交互作用を含むモデル
-$$Y=\mu+\alpha_i+\beta X+\gamma_iX+\varepsilon$$
+群1を基準群として、交互作用を含むモデル
+$$Y=\mu+\sum_{r=2}^a\alpha_r\mathbf1\{i=r\}
++\beta X+\sum_{r=2}^a\gamma_r\mathbf1\{i=r\}X+\varepsilon$$
 を当て、
-$$H_0:\gamma_1=\cdots=\gamma_a=0$$
-を部分F検定する。棄却されなければ共通傾きモデルへ簡約する。
+$$H_0:\gamma_2=\cdots=\gamma_a=0$$
+を部分F検定する。この基準群符号化なら $\beta$ は群1の傾き、$\gamma_r$ は群rと群1の傾き差なので識別可能である。棄却されなければ共通傾きモデルへ簡約する。
 
 ## 計算例
-交互作用追加による平方和減少をその自由度で割り、完全モデルの $MS_E$ と比較する。
+3群、総標本数30で、共通傾きモデルの残差平方和が $SSE_R=120$、2個の群×共変量交互作用を加えた完全モデルが $SSE_F=100$、完全モデルの誤差自由度が24とする。正規・独立・等分散誤差の下で
+$$F=\frac{(SSE_R-SSE_F)/2}{SSE_F/24}
+=\frac{(120-100)/2}{100/24}=2.4.$$
+5%臨界値が $F_{2,24,0.05}=3.40$ なら $2.4<3.40$ なので、平行回帰仮定を棄却しない。
 
 ## 注意
 交互作用が有意なら単一の調整平均差は共変量水準に依存する。
@@ -1088,7 +1216,11 @@ $$Y_i\mid x_i\sim N(\beta_0+\beta_1x_i,\sigma^2)$$
 で、異なる観測は独立である。
 
 ## 計算例
-$\beta_0=2,\beta_1=3,x=4$ なら条件付き平均は14。
+$\beta_0=2,\beta_1=3,\sigma^2=4$ とする。$x=4$ では
+$$E[Y\mid x=4]=2+3\cdot4=14,$$
+$$\operatorname{Var}(Y\mid x=4)=4.$$
+正規誤差を仮定しているので
+$$Y\mid x=4\sim N(14,4).$$
 
 ## 注意
 線形性はパラメータについての線形性であり、説明変数変換を禁止しない。
@@ -1109,7 +1241,7 @@ sources: [{ type: official_syllabus, topic: 最小二乗推定 }, { type: past_e
 ---
 
 ## 問題
-$Q(\beta_0,\beta_1)=\sum_i(Y_i-\beta_0-\beta_1x_i)^2$ を最小化する正規方程式を導け。
+観測 $(x_i,Y_i)$ に切片あり単回帰 $Y_i=\beta_0+\beta_1x_i+\varepsilon_i$ を当てはめる。残差平方和 $Q(\beta_0,\beta_1)=\sum_i(Y_i-\beta_0-\beta_1x_i)^2$ を最小化するための正規方程式を導け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1124,7 +1256,15 @@ $$\frac{\partial Q}{\partial\beta_1}=-2\sum_ix_i(Y_i-\beta_0-\beta_1x_i)=0.$$
 $$\sum_i e_i=0,\qquad \sum_i x_ie_i=0.$$
 
 ## 計算例
-第1式から $\widehat\beta_0=\overline Y-\widehat\beta_1\overline x$。
+$Q$ を偏微分すると
+$$\frac{\partial Q}{\partial\beta_0}
+=-2\sum_i(Y_i-\beta_0-\beta_1x_i),$$
+$$\frac{\partial Q}{\partial\beta_1}
+=-2\sum_i x_i(Y_i-\beta_0-\beta_1x_i).$$
+両方を0とおけば
+$$\sum_iY_i=n\widehat\beta_0+\widehat\beta_1\sum_i x_i,$$
+$$\sum_i x_iY_i=\widehat\beta_0\sum_i x_i+\widehat\beta_1\sum_i x_i^2.$$
+第1式を $n$ で割ると $\widehat\beta_0=\overline Y-\widehat\beta_1\overline x$ を得る。
 
 ## 注意
 $S_{xx}>0$、すなわち全ての $x_i$ が同一でないことが必要。
@@ -1145,7 +1285,7 @@ sources: [{ type: official_syllabus, topic: 最小二乗推定 }]
 ---
 
 ## 問題
-単回帰の傾きと切片の最小二乗推定量を書け。
+切片あり単回帰で、$S_{xx}=\sum_i(x_i-\overline x)^2$、$S_{xy}=\sum_i(x_i-\overline x)(Y_i-\overline Y)$ とする。傾きと切片の最小二乗推定量を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1158,7 +1298,10 @@ $$\widehat\beta_1=\frac{S_{xy}}{S_{xx}},\qquad
 \widehat\beta_0=\overline Y-\widehat\beta_1\overline x.$$
 
 ## 計算例
-$S_{xy}=12,S_{xx}=6$ なら傾きは2。
+$\overline x=3,\overline Y=10,S_{xy}=12,S_{xx}=6$ なら
+$$\widehat\beta_1=\frac{12}{6}=2,$$
+$$\widehat\beta_0=10-2\cdot3=4.$$
+したがって当てはめた回帰直線は $\widehat Y=4+2x$ である。
 
 ## 注意
 傾きの分母は $\sum x_i^2$ ではなく中心化平方和。
@@ -1191,7 +1334,11 @@ $$\widehat y=1+2\cdot3=7,$$
 $$e=y-\widehat y=8-7=1.$$
 
 ## 計算例
-正の残差は観測値が回帰直線より上にあることを示す。
+$x=3$ を回帰式へ代入すると
+$$\widehat y=1+2\cdot3=7.$$
+残差を「観測値－当てはめ値」と定義すると
+$$e=y-\widehat y=8-7=1.$$
+正の残差なので観測値は回帰直線より1だけ上にある。
 
 ## 注意
 誤差 $\varepsilon_i$ は観測不能な確率変数、残差 $e_i$ は推定後に計算される量。
@@ -1226,7 +1373,10 @@ $$\sum_i e_i=0,\qquad \sum_i x_ie_i=0.$$
 $$\sum_i\widehat Y_ie_i=\widehat\beta_0\sum_i e_i+\widehat\beta_1\sum_i x_ie_i=0.$$
 
 ## 計算例
-$\sum_i e_i=0$ より残差平均も0。
+説明変数が $x=(0,1,2)$、残差が $e=(1,-2,1)$ なら
+$$\sum_i e_i=1-2+1=0,$$
+$$\sum_i x_ie_i=0\cdot1+1\cdot(-2)+2\cdot1=0.$$
+したがって残差は切片列と説明変数列の両方に直交し、残差平均も0である。
 
 ## 注意
 切片を含まない回帰では $\sum_i e_i=0$ は一般に成立しない。
@@ -1247,7 +1397,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-切片を含む最小二乗法で全平方和を回帰平方和と残差平方和へ分解せよ。
+切片を含む最小二乗法で、観測値を $Y_i$、当てはめ値を $\widehat Y_i$、残差を $e_i=Y_i-\widehat Y_i$ とする。全平方和 $SST$ を回帰平方和 $SSR$ と残差平方和 $SSE$ へ分解せよ。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -1268,7 +1418,10 @@ $$SST=SSR+SSE,$$
 $$SST=\sum_i(Y_i-\overline Y)^2,\quad SSR=\sum_i(\widehat Y_i-\overline Y)^2,\quad SSE=\sum_i e_i^2.$$
 
 ## 計算例
-$SST=50,SSE=20$ なら $SSR=30$。
+平方和分解 $SST=SSR+SSE$ に $SST=50,SSE=20$ を代入すると
+$$50=SSR+20,$$
+したがって
+$$SSR=50-20=30.$$
 
 ## 注意
 切片なし回帰ではこの中心化平方和分解をそのまま使えない。
@@ -1289,7 +1442,7 @@ sources: [{ type: official_syllabus, topic: 決定係数 }]
 ---
 
 ## 問題
-$SST=80,SSE=20$ の回帰で決定係数 $R^2$ を求めよ。
+全平方和 $SST=80$、残差平方和 $SSE=20$ の回帰で、決定係数 $R^2=1-SSE/SST$ を求めよ。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -1306,7 +1459,10 @@ $$R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}
 =1-\frac{20}{80}=0.75.$$
 
 ## 計算例
-標本内のY変動の75%が回帰で説明された。
+$$R^2=1-\frac{SSE}{SST}
+=1-\frac{20}{80}
+=1-0.25=0.75.$$
+したがって標本内の応答変数 $Y$ の変動の75%が回帰で説明されたと読む。
 
 ## 注意
 高い $R^2$ は因果関係やモデルの正しさを保証しない。
@@ -1382,7 +1538,12 @@ $$\overline R^2=1-\frac{SSE/(n-p-1)}{SST/(n-1)}
 $$\overline R^2=1-0.4\frac{19}{16}=0.525.$$
 
 ## 計算例
-不要な変数追加で $R^2$ は下がらないが、$\overline R^2$ は下がり得る。
+$$\overline R^2
+=1-(1-R^2)\frac{n-1}{n-p-1}$$
+へ $n=20,p=3,R^2=0.60$ を代入すると
+$$\overline R^2
+=1-(1-0.60)\frac{19}{16}
+=1-0.475=0.525.$$
 
 ## 注意
 $p$ に切片を含める流儀と混同しない。
@@ -1403,7 +1564,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }, { type: past_exam
 ---
 
 ## 問題
-固定された $x_i$ の下で $\operatorname{Var}(\widehat\beta_1)$ を導け。
+固定された説明変数 $x_i$ の下で、誤差が独立に平均0、分散 $\sigma^2$ を持つ単回帰を考える。$S_{xx}=\sum_i(x_i-\overline x)^2$ として、傾き推定量 $\widehat\beta_1$ の分散を導け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1418,7 +1579,10 @@ $$\operatorname{Var}(\widehat\beta_1)=
 =\frac{\sigma^2}{S_{xx}}.$$
 
 ## 計算例
-Xの散らばり $S_{xx}$ が大きいほど傾きの標準誤差は小さい。
+$\sigma^2=9,S_{xx}=36$ なら
+$$\operatorname{Var}(\widehat\beta_1)=\frac{9}{36}=0.25,$$
+$$\operatorname{SE}(\widehat\beta_1)=\sqrt{0.25}=0.5.$$
+$S_{xx}$ が4倍の144なら標準誤差は $\sqrt{9/144}=0.25$ まで小さくなる。
 
 ## 注意
 外挿点を増やす設計判断には実験上の制約も考える。
@@ -1439,7 +1603,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-$\operatorname{Var}(\widehat\beta_0)$ と $\operatorname{Cov}(\widehat\beta_0,\widehat\beta_1)$ を書け。
+切片あり単回帰で、$S_{xx}=\sum_i(x_i-\overline x)^2$、誤差分散を $\sigma^2$ とする。$\operatorname{Var}(\widehat\beta_0)$ と $\operatorname{Cov}(\widehat\beta_0,\widehat\beta_1)$ を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1451,7 +1615,12 @@ $$\operatorname{Var}(\widehat\beta_0)=\sigma^2\left(\frac1n+\frac{\overline x^2}
 $$\operatorname{Cov}(\widehat\beta_0,\widehat\beta_1)=-\frac{\overline x\sigma^2}{S_{xx}}.$$
 
 ## 計算例
-Xを中心化して $\overline x=0$ とすれば共分散は0。
+$n=10,\overline x=2,S_{xx}=20,\sigma^2=4$ なら
+$$\operatorname{Var}(\widehat\beta_0)
+=4\left(\frac1{10}+\frac{2^2}{20}\right)=1.2,$$
+$$\operatorname{Cov}(\widehat\beta_0,\widehat\beta_1)
+=-\frac{4\cdot2}{20}=-0.4.$$
+$x_i$ を中心化して $\overline x=0$ とすれば共分散は0になる。
 
 ## 注意
 0が観測範囲外なら切片の実質的解釈は慎重に行う。
@@ -1472,7 +1641,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-切片と $p$ 個の説明変数を持つ重回帰で $\sigma^2$ の不偏推定量を書け。
+標本サイズ $n$、切片以外の説明変数が $p$ 個の重回帰で、残差平方和を $SSE=\sum_i e_i^2$ とする。誤差分散 $\sigma^2$ の不偏推定量を書け。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -1486,7 +1655,11 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 $$\widehat\sigma^2=MS_E=\frac{SSE}{n-p-1}.$$
 
 ## 計算例
-$n=30,p=4,SSE=50$ なら $MS_E=50/25=2$。
+$n=30,p=4,SSE=50$ とする。推定する係数は切片を含めて $p+1=5$ 個なので、誤差自由度は
+$$n-p-1=30-4-1=25.$$
+したがって
+$$MS_E=\widehat\sigma^2=\frac{SSE}{n-p-1}
+=\frac{50}{25}=2.$$
 
 ## 注意
 $SSE/n$ は正規最尤推定量だが一般に不偏ではない。
@@ -1507,7 +1680,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-単回帰で $H_0:\beta_1=\beta_{1,0}$ を検定する統計量を書け。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である単回帰を考える。傾き推定量を $\widehat\beta_1$、その標準誤差を $\operatorname{SE}(\widehat\beta_1)$ として、帰無仮説 $H_0:\beta_1=\beta_{1,0}$ を検定するt統計量と自由度を書け。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -1523,7 +1696,9 @@ $$T=\frac{\widehat\beta_1-\beta_{1,0}}
 が帰無仮説下で成り立つ。
 
 ## 計算例
-通常の「傾きなし」検定では $\beta_{1,0}=0$。
+$n=12,\widehat\beta_1=1.5,\operatorname{SE}(\widehat\beta_1)=0.4$ とする。「傾きなし」すなわち $\beta_{1,0}=0$ に対して
+$$t=\frac{1.5-0}{0.4}=3.75,$$
+自由度は $n-2=10$ である。
 
 ## 注意
 正確なt分布には独立な正規等分散誤差を仮定する。
@@ -1544,7 +1719,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }, { type: past_exam
 ---
 
 ## 問題
-$n=12,\widehat\beta_1=1.5,MS_E=4,S_{xx}=25$。$H_0:\beta_1=0$ を両側5%で検定せよ。$t_{10,0.025}=2.228$ とする。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である単回帰で、$n=12$、傾き推定値 $\widehat\beta_1=1.5$、誤差平均平方 $MS_E=4$、$S_{xx}=\sum_i(x_i-\overline x)^2=25$ を得た。$H_0:\beta_1=0$ を両側5%で検定せよ。自由度10のt分布の両側臨界値を2.228とする。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -1560,7 +1735,13 @@ $$t=1.5/0.4=3.75.$$
 $|3.75|>2.228$ なので $H_0$ を棄却する。
 
 ## 計算例
-自由度は $12-2=10$。
+傾きの標準誤差は
+$$\operatorname{SE}(\widehat\beta_1)
+=\sqrt{\frac{MS_E}{S_{xx}}}
+=\sqrt{\frac4{25}}=0.4.$$
+したがって
+$$t=\frac{1.5-0}{0.4}=3.75.$$
+自由度は $12-2=10$ で、$3.75>2.228$ より帰無仮説を棄却する。
 
 ## 注意
 統計的有意性と傾きの実質的大きさは別に評価する。
@@ -1581,7 +1762,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-$\widehat\beta_1=1.5$、標準誤差0.4、自由度10、$t_{10,0.025}=2.228$。95%信頼区間を求めよ。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である単回帰を考える。傾き推定値 $\widehat\beta_1=1.5$、標準誤差0.4、誤差自由度10、t分布の片側2.5%点 $t_{10,0.025}=2.228$ として95%信頼区間を求めよ。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
@@ -1599,7 +1780,11 @@ $$[0.609,2.391]$$
 である。
 
 ## 計算例
-区間が0を含まないので両側5%検定でも棄却する。
+誤差幅は
+$$2.228\times0.4=0.8912.$$
+したがって
+$$1.5\pm0.8912=(0.6088,2.3912).$$
+区間が0を含まないので、$H_0:\beta_1=0$ の両側5%検定でも棄却する。
 
 ## 注意
 丸めは最終段階で行う。
@@ -1620,7 +1805,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-$x_0$ における平均応答 $E[Y\mid x_0]$ の $1-\alpha$ 信頼区間を書け。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である切片あり単回帰を考える。標本サイズを $n$、残差標準偏差を $s$、$S_{xx}=\sum_i(x_i-\overline x)^2$ として、説明変数の値 $x_0$ における平均応答 $E[Y\mid x_0]$ の $1-\alpha$ 信頼区間を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1633,7 +1818,12 @@ $$\widehat y_0\pm t_{n-2,\alpha/2}s
 ここで $\widehat y_0=\widehat\beta_0+\widehat\beta_1x_0$、$s=\sqrt{MS_E}$。
 
 ## 計算例
-$x_0=\overline x$ で標準誤差は最小の $s/\sqrt n$。
+$n=25,s=2,x_0=\overline x$ なら
+$$\operatorname{SE}\{\widehat E(Y\mid x_0)\}
+=2\sqrt{\frac1{25}+0}=0.4.$$
+当てはめ値が10、自由度23の95%臨界値が2.069なら
+$$10\pm2.069(0.4)=10\pm0.828,$$
+すなわち $(9.172,10.828)$ である。
 
 ## 注意
 新しい1観測の予測区間とは異なる。
@@ -1654,7 +1844,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-$x_0$ における新しい1観測 $Y_0$ の $1-\alpha$ 予測区間を書け。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である切片あり単回帰を考える。標本サイズを $n$、残差標準偏差を $s$、$S_{xx}=\sum_i(x_i-\overline x)^2$ として、説明変数の値 $x_0$ における新しい1観測 $Y_0$ の $1-\alpha$ 予測区間を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1666,7 +1856,14 @@ $$\widehat y_0\pm t_{n-2,\alpha/2}s
 \sqrt{1+\frac1n+\frac{(x_0-\overline x)^2}{S_{xx}}}.$$
 
 ## 計算例
-同じ $x_0$ では予測区間が平均応答の信頼区間より必ず広い。
+$n=25,s=2,x_0=\overline x$、当てはめ値 $\widehat y_0=10$、自由度23の95%臨界値 $t_{23,0.025}=2.069$ とする。新観測の標準誤差は
+$$2\sqrt{1+\frac1{25}}=2\sqrt{1.04}\approx2.040.$$
+したがって95%予測区間は
+$$10\pm2.069\left(2\sqrt{1.04}\right)
+\approx10\pm4.220,$$
+すなわち
+$$(5.780,14.220)$$
+である。平均応答の標準誤差 $2/\sqrt{25}=0.4$ より大きく、予測区間の方が広い。
 
 ## 注意
 観測範囲外の外挿では式が使えてもモデル妥当性が弱い。
@@ -1687,7 +1884,7 @@ sources: [{ type: official_syllabus, topic: 線形単回帰 }]
 ---
 
 ## 問題
-$x_0=\overline x,n=25,s=2$ のとき、平均応答と新観測の標準誤差を求めよ。
+固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である単回帰を考える。$x_0=\overline x$、標本サイズ $n=25$、残差標準偏差 $s=2$ のとき、平均応答と新観測の標準誤差を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1701,7 +1898,11 @@ $$2\sqrt{1/25}=0.4.$$
 $$2\sqrt{1+1/25}=2\sqrt{1.04}\approx2.040.$$
 
 ## 計算例
-新観測固有の誤差があるため約5倍広い標準誤差になる。
+平均応答の標準誤差は
+$$2\sqrt{\frac1{25}}=0.4.$$
+新観測の標準誤差は
+$$2\sqrt{1+\frac1{25}}=2\sqrt{1.04}\approx2.040.$$
+比は $2.040/0.4\approx5.10$ であり、新観測固有の誤差があるため予測区間が広い。
 
 ## 注意
 区間半幅はさらに同じt臨界値を掛ける。
@@ -1722,7 +1923,7 @@ sources: [{ type: official_syllabus, topic: 線形重回帰 }]
 ---
 
 ## 問題
-切片を含む重回帰モデルを行列で書き、各次元を示せ。
+標本サイズを $n$、切片以外の説明変数数を $p$ とする。切片を含む重回帰モデルを行列で書き、応答ベクトル、計画行列、係数ベクトル、誤差ベクトルの各次元を示せ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1736,7 +1937,11 @@ $$\boldsymbol Y\in\mathbb R^n,\quad \boldsymbol X\in\mathbb R^{n\times(p+1)},\qu
 $$\boldsymbol\varepsilon\sim N_n(\boldsymbol0,\sigma^2\boldsymbol I_n).$$
 
 ## 計算例
-$n=20,p=3$ なら $X$ は20×4行列。
+$n=3,p=1$ で説明変数値が $(0,1,2)$ なら
+$$\boldsymbol X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},
+\quad\boldsymbol Y=\begin{pmatrix}Y_1\\Y_2\\Y_3\end{pmatrix},
+\quad\boldsymbol\beta=\begin{pmatrix}\beta_0\\\beta_1\end{pmatrix}.$$
+したがって $\boldsymbol X$ は $3\times2$、$\boldsymbol Y$ と $\boldsymbol\varepsilon$ は $3\times1$、$\boldsymbol\beta$ は $2\times1$ である。
 
 ## 注意
 係数を一意に推定するには $\operatorname{rank}(X)=p+1$ が必要。
@@ -1757,7 +1962,7 @@ sources: [{ type: official_syllabus, topic: 最小二乗推定 }]
 ---
 
 ## 問題
-$Q(\boldsymbol\beta)=\|\boldsymbol Y-\boldsymbol X\boldsymbol\beta\|^2$ を最小化せよ。
+$\boldsymbol Y\in\mathbb R^n$、列フルランクの計画行列 $\boldsymbol X\in\mathbb R^{n\times k}$、係数 $\boldsymbol\beta\in\mathbb R^k$ とする。残差平方和 $Q(\boldsymbol\beta)=\|\boldsymbol Y-\boldsymbol X\boldsymbol\beta\|^2$ を最小化せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1772,7 +1977,17 @@ $X$ が列フルランクなら
 $$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y.$$
 
 ## 計算例
-正規方程式は残差がXの各列に直交することを表す。
+$\boldsymbol X=\begin{pmatrix}1&0\\1&1\end{pmatrix}$、$\boldsymbol Y=(1,3)^{\mathsf T}$ とすると
+$$\boldsymbol X^{\mathsf T}\boldsymbol X
+=\begin{pmatrix}2&1\\1&1\end{pmatrix},
+\quad
+\boldsymbol X^{\mathsf T}\boldsymbol Y
+=\begin{pmatrix}4\\3\end{pmatrix}.$$
+逆行列は $\begin{pmatrix}1&-1\\-1&2\end{pmatrix}$ なので
+$$\widehat{\boldsymbol\beta}
+=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}
+\begin{pmatrix}4\\3\end{pmatrix}
+=\begin{pmatrix}1\\2\end{pmatrix}.$$
 
 ## 注意
 実際の数値計算では逆行列を明示的に作らずQR分解などを使う。
@@ -1793,7 +2008,7 @@ sources: [{ type: official_syllabus, topic: 線形重回帰 }, { type: past_exam
 ---
 
 ## 問題
-$E[\varepsilon]=0$、$\operatorname{Var}(\varepsilon)=\sigma^2I$ の下で最小二乗法係数の期待値と共分散を求めよ。
+線形モデル $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ で、$\boldsymbol X$ は列フルランク、$E[\boldsymbol\varepsilon]=\boldsymbol0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol I$ とする。最小二乗推定量の期待値と共分散を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1809,7 +2024,21 @@ $$\operatorname{Var}(\widehat\beta)
 =\sigma^2(X^{\mathsf T}X)^{-1}.$$
 
 ## 計算例
-第j係数の分散は $\sigma^2[(X^{\mathsf T}X)^{-1}]_{jj}$。
+モデル式を最小二乗推定量へ代入すると
+$$\widehat{\boldsymbol\beta}
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+(\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon)$$
+$$=\boldsymbol\beta
++(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol\varepsilon.$$
+よって期待値は $\boldsymbol\beta$。数値例として
+$$\boldsymbol X=\begin{pmatrix}1&0\\1&1\end{pmatrix},
+\qquad
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}$$
+とし、$\sigma^2=4$ なら
+$$\operatorname{Var}(\widehat{\boldsymbol\beta})
+=4\begin{pmatrix}1&-1\\-1&2\end{pmatrix}
+=\begin{pmatrix}4&-4\\-4&8\end{pmatrix}.$$
 
 ## 注意
 不均一分散ではこの共分散式は正しくない。
@@ -1830,7 +2059,7 @@ sources: [{ type: official_syllabus, topic: 線形重回帰 }]
 ---
 
 ## 問題
-ハット行列 $H$ を定義し、対称性と冪等性を示せ。
+列フルランクの計画行列 $\boldsymbol X$ を持つ線形回帰で、観測ベクトルを当てはめ値へ写すハット行列 $\boldsymbol H$ を定義し、対称性と冪等性を示せ。
 
 ## 記号・用語
 - ハット行列：観測ベクトルを当てはめ値へ写す射影行列
@@ -1846,7 +2075,17 @@ $(X^{\mathsf T}X)^{-1}$ は対称なので $H^{\mathsf T}=H$。また
 $$H^2=X(X^{\mathsf T}X)^{-1}(X^{\mathsf T}X)(X^{\mathsf T}X)^{-1}X^{\mathsf T}=H.$$
 
 ## 計算例
-$\operatorname{tr}(H)=\operatorname{rank}(H)=p+1$。
+$\boldsymbol X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$ なら
+$$\boldsymbol H
+=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+=\begin{pmatrix}
+5/6&1/3&-1/6\\
+1/3&1/3&1/3\\
+-1/6&1/3&5/6
+\end{pmatrix}.$$
+行列は対称で、$\boldsymbol H^2=\boldsymbol H$ を直接確認できる。また
+$$\operatorname{tr}(\boldsymbol H)=5/6+1/3+5/6=2,$$
+これは $\boldsymbol X$ の列数・階数2に等しい。
 
 ## 注意
 残差生成行列は $I-H$。
@@ -1867,7 +2106,7 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ---
 
 ## 問題
-レバレッジ $h_{ii}$ の定義、範囲、平均を書け。
+標本サイズを $n$、切片以外の説明変数数を $p$ とする列フルランクの線形回帰で、ハット行列の対角要素であるレバレッジ $h_{ii}$ の定義、範囲、全観測での平均を書け。
 
 ## 記号・用語
 - ハット行列：観測ベクトルを当てはめ値へ写す射影行列
@@ -1905,7 +2144,7 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ---
 
 ## 問題
-$e=(I-H)Y$ の共分散と第i残差の分散を求めよ。
+線形モデル $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ で $\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol I$ とする。ハット行列を $\boldsymbol H$、当てはめ値を $\widehat{\boldsymbol Y}=\boldsymbol H\boldsymbol Y$、残差を $\boldsymbol e=\boldsymbol Y-\widehat{\boldsymbol Y}=(\boldsymbol I-\boldsymbol H)\boldsymbol Y$ と定義する。残差ベクトルの共分散と第 $i$ 残差の分散を求めよ。
 
 ## 記号・用語
 - レバレッジ：説明変数空間での観測の位置を表すハット行列の対角要素
@@ -1943,7 +2182,7 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ---
 
 ## 問題
-$e_i=3,s=2,h_{ii}=0.4375$ の内部標準化残差を求めよ。
+残差を $e_i$、残差標準偏差を $s$、ハット行列の対角要素であるレバレッジを $h_{ii}$ とする。$e_i=3,s=2,h_{ii}=0.4375$ の内部標準化残差を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1956,7 +2195,11 @@ $$r_i=\frac{e_i}{s\sqrt{1-h_{ii}}}
 =\frac3{1.5}=2.$$
 
 ## 計算例
-$|r_i|$ が大きい点は応答方向の外れ値候補。
+$$1-h_{ii}=1-0.4375=0.5625,
+\qquad\sqrt{0.5625}=0.75.$$
+したがって
+$$r_i=\frac3{2\cdot0.75}=2.$$
+$|r_i|=2$ なので、応答方向の外れ値候補として確認する。
 
 ## 注意
 厳密な外れ値検定には当該点を除いて分散推定する外部Student化残差を使う。
@@ -1977,7 +2220,7 @@ sources: [{ type: official_syllabus, topic: 線形重回帰 }]
 ---
 
 ## 問題
-重回帰で $H_0:\beta_j=\beta_{j,0}$ を検定するt統計量を書け。
+標本サイズ $n$、切片以外の説明変数数 $p$ の重回帰を考える。固定された列フルランクの計画行列の下で、誤差は独立な正規分布に従い共通分散を持つとする。$s^2=SSE/(n-p-1)$、$\boldsymbol C=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}$ として、$H_0:\beta_j=\beta_{j,0}$ のt統計量を書け。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -1994,7 +2237,9 @@ $$T=\frac{\widehat\beta_j-\beta_{j,0}}{s\sqrt{C_{jj}}}
 が帰無仮説下で成り立つ。
 
 ## 計算例
-$\widehat\beta_j=2,s\sqrt{C_{jj}}=0.5$ なら $t=4$。
+$\widehat\beta_j=2$、帰無値0、$s\sqrt{C_{jj}}=0.5$ なら
+$$t=\frac{2-0}{0.5}=4.$$
+誤差自由度20の両側5%臨界値を2.086とすれば、$|4|>2.086$ なので $H_0:\beta_j=0$ を棄却する。
 
 ## 注意
 「他の説明変数を固定した条件付き効果」の検定である。
@@ -2015,7 +2260,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-切片以外の $p$ 係数が全て0という帰無仮説のF統計量を書け。
+標本サイズ $n$、切片以外の説明変数数 $p$ の重回帰を考える。固定された列フルランクの計画行列の下で、誤差は独立な正規分布に従い共通分散を持つとする。回帰平方和を $SSR$、残差平方和を $SSE$ として、切片以外の $p$ 係数が全て0という帰無仮説のF統計量を書け。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -2031,7 +2276,10 @@ $$H_0:\beta_1=\cdots=\beta_p=0,$$
 $$F=\frac{SSR/p}{SSE/(n-p-1)}\sim F_{p,n-p-1}.$$
 
 ## 計算例
-$SSR=60,SSE=40,n=25,p=4$ なら $F=(60/4)/(40/20)=7.5$。
+$SSR=60,SSE=40,n=25,p=4$ なら
+$$F=\frac{60/4}{40/(25-4-1)}
+=\frac{15}{2}=7.5.$$
+自由度 $(4,20)$ の5%臨界値を2.87とすれば、$7.5>2.87$ なので全係数0を棄却する。
 
 ## 注意
 全体有意でも全ての個別係数が有意とは限らない。
@@ -2052,7 +2300,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-$n=30,p=3,R^2=0.40$ から全体F統計量を求めよ。
+固定された列フルランクの計画行列の下で、誤差が独立な正規分布に従い共通分散を持つ重回帰を考える。標本サイズ $n=30$、切片以外の説明変数数 $p=3$、決定係数 $R^2=0.40$ から全体F統計量を求めよ。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -2071,7 +2319,10 @@ $$F=\frac{R^2/p}{(1-R^2)/(n-p-1)}
 自由度は $(3,26)$。
 
 ## 計算例
-共通因子 $SST$ は分子・分母で消える。
+$$F=\frac{R^2/p}{(1-R^2)/(n-p-1)}
+=\frac{0.40/3}{0.60/26}
+=\frac{52}{9}\approx5.78.$$
+自由度は $(3,26)$。5%臨界値を2.98とすれば $5.78>2.98$ なので、切片以外の係数が全て0という帰無仮説を棄却する。
 
 ## 注意
 切片を含む通常の $R^2$ を前提とする。
@@ -2092,7 +2343,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-縮小モデルRと完全モデルFの残差平方和を使い、追加した $q$ 係数の部分F検定を書け。
+固定された列フルランクの計画行列の下で誤差が独立な正規分布に従い、共通分散を持つ重回帰を考える。説明変数を除いた縮小モデルをR、追加後の完全モデルをFとし、それぞれの残差平方和を $SSE_R,SSE_F$ とする。標本サイズを $n$、完全モデルの切片以外の説明変数数を $p_F$、追加係数数を $q$ として部分F統計量を書け。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -2105,7 +2356,10 @@ $$F=\frac{(SSE_R-SSE_F)/q}{SSE_F/(n-p_F-1)}
 が追加係数全て0の帰無仮説下で成り立つ。
 
 ## 計算例
-2変数追加なら分子自由度 $q=2$。
+$n=30,p_F=4,q=2,SSE_R=100,SSE_F=70$ なら
+$$F=\frac{(100-70)/2}{70/(30-4-1)}
+=\frac{15}{2.8}\approx5.36.$$
+分子自由度は2、分母自由度は25である。
 
 ## 注意
 モデルが入れ子でない場合、この平方和差F検定は使えない。
@@ -2126,7 +2380,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-$n=30$、完全モデルの説明変数数 $p_F=4$、$SSE_R=100,SSE_F=70$、追加変数数 $q=2$。5%点 $F_{2,25,0.05}=3.39$ として判定せよ。
+固定された列フルランクの計画行列の下で誤差が独立な正規分布に従い、共通分散を持つ重回帰を考える。標本サイズ $n=30$、完全モデルの切片以外の説明変数数 $p_F=4$、縮小モデルの残差平方和 $SSE_R=100$、完全モデルの残差平方和 $SSE_F=70$、追加変数数 $q=2$ である。5%臨界値 $F_{2,25,0.05}=3.39$ として判定せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -2139,7 +2393,12 @@ $$F=\frac{(100-70)/2}{70/(30-4-1)}
 $5.36>3.39$ なので、追加した2係数がともに0という帰無仮説を棄却する。
 
 ## 計算例
-追加変数群は既存変数を調整した後でも共同で有意。
+$$SSE_R-SSE_F=100-70=30,$$
+$$\frac{SSE_R-SSE_F}{q}=\frac{30}{2}=15,$$
+$$\frac{SSE_F}{n-p_F-1}=\frac{70}{25}=2.8.$$
+したがって
+$$F=15/2.8\approx5.36>3.39,$$
+より、追加した2係数がともに0という帰無仮説を棄却する。
 
 ## 注意
 どちらの追加係数が重要かは個別検定などで別に調べる。
@@ -2160,7 +2419,7 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 ---
 
 ## 問題
-追加係数が1個だけの部分F検定と、その係数の両側t検定の関係を書け。
+正規線形回帰モデルで追加係数が1個だけの部分F検定と、その係数の両側t検定の関係を書け。両検定は同じ完全モデルの誤差分散推定値と自由度を使うものとする。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -2449,7 +2708,7 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-Gauss–Markovの等分散条件。
+ガウス・マルコフの定理の等分散条件。
 
 ## 答え
 $\operatorname{Var}(\varepsilon_i\mid X_i)$ が一定でない不均一分散が疑われる。$E[\varepsilon\mid X]=0$ なら最小二乗法係数は不偏であり得るが、通常の
@@ -2465,20 +2724,20 @@ $$\widehat{\operatorname{Var}}(\widehat\beta)=MS_E(X^{\mathsf T}X)^{-1}$$
 
 ---
 id: reg-gauss-markov-theorem
-title: Gauss–Markovの定理の条件と結論を述べる
+title: ガウス・マルコフの定理の条件と結論を述べる
 category: math-data-analysis
 subcategory: math-regression
 topic: gauss-markov
 type: formula
 difficulty: 3
 priority: A
-hashtags: [Gauss-Markov, BLUE, 最小二乗法]
+hashtags: [ガウス・マルコフの定理, BLUE, 最小二乗推定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Gauss–Markovの定理 }]
+sources: [{ type: official_syllabus, topic: ガウス・マルコフの定理 }]
 ---
 
 ## 問題
-Gauss–Markovの定理の仮定とBLUEという結論を述べよ。
+ガウス・マルコフの定理の仮定と、BLUE（最良線形不偏推定量）という結論を述べよ。
 
 ## 記号・用語
 - BLUE：最良線形不偏推定量
@@ -2496,7 +2755,15 @@ $$Y=X\beta+\varepsilon,\qquad E[\varepsilon\mid X]=0,\qquad
 なら、最小二乗推定量 $\widehat\beta$ は線形不偏推定量の中で共分散行列が最小、すなわちBLUEである。
 
 ## 計算例
-正規性はBLUEの結論には不要で、正確なt・F推測に必要。
+ある線形不偏推定量 $\widetilde{\boldsymbol\beta}$ について
+$$\operatorname{Var}(\widehat{\boldsymbol\beta})
+=\begin{pmatrix}1&0\\0&2\end{pmatrix},
+\quad
+\operatorname{Var}(\widetilde{\boldsymbol\beta})
+=\begin{pmatrix}2&0\\0&5\end{pmatrix}$$
+なら、差は
+$$\begin{pmatrix}1&0\\0&3\end{pmatrix}\succeq0.$$
+したがって各方向で最小二乗推定量の分散が小さい。なお正規性はBLUEの結論には不要で、正確なt・F推測に必要である。
 
 ## 注意
 不均一分散や相関誤差では通常の最小二乗法がBLUEとは限らない。
@@ -2504,20 +2771,20 @@ $$Y=X\beta+\varepsilon,\qquad E[\varepsilon\mid X]=0,\qquad
 
 ---
 id: reg-cooks-distance
-title: Cook距離から影響点を評価する
+title: Cookの距離から影響点を評価する
 category: math-data-analysis
 subcategory: math-regression
 topic: cooks-distance
 type: formula
 difficulty: 3
 priority: A
-hashtags: [Cook距離, 影響点, 残差]
+hashtags: [Cookの距離, 影響点, 残差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 残差 }]
 ---
 
 ## 問題
-切片を含む係数数を $k=p+1$ としてCook距離の代表式を書け。
+切片以外の説明変数数を $p$、切片を含む回帰係数数を $k=p+1$ とする。内部標準化残差とレバレッジを使ったCookの距離の代表式を書け。
 
 ## 記号・用語
 - レバレッジ：説明変数空間での観測の位置を表すハット行列の対角要素
@@ -2589,7 +2856,7 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ---
 
 ## 問題
-(a) 曲線パターン、(b) 扇形、(c) Q–Q図の強い曲がり、(d) 高レバレッジかつ大残差、が示唆する問題を答えよ。
+残差対当てはめ値図の (a) 曲線パターン、(b) 扇形、および観測残差の分位点と正規分布の理論分位点を比べる正規Q–Q図の (c) 強い曲がり、さらに (d) 高レバレッジかつ大残差、が示唆する問題を答えよ。
 
 ## 記号・用語
 - レバレッジ：説明変数空間での観測の位置を表すハット行列の対角要素
@@ -2597,13 +2864,16 @@ sources: [{ type: official_syllabus, topic: 残差 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-残差対当てはめ値、正規Q–Q図、レバレッジ、Cook距離を目的別に使う。
+残差対当てはめ値、正規Q–Q図、レバレッジ、Cookの距離を目的別に使う。
 
 ## 答え
 (a) 平均構造の非線形性・項の欠落、(b) 不均一分散、(c) 誤差の非正規性・外れ値、(d) 影響点。
 
 ## 計算例
-曲線パターンには二次項追加や説明変数変換を検討する。
+(a) 曲線なら平均構造の非線形性を疑い二次項を検討する。
+(b) 扇形なら不均一分散を疑い変換・重み付け・ロバスト標準誤差を検討する。
+(c) Q–Q図の強い曲がりなら非正規性や外れ値を確認する。
+(d) 高レバレッジかつ大残差ならCookの距離などで影響度を調べる。
 
 ## 注意
 診断結果は原因候補であり、設計・測定過程も確認する。

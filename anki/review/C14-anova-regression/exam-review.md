@@ -109,3 +109,16 @@ final_reviewer_id: /root/c14_exam_review
 final_reviewed_at: 2026-08-21T01:30:00+09:00
 
 fatal: 0 / major: 0 / minor: 0
+
+## 2026-08-23 計算例・問題定義の追加改訂査読
+
+- reviewer_id: `/root/exam_review_population_cards`
+- scope: `math-anova`・`math-regression` の公式用語、問題の自己完結性、計算・判定技能
+- initial: fatal 0 / major 5 / minor 3
+- 主な初回指摘: 問題内の記号・モデル・標本サイズの未定義、結論だけの予測区間・分散分析表、検定の正確分布を使う条件、セル添字の不明確さ
+- 修正確認: 問題文だけで設定を読めるよう全記号を定義し、一元・二元配置分散分析、対比、多重比較、単回帰・重回帰、区間推定、$t$・$F$ 検定を数値代入から結論まで追える形へ改訂した。テューキー、ボンフェローニ、ガウス・マルコフの定理、Cookの距離へ表記を統一した。
+- validation: `npm run validate` 成功（structure / math / text、KaTeX strict 377 Markdown）
+- final: fatal 0 / major 0 / minor 0
+
+final_reviewer_id: `/root/exam_review_population_cards`
+final_reviewed_at: 2026-08-23

@@ -35,7 +35,7 @@
 - 一元配置の平方和：$SS_T=SS_A+SS_E$、$SS_A=\sum_i n_i(\overline Y_{i\cdot}-\overline Y_{\cdot\cdot})^2$、$SS_E=\sum_{i,j}(Y_{ij}-\overline Y_{i\cdot})^2$。
 - 一元配置のF統計量：$F=\{SS_A/(a-1)\}/\{SS_E/(N-a)\}\sim F_{a-1,N-a}$（帰無仮説下）。
 - 対比：$L=\sum_i c_i\mu_i$、$\sum_i c_i=0$。$\operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i c_i^2/n_i}$。
-- Tukey法（等サイズ）：$|\overline Y_i-\overline Y_j|>q_{a,N-a,\alpha}\sqrt{MS_E/n}$ なら群対差を有意とする。
+- テューキー法（等サイズ）：$|\overline Y_i-\overline Y_j|>q_{a,N-a,\alpha}\sqrt{MS_E/n}$ なら群対差を有意とする。
 - シェッフェ法：$\widehat L^2/\{MS_E\sum_i c_i^2/n_i\}>(a-1)F_{a-1,N-a,\alpha}$ なら対比を棄却する。
 - 二元配置モデル：$Y_{ijk}=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+\varepsilon_{ijk}$。
 - 二元配置の自由度：Aは $a-1$、Bは $b-1$、交互作用は $(a-1)(b-1)$、各セル $n$ 反復の誤差は $ab(n-1)$。
@@ -51,7 +51,7 @@
 - ハット行列：$H=X(X^{\mathsf T}X)^{-1}X^{\mathsf T}$ は対称かつ冪等。$\widehat Y=HY$、$e=(I-H)Y$。
 - 回帰全体F検定：$F=\{SSR/p\}/\{SSE/(n-p-1)\}\sim F_{p,n-p-1}$。
 - 部分F検定：$F=\{(SSE_R-SSE_F)/q\}/\{SSE_F/(n-p_F-1)\}\sim F_{q,n-p_F-1}$。
-- Gauss–Markovの定理：$E[\varepsilon\mid X]=0$、$\operatorname{Var}(\varepsilon\mid X)=\sigma^2I$、$X$ 列フルランクの下で最小二乗推定量はBLUE。
+- ガウス・マルコフの定理：$E[\varepsilon\mid X]=0$、$\operatorname{Var}(\varepsilon\mid X)=\sigma^2I$、$X$ 列フルランクの下で最小二乗推定量はBLUE。
 - レバレッジと残差分散：$h_{ii}=H_{ii}$、$\sum_i h_{ii}=p+1$、$\operatorname{Var}(e_i)=\sigma^2(1-h_{ii})$。
 - 自由度調整済み決定係数：切片込み係数数をkとすると $\bar R^2=1-(1-R^2)(n-1)/(n-k)$。
 - 分散拡大係数：$X_j$ を他の説明変数へ回帰した決定係数を $R_j^2$ とすると $\operatorname{VIF}_j=1/(1-R_j^2)$。
@@ -265,7 +265,7 @@
 - 入れ子線形モデルの部分F検定：$F=\{(SSE_R-SSE_F)/q\}/\{SSE_F/(n-k_F)\}$。
 - 平均応答と新観測：平均応答の標準誤差は $s\sqrt{x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}x_0}$、新観測の予測標準誤差は $s\sqrt{1+x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}x_0}$。
 - HC0サンドイッチ分散：$(X^{\mathsf T}X)^{-1}\{\sum_i e_i^2x_ix_i^{\mathsf T}\}(X^{\mathsf T}X)^{-1}$。
-- Gauss--Markov定理：固定・列フルランク計画、誤差平均0、共分散 $\sigma^2\boldsymbol I_n$ の下でOLSはBLUE。
+- ガウス・マルコフの定理：固定・列フルランク計画、誤差平均0、共分散 $\sigma^2\boldsymbol I_n$ の下で最小二乗推定量はBLUE。
 - 多変量正規の線形変換：$\boldsymbol a^{\mathsf T}\boldsymbol X\sim N(\boldsymbol a^{\mathsf T}\boldsymbol\mu,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a)$。
 - $p$ 変量正規分布：正定値な $\Sigma$ に対し、$f(\boldsymbol x)=(2\pi)^{-p/2}|\Sigma|^{-1/2}\exp[-(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)/2]$。
 - 標本平均・標本共分散：$\bar{\boldsymbol X}=n^{-1}\sum_i\boldsymbol X_i$、$S=(n-1)^{-1}\sum_i(\boldsymbol X_i-\bar{\boldsymbol X})(\boldsymbol X_i-\bar{\boldsymbol X})^{\mathsf T}$。

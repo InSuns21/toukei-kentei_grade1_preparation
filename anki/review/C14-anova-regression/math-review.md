@@ -49,3 +49,16 @@ fatal: 0 / major: 1 / minor: 3
 - `npm run validate`: 成功。構造検証成功、322 Markdown files の KaTeX strict 成功、237生成対象テキスト検証成功。
 
 fatal: 0 / major: 0 / minor: 0
+
+## 2026-08-23 計算例・問題定義の追加改訂査読
+
+- reviewer_id: `/root/math_review_population_cards`
+- scope: `math-anova`・`math-regression` の問題文、計算例、検定条件、用語表記
+- initial: fatal 0 / major 2 / minor 4
+- 主な初回指摘: ANCOVA の平行性検定モデルの識別、正確な $t$・$F$ 検定の仮定、二元配置のセル対応、回帰の行列計算例と予測区間の自己完結性
+- 修正確認: 群・添字・統計量を問題内で定義し、平方和、自由度、標準誤差、検定統計量、区間端点まで途中式を補完した。予測区間は未丸め値から半幅 $4.220$、区間 $(5.780,14.220)$ を算出した。
+- validation: `npm run validate` 成功（structure / math / text、KaTeX strict 377 Markdown）
+- final: fatal 0 / major 0 / minor 0
+
+final_reviewer_id: `/root/math_review_population_cards`
+final_reviewed_at: 2026-08-23

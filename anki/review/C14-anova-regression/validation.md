@@ -32,3 +32,15 @@ checked 738 cards in 13 category page(s), max 200 per page
 
 237 個の生成対象テキストを検証しました。
 ```
+
+## 2026-08-23 計算例・問題定義の追加改訂
+
+- `npm run anki:validate`: success
+  - validated 1373 cards (0 warnings)
+  - built and checked 1373 cards in 30 category pages
+- `npm run validate`: success
+  - structure: success
+  - math: 377 Markdown files passed KaTeX strict
+  - text: 237 generated text targets passed
+- independent math review: fatal 0 / major 0 / minor 0
+- exam suitability review: fatal 0 / major 0 / minor 0
