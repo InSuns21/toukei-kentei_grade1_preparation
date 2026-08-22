@@ -2231,28 +2231,75 @@ items:
         status: card
         cards: [engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio]
   - id: engineering-quality
-    status: partial
+    status: complete
     cards:
       - eng-xbar-limits
       - eng-capability-index
       - eng-series-reliability
       - eng-exponential-reliability
+      - engqc-control-chart-selection
+      - engqc-xbar-r-chart-limits
+      - engqc-r-chart-limits
+      - engqc-s-chart-limits
+      - engqc-p-chart-constant-n
+      - engqc-p-chart-varying-n
+      - engqc-np-chart
+      - engqc-c-chart
+      - engqc-u-chart
+      - engqc-imr-moving-range
+      - engqc-control-vs-specification
+      - engqc-common-special-causes
+      - engqc-rational-subgrouping
+      - engqc-phase1-phase2
+      - engqc-three-sigma-false-alarm
+      - engqc-arl0-three-sigma
+      - engqc-arl1-mean-shift
+      - engqc-run-rule-eight-one-side
+      - engqc-ewma-update
+      - engqc-ewma-steady-variance
+      - engqc-cusum-one-step
+      - engqc-control-chart-sample-size
+      - engqc-process-adjustment-overcontrol
+      - engqc-p-chart-baseline-estimation
+      - engqc-cpk-offcenter
+      - engqc-cp-cpk-relationship
+      - engqc-cpm-target
+      - engqc-capability-defect-rate
+      - engqc-capability-stability-first
+      - engqc-one-sided-cpu
+      - engqc-nonnormal-capability
+      - engrel-parallel-common-cause
+      - engrel-parallel-system
+      - engrel-k-out-of-n
+      - engrel-series-component-requirement
+      - engrel-exponential-mtbf
+      - engrel-weibull-hazard-shape
+      - engrel-weibull-reliability
+      - engmaint-steady-availability
+      - engmaint-maintainability-exponential
+      - engmaint-two-state-availability
+      - engrel-failure-rate-exact-ci
+      - engrel-competing-risks-exponential
+      - engrel-bathtub-curve
+      - engmaint-preventive-replacement-rate
+      - engmaint-series-availability
+      - engmaint-reliability-vs-availability
     terms:
       - name: 管理図
-        status: planned
-        cards: []
+        status: card
+        cards: [engqc-control-chart-selection, engqc-p-chart-baseline-estimation, engqc-xbar-r-chart-limits, engqc-r-chart-limits, engqc-s-chart-limits, engqc-p-chart-constant-n, engqc-p-chart-varying-n, engqc-np-chart, engqc-c-chart, engqc-u-chart, engqc-imr-moving-range, engqc-phase1-phase2, engqc-three-sigma-false-alarm, engqc-arl0-three-sigma, engqc-arl1-mean-shift, engqc-run-rule-eight-one-side, engqc-ewma-update, engqc-ewma-steady-variance, engqc-cusum-one-step, engqc-control-chart-sample-size]
       - name: 信頼性
-        status: planned
-        cards: []
+        status: card
+        cards: [engrel-parallel-common-cause, engrel-parallel-system, engrel-k-out-of-n, engrel-series-component-requirement, engrel-exponential-mtbf, engrel-weibull-hazard-shape, engrel-weibull-reliability, engrel-failure-rate-exact-ci, engrel-competing-risks-exponential, engrel-bathtub-curve]
       - name: 保全性
-        status: planned
-        cards: []
+        status: card
+        cards: [engmaint-steady-availability, engmaint-maintainability-exponential, engmaint-two-state-availability, engmaint-preventive-replacement-rate, engmaint-series-availability, engmaint-reliability-vs-availability]
       - name: プロセス管理
-        status: planned
-        cards: []
+        status: card
+        cards: [engqc-control-chart-selection, engqc-p-chart-baseline-estimation, engqc-control-vs-specification, engqc-common-special-causes, engqc-rational-subgrouping, engqc-phase1-phase2, engqc-process-adjustment-overcontrol, engqc-capability-stability-first]
       - name: 工程能力指数
-        status: planned
-        cards: []
+        status: card
+        cards: [engqc-cpk-offcenter, engqc-cp-cpk-relationship, engqc-cpm-target, engqc-capability-defect-rate, engqc-capability-stability-first, engqc-one-sided-cpu, engqc-nonnormal-capability]
   - id: engineering-design
     status: partial
     cards:

@@ -1,18 +1,18 @@
 schema_version: 4
 cards_per_page: 200
 updated_at: 2026-08-22
-reviewed_card_count: 1278
+reviewed_card_count: 1325
 current_work: null
-next_work: C26-engineering-quality
-last_completed_work: C25-engineering-inference-asymptotics
+next_work: C27-engineering-design
+last_completed_work: C26-engineering-quality
 summary:
   total: 33
-  planned: 2
+  planned: 1
   drafting: 0
   self_review: 0
   independent_review: 0
   revision: 0
-  reviewed: 31
+  reviewed: 32
   blocked: 0
 status_definitions:
   planned: 未着手
@@ -2588,49 +2588,67 @@ work:
     target:
       min: 45
       max: 55
-    status: planned
+    status: reviewed
     review_dir: review/C26-engineering-quality
-    source: pdfs/statistics_grade1_card_titles_by_parent_priority.md
-    parent: 分散分析・仮説検定
-    title_ids:
-      - "267"
-      - "268"
-      - "269"
-      - "270"
-      - "271"
-      - "272"
-      - "273"
-      - "274"
-      - "275"
-      - "276"
-      - "277"
-      - "278"
-      - "279"
-      - "280"
-      - "281"
-      - "195"
-      - "196"
-      - "197"
-      - "198"
-      - "199"
-      - "200"
-      - "201"
-      - "202"
-      - "203"
-      - "204"
-      - "205"
-      - "206"
-      - "207"
-      - "208"
-      - "209"
-      - "210"
-      - "211"
-      - "212"
-    priority_counts:
-      S: 10
-      A: 23
-      B: 0
-      C: 0
+    basis: official_syllabus
+    basis_note: 公式出題範囲の品質管理5用語を根拠とし、優先度付きタイトル一覧に該当する親見出しがないためtitle_idsは設定しない
+    started_at: 2026-08-22T12:24:30.804Z
+    self_review_at: 2026-08-22T12:33:40.995Z
+    independent_review_at: 2026-08-22T12:34:59.886Z
+    revision_at: 2026-08-22T12:39:36.645Z
+    completed_at: 2026-08-22T12:55:15.201Z
+    added_card_ids:
+      - engmaint-maintainability-exponential
+      - engmaint-preventive-replacement-rate
+      - engmaint-reliability-vs-availability
+      - engmaint-series-availability
+      - engmaint-steady-availability
+      - engmaint-two-state-availability
+      - engqc-arl0-three-sigma
+      - engqc-arl1-mean-shift
+      - engqc-c-chart
+      - engqc-capability-defect-rate
+      - engqc-capability-stability-first
+      - engqc-common-special-causes
+      - engqc-control-chart-sample-size
+      - engqc-control-chart-selection
+      - engqc-control-vs-specification
+      - engqc-cp-cpk-relationship
+      - engqc-cpk-offcenter
+      - engqc-cpm-target
+      - engqc-cusum-one-step
+      - engqc-ewma-steady-variance
+      - engqc-ewma-update
+      - engqc-imr-moving-range
+      - engqc-nonnormal-capability
+      - engqc-np-chart
+      - engqc-one-sided-cpu
+      - engqc-p-chart-baseline-estimation
+      - engqc-p-chart-constant-n
+      - engqc-p-chart-varying-n
+      - engqc-phase1-phase2
+      - engqc-process-adjustment-overcontrol
+      - engqc-r-chart-limits
+      - engqc-rational-subgrouping
+      - engqc-run-rule-eight-one-side
+      - engqc-s-chart-limits
+      - engqc-three-sigma-false-alarm
+      - engqc-u-chart
+      - engqc-xbar-r-chart-limits
+      - engrel-bathtub-curve
+      - engrel-competing-risks-exponential
+      - engrel-exponential-mtbf
+      - engrel-failure-rate-exact-ci
+      - engrel-k-out-of-n
+      - engrel-parallel-common-cause
+      - engrel-parallel-system
+      - engrel-series-component-requirement
+      - engrel-weibull-hazard-shape
+      - engrel-weibull-reliability
+    review_result:
+      fatal: 0
+      major: 0
+      minor: 0
   C27-engineering-design:
     title: 実験計画
     category: applied-engineering

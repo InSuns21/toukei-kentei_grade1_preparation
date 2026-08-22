@@ -310,13 +310,27 @@
 
 ## 品質・信頼性・実験計画
 
-**この節の記号**：$USL,LSL$ は上側・下側規格限界、$UCL,CL,LCL$ は上側管理限界・中心線・下側管理限界である。実験計画では $a,b,p$ は処置数・ブロック数・方格次数、$SS_{\mathrm{tr}},SS_{\mathrm{bl}},SS_E$ は処置・ブロック・誤差平方和を表す。
+**この節の記号**：$USL,LSL$ は上側・下側規格限界、$UCL,CL,LCL$ は上側管理限界・中心線・下側管理限界である。$\overline{\overline X},\overline R,\overline S$ は群平均の平均、群内範囲の平均、群内標本標準偏差の平均、$A_2,D_3,D_4,B_3,B_4$ は群サイズごとに表から選ぶ管理図定数である。実験計画では $a,b,p$ は処置数・ブロック数・方格次数、$SS_{\mathrm{tr}},SS_{\mathrm{bl}},SS_E$ は処置・ブロック・誤差平方和を表す。
 
 - 工程能力指数：$C_p=(USL-LSL)/(6\sigma)$。
 - 独立な直列系：$R(t)=\prod_iR_i(t)$。
 - $\overline X$ 管理図：$UCL=\mu+3\sigma/\sqrt n$、$CL=\mu$、$LCL=\mu-3\sigma/\sqrt n$。
 - 一元配置平方和：$SS_T=SS_B+SS_W$。
 - 指数寿命：$R(t)=e^{-\lambda t}$、$\operatorname{MTBF}=1/\lambda$。
+- $\overline X$--$R$ 管理図：$UCL_{\overline X}=\overline{\overline X}+A_2\overline R$、$LCL_{\overline X}=\overline{\overline X}-A_2\overline R$、$UCL_R=D_4\overline R$、$LCL_R=D_3\overline R$。
+- $S$ 管理図：$CL=\overline S$、$UCL=B_4\overline S$、$LCL=B_3\overline S$。
+- $p$ 管理図：標本サイズ $n_i$ の不良率 $p_i$ に対し $CL=\overline p$、$UCL_i=\overline p+3\sqrt{\overline p(1-\overline p)/n_i}$、$LCL_i=\max\{0,\overline p-3\sqrt{\overline p(1-\overline p)/n_i}\}$。
+- 群別の検査数 $n_i$ と不適合品数 $d_i$ から作る $p$ 管理図の基準値：$\overline p=\sum_i d_i/\sum_i n_i$。
+- $c$ 管理図と $u$ 管理図：一定検査単位の欠点数には $CL=\overline c$、管理限界 $\overline c\pm3\sqrt{\overline c}$。検査単位数 $n_i$ が異なる欠点率には $CL=\overline u$、管理限界 $\overline u\pm3\sqrt{\overline u/n_i}$ を用い、下側管理限界は0未満なら0とする。
+- 1点ごとのシグナル確率を $p_s$ とする平均ラン長：$ARL=1/p_s$。管理状態で両側3標準偏差限界なら $ARL_0=1/[2\{1-\Phi(3)\}]$。
+- EWMA統計量：$Z_t=\eta X_t+(1-\eta)Z_{t-1}$。独立で分散 $\sigma^2$ の観測なら定常分散は $\sigma^2\eta/(2-\eta)$。
+- 片側上方CUSUM：原尺度では $C_t^+=\max\{0,C_{t-1}^++X_t-(\mu_0+K)\}$、$C_t^+>H$ でシグナルとする。標準偏差 $\sigma$ で標準化すれば $z_t=(X_t-\mu_0)/\sigma$、$k=K/\sigma$、$h=H/\sigma$ として $C_t^+=\max\{0,C_{t-1}^++z_t-k\}$、$C_t^+>h$ でシグナルとする。
+- 工程能力指数：$C_{pk}=\min\{(USL-\mu)/(3\sigma),(\mu-LSL)/(3\sigma)\}$、$C_{pm}=(USL-LSL)/[6\sqrt{\sigma^2+(\mu-T)^2}]$。
+- 独立な並列系：$R(t)=1-\prod_i\{1-R_i(t)\}$。同一信頼度 $r$ の $k$-out-of-$n$ 系は $\sum_{j=k}^n\binom njr^j(1-r)^{n-j}$。
+- ワイブル分布（Weibull distribution）の寿命（shape $k$、scale $\lambda$）：$R(t)=\exp\{-(t/\lambda)^k\}$、$h(t)=(k/\lambda)(t/\lambda)^{k-1}$。
+- 定常アベイラビリティ：平均故障間隔を $\operatorname{MTBF}$、平均修復時間を $\operatorname{MTTR}$ とすると $A=\operatorname{MTBF}/(\operatorname{MTBF}+\operatorname{MTTR})$。故障率 $\lambda$、修復率 $\mu$ の2状態モデルでは $A=\mu/(\lambda+\mu)$。
+- 指数故障モデル：総曝露時間 $T_{\mathrm{tot}}$ 中の故障数を $d$ とすると $\widehat\lambda=d/T_{\mathrm{tot}}$。
+- 指数故障モデルの故障率の正確区間：$D\sim\operatorname{Poisson}(\lambda T_{\mathrm{tot}})$、$\chi^2_{\nu,q}$ を上側 $q$ 点とすると、$1-\alpha$ 信頼区間は $[\chi^2_{2D,1-\alpha/2}/(2T_{\mathrm{tot}}),\chi^2_{2(D+1),\alpha/2}/(2T_{\mathrm{tot}})]$（$D=0$ の下端は0）。
 - 乱塊法：$Y_{ij}=\mu+\tau_i+\beta_j+\varepsilon_{ij}$、識別制約は $\sum_i\tau_i=\sum_j\beta_j=0$。
 - 乱塊法の平方和：$SS_T=SS_{\mathrm{tr}}+SS_{\mathrm{bl}}+SS_E$。自由度は順に $ab-1,a-1,b-1,(a-1)(b-1)$。
 - ラテン方格法：$Y_{ij}=\mu+\rho_i+\kappa_j+\tau_{k(i,j)}+\varepsilon_{ij}$。p次なら誤差自由度は $(p-1)(p-2)$。

@@ -51,6 +51,17 @@
 - $\operatorname{Avar}(\widehat\theta)$：推定量自体の近似分散。$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,V)$ の $V$ を漸近分散定数と呼び、本教材では $\operatorname{Avar}(\widehat\theta)=V/n$ と書く。
 - 自己共分散は $\gamma(h)$、自己相関は $\rho(h)$ とする。
 
+## 品質管理・信頼性
+
+- $CL,UCL,LCL$：管理図の中心線、上側管理限界、下側管理限界。
+- $\overline{\overline X},\overline R,\overline S$：群平均の平均、群内範囲の平均、群内標本標準偏差の平均。$A_2,D_3,D_4,B_3,B_4$ は群サイズごとに管理図定数表から選ぶ係数。
+- $USL,LSL,T$：上側規格限界、下側規格限界、目標値。
+- $C_p,C_{pk},C_{pm}$：工程のばらつき、偏り、目標からのずれを順に考慮する工程能力指数。
+- $R(t)=P(T>t)$、$h(t)$：寿命 $T$ の信頼度関数と故障率関数。
+- $\operatorname{MTBF},\operatorname{MTTR}$：平均故障間隔と平均修復時間。$A$ はアベイラビリティ、$M(t)$ は時刻 $t$ までに修復が完了する確率を表す保全度関数。
+- $ARL$：管理図がシグナルを発するまでの平均標本数（平均ラン長）。$ARL_0$ は管理状態、$ARL_1$ は工程変化後の平均ラン長。
+- $Z_t$：EWMA統計量、$C_t^+$：上方CUSUM統計量、$K,H$：原尺度のCUSUMの参照値と決定限界。標準偏差 $\sigma$ で割った標準化CUSUMでは $k=K/\sigma$、$h=H/\sigma$ を使う。
+
 ## 表示規則
 
 - インライン数式はドル記号1個、別行数式はドル記号2個で囲む。
