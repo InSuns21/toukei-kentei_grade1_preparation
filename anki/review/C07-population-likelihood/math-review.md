@@ -59,6 +59,17 @@ fatal: 0 / major: 1 / minor: 3
 - 初回指摘（major-1 / minor-1 / minor-2 / minor-3）は全て解消・対応済み。
 - fatal: 0 / major: 0 / minor: 0
 
+## 尤度・最尤推定の計算例展開査読（2026-08-23）
+
+- 担当ID: /root/math_review_population_cards
+- 対象: `math-likelihood-mle` 全文、とくに結論だけだった計算例
+- 初回結果: fatal 0 / major 4 / minor 2
+- 初回指摘: 平均既知の正規分散MLEの不偏性、一様分布の端点規約、一致性・正則条件、ポアソン全0標本、退化標本、数式コマンド脱落。
+- 修正: 尤度から最大確認までを展開し、境界・退化条件を場合分け。一致性のargmax条件と漸近正規性の追加条件を明記。
+- 再計算: 制約付き推定、不変性、一致性、漸近正規性、非正則極限、多母数、期待対数尤度、右打切りを含む全展開が整合。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0
+
 ## 追加カード・表記統一の独立数理査読（2026-08-23）
 
 - 担当ID: /root/math_review_population_cards

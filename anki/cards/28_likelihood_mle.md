@@ -19,7 +19,14 @@ sources: [{ type: official_syllabus, topic: 尤度関数 }]
 $$L(\theta;x)=P(X=x;\theta)\quad(\text{離散}),\qquad L(\theta;x)=f(x;\theta)\quad(\text{連続}).$$
 $x$ を固定するので $\sum_\theta L(\theta;x)$ は1になるとは限らない。
 ## 計算例
-$X\sim\operatorname{Bernoulli}(p)$ で $x=1$ を観測したとき、$L(p;1)=p$。$p=0.7$ のとき確率は $0.7$ であり値は等しいが、$L(p;1)$ は $p$ の関数 $p$ そのもの。
+$X\sim\operatorname{Bernoulli}(p)$ で $x=1$ を観測したとする。確率として見ると、$p$ を固定して
+$$P_p(X=1)=p$$
+である。一方、尤度では観測値 $x=1$ を固定し、
+$$L(p;1)=p\qquad(0\le p\le1)$$
+を $p$ の関数として比較する。たとえば
+$$L(0.2;1)=0.2,\qquad L(0.7;1)=0.7,$$
+$$\frac{L(0.7;1)}{L(0.2;1)}=\frac{0.7}{0.2}=3.5.$$
+したがって観測 $x=1$ は $p=0.7$ を $p=0.2$ の3.5倍支持する。値は確率と同じでも、尤度では母数間の相対比較に使う。
 ## 一手
 「確率は $\theta$ 固定、尤度は $x$ 固定」と覚える。尤度は $\theta$ の関数として最大化の対象。
 <!-- CARD -->
@@ -45,8 +52,19 @@ $$L(\theta;x)=\prod_{i=1}^n f(x_i;\theta).$$
 独立同分布（i.i.d.）なら同時密度は各周辺密度の積：
 $$f(x_1,\ldots,x_n;\theta)=\prod_{i=1}^n f(x_i;\theta).$$
 ## 計算例
-$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ なら
-$$L(\mu,\sigma^2;x)=\prod_{i=1}^n\frac1{\sqrt{2\pi\sigma^2}}e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}.$$
+$X_1,X_2\overset{iid}{\sim}N(\mu,1)$ で観測値が $(1,3)$ とする。独立性から
+$$L(\mu;1,3)
+=f_\mu(1)f_\mu(3)$$
+$$=\frac1{\sqrt{2\pi}}e^{-(1-\mu)^2/2}
+\frac1{\sqrt{2\pi}}e^{-(3-\mu)^2/2}$$
+$$=\frac1{2\pi}
+\exp\!\left[-\frac{(1-\mu)^2+(3-\mu)^2}{2}\right].$$
+ここで
+$$\frac{(1-\mu)^2+(3-\mu)^2}{2}
+=(\mu-2)^2+1$$
+だから
+$$L(\mu;1,3)=\frac{e^{-1}}{2\pi}e^{-(\mu-2)^2}.$$
+観測値を代入した後は、これを $\mu$ の関数として扱う。
 ## 一手
 密度を全て掛け合わせる。台が母数に依存する場合は指示関数も因子に含める。
 <!-- CARD -->
@@ -99,7 +117,16 @@ $\frac{\partial}{\partial\theta}\ell(\theta;x)=0\;(\text{スコア方程式}),\q
 ## 使用公式・定理
 スコア関数 $U(\theta)=\partial\ell(\theta;x)/\partial\theta$。$\theta$ が $k$ 次元なら連立方程式 $\partial\ell/\partial\theta_j=0\;(j=1,\ldots,k)$。
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ なら $U(\lambda)=\sum_i x_i/\lambda-n$。$U(\widehat\lambda)=0$ を解くと $\widehat\lambda=\overline x$。
+$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$n=4$、観測値 $(2,5,3,0)$ とする。標本和は $10$ なので
+$$\ell(\lambda)=10\log\lambda-4\lambda-C,$$
+$$U(\lambda)=\ell'(\lambda)=\frac{10}{\lambda}-4.$$
+スコア方程式を解くと
+$$\frac{10}{\widehat\lambda}-4=0
+\quad\Longrightarrow\quad
+\widehat\lambda=\frac{10}{4}=2.5.$$
+さらに
+$$\ell''(\lambda)=-\frac{10}{\lambda^2}<0$$
+だから、この解は最大点である。
 ## 一手
 積を対数で和にしてから $\theta$ で微分し、0とおいて解く。境界解の有無に注意。
 <!-- CARD -->
@@ -124,7 +151,16 @@ $$\widehat\mu=\overline X=\frac1n\sum_{i=1}^n X_i.$$
 $$\ell(\mu)\propto-\frac1{2\sigma^2}\sum_i(x_i-\mu)^2,\qquad \ell'(\mu)=\frac1{\sigma^2}\sum_i(x_i-\mu)=0.$$
 よって $\sum_i(x_i-\mu)=0$ から $\mu=\overline x$。
 ## 計算例
-$n=5$、観測値 $4,6,5,7,3$ なら $\widehat\mu=(4+6+5+7+3)/5=5$。
+$n=5$、観測値 $(4,6,5,7,3)$、既知分散を $\sigma^2$ とする。標本和は $25$ だから
+$$\ell'(\mu)=\frac1{\sigma^2}\sum_{i=1}^5(x_i-\mu)
+=\frac{25-5\mu}{\sigma^2}.$$
+これを0と置くと
+$$25-5\widehat\mu=0
+\quad\Longrightarrow\quad
+\widehat\mu=5.$$
+また
+$$\ell''(\mu)=-\frac5{\sigma^2}<0$$
+なので最大点である。
 ## 一手
 $-\sum_i(x_i-\mu)^2$ の最小化は $\overline x$ で達成される。平均の最尤推定量は標本平均。
 <!-- CARD -->
@@ -145,7 +181,7 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 正規分布 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$（$\mu$ は既知）のとき $\sigma^2$ の最尤推定量 $\widehat\sigma^2$ を求めよ。
 ## 答え
 $$\widehat\sigma^2=\frac1n\sum_{i=1}^n(X_i-\mu)^2.$$
-不偏推定量は分散を $n-1$ で割る $n$ でなく、最尤推定量は $n$ で割る点に注意（不偏性は保証されない）。
+$\mu$ が既知なら、この最尤推定量は $E[(X_i-\mu)^2]=\sigma^2$ より不偏でもある。$n-1$ で割る不偏分散は、$\mu$ が未知で $\overline X$ を代入する場合の公式である。
 ## 使用公式・定理
 $$\ell(\sigma^2)=-\frac n2\log\sigma^2-\frac1{2\sigma^2}\sum_i(x_i-\mu)^2.$$
 $Q=\sum_i(x_i-\mu)^2$ と置けば
@@ -154,7 +190,20 @@ $$\frac{\partial\ell}{\partial\sigma^2}
 両辺に $2(\sigma^2)^2$ を掛けると $-n\sigma^2+Q=0$ なので
 $$\widehat\sigma^2=\frac{Q}{n}=\frac1n\sum_i(x_i-\mu)^2.$$
 ## 計算例
-$\mu=0$、観測値 $-1,2,0,1,-2$ なら $\widehat\sigma^2=(1+4+0+1+4)/5=2$。
+$\mu=0$、観測値 $(-1,2,0,1,-2)$ とする。まず偏差平方和は
+$$Q=\sum_{i=1}^5(x_i-0)^2
+=(-1)^2+2^2+0^2+1^2+(-2)^2
+=10.$$
+スコア方程式は
+$$-\frac5{2\sigma^2}+\frac{10}{2(\sigma^2)^2}=0.$$
+両辺に $2(\sigma^2)^2$ を掛けると
+$$-5\sigma^2+10=0,$$
+したがって
+$$\widehat\sigma^2=\frac{10}{5}=2.$$
+$v=\sigma^2$ とおくと、臨界点 $v=Q/n$ で
+$$\ell''(v)=\frac n{2v^2}-\frac Q{v^3}
+=-\frac n{2v^2}<0$$
+なので最大である。ただし $Q>0$ を仮定する。$Q=0$ なら $v\downarrow0$ で尤度が発散し、$v>0$ の範囲に最尤推定値は存在しない。
 ## 一手
 $\mu$ も未知なら $\widehat\mu=\overline x$ を代入し $\widehat\sigma^2=n^{-1}\sum_i(X_i-\overline X)^2$。これは不偏分散 $s^2$ より小さい（バイアス）。
 <!-- CARD -->
@@ -179,7 +228,17 @@ $$\widehat p=\overline X=\frac{Y}{n}=\frac{\text{成功回数}}{n}.$$
 $$\ell(p)=Y\log p+(n-Y)\log(1-p),\qquad \ell'(p)=\frac Yp-\frac{n-Y}{1-p}=0.$$
 $$\Rightarrow p=\frac Yn.$$
 ## 計算例
-$n=10$ で成功回数 $Y=7$ なら $\widehat p=7/10=0.7$。
+$n=10$ で成功回数 $Y=7$ とする。対数尤度は
+$$\ell(p)=7\log p+3\log(1-p),$$
+$$\ell'(p)=\frac7p-\frac3{1-p}
+=\frac{7-10p}{p(1-p)}.$$
+$0<p<1$ で分母は正なので、$\ell'(p)=0$ は
+$$7-10p=0
+\quad\Longrightarrow\quad
+\widehat p=0.7$$
+を与える。また
+$$\ell''(p)=-\frac7{p^2}-\frac3{(1-p)^2}<0$$
+だから最大点である。
 ## 一手
 $\ell'(p)=0$ を解く。成功回数と試行回数の比が最尤推定量。全成功・全失敗なら境界で最大。
 <!-- CARD -->
@@ -199,15 +258,23 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 問題
 $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ の $\lambda$ の最尤推定量を求めよ。
 ## 答え
-$$\widehat\lambda=\overline X.$$
+標本和が正なら $\widehat\lambda=\overline X$。母数空間を $\lambda>0$ とし、全観測が0なら有限の最尤推定値は存在せず、$\lambda\downarrow0$ で尤度が上限へ近づく。
 ## 使用公式・定理
-密度は $P(X=x)=\lambda^x e^{-\lambda}/x!$。スコア方程式から
+確率質量関数は $P(X=x)=\lambda^x e^{-\lambda}/x!$。$\sum_i x_i>0$ ならスコア方程式から
 $$\ell(\lambda)=\left(\sum_i x_i\right)\log\lambda-n\lambda-\sum_i\log(x_i!),$$
 $$\ell'(\lambda)=\frac{\sum_i x_i}{\lambda}-n=0.$$
-したがって
+したがって、標本和が正なら
 $$\widehat\lambda=\frac1n\sum_i x_i=\overline x.$$
+$\sum_i x_i=0$ なら $L(\lambda)=e^{-n\lambda}$ は $\lambda>0$ で単調減少し、最大値を達成しない。なお母数空間を $\lambda\ge0$ と定める流儀では境界解 $\widehat\lambda=0$ となる。
 ## 計算例
-$n=4$、観測値 $2,5,3,0$ なら $\widehat\lambda=2.5$（すでに離散分布の最尤推定量カードで算出）。
+$n=4$、観測値 $(2,5,3,0)$ とする。標本和は $10$ だから
+$$\ell(\lambda)=10\log\lambda-4\lambda-C,$$
+$$\ell'(\lambda)=\frac{10}{\lambda}-4.$$
+よって
+$$\ell'(\widehat\lambda)=0
+\quad\Longrightarrow\quad
+\widehat\lambda=\frac{10}{4}=2.5.$$
+$\ell''(\lambda)=-10/\lambda^2<0$ なので、この解は最大点である。
 ## 一手
 平均 = 分散 $=\lambda$ の分布で、最尤推定量は標本平均。ポアソン分布の再生成性にもつながる。
 <!-- CARD -->
@@ -232,7 +299,14 @@ $\widehat\lambda=\frac1{\overline X}=\frac n{\sum_i X_i}.$
 $\ell(\lambda)=n\log\lambda-\lambda\sum_i x_i,\qquad \ell'(\lambda)=\frac n\lambda-\sum_i x_i=0.$
 $\widehat\lambda=\frac n{\sum_i x_i}=\frac1{\overline x}.$
 ## 計算例
-$n=3$、観測値 $2,4,6$ なら $\widehat\lambda=3/(2+4+6)=0.25$。
+$n=3$、観測値 $(2,4,6)$ とする。標本和は $12$ なので
+$$\ell(\lambda)=3\log\lambda-12\lambda,$$
+$$\ell'(\lambda)=\frac3\lambda-12.$$
+スコア方程式から
+$$\frac3{\widehat\lambda}-12=0
+\quad\Longrightarrow\quad
+\widehat\lambda=\frac3{12}=0.25.$$
+さらに $\ell''(\lambda)=-3/\lambda^2<0$ だから最大点である。
 ## 一手
 指数分布のスコアは $n/\lambda-\sum x_i$。逆数なので $\widehat\lambda=1/\overline X$。
 <!-- CARD -->
@@ -250,15 +324,21 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 ## 問題
-一様分布 $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$、密度 $f(x)=1/\theta$（$0<x<\theta$、$\theta>0$）の $\theta$ の最尤推定量を求めよ。通常の微分はなぜ使えないか。
+一様分布 $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$、密度 $f(x)=1/\theta$（$0\le x\le\theta$、$\theta>0$）の $\theta$ の最尤推定量を求めよ。通常の微分はなぜ使えないか。
 ## 答え
 $\widehat\theta=X_{(n)}=\max_i X_i.$
-対数尤度 $\ell(\theta)=-n\log\theta$ は単調減少で内点解がなく、微分では最大点が得られない。台が $\theta$ に依存するため指示関数 $1\{0<x<\theta\}$ を尤度に入れる必要がある。
+対数尤度 $\ell(\theta)=-n\log\theta$ は許容範囲で単調減少し、内点解がない。台が $\theta$ に依存するため指示関数 $\mathbf1\{0\le x\le\theta\}$ を尤度に入れる必要がある。
 ## 使用公式・定理
-$L(\theta;x)=\theta^{-n}\prod_i 1\{0<x_i<\theta\}.$
+$L(\theta;x)=\theta^{-n}\prod_i\mathbf1\{0\le x_i\le\theta\}.$
 これは $\theta\ge X_{(n)}$ で $\theta^{-n}$ であり、$\theta$ が小さいほど大きい。よって $\widehat\theta=X_{(n)}$。
 ## 計算例
-観測値 $2,5,3,1$ なら $\widehat\theta=5$。
+観測値が $(2,5,3,1)$ なら $x_{(n)}=5$ である。尤度は
+$$L(\theta;x)=\theta^{-4}\mathbf 1\{\theta\ge5\}$$
+だから
+$$L(\theta;x)=0\quad(0<\theta<5),$$
+$$L(\theta;x)=\theta^{-4}\quad(\theta\ge5).$$
+$\theta^{-4}$ は $\theta>0$ で単調減少するので、許容範囲 $\theta\ge5$ の左端で最大になる。したがって
+$$\widehat\theta=5.$$
 ## 注意
 台が母数に依存する例。スコア方程式は使えず、指示関数込みで最大化する。
 <!-- CARD -->
@@ -284,7 +364,15 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 $\mathcal L(\theta,\nu)=\ell(\theta;x)-\nu g(\theta).$
 $\partial\mathcal L/\partial\theta_j=0$ と $g(\theta)=0$ を連立して解く。
 ## 計算例
-ベルヌーイ分布の $p_1,p_2$（$p_1+p_2=1$、単純化）なら制約から $p_2=1-p_1$ を代入して1変数で最大化する。
+2カテゴリーの観測度数が $(n_1,n_2)=(7,3)$ で、$p_1+p_2=1$ とする。対数尤度は
+$$\ell(p_1,p_2)=7\log p_1+3\log p_2+C.$$
+$p_2=1-p_1$ を代入すると
+$$\ell'(p_1)=\frac7{p_1}-\frac3{1-p_1}=0
+\iff 7(1-p_1)=3p_1
+\iff p_1=0.7.$$
+さらに
+$$\ell''(p_1)=-\frac7{p_1^2}-\frac3{(1-p_1)^2}<0$$
+なので、$(\widehat p_1,\widehat p_2)=(0.7,0.3)$ が制約下の最尤推定値である。
 ## 一手
 等式制約は代入またはラグランジュ乗数法。不等式制約は境界のチェックを加える。
 <!-- CARD -->
@@ -309,7 +397,11 @@ $\widehat{g(\theta)}=g(\widehat\theta).$
 ## 使用公式・定理
 $\phi=g(\theta)$ の尤度を $L^*(\phi)=\sup_{\theta:g(\theta)=\phi}L(\theta)$ と定めると、$\widehat\theta$ が $L$ を最大化するため $g(\widehat\theta)$ は $L^*$ を最大化する。したがって $g$ が1対1でなくてもよく、単調性も不要である。最大点が複数ある場合は推定値も集合として扱う。
 ## 計算例
-$X\sim\operatorname{Poisson}(\lambda)$、$\widehat\lambda=\overline X$ なら $\sqrt\lambda$ の最尤推定量は $\sqrt{\overline X}$。
+$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ で観測値が $(2,5,3,6)$ なら、$\widehat\lambda=\overline x=4$ である。$\phi=\sqrt\lambda$ とおくと $\lambda=\phi^2$ なので
+$$L_\phi(\phi)=L_\lambda(\phi^2).$$
+$L_\lambda$ は $\lambda=4$ で最大だから、$L_\phi$ は
+$$\phi^2=4\iff\phi=2$$
+で最大になる。したがって $\widehat\phi=\sqrt{\widehat\lambda}=2$ である。
 ## 一手
 最尤推定量は関数を適用した形でも保たれる。分散パラメータ化などで有用。
 <!-- CARD -->
@@ -329,11 +421,18 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 問題
 最尤推定量 $\widehat\theta_n$ が真値 $\theta_0$ へ確率収束するための直観と条件を述べよ。
 ## 答え
-標本サイズ $n\to\infty$ で対数尤度の1観測当たり平均 $\frac1n\ell(\theta;x)$ が期待値 $E[\log f(X;\theta)]$ へ収束し、その最大点は真値 $\theta_0$ に近づく。よって $\widehat\theta_n\xrightarrow{p}\theta_0$。
+識別可能性により期待対数尤度が真値 $\theta_0$ で一意に最大となり、標本対数尤度がその期待値へ母数について一様に近づけば、その最大点も $\theta_0$ に近づく。これが $\widehat\theta_n\xrightarrow{p}\theta_0$ の基本的な流れである。
 ## 使用公式・定理
-正則条件（密度の微分可能性・台の母数非依存・積分と微分の交換可能など）のもとで、$\theta\ne\theta_0$ に $E_{\theta_0}[\log f(X;\theta)]<E_{\theta_0}[\log f(X;\theta_0)]$（情報不等式）。この識別可能性が一致性の核心。
+代表的な argmax 条件は、(1) 真値が母数空間の内部にある、(2) 識別可能で期待対数尤度が真値で一意に最大、(3) 母数空間がコンパクト、または遠方で最大化を防ぐ外側制御がある、(4) 標本対数尤度が期待対数尤度へ一様収束する、である。各固定 $\theta$ での点ごとの大数の法則だけでは、移動する最大点の収束は保証できない。
 ## 計算例
-$X_i\overset{iid}{\sim}U(0,\theta)$ でも $\widehat\theta=X_{(n)}\xrightarrow{p}\theta_0$ が成り立つ（非正則でも一貫性はある）。
+$X_i\overset{iid}{\sim}U(0,\theta_0)$ では $\widehat\theta=X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対して
+$$P_{\theta_0}(|\widehat\theta-\theta_0|>\varepsilon)
+=P_{\theta_0}(X_{(n)}<\theta_0-\varepsilon).$$
+最大値が $\theta_0-\varepsilon$ より小さいのは全標本がそうである場合なので
+$$P_{\theta_0}(X_{(n)}<\theta_0-\varepsilon)
+=\left(\frac{\theta_0-\varepsilon}{\theta_0}\right)^n
+\longrightarrow0.$$
+よって $X_{(n)}\xrightarrow{p}\theta_0$ であり、最尤推定量は一致する。
 ## 一手
 「1観測当たり対数尤度の極限が最大になるのは真値」という識別可能性を覚える。
 <!-- CARD -->
@@ -357,8 +456,15 @@ $\sqrt n(\widehat\theta_n-\theta_0)\xrightarrow{d}N\left(0,\frac1{I_1(\theta_0)}
 ## 使用公式・定理
 スコアの期待値0・分散 $I_n=nI_1$、中心極限定理より $n^{-1/2}U(\theta_0)\xrightarrow{d}N(0,I_1)$。また $-n^{-1}\ell''(\theta_0)\xrightarrow{p}I_1(\theta_0)$ である。スコア方程式を真値のまわりで一次展開して解くと上記を得る。
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$I_1(\lambda)=1/\lambda$ なので
-$\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda).$
+$X\sim\operatorname{Poisson}(\lambda)$ の1観測当たりの対数尤度は
+$$\ell_1(\lambda)=X\log\lambda-\lambda-\log(X!),
+\qquad \ell_1''(\lambda)=-\frac X{\lambda^2}.$$
+$E_\lambda[X]=\lambda$ より
+$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]
+=\frac{E_\lambda[X]}{\lambda^2}=\frac1\lambda.$$
+したがって
+$$\sqrt n(\widehat\lambda-\lambda)
+\xrightarrow{d}N\!\left(0,I_1(\lambda)^{-1}\right)=N(0,\lambda).$$
 ## 一手
 漸近分散はフィッシャー情報量（1次元）の逆数 $1/I_1$。標準誤差は $1/\sqrt{nI_1}$。
 <!-- CARD -->
@@ -382,7 +488,16 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 使用公式・定理
 境界では $\ell'(\theta)=0$ の解が区間外になり、最大は端点。台依存では指示関数を入れて最大化し、収束速度は $O_p(1/n)$ になることもある。
 ## 計算例
-$U(0,\theta)$ の $\widehat\theta=X_{(n)}$ は真値を下から超えない範囲で一致するが、$\sqrt n$ より速い $n(\theta_0-\widehat\theta_n)$ が指数分布に収束する。
+$X_i\overset{iid}{\sim}U(0,\theta_0)$ とする。$t\ge0$ に対し
+$$P_{\theta_0}\{n(\theta_0-X_{(n)})>t\}
+=P_{\theta_0}\left(X_{(n)}<\theta_0-\frac tn\right).$$
+$0\le t<n\theta_0$ なら右辺は
+$$\left(\frac{\theta_0-t/n}{\theta_0}\right)^n
+=\left(1-\frac{t}{n\theta_0}\right)^n
+\longrightarrow e^{-t/\theta_0}.$$
+これは率 $1/\theta_0$ の指数分布の生存関数なので
+$$n(\theta_0-X_{(n)})\xrightarrow{d}\operatorname{Exponential}(1/\theta_0).$$
+収束速度も極限分布も通常の $\sqrt n$ 正規極限とは異なる。
 ## 一手
 微分が使えないのは「内部解が存在しない」か「台が母数依存」のとき。非正則では漸近正規性を疑う。
 <!-- CARD -->
@@ -983,7 +1098,17 @@ $U(\theta)=\frac{\partial}{\partial\theta}\log f(X;\theta).$
 ## 使用公式・定理
 $E[U]=0$ は $\int f=1$ を微分して得る。$\operatorname{Var}(U)=I_1$ がフィッシャー情報量（1次元）の定義と一致。
 ## 計算例
-$X\sim\operatorname{Poisson}(\lambda)$：$\log f=x\log\lambda-\lambda-\log x!$ より $U(\lambda)=x/\lambda-1$。$E[U]=\lambda/\lambda-1=0$。
+$X\sim\operatorname{Poisson}(\lambda)$ では
+$$\log f(X;\lambda)=X\log\lambda-\lambda-\log(X!),$$
+したがってスコアは
+$$U(\lambda)=\frac{\partial}{\partial\lambda}\log f(X;\lambda)
+=\frac X\lambda-1.$$
+$E_\lambda[X]=\lambda$ より
+$$E_\lambda[U(\lambda)]=\frac{E_\lambda[X]}\lambda-1=0.$$
+また $\operatorname{Var}_\lambda(X)=\lambda$ なので
+$$I_1(\lambda)=E_\lambda[U(\lambda)^2]
+=\operatorname{Var}_\lambda(U(\lambda))
+=\frac{\lambda}{\lambda^2}=\frac1\lambda.$$
 ## 一手
 スコアはフィッシャー情報量（1次元）を生む母数導関数。期待値0が最尤の正則性の要。
 <!-- CARD -->
@@ -1008,7 +1133,18 @@ $\frac{\partial\ell}{\partial\theta_j}=0\quad(j=1,\ldots,k).$
 ## 使用公式・定理
 $\ell=\sum_i\log f(x_i;\theta)$ を $\theta_j$ で微分。多母数の場合は Hessian の負定値性で最大を確認。
 ## 計算例
-$N(\mu,\sigma^2)$：$\partial\ell/\partial\mu=0$ と $\partial\ell/\partial\sigma^2=0$ の連立から $\widehat\mu=\overline x$、$\widehat\sigma^2=n^{-1}\sum(x_i-\overline x)^2$。
+独立な2群で $Y_1\sim\operatorname{Binomial}(10,p_1)$、$Y_2\sim\operatorname{Binomial}(8,p_2)$ とし、$(y_1,y_2)=(7,2)$ を観測したとする。定数項を除けば
+$$\ell(p_1,p_2)=7\log p_1+3\log(1-p_1)
++2\log p_2+6\log(1-p_2).$$
+連立スコア方程式は
+$$\frac{\partial\ell}{\partial p_1}=\frac7{p_1}-\frac3{1-p_1}=0,
+\qquad
+\frac{\partial\ell}{\partial p_2}=\frac2{p_2}-\frac6{1-p_2}=0,$$
+したがって $(\widehat p_1,\widehat p_2)=(0.7,0.25)$ である。Hessianは対角行列で、対角成分は
+$$-\frac7{p_1^2}-\frac3{(1-p_1)^2}<0,
+\qquad
+-\frac2{p_2^2}-\frac6{(1-p_2)^2}<0.$$
+よって Hessian は負定値であり、この解が最大点である。
 ## 一手
 各母数で偏微分して0とおく。必要なら数値解法（Newton–Raphson）も利用。
 <!-- CARD -->
@@ -1064,14 +1200,18 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ## 問題
 最尤推定量の漸近正規性やスコアの期待値0が成り立つための正則条件を挙げよ。
 ## 答え
-1. 台が母数 $\theta$ に依存しない
-2. $\log f(x;\theta)$ が $\theta$ について微分可能
-3. 積分と微分の順序交換が可能
-4. フィッシャー情報量（1次元） $I_1(\theta)$ が有限で正
+スコアの期待値0には、台が母数に依存せず、密度を微分でき、積分と微分を交換できることが必要である。最尤推定量の漸近正規性には、さらに真値が内部点、モデルが識別可能、最尤推定量が一致し、真値近傍で必要な高階微分と一様な剰余評価ができ、フィッシャー情報量（1次元） $I_1(\theta)$ が有限で正であることなどを仮定する。
 ## 使用公式・定理
 正則条件が崩れる例：一様分布 $U(0,\theta)$（台依存）ではスコアも漸近正規性も通常の形で成立しない。
 ## 計算例
-正規分布・ポアソン分布・指数分布・二項分布は正則。$U(0,\theta)$ や三角分布は非正則。
+$X\sim U(0,\theta)$ の密度は
+$$f(x;\theta)=\frac1\theta\mathbf1_{[0,\theta]}(x)$$
+で、台 $[0,\theta]$ が母数とともに変わる。台の内部だけを形式的に微分すると
+$$\frac{\partial}{\partial\theta}\log f(X;\theta)=-\frac1\theta,$$
+したがって
+$$E_\theta\left[\frac{\partial}{\partial\theta}\log f(X;\theta)\right]
+=-\frac1\theta\ne0.$$
+正則モデルで成り立つ「スコアの期待値は0」が破れるのは、端点 $x=\theta$ の移動を無視して微分したためである。このモデルには正則性に基づく通常の最尤推定量の漸近理論をそのまま使えない。
 ## 一手
 正則条件を満たすか最初に確認。非正則なら漸近正規性を一般には使えない。
 <!-- CARD -->
@@ -1104,10 +1244,18 @@ $$\frac{\partial\ell}{\partial\sigma^2}
 \quad\Longrightarrow\quad \sigma^2=\frac{Q(\mu)}n.$$
 $\mu=\widehat\mu=\overline x$ を代入して
 $$\widehat\sigma^2=\frac1n\sum_i(x_i-\overline x)^2$$
-を得る。
+を得る。残差平方和 $Q(\overline x)>0$ なら、各 $\sigma^2>0$ について $Q(\mu)\ge Q(\overline x)$ なのでまず $\mu=\overline x$ が一意に最大化する。さらに $v=\sigma^2$ とおけば、$v=Q(\overline x)/n$ で
+$$\frac{d^2}{dv^2}\ell(\overline x,v)
+=\frac n{2v^2}-\frac{Q(\overline x)}{v^3}
+=-\frac n{2v^2}<0.$$
+したがってこの組が最大点である。$Q(\overline x)=0$ なら $v\downarrow0$ で尤度が発散し、$v>0$ の範囲に最尤推定値は存在しない。
 $\widehat\sigma^2$ は不偏分散 $s^2$（分母 $n-1$）より小さい。
 ## 計算例
-$n=5$、$\overline x=5$、$\sum(x_i-5)^2=40$ なら $\widehat\sigma^2=40/5=8$、$\widehat\mu=5$。
+$n=5$、$\overline x=5$、$Q(5)=\sum(x_i-5)^2=40$ とする。まず $Q(\mu)\ge Q(5)$ より $\widehat\mu=5$。次に
+$$\widehat\sigma^2=\frac{Q(5)}5=\frac{40}5=8.$$
+上の2階微分へ $n=5,v=8,Q=40$ を代入すると
+$$\ell''(8)=\frac5{2\cdot8^2}-\frac{40}{8^3}=-\frac5{128}<0,$$
+なので分散方向にも最大である。
 ## 一手
 平均を先に求め、残差平方和を $n$ で割る。$\widehat\sigma^2$ は不偏でない点に注意。
 <!-- CARD -->
@@ -1125,22 +1273,30 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 有効スコア関数 }]
 ---
 ## 問題
-$\theta\ne\theta_0$ のとき、真分布 $f_{\theta_0}$ のもとで $E_{\theta_0}[\log f(X;\theta)] < E_{\theta_0}[\log f(X;\theta_0)]$ が成り立つことを説明せよ。
+$\theta\ne\theta_0$ なら $f_\theta\ne f_{\theta_0}$ がほとんど至る所で成り立つ識別可能なモデルを考える。真分布 $f_{\theta_0}$ のもとで $E_{\theta_0}[\log f(X;\theta)] < E_{\theta_0}[\log f(X;\theta_0)]$ が成り立つことを説明せよ。
 ## 答え
 Jensenの不等式を $\log$（凹関数）と密度比 $f_\theta/f_{\theta_0}$ に用いる：
 $E_{\theta_0}\!\left[\log\frac{f(X;\theta)}{f(X;\theta_0)}\right]\le\log E_{\theta_0}\!\left[\frac{f(X;\theta)}{f(X;\theta_0)}\right]=\log1=0.$
-不等式で起こり、$\theta\ne\theta_0$ では真に $<0$（識別可能性）。
+不等号が成立し、識別可能性により $\theta\ne\theta_0$ では真に $<0$ となる。
 ## 使用公式・定理
 共通の台を持つとき $E_{\theta_0}[f(X;\theta)/f(X;\theta_0)]=1$。$\log$ が狭い意味で凹なので、$f_\theta\ne f_{\theta_0}$ なら期待値は負。台が異なる場合はKL情報量を用いた別扱いが必要になる。
 ## 計算例
-平均のみが異なる2つの正規分布では、真の平均で対数尤度の期待値が最大。
+$X\sim N(\mu_0,\sigma^2)$ で $\sigma^2$ は既知とする。候補 $\mu$ と真値 $\mu_0$ の期待対数尤度の差は
+$$E_{\mu_0}[\log f(X;\mu)-\log f(X;\mu_0)]
+=-\frac1{2\sigma^2}E_{\mu_0}[(X-\mu)^2-(X-\mu_0)^2].$$
+$X-\mu=(X-\mu_0)+(\mu_0-\mu)$ と展開し、$E_{\mu_0}[X-\mu_0]=0$ を使うと
+$$E_{\mu_0}[(X-\mu)^2]=\sigma^2+(\mu-\mu_0)^2.$$
+よって
+$$E_{\mu_0}[\log f(X;\mu)-\log f(X;\mu_0)]
+=-\frac{(\mu-\mu_0)^2}{2\sigma^2}\le0,$$
+等号は $\mu=\mu_0$ のときだけ成り立つ。したがって期待対数尤度は真値で一意に最大になる。
 ## 一手
 「対数尤度比の期待値 ≤ 0、等号は同一分布のみ」が最尤一致性の核心。
 <!-- CARD -->
 
 ---
 id: mle-gamma-rate-known-shape
-title: shape既知のガンマ分布でrateの最尤推定量を計算する
+title: 形状母数既知のガンマ分布で率母数の最尤推定量を計算する
 category: math-estimation
 subcategory: math-likelihood-mle
 topic: gamma-rate-mle
@@ -1149,17 +1305,17 @@ difficulty: 3
 priority: S
 hashtags: [ガンマ分布, 最尤推定量, スコア方程式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 ## 問題
-$X_1,\ldots,X_n$ はshape $\alpha>0$ が既知、rate $\beta>0$ が未知のガンマ分布に従う。$\widehat\beta$ を求め、$\alpha=3,n=5,\sum x_i=12$ で計算せよ。
+$X_1,\ldots,X_n$ は形状母数（shape）$\alpha>0$ が既知、率母数（rate）$\beta>0$ が未知のガンマ分布に従う。$\widehat\beta$ を求め、$\alpha=3,n=5,\sum x_i=12$ で計算せよ。
 
 ## 答え
 $$\widehat\beta=\frac{n\alpha}{\sum_i x_i}=\frac{\alpha}{\overline x}.$$
 数値例では $\widehat\beta=15/12=1.25$。
 
 ## 使用公式・定理
-shape-rate表記の密度は
+形状母数・率母数表記の密度は
 $$f(x;\alpha,\beta)=\frac{\beta^\alpha}{\Gamma(\alpha)}
 x^{\alpha-1}e^{-\beta x},\qquad x>0.$$
 独立標本の対数尤度を微分し、2階微分で最大を確認する。
@@ -1173,10 +1329,10 @@ $$\ell''(\beta)=-\frac{n\alpha}{\beta^2}<0$$
 なので一意な最大点である。
 
 ## 一手
-Gammaのrateは、対数項の係数を標本和で割る。
+ガンマ分布の率母数（rate）は、対数項の係数を標本和で割る。
 
 ## 注意
-scale母数 $\theta=1/\beta$ の最尤推定量は $\widehat\theta=\overline x/\alpha$ である。
+尺度母数（scale）$\theta=1/\beta$ の最尤推定量は $\widehat\theta=\overline x/\alpha$ である。
 
 <!-- CARD -->
 
@@ -1191,7 +1347,7 @@ difficulty: 4
 priority: S
 hashtags: [打切り, 指数分布, 尤度, 生存関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 ## 問題
 率 $\lambda$ の指数寿命を観測し、各個体について観測時間 $t_i$ と故障指標 $\delta_i$（故障なら1、右打切りなら0）を得た。$\lambda$ の最尤推定量を求めよ。故障数3、総観測時間12ならいくらか。
@@ -1212,7 +1368,9 @@ $$L(\lambda)=\prod_i f(t_i)^{\delta_i}S(t_i)^{1-\delta_i}
 ここで $d=\sum_i\delta_i$、$T=\sum_i t_i$。よって
 $$\ell(\lambda)=d\log\lambda-\lambda T,\qquad
 \ell'(\lambda)=\frac d\lambda-T.$$
-$d>0$ なら $\ell'(\lambda)=0$ から $\widehat\lambda=d/T$。
+$d>0$ なら $\ell'(\lambda)=0$ から $\widehat\lambda=d/T$。さらに
+$$\ell''(\lambda)=-\frac d{\lambda^2}<0$$
+なので、これは一意な最大点である。
 
 ## 一手
 打切りは「密度」でなく「その時点まで生存した確率」を尤度へ入れる。
@@ -1233,7 +1391,7 @@ difficulty: 3
 priority: A
 hashtags: [制約付き最尤推定, 正規分布, 境界解]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定法 }]
+sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 ## 問題
 $X_1,\ldots,X_n$ は分散 $\sigma^2$ 既知の正規分布 $N(\mu,\sigma^2)$ に従い、母数空間は $\mu\ge0$ とする。最尤推定量を求め、$\overline x=-0.7$ の場合を判定せよ。

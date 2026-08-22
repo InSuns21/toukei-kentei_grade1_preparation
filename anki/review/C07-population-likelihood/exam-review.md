@@ -134,6 +134,17 @@ fatal: 0 / major: 0 / minor: 0
 - `npm run validate`: success
 - fatal: 0 / major: 0 / minor: 0
 
+## 尤度・最尤推定の計算例展開査読（2026-08-23）
+
+- 担当ID: /root/exam_review_population_cards
+- 対象: `math-likelihood-mle` 全文、とくに計算例単独での追跡可能性
+- 初回結果: fatal 0 / major 5 / minor 4
+- 初回指摘: 数式コマンド脱落、端点規約、既知平均の分散推定、最大確認、識別可能性、用語表記と重複。
+- 修正: 尤度・対数尤度から微分または単調性、解、最大確認までをカード内に提示。多母数例を独立2群の二項分布へ分離し、シラバス用語へ統一。
+- 再査読追加指摘: 右打切り指数モデルの二階微分と情報不等式の文言を修正。
+- `npm run validate`: success
+- fatal: 0 / major: 0 / minor: 0
+
 ## 計算例展開の試験適合性査読（2026-08-23）
 
 - 担当ID: /root/exam_review_population_cards

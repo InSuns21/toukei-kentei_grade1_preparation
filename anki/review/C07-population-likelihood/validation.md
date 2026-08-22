@@ -45,6 +45,19 @@ checked 354 cards in 7 category page(s), max 200 per page
 - `npm run validate`: success
   - structure: success
   - math: KaTeX strict 377 Markdown files
+- text: 237 generated texts
+
+## 尤度・最尤推定の計算例展開の最終検証（2026-08-23）
+
+- 対象: `math-likelihood-mle` の結論だけだった計算例
+- 独立数理査読: fatal 0 / major 0 / minor 0
+- 試験適合性査読: fatal 0 / major 0 / minor 0
+- `npm run anki:validate`: success
+  - validated 1373 cards (0 warnings)
+  - built and checked 1373 cards in 30 category pages
+- `npm run validate`: success
+  - structure: success
+  - math: KaTeX strict 377 Markdown files
   - text: 237 generated texts
 
 ## 計算例展開の最終検証（2026-08-23）
