@@ -5,6 +5,7 @@
 - 演習価値: S
 - 難度: A
 - 目安時間: 30分
+- 対応: 2022, 2025関連
 
 ## 問題
 
@@ -55,13 +56,11 @@ $$
 C=R(X^\top X)^{-1}R^\top
 $$
 
-とおけば $C$ は可逆で
+とおけば、$R$ は行フルランクで $X^\top X$ は正定値なので $C$ も正定値で可逆である。よって
 
 $$
-\lambda=C^{-1}(R\hat\beta-r).
+\lambda=C^{-1}(R\hat\beta-r),
 $$
-
-よって
 
 $$
 \boxed{\hat\beta_R=\hat\beta-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r)}.
@@ -69,7 +68,49 @@ $$
 
 ### 2. 追加平方和
 
-制約付き推定量は非制約OLSから $X^\top X$ 計量で最短距離にある制約面への射影である。平方完成すると
+ここは「平方完成すると」で飛ばさずに展開する。OLS の正規方程式
+
+$$
+X^\top(y-X\hat\beta)=0
+$$
+
+を使うと、任意の $\beta$ について
+
+$$
+\begin{aligned}
+Q(\beta)
+&=(y-X\beta)^\top(y-X\beta)\\
+&=\{y-X\hat\beta+X(\hat\beta-\beta)\}^\top
+\{y-X\hat\beta+X(\hat\beta-\beta)\}\\
+&=\mathrm{SSE}_U+(\beta-\hat\beta)^\top X^\top X(\beta-\hat\beta).
+\end{aligned}
+$$
+
+交差項が0になるのは $X^\top(y-X\hat\beta)=0$ のためである。そこで
+
+$$
+d=\hat\beta_R-\hat\beta
+=-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r)
+$$
+
+とおくと
+
+$$
+\mathrm{SSE}_R-\mathrm{SSE}_U=d^\top X^\top Xd.
+$$
+
+$u=R\hat\beta-r$ と書けば
+
+$$
+\begin{aligned}
+d^\top X^\top Xd
+&=u^\top C^{-1}R(X^\top X)^{-1}R^\top C^{-1}u\\
+&=u^\top C^{-1}CC^{-1}u\\
+&=u^\top C^{-1}u.
+\end{aligned}
+$$
+
+したがって
 
 $$
 \boxed{\mathrm{SSE}_R-\mathrm{SSE}_U
@@ -124,7 +165,13 @@ $$
 \hat\beta_R=\hat\beta-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r).
 $$
 
-また
+OLS の正規方程式から
+
+$$
+Q(\beta)=\mathrm{SSE}_U+(\beta-\hat\beta)^\top X^\top X(\beta-\hat\beta),
+$$
+
+ゆえに
 
 $$
 \mathrm{SSE}_R-\mathrm{SSE}_U=(R\hat\beta-r)^\top C^{-1}(R\hat\beta-r).
@@ -141,7 +188,7 @@ $$
 ## 採点基準
 
 - (1) 制約付き推定量: 6点
-- (2) 追加平方和公式: 5点
+- (2) 追加平方和公式と交差項消失の根拠: 5点
 - (3) F統計量・自由度・独立性: 7点
 - (4) 数値計算: 2点
 
