@@ -53,7 +53,7 @@ $$
 
 $$
 \hat E_j
-=\frac14\sum_{s_{ij}=+1}y_i-rac14\sum_{s_{ij}=-1}y_i
+=\frac14\sum_{s_{ij}=+1}y_i-\frac14\sum_{s_{ij}=-1}y_i
 =\frac14\sum_i s_{ij}y_i.
 $$
 
