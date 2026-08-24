@@ -8,10 +8,10 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const errors = [];
 const files = walk(here).filter((file) => file.endsWith('.md'));
 const forbidden = [
-  [/\\\(/g, String.raw`\(`],
-  [/\\\)/g, String.raw`\)`],
-  [/\\\[/g, String.raw`\[`],
-  [/\\\]/g, String.raw`\]`],
+  [/(?<!\\)\\\(/g, String.raw`\(`],
+  [/(?<!\\)\\\)/g, String.raw`\)`],
+  [/(?<!\\)\\\[/g, String.raw`\[`],
+  [/(?<!\\)\\\]/g, String.raw`\]`],
   [/\\begin\{(?:equation|align\*?)\}/g, 'equation/align environment'],
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
 ];
