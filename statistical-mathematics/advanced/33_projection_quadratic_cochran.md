@@ -18,54 +18,134 @@ $X=(X_1,\ldots,X_n)^T\sim N_n(\mu\mathbf1,\sigma^2I)$。$P=\mathbf1\mathbf1^T/n$
 
 ## 詳細解答
 
-$P^T=P$, $P^2=P$ なので射影。$Q^T=Q$, $Q^2=Q$, $PQ=0$。ランクは
+### 1. 射影とランク
 
 $$
-\operatorname{rank}(P)=1,
+P^T=P,
 \qquad
+P^2=\frac{\mathbf1\mathbf1^T\mathbf1\mathbf1^T}{n^2}
+=\frac{n\mathbf1\mathbf1^T}{n^2}=P.
+$$
+
+したがって $P$ は対称冪等で直交射影。像は $\operatorname{span}(\mathbf1)$ なので $\operatorname{rank}(P)=1$。
+
+$Q=I-P$ について
+
+$$
+Q^T=Q,
+\qquad
+Q^2=I-2P+P^2=Q,
+\qquad
+PQ=P-P^2=0.
+$$
+
+よって $Q$ は $\mathbf1^\perp$ への直交射影で
+
+$$
 \operatorname{rank}(Q)=n-1.
 $$
 
-正規ベクトルの線形変換なので $(PX,QX)$ は同時正規。共分散は
+### 2. $PX$ と $QX$ の独立性
+
+どちらも正規ベクトル $X$ の線形変換なので $(PX,QX)$ は同時正規。共分散は
 
 $$
-\operatorname{Cov}(PX,QX)=\sigma^2PQ=0
+\operatorname{Cov}(PX,QX)
+=P(\sigma^2I)Q^T
+=\sigma^2PQ=0.
 $$
 
-だから独立。
-
-$PX=\bar X\mathbf1$ より
+同時正規かつ無相関なので
 
 $$
-\bar X\sim N(\mu,\sigma^2/n).
+\boxed{PX\perp QX}.
 $$
 
-また
+### 3. 平均と標本分散の分布
+
+$PX=\bar X\mathbf1$ であり、$\bar X=n^{-1}\mathbf1^TX$ は正規線形結合だから
 
 $$
-\frac{X^TQX}{\sigma^2}
-=\frac{(n-1)S^2}{\sigma^2}
-\sim\chi^2_{n-1},
+E[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)=\frac{1}{n^2}\mathbf1^T(\sigma^2I)\mathbf1=\frac{\sigma^2}{n}.
 $$
 
-これはランク $n-1$ の直交射影二次形式の結果。$PX\perp QX$ なので $\bar X\perp S^2$。
+従って
+
+$$
+\boxed{\bar X\sim N(\mu,\sigma^2/n)}.
+$$
+
+次に
+
+$$
+Z=\frac{X-\mu\mathbf1}{\sigma}\sim N_n(0,I)
+$$
+
+と置く。$Q\mathbf1=0$ だから
+
+$$
+\frac{X^TQX}{\sigma^2}=Z^TQZ.
+$$
+
+$Q$ は対称冪等でランク $n-1$ なので、ある直交行列 $U$ により
+
+$$
+U^TQU=\operatorname{diag}(1,\ldots,1,0)
+$$
+
+と対角化できる。$W=U^TZ$ とすれば直交変換のため $W\sim N_n(0,I)$。したがって
+
+$$
+Z^TQZ
+=W^T(U^TQU)W
+=\sum_{j=1}^{n-1}W_j^2
+\sim\chi^2_{n-1}.
+$$
+
+一方
+
+$$
+X^TQX=\sum_{i=1}^n(X_i-\bar X)^2=(n-1)S^2.
+$$
+
+よって
+
+$$
+\boxed{\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}}.
+$$
+
+### 4. 独立性
+
+$\bar X$ は $PX$ だけの関数、$S^2$ は $QX$ だけの関数である。2で $PX\perp QX$ を示したので
+
+$$
+\boxed{\bar X\perp S^2}.
+$$
 
 ## 本番答案
 
-$P,Q$ は対称冪等、$PQ=0$、ランク $1,n-1$。正規性と共分散0から $PX\perp QX$。従って
+$P^T=P$, $P^2=P$、$Q^T=Q$, $Q^2=Q$, $PQ=0$。ランクは $1,n-1$。また
 
 $$
-\bar X\sim N(\mu,\sigma^2/n),
-\qquad
-\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
+Cov(PX,QX)=\sigma^2PQ=0
 $$
 
-かつ $\bar X\perp S^2$。
+で同時正規だから独立。
+
+$\bar X=n^{-1}\mathbf1^TX$ より $\bar X\sim N(\mu,\sigma^2/n)$。さらに $Z=(X-\mu\mathbf1)/\sigma$ とすると
+
+$$
+\frac{(n-1)S^2}{\sigma^2}=Z^TQZ.
+$$
+
+$Q$ を直交対角化すると右辺は独立標準正規の平方和 $n-1$ 個となるので $\chi^2_{n-1}$。$\bar X$ は $PX$、$S^2$ は $QX$ の関数なので独立。
 
 ## 採点基準
 
 - 射影・ランク: 5点
 - 独立性: 5点
 - 平均の分布: 3点
-- 二次形式のカイ二乗: 5点
+- 二次形式のカイ二乗導出: 5点
 - 平均と分散の独立: 2点
