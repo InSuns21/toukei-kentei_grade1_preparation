@@ -21,6 +21,7 @@ theorems:
 canonical_examples: [標本の経験CDF, 指数乱数, 多項式積分のMonte Carlo]
 problem_patterns: [経験CDF計算, 分位点, 逆変換, 受理率, 積分推定, 誤差幅]
 past_exam_alignment:
+  - {id: MATH-2016-Q4, source_type: third_party_topic_index, evidence: "標準正規確率のMonte Carlo推定と分散比較", confidence: high}
   - {id: SCI-2018-Q1, source_type: third_party_topic_index, evidence: "指数分布の逆関数乱数とGamma和", confidence: medium}
   - {id: MATH-2023-Q2, source_type: third_party_topic_index, evidence: "逆関数乱数と標本分布", confidence: medium}
 integrated_exam_problems: [P4R-DRILL-01]
