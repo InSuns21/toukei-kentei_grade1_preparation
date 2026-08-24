@@ -12,8 +12,9 @@
     "validate:text": "node scripts/validate_text.mjs",
     "new:chapter": "node scripts/scaffold_chapter.mjs",
     "progress": "node scripts/curriculum_progress.mjs",
-    "anki:build": "node anki/scripts/build_site.mjs",
-    "anki:validate": "node anki/scripts/validate_cards.mjs && node anki/scripts/build_site.mjs && node anki/scripts/build_site.mjs --check",
+    "anki:build": "node anki/scripts/curated_build.mjs",
+    "anki:curation": "node anki/scripts/curation.mjs",
+    "anki:validate": "node anki/scripts/validate_cards.mjs && node anki/scripts/curation.mjs --check && node anki/scripts/curated_build.mjs && node anki/scripts/curated_build.mjs --check",
     "anki:progress": "node anki/scripts/progress.mjs"
   },
   "dependencies": {
