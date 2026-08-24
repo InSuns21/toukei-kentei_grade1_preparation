@@ -38,7 +38,71 @@ $$
 
 ### 3. 分散
 
-$A=(X^\top X)^{-1}R^\top C^{-1}R$ とおけば $\hat\beta_R=(I-A)\hat\beta+$ 定数。したがって整理すると
+行列計算を「整理すると」で省略しない。まず
+
+$$
+K=(X^\top X)^{-1},
+\qquad
+G=KR^\top C^{-1}R
+$$
+
+とおく。制約付き推定量は
+
+$$
+\hat\beta_R=(I-G)\hat\beta+KR^\top C^{-1}r
+$$
+
+だから、定数項は分散に寄与せず
+
+$$
+\operatorname{Var}(\hat\beta_R)
+=(I-G)\operatorname{Var}(\hat\beta)(I-G)^\top.
+$$
+
+$\operatorname{Var}(\hat\beta)=\sigma^2K$ より
+
+$$
+\operatorname{Var}(\hat\beta_R)
+=\sigma^2(I-G)K(I-G)^\top.
+$$
+
+ここで
+
+$$
+D=KR^\top C^{-1}RK
+$$
+
+とおくと
+
+$$
+GK=D,
+\qquad
+KG^\top=D.
+$$
+
+さらに $C=RKR^\top$ なので
+
+$$
+\begin{aligned}
+GKG^\top
+&=KR^\top C^{-1}RKR^\top C^{-1}RK\\
+&=KR^\top C^{-1}CC^{-1}RK\\
+&=D.
+\end{aligned}
+$$
+
+したがって
+
+$$
+\begin{aligned}
+(I-G)K(I-G)^\top
+&=K-GK-KG^\top+GKG^\top\\
+&=K-D-D+D\\
+&=K-D.
+\end{aligned}
+$$
+
+よって
 
 $$
 \boxed{\operatorname{Var}(\hat\beta_R)
@@ -50,8 +114,17 @@ OLSとの差は
 
 $$
 \operatorname{Var}(\hat\beta)-\operatorname{Var}(\hat\beta_R)
-=\sigma^2(X^\top X)^{-1}R^\top C^{-1}R(X^\top X)^{-1}\succeq0.
+=\sigma^2KR^\top C^{-1}RK.
 $$
+
+任意のベクトル $a$ に対して
+
+$$
+a^\top KR^\top C^{-1}RKa
+=(RKa)^\top C^{-1}(RKa)\ge0
+$$
+
+だから、この差は半正定値である。
 
 ### 4. 直交設計の例
 
@@ -94,13 +167,14 @@ $$
 -(X^\top X)^{-1}R^\top C^{-1}(R\beta-r).
 $$
 
-分散は
+$K=(X^\top X)^{-1}$ とおけば
 
 $$
-\sigma^2\left[(X^\top X)^{-1}-(X^\top X)^{-1}R^\top C^{-1}R(X^\top X)^{-1}\right],
+\operatorname{Var}(\hat\beta_R)
+=\sigma^2\{K-KR^\top C^{-1}RK\},
 $$
 
-ゆえに OLS より半正定値の意味で小さい。直交設計の例では
+したがって OLS との差は $\sigma^2KR^\top C^{-1}RK\succeq0$。直交設計の例では
 
 $$
 \operatorname{MSE}_{U}=2\sigma^2/n,\qquad
@@ -113,7 +187,7 @@ $$
 
 - (1) 制約推定量: 4点
 - (2) バイアス: 5点
-- (3) 分散減少: 6点
+- (3) 分散展開と半正定値性: 6点
 - (4) MSE比較と条件: 5点
 
-25分経過時は一般式の代数を切り上げ、最後のMSE比較まで到達する。
+25分経過時は一般式の代数を切り上げ、最後のMSE比較まで到達する。本番答案では詳細解答の中間行列積まで再現する必要はない。
