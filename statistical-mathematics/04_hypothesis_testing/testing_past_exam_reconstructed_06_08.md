@@ -696,7 +696,7 @@ $$
 $$
 F_0(x)
 =
-\frac12+rac1\pi\arctan x.
+\frac12+\frac1\pi\arctan x.
 $$
 
 したがって

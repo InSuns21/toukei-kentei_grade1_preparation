@@ -592,7 +592,7 @@ $$
 $$
 \begin{aligned}
 1-p+pt_*
-&=1-p+rac{a(1-p)}{1-a}\\
+&=1-p+\frac{a(1-p)}{1-a}\\
 &=(1-p)\left(1+\frac{a}{1-a}\right)\\
 &=\frac{1-p}{1-a}.
 \end{aligned}
@@ -680,7 +680,7 @@ $$
 $r=an$ として右辺の対数を最小化すると
 
 $$
-t_*=rac{a(1-p)}{p(1-a)}
+t_*=\frac{a(1-p)}{p(1-a)}
 $$
 
 を得る。よって
@@ -924,8 +924,8 @@ $$
 $$
 e^{t/\sqrt{\lambda}}
 =
-1+rac{t}{\sqrt{\lambda}}
-+rac{t^2}{2\lambda}
+1+\frac{t}{\sqrt{\lambda}}
++\frac{t^2}{2\lambda}
 +O(\lambda^{-3/2}).
 $$
 
@@ -940,12 +940,12 @@ $$
 &=-t\sqrt{\lambda}
 +\lambda\left[
 \frac{t}{\sqrt{\lambda}}
-+rac{t^2}{2\lambda}
++\frac{t^2}{2\lambda}
 +O(\lambda^{-3/2})
 \right]\\
 &=-t\sqrt{\lambda}
 +t\sqrt{\lambda}
-+rac{t^2}{2}
++\frac{t^2}{2}
 +O(\lambda^{-1/2})\\
 &\to\frac{t^2}{2}.
 \end{aligned}

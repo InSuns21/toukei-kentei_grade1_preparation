@@ -1397,7 +1397,7 @@ $$
 \boxed{
 \lambda_L=0,
 \qquad
-\lambda_U=rac{\chi^2_{2,1-\alpha/2}}{2n}
+\lambda_U=\frac{\chi^2_{2,1-\alpha/2}}{2n}
 }.
 $$
 

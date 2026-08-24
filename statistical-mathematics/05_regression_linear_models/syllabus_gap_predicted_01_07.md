@@ -419,7 +419,7 @@ $$
 $H_0$ 下でこれは $\sigma^2\chi_q^2$、完全モデルの $SSE_1/\sigma^2$ は独立な $\chi_{n-p}^2$ なので
 
 $$
-F=rac{(SSE_0-SSE_1)/q}{SSE_1/(n-p)}
+F=\frac{(SSE_0-SSE_1)/q}{SSE_1/(n-p)}
 \sim F_{q,n-p}.
 $$
 
@@ -1860,7 +1860,7 @@ $\sigma^2$ が既知なら平均への補正は
 $$
 \boxed{
 \exp\left(
-\widehat\alpha+\widehat\beta\log x+rac{\sigma^2}{2}
+\widehat\alpha+\widehat\beta\log x+\frac{\sigma^2}{2}
 \right)
 }.
 $$
@@ -2127,7 +2127,8 @@ $$
 E[Y\mid X>c]
 &=E[E[Y\mid X]\mid X>c]\\
 &=E[\mu+\rho(X-\mu)\mid X>c]\\
-&=\mu+ho(E[X\mid X>c]-\mu).
+&=\mu+
+ho(E[X\mid X>c]-\mu).
 \end{aligned}
 $$
 

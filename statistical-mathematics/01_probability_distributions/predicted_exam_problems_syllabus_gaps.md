@@ -979,7 +979,7 @@ $$
 
 $$
 \operatorname{Var}(\Theta)
-=rac{ab}{(a+b)^2(a+b+1)}
+=\frac{ab}{(a+b)^2(a+b+1)}
 $$
 
 なので
@@ -1074,7 +1074,7 @@ Beta事前分布と二項尤度を掛けるとBeta核が残るため
 
 $$
 P(X=x)
-={n\choose x}rac{B(a+x,b+n-x)}{B(a,b)},
+={n\choose x}\frac{B(a+x,b+n-x)}{B(a,b)},
 $$
 
 $$
@@ -1090,7 +1090,7 @@ $$
 
 $$
 \operatorname{Var}(X)
-=rac{nab(a+b+n)}{(a+b)^2(a+b+1)}.
+=\frac{nab(a+b+n)}{(a+b)^2(a+b+1)}.
 $$
 
 次回成功確率は事後平均なので
@@ -1250,7 +1250,7 @@ $$
 
 $$
 \log G_n
-=rac1n\sum_{i=1}^n\log Y_i.
+=\frac1n\sum_{i=1}^n\log Y_i.
 $$
 
 ここで
@@ -1294,7 +1294,7 @@ $$
 指数関数は連続なので連続写像定理から
 
 $$
-\exp\left(rac1n\sum_{i=1}^n\log Y_i\right)
+\exp\left(\frac1n\sum_{i=1}^n\log Y_i\right)
 \xrightarrow{p}e^\mu.
 $$
 

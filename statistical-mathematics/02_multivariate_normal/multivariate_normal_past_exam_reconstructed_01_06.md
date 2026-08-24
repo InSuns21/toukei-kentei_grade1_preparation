@@ -793,7 +793,7 @@ $$
 $$
 \begin{aligned}
 \mathrm{Var}(S_k\mid S_n)
-&=k\sigma^2-rac{k^2\sigma^4}{n\sigma^2}\\
+&=k\sigma^2-\frac{k^2\sigma^4}{n\sigma^2}\\
 &=\frac{k(n-k)}{n}\sigma^2.
 \end{aligned}
 $$
@@ -1269,7 +1269,7 @@ $$
 
 $$
 E[X\mid Z]
-=E[X]+rac{\mathrm{Cov}(X,Z)}{\mathrm{Var}(Z)}(Z-E[Z])
+=E[X]+\frac{\mathrm{Cov}(X,Z)}{\mathrm{Var}(Z)}(Z-E[Z])
 $$
 
 と
