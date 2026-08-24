@@ -15,10 +15,17 @@ const forbidden = [
   [/\\begin\{(?:equation|align\*?)\}/g, 'equation/align environment'],
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
 ];
+const unexpectedControl = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]|\r(?!\n)/g;
 
 for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
   const searchable = stripCode(source);
+
+  unexpectedControl.lastIndex = 0;
+  for (const match of source.matchAll(unexpectedControl)) {
+    const codePoint = match[0].codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+    errors.push(`${relative(file)}:${lineAt(source, match.index)} 不可視制御文字 U+${codePoint}`);
+  }
 
   for (const [pattern, label] of forbidden) {
     pattern.lastIndex = 0;
