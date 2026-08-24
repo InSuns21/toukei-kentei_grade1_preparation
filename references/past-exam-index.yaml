@@ -1,5 +1,5 @@
 schema_version: 2
-checked_at: "2026-08-11"
+checked_at: "2026-08-25"
 policy:
   official_problem_source: "統計検定公式公開問題または日本統計学会公式認定問題集"
   third_party_role: "年度別テーマ索引と別解確認のみ"
@@ -55,6 +55,7 @@ entries:
   - { id: MATH-2018-Q5, year: 2018, exam: 統計数理, question: 5, theme: 順序統計量の確率密度, chapters: [P2-01, P4-01], evidence: *math_crosschecked }
   - { id: MATH-2017-Q1, year: 2017, exam: 統計数理, question: 1, theme: 標本平均の歪度・尖度, chapters: [P2-02, P4-02], evidence: *math_topic }
   - { id: MATH-2017-Q4, year: 2017, exam: 統計数理, question: 4, theme: 正規分布の線形変換・条件付き分布, chapters: [F0-01, P3-03], evidence: *math_topic }
+  - { id: MATH-2016-Q4, year: 2016, exam: 統計数理, question: 4, theme: モンテカルロ法・推定量の分散比較, chapters: [P4-03], evidence: *math_topic }
   - { id: MATH-2014-Q2, year: 2014, exam: 統計数理, question: 2, theme: Gamma分布・Beta分布, chapters: [P3-02, P4-01], evidence: *math_topic }
   - { id: MATH-2014-Q3, year: 2014, exam: 統計数理, question: 3, theme: t分布・信頼区間端点, chapters: [S1-01, I2-02], evidence: *math_topic }
   - { id: MATH-2014-Q4, year: 2014, exam: 統計数理, question: 4, theme: F分布・二標本比較, chapters: [S1-01, I3-03], evidence: *math_topic }
