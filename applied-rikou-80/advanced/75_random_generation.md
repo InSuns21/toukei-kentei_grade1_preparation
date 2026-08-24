@@ -18,23 +18,120 @@
 
 ## 詳細解答
 
-指数CDFから
+### 1. 指数分布の逆関数法
+
+率 $\lambda$ の指数分布のCDFは
 
 $$
-X=-\frac1\lambda\log(1-U).
+F(x)=\int_0^x\lambda e^{-\lambda s}ds=1-e^{-\lambda x},\qquad x\ge0.
 $$
 
-$f(x)=2x$ は $F(x)=x^2$ なので $X=\sqrt U$。一様提案では $f/g=2x\le2$ より $M=2$。受理条件は
+逆関数法では $U=F(X)$ と置くので
 
 $$
-V\le\frac{f(X)}{Mg(X)}=X.
+U=1-e^{-\lambda X}
+\iff e^{-\lambda X}=1-U.
 $$
 
-平均採択率は $1/M=1/2$。逆関数法は逆CDFが明示できれば効率的、棄却法は柔軟だが $M$ が大きいと非効率。
+対数を取って
+
+$$
+\boxed{X=-\frac1\lambda\log(1-U)}.
+$$
+
+$1-U$ も一様分布なので $X=-\log U/\lambda$ としても同分布。
+
+### 2. 密度 $f(x)=2x$
+
+CDFは
+
+$$
+F(x)=\int_0^x2s\,ds=x^2,\qquad0<x<1.
+$$
+
+$U=F(X)=X^2$ から
+
+$$
+\boxed{X=\sqrt U}.
+$$
+
+### 3. 棄却定数
+
+$g(x)=1$ on $(0,1)$ なので
+
+$$
+\frac{f(x)}{g(x)}=2x.
+$$
+
+$0<x<1$ での上限は2だから、$f(x)\le Mg(x)$ を満たす最小値は
+
+$$
+\boxed{M=2}.
+$$
+
+### 4. 採択条件
+
+棄却法では候補 $X\sim g$ と独立な $V\sim U(0,1)$ を生成し
+
+$$
+V\le\frac{f(X)}{Mg(X)}
+$$
+
+なら採択する。本問では
+
+$$
+\frac{f(X)}{Mg(X)}=\frac{2X}{2}=X,
+$$
+
+従って
+
+$$
+\boxed{V\le X}.
+$$
+
+### 5. 平均採択率
+
+候補 $X\sim g$ に関して平均を取ると
+
+$$
+\begin{aligned}
+P(\text{accept})
+&=E_g\left[\frac{f(X)}{Mg(X)}\right]\\
+&=\frac1M\int\frac{f(x)}{g(x)}g(x)dx\\
+&=\frac1M\int f(x)dx\\
+&=\boxed{\frac1M=\frac12}.
+\end{aligned}
+$$
+
+### 6. 比較
+
+逆関数法は逆CDFが明示できれば候補を捨てず効率的だが、逆CDFが解析的に求まらない分布では使いにくい。棄却法は逆CDFが不要で柔軟だが、$M$ が大きいと採択率 $1/M$ が低くなる。
 
 ## 本番答案
 
-指数は $-\log(1-U)/\lambda$、$2x$ 密度は $\sqrt U$。一様提案なら $M=2$、$V\le X$ なら採択、平均採択率1/2。
+指数分布は
+
+$$
+F(x)=1-e^{-\lambda x}.
+$$
+
+$U=F(X)$ を解いて
+
+$$
+X=-\log(1-U)/\lambda.
+$$
+
+$f(x)=2x$ では $F(x)=x^2$ だから $X=\sqrt U$。一様提案では
+
+$$
+\sup_{0<x<1}\frac{f(x)}{g(x)}=\sup 2x=2
+$$
+
+より $M=2$。受理条件は $V\le f(X)/(Mg(X))=X$。平均採択率は
+
+$$
+E_g[f(X)/(Mg(X))]=M^{-1}\int f=1/2.
+$$
 
 ## 採点基準
 
