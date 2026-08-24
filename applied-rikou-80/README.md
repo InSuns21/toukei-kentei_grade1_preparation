@@ -3,47 +3,52 @@
 統計検定1級「統計応用（理工学）」向けの80大問構成を管理するディレクトリです。
 
 - [正式演習目次](index.md): 80題の分野、学習層、演習価値、難度、過去問対応年度、公式シラバス対応項目
-- [Core 40 実装順](core/README.md): 演習価値順のCore 40と各問題へのリンク
-- [2026年度 電卓・数表ポリシー](core/CALCULATOR_POLICY.md): 一般電卓＋問題冊子の統計数値表で完答するための作問規約
+- [Core 40](core/README.md): 最優先40大問
+- [Standard 20](standard/README.md): 変形耐性を作る20大問
+- [Advanced 20](advanced/README.md): 低頻度・高難度・未出寄り20大問
+- [2026年度 電卓・数表ポリシー](core/CALCULATOR_POLICY.md): 80題共通の作問・採点規約
 - [Core 40 横断監査](core/AUDIT_2026-08-25.md): 重複、難度、数値、所要時間、行間の監査
-- [Core 39差し替え・短問増強](core/AUGMENTATION_2026-08-25.md): 18枠を20〜30分級へ再設計した記録
-- [一般電卓制約チェック](core/CALCULATOR_AUDIT_2026-08-25.md): 関数電卓・CAS等を必要とする問題がないことのチェック
-- [validate-katex.mjs](validate-katex.mjs): このディレクトリだけを対象にしたKaTeX strict検証
+- [Core 39差し替え・短問増強](core/AUGMENTATION_2026-08-25.md): Core短問18枠の再設計記録
+- [残り40題 横断監査](AUDIT_REMAINING_40_2026-08-25.md): Standard/Advancedの数式・時間・行間・電卓監査
+- [validate-katex.mjs](validate-katex.mjs): このディレクトリ全体のKaTeX strict検証
 
 ## 推奨学習順
 
 1. Core 40を1周し、解法パターンを作る。
 2. Core 40を2周目で20〜30分答案へ圧縮する。
-3. Standard 20で変形耐性を付ける。
+3. Standard 20で同じ骨格の変形耐性を付ける。
 4. Advanced 20でシラバスの穴と難問耐性を埋める。
+
+## 80題共通フォーマット
+
+各実装問題は原則として次を含む。
+
+- 問題: 4〜6小問、20〜30分級
+- 詳細解答: 非自明な代数・行列計算を行間に隠さない
+- 本番答案: 90分で3題を解く前提の圧縮答案
+- 採点基準: 20点配点
+- 打ち切り判断: 20〜25分時点で確保すべき式・論点
 
 ## 電卓と数表
 
-2026年度の統計検定1級で持ち込み可能なのは、四則演算・％・平方根が使える一般電卓または事務用電卓です。解答に必要な統計数値表は問題冊子に掲載されます。
+2026年度の試験条件を前提に、80題すべてを一般電卓（四則演算・％・平方根）と問題冊子の統計数値表で完答できるよう設計する。
 
-Core 40ではこの制約を前提とし、$\log$, $\exp$, $\Phi$, $\Gamma$、非心分布などの**数値評価を一般電卓へ要求しません**。必要な場合は記号式までで完答とするか、分位点・定数を問題文で与えます。
+$\log$, $\exp$, $\Phi$, $\Gamma$、非心分布などの数値評価は要求しない。必要なら記号式までで完答とするか、分位点・定数を問題文で与える。
 
 ## KaTeX検証
 
-リポジトリのルートで依存関係を導入します。
-
 ```bash
 npm ci
-```
-
-このディレクトリだけを検証する場合:
-
-```bash
 npm run validate:rikou80
 ```
 
-リポジトリ内のすべてのMarkdown数式を検証する場合:
+リポジトリ全体は
 
 ```bash
 npm run validate:math
 ```
 
-どちらも `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。
+で検証する。`validate:rikou80` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行する。
 
 ## 数式記法
 
@@ -51,5 +56,3 @@ npm run validate:math
 - 別行: `$$...$$`
 - 複数行: `$$\begin{aligned}...\end{aligned}$$`
 - 禁止: `\(...\)`, `\[...\]`, `align`, `equation`, 独自マクロ
-
-実際の大問・詳細解答を追加するときも、この記法に統一します。
