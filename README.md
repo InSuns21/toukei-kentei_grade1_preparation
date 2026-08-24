@@ -3,6 +3,8 @@
 統計検定1級「統計数理」「統計応用（理工学）」向けの独習教材・問題集・Ankiカードを作成、検証、配信するためのリポジトリです。
 
 - 通常教材の構成・進捗の正本：`curriculum.yaml`
+- 統計数理の本番型大問コーパス：`statistical-mathematics/`
+- 統計応用（理工学）の本番型大問コーパス：`applied-rikou-80/`
 - Anki教材の進捗の正本：`anki/progress.yaml`
 - Ankiカード本文の正本：`anki/cards/**/*.md`
 
@@ -15,6 +17,8 @@ npm run progress
 ```
 
 `npm run validate` は教材構造、KaTeX数式、生成対象テキストを検証します。
+
+統計数理の本番型問題集だけを検証する場合は `npm run validate:mathstat`、統計応用（理工学）だけを検証する場合は `npm run validate:rikou80` を使います。
 
 ## 執筆開始
 

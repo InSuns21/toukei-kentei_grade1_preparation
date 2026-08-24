@@ -1,0 +1,61 @@
+# 統計数理 大問演習
+
+統計検定1級「統計数理」向けの本番型大問コーパスです。
+
+既存の過去問型再構成・シラバス補完問題を旧 `volumes/` 配下からこのディレクトリへ移動し、独立した問題集として再編しています。
+
+- [正式演習目次](index.md): 全問題の分野、学習層、演習価値、難度、種別、過去問対応、公式シラバス対応項目
+- `01_probability_distributions/`: 確率・分布
+- `02_multivariate_normal/`: 多変量正規・条件付き分布
+- `03_estimation/`: 推定
+- `04_hypothesis_testing/`: 検定
+- `05_regression_linear_models/`: 回帰・線形モデル・分散分析
+- `06_monte_carlo/`: 乱数生成・Monte Carlo
+- `07_crosscutting_gaps/`: 独立問題集化した際の横断的な不足分
+- [validate-katex.mjs](validate-katex.mjs): このディレクトリだけを対象にしたKaTeX strict検証
+
+## 現在の構成
+
+既存95題をすべて移動し、シラバス・独立問題集としての穴を5題補ったため、現時点では100大問です。
+
+題数を100に固定する方針ではありません。既存問題を落とさず、必要な論点が見つかれば追加します。
+
+## 推奨学習順
+
+1. Coreを1周し、頻出の解法骨格を作る。
+2. Coreを20〜30分答案へ圧縮する。
+3. Standardで変形耐性を付ける。
+4. Advancedで証明・漸近・非正則・二次形式などの難所を埋める。
+
+## KaTeX検証
+
+リポジトリのルートで依存関係を導入します。
+
+```bash
+npm ci
+```
+
+このディレクトリだけを検証する場合:
+
+```bash
+npm run validate:mathstat
+```
+
+リポジトリ内のすべてのMarkdown数式を検証する場合:
+
+```bash
+npm run validate:math
+```
+
+`validate:mathstat` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。
+
+## 数式記法
+
+- インライン: `$...$`
+- 別行: `$$...$$`
+- 複数行: `$$\begin{aligned}...\end{aligned}$$`
+- 禁止: `\(...\)`, `\[...\]`, `align`, `equation`, 独自マクロ
+
+## 出典・著作権方針
+
+過去問型再構成は、年度・問番号・公開解説等から確認できる出題テーマを参照し、問題文・数値・設問構造を学習用に独自化したものです。公式問題文・図表を転載するものではありません。実際の過去問本文の確認は公式問題集を優先します。
