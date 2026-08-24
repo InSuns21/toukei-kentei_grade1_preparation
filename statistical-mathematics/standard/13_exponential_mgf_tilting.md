@@ -24,44 +24,110 @@ $$
 
 ## 詳細解答
 
-$$
-M_X(t)=\int_0^\infty \lambda e^{-(\lambda-t)x}dx
-=\frac{\lambda}{\lambda-t},
-\qquad t<\lambda.
-$$
+### 1. MGF
 
-従って
+指数分布の密度 $f(x)=\lambda e^{-\lambda x}$, $x>0$ から定義通り
 
 $$
-f_t(x)=e^{tx}\lambda e^{-\lambda x}\frac{\lambda-t}{\lambda}
-=(\lambda-t)e^{-(\lambda-t)x}.
+\begin{aligned}
+M_X(t)
+&=E[e^{tX}]\\
+&=\int_0^\infty e^{tx}\lambda e^{-\lambda x}dx\\
+&=\lambda\int_0^\infty e^{-(\lambda-t)x}dx.
+\end{aligned}
 $$
 
-つまり $f_t$ は率 $\lambda-t$ の指数分布。よって
+この積分が有限になるのは $t<\lambda$ のときで、
 
 $$
-E_t[X]=\frac1{\lambda-t},
+\int_0^\infty e^{-(\lambda-t)x}dx=\frac1{\lambda-t}
+$$
+
+だから
+
+$$
+\boxed{M_X(t)=\frac{\lambda}{\lambda-t}},\qquad t<\lambda.
+$$
+
+### 2. 指数傾斜分布
+
+定義へ代入して
+
+$$
+\begin{aligned}
+f_t(x)
+&=\frac{e^{tx}\lambda e^{-\lambda x}}{\lambda/(\lambda-t)}\\
+&=(\lambda-t)e^{-(\lambda-t)x},\qquad x>0.
+\end{aligned}
+$$
+
+したがって率 $\lambda-t$ の指数分布である。
+
+### 3. 平均・分散と 4. 対数MGFの意味
+
+まず一般に
+
+$$
+M_X'(t)=\int x e^{tx}f(x)dx
+$$
+
+なので
+
+$$
+\frac{d}{dt}\log M_X(t)
+=\frac{M_X'(t)}{M_X(t)}
+=\int x\frac{e^{tx}f(x)}{M_X(t)}dx
+=E_t[X].
+$$
+
+さらにもう一度微分すると
+
+$$
+\begin{aligned}
+\frac{d^2}{dt^2}\log M_X(t)
+&=\frac{M_X''(t)}{M_X(t)}-\left(\frac{M_X'(t)}{M_X(t)}\right)^2\\
+&=E_t[X^2]-E_t[X]^2\\
+&=\operatorname{Var}_t(X).
+\end{aligned}
+$$
+
+本問では
+
+$$
+\log M_X(t)=\log\lambda-\log(\lambda-t)
+$$
+
+だから
+
+$$
+\boxed{E_t[X]=\frac1{\lambda-t}},
 \qquad
-\operatorname{Var}_t(X)=\frac1{(\lambda-t)^2}.
-$$
-
-また一般に
-
-$$
-\frac{d}{dt}\log M_X(t)=E_t[X],
-\qquad
-\frac{d^2}{dt^2}\log M_X(t)=\operatorname{Var}_t(X).
+\boxed{\operatorname{Var}_t(X)=\frac1{(\lambda-t)^2}}.
 $$
 
 ## 本番答案
 
-$M_X(t)=\lambda/(\lambda-t)$。指数傾斜後は
+$$
+M_X(t)=\int_0^\infty \lambda e^{-(\lambda-t)x}dx
+=\frac{\lambda}{\lambda-t},\qquad t<\lambda.
+$$
+
+したがって
 
 $$
-f_t(x)=(\lambda-t)e^{-(\lambda-t)x},
+f_t(x)=\frac{e^{tx}\lambda e^{-\lambda x}}{M_X(t)}
+=(\lambda-t)e^{-(\lambda-t)x}.
 $$
 
-従って $E_tX=(\lambda-t)^{-1}$, $\operatorname{Var}_tX=(\lambda-t)^{-2}$。$\log M$ の1階・2階微分は傾斜分布下の平均・分散を与える。
+また
+
+$$
+(\log M)'=M'/M=E_t[X],
+\qquad
+(\log M)''=\operatorname{Var}_t(X),
+$$
+
+より平均は $(\lambda-t)^{-1}$、分散は $(\lambda-t)^{-2}$。
 
 ## 採点基準
 

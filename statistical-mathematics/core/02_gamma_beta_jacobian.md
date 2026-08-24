@@ -33,7 +33,9 @@ $$
 
 ## 詳細解答
 
-逆変換は
+### 1. 逆変換とJacobian
+
+$T=X+Y$, $U=X/(X+Y)$ なので
 
 $$
 X=UT,
@@ -41,21 +43,41 @@ X=UT,
 Y=(1-U)T.
 $$
 
-Jacobianの絶対値は
+したがって
 
 $$
-\left|
 \frac{\partial(x,y)}{\partial(t,u)}
-\right|=t.
+=
+\begin{pmatrix}
+u&t\\
+1-u&-t
+\end{pmatrix},
 $$
 
-元の同時密度は
+その行列式は
 
 $$
-\frac{x^{a-1}y^{b-1}e^{-(x+y)}}{\Gamma(a)\Gamma(b)}.
+-u t-t(1-u)=-t.
 $$
 
-変換すると
+よって $t>0$ ではJacobianの絶対値は
+
+$$
+\boxed{|J|=t}.
+$$
+
+また $x>0,y>0$ は $t>0,0<u<1$ に対応する。
+
+### 2. 同時密度
+
+独立性から元の同時密度は
+
+$$
+f_{X,Y}(x,y)
+=\frac{x^{a-1}y^{b-1}e^{-(x+y)}}{\Gamma(a)\Gamma(b)}.
+$$
+
+$x=ut$, $y=(1-u)t$, $|J|=t$ を代入して
 
 $$
 \begin{aligned}
@@ -67,31 +89,54 @@ f_{T,U}(t,u)
 \end{aligned}
 $$
 
-$t>0,0<u<1$。積の形に分解できるので
+### 3. 周辺分布と独立性
+
+右辺は $t$ だけの密度と $u$ だけの密度の積になっている。したがって
 
 $$
-\boxed{T\sim\Gamma(a+b,1)},
+\boxed{T\sim\operatorname{Gamma}(a+b,1)},
 $$
 
 $$
 \boxed{U\sim\operatorname{Beta}(a,b)},
 $$
 
-かつ$T\perp U$。
-
-Beta分布の平均から
+かつ
 
 $$
-\boxed{E[U]=\frac a{a+b}}.
+\boxed{T\perp U}.
 $$
+
+### 4. $E[U]$
+
+Beta密度をそのまま積分すると
+
+$$
+\begin{aligned}
+E[U]
+&=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
+\int_0^1u^a(1-u)^{b-1}du\\
+&=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}
+\frac{\Gamma(a+1)\Gamma(b)}{\Gamma(a+b+1)}\\
+&=\boxed{\frac{a}{a+b}},
+\end{aligned}
+$$
+
+ここで $\Gamma(a+1)=a\Gamma(a)$ を使った。
 
 ## 本番答案
 
 $$
-X=UT,\quad Y=(1-U)T,\quad |J|=T.
+X=UT,\quad Y=(1-U)T,
 $$
 
-したがって
+$$
+\frac{\partial(x,y)}{\partial(t,u)}
+=\begin{pmatrix}u&t\\1-u&-t\end{pmatrix},
+\qquad |J|=t.
+$$
+
+よって
 
 $$
 f_{T,U}(t,u)
@@ -99,17 +144,7 @@ f_{T,U}(t,u)
 \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}u^{a-1}(1-u)^{b-1}.
 $$
 
-よって
-
-$$
-T\sim\Gamma(a+b,1),
-\quad
-U\sim Beta(a,b),
-\quad
-T\perp U.
-$$
-
-さらに$E[U]=a/(a+b)$。
+積に分解されるので $T\sim\Gamma(a+b,1)$, $U\sim Beta(a,b)$, $T\perp U$。さらにBeta積分から $E[U]=a/(a+b)$。
 
 ## 採点基準
 

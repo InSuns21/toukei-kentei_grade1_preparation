@@ -17,41 +17,87 @@ $U_1,\ldots,U_n\overset{iid}\sim U(0,1)$ とし $M_n=\max_iU_i$ とする。
 
 ## 詳細解答
 
-$0<m<1$ で
+### 1. $M_n$ のCDF
+
+$0\le m\le1$ では
 
 $$
-P(M_n\le m)=m^n.
+\begin{aligned}
+P(M_n\le m)
+&=P(U_1\le m,\ldots,U_n\le m)\\
+&=\prod_{i=1}^nP(U_i\le m)\\
+&=m^n,
+\end{aligned}
 $$
 
-$x\ge0$ に対し
+独立性を使った。したがって
 
 $$
+F_{M_n}(m)=
+\begin{cases}
+0,&m<0,\\
+m^n,&0\le m\le1,\\
+1,&m>1.
+\end{cases}
+$$
+
+### 2. 極限分布
+
+$x\ge0$ を固定する。十分大きい $n$ では $1-x/n\in[0,1]$ なので
+
+$$
+\begin{aligned}
 P\{n(1-M_n)>x\}
-=P(M_n<1-x/n)
-=(1-x/n)^n\to e^{-x}.
+&=P\left(M_n<1-\frac xn\right)\\
+&=\left(1-\frac xn\right)^n\\
+&\longrightarrow e^{-x}.
+\end{aligned}
 $$
 
-従って
+右辺は率1の指数分布の生存関数だから
 
 $$
 \boxed{n(1-M_n)\Rightarrow\operatorname{Exp}(1)}.
 $$
 
-また $M_n\sim\operatorname{Beta}(n,1)$ より
+### 3. $E[M_n]$
+
+CDFを微分して、$0<m<1$ で
 
 $$
-E[M_n]=\frac{n}{n+1}.
+f_{M_n}(m)=nm^{n-1}.
+$$
+
+したがってBeta分布の平均を暗記する必要はなく、定義から
+
+$$
+\begin{aligned}
+E[M_n]
+&=\int_0^1m\,nm^{n-1}dm\\
+&=n\int_0^1m^n dm\\
+&=\boxed{\frac{n}{n+1}}.
+\end{aligned}
 $$
 
 ## 本番答案
 
-$F_{M_n}(m)=m^n$。従って
+独立性より
 
 $$
-P\{n(1-M_n)>x\}=(1-x/n)^n\to e^{-x},
+F_{M_n}(m)=P(U_1\le m,\ldots,U_n\le m)=m^n,\qquad0\le m\le1.
 $$
 
-ゆえに $n(1-M_n)\Rightarrow Exp(1)$。また $E[M_n]=n/(n+1)$。
+よって固定 $x\ge0$ に対し
+
+$$
+P\{n(1-M_n)>x\}=\left(1-\frac xn\right)^n\to e^{-x},
+$$
+
+したがって $n(1-M_n)\Rightarrow Exp(1)$。また $f_{M_n}(m)=nm^{n-1}$ なので
+
+$$
+E[M_n]=n\int_0^1m^n dm=\frac{n}{n+1}.
+$$
 
 ## 採点基準
 
