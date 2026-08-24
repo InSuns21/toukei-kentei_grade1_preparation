@@ -6,6 +6,7 @@
 
 - [正式演習目次](index.md): 全問題の分野、学習層、演習価値、難度、種別、過去問対応、公式シラバス対応項目
 - [Core 48 演習価値順・本番答案版](core48/index.md): Coreだけを演習価値順に再順位付けし、問題・詳細解答・本番答案・採点基準へ統一
+- [Standard + Advanced 52 正規化版](standard-advanced52/index.md): 残り52題をCoreと同じ品質・手計算監査基準へ統一
 - `01_probability_distributions/`: 確率・分布
 - `02_multivariate_normal/`: 多変量正規・条件付き分布
 - `03_estimation/`: 推定
@@ -30,11 +31,23 @@ Core 48は `core48/` に正規化版を用意しています。
 - 各問に手計算監査を付与
 - 対数・CDF・非心F・大規模尾確率など、一般電卓では不自然な数値評価を暗黙要求しない設計
 
+### Standard + Advanced 52
+
+残りのStandard 32題とAdvanced 20題は `standard-advanced52/` に正規化版を用意しています。
+
+- 旧100大問No.との対応を維持
+- 全52題を `問題` / `詳細解答` / `本番答案` / `採点基準（20点）` に統一
+- 全52題を手計算監査し、関数電卓・コード・数値積分・EM反復が実質必須となる問題を0題に調整
+- Coreとの重複が強い問題は、同一論点の数値替えではなく一般化・別観点へ修正
+- [監査レポート](standard-advanced52/AUDIT_2026-08-25.md) に個別監査結果を記録
+
+これにより、現行100大問すべてにCoreまたはStandard/Advancedの正規化版があります。
+
 ## 推奨学習順
 
 1. `core48/index.md` のNo.01からCoreを1周し、頻出の解法骨格を作る。
 2. Coreを20〜30分答案へ圧縮する。
-3. Standardで変形耐性を付ける。
+3. `standard-advanced52/index.md` のStandardで変形耐性を付ける。
 4. Advancedで証明・漸近・非正則・二次形式などの難所を埋める。
 
 ## KaTeX検証
