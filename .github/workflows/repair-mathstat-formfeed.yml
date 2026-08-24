@@ -1,4 +1,4 @@
-name: Repair statistical-mathematics form-feed corruption
+name: Repair statistical-mathematics control-character corruption
 
 on:
   push:
@@ -20,34 +20,51 @@ jobs:
         with:
           ref: fix/ci-katex-20260825
 
-      - name: Repair corrupted frac commands
+      - name: Repair known control-character damage
         run: |
           python - <<'PY'
           from pathlib import Path
 
           root = Path('statistical-mathematics')
-          repaired = 0
-          files = []
+          repaired_frac = 0
+          touched = []
+
           for path in root.rglob('*.md'):
-              text = path.read_text(encoding='utf-8')
+              with path.open('r', encoding='utf-8', newline='') as f:
+                  text = f.read()
               count = text.count('\x0crac')
               if not count:
                   continue
-              path.write_text(text.replace('\x0crac', '\\frac'), encoding='utf-8')
-              repaired += count
-              files.append((str(path), count))
+              fixed = text.replace('\x0crac', '\\frac')
+              with path.open('w', encoding='utf-8', newline='') as f:
+                  f.write(fixed)
+              repaired_frac += count
+              touched.append((str(path), count))
 
-          print(f'Repaired {repaired} corrupted \\frac command(s).')
-          for path, count in files:
+          rho_path = root / '05_regression_linear_models' / 'syllabus_gap_predicted_01_07.md'
+          with rho_path.open('r', encoding='utf-8', newline='') as f:
+              rho_text = f.read()
+          broken_rho = r'&=\mu+' + '\n' + r'ho(E[X\mid X>c]-\mu).'
+          fixed_rho = r'&=\mu+\rho(E[X\mid X>c]-\mu).'
+          repaired_rho = rho_text.count(broken_rho)
+          if repaired_rho:
+              with rho_path.open('w', encoding='utf-8', newline='') as f:
+                  f.write(rho_text.replace(broken_rho, fixed_rho))
+
+          print(f'Repaired {repaired_frac} corrupted \\frac command(s).')
+          for path, count in touched:
               print(f'  {path}: {count}')
+          print(f'Repaired {repaired_rho} corrupted \\rho command(s).')
 
           remaining = []
           for path in root.rglob('*.md'):
-              text = path.read_text(encoding='utf-8')
-              if '\x0c' in text:
+              with path.open('r', encoding='utf-8', newline='') as f:
+                  text = f.read()
+              bad = [ch for ch in text if (ord(ch) < 32 and ch not in '\t\n\r') or ord(ch) == 127]
+              if bad:
                   remaining.append(str(path))
           if remaining:
-              raise SystemExit('Form-feed remains in: ' + ', '.join(remaining))
+              raise SystemExit('Unexpected control character remains in: ' + ', '.join(remaining))
           PY
 
       - name: Commit repairs
@@ -59,5 +76,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add statistical-mathematics
-          git commit -m 'fix: restore corrupted frac commands'
+          git commit -m 'fix: repair remaining math control-character damage'
           git push origin HEAD:fix/ci-katex-20260825
