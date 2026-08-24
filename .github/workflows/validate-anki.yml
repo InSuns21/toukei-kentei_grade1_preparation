@@ -1,0 +1,47 @@
+name: Validate Anki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'anki/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-anki.yml'
+  pull_request:
+    paths:
+      - 'anki/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-anki.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-anki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare gitignored source placeholders
+        run: |
+          mkdir -p pdfs/grade1_hani_20150508_2
+          touch pdfs/grade1_hani_20150508_2.pdf
+          touch pdfs/grade1_hani_20150508_2/1.jpg
+          touch pdfs/grade1_hani_20150508_2/2.jpg
+          touch pdfs/grade1_hani_20150508_2/3.jpg
+          touch pdfs/grade1_hani_20150508_2/4.jpg
+          touch pdfs/statistics_grade1_card_titles_by_parent_priority.md
+
+      - name: Validate Anki
+        run: npm run anki:validate

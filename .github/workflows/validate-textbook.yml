@@ -1,0 +1,47 @@
+name: Validate textbook
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'textbook/**'
+      - 'scripts/**'
+      - 'references/**'
+      - 'agents/**'
+      - 'AGENTS.md'
+      - 'README.md'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-textbook.yml'
+  pull_request:
+    paths:
+      - 'textbook/**'
+      - 'scripts/**'
+      - 'references/**'
+      - 'agents/**'
+      - 'AGENTS.md'
+      - 'README.md'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-textbook.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-textbook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate textbook
+        run: npm run validate

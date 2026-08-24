@@ -7,14 +7,25 @@
 ```powershell
 npm run anki:build
 npm run anki:validate
+npm run anki:curation
 npm run anki:progress
 ```
+
+`anki:curation` は正本カード総数と通常デッキに採用するカード数、優先度別・カテゴリー別の内訳を表示します。
 
 作業を明示して進める場合は、たとえば `npm run anki:progress -- start C02-events-distribution-functions`、`npm run anki:progress -- stage C02-events-distribution-functions self_review` のように実行します。
 
 生成物は `dist/index.html` をカテゴリー一覧の入口とし、カード本文は `category-math-probability.html` など公式シラバスのカテゴリー別HTMLに分かれます。単一カテゴリーが200枚を超えた場合は、まずサブカテゴリー境界で意味的に分割します。単一サブカテゴリーだけで200枚を超える場合に限り、その内部を最大200枚で分割します。`dist/` をコピーすれば、ネットワークなしで閲覧できます。
 
 カードの正本は `cards/**/*.md`、分類の正本は `syllabus/syllabus.yaml`、記法・分布の正本は `notation.md`、公式・定理・定義の正本は `formulae.md` です。CSSとJavaScriptの正本は `static/`、HTML雛形は `templates/`、KaTeX資産の正本はルートの `node_modules/katex/dist/` にあります。`dist/` はこれらから再生成できるためGit管理せず、生成済みHTMLや `dist/assets/` を直接編集しません。
+
+## 通常デッキの枚数上限
+
+`cards/**/*.md` の正本は削除せず保持し、通常の `anki:build` では `curation.yaml` に従って **950枚**だけを有効化します。上限の絶対値は999枚で、`anki:validate` はこれを超えた場合に失敗します。
+
+選抜は、まず公式シラバスの各用語と各サブカテゴリーに最低1枚を確保し、その後に `priority: S > A > B > C > D` を優先します。同一優先度では過去問根拠、独自問題根拠、出典確認数、教科書根拠を重くし、最後に難度とIDで決めます。したがって、正本のカード総数は1000枚を超えていても、通常学習で表示されるデッキは950枚に保たれます。
+
+`anki:progress` の `cards` は執筆・査読用の正本カード総数を数えるため、通常デッキの950枚とは別の値です。通常デッキの枚数は `npm run anki:curation` で確認します。
 
 テンプレート内のローカルリンクは、生成先である `dist/*.html` を基準に `./assets/style.css`、`./notation.html` のように明示的な相対パスで記述します。`./dist/assets/style.css` は生成後に `dist/dist/assets/style.css` を指すため使用しません。
 

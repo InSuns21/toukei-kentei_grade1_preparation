@@ -8,7 +8,7 @@
 
 ## 入力
 
-`notation.md`、`style-guide.md`、`references/past-exam-trends.md`、`references/past-exam-index.yaml`、対象 `chapter.yaml`、対象章全ファイル、前提章、`prompts/review-chapter.md`。
+`textbook/notation.md`、`textbook/style-guide.md`、`references/past-exam-trends.md`、`references/past-exam-index.yaml`、対象 `chapter.yaml`、対象章全ファイル、前提章、`textbook/prompts/review-chapter.md`。
 
 ## 出力契約
 

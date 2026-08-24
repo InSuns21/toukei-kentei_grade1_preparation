@@ -5,7 +5,10 @@ import katex from 'katex';
 
 const root = process.cwd();
 const errors = [];
-const files = walk(root).filter((file) => file.endsWith('.md'));
+const validationRoots = ['textbook', 'references', 'agents']
+  .map((name) => path.join(root, name))
+  .filter(fs.existsSync);
+const files = validationRoots.flatMap(walk).filter((file) => file.endsWith('.md'));
 const forbidden = [
   [/\\\(/g, String.raw`\(`], [/\\\)/g, String.raw`\)`],
   [/\\\[/g, String.raw`\[`], [/\\\]/g, String.raw`\]`],
@@ -37,7 +40,7 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`${files.length} 個の Markdown ファイルを KaTeX strict で検証しました。`);
+console.log(`${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証しました。`);
 
 function extractMath(source, file) {
   const result = [];

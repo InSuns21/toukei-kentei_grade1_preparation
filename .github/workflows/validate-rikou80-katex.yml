@@ -1,0 +1,38 @@
+name: Validate rikou80 KaTeX
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'applied-rikou-80/**'
+      - 'scripts/validate_math.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-rikou80-katex.yml'
+  pull_request:
+    paths:
+      - 'applied-rikou-80/**'
+      - 'scripts/validate_math.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-rikou80-katex.yml'
+
+jobs:
+  validate-katex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate applied-rikou-80 KaTeX
+        run: npm run validate:rikou80

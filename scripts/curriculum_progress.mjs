@@ -3,7 +3,7 @@ import path from 'node:path';
 import process from 'node:process';
 import YAML from 'yaml';
 
-const file = path.join(process.cwd(), 'curriculum.yaml');
+const file = path.join(process.cwd(), 'textbook', 'curriculum.yaml');
 const document = YAML.parseDocument(fs.readFileSync(file, 'utf8'));
 let data = document.toJS();
 const command = process.argv[2] ?? 'show';
