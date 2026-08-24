@@ -2127,8 +2127,7 @@ $$
 E[Y\mid X>c]
 &=E[E[Y\mid X]\mid X>c]\\
 &=E[\mu+\rho(X-\mu)\mid X>c]\\
-&=\mu+
-ho(E[X\mid X>c]-\mu).
+&=\mu+\rho(E[X\mid X>c]-\mu).
 \end{aligned}
 $$
 
