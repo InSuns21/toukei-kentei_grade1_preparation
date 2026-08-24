@@ -2,12 +2,14 @@
 
 このリポジトリでは、統計検定1級「統計数理」と「統計応用（理工学）」のための独習教材・問題集・詳細解答集を日本語で作成する。
 
+通常教材は `textbook/`、Anki教材は `anki/` に分離する。通常教材の構成・進捗の正本は `textbook/curriculum.yaml` であり、通常章本文は `textbook/volumes/` 配下に置く。
+
 ## 作業前に読むファイル
 
-1. `curriculum.yaml`
-2. `notation.md`
-3. `style-guide.md`
-4. `dependency-graph.md`
+1. `textbook/curriculum.yaml`
+2. `textbook/notation.md`
+3. `textbook/style-guide.md`
+4. `textbook/dependency-graph.md`
 5. 対象章の `chapter.yaml`
 6. `references/official-scope.md`
 
@@ -25,11 +27,11 @@
 8. 初回査読を担当した各サブエージェントへ再査読を依頼し、両方で `fatal: 0 / major: 0 / minor: 0` を確認する。
 9. メイン担当が `npm run validate` を成功させる。
 10. 査読記録と機械検証結果を確認してから `npm run progress -- complete <ID>` で完了を記録する。
-11. `curriculum.yaml` の `reviewed` 更新、対象章または対象巻末総合演習、その査読記録を同じ章単位コミットに含める。
+11. `textbook/curriculum.yaml` の `reviewed` 更新、対象章または対象巻末総合演習、その査読記録を同じ章単位コミットに含める。
 12. コミット後に `git status --short` と `npm run progress` を確認し、対象成果物の変更が残っておらず、`next_work` が正しいことを確認する。
 13. ユーザーが複数章または継続執筆を求めている場合だけ、次の `next_work` に進む。
 
-進捗の正本は `curriculum.yaml` だけとする。状態は `planned -> drafting -> self_review -> independent_review -> revision -> reviewed` の順で進める。外部判断が必要な場合だけ理由付きで `blocked` とする。
+進捗の正本は `textbook/curriculum.yaml` だけとする。状態は `planned -> drafting -> self_review -> independent_review -> revision -> reviewed` の順で進める。外部判断が必要な場合だけ理由付きで `blocked` とする。
 
 ## Ankiカード教材の継続手順
 
@@ -99,7 +101,7 @@ Ankiは、短時間で再生・計算・条件判定を反復するためのカ�
 
 これらは通常章のLevel C/D、30分ドリル、模試の役割である。Ankiの試験適合性査読では、公式のねらいへの対応、1カード1論点、公式・定義・条件の再生、計算・適用・判定技能、重複・過不足、優先度、カード配信上の品質を確認する。上記の論述要件がカード内にないこと自体を欠陥や査読指摘にしてはならない。
 
-Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `category-<カテゴリーID>.html` へ公式シラバスのカテゴリー単位で分ける。単一カテゴリーが200枚を超えた場合は、まずシラバス上のサブカテゴリー境界で意味的に分割し、単一サブカテゴリー自体が200枚を超える場合に限ってその内部を最大200枚で分割する。配信ページの分割と執筆進捗の単位は独立させる。サブカテゴリーの内部IDは英語でもよいが、Web表示は必ず `anki/syllabus/syllabus.yaml` の日本語名を使う。Anki作業の進捗正本は `anki/progress.yaml` とし、通常章の `curriculum.yaml` と同じ状態遷移を使う。
+Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `category-<カテゴリーID>.html` へ公式シラバスのカテゴリー単位で分ける。単一カテゴリーが200枚を超えた場合は、まずシラバス上のサブカテゴリー境界で意味的に分割し、単一サブカテゴリー自体が200枚を超える場合に限ってその内部を最大200枚で分割する。配信ページの分割と執筆進捗の単位は独立させる。サブカテゴリーの内部IDは英語でもよいが、Web表示は必ず `anki/syllabus/syllabus.yaml` の日本語名を使う。Anki作業の進捗正本は `anki/progress.yaml` とし、通常章の `textbook/curriculum.yaml` と同じ状態遷移を使う。
 
 上記の2名査読は、新規カードを含むサブカテゴリー作業を完成させる場合に適用する。カード本文・記法・公式・coverageを変更しない進捗管理、検証スクリプト、配信実装、生成物配置、リンク、ビルド手順などの基盤変更は、変更領域に合う独立査読者1名と機械検証でよく、数理査読と試験適合性査読の両方を起動しない。
 
@@ -108,11 +110,11 @@ Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `ca
 章、分野横断問題、模試を `reviewed` にする前に、メイン担当は次の2つの査読サブエージェントを実際に起動しなければならない。査読役の説明ファイルを読むだけ、メイン担当が査読者を模倣するだけ、自己査読を独立査読と呼び替えるだけでは要件を満たさない。
 
 1. **独立数理査読サブエージェント**
-   - `agents/independent-math-reviewer.md` と `prompts/review-chapter.md` に従う。
+   - `agents/independent-math-reviewer.md` と `textbook/prompts/review-chapter.md` に従う。
    - 定義、定理、証明、全例題、全演習、全解答を独立に再計算する。
    - 数式や論理展開で読者に補完させる行間が残っていないかを逐項確認する。
 2. **試験適合性査読サブエージェント**
-   - `agents/exam-editor-reviewer.md` に従い、模試では `prompts/review-exam.md` も使う。
+   - `agents/exam-editor-reviewer.md` に従い、模試では `textbook/prompts/review-exam.md` も使う。
    - 通常章・模試では、統計検定1級の出題範囲、90分・5問中3問選択、20〜30分での完答可能性、部分点構造、問題選択戦略を検証する。Anki作業では上記の「Anki作業と通常章・模試の範囲境界」を適用し、カードのねらい適合性、再生・計算・判定技能、重複・過不足、優先度、配信品質を検証する。Ankiに連結演習、答案圧縮、部分点指針がないことを指摘してはならない。
 
 両査読は完成稿ができた後なら並行実行してよい。ただし、互いの結論を根拠にしてはならず、それぞれ独立に対象全文を確認する。各査読サブエージェントは少なくとも担当検証の終了時に `npm run validate` を実行し、結果を `review/validation.md` に記録する。
@@ -129,7 +131,7 @@ Anki配信HTMLの `index.html` はカテゴリー一覧とし、カードは `ca
 ## コミット規則
 
 - 各章または各巻末総合演習は、独立再査読・機械検証・`reviewed` への進捗更新までを一つのコミットとして完結させる。
-- コミットには、対象成果物、`review/validation.md`、`curriculum.yaml`、対象成果物に直接必要な索引更新だけを含める。
+- コミットには、対象成果物、`review/validation.md`、`textbook/curriculum.yaml`、対象成果物に直接必要な索引更新だけを含める。
 - 他章の未完成変更やユーザーの無関係な変更を混ぜない。作業ツリーに既存変更がある場合は、対象パスを明示して選択的にステージする。
 - コミットメッセージは成果物IDと内容が分かる形にする。例: `complete M1-01 likelihood and maximum likelihood`。
 - `npm run validate` が失敗している状態、未解消の査読指摘がある状態、`reviewed` 更新前の状態ではコミットしない。

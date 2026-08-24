@@ -4,15 +4,16 @@ import process from 'node:process';
 import YAML from 'yaml';
 
 const root = process.cwd();
+const textbookRoot = path.join(root, 'textbook');
 const errors = [];
-const requiredRoot = ['AGENTS.md', 'README.md', 'curriculum.yaml', 'notation.md', 'style-guide.md', 'dependency-graph.md', 'references/distribution-notation-guide.md', 'references/past-exam-trends.md', 'references/past-exam-index.yaml'];
+const requiredRoot = ['AGENTS.md', 'README.md', 'textbook/curriculum.yaml', 'textbook/notation.md', 'textbook/style-guide.md', 'textbook/dependency-graph.md', 'references/distribution-notation-guide.md', 'references/past-exam-trends.md', 'references/past-exam-index.yaml'];
 const requiredChapter = ['00_overview.md', '01_motivation.md', '02_definitions.md', '03_theorems.md', '04_examples.md', '05_problem_solving.md', '06_exercises.md', '07_solutions.md', '08_exam_drill.md', '09_past_exam_practice.md', 'chapter.yaml', 'glossary.yaml', 'review/validation.md'];
 for (const file of requiredRoot) if (!fs.existsSync(path.join(root, file))) errors.push(`必須ファイルがありません: ${file}`);
 validateDistributionGuide(errors);
 
 let data;
-try { data = YAML.parse(fs.readFileSync(path.join(root, 'curriculum.yaml'), 'utf8')); }
-catch (error) { errors.push(`curriculum.yaml を解析できません: ${error.message}`); }
+try { data = YAML.parse(fs.readFileSync(path.join(textbookRoot, 'curriculum.yaml'), 'utf8')); }
+catch (error) { errors.push(`textbook/curriculum.yaml を解析できません: ${error.message}`); }
 
 if (data) {
   if (data.schema_version !== 1 || data.progress?.schema_version !== 1) errors.push('schema_version は 1 でなければなりません');
@@ -78,14 +79,14 @@ function validateGeneratedChapters(data, required, errors) {
     errors.push(`past-exam-index.yaml を解析できません: ${error.message}`);
   }
   for (const volume of data.volumes ?? []) {
-    const directory = path.join(root, volume.directory);
+    const directory = path.join(textbookRoot, volume.directory);
     if (!fs.existsSync(directory)) continue;
     for (const entry of fs.readdirSync(directory, { withFileTypes: true }).filter((e) => e.isDirectory())) {
       const chapterDir = path.join(directory, entry.name);
       if (!fs.existsSync(path.join(chapterDir, 'chapter.yaml'))) continue;
       for (const name of required) if (!fs.existsSync(path.join(chapterDir, name))) errors.push(`${path.relative(root, chapterDir)}: ${name} がありません`);
       const manifest = YAML.parse(fs.readFileSync(path.join(chapterDir, 'chapter.yaml'), 'utf8'));
-      if (!data.chapters.some((chapter) => chapter.id === manifest.id)) errors.push(`${entry.name}: curriculum.yaml にない章ID ${manifest.id}`);
+      if (!data.chapters.some((chapter) => chapter.id === manifest.id)) errors.push(`${entry.name}: textbook/curriculum.yaml にない章ID ${manifest.id}`);
       const state = data.progress?.chapters?.[manifest.id]?.status;
       if (state === 'reviewed') {
         validateReaderAccessibility(chapterDir, manifest.id, errors);

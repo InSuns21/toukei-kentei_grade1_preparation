@@ -2,11 +2,14 @@
 
 統計検定1級「統計数理」「統計応用（理工学）」向けの独習教材・問題集・Ankiカードを作成、検証、配信するためのリポジトリです。
 
-- 通常教材の構成・進捗の正本：`curriculum.yaml`
+- 通常教材の構成・進捗の正本：`textbook/curriculum.yaml`
+- 通常教材本文の正本：`textbook/volumes/**`
 - 統計数理の本番型大問コーパス：`statistical-mathematics/`
 - 統計応用（理工学）の本番型大問コーパス：`applied-rikou-80/`
 - Anki教材の進捗の正本：`anki/progress.yaml`
 - Ankiカード本文の正本：`anki/cards/**/*.md`
+
+通常教材とAnki教材は、どちらもトップレベルの教材フォルダ配下に正本・本文・補助資材を置きます。通常教材は `textbook/`、Anki教材は `anki/` を入口にしてください。
 
 ## セットアップと検証
 
@@ -20,14 +23,26 @@ npm run progress
 
 統計数理の本番型問題集だけを検証する場合は `npm run validate:mathstat`、統計応用（理工学）だけを検証する場合は `npm run validate:rikou80` を使います。
 
-## 執筆開始
+## 通常教材
+
+| パス | 役割 |
+|---|---|
+| `textbook/curriculum.yaml` | 通常教材の構成・進捗の正本 |
+| `textbook/volumes/` | 章本文・演習・詳細解答の正本 |
+| `textbook/notation.md` | 通常教材の記法規約 |
+| `textbook/style-guide.md` | 通常教材の執筆規約 |
+| `textbook/dependency-graph.md` | 章間依存関係の説明 |
+| `textbook/templates/` | 章・巻末レビューの雛形 |
+| `textbook/prompts/` | 通常教材の生成・査読プロンプト |
+
+### 執筆開始
 
 ```powershell
 npm run progress -- start M1-01
 npm run new:chapter -- M1-01
 ```
 
-章雛形は、独習本文、例題、問題解決パターン、Level A〜D問題集、詳細解答、30分ドリル、査読記録を分離します。生成には `prompts/generate-chapter.md`、独立査読には `prompts/review-chapter.md` を使います。
+章雛形は、独習本文、例題、問題解決パターン、Level A〜D問題集、詳細解答、30分ドリル、査読記録を分離します。生成には `textbook/prompts/generate-chapter.md`、独立査読には `textbook/prompts/review-chapter.md` を使います。
 
 ## Ankiカード教材
 

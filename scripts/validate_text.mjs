@@ -3,9 +3,16 @@ import path from 'node:path';
 import process from 'node:process';
 
 const root = process.cwd();
+const textbookRoot = path.join(root, 'textbook');
 const errors = [];
-const targets = ['volumes', 'templates', 'prompts', 'agents', 'references']
-  .map((name) => path.join(root, name)).filter(fs.existsSync).flatMap(walk)
+const targets = [
+  path.join(textbookRoot, 'volumes'),
+  path.join(textbookRoot, 'templates'),
+  path.join(textbookRoot, 'prompts'),
+  path.join(root, 'agents'),
+  path.join(root, 'references'),
+]
+  .filter(fs.existsSync).flatMap(walk)
   .filter((file) => /\.(md|ya?ml)$/.test(file));
 
 for (const file of targets) {
@@ -20,7 +27,7 @@ for (const file of targets) {
     const line = source.slice(0, offset).split('\n').length;
     errors.push(`${relative(file)}:${line}: 数式内の ${bareCommand[0]} にバックスラッシュがありません`);
   }
-  if (/\b(?:TODO|TBD)(?!\(reference\))/i.test(source) && file.includes(`${path.sep}volumes${path.sep}`) && isReviewedChapter(file)) {
+  if (/\b(?:TODO|TBD)(?!\(reference\))/i.test(source) && file.includes(`${path.sep}textbook${path.sep}volumes${path.sep}`) && isReviewedChapter(file)) {
     errors.push(`${relative(file)}: 査読完了成果物に TODO/TBD が残っています`);
   }
 }
@@ -40,10 +47,10 @@ function walk(directory) {
 }
 function relative(file) { return path.relative(root, file).replaceAll('\\', '/'); }
 function isReviewedChapter(file) {
-  const marker = `${path.sep}volumes${path.sep}`;
+  const marker = `${path.sep}textbook${path.sep}volumes${path.sep}`;
   const suffix = file.slice(file.indexOf(marker) + marker.length);
   const parts = suffix.split(path.sep);
-  const chapterDirectory = path.join(root, 'volumes', parts[0], parts[1]);
+  const chapterDirectory = path.join(textbookRoot, 'volumes', parts[0], parts[1]);
   const manifest = path.join(chapterDirectory, 'chapter.yaml');
   if (!fs.existsSync(manifest)) return false;
   return /^status:\s*reviewed\s*$/m.test(fs.readFileSync(manifest, 'utf8'));

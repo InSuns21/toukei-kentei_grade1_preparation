@@ -6,13 +6,14 @@ import YAML from 'yaml';
 const id = process.argv[2];
 if (!id) fail('使い方: npm run new:chapter -- F0-01');
 const root = process.cwd();
-const curriculum = YAML.parse(fs.readFileSync(path.join(root, 'curriculum.yaml'), 'utf8'));
+const textbookRoot = path.join(root, 'textbook');
+const curriculum = YAML.parse(fs.readFileSync(path.join(textbookRoot, 'curriculum.yaml'), 'utf8'));
 const chapter = curriculum.chapters.find((item) => item.id === id);
-if (!chapter) fail(`curriculum.yaml に章がありません: ${id}`);
+if (!chapter) fail(`textbook/curriculum.yaml に章がありません: ${id}`);
 const volume = curriculum.volumes.find((item) => item.id === chapter.volume);
-const destination = path.join(root, volume.directory, `${id.replace('-', '_')}_${slugify(chapter.title)}`);
+const destination = path.join(textbookRoot, volume.directory, `${id.replace('-', '_')}_${slugify(chapter.title)}`);
 if (fs.existsSync(destination)) fail(`既に存在します: ${path.relative(root, destination)}`);
-copy(path.join(root, 'templates/chapter'), destination, {
+copy(path.join(textbookRoot, 'templates/chapter'), destination, {
   chapter_id: chapter.id, chapter_title: chapter.title, volume: chapter.volume,
   prerequisites_yaml: chapter.prerequisites.length ? chapter.prerequisites.map((value) => `  - ${value}`).join('\n') : '  []',
   official_scope_yaml: chapter.official_scope.map((value) => `  - ${value}`).join('\n'),
