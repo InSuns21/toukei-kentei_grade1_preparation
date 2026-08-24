@@ -18,38 +18,110 @@ $(N_1,\ldots,N_k)\sim\operatorname{Multinomial}(n;p_1,\ldots,p_k)$, $\hat p_i=N_
 
 ## 詳細解答
 
-1試行のone-hotベクトルの共分散は
+### 1. 共分散行列
+
+第 $r$ 試行のone-hotベクトルを
+
+$$
+Z_r=(Z_{r1},\ldots,Z_{rk})^T,
+$$
+
+$Z_{ri}=1$ を「第 $r$ 試行がカテゴリ $i$」の指標とする。すると
+
+$$
+N=\sum_{r=1}^nZ_r,
+\qquad
+\hat p=\frac1n\sum_{r=1}^nZ_r.
+$$
+
+1試行について
+
+$$
+E[Z_{ri}]=p_i,
+\qquad
+\operatorname{Var}(Z_{ri})=p_i(1-p_i).
+$$
+
+$i\ne j$ では同じ試行で2カテゴリを同時に取れないので $Z_{ri}Z_{rj}=0$。したがって
+
+$$
+\operatorname{Cov}(Z_{ri},Z_{rj})
+=0-p_ip_j=-p_ip_j.
+$$
+
+よって1試行の共分散行列は
 
 $$
 \Sigma=\operatorname{diag}(p)-pp^T.
 $$
 
-従って
+試行間は独立だから
 
 $$
-\operatorname{Cov}(\hat p)=\frac1n\Sigma,
+\boxed{\operatorname{Cov}(\hat p)=\frac1n\Sigma}.
+$$
+
+### 2. 多変量CLT
+
+$Z_1,\ldots,Z_n$ はi.i.d.で平均 $p$、共分散 $\Sigma$ なので多変量CLTから
+
+$$
+\boxed{\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma)}.
+$$
+
+### 3. 特異性
+
+各試行で成分和が1なので
+
+$$
+\mathbf1^TZ_r=1,
 \qquad
-\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma).
+\mathbf1^T\hat p=1
 $$
 
-$\sum\hat p_i=1$ が恒等的に成り立つため $\Sigma\mathbf 1=0$、ランクは高々 $k-1$。
-
-$a=(1,-1,0)^T$ とすると漸近分散は
+が恒等的に成り立つ。実際
 
 $$
-a^T\Sigma a=p_1+p_2-(p_1-p_2)^2
-=\frac56-\frac1{36}=\frac{29}{36}.
+\Sigma\mathbf1
+=\operatorname{diag}(p)\mathbf1-p(p^T\mathbf1)
+=p-p=0.
+$$
+
+したがって $\mathbf1$ が零固有ベクトルで、$\Sigma$ は特異である。全ての $p_i>0$ ならランクは $k-1$。
+
+### 4. コントラスト
+
+$a=(1,-1,0)^T$ と置くと、漸近分散は
+
+$$
+\begin{aligned}
+a^T\Sigma a
+&=a^T\operatorname{diag}(p)a-(a^Tp)^2\\
+&=p_1+p_2-(p_1-p_2)^2\\
+&=\frac12+\frac13-\left(\frac12-\frac13\right)^2\\
+&=\boxed{\frac{29}{36}}.
+\end{aligned}
 $$
 
 ## 本番答案
 
+one-hotベクトル $Z_r$ を用いると $\hat p=n^{-1}\sum_rZ_r$。1試行では
+
 $$
-\Sigma=\operatorname{diag}(p)-pp^T,
-\qquad
-\sqrt n(\hat p-p)\Rightarrow N(0,\Sigma).
+Var(Z_{ri})=p_i(1-p_i),\qquad Cov(Z_{ri},Z_{rj})=-p_ip_j
 $$
 
-確率和が1なので $\Sigma\mathbf1=0$ で特異。指定コントラストの分散は $29/36$。
+だから
+
+$$
+\Sigma=diag(p)-pp^T,\qquad Cov(\hat p)=\Sigma/n.
+$$
+
+多変量CLTより $\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma)$。また $\Sigma\mathbf1=0$ なので特異。$a=(1,-1,0)^T$ では
+
+$$
+a^T\Sigma a=p_1+p_2-(p_1-p_2)^2=29/36.
+$$
 
 ## 採点基準
 

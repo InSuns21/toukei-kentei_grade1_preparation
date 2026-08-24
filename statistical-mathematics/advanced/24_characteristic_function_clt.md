@@ -26,56 +26,163 @@ $$
 
 ## 詳細解答
 
+### 1. 標準化と特性関数の積
+
 $$
 Y_i=\frac{X_i-\mu}{\sigma}
 $$
 
-とすれば $E[Y_i]=0$, $E[Y_i^2]=1$。標準化和 $S_n=n^{-1/2}\sum Y_i$ の特性関数は独立性から
+と置くと $Y_i$ はi.i.d.で
 
 $$
+E[Y_i]=0,
+\qquad
+E[Y_i^2]=1.
+$$
+
+標準化和を
+
+$$
+S_n=\frac1{\sqrt n}\sum_{i=1}^nY_i
+$$
+
+とする。固定した $t$ に対し、独立性から
+
+$$
+\begin{aligned}
 \varphi_{S_n}(t)
-=\left[\varphi_Y\left(\frac{t}{\sqrt n}\right)\right]^n.
+&=E\left[\exp\left\{\frac{it}{\sqrt n}\sum_{j=1}^nY_j\right\}\right]\\
+&=E\left[\prod_{j=1}^n e^{itY_j/\sqrt n}\right]\\
+&=\prod_{j=1}^nE[e^{itY_j/\sqrt n}]\\
+&=\left[\varphi_Y\left(\frac t{\sqrt n}\right)\right]^n.
+\end{aligned}
 $$
 
-展開より
+### 2. $o(t^2)$ を $o(n^{-1})$ へ移す
+
+仮定された展開を
 
 $$
-\varphi_Y\left(\frac{t}{\sqrt n}\right)
+\varphi_Y(u)=1-\frac{u^2}{2}+r(u),
+\qquad
+\frac{r(u)}{u^2}\to0
+$$
+
+と書く。$u=t/\sqrt n$ を代入すると
+
+$$
+\varphi_Y\left(\frac t{\sqrt n}\right)
+=1-\frac{t^2}{2n}+r\left(\frac t{\sqrt n}\right).
+$$
+
+$t\ne0$ なら
+
+$$
+\frac{r(t/\sqrt n)}{1/n}
+=t^2\frac{r(t/\sqrt n)}{t^2/n}\to0,
+$$
+
+したがって
+
+$$
+r\left(\frac t{\sqrt n}\right)=o(n^{-1}).
+$$
+
+$t=0$ では特性関数は常に1なので自明である。よって固定 $t$ について
+
+$$
+\varphi_Y\left(\frac t{\sqrt n}\right)
 =1-\frac{t^2}{2n}+o(n^{-1}).
 $$
 
-従って
+### 3. $n$ 乗極限
+
+$$
+u_n=-\frac{t^2}{2n}+o(n^{-1})
+$$
+
+と置くと
+
+$$
+u_n\to0,
+\qquad
+n u_n\to-\frac{t^2}{2},
+\qquad
+u_n=O(n^{-1}).
+$$
+
+$u_n$ は0へ行くので
+
+$$
+\log(1+u_n)=u_n+O(u_n^2).
+$$
+
+したがって
+
+$$
+\begin{aligned}
+n\log(1+u_n)
+&=n u_n+O(nu_n^2)\\
+&\longrightarrow-\frac{t^2}{2},
+\end{aligned}
+$$
+
+なぜなら $nu_n^2=O(n^{-1})\to0$ だからである。従って
 
 $$
 \left[1-\frac{t^2}{2n}+o(n^{-1})\right]^n
-\to e^{-t^2/2}.
+\longrightarrow e^{-t^2/2}.
 $$
 
-右辺は標準正規の特性関数。Lévyの連続性定理より $S_n\Rightarrow N(0,1)$。
-
-重要なのは $o(n^{-1})$ を含む底を $n$ 乗した極限であり、対数を取れば
+つまり
 
 $$
-n\log\left(1-\frac{t^2}{2n}+o(n^{-1})\right)\to-\frac{t^2}{2}.
+\varphi_{S_n}(t)\to e^{-t^2/2}.
 $$
+
+右辺は標準正規分布の特性関数であり、0で連続である。Lévyの連続性定理より
+
+$$
+S_n\Rightarrow N(0,1).
+$$
+
+$S_n=(\sum X_i-n\mu)/(\sigma\sqrt n)$ だから求めるCLTを得る。
 
 ## 本番答案
 
-$Y_i=(X_i-\mu)/\sigma$ と標準化し、
+$Y_i=(X_i-\mu)/\sigma$ と置くと
 
 $$
-\varphi_{n^{-1/2}\sum Y_i}(t)
-=\left[\varphi_Y(t/\sqrt n)\right]^n
-=\left[1-\frac{t^2}{2n}+o(n^{-1})\right]^n
-\to e^{-t^2/2}.
+S_n=n^{-1/2}\sum_iY_i,
+\qquad
+\varphi_{S_n}(t)=\left[\varphi_Y(t/\sqrt n)\right]^n.
 $$
 
-Lévyの連続性定理により標準正規へ分布収束する。
+仮定より
+
+$$
+\varphi_Y(t/\sqrt n)
+=1-\frac{t^2}{2n}+r(t/\sqrt n),
+$$
+
+かつ $r(u)=o(u^2)$ なので $r(t/\sqrt n)=o(n^{-1})$。従って $u_n=-t^2/(2n)+o(n^{-1})$ と置けば
+
+$$
+n\log(1+u_n)=nu_n+O(nu_n^2)\to-\frac{t^2}{2},
+$$
+
+よって
+
+$$
+\varphi_{S_n}(t)\to e^{-t^2/2}.
+$$
+
+Lévyの連続性定理から $S_n\Rightarrow N(0,1)$。
 
 ## 採点基準
 
 - 標準化: 3点
-- 特性関数の積: 5点
-- 二次展開: 6点
-- 極限: 4点
+- 特性関数の積（独立性まで）: 5点
+- 二次展開と $o(n^{-1})$ の確認: 6点
+- $n$ 乗極限の正当化: 4点
 - Lévy定理: 2点

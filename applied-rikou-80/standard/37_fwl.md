@@ -17,24 +17,117 @@
 
 ## 詳細解答
 
-第1ブロックの正規方程式から $\beta_1$ を消去すると
+### 1. 正規方程式からブロック消去する
+
+最小二乗の正規方程式は
 
 $$
-\boxed{\hat\beta_2=(x_2^\top M_1x_2)^{-1}x_2^\top M_1y}.
+\begin{pmatrix}
+X_1^TX_1&X_1^Tx_2\\
+x_2^TX_1&x_2^Tx_2
+\end{pmatrix}
+\begin{pmatrix}\hat\beta_1\\\hat\beta_2\end{pmatrix}
+=
+\begin{pmatrix}X_1^Ty\\x_2^Ty\end{pmatrix}.
 $$
 
-一方、残差化変数 $\tilde y=M_1y$, $\tilde x_2=M_1x_2$ の単回帰係数は
+第1行から
 
 $$
-\frac{\tilde x_2^\top\tilde y}{\tilde x_2^\top\tilde x_2}
-=\frac{x_2^\top M_1y}{x_2^\top M_1x_2}
+\hat\beta_1
+=(X_1^TX_1)^{-1}X_1^T(y-x_2\hat\beta_2).
 $$
 
-で同じ。つまり $X_1$ で説明できる成分を両方から除いた後の関係を測る。$x_2$ が $X_1$ に近いと $x_2^\top M_1x_2$ が小さく、分散 $\sigma^2/(x_2^\top M_1x_2)$ が大きくなる。
+これを第2行
+
+$$
+x_2^TX_1\hat\beta_1+x_2^Tx_2\hat\beta_2=x_2^Ty
+$$
+
+へ代入すると
+
+$$
+\begin{aligned}
+x_2^TP_1(y-x_2\hat\beta_2)+x_2^Tx_2\hat\beta_2
+&=x_2^Ty,\\
+x_2^T(I-P_1)x_2\hat\beta_2
+&=x_2^T(I-P_1)y.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{\hat\beta_2=(x_2^TM_1x_2)^{-1}x_2^TM_1y}.
+$$
+
+### 2. 残差回帰
+
+$\tilde y=M_1y$, $\tilde x_2=M_1x_2$ とする。$M_1$ は対称冪等なので
+
+$$
+\tilde x_2^T\tilde y=x_2^TM_1^TM_1y=x_2^TM_1y,
+$$
+
+$$
+\tilde x_2^T\tilde x_2=x_2^TM_1x_2.
+$$
+
+従って切片なし単回帰の係数は
+
+$$
+\frac{\tilde x_2^T\tilde y}{\tilde x_2^T\tilde x_2}
+=\frac{x_2^TM_1y}{x_2^TM_1x_2}
+=\hat\beta_2.
+$$
+
+### 3. 解釈
+
+$M_1y$ は $y$ から $X_1$ で説明できる射影成分を除いた残差、$M_1x_2$ は $x_2$ から同じく $X_1$ で説明できる成分を除いた残差である。したがって $\hat\beta_2$ は「$X_1$ と重ならない $x_2$ の変動」が「$X_1$ と重ならない $y$ の変動」とどう関係するかを測る。
+
+### 4. 共線性と標準誤差
+
+真のモデルを代入すると
+
+$$
+\hat\beta_2-\beta_2
+=(x_2^TM_1x_2)^{-1}x_2^TM_1\varepsilon.
+$$
+
+$M_1^2=M_1$ より
+
+$$
+\begin{aligned}
+Var(\hat\beta_2)
+&=(x_2^TM_1x_2)^{-2}
+ x_2^TM_1(\sigma^2I)M_1x_2\\
+&=\boxed{\frac{\sigma^2}{x_2^TM_1x_2}}.
+\end{aligned}
+$$
+
+$x_2$ が $\mathcal C(X_1)$ に近いほど残差 $M_1x_2$ が小さく、$x_2^TM_1x_2=\|M_1x_2\|^2$ が小さくなるため標準誤差が増える。
 
 ## 本番答案
 
-$X_1$ 成分を射影で除去すると $\hat\beta_2=(x_2^\top M_1x_2)^{-1}x_2^\top M_1y$。これは残差化した $y,x_2$ の単回帰係数である。共線性が強いと残差化後の $x_2$ の変動が小さくなり標準誤差が増える。
+正規方程式の第1行から
+
+$$
+\hat\beta_1=(X_1^TX_1)^{-1}X_1^T(y-x_2\hat\beta_2)
+$$
+
+を得て第2行へ代入すると
+
+$$
+x_2^TM_1x_2\hat\beta_2=x_2^TM_1y.
+$$
+
+従って
+
+$$
+\hat\beta_2=(x_2^TM_1x_2)^{-1}x_2^TM_1y.
+$$
+
+$M_1^TM_1=M_1$ なので、これは $M_1y$ を $M_1x_2$ に回帰した係数と同じ。さらに $Var(\hat\beta_2)=\sigma^2/(x_2^TM_1x_2)$ だから、$x_2$ が $X_1$ の列空間に近いほど標準誤差が大きい。
 
 ## 採点基準
 

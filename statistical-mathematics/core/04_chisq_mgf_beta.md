@@ -17,61 +17,124 @@ $X\sim\chi^2_{\nu_1}$、$Y\sim\chi^2_{\nu_2}$を独立とする。
 
 ## 詳細解答
 
-$\chi^2_\nu$は$\Gamma(\nu/2,1/2)$だから
+### 1. $\chi^2_\nu$ のMGFを定義から求める
+
+$W\sim\chi^2_\nu$ の密度は
 
 $$
-\boxed{
-M_X(t)=(1-2t)^{-\nu/2},\qquad t<1/2
-}.
+f_W(w)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}w^{\nu/2-1}e^{-w/2},
+\qquad w>0.
 $$
 
-独立性より
+したがって
 
 $$
+\begin{aligned}
+M_W(t)
+&=E[e^{tW}]\\
+&=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}
+\int_0^\infty
+w^{\nu/2-1}e^{-(1/2-t)w}dw.
+\end{aligned}
+$$
+
+$t<1/2$ なら $c=1/2-t>0$ であり、Gamma積分
+
+$$
+\int_0^\infty w^{k-1}e^{-cw}dw=\frac{\Gamma(k)}{c^k}
+$$
+
+を使うと
+
+$$
+\begin{aligned}
+M_W(t)
+&=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}
+\frac{\Gamma(\nu/2)}{(1/2-t)^{\nu/2}}\\
+&=\boxed{(1-2t)^{-\nu/2}}.
+\end{aligned}
+$$
+
+### 2. 再生性
+
+独立性から
+
+$$
+\begin{aligned}
 M_{X+Y}(t)
-=(1-2t)^{-\nu_1/2}(1-2t)^{-\nu_2/2}
-=(1-2t)^{-(\nu_1+\nu_2)/2}.
+&=M_X(t)M_Y(t)\\
+&=(1-2t)^{-\nu_1/2}(1-2t)^{-\nu_2/2}\\
+&=(1-2t)^{-(\nu_1+\nu_2)/2}.
+\end{aligned}
 $$
 
-従って
+これは $\chi^2_{\nu_1+\nu_2}$ のMGFなので
 
 $$
 \boxed{X+Y\sim\chi^2_{\nu_1+\nu_2}}.
 $$
 
-Gamma–Beta関係から
+### 3. $T,U$ の変換
+
+$a=\nu_1/2$, $b=\nu_2/2$ と置く。逆変換は
 
 $$
-\boxed{
-T\sim\chi^2_{\nu_1+\nu_2},
+x=ut,\qquad y=(1-u)t,
+$$
+
+Jacobianの絶対値は $t$。独立なカイ二乗密度の積へ代入すると
+
+$$
+\begin{aligned}
+f_{T,U}(t,u)
+&=\frac{(ut)^{a-1}\{(1-u)t\}^{b-1}e^{-t/2}}{2^{a+b}\Gamma(a)\Gamma(b)}t\\
+&=\frac{t^{a+b-1}e^{-t/2}}{2^{a+b}\Gamma(a+b)}
+\cdot
+\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}u^{a-1}(1-u)^{b-1}.
+\end{aligned}
+$$
+
+$t>0,0<u<1$。積に分解されるため
+
+$$
+\boxed{T\sim\chi^2_{\nu_1+\nu_2}},
+$$
+
+$$
+\boxed{U\sim\operatorname{Beta}\left(\frac{\nu_1}{2},\frac{\nu_2}{2}\right)},
 \qquad
-U\sim Beta\left(\frac{\nu_1}{2},\frac{\nu_2}{2}\right),
-\qquad
-T\perp U
-}.
+\boxed{T\perp U}.
 $$
 
-従って
+### 4. $E[U]$
+
+Beta密度の平均を積分すれば
 
 $$
-\boxed{E[U]=\frac{\nu_1}{\nu_1+\nu_2}}.
+E[U]=\frac{a}{a+b}
+=\boxed{\frac{\nu_1}{\nu_1+\nu_2}}.
 $$
 
 ## 本番答案
 
-$$
-M_{\chi^2_\nu}(t)=(1-2t)^{-\nu/2}.
-$$
-
-MGFの積より$X+Y\sim\chi^2_{\nu_1+\nu_2}$。
-
-さらにGamma–Beta変換から
+密度から
 
 $$
-\frac{X}{X+Y}\sim Beta(\nu_1/2,\nu_2/2)
+M_{\chi^2_\nu}(t)
+=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}
+\int_0^\infty w^{\nu/2-1}e^{-(1/2-t)w}dw
+=(1-2t)^{-\nu/2}.
 $$
 
-で、$X+Y$と独立。平均は$\nu_1/(\nu_1+\nu_2)$。
+よって独立性から $M_{X+Y}=M_XM_Y$ となり $X+Y\sim\chi^2_{\nu_1+\nu_2}$。
+
+さらに $x=ut,y=(1-u)t$, $|J|=t$ と変換すると同時密度がカイ二乗密度とBeta密度の積に分解され、
+
+$$
+U\sim Beta(\nu_1/2,\nu_2/2),\qquad T\perp U.
+$$
+
+したがって $E[U]=\nu_1/(\nu_1+\nu_2)$。
 
 ## 採点基準
 
