@@ -1,0 +1,63 @@
+name: Repair statistical-mathematics form-feed corruption
+
+on:
+  push:
+    branches:
+      - fix/ci-katex-20260825
+    paths:
+      - '.github/workflows/repair-mathstat-formfeed.yml'
+      - 'statistical-mathematics/**'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/ci-katex-20260825
+
+      - name: Repair corrupted frac commands
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('statistical-mathematics')
+          repaired = 0
+          files = []
+          for path in root.rglob('*.md'):
+              text = path.read_text(encoding='utf-8')
+              count = text.count('\x0crac')
+              if not count:
+                  continue
+              path.write_text(text.replace('\x0crac', '\\frac'), encoding='utf-8')
+              repaired += count
+              files.append((str(path), count))
+
+          print(f'Repaired {repaired} corrupted \\frac command(s).')
+          for path, count in files:
+              print(f'  {path}: {count}')
+
+          remaining = []
+          for path in root.rglob('*.md'):
+              text = path.read_text(encoding='utf-8')
+              if '\x0c' in text:
+                  remaining.append(str(path))
+          if remaining:
+              raise SystemExit('Form-feed remains in: ' + ', '.join(remaining))
+          PY
+
+      - name: Commit repairs
+        run: |
+          if git diff --quiet -- statistical-mathematics; then
+            echo 'No repair needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add statistical-mathematics
+          git commit -m 'fix: restore corrupted frac commands'
+          git push origin HEAD:fix/ci-katex-20260825
