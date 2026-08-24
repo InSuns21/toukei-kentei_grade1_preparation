@@ -43,13 +43,22 @@ $$
 I-Q=\begin{pmatrix}0.5&-0.4\\-0.2&0.5\end{pmatrix}
 $$
 
-で行列式は $0.25-0.08=0.17$。したがって
+で行列式は
 
 $$
-N=\frac1{0.17}
-\begin{pmatrix}0.5&0.4\\0.2&0.5\end{pmatrix}
-=\frac1{17}
+0.5\cdot0.5-(-0.4)(-0.2)=0.25-0.08=0.17.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+N=(I-Q)^{-1}
+&=\frac1{0.17}
+\begin{pmatrix}0.5&0.4\\0.2&0.5\end{pmatrix}\\
+&=\frac1{17}
 \begin{pmatrix}50&40\\20&50\end{pmatrix}.
+\end{aligned}
 $$
 
 ### 3. 平均吸収時間
@@ -57,8 +66,13 @@ $$
 $\mathbf1=(1,1)^\top$ として
 
 $$
+\begin{aligned}
 t=N\mathbf1
-=\frac1{17}\begin{pmatrix}90\\70\end{pmatrix}.
+&=\frac1{17}
+\begin{pmatrix}50&40\\20&50\end{pmatrix}
+\begin{pmatrix}1\\1\end{pmatrix}\\
+&=\frac1{17}\begin{pmatrix}90\\70\end{pmatrix}.
+\end{aligned}
 $$
 
 よって
@@ -68,6 +82,8 @@ $$
 \qquad t_1=70/17\approx4.118}.
 $$
 
+小数化は不要で、$90/17,70/17$ までで十分である。
+
 ### 4. 吸収確率
 
 吸収確率行列は
@@ -76,14 +92,27 @@ $$
 B=NR.
 $$
 
-計算すると
+「計算すると」で行列積を飛ばさずに書けば
 
 $$
-B=rac1{17}
+\begin{aligned}
+B
+&=\frac1{17}
+\begin{pmatrix}50&40\\20&50\end{pmatrix}
+\begin{pmatrix}0.1&0\\0.1&0.2\end{pmatrix}\\
+&=\frac1{17}
+\begin{pmatrix}
+50(0.1)+40(0.1)&40(0.2)\\
+20(0.1)+50(0.1)&50(0.2)
+\end{pmatrix}\\
+&=\frac1{17}
 \begin{pmatrix}9&8\\7&10\end{pmatrix}.
+\end{aligned}
 $$
 
 したがって状態0から $(2,3)$ への吸収確率は $(9/17,8/17)$、状態1からは $(7/17,10/17)$。
+
+各行和が1であることも検算になる。
 
 ## 本番答案
 
@@ -116,4 +145,4 @@ $$
 - 平均吸収時間: 5点
 - 吸収確率: 5点
 
-25分経過時は $N$ を出したら、平均時間は $N\mathbf1$、吸収確率は $NR$ と機械的に処理する。
+25分経過時は $N$ を出したら、平均時間は $N\mathbf1$、吸収確率は $NR$ と機械的に処理する。復習時には小数値まで手計算する必要はない。
