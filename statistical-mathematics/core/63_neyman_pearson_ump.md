@@ -42,7 +42,7 @@ H_0:\lambda=\lambda_0
 H_1:\lambda=\lambda_1
 $$
 
-という**単純仮説対単純仮説**である。両分布は共通のLebesgue測度で支配され、共通支持は $(0,\infty)^n$。したがって **Neyman–Pearson補題**を適用できる。
+という**単純仮説対単純仮説**である。両分布は共通支持 $(0,\infty)^n$ 上で正の同時確率密度関数を持つので、尤度比 $L(\lambda_1;x)/L(\lambda_0;x)$ を支持全体で定義できる。したがって **Neyman–Pearson補題**を適用できる。
 
 尤度比は
 
@@ -100,7 +100,7 @@ $$
 
 ## 本番答案
 
-固定 $\lambda_1<\lambda_0$ では単純対単純で、両分布は共通支持 $(0,\infty)^n$ 上のLebesgue密度を持つ。よって **Neyman–Pearson補題**を適用できる。
+固定 $\lambda_1<\lambda_0$ では単純対単純で、両分布は共通支持 $(0,\infty)^n$ 上で正の確率密度関数を持つ。よって **Neyman–Pearson補題**を適用できる。
 
 $$
 \frac{L(\lambda_1)}{L(\lambda_0)}
