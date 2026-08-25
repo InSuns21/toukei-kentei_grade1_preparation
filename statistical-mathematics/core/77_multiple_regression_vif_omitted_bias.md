@@ -120,7 +120,7 @@ $$
 モデル $y=X\beta+\varepsilon$ を代入すると
 
 $$
-\widehat\beta-eta
+\widehat\beta-\beta
 =(X^\top X)^{-1}X^\top\varepsilon.
 $$
 
