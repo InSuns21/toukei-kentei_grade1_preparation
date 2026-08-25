@@ -24,10 +24,17 @@ $$
 
 ## 詳細解答
 
-この分布は$\operatorname{Beta}(\theta+1,1)$なので
+### 1. 母モーメントとモーメント推定量
+
+定義から
 
 $$
-E[X]=\frac{\theta+1}{\theta+2}=:m.
+\begin{aligned}
+E[X]
+&=\int_0^1x(\theta+1)x^\theta\,dx\\
+&=(\theta+1)\int_0^1x^{\theta+1}\,dx\\
+&=\frac{\theta+1}{\theta+2}=:m.
+\end{aligned}
 $$
 
 $m$について解くと
@@ -45,21 +52,63 @@ $$
 }.
 $$
 
-大数の法則で$\bar X\to_p m$、$g$は$m<1$で連続なので連続写像定理より$\widetilde\theta\to_p\theta$。
+### 2. 一致性：大数の法則と連続写像定理
 
-分散はBeta分布公式から
-
-$$
-Var(X)=\frac{\theta+1}{(\theta+2)^2(\theta+3)}.
-$$
-
-また
+**弱大数の法則**を使う。必要条件として本問で確認すべきなのは、$X_i$ がi.i.d.で $E|X_i|<\infty$ であること。本問では $0<X_i<1$ なので可積分であり、
 
 $$
-g'(m)=\frac1{(1-m)^2}=(\theta+2)^2.
+\bar X\to_p m.
 $$
 
-Delta法より
+次に **連続写像定理**を使う。$g(x)=(2x-1)/(1-x)$ は $x=1$ 以外で連続であり、
+
+$$
+m=\frac{\theta+1}{\theta+2}<1
+$$
+
+だから真値 $m$ で連続。従って
+
+$$
+\widetilde\theta=g(\bar X)\to_p g(m)=\theta.
+$$
+
+### 3. CLTとDelta法
+
+まず二次モーメントを定義から計算する。
+
+$$
+E[X^2]
+=(\theta+1)\int_0^1x^{\theta+2}\,dx
+=\frac{\theta+1}{\theta+3}.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+\operatorname{Var}(X)
+&=\frac{\theta+1}{\theta+3}
+-\left(\frac{\theta+1}{\theta+2}\right)^2\\
+&=\frac{\theta+1}{(\theta+2)^2(\theta+3)}.
+\end{aligned}
+$$
+
+$X_i$ はi.i.d.で有限分散を持つので **Lindeberg–Lévyの中心極限定理**から
+
+$$
+\sqrt n(\bar X-m)
+\Rightarrow N\left(0,\operatorname{Var}(X)\right).
+$$
+
+ここで **Delta法**を使う。必要条件は $g$ が真値 $m$ で微分可能であること。本問では $m<1$ なので成立し、
+
+$$
+g'(x)=\frac1{(1-x)^2},
+\qquad
+g'(m)=(\theta+2)^2.
+$$
+
+従って
 
 $$
 \boxed{
@@ -71,31 +120,49 @@ N\left(0,
 }.
 $$
 
+### 4. MLEの漸近正規性
+
 対数尤度は
 
 $$
 \ell(\theta)
-=n\log(\theta+1)+\theta\sum\log X_i.
+=n\log(\theta+1)+\theta\sum_i\log X_i.
 $$
 
-1標本Fisher情報は
-
 $$
-I_1(\theta)=\frac1{(\theta+1)^2}.
-$$
-
-従ってMLEの$\sqrt n$スケールの漸近分散は
-
-$$
-(\theta+1)^2.
+\ell'(\theta)=\frac n{\theta+1}+\sum_i\log X_i,
+\qquad
+\ell''(\theta)=-\frac n{(\theta+1)^2}<0.
 $$
 
-分散比は
+したがって
+
+$$
+\widehat\theta_{MLE}
+=-\frac{n}{\sum_i\log X_i}-1.
+$$
+
+1標本Fisher情報量は
+
+$$
+I_1(\theta)
+=-E\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right]
+=\frac1{(\theta+1)^2}.
+$$
+
+**正則MLEの漸近正規性定理**を使う条件を確認する。真値 $\theta>-1$ は開母数空間 $(-1,\infty)$ の内部点、支持 $(0,1)$ は母数非依存、モデルは識別可能、対数密度は真値近傍で滑らか、情報量は有限正である。従って
+
+$$
+\sqrt n(\widehat\theta_{MLE}-\theta)
+\Rightarrow N\left(0,(\theta+1)^2\right).
+$$
+
+モーメント法との漸近分散比は
 
 $$
 \frac{(\theta+1)(\theta+2)^2/(\theta+3)}{(\theta+1)^2}
 =\frac{(\theta+2)^2}{(\theta+1)(\theta+3)}
->1.
+=1+\frac1{(\theta+1)(\theta+3)}>1.
 $$
 
 よってMLEの方が漸近的に効率的。
@@ -103,7 +170,7 @@ $$
 ## 本番答案
 
 $$
-E[X]=(\theta+1)/(\theta+2)
+E[X]=\frac{\theta+1}{\theta+2}
 $$
 
 より
@@ -112,26 +179,20 @@ $$
 \tilde\theta=\frac{2\bar X-1}{1-\bar X}.
 $$
 
-LLNと連続写像定理で一致。
+$0<X<1$ なので可積分なi.i.d.標本。**LLN**で $\bar X\to_p m$、$g$ は $m<1$ で連続なので **連続写像定理**から一致。
 
-$$
-Var(X)=\frac{\theta+1}{(\theta+2)^2(\theta+3)},
-\quad
-g'(m)=(\theta+2)^2
-$$
-
-なので
+さらに有限分散なので **CLT**、$g$ は $m$ で微分可能なので **Delta法**を使え、
 
 $$
 Avar\{\sqrt n(\tilde\theta-\theta)\}
 =\frac{(\theta+1)(\theta+2)^2}{\theta+3}.
 $$
 
-MLEは$I_1(\theta)=1/(\theta+1)^2$より漸近分散$(\theta+1)^2$で、こちらの方が小さい。
+MLEは支持母数非依存、真値内部、滑らか、$I_1(\theta)=1/(\theta+1)^2>0$ なので **正則MLE漸近正規性定理**から漸近分散 $(\theta+1)^2$。こちらが小さい。
 
 ## 採点基準
 
 - モーメント推定量: 5点
-- 一致性: 4点
-- Delta法: 7点
-- MLEとの比較: 4点
+- 一致性（LLN・連続写像の条件）: 4点
+- CLT・Delta法と条件確認: 7点
+- MLE正則性・漸近分散比較: 4点
