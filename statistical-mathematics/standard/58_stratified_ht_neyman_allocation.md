@@ -29,7 +29,7 @@ $$
 =\sum_hW_h^2\left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}.
 $$
 
-各層内の包含確率は $\pi_{hi}=n_h/N_h$。従って総計のHT推定量は
+各層内の包含確率は $\pi_{hi}=n_h/N_h$。従って総計のHorvitz–Thompson推定量は
 
 $$
 \widehat Y_{HT}
@@ -59,11 +59,11 @@ $$
 Var(\bar y_{st})=\sum_hW_h^2(1-f_h)S_h^2/n_h.
 $$
 
-HT総計は $\sum_{h,i\in s_h}y_{hi}/\pi_{hi}$。等単価なら Neyman配分 $n_h\propto N_hS_h$。例では $12,48$。
+Horvitz–Thompson総計は $\sum_{h,i\in s_h}y_{hi}/\pi_{hi}$。等単価なら Neyman配分 $n_h\propto N_hS_h$。例では $12,48$。
 
 ## 採点基準
 
 - 層化平均・分散: 6点
-- HT推定量: 5点
+- Horvitz–Thompson推定量: 5点
 - Neyman配分導出: 6点
 - 数値配分: 3点

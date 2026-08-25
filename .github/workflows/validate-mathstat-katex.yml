@@ -1,4 +1,4 @@
-name: Validate statistical-mathematics KaTeX
+name: Validate statistical-mathematics
 
 on:
   push:
@@ -6,20 +6,24 @@ on:
       - main
     paths:
       - 'statistical-mathematics/**'
+      - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
+      - 'scripts/validate_exercise_style.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-mathstat-katex.yml'
   pull_request:
     paths:
       - 'statistical-mathematics/**'
+      - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
+      - 'scripts/validate_exercise_style.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-mathstat-katex.yml'
 
 jobs:
-  validate-katex:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,3 +40,6 @@ jobs:
 
       - name: Validate statistical-mathematics KaTeX
         run: npm run validate:mathstat
+
+      - name: Validate shared exercise terminology
+        run: npm run validate:exercise-style

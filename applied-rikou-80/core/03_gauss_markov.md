@@ -1,4 +1,4 @@
-# Core 03 Gauss–Markov定理とBLUE
+# Core 03 Gauss–Markov定理と最良線形不偏推定量
 
 - 安定ID: `RIKOU-CORE-03`
 - 80大問 No.: 32
@@ -16,7 +16,7 @@ $$
 
 を考える。正規性は仮定しない。$X$ は列フルランクとする。
 
-1. OLS推定量 $\hat\beta=(X^\top X)^{-1}X^\top y$ が線形不偏であることを示せ。
+1. 通常最小二乗法推定量 $\hat\beta=(X^\top X)^{-1}X^\top y$ が線形不偏であることを示せ。
 2. 任意の線形不偏推定量 $\tilde\beta=Ay$ に対して $AX=I_p$ が必要十分であることを示せ。
 3. $A=A_0+D$, $A_0=(X^\top X)^{-1}X^\top$ とおき、$DX=0$ を示せ。
 4. $\operatorname{Var}(\tilde\beta)-\operatorname{Var}(\hat\beta)$ が半正定値であることを示し、Gauss–Markov定理を述べよ。
@@ -24,7 +24,7 @@ $$
 
 ## 詳細解答
 
-### 1. OLSの不偏性
+### 1. 通常最小二乗法の不偏性
 
 $\hat\beta=A_0y$ は $y$ の線形関数である。また
 
@@ -76,7 +76,7 @@ $$
 \boxed{\operatorname{Var}(\tilde\beta)-\operatorname{Var}(\hat\beta)=\sigma^2DD^\top\succeq0}.
 $$
 
-したがって OLS はすべての線形不偏推定量の中で分散共分散行列が最小、すなわち BLUE である。
+したがって 通常最小二乗法 はすべての線形不偏推定量の中で分散共分散行列が最小、すなわち 最良線形不偏推定量 である。
 
 ### 5. 線形関数
 
@@ -84,20 +84,20 @@ $c^\top\hat\beta$ は $c^\top\beta$ の線形不偏推定量であり、任意�
 
 ## 本番答案
 
-$A_0=(X^\top X)^{-1}X^\top$ とすると $A_0X=I$ なので OLS は線形不偏。任意の線形不偏推定量 $Ay$ は $AX=I$ を満たす。$D=A-A_0$ とおけば $DX=0$ であり、したがって $A_0D^\top=0$。よって
+$A_0=(X^\top X)^{-1}X^\top$ とすると $A_0X=I$ なので 通常最小二乗法 は線形不偏。任意の線形不偏推定量 $Ay$ は $AX=I$ を満たす。$D=A-A_0$ とおけば $DX=0$ であり、したがって $A_0D^\top=0$。よって
 
 $$
 \operatorname{Var}(Ay)-\operatorname{Var}(A_0y)
 =\sigma^2DD^\top\succeq0.
 $$
 
-ゆえに OLS は BLUE。特に $c^\top\hat\beta$ は $c^\top\beta$ の最良線形不偏推定量である。
+ゆえに 通常最小二乗法 は 最良線形不偏推定量。特に $c^\top\hat\beta$ は $c^\top\beta$ の最良線形不偏推定量である。
 
 ## 採点基準
 
 - (1)(2) 線形不偏条件: 5点
 - (3) $DX=0$ と交差項消失: 5点
-- (4) 半正定値差とBLUE: 8点
+- (4) 半正定値差と最良線形不偏推定量: 8点
 - (5) 線形関数への帰結: 2点
 
 25分経過時は「$D=A-A_0$, $DX=0$, 分散差 $=\sigma^2DD^\top$」の3行を必ず残す。

@@ -1,4 +1,4 @@
-# Core 25 Weibull寿命モデル・MLE・デルタ法
+# Core 25 Weibull寿命モデル・最尤推定量・デルタ法
 
 - 安定ID: `RIKOU-CORE-25`
 - 80大問 No.: 03
@@ -17,7 +17,7 @@ $$
 から完全データ $T_1,\dots,T_n$ を得る。$\theta=\eta^k$ とおく。
 
 1. $Y_i=T_i^k$ の分布を求めよ。
-2. $\theta$ のMLEを求め、それから $\eta$ のMLEを求めよ。
+2. $\theta$ の最尤推定量を求め、それから $\eta$ の最尤推定量を求めよ。
 3. $\hat\theta$ の漸近分布を求め、デルタ法により $\hat\eta$ の漸近分散を求めよ。
 4. 時刻 $t_0$ における信頼度 $R(t_0)$ の推定量と、その漸近分散をデルタ法で求めよ。
 
@@ -39,15 +39,15 @@ $$
 \boxed{Y_i\sim\operatorname{Exponential}(\text{mean }\theta)}.
 $$
 
-### 2. MLE
+### 2. 最尤推定量
 
-指数分布の平均母数 $\theta$ のMLEは標本平均なので
+指数分布の平均母数 $\theta$ の最尤推定量は標本平均なので
 
 $$
 \boxed{\hat\theta=\frac1n\sum_{i=1}^nT_i^k}.
 $$
 
-$\eta=\theta^{1/k}$ だからMLEの不変性より
+$\eta=\theta^{1/k}$ だから最尤推定量の不変性より
 
 $$
 \boxed{\hat\eta=\left(\frac1n\sum T_i^k\right)^{1/k}}.
@@ -132,7 +132,7 @@ $$
 ## 採点基準
 
 - 指数分布への変換: 5点
-- MLE: 5点
+- 最尤推定量: 5点
 - $\eta$ のデルタ法: 5点
 - 信頼度のデルタ法: 5点
 

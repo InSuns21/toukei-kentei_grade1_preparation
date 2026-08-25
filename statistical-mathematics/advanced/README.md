@@ -4,7 +4,7 @@ Advanced層の大問を1題1ファイルで管理する。各題は「問題・�
 
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 |
 | ---: | ---: | :---: | :---: | --- |
-| 01 | 17 | A | S | [二項PGF・Chernoff型評価](17_binomial_pgf_chernoff.md) |
+| 01 | 17 | A | S | [二項確率母関数・Chernoff型評価](17_binomial_pgf_chernoff.md) |
 | 02 | 23 | B | A | [切断正規・平均・分散](23_truncated_normal_moments.md) |
 | 03 | 24 | A | S | [特性関数による中心極限定理](24_characteristic_function_clt.md) |
 | 04 | 31 | S | S | [等相関行列・精度行列・偏相関](31_equicorrelation_precision_partial.md) |
@@ -14,9 +14,9 @@ Advanced層の大問を1題1ファイルで管理する。各題は「問題・�
 | 08 | 37 | B | S | [逐次残差化・Cholesky標準化](37_cholesky_residualization.md) |
 | 09 | 38 | B | A | [非心Mahalanobis二次形式](38_noncentral_mahalanobis.md) |
 | 10 | 39 | S | S | [条件付き正規公式の平方完成導出](39_conditional_normal_square_completion.md) |
-| 11 | 51 | A | S | [位置母数付き指数・非正則2母数MLE](51_shifted_exponential_nonregular_mle.md) |
-| 12 | 61 | A | S | [2成分Poisson混合・EM](61_poisson_mixture_em.md) |
-| 13 | 64 | S | S | [母平均の両側UMPU](64_two_sided_umpu_mean.md) |
+| 11 | 51 | A | S | [位置母数付き指数・非正則2母数最尤推定量](51_shifted_exponential_nonregular_mle.md) |
+| 12 | 61 | A | S | [2成分Poisson混合・期待値最大化法](61_poisson_mixture_em.md) |
+| 13 | 64 | S | S | [母平均の両側一様最強力不偏検定](64_two_sided_umpu_mean.md) |
 | 14 | 69 | B | A | [Cauchy単純対単純Neyman–Pearson検定](69_cauchy_np_test.md) |
 | 15 | 76 | S | S | [射影・Cochran・予測誤差](76_projection_cochran_prediction.md) |
 | 16 | 93 | B | A | [重点サンプリング](93_importance_sampling.md) |

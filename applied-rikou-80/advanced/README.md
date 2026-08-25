@@ -9,11 +9,11 @@
 | 16 | [非斉次Poisson過程](16_nhpp.md) |
 | 21 | [Brown運動・反射原理](21_brownian_reflection.md) |
 | 30 | [状態空間・Kalman更新](30_state_space.md) |
-| 42 | [二元配置ANOVA](42_twoway_anova.md) |
+| 42 | [二元配置分散分析](42_twoway_anova.md) |
 | 53 | [中心複合計画](53_central_composite.md) |
 | 55 | [I最適計画](55_i_optimal.md) |
 | 59 | [過分散管理図](59_overdispersion_control.md) |
-| 63 | [CUSUM・EWMA](63_cusum_ewma.md) |
+| 63 | [累積和・指数加重移動平均](63_cusum_ewma.md) |
 | 64 | [保全性・可用率](64_maintenance_availability.md) |
 | 68 | [主成分分析](68_pca.md) |
 | 69 | [線形判別分析](69_lda.md) |

@@ -1,4 +1,4 @@
-# Standard 25 ANCOVA・調整済み処置効果
+# Standard 25 共分散分析・調整済み処置効果
 
 - 旧No.: 82
 - 層: Standard
@@ -9,7 +9,7 @@
 
 ## 問題
 
-2群のANCOVAモデル
+2群の共分散分析モデル
 
 $$
 Y_{ij}=\mu+\tau_i+\beta(X_{ij}-\bar X_{..})+\varepsilon_{ij}

@@ -1,4 +1,4 @@
-# Standard 09 多項分布・共分散行列・多変量CLT
+# Standard 09 多項分布・共分散行列・多変量中心極限定理
 
 - 旧No.: 21
 - 層: Standard
@@ -12,7 +12,7 @@
 $(N_1,\ldots,N_k)\sim\operatorname{Multinomial}(n;p_1,\ldots,p_k)$, $\hat p_i=N_i/n$ とする。
 
 1. $\hat p$ の共分散行列を求めよ。
-2. 多変量CLTを書け。
+2. 多変量中心極限定理を書け。
 3. 共分散行列が特異になる理由を説明せよ。
 4. $k=3$, $p=(1/2,1/3,1/6)$ のとき $\sqrt n(\hat p_1-\hat p_2-(p_1-p_2))$ の漸近分散を求めよ。
 
@@ -61,9 +61,9 @@ $$
 \boxed{\operatorname{Cov}(\hat p)=\frac1n\Sigma}.
 $$
 
-### 2. 多変量CLT
+### 2. 多変量中心極限定理
 
-$Z_1,\ldots,Z_n$ はi.i.d.で平均 $p$、共分散 $\Sigma$ なので多変量CLTから
+$Z_1,\ldots,Z_n$ は独立同分布で平均 $p$、共分散 $\Sigma$ なので多変量中心極限定理から
 
 $$
 \boxed{\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma)}.
@@ -117,7 +117,7 @@ $$
 \Sigma=diag(p)-pp^T,\qquad Cov(\hat p)=\Sigma/n.
 $$
 
-多変量CLTより $\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma)$。また $\Sigma\mathbf1=0$ なので特異。$a=(1,-1,0)^T$ では
+多変量中心極限定理より $\sqrt n(\hat p-p)\Rightarrow N_k(0,\Sigma)$。また $\Sigma\mathbf1=0$ なので特異。$a=(1,-1,0)^T$ では
 
 $$
 a^T\Sigma a=p_1+p_2-(p_1-p_2)^2=29/36.
@@ -126,6 +126,6 @@ $$
 ## 採点基準
 
 - 共分散行列: 6点
-- 多変量CLT: 5点
+- 多変量中心極限定理: 5点
 - 特異性: 4点
 - コントラスト分散: 5点

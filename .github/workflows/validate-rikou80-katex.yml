@@ -1,4 +1,4 @@
-name: Validate rikou80 KaTeX
+name: Validate rikou80
 
 on:
   push:
@@ -6,20 +6,24 @@ on:
       - main
     paths:
       - 'applied-rikou-80/**'
+      - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
+      - 'scripts/validate_exercise_style.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-rikou80-katex.yml'
   pull_request:
     paths:
       - 'applied-rikou-80/**'
+      - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
+      - 'scripts/validate_exercise_style.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-rikou80-katex.yml'
 
 jobs:
-  validate-katex:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,3 +40,6 @@ jobs:
 
       - name: Validate applied-rikou-80 KaTeX
         run: npm run validate:rikou80
+
+      - name: Validate shared exercise terminology
+        run: npm run validate:exercise-style

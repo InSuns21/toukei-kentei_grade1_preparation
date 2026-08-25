@@ -157,11 +157,11 @@ Var(T)=4\mu^2\frac{\sigma^2}{n}
 +2\left(\frac{\sigma^2}{n}\right)^2.
 $$
 
-$g(\mu)=\mu^2$ のCR下限は $4\mu^2\sigma^2/n$。$\mu=0$ では下限0で退化する。
+$g(\mu)=\mu^2$ のCramér–Rao下限は $4\mu^2\sigma^2/n$。$\mu=0$ では下限0で退化する。
 
 ## 採点基準
 
 - Fisher情報量: 4点
 - Cramér–Raoの定理名・条件確認・$\bar X$の効率性: 5点
 - $T$の不偏性と分散: 7点
-- CR下限との比較・退化点: 4点
+- Cramér–Rao下限との比較・退化点: 4点
