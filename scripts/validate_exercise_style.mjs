@@ -76,6 +76,7 @@ const replacements = new Map([
   ['CCD', '中心複合計画'],
   ['CR', 'Cramér–Rao'],
   ['EMS', '期待平均平方'],
+  ['EMS2', '期待平均平方2本など文脈を明示'],
   ['KM', 'Kaplan–Meier'],
   ['MMSE', '最小平均二乗誤差'],
   ['BM', 'ブラウン運動'],
@@ -88,6 +89,7 @@ const replacements = new Map([
   ['SRS', '単純無作為抽出'],
   ['YW', 'Yule–Walker'],
   ['R2', '決定係数'],
+  ['LS', 'Lehmann–Scheffé定理／最小二乗法など文脈に応じた正式名称'],
 ]);
 
 const errors = [];
