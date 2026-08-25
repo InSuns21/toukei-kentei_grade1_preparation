@@ -15,12 +15,16 @@ jobs:
   normalize:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout working branch
+      - name: Checkout working branch with history
         uses: actions/checkout@v4
         with:
           ref: chore/unify-exercise-guidelines
+          fetch-depth: 0
 
-      - name: Normalize learner-facing terminology
+      - name: Ensure main reference exists
+        run: git fetch origin main:refs/remotes/origin/main
+
+      - name: Normalize learner-facing prose only
         run: node scripts/normalize_exercise_terms.mjs
 
       - name: Commit normalized exercise text
@@ -31,6 +35,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No normalization changes needed."
           else
-            git commit -m "style: expand non-obvious statistical abbreviations"
+            git commit -m "style: normalize learner-facing statistical terminology"
             git push origin HEAD:chore/unify-exercise-guidelines
           fi
