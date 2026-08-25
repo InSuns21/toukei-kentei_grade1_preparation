@@ -8,7 +8,7 @@
 
 ## 問題
 
-平均0の自己回帰(1) $X_t=\phi X_{t-1}+\varepsilon_t$ を考える。観測 $x_1,\ldots,x_n$ がある。
+平均0のAR(1) $X_t=\phi X_{t-1}+\varepsilon_t$ を考える。観測 $x_1,\ldots,x_n$ がある。
 
 1. Yule–Walker推定量を標本自己共分散で書け。
 2. 条件付き最小二乗推定量を求めよ。

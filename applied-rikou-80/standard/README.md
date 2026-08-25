@@ -12,7 +12,7 @@ Core 40の次に解く20大問。各題20〜30分、4〜6小問、問題・詳�
 | 15 | [Poisson条件付き到着時刻](15_poisson_order_stats.md) |
 | 20 | [ランダムウォーク](20_random_walk_gambler_ruin.md) |
 | 25 | [自己相関関数/偏自己相関関数識別](25_acf_pacf_identification.md) |
-| 26 | [自己回帰移動平均(1,1)](26_arma11.md) |
+| 26 | [ARMA(1,1)](26_arma11.md) |
 | 29 | [自己回帰係数推定](29_ar_estimation.md) |
 | 37 | [Frisch–Waugh–Lovell](37_fwl.md) |
 | 38 | [多重共線性・回帰診断](38_multicollinearity_diagnostics.md) |

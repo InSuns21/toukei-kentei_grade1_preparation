@@ -19,7 +19,7 @@
 | 69 | [線形判別分析](69_lda.md) |
 | 70 | [白色化変換](70_whitening.md) |
 | 75 | [逆関数法・棄却法](75_random_generation.md) |
-| 76 | [マルコフ連鎖モンテカルロ法・詳細釣り合い](76_mcmc.md) |
+| 76 | [MCMC・詳細釣り合い](76_mcmc.md) |
 | 77 | [層化抽出](77_stratified_sampling.md) |
 | 78 | [二段階抽出](78_two_stage_sampling.md) |
 | 79 | [サンプルサイズ設計](79_sample_size_design.md) |
