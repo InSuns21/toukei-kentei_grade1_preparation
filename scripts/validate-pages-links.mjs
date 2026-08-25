@@ -44,6 +44,42 @@ function normalizeInternalHref(href) {
   return normalized;
 }
 
+function isTieredExerciseTarget(target) {
+  return books.some((book) =>
+    sections.some((section) => target.startsWith(`${book}/${section}/`)),
+  );
+}
+
+async function validateRootOrientedLinks(markdown, sourceLabel, errors, targets = null) {
+  const hrefs = extractLinks(markdown);
+
+  for (const href of hrefs) {
+    let normalized;
+    try {
+      normalized = normalizeInternalHref(href);
+    } catch (error) {
+      errors.push(`${sourceLabel}: ${error.message}`);
+      continue;
+    }
+    if (!normalized) continue;
+
+    if (targets) targets.add(normalized);
+
+    const target = path.resolve(siteDir, ...normalized.split('/'));
+    const siteRoot = path.resolve(siteDir) + path.sep;
+    if (target !== path.resolve(siteDir) && !target.startsWith(siteRoot)) {
+      errors.push(`${sourceLabel}: link escapes _site: ${href}`);
+      continue;
+    }
+
+    if (!(await exists(target))) {
+      errors.push(`${sourceLabel}: link does not resolve to a generated file: ${href}`);
+    }
+  }
+
+  return hrefs.length;
+}
+
 await access(sidebarPath);
 await access(indexPath);
 
@@ -53,7 +89,7 @@ const [sidebar, indexHtml] = await Promise.all([
 ]);
 
 const errors = [];
-const resolvedTargets = new Set();
+const resolvedSidebarTargets = new Set();
 const duplicateTargets = new Set();
 
 // The 2026-08-25 regression was caused by Docsify resolving root-oriented
@@ -65,19 +101,19 @@ if (/\brelativePath\s*:\s*true\b/.test(indexHtml)) {
   );
 }
 
-const hrefs = extractLinks(sidebar);
-for (const href of hrefs) {
+const sidebarHrefs = extractLinks(sidebar);
+for (const href of sidebarHrefs) {
   let normalized;
   try {
     normalized = normalizeInternalHref(href);
   } catch (error) {
-    errors.push(error.message);
+    errors.push(`sidebar: ${error.message}`);
     continue;
   }
   if (!normalized) continue;
 
-  if (resolvedTargets.has(normalized)) duplicateTargets.add(normalized);
-  resolvedTargets.add(normalized);
+  if (resolvedSidebarTargets.has(normalized)) duplicateTargets.add(normalized);
+  resolvedSidebarTargets.add(normalized);
 
   const target = path.resolve(siteDir, ...normalized.split('/'));
   const siteRoot = path.resolve(siteDir) + path.sep;
@@ -108,19 +144,40 @@ for (const book of books) {
 }
 
 for (const expected of expectedExerciseTargets) {
-  if (!resolvedTargets.has(expected)) {
+  if (!resolvedSidebarTargets.has(expected)) {
     errors.push(`generated exercise is missing from sidebar: ${expected}`);
   }
 }
 
-const sidebarExerciseTargets = [...resolvedTargets].filter((target) =>
-  books.some((book) => sections.some((section) => target.startsWith(`${book}/${section}/`))),
-);
-
+const sidebarExerciseTargets = [...resolvedSidebarTargets].filter(isTieredExerciseTarget);
 if (sidebarExerciseTargets.length !== expectedExerciseTargets.size) {
   errors.push(
     `sidebar exercise count mismatch: sidebar=${sidebarExerciseTargets.length}, generated=${expectedExerciseTargets.size}`,
   );
+}
+
+// The repository-source index files intentionally use links such as core/foo.md
+// so they work when browsing Markdown on GitHub. With Docsify relativePath:false,
+// the generated Pages copies must instead use site-root-oriented links such as
+// statistical-mathematics/core/foo.md. Validate the generated copies, not the
+// source Markdown, so the two use cases can coexist safely.
+let indexLinkCount = 0;
+for (const book of books) {
+  const generatedIndexPath = path.join(siteDir, book, 'index.md');
+  const generatedIndex = await readFile(generatedIndexPath, 'utf8');
+  const hrefs = extractLinks(generatedIndex);
+  indexLinkCount += hrefs.length;
+
+  for (const href of hrefs) {
+    const pathOnly = href.split('#', 1)[0].split('?', 1)[0];
+    if (sections.some((section) => pathOnly.startsWith(`${section}/`))) {
+      errors.push(
+        `${book}/index.md: tier link is still directory-relative under Docsify relativePath:false: ${href}`,
+      );
+    }
+  }
+
+  await validateRootOrientedLinks(generatedIndex, `${book}/index.md`, errors);
 }
 
 if (errors.length > 0) {
@@ -130,6 +187,6 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `GitHub Pages link validation passed: ${hrefs.length} sidebar links, ${expectedExerciseTargets.size} tiered exercises.`,
+  `GitHub Pages link validation passed: ${sidebarHrefs.length} sidebar links, ${indexLinkCount} index links, ${expectedExerciseTargets.size} tiered exercises.`,
 );
-console.log('Docsify route safety passed: relativePath is not enabled.');
+console.log('Docsify route safety passed: relativePath is not enabled and generated index links are site-root oriented.');
