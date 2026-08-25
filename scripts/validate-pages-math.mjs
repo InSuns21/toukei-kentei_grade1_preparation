@@ -93,14 +93,24 @@ assert.match(
 );
 
 const regressionMath = decodedMath(regressionMarkdown);
-const conditionalCovariance = regressionMath.find((tex) => tex.includes(String.raw`\Sigma_{W\mid X}`));
-assert.ok(conditionalCovariance, 'Regression page must expose the conditional-covariance display formula.');
+const firstMatrix = String.raw`\begin{pmatrix}1&1/4\\1/4&1\end{pmatrix}`;
+const finalMatrix = String.raw`\begin{pmatrix}3/4&0\\0&3/4\end{pmatrix}`;
+const conditionalCovariance = regressionMath.find(
+  (tex) =>
+    tex.includes(String.raw`\Sigma_{W\mid X}`) &&
+    tex.includes(firstMatrix) &&
+    tex.includes(finalMatrix),
+);
 assert.ok(
-  conditionalCovariance.includes(String.raw`\begin{pmatrix}1&1/4\\1/4&1\end{pmatrix}`),
+  conditionalCovariance,
+  'Regression page must preserve the full conditional-covariance matrix calculation.',
+);
+assert.ok(
+  conditionalCovariance.includes(firstMatrix),
   'Regression page must preserve the first pmatrix including its row separator.',
 );
 assert.ok(
-  conditionalCovariance.includes(String.raw`\begin{pmatrix}3/4&0\\0&3/4\end{pmatrix}`),
+  conditionalCovariance.includes(finalMatrix),
   'Regression page must preserve the final pmatrix including its row separator.',
 );
 
