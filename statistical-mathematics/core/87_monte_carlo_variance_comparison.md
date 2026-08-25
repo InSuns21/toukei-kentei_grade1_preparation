@@ -8,7 +8,7 @@
 
 ## 問題
 
-標準正規密度を$\phi$とし
+標準正規密度を $\phi$ とし
 
 $$
 \theta=P(0\le Z\le1)=0.3413447
@@ -51,81 +51,127 @@ $$
 
 ## 詳細解答
 
-方法1の指示変数はBernoulli$(\theta)$なので
+### 1. 3推定量の不偏性
+
+方法1で $I_i=1\{0\le Z_i\le1\}$ とおくと $P(I_i=1)=\theta$ なので
 
 $$
-\boxed{
-Var(\widehat\theta_1)
+E[\widehat\theta_1]=\frac1n\sum E[I_i]=\theta.
+$$
+
+方法2で $J_i=1\{|Z_i|\le1\}$ とおく。標準正規分布は0について対称だから
+
+$$
+P(J_i=1)=P(-1\le Z_i\le1)=2\theta.
+$$
+
+従って
+
+$$
+E[\widehat\theta_2]=\frac1{2n}\sum E[J_i]=\theta.
+$$
+
+方法3では一様分布の密度が $(0,1)$ で1なので
+
+$$
+E[\phi(U_i)]=\int_0^1\phi(u)du=\theta,
+$$
+
+よって $E[\widehat\theta_3]=\theta$。したがって3推定量はすべて不偏である。
+
+### 2. それぞれの分散
+
+#### 方法1
+
+$I_i\sim\operatorname{Bernoulli}(\theta)$ なので
+
+$$
+\operatorname{Var}(I_i)=\theta(1-\theta).
+$$
+
+独立性から
+
+$$
+\operatorname{Var}(\widehat\theta_1)
 =\frac{\theta(1-\theta)}n
-\approx\frac{0.22483}{n}
-}.
+\approx\boxed{\frac{0.22483}{n}}.
 $$
 
-方法2では$P(|Z|\le1)=2\theta$。従って
+#### 方法2
+
+$J_i\sim\operatorname{Bernoulli}(2\theta)$ なので
 
 $$
-E[\widehat\theta_2]=\frac12(2\theta)=\theta,
+\operatorname{Var}(J_i)=(2\theta)(1-2\theta).
 $$
 
+従って
+
 $$
-\boxed{
-Var(\widehat\theta_2)
-=\frac{1}{4n}(2\theta)(1-2\theta)
+\operatorname{Var}(\widehat\theta_2)
+=\frac{(2\theta)(1-2\theta)}{4n}
 =\frac{\theta(1-2\theta)}{2n}
-\approx\frac{0.05416}{n}
-}.
+\approx\boxed{\frac{0.05416}{n}}.
 $$
 
-方法3は
+#### 方法3
+
+1回の分散は
 
 $$
-E[\phi(U)]=\int_0^1\phi(u)du=\theta
+\begin{aligned}
+\operatorname{Var}(\phi(U_i))
+&=E[\phi(U_i)^2]-E[\phi(U_i)]^2\\
+&=\int_0^1\phi(u)^2du-\theta^2\\
+&=0.118861-\theta^2.
+\end{aligned}
 $$
 
-なので不偏。また
+独立性から
 
 $$
-Var(\phi(U))
-=\int_0^1\phi(u)^2du-\theta^2
-$$
-
-より
-
-$$
-\boxed{
-Var(\widehat\theta_3)
+\operatorname{Var}(\widehat\theta_3)
 =\frac{0.118861-\theta^2}{n}
-\approx\frac{0.002345}{n}
-}.
+\approx\boxed{\frac{0.002345}{n}}.
 $$
 
-従って方法3が圧倒的に小分散。重要なのは「同じ期待値表示でも、指示変数より滑らかな被積分関数を平均した方が分散を下げられる」点である。
+### 3. 分散係数の比較
+
+各分散は $c/n$ の形なので係数
+
+$$
+0.22483,\qquad0.05416,\qquad0.002345
+$$
+
+を比較すればよい。従って
+
+$$
+\boxed{\operatorname{Var}(\widehat\theta_3)<\operatorname{Var}(\widehat\theta_2)<\operatorname{Var}(\widehat\theta_1)}
+$$
+
+で、方法3が最も効率的である。
 
 ## 本番答案
 
-方法1はBernoulli$(\theta)$より
+$E[I_i]=\theta$、$E[J_i]=2\theta$、$E[\phi(U_i)]=\int_0^1\phi(u)du=\theta$ より3推定量はすべて不偏。独立性から
 
 $$
-Var(\hat\theta_1)=\theta(1-\theta)/n\approx0.22483/n.
+\operatorname{Var}(\widehat\theta_1)=\frac{\theta(1-\theta)}n,
 $$
 
-方法2は$P(|Z|\le1)=2\theta$より
-
 $$
-Var(\hat\theta_2)=\theta(1-2\theta)/(2n)\approx0.05416/n.
+\operatorname{Var}(\widehat\theta_2)=\frac{(2\theta)(1-2\theta)}{4n},
 $$
 
-方法3は$E[\phi(U)]=\theta$で
-
 $$
-Var(\hat\theta_3)=\{0.118861-\theta^2\}/n\approx0.002345/n.
+\operatorname{Var}(\widehat\theta_3)=\frac{0.118861-\theta^2}{n}.
 $$
 
-したがって方法3が最小分散。
+数値係数は順に約 $0.22483,0.05416,0.002345$ なので方法3が最小分散。
 
 ## 採点基準
 
-- 不偏性: 6点
-- 方法1・2の分散: 6点
-- 方法3の分散: 5点
+- 3方法の不偏性: 6点
+- 方法1・2の分散導出: 6点
+- 方法3の分散導出: 5点
 - 効率比較: 3点

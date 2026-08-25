@@ -34,107 +34,127 @@ Z_2=\frac{V+1}{\sqrt2},\qquad
 Z_3=W
 $$
 
-の同時分布を求め、
-
-$$
-Q=Z_1^2+Z_2^2+Z_3^2
-$$
-
-の分布を求めよ。
+の同時分布を求め、$Q=Z_1^2+Z_2^2+Z_3^2$ の分布を求めよ。
 5. 多変量正規で「無相関なら独立」が成立する範囲を説明せよ。
 
 ## 詳細解答
 
-### 1. 線形変換
+### 1. 平均ベクトルと共分散行列
 
 $$
+Y=\begin{pmatrix}U\\V\\W\end{pmatrix}=AX,
+\qquad
 A=\begin{pmatrix}1&1&0\\1&-1&0\\0&0&1\end{pmatrix}.
 $$
 
 平均は
 
 $$
-A\mu=\begin{pmatrix}3\\-1\\0\end{pmatrix}.
+E[Y]=AE[X]=\begin{pmatrix}1&1&0\\1&-1&0\\0&0&1\end{pmatrix}
+\begin{pmatrix}1\\2\\0\end{pmatrix}
+=\boxed{\begin{pmatrix}3\\-1\\0\end{pmatrix}}.
 $$
 
-分散・共分散は
+共分散は $\operatorname{Cov}(Y)=A\Sigma A^T$。まず
 
 $$
-\operatorname{Var}(U)=6,
-\qquad
-\operatorname{Var}(V)=2,
-\qquad
-\operatorname{Cov}(U,V)=0.
+A\Sigma
+=\begin{pmatrix}1&1&0\\1&-1&0\\0&0&1\end{pmatrix}
+\begin{pmatrix}2&1&0\\1&2&0\\0&0&1\end{pmatrix}
+=\begin{pmatrix}3&3&0\\1&-1&0\\0&0&1\end{pmatrix}.
 $$
 
-また $W=X_3$ は前2変数と無相関なので
+従って
 
 $$
-\boxed{\operatorname{Cov}(U,V,W)=\operatorname{diag}(6,2,1)}.
+A\Sigma A^T
+=\begin{pmatrix}3&3&0\\1&-1&0\\0&0&1\end{pmatrix}
+\begin{pmatrix}1&1&0\\1&-1&0\\0&0&1\end{pmatrix}
+=\boxed{\begin{pmatrix}6&0&0\\0&2&0\\0&0&1\end{pmatrix}}.
 $$
 
 ### 2. 独立性
 
-線形変換後も多変量正規で、共分散行列が対角だから、$U,V,W$ は相互に独立である。
-
-### 3. 一般形
+多変量正規ベクトルの線形変換は再び多変量正規なので $Y$ は同時正規である。第1問で共分散行列が対角行列と分かったので成分は互いに無相関。同時正規ベクトルでは交差共分散が0なら対応する成分は独立だから
 
 $$
-X\sim N_p(\mu,\Sigma)
+\boxed{U,V,W\text{ は相互に独立}}.
 $$
 
-なら
+### 3. 一般の線形変換
+
+一般に $X\sim N_p(\mu,\Sigma)$ なら、多変量正規分布の線形変換閉性から
 
 $$
-\boxed{AX+b\sim N(A\mu+b,A\Sigma A^\top)}.
+E[AX+b]=A\mu+b,
+\qquad
+\operatorname{Cov}(AX+b)=A\Sigma A^T.
 $$
 
-### 4. 白色化とカイ二乗
-
-各成分をその標準偏差で割っているので
+したがって
 
 $$
-(Z_1,Z_2,Z_3)^\top\sim N_3(0,I_3).
+\boxed{AX+b\sim N(A\mu+b,A\Sigma A^T)}.
 $$
 
-しかも3成分は独立標準正規。したがって独立な標準正規の二乗和として
+### 4. 標準化とカイ二乗分布
+
+第1問と第2問から
 
 $$
-\boxed{Q\sim\chi^2_3}.
+U\sim N(3,6),\qquad V\sim N(-1,2),\qquad W\sim N(0,1)
 $$
 
-これは多変量正規の Mahalanobis 距離がカイ二乗分布につながる最小例である。
+で互いに独立。従って
 
-### 5. 無相関と独立
+$$
+\boxed{(Z_1,Z_2,Z_3)^T\sim N_3(0,I_3)}.
+$$
 
-同時正規ベクトルの成分ブロック同士では交差共分散0なら独立。各変数が個別に正規というだけでは不十分で、「同時に多変量正規」である必要がある。
+カイ二乗分布の定義より、独立な標準正規変数3個の二乗和は
+
+$$
+\boxed{Q=Z_1^2+Z_2^2+Z_3^2\sim\chi^2_3}.
+$$
+
+### 5. 「無相関なら独立」の適用範囲
+
+同時多変量正規ベクトルを2つの成分ブロックに分けたとき、両ブロック間の共分散行列が0なら2ブロックは独立である。特にスカラー成分同士なら共分散0で独立になる。
+
+しかし「各変数の周辺分布が正規」であることだけでは同時正規性は保証されない。その場合、無相関でも依存している例があり得る。
 
 ## 本番答案
 
 $$
-E(U,V,W)^\top=(3,-1,0)^\top,
+Y=(U,V,W)^T=AX,
+\quad
+A=\begin{pmatrix}1&1&0\\1&-1&0\\0&0&1\end{pmatrix}.
+$$
+
+$$
+AE[X]=(3,-1,0)^T,
 \qquad
-\operatorname{Var}(U,V,W)^\top=\operatorname{diag}(6,2,1).
+A\Sigma=\begin{pmatrix}3&3&0\\1&-1&0\\0&0&1\end{pmatrix},
 $$
 
-線形変換後も同時正規で交差共分散が0なので $U,V,W$ は相互独立。一般に
-
 $$
-AX+b\sim N(A\mu+b,A\Sigma A^\top).
+A\Sigma A^T=\operatorname{diag}(6,2,1).
 $$
 
-標準化後は $Z\sim N_3(0,I)$ だから
+線形変換後も同時正規で交差共分散0だから $U,V,W$ は相互独立。一般に
 
 $$
-Q=Z_1^2+Z_2^2+Z_3^2\sim\chi^2_3.
+AX+b\sim N(A\mu+b,A\Sigma A^T).
 $$
+
+従って標準化後は $Z\sim N_3(0,I_3)$ で $Q\sim\chi^2_3$。
 
 ## 採点基準
 
-- (1) 平均・共分散: 6点
-- (2) 独立性: 3点
+- (1) 平均・共分散の行列計算: 6点
+- (2) 同時正規性を確認した独立性: 3点
 - (3) 一般公式: 3点
 - (4) 標準化・カイ二乗: 5点
-- (5) 注意点: 3点
+- (5) 適用範囲の注意: 3点
 
-20分経過時は行列積を全部書かず、対角共分散→独立→標準化→$\chi^2$ の流れを確保する。
+20分経過時も $A\Sigma A^T$ の中間積を1段残し、対角共分散→独立→標準化→カイ二乗の流れを確保する。
