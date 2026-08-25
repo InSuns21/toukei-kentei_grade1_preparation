@@ -207,7 +207,7 @@ $$
 なので
 
 $$
-A=rac{\operatorname{MTTF}}
+A=\frac{\operatorname{MTTF}}
 {\operatorname{MTTF}+\operatorname{MTTR}}.
 $$
 
