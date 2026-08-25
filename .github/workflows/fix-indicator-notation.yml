@@ -1,0 +1,94 @@
+name: Fix indicator notation once
+
+on:
+  push:
+    branches:
+      - fix/indicator-function-subscripts
+    paths:
+      - '.github/workflows/fix-indicator-notation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/indicator-function-subscripts
+
+      - name: Normalize indicator functions
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          roots = [Path('statistical-mathematics'), Path('applied-rikou-80')]
+          prefix = re.compile(r'\\(?:boldsymbol|mathbf|mathbb)\s*(?:\{1\}|1)\s*\\\{')
+          changed_files = 0
+          replacements = 0
+
+          def normalize(text):
+              global replacements
+              out = []
+              cursor = 0
+              while True:
+                  match = prefix.search(text, cursor)
+                  if not match:
+                      out.append(text[cursor:])
+                      break
+
+                  depth = 1
+                  pos = match.end()
+                  end = None
+                  while pos < len(text) - 1:
+                      token = text[pos:pos + 2]
+                      if token == r'\{':
+                          depth += 1
+                          pos += 2
+                          continue
+                      if token == r'\}':
+                          depth -= 1
+                          if depth == 0:
+                              end = pos
+                              break
+                          pos += 2
+                          continue
+                      pos += 1
+
+                  if end is None:
+                      out.append(text[cursor:])
+                      break
+
+                  condition = text[match.end():end]
+                  out.append(text[cursor:match.start()])
+                  out.append(r'\boldsymbol{1}_{\{' + condition + r'\}}')
+                  replacements += 1
+                  cursor = end + 2
+
+              return ''.join(out)
+
+          for root in roots:
+              for file in root.rglob('*.md'):
+                  source = file.read_text(encoding='utf-8')
+                  fixed = normalize(source)
+                  if fixed != source:
+                      file.write_text(fixed, encoding='utf-8')
+                      changed_files += 1
+                      print(file)
+
+          print(f'changed_files={changed_files} replacements={replacements}')
+
+      - name: Remove one-shot workflow
+        run: rm .github/workflows/fix-indicator-notation.yml
+
+      - name: Commit normalized notation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add statistical-mathematics applied-rikou-80 .github/workflows/fix-indicator-notation.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "Normalize indicator function subscripts"
+          git push origin HEAD:fix/indicator-function-subscripts
