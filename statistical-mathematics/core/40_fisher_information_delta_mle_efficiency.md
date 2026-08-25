@@ -128,7 +128,7 @@ $$
 正則1母数モデルでは、漸近情報下限は
 
 $$
-\frac1{nI_1(\lambda)}=rac{\lambda^2}{n}.
+\frac1{nI_1(\lambda)}=\frac{\lambda^2}{n}.
 $$
 
 上のMLE漸近正規性から $\widehat\lambda$ の漸近分散も $\lambda^2/n$ なので、この下限に一致し、MLEは漸近効率的である。
