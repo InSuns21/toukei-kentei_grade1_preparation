@@ -8,7 +8,7 @@
 
 ## 問題
 
-独立に
+$\lambda>0,\mu>0$ とし、相互に独立に
 
 $$
 X_i\sim\operatorname{Poisson}(\lambda),\quad i=1,\ldots,n,
@@ -27,27 +27,51 @@ $$
 
 ## 詳細解答
 
-Poissonの再生性より
+### 1. Poissonの再生性
+
+使うのは **独立Poisson変数の加法性**である。独立なPoisson$(\alpha_r)$ の和は Poisson$(\sum\alpha_r)$ に従う。この結果の条件は各変数がPoissonで相互に独立であること。本問は問題文で相互独立を仮定しているので
 
 $$
-S\sim\operatorname{Poisson}(n\lambda),
+\boxed{S\sim\operatorname{Poisson}(n\lambda)},
 \qquad
-T\sim\operatorname{Poisson}(m\mu),
+\boxed{T\sim\operatorname{Poisson}(m\mu)}.
 $$
 
-かつ独立。
+また $S$ は $X$ 群だけ、$T$ は $Y$ 群だけの関数で、両群が独立なので $S\perp T$。
 
-独立Poisson変数の和で条件付けると二項分布になるので
+### 2. 条件付き二項分布は直接導出する
+
+「独立Poissonを和で条件付けると二項」という結果を丸暗記で置かず、pmfから計算する。$\lambda,μ>0$ なので $n\lambda+m\mu>0$ であり、$P(K=k)>0$。$0\le s\le k$ について
 
 $$
+\begin{aligned}
+P(S=s\mid K=k)
+&=\frac{P(S=s,T=k-s)}{P(K=k)}\\
+&=\frac{
+ e^{-n\lambda}(n\lambda)^s/s!\,
+ e^{-m\mu}(m\mu)^{k-s}/(k-s)!
+}{
+ e^{-(n\lambda+m\mu)}(n\lambda+m\mu)^k/k!
+}\\
+&={k\choose s}
+\left(\frac{n\lambda}{n\lambda+m\mu}\right)^s
+\left(\frac{m\mu}{n\lambda+m\mu}\right)^{k-s}.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{
 S\mid K=k
 \sim\operatorname{Binomial}\left(
 k,
 \frac{n\lambda}{n\lambda+m\mu}
-\right).
+\right)
+}.
 $$
 
-$H_0:\lambda=\mu$では共通母数が消え
+$H_0:\lambda=\mu$ では共通母数が消え
 
 $$
 \boxed{
@@ -56,18 +80,32 @@ S\mid K=k,H_0
 }.
 $$
 
-片側対立$\lambda>\mu$では大きい$S$が対立寄りなので
+### 3. 正確検定になる理由
+
+条件付け後の帰無分布は共通Poisson率に依存しないため、未知の nuisance parameter を含まない。また
 
 $$
-p=P_{H_0}(S\ge s\mid K=k).
+q(\lambda,\mu)=\frac{n\lambda}{n\lambda+m\mu}
 $$
 
-$n=m,k=10,s=8$なら$p=1/2$で
+は $\lambda/\mu$ とともに増加するので、対立 $\lambda>\mu$ では大きい $S$ が対立寄りである。従って観測値 $s$ に対する片側P値は
+
+$$
+\boxed{
+p=P_{H_0}(S\ge s\mid K=k)
+}.
+$$
+
+これは漸近近似ではなく、上で導いた条件付き二項分布に基づく有限標本の正確P値である。
+
+### 4. 数値例
+
+$n=m,k=10,s=8$ なら帰無下成功確率は $1/2$。
 
 $$
 \begin{aligned}
 p
-&=\frac{\binom{10}{8}+\binom{10}{9}+\binom{10}{10}}{2^{10}}\\
+&=\sum_{r=8}^{10}{10\choose r}2^{-10}\\
 &=\frac{45+10+1}{1024}
 =\boxed{\frac7{128}}.
 \end{aligned}
@@ -75,33 +113,32 @@ $$
 
 ## 本番答案
 
-$$
-S\sim Poi(n\lambda),\quad T\sim Poi(m\mu).
-$$
-
-条件付きPoisson分割より
+$\lambda,μ>0$ で相互独立なのでPoissonの加法性を適用でき、
 
 $$
-S\mid K=k\sim Bin\left(k,\frac{n\lambda}{n\lambda+m\mu}\right).
+S\sim Poi(n\lambda),\quad T\sim Poi(m\mu),\quad S\perp T.
 $$
 
-$H_0$では
+条件付き分布はpmfを割って
 
 $$
-S\mid K=k\sim Bin\left(k,\frac n{n+m}\right),
+P(S=s\mid K=k)
+={k\choose s}
+\left(\frac{n\lambda}{n\lambda+m\mu}\right)^s
+\left(\frac{m\mu}{n\lambda+m\mu}\right)^{k-s}.
 $$
 
-よって片側P値は$P(S\ge s\mid K=k)$。
-
-$n=m,k=10,s=8$なら
+したがって $H_0$ では
 
 $$
-p=(45+10+1)/1024=7/128.
+S\mid K=k\sim Bin\left(k,\frac n{n+m}\right).
 $$
+
+共通率が消え、$\lambda>\mu$ では成功確率が増えるので大きい $S$ を棄却側とし、正確P値は $P(S\ge s\mid K=k)$。数値例は $7/128$。
 
 ## 採点基準
 
-- $S,T$の分布: 4点
-- 条件付き二項: 7点
-- P値の方向: 4点
+- $S,T$の分布（加法性の条件確認）: 4点
+- 条件付き二項の直接導出: 7点
+- 正確P値の根拠・方向: 4点
 - 数値例: 5点

@@ -8,7 +8,7 @@
 
 ## 問題
 
-$X_i\overset{\mathrm{iid}}\sim\operatorname{Poisson}(\lambda)$ とする。
+$X_i\overset{\mathrm{iid}}\sim\operatorname{Poisson}(\lambda)$、$\lambda\ge0$ とする。Fisher情報量・漸近分布・Wald区間については真値 $\lambda>0$ を仮定する。
 
 1. $\lambda$のMLEを求めよ。
 2. Fisher情報量を求めよ。
@@ -17,67 +17,135 @@ $X_i\overset{\mathrm{iid}}\sim\operatorname{Poisson}(\lambda)$ とする。
 
 ## 詳細解答
 
-対数尤度は定数を除いて
+### 1. MLE
+
+対数尤度は $\lambda>0$ で、定数を除いて
 
 $$
 \ell(\lambda)
 =\left(\sum X_i\right)\log\lambda-n\lambda.
 $$
 
-スコア方程式から
+$$
+\ell'(\lambda)=\frac{\sum X_i}{\lambda}-n,
+\qquad
+\ell''(\lambda)=-\frac{\sum X_i}{\lambda^2}\le0.
+$$
+
+$\sum X_i>0$ なら一意な内部最大点は
+
+$$
+\widehat\lambda=\bar X.
+$$
+
+一方、$\sum X_i=0$ なら尤度は
+
+$$
+L(\lambda)=e^{-n\lambda}
+$$
+
+で $\lambda$ の減少関数だから、閉じた母数空間 $[0,\infty)$ の境界 $\lambda=0$ で最大になる。従って全標本について
 
 $$
 \boxed{\widehat\lambda=\bar X}.
 $$
 
-1標本のスコアは$X/\lambda-1$なので
+ここで「MLEでは境界を含む母数空間 $\lambda\ge0$」と、「通常の正則漸近論では真値を内部点 $\lambda>0$ に置く」ことを区別する。
+
+### 2. Fisher情報量
+
+以下は真値 $\lambda>0$ で考える。1標本のスコアは
 
 $$
-I_1(\lambda)=\frac1\lambda,
-\qquad
+U_1(\lambda)=\frac X\lambda-1.
+$$
+
+Poisson分布の支持 $\{0,1,2,\ldots\}$ は $\lambda$ に依存せず、真値は内部点、微分と無限和の交換が可能で、必要なモーメントも有限である。したがってFisher情報量の正則な恒等式を使え、
+
+$$
+\begin{aligned}
+I_1(\lambda)
+&=E[U_1(\lambda)^2]\\
+&=\frac{\operatorname{Var}(X)}{\lambda^2}\\
+&=\frac1\lambda,
+\end{aligned}
+$$
+
+$$
 I_n(\lambda)=\frac n\lambda.
 $$
 
-従って
+### 3. 漸近分布：中心極限定理とSlutsky
+
+本問では $\hat\lambda=\bar X$ なので、一般のMLE漸近定理を使わず **Lindeberg–Lévy の中心極限定理**を直接使える。必要条件はi.i.d.で有限分散を持つこと。本問では真値 $\lambda>0$ の下で
 
 $$
+E[X_i]=\lambda,
+\qquad
+\operatorname{Var}(X_i)=\lambda<\infty
+$$
+
+だから条件を満たし、
+
+$$
+\boxed{
 \sqrt n(\widehat\lambda-\lambda)
-\Rightarrow N(0,\lambda),
+=\sqrt n(\bar X-\lambda)
+\Rightarrow N(0,\lambda)
+}.
 $$
 
-すなわち
+また大数の法則から $\widehat\lambda\to_p\lambda$。$\lambda>0$ なので連続写像定理により
 
 $$
-\widehat\lambda\approx N\left(\lambda,\frac\lambda n\right).
+\sqrt{\widehat\lambda}\to_p\sqrt\lambda.
 $$
 
-数値例では$\widehat\lambda=4$、推定標準誤差は
+従って **Slutskyの定理**により、標準誤差中の未知 $\lambda$ を $\widehat\lambda$ で置換できる。
+
+真値が境界 $\lambda=0$ の場合は分布が退化し、この通常の正規漸近近似の設定ではない。
+
+### 4. Wald信頼区間
+
+数値例では
 
 $$
-\sqrt{\widehat\lambda/n}=\sqrt{4/100}=0.2.
+\widehat\lambda=4,
+\qquad
+\widehat{SE}=\sqrt{\widehat\lambda/n}=0.2.
 $$
 
-従って
+したがって
 
 $$
 \boxed{4\pm1.96\cdot0.2=(3.608,4.392)}.
 $$
 
+これは漸近的なWald区間であり有限標本の正確区間ではない。特に標本が小さい、または $\lambda$ が小さいと対称Wald区間が0未満へはみ出すことがある。
+
 ## 本番答案
 
+母数空間を $\lambda\ge0$ とする。$\sum X_i>0$ ではスコア方程式から $\hat\lambda=\bar X$、全観測0では尤度 $e^{-n\lambda}$ が境界0で最大なので、常に
+
 $$
-\hat\lambda=\bar X,
-\qquad
+\hat\lambda=\bar X.
+$$
+
+真値 $\lambda>0$ では支持は母数非依存で正則、
+
+$$
 I_n(\lambda)=n/\lambda.
 $$
 
-よって
+また $X_i$ はi.i.d.かつ $Var(X_i)=\lambda<\infty$ なので **Lindeberg–Lévy CLT**より
 
 $$
 \sqrt n(\hat\lambda-\lambda)\Rightarrow N(0,\lambda).
 $$
 
-$n=100,\bar x=4$では$SE=\sqrt{4/100}=0.2$なので
+LLNで $\hat\lambda\to_p\lambda>0$ だから **Slutskyの定理**により plug-in SE $\sqrt{\hat\lambda/n}$ を使える。
+
+$n=100,\bar x=4$ では $SE=0.2$、95% Wald CI は
 
 $$
 4\pm1.96(0.2)=(3.608,4.392).
@@ -85,7 +153,7 @@ $$
 
 ## 採点基準
 
-- MLE: 5点
-- Fisher情報: 5点
-- 漸近分布: 5点
+- MLE（内部点と境界の区別）: 5点
+- Fisher情報と正則性: 5点
+- CLT・Slutskyの条件確認: 5点
 - Wald CI: 5点
