@@ -212,7 +212,7 @@ $$
 +\frac{t^2}{2\lambda}
 +O(\lambda^{-3/2})
 \right\}\\
-&\quad=-t\sqrt\lambda+t\sqrt\lambda+rac{t^2}{2}+O(\lambda^{-1/2})\\
+&\quad=-t\sqrt\lambda+t\sqrt\lambda+\frac{t^2}{2}+O(\lambda^{-1/2})\\
 &\quad=\frac{t^2}{2}+O(\lambda^{-1/2}).
 \end{aligned}
 $$
