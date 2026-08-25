@@ -1,6 +1,6 @@
 # S1-01 標本分布とカイ二乗・t・F分布
 
-分布の台・母数・密度と略語は [分布・略語の共通索引](../../../references/distribution-notation-guide.md) でも確認できる。
+分布の台・母数・密度と略語は [分布・略語の共通索引](../../../../references/distribution-notation-guide.md) でも確認できる。
 
 ## この章の到達点
 
