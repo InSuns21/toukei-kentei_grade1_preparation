@@ -19,6 +19,8 @@ for (const root of roots) {
     let text = fs.readFileSync(file, 'utf8');
     text = text.replace(/```[\s\S]*?```/g, ' ');
     text = text.replace(/`[^`\n]*`/g, ' ');
+    text = text.replace(/\$\$[\s\S]*?\$\$/g, ' ');
+    text = text.replace(/\$(?:\\.|[^$\n])+\$/g, ' ');
     text = text.replace(/\]\([^\n)]*\)/g, ']');
     text = text.replace(/<https?:\/\/[^>]+>/g, ' ');
     text = text.replace(/https?:\/\/\S+/g, ' ');
