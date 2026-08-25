@@ -138,7 +138,7 @@ $$
 &=k\sigma^2
 +\frac{k^2}{n^2}n\sigma^2
 -2\frac kn k\sigma^2\\
-&=k\sigma^2+rac{k^2}{n}\sigma^2-rac{2k^2}{n}\sigma^2\\
+&=k\sigma^2+\frac{k^2}{n}\sigma^2-\frac{2k^2}{n}\sigma^2\\
 &=\frac{k(n-k)}n\sigma^2.
 \end{aligned}
 $$
