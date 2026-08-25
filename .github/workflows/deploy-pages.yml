@@ -40,6 +40,9 @@ jobs:
       - name: Validate shared exercise style
         run: npm run validate:exercise-style
 
+      - name: Audit detailed-solution granularity
+        run: npm run audit:granularity
+
       - name: Assemble and validate Pages site
         run: npm run validate:pages
 
