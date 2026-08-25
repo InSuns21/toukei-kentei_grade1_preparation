@@ -31,7 +31,7 @@ $$
 \begin{aligned}
 f_p(x)
 &=\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
-&=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol1\{x\in\{0,1\}^n\}.
+&=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol{1}_{\{x\in\{0,1\}^n\}}.
 \end{aligned}
 $$
 
@@ -48,7 +48,7 @@ $$
 $$
 g_p(t)=p^t(1-p)^{n-t},
 \qquad
-h(x)=\boldsymbol1\{x\in\{0,1\}^n\}.
+h(x)=\boldsymbol{1}_{\{x\in\{0,1\}^n\}}.
 $$
 
 標本空間 $\{0,1\}^n$ は $p$ に依存せず、$h$ も $p$ に依存しない。したがって因子分解定理の条件を満たし、
@@ -176,7 +176,7 @@ $$
 Bernoulli標本の同時確率質量関数は
 
 $$
-f_p(x)=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol1\{x\in\{0,1\}^n\}
+f_p(x)=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol{1}_{\{x\in\{0,1\}^n\}}
 =g_p(T(x))h(x).
 $$
 

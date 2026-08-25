@@ -151,7 +151,7 @@ $$
 
 1. 二乗損失 $L(\theta,a)=(\theta-a)^2$ のBayes推定量を求めよ。
 2. 絶対損失 $L(\theta,a)=|\theta-a|$ のBayes推定量を求めよ。
-3. 離散母数に0–1損失 $L(\theta,a)=\boldsymbol 1\{\theta\ne a\}$ を用いるときのBayes推定量を求めよ。
+3. 離散母数に0–1損失 $L(\theta,a)=\boldsymbol{1}_{\{\theta\ne a\}}$ を用いるときのBayes推定量を求めよ。
 4. $X\mid p\sim\operatorname{Bin}(n,p)$、$p\sim\operatorname{Beta}(\alpha,\beta)$ のとき、$X=x$ 後の事後分布と二乗損失Bayes推定量を求めよ。
 5. 事後Beta分布の両パラメータが1より大きいときMAPを求め、事後平均と比較せよ。
 

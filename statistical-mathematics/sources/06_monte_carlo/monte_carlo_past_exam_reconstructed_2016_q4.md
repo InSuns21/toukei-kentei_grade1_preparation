@@ -67,7 +67,7 @@ $$
 $Z_1,\ldots,Z_n$ を独立に $N(0,1)$ から生成し、
 
 $$
-A_i=\boldsymbol1\{0\le Z_i\le1\}
+A_i=\boldsymbol{1}_{\{0\le Z_i\le1\}}
 $$
 
 とする。
@@ -83,7 +83,7 @@ $$
 同じ $Z_i$ を使い、
 
 $$
-B_i=\boldsymbol1\{|Z_i|\le1\}
+B_i=\boldsymbol{1}_{\{|Z_i|\le1\}}
 $$
 
 とする。
@@ -422,7 +422,7 @@ $$
 ## 本番答案
 
 $$
-A_i=\boldsymbol1\{0\le Z_i\le1\}
+A_i=\boldsymbol{1}_{\{0\le Z_i\le1\}}
 \sim\operatorname{Bernoulli}(\theta)
 $$
 
@@ -438,7 +438,7 @@ $$
 対称性から
 
 $$
-B_i=\boldsymbol1\{|Z_i|\le1\}
+B_i=\boldsymbol{1}_{\{|Z_i|\le1\}}
 \sim\operatorname{Bernoulli}(2\theta),
 $$
 

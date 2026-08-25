@@ -18,7 +18,7 @@ $$
 
 1. $T$が$\lambda$の十分統計量であることを示せ。
 2. $T$が完備であることを示せ。Laplace変換の一意性「$\int_0^\infty q(t)e^{-\lambda t}dt=0$ が全ての $\lambda>0$ で成り立つなら $q(t)=0$」を用いてよい。
-3. $Y=\boldsymbol1\{X_1>c\}$ が$\tau(\lambda)$の不偏推定量であることを示せ。
+3. $Y=\boldsymbol{1}_{\{X_1>c\}}$ が$\tau(\lambda)$の不偏推定量であることを示せ。
 4. $E[Y\mid T]$を求め、$\tau(\lambda)$の一様最小分散不偏推定量を与えよ。
 
 ## 詳細解答
@@ -30,7 +30,7 @@ $$
 $$
 L(\lambda;x)
 =\lambda^n e^{-\lambda T(x)}
-\prod_{i=1}^n\boldsymbol1\{x_i>0\}.
+\prod_{i=1}^n\boldsymbol{1}_{\{x_i>0\}}.
 $$
 
 これは
@@ -42,7 +42,7 @@ $$
 $$
 g_\lambda(t)=\lambda^n e^{-\lambda t},
 \qquad
-h(x)=\prod_i\boldsymbol1\{x_i>0\}
+h(x)=\prod_i\boldsymbol{1}_{\{x_i>0\}}
 $$
 
 と分解でき、$h$ は $\lambda$ に依存しない。よって **Neyman–Fisher 因子分解定理**から
@@ -143,7 +143,7 @@ $t\le c$ なら $X_1\le T\le c$ なので確率0。よって
 $$
 \boxed{
 E[Y\mid T]
-=\boldsymbol1\{T>c\}
+=\boldsymbol{1}_{\{T>c\}}
 \left(1-\frac cT\right)^{n-1}
 }.
 $$

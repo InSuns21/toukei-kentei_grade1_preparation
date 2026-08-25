@@ -94,7 +94,7 @@ $$
 第 $r$ 試行がカテゴリー $i$ に入った指示変数を
 
 $$
-I_{ri}=\boldsymbol{1}\{\text{第 }r\text{ 試行がカテゴリー }i\}
+I_{ri}=\boldsymbol{1}_{\{\text{第 }r\text{ 試行がカテゴリー }i\}}
 $$
 
 とすると

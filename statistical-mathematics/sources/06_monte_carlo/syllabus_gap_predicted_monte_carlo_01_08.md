@@ -51,7 +51,7 @@ $$
 2. $\operatorname{Var}(\widehat I_A)$ を求めよ。
 3. hit-or-miss法
    $$
-   \widehat I_B=\frac1n\sum_{i=1}^n\boldsymbol1\{V_i\le U_i^2\}
+   \widehat I_B=\frac1n\sum_{i=1}^n\boldsymbol{1}_{\{V_i\le U_i^2\}}
    $$
    が不偏であることを示せ。
 4. $\operatorname{Var}(\widehat I_B)$ を求め、同じ $n$ でどちらが高精度か比較せよ。

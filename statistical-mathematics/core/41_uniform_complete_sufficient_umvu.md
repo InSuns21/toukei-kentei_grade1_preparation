@@ -24,9 +24,9 @@ $X_1,\ldots,X_n\overset{\mathrm{iid}}\sim U(0,\theta)$、$\theta>0$ とし、$M=
 $$
 \begin{aligned}
 f_\theta(x)
-&=\theta^{-n}\prod_{i=1}^n\boldsymbol1\{0<x_i<\theta\}\\
-&=\theta^{-n}\boldsymbol1\{M<\theta\}
-\prod_{i=1}^n\boldsymbol1\{x_i>0\}.
+&=\theta^{-n}\prod_{i=1}^n\boldsymbol{1}_{\{0<x_i<\theta\}}\\
+&=\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}
+\prod_{i=1}^n\boldsymbol{1}_{\{x_i>0\}}.
 \end{aligned}
 $$
 
@@ -39,9 +39,9 @@ $$
 と書け、$h$ が母数に依存しないなら $M$ は十分統計量である。本問では
 
 $$
-g_\theta(m)=\theta^{-n}\boldsymbol1\{m<\theta\},
+g_\theta(m)=\theta^{-n}\boldsymbol{1}_{\{m<\theta\}},
 \qquad
-h(x)=\prod_i\boldsymbol1\{x_i>0\}
+h(x)=\prod_i\boldsymbol{1}_{\{x_i>0\}}
 $$
 
 と分解できる。よって
@@ -145,8 +145,8 @@ $$
 
 $$
 f_\theta(x)=
-\theta^{-n}\boldsymbol1\{M<\theta\}
-\prod_i\boldsymbol1\{x_i>0\}
+\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}
+\prod_i\boldsymbol{1}_{\{x_i>0\}}
 =g_\theta(M)h(x).
 $$
 

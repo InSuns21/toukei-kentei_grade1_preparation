@@ -23,8 +23,8 @@ $X_i\overset{\mathrm{iid}}\sim U(0,\theta)$、$\theta>0$とし、$M=X_{(n)}$と�
 
 $$
 L(\theta;x)
-=\theta^{-n}\prod_{i=1}^n\boldsymbol1\{0<x_i<\theta\}
-=\theta^{-n}\boldsymbol1\{M<\theta\}\prod_i\boldsymbol1\{x_i>0\}.
+=\theta^{-n}\prod_{i=1}^n\boldsymbol{1}_{\{0<x_i<\theta\}}
+=\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}\prod_i\boldsymbol{1}_{\{x_i>0\}}.
 $$
 
 観測標本を固定すると、尤度が正になるのは $\theta\ge M$ の範囲であり、その範囲では $\theta^{-n}$ は単調減少する。したがって境界で最大となり
@@ -110,7 +110,7 @@ $$
 しかし本問では1標本密度
 
 $$
-f_\theta(x)=\theta^{-1}\boldsymbol1\{0<x<\theta\}
+f_\theta(x)=\theta^{-1}\boldsymbol{1}_{\{0<x<\theta\}}
 $$
 
 の支持 $(0,\theta)$ 自体が $\theta$ に依存する。指示関数の境界寄与を無視して内部だけを微分するとスコアは $-1/\theta$ となり、期待値は

@@ -76,7 +76,7 @@ Wald区間は観測値 $x$ ごとに決まる。真の $p$ がその区間に入
 $$
 \boxed{
 C_n(p)=\sum_{x=0}^n
-\boldsymbol1\{p\in I_W(x)\}
+\boldsymbol{1}_{\{p\in I_W(x)\}}
 \binom nxp^x(1-p)^{n-x}
 }.
 $$
@@ -114,7 +114,7 @@ $$
 有限標本被覆率は
 
 $$
-\sum_x\boldsymbol1\{p\in I_W(x)\}\binom nxp^x(1-p)^{n-x}.
+\sum_x\boldsymbol{1}_{\{p\in I_W(x)\}}\binom nxp^x(1-p)^{n-x}.
 $$
 
 $X=0$ では区間が $[0,0]$ に退化するため、境界近傍では名目95%から大きく外れうる。

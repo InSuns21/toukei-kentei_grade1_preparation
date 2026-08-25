@@ -1430,7 +1430,7 @@ $$
 \boxed{
 U=
 \sum_{i=1}^m\sum_{j=1}^n
-\mathbf1\{X_i>Y_j\}
+\boldsymbol{1}_{\{X_i>Y_j\}}
 }
 $$
 
@@ -1522,7 +1522,7 @@ $$
 $$
 U=W-\frac{m(m+1)}2
 =
-\sum_{i,j}\mathbf1\{X_i>Y_j\}.
+\sum_{i,j}\boldsymbol{1}_{\{X_i>Y_j\}}.
 $$
 
 正確P値は順位ラベルの全並べ替えのうち $W\ge w_{\mathrm{obs}}$ となる割合。
