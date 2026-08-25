@@ -37,8 +37,8 @@ jobs:
       - name: Validate applied science KaTeX
         run: npm run validate:rikou80
 
-      - name: Assemble Pages site
-        run: node scripts/build-pages.mjs
+      - name: Assemble and validate Pages site
+        run: npm run validate:pages
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
