@@ -80,7 +80,7 @@ $Y_i\sim U(\theta-1/2,\theta+1/2)$ なので、同時確率密度関数は
 $$
 f_\theta(y)
 =\prod_{i=1}^3
-\boldsymbol1\{\theta-1/2<y_i<\theta+1/2\}.
+\boldsymbol{1}_{\{\theta-1/2<y_i<\theta+1/2\}}.
 $$
 
 この条件は
@@ -98,7 +98,7 @@ $$
 
 $$
 g_\theta(a,b)
-=\boldsymbol1\{b-1/2<\theta<a+1/2\},
+=\boldsymbol{1}_{\{b-1/2<\theta<a+1/2\}},
 \qquad h(y)=1.
 $$
 
@@ -185,7 +185,7 @@ $$
 
 $$
 f_\theta(y)
-=\boldsymbol1\{y_{(3)}-1/2<\theta<y_{(1)}+1/2\},
+=\boldsymbol{1}_{\{y_{(3)}-1/2<\theta<y_{(1)}+1/2\}},
 $$
 
 と最小値・最大値だけを通じて母数に依存するので **Neyman–Fisher 因子分解定理**から $(Y_{(1)},Y_{(3)})$ は十分。
