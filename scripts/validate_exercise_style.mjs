@@ -40,7 +40,10 @@ const replacements = new Map([
   ['CI', '信頼区間'],
   ['CRLB', 'Cramér–Rao下限'],
   ['ANOVA', '分散分析'],
+  ['ANCOVA', '共分散分析'],
   ['PCA', '主成分分析'],
+  ['LDA', '線形判別分析'],
+  ['QDA', '二次判別分析'],
   ['GLM', '一般化線形モデル'],
   ['EM', '期待値最大化法'],
   ['MCMC', 'マルコフ連鎖モンテカルロ法'],
@@ -52,6 +55,39 @@ const replacements = new Map([
   ['FWER', '家族内誤差率'],
   ['SVD', '特異値分解'],
   ['HMM', '隠れマルコフモデル'],
+  ['ARIMA', '自己回帰和分移動平均'],
+  ['ARMA', '自己回帰移動平均'],
+  ['PACF', '偏自己相関関数'],
+  ['ACF', '自己相関関数'],
+  ['AR', '自己回帰'],
+  ['MA', '移動平均'],
+  ['MTTF', '平均故障時間'],
+  ['MTTR', '平均修復時間'],
+  ['MTBF', '平均故障間隔'],
+  ['EWMA', '指数加重移動平均'],
+  ['CUSUM', '累積和'],
+  ['ICC', '級内相関係数'],
+  ['ARL', '平均連長'],
+  ['SE', '標準誤差'],
+  ['SSE', '誤差平方和'],
+  ['HT', 'Horvitz–Thompson'],
+  ['KL', 'Kullback–Leibler'],
+  ['NP', 'Neyman–Pearson'],
+  ['CCD', '中心複合計画'],
+  ['CR', 'Cramér–Rao'],
+  ['EMS', '期待平均平方'],
+  ['KM', 'Kaplan–Meier'],
+  ['MMSE', '最小平均二乗誤差'],
+  ['BM', 'ブラウン運動'],
+  ['CRD', '完全無作為化計画'],
+  ['NB', '負の二項分布'],
+  ['PC1', '第1主成分'],
+  ['PC', '主成分'],
+  ['PIT', '確率積分変換'],
+  ['RSE', '相対標準誤差'],
+  ['SRS', '単純無作為抽出'],
+  ['YW', 'Yule–Walker'],
+  ['R2', '決定係数'],
 ]);
 
 const errors = [];
@@ -87,12 +123,22 @@ console.log(`${files.length} 個の演習 Markdown ファイルを共通表記�
 
 function stripNonProse(source) {
   let value = source;
-  value = value.replace(/```[\s\S]*?```/g, (block) => '\n'.repeat((block.match(/\n/g) ?? []).length));
-  value = value.replace(/`[^`\n]*`/g, (inline) => ' '.repeat(inline.length));
+  value = value.replace(/```[\s\S]*?```/g, preserveLines);
+  value = value.replace(/`[^`\n]*`/g, preserveWidth);
+  value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
+  value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
   value = value.replace(/\]\([^\n)]*\)/g, (destination) => ']'.padEnd(destination.length, ' '));
-  value = value.replace(/<https?:\/\/[^>]+>/g, (url) => ' '.repeat(url.length));
-  value = value.replace(/https?:\/\/\S+/g, (url) => ' '.repeat(url.length));
+  value = value.replace(/<https?:\/\/[^>]+>/g, preserveWidth);
+  value = value.replace(/https?:\/\/\S+/g, preserveWidth);
   return value;
+}
+
+function preserveLines(value) {
+  return '\n'.repeat((value.match(/\n/g) ?? []).length);
+}
+
+function preserveWidth(value) {
+  return ' '.repeat(value.length);
 }
 
 function walk(directory) {
