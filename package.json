@@ -11,7 +11,7 @@
     "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "validate:rikou80": "node applied-rikou-80/validate-katex.mjs",
     "validate:mathstat": "node statistical-mathematics/validate-katex.mjs",
-    "validate:pages": "npm run anki:build && node scripts/build-pages.mjs && node scripts/validate-pages-links.mjs && node scripts/validate-pages-math.mjs",
+    "validate:pages": "npm run anki:build && node scripts/prepare-pages-anki-assets.mjs && node scripts/build-pages.mjs && node scripts/validate-pages-links.mjs && node scripts/validate-pages-math.mjs",
     "validate:text": "node scripts/validate_text.mjs",
     "new:chapter": "node scripts/scaffold_chapter.mjs",
     "progress": "node scripts/curriculum_progress.mjs",
