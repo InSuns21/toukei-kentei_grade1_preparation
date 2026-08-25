@@ -4,4 +4,4 @@
 
 Level C/Dは一つの設定を4〜6小問で追い、生成法の正当化から誤差評価・実務判断まで接続する。
 
-分布の台・母数と略語は [分布・略語の共通索引](../../../references/distribution-notation-guide.md) でも確認できる。
+分布の台・母数と略語は [分布・略語の共通索引](../../../../references/distribution-notation-guide.md) でも確認できる。
