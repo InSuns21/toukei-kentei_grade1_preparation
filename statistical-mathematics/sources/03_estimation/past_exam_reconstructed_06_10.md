@@ -790,7 +790,7 @@ $$
 C_n(p)
 =
 \sum_{s=0}^n
-\mathbf1\{p\in I_W(s)\}
+\boldsymbol{1}_{\{p\in I_W(s)\}}
 {n\choose s}p^s(1-p)^{n-s}
 }.
 $$
@@ -860,7 +860,7 @@ $p$ を $\widehat p$ に置き換えてWald区間を得る。
 $$
 C_n(p)
 =\sum_{s=0}^n
-\mathbf1\{p\in I_W(s)\}
+\boldsymbol{1}_{\{p\in I_W(s)\}}
 {n\choose s}p^s(1-p)^{n-s}.
 $$
 
@@ -871,7 +871,7 @@ $$
 式
 
 $$
-C_n(p)=\sum_s\mathbf1\{p\in I(s)\}P_p(S=s)
+C_n(p)=\sum_s\boldsymbol{1}_{\{p\in I(s)\}}P_p(S=s)
 $$
 
 を書ければ被覆確率の本質は取れている。数値和は最後に回す。
