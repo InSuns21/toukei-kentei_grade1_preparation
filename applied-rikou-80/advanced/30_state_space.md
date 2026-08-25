@@ -124,7 +124,7 @@ $$
 \begin{aligned}
 m^+
 &=E[x_t\mid\mathcal F_{t-1},y_t]\\
-&=m^-+rac{P^-}{P^-+r}(y_t-m^-)\\
+&=m^-+K(y_t-m^-)\\
 &=\boxed{m^-+K(y_t-m^-)}.
 \end{aligned}
 $$
@@ -151,17 +151,17 @@ P^-=1^2\cdot3+1=4.
 $$
 
 $$
-K=\frac4{4+4}=\frac12.
+K=4/(4+4)=1/2.
 $$
 
 従って
 
 $$
-m^+=2+\frac12(5-2)=\boxed{3.5},
+m^+=2+(1/2)(5-2)=\boxed{3.5},
 $$
 
 $$
-P^+=\left(1-\frac12\right)4=\boxed2.
+P^+=(1-1/2)4=\boxed2.
 $$
 
 ### 5. 解釈とGaussian条件の意味
