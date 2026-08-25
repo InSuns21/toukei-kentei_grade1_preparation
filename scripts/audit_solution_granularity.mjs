@@ -174,6 +174,7 @@ for (const item of ranked) {
   );
 }
 const highValueRanked = ranked.filter((item) => ['S', 'A'].includes(item.exerciseValue));
+const bValueRanked = ranked.filter((item) => item.exerciseValue === 'B');
 
 const lines = [];
 lines.push('詳細解答の行間監査（候補抽出・非ブロッキング）');
@@ -204,6 +205,15 @@ for (const item of highValueRanked) {
     .map((finding) => `${finding.line}:${finding.phrase}`)
     .join(', ');
   lines.push(`- value=${item.exerciseValue} score=${item.score} ${item.file} — ${examples}`);
+}
+lines.push('');
+lines.push(`B候補ファイル（全${bValueRanked.length}件）:`);
+for (const item of bValueRanked) {
+  const examples = item.findings
+    .slice(0, 5)
+    .map((finding) => `${finding.line}:${finding.phrase}`)
+    .join(', ');
+  lines.push(`- value=B score=${item.score} ${item.file} — ${examples}`);
 }
 lines.push('');
 lines.push('優先監査ファイル（上位60件）:');
@@ -245,6 +255,12 @@ if (summaryPath) {
   markdown.push('');
   for (const item of highValueRanked) {
     markdown.push(`- **${item.exerciseValue}** \`${item.file}\` — score ${item.score}, ${item.findings.length} candidates`);
+  }
+  markdown.push('');
+  markdown.push('### B候補ファイル');
+  markdown.push('');
+  for (const item of bValueRanked) {
+    markdown.push(`- **B** \`${item.file}\` — score ${item.score}, ${item.findings.length} candidates`);
   }
   markdown.push('');
   markdown.push('| カテゴリ | 件数 |');
