@@ -156,25 +156,47 @@ $$
 }.
 $$
 
-これはブロック行列公式
+同じ結果を、条件付き正規分布のブロック行列公式でも確認する。$W=(Y,Z)^T$ と置けば
 
 $$
 \Sigma_{W\mid X}
 =\Sigma_{WW}
--\Sigma_{WX}\Sigma_{XX}^{-1}\Sigma_{XW}
+-\Sigma_{WX}\Sigma_{XX}^{-1}\Sigma_{XW}.
 $$
 
-に
+ここで
 
 $$
-W=(Y,Z)^T,
-\quad
-\Sigma_{WX}=\begin{pmatrix}1/2\\1/2\end{pmatrix},
-\quad
-\Sigma_{XX}=1
+\Sigma_{WW}
+=\begin{pmatrix}1&1/4\\1/4&1\end{pmatrix},
+\qquad
+\Sigma_{WX}
+=\begin{pmatrix}1/2\\1/2\end{pmatrix},
+\qquad
+\Sigma_{XX}=1.
 $$
 
-を代入した結果と同じである。
+したがって数値を省略せず代入すると
+
+$$
+\begin{aligned}
+\Sigma_{W\mid X}
+&=
+\begin{pmatrix}1&1/4\\1/4&1\end{pmatrix}
+-
+\begin{pmatrix}1/2\\1/2\end{pmatrix}
+(1)^{-1}
+\begin{pmatrix}1/2&1/2\end{pmatrix}\\
+&=
+\begin{pmatrix}1&1/4\\1/4&1\end{pmatrix}
+-
+\begin{pmatrix}1/4&1/4\\1/4&1/4\end{pmatrix}\\
+&=
+\begin{pmatrix}3/4&0\\0&3/4\end{pmatrix}.
+\end{aligned}
+$$
+
+残差化による導出とSchur補による計算が一致している。
 
 ### 3. 条件付き独立
 
