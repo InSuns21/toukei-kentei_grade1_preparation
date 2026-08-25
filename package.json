@@ -8,6 +8,7 @@
     "validate:structure": "node scripts/validate_structure.mjs",
     "validate:math": "node scripts/validate_math.mjs",
     "validate:exercise-style": "node scripts/validate_exercise_style.mjs",
+    "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "validate:rikou80": "node applied-rikou-80/validate-katex.mjs",
     "validate:mathstat": "node statistical-mathematics/validate-katex.mjs",
     "validate:pages": "node scripts/build-pages.mjs && node scripts/validate-pages-links.mjs",
