@@ -33,10 +33,23 @@ function linksFromIndex(indexText) {
 }
 
 function indexForPages(indexText, bookDir) {
-  return indexText.replace(
-    /(\[[^\]]+\]\()((?:core|standard|advanced)\/[^)]+\.md(?:#[^)]*)?)(\))/g,
-    (_match, open, href, close) => `${open}${bookDir}/${href}${close}`,
-  );
+  return indexText.replace(/(\[[^\]]+\]\()([^)]+)(\))/g, (match, open, href, close) => {
+    const trimmed = href.trim();
+
+    if (
+      !trimmed ||
+      trimmed.startsWith('#') ||
+      trimmed.startsWith('/') ||
+      trimmed.startsWith('../') ||
+      trimmed.startsWith(`${bookDir}/`) ||
+      /^(?:https?:|mailto:|tel:)/i.test(trimmed)
+    ) {
+      return match;
+    }
+
+    const localHref = trimmed.replace(/^\.\//, '');
+    return `${open}${bookDir}/${localHref}${close}`;
+  });
 }
 
 async function linksFromFiles(sourceDir) {
@@ -95,7 +108,7 @@ for (const book of books) {
 
   // Docsify is configured with relativePath: false so navigation links are
   // resolved from the Pages site root. Keep repository Markdown unchanged,
-  // but make the generated index links site-root oriented.
+  // but make every local link in the generated index site-root oriented.
   await writeFile(
     path.join(targetDir, 'index.md'),
     indexForPages(indexText, book.dir),
