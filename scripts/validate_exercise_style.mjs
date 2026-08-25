@@ -13,6 +13,7 @@ const ignoredBasenames = new Set([
   'THEOREM_APPLICATION_AUDIT_2026-08-25.md',
   'AUDIT_2026-08-25.md',
   'AUGMENTATION_2026-08-25.md',
+  'CALCULATOR_AUDIT_2026-08-25.md',
   'CALCULATOR_POLICY.md',
 ]);
 
@@ -32,10 +33,25 @@ const replacements = new Map([
   ['GLS', '一般化最小二乗法'],
   ['BLUE', '最良線形不偏推定量'],
   ['UMVU', '一様最小分散不偏推定量'],
-  ['UMP', '一様最強力検定'],
   ['UMPU', '一様最強力不偏検定'],
+  ['UMP', '一様最強力検定'],
   ['MSE', '平均二乗誤差'],
   ['VIF', '分散拡大係数'],
+  ['CI', '信頼区間'],
+  ['CRLB', 'Cramér–Rao下限'],
+  ['ANOVA', '分散分析'],
+  ['PCA', '主成分分析'],
+  ['GLM', '一般化線形モデル'],
+  ['EM', '期待値最大化法'],
+  ['MCMC', 'マルコフ連鎖モンテカルロ法'],
+  ['MAP', '最大事後確率推定'],
+  ['AIC', '赤池情報量規準'],
+  ['BIC', 'ベイズ情報量規準'],
+  ['RMSE', '二乗平均平方根誤差'],
+  ['FDR', '偽発見率'],
+  ['FWER', '家族内誤差率'],
+  ['SVD', '特異値分解'],
+  ['HMM', '隠れマルコフモデル'],
 ]);
 
 const errors = [];
@@ -56,7 +72,7 @@ for (const file of files) {
     }
   }
 
-  for (const match of searchable.matchAll(/\bi\.i\.d\.\b/gi)) {
+  for (const match of searchable.matchAll(/\bi\.i\.d\.(?!\w)/gi)) {
     errors.push(`${relative(file)}:${lineAt(searchable, match.index)} 非自明な略語 ${match[0]} → 独立同分布`);
   }
 }
