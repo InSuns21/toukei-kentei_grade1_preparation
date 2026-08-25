@@ -9,7 +9,15 @@
 
 ## 問題
 
-Core 01 と同じ正規線形モデルを考える。$R$ を階数 $q$ の $q\times p$ 行列、$r\in\mathbb R^q$ とし
+Core 01 と同じ正規線形モデル
+
+$$
+y=X\beta+\varepsilon,
+\qquad \varepsilon\sim N_n(0,\sigma^2I_n),
+\qquad \operatorname{rank}(X)=p
+$$
+
+を考える。$R$ を階数 $q$ の $q\times p$ 行列、$r\in\mathbb R^q$ とし
 
 $$
 H_0:R\beta=r
@@ -50,13 +58,11 @@ $$
 R\hat\beta-R(X^\top X)^{-1}R^\top\lambda=r.
 $$
 
-ここで
-
 $$
 C=R(X^\top X)^{-1}R^\top
 $$
 
-とおけば、$R$ は行フルランクで $X^\top X$ は正定値なので $C$ も正定値で可逆である。よって
+とおく。$X$ は列フルランクなので $X^\top X$ は正定値、$R$ は行フルランクなので $C$ も正定値で可逆。よって
 
 $$
 \lambda=C^{-1}(R\hat\beta-r),
@@ -68,80 +74,101 @@ $$
 
 ### 2. 追加平方和
 
-ここは「平方完成すると」で飛ばさずに展開する。OLS の正規方程式
+OLS の正規方程式
 
 $$
 X^\top(y-X\hat\beta)=0
 $$
 
-を使うと、任意の $\beta$ について
+から、任意の $\beta$ について
 
 $$
 \begin{aligned}
 Q(\beta)
 &=(y-X\beta)^\top(y-X\beta)\\
-&=\{y-X\hat\beta+X(\hat\beta-\beta)\}^\top
-\{y-X\hat\beta+X(\hat\beta-\beta)\}\\
 &=\mathrm{SSE}_U+(\beta-\hat\beta)^\top X^\top X(\beta-\hat\beta).
 \end{aligned}
 $$
 
-交差項が0になるのは $X^\top(y-X\hat\beta)=0$ のためである。そこで
+$d=\hat\beta_R-\hat\beta$、$u=R\hat\beta-r$ とおけば
 
 $$
-d=\hat\beta_R-\hat\beta
-=-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r)
+d=-(X^\top X)^{-1}R^\top C^{-1}u
 $$
 
-とおくと
-
-$$
-\mathrm{SSE}_R-\mathrm{SSE}_U=d^\top X^\top Xd.
-$$
-
-$u=R\hat\beta-r$ と書けば
+なので
 
 $$
 \begin{aligned}
-d^\top X^\top Xd
+\mathrm{SSE}_R-\mathrm{SSE}_U
+&=d^\top X^\top Xd\\
 &=u^\top C^{-1}R(X^\top X)^{-1}R^\top C^{-1}u\\
-&=u^\top C^{-1}CC^{-1}u\\
 &=u^\top C^{-1}u.
 \end{aligned}
 $$
 
-したがって
+従って
 
 $$
 \boxed{\mathrm{SSE}_R-\mathrm{SSE}_U
 =(R\hat\beta-r)^\top C^{-1}(R\hat\beta-r)}.
 $$
 
-### 3. F統計量
+### 3. F分布を使える条件を確認する
 
-$H_0$ の下で
+まず **多変量正規の線形変換**から
+
+$$
+\hat\beta\sim N_p\left(\beta,\sigma^2(X^\top X)^{-1}\right).
+$$
+
+$H_0:R\beta=r$ の下では
 
 $$
 R\hat\beta-r\sim N_q(0,\sigma^2C).
 $$
 
-したがって
+$C$ は正定値なので
 
 $$
-\frac{(R\hat\beta-r)^\top C^{-1}(R\hat\beta-r)}{\sigma^2}\sim\chi^2_q.
+Z=\frac1\sigma C^{-1/2}(R\hat\beta-r)\sim N_q(0,I_q).
 $$
 
-一方
+従って「独立標準正規の平方和はカイ二乗」という定義から
 
 $$
-\frac{\mathrm{SSE}_U}{\sigma^2}\sim\chi^2_{n-p}
+\frac{(R\hat\beta-r)^\top C^{-1}(R\hat\beta-r)}{\sigma^2}
+=Z^TZ
+\sim\chi^2_q.
 $$
 
-で両者は独立。ゆえに
+一方、$H=X(X^\top X)^{-1}X^\top$ とすれば $I-H$ は対称冪等でランク $n-p$。正規誤差の下で **Cochranの定理**を適用でき、
+
+$$
+\frac{\mathrm{SSE}_U}{\sigma^2}
+=\frac{\varepsilon^\top(I-H)\varepsilon}{\sigma^2}
+\sim\chi^2_{n-p}.
+$$
+
+さらに分子の基礎となる $R\hat\beta-r$ と残差 $(I-H)y$ の共分散は
+
+$$
+\begin{aligned}
+Cov(R\hat\beta-r,(I-H)y)
+&=\sigma^2R(X^\top X)^{-1}X^\top(I-H)\\
+&=0.
+\end{aligned}
+$$
+
+両者は $y$ の線形変換で同時正規なので、**同時正規で無相関なら独立**という定理から独立。従って二つのカイ二乗量も独立である。
+
+以上よりF分布の定義を適用でき、
 
 $$
 \boxed{F=\frac{(\mathrm{SSE}_R-\mathrm{SSE}_U)/q}{\mathrm{SSE}_U/(n-p)}\sim F_{q,n-p}}.
 $$
+
+ここで正規誤差、$X$ の列フルランク、$R$ の行フルランクが正確なF分布の重要条件である。
 
 ### 4. 数値
 
@@ -159,28 +186,20 @@ $$
 
 ## 本番答案
 
-$C=R(X^\top X)^{-1}R^\top$ とおくと、ラグランジュ法から
+$C=R(X^\top X)^{-1}R^\top$ とおくと
 
 $$
-\hat\beta_R=\hat\beta-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r).
+\hat\beta_R=\hat\beta-(X^\top X)^{-1}R^\top C^{-1}(R\hat\beta-r),
 $$
-
-OLS の正規方程式から
-
-$$
-Q(\beta)=\mathrm{SSE}_U+(\beta-\hat\beta)^\top X^\top X(\beta-\hat\beta),
-$$
-
-ゆえに
 
 $$
 \mathrm{SSE}_R-\mathrm{SSE}_U=(R\hat\beta-r)^\top C^{-1}(R\hat\beta-r).
 $$
 
-$H_0$ の下で分子を $\sigma^2$ で割った量は $\chi^2_q$、$\mathrm{SSE}_U/\sigma^2\sim\chi^2_{n-p}$ で独立だから
+正規誤差、$rank(X)=p$、$rank(R)=q$。$H_0$ では $C^{-1/2}(R\hat\beta-r)/\sigma\sim N_q(0,I)$ なので分子平方和は $\chi^2_q$。また $I-H$ はランク $n-p$ の直交射影なので **Cochranの定理**から $SSE_U/\sigma^2\sim\chi^2_{n-p}$。両者は同時正規の直交成分から作られ独立。従って
 
 $$
-F=\frac{(\mathrm{SSE}_R-\mathrm{SSE}_U)/q}{\mathrm{SSE}_U/(n-p)}\sim F_{q,n-p}.
+F\sim F_{q,n-p}.
 $$
 
 数値例では追加平方和1、$F=2$。
@@ -188,8 +207,8 @@ $$
 ## 採点基準
 
 - (1) 制約付き推定量: 6点
-- (2) 追加平方和公式と交差項消失の根拠: 5点
-- (3) F統計量・自由度・独立性: 7点
+- (2) 追加平方和公式: 5点
+- (3) F統計量・定理名・条件確認・独立性: 7点
 - (4) 数値計算: 2点
 
-25分経過時は制約付き推定量の導出を短縮し、追加平方和と $F_{q,n-p}$ を優先する。
+25分経過時は制約付き推定量の導出を短縮し、追加平方和と「正規性・ランク・独立性を確認して $F_{q,n-p}$」を優先する。
