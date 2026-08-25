@@ -17,6 +17,8 @@ const ignoredBasenames = new Set([
   'CALCULATOR_POLICY.md',
 ]);
 
+// 公式シラバス自身が使う英字表記（MCMC, ARIMA, AIC, BLUE）と、
+// 標準的な時系列モデル記号（AR, MA, ARMA）は禁止対象に含めない。
 const replacements = new Map([
   ['MGF', 'モーメント母関数'],
   ['PGF', '確率母関数'],
@@ -31,7 +33,6 @@ const replacements = new Map([
   ['LLN', '大数の法則'],
   ['OLS', '通常最小二乗法'],
   ['GLS', '一般化最小二乗法'],
-  ['BLUE', '最良線形不偏推定量'],
   ['UMVU', '一様最小分散不偏推定量'],
   ['UMPU', '一様最強力不偏検定'],
   ['UMP', '一様最強力検定'],
@@ -46,21 +47,15 @@ const replacements = new Map([
   ['QDA', '二次判別分析'],
   ['GLM', '一般化線形モデル'],
   ['EM', '期待値最大化法'],
-  ['MCMC', 'マルコフ連鎖モンテカルロ法'],
   ['MAP', '最大事後確率推定'],
-  ['AIC', '赤池情報量規準'],
   ['BIC', 'ベイズ情報量規準'],
   ['RMSE', '二乗平均平方根誤差'],
   ['FDR', '偽発見率'],
   ['FWER', '家族内誤差率'],
   ['SVD', '特異値分解'],
   ['HMM', '隠れマルコフモデル'],
-  ['ARIMA', '自己回帰和分移動平均'],
-  ['ARMA', '自己回帰移動平均'],
   ['PACF', '偏自己相関関数'],
   ['ACF', '自己相関関数'],
-  ['AR', '自己回帰'],
-  ['MA', '移動平均'],
   ['MTTF', '平均故障時間'],
   ['MTTR', '平均修復時間'],
   ['MTBF', '平均故障間隔'],
@@ -106,7 +101,7 @@ for (const file of files) {
   for (const [token, replacement] of replacements) {
     const pattern = new RegExp(`\\b${escapeRegExp(token)}\\b`, 'g');
     for (const match of searchable.matchAll(pattern)) {
-      errors.push(`${relative(file)}:${lineAt(searchable, match.index)} 非自明な略語 ${token} → ${replacement}`);
+      errors.push(`${relative(file)}:${lineAt(searchable, match.index)} シラバスにない非自明な略語 ${token} → ${replacement}`);
     }
   }
 
@@ -121,7 +116,7 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`${files.length} 個の演習 Markdown ファイルを共通表記規約で検証しました。`);
+console.log(`${files.length} 個の演習 Markdown ファイルを公式シラバス優先の共通表記規約で検証しました。`);
 
 function stripNonProse(source) {
   let value = source;
