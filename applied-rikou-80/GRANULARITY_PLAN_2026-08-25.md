@@ -25,7 +25,7 @@
 
 ## 修正優先順位
 
-### Wave R1: 明確に薄い問題
+### 第一波: 明確に薄い問題
 
 まず、複数小問を1段落で処理している問題を直す。
 
@@ -44,7 +44,7 @@
 - `advanced/79_sample_size_design.md`
 - `advanced/80_randomized_response.md`
 
-### Wave R2: Standard の薄い基礎・頻出論点
+### 第二波: Standard の薄い基礎・頻出論点
 
 - `standard/02_weibull_shape_hazard.md`
 - `standard/05_erlang_waiting.md`
@@ -59,7 +59,7 @@
 - `standard/57_xbar_s_individuals.md`
 - `standard/67_mahalanobis_geometry.md`
 
-### Wave R3: Core・高得点論点の再監査
+### 第三波: Core・高得点論点の再監査
 
 Core は原則として先行整備済みだが、次は人手で再確認する。
 
@@ -103,7 +103,7 @@ Core は原則として先行整備済みだが、次は人手で再確認する
 
 ## 完了条件
 
-各Waveの完了時に以下を確認する。
+各段階の完了時に以下を確認する。
 
 - `npm run validate:rikou80`
 - `npm run validate:exercise-style`
