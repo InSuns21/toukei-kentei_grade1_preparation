@@ -88,6 +88,7 @@ for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
   const problem = extractProblem(source);
   const detailed = extractDetailedAnswer(source);
+  const exerciseValue = extractExerciseValue(source) ?? '?';
 
   if (!detailed) {
     missingDetailedAnswer += 1;
@@ -100,6 +101,7 @@ for (const file of files) {
       const line = detailed.startLine + localLine - 1;
       addFinding({
         file: relative(file),
+        exerciseValue,
         line,
         phrase: match[0],
         category: category.name,
@@ -118,6 +120,7 @@ for (const file of files) {
     const category = structuralCategories[0];
     addFinding({
       file: relative(file),
+      exerciseValue,
       line: detailed.startLine,
       phrase: `小問${taskCount}題 / 対応見出し${headingCount}個`,
       category: category.name,
@@ -132,6 +135,7 @@ for (const file of files) {
     const category = structuralCategories[1];
     addFinding({
       file: relative(file),
+      exerciseValue,
       line: detailed.startLine,
       phrase: `詳細解答${detailLength}文字 / 小問${taskCount}題`,
       category: category.name,
@@ -142,7 +146,11 @@ for (const file of files) {
 
 const byFile = new Map();
 for (const finding of findings) {
-  const current = byFile.get(finding.file) ?? { score: 0, findings: [] };
+  const current = byFile.get(finding.file) ?? {
+    score: 0,
+    findings: [],
+    exerciseValue: finding.exerciseValue,
+  };
   current.score += finding.weight;
   current.findings.push(finding);
   byFile.set(finding.file, current);
@@ -151,6 +159,21 @@ for (const finding of findings) {
 const ranked = [...byFile.entries()]
   .map(([file, data]) => ({ file, ...data }))
   .sort((a, b) => b.score - a.score || b.findings.length - a.findings.length || a.file.localeCompare(b.file));
+
+const valueOrder = ['S', 'A', 'B', 'C', '?'];
+const fileCountsByValue = new Map(valueOrder.map((value) => [value, 0]));
+const findingCountsByValue = new Map(valueOrder.map((value) => [value, 0]));
+for (const item of ranked) {
+  fileCountsByValue.set(
+    item.exerciseValue,
+    (fileCountsByValue.get(item.exerciseValue) ?? 0) + 1,
+  );
+  findingCountsByValue.set(
+    item.exerciseValue,
+    (findingCountsByValue.get(item.exerciseValue) ?? 0) + item.findings.length,
+  );
+}
+const highValueRanked = ranked.filter((item) => ['S', 'A'].includes(item.exerciseValue));
 
 const lines = [];
 lines.push('詳細解答の行間監査（候補抽出・非ブロッキング）');
@@ -166,13 +189,30 @@ for (const category of [...phraseCategories, ...structuralCategories]) {
   lines.push(`- ${category.name}: ${categoryCounts.get(category.name)} 件`);
 }
 lines.push('');
+lines.push('演習価値別候補:');
+for (const value of valueOrder) {
+  const fileCount = fileCountsByValue.get(value) ?? 0;
+  const findingCount = findingCountsByValue.get(value) ?? 0;
+  if (fileCount === 0 && findingCount === 0) continue;
+  lines.push(`- ${value}: ${fileCount} ファイル / ${findingCount} 件`);
+}
+lines.push('');
+lines.push(`S/A候補ファイル（全${highValueRanked.length}件）:`);
+for (const item of highValueRanked) {
+  const examples = item.findings
+    .slice(0, 5)
+    .map((finding) => `${finding.line}:${finding.phrase}`)
+    .join(', ');
+  lines.push(`- value=${item.exerciseValue} score=${item.score} ${item.file} — ${examples}`);
+}
+lines.push('');
 lines.push('優先監査ファイル（上位60件）:');
 for (const item of ranked.slice(0, 60)) {
   const examples = item.findings
     .slice(0, 5)
     .map((finding) => `${finding.line}:${finding.phrase}`)
     .join(', ');
-  lines.push(`- score=${item.score} ${item.file} — ${examples}`);
+  lines.push(`- value=${item.exerciseValue} score=${item.score} ${item.file} — ${examples}`);
 }
 lines.push('');
 lines.push('注意: この監査は候補抽出であり、検出=誤りではない。短さを機械的に水増しせず、問題の採点対象か、直前直後に途中式が十分あるかを人手で確認して本文を修正する。');
@@ -190,6 +230,23 @@ if (summaryPath) {
     markdown.push(`代表的な粒度参照は \`statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md\`（詳細解答の非空白文字数 ${benchmarkLength}）。文字数一致ではなく、出発点・条件・途中計算・結論の再現可能性を基準にする。`);
   }
   markdown.push('');
+  markdown.push('### 演習価値別候補');
+  markdown.push('');
+  markdown.push('| 演習価値 | 候補ファイル | 候補件数 |');
+  markdown.push('| --- | ---: | ---: |');
+  for (const value of valueOrder) {
+    const fileCount = fileCountsByValue.get(value) ?? 0;
+    const findingCount = findingCountsByValue.get(value) ?? 0;
+    if (fileCount === 0 && findingCount === 0) continue;
+    markdown.push(`| ${value} | ${fileCount} | ${findingCount} |`);
+  }
+  markdown.push('');
+  markdown.push('### S/A候補ファイル');
+  markdown.push('');
+  for (const item of highValueRanked) {
+    markdown.push(`- **${item.exerciseValue}** \`${item.file}\` — score ${item.score}, ${item.findings.length} candidates`);
+  }
+  markdown.push('');
   markdown.push('| カテゴリ | 件数 |');
   markdown.push('| --- | ---: |');
   for (const category of [...phraseCategories, ...structuralCategories]) {
@@ -199,7 +256,7 @@ if (summaryPath) {
   markdown.push('### 優先監査ファイル');
   markdown.push('');
   for (const item of ranked.slice(0, 40)) {
-    markdown.push(`- \`${item.file}\` — score ${item.score}, ${item.findings.length} candidates`);
+    markdown.push(`- **${item.exerciseValue}** \`${item.file}\` — score ${item.score}, ${item.findings.length} candidates`);
   }
   markdown.push('');
   markdown.push('> 語句・構造・短さから候補を抽出する非ブロッキング監査。検出だけで不合格にはせず、採点対象の導出が実際に飛んでいるかを確認する。');
@@ -238,6 +295,11 @@ function extractDetailedAnswer(source) {
     text: source.slice(startIndex, endIndex),
     startLine: lineAt(source, startIndex),
   };
+}
+
+function extractExerciseValue(source) {
+  const match = /^- 演習価値:\s*([SABC])\s*$/m.exec(source);
+  return match?.[1] ?? null;
 }
 
 function countProblemTasks(text) {
