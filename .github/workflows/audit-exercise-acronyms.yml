@@ -1,0 +1,21 @@
+name: Audit exercise acronyms
+
+on:
+  push:
+    branches:
+      - chore/unify-exercise-guidelines
+    paths:
+      - 'scripts/audit_exercise_acronyms.mjs'
+      - '.github/workflows/audit-exercise-acronyms.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: chore/unify-exercise-guidelines
+
+      - name: List remaining uppercase tokens
+        run: node scripts/audit_exercise_acronyms.mjs
