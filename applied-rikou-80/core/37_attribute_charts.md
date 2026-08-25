@@ -17,27 +17,79 @@
 
 ## 詳細解答
 
-### 1. p管理図
+### 1. $p$ 管理図を二項分布から導く
 
-二項近似から
-
-$$
-UCL_p=\bar p+3\sqrt{\frac{\bar p(1-\bar p)}{n}},
-$$
+1群で不良品数を $X$ とする。各製品が独立に不良確率 $p$ を持つと仮定すれば
 
 $$
-LCL_p=\bar p-3\sqrt{\frac{\bar p(1-\bar p)}{n}}.
+X\sim\operatorname{Binomial}(n,p).
+$$
+
+不良率は
+
+$$
+\hat p=\frac Xn.
+$$
+
+二項分布の平均・分散
+
+$$
+E[X]=np,
+\qquad
+\operatorname{Var}(X)=np(1-p)
+$$
+
+から
+
+$$
+E[\hat p]
+=\frac1nE[X]
+=p,
+$$
+
+$$
+\begin{aligned}
+\operatorname{Var}(\hat p)
+&=\frac1{n^2}\operatorname{Var}(X)\\
+&=\frac{p(1-p)}n.
+\end{aligned}
+$$
+
+したがって標準偏差は
+
+$$
+\sqrt{\frac{p(1-p)}n}.
+$$
+
+管理状態の $p$ は未知なので、実際の管理限界では過去データからの平均不良率 $\bar p$ で置き換える。3シグマ限界は
+
+$$
+CL_p=\bar p,
+$$
+
+$$
+UCL_p=\bar p+3\sqrt{\frac{\bar p(1-\bar p)}n},
+$$
+
+$$
+LCL_p=\max\left(0,\bar p-3\sqrt{\frac{\bar p(1-\bar p)}n}\right).
 $$
 
 本問では
 
 $$
-\boxed{LCL_p=0.05-3\sqrt{0.05\cdot0.95/200}},
+\boxed{
+LCL_p=0.05-3\sqrt{0.05\cdot0.95/200}
+},
 $$
 
 $$
-\boxed{UCL_p=0.05+3\sqrt{0.05\cdot0.95/200}}.
+\boxed{
+UCL_p=0.05+3\sqrt{0.05\cdot0.95/200}
+}.
 $$
+
+ここでは下限が正なので $\max(0,\cdot)$ の切り詰めは不要である。
 
 参考として
 
@@ -45,7 +97,7 @@ $$
 \sqrt{0.05\cdot0.95/200}\approx0.01541
 $$
 
-なので
+だから
 
 $$
 LCL_p\approx0.0038,
@@ -53,21 +105,44 @@ LCL_p\approx0.0038,
 UCL_p\approx0.0962.
 $$
 
-### 2. np管理図
+### 2. $np$ 管理図を同じ二項分布から導く
 
-中心線は
+$np$ 管理図で監視するのは割合ではなく不良品数 $X$ 自体である。
 
-$$
-n\bar p=10.
-$$
-
-標準偏差は
+二項分布より
 
 $$
-\sqrt{n\bar p(1-\bar p)}=\sqrt{9.5}.
+E[X]=np,
+\qquad
+\operatorname{Var}(X)=np(1-p).
 $$
 
-したがって
+したがって管理限界は
+
+$$
+CL_{np}=n\bar p,
+$$
+
+$$
+UCL_{np}=n\bar p+3\sqrt{n\bar p(1-\bar p)},
+$$
+
+$$
+LCL_{np}=\max\left(0,n\bar p-3\sqrt{n\bar p(1-\bar p)}\right).
+$$
+
+$n=200,\bar p=0.05$ なので
+
+$$
+n\bar p=10,
+$$
+
+$$
+n\bar p(1-\bar p)
+=200\cdot0.05\cdot0.95=9.5.
+$$
+
+従って
 
 $$
 \boxed{LCL_{np}=10-3\sqrt{9.5}},
@@ -75,65 +150,194 @@ $$
 \boxed{UCL_{np}=10+3\sqrt{9.5}}.
 $$
 
-小数化すれば約 $0.75,19.25$。実務では整数個数として限界を解釈する。
+小数化すれば約 $0.75,19.25$。不良品数は整数なので、実務上の判定では整数値との対応を考える。
 
-### 3. c管理図
+### 3. $c$ 管理図をPoisson分布から導く
 
-Poissonモデルから標準偏差は $\sqrt{\bar c}=2$。
+一定面積・一定検査機会の中で欠点数を数えるとき、管理状態の欠点数 $C$ を
 
 $$
-LCL_c=\max(0,4-3\cdot2)=0,
+C\sim\operatorname{Poisson}(c)
+$$
+
+とモデル化する。
+
+Poisson分布では
+
+$$
+E[C]=c,
+\qquad
+\operatorname{Var}(C)=c.
+$$
+
+したがって標準偏差は
+
+$$
+\sqrt c.
+$$
+
+未知の $c$ を平均欠点数 $\bar c$ で置き換えると
+
+$$
+CL_c=\bar c,
+$$
+
+$$
+UCL_c=\bar c+3\sqrt{\bar c},
+$$
+
+$$
+LCL_c=\max(0,\bar c-3\sqrt{\bar c}).
+$$
+
+本問では $\bar c=4$ だから
+
+$$
+\sqrt{\bar c}=2,
+$$
+
+$$
+LCL_c=\max(0,4-6)=0,
 $$
 
 $$
 UCL_c=4+6=10.
 $$
 
-### 4. u管理図
+従って
 
-検査量 $n_i$ が異なると総欠点数は単純比較できないため、単位当たり欠点数 $u_i=c_i/n_i$ を使う。Poisson近似の下で
+$$
+\boxed{CL_c=4,\quad LCL_c=0,\quad UCL_c=10}.
+$$
+
+### 4. $u$ 管理図を検査量の異なるPoisson分布から導く
+
+群 $i$ の検査量を $n_i$、その群の総欠点数を $C_i$、単位当たり平均欠点数を $u$ とする。
+
+検査量が $n_i$ 倍になれば期待欠点数も $n_i$ 倍になるので
+
+$$
+C_i\sim\operatorname{Poisson}(n_i u)
+$$
+
+とモデル化する。
+
+監視する単位当たり欠点数は
+
+$$
+u_i=\frac{C_i}{n_i}.
+$$
+
+平均は
+
+$$
+E[u_i]
+=\frac1{n_i}E[C_i]
+=u.
+$$
+
+分散は
+
+$$
+\begin{aligned}
+\operatorname{Var}(u_i)
+&=\frac1{n_i^2}\operatorname{Var}(C_i)\\
+&=\frac1{n_i^2}(n_i u)\\
+&=\frac u{n_i}.
+\end{aligned}
+$$
+
+したがって標準偏差は
+
+$$
+\sqrt{\frac u{n_i}}.
+$$
+
+未知の $u$ を過去データの全体平均 $\bar u$ で置き換えると
 
 $$
 CL=\bar u,
 $$
 
 $$
-UCL_i=\bar u+3\sqrt{\frac{\bar u}{n_i}},
-\qquad
-LCL_i=\max\left(0,\bar u-3\sqrt{\frac{\bar u}{n_i}}\right).
+\boxed{
+UCL_i=\bar u+3\sqrt{\frac{\bar u}{n_i}}
+},
 $$
+
+$$
+\boxed{
+LCL_i=\max\left(0,\bar u-3\sqrt{\frac{\bar u}{n_i}}\right)
+}.
+$$
+
+検査量が小さい群では分散 $\bar u/n_i$ が大きいため管理限界が広く、検査量が大きい群では狭くなる。これが、検査量の異なる群で総欠点数 $C_i$ をそのまま比較してはいけない理由である。
 
 ## 本番答案
 
+不良品数 $X\sim\operatorname{Binomial}(n,p)$ なので
+
 $$
-p:\quad \bar p\pm3\sqrt{\bar p(1-\bar p)/n}
+\operatorname{Var}(X/n)=\frac{p(1-p)}n.
 $$
 
-より
+従って
+
+$$
+p\text{図}:\quad
+\bar p\pm3\sqrt{\bar p(1-\bar p)/n},
+$$
+
+本問では
 
 $$
 0.05\pm3\sqrt{0.05\cdot0.95/200}.
 $$
 
+また $X$ 自体の分散は $np(1-p)$ なので
+
 $$
-np:\quad n\bar p\pm3\sqrt{n\bar p(1-\bar p)}
+np\text{図}:\quad
+10\pm3\sqrt{9.5}.
+$$
+
+一定検査量の欠点数 $C\sim\operatorname{Poisson}(c)$ では平均=分散=$c$ だから、$c$ 図は
+
+$$
+4\pm3\sqrt4
+$$
+
+で $[0,10]$。
+
+検査量 $n_i$ が異なる場合は
+
+$$
+C_i\sim\operatorname{Poisson}(n_i u),
+\qquad
+u_i=C_i/n_i,
 $$
 
 より
 
 $$
-10\pm3\sqrt{9.5}.
+\operatorname{Var}(u_i)=u/n_i.
 $$
 
-$c$ 図は $4\pm3\sqrt4$ なので $[0,10]$。検査量が異なる欠点数では $u_i=c_i/n_i$ を使い、限界は $\bar u\pm3\sqrt{\bar u/n_i}$。
+従って $u$ 図の限界は
+
+$$
+\bar u\pm3\sqrt{\bar u/n_i}
+$$
+
+である。
 
 ## 採点基準
 
-- p図: 6点
-- np図: 5点
-- c図: 4点
-- u図: 5点
+- (1) 二項分布から $\operatorname{Var}(\hat p)$ を導き $p$ 図の限界を計算: 6点
+- (2) 不良品数の平均・分散から $np$ 図を導出: 5点
+- (3) Poisson分布の平均=分散から $c$ 図を導出: 4点
+- (4) $C_i\sim\operatorname{Poisson}(n_i u)$ から $\operatorname{Var}(u_i)=u/n_i$ を導き $u$ 図を説明: 5点
 
 平方根の小数化は採点対象にせず、正しい式までで満点とする。
 
-25分経過時は「不良品数は二項、欠点数はPoisson」という対応を先に確定する。
+25分経過時は「不良品数は二項分布、欠点数はPoisson分布」から平均・分散を作り、3シグマ限界へ進む。
