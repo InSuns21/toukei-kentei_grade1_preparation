@@ -1,4 +1,4 @@
-# Core 07 最尤推定量の漸近正規性・Wald検定・尤度比検定・スコア検定
+# Core 07 指数寿命モデルで Wald・尤度比・スコア検定を比較する
 
 - 安定ID: `RIKOU-CORE-07`
 - 80大問 No.: 74
@@ -8,46 +8,52 @@
 
 ## 問題
 
-$X_1,\dots,X_n$ は独立に Bernoulli 分布に従い、
+ある部品の寿命 $X_1,\dots,X_n$ は独立に、平均寿命を $\theta>0$ とする指数分布
 
 $$
-P_p(X_i=x)=p^x(1-p)^{1-x},
-\qquad x\in\{0,1\},
-\qquad 0<p<1
+f_\theta(x)
+=\frac1\theta\exp\left(-\frac{x}{\theta}\right),
+\qquad x\ge 0
 $$
 
-とする。$0<p_0<1$ とし、
+に従うとする。既知の基準値 $\theta_0>0$ に対して
 
 $$
-H_0:p=p_0
+H_0:\theta=\theta_0,
+\qquad
+H_1:\theta\ne\theta_0
 $$
 
-を両側検定する。
+を考える。
 
-1. 上の確率質量関数から尤度・対数尤度を作り、最尤推定量 $\widehat p$ と1標本当たりの Fisher 情報量 $I_1(p)$ を求めよ。
-2. 最尤推定量の漸近正規性から Wald 統計量を構成せよ。
-3. スコア統計量と尤度比統計量を、対数尤度とスコアから導け。$H_0$ の下での漸近分布を、使う定理の条件とともに述べよ。
-4. $n=100$, $\sum X_i=50$, $p_0=0.4$ のとき3統計量を計算せよ。対数を含む尤度比統計量は正しい厳密式までで満点とし、小数化は任意とする。
-5. なぜ有限標本では3統計量が一致せず、漸近的には一致するのか、$p_0$ のまわりの展開を示して説明せよ。
+1. 確率密度関数から尤度・対数尤度を作り、$\theta$ の最尤推定量 $\widehat\theta$ と1標本当たりの Fisher 情報量 $I_1(\theta)$ を求めよ。
+2. 最尤推定量の漸近正規性から Wald 統計量を構成し、$H_0$ の下での漸近分布を示せ。
+3. スコア関数からスコア統計量を導け。また尤度比から尤度比統計量を導き、Wilks の定理を適用するために本問で確認すべき条件を述べよ。
+4. $n=100$, $\sum_{i=1}^{100}X_i=120$, $\theta_0=1$ のとき、Wald・スコア・尤度比の3統計量を求めよ。対数の小数化は不要とする。また、自由度1のカイ二乗分布の上側5%点を $3.84$ として、それぞれの判定を述べよ。
+5. 有限標本では3統計量が一致しない一方、$H_0$ の下では漸近的に一致することを、$\widehat\theta-\theta_0=O_p(n^{-1/2})$ と Taylor 展開を用いて示せ。
 
 ## 詳細解答
 
-### 1. 確率質量関数から最尤推定量と Fisher 情報量を求める
+### 1. 尤度・最尤推定量・Fisher 情報量
 
 観測値を $x_1,\ldots,x_n$ とし、
 
 $$
-s=\sum_{i=1}^n x_i
+T=\sum_{i=1}^n x_i
 $$
 
-と置く。独立性から尤度は各観測の確率質量関数の積である。
+と置く。独立性から尤度は各標本の確率密度関数の積である。
 
 $$
 \begin{aligned}
-L(p;x_1,\ldots,x_n)
-&=\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
-&=p^{\sum_i x_i}(1-p)^{\sum_i(1-x_i)}\\
-&=p^s(1-p)^{n-s}.
+L(\theta)
+&=\prod_{i=1}^n
+\frac1\theta\exp\left(-\frac{x_i}{\theta}\right)\\
+&=\theta^{-n}
+\exp\left(-\frac1\theta\sum_{i=1}^n x_i\right)\\
+&=\boxed{
+\theta^{-n}\exp\left(-\frac{T}{\theta}\right)
+}.
 \end{aligned}
 $$
 
@@ -55,100 +61,105 @@ $$
 
 $$
 \boxed{
-\ell(p)=s\log p+(n-s)\log(1-p)
+\ell(\theta)
+=-n\log\theta-\frac{T}{\theta}
 }.
 $$
 
-$p$ で微分する。
+$\theta$ で微分する。
 
 $$
 \begin{aligned}
-\ell'(p)
-&=\frac{s}{p}+(n-s)\frac{-1}{1-p}\\
-&=\frac{s}{p}-\frac{n-s}{1-p}.
+\ell'(\theta)
+&=-\frac{n}{\theta}+\frac{T}{\theta^2}\\
+&=\frac{T-n\theta}{\theta^2}.
 \end{aligned}
 $$
 
-内部の停留点では $\ell'(p)=0$ だから
+内部の停留点では $\ell'(\theta)=0$ だから
 
 $$
-\frac{s}{p}=\frac{n-s}{1-p}.
-$$
-
-交差して
-
-$$
-s(1-p)=p(n-s).
-$$
-
-展開すると
-
-$$
-s-sp=np-sp,
+T-n\theta=0.
 $$
 
 したがって
 
 $$
-\boxed{\widehat p=\frac{s}{n}=\bar X}.
+\boxed{
+\widehat\theta=\frac{T}{n}=\overline X
+}.
 $$
 
-$0<s<n$ なら
+指数分布では $P(T=0)=0$ なので、確率1で $T>0$ である。さらに
 
 $$
-\ell''(p)
-=-\frac{s}{p^2}-\frac{n-s}{(1-p)^2}<0
+\ell''(\theta)
+=\frac{n}{\theta^2}-\frac{2T}{\theta^3}.
 $$
 
-なので、この停留点は最大点である。$s=0$ または $s=n$ では最尤推定量は境界 $0$ または $1$ になるが、以下の通常の漸近論では真値 $p_0$ を $(0,1)$ の内部点に置く。
+$\theta=\widehat\theta=T/n$ を代入すると
+
+$$
+\begin{aligned}
+\ell''(\widehat\theta)
+&=\frac{n}{\widehat\theta^2}
+-\frac{2n\widehat\theta}{\widehat\theta^3}\\
+&=-\frac{n}{\widehat\theta^2}<0,
+\end{aligned}
+$$
+
+よって $\widehat\theta$ は最大点である。
 
 次に1標本 $X$ の対数尤度を
 
 $$
-\ell_1(p)=X\log p+(1-X)\log(1-p)
+\ell_1(\theta)
+=-\log\theta-\frac{X}{\theta}
 $$
 
-とする。微分すると
+とする。スコアは
 
 $$
 \begin{aligned}
-U_1(p)
-&=\frac{\partial\ell_1(p)}{\partial p}\\
-&=\frac{X}{p}-\frac{1-X}{1-p}\\
-&=\frac{X(1-p)-p(1-X)}{p(1-p)}\\
-&=\boxed{\frac{X-p}{p(1-p)}}.
+U_1(\theta)
+&=\frac{\partial\ell_1(\theta)}{\partial\theta}\\
+&=-\frac1\theta+\frac{X}{\theta^2}\\
+&=\boxed{
+\frac{X-\theta}{\theta^2}
+}.
 \end{aligned}
 $$
 
-Fisher 情報量の定義から
+指数分布では
 
 $$
-I_1(p)=E_p[U_1(p)^2].
-$$
-
-Bernoulli 分布では $E[X]=p$, $\operatorname{Var}(X)=p(1-p)$ なので
-
-$$
-E[(X-p)^2]=p(1-p).
+E_\theta[X]=\theta,
+\qquad
+\operatorname{Var}_\theta(X)=\theta^2.
 $$
 
 したがって
 
 $$
 \begin{aligned}
-I_1(p)
-&=E\left[
-\frac{(X-p)^2}{p^2(1-p)^2}
+I_1(\theta)
+&=E_\theta[U_1(\theta)^2]\\
+&=E_\theta\left[
+\frac{(X-\theta)^2}{\theta^4}
 \right]\\
-&=\frac{p(1-p)}{p^2(1-p)^2}\\
-&=\boxed{\frac1{p(1-p)}}.
+&=\frac{\operatorname{Var}_\theta(X)}{\theta^4}\\
+&=\boxed{
+\frac1{\theta^2}
+}.
 \end{aligned}
 $$
 
 独立な $n$ 標本では
 
 $$
-I_n(p)=nI_1(p)=\frac{n}{p(1-p)}.
+\boxed{
+I_n(\theta)=\frac{n}{\theta^2}
+}.
 $$
 
 ### 2. Wald 統計量
@@ -156,48 +167,56 @@ $$
 $H_0$ の下では
 
 $$
-E[X_i]=p_0,
+E[X_i]=\theta_0,
 \qquad
-\operatorname{Var}(X_i)=p_0(1-p_0)\in(0,\infty).
+\operatorname{Var}(X_i)=\theta_0^2<\infty.
 $$
 
-$X_i$ は独立同分布で分散が有限なので、Lindeberg–Lévy の中心極限定理から
+また
 
 $$
-\frac{\sqrt n(\widehat p-p_0)}
-{\sqrt{p_0(1-p_0)}}
+\widehat\theta=\overline X.
+$$
+
+したがって独立同分布標本に対する中心極限定理から
+
+$$
+\frac{\sqrt n(\widehat\theta-\theta_0)}{\theta_0}
 \xrightarrow{d}N(0,1).
 $$
 
-また大数の法則から
+一方、大数の法則から
 
 $$
-\widehat p\xrightarrow{p}p_0.
+\widehat\theta\xrightarrow{p}\theta_0.
 $$
 
-関数 $p(1-p)$ は $0<p_0<1$ の近くで連続かつ正なので
+$\theta_0>0$ なので Slutsky の定理により、分母の $\theta_0$ を一致推定量 $\widehat\theta$ で置き換えても
 
 $$
-\widehat p(1-\widehat p)
-\xrightarrow{p}p_0(1-p_0).
-$$
-
-したがって Slutsky の定理により分母の未知量を $\widehat p$ で置き換えて
-
-$$
-\frac{\sqrt n(\widehat p-p_0)}
-{\sqrt{\widehat p(1-\widehat p)}}
+\frac{\sqrt n(\widehat\theta-\theta_0)}{\widehat\theta}
 \xrightarrow{d}N(0,1).
 $$
 
-これを二乗した Wald 統計量は
+よって Wald 統計量は
 
 $$
 \boxed{
-W=\frac{n(\widehat p-p_0)^2}{\widehat p(1-\widehat p)}
+W
+=\frac{n(\widehat\theta-\theta_0)^2}{\widehat\theta^2}
 \xrightarrow{d}\chi^2_1
 }.
 $$
+
+ここで分母に $\widehat\theta^2$ が現れるのは、最尤推定量の漸近分散
+
+$$
+\operatorname{Avar}(\widehat\theta)
+=\frac1{I_n(\theta)}
+=\frac{\theta^2}{n}
+$$
+
+の未知な $\theta$ を $\widehat\theta$ で置き換えているためである。
 
 ### 3. スコア統計量と尤度比統計量
 
@@ -207,313 +226,542 @@ $n$ 標本のスコアは
 
 $$
 \begin{aligned}
-U_n(p)
-&=\ell'(p)\\
-&=\frac{S}{p}-\frac{n-S}{1-p}\\
-&=\frac{S-np}{p(1-p)}.
+U_n(\theta)
+&=\ell'(\theta)\\
+&=-\frac{n}{\theta}+\frac{T}{\theta^2}\\
+&=\frac{T-n\theta}{\theta^2}.
 \end{aligned}
 $$
 
-帰無仮説の値 $p_0$ で評価すると
+帰無値 $\theta_0$ で評価すると
 
 $$
-U_n(p_0)=\frac{S-np_0}{p_0(1-p_0)}.
+U_n(\theta_0)
+=\frac{T-n\theta_0}{\theta_0^2}.
 $$
 
 スコア統計量は
 
 $$
-\frac{U_n(p_0)^2}{I_n(p_0)}
+S_c
+=\frac{U_n(\theta_0)^2}{I_n(\theta_0)}
 $$
 
-なので
+だから
 
 $$
 \begin{aligned}
 S_c
-&=\frac{
-(S-np_0)^2/[p_0^2(1-p_0)^2]
-}{n/[p_0(1-p_0)]}\\
+&=\frac{(T-n\theta_0)^2/\theta_0^4}
+{n/\theta_0^2}\\
 &=\boxed{
-\frac{(S-np_0)^2}{np_0(1-p_0)}
+\frac{(T-n\theta_0)^2}{n\theta_0^2}
 }.
 \end{aligned}
+$$
+
+$T=n\widehat\theta$ を用いれば
+
+$$
+\boxed{
+S_c
+=\frac{n(\widehat\theta-\theta_0)^2}{\theta_0^2}
+}.
 $$
 
 これは
 
 $$
-\frac{S-np_0}{\sqrt{np_0(1-p_0)}}
+\frac{\sqrt n(\widehat\theta-\theta_0)}{\theta_0}
 $$
 
-の二乗であり、中心極限定理から
+の二乗なので、中心極限定理から
 
 $$
 S_c\xrightarrow{d}\chi^2_1.
 $$
 
-#### 尤度比統計量
-
-帰無仮説の下では $p=p_0$ に固定され、制約なしでは $\widehat p=S/n$ である。尤度比を
+Wald 検定との違いは分母を見ればよい。
 
 $$
-\Lambda=\frac{L(p_0)}{L(\widehat p)}
+W:
+\widehat\theta^2
+\quad\text{を使う},
+\qquad
+S_c:
+\theta_0^2
+\quad\text{を使う}.
+$$
+
+有限標本では $\widehat\theta\ne\theta_0$ が普通なので、この違いが数値差になる。
+
+#### 尤度比統計量
+
+帰無仮説の下では $\theta=\theta_0$ に固定され、制約なしでは $\widehat\theta=T/n$ である。尤度比を
+
+$$
+\Lambda
+=\frac{L(\theta_0)}{L(\widehat\theta)}
 $$
 
 とすると
 
 $$
-G^2=-2\log\Lambda
-=2\{\ell(\widehat p)-\ell(p_0)\}.
+G^2
+=-2\log\Lambda
+=2\{\ell(\widehat\theta)-\ell(\theta_0)\}.
 $$
 
-対数尤度を代入すると
+対数尤度を代入する。
 
 $$
 \begin{aligned}
-G^2
-&=2\left[
-S\log\widehat p+(n-S)\log(1-\widehat p)
--S\log p_0-(n-S)\log(1-p_0)
-\right]\\
-&=\boxed{
-2\left[
-S\log\frac{\widehat p}{p_0}
-+(n-S)\log\frac{1-\widehat p}{1-p_0}
-\right]
-}.
+\ell(\widehat\theta)-\ell(\theta_0)
+&=\left(-n\log\widehat\theta-\frac{T}{\widehat\theta}\right)
+-\left(-n\log\theta_0-\frac{T}{\theta_0}\right)\\
+&=n\log\frac{\theta_0}{\widehat\theta}
+-\frac{T}{\widehat\theta}
++\frac{T}{\theta_0}.
 \end{aligned}
 $$
 
-この漸近分布には Wilks の定理を使う。本問では
+$T=n\widehat\theta$ なので
 
-- 真値 $p_0$ は開区間 $(0,1)$ の内部点である。
-- Bernoulli 分布の支持 $\{0,1\}$ は $p$ に依存しない。
-- 対数尤度は $p_0$ の近くで十分滑らかである。
-- モデルは識別可能である。
-- $I_1(p_0)=1/[p_0(1-p_0)]$ は有限かつ正である。
-- 非制約モデルの次元は1、帰無仮説は点仮説なので次元は0であり、次元差は1である。
+$$
+\frac{T}{\widehat\theta}=n,
+\qquad
+\frac{T}{\theta_0}=n\frac{\widehat\theta}{\theta_0}.
+$$
 
 したがって
 
 $$
-\boxed{G^2\xrightarrow{d}\chi^2_1}.
+\boxed{
+G^2
+=2n\left[
+\log\frac{\theta_0}{\widehat\theta}
+-1
++\frac{\widehat\theta}{\theta_0}
+\right]
+}.
+$$
+
+同値な形として
+
+$$
+\boxed{
+G^2
+=2n\left[
+\frac{\widehat\theta}{\theta_0}
+-1
+-\log\frac{\widehat\theta}{\theta_0}
+\right]
+}
+$$
+
+としてもよい。
+
+Wilks の定理を使うため、本問では少なくとも次を確認する。
+
+- 真値 $\theta_0$ は母数空間 $(0,\infty)$ の内部点である。
+- 支持 $[0,\infty)$ は $\theta$ に依存しない。
+- 対数尤度は $\theta_0$ の近くで十分滑らかである。
+- 指数分布族は $\theta$ について識別可能である。
+- Fisher 情報量 $I_1(\theta_0)=1/\theta_0^2$ は有限かつ正である。
+- 非制約モデルの次元は1、帰無仮説は1点なので次元差は1である。
+
+したがって
+
+$$
+\boxed{
+G^2\xrightarrow{d}\chi^2_1
+}.
 $$
 
 ### 4. 数値例
 
+与えられた値から
+
 $$
-\widehat p=\frac{50}{100}=0.5.
+\widehat\theta
+=\frac{T}{n}
+=\frac{120}{100}
+=1.2
+=\frac65.
 $$
 
-Wald 統計量は
+#### Wald 統計量
 
 $$
 \begin{aligned}
 W
-&=\frac{100(0.5-0.4)^2}{0.5(1-0.5)}\\
-&=\frac{100(0.1)^2}{0.25}\\
-&=\boxed{4}.
+&=\frac{100(1.2-1)^2}{1.2^2}\\
+&=\frac{100\cdot0.2^2}{1.44}\\
+&=\frac4{1.44}\\
+&=\boxed{\frac{25}{9}}.
 \end{aligned}
-$$
-
-スコア統計量は
-
-$$
-\begin{aligned}
-S_c
-&=\frac{(50-100\cdot0.4)^2}{100\cdot0.4\cdot0.6}\\
-&=\frac{10^2}{24}\\
-&=\boxed{\frac{25}{6}}.
-\end{aligned}
-$$
-
-尤度比統計量は
-
-$$
-\begin{aligned}
-G^2
-&=2\left[
-50\log\frac{0.5}{0.4}
-+50\log\frac{0.5}{0.6}
-\right]\\
-&=100\left[
-\log\frac54+\log\frac56
-\right]\\
-&=\boxed{100\log\frac{25}{24}}.
-\end{aligned}
-$$
-
-対数の小数化は不要である。
-
-### 5. 有限標本で異なり、漸近的に一致する理由
-
-有限標本では、Wald 検定は情報量を $\widehat p$ で評価し、スコア検定は $p_0$ で評価し、尤度比検定は $p_0$ と $\widehat p$ の対数尤度差を見る。そのため数値は一般に一致しない。
-
-漸近的な一致を、対数尤度の展開から確認する。最尤推定量は内部では
-
-$$
-U_n(\widehat p)=\ell'(\widehat p)=0
-$$
-
-を満たす。$U_n(p)$ を $p_0$ のまわりで1次まで Taylor 展開すると、$p_0$ と $\widehat p$ の間の点 $p^*$ を用いて
-
-$$
-0
-=U_n(\widehat p)
-=U_n(p_0)+U_n'(p^*)(\widehat p-p_0).
 $$
 
 したがって
 
 $$
-\widehat p-p_0
-=-\frac{U_n(p_0)}{U_n'(p^*)}.
+W\approx2.78<3.84
 $$
 
-一方、
+なので、Wald 検定では有意水準5%で $H_0$ を棄却しない。
+
+#### スコア統計量
 
 $$
--U_n'(p)
-=-\ell''(p)
+\begin{aligned}
+S_c
+&=\frac{100(1.2-1)^2}{1^2}\\
+&=\boxed{4}.
+\end{aligned}
 $$
 
-は標本情報量であり、$p^*\xrightarrow{p}p_0$ の下では
+したがって
 
 $$
--\frac1nU_n'(p^*)
-\xrightarrow{p}I_1(p_0).
+S_c=4>3.84
 $$
 
-よって1次の主要項は
+なので、スコア検定では有意水準5%で $H_0$ を棄却する。
+
+#### 尤度比統計量
 
 $$
-\widehat p-p_0
-=\frac{U_n(p_0)}{I_n(p_0)}+o_p(n^{-1/2}).
+\begin{aligned}
+G^2
+&=2\cdot100\left[
+1.2-1-\log1.2
+\right]\\
+&=\boxed{
+200\left(\frac15-\log\frac65\right)
+}.
+\end{aligned}
 $$
 
-次に $\ell(\widehat p)$ を $p_0$ のまわりで2次まで展開すると
+必要なら
 
 $$
-\ell(\widehat p)
-=\ell(p_0)
-+U_n(p_0)(\widehat p-p_0)
-+\frac12\ell''(p^{**})(\widehat p-p_0)^2
+G^2\approx3.54<3.84
 $$
 
-となる。上の1次関係を使うと主要項は
+なので、尤度比検定では有意水準5%で $H_0$ を棄却しない。
+
+この例では
 
 $$
-2\{\ell(\widehat p)-\ell(p_0)\}
-=I_n(p_0)(\widehat p-p_0)^2+o_p(1).
+W\approx2.78,
+\qquad
+G^2\approx3.54,
+\qquad
+S_c=4.00
 $$
 
-スコア統計量も
+となり、有限標本では3統計量が一致しないだけでなく、5%水準で判定まで分かれる。これが「漸近的に同値」と「有限標本で同じ」が別物であることの具体例である。
+
+### 5. 3統計量の漸近同値
+
+中心極限定理から
 
 $$
-\frac{U_n(p_0)^2}{I_n(p_0)}
-=I_n(p_0)(\widehat p-p_0)^2+o_p(1),
+\sqrt n(\widehat\theta-\theta_0)=O_p(1).
 $$
 
-Wald 統計量も $\widehat p\xrightarrow{p}p_0$ により
+したがって
 
 $$
-I_n(\widehat p)(\widehat p-p_0)^2
-=I_n(p_0)(\widehat p-p_0)^2+o_p(1)
+\delta_n
+=\widehat\theta-\theta_0
 $$
 
-となる。したがって3統計量は有限標本では異なっても、同じ局所的な二次形式へ近づく。
+と置けば
+
+$$
+\boxed{
+\delta_n=O_p(n^{-1/2})
+}.
+$$
+
+#### Wald 統計量とスコア統計量
+
+スコア統計量は
+
+$$
+S_c
+=\frac{n\delta_n^2}{\theta_0^2}.
+$$
+
+一方、Wald 統計量は
+
+$$
+W
+=\frac{n\delta_n^2}{(\theta_0+\delta_n)^2}.
+$$
+
+$\delta_n=o_p(1)$ なので
+
+$$
+\frac1{(\theta_0+\delta_n)^2}
+=\frac1{\theta_0^2}+O_p(\delta_n).
+$$
+
+よって
+
+$$
+\begin{aligned}
+W
+&=n\delta_n^2
+\left[
+\frac1{\theta_0^2}+O_p(\delta_n)
+\right]\\
+&=\frac{n\delta_n^2}{\theta_0^2}
++O_p(n\delta_n^3).
+\end{aligned}
+$$
+
+ここで
+
+$$
+n\delta_n^3
+=O_p(n^{-1/2})
+=o_p(1)
+$$
+
+だから
+
+$$
+\boxed{
+W=S_c+o_p(1)
+}.
+$$
+
+#### 尤度比統計量とスコア統計量
+
+尤度比統計量を
+
+$$
+G^2
+=2n\left[
+\frac{\widehat\theta}{\theta_0}
+-1
+-\log\frac{\widehat\theta}{\theta_0}
+\right]
+$$
+
+と書く。
+
+$$
+u_n
+=\frac{\widehat\theta-\theta_0}{\theta_0}
+=\frac{\delta_n}{\theta_0}
+$$
+
+と置けば
+
+$$
+\frac{\widehat\theta}{\theta_0}=1+u_n.
+$$
+
+したがって
+
+$$
+G^2
+=2n\{u_n-\log(1+u_n)\}.
+$$
+
+$u=0$ のまわりで
+
+$$
+\log(1+u)
+=u-\frac{u^2}{2}+O(u^3)
+$$
+
+だから
+
+$$
+u-\log(1+u)
+=\frac{u^2}{2}+O(u^3).
+$$
+
+よって
+
+$$
+\begin{aligned}
+G^2
+&=2n\left[
+\frac{u_n^2}{2}+O_p(u_n^3)
+\right]\\
+&=nu_n^2+O_p(nu_n^3)\\
+&=\frac{n\delta_n^2}{\theta_0^2}+o_p(1).
+\end{aligned}
+$$
+
+したがって
+
+$$
+\boxed{
+G^2=S_c+o_p(1)
+}.
+$$
+
+以上から
+
+$$
+\boxed{
+W-S_c=o_p(1),
+\qquad
+G^2-S_c=o_p(1),
+\qquad
+G^2-W=o_p(1)
+}.
+$$
+
+つまり3検定は有限標本では異なる統計量を使うが、$H_0$ の近くではいずれも主要項
+
+$$
+\boxed{
+\frac{n(\widehat\theta-\theta_0)^2}{\theta_0^2}
+}
+$$
+
+へ帰着する。
 
 ## 本番答案
 
-問題文の確率質量関数と独立性から
+$$
+L(\theta)
+=\theta^{-n}\exp\left(-\frac{T}{\theta}\right),
+\qquad
+\ell(\theta)
+=-n\log\theta-\frac{T}{\theta},
+\qquad
+T=\sum_{i=1}^nX_i.
+$$
 
 $$
-L(p)=p^S(1-p)^{n-S},
-$$
-
-$$
-\ell(p)=S\log p+(n-S)\log(1-p).
-$$
-
-$$
-\ell'(p)=\frac{S}{p}-\frac{n-S}{1-p}=0
+\ell'(\theta)
+=-\frac n\theta+\frac{T}{\theta^2}=0
 $$
 
 より
 
 $$
-\widehat p=S/n.
+\boxed{\widehat\theta=T/n=\overline X}.
 $$
 
 1標本のスコアは
 
 $$
-U_1(p)=\frac{X-p}{p(1-p)},
+U_1(\theta)
+=\frac{X-\theta}{\theta^2}
 $$
 
-したがって
+であり、$\operatorname{Var}(X)=\theta^2$ より
 
 $$
-I_1(p)=\frac1{p(1-p)}.
+\boxed{I_1(\theta)=1/\theta^2}.
 $$
 
 中心極限定理、大数の法則、Slutsky の定理から
 
 $$
-W=\frac{n(\widehat p-p_0)^2}{\widehat p(1-\widehat p)}
-\xrightarrow{d}\chi^2_1.
+\boxed{
+W
+=\frac{n(\widehat\theta-\theta_0)^2}{\widehat\theta^2}
+\xrightarrow{d}\chi_1^2
+}.
 $$
 
 また
 
 $$
+U_n(\theta_0)
+=\frac{T-n\theta_0}{\theta_0^2},
+\qquad
+I_n(\theta_0)=\frac n{\theta_0^2}
+$$
+
+より
+
+$$
+\boxed{
 S_c
-=\frac{U_n(p_0)^2}{I_n(p_0)}
-=\frac{(S-np_0)^2}{np_0(1-p_0)}
-\xrightarrow{d}\chi^2_1.
+=\frac{n(\widehat\theta-\theta_0)^2}{\theta_0^2}
+\xrightarrow{d}\chi_1^2
+}.
 $$
 
 尤度比統計量は
 
 $$
+\boxed{
 G^2
-=2\left[
-S\log\frac{\widehat p}{p_0}
-+(n-S)\log\frac{1-\widehat p}{1-p_0}
-\right].
+=2n\left[
+\frac{\widehat\theta}{\theta_0}
+-1
+-\log\frac{\widehat\theta}{\theta_0}
+\right]
+}.
 $$
 
-$p_0$ は内部点、支持は母数非依存、モデルは滑らか・識別可能、情報量は有限正なので Wilks の定理から
+$\theta_0$ は内部点、支持は母数に依存せず、モデルは滑らか・識別可能、情報量は有限正なので Wilks の定理から
 
 $$
-G^2\xrightarrow{d}\chi^2_1.
+G^2\xrightarrow{d}\chi_1^2.
 $$
 
 数値例では
 
 $$
-W=4,
+\widehat\theta=1.2,
+$$
+
+$$
+\boxed{
+W=\frac{25}{9},
 \qquad
-S_c=\frac{25}{6},
+S_c=4,
 \qquad
-G^2=100\log\frac{25}{24}.
+G^2=200\left(\frac15-\log\frac65\right)
+}.
 $$
 
-$p_0$ のまわりの Taylor 展開により3統計量はいずれも
+したがって5%水準では、Wald と尤度比は棄却せず、スコア検定だけが棄却する。
+
+さらに
 
 $$
-I_n(p_0)(\widehat p-p_0)^2+o_p(1)
+\delta_n=\widehat\theta-\theta_0=O_p(n^{-1/2})
 $$
 
-へ帰着するので、漸近的には一致する。
+と置くと、Taylor 展開から
+
+$$
+W
+=\frac{n\delta_n^2}{\theta_0^2}+o_p(1),
+$$
+
+$$
+S_c
+=\frac{n\delta_n^2}{\theta_0^2},
+$$
+
+$$
+G^2
+=\frac{n\delta_n^2}{\theta_0^2}+o_p(1).
+$$
+
+ゆえに3統計量は $H_0$ の下で漸近同値である。
 
 ## 採点基準
 
-- (1) 確率質量関数から尤度・対数尤度・最尤推定量・Fisher情報量を導く: 4点
-- (2) Wald 統計量と中心極限定理・Slutsky の条件: 4点
-- (3) スコア統計量・尤度比統計量・Wilks の条件: 6点
-- (4) 3統計量の正しい厳密式: 4点
-- (5) $p_0$ まわりの展開と局所二次近似: 2点
+- (1) 確率密度関数から尤度・対数尤度・最尤推定量・Fisher 情報量を導く: 4点
+- (2) Wald 統計量と中心極限定理・Slutsky の定理による漸近分布: 4点
+- (3) スコア統計量・尤度比統計量の導出と Wilks の条件: 6点
+- (4) 3統計量の数値計算と5%水準での判定: 4点
+- (5) $\theta_0$ まわりの Taylor 展開による漸近同値: 2点
 
 25分経過時も、尤度・スコア・Taylor 展開の出発点を結果だけ置かず、採点対象の導出核を残す。
