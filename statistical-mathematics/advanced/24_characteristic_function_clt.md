@@ -9,7 +9,7 @@
 
 ## 問題
 
-$X_1,X_2,\ldots$ はi.i.d.で $E[X_i]=\mu$, $\operatorname{Var}(X_i)=\sigma^2\in(0,\infty)$ とする。特性関数を用いて
+$X_1,X_2,\ldots$ は独立同分布で $E[X_i]=\mu$, $\operatorname{Var}(X_i)=\sigma^2\in(0,\infty)$ とする。特性関数を用いて
 
 $$
 \frac{\sum_{i=1}^nX_i-n\mu}{\sigma\sqrt n}
@@ -32,7 +32,7 @@ $$
 Y_i=\frac{X_i-\mu}{\sigma}
 $$
 
-と置くと $Y_i$ はi.i.d.で
+と置くと $Y_i$ は独立同分布で
 
 $$
 E[Y_i]=0,
@@ -146,7 +146,7 @@ $$
 S_n\Rightarrow N(0,1).
 $$
 
-$S_n=(\sum X_i-n\mu)/(\sigma\sqrt n)$ だから求めるCLTを得る。
+$S_n=(\sum X_i-n\mu)/(\sigma\sqrt n)$ だから求める中心極限定理を得る。
 
 ## 本番答案
 

@@ -17,7 +17,7 @@ $X\sim\operatorname{Binomial}(n,p)$、$0<p<1$、$\hat p=X/n$ とする。
 
 ## 詳細解答
 
-### 1. CLTとSlutskyからWald区間を作る
+### 1. 中心極限定理とSlutskyからWald区間を作る
 
 $X$ はBernoulli$(p)$ 標本 $B_1,\ldots,B_n$ の和と書け、
 
@@ -25,7 +25,7 @@ $$
 \hat p=\frac1n\sum_{i=1}^nB_i.
 $$
 
-$B_i$ はi.i.d.で
+$B_i$ は独立同分布で
 
 $$
 E[B_i]=p,
@@ -99,13 +99,13 @@ $$
 
 ## 本番答案
 
-$X$ をBernoulli標本和とみる。$0<p<1$ ならi.i.d.かつ有限正分散なので **CLT**から
+$X$ をBernoulli標本和とみる。$0<p<1$ なら独立同分布かつ有限正分散なので **中心極限定理**から
 
 $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{p(1-p)}}\Rightarrow N(0,1).
 $$
 
-LLNで $\hat p\to_p p$、$p(1-p)>0$ なので **Slutsky**により分母をplug-inできる。従ってWald区間は
+大数の法則で $\hat p\to_p p$、$p(1-p)>0$ なので **Slutsky**により分母をplug-inできる。従ってWald区間は
 
 $$
 \hat p\pm1.96\sqrt{\hat p(1-\hat p)/n}.
@@ -121,7 +121,7 @@ $X=0$ では区間が $[0,0]$ に退化するため、境界近傍では名目95
 
 ## 採点基準
 
-- Wald区間（CLT・Slutsky条件）: 5点
+- Wald区間（中心極限定理・Slutsky条件）: 5点
 - 被覆確率の有限和: 6点
 - $X=0$ の分析: 5点
 - 漸近条件と境界不安定性の説明: 4点

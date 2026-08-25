@@ -108,7 +108,7 @@ E[X_n]=\lambda,
 Var(X_n)\to\lambda.
 $$
 
-独立PoissonのPGFの積から
+独立Poissonの確率母関数の積から
 
 $$
 X+Y\sim Poi(\lambda_1+\lambda_2).

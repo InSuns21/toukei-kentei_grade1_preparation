@@ -1,4 +1,4 @@
-# Core 43 Poisson母数推定：不偏性・一致性・MSE
+# Core 43 Poisson母数推定：不偏性・一致性・平均二乗誤差
 
 - 旧No.: 53
 - 演習価値: A
@@ -11,7 +11,7 @@
 $X_i\overset{\mathrm{iid}}\sim Poi(\lambda)$ とし、$\widehat\lambda=\bar X$とする。
 
 1. 不偏性を示せ。
-2. 分散とMSEを求めよ。
+2. 分散と平均二乗誤差を求めよ。
 3. Chebyshevの不等式を使って一致性を示せ。
 4. 中心極限定理による漸近分布を求めよ。
 
@@ -32,7 +32,7 @@ $$
 不偏なので
 
 $$
-\boxed{MSE(\widehat\lambda)=\lambda/n}.
+\boxed{平均二乗誤差(\widehat\lambda)=\lambda/n}.
 $$
 
 任意の$\varepsilon>0$に対しChebyshevより
@@ -44,7 +44,7 @@ $$
 
 従って$\widehat\lambda\to_p\lambda$。
 
-CLTより
+中心極限定理より
 
 $$
 \boxed{
@@ -60,7 +60,7 @@ E[\bar X]=\lambda,
 \quad
 Var(\bar X)=\lambda/n,
 \quad
-MSE=\lambda/n.
+平均二乗誤差=\lambda/n.
 $$
 
 Chebyshevより
@@ -79,6 +79,6 @@ $$
 ## 採点基準
 
 - 不偏性: 4点
-- 分散・MSE: 5点
+- 分散・平均二乗誤差: 5点
 - 一致性: 6点
-- CLT: 5点
+- 中心極限定理: 5点

@@ -9,7 +9,7 @@
 
 ## 問題
 
-Weibull分布のCDFを
+Weibull分布の累積分布関数を
 
 $$
 F(t)=1-\exp\left[-\left(\frac t\lambda\right)^k\right],

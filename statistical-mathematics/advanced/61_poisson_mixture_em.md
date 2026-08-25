@@ -1,4 +1,4 @@
-# Advanced 12 2成分Poisson混合・EM
+# Advanced 12 2成分Poisson混合・期待値最大化法
 
 - 旧No.: 61
 - 層: Advanced

@@ -1,4 +1,4 @@
-# Core 22 Poisson MLE・Fisher情報・信頼区間
+# Core 22 Poisson 最尤推定量・Fisher情報・信頼区間
 
 - 旧No.: 49
 - 演習価値: S
@@ -10,14 +10,14 @@
 
 $X_i\overset{\mathrm{iid}}\sim\operatorname{Poisson}(\lambda)$、$\lambda\ge0$ とする。Fisher情報量・漸近分布・Wald区間については真値 $\lambda>0$ を仮定する。
 
-1. $\lambda$のMLEを求めよ。
+1. $\lambda$の最尤推定量を求めよ。
 2. Fisher情報量を求めよ。
-3. MLEの漸近分布を求めよ。
+3. 最尤推定量の漸近分布を求めよ。
 4. $n=100,\sum X_i=400$のとき、$z_{0.975}=1.96$を用いた95% Wald信頼区間を求めよ。
 
 ## 詳細解答
 
-### 1. MLE
+### 1. 最尤推定量
 
 対数尤度は $\lambda>0$ で、定数を除いて
 
@@ -50,7 +50,7 @@ $$
 \boxed{\widehat\lambda=\bar X}.
 $$
 
-ここで「MLEでは境界を含む母数空間 $\lambda\ge0$」と、「通常の正則漸近論では真値を内部点 $\lambda>0$ に置く」ことを区別する。
+ここで「最尤推定量では境界を含む母数空間 $\lambda\ge0$」と、「通常の正則漸近論では真値を内部点 $\lambda>0$ に置く」ことを区別する。
 
 ### 2. Fisher情報量
 
@@ -77,7 +77,7 @@ $$
 
 ### 3. 漸近分布：中心極限定理とSlutsky
 
-本問では $\hat\lambda=\bar X$ なので、一般のMLE漸近定理を使わず **Lindeberg–Lévy の中心極限定理**を直接使える。必要条件はi.i.d.で有限分散を持つこと。本問では真値 $\lambda>0$ の下で
+本問では $\hat\lambda=\bar X$ なので、一般の最尤推定量漸近定理を使わず **Lindeberg–Lévy の中心極限定理**を直接使える。必要条件は独立同分布で有限分散を持つこと。本問では真値 $\lambda>0$ の下で
 
 $$
 E[X_i]=\lambda,
@@ -137,15 +137,15 @@ $$
 I_n(\lambda)=n/\lambda.
 $$
 
-また $X_i$ はi.i.d.かつ $Var(X_i)=\lambda<\infty$ なので **Lindeberg–Lévy CLT**より
+また $X_i$ は独立同分布かつ $Var(X_i)=\lambda<\infty$ なので **Lindeberg–Lévy 中心極限定理**より
 
 $$
 \sqrt n(\hat\lambda-\lambda)\Rightarrow N(0,\lambda).
 $$
 
-LLNで $\hat\lambda\to_p\lambda>0$ だから **Slutskyの定理**により plug-in SE $\sqrt{\hat\lambda/n}$ を使える。
+大数の法則で $\hat\lambda\to_p\lambda>0$ だから **Slutskyの定理**により plug-in SE $\sqrt{\hat\lambda/n}$ を使える。
 
-$n=100,\bar x=4$ では $SE=0.2$、95% Wald CI は
+$n=100,\bar x=4$ では $SE=0.2$、95% Wald 信頼区間 は
 
 $$
 4\pm1.96(0.2)=(3.608,4.392).
@@ -153,7 +153,7 @@ $$
 
 ## 採点基準
 
-- MLE（内部点と境界の区別）: 5点
+- 最尤推定量（内部点と境界の区別）: 5点
 - Fisher情報と正則性: 5点
-- CLT・Slutskyの条件確認: 5点
-- Wald CI: 5点
+- 中心極限定理・Slutskyの条件確認: 5点
+- Wald 信頼区間: 5点

@@ -42,20 +42,20 @@ $$
 以下で行えば
 
 $$
-FWER
+家族内誤差率
 =P\left(\bigcup_iA_i\right)
 \le\sum_i\frac\alpha m
 =\alpha.
 $$
 
-従って検定統計量同士が相関していてもFWERを制御できる。
+従って検定統計量同士が相関していても家族内誤差率を制御できる。
 
 ### 2. Scheffe法
 
 使うのは **Scheffeの同時推測定理**である。固定効果一元配置の通常の線形モデルで、誤差が独立な $N(0,\sigma^2)$、共通分散を持ち、各群に観測があるとする。このとき
 
 $$
-MSE=\frac{SSE}{N-g},
+平均二乗誤差=\frac{SSE}{N-g},
 \qquad g=4,
 $$
 
@@ -80,7 +80,7 @@ $$
 \widehat L
 \pm
 \sqrt{(g-1)F_{g-1,N-g;1-\alpha}}
-\sqrt{MSE\sum_i\frac{c_i^2}{n_i}}
+\sqrt{平均二乗誤差\sum_i\frac{c_i^2}{n_i}}
 }.
 $$
 
@@ -106,7 +106,7 @@ $$
 P(\cup_iA_i)\le\sum_iP(A_i)
 $$
 
-は独立性を仮定しない。よって各検定を $\alpha/m$ で行えば $FWER\le\alpha$。
+は独立性を仮定しない。よって各検定を $\alpha/m$ で行えば $家族内誤差率\le\alpha$。
 
 Scheffeは独立正規・共通分散の固定効果一元配置モデルで、全コントラストを同時保証する。$g=4$ なら
 
@@ -114,7 +114,7 @@ $$
 \hat L
 \pm
 \sqrt{3F_{3,N-4;1-\alpha}}
-\sqrt{MSE\sum_i c_i^2/n_i}.
+\sqrt{平均二乗誤差\sum_i c_i^2/n_i}.
 $$
 
 有限個の事前比較はBonferroni、任意コントラスト全体はScheffeが向く。

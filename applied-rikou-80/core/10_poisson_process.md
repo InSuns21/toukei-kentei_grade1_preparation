@@ -69,7 +69,7 @@ F_{T_3}(t)
 \end{aligned}
 $$
 
-これはshape 3、rate 2 のGamma分布のCDFなので
+これはshape 3、rate 2 のGamma分布の累積分布関数なので
 
 $$
 \boxed{T_3\sim\operatorname{Gamma}(3,\text{rate }2)}.

@@ -1,4 +1,4 @@
-# Core 03 Neyman–Pearson・単調尤度比・UMP
+# Core 03 Neyman–Pearson・単調尤度比・一様最強力検定
 
 - 旧No.: 63
 - 演習価値: S
@@ -19,7 +19,7 @@ $$
 
 1. 単純対立 $\lambda=\lambda_1<\lambda_0$ に対するNeyman–Pearson検定の棄却域を求めよ。
 2. 尤度比が$T$について単調であることを示せ。
-3. $H_1:\lambda<\lambda_0$ 全体に対するUMP検定を構成せよ。
+3. $H_1:\lambda<\lambda_0$ 全体に対する一様最強力検定検定を構成せよ。
 4. $H_0$下で$2\lambda_0T\sim\chi^2_{2n}$を用いて臨界値を表せ。
 
 ## 詳細解答
@@ -60,14 +60,14 @@ $$
 
 の形になる。$T$ の帰無分布は連続なので、任意の $0<\alpha<1$ に対してランダム化せず $P_{\lambda_0}(T\ge c_\alpha)=\alpha$ とできる。
 
-### 2・3. UMP性
+### 2・3. 一様最強力検定性
 
 重要なのは、上の単調性の向きが**全ての** $\lambda_1<\lambda_0$ で同じことである。しかもサイズを決める分布は常に $H_0$ の $\lambda_0$ なので、臨界値 $c_\alpha$ も $\lambda_1$ に依存しない。
 
 従って同じ検定 $T\ge c_\alpha$ が各単純対立 $\lambda_1<\lambda_0$ に対してNeyman–Pearson最強力である。よって全ての対立点に同時に最強であり、
 
 $$
-\boxed{T\ge c_\alpha\text{ は }H_1:\lambda<\lambda_0\text{ に対するUMP検定}}
+\boxed{T\ge c_\alpha\text{ は }H_1:\lambda<\lambda_0\text{ に対する一様最強力検定検定}}
 $$
 
 である。
@@ -107,7 +107,7 @@ $$
 =C\exp\{(\lambda_0-\lambda_1)T\}
 $$
 
-は $T$ の増加関数なので $T\ge c_\alpha$ が最強力。帰無分布は連続なので $P_{\lambda_0}(T\ge c_\alpha)=\alpha$ とでき、この同じ臨界域が全 $\lambda_1<\lambda_0$ に対して最強力だからUMP。これは単調尤度比を確認したKarlin–Rubin型の議論でもある。
+は $T$ の増加関数なので $T\ge c_\alpha$ が最強力。帰無分布は連続なので $P_{\lambda_0}(T\ge c_\alpha)=\alpha$ とでき、この同じ臨界域が全 $\lambda_1<\lambda_0$ に対して最強力だから一様最強力検定。これは単調尤度比を確認したKarlin–Rubin型の議論でもある。
 
 $H_0$下で $2\lambda_0T\sim\chi^2_{2n}$ なので
 
@@ -119,5 +119,5 @@ $$
 
 - 尤度とNP補題の適用条件: 3点
 - NP比と単調性: 6点
-- UMPの説明・単調尤度比条件: 6点
+- 一様最強力検定の説明・単調尤度比条件: 6点
 - 臨界値: 5点
