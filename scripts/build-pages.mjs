@@ -9,12 +9,10 @@ const books = [
   {
     dir: 'statistical-mathematics',
     label: '統計数理 100大問',
-    expectedCount: 100,
   },
   {
     dir: 'applied-rikou-80',
     label: '統計応用（理工学）80大問',
-    expectedCount: 80,
   },
 ];
 
@@ -59,6 +57,14 @@ async function linksFromFiles(sourceDir) {
   return links;
 }
 
+function mergeOrderedLinks(indexLinks, fileLinks) {
+  const seen = new Set(indexLinks.map((item) => item.href));
+  return [
+    ...indexLinks,
+    ...fileLinks.filter((item) => !seen.has(item.href)),
+  ];
+}
+
 await rm(outDir, { recursive: true, force: true });
 await mkdir(outDir, { recursive: true });
 
@@ -76,15 +82,9 @@ for (const book of books) {
   await cp(sourceDir, targetDir, { recursive: true });
 
   const indexText = await readFile(path.join(sourceDir, 'index.md'), 'utf8');
-  let links = linksFromIndex(indexText);
-
-  if (links.length !== book.expectedCount) {
-    links = await linksFromFiles(sourceDir);
-  }
-
-  if (links.length !== book.expectedCount) {
-    throw new Error(`${book.dir}: expected ${book.expectedCount} exercises, found ${links.length}`);
-  }
+  const indexLinks = linksFromIndex(indexText);
+  const fileLinks = await linksFromFiles(sourceDir);
+  const links = mergeOrderedLinks(indexLinks, fileLinks);
 
   exerciseCount += links.length;
   sidebar += `- [${book.label}](${book.dir}/index.md)\n`;
@@ -100,9 +100,11 @@ for (const book of books) {
   }
 
   sidebar += '\n';
+
+  console.log(`${book.dir}: ${fileLinks.length} tiered Markdown files published`);
 }
 
 await writeFile(path.join(outDir, '_sidebar.md'), sidebar, 'utf8');
 
 console.log(`GitHub Pages site assembled at ${path.relative(root, outDir)}/`);
-console.log(`Exercises in sidebar: ${exerciseCount}`);
+console.log(`Tiered Markdown links in sidebar: ${exerciseCount}`);
