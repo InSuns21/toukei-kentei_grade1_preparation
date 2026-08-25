@@ -97,7 +97,7 @@ $$
 $$
 \begin{aligned}
 \operatorname{Var}(\widehat\beta)
-&=(X^TX)^{-1}X^T(\sigma^2I_n)X\{(X^TX)^{-1}X^T\}^T\\
+&=(X^TX)^{-1}X^T(\sigma^2I_n)\{(X^TX)^{-1}X^T\}^T\\
 &=\sigma^2(X^TX)^{-1}X^TX(X^TX)^{-1}\\
 &=\boxed{\sigma^2(X^TX)^{-1}}.
 \end{aligned}
