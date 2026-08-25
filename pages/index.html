@@ -14,11 +14,13 @@
     .markdown-section table { display: table; width: 100%; }
     .markdown-section pre { overflow-x: auto; }
     .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+    .toukei-math-display { display: block; }
     .sidebar-nav li { line-height: 1.45; }
   </style>
 </head>
 <body>
   <div id="app">教材を読み込んでいます...</div>
+  <script src="math-renderer.js"></script>
   <script>
     window.$docsify = {
       name: '統計検定1級 対策教材',
@@ -32,18 +34,16 @@
         placeholder: '教材を検索',
         noData: '該当する教材が見つかりません',
         depth: 6
-      }
+      },
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin]
     };
   </script>
   <!--
-    Math must be tokenized before Docsify's Markdown renderer sees it.
-    Post-render auto-render corrupts TeX such as matrix row separators (\\\\)
-    and commands in newly added density functions. docsify-katex installs a
-    Marked extension that renders $...$ / $$...$$ before normal Markdown.
+    Protect TeX in raw Markdown before Docsify parses it, then render the
+    protected placeholders with KaTeX after each route is mounted. This avoids
+    Markdown consuming matrix row separators (\\) and other TeX backslashes.
   -->
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/docsify-katex@2.0.2/dist/docsify-katex.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
 </body>

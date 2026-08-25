@@ -89,6 +89,7 @@ await rm(outDir, { recursive: true, force: true });
 await mkdir(outDir, { recursive: true });
 
 await cp(path.join(pagesDir, 'index.html'), path.join(outDir, 'index.html'));
+await cp(path.join(pagesDir, 'math-renderer.js'), path.join(outDir, 'math-renderer.js'));
 await cp(path.join(pagesDir, 'home.md'), path.join(outDir, 'home.md'));
 await writeFile(path.join(outDir, '.nojekyll'), '', 'utf8');
 
