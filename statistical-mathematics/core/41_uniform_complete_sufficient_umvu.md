@@ -116,11 +116,11 @@ $$
 ことである。本問では $M$ が上で完備十分と確認済みで、$M,M^2$ は $0<M<\theta$ なので可積分である。さらに上の期待値から補正後は不偏である。したがって
 
 $$
-\boxed{\widehat\theta_{一様最小分散不偏推定量}=\frac{n+1}{n}M},
+\boxed{\widehat\theta_{UMVU}=\frac{n+1}{n}M},
 $$
 
 $$
-\boxed{\widehat{\theta^2}_{一様最小分散不偏推定量}=\frac{n+2}{n}M^2}
+\boxed{\widehat{\theta^2}_{UMVU}=\frac{n+2}{n}M^2}
 $$
 
 はそれぞれ一意な一様最小分散不偏推定量である。

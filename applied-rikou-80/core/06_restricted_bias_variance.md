@@ -131,13 +131,13 @@ $$
 $X^\top X=nI_2$ なので 通常最小二乗法 の各成分分散は $\sigma^2/n$。したがって
 
 $$
-\operatorname{平均二乗誤差}(\hat\beta)=E\|\hat\beta-\beta\|^2=\frac{2\sigma^2}{n}.
+\operatorname{MSE}(\hat\beta)=E\|\hat\beta-\beta\|^2=\frac{2\sigma^2}{n}.
 $$
 
 制約推定量は第2成分を0に固定する。第1成分は不偏で分散 $\sigma^2/n$、第2成分の誤差は常に $-\delta$ だから
 
 $$
-\operatorname{平均二乗誤差}(\hat\beta_R)=\frac{\sigma^2}{n}+\delta^2.
+\operatorname{MSE}(\hat\beta_R)=\frac{\sigma^2}{n}+\delta^2.
 $$
 
 したがって制約推定量が有利なのは
@@ -177,8 +177,8 @@ $$
 したがって 通常最小二乗法 との差は $\sigma^2KR^\top C^{-1}RK\succeq0$。直交設計の例では
 
 $$
-\operatorname{平均二乗誤差}_{U}=2\sigma^2/n,\qquad
-\operatorname{平均二乗誤差}_{R}=\sigma^2/n+\delta^2,
+\operatorname{MSE}_{U}=2\sigma^2/n,\qquad
+\operatorname{MSE}_{R}=\sigma^2/n+\delta^2,
 $$
 
 したがって $\delta^2<\sigma^2/n$ なら制約推定が有利。

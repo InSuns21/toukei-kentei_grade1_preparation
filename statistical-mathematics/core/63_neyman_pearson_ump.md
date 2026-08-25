@@ -67,7 +67,7 @@ $$
 従って同じ検定 $T\ge c_\alpha$ が各単純対立 $\lambda_1<\lambda_0$ に対してNeyman–Pearson最強力である。よって全ての対立点に同時に最強であり、
 
 $$
-\boxed{T\ge c_\alpha\text{ は }H_1:\lambda<\lambda_0\text{ に対する一様最強力検定検定}}
+\boxed{T\ge c_\alpha\text{ は }H_1:\lambda<\lambda_0\text{ に対するUMP検定}}
 $$
 
 である。

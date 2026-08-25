@@ -108,7 +108,7 @@ $$
 不偏なので
 
 $$
-\boxed{平均二乗誤差(\widehat p)=\frac{p(1-p)}n}.
+\boxed{MSE(\widehat p)=\frac{p(1-p)}n}.
 $$
 
 ### 3. 縮小推定量
@@ -138,14 +138,14 @@ $$
 平均二乗誤差分解
 
 $$
-平均二乗誤差=\operatorname{Var}+\operatorname{Bias}^2
+MSE=\operatorname{Var}+\operatorname{Bias}^2
 $$
 
 より
 
 $$
 \boxed{
-平均二乗誤差(\widetilde p)
+MSE(\widetilde p)
 =\frac{np(1-p)+(1-2p)^2}{(n+2)^2}
 }.
 $$
@@ -155,17 +155,17 @@ $$
 $p=1/2$ では縮小推定量のバイアスは0なので
 
 $$
-平均二乗誤差(\widetilde p)=\frac{n}{4(n+2)^2},
+MSE(\widetilde p)=\frac{n}{4(n+2)^2},
 $$
 
 $$
-平均二乗誤差(\widehat p)=\frac1{4n}.
+MSE(\widehat p)=\frac1{4n}.
 $$
 
 比は
 
 $$
-\frac{平均二乗誤差(\widetilde p)}{平均二乗誤差(\widehat p)}
+\frac{MSE(\widetilde p)}{MSE(\widehat p)}
 =\frac{n^2}{(n+2)^2}<1,
 $$
 
@@ -191,7 +191,7 @@ $$
 より $\hat p=T/n$、端点 $T=0,n$ でも同式が境界最尤推定量を与える。
 
 $$
-平均二乗誤差(\hat p)=\frac{p(1-p)}n.
+MSE(\hat p)=\frac{p(1-p)}n.
 $$
 
 $$
@@ -201,7 +201,7 @@ Var(\tilde p)=\frac{np(1-p)}{(n+2)^2},
 $$
 
 $$
-平均二乗誤差(\tilde p)=\frac{np(1-p)+(1-2p)^2}{(n+2)^2}.
+MSE(\tilde p)=\frac{np(1-p)+(1-2p)^2}{(n+2)^2}.
 $$
 
 $p=1/2$では$n/[4(n+2)^2]<1/(4n)$。

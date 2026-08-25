@@ -32,7 +32,7 @@ $$
 不偏なので
 
 $$
-\boxed{平均二乗誤差(\widehat\lambda)=\lambda/n}.
+\boxed{MSE(\widehat\lambda)=\lambda/n}.
 $$
 
 任意の$\varepsilon>0$に対しChebyshevより
@@ -60,7 +60,7 @@ E[\bar X]=\lambda,
 \quad
 Var(\bar X)=\lambda/n,
 \quad
-平均二乗誤差=\lambda/n.
+MSE=\lambda/n.
 $$
 
 Chebyshevより

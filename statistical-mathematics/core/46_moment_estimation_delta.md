@@ -138,7 +138,7 @@ $$
 したがって
 
 $$
-\widehat\theta_{最尤推定量}
+\widehat\theta_{MLE}
 =-\frac{n}{\sum_i\log X_i}-1.
 $$
 
@@ -153,7 +153,7 @@ $$
 **正則最尤推定量の漸近正規性定理**を使う条件を確認する。真値 $\theta>-1$ は開母数空間 $(-1,\infty)$ の内部点、支持 $(0,1)$ は母数非依存、モデルは識別可能、対数密度は真値近傍で滑らか、情報量は有限正である。従って
 
 $$
-\sqrt n(\widehat\theta_{最尤推定量}-\theta)
+\sqrt n(\widehat\theta_{MLE}-\theta)
 \Rightarrow N\left(0,(\theta+1)^2\right).
 $$
 
