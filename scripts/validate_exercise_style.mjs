@@ -87,6 +87,51 @@ const replacements = new Map([
   ['LS', 'Lehmann–Scheffé定理／最小二乗法など文脈に応じた正式名称'],
 ]);
 
+// 学習者向け教材では測度論を前提にしない。これらが必要になる議論は、
+// 正則条件を問題文で与えるか、通常の和・積分で追える導出へ置き換える。
+const measureTheoryPatterns = [
+  {
+    pattern: /測度論|確率測度|測度空間|測度/g,
+    guidance: '測度論を前提にせず、確率・密度・分布関数・通常の積分で記述する',
+  },
+  {
+    pattern: /σ\s*[-‐‑–—]?\s*(?:加法族|代数)|シグマ\s*[-‐‑–—]?\s*(?:加法族|代数)|sigma\s*[-‐‑–— ]?\s*(?:algebra|field)/gi,
+    guidance: 'σ-加法族・σ-代数を前提にしない',
+  },
+  {
+    pattern: /可測(?:性|関数|集合)?/g,
+    guidance: '可測性を前提にしない',
+  },
+  {
+    pattern: /Lebesgue|ルベーグ/gi,
+    guidance: 'Lebesgue積分を前提にせず、通常の積分の範囲で記述する',
+  },
+  {
+    pattern: /Borel|ボレル/gi,
+    guidance: 'Borel集合を前提にしない',
+  },
+  {
+    pattern: /Radon\s*[-‐‑–—]?\s*Nikodym|ラドン\s*[-‐‑–—]?\s*ニコディム/gi,
+    guidance: 'Radon–Nikodymの定理を前提にしない',
+  },
+  {
+    pattern: /Fubini|フビニ|Tonelli|トネリ/gi,
+    guidance: '積分順序の交換は測度論の定理を前提にせず扱う',
+  },
+  {
+    pattern: /単調収束定理|monotone convergence theorem/gi,
+    guidance: '単調収束定理を前提にしない',
+  },
+  {
+    pattern: /優収束定理|支配収束定理|dominated convergence theorem/gi,
+    guidance: '優収束定理を前提にしない',
+  },
+  {
+    pattern: /ほとんど確実(?:に|な|で)?|概収束|almost surely|\ba\.s\.(?=\s|[,;:.)]|$)/gi,
+    guidance: '測度論的な収束概念を前提にせず、シラバス範囲の収束概念で記述する',
+  },
+];
+
 const errors = [];
 const files = exerciseRoots
   .flatMap(walk)
@@ -97,6 +142,7 @@ const files = exerciseRoots
 for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
   const searchable = stripNonProse(source);
+  const measureSearchable = stripCodeAndLinks(source);
 
   for (const [token, replacement] of replacements) {
     const pattern = new RegExp(`\\b${escapeRegExp(token)}\\b`, 'g');
@@ -108,6 +154,14 @@ for (const file of files) {
   for (const match of searchable.matchAll(/\bi\.i\.d\.(?!\w)/gi)) {
     errors.push(`${relative(file)}:${lineAt(searchable, match.index)} 非自明な略語 ${match[0]} → 独立同分布`);
   }
+
+  for (const { pattern, guidance } of measureTheoryPatterns) {
+    for (const match of measureSearchable.matchAll(pattern)) {
+      errors.push(
+        `${relative(file)}:${lineAt(measureSearchable, match.index)} 測度論を前提とする記載 ${match[0]} → ${guidance}`,
+      );
+    }
+  }
 }
 
 if (errors.length) {
@@ -116,7 +170,7 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`${files.length} 個の演習 Markdown ファイルを公式シラバス優先の共通表記規約で検証しました。`);
+console.log(`${files.length} 個の演習 Markdown ファイルを公式シラバス優先・非測度論の共通規約で検証しました。`);
 
 function stripNonProse(source) {
   let value = source;
@@ -124,6 +178,15 @@ function stripNonProse(source) {
   value = value.replace(/`[^`\n]*`/g, preserveWidth);
   value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
   value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
+  value = value.replace(/\]\([^\n)]*\)/g, (destination) => ']'.padEnd(destination.length, ' '));
+  value = value.replace(/<https?:\/\/[^>]+>/g, preserveWidth);
+  value = value.replace(/https?:\/\/\S+/g, preserveWidth);
+  return value;
+}
+
+function stripCodeAndLinks(source) {
+  let value = source;
+  value = value.replace(/```[\s\S]*?```/g, preserveLines);
   value = value.replace(/\]\([^\n)]*\)/g, (destination) => ']'.padEnd(destination.length, ' '));
   value = value.replace(/<https?:\/\/[^>]+>/g, preserveWidth);
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
