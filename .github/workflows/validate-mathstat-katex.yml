@@ -9,6 +9,7 @@ on:
       - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
       - 'scripts/validate_exercise_style.mjs'
+      - 'scripts/audit_solution_granularity.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-mathstat-katex.yml'
@@ -18,6 +19,7 @@ on:
       - 'EXERCISE_GUIDELINES.md'
       - 'scripts/validate_math.mjs'
       - 'scripts/validate_exercise_style.mjs'
+      - 'scripts/audit_solution_granularity.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-mathstat-katex.yml'
@@ -43,3 +45,6 @@ jobs:
 
       - name: Validate shared exercise terminology
         run: npm run validate:exercise-style
+
+      - name: Audit solution granularity
+        run: npm run audit:granularity
