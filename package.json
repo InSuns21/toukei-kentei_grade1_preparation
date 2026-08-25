@@ -4,9 +4,10 @@
   "private": true,
   "description": "統計検定1級の独習教材・問題集・詳細解答集の生成検証基盤",
   "scripts": {
-    "validate": "npm run validate:structure && npm run validate:math && npm run validate:text",
+    "validate": "npm run validate:structure && npm run validate:math && npm run validate:exercise-style && npm run validate:text",
     "validate:structure": "node scripts/validate_structure.mjs",
     "validate:math": "node scripts/validate_math.mjs",
+    "validate:exercise-style": "node scripts/validate_exercise_style.mjs",
     "validate:rikou80": "node applied-rikou-80/validate-katex.mjs",
     "validate:mathstat": "node statistical-mathematics/validate-katex.mjs",
     "validate:text": "node scripts/validate_text.mjs",
