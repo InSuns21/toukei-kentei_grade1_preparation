@@ -8,7 +8,7 @@
 
 ## 問題
 
-$X_i\overset{\mathrm{iid}}\sim\operatorname{Bernoulli}(p)$、$T=\sum X_i$とする。
+$X_i\overset{\mathrm{iid}}\sim\operatorname{Bernoulli}(p)$、$0\le p\le1$ とし、$T=\sum X_i$とする。
 
 1. $T$が$p$の十分統計量であることを示し、MLEを求めよ。
 2. $\widehat p=T/n$のMSEを求めよ。
@@ -23,19 +23,81 @@ $$
 
 ## 詳細解答
 
-尤度は
+### 1. 十分性：Neyman–Fisher 因子分解定理を使う
+
+標本点を $x=(x_1,\ldots,x_n)\in\{0,1\}^n$ とする。Bernoulli標本の同時確率質量関数は
 
 $$
-L(p)=p^T(1-p)^{n-T},
+\begin{aligned}
+f_p(x)
+&=\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i}\\
+&=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol1\{x\in\{0,1\}^n\}.
+\end{aligned}
 $$
 
-したがって$T$は十分で、MLEは
+ここで使うのは **Neyman–Fisher の因子分解定理**である。離散モデルでは数え上げ測度を共通の支配測度に取り、
 
 $$
-\widehat p=T/n.
+f_p(x)=g_p(T(x))h(x)
 $$
 
-$T\sim\operatorname{Bin}(n,p)$より
+と、$p$への依存を $T(x)$ だけに集約できれば $T$ は十分統計量である。
+
+本問では
+
+$$
+g_p(t)=p^t(1-p)^{n-t},
+\qquad
+h(x)=\boldsymbol1\{x\in\{0,1\}^n\}.
+$$
+
+標本空間 $\{0,1\}^n$ は $p$ に依存せず、$h$ も $p$ に依存しない。したがって因子分解定理の条件を満たし、
+
+$$
+\boxed{T=\sum X_i\text{ は }p\text{ の十分統計量}}
+$$
+
+である。
+
+次にMLEを求める。$0<T<n$ なら対数尤度は
+
+$$
+\ell(p)=T\log p+(n-T)\log(1-p),
+$$
+
+$$
+\ell'(p)=\frac Tp-\frac{n-T}{1-p},
+$$
+
+なので $\ell'(p)=0$ から
+
+$$
+p=\frac Tn.
+$$
+
+また
+
+$$
+\ell''(p)=-\frac{T}{p^2}-\frac{n-T}{(1-p)^2}<0
+$$
+
+だから内部解は最大値である。$T=0$ では尤度 $(1-p)^n$ は $p=0$ で最大、$T=n$ では $p^n$ は $p=1$ で最大なので、端点を含めても
+
+$$
+\boxed{\widehat p=\frac Tn}.
+$$
+
+### 2. MLEのMSE
+
+$T\sim\operatorname{Binomial}(n,p)$ より
+
+$$
+E[T]=np,
+\qquad
+\operatorname{Var}(T)=np(1-p).
+$$
+
+したがって
 
 $$
 E[\widehat p]=p,
@@ -43,16 +105,17 @@ E[\widehat p]=p,
 \operatorname{Var}(\widehat p)=\frac{p(1-p)}n.
 $$
 
-従って
+不偏なので
 
 $$
 \boxed{MSE(\widehat p)=\frac{p(1-p)}n}.
 $$
 
-一方
+### 3. 縮小推定量
 
 $$
 E[\widetilde p]
+=\frac{E[T]+1}{n+2}
 =\frac{np+1}{n+2},
 $$
 
@@ -60,17 +123,25 @@ $$
 
 $$
 \operatorname{Bias}(\widetilde p)
+=E[\widetilde p]-p
 =\frac{1-2p}{n+2}.
 $$
 
-分散は
+また定数を足しても分散は変わらないので
 
 $$
 \operatorname{Var}(\widetilde p)
+=\frac{\operatorname{Var}(T)}{(n+2)^2}
 =\frac{np(1-p)}{(n+2)^2}.
 $$
 
-したがって
+MSE分解
+
+$$
+MSE=\operatorname{Var}+\operatorname{Bias}^2
+$$
+
+より
 
 $$
 \boxed{
@@ -79,7 +150,9 @@ MSE(\widetilde p)
 }.
 $$
 
-$p=1/2$ではバイアス0なので
+### 4. $p=1/2$ で比較
+
+$p=1/2$ では縮小推定量のバイアスは0なので
 
 $$
 MSE(\widetilde p)=\frac{n}{4(n+2)^2},
@@ -89,18 +162,36 @@ $$
 MSE(\widehat p)=\frac1{4n}.
 $$
 
-比は$n^2/(n+2)^2<1$だから、この点では縮小推定量の方がMSEが小さい。
+比は
+
+$$
+\frac{MSE(\widetilde p)}{MSE(\widehat p)}
+=\frac{n^2}{(n+2)^2}<1,
+$$
+
+したがってこの点では縮小推定量の方がMSEが小さい。
 
 ## 本番答案
 
-$$
-L(p)=p^T(1-p)^{n-T}
-$$
-
-より$T$は十分、$\hat p=T/n$。
+Bernoulli標本は数え上げ測度で支配され、標本空間 $\{0,1\}^n$ は $p$ に依存しない。同時pmfは
 
 $$
-MSE(\hat p)=p(1-p)/n.
+f_p(x)=p^{T(x)}(1-p)^{n-T(x)}\boldsymbol1\{x\in\{0,1\}^n\}
+=g_p(T(x))h(x).
+$$
+
+よって **Neyman–Fisher 因子分解定理**から $T$ は十分。
+
+$0<T<n$ では
+
+$$
+\ell'(p)=T/p-(n-T)/(1-p)=0
+$$
+
+より $\hat p=T/n$、端点 $T=0,n$ でも同式が境界MLEを与える。
+
+$$
+MSE(\hat p)=\frac{p(1-p)}n.
 $$
 
 $$
@@ -108,8 +199,6 @@ Bias(\tilde p)=\frac{1-2p}{n+2},
 \quad
 Var(\tilde p)=\frac{np(1-p)}{(n+2)^2},
 $$
-
-よって
 
 $$
 MSE(\tilde p)=\frac{np(1-p)+(1-2p)^2}{(n+2)^2}.
@@ -119,7 +208,7 @@ $p=1/2$では$n/[4(n+2)^2]<1/(4n)$。
 
 ## 採点基準
 
-- 十分性・MLE: 5点
+- 十分性（定理名・条件確認・因子分解）: 5点
 - MLEのMSE: 4点
 - 縮小推定量のbias/variance/MSE: 8点
 - $p=1/2$比較: 3点
