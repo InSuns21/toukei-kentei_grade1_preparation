@@ -91,7 +91,7 @@ $$
 
 $$
 f_\mu(x)
-=h(x)\exp\left\{\frac{\mu}{\sigma^2}\sum_i x_i-rac{n\mu^2}{2\sigma^2}\right\}
+=h(x)\exp\left\{\frac{\mu}{\sigma^2}\sum_i x_i-\frac{n\mu^2}{2\sigma^2}\right\}
 $$
 
 と書け、自然母数は
