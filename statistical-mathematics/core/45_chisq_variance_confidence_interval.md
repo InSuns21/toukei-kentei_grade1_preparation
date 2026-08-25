@@ -19,36 +19,47 @@ $X_i\overset{\mathrm{iid}}\sim N(\mu,\sigma^2)$ とする。$n=16,s^2=4$が得�
 
 ### 1. Cochranの定理とピボット
 
-使うのは **Cochran の定理**である。正規ベクトルを互いに直交する射影成分へ分解すると、対応する平方和は独立なカイ二乗分布になる。
-
-本問で
+この節で使う
 
 $$
-Z=\frac{X-\mu\mathbf1}{\sigma}\sim N_n(0,I_n)
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
 $$
 
-とし、
+の詳細な導出は、Student化の問題でも共通して使う。
+
+**対称・冪等な射影行列、平均方向と残差方向、スペクトル定理、標準多変量正規の回転不変性まで含む導出は、次の共通解説を参照すること。**
+
+[共通解説：正規標本の直交射影・Cochranの定理](../common/normal_sample_projection_cochran.md)
+
+本問で必要な部分だけをまとめる。
+
+$$
+Z=\frac{X-\mu\mathbf1}{\sigma}\sim N_n(0,I_n),
+$$
 
 $$
 P=\frac1n\mathbf1\mathbf1^T,
-\qquad Q=I-P
+\qquad
+Q=I-P
 $$
 
-と置く。$Q$ は
+とする。$Q$ は平均からの残差方向への直交射影で、
 
 $$
 Q^T=Q,
-\qquad Q^2=Q,
-\qquad \operatorname{rank}(Q)=n-1
+\qquad
+Q^2=Q,
+\qquad
+\operatorname{rank}(Q)=n-1.
 $$
 
-を満たす直交射影である。正規性が仮定されているのでCochranの定理の条件を満たし、
+正規性とCochranの定理より
 
 $$
 Z^TQZ\sim\chi^2_{n-1}.
 $$
 
-一方
+一方、
 
 $$
 Z^TQZ
@@ -56,13 +67,17 @@ Z^TQZ
 =\frac{(n-1)S^2}{\sigma^2}.
 $$
 
-従って
+したがって
 
 $$
-\boxed{\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}}.
+\boxed{
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+}.
 $$
 
-ここで正規性は本質的であり、一般の独立同分布標本ではこの正確なカイ二乗分布は保証されない。
+この統計量の分布は未知母数 $\mu,\sigma^2$ に依存しないので、$\sigma^2$ に関するピボットとして使える。
+
+正規性は本質的であり、一般の独立同分布標本ではこの正確なカイ二乗分布は通常成立しない。
 
 ### 2. 分散の信頼区間
 
