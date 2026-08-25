@@ -143,7 +143,7 @@ $$
 \sqrt n(\hat\lambda-\lambda)\Rightarrow N(0,\lambda).
 $$
 
-大数の法則で $\hat\lambda\to_p\lambda>0$ だから **Slutskyの定理**により plug-in SE $\sqrt{\hat\lambda/n}$ を使える。
+大数の法則で $\hat\lambda\to_p\lambda>0$ だから **Slutskyの定理**により plug-in 標準誤差 $\sqrt{\hat\lambda/n}$ を使える。
 
 $n=100,\bar x=4$ では $SE=0.2$、95% Wald 信頼区間 は
 

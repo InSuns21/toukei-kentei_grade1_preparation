@@ -21,9 +21,9 @@
 | 08 | 19 | S | A | [Markov推移度数の最尤推定量・尤度比検定](08_markov_mle_lrt.md) |
 | 09 | 17 | S | B | [Markov連鎖・定常分布・平均再帰時間](09_markov_stationary.md) |
 | 10 | 13 | S | B | [Poisson過程・指数待ち時間・条件付き二項](10_poisson_process.md) |
-| 11 | 22 | S | B | [AR(1)](11_ar1.md) |
-| 12 | 23 | S | A | [AR(2)・Yule–Walker](12_ar2_yule_walker.md) |
-| 13 | 27 | S | A | [ARIMA・差分・単位根](13_arima_difference.md) |
+| 11 | 22 | S | B | [自己回帰(1)](11_ar1.md) |
+| 12 | 23 | S | A | [自己回帰(2)・Yule–Walker](12_ar2_yule_walker.md) |
+| 13 | 27 | S | A | [自己回帰和分移動平均・差分・単位根](13_arima_difference.md) |
 | 14 | 47 | S | B | [$2^2$要因計画・単純効果](14_factorial_2x2.md) |
 | 15 | 48 | S | A | [$2^k$要因計画](15_factorial_2k.md) |
 | 16 | 49 | S | A | [一部実施要因計画・alias・解像度](16_fractional_factorial.md) |
@@ -45,8 +45,8 @@
 | 32 | 14 | A | A | [Poisson過程の重ね合わせ・間引き](32_poisson_superposition_thinning.md) |
 | 33 | 18 | A | A | [吸収Markov連鎖](33_absorbing_markov.md) |
 | 34 | 28 | A | A | [時系列の多期予測・一般予測誤差分散](34_time_series_forecast.md) |
-| 35 | 24 | A | B | [MA(1)・自己共分散・可逆性](35_ma1_invertibility.md) |
-| 36 | 62 | A | A | [管理限界・検出確率・ARL](36_control_chart_arl.md) |
+| 35 | 24 | A | B | [移動平均(1)・自己共分散・可逆性](35_ma1_invertibility.md) |
+| 36 | 62 | A | A | [管理限界・検出確率・平均連長](36_control_chart_arl.md) |
 | 37 | 58 | A | B | [属性管理図 $p,np,c,u$](37_attribute_charts.md) |
 | 38 | 43 | A | C | [Fisherの3原則・実験単位](38_fisher_principles.md) |
 | 39 | 61 | S | A | [工程能力指数 $C_p$ の推定・カイ二乗信頼区間](39_cp_confidence_interval.md) |

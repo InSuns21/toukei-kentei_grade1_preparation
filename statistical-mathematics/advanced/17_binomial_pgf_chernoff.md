@@ -14,7 +14,7 @@ $X\sim\operatorname{Binomial}(n,p)$ とし、$p<a<1$ とする。
 1. モーメント母関数 $E[e^{tX}]$ を求めよ。
 2. Markovの不等式を用いて $P(X\ge na)$ の上界を $t>0$ で表せ。
 3. 上界を最小にする $t^*$ を求めよ。
-4. 上界をBernoulliのKL divergence
+4. 上界をBernoulliのKullback–Leiblerダイバージェンス
 
 $$
 D(a\Vert p)=a\log\frac ap+(1-a)\log\frac{1-a}{1-p}
@@ -120,7 +120,7 @@ $$
 
 だからこれは最小点である。
 
-### 4. KL divergenceへの整理
+### 4. Kullback–Leiblerダイバージェンスへの整理
 
 $t=t^*$ のとき
 
@@ -195,4 +195,4 @@ $$
 - モーメント母関数（定義の和から二項定理まで）: 4点
 - Markov上界: 5点
 - 最適化（停留条件と最小性）: 6点
-- KL表現への代入整理: 5点
+- Kullback–Leibler表現への代入整理: 5点

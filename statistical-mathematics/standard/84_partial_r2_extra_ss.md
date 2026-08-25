@@ -1,4 +1,4 @@
-# Standard 27 partial R2・追加平方和
+# Standard 27 偏決定係数・追加平方和
 
 - 旧No.: 84
 - 層: Standard

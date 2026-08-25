@@ -1,4 +1,4 @@
-# Standard 29 AR係数のYule–Walker推定・最小二乗
+# Standard 29 自己回帰係数のYule–Walker推定・最小二乗
 
 - 安定ID: `RIKOU-STANDARD-29`
 - 80大問 No.: 29
@@ -8,7 +8,7 @@
 
 ## 問題
 
-平均0のAR(1) $X_t=\phi X_{t-1}+\varepsilon_t$ を考える。観測 $x_1,\ldots,x_n$ がある。
+平均0の自己回帰(1) $X_t=\phi X_{t-1}+\varepsilon_t$ を考える。観測 $x_1,\ldots,x_n$ がある。
 
 1. Yule–Walker推定量を標本自己共分散で書け。
 2. 条件付き最小二乗推定量を求めよ。
@@ -38,7 +38,7 @@ $\hat\phi_{YW}=\hat\gamma(1)/\hat\gamma(0)$、$\hat\phi_{LS}=\sum x_tx_{t-1}/\su
 
 ## 採点基準
 
-- YW: 4点
+- Yule–Walker: 4点
 - LS導出: 6点
 - 漸近比較: 4点
 - 単位根近傍: 3点

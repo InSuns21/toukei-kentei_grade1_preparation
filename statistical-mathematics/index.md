@@ -83,9 +83,9 @@
 | 22 | 68 | A | A | [適合度尤度比検定・Pearson・自由度](standard/68_gof_lrt_pearson.md) | ◎・修正済（対数の数値評価不要） |
 | 23 | 73 | A | A | [母相関係数・Fisher z変換](standard/73_correlation_fisher_z.md) | 表・修正済（$\operatorname{atanh}$ の数値は与値使用） |
 | 24 | 74 | A | A | [Wilcoxon順位和・並べ替え検定](standard/74_wilcoxon_permutation.md) | ◎ |
-| 25 | 82 | A | A | [ANCOVA・調整済み処置効果](standard/82_ancova_adjusted_effect.md) | ○ |
+| 25 | 82 | A | A | [共分散分析・調整済み処置効果](standard/82_ancova_adjusted_effect.md) | ○ |
 | 26 | 83 | A | A | [Bonferroni・Scheffe多重比較](standard/83_bonferroni_scheffe.md) | 表 |
-| 27 | 84 | A | A | [partial R2・追加平方和](standard/84_partial_r2_extra_ss.md) | ○ |
+| 27 | 84 | A | A | [偏決定係数・追加平方和](standard/84_partial_r2_extra_ss.md) | ○ |
 | 28 | 85 | A | A | [対数回帰・残差診断](standard/85_log_regression_residuals.md) | ◎・修正済（指数関数の数値評価不要） |
 | 29 | 86 | B | B | [2変量正規・平均への回帰](standard/86_bivariate_normal_regression_to_mean.md) | ◎ |
 | 30 | 89 | A | B | [稀事象・相対Monte Carlo誤差](standard/89_rare_event_relative_mc_error.md) | ○ |
