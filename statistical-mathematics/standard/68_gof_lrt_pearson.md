@@ -45,7 +45,7 @@ $\ell'(\theta)=0$ より
 
 $$
 \boxed{
-\widehat\theta=\frac{x_1+x_2}{n}=rac{30}{100}=0.3
+\widehat\theta=\frac{x_1+x_2}{n}=30/100=0.3
 }.
 $$
 
