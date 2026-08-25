@@ -400,11 +400,11 @@ $$
 +\frac{2\sigma^4}{n^2}.
 $$
 
-よって
+よって Cramér–Rao 下限との差は
 
 $$
 \operatorname{Var}(T)
--	ext{Cramér--Rao下限}
+-\frac{4\mu^2\sigma^2}{n}
 =\frac{2\sigma^4}{n^2}>0.
 $$
 
