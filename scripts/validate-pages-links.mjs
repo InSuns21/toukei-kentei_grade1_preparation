@@ -5,6 +5,7 @@ const root = process.cwd();
 const siteDir = path.join(root, '_site');
 const sidebarPath = path.join(siteDir, '_sidebar.md');
 const indexPath = path.join(siteDir, 'index.html');
+const homePath = path.join(siteDir, 'home.md');
 
 const books = ['statistical-mathematics', 'applied-rikou-80'];
 const sections = ['core', 'standard', 'advanced'];
@@ -18,13 +19,38 @@ async function exists(filePath) {
   }
 }
 
+async function recursiveFiles(baseDir, predicate, relativeDir = '') {
+  const dir = path.join(baseDir, ...relativeDir.split('/').filter(Boolean));
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const relative = path.posix.join(relativeDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await recursiveFiles(baseDir, predicate, relative));
+    } else if (entry.isFile() && predicate(entry.name, relative)) {
+      files.push(relative);
+    }
+  }
+
+  return files.sort((a, b) => a.localeCompare(b, 'ja', { numeric: true }));
+}
+
 function extractLinks(markdown) {
   return [...markdown.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map((match) => match[1].trim());
 }
 
+function extractHtmlLinks(html) {
+  return [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1].trim());
+}
+
+function extractCssUrls(css) {
+  return [...css.matchAll(/url\((['"]?)([^)'"\s]+)\1\)/gi)].map((match) => match[2].trim());
+}
+
 function normalizeInternalHref(href) {
   if (!href || href.startsWith('#')) return null;
-  if (/^(?:https?:|mailto:|tel:)/i.test(href)) return null;
+  if (/^(?:https?:|mailto:|tel:|data:|javascript:)/i.test(href)) return null;
 
   const withoutFragment = href.split('#', 1)[0].split('?', 1)[0];
   if (!withoutFragment) return null;
@@ -80,12 +106,47 @@ async function validateRootOrientedLinks(markdown, sourceLabel, errors, targets 
   return hrefs.length;
 }
 
-await access(sidebarPath);
-await access(indexPath);
+async function validateRelativeAssetLinks(hrefs, siteRelativeFile, sourceLabel, errors) {
+  const sourceDir = path.posix.dirname(siteRelativeFile);
 
-const [sidebar, indexHtml] = await Promise.all([
+  for (const href of hrefs) {
+    if (!href || href.startsWith('#')) continue;
+    if (/^(?:https?:|mailto:|tel:|data:|javascript:)/i.test(href)) continue;
+
+    const withoutFragment = href.split('#', 1)[0].split('?', 1)[0];
+    if (!withoutFragment) continue;
+    if (withoutFragment.startsWith('/')) {
+      errors.push(`${sourceLabel}: project-site absolute path is not allowed: ${href}`);
+      continue;
+    }
+
+    let decoded;
+    try {
+      decoded = decodeURIComponent(withoutFragment).replaceAll('\\', '/');
+    } catch (error) {
+      errors.push(`${sourceLabel}: malformed URL encoding in ${href}: ${error.message}`);
+      continue;
+    }
+
+    const normalized = path.posix.normalize(path.posix.join(sourceDir, decoded));
+    if (normalized === '..' || normalized.startsWith('../')) {
+      errors.push(`${sourceLabel}: path escapes the generated site: ${href}`);
+      continue;
+    }
+
+    const target = path.resolve(siteDir, ...normalized.split('/'));
+    if (!(await exists(target))) {
+      errors.push(`${sourceLabel}: local asset/page does not exist: ${href}`);
+    }
+  }
+}
+
+await Promise.all([access(sidebarPath), access(indexPath), access(homePath)]);
+
+const [sidebar, indexHtml, homeMarkdown] = await Promise.all([
   readFile(sidebarPath, 'utf8'),
   readFile(indexPath, 'utf8'),
+  readFile(homePath, 'utf8'),
 ]);
 
 const errors = [];
@@ -180,6 +241,96 @@ for (const book of books) {
   await validateRootOrientedLinks(generatedIndex, `${book}/index.md`, errors);
 }
 
+// Home page must expose the new textbook entry point, while Anki uses a raw
+// data-no-router anchor because it is a standalone static HTML application.
+const homeTargets = new Set();
+await validateRootOrientedLinks(homeMarkdown, 'home.md', errors, homeTargets);
+if (!homeTargets.has('textbook/index.md')) {
+  errors.push('home.md is missing the textbook Pages entry point.');
+}
+if (!/href=["']\.\/anki\/index\.html["'][^>]*data-no-router/i.test(homeMarkdown)) {
+  errors.push('home.md is missing the standalone Anki Pages entry point with data-no-router.');
+}
+if (!(await exists(path.join(siteDir, 'anki', 'index.html')))) {
+  errors.push('Anki Pages entry point does not exist: anki/index.html');
+}
+
+// Every user-facing textbook Markdown file under volumes must be present in a
+// generated chapter index, and every local link in those files must resolve in
+// the generated site. This catches both missing copied files and Docsify path
+// regressions before deployment.
+const textbookDir = path.join(siteDir, 'textbook');
+await access(path.join(textbookDir, 'index.md'));
+const textbookVolumeFiles = await recursiveFiles(
+  path.join(textbookDir, 'volumes'),
+  (name) => name.endsWith('.md'),
+);
+const textbookNavigationTargets = new Set();
+let textbookLinkCount = 0;
+
+const textbookIndex = await readFile(path.join(textbookDir, 'index.md'), 'utf8');
+textbookLinkCount += await validateRootOrientedLinks(
+  textbookIndex,
+  'textbook/index.md',
+  errors,
+  textbookNavigationTargets,
+);
+
+for (const relative of textbookVolumeFiles) {
+  const filePath = path.join(textbookDir, 'volumes', ...relative.split('/'));
+  const markdown = await readFile(filePath, 'utf8');
+  const siteRelative = `textbook/volumes/${relative}`;
+  textbookLinkCount += await validateRootOrientedLinks(markdown, siteRelative, errors);
+
+  if (relative.endsWith('/index.md')) {
+    await validateRootOrientedLinks(markdown, siteRelative, errors, textbookNavigationTargets);
+  }
+}
+
+const expectedTextbookPages = textbookVolumeFiles
+  .filter((relative) => !relative.endsWith('/index.md'))
+  .map((relative) => `textbook/volumes/${relative}`);
+for (const expected of expectedTextbookPages) {
+  if (!textbookNavigationTargets.has(expected)) {
+    errors.push(`textbook page is missing from generated chapter navigation: ${expected}`);
+  }
+}
+
+for (const supportPage of ['README.md', 'notation.md', 'dependency-graph.md', 'style-guide.md']) {
+  const target = `textbook/${supportPage}`;
+  if (!textbookNavigationTargets.has(target)) {
+    errors.push(`textbook root index is missing support page: ${target}`);
+  }
+}
+
+// Anki is a standalone HTML application generated by anki:build. Verify every
+// HTML href/src and every CSS url() target so category navigation, JavaScript,
+// CSS and KaTeX fonts cannot deploy with local 404s.
+const ankiDir = path.join(siteDir, 'anki');
+const ankiHtmlFiles = await recursiveFiles(ankiDir, (name) => name.endsWith('.html'));
+const ankiCssFiles = await recursiveFiles(ankiDir, (name) => name.endsWith('.css'));
+let ankiLocalLinkCount = 0;
+
+for (const relative of ankiHtmlFiles) {
+  const html = await readFile(path.join(ankiDir, ...relative.split('/')), 'utf8');
+  const hrefs = extractHtmlLinks(html);
+  ankiLocalLinkCount += hrefs.filter((href) => !/^(?:https?:|mailto:|tel:|data:|javascript:|#)/i.test(href)).length;
+  await validateRelativeAssetLinks(hrefs, `anki/${relative}`, `anki/${relative}`, errors);
+}
+
+for (const relative of ankiCssFiles) {
+  const css = await readFile(path.join(ankiDir, ...relative.split('/')), 'utf8');
+  const hrefs = extractCssUrls(css);
+  ankiLocalLinkCount += hrefs.filter((href) => !/^(?:https?:|data:)/i.test(href)).length;
+  await validateRelativeAssetLinks(hrefs, `anki/${relative}`, `anki/${relative}`, errors);
+}
+
+for (const required of ['index.html', 'notation.html', 'formulae.html', 'assets/style.css', 'assets/app.js', 'assets/katex.min.css']) {
+  if (!(await exists(path.join(ankiDir, ...required.split('/'))))) {
+    errors.push(`Anki generated site is missing required file: anki/${required}`);
+  }
+}
+
 if (errors.length > 0) {
   console.error('GitHub Pages link validation failed:');
   for (const error of errors) console.error(`- ${error}`);
@@ -187,6 +338,12 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `GitHub Pages link validation passed: ${sidebarHrefs.length} sidebar links, ${indexLinkCount} index links, ${expectedExerciseTargets.size} tiered exercises.`,
+  `GitHub Pages link validation passed: ${sidebarHrefs.length} sidebar links, ${indexLinkCount} exercise-index links, ${expectedExerciseTargets.size} tiered exercises.`,
 );
-console.log('Docsify route safety passed: relativePath is not enabled and generated index links are site-root oriented.');
+console.log(
+  `Textbook validation passed: ${expectedTextbookPages.length} chapter pages, ${textbookLinkCount} checked Markdown links.`,
+);
+console.log(
+  `Anki validation passed: ${ankiHtmlFiles.length} HTML pages, ${ankiCssFiles.length} CSS files, ${ankiLocalLinkCount} local links/assets checked.`,
+);
+console.log('Docsify route safety passed: relativePath is not enabled and generated Markdown navigation is site-root oriented.');
