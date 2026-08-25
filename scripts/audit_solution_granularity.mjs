@@ -55,10 +55,12 @@ const categories = [
   },
 ];
 
+const tierNames = new Set(['core', 'standard', 'advanced']);
+
 const files = exerciseRoots
   .flatMap(walk)
-  .filter((file) => file.endsWith('.md'))
-  .filter((file) => ['core', 'standard', 'advanced'].some((part) => file.split(path.sep).includes(part)));
+  .filter((file) => /^\d+_.+\.md$/.test(path.basename(file)))
+  .filter((file) => file.split(path.sep).some((part) => tierNames.has(part)));
 
 const findings = [];
 const categoryCounts = new Map(categories.map(({ name }) => [name, 0]));
