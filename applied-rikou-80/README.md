@@ -12,6 +12,7 @@
 - [Core 40](core/README.md): 最優先40大問
 - [Standard 20](standard/README.md): 変形耐性を作る20大問
 - [Advanced 20](advanced/README.md): 低頻度・高難度・未出寄り20大問
+- [詳細解答粒度統一計画](GRANULARITY_PLAN_2026-08-25.md): 統計数理 Core 40 の代表例と同程度の導出再現性へ80題を段階的に揃える計画
 - [Core 40 横断監査](core/AUDIT_2026-08-25.md): 重複、難度、数値、所要時間、行間の監査
 - [Core 39差し替え・短問増強](core/AUGMENTATION_2026-08-25.md): Core短問18枠の再設計記録
 - [残り40題 横断監査](AUDIT_REMAINING_40_2026-08-25.md): Standard/Advancedの数式・時間・行間・電卓監査
@@ -37,12 +38,15 @@
 
 詳細解答の粒度、定理の適用条件確認、電卓・数表の制約、略語を使わない表記はすべて共通規約に従います。
 
+詳細解答の代表的な粒度は `statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md` を参照します。ただし文字数を揃えるのではなく、各小問で「出発式 → 適用条件 → 採点対象の途中計算 → 結論」が追えることを基準にします。
+
 ## 検証
 
 ```bash
 npm ci
 npm run validate:rikou80
 npm run validate:exercise-style
+npm run audit:granularity
 ```
 
 リポジトリ全体は
@@ -51,7 +55,7 @@ npm run validate:exercise-style
 npm run validate
 ```
 
-で検証します。`validate:rikou80` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。
+で検証します。`validate:rikou80` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。粒度監査は候補抽出用であり、短さだけを理由に本文を水増ししません。
 
 ## 数式記法
 
