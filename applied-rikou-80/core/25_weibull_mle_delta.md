@@ -57,7 +57,7 @@ $$
 
 $$
 \boxed{
-f_Y(y;\theta)=\frac1\theta e^{-y/\theta},\qquad y>0
+f_Y(y;\theta)=\frac{1}{\theta}e^{-y/\theta},\qquad y>0
 }.
 $$
 
@@ -70,7 +70,7 @@ $Y_1,\ldots,Y_n$ は独立だから、観測値 $y_i=t_i^k$ に対する尤度�
 $$
 \begin{aligned}
 L(\theta)
-&=\prod_{i=1}^n\frac1\theta e^{-y_i/\theta}\\
+&=\prod_{i=1}^n\frac{1}{\theta}e^{-y_i/\theta}\\
 &=\theta^{-n}\exp\left(-\frac{1}{\theta}\sum_{i=1}^ny_i\right),
 \qquad \theta>0.
 \end{aligned}
@@ -80,14 +80,14 @@ $$
 
 $$
 \ell(\theta)
-=-n\log\theta-rac1\theta\sum_{i=1}^ny_i.
+=-n\log\theta-\frac{1}{\theta}\sum_{i=1}^ny_i.
 $$
 
 $S=\sum_{i=1}^ny_i$ とおくと
 
 $$
 \frac{d\ell}{d\theta}
-=-\frac n\theta+\frac S{\theta^2}
+=-\frac{n}{\theta}+\frac{S}{\theta^2}
 =\frac{S-n\theta}{\theta^2}.
 $$
 
@@ -100,30 +100,30 @@ $$
 従って
 
 $$
-\hat\theta=\frac Sn
-=\frac1n\sum_{i=1}^ny_i.
+\hat\theta=\frac{S}{n}
+=\frac{1}{n}\sum_{i=1}^ny_i.
 $$
 
 これが最大であることも確認する。2階微分は
 
 $$
 \frac{d^2\ell}{d\theta^2}
-=\frac n{\theta^2}-\frac{2S}{\theta^3}.
+=\frac{n}{\theta^2}-\frac{2S}{\theta^3}.
 $$
 
 $S=n\hat\theta$ を代入すると
 
 $$
 \left.\frac{d^2\ell}{d\theta^2}\right|_{\theta=\hat\theta}
-=\frac n{\hat\theta^2}-\frac{2n\hat\theta}{\hat\theta^3}
-=-\frac n{\hat\theta^2}<0.
+=\frac{n}{\hat\theta^2}-\frac{2n\hat\theta}{\hat\theta^3}
+=-\frac{n}{\hat\theta^2}<0.
 $$
 
 したがって
 
 $$
 \boxed{
-\hat\theta=\frac1n\sum_{i=1}^nT_i^k
+\hat\theta=\frac{1}{n}\sum_{i=1}^nT_i^k
 }.
 $$
 
@@ -140,7 +140,7 @@ $$
 $$
 \boxed{
 \hat\eta=\hat\theta^{1/k}
-=\left(\frac1n\sum_{i=1}^nT_i^k\right)^{1/k}
+=\left(\frac{1}{n}\sum_{i=1}^nT_i^k\right)^{1/k}
 }.
 $$
 
@@ -185,7 +185,7 @@ $$
 
 $$
 g'(\theta)
-=\frac1k\theta^{1/k-1}.
+=\frac{1}{k}\theta^{1/k-1}.
 $$
 
 デルタ法より
@@ -201,8 +201,8 @@ $g(\theta)=\eta$ なので
 $$
 \begin{aligned}
 \{g'(\theta)\}^2\theta^2
-&=\frac1{k^2}\theta^{2/k-2}\theta^2\\
-&=\frac1{k^2}\theta^{2/k}\\
+&=\frac{1}{k^2}\theta^{2/k-2}\theta^2\\
+&=\frac{1}{k^2}\theta^{2/k}\\
 &=\frac{\eta^2}{k^2}.
 \end{aligned}
 $$
@@ -328,13 +328,13 @@ $$
 
 $$
 \ell'(\theta)
-=-\frac n\theta+\frac{\sum y_i}{\theta^2}=0
+=-\frac{n}{\theta}+\frac{\sum y_i}{\theta^2}=0
 $$
 
 より
 
 $$
-\hat\theta=\frac1n\sum T_i^k,
+\hat\theta=\frac{1}{n}\sum T_i^k,
 \qquad
 \hat\eta=\hat\theta^{1/k}.
 $$
@@ -342,7 +342,7 @@ $$
 $Y_i$ は独立同分布で平均 $\theta$、分散 $\theta^2$ だから中心極限定理により
 
 $$
-\sqrt n(\hat\theta-\theta)	o N(0,\theta^2).
+\sqrt n(\hat\theta-\theta)\to N(0,\theta^2).
 $$
 
 $g(\theta)=\theta^{1/k}$ にデルタ法を使って
@@ -382,7 +382,7 @@ $$
 25分経過時は「指数分布だから標本平均」と書かず、少なくとも
 
 $$
-\ell(\theta)=-n\log\theta-\sum y_i/\theta
+\ell(\theta)=-n\log\theta-\frac{\sum y_i}{\theta}
 $$
 
 からスコア方程式を1段残す。
