@@ -91,7 +91,7 @@ const replacements = new Map([
 // 正則条件を問題文で与えるか、通常の和・積分で追える導出へ置き換える。
 const measureTheoryPatterns = [
   {
-    pattern: /測度論|確率測度|測度空間|測度/g,
+    pattern: /測度論|確率測度|測度空間|支配測度|Lebesgue測度|ルベーグ測度|数え上げ測度/gi,
     guidance: '測度論を前提にせず、確率・密度・分布関数・通常の積分で記述する',
   },
   {
@@ -101,6 +101,10 @@ const measureTheoryPatterns = [
   {
     pattern: /可測(?:性|関数|集合)?/g,
     guidance: '可測性を前提にしない',
+  },
+  {
+    pattern: /可積分(?:性|関数)?|局所可積分/g,
+    guidance: '「必要な期待値・積分が有限」と具体的に書く',
   },
   {
     pattern: /Lebesgue|ルベーグ/gi,
@@ -129,6 +133,10 @@ const measureTheoryPatterns = [
   {
     pattern: /ほとんど確実(?:に|な|で)?|概収束|almost surely|\ba\.s\.(?=\s|[,;:.)]|$)/gi,
     guidance: '測度論的な収束概念を前提にせず、シラバス範囲の収束概念で記述する',
+  },
+  {
+    pattern: /ほとんど至る所|almost everywhere|\ba\.e\.(?=\s|[,;:.)]|$)/gi,
+    guidance: '「ほとんど至る所」「a.e.」を使わず、教材で仮定した通常の関数条件の下で説明する',
   },
 ];
 
