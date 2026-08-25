@@ -8,7 +8,7 @@
 
 ## 問題
 
-相互に独立に
+$\lambda>0,\mu>0$ とし、相互に独立に
 
 $$
 X_i\sim\operatorname{Poisson}(\lambda),\quad i=1,\ldots,n,
@@ -41,7 +41,7 @@ $$
 
 ### 2. 条件付き二項分布は直接導出する
 
-「独立Poissonを和で条件付けると二項」という結果を丸暗記で置かず、pmfから計算する。$0\le s\le k$ について
+「独立Poissonを和で条件付けると二項」という結果を丸暗記で置かず、pmfから計算する。$\lambda,μ>0$ なので $n\lambda+m\mu>0$ であり、$P(K=k)>0$。$0\le s\le k$ について
 
 $$
 \begin{aligned}
@@ -113,7 +113,7 @@ $$
 
 ## 本番答案
 
-相互独立Poissonの加法性から
+$\lambda,μ>0$ で相互独立なのでPoissonの加法性を適用でき、
 
 $$
 S\sim Poi(n\lambda),\quad T\sim Poi(m\mu),\quad S\perp T.
