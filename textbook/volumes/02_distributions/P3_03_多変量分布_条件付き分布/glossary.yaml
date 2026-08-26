@@ -1,9 +1,9 @@
 chapter: "P3-03"
 terms:
-  - { term: 共分散行列, meaning: 成分間の共分散を並べた対称半正定値行列 }
-  - { term: 相関行列, meaning: 各成分を標準化した共分散行列 }
+  - { term: 分散共分散行列, meaning: 成分間の共分散を並べた対称半正定値行列 }
+  - { term: 相関行列, meaning: 各成分を標準化した分散共分散行列 }
   - { term: Schur補, meaning: 条件付き共分散に現れるSigma11-Sigma12 Sigma22^{-1} Sigma21 }
-  - { term: 精度行列, meaning: 正定値な共分散行列の逆行列 }
+  - { term: 精度行列, meaning: 正定値な分散共分散行列の逆行列 }
   - { term: 偏相関, meaning: 他変数の線形効果を除いた残差間の相関 }
   - { term: Mahalanobis距離, meaning: 共分散の尺度と相関を補正した距離 }
   - { term: 白色化, meaning: 平均を引き共分散が単位行列となるよう変換すること }
