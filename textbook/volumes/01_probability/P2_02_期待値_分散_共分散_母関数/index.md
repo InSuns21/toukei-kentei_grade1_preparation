@@ -1052,7 +1052,15 @@ GitHub Pagesでは各「解答を表示」を開くと、詳細解答・本番�
 - topics: 期待値、分散
 - calculation_load: low
 
-$P(X=0)=1/4$, $P(X=1)=1/2$, $P(X=2)=1/4$ のとき $E[X]$, $\operatorname{Var}(X)$ を求めよ。
+離散型確率変数 $X$ の台を $\{0,1,2\}$ とし、確率質量関数 $p_X(x)=P(X=x)$ が
+
+$$
+p_X(0)=\frac14,\qquad
+p_X(1)=\frac12,\qquad
+p_X(2)=\frac14
+$$
+
+で与えられるとする。$E[X]$ と $\operatorname{Var}(X)$ を定義から求めよ。
 
 <!-- solution-start -->
 
@@ -1103,7 +1111,7 @@ $$
 - topics: 期待値、分散
 - calculation_load: low
 
-$E[X]=2$, $\operatorname{Var}(X)=3$ のとき $Y=4-2X$ の平均と分散を求めよ。
+実数値確率変数 $X$ が $E[X]=2$, $\operatorname{Var}(X)=3$ を満たすとする。新たな確率変数を $Y=4-2X$ と定義する。$E[Y]$ と $\operatorname{Var}(Y)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1148,7 +1156,7 @@ $$
 - topics: 共分散
 - calculation_load: low
 
-$E[X]=1$, $E[Y]=2$, $E[XY]=5$ のとき $\operatorname{Cov}(X,Y)$ を求めよ。
+実数値確率変数 $X,Y$ は二次モーメントが有限で、$E[X]=1$, $E[Y]=2$, $E[XY]=5$ を満たすとする。$\operatorname{Cov}(X,Y)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1192,7 +1200,17 @@ $$
 - topics: 期待値、分散
 - calculation_load: medium
 
-$f_X(x)=2x$（$0<x<1$）、台の外で0とする。
+連続型確率変数 $X$ の確率密度関数を $f_X(x)$ とし、
+
+$$
+f_X(x)=
+\begin{cases}
+2x,&0<x<1,\\
+0,&\text{その他}
+\end{cases}
+$$
+
+で与えられるとする。
 
 1. $E[X]$ を求めよ。
 2. $E[X^2]$ を求めよ。
@@ -1265,7 +1283,18 @@ $$
 - topics: 共分散、相関係数
 - calculation_load: medium
 
-$(X,Y)=(1,1),(1,-1),(-1,1),(-1,-1)$ の確率が順に $3/8,1/8,1/8,3/8$ である。
+2変量離散型確率変数 $(X,Y)$ は $\{(1,1),(1,-1),(-1,1),(-1,-1)\}$ のみを取り、その同時確率質量関数が
+
+$$
+\begin{aligned}
+P(X=1,Y=1)&=\frac38,&
+P(X=1,Y=-1)&=\frac18,\\
+P(X=-1,Y=1)&=\frac18,&
+P(X=-1,Y=-1)&=\frac38
+\end{aligned}
+$$
+
+で与えられるとする。
 
 1. $E[X],E[Y]$ を求めよ。
 2. 各分散と共分散を求めよ。
@@ -1344,7 +1373,7 @@ $$
 - topics: 確率母関数
 - calculation_load: medium
 
-$G_X(s)=(1+s)^3/8$ とする。
+非負整数値確率変数 $X$ の確率母関数を $G_X(s)=E[s^X]$ とする。$G_X(s)=(1+s)^3/8$ が与えられている。
 
 1. $P(X=k)$ を全て求めよ。
 2. $E[X]$ を求めよ。
@@ -1441,7 +1470,7 @@ $$
 - topics: モーメント母関数、独立和
 - calculation_load: medium
 
-$P(X=1)=p$, $P(X=0)=1-p$（$0<p<1$）とする。
+離散型確率変数 $X$ の台を $\{0,1\}$ とし、$0<p<1$ の下で $P(X=1)=p$, $P(X=0)=1-p$ とする。モーメント母関数は $M_X(t)=E[e^{tX}]$ と定義する。
 
 1. 定義から $M_X(t)$ を求めよ。
 2. $M_X'(0)$ と $M_X''(0)$ から平均・分散を求めよ。
@@ -1532,29 +1561,29 @@ $$
 - topics: 条件付き期待値、条件付き共分散、全共分散
 - calculation_load: medium
 
-$P(H_0)=P(H_1)=1/2$ とする。条件付きモーメントが
+群ラベルを表す確率変数 $H\in\{0,1\}$ が $P(H=0)=P(H=1)=1/2$ を満たすとする。実数値確率変数 $X,Y$ は二次モーメントが有限で、条件付きモーメントが
 
 $$
-E[X\mid H_0]=0,
-\qquad E[X\mid H_1]=2,
-$$
-
-$$
-E[Y\mid H_0]=1,
-\qquad E[Y\mid H_1]=5,
+E[X\mid H=0]=0,
+\qquad E[X\mid H=1]=2,
 $$
 
 $$
-\operatorname{Cov}(X,Y\mid H_0)=1,
+E[Y\mid H=0]=1,
+\qquad E[Y\mid H=1]=5,
+$$
+
+$$
+\operatorname{Cov}(X,Y\mid H=0)=1,
 \qquad
-\operatorname{Cov}(X,Y\mid H_1)=-1
+\operatorname{Cov}(X,Y\mid H=1)=-1
 $$
 
 である。
 
 1. $E[X]$ と $E[Y]$ を求めよ。
 2. 全共分散公式から $\operatorname{Cov}(X,Y)$ を求めよ。
-3. 条件付き共分散の計算公式から $E[XY\mid H_0],E[XY\mid H_1]$ を求め、$E[XY]-E[X]E[Y]$ でも同じ答えになることを確認せよ。
+3. 条件付き共分散の計算公式から $E[XY\mid H=0],E[XY\mid H=1]$ を求め、$E[XY]-E[X]E[Y]$ でも同じ答えになることを確認せよ。
 
 <!-- solution-start -->
 
@@ -1614,11 +1643,11 @@ $$
 よって
 
 $$
-E[XY\mid H_0]=1+0\cdot1=1,
+E[XY\mid H=0]=1+0\cdot1=1,
 $$
 
 $$
-E[XY\mid H_1]=-1+2\cdot5=9.
+E[XY\mid H=1]=-1+2\cdot5=9.
 $$
 
 タワープロパティから
@@ -1654,8 +1683,8 @@ $$
 ゆえに $\operatorname{Cov}(X,Y)=2$。また
 
 $$
-E[XY\mid H_0]=1,
-\qquad E[XY\mid H_1]=9,
+E[XY\mid H=0]=1,
+\qquad E[XY\mid H=1]=9,
 $$
 
 より $E[XY]=5$ で、$5-1\cdot3=2$ と一致する。
@@ -1678,7 +1707,7 @@ $$
 - topics: 全期待値、全分散
 - calculation_load: medium
 
-$P(H_1)=0.4$, $P(H_2)=0.6$、$E[X\mid H_1]=1$, $E[X\mid H_2]=3$、$\operatorname{Var}(X\mid H_1)=2$, $\operatorname{Var}(X\mid H_2)=1$ とする。
+群ラベルを表す確率変数 $H\in\{1,2\}$ が $P(H=1)=0.4$, $P(H=2)=0.6$ を満たすとする。実数値確率変数 $X$ の条件付き平均・条件付き分散が $E[X\mid H=1]=1$, $E[X\mid H=2]=3$, $\operatorname{Var}(X\mid H=1)=2$, $\operatorname{Var}(X\mid H=2)=1$ で与えられている。
 
 1. $E[X]$ を求めよ。
 2. 群内分散成分を求めよ。
@@ -1757,7 +1786,7 @@ $$
 - topics: 共分散、相関係数
 - calculation_load: high
 
-$f_{X,Y}(x,y)=x+y$（$0<x<1$, $0<y<1$）、台の外で0とする。
+2変量連続型確率変数 $(X,Y)$ の同時確率密度関数を $f_{X,Y}(x,y)$ とし、$f_{X,Y}(x,y)=x+y$（$0<x<1$, $0<y<1$）、それ以外では0とする。
 
 1. $E[X],E[Y]$ を求めよ。
 2. $E[X^2],E[Y^2]$ を求めよ。
@@ -1889,7 +1918,7 @@ $$
 - topics: 期待値の存在、分散
 - calculation_load: high
 
-$f_X(x)=cx^{-\alpha}$（$x\geq1$）、台の外で0、$\alpha>1$ とする。
+連続型確率変数 $X$ の確率密度関数を $f_X(x)$ とする。未知の正規化定数 $c>0$ と母数 $\alpha>1$ に対して $f_X(x)=cx^{-\alpha}$（$x\geq1$）、それ以外では0とする。
 
 1. $c$ を求めよ。
 2. $E[X]$ が有限となる $\alpha$ の範囲を求め、その値を計算せよ。
@@ -2034,7 +2063,7 @@ $1<\alpha\leq2$ では期待値を定義する広義積分が発散する。
 - topics: 確率母関数
 - calculation_load: medium
 
-$P(X=k)=(1-p)p^k$（$k\in\mathbb N_0$, $0<p<1$）とする。
+非負整数値確率変数 $X$ の確率質量関数を $p_X(k)=P(X=k)$ とする。$0<p<1$ の下で $p_X(k)=(1-p)p^k$（$k\in\mathbb N_0$）と与えられている。
 
 1. 正規化を確認せよ。
 2. 確率母関数とその有限な範囲を求めよ。
@@ -2154,7 +2183,7 @@ $$
 - topics: モーメント母関数、独立和
 - calculation_load: medium
 
-$M_X(t)=(1-2t)^{-1/2}$（$t<1/2$）であり、$X_1,\ldots,X_n$ は独立で各々 $X$ と同分布とする。
+実数値確率変数 $X$ のモーメント母関数を $M_X(t)=E[e^{tX}]$ とする。$M_X(t)=(1-2t)^{-1/2}$（$t<1/2$）が与えられている。$X_1,\ldots,X_n$ は独立で、各々 $X$ と同じ分布に従うとする。
 
 1. $M_X(0)=1$ を確認せよ。
 2. $E[X]$ を求めよ。
@@ -2274,14 +2303,22 @@ $$
 - topics: 共分散、相関係数
 - calculation_load: high
 
-二次モーメントが有限で分散が正の $X,Y$ について
+実数値確率変数 $X,Y$ は $E[X^2],E[Y^2]<\infty$ かつ $\operatorname{Var}(X)>0$, $\operatorname{Var}(Y)>0$ を満たすとする。相関係数を
+
+$$
+\rho(X,Y)
+=\frac{\operatorname{Cov}(X,Y)}
+{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}
+$$
+
+と定義する。分散の非負性から
 
 $$
 \operatorname{Cov}(X,Y)^2
 \leq\operatorname{Var}(X)\operatorname{Var}(Y)
 $$
 
-を分散の非負性から証明せよ。さらに $|\rho(X,Y)|\leq1$ と、等号成立条件を示せ。
+を証明せよ。さらに $|\rho(X,Y)|\leq1$ と、等号成立条件を示せ。
 
 <!-- solution-start -->
 
@@ -2424,7 +2461,7 @@ $$
 
 ## P2-DRILL-02 問題
 
-$H\in\{0,1\}$ で $P(H=1)=p$、$0<p<1$ とし、$I=\boldsymbol{1}_{\{H=1\}}$ とおく。条件付きモーメントは
+$H\in\{0,1\}$ で $P(H=1)=p$、$0<p<1$ とし、$I=\boldsymbol{1}_{\{H=1\}}$ とおく。実数値確率変数 $X$ の条件付きモーメントは
 
 $$
 E[X\mid H=0]=1,

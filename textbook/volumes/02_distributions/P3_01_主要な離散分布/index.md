@@ -981,7 +981,7 @@ GitHub Pagesでは各「解答を表示」を開くと、詳細解答・本番�
 - topics: 二項分布
 - calculation_load: low
 
-$X\sim\operatorname{Bin}(5,0.2)$ の $P(X=2)$、平均、分散を求めよ。
+成功確率 $p=0.2$ の独立なベルヌーイ試行を5回行い、成功回数を $X$ とする。このとき $X\sim\operatorname{Bin}(5,0.2)$ である。$P(X=2)$、$E[X]$、$\operatorname{Var}(X)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1035,7 +1035,7 @@ $$
 - topics: 幾何分布
 - calculation_load: low
 
-$X\sim\operatorname{Geom}(0.25)$ の $P(X=4)$、平均、分散を求めよ。
+成功確率 $p=0.25$ の独立なベルヌーイ試行を、初めて成功するまで繰り返す。初成功が出る試行番号を $X$ とする。本章の規約では $X\in\{1,2,\ldots\}$ で $X\sim\operatorname{Geom}(0.25)$ である。$P(X=4)$、$E[X]$、$\operatorname{Var}(X)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1087,7 +1087,14 @@ $$
 - topics: ポアソン分布
 - calculation_load: low
 
-$X\sim\operatorname{Poisson}(2)$ の $P(X\leq1)$、平均、分散を求めよ。
+非負整数値確率変数 $X$ は母数2のポアソン分布に従い、確率質量関数が
+
+$$
+P(X=k)=e^{-2}\frac{2^k}{k!},
+\qquad k=0,1,2,\ldots
+$$
+
+で与えられるとする。$P(X\leq1)$、$E[X]$、$\operatorname{Var}(X)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1142,7 +1149,7 @@ $$
 - topics: ベルヌーイ分布
 - calculation_load: low
 
-成功確率0.3の1回の試行の成功指示変数を $I$ とする。$I$ の確率質量関数、平均、分散を求めよ。
+成功確率0.3の1回の試行について、成功なら $I=1$、失敗なら $I=0$ とする成功指示変数 $I$ を定義する。$I$ の確率質量関数、$E[I]$、$\operatorname{Var}(I)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1200,7 +1207,7 @@ $$
 - topics: 超幾何分布
 - calculation_load: medium
 
-20個中6個が不良である。非復元で5個選ぶ不良数 $X$ について、台、$P(X=2)$、平均、分散を求めよ。
+20個中6個が不良、14個が正常である有限母集団から、非復元で5個を無作為抽出する。抽出された5個に含まれる不良品数を $X$ とする。$X$ の台、$P(X=2)$、$E[X]$、$\operatorname{Var}(X)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1280,7 +1287,7 @@ $$
 - topics: 負の二項分布
 - calculation_load: medium
 
-成功確率0.4の独立試行で3回目の成功までの試行回数を $T$ とする。$P(T=5)$、平均、分散を求めよ。
+各回の成功確率が $p=0.4$ で互いに独立なベルヌーイ試行を繰り返す。3回目の成功が出る試行番号を $T$ とする。$P(T=5)$、$E[T]$、$\operatorname{Var}(T)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1337,7 +1344,7 @@ $$
 - topics: 多項分布
 - calculation_load: medium
 
-$\boldsymbol X\sim\operatorname{Multinomial}(6;0.2,0.3,0.5)$ とする。$P(X_1=1,X_2=2,X_3=3)$、$E[X_1]$、$\operatorname{Cov}(X_1,X_2)$ を求めよ。
+1回の試行がカテゴリ1,2,3に入る確率をそれぞれ $0.2,0.3,0.5$ とし、この試行を独立に6回行う。カテゴリ $i$ の度数を $X_i$ とし、$\boldsymbol X=(X_1,X_2,X_3)$ とおく。このとき $\boldsymbol X\sim\operatorname{Multinomial}(6;0.2,0.3,0.5)$ である。$P(X_1=1,X_2=2,X_3=3)$、$E[X_1]$、$\operatorname{Cov}(X_1,X_2)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1398,7 +1405,7 @@ $$
 - topics: 二項分布、超幾何分布
 - calculation_load: medium
 
-100個中20個が成功である。
+100個中20個が「成功」、80個が「失敗」である有限母集団を考える。復元して10回抽出したときの成功数を $X$、非復元で10個抽出したときの成功数を $Y$ とする。
 
 1. 復元して10回抽出する成功数の分布を示せ。
 2. 非復元で10個抽出する成功数の分布と台を示せ。
@@ -1503,7 +1510,7 @@ $$
 - topics: 幾何分布、負の二項分布
 - calculation_load: medium
 
-$X\sim\operatorname{Geom}(p)$、$0<p<1$ とし、$m,n\in\mathbb N_0$ とする。
+成功確率 $0<p<1$ の独立なベルヌーイ試行を繰り返し、$q=1-p$ とする。初成功が出る試行番号を $X$ とするので、本章の規約では $X\sim\operatorname{Geom}(p)$、$X\in\{1,2,\ldots\}$ である。また $m,n\in\mathbb N_0$ とする。
 
 1. $P(X>m)$ を求めよ。
 2. $P(X>m+n\mid X>m)=P(X>n)$ を示せ。
@@ -1606,7 +1613,16 @@ $T$ は台が2から始まり、無記憶性も持たないので幾何分布で
 - topics: ポアソン分布、二項分布
 - calculation_load: high
 
-独立な $X\sim\operatorname{Poisson}(\lambda)$, $Y\sim\operatorname{Poisson}(\mu)$ とする。$S=X+Y$ とし、$n\in\mathbb N_0$、$k=0,\ldots,n$ とする。
+$\lambda>0$, $\mu>0$ とする。独立な非負整数値確率変数 $X,Y$ の確率質量関数が
+
+$$
+P(X=x)=e^{-\lambda}\frac{\lambda^x}{x!},
+\qquad
+P(Y=y)=e^{-\mu}\frac{\mu^y}{y!},
+\qquad x,y\in\mathbb N_0
+$$
+
+で与えられている。すなわち $X\sim\operatorname{Poisson}(\lambda)$, $Y\sim\operatorname{Poisson}(\mu)$ である。$S=X+Y$ とし、$n\in\mathbb N_0$、$k=0,\ldots,n$ とする。
 
 1. $S$ の分布を求めよ。
 2. $P(X=k,S=n)$ を求めよ。
@@ -1739,7 +1755,11 @@ $$
 - topics: 多項分布、共分散
 - calculation_load: medium
 
-$\boldsymbol X\sim\operatorname{Multinomial}(n;p_1,p_2,p_3)$ とし、$p_1>0$, $p_2>0$ とする。
+$n\in\mathbb N$ とし、$p_1>0$, $p_2>0$, $p_3\geq0$, $p_1+p_2+p_3=1$ とする。1回の試行がカテゴリ $i$ に入る確率を $p_i$ とし、この試行を独立に $n$ 回行う。カテゴリ $i$ の度数を $X_i$、$\boldsymbol X=(X_1,X_2,X_3)$ とする。このとき
+
+$$
+\boldsymbol X\sim\operatorname{Multinomial}(n;p_1,p_2,p_3).
+$$
 
 1. 各周辺分布を示せ。
 2. $X_1+X_2$ の分布を示せ。
