@@ -1,0 +1,47 @@
+name: Temporary P3-03 review migration
+
+on:
+  push:
+    paths:
+      - 'scripts/_tmp_migrate_p303_review.mjs'
+      - '.github/workflows/_tmp-migrate-p303-review.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Build reviewed one-page P3-03
+        run: node scripts/_tmp_migrate_p303_review.mjs
+      - name: Commit migration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/00_overview.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/01_motivation.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/02_definitions.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/03_theorems.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/04_examples.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/05_problem_solving.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/06_exercises.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/07_solutions.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/08_exam_drill.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/09_past_exam_practice.md
+          git add \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/chapter.yaml \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/glossary.yaml \
+            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/review
+          git diff --cached --check
+          git commit -m 'review and unify P3-03 multivariate distributions'
+          git push
