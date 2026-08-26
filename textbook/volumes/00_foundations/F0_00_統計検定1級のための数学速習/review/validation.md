@@ -44,3 +44,5 @@ F0-01が統計への接続と答案演習を兼ねており、前提数学の速
 ## 自動検証
 
 この章はChatから追加された補修章であり、`textbook/REVIEW_PLAN.md` の運用に従い、人手の独立査読をブロッキング要件にはしない。コミット後に textbook validation、terminology validation、Pages buildを確認する。
+
+- 2026-08-27: `main` へ反映。自動検証ワークフローを実行して最終確認する。
