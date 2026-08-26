@@ -1,0 +1,1077 @@
+name: Temporary P3-03 reader-level rewrite
+
+on:
+  push:
+    paths:
+      - '.github/workflows/_tmp-p303-reader-rewrite.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Rewrite P3-03 for textbook readers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md')
+          s = p.read_text()
+
+          s = s.replace(
+              '多変量正規分布の密度、特異な場合の定義、条件付き分布の公式は本文で導出し、演習では各設問に必要な出発点を問題文付近へ再掲します。',
+              'まず2変量の具体例で平均・分散共分散行列・条件付き分布の意味をつかみ、その後に一般式へ広げます。演習では各設問に必要な出発点を問題文付近へ再掲します。'
+          )
+          s = s.replace(
+              '平均ベクトルと分散共分散行列から線形結合の分布を求め、多変量正規の周辺・条件付き分布をブロック行列で計算します。相関と偏相関、無相関と独立、Mahalanobis二次形式を、行列の次元と正定値条件を明記して25分答案へまとめます。',
+              '2変量の平均・分散・共分散を行列で整理し、線形結合、周辺分布、条件付き分布を計算できるようにします。さらに偏相関、無相関と独立の違い、マハラノビス距離までを、具体的な数値例から理解します。'
+          )
+          s = s.replace('1. F0-01: 行列積の次元、逆行列、正定値性を確認する。', '1. F0-01: 2次正方行列の積・逆行列・行列式を確認する。')
+
+          goal_start = s.index('## 学習目標')
+          goal_end = s.index('合格基準は', goal_start)
+          goals = '''## 学習目標
+
+- 2変量の平均ベクトルと分散共分散行列を、各成分の意味と結び付けて読める。
+- 線形結合の平均・分散と、多変量正規分布の周辺分布を計算できる。
+- 二変量正規分布の条件付き平均・条件付き分散を、共分散から計算できる。
+- 「無相関」と「独立」の違いを説明し、同時正規のときだけ使える性質を区別できる。
+- 偏相関を「第3変数の線形な影響を除いた後の相関」として計算できる。
+- マハラノビス距離を「尺度と相関を調整した距離」として計算できる。
+
+'''
+          s = s[:goal_start] + goals + s[goal_end:]
+
+          s = s.replace(
+              '本番では公式の添字事故が大きな失点になります。条件付き平均の係数は$\\Sigma_{12}\\Sigma_{22}^{-1}$、条件付き共分散は$\\Sigma_{11}-\\Sigma_{12}\\Sigma_{22}^{-1}\\Sigma_{21}$です。暗記だけでなく、各ブロックの次元を横に書いて検算します。',
+              '最初からブロック行列の公式を暗記する必要はありません。まず二変量で「条件を与えると平均がどう動き、分散がどれだけ小さくなるか」を計算し、その仕組みを理解してから3変量以上の行列表記へ進みます。'
+          )
+
+          new_sections = r'''# 2. まず2変量で意味をつかむ
+
+この章では、平均・分散・共分散が有限に存在する確率変数を扱います。最初から一般の$p$変量で考えるより、$X,Y$の2変量で意味をつかむ方が見通しがよくなります。
+
+## 2.1 確率ベクトルは「確率変数を縦に並べたもの」
+
+2つの確率変数$X,Y$をまとめて
+$$
+\boldsymbol X=
+\begin{pmatrix}X\\Y\end{pmatrix}
+$$
+と書きます。これを確率ベクトルといいます。
+
+平均も同じ順番に並べて
+$$
+E[\boldsymbol X]
+=
+\begin{pmatrix}E[X]\\E[Y]\end{pmatrix}
+$$
+と書きます。たとえば$E[X]=1$, $E[Y]=2$なら、平均ベクトルは$(1,2)^{\mathsf T}$です。
+
+## 2.2 分散共分散行列は「分散と共分散の表」
+
+$X,Y$の分散と共分散を1つの行列にまとめると
+$$
+\Sigma=
+\begin{pmatrix}
+\operatorname{Var}(X)&\operatorname{Cov}(X,Y)\\
+\operatorname{Cov}(X,Y)&\operatorname{Var}(Y)
+\end{pmatrix}
+$$
+です。
+
+たとえば
+$$
+\Sigma=
+\begin{pmatrix}4&3\\3&9\end{pmatrix}
+$$
+なら、読み取る内容は
+$$
+\operatorname{Var}(X)=4,\qquad
+\operatorname{Var}(Y)=9,\qquad
+\operatorname{Cov}(X,Y)=3
+$$
+です。対角成分が各変数の分散、対角でない成分が変数どうしの共分散です。
+
+標準偏差は$2$と$3$なので、相関係数は
+$$
+\rho
+=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)}\sqrt{\operatorname{Var}(Y)}}
+=\frac3{2\cdot3}=\frac12.
+$$
+したがって相関行列は
+$$
+R=
+\begin{pmatrix}1&1/2\\1/2&1\end{pmatrix}
+$$
+です。
+
+$p$変量でも考え方は同じで、$(i,j)$成分に$\operatorname{Cov}(X_i,X_j)$を並べます。
+
+## 2.3 多変量正規分布は「正規分布をまとめたもの」
+
+2変量正規分布を
+$$
+\begin{pmatrix}X\\Y\end{pmatrix}
+\sim N_2\left(
+\begin{pmatrix}\mu_X\\\mu_Y\end{pmatrix},
+\begin{pmatrix}
+\sigma_X^2&\sigma_{XY}\\
+\sigma_{XY}&\sigma_Y^2
+\end{pmatrix}
+\right)
+$$
+と書きます。本教材では第2母数は分散共分散行列です。
+
+この分布で特に重要なのは次の2点です。
+
+1. $X$だけ、$Y$だけを取り出しても正規分布である。
+2. $aX+bY$のような線形結合も正規分布である。
+
+したがって、多変量正規分布の問題では「平均と分散を計算できれば分布まで決まる」場面が多くあります。
+
+密度を直接使う問題では、$p$変量の場合
+$$
+f(\boldsymbol x)
+=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}
+\exp\left\{-\frac12
+(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\right\}
+$$
+を使います。本章の通常演習では、$\Sigma^{-1}$が計算できる場合を中心に扱います。
+
+## 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」
+
+たとえば身長$X$と体重$Y$を同時に考えているとき、「身長が$x$だと分かった人だけに絞った体重の分布」が$Y\mid(X=x)$です。
+
+同時確率密度関数を$f_{X,Y}(x,y)$、$X$の周辺確率密度関数を$f_X(x)$とすると、$f_X(x)>0$の範囲で
+$$
+f_{Y\mid X}(y\mid x)
+=\frac{f_{X,Y}(x,y)}{f_X(x)}
+$$
+です。
+
+二変量正規分布では、この条件付き分布も正規分布になります。具体式は3.3節で、なぜそうなるかも含めて確認します。
+
+## 2.5 偏相関は「第3の変数の影響を除いた後の相関」
+
+$X_1$と$X_2$の相関が高くても、両方が$X_3$と強く関係しているために相関して見えることがあります。
+
+そこで、$X_1$から$X_3$で説明できる直線的な部分を引き、$X_2$からも同様に引きます。その残りどうしの相関が、$X_3$を調整した偏相関です。
+
+公式をいきなり暗記するのではなく、3.5節で残差を実際に作って式を導きます。
+
+## 2.6 二次形式とマハラノビス距離
+
+行列
+$$
+A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
+$$
+に対して
+$$
+(x,y)A\begin{pmatrix}x\\y\end{pmatrix}
+=ax^2+2bxy+cy^2
+$$
+のような形を二次形式といいます。
+
+平均$\boldsymbol\mu$、分散共分散行列$\Sigma$をもつデータ$\boldsymbol x$に対して
+$$
+Q=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)
+$$
+を考えると、単位の違いと変数間の相関を調整した「中心からの距離の二乗」になります。これがマハラノビス距離の二乗です。
+
+たとえば$\Sigma=\operatorname{diag}(4,9)$なら
+$$
+Q=\frac{(x_1-\mu_1)^2}{4}
++\frac{(x_2-\mu_2)^2}{9},
+$$
+つまり各座標を標準偏差で割ってから距離を測っています。
+
+---
+
+# 3. 主要公式を2変量から理解する
+
+## 3.1 線形結合の平均と分散
+
+$W=aX+bY$とします。期待値の線形性から
+$$
+E[W]=aE[X]+bE[Y].
+$$
+分散は
+$$
+\begin{aligned}
+\operatorname{Var}(W)
+&=\operatorname{Var}(aX+bY)\\
+&=a^2\operatorname{Var}(X)
++b^2\operatorname{Var}(Y)
++2ab\operatorname{Cov}(X,Y).
+\end{aligned}
+$$
+ここで最後の交差項を落とさないことが重要です。
+
+同じ計算を行列でまとめると、$\boldsymbol Y=A\boldsymbol X+\boldsymbol b$に対して
+$$
+E[\boldsymbol Y]=A\boldsymbol\mu+\boldsymbol b,
+\qquad
+\operatorname{Cov}(\boldsymbol Y)=A\Sigma A^{\mathsf T}
+$$
+となります。行列式は新しい公式というより、上の分散・共分散計算をまとめて書いたものです。
+
+## 3.2 多変量正規分布の周辺分布と線形結合
+
+$$
+\begin{pmatrix}X\\Y\end{pmatrix}
+\sim N_2\left(
+\begin{pmatrix}\mu_X\\\mu_Y\end{pmatrix},
+\begin{pmatrix}
+\sigma_X^2&\sigma_{XY}\\
+\sigma_{XY}&\sigma_Y^2
+\end{pmatrix}
+\right)
+$$
+なら
+$$
+X\sim N(\mu_X,\sigma_X^2),
+\qquad
+Y\sim N(\mu_Y,\sigma_Y^2).
+$$
+さらに$aX+bY$も正規分布で、その平均と分散は3.1節の式で求められます。
+
+たとえば$X+Y$なら
+$$
+X+Y\sim N\left(
+\mu_X+\mu_Y,
+\sigma_X^2+\sigma_Y^2+2\sigma_{XY}
+\right).
+$$
+
+## 3.3 二変量正規の条件付き分布
+
+まず記号を減らして考えます。$X,Y$が同時に正規分布に従い、
+$$
+E[X]=\mu_X,\quad E[Y]=\mu_Y,
+$$
+$$
+\operatorname{Var}(X)=\sigma_X^2,\quad
+\operatorname{Var}(Y)=\sigma_Y^2,\quad
+\operatorname{Cov}(X,Y)=\sigma_{XY}
+$$
+とします。
+
+$X$から$Y$を直線的に予測する係数を
+$$
+\beta=\frac{\sigma_{XY}}{\sigma_X^2}
+$$
+と置き、予測で説明できなかった残りを
+$$
+R=Y-\mu_Y-\beta(X-\mu_X)
+$$
+とします。
+
+すると
+$$
+\begin{aligned}
+\operatorname{Cov}(R,X)
+&=\operatorname{Cov}(Y,X)-\beta\operatorname{Var}(X)\\
+&=\sigma_{XY}-\frac{\sigma_{XY}}{\sigma_X^2}\sigma_X^2=0.
+\end{aligned}
+$$
+$R$と$X$も同時正規なので、共分散0から独立です。したがって$X=x$と分かっても$R$の分布は変わりません。
+
+また
+$$
+\begin{aligned}
+\operatorname{Var}(R)
+&=\sigma_Y^2
+-2\beta\sigma_{XY}
++\beta^2\sigma_X^2\\
+&=\sigma_Y^2-\frac{\sigma_{XY}^2}{\sigma_X^2}.
+\end{aligned}
+$$
+よって
+$$
+Y\mid(X=x)
+\sim N\left(
+\mu_Y+\frac{\sigma_{XY}}{\sigma_X^2}(x-\mu_X),
+\sigma_Y^2-\frac{\sigma_{XY}^2}{\sigma_X^2}
+\right).
+$$
+
+相関係数$\rho=\sigma_{XY}/(\sigma_X\sigma_Y)$を使えば
+$$
+Y\mid(X=x)
+\sim N\left(
+\mu_Y+\rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X),
+\sigma_Y^2(1-\rho^2)
+\right).
+$$
+
+### 3変量以上ではどう書くか
+
+求めたい変数群を$\boldsymbol X_1$、値が分かっている変数群を$\boldsymbol X_2$とします。平均と分散共分散行列を対応する部分に分けて
+$$
+\begin{pmatrix}\boldsymbol X_1\\\boldsymbol X_2\end{pmatrix}
+\sim N\left(
+\begin{pmatrix}\boldsymbol\mu_1\\\boldsymbol\mu_2\end{pmatrix},
+\begin{pmatrix}
+\Sigma_{11}&\Sigma_{12}\\
+\Sigma_{21}&\Sigma_{22}
+\end{pmatrix}
+\right)
+$$
+と書きます。
+
+このとき
+$$
+E[\boldsymbol X_1\mid\boldsymbol X_2=\boldsymbol x_2]
+=\boldsymbol\mu_1+
+\Sigma_{12}\Sigma_{22}^{-1}
+(\boldsymbol x_2-\boldsymbol\mu_2),
+$$
+$$
+\operatorname{Cov}(\boldsymbol X_1\mid\boldsymbol X_2=\boldsymbol x_2)
+=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
+$$
+大事なのは、後者には観測値$\boldsymbol x_2$が入らないことです。
+
+> 補足：この差の行列には数学上の名称がありますが、本章では名称の暗記より「元のばらつきから、観測した変数で説明できる部分を引く」と理解することを優先します。
+
+## 3.4 無相関と独立は同じではない
+
+独立なら共分散0になりますが、逆は一般には成り立ちません。
+
+たとえば$X$が$-1,0,1$をそれぞれ確率$1/3$で取り、$Y=X^2$とします。すると
+$$
+E[X]=0,
+\qquad
+E[XY]=E[X^3]=0
+$$
+なので
+$$
+\operatorname{Cov}(X,Y)=0.
+$$
+しかし$Y=0$なら必ず$X=0$なので、$X$と$Y$は独立ではありません。
+
+一方、$X,Y$が**同時に二変量正規分布**に従う場合は
+$$
+\operatorname{Cov}(X,Y)=0
+\quad\Longrightarrow\quad
+X,Y\text{は独立}
+$$
+が成り立ちます。答案では「共分散0」だけでなく「同時正規」を必ず書きます。
+
+## 3.5 偏相関を残差から導く
+
+$X_1,X_2,X_3$が平均0、分散1に標準化されているとします。
+
+$X_3$で説明できる部分を引いた残差を
+$$
+R_1=X_1-\rho_{13}X_3,
+\qquad
+R_2=X_2-\rho_{23}X_3
+$$
+と置きます。
+
+共分散を展開すると
+$$
+\operatorname{Cov}(R_1,R_2)
+=\rho_{12}-\rho_{13}\rho_{23}.
+$$
+また
+$$
+\operatorname{Var}(R_1)=1-\rho_{13}^2,
+\qquad
+\operatorname{Var}(R_2)=1-\rho_{23}^2.
+$$
+したがって残差どうしの相関は
+$$
+\rho_{12\cdot3}
+=\frac{\rho_{12}-\rho_{13}\rho_{23}}
+{\sqrt{(1-\rho_{13}^2)(1-\rho_{23}^2)}}.
+$$
+これが三変数の偏相関公式です。
+
+## 3.6 マハラノビス二次形式とカイ二乗分布
+
+相関がなく、分散が$\sigma_1^2,\ldots,\sigma_p^2$なら、中心からの標準化距離は
+$$
+\sum_{i=1}^p\frac{(X_i-\mu_i)^2}{\sigma_i^2}
+$$
+です。
+
+相関がある場合、この考え方を行列で書いたものが
+$$
+Q=(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}
+\Sigma^{-1}(\boldsymbol X-\boldsymbol\mu)
+$$
+です。
+
+$\boldsymbol X$が$p$変量正規分布に従うとき、尺度と相関を調整した座標では独立な標準正規変数$p$個になります。そのため
+$$
+Q\sim\chi_p^2.
+$$
+B04ではこの結果を使って計算し、C04では2変量の具体的な変換を使って平方和になることを確認します。
+
+---
+
+# 4. 計算例：式をどう使うか
+
+## 例1：分散共分散行列を読む
+
+$$
+\begin{pmatrix}X\\Y\end{pmatrix}
+\sim N_2\left(
+\begin{pmatrix}1\\2\end{pmatrix},
+\begin{pmatrix}4&3\\3&9\end{pmatrix}
+\right)
+$$
+なら
+$$
+E[X]=1,\quad E[Y]=2,
+$$
+$$
+\operatorname{Var}(X)=4,\quad
+\operatorname{Var}(Y)=9,\quad
+\operatorname{Cov}(X,Y)=3.
+$$
+したがって$X\sim N(1,4)$、$Y\sim N(2,9)$で、相関係数は$1/2$です。
+
+## 例2：線形結合$2X-Y$
+
+上と同じ平均・分散・共分散なら
+$$
+E[2X-Y]=2\cdot1-2=0.
+$$
+分散は
+$$
+\begin{aligned}
+\operatorname{Var}(2X-Y)
+&=2^2\operatorname{Var}(X)+(-1)^2\operatorname{Var}(Y)\\
+&\quad+2\cdot2\cdot(-1)\operatorname{Cov}(X,Y)\\
+&=16+9-12=13.
+\end{aligned}
+$$
+同時正規なら$2X-Y\sim N(0,13)$です。
+
+## 例3：条件付き正規分布
+
+$$
+E[X]=0,\quad E[Y]=1,
+$$
+$$
+\operatorname{Var}(X)=4,\quad
+\operatorname{Var}(Y)=9,\quad
+\operatorname{Cov}(X,Y)=2
+$$
+とします。
+
+条件付き平均の係数は
+$$
+\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}
+=\frac24=\frac12.
+$$
+したがって
+$$
+E[Y\mid X=x]=1+\frac12x.
+$$
+条件付き分散は
+$$
+9-\frac{2^2}{4}=8
+$$
+なので
+$$
+Y\mid(X=x)\sim N\left(1+\frac x2,8\right).
+$$
+「$X$を知ると$Y$の平均は動くが、条件付き分散8は$x$そのものには依存しない」ことを確認してください。
+
+## 例4：偏相関
+
+$\rho_{12}=0.7$, $\rho_{13}=0.5$, $\rho_{23}=0.4$なら
+$$
+\operatorname{Cov}(R_1,R_2)
+=0.7-0.5\cdot0.4=0.5,
+$$
+$$
+\operatorname{Var}(R_1)=1-0.5^2=0.75,
+\qquad
+\operatorname{Var}(R_2)=1-0.4^2=0.84.
+$$
+よって
+$$
+\rho_{12\cdot3}
+=\frac{0.5}{\sqrt{0.75\cdot0.84}}
+=\frac{0.5}{\sqrt{0.63}}.
+$$
+単純相関0.7から、第3変数と共通する線形関係を取り除いた値です。
+
+## 例5：相関を考慮した距離
+
+$$
+\Sigma=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+$$
+なら
+$$
+\Sigma^{-1}
+=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+$$
+中心からのずれが$\boldsymbol x=(1,-1)^{\mathsf T}$なら
+$$
+\Sigma^{-1}\boldsymbol x
+=\frac13
+\begin{pmatrix}2&-1\\-1&2\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}1\\-1\end{pmatrix}.
+$$
+したがって
+$$
+Q=\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+=(1,-1)\begin{pmatrix}1\\-1\end{pmatrix}=2.
+$$
+
+---
+
+# 5. 本番での読み方・解き方
+
+## 5.1 分散共分散行列を見たら、まず成分へ戻す
+
+2変量なら、対角から$\operatorname{Var}(X),\operatorname{Var}(Y)$、非対角から$\operatorname{Cov}(X,Y)$を読みます。必要ならその場で相関係数まで計算します。
+
+## 5.2 線形結合は「平均」と「分散」を別々に計算する
+
+$aX+bY$なら
+$$
+E[aX+bY]=aE[X]+bE[Y]
+$$
+を先に計算し、その後
+$$
+\operatorname{Var}(aX+bY)
+=a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y)
++2ab\operatorname{Cov}(X,Y)
+$$
+を計算します。正規性がある場合は最後に分布名を付けます。
+
+## 5.3 条件付き正規は2変量の係数から始める
+
+$Y\mid X=x$なら、まず
+$$
+\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}
+$$
+を計算します。これが$x-\mu_X$に掛かる係数です。
+
+次に
+$$
+\operatorname{Var}(Y)
+-\frac{\operatorname{Cov}(X,Y)^2}{\operatorname{Var}(X)}
+$$
+を計算します。3変量以上で初めて、同じ計算をブロック行列に置き換えます。
+
+## 5.4 「共分散0」を見たら正規仮定を確認する
+
+- 一般の分布：共分散0だけでは独立とは言えない。
+- 同時正規：共分散0なら独立と言える。
+
+この2行を区別するだけで、正誤問題の典型的な失点を防げます。
+
+## 5.5 偏相関は残差を作ってから相関を取る
+
+公式を忘れても
+$$
+R_1=X_1-\rho_{13}X_3,
+\qquad
+R_2=X_2-\rho_{23}X_3
+$$
+から共分散と分散を計算すれば復元できます。
+
+## 5.6 マハラノビス距離は逆行列を先に計算する
+
+観測偏差$\boldsymbol d=\boldsymbol x-\boldsymbol\mu$を作り、
+$$
+Q=\boldsymbol d^{\mathsf T}\Sigma^{-1}\boldsymbol d
+$$
+を計算します。2次正方行列なら逆行列を先に出してから、$\Sigma^{-1}\boldsymbol d$、最後に内積の順に計算すると符号ミスを減らせます。
+
+## 本番での選択判断
+
+3分で「何が既知で、何を条件付け、何を求めるか」が整理できれば選択します。15分で平均・分散または条件付き平均まで進めば継続し、最後に「同時正規だから使える性質」を一文確認します。
+'''
+
+          sec_start = s.index('# 2. 定義と記法')
+          sec_end = s.index('# 6. 演習：問題の直後に解答')
+          s = s[:sec_start] + new_sections + '\n\n---\n\n' + s[sec_end:]
+
+          s = s.replace('二乗可積分な実数値確率変数 $X,Y$ について', '実数値確率変数 $X,Y$ について、次の平均・分散・共分散が存在するとする。')
+          s = s.replace('二乗可積分な標準化済み確率変数 $X_1,X_2,X_3$', '平均0、分散1に標準化された確率変数 $X_1,X_2,X_3$')
+
+          def replace_section(text, start_marker, end_marker, replacement):
+              a = text.index(start_marker)
+              b = text.index(end_marker, a)
+              return text[:a] + replacement.rstrip() + '\n\n' + text[b:]
+
+          a02 = r'''### P3M-A02 共分散と相関係数の範囲
+- level: A
+- minutes: 8
+- topics: 共分散, 相関係数
+- techniques: DIM-1
+- calculation_load: low
+
+実数値確率変数$X,Y$について
+$$
+\operatorname{Var}(X)=4,\qquad
+\operatorname{Var}(Y)=9,\qquad
+\operatorname{Cov}(X,Y)=c
+$$
+とする。相関係数は
+$$
+\rho=\frac{\operatorname{Cov}(X,Y)}
+{\sqrt{\operatorname{Var}(X)}\sqrt{\operatorname{Var}(Y)}}
+$$
+で定義され、必ず$-1\leq\rho\leq1$を満たすことを用いてよい。
+
+1. $\rho$を$c$で表せ。
+2. $c$が取り得る範囲を求めよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+標準偏差は
+$$
+\sqrt{\operatorname{Var}(X)}=2,
+\qquad
+\sqrt{\operatorname{Var}(Y)}=3
+$$
+なので
+$$
+\rho=\frac{c}{2\cdot3}=\frac c6.
+$$
+相関係数は$-1\leq\rho\leq1$を満たすから
+$$
+-1\leq\frac c6\leq1.
+$$
+両辺を6倍して
+$$
+-6\leq c\leq6.
+$$
+
+##### 本番答案
+
+$\rho=c/(2\cdot3)=c/6$。$|\rho|\leq1$より$|c|\leq6$、したがって$-6\leq c\leq6$。
+
+##### 採点基準
+
+標準偏差4点、相関係数6点、$|\rho|\leq1$の利用6点、範囲4点。合計20点。
+
+<!-- solution-end -->'''
+          s = replace_section(s, '### P3M-A02 ', '### P3M-A03 ', a02)
+
+          b04 = r'''### P3M-B04 マハラノビス二次形式
+- level: B
+- minutes: 15
+- topics: 二次形式, 多変量正規分布
+- techniques: QUAD-MVN-1
+- calculation_load: medium
+
+$$
+\boldsymbol X\sim N_2\left(
+\begin{pmatrix}0\\0\end{pmatrix},
+\Sigma
+\right),
+\qquad
+\Sigma=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+$$
+とする。マハラノビス二次形式を
+$$
+Q=\boldsymbol X^{\mathsf T}\Sigma^{-1}\boldsymbol X
+$$
+と定める。多変量正規分布では、この二次形式が自由度2のカイ二乗分布に従うという結果を用いてよい。
+
+1. $\Sigma^{-1}$を2次正方行列の逆行列公式から求めよ。
+2. $Q$の分布を答えよ。
+3. 観測値$\boldsymbol x=(1,-1)^{\mathsf T}$に対する$Q$の値を求めよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+行列式は
+$$
+|\Sigma|=2\cdot2-1\cdot1=3
+$$
+なので
+$$
+\Sigma^{-1}
+=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+$$
+問題文で与えられた多変量正規分布の性質から
+$$
+Q\sim\chi_2^2.
+$$
+観測値では
+$$
+\Sigma^{-1}\boldsymbol x
+=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}1\\-1\end{pmatrix},
+$$
+したがって
+$$
+Q=(1,-1)\begin{pmatrix}1\\-1\end{pmatrix}=2.
+$$
+
+##### 本番答案
+
+$\Sigma^{-1}=3^{-1}\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。問題文の結果より$Q\sim\chi_2^2$。$\boldsymbol x=(1,-1)^{\mathsf T}$では$Q=2$。
+
+##### 採点基準
+
+行列式4点、逆行列6点、分布4点、数値計算6点。合計20点。
+
+<!-- solution-end -->'''
+          s = replace_section(s, '### P3M-B04 ', '## Level C：本番標準', b04)
+
+          c02 = r'''### P3M-C02 3変量正規の条件付け
+- level: C
+- minutes: 24
+- topics: 多変量正規分布, 条件付き分布, 独立性
+- techniques: BLOCK-1, COND-NORMAL-1
+- calculation_load: medium
+
+3次元確率ベクトル$\boldsymbol X=(X_1,X_2,X_3)^{\mathsf T}$が
+$$
+\boldsymbol X
+\sim N_3\left(
+\begin{pmatrix}0\\1\\2\end{pmatrix},
+\begin{pmatrix}4&1&2\\1&3&1\\2&1&2\end{pmatrix}
+\right)
+$$
+に従う。第2母数は分散共分散行列である。
+
+求めたい変数群を$\boldsymbol X_1$、条件として与える変数群を$\boldsymbol X_2$とし、対応する分散共分散行列を$\Sigma_{11},\Sigma_{12},\Sigma_{21},\Sigma_{22}$と分けたとき
+$$
+E[\boldsymbol X_1\mid\boldsymbol X_2=\boldsymbol x_2]
+=\boldsymbol\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol x_2-\boldsymbol\mu_2),
+$$
+$$
+\operatorname{Cov}(\boldsymbol X_1\mid\boldsymbol X_2=\boldsymbol x_2)
+=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
+$$
+を用いてよい。
+
+1. $(X_1,X_2)^{\mathsf T}\mid(X_3=4)$の条件付き平均を求めよ。
+2. 条件付き分散共分散行列を求めよ。
+3. 条件付きで$X_1,X_2$は独立か。正規性も含めて根拠を述べよ。
+4. $X_1\mid(X_3=4)$の分布を求めよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 時間配分
+
+初動3分、(1)6分、(2)7分、(3)4分、(4)2分、見直し2分。
+
+##### 詳細解答
+
+求める側を
+$$
+\boldsymbol X_1=\begin{pmatrix}X_1\\X_2\end{pmatrix},
+$$
+条件として与える側を$X_3$とすると
+$$
+\boldsymbol\mu_1=\begin{pmatrix}0\\1\end{pmatrix},
+\qquad
+\mu_2=2,
+$$
+$$
+\Sigma_{11}=\begin{pmatrix}4&1\\1&3\end{pmatrix},
+\quad
+\Sigma_{12}=\begin{pmatrix}2\\1\end{pmatrix},
+\quad
+\Sigma_{22}=2.
+$$
+したがって条件付き平均は
+$$
+\begin{aligned}
+E[\boldsymbol X_1\mid X_3=4]
+&=\begin{pmatrix}0\\1\end{pmatrix}
++\begin{pmatrix}2\\1\end{pmatrix}\frac12(4-2)\\
+&=\begin{pmatrix}2\\2\end{pmatrix}.
+\end{aligned}
+$$
+条件付き分散共分散行列は
+$$
+\begin{aligned}
+&\begin{pmatrix}4&1\\1&3\end{pmatrix}
+-\begin{pmatrix}2\\1\end{pmatrix}\frac12\begin{pmatrix}2&1\end{pmatrix}\\
+&=\begin{pmatrix}2&0\\0&5/2\end{pmatrix}.
+\end{aligned}
+$$
+条件付き分布も二変量正規で、交差共分散が0なので$X_1,X_2$は条件付きで独立です。第1成分だけ取り出せば
+$$
+X_1\mid(X_3=4)\sim N(2,2).
+$$
+
+##### 本番答案
+
+$\boldsymbol\mu_1=(0,1)^{\mathsf T}$、$\mu_2=2$、$\Sigma_{12}=(2,1)^{\mathsf T}$、$\Sigma_{22}=2$。したがって
+$$
+E[\boldsymbol X_1\mid X_3=4]
+=\begin{pmatrix}2\\2\end{pmatrix},
+$$
+$$
+\operatorname{Cov}(\boldsymbol X_1\mid X_3=4)
+=\begin{pmatrix}2&0\\0&5/2\end{pmatrix}.
+$$
+条件付きでも同時正規かつ共分散0なので独立。$X_1\mid(X_3=4)\sim N(2,2)$。
+
+##### 採点基準と選択判断
+
+ブロックの読み取り4点、条件付き平均6点、条件付き分散共分散6点、独立性2点、周辺分布2点。合計20点。まず求める側と条件側を分け、15分で条件付き平均まで進めば継続します。
+
+<!-- solution-end -->'''
+          s = replace_section(s, '### P3M-C02 ', '### P3M-C03 ', c02)
+
+          c04 = r'''### P3M-C04 相関を取り除く変換と二次形式
+- level: C
+- minutes: 25
+- topics: 線形変換, 二次形式, 多変量正規分布
+- techniques: AFFINE-1, QUAD-MVN-1
+- calculation_load: medium
+
+$$
+\begin{pmatrix}X_1\\X_2\end{pmatrix}
+\sim N_2\left(
+\begin{pmatrix}0\\0\end{pmatrix},
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\right)
+$$
+とする。新しい確率変数を
+$$
+Z_1=\frac{X_1+X_2}{\sqrt6},
+\qquad
+Z_2=\frac{X_1-X_2}{\sqrt2}
+$$
+と定める。
+
+1. $E[Z_1],E[Z_2]$を求めよ。
+2. $\operatorname{Var}(Z_1),\operatorname{Var}(Z_2),\operatorname{Cov}(Z_1,Z_2)$を求めよ。
+3. $(Z_1,Z_2)$が同時正規であることも用いて、$Z_1,Z_2$の分布と独立性を述べよ。
+4. $\Sigma^{-1}$を求め、
+$$
+Q=\boldsymbol X^{\mathsf T}\Sigma^{-1}\boldsymbol X
+$$
+が$Z_1^2+Z_2^2$に等しいことを示せ。
+5. $Q$の分布を求めよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 時間配分
+
+初動3分、(1)2分、(2)8分、(3)4分、(4)6分、(5)2分。
+
+##### 詳細解答
+
+平均0なので
+$$
+E[Z_1]=E[Z_2]=0.
+$$
+分散は
+$$
+\operatorname{Var}(Z_1)
+=\frac{2+2+2\cdot1}{6}=1,
+$$
+$$
+\operatorname{Var}(Z_2)
+=\frac{2+2-2\cdot1}{2}=1.
+$$
+また
+$$
+\begin{aligned}
+\operatorname{Cov}(Z_1,Z_2)
+&=\frac1{\sqrt{12}}\operatorname{Cov}(X_1+X_2,X_1-X_2)\\
+&=\frac1{\sqrt{12}}\{\operatorname{Var}(X_1)-\operatorname{Var}(X_2)\}=0.
+\end{aligned}
+$$
+線形結合なので$(Z_1,Z_2)$も二変量正規です。各平均0、分散1、共分散0なので
+$$
+Z_1\sim N(0,1),\qquad Z_2\sim N(0,1)
+$$
+かつ独立です。
+
+一方
+$$
+\Sigma^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}
+$$
+なので
+$$
+Q=\frac23(X_1^2-X_1X_2+X_2^2).
+$$
+また
+$$
+\begin{aligned}
+Z_1^2+Z_2^2
+&=\frac{(X_1+X_2)^2}{6}+\frac{(X_1-X_2)^2}{2}\\
+&=\frac23(X_1^2-X_1X_2+X_2^2)=Q.
+\end{aligned}
+$$
+従って$Q$は独立な標準正規2個の平方和なので
+$$
+Q\sim\chi_2^2.
+$$
+
+##### 本番答案
+
+$E[Z_1]=E[Z_2]=0$、$\operatorname{Var}(Z_1)=\operatorname{Var}(Z_2)=1$、$\operatorname{Cov}(Z_1,Z_2)=0$。線形変換後も同時正規なので$Z_1,Z_2$は独立な$N(0,1)$。また
+$$
+\Sigma^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix},
+\qquad
+Q=Z_1^2+Z_2^2,
+$$
+ゆえに$Q\sim\chi_2^2$。
+
+##### 採点基準と選択判断
+
+平均2点、分散・共分散6点、正規性と独立4点、逆行列と二次形式6点、分布2点。合計20点。
+
+<!-- solution-end -->'''
+          s = replace_section(s, '### P3M-C04 ', '### P3M-C05 ', c04)
+
+          c05 = r'''### P3M-C05 正誤判定総合
+- level: C
+- minutes: 22
+- topics: 共分散, 独立性, 多変量正規分布, 条件付き分布
+- techniques: INDEP-NORMAL-1, ANSWER-1
+- calculation_load: medium
+
+次を正誤判定し、正しければ根拠、誤りなら反例または不足している仮定を示せ。
+
+1. 分散共分散行列の対角成分は各変数の分散であり、$(i,j)$成分と$(j,i)$成分は等しい。
+2. 実数値確率変数$X,Y$で$\operatorname{Cov}(X,Y)=0$なら独立である。
+3. 結合分布が二変量正規分布である$X,Y$で共分散0なら独立である。
+4. 多変量正規分布の条件付き分散共分散行列は、条件付けた観測値そのものに依存する。
+5. 多変量正規分布の一部の成分だけを取り出した周辺分布も多変量正規分布である。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 時間配分
+
+初動2分、各小問4分。
+
+##### 詳細解答
+
+1. 正しい。対角成分は$\operatorname{Var}(X_i)$で、$\operatorname{Cov}(X_i,X_j)=\operatorname{Cov}(X_j,X_i)$だから対称です。
+2. 誤り。たとえば$X$が$-1,0,1$を各確率$1/3$で取り、$Y=X^2$とする。$E[X]=E[X^3]=0$なので共分散0だが、$Y=0$なら必ず$X=0$なので独立ではありません。
+3. 正しい。同時正規という追加条件があると、共分散0から独立が従います。
+4. 誤り。条件付き平均には観測値が入るが、条件付き分散共分散行列には観測値そのものは入りません。
+5. 正しい。多変量正規分布から一部の成分を取り出した周辺分布も正規です。
+
+##### 本番答案
+
+(1)正。分散共分散行列は対角が分散、非対角が共分散で対称。(2)誤。$X\in\{-1,0,1\}$を各$1/3$、$Y=X^2$なら共分散0だが非独立。(3)正。同時正規なら共分散0から独立。(4)誤。条件付き分散共分散行列は観測値に依存しない。(5)正。部分ベクトルの周辺分布も多変量正規。
+
+##### 採点基準と選択判断
+
+各4点。各項について正誤1点、根拠または反例3点。合計20点。
+
+<!-- solution-end -->'''
+          s = replace_section(s, '### P3M-C05 ', '## Level D：発展', c05)
+
+          s = s.replace('### P3M-C04 白色化と二次形式', '### P3M-C04 相関を取り除く変換と二次形式')
+          s = s.replace('2. 白色化 $\\boldsymbol Z=L^{-1}\\boldsymbol X$（$LL^{\\mathsf T}=\\Sigma$）を用いて $Q$ の分布を示せ。', '2. 問題文で与えた結果を使って$Q$の分布を答えよ。')
+          s = s.replace('25分ではSchur補と「条件付き同時正規」を明記して閉じます。', '25分では条件付き分散共分散行列と「条件付きでも同時正規」を明記して閉じます。')
+
+          s = s.replace('2. 分散共分散行列は$p\\times p$で対称半正定値。', '2. 分散共分散行列は対角に分散、非対角に共分散を並べる。')
+          s = s.replace('7. 多変量正規は特異でも定義できる。', '7. 多変量正規では周辺分布と線形結合も正規になる。')
+          s = s.replace('12. 条件付き共分散はSchur補。', '12. 条件付き分散共分散行列は観測値そのものに依存しない。')
+          s = s.replace('16. 精度行列公式には負号が付く。', '16. 偏相関公式は残差どうしの相関から復元できる。')
+          s = s.replace('17. 白色化後の共分散は$I_p$。', '17. 尺度と相関を調整すると標準正規変数へ変換できる。')
+
+          check_start = s.index('# 9. 復習チェック')
+          check_end = s.find('\n---', check_start)
+          if check_end == -1:
+              check_end = len(s)
+          checklist = r'''# 9. 復習チェック
+
+- [ ] 分散共分散行列の対角成分と非対角成分が何を表すか説明できる。
+- [ ] 線形結合の平均と分散を、共分散の交差項を含めて計算できる。
+- [ ] 多変量正規分布の周辺分布と線形結合の分布を求められる。
+- [ ] 二変量正規の条件付き平均・条件付き分散を共分散から計算できる。
+- [ ] 3変量以上では「求める側」と「条件として与える側」を分けて行列を読める。
+- [ ] 一般の「無相関」と、同時正規での「無相関なら独立」を区別できる。
+- [ ] 偏相関を残差の相関として説明し、三変数の公式を復元できる。
+- [ ] マハラノビス二次形式を、尺度と相関を調整した距離として計算できる。
+- [ ] 演習で使用する非自明な公式が、問題文で許可されているか、設問で導出対象になっているかを確認できる。'''
+          s = s[:check_start] + checklist + s[check_end:]
+
+          # The reader-facing chapter must not depend on these out-of-scope words in the main path.
+          if '二乗可積分' in s:
+              raise SystemExit('二乗可積分 remains')
+
+          p.write_text(s)
+
+          cy = Path('textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/chapter.yaml')
+          c = cy.read_text()
+          a = c.index('learning_objectives:')
+          b = c.index('definitions:', a)
+          c = c[:a] + '''learning_objectives:
+  - 2変量の平均ベクトルと分散共分散行列を各成分の意味と結び付けて読める
+  - 線形結合と多変量正規分布の周辺分布を計算できる
+  - 二変量正規分布の条件付き平均・条件付き分散を共分散から計算できる
+  - 無相関と独立を区別し、同時正規のときの性質を使える
+  - 偏相関を残差の相関として計算できる
+  - マハラノビス二次形式を尺度と相関を調整した距離として計算できる
+''' + c[b:]
+          c = c.replace('  - { id: P3M-THM-05, name: 偏相関と精度行列 }', '  - { id: P3M-THM-05, name: 偏相関の残差による導出 }')
+          c = c.replace('canonical_examples: [線形結合, 二変量正規の条件付き分布, ブロック条件付け, 残差偏相関, Mahalanobis距離]', 'canonical_examples: [分散共分散行列の読み方, 線形結合, 二変量正規の条件付き分布, 残差偏相関, Mahalanobis距離]')
+          cy.write_text(c)
+
+          gy = Path('textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/glossary.yaml')
+          gy.write_text('''chapter: "P3-03"
+terms:
+  - { term: 分散共分散行列, meaning: 対角に各変数の分散、非対角に変数間の共分散を並べた行列 }
+  - { term: 相関行列, meaning: 各変数を標準化したときの相関係数を並べた行列 }
+  - { term: 条件付き分布, meaning: ある変数の値が分かった後に残りの変数がどのように分布するかを表す分布 }
+  - { term: 偏相関, meaning: 他の変数で説明できる線形な部分を取り除いた残差どうしの相関 }
+  - { term: 二次形式, meaning: ベクトルと行列から作る x^T A x 型の量 }
+  - { term: Mahalanobis距離, meaning: 各変数の尺度と変数間の相関を調整した距離 }
+''')
+          PY
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate textbook rewrite
+        run: |
+          npm run validate
+          npm run audit:textbook-granularity
+          npm run validate:pages
+      - name: Commit rewrite
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/chapter.yaml textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/glossary.yaml
+          git diff --cached --check
+          git commit -m 'rewrite P3-03 for textbook readers'
+          git push
+      - name: Remove temporary workflow
+        run: |
+          rm .github/workflows/_tmp-p303-reader-rewrite.yml
+          git add .github/workflows/_tmp-p303-reader-rewrite.yml
+          git commit -m 'remove temporary P3-03 reader rewrite workflow'
+          git push
