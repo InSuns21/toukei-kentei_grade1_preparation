@@ -414,10 +414,10 @@ $$
 
 #### 有限分割はタワープロパティの特殊形
 
-$H_1,\ldots,H_m$ を互いに排反で全事象を分割し、各 $P(H_i)>0$ とします。$H_i$ 上で $Z=i$ となる群ラベル $Z$ を作れば
+$A_1,\ldots,A_m$ を互いに排反で全事象を分割し、各 $P(A_i)>0$ とします。$A_i$ 上で $Z=i$ となる群ラベルを表す確率変数 $Z$ を作れば
 
 $$
-E[X\mid Z=i]=E[X\mid H_i].
+E[X\mid Z=i]=E[X\mid A_i].
 $$
 
 したがってタワープロパティは
@@ -425,7 +425,7 @@ $$
 $$
 \boxed{
 E[X]
-=\sum_{i=1}^m E[X\mid H_i]P(H_i)
+=\sum_{i=1}^m E[X\mid A_i]P(A_i)
 }
 $$
 
@@ -499,10 +499,10 @@ $$
 
 #### 有限分割での全分散
 
-$H_1,\ldots,H_m$ を有限分割とし、
+$A_1,\ldots,A_m$ を有限分割とし、
 
 $$
-\mu_i=E[X\mid H_i],\qquad \mu=E[X]
+\mu_i=E[X\mid A_i],\qquad \mu=E[X]
 $$
 
 とおけば
@@ -510,8 +510,8 @@ $$
 $$
 \boxed{
 \operatorname{Var}(X)
-=\sum_{i=1}^m\operatorname{Var}(X\mid H_i)P(H_i)
-+\sum_{i=1}^m(\mu_i-\mu)^2P(H_i)
+=\sum_{i=1}^m\operatorname{Var}(X\mid A_i)P(A_i)
++\sum_{i=1}^m(\mu_i-\mu)^2P(A_i)
 }.
 $$
 
@@ -599,11 +599,11 @@ $$
 
 #### 有限分割での全共分散
 
-$H_1,\ldots,H_m$ を有限分割とし、
+$A_1,\ldots,A_m$ を有限分割とし、
 
 $$
-\mu_{Xi}=E[X\mid H_i],\qquad
-\mu_{Yi}=E[Y\mid H_i],
+\mu_{Xi}=E[X\mid A_i],\qquad
+\mu_{Yi}=E[Y\mid A_i],
 $$
 
 $$
@@ -616,9 +616,9 @@ $$
 \boxed{
 \begin{aligned}
 \operatorname{Cov}(X,Y)
-&=\sum_{i=1}^m\operatorname{Cov}(X,Y\mid H_i)P(H_i)\\
+&=\sum_{i=1}^m\operatorname{Cov}(X,Y\mid A_i)P(A_i)\\
 &\quad+\sum_{i=1}^m
-(\mu_{Xi}-\mu_X)(\mu_{Yi}-\mu_Y)P(H_i).
+(\mu_{Xi}-\mu_X)(\mu_{Yi}-\mu_Y)P(A_i).
 \end{aligned}
 }
 $$
@@ -728,10 +728,12 @@ $$
 
 ### 例1：離散分布の平均と分散
 
+離散型確率変数 $X$ の台を $\{0,1,2\}$ とし、確率質量関数を $p_X(x)=P(X=x)$ とします。ここで
+
 $$
-P(X=0)=\frac14,\qquad
-P(X=1)=\frac12,\qquad
-P(X=2)=\frac14
+p_X(0)=\frac14,\qquad
+p_X(1)=\frac12,\qquad
+p_X(2)=\frac14
 $$
 
 とします。有限個の値しか取らないので二次モーメントは存在します。
@@ -754,7 +756,7 @@ $$
 
 ### 例2：タワープロパティと全分散
 
-群ラベル $Z\in\{1,2\}$ が
+群ラベルを表す確率変数 $Z\in\{1,2\}$ が
 
 $$
 P(Z=1)=P(Z=2)=\frac12
@@ -810,7 +812,7 @@ $$
 
 ### 例3：全共分散
 
-$Z\in\{0,1\}$ がそれぞれ確率 $1/2$ で生じ、
+群ラベルを表す確率変数 $Z\in\{0,1\}$ がそれぞれ確率 $1/2$ で生じ、
 
 $$
 E[X\mid Z=0]=0,
@@ -1625,19 +1627,19 @@ $$
 \boxed{\operatorname{Cov}(X,Y)=0+2=2}.
 $$
 
-(3) 条件付き共分散の計算公式
+(3) 任意の $h\in\{0,1\}$ について、条件付き共分散の計算公式
 
 $$
-\operatorname{Cov}(X,Y\mid H_i)
-=E[XY\mid H_i]-E[X\mid H_i]E[Y\mid H_i]
+\operatorname{Cov}(X,Y\mid H=h)
+=E[XY\mid H=h]-E[X\mid H=h]E[Y\mid H=h]
 $$
 
-を $E[XY\mid H_i]$ について解くと
+を $E[XY\mid H=h]$ について解くと
 
 $$
-E[XY\mid H_i]
-=\operatorname{Cov}(X,Y\mid H_i)
-+E[X\mid H_i]E[Y\mid H_i].
+E[XY\mid H=h]
+=\operatorname{Cov}(X,Y\mid H=h)
++E[X\mid H=h]E[Y\mid H=h].
 $$
 
 よって
