@@ -1,0 +1,46 @@
+name: Temporary P3-02 A03 input migration
+
+on:
+  push:
+    paths:
+      - '.github/workflows/_tmp-fix-p302-a03.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Add normal density to A03
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('textbook/volumes/02_distributions/P3_02_主要な連続分布/index.md')
+          s = p.read_text()
+          old = r'$X\sim N(10,2^2)$ の $P(8<X\le13)$ を標準正規分布の累積分布関数 $\Phi$ で表し、平均と分散を答えよ。'
+          new = r'''連続型確率変数 $X$ の確率密度関数を
+
+          $$
+          f_X(x)=\frac{1}{2\sqrt{2\pi}}
+          \exp\left\{-\frac{(x-10)^2}{8}\right\},
+          \qquad x\in\mathbb R
+          $$
+
+          とする。これは $X\sim N(10,2^2)$（平均10、分散 $2^2=4$）に対応する。標準正規分布の累積分布関数を $\Phi$ とする。$P(8<X\le13)$ を $\Phi$ で表し、平均と分散を答えよ。'''
+          if s.count(old) != 1:
+              raise SystemExit(f'expected one A03 target, found {s.count(old)}')
+          p.write_text(s.replace(old, new))
+      - name: Commit migration and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "textbook/volumes/02_distributions/P3_02_主要な連続分布/index.md"
+          git rm .github/workflows/_tmp-fix-p302-a03.yml
+          git diff --cached --check
+          git commit -m 'align P3C-A03 input with common exercise rules'
+          git push
