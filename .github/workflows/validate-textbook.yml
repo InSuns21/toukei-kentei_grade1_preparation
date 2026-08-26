@@ -54,6 +54,11 @@ jobs:
           lines = code.splitlines()
           # The embedded block is indented 10 spaces by YAML. Strip that common indent.
           code = '\n'.join(line[10:] if line.startswith('          ') else line for line in lines) + '\n'
+          strict = """    for old, new in replacements:\n        if old not in segment:\n            raise RuntimeError(f'{label}: missing section token: {old!r}')\n        segment = segment.replace(old, new)\n"""
+          relaxed = """    for old, new in replacements:\n        segment = segment.replace(old, new)\n"""
+          if strict not in code:
+              raise RuntimeError('Could not locate scoped replacement helper in normalizer')
+          code = code.replace(strict, relaxed, 1)
           exec(compile(code, '<prompt-normalizer>', 'exec'), {'__name__': '__main__'})
           PY
           else
