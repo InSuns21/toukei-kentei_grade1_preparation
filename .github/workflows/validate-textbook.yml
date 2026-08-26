@@ -11,6 +11,7 @@ on:
       - 'agents/**'
       - 'AGENTS.md'
       - 'README.md'
+      - 'EXERCISE_GUIDELINES.md'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-textbook.yml'
@@ -22,10 +23,14 @@ on:
       - 'agents/**'
       - 'AGENTS.md'
       - 'README.md'
+      - 'EXERCISE_GUIDELINES.md'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   validate-textbook:
@@ -33,6 +38,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Align conditional-notation rule
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('EXERCISE_GUIDELINES.md')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              '条件付きモーメントでは、事象 $H_i$ と群ラベル確率変数 $H$ を混同しない。$E[X\\mid H=0]$ と書くなら $H$ を確率変数として宣言し、有限分割の事象を使うなら $H_1,\\ldots,H_m$ を事象として宣言する。同じ問題内で両記法を無言で混ぜない。',
+              '条件付きモーメントでは、有限分割の事象 $A_i$ と群ラベル確率変数 $H$ を混同しない。$E[X\\mid H=0]$ と書くなら $H$ を確率変数として宣言し、有限分割を使うなら $A_1,\\ldots,A_m$ を事象として宣言する。同じ問題内で両記法を無言で混ぜない。',
+          )
+          text = text.replace(
+              '条件付き記法で事象 $H_i$ と群ラベル確率変数 $H$ を無言で混同していないか。',
+              '条件付き記法で有限分割の事象 $A_i$ と群ラベル確率変数 $H$ を無言で混同していないか。',
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -45,3 +69,17 @@ jobs:
 
       - name: Validate textbook
         run: npm run validate
+
+      - name: Commit common-rule alignment
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet; then
+            echo 'No common-rule changes to commit.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add EXERCISE_GUIDELINES.md
+          git commit -m 'docs: align finite-partition notation in common rules'
+          git push origin HEAD:main
