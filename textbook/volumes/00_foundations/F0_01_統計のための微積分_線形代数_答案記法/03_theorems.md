@@ -150,6 +150,36 @@ $$
 
 よって全ての固有値が正です。半正定値の場合も、不等号 $>$ を $\geq$ に置き換えた同じ議論で両方向が示されます。
 
+### 正定値なら逆行列が存在する
+
+正定値行列では全固有値が正なので、0は固有値ではありません。したがって行列式は0でなく、逆行列が存在します。このため、多変量正規分布で正定値な分散共分散行列 $\Sigma$ を仮定すると $\Sigma^{-1}$ を使えます。
+
+### 共分散行列が半正定値になる理由
+
+確率ベクトル $\boldsymbol X$ の分散共分散行列を $\Sigma$ とすると、任意のベクトル $\boldsymbol a$ に対して
+
+$$
+\boldsymbol a^{\mathsf T}\Sigma\boldsymbol a
+=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
+\geq0.
+$$
+
+したがって分散共分散行列は常に半正定値です。さらに、$\boldsymbol a\neq\boldsymbol0$ に対して $\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)>0$ が常に成り立つなら正定値です。
+
+### 2次対称行列の実用判定
+
+$$
+A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
+$$
+
+について、$A$ が正定値であるための必要十分条件は
+
+$$
+a>0,\qquad ac-b^2>0
+$$
+
+です。これは2次のSylvester判定であり、共分散行列やGram行列の確認に使えます。
+
 ## F0-THM-04 直交射影行列の基本性質
 
 $\boldsymbol{P}^{\mathsf T}=\boldsymbol{P}$ かつ $\boldsymbol{P}^2=\boldsymbol{P}$ とします。このとき任意の $\boldsymbol{y}\in\mathbb{R}^n$ について、$\boldsymbol{P}\boldsymbol{y}$ と $(\boldsymbol{I}_n-\boldsymbol{P})\boldsymbol{y}$ は直交します。また $\boldsymbol{P}$ の固有値は0または1です。
