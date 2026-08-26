@@ -10,7 +10,7 @@
 
 | 範囲 | 主な問題 |
 |---|---|
-| 平均・共分散・相関行列 | P3M-A01, A02, B01 |
+| 平均ベクトル・分散共分散行列・相関行列 | P3M-A01, A02, B01 |
 | 多変量正規・線形変換・周辺 | P3M-A03, B01, C04 |
 | 条件付き分布 | P3M-B02, C01, C02, D01 |
 | 独立性 | P3M-B03, C05 |
@@ -27,9 +27,9 @@
 
 ## 学習目標
 
-- $A\boldsymbol X+\boldsymbol b$の平均・共分散を次元付きで求める。
+- $A\boldsymbol X+\boldsymbol b$の平均ベクトル・分散共分散行列を次元付きで求める。
 - 正定値な分散共分散行列と半正定値な分散共分散行列を区別する。
-- 条件付き正規分布の平均と、条件付き共分散$\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$（Schur補）を再現する。
+- 条件付き正規分布の平均と、条件付き分散共分散行列$\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$（Schur補）を再現する。
 - 偏相関を「第三変数の線形効果を除いた残差の相関」と説明する。
 - 二次形式を標準正規の平方和へ変換する。
 
@@ -150,29 +150,29 @@ E[\boldsymbol Y]=A\boldsymbol\mu+\boldsymbol b,
 \operatorname{Cov}(\boldsymbol Y)=A\boldsymbol\Sigma A^{\mathsf T}.
 $$
 実際、
-$
+$$
 \begin{aligned}
 \boldsymbol Y-E[\boldsymbol Y]
 &=A\boldsymbol X+\boldsymbol b-
 \{A E[\boldsymbol X]+\boldsymbol b\}\\
 &=A(\boldsymbol X-\boldsymbol\mu).
 \end{aligned}
-$
+$$
 したがって
-$
+$$
 \begin{aligned}
 \operatorname{Cov}(\boldsymbol Y)
 &=E\left[(\boldsymbol Y-E[\boldsymbol Y])(\boldsymbol Y-E[\boldsymbol Y])^{\mathsf T}\right]\\
 &=E\left[A(\boldsymbol X-\boldsymbol\mu)(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}A^{\mathsf T}\right]\\
 &=A\boldsymbol\Sigma A^{\mathsf T}.
 \end{aligned}
-$任意の$\boldsymbol a\in\mathbb R^p$に対し
+$$
+任意の$\boldsymbol a\in\mathbb R^p$に対し
 $$
 \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
 =\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\geq0
 $$
 なので、分散共分散行列は半正定値です。
-
 ## P3M-THM-02 多変量正規のアフィン変換と周辺分布
 
 $\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)$なら
@@ -182,27 +182,26 @@ A\boldsymbol X+\boldsymbol b
 $$
 右辺は特異でもよいものとします。任意の$\boldsymbol c\in\mathbb R^q$について$\boldsymbol c^{\mathsf T}(A\boldsymbol X+\boldsymbol b)=(A^{\mathsf T}\boldsymbol c)^{\mathsf T}\boldsymbol X+\boldsymbol c^{\mathsf T}\boldsymbol b$が正規なので、定義から従います。
 
-特に成分を選ぶ行列$A$を使えば、任意の部分ベクトルの周辺分布は、対応する平均部分ベクトルと共分散主部分行列を持つ多変量正規分布です。モーメント母関数は全$\boldsymbol t\in\mathbb R^p$で
+特に成分を選ぶ行列$A$を使えば、任意の部分ベクトルの周辺分布は、対応する平均部分ベクトルと分散共分散主部分行列を持つ多変量正規分布です。モーメント母関数は全$\boldsymbol t\in\mathbb R^p$で
 $$
 M_{\boldsymbol X}(\boldsymbol t)
 =\exp\left(\boldsymbol t^{\mathsf T}\boldsymbol\mu
 +\frac12\boldsymbol t^{\mathsf T}\boldsymbol\Sigma\boldsymbol t\right).
 $$
 実際、
-$
+$$
 W=\boldsymbol t^{\mathsf T}\boldsymbol X
 \sim N\left(\boldsymbol t^{\mathsf T}\boldsymbol\mu,
 \boldsymbol t^{\mathsf T}\boldsymbol\Sigma\boldsymbol t\right).
-$
+$$
 一変量正規分布 $N(m,v)$ のモーメント母関数 $E[e^{sW}]=\exp(ms+vs^2/2)$ に $s=1$、$m=\boldsymbol t^{\mathsf T}\boldsymbol\mu$、$v=\boldsymbol t^{\mathsf T}\boldsymbol\Sigma\boldsymbol t$ を代入すると
-$
+$$
 M_{\boldsymbol X}(\boldsymbol t)
 =E[e^W]
 =\exp\left(\boldsymbol t^{\mathsf T}\boldsymbol\mu
 +\frac12\boldsymbol t^{\mathsf T}\boldsymbol\Sigma\boldsymbol t\right)
-$
+$$
 を得ます。
-
 ## P3M-THM-03 多変量正規の条件付き分布
 
 $$
@@ -430,11 +429,11 @@ GitHub Pagesでは各「解答を表示」を開くと、詳細解答・本番�
 
 二乗可積分な実数値確率変数 $X,Y$ について
 $$
-E[X]=1,quad E[Y]=2,
+E[X]=1,\quad E[Y]=2,
 $$
 $$
-\operatorname{Var}(X)=4,quad
-\operatorname{Var}(Y)=9,quad
+\operatorname{Var}(X)=4,\quad
+\operatorname{Var}(Y)=9,\quad
 \operatorname{Cov}(X,Y)=3
 $$
 とする。確率変数 $W=2X-Y$ を定める。$E[W]$ と $\operatorname{Var}(W)$ を求めよ。
@@ -557,8 +556,8 @@ $X\sim N(1,4)$、$Y\sim N(2,9)$、$X+Y\sim N(3,19)$。
 
 二乗可積分な標準化済み確率変数 $X_1,X_2,X_3$ の相関係数が
 $$
-\rho_{12}=\frac12,qquad
-\rho_{13}=\frac13,qquad
+\rho_{12}=\frac12,\qquad
+\rho_{13}=\frac13,\qquad
 \rho_{23}=\frac14
 $$
 であるとする。第3変数の線形効果を除いた偏相関係数は
@@ -609,18 +608,18 @@ $$
 \boldsymbol X\sim N_3(\boldsymbol\mu,\Sigma),
 $$
 $$
-\boldsymbol\mu=\begin{pmatrix}1\\0\\2\end{pmatrix},quad
+\boldsymbol\mu=\begin{pmatrix}1\\0\\2\end{pmatrix},\quad
 \Sigma=\begin{pmatrix}2&1&0\\1&3&1\\0&1&2\end{pmatrix}
 $$
 に従う。ここで $\Sigma$ は分散共分散行列である。また
 $$
-A=\begin{pmatrix}1&1&0\\0&1&-1\end{pmatrix},qquad
+A=\begin{pmatrix}1&1&0\\0&1&-1\end{pmatrix},\qquad
 \boldsymbol b=\begin{pmatrix}0\\1\end{pmatrix}
 $$
 とし、2次元確率ベクトル $\boldsymbol Y=A\boldsymbol X+\boldsymbol b$ を定める。アフィン変換公式
 $$
 A\boldsymbol X+\boldsymbol b
-\sim N_2(A\boldsymbol\mu+\boldsymbol b,,A\Sigma A^{\mathsf T})
+\sim N_2(A\boldsymbol\mu+\boldsymbol b,\,A\Sigma A^{\mathsf T})
 $$
 を用いてよい。$\boldsymbol Y$ の分布を求めよ。
 
@@ -637,14 +636,23 @@ A\boldsymbol\mu+\boldsymbol b
 +\begin{pmatrix}0\\1\end{pmatrix}
 =\begin{pmatrix}1\\-1\end{pmatrix}.
 $$
-また
+分散共分散行列は $A\Sigma A^{\mathsf T}$ です。まず
 $$
-A\Sigma=
-\begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix},
+\begin{aligned}
+A\Sigma
+&=\begin{pmatrix}1&1&0\\0&1&-1\end{pmatrix}
+\begin{pmatrix}2&1&0\\1&3&1\\0&1&2\end{pmatrix}\\
+&=\begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix}.
+\end{aligned}
 $$
+さらに
 $$
+\begin{aligned}
 A\Sigma A^{\mathsf T}
-=\begin{pmatrix}7&3\\3&3\end{pmatrix}.
+&=\begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix}
+\begin{pmatrix}1&0\\1&1\\0&-1\end{pmatrix}\\
+&=\begin{pmatrix}7&3\\3&3\end{pmatrix}.
+\end{aligned}
 $$
 従って
 $$
@@ -656,7 +664,7 @@ $$
 
 ##### 本番答案
 
-$A\boldsymbol\mu+\boldsymbol b=(1,-1)^{\mathsf T}$、$A\Sigma A^{\mathsf T}=\begin{pmatrix}7&3\\3&3\end{pmatrix}$より、$\boldsymbol Y$はこれらを平均・共分散とする$N_2$に従う。
+$A\boldsymbol\mu+\boldsymbol b=(1,-1)^{\mathsf T}$、$A\Sigma A^{\mathsf T}=\begin{pmatrix}7&3\\3&3\end{pmatrix}$より、$\boldsymbol Y$はこれらを平均ベクトル・分散共分散行列とする$N_2$に従う。
 
 ##### 採点基準
 
@@ -673,8 +681,8 @@ $A\boldsymbol\mu+\boldsymbol b=(1,-1)^{\mathsf T}$、$A\Sigma A^{\mathsf T}=\beg
 
 実数値確率変数 $X,Y$ の結合分布は二変量正規分布で、
 $$
-E[X]=0,quad E[Y]=1,quad
-\sigma_X=2,quad \sigma_Y=3,quad \rho=\frac13
+E[X]=0,\quad E[Y]=1,\quad
+\sigma_X=2,\quad \sigma_Y=3,\quad \rho=\frac13
 $$
 とする。従って分散共分散行列は
 $$
@@ -686,7 +694,7 @@ $$
 $$
 である。
 
-次の二変量正規分布の条件付き公式を用いてよい。$X,Y$ の平均を $\mu_X,\mu_Y$、分散を $\sigma_X^2,\sigma_Y^2$、共分散を $\sigma_{XY}$ とすると、
+次の二変量正規分布の条件付き公式を用いてよい。$X,Y$ の平均を $\mu_X,\mu_Y$、分散を $\sigma_X^2,\sigma_Y^2$、共分散を $\sigma_{XY}$ とすると、次式が成り立つ。$X,Y$ の役割を入れ替えて用いてもよい。
 $$
 Y\mid(X=x)\sim N\left(
 \mu_Y+\frac{\sigma_{XY}}{\sigma_X^2}(x-\mu_X),
@@ -774,7 +782,7 @@ $E[X]=E[X^3]=0$より$\operatorname{Cov}(X,X^2)=0$。ただし$P(X>1/2,Y\leq1/4)
 
 2次元確率ベクトル $\boldsymbol X$ が
 $$
-\boldsymbol X\sim N_2(\boldsymbol0,\Sigma),qquad
+\boldsymbol X\sim N_2(\boldsymbol0,\Sigma),\qquad
 \Sigma=\begin{pmatrix}2&1\\1&2\end{pmatrix}
 $$
 に従い、$\Sigma$ は正定値な分散共分散行列である。マハラノビス二次形式を
@@ -793,15 +801,57 @@ $$
 
 ##### 詳細解答
 
+まず行列式は
 $$
-\Sigma^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+|\Sigma|=2\cdot2-1\cdot1=3>0.
 $$
-正定値な共分散で白色化できるため$Q\sim\chi_2^2$です。$\boldsymbol x=(1,-1)^{\mathsf T}$では
+従って2次正方行列の逆行列公式から
+$$
+\begin{aligned}
+\Sigma^{-1}
+&=\frac1{|\Sigma|}\begin{pmatrix}2&-1\\-1&2\end{pmatrix}\\
+&=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+\end{aligned}
+$$
+次に $LL^{\mathsf T}=\Sigma$ を満たす可逆行列 $L$ を取り、
+$$
+\boldsymbol Z=L^{-1}\boldsymbol X
+$$
+と置きます。アフィン変換公式より
+$$
+E[\boldsymbol Z]=\boldsymbol0,
+\qquad
+\operatorname{Cov}(\boldsymbol Z)=L^{-1}\Sigma L^{-\mathsf T}=I_2.
+$$
+よって $\boldsymbol Z\sim N_2(\boldsymbol0,I_2)$ で、$Z_1,Z_2$ は独立な標準正規変数です。また
+$$
+\Sigma^{-1}=L^{-\mathsf T}L^{-1}
+$$
+なので
+$$
+\begin{aligned}
+Q
+&=\boldsymbol X^{\mathsf T}\Sigma^{-1}\boldsymbol X\\
+&=\boldsymbol X^{\mathsf T}L^{-\mathsf T}L^{-1}\boldsymbol X\\
+&=(L^{-1}\boldsymbol X)^{\mathsf T}(L^{-1}\boldsymbol X)\\
+&=Z_1^2+Z_2^2.
+\end{aligned}
+$$
+自由度2のカイ二乗分布を独立な標準正規変数2個の平方和として定義しているので
+$$
+Q\sim\chi_2^2.
+$$
+観測値 $\boldsymbol x=(1,-1)^{\mathsf T}$ では
 $$
 \Sigma^{-1}\boldsymbol x
+=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
 =\begin{pmatrix}1\\-1\end{pmatrix},
-\qquad
-\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x=2.
+$$
+従って
+$$
+\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+=(1,-1)\begin{pmatrix}1\\-1\end{pmatrix}=2.
 $$
 
 ##### 本番答案
@@ -825,12 +875,12 @@ $\Sigma^{-1}=3^{-1}\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。白色化により$
 
 実数値確率変数 $X,Y$ の結合分布は二変量正規分布で、平均ベクトルと分散共分散行列が
 $$
-\boldsymbol\mu=\begin{pmatrix}2\\-1\end{pmatrix},qquad
+\boldsymbol\mu=\begin{pmatrix}2\\-1\end{pmatrix},\qquad
 \Sigma=\begin{pmatrix}4&3\\3&9\end{pmatrix}
 $$
 である。
 
-次の二変量正規分布の条件付き公式を用いてよい。$X,Y$ の平均を $\mu_X,\mu_Y$、分散を $\sigma_X^2,\sigma_Y^2$、共分散を $\sigma_{XY}$ とすると、
+次の二変量正規分布の条件付き公式を用いてよい。$X,Y$ の平均を $\mu_X,\mu_Y$、分散を $\sigma_X^2,\sigma_Y^2$、共分散を $\sigma_{XY}$ とすると、次式が成り立つ。$X,Y$ の役割を入れ替えて用いてもよい。
 $$
 Y\mid(X=x)\sim N\left(
 \mu_Y+\frac{\sigma_{XY}}{\sigma_X^2}(x-\mu_X),
@@ -1123,22 +1173,22 @@ $$
 =\boldsymbol Z^{\mathsf T}\boldsymbol Z.
 $$
 従って二次形式は$\sum_iZ_i^2\sim\chi_p^2$です。標準正規分布のモーメント母関数
-$
+$$
 M_Z(t)=e^{t^2/2}
-$
+$$
 を用います。1回ずつ微分すると
-$
+$$
 M_Z'(t)=t e^{t^2/2},
-$
-$
+$$
+$$
 M_Z''(t)=(1+t^2)e^{t^2/2},
-$
-$
+$$
+$$
 M_Z'''(t)=(3t+t^3)e^{t^2/2},
-$
-$
+$$
+$$
 M_Z^{(4)}(t)=(3+6t^2+t^4)e^{t^2/2}.
-$
+$$
 したがって $t=0$ を代入して $E[Z_i^4]=M_Z^{(4)}(0)=3$ です。従って$E[Z_i^2]=1$、$\operatorname{Var}(Z_i^2)=3-1=2$です。独立和なので平均$p$、分散$2p$です。
 
 ##### 本番答案
@@ -1155,7 +1205,6 @@ $E[Z_i^2]=1$, $\operatorname{Var}(Z_i^2)=3-1=2$より、平均$p$、分散$2p$�
 平均・分散共分散5点、正規性・独立性4点、二次形式4点、分布3点、平均・分散4点。合計20点。3分で$L^{-1}$による白色化が見えれば選択し、15分で$N_p(0,I_p)$まで進めば継続します。25分では$\Sigma^{-1}=L^{-\mathsf T}L^{-1}$と平方和を残して閉じます。
 
 <!-- solution-end -->
-
 ### P3M-C05 正誤判定総合
 - level: C
 - minutes: 25
@@ -1184,7 +1233,7 @@ $E[Z_i^2]=1$, $\operatorname{Var}(Z_i^2)=3-1=2$より、平均$p$、分散$2p$�
 1. 正しい。任意の$\boldsymbol a$に対して$\boldsymbol a^{\mathsf T}\Sigma\boldsymbol a=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\geq0$で、共分散の対称性もある。
 2. 誤り。$X\sim\operatorname{Unif}(-1,1)$、$Y=X^2$とする。対称性から$E[X]=E[X^3]=0$なので$\operatorname{Cov}(X,Y)=0$である。一方、$A=\{X>1/2\}$、$B=\{Y\leq1/4\}$とすれば$P(A\cap B)=0$だが$P(A)P(B)=(1/4)(1/2)=1/8$なので独立でない。
 3. 正しい。同時正規で交差共分散0ならモーメント母関数が周辺モーメント母関数の積へ因数分解される。
-4. 誤り。条件付き共分散$\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$は観測値に依存しない。
+4. 誤り。条件付き分散共分散行列$\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$は観測値に依存しない。
 5. 正しい。成分選択はアフィン変換なので、多変量正規性が保たれる。
 
 ##### 本番答案
