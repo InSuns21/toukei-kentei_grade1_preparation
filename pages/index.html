@@ -37,6 +37,28 @@
       },
       plugins: [window.ToukeiMathRenderer.docsifyPlugin]
     };
+
+    // Markdown normally links to Docsify pages with site-root-oriented paths.
+    // A few explanatory cross-links were authored as explicit `#/...` routes.
+    // Docsify treats those as same-page hash anchors in its click handler, so
+    // force them through the browser hash router before Docsify handles them.
+    document.addEventListener('click', function (event) {
+      const origin = event.target instanceof Element ? event.target : null;
+      const link = origin ? origin.closest('a[href^="#/"]') : null;
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#/')) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      if (window.location.hash === href) {
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
+      } else {
+        window.location.hash = href;
+      }
+    }, true);
   </script>
   <!--
     Protect TeX in raw Markdown before Docsify parses it, then render the
