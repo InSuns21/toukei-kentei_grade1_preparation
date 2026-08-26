@@ -20,14 +20,28 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Repair temporary script quoting
+      - name: Repair temporary script
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('scripts/_tmp_migrate_p303_review.mjs')
           s = p.read_text()
           s = s.replace(r'\\`index.md\\`', 'index.md')
-          p.write_text(s)
+          old = """const solutionMatches = [...solutionSource.matchAll(/^## (P3M-[A-D]\\d{2}) 解答\\n([\\s\\S]*?)(?=^## P3M-|\\s*$)/gm)];
+          const solutions = new Map(solutionMatches.map((m) => [m[1], m[2].trim()]));
+          if (solutions.size !== 14) throw new Error(`expected 14 solutions, got ${solutions.size}`);"""
+          new = """const solutionHeadings = [...solutionSource.matchAll(/^## (P3M-[A-D]\\d{2}) 解答$/gm)];
+          const solutions = new Map();
+          for (let i = 0; i < solutionHeadings.length; i += 1) {
+            const match = solutionHeadings[i];
+            const start = match.index + match[0].length;
+            const end = i + 1 < solutionHeadings.length ? solutionHeadings[i + 1].index : solutionSource.length;
+            solutions.set(match[1], solutionSource.slice(start, end).trim());
+          }
+          if (solutions.size !== 14) throw new Error(`expected 14 solutions, got ${solutions.size}`);"""
+          if old not in s:
+              raise SystemExit('solution parser target not found')
+          p.write_text(s.replace(old, new))
           PY
       - name: Build reviewed one-page P3-03
         run: node scripts/_tmp_migrate_p303_review.mjs
