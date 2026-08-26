@@ -12,6 +12,8 @@
     "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "audit:textbook-granularity": "node scripts/audit_textbook_granularity.mjs",
     "audit:terminology": "node scripts/audit_terminology.mjs",
+    "validate:terminology": "node scripts/audit_terminology.mjs --strict",
+    "validate:terminology:changed": "node scripts/audit_terminology.mjs --strict --changed-only",
     "validate:rikou80": "node applied-rikou-80/validate-katex.mjs",
     "validate:mathstat": "node statistical-mathematics/validate-katex.mjs",
     "validate:pages": "npm run anki:build && node scripts/prepare-pages-anki-assets.mjs && node scripts/build-pages.mjs && node scripts/prepare-pages-textbook-single-page.mjs && node scripts/fix-pages-textbook-navigation.mjs && node scripts/prepare-pages-shared-guidelines.mjs && node scripts/prepare-pages-book-links.mjs && node scripts/normalize-pages-docsify-routes.mjs && node scripts/validate-pages-links.mjs && node scripts/validate-pages-math.mjs",
