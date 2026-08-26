@@ -52,17 +52,26 @@ jobs:
       - name: Apply review policy updates
         run: python scripts/_tmp_prerequisite_aware_review.py
 
-      - name: Normalize cross-section foundation reference
+      - name: Normalize generated foundation references
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path("statistical-mathematics/core/26_conditional_normal_partial_correlation.md")
-          text = p.read_text(encoding="utf-8")
+
+          core = Path("statistical-mathematics/core/26_conditional_normal_partial_correlation.md")
+          text = core.read_text(encoding="utf-8")
           old = 'Schur補の定義は [F0-01「統計のための微積分・線形代数・答案記法」](../../textbook/volumes/00_foundations/F0_01_統計のための微積分_線形代数_答案記法/02_definitions.md) を共通正本とする。'
           new = 'Schur補の定義は通常教材 F0-01「統計のための微積分・線形代数・答案記法」を共通正本とする。'
           if old not in text:
               raise SystemExit("expected Core 08 foundation link not found")
-          p.write_text(text.replace(old, new, 1), encoding="utf-8")
+          core.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          p303 = Path("textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md")
+          text = p303.read_text(encoding="utf-8")
+          legacy = "../../00_foundations/F0_01_統計のための微積分_線形代数_答案記法/02_definitions.md"
+          published = "../../00_foundations/F0_01_統計のための微積分_線形代数_答案記法/index.md"
+          if legacy not in text:
+              raise SystemExit("expected P3-03 legacy foundation link not found")
+          p303.write_text(text.replace(legacy, published), encoding="utf-8")
           PY
 
       - name: Install dependencies
