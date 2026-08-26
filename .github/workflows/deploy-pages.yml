@@ -43,6 +43,9 @@ jobs:
       - name: Audit detailed-solution granularity
         run: npm run audit:granularity
 
+      - name: Audit textbook detailed-solution granularity
+        run: npm run audit:textbook-granularity
+
       - name: Assemble and validate Pages site
         run: npm run validate:pages
 
