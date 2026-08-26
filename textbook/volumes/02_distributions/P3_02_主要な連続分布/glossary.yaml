@@ -1,6 +1,6 @@
 chapter: "P3-02"
 terms:
-  - { term: 率パラメータ, meaning: Gamma・指数密度の指数部に掛かる正の係数 }
+  - { term: 率パラメータ, meaning: ガンマ分布・指数分布の確率密度関数の指数部に掛かる正の係数 }
   - { term: 尺度パラメータ, meaning: 確率変数と同じ単位を持つ広がりの係数 }
   - { term: 生存関数, meaning: S(x)=P(X>x) }
   - { term: ハザード, meaning: h(x)=f(x)/S(x)で表す瞬間故障率 }
