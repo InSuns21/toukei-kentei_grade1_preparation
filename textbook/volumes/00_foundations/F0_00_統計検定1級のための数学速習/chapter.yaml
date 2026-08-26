@@ -1,0 +1,48 @@
+id: "F0-00"
+title: "統計検定1級のための数学速習"
+volume: "foundations"
+status: self_review
+prerequisites: []
+official_scope:
+  - 変数変換
+  - 固有値
+  - 固有ベクトル
+  - 線形結合
+learning_objectives:
+  - 一変数・多変数の基本微分公式を使い、テイラー展開と極値判定ができる
+  - 部分積分・置換積分・広義積分を使い、積分の収束条件を判定できる
+  - ガウス積分を極座標とヤコビアンから導出できる
+  - ガンマ関数・ベータ関数の定義、漸化式、相互関係を導出して使える
+  - 重積分の領域を立式し、一般の変数変換とヤコビアンを計算できる
+  - 行列式・逆行列・階数・固有値・直交対角化・二次形式・正定値性を扱える
+  - 射影行列・シュール補・基本的な行列微分を後続の統計問題で再利用できる
+definitions:
+  - { id: F0M-DEF-01, name: 広義積分 }
+  - { id: F0M-DEF-02, name: ガンマ関数 }
+  - { id: F0M-DEF-03, name: ベータ関数 }
+  - { id: F0M-DEF-04, name: ヤコビアン }
+  - { id: F0M-DEF-05, name: 階数 }
+  - { id: F0M-DEF-06, name: 固有値と固有ベクトル }
+  - { id: F0M-DEF-07, name: 正定値行列と半正定値行列 }
+  - { id: F0M-DEF-08, name: 直交射影行列 }
+theorems:
+  - { id: F0M-THM-01, name: ガウス積分 }
+  - { id: F0M-THM-02, name: 重積分の変数変換公式 }
+  - { id: F0M-THM-03, name: ベータ関数とガンマ関数の関係 }
+  - { id: F0M-THM-04, name: 実対称行列のスペクトル分解 }
+  - { id: F0M-THM-05, name: 正定値性の固有値判定 }
+canonical_examples:
+  - 極座標変換によるガウス積分
+  - 重積分の変数変換によるベータ関数とガンマ関数の関係
+  - 和と比の変換におけるヤコビアン
+  - 実対称行列の固有値分解と二次形式
+  - 多変量ガウス積分
+problem_patterns: [MATH-DIFF, MATH-INT, MATH-JAC, MATH-GAMMA-BETA, MATH-LA]
+past_exam_alignment: []
+integrated_exam_problems: [F0M-DRILL-01]
+exercise_counts: { level_a: 6, level_b: 6, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 25
