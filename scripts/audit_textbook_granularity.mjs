@@ -42,16 +42,17 @@ function auditChapter(chapterDir, id) {
 
   let score = 0;
   const notes = [];
-  let missing = 0;
-  let short = 0;
-  let missingExamAnswer = 0;
-  let missingRubric = 0;
+  const missingIds = [];
+  const shortIds = [];
+  const missingExamAnswerIds = [];
+  const missingRubricIds = [];
+  const skipIds = [];
   let skipPhrases = 0;
 
   for (const [problemId, problem] of problems) {
     const solution = solutions.get(problemId);
-    if (!solution) {
-      missing += 1;
+    if (solution == null) {
+      missingIds.push(problemId);
       score += 10;
       continue;
     }
@@ -59,30 +60,31 @@ function auditChapter(chapterDir, id) {
     const detail = plainLength(extractDetailedSolution(solution));
     const minimum = Math.max(180, tasks * 220);
     if (detail < minimum) {
-      short += 1;
+      shortIds.push(problemId);
       score += 4;
     }
     if (!/本番答案/.test(solution)) {
-      missingExamAnswer += 1;
+      missingExamAnswerIds.push(problemId);
       score += 3;
     }
     if (!/採点基準/.test(solution)) {
-      missingRubric += 1;
+      missingRubricIds.push(problemId);
       score += 3;
     }
     const skips = solution.match(/簡単な計算|計算すると|整理すると|直ちに|微分すると|積分すると|平方完成すると|これを解くと/g) ?? [];
+    if (skips.length) skipIds.push(`${problemId}:${skips.length}`);
     skipPhrases += skips.length;
     score += Math.min(skips.length, 3);
   }
 
-  if (missing) notes.push(`解答なし${missing}`);
-  if (short) notes.push(`短い詳細解答候補${short}`);
-  if (missingExamAnswer) notes.push(`本番答案なし${missingExamAnswer}`);
-  if (missingRubric) notes.push(`採点基準なし${missingRubric}`);
-  if (skipPhrases) notes.push(`省略表現${skipPhrases}`);
+  if (missingIds.length) notes.push(`解答なし${missingIds.length}[${missingIds.join(',')}]`);
+  if (shortIds.length) notes.push(`短い詳細解答候補${shortIds.length}[${shortIds.join(',')}]`);
+  if (missingExamAnswerIds.length) notes.push(`本番答案なし${missingExamAnswerIds.length}[${missingExamAnswerIds.join(',')}]`);
+  if (missingRubricIds.length) notes.push(`採点基準なし${missingRubricIds.length}[${missingRubricIds.join(',')}]`);
+  if (skipPhrases) notes.push(`省略表現${skipPhrases}[${skipIds.join(',')}]`);
   if (!notes.length) notes.push('機械監査では大きな候補なし');
 
-  const label = missing > 0 || score >= 12 ? 'REWRITE' : score > 0 ? 'EXPAND' : 'PASS';
+  const label = missingIds.length > 0 || score >= 12 ? 'REWRITE' : score > 0 ? 'EXPAND' : 'PASS';
   return { id, label, score, problemCount: problems.size, solutionCount: solutions.size, notes };
 }
 
@@ -121,12 +123,17 @@ function parseCanonical(source) {
   const lines = source.split('\n');
 
   for (let i = 0; i < lines.length; i += 1) {
-    const match = lines[i].match(/^#{2,3}\s+([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)\b/);
+    const match = lines[i].match(/^(#{2,3})\s+([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)\b/);
     if (!match) continue;
 
-    const id = match[1];
+    const headingDepth = match[1].length;
+    const id = match[2];
     let end = i + 1;
-    while (end < lines.length && !/^#{2,3}\s+/.test(lines[end])) end += 1;
+    while (end < lines.length) {
+      const nextHeading = lines[end].match(/^(#{1,6})\s+/);
+      if (nextHeading && nextHeading[1].length <= headingDepth) break;
+      end += 1;
+    }
     const blockLines = lines.slice(i, end);
     const block = blockLines.join('\n');
 
