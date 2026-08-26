@@ -22,38 +22,6 @@
   <div id="app">教材を読み込んでいます...</div>
   <script src="math-renderer.js"></script>
   <script>
-    // If an explicit cross-link forced a full reload, remove the temporary
-    // query marker while preserving the destination hash before Docsify starts.
-    if (new URLSearchParams(window.location.search).has('__docsify_route')) {
-      window.history.replaceState(null, '', window.location.pathname + window.location.hash);
-    }
-
-    // A few explanatory cross-links are authored as complete `#/...` Docsify
-    // routes. In some browsers Docsify's delegated click handler interprets
-    // those as same-page anchors and the page does not change. For these links
-    // only, bypass the SPA click path entirely and perform a one-shot full-page
-    // navigation. A temporary query marker guarantees an actual document load;
-    // it is removed immediately above on the destination page.
-    function explicitHashRoutePlugin(hook) {
-      hook.doneEach(function () {
-        document.querySelectorAll('.markdown-section a[href^="#/"]').forEach(function (link) {
-          const route = link.getAttribute('href');
-          if (!route) return;
-
-          link.setAttribute('data-no-router', '');
-          link.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-
-            const destination = new URL(window.location.pathname, window.location.origin);
-            destination.searchParams.set('__docsify_route', route.slice(2));
-            destination.hash = route;
-            window.location.assign(destination.href);
-          }, true);
-        });
-      });
-    }
-
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -67,7 +35,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, explicitHashRoutePlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin]
     };
   </script>
   <!--
