@@ -19,7 +19,7 @@
 
 ## 前提知識チェック
 
-1. F0-01: 2次正方行列の積・逆行列・行列式に加え、[正定値・半正定値とSchur補](../../00_foundations/F0_01_統計のための微積分_線形代数_答案記法/index.md)を確認する。
+1. F0-00: 2次正方行列の積・逆行列・行列式に加え、[正定値・半正定値とシュール補](../../00_foundations/F0_00_統計検定1級のための数学速習/index.md)を確認する。
 2. P2-02: 分散の和と共分散の計算式を使う。
 3. P2-01: 同時確率密度関数から周辺・条件付き確率密度関数を作る。
 4. P3-02: 一変量正規分布の平均・分散・標準化を使う。
@@ -111,7 +111,7 @@ $$
 
 $p$変量でも考え方は同じで、$(i,j)$成分に$\operatorname{Cov}(X_i,X_j)$を並べます。
 
-F0-01で学んだように、分散共分散行列は常に半正定値です。実際、任意のベクトル$\boldsymbol a$について
+F0-00で学んだように、分散共分散行列は常に半正定値です。実際、任意のベクトル$\boldsymbol a$について
 $$
 \boldsymbol a^{\mathsf T}\Sigma\boldsymbol a
 =\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\geq0
@@ -148,7 +148,7 @@ f(\boldsymbol x)
 (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
 \Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\right\}
 $$
-を使います。この通常の密度表示では$\Sigma$を正定値とします。F0-01より、正定値なら逆行列が存在するので$\Sigma^{-1}$を使えます。本章の通常演習ではこの非退化な場合を中心に扱います。
+を使います。この通常の密度表示では$\Sigma$を正定値とします。F0-00より、正定値なら逆行列が存在するので$\Sigma^{-1}$を使えます。本章の通常演習ではこの非退化な場合を中心に扱います。
 
 ## 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」
 
@@ -345,7 +345,7 @@ $$
 $$
 大事なのは、後者には観測値$\boldsymbol x_2$が入らないことです。
 
-> この行列 $\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$ は、F0-01で定義した **$\Sigma_{22}$ に関するSchur補** です。名称暗記だけを目的にはしませんが、[統計数理100 Core 08](../../../../statistical-mathematics/core/26_conditional_normal_partial_correlation.md)でも同じ名称で条件付き共分散を扱うため、本教材でも用語を統一します。意味は「元のばらつきから、観測した変数で説明できる部分を引いたもの」です。
+> この行列 $\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$ は、F0-00で定義した **$\Sigma_{22}$ に関するシュール補（Schur補）** です。名称暗記だけを目的にはしませんが、[統計数理100 Core 08](../../../../statistical-mathematics/core/26_conditional_normal_partial_correlation.md)でも同じ名称で条件付き共分散を扱うため、本教材でも用語を統一します。意味は「元のばらつきから、観測した変数で説明できる部分を引いたもの」です。
 
 ## 3.4 無相関と独立は同じではない
 
@@ -1511,8 +1511,7 @@ $$
 +B\Sigma_{22}B^{\mathsf T}\\
 &=\Sigma_{11}-2\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
 +\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\\
-&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
-=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
+&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
 \end{aligned}
 $$
 $\Sigma_{22}$は対称なので逆行列も対称であることを使いました。$(\boldsymbol R,\boldsymbol X_2)$は$(\boldsymbol X_1,\boldsymbol X_2)$の定数項を含む線形変換なので、その結合分布も多変量正規です。交差共分散が0であるため、正規分布の性質から$\boldsymbol R$と$\boldsymbol X_2$は独立です。また
@@ -1544,7 +1543,7 @@ $$
 \begin{aligned}
 \operatorname{Cov}(\boldsymbol R)
 &=\Sigma_{11}-\Sigma_{12}B^{\mathsf T}-B\Sigma_{21}+B\Sigma_{22}B^{\mathsf T}\\
-&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
+&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
 \end{aligned}
 $$
 $(\boldsymbol R,\boldsymbol X_2)$の結合分布は多変量正規で無相関なので独立し、$\boldsymbol R\sim N_p(\boldsymbol0,\Sigma_{1\mid2})$。$\boldsymbol X_1=\boldsymbol\mu_1+B(\boldsymbol X_2-\boldsymbol\mu_2)+\boldsymbol R$へ$\boldsymbol X_2=\boldsymbol x_2$を入れれば
