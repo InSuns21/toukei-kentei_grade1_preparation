@@ -22,6 +22,19 @@
   <div id="app">教材を読み込んでいます...</div>
   <script src="math-renderer.js"></script>
   <script>
+    // Markdown links written as `#/...` are already complete Docsify hash
+    // routes. Mark them data-no-router after each render so Docsify's click
+    // interceptor does not reinterpret them as same-page anchors. The browser
+    // then changes location.hash normally, and Docsify's hashchange router
+    // loads the destination page.
+    function explicitHashRoutePlugin(hook) {
+      hook.doneEach(function () {
+        document.querySelectorAll('.markdown-section a[href^="#/"]').forEach(function (link) {
+          link.setAttribute('data-no-router', '');
+        });
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -35,30 +48,8 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, explicitHashRoutePlugin]
     };
-
-    // Markdown normally links to Docsify pages with site-root-oriented paths.
-    // A few explanatory cross-links were authored as explicit `#/...` routes.
-    // Docsify treats those as same-page hash anchors in its click handler, so
-    // force them through the browser hash router before Docsify handles them.
-    document.addEventListener('click', function (event) {
-      const origin = event.target instanceof Element ? event.target : null;
-      const link = origin ? origin.closest('a[href^="#/"]') : null;
-      if (!link) return;
-
-      const href = link.getAttribute('href');
-      if (!href || !href.startsWith('#/')) return;
-
-      event.preventDefault();
-      event.stopImmediatePropagation();
-
-      if (window.location.hash === href) {
-        window.dispatchEvent(new HashChangeEvent('hashchange'));
-      } else {
-        window.location.hash = href;
-      }
-    }, true);
   </script>
   <!--
     Protect TeX in raw Markdown before Docsify parses it, then render the
