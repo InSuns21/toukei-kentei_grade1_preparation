@@ -14,10 +14,12 @@
 | 対象 | 正本 |
 |---|---|
 | 用語・略語・日本語表記 | `references/terminology-guide.md` |
+| 一般記号・数理記法 | `references/notation-guide.md` |
 | 分布の台・母数・記号・密度/質量関数 | `references/distribution-notation-guide.md` |
 | 演習の詳細解答粒度・定理適用・電卓基準 | `EXERCISE_GUIDELINES.md` |
 | 通常教材の章構成 | `textbook/style-guide.md` |
-| Anki固有のカード記法 | `anki/notation.md` |
+| 通常教材固有の記法差分 | `textbook/notation.md` |
+| Anki固有のカード記法差分 | `anki/notation.md` |
 
 `EXERCISE_GUIDELINES.md` は統計数理100、理工80、通常教材の演習・詳細解答に適用する。Ankiは「1カード1論点」であり、20〜30分答案・採点基準・打ち切り判断は要求しない。ただし、途中式を暗記で飛ばさない、非自明な略語を本文で常用しない、分布の定義を曖昧にしないという原則は共有する。
 
@@ -38,7 +40,7 @@
 
 ## 3. 記号と分布
 
-同じ概念を教材ごとに別記号へしない。分布の規約は `references/distribution-notation-guide.md` を最上位の共通正本とする。
+同じ概念を教材ごとに別記号へしない。一般記号は `references/notation-guide.md`、分布固有の規約は `references/distribution-notation-guide.md` を共通正本とする。
 
 - 正規分布の第2引数は分散とする。
 - ガンマ分布は shape-rate を既定とし、密度を初出時に明記する。
