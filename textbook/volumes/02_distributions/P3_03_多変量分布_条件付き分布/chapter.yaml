@@ -2,7 +2,7 @@ id: "P3-03"
 title: "多変量分布・条件付き分布"
 volume: "distributions"
 status: reviewed
-prerequisites: [P3-01, P3-02, F0-01]
+prerequisites: [P3-01, P3-02, F0-00]
 official_scope: [平均ベクトル, 分散共分散行列, 相関行列, 多変量正規分布, 線形変換, 周辺分布, 条件付き分布, 独立性, 相関係数, 偏相関係数, 二次形式]
 learning_objectives:
   - 2変量の平均ベクトルと分散共分散行列を各成分の意味と結び付けて読める
