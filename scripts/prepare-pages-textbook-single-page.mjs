@@ -13,6 +13,7 @@ if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
 
 let converted = 0;
 let canonical = 0;
+let removedAuxiliaryMarkdown = 0;
 
 for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
   const sourceVolume = path.join(sourceRoot, volume.name);
@@ -29,6 +30,7 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
       const siteRelative = path.posix.join('textbook', 'volumes', volume.name, chapter.name, 'index.md');
       const text = orientMarkdownLinks(fs.readFileSync(canonicalPath, 'utf8'), siteRelative);
       fs.writeFileSync(path.join(targetChapter, 'index.md'), text, 'utf8');
+      removedAuxiliaryMarkdown += removeAuxiliaryMarkdown(targetChapter);
       canonical += 1;
       continue;
     }
@@ -37,17 +39,40 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
     if (!legacy.every((file) => fs.existsSync(file))) continue;
 
     fs.writeFileSync(path.join(targetChapter, 'index.md'), composeLegacyChapter(legacy), 'utf8');
+    removedAuxiliaryMarkdown += removeAuxiliaryMarkdown(targetChapter);
     converted += 1;
   }
 }
 
-console.log(`Textbook single-page rendering: canonical ${canonical}, legacy-composed ${converted}`);
+console.log(
+  `Textbook single-page rendering: canonical ${canonical}, legacy-composed ${converted}, auxiliary Markdown removed ${removedAuxiliaryMarkdown}`,
+);
 
 function legacyPaths(chapterDir) {
   return Array.from({ length: 10 }, (_, i) => {
     const prefix = String(i).padStart(2, '0');
     const entry = fs.readdirSync(chapterDir).find((name) => name.startsWith(`${prefix}_`) && name.endsWith('.md'));
     return entry ? path.join(chapterDir, entry) : path.join(chapterDir, `__missing_${prefix}.md`);
+  });
+}
+
+function removeAuxiliaryMarkdown(chapterDir) {
+  const canonicalIndex = path.resolve(chapterDir, 'index.md');
+  let removed = 0;
+
+  for (const file of walkMarkdown(chapterDir)) {
+    if (path.resolve(file) === canonicalIndex) continue;
+    fs.unlinkSync(file);
+    removed += 1;
+  }
+  return removed;
+}
+
+function walkMarkdown(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(directory, entry.name);
+    if (entry.isDirectory()) return walkMarkdown(full);
+    return entry.isFile() && entry.name.endsWith('.md') ? [full] : [];
   });
 }
 
