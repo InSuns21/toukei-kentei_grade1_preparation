@@ -106,13 +106,67 @@ $$
 \boxed{T\perp U}.
 $$
 
-### 4. $E[U]$
+### 4. $E[U]$ をBeta積分から求める
 
-Beta密度の平均を積分すれば
+第3問より
 
 $$
-E[U]=\frac{a}{a+b}
-=\boxed{\frac{\nu_1}{\nu_1+\nu_2}}.
+U\sim\operatorname{Beta}(a,b),
+\qquad
+a=\frac{\nu_1}{2},\quad b=\frac{\nu_2}{2}.
+$$
+
+したがって確率密度関数は
+
+$$
+f_U(u)
+=\frac{1}{B(a,b)}u^{a-1}(1-u)^{b-1},
+\qquad 0<u<1.
+$$
+
+期待値の定義から
+
+$$
+\begin{aligned}
+E[U]
+&=\int_0^1u f_U(u)\,du\\
+&=\frac{1}{B(a,b)}
+\int_0^1u^a(1-u)^{b-1}\,du\\
+&=\frac{B(a+1,b)}{B(a,b)}.
+\end{aligned}
+$$
+
+ここで
+
+$$
+B(a+1,b)
+=\frac{\Gamma(a+1)\Gamma(b)}{\Gamma(a+b+1)},
+$$
+
+$$
+B(a,b)
+=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
+$$
+
+なので
+
+$$
+\begin{aligned}
+E[U]
+&=\frac{\Gamma(a+1)\Gamma(b)}{\Gamma(a+b+1)}
+\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\\
+&=\frac{a\Gamma(a)}{(a+b)\Gamma(a+b)}
+\frac{\Gamma(a+b)}{\Gamma(a)}\\
+&=\frac{a}{a+b}.
+\end{aligned}
+$$
+
+$a=\nu_1/2$, $b=\nu_2/2$ を戻すと
+
+$$
+\boxed{
+E[U]=\frac{\nu_1}{\nu_1+\nu_2}
+}.
 $$
 
 ## 本番答案
@@ -131,10 +185,17 @@ $$
 さらに $x=ut,y=(1-u)t$, $|J|=t$ と変換すると同時密度がカイ二乗密度とBeta密度の積に分解され、
 
 $$
-U\sim Beta(\nu_1/2,\nu_2/2),\qquad T\perp U.
+U\sim\operatorname{Beta}(\nu_1/2,\nu_2/2),\qquad T\perp U.
 $$
 
-したがって $E[U]=\nu_1/(\nu_1+\nu_2)$。
+$a=\nu_1/2$, $b=\nu_2/2$ とおけば
+
+$$
+E[U]
+=\frac{B(a+1,b)}{B(a,b)}
+=\frac{a}{a+b}
+=\frac{\nu_1}{\nu_1+\nu_2}.
+$$
 
 ## 採点基準
 
