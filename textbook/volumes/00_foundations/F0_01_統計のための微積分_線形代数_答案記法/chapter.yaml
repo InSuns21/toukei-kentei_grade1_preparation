@@ -2,41 +2,40 @@ id: "F0-01"
 title: "統計のための微積分・線形代数・答案記法"
 volume: "foundations"
 status: reviewed
-prerequisites:
-  []
+prerequisites: []
 official_scope:
   - 変数変換
   - 固有値
   - 固有ベクトル
   - 線形結合
 learning_objectives:
-  - 確率密度の正規化、期待値、分散を積分から計算できる
-  - 一変数・多変数の微分を尤度最大化とDelta法に使える
-  - Jacobianを用いた変数変換の立式ができる
+  - 確率密度関数の正規化、期待値、分散を積分から計算できる
+  - 一変数・多変数の微分を尤度最大化とデルタ法に使える
+  - ヤコビアンを用いた変数変換の立式ができる
   - 二次形式、正定値性、固有値分解、射影行列を統計モデルの形で扱える
   - 必要条件と十分条件、同値変形と一方向の含意を区別して答案を書ける
   - 詳細解答を20〜30分の本番答案へ圧縮できる
 definitions:
   - { id: F0-DEF-01, name: 台 }
-  - { id: F0-DEF-02, name: 勾配とHessian }
-  - { id: F0-DEF-03, name: Jacobian }
+  - { id: F0-DEF-02, name: 勾配とヘッセ行列 }
+  - { id: F0-DEF-03, name: ヤコビアン }
   - { id: F0-DEF-04, name: 正定値行列と半正定値行列 }
   - { id: F0-DEF-05, name: 直交射影行列 }
-  - { id: F0-DEF-06, name: Landau記号 }
+  - { id: F0-DEF-06, name: ランダウ記号 }
 theorems:
   - { id: F0-THM-01, name: 多変数変換の密度公式 }
   - { id: F0-THM-02, name: 対称行列のスペクトル分解 }
   - { id: F0-THM-03, name: 二次形式による正定値性の判定 }
   - { id: F0-THM-04, name: 直交射影行列の基本性質 }
 canonical_examples:
-  - Gamma積分による密度の正規化
+  - ガンマ積分型の密度の正規化
   - 正規分布の対数尤度の微分
-  - 二変数変換のJacobian
+  - 二変数変換のヤコビアン
   - 最小二乗法と射影行列
 problem_patterns: [CALC-1, JAC-1, QUAD-1, PROJ-1, ANSWER-1]
 past_exam_alignment:
   - { id: MATH-2024-Q1, current_skills: [微分, 二次式, 推定量の分散比較], later_skills: [最尤推定, 検定, 検出力] }
-  - { id: MATH-2021-Q5, current_skills: [行列, 線形変換, 共分散], later_skills: [多変量正規, 独立性] }
+  - { id: MATH-2021-Q5, current_skills: [行列, 線形変換, 分散共分散行列], later_skills: [多変量正規, 独立性] }
 integrated_exam_problems: [F0-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
 estimated_hours: { reading: 4, exercises: 8, review: 3 }

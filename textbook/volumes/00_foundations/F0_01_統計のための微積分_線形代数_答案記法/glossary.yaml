@@ -1,13 +1,13 @@
 chapter: "F0-01"
 terms:
   - { term: 台, notation: "\\mathcal{X}", meaning: 確率変数が値を取る範囲 }
-  - { term: パラメータ空間, notation: "\\Theta", meaning: 母数が取り得る値の集合 }
+  - { term: 母数空間, notation: "\\Theta", meaning: 母数が取り得る値の集合 }
   - { term: 勾配, notation: "\\nabla g", meaning: 一階偏微分を並べた列ベクトル }
-  - { term: Hessian, notation: "\\nabla^2 g", meaning: 二階偏微分行列 }
-  - { term: Jacobian, notation: "\\det D T", meaning: 多変数変換の局所的な体積倍率 }
+  - { term: ヘッセ行列, notation: "\\nabla^2 g", meaning: 二階偏微分を並べた行列 }
+  - { term: ヤコビアン, notation: "\\det D T", meaning: 多変数変換における局所的な体積倍率を表す行列式 }
   - { term: 正定値, notation: "\\boldsymbol{x}^{\\mathsf T}\\boldsymbol{A}\\boldsymbol{x}>0", meaning: 全ての非零ベクトルで二次形式が正 }
   - { term: 半正定値, notation: "\\boldsymbol{x}^{\\mathsf T}\\boldsymbol{A}\\boldsymbol{x}\\geq0", meaning: 全てのベクトルで二次形式が非負 }
-  - { term: 射影行列, notation: "\\boldsymbol{P}", meaning: 対称かつ冪等な直交射影を表す行列 }
-  - { term: hat matrix, notation: "\\boldsymbol{H}", meaning: 観測値を最小二乗当てはめ値へ写す射影行列 }
+  - { term: 直交射影行列, notation: "\\boldsymbol{P}", meaning: 対称かつ冪等な直交射影を表す行列 }
+  - { term: ハット行列, notation: "\\boldsymbol{H}", meaning: 観測値を最小二乗当てはめ値へ写す直交射影行列 }
   - { term: 必要条件, notation: "A \\Longrightarrow B における B", meaning: 結論が成り立つために欠かせない条件 }
   - { term: 十分条件, notation: "A \\Longrightarrow B における A", meaning: それだけで結論を保証する条件 }
