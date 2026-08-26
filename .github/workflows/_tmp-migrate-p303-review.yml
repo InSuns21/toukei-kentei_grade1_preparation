@@ -1,16 +1,15 @@
-name: Temporary P3-03 review migration
+name: Temporary P3-03 post-review repair
 
 on:
   push:
     paths:
-      - 'scripts/_tmp_migrate_p303_review.mjs'
       - '.github/workflows/_tmp-migrate-p303-review.yml'
 
 permissions:
   contents: write
 
 jobs:
-  migrate:
+  repair:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
@@ -20,51 +19,174 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Repair temporary script
+      - name: Repair generated P3-03 and strengthen matrix derivations
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('scripts/_tmp_migrate_p303_review.mjs')
+          import re
+
+          p = Path('textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md')
           s = p.read_text()
-          s = s.replace(r'\\`index.md\\`', 'index.md')
-          old = """const solutionMatches = [...solutionSource.matchAll(/^## (P3M-[A-D]\\d{2}) 解答\\n([\\s\\S]*?)(?=^## P3M-|\\s*$)/gm)];
-          const solutions = new Map(solutionMatches.map((m) => [m[1], m[2].trim()]));
-          if (solutions.size !== 14) throw new Error(`expected 14 solutions, got ${solutions.size}`);"""
-          new = """const solutionHeadings = [...solutionSource.matchAll(/^## (P3M-[A-D]\\d{2}) 解答$/gm)];
-          const solutions = new Map();
-          for (let i = 0; i < solutionHeadings.length; i += 1) {
-            const match = solutionHeadings[i];
-            const start = match.index + match[0].length;
-            const end = i + 1 < solutionHeadings.length ? solutionHeadings[i + 1].index : solutionSource.length;
-            solutions.set(match[1], solutionSource.slice(start, end).trim());
-          }
-          if (solutions.size !== 14) throw new Error(`expected 14 solutions, got ${solutions.size}`);"""
-          if old not in s:
-              raise SystemExit('solution parser target not found')
-          p.write_text(s.replace(old, new))
+
+          # Any multi-line single-dollar block is invalid in this repository.
+          lines = s.splitlines()
+          repaired = []
+          for line in lines:
+              if line.strip() == '$':
+                  indent = line[:len(line) - len(line.lstrip())]
+                  repaired.append(indent + '$$')
+              else:
+                  repaired.append(line)
+          s = '\n'.join(repaired) + ('\n' if s.endswith('\n') else '')
+
+          # TeX spacing commands lost one backslash while passing through a JS template literal.
+          s = re.sub(r'(?<!\\)\bqquad\b', r'\\qquad', s)
+          s = re.sub(r'(?<!\\)\bquad\b', r'\\quad', s)
+          s = s.replace(r'\boldsymbol b,,A\Sigma A^{\mathsf T}', r'\boldsymbol b,\,A\Sigma A^{\mathsf T}')
+
+          # Official terminology and matrix-valued covariance wording.
+          s = s.replace('平均・共分散・相関行列', '平均ベクトル・分散共分散行列・相関行列')
+          s = s.replace('$A\\boldsymbol X+\\boldsymbol b$の平均・共分散を次元付きで求める。', '$A\\boldsymbol X+\\boldsymbol b$の平均ベクトル・分散共分散行列を次元付きで求める。')
+          s = s.replace('条件付き共分散$\\Sigma_{11}-', '条件付き分散共分散行列$\\Sigma_{11}-')
+          s = s.replace('対応する平均部分ベクトルと共分散主部分行列', '対応する平均部分ベクトルと分散共分散主部分行列')
+          s = s.replace('正定値な共分散で白色化できるため', '正定値な分散共分散行列なので白色化できるため')
+          s = s.replace('これらを平均・共分散とする$N_2$', 'これらを平均ベクトル・分散共分散行列とする$N_2$')
+
+          old_b01 = r'''また
+          $$
+          A\Sigma=
+          \begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix},
+          $$
+          $$
+          A\Sigma A^{\mathsf T}
+          =\begin{pmatrix}7&3\\3&3\end{pmatrix}.
+          $$'''.replace('          ', '')
+          new_b01 = r'''また、まず $A\Sigma$ を行ごとに掛けると
+          $$
+          \begin{aligned}
+          A\Sigma
+          &=
+          \begin{pmatrix}1&1&0\\0&1&-1\end{pmatrix}
+          \begin{pmatrix}2&1&0\\1&3&1\\0&1&2\end{pmatrix}\\
+          &=\begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix}.
+          \end{aligned}
+          $$
+          さらに
+          $$
+          \begin{aligned}
+          A\Sigma A^{\mathsf T}
+          &=\begin{pmatrix}3&4&1\\1&2&-1\end{pmatrix}
+          \begin{pmatrix}1&0\\1&1\\0&-1\end{pmatrix}\\
+          &=\begin{pmatrix}7&3\\3&3\end{pmatrix}.
+          \end{aligned}
+          $$'''.replace('          ', '')
+          if old_b01 not in s:
+              raise SystemExit('B01 matrix derivation target not found')
+          s = s.replace(old_b01, new_b01, 1)
+
+          old_b04 = r'''##### 詳細解答
+
+          $$
+          \Sigma^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+          $$
+          正定値な分散共分散行列なので白色化できるため$Q\sim\chi_2^2$です。$\boldsymbol x=(1,-1)^{\mathsf T}$では
+          $$
+          \Sigma^{-1}\boldsymbol x
+          =\begin{pmatrix}1\\-1\end{pmatrix},
+          \qquad
+          \boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x=2.
+          $$'''.replace('          ', '')
+          new_b04 = r'''##### 詳細解答
+
+          まず行列式は
+          $$
+          |\Sigma|=2\cdot2-1\cdot1=3>0.
+          $$
+          従って2次正方行列の逆行列公式から
+          $$
+          \begin{aligned}
+          \Sigma^{-1}
+          &=\frac1{|\Sigma|}
+          \begin{pmatrix}2&-1\\-1&2\end{pmatrix}\\
+          &=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+          \end{aligned}
+          $$
+          次に $LL^{\mathsf T}=\Sigma$ を満たす可逆行列 $L$ を取り、
+          $$
+          \boldsymbol Z=L^{-1}\boldsymbol X
+          $$
+          と置きます。アフィン変換公式より
+          $$
+          E[\boldsymbol Z]=\boldsymbol0,
+          \qquad
+          \operatorname{Cov}(\boldsymbol Z)
+          =L^{-1}\Sigma L^{-\mathsf T}=I_2,
+          $$
+          したがって $\boldsymbol Z\sim N_2(\boldsymbol0,I_2)$ で、$Z_1,Z_2$ は独立な標準正規変数です。また
+          $$
+          \Sigma^{-1}=L^{-\mathsf T}L^{-1}
+          $$
+          なので
+          $$
+          \begin{aligned}
+          Q
+          &=\boldsymbol X^{\mathsf T}\Sigma^{-1}\boldsymbol X\\
+          &=\boldsymbol X^{\mathsf T}L^{-\mathsf T}L^{-1}\boldsymbol X\\
+          &=(L^{-1}\boldsymbol X)^{\mathsf T}(L^{-1}\boldsymbol X)\\
+          &=Z_1^2+Z_2^2.
+          \end{aligned}
+          $$
+          よって自由度2のカイ二乗分布の定義から
+          $$
+          Q\sim\chi_2^2.
+          $$
+          最後に $\boldsymbol x=(1,-1)^{\mathsf T}$ では
+          $$
+          \Sigma^{-1}\boldsymbol x
+          =\frac13
+          \begin{pmatrix}2&-1\\-1&2\end{pmatrix}
+          \begin{pmatrix}1\\-1\end{pmatrix}
+          =\begin{pmatrix}1\\-1\end{pmatrix},
+          $$
+          したがって
+          $$
+          \boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+          =(1,-1)\begin{pmatrix}1\\-1\end{pmatrix}=2.
+          $$'''.replace('          ', '')
+          if old_b04 not in s:
+              raise SystemExit('B04 derivation target not found')
+          s = s.replace(old_b04, new_b04, 1)
+
+          # The generic conditional formula can be reused after swapping variable labels.
+          s = s.replace('共分散を $\\sigma_{XY}$ とすると、\n$$\nY\\mid(X=x)',
+                        '共分散を $\\sigma_{XY}$ とすると、次式が成り立つ。$X,Y$ の役割を入れ替えて用いてもよい。\n$$\nY\\mid(X=x)')
+
+          p.write_text(s)
+
+          starts = s.count('<!-- solution-start -->')
+          ends = s.count('<!-- solution-end -->')
+          if (starts, ends) != (15, 15):
+              raise SystemExit(f'solution marker mismatch: {starts}/{ends}')
+          if re.search(r'^\s*\$\s*$', s, flags=re.M):
+              raise SystemExit('standalone single-dollar delimiter remains')
+          if re.search(r'(?<!\\)\bq?quad\b', s):
+              raise SystemExit('unescaped quad/qquad remains')
+          if ',,' in s:
+              raise SystemExit('suspicious double comma remains')
+          print('P3-03 repair complete; solution blocks=15')
           PY
-      - name: Build reviewed one-page P3-03
-        run: node scripts/_tmp_migrate_p303_review.mjs
-      - name: Commit migration
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate textbook and terminology
+        run: |
+          npm run validate
+          npm run validate:terminology
+          npm run audit:textbook-granularity
+      - name: Commit repair
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/00_overview.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/01_motivation.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/02_definitions.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/03_theorems.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/04_examples.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/05_problem_solving.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/06_exercises.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/07_solutions.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/08_exam_drill.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/09_past_exam_practice.md
-          git add \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/chapter.yaml \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/glossary.yaml \
-            textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/review
+          git add textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md
           git diff --cached --check
-          git commit -m 'review and unify P3-03 multivariate distributions'
+          git commit -m 'repair P3-03 notation and derivation detail'
           git push
