@@ -10,7 +10,6 @@ const targets = [
 ].map((value) => path.join(root, value)).filter(fs.existsSync);
 
 const rules = [
-  ['累積密度関数', '累積分布関数', /累積密度関数/g],
   ['積率母関数', 'モーメント母関数', /積率母関数/g],
   ['PMF', '確率質量関数', /\bPMF\b/g],
   ['PDF', '確率密度関数', /\bPDF\b/g],
