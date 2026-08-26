@@ -20,6 +20,15 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+      - name: Repair temporary script quoting
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/_tmp_migrate_p303_review.mjs')
+          s = p.read_text()
+          s = s.replace(r'\\`index.md\\`', 'index.md')
+          p.write_text(s)
+          PY
       - name: Build reviewed one-page P3-03
         run: node scripts/_tmp_migrate_p303_review.mjs
       - name: Commit migration
