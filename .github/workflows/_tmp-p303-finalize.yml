@@ -1,0 +1,48 @@
+name: Temporary P3-03 final reference repair
+
+on:
+  push:
+    paths:
+      - '.github/workflows/_tmp-p303-finalize.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Repair stale split-file reference
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md')
+          s = p.read_text()
+          old = '特異な場合はこの密度式を使わず、「全ての線形結合が一変量正規」という`02_definitions.md`の定義を使う。'
+          new = '特異な場合はこの密度式を使わず、本ページ2節で定義した「全ての線形結合が一変量正規」という特徴付けを使う。'
+          if s.count(old) != 1:
+              raise SystemExit(f'expected exactly one stale reference, found {s.count(old)}')
+          p.write_text(s.replace(old, new))
+          PY
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate textbook and changed terminology
+        run: |
+          npm run validate
+          npm run validate:terminology:changed
+          npm run audit:textbook-granularity
+      - name: Commit final reference repair
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/02_distributions/P3_03_多変量分布_条件付き分布/index.md
+          git diff --cached --check
+          git commit -m 'fix P3-03 unified-page internal reference'
+          git push
