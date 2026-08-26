@@ -1,0 +1,16 @@
+chapter: "F0-00"
+terms:
+  - { term: 広義積分, notation: "\\int_a^b f(x)\\,dx", meaning: 無限区間や特異点を含む積分を極限で定義したもの }
+  - { term: ガウス積分, notation: "\\int_{-\\infty}^{\\infty}e^{-x^2}\\,dx", meaning: 値が平方根πとなる基本積分 }
+  - { term: ガンマ関数, notation: "\\Gamma(s)", meaning: 階乗を実数へ拡張する積分で定義される関数 }
+  - { term: ベータ関数, notation: "B(a,b)", meaning: 0から1の区間で定義されガンマ関数と結び付く積分 }
+  - { term: ヤコビアン, notation: "\\det DT", meaning: 多変数変換における局所的な体積倍率を与える行列式 }
+  - { term: 勾配, notation: "\\nabla g", meaning: 一階偏微分を並べた列ベクトル }
+  - { term: ヘッセ行列, notation: "\\nabla^2g", meaning: 二階偏微分を並べた行列 }
+  - { term: 階数, notation: "\\operatorname{rank}(A)", meaning: 行列の列空間または行空間の次元 }
+  - { term: 固有値, notation: "\\lambda", meaning: A v = λ v を満たす非零ベクトルに対応する倍率 }
+  - { term: 直交行列, notation: "Q", meaning: 転置が逆行列となり内積とノルムを保存する行列 }
+  - { term: 二次形式, notation: "\\boldsymbol{x}^{\\mathsf T}A\\boldsymbol{x}", meaning: 行列で表現される二次式 }
+  - { term: 正定値, notation: "\\boldsymbol{x}^{\\mathsf T}A\\boldsymbol{x}>0", meaning: 全ての非零ベクトルで二次形式が正となる性質 }
+  - { term: 直交射影行列, notation: "P", meaning: 対称かつ冪等で部分空間への直交射影を表す行列 }
+  - { term: シュール補, notation: "A-BD^{-1}C", meaning: ブロック行列で一方のブロックを消去したときに現れる行列 }
