@@ -1,31 +1,26 @@
 # F0-00 統計検定1級のための数学速習
 
-この章は、**統計学の章ではありません**。統計検定1級の問題を解く途中で必要になる微積分・多変数解析・線形代数を、試験で使う範囲に絞って短時間で補修するための数学速習です。
+この章は、**統計学の章ではありません**。統計検定1級で必要になる微積分・多変数解析・線形代数を、試験で使う範囲に絞って補修するための章です。
 
-確率密度関数、尤度、推定量、検定などの統計用語はここでは原則として導入しません。まず数学そのものを整理し、最後の「統計でどこに出るか」で接続先だけを示します。
+確率密度関数、尤度、推定量、検定などの統計用語は原則として後続章へ送ります。本章では数学そのものを先に整理し、最後に「統計でどこに使うか」だけを対応表で示します。
 
-> **この章の使い方**
+> **目標**
 >
-> 1. 「最重要公式一覧」で抜けを確認する。
-> 2. 抜けている節だけ本文を読む。
-> 3. 例題を紙で再現する。
-> 4. 最後の確認問題で、公式を見ずに立式できるか確かめる。
->
-> 公式の丸暗記ではなく、**試験中に再現できる短い導出**を持つことを目標にします。
+> - 公式を「見たことがある」で終わらせず、短い導出を自力で再現できる。
+> - 積分、ヤコビアン、固有値など、1級で計算ミスしやすい箇所を手順化する。
+> - 「暗記する公式」と「その場で導出する式」を分ける。
 
 ---
 
-# 1. 1級合格のための数学ロードマップ
-
-優先度を3段階に分けます。
+# 1. 1級で必要な数学の優先度
 
 | 優先度 | 内容 | 到達目標 |
 |---|---|---|
-| S | 微分、部分積分、置換積分、広義積分、ガウス積分、ガンマ関数、ベータ関数、重積分、ヤコビアン、行列式、逆行列、階数、固有値、二次形式、正定値性 | 公式を見ずに計算できる |
-| A | テイラー展開、勾配・ヘッセ行列、ラグランジュ未定乗数法、直交行列、射影、シュール補、行列微分 | 標準問題で使える |
-| B | 積分記号下の微分、スターリング公式、多変量ガウス積分、ブロック逆行列 | 出たときに導出を追える |
+| S | 基本微分、部分積分、置換積分、広義積分、ガウス積分、ガンマ関数、ベータ関数、重積分、ヤコビアン、行列式、逆行列、階数、固有値、二次形式、正定値性 | 公式を見ずに計算できる |
+| A | テイラー展開、偏微分、勾配・ヘッセ行列、ラグランジュ未定乗数法、直交行列、射影、シュール補、行列微分 | 標準問題で使える |
+| B | 積分記号下の微分、スターリング公式、多変量ガウス積分 | 出たときに導出を追える |
 
-**Sだけは必須**です。Aは1級の数理問題で頻出、Bは発展問題・証明問題で差がつきます。
+Sは必須です。Aは統計数理・理工学で頻出、Bは発展問題や証明問題で差がつく項目です。
 
 ---
 
@@ -40,8 +35,6 @@ $$
 \qquad
 \frac{d}{dx}\log x=\frac1x.
 $$
-
-積・商・合成関数は
 
 $$
 (uv)'=u'v+uv',
@@ -59,7 +52,7 @@ $$
 
 $$
 \int x^a\,dx=\frac{x^{a+1}}{a+1}+C
-\qquad(a\ne-1),
+\qquad(a≠-1),
 $$
 
 $$
@@ -68,48 +61,57 @@ $$
 
 $$
 \int e^{ax}\,dx=\frac1a e^{ax}+C
-\qquad(a\ne0).
+\qquad(a≠0).
 $$
 
 部分積分は
 
 $$
-\int u\,dv=uv-\int v\,du.
+\boxed{\int u\,dv=uv-\int v\,du}.
 $$
 
 置換積分は $u=g(x)$ として
 
 $$
-\int f(g(x))g'(x)\,dx=\int f(u)\,du.
+\boxed{\int f(g(x))g'(x)\,dx=\int f(u)\,du}.
 $$
 
 ## 2.3 広義積分の基本判定
 
 $$
+\boxed{
 \int_0^1x^a\,dx<\infty
-\Longleftrightarrow a>-1,
+\Longleftrightarrow a>-1
+},
 $$
 
 $$
+\boxed{
 \int_1^\infty x^{-p}\,dx<\infty
-\Longleftrightarrow p>1.
+\Longleftrightarrow p>1
+}.
 $$
 
-この2本は、端点付近の積分可能性を判定する基準として非常に重要です。
+端点付近の積分可能性は、まずこの2本へ比較できないか考えます。
 
 ## 2.4 ガウス積分
 
 $$
-\boxed{\int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt\pi}
+\boxed{
+\int_{-\infty}^{\infty}e^{-x^2}\,dx=\sqrt\pi
+}.
 $$
 
-したがって $a>0$ なら
+$a>0$ なら尺度変換から
 
 $$
-\boxed{\int_{-\infty}^{\infty}e^{-ax^2}\,dx=\sqrt{\frac\pi a}}.
+\boxed{
+\int_{-\infty}^{\infty}e^{-ax^2}\,dx
+=\sqrt{\frac\pi a}
+}.
 $$
 
-さらに平行移動して
+さらに $b\in\mathbb R$ なら平行移動して
 
 $$
 \int_{-\infty}^{\infty}e^{-a(x-b)^2}\,dx
@@ -119,7 +121,9 @@ $$
 ## 2.5 ガンマ関数
 
 $$
-\boxed{\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx}
+\boxed{
+\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx
+}
 \qquad(s>0),
 $$
 
@@ -133,7 +137,7 @@ $$
 \Gamma\left(\frac12\right)=\sqrt\pi.
 $$
 
-尺度を変えると $\beta>0$ に対して
+また $\beta>0$ なら
 
 $$
 \boxed{
@@ -157,15 +161,13 @@ B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
 }.
 $$
 
-また
+対称性
 
 $$
-B(a,b)=B(b,a),
+B(a,b)=B(b,a)
 $$
 
-$$
-B(a+1,b)=\frac{a}{a+b}B(a,b).
-$$
+も頻繁に使います。
 
 ## 2.7 ヤコビアン
 
@@ -189,14 +191,13 @@ $$
 }.
 $$
 
-積分の変数変換では絶対値を用いて
+積分の変数変換では
 
 $$
 \boxed{
 dx\,dy
 =
-\left|\frac{\partial(x,y)}{\partial(u,v)}\right|
-\,du\,dv
+\left|\frac{\partial(x,y)}{\partial(u,v)}\right|du\,dv
 }.
 $$
 
@@ -249,13 +250,7 @@ A^{-1}
 \begin{pmatrix}d&-b\\-c&a\end{pmatrix}
 $$
 
-であり、逆行列が存在するための必要十分条件は
-
-$$
-\det A\ne0
-$$
-
-です。
+です。逆行列が存在するための必要十分条件は $\det A≠0$ です。
 
 固有値は
 
@@ -270,7 +265,7 @@ $$
 $$
 \boxed{A=Q\Lambda Q^{\mathsf T}},
 \qquad
-Q^{\mathsf T}Q=I,
+Q^{\mathsf T}Q=I
 $$
 
 と直交対角化できます。
@@ -279,30 +274,7 @@ $$
 
 # 3. 微分速習
 
-## 3.1 対数微分で積を和へ変える
-
-積が大量にある式は、対数を取ると微分しやすくなります。例えば
-
-$$
-y=x^a(1-x)^b
-$$
-
-なら
-
-$$
-\log y=a\log x+b\log(1-x).
-$$
-
-したがって
-
-$$
-\frac{y'}y
-=\frac ax-\frac b{1-x}.
-$$
-
-積を直接展開するより短くなります。
-
-## 3.2 停留点と最大・最小
+## 3.1 停留点は極値の候補にすぎない
 
 内部点 $x_0$ で極値を取るなら、微分可能な場合
 
@@ -310,9 +282,7 @@ $$
 f'(x_0)=0
 $$
 
-が必要です。ただしこれは必要条件であり、最大・最小を保証しません。
-
-二階微分を使えば
+が必要です。ただし、これだけでは最大・最小を保証しません。
 
 $$
 f'(x_0)=0,\quad f''(x_0)>0
@@ -326,34 +296,37 @@ $$
 
 なら狭義局所最大です。
 
-## 3.3 偏微分・勾配・ヘッセ行列
+## 3.2 偏微分・勾配・ヘッセ行列
 
-$g:\mathbb R^p\to\mathbb R$ に対し
+$g:\mathbb R^p\to\mathbb R$ に対し、勾配を成分表示で
 
 $$
-\nabla g(\boldsymbol x)
+\operatorname{grad}g(\boldsymbol x)
 =
 \begin{pmatrix}
 \partial g/\partial x_1\\
 \vdots\\
 \partial g/\partial x_p
-\end{pmatrix},
+\end{pmatrix}
 $$
 
+と書きます。ヘッセ行列は
+
 $$
-\nabla^2g(\boldsymbol x)
-=\left(
+H_g(\boldsymbol x)
+=
+\left(
 \frac{\partial^2g}{\partial x_i\partial x_j}
 \right)_{i,j}
 $$
 
-をそれぞれ勾配、ヘッセ行列と呼びます。
+です。
 
-内部停留点でヘッセ行列が正定値なら狭義局所最小、負定値なら狭義局所最大です。
+内部停留点で $H_g$ が正定値なら狭義局所最小、負定値なら狭義局所最大です。
 
-## 3.4 テイラー展開
+## 3.3 テイラー展開
 
-1級で頻繁に使う基本形は
+1級で特に重要なのは
 
 $$
 e^x=1+x+\frac{x^2}{2}+O(x^3),
@@ -365,12 +338,10 @@ $$
 
 $$
 (1+x)^a
-=1+ax+\frac{a(a-1)}2x^2+O(x^3)
+=1+ax+\frac{a(a-1)}2x^2+O(x^3).
 $$
 
-です。
-
-一般に
+一般には
 
 $$
 f(x+h)
@@ -382,29 +353,29 @@ $$
 $$
 g(\boldsymbol x+\boldsymbol h)
 =g(\boldsymbol x)
-+\nabla g(\boldsymbol x)^{\mathsf T}\boldsymbol h
-+\frac12\boldsymbol h^{\mathsf T}
-\nabla^2g(\boldsymbol x)\boldsymbol h
++\operatorname{grad}g(\boldsymbol x)^{\mathsf T}\boldsymbol h
++\frac12\boldsymbol h^{\mathsf T}H_g(\boldsymbol x)\boldsymbol h
 +o(\|\boldsymbol h\|^2).
 $$
 
-## 3.5 ラグランジュ未定乗数法
+## 3.4 ラグランジュ未定乗数法
 
-制約
-
-$$
-g(\boldsymbol x)=c
-$$
-
-の下で $f(\boldsymbol x)$ を極値化するとき、正則な点では
+制約 $g(\boldsymbol x)=c$ の下で $f(\boldsymbol x)$ を極値化するとき、正則な点では
 
 $$
-\nabla f(\boldsymbol x)=\lambda\nabla g(\boldsymbol x)
+\operatorname{grad}f(\boldsymbol x)
+=\lambda\operatorname{grad}g(\boldsymbol x)
 $$
 
 を解きます。
 
-典型例として、$\|\boldsymbol x\|^2=1$ の下で $\boldsymbol x^{\mathsf T}A\boldsymbol x$ を極値化すると
+例えば $\|\boldsymbol x\|^2=1$ の下で
+
+$$
+\boldsymbol x^{\mathsf T}A\boldsymbol x
+$$
+
+を極値化すると、$A$ が対称なら
 
 $$
 2A\boldsymbol x=2\lambda\boldsymbol x,
@@ -416,7 +387,7 @@ $$
 A\boldsymbol x=\lambda\boldsymbol x.
 $$
 
-よって固有値問題が自然に現れます。
+固有値問題が自然に現れる理由です。
 
 ---
 
@@ -425,12 +396,10 @@ $$
 ## 4.1 部分積分
 
 $$
-\int u\,dv=uv-\int v\,du
+\int u\,dv=uv-\int v\,du.
 $$
 
-を使います。多項式と指数関数の積では、多項式を微分する側に置くのが基本です。
-
-例えば $a>0$ なら
+多項式と指数関数の積では、多項式を微分する側に置くのが基本です。$a>0$ なら
 
 $$
 \begin{aligned}
@@ -441,13 +410,7 @@ $$
 \end{aligned}
 $$
 
-境界項
-
-$$
-xe^{-ax}\to0\qquad(x\to\infty)
-$$
-
-を確認します。
+境界項 $xe^{-ax}\to0$ も確認します。
 
 ## 4.2 置換積分
 
@@ -459,7 +422,7 @@ $$
 
 $$
 x=\frac t\beta,
-\qquad dx=\frac{dt}{\beta},
+\qquad dx=\frac{dt}{\beta}
 $$
 
 なので
@@ -470,13 +433,11 @@ $$
 \int_0^\infty t^m e^{-t}\,dt.
 $$
 
-「変数だけでなく $dx$ も変える」ことを忘れません。
+変数だけでなく $dx$ も変えることが重要です。
 
 ## 4.3 広義積分
 
 端点が無限大、または被積分関数が発散する場合は極限で定義します。
-
-例えば
 
 $$
 \int_0^1x^a\,dx
@@ -485,14 +446,14 @@ $$
 \int_\varepsilon^1x^a\,dx.
 $$
 
-$a\ne-1$ なら
+$a≠-1$ なら
 
 $$
 \int_\varepsilon^1x^a\,dx
 =\frac{1-\varepsilon^{a+1}}{a+1}.
 $$
 
-したがって
+従って
 
 $$
 \int_0^1x^a\,dx<\infty
@@ -526,19 +487,19 @@ $$
 
 と微分と積分を交換できます。
 
-ただし「微分できるから交換できる」わけではありません。区間が有限なら連続性条件で扱いやすく、無限区間では微分後の被積分関数を一様に支配する可積分関数があるか、などの条件確認が必要です。1級答案では、交換が自明でない場合は条件に言及します。
+ただし「微分できるから交換できる」わけではありません。無限区間では、微分後の被積分関数を可積分関数で一様に支配できるかなどの条件確認が必要です。
 
 ---
 
-# 5. ガウス積分
+# 5. ガウス積分：重積分・極座標・ヤコビアンの総合例
 
-## 5.1 基本ガウス積分の導出
+## 5.1 基本ガウス積分
 
 $$
 I=\int_{-\infty}^{\infty}e^{-x^2}\,dx
 $$
 
-と置きます。正の積分なので
+と置きます。被積分関数は非負なので
 
 $$
 I^2
@@ -547,7 +508,7 @@ I^2
  e^{-(x^2+y^2)}\,dx\,dy.
 $$
 
-ここで極座標
+極座標
 
 $$
 x=r\cos\theta,
@@ -588,11 +549,11 @@ $$
 \boxed{I=\sqrt\pi}.
 $$
 
-この導出で、**重積分・極座標・ヤコビアン**が一度に出てきます。
+この1本で、2重積分・極座標・ヤコビアンの意味が一度につながります。
 
 ## 5.2 係数付きガウス積分
 
-$a>0$ とし、$u=\sqrt a\,x$ と置けば
+$a>0$ とし $u=\sqrt a\,x$ と置けば
 
 $$
 \begin{aligned}
@@ -603,47 +564,35 @@ $$
 \end{aligned}
 $$
 
-平方完成できれば
-
-$$
-ax^2+bx+c
-=a\left(x+\frac b{2a}\right)^2
-+c-\frac{b^2}{4a}
-$$
-
-なので、指数二次式の積分へ応用できます。
-
-## 5.3 偶数次モーメント型積分
-
-$a>0$ なら
-
-$$
-\int_{-\infty}^{\infty}x^2e^{-ax^2}\,dx
-=\frac{\sqrt\pi}{2a^{3/2}}.
-$$
-
-これは
+## 5.3 $x^2e^{-ax^2}$ 型
 
 $$
 F(a)=\int_{-\infty}^{\infty}e^{-ax^2}\,dx
 =\sqrt\pi a^{-1/2}
 $$
 
-を $a$ で微分して
+を $a$ で微分すると
 
 $$
 F'(a)
 =-\int_{-\infty}^{\infty}x^2e^{-ax^2}\,dx
-=-\frac{\sqrt\pi}{2}a^{-3/2}
+=-\frac{\sqrt\pi}{2}a^{-3/2}.
 $$
 
-とすれば得られます。
+従って
+
+$$
+\boxed{
+\int_{-\infty}^{\infty}x^2e^{-ax^2}\,dx
+=\frac{\sqrt\pi}{2a^{3/2}}
+}.
+$$
 
 ---
 
 # 6. 重積分とヤコビアン
 
-## 6.1 反復積分
+## 6.1 まず領域を書く
 
 長方形領域
 
@@ -651,12 +600,12 @@ $$
 D=[a,b]\times[c,d]
 $$
 
-なら、十分よい関数について
+なら
 
 $$
 \iint_D f(x,y)\,dx\,dy
 =
-\int_a^b\left(\int_c^d f(x,y)\,dy\right)dx.
+\int_a^b\int_c^d f(x,y)\,dy\,dx.
 $$
 
 三角形領域
@@ -673,7 +622,7 @@ $$
 \int_0^1\int_0^{1-x}f(x,y)\,dy\,dx.
 $$
 
-**最初に領域を不等式で書く**ことが重要です。
+積分計算より先に領域を不等式で書く習慣をつけます。
 
 ## 6.2 フビニの定理とトネリの定理
 
@@ -683,19 +632,19 @@ $$
 \iint |f(x,y)|\,dx\,dy<\infty
 $$
 
-なら、積分順序を交換できます。
+なら積分順序を交換できます。
 
-一方 $f\ge0$ なら、積分値が無限大になる可能性を含めて反復積分を扱えます。ガウス積分で $I^2$ を二重積分へ移すときは被積分関数が非負なので安全です。
+一方、$f(x,y)\ge0$ なら、積分値が無限大になる可能性を含めて反復積分を扱えます。ガウス積分では被積分関数が非負なので、この点が扱いやすくなっています。
 
 ## 6.3 一般の変数変換
 
-一対一の滑らかな変換
+滑らかな一対一変換
 
 $$
 T:(u,v)\mapsto(x(u,v),y(u,v))
 $$
 
-でヤコビアンが0でないとき、
+でヤコビアンが0でない領域では
 
 $$
 \iint_{T(D)}f(x,y)\,dx\,dy
@@ -707,9 +656,9 @@ f(x(u,v),y(u,v))
 \right|du\,dv.
 $$
 
-絶対値が必要なのは、行列式の符号は向きの反転を表す一方、面積倍率は非負だからです。
+絶対値が必要なのは、行列式の符号は向きの反転を表しますが、面積倍率は非負だからです。
 
-## 6.4 極座標のヤコビアン
+## 6.4 極座標
 
 $$
 x=r\cos\theta,
@@ -721,32 +670,25 @@ $$
 $$
 \left|
 \frac{\partial(x,y)}{\partial(r,\theta)}
-\right|
-=r.
+\right|=r.
 $$
 
-よって
+従って
 
 $$
 dx\,dy=r\,dr\,d\theta.
 $$
 
-円板
-
-$$
-x^2+y^2\le R^2
-$$
-
-は
+円板 $x^2+y^2\le R^2$ は
 
 $$
 0\le r\le R,
 \qquad 0\le\theta<2\pi
 $$
 
-という長方形領域へ変わります。
+という長方形領域になります。
 
-## 6.5 和と比の変換で頻出するヤコビアン
+## 6.5 和と比の変換
 
 $$
 u=x+y,
@@ -776,52 +718,30 @@ v&u\\
 \end{aligned}
 $$
 
-したがって面積倍率は
-
-$$
-\boxed{u}.
-$$
-
-$x>0,y>0$ なら像は
+$x>0,y>0$ なら $u>0$ なので面積倍率は $u$、像は
 
 $$
 u>0,
 \qquad 0<v<1.
 $$
 
-ヤコビアンだけでなく、**逆変換と像の範囲**までセットで求めます。
+ヤコビアンだけでなく、**逆変換と像の範囲**を必ずセットで求めます。
 
 ---
 
 # 7. ガンマ関数
 
-## 7.1 定義と収束範囲
+## 7.1 定義と収束
 
 $$
-\Gamma(s)
-=\int_0^\infty x^{s-1}e^{-x}\,dx.
+\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx.
 $$
 
-$x\to0$ では $x^{s-1}$ 型なので収束には $s>0$ が必要です。$x\to\infty$ では指数減衰 $e^{-x}$ が任意の多項式より速く0へ行くため収束します。
-
-したがって実数範囲では
-
-$$
-\boxed{s>0}
-$$
-
-で上の積分表示をそのまま使えます。
+$x\to0$ では $x^{s-1}$ 型なので $s>0$ が必要です。$x\to\infty$ では指数関数 $e^{-x}$ が多項式より速く減衰するので収束します。
 
 ## 7.2 漸化式
 
 部分積分で
-
-$$
-u=x^s,
-\qquad dv=e^{-x}dx
-$$
-
-とすると
 
 $$
 \begin{aligned}
@@ -833,7 +753,7 @@ $$
 \end{aligned}
 $$
 
-よって
+従って
 
 $$
 \boxed{\Gamma(s+1)=s\Gamma(s)}.
@@ -846,8 +766,6 @@ $$
 $$
 
 ## 7.3 半整数値
-
-ガウス積分から
 
 $$
 \Gamma\left(\frac12\right)
@@ -864,16 +782,12 @@ $$
 \end{aligned}
 $$
 
-したがって
+よって
 
 $$
-\Gamma\left(\frac32\right)
-=\frac12\sqrt\pi,
-$$
-
-$$
-\Gamma\left(\frac52\right)
-=\frac34\sqrt\pi.
+\Gamma\left(\frac32\right)=\frac12\sqrt\pi,
+\qquad
+\Gamma\left(\frac52\right)=\frac34\sqrt\pi.
 $$
 
 ## 7.4 尺度付き積分
@@ -889,7 +803,7 @@ $$
 \end{aligned}
 $$
 
-したがって
+従って
 
 $$
 \boxed{
@@ -898,26 +812,23 @@ $$
 }.
 $$
 
-この形は1級で非常によく使います。
-
 ---
 
 # 8. ベータ関数
 
-## 8.1 定義
-
-$a,b>0$ に対し
+## 8.1 定義と収束条件
 
 $$
-B(a,b)
-=\int_0^1x^{a-1}(1-x)^{b-1}\,dx.
+B(a,b)=\int_0^1x^{a-1}(1-x)^{b-1}\,dx.
 $$
 
-$x=0$ 付近では $x^{a-1}$、$x=1$ 付近では $(1-x)^{b-1}$ なので、両端で収束する条件は
+$x=0$ 付近では $x^{a-1}$、$x=1$ 付近では $(1-x)^{b-1}$ なので
 
 $$
-\boxed{a>0,\quad b>0}.
+\boxed{a>0,\quad b>0}
 $$
+
+が収束条件です。
 
 $x\mapsto1-x$ と置換すれば
 
@@ -925,7 +836,7 @@ $$
 B(a,b)=B(b,a).
 $$
 
-## 8.2 ガンマ関数との関係を重積分から導く
+## 8.2 ベータ関数とガンマ関数の関係
 
 積
 
@@ -933,7 +844,7 @@ $$
 \Gamma(a)\Gamma(b)
 $$
 
-を二重積分にすると
+を2重積分にすると
 
 $$
 \Gamma(a)\Gamma(b)
@@ -956,27 +867,31 @@ x=ru,
 \qquad y=r(1-u),
 $$
 
-領域は
+像は
 
 $$
 r>0,
-\qquad 0<u<1.
+\qquad0<u<1,
 $$
 
-ヤコビアンの絶対値は $r$ です。したがって
+ヤコビアンの絶対値は $r$ です。従って
 
 $$
 \begin{aligned}
 \Gamma(a)\Gamma(b)
 &=\int_0^1\int_0^\infty
 (ru)^{a-1}[r(1-u)]^{b-1}e^{-r}r\,dr\,du\\
-&=\left[\int_0^1u^{a-1}(1-u)^{b-1}\,du\right]
-\left[\int_0^\infty r^{a+b-1}e^{-r}\,dr\right]\\
+&=\left[
+\int_0^1u^{a-1}(1-u)^{b-1}\,du
+\right]
+\left[
+\int_0^\infty r^{a+b-1}e^{-r}\,dr
+\right]\\
 &=B(a,b)\Gamma(a+b).
 \end{aligned}
 $$
 
-よって
+従って
 
 $$
 \boxed{
@@ -984,7 +899,7 @@ B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
 }.
 $$
 
-この導出は、**ガンマ関数・ベータ関数・重積分・ヤコビアン**を一つの流れとして理解できる重要例です。
+この導出は、**ガンマ関数・ベータ関数・重積分・ヤコビアン**を一本につなぐ重要例です。
 
 ## 8.3 整数値
 
@@ -998,9 +913,7 @@ $$
 例えば
 
 $$
-B(2,3)
-=\frac{1!2!}{4!}
-=\frac1{12}.
+B(2,3)=\frac{1!2!}{4!}=\frac1{12}.
 $$
 
 ---
@@ -1009,13 +922,7 @@ $$
 
 ## 9.1 ベクトル・内積・ノルム
 
-列ベクトル
-
-$$
-\boldsymbol x=(x_1,\ldots,x_p)^{\mathsf T}
-$$
-
-に対し
+列ベクトル $\boldsymbol x,\boldsymbol y\in\mathbb R^p$ に対し
 
 $$
 \boldsymbol x^{\mathsf T}\boldsymbol y
@@ -1031,7 +938,7 @@ $$
 
 をユークリッドノルムと呼びます。
 
-直交とは
+直交は
 
 $$
 \boldsymbol x^{\mathsf T}\boldsymbol y=0
@@ -1043,7 +950,7 @@ $$
 
 $$
 |\boldsymbol x^{\mathsf T}\boldsymbol y|
-\le \|\boldsymbol x\|\,\|\boldsymbol y\|.
+\le\|\boldsymbol x\|\,\|\boldsymbol y\|.
 $$
 
 ## 9.2 行列積の次元
@@ -1060,9 +967,7 @@ $$
 AB\in\mathbb R^{m\times p}.
 $$
 
-内側の次元 $n$ が一致しなければ積は定義できません。
-
-答案で迷ったら、式の各行列の次元を書きます。
+内側の次元が一致しなければ積は定義できません。行列式で迷ったら最初に次元を書きます。
 
 ## 9.3 転置
 
@@ -1076,56 +981,23 @@ $$
 
 積の順序が逆になる点が重要です。
 
-## 9.4 行列式
+## 9.4 行列式・逆行列
 
 2次なら
 
 $$
-\det\begin{pmatrix}a&b\\c&d\end{pmatrix}
-=ad-bc.
+\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc.
 $$
-
-基本性質は
 
 $$
 \det(AB)=\det A\det B,
+\qquad
+\det(A^{\mathsf T})=\det A.
 $$
 
-$$
-\det(A^{\mathsf T})=\det A,
-$$
+逆行列が存在することと $\det A≠0$ は同値です。
 
-$$
-\det(A^{-1})=\frac1{\det A}.
-$$
-
-三角行列では行列式は対角成分の積です。
-
-## 9.5 逆行列
-
-正方行列 $A$ について
-
-$$
-A^{-1}A=AA^{-1}=I.
-$$
-
-逆行列が存在することと
-
-$$
-\det A\ne0
-$$
-
-は同値です。
-
-2次なら
-
-$$
-A^{-1}
-=\frac1{ad-bc}
-\begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
-$$
-
-## 9.6 階数と列フルランク
+## 9.5 階数と列フルランク
 
 $A\in\mathbb R^{n\times p}$ の列が一次独立なら
 
@@ -1135,24 +1007,18 @@ $$
 
 で、列フルランクといいます。
 
-列フルランクなら $A^{\mathsf T}A$ は正定値です。実際、$\boldsymbol z\ne0$ に対して
+列フルランクなら $A^{\mathsf T}A$ は正定値です。実際、$\boldsymbol z≠\boldsymbol0$ に対して
 
 $$
 \boldsymbol z^{\mathsf T}A^{\mathsf T}A\boldsymbol z
-=\|A\boldsymbol z\|^2.
+=\|A\boldsymbol z\|^2>0.
 $$
 
-列フルランクなら $A\boldsymbol z\ne0$ なので
+従って $A^{\mathsf T}A$ は可逆です。
 
-$$
-\|A\boldsymbol z\|^2>0.
-$$
+## 9.6 固有値・固有ベクトル
 
-したがって $A^{\mathsf T}A$ は正定値で、特に可逆です。
-
-## 9.7 固有値・固有ベクトル
-
-$\boldsymbol v\ne0$ が
+$\boldsymbol v≠\boldsymbol0$ が
 
 $$
 A\boldsymbol v=\lambda\boldsymbol v
@@ -1168,74 +1034,63 @@ $$
 
 を解いて求めます。
 
-2次行列では、固有値 $\lambda_1,\lambda_2$ に対し
+2次行列なら検算として
 
 $$
 \lambda_1+\lambda_2=\operatorname{tr}(A),
-$$
-
-$$
+\qquad
 \lambda_1\lambda_2=\det A
 $$
 
-が検算に使えます。
+が使えます。
 
-## 9.8 実対称行列と直交対角化
+## 9.7 実対称行列と直交対角化
 
-$A^{\mathsf T}=A$ なら、実固有値を持ち、互いに直交する単位固有ベクトルから基底を作れます。
-
-つまり直交行列 $Q$ と対角行列
-
-$$
-\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_p)
-$$
-
-を使って
+$A^{\mathsf T}=A$ なら、固有値は実数で、互いに直交する単位固有ベクトルから基底を作れます。従って
 
 $$
 \boxed{A=Q\Lambda Q^{\mathsf T}}
 $$
 
-と書けます。
-
-直交行列は
+と書けます。$Q$ は直交行列なので
 
 $$
-Q^{\mathsf T}Q=QQ^{\mathsf T}=I
+Q^{\mathsf T}Q=I,
+\qquad Q^{-1}=Q^{\mathsf T}
 $$
 
-を満たし、
+です。
 
-$$
-Q^{-1}=Q^{\mathsf T}
-$$
-
-です。またノルムを保存します。
-
-## 9.9 二次形式
+## 9.8 二次形式
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x
 $$
 
-を二次形式と呼びます。
+を二次形式と呼びます。$A$ が実対称なら
 
-$A$ が実対称なら $A=Q\Lambda Q^{\mathsf T}$、$\boldsymbol z=Q^{\mathsf T}\boldsymbol x$ として
+$$
+A=Q\Lambda Q^{\mathsf T},
+\qquad
+\boldsymbol z=Q^{\mathsf T}\boldsymbol x
+$$
+
+として
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x
 =\sum_{i=1}^p\lambda_i z_i^2.
 $$
 
-したがって二次形式の符号は固有値の符号に帰着します。
+従って二次形式の符号や最大最小は固有値へ帰着します。
 
-## 9.10 正定値・半正定値
+## 9.9 正定値・半正定値
 
 実対称行列 $A$ が正定値とは
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x>0
-\qquad(\boldsymbol x\ne0)
+\qquad(\boldsymbol x≠\boldsymbol0)
 $$
 
 となることです。
@@ -1251,9 +1106,11 @@ $$
 実対称行列では
 
 $$
+\boxed{
 A\text{ が正定値}
 \Longleftrightarrow
-\text{全固有値が正}.
+\text{全固有値が正}
+}.
 $$
 
 2次対称行列
@@ -1270,17 +1127,9 @@ $$
 
 が正定値の必要十分条件です。
 
-一般には、実対称行列の左上からの主座小行列式がすべて正なら正定値です。
+## 9.10 射影行列
 
-## 9.11 射影行列
-
-列フルランクな
-
-$$
-A\in\mathbb R^{n\times p}
-$$
-
-に対し
+列フルランクな $A\in\mathbb R^{n\times p}$ に対し
 
 $$
 P=A(A^{\mathsf T}A)^{-1}A^{\mathsf T}
@@ -1290,23 +1139,12 @@ $$
 
 $$
 P^{\mathsf T}=P,
+\qquad P^2=P.
 $$
 
-$$
-P^2=P.
-$$
+従って $P$ は $\operatorname{col}(A)$ への直交射影行列です。
 
-よって $P$ は $\operatorname{col}(A)$ への直交射影行列です。
-
-また
-
-$$
-(I-P)P=0
-$$
-
-なので、射影成分と残差成分は直交します。
-
-## 9.12 シュール補
+## 9.11 シュール補
 
 ブロック行列
 
@@ -1322,31 +1160,16 @@ $$
 
 を $D$ に関するシュール補と呼びます。
 
-行基本変形に対応するブロック行列を掛けると
-
-$$
-\begin{pmatrix}
-I&-BD^{-1}\\
-0&I
-\end{pmatrix}
-\begin{pmatrix}A&B\\C&D\end{pmatrix}
-=
-\begin{pmatrix}
-A-BD^{-1}C&0\\
-C&D
-\end{pmatrix}.
-$$
-
-よって
+ブロック消去から
 
 $$
 \boxed{
 \det M
 =\det D\,\det(A-BD^{-1}C)
-}.
+}
 $$
 
-多変量問題では条件付き量を整理するときに頻出します。
+を得ます。
 
 ---
 
@@ -1355,14 +1178,14 @@ $$
 列ベクトル $\boldsymbol x$ を変数とすると
 
 $$
-\nabla_{\boldsymbol x}
+\operatorname{grad}_{\boldsymbol x}
 (\boldsymbol a^{\mathsf T}\boldsymbol x)
 =\boldsymbol a,
 $$
 
 $$
 \boxed{
-\nabla_{\boldsymbol x}
+\operatorname{grad}_{\boldsymbol x}
 (\boldsymbol x^{\mathsf T}A\boldsymbol x)
 =(A+A^{\mathsf T})\boldsymbol x
 }.
@@ -1371,7 +1194,7 @@ $$
 特に $A$ が対称なら
 
 $$
-\nabla_{\boldsymbol x}
+\operatorname{grad}_{\boldsymbol x}
 (\boldsymbol x^{\mathsf T}A\boldsymbol x)
 =2A\boldsymbol x.
 $$
@@ -1379,16 +1202,8 @@ $$
 また
 
 $$
-\|\boldsymbol y-A\boldsymbol x\|^2
-=(\boldsymbol y-A\boldsymbol x)^{\mathsf T}
-(\boldsymbol y-A\boldsymbol x)
-$$
-
-なので
-
-$$
 \boxed{
-\nabla_{\boldsymbol x}
+\operatorname{grad}_{\boldsymbol x}
 \|\boldsymbol y-A\boldsymbol x\|^2
 =-2A^{\mathsf T}\boldsymbol y
 +2A^{\mathsf T}A\boldsymbol x
@@ -1398,72 +1213,53 @@ $$
 発展公式として、可逆な行列 $A(\theta)$ が微分可能なら
 
 $$
-\boxed{
 \frac{d}{d\theta}\log\det A(\theta)
-=\operatorname{tr}\left(
-A(\theta)^{-1}A'(\theta)
-\right)
-}
+=\operatorname{tr}
+\left(A(\theta)^{-1}A'(\theta)\right).
 $$
-
-があります。これは多変量正規分布の微分などで現れますが、最初から暗記するより必要時に参照できれば十分です。
 
 ---
 
 # 11. 多変量ガウス積分
 
-$A$ を $p\times p$ 実対称正定値行列とします。直交対角化して
+$A$ を $p\times p$ 実対称正定値行列とします。
 
 $$
 A=Q\Lambda Q^{\mathsf T},
+\qquad
+\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_p)
 $$
 
-$$
-\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_p),
-\qquad \lambda_i>0.
-$$
-
-$\boldsymbol z=Q^{\mathsf T}\boldsymbol x$ と変換します。直交行列なので
+と直交対角化し、$\boldsymbol z=Q^{\mathsf T}\boldsymbol x$ と置きます。直交行列なので
 
 $$
-|\det Q|=1,
+|\det Q|=1
 $$
 
-従って体積要素は変わりません。また
+で体積要素は変わらず、
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x
-=\sum_{i=1}^p\lambda_i z_i^2.
+=\sum_i\lambda_i z_i^2.
 $$
 
-よって
+従って
 
 $$
 \begin{aligned}
 &\int_{\mathbb R^p}
-\exp\left(-\frac12\boldsymbol x^{\mathsf T}A\boldsymbol x\right)
-d\boldsymbol x\\
+\exp\left(-\frac12\boldsymbol x^{\mathsf T}A\boldsymbol x\right)d\boldsymbol x\\
 &=\prod_{i=1}^p
 \int_{-\infty}^{\infty}
 \exp\left(-\frac{\lambda_i z_i^2}{2}\right)dz_i\\
 &=\prod_{i=1}^p\sqrt{\frac{2\pi}{\lambda_i}}\\
-&=(2\pi)^{p/2}
-\left(\prod_{i=1}^p\lambda_i\right)^{-1/2}.
+&=\boxed{
+\frac{(2\pi)^{p/2}}{\sqrt{\det A}}
+}.
 \end{aligned}
 $$
 
-$\prod_i\lambda_i=\det A$ なので
-
-$$
-\boxed{
-\int_{\mathbb R^p}
-\exp\left(-\frac12\boldsymbol x^{\mathsf T}A\boldsymbol x\right)
-d\boldsymbol x
-=\frac{(2\pi)^{p/2}}{\sqrt{\det A}}
-}.
-$$
-
-これは「ガウス積分 + 固有値分解 + ヤコビアン」の総合例です。
+ガウス積分、固有値分解、行列式が一つにつながる総合例です。
 
 ---
 
@@ -1480,7 +1276,7 @@ $$
 $$
 
 $$
-\lim_{n\to\infty}\left(1+\frac xn\right)^n=e^x.
+\lim_{m\to\infty}\left(1+\frac xm\right)^m=e^x.
 $$
 
 ## 12.2 ランダウ記号
@@ -1489,7 +1285,7 @@ $$
 f(x)=O(g(x))
 $$
 
-は、比 $|f(x)/g(x)|$ が近傍で有界という意味です。
+は比 $|f(x)/g(x)|$ が近傍で有界という意味です。
 
 $$
 f(x)=o(g(x))
@@ -1503,30 +1299,17 @@ $$
 
 という意味です。
 
-例えば
-
-$$
-\log(1+x)=x-\frac{x^2}{2}+o(x^2).
-$$
-
 ## 12.3 スターリング公式
 
-大きな $n$ では
+大きな正整数 $m$ では
 
 $$
 \boxed{
-n!\sim\sqrt{2\pi n}\left(\frac ne\right)^n
-}
+m!\sim\sqrt{2\pi m}\left(\frac me\right)^m
+}.
 $$
 
-です。ガンマ関数では
-
-$$
-\Gamma(x+1)
-\sim\sqrt{2\pi x}\left(\frac xe\right)^x.
-$$
-
-組合せ数や分布の近似で出ます。証明を常に再現する必要はありませんが、式の意味と使いどころは知っておきます。
+組合せ数や分布の近似で使います。厳密証明を暗記する必要はありません。
 
 ---
 
@@ -1538,7 +1321,7 @@ $$
 - 積・商・合成関数の微分。
 - 部分積分・置換積分。
 - $\int_0^1x^a dx$ と $\int_1^\infty x^{-p}dx$ の収束条件。
-- ガウス積分 $\int e^{-x^2}dx=\sqrt\pi$ の値。
+- ガウス積分 $\int_{-\infty}^{\infty}e^{-x^2}dx=\sqrt\pi$。
 - ガンマ関数・ベータ関数の定義。
 - $\Gamma(s+1)=s\Gamma(s)$。
 - $B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)$。
@@ -1586,20 +1369,16 @@ $\varepsilon>0$ として
 $$
 \int_\varepsilon^1x^a dx
 =\frac{1-\varepsilon^{a+1}}{a+1}
-\qquad(a\ne-1).
+\qquad(a≠-1).
 $$
 
-よって $a>-1$ なら $1/(a+1)$ に収束し、$a<-1$ なら発散します。$a=-1$ では $-\log\varepsilon\to\infty$。したがって
+$a>-1$ なら $1/(a+1)$ に収束し、$a<-1$ なら発散します。$a=-1$ では $-\log\varepsilon\to\infty$。従って必要十分条件は
 
 $$
-\boxed{a>-1}
+\boxed{a>-1},
 $$
 
-が必要十分条件で、値は
-
-$$
-\boxed{\frac1{a+1}}.
-$$
+値は $1/(a+1)$ です。
 
 <!-- solution-end -->
 
@@ -1617,15 +1396,8 @@ $$
 
 $$
 \Gamma\left(\frac72\right)
-=\frac52\Gamma\left(\frac52\right)
-=\frac52\frac32\Gamma\left(\frac32\right)
-=\frac52\frac32\frac12\Gamma\left(\frac12\right).
-$$
-
-$\Gamma(1/2)=\sqrt\pi$ より
-
-$$
-\boxed{\Gamma(7/2)=\frac{15}{8}\sqrt\pi}.
+=\frac52\frac32\frac12\Gamma\left(\frac12\right)
+=\boxed{\frac{15}{8}\sqrt\pi}.
 $$
 
 <!-- solution-end -->
@@ -1665,22 +1437,18 @@ $$
 
 ### 解答
 
-極座標では
-
 $$
 0\le r\le R,
-\qquad 0\le\theta<2\pi,
+\qquad0\le\theta<2\pi,
+\qquad dxdy=r\,drd\theta.
 $$
 
-かつ $dxdy=r\,drd\theta$。したがって
+従って
 
 $$
-\begin{aligned}
 \operatorname{Area}(D)
-&=\int_0^{2\pi}\int_0^R r\,dr\,d\theta\\
-&=2\pi\frac{R^2}{2}\\
-&=\boxed{\pi R^2}.
-\end{aligned}
+=\int_0^{2\pi}\int_0^R r\,dr\,d\theta
+=\boxed{\pi R^2}.
 $$
 
 <!-- solution-end -->
@@ -1699,26 +1467,17 @@ $$
 ### 解答
 
 $$
-\begin{aligned}
 \frac{\partial(x,y)}{\partial(u,v)}
-&=
+=
 \det
 \begin{pmatrix}
 v&u\\
 1-v&-u
-\end{pmatrix}\\
-&=-uv-u(1-v)\\
-&=-u.
-\end{aligned}
+\end{pmatrix}
+=-u.
 $$
 
-したがって面積倍率は
-
-$$
-\boxed{|u|}.
-$$
-
-$u>0$ の領域なら $u$ です。
+従って面積倍率は $|u|$、$u>0$ なら $u$ です。
 
 <!-- solution-end -->
 
@@ -1735,10 +1494,8 @@ $$
 ### 解答
 
 $$
-\det A=2\cdot3-1\cdot1=5.
+\det A=5,
 $$
-
-したがって
 
 $$
 \boxed{
@@ -1772,17 +1529,11 @@ $$
 
 $$
 F'(a)
-=-\int_{-\infty}^{\infty}x^2e^{-ax^2}dx.
-$$
-
-一方
-
-$$
-F'(a)
+=-\int_{-\infty}^{\infty}x^2e^{-ax^2}dx
 =-\frac{\sqrt\pi}{2}a^{-3/2}.
 $$
 
-よって
+従って
 
 $$
 \boxed{
@@ -1806,21 +1557,12 @@ $$
 
 ### 解答
 
-逆変換は
-
 $$
 x=ru,
-\qquad y=r(1-u).
+\qquad y=r(1-u),
 $$
 
-領域は
-
-$$
-r>0,
-\qquad0<u<1.
-$$
-
-ヤコビアンは
+像は $r>0,0<u<1$。ヤコビアンは
 
 $$
 \det
@@ -1831,13 +1573,7 @@ u&r\\
 =-r,
 $$
 
-したがって
-
-$$
-\boxed{
-\left|\frac{\partial(x,y)}{\partial(r,u)}\right|=r
-}.
-$$
+従って絶対値は $r$ です。
 
 <!-- solution-end -->
 
@@ -1859,29 +1595,13 @@ $$
 =(\lambda-6)(\lambda-2).
 $$
 
-固有値は
-
-$$
-6,\quad2.
-$$
-
-$A$ は実対称で全固有値が正なので
-
-$$
-\boxed{A\text{ は正定値}}.
-$$
+固有値は $6,2$。実対称かつ全固有値が正なので正定値です。
 
 <!-- solution-end -->
 
 ## F0M-B04 二次形式の最大化
 
-実対称行列 $A$ の最大固有値を $\lambda_{\max}$ とする。
-
-$$
-\|\boldsymbol x\|=1
-$$
-
-の下で
+実対称行列 $A$ の最大固有値を $\lambda_{\max}$ とする。$\|\boldsymbol x\|=1$ の下で
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x
@@ -1893,33 +1613,19 @@ $$
 
 ### 解答
 
-直交対角化
+$A=Q\Lambda Q^{\mathsf T}$、$\boldsymbol z=Q^{\mathsf T}\boldsymbol x$ と置くと
 
 $$
-A=Q\Lambda Q^{\mathsf T}
+\sum_i z_i^2=1,
 $$
-
-を使い、$\boldsymbol z=Q^{\mathsf T}\boldsymbol x$ と置きます。直交行列はノルムを保存するので
-
-$$
-\sum_i z_i^2=1.
-$$
-
-したがって
 
 $$
 \boldsymbol x^{\mathsf T}A\boldsymbol x
 =\sum_i\lambda_i z_i^2
-\le\lambda_{\max}\sum_i z_i^2
-=\lambda_{\max}.
+\le\lambda_{\max}.
 $$
 
-最大固有値に対応する単位固有ベクトルで等号が成立します。よって
-
-$$
-\boxed{\max_{\|\boldsymbol x\|=1}\boldsymbol x^{\mathsf T}A\boldsymbol x
-=\lambda_{\max}}.
-$$
+最大固有値に対応する単位固有ベクトルで等号が成立するので、最大値は $\lambda_{\max}$ です。
 
 <!-- solution-end -->
 
@@ -1937,25 +1643,18 @@ $$
 
 ### 解答
 
-$A^{\mathsf T}A$ は対称なので、その逆行列も対称です。したがって
-
-$$
-P^{\mathsf T}=P.
-$$
-
-また
+$A^{\mathsf T}A$ とその逆行列は対称なので $P^{\mathsf T}=P$。また
 
 $$
 \begin{aligned}
 P^2
 &=A(A^{\mathsf T}A)^{-1}A^{\mathsf T}
 A(A^{\mathsf T}A)^{-1}A^{\mathsf T}\\
-&=A(A^{\mathsf T}A)^{-1}A^{\mathsf T}\\
 &=P.
 \end{aligned}
 $$
 
-よって直交射影行列です。
+従って直交射影行列です。
 
 <!-- solution-end -->
 
@@ -1965,8 +1664,7 @@ $A$ を $p\times p$ 実対称正定値行列とする。次を求めよ。
 
 $$
 \int_{\mathbb R^p}
-\exp\left(-\frac12\boldsymbol x^{\mathsf T}A\boldsymbol x\right)
-d\boldsymbol x.
+\exp\left(-\frac12\boldsymbol x^{\mathsf T}A\boldsymbol x\right)d\boldsymbol x.
 $$
 
 <!-- solution-start -->
@@ -1977,12 +1675,55 @@ $A=Q\Lambda Q^{\mathsf T}$ と直交対角化し、$\boldsymbol z=Q^{\mathsf T}\
 
 $$
 \begin{aligned}
-\int_{\mathbb R^p}e^{-\boldsymbol x^{\mathsf T}A\boldsymbol x/2}d\boldsymbol x
-&=\prod_{i=1}^p\int_{-\infty}^{\infty}e^{-\lambda_i z_i^2/2}dz_i\\
-&=\prod_{i=1}^p\sqrt{\frac{2\pi}{\lambda_i}}\\
+\int e^{-\boldsymbol x^{\mathsf T}A\boldsymbol x/2}d\boldsymbol x
+&=\prod_i\int_{-\infty}^{\infty}e^{-\lambda_i z_i^2/2}dz_i\\
+&=\prod_i\sqrt{\frac{2\pi}{\lambda_i}}\\
 &=\boxed{\frac{(2\pi)^{p/2}}{\sqrt{\det A}}}.
 \end{aligned}
 $$
+
+<!-- solution-end -->
+
+## F0M-C01 ベータ・ガンマ関係を最初から導く
+
+$a,b>0$ とする。$\Gamma(a)\Gamma(b)$ を2重積分として書き、
+
+$$
+r=x+y,
+\qquad u=\frac{x}{x+y}
+$$
+
+を用いて
+
+$$
+B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
+$$
+
+を導け。
+
+<!-- solution-start -->
+
+### 解答
+
+$$
+\Gamma(a)\Gamma(b)
+=
+\int_0^\infty\int_0^\infty
+x^{a-1}y^{b-1}e^{-(x+y)}dxdy.
+$$
+
+逆変換は $x=ru,y=r(1-u)$、像は $r>0,0<u<1$、ヤコビアン絶対値は $r$。従って
+
+$$
+\begin{aligned}
+\Gamma(a)\Gamma(b)
+&=\int_0^1\int_0^\infty
+r^{a+b-1}u^{a-1}(1-u)^{b-1}e^{-r}\,dr\,du\\
+&=B(a,b)\Gamma(a+b).
+\end{aligned}
+$$
+
+両辺を $\Gamma(a+b)>0$ で割って結論を得ます。
 
 <!-- solution-end -->
 
@@ -1992,7 +1733,7 @@ $$
 
 ## F0M-DRILL-01 数学基礎総合
 
-次を公式表を見ずに解いてください。
+公式表を見ずに次を解いてください。
 
 1. $\Gamma(5/2)$ を求める。
 2. $B(2,3)$ を求める。
@@ -2006,7 +1747,7 @@ $$
 ### 解答
 
 1. $\Gamma(5/2)=(3/2)(1/2)\sqrt\pi=3\sqrt\pi/4$。
-2. $B(2,3)=\Gamma(2)\Gamma(3)/\Gamma(5)=1!2!/4!=1/12$。
+2. $B(2,3)=1!2!/4!=1/12$。
 3. ガウス積分の尺度変換から $\sqrt{\pi/2}$。
 4. 行列式は $-u$、絶対値は $|u|$。$u>0$ なら $u$。
 5. 特性多項式 $(\lambda-2)(\lambda-4)$、固有値 $2,4$。実対称かつ全固有値正なので正定値。
@@ -2014,7 +1755,7 @@ $$
 
 ### 採点基準
 
-各問10点、合計60点。50点以上なら数学基礎はひとまず合格、40点未満なら該当節へ戻ります。特に3・4・5を落とす場合は、ガウス積分・ヤコビアン・固有値を優先して復習します。
+各問10点、合計60点。50点以上なら数学基礎はひとまず合格。40点未満なら該当節へ戻ります。特に3・4・5を落とす場合は、ガウス積分・ヤコビアン・固有値を優先して復習します。
 
 <!-- solution-end -->
 
@@ -2026,7 +1767,7 @@ $$
 
 | 数学 | 主な接続先 |
 |---|---|
-| 広義積分 | 期待値の存在、コーシー分布、裾の評価 |
+| 広義積分 | 期待値の存在、裾の評価 |
 | 部分積分 | ガンマ型積分、期待値、モーメント |
 | ガウス積分 | 正規分布の正規化、多変量正規分布 |
 | ガンマ関数 | ガンマ分布、カイ二乗分布、t分布、F分布 |
@@ -2038,7 +1779,7 @@ $$
 | 射影行列 | 線形回帰、分散分析、一般線形仮説 |
 | シュール補 | 多変量正規分布の条件付き分布 |
 
-F0-01 以降では、この章の数学を既知として統計問題へ接続します。
+F0-01以降では、この章の数学を既知として統計問題へ接続します。
 
 ---
 
@@ -2052,7 +1793,7 @@ F0-01 以降では、この章の数学を既知として統計問題へ接続�
 - [ ] 一般の2変数ヤコビアンを行列式から求められる。
 - [ ] ガンマ関数の定義・漸化式・半整数値を使える。
 - [ ] ベータ関数とガンマ関数の関係を使える。
-- [ ] $B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)$ を重積分から追える。
+- [ ] ベータ・ガンマ関係を2重積分から追える。
 - [ ] 2次行列の行列式・逆行列・固有値を計算できる。
 - [ ] 列フルランクなら $A^{\mathsf T}A$ が可逆な理由を説明できる。
 - [ ] 実対称行列を直交対角化し、二次形式へ使える。
