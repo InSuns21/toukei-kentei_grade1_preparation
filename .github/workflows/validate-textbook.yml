@@ -34,9 +34,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Align textbook notation
-        run: python3 scripts/one_time_align_textbook_notation_2026_08_26.py
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
