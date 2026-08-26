@@ -21,6 +21,36 @@ jobs:
           node-version: "20"
           cache: npm
 
+      - name: Make LaTeX patch literals raw
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("scripts/_tmp_prerequisite_aware_review.py")
+          lines = p.read_text(encoding="utf-8").splitlines(keepends=True)
+          prefixes = (
+              "new = '''正定値なら半正定値",
+              "old = '''よって全ての固有値",
+              "new = '''よって全ての固有値",
+              "'''$p$変量でも考え方は同じで",
+              "'''を使います。本章の通常演習では",
+              "'''を使います。この通常の密度表示では",
+              "'''> この行列 $",
+          )
+          out = []
+          for line in lines:
+              stripped = line.lstrip()
+              if stripped.startswith(prefixes) and not stripped.startswith("r'''"):
+                  indent = line[:len(line) - len(stripped)]
+                  if stripped.startswith(("new = ''',", "old = '''")):
+                      line = line.replace("= '''", "= r'''", 1)
+                  elif stripped.startswith("new = '''") or stripped.startswith("old = '''"):
+                      line = line.replace("= '''", "= r'''", 1)
+                  else:
+                      line = indent + "r" + stripped
+              out.append(line)
+          p.write_text("".join(out), encoding="utf-8")
+          PY
+
       - name: Apply review policy updates
         run: python scripts/_tmp_prerequisite_aware_review.py
 
