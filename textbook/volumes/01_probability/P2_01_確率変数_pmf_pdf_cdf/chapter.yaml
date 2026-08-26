@@ -2,12 +2,12 @@ id: "P2-01"
 title: "確率変数・確率質量関数・確率密度関数・累積分布関数"
 volume: "probability"
 status: reviewed
-prerequisites: [P1-02]
+prerequisites: [P1-02, F0-00]
 official_scope: [確率関数, 確率密度関数, 累積分布関数, 同時分布, 周辺分布]
 learning_objectives:
   - 確率変数とその分布を標本点と区別して説明できる
-  - PMF・PDFの非負性と正規化を確認できる
-  - CDFの右連続性・単調性・端点と跳躍を使える
+  - 確率質量関数・確率密度関数の非負性と正規化を確認できる
+  - 累積分布関数の右連続性・単調性・端点と跳躍を使える
   - 同時分布から周辺分布を和または積分で導ける
   - 離散・連続・混合分布を見分けLevel Cを20〜30分で記述できる
 definitions:
@@ -17,14 +17,14 @@ definitions:
   - { id: P2-DEF-04, name: 累積分布関数 }
   - { id: P2-DEF-05, name: 同時分布と周辺分布 }
 theorems:
-  - { id: P2-THM-01, name: CDFの基本性質 }
-  - { id: P2-THM-02, name: CDFによる区間確率 }
-  - { id: P2-THM-03, name: PDFとCDFの対応 }
+  - { id: P2-THM-01, name: 累積分布関数の基本性質 }
+  - { id: P2-THM-02, name: 累積分布関数による区間確率と跳躍 }
+  - { id: P2-THM-03, name: 確率密度関数と累積分布関数の対応 }
   - { id: P2-THM-04, name: 周辺化公式 }
-canonical_examples: [離散CDFの段差, 連続密度の正規化, 混合分布の跳躍, 同時密度の周辺化]
-problem_patterns: [NORM-1, CDF-1, ATOM-1, MARG-1, JOINT-1, INDEP-RV-1, ANSWER-1]
+canonical_examples: [離散累積分布関数の段差, 連続密度の正規化, 混合分布の跳躍, 同時密度の周辺化]
+problem_patterns: [NORM-1, CDF-1, ATOM-1, MARG-1, JOINT-1, INDEP-RV-1]
 past_exam_alignment:
-  - { id: MATH-2024-Q4, current_skills: [CDF, 混合分布, 点質量], later_skills: [経験分布, 推定] }
+  - { id: MATH-2024-Q4, current_skills: [累積分布関数, 混合分布, 点質量], later_skills: [経験分布, 推定] }
   - { id: MATH-2022-Q2, current_skills: [支持領域, 同時密度, 周辺密度], later_skills: [条件付き密度, 条件付き期待値, 相関] }
 integrated_exam_problems: [P2-DRILL-01]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
