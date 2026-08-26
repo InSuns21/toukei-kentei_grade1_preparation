@@ -19,10 +19,11 @@ for (const volume of fs.readdirSync(textbookRoot, { withFileTypes: true }).filte
 
 rows.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
 console.log('通常教材 詳細解答粒度監査（非ブロッキング）');
+console.log('粒度基準: statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md と references/official-scope.md');
 for (const row of rows) {
   console.log(`${row.label.padEnd(7)} ${row.id.padEnd(7)} score=${String(row.score).padStart(2)} problems=${row.problemCount} solutions=${row.solutionCount} ${row.notes.join(' / ')}`);
 }
-console.log('判定は候補抽出です。文字数だけで水増しせず、採点対象の導出を再現できるか本文で確認してください。');
+console.log('判定は候補抽出です。文字数だけで水増しせず、採点対象の出発点・条件・主要な途中計算・結論を再現できるか本文で確認してください。');
 
 function auditChapter(chapterDir, id) {
   const canonical = path.join(chapterDir, 'index.md');
@@ -55,7 +56,7 @@ function auditChapter(chapterDir, id) {
       continue;
     }
     const tasks = Math.max(1, (problem.match(/^\s*\d+[.)]\s+/gm) ?? []).length);
-    const detail = plainLength(solution);
+    const detail = plainLength(extractDetailedSolution(solution));
     const minimum = Math.max(180, tasks * 220);
     if (detail < minimum) {
       short += 1;
@@ -118,22 +119,45 @@ function parseCanonical(source) {
   const problems = new Map();
   const solutions = new Map();
   const lines = source.split('\n');
-  for (let i = 0; i < lines.length;) {
-    const match = lines[i].match(/^###\s+([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)\b/);
-    if (!match) { i += 1; continue; }
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^#{2,3}\s+([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)\b/);
+    if (!match) continue;
+
     const id = match[1];
-    const problem = [lines[i++]];
-    while (i < lines.length && lines[i] !== '<!-- solution-start -->' && !/^###\s+/.test(lines[i]) && !/^##\s+/.test(lines[i])) problem.push(lines[i++]);
-    problems.set(id, problem.join('\n'));
-    if (lines[i] === '<!-- solution-start -->') {
-      const answer = [];
-      i += 1;
-      while (i < lines.length && lines[i] !== '<!-- solution-end -->') answer.push(lines[i++]);
-      if (lines[i] === '<!-- solution-end -->') i += 1;
-      solutions.set(id, answer.join('\n'));
+    let end = i + 1;
+    while (end < lines.length && !/^#{2,3}\s+/.test(lines[end])) end += 1;
+    const blockLines = lines.slice(i, end);
+    const block = blockLines.join('\n');
+
+    // Canonical single-page chapters contain many hyphenated technique/theorem
+    // headings (e.g. SUPPORT-1). Only exercise/drill blocks carry exercise
+    // metadata or an inline solution marker, so do not count ordinary prose
+    // headings as unanswered problems.
+    if (!/^-\s+level:\s*/m.test(block) && !block.includes('<!-- solution-start -->')) continue;
+
+    const marker = blockLines.indexOf('<!-- solution-start -->');
+    const problemLines = marker >= 0 ? blockLines.slice(0, marker) : blockLines;
+    problems.set(id, problemLines.join('\n'));
+
+    if (marker >= 0) {
+      const solutionEnd = blockLines.indexOf('<!-- solution-end -->', marker + 1);
+      const answerLines = solutionEnd >= 0
+        ? blockLines.slice(marker + 1, solutionEnd)
+        : blockLines.slice(marker + 1);
+      solutions.set(id, answerLines.join('\n'));
     }
   }
+
   return { problems, solutions };
+}
+
+function extractDetailedSolution(solution) {
+  const start = solution.search(/#{3,5}\s+詳細解答\b/);
+  if (start < 0) return solution;
+  const tail = solution.slice(start);
+  const end = tail.search(/\n#{3,5}\s+本番答案\b/);
+  return end >= 0 ? tail.slice(0, end) : tail;
 }
 
 function findPrefix(directory, prefix) {
@@ -142,5 +166,14 @@ function findPrefix(directory, prefix) {
 }
 
 function plainLength(text) {
-  return text.replace(/```[\s\S]*?```/g, '').replace(/\$\$[\s\S]*?\$\$/g, ' FORMULA ').replace(/\$[^$\n]+\$/g, ' FORMULA ').replace(/[#*`>|_-]/g, '').replace(/\s+/g, '').length;
+  return text
+    .replace(/```[\s\S]*?```/g, '')
+    // Formula-heavy statistical solutions should not be treated as short merely
+    // because mathematics is enclosed in delimiters. Keep the formula body and
+    // remove only Markdown/LaTeX delimiters and presentation punctuation.
+    .replace(/\$\$/g, '')
+    .replace(/\$/g, '')
+    .replace(/[#*`>|_]/g, '')
+    .replace(/\s+/g, '')
+    .length;
 }
