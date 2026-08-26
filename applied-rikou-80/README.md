@@ -4,7 +4,9 @@
 
 ## 共通規約
 
-作問・詳細解答・本番答案・採点、定理の利用、電卓・数表、行間の埋め方、日本語表記は、統計数理と共通の [統計数理・統計応用 共通演習規約](../EXERCISE_GUIDELINES.md) を正本とします。
+用語・記号・分布表記・Markdown/KaTeXは、通常教材・数理100・Ankiと共通の [全教材共通規約](../CONTENT_GUIDELINES.md) を正本とします。用語は [共通用語ガイド](../references/terminology-guide.md)、分布の台・母数・密度/質量関数は [共通分布規約](../references/distribution-notation-guide.md) に従います。
+
+作問・詳細解答・本番答案・採点、定理の利用、電卓・数表、行間の埋め方は、統計数理と共通の [統計数理・統計応用 共通演習規約](../EXERCISE_GUIDELINES.md) を正本とします。
 
 このディレクトリでは上記規約を別定義しません。規約と本文が食い違う場合は、局所規約を増やさず本文を共通規約へ合わせます。
 
@@ -47,6 +49,7 @@ npm ci
 npm run validate:rikou80
 npm run validate:exercise-style
 npm run audit:granularity
+npm run audit:terminology
 ```
 
 リポジトリ全体は
@@ -55,7 +58,7 @@ npm run audit:granularity
 npm run validate
 ```
 
-で検証します。`validate:rikou80` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。粒度監査は候補抽出用であり、短さだけを理由に本文を水増ししません。
+で検証します。`validate:rikou80` は `katex.renderToString` を `throwOnError: true`, `strict: "error"` で実行します。粒度監査・用語監査は候補抽出用であり、短さや英字トークンだけを理由に本文を水増し・機械置換しません。
 
 ## 数式記法
 

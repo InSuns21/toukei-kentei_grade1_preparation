@@ -16,12 +16,24 @@
     .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
     .toukei-math-display { display: block; }
     .sidebar-nav li { line-height: 1.45; }
+    .solution-details { margin: 0.8rem 0 1.4rem; border: 1px solid #d8dee4; border-radius: 6px; padding: 0.15rem 0.8rem 0.7rem; }
+    .solution-details summary { cursor: pointer; font-weight: 600; padding: 0.65rem 0; }
+    .solution-details .solution-body > :first-child { margin-top: 0.4rem; }
   </style>
 </head>
 <body>
   <div id="app">教材を読み込んでいます...</div>
   <script src="math-renderer.js"></script>
   <script>
+    function solutionDetailsPlugin(hook) {
+      hook.afterEach(function (html) {
+        return html.replace(
+          /<!-- solution-start -->([\s\S]*?)<!-- solution-end -->/g,
+          '<details class="solution-details"><summary>解答を表示</summary><div class="solution-body">$1</div></details>'
+        );
+      });
+    }
+
     window.$docsify = {
       name: '統計検定1級 対策教材',
       repo: 'InSuns21/toukei-kentei_grade1_preparation',
@@ -35,7 +47,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin]
     };
   </script>
   <!--

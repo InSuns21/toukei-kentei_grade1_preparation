@@ -2,6 +2,12 @@
 
 `pdfs/anki.md` を設計仕様、`pdfs/grade1_hani_20150508_2.pdf` を公式範囲の根拠として作る、オフライン完結の静的カード教材です。
 
+## 共通規約
+
+用語・分布表記・Markdown/KaTeXは通常教材・数理100・理工80と共通の `../CONTENT_GUIDELINES.md` を継承します。日本語用語の正本は `../references/terminology-guide.md`、分布の台・母数・確率質量関数・確率密度関数の共通正本は `../references/distribution-notation-guide.md` です。`notation.md` はAnki固有のカード内記号・補足規約を持ち、共通正本と矛盾する別規約を作りません。
+
+Ankiは1カード1論点のため、通常教材・大問集の20〜30分答案や採点基準は要求しません。一方、非自明な略語を主表記にしないこと、公式だけ置いて主要計算を飛ばさないことは共通です。
+
 ## 使い方
 
 ```powershell
@@ -9,6 +15,7 @@ npm run anki:build
 npm run anki:validate
 npm run anki:curation
 npm run anki:progress
+npm run audit:terminology
 ```
 
 `anki:curation` は正本カード総数と通常デッキに採用するカード数、優先度別・カテゴリー別の内訳を表示します。
@@ -17,7 +24,7 @@ npm run anki:progress
 
 生成物は `dist/index.html` をカテゴリー一覧の入口とし、カード本文は `category-math-probability.html` など公式シラバスのカテゴリー別HTMLに分かれます。単一カテゴリーが200枚を超えた場合は、まずサブカテゴリー境界で意味的に分割します。単一サブカテゴリーだけで200枚を超える場合に限り、その内部を最大200枚で分割します。`dist/` をコピーすれば、ネットワークなしで閲覧できます。
 
-カードの正本は `cards/**/*.md`、分類の正本は `syllabus/syllabus.yaml`、記法・分布の正本は `notation.md`、公式・定理・定義の正本は `formulae.md` です。CSSとJavaScriptの正本は `static/`、HTML雛形は `templates/`、KaTeX資産の正本はルートの `node_modules/katex/dist/` にあります。`dist/` はこれらから再生成できるためGit管理せず、生成済みHTMLや `dist/assets/` を直接編集しません。
+カードの正本は `cards/**/*.md`、分類の正本は `syllabus/syllabus.yaml`、Anki固有の記法は `notation.md`、公式・定理・定義の正本は `formulae.md` です。CSSとJavaScriptの正本は `static/`、HTML雛形は `templates/`、KaTeX資産の正本はルートの `node_modules/katex/dist/` にあります。`dist/` はこれらから再生成できるためGit管理せず、生成済みHTMLや `dist/assets/` を直接編集しません。
 
 ## 通常デッキの枚数上限
 
