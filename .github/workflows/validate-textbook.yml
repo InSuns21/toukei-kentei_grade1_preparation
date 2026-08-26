@@ -27,17 +27,12 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Align textbook notation
         run: python3 scripts/one_time_align_textbook_notation_2026_08_26.py
@@ -53,17 +48,3 @@ jobs:
 
       - name: Validate textbook
         run: npm run validate
-
-      - name: Commit notation alignment
-        if: github.event_name == 'push'
-        run: |
-          if git diff --quiet; then
-            echo 'No notation-alignment changes to commit.'
-            exit 0
-          fi
-          git diff --check
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add 'textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md'
-          git commit -m 'textbook: align finite-partition and group-label notation'
-          git push origin HEAD:main
