@@ -3,16 +3,16 @@ title: "変数変換・順序統計量"
 volume: "distributions"
 status: reviewed
 prerequisites: [P3-03]
-official_scope: [1変数変換, 多変数変換, Jacobian, 和, 差, 積, 比, 最大値, 最小値, 順序統計量]
+official_scope: [1変数変換, 多変数変換, ヤコビアン, 和, 差, 積, 比, 最大値, 最小値, 順序統計量]
 learning_objectives:
   - 単調・非単調な一変数変換で全逆像を数えられる
-  - 多変数変換で像の領域と絶対Jacobianを正しく書ける
+  - 多変数変換で像の領域とヤコビアンの絶対値を正しく書ける
   - 和・差・積・比の密度公式を導ける
   - 最大・最小・第k順序統計量の分布を再現できる
   - 二つの順序統計量の同時密度を組合せから導ける
 definitions:
   - { id: P4-DEF-01, name: 一変数変換と逆像 }
-  - { id: P4-DEF-02, name: 多変数変換とJacobian }
+  - { id: P4-DEF-02, name: 多変数変換とヤコビアン }
   - { id: P4-DEF-03, name: 順序統計量 }
 theorems:
   - { id: P4-THM-01, name: 一変数密度変換公式 }
@@ -20,12 +20,12 @@ theorems:
   - { id: P4-THM-03, name: 和差積比の密度 }
   - { id: P4-THM-04, name: 最大最小と第k順序統計量 }
   - { id: P4-THM-05, name: 順序統計量の同時密度 }
-  - { id: P4-THM-06, name: 確率積分変換とBeta分布 }
-canonical_examples: [平方変換, 畳込み, 極座標変換, 最大最小, 標本中央値, 範囲]
+  - { id: P4-THM-06, name: 確率積分変換とベータ分布 }
+canonical_examples: [平方変換, 畳込み, 極座標変換, 最大最小, 標本中央値, 標本範囲]
 problem_patterns: [PREIMAGE-1, SUPPORT-MAP-1, JACOBIAN-1, CONV-1, RATIO-1, ORDER-1, EXTREME-1, ANSWER-1]
 past_exam_alignment:
   - { id: MATH-2024-Q5, current_skills: [順序統計量, 同時密度, 条件付き期待値], later_skills: [十分性, Rao--Blackwell化] }
-  - { id: MATH-2018-Q5, current_skills: [最小値, 中央値, 最大値, range], later_skills: [推定量の比較] }
+  - { id: MATH-2018-Q5, current_skills: [最小値, 中央値, 最大値, 標本範囲], later_skills: [推定量の比較] }
   - { id: MATH-2024-Q2, current_skills: [変数変換, 最大値, 不偏推定], later_skills: [最尤推定, 平均二乗誤差] }
 integrated_exam_problems: [P4-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
