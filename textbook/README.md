@@ -6,10 +6,12 @@
 - 構成・進捗の正本：`curriculum.yaml`
 - 章本文の正本：`volumes/<volume>/<chapter>/index.md`（新形式）
 - 章メタデータ：各章の `chapter.yaml`、`glossary.yaml`
-- 記法規約：`notation.md`
+- 共通記法：`../references/notation-guide.md`
+- 通常教材だけの記法差分：`notation.md`
 - 共通用語：`../references/terminology-guide.md`
 - 共通分布規約：`../references/distribution-notation-guide.md`
-- 執筆規約：`style-guide.md`
+- 通常教材だけの執筆差分：`style-guide.md`
+- 共通演習規約：`../EXERCISE_GUIDELINES.md`
 - 粒度レビュー計画：`REVIEW_PLAN.md`
 - 章間依存：`dependency-graph.md`
 - 章生成・査読プロンプト：`prompts/`
@@ -41,4 +43,4 @@ npm run audit:textbook-granularity
 npm run audit:terminology
 ```
 
-`curriculum.yaml` の `volumes[].directory` は、この `textbook/` を基準とする相対パスです。通常教材の新規ファイルは原則としてこのフォルダ配下へ置き、共有の出典・過去問索引・用語ガイドはルートの `references/` を参照します。
+`curriculum.yaml` の `volumes[].directory` は、この `textbook/` を基準とする相対パスです。通常教材の新規ファイルは原則としてこのフォルダ配下へ置き、共有の出典・過去問索引・用語・記法ガイドはルートの `references/` を参照します。
