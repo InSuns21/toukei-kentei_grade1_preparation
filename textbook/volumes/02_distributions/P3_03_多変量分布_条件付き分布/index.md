@@ -1442,7 +1442,7 @@ $$
 ### P3M-D01 条件付き正規公式の導出
 - level: D
 - minutes: 40
-- topics: 多変量正規分布, 条件付き分布, Schur補
+- topics: 多変量正規分布, 条件付き分布
 - techniques: BLOCK-1, COND-NORMAL-1
 - calculation_load: high
 
@@ -1457,10 +1457,10 @@ $$
 \end{pmatrix}
 \right)
 $$
-に従い、全分散共分散行列は正定値とする。従って $\Sigma_{22}$ は可逆である。条件付き正規公式そのものを導出する問題なので、公式は使用せず以下を示せ。
+に従い、$\Sigma_{22}$ の逆行列が存在するものとする。条件付き正規公式そのものを導出する問題なので、公式は使用せず以下を示せ。
 
 1. $B=\Sigma_{12}\Sigma_{22}^{-1}$、$\boldsymbol R=\boldsymbol X_1-\boldsymbol\mu_1-B(\boldsymbol X_2-\boldsymbol\mu_2)$ と置き、$\operatorname{Cov}(\boldsymbol R,\boldsymbol X_2)=0$ を示せ。
-2. $\operatorname{Cov}(\boldsymbol R)$ がSchur補 $\Sigma_{1\mid2}$ であることを示せ。
+2. $\operatorname{Cov}(\boldsymbol R)=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$ を示せ。
 3. $(\boldsymbol R,\boldsymbol X_2)$ の結合分布が多変量正規分布であることを示せ。
 4. $\boldsymbol R$ と $\boldsymbol X_2$ の独立性を示せ。
 5. 以上から $\boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)$ の分布を導け。
@@ -1492,7 +1492,7 @@ $$
 &=\Sigma_{11}-2\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
 +\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\\
 &=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}
-=\Sigma_{1\mid2}.
+=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
 \end{aligned}
 $$
 $\Sigma_{22}$は対称なので逆行列も対称であることを使いました。$(\boldsymbol R,\boldsymbol X_2)$は$(\boldsymbol X_1,\boldsymbol X_2)$の定数項を含む線形変換なので、その結合分布も多変量正規です。交差共分散が0であるため、正規分布の性質から$\boldsymbol R$と$\boldsymbol X_2$は独立です。また
@@ -1524,17 +1524,17 @@ $$
 \begin{aligned}
 \operatorname{Cov}(\boldsymbol R)
 &=\Sigma_{11}-\Sigma_{12}B^{\mathsf T}-B\Sigma_{21}+B\Sigma_{22}B^{\mathsf T}\\
-&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}=\Sigma_{1\mid2}.
+&=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}=\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}.
 \end{aligned}
 $$
 $(\boldsymbol R,\boldsymbol X_2)$の結合分布は多変量正規で無相関なので独立し、$\boldsymbol R\sim N_p(\boldsymbol0,\Sigma_{1\mid2})$。$\boldsymbol X_1=\boldsymbol\mu_1+B(\boldsymbol X_2-\boldsymbol\mu_2)+\boldsymbol R$へ$\boldsymbol X_2=\boldsymbol x_2$を入れれば
 $$
-\boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)\sim N_p\left(\boldsymbol\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol x_2-\boldsymbol\mu_2),\Sigma_{1\mid2}\right).
+\boldsymbol X_1\mid(\boldsymbol X_2=\boldsymbol x_2)\sim N_p\left(\boldsymbol\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(\boldsymbol x_2-\boldsymbol\mu_2),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right).
 $$
 
 ##### 採点基準と選択判断
 
-次元2点、交差共分散4点、残差分散共分散5点、正規性3点、独立性3点、条件付き分布3点。合計20点。3分で残差化が見えなければ後回しにします。15分で交差共分散0まで得られれば継続し、25分でSchur補まで完成しなければ途中式を残して打ち切ります。完成した場合は独立残差の平行移動として閉じます。
+次元2点、交差共分散4点、残差分散共分散5点、正規性3点、独立性3点、条件付き分布3点。合計20点。3分で残差化が見えなければ後回しにします。15分で交差共分散0まで得られれば継続し、25分で条件付き分散共分散行列まで完成しなければ途中式を残して打ち切ります。完成した場合は独立残差の平行移動として閉じます。
 
 <!-- solution-end -->
 
@@ -1551,15 +1551,13 @@ MATH-2021-Q5とMATH-2018-Q4の「線形変換、条件付き正規、独立性�
 
 ## P3M-DRILL-01 多変量正規・条件付け・二次形式
 
-$N_2(\boldsymbol\mu,\boldsymbol\Sigma)$は、平均$\boldsymbol\mu\in\mathbb R^2$、正定値な分散共分散行列$\boldsymbol\Sigma$をもつ二変量正規分布を表す。その密度は
+$N_2(\boldsymbol\mu,\boldsymbol\Sigma)$は、平均$\boldsymbol\mu\in\mathbb R^2$、分散共分散行列$\boldsymbol\Sigma$をもつ二変量正規分布を表す。この問題では次の密度式を用いてよい。
 $$
 f(\boldsymbol z)=\frac{1}{2\pi|\boldsymbol\Sigma|^{1/2}}
 \exp\left[-\frac12(\boldsymbol z-\boldsymbol\mu)^{\mathsf T}
 \boldsymbol\Sigma^{-1}(\boldsymbol z-\boldsymbol\mu)\right],
 \qquad \boldsymbol z\in\mathbb R^2.
 $$
-以下の分散共分散行列は、第1主座小行列式が4、第2主座小行列式が$4\cdot9-2^2=32$でともに正なので正定値である。
-
 $$
 \begin{pmatrix}X\\Y\end{pmatrix}
 \sim N_2\left(
@@ -1610,7 +1608,7 @@ $$
 \Sigma^{-1}=\frac1{32}
 \begin{pmatrix}9&-2\\-2&4\end{pmatrix}.
 $$
-正定値な二変量正規なので$Q\sim\chi_2^2$です。観測偏差は$(2,1)^{\mathsf T}$で
+多変量正規分布のマハラノビス二次形式の結果より$Q\sim\chi_2^2$です。観測偏差は$(2,1)^{\mathsf T}$で
 $$
 Q=(2,1)\frac1{32}
 \begin{pmatrix}9&-2\\-2&4\end{pmatrix}
@@ -1650,7 +1648,7 @@ $$
 5. アフィン平均は$A\mu+b$。
 6. アフィン共分散は$A\Sigma A^{\mathsf T}$。
 7. 多変量正規では周辺分布と線形結合も正規になる。
-8. 密度式には共分散の正定値性が必要。
+8. 密度を使う問題では、問題文で与えられた分散共分散行列と密度式を確認する。
 9. 正規の部分ベクトルは正規。
 10. 条件付き平均は観測偏差に依存する。
 11. 条件付き共分散は観測値に依存しない。
@@ -1685,7 +1683,7 @@ $$
 - 制限時間: 30分
 - 現在解く範囲: 条件付き2変量正規、残差、条件付き独立
 - 後続章で再挑戦: Markov連鎖としての解釈
-- 答案確認: 条件付き平均の係数、Schur補分散、独立と無相関を区別する。
+- 答案確認: 条件付き平均の係数、条件付き分散、独立と無相関を区別する。
 
 ## 過去問型独自ドリルとの接続
 
