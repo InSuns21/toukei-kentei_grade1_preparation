@@ -27,12 +27,38 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run one-time prompt normalization when needed
+        run: |
+          if grep -q '^# 統計数理・統計応用 共通演習規約$' EXERCISE_GUIDELINES.md; then
+            python3 - <<'PY'
+          from pathlib import Path
+
+          source = Path('.github/workflows/normalize-textbook-exercise-prompts-2026-08-26.yml').read_text(encoding='utf-8')
+          start_marker = "          python3 - <<'PY'\n"
+          end_marker = "\n          PY\n"
+          start = source.index(start_marker) + len(start_marker)
+          end = source.index(end_marker, start)
+          code = source[start:end]
+          lines = code.splitlines()
+          # The embedded block is indented 10 spaces by YAML. Strip that common indent.
+          code = '\n'.join(line[10:] if line.startswith('          ') else line for line in lines) + '\n'
+          exec(compile(code, '<prompt-normalizer>', 'exec'), {'__name__': '__main__'})
+          PY
+          else
+            echo 'Prompt normalization already applied; skipping.'
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -45,3 +71,19 @@ jobs:
 
       - name: Validate textbook
         run: npm run validate
+
+      - name: Commit normalized textbook prompts
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet; then
+            echo 'No normalization changes to commit.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add EXERCISE_GUIDELINES.md textbook/style-guide.md \
+            'textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md' \
+            'textbook/volumes/02_distributions/P3_01_主要な離散分布/index.md'
+          git commit -m 'textbook: align exercise prompts with Math 100 notation'
+          git push origin HEAD:main
