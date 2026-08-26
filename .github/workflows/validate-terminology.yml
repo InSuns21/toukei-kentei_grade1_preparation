@@ -1,0 +1,51 @@
+name: Validate terminology
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
+      - 'textbook/**'
+      - 'anki/**'
+      - 'references/terminology-guide.md'
+      - 'scripts/audit_terminology.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-terminology.yml'
+  pull_request:
+    paths:
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
+      - 'textbook/**'
+      - 'anki/**'
+      - 'references/terminology-guide.md'
+      - 'scripts/audit_terminology.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-terminology.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-terminology:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate syllabus terminology and changed prose
+        env:
+          TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run validate:terminology:changed
