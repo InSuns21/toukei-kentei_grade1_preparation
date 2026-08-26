@@ -1366,7 +1366,15 @@ $$
 - techniques: STANDARDIZE-1
 - calculation_load: low
 
-$X\sim N(10,2^2)$ の $P(8<X\le13)$ を標準正規分布の累積分布関数 $\Phi$ で表し、平均と分散を答えよ。
+連続型確率変数 $X$ の確率密度関数を
+
+$$
+f_X(x)=\frac{1}{2\sqrt{2\pi}}
+\exp\left\{-\frac{(x-10)^2}{8}\right\},
+\qquad x\in\mathbb R
+$$
+
+とする。これは $X\sim N(10,2^2)$（平均10、分散 $2^2=4$）に対応する。標準正規分布の累積分布関数を $\Phi$ とする。$P(8<X\le13)$ を $\Phi$ で表し、平均と分散を答えよ。
 
 <!-- solution-start -->
 
