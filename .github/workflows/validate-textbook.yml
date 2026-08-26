@@ -39,31 +39,96 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run one-time prompt normalization when needed
+      - name: Align finite-partition and group-label notation
         run: |
-          if grep -q '^# 統計数理・統計応用 共通演習規約$' EXERCISE_GUIDELINES.md; then
-            python3 - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
 
-          source = Path('.github/workflows/normalize-textbook-exercise-prompts-2026-08-26.yml').read_text(encoding='utf-8')
-          start_marker = "          python3 - <<'PY'\n"
-          end_marker = "\n          PY\n"
-          start = source.index(start_marker) + len(start_marker)
-          end = source.index(end_marker, start)
-          code = source[start:end]
-          lines = code.splitlines()
-          # The embedded block is indented 10 spaces by YAML. Strip that common indent.
-          code = '\n'.join(line[10:] if line.startswith('          ') else line for line in lines) + '\n'
-          strict = """    for old, new in replacements:\n        if old not in segment:\n            raise RuntimeError(f'{label}: missing section token: {old!r}')\n        segment = segment.replace(old, new)\n"""
-          relaxed = """    for old, new in replacements:\n        segment = segment.replace(old, new)\n"""
-          if strict not in code:
-              raise RuntimeError('Could not locate scoped replacement helper in normalizer')
-          code = code.replace(strict, relaxed, 1)
-          exec(compile(code, '<prompt-normalizer>', 'exec'), {'__name__': '__main__'})
+          path = Path('textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md')
+          text = path.read_text(encoding='utf-8')
+
+          def transform_section(text, start_heading, end_heading, fn):
+              start = text.index(start_heading)
+              end = text.index(end_heading, start)
+              segment = text[start:end]
+              return text[:start] + fn(segment) + text[end:]
+
+          def finite_partition(segment):
+              segment = segment.replace('$H_1,\\ldots,H_m$', '$A_1,\\ldots,A_m$')
+              segment = segment.replace('H_i', 'A_i')
+              return segment
+
+          # Reserve A_i for partition events; Z/H remain random variables.
+          text = transform_section(
+              text,
+              '#### 有限分割はタワープロパティの特殊形',
+              '### 3.6 条件付き分散の計算公式と全分散公式',
+              finite_partition,
+          )
+          text = transform_section(
+              text,
+              '#### 有限分割での全分散',
+              '### 3.7 条件付き共分散の計算公式と全共分散公式',
+              finite_partition,
+          )
+          text = transform_section(
+              text,
+              '#### 有限分割での全共分散',
+              '### 3.8 確率母関数の微分',
+              finite_partition,
+          )
+
+          text = text.replace(
+              '$A_i$ 上で $Z=i$ となる群ラベル $Z$ を作れば',
+              '$A_i$ 上で $Z=i$ となる群ラベルを表す確率変数 $Z$ を作れば',
+              1,
+          )
+
+          # Typical examples should introduce variables at the same level as exercises.
+          def example1(segment):
+              old = '''### 例1：離散分布の平均と分散
+
+$$
+P(X=0)=\\frac14,\\qquad
+P(X=1)=\\frac12,\\qquad
+P(X=2)=\\frac14
+$$
+
+とします。'''
+              new = '''### 例1：離散分布の平均と分散
+
+離散型確率変数 $X$ の台を $\\{0,1,2\\}$ とし、確率質量関数を $p_X(x)=P(X=x)$ とします。ここで
+
+$$
+p_X(0)=\\frac14,\\qquad
+p_X(1)=\\frac12,\\qquad
+p_X(2)=\\frac14
+$$
+
+とします。'''
+              if old not in segment:
+                  raise RuntimeError('Example 1 opening not found')
+              return segment.replace(old, new, 1)
+
+          text = transform_section(text, '### 例1：離散分布の平均と分散', '### 例2：タワープロパティと全分散', example1)
+          text = text.replace('群ラベル $Z\\in\\{1,2\\}$ が', '群ラベルを表す確率変数 $Z\\in\\{1,2\\}$ が', 1)
+          text = text.replace('$Z\\in\\{0,1\\}$ がそれぞれ確率 $1/2$ で生じ、', '群ラベルを表す確率変数 $Z\\in\\{0,1\\}$ がそれぞれ確率 $1/2$ で生じ、', 1)
+
+          # P2-B08 uses H as a group-label random variable; do not fall back to event H_i notation.
+          def b08(segment):
+              segment = segment.replace(
+                  '(3) 条件付き共分散の計算公式',
+                  '(3) 任意の $h\\in\\{0,1\\}$ について、条件付き共分散の計算公式',
+                  1,
+              )
+              segment = segment.replace('H_i', 'H=h')
+              return segment
+
+          text = transform_section(text, '### P2-B08 全共分散', '## Level C：本番標準', b08)
+
+          path.write_text(text, encoding='utf-8')
+          print('Aligned finite-partition event notation A_i and group-label random-variable notation.')
           PY
-          else
-            echo 'Prompt normalization already applied; skipping.'
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,18 +142,16 @@ jobs:
       - name: Validate textbook
         run: npm run validate
 
-      - name: Commit normalized textbook prompts
+      - name: Commit notation alignment
         if: github.event_name == 'push'
         run: |
           if git diff --quiet; then
-            echo 'No normalization changes to commit.'
+            echo 'No notation-alignment changes to commit.'
             exit 0
           fi
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add EXERCISE_GUIDELINES.md textbook/style-guide.md \
-            'textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md' \
-            'textbook/volumes/02_distributions/P3_01_主要な離散分布/index.md'
-          git commit -m 'textbook: align exercise prompts with Math 100 notation'
+          git add 'textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md'
+          git commit -m 'textbook: align finite-partition and group-label notation'
           git push origin HEAD:main
