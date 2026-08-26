@@ -41,9 +41,7 @@ jobs:
               stripped = line.lstrip()
               if stripped.startswith(prefixes) and not stripped.startswith("r'''"):
                   indent = line[:len(line) - len(stripped)]
-                  if stripped.startswith(("new = ''',", "old = '''")):
-                      line = line.replace("= '''", "= r'''", 1)
-                  elif stripped.startswith("new = '''") or stripped.startswith("old = '''"):
+                  if stripped.startswith("new = '''") or stripped.startswith("old = '''"):
                       line = line.replace("= '''", "= r'''", 1)
                   else:
                       line = indent + "r" + stripped
@@ -53,6 +51,19 @@ jobs:
 
       - name: Apply review policy updates
         run: python scripts/_tmp_prerequisite_aware_review.py
+
+      - name: Normalize cross-section foundation reference
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("statistical-mathematics/core/26_conditional_normal_partial_correlation.md")
+          text = p.read_text(encoding="utf-8")
+          old = 'Schur補の定義は [F0-01「統計のための微積分・線形代数・答案記法」](../../textbook/volumes/00_foundations/F0_01_統計のための微積分_線形代数_答案記法/02_definitions.md) を共通正本とする。'
+          new = 'Schur補の定義は通常教材 F0-01「統計のための微積分・線形代数・答案記法」を共通正本とする。'
+          if old not in text:
+              raise SystemExit("expected Core 08 foundation link not found")
+          p.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
 
       - name: Install dependencies
         run: npm ci
