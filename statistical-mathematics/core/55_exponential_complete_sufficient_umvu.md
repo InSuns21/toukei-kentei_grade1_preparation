@@ -159,7 +159,7 @@ $$
 ## 本番答案
 
 $$
-L(\lambda;x)=\lambda^ne^{-\lambda T}\prod_i1\{x_i>0\}
+L(\lambda;x)=\lambda^ne^{-\lambda T}\prod_i\boldsymbol{1}_{\{x_i>0\}}
 =g_\lambda(T)h(x).
 $$
 
@@ -173,11 +173,11 @@ $$
 
 問題文で与えた **Laplace変換の一意性**から $g(t)t^{n-1}=0$、従って $g(t)=0$ で $T$ は完備。
 
-また $Y=1\{X_1>c\}$ は不偏。独立Gammaで共通rateなので **Gamma–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
+また $Y=\boldsymbol{1}_{\{X_1>c\}}$ は不偏。独立Gammaで共通rateなので **Gamma–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
 
 $$
 E[Y\mid T]
-=1\{T>c\}\left(1-\frac cT\right)^{n-1}.
+=\boldsymbol{1}_{\{T>c\}}\left(1-\frac cT\right)^{n-1}.
 $$
 
 これは完備十分統計量から作られる有限期待値の不偏推定量なので **Lehmann–Scheffé 定理**から一様最小分散不偏推定量。
