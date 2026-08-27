@@ -90,72 +90,94 @@ $$
 $\nu=1$ なら
 
 $$
-T=\frac{Z_1}{\sqrt V},
+T=\frac{Z}{\sqrt V},
 \qquad
-Z_1\sim N(0,1),\quad V\sim\chi_1^2.
+Z\sim N(0,1),\quad V\sim\chi_1^2,
 $$
 
-独立な $Z_2\sim N(0,1)$ を用いれば $Z_2^2\sim\chi_1^2$ なので、分布の意味で
+であり、$Z$ と $V$ は独立である。
+
+自由度1のカイ二乗分布の確率密度関数は
 
 $$
-\sqrt V\overset{d}=|Z_2|.
+f_V(v)
+=\frac{1}{\sqrt{2\pi v}}e^{-v/2},
+\qquad v>0.
+$$
+
+従って $(Z,V)$ の同時確率密度関数は
+
+$$
+f_{Z,V}(z,v)
+=\frac{1}{2\pi\sqrt v}
+\exp\left(-\frac{z^2+v}{2}\right),
+\qquad v>0.
+$$
+
+ここで
+
+$$
+t=\frac{z}{\sqrt v},
+\qquad
+u=v
+$$
+
+と変数変換する。逆変換は
+
+$$
+z=t\sqrt u,
+\qquad
+v=u
+$$
+
+である。
+
+ヤコビアンは
+
+$$
+\left|
+\frac{\partial(z,v)}{\partial(t,u)}
+\right|
+=
+\left|
+\begin{matrix}
+\sqrt u & \dfrac{t}{2\sqrt u}\\
+0 & 1
+\end{matrix}
+\right|
+=\sqrt u.
 $$
 
 従って
 
 $$
-T\overset{d}=\frac{Z_1}{|Z_2|}.
-$$
-
-$Z_2$ の符号を $S=\operatorname{sgn}(Z_2)$ とする。標準正規分布の対称性から $S$ は $\pm1$ を同確率で取り、$|Z_2|$ と独立である。また $S$ は $Z_1$ とも独立で、$SZ_1\overset{d}=Z_1$ である。従って
-
-$$
-\frac{Z_1}{|Z_2|}
-\overset{d}=
-\frac{SZ_1}{|Z_2|}
-=\frac{Z_1'}{Z_2},
-$$
-
-ここで $Z_1'=SZ_1\sim N(0,1)$ である。
-
-比 $R=Z_1/Z_2$ の密度も確認する。変換
-
-$$
-r=\frac{z_1}{z_2},
-\qquad s=z_2
-$$
-
-の逆変換は $z_1=rs,z_2=s$ であり、Jacobianの絶対値は $|s|$。独立標準正規の同時密度から
-
-$$
 \begin{aligned}
-f_R(r)
-&=\int_{-\infty}^{\infty}
-\frac{1}{2\pi}
-\exp\left[-\frac{(r^2+1)s^2}{2}\right]|s|\,ds\\
-&=\frac1\pi\int_0^\infty
-s\exp\left[-\frac{(1+r^2)s^2}{2}\right]ds.
+f_{T,U}(t,u)
+&=f_{Z,V}(t\sqrt u,u)\sqrt u\\
+&=\frac{1}{2\pi}
+\exp\left\{-\frac{(1+t^2)u}{2}\right\},
+\qquad u>0.
 \end{aligned}
 $$
 
-$t=(1+r^2)s^2/2$ と置くと $dt=(1+r^2)s\,ds$ だから
+$u$ を積分して周辺確率密度関数を求めると
 
 $$
 \begin{aligned}
-f_R(r)
-&=\frac1{\pi(1+r^2)}
-\int_0^\infty e^{-t}\,dt\\
-&=\boxed{\frac1{\pi(1+r^2)}}.
+f_T(t)
+&=\int_0^\infty
+\frac{1}{2\pi}
+\exp\left\{-\frac{(1+t^2)u}{2}\right\}du\\
+&=\frac{1}{2\pi}\frac{2}{1+t^2}\\
+&=\boxed{\frac{1}{\pi(1+t^2)}}.
 \end{aligned}
 $$
 
 これは標準Cauchy分布の確率密度関数である。従って
 
 $$
-\boxed{T\sim\operatorname{Cauchy}(0,1)}
+\boxed{T\sim\operatorname{Cauchy}(0,1)}.
 $$
-
-となる。
 
 ### 4. $W=T^2$ の確率密度関数
 
@@ -216,21 +238,26 @@ $$
 T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
 $$
 
-$\nu=1$ では独立標準正規 $Z_1,Z_2$ を用いて
+$\nu=1$ では
 
 $$
-T\overset d=Z_1/|Z_2|\overset d=Z_1/Z_2.
+f_{Z,V}(z,v)
+=\frac{1}{2\pi\sqrt v}
+\exp\left(-\frac{z^2+v}{2}\right),
+\qquad v>0.
 $$
 
-比 $R=Z_1/Z_2$ に $z_1=rs,z_2=s$ を用いると
+$t=z/\sqrt v,\ u=v$ と変数変換すると、逆変換は $z=t\sqrt u,\ v=u$ であり、ヤコビアンの絶対値は $\sqrt u$ である。従って
 
 $$
-f_R(r)
-=\int\frac{|s|}{2\pi}e^{-(1+r^2)s^2/2}ds
-=\frac1{\pi(1+r^2)},
+f_T(t)
+=\int_0^\infty
+\frac{1}{2\pi}
+\exp\left\{-\frac{(1+t^2)u}{2}\right\}du
+=\frac{1}{\pi(1+t^2)}.
 $$
 
-従って標準Cauchy分布。
+従って $T$ は標準Cauchy分布に従う。
 
 さらに $W=T^2$ なら
 
@@ -251,5 +278,5 @@ $$
 
 - t分布の定義との対応: 4点
 - $T^2$ とF分布の対応（独立性を含む）: 5点
-- $\nu=1$ のCauchy分布（正規比の密度導出）: 7点
+- $\nu=1$ のCauchy分布（ヤコビアンを用いた密度導出）: 7点
 - 二乗変換の累積分布関数から密度を導出: 4点
