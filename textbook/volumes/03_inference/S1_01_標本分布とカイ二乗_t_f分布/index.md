@@ -1,6 +1,6 @@
 # S1-01 標本分布とカイ二乗・t・F分布
 
-分布の台・母数・密度と略語は [分布・略語の共通索引](../../../../references/distribution-notation-guide.md) でも確認できる。
+分布記法の共通規約は [分布・略語の共通索引](../../../../references/distribution-notation-guide.md) でも確認できる。
 
 ## この章の到達点
 
@@ -70,7 +70,7 @@ $$
 f_Q(q)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}q^{\nu/2-1}e^{-q/2}
 \boldsymbol1_{(0,\infty)}(q).
 $$
-これは shape-rate 表示の $\operatorname{Gamma}(\nu/2,1/2)$ であるから
+これは形状母数 $\nu/2$、率母数 $1/2$ のガンマ分布 $\operatorname{Gamma}(\nu/2,1/2)$ であるから
 $$E[Q]=\nu,\qquad \operatorname{Var}(Q)=2\nu.$$
 
 ## S1-DEF-03 t分布
@@ -99,7 +99,7 @@ f_W(w)=
 w^{\nu_1/2-1}
 \left(1+\frac{\nu_1}{\nu_2}w\right)^{-(\nu_1+\nu_2)/2},
 $$
-台外では0である。$u=\nu_1w/(\nu_2+\nu_1w)$ と置くとBeta積分へ変換され、全積分が1となる。
+台外では0である。$u=\nu_1w/(\nu_2+\nu_1w)$ と置くとベータ積分へ変換され、全積分が1となる。
 
 上側確率 $P(F_{\nu_1,\nu_2}>c)=\alpha$ を満たす点を $F_{\nu_1,\nu_2;\alpha}$ と書く。以後、上側確率で添字を付ける。
 
@@ -109,7 +109,7 @@ $$
 
 ## S1-THM-01 正規標本の平均と分散
 
-$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$、$n\geq2$ とする。このとき
+$X_1,\ldots,X_n\overset{\text{独立同分布}}{\sim}N(\mu,\sigma^2)$、$n\geq2$ とする。このとき
 $$
 \overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right),
 \qquad
@@ -188,9 +188,9 @@ $$
 
 二つの標本が互いに独立で、$n_1,n_2\geq2$ とし、
 $$
-X_1,\ldots,X_{n_1}\overset{\mathrm{i.i.d.}}{\sim}N(\mu_1,\sigma_1^2),
+X_1,\ldots,X_{n_1}\overset{\text{独立同分布}}{\sim}N(\mu_1,\sigma_1^2),
 \qquad
-Y_1,\ldots,Y_{n_2}\overset{\mathrm{i.i.d.}}{\sim}N(\mu_2,\sigma_2^2)
+Y_1,\ldots,Y_{n_2}\overset{\text{独立同分布}}{\sim}N(\mu_2,\sigma_2^2)
 $$
 とする。各不偏標本分散を $S_1^2,S_2^2$ とすると
 $$
@@ -212,7 +212,7 @@ $\sigma_1^2=\sigma_2^2$ のときだけ、未調整の比 $S_1^2/S_2^2$ 自体�
 
 ## 例1 標本分散の確率
 
-$X_1,\ldots,X_{10}\overset{\mathrm{i.i.d.}}{\sim}N(\mu,4)$ とする。$P(S^2\leq6)$ をカイ二乗分布で表す。
+$X_1,\ldots,X_{10}\overset{\text{独立同分布}}{\sim}N(\mu,4)$ とする。$P(S^2\leq6)$ をカイ二乗分布で表す。
 
 $$
 Q=\frac{(10-1)S^2}{4}\sim\chi^2_9.
@@ -223,7 +223,7 @@ $$P(S^2\leq6)=P(\chi^2_9\leq13.5).$$
 
 ## 例2 t統計量
 
-$X_1,\ldots,X_{16}\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ とし、$\overline X=12,S=4$ を観測した。$\mu=10$ を代入したt統計量は
+$X_1,\ldots,X_{16}\overset{\text{独立同分布}}{\sim}N(\mu,\sigma^2)$ とし、$\overline X=12,S=4$ を観測した。$\mu=10$ を代入したt統計量は
 $$
 t=\frac{\sqrt{16}(12-10)}4=2.
 $$
@@ -293,7 +293,6 @@ $$
 ### S1-A01 カイ二乗の平均分散
 - level: A
 - minutes: 7
-- techniques: CHI-SQUARE-1
 
 $Q\sim\chi^2_6$ の平均と分散を求めよ。
 
@@ -320,9 +319,8 @@ $$
 ### S1-A02 正規標本平均
 - level: A
 - minutes: 8
-- techniques: NORMAL-SAMPLE-1
 
-$X_i\overset{\mathrm{i.i.d.}}{\sim}N(3,4)$、$n=16$ のとき $\overline X$ の分布を求めよ。
+$X_i\overset{\text{独立同分布}}{\sim}N(3,4)$、$n=16$ のとき $\overline X$ の分布を求めよ。
 
 <!-- solution-start -->
 
@@ -348,7 +346,6 @@ $$
 ### S1-A03 t統計量
 - level: A
 - minutes: 8
-- techniques: T-PIVOT-1
 
 $N(\mu,\sigma^2)$ からの大きさ9の標本について、$\sqrt9(\overline X-\mu)/S$ の分布を答えよ。
 
@@ -375,11 +372,8 @@ t統計量の形10点、自由度8の特定10点。合計20点。
 ### S1-A04 F分布の逆数
 - level: A
 - minutes: 8
-- techniques: F-RATIO-1
 
 $W\sim F_{5,12}$ のとき $1/W$ の分布を答えよ。
-
-## Level B
 
 <!-- solution-start -->
 
@@ -405,7 +399,6 @@ $$
 ### S1-B01 平方和分解
 - level: B
 - minutes: 13
-- techniques: NORMAL-SAMPLE-1
 
 $\sum_i(X_i-\mu)^2=\sum_i(X_i-\overline X)^2+n(\overline X-\mu)^2$ を展開して示せ。
 
@@ -447,9 +440,8 @@ $$
 ### S1-B02 標本分散の区間確率
 - level: B
 - minutes: 14
-- techniques: CHI-SQUARE-1
 
-$X_i\overset{\mathrm{i.i.d.}}{\sim}N(\mu,9)$、$n=12$ とする。$P(6\leq S^2\leq12)$ を $\chi^2_{11}$ の確率で表せ。
+$X_i\overset{\text{独立同分布}}{\sim}N(\mu,9)$、$n=12$ とする。$P(6\leq S^2\leq12)$ を $\chi^2_{11}$ の確率で表せ。
 
 <!-- solution-start -->
 
@@ -482,7 +474,6 @@ $$
 ### S1-B03 t統計量の観測値
 - level: B
 - minutes: 14
-- techniques: T-PIVOT-1
 
 正規標本で $n=25,\overline x=52,s=10$ を得た。$\mu=50$ に対するt統計量と自由度を求めよ。
 
@@ -509,11 +500,8 @@ $$
 ### S1-B04 分散比
 - level: B
 - minutes: 15
-- techniques: F-RATIO-1
 
 独立な二つの正規標本で $n_1=10,n_2=16$ とする。$\sigma_1^2=\sigma_2^2$ の下で $S_1^2/S_2^2$ の分布を求め、$s_1^2=8,s_2^2=5$ の比を計算せよ。
-
-## Level C
 
 <!-- solution-start -->
 
@@ -543,12 +531,8 @@ F分布と自由度12点、観測比8点。合計20点。
 ### S1-C01 正規標本の標本分布
 - level: C
 - minutes: 25
-- subproblem_minutes: 3, 5, 5, 6, 6
-- calculation: medium
-- finishability: 25分で平方和分解・独立性・分布まで完答可能
-- techniques: NORMAL-SAMPLE-1, CHI-SQUARE-1
 
-$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$、$n\geq2$ とする。
+$X_1,\ldots,X_n\overset{\text{独立同分布}}{\sim}N(\mu,\sigma^2)$、$n\geq2$ とする。
 1. $\overline X$ の分布を求めよ。
 2. 全平方和を平均成分と残差成分に分解せよ。
 3. 残差の自由度が $n-1$ となる理由を述べよ。
@@ -650,12 +634,8 @@ $$
 ### S1-C02 標本分散の確率と不偏性
 - level: C
 - minutes: 25
-- subproblem_minutes: 4, 5, 4, 5, 7
-- calculation: medium
-- finishability: 25分で確率変形・平均分散・不偏性まで完答可能
-- techniques: CHI-SQUARE-1
 
-$X_i\overset{\mathrm{i.i.d.}}{\sim}N(\mu,16)$、$n=10$ とする。
+$X_i\overset{\text{独立同分布}}{\sim}N(\mu,16)$、$n=10$ とする。
 1. $Q=9S^2/16$ の分布を求めよ。
 2. $P(S^2\leq24)$ をカイ二乗確率で表せ。
 3. $E[S^2]$ を求めよ。
@@ -698,10 +678,6 @@ $$P\{S^2>16\chi^2_{9;0.05}/9\}=0.05,$$
 ### S1-C03 t分布の導出
 - level: C
 - minutes: 26
-- subproblem_minutes: 4, 4, 5, 6, 7
-- calculation: medium
-- finishability: 25分で標準化・独立性・t分布まで完答可能
-- techniques: NORMAL-SAMPLE-1, T-PIVOT-1
 
 正規標本について、$Z=\sqrt n(\overline X-\mu)/\sigma$、$Q=(n-1)S^2/\sigma^2$ とする。
 1. $Z$ の分布を求めよ。
@@ -743,10 +719,6 @@ $n=16,\overline x=12,s=4,\mu=10$ では $t=2$、自由度15で、$|2|<2.131$ よ
 ### S1-C04 F分布と二標本分散
 - level: C
 - minutes: 25
-- subproblem_minutes: 4, 4, 6, 5, 6
-- calculation: medium
-- finishability: 25分で二標本のカイ二乗化・F比・逆数まで完答可能
-- techniques: CHI-SQUARE-1, F-RATIO-1
 
 独立な正規標本の大きさを $n_1,n_2\geq2$、母分散を $\sigma_1^2,\sigma_2^2$ とする。
 1. 各標本分散からカイ二乗変数 $Q_1,Q_2$ を作れ。
@@ -790,10 +762,6 @@ $$
 ### S1-C05 分位点と確率の読み替え
 - level: C
 - minutes: 25
-- subproblem_minutes: 4, 5, 6, 5, 5
-- calculation: medium
-- finishability: 25分で上側分位点・逆数関係・標本分散へ接続可能
-- techniques: CHI-SQUARE-1, F-RATIO-1
 
 上側分位点を $P(\chi^2_\nu>\chi^2_{\nu;\alpha})=\alpha$、$P(F_{\nu_1,\nu_2}>F_{\nu_1,\nu_2;\alpha})=\alpha$ と定める。
 1. 各上側分位点以下となる確率を求めよ。
@@ -801,8 +769,6 @@ $$
 3. F分布の下側確率を自由度を逆にした上側確率へ直せ。
 4. $Q=(n-1)S^2/\sigma^2$ に適用し、$S^2$ の上側確率を式で表せ。
 5. 自由度と上側・下側を取り違えない答案確認法を述べよ。
-
-## Level D
 
 <!-- solution-start -->
 
@@ -843,10 +809,6 @@ $$P\left(S^2>\frac{\sigma^2}{n-1}\chi^2_{n-1;\alpha}\right)=\alpha.$$
 ### S1-D01 正規標本総合
 - level: D
 - minutes: 40
-- subproblem_minutes: 7, 9, 7, 7, 10
-- calculation: high
-- finishability: 25分で平方和・カイ二乗・tまで、40分で二標本Fまで完答
-- techniques: NORMAL-SAMPLE-1, CHI-SQUARE-1, T-PIVOT-1, F-RATIO-1, ANSWER-1
 
 正規標本の平方和分解を出発点として、
 1. 標本平均方向と残差方向をベクトルで表せ。
@@ -960,8 +922,6 @@ $$
 - level: C
 - minutes: 30
 - total: 100点
-- calculation: high
-- finishability: 25分でカイ二乗・t・Fの構成、30分で解釈まで完答可能
 
 ## 過去問傾向との対応
 
@@ -997,7 +957,7 @@ f_{F_{\nu_1,\nu_2}}(w)=
 $$
 であり、各台外では0である。
 
-$X_1,\ldots,X_{10}\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ とし、標本平均を $\overline X$、不偏標本分散を $S_X^2$ とする。独立に $Y_1,\ldots,Y_{16}\overset{\mathrm{i.i.d.}}{\sim}N(\mu_Y,\sigma_Y^2)$ を取り、不偏標本分散を $S_Y^2$ とする。
+$X_1,\ldots,X_{10}\overset{\text{独立同分布}}{\sim}N(\mu,\sigma^2)$ とし、標本平均を $\overline X$、不偏標本分散を $S_X^2$ とする。独立に $Y_1,\ldots,Y_{16}\overset{\text{独立同分布}}{\sim}N(\mu_Y,\sigma_Y^2)$ を取り、不偏標本分散を $S_Y^2$ とする。
 
 1. $\overline X$ の分布と、$Q_X=9S_X^2/\sigma^2$ の分布を求めよ。（20点）
 2. $\overline X$ と $S_X^2$ が独立となる理由を説明せよ。（20点）
