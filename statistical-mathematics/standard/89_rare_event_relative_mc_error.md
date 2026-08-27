@@ -12,7 +12,7 @@
 稀事象 $A$ の確率を $p$ とし、独立反復で
 
 $$
-\hat p=\frac1n\sum_{i=1}^n1\{A_i\}
+\hat p=\frac1n\sum_{i=1}^n\boldsymbol{1}_{\{A_i\}}
 $$
 
 と推定する。
@@ -24,7 +24,7 @@ $$
 
 ## 詳細解答
 
-$I_i=1\{A_i\}$ とおく。各反復で事象が起きる確率は $p$ なので $I_i$ は成功確率 $p$ のBernoulli変数で
+$I_i=\boldsymbol{1}_{\{A_i\}}$ とおく。各反復で事象が起きる確率は $p$ なので $I_i$ は成功確率 $p$ のBernoulli変数で
 
 $$
 E[I_i]=p,
@@ -109,7 +109,7 @@ $p$ が小さいと、$n$ をかなり大きくしない限り成功回数 $np$ 
 
 ## 本番答案
 
-$I_i=1\{A_i\}\sim\operatorname{Bernoulli}(p)$ なので
+$I_i=\boldsymbol{1}_{\{A_i\}}\sim\operatorname{Bernoulli}(p)$ なので
 
 $$
 \operatorname{Var}(\hat p)=\frac{p(1-p)}n.
