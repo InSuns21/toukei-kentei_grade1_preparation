@@ -8,32 +8,32 @@ prerequisites:
   - P3-02
 official_scope:
   - 有限混合分布
-  - Poisson--Gamma混合
+  - ポアソン分布とガンマ分布の混合
   - 正規混合分布
   - 潜在変数
-  - 事後確率と責務
+  - 観測後の成分確率
   - 混合分布による推定
 learning_objectives:
-  - 潜在指標を導入して有限混合分布の確率質量関数・密度を導出できる
-  - Poisson--Gamma混合を負の二項分布へ積分し、平均・分散を確認できる
+  - 潜在指標を導入して有限混合分布の確率質量関数・確率密度関数を導出できる
+  - ポアソン分布とガンマ分布の混合を積分し、平均・分散を確認できる
   - 正規混合の平均・分散と観測後の成分確率を計算できる
   - 混合比や成分母数の推定量を構成し、識別可能性の注意点を説明できる
 definitions:
   - { id: P3L-DEF-01, name: 潜在指標と有限混合分布 }
-  - { id: P3L-DEF-02, name: 混合の確率質量関数・密度 }
-  - { id: P3L-DEF-03, name: 責務（観測後の成分確率） }
-  - { id: P3L-DEF-04, name: Poisson--Gamma階層モデル }
+  - { id: P3L-DEF-02, name: 混合の確率質量関数・確率密度関数 }
+  - { id: P3L-DEF-03, name: 観測後の成分確率（責務） }
+  - { id: P3L-DEF-04, name: ポアソン–ガンマ階層モデル }
   - { id: P3L-DEF-05, name: 識別可能性とラベル交換 }
 theorems:
   - { id: P3L-THM-01, name: 全確率・全期待値・全分散 }
-  - { id: P3L-THM-02, name: Poisson--Gamma混合と負の二項分布 }
+  - { id: P3L-THM-02, name: ポアソン–ガンマ混合の周辺分布 }
   - { id: P3L-THM-03, name: 正規混合の平均・分散 }
-  - { id: P3L-THM-04, name: 責務のBayes公式 }
-  - { id: P3L-THM-05, name: 潜在指標を用いた尤度とEMの一歩 }
-canonical_examples: [二成分Poisson混合, Poisson--Gamma混合, 二成分正規混合, 潜在指標の責務]
+  - { id: P3L-THM-04, name: 観測後成分確率のベイズ公式 }
+  - { id: P3L-THM-05, name: 潜在指標を用いた尤度 }
+canonical_examples: [二成分ポアソン混合, ポアソン–ガンマ混合, 二成分正規混合, 観測後の成分確率]
 problem_patterns: [MIX-PMF-1, POIS-GAMMA-1, NORM-MIX-1, RESPONSIBILITY-1, IDENT-1, ANSWER-1]
 past_exam_alignment:
-  - { id: MATH-2022-Q3, current_skills: [Poisson分布, Gamma分布, 混合の周辺化], later_skills: [Bayes推定, 不偏推定] }
+  - { id: MATH-2022-Q3, current_skills: [ポアソン分布, ガンマ分布, 混合の周辺化], later_skills: [ベイズ推定, 不偏推定] }
   - { id: MATH-2024-Q4, current_skills: [混合分布, 潜在成分, モーメント], later_skills: [経験分布, EM法] }
 integrated_exam_problems: [P3L-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
