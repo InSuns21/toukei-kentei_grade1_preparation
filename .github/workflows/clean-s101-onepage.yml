@@ -1,0 +1,30 @@
+name: Clean S1-01 one page
+
+on:
+  push:
+    paths:
+      - '.github/workflows/clean-s101-onepage.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Clean S1-01
+        run: python .github/scripts/clean_s101_onepage.py
+      - name: Remove temporary cleanup files
+        run: |
+          rm .github/scripts/clean_s101_onepage.py
+          rm .github/workflows/clean-s101-onepage.yml
+      - name: Commit cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'textbook: clean S1-01 learner-facing format'
+          git push
