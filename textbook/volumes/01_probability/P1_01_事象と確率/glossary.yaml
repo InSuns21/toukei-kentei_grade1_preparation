@@ -1,10 +1,10 @@
 chapter: "P1-01"
 terms:
   - { term: 標本空間, notation: "\\Omega", meaning: 起こり得る結果全体 }
-  - { term: 事象, notation: "A", meaning: 標本空間の可測な部分集合 }
-  - { term: 事象族, notation: "\\mathcal{F}", meaning: 確率を割り当てる事象のsigma加法族 }
+  - { term: 事象, notation: "A", meaning: 一般には事象族 \\mathcal{F} に属する標本空間の部分集合 }
+  - { term: 事象族, notation: "\\mathcal{F}", meaning: 補集合と可算和に閉じた確率を割り当てる事象の集まり }
   - { term: 確率測度, notation: "P", meaning: 正規化・非負性・可算加法性を満たす写像 }
-  - { term: 排反, notation: "A\\cap B=\\varnothing", meaning: 同時には起こらないこと }
-  - { term: 包除原理, notation: "inclusion-exclusion", meaning: 重複を交互に補正する公式 }
-  - { term: 上極限事象, notation: "\\limsup A_n", meaning: 無限回起こる事象 }
-  - { term: 下極限事象, notation: "\\liminf A_n", meaning: ある時点以降常に起こる事象 }
+  - { term: 排反, notation: "A\\cap B=\\varnothing", meaning: 二事象が同時には起こらないこと }
+  - { term: 包除原理, meaning: 重複する共通部分を交互に補正して和事象の確率を求める公式 }
+  - { term: 上極限事象, notation: "\\limsup A_n", meaning: 無限に多くの n で起こる事象 }
+  - { term: 下極限事象, notation: "\\liminf A_n", meaning: ある時点以降の全ての n で起こる事象 }
