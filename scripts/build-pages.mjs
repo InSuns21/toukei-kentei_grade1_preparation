@@ -226,7 +226,13 @@ for (const book of books) {
 // Markdown links rewritten to site-root-oriented links for relativePath:false.
 const textbookSourceDir = path.join(root, 'textbook');
 const textbookTargetDir = path.join(outDir, 'textbook');
-await cp(textbookSourceDir, textbookTargetDir, { recursive: true });
+await cp(textbookSourceDir, textbookTargetDir, {
+  recursive: true,
+  filter: (source) => {
+    const relative = path.relative(textbookSourceDir, source);
+    return relative === '' || relative.split(path.sep)[0] !== 'templates';
+  },
+});
 await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');
 
 const volumeEntries = (await readdir(path.join(textbookSourceDir, 'volumes'), { withFileTypes: true }))
