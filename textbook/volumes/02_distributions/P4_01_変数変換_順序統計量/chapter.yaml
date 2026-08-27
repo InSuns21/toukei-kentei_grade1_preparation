@@ -29,7 +29,7 @@ past_exam_alignment:
   - { id: MATH-2024-Q2, current_skills: [変数変換, 最大値, 不偏推定], later_skills: [最尤推定, 平均二乗誤差] }
 integrated_exam_problems: [P4-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 5, level_c: 5, level_d: 1 }
-estimated_hours: { reading: 7, exercises: 14, review: 4 }
+estimated_hours: { reading: 7, exercises: 15, review: 4 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
