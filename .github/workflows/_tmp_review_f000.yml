@@ -16,6 +16,82 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Normalize temporary patch driver
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/_tmp_review_f000.py')
+          s = p.read_text(encoding='utf-8')
+          old = """old_section_pattern = re.compile(
+              r'## 1\\. 1級で必要な数学の優先度\\n.*?\\n---\\n',
+              flags=re.DOTALL,
+          )
+          new_section = r'''## 1. この章で扱う数学
+
+          | 分野 | 主な内容 | 主な接続先 |
+          |---|---|---|
+          | 一変数微積分 | 微分、部分積分、置換積分、広義積分、積分記号下の微分 | 確率密度関数の正規化、期待値、尤度、漸近展開 |
+          | 特殊積分 | ガウス積分、ガンマ関数、ベータ関数 | 正規・ガンマ・ベータ・カイ二乗・t・F分布 |
+          | 多変数解析 | 偏微分、勾配、ヘッセ行列、重積分、ヤコビアン、ラグランジュ未定乗数法 | 多変量分布、変数変換、最尤推定、制約付き最適化 |
+          | 線形代数 | 行列積、行列式、逆行列、階数、固有値、直交対角化、二次形式、正定値性 | 多変量正規、標本分布、回帰、主成分分析 |
+          | 線形代数の応用 | 射影行列、シュール補、行列微分 | 回帰、条件付き正規分布、一般線形仮説 |
+          | 極限計算 | テイラー展開、ランダウ記号、スターリング公式 | 中心極限定理、デルタ法、尤度比の漸近展開 |
+
+          各節では、後続章でそのまま使う式だけでなく、式がどの計算から出るかまで示します。
+
+          ---
+          '''
+          text, count = old_section_pattern.subn(new_section, text, count=1)
+          if count != 1:
+              raise SystemExit(f'priority section replacement count={count}')
+          """
+          new = """section_start = text.find('## 1. 1級で必要な数学の優先度')
+          if section_start < 0:
+              raise SystemExit('priority section start not found')
+          section_end = text.find('\\n---\\n', section_start)
+          if section_end < 0:
+              raise SystemExit('priority section end not found')
+          section_end += len('\\n---\\n')
+          new_section = r'''## 1. この章で扱う数学
+
+          | 分野 | 主な内容 | 主な接続先 |
+          |---|---|---|
+          | 一変数微積分 | 微分、部分積分、置換積分、広義積分、積分記号下の微分 | 確率密度関数の正規化、期待値、尤度、漸近展開 |
+          | 特殊積分 | ガウス積分、ガンマ関数、ベータ関数 | 正規・ガンマ・ベータ・カイ二乗・t・F分布 |
+          | 多変数解析 | 偏微分、勾配、ヘッセ行列、重積分、ヤコビアン、ラグランジュ未定乗数法 | 多変量分布、変数変換、最尤推定、制約付き最適化 |
+          | 線形代数 | 行列積、行列式、逆行列、階数、固有値、直交対角化、二次形式、正定値性 | 多変量正規、標本分布、回帰、主成分分析 |
+          | 線形代数の応用 | 射影行列、シュール補、行列微分 | 回帰、条件付き正規分布、一般線形仮説 |
+          | 極限計算 | テイラー展開、ランダウ記号、スターリング公式 | 中心極限定理、デルタ法、尤度比の漸近展開 |
+
+          各節では、後続章でそのまま使う式だけでなく、式がどの計算から出るかまで示します。
+
+          ---
+          '''
+          text = text[:section_start] + new_section + text[section_end:]
+          """
+          if old not in s:
+              raise SystemExit('priority driver block not found')
+          s = s.replace(old, new, 1)
+
+          old2 = """memorize_pattern = re.compile(
+              r'## 13\\. 何を暗記し、何をその場で導出するか\\n.*?\\n---\\n\\n## 14\\. 確認問題',
+              flags=re.DOTALL,
+          )
+          text, count = memorize_pattern.subn('## 13. 演習', text, count=1)
+          if count != 1:
+              raise SystemExit(f'memorization section replacement count={count}')
+          """
+          new2 = """memorize_start = text.find('## 13. 何を暗記し、何をその場で導出するか')
+          exercise_start = text.find('## 14. 確認問題', memorize_start)
+          if memorize_start < 0 or exercise_start < 0:
+              raise SystemExit('memorization section boundaries not found')
+          text = text[:memorize_start] + '## 13. 演習' + text[exercise_start + len('## 14. 確認問題'):]
+          """
+          if old2 not in s:
+              raise SystemExit('memorization driver block not found')
+          s = s.replace(old2, new2, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
       - name: Apply F0-00 reader review
         run: python3 scripts/_tmp_review_f000.py
       - name: Commit reviewed chapter
@@ -31,4 +107,4 @@ jobs:
           git commit -m 'textbook: complete F0-00 reader review'
           git push origin main
 
-# triggered after workflow registration
+# normalized section-boundary matching
