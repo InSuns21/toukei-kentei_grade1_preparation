@@ -889,9 +889,9 @@ $$
 $$
 f_{S_3}(s)=
 \begin{cases}
-\dfrac{s^2}{2},&0<s<1,\\[4pt]
--s^2+3s-\dfrac32,&1\le s<2,\\[4pt]
-\dfrac{(3-s)^2}{2},&2\le s<3,\\[4pt]
+\dfrac{s^2}{2},&0<s<1,\\
+-s^2+3s-\dfrac32,&1\le s<2,\\
+\dfrac{(3-s)^2}{2},&2\le s<3,\\
 0,&\text{otherwise}.
 \end{cases}
 $$
@@ -943,10 +943,10 @@ $$
 $$
 f_{S_4}(s)=
 \begin{cases}
-\dfrac{s^3}{6},&0<s<1,\\[4pt]
--\dfrac{s^3}{2}+2s^2-2s+\dfrac23,&1\le s<2,\\[4pt]
--\dfrac{(4-s)^3}{2}+2(4-s)^2-2(4-s)+\dfrac23,&2\le s<3,\\[4pt]
-\dfrac{(4-s)^3}{6},&3\le s<4,\\[4pt]
+\dfrac{s^3}{6},&0<s<1,\\
+-\dfrac{s^3}{2}+2s^2-2s+\dfrac23,&1\le s<2,\\
+-\dfrac{(4-s)^3}{2}+2(4-s)^2-2(4-s)+\dfrac23,&2\le s<3,\\
+\dfrac{(4-s)^3}{6},&3\le s<4,\\
 0,&\text{otherwise}.
 \end{cases}
 $$
