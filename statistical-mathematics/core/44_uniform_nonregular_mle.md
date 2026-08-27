@@ -124,7 +124,7 @@ $$
 ## 本番答案
 
 $$
-L(\theta;x)=\theta^{-n}1\{M<\theta\}\prod_i1\{x_i>0\}
+L(\theta;x)=\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}\prod_i\boldsymbol{1}_{\{x_i>0\}}
 $$
 
 で、$\theta\ge M$ では単調減少だから $\hat\theta=M$。
