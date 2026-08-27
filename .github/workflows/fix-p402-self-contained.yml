@@ -1,0 +1,208 @@
+name: Fix P4-02 self-contained exercises
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-p402-self-contained.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply P4-02 editorial fixes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md')
+          text = path.read_text(encoding='utf-8')
+
+          def rep(old, new, label):
+              global text
+              if old not in text:
+                  raise SystemExit(f'missing target: {label}')
+              text = text.replace(old, new, 1)
+
+          rep('# 11. 演習：問題の直後に解答', '# 11. 演習', 'exercise heading')
+
+          global_defs = r'''## 問題で使う分布
+
+- $X\sim\operatorname{Bernoulli}(p)$：$p\in[0,1]$、$P(X=1)=p$, $P(X=0)=1-p$。
+- $B\sim\operatorname{Bin}(n,p)$：$P(B=k)=\binom nkp^k(1-p)^{n-k}$、$k=0,\ldots,n$。
+- $X\sim\operatorname{Poisson}(\lambda)$：$\lambda>0$、$P(X=k)=e^{-\lambda}\lambda^k/k!$、$k\in\mathbb N_0$。
+- $X\sim N(\mu,\sigma^2)$：$\mu\in\mathbb R$, $\sigma^2>0$、確率密度関数
+$$
+f(x)=\frac1{\sigma\sqrt{2\pi}}
+\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}.
+$$
+
+'''
+          rep(global_defs, '', 'global exercise distribution block')
+
+          rep(r'''$X_n=1/n$とする。$X_n$が0へ確率収束、概収束、分布収束することを定義から示せ。''',
+              r'''同一の確率空間上で、各$n$について定数確率変数$X_n(\omega)=1/n$とする。$X_n$が0へ確率収束、概収束、分布収束することを定義から示せ。''', 'A01')
+
+          rep(r'''独立な$X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$について$E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。''',
+              r'''$0\leq p\leq1$とする。独立なベルヌーイ確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=1)=p,\qquad P(X_i=0)=1-p
+$$
+を満たすとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。''', 'A02')
+
+          rep(r'''独立な$X_1,\ldots,X_n\sim N(\mu,\sigma^2)$について$\overline X_n$の分布を求めよ。''',
+              r'''$\mu\in\mathbb R$, $\sigma^2>0$とする。独立な$X_1,\ldots,X_n\sim N(\mu,\sigma^2)$について
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$\overline X_n$の分布を求めよ。''', 'A03')
+
+          rep(r'''$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n\sim\operatorname{Bin}(n,\lambda/n)$の平均と分散を求め、それぞれ$n\to\infty$でどうなるか述べよ。''',
+              r'''$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k
+\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。二項分布$\operatorname{Bin}(n,p)$の平均$np$、分散$np(1-p)$は用いてよい。$B_n$の平均と分散を求め、それぞれ$n\to\infty$でどうなるか述べよ。''', 'A04')
+
+          rep(r'''$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とする。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$ならチェビシェフの不等式から確率収束を直接示せ。''',
+              r'''$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とし、
+$$
+\mu=E[X_1],\qquad
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$とし、チェビシェフの不等式
+$$
+P(|Y-E[Y]|>\varepsilon)\leq\frac{\operatorname{Var}(Y)}{\varepsilon^2}
+$$
+を用いて$\overline X_n\xrightarrow{p}\mu$を直接示せ。''', 'B02')
+
+          rep(r'''$X_1,\ldots,X_n$を独立な$\operatorname{Poisson}(\lambda)$とし、$\varepsilon>0$とする。$P(|\overline X_n-\lambda|\leq\varepsilon)$を中心極限定理で近似せよ。''',
+              r'''$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義し、$\varepsilon>0$とする。標準正規分布の累積分布関数を$\Phi$とするとき、$P(|\overline X_n-\lambda|\leq\varepsilon)$を中心極限定理で近似せよ。''', 'B03')
+
+          rep(r'''$B\sim\operatorname{Bin}(400,0.3)$とする。$P(B\leq130)$を連続補正付き正規近似で表せ。''',
+              r'''$B\sim\operatorname{Bin}(400,0.3)$とする。二項分布$\operatorname{Bin}(n,p)$の平均$np$、分散$np(1-p)$を用いてよい。標準正規分布の累積分布関数を$\Phi$とするとき、$P(B\leq130)$を連続補正付き正規近似で表せ。''', 'B04')
+
+          rep(r'''独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$について$\overline X_n$を考える。
+
+1. $E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。''',
+              r'''$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。標準正規分布の累積分布関数を$\Phi$とする。
+
+1. $E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。''', 'C01')
+
+          rep(r'''$0<p<1$とし、独立な$X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$とする。$\widehat p=\overline X_n$と置く。''',
+              r'''$0<p<1$とする。独立なベルヌーイ確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=1)=p,\qquad P(X_i=0)=1-p
+$$
+を満たすとする。標本比率を
+$$
+\widehat p=\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。''', 'C02')
+
+          rep(r'''独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$、$\lambda>0$とし、$T_n=\sum_iX_i$とする。''',
+              r'''$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従うとし、
+$$
+T_n=\sum_{i=1}^nX_i
+$$
+と定義する。標準正規分布の累積分布関数を$\Phi$とする。''', 'C03')
+
+          rep(r'''1. ある同じRademacher分布をもつ確率変数$X$への分布収束を示せ。''',
+              r'''1. $P(X=1)=P(X=-1)=1/2$を満たす確率変数$X$への分布収束を示せ。''', 'C04')
+
+          rep(r'''$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$、$B_n\sim\operatorname{Bin}(n,\lambda/n)$とする。
+
+1. 固定した$k\in\mathbb N_0$について$P(B_n=k)$の極限を因子ごとに示せ。''',
+              r'''$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k
+\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。また、平均$\lambda$のポアソン分布の確率質量関数は
+$$
+q(k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+である。
+
+1. 固定した$k\in\mathbb N_0$について$P(B_n=k)$の極限を因子ごとに示せ。''', 'C05')
+
+          rep(r'''独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$とし、$\widehat\lambda_n=\overline X_n$、$g(x)=\log(1+x)$とする。''',
+              r'''$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均と変換を
+$$
+\widehat\lambda_n=\overline X_n=\frac1n\sum_{i=1}^nX_i,
+\qquad
+g(x)=\log(1+x)
+$$
+と定義する。''', 'D01')
+
+          rep(r'''$B_n\sim\operatorname{Bin}(n,\lambda/n)$、$\lambda>0$、$n\geq\lceil\lambda\rceil$とする。
+
+1. $E[B_n]$, $\operatorname{Var}(B_n)$と極限を求めよ。（20点）''',
+              r'''$\lambda>0$、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k
+\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。また、平均$\lambda$のポアソン分布の確率質量関数は
+$$
+q(k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+である。
+
+1. $E[B_n]$, $\operatorname{Var}(B_n)$と極限を求めよ。（20点）''', 'drill')
+
+          rep(r'''P(B_n=k)o e^{-\lambda}\frac{\lambda^k}{k!},''',
+              r'''P(B_n=k)\to e^{-\lambda}\frac{\lambda^k}{k!},''', 'poisson limit typo')
+
+          rep(r'''後続章でデルタ法として体系的に扱います。本章では「一次Taylor展開とSlutsky型の定理から出る」ことまで確認します。''',
+              r'''この一次近似とSlutsky型の定理から得られる極限分布を、一次のデルタ法という。''', 'delta meta prose')
+
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'No changes'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md
+          git commit -m 'textbook: make P4-02 exercises self-contained'
+          git push
