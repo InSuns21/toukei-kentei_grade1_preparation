@@ -14,3 +14,4 @@ terms:
   - { term: 正定値, notation: "\\boldsymbol{x}^{\\mathsf T}A\\boldsymbol{x}>0", meaning: 全ての非零ベクトルで二次形式が正となる性質 }
   - { term: 直交射影行列, notation: "P", meaning: 対称かつ冪等で部分空間への直交射影を表す行列 }
   - { term: シュール補, notation: "A-BD^{-1}C", meaning: ブロック行列で一方のブロックを消去したときに現れる行列 }
+  - { term: 首座小行列式, notation: "\\Delta_k", meaning: 実対称行列の左上から取った k 次部分行列の行列式 }

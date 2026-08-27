@@ -10,7 +10,7 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-27
+  updated_at: 2026-08-28
   current_chapter: null
   next_chapter: S1-02
   next_work:
@@ -21,10 +21,10 @@ progress:
     total: 38
     planned: 24
     drafting: 0
-    self_review: 1
+    self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 13
+    reviewed: 14
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -35,7 +35,7 @@ progress:
     reviewed: 独立再査読・自動検証まで完了
     blocked: 外部判断または権限待ち
   chapters:
-    F0-00: { status: self_review, started_at: 2026-08-27 }
+    F0-00: { status: reviewed, started_at: 2026-08-27, completed_at: 2026-08-28, review_result: { fatal: 0, major: 0, minor: 0 } }
     P1-01: { status: reviewed, started_at: 2026-08-09, completed_at: 2026-08-09, review_result: { fatal: 0, major: 0, minor: 0 } }
     P1-02: { status: reviewed, started_at: 2026-08-09, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
     P2-01: { status: reviewed, started_at: 2026-08-10, completed_at: 2026-08-10, review_result: { fatal: 0, major: 0, minor: 0 } }
