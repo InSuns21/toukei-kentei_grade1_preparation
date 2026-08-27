@@ -13,7 +13,7 @@ $n\ge2$ とし、$X_1,\ldots,X_n$ は
 
 $$
 f(x;\theta,\lambda)
-=\lambda e^{-\lambda(x-\theta)}1\{x\ge\theta\},
+=\lambda e^{-\lambda(x-\theta)}\boldsymbol{1}_{\{x\ge\theta\}},
 \qquad \lambda>0
 $$
 
@@ -33,7 +33,7 @@ $$
 $$
 L(\theta,\lambda)
 =\prod_{i=1}^n
-\lambda e^{-\lambda(X_i-\theta)}1\{X_i\ge\theta\}.
+\lambda e^{-\lambda(X_i-\theta)}\boldsymbol{1}_{\{X_i\ge\theta\}}.
 $$
 
 指数部分をまとめると
@@ -46,9 +46,9 @@ $$
 また指示関数の積について
 
 $$
-\prod_{i=1}^n1\{X_i\ge\theta\}
-=1\{\theta\le\min_iX_i\}
-=1\{\theta\le X_{(1)}\}.
+\prod_{i=1}^n\boldsymbol{1}_{\{X_i\ge\theta\}}
+=\boldsymbol{1}_{\{\theta\le\min_iX_i\}}
+=\boldsymbol{1}_{\{\theta\le X_{(1)}\}}.
 $$
 
 したがって
@@ -58,7 +58,7 @@ $$
 L(\theta,\lambda)
 =\lambda^n
 \exp\left[-\lambda\sum_{i=1}^n(X_i-\theta)\right]
-1\{\theta\le X_{(1)}\}
+\boldsymbol{1}_{\{\theta\le X_{(1)}\}}
 }.
 $$
 
@@ -128,7 +128,7 @@ $$
 しかし本問の密度には
 
 $$
-1\{x\ge\theta\}
+\boldsymbol{1}_{\{x\ge\theta\}}
 $$
 
 があり、支持集合は
@@ -228,7 +228,7 @@ $$
 L(\theta,\lambda)
 =\lambda^n
 \exp\left[-\lambda\sum_i(X_i-\theta)\right]
-1\{\theta\le X_{(1)}\}.
+\boldsymbol{1}_{\{\theta\le X_{(1)}\}}.
 $$
 
 固定した $\lambda$ では、許容範囲 $\theta\le X_{(1)}$ で尤度は $\theta$ に単調増加だから
