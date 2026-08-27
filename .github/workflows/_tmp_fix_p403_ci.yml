@@ -16,15 +16,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Patch terminology regression
+      - name: Record P4-03 review completion
         run: python3 scripts/_tmp_fix_p403_ci.py
-      - name: Commit fix
+      - name: Commit review record
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add statistical-mathematics/core/87_monte_carlo_variance_comparison.md
+          git add textbook/REVIEW_PLAN.md
           git diff --cached --quiet && exit 0
-          git commit -m 'Fix i.i.d. terminology regression'
+          git commit -m 'textbook: record P4-03 review completion'
           git push origin main
 
-# rerun after narrowing the temporary assertion
+# final review-plan pass
