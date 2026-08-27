@@ -22,7 +22,7 @@ $$
 
 1. 二乗損失 $L(a,\theta)=(a-\theta)^2$ のBayes作用を求めよ。
 2. 絶対損失 $L(a,\theta)=|a-\theta|$ のBayes作用を求めよ。
-3. $a\in\{0,1,4\}$ とし、0–1損失 $L(a,\theta)=1\{a\ne\theta\}$ のBayes作用を求めよ。
+3. $a\in\{0,1,4\}$ とし、0–1損失 $L(a,\theta)=\boldsymbol{1}_{\{a\ne\theta\}}$ のBayes作用を求めよ。
 4. 一般に各損失で「事後平均・事後中央値・最大事後確率を与える値」が現れる理由を説明せよ。
 
 ## 詳細解答
@@ -154,7 +154,7 @@ $$
 $$
 \begin{aligned}
 R_{0-1}(a\mid x)
-&=E[1\{a\ne\theta\}\mid x]\\
+&=E[\boldsymbol{1}_{\{a\ne\theta\}}\mid x]\\
 &=P(\theta\ne a\mid x)\\
 &=1-P(\theta=a\mid x).
 \end{aligned}
