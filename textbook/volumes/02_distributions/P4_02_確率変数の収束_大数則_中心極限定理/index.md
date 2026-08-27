@@ -336,7 +336,7 @@ P(B_n=k)
 $$
 したがって
 $$
-P(B_n=k)o e^{-\lambda}\frac{\lambda^k}{k!},
+P(B_n=k)\to e^{-\lambda}\frac{\lambda^k}{k!},
 $$
 これはポアソン分布$\operatorname{Poisson}(\lambda)$の確率質量関数です。
 
