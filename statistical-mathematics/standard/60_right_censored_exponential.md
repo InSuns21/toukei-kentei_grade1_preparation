@@ -14,7 +14,7 @@
 $$
 Y_i=\min(T_i,C_i),
 \qquad
-\delta_i=1\{T_i\le C_i\}
+\delta_i=\boldsymbol{1}_{\{T_i\le C_i\}}
 $$
 
 である。打切りは寿命と独立とする。
