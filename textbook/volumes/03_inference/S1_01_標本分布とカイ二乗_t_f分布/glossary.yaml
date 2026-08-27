@@ -1,6 +1,9 @@
+chapter: "S1-01"
 terms:
-  - { term: 標本分布, meaning: 統計量の確率分布 }
-  - { term: 自由度, meaning: 独立に変動できる成分数 }
-  - { term: カイ二乗分布, notation: "\\chi^2_\\nu" }
-  - { term: t分布, notation: "t_\\nu" }
-  - { term: F分布, notation: "F_{\\nu_1,\\nu_2}" }
+  - { term: 標本分布, meaning: 統計量を確率変数として見たときの確率分布 }
+  - { term: 不偏標本分散, meaning: 標本平均との差の二乗和をn-1で割った分散推定量 }
+  - { term: 自由度, meaning: 制約を考慮した後に独立に変動できる成分数 }
+  - { term: カイ二乗分布, notation: "\\chi^2_\\nu", meaning: 独立な標準正規変数の平方和の分布 }
+  - { term: t分布, notation: "t_\\nu", meaning: 標準正規変数を独立なカイ二乗変数から作る尺度で割った分布 }
+  - { term: F分布, notation: "F_{\\nu_1,\\nu_2}", meaning: 独立な二つのカイ二乗変数を各自由度で割った量の比の分布 }
+  - { term: 上側分位点, meaning: その値を超える確率が指定した上側確率になる境界値 }
