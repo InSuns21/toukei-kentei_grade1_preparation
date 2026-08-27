@@ -379,7 +379,7 @@ $$
 }.
 $$
 
-後続章でデルタ法として体系的に扱います。本章では「一次Taylor展開とSlutsky型の定理から出る」ことまで確認します。
+この一次近似とSlutsky型の定理から得られる極限分布を、一次のデルタ法という。
 
 ---
 
@@ -451,18 +451,7 @@ $130$ではなく$130.5$を使うのが連続補正です。
 
 ---
 
-# 11. 演習：問題の直後に解答
-
-## 問題で使う分布
-
-- $X\sim\operatorname{Bernoulli}(p)$：$p\in[0,1]$、$P(X=1)=p$, $P(X=0)=1-p$。
-- $B\sim\operatorname{Bin}(n,p)$：$P(B=k)=\binom nkp^k(1-p)^{n-k}$、$k=0,\ldots,n$。
-- $X\sim\operatorname{Poisson}(\lambda)$：$\lambda>0$、$P(X=k)=e^{-\lambda}\lambda^k/k!$、$k\in\mathbb N_0$。
-- $X\sim N(\mu,\sigma^2)$：$\mu\in\mathbb R$, $\sigma^2>0$、確率密度関数
-$$
-f(x)=\frac1{\sigma\sqrt{2\pi}}
-\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}.
-$$
+# 11. 演習
 
 ## Level A
 
@@ -471,7 +460,7 @@ $$
 - minutes: 7
 - topics: 確率収束, 概収束, 分布収束
 
-$X_n=1/n$とする。$X_n$が0へ確率収束、概収束、分布収束することを定義から示せ。
+同一の確率空間上で、各$n$について定数確率変数$X_n(\omega)=1/n$とする。$X_n$が0へ確率収束、概収束、分布収束することを定義から示せ。
 
 <!-- solution-start -->
 
@@ -508,7 +497,15 @@ $$
 - minutes: 7
 - topics: 標本平均
 
-独立な$X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$について$E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。
+$0\leq p\leq1$とする。独立なベルヌーイ確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=1)=p,\qquad P(X_i=0)=1-p
+$$
+を満たすとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。
 
 <!-- solution-start -->
 
@@ -545,7 +542,11 @@ $E[\overline X_n]=p$、独立性より$\operatorname{Var}(\overline X_n)=p(1-p)/
 - minutes: 8
 - topics: 正規分布, 標本平均
 
-独立な$X_1,\ldots,X_n\sim N(\mu,\sigma^2)$について$\overline X_n$の分布を求めよ。
+$\mu\in\mathbb R$, $\sigma^2>0$とする。独立な$X_1,\ldots,X_n\sim N(\mu,\sigma^2)$について
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$\overline X_n$の分布を求めよ。
 
 <!-- solution-start -->
 
@@ -579,7 +580,11 @@ $$
 - minutes: 8
 - topics: 二項分布, ポアソン近似
 
-$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n\sim\operatorname{Bin}(n,\lambda/n)$の平均と分散を求め、それぞれ$n\to\infty$でどうなるか述べよ。
+$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。二項分布$\operatorname{Bin}(n,p)$の平均$np$、分散$np(1-p)$は用いてよい。$B_n$の平均と分散を求め、それぞれ$n\to\infty$でどうなるか述べよ。
 
 <!-- solution-start -->
 
@@ -615,7 +620,7 @@ $E[B_n]=\lambda$、$\operatorname{Var}(B_n)=\lambda(1-\lambda/n)\to\lambda$。
 - minutes: 12
 - topics: 確率収束
 
-$X_n\xrightarrow{p}X$とする。定数$a,b\in\mathbb R$について$aX_n+b$の確率収束先を示せ。
+確率変数列$X_n$が確率変数$X$へ確率収束するとする。定数$a,b\in\mathbb R$について$aX_n+b$の確率収束先を示せ。
 
 <!-- solution-start -->
 
@@ -651,7 +656,15 @@ $a=0$の場合3点、確率の変形10点、結論7点。合計20点。
 - minutes: 14
 - topics: 大数の法則
 
-$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とする。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$ならチェビシェフの不等式から確率収束を直接示せ。
+$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とし、
+$$
+\mu=E[X_1],\qquad \overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$とし、チェビシェフの不等式
+$$
+P(|Y-E[Y]|>\varepsilon)\leq\frac{\operatorname{Var}(Y)}{\varepsilon^2}
+$$
+を用いて$\overline X_n$の確率収束を直接示せ。
 
 <!-- solution-start -->
 
@@ -691,7 +704,15 @@ $E|X_1|<\infty$より強大数則で$\overline X_n\to\mu$概収束、従って�
 - minutes: 15
 - topics: 中心極限定理, ポアソン分布
 
-$X_1,\ldots,X_n$を独立な$\operatorname{Poisson}(\lambda)$とし、$\varepsilon>0$とする。$P(|\overline X_n-\lambda|\leq\varepsilon)$を中心極限定理で近似せよ。
+$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義し、$\varepsilon>0$とする。標準正規分布の累積分布関数を$\Phi$とするとき、$P(|\overline X_n-\lambda|\leq\varepsilon)$を中心極限定理で近似せよ。
 
 <!-- solution-start -->
 
@@ -729,7 +750,7 @@ $E[X_i]=\operatorname{Var}(X_i)=\lambda$なので$\sqrt n(\overline X_n-\lambda)
 - minutes: 15
 - topics: 正規近似, 連続補正
 
-$B\sim\operatorname{Bin}(400,0.3)$とする。$P(B\leq130)$を連続補正付き正規近似で表せ。
+$B\sim\operatorname{Bin}(400,0.3)$とする。二項分布$\operatorname{Bin}(n,p)$の平均$np$、分散$np(1-p)$を用いてよい。標準正規分布の累積分布関数を$\Phi$とするとき、$P(B\leq130)$を連続補正付き正規近似で表せ。
 
 <!-- solution-start -->
 
@@ -767,7 +788,15 @@ $E[B]=120$, $\operatorname{Var}(B)=84$。連続補正により$P(B\le130)\approx
 - minutes: 25
 - topics: 大数の法則, 中心極限定理, 不偏性
 
-独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$について$\overline X_n$を考える。
+$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均を
+$$
+\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。標準正規分布の累積分布関数を$\Phi$とする。
 
 1. $E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。
 2. $\overline X_n$が$\lambda$の不偏推定量であることを示せ。
@@ -843,7 +872,15 @@ $E[\overline X_n]=\lambda$, $\operatorname{Var}(\overline X_n)=\lambda/n$より�
 - minutes: 25
 - topics: 大数の法則, 中心極限定理, Slutsky型
 
-$0<p<1$とし、独立な$X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$とする。$\widehat p=\overline X_n$と置く。
+$0<p<1$とする。独立なベルヌーイ確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=1)=p,\qquad P(X_i=0)=1-p
+$$
+を満たすとする。標本比率を
+$$
+\widehat p=\overline X_n=\frac1n\sum_{i=1}^nX_i
+$$
+と定義する。
 
 1. $E[\widehat p]$と$\operatorname{Var}(\widehat p)$を求めよ。
 2. $\widehat p$が不偏であることを示せ。
@@ -914,7 +951,15 @@ $E[\widehat p]=p$, $\operatorname{Var}(\widehat p)=p(1-p)/n$より不偏・一�
 - minutes: 25
 - topics: ポアソン分布, 中心極限定理, 最尤推定
 
-独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$、$\lambda>0$とし、$T_n=\sum_iX_i$とする。
+$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従うとし、
+$$
+T_n=\sum_{i=1}^nX_i
+$$
+と定義する。標準正規分布の累積分布関数を$\Phi$とする。
 
 1. $T_n$の分布を求めよ。
 2. $T_n/n$の平均と分散を求めよ。
@@ -992,7 +1037,7 @@ P(X_n=1)=P(X_n=-1)=\frac12
 $$
 とする。
 
-1. ある同じRademacher分布をもつ確率変数$X$への分布収束を示せ。
+1. $P(X=1)=P(X=-1)=1/2$を満たす確率変数$X$への分布収束を示せ。
 2. $X_n$がどの確率変数へも確率収束しないことを示せ。
 3. $X_n$が概収束しないことを示せ。
 4. $X_n^2$の収束を述べよ。
@@ -1044,7 +1089,15 @@ $$
 - minutes: 25
 - topics: 二項分布, ポアソン近似
 
-$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$、$B_n\sim\operatorname{Bin}(n,\lambda/n)$とする。
+$\lambda>0$を固定し、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。また、平均$\lambda$のポアソン分布の確率質量関数は
+$$
+q(k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+である。
 
 1. 固定した$k\in\mathbb N_0$について$P(B_n=k)$の極限を因子ごとに示せ。
 2. $E[B_n]$と$\operatorname{Var}(B_n)$の極限を求めよ。
@@ -1118,7 +1171,15 @@ $$
 - minutes: 30
 - topics: 大数の法則, 中心極限定理, 一次Taylor展開
 
-独立な$X_1,\ldots,X_n\sim\operatorname{Poisson}(\lambda)$とし、$\widehat\lambda_n=\overline X_n$、$g(x)=\log(1+x)$とする。
+$\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
+$$
+P(X_i=k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+で与えられるポアソン分布に従い、$E[X_i]=\operatorname{Var}(X_i)=\lambda$を用いてよいとする。標本平均と変換を
+$$
+\widehat\lambda_n=\overline X_n=\frac1n\sum_{i=1}^nX_i,\qquad g(x)=\log(1+x)
+$$
+と定義する。
 
 1. $\widehat\lambda_n\xrightarrow p\lambda$を示せ。
 2. $\sqrt n(\widehat\lambda_n-\lambda)$の極限分布を求めよ。
@@ -1202,7 +1263,15 @@ MATH-2017-Q1の標本平均モーメント・漸近評価を参考に、二項�
 
 ## 問題
 
-$B_n\sim\operatorname{Bin}(n,\lambda/n)$、$\lambda>0$、$n\geq\lceil\lambda\rceil$とする。
+$\lambda>0$、$n\geq\lceil\lambda\rceil$とする。$B_n$は
+$$
+P(B_n=k)=\binom nk\left(\frac\lambda n\right)^k\left(1-\frac\lambda n\right)^{n-k},\qquad k=0,\ldots,n
+$$
+で定まる二項分布に従うとする。また、平均$\lambda$のポアソン分布の確率質量関数は
+$$
+q(k)=e^{-\lambda}\frac{\lambda^k}{k!},\qquad k=0,1,2,\ldots
+$$
+である。
 
 1. $E[B_n]$, $\operatorname{Var}(B_n)$と極限を求めよ。（20点）
 2. 固定した$k$で$P(B_n=k)$が$\operatorname{Poisson}(\lambda)$の確率質量関数へ収束することを因子分解で示せ。（20点）
