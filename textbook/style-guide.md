@@ -10,7 +10,7 @@
 
 このファイルには**通常教材だけに必要な表示・説明粒度・運用上の差分**だけを書く。数式記法、用語、分布表記、詳細解答の行間、定理適用、電卓利用などの共通規則はここで再定義しない。
 
-章の具体的な見出し構成・配置順・solution markerの置き方は [`templates/chapter/index.md`](templates/chapter/index.md) を唯一の正本とする。新規章は `npm run new:chapter -- <章ID>` でこのテンプレートから作成する。
+章の具体的な見出し構成・配置順・solution markerの置き方は [`templates/chapter/index.md`](templates/chapter/index.md) を唯一の正本とする。新規章は `npm run new:chapter -- <章ID>` でこのテンプレートから作成する。`textbook/templates` は執筆用の内部資産であり、GitHub Pagesの読者向け公開対象には含めない。
 
 ## 1. 読者と到達点
 
