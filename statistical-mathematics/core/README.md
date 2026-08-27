@@ -41,7 +41,7 @@ Core層の大問を1題1ファイルで管理する。各題は「問題・詳�
 | 35 | 28 | A | A | [正規部分和・条件付き分布・Gaussian bridge](28_gaussian_bridge.md) |
 | 36 | 30 | A | B | [正規線形観測・Bayes・条件付き正規](30_normal_linear_bayes.md) |
 | 37 | 18 | A | A | [二項からPoisson極限・再生性・正規近似](18_binomial_poisson_normal_limit.md) |
-| 38 | 4 | A | B | [カイ二乗モーメント母関数・再生性・Beta接続](04_chisq_mgf_beta.md) |
+| 38 | 4 | A | A | [非心カイ二乗分布：正規変数の二乗和・モーメント母関数・Poisson混合](04_chisq_mgf_beta.md) |
 | 39 | 5 | A | A | [カイ二乗・F・t・Cauchyの比と変換](05_chisq_f_t_cauchy.md) |
 | 40 | 6 | A | B | [確率積分変換・一様分布・順序統計量](06_probability_integral_transform.md) |
 | 41 | 8 | A | B | [条件付き確率・全確率・Bayes](08_conditional_probability_bayes.md) |
