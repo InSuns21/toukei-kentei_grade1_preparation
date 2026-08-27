@@ -1,0 +1,14 @@
+name: Report P4-02 controls
+
+on:
+  push:
+    paths:
+      - '.github/workflows/report-p402-controls.yml'
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Report controls
+        run: python .github/scripts/report_p402_controls.py
