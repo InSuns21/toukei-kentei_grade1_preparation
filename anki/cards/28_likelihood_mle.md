@@ -327,13 +327,13 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 一様分布 $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$、密度 $f(x)=1/\theta$（$0\le x\le\theta$、$\theta>0$）の $\theta$ の最尤推定量を求めよ。通常の微分はなぜ使えないか。
 ## 答え
 $\widehat\theta=X_{(n)}=\max_i X_i.$
-対数尤度 $\ell(\theta)=-n\log\theta$ は許容範囲で単調減少し、内点解がない。台が $\theta$ に依存するため指示関数 $\mathbf1\{0\le x\le\theta\}$ を尤度に入れる必要がある。
+対数尤度 $\ell(\theta)=-n\log\theta$ は許容範囲で単調減少し、内点解がない。台が $\theta$ に依存するため指示関数 $\boldsymbol{1}_{\{0\le x\le\theta\}}$ を尤度に入れる必要がある。
 ## 使用公式・定理
 $L(\theta;x)=\theta^{-n}\prod_i\mathbf1\{0\le x_i\le\theta\}.$
 これは $\theta\ge X_{(n)}$ で $\theta^{-n}$ であり、$\theta$ が小さいほど大きい。よって $\widehat\theta=X_{(n)}$。
 ## 計算例
 観測値が $(2,5,3,1)$ なら $x_{(n)}=5$ である。尤度は
-$$L(\theta;x)=\theta^{-4}\mathbf 1\{\theta\ge5\}$$
+$$L(\theta;x)=\theta^{-4}\boldsymbol{1}_{\{\theta\ge5\}}$$
 だから
 $$L(\theta;x)=0\quad(0<\theta<5),$$
 $$L(\theta;x)=\theta^{-4}\quad(\theta\ge5).$$
@@ -699,7 +699,7 @@ $f(x;\theta)=g_\theta(T(x))\,h(x)$
 ## 計算例
 $\operatorname{Bernoulli}(p)$ の $T=\sum_i x_i$：$p^T(1-p)^{n-T}\cdot1$ と書け、$h(x)=1$、$g_p(T)=p^T(1-p)^{n-T}$。
 ## 一手
-「$\theta$ と $x$ が分離可能な因子 $g_\theta(T(x))$ と $h(x)$ に分解できる」ことを確認する。台が母数に依存しない指示関数だけを $h(x)$ に入れられる。$U(0,\theta)$ の $1\{X_{(n)}\le\theta\}$ のような母数依存の指示関数は $g_\theta(T(x))$ 側へ入れる。
+「$\theta$ と $x$ が分離可能な因子 $g_\theta(T(x))$ と $h(x)$ に分解できる」ことを確認する。台が母数に依存しない指示関数だけを $h(x)$ に入れられる。$U(0,\theta)$ の $\boldsymbol{1}_{\{X_{(n)}\le\theta\}}$ のような母数依存の指示関数は $g_\theta(T(x))$ 側へ入れる。
 <!-- CARD -->
 ---
 id: suff-bernoulli

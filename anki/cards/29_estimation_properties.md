@@ -393,7 +393,7 @@ sources: [{ type: official_syllabus, topic: その他の手法 }]
 ## 答え
 母集団の未知母数や汎関数を、経験分布関数 $\widehat F_n$（または標本対応）へ代入して求める。母平均は $\overline X$、母分散の最尤推定量 $n^{-1}\sum(X_i-\overline X)^2$ などが例。
 ## 使用公式・定理
-$$\widehat F_n(x)=\frac1n\sum_{i=1}^n \mathbf 1\{X_i\le x\}.$$
+$$\widehat F_n(x)=\frac1n\sum_{i=1}^n \boldsymbol{1}_{\{X_i\le x\}}.$$
 汎関数 $\theta=\theta(F)$ に対し $\widehat\theta=\theta(\widehat F_n)$。
 ## 計算例
 $F$ の平均 $\mu(F)=\int x\,dF(x)$ を経験分布に代入すると $\mu(\widehat F_n)=\overline X$。
