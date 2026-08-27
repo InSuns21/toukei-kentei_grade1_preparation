@@ -11,6 +11,7 @@ const targets = [
   path.join(ankiRoot, 'formulae.md'),
 ].filter(fs.existsSync);
 
+// statistical-mathematics / applied-rikou-80 と同じ表記規約を Anki にも適用する。
 // 指示関数は条件を右下添字に置く。
 // NG: 1\{A\}, \boldsymbol{1}\{A\}, \mathbf{1}\{A\}, \mathbb{1}\{A\}
 // OK: \boldsymbol{1}_{\{A\}}
