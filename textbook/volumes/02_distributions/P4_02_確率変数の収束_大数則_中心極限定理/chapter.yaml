@@ -19,7 +19,7 @@ theorems:
   - {id: P4T-THM-02, name: 中心極限定理}
   - {id: P4T-THM-03, name: Slutsky型の定理}
   - {id: P4T-THM-04, name: 二項分布のポアソン極限}
-canonical_examples: [標本平均, ベルヌーイ標本, ポアソン和, 二項正規近似, 二項ポアソン極限]
+canonical_examples: [標本平均, ベルヌーイ標本, 標本比率の漸近区間, ポアソン和, 二項正規近似, 二項ポアソン極限]
 problem_patterns: [CONV-1, LLN-1, CLT-1, BIN-NORMAL-1, POISSON-APPROX-1, DELTA-1, ANSWER-1]
 past_exam_alignment:
   - id: MATH-2023-Q1
