@@ -1377,7 +1377,7 @@ $O_p$ は確率的有界、$o_p$ は確率収束して0。
 
 ---
 id: asym-prob-conv-chebyshev
-title: Chebyshev不等式で確率収束を計算する
+title: チェビシェフの不等式で確率収束を計算する
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: chebyshev-convergence

@@ -350,7 +350,7 @@ $$T_\nu\xrightarrow{d}N(0,1)\qquad(\nu\to\infty).$$
 $\nu=1$ は標準のコーシー分布であり、平均・分散は存在しない。
 
 ## 使用公式・定理
-$T=Z/\sqrt{V/\nu}$。$E[V/\nu]=1$ かつ $\operatorname{Var}(V/\nu)=2/\nu\to0$ なので、Chebyshev の不等式より $V/\nu$ は1へ確率収束し、分母は1に収束する。
+$T=Z/\sqrt{V/\nu}$。$E[V/\nu]=1$ かつ $\operatorname{Var}(V/\nu)=2/\nu\to0$ なので、チェビシェフの不等式より $V/\nu$ は1へ確率収束し、分母は1に収束する。
 
 ## 計算例
 $\nu\to\infty$ の収束が主結論であり、$\nu=30$ では実用上標準正規に近いとされる。$\nu=10$ ではまだ裾がやや重い。

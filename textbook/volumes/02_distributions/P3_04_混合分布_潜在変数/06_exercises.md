@@ -120,7 +120,7 @@ $X_i\mid\Lambda_i\sim\operatorname{Poisson}(\Lambda_i)$、$\Lambda_i\overset{\ma
 2. $E[X_i]$ と $\operatorname{Var}(X_i)$ を求めよ。
 3. $\bar X$ が $E[X_i]$ の不偏推定量であることを示せ。
 4. $\beta$ が既知のとき、$\alpha$ のモーメント推定量を求めよ。
-5. $\operatorname{Var}(\bar X)$ を求め、$\bar X$ が $\alpha/\beta$ に確率収束することをChebyshev不等式 $P(|Y-EY|\geq\varepsilon)\leq\operatorname{Var}(Y)/\varepsilon^2$ で示せ。
+5. $\operatorname{Var}(\bar X)$ を求め、$\bar X$ が $\alpha/\beta$ に確率収束することをチェビシェフの不等式 $P(|Y-EY|\geq\varepsilon)\leq\operatorname{Var}(Y)/\varepsilon^2$ で示せ。
 
 第1問を得られない場合、第2問以降では $E[X_i]=\alpha/\beta$、$\operatorname{Var}(X_i)=\alpha/\beta+\alpha/\beta^2$ を用いてよい。
 

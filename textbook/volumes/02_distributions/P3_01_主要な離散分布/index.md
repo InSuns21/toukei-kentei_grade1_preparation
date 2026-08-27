@@ -2036,7 +2036,7 @@ $$
 
 推定量 $T$ が $E[T]=\lambda$ を満たすとき $\lambda$ の不偏推定量という。また任意の $\varepsilon>0$ について $P(|T_m-\lambda|\geq\varepsilon)\to0$ となることを、$T_m$ が $\lambda$ へ確率収束するという。
 
-任意の有限分散な確率変数 $T$ と $\varepsilon>0$ に対するChebyshev不等式
+任意の有限分散な確率変数 $T$ と $\varepsilon>0$ に対するチェビシェフの不等式
 
 $$
 P(|T-E[T]|\geq\varepsilon)
@@ -2049,7 +2049,7 @@ $$
 2. $N=3$ の下での $U$ の分布と $P(U=1\mid N=3)$ を求めよ。（20点）
 3. $U,V$ の周辺分布を求め、独立性と共分散を示せ。（25点）
 4. $\widehat\lambda=N/2$ が $\lambda$ の不偏推定量であることを示し、分散を求めよ。（20点）
-5. 独立な $m$ 個の2時間区間で得た件数を $N_1,\ldots,N_m$ とし、$\widetilde\lambda=(2m)^{-1}\sum_jN_j$ とする。Chebyshev不等式を用いて $\widetilde\lambda$ が $\lambda$ へ確率収束することを示せ。（15点）
+5. 独立な $m$ 個の2時間区間で得た件数を $N_1,\ldots,N_m$ とし、$\widetilde\lambda=(2m)^{-1}\sum_jN_j$ とする。チェビシェフの不等式を用いて $\widetilde\lambda$ が $\lambda$ へ確率収束することを示せ。（15点）
 
 <!-- solution-start -->
 
@@ -2154,7 +2154,7 @@ $$
 \end{aligned}
 $$
 
-Chebyshev不等式より
+チェビシェフの不等式より
 
 $$
 P(|\widetilde\lambda-\lambda|\geq\varepsilon)
@@ -2216,7 +2216,7 @@ $$
 - 条件付き二項分布: 20点
 - 間引き・独立性: 25点
 - 不偏性と分散: 20点
-- Chebyshev不等式による確率収束: 15点
+- チェビシェフの不等式による確率収束: 15点
 
 <!-- solution-end -->
 

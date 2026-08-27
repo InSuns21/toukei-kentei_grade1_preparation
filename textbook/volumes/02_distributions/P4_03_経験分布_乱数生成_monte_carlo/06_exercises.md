@@ -94,7 +94,7 @@ $f(x)=2x$、$g(x)=1$（$0<x<1$）。各回の提案値と補助一様乱数は�
 - calculation: high
 - finishability: 25分でCLT標本数、28分でChebyshev保証との比較まで完答
 - techniques: MC-1, CLT-1
-$I=\int_0^1e^u\,du$。1. 期待値表示、2. 推定量、3. 不偏性、4. 分散、5. 中心極限定理による95%誤差幅を0.01以下にする十分な $N$、6. Chebyshev不等式 $P(|\widehat I_N-I|\ge\varepsilon)\le\operatorname{Var}(\widehat I_N)/\varepsilon^2$ だけで同じ95%保証を得る $N$ を求め、差を解釈せよ。第4問を得られない場合、第5・6問では $\operatorname{Var}(e^U)=0.242036$ を用いてよい。
+$I=\int_0^1e^u\,du$。1. 期待値表示、2. 推定量、3. 不偏性、4. 分散、5. 中心極限定理による95%誤差幅を0.01以下にする十分な $N$、6. チェビシェフの不等式 $P(|\widehat I_N-I|\ge\varepsilon)\le\operatorname{Var}(\widehat I_N)/\varepsilon^2$ だけで同じ95%保証を得る $N$ を求め、差を解釈せよ。第4問を得られない場合、第5・6問では $\operatorname{Var}(e^U)=0.242036$ を用いてよい。
 
 ### P4R-C05 経験分布からの再標本化
 - level: C

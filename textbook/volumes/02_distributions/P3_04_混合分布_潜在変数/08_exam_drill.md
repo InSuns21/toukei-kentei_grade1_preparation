@@ -19,7 +19,7 @@ $$P(X_i=k\mid\lambda)=e^{-\lambda}\frac{\lambda^k}{k!},\quad k\in\mathbb N_0.$$
 1. 周辺確率質量関数（probability mass function; PMF）$P(X_i=k)$ を積分し、Gamma関数で表せ。（20点）
 2. $E[X_i]$ と $\operatorname{Var}(X_i)$ を全期待値・全分散で求めよ。（20点）
 3. $\widehat\alpha=\beta\bar X$ を定義し、$E[\widehat\alpha]$ と $\operatorname{Var}(\widehat\alpha)$ を求めよ。（20点）
-4. Chebyshev不等式 $P(|W-E[W]|\geq\varepsilon)\leq\operatorname{Var}(W)/\varepsilon^2$ を用いて $\widehat\alpha\xrightarrow{p}\alpha$ を示せ。（20点）
+4. チェビシェフの不等式 $P(|W-E[W]|\geq\varepsilon)\leq\operatorname{Var}(W)/\varepsilon^2$ を用いて $\widehat\alpha\xrightarrow{p}\alpha$ を示せ。（20点）
 5. $X_1=x$ を観測した後の共有潜在率による $Y\mid\Lambda_1=\lambda\sim\operatorname{Poisson}(\lambda)$ について、$P(Y=0\mid X_1=x)$ を求めよ。（20点）
 
 第2問を得られない場合、第3・4問では $E[X_i]=\alpha/\beta$、$\operatorname{Var}(X_i)=\alpha/\beta+\alpha/\beta^2$ を用いてよい。第1問を得られなくても、第5問は事前密度と $X_1=x$ の尤度から独立に開始してよい。
@@ -33,7 +33,7 @@ $$P(X_i=k\mid\lambda)=e^{-\lambda}\frac{\lambda^k}{k!},\quad k\in\mathbb N_0.$$
 $$P(X_i=k)=\frac{\beta^\alpha\Gamma(k+\alpha)}{k!\Gamma(\alpha)(\beta+1)^{k+\alpha}}.$$
 $$E[X_i]=\frac\alpha\beta,\; \operatorname{Var}(X_i)=\frac\alpha\beta+\frac\alpha{\beta^2}.$$
 $$E[\widehat\alpha]=\alpha,\; \operatorname{Var}(\widehat\alpha)=\frac{\alpha(\beta+1)}n.$$
-よってChebyshev不等式の右辺は $\alpha(\beta+1)/(n\varepsilon^2)\to0$ であり $\widehat\alpha\xrightarrow{p}\alpha$。さらに共有潜在率 $\Lambda_1\mid X_1=x\sim\operatorname{Gamma}(\alpha+x,\beta+1)$ なので
+よってチェビシェフの不等式の右辺は $\alpha(\beta+1)/(n\varepsilon^2)\to0$ であり $\widehat\alpha\xrightarrow{p}\alpha$。さらに共有潜在率 $\Lambda_1\mid X_1=x\sim\operatorname{Gamma}(\alpha+x,\beta+1)$ なので
 $$P(Y=0\mid X_1=x)=\left(\frac{\beta+1}{\beta+2}\right)^{\alpha+x}.$$
 
 ## 詳細解答と採点基準
@@ -81,7 +81,7 @@ $$E[\widehat\alpha]=\beta E[\bar X]=\beta\frac{\alpha}{\beta}=\alpha.$$
 さらに
 $$\operatorname{Var}(\widehat\alpha)=\beta^2\frac{\operatorname{Var}(X_i)}n=\frac{\alpha(\beta+1)}n.$$
 不偏10点、分散10点。
-4. **方針。** 第3問の平均と分散をChebyshev不等式へそのまま代入する。
+4. **方針。** 第3問の平均と分散をチェビシェフの不等式へそのまま代入する。
 任意の $\varepsilon>0$ に対し
 $$P(|\widehat\alpha-\alpha|\geq\varepsilon)\leq\frac{\alpha(\beta+1)}{n\varepsilon^2}\to0,$$
 従って $\widehat\alpha\xrightarrow{p}\alpha$。不等式10点、極限10点。
