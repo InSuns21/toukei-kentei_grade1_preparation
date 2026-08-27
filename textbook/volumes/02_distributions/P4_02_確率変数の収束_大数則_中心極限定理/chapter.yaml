@@ -2,21 +2,25 @@ id: "P4-02"
 title: "確率変数の収束・大数則・中心極限定理"
 volume: "distributions"
 status: reviewed
-prerequisites: [P2-02, P3-02]
+prerequisites: [F0-00, P2-02, P3-01, P3-02]
 official_scope: [確率変数の収束, 大数の法則, 中心極限定理, 正規近似, ポアソン近似]
 learning_objectives:
-  - 確率収束・概収束・分布収束を定義し関係を説明できる
+  - 確率収束・概収束・分布収束を量化記号を含めて定義し関係を説明できる
   - 大数の法則と中心極限定理を仮定付きで適用できる
-  - 二項・ポアソン標本の近似誤差と連続補正を計算できる
+  - Chebyshev不等式から有限分散の場合の弱大数則を再現できる
+  - 二項・ポアソン標本の正規近似・ポアソン近似と連続補正を計算できる
+  - Slutsky型の定理と一次Taylor展開から基本的な漸近変換を説明できる
 definitions:
   - {id: P4T-DEF-01, name: 確率収束・概収束・分布収束}
   - {id: P4T-DEF-02, name: 標準化と漸近分布}
+  - {id: P4T-DEF-03, name: 確率Cauchy列}
 theorems:
   - {id: P4T-THM-01, name: 大数の法則}
   - {id: P4T-THM-02, name: 中心極限定理}
-  - {id: P4T-THM-03, name: Slutsky型の合成}
-canonical_examples: [標本平均, ベルヌーイ標本, ポアソン和, 二項正規近似]
-problem_patterns: [収束概念の判定, LLN適用, CLT標準化, 近似確率, 推定量の漸近評価]
+  - {id: P4T-THM-03, name: Slutsky型の定理}
+  - {id: P4T-THM-04, name: 二項分布のポアソン極限}
+canonical_examples: [標本平均, ベルヌーイ標本, ポアソン和, 二項正規近似, 二項ポアソン極限]
+problem_patterns: [CONV-1, LLN-1, CLT-1, BIN-NORMAL-1, POISSON-APPROX-1, DELTA-1, ANSWER-1]
 past_exam_alignment:
   - id: MATH-2023-Q1
     source_type: third_party_topic_index
@@ -28,7 +32,7 @@ past_exam_alignment:
     confidence: medium
 integrated_exam_problems: [P4T-DRILL-01]
 exercise_counts: {level_a: 4, level_b: 4, level_c: 5, level_d: 1}
-estimated_hours: {reading: 4, exercises: 8, review: 3}
+estimated_hours: {reading: 6, exercises: 10, review: 3}
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
