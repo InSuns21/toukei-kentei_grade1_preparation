@@ -16,14 +16,14 @@ $$
 
 を Monte Carlo 法で推定する。
 
-以下では、各方法で用いる標本は互いに独立で同一分布（i.i.d.）とする。また、$1\{A\}$ は事象 $A$ が起これば1、起こらなければ0をとる指示関数を表す。
+以下では、各方法で用いる標本は互いに独立で同一分布（i.i.d.）とする。また、$\boldsymbol{1}_{\{A\}}$ は事象 $A$ が起これば1、起こらなければ0をとる指示関数を表す。
 
 ### 方法1：事象をそのまま数える
 
 $Z_1,\dots,Z_n\overset{\mathrm{i.i.d.}}{\sim}N(0,1)$ として
 
 $$
-\widehat\theta_1=\frac1n\sum_{i=1}^n1\{0\le Z_i\le1\}.
+\widehat\theta_1=\frac1n\sum_{i=1}^n\boldsymbol{1}_{\{0\le Z_i\le1\}}.
 $$
 
 ### 方法2：標準正規分布の対称性を利用する
@@ -31,7 +31,7 @@ $$
 方法1と同様に $Z_1,\dots,Z_n\overset{\mathrm{i.i.d.}}{\sim}N(0,1)$ とし、
 
 $$
-\widehat\theta_2=\frac1{2n}\sum_{i=1}^n1\{|Z_i|\le1\}.
+\widehat\theta_2=\frac1{2n}\sum_{i=1}^n\boldsymbol{1}_{\{|Z_i|\le1\}}.
 $$
 
 標準正規分布は0について対称なので、$P(|Z|\le1)=2\theta$ であることを利用している。
@@ -73,7 +73,7 @@ $$
 事象 $A$ の確率を $p=P(A)$ とする。このとき
 
 $$
-I=1\{A\}
+I=\boldsymbol{1}_{\{A\}}
 $$
 
 は
@@ -115,7 +115,7 @@ $$
 #### 方法1
 
 $$
-I_i=1\{0\le Z_i\le1\}
+I_i=\boldsymbol{1}_{\{0\le Z_i\le1\}}
 $$
 
 とおくと
@@ -141,7 +141,7 @@ $$
 #### 方法2
 
 $$
-J_i=1\{|Z_i|\le1\}
+J_i=\boldsymbol{1}_{\{|Z_i|\le1\}}
 $$
 
 とおく。標準正規分布は0について対称だから
@@ -278,7 +278,7 @@ $$
 \end{aligned}
 $$
 
-方法3の分散が非常に小さいのは、$1\{0\le Z\le1\}$ のような0か1かの粗い変数ではなく、区間 $(0,1)$ 上で滑らかに変化する $\phi(U)$ を平均して積分を評価しているためである。
+方法3の分散が非常に小さいのは、$\boldsymbol{1}_{\{0\le Z\le1\}}$ のような0か1かの粗い変数ではなく、区間 $(0,1)$ 上で滑らかに変化する $\phi(U)$ を平均して積分を評価しているためである。
 
 ### 3. 分散係数の比較
 
@@ -328,7 +328,7 @@ $$
 
 ## 本番答案
 
-$I_i=1\{0\le Z_i\le1\}$ とおけば $I_i\sim\operatorname{Bernoulli}(\theta)$、$J_i=1\{|Z_i|\le1\}$ とおけば標準正規分布の対称性より $J_i\sim\operatorname{Bernoulli}(2\theta)$ である。また $U_i\sim U(0,1)$ より
+$I_i=\boldsymbol{1}_{\{0\le Z_i\le1\}}$ とおけば $I_i\sim\operatorname{Bernoulli}(\theta)$、$J_i=\boldsymbol{1}_{\{|Z_i|\le1\}}$ とおけば標準正規分布の対称性より $J_i\sim\operatorname{Bernoulli}(2\theta)$ である。また $U_i\sim U(0,1)$ より
 
 $$
 E[\phi(U_i)]=\int_0^1\phi(u)\,du=\theta.
