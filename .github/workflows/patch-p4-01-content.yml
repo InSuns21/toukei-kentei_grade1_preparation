@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/patch-p4-01-content.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -309,7 +310,6 @@ $$
           style = style.replace(anchor, rule + anchor, 1)
           sp.write_text(style, encoding='utf-8')
 
-          # Guard against the specific regressions fixed here.
           final = p.read_text(encoding='utf-8')
           forbidden = [
               'プログラミング関数名などを覚える必要はありません',
