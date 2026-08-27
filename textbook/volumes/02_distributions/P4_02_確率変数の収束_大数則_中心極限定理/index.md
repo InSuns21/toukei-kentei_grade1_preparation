@@ -159,7 +159,7 @@ $$
 
 # 3. 大数の法則
 
-## 3.1 有限分散の場合をChebyshev不等式から導く
+## 3.1 有限分散の場合をチェビシェフの不等式から導く
 
 $X_1,X_2,\ldots$を独立同分布とし
 $$
@@ -176,7 +176,7 @@ $$
 =\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
 =\frac{\sigma^2}{n}.
 $$
-Chebyshev不等式
+チェビシェフの不等式
 $$
 P(|Y-EY|>\varepsilon)
 \leq\frac{\operatorname{Var}(Y)}{\varepsilon^2}
@@ -184,7 +184,7 @@ $$
 へ$Y=\overline X_n$を代入すると
 $$
 P(|\overline X_n-\mu|>\varepsilon)
-\leq\frac{\sigma^2}{n\varepsilon^2}o0.
+\leq\frac{\sigma^2}{n\varepsilon^2}\to0.
 $$
 従って
 $$
@@ -205,7 +205,7 @@ $$
 $$
 が成り立ちます。これを強大数の法則といいます。概収束は確率収束を含意するので、同じ仮定から確率収束も従います。
 
-有限分散の場合の弱大数則は、上のChebyshev不等式から直接導けます。
+有限分散の場合の弱大数則は、上のチェビシェフの不等式から直接導けます。
 
 ---
 
@@ -651,7 +651,7 @@ $a=0$の場合3点、確率の変形10点、結論7点。合計20点。
 - minutes: 14
 - topics: 大数の法則
 
-$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とする。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$ならChebyshev不等式から確率収束を直接示せ。
+$X_1,X_2,\ldots$は独立同分布で$E|X_1|<\infty$とする。$\overline X_n$の収束を大数の法則で説明せよ。さらに$\operatorname{Var}(X_1)=\sigma^2<\infty$ならチェビシェフの不等式から確率収束を直接示せ。
 
 <!-- solution-start -->
 
@@ -678,11 +678,11 @@ $$
 
 ##### 本番答案
 
-$E|X_1|<\infty$より強大数則で$\overline X_n\to\mu$概収束、従って確率収束。有限分散ならChebyshev不等式から$P(|\overline X_n-\mu|>\varepsilon)\leq\sigma^2/(n\varepsilon^2)\to0$。
+$E|X_1|<\infty$より強大数則で$\overline X_n\to\mu$概収束、従って確率収束。有限分散ならチェビシェフの不等式から$P(|\overline X_n-\mu|>\varepsilon)\leq\sigma^2/(n\varepsilon^2)\to0$。
 
 ##### 採点基準
 
-強大数則8点、含意3点、分散3点、Chebyshev不等式6点。合計20点。
+強大数則8点、含意3点、分散3点、チェビシェフの不等式6点。合計20点。
 
 <!-- solution-end -->
 
@@ -771,7 +771,7 @@ $E[B]=120$, $\operatorname{Var}(B)=84$。連続補正により$P(B\le130)\approx
 
 1. $E[\overline X_n]$と$\operatorname{Var}(\overline X_n)$を求めよ。
 2. $\overline X_n$が$\lambda$の不偏推定量であることを示せ。
-3. $\overline X_n\xrightarrow{p}\lambda$をChebyshev不等式から示せ。
+3. $\overline X_n\xrightarrow{p}\lambda$をチェビシェフの不等式から示せ。
 4. $\sqrt n(\overline X_n-\lambda)$の極限分布を求めよ。
 5. $\lambda=4,n=100$で$P(|\overline X_n-4|\leq0.4)$を中心極限定理で近似せよ。さらに$T=\sum_iX_i$が整数値であることを利用した連続補正付き近似も示せ。
 
@@ -793,7 +793,7 @@ E[\overline X_n]=\lambda,
 $$
 従って$\overline X_n$は$\lambda$の不偏推定量です。
 
-任意の$\varepsilon>0$についてChebyshev不等式から
+任意の$\varepsilon>0$についてチェビシェフの不等式から
 $$
 P(|\overline X_n-\lambda|>\varepsilon)
 \leq\frac{\lambda}{n\varepsilon^2}\to0,
@@ -830,7 +830,7 @@ $$
 
 ##### 本番答案
 
-$E[\overline X_n]=\lambda$, $\operatorname{Var}(\overline X_n)=\lambda/n$より不偏。Chebyshev不等式で$P(|\overline X_n-\lambda|>\varepsilon)\leq\lambda/(n\varepsilon^2)\to0$。また$\sqrt n(\overline X_n-\lambda)\to_dN(0,\lambda)$。$\lambda=4,n=100$では無補正近似$0.9545$、$T\sim\operatorname{Poisson}(400)$として連続補正すると$\Phi(2.025)-\Phi(-2.025)\approx0.9571$。
+$E[\overline X_n]=\lambda$, $\operatorname{Var}(\overline X_n)=\lambda/n$より不偏。チェビシェフの不等式で$P(|\overline X_n-\lambda|>\varepsilon)\leq\lambda/(n\varepsilon^2)\to0$。また$\sqrt n(\overline X_n-\lambda)\to_dN(0,\lambda)$。$\lambda=4,n=100$では無補正近似$0.9545$、$T\sim\operatorname{Poisson}(400)$として連続補正すると$\Phi(2.025)-\Phi(-2.025)\approx0.9571$。
 
 ##### 採点基準と選択判断
 
@@ -863,7 +863,7 @@ E[\widehat p]=p,
 \qquad
 \operatorname{Var}(\widehat p)=\frac{p(1-p)}n.
 $$
-従って不偏です。また分散が0へ行くためChebyshev不等式から
+従って不偏です。また分散が0へ行くためチェビシェフの不等式から
 $$
 \widehat p\xrightarrow p p.
 $$
@@ -1302,7 +1302,7 @@ $E[B_n]=\lambda$, $\operatorname{Var}(B_n)=\lambda(1-\lambda/n)\to\lambda$。確
 - [ ] 分布収束では極限累積分布関数の連続点だけを要求する理由を認識している。
 - [ ] 概収束$\Rightarrow$確率収束$\Rightarrow$分布収束を区別できる。
 - [ ] 確率収束列が確率Cauchyになることを三角不等式から示せる。
-- [ ] 有限分散の場合の弱大数則をChebyshev不等式から導出できる。
+- [ ] 有限分散の場合の弱大数則をチェビシェフの不等式から導出できる。
 - [ ] 中心極限定理の独立同分布・有限正分散の仮定を確認できる。
 - [ ] 標本平均と標本和で標準化の尺度を取り違えない。
 - [ ] 二項分布の正規近似で$\pm1/2$の連続補正を入れられる。

@@ -264,14 +264,14 @@ $X\ge0$ の非負性と $a>0$ を確認し、$aP(X\ge a)$ を $E[X]$ で上か�
 <!-- CARD -->
 ---
 id: prob-chebyshev-inequality
-title: Chebyshevの不等式で分散から超過確率を評価する
+title: チェビシェフの不等式で分散から超過確率を評価する
 category: math-probability
 subcategory: math-distribution-characteristics
 topic: chebyshev-inequality
 type: theorem
 difficulty: 2
 priority: A
-hashtags: [Chebyshevの不等式, 分散, 超過確率]
+hashtags: [チェビシェフの不等式, 分散, 超過確率]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 分散 }]
 ---
