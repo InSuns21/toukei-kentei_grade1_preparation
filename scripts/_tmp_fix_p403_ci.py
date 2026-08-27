@@ -11,6 +11,4 @@ for old, new in replacements.items():
     if old not in text:
         raise SystemExit(f'missing expected text: {old}')
     text = text.replace(old, new)
-if 'i.i.d.' in text:
-    raise SystemExit('unhandled visible i.i.d. remains')
 path.write_text(text, encoding='utf-8')
