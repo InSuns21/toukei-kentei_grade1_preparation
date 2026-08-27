@@ -1,0 +1,43 @@
+name: One-off exclude textbook templates from Pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/oneoff-exclude-textbook-templates.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Exclude internal textbook templates
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/build-pages.mjs')
+          s = p.read_text()
+          old = """await cp(textbookSourceDir, textbookTargetDir, { recursive: true });
+          await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');
+          """
+          new = """await cp(textbookSourceDir, textbookTargetDir, {
+            recursive: true,
+            filter: (source) => {
+              const relative = path.relative(textbookSourceDir, source);
+              return relative === '' || relative.split(path.sep)[0] !== 'templates';
+            },
+          });
+          await orientPublishedMarkdownTree(textbookTargetDir, 'textbook');
+          """
+          if old not in s:
+              raise SystemExit('target block not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          rm .github/workflows/oneoff-exclude-textbook-templates.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add scripts/build-pages.mjs .github/workflows/oneoff-exclude-textbook-templates.yml
+          git commit -m "pages: exclude internal textbook templates"
+          git push
