@@ -3,7 +3,7 @@ terms:
   - { term: 確率質量関数, symbol: "p_X(x)", definition: "離散型の点確率P(X=x)" }
   - { term: 確率密度関数, symbol: "f_X(x)", definition: "集合上の積分が確率を与える非負関数" }
   - { term: 累積分布関数, symbol: "F_X(x)", definition: "P(X≤x)" }
-  - { term: 台, definition: "分布が確率質量または密度をもつ値の範囲" }
+  - { term: 台, definition: "分布が確率質量または密度をもつ値の範囲。2変量以上では平面・空間上の領域となり、書籍によっては支持領域とも呼ばれる" }
   - { term: 同時分布, definition: "複数の確率変数を同時に記述する分布" }
   - { term: 周辺分布, definition: "他の変数を和または積分して得る一部変数の分布" }
   - { term: 点質量, definition: "CDFの跳躍に対応する一点の正の確率" }
