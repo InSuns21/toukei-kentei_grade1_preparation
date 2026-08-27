@@ -184,7 +184,7 @@ $$
 へ$Y=\overline X_n$を代入すると
 $$
 P(|\overline X_n-\mu|>\varepsilon)
-\leq\frac{\sigma^2}{n\varepsilon^2}o0.
+\leq\frac{\sigma^2}{n\varepsilon^2}\to0.
 $$
 従って
 $$
