@@ -45,3 +45,6 @@ jobs:
 
       - name: Validate Anki
         run: npm run anki:validate
+
+      - name: Validate indicator notation
+        run: node anki/scripts/validate_indicator_notation.mjs
