@@ -14,7 +14,7 @@ const forbidden = [
   [/\\\]/g, String.raw`\]`],
   [/\\begin\{(?:equation|align\*?)\}/g, 'equation/align environment'],
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
-  [/\\(?:boldsymbol|mathbf|mathbb)\s*(?:\{1\}|1)\s*\\\{/g, String.raw`指示関数の条件は右下添字で書く（例：\boldsymbol{1}_{\{A\}}）`],
+  [/(?<![_\w])(?:1|\\(?:boldsymbol|mathbf|mathbb)\s*(?:\{1\}|1))\s*\\\{/g, String.raw`指示関数の条件は右下添字で書く（例：\boldsymbol{1}_{\{A\}}）`],
 ];
 
 for (const file of files) {
