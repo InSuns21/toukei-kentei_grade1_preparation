@@ -16,6 +16,9 @@ const requiredRoot = [
   'textbook/notation.md',
   'textbook/style-guide.md',
   'textbook/dependency-graph.md',
+  'textbook/templates/chapter/index.md',
+  'textbook/templates/chapter/chapter.yaml',
+  'textbook/templates/chapter/glossary.yaml',
   'references/distribution-notation-guide.md',
   'references/terminology-guide.md',
 ];
@@ -37,6 +40,8 @@ for (const file of requiredRoot) {
   if (!fs.existsSync(path.join(root, file))) errors.push(`必須ファイルがありません: ${file}`);
 }
 
+validateCanonicalTemplate();
+
 let data;
 try {
   data = YAML.parse(fs.readFileSync(path.join(textbookRoot, 'curriculum.yaml'), 'utf8'));
@@ -54,6 +59,48 @@ if (errors.length) {
 
 console.log('通常教材の機械的な構造を検証しました。人手査読記録はこのvalidationの必須条件ではありません。');
 notes.forEach((note) => console.log(`- note: ${note}`));
+
+function validateCanonicalTemplate() {
+  const templateDir = path.join(textbookRoot, 'templates', 'chapter');
+  const templatePath = path.join(templateDir, 'index.md');
+  if (!fs.existsSync(templatePath)) return;
+
+  for (const name of legacyChapterFiles) {
+    if (fs.existsSync(path.join(templateDir, name))) {
+      errors.push(`章テンプレートに旧分割形式が残っています: textbook/templates/chapter/${name}`);
+    }
+  }
+
+  const content = fs.readFileSync(templatePath, 'utf8');
+  const orderedMarkers = [
+    '# {{chapter_id}} {{chapter_title}}',
+    '## この章で解けるようになる問題',
+    '## 公式出題範囲との対応',
+    '## 前提知識チェック',
+    '## 1. 導入',
+    '## 5. 演習',
+    '## 6. 本番ドリル',
+    '## 7. 過去問との対応',
+    '## 8. 章末チェック',
+  ];
+
+  let last = -1;
+  for (const marker of orderedMarkers) {
+    const current = content.indexOf(marker);
+    if (current === -1) {
+      errors.push(`章テンプレートに必須見出しがありません: ${marker}`);
+      continue;
+    }
+    if (current < last) errors.push(`章テンプレートの見出し順が不正です: ${marker}`);
+    last = current;
+  }
+
+  const solutionStart = content.indexOf('<!-- solution-start -->');
+  const solutionEnd = content.indexOf('<!-- solution-end -->');
+  if (solutionStart === -1 || solutionEnd === -1 || solutionStart >= solutionEnd) {
+    errors.push('章テンプレートの solution marker が不足しているか順序が不正です');
+  }
+}
 
 function validateCurriculum(data) {
   if (data.math_renderer !== 'katex') errors.push('math_renderer は katex でなければなりません');
