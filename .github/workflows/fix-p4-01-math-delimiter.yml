@@ -1,0 +1,35 @@
+name: Fix P4-01 math delimiter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-p4-01-math-delimiter.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fix row spacing syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/02_distributions/P4_01_変数変換_順序統計量/index.md')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace(r'\\[4pt]', r'\\')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit and clean up
+        run: |
+          rm .github/workflows/fix-p4-01-math-delimiter.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/02_distributions/P4_01_変数変換_順序統計量/index.md .github/workflows/fix-p4-01-math-delimiter.yml
+          git commit -m 'textbook: fix P4-01 KaTeX delimiter validation'
+          git push
