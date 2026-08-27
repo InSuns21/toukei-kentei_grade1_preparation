@@ -1,10 +1,13 @@
+chapter: "P1-02"
 terms:
-  - { term: 条件付き確率, symbol: "P(A\\mid B)", definition: "P(B)>0のときP(A∩B)/P(B)" }
-  - { term: 独立, symbol: "P(A\\cap B)=P(A)P(B)", definition: "一方の情報が他方の確率を変えない関係" }
-  - { term: 対独立, definition: "全ての二事象の組が独立であること" }
-  - { term: 相互独立, definition: "全ての2個以上の部分族で積公式が成り立つこと" }
-  - { term: 全確率公式, definition: "分割ごとの条件付き確率と事前確率の積を足す公式" }
-  - { term: 事前確率, definition: "観測前の原因事象の確率" }
-  - { term: 事後確率, definition: "観測事象を条件とした原因事象の確率" }
-  - { term: 感度, definition: "有病を条件とする陽性確率" }
-  - { term: 特異度, definition: "非有病を条件とする陰性確率" }
+  - { term: 条件付き確率, notation: "P(A\\mid B)", meaning: "P(B)>0のときP(A\\cap B)/P(B)で定義される確率" }
+  - { term: 独立, notation: "P(A\\cap B)=P(A)P(B)", meaning: "一方の事象を知っても他方の確率が変わらない関係" }
+  - { term: 対独立, meaning: "全ての二事象の組が独立であること" }
+  - { term: 相互独立, meaning: "全ての2個以上の部分族で積公式が成り立つこと" }
+  - { term: 事象の分割, meaning: "互いに排反で和事象が標本空間全体になる事象族" }
+  - { term: 全確率公式, meaning: "分割ごとの条件付き確率と分割事象の確率の積を足して周辺確率を求める公式" }
+  - { term: ベイズの定理, meaning: "観測確率と事前確率から観測後の原因事象の確率を求める公式" }
+  - { term: 事前確率, meaning: "観測前の原因事象の確率" }
+  - { term: 事後確率, meaning: "観測事象を条件とした原因事象の確率" }
+  - { term: 感度, meaning: "有病を条件とする陽性確率" }
+  - { term: 特異度, meaning: "非有病を条件とする陰性確率" }

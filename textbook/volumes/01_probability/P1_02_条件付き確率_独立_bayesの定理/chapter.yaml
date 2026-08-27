@@ -1,5 +1,5 @@
 id: "P1-02"
-title: "条件付き確率・独立・Bayesの定理"
+title: "条件付き確率・独立・ベイズの定理"
 volume: "probability"
 status: reviewed
 prerequisites:
@@ -9,10 +9,11 @@ official_scope:
   - 統計的独立
   - ベイズの定理
 learning_objectives:
-  - 条件付き確率の分母となる条件事象と標本空間の縮約を説明できる
+  - 条件付き確率の条件事象と正確率条件を説明できる
   - 乗法公式と全確率公式を事象の分割から導ける
   - 独立と排反、対独立と相互独立を区別できる
-  - Bayesの定理で事前確率・尤度・周辺確率・事後確率を識別できる
+  - ベイズの定理で事前確率・観測確率・周辺確率・事後確率を識別できる
+  - 観測後の事後確率を次の予測の混合比として使える
   - Level Cを20〜30分で本番答案にまとめられる
 definitions:
   - { id: P1-DEF-05, name: 条件付き確率 }
@@ -20,18 +21,19 @@ definitions:
   - { id: P1-DEF-07, name: 相互独立と対独立 }
   - { id: P1-DEF-08, name: 事象の分割 }
 theorems:
-  - { id: P1-THM-05, name: 乗法公式 }
+  - { id: P1-THM-05, name: 乗法公式と連鎖律 }
   - { id: P1-THM-06, name: 全確率公式 }
   - { id: P1-THM-06A, name: 条件付き全確率公式 }
-  - { id: P1-THM-07, name: Bayesの定理 }
+  - { id: P1-THM-07, name: ベイズの定理 }
   - { id: P1-THM-08, name: 独立性と補事象 }
 canonical_examples:
-  - 有病率と検査精度から陽性的中率を求める
-  - 非復元抽出を乗法公式で計算する
+  - 検査陽性後の有病確率
+  - 非復元抽出
   - 対独立だが相互独立でない三事象
+  - 事後確率を用いた次時点予測
 problem_patterns: [COND-1, MULT-1, INDEP-1, TOTAL-1, BAYES-1, ANSWER-1]
 past_exam_alignment:
-  - { id: MATH-2021-Q2, current_skills: [条件付き確率, Bayes更新, 事後最大化], later_skills: [Bayes推定] }
+  - { id: MATH-2021-Q2, current_skills: [条件付き確率, ベイズ更新, 事後最大化], later_skills: [ベイズ推定] }
   - { id: MATH-2022-Q3, current_skills: [階層化, 条件付き独立, 周辺化], later_skills: [混合分布, 事後予測] }
 integrated_exam_problems: [P1-DRILL-02]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 5, level_d: 1 }
