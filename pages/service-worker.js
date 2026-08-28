@@ -9,6 +9,7 @@ const supportedStrategies = new Set([
   'stale-while-revalidate',
 ]);
 let manualCacheJob = null;
+let clientOnlineState = null;
 
 function strategyFor(kind) {
   const configured = config.strategyByKind?.[kind] || config.defaultStrategy || 'network-first';
@@ -55,8 +56,14 @@ async function updateCache(cache, request) {
 
 async function networkFirst(request, cache) {
   try {
-    return await updateCache(cache, request);
+    const response = await updateCache(cache, request);
+    clientOnlineState = true;
+    return response;
   } catch {
+    // Once an actual network attempt fails, avoid repeating the same wait for
+    // every Markdown/font request until the page reports that it is online
+    // again. This is especially important in airplane mode.
+    clientOnlineState = false;
     return cachedFallback(request, cache);
   }
 }
@@ -87,8 +94,15 @@ async function staleWhileRevalidate(event, request, cache) {
 
 async function applyStrategy(event, request, kind) {
   const cache = await caches.open(cacheName);
-  const strategy = strategyFor(kind);
 
+  // Normal browsing remains Network First. Only when the controlled page has
+  // explicitly reported an offline state (or a real network attempt just
+  // failed) do we bypass the doomed network request and read cache directly.
+  if (clientOnlineState === false) {
+    return cacheFirst(request, cache);
+  }
+
+  const strategy = strategyFor(kind);
   if (strategy === 'cache-first') {
     return cacheFirst(request, cache);
   }
@@ -284,6 +298,12 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('message', (event) => {
   const data = event.data || {};
+
+  if (data.type === 'SET_CONNECTIVITY' && typeof data.online === 'boolean') {
+    clientOnlineState = data.online;
+    return;
+  }
+
   if (data.type !== 'CACHE_PUBLISHED_FILES') return;
 
   if (manualCacheJob) {
