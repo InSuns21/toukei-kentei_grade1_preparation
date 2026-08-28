@@ -342,7 +342,7 @@ $$
 $Y_i$ は独立同分布で平均 $\theta$、分散 $\theta^2$ だから中心極限定理により
 
 $$
-\sqrt n(\hat\theta-\theta)\to N(0,\theta^2).
+\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,\theta^2).
 $$
 
 $g(\theta)=\theta^{1/k}$ にデルタ法を使って
