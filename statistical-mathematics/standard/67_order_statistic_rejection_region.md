@@ -9,7 +9,17 @@
 
 ## 問題
 
-$X_1,\ldots,X_n$ は独立同分布で $U(0,\theta)$ に従うとする。
+$X_1,\ldots,X_n$ は独立同分布で、未知母数 $\theta>0$ に対し
+
+$$
+f(x;\theta)=
+\begin{cases}
+\dfrac1\theta,&0<x<\theta,\\
+0,&\text{otherwise}
+\end{cases}
+$$
+
+に従うとする。すなわち $X_i\sim U(0,\theta)$ である。
 
 $$
 H_0:\theta=1,
@@ -33,9 +43,20 @@ $$
 
 ### 1. $H_0$ の下での最大値の分布
 
-$H_0:\theta=1$ の下では各 $X_i$ は $U(0,1)$ に従う。
+$H_0:\theta=1$ の下では
 
-$0\le m\le1$ に対して、最大値が $m$ 以下であることは、全ての観測値が $m$ 以下であることと同値なので
+$$
+f(x;1)=1,
+\qquad0<x<1,
+$$
+
+だから $X_i\sim U(0,1)$ である。従って $0\le m\le1$ で
+
+$$
+P_0(X_i\le m)=\int_0^m1\,dx=m.
+$$
+
+最大値が $m$ 以下であることは、全ての観測値が $m$ 以下であることと同値なので
 
 $$
 \{M\le m\}
@@ -48,24 +69,12 @@ $$
 \begin{aligned}
 P_0(M\le m)
 &=P_0(X_1\le m,\ldots,X_n\le m)\\
-&=\prod_{i=1}^nP_0(X_i\le m).
+&=\prod_{i=1}^nP_0(X_i\le m)\\
+&=m^n.
 \end{aligned}
 $$
 
-$X_i\sim U(0,1)$ だから
-
-$$
-P_0(X_i\le m)=m,
-\qquad 0\le m\le1.
-$$
-
 従って
-
-$$
-P_0(M\le m)=m^n.
-$$
-
-全範囲まで書けば累積分布関数は
 
 $$
 \boxed{
@@ -74,13 +83,12 @@ F_M(m)=
 0,&m<0,\\
 m^n,&0\le m\le1,\\
 1,&m>1.
-\end{cases}
-}
+\end{cases}}
 $$
 
 ### 2. 有意水準 $\alpha$ の棄却域
 
-対立仮説は $\theta<1$ である。$\theta$ が小さくなると各 $X_i$ が取り得る上限も小さくなり、最大値 $M$ も小さくなりやすい。したがって小さい $M$ を棄却側に取るのが自然である。
+対立仮説は $\theta<1$ である。$\theta$ が小さくなると支持の右端自体が左へ動くため、最大値 $M$ は小さくなりやすい。したがって小さい $M$ を棄却側に取る。
 
 棄却域を
 
@@ -88,27 +96,25 @@ $$
 M\le c
 $$
 
-とすると、有意水準が $\alpha$ であるためには
+とすると、有意水準がちょうど $\alpha$ である条件は
 
 $$
-P_0(M\le c)=\alpha
+P_0(M\le c)=\alpha.
 $$
 
-でなければならない。
-
-第1問から $0<c<1$ では
+第1問より
 
 $$
-c^n=\alpha.
+c^n=\alpha,
 $$
 
-両辺の $n$ 乗根を取って
+従って
 
 $$
 \boxed{c=\alpha^{1/n}}.
 $$
 
-従って棄却域は
+よって棄却域は
 
 $$
 \boxed{M\le\alpha^{1/n}}.
@@ -116,26 +122,23 @@ $$
 
 ### 3. 対立仮説の下での検出力
 
-今度は真の母数を $0<\theta<1$ とする。
-
-$0\le m\le\theta$ に対して
+真の母数を $0<\theta<1$ とする。問題文の密度から、$0\le m\le\theta$ で
 
 $$
-P_\theta(X_i\le m)=\frac{m}{\theta}.
+P_\theta(X_i\le m)
+=\int_0^m\frac1\theta\,dx
+=\frac m\theta.
 $$
 
-したがって独立性より
+従って独立性より
 
 $$
-\begin{aligned}
 P_\theta(M\le m)
-&=\prod_{i=1}^nP_\theta(X_i\le m)\\
-&=\left(\frac m\theta\right)^n,
-\qquad 0\le m\le\theta.
-\end{aligned}
+=\left(\frac m\theta\right)^n,
+\qquad0\le m\le\theta.
 $$
 
-検出力は、真の母数が $\theta$ のときに棄却する確率
+検出力は
 
 $$
 \pi(\theta)=P_\theta(M\le c)
@@ -143,14 +146,19 @@ $$
 
 である。
 
-まず $c<\theta$ なら上の累積分布関数をそのまま使えて
+$c<\theta<1$ なら
 
 $$
-\pi(\theta)
-=\left(\frac c\theta\right)^n.
+\pi(\theta)=\left(\frac c\theta\right)^n.
 $$
 
-一方 $0<\theta\le c$ なら、$M$ は必ず $M\le\theta\le c$ を満たすため
+一方 $0<\theta\le c$ なら、支持から常に
+
+$$
+M\le\theta\le c
+$$
+
+なので
 
 $$
 \pi(\theta)=1.
@@ -170,22 +178,21 @@ c=\alpha^{1/n}.
 }
 $$
 
-$\theta$ が小さくなるほど検出力が高くなり、$\theta\le c$ では必ず棄却する。
+$\theta$ が小さくなるほど検出力は高まり、$\theta\le c$ では必ず棄却する。
+
+この問題では $\theta$ が支持集合を動かすため、最大順序統計量が検定に直接効く。通常の正則な位置・尺度モデルとは少し違う端点母数の検定である。
 
 ## 本番答案
 
-$H_0$ の下では $X_i\sim U(0,1)$。$0\le m\le1$ に対して
+$H_0$ の下では $X_i\sim U(0,1)$ なので、$0\le m\le1$ に対して
 
 $$
-\begin{aligned}
 P_0(M\le m)
-&=P_0(X_1\le m,\ldots,X_n\le m)\\
-&=\prod_{i=1}^nP_0(X_i\le m)\\
-&=m^n.
-\end{aligned}
+=\prod_{i=1}^nP_0(X_i\le m)
+=m^n.
 $$
 
-棄却域 $M\le c$ の有意水準を $\alpha$ にするには
+棄却域 $M\le c$ のサイズを $\alpha$ にするには
 
 $$
 c^n=\alpha
@@ -194,29 +201,30 @@ $$
 だから
 
 $$
-c=\alpha^{1/n}.
+\boxed{c=\alpha^{1/n}}.
 $$
 
-一般の $0<\theta<1$ では、$0\le m\le\theta$ について
+一般の $0<\theta<1$ では $0\le m\le\theta$ について
 
 $$
 P_\theta(M\le m)
 =\left(\frac m\theta\right)^n.
 $$
 
-従って検出力は
+従って
 
 $$
+\boxed{
 \pi(\theta)=
 \begin{cases}
 (c/\theta)^n,&c<\theta<1,\\
 1,&0<\theta\le c.
-\end{cases}
+\end{cases}}
 $$
 
 ## 採点基準
 
-- 最大値の事象を全観測値の同時事象へ分解し帰無分布を導出: 6点
+- 密度から帰無下の累積分布関数を導出: 6点
 - 棄却方向の理由とサイズ条件から臨界値を導出: 5点
 - 対立下の最大値分布から検出力を場合分けして導出: 6点
-- 検出力の挙動の解釈: 3点
+- 支持が母数に依存することの解釈: 3点
