@@ -197,7 +197,7 @@ Scheffé法のポイントは、1本だけでなく **係数和0のすべての�
 まず
 
 $$
-Z_i=rac{\sqrt{n_i}(\bar Y_i-\mu_i)}{\sigma}
+Z_i=\frac{\sqrt{n_i}(\bar Y_i-\mu_i)}{\sigma}
 $$
 
 とおくと
