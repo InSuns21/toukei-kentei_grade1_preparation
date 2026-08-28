@@ -9,15 +9,180 @@
 
 ## 問題
 
-観測値が $1,1,2,4$ であった。
+標本 $X_1,\ldots,X_4$ の観測値が
 
-1. 経験分布関数 $F_4(x)$ を書け。
-2. 非負変数に対する恒等式 $E[X]=\int_0^\infty P(X>t)dt$ を経験分布に適用し、標本平均を再現せよ。
-3. $X$ が確率 $1-\varepsilon$ で指数分布、確率 $\varepsilon$ でPareto分布 $P(X>x)=x^{-\alpha}$, $x\ge1$ に従うとき、十分大きな $x$ でtailを支配する成分を述べよ。
+$$
+1,1,2,4
+$$
+
+であった。経験分布関数を
+
+$$
+F_4(x)=\frac14\sum_{i=1}^4\boldsymbol1_{\{X_i\le x\}}
+$$
+
+とする。
+
+1. $F_4(x)$ を区分的に書け。
+2. 非負確率変数に対する恒等式
+
+$$
+E[X]=\int_0^\infty P(X>t)\,dt
+$$
+
+の標本版を経験分布へ適用し、標本平均を再現せよ。
+3. 別の確率変数 $Y$ が、確率 $1-\varepsilon$ で率1の指数分布
+
+$$
+P(Y>x\mid\text{指数成分})=e^{-x},\qquad x\ge0,
+$$
+
+確率 $\varepsilon$ で Pareto 分布
+
+$$
+P(Y>x\mid\text{Pareto成分})=x^{-\alpha},\qquad x\ge1,
+$$
+
+に従うとする。ただし $0<\varepsilon<1$, $\alpha>0$ とする。十分大きな $x$ で混合分布の tail を支配する成分を、極限を用いて説明せよ。
 
 ## 詳細解答
 
-経験累積分布関数は
+### 1. 経験分布関数
+
+経験分布関数は「観測値のうち $x$ 以下のものの割合」である。
+
+- $x<1$ では該当する観測値は0個。
+- $1\le x<2$ では値1の2個が該当するので $2/4=1/2$。
+- $2\le x<4$ では $1,1,2$ の3個が該当するので $3/4$。
+- $x\ge4$ では4個すべてが該当する。
+
+したがって
+
+$$
+\boxed{
+F_4(x)=
+\begin{cases}
+0,&x<1,\\
+1/2,&1\le x<2,\\
+3/4,&2\le x<4,\\
+1,&x\ge4.
+\end{cases}}
+$$
+
+### 2. tail integral から標本平均を再現する
+
+経験分布に対応する tail は
+
+$$
+1-F_4(t)
+$$
+
+である。区間ごとに
+
+$$
+1-F_4(t)=
+\begin{cases}
+1,&0\le t<1,\\
+1/2,&1\le t<2,\\
+1/4,&2\le t<4,\\
+0,&t\ge4.
+\end{cases}
+$$
+
+だから
+
+$$
+\begin{aligned}
+\int_0^\infty\{1-F_4(t)\}\,dt
+&=\int_0^1 1\,dt
++\int_1^2\frac12\,dt
++\int_2^4\frac14\,dt\\
+&=1+\frac12+\frac12\\
+&=\boxed{2}.
+\end{aligned}
+$$
+
+標本平均は
+
+$$
+\bar X=\frac{1+1+2+4}{4}=2
+$$
+
+なので一致する。
+
+なぜこの一致が一般に成り立つかも確認しておく。非負の実数 $x$ について
+
+$$
+x=\int_0^\infty\boldsymbol1_{\{x>t\}}\,dt
+$$
+
+である。したがって
+
+$$
+\begin{aligned}
+\bar X
+&=\frac1n\sum_{i=1}^nX_i\\
+&=\frac1n\sum_{i=1}^n\int_0^\infty
+\boldsymbol1_{\{X_i>t\}}\,dt\\
+&=\int_0^\infty
+\frac1n\sum_{i=1}^n\boldsymbol1_{\{X_i>t\}}\,dt\\
+&=\int_0^\infty\{1-F_n(t)\}\,dt.
+\end{aligned}
+$$
+
+つまり tail integral の恒等式は、経験分布に対しては標本平均そのものを与える。
+
+### 3. 少量の Pareto 成分が極端な tail を支配する理由
+
+$x\ge1$ では全確率の公式から
+
+$$
+P(Y>x)
+=(1-\varepsilon)e^{-x}
++\varepsilon x^{-\alpha}.
+$$
+
+指数成分が Pareto 成分に比べてどの程度大きいかを見るため、比を取ると
+
+$$
+\frac{(1-\varepsilon)e^{-x}}
+{\varepsilon x^{-\alpha}}
+=rac{1-\varepsilon}{\varepsilon}
+ x^\alpha e^{-x}.
+$$
+
+任意の固定した $\alpha>0$ に対して、指数関数の減衰は多項式より速いので
+
+$$
+x^\alpha e^{-x}\longrightarrow0
+\qquad(x\to\infty).
+$$
+
+したがって
+
+$$
+\frac{(1-\varepsilon)e^{-x}}
+{\varepsilon x^{-\alpha}}
+\longrightarrow0.
+$$
+
+よって十分大きな $x$ では
+
+$$
+P(Y>x)\sim\varepsilon x^{-\alpha},
+$$
+
+すなわち
+
+$$
+\boxed{\text{Pareto成分が tail を支配する}}.
+$$
+
+$\varepsilon$ が小さくても、極端値領域では「混合比の小ささ」より「減衰速度の遅さ」が勝つことが重要である。
+
+## 本番答案
+
+経験分布関数は
 
 $$
 F_4(x)=
@@ -29,30 +194,39 @@ F_4(x)=
 \end{cases}
 $$
 
-従って経験tailは区間ごとに $1,1/2,1/4,0$ となり
+従って
 
 $$
 \int_0^\infty(1-F_4(t))dt
-=1+\frac12(2-1)+\frac14(4-2)=2.
+=1+\frac12(2-1)+\frac14(4-2)
+=2
+=\bar X.
 $$
 
-これは標本平均 $(1+1+2+4)/4=2$ と一致。
-
-混合tailは
+また $x\ge1$ で
 
 $$
-P(X>x)=(1-\varepsilon)e^{-x}+\varepsilon x^{-\alpha}
+P(Y>x)=(1-\varepsilon)e^{-x}+\varepsilon x^{-\alpha}.
 $$
 
-の形で、指数減衰より多項式減衰の方が遅いので大きな $x$ ではPareto成分が支配する。
+比を取ると
 
-## 本番答案
+$$
+\frac{(1-\varepsilon)e^{-x}}{\varepsilon x^{-\alpha}}
+=\frac{1-\varepsilon}{\varepsilon}x^\alpha e^{-x}	o0,
+$$
 
-経験累積分布関数を段階関数として書き、$\int(1-F_4)=2=\bar X$ を確認する。混合分布では $e^{-x}$ より $x^{-\alpha}$ が遅く減衰するので、少量混合でも極端なtailはPareto成分が支配する。
+よって
+
+$$
+P(Y>x)\sim\varepsilon x^{-\alpha}.
+$$
+
+したがって極端な tail は Pareto 成分が支配する。
 
 ## 採点基準
 
-- 経験累積分布関数: 6点
-- tail integral: 6点
-- 標本平均との一致: 3点
-- 重尾の判定: 5点
+- 経験分布関数を定義から構成: 5点
+- tail integral の区分積分: 5点
+- 標本平均との一般的な一致の説明: 4点
+- 混合 tail と比の極限: 6点
