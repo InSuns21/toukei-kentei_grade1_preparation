@@ -12,19 +12,23 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     externalAsset: 'network-first',
   }),
 
-  // Keep the shell available after the first online visit. Markdown pages that
-  // are actually opened are cached by the runtime strategy below.
+  // Keep the shell and a same-origin KaTeX fallback available after the first
+  // online visit. The local KaTeX CSS pulls its font dependencies into the
+  // cache during Service Worker install, so formulas do not depend on CDN
+  // availability in airplane mode.
   appShell: Object.freeze([
     './index.html',
     './home.md',
     './_sidebar.md',
     './math-renderer.js',
     './site-meta.json',
+    './vendor/katex/katex.min.css',
+    './vendor/katex/katex.min.js',
   ]),
 
-  // These CDN files are required to render Docsify + KaTeX offline. CSS url()
-  // dependencies (for example KaTeX fonts) are discovered and cached by the
-  // worker automatically during install.
+  // Docsify remains CDN-backed for normal online loading. Manual full-site
+  // caching stores these assets as well; KaTeX itself has a local fallback
+  // above so math rendering does not rely on the external host offline.
   externalAssets: Object.freeze([
     'https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css',
     'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
