@@ -9,7 +9,14 @@
 
 ## 問題
 
-$X\sim\operatorname{Binomial}(n,p)$、$0<p<1$、$\hat p=X/n$ とする。
+$0<p<1$ とし、$X$ は二項分布 $\operatorname{Binomial}(n,p)$ に従う。すなわち
+
+$$
+P_p(X=x)=\binom nxp^x(1-p)^{n-x},
+\qquad x=0,1,\ldots,n.
+$$
+
+$\hat p=X/n$ とする。
 
 1. Wald型95%信頼区間を、その近似根拠とともに書け。
 2. 真の $p$ に対する有限標本被覆確率を二項和で表せ。
@@ -19,28 +26,34 @@ $X\sim\operatorname{Binomial}(n,p)$、$0<p<1$、$\hat p=X/n$ とする。
 
 ### 1. 中心極限定理とSlutskyからWald区間を作る
 
-$X$ はBernoulli$(p)$ 標本 $B_1,\ldots,B_n$ の和と書け、
+$X$ は独立な Bernoulli$(p)$ 変数 $B_1,\ldots,B_n$ の和
+
+$$
+X=\sum_{i=1}^nB_i
+$$
+
+と書けるので
 
 $$
 \hat p=\frac1n\sum_{i=1}^nB_i.
 $$
 
-$B_i$ は独立同分布で
+Bernoulli 変数では
 
 $$
 E[B_i]=p,
 \qquad
-Var(B_i)=p(1-p)\in(0,\infty)
+\operatorname{Var}(B_i)=p(1-p)\in(0,\infty).
 $$
 
-だから **Lindeberg–Lévyの中心極限定理**を適用でき、固定した内部点 $0<p<1$ に対して
+従って固定した内部点 $0<p<1$ に対して **Lindeberg–Lévy の中心極限定理**を適用でき、
 
 $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{p(1-p)}}
 \Rightarrow N(0,1).
 $$
 
-また弱大数の法則から $\hat p\to_p p$。関数 $x(1-x)$ は連続で $p(1-p)>0$ なので、連続写像定理と **Slutskyの定理**から
+また弱大数の法則から $\hat p\to_p p$。関数 $x(1-x)$ は $p$ で連続かつ $p(1-p)>0$ なので、連続写像定理と **Slutsky の定理**から
 
 $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{\hat p(1-\hat p)}}
@@ -56,7 +69,7 @@ $$
 \le1.96.
 $$
 
-$p$について解いて
+$p$ について解けば
 
 $$
 \boxed{
@@ -71,17 +84,41 @@ $$
 
 ### 2. 有限標本被覆確率
 
-Wald区間は観測値 $x$ ごとに決まる。真の $p$ がその区間に入る事象を全ての $x$ について足せば
+Wald区間は観測値 $x$ ごとに
+
+$$
+I_W(x)
+$$
+
+という区間を返す。真の $p$ が区間に入る確率は
+
+$$
+C_n(p)=P_p\{p\in I_W(X)\}.
+$$
+
+離散変数 $X$ の全ての値について分解すると
+
+$$
+\begin{aligned}
+C_n(p)
+&=\sum_{x=0}^n
+P_p\{p\in I_W(X),X=x\}\\
+&=\sum_{x=0}^n
+\boldsymbol1_{\{p\in I_W(x)\}}P_p(X=x).
+\end{aligned}
+$$
+
+問題文の二項確率質量関数を代入して
 
 $$
 \boxed{
 C_n(p)=\sum_{x=0}^n
-\boldsymbol{1}_{\{p\in I_W(x)\}}
+\boldsymbol1_{\{p\in I_W(x)\}}
 \binom nxp^x(1-p)^{n-x}
 }.
 $$
 
-この式は二項分布に基づく有限標本での厳密な被覆確率であり、数値和の評価自体は要求しない。
+この式は有限標本での厳密な被覆確率であり、数値和そのものの評価は不要である。
 
 ### 3. 境界での破綻
 
@@ -93,28 +130,55 @@ $$
 \sqrt{\frac{\hat p(1-\hat p)}n}=0
 $$
 
-なのでWald区間は $[0,0]$ に退化する。真の $p>0$ は被覆しない。
+なので Wald 区間は
 
-ここで1のSlutskyの漸近論自体は固定された内部点 $p\in(0,1)$ では正しい。しかし有限標本で $p$ が0に近いと $X=0$ の確率 $(1-p)^n$ が無視できず、plug-in標準誤差まで0に潰れる。つまり「正規近似」と「標準誤差のplug-in」が同時に不安定になる。
+$$
+[0,0]
+$$
+
+に退化する。真の $p>0$ は被覆しない。
+
+しかも $p$ が0に近い有限標本では
+
+$$
+P_p(X=0)=(1-p)^n
+$$
+
+が無視できない。したがって
+
+- 二項分布を正規分布で近似すること自体が不安定になり、
+- plug-in 標準誤差 $\sqrt{\hat p(1-\hat p)/n}$ も0へ潰れうる
+
+という2つの問題が同時に起こる。
+
+1の Slutsky の漸近論は固定された内部点 $p\in(0,1)$ では正しいが、有限標本で境界に近い $p$ に対して一様に良い近似を保証するものではない。
 
 ## 本番答案
 
-$X$ をBernoulli標本和とみる。$0<p<1$ なら独立同分布かつ有限正分散なので **中心極限定理**から
+$X=\sum_iB_i$、$B_i\overset{iid}\sim\operatorname{Bernoulli}(p)$ と書けば、中心極限定理より
 
 $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{p(1-p)}}\Rightarrow N(0,1).
 $$
 
-大数の法則で $\hat p\to_p p$、$p(1-p)>0$ なので **Slutsky**により分母をplug-inできる。従ってWald区間は
+大数の法則で $\hat p\to_p p$、$p(1-p)>0$ なので Slutsky により
 
 $$
-\hat p\pm1.96\sqrt{\hat p(1-\hat p)/n}.
+\frac{\sqrt n(\hat p-p)}{\sqrt{\hat p(1-\hat p)}}\Rightarrow N(0,1).
+$$
+
+従って Wald 区間は
+
+$$
+\hat p\pm1.96\sqrt{\frac{\hat p(1-\hat p)}n}.
 $$
 
 有限標本被覆率は
 
 $$
-\sum_x\boldsymbol{1}_{\{p\in I_W(x)\}}\binom nxp^x(1-p)^{n-x}.
+\sum_{x=0}^n
+\boldsymbol1_{\{p\in I_W(x)\}}
+\binom nxp^x(1-p)^{n-x}.
 $$
 
 $X=0$ では区間が $[0,0]$ に退化するため、境界近傍では名目95%から大きく外れうる。
@@ -122,6 +186,6 @@ $X=0$ では区間が $[0,0]$ に退化するため、境界近傍では名目95
 ## 採点基準
 
 - Wald区間（中心極限定理・Slutsky条件）: 5点
-- 被覆確率の有限和: 6点
+- 被覆確率を離散和から導出: 6点
 - $X=0$ の分析: 5点
 - 漸近条件と境界不安定性の説明: 4点
