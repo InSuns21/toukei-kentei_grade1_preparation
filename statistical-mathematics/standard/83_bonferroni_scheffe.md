@@ -396,7 +396,7 @@ $$
 
 ## 採点基準
 
-- Bonferroni閾値・FWER・union bound: 4点
+- Bonferroni閾値・家族内誤差率・Bonferroniの不等式: 4点
 - コントラストの定義と係数和0の意味: 4点
 - $Var(\widehat L)$ の導出: 3点
 - $g-1$ 次元となる理由: 3点
