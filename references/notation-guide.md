@@ -40,7 +40,7 @@
 - 推定量の漸近分散は $\operatorname{Avar}(\widehat\theta)$ とする。有限標本の分散 $\operatorname{Var}(\widehat\theta)$ と区別する。
 - 推定量 $T$ の偏りは $\operatorname{Bias}_\theta(T)=E_\theta[T]-\theta$、平均二乗誤差は $\operatorname{MSE}_\theta(T)=E_\theta[(T-\theta)^2]$ とする。母数添字が明らかな場合は省略してよい。
 - 標準誤差は必要なら $\operatorname{SE}(\widehat\theta)=\sqrt{\operatorname{Var}(\widehat\theta)}$ と書く。推定標準誤差を使う場合は、何を代入推定したかを本文で明記する。
-- 母数空間は $\Theta$、真値または帰無仮説で指定する値は文脈に応じて $\theta_0$、推定量は $\widehat\theta$ とする。
+- 母数空間は $\Theta$、真値または帰無仮説で指定する値は文脈に応じて $\theta_0$ とする。推定量は $\widehat\theta$ を主表記とするが、短い母数に対する既存の $\hat\theta$ も同義として許容する。同一問題・同一節では $\widehat{\cdot}$ と $\hat{\cdot}$ を同じ対象に混在させない。
 - 尤度は $L(\theta;x)$、対数尤度は $\ell(\theta;x)$、スコアは $U(\theta)=\partial\ell(\theta;x)/\partial\theta$ とする。
 - フィッシャー情報量は1観測当たりを $I_1(\theta)$、標本全体を $I_n(\theta)$、多母数の場合の情報行列を $\boldsymbol I(\boldsymbol\theta)$ とする。
 - 帰無仮説は $H_0$、対立仮説は $H_1$、有意水準は $\alpha$、検出力関数は $\pi(\theta)$ とする。
@@ -62,6 +62,7 @@
 
 - 自然数は $\mathbb N=\{1,2,\ldots\}$、非負整数は $\mathbb N_0$ とする。
 - 定義としての等号は必要に応じて $\coloneqq$ を使う。
+- 比例関係は $\propto$ とする。密度・尤度などで正規化定数や母数に依存しない因子を落として使う場合は、「何を変数（または母数）として比例しているか」が分かる文脈にする。
 - 同じ節・問題・カード内で記号の意味を無言で変更しない。
 - $\arg\max$、$\arg\min$、$\sup$、$\inf$ のような標準演算子を使う場合も、最適化する変数・範囲が曖昧にならない式にする。
 - `SSE`、`SSR`、射影行列 $H,M$、尤度比 $\Lambda$、Wald統計量 $W$、スコア統計量、実験計画の効果記号、管理図定数など、問題・分野によって意味や流儀が変わる記号は共通正本へ固定しない。**各問題・各節の初出時に意味を宣言する。**
