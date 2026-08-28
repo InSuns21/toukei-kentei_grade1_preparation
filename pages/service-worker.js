@@ -148,6 +148,19 @@ async function readPublishedUrls() {
   }
 }
 
+async function readSiteMeta() {
+  try {
+    const metaUrl = new URL(config.siteMetaUrl || './site-meta.json', self.registration.scope).href;
+    const response = await fetch(metaUrl, { cache: 'no-store' });
+    if (!response.ok) return null;
+    const meta = await response.json();
+    if (!meta || !meta.revision || !meta.updatedAt) return null;
+    return meta;
+  } catch {
+    return null;
+  }
+}
+
 async function publishedUrls() {
   if (!config.warmPublishedFiles) return [];
   return readPublishedUrls();
@@ -160,6 +173,15 @@ function notify(source, payload) {
 }
 
 async function cachePublishedFiles(source) {
+  const startMeta = await readSiteMeta();
+  if (!startMeta) {
+    notify(source, {
+      type: 'CACHE_ERROR',
+      message: '教材サイトの更新情報を取得できませんでした。オンライン接続を確認してください。',
+    });
+    return;
+  }
+
   const manifestUrls = await readPublishedUrls();
   if (!manifestUrls.length) {
     notify(source, {
@@ -181,7 +203,12 @@ async function cachePublishedFiles(source) {
   let completed = 0;
   let failed = 0;
 
-  notify(source, { type: 'CACHE_STARTED', total });
+  notify(source, {
+    type: 'CACHE_STARTED',
+    total,
+    siteRevision: startMeta.revision,
+    siteUpdatedAt: startMeta.updatedAt,
+  });
 
   async function worker() {
     while (queue.length) {
@@ -206,11 +233,23 @@ async function cachePublishedFiles(source) {
   }
 
   await Promise.all(Array.from({ length: concurrency }, () => worker()));
+
+  const endMeta = await readSiteMeta();
+  if (!endMeta || endMeta.revision !== startMeta.revision) {
+    notify(source, {
+      type: 'CACHE_ERROR',
+      message: '保存中に教材サイトが更新されました。最新版をそろえるため、もう一度保存してください。',
+    });
+    return;
+  }
+
   notify(source, {
     type: 'CACHE_COMPLETE',
     total,
     succeeded: total - failed,
     failed,
+    siteRevision: endMeta.revision,
+    siteUpdatedAt: endMeta.updatedAt,
   });
 }
 

@@ -11,9 +11,15 @@
 
 <div class="offline-cache-card">
   <strong>オフライン学習</strong>
-  <p>教材一式をこの端末に保存します。オンライン時の通常閲覧は引き続き最新版を優先します。</p>
+  <p>教材一式をこの端末に保存します。通常閲覧はオンラインの最新版を優先し、保存版が古くなっていないかもここで確認できます。</p>
+  <dl class="offline-cache-meta">
+    <div><dt>教材サイト更新</dt><dd id="site-updated-at">確認中…</dd></div>
+    <div><dt>オフライン保存状態</dt><dd id="offline-cache-state">確認中…</dd></div>
+    <div><dt>最終保存成功</dt><dd id="offline-cache-saved-at">確認中…</dd></div>
+  </dl>
   <button id="cache-all-materials" class="offline-cache-button" type="button">教材をオフライン保存</button>
   <span id="offline-cache-status" class="offline-cache-status" role="status" aria-live="polite"></span>
+  <p id="offline-cache-freshness" class="offline-cache-freshness"></p>
 </div>
 
 統計数理・統計応用は **Core / Standard / Advanced** の順に整理されています。通常教材は章ごとの目次から導入・定義・定理・例題・演習・詳細解答へ移動できます。Ankiカードはカテゴリー別の専用HTMLビューアで閲覧できます。

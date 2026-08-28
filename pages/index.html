@@ -21,14 +21,26 @@
     .solution-details .solution-body > :first-child { margin-top: 0.4rem; }
     .offline-cache-card { margin: 1.25rem 0 1.5rem; padding: 1rem 1.1rem; border: 1px solid #d8dee4; border-radius: 8px; background: #f6f8fa; }
     .offline-cache-card p { margin: 0.45rem 0 0.8rem; }
+    .offline-cache-meta { margin: 0.8rem 0 1rem; }
+    .offline-cache-meta > div { display: grid; grid-template-columns: minmax(8.5rem, 11rem) 1fr; gap: 0.5rem; padding: 0.2rem 0; }
+    .offline-cache-meta dt { font-weight: 600; }
+    .offline-cache-meta dd { margin: 0; }
     .offline-cache-button { border: 0; border-radius: 6px; padding: 0.55rem 0.9rem; background: var(--theme-color); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
     .offline-cache-button:disabled { opacity: 0.65; cursor: wait; }
     .offline-cache-status { display: inline-block; margin-left: 0.75rem; font-size: 0.95rem; }
+    .offline-cache-freshness { margin-bottom: 0 !important; font-size: 0.92rem; }
+    @media (max-width: 560px) {
+      .offline-cache-meta > div { grid-template-columns: 1fr; gap: 0.05rem; }
+      .offline-cache-status { display: block; margin: 0.6rem 0 0; }
+    }
   </style>
 </head>
 <body>
   <div id="app">教材を読み込んでいます...</div>
   <script>
+    var OFFLINE_CACHE_STATE_KEY = 'toukei-grade1-offline-cache-state-v1';
+    var currentSiteMeta = null;
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('./service-worker.js', {
@@ -40,6 +52,124 @@
           console.warn('Service Worker registration failed:', error);
         });
       });
+    }
+
+    function readOfflineCacheState() {
+      try {
+        var raw = localStorage.getItem(OFFLINE_CACHE_STATE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (error) {
+        console.warn('Offline cache state could not be read:', error);
+        return null;
+      }
+    }
+
+    function writeOfflineCacheState(state) {
+      try {
+        localStorage.setItem(OFFLINE_CACHE_STATE_KEY, JSON.stringify(state));
+        return true;
+      } catch (error) {
+        console.warn('Offline cache state could not be saved:', error);
+        return false;
+      }
+    }
+
+    function formatLocalDate(value) {
+      if (!value) return '—';
+      var date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      try {
+        return new Intl.DateTimeFormat('ja-JP', {
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        }).format(date);
+      } catch {
+        return date.toLocaleString('ja-JP');
+      }
+    }
+
+    function shortRevision(value) {
+      return value ? String(value).slice(0, 8) : '';
+    }
+
+    function setOfflineText(id, text) {
+      var element = document.getElementById(id);
+      if (element) element.textContent = text;
+    }
+
+    function sameSavedRevision(saved, siteMeta) {
+      if (!saved || !siteMeta) return false;
+      if (saved.siteRevision && siteMeta.revision) {
+        return saved.siteRevision === siteMeta.revision;
+      }
+      return Boolean(saved.siteUpdatedAt && siteMeta.updatedAt && saved.siteUpdatedAt === siteMeta.updatedAt);
+    }
+
+    function renderOfflineCacheMetadata() {
+      var saved = readOfflineCacheState();
+      var siteUpdatedAt = currentSiteMeta && currentSiteMeta.updatedAt
+        ? currentSiteMeta.updatedAt
+        : saved && saved.siteUpdatedAt;
+      var revision = currentSiteMeta && currentSiteMeta.revision
+        ? currentSiteMeta.revision
+        : saved && saved.siteRevision;
+      var siteLabel = siteUpdatedAt ? formatLocalDate(siteUpdatedAt) : '確認できません';
+      if (revision) siteLabel += '（' + shortRevision(revision) + '）';
+      setOfflineText('site-updated-at', siteLabel);
+
+      if (!saved || !saved.savedAt) {
+        setOfflineText('offline-cache-state', '未保存');
+        setOfflineText('offline-cache-saved-at', '—');
+        setOfflineText('offline-cache-freshness', navigator.onLine
+          ? '必要なときに「教材をオフライン保存」を実行してください。'
+          : '現在オフラインです。事前にオンライン環境で教材を保存する必要があります。');
+        var firstButton = document.getElementById('cache-all-materials');
+        if (firstButton) firstButton.textContent = '教材をオフライン保存';
+        return;
+      }
+
+      setOfflineText('offline-cache-saved-at', formatLocalDate(saved.savedAt));
+      var button = document.getElementById('cache-all-materials');
+      if (button) button.textContent = '教材を再保存（更新）';
+
+      if (!navigator.onLine) {
+        setOfflineText('offline-cache-state', '保存済み（オフライン）');
+        setOfflineText('offline-cache-freshness', '現在はオフラインのため、新しい教材更新があるかは確認できません。オンライン復帰時に自動確認します。');
+        return;
+      }
+
+      if (!currentSiteMeta) {
+        setOfflineText('offline-cache-state', '保存済み（更新確認待ち）');
+        setOfflineText('offline-cache-freshness', '教材サイトの現行版を確認できていません。接続状態を確認してください。');
+        return;
+      }
+
+      if (sameSavedRevision(saved, currentSiteMeta)) {
+        setOfflineText('offline-cache-state', '保存済み・最新');
+        setOfflineText('offline-cache-freshness', '保存した教材は現在の教材サイトと同じ版です。');
+      } else {
+        setOfflineText('offline-cache-state', '保存済み・サイト更新あり');
+        setOfflineText('offline-cache-freshness', 'オフライン保存後に教材サイトが更新されています。「教材を再保存（更新）」を推奨します。');
+      }
+    }
+
+    function refreshSiteMeta() {
+      return fetch('./site-meta.json', { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json();
+        })
+        .then(function (meta) {
+          currentSiteMeta = meta;
+          renderOfflineCacheMetadata();
+          return meta;
+        })
+        .catch(function (error) {
+          console.warn('Site metadata could not be refreshed:', error);
+          currentSiteMeta = null;
+          renderOfflineCacheMetadata();
+          return null;
+        });
     }
 
     function updateOfflineCacheUi(text, disabled) {
@@ -79,17 +209,42 @@
           updateOfflineCacheUi(data.completed + ' / ' + data.total + ' ファイルを保存中…' + suffix, true);
         } else if (data.type === 'CACHE_COMPLETE') {
           if (data.failed) {
-            updateOfflineCacheUi('保存完了：' + data.succeeded + ' 件成功、' + data.failed + ' 件失敗。', false);
+            updateOfflineCacheUi('保存完了：' + data.succeeded + ' 件成功、' + data.failed + ' 件失敗。前回の保存成功記録は維持します。', false);
           } else {
-            updateOfflineCacheUi('教材のオフライン保存が完了しました（' + data.succeeded + ' 件）。', false);
+            var savedAt = new Date().toISOString();
+            var stored = writeOfflineCacheState({
+              schemaVersion: 1,
+              savedAt: savedAt,
+              siteRevision: data.siteRevision || null,
+              siteUpdatedAt: data.siteUpdatedAt || null,
+              fileCount: data.succeeded
+            });
+            if (data.siteRevision || data.siteUpdatedAt) {
+              currentSiteMeta = {
+                revision: data.siteRevision || null,
+                updatedAt: data.siteUpdatedAt || null
+              };
+            }
+            updateOfflineCacheUi(stored
+              ? '教材のオフライン保存が完了しました（' + data.succeeded + ' 件）。'
+              : '教材は保存できましたが、保存日時をブラウザに記録できませんでした。', false);
+            renderOfflineCacheMetadata();
           }
         } else if (data.type === 'CACHE_ERROR') {
           updateOfflineCacheUi(data.message || '教材を保存できませんでした。', false);
+          renderOfflineCacheMetadata();
         } else if (data.type === 'CACHE_BUSY') {
           updateOfflineCacheUi('別の保存処理が進行中です。', false);
         }
       });
     }
+
+    window.addEventListener('online', function () {
+      refreshSiteMeta();
+    });
+    window.addEventListener('offline', function () {
+      renderOfflineCacheMetadata();
+    });
   </script>
   <script src="math-renderer.js"></script>
   <script>
@@ -99,6 +254,14 @@
           /<!-- solution-start -->([\s\S]*?)<!-- solution-end -->/g,
           '<details class="solution-details"><summary>解答を表示</summary><div class="solution-body">$1</div></details>'
         );
+      });
+    }
+
+    function offlineCacheStatusPlugin(hook) {
+      hook.doneEach(function () {
+        if (!document.getElementById('offline-cache-state')) return;
+        renderOfflineCacheMetadata();
+        refreshSiteMeta();
       });
     }
 
@@ -115,7 +278,7 @@
         noData: '該当する教材が見つかりません',
         depth: 6
       },
-      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin]
+      plugins: [window.ToukeiMathRenderer.docsifyPlugin, solutionDetailsPlugin, offlineCacheStatusPlugin]
     };
   </script>
   <!--
