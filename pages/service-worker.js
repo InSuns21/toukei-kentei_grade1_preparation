@@ -8,6 +8,7 @@ const supportedStrategies = new Set([
   'cache-first',
   'stale-while-revalidate',
 ]);
+let manualCacheJob = null;
 
 function strategyFor(kind) {
   const configured = config.strategyByKind?.[kind] || config.defaultStrategy || 'network-first';
@@ -111,13 +112,13 @@ async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   const url = new URL(rawUrl, self.registration.scope).href;
   const request = new Request(url, { cache: 'reload' });
   const response = await fetch(request);
-  if (!isCacheable(response)) return;
+  if (!isCacheable(response)) return false;
 
   await cache.put(request, response.clone());
 
   const contentType = response.headers.get('content-type') || '';
   if (!followCssDependencies || !contentType.includes('text/css') || response.type === 'opaque') {
-    return;
+    return true;
   }
 
   const cssText = await response.clone().text();
@@ -125,10 +126,11 @@ async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   await Promise.allSettled(
     dependencies.map((dependency) => precacheOne(cache, dependency, false)),
   );
+  return true;
 }
 
-async function publishedUrls() {
-  if (!config.warmPublishedFiles || !config.publishedFilesManifest) return [];
+async function readPublishedUrls() {
+  if (!config.publishedFilesManifest) return [];
 
   try {
     const manifestUrl = new URL(config.publishedFilesManifest, self.registration.scope).href;
@@ -144,6 +146,72 @@ async function publishedUrls() {
   } catch {
     return [];
   }
+}
+
+async function publishedUrls() {
+  if (!config.warmPublishedFiles) return [];
+  return readPublishedUrls();
+}
+
+function notify(source, payload) {
+  if (source && typeof source.postMessage === 'function') {
+    source.postMessage(payload);
+  }
+}
+
+async function cachePublishedFiles(source) {
+  const manifestUrls = await readPublishedUrls();
+  if (!manifestUrls.length) {
+    notify(source, {
+      type: 'CACHE_ERROR',
+      message: '公開教材一覧を取得できませんでした。オンライン接続を確認してください。',
+    });
+    return;
+  }
+
+  const urls = [...new Set([
+    ...manifestUrls,
+    ...(config.appShell || []).map((url) => new URL(url, self.registration.scope).href),
+    ...(config.externalAssets || []),
+  ])];
+  const total = urls.length;
+  const cache = await caches.open(cacheName);
+  const queue = [...urls];
+  const concurrency = Math.min(Math.max(Number(config.manualCacheConcurrency) || 6, 1), total);
+  let completed = 0;
+  let failed = 0;
+
+  notify(source, { type: 'CACHE_STARTED', total });
+
+  async function worker() {
+    while (queue.length) {
+      const url = queue.shift();
+      try {
+        const cached = await precacheOne(cache, url);
+        if (!cached) failed += 1;
+      } catch {
+        failed += 1;
+      }
+
+      completed += 1;
+      if (completed === total || completed % 5 === 0) {
+        notify(source, {
+          type: 'CACHE_PROGRESS',
+          completed,
+          total,
+          failed,
+        });
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
+  notify(source, {
+    type: 'CACHE_COMPLETE',
+    total,
+    succeeded: total - failed,
+    failed,
+  });
 }
 
 self.addEventListener('install', (event) => {
@@ -173,6 +241,28 @@ self.addEventListener('activate', (event) => {
     );
     await self.clients.claim();
   })());
+});
+
+self.addEventListener('message', (event) => {
+  const data = event.data || {};
+  if (data.type !== 'CACHE_PUBLISHED_FILES') return;
+
+  if (manualCacheJob) {
+    notify(event.source, { type: 'CACHE_BUSY' });
+    return;
+  }
+
+  manualCacheJob = cachePublishedFiles(event.source)
+    .catch(() => {
+      notify(event.source, {
+        type: 'CACHE_ERROR',
+        message: '教材の保存中にエラーが発生しました。',
+      });
+    })
+    .finally(() => {
+      manualCacheJob = null;
+    });
+  event.waitUntil(manualCacheJob);
 });
 
 self.addEventListener('fetch', (event) => {

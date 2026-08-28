@@ -9,6 +9,13 @@
 - [通常教材（テキストブック）](textbook/index.md)
 - <a href="./anki/index.html" data-no-router>Ankiカード</a>
 
+<div class="offline-cache-card">
+  <strong>オフライン学習</strong>
+  <p>教材一式をこの端末に保存します。オンライン時の通常閲覧は引き続き最新版を優先します。</p>
+  <button id="cache-all-materials" class="offline-cache-button" type="button">教材をオフライン保存</button>
+  <span id="offline-cache-status" class="offline-cache-status" role="status" aria-live="polite"></span>
+</div>
+
 統計数理・統計応用は **Core / Standard / Advanced** の順に整理されています。通常教材は章ごとの目次から導入・定義・定理・例題・演習・詳細解答へ移動できます。Ankiカードはカテゴリー別の専用HTMLビューアで閲覧できます。
 
 ## 数式表示

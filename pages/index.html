@@ -19,6 +19,11 @@
     .solution-details { margin: 0.8rem 0 1.4rem; border: 1px solid #d8dee4; border-radius: 6px; padding: 0.15rem 0.8rem 0.7rem; }
     .solution-details summary { cursor: pointer; font-weight: 600; padding: 0.65rem 0; }
     .solution-details .solution-body > :first-child { margin-top: 0.4rem; }
+    .offline-cache-card { margin: 1.25rem 0 1.5rem; padding: 1rem 1.1rem; border: 1px solid #d8dee4; border-radius: 8px; background: #f6f8fa; }
+    .offline-cache-card p { margin: 0.45rem 0 0.8rem; }
+    .offline-cache-button { border: 0; border-radius: 6px; padding: 0.55rem 0.9rem; background: var(--theme-color); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    .offline-cache-button:disabled { opacity: 0.65; cursor: wait; }
+    .offline-cache-status { display: inline-block; margin-left: 0.75rem; font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -34,6 +39,55 @@
         }).catch(function (error) {
           console.warn('Service Worker registration failed:', error);
         });
+      });
+    }
+
+    function updateOfflineCacheUi(text, disabled) {
+      var status = document.getElementById('offline-cache-status');
+      var button = document.getElementById('cache-all-materials');
+      if (status) status.textContent = text || '';
+      if (button && typeof disabled === 'boolean') button.disabled = disabled;
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest && event.target.closest('#cache-all-materials');
+      if (!button) return;
+
+      if (!('serviceWorker' in navigator)) {
+        updateOfflineCacheUi('このブラウザではオフライン保存を利用できません。', false);
+        return;
+      }
+
+      updateOfflineCacheUi('保存を開始しています…', true);
+      navigator.serviceWorker.ready.then(function (registration) {
+        var worker = navigator.serviceWorker.controller || registration.active || registration.waiting;
+        if (!worker) throw new Error('active service worker not found');
+        worker.postMessage({ type: 'CACHE_PUBLISHED_FILES' });
+      }).catch(function (error) {
+        console.warn('Offline cache request failed:', error);
+        updateOfflineCacheUi('保存を開始できませんでした。オンライン接続を確認してください。', false);
+      });
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('message', function (event) {
+        var data = event.data || {};
+        if (data.type === 'CACHE_STARTED') {
+          updateOfflineCacheUi('0 / ' + data.total + ' ファイルを保存中…', true);
+        } else if (data.type === 'CACHE_PROGRESS') {
+          var suffix = data.failed ? '（失敗 ' + data.failed + '）' : '';
+          updateOfflineCacheUi(data.completed + ' / ' + data.total + ' ファイルを保存中…' + suffix, true);
+        } else if (data.type === 'CACHE_COMPLETE') {
+          if (data.failed) {
+            updateOfflineCacheUi('保存完了：' + data.succeeded + ' 件成功、' + data.failed + ' 件失敗。', false);
+          } else {
+            updateOfflineCacheUi('教材のオフライン保存が完了しました（' + data.succeeded + ' 件）。', false);
+          }
+        } else if (data.type === 'CACHE_ERROR') {
+          updateOfflineCacheUi(data.message || '教材を保存できませんでした。', false);
+        } else if (data.type === 'CACHE_BUSY') {
+          updateOfflineCacheUi('別の保存処理が進行中です。', false);
+        }
       });
     }
   </script>
