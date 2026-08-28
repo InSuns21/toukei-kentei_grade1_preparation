@@ -94,14 +94,14 @@ $$
 **Delta法**は、
 
 $$
-\sqrt n(\widehat\lambda-\lambda)\Rightarrow N(0,V)
+\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d} N(0,V)
 $$
 
 かつ $g$ が $\lambda$ で微分可能なら
 
 $$
 \sqrt n\{g(\widehat\lambda)-g(\lambda)\}
-\Rightarrow N(0,g'(\lambda)^2V)
+\xrightarrow{d} N(0,g'(\lambda)^2V)
 $$
 
 とする結果である。本問では $g(\lambda)=\log\lambda$ は $\lambda>0$ で微分可能で
@@ -152,13 +152,13 @@ $$
 支持 $x>0$ は母数に依存せず、真値 $\lambda>0$ は内部点、対数尤度は滑らかで $I_1(\lambda)=\lambda^{-2}\in(0,\infty)$。よって **正則最尤推定量の漸近正規性定理**から
 
 $$
-\sqrt n(\widehat\lambda-\lambda)\Rightarrow N(0,\lambda^2).
+\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d} N(0,\lambda^2).
 $$
 
 $g(\lambda)=\log\lambda$ は真値で微分可能なので **Delta法**より
 
 $$
-\sqrt n(\log\widehat\lambda-\log\lambda)\Rightarrow N(0,1).
+\sqrt n(\log\widehat\lambda-\log\lambda)\xrightarrow{d} N(0,1).
 $$
 
 漸近分散 $\lambda^2/n$ は $1/[nI_1(\lambda)]$ に一致するので漸近効率的。
