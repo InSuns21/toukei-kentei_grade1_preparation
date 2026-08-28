@@ -13,7 +13,7 @@ $X_1,X_2,\ldots$ は独立同分布で $E[X_i]=\mu$, $\operatorname{Var}(X_i)=\s
 
 $$
 \frac{\sum_{i=1}^nX_i-n\mu}{\sigma\sqrt n}
-\Rightarrow N(0,1)
+\xrightarrow{d} N(0,1)
 $$
 
 を導け。ただし $E[Y]=0$, $E[Y^2]=1$ の変数 $Y$ について
@@ -143,7 +143,7 @@ $$
 右辺は標準正規分布の特性関数であり、0で連続である。Lévyの連続性定理より
 
 $$
-S_n\Rightarrow N(0,1).
+S_n\xrightarrow{d} N(0,1).
 $$
 
 $S_n=(\sum X_i-n\mu)/(\sigma\sqrt n)$ だから求める中心極限定理を得る。
@@ -177,7 +177,7 @@ $$
 \varphi_{S_n}(t)\to e^{-t^2/2}.
 $$
 
-Lévyの連続性定理から $S_n\Rightarrow N(0,1)$。
+Lévyの連続性定理から $S_n\xrightarrow{d} N(0,1)$。
 
 ## 採点基準
 
