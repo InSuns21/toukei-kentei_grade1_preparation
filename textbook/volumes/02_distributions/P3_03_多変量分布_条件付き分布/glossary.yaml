@@ -6,6 +6,8 @@ terms:
   - { term: 半正定値, meaning: 任意のベクトル x に対して x^T A x >= 0 となる対称行列の性質。分散共分散行列は常に半正定値 }
   - { term: Schur補, meaning: ブロック行列で一方のブロックを消去したときに現れる A-BD^{-1}C 型の行列。条件付き分散共分散行列に現れる }
   - { term: 条件付き分布, meaning: ある変数の値が分かった後に残りの変数がどのように分布するかを表す分布 }
+  - { term: 独立, notation: "X\\perp Y", meaning: "XとYの同時分布が周辺分布の積に分解できる関係" }
+  - { term: 条件付き独立, notation: "X\\perp Y\\mid Z", meaning: "Zを与えた下でXとYが独立になる関係。条件付き同時分布が条件付き周辺分布の積に分解できる" }
   - { term: 偏相関, meaning: 他の変数で説明できる線形な部分を取り除いた残差どうしの相関 }
   - { term: 二次形式, meaning: ベクトルと行列から作る x^T A x 型の量 }
   - { term: Mahalanobis距離, meaning: 各変数の尺度と変数間の相関を調整した距離 }
