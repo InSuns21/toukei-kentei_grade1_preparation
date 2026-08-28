@@ -147,7 +147,7 @@ $$
 $$
 \frac{(1-\varepsilon)e^{-x}}
 {\varepsilon x^{-\alpha}}
-=rac{1-\varepsilon}{\varepsilon}
+=\left(\frac{1-\varepsilon}{\varepsilon}\right)
  x^\alpha e^{-x}.
 $$
 
@@ -213,7 +213,7 @@ $$
 
 $$
 \frac{(1-\varepsilon)e^{-x}}{\varepsilon x^{-\alpha}}
-=\frac{1-\varepsilon}{\varepsilon}x^\alpha e^{-x}	o0,
+=\left(\frac{1-\varepsilon}{\varepsilon}\right)x^\alpha e^{-x}\to0,
 $$
 
 よって
