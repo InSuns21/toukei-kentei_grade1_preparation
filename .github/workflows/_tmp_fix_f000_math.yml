@@ -1,0 +1,28 @@
+name: Temporary F0-00 math fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/_tmp_fix_f000_math.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Fix F0-00 multiline inline math
+        run: python3 scripts/_tmp_fix_f000_math.py
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'textbook: fix F0-00 inline math newline'
+          git push origin main
