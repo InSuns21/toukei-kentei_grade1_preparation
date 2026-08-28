@@ -23,6 +23,20 @@
 </head>
 <body>
   <div id="app">教材を読み込んでいます...</div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js', {
+          scope: './',
+          // Check the worker and imported strategy config from the network.
+          // Normal page/content freshness is handled by network-first caching.
+          updateViaCache: 'none'
+        }).catch(function (error) {
+          console.warn('Service Worker registration failed:', error);
+        });
+      });
+    }
+  </script>
   <script src="math-renderer.js"></script>
   <script>
     function solutionDetailsPlugin(hook) {
