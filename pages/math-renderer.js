@@ -10,6 +10,36 @@
   const localKatexStylesheet = scriptBase ? new URL('vendor/katex/katex.min.css', scriptBase).href : null;
   let katexLoadPromise = null;
 
+  function reportConnectivityToServiceWorker() {
+    if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
+
+    const payload = { type: 'SET_CONNECTIVITY', online: navigator.onLine };
+    const controller = navigator.serviceWorker.controller;
+    if (controller) {
+      controller.postMessage(payload);
+      return;
+    }
+
+    navigator.serviceWorker.ready
+      .then((registration) => {
+        const worker = registration.active || registration.waiting;
+        if (worker) worker.postMessage(payload);
+      })
+      .catch(() => {});
+  }
+
+  // This script is loaded before deferred Docsify. On an already-controlled
+  // offline page, report airplane/offline state before Docsify starts fetching
+  // Markdown so the Service Worker can serve cached content immediately.
+  reportConnectivityToServiceWorker();
+  if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('controllerchange', reportConnectivityToServiceWorker);
+  }
+  if (root && typeof root.addEventListener === 'function') {
+    root.addEventListener('online', reportConnectivityToServiceWorker);
+    root.addEventListener('offline', reportConnectivityToServiceWorker);
+  }
+
   function isEscaped(text, index) {
     let slashCount = 0;
     for (let i = index - 1; i >= 0 && text[i] === '\\'; i -= 1) slashCount += 1;
