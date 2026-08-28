@@ -3,6 +3,12 @@
 
   const DISPLAY_CLASS = 'toukei-math-display';
   const INLINE_CLASS = 'toukei-math-inline';
+  const scriptBase = typeof document !== 'undefined' && document.currentScript?.src
+    ? new URL('.', document.currentScript.src)
+    : null;
+  const localKatexScript = scriptBase ? new URL('vendor/katex/katex.min.js', scriptBase).href : null;
+  const localKatexStylesheet = scriptBase ? new URL('vendor/katex/katex.min.css', scriptBase).href : null;
+  let katexLoadPromise = null;
 
   function isEscaped(text, index) {
     let slashCount = 0;
@@ -124,6 +130,51 @@
     return output;
   }
 
+  function katexStylesheetLoaded() {
+    if (typeof document === 'undefined') return true;
+    return [...document.querySelectorAll('link[rel="stylesheet"]')]
+      .filter((link) => /katex(?:\.min)?\.css/i.test(link.href || ''))
+      .some((link) => Boolean(link.sheet));
+  }
+
+  function ensureLocalKatexStylesheet() {
+    if (typeof document === 'undefined' || !localKatexStylesheet || katexStylesheetLoaded()) return;
+    if (document.querySelector('link[data-toukei-local-katex]')) return;
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = localKatexStylesheet;
+    link.dataset.toukeiLocalKatex = 'true';
+    document.head.appendChild(link);
+  }
+
+  function ensureKatexRuntime() {
+    ensureLocalKatexStylesheet();
+    if (root.katex) return Promise.resolve(root.katex);
+    if (katexLoadPromise) return katexLoadPromise;
+    if (typeof document === 'undefined' || !localKatexScript) {
+      return Promise.reject(new Error('KaTeX runtime is unavailable'));
+    }
+
+    katexLoadPromise = new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-toukei-local-katex]');
+      if (existing) {
+        existing.addEventListener('load', () => root.katex ? resolve(root.katex) : reject(new Error('KaTeX fallback loaded without runtime')), { once: true });
+        existing.addEventListener('error', () => reject(new Error('KaTeX fallback failed to load')), { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = localKatexScript;
+      script.dataset.toukeiLocalKatex = 'true';
+      script.onload = () => root.katex ? resolve(root.katex) : reject(new Error('KaTeX fallback loaded without runtime'));
+      script.onerror = () => reject(new Error('KaTeX fallback failed to load'));
+      document.head.appendChild(script);
+    });
+
+    return katexLoadPromise;
+  }
+
   function renderPlaceholder(node) {
     if (!node || !root.katex) return;
     const encoded = node.getAttribute('data-tex');
@@ -140,15 +191,34 @@
     }
   }
 
+  function revealRawTex(node) {
+    if (!node) return;
+    const encoded = node.getAttribute('data-tex');
+    if (encoded === null) return;
+    const tex = decodeURIComponent(encoded);
+    node.textContent = node.classList.contains(DISPLAY_CLASS) ? `$$${tex}$$` : `$${tex}$`;
+  }
+
+  function renderMath(container) {
+    if (!container) return;
+    const nodes = [...container.querySelectorAll('.toukei-math[data-tex]')];
+    if (!nodes.length) return;
+
+    ensureKatexRuntime()
+      .then(() => nodes.forEach(renderPlaceholder))
+      .catch((error) => {
+        console.error('KaTeX runtime unavailable; showing raw TeX instead', error);
+        nodes.forEach(revealRawTex);
+      });
+  }
+
   function docsifyPlugin(hook) {
     hook.beforeEach(function (markdown) {
       return protectMath(markdown);
     });
 
     hook.doneEach(function () {
-      const container = document.querySelector('.markdown-section');
-      if (!container) return;
-      container.querySelectorAll('.toukei-math[data-tex]').forEach(renderPlaceholder);
+      renderMath(document.querySelector('.markdown-section'));
     });
   }
 
