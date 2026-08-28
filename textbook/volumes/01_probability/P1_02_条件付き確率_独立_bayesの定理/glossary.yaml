@@ -1,7 +1,7 @@
 chapter: "P1-02"
 terms:
   - { term: 条件付き確率, notation: "P(A\\mid B)", meaning: "P(B)>0のときP(A\\cap B)/P(B)で定義される確率" }
-  - { term: 独立, notation: "P(A\\cap B)=P(A)P(B)", meaning: "一方の事象を知っても他方の確率が変わらない関係" }
+  - { term: 独立, notation: "A\\perp B", meaning: "P(A\\cap B)=P(A)P(B)が成り立ち、一方の事象を知っても他方の確率が変わらない関係" }
   - { term: 対独立, meaning: "全ての二事象の組が独立であること" }
   - { term: 相互独立, meaning: "全ての2個以上の部分族で積公式が成り立つこと" }
   - { term: 事象の分割, meaning: "互いに排反で和事象が標本空間全体になる事象族" }
