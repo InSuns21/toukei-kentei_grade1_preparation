@@ -163,7 +163,7 @@ $$
 
 $$
 R
-=X-\mu-rac{\Sigma a}{s}(Y-a^T\mu).
+=X-\mu-\frac{\Sigma a}{s}(Y-a^T\mu).
 $$
 
 $(R,Y)$ は $(X,Y)$ の線形変換なので同時正規である。さらに上で
@@ -186,7 +186,7 @@ $$
 
 $$
 X
-=\mu+rac{\Sigma a}{s}(Y-a^T\mu)+R.
+=\mu+\frac{\Sigma a}{s}(Y-a^T\mu)+R.
 $$
 
 しかも $R\perp Y$ だから、$Y=y$ と条件付けても $R$ の分布は変わらない。
@@ -196,9 +196,9 @@ $$
 $$
 \begin{aligned}
 E[X\mid Y=y]
-&=\mu+rac{\Sigma a}{s}(y-a^T\mu)\\
+&=\mu+\frac{\Sigma a}{s}(y-a^T\mu)\\
 &=\boxed{
-\mu+rac{\Sigma a}{a^T\Sigma a+\tau^2}(y-a^T\mu)
+\mu+\frac{\Sigma a}{a^T\Sigma a+\tau^2}(y-a^T\mu)
 }.
 \end{aligned}
 $$
