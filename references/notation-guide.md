@@ -16,7 +16,7 @@
 - 確率論上の独立は、事象なら $A\perp B$、確率変数なら $X\perp Y$、条件付き独立は $A\perp B\mid C$ または $X\perp Y\mid Z$ と書く。文献で $\perp\!\!\!\perp$ と書く流儀もあるが、本教材の確率論では単一の $\perp$ に統一する。
 - $\perp$ は線形代数では直交にも使う。たとえばベクトル $\boldsymbol u\perp\boldsymbol v$ は内積0、部分空間 $V^\perp$ は直交補を表す。したがって、確率変数・事象の間に置かれた $\perp$ は独立、ベクトル・部分空間に対する $\perp$ は直交と、対象と文脈で区別する。初学者が混同しうる箇所では本文でも「独立」「直交」を併記する。
 - 標本平均は $\overline X=n^{-1}\sum_{i=1}^nX_i$、不偏標本分散は $S^2=(n-1)^{-1}\sum_{i=1}^n(X_i-\overline X)^2$ とする。
-- 相関係数は $\rho_{X,Y}=\operatorname{Cov}(X,Y)/(\sigma_X\sigma_Y)$、偏相関係数は $\rho_{XY\cdot Z}$ とする。
+- 相関係数は $\rho_{X,Y}=\operatorname{Cov}(X,Y)/(\sigma_X\sigma_Y)$ とする。相関を演算子として書く場合は $\operatorname{Corr}(X,Y)$ とし、$\operatorname{Corr}(X,Y)=\rho_{X,Y}$ である。偏相関係数は $\rho_{XY\cdot Z}$ とする。
 - 第 $p$ 分位点は $q_p=\inf\{x:F_X(x)\ge p\}$ とする。中央値は $q_{1/2}$、四分位範囲は $Q_3-Q_1$ とする。
 
 ## 2. 分布関数・母関数
@@ -52,6 +52,8 @@
 - 回帰・線形モデルでは、慣例上 $y=X\beta+\varepsilon$ のように非太字で行列・ベクトルを書く教材もある。この表記を使う場合は、$X$ が行列、$y,\beta,\varepsilon$ がベクトルであることと次元を初出時に明記し、同一問題内で太字・非太字を同じ対象に混在させない。
 - 転置の主表記は $\boldsymbol X^{\mathsf T}$ とする。既存資料の $X^T$ や $X^\top$ は同じ転置を意味するが、新規記述では $^{\mathsf T}$ を優先し、同一問題内で流儀を混在させない。
 - 逆行列は $\boldsymbol X^{-1}$、$n$ 次単位行列は $\boldsymbol I_n$ を基本とする。非太字の線形モデル流儀では $I_n$ を用いてよい。
+- 行列 $A$ の行列式は $\det(A)$ を主表記とする。多変量正規密度などで、行列であることが明白な $|A|$ を行列式として使う既存表記も許容するが、絶対値と紛らわしい箇所では $\det(A)$ を使う。
+- 行列 $A$ のトレースは $\operatorname{tr}(A)$、対角成分または対角行列を表す演算子は $\operatorname{diag}(\cdot)$ とする。
 - 行列 $A$ の階数は $\operatorname{rank}(A)$、列空間は $\mathcal C(A)$ とする。
 - ベクトルのノルムは $\lVert\boldsymbol x\rVert$ とし、添字がなければユークリッドノルムを意味する。別のノルムを使うときは $\lVert\boldsymbol x\rVert_1$ などと明記する。
 - ベクトルの直交は $\boldsymbol u\perp\boldsymbol v$、部分空間 $V$ の直交補は $V^\perp$ とする。確率論の独立にも同じ $\perp$ を使うため、対象を明示する。
