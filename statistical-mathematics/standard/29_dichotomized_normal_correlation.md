@@ -87,6 +87,120 @@ E[B]=\frac12,
 \operatorname{Var}(B)=\frac14.
 $$
 
+### 補足：四分円確率公式はなぜ成り立つか
+
+この問題では四分円確率公式は**与えられた公式として使ってよい**。本問の主題は、連続な正規変数を符号で二値化したときに相関がどう変わるかを見ることだからである。
+
+ただし公式
+
+$$
+P(X>0,Y>0)
+=\frac14+\frac{1}{2\pi}\arcsin\rho
+$$
+
+自体も、2変量正規分布の標準化と回転対称性から短く導ける。
+
+独立な標準正規変数 $U,V\sim N(0,1)$ を用いて
+
+$$
+X=U,
+\qquad
+Y=\rho U+\sqrt{1-\rho^2}\,V
+$$
+
+と表せる。実際、
+
+$$
+\operatorname{Var}(Y)
+=\rho^2+(1-\rho^2)=1,
+$$
+
+かつ
+
+$$
+\operatorname{Cov}(X,Y)
+=\operatorname{Cov}\left(U,\rho U+\sqrt{1-\rho^2}V\right)
+=\rho
+$$
+
+なので、この $(X,Y)$ は問題の2変量標準正規分布と同じ分布をもつ。
+
+したがって
+
+$$
+X>0
+\iff U>0,
+$$
+
+また
+
+$$
+Y>0
+\iff
+V>-
+\frac{\rho}{\sqrt{1-\rho^2}}U.
+$$
+
+ここで $(U,V)$ の同時密度は
+
+$$
+\frac{1}{2\pi}\exp\left(-\frac{u^2+v^2}{2}\right)
+$$
+
+であり、原点からの距離 $u^2+v^2$ だけで決まる。したがって方向について一様、つまり**原点を頂点とする扇形に入る確率は、その扇形の角度を $2\pi$ で割ったもの**になる。
+
+$U>0$ の範囲では偏角 $\theta$ は
+
+$$
+-\frac\pi2<\theta<\frac\pi2
+$$
+
+を動く。一方、$Y>0$ の境界線は
+
+$$
+V=-\frac{\rho}{\sqrt{1-\rho^2}}U
+$$
+
+なので、その偏角は
+
+$$
+-\arctan\left(\frac{\rho}{\sqrt{1-\rho^2}}\right).
+$$
+
+したがって事象 $\{X>0,Y>0\}$ に対応する扇形の角度は
+
+$$
+\frac\pi2
++
+\arctan\left(\frac{\rho}{\sqrt{1-\rho^2}}\right).
+$$
+
+$|\rho|<1$ では
+
+$$
+\arctan\left(\frac{\rho}{\sqrt{1-\rho^2}}\right)
+=\arcsin\rho
+$$
+
+だから、
+
+$$
+\begin{aligned}
+P(X>0,Y>0)
+&=\frac{1}{2\pi}
+\left(\frac\pi2+\arcsin\rho\right)\\
+&=\boxed{
+\frac14+\frac{1}{2\pi}\arcsin\rho
+}.
+\end{aligned}
+$$
+
+この導出は覚える必要はないが、公式が突然現れたときには
+
+> 相関付き正規分布を独立な標準正規 $(U,V)$ に戻す → 回転対称な平面上の扇形の角度を数える
+
+と理解しておくと、単なる暗記公式にならない。
+
 ### 2. 二値化後の相関係数
 
 まず
