@@ -36,6 +36,7 @@ $$P(A)=\frac{|A|}{|\Omega|}=\frac{3}{6}=\frac12.$$
 有限一様でない場合は $|A|/|\Omega|$ を使わず、確率質量を足す。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-addition-complement
 title: 余事象の確率
@@ -69,74 +70,7 @@ $$P(A^c)=1-0.4=0.6.$$
 余事象の確率は、元の事象と合わせて1になる。
 
 <!-- CARD -->
----
-id: prob-basic-conditional-probability
-title: 条件付き確率の定義と計算
-category: math-probability
-subcategory: math-events
-topic: conditional-probability-definition
-type: formula
-difficulty: 1
-priority: S
-hashtags: [条件付き確率, 定義, 確率の計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 条件付き確率 }]
----
-## 問題
-$P(A\cap B)=0.12$、$P(B)=0.30$ のとき、$P(A\mid B)$ を求めよ。
 
-## 答え
-$P(A\mid B)=0.4$ である。
-
-## 使用公式・定理
-$P(B)>0$ のとき
-$$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$$
-で定義される。
-
-## 計算例
-$$P(A\mid B)=\frac{0.12}{0.30}=0.4.$$
-
-## 一手
-$A\mid B$ は、$B$ の世界で $A$ が起きる割合と読む。
-
-## 注意
-$P(B)=0$ のときこの分数は使えない。$P(A\mid B)$ と $P(B\mid A)$ を交換しない。
-
-<!-- CARD -->
----
-id: prob-basic-chain-rule
-title: 乗法定理と確率の連鎖律
-category: math-probability
-subcategory: math-events
-topic: multiplication-chain-rule
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [乗法定理, 連鎖律, 条件付き確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 条件付き確率 }]
----
-## 問題
-$P(A)=0.5$、$P(B\mid A)=0.6$、$P(C\mid A\cap B)=0.25$ のとき、$P(A\cap B\cap C)$ を求めよ。
-
-## 答え
-$P(A\cap B\cap C)=0.075$ である。
-
-## 使用公式・定理
-$$P(A\cap B)=P(B\mid A)P(A)$$
-$$P(A\cap B\cap C)=P(A)P(B\mid A)P(C\mid A\cap B)$$
-
-## 計算例
-$$P(A\cap B)=0.5\cdot0.6=0.30.$$
-$$P(A\cap B\cap C)=0.30\cdot0.25=0.075.$$
-
-## 一手
-同時発生を、最初の確率と後続の条件付き確率の積へ分解する。
-
-## 注意
-条件付き確率の分母が正であることを確認する。
-
-<!-- CARD -->
 ---
 id: prob-basic-independent-vs-disjoint
 title: 独立事象と排反事象の違い
@@ -173,105 +107,7 @@ $$P(A)P(B)=0.4\cdot0.5=0.2\ne0.$$
 両方の確率が正の排反事象は独立ではない。
 
 <!-- CARD -->
----
-id: prob-basic-total-probability
-title: 全確率の公式
-category: math-probability
-subcategory: math-events
-topic: total-probability
-type: calc_step
-difficulty: 1
-priority: S
-hashtags: [全確率, 場合分け, 条件付き確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率の計算 }]
----
-## 問題
-事象 $A,B$ は標本空間を分割し、$P(A)=0.7$、$P(B)=0.3$、$P(D\mid A)=0.02$、$P(D\mid B)=0.08$ とする。$P(D)$ を求めよ。
 
-## 答え
-$P(D)=0.038$ である。
-
-## 使用公式・定理
-分割 $A_1,\ldots,A_k$ に対して
-$$P(D)=\sum_{j=1}^kP(D\mid A_j)P(A_j).$$
-
-## 計算例
-$$P(D)=0.02\cdot0.7+0.08\cdot0.3=0.014+0.024=0.038.$$
-
-## 一手
-各場合の条件付き確率に、その場合の確率を掛けて足す。
-
-## 注意
-条件付き確率だけを足さず、各場合の重みを掛ける。
-
-<!-- CARD -->
----
-id: prob-basic-bayes
-title: ベイズの定理
-category: math-probability
-subcategory: math-events
-topic: bayes-theorem
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [ベイズの定理, 条件付き確率, ベイズ]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベイズの定理 }]
----
-## 問題
-壺 $U_1,U_2$ をそれぞれ確率 $0.4,0.6$ で選ぶ。赤玉が出る確率は $U_1$ で $0.7$、$U_2$ で $0.2$ である。赤玉が出たとき、$U_1$ を選んだ確率を求めよ。
-
-## 答え
-$P(U_1\mid R)=0.7$ である。
-
-## 使用公式・定理
-$$P(U_1\mid R)=\frac{P(R\mid U_1)P(U_1)}{P(R\mid U_1)P(U_1)+P(R\mid U_2)P(U_2)}.$$
-
-## 計算例
-$$P(R)=0.7\cdot0.4+0.2\cdot0.6=0.28+0.12=0.4.$$
-$$P(U_1\mid R)=\frac{0.7\cdot0.4}{0.4}=0.7.$$
-
-## 一手
-分子を「原因 $U_1$ の確率×その原因で赤が出る確率」とし、全原因から赤が出る確率で割る。
-
-## 注意
-条件付き確率 $P(R\mid U_1)$ と逆向きの事後確率 $P(U_1\mid R)$ を取り違えない。
-
-<!-- CARD -->
----
-id: prob-basic-inclusion-exclusion
-title: 包除原理による確率計算
-category: math-probability
-subcategory: math-events
-topic: inclusion-exclusion
-type: formula
-difficulty: 1
-priority: A
-hashtags: [包除原理, 和集合, 確率の計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 包除原理 }]
----
-## 問題
-$P(A)=0.55$、$P(B)=0.40$、$P(A\cap B)=0.18$ のとき、$P(A\cup B)$ を求めよ。
-
-## 答え
-$P(A\cup B)=0.77$ である。
-
-## 使用公式・定理
-$$P(A\cup B)=P(A)+P(B)-P(A\cap B).$$
-
-## 計算例
-$$P(A\cup B)=0.55+0.40-0.18=0.77.$$
-共通部分は二重に数えられるため1回引く。
-
-## 一手
-「少なくとも一方」を求めたら、和集合を包除原理で整理する。
-
-## 注意
-共通部分が未知なら、$P(A)+P(B)$ だけでは和集合を確定できない。
-
-<!-- CARD -->
 ---
 id: prob-basic-symmetry
 title: 対称性を使う確率計算
@@ -305,6 +141,7 @@ $$P(\text{特定の人が1番目})=\frac{2}{6}=\frac13.$$
 重み付き抽出などで候補が同確率でない場合、対称性は使えない。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-combination-probability
 title: 組合せ計数と確率
@@ -338,6 +175,7 @@ $$P(E)=\frac{\binom51\binom31}{\binom82}=\frac{5\cdot3}{28}=\frac{15}{28}.$$
 非復元抽出の分母を $8^2$ としない。ここでは順序を無視した組合せを使う。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-conditional-independence
 title: 条件付き独立
@@ -376,6 +214,7 @@ $$P(A\mid C)P(B\mid C)=0.4\cdot0.6=0.24.$$
 条件付き独立は無条件の独立とは別概念である。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-event-limsup-liminf
 title: 事象列のlimsup・liminf
@@ -414,6 +253,7 @@ limsup は「何度も起きる」、liminf は「最後にはずっと起きる
 常に $\liminf A_n\subseteq\limsup A_n$ だが、両者は一般に異なる。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-boole-inequality
 title: Booleの不等式
@@ -449,6 +289,7 @@ $$P(A_1\cup A_2\cup A_3)\le0.2+0.2+0.2=0.6.$$
 一般に等号ではない。上界が1を超える場合は、確率の上界として1も使える。
 
 <!-- CARD -->
+
 ---
 id: prob-basic-borel-cantelli
 title: Borel–Cantelliの補題（基本形）
@@ -483,5 +324,3 @@ $$P(\limsup_{n\to\infty}A_n)=0.$$
 
 ## 注意
 逆向き（無限和が発散すれば無限回起こる確率が1）は、通常は独立性など追加条件が必要である。
-
-<!-- CARD -->
