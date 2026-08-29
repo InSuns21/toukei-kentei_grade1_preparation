@@ -65,52 +65,68 @@ sources: [{ type: official_syllabus, topic: カイ二乗分布 }]
 $Z_1,\ldots,Z_\nu$ を独立に標準正規分布 $N(0,1)$ に従う確率変数とする。$X=Z_1^2+\cdots+Z_\nu^2$ の分布を答えよ。台と密度の形も述べよ。
 
 ## 答え
-$$X=Z_1^2+\cdots+Z_\nu^2\sim\chi^2_\nu.$$
-台は $x>0$ で、密度は
-$$f_X(x)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}
-x^{\nu/2-1}e^{-x/2}\qquad(x>0).$$
+$$
+\sum_{i=1}^{\nu}Z_i^2\sim\chi^2_\nu,
+\qquad E[Q]=\nu,
+\qquad \operatorname{Var}(Q)=2\nu.
+$$
 
 ## 使用公式・定理
-カイ二乗分布 $\chi^2_\nu$ は shape-rate 表示で $\operatorname{Gamma}(\nu/2,1/2)$ に一致する。標準正規の平方 $Z^2\sim\chi^2_1$。
+独立な標準正規確率変数 $Z_1,\ldots,Z_\nu$ に対して
+$$
+Q=\sum_{i=1}^{\nu}Z_i^2\sim\chi^2_\nu.
+$$
+したがって自由度 $\nu$ は「独立な標準正規平方を何個足したか」と読める。
+
+密度は
+$$
+f_Q(q)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}q^{\nu/2-1}e^{-q/2},\qquad q>0,
+$$
+であり、shape-rate 表示のガンマ分布
+$$
+\chi^2_\nu=\operatorname{Gamma}\left(\frac\nu2,\frac12\right)
+$$
+に一致する。よって
+$$
+E[Q]=\nu,\qquad \operatorname{Var}(Q)=2\nu.
+$$
+
+また独立な $Q_1\sim\chi^2_{\nu_1}$、$Q_2\sim\chi^2_{\nu_2}$ なら
+$$
+Q_1+Q_2\sim\chi^2_{\nu_1+\nu_2}.
+$$
+これは標準正規平方の個数を足すと考えても、モーメント母関数
+$$
+M_{\chi^2_\nu}(t)=(1-2t)^{-\nu/2},\qquad t<1/2
+$$
+の積から確認してもよい。
 
 ## 計算例
-$\nu=3$ とする。一般密度へ代入すると
+$Z\sim N(0,1)$ なら $Z^2\sim\chi^2_1$ なので
 $$
-f_X(x)
-=\frac{1}{2^{3/2}\Gamma(3/2)}x^{1/2}e^{-x/2},
-\qquad x>0.
+E[Z^2]=1,\qquad \operatorname{Var}(Z^2)=2.
 $$
-ここで
+独立な $Z_1,\ldots,Z_4\sim N(0,1)$ なら
 $$
-\Gamma\!\left(\frac32\right)
-=\frac12\Gamma\!\left(\frac12\right)
-=\frac{\sqrt\pi}{2}
+\sum_{i=1}^4Z_i^2\sim\chi^2_4,
 $$
-だから
+したがって平均4、分散8である。
+
+さらに独立な $X\sim\chi^2_3$, $Y\sim\chi^2_5$ なら
 $$
-\begin{aligned}
-2^{3/2}\Gamma(3/2)
-&=2^{3/2}\frac{\sqrt\pi}{2}\\
-&=\sqrt{2\pi}.
-\end{aligned}
+X+Y\sim\chi^2_8.
 $$
-よって
+$Z^2$ の密度を直接出したければ、変換 $z=\pm\sqrt q$ の2枝を足して
 $$
-f_X(x)=\frac{1}{\sqrt{2\pi}}x^{1/2}e^{-x/2},
-\qquad x>0.
+f_{Z^2}(q)=\frac{1}{\sqrt{2\pi q}}e^{-q/2},\qquad q>0,
 $$
-また $\chi^2_\nu$ の平均・分散は $\nu,2\nu$ なので、$\chi^2_3$ では
-$$
-E[X]=3,
-\qquad
-\operatorname{Var}(X)=6.
-$$
+とし、これは $\chi^2_1$ の密度に一致する。
 
 ## 一手
-自由度は独立に足される標準正規平方の個数として読む。
+標準正規の平方和を見たら、独立な項の個数を自由度として数える。平均・分散は自由度から直ちに読み、独立和では自由度を足す。
 
 ## 注意
-カイ二乗分布は非対称で右に裾を引く。台は $x>0$。
+再生性には独立性が必要である。相関した正規変数の平方和を、そのまま項数自由度のカイ二乗分布とはできない。
 
 <!-- CARD -->
 
@@ -279,44 +295,64 @@ sources: [{ type: official_syllabus, topic: t分布 }]
 $Z$ を標準正規分布 $N(0,1)$ に従う確率変数、$V$ を $Z$ と独立な $\chi^2_\nu$ に従う確率変数とする。$T$ をどのように定義すれば自由度 $\nu$ の t 分布に従うか答えよ。また密度の概形と $E[T],\operatorname{Var}(T)$ を述べよ。
 
 ## 答え
-$$T=\frac{Z}{\sqrt{V/\nu}}\sim t_\nu.$$
-$x\in\mathbb R$ で、平均は $\nu>1$ のとき $0$（$\nu\le1$ では存在しない）。分散は $\nu>2$ のとき $\nu/(\nu-2)$、$1<\nu\le2$ では無限大で、$\nu\le1$ では平均が存在しないため分散も定義されない。密度は左右対称の釣鐘型で、標準正規より裾が重い。
+$$
+\frac{Z}{\sqrt{V/\nu}}\sim t_\nu.
+$$
+自由度1では標準コーシー分布、自由度が大きくなると標準正規分布へ近づく。
 
 ## 使用公式・定理
-$t_\nu$ の密度は
-$$f_T(t)=\frac{\Gamma\{(\nu+1)/2\}}{\sqrt{\nu\pi}\,\Gamma(\nu/2)}\left(1+\frac{t^2}{\nu}\right)^{-(\nu+1)/2}.$$
+独立な
+$$
+Z\sim N(0,1),\qquad V\sim\chi^2_\nu
+$$
+に対して
+$$
+T=\frac{Z}{\sqrt{V/\nu}}\sim t_\nu.
+$$
+密度は
+$$
+f_T(t)=\frac{\Gamma\{(\nu+1)/2\}}{\sqrt{\nu\pi}\,\Gamma(\nu/2)}
+\left(1+\frac{t^2}{\nu}\right)^{-(\nu+1)/2},\qquad t\in\mathbb R.
+$$
+対称分布で、$\nu>1$ なら $E[T]=0$、$\nu>2$ なら
+$$
+\operatorname{Var}(T)=\frac{\nu}{\nu-2}.
+$$
+
+$\nu=1$ では
+$$
+f_T(t)=\frac1{\pi(1+t^2)},
+$$
+すなわち標準コーシー分布で、平均・分散は存在しない。
+
+また $V/\nu$ は平均1、分散 $2/\nu$ なので
+$$
+\frac{V}{\nu}\xrightarrow{p}1.
+$$
+よって Slutsky の定理から
+$$
+t_\nu\xrightarrow{d}N(0,1)\qquad(\nu\to\infty).
+$$
 
 ## 計算例
-$\nu=1$ を t 分布の密度へ代入する。まず係数は
+正規標本 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ では
 $$
-\frac{\Gamma\{(1+1)/2\}}
-{\sqrt{\pi}\,\Gamma(1/2)}
-=\frac{\Gamma(1)}{\sqrt\pi\,\sqrt\pi}
-=\frac1\pi.
+Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
 $$
-また指数は
 $$
--\frac{\nu+1}{2}=-1
+V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
 $$
-だから
+かつ $Z$ と $V$ は独立なので
 $$
-\begin{aligned}
-f_T(t)
-&=\frac1\pi\left(1+t^2\right)^{-1}\\
-&=\frac{1}{\pi(1+t^2)}.
-\end{aligned}
+\frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}.
 $$
-これは標準コーシー分布の密度である。したがって
-$$
-t_1=\text{標準コーシー分布}
-$$
-が密度から直接確認でき、平均・分散が存在しないことも対応する。
+つまり母分散未知で $\sigma$ を $S$ に置き換えると、まさにt分布の構成になる。
 
 ## 一手
-「標準正規 ÷ 独立な(カイ二乗/自由度)の平方根」が t 分布。
+「標準正規 ÷ 独立な（カイ二乗/自由度）の平方根」がt分布。母分散未知の正規平均ではこの形を作る。
 
 ## 注意
-分母の $V$ は $Z$ と独立でなければならない。自由度が大きいと標準正規へ近づく。
+分子の標準正規変数と分母のカイ二乗変数の独立性が必要である。小自由度では裾が重く、標準正規近似を早く使いすぎない。
 
 <!-- CARD -->
 
@@ -479,21 +515,58 @@ sources: [{ type: official_syllabus, topic: F分布 }]
 独立な $U\sim\chi^2_{\nu_1}$ と $W\sim\chi^2_{\nu_2}$ が与えられたとき、自由度 $(\nu_1,\nu_2)$ の F分布に従う確率変数 $F$ を定義せよ。また台と平均を述べよ。
 
 ## 答え
-$$F=\frac{U/\nu_1}{W/\nu_2}\sim F_{\nu_1,\nu_2}.$$
-台は $x>0$。平均は $\nu_2>2$ のとき $\nu_2/(\nu_2-2)$ である。
+$$
+\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2},
+\qquad
+\frac1F\sim F_{\nu_2,\nu_1},
+\qquad
+t_\nu^2\sim F_{1,\nu}.
+$$
 
 ## 使用公式・定理
-F分布の密度は
-$$f_F(x)=\frac{(\nu_1/\nu_2)^{\nu_1/2}x^{\nu_1/2-1}}{B\left(\frac{\nu_1}{2},\frac{\nu_2}{2}\right)}\left(1+\frac{\nu_1x}{\nu_2}\right)^{-(\nu_1+\nu_2)/2},\qquad x>0.$$
+独立な
+$$
+U\sim\chi^2_{\nu_1},\qquad V\sim\chi^2_{\nu_2}
+$$
+に対して
+$$
+F=\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}.
+$$
+台は $f>0$ である。分子と分母を入れ替えれば
+$$
+\frac1F\sim F_{\nu_2,\nu_1}.
+$$
+したがって分位点にも逆数関係がある。
+
+また $T\sim t_\nu$ なら
+$$
+T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
+$$
+逆に $F\sim F_{1,\nu}$ なら
+$$
+\sqrt F\overset{d}=|T|.
+$$
+したがって両側t検定は自由度 $(1,\nu)$ のF統計量へ書き換えられるが、平方化すると符号の情報は失われる。
 
 ## 計算例
-$\nu_1=5,\nu_2=10$ では平均は $10/(10-2)=1.25$。
+$F\sim F_{3,8}$ なら
+$$
+\frac1F\sim F_{8,3}.
+$$
+また $T\sim t_{20}$ なら
+$$
+T^2\sim F_{1,20}.
+$$
+独立な $U\sim\chi^2_5$, $V\sim\chi^2_{10}$ に対して
+$$
+\frac{U/5}{V/10}\sim F_{5,10}.
+$$
 
 ## 一手
-「自由度で割った2つの独立なカイ二乗の比」がF分布。順序 $(\nu_1,\nu_2)$ は分子と分母に対応。
+「独立なカイ二乗をそれぞれ自由度で割って比を取る」がF分布。逆数では自由度を交換し、分子自由度1ならtの2乗まで連想する。
 
 ## 注意
-逆数もF分布になる。$1/F\sim F_{\nu_2,\nu_1}$。
+分子・分母の順序と自由度の順序を一致させる。$\sqrt{F_{1,\nu}}$ はt分布そのものではなく絶対値tの分布である。
 
 <!-- CARD -->
 
@@ -788,26 +861,69 @@ sources: [{ type: official_syllabus, topic: 順序統計量 }]
 $X_1,\ldots,X_n$ を密度 $f_X$、累積分布関数 $F_X$ の分布からの独立同分布標本とし、順序統計量を $X_{(1)}\le X_{(2)}\le\cdots\le X_{(n)}$ とする。$X_{(k)}$ の累積分布関数と密度を求めよ。
 
 ## 答え
-$$P(X_{(k)}\le x)=\sum_{j=k}^{n}\binom nj F_X(x)^j\{1-F_X(x)\}^{n-j}.$$
-$F_X$ が連続なら密度は
-$$f_{X_{(k)}}(x)=\frac{n!}{(k-1)!(n-k)!}F_X(x)^{k-1}\{1-F_X(x)\}^{n-k}f_X(x).$$
+$$
+f_{X_{(k)}}(x)
+=\frac{n!}{(k-1)!(n-k)!}
+F(x)^{k-1}\{1-F(x)\}^{n-k}f(x).
+$$
+最大値と最小値は $k=n,1$ の特殊ケースである。
 
 ## 使用公式・定理
-$X_{(k)}\le x$ は「$x$ 以下の標本が $k$ 個以上」と同値で、個数は $\operatorname{Binomial}(n,F_X(x))$。
-密度は、$k-1$ 個が $x$ 未満、1個が微小区間 $[x,x+dx]$、残る $n-k$ 個が $x$ より大きい配置を数えて
-$$P(x<X_{(k)}\le x+dx)$$
-$$\approx\frac{n!}{(k-1)!1!(n-k)!}
-F_X(x)^{k-1}\{f_X(x)dx\}\{1-F_X(x)\}^{n-k}.$$ 
-$dx$ で割ると答えの密度になる。
+$X_1,\ldots,X_n$ を密度 $f$、累積分布関数 $F$ を持つ独立同分布標本とし
+$$
+X_{(1)}\le\cdots\le X_{(n)}
+$$
+を順序統計量とする。
+
+$X_{(k)}\le x$ は「$x$ 以下の標本が少なくとも $k$ 個」と同値なので
+$$
+P(X_{(k)}\le x)
+=\sum_{j=k}^{n}\binom njF(x)^j\{1-F(x)\}^{n-j}.
+$$
+連続分布なら微小区間に第 $k$ 番目が入る配置を数えて
+$$
+f_{X_{(k)}}(x)
+=\frac{n!}{(k-1)!(n-k)!}
+F(x)^{k-1}\{1-F(x)\}^{n-k}f(x).
+$$
+
+特に最大値 $M=X_{(n)}$ は
+$$
+F_M(x)=F(x)^n,
+\qquad
+f_M(x)=nF(x)^{n-1}f(x),
+$$
+最小値 $L=X_{(1)}$ は
+$$
+P(L>x)=\{1-F(x)\}^n,
+$$
+$$
+F_L(x)=1-\{1-F(x)\}^n,
+\qquad
+f_L(x)=n\{1-F(x)\}^{n-1}f(x).
+$$
 
 ## 計算例
-最小値 $X_{(1)}$ は $k=1$ で $P(X_{(1)}\le x)=1-\{1-F_X(x)\}^n$。最大値 $X_{(n)}$ は $F_X(x)^n$。
+$X_i\sim U(0,1)$、$n=3$ なら $0<x<1$ で
+$$
+F_M(x)=x^3,
+\qquad
+f_M(x)=3x^2.
+$$
+また $X_i\sim\operatorname{Exp}(\lambda)$ なら
+$$
+P(L>x)=e^{-n\lambda x},
+$$
+よって
+$$
+L\sim\operatorname{Exp}(n\lambda).
+$$
 
 ## 一手
-「$x$ 以下が $k$ 個以上」を二項分布で数える。
+一般の第k順序統計量は「x以下がk個以上」を二項分布で数える。最大値は「全部がx以下」、最小値は「全部がxより大きい」の余事象へ直す。
 
 ## 注意
-最小値・最大値は重要な特殊ケース。
+$F(x)^n$ や $\{1-F(x)\}^n$ の積分解には標本の独立性が必要である。最大値・最小値を別公式として暗記せず、一般の順序統計量の端点ケースとして理解する。
 
 <!-- CARD -->
 
