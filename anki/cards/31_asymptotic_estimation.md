@@ -104,64 +104,6 @@ $1/I_1(\theta)$ は $\sqrt n(\widehat\theta-\theta)$ の極限分散であり、
 <!-- CARD -->
 
 ---
-id: asym-mle-exponential-rate-numeric
-title: 指数分布の率の最尤推定量について漸近標準誤差を求める
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: mle-exponential-rate
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [最尤推定量の漸近正規性, 指数分布, 漸近標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
----
-
-## 問題
-$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$、密度 $f(x)=\lambda e^{-\lambda x}$（$x>0$）とする。$n=64,\overline x=0.5$ のとき、$\widehat\lambda_{\mathrm{ML}}$ とその漸近標準誤差を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$$\widehat\theta_{\mathrm{ML}}\ \dot\sim\ N\left(\theta,\frac1{nI_1(\theta)}\right).$$
-
-## 一手
-未知母数を含む標準誤差は最尤推定値を代入して推定する。
-
-## 答え
-$$\widehat\lambda_{\mathrm{ML}}=\frac1{\overline x}=2.$$
-$I_1(\lambda)=1/\lambda^2$ なので
-$$\operatorname{Avar}(\widehat\lambda)=\frac1{nI_1(\lambda)}=\frac{\lambda^2}{n}.$$
-$\lambda$ を $\widehat\lambda=2$ で置き換えると
-$$\widehat{\operatorname{SE}}(\widehat\lambda)
-=\frac{\widehat\lambda}{\sqrt n}=\frac2{8}=0.25.$$
-
-## 計算例
-1観測の対数尤度は
-$$\ell_1(\lambda;x)=\log\lambda-\lambda x,$$
-したがって
-$$\ell_1'(\lambda)=\frac1\lambda-x,
-\qquad \ell_1''(\lambda)=-\frac1{\lambda^2}.$$
-よって
-$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]=\frac1{\lambda^2}.$$
-また標本対数尤度のスコア方程式は
-$$\frac n\lambda-\sum_i x_i=0
-\iff \widehat\lambda=\frac1{\overline x}=\frac1{0.5}=2.$$
-$n=64$ なので
-$$\widehat{\operatorname{Avar}}(\widehat\lambda)
-=\frac1{64I_1(2)}=\frac4{64}=\frac1{16},$$
-$$\widehat{\operatorname{SE}}(\widehat\lambda)
-=\sqrt{\frac1{16}}=\frac14=0.25.$$
-
-## 注意
-ここでの $\lambda$ は率であり、平均は $1/\lambda$。
-
-<!-- CARD -->
-
----
 id: asym-mle-normal-variance-known-mean
 title: 正規分散の最尤推定量の漸近分布を情報量から求める
 category: math-estimation
@@ -278,55 +220,6 @@ $$\operatorname{Avar}(\widehat\mu)=\frac{(1/2)^2}{100}=0.0025,
 <!-- CARD -->
 
 ---
-id: asym-delta-bernoulli-odds
-title: デルタ法でベルヌーイ確率のオッズの漸近分散を求める
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: delta-odds
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [デルタ法, ベルヌーイ分布, オッズ]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: デルタ法 }]
----
-
-## 問題
-$\widehat p=\overline X$、$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ とする。オッズ $g(p)=p/(1-p)$ の推定量 $g(\widehat p)$ の漸近分散を求めよ。
-
-## 記号・用語
-- $\xrightarrow{d}$：分布収束
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-1次元デルタ法：極限分散を $V$ とすると、変換後は $\{g'(p)\}^2V$。
-
-## 一手
-$g'(p)$ を商の微分で求めてから二乗する。
-
-## 答え
-$$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p)),$$
-$$g'(p)=\frac1{(1-p)^2}.$$
-したがって
-$$\sqrt n\{g(\widehat p)-g(p)\}
-\xrightarrow{d}N\left(0,\frac{p}{(1-p)^3}\right).$$
-よって $g(\widehat p)$ 自身の漸近分散は $p/[n(1-p)^3]$。
-
-## 計算例
-$g(p)=p/(1-p)$ を微分すると
-$$g'(p)=\frac{(1-p)+p}{(1-p)^2}=\frac1{(1-p)^2}.$$
-$p=0.4$ では元の極限分散が $p(1-p)=0.24$ なので、変換後の極限分散は
-$$\{g'(0.4)\}^2(0.24)
-=\frac{0.24}{0.6^4}=\frac{0.4}{0.6^3}\approx1.85185.$$
-$n=100$ では推定量自身の漸近分散が $1.85185/100\approx0.01852$、漸近標準誤差が $\sqrt{0.01852}\approx0.1361$ となる。
-
-## 注意
-$p$ が0または1に近いと微分が大きくなり、正規近似は不安定になる。
-
-<!-- CARD -->
-
----
 id: asym-delta-arcsine-proportion
 title: デルタ法で標本比率の分散安定化変換を導く
 category: math-estimation
@@ -376,63 +269,6 @@ $n=100$ では漸近分散が $1/(4\cdot100)=0.0025$、漸近標準誤差が $0.
 
 ## 注意
 $p=0,1$ では微分が発散するため、通常のデルタ法をそのまま適用できない。
-
-<!-- CARD -->
-
----
-id: asym-delta-two-sample-log-risk-ratio
-title: 多変量デルタ法で二標本の対数リスク比の分散を求める
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: multivariate-delta-risk-ratio
-type: calc_step
-difficulty: 4
-priority: A
-hashtags: [デルタ法, 二標本, リスク比]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: デルタ法 }]
----
-
-## 問題
-独立な2群で $Y_1\sim\operatorname{Binomial}(n_1,p_1)$、$Y_2\sim\operatorname{Binomial}(n_2,p_2)$ とし、$\widehat p_j=Y_j/n_j$ とする。$\log(\widehat p_1/\widehat p_2)$ の漸近分散を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-多変量デルタ法の分散公式：
-$$\operatorname{Avar}\{g(\widehat{\boldsymbol\theta})\}
-\approx\nabla g(\boldsymbol\theta)^T
-\operatorname{Cov}(\widehat{\boldsymbol\theta})
-\nabla g(\boldsymbol\theta).$$
-
-## 一手
-独立二標本なら分散共分散行列が対角になり、2項の和になる。
-
-## 答え
-$g(p_1,p_2)=\log p_1-\log p_2$ だから
-$$\nabla g=\begin{pmatrix}1/p_1\\-1/p_2\end{pmatrix}.$$
-独立性から共分散は0であり、
-$$\operatorname{Avar}(\widehat p_j)=\frac{p_j(1-p_j)}{n_j}.$$
-よって
-$$\operatorname{Avar}\left\{\log\frac{\widehat p_1}{\widehat p_2}\right\}
-\approx
-\frac{1-p_1}{n_1p_1}+\frac{1-p_2}{n_2p_2}.$$
-
-## 計算例
-$g(p_1,p_2)=\log p_1-\log p_2$ なので
-$$\nabla g(0.4,0.2)=\begin{pmatrix}1/0.4\\-1/0.2\end{pmatrix}
-=\begin{pmatrix}2.5\\-5\end{pmatrix}.$$
-$n_1=n_2=100$ では
-$$\widehat{\operatorname{Var}}(\widehat p_1)=\frac{0.4(0.6)}{100}=0.0024,$$
-$$\widehat{\operatorname{Var}}(\widehat p_2)=\frac{0.2(0.8)}{100}=0.0016.$$
-独立性から共分散項は0なので
-$$\widehat{\operatorname{Avar}}\left(\log\frac{\widehat p_1}{\widehat p_2}\right)
-=(2.5)^2(0.0024)+(-5)^2(0.0016)
-=0.015+0.04=0.055.$$
-したがって標準誤差は $\sqrt{0.055}\approx0.2345$ である。
-
-## 注意
-成功数が0なら対数を取れないため、この近似をそのまま使えない。
 
 <!-- CARD -->
 
@@ -535,67 +371,6 @@ $$P(\overline X>2.4)\approx P(Z>2)=1-\Phi(2)\approx0.0228.$$
 
 ## 注意
 指数分布自体は右に歪むが、標本平均は大標本で正規近似できる。
-
-<!-- CARD -->
-
----
-id: asym-poisson-mle-numeric
-title: ポアソン率の最尤推定量に漸近標準誤差を付ける
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: poisson-mle-asymptotic-se
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [最尤推定量, ポアソン分布, 漸近標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
----
-
-## 問題
-$X_1,\ldots,X_{100}$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$\overline x=4.41$ だった。$\widehat\lambda$ とその漸近標準誤差を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-- フィッシャー情報量（1次元）：スコアの分散。正則条件下では対数尤度の負の2階微分の期待値に等しい
-- $\xrightarrow{d}$：分布収束
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-ポアソン分布の1観測当たりのフィッシャー情報量（1次元）は $I_1(\lambda)=1/\lambda$ なので
-$$\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda),\qquad
-\operatorname{Avar}(\widehat\lambda)=\frac{\lambda}{n}.$$
-未知の $\lambda$ は一致推定量 $\widehat\lambda$ で置き換える。
-
-## 一手
-漸近分散 $I_n(\lambda)^{-1}$ を出し、未知母数を最尤推定量でプラグインする。
-
-## 答え
-$$\widehat\lambda=\overline x=4.41,\qquad
-\widehat{\operatorname{SE}}(\widehat\lambda)
-=\sqrt{\frac{\widehat\lambda}{n}}
-=\sqrt{\frac{4.41}{100}}=0.21.$$
-
-## 計算例
-1観測の対数尤度
-$$\ell_1(\lambda;x)=x\log\lambda-\lambda-\log(x!)$$
-を2回微分すると
-$$\ell_1''(\lambda)=-\frac x{\lambda^2}.$$
-したがって $E_\lambda[X]=\lambda$ より
-$$I_1(\lambda)=-E_\lambda[\ell_1''(\lambda)]=\frac1\lambda.$$
-標本対数尤度のスコア方程式から
-$$\widehat\lambda=\overline x=4.41.$$
-情報量へ最尤推定値を代入して
-$$\widehat{\operatorname{SE}}(\widehat\lambda)
-=\{100I_1(4.41)\}^{-1/2}
-=\sqrt{\frac{4.41}{100}}=0.21.$$
-参考に、帰無値 $\lambda_0=4$ からのずれを標準化すると
-$$z=\frac{4.41-4}{\sqrt{4/100}}=\frac{0.41}{0.2}=2.05.$$
-推定精度の表示ではプラグイン標準誤差 $0.21$ を用いる。
-
-## 注意
-検定で帰無仮説下の標準化を行う場合は、分母に帰無値 $\lambda_0$ を使う方式と区別する。
 
 <!-- CARD -->
 

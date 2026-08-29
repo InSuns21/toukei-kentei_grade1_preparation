@@ -1052,7 +1052,7 @@ items:
       - asym-slutsky-example
       - asym-are-median-mean
       - asym-exponential-mean-tail
-      - asym-poisson-mle-numeric
+      - asym-mle-poisson-tail-probability
       - asym-exponential-rate-mle
       - asym-logit-proportion-delta
       - asym-ratio-two-means-delta
@@ -1061,13 +1061,9 @@ items:
       - asym-exponential-sample-median
       - asym-bernoulli-plugin-se
       - asym-uniform-moment-estimator
-      - asym-mle-poisson-tail-probability
-      - asym-mle-exponential-rate-numeric
       - asym-mle-normal-variance-known-mean
       - asym-delta-exponential-mean
-      - asym-delta-bernoulli-odds
       - asym-delta-arcsine-proportion
-      - asym-delta-two-sample-log-risk-ratio
       - asym-delta-normal-standard-deviation
     terms:
       - name: クラーメル・ラオの不等式
@@ -1088,7 +1084,7 @@ items:
           - asym-mle-av-binomial
           - asym-mle-av-normal
           - asym-mle-poisson-tail-probability
-          - asym-mle-exponential-rate-numeric
+          - asym-exponential-rate-mle
           - asym-mle-normal-variance-known-mean
       - name: デルタ法
         status: card
@@ -1097,9 +1093,9 @@ items:
           - asym-delta-method
           - asym-delta-method-sqrt
           - asym-delta-exponential-mean
-          - asym-delta-bernoulli-odds
+          - asym-logit-proportion-delta
           - asym-delta-arcsine-proportion
-          - asym-delta-two-sample-log-risk-ratio
+          - asym-ratio-two-means-delta
           - asym-delta-normal-standard-deviation
   - id: math-interval-estimation
     status: complete
