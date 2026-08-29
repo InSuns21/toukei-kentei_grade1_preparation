@@ -972,30 +972,20 @@ items:
     cards:
       - est-aic-choice
       - ms-overfitting-generalization
-      - ms-train-test-error
       - ms-kl-divergence
       - ms-kl-nonnegativity
-      - ms-aic-formula
-      - ms-aic-asymptotic-loo
-      - ms-bic-formula
-      - ms-bic-consistency
-      - ms-info-criterion-likelihood
+      - ms-aic-numeric-comparison
+      - ms-bic-numeric-comparison
       - ms-variable-selection-stepwise
-      - ms-cv-model-selection
-      - ms-cv-loo
+      - ms-kfold-cv-numeric
       - ms-ridge-regression
-      - ms-ridge-shrinkage
+      - ms-ridge-lasso-orthogonal-numeric
       - ms-lasso-regression
       - ms-l1-l2-difference
       - ms-regularization-bias-variance
       - ms-lasso-selection
-      - ms-elastic-net
       - ms-multicollinearity-ridge
       - ms-prediction-vs-inference
-      - ms-aic-numeric-comparison
-      - ms-bic-numeric-comparison
-      - ms-kfold-cv-numeric
-      - ms-ridge-lasso-orthogonal-numeric
     terms:
       - name: カルバック・ライブラー情報量
         status: card
@@ -1006,16 +996,12 @@ items:
         status: card
         cards:
           - est-aic-choice
-          - ms-aic-formula
-          - ms-aic-asymptotic-loo
-          - ms-bic-formula
-          - ms-bic-consistency
-          - ms-info-criterion-likelihood
+          - ms-aic-numeric-comparison
+          - ms-bic-numeric-comparison
       - name: クロスバリデーション
         status: card
         cards:
-          - ms-cv-model-selection
-          - ms-cv-loo
+          - ms-kfold-cv-numeric
           - ms-variable-selection-stepwise
   - id: math-asymptotic-estimation
     status: complete
