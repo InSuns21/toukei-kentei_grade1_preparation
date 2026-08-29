@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: カイ二乗分布
 archive_reason: duplicate
-canonical_card: samp-chisq-mean-var-indep
+canonical_card: samp-cochran-theorem
 archive_note: 両カードとも正規標本で (n-1)S^2/sigma^2 ~ chi^2_{n-1}
   を扱う。canonical側をCochran分解・独立性・観測Qの具体計算まで補強済みなので、公式再掲中心の重複側を統合する。
 ---
