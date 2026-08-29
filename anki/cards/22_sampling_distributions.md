@@ -506,24 +506,78 @@ sources: [{ type: official_syllabus, topic: 標本分布 }]
 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Bernoulli}(p)$ のとき、標本比率 $\widehat p=n^{-1}\sum_{i=1}^nX_i$ の期待値・分散を求め、正規近似を書け。
 
 ## 答え
-$$E[\widehat p]=p,\qquad \operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.$$
-$n$ が大きければ
-$$\widehat p\mathrel{\dot{\sim}}N\left(p,\frac{p(1-p)}{n}\right).$$
+1群では
+$$
+E[\widehat p]=p,
+\qquad
+\operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
+$$
+独立2群では
+$$
+E[\widehat p_1-\widehat p_2]=p_1-p_2,
+$$
+$$
+\operatorname{Var}(\widehat p_1-\widehat p_2)
+=\frac{p_1(1-p_1)}{n_1}
++\frac{p_2(1-p_2)}{n_2}.
+$$
 
 ## 使用公式・定理
-ベルヌーイ分布の平均は $p$、分散は $p(1-p)$。また
-$$n\widehat p=\sum_{i=1}^nX_i\sim\operatorname{Binomial}(n,p).$$
-独立和の分散公式と中心極限定理を使うと
-$$\frac{\widehat p-p}{\sqrt{p(1-p)/n}}\xrightarrow{d}N(0,1).$$
+$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Bernoulli}(p)$ とすると標本比率は
+$$
+\widehat p=\frac1n\sum_{i=1}^nX_i.
+$$
+したがって標本平均の公式から
+$$
+E[\widehat p]=p,
+\qquad
+\operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
+$$
+また $n\widehat p\sim\operatorname{Binomial}(n,p)$ なので、正規近似条件が満たされれば
+$$
+\widehat p\approx N\left(p,\frac{p(1-p)}{n}\right).
+$$
+
+独立な2群について
+$$
+\widehat p_1-\widehat p_2
+$$
+を考えると、期待値の線形性と独立性から
+$$
+E[\widehat p_1-\widehat p_2]=p_1-p_2,
+$$
+$$
+\operatorname{Var}(\widehat p_1-\widehat p_2)
+=\frac{p_1(1-p_1)}{n_1}
++\frac{p_2(1-p_2)}{n_2}.
+$$
+各群で中心極限定理が使えるなら差も近似正規分布になる。
 
 ## 計算例
-$n=100,p=0.3$ では $E[\widehat p]=0.3$、$\operatorname{Var}(\widehat p)=0.3\times0.7/100=0.0021$、標準偏差 $\approx0.0458$。
+1群で $n=100,p=0.3$ なら
+$$
+E[\widehat p]=0.3,
+\qquad
+\operatorname{Var}(\widehat p)=\frac{0.3\cdot0.7}{100}=0.0021,
+$$
+標準偏差は約 $0.0458$ である。
+
+2群で $n_1=n_2=100$, $p_1=0.6$, $p_2=0.4$ なら
+$$
+E[\widehat p_1-\widehat p_2]=0.2,
+$$
+$$
+\operatorname{Var}(\widehat p_1-\widehat p_2)
+=\frac{0.6\cdot0.4}{100}+\frac{0.4\cdot0.6}{100}
+=0.0048.
+$$
+標準偏差は約 $0.069$ である。
 
 ## 一手
-標本比率はベルヌーイ平均。分散は $p(1-p)/n$。
+標本比率はベルヌーイ標本平均として処理する。2群差なら、期待値は引き、独立なので分散は足す。
 
 ## 注意
-$np\ge5$、$n(1-p)\ge5$ 程度で正規近似が使える。厳密には二項分布。
+1群の正規近似では $np$ と $n(1-p)$ が十分大きいことを確認する。2群でも各群で同様の条件が必要。帰無仮説 $p_1=p_2$ の検定では共通比率をプールすることがあるが、これは比率差の一般的な標本分布式とは別の段階である。
 
 <!-- CARD -->
 
