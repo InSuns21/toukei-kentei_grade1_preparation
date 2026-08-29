@@ -1,29 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-29-pilot-duplicates-25b
+batch_id: 2026-08-29-pilot-duplicates-26
 items:
-  - id: dist-mgf-poisson
+  - id: test-z-rejection
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-mgf-mean-variance
-    note: ポアソン分布の既知MGFを1回微分して平均を出す操作は、MGFの微分から平均・分散を求める一般canonicalの特殊例。Poisson固有公式は参照知識として独立カード化しない。
-  - id: est-moments-exponential
+    canonical_card: test-normal-z-known-formula
+    note: 既知分散の正規母平均に対してZ統計量を作り棄却域と比較する同一操作。後発canonicalは両側検定の式と数値計算まで明示している。
+  - id: test-likelihood-ratio
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-method-of-moments
-    note: 指数分布で母平均と標本平均を等置するだけの1母数モーメント法は一般手順の直接例であり、分布別カードを残さない。
-  - id: est-fisher-bernoulli
+    canonical_card: test-lr-deviance-statistic
+    note: -2 log Lambda = 2{ell(unrestricted)-ell(restricted)} を作る同一の尤度比統計量。後発canonicalへ統合する。
+  - id: multi-conditional-normal
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-fisher-bernoulli-example
-    coverage_card: asym-mle-poisson-tail-probability
-    note: Bernoulli 1観測の対数尤度を2回微分して I_1(p)=1/[p(1-p)] を得る同一計算。後発canonicalの方を残す。漸近推定subcategoryのフィッシャー情報量coverageは、実際に I_1(λ) を導出してMLEの漸近分散へ接続するPoissonカードへ付け替える。
-  - id: est-cramer-rao-bernoulli
+    canonical_card: engmv-conditional-normal-numeric
+    note: 2変量正規の条件付き平均を求めるpilot版は、条件付き平均・分散・数値例まで扱う後発canonicalに完全包含される。
+  - id: process-stationary-markov
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-crlb-bernoulli-square
-    note: g(p)=p に対するCRLBは、母数関数 g(p) の一般形を扱うcanonicalで g'(p)=1 と置いた特殊例。Bernoulli Fisher情報量の再導出も重複する。
-  - id: est-aic-choice
+    canonical_card: stoch-three-state-stationary
+    note: 定常分布を pi^T P=pi^T と総和1から求める同一操作。3状態の具体計算を持つ後発canonicalへ統合する。
+  - id: process-ma1-autocovariance
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-aic-numeric-comparison
-    note: 最大対数尤度と母数数からAICを計算して小さいモデルを選ぶ同一操作。モデル選択canonicalへ統合する。
+    canonical_card: engproc-ma1-autocovariance-numeric
+    note: MA(1)の自己共分散 gamma(0), gamma(1), gamma(h>=2) を求める同一例。後発canonicalは同じ計算に加えて自己相関まで接続している。
+  - id: model-poisson-glm
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-poisson-mean-ratio
+    note: Poisson回帰のlog linkで係数差をexpして平均比として読む同一操作。後発canonicalの数値例へ統合する。
