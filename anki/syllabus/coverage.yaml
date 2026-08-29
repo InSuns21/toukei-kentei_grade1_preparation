@@ -2321,16 +2321,10 @@ items:
       - multi-pca-eigen
       - engmv-conditional-normal-numeric
       - engmv-normal-density-numeric
-      - engmv-sample-mean-vector
-      - engmv-sample-covariance-matrix
-      - engmv-covariance-matrix-validity
       - engmv-correlation-from-covariance
       - engmv-linear-combination-normal
       - engmv-normal-marginal-numeric
       - engmv-mahalanobis-control-limit
-      - engmv-eigenvalues-covariance-2x2
-      - engmv-eigenvectors-covariance-2x2
-      - engmv-pca-loading-numeric
       - engmv-unit-change-correlation-invariance
       - engmv-normal-uncorrelated-independent
       - engmv-precision-conditional-independence
@@ -2343,21 +2337,14 @@ items:
       - engmv-confidence-ellipsoid-known-cov
       - engmv-spectral-reconstruction
       - engmv-standardized-pca-2x2
-      - engmv-pca-monitoring-score
       - engmv-pca-rayleigh-process-variance
-      - engmv-factor-covariance-numeric
-      - engmv-factor-communality-numeric
-      - engmv-factor-rotation-invariance
       - engmv-lda-one-dimensional-boundary
       - engmv-fisher-discriminant-direction
       - engmv-lda-prior-probability
       - engmv-lda-pooled-covariance
-      - engmv-qda-quadratic-term
       - engmv-single-linkage-update
       - engmv-complete-linkage-update
       - engmv-ward-merge-increase
-      - engmv-kmeans-assignment
-      - engmv-kmeans-centroid-update
       - engmv-silhouette-coefficient
       - engmv-canonical-correlation-diagonal
       - engmv-canonical-eigenvalue
@@ -2385,7 +2372,6 @@ items:
       - name: 平均ベクトル
         status: card
         cards:
-          - engmv-sample-mean-vector
           - engmv-sample-mean-distribution
           - engmv-hotelling-two-sample
           - engmv-confidence-ellipsoid-known-cov
@@ -2393,8 +2379,6 @@ items:
         status: card
         cards:
           - multi-covariance-psd
-          - engmv-sample-covariance-matrix
-          - engmv-covariance-matrix-validity
           - engmv-unit-change-correlation-invariance
           - engmv-wishart-definition
           - engmv-wishart-expectation
@@ -2409,13 +2393,9 @@ items:
         status: card
         cards:
           - multi-pca-eigen
-          - engmv-eigenvalues-covariance-2x2
-          - engmv-eigenvectors-covariance-2x2
-          - engmv-pca-loading-numeric
           - engmv-pca-rayleigh-process-variance
           - engmv-spectral-reconstruction
           - engmv-standardized-pca-2x2
-          - engmv-pca-monitoring-score
           - engmv-canonical-correlation-diagonal
           - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes
