@@ -33,47 +33,7 @@ $Y$ の取る値で場合分けし、各条件付き期待値を $P(Y=y)$ で重
 $E[X\mid Y]$ は $Y$ の関数である。この合成期待値 $E[E[X\mid Y]]$ が $E[X]$ に等しいことを全期待値の法則（二重期待値の定理）と呼ぶ。
 
 <!-- CARD -->
----
-id: prob-total-variance
-title: 全分散の法則で分散を2成分に分解する
-category: math-probability
-subcategory: math-distribution-characteristics
-topic: total-variance
-type: formula
-difficulty: 3
-priority: S
-hashtags: [全分散の法則, 分散の分解, 条件付き分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 分散 }]
----
-## 問題
-$Y$ に応じて $E[X\mid Y]$ と $\operatorname{Var}(X\mid Y)$ が判明しているとき、全体の $\operatorname{Var}(X)$ を2項に分解せよ。
 
-## 答え
-$$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y]).$$
-第1項は「条件付き分散の平均」、第2項は「条件平均の分散」と呼ばれる。
-
-## 使用公式・定理
-$E[X^2]<\infty$ のとき、全分散の法則
-$$\operatorname{Var}(X)=E[\operatorname{Var}(X\mid Y)]+\operatorname{Var}(E[X\mid Y]).$$
-実際、$m(Y)=E[X\mid Y]$ と置くと
-$$X-E[X]=\{X-m(Y)\}+\{m(Y)-E[X]\}.$$
-両辺を2乗して期待値を取る。交差項は
-$$E[(X-m(Y))(m(Y)-E[X])]
-=E[E[X-m(Y)\mid Y](m(Y)-E[X])]=0$$
-なので、残る2項がそれぞれ $E[\operatorname{Var}(X\mid Y)]$ と $\operatorname{Var}(E[X\mid Y])$ になる。
-
-## 計算例
-$E[\operatorname{Var}(X\mid Y)]=4$、$\operatorname{Var}(E[X\mid Y])=3$ なら
-$$\operatorname{Var}(X)=4+3=7.$$
-
-## 一手
-「条件の散布を平均した項」と「条件平均のばらつきの項」の2つの項に分ける。分散の有限性 $E[X^2]<\infty$ が前提。
-
-## 注意
-全期待値の法則と対になる。$E[X\mid Y]$ の分布を先に整理してから計算すると符号を間違えにくい。
-
-<!-- CARD -->
 ---
 id: prob-conditional-covariance
 title: 条件付き共分散を分解して全体の共分散へ接続する
@@ -166,6 +126,7 @@ $$
 第1項と第2項を逆符号にしない。全分散・全共分散はいずれも二次モーメントの有限性を前提とする。
 
 <!-- CARD -->
+
 ---
 id: prob-covariance-matrix-components
 title: 分散共分散行列の成分を対角・非対角で読み取る
@@ -202,6 +163,7 @@ $$\operatorname{Cov}(\boldsymbol X)=\begin{pmatrix}4&3\\3&9\end{pmatrix}.$$
 任意の実数ベクトル $\boldsymbol a$ に対し $\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\ge0$ なので半正定値である。
 
 <!-- CARD -->
+
 ---
 id: prob-cauchy-schwarz-correlation
 title: コーシー–シュワルツの不等式で相関係数の範囲を確定する
@@ -238,6 +200,7 @@ $\operatorname{Cov}(X,Y)$ にコーシー不等式を適用し、標準偏差の
 $\rho=0$ は無相関を表し、独立性は含意しない。$\lvert\rho\rvert=1$ は退化した直線関係。
 
 <!-- CARD -->
+
 ---
 id: prob-jensen-inequality
 title: Jensenの不等式で凸関数の期待値の向きを定める
@@ -274,45 +237,7 @@ $$E[X^2]=2\ge g(E[X])=1^2=1.$$
 等号 $E[g(X)]=g(E[X])$ は、$X$ が確率1で定数なら成り立つ。非退化な $X$ でも、$g$ が $X$ の値域の凸包上で線形なら等号になりうる。したがって、非退化な $X$ に対して狭義不等号を結論するには、$g$ がその値域の凸包上で狭義凸であることを確認する。
 
 <!-- CARD -->
----
-id: prob-markov-inequality
-title: Markovの不等式で非負変数の超過確率を抑える
-category: math-probability
-subcategory: math-distribution-characteristics
-topic: markov-inequality
-type: theorem
-difficulty: 2
-priority: A
-hashtags: [Markovの不等式, 超過確率, 期待値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 期待値 }]
----
-## 問題
-$X\ge0$（非負）で $E[X]=2$ のとき、$P(X\ge10)$ の上界を求めよ。
 
-## 答え
-$$P(X\ge a)\le\frac{E[X]}{a},\qquad a>0.$$
-実際の確率はこの上界以下になる。
-
-## 使用公式・定理
-非負変数 $X\ge0$ に対するMarkovの不等式
-$$aP(X\ge a)\le E[X],\qquad a>0.$$
-指示関数を $\mathbf 1_{\{X\ge a\}}$ と書けば、各標本点で
-$$X\ge a\mathbf 1_{\{X\ge a\}}$$
-だから、期待値を取って
-$$E[X]\ge aE[\mathbf 1_{\{X\ge a\}}]=aP(X\ge a)$$
-を得る。
-
-## 計算例
-$$P(X\ge10)\le\frac2{10}=0.2.$$
-
-## 一手
-$X\ge0$ の非負性と $a>0$ を確認し、$aP(X\ge a)$ を $E[X]$ で上から押さえる。
-
-## 注意
-負の値を取る変数には成立しない。$a$ は正の閾値に限定する。
-
-<!-- CARD -->
 ---
 id: prob-chebyshev-inequality
 title: チェビシェフの不等式で分散から超過確率を評価する

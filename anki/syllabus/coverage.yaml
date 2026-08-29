@@ -183,12 +183,10 @@ items:
       - prob-partial-correlation
       - prob-shape-summary
       - prob-total-expectation
-      - prob-total-variance
       - prob-conditional-covariance
       - prob-covariance-matrix-components
       - prob-cauchy-schwarz-correlation
       - prob-jensen-inequality
-      - prob-markov-inequality
       - prob-chebyshev-inequality
       - mathstat-total-covariance
     terms:
@@ -202,13 +200,13 @@ items:
           - prob-expected-value-function
           - prob-total-expectation
           - prob-jensen-inequality
-          - prob-markov-inequality
+          - prob-chebyshev-inequality
       - name: 分散
         status: card
         cards:
           - dist-variance-moment
           - prob-variance-independent-sum
-          - prob-total-variance
+          - prob-conditional-covariance
           - prob-chebyshev-inequality
       - name: 標準偏差
         status: card
