@@ -1,31 +1,3 @@
-﻿---
-id: prob-inclusion-exclusion
-title: 2事象の和事象を包除原理で求める
-category: math-probability
-subcategory: math-events
-topic: inclusion-exclusion
-type: formula
-difficulty: 1
-priority: A
-hashtags: [確率, 包除原理, 頻出]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事象と確率 }]
----
-## 問題
-$P(A)=0.6$, $P(B)=0.5$, $P(A\cap B)=0.2$ のとき、$P(A\cup B)$ を求めよ。
-## 答え
-重複する $A\cap B$ を1回引き、$P(A\cup B)=P(A)+P(B)-P(A\cap B)$ とする。
-## 使用公式・定理
-$$P(A\cup B)=P(A)+P(B)-P(A\cap B).$$
-## 計算例
-公式へ代入すると
-$$\begin{aligned}P(A\cup B)&=P(A)+P(B)-P(A\cap B)\\&=0.6+0.5-0.2\\&=0.9.\end{aligned}$$
-## 一手
-「少なくとも一方」を見たら和事象に直し、重複を確認する。
-## 注意
-$0.6+0.5=1.1$ のままにしない。
-
-<!-- CARD -->
 ---
 id: prob-bayes-diagnostic
 title: 診断結果からベイズの定理で逆確率を求める
@@ -56,6 +28,7 @@ $$\begin{aligned}P(D\mid +)&=\frac{0.9\cdot0.01}{0.9\cdot0.01+0.05\cdot0.99}\\&=
 感度 $0.9$ をそのまま答えにしない。
 
 <!-- CARD -->
+
 ---
 id: prob-cdf-from-pmf
 title: 確率質量関数から累積分布関数を作る

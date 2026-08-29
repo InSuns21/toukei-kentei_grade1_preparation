@@ -1,39 +1,4 @@
 ---
-id: prob-conditional-multiplication
-title: 条件付き確率から共通部分の確率を求める
-category: math-probability
-subcategory: math-events
-topic: conditional-probability
-type: formula
-difficulty: 1
-priority: S
-hashtags: [条件付き確率, 乗法公式, 確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 条件付き確率 }]
----
-## 問題
-$P(B)=0.4$、$P(A\mid B)=0.75$ のとき、$P(A\cap B)$ を求めよ。
-
-## 答え
-条件付き確率の定義を $P(A\cap B)$ について解く。
-
-## 使用公式・定理
-$P(B)>0$ のとき、乗法公式は
-$$P(A\cap B)=P(A\mid B)P(B)$$
-である。
-
-## 計算例
-公式へ値を代入すると
-$$\begin{aligned}P(A\cap B)&=P(A\mid B)P(B)\\&=0.75\cdot0.4\\&=0.30.\end{aligned}$$
-
-## 一手
-「$B$ が起きた条件下で $A$」と「$B$」が与えられたら、両者を掛けて共通部分へ戻す。
-
-## 注意
-$P(A\mid B)$ と $P(B\mid A)$ を入れ替えない。
-
-<!-- CARD -->
----
 id: prob-total-probability
 title: 場合分けして全確率を求める
 category: math-probability
@@ -68,6 +33,7 @@ $$\begin{aligned}P(D)&=P(D\mid A)P(A)+P(D\mid B)P(B)\\&=0.01\cdot0.60+0.03\cdot0
 不良率だけを $0.01+0.03$ と足さず、生産割合を掛ける。
 
 <!-- CARD -->
+
 ---
 id: prob-independent-events
 title: 積の確率で2事象の独立性を確かめる
@@ -138,6 +104,7 @@ $$
 排反と独立を混同しない。3事象以上の相互独立では、ペアごとの積条件だけでなく3重以上の共通部分についても積条件が必要である。
 
 <!-- CARD -->
+
 ---
 id: prob-pairwise-not-mutual
 title: ペアごとの独立と相互独立を区別する
@@ -176,6 +143,7 @@ $$P(A\cap B\cap C)=\frac14\ne\frac18=P(A)P(B)P(C).$$
 「任意の2事象が独立」から「全事象が相互独立」と結論しない。
 
 <!-- CARD -->
+
 ---
 id: prob-cdf-from-density
 title: 確率密度関数を積分して累積分布関数を求める
@@ -213,6 +181,7 @@ $$F_X(x)=\begin{cases}0&(x<0),\\x^2&(0\le x<1),\\1&(x\ge1).\end{cases}$$
 $0<x<1$ の式だけを書いて、$x<0$ と $x\ge1$ を落とさない。
 
 <!-- CARD -->
+
 ---
 id: prob-survival-hazard
 title: 生存関数から危険率を求める
@@ -248,6 +217,7 @@ $$h_X(t)=\frac{2e^{-2t}}{e^{-2t}}=2.$$
 指数分布の危険率は $t$ に依存しない。
 
 <!-- CARD -->
+
 ---
 id: prob-marginal-density
 title: 同時確率密度関数を積分して周辺密度を求める
@@ -284,6 +254,7 @@ $$f_X(x)=\begin{cases}2x&(0<x<1),\\0&\text{それ以外}.\end{cases}$$
 三角形の台なのに、機械的に $0<y<1$ と積分しない。
 
 <!-- CARD -->
+
 ---
 id: prob-conditional-density
 title: 同時密度を周辺密度で割って条件付き密度を求める
@@ -323,6 +294,7 @@ $$\int_0^x\frac1x\,dy=1$$
 割った後も台は $0<y<x$ であり、$0<y<1$ には広がらない。
 
 <!-- CARD -->
+
 ---
 id: prob-pgf-moments
 title: 確率母関数を微分して平均と分散を求める
@@ -362,6 +334,7 @@ $$\operatorname{Var}(X)=0+\frac13-\left(\frac13\right)^2=\frac29.$$
 $G_X''(1)$ だけを二次モーメントと誤認しない。
 
 <!-- CARD -->
+
 ---
 id: prob-mgf-independent-sum
 title: 独立な和のモーメント母関数を積で求める
@@ -401,6 +374,7 @@ $$P(S=0)=\frac14,\qquad P(S=1)=\frac12,\qquad P(S=2)=\frac14.$$
 独立でなければ $E[e^{tX}e^{tY}]$ を期待値の積へ分解できない。
 
 <!-- CARD -->
+
 ---
 id: prob-complement-at-least-one
 title: 少なくとも1回を補集合で求める
@@ -438,6 +412,7 @@ $$\begin{aligned}P(\text{少なくとも1回成功})&=1-P(\text{3回とも失敗
 $3\cdot0.2$ は複数回成功する場合を正しく処理していない。
 
 <!-- CARD -->
+
 ---
 id: prob-inclusion-exclusion-three
 title: 3事象の和事象を包除原理で求める
@@ -508,6 +483,7 @@ $$
 単純に $P(A)+P(B)+P(C)$ とすると重複を多重計上する。3重共通部分の符号はプラスである。
 
 <!-- CARD -->
+
 ---
 id: prob-chain-rule-three
 title: 条件付き確率の連鎖則で3事象の共通部分を求める
@@ -541,6 +517,7 @@ $$\begin{aligned}P(A\cap B\cap C)&=0.8\cdot0.5\cdot0.25\\&=0.4\cdot0.25\\&=0.10.
 $P(C\mid A\cap B)$ を $P(C\mid B)$ に置き換えない。
 
 <!-- CARD -->
+
 ---
 id: prob-independent-complements
 title: 独立な事象の補事象も独立と示す
@@ -577,6 +554,7 @@ $$P(A^c\cap B)=0.5(1-0.4)=0.3=0.6\cdot0.5.$$
 独立性を使った箇所は $P(A\cap B)=P(A)P(B)$ の1か所である。
 
 <!-- CARD -->
+
 ---
 id: prob-conditioning-breaks-independence
 title: 条件付けで独立性が失われる例を判定する
@@ -614,6 +592,7 @@ $$P(A\cap B\mid C)=0\ne\frac14=P(A\mid C)P(B\mid C).$$
 条件付けは独立性を常に保存するわけではない。
 
 <!-- CARD -->
+
 ---
 id: prob-density-normalization
 title: 確率密度関数の定数を正規化で決める
@@ -650,6 +629,7 @@ $$c=3.$$
 $f_X(x)\le1$ は密度の必要条件ではない。
 
 <!-- CARD -->
+
 ---
 id: prob-cdf-jump-mass
 title: 累積分布関数の跳びから点確率を求める
@@ -683,6 +663,7 @@ $$\begin{aligned}P(X=2)&=F_X(2)-F_X(2-)\\&=0.7-0.4\\&=0.3.\end{aligned}$$
 $F_X(2)=P(X\le2)$ そのものを $P(X=2)$ としない。
 
 <!-- CARD -->
+
 ---
 id: prob-discrete-marginal
 title: 同時確率表を行方向に足して周辺分布を求める
@@ -718,6 +699,7 @@ $$\begin{aligned}p_X(0)&=p_{X,Y}(0,0)+p_{X,Y}(0,1)\\&=0.1+0.2=0.3,\\p_X(1)&=p_{X
 表の行と列のどちらが $X$ かを先に確認する。
 
 <!-- CARD -->
+
 ---
 id: prob-discrete-conditional
 title: 同時確率表から条件付き確率質量関数を求める
@@ -756,6 +738,7 @@ $$p_{Y\mid X}(1\mid1)=\frac{0.4}{0.7}=\frac47.$$
 分母は全確率1ではなく、条件側の周辺確率 $p_X(1)$ である。
 
 <!-- CARD -->
+
 ---
 id: prob-joint-factorization-independence
 title: 同時密度の積分解で独立性を判定する

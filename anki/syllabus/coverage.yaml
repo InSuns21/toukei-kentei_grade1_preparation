@@ -10,24 +10,18 @@ items:
   - id: math-events
     status: complete
     cards:
-      - prob-inclusion-exclusion
+      - prob-inclusion-exclusion-three
       - prob-bayes-diagnostic
-      - prob-conditional-multiplication
+      - prob-conditional-definition-direct
       - prob-total-probability
       - prob-independent-events
       - prob-pairwise-not-mutual
       - prob-complement-at-least-one
-      - prob-inclusion-exclusion-three
       - prob-chain-rule-three
       - prob-independent-complements
       - prob-conditioning-breaks-independence
       - prob-counting-sample-space
-      - prob-conditional-definition-direct
       - prob-basic-sample-space
-      - prob-basic-addition-complement
-      - prob-basic-independent-vs-disjoint
-      - prob-basic-symmetry
-      - prob-basic-combination-probability
       - prob-basic-conditional-independence
       - prob-basic-event-limsup-liminf
       - prob-basic-boole-inequality
@@ -49,10 +43,9 @@ items:
       - name: 条件付き確率
         status: card
         cards:
-          - prob-conditional-multiplication
+          - prob-conditional-definition-direct
           - prob-chain-rule-three
           - prob-conditioning-breaks-independence
-          - prob-conditional-definition-direct
       - name: ベイズの定理
         status: card
         cards:
@@ -60,7 +53,6 @@ items:
       - name: 包除原理
         status: card
         cards:
-          - prob-inclusion-exclusion
           - prob-inclusion-exclusion-three
   - id: math-distribution-functions
     status: complete

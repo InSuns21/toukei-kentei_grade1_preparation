@@ -159,7 +159,7 @@ sources:
   - type: official_syllabus
     topic: 包除原理
 archive_reason: duplicate
-canonical_card: prob-inclusion-exclusion
+canonical_card: prob-inclusion-exclusion-three
 archive_note: 2事象の和集合で共通部分を1回引く完全重複。3事象版は別カードとして残す。
 ---
 ## 問題
