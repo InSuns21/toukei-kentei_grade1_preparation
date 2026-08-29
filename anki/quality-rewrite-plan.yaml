@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-merge-prep-38
+batch_id: 2026-08-30-engineering-multivariate-merge-prep-38b
 items:
   - id: dist-multivariate-normal-density
     note: 工学版の2変量正規密度の数値代入を正本へ吸収する。
@@ -9,7 +9,11 @@ items:
       hashtags: [多変量正規分布, 確率密度関数, 分散共分散行列, 二次形式]
     sections:
       問題: |
-        $\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)$ の通常の密度が存在する条件と密度式を書け。
+        多変量正規分布に従う確率ベクトルを
+        $$
+        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+        $$
+        とする。通常の密度が存在する条件と密度式を書け。
 
         さらに
         $$
@@ -94,10 +98,11 @@ items:
       hashtags: [多変量正規分布, 周辺分布, 部分ベクトル]
     sections:
       問題: |
+        多変量正規分布に従う確率ベクトルを
         $$
         \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
         $$
-        の一部の成分だけを抜き出した部分ベクトルの周辺分布を述べよ。
+        とする。一部の成分だけを抜き出した部分ベクトルの周辺分布を述べよ。
 
         数値例として
         $$
@@ -163,6 +168,7 @@ items:
       hashtags: [確率変数の線形結合, 多変量正規分布, 分散共分散行列]
     sections:
       問題: |
+        多変量正規分布に従う確率ベクトルを
         $$
         \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
         $$
