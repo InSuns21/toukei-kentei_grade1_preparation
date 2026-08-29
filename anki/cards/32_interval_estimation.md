@@ -53,19 +53,72 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 
 $P(a\le Q(X,\theta)\le b)=1-\alpha$ を $\theta$ について同値変形し、$\theta$ を含む区間として表す。
 
+## 一手
+分布が未知母数に依存しないピボット量 $Q(X,\theta)$ を作り、
+$$
+P(a\le Q(X,\theta)\le b)=1-\alpha
+$$
+を未知母数 $\theta$ について解く。**公式を暗記するのではなく、確率不等式を反転して区間を作る**。
+
 ## 答え
-分位点 $a,b$ を $P(a\le Q\le b)=1-\alpha$ に選び、不等式 $a\le Q(X,\theta)\le b$ を $\theta$ について解く。
+$Q(X,\theta)$ の分布が未知母数に依存せず、
+$$
+P(a\le Q(X,\theta)\le b)=1-\alpha
+$$
+となる分位点 $a,b$ を選べるなら、この不等式を $\theta$ について同値変形した集合が信頼係数 $1-\alpha$ の信頼区間となる。
+
+正規平均で母分散既知なら
+$$
+Q=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1)
+$$
+なので
+$$
+\mu\in
+\left[
+\overline X-z_{\alpha/2}\frac{\sigma}{\sqrt n},
+\overline X+z_{\alpha/2}\frac{\sigma}{\sqrt n}
+\right].
+$$
 
 ## 計算例
-$Q=(\overline X-\mu)/(\sigma/\sqrt n)$ で $a=-z_{\alpha/2},b=z_{\alpha/2}$ とすると
-$$-z_{\alpha/2}\le\frac{\overline X-\mu}{\sigma/\sqrt n}\le z_{\alpha/2}.$$
-$\sigma/\sqrt n>0$ を掛け、全辺から $\overline X$ を引いて符号を反転すると
-$$\overline X-z_{\alpha/2}\frac{\sigma}{\sqrt n}
+95%区間では
+$$
+P\left(
+-1.96\le
+\frac{\overline X-\mu}{\sigma/\sqrt n}
+\le1.96
+\right)=0.95.
+$$
+$\sigma/\sqrt n>0$ なので全辺へ掛けると
+$$
+-1.96\frac{\sigma}{\sqrt n}
+\le \overline X-\mu
+\le
+1.96\frac{\sigma}{\sqrt n}.
+$$
+全辺から $\overline X$ を引き、符号を反転すると
+$$
+\overline X-1.96\frac{\sigma}{\sqrt n}
 \le\mu\le
-\overline X+z_{\alpha/2}\frac{\sigma}{\sqrt n}.$$
+\overline X+1.96\frac{\sigma}{\sqrt n}.
+$$
+
+例えば $\overline x=10$, $\sigma=2$, $n=25$ なら
+$$
+\frac{\sigma}{\sqrt n}=\frac25=0.4,
+$$
+半幅は
+$$
+1.96\times0.4=0.784.
+$$
+よって
+$$
+\mu\in[10-0.784,10+0.784]
+=[9.216,10.784].
+$$
 
 ## 注意
-$Q$ が $\theta$ について単調でないと区間が非連結になることがある。
+ピボット量の分布が未知母数に依存しないことが重要である。母分散が未知なら $\sigma$ をそのまま $S$ に置換するだけではなく、正規標本で得られる $t$ ピボットを使う。
 
 <!-- CARD -->
 
@@ -976,13 +1029,49 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 $$n=\left\lceil\left(\frac{z_{\alpha/2}\,\sigma}{E}\right)^2\right\rceil.$$
 
 ## 答え
-$z_{\alpha/2}\,\sigma/\sqrt n\le E$ を解き、$n\ge (z_{\alpha/2}\sigma/E)^2$ とする（切り上げ）。
+正規平均・分散既知で両側信頼区間の半幅を $E$ 以下にするには
+$$
+z_{\alpha/2}\frac{\sigma}{\sqrt n}\le E
+$$
+を満たせばよい。したがって
+$$
+n\ge
+\left(\frac{z_{\alpha/2}\sigma}{E}\right)^2,
+\qquad
+n=
+\left\lceil
+\left(\frac{z_{\alpha/2}\sigma}{E}\right)^2
+\right\rceil.
+$$
 
 ## 計算例
-$\sigma=2,z_{0.025}=1.96,E=0.5$ なら $n\ge(3.92/0.5)^2=(7.84)^2=61.5$ で $n=62$。
+$\sigma=2$, 目標半幅 $E=0.5$、95%信頼区間なら $z_{0.025}=1.96$ なので
+$$
+\begin{aligned}
+n
+&\ge\left(\frac{1.96\cdot2}{0.5}\right)^2\\
+&=7.84^2\\
+&=61.4656.
+\end{aligned}
+$$
+よって整数へ切り上げて
+$$
+n=62.
+$$
+
+同じ $\sigma,E$ で90%区間なら $z_{0.05}=1.645$ なので
+$$
+\begin{aligned}
+n
+&\ge\left(\frac{1.645\cdot2}{0.5}\right)^2\\
+&=6.58^2\\
+&\approx43.30,
+\end{aligned}
+$$
+よって $n=44$ で足りる。**信頼係数を95%へ上げると分位点が大きくなり、同じ幅を保つため必要標本数も44から62へ増える**。
 
 ## 注意
-$\sigma$ 未知なら事前見積もりか保存的値を用いる。
+固定した $n$ では信頼係数を上げるほど区間は広くなる。逆に区間幅を固定したまま信頼係数を上げるには $n$ を増やす必要がある。$\sigma$ 未知なら事前研究・予備調査などの保存的な見積もりを用いる。
 
 <!-- CARD -->
 
