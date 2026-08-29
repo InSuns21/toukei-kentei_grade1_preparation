@@ -1,77 +1,129 @@
 schema_version: 1
-batch_id: 2026-08-29-cochran-merge-prep-23
+batch_id: 2026-08-29-pilot-merge-prep-27
 items:
-  - id: samp-cochran-theorem
-    note: Cochranの定理を正本として、平方和分解から標本平均・標本分散の独立性、標本分散のカイ二乗分布、t統計量への接続まで一枚へ統合する。
+  - id: inc-em-observed-likelihood
+    note: 旧pilotの混合分布Eステップ数値例を吸収し、Q関数の定義だけでなく事後所属確率を実際に計算できる正本へ強化する。
     sections:
-      使用公式・定理: |
-        $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ とする。平方和には恒等式
-        $$
-        \sum_{i=1}^n(X_i-\mu)^2
-        =\sum_{i=1}^n(X_i-\overline X)^2+n(\overline X-\mu)^2
-        $$
-        がある。標準化すると
-        $$
-        \sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2
-        =\frac{(n-1)S^2}{\sigma^2}
-        +\frac{n(\overline X-\mu)^2}{\sigma^2}.
-        $$
-
-        Cochranの定理は、標準正規ベクトルの全平方和を対称べき等行列に対応する平方和へ分解し、各行列の階数の和が全次元 $n$ に等しければ、それぞれの平方和が独立なカイ二乗分布に従うことを与える。
-
-        この分解では平均方向の階数が1、残差空間の階数が $n-1$ なので
-        $$
-        \frac{n(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
-        $$
-        $$
-        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
-        $$
-        しかも両者は独立である。正規標本では平均方向と残差方向が直交するため
-        $$
-        \overline X\perp S^2.
-        $$
-
-        さらに
-        $$
-        Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
-        \qquad
-        V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
-        $$
-        が独立なので
-        $$
-        \frac{Z}{\sqrt{V/(n-1)}}
-        =\frac{\overline X-\mu}{S/\sqrt n}
-        \sim t_{n-1}.
-        $$
-        したがってCochran分解が、標本分散のカイ二乗分布とStudentのt統計量の共通の根である。
-      答え: |
-        正規標本では
-        $$
-        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
-        \qquad
-        \overline X\perp S^2.
-        $$
-        これは平方和を自由度1の平均方向と自由度 $n-1$ の残差方向へ直交分解するCochranの定理から従う。
-      計算例: |
-        $n=5$, $\sigma^2=4$, $S^2=6$ なら
-        $$
-        \frac{(n-1)S^2}{\sigma^2}
-        =\frac{4\cdot6}{4}=6
-        $$
-        で、この統計量は
-        $$
-        \chi^2_4
-        $$
-        に従う。
-
-        $n=3$ なら平方和は
-        $$
-        \frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
-        \qquad
-        \frac{2S^2}{\sigma^2}\sim\chi^2_2
-        $$
-        という独立な2成分に分かれる。自由度 $1+2=3$ は元の標準正規ベクトルの次元に一致する。
       一手: |
-        正規標本で平方和・標本分散・t統計量が出たら、平均方向1次元と残差方向 $n-1$ 次元への直交分解を考える。自由度は各部分空間の次元として読む。
+        潜在カテゴリや欠測指標があるときは、まず「完全データなら何を数えるか」を書き、その0/1指標を現在の母数の下での条件付き期待値、すなわち事後所属確率へ置き換える。
+      使用公式・定理: |
+        現在値 $\theta^{(t)}$ の下で、EM法のEステップは完全データ対数尤度の条件付き期待値
+        $$
+        Q(\theta\mid\theta^{(t)})
+        =E_{\theta^{(t)}}[\log f(Y_{obs},Y_{mis};\theta)\mid Y_{obs}]
+        $$
+        を作る。
+
+        2成分混合分布
+        $$
+        f(x)=\pi f_1(x)+(1-\pi)f_2(x)
+        $$
+        で潜在所属指標を $Z\in\{0,1\}$ とすると、Eステップで必要な条件付き期待値は
+        $$
+        r(x)=E[Z\mid X=x]
+        =P(Z=1\mid X=x)
+        =\frac{\pi f_1(x)}{\pi f_1(x)+(1-\pi)f_2(x)}.
+        $$
+        完全データ対数尤度に現れる $Z$ を $r(x)$、$1-Z$ を $1-r(x)$ で置き換えて $Q$ を作る。
+      答え: |
+        EM法では
+        $$
+        Q(\theta\mid\theta^{(t)})
+        =E_{\theta^{(t)}}[\log f(Y_{obs},Y_{mis};\theta)\mid Y_{obs}]
+        $$
+        をEステップで計算し、Mステップで $Q$ を最大化する。混合分布では潜在所属の0/1指標を事後所属確率（負担率）で置き換えるのがEステップの具体形である。
+      計算例: |
+        2成分混合で、現在値において
+        $$
+        \pi=0.4,\qquad f_1(x)=0.3,\qquad f_2(x)=0.1
+        $$
+        とする。まず成分1から観測 $x$ が出る同時重みは
+        $$
+        \pi f_1(x)=0.4\times0.3=0.12.
+        $$
+        成分2から出る同時重みは
+        $$
+        (1-\pi)f_2(x)=0.6\times0.1=0.06.
+        $$
+        したがって観測 $x$ の全重みは
+        $$
+        0.12+0.06=0.18,
+        $$
+        成分1の負担率は
+        $$
+        r(x)=\frac{0.12}{0.18}=\frac23.
+        $$
+        よって完全データで $Z=1$ と数えていた箇所を、Eステップでは $E[Z\mid x]=2/3$ として扱う。
       注意: |
-        $\overline X$ と $S^2$ の独立性は正規母集団に特有で、一般の母集団では成り立たない。平方和が分解できるという恒等式だけでは独立性までは言えず、正規性とCochranの定理が必要である。
+        負担率は「成分1に確定所属した」という意味ではなく、現在の母数値に基づく条件付き期待値である。EMは観測データ尤度を減少させないが局所最大点へ収束し得るため、初期値依存にも注意する。
+  - id: sim-mc-standard-error
+    note: 旧pilotの積分を期待値へ直す基本例を吸収し、Monte Carlo積分から平均・標準誤差まで一枚で追える正本へ強化する。
+    sections:
+      一手: |
+        積分を直接計算しにくいときは、まず「ある確率分布の下での期待値」に書き換える。その分布から独立乱数を生成し、被積分関数の標本平均で期待値を近似する。
+      使用公式・定理: |
+        $X\sim q$ とし、求めたい積分が
+        $$
+        I=\int h(x)\,dx
+        $$
+        なら、$q(x)>0$ の範囲で
+        $$
+        I=\int \frac{h(x)}{q(x)}q(x)\,dx
+        =E_q\left[\frac{h(X)}{q(X)}\right]
+        $$
+        と期待値に直せる。特に
+        $$
+        I=\int_0^1 g(x)\,dx
+        $$
+        なら $U\sim U(0,1)$ として
+        $$
+        I=E[g(U)].
+        $$
+
+        独立同分布な $Y_1,\ldots,Y_m$ が $E[Y_b]=\mu$, $\operatorname{Var}(Y_b)=\sigma^2<\infty$ を満たすとき
+        $$
+        \widehat\mu_m=\frac1m\sum_{b=1}^mY_b,
+        $$
+        $$
+        \operatorname{Var}(\widehat\mu_m)
+        =\frac{\sigma^2}{m},
+        \qquad
+        \operatorname{SE}(\widehat\mu_m)
+        =\frac{\sigma}{\sqrt m}.
+        $$
+        未知の $\sigma$ は反復値の標本標準偏差 $s$ で置き換える。
+      答え: |
+        Monte Carlo積分は、積分を期待値へ書き換えて独立乱数による標本平均
+        $$
+        \widehat\mu_m=\frac1m\sum_{b=1}^mY_b
+        $$
+        で近似する。独立反復なら標準誤差は
+        $$
+        \operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}
+        $$
+        であり、実際には $\sigma$ を標本標準偏差 $s$ で推定する。
+      計算例: |
+        例として
+        $$
+        I=\int_0^1 x^2\,dx
+        $$
+        を考える。$U\sim U(0,1)$ なら
+        $$
+        I=E[U^2].
+        $$
+        したがって独立な $U_1,\ldots,U_m\sim U(0,1)$ を生成して
+        $$
+        \widehat I_m=\frac1m\sum_{b=1}^mU_b^2
+        $$
+        とすればよい。
+
+        反復値 $Y_b=U_b^2$ の標本標準偏差が $s=4$、反復数が $m=1600$ の別のMonte Carlo計算なら
+        $$
+        \widehat{\operatorname{SE}}(\widehat I_m)
+        =\frac{4}{\sqrt{1600}}
+        =\frac4{40}
+        =0.1.
+        $$
+        誤差を半分程度にしたければ、$1/\sqrt m$ 則より反復数を4倍にする。
+      注意: |
+        Monte Carlo標準誤差は有限反復による数値誤差であり、元データの標本誤差とは別物である。また独立でないMCMC出力では単純な $s/\sqrt m$ をそのまま使えず、自己相関を考慮した有効標本サイズが必要になる。
