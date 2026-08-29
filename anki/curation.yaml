@@ -1,12 +1,31 @@
-schema_version: 1
-active_card_limit: 950
-hard_max_cards: 999
+schema_version: 2
+selection_mode: canonical_only
+audit_mode: true
+target_min_cards: 580
+target_max_cards: 620
+hard_max_cards: 620
 priority_order: [S, A, B, C, D]
 preserve_official_term_coverage: true
 preserve_subcategory_coverage: true
 always_include_ids: []
+category_targets:
+  math-probability: 70
+  math-distributions: 75
+  math-estimation: 110
+  math-testing: 95
+  math-data-analysis: 80
+  applied-common: 70
+  applied-engineering: 100
+archive_directories:
+  duplicate: archive/duplicates
+  low_priority: archive/low_priority
+  too_specific: archive/too_specific
+  reference_only: archive/reference_only
 selection_notes:
-  - 公式シラバスの各用語について、対応候補のうち最も優先度が高いカードを最低1枚残す。
-  - 各サブカテゴリーから最低1枚を残す。
-  - 残り枠は優先度 S > A > B > C > D、過去問根拠、独自問題根拠、出典確認数、教科書根拠、難度、ID の順で決める。
-  - cards/**/*.md は正本として保持し、通常デッキだけを950枚に絞る。
+  - 1373枚をpriority順に上位600枚へ切らない。同じtriggerから同じmoveを使うカードを先にcanonical cardへ統合する。
+  - formula・condition・recognition・reverse・pitfallなどtypeの違いだけでは別カードを残さない。
+  - 公式用語1個につきカード1枚を要求しない。1枚のcanonical cardが複数の公式用語をcoverageしてよい。
+  - 公式・定義・定理の参照網羅はformulae.mdが担い、通常カードは本番で能動的に再生する価値がある解法単位へ絞る。
+  - audit_mode中はカード数超過を監査残件として報告し、自動ランキングで見かけ上600枚へ減らさない。
+  - cards/**/*.md 自体を580〜620枚へ整理した後にaudit_modeをfalseへ変更する。
+  - category_targetsは初期編集予算であり機械的quotaではない。全体の試験価値を優先して分野間で調整してよい。
