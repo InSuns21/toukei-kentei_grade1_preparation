@@ -1,7 +1,9 @@
 importScripts('./sw-config.js');
 
 const config = self.TOUKEI_SW_CONFIG || {};
-const cacheName = config.cacheName || 'toukei-grade1-runtime-v1';
+const buildRevision = '__TOUKEI_BUILD_REVISION__';
+const cacheBaseName = config.cacheName || 'toukei-grade1-runtime';
+const cacheName = `${cacheBaseName}-${buildRevision}`;
 const cachePrefix = config.cachePrefix || 'toukei-grade1-';
 const supportedStrategies = new Set([
   'network-first',
@@ -33,6 +35,16 @@ function requestKind(request) {
   return null;
 }
 
+function requestForNetwork(request) {
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return request;
+
+  // Revalidate same-origin Markdown/JS/CSS against the server instead of
+  // allowing a browser HTTP-cache entry from an older deployment to satisfy
+  // the Service Worker network-first request.
+  return new Request(request, { cache: 'reload' });
+}
+
 async function cachedFallback(request, cache) {
   const cached = await cache.match(request);
   if (cached) return cached;
@@ -47,8 +59,10 @@ async function cachedFallback(request, cache) {
 }
 
 async function updateCache(cache, request) {
-  const response = await fetch(request);
+  const response = await fetch(requestForNetwork(request));
   if (isCacheable(response)) {
+    // Store under the original request so normal cache lookups do not depend
+    // on the cache mode used only for the network refresh.
     await cache.put(request, response.clone());
   }
   return response;
