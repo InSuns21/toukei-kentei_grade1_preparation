@@ -1,80 +1,80 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-reduction-37
+batch_id: 2026-08-30-engineering-multivariate-reduction-38
 items:
-  - id: engmv-sample-mean-vector
+  - id: engmv-normal-density-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-mean-covariance-numeric
-    note: 標本平均ベクトルは標本分散共分散行列まで同じ標本から外積で計算するcanonicalへ統合済み。
+    canonical_card: dist-multivariate-normal-density
+    note: 2変量正規密度の行列式・逆行列・二次形式・数値代入を一般canonicalへ吸収済み。
 
-  - id: engmv-sample-covariance-matrix
+  - id: engmv-normal-marginal-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-mean-covariance-numeric
-    note: 平均ベクトル→偏差ベクトル→外積和→不偏標本分散共分散行列の計算をcanonicalが行単位で扱う。
+    canonical_card: dist-bivariate-normal-marginal
+    note: 任意の部分ベクトルの周辺化へ一般化し、3変量から第1・第3成分を抜く同じ数値例をcanonicalへ吸収済み。
 
-  - id: engmv-covariance-matrix-validity
+  - id: engmv-conditional-normal-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: multi-covariance-psd
-    note: 分散共分散行列の必要条件を二次形式=分散として説明する同一subcategoryのcanonicalへ統合する。
+    canonical_card: dist-multivariate-normal-conditional
+    note: 平均(1,2)、共分散[[4,3],[3,9]]、Y=5からX|Y=5~N(2,3)を求める数値例がcanonicalと同一。
 
-  - id: engmv-eigenvalues-covariance-2x2
+  - id: engmv-linear-combination-normal
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-linear-combination-normal
+    note: 多変量正規ベクトルの一般線形結合へcanonicalを拡張し、相関ありのN(-3,36)数値例も吸収済み。
+
+  - id: engmv-pca-rayleigh-process-variance
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-pca-variance-max
-    note: 2x2特性方程式から固有値を求める操作はPCA分散最大化canonicalの数値例で実施済み。
+    note: Rayleigh商最大化から最大固有値・固有ベクトルを求める操作はPCA canonicalでLagrange法と2x2数値例まで扱う。
 
-  - id: engmv-eigenvectors-covariance-2x2
+  - id: engmv-standardized-pca-2x2
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-pca-variance-max
-    note: 最大固有値の固有方程式を解き単位長へ正規化する操作までPCA canonicalに統合済み。
+    canonical_card: mv-pca-covariance-vs-correlation
+    note: 相関行列[[1,.8],[.8,1]]の固有値1.8,.2、PC1、寄与率0.9をcanonicalへ吸収済み。
 
-  - id: engmv-pca-loading-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-pca-loading
-    note: 固有値・固有ベクトル成分・元変数標準偏差から主成分負荷量を求める専用canonicalが存在する。
-
-  - id: engmv-pca-monitoring-score
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-pca-software-output
-    note: 標準化観測と固有ベクトルの内積による主成分得点の数値計算をcanonicalが既に扱う。
-
-  - id: engmv-factor-covariance-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-factor-model-covariance
-    note: lambda lambda^T + Psi の行列計算例を共通canonicalへ吸収済み。
-
-  - id: engmv-factor-communality-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-factor-model-covariance
-    note: 共通性=負荷量平方和、標準化時の独自性=1-共通性を同じcanonicalで数値計算済み。
-
-  - id: engmv-factor-rotation-invariance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-factor-rotation
-    note: 直交回転 Lambda*=Lambda T で Lambda*Lambda*^T が不変となる導出をcanonicalが扱う。
-
-  - id: engmv-qda-quadratic-term
+  - id: engmv-lda-one-dimensional-boundary
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-lda-classification-rule
-    note: 共通共分散なら二次項が消えてLDA、群別共分散なら二次項が残ってQDAになる点を同じ正規判別canonicalへ統合済み。
+    note: 共通分散・等事前確率の1変量LDAで境界が2平均の中点になる数値例をcanonicalへ吸収済み。
 
-  - id: engmv-kmeans-assignment
+  - id: engmv-fisher-discriminant-direction
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-kmeans-one-iteration
-    note: 最近傍重心への割当ては、割当て→重心更新を同一目的関数で扱うcanonicalの前半そのもの。
+    canonical_card: mv-lda-direction
+    note: Fisher方向Sigma^{-1}(mu1-mu0)は共通canonicalの中心操作。分類境界の役割はLDA分類canonical側で保持している。
 
-  - id: engmv-kmeans-centroid-update
+  - id: engmv-lda-prior-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-kmeans-one-iteration
-    note: 所属点平均への重心更新は、割当てと一組で同一canonicalに数値計算済み。
+    canonical_card: mv-lda-classification-rule
+    note: 事前確率0.8/0.2を含む判別得点の数値比較をcanonicalへ吸収済み。
+
+  - id: engmv-lda-pooled-covariance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-lda-classification-rule
+    note: 自由度加重のプール分散共分散行列とdiag(25/8,23/8)の数値計算をcanonicalへ吸収済み。
+
+  - id: engmv-single-linkage-update
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-hierarchical-linkage
+    note: 単連結法のクラスタ間距離=minという同一操作を共通canonicalが扱う。
+
+  - id: engmv-complete-linkage-update
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-hierarchical-linkage
+    note: 完全連結法のクラスタ間距離=maxという同一操作を共通canonicalが扱う。
+
+  - id: engmv-ward-merge-increase
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-ward-increase
+    note: Ward法の併合平方和増加を計算し最小の対を選ぶ操作は共通canonicalの同じ公式に基づく。
