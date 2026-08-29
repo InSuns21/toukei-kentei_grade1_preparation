@@ -1,12 +1,126 @@
 # 統計検定1級 解法定跡カード
 
-`pdfs/anki.md` を設計仕様、`pdfs/grade1_hani_20150508_2.pdf` を公式範囲の根拠として作る、オフライン完結の静的カード教材です。
+`../memo/anki.md` を設計仕様、`../references/official-scope.md` と公式出題範囲資料を範囲根拠として作る、オフライン完結の静的カード教材です。
+
+## 現在のフェーズ
+
+2026-08-29 から、Anki教材は**新規大量生成フェーズを終了し、編集・統合フェーズ**に入ります。
+
+既存カードは1373枚ありますが、これを priority 順に上位600枚へ切るのではありません。
+
+> **1373枚を素材として、重複・派生・参照専用カードを統合し、約600個の canonical な解法単位へ編集する。**
+
+これが現在の最優先作業です。
+
+監査完了までは、新規カード追加は原則停止します。明確なシラバス欠落・過去問上の欠落を埋める場合も、先に既存カードで cover できないか確認します。
 
 ## 共通規約
 
-用語・記法・分布表記・Markdown/KaTeXは通常教材・数理100・理工80と共通の `../CONTENT_GUIDELINES.md` を継承します。一般記号の正本は `../references/notation-guide.md`、日本語用語の正本は `../references/terminology-guide.md`、分布の台・母数・確率質量関数・確率密度関数の共通正本は `../references/distribution-notation-guide.md` です。`notation.md` はAnki固有の追加記号・表示差分だけを持ち、共通正本を再掲しません。
+用語・記法・分布表記・Markdown/KaTeXは通常教材・数理100・理工80と共通の `../CONTENT_GUIDELINES.md` を継承します。一般記号の正本は `../references/notation-guide.md`、日本語用語の正本は `../references/terminology-guide.md`、分布の台・母数・確率質量関数・確率密度関数の共通正本は `../references/distribution-notation-guide.md` です。
 
-Ankiは1カード1論点のため、通常教材・大問集の20〜30分答案や採点基準は要求しません。一方、非自明な略語を主表記にしないこと、公式だけ置いて主要計算を飛ばさないことは共通です。
+`notation.md` はAnki固有の追加記号・表示差分だけを持ちます。
+
+公式・定理・定義の網羅的な正本は `formulae.md` です。カードは公式集の複製ではなく、**本番で能動的に再生する価値がある判断・計算・証明の一手**を収録します。
+
+## canonical card の原則
+
+「1カード1論点」は、細かく切ればよいという意味ではありません。
+
+> **1カード = 本番で1回想起すべき解法単位**
+
+とします。
+
+同じ trigger から同じ move を使う内容は、分野・出典・具体例・`type` が異なっても原則1枚へ統合します。
+
+`formula / theorem / condition / recognition / reverse / pitfall` などの `type` は分類ラベルであり、それだけを理由に別カードを作りません。条件・認識・逆向き想起・典型ミスは、可能なら canonical card 本文の「なぜ」「条件・注意」へ吸収します。
+
+1枚のカードが複数の公式シラバス用語を cover して構いません。`syllabus/coverage.yaml` は coverage を追跡するための正本であり、「公式用語1個につきカード1枚」を要求するものではありません。
+
+## カード数
+
+通常カードの目標は **580～620枚**、中心目標は約600枚です。
+
+初期の分野別編集予算は次です。
+
+| 分野 | 目安 |
+|---|---:|
+| 確率と確率変数 | 70 |
+| 種々の確率分布 | 75 |
+| 統計的推測（推定） | 110 |
+| 統計的推測（検定） | 95 |
+| データ解析法の考え方と各種分析手法 | 80 |
+| 統計応用（共通事項） | 70 |
+| 統計応用（理工学） | 100 |
+| **計** | **600** |
+
+分野別数字は quota ではなく監査目安です。全体580～620枚の中で試験価値を優先して調整します。
+
+## archive
+
+通常デッキから外すカードは、必要に応じて次へ隔離します。
+
+```text
+archive/
+├─ duplicates/
+├─ low_priority/
+├─ too_specific/
+└─ reference_only/
+```
+
+- `duplicates/`: 同じ trigger → same move の重複・近重複
+- `low_priority/`: 正しいが600枚の通常反復対象として優先度が低い
+- `too_specific/`: 数値・分布・工学設定だけを変えた特殊例
+- `reference_only/`: `formulae.md` や通常教材の参照で十分な定義・公式
+
+archive は通常ビルド、通常 coverage、通常カード枚数に含めません。
+
+明白な完全重複は削除しても構いません。判断が分かれるものは archive に残します。
+
+## priority
+
+priority はカード作成順ではなく、**約600枚に残す価値**を表します。
+
+- **S**：異なる年度の過去問で反復、または本番答案で非常に高頻度のボトルネック
+- **A**：過去問で直接確認できる、または1級で極めて標準的な得点操作
+- **B**：シラバス・教科書上の標準重要論点。統合対象にはなり得る
+- **C**：特殊・低頻度・発展。余裕を見て採否判断
+- **D**：通常デッキには原則入れず archive 候補
+
+「他論点の前提だから」「重要そうだから」だけでは S にしません。
+
+## 編集監査の判定順
+
+各カードを次の順で確認します。
+
+1. 既存カードと同じ trigger → same move ではないか
+2. 数値・分布・分野だけを変えた類題ではないか
+3. `formulae.md` にある参照事項だけで完結していないか
+4. condition / reverse / pitfall を別カードにしただけではないか
+5. 統計検定1級の独立小問または主要な一手として自然か
+6. 他の canonical card を理解すれば自動的に答えられないか
+7. 過去問頻度・再利用性・時間短縮効果に見合うか
+
+判定は `keep / merge / archive / delete / review` を用います。
+
+## 自動 curation の扱い
+
+旧方式の
+
+```text
+1373枚
+↓
+priority・出典点でランキング
+↓
+上位950枚を通常デッキ
+```
+
+は廃止します。
+
+これは同じ技能の重複を残したまま重要カードを落とす可能性があるためです。
+
+監査中は `curation.yaml` の `audit_mode: true` と `selection_mode: canonical_only` を使います。自動ランキングで600枚に見せかけず、`cards/` 自体を canonical な580～620枚へ整理します。
+
+監査完了後に `audit_mode: false` とし、カード数・coverage・検証が通る状態を完成形とします。
 
 ## 使い方
 
@@ -14,38 +128,73 @@ Ankiは1カード1論点のため、通常教材・大問集の20〜30分答案�
 npm run anki:build
 npm run anki:validate
 npm run anki:curation
-npm run anki:progress
 npm run audit:terminology
 ```
 
-`anki:curation` は正本カード総数と通常デッキに採用するカード数、優先度別・カテゴリー別の内訳を表示します。
+`anki:curation` は現在の canonical 候補数、目標との差、priority・category内訳、監査モードを表示します。
 
-作業を明示して進める場合は、たとえば `npm run anki:progress -- start C02-events-distribution-functions`、`npm run anki:progress -- stage C02-events-distribution-functions self_review` のように実行します。
+`dist/` は生成物なので直接編集しません。
 
-生成物は `dist/index.html` をカテゴリー一覧の入口とし、カード本文は `category-math-probability.html` など公式シラバスのカテゴリー別HTMLに分かれます。単一カテゴリーが200枚を超えた場合は、まずサブカテゴリー境界で意味的に分割します。単一サブカテゴリーだけで200枚を超える場合に限り、その内部を最大200枚で分割します。`dist/` をコピーすれば、ネットワークなしで閲覧できます。
+## 正本
 
-カードの正本は `cards/**/*.md`、分類の正本は `syllabus/syllabus.yaml`、共通記法は `../references/notation-guide.md`、Anki固有の記法差分は `notation.md`、公式・定理・定義の正本は `formulae.md` です。CSSとJavaScriptの正本は `static/`、HTML雛形は `templates/`、KaTeX資産の正本はルートの `node_modules/katex/dist/` にあります。`dist/` はこれらから再生成できるためGit管理せず、生成済みHTMLや `dist/assets/` を直接編集しません。
+- カード本文: `cards/**/*.md`
+- 編集規約: `../memo/anki.md`
+- curation規約: `curation.yaml`
+- 公式シラバス分類: `syllabus/syllabus.yaml`
+- coverage: `syllabus/coverage.yaml`
+- 公式・定理・定義: `formulae.md`
+- Anki固有記法: `notation.md`
+- CSS/JavaScript: `static/`
+- HTML雛形: `templates/`
 
-## 通常デッキの枚数上限
+生成済み `dist/` はこれらから再生成します。
 
-`cards/**/*.md` の正本は削除せず保持し、通常の `anki:build` では `curation.yaml` に従って **950枚**だけを有効化します。上限の絶対値は999枚で、`anki:validate` はこれを超えた場合に失敗します。
+## カード本文の品質
 
-選抜は、まず公式シラバスの各用語と各サブカテゴリーに最低1枚を確保し、その後に `priority: S > A > B > C > D` を優先します。同一優先度では過去問根拠、独自問題根拠、出典確認数、教科書根拠を重くし、最後に難度とIDで決めます。したがって、正本のカード総数は1000枚を超えていても、通常学習で表示されるデッキは950枚に保たれます。
+1カードは30秒～数分程度で復習できる単一の解法単位にします。ただし、手法名だけを答えるカードにはしません。
 
-`anki:progress` の `cards` は執筆・査読用の正本カード総数を数えるため、通常デッキの950枚とは別の値です。通常デッキの枚数は `npm run anki:curation` で確認します。
+原則として、
 
-テンプレート内のローカルリンクは、生成先である `dist/*.html` を基準に `./assets/style.css`、`./notation.html` のように明示的な相対パスで記述します。`./dist/assets/style.css` は生成後に `dist/dist/assets/style.css` を指すため使用しません。
+```text
+問題状況
+↓
+方針・公式
+↓
+なぜ
+↓
+短い具体例
+↓
+本質的操作
+↓
+結論
+↓
+条件・注意
+```
 
-## pilot の範囲
+を必要な範囲で含めます。
 
-公式シラバス全域を横断する公開カード50枚を収録します。各カードは「1カード1論点」を守り、公式・方針だけで終わらず、使用する定義・公式・定理を再掲し、短い具体例で本質的操作を最低1回実行します。
+具体例では、畳み込みなら積分範囲、変数変換ならJacobian、MLEなら微分、Delta法なら導関数など、**そのカードの本質的操作を最低1回実行**します。
 
-## 継続執筆
+## 今後の「ankiの続きを書いて」
 
-「ankiの続きを書いて」では `progress.yaml` の `next_work` にある、意味的に関連する1〜2サブカテゴリーを1単位として進めます。重い論点は1件、密接な論点は2件とし、枚数による機械分割はしません。各作業の `target.min`〜`target.max` は新規カード枚数の目安として `anki:progress` に表示し、自己査読へ進む前に範囲を検査します。枚数だけで合否を決めず、試験適合性査読がシラバスのねらいにある到達行動、公式用語と合格に必要な技能の充足、重複・過剰、具体的な過去問IDに基づく優先度をカードID単位で確認します。通常教材と同じ `planned → drafting → self_review → independent_review → revision → reviewed` を使います。査読記録は `review/<WORK-ID>/` に作業ごとに新設し、過去の記録へ追記しません。双方が `fatal: 0 / major: 0 / minor: 0` になった後に検証・進捗更新・作業単位のコミットまで行います。
+編集監査が完了するまでは、「ankiの続きを書いて」は新規サブカテゴリーの大量執筆ではなく、**削減監査の次の未処理範囲を進める指示**として扱います。
 
-`syllabus/coverage.yaml` は公式表の「項目（学習しておくべき用語）例」を用語単位で保持します。対象作業を自己査読以降へ進めるには、各用語が `card` 状態で、その操作を実行する同一サブカテゴリーのカードIDを1件以上持つ必要があります。未着手用語は `planned` とし、サブカテゴリー単位の粗い収録判定で代用しません。
+作業順は原則、
 
-開始時点の既存カード一覧は差分検査のため `anki/.state/` に一時保存します。`progress.yaml` には一時ファイルのパスと件数だけを持ち、作業完了時に削除します。`anki/.state/` はGit管理しません。
+```text
+重複統合
+↓
+reference-only 分離
+↓
+too-specific 分離
+↓
+priority 再査定
+↓
+580～620枚へ収束
+↓
+公式シラバス・過去問 coverage 再監査
+```
 
-既存の全カテゴリー横断pilot査読は `review/C01-pilot/` に固定保存します。今後は `C02-events-distribution-functions` から `C27-engineering-design` まで、公式表の39サブカテゴリーを26個の意味的な作業単位で進めます。具体的な組合せと順序の正本は `progress.yaml` です。人文科学・社会科学・医薬生物学分野はこの教材の対象外なので進捗へ登録しません。
+です。
+
+監査完了後、明確な欠落がある場合に限って新規カード作成へ戻ります。
