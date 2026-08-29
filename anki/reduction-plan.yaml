@@ -1,48 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-29-sample-mean-interval-size-consolidation-20
+batch_id: 2026-08-29-sample-proportion-consolidation-22
 items:
-  - id: samp-xbar-unbiased
+  - id: samp-two-proportion-diff
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-xbar-normal-distribution
-    note: 強化済み標本平均canonicalへ期待値の線形性によるE[xbar]=muと不偏性を吸収済み。
-  - id: samp-iid-sum-variance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-xbar-normal-distribution
-    note: 強化済み標本平均canonicalへ独立和の分散n sigma^2とVar(xbar)=sigma^2/n、標準誤差を吸収済み。
-  - id: samp-ci-mean-t
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ci-t-interval-pivot
-    note: 母分散未知の正規平均t区間は区間推定canonicalにピボット構成・正規性依存・数値例まで詳細に実装済み。
-  - id: samp-ci-variance-chisq
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ci-variance-chi-derivation
-    note: 母分散のカイ二乗信頼区間は区間推定canonicalに不等式反転と非対称性まで詳細に実装済み。
-  - id: samp-chisq-percentile
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: ci-variance-chi-derivation
-    note: カイ二乗分位点の上下の使い分けは母分散区間canonicalで実際の区間構成として扱っており、単独参照カードは不要。
-  - id: samp-f-percentile
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: samp-f-distribution-definition
-    note: F分位点の逆数関係は強化済みF分布canonicalの1/F~F_{nu2,nu1}から導けるため単独参照カードは不要。
-  - id: samp-t-percentile-symmetry
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: samp-t-distribution-definition
-    note: t分布の0対称性は強化済みt分布canonicalに含まれ、分位点の符号反転はそこから直ちに導けるため単独カードは不要。
-  - id: samp-sample-size-mean
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ci-sample-size-for-width
-    note: 強化済み標本サイズcanonicalへ母平均の半幅制約からnを解いて切り上げる手順と数値例を吸収済み。
-  - id: samp-sample-size-proportion
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ci-sample-size-for-width
-    note: 強化済み標本サイズcanonicalへ母比率の設計式、p未知時の最悪ケースp=1/2、数値例を吸収済み。
+    canonical_card: samp-sample-proportion
+    note: 強化済み標本比率canonicalへベルヌーイ標本平均としての1群分布に加え、独立2群の比率差の期待値・分散・正規近似と数値例を吸収済み。
