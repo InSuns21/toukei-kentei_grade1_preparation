@@ -1,14 +1,11 @@
 schema_version: 1
-batch_id: 2026-08-29-poisson-ols-dedupe-01
+batch_id: 2026-08-29-poisson-ols-dedupe-02
 items:
-  # OLS: 公式暗記カードを導出カードへ畳み、以前archiveしたpilotの参照も最終canonicalへ追随させる。
   - id: reg-ols-simple-formula
     bucket: duplicates
     reason: duplicate
     canonical_card: reg-ols-normal-equations-simple
     note: 傾き・切片公式は正規方程式を解く導出カードの結論そのもの。公式単独暗記を残さず、導出から再生するカードをcanonicalにする。
-
-  # Poisson process: 工学の故障・欠陥設定に変えただけでcommon側と同じmoveのカードを統合する。
   - id: engproc-poisson-failure-count
     bucket: duplicates
     reason: duplicate
