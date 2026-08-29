@@ -1738,7 +1738,7 @@ items:
   - id: math-bayesian-methods
     status: complete
     cards:
-      - data-bayes-beta
+      - bayes-posterior-predictive-canonical
       - mathstat-gamma-poisson-posterior
       - bayes-density-formula
       - bayes-loss-decision-canonical
@@ -1763,7 +1763,6 @@ items:
       - bayes-prior-predictive
       - bayes-likelihood-principle
       - bayes-beta-posterior-mean-mode
-      - bayes-posterior-predictive-canonical
       - bayes-gamma-exponential-update
       - bayes-gamma-exponential-numeric
       - bayes-normal-normal-update
@@ -1773,7 +1772,7 @@ items:
       - name: 事前分布
         status: card
         cards:
-          - data-bayes-beta
+          - bayes-posterior-predictive-canonical
           - mathstat-gamma-poisson-posterior
           - bayes-density-formula
           - bayes-conjugate-definition
@@ -1789,13 +1788,12 @@ items:
       - name: 事後分布
         status: card
         cards:
-          - data-bayes-beta
+          - bayes-posterior-predictive-canonical
           - mathstat-gamma-poisson-posterior
           - bayes-density-formula
           - bayes-evidence-discrete
           - bayes-factor-discrete-numeric
           - bayes-beta-posterior-mean-mode
-          - bayes-posterior-predictive-canonical
           - bayes-gamma-exponential-numeric
           - bayes-normal-normal-update
           - bayes-loss-decision-canonical
@@ -2795,12 +2793,11 @@ items:
   - id: engineering-quality
     status: complete
     cards:
-      - eng-xbar-limits
+      - engqc-xbar-r-chart-limits
       - eng-capability-index
       - eng-series-reliability
-      - eng-exponential-reliability
+      - engrel-exponential-mtbf
       - engqc-control-chart-selection
-      - engqc-xbar-r-chart-limits
       - engqc-r-chart-limits
       - engqc-s-chart-limits
       - engqc-p-chart-constant-n
@@ -2834,7 +2831,6 @@ items:
       - engrel-parallel-system
       - engrel-k-out-of-n
       - engrel-series-component-requirement
-      - engrel-exponential-mtbf
       - engrel-weibull-hazard-shape
       - engrel-weibull-reliability
       - engmaint-steady-availability
@@ -2916,7 +2912,6 @@ items:
   - id: engineering-design
     status: complete
     cards:
-      - eng-two-factor-interaction
       - eng-blocking
       - engdesign-objective-response-factor
       - engdesign-weighted-contrast-covariance

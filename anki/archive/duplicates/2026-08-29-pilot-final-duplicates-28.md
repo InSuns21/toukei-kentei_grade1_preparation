@@ -7,9 +7,22 @@ topic: bayes-estimation
 type: strategy
 difficulty: 2
 priority: A
-hashtags: [ベイズの定理, 共役事前分布, 事後分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベイズの定理法 }]
+hashtags:
+  - ベイズの定理
+  - 共役事前分布
+  - 事後分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ベイズの定理法
+archive_reason: duplicate
+canonical_card: bayes-posterior-predictive-canonical
+archive_note: ベータ–ベルヌーイ共役更新 Beta(a+s,b+f)
+  は、事後予測canonical内で事前Beta(2,3)から観測を足して事後分布を作る計算まで明示済み。分布別の短い共役更新カードを別に残さない。
 ---
 ## 問題
 $p$ はベータ分布 $\operatorname{Beta}(2,3)$ に従うとし、ベルヌーイ試行5回で成功3回とする。事後分布を求めよ。
@@ -34,9 +47,21 @@ topic: control-chart
 type: formula
 difficulty: 2
 priority: A
-hashtags: [管理図, 工程管理, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 管理図 }]
+hashtags:
+  - 管理図
+  - 工程管理
+  - 標準誤差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 管理図
+archive_reason: duplicate
+canonical_card: engqc-xbar-r-chart-limits
+archive_note: 既知sigmaのXbar管理図3標準誤差限界は、既知sigma型とRbar推定型を同じ原理から導出するよう強化したcanonicalへ吸収済み。
 ---
 ## 問題
 工程平均10、工程標準偏差2、群サイズ4の $\overline X$ 管理図で、3標準偏差管理限界を求めよ。
@@ -61,9 +86,22 @@ topic: exponential-lifetime
 type: formula
 difficulty: 2
 priority: A
-hashtags: [信頼性, 指数分布, MTBF]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: MTBF }]
+hashtags:
+  - 信頼性
+  - 指数分布
+  - MTBF
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: MTBF
+archive_reason: duplicate
+canonical_card: engrel-exponential-mtbf
+archive_note: 指数寿命の R(t)=exp(-lambda t) と MTBF=1/lambda
+  の直接計算は、使命信頼度からMTBF要件を逆算するS優先度canonicalに完全包含される。
 ---
 ## 問題
 寿命 $T$ の密度が $f(t)=0.01e^{-0.01t}$（$t>0$）である。時刻100の信頼度と平均故障間隔を求めよ。
@@ -88,9 +126,21 @@ topic: interaction
 type: recognition
 difficulty: 2
 priority: A
-hashtags: [実験計画法, 交互作用, 差の差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交互作用 }]
+hashtags:
+  - 実験計画法
+  - 交互作用
+  - 差の差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 交互作用
+archive_reason: duplicate
+canonical_card: design-interaction-plot
+archive_note: 2因子セル平均の差の差による交互作用計算は、交互作用プロットの認識と差の差4の数値計算を一体化したcanonicalへ吸収済み。
 ---
 ## 問題
 セル平均を $(\mu_{11},\mu_{12},\mu_{21},\mu_{22})=(10,14,12,20)$ とする。第1添字は因子A、第2添字は因子Bの低水準1・高水準2を表す。交互作用の差の差を求めよ。
