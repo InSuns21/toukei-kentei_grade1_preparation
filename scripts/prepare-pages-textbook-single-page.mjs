@@ -5,6 +5,7 @@ import process from 'node:process';
 const root = process.cwd();
 const sourceRoot = path.join(root, 'textbook', 'volumes');
 const targetRoot = path.join(root, '_site', 'textbook', 'volumes');
+const inlineAppendixName = 'linear_algebra_singular_null_span.md';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
   console.error('先に scripts/build-pages.mjs を実行してください。');
@@ -14,6 +15,7 @@ if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
 let converted = 0;
 let canonical = 0;
 let removedAuxiliaryMarkdown = 0;
+let inlinedAppendices = 0;
 
 for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
   const sourceVolume = path.join(sourceRoot, volume.name);
@@ -28,7 +30,12 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
     const canonicalPath = path.join(sourceChapter, 'index.md');
     if (fs.existsSync(canonicalPath)) {
       const siteRelative = path.posix.join('textbook', 'volumes', volume.name, chapter.name, 'index.md');
-      const text = orientMarkdownLinks(fs.readFileSync(canonicalPath, 'utf8'), siteRelative);
+      let text = orientMarkdownLinks(fs.readFileSync(canonicalPath, 'utf8'), siteRelative);
+      const appendixPath = path.join(sourceChapter, inlineAppendixName);
+      if (fs.existsSync(appendixPath)) {
+        text = inlineLinearAlgebraAppendix(text, fs.readFileSync(appendixPath, 'utf8'));
+        inlinedAppendices += 1;
+      }
       fs.writeFileSync(path.join(targetChapter, 'index.md'), text, 'utf8');
       removedAuxiliaryMarkdown += removeAuxiliaryMarkdown(targetChapter);
       canonical += 1;
@@ -45,7 +52,7 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
 }
 
 console.log(
-  `Textbook single-page rendering: canonical ${canonical}, legacy-composed ${converted}, auxiliary Markdown removed ${removedAuxiliaryMarkdown}`,
+  `Textbook single-page rendering: canonical ${canonical}, legacy-composed ${converted}, inlined appendices ${inlinedAppendices}, auxiliary Markdown removed ${removedAuxiliaryMarkdown}`,
 );
 
 function legacyPaths(chapterDir) {
@@ -89,6 +96,19 @@ function composeLegacyChapter(files) {
   out.push(demoteTopHeading(parts[8]).trim(), '');
   out.push(demoteTopHeading(parts[9]).trim(), '');
   return out.filter((value, index, values) => value !== '' || values[index - 1] !== '').join('\n').trim() + '\n';
+}
+
+function inlineLinearAlgebraAppendix(indexText, appendixText) {
+  const appendix = demoteHeadings(appendixText, 2).trim();
+  const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
+  if (insertionPoint.test(indexText)) {
+    return indexText.replace(insertionPoint, `${appendix}\n\n### 9.5 階数と列フルランク`);
+  }
+  return `${indexText.trimEnd()}\n\n---\n\n${appendix}\n`;
+}
+
+function demoteHeadings(text, levels) {
+  return text.replace(/^(#{1,4})\s+(.+)$/gm, (_, marks, title) => `${'#'.repeat(Math.min(6, marks.length + levels))} ${title}`);
 }
 
 function interleaveExercises(exercises, solutions) {
