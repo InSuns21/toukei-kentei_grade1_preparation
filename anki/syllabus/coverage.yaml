@@ -52,7 +52,7 @@ items:
     status: complete
     cards:
       - prob-cdf-from-density
-      - dist-mgf-poisson
+      - prob-mgf-mean-variance
       - prob-cumulative-hazard
       - prob-marginal-density
       - prob-conditional-density
@@ -68,7 +68,6 @@ items:
       - prob-conditional-cdf-from-density
       - prob-pgf-independent-sum
       - prob-pgf-thinning
-      - prob-mgf-mean-variance
       - prob-mgf-gamma
       - prob-mgf-uniqueness-domain
       - prob-mgf-nonexistence
@@ -133,9 +132,8 @@ items:
       - name: モーメント母関数（積率母関数）
         status: card
         cards:
-          - dist-mgf-poisson
-          - prob-mgf-affine-transform
           - prob-mgf-mean-variance
+          - prob-mgf-affine-transform
           - prob-mgf-gamma
           - prob-mgf-uniqueness-domain
           - prob-mgf-nonexistence
@@ -687,9 +685,8 @@ items:
   - id: math-estimation-methods
     status: complete
     cards:
-      - est-moments-exponential
-      - data-ols-slope
       - est-method-of-moments
+      - data-ols-slope
       - est-moments-uniform
       - est-plug-in
       - est-ols-bline
@@ -712,7 +709,6 @@ items:
         status: card
         cards:
           - est-method-of-moments
-          - est-moments-exponential
           - est-moments-uniform
           - est-moments-normal-numeric
           - est-moments-gamma-two-parameter
@@ -817,11 +813,10 @@ items:
   - id: math-model-selection
     status: complete
     cards:
-      - est-aic-choice
+      - ms-aic-numeric-comparison
       - ms-overfitting-generalization
       - ms-kl-divergence
       - ms-kl-nonnegativity
-      - ms-aic-numeric-comparison
       - ms-bic-numeric-comparison
       - ms-variable-selection-stepwise
       - ms-kfold-cv-numeric
@@ -842,7 +837,6 @@ items:
       - name: 情報量規準AIC
         status: card
         cards:
-          - est-aic-choice
           - ms-aic-numeric-comparison
           - ms-bic-numeric-comparison
       - name: クロスバリデーション
@@ -853,11 +847,10 @@ items:
   - id: math-asymptotic-estimation
     status: complete
     cards:
-      - est-fisher-bernoulli
-      - est-cramer-rao-bernoulli
+      - asym-mle-poisson-tail-probability
+      - est-crlb-bernoulli-square
       - est-delta-log
       - est-crlb-poisson-mean-efficiency
-      - est-crlb-bernoulli-square
       - asym-convergence-probability
       - asym-convergence-almost-sure
       - asym-convergence-distribution
@@ -885,7 +878,6 @@ items:
       - asym-slutsky-example
       - asym-are-median-mean
       - asym-exponential-mean-tail
-      - asym-mle-poisson-tail-probability
       - asym-exponential-rate-mle
       - asym-logit-proportion-delta
       - asym-ratio-two-means-delta
@@ -902,13 +894,12 @@ items:
       - name: クラーメル・ラオの不等式
         status: card
         cards:
-          - est-cramer-rao-bernoulli
-          - est-crlb-poisson-mean-efficiency
           - est-crlb-bernoulli-square
+          - est-crlb-poisson-mean-efficiency
       - name: フィッシャー情報量（1次元）
         status: card
         cards:
-          - est-fisher-bernoulli
+          - asym-mle-poisson-tail-probability
       - name: 最尤推定量の漸近正規性
         status: card
         cards:
