@@ -229,33 +229,6 @@ HTML生成処理にLLMを使用しない。
 
 ---
 
-## 5.2 良質な過去問解答ブログ
-
-### Starpentagon
-
-[https://starpentagon.net/analytics/stat_certificate_past_problems/](https://starpentagon.net/analytics/stat_certificate_past_problems/)
-
-### SATOLOG
-
-[https://satolog.org/toukeikentei-grade1-kaitouitiran/](https://satolog.org/toukeikentei-grade1-kaitouitiran/)
-
-### Academaid
-
-[https://academ-aid.com/statistics/jssc-toc](https://academ-aid.com/statistics/jssc-toc)
-
-主として、
-
-* 公式略解で省略された途中式
-* なぜその解法を選ぶか
-* 典型変形
-* 計算途中の一手
-* 別解
-* 注意点
-
-の抽出に利用する。
-
----
-
 # 6. 教科書
 
 主要教科書：
