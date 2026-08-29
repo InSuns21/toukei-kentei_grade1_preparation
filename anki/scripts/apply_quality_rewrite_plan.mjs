@@ -13,18 +13,38 @@ const plan = YAML.parse(fs.readFileSync(planPath, "utf8"));
 if (plan?.schema_version !== 1) throw new Error("quality-rewrite-plan.yaml: schema_version must be 1");
 if (!Array.isArray(plan.items)) throw new Error("quality-rewrite-plan.yaml: items must be an array");
 
+const allowedMetadataKeys = new Set(["title", "topic", "type", "difficulty", "priority", "hashtags"]);
 const targetIds = new Set();
 for (const item of plan.items) {
   if (!item?.id || typeof item.id !== "string") throw new Error("quality rewrite item requires id");
   if (targetIds.has(item.id)) throw new Error(`duplicate rewrite target: ${item.id}`);
   targetIds.add(item.id);
-  if (!item.sections || typeof item.sections !== "object" || Array.isArray(item.sections)) {
-    throw new Error(`${item.id}: sections object is required`);
+
+  const hasSections = item.sections && typeof item.sections === "object" && !Array.isArray(item.sections) && Object.keys(item.sections).length;
+  const hasMetadata = item.metadata && typeof item.metadata === "object" && !Array.isArray(item.metadata) && Object.keys(item.metadata).length;
+  if (!hasSections && !hasMetadata) {
+    throw new Error(`${item.id}: sections or metadata must contain at least one rewrite`);
   }
-  if (!Object.keys(item.sections).length) throw new Error(`${item.id}: sections must not be empty`);
-  for (const [section, value] of Object.entries(item.sections)) {
-    if (!section.trim()) throw new Error(`${item.id}: section name must not be empty`);
-    if (typeof value !== "string" || !value.trim()) throw new Error(`${item.id}/${section}: replacement must be non-empty text`);
+
+  if (item.sections !== undefined) {
+    if (!item.sections || typeof item.sections !== "object" || Array.isArray(item.sections)) {
+      throw new Error(`${item.id}: sections must be an object`);
+    }
+    for (const [section, value] of Object.entries(item.sections)) {
+      if (!section.trim()) throw new Error(`${item.id}: section name must not be empty`);
+      if (typeof value !== "string" || !value.trim()) throw new Error(`${item.id}/${section}: replacement must be non-empty text`);
+    }
+  }
+
+  if (item.metadata !== undefined) {
+    if (!item.metadata || typeof item.metadata !== "object" || Array.isArray(item.metadata)) {
+      throw new Error(`${item.id}: metadata must be an object`);
+    }
+    for (const key of Object.keys(item.metadata)) {
+      if (!allowedMetadataKeys.has(key)) {
+        throw new Error(`${item.id}: metadata.${key} is not rewriteable; id/category/subcategory and other structural fields must remain stable`);
+      }
+    }
   }
 }
 
@@ -73,14 +93,24 @@ function replaceSectionInBody(body, sectionName, replacement) {
 }
 
 function rewriteChunk(chunk, item) {
-  const front = chunk.match(/^(\s*---\r?\n[\s\S]*?\r?\n---\r?\n)([\s\S]*)$/);
+  const front = chunk.match(/^(\s*---\r?\n)([\s\S]*?)(\r?\n---\r?\n)([\s\S]*)$/);
   if (!front) throw new Error(`${item.id}: malformed card chunk`);
-  let body = front[2].replace(/\s+$/, "");
-  for (const [section, replacement] of Object.entries(item.sections)) {
+
+  const meta = YAML.parse(front[2]);
+  if (item.metadata) {
+    for (const [key, value] of Object.entries(item.metadata)) meta[key] = value;
+  }
+
+  let body = front[4].replace(/\s+$/, "");
+  for (const [section, replacement] of Object.entries(item.sections || {})) {
     body = replaceSectionInBody(body, section, replacement);
   }
+
   const trailing = chunk.match(/\s*$/)?.[0] ?? "";
-  return `${front[1]}${body}${trailing}`;
+  const renderedFront = item.metadata
+    ? `${front[1]}${YAML.stringify(meta).trimEnd()}${front[3]}`
+    : `${front[1]}${front[2]}${front[3]}`;
+  return `${renderedFront}${body}${trailing}`;
 }
 
 const files = walk(path.join(ROOT, "cards")).filter((file) => file.endsWith(".md"));
@@ -118,5 +148,9 @@ if (missing.length) throw new Error(`rewrite targets not found in canonical card
 
 console.log(`quality rewrite plan ${plan.batch_id || "unnamed"}: ${changedCards} cards changed in ${changedFiles} files`);
 for (const item of plan.items) {
-  console.log(`- ${item.id}: ${Object.keys(item.sections).join(", ")}${item.note ? ` — ${item.note}` : ""}`);
+  const changes = [
+    ...Object.keys(item.metadata || {}).map((key) => `meta:${key}`),
+    ...Object.keys(item.sections || {}),
+  ];
+  console.log(`- ${item.id}: ${changes.join(", ")}${item.note ? ` — ${item.note}` : ""}`);
 }
