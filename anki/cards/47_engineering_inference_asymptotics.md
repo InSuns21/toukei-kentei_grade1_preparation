@@ -740,38 +740,6 @@ $$P(S_{100}>1030)\approx1-\Phi(1.5)\approx0.0668.$$
 <!-- CARD -->
 
 ---
-id: engasym-binomial-continuity-correction
-title: 二項分布を連続性補正付きで正規近似する
-category: applied-engineering
-subcategory: engineering-asymptotics
-topic: normal-approximation-binomial
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [中心極限定理, 二項分布, 連続性補正]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-## 問題
-$X\sim\operatorname{Binomial}(100,0.1)$ に対し $P(X\le15)$ を連続性補正付きで正規近似せよ。
-## 記号・用語
-連続性補正は離散境界15を連続境界15.5へ置き換える操作である。
-## 使用公式・定理
-二項分布の平均は $np$、分散は $np(1-p)$。
-## 一手／方針
-$X\le15$ を正規変数の $Y\le15.5$ として標準化する。
-## 答え
-$$\mu=10,\qquad \sigma=3,$$
-$$z=\frac{15.5-10}{3}=1.833,$$
-よって $P(X\le15)\approx\Phi(1.833)\approx0.9666$。
-## 計算例
-補正なしでは $z=5/3=1.667$ となる。
-## 注意
-$X<15$ なら整数では $X\le14$ なので境界は14.5。
-
-<!-- CARD -->
-
----
 id: engasym-delta-ratio
 title: 2推定量の比の漸近分散を求める
 category: applied-engineering

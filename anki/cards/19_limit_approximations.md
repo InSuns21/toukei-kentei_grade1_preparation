@@ -1,4 +1,4 @@
-﻿---
+---
 id: dist-weak-law-chebyshev
 title: チェビシェフの不等式から大数の弱法則を導く
 category: math-probability
@@ -36,6 +36,7 @@ $$\overline X_n\xrightarrow{p}\mu.$$
 この証明で必要なのは独立同分布と有限分散である。平均だけが有限で分散が無限の場合、このチェビシェフ型の証明は使えない。
 
 <!-- CARD -->
+
 ---
 id: dist-weak-law-sample-mean
 title: 大数の弱法則を標本平均の確率収束として読む
@@ -74,6 +75,7 @@ $$P(|\overline X_n-5|\ge0.1)\longrightarrow0.$$
 確率収束は各標本列が最終的に必ず固定値になることを意味しない。収束の種類を a.s. 収束や分布収束と混同しない。
 
 <!-- CARD -->
+
 ---
 id: dist-weak-law-conditions
 published: false
@@ -115,6 +117,7 @@ $$\operatorname{Var}(\overline X_n)=\operatorname{Var}(X_1)=\sigma^2.$$
 より一般的な大数の法則には別の仮定もある。このカードでは、有限分散を仮定した標準形だけを扱う。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-statement
 title: 中心極限定理の標準形を記述する
@@ -153,6 +156,7 @@ $$\frac{\overline X_n-\mu}{\sigma/\sqrt n}=\frac{\sqrt n(\overline X_n-\mu)}{\si
 中心極限定理は有限の $n$ で標本平均が厳密に正規分布になるという主張ではなく、分布収束の主張である。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-sample-mean
 title: 中心極限定理で標本平均の確率を近似する
@@ -191,6 +195,7 @@ $$P(9.6\le\overline X_{100}\le10.4)\approx\Phi(2)-\Phi(-2)\approx0.9545.$$
 元の分布が正規分布でない場合、この値は有限標本での厳密値ではなく、中心極限定理による近似値である。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-bernoulli-proportion
 title: ベルヌーイ標本比率を中心極限定理で近似する
@@ -227,6 +232,7 @@ $$\sqrt n(\widehat p-0.3)\xrightarrow{d}N(0,0.3\cdot0.7)=N(0,0.21).$$
 標準化した量の極限分布は $N(0,1)$、標準化していない量の極限分布は $N(0,p(1-p))$ である。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-normal-quantile
 published: false
@@ -265,6 +271,7 @@ $$P(\overline X_{36}>4.5)\approx P(Z>1)=1-\Phi(1)\approx0.1587.$$
 $\Phi(1)$ と上側確率 $P(Z>1)$ を取り違えない。正規分布は連続なので、$>$ と $\ge$ の違いはない。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-sum-variance
 title: 和の中心極限定理で標準偏差の次数を確認する
@@ -302,6 +309,7 @@ $$\operatorname{SD}(S_n)=\sqrt{\operatorname{Var}(S_n)}=\sqrt{n\sigma^2}=\sigma\
 分散の増加は $n$ 倍、標準偏差の増加は $\sqrt n$ 倍である。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-normal-conditions
 title: 二項分布の正規近似を使う条件を確認する
@@ -341,6 +349,7 @@ $$\operatorname{Var}(X)=100\cdot0.2\cdot0.8=16.$$
 「$n$ が大きい」だけでは十分とは限らない。$p$ が極端に0または1に近いと分布が歪み、正規近似の精度が下がる。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-normal-probability
 title: 二項分布の確率を正規近似で計算する
@@ -380,6 +389,7 @@ $$=\Phi\left(\frac5{\sqrt{24}}\right)-\Phi\left(-\frac5{\sqrt{24}}\right).$$
 整数値の二項分布を連続分布で近似するため、通常は次の連続修正を加えると精度が上がる。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-normal-tail
 title: 二項分布の上側確率を正規近似で評価する
@@ -418,6 +428,7 @@ $$P(Y\ge219.5)=P\left(Z\ge\frac{219.5-200}{10}\right)=P(Z\ge1.95)=\overline\Phi(
 連続修正を忘れると標準化点が2になり、近似値が変わる。$X$ の整数値と $Y$ の連続区間を対応させてから計算する。
 
 <!-- CARD -->
+
 ---
 id: dist-continuity-correction-interval
 title: 区間確率に連続修正を施す
@@ -453,6 +464,7 @@ $$[9.5,10.5]\cup\cdots\cup[19.5,20.5]=[9.5,20.5].$$
 連続分布では一点の確率が0なので、開区間・閉区間の違いは値を変えない。
 
 <!-- CARD -->
+
 ---
 id: dist-continuity-correction-tail
 title: 上側・下側確率に連続修正を施す
@@ -495,6 +507,7 @@ $$X<k\ \approx\ Y\le k-0.5.$$
 「$>$ だから常に $k+0.5$」と暗記せず、整数値であることを使って境界を確認する。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-poisson-conditions
 title: 二項分布のポアソン近似を使う条件を判定する
@@ -531,6 +544,7 @@ $$\lambda=np=1000\cdot0.002=2.$$
 $np$ が大きい場合はポアソン分布が少数成功の形を表さない。正規近似の条件と混同しない。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-poisson-probability
 title: 二項分布の0回成功確率をポアソン近似する
@@ -569,6 +583,7 @@ $$P(X=0)\approx P(Y=0)=e^{-2}\frac{2^0}{0!}=e^{-2}\approx0.1353.$$
 厳密な二項確率は $(1-p)^n$ である。この例でも $(0.996)^{500}$ と $e^{-2}$ は近いが、同一ではない。
 
 <!-- CARD -->
+
 ---
 id: dist-poisson-limit-derivation
 title: 二項分布からポアソン分布の極限を導く
@@ -607,6 +622,7 @@ $$P(X_n=x)\to e^{-\lambda}\frac{\lambda^x}{x!}.$$
 $x$ は $n$ とともに増やさず固定する。また、積の展開には $n\ge x$ も必要だが、固定した $x$ なので十分大きい $n$ では満たされる。この極限が少数法則の数学的根拠である。
 
 <!-- CARD -->
+
 ---
 id: dist-law-small-numbers
 title: 少数法則の意味を二項分布の期待成功数で説明する
@@ -644,6 +660,7 @@ $$p_n=\frac2n\to0,\qquad np_n=2.$$
 「少数」は標本サイズが小さいという意味ではなく、各試行の成功確率が小さいという意味である。
 
 <!-- CARD -->
+
 ---
 id: dist-approximation-choice
 title: 二項分布に対する正規近似とポアソン近似を選ぶ
@@ -682,6 +699,7 @@ sources: [{ type: official_syllabus, topic: 二項分布の正規近似とポア
 近似条件は厳密な合否境界ではなく精度の目安である。必要なら厳密値と近似値を比較する。
 
 <!-- CARD -->
+
 ---
 id: dist-approximation-error
 title: 近似計算の誤差と連続修正の役割を区別する
@@ -716,6 +734,7 @@ $$P(a\le X\le b)\approx P(a-0.5\le Y\le b+0.5).$$
 連続修正は正規近似をポアソン近似へ変える操作ではない。二項分布を正規分布で近似する際の境界調整である。また、$p=p_n\to0$ で $np_n\to\lambda$ の状況では、$n$ を大きくしても正規近似の改善を自動的に意味せず、ポアソン極限を検討する。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-convergence-notation
 published: false
@@ -754,6 +773,7 @@ $$P(|\overline X_n-\mu|\ge\varepsilon)\to0$$
 確率収束と分布収束は異なる概念である。近似確率を計算するときは、中心極限定理の標準化された量を使う。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-standard-error
 title: 中心極限定理で標本平均の標準誤差を作る
@@ -791,6 +811,7 @@ $$\operatorname{SE}(\overline X_{64})=\frac48=0.5.$$
 $\sigma^2/n=16/64=0.25$ は標本平均の分散であり、標準誤差はその平方根の0.5である。
 
 <!-- CARD -->
+
 ---
 id: dist-poisson-mean-variance-approximation
 published: false
@@ -829,6 +850,7 @@ $\lambda=np$ を代入して、二項分布の分散に残る $(1-p)$ を確認�
 平均が同じだから分布が同じとは限らない。ポアソン近似は希少事象という追加条件に基づく。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-approximation-symmetry
 published: false
@@ -867,6 +889,7 @@ $$P(X\ge n/2)\approx1-\Phi\left(-\frac1{\sqrt n}\right)=\Phi\left(\frac1{\sqrt n
 連続修正をしない場合はちょうど $1/2$ になるが、整数値分布の中心点の質量を落としている。修正後の方が二項確率に近い。
 
 <!-- CARD -->
+
 ---
 id: dist-weak-law-variance-rate
 published: false
@@ -902,6 +925,7 @@ $$P(|\overline X_{100}-\mu|\ge1)\le\frac{9}{100\cdot1^2}=0.09.$$
 チェビシェフの上界が1を超える場合も、確率の上界としては1と合わせて解釈する。ここでは0.09なのでそのままでよい。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-approximation-limit
 published: false
@@ -940,6 +964,7 @@ $$P(a\le\overline X_n\le b)\approx\Phi(z_b)-\Phi(z_a).$$
 標準化端点の分母は母標準偏差 $\sigma$ ではなく、標本平均の標準偏差 $\sigma/\sqrt n$ と同値な形である。
 
 <!-- CARD -->
+
 ---
 id: dist-poisson-tail-approximation
 title: ポアソン近似で少なくとも1回の成功確率を求める
@@ -975,6 +1000,7 @@ $$P(X\ge1)\approx P(Y\ge1)=1-P(Y=0)=1-e^{-2}\approx0.8647.$$
 厳密値は $1-(1-0.001)^{2000}$。ポアソン近似値と厳密値は近いが、近似である。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-approximation-continuity-full
 title: 二項分布の両側区間を連続修正して標準化する
@@ -1012,6 +1038,7 @@ $$P(25\le X\le35)\approx\Phi\left(\frac{5.5}{\sqrt{21}}\right)-\Phi\left(-\frac{
 分散21の平方根が標準偏差である。分散21をそのまま標準化の分母にしない。
 
 <!-- CARD -->
+
 ---
 id: dist-weak-law-mean-identification
 title: 大数の弱法則で標本平均の極限値を同定する
@@ -1048,6 +1075,7 @@ $$\overline X_n\xrightarrow{p}0.7.$$
 成功回数そのもの $\sum_iX_i$ は $n$ とともに増えるが、標本比率 $\overline X_n$ が0.7へ近づく。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-bernoulli-count
 title: 二項分布の成功回数を中心極限定理で標準化する
@@ -1083,43 +1111,7 @@ $$\frac{X-np}{\sqrt{np(1-p)}}\xrightarrow{d}N(0,1).$$
 分母は $\sqrt{np(1-p)}$。$np(1-p)$ は分散なので、平方根を取る。$p=0,1$ では分母が0となり、この非退化な標準化は使えない。
 
 <!-- CARD -->
----
-id: dist-continuity-correction-single
-title: 二項分布の一点確率を連続修正する
-category: math-probability
-subcategory: math-limit-approximations
-topic: continuity-correction-point
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [連続修正, 二項分布, 一点確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 連続修正 }]
----
-## 問題
-整数値確率変数 $X$ の一点確率 $P(X=k)$ を、連続確率変数 $Y$ で近似する。連続修正後の確率を答えよ。
 
-## 答え
-$$P(X=k)\approx P(k-0.5\le Y\le k+0.5).$$
-
-## 使用公式・定理
-整数 $k$ の一点を、隣接する整数との中点で囲まれる区間
-$$[k-0.5,k+0.5]$$
-へ対応させる。
-
-## 計算例
-例えば $P(X=20)$ なら、20に対応する幅1の区間を取って
-$$P(X=20)\approx P(19.5\le Y\le20.5).$$
-もし $Y\sim N(\mu,\sigma^2)$ なら、さらに
-$$P(19.5\le Y\le20.5)=\Phi\left(\frac{20.5-\mu}{\sigma}\right)-\Phi\left(\frac{19.5-\mu}{\sigma}\right).$$
-
-## 一手
-一点 $k$ を中心とする幅1の区間へ置き換える。
-
-## 注意
-一点をそのまま $P(Y=k)$ としてはいけない。連続分布では $P(Y=k)=0$ だからである。
-
-<!-- CARD -->
 ---
 id: dist-poisson-approximation-complement
 title: ポアソン近似で少なくとも指定回数の成功を求める
@@ -1157,6 +1149,7 @@ $$=1-e^{-2}\frac{2^0}{0!}-e^{-2}\frac{2^1}{1!}=1-3e^{-2}\approx0.5940.$$
 補集合では $P(Y=0)+P(Y=1)$ の両方を引く。$1-P(Y=1)$ だけにはしない。
 
 <!-- CARD -->
+
 ---
 id: dist-clt-finite-variance
 title: 中心極限定理の有限分散条件を確認する
@@ -1193,6 +1186,7 @@ $$\frac{\sqrt n(\overline X_n-\mu)}\sigma\xrightarrow{d}N(0,1)$$
 別の正規化で別種の極限定理が成り立つ場合はあるが、それはこのカードの通常形の範囲外である。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-approximation-standardization
 published: false
@@ -1230,6 +1224,7 @@ $np$ と $n(1-p)$ がともに十分大きいという正規近似の条件が�
 正規近似分布そのものは $N(np,np(1-p))$ で、標準化後が $N(0,1)$ である。$p=0,1$ では分散が0なので、この標準化式は定義できない。
 
 <!-- CARD -->
+
 ---
 id: dist-weak-law-bernoulli-frequency
 title: 成功頻度の大数の弱法則を計算する

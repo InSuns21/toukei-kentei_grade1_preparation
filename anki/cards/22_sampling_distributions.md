@@ -1074,39 +1074,6 @@ $a_i=1/n$ なら $Y=\overline X\sim N(\mu,\sigma^2/n)$。
 <!-- CARD -->
 
 ---
-id: samp-continuity-correction
-title: 二項分布の正規近似と連続修正
-category: math-distributions
-subcategory: math-sampling-distributions
-topic: normal-approx-binomial
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [二項分布, 正規近似, 連続修正]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標本分布 }]
----
-## 問題
-$X\sim\operatorname{Binomial}(n,p)$ の $P(X\le k)$ を正規近似するとき、連続修正を入れた式を書け。
-
-## 答え
-$$P(X\le k)\approx\Phi\left(\frac{k+0.5-np}{\sqrt{np(1-p)}}\right).$$
-
-## 使用公式・定理
-平均 $np$、分散 $np(1-p)$ の正規分布で近似し、離散と連続の境界を0.5ずらす。
-
-## 計算例
-$n=100,p=0.5$ では $P(X\le40)\approx\Phi((40.5-50)/5)=\Phi(-1.9)$。
-
-## 一手
-離散値を連続で近似するときは ±0.5 の補正を入れる。
-
-## 注意
-$P(X\ge k)$ は $k-0.5$ を使う。
-
-<!-- CARD -->
-
----
 id: samp-poisson-normal-approx
 title: ポアソン分布の正規近似
 category: math-distributions

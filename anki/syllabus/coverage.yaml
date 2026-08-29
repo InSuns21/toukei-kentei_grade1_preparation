@@ -411,7 +411,6 @@ items:
       - dist-normal-approximation-continuity-full
       - dist-weak-law-mean-identification
       - dist-clt-bernoulli-count
-      - dist-continuity-correction-single
       - dist-poisson-approximation-complement
       - dist-clt-finite-variance
       - dist-weak-law-bernoulli-frequency
@@ -461,7 +460,6 @@ items:
           - dist-continuity-correction-interval
           - dist-continuity-correction-tail
           - dist-normal-approximation-continuity-full
-          - dist-continuity-correction-single
   - id: math-discrete-distributions
     status: complete
     cards:
@@ -703,7 +701,6 @@ items:
       - samp-chisq-gamma-relation
       - samp-chisq-degree-of-freedom
       - samp-normal-linear-combo
-      - samp-continuity-correction
       - samp-poisson-normal-approx
       - samp-cochran-theorem
       - samp-ci-mean-t
@@ -2990,7 +2987,6 @@ items:
       - engasym-lln-sensor-average
       - engasym-consistency-from-mse
       - engasym-clt-sum-probability
-      - engasym-binomial-continuity-correction
       - engasym-delta-ratio
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
@@ -3008,7 +3004,6 @@ items:
         status: card
         cards:
           - engasym-clt-sum-probability
-          - engasym-binomial-continuity-correction
           - engasym-empirical-cdf-point
           - engasym-sample-variance-normal
           - engasym-sample-size-mean-precision
