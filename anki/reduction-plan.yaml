@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-29-pilot-duplicates-25
+batch_id: 2026-08-29-pilot-duplicates-25b
 items:
   - id: dist-mgf-poisson
     bucket: duplicates
@@ -15,7 +15,8 @@ items:
     bucket: duplicates
     reason: duplicate
     canonical_card: est-fisher-bernoulli-example
-    note: Bernoulli 1観測の対数尤度を2回微分して I_1(p)=1/[p(1-p)] を得る同一計算。後発canonicalの方を残す。
+    coverage_card: asym-mle-poisson-tail-probability
+    note: Bernoulli 1観測の対数尤度を2回微分して I_1(p)=1/[p(1-p)] を得る同一計算。後発canonicalの方を残す。漸近推定subcategoryのフィッシャー情報量coverageは、実際に I_1(λ) を導出してMLEの漸近分散へ接続するPoissonカードへ付け替える。
   - id: est-cramer-rao-bernoulli
     bucket: duplicates
     reason: duplicate
