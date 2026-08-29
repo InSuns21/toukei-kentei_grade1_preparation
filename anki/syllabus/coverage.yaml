@@ -2284,8 +2284,6 @@ items:
       - ts-yule-walker-ar2
       - ts-ma1-invertibility
       - ts-maq-acf-cutoff
-      - ts-arma11-mean
-      - ts-backshift-arma
     terms:
       - name: ARIMAモデル
         status: card
@@ -2303,8 +2301,6 @@ items:
           - ts-yule-walker-ar2
           - ts-ma1-invertibility
           - ts-maq-acf-cutoff
-          - ts-arma11-mean
-          - ts-backshift-arma
           - ts-acf-pacf-identification
           - ts-pacf-lag2-calculation
           - ts-sample-acf
