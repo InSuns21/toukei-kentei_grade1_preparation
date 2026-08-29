@@ -1,9 +1,9 @@
-// Service Worker policy. Normal content updates do not require a cache-version bump:
-// network-first refreshes cached responses whenever the network is available.
-// Change only the strategy values below to switch policy later.
+// Service Worker policy. Each Pages build appends its commit revision to the
+// cache base name, so a new deployment automatically receives a fresh runtime
+// cache and activate() can remove caches from older deployments.
 self.TOUKEI_SW_CONFIG = Object.freeze({
   cachePrefix: 'toukei-grade1-',
-  cacheName: 'toukei-grade1-runtime-v1',
+  cacheName: 'toukei-grade1-runtime',
 
   defaultStrategy: 'network-first',
   strategyByKind: Object.freeze({
