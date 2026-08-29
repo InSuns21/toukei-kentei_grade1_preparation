@@ -7,11 +7,20 @@ topic: linear-combination
 type: theorem
 difficulty: 2
 priority: S
-hashtags: [多変量正規分布, 線形変換, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
+hashtags:
+  - 多変量正規分布
+  - 線形変換
+  - 分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多変量正規分布
 archive_reason: duplicate
-canonical_card: engmv-linear-combination-normal
+canonical_card: prob-linear-combination-normal
 ---
 ## 問題
 $\boldsymbol X$ が2変量正規分布 $N_2((1,2)^{\mathsf T},\begin{pmatrix}4&1\\1&9\end{pmatrix})$ に従うとき、$Y=X_1-X_2$ の分布を求めよ。

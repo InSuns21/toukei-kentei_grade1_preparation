@@ -2319,11 +2319,7 @@ items:
       - multi-linear-combination
       - multi-covariance-psd
       - multi-pca-eigen
-      - engmv-conditional-normal-numeric
-      - engmv-normal-density-numeric
       - engmv-correlation-from-covariance
-      - engmv-linear-combination-normal
-      - engmv-normal-marginal-numeric
       - engmv-mahalanobis-control-limit
       - engmv-unit-change-correlation-invariance
       - engmv-normal-uncorrelated-independent
@@ -2336,15 +2332,6 @@ items:
       - engmv-hotelling-two-sample-decision
       - engmv-confidence-ellipsoid-known-cov
       - engmv-spectral-reconstruction
-      - engmv-standardized-pca-2x2
-      - engmv-pca-rayleigh-process-variance
-      - engmv-lda-one-dimensional-boundary
-      - engmv-fisher-discriminant-direction
-      - engmv-lda-prior-probability
-      - engmv-lda-pooled-covariance
-      - engmv-single-linkage-update
-      - engmv-complete-linkage-update
-      - engmv-ward-merge-increase
       - engmv-silhouette-coefficient
       - engmv-canonical-correlation-diagonal
       - engmv-canonical-eigenvalue
@@ -2355,10 +2342,6 @@ items:
         status: card
         cards:
           - multi-linear-combination
-          - engmv-conditional-normal-numeric
-          - engmv-normal-density-numeric
-          - engmv-linear-combination-normal
-          - engmv-normal-marginal-numeric
           - engmv-mahalanobis-control-limit
           - engmv-normal-uncorrelated-independent
           - engmv-precision-conditional-independence
@@ -2388,14 +2371,11 @@ items:
         cards:
           - engmv-correlation-from-covariance
           - engmv-unit-change-correlation-invariance
-          - engmv-standardized-pca-2x2
       - name: 固有値・固有ベクトル
         status: card
         cards:
           - multi-pca-eigen
-          - engmv-pca-rayleigh-process-variance
           - engmv-spectral-reconstruction
-          - engmv-standardized-pca-2x2
           - engmv-canonical-correlation-diagonal
           - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes

@@ -100,7 +100,7 @@ sources:
   - type: official_syllabus
     topic: 多変量正規分布
 archive_reason: duplicate
-canonical_card: engmv-conditional-normal-numeric
+canonical_card: dist-multivariate-normal-conditional
 archive_note: 2変量正規の条件付き平均を求めるpilot版は、条件付き平均・分散・数値例まで扱う後発canonicalに完全包含される。
 ---
 ## 問題

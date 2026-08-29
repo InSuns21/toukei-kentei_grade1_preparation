@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 標本分布
 archive_reason: duplicate
-canonical_card: engmv-linear-combination-normal
+canonical_card: prob-linear-combination-normal
 coverage_card: samp-xbar-normal-distribution
 archive_note: 独立同分布正規の線形結合は多変量正規の一般式 a^T X ~ N(a^T mu,a^T Sigma a)
   の特殊形。標本分布の公式シラバスcoverageは正規母集団での標本平均canonicalで保持する。
