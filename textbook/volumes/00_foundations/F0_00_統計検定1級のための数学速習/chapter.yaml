@@ -15,6 +15,7 @@ learning_objectives:
   - ガンマ関数・ベータ関数の定義、漸化式、相互関係を導出して使える
   - 重積分の領域を立式し、一般の変数変換とヤコビアンを計算できる
   - 行列式・逆行列・階数・固有値・直交対角化・二次形式・正定値性を扱える
+  - 線形包・零空間・特異行列を定義から説明し、階数・退化次数の定理と結び付けて使える
   - 射影行列・シュール補・基本的な行列微分を後続の統計問題で再利用できる
 definitions:
   - { id: F0M-DEF-01, name: 広義積分 }
@@ -25,6 +26,9 @@ definitions:
   - { id: F0M-DEF-06, name: 固有値と固有ベクトル }
   - { id: F0M-DEF-07, name: 正定値行列と半正定値行列 }
   - { id: F0M-DEF-08, name: 直交射影行列 }
+  - { id: F0M-DEF-09, name: 線形包（span） }
+  - { id: F0M-DEF-10, name: 零空間（Null） }
+  - { id: F0M-DEF-11, name: 特異行列 }
 theorems:
   - { id: F0M-THM-01, name: ガウス積分 }
   - { id: F0M-THM-02, name: 重積分の変数変換公式 }
@@ -32,12 +36,14 @@ theorems:
   - { id: F0M-THM-04, name: 実対称行列のスペクトル分解 }
   - { id: F0M-THM-05, name: 正定値性の固有値判定 }
   - { id: F0M-THM-06, name: シルベスターの判定法 }
+  - { id: F0M-THM-07, name: 階数・退化次数の定理 }
 canonical_examples:
   - 極座標変換によるガウス積分
   - 重積分の変数変換によるベータ関数とガンマ関数の関係
   - 和と比の変換におけるヤコビアン
   - 実対称行列の固有値分解と二次形式
   - 多変量ガウス積分
+  - 多項分布の分散共分散行列に現れる零空間と特異性
 problem_patterns: [MATH-DIFF, MATH-INT, MATH-JAC, MATH-GAMMA-BETA, MATH-LA]
 past_exam_alignment: []
 integrated_exam_problems: [F0M-DRILL-01]
