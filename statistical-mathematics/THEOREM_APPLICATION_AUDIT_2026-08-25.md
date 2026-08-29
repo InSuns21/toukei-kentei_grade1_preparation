@@ -39,7 +39,7 @@
 ### Fisher情報・Cramér–Rao・漸近推定
 
 - `core/40_fisher_information_delta_mle_efficiency.md`
-  - 正則最尤推定量漸近正規性の内部点・共通支持・滑らかさ・正の情報量を確認。
+  - 正則な最尤推定量の漸近正規性について、内部点・共通支持・滑らかさ・正の情報量を確認。
   - Delta法の微分可能性を確認。
   - 有限標本CR不等式と漸近情報下限を区別。
 - `core/42_cramer_rao_efficiency.md`
@@ -49,7 +49,7 @@
   - 最大値の `Beta(n,1)` を公式引用せず、累積分布関数→密度→積分からモーメントを導出。
   - Cramér–Raoの共通支持条件が壊れ、スコア平均0の正則議論が成立しないことを明示。
 - `core/46_moment_estimation_delta.md`
-  - 大数の法則、連続写像定理、中心極限定理、Delta法、正則最尤推定量漸近正規性を名前付きで分離。
+  - 大数の法則、連続写像定理、中心極限定理、Delta法、正則な最尤推定量の漸近正規性を名前付きで分離。
   - 可積分性、有限分散、真値での連続・微分可能性、内部点・共通支持・有限正情報量を確認。
 - `core/49_poisson_mle_fisher_ci.md`
   - 最尤推定量の母数空間を $\lambda\ge0$ とし、全観測0の境界最尤推定量と、漸近論で真値 $\lambda>0$ を置く内部点条件を区別。
@@ -97,7 +97,7 @@
 
 - `core/63_neyman_pearson_ump.md`
   - Neyman–Pearson補題の単純対単純・共通支配条件を確認。
-  - 一様最強力検定性は全単純対立で同じNP棄却域になることから示し、Karlin–Rubinとの関係も明記。
+  - 一様最強力であることは、全単純対立で同じNP棄却域になることから示し、Karlin–Rubinとの関係も明記。
 - `core/71_poisson_conditional_binomial_test.md`
   - $\lambda,\mu>0$ を明示し、Poisson加法性は独立条件を確認。
   - 条件付き二項分布はpmfから直接導出し、nuisance parameter が消えるため正確検定になることを説明。
