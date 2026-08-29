@@ -40,6 +40,37 @@ jobs:
       - name: Fix distribution names in prose repo-wide
         run: node scripts/audit_terminology.mjs --fix-distribution-names
 
+      - name: Normalize Japanese spacing around fixed names
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const roots = ['statistical-mathematics', 'applied-rikou-80', 'textbook/volumes', 'anki/cards'];
+          const ignored = new Set(['.git', 'node_modules', 'dist', 'build', 'sources', 'review']);
+          const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+            if (ignored.has(entry.name)) return [];
+            const full = path.join(dir, entry.name);
+            return entry.isDirectory() ? walk(full) : [full];
+          });
+
+          let changed = 0;
+          for (const root of roots) {
+            if (!fs.existsSync(root)) continue;
+            for (const file of walk(root).filter((name) => name.endsWith('.md'))) {
+              const before = fs.readFileSync(file, 'utf8');
+              let after = before;
+              after = after.replace(/([ぁ-んァ-ヶ一-龯々]) +(コーシー|ワイブル|パレート)/g, '$1$2');
+              after = after.replace(/(コーシー|ワイブル|パレート) +([ぁ-んァ-ヶ一-龯々])/g, '$1$2');
+              if (after !== before) {
+                fs.writeFileSync(file, after);
+                changed += 1;
+              }
+            }
+          }
+          console.log(`分布名まわりの和文空白修正: ${changed} ファイル`);
+          NODE
+
       - name: Verify distribution naming repo-wide
         run: |
           node scripts/audit_terminology.mjs | tee /tmp/terminology-audit.log
@@ -54,6 +85,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add statistical-mathematics applied-rikou-80 textbook/volumes anki/cards
           if ! git diff --cached --quiet; then
-            git commit -m 'Normalize distribution terminology in prose'
+            git commit -m 'Polish standardized distribution terminology'
             git push
           fi
