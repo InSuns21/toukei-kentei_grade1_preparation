@@ -1,23 +1,32 @@
 schema_version: 1
-batch_id: 2026-08-29-interval-consolidation-07
+batch_id: 2026-08-29-probability-core-consolidation-08
 items:
-  - id: ci-normal-mean-known
+  - id: prob-conditional-multiplication
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-pivot-construction
-    note: ピボット構成canonicalを標準正規の確率不等式→muについて反転→数値95%区間まで補強したため、既知分散z区間の公式再生カードは独立保持しない。
-  - id: ci-t-vs-z
+    canonical_card: prob-conditional-definition-direct
+    note: 条件付き確率の定義をP(A∩B)について解いただけの同一move。canonical側で割り算と掛け算の両方向を数値で扱うよう補強済み。
+  - id: prob-basic-independent-vs-disjoint
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-t-interval-pivot
-    note: 補強済みt区間canonicalが、未知分散でtを使う理由、既知分散ならz、大標本でt→zまで注意欄に含むため、比較説明だけのカードは重複。
-  - id: ci-asymptotic-def
+    canonical_card: prob-independent-events
+    note: 補強済み独立性canonicalで、独立条件P(A∩B)=P(A)P(B)と排反条件P(A∩B)=0を同じ数値例で比較するため、説明専用カードは重複。
+  - id: prob-inclusion-exclusion
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-asymptotic-mle
-    note: MLE漸近区間canonicalへ被覆確率がn→∞で1-alphaへ収束する定義を吸収し、Poissonで情報量→SE→端点まで計算するため、定義だけのカードは不要。
-  - id: ci-length-confidence-tradeoff
+    canonical_card: prob-inclusion-exclusion-three
+    note: 3事象包除canonicalへ2事象版も吸収し、2事象と3事象を同じ原理で数値計算するため、2事象専用カードを残さない。
+  - id: prob-basic-combination-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-sample-size-for-width
-    note: 標本サイズ設計canonicalに90%と95%を同じ幅で比較し、必要nが44から62へ増える数値例を追加した。信頼係数↑なら幅↑という説明だけを独立カードにしない。
+    canonical_card: prob-counting-sample-space
+    note: 等確率有限標本空間のcanonicalへ、順序ありの硬貨列と順序なしの組合せ抽出を両方追加したため、組合せだけの単独カードは重複。
+  - id: prob-basic-addition-complement
+    bucket: reference_only
+    reason: reference_only
+    canonical_card: prob-basic-sample-space
+    note: 加法・余事象の基本則は確率空間・確率測度の基本性質から直ちに使う参照事項であり、1級600枚デッキで単独カードにしない。公式はformulae.md側へ残す。
+  - id: prob-basic-symmetry
+    bucket: low_priority
+    reason: low_priority
+    note: 対称性による確率1/2は有用な観察だが、独立した解法カードにするほどではなく、有限等確率標本空間や分布の対称性の計算内で都度使う。
