@@ -543,22 +543,108 @@ sources: [{ type: official_syllabus, topic: 相関係数 }]
 $\operatorname{Cov}(X,Y)=6$、$\operatorname{Var}(X)=9$、$\operatorname{Var}(Y)=16$ とする。相関係数 $\rho_{X,Y}$ を求めよ。
 
 ## 答え
-共分散を両標準偏差の積で割る。
+$\operatorname{Cov}(X,Y)=6$, $\operatorname{Var}(X)=9$, $\operatorname{Var}(Y)=16$ なら
+$$
+\rho_{X,Y}=\frac{6}{\sqrt9\sqrt{16}}=\frac12.
+$$
 
 ## 使用公式・定理
-$0<\operatorname{Var}(X),\operatorname{Var}(Y)<\infty$ のとき、相関係数は
-$$\rho_{X,Y}=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}.$$
-常に $-1\le\rho_{X,Y}\le1$。
+$E[X^2],E[Y^2]<\infty$ のとき共分散は
+$$
+\operatorname{Cov}(X,Y)
+=E[(X-E[X])(Y-E[Y])]
+=E[XY]-E[X]E[Y].
+$$
+さらに $0<\operatorname{Var}(X),\operatorname{Var}(Y)<\infty$ なら相関係数は
+$$
+\rho_{X,Y}
+=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}.
+$$
+
+$U=X-E[X]$, $V=Y-E[Y]$ にコーシー–シュワルツの不等式を使うと
+$$
+E[UV]^2\le E[U^2]E[V^2],
+$$
+すなわち
+$$
+\operatorname{Cov}(X,Y)^2
+\le \operatorname{Var}(X)\operatorname{Var}(Y).
+$$
+両辺を $\sigma_X^2\sigma_Y^2$ で割って
+$$
+-1\le\rho_{X,Y}\le1.
+$$
+非退化な場合、$|\rho|=1$ は中心化した2変数が確率1で比例すること、すなわち $Y=aX+b$ という直線関係と同値である。
+
+独立なら積の期待値が分離するので
+$$
+E[XY]=E[X]E[Y]
+$$
+となり無相関を含意する。ただし逆は一般に成り立たない。
 
 ## 計算例
-$\sigma_X=\sqrt9=3$、$\sigma_Y=\sqrt{16}=4$ より
-$$\rho_{X,Y}=\frac{6}{3\cdot4}=\frac{6}{12}=\frac12.$$
+まず同時確率質量関数
+$$
+p(0,0)=0.1,\quad p(0,1)=0.2,\quad
+p(1,0)=0.3,\quad p(1,1)=0.4
+$$
+を考える。$X,Y$ は0,1値なので
+$$
+E[X]=0.3+0.4=0.7,
+\qquad
+E[Y]=0.2+0.4=0.6,
+$$
+$$
+E[XY]=p(1,1)=0.4.
+$$
+よって
+$$
+\operatorname{Cov}(X,Y)
+=0.4-0.7\cdot0.6
+=-0.02.
+$$
+またBernoulli型なので
+$$
+\operatorname{Var}(X)=0.7(0.3)=0.21,
+\qquad
+\operatorname{Var}(Y)=0.6(0.4)=0.24.
+$$
+したがって
+$$
+\rho_{X,Y}
+=\frac{-0.02}{\sqrt{0.21\cdot0.24}}
+\approx-0.089.
+$$
+共分散の単位依存性を標準偏差で除くことで、相関係数は無次元になる。
+
+無相関でも従属な反例として、
+$$
+P(X=-1)=P(X=0)=P(X=1)=\frac13,
+\qquad Y=X^2
+$$
+とする。対称性から
+$$E[X]=0,$$
+また
+$$XY=X^3$$
+なので
+$$E[XY]=E[X^3]=0.$$
+よって
+$$\operatorname{Cov}(X,Y)=0.$$
+しかし $Y$ は $X$ から完全に決まる。実際
+$$
+P(X=1,Y=0)=0
+$$
+に対して
+$$
+P(X=1)P(Y=0)=\frac13\cdot\frac13=\frac19\ne0,
+$$
+なので独立ではない。
 
 ## 一手
-分散から先に標準偏差を計算しておくと分母の積を間違えない。
+同時分布から相関まで求めるときは、$E[X],E[Y],E[XY]$ から共分散を作り、分散の平方根で標準化する。独立性を問われたら相関0だけで結論せず、同時分布の積分解を確認する。
 
 ## 注意
-相関係数は無次元量で、変数の単位やスケールに依存しない。共分散そのものは単位に依存する。
+相関係数は線形関係の強さを測る量であり、$\rho=0$ は一般には独立を意味しない。ただし多変量正規分布では無相関と独立が同値になる。$|\rho|\le1$ は暗記せず、中心化した変数へのコーシー–シュワルツの不等式から導ける。
 
 <!-- CARD -->
 
