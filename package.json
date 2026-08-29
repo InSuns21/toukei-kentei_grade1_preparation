@@ -23,7 +23,9 @@
     "anki:build": "node anki/scripts/curated_build.mjs",
     "anki:curation": "node anki/scripts/curation.mjs",
     "anki:reduce": "node anki/scripts/apply_reduction_plan.mjs",
-    "anki:validate": "node anki/scripts/validate_reviewed_cards.mjs && node anki/scripts/curation.mjs --check && node anki/scripts/curated_build.mjs && node anki/scripts/curated_build.mjs --check",
+    "anki:quality": "node anki/scripts/quality_audit.mjs",
+    "anki:quality:strict": "node anki/scripts/quality_audit.mjs --strict",
+    "anki:validate": "node anki/scripts/validate_reviewed_cards.mjs && node anki/scripts/curation.mjs --check && node anki/scripts/quality_audit.mjs && node anki/scripts/curated_build.mjs && node anki/scripts/curated_build.mjs --check",
     "anki:progress": "node anki/scripts/progress.mjs"
   },
   "dependencies": {
