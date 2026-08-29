@@ -1,78 +1,373 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-merge-prep-37
+batch_id: 2026-08-30-engineering-multivariate-merge-prep-38
 items:
-  - id: mv-factor-model-covariance
-    note: engineering側の1因子モデルの行列計算例を吸収し、共分散分解と共通性を一枚で追えるようにする。
+  - id: dist-multivariate-normal-density
+    note: 工学版の2変量正規密度の数値代入を正本へ吸収する。
     metadata:
-      title: 因子分析の共分散分解と共通性を計算する
-      topic: factor-analysis-covariance-communality
-      hashtags: [因子分析, 因子負荷量, 分散共分散行列, 共通性, 独自性]
+      title: 多変量正規分布の密度を行列式・逆行列・二次形式から計算する
+      topic: multivariate-normal-density
+      hashtags: [多変量正規分布, 確率密度関数, 分散共分散行列, 二次形式]
     sections:
-      計算例: |
-        まず1因子モデルで
+      問題: |
+        $\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)$ の通常の密度が存在する条件と密度式を書け。
+
+        さらに
         $$
-        \boldsymbol\lambda=
-        \begin{pmatrix}0.8\\0.6\end{pmatrix},
+        \boldsymbol\mu=\boldsymbol0,
         \qquad
-        \boldsymbol\Psi=
-        \begin{pmatrix}0.36&0\\0&0.64\end{pmatrix}
+        \boldsymbol\Sigma=
+        \begin{pmatrix}1&0\\0&4\end{pmatrix},
+        \qquad
+        \boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
         $$
-        とする。負荷量ベクトルの外積は
+        のときの密度を数値計算せよ。
+      使用公式・定理: |
+        $\boldsymbol\Sigma$ が対称正定値なら
+        $$
+        f_{\boldsymbol X}(\boldsymbol x)
+        =\frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
+        \exp\left\{-\frac12
+        (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+        \boldsymbol\Sigma^{-1}
+        (\boldsymbol x-\boldsymbol\mu)
+        \right\}.
+        $$
+        正定値なら $|\boldsymbol\Sigma|>0$ かつ逆行列が存在する。
+      一手: |
+        数値代入では、**行列式 → 逆行列 → Mahalanobis二次形式 → 正規化定数**の順で計算する。
+      答え: |
+        数値例では
+        $$
+        |\boldsymbol\Sigma|=4,
+        \qquad
+        \boldsymbol\Sigma^{-1}=
+        \begin{pmatrix}1&0\\0&1/4\end{pmatrix},
+        $$
+        $$
+        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2.
+        $$
+        よって
+        $$
+        f_{\boldsymbol X}(1,2)
+        =\frac{e^{-1}}{4\pi}
+        \approx0.0293.
+        $$
+      計算例: |
+        まず
+        $$
+        |\boldsymbol\Sigma|=1\cdot4=4,
+        \qquad |\boldsymbol\Sigma|^{1/2}=2.
+        $$
+        次に
+        $$
+        \boldsymbol\Sigma^{-1}
+        =\operatorname{diag}\left(1,\frac14\right).
+        $$
+        二次形式は
         $$
         \begin{aligned}
-        \boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
-        &=
-        \begin{pmatrix}0.8\\0.6\end{pmatrix}
-        \begin{pmatrix}0.8&0.6\end{pmatrix}\\
-        &=
-        \begin{pmatrix}
-        0.64&0.48\\
-        0.48&0.36
-        \end{pmatrix}.
+        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
+        &=1^2+\frac{2^2}{4}\\
+        &=1+1\\
+        &=2.
         \end{aligned}
+        $$
+        $p=2$ なので正規化定数は
+        $$
+        \frac{1}{(2\pi)^{2/2}\sqrt4}
+        =\frac1{4\pi}.
         $$
         したがって
         $$
-        \begin{aligned}
-        \boldsymbol\Sigma
-        &=\boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}+\boldsymbol\Psi\\
-        &=
-        \begin{pmatrix}
-        0.64&0.48\\
-        0.48&0.36
-        \end{pmatrix}
-        +
-        \begin{pmatrix}
-        0.36&0\\
-        0&0.64
-        \end{pmatrix}\\
-        &=
-        \begin{pmatrix}
-        1&0.48\\
-        0.48&1
-        \end{pmatrix}.
-        \end{aligned}
+        f_{\boldsymbol X}(1,2)
+        =\frac1{4\pi}\exp(-2/2)
+        =\frac{e^{-1}}{4\pi}.
         $$
-        対角が1なのは、各標準化変数について
-        $$
-        \lambda_i^2+\psi_i=1
-        $$
-        となっているためである。
-
-        次に2因子への負荷量が $(0.6,0.5)$ の標準化変数を考えると
-        $$
-        \begin{aligned}
-        h_i^2
-        &=0.6^2+0.5^2\\
-        &=0.36+0.25\\
-        &=0.61,
-        \end{aligned}
-        $$
-        $$
-        \psi_i=1-0.61=0.39.
-        $$
-        つまり分散の61%を共通因子部分、39%を独自部分が担う。
       注意: |
-        PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。共分散分解 $\Lambda\Lambda^{\mathsf T}+\Psi$ には共通因子と独自誤差の無相関が必要である。
+        半正定値でも特異な $\boldsymbol\Sigma$ では、$p$ 次元Lebesgue測度に関する通常の密度式をそのまま使えない。正規化定数は $|\Sigma|$ ではなく $|\Sigma|^{1/2}$ を使う。
 
-        直交因子なら共通性は負荷量平方和で読める。斜交回転では因子同士が相関するため、単純な負荷量平方和の解釈には注意する。
+  - id: dist-bivariate-normal-marginal
+    note: 二変量だけでなく任意の部分ベクトルの周辺化へ一般化し、3変量から1・3成分を抜く数値例を吸収する。
+    metadata:
+      title: 多変量正規分布の部分ベクトルの周辺分布を取り出す
+      topic: multivariate-normal-marginal
+      hashtags: [多変量正規分布, 周辺分布, 部分ベクトル]
+    sections:
+      問題: |
+        $$
+        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+        $$
+        の一部の成分だけを抜き出した部分ベクトルの周辺分布を述べよ。
+
+        数値例として
+        $$
+        \boldsymbol\mu=(1,2,3)^{\mathsf T},
+        \qquad
+        \Sigma_{11}=4,
+        \quad \Sigma_{33}=9,
+        \quad \Sigma_{13}=2
+        $$
+        のとき $(X_1,X_3)^{\mathsf T}$ の周辺分布を書け。
+      使用公式・定理: |
+        多変量正規ベクトルの任意の部分ベクトルも多変量正規分布に従う。
+
+        添字集合 $I$ に対応する部分ベクトルを $\boldsymbol X_I$ とすれば
+        $$
+        \boldsymbol X_I
+        \sim N_{|I|}(\boldsymbol\mu_I,\boldsymbol\Sigma_{II}),
+        $$
+        ここで $\boldsymbol\mu_I$ は対応する平均成分、$\boldsymbol\Sigma_{II}$ は対応する行・列を抜き出した部分行列である。
+      一手: |
+        周辺化では条件付き分布のような逆行列やSchur補を使わない。**残したい成分の平均と、同じ添字の行・列だけを抜く。**
+      答え: |
+        数値例では
+        $$
+        \begin{pmatrix}X_1\\X_3\end{pmatrix}
+        \sim
+        N_2\left(
+        \begin{pmatrix}1\\3\end{pmatrix},
+        \begin{pmatrix}4&2\\2&9\end{pmatrix}
+        \right).
+        $$
+      計算例: |
+        残す添字は $I=\{1,3\}$ なので
+        $$
+        \boldsymbol\mu_I=
+        \begin{pmatrix}\mu_1\\\mu_3\end{pmatrix}
+        =\begin{pmatrix}1\\3\end{pmatrix}.
+        $$
+        分散共分散行列も1行目・3行目と1列目・3列目を抜き出して
+        $$
+        \boldsymbol\Sigma_{II}
+        =\begin{pmatrix}
+        \Sigma_{11}&\Sigma_{13}\\
+        \Sigma_{31}&\Sigma_{33}
+        \end{pmatrix}
+        =\begin{pmatrix}4&2\\2&9\end{pmatrix}.
+        $$
+        さらに各1変量周辺は
+        $$
+        X_1\sim N(1,4),
+        \qquad
+        X_3\sim N(3,9)
+        $$
+        と直ちに得られる。
+      注意: |
+        周辺分布では不要成分との共分散を使わない。一方、条件付き分布ではブロック逆行列に由来する補正項が現れるので混同しない。
+
+  - id: prob-linear-combination-normal
+    note: 独立1変量の線形結合から、相関を含む正規ベクトルの一般線形結合へ正本を拡張する。
+    metadata:
+      title: 正規ベクトルの線形結合の分布を求める
+      topic: multivariate-normal-linear-combination
+      hashtags: [確率変数の線形結合, 多変量正規分布, 分散共分散行列]
+    sections:
+      問題: |
+        $$
+        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+        $$
+        とする。定数ベクトル $\boldsymbol a$ に対する
+        $$
+        Y=\boldsymbol a^{\mathsf T}\boldsymbol X
+        $$
+        の分布を求めよ。
+
+        数値例として
+        $$
+        \boldsymbol\mu=(1,2)^{\mathsf T},
+        \qquad
+        \boldsymbol\Sigma=
+        \begin{pmatrix}4&1\\1&9\end{pmatrix},
+        \qquad
+        Y=X_1-2X_2
+        $$
+        を計算せよ。
+      使用公式・定理: |
+        多変量正規分布は線形変換で閉じているので
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol X
+        \sim
+        N\left(
+        \boldsymbol a^{\mathsf T}\boldsymbol\mu,
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        \right).
+        $$
+        2変量なら
+        $$
+        \operatorname{Var}(aX+bY)
+        =a^2\sigma_X^2+b^2\sigma_Y^2+2ab\sigma_{XY}.
+        $$
+        独立正規変数の線形結合は $\sigma_{XY}=0$ の特殊例である。
+      一手: |
+        **正規性は線形変換で保たれる。** あとは平均には係数を1回、分散には係数ベクトルを左右から掛ける。相関があれば共分散項を落とさない。
+      答え: |
+        数値例では
+        $$
+        E[Y]=1-2\cdot2=-3,
+        $$
+        $$
+        \operatorname{Var}(Y)=36,
+        $$
+        したがって
+        $$
+        Y\sim N(-3,36).
+        $$
+      計算例: |
+        $\boldsymbol a=(1,-2)^{\mathsf T}$ とする。平均は
+        $$
+        \begin{aligned}
+        \boldsymbol a^{\mathsf T}\boldsymbol\mu
+        &=1\cdot1+(-2)\cdot2\\
+        &=-3.
+        \end{aligned}
+        $$
+        分散は
+        $$
+        \begin{aligned}
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        &=1^2\cdot4+(-2)^2\cdot9
+          +2(1)(-2)(1)\\
+        &=4+36-4\\
+        &=36.
+        \end{aligned}
+        $$
+        よって $Y\sim N(-3,36)$。
+
+        独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z$ なら共分散項が0となり
+        $$
+        E[W]=-4,
+        \qquad
+        \operatorname{Var}(W)=16+81=97,
+        $$
+        したがって $W\sim N(-4,97)$。
+      注意: |
+        各成分が個別に正規分布だからといってベクトルが多変量正規とは限らない。多変量正規であることが線形結合の正規性を保証する。
+
+  - id: mv-lda-classification-rule
+    note: 1次元境界、事前確率、未知共分散のプール推定をLDAの一つの分類手順へ吸収する。
+    metadata:
+      title: LDAの共通共分散推定・判別得点・分類境界を計算する
+      topic: lda-classification-canonical
+      hashtags: [判別分析, LDA, 事前確率, プール分散共分散行列, 分類境界]
+    sections:
+      使用公式・定理: |
+        群 $k$ が
+        $$
+        \boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
+        $$
+        と**共通**分散共分散行列を持ち、事前確率が $\pi_k$ なら
+        $$
+        \delta_k(\boldsymbol x)
+        =\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        -\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        +\log\pi_k
+        $$
+        を最大にする群へ分類する。
+
+        共通 $\boldsymbol\Sigma$ が未知で2群の不偏標本分散共分散行列 $\boldsymbol S_1,\boldsymbol S_2$ を使うなら、通常
+        $$
+        \boldsymbol S_p
+        =\frac{(n_1-1)\boldsymbol S_1+(n_2-1)\boldsymbol S_2}
+        {n_1+n_2-2}
+        $$
+        でプールして $\boldsymbol\Sigma$ を推定する。
+
+        QDAでは群ごとに $\boldsymbol\Sigma_k$ を許すため
+        $$
+        -\frac12\log|\boldsymbol\Sigma_k|
+        -\frac12(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}
+        \boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
+        +\log\pi_k
+        $$
+        を比較し、二次項が群間で消えない。
+      一手: |
+        LDAは **共通共分散を作る → 各群の線形判別得点を計算 → 最大得点の群へ分類** の順で扱う。等事前確率なら $\log\pi_k$ は消えるが、不等なら境界を動かす。
+      答え: |
+        共通共分散ならLDAの境界は線形、群別共分散ならQDAの境界は一般に二次になる。1変量・共通分散・等事前確率の2群では境界は2平均の中点になる。
+      計算例: |
+        **1. 等事前確率の1変量境界**
+
+        共通分散1、$\mu_1=0,\mu_2=4$、$\pi_1=\pi_2$ なら境界は
+        $$
+        c=\frac{0+4}{2}=2.
+        $$
+        $x=3$ は群2側である。
+
+        **2. 事前確率が異なる例**
+
+        共通分散1、$\mu_1=0,\mu_2=2$、$\pi_1=0.8,\pi_2=0.2$、$x=1$ では
+        $$
+        \delta_1(1)=\log0.8\approx-0.223,
+        $$
+        $$
+        \delta_2(1)=2-2+\log0.2\approx-1.609.
+        $$
+        よって中点 $x=1$ でも事前確率の大きい群1へ分類される。
+
+        **3. 共通共分散のプール推定**
+
+        $n_1=6,n_2=4$、
+        $$
+        \boldsymbol S_1=\operatorname{diag}(2,4),
+        \qquad
+        \boldsymbol S_2=\operatorname{diag}(5,1)
+        $$
+        なら
+        $$
+        \begin{aligned}
+        \boldsymbol S_p
+        &=\frac{5\boldsymbol S_1+3\boldsymbol S_2}{8}\\
+        &=\operatorname{diag}\left(\frac{25}{8},\frac{23}{8}\right).
+        \end{aligned}
+        $$
+      注意: |
+        プール共分散は単純平均ではなく自由度加重平均である。事前確率や誤分類損失が異なれば境界は平均の中点から移動する。QDAは柔軟だが群ごとに共分散を推定するため小標本・高次元では不安定になりやすい。
+
+  - id: mv-pca-covariance-vs-correlation
+    note: 工学版の2変量相関PCA数値例を吸収し、標準化PCAの実計算まで同じcanonicalで扱う。
+    metadata:
+      title: 共分散PCAと相関PCAを選び、標準化PCAを計算する
+      topic: standardized-pca
+      hashtags: [主成分分析, 標準化PCA, 相関行列, 寄与率]
+    sections:
+      使用公式・定理: |
+        標準化変数
+        $$
+        Z_j=\frac{X_j-\bar X_j}{s_j}
+        $$
+        の分散共分散行列は相関行列 $\boldsymbol R$ である。したがって相関PCAでは $\boldsymbol R$ の固有値・固有ベクトルを使う。
+
+        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると第 $j$ 主成分の寄与率は
+        $$
+        \frac{\lambda_j}{\sum_{r=1}^{p}\lambda_r}.
+        $$
+      一手: |
+        単位・分散の大きさ自体を重視するなら共分散PCA、尺度差を消して相関構造を重視するなら相関PCAを選ぶ。相関PCAでも計算自体は「最大固有値と固有ベクトルを求める」同じ操作である。
+      答え: |
+        尺度差に科学的意味がなければ、標準化して相関行列PCAを使うのが基本である。ただし標準化が常に正しいわけではない。
+      計算例: |
+        $$
+        \boldsymbol R=
+        \begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
+        $$
+        とする。対角が等しいので和方向・差方向が固有ベクトルとなり、固有値は
+        $$
+        \lambda_1=1+0.8=1.8,
+        \qquad
+        \lambda_2=1-0.8=0.2.
+        $$
+        第1主成分方向は
+        $$
+        \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
+        $$
+        したがって
+        $$
+        Y_1=\frac{Z_1+Z_2}{\sqrt2}.
+        $$
+        寄与率は
+        $$
+        \frac{1.8}{1.8+0.2}=0.9.
+        $$
+        よって第1主成分だけで標準化後の全分散の90%を説明する。
+      注意: |
+        共分散PCAは測定単位の変更で結果が変わり得る。相関PCAは各変数を分散1へ標準化してから行うため、変数間の尺度差を除いて比較する。
