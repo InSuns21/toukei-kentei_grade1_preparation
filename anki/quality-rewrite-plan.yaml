@@ -1,73 +1,75 @@
 schema_version: 1
-batch_id: 2026-08-29-sample-size-merge-prep-21
+batch_id: 2026-08-29-sample-proportion-merge-prep-22
 items:
-  - id: ci-sample-size-for-width
-    note: 目標半幅から必要標本サイズを決める共通原理を、母平均と母比率の両方へ統合する。
+  - id: samp-sample-proportion
+    note: 標本比率をベルヌーイ標本平均として扱い、1群と独立2群の比率差を一枚へ統合する。
     sections:
       使用公式・定理: |
-        信頼区間の標本サイズ設計は、まず半幅を $d$ 以下にする不等式を立て、それを $n$ について解いて最後に切り上げる。
-
-        母標準偏差 $\sigma$ が既知の母平均では、両側信頼係数 $1-\alpha$ の正規区間の半幅が
+        $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Bernoulli}(p)$ とすると標本比率は
         $$
-        z_{\alpha/2}\frac{\sigma}{\sqrt n}
+        \widehat p=\frac1n\sum_{i=1}^nX_i.
         $$
-        なので
+        したがって標本平均の公式から
         $$
-        z_{\alpha/2}\frac{\sigma}{\sqrt n}\le d
+        E[\widehat p]=p,
+        \qquad
+        \operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
         $$
-        から
+        また $n\widehat p\sim\operatorname{Binomial}(n,p)$ なので、正規近似条件が満たされれば
         $$
-        n\ge\left(\frac{z_{\alpha/2}\sigma}{d}\right)^2.
-        $$
-        よって必要標本サイズは
-        $$
-        n=\left\lceil\left(\frac{z_{\alpha/2}\sigma}{d}\right)^2\right\rceil.
+        \widehat p\approx N\left(p,\frac{p(1-p)}{n}\right).
         $$
 
-        母比率 $p$ ではWald型区間の近似半幅が
+        独立な2群について
         $$
-        z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}
+        \widehat p_1-\widehat p_2
         $$
-        なので、設計用の予備値 $p_0$ があれば
+        を考えると、期待値の線形性と独立性から
         $$
-        n\ge\frac{z_{\alpha/2}^2p_0(1-p_0)}{d^2}.
+        E[\widehat p_1-\widehat p_2]=p_1-p_2,
         $$
-        $p$ の事前情報がなければ
         $$
-        p(1-p)\le\frac14
+        \operatorname{Var}(\widehat p_1-\widehat p_2)
+        =\frac{p_1(1-p_1)}{n_1}
+        +\frac{p_2(1-p_2)}{n_2}.
         $$
-        を使い、最悪ケース $p=1/2$ として
-        $$
-        n\ge\frac{z_{\alpha/2}^2}{4d^2}
-        $$
-        とすれば安全側になる。
+        各群で中心極限定理が使えるなら差も近似正規分布になる。
       答え: |
-        母平均では
+        1群では
         $$
-        n=\left\lceil\left(\frac{z_{\alpha/2}\sigma}{d}\right)^2\right\rceil.
+        E[\widehat p]=p,
+        \qquad
+        \operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
         $$
-        母比率では予備値 $p_0$ があれば
+        独立2群では
         $$
-        n=\left\lceil\frac{z_{\alpha/2}^2p_0(1-p_0)}{d^2}\right\rceil,
+        E[\widehat p_1-\widehat p_2]=p_1-p_2,
         $$
-        事前情報がなければ $p_0=1/2$ を使う。
+        $$
+        \operatorname{Var}(\widehat p_1-\widehat p_2)
+        =\frac{p_1(1-p_1)}{n_1}
+        +\frac{p_2(1-p_2)}{n_2}.
+        $$
       計算例: |
-        母平均で $\sigma=10$, $d=2$, 95%信頼区間なら
+        1群で $n=100,p=0.3$ なら
         $$
-        n\ge\left(\frac{1.96\cdot10}{2}\right)^2=96.04,
+        E[\widehat p]=0.3,
+        \qquad
+        \operatorname{Var}(\widehat p)=\frac{0.3\cdot0.7}{100}=0.0021,
         $$
-        よって
-        $$n=97.$$
+        標準偏差は約 $0.0458$ である。
 
-        母比率で $d=0.03$, 95%信頼区間、事前情報なしなら
+        2群で $n_1=n_2=100$, $p_1=0.6$, $p_2=0.4$ なら
         $$
-        n\ge\frac{1.96^2}{4(0.03)^2}\approx1067.11,
+        E[\widehat p_1-\widehat p_2]=0.2,
         $$
-        よって
-        $$n=1068.$$
-
-        同じ幅を保つなら、信頼係数を上げて $z_{\alpha/2}$ が大きくなるほど必要標本数は増える。また許容誤差 $d$ を半分にすると必要標本数はおよそ4倍になる。
+        $$
+        \operatorname{Var}(\widehat p_1-\widehat p_2)
+        =\frac{0.6\cdot0.4}{100}+\frac{0.4\cdot0.6}{100}
+        =0.0048.
+        $$
+        標準偏差は約 $0.069$ である。
       一手: |
-        「区間の半幅 $\le d$」を書き、$n$ について解いて切り上げる。比率で $p$ が未知なら $p(1-p)$ を最大にする $p=1/2$ を使う。
+        標本比率はベルヌーイ標本平均として処理する。2群差なら、期待値は引き、独立なので分散は足す。
       注意: |
-        これらは正規近似に基づく設計式である。母平均で $\sigma$ 未知なら事前研究などで分散を見積もる必要がある。母比率で小標本や極端な $p$ が想定される場合はWald近似の精度にも注意する。
+        1群の正規近似では $np$ と $n(1-p)$ が十分大きいことを確認する。2群でも各群で同様の条件が必要。帰無仮説 $p_1=p_2$ の検定では共通比率をプールすることがあるが、これは比率差の一般的な標本分布式とは別の段階である。
