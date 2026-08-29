@@ -463,10 +463,9 @@ items:
       - dist-bernoulli-definition
       - dist-bernoulli-moments
       - dist-binomial-definition
-      - dist-binomial-moments
+      - dist-binomial-bernoulli-sum
       - dist-binomial-ratio
       - dist-binomial-complement-tail
-      - dist-binomial-bernoulli-sum
       - dist-hypergeometric-definition
       - dist-hypergeometric-moments
       - dist-hypergeometric-binomial-choice
@@ -476,7 +475,7 @@ items:
       - dist-negative-binomial-definition
       - dist-negative-binomial-moments
       - dist-poisson-definition
-      - dist-poisson-moments
+      - dist-poisson-moments-by-definition
       - dist-poisson-ratio-mode
       - dist-poisson-splitting
       - dist-multinomial-definition
@@ -485,8 +484,6 @@ items:
       - dist-discrete-identification
       - dist-bernoulli-complement
       - dist-binomial-factorial-moment
-      - dist-poisson-moments-by-definition
-      - dist-hypergeometric-moments-by-definition
       - dist-poisson-reproductivity
       - mathstat-binomial-beta-tail
       - mathstat-poisson-gamma-tail
@@ -507,10 +504,9 @@ items:
         status: card
         cards:
           - dist-binomial-definition
-          - dist-binomial-moments
+          - dist-binomial-bernoulli-sum
           - dist-binomial-ratio
           - dist-binomial-complement-tail
-          - dist-binomial-bernoulli-sum
           - dist-binomial-factorial-moment
       - name: 超幾何分布
         status: card
@@ -518,7 +514,6 @@ items:
           - dist-hypergeometric-definition
           - dist-hypergeometric-moments
           - dist-hypergeometric-binomial-choice
-          - dist-hypergeometric-moments-by-definition
       - name: 幾何分布
         status: card
         cards:
@@ -529,10 +524,9 @@ items:
         status: card
         cards:
           - dist-poisson-definition
-          - dist-poisson-moments
+          - dist-poisson-moments-by-definition
           - dist-poisson-ratio-mode
           - dist-poisson-splitting
-          - dist-poisson-moments-by-definition
           - dist-poisson-reproductivity
       - name: 負の二項分布
         status: card
@@ -568,10 +562,10 @@ items:
       - dist-gamma-moments
       - dist-gamma-sum-exponential
       - dist-beta-definition
-      - dist-beta-moments
+      - dist-beta-moments-by-definition
       - dist-cauchy-no-moments
       - dist-lognormal-transformation
-      - dist-lognormal-moments
+      - dist-lognormal-moments-by-definition
       - dist-lognormal-median
       - dist-weibull-survival-hazard
       - dist-weibull-mean
@@ -580,8 +574,6 @@ items:
       - dist-multivariate-normal-density
       - dist-multivariate-normal-conditional
       - dist-gamma-moments-by-definition
-      - dist-beta-moments-by-definition
-      - dist-lognormal-moments-by-definition
       - dist-bivariate-normal-definition
       - dist-bivariate-normal-marginal
       - multi-exchangeability
@@ -631,7 +623,6 @@ items:
         status: card
         cards:
           - dist-beta-definition
-          - dist-beta-moments
           - dist-beta-moments-by-definition
           - dist-gamma-beta-relation
       - name: コーシー分布
@@ -642,9 +633,8 @@ items:
         status: card
         cards:
           - dist-lognormal-transformation
-          - dist-lognormal-moments
-          - dist-lognormal-median
           - dist-lognormal-moments-by-definition
+          - dist-lognormal-median
       - name: ワイブル分布
         status: card
         cards:

@@ -1,4 +1,4 @@
-﻿---
+---
 id: dist-poisson-moments-by-definition
 title: ポアソン分布の平均・分散を定義の級数から導出する
 category: math-distributions
@@ -36,44 +36,7 @@ $$\operatorname{Var}(X)=(\lambda^2+\lambda)-\lambda^2=\lambda.$$
 $k=0$ の項は0なので和を $k=1$ や $k=2$ から始めてよい。ポアソン分布は平均と分散が等しい。本カードは定義の級数からの導出であり、確率母関数を使う既存カード `dist-poisson-moments` とは別の経路である。
 
 <!-- CARD -->
----
-id: dist-hypergeometric-moments-by-definition
-title: 超幾何分布の平均を定義から求める
-category: math-distributions
-subcategory: math-discrete-distributions
-topic: hypergeometric-moments-definition
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [超幾何分布, 平均, 定義, 順列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 超幾何分布 }]
----
-## 問題
-$N$ 個中 $K$ 個が成功の母集団から非復元で $n$ 個を取ったときの成功数 $X$ は $p_X(x)=\dfrac{\binom Kx\binom{N-K}{n-x}}{\binom Nn}$ を持つ。$E[X]$ をこの定義から求めよ。
 
-## 答え
-$$E[X]=n\frac{K}{N}.$$
-
-## 使用公式・定理
-$E[X]=\sum_{x=0}^{n}x\dfrac{\binom Kx\binom{N-K}{n-x}}{\binom Nn}$。組合わせ記号の恒等式
-$$x\binom Kx=K\binom{K-1}{x-1}$$
-と
-$\sum_{x=1}^{n}\binom{K-1}{x-1}\binom{N-K}{n-x}=\binom{N-1}{n-1}$
-（Vandermonde の恒等式）を使う。
-
-## 計算例
-$$E[X]=\frac{1}{\binom Nn}\sum_{x=1}^{n}K\binom{K-1}{x-1}\binom{N-K}{n-x}=\frac{K\binom{N-1}{n-1}}{\binom Nn}.$$
-$\binom Nn=\dfrac Nn\binom{N-1}{n-1}$ なので
-$$E[X]=K\frac{\binom{N-1}{n-1}}{\binom Nn}=K\frac{n}{N}=n\frac KN.$$
-
-## 一手
-$x\binom Kx=K\binom{K-1}{x-1}$ で $x$ を吸収し、Vandermonde の恒等式で二つの二項係数をまとめる。
-
-## 注意
-本カードは平均を定義から導出する。分散・有限母集団補正の結果は既存カード `dist-hypergeometric-moments` で扱う。導出では $x=0$ の項が消えることを確認する。
-
-<!-- CARD -->
 ---
 id: dist-gamma-moments-by-definition
 title: ガンマ分布の平均・分散を密度の積分から求める
@@ -120,8 +83,8 @@ $\int_0^\infty x^{\alpha-1}e^{-\beta x}dx=\Gamma(\alpha)/\beta^\alpha$（ガン�
 ## 注意
 平均は shape/rate、分散は shape/rate²。$\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ を繰り返し使う。本カードは密度の積分からの導出であり、公式提示の既存カード `dist-gamma-moments` とは異なる。
 
-
 <!-- CARD -->
+
 ---
 id: dist-beta-moments-by-definition
 title: ベータ分布の平均・分散を定義の積分から求める
@@ -155,6 +118,7 @@ $E[X^r]=B(a+r,b)/B(a,b)$ に帰着させ、$B$ のガンマ関数表示で分数
 $0<x<1$ の台に注意。$a=b=1$ なら一様分布になり平均 $1/2$、分散 $1/12$ と一致する。本カードはベータ積分の比からの導出であり、導出を省略した既存カード `dist-beta-moments` を補完する。
 
 <!-- CARD -->
+
 ---
 id: dist-lognormal-moments-by-definition
 title: 対数正規分布の平均・分散を定義の積分から求める
@@ -188,5 +152,3 @@ $$\operatorname{Var}(X)=e^{2\mu+2\sigma^2}-e^{2\mu+\sigma^2}=(e^{\sigma^2}-1)e^{
 
 ## 注意
 平均は $e^\mu$ ではなく $e^{\mu+\sigma^2/2}$ である。モーメント母関数を使わず、密度の積分の直接計算で導出している。理工学では品質・寿命・収入など正の値を取る量のモデルに多用され、このS優先度の根拠である。
-
-<!-- CARD -->

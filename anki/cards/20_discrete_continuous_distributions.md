@@ -1,4 +1,4 @@
-﻿---
+---
 id: dist-basic-discrete-uniform
 published: true
 title: 離散一様分布の確率質量関数と特性値
@@ -30,6 +30,7 @@ $\sum_{k=1}^m p_X(k)=\sum_{k=1}^m\frac1m=1.$
 連続一様分布 $U(a,b)$ の密度と混同しない。
 
 <!-- CARD -->
+
 ---
 id: dist-bernoulli-definition
 published: true
@@ -60,6 +61,7 @@ $$\sum_{x=0}^1p_X(x)=p+(1-p)=1.$$
 $p$ は確率なので $0\le p\le1$。台を $\{1,2\}$ とする定義ではない。
 
 <!-- CARD -->
+
 ---
 id: dist-bernoulli-moments
 published: true
@@ -93,6 +95,7 @@ $$\operatorname{Var}(X)=p-p^2=p(1-p).$$
 分散を $p^2(1-p)^2$ としない。標準偏差が $\sqrt{p(1-p)}$ である。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-definition
 published: true
@@ -123,36 +126,7 @@ $$\binom42(1/2)^2(1/2)^2=6/16=3/8.$$
 試行回数がランダム、または非復元抽出なら二項分布ではない。
 
 <!-- CARD -->
----
-id: dist-binomial-moments
-published: true
-title: 二項分布の平均と分散を再生する
-category: math-distributions
-subcategory: math-discrete-distributions
-topic: binomial-moments
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [二項分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二項分布 }]
----
-## 問題
-二項分布 $X\sim\operatorname{Binomial}(n,p)$ の平均と分散を求めよ。
-## 答え
-$$E[X]=np,\qquad \operatorname{Var}(X)=np(1-p).$$
-## 使用公式・定理
-$X=I_1+\cdots+I_n$ と表し、$I_i\sim\operatorname{Bernoulli}(p)$ が独立であることを使う。
-## 計算例
-$$E[X]=\sum_{i=1}^nE[I_i]=np,$$
-$$\operatorname{Var}(X)=\sum_{i=1}^n\operatorname{Var}(I_i)=np(1-p).$$
-$n=10,p=0.3$ なら平均は3、分散は $10\times0.3\times0.7=2.1$ である。
-## 一手
-二項分布をベルヌーイ指示変数の和へ戻す。
-## 注意
-分散は $np^2(1-p)^2$ ではない。独立性があるから共分散項が消える。
 
-<!-- CARD -->
 ---
 id: dist-binomial-ratio
 published: true
@@ -193,6 +167,7 @@ $$\frac{n-k}{k+1}\frac p{1-p}\ge1
 二項分布の平均 $np$ と最頻値は一般に一致しない。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-complement-tail
 published: true
@@ -221,6 +196,7 @@ $P(X=0)=0.8^{10}$、$P(X=1)=10(0.2)(0.8)^9$ なので上式になる。数値は
 $P(X\ge2)$ と $P(X>2)$ は異なる。整数値では $P(X\ge2)=1-P(X\le1)$。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-bernoulli-sum
 published: true
@@ -254,6 +230,7 @@ $$\operatorname{Var}(X)=n\operatorname{Var}(I_1)=np(1-p).$$
 独立でなければ分散に共分散項が残る。
 
 <!-- CARD -->
+
 ---
 id: dist-hypergeometric-definition
 published: true
@@ -284,6 +261,7 @@ $$\frac{\binom42\binom63}{\binom{10}3}=\frac{6\times20}{120}=\frac12.$$
 復元抽出で各回の成功確率が一定なら二項分布になる。
 
 <!-- CARD -->
+
 ---
 id: dist-hypergeometric-moments
 published: true
@@ -327,6 +305,7 @@ $$\operatorname{Var}(X)=10(0.3)(0.7)\frac{90}{99}=\frac{21}{11}\approx1.909.$$
 $N\to\infty$ では補正が1に近づき、二項分布の分散に近づく。
 
 <!-- CARD -->
+
 ---
 id: dist-hypergeometric-binomial-choice
 published: true
@@ -355,6 +334,7 @@ A では各回の成功確率が $K/N$ で変わらず、$X\sim\operatorname{Bin
 抽出率が小さいと超幾何分布を二項分布で近似できるが、厳密には別分布である。
 
 <!-- CARD -->
+
 ---
 id: dist-geometric-definition
 published: true
@@ -384,6 +364,7 @@ $p=0.25$ なら $P(X=3)=0.75^2\times0.25=0.140625$。
 失敗回数を数える流儀では台が $\{0,1,\ldots\}$ になり、式が1つずれる。この教材では1始まりで統一する。
 
 <!-- CARD -->
+
 ---
 id: dist-geometric-memoryless
 published: true
@@ -414,6 +395,7 @@ $$P(X>m+n\mid X>m)=\frac{(1-p)^{m+n}}{(1-p)^m}=(1-p)^n.$$
 無記憶性は全ての離散分布にある性質ではなく、幾何分布の特徴である。
 
 <!-- CARD -->
+
 ---
 id: dist-geometric-moments
 published: true
@@ -450,6 +432,7 @@ $$\operatorname{Var}(X)=\frac{2-p}{p^2}-\frac1{p^2}=\frac{1-p}{p^2}.$$
 失敗回数版の幾何分布は平均・台が異なる。
 
 <!-- CARD -->
+
 ---
 id: dist-negative-binomial-definition
 published: true
@@ -480,6 +463,7 @@ $$P(Y=1)=\binom21p^2(1-p)=2p^2(1-p).$$
 負の二項分布には、成功回数を数える流儀など別のパラメータ化がある。ここでは失敗回数を数える。
 
 <!-- CARD -->
+
 ---
 id: dist-negative-binomial-moments
 published: true
@@ -512,6 +496,7 @@ $$\operatorname{Var}(Y)=r\frac{1-p}{p^2}.$$
 試行回数全体 $Y+r$ の平均は $r/p$ であり、失敗回数 $Y$ の平均とは違う。
 
 <!-- CARD -->
+
 ---
 id: dist-poisson-definition
 published: true
@@ -544,36 +529,7 @@ $$P(X=0)=e^{-2},\qquad P(X=1)=2e^{-2},\qquad P(X=2)=2e^{-2}.$$
 $\lambda$ は確率ではなく、平均発生回数（強度）である。
 
 <!-- CARD -->
----
-id: dist-poisson-moments
-published: true
-title: ポアソン分布の平均と分散を求める
-category: math-distributions
-subcategory: math-discrete-distributions
-topic: poisson-moments
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [ポアソン分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン分布 }]
----
-## 問題
-ポアソン分布 $X\sim\operatorname{Poisson}(\lambda)$ の平均と分散を答えよ。
-## 答え
-$$E[X]=\lambda,\qquad \operatorname{Var}(X)=\lambda.$$
-## 使用公式・定理
-確率母関数は $G_X(s)=\exp\{\lambda(s-1)\}$。したがって $G_X'(1)=E[X]$、$G_X''(1)=E[X(X-1)]$。
-## 計算例
-$$G_X'(s)=\lambda e^{\lambda(s-1)},
-\qquad G_X''(s)=\lambda^2e^{\lambda(s-1)}.$$
-ゆえに $E[X]=\lambda$、$E[X^2]=\lambda^2+\lambda$、分散は $\lambda$。
-## 一手
-ポアソン分布は平均と分散が同じという特徴を使う。
-## 注意
-同じ平均でも二項・超幾何では分散が一般に異なる。
 
-<!-- CARD -->
 ---
 id: dist-poisson-ratio-mode
 published: true
@@ -603,6 +559,7 @@ $k+1<\lambda$ なら比は1より大きく、$k+1>\lambda$ なら1より小さ�
 $\lambda$ が整数のときの2峰性を落とさない。
 
 <!-- CARD -->
+
 ---
 id: dist-poisson-splitting
 published: true
@@ -635,6 +592,7 @@ $$=e^{-\lambda q}\frac{(\lambda q)^i}{i!}\,e^{-\lambda(1-q)}\frac{(\lambda(1-q))
 分割前の合計は $N_1+N_2=N$。独立なのはポアソン分布の分割後の成分である。
 
 <!-- CARD -->
+
 ---
 id: dist-multinomial-definition
 published: true
@@ -665,6 +623,7 @@ $$\frac{3!}{1!1!1!}p_1p_2p_3=6p_1p_2p_3.$$
 各 $X_i$ は独立ではない。合計制約があるため共分散が負になる。
 
 <!-- CARD -->
+
 ---
 id: dist-multinomial-moments
 published: true
@@ -706,6 +665,7 @@ $$\operatorname{Cov}(X_1,X_2)=-10(0.3)(0.2)=-0.6.$$
 $\operatorname{Cov}(X_i,X_j)=0$ としない。合計が固定されている。
 
 <!-- CARD -->
+
 ---
 id: dist-multinomial-binomial-reduction
 published: true
@@ -736,6 +696,7 @@ $$P(X_1=k)=\binom nkp_1^k(1-p_1)^{n-k}.$$
 複数カテゴリーの個数を同時に見る場合は独立な二項分布にはならない。
 
 <!-- CARD -->
+
 ---
 id: dist-discrete-identification
 published: true
@@ -768,6 +729,7 @@ sources: [{ type: official_syllabus, topic: 離散型分布 }]
 分布名だけでなく台を確認すると誤選択が減る。
 
 <!-- CARD -->
+
 ---
 id: dist-bernoulli-complement
 published: true
@@ -796,6 +758,7 @@ $$P(X=1\mid X\ge1)=\frac{P(X=1)}{P(X\ge1)}=\frac p p=1\quad(p>0).$$
 $p=0$ のとき条件付き確率の分母が0になり、条件付き確率は定義しない。
 
 <!-- CARD -->
+
 ---
 id: dist-binomial-factorial-moment
 published: true
@@ -826,6 +789,7 @@ $X(X-1)$ は成功した順序付き2組を数えると解釈する。
 $E[X^2]$ ではなく階乗モーメントである。$E[X^2]=n(n-1)p^2+np$。
 
 <!-- CARD -->
+
 ---
 id: dist-continuous-uniform-definition
 published: true
@@ -857,6 +821,7 @@ $\int_{-\infty}^{\infty}f_X(x)dx=\int_a^b\frac{dx}{b-a}=1.$
 離散一様分布の確率質量関数と区別する。
 
 <!-- CARD -->
+
 ---
 id: dist-continuous-uniform-moments
 published: true
@@ -891,6 +856,7 @@ $$=\frac{4a^2+4ab+4b^2-3a^2-6ab-3b^2}{12}
 第2引数は分散である正規分布の記法とは無関係で、ここでは区間端点 $a,b$ を使う。
 
 <!-- CARD -->
+
 ---
 id: dist-continuous-uniform-interval
 published: true
@@ -919,6 +885,7 @@ $$P(2<X\le7)=\frac{7-2}{10}=\frac12.$$
 区間が台の外にはみ出すときは、台との共通部分で計算する。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-definition
 published: true
@@ -950,6 +917,7 @@ $N(3,4)$ は $\mu=3$、$\sigma^2=4$、したがって $\sigma=2$ である。
 正規分布の密度は全実数で正であり、台を有限区間としない。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-standardize
 published: true
@@ -979,6 +947,7 @@ $$\Phi(1)-\Phi(-1)=2\Phi(1)-1.$$
 分散4で割らず標準偏差2で割る。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-symmetry
 published: true
@@ -1008,6 +977,7 @@ $$=\Phi(c/\sigma)-\Phi(-c/\sigma)=2\Phi(c/\sigma)-1.$$
 $P(X\le\mu+c)$ だけでは両側確率にならない。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-linear-transform
 published: true
@@ -1039,6 +1009,7 @@ $$Y\sim N(2,9).$$
 分散に $b$ は入らず、係数 $a$ は二乗される。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-sum
 published: true
@@ -1068,6 +1039,7 @@ $$N(1-6,4+4\times9)=N(-5,40).$$
 独立性がないと分散に $2a_ia_j\operatorname{Cov}(X_i,X_j)$ が加わる。
 
 <!-- CARD -->
+
 ---
 id: dist-exponential-definition
 published: true
@@ -1101,6 +1073,7 @@ $\int_0^\infty\lambda e^{-\lambda x}dx=1.$
 率 $\lambda$ と平均 $1/\lambda$ を逆にしない。
 
 <!-- CARD -->
+
 ---
 id: dist-exponential-moments
 published: true
@@ -1132,6 +1105,7 @@ $$E[X^2]=\lambda\frac2{\lambda^3}=\frac2{\lambda^2},$$
 標準偏差も $1/\lambda$ だが、分散は $1/\lambda^2$。
 
 <!-- CARD -->
+
 ---
 id: dist-exponential-memoryless
 published: true
@@ -1160,6 +1134,7 @@ $$\frac{e^{-\lambda(s+t)}}{e^{-\lambda s}}=e^{-\lambda t}.$$
 無記憶性は指数分布と幾何分布に共通するが、一般の寿命分布にはない。
 
 <!-- CARD -->
+
 ---
 id: dist-exponential-hazard
 published: true
@@ -1188,6 +1163,7 @@ $$h_X(x)=\frac{\lambda e^{-\lambda x}}{e^{-\lambda x}}=\lambda.$$
 危険率は確率そのものではなく、単位時間あたりの瞬間的な発生率である。
 
 <!-- CARD -->
+
 ---
 id: dist-gamma-definition
 published: true
@@ -1217,6 +1193,7 @@ $\alpha=1$ なら $f_X(x)=\beta e^{-\beta x}$ となり、率 $\beta$ の指数�
 scale表示では第2引数が $1/\beta$ になるため、文献の表示を確認する。
 
 <!-- CARD -->
+
 ---
 id: dist-gamma-moments
 published: true
@@ -1245,6 +1222,7 @@ $$E[X]=3/2,\qquad \operatorname{Var}(X)=3/2^2=3/4.$$
 第2引数をscaleと誤読すると平均が6になってしまう。
 
 <!-- CARD -->
+
 ---
 id: dist-gamma-sum-exponential
 published: true
@@ -1275,6 +1253,7 @@ $$M_T(t)=\left(\frac\beta{\beta-t}\right)^r,$$
 rateが異なる指数分布の和は一般に単純なガンマ分布ではない。
 
 <!-- CARD -->
+
 ---
 id: dist-beta-definition
 published: true
@@ -1305,48 +1284,7 @@ $\alpha=\beta=1$ なら密度は1で、$U(0,1)$ に一致する。
 ベータ分布の第2パラメータはrateではなく、もう一つのshapeである。
 
 <!-- CARD -->
----
-id: dist-beta-moments
-published: true
-title: ベータ分布の平均と分散を計算する
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: beta-moments
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ベータ分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベータ分布 }]
----
-## 問題
-ベータ分布 $X\sim\operatorname{Beta}(\alpha,\beta)$ の平均と分散を答え、$\alpha=2,\beta=3$ の値を計算せよ。
-## 答え
-$$E[X]=\frac\alpha{\alpha+\beta},$$
-$$\operatorname{Var}(X)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$
-$\alpha=2,\beta=3$ では平均 $2/5$、分散 $6/(25\times6)=1/25$。
-## 使用公式・定理
-Beta積分の漸化式
-$$\frac{B(\alpha+1,\beta)}{B(\alpha,\beta)}=\frac{\alpha}{\alpha+\beta},\qquad
-\frac{B(\alpha+2,\beta)}{B(\alpha,\beta)}
-=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}$$
-と $\operatorname{Var}(X)=E[X^2]-E[X]^2$ を使う。
-## 計算例
-一般に
-$$E[X]=\frac{B(\alpha+1,\beta)}{B(\alpha,\beta)}=\frac{\alpha}{\alpha+\beta},$$
-$$E[X^2]=\frac{B(\alpha+2,\beta)}{B(\alpha,\beta)}
-=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}.$$ 
-よって
-$$\operatorname{Var}(X)=E[X^2]-E[X]^2
-=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}.$$ 
-$\alpha=2,\beta=3$ では
-$$E[X]=\frac25,\qquad \operatorname{Var}(X)=\frac{2\cdot3}{5^2\cdot6}=\frac1{25}.$$ 
-## 一手
-分母を $(\alpha+\beta)^2(\alpha+\beta+1)$ とまとめる。
-## 注意
-平均は $\alpha/(\alpha+\beta)$ であり、単純に $\alpha/\beta$ ではない。
 
-<!-- CARD -->
 ---
 id: dist-cauchy-no-moments
 published: true
@@ -1378,6 +1316,7 @@ $$=\frac1{2\pi}[\log(1+x^2)]_1^\infty=\infty.$$
 対称性による主値0を期待値の存在と取り違えない。
 
 <!-- CARD -->
+
 ---
 id: dist-lognormal-transformation
 published: true
@@ -1408,40 +1347,7 @@ $$=\frac1{\sigma\sqrt{2\pi}}e^{-(\log x-\mu)^2/(2\sigma^2)}\frac1x.$$
 台は全実数ではなく正の実数である。
 
 <!-- CARD -->
----
-id: dist-lognormal-moments
-published: true
-title: 対数正規分布の平均と分散を求める
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: lognormal-moments
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [対数正規分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 対数正規分布 }]
----
-## 問題
-正規分布 $Y\sim N(\mu,\sigma^2)$、$X=e^Y$ の平均と分散を答えよ。
-## 答え
-$$E[X]=e^{\mu+\sigma^2/2},$$
-$$\operatorname{Var}(X)=(e^{\sigma^2}-1)e^{2\mu+\sigma^2},$$
-## 使用公式・定理
-正規分布のモーメント母関数（積率母関数） $M_Y(t)=e^{\mu t+\sigma^2t^2/2}$ を $t=1,2$ で使う。
-## 計算例
-$$E[X]=E[e^Y]=M_Y(1)=e^{\mu+\sigma^2/2},$$
-$$E[X^2]=M_Y(2)=e^{2\mu+2\sigma^2}.$$
-したがって
-$$\operatorname{Var}(X)=E[X^2]-E[X]^2
-=e^{2\mu+2\sigma^2}-e^{2\mu+\sigma^2}$$
-$$=e^{2\mu+\sigma^2}(e^{\sigma^2}-1).$$ 
-## 一手
-$X=e^Y$ なら $E[X^r]=M_Y(r)$ と置く。
-## 注意
-平均は単純に $e^\mu$ ではなく、分散パラメータの影響を受ける。
 
-<!-- CARD -->
 ---
 id: dist-weibull-survival-hazard
 published: true
@@ -1472,6 +1378,7 @@ $$-\frac{d}{dx}\log S(x)=-\frac{d}{dx}\left[-(x/\lambda)^k\right]
 $k=1$ なら指数分布、$k>1$ なら危険率増加、$k<1$ なら減少。
 
 <!-- CARD -->
+
 ---
 id: dist-weibull-mean
 published: true
@@ -1506,6 +1413,7 @@ $u=(x/\lambda)^k$ の置換でガンマ積分へ寄せる。
 $\lambda$ は平均ではなくscale。$k=1$ なら平均は $\lambda$ になる。
 
 <!-- CARD -->
+
 ---
 id: dist-logistic-definition
 published: true
@@ -1542,6 +1450,7 @@ $$=-(1+e^{-z})^{-2}\left(-e^{-z}\frac{dz}{dx}\right)
 scale $s$ は分散ではない。分散は $\pi^2s^2/3$。
 
 <!-- CARD -->
+
 ---
 id: dist-multivariate-normal-density
 published: true
@@ -1572,6 +1481,7 @@ $p=1$ では $|\boldsymbol\Sigma|=\sigma^2$ となり、通常の $N(\mu,\sigma^
 半正定値で特異な場合は、この通常のLebesgue密度式をそのまま使えない。
 
 <!-- CARD -->
+
 ---
 id: dist-multivariate-normal-conditional
 published: true
@@ -1602,8 +1512,8 @@ $\mu_X=1,\mu_Y=2,\sigma_X^2=4,\sigma_Y^2=9,\sigma_{XY}=3$ なら $Y=5$ のとき
 ## 注意
 条件付き分散は元の分散以下であり、共分散を0とすれば元の分散に戻る。
 
-
 <!-- CARD -->
+
 ---
 id: dist-basic-discrete-uniform-moments
 published: true
@@ -1634,6 +1544,7 @@ $$\operatorname{Var}(X)=\frac{(m+1)(2m+1)}6-\frac{(m+1)^2}4=\frac{m^2-1}{12}.$$
 連続一様分布の分散 $(b-a)^2/12$ と形が似ているが、台の個数が異なる。
 
 <!-- CARD -->
+
 ---
 id: dist-continuous-uniform-cdf
 published: true
@@ -1664,6 +1575,7 @@ $$F_X(x)=\int_a^x\frac{du}{b-a}=\frac{x-a}{b-a}.$$
 $F_X$ は非減少で、$F_X(a)=0$、$F_X(b)=1$ である。
 
 <!-- CARD -->
+
 ---
 id: dist-normal-moments
 published: true
@@ -1692,6 +1604,7 @@ $X\sim N(3,4)$ なら $E[X]=3$、$\operatorname{Var}(X)=4$、標準偏差は $2$
 標準化で割る量は $\sigma=\sqrt{\sigma^2}$ である。
 
 <!-- CARD -->
+
 ---
 id: dist-exponential-cdf-survival
 published: true
@@ -1721,6 +1634,7 @@ $$F_X(x)=\left[-e^{-\lambda u}\right]_0^x=1-e^{-\lambda x},$$
 $x<0$ では $F_X(x)=0$、$S_X(x)=1$ とする。
 
 <!-- CARD -->
+
 ---
 id: dist-logistic-quantile
 published: true
@@ -1752,6 +1666,7 @@ $$e^{-(q_p-\mu)/s}=\frac{1-p}{p},$$
 $p=0,1$ では有限の分位点にならず、公式は $0<p<1$ で使う。
 
 <!-- CARD -->
+
 ---
 id: dist-lognormal-median
 published: true
@@ -1779,5 +1694,3 @@ $$P(X\le e^\mu)=P(e^Y\le e^\mu)=P(Y\le\mu)=\frac12.$$
 単調変換では分位点を変換する。
 ## 注意
 平均 $e^{\mu+\sigma^2/2}$ とは異なり、$\sigma>0$ では中央値の方が小さい。
-
-<!-- CARD -->
