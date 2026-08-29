@@ -1,20 +1,50 @@
 schema_version: 1
-batch_id: 2026-08-30-bayes-reduction-30
+batch_id: 2026-08-30-data-analysis-reduction-31
 items:
-  - id: bayes-conjugate-definition
+  - id: mv-pca-eigen-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-gamma-exponential-update
-    note: 共役事前分布の定義と利点をGamma–指数の実際の共役更新canonicalへ吸収済み。定義だけの独立カードは残さない。
+    canonical_card: mv-pca-variance-max
+    note: 2×2分散共分散行列の固有値・固有ベクトル計算を、分散最大化から固有方程式を導くPCA canonicalへ吸収済み。
 
-  - id: bayes-prior-sensitivity
+  - id: mv-pca-contribution-rate
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-proper-improper
-    note: 事前中心・尺度・裾を変えて事後平均・信用区間・予測・意思決定等を比較する感度分析をproper/improper正本へ吸収済み。
+    canonical_card: mv-pca-software-output
+    note: 固有値総和から寄与率・累積寄与率を求める操作は、PCAソフトウェア出力canonicalで数値計算済み。
 
-  - id: bayes-empirical-bayes
+  - id: mv-pca-score
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-hierarchical-definition
-    note: 経験ベイズで超母数を推定値へ固定する方法と、完全ベイズで超母数の不確実性まで積分する方法の違いを階層モデルcanonicalへ吸収済み。
+    canonical_card: mv-pca-software-output
+    note: 主成分得点を固有ベクトルとの内積で求める数値計算は、PCAソフトウェア出力canonicalへ既に統合済み。
+
+  - id: mv-pca-reconstruction
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: mv-pca-variance-max
+    note: 切り捨てPCAの再構成誤差が捨てた固有値の和になる性質を分散最大化canonicalへ補足・数値化したため、独立カードは不要。
+
+  - id: reg-dfbeta-meaning
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-dffits-numeric
+    note: DFFITSとDFBETAを同じleave-one-out影響診断として比較し、係数変化の数値例までcanonicalへ吸収済み。
+
+  - id: reg-lasso-kkt-zero
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: Lasso係数が0となるKKT条件をsoft-thresholdingの数値例と同じcanonicalへ吸収済み。同じ零化操作を別カード化しない。
+
+  - id: reg-elastic-net-objective
+    bucket: reference_only
+    reason: reference_only
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: Elastic NetはL1とL2を同時に入れる派生としてRidge/Lasso canonicalへ式と端点条件を吸収済み。独立した定義カードは600枚正本では参照寄り。
+
+  - id: reg-bic-selection
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-bic-numeric-comparison
+    note: 回帰モデルだけに限定したBIC計算は、同じ最大対数尤度・母数数・標本サイズからBICを比較するモデル選択canonicalと同一操作。
