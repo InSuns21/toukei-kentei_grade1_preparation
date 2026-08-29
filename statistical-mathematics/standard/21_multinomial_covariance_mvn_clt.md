@@ -1,4 +1,4 @@
-# Standard 09 多項分布・共分散行列・多変量中心極限定理
+# Standard 09 多項分布・分散共分散行列・多変量中心極限定理
 
 - 旧No.: 21
 - 層: Standard
@@ -6,6 +6,40 @@
 - 難度: A
 - 目安時間: 25分
 - 手計算監査: ◎
+
+## この問題の前に：線形代数の用語
+
+この問題では、多項分布の分散共分散行列が **特異**になる理由まで扱う。そのため、次の線形代数の用語を使う。
+
+- **特異行列**：逆行列を持たない正方行列。$A$ が特異であることは、$A\boldsymbol x=\boldsymbol0$ を満たす非零ベクトル $\boldsymbol x$ が存在することと同値。
+- **零空間**：
+
+  $$
+  \operatorname{Null}(A)
+  =\{\boldsymbol x:A\boldsymbol x=\boldsymbol0\}.
+  $$
+
+- **線形包（span）**：
+
+  $$
+  \operatorname{span}\{\boldsymbol v\}
+  =\{c\boldsymbol v:c\in\mathbb R\}.
+  $$
+
+  つまり、$\boldsymbol v$ と同じ方向のベクトル全部。
+
+- **階数・退化次数の定理**：$A$ が $m\times n$ 行列なら
+
+  $$
+  \operatorname{rank}(A)
+  +\dim\operatorname{Null}(A)=n.
+  $$
+
+詳しくは [F0-00 線形代数補足：span・零空間・特異行列](../../textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/linear_algebra_singular_null_span.md) を参照。
+
+この問題では、用語そのものを暗記しているかよりも、**「成分和が1に固定されているので、1方向にはまったく変動できない」**ことを式で説明できることが重要である。
+
+---
 
 ## 問題
 
@@ -43,9 +77,8 @@ $$
 と定める。このとき $N=(N_1,\ldots,N_k)^T$ は多項分布
 $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ に従う。
 
-1. $E[Z_r]$ と $\operatorname{Cov}(Z_r)$ を定義から求め、
-   $E[\widehat p]$ と $\operatorname{Cov}(\widehat p)$ を導け。
-2. 任意の固定ベクトル $a\in\mathbb{R}^k$ に対し、1変量中心極限定理を $a^TZ_r$ に適用して
+1. $E[Z_r]$ と $\operatorname{Cov}(Z_r)$ を定義から求め、$E[\widehat p]$ と $\operatorname{Cov}(\widehat p)$ を導け。
+2. 任意の固定ベクトル $a\in\mathbb R^k$ に対し、1変量中心極限定理を $a^TZ_r$ に適用して
 
    $$
    a^T\sqrt n(\widehat p-p)
@@ -62,30 +95,29 @@ $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ に従う。
    $$
 
    を導け。
-3. $\Sigma$ が特異になる理由を、
-   「標本比率の成分和が常に1である」という事実と結び付けて説明せよ。
-   さらに全ての $p_i>0$ の下で
+3. $\Sigma$ が特異になる理由を、「標本比率の成分和が常に1である」という事実と結び付けて説明せよ。さらに全ての $p_i>0$ の下で
 
    $$
-   \operatorname{Null}(\Sigma)=\operatorname{span}\{\boldsymbol{1}\}
+   \operatorname{Null}(\Sigma)
+   =\operatorname{span}\{\boldsymbol1\}
    $$
 
-   であり、$\operatorname{rank}(\Sigma)=k-1$ となることを示せ。
+   であり、$\operatorname{rank}(\Sigma)=k-1$ となることを示せ。ただし $\boldsymbol1=(1,\ldots,1)^T$ とする。
 4. 第 $k$ 成分を除いた
 
    $$
-   \widehat p^{(-k)}=(\widehat p_1,\ldots,\widehat p_{k-1})^T
+   \widehat p^{(-k)}
+   =(\widehat p_1,\ldots,\widehat p_{k-1})^T
    $$
 
-   の漸近共分散行列を書き、なぜこちらは非退化になるのか説明せよ。
+   の漸近分散共分散行列を書き、なぜこちらは非退化になるのか説明せよ。
 5. $k=3$,
 
    $$
    p=\left(\frac12,\frac13,\frac16\right)^T
    $$
 
-   とする。
-   $\sqrt n(\widehat p_1-p_1,\widehat p_2-p_2)^T$ の漸近共分散行列を求め、さらに
+   とする。$\sqrt n(\widehat p_1-p_1,\widehat p_2-p_2)^T$ の漸近分散共分散行列を求め、さらに
 
    $$
    \sqrt n\left\{(\widehat p_1-\widehat p_2)-(p_1-p_2)\right\}
@@ -94,8 +126,7 @@ $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ に従う。
    の漸近分散を求めよ。
 
 > **使用してよい定理（Cramér--Wold）**  
-> 確率ベクトル $X_n,X$ について、任意の固定ベクトル $a$ に対して
-> $a^TX_n\xrightarrow{d}a^TX$ が成り立てば、$X_n\xrightarrow{d}X$ である。
+> 確率ベクトル $X_n,X$ について、任意の固定ベクトル $a$ に対して $a^TX_n\xrightarrow{d}a^TX$ が成り立てば、$X_n\xrightarrow{d}X$ である。
 
 ---
 
@@ -103,11 +134,9 @@ $\operatorname{Multinomial}(n;p_1,\ldots,p_k)$ に従う。
 
 この問題の中心は、多項分布の公式を個別に暗記することではない。
 
-**1回のカテゴリ試行を one-hot ベクトルで表し、その独立和として多項分布を見る**
+**1回のカテゴリ試行を one-hot ベクトルで表し、その独立和として多項分布を見る**ことで、平均・分散共分散・多変量中心極限定理・特異性までを一つの流れで導ける。
 
-ことで、平均・共分散・多変量中心極限定理・共分散行列の特異性までを一つの流れで導ける。
-
-### 1. one-hot ベクトルから平均・共分散を導く
+### 1. one-hot ベクトルから平均・分散共分散を導く
 
 $p=(p_1,\ldots,p_k)^T$ とする。
 
@@ -128,8 +157,6 @@ $$
 $$
 \boxed{E[Z_r]=p}.
 $$
-
-次に共分散を求める。
 
 #### 対角成分
 
@@ -174,7 +201,7 @@ $$
 \end{aligned}
 $$
 
-以上より、1試行の共分散行列は
+以上より、1試行の分散共分散行列は
 
 $$
 \boxed{
@@ -184,7 +211,7 @@ $$
 }.
 $$
 
-成分で書けば
+成分表示では
 
 $$
 \Sigma_{ij}
@@ -204,7 +231,7 @@ $$
 =\frac1n\sum_{r=1}^n Z_r.
 $$
 
-したがって線形性から
+したがって
 
 $$
 E[\widehat p]
@@ -212,8 +239,7 @@ E[\widehat p]
 =p.
 $$
 
-また試行間は独立なので、$r\ne s$ では
-$\operatorname{Cov}(Z_r,Z_s)=0$。よって
+また試行間は独立だから $r\ne s$ では $\operatorname{Cov}(Z_r,Z_s)=0$。よって
 
 $$
 \begin{aligned}
@@ -229,16 +255,12 @@ $$
 $$
 E[N]=np,
 \qquad
-\operatorname{Cov}(N)=n\Sigma
+\operatorname{Cov}(N)=n\Sigma.
 $$
-
-も同時に得られる。
 
 ---
 
 ### 2. 1変量中心極限定理から多変量中心極限定理を導く
-
-ここで「多変量中心極限定理」を完成した公式として置くのではなく、1変量中心極限定理から導く。
 
 任意の固定ベクトル
 
@@ -246,9 +268,7 @@ $$
 a=(a_1,\ldots,a_k)^T
 $$
 
-を取る。
-
-1回の試行について
+を取り、
 
 $$
 Y_r=a^TZ_r
@@ -256,19 +276,11 @@ $$
 
 と置く。
 
-$Z_r$ は one-hot ベクトルなので、$C_r=i$ のとき
+$Z_r$ は one-hot ベクトルなので、$C_r=i$ のとき $Y_r=a_i$ である。したがって
 
 $$
-Y_r=a_i.
+P(Y_r=a_i)=p_i.
 $$
-
-したがって $Y_r$ は
-
-$$
-P(Y_r=a_i)=p_i
-$$
-
-という1変量確率変数である。
 
 その平均は
 
@@ -285,7 +297,7 @@ $$
 =a^T\Sigma a.
 $$
 
-実際、直接書けば
+直接書けば
 
 $$
 \boxed{
@@ -295,28 +307,21 @@ a^T\Sigma a
 }.
 $$
 
-これは「確率 $p_i$ で値 $a_i$ を取る変数」の分散そのものである。
+これは「確率 $p_i$ で値 $a_i$ を取る確率変数」の分散そのものである。
 
-一方
+一方、
 
 $$
 \begin{aligned}
 a^T\sqrt n(\widehat p-p)
-&=a^T\sqrt n\left(
-\frac1n\sum_{r=1}^nZ_r-p
-\right)\\
 &=\frac1{\sqrt n}
-\sum_{r=1}^n
-\{a^TZ_r-a^Tp\}\\
+\sum_{r=1}^n\{a^TZ_r-a^Tp\}\\
 &=\frac1{\sqrt n}
-\sum_{r=1}^n
-\{Y_r-E[Y_r]\}.
+\sum_{r=1}^n\{Y_r-E[Y_r]\}.
 \end{aligned}
 $$
 
-$Y_1,\ldots,Y_n$ は独立同分布であり、取り得る値は有限個なので分散も有限である。
-
-したがって Lindeberg--Lévy の1変量中心極限定理より
+$Y_1,\ldots,Y_n$ は独立同分布で有限分散を持つから、1変量中心極限定理より
 
 $$
 \boxed{
@@ -326,124 +331,194 @@ N(0,a^T\Sigma a)
 }.
 $$
 
-これは任意の固定 $a$ について成り立つ。
-
-ここで Cramér--Wold の定理を用いると、全ての線形結合の極限分布が一致することから
+これは任意の固定 $a$ について成り立つ。したがって Cramér--Wold の定理より
 
 $$
 \boxed{
 \sqrt n(\widehat p-p)
 \xrightarrow{d}
 N_k(0,\Sigma)
-}
+}.
 $$
-
-を得る。
-
-つまり多項比率の多変量中心極限定理は、one-hot ベクトルに対する通常の標本平均の中心極限定理である。
 
 ---
 
-### 3. なぜ共分散行列は特異なのか
+### 3. なぜ分散共分散行列は特異なのか
 
-one-hot ベクトルは各試行で必ず成分のどれか1個だけが1になる。従って
+ここがこの問題の線形代数上の核心である。
+
+#### 3.1 まず「特異」を確率的に読む
+
+one-hot ベクトルは各試行で必ず成分のどれか1個だけが1になるため、
 
 $$
-\boldsymbol{1}^TZ_r=1
+\boldsymbol1^TZ_r=1
 $$
 
 が恒等的に成り立つ。
 
-標本平均を取っても
+従って標本平均についても
+
+$$
+\boxed{\boldsymbol1^T\widehat p=1}.
+$$
+
+母比率も
+
+$$
+\boldsymbol1^Tp=1
+$$
+
+だから、差を取れば
 
 $$
 \boxed{
-\boldsymbol{1}^T\widehat p=1
-}
+\boldsymbol1^T(\widehat p-p)=0
+}.
 $$
 
-である。
+つまり $\widehat p-p$ は $\mathbb R^k$ の全方向へ自由に動けない。
 
-母比率についても
+たとえば $k=3$ なら
 
 $$
-\boldsymbol{1}^Tp=1
+x_1+x_2+x_3=0
 $$
 
-なので
+という平面上だけを動く。一般には
+
+$$
+\mathcal H
+=\{x\in\mathbb R^k:\boldsymbol1^Tx=0\}
+$$
+
+という $(k-1)$ 次元超平面上に拘束される。
+
+この **1本の完全な線形制約** が、分散共分散行列が特異になる確率的・幾何学的理由である。
+
+#### 3.2 行列計算で確認する
+
+$$
+\Sigma
+=\operatorname{diag}(p)-pp^T
+$$
+
+だから
+
+$$
+\begin{aligned}
+\Sigma\boldsymbol1
+&=\{\operatorname{diag}(p)-pp^T\}\boldsymbol1\\
+&=p-p(\boldsymbol1^Tp)\\
+&=p-p\\
+&=\boldsymbol0.
+\end{aligned}
+$$
+
+ここで $\boldsymbol1\neq\boldsymbol0$ である。
+
+したがって、非零ベクトル $\boldsymbol1$ が $\Sigma$ によって0へ写されるので
+
+$$
+\boxed{\Sigma\text{ は特異}}.
+$$
+
+零空間の記号を使えば
 
 $$
 \boxed{
-\boldsymbol{1}^T(\widehat p-p)=0
-}
+\boldsymbol1\in\operatorname{Null}(\Sigma)
+}.
 $$
 
-が標本サイズ $n$ に関係なく常に成り立つ。
+「特異だから何なのか」を行列式だけで覚えるより、**0へつぶされる方向がある**と理解するほうが、この問題では本質に近い。
+
+#### 3.3 零空間が本当に $\boldsymbol1$ 方向だけであることを示す
+
+$\operatorname{Null}(\Sigma)$ に入る任意のベクトル $a$ を取る。すなわち
+
+$$
+\Sigma a=0.
+$$
+
+すると
+
+$$
+a^T\Sigma a=0.
+$$
+
+一方、第2問で
+
+$$
+a^T\Sigma a
+=\operatorname{Var}(a_{C_r})
+$$
+
+と分かった。
 
 したがって
 
 $$
-\sqrt n(\widehat p-p)
+\operatorname{Var}(a_{C_r})=0.
 $$
 
-は $\mathbb R^k$ 全体を動くのではなく、
+分散が0ということは $a_{C_r}$ が確率1で定数であることを意味する。しかも全ての $p_i>0$ なので、各カテゴリ $i$ は正の確率で起こる。従って
 
 $$
-\boxed{
-\mathcal H
-=\{x\in\mathbb R^k:\boldsymbol{1}^Tx=0\}
-}
+a_1=a_2=\cdots=a_k=c
 $$
 
-という $(k-1)$ 次元超平面の上だけを動く。
-
-これが特異性の幾何学的な理由である。
-
-行列計算でも
-
-$$
-\begin{aligned}
-\Sigma\boldsymbol{1}
-&=\{\operatorname{diag}(p)-pp^T\}\boldsymbol{1}\\
-&=p-p(\boldsymbol{1}^Tp)\\
-&=p-p\\
-&=0.
-\end{aligned}
-$$
-
-従って
-
-$$
-\boldsymbol{1}\in\operatorname{Null}(\Sigma).
-$$
-
-さらに任意の $a$ について
-
-$$
-a^T\Sigma a
-=\operatorname{Var}(a_{C_r})\ge0.
-$$
-
-$a^T\Sigma a=0$ となるのは、$a_{C_r}$ が確率1で定数となるときである。
-
-全ての $p_i>0$ だから全カテゴリが正の確率で起こり得る。従って
-
-$$
-a_1=a_2=\cdots=a_k
-$$
-
-でなければ分散0にはならない。
+でなければならない。
 
 すなわち
 
 $$
+a=c\boldsymbol1.
+$$
+
+よって
+
+$$
+\operatorname{Null}(\Sigma)
+\subset
+\operatorname{span}\{\boldsymbol1\}.
+$$
+
+逆にすでに $\Sigma\boldsymbol1=0$ を示しているので、任意の $c$ について
+
+$$
+\Sigma(c\boldsymbol1)=0.
+$$
+
+したがって逆向きの包含も成り立ち、
+
+$$
 \boxed{
 \operatorname{Null}(\Sigma)
-=\operatorname{span}\{\boldsymbol{1}\}
+=\operatorname{span}\{\boldsymbol1\}
 }.
 $$
 
-零空間の次元が1なので、階数・退化次数の定理から
+ここで $\operatorname{span}\{\boldsymbol1\}$ は
+
+$$
+\{c\boldsymbol1:c\in\mathbb R\}
+$$
+
+という1次元の部分空間である。したがって
+
+$$
+\dim\operatorname{Null}(\Sigma)=1.
+$$
+
+$\Sigma$ は $k\times k$ 行列なので、階数・退化次数の定理より
+
+$$
+\operatorname{rank}(\Sigma)
++\dim\operatorname{Null}(\Sigma)=k.
+$$
+
+ゆえに
 
 $$
 \boxed{
@@ -451,17 +526,24 @@ $$
 }.
 $$
 
-ここで重要なのは、
+#### 3.4 特異な正規分布を書いてよいのか
 
 $$
 N_k(0,\Sigma)
 $$
 
-と書いても誤りではないことである。
+と書くこと自体は誤りではない。
 
-$\Sigma$ が特異なら、これは $\mathbb R^k$ に通常の密度を持つ非退化正規分布ではなく、超平面 $\mathcal H$ 上に集中する **退化多変量正規分布** を表す。
+ただし $\Sigma$ が特異なので、これは $\mathbb R^k$ 全体に通常の $k$ 次元密度を持つ非退化正規分布ではない。確率質量は
 
-この「自由に動ける方向が $k-1$ 個しかない」という事実は、多項分布に基づく適合度検定で自由度 $k-1$ が現れる背景でもある。
+$$
+\mathcal H
+=\{x:\boldsymbol1^Tx=0\}
+$$
+
+という $(k-1)$ 次元超平面上に集中する。
+
+これを **退化多変量正規分布**という。
 
 ---
 
@@ -474,15 +556,13 @@ $$
 =1-\sum_{i=1}^{k-1}\widehat p_i
 $$
 
-で完全に決まる。
-
-従って独立な情報を表すには、最初の $k-1$ 成分だけを残せばよい。
+で完全に決まる。したがって、最初の $k-1$ 成分だけ残せば線形制約による冗長性が消える。
 
 $$
 q=(p_1,\ldots,p_{k-1})^T
 $$
 
-と置くと、$\widehat p^{(-k)}$ の漸近共分散行列は $\Sigma$ の左上 $(k-1)\times(k-1)$ ブロックだから
+と置くと、$\widehat p^{(-k)}$ の漸近分散共分散行列は $\Sigma$ の左上 $(k-1)\times(k-1)$ ブロックであり、
 
 $$
 \boxed{
@@ -501,19 +581,18 @@ N_{k-1}(0,\Sigma_{-k})
 }.
 $$
 
-これが非退化であることを確認する。
+これが正定値であることを確認する。
 
-任意の $b\in\mathbb R^{k-1}$ に対し、
+任意の $b\in\mathbb R^{k-1}$ に対して
 
 $$
-\begin{aligned}
 b^T\Sigma_{-k}b
-&=\sum_{i=1}^{k-1}p_i b_i^2
+=
+\sum_{i=1}^{k-1}p_i b_i^2
 -\left(\sum_{i=1}^{k-1}p_i b_i\right)^2.
-\end{aligned}
 $$
 
-これは、第 $k$ カテゴリに値0を割り当てた確率変数
+これは確率変数
 
 $$
 W=
@@ -525,27 +604,25 @@ $$
 
 の分散である。
 
-$p_k>0$ であり、さらに全ての $p_i>0$ だから、$\operatorname{Var}(W)=0$ なら $W$ は全カテゴリで同じ定数でなければならない。第 $k$ カテゴリで値0なので、その定数は0であり
+もし $\operatorname{Var}(W)=0$ なら $W$ は全カテゴリで同じ定数である。第 $k$ カテゴリでは値0であり $p_k>0$ だから、その定数は0。さらに各 $p_i>0$ より
 
 $$
 b_1=\cdots=b_{k-1}=0.
 $$
 
-従って $b\ne0$ なら
+したがって $b\neq0$ なら
 
 $$
 b^T\Sigma_{-k}b>0.
 $$
 
-すなわち
+よって
 
 $$
-\boxed{
-\Sigma_{-k}\text{ は正定値}
-}
+\boxed{\Sigma_{-k}\text{ は正定値}}
 $$
 
-であり、$(k-1)$ 次元では通常の非退化多変量正規分布になる。
+であり、$(k-1)$ 次元では非退化な多変量正規分布になる。
 
 ---
 
@@ -559,7 +636,7 @@ p_2=\frac13,
 p_3=\frac16.
 $$
 
-最初の2成分の漸近共分散行列は
+最初の2成分の漸近分散共分散行列は
 
 $$
 \Sigma_{-3}
@@ -573,21 +650,11 @@ $$
 各成分を計算すると
 
 $$
-p_1(1-p_1)
-=\frac12\cdot\frac12
-=\frac14,
-$$
-
-$$
-p_2(1-p_2)
-=\frac13\cdot\frac23
-=\frac29,
-$$
-
-$$
--p_1p_2
-=-\frac12\cdot\frac13
-=-\frac16.
+p_1(1-p_1)=\frac14,
+\qquad
+p_2(1-p_2)=\frac29,
+\qquad
+-p_1p_2=-\frac16.
 $$
 
 従って
@@ -614,11 +681,10 @@ $$
 
 $$
 \frac14\cdot\frac29-\left(\frac16\right)^2
-=\frac1{18}-\frac1{36}
 =\frac1{36}>0
 $$
 
-なので、実際にこの2次元共分散行列は非退化である。
+なので、この2次元の分散共分散行列は実際に非特異である。
 
 次に
 
@@ -646,8 +712,7 @@ a^T\Sigma a
 &=\sum_{i=1}^3p_i a_i^2
 -\left(\sum_{i=1}^3p_i a_i\right)^2\\
 &=p_1+p_2-(p_1-p_2)^2\\
-&=\frac12+\frac13
--\left(\frac12-\frac13\right)^2\\
+&=\frac12+\frac13-\left(\frac12-\frac13\right)^2\\
 &=\frac56-\frac1{36}\\
 &=\boxed{\frac{29}{36}}.
 \end{aligned}
@@ -665,27 +730,11 @@ N\left(0,\frac{29}{36}\right)
 }.
 $$
 
-同じ結果は2次元共分散行列から
-
-$$
-\operatorname{Var}(X-Y)
-=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y)
-$$
-
-として
-
-$$
-\frac14+\frac29-2\left(-\frac16\right)
-=\frac{29}{36}
-$$
-
-と求めてもよい。
-
 ---
 
 ## この問題で押さえる構造
 
-多項分布では次の流れを一つのまとまりとして理解する。
+多項分布では
 
 $$
 \boxed{
@@ -703,21 +752,28 @@ $$
 }
 $$
 
-また
+という流れを一つのまとまりとして理解する。
+
+さらに
 
 $$
 \sum_{i=1}^k\widehat p_i=1
 $$
 
-という1本の線形制約があるため、自由に変動できる方向は $k$ 個ではなく $k-1$ 個である。
+という1本の線形制約から
 
-これが
+$$
+\Sigma\boldsymbol1=0
+$$
 
-- 共分散行列の階数が $k-1$
-- 1カテゴリを落とすと非退化になる
-- 多項分布の適合度検定で $k-1$ が基準になる
+が生じる。つまり $\boldsymbol1$ 方向の変動が完全に消える。その結果として
 
-という複数の事実の共通原因である。
+- $\Sigma$ は特異になる。
+- $\operatorname{Null}(\Sigma)=\operatorname{span}\{\boldsymbol1\}$ となる。
+- $\operatorname{rank}(\Sigma)=k-1$ となる。
+- 1カテゴリを落とすと非退化になる。
+
+という事実がすべて同じ原因から出てくる。
 
 ---
 
@@ -769,30 +825,30 @@ $$
 \xrightarrow{d}N_k(0,\Sigma).
 $$
 
-一方
+一方、
 
 $$
-\boldsymbol{1}^T(\widehat p-p)=0
-$$
-
-が恒等的に成り立ち、
-
-$$
-\Sigma\boldsymbol{1}=0.
-$$
-
-また
-
-$$
-a^T\Sigma a
-=\operatorname{Var}(a_{C_r})
-$$
-
-だから、全ての $p_i>0$ の下では分散0となるのは $a$ が定数ベクトルのときだけ。従って
-
-$$
-\operatorname{Null}(\Sigma)=\operatorname{span}\{\boldsymbol1\},
+\boldsymbol1^T(\widehat p-p)=0,
 \qquad
+\Sigma\boldsymbol1=0.
+$$
+
+よって $\Sigma$ は特異で、$\boldsymbol1\in\operatorname{Null}(\Sigma)$。また
+
+$$
+a^T\Sigma a=\operatorname{Var}(a_{C_r})
+$$
+
+だから、全ての $p_i>0$ の下では分散0となるのは $a$ が定数ベクトルのときだけである。従って
+
+$$
+\operatorname{Null}(\Sigma)
+=\operatorname{span}\{\boldsymbol1\}.
+$$
+
+零空間の次元は1なので、階数・退化次数の定理より
+
+$$
 \operatorname{rank}(\Sigma)=k-1.
 $$
 
@@ -812,10 +868,10 @@ $$
 \begin{pmatrix}
 1/4&-1/6\\
 -1/6&2/9
-\end{pmatrix}.
+\end{pmatrix},
 $$
 
-$a=(1,-1,0)^T$ とすれば
+また $a=(1,-1,0)^T$ として
 
 $$
 a^T\Sigma a
@@ -827,8 +883,8 @@ $$
 
 ## 採点基準
 
-- one-hot 表現から平均・共分散行列を定義通り導出: 5点
-- 任意の線形結合に1変量中心極限定理を適用し、Cramér--Wold で多変量中心極限定理を導出: 5点
-- 成分和制約、零空間、階数 $k-1$、退化正規の説明: 4点
-- 1成分を落とした共分散行列と正定値性: 3点
-- $k=3$ の具体的共分散行列・コントラスト分散: 3点
+- one-hot 表現から平均・分散共分散行列を定義通り導出：5点
+- 任意の線形結合に1変量中心極限定理を適用し、Cramér--Wold で多変量中心極限定理を導出：5点
+- 成分和制約から特異性を説明し、零空間と階数 $k-1$ まで導出：4点
+- 1成分を落とした分散共分散行列と正定値性：3点
+- $k=3$ の具体的分散共分散行列・線形結合の分散：3点
