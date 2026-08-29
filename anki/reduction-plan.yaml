@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-29-sample-proportion-consolidation-22
+batch_id: 2026-08-29-cochran-consolidation-23
 items:
-  - id: samp-two-proportion-diff
+  - id: samp-chisq-mean-var-indep
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-sample-proportion
-    note: 強化済み標本比率canonicalへベルヌーイ標本平均としての1群分布に加え、独立2群の比率差の期待値・分散・正規近似と数値例を吸収済み。
+    canonical_card: samp-cochran-theorem
+    note: 強化済みCochran canonicalへ平方和の直交分解、(n-1)S^2/sigma^2~chi^2_{n-1}、標本平均と標本分散の独立性、t統計量への接続まで吸収済み。
