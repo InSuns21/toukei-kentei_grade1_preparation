@@ -1,88 +1,48 @@
 schema_version: 1
-batch_id: 2026-08-29-sampling-distributions-consolidation-19
+batch_id: 2026-08-29-sample-mean-interval-size-consolidation-20
 items:
-  - id: samp-chisq-additive
+  - id: samp-xbar-unbiased
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: カイ二乗canonicalへ独立和の再生性とモーメント母関数による確認を吸収済み。
-  - id: samp-chisq-expectation-squared
+    canonical_card: samp-xbar-normal-distribution
+    note: 強化済み標本平均canonicalへ期待値の線形性によるE[xbar]=muと不偏性を吸収済み。
+  - id: samp-iid-sum-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: カイ二乗canonicalへZ^2~chi-square_1と平均1・分散2を吸収済み。
-  - id: samp-chisq-from-normal
+    canonical_card: samp-xbar-normal-distribution
+    note: 強化済み標本平均canonicalへ独立和の分散n sigma^2とVar(xbar)=sigma^2/n、標準誤差を吸収済み。
+  - id: samp-ci-mean-t
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: カイ二乗canonicalへ標準正規平方からchi-square_1を得る2枝の変数変換を吸収済み。
-  - id: samp-chisq-gamma-relation
+    canonical_card: ci-t-interval-pivot
+    note: 母分散未知の正規平均t区間は区間推定canonicalにピボット構成・正規性依存・数値例まで詳細に実装済み。
+  - id: samp-ci-variance-chisq
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: カイ二乗canonicalへshape-rate表示Gamma(nu/2,1/2)との一致を吸収済み。
-  - id: samp-chisq-degree-of-freedom
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: カイ二乗canonicalへ自由度と平均nu・分散2nuの関係を吸収済み。
-  - id: prob-transform-normal-square-sum
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-chisq-definition
-    note: 標準正規の独立平方和、自由度、平均分散は強化済みカイ二乗canonicalに完全統合済み。
-  - id: samp-t-distribution-variance-unknown
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-t-statistic-mean-test
-    note: 母分散未知でsigmaをSへ置き換えるとt_{n-1}になる理由はt統計量canonicalに既に導出され、t分布canonicalにも構成法を統合済み。
-  - id: samp-t-converges-normal
-    bucket: duplicates
-    reason: duplicate
+    canonical_card: ci-variance-chi-derivation
+    note: 母分散のカイ二乗信頼区間は区間推定canonicalに不等式反転と非対称性まで詳細に実装済み。
+  - id: samp-chisq-percentile
+    bucket: reference_only
+    reason: reference_only
+    canonical_card: ci-variance-chi-derivation
+    note: カイ二乗分位点の上下の使い分けは母分散区間canonicalで実際の区間構成として扱っており、単独参照カードは不要。
+  - id: samp-f-percentile
+    bucket: reference_only
+    reason: reference_only
+    canonical_card: samp-f-distribution-definition
+    note: F分位点の逆数関係は強化済みF分布canonicalの1/F~F_{nu2,nu1}から導けるため単独参照カードは不要。
+  - id: samp-t-percentile-symmetry
+    bucket: reference_only
+    reason: reference_only
     canonical_card: samp-t-distribution-definition
-    note: t分布canonicalへV/nuの確率収束とSlutskyによる標準正規極限を吸収済み。
-  - id: samp-t-distribution-limits
+    note: t分布の0対称性は強化済みt分布canonicalに含まれ、分位点の符号反転はそこから直ちに導けるため単独カードは不要。
+  - id: samp-sample-size-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-t-distribution-definition
-    note: t分布canonicalへ自由度1の標準コーシー分布と自由度無限大での標準正規極限を吸収済み。
-  - id: prob-transform-student-t
+    canonical_card: ci-sample-size-for-width
+    note: 強化済み標本サイズcanonicalへ母平均の半幅制約からnを解いて切り上げる手順と数値例を吸収済み。
+  - id: samp-sample-size-proportion
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-t-distribution-definition
-    note: 標準正規と独立カイ二乗の比によるt分布構成は強化済みt分布canonicalへ統合済み。
-  - id: samp-f-inverse-relation
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-f-distribution-definition
-    note: F分布canonicalへ逆数で自由度が交換される関係を吸収済み。
-  - id: samp-t-squared-f
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-f-distribution-definition
-    note: F分布canonicalへt_nu^2~F_{1,nu}の導出を吸収済み。
-  - id: samp-sqrt-f-t
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-f-distribution-definition
-    note: F分布canonicalへsqrt(F_{1,nu})が|t_nu|に対応し符号を失う点を吸収済み。
-  - id: prob-transform-f-ratio
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-f-distribution-definition
-    note: 独立カイ二乗を自由度で割った比によるF分布構成は強化済みF分布canonicalへ統合済み。
-  - id: samp-min-distribution
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-order-statistics-distribution
-    note: 一般の第k順序統計量canonicalへ最小値の生存関数導出と指数分布の最小値例を吸収済み。
-  - id: prob-transform-iid-maximum-density
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-order-statistics-distribution
-    note: 最大値・最小値の一般公式と一様・指数の代表例を第k順序統計量canonicalへ統合済み。
-  - id: dist-order-max
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: samp-order-statistics-distribution
-    note: 一様標本最大値の累積分布関数から密度を求める旧pilotは一般の順序統計量canonicalの特殊例として統合済み。
+    canonical_card: ci-sample-size-for-width
+    note: 強化済み標本サイズcanonicalへ母比率の設計式、p未知時の最悪ケースp=1/2、数値例を吸収済み。
