@@ -58,7 +58,7 @@ sources:
   - type: official_syllabus
     topic: AIC
 archive_reason: too_specific
-canonical_card: ms-aic-numeric-comparison
+canonical_card: ms-bic-numeric-comparison
 archive_note: AICとLOOCVの漸近同値は理論補足としては有用だが、通常の統計検定1級カード600枚枠で独立に反復する優先度は低い。公式・補足側へ寄せる。
 ---
 ## 問題

@@ -200,7 +200,7 @@ sources:
   - type: official_syllabus
     topic: AIC
 archive_reason: duplicate
-canonical_card: ms-aic-numeric-comparison
+canonical_card: ms-bic-numeric-comparison
 archive_note: 最大対数尤度と母数数からAICを計算して小さいモデルを選ぶ同一操作。モデル選択canonicalへ統合する。
 ---
 ## 問題

@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: モデル評価基準
 archive_reason: reference_only
-canonical_card: ms-aic-numeric-comparison
+canonical_card: ms-bic-numeric-comparison
 archive_note: AIC/BICが最大化対数尤度と母数数を使うというメタ説明は、AIC/BICの数値比較カードから直ちに読める。独立した試験moveではない。
 ---
 ## 問題

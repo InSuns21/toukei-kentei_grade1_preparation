@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: AIC
 archive_reason: duplicate
-canonical_card: ms-aic-numeric-comparison
+canonical_card: ms-bic-numeric-comparison
 archive_note: AIC=-2ell+2k
   の公式だけを再生するカードを別に持たない。canonical側は公式、2モデルへの代入、罰則とのトレードオフ、選択まで一度に実行する。
 ---

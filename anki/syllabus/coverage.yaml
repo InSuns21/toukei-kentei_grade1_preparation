@@ -812,17 +812,13 @@ items:
   - id: math-model-selection
     status: complete
     cards:
-      - ms-aic-numeric-comparison
+      - ms-bic-numeric-comparison
       - ms-overfitting-generalization
       - ms-kl-divergence
       - ms-kl-nonnegativity
-      - ms-bic-numeric-comparison
       - ms-variable-selection-stepwise
       - ms-kfold-cv-numeric
-      - ms-ridge-regression
       - ms-ridge-lasso-orthogonal-numeric
-      - ms-lasso-regression
-      - ms-l1-l2-difference
       - ms-regularization-bias-variance
       - ms-lasso-selection
       - ms-multicollinearity-ridge
@@ -836,7 +832,6 @@ items:
       - name: 情報量規準AIC
         status: card
         cards:
-          - ms-aic-numeric-comparison
           - ms-bic-numeric-comparison
       - name: クロスバリデーション
         status: card
@@ -2026,8 +2021,6 @@ items:
       - reg-dffits-numeric
       - reg-hc3-sandwich
       - reg-feasible-gls-steps
-      - reg-ridge-svd-shrinkage
-      - reg-mallows-cp
       - reg-nested-cross-validation
       - reg-software-output-interpretation
     terms:
@@ -2044,7 +2037,6 @@ items:
           - reg-stepwise-selection-warning
           - reg-lasso-soft-threshold
           - reg-lasso-vs-ridge
-          - reg-mallows-cp
           - reg-nested-cross-validation
       - name: 残差分析
         status: card
@@ -2069,7 +2061,6 @@ items:
         cards:
           - reg-condition-number
           - reg-ridge-closed-form
-          - reg-ridge-svd-shrinkage
       - name: L1正則化法
         status: card
         cards:
