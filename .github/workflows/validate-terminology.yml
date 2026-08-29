@@ -11,6 +11,7 @@ on:
       - 'anki/**'
       - 'references/terminology-guide.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_distribution_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-terminology.yml'
@@ -22,6 +23,7 @@ on:
       - 'anki/**'
       - 'references/terminology-guide.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_distribution_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-terminology.yml'
@@ -49,3 +51,6 @@ jobs:
         env:
           TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: npm run validate:terminology:changed
+
+      - name: Validate distribution names repo-wide
+        run: node scripts/audit_distribution_terminology.mjs --strict
