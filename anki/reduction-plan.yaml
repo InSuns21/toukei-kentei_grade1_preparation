@@ -1,58 +1,13 @@
 schema_version: 1
-batch_id: 2026-08-29-distribution-characteristics-consolidation-14
+batch_id: 2026-08-29-conditional-moments-inequalities-consolidation-15
 items:
-  - id: prob-expected-value-linearity
+  - id: prob-total-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-expected-value-function
-    note: 強化済み期待値canonicalへE[aX+bY+c]の線形性と独立性不要の注意を吸収済み。
-  - id: prob-expected-value-discrete
+    canonical_card: prob-conditional-covariance
+    note: 全共分散canonicalへY=Xを代入して全分散の法則を導出し、E[Var(X|Z)]=4, Var(E[X|Z])=3からVar(X)=7まで吸収済み。
+  - id: prob-markov-inequality
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-expected-value-function
-    note: 強化済みcanonicalへ離散型E[g(X)]=sum g(x)p(x)の一般式と具体的な期待値計算を吸収済み。
-  - id: prob-expected-value-integral
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-expected-value-function
-    note: 強化済みcanonicalへ連続型E[g(X)]=integral g(x)f(x)dxの一般式と密度2xの計算例を吸収済み。
-  - id: prob-variance-affine
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-variance-independent-sum
-    note: 一般線形結合の分散canonicalへVar(aX+c)=a^2 Var(X)を特殊形として統合し、Var(3X-2)=45の例も吸収済み。
-  - id: prob-standard-deviation-standardize
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-variance-independent-sum
-    note: 分散canonicalへZ=(X-mu)/sigmaの標準化とE[Z]=0, Var(Z)=1の導出・数値例を吸収済み。
-  - id: prob-median-from-density
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-percentile-from-cdf
-    note: 分位点canonicalへ中央値=q_0.5を統合し、密度3x^2から累積分布関数を作ってm=2^(-1/3)まで計算済み。
-  - id: prob-quartiles-iqr
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-percentile-from-cdf
-    note: 分位点canonicalへQ1=q_0.25, Q3=q_0.75, IQR=Q3-Q1を統合し、U(0,4)の数値例も吸収済み。
-  - id: prob-moment-central-relation
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-skewness-definition
-    note: 歪度canonicalへ二次中心モーメントmu2=mu2'-(mu1')^2の導出と分散との一致を吸収済み。
-  - id: prob-moment-third-central
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-skewness-definition
-    note: 歪度canonicalへ三次中心モーメントmu3=mu3'-3mu2'mu1'+2(mu1')^3の二項展開による導出を吸収済み。
-  - id: prob-skewness-shape
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-skewness-definition
-    note: 歪度canonicalの注意欄へ正負の典型的解釈、歪度0は対称性の十分条件でないこと、裾長を断定できない注意を統合済み。
-  - id: prob-kurtosis-shape
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-kurtosis-definition
-    note: 尖度canonicalへ正規分布の3との比較、超過尖度、外れ値感度の解釈と尾確率を一意に順序付けない注意を吸収済み。
+    canonical_card: prob-chebyshev-inequality
+    note: チェビシェフcanonicalへMarkovの一般定理、指示関数による導出、E[Y]=2でP(Y>=10)<=0.2の例を吸収し、二乗偏差へ適用してチェビシェフを導出済み。
