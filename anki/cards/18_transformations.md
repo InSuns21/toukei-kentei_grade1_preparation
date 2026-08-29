@@ -51,23 +51,49 @@ sources: [{ type: official_syllabus, topic: 変数変換 }]
 $X$ の確率密度関数を $f_X(x)=1/2$（$-1<x<1$）、それ以外で0とする。$Y=X^2$ の確率密度関数を求めよ。
 
 ## 答え
-$Y=X^2$ は単調でないので、累積分布関数を直接計算してから微分する。
+$X\sim U(-1,1)$、$Y=X^2$ なら
+$$f_Y(y)=\frac{1}{2\sqrt y},\qquad 0<y<1.$$
 
 ## 使用公式・定理
-非単調変換では $F_Y(y)=P(g(X)\le y)$ を領域 $\{x:g(x)\le y\}$ 上の積分で求め、$f_Y(y)=F_Y'(y)$ とする。
+$Y=g(X)$ が1対1でない場合、まず
+$$F_Y(y)=P\{g(X)\le y\}$$
+を領域確率として求めて微分する方法が安全である。
+
+ある $y$ に対する逆像が $x_1(y),\ldots,x_m(y)$ で、各枝が局所的に単調なら
+$$
+f_Y(y)=\sum_{j=1}^m f_X\{x_j(y)\}\left|\frac{dx_j}{dy}\right|.
+$$
+同じ $y$ へ写る枝を全て足すことが本質である。
 
 ## 計算例
-$0<y<1$ に対し、$X^2\le y$ は $-\sqrt y\le X\le\sqrt y$ と同値。したがって
-$$F_Y(y)=P(-\sqrt y\le X\le\sqrt y)=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx=\sqrt y.$$
-微分して
-$$f_Y(y)=\frac{d}{dy}\sqrt y=\frac{1}{2\sqrt y},\qquad 0<y<1.$$
-積分確認: $\int_0^1\frac{1}{2\sqrt y}dy=[\sqrt y]_0^1=1$。
+$0<y<1$ で
+$$X^2\le y\Longleftrightarrow -\sqrt y\le X\le\sqrt y$$
+だから
+$$
+F_Y(y)=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx=\sqrt y,
+$$
+よって
+$$f_Y(y)=F_Y'(y)=\frac1{2\sqrt y}.$$
+
+同じ操作を標準正規分布 $X\sim N(0,1)$ に対して行うと、$Y=X^2$ の逆像は $\pm\sqrt y$ なので
+$$
+\begin{aligned}
+f_Y(y)
+&=\phi(\sqrt y)\frac1{2\sqrt y}
+  +\phi(-\sqrt y)\frac1{2\sqrt y}\\
+&=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0,
+\end{aligned}
+$$
+これは $\chi_1^2$ の密度である。
+
+また $Y=|X|$ なら $y>0$ の逆像は $y,-y$ なので、対称性から
+$$f_Y(y)=\phi(y)+\phi(-y)=2\phi(y).$$
 
 ## 一手
-非単調では逆関数の公式を直接使わず、累積分布関数経由で処理する。
+非単調変換では「この $y$ を生む元の $x$ は何個あるか」を先に数える。迷ったら累積分布関数法へ戻る。
 
 ## 注意
-$y\ge1$ では $F_Y(y)=1$、$y\le0$ では $F_Y(y)=0$。端点の跳びはない。
+1本の逆関数だけを使うと確率質量を落とす。二乗・絶対値では通常、正負2枝を足す。
 
 <!-- CARD -->
 ---
@@ -162,48 +188,59 @@ sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
 独立な $X,Y$ はともに指数分布 $\operatorname{Exp}(1)$ に従うとする。密度は $f(x)=e^{-x}$（$x>0$）。$Z=X+Y$ の確率密度関数を求めよ。
 
 ## 答え
-畳み込み積分を立て、両方の密度が正になる積分区間を求める。
+独立な $X,Y\sim\operatorname{Exp}(1)$ なら
+$$f_{X+Y}(s)=se^{-s},\qquad s>0.$$
 
 ## 使用公式・定理
-独立な連続確率変数の和の密度は畳み込み
-$$f_Z(z)=\int_{-\infty}^{\infty}f_X(x)f_Y(z-x)\,dx.$$
+独立な連続確率変数 $X,Y$ の和 $S=X+Y$ の密度は
+$$
+f_S(s)=\int_{-\infty}^{\infty}f_X(x)f_Y(s-x)\,dx.
+$$
+差 $D=X-Y$ なら
+$$
+f_D(d)=\int_{-\infty}^{\infty}f_X(d+y)f_Y(y)\,dy.
+$$
+どちらも先に「両方の密度が正になる積分区間」を台から決める。
 
 ## 計算例
-$f_X(x)$ が正なのは $x>0$、$f_Y(z-x)$ が正なのは
-$$
-z-x>0
-\Longleftrightarrow
-x<z
-$$
-である。したがって $z>0$ のとき積分範囲は
-$$
-0<x<z.
-$$
-この範囲では
+指数分布では $x>0$ と $s-x>0$ の共通条件が $0<x<s$ なので
 $$
 \begin{aligned}
-f_Z(z)
-&=\int_0^z e^{-x}e^{-(z-x)}\,dx\\
-&=\int_0^z e^{-z}\,dx\\
-&=e^{-z}\int_0^z1\,dx\\
-&=ze^{-z}.
+f_S(s)
+&=\int_0^s e^{-x}e^{-(s-x)}\,dx\\
+&=e^{-s}\int_0^s1\,dx\\
+&=se^{-s},\qquad s>0.
 \end{aligned}
 $$
-よって
+
+$X,Y\sim U(0,1)$ なら、和では
+$$\max(0,s-1)<x<\min(1,s)$$
+が積分範囲で、被積分関数は1だから
 $$
-f_Z(z)=
-\begin{cases}
-ze^{-z},&z>0,\\
-0,&z\le0.
+f_S(s)=\begin{cases}
+s,&0<s<1,\\
+2-s,&1\le s<2,\\
+0,&\text{otherwise}.
 \end{cases}
 $$
-これは $\operatorname{Gamma}(2,1)$ の密度である。
+差 $D=X-Y$ では台の重なりの長さから
+$$f_D(d)=1-|d|,\qquad -1<d<1.$$
+
+さらに $X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$、$\lambda\ne\mu$ なら
+$$
+\begin{aligned}
+f_S(s)
+&=\int_0^s\lambda e^{-\lambda x}\mu e^{-\mu(s-x)}\,dx\\
+&=\frac{\lambda\mu}{\mu-\lambda}
+\left(e^{-\lambda s}-e^{-\mu s}\right),\qquad s>0.
+\end{aligned}
+$$
 
 ## 一手
-被積分関数が正になる $x$ の範囲を先に特定してから積分する。
+畳み込みでは公式を書いた直後に積分しない。まず元の2つの台を同時に満たす積分区間を解く。
 
 ## 注意
-独立同分布の指数分布の和はガンマ分布になる。$z\le0$ では $f_Z(z)=0$。
+独立性が必要である。台の共通部分を誤ると、積分計算が合っていても密度は誤る。
 
 <!-- CARD -->
 ---
@@ -223,52 +260,57 @@ sources: [{ type: official_syllabus, topic: 変数変換 }]
 独立な $X,Y$ はともに一様分布 $U(0,1)$ に従うとする。$Z=X/Y$ の累積分布関数を求めよ。
 
 ## 答え
-$P(X/Y\le z)$ を領域 $\{(x,y):x\le zy\}$ 上の二重積分で計算する。
-
-## 使用公式・定理
-連続な $(X,Y)$ の関数 $Z=g(X,Y)$ の累積分布関数は
-$$F_Z(z)=\iint_{g(x,y)\le z}f_{X,Y}(x,y)\,dx\,dy.$$
-
-## 計算例
-独立性より、単位正方形 $0<x<1$, $0<y<1$ 上で $f_{X,Y}(x,y)=1$ である。
-
-$0<z\le1$ のときは $zy\le1$ が全ての $0<y<1$ で成り立つので、領域は $0<x<zy$。したがって
+独立な $X,Y\sim U(0,1)$ なら
 $$
-\begin{aligned}
-F_Z(z)
-&=\int_0^1\int_0^{zy}1\,dx\,dy\\
-&=\int_0^1zy\,dy\\
-&=\frac z2.
-\end{aligned}
-$$
-
-$z>1$ では、$zy=1$ となる $y=1/z$ で領域の形が変わる。$0<y<1/z$ では $0<x<zy$、$1/z\le y<1$ では $0<x<1$ だから
-$$
-\begin{aligned}
-F_Z(z)
-&=\int_0^{1/z}\int_0^{zy}1\,dx\,dy
-  +\int_{1/z}^1\int_0^11\,dx\,dy\\
-&=\int_0^{1/z}zy\,dy
-  +\int_{1/z}^11\,dy\\
-&=\frac{1}{2z}+1-\frac1z\\
-&=1-\frac{1}{2z}.
-\end{aligned}
-$$
-よって
-$$
-F_Z(z)=
-\begin{cases}
-0,&z\le0,\\
-z/2,&0<z\le1,\\
-1-1/(2z),&z>1.
+F_R(r)=\begin{cases}
+0,&r\le0,\\
+r/2,&0<r\le1,\\
+1-1/(2r),&r>1.
 \end{cases}
 $$
 
+## 使用公式・定理
+$Y>0$ のとき $R=X/Y$ について
+$$
+F_R(r)=P(X\le rY)
+=\int P(X\le ry\mid Y=y)f_Y(y)\,dy.
+$$
+独立なら条件付き分布は周辺分布へ戻せるので
+$$
+F_R(r)=\int F_X(ry)f_Y(y)\,dy
+$$
+と書ける。台が有界なら、同じ確率を領域 $\{(x,y):x\le ry\}$ の二重積分で求めてもよい。
+
+## 計算例
+$0<r\le1$ では単位正方形内で $0<x<ry$ だから
+$$F_R(r)=\int_0^1\int_0^{ry}1\,dx\,dy=\frac r2.$$
+$r>1$ では $y=1/r$ で領域が変わるので
+$$
+\begin{aligned}
+F_R(r)
+&=\int_0^{1/r}ry\,dy+\int_{1/r}^11\,dy\\
+&=1-\frac1{2r}.
+\end{aligned}
+$$
+
+一方、独立な $X,Y\sim\operatorname{Exp}(1)$ では分母 $Y=y$ で条件付けて
+$$
+\begin{aligned}
+F_R(r)
+&=\int_0^\infty P(X\le ry)e^{-y}\,dy\\
+&=\int_0^\infty(1-e^{-ry})e^{-y}\,dy\\
+&=1-\frac1{1+r}\\
+&=\frac r{1+r},\qquad r>0.
+\end{aligned}
+$$
+微分して
+$$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
+
 ## 一手
-不等式の領域を図示し、台との交わり方で積分区間を場合分けする。
+分母が正なら、$X/Y\le r$ を $X\le rY$ に直す。次に分母で条件付けるか、台の中の領域として積分する。
 
 ## 注意
-$z\le0$ では $F_Z(z)=0$。微分すると $f_Z(z)=1/2$（$0<z\le1$）、$f_Z(z)=1/(2z^2)$（$z>1$）。
+分母が負も取り得る場合は不等号の向きが変わるため、符号で場合分けが必要である。
 
 <!-- CARD -->
 ---
@@ -363,22 +405,49 @@ sources: [{ type: official_syllabus, topic: 変数変換 }]
 $X$ を標準正規分布 $N(0,1)$ に従う確率変数とし、$Y=e^X$ とする。$Y$ の確率密度関数を求めよ。
 
 ## 答え
-単調増加変換なので逆変換とJacobianの公式を使う。
+$X\sim N(0,1)$、$Y=e^X$ なら
+$$
+f_Y(y)=\frac{1}{y\sqrt{2\pi}}\exp\left\{-\frac{(\log y)^2}{2}\right\},
+\qquad y>0.
+$$
 
 ## 使用公式・定理
-単調な変換 $Y=g(X)$ では
-$$f_Y(y)=f_X(g^{-1}(y))\left|\frac{d}{dy}g^{-1}(y)\right|.$$
+$Y=g(X)$ が台上で1対1かつ単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
+$$
+f_Y(y)=f_X\{g^{-1}(y)\}\left|\frac{d}{dy}g^{-1}(y)\right|.
+$$
+手順は
+$$
+\text{逆変換}\to\text{Jacobianの絶対値}\to\text{元密度へ代入}\to\text{変換後の台}
+$$
+である。単調減少でもJacobianは絶対値を取るので密度は負にならない。
 
 ## 計算例
-逆変換は $x=\log y$、導関数は $dx/dy=1/y$。標準正規密度 $\phi(x)=(2\pi)^{-1/2}e^{-x^2/2}$ を代入して
-$$f_Y(y)=\frac{1}{\sqrt{2\pi}}e^{-(\log y)^2/2}\cdot\frac1y,\qquad y>0.$$
-これは対数正規分布（$\log Y\sim N(0,1)$）の密度である。
+まず $Y=e^X$ では逆変換が
+$$x=\log y,\qquad \left|\frac{dx}{dy}\right|=\frac1y$$
+なので
+$$
+f_Y(y)=\phi(\log y)\frac1y
+=\frac{1}{y\sqrt{2\pi}}e^{-(\log y)^2/2},\qquad y>0.
+$$
+
+単調減少の例として $X\sim U(0,2)$、$Y=3-2X$ なら
+$$x=\frac{3-y}{2},\qquad \left|\frac{dx}{dy}\right|=\frac12.$$
+元密度は $1/2$ だから
+$$f_Y(y)=\frac14.$$
+台は
+$$0<\frac{3-y}{2}<2\Longleftrightarrow -1<y<3.$$
+
+非線形の単調減少例として $X\sim U(0,1)$、$Y=1/X$ なら
+$$x=\frac1y,\qquad \left|\frac{dx}{dy}\right|=\frac1{y^2},$$
+かつ $0<x<1\Longleftrightarrow y>1$ なので
+$$f_Y(y)=\frac1{y^2},\qquad y>1.$$
 
 ## 一手
-逆変換 $g^{-1}(y)$ を求め、元密度へ代入してから $|d g^{-1}/dy|$ を掛ける。
+1対1の単調変換では、まず $x$ を $y$ の式として解く。次に $|dx/dy|$ を掛け、最後に元の台を $y$ の条件へ変換する。
 
 ## 注意
-変換後の台は $y>0$。$y\le0$ では $f_Y(y)=0$。
+単調減少では不等号の向きが変わるが、密度へ掛けるJacobianは絶対値である。変換後の台を書かないと正規化を誤りやすい。
 
 <!-- CARD -->
 
@@ -549,16 +618,43 @@ sources: [{ type: official_syllabus, topic: 変数変換 }]
 ## 問題
 $X_1,\ldots,X_n$ は累積分布関数 $F$、密度 $f$ を持つ独立同分布標本である。$M=\max_iX_i$ の密度を求め、一様分布 $U(0,1)$、$n=3$ で具体化せよ。
 ## 答え
-$$f_M(m)=nF(m)^{n-1}f(m).$$
-$U(0,1)$、$n=3$ なら $f_M(m)=3m^2$（$0<m<1$）。
+最大値は $F^n$、最小値は生存関数 $(1-F)^n$ から始める。
+
 ## 使用公式・定理
-$$P(M\le m)=P(X_1\le m,\ldots,X_n\le m)=F(m)^n.$$
+$X_1,\ldots,X_n$ が累積分布関数 $F$、密度 $f$ を持つ独立同分布標本とする。最大値 $M=\max_iX_i$ は
+$$
+F_M(m)=P(M\le m)=F(m)^n,
+$$
+よって
+$$f_M(m)=nF(m)^{n-1}f(m).$$
+最小値 $L=\min_iX_i$ は生存関数を使って
+$$
+P(L>\ell)=\{1-F(\ell)\}^n,
+$$
+よって
+$$f_L(\ell)=n\{1-F(\ell)\}^{n-1}f(\ell).$$
+
 ## 計算例
-$F(m)=m$ を代入して $F_M(m)=m^3$。微分すると $f_M(m)=3m^2$。
+$X_i\sim U(0,1)$、$n=3$ なら $0<m<1$ で
+$$F_M(m)=m^3,\qquad f_M(m)=3m^2.$$
+
+一方 $X_i\sim\operatorname{Exp}(\lambda)$ なら
+$$P(X_i>\ell)=e^{-\lambda\ell}$$
+なので
+$$
+P(L>\ell)=e^{-n\lambda\ell},
+$$
+したがって
+$$L\sim\operatorname{Exp}(n\lambda),
+\qquad
+f_L(\ell)=n\lambda e^{-n\lambda\ell}.
+$$
+
 ## 一手
-最大値の「以下」は全標本が以下という積事象に直す。
+最大値の「以下」は全標本が以下、最小値の「超える」は全標本が超える、と積事象へ直す。
+
 ## 注意
-独立性がなければ $F(m)^n$ にはならない。
+$F(m)^n$ や $(1-F(\ell))^n$ を使うには標本の独立性が必要である。最小値の指数率は $\lambda/n$ ではなく $n\lambda$。
 
 <!-- CARD -->
 ---
