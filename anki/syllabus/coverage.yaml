@@ -89,12 +89,9 @@ items:
       - prob-pgf-thinning
       - prob-mgf-mean-variance
       - prob-mgf-affine-transform
-      - prob-mgf-iid-sum
-      - prob-mgf-exponential-domain
       - prob-mgf-gamma
-      - prob-mgf-identify-normal
-      - prob-mgf-nonexistence
       - prob-mgf-uniqueness-domain
+      - prob-mgf-nonexistence
       - prob-density-from-cdf-derivative
       - prob-characteristic-function-definition
       - prob-characteristic-function-sum
@@ -173,12 +170,9 @@ items:
           - prob-mgf-independent-sum
           - prob-mgf-mean-variance
           - prob-mgf-affine-transform
-          - prob-mgf-iid-sum
-          - prob-mgf-exponential-domain
           - prob-mgf-gamma
-          - prob-mgf-identify-normal
-          - prob-mgf-nonexistence
           - prob-mgf-uniqueness-domain
+          - prob-mgf-nonexistence
   - id: math-distribution-characteristics
     status: complete
     cards:
