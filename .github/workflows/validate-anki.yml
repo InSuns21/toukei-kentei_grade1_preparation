@@ -46,5 +46,13 @@ jobs:
       - name: Validate Anki
         run: npm run anki:validate
 
+      - name: Upload Anki quality audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anki-quality-audit
+          path: anki/reports/quality_audit.md
+          if-no-files-found: ignore
+
       - name: Validate indicator notation
         run: node anki/scripts/validate_indicator_notation.mjs
