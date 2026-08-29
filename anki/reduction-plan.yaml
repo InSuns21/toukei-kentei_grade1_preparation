@@ -1,41 +1,36 @@
 schema_version: 1
-batch_id: 2026-08-29-reg-ts-dedupe-01
+batch_id: 2026-08-29-poisson-ols-dedupe-01
 items:
-  # Regression: 数理側の一般カードに同じ行列計算・t区間・F表計算が既にある。
-  - id: enginf-linear-model-dimensions
+  # OLS: 公式暗記カードを導出カードへ畳み、以前archiveしたpilotの参照も最終canonicalへ追随させる。
+  - id: reg-ols-simple-formula
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multiple-model-matrix
-    note: Y=X beta+epsilon の行列表記と各次元を確認する同一論点。数理側の重回帰行列表記を正本にする。
-  - id: enginf-ols-matrix-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-matrix-ols-derivation
-    note: (X^T X)^{-1}X^T Y を2次行列で計算するだけ。数理側の導出カードにも同型の2x2数値例がある。
-  - id: enginf-coefficient-confidence-interval
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-slope-confidence-interval
-    note: 推定係数±t臨界値×SEという同じ区間構成。一般の係数でも傾きでも解法moveは同一。
-  - id: enginf-regression-anova-output
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-overall-f-test
-    note: SSR・SSEからMSR・MSE・Fを作る操作は重回帰の全体F検定と同一。R2計算はreg-r-squared側で保持する。
+    canonical_card: reg-ols-normal-equations-simple
+    note: 傾き・切片公式は正規方程式を解く導出カードの結論そのもの。公式単独暗記を残さず、導出から再生するカードをcanonicalにする。
 
-  # Time series / stochastic processes: 名前空間や工学設定だけを変えた同一操作を統合する。
-  - id: engproc-ar2-root-stability
+  # Poisson process: 工学の故障・欠陥設定に変えただけでcommon側と同じmoveのカードを統合する。
+  - id: engproc-poisson-failure-count
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar-causality-check
-    note: AR(2)多項式の根を解き、全て単位円外か判定する同一操作。因果性と定常因果解の条件はこの設定では同じ根条件を使う。
-  - id: engproc-random-walk-difference-data
+    canonical_card: stoch-poisson-count-numeric
+    note: N(t)~Poisson(lambda t) として区間内件数確率を計算する同一操作。工学側はNHPPや曝露時間MLEなど固有論点を残す。
+  - id: engproc-poisson-thinning-defects
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-difference-random-walk
-    note: 累積系列を1階差分してランダムウォークの増分へ戻す同じ操作。common側はARIMA(0,1,0)まで接続するため情報量が多い。
-  - id: engproc-random-walk-drift-calibration
+    canonical_card: stoch-poisson-thinning
+    note: 各到着を独立確率pで分類して率をp lambdaへ落とす同じ間引き操作。
+  - id: engproc-poisson-superposition-machines
     bucket: duplicates
     reason: duplicate
-    canonical_card: stoch-random-walk-mean-variance
-    note: 独立増分の和について平均をn倍・分散をn倍する同一move。工学側には吸収確率・平均吸収時間など別論点を残す。
+    canonical_card: stoch-poisson-superposition
+    note: 独立ポアソン過程を重ねて率を加算する同一定理・同一計算。
+  - id: engproc-compound-poisson-cost
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: stoch-compound-poisson-moments
+    note: 複合ポアソン和の平均lambda muと分散lambda(sigma^2+mu^2)を求める同一moveの数値設定版。
+  - id: process-poisson-wait
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: stoch-poisson-arrival-gamma
+    note: 最初の到着時刻が指数分布になる議論は、第k到着時刻Gamma(k,lambda)のk=1。一般カードをcanonicalにする。
