@@ -152,40 +152,72 @@ ARまたはMA次数の見直し、季節項の追加、外れ値の確認が次�
 
 ---
 id: ts-ar-causality-check
-title: AR(2)の因果性を根から判定する
+title: AR(p)の因果性を根から判定する
 category: applied-common
 subcategory: applied-time-series
-topic: causality
+topic: ar-root-causality
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [ARモデル, 因果性, 特性方程式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 因果性・可逆性 }]
+hashtags:
+  - ARモデル
+  - 因果性
+  - 定常性
+  - 特性方程式
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 因果性・可逆性
 ---
 ## 問題
-$X_t=0.5X_{t-1}+0.2X_{t-2}+\varepsilon_t$ が因果的か判定せよ。
+AR$(p)$
+$$
+\phi(B)X_t=\varepsilon_t,
+\qquad
+\phi(z)=1-\phi_1z-\cdots-\phi_pz^p
+$$
+が因果的な定常解を持つ条件を根で述べよ。
+
+さらに
+$$
+X_t=0.5X_{t-1}+0.2X_{t-2}+\varepsilon_t
+$$
+を判定せよ。
+
 ## 記号・用語
 AR多項式は $\phi(z)=1-0.5z-0.2z^2$。因果的とは、$X_t$ が現在・過去の革新の収束する線形和で表せることをいう。
 ## 使用公式・定理
-**AR因果性条件**：AR多項式 $\phi(z)=0$ のすべての根が単位円の外側、すなわち絶対値1より大きければ因果的である。
+**AR因果性条件**：AR多項式
+$$
+\phi(z)=0
+$$
+のすべての根が単位円の外側、すなわち
+$$
+|z|>1
+$$
+なら、現在の $X_t$ を現在・過去の革新の絶対収束する線形和として表せる因果的定常解が得られる。
+
 ## 一手／方針
-特性方程式を二次方程式として解き、各根の絶対値を1と比較する。
+係数そのものを1と比較せず、AR多項式を作り、その根の絶対値を1と比較する。AR(2)なら二次方程式として解けばよい。
+
 ## 答え
-AR多項式の2根は約
+数値例のAR多項式は
+$$
+1-0.5z-0.2z^2.
+$$
+2根は約
 $$
 z_1=1.31,
 \qquad
 z_2=-3.81
 $$
-で、ともに絶対値が1より大きい。したがってこのAR$(2)$モデルは因果的である。
+で、ともに絶対値が1より大きい。したがって因果的な定常AR(2)モデルである。
 
 ## 計算例
-AR多項式は
-$$
-\phi(z)=1-0.5z-0.2z^2.
-$$
-根を求めるため
 $$
 1-0.5z-0.2z^2=0
 $$
@@ -193,32 +225,26 @@ $$
 $$
 0.2z^2+0.5z-1=0
 $$
-と書き直す。解の公式より
+と書く。解の公式より
 $$
 \begin{aligned}
 z
-&=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{2(0.2)}\\
-&=\frac{-0.5\pm\sqrt{0.25+0.8}}{0.4}\\
+&=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{0.4}\\
 &=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
 \end{aligned}
 $$
-$\sqrt{1.05}\approx1.0247$ なので
+よって
 $$
-z_1\approx\frac{0.5247}{0.4}\approx1.31,
+z_1\approx1.31,
+\qquad z_2\approx-3.81,
 $$
 $$
-z_2\approx\frac{-1.5247}{0.4}\approx-3.81.
+|z_1|>1,
+\qquad |z_2|>1.
 $$
-最後に
-$$
-|z_1|\approx1.31>1,
-\qquad
-|z_2|\approx3.81>1
-$$
-を確認する。すべての根が単位円の外側なので因果的である。
 
 ## 注意
-係数の絶対値がそれぞれ1未満というだけでは、一般のAR$(p)$の因果性を判定できない。
+標準的なARIMAの文脈では「ARの定常条件」としてこの根条件を述べることが多いが、厳密にはここで保証しているのは**因果的な定常解**である。未来の革新に依存する非因果的表現まで許す議論とは区別する。
 <!-- CARD -->
 
 ---
@@ -395,32 +421,89 @@ $$X_t-X_{t-1}=\phi(X_{t-1}-X_{t-2})+\varepsilon_t$$
 
 ---
 id: ts-difference-random-walk
-title: ランダムウォークを差分して定常化する
+title: ランダムウォークの非定常性を示して差分で定常化する
 category: applied-common
 subcategory: applied-time-series
-topic: differencing
+topic: random-walk-differencing
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [ランダムウォーク, 差分, ARIMAモデル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 差分・ARIMAモデル }]
+hashtags:
+  - ARIMAモデル
+  - ランダムウォーク
+  - 非定常
+  - 差分
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 差分・ARIMAモデル
 ---
 ## 問題
-$X_t=X_{t-1}+\varepsilon_t$ を差分して定常化し、ARIMA次数を答えよ。
+$$
+X_t=X_{t-1}+\varepsilon_t,
+\qquad X_0=0,
+$$
+$$
+E[\varepsilon_t]=0,
+\qquad \operatorname{Var}(\varepsilon_t)=\sigma^2
+$$
+で、革新が互いに無相関とする。
+
+1. $X_t$ が弱定常でないことを示せ。
+2. 一階差分 $\Delta X_t$ が定常になることを示せ。
+
 ## 記号・用語
 $\nabla X_t=(1-B)X_t=X_t-X_{t-1}$ は1階差分である。
 ## 使用公式・定理
-**ARIMAの定義**：$d$ 回差分後が ARMA$(p,q)$ なら、元の系列は ARIMA$(p,d,q)$ である。
+再帰式を展開すると
+$$
+X_t=\sum_{j=1}^{t}\varepsilon_j.
+$$
+したがって無相関な革新の分散加法性より
+$$
+\operatorname{Var}(X_t)=t\sigma^2.
+$$
+一階差分は
+$$
+\Delta X_t=X_t-X_{t-1}=\varepsilon_t.
+$$
+
 ## 一手／方針
-両辺から $X_{t-1}$ を引く。
+水準系列は革新を累積しているので分散が時間とともに増える。一方、隣接時点を引くと累積が打ち消され、革新そのものへ戻ることを見る。
+
 ## 答え
-$$\nabla X_t=X_t-X_{t-1}=\varepsilon_t.$$
-差分系列はホワイトノイズ、すなわち ARMA$(0,0)$ だから、$X_t$ は ARIMA$(0,1,0)$ である。
+$$
+\operatorname{Var}(X_t)=t\sigma^2
+$$
+が $t$ に依存するため $X_t$ は弱定常でない。
+
+しかし
+$$
+\Delta X_t=\varepsilon_t
+$$
+なので、革新がホワイトノイズなら一階差分系列は弱定常である。したがってランダムウォークは典型的な $I(1)$ 過程である。
+
 ## 計算例
-$X_0=10$、$(\varepsilon_1,\varepsilon_2,\varepsilon_3)=(2,-1,3)$ なら、$(X_1,X_2,X_3)=(12,11,14)$、1階差分は $(2,-1,3)$ となる。
+$\sigma^2=2$ なら
+$$
+\operatorname{Var}(X_1)=2,
+\quad \operatorname{Var}(X_5)=10,
+\quad \operatorname{Var}(X_{20})=40,
+$$
+と水準系列の分散は増え続ける。
+
+一方
+$$
+\operatorname{Var}(\Delta X_t)=\operatorname{Var}(\varepsilon_t)=2
+$$
+は時点に依存しない。
+
 ## 注意
-水準系列の分散は時刻とともに増えるので、ランダムウォーク自体は弱定常でない。
+平均が一定でも分散や自己共分散が時点に依存すれば弱定常ではない。差分を取り過ぎると別の依存構造を作るので、必要次数だけ差分する。
 <!-- CARD -->
 
 ---
@@ -716,34 +799,133 @@ $$P_{t\mid t-1}=0.5^2\cdot3+1=1.75.$$
 
 ---
 id: ts-kalman-update
-title: カルマンフィルタの更新ステップを計算する
+title: カルマンフィルタの予測→更新を1サイクル計算する
 category: applied-common
 subcategory: applied-time-series
-topic: kalman-update
+topic: kalman-filter-cycle
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [状態空間モデル, カルマンフィルタ, フィルタリング]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 状態空間モデル }]
+hashtags:
+  - 状態空間モデル
+  - カルマンフィルタ
+  - 予測
+  - フィルタリング
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 状態空間モデル
 ---
 ## 問題
-$a_{t\mid t-1}=1$、$P_{t\mid t-1}=1.75$、$Z=1$、$H=0.25$、$y_t=2$ のとき更新平均と更新分散を求めよ。
+1次元状態空間モデルで
+$$
+a_{t-1\mid t-1}=2,
+\quad P_{t-1\mid t-1}=3,
+\quad T=0.5,
+\quad Q=1,
+$$
+$$
+Z=1,
+\quad H=0.25,
+\quad y_t=2
+$$
+とする。カルマンフィルタの予測平均・予測分散を求め、その後に観測 $y_t$ で更新平均・更新分散を求めよ。
+
 ## 記号・用語
 $v_t=y_t-Za_{t\mid t-1}$ は予測誤差、$F_t=Z^2P_{t\mid t-1}+H$ はその分散、$K_t=P_{t\mid t-1}Z/F_t$ はカルマンゲインである。
 ## 使用公式・定理
-**カルマン更新式**：
-$$a_{t\mid t}=a_{t\mid t-1}+K_tv_t,\qquad P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}.$$
+**予測**：
+$$
+a_{t\mid t-1}=Ta_{t-1\mid t-1},
+$$
+$$
+P_{t\mid t-1}=T^2P_{t-1\mid t-1}+Q.
+$$
+
+**更新**：
+$$
+v_t=y_t-Za_{t\mid t-1},
+\qquad
+F_t=Z^2P_{t\mid t-1}+H,
+$$
+$$
+K_t=\frac{P_{t\mid t-1}Z}{F_t},
+$$
+$$
+a_{t\mid t}=a_{t\mid t-1}+K_tv_t,
+$$
+$$
+P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}.
+$$
+
+多次元では分散の予測を
+$$
+P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q
+$$
+とする。
+
 ## 一手／方針
-$v_t$、$F_t$、$K_t$ の順に求め、平均と分散を更新する。
+Kalmanフィルタは「前時点の事後分布を状態方程式で**予測**し、新しい観測でその予測を**更新**する」という2段階を毎時点で繰り返す。式を別カードとして暗記しない。
+
 ## 答え
-$$v_t=1,\qquad F_t=2,\qquad K_t=1.75/2=0.875,$$
-$$a_{t\mid t}=1+0.875=1.875,$$
-$$P_{t\mid t}=1.75-0.875\cdot1.75=0.21875.$$
+予測は
+$$
+a_{t\mid t-1}=1,
+\qquad P_{t\mid t-1}=1.75.
+$$
+更新では
+$$
+v_t=1,
+\qquad F_t=2,
+\qquad K_t=0.875,
+$$
+$$
+a_{t\mid t}=1.875,
+\qquad P_{t\mid t}=0.21875.
+$$
+
 ## 計算例
-$H$ が小さいため、更新平均は予測値1より観測値2に近い。
+まず予測平均は
+$$
+a_{t\mid t-1}=0.5\cdot2=1.
+$$
+予測分散は
+$$
+\begin{aligned}
+P_{t\mid t-1}
+&=0.5^2\cdot3+1\\
+&=0.75+1\\
+&=1.75.
+\end{aligned}
+$$
+次に
+$$
+v_t=2-1\cdot1=1,
+$$
+$$
+F_t=1^2\cdot1.75+0.25=2,
+$$
+$$
+K_t=\frac{1.75}{2}=0.875.
+$$
+したがって
+$$
+a_{t\mid t}=1+0.875\cdot1=1.875,
+$$
+$$
+\begin{aligned}
+P_{t\mid t}
+&=1.75-0.875\cdot1\cdot1.75\\
+&=0.21875.
+\end{aligned}
+$$
+
 ## 注意
-更新後分散 $0.21875$ が予測分散 $1.75$ より小さいことを確認する。
+分散の予測では状態係数を左右から掛ける。更新後分散が予測分散より小さくなることも検算に使える。数値安定性が必要な実装ではJoseph形式を使う場合がある。
 <!-- CARD -->
 
 ---
@@ -897,35 +1079,101 @@ $c=2,\phi=0.5$ なら平均4。
 
 ---
 id: ts-ar1-acf
-title: AR(1)の自己相関関数を導く
+title: AR(1)の定常平均・分散・自己相関を導く
 category: applied-common
 subcategory: applied-time-series
-topic: ar1-acf
+topic: ar1-moments-acf
 type: proof_step
 difficulty: 3
 priority: A
-hashtags: [ARIMAモデル, AR1, 自己相関関数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+hashtags:
+  - ARIMAモデル
+  - AR1
+  - 定常平均
+  - 自己相関関数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-平均0の定常AR(1) $X_t=\phi X_{t-1}+\varepsilon_t$ のACFを求めよ。
+切片付き定常AR(1)
+$$
+X_t=c+\phi X_{t-1}+\varepsilon_t,
+\qquad |\phi|<1,
+$$
+$$
+E[\varepsilon_t]=0,
+\qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+$$
+について、定常平均 $\mu$、定常分散 $\gamma(0)$、自己相関関数 $\rho(h)$ を導け。
+
 ## 記号・用語
 $X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
 ## 使用公式・定理
-$h\ge1$ で両辺と $X_{t-h}$ の共分散を取る。
+定常なら $E[X_t]=E[X_{t-1}]=\mu$ なので
+$$
+\mu=c+\phi\mu.
+$$
+中心化した $Y_t=X_t-\mu$ は
+$$
+Y_t=\phi Y_{t-1}+\varepsilon_t
+$$
+を満たす。
+
+革新は過去と無相関なので
+$$
+\gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2,
+$$
+また $h\ge1$ では
+$$
+\gamma(h)=\phi\gamma(h-1).
+$$
+
 ## 一手／方針
-モデル式と過去値の共分散を取り、現在の革新と過去値が無相関であることから再帰式を作る。
-$h\ge1$ でモデル式と $X_{t-h}$ の共分散を取り、革新 $\varepsilon_t$ が過去の $X_{t-h}$ と無相関であることを使う。
+まず期待値を取って平均を求め、その平均を引いて中心化する。中心化後は同じAR(1)再帰から、ラグ0では分散、ラグ $h\ge1$ では共分散の再帰を作る。
+
 ## 答え
-$$\gamma(h)=\phi\gamma(h-1)$$
-より
-$$\rho(h)=\phi^{|h|}.$$
-$$\gamma(h)=\operatorname{Cov}(\phi X_{t-1}+\varepsilon_t,X_{t-h})=\phi\gamma(h-1),$$ よって反復して $\gamma(h)=\phi^h\gamma(0)$、したがって $\rho(h)=\phi^h$ となる。
+$$
+\mu=\frac{c}{1-\phi},
+$$
+$$
+\gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2},
+$$
+$$
+\rho(h)=\phi^{|h|}.
+$$
+
 ## 計算例
-$\phi=-0.6$ ならACFは符号を交互に変えながら減衰する。
+$c=1,\phi=0.8,\sigma_\varepsilon^2=4$ とする。まず
+$$
+\begin{aligned}
+\mu
+&=\frac{1}{1-0.8}\\
+&=5.
+\end{aligned}
+$$
+分散は
+$$
+\begin{aligned}
+\gamma(0)
+&=\frac{4}{1-0.8^2}\\
+&=\frac{4}{0.36}\\
+&=\frac{100}{9}\approx11.11.
+\end{aligned}
+$$
+ラグ2の自己相関は
+$$
+\rho(2)=0.8^2=0.64.
+$$
+$\phi<0$ ならACFは符号を交互に変えながら幾何級数的に減衰する。
+
 ## 注意
-定常条件 $|\phi|<1$ が必要。
+切片 $c$ と定常平均 $\mu$ を混同しない。$|\phi|<1$ は通常の因果的定常AR(1)で必要である。
 <!-- CARD -->
 
 ---
@@ -959,31 +1207,114 @@ $$\widehat X_{t+1\mid t}=1+0.8(5)=5.$$
 
 ---
 id: ts-ar1-hstep-forecast
-title: AR(1)の多期先予測を平均回帰で表す
+title: AR(1)の多期先予測と予測誤差分散を導く
 category: applied-common
 subcategory: applied-time-series
-topic: ar1-hstep-forecast
+topic: ar1-forecast-canonical
 type: formula
 difficulty: 3
 priority: A
-hashtags: [ARIMAモデル, AR1, 多期先予測]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+hashtags:
+  - ARIMAモデル
+  - AR1
+  - 多期先予測
+  - 予測誤差分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-定常平均 $\mu$ のAR(1)について $h$ 期先予測を書け。
+定常平均 $\mu$ のAR(1)
+$$
+X_t-\mu=\phi(X_{t-1}-\mu)+\varepsilon_t,
+\qquad |\phi|<1,
+$$
+の $h$ 期先予測と予測誤差分散を導け。
+
+数値例として $\mu=5,\phi=0.8,X_t=7,\sigma_\varepsilon^2=1,h=2$ の予測値と予測誤差分散を求めよ。
+
 ## 記号・用語
 $X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
 ## 使用公式・定理
-$X_t-\mu=\phi(X_{t-1}-\mu)+\varepsilon_t$ を反復する。
+モデルを前向きに反復すると
+$$
+X_{t+h}-\mu
+=\phi^h(X_t-\mu)
++\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j}.
+$$
+時刻 $t$ までの情報を $\mathcal F_t$ とすると、将来革新は条件付き平均0だから
+$$
+\widehat X_{t+h\mid t}
+=E[X_{t+h}\mid\mathcal F_t]
+=\mu+\phi^h(X_t-\mu).
+$$
+予測誤差は
+$$
+e_{t+h\mid t}
+=\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j},
+$$
+よって独立な革新の分散を加えて
+$$
+\operatorname{Var}(e_{t+h\mid t})
+=\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}
+=\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
+$$
+
 ## 一手／方針
-1期先予測式を繰り返し代入し、平均からの偏差が各期で係数倍されることを使う。
+予測式と誤差分散を別暗記せず、AR(1)を $h$ 回反復した一つの展開式から、既知部分を条件付き期待値へ、未知の将来革新を予測誤差へ振り分ける。
+
 ## 答え
-$$\widehat X_{t+h\mid t}=\mu+\phi^h(X_t-\mu).$$
+$$
+\widehat X_{t+h\mid t}=\mu+\phi^h(X_t-\mu),
+$$
+$$
+\operatorname{Var}(e_{t+h\mid t})
+=\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
+$$
+$h=1$ なら通常の1期先予測になる。
+
+数値例では
+$$
+\widehat X_{t+2\mid t}=6.28,
+\qquad
+\operatorname{Var}(e_{t+2\mid t})=1.64.
+$$
+
 ## 計算例
-$|\phi|<1$ なら $h\to\infty$ で予測は $\mu$ へ近づく。
+まず2期先予測は
+$$
+\begin{aligned}
+\widehat X_{t+2\mid t}
+&=5+0.8^2(7-5)\\
+&=5+0.64\cdot2\\
+&=6.28.
+\end{aligned}
+$$
+予測誤差は
+$$
+e_{t+2\mid t}=\varepsilon_{t+2}+0.8\varepsilon_{t+1}
+$$
+なので
+$$
+\begin{aligned}
+\operatorname{Var}(e_{t+2\mid t})
+&=1+0.8^2\\
+&=1.64.
+\end{aligned}
+$$
+1期先なら
+$$
+\widehat X_{t+1\mid t}=5+0.8(7-5)=6.6,
+$$
+予測誤差分散は $\sigma_\varepsilon^2=1$。
+
 ## 注意
-切片付き表示では先に $\mu=c/(1-\phi)$ を求める。
+$h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigma_\varepsilon^2/(1-\phi^2)$ へ近づく。分散では係数を二乗する。
 <!-- CARD -->
 
 ---
