@@ -1,113 +1,183 @@
 schema_version: 1
-batch_id: 2026-08-30-bayes-merge-prep-30
+batch_id: 2026-08-30-data-analysis-merge-prep-31
 items:
-  - id: bayes-gamma-exponential-update
-    note: 共役事前分布の定義を実際のGamma–指数更新へ吸収し、定義だけのカードを不要にする。
+  - id: mv-pca-variance-max
+    note: PCAの固有値数値問題と切り捨て再構成誤差を分散最大化canonicalへ吸収する。
     sections:
+      一手: |
+        主成分分析では「固有ベクトルを使う」と暗記せず、単位ベクトル $\boldsymbol a$ への射影分散
+        $$
+        \operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
+        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        $$
+        を最大化する問題から始める。Lagrange未定乗数法で固有方程式を出し、最大固有値の方向を第1主成分に選ぶ。
       使用公式・定理: |
-        尤度族に対して、事後分布が事前分布と同じ分布族に属するような事前分布を**共役事前分布**という。共役性により、更新はしばしば十分統計量を超母数へ加える形になる。
+        制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ の下で
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        $$
+        を最大化する。Lagrange関数
+        $$
+        L(\boldsymbol a,\lambda)
+        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
+        $$
+        を微分すると
+        $$
+        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+        $$
+        したがって第1主成分方向は最大固有値の単位固有ベクトルである。
 
-        shape–rate型ガンマ分布の密度核は
+        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると、上位 $m$ 主成分で再構成したときの平均二乗再構成誤差の総和は
         $$
-        \pi(\lambda)\propto \lambda^{a-1}e^{-b\lambda}.
+        \sum_{j=m+1}^{p}\lambda_j
         $$
-        指数標本 $X_i\mid\lambda\overset{\mathrm{iid}}{\sim}\operatorname{Exp}(\lambda)$ の尤度核は
+        である。
+      答え: |
+        第1主成分は分散共分散行列の最大固有値に対応する単位固有ベクトル方向である。第2主成分以降は、それ以前の主成分に直交する範囲で同じ分散最大化を繰り返す。
+      計算例: |
         $$
-        L(\lambda)
-        \propto
-        \lambda^n\exp\left(-\lambda\sum_i x_i\right).
+        \boldsymbol S=
+        \begin{pmatrix}2&1\\1&2\end{pmatrix}
         $$
-        したがって事後分布もガンマ分布で
+        とする。固有値は
         $$
-        \lambda\mid\boldsymbol x
-        \sim
-        \operatorname{Gamma}\left(a+n,\ b+\sum_i x_i\right).
+        \begin{aligned}
+        0
+        &=\det(\boldsymbol S-\lambda\boldsymbol I)\\
+        &=\det\begin{pmatrix}2-\lambda&1\\1&2-\lambda\end{pmatrix}\\
+        &=(2-\lambda)^2-1\\
+        &=(\lambda-3)(\lambda-1),
+        \end{aligned}
+        $$
+        より
+        $$
+        \lambda_1=3,\qquad \lambda_2=1.
+        $$
+        $\lambda_1=3$ に対して
+        $$
+        \begin{pmatrix}-1&1\\1&-1\end{pmatrix}
+        \begin{pmatrix}a_1\\a_2\end{pmatrix}
+        =\boldsymbol0
+        $$
+        なので $a_1=a_2$。単位長へ正規化すると
+        $$
+        \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
+        $$
+        第1主成分だけを残すなら捨てる固有値は1なので、平均二乗再構成誤差の総和は
+        $$
+        \lambda_2=1.
         $$
       注意: |
-        共役性は計算上の便利さであり、事前知識への科学的な適合性を保証するものではない。ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
+        データは中心化しておく。固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。標準化PCAでは分散共分散行列ではなく相関行列に対して同じ固有値問題を解く。
 
-  - id: bayes-proper-improper
-    note: proper/improperの判定と事前感度分析を一枚へ統合し、事前分布に関する注意だけのカード増殖を抑える。
+  - id: reg-dffits-numeric
+    note: DFBETAを同じleave-one-out影響診断の派生としてDFFITS canonicalへ吸収する。
     sections:
-      問題: |
-        事前密度 $\pi(\theta)$ について次を答えよ。
-
-        1. proper事前分布とimproper事前分布を区別せよ。
-        2. improper事前分布を形式的に使うとき、事後分布について何を確認すべきか。
-        3. 事前分布への感度分析では何を変え、何を比較すべきか。
       使用公式・定理: |
-        proper事前分布は
+        DFFITSは観測 $i$ を除いたときの $i$ 自身の当てはめ値変化を尺度化し、外的スチューデント化残差 $t_i$ を用いて
         $$
-        \pi(\theta)\ge0,
+        \operatorname{DFFITS}_i
+        =t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
+        $$
+        と書ける。
+
+        一方、係数 $j$ への影響は
+        $$
+        \operatorname{DFBETA}_{ij}
+        =\widehat\beta_j-\widehat\beta_{j(i)}
+        $$
+        で測る。標準誤差で尺度化したものをDFBETASと呼ぶ。
+      答え: |
+        与えられた $t_i=2,h_{ii}=0.2$ では
+        $$
+        \operatorname{DFFITS}_i=1.
+        $$
+        DFFITSは予測値への影響、DFBETAは特定の回帰係数への影響を測る。
+      計算例: |
+        まず
+        $$
+        \frac{h_{ii}}{1-h_{ii}}
+        =\frac{0.2}{0.8}=\frac14,
+        $$
+        したがって
+        $$
+        \sqrt{\frac{h_{ii}}{1-h_{ii}}}=\frac12.
+        $$
+        よって
+        $$
+        \operatorname{DFFITS}_i
+        =2\times\frac12=1.
+        $$
+
+        同じ観測について、ある係数が
+        $$
+        \widehat\beta_j=1.2,
         \qquad
-        \int \pi(\theta)d\theta=1
+        \widehat\beta_{j(i)}=0.8
         $$
-        を満たす。improper事前分布を使う場合でも、事後分布が定義できるには
+        なら
         $$
-        0<\int L(\theta;x)\pi(\theta)d\theta<\infty
+        \operatorname{DFBETA}_{ij}=1.2-0.8=0.4.
         $$
-        が必要である。
-
-        また
-        $$
-        \pi(\theta\mid x)\propto L(\theta;x)\pi(\theta)
-        $$
-        なので、データの情報が弱いほど事前分布の中心・尺度・裾の選択が事後分布へ残りやすい。
-      一手: |
-        事前分布を評価するときは、まず**正規化可能か**を確認する。次に、科学的に妥当な範囲で事前中心・尺度・裾の重さを変え、結論がどこまで動くかを調べる。
-      答え: |
-        properなら積分1の確率分布、improperなら積分1に正規化できない形式的事前分布である。improper事前を用いるなら事後分布がproperになることを必ず確認する。
-
-        感度分析では複数の妥当な事前中心・尺度・裾を設定し、事後平均・信用区間・予測分布・意思決定・ベイズファクターなどがどの程度変わるかを比較する。
-      計算例: |
-        位置母数に対する
-        $$
-        \pi(\mu)\propto1,\qquad -\infty<\mu<\infty
-        $$
-        は
-        $$
-        \int_{-\infty}^{\infty}1\,d\mu=\infty
-        $$
-        なのでimproperである。正規標本などと組み合わせる場合は、尤度との積を積分して有限になるかを確認する。
-
-        一方、二項比率ならBeta事前分布の中心を保ったまま $a+b$ を変えると、有効事前標本サイズを弱く・強くできる。その複数設定で事後平均や信用区間が大きく動くなら、結論は事前分布に敏感である。
+        正の値は、その観測を含めることで係数 $j$ が正方向へ0.4動いたことを表す。
       注意: |
-        「無情報」という名称だけで一つの事前分布を自動採用しない。通常のベイズファクターではimproper事前分布の任意定数が周辺尤度比に残るため、原則としてproperなモデル内事前分布が必要になる。
+        DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジの観測は大きな影響を持ち得るが、閾値超過だけで機械的にデータを削除しない。
 
-  - id: bayes-hierarchical-definition
-    note: 経験ベイズと完全ベイズの違いを階層モデルの構造と同じカードへ吸収する。
+  - id: ms-ridge-lasso-orthogonal-numeric
+    note: LassoのKKT零条件とElastic Netを正則化canonicalへ吸収し、回帰側の派生カードを削減する。
     sections:
       使用公式・定理: |
-        群別母数 $\theta_1,\ldots,\theta_J$、共通超母数 $\eta$ について、条件付き独立を仮定すれば階層モデルは
+        Ridgeは
         $$
-        p(\boldsymbol y,\boldsymbol\theta,\eta)
-        =p(\eta)\prod_{j=1}^J
-        p(\theta_j\mid\eta)p(y_j\mid\theta_j)
+        \widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+        =(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol y.
         $$
-        と因子分解できる。
+        Lassoの目的関数を
+        $$
+        \frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
+        +\lambda\sum_j|\beta_j|
+        $$
+        とすると、直交設計では
+        $$
+        \widehat\beta_j=S(z_j,\lambda),
+        \qquad
+        S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+.
+        $$
+        一般の設計でもKKT条件より、係数 $j$ が0であるための条件は部分残差 $\boldsymbol r_{-j}$ を用いて
+        $$
+        |\boldsymbol x_j^{\mathsf T}\boldsymbol r_{-j}|\le\lambda
+        $$
+        である。
 
-        完全ベイズでは超母数にも事後分布を持たせ
+        Elastic NetはL1とL2を同時に使う拡張で
         $$
-        \pi(\boldsymbol\theta\mid\boldsymbol y)
-        =\int
-        \pi(\boldsymbol\theta\mid\boldsymbol y,\eta)
-        \pi(\eta\mid\boldsymbol y)d\eta
+        \frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
+        +\lambda\left\{
+        \alpha\sum_j|\beta_j|
+        +\frac{1-\alpha}{2}\sum_j\beta_j^2
+        \right\},
         $$
-        と $\eta$ の不確実性を積分する。経験ベイズでは周辺尤度などから $\widehat\eta$ を推定し、
-        $$
-        \pi(\boldsymbol\theta\mid\boldsymbol y,\widehat\eta)
-        $$
-        を使う。
-      一手: |
-        階層モデルを見たら、**データ層 → 群母数層 → 超母数層**の順に条件付き分布を書く。超母数をランダム変数として最後まで積分するか、データから推定した値へ固定するかで完全ベイズと経験ベイズを区別する。
-      答え: |
-        条件付き独立なら
-        $$
-        p(\boldsymbol y,\boldsymbol\theta,\eta)
-        =p(\eta)\prod_{j=1}^Jp(\theta_j\mid\eta)p(y_j\mid\theta_j).
-        $$
-        完全ベイズは $\eta$ に超事前分布を置いてその不確実性まで積分し、経験ベイズは $\widehat\eta$ をデータから推定して固定する。
+        $\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
       計算例: |
-        例えば各群の成功確率や平均を $\theta_j$ とし、それらが共通分布 $p(\theta_j\mid\eta)$ から生じるとする。ある群のデータは直接にはその群の $\theta_j$ を更新するが、同時に $\eta$ の推定・事後分布も変えるため、共通階層を通じて他群の推定にも情報が伝わる。
+        Ridgeでは
+        $$
+        \left(\frac8{4+1},\frac2{1+1}\right)
+        =(1.6,1.0).
+        $$
+        Lassoでは
+        $$
+        S(3,1)=2,\qquad
+        S(0.5,1)=0,\qquad
+        S(-2,1)=-1.
+        $$
+        中央の係数が0になる理由はKKT条件でも確認できる。直交設計ではその部分残差との内積が $0.5$ なので
+        $$
+        |0.5|\le1=\lambda,
+        $$
+        よって0が最適条件を満たす。
+      一手: |
+        Ridgeは係数を連続的に縮め、Lassoはsoft-thresholdingにより小さい係数をちょうど0へ落とす。Elastic NetはこのL1の疎性とL2の安定化を同じ目的関数へ入れたものと捉える。
       注意: |
-        経験ベイズは計算が軽い一方、超母数を推定値へ固定するため、その推定不確実性を過小評価しやすい。完全ベイズでは超母数の不確実性も事後分布へ伝播する。
+        Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。
