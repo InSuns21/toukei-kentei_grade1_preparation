@@ -130,13 +130,48 @@ $$\frac{Z}{\sqrt{V/(n-1)}}
 =\frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}.$$
 
 ## 答え
-$T=(\overline X-\mu)/(S/\sqrt n)\sim t_{n-1}$ がピボット量となる。この分布形は母集団が正規であることから導かれる。
+正規標本で母分散が未知なら
+$$
+T=\frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1},
+$$
+よって信頼係数 $1-\alpha$ の区間は
+$$
+\overline X\pm t_{n-1,\alpha/2}\frac{S}{\sqrt n}.
+$$
 
 ## 計算例
-区間は $\overline X\pm t_{n-1,\alpha/2}\,S/\sqrt n$。
+正規標本では
+$$
+Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
+\qquad
+V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+$$
+で、$Z$ と $V$ は独立である。したがって
+$$
+\begin{aligned}
+\frac{Z}{\sqrt{V/(n-1)}}
+&=\frac{(\overline X-\mu)/(\sigma/\sqrt n)}
+{\sqrt{\{(n-1)S^2/\sigma^2\}/(n-1)}}\\
+&=\frac{(\overline X-\mu)/(\sigma/\sqrt n)}{S/\sigma}\\
+&=\frac{\overline X-\mu}{S/\sqrt n}
+\sim t_{n-1}.
+\end{aligned}
+$$
+例えば $n=10$, $\overline x=12$, $S=3$、95%区間で $t_{9,0.025}=2.262$ とする。標準誤差は
+$$
+\frac{S}{\sqrt n}=\frac3{\sqrt{10}}\approx0.949.
+$$
+半幅は
+$$
+2.262\times0.949\approx2.146,
+$$
+したがって
+$$
+12\pm2.146=[9.854,14.146].
+$$
 
 ## 注意
-母集団が非正規なら $T$ の $t$ 分布は近似であり、小標本では覆率が崩れる。
+$t$ 分布が有限標本で正確に成り立つのは正規標本であるため。母分散既知なら $S$ への置換が不要なので $z$ 区間を使う。大標本では $t_{n-1,\alpha/2}\to z_{\alpha/2}$ となる。
 
 <!-- CARD -->
 
@@ -204,13 +239,61 @@ $$\left[\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\
 \frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right].$$
 
 ## 答え
-ピボット量 $(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ を用い、両側の分位点が異なる区間を作る。
+正規標本では
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+$$
+$\chi^2_{\nu,\gamma}$ を上側確率 $\gamma$ の点とすると、信頼係数 $1-\alpha$ の区間は
+$$
+\left[
+\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},
+\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}
+\right].
+$$
 
 ## 計算例
-$\chi^2$ は右に裾が長いので、上側端点は下側分位点 $\chi^2_{n-1,1-\alpha/2}$ で割る。
+まず
+$$
+P\left(
+c_L\le \frac{A}{\sigma^2}\le c_U
+\right)=1-\alpha,
+$$
+と置く。ただし
+$$
+A=(n-1)S^2>0,
+\quad
+c_L=\chi^2_{n-1,1-\alpha/2},
+\quad
+c_U=\chi^2_{n-1,\alpha/2},
+$$
+で $0<c_L<c_U$ である。不等式を $\sigma^2$ について解くと
+$$
+c_L\le\frac{A}{\sigma^2}\le c_U
+\quad\Longleftrightarrow\quad
+\frac{A}{c_U}\le\sigma^2\le\frac{A}{c_L}.
+$$
+分母の大小が逆になる点が重要である。
+
+数値例として $n=10$, $S^2=4$、95%区間を考え、表から
+$$
+\chi^2_{9,0.025}=19.023,
+\qquad
+\chi^2_{9,0.975}=2.700
+$$
+を用いる。$A=9\times4=36$ なので
+$$
+\begin{aligned}
+\sigma_L^2&=\frac{36}{19.023}\approx1.892,\\
+\sigma_U^2&=\frac{36}{2.700}\approx13.333.
+\end{aligned}
+$$
+よって
+$$
+\sigma^2\in[1.892,13.333].
+$$
 
 ## 注意
-対称な正規に比べ区間が非対称になる。
+カイ二乗分布は非対称なので区間も一般に非対称になる。分位点記号が「上側確率」か「下側累積確率」かを問題文で必ず確認する。
 
 <!-- CARD -->
 
@@ -247,13 +330,52 @@ $$\frac{R}{F_{\nu_1,\nu_2,\alpha/2}}
 $$\left[\frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,\alpha/2}},\ \frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,1-\alpha/2}}\right].$$
 
 ## 答え
-ピボット量 $(S_1^2/\sigma_1^2)/(S_2^2/\sigma_2^2)\sim F_{n_1-1,n_2-1}$ を用い、比 $S_1^2/S_2^2$ を両側のF分位点で割る。
+独立な正規2標本では
+$$
+\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+\sim F_{n_1-1,n_2-1}.
+$$
+$F_{\nu_1,\nu_2,\gamma}$ を上側確率 $\gamma$ の点とすると
+$$
+\frac{\sigma_1^2}{\sigma_2^2}
+\in
+\left[
+\frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,\alpha/2}},
+\frac{S_1^2/S_2^2}{F_{n_1-1,n_2-1,1-\alpha/2}}
+\right].
+$$
 
 ## 計算例
-$F_{n_1-1,n_2-1,1-\alpha/2}=1/F_{n_2-1,n_1-1,\alpha/2}$ で計算できる。
+$R=S_1^2/S_2^2$、$\rho=\sigma_1^2/\sigma_2^2$ と置くとピボットは $R/\rho$ である。したがって
+$$
+c_L\le\frac{R}{\rho}\le c_U
+\quad\Longleftrightarrow\quad
+\frac{R}{c_U}\le\rho\le\frac{R}{c_L}.
+$$
+例えば $n_1=n_2=11$, $S_1^2=9$, $S_2^2=4$ なら
+$$
+R=\frac94=2.25.
+$$
+95%区間について表から
+$$
+F_{10,10,0.025}\approx3.717,
+\qquad
+F_{10,10,0.975}\approx0.269
+$$
+を用いると
+$$
+\begin{aligned}
+\rho_L&=\frac{2.25}{3.717}\approx0.605,\\
+\rho_U&=\frac{2.25}{0.269}\approx8.364.
+\end{aligned}
+$$
+よって
+$$
+\frac{\sigma_1^2}{\sigma_2^2}\in[0.605,8.364].
+$$
 
 ## 注意
-分散比は非対称なので両側でも分位点の向きが異なる。
+分散比区間は非対称である。$F_{\nu_1,\nu_2}$ の逆数は自由度を入れ替えた $F_{\nu_2,\nu_1}$ になるため、分位点の自由度順序にも注意する。
 
 <!-- CARD -->
 
@@ -281,13 +403,46 @@ $$(\overline X-\overline Y)\pm t_{n_1+n_2-2,\alpha/2}\,S_p\sqrt{\frac1{n_1}+\fra
 $$S_p^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}.$$
 
 ## 答え
-プールした不偏分散 $S_p^2$ を用い、自由度 $n_1+n_2-2$ の $t$ 区間を作る。
+等分散を仮定する独立2標本では
+$$
+(\overline X-\overline Y)
+\pm t_{n_1+n_2-2,\alpha/2}
+S_p\sqrt{\frac1{n_1}+\frac1{n_2}},
+$$
+$$
+S_p^2=
+\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}.
+$$
 
 ## 計算例
-結合分散は「重み付き平均」であり自由度で割る。
+$n_1=10$, $n_2=12$, $\overline x=15$, $\overline y=14$, $S_1^2=4$, $S_2^2=9$ とする。まずプール分散は
+$$
+\begin{aligned}
+S_p^2
+&=\frac{9\cdot4+11\cdot9}{10+12-2}\\
+&=\frac{36+99}{20}\\
+&=6.75.
+\end{aligned}
+$$
+よって標準誤差は
+$$
+\begin{aligned}
+SE
+&=\sqrt{6.75\left(\frac1{10}+\frac1{12}\right)}\\
+&\approx1.112.
+\end{aligned}
+$$
+自由度は $20$。95%区間で $t_{20,0.025}=2.086$ を使うと半幅は
+$$
+2.086\times1.112\approx2.320.
+$$
+標本平均差は $15-14=1$ なので
+$$
+(\mu_1-\mu_2)\in1\pm2.320=[-1.320,3.320].
+$$
 
 ## 注意
-等分散の仮定が外れると Welch 型へ。
+$S_p^2$ を使えるのは母分散が共通という仮定の下だけである。不等分散なら各群の分散を別々に使うWelch型へ切り替える。
 
 <!-- CARD -->
 
@@ -315,13 +470,49 @@ $$(\overline X-\overline Y)\pm t_{\nu,\alpha/2}\sqrt{\frac{S_1^2}{n_1}+\frac{S_2
 $$\nu=\frac{\left(\dfrac{S_1^2}{n_1}+\dfrac{S_2^2}{n_2}\right)^2}{\dfrac{(S_1^2/n_1)^2}{n_1-1}+\dfrac{(S_2^2/n_2)^2}{n_2-1}}.$$
 
 ## 答え
-結合分散を使わず、各不偏分散を用い、Satterthwaite の近似自由度 $\nu$ の $t$ 区間を作る。
+不等分散を許す独立2標本では
+$$
+(\overline X-\overline Y)
+\pm t_{\nu,\alpha/2}
+\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}},
+$$
+$$
+\nu=
+\frac{\left(S_1^2/n_1+S_2^2/n_2\right)^2}
+{(S_1^2/n_1)^2/(n_1-1)+(S_2^2/n_2)^2/(n_2-1)}.
+$$
 
 ## 計算例
-$\nu$ は整数でなくてよい；$n_1+n_2-2$ 以下になりやすい。
+$n_1=10$, $n_2=12$, $\overline x=15$, $\overline y=14$, $S_1^2=4$, $S_2^2=9$ とする。まず
+$$
+\frac{S_1^2}{n_1}=\frac4{10}=0.4,
+\qquad
+\frac{S_2^2}{n_2}=\frac9{12}=0.75.
+$$
+したがって
+$$
+SE=\sqrt{0.4+0.75}=\sqrt{1.15}\approx1.072.
+$$
+自由度は
+$$
+\begin{aligned}
+\nu
+&=\frac{1.15^2}{0.4^2/9+0.75^2/11}\\
+&=\frac{1.3225}{0.01778+0.05114}\\
+&\approx19.19.
+\end{aligned}
+$$
+95%区間で $t_{19.19,0.025}\approx2.094$ とすれば半幅は
+$$
+2.094\times1.072\approx2.245.
+$$
+よって
+$$
+(\mu_1-\mu_2)\in1\pm2.245=[-1.245,3.245].
+$$
 
 ## 注意
-検定の Welch と同じ近似自由度を使う。
+$\nu$ は整数でなくてよい。等分散を仮定して機械的に $n_1+n_2-2$ を使わず、標準誤差と自由度の両方をWelch型にする。
 
 <!-- CARD -->
 
@@ -351,13 +542,37 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 $$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p));\quad \widehat p\pm z_{\alpha/2}\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.$$
 
 ## 答え
-標本比率 $\widehat p$ の漸近正規性を用い、$\widehat p\pm z_{\alpha/2}\sqrt{\widehat p(1-\widehat p)/n}$ とする。
+大標本でのWald型区間は
+$$
+\widehat p\pm z_{\alpha/2}
+\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.
+$$
 
 ## 計算例
-$n$ が十分大ならば近似が良い；境目では連続修正を検討する。
+$n=100$ 回中 $x=40$ 回成功したとする。標本比率は
+$$
+\widehat p=\frac{40}{100}=0.4.
+$$
+推定標準誤差は
+$$
+\begin{aligned}
+SE
+&=\sqrt{\frac{0.4(1-0.4)}{100}}\\
+&=\sqrt{0.0024}\\
+&\approx0.0490.
+\end{aligned}
+$$
+95%区間では $z_{0.025}=1.96$ なので半幅は
+$$
+1.96\times0.0490\approx0.0960.
+$$
+よって
+$$
+p\in0.4\pm0.0960=[0.304,0.496].
+$$
 
 ## 注意
-$p$ が $0$ または $1$ に近いと近似が悪い。
+これは正規近似に基づくWald区間である。$n$ が小さい場合や $\widehat p$ が0または1に近い場合は被覆が悪くなりやすく、Wilson区間やClopper--Pearson正確区間などを検討する。
 
 <!-- CARD -->
 
@@ -384,13 +599,51 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 $$(\widehat p_1-\widehat p_2)\pm z_{\alpha/2}\sqrt{\frac{\widehat p_1(1-\widehat p_1)}{n_1}+\frac{\widehat p_2(1-\widehat p_2)}{n_2}}.$$
 
 ## 答え
-$\widehat p_1-\widehat p_2$ は漸近正規で、分散 $p_1(1-p_1)/n_1+p_2(1-p_2)/n_2$ を標本で推定して区間を作る。
+独立2群の母比率差では
+$$
+(\widehat p_1-\widehat p_2)
+\pm z_{\alpha/2}
+\sqrt{
+\frac{\widehat p_1(1-\widehat p_1)}{n_1}
++\frac{\widehat p_2(1-\widehat p_2)}{n_2}
+}.
+$$
 
 ## 計算例
-群内の比率で分散を個別に推定する（プールしない）。
+群1は $n_1=100$ 中60成功、群2は $n_2=80$ 中36成功とする。
+$$
+\widehat p_1=0.60,
+\qquad
+\widehat p_2=0.45,
+\qquad
+\widehat p_1-\widehat p_2=0.15.
+$$
+区間推定では各群の比率を個別に使い
+$$
+\begin{aligned}
+SE^2
+&=\frac{0.60(0.40)}{100}
++\frac{0.45(0.55)}{80}\\
+&=0.0024+0.00309375\\
+&=0.00549375,
+\end{aligned}
+$$
+したがって
+$$
+SE\approx0.0741.
+$$
+95%区間の半幅は
+$$
+1.96\times0.0741\approx0.1453.
+$$
+よって
+$$
+p_1-p_2\in0.15\pm0.1453
+=[0.0047,0.2953].
+$$
 
 ## 注意
-差の検定でプールするのとは標準誤差の扱いが異なる。
+$H_0:p_1=p_2$ の検定では帰無仮説の下で比率をプールする場合があるが、母比率差そのもののWald区間では通常、各群の標本比率で分散を個別推定する。
 
 <!-- CARD -->
 
@@ -417,13 +670,36 @@ sources: [{ type: official_syllabus, topic: 区間推定 }]
 下側：$P(\theta\ge \overline X-z_{\alpha}\sigma/\sqrt n)=1-\alpha$。上側：$P(\theta\le \overline X+z_{\alpha}\sigma/\sqrt n)=1-\alpha$。
 
 ## 答え
-下側は $[\theta_L,\infty)$、上側は $(-\infty,\theta_U]$ の形。両側の一方の分位点だけを用いる。
+正規平均・分散既知で信頼係数 $1-\alpha$ の下側信頼限界は
+$$
+L=\overline X-z_\alpha\frac{\sigma}{\sqrt n},
+$$
+上側信頼限界は
+$$
+U=\overline X+z_\alpha\frac{\sigma}{\sqrt n}.
+$$
+したがって区間はそれぞれ $[L,\infty)$、$(-\infty,U]$ である。
 
 ## 計算例
-$z_{\alpha}$ は上側 $\alpha$ 点（$0.05$ なら $z_{0.05}=1.645$）。
+$\overline x=10$, $\sigma=2$, $n=25$、95%片側区間を考える。標準誤差は
+$$
+\frac{\sigma}{\sqrt n}=\frac2{5}=0.4.
+$$
+$z_{0.05}=1.645$ なので片側の半幅は
+$$
+1.645\times0.4=0.658.
+$$
+よって下側95%信頼区間は
+$$
+[10-0.658,\infty)=[9.342,\infty),
+$$
+上側95%信頼区間は
+$$
+(-\infty,10+0.658]=(-\infty,10.658].
+$$
 
 ## 注意
-両側 $1-\alpha$ と片側 $1-\alpha$ では分位点の $\alpha/2$ と $\alpha$ の違いに注意。
+同じ95%でも両側区間は両端へ2.5%ずつ振り分けるので $z_{0.025}=1.96$、片側区間は片方へ5%を置くので $z_{0.05}=1.645$ を使う。
 
 <!-- CARD -->
 
@@ -523,13 +799,52 @@ $$\widehat\theta\pm z_{\alpha/2}\,\frac{1}{\sqrt{n\,I_1(\widehat\theta)}},$$
 または対数尤度のヘッセ行列から標準誤差を推定する。
 
 ## 答え
-$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,I_1(\theta)^{-1})$ より、情報量の逆数を分散として $z$ 区間を作る。
+正則条件の下で
+$$
+\sqrt n(\widehat\theta-\theta)
+\xrightarrow{d}
+N\left(0,I_1(\theta)^{-1}\right).
+$$
+よってPlug-inしたWald型漸近区間は
+$$
+\widehat\theta
+\pm z_{\alpha/2}
+\frac1{\sqrt{nI_1(\widehat\theta)}}.
+$$
+この区間は $n\to\infty$ で被覆確率が $1-\alpha$ へ収束する。
 
 ## 計算例
-ベルヌーイなら $I_1(p)=1/\{p(1-p)\}$ で既知の比率区間と一致する。
+$X_i\sim\operatorname{Poisson}(\lambda)$ では
+$$
+\widehat\lambda=\overline X,
+\qquad
+I_1(\lambda)=\frac1\lambda.
+$$
+$n=100$, $\widehat\lambda=4$ とすると
+$$
+I_1(\widehat\lambda)=\frac14.
+$$
+推定標準誤差は
+$$
+\begin{aligned}
+\widehat{SE}(\widehat\lambda)
+&=\frac1{\sqrt{100\cdot(1/4)}}\\
+&=\frac1{5}\\
+&=0.2.
+\end{aligned}
+$$
+95%区間では
+$$
+4\pm1.96(0.2)
+=4\pm0.392,
+$$
+したがって
+$$
+\lambda\in[3.608,4.392].
+$$
 
 ## 注意
-情報量は真値の関数なので、標本で $\widehat\theta$ に置き換える（Plug-in）。
+これは有限標本で正確な区間とは限らない。情報量を真値 $\theta$ で評価できないため、通常は $I_1(\widehat\theta)$ や観測情報量を使う。
 
 <!-- CARD -->
 
@@ -559,13 +874,49 @@ $\sqrt n(T_n-\theta)$ が正規分布 $N(0,\sigma^2)$ へ分布収束すると�
 $$g(T_n)\pm z_{\alpha/2}\,|g'(T_n)|\,\frac{\widehat\sigma}{\sqrt n}.$$
 
 ## 答え
-$g$ が微分可能なら $\sqrt n(g(T_n)-g(\theta))\xrightarrow{d}N(0,g'(\theta)^2\sigma^2)$ を用い、$g(T_n)$ 中心の $z$ 区間を作る。
+$\sqrt n(T_n-\theta)\xrightarrow{d}N(0,\sigma^2)$ で $g$ が微分可能なら
+$$
+\sqrt n\{g(T_n)-g(\theta)\}
+\xrightarrow{d}
+N\left(0,g'(\theta)^2\sigma^2\right).
+$$
+したがって
+$$
+g(T_n)\pm z_{\alpha/2}|g'(T_n)|\,\widehat{SE}(T_n)
+$$
+を漸近信頼区間として用いる。
 
 ## 計算例
-$g(x)=e^x$ なら $|g'(T_n)|=e^{T_n}$；$g(x)=\sqrt x$ なら $1/(2\sqrt{T_n})$（$\theta>0$）。
+$T_n$ が $\theta$ を推定し、観測値が
+$$
+T_n=\log2\approx0.693,
+\qquad
+\widehat{SE}(T_n)=0.10
+$$
+とする。$g(\theta)=e^\theta$ を推定したい。
+$$
+g(T_n)=e^{\log2}=2,
+\qquad
+g'(T_n)=e^{\log2}=2.
+$$
+よって変換後の標準誤差は
+$$
+\widehat{SE}\{g(T_n)\}
+=|g'(T_n)|\widehat{SE}(T_n)
+=2\times0.10=0.20.
+$$
+95%区間は
+$$
+2\pm1.96(0.20)
+=2\pm0.392,
+$$
+したがって
+$$
+e^\theta\in[1.608,2.392].
+$$
 
 ## 注意
-区間の端点を $g$ で変換する方法と、分散を伝播させる方法があり、非線形で差が出る。
+デルタ法は局所線形化による近似である。非線形性が強い場合、$T_n$ の区間端点を $g$ で変換する方法と数値的に異なることがある。
 
 <!-- CARD -->
 
