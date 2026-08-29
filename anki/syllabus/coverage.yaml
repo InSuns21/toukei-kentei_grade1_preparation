@@ -2756,7 +2756,6 @@ items:
     cards:
       - process-ar1-stationary
       - process-ma1-autocovariance
-      - engproc-random-walk-drift-calibration
       - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
@@ -2784,12 +2783,10 @@ items:
       - engproc-stationarity-window-judgment
       - engproc-sample-autocovariance-numeric
       - engproc-residual-white-noise-bounds
-      - engproc-random-walk-difference-data
       - engproc-ar1-intercept-long-run-mean
       - engproc-ar1-correlation-half-life
       - engproc-ar1-forecast-mean-reversion
       - engproc-ar1-forecast-interval
-      - engproc-ar2-root-stability
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
       - engproc-ma1-autocovariance-numeric
@@ -2811,10 +2808,8 @@ items:
       - name: ランダムウォーク
         status: card
         cards:
-          - engproc-random-walk-drift-calibration
           - engproc-biased-walk-hit-upper
           - engproc-random-walk-expected-absorption
-          - engproc-random-walk-difference-data
       - name: マルコフ過程
         status: card
         cards:
@@ -2867,7 +2862,6 @@ items:
           - engproc-ar1-correlation-half-life
           - engproc-ar1-forecast-mean-reversion
           - engproc-ar1-forecast-interval
-          - engproc-ar2-root-stability
           - engproc-yule-walker-estimate-ar1
           - engproc-arma11-long-run-mean
           - engproc-arma11-one-step-forecast
@@ -2892,7 +2886,6 @@ items:
     cards:
       - model-gauss-markov
       - model-contrast
-      - enginf-linear-model-dimensions
       - enginf-vif-numeric
       - enginf-wls-two-weights
       - enginf-gls-whitening
@@ -2915,7 +2908,6 @@ items:
       - enginf-adjusted-r2-output
       - enginf-estimability-linear-function
       - enginf-restricted-least-squares
-      - enginf-ols-matrix-numeric
       - enginf-normal-equations-orthogonality
       - enginf-ols-unbiased-condition
       - enginf-ols-covariance-matrix
@@ -2924,9 +2916,7 @@ items:
       - enginf-contrast-estimate-se
       - enginf-contrast-t-test
       - enginf-extra-sum-squares
-      - enginf-regression-anova-output
       - enginf-overall-regression-f
-      - enginf-coefficient-confidence-interval
       - enginf-mean-response-ci
       - enginf-new-observation-pi
       - enginf-leverage-numeric
@@ -2936,15 +2926,11 @@ items:
       - name: 線形モデル
         status: card
         cards:
-          - enginf-linear-model-dimensions
-          - enginf-ols-matrix-numeric
           - enginf-normal-equations-orthogonality
           - enginf-ols-unbiased-condition
           - enginf-ols-covariance-matrix
           - enginf-gauss-markov-comparison
-          - enginf-regression-anova-output
           - enginf-overall-regression-f
-          - enginf-coefficient-confidence-interval
           - enginf-mean-response-ci
           - enginf-new-observation-pi
           - enginf-leverage-numeric

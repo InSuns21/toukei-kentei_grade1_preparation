@@ -1,35 +1,4 @@
 ---
-id: engproc-random-walk-drift-calibration
-title: ドリフト付きランダムウォークの平均と分散を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: random-walk-drift
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ランダムウォーク, ドリフト, センサー誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ランダムウォーク }]
----
-## 問題
-センサーの累積誤差を $X_n=\sum_{k=1}^n\xi_k$ とし、増分は独立同分布で $E[\xi_k]=0.02$、$\operatorname{Var}(\xi_k)=0.09$ とする。50時点後の平均と標準偏差を求めよ。
-## 記号・用語
-$X_n$ は累積誤差、$\xi_k$ は1時点ごとの誤差増分、$\operatorname{SD}(X_n)=\sqrt{\operatorname{Var}(X_n)}$ は標準偏差である。
-## 使用公式・定理
-独立な和について $E[X_n]=nE[\xi_1]$、$\operatorname{Var}(X_n)=n\operatorname{Var}(\xi_1)$。
-## 一手／方針
-平均は増分平均を50倍し、分散は増分分散を50倍してから平方根を取る。
-## 答え
-$$E[X_{50}]=50(0.02)=1,$$
-$$\operatorname{Var}(X_{50})=50(0.09)=4.5,\qquad \operatorname{SD}(X_{50})=\sqrt{4.5}\approx2.121.$$
-## 計算例
-ドリフト補正後 $X_n-0.02n$ の平均は0になる。
-## 注意
-標準偏差を50倍せず、分散を50倍する。
-
-<!-- CARD -->
-
----
 id: engproc-ma1-autocovariance-numeric
 title: MA(1)工程変動の自己共分散を数値計算する
 category: applied-engineering
@@ -1330,37 +1299,6 @@ AR項の不足などを再検討する。
 <!-- CARD -->
 
 ---
-id: engproc-random-walk-difference-data
-title: 累積工程系列を差分して増分へ戻す
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: differencing-random-walk
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [時系列解析, ランダムウォーク, 差分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ランダムウォーク }]
----
-## 問題
-累積系列 $(X_0,X_1,X_2,X_3)=(10,12,11,15)$ の1階差分を求め、ランダムウォークの増分として解釈せよ。
-## 記号・用語
-$\Delta X_t=X_t-X_{t-1}$ は1階差分である。
-## 使用公式・定理
-ランダムウォーク $X_t=X_{t-1}+\varepsilon_t$ では $\Delta X_t=\varepsilon_t$。
-## 一手／方針
-隣接する累積値を後の値から前の値を引く。
-## 答え
-$$\Delta X_1=2,\qquad \Delta X_2=-1,\qquad \Delta X_3=4.$$
-したがって観測された増分列は $(2,-1,4)$。
-## 計算例
-増分を累積すると $10+2-1+4=15$ に戻る。
-## 注意
-差分後の平均が0とは限らず、ドリフトが残る場合がある。
-
-<!-- CARD -->
-
----
 id: engproc-ar1-intercept-long-run-mean
 title: 切片付きAR(1)の長期平均を計算する
 category: applied-engineering
@@ -1481,38 +1419,6 @@ $$22\pm1.96\sqrt5\approx22\pm4.383,$$
 1期先誤差分散4より2期先の5が大きい。
 ## 注意
 係数推定の不確実性は含めていない。
-
-<!-- CARD -->
-
----
-id: engproc-ar2-root-stability
-title: AR(2)工程モデルの定常性を根で判定する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: ar2-stationarity
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [自己回帰過程, AR2モデル, 定常性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 自己回帰過程 }]
----
-## 問題
-$X_t=0.4X_{t-1}+0.2X_{t-2}+\varepsilon_t$ は定常か、AR多項式の根で判定せよ。
-## 記号・用語
-AR多項式は $\phi(z)=1-0.4z-0.2z^2$。
-## 使用公式・定理
-すべての根の絶対値が1より大きければ因果的定常解をもつ。
-## 一手／方針
-二次方程式を解き、2根の絶対値を比較する。
-## 答え
-$$0.2z^2+0.4z-1=0,$$
-$$z=\frac{-0.4\pm\sqrt{0.96}}{0.4}\approx1.449,-3.449.$$
-両方の絶対値が1を超えるので定常。
-## 計算例
-係数和 $0.6<1$ もこの例では安定性と整合する。
-## 注意
-一般のAR(2)で係数の絶対値だけを個別に見る判定は不十分。
 
 <!-- CARD -->
 

@@ -1,35 +1,4 @@
 ---
-id: enginf-linear-model-dimensions
-title: 線形モデルの行列次元を確認する
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: linear-model
-type: recognition
-difficulty: 1
-priority: S
-hashtags: [線形モデル, 行列, 次元]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-$n$ 観測、切片を含む $k$ 係数の線形モデル $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ で、各行列・ベクトルの次元を答えよ。
-## 記号・用語
-$n$ は観測数、$k$ は推定する回帰係数の総数である。
-## 使用公式・定理
-行列積 $AB$ は、$A$ の列数と $B$ の行数が一致するとき定義される。
-## 一手／方針
-右辺の積が左辺と同じ $n\times1$ になるよう逆算する。
-## 答え
-$$\boldsymbol Y:n\times1,\quad \boldsymbol X:n\times k,\quad
-\boldsymbol\beta:k\times1,\quad \boldsymbol\varepsilon:n\times1.$$
-## 計算例
-$\boldsymbol X^{\mathsf T}\boldsymbol X$ は $k\times k$、$\boldsymbol X^{\mathsf T}\boldsymbol Y$ は $k\times1$ である。
-## 注意
-切片を含むとき、説明変数の本数が $k-1$ でも係数総数は $k$ である。
-
-<!-- CARD -->
-
----
 id: enginf-interaction-design-matrix
 title: ダミー変数と交互作用項を含む計画行列を作る
 category: applied-engineering
@@ -1515,39 +1484,6 @@ $2+0=2$ で制約を満たす。
 <!-- CARD -->
 
 ---
-id: enginf-ols-matrix-numeric
-title: 行列公式で最小二乗推定量を計算する
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: ols-estimation
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [線形モデル, 最小二乗法, 行列計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-$\boldsymbol X^{\mathsf T}\boldsymbol X=\begin{pmatrix}4&2\\2&2\end{pmatrix}$、$\boldsymbol X^{\mathsf T}\boldsymbol Y=(10,8)^{\mathsf T}$ のとき、$\widehat{\boldsymbol\beta}$ を求めよ。
-## 記号・用語
-$\widehat{\boldsymbol\beta}$ は残差平方和を最小にする最小二乗推定量である。
-## 使用公式・定理
-列フルランクなら
-$$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y.$$
-## 一手／方針
-2次正方行列の逆行列を求め、右からベクトルを掛ける。
-## 答え
-$$ (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-=\frac14\begin{pmatrix}2&-2\\-2&4\end{pmatrix},$$
-$$\widehat{\boldsymbol\beta}=\frac14\binom{20-16}{-20+32}=\binom13.$$
-## 計算例
-正規方程式へ戻すと $(4+6,2+6)^{\mathsf T}=(10,8)^{\mathsf T}$。
-## 注意
-逆行列は $\boldsymbol X$ ではなく $\boldsymbol X^{\mathsf T}\boldsymbol X$ に対して取る。
-
-<!-- CARD -->
-
----
 id: enginf-normal-equations-orthogonality
 title: 正規方程式から残差の直交性を示す
 category: applied-engineering
@@ -1803,37 +1739,6 @@ $F_{2,20,0.05}\approx3.49$ より大きいので、追加した2係数はまと�
 <!-- CARD -->
 
 ---
-id: enginf-regression-anova-output
-title: 回帰分散分析出力の欠損欄を埋める
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: regression-anova
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [線形モデル, 分散分析表, ソフトウェア出力]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-回帰自由度3、残差自由度16、$SSR=120$、$SSE=80$ の回帰分散分析表について、$MSR,MSE,F,R^2$ を求めよ。
-## 記号・用語
-$SSR$ は回帰平方和、$SSE$ は残差平方和、$SST=SSR+SSE$ は全平方和である。
-## 使用公式・定理
-$MSR=SSR/df_R$、$MSE=SSE/df_E$、$F=MSR/MSE$、$R^2=SSR/SST$。
-## 一手／方針
-各平方和を対応する自由度で割ってからF比を作る。
-## 答え
-$$MSR=120/3=40,\quad MSE=80/16=5,$$
-$$F=40/5=8,\quad R^2=120/(120+80)=0.60.$$
-## 計算例
-観測数は全自由度 $3+16=19$ に1を足して $n=20$。
-## 注意
-$R^2$ の分母は $SSE$ ではなく $SST$ である。
-
-<!-- CARD -->
-
----
 id: enginf-overall-regression-f
 title: 決定係数から回帰全体のF統計量を求める
 category: applied-engineering
@@ -1860,37 +1765,6 @@ $$F=\frac{0.45/3}{0.55/26}=\frac{0.15}{0.0211538}\approx7.09.$$
 分子自由度3、分母自由度26のF分布と比較する。
 ## 注意
 ここでの $p$ は切片を除く説明変数数である。
-
-<!-- CARD -->
-
----
-id: enginf-coefficient-confidence-interval
-title: 回帰係数の信頼区間をソフトウェア出力から求める
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: coefficient-ci
-type: calc_step
-difficulty: 1
-priority: S
-hashtags: [線形モデル, 信頼区間, ソフトウェア出力]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-回帰出力で係数推定値1.8、標準誤差0.5、残差自由度12であった。95%信頼区間を求めよ。$t_{12,0.025}=2.179$ とする。
-## 記号・用語
-$t_{\nu,\alpha}$ は自由度 $\nu$ のt分布の上側 $\alpha$ 点である。
-## 使用公式・定理
-$$\widehat\beta_j\pm t_{n-k,\alpha/2}\operatorname{SE}(\widehat\beta_j).$$
-## 一手／方針
-標準誤差に臨界値を掛け、推定値の両側へ加減する。
-## 答え
-$$1.8\pm2.179(0.5)=1.8\pm1.0895,$$
-よって $(0.711,2.890)$。
-## 計算例
-区間が0を含まないため、5%両側検定で係数0を棄却する。
-## 注意
-標準誤差を分散と取り違えて平方根を重ねない。
 
 <!-- CARD -->
 
