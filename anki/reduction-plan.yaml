@@ -1,18 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-29-mgf-consolidation-12
+batch_id: 2026-08-29-joint-conditional-consolidation-13
 items:
-  - id: prob-mgf-iid-sum
+  - id: prob-joint-pmf-normalization
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-mgf-affine-transform
-    note: 強化済みcanonicalへ独立和の積則、同分布なら累乗、一般線形結合Y=b+sum a_i X_iまで統合し、3個のiid和の数値例も吸収済み。
-  - id: prob-mgf-exponential-domain
+    canonical_card: prob-joint-density-normalization
+    note: 強化済みcanonicalで同時分布の正規化を離散の二重和と連続の二重積分の共通原理として扱い、2×2確率質量関数の具体例も吸収済み。
+  - id: prob-discrete-independence-cross-product
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-mgf-gamma
-    note: ガンマ分布canonicalでshape=1, rate=lambdaを代入して指数分布M_X(t)=lambda/(lambda-t), t<lambdaを導出し、収束条件まで扱うため分布別カードは重複。
-  - id: prob-mgf-identify-normal
+    canonical_card: prob-conditional-equals-marginal
+    note: 独立性canonicalへ2×2表の交差積条件と数値反例を吸収済み。交差積だけを独立カードにしない。
+  - id: prob-joint-cdf-independence
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-mgf-uniqueness-domain
-    note: 一意性canonicalへ正規分布のMGFとexp(3t+2t^2)からN(3,4)を同定する完全例を吸収済み。形の照合だけのカードは独立保持しない。
+    canonical_card: prob-conditional-equals-marginal
+    note: 独立性canonicalへ同時累積分布関数F_XY=F_X F_Yという一般条件と数値例を吸収済み。
+  - id: prob-density-bayes-two-class
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-mixture-marginal
+    note: 潜在クラスcanonicalへ周辺化とベイズの定理による逆向き更新を統合し、連続観測の事前確率×条件付き密度の計算まで吸収済み。
+  - id: prob-truncated-conditional-density
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-conditional-cdf-from-density
+    note: 条件付き分布canonicalへ事象で台を切って残存確率で正規化する切断密度の計算と、その後の累積分布関数化を統合済み。
