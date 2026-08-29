@@ -2446,23 +2446,15 @@ items:
       - engproc-stationarity-window-judgment
       - engproc-sample-autocovariance-numeric
       - engproc-residual-white-noise-bounds
-      - engproc-ar1-intercept-long-run-mean
       - engproc-ar1-correlation-half-life
-      - engproc-ar1-forecast-mean-reversion
-      - engproc-ar1-forecast-interval
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
       - engproc-ma1-invertible-shock-recovery
-      - engproc-arma11-long-run-mean
       - engproc-arma11-one-step-forecast
-      - engproc-backshift-polynomial-expansion
       - engproc-arima010-drift-forecast
       - engproc-arima110-difference-forecast
-      - engproc-seasonal-difference-monthly
-      - engproc-acf-pacf-model-selection
       - engproc-pacf-significance-output
       - engproc-ljung-box-numeric
-      - engproc-exponential-smoothing-update
       - engproc-ar1-spectral-ratio
       - engproc-periodogram-period-identification
       - engproc-arima-forecast-output
@@ -2506,22 +2498,16 @@ items:
           - engproc-stationarity-window-judgment
           - engproc-sample-autocovariance-numeric
           - engproc-residual-white-noise-bounds
-          - engproc-acf-pacf-model-selection
           - engproc-pacf-significance-output
           - engproc-ljung-box-numeric
-          - engproc-exponential-smoothing-update
           - engproc-ar1-spectral-ratio
           - engproc-periodogram-period-identification
       - name: 自己回帰過程
         status: card
         cards:
           - process-ar1-stationary
-          - engproc-ar1-intercept-long-run-mean
           - engproc-ar1-correlation-half-life
-          - engproc-ar1-forecast-mean-reversion
-          - engproc-ar1-forecast-interval
           - engproc-yule-walker-estimate-ar1
-          - engproc-arma11-long-run-mean
           - engproc-arma11-one-step-forecast
       - name: 移動平均過程
         status: card
@@ -2533,10 +2519,8 @@ items:
       - name: ARIMA過程
         status: card
         cards:
-          - engproc-backshift-polynomial-expansion
           - engproc-arima010-drift-forecast
           - engproc-arima110-difference-forecast
-          - engproc-seasonal-difference-monthly
           - engproc-arima-forecast-output
   - id: engineering-linear-inference
     status: complete
