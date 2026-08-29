@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import YAML from "yaml";
-import { ROOT, walk } from "./lib.mjs";
+import { ROOT, walk, readAllCards, readArchivedCards } from "./lib.mjs";
 
 const planPath = path.join(ROOT, "reduction-plan.yaml");
 if (!fs.existsSync(planPath)) throw new Error("anki/reduction-plan.yaml がありません");
@@ -44,15 +44,6 @@ function readArchiveCardFiles() {
       // archive/README.md and similar documentation are not card corpora.
       return source.startsWith("---\n") || source.startsWith("---\r\n");
     });
-}
-
-function countArchivedCards() {
-  let count = 0;
-  for (const file of readArchiveCardFiles()) {
-    const source = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
-    count += source.split(/^<!-- CARD -->\s*$/m).map((part) => part.trim()).filter(Boolean).length;
-  }
-  return count;
 }
 
 const files = readCardFiles();
@@ -211,14 +202,13 @@ for (const coverageItem of coverage.items || []) {
 fs.writeFileSync(coveragePath, YAML.stringify(coverage), "utf8");
 
 // During the canonical-deck audit we may introduce a stronger replacement
-// card before archiving weaker historical cards. The reviewed corpus is the
-// union of active canonical cards and archived historical cards, so keep the
-// progress counter synchronized automatically instead of requiring a manual
-// edit to the large progress.yaml file after every editorial consolidation.
+// card before archiving weaker historical cards. Use exactly the same readers
+// as validation so published:false cards and archive parsing semantics cannot
+// drift between the reduction script and the validator.
 const progressPath = path.join(ROOT, "progress.yaml");
 const progress = YAML.parse(fs.readFileSync(progressPath, "utf8").replace(/^\uFEFF/, ""));
-const activeCount = readCardFiles().reduce((sum, source) => sum + source.chunks.length, 0);
-const archiveCount = countArchivedCards();
+const activeCount = readAllCards().length;
+const archiveCount = readArchivedCards().length;
 progress.reviewed_card_count = activeCount + archiveCount;
 progress.updated_at = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(progressPath, YAML.stringify(progress), "utf8");
