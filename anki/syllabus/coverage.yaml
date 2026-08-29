@@ -169,23 +169,12 @@ items:
     status: complete
     cards:
       - dist-variance-moment
-      - prob-expected-value-linearity
-      - prob-expected-value-discrete
-      - prob-expected-value-integral
       - prob-expected-value-function
-      - prob-variance-affine
       - prob-variance-independent-sum
-      - prob-standard-deviation-standardize
-      - prob-moment-central-relation
-      - prob-moment-third-central
       - prob-skewness-definition
-      - prob-skewness-shape
       - prob-kurtosis-definition
-      - prob-kurtosis-shape
       - prob-coefficient-of-variation
       - prob-percentile-from-cdf
-      - prob-median-from-density
-      - prob-quartiles-iqr
       - prob-range-definition
       - prob-mode-from-density
       - prob-covariance-computation
@@ -206,14 +195,10 @@ items:
       - name: モーメント
         status: card
         cards:
-          - prob-moment-central-relation
-          - prob-moment-third-central
+          - prob-skewness-definition
       - name: 期待値
         status: card
         cards:
-          - prob-expected-value-linearity
-          - prob-expected-value-discrete
-          - prob-expected-value-integral
           - prob-expected-value-function
           - prob-total-expectation
           - prob-jensen-inequality
@@ -222,24 +207,21 @@ items:
         status: card
         cards:
           - dist-variance-moment
-          - prob-variance-affine
           - prob-variance-independent-sum
           - prob-total-variance
           - prob-chebyshev-inequality
       - name: 標準偏差
         status: card
         cards:
-          - prob-standard-deviation-standardize
+          - prob-variance-independent-sum
       - name: 歪度
         status: card
         cards:
           - prob-skewness-definition
-          - prob-skewness-shape
       - name: 尖度
         status: card
         cards:
           - prob-kurtosis-definition
-          - prob-kurtosis-shape
       - name: 変動係数
         status: card
         cards:
@@ -251,11 +233,11 @@ items:
       - name: 中央値
         status: card
         cards:
-          - prob-median-from-density
+          - prob-percentile-from-cdf
       - name: 四分位数
         status: card
         cards:
-          - prob-quartiles-iqr
+          - prob-percentile-from-cdf
       - name: 範囲
         status: card
         cards:
@@ -263,7 +245,7 @@ items:
       - name: 四分位範囲
         status: card
         cards:
-          - prob-quartiles-iqr
+          - prob-percentile-from-cdf
       - name: 最頻値
         status: card
         cards:
