@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
 
       - name: Install dependencies
@@ -33,9 +33,14 @@ jobs:
 
       - name: Prepare gitignored source placeholders
         run: |
-          mkdir -p pdfs
+          mkdir -p pdfs/grade1_hani_20150508_2
           touch pdfs/MathStat_Answers.pdf
           touch pdfs/grade1_hani_20150508_2.pdf
+          touch pdfs/grade1_hani_20150508_2/1.jpg
+          touch pdfs/grade1_hani_20150508_2/2.jpg
+          touch pdfs/grade1_hani_20150508_2/3.jpg
+          touch pdfs/grade1_hani_20150508_2/4.jpg
+          touch pdfs/statistics_grade1_card_titles_by_parent_priority.md
 
       - name: Apply reviewed reduction plan
         run: npm run anki:reduce
