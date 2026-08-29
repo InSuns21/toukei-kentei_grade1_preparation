@@ -971,7 +971,6 @@ items:
   - id: math-testing-foundations
     status: complete
     cards:
-      - test-z-rejection
       - mathstat-p-value-uniformity
       - test-null-alternative-definition
       - test-simple-composite-hypotheses
@@ -1032,7 +1031,6 @@ items:
           - test-critical-region-size
           - test-one-two-sided-critical-values
           - test-data-dependent-sidedness
-          - test-z-rejection
       - name: 第一種の過誤
         status: card
         cards:
@@ -1065,7 +1063,7 @@ items:
     status: complete
     cards:
       - test-np-bernoulli
-      - test-likelihood-ratio
+      - test-lr-deviance-statistic
       - test-np-lemma-statement
       - test-np-normal-mean
       - test-np-exponential-rate
@@ -1079,7 +1077,6 @@ items:
       - test-glrt-definition
       - test-glrt-normal-mean-known-variance
       - test-glrt-normal-variance-known-mean
-      - test-lr-deviance-statistic
       - test-wilks-theorem
       - test-wilks-restriction-rank
       - test-wilks-boundary-failure
@@ -1106,11 +1103,10 @@ items:
       - name: 尤度比検定
         status: card
         cards:
-          - test-likelihood-ratio
+          - test-lr-deviance-statistic
           - test-glrt-definition
           - test-glrt-normal-mean-known-variance
           - test-glrt-normal-variance-known-mean
-          - test-lr-deviance-statistic
           - test-wilks-theorem
           - test-lr-bernoulli-numeric
           - test-profile-likelihood-nuisance
@@ -2133,7 +2129,7 @@ items:
     status: complete
     cards:
       - model-logistic-odds
-      - model-poisson-glm
+      - glm-poisson-mean-ratio
       - mv-mean-covariance-numeric
       - mv-covariance-linear-transform
       - mv-mahalanobis-distance
@@ -2168,7 +2164,6 @@ items:
       - glm-binomial-loglikelihood
       - glm-logistic-score
       - glm-irls-update
-      - glm-poisson-mean-ratio
       - glm-poisson-offset
       - glm-deviance-definition
       - glm-pearson-chi-square
@@ -2237,14 +2232,13 @@ items:
       - name: 一般化線形モデル
         status: card
         cards:
-          - model-poisson-glm
+          - glm-poisson-mean-ratio
           - glm-three-components
           - glm-exponential-family
           - glm-canonical-links
           - glm-binomial-loglikelihood
           - glm-logistic-score
           - glm-irls-update
-          - glm-poisson-mean-ratio
           - glm-poisson-offset
           - glm-deviance-definition
           - glm-pearson-chi-square
@@ -2264,14 +2258,13 @@ items:
     status: complete
     cards:
       - process-markov-two-step
-      - process-stationary-markov
+      - stoch-three-state-stationary
       - stoch-poisson-arrival-gamma
       - stoch-markov-property
       - stoch-finite-dimensional-distribution
       - stoch-recurrence-definition
       - stoch-transition-matrix-check
       - stoch-three-state-two-step
-      - stoch-three-state-stationary
       - stoch-detailed-balance-check
       - stoch-communicating-classes
       - stoch-period-computation
@@ -2297,11 +2290,10 @@ items:
         status: card
         cards:
           - process-markov-two-step
-          - process-stationary-markov
+          - stoch-three-state-stationary
           - stoch-markov-property
           - stoch-transition-matrix-check
           - stoch-three-state-two-step
-          - stoch-three-state-stationary
           - stoch-detailed-balance-check
           - stoch-communicating-classes
           - stoch-period-computation
@@ -2410,7 +2402,7 @@ items:
       - multi-linear-combination
       - multi-covariance-psd
       - multi-pca-eigen
-      - multi-conditional-normal
+      - engmv-conditional-normal-numeric
       - engmv-normal-density-numeric
       - engmv-sample-mean-vector
       - engmv-sample-covariance-matrix
@@ -2418,7 +2410,6 @@ items:
       - engmv-correlation-from-covariance
       - engmv-linear-combination-normal
       - engmv-normal-marginal-numeric
-      - engmv-conditional-normal-numeric
       - engmv-mahalanobis-control-limit
       - engmv-eigenvalues-covariance-2x2
       - engmv-eigenvectors-covariance-2x2
@@ -2460,11 +2451,10 @@ items:
         status: card
         cards:
           - multi-linear-combination
-          - multi-conditional-normal
+          - engmv-conditional-normal-numeric
           - engmv-normal-density-numeric
           - engmv-linear-combination-normal
           - engmv-normal-marginal-numeric
-          - engmv-conditional-normal-numeric
           - engmv-mahalanobis-control-limit
           - engmv-normal-uncorrelated-independent
           - engmv-precision-conditional-independence
@@ -2515,7 +2505,7 @@ items:
     status: complete
     cards:
       - process-ar1-stationary
-      - process-ma1-autocovariance
+      - engproc-ma1-autocovariance-numeric
       - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
@@ -2545,7 +2535,6 @@ items:
       - engproc-ar1-forecast-interval
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
-      - engproc-ma1-autocovariance-numeric
       - engproc-ma1-invertible-shock-recovery
       - engproc-arma11-long-run-mean
       - engproc-arma11-one-step-forecast
@@ -2620,9 +2609,8 @@ items:
       - name: 移動平均過程
         status: card
         cards:
-          - process-ma1-autocovariance
-          - engproc-ma1-moment-identification
           - engproc-ma1-autocovariance-numeric
+          - engproc-ma1-moment-identification
           - engproc-ma1-invertible-shock-recovery
           - engproc-arma11-one-step-forecast
       - name: ARIMA過程
