@@ -1,8 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-29-cochran-consolidation-23
+batch_id: 2026-08-29-normal-linear-combo-consolidation-24
 items:
-  - id: samp-chisq-mean-var-indep
+  - id: samp-normal-linear-combo
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-cochran-theorem
-    note: 強化済みCochran canonicalへ平方和の直交分解、(n-1)S^2/sigma^2~chi^2_{n-1}、標本平均と標本分散の独立性、t統計量への接続まで吸収済み。
+    canonical_card: engmv-linear-combination-normal
+    coverage_card: samp-xbar-normal-distribution
+    note: 独立同分布正規の線形結合は多変量正規の一般式 a^T X ~ N(a^T mu,a^T Sigma a) の特殊形。標本分布の公式シラバスcoverageは正規母集団での標本平均canonicalで保持する。
