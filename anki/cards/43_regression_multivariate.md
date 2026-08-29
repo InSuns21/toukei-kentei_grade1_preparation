@@ -22,14 +22,63 @@ sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと分散
 
 $\boldsymbol S=(n-1)^{-1}\sum_i(\boldsymbol x_i-\bar{\boldsymbol x})(\boldsymbol x_i-\bar{\boldsymbol x})^{\mathsf T}$。
 
+## 一手
+多変量の分散共分散行列は、まず平均ベクトルを引いて偏差ベクトルを作り、その**外積を足して $n-1$ で割る**。
+
 ## 答え
-$$\bar{\boldsymbol x}=(2,3)^{\mathsf T}.$$
-偏差は $(-1,-1)^{\mathsf T},(1,1)^{\mathsf T}$ なので
-$$\boldsymbol S=\frac1{2-1}\sum_i(\boldsymbol x_i-\bar{\boldsymbol x})(\boldsymbol x_i-\bar{\boldsymbol x})^{\mathsf T}
-=\begin{pmatrix}2&2\\2&2\end{pmatrix}.$$
+$$
+\overline{\boldsymbol x}
+=\begin{pmatrix}2\\3\end{pmatrix},
+\qquad
+\boldsymbol S
+=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+$$
 
 ## 計算例
-完全な直線関係のためSは特異。
+まず平均ベクトルは
+$$
+\begin{aligned}
+\overline{\boldsymbol x}
+&=\frac12\left\{
+\begin{pmatrix}1\\2\end{pmatrix}
++\begin{pmatrix}3\\4\end{pmatrix}
+\right\}\\
+&=\begin{pmatrix}2\\3\end{pmatrix}.
+\end{aligned}
+$$
+したがって2本の偏差ベクトルは
+$$
+\boldsymbol d_1
+=\begin{pmatrix}-1\\-1\end{pmatrix},
+\qquad
+\boldsymbol d_2
+=\begin{pmatrix}1\\1\end{pmatrix}.
+$$
+それぞれの外積は
+$$
+\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
+=\begin{pmatrix}1&1\\1&1\end{pmatrix},
+\qquad
+\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
+=\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+$$
+$n=2$ なので不偏標本分散共分散行列は
+$$
+\begin{aligned}
+\boldsymbol S
+&=\frac1{n-1}
+\left(
+\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
++\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
+\right)\\
+&=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+\end{aligned}
+$$
+最後に
+$$
+\det(\boldsymbol S)=2\cdot2-2\cdot2=0
+$$
+なので、この例では2変数が完全な直線関係にあり $\boldsymbol S$ は特異である。
 
 ## 注意
 対角は分散、非対角は共分散。
@@ -95,12 +144,51 @@ sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解
 
 入れ子モデルの尤度比統計量は逸脱度差 $D_R-D_F$。
 
+## 一手
+入れ子な一般化線形モデルを比較するときは、**逸脱度の差**と**自由度の差**を同時に取り、カイ二乗分布と比較する。
+
 ## 答え
-$$G^2=120-90=30,\qquad df=99-97=2.$$
-帰無仮説下で自由度2のカイ二乗分布へ近似する。30は5%臨界値5.991を上回るので、追加係数を同時に0とする帰無仮説を棄却する。
+追加した2係数に対する尤度比統計量は
+$$
+G^2=30,
+\qquad df=2.
+$$
+$30>\chi^2_{2,0.95}\approx5.991$ なので、追加係数を同時に0とする帰無仮説を5%水準で棄却する。
 
 ## 計算例
-Residual deviance/dfは $90/97\approx0.928$ だが、これだけで適合を確定しない。
+簡約モデルの逸脱度を $D_R=120$、追加係数を含むモデルを $D_F=90$ とする。まず逸脱度差は
+$$
+\begin{aligned}
+G^2
+&=D_R-D_F\\
+&=120-90\\
+&=30.
+\end{aligned}
+$$
+自由度の差は
+$$
+\begin{aligned}
+q
+&=99-97\\
+&=2.
+\end{aligned}
+$$
+帰無仮説の下では近似的に
+$$
+G^2\sim\chi^2_2.
+$$
+5%上側臨界値は約 $5.991$ なので
+$$
+30>5.991
+$$
+となり帰無仮説を棄却する。
+
+なお、当てはめ後の補助診断として
+$$
+\frac{\text{Residual deviance}}{\text{residual df}}
+=\frac{90}{97}\approx0.928
+$$
+も確認できるが、この比だけで適合の良否を確定しない。
 
 ## 注意
 分散固定の二項・ポアソンモデルでは近似条件と過分散も確認する。
@@ -131,13 +219,44 @@ sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解
 
 寄与率は固有値を固有値総和で割る。主成分得点は固有ベクトルと標準化観測の内積。
 
+## 一手
+主成分分析の出力では、まず**固有値 / 固有値総和**で寄与率を計算し、その後に固有ベクトルの成分から主成分軸の意味を読む。
+
 ## 答え
-相関行列の総分散は3なので、寄与率は
-$$2.4/(2.4+0.5+0.1)=0.80.$$
-第1主成分は全標準化分散の80%を表し、第1・第2変数へ同方向に大きな重み、第3変数へ小さな重みを置く総合指標と読める。
+第1主成分の寄与率は
+$$
+\frac{2.4}{2.4+0.5+0.1}=0.80.
+$$
+よって第1主成分だけで全標準化分散の80%を表す。第1・第2変数に同方向の大きな重み、第3変数に小さな重みを置く軸である。
 
 ## 計算例
-固有ベクトルの符号を全て反転しても同じ主成分軸。
+まず固有値の総和は
+$$
+2.4+0.5+0.1=3.0.
+$$
+したがって第1主成分の寄与率は
+$$
+\begin{aligned}
+\text{寄与率}
+&=\frac{2.4}{3.0}\\
+&=0.80.
+\end{aligned}
+$$
+次に、標準化された1つの観測を
+$$
+\boldsymbol z
+=\begin{pmatrix}1\\-1\\0.5\end{pmatrix}
+$$
+とすると、第1主成分得点は固有ベクトルとの内積だから
+$$
+\begin{aligned}
+z_{\mathrm{PC1}}
+&=0.70(1)+0.68(-1)+0.22(0.5)\\
+&=0.70-0.68+0.11\\
+&=0.13.
+\end{aligned}
+$$
+固有ベクトル全体の符号を反転すると得点も $-0.13$ になるが、表す主成分軸そのものは同じである。
 
 ## 注意
 固有ベクトル成分と変数・主成分間相関を区別する。
@@ -165,14 +284,51 @@ $H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ の制約数をqとする。$\
 
 正規線形モデルの帰無仮説下で $F\sim F_{q,n-p}$。
 
+## 一手
+$H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ では、まず制約からのずれ
+$$
+\boldsymbol d=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
+$$
+を作り、$\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d$ という二次形式を $q s^2$ で割る。
+
 ## 答え
-$$F=\frac{(\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r)^{\mathsf T}
-[\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}]^{-1}
-(\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r)}{qs^2}
-=\frac{2^2+1^2}{2\cdot5}=0.5.$$
+$$
+F=0.5.
+$$
+帰無仮説の下では $F_{2,n-p}$ 分布と比較する。
 
 ## 計算例
-q=1なら対応するt統計量の二乗と一致する。
+ここでは
+$$
+\boldsymbol d
+=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
+=\begin{pmatrix}2\\1\end{pmatrix},
+$$
+$$
+A
+=\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
+=\boldsymbol I_2
+$$
+なので $A^{-1}=\boldsymbol I_2$ である。まず分子の二次形式は
+$$
+\begin{aligned}
+\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d
+&=\begin{pmatrix}2&1\end{pmatrix}
+  \begin{pmatrix}1&0\\0&1\end{pmatrix}
+  \begin{pmatrix}2\\1\end{pmatrix}\\
+&=2^2+1^2\\
+&=5.
+\end{aligned}
+$$
+制約数は $q=2$、$s^2=5$ だから分母は
+$$
+qs^2=2\cdot5=10.
+$$
+よって
+$$
+F=\frac5{10}=0.5.
+$$
+$q=1$ の1本の線形制約なら、このF統計量は対応するt統計量の二乗と一致する。
 
 ## 注意
 Rは行フルランクとする。
@@ -242,12 +398,41 @@ sources: [{ type: official_syllabus, topic: 回帰診断法 }]
 
 DFFITSは観測iを除いたときのi自身の当てはめ値変化を尺度化する。
 
+## 一手
+DFFITSは、外的スチューデント化残差の大きさに
+$$
+\sqrt{\frac{h_{ii}}{1-h_{ii}}}
+$$
+というレバレッジの増幅係数を掛ける。
+
 ## 答え
-$$\operatorname{DFFITS}_i=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
-=2\sqrt{\frac{0.2}{0.8}}=1.$$
+$$
+\operatorname{DFFITS}_i=1.
+$$
 
 ## 計算例
-符号は変化の方向を表す。
+まずレバレッジ部分を計算する。
+$$
+\frac{h_{ii}}{1-h_{ii}}
+=\frac{0.2}{0.8}
+=\frac14.
+$$
+したがって
+$$
+\sqrt{\frac{h_{ii}}{1-h_{ii}}}
+=\sqrt{\frac14}
+=\frac12.
+$$
+外的スチューデント化残差 $t_i=2$ を掛けると
+$$
+\begin{aligned}
+\operatorname{DFFITS}_i
+&=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}\\
+&=2\cdot\frac12\\
+&=1.
+\end{aligned}
+$$
+正の符号は、その観測を入れたときの当てはめ値変化が正方向であることを表す。
 
 ## 注意
 大残差または高レバレッジで絶対値が大きくなる。
