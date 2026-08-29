@@ -1,86 +1,78 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-timeseries-merge-prep-36
+batch_id: 2026-08-30-engineering-multivariate-merge-prep-37
 items:
-  - id: ts-ar1-hstep-forecast
-    note: 工学版AR(1)予測区間カードの内容を、点予測・誤差分散と同じcanonicalへ吸収する。
+  - id: mv-factor-model-covariance
+    note: engineering側の1因子モデルの行列計算例を吸収し、共分散分解と共通性を一枚で追えるようにする。
     metadata:
-      title: AR(1)の多期先予測・誤差分散・予測区間を導く
-      hashtags: [ARIMAモデル, AR1, 多期先予測, 予測誤差分散, 予測区間]
+      title: 因子分析の共分散分解と共通性を計算する
+      topic: factor-analysis-covariance-communality
+      hashtags: [因子分析, 因子負荷量, 分散共分散行列, 共通性, 独自性]
     sections:
-      使用公式・定理: |
-        モデルを前向きに反復すると
-        $$
-        X_{t+h}-\mu
-        =\phi^h(X_t-\mu)
-        +\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j}.
-        $$
-        時刻 $t$ までの情報を $\mathcal F_t$ とすると、将来革新は条件付き平均0だから
-        $$
-        \widehat X_{t+h\mid t}
-        =E[X_{t+h}\mid\mathcal F_t]
-        =\mu+\phi^h(X_t-\mu).
-        $$
-        予測誤差は
-        $$
-        e_{t+h\mid t}
-        =\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j},
-        $$
-        よって独立な革新の分散を加えて
-        $$
-        V_h
-        :=\operatorname{Var}(e_{t+h\mid t})
-        =\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}
-        =\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
-        $$
-        さらに革新が正規分布で、母数を既知として扱うなら
-        $$
-        X_{t+h}\mid\mathcal F_t
-        \sim N\!\left(\widehat X_{t+h\mid t},V_h\right),
-        $$
-        したがって近似95%予測区間は
-        $$
-        \widehat X_{t+h\mid t}\pm1.96\sqrt{V_h}.
-        $$
       計算例: |
-        $\mu=5,\phi=0.8,X_t=7,\sigma_\varepsilon^2=1,h=2$ では、まず
+        まず1因子モデルで
+        $$
+        \boldsymbol\lambda=
+        \begin{pmatrix}0.8\\0.6\end{pmatrix},
+        \qquad
+        \boldsymbol\Psi=
+        \begin{pmatrix}0.36&0\\0&0.64\end{pmatrix}
+        $$
+        とする。負荷量ベクトルの外積は
         $$
         \begin{aligned}
-        \widehat X_{t+2\mid t}
-        &=5+0.8^2(7-5)\\
-        &=5+0.64\cdot2\\
-        &=6.28.
+        \boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
+        &=
+        \begin{pmatrix}0.8\\0.6\end{pmatrix}
+        \begin{pmatrix}0.8&0.6\end{pmatrix}\\
+        &=
+        \begin{pmatrix}
+        0.64&0.48\\
+        0.48&0.36
+        \end{pmatrix}.
         \end{aligned}
         $$
-        予測誤差は
-        $$
-        e_{t+2\mid t}=\varepsilon_{t+2}+0.8\varepsilon_{t+1}
-        $$
-        なので
+        したがって
         $$
         \begin{aligned}
-        V_2
-        &=1+0.8^2\\
-        &=1.64.
+        \boldsymbol\Sigma
+        &=\boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}+\boldsymbol\Psi\\
+        &=
+        \begin{pmatrix}
+        0.64&0.48\\
+        0.48&0.36
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+        0.36&0\\
+        0&0.64
+        \end{pmatrix}\\
+        &=
+        \begin{pmatrix}
+        1&0.48\\
+        0.48&1
+        \end{pmatrix}.
         \end{aligned}
         $$
-        正規革新を仮定すれば標準偏差は
+        対角が1なのは、各標準化変数について
         $$
-        \sqrt{1.64}\approx1.281,
+        \lambda_i^2+\psi_i=1
         $$
-        よって95%予測区間は
-        $$
-        \begin{aligned}
-        6.28\pm1.96(1.281)
-        &\approx6.28\pm2.51\\
-        &\approx(3.77,8.79).
-        \end{aligned}
-        $$
-        なお $h=1$ なら
-        $$
-        \widehat X_{t+1\mid t}=5+0.8(7-5)=6.6,
-        \qquad V_1=1.
-        $$
-      注意: |
-        $h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigma_\varepsilon^2/(1-\phi^2)$ へ近づく。分散では係数を二乗する。
+        となっているためである。
 
-        上の予測区間は革新分散やAR係数などの母数を既知として扱った条件付き分布に基づく。実際に母数を推定している場合、その推定不確実性を無視した区間になり得る。
+        次に2因子への負荷量が $(0.6,0.5)$ の標準化変数を考えると
+        $$
+        \begin{aligned}
+        h_i^2
+        &=0.6^2+0.5^2\\
+        &=0.36+0.25\\
+        &=0.61,
+        \end{aligned}
+        $$
+        $$
+        \psi_i=1-0.61=0.39.
+        $$
+        つまり分散の61%を共通因子部分、39%を独自部分が担う。
+      注意: |
+        PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。共分散分解 $\Lambda\Lambda^{\mathsf T}+\Psi$ には共通因子と独自誤差の無相関が必要である。
+
+        直交因子なら共通性は負荷量平方和で読める。斜交回転では因子同士が相関するため、単純な負荷量平方和の解釈には注意する。
