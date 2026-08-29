@@ -1,33 +1,13 @@
 schema_version: 1
-batch_id: 2026-08-29-pilot-duplicates-26
+batch_id: 2026-08-29-pilot-duplicates-27
 items:
-  - id: test-z-rejection
+  - id: data-em-responsibility
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-z-known-formula
-    note: 既知分散の正規母平均に対してZ統計量を作り棄却域と比較する同一操作。後発canonicalは両側検定の式と数値計算まで明示している。
-  - id: test-likelihood-ratio
+    canonical_card: inc-em-observed-likelihood
+    note: 混合分布のEステップで負担率を求める旧pilot数値例は、Q関数の定義から負担率 2/3 の具体計算まで吸収した不完全データcanonicalへ統合済み。
+  - id: data-monte-carlo-integral
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-lr-deviance-statistic
-    note: -2 log Lambda = 2{ell(unrestricted)-ell(restricted)} を作る同一の尤度比統計量。後発canonicalへ統合する。
-  - id: multi-conditional-normal
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engmv-conditional-normal-numeric
-    note: 2変量正規の条件付き平均を求めるpilot版は、条件付き平均・分散・数値例まで扱う後発canonicalに完全包含される。
-  - id: process-stationary-markov
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: stoch-three-state-stationary
-    note: 定常分布を pi^T P=pi^T と総和1から求める同一操作。3状態の具体計算を持つ後発canonicalへ統合する。
-  - id: process-ma1-autocovariance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engproc-ma1-autocovariance-numeric
-    note: MA(1)の自己共分散 gamma(0), gamma(1), gamma(h>=2) を求める同一例。後発canonicalは同じ計算に加えて自己相関まで接続している。
-  - id: model-poisson-glm
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-poisson-mean-ratio
-    note: Poisson回帰のlog linkで係数差をexpして平均比として読む同一操作。後発canonicalの数値例へ統合する。
+    canonical_card: sim-mc-standard-error
+    note: 積分を期待値に直して標本平均で近似する旧pilotは、積分→期待値→Monte Carlo平均→標準誤差まで一続きに扱うcanonicalへ統合済み。
