@@ -1454,31 +1454,113 @@ scale $s$ は分散ではない。分散は $\pi^2s^2/3$。
 ---
 id: dist-multivariate-normal-density
 published: true
-title: 多変量正規分布の密度と分散共分散行列条件
+title: 多変量正規分布の密度を行列式・逆行列・二次形式から計算する
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: multivariate-normal
+topic: multivariate-normal-density
 type: recognition
 difficulty: 2
 priority: S
-hashtags: [多変量正規分布, 密度, 分散共分散行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
+hashtags:
+  - 多変量正規分布
+  - 確率密度関数
+  - 分散共分散行列
+  - 二次形式
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多変量正規分布
 ---
 ## 問題
-正規分布 $X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)$ の密度を記述するために必要な条件と式を答えよ。
+多変量正規分布に従う確率ベクトルを
+$$
+\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+$$
+とする。通常の密度が存在する条件と密度式を書け。
+
+さらに
+$$
+\boldsymbol\mu=\boldsymbol0,
+\qquad
+\boldsymbol\Sigma=
+\begin{pmatrix}1&0\\0&4\end{pmatrix},
+\qquad
+\boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
+$$
+のときの密度を数値計算せよ。
+
 ## 答え
-$\boldsymbol\Sigma$ は $p\times p$ の対称正定値行列で、
-$$f_X(\boldsymbol x)=\frac1{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
-\exp\left\{-\frac12(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\right\}.$$
+数値例では
+$$
+|\boldsymbol\Sigma|=4,
+\qquad
+\boldsymbol\Sigma^{-1}=
+\begin{pmatrix}1&0\\0&1/4\end{pmatrix},
+$$
+$$
+\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2.
+$$
+よって
+$$
+f_{\boldsymbol X}(1,2)
+=\frac{e^{-1}}{4\pi}
+\approx0.0293.
+$$
+
 ## 使用公式・定理
-正定値なら $|\boldsymbol\Sigma|>0$、逆行列 $\boldsymbol\Sigma^{-1}$ が存在する。
+$\boldsymbol\Sigma$ が対称正定値なら
+$$
+f_{\boldsymbol X}(\boldsymbol x)
+=\frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
+\exp\left\{-\frac12
+(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+\boldsymbol\Sigma^{-1}
+(\boldsymbol x-\boldsymbol\mu)
+\right\}.
+$$
+正定値なら $|\boldsymbol\Sigma|>0$ かつ逆行列が存在する。
+
 ## 計算例
-$p=1$ では $|\boldsymbol\Sigma|=\sigma^2$ となり、通常の $N(\mu,\sigma^2)$ の密度に戻る。
+まず
+$$
+|\boldsymbol\Sigma|=1\cdot4=4,
+\qquad |\boldsymbol\Sigma|^{1/2}=2.
+$$
+次に
+$$
+\boldsymbol\Sigma^{-1}
+=\operatorname{diag}\left(1,\frac14\right).
+$$
+二次形式は
+$$
+\begin{aligned}
+\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
+&=1^2+\frac{2^2}{4}\\
+&=1+1\\
+&=2.
+\end{aligned}
+$$
+$p=2$ なので正規化定数は
+$$
+\frac{1}{(2\pi)^{2/2}\sqrt4}
+=\frac1{4\pi}.
+$$
+したがって
+$$
+f_{\boldsymbol X}(1,2)
+=\frac1{4\pi}\exp(-2/2)
+=\frac{e^{-1}}{4\pi}.
+$$
+
 ## 一手
-次元、行列式、逆行列、二次形式の4点を確認する。
+数値代入では、**行列式 → 逆行列 → Mahalanobis二次形式 → 正規化定数**の順で計算する。
+
 ## 注意
-半正定値で特異な場合は、この通常のLebesgue密度式をそのまま使えない。
+半正定値でも特異な $\boldsymbol\Sigma$ では、$p$ 次元Lebesgue測度に関する通常の密度式をそのまま使えない。正規化定数は $|\Sigma|$ ではなく $|\Sigma|^{1/2}$ を使う。
 
 <!-- CARD -->
 

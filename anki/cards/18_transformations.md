@@ -320,40 +320,115 @@ $$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
 
 ---
 id: prob-linear-combination-normal
-title: 独立正規分布の線形結合の分布を求める
+title: 正規ベクトルの線形結合の分布を求める
 category: math-probability
 subcategory: math-transformations
-topic: linear-combination-normal
+topic: multivariate-normal-linear-combination
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [確率変数の線形結合, 正規分布（ガウス分布）, 統計的独立]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }, { type: past_exam, id: MATH-2021-Q5, topic: 多変量正規分布の線形変換・独立性 }]
+hashtags:
+  - 確率変数の線形結合
+  - 多変量正規分布
+  - 分散共分散行列
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 確率変数の線形結合
+  - type: past_exam
+    id: MATH-2021-Q5
+    topic: 多変量正規分布の線形変換・独立性
 ---
 ## 問題
-独立に $X$ は正規分布 $N(1,4)$、$Y$ は正規分布 $N(2,9)$ に従うとする。$W=2X-3Y$ の分布を求めよ。
+多変量正規分布に従う確率ベクトルを
+$$
+\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+$$
+とする。定数ベクトル $\boldsymbol a$ に対する
+$$
+Y=\boldsymbol a^{\mathsf T}\boldsymbol X
+$$
+の分布を求めよ。
+
+数値例として
+$$
+\boldsymbol\mu=(1,2)^{\mathsf T},
+\qquad
+\boldsymbol\Sigma=
+\begin{pmatrix}4&1\\1&9\end{pmatrix},
+\qquad
+Y=X_1-2X_2
+$$
+を計算せよ。
 
 ## 答え
-独立正規分布の線形結合は正規分布に従い、平均と分散を計算すればよい。
+数値例では
+$$
+E[Y]=1-2\cdot2=-3,
+$$
+$$
+\operatorname{Var}(Y)=36,
+$$
+したがって
+$$
+Y\sim N(-3,36).
+$$
 
 ## 使用公式・定理
-独立に $X\sim N(\mu_X,\sigma_X^2)$、$Y\sim N(\mu_Y,\sigma_Y^2)$ なら
-$$aX+bY\sim N(a\mu_X+b\mu_Y,\ a^2\sigma_X^2+b^2\sigma_Y^2).$$
+多変量正規分布は線形変換で閉じているので
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol X
+\sim
+N\left(
+\boldsymbol a^{\mathsf T}\boldsymbol\mu,
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+\right).
+$$
+2変量なら
+$$
+\operatorname{Var}(aX+bY)
+=a^2\sigma_X^2+b^2\sigma_Y^2+2ab\sigma_{XY}.
+$$
+独立正規変数の線形結合は $\sigma_{XY}=0$ の特殊例である。
 
 ## 計算例
-平均は
-$$E[W]=2\cdot1-3\cdot2=2-6=-4.$$
-分散は独立性から
-$$\operatorname{Var}(W)=2^2\cdot4+(-3)^2\cdot9=16+81=97.$$
-したがって
-$$W\sim N(-4,97).$$
+$\boldsymbol a=(1,-2)^{\mathsf T}$ とする。平均は
+$$
+\begin{aligned}
+\boldsymbol a^{\mathsf T}\boldsymbol\mu
+&=1\cdot1+(-2)\cdot2\\
+&=-3.
+\end{aligned}
+$$
+分散は
+$$
+\begin{aligned}
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+&=1^2\cdot4+(-2)^2\cdot9
+  +2(1)(-2)(1)\\
+&=4+36-4\\
+&=36.
+\end{aligned}
+$$
+よって $Y\sim N(-3,36)$。
+
+独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z$ なら共分散項が0となり
+$$
+E[W]=-4,
+\qquad
+\operatorname{Var}(W)=16+81=97,
+$$
+したがって $W\sim N(-4,97)$。
 
 ## 一手
-平均は線形に、分散は係数の二乗で重み付けして足す。
+**正規性は線形変換で保たれる。** あとは平均には係数を1回、分散には係数ベクトルを左右から掛ける。相関があれば共分散項を落とさない。
 
 ## 注意
-$(X,Y)$ が同時正規分布なら、独立でなくても線形結合は正規分布に従い、分散に共分散項 $2ab\operatorname{Cov}(X,Y)$ を加える。周辺分布がそれぞれ正規分布であるだけでは、線形結合が正規分布になるとは限らない。
+各成分が個別に正規分布だからといってベクトルが多変量正規とは限らない。多変量正規であることが線形結合の正規性を保証する。
 
 <!-- CARD -->
 

@@ -854,16 +854,26 @@ $$\operatorname{Corr}(X_k,Z_j)=\frac{\sqrt{\lambda_j}a_{kj}}{s_k}
 
 ---
 id: mv-pca-covariance-vs-correlation
-title: 共分散主成分分析と相関主成分分析を選び分ける
+title: 共分散PCAと相関PCAを選び、標準化PCAを計算する
 category: applied-common
 subcategory: applied-multivariate
 topic: standardized-pca
 type: recognition
 difficulty: 2
 priority: B
-hashtags: [主成分分析, 標準化PCA, 相関行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標準化主成分分析と相関行列 }]
+hashtags:
+  - 主成分分析
+  - 標準化PCA
+  - 相関行列
+  - 寄与率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 標準化主成分分析と相関行列
 ---
 
 ## 問題
@@ -873,18 +883,50 @@ sources: [{ type: official_syllabus, topic: 標準化主成分分析と相関行
 - PCA：主成分分析（principal component analysis）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+標準化変数
+$$
+Z_j=\frac{X_j-\bar X_j}{s_j}
+$$
+の分散共分散行列は相関行列 $\boldsymbol R$ である。したがって相関PCAでは $\boldsymbol R$ の固有値・固有ベクトルを使う。
 
-標準化変数 $Z_j=(X_j-\bar X_j)/s_j$ の分散共分散行列が相関行列。
+固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると第 $j$ 主成分の寄与率は
+$$
+\frac{\lambda_j}{\sum_{r=1}^{p}\lambda_r}.
+$$
+
+## 一手
+単位・分散の大きさ自体を重視するなら共分散PCA、尺度差を消して相関構造を重視するなら相関PCAを選ぶ。相関PCAでも計算自体は「最大固有値と固有ベクトルを求める」同じ操作である。
 
 ## 答え
-尺度差を主成分へ反映させる科学的理由がなければ、各変数を標準化した相関行列主成分分析を用いる。共分散主成分分析は元単位の大分散変数を強く重視する。
+尺度差に科学的意味がなければ、標準化して相関行列PCAを使うのが基本である。ただし標準化が常に正しいわけではない。
 
 ## 計算例
-cmとkgをそのまま混ぜると単位選択で結果が変わる。
+$$
+\boldsymbol R=
+\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
+$$
+とする。対角が等しいので和方向・差方向が固有ベクトルとなり、固有値は
+$$
+\lambda_1=1+0.8=1.8,
+\qquad
+\lambda_2=1-0.8=0.2.
+$$
+第1主成分方向は
+$$
+\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
+$$
+したがって
+$$
+Y_1=\frac{Z_1+Z_2}{\sqrt2}.
+$$
+寄与率は
+$$
+\frac{1.8}{1.8+0.2}=0.9.
+$$
+よって第1主成分だけで標準化後の全分散の90%を説明する。
 
 ## 注意
-標準化が常に正しいわけではない。
+共分散PCAは測定単位の変更で結果が変わり得る。相関PCAは各変数を分散1へ標準化してから行うため、変数間の尺度差を除いて比較する。
 
 <!-- CARD -->
 
@@ -1175,16 +1217,27 @@ $\boldsymbol w$ の倍率は方向を変えない。実際の分類閾値には�
 
 ---
 id: mv-lda-classification-rule
-title: 正規2群のLDA分類規則を書く
+title: LDAの共通共分散推定・判別得点・分類境界を計算する
 category: applied-common
 subcategory: applied-multivariate
-topic: lda-classification
+topic: lda-classification-canonical
 type: formula
 difficulty: 4
 priority: B
-hashtags: [判別分析, LDA, 事前確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 判別分析 }]
+hashtags:
+  - 判別分析
+  - LDA
+  - 事前確率
+  - プール分散共分散行列
+  - 分類境界
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 判別分析
 ---
 
 ## 問題
@@ -1199,14 +1252,22 @@ sources: [{ type: official_syllabus, topic: 判別分析 }]
 $$
 \boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
 $$
-と共通分散共分散行列を持ち、事前確率が $\pi_k$ なら、群間で共通な項を除いたLDA判別関数は
+と**共通**分散共分散行列を持ち、事前確率が $\pi_k$ なら
 $$
 \delta_k(\boldsymbol x)
 =\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
 -\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
-+\log\pi_k.
++\log\pi_k
 $$
-$\delta_k$ が最大の群へ分類する。
+を最大にする群へ分類する。
+
+共通 $\boldsymbol\Sigma$ が未知で2群の不偏標本分散共分散行列 $\boldsymbol S_1,\boldsymbol S_2$ を使うなら、通常
+$$
+\boldsymbol S_p
+=\frac{(n_1-1)\boldsymbol S_1+(n_2-1)\boldsymbol S_2}
+{n_1+n_2-2}
+$$
+でプールして $\boldsymbol\Sigma$ を推定する。
 
 QDAでは群ごとに $\boldsymbol\Sigma_k$ を許すため
 $$
@@ -1215,19 +1276,53 @@ $$
 \boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
 +\log\pi_k
 $$
-を比較し、$\boldsymbol x$ の二次項が群間で打ち消されない。
+を比較し、二次項が群間で消えない。
 
 ## 一手
-LDA/QDAは別々に暗記せず、多変量正規密度の対数を群間比較する。共分散が全群共通なら二次項が消えて線形、群別なら残って二次境界になる。
+LDAは **共通共分散を作る → 各群の線形判別得点を計算 → 最大得点の群へ分類** の順で扱う。等事前確率なら $\log\pi_k$ は消えるが、不等なら境界を動かす。
 
 ## 答え
-LDAは共通 $\boldsymbol\Sigma$ を仮定して線形境界、QDAは群別 $\boldsymbol\Sigma_k$ を許して二次境界を持つ。
+共通共分散ならLDAの境界は線形、群別共分散ならQDAの境界は一般に二次になる。1変量・共通分散・等事前確率の2群では境界は2平均の中点になる。
 
 ## 計算例
-等事前確率ならLDAの $\log\pi_k$ は全群で同じなので比較から消える。一方、群ごとに共分散が異なるQDAでは $\log|\Sigma_k|$ も分類に効く。
+**1. 等事前確率の1変量境界**
+
+共通分散1、$\mu_1=0,\mu_2=4$、$\pi_1=\pi_2$ なら境界は
+$$
+c=\frac{0+4}{2}=2.
+$$
+$x=3$ は群2側である。
+
+**2. 事前確率が異なる例**
+
+共通分散1、$\mu_1=0,\mu_2=2$、$\pi_1=0.8,\pi_2=0.2$、$x=1$ では
+$$
+\delta_1(1)=\log0.8\approx-0.223,
+$$
+$$
+\delta_2(1)=2-2+\log0.2\approx-1.609.
+$$
+よって中点 $x=1$ でも事前確率の大きい群1へ分類される。
+
+**3. 共通共分散のプール推定**
+
+$n_1=6,n_2=4$、
+$$
+\boldsymbol S_1=\operatorname{diag}(2,4),
+\qquad
+\boldsymbol S_2=\operatorname{diag}(5,1)
+$$
+なら
+$$
+\begin{aligned}
+\boldsymbol S_p
+&=\frac{5\boldsymbol S_1+3\boldsymbol S_2}{8}\\
+&=\operatorname{diag}\left(\frac{25}{8},\frac{23}{8}\right).
+\end{aligned}
+$$
 
 ## 注意
-QDAは柔軟だが群ごとに分散共分散行列を推定するため母数が多い。小標本・高次元ではLDAの方が安定しやすい。
+プール共分散は単純平均ではなく自由度加重平均である。事前確率や誤分類損失が異なれば境界は平均の中点から移動する。QDAは柔軟だが群ごとに共分散を推定するため小標本・高次元では不安定になりやすい。
 
 <!-- CARD -->
 

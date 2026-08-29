@@ -48,44 +48,93 @@ $\mu_1=\mu_2=0,\sigma_1=\sigma_2=1,\rho=0$ なら標準二変量正規になり�
 <!-- CARD -->
 ---
 id: dist-bivariate-normal-marginal
-title: 二変量正規分布の周辺分布
+title: 多変量正規分布の部分ベクトルの周辺分布を取り出す
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: bivariate-normal-marginal
+topic: multivariate-normal-marginal
 type: theorem
 difficulty: 2
 priority: S
-hashtags: [二変量正規分布, 周辺分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
+hashtags:
+  - 多変量正規分布
+  - 周辺分布
+  - 部分ベクトル
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多変量正規分布
 ---
 ## 問題
-二変量正規分布 $N_2(\boldsymbol\mu,\boldsymbol\Sigma)$ の周辺分布 $X_1$ と $X_2$ を求めよ。
+多変量正規分布に従う確率ベクトルを
+$$
+\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+$$
+とする。一部の成分だけを抜き出した部分ベクトルの周辺分布を述べよ。
+
+数値例として
+$$
+\boldsymbol\mu=(1,2,3)^{\mathsf T},
+\qquad
+\Sigma_{11}=4,
+\quad \Sigma_{33}=9,
+\quad \Sigma_{13}=2
+$$
+のとき $(X_1,X_3)^{\mathsf T}$ の周辺分布を書け。
 
 ## 答え
-$$X_1\sim N(\mu_1,\sigma_1^2),\qquad X_2\sim N(\mu_2,\sigma_2^2).$$
-周辺分布はそれぞれ1変量の正規分布であり、$\rho$ に依存しない。
+数値例では
+$$
+\begin{pmatrix}X_1\\X_3\end{pmatrix}
+\sim
+N_2\left(
+\begin{pmatrix}1\\3\end{pmatrix},
+\begin{pmatrix}4&2\\2&9\end{pmatrix}
+\right).
+$$
 
 ## 使用公式・定理
-独立な $Z_1,Z_2\sim N(0,1)$ を使うと、二変量正規分布は
-$$X_1=\mu_1+\sigma_1Z_1,$$
-$$X_2=\mu_2+\sigma_2\{\rho Z_1+\sqrt{1-\rho^2}Z_2\}$$
-と表せる。正規分布の独立な線形結合は正規分布であり、
-$$\operatorname{Var}\{\rho Z_1+\sqrt{1-\rho^2}Z_2\}
-=\rho^2+(1-\rho^2)=1.$$ 
+多変量正規ベクトルの任意の部分ベクトルも多変量正規分布に従う。
+
+添字集合 $I$ に対応する部分ベクトルを $\boldsymbol X_I$ とすれば
+$$
+\boldsymbol X_I
+\sim N_{|I|}(\boldsymbol\mu_I,\boldsymbol\Sigma_{II}),
+$$
+ここで $\boldsymbol\mu_I$ は対応する平均成分、$\boldsymbol\Sigma_{II}$ は対応する行・列を抜き出した部分行列である。
 
 ## 計算例
-上の表現から直ちに
-$$X_1\sim N(\mu_1,\sigma_1^2),$$
-$$X_2\sim N\left(\mu_2,\sigma_2^2
-\{\rho^2+(1-\rho^2)\}\right)=N(\mu_2,\sigma_2^2).$$
-したがって周辺分布には $\rho$ が現れない。
+残す添字は $I=\{1,3\}$ なので
+$$
+\boldsymbol\mu_I=
+\begin{pmatrix}\mu_1\\\mu_3\end{pmatrix}
+=\begin{pmatrix}1\\3\end{pmatrix}.
+$$
+分散共分散行列も1行目・3行目と1列目・3列目を抜き出して
+$$
+\boldsymbol\Sigma_{II}
+=\begin{pmatrix}
+\Sigma_{11}&\Sigma_{13}\\
+\Sigma_{31}&\Sigma_{33}
+\end{pmatrix}
+=\begin{pmatrix}4&2\\2&9\end{pmatrix}.
+$$
+さらに各1変量周辺は
+$$
+X_1\sim N(1,4),
+\qquad
+X_3\sim N(3,9)
+$$
+と直ちに得られる。
 
 ## 一手
-周辺密度は密度を他方で積分して得る。結果の分散は $\sigma_1^2$ で、$\rho$ を含まない。
+周辺化では条件付き分布のような逆行列やSchur補を使わない。**残したい成分の平均と、同じ添字の行・列だけを抜く。**
 
 ## 注意
-周辺が正規だからといって独立とは限らない。独立性は $\rho=0$ と同値（二変量正規だけ）。
+周辺分布では不要成分との共分散を使わない。一方、条件付き分布ではブロック逆行列に由来する補正項が現れるので混同しない。
 
 <!-- CARD -->
 ---
