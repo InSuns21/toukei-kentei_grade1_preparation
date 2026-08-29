@@ -37,7 +37,7 @@ items:
         \operatorname{Var}(X)=6.
         $$
   - id: samp-t-distribution-definition
-    note: ν=1はCauchyという知識の再掲ではなく、t密度へν=1を代入して標準Cauchy密度になることを追える形にする。
+    note: ν=1はコーシー分布という知識の再掲ではなく、t密度へν=1を代入して標準コーシー密度になることを追える形にする。
     sections:
       計算例: |
         $\nu=1$ を t 分布の密度へ代入する。まず係数は
@@ -59,9 +59,9 @@ items:
         &=\frac{1}{\pi(1+t^2)}.
         \end{aligned}
         $$
-        これは標準Cauchy分布の密度である。したがって
+        これは標準コーシー分布の密度である。したがって
         $$
-        t_1=\text{standard Cauchy}
+        t_1=\text{標準コーシー分布}
         $$
         が密度から直接確認でき、平均・分散が存在しないことも対応する。
   - id: prob-transform-jacobian-2d
