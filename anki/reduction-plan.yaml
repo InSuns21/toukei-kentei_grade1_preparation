@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-29-bayesian-consolidation-04
+batch_id: 2026-08-29-bayesian-consolidation-04b
 items:
   - id: bayes-squared-loss-mean
     bucket: duplicates
