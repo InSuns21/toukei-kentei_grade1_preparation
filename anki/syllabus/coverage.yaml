@@ -560,7 +560,6 @@ items:
       - samp-order-statistics-distribution
       - samp-range-statistic
       - samp-quantile-approx
-      - samp-normal-linear-combo
       - samp-poisson-normal-approx
       - samp-welch-t
       - samp-noncentral-chisq
