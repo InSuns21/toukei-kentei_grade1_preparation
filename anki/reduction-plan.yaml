@@ -1,23 +1,53 @@
 schema_version: 1
-batch_id: 2026-08-29-asymptotic-dedupe-02
+batch_id: 2026-08-29-model-selection-dedupe-03
 items:
-  - id: asym-mle-exponential-rate-numeric
+  - id: ms-aic-formula
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-exponential-rate-mle
-    note: どちらも指数rate lambda の MLE=1/Xbar と ASE=lambda/sqrt(n) を得る。同じ結論をFisher情報量で再計算するカードを残さず、CLT→g(x)=1/x→Delta法で導出するcanonicalへ統合する。
-  - id: asym-poisson-mle-numeric
+    canonical_card: ms-aic-numeric-comparison
+    note: AIC=-2ell+2k の公式だけを再生するカードを別に持たない。canonical側は公式、2モデルへの代入、罰則とのトレードオフ、選択まで一度に実行する。
+  - id: ms-bic-formula
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-mle-poisson-tail-probability
-    note: Poisson MLE=Xbar、I_1(lambda)=1/lambda、Avar=lambda/n まで完全に重複。canonical側はさらに標準化して尾確率を求めるため、1枚で同じmoveを最後まで動かせる。
-  - id: asym-delta-bernoulli-odds
+    canonical_card: ms-bic-numeric-comparison
+    note: BIC=-2ell+k log n の定義だけのカードを、標本サイズからlog nを計算し2モデルを比較するcanonicalへ統合する。
+  - id: ms-cv-model-selection
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-kfold-cv-numeric
+    note: k分割交差検証の説明だけでなく、各foldの損失を平均してモデル選択まで行うcanonicalが同じmoveを包含する。
+  - id: ms-cv-loo
     bucket: too_specific
     reason: too_specific
-    canonical_card: asym-logit-proportion-delta
-    note: Bernoulli比率へ1次元Delta法を適用する同型例。オッズ p/(1-p) 単独より、logit=log{p/(1-p)} の方が統計推測で標準的で、同じ「微分の二乗×元分散」を練習できる。
-  - id: asym-delta-two-sample-log-risk-ratio
+    canonical_card: ms-kfold-cv-numeric
+    note: LOOCVはk=nの交差検証という特殊例。線形回帰のPRESS/レバレッジによる閉形式は別の回帰canonicalで扱うため、モデル選択側に定義専用カードを重ねない。
+  - id: ms-ridge-shrinkage
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: 直交設計でRidgeが係数を縮める計算は、RidgeとLassoを同じ数値例で比較するcanonicalに包含される。
+  - id: ms-info-criterion-likelihood
+    bucket: reference_only
+    reason: reference_only
+    canonical_card: ms-aic-numeric-comparison
+    note: AIC/BICが最大化対数尤度と母数数を使うというメタ説明は、AIC/BICの数値比較カードから直ちに読める。独立した試験moveではない。
+  - id: ms-aic-asymptotic-loo
     bucket: too_specific
     reason: too_specific
-    canonical_card: asym-ratio-two-means-delta
-    note: 独立2標本に多変量Delta法を使い、対角共分散行列と勾配から分散を作る同一move。平均比のcanonicalを代表例にし、log risk ratio固有の式はformula/reference側で参照可能とする。
+    canonical_card: ms-aic-numeric-comparison
+    note: AICとLOOCVの漸近同値は理論補足としては有用だが、通常の統計検定1級カード600枚枠で独立に反復する優先度は低い。公式・補足側へ寄せる。
+  - id: ms-bic-consistency
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: ms-bic-numeric-comparison
+    note: BICのモデル選択一致性は標準的な性質だが、通常デッキではBIC計算・AICとの罰則差を優先し、漸近的一致性だけの独立カードは外す。
+  - id: ms-train-test-error
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-overfitting-generalization
+    note: 訓練誤差が低くても検証誤差が悪化するという同一判断。canonical側は複雑度1,3,9の訓練・テスト誤差を並べ、過学習まで説明する。
+  - id: ms-elastic-net
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: Elastic NetはL1/L2の混合という派生で、通常デッキではRidgeとLassoの違いを数値で再生できれば十分。定義式はformula/reference側に置く。
