@@ -1,18 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-29-continuity-dedupe-01
+batch_id: 2026-08-29-basic-probability-dedupe-01
 items:
-  - id: dist-continuity-correction-single
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: dist-continuity-correction-interval
-    note: 一点事象 X=k は区間 k<=X<=k の特殊例で、連続近似では [k-0.5,k+0.5] へ置き換える。区間カードの同一moveに含める。
-  - id: samp-continuity-correction
+  - id: prob-basic-conditional-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-continuity-correction-interval
-    note: 二項分布の正規近似で整数区間を±0.5修正する同一操作。標本分布名前空間で反復しない。
-  - id: engasym-binomial-continuity-correction
+    canonical_card: prob-conditional-definition-direct
+    note: どちらも P(A|B)=P(A∩B)/P(B) へ数値を代入する同一操作。後者は過去問根拠があり、分母は条件記号右側という一手も明示する。
+  - id: prob-basic-total-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-continuity-correction-interval
-    note: 工学設定でも二項分布の連続性補正は同じ±0.5操作。engineering-asymptotics にはCLT・Slutsky等の別論点を残す。
+    canonical_card: prob-total-probability
+    note: 分割ごとに P(D|A_j)P(A_j) を足す全確率の同一計算。既存解法カードへ統合する。
+  - id: prob-basic-bayes
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-bayes-diagnostic
+    note: 事後確率を全確率で割る同一move。canonical側は過去問根拠があり、与えられた条件付き確率と求める向きが逆という理由まで扱う。
+  - id: prob-basic-inclusion-exclusion
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-inclusion-exclusion
+    note: 2事象の和集合で共通部分を1回引く完全重複。3事象版は別カードとして残す。
+  - id: prob-basic-chain-rule
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-chain-rule-three
+    note: 3事象の共通部分を P(A)P(B|A)P(C|A∩B) に分解する同一操作。より一般的な既存chain-ruleカードへ統合する。
