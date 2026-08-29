@@ -26,31 +26,3 @@ $$\begin{aligned}P(D\mid +)&=\frac{0.9\cdot0.01}{0.9\cdot0.01+0.05\cdot0.99}\\&=
 分母には罹患者と非罹患者の両方から生じる陽性を足す。
 ## 注意
 感度 $0.9$ をそのまま答えにしない。
-
-<!-- CARD -->
-
----
-id: prob-cdf-from-pmf
-title: 確率質量関数から累積分布関数を作る
-category: math-probability
-subcategory: math-distribution-functions
-topic: cdf
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [累積分布関数, 確率関数, 確率変数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率変数と分布関数 }]
----
-## 問題
-$P(X=0)=1/4$, $P(X=1)=3/4$ のとき累積分布関数 $F_X(x)=P(X\le x)$ を求めよ。
-## 答え
-点 $x$ 以下の確率質量を累積する。
-## 使用公式・定理
-$$F_X(x)=P(X\le x)=\sum_{u\le x}p_X(u).$$
-## 計算例
-$$F_X(x)=\begin{cases}0&(x<0),\\1/4&(0\le x<1),\\1&(x\ge1).\end{cases}$$
-## 一手
-台の点を境に場合分けする。
-## 注意
-右連続なので $F_X(0)=1/4$ である。

@@ -66,6 +66,7 @@ $$
 結果が等確率でないときは個数の比を使えない。非復元で同時抽出する問題の分母を $8^2$ のような復元・順序ありの数にしない。
 
 <!-- CARD -->
+
 ---
 id: prob-conditional-definition-direct
 title: 共通部分と条件事象から条件付き確率を求める
@@ -124,44 +125,3 @@ $$
 
 ## 注意
 $P(A\mid B)$ と $P(B\mid A)$ は一般に異なる。ベイズの定理は、この向きの違う条件付き確率を周辺確率と尤度で結び直す。
-
-<!-- CARD -->
----
-id: prob-density-from-cdf-derivative
-title: 累積分布関数を微分して確率密度関数を求める
-category: math-probability
-subcategory: math-distribution-functions
-topic: density-from-cdf
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [累積分布関数, 確率密度関数, 微分]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 累積分布関数・確率密度関数 }, { type: past_exam, id: MATH-2018-Q5, topic: 順序統計量の確率密度 }]
----
-## 問題
-累積分布関数が
-$$F_X(x)=\begin{cases}0&(x\le0),\\x^2&(0<x<1),\\1&(x\ge1)\end{cases}$$
-である。確率密度関数 $f_X(x)$ を求めよ。
-
-## 答え
-累積分布関数が微分可能な区間で微分し、定数区間では0とする。
-
-## 使用公式・定理
-絶対連続な分布では、累積分布関数が微分可能な点で
-$$f_X(x)=F_X'(x).$$
-
-## 計算例
-$0<x<1$ では
-$$f_X(x)=\frac{d}{dx}x^2=2x.$$
-$x<0$ と $x>1$ では $F_X$ が定数だから $f_X(x)=0$ である。従って
-$$f_X(x)=\begin{cases}2x&(0<x<1),\\0&\text{それ以外}.
-\end{cases}$$
-確認すると
-$$\int_{-\infty}^{\infty}f_X(x)\,dx=\int_0^1 2x\,dx=[x^2]_0^1=1.$$
-
-## 一手
-区分ごとに微分し、最後に密度の積分が1になることを確認する。
-
-## 注意
-累積分布関数に跳びがある場合、その点質量は通常の微分だけでは回収できない。
