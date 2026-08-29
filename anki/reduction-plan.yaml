@@ -1,28 +1,53 @@
 schema_version: 1
-batch_id: 2026-08-29-cdf-survival-consolidation-09
+batch_id: 2026-08-29-transformations-consolidation-10
 items:
-  - id: prob-interval-from-cdf
+  - id: prob-transform-affine-decreasing
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-cdf-endpoint-choice
-    note: 端点処理canonicalへ一般式P(a<X<=b)=F(b)-F(a)、P(a<=X<=b)=F(b)-F(a-)と連続分布の数値例を吸収したため、連続分布専用の区間確率カードは重複。
-  - id: prob-survival-from-cdf
+    canonical_card: prob-transform-log
+    note: 単調変換canonicalへ逆変換・Jacobian絶対値・台の変換を一般化し、係数が負の一次変換Y=3-2Xも数値例として吸収済み。
+  - id: prob-transform-reciprocal-uniform
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-cumulative-hazard
-    note: 補強済みcanonicalでF→S=1-F→H=-log S→h=H'を一続きに計算するため、生存関数だけを求めるカードは同一変換鎖の一部分。
-  - id: prob-survival-from-hazard
+    canonical_card: prob-transform-log
+    note: 単調減少の非線形例Y=1/Xをcanonicalへ吸収し、逆変換x=1/y、Jacobian 1/y^2、台y>1まで扱うため独立カードにしない。
+  - id: prob-transform-half-normal
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-cumulative-hazard
-    note: 補強済みcanonicalでh→H=∫h→S=e^{-H}→F=1-Sの逆変換まで数値で扱うため、危険率から生存関数への片方向カードは重複。
-  - id: prob-survival-hazard
+    canonical_card: prob-transform-nonmonotonic
+    note: 多対一変換canonicalでY=|X|の逆像±yを列挙してf_Y(y)=2phi(y)まで扱う。半正規分布固有の平均値は参照事項として独立カードにしない。
+  - id: prob-transform-normal-square
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-cumulative-hazard
-    note: 生存関数と危険率の関係h=f/Sもcanonicalへ明記し、順方向・逆方向の両方を計算するため、指数分布の生存関数と危険率だけのカードを独立保持しない。
-  - id: prob-rectangle-from-joint-cdf
+    canonical_card: prob-transform-nonmonotonic
+    note: 多対一変換canonicalへ標準正規の二乗を追加し、±sqrt(y)の2枝とJacobianからchi-square自由度1の密度まで導出済み。
+  - id: dist-convolution-uniform
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-joint-cdf-from-density
-    note: 同時密度→同時累積分布関数→4隅の包除で長方形確率、という一連の計算をcanonicalへ統合済み。CDFから長方形確率だけを切り出したカードは重複。
+    canonical_card: prob-transform-sum-density
+    note: 一様分布2個の和を台の重なりから三角密度へ導く同一計算。補強済み畳み込みcanonicalで完全に扱う。
+  - id: prob-transform-uniform-sum-triangular
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-transform-sum-density
+    note: 畳み込みcanonicalへU(0,1)同士の和の積分区間max(0,s-1)<x<min(1,s)と区分的三角密度を吸収済み。
+  - id: prob-transform-uniform-difference-triangular
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-transform-sum-density
+    note: 畳み込みcanonicalへ差D=X-Yの一般式とU(0,1)でf_D(d)=1-|d|の計算を吸収済み。
+  - id: prob-transform-unequal-exponential-sum
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-transform-sum-density
+    note: 畳み込みcanonicalへ異なる率lambda,muの指数分布和も積分途中から最終密度まで吸収済み。
+  - id: prob-transform-exponential-ratio
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-transform-ratio
+    note: 比の分布canonicalへ分母で条件付ける一般式とExp(1)同士の比F_R(r)=r/(1+r), f_R(r)=1/(1+r)^2を吸収済み。
+  - id: prob-transform-iid-minimum-density
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-transform-iid-maximum-density
+    note: 最大値canonicalへ最小値を生存関数の双対として統合し、一般密度と指数分布でExp(n lambda)になる計算まで吸収済み。
