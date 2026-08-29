@@ -91,28 +91,79 @@ sources: [{ type: official_syllabus, topic: 共分散 }]
 条件付き共分散 $\operatorname{Cov}(X,Y\mid Z)$ と条件平均 $E[X\mid Z],E[Y\mid Z]$ を用いて、無条件の $\operatorname{Cov}(X,Y)$ を分解せよ。
 
 ## 答え
-$$\operatorname{Cov}(X,Y)=E[\operatorname{Cov}(X,Y\mid Z)]+\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).$$
-第1項は条件付き共分散の平均、第2項は条件平均どうしの共分散である。
+$$
+\operatorname{Cov}(X,Y)
+=E[\operatorname{Cov}(X,Y\mid Z)]
++\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).
+$$
+$Y=X$ とすれば全分散の法則になる。
 
 ## 使用公式・定理
-全分散の法則を2変数へ拡張した共分散の分解
-$$\operatorname{Cov}(X,Y)=E[\operatorname{Cov}(X,Y\mid Z)]+\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).$$
-$m_X(Z)=E[X\mid Z]$、$m_Y(Z)=E[Y\mid Z]$ と置くと
-$$X-E[X]=\{X-m_X(Z)\}+\{m_X(Z)-E[X]\},$$
-$$Y-E[Y]=\{Y-m_Y(Z)\}+\{m_Y(Z)-E[Y]\}.$$
-積を展開して期待値を取る。混合する2つの交差項は、例えば
-$$E[(X-m_X(Z))(m_Y(Z)-E[Y])]
-=E[E[X-m_X(Z)\mid Z](m_Y(Z)-E[Y])]=0$$
-となるため、条件付き共分散の平均と条件平均どうしの共分散だけが残る。
+$E[X^2],E[Y^2]<\infty$ とする。条件付き共分散を用いると
+$$
+\operatorname{Cov}(X,Y)
+=E[\operatorname{Cov}(X,Y\mid Z)]
++\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).
+$$
+これは「各条件の中に残る共変動の平均」と「条件平均どうしの共変動」の和である。
+
+ここで $Y=X$ と置けば
+$$
+\operatorname{Cov}(X,X)=\operatorname{Var}(X),
+$$
+$$
+\operatorname{Cov}(X,X\mid Z)=\operatorname{Var}(X\mid Z)
+$$
+なので、全分散の法則
+$$
+\operatorname{Var}(X)
+=E[\operatorname{Var}(X\mid Z)]
++\operatorname{Var}(E[X\mid Z])
+$$
+が直ちに得られる。したがって全分散は全共分散の特殊形である。
 
 ## 計算例
-$E[\operatorname{Cov}(X,Y\mid Z)]=2$、$\operatorname{Cov}(E[X\mid Z],E[Y\mid Z])=3$ なら $\operatorname{Cov}(X,Y)=2+3=5$。
+例えば
+$$
+E[\operatorname{Cov}(X,Y\mid Z)]=2,
+\qquad
+\operatorname{Cov}(E[X\mid Z],E[Y\mid Z])=3
+$$
+なら
+$$
+\operatorname{Cov}(X,Y)=2+3=5.
+$$
+
+同じ式で $Y=X$ とし、
+$$
+E[\operatorname{Var}(X\mid Z)]=4,
+\qquad
+\operatorname{Var}(E[X\mid Z])=3
+$$
+なら
+$$
+\operatorname{Var}(X)=4+3=7.
+$$
+
+導出では
+$$
+X-E[X]=\{X-E[X\mid Z]\}+\{E[X\mid Z]-E[X]\}
+$$
+と $Y$ の同様な分解を掛け合わせる。混合交差項は、例えば
+$$
+E\!\left[(X-E[X\mid Z])\{E[Y\mid Z]-E[Y]\}\right]
+$$
+を $Z$ で条件付けると
+$$
+E[X-E[X\mid Z]\mid Z]=0
+$$
+なので消える。
 
 ## 一手
-「条件付き共分散の平均」と「条件平均の共分散」の2項に分けて集計する。
+条件付きで残るばらつき・共変動と、条件平均そのもののばらつき・共変動に分ける。分散が欲しければ全共分散式で $Y=X$ と置く。
 
 ## 注意
-$X=Y$ と置くと全分散の法則に一致する。$E[X^2],E[Y^2]<\infty$ の下で式は成立する。
+第1項と第2項を逆符号にしない。全分散・全共分散はいずれも二次モーメントの有限性を前提とする。
 
 <!-- CARD -->
 ---
@@ -279,19 +330,61 @@ sources: [{ type: official_syllabus, topic: 分散 }]
 $E[X]=\mu,\ 0<\operatorname{Var}(X)=\sigma^2<\infty$ のとき、$P(\lvert X-\mu\rvert\ge k\sigma)$ の上界を求めよ。
 
 ## 答え
-$$P(\lvert X-\mu\rvert\ge k\sigma)\le\frac{1}{k^2},\quad k>0.$$
+$$
+P(|X-\mu|\ge k\sigma)\le\frac1{k^2},\qquad k>0.
+$$
+これは $(X-\mu)^2$ にMarkovの不等式を適用した特殊形である。
 
 ## 使用公式・定理
-$Y=(X-\mu)^2\ge0$ にMarkovの不等式を適用して
-$$P(\lvert X-\mu\rvert\ge t)\le\frac{\operatorname{Var}(X)}{t^2}.$$
-$t=k\sigma$ を代入すると
-$$P(\lvert X-\mu\rvert\ge k\sigma)\le\frac{\sigma^2}{k^2\sigma^2}=\frac1{k^2}.$$
+非負確率変数 $Y\ge0$ と $a>0$ に対するMarkovの不等式は
+$$
+P(Y\ge a)\le\frac{E[Y]}{a}.
+$$
+なぜなら
+$$
+Y\ge a\mathbf 1_{\{Y\ge a\}}
+$$
+なので期待値を取れば
+$$
+E[Y]\ge aP(Y\ge a)
+$$
+となるからである。
+
+これを
+$$
+Y=(X-\mu)^2\ge0
+$$
+に適用すると、$\operatorname{Var}(X)=\sigma^2<\infty$ に対して
+$$
+\begin{aligned}
+P(|X-\mu|\ge t)
+&=P\{(X-\mu)^2\ge t^2\}\\
+&\le\frac{E[(X-\mu)^2]}{t^2}\\
+&=\frac{\sigma^2}{t^2}.
+\end{aligned}
+$$
+これがチェビシェフの不等式である。$t=k\sigma$ とすれば
+$$
+P(|X-\mu|\ge k\sigma)\le\frac1{k^2}.
+$$
 
 ## 計算例
-$k=2$ なら $\le1/4$、$k=3$ なら $\le1/9$。分布型に依らず成立。
+Markovの不等式そのものの例として、$Y\ge0$, $E[Y]=2$ なら
+$$
+P(Y\ge10)\le\frac2{10}=0.2.
+$$
+
+次に $E[X]=\mu$, $\operatorname{Var}(X)=\sigma^2$ なら
+$$
+P(|X-\mu|\ge2\sigma)\le\frac14,
+$$
+$$
+P(|X-\mu|\ge3\sigma)\le\frac19.
+$$
+分布型を仮定していない点が重要である。
 
 ## 一手
-$(X-\mu)^2$ は非負なのでMarkovの不等式が使える。$t=k\sigma$ と置いて分散 $\sigma^2$ を落とす。
+非負量の超過確率ならまずMarkovを考える。平均からの偏差確率なら非負量 $(X-\mu)^2$ を作り、Markovを適用してチェビシェフへ落とす。
 
 ## 注意
-分布に依存しない上界を与えるため、実際の超過確率よりも保守的に大きいことがある。
+Markovの不等式では対象変数の非負性と正の閾値が必要。チェビシェフの不等式は分布型に依存しないため、正規分布などを仮定した精密な尾確率より一般に保守的である。
