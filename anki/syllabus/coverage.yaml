@@ -1928,11 +1928,7 @@ items:
       - bayes-beta-equal-tail-interval
       - bayes-hpd-interval
       - bayes-credible-vs-confidence
-      - bayes-factor-definition
-      - bayes-factor-beta-binomial
       - bayes-factor-discrete-numeric
-      - bayes-factor-prior-sensitivity
-      - bayes-factor-improper-prior
       - bayes-hierarchical-definition
       - bayes-normal-hierarchical-shrinkage
       - bayes-hierarchical-conditional-independence
@@ -1944,7 +1940,6 @@ items:
       - bayes-posterior-predictive-check
       - bayes-prior-sensitivity
       - bayes-evidence-discrete
-      - bayes-posterior-odds
       - bayes-conjugate-definition
       - bayes-proper-improper
       - bayes-prior-predictive
@@ -1954,8 +1949,6 @@ items:
       - bayes-gamma-exponential-update
       - bayes-gamma-exponential-numeric
       - bayes-normal-normal-update
-      - bayes-normal-normal-numeric
-      - bayes-normal-precision-update
       - bayes-nig-update
       - bayes-dirichlet-multinomial-update
     terms:
@@ -1973,8 +1966,7 @@ items:
           - bayes-normal-normal-update
           - bayes-nig-update
           - bayes-dirichlet-multinomial-update
-          - bayes-factor-prior-sensitivity
-          - bayes-factor-improper-prior
+          - bayes-factor-discrete-numeric
           - bayes-prior-sensitivity
       - name: 事後分布
         status: card
@@ -1983,11 +1975,11 @@ items:
           - mathstat-gamma-poisson-posterior
           - bayes-density-formula
           - bayes-evidence-discrete
-          - bayes-posterior-odds
+          - bayes-factor-discrete-numeric
           - bayes-beta-posterior-mean-mode
           - bayes-posterior-predictive-canonical
           - bayes-gamma-exponential-numeric
-          - bayes-normal-normal-numeric
+          - bayes-normal-normal-update
           - bayes-loss-decision-canonical
           - bayes-normal-credible-interval
           - bayes-beta-equal-tail-interval
