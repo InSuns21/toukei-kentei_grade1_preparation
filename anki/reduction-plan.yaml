@@ -1,13 +1,23 @@
 schema_version: 1
-batch_id: 2026-08-29-pilot-duplicates-27
+batch_id: 2026-08-29-pilot-final-duplicates-28
 items:
-  - id: data-em-responsibility
+  - id: data-bayes-beta
     bucket: duplicates
     reason: duplicate
-    canonical_card: inc-em-observed-likelihood
-    note: 混合分布のEステップで負担率を求める旧pilot数値例は、Q関数の定義から負担率 2/3 の具体計算まで吸収した不完全データcanonicalへ統合済み。
-  - id: data-monte-carlo-integral
+    canonical_card: bayes-posterior-predictive-canonical
+    note: ベータ–ベルヌーイ共役更新 Beta(a+s,b+f) は、事後予測canonical内で事前Beta(2,3)から観測を足して事後分布を作る計算まで明示済み。分布別の短い共役更新カードを別に残さない。
+  - id: eng-xbar-limits
     bucket: duplicates
     reason: duplicate
-    canonical_card: sim-mc-standard-error
-    note: 積分を期待値に直して標本平均で近似する旧pilotは、積分→期待値→Monte Carlo平均→標準誤差まで一続きに扱うcanonicalへ統合済み。
+    canonical_card: engqc-xbar-r-chart-limits
+    note: 既知sigmaのXbar管理図3標準誤差限界は、既知sigma型とRbar推定型を同じ原理から導出するよう強化したcanonicalへ吸収済み。
+  - id: eng-exponential-reliability
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engrel-exponential-mtbf
+    note: 指数寿命の R(t)=exp(-lambda t) と MTBF=1/lambda の直接計算は、使命信頼度からMTBF要件を逆算するS優先度canonicalに完全包含される。
+  - id: eng-two-factor-interaction
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-interaction-plot
+    note: 2因子セル平均の差の差による交互作用計算は、交互作用プロットの認識と差の差4の数値計算を一体化したcanonicalへ吸収済み。
