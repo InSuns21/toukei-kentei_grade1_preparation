@@ -1,134 +1,105 @@
 schema_version: 1
-batch_id: 2026-08-29-conditional-moments-inequalities-merge-prep-15
+batch_id: 2026-08-29-covariance-correlation-merge-prep-16
 items:
-  - id: prob-conditional-covariance
-    note: 全共分散を一般形として残し、X=Yによる全分散の法則を同じカードで導出・計算できるようにする。
+  - id: prob-correlation-coefficient
+    note: 共分散の計算、相関係数への標準化、コーシー–シュワルツの不等式による範囲、無相関と独立の違いを一枚へ統合する。
     sections:
       使用公式・定理: |
-        $E[X^2],E[Y^2]<\infty$ とする。条件付き共分散を用いると
+        $E[X^2],E[Y^2]<\infty$ のとき共分散は
         $$
         \operatorname{Cov}(X,Y)
-        =E[\operatorname{Cov}(X,Y\mid Z)]
-        +\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).
+        =E[(X-E[X])(Y-E[Y])]
+        =E[XY]-E[X]E[Y].
         $$
-        これは「各条件の中に残る共変動の平均」と「条件平均どうしの共変動」の和である。
+        さらに $0<\operatorname{Var}(X),\operatorname{Var}(Y)<\infty$ なら相関係数は
+        $$
+        \rho_{X,Y}
+        =\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}.
+        $$
 
-        ここで $Y=X$ と置けば
+        $U=X-E[X]$, $V=Y-E[Y]$ にコーシー–シュワルツの不等式を使うと
         $$
-        \operatorname{Cov}(X,X)=\operatorname{Var}(X),
+        E[UV]^2\le E[U^2]E[V^2],
         $$
+        すなわち
         $$
-        \operatorname{Cov}(X,X\mid Z)=\operatorname{Var}(X\mid Z)
+        \operatorname{Cov}(X,Y)^2
+        \le \operatorname{Var}(X)\operatorname{Var}(Y).
         $$
-        なので、全分散の法則
+        両辺を $\sigma_X^2\sigma_Y^2$ で割って
         $$
-        \operatorname{Var}(X)
-        =E[\operatorname{Var}(X\mid Z)]
-        +\operatorname{Var}(E[X\mid Z])
+        -1\le\rho_{X,Y}\le1.
         $$
-        が直ちに得られる。したがって全分散は全共分散の特殊形である。
+        非退化な場合、$|\rho|=1$ は中心化した2変数が確率1で比例すること、すなわち $Y=aX+b$ という直線関係と同値である。
+
+        独立なら積の期待値が分離するので
+        $$
+        E[XY]=E[X]E[Y]
+        $$
+        となり無相関を含意する。ただし逆は一般に成り立たない。
       答え: |
+        $\operatorname{Cov}(X,Y)=6$, $\operatorname{Var}(X)=9$, $\operatorname{Var}(Y)=16$ なら
+        $$
+        \rho_{X,Y}=\frac{6}{\sqrt9\sqrt{16}}=\frac12.
+        $$
+      計算例: |
+        まず同時確率質量関数
+        $$
+        p(0,0)=0.1,\quad p(0,1)=0.2,\quad
+        p(1,0)=0.3,\quad p(1,1)=0.4
+        $$
+        を考える。$X,Y$ は0,1値なので
+        $$
+        E[X]=0.3+0.4=0.7,
+        \qquad
+        E[Y]=0.2+0.4=0.6,
+        $$
+        $$
+        E[XY]=p(1,1)=0.4.
+        $$
+        よって
         $$
         \operatorname{Cov}(X,Y)
-        =E[\operatorname{Cov}(X,Y\mid Z)]
-        +\operatorname{Cov}(E[X\mid Z],E[Y\mid Z]).
+        =0.4-0.7\cdot0.6
+        =-0.02.
         $$
-        $Y=X$ とすれば全分散の法則になる。
-      計算例: |
-        例えば
+        またBernoulli型なので
         $$
-        E[\operatorname{Cov}(X,Y\mid Z)]=2,
+        \operatorname{Var}(X)=0.7(0.3)=0.21,
         \qquad
-        \operatorname{Cov}(E[X\mid Z],E[Y\mid Z])=3
+        \operatorname{Var}(Y)=0.6(0.4)=0.24.
         $$
-        なら
+        したがって
         $$
-        \operatorname{Cov}(X,Y)=2+3=5.
+        \rho_{X,Y}
+        =\frac{-0.02}{\sqrt{0.21\cdot0.24}}
+        \approx-0.089.
         $$
+        共分散の単位依存性を標準偏差で除くことで、相関係数は無次元になる。
 
-        同じ式で $Y=X$ とし、
+        無相関でも従属な反例として、
         $$
-        E[\operatorname{Var}(X\mid Z)]=4,
-        \qquad
-        \operatorname{Var}(E[X\mid Z])=3
+        P(X=-1)=P(X=0)=P(X=1)=\frac13,
+        \qquad Y=X^2
         $$
-        なら
+        とする。対称性から
+        $$E[X]=0,$$
+        また
+        $$XY=X^3$$
+        なので
+        $$E[XY]=E[X^3]=0.$$
+        よって
+        $$\operatorname{Cov}(X,Y)=0.$$
+        しかし $Y$ は $X$ から完全に決まる。実際
         $$
-        \operatorname{Var}(X)=4+3=7.
+        P(X=1,Y=0)=0
         $$
-
-        導出では
+        に対して
         $$
-        X-E[X]=\{X-E[X\mid Z]\}+\{E[X\mid Z]-E[X]\}
+        P(X=1)P(Y=0)=\frac13\cdot\frac13=\frac19\ne0,
         $$
-        と $Y$ の同様な分解を掛け合わせる。混合交差項は、例えば
-        $$
-        E\!\left[(X-E[X\mid Z])\{E[Y\mid Z]-E[Y]\}\right]
-        $$
-        を $Z$ で条件付けると
-        $$
-        E[X-E[X\mid Z]\mid Z]=0
-        $$
-        なので消える。
+        なので独立ではない。
       一手: |
-        条件付きで残るばらつき・共変動と、条件平均そのもののばらつき・共変動に分ける。分散が欲しければ全共分散式で $Y=X$ と置く。
+        同時分布から相関まで求めるときは、$E[X],E[Y],E[XY]$ から共分散を作り、分散の平方根で標準化する。独立性を問われたら相関0だけで結論せず、同時分布の積分解を確認する。
       注意: |
-        第1項と第2項を逆符号にしない。全分散・全共分散はいずれも二次モーメントの有限性を前提とする。
-  - id: prob-chebyshev-inequality
-    note: Markovの不等式を一般定理として同じカードに取り込み、二乗偏差へ適用してチェビシェフの不等式を導出する。
-    sections:
-      使用公式・定理: |
-        非負確率変数 $Y\ge0$ と $a>0$ に対するMarkovの不等式は
-        $$
-        P(Y\ge a)\le\frac{E[Y]}{a}.
-        $$
-        なぜなら
-        $$
-        Y\ge a\mathbf 1_{\{Y\ge a\}}
-        $$
-        なので期待値を取れば
-        $$
-        E[Y]\ge aP(Y\ge a)
-        $$
-        となるからである。
-
-        これを
-        $$
-        Y=(X-\mu)^2\ge0
-        $$
-        に適用すると、$\operatorname{Var}(X)=\sigma^2<\infty$ に対して
-        $$
-        \begin{aligned}
-        P(|X-\mu|\ge t)
-        &=P\{(X-\mu)^2\ge t^2\}\\
-        &\le\frac{E[(X-\mu)^2]}{t^2}\\
-        &=\frac{\sigma^2}{t^2}.
-        \end{aligned}
-        $$
-        これがチェビシェフの不等式である。$t=k\sigma$ とすれば
-        $$
-        P(|X-\mu|\ge k\sigma)\le\frac1{k^2}.
-        $$
-      答え: |
-        $$
-        P(|X-\mu|\ge k\sigma)\le\frac1{k^2},\qquad k>0.
-        $$
-        これは $(X-\mu)^2$ にMarkovの不等式を適用した特殊形である。
-      計算例: |
-        Markovの不等式そのものの例として、$Y\ge0$, $E[Y]=2$ なら
-        $$
-        P(Y\ge10)\le\frac2{10}=0.2.
-        $$
-
-        次に $E[X]=\mu$, $\operatorname{Var}(X)=\sigma^2$ なら
-        $$
-        P(|X-\mu|\ge2\sigma)\le\frac14,
-        $$
-        $$
-        P(|X-\mu|\ge3\sigma)\le\frac19.
-        $$
-        分布型を仮定していない点が重要である。
-      一手: |
-        非負量の超過確率ならまずMarkovを考える。平均からの偏差確率なら非負量 $(X-\mu)^2$ を作り、Markovを適用してチェビシェフへ落とす。
-      注意: |
-        Markovの不等式では対象変数の非負性と正の閾値が必要。チェビシェフの不等式は分布型に依存しないため、正規分布などを仮定した精密な尾確率より一般に保守的である。
+        相関係数は線形関係の強さを測る量であり、$\rho=0$ は一般には独立を意味しない。ただし多変量正規分布では無相関と独立が同値になる。$|\rho|\le1$ は暗記せず、中心化した変数へのコーシー–シュワルツの不等式から導ける。
