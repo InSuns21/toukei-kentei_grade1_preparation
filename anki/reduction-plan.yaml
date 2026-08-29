@@ -1,28 +1,13 @@
 schema_version: 1
-batch_id: 2026-08-29-moments-dedupe-01
+batch_id: 2026-08-29-sampling-quality-dedupe-01
 items:
-  - id: dist-poisson-moments
+  - id: samp-chisq-mean-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-poisson-moments-by-definition
-    note: ポアソン平均・分散という分布固有の結論は同じ。PGFから階乗モーメントを得る技能は汎用 prob-pgf-moments で保持し、分布固有カードは級数からの導出をcanonicalにする。
-  - id: dist-hypergeometric-moments-by-definition
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: dist-hypergeometric-moments
-    note: Vandermondeで平均だけを導く派生。canonical側は平均に加え分散と有限母集団補正まで扱い、試験で必要な情報が広い。
-  - id: dist-beta-moments
+    canonical_card: samp-chisq-mean-var-indep
+    note: 両カードとも正規標本で (n-1)S^2/sigma^2 ~ chi^2_{n-1} を扱う。canonical側をCochran分解・独立性・観測Qの具体計算まで補強済みなので、公式再掲中心の重複側を統合する。
+  - id: samp-max-distribution
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-beta-moments-by-definition
-    note: 平均・分散の公式提示を、B(a+r,b)/B(a,b)から実際に導出するカードへ統合する。公式自体は同一で、導出側の方が再生可能性が高い。
-  - id: dist-lognormal-moments
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: dist-lognormal-moments-by-definition
-    note: 対数正規の平均・分散公式だけのカードを、E[e^{rY}]を平方完成して導くカードへ統合する。公式暗記より導出を正本にする。
-  - id: dist-binomial-moments
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: dist-binomial-bernoulli-sum
-    note: どちらも二項変数を独立Bernoulli指示変数の和へ戻して平均np・分散np(1-p)を得る完全同一move。表現そのものを主題にした後者を残す。
+    canonical_card: dist-order-max
+    note: どちらも最大値について M<=m iff 全Xi<=m から F_M(m)=F_X(m)^n を作り微分する同一move。canonical側はU(0,1), n=2でCDF→密度→support→積分1の確認まで実行しており、一般式を再掲するだけのsampling側より計算例が強い。
