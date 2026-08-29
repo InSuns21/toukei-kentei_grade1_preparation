@@ -1127,7 +1127,7 @@ MA係数 $\theta$ は平均には現れないが、自己共分散や予測に�
 
 ---
 id: ts-ar1-hstep-forecast
-title: AR(1)の多期先予測と予測誤差分散を導く
+title: AR(1)の多期先予測・誤差分散・予測区間を導く
 category: applied-common
 subcategory: applied-time-series
 topic: ar1-forecast-canonical
@@ -1139,6 +1139,7 @@ hashtags:
   - AR1
   - 多期先予測
   - 予測誤差分散
+  - 予測区間
 frequency:
   past_exam: 0
   textbook: 0
@@ -1180,9 +1181,19 @@ e_{t+h\mid t}
 $$
 よって独立な革新の分散を加えて
 $$
-\operatorname{Var}(e_{t+h\mid t})
+V_h
+:=\operatorname{Var}(e_{t+h\mid t})
 =\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}
 =\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
+$$
+さらに革新が正規分布で、母数を既知として扱うなら
+$$
+X_{t+h}\mid\mathcal F_t
+\sim N\!\left(\widehat X_{t+h\mid t},V_h\right),
+$$
+したがって近似95%予測区間は
+$$
+\widehat X_{t+h\mid t}\pm1.96\sqrt{V_h}.
 $$
 
 ## 一手／方針
@@ -1206,7 +1217,7 @@ $$
 $$
 
 ## 計算例
-まず2期先予測は
+$\mu=5,\phi=0.8,X_t=7,\sigma_\varepsilon^2=1,h=2$ では、まず
 $$
 \begin{aligned}
 \widehat X_{t+2\mid t}
@@ -1222,19 +1233,33 @@ $$
 なので
 $$
 \begin{aligned}
-\operatorname{Var}(e_{t+2\mid t})
+V_2
 &=1+0.8^2\\
 &=1.64.
 \end{aligned}
 $$
-1期先なら
+正規革新を仮定すれば標準偏差は
+$$
+\sqrt{1.64}\approx1.281,
+$$
+よって95%予測区間は
+$$
+\begin{aligned}
+6.28\pm1.96(1.281)
+&\approx6.28\pm2.51\\
+&\approx(3.77,8.79).
+\end{aligned}
+$$
+なお $h=1$ なら
 $$
 \widehat X_{t+1\mid t}=5+0.8(7-5)=6.6,
+\qquad V_1=1.
 $$
-予測誤差分散は $\sigma_\varepsilon^2=1$。
 
 ## 注意
 $h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigma_\varepsilon^2/(1-\phi^2)$ へ近づく。分散では係数を二乗する。
+
+上の予測区間は革新分散やAR係数などの母数を既知として扱った条件付き分布に基づく。実際に母数を推定している場合、その推定不確実性を無視した区間になり得る。
 
 <!-- CARD -->
 
