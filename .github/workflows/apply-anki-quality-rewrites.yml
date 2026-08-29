@@ -1,0 +1,68 @@
+name: Apply Anki quality rewrite plan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'anki/quality-rewrite-plan.yaml'
+      - 'anki/scripts/apply_quality_rewrite_plan.mjs'
+      - '.github/workflows/apply-anki-quality-rewrites.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anki-quality-rewrite-main
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare gitignored source placeholders
+        run: |
+          mkdir -p pdfs/grade1_hani_20150508_2
+          touch pdfs/grade1_hani_20150508_2.pdf
+          touch pdfs/grade1_hani_20150508_2/1.jpg
+          touch pdfs/grade1_hani_20150508_2/2.jpg
+          touch pdfs/grade1_hani_20150508_2/3.jpg
+          touch pdfs/grade1_hani_20150508_2/4.jpg
+          touch pdfs/statistics_grade1_card_titles_by_parent_priority.md
+
+      - name: Apply quality rewrite plan
+        run: node anki/scripts/apply_quality_rewrite_plan.mjs
+
+      - name: Validate Anki
+        run: npm run anki:validate
+
+      - name: Validate indicator notation
+        run: node anki/scripts/validate_indicator_notation.mjs
+
+      - name: Commit validated rewrites
+        shell: bash
+        run: |
+          if git diff --quiet -- anki/cards; then
+            echo 'No card changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anki/cards
+          git commit -m 'apply reviewed Anki quality rewrite plan'
+          git push
