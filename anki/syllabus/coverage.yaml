@@ -2093,23 +2093,18 @@ items:
       - mv-covariance-linear-transform
       - mv-mahalanobis-distance
       - mv-hotelling-one-sample
-      - mv-hotelling-f-transform
       - mv-pca-variance-max
       - mv-pca-software-output
       - mv-pca-loading
       - mv-pca-covariance-vs-correlation
       - mv-factor-model-covariance
-      - mv-factor-communality
       - mv-factor-rotation
       - mv-factor-score-regression
       - mv-lda-direction
-      - mv-lda-numeric
       - mv-lda-classification-rule
-      - mv-lda-vs-qda
       - mv-hierarchical-linkage
       - mv-ward-increase
       - mv-kmeans-one-iteration
-      - mv-kmeans-objective
       - mv-canonical-correlation
       - mv-mds-double-centering
       - glm-three-components
@@ -2144,23 +2139,19 @@ items:
         status: card
         cards:
           - mv-factor-model-covariance
-          - mv-factor-communality
           - mv-factor-rotation
           - mv-factor-score-regression
       - name: 判別分析
         status: card
         cards:
           - mv-lda-direction
-          - mv-lda-numeric
           - mv-lda-classification-rule
-          - mv-lda-vs-qda
       - name: クラスター分析
         status: card
         cards:
           - mv-hierarchical-linkage
           - mv-ward-increase
           - mv-kmeans-one-iteration
-          - mv-kmeans-objective
       - name: ロジスティック回帰分析
         status: card
         cards:
