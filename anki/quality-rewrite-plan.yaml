@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-29-probability-core-merge-prep-08
+batch_id: 2026-08-29-probability-core-merge-prep-08b
 items:
   - id: prob-conditional-definition-direct
     note: 条件付き確率の定義と、その式を共通部分について解いた乗法公式を1枚で往復できるようにする。
@@ -41,7 +41,7 @@ items:
       一手: |
         条件記号の右側 $B$ が分母である。共通部分が欲しいなら分母を払って掛け算へ戻す。
       注意: |
-        $P(A\mid B)$ と $P(B\mid A)$ は一般に異なる。Bayesの公式は、この向きの違う条件付き確率を周辺確率と尤度で結び直す公式である。
+        $P(A\mid B)$ と $P(B\mid A)$ は一般に異なる。ベイズの定理は、この向きの違う条件付き確率を周辺確率と尤度で結び直す。
   - id: prob-independent-events
     note: 独立性の積条件に加え、排反との違いを同じ数値で判定できるようにして認識カードを吸収する。
     sections:
