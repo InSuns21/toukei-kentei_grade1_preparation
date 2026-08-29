@@ -1,18 +1,53 @@
 schema_version: 1
-batch_id: 2026-08-29-covariance-correlation-consolidation-16
+batch_id: 2026-08-29-core-distribution-functions-consolidation-17
 items:
-  - id: prob-covariance-computation
+  - id: prob-cdf-from-pmf
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-correlation-coefficient
-    note: 強化済み相関canonicalへ同時確率質量関数からE[X],E[Y],E[XY]を計算しCov(X,Y)=E[XY]-E[X]E[Y]を得る全手順を吸収済み。
-  - id: prob-cauchy-schwarz-correlation
+    canonical_card: prob-cdf-from-density
+    note: 強化済み累積分布関数canonicalへ離散型F(x)=sum_{u<=x}p(u)と2点分布の区分表示を吸収済み。
+  - id: prob-density-from-cdf-derivative
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-correlation-coefficient
-    note: 相関canonicalへ中心化変数にコーシー–シュワルツの不等式を適用してCov^2<=VarX VarY、したがって|rho|<=1を導く証明と等号条件を吸収済み。
-  - id: prob-correlation-independence
+    canonical_card: prob-cdf-from-density
+    note: 累積分布関数canonicalへ絶対連続部分でf=F'とする逆変換、区分的累積分布関数x^2から密度2xを復元する例を吸収済み。
+  - id: prob-cdf-jump-mass
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-correlation-coefficient
-    note: 相関canonicalへ独立なら無相関、逆は一般に不成立という関係と、X in {-1,0,1}, Y=X^2による無相関だが従属な具体例を吸収済み。
+    canonical_card: prob-cdf-from-density
+    note: 累積分布関数canonicalへ点質量P(X=a)=F(a)-F(a-)と跳び0.2から0.5で質量0.3を回収する例を吸収済み。
+  - id: prob-pmf-normalization
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-joint-density-normalization
+    note: 正規化canonicalへ離散1変量の総和1とp_X(x)=c(x+1), x=0,1,2からc=1/6を求める例を吸収済み。
+  - id: prob-density-normalization
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-joint-density-normalization
+    note: 正規化canonicalへ連続1変量の積分1とf_X(x)=cx, 0<x<2からc=1/2を求める例を吸収済み。
+  - id: prob-discrete-marginal
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-marginal-density
+    note: 周辺化canonicalへ離散型p_X(x)=sum_y p_XY(x,y)と2×2表の具体計算を吸収済み。
+  - id: prob-discrete-conditional
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-conditional-density
+    note: 条件付き分布canonicalへ離散型p_Y|X=p_XY/p_Xと2×2表で3/7,4/7を得る具体例を吸収済み。
+  - id: prob-joint-factorization-independence
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-conditional-equals-marginal
+    note: 独立性canonicalで同時確率質量関数・同時確率密度関数・累積分布関数の積分解と条件付き分布の不変性を統合済み。
+  - id: prob-pgf-moments
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-pgf-recover-pmf
+    note: 強化済み確率母関数canonicalへG'(1), G''(1)による階乗モーメントとE[X^2],分散への変換まで吸収済み。旧ベルヌーイ専用カードは重複。
+  - id: prob-mgf-independent-sum
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-mgf-affine-transform
+    note: 強化済みモーメント母関数canonicalへ独立和の積則、iidなら累乗、一般線形結合のモーメント母関数まで統合済み。
