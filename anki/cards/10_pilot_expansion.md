@@ -25,34 +25,6 @@ $$\begin{aligned}M_X'(t)&=\lambda e^t\exp\{\lambda(e^t-1)\},\\M_X'(0)&=\lambda\c
 <!-- CARD -->
 
 ---
-id: dist-order-max
-title: 最大値の分布を累積分布関数から求める
-category: math-estimation
-subcategory: math-population-sample-statistic
-topic: order-statistics
-type: strategy
-difficulty: 2
-priority: S
-hashtags: [順序統計量, 累積分布関数, 最大値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 順序統計量 }]
----
-## 問題
-$X_1,X_2$ は独立同分布に一様分布 $U(0,1)$ に従い、$M=\max(X_1,X_2)$ とする。$M$ の密度を求めよ。
-## 方針
-最大値が $m$ 以下とは、全標本が $m$ 以下ということなので累積分布関数から始める。
-## 使用公式・定理
-$$F_M(m)=P(M\le m)=\{F_X(m)\}^n.$$
-## 計算例
-$0<m<1$ では $F_X(m)=m$ だから
-$$F_M(m)=m^2,\qquad f_M(m)=\frac{d}{dm}m^2=2m.$$
-台の外では密度は0で、$\int_0^12m\,dm=1$。
-## 注意
-密度を出した後も台を残す。
-
-<!-- CARD -->
-
----
 id: est-moments-exponential
 title: 指数分布のモーメント法推定量を求める
 category: math-estimation

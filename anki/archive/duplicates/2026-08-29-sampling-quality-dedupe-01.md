@@ -66,7 +66,7 @@ sources:
   - type: official_syllabus
     topic: 順序統計量
 archive_reason: duplicate
-canonical_card: dist-order-max
+canonical_card: samp-order-statistics-distribution
 archive_note: どちらも最大値について M<=m iff 全Xi<=m から F_M(m)=F_X(m)^n
   を作り微分する同一move。canonical側はU(0,1),
   n=2でCDF→密度→support→積分1の確認まで実行しており、一般式を再掲するだけのsampling側より計算例が強い。

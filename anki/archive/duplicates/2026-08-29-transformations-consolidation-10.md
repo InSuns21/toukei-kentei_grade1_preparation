@@ -406,7 +406,7 @@ sources:
   - type: official_syllabus
     topic: 変数変換
 archive_reason: duplicate
-canonical_card: prob-transform-iid-maximum-density
+canonical_card: samp-order-statistics-distribution
 archive_note: 最大値canonicalへ最小値を生存関数の双対として統合し、一般密度と指数分布でExp(n lambda)になる計算まで吸収済み。
 ---
 ## 問題

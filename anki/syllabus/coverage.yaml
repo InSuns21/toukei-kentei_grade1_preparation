@@ -246,11 +246,7 @@ items:
       - prob-linear-combination-moments
       - prob-transform-log
       - prob-transform-uniform-product
-      - prob-transform-iid-maximum-density
       - prob-transform-normal-polar
-      - prob-transform-normal-square-sum
-      - prob-transform-student-t
-      - prob-transform-f-ratio
       - prob-transform-bivariate-normal-decorrelation
       - prob-transform-uniform-min-max-joint
       - prob-transform-probability-integral
@@ -552,32 +548,20 @@ items:
     cards:
       - samp-xbar-normal-distribution
       - samp-chisq-definition
-      - samp-chisq-additive
       - samp-chisq-mean-var-indep
-      - samp-chisq-expectation-squared
       - samp-t-distribution-definition
       - samp-t-statistic-mean-test
-      - samp-t-distribution-variance-unknown
-      - samp-t-converges-normal
-      - samp-t-distribution-limits
       - samp-f-distribution-definition
-      - samp-f-inverse-relation
-      - samp-t-squared-f
-      - samp-sqrt-f-t
       - samp-f-ratio-of-variances
       - samp-z-statistic-known-variance
       - samp-sample-proportion
       - samp-sample-variance-expectation
       - samp-two-sample-pooled-variance
       - samp-order-statistics-distribution
-      - samp-min-distribution
       - samp-range-statistic
       - samp-quantile-approx
       - samp-xbar-unbiased
       - samp-iid-sum-variance
-      - samp-chisq-from-normal
-      - samp-chisq-gamma-relation
-      - samp-chisq-degree-of-freedom
       - samp-normal-linear-combo
       - samp-poisson-normal-approx
       - samp-cochran-theorem
@@ -605,11 +589,7 @@ items:
         cards:
           - samp-t-distribution-definition
           - samp-t-statistic-mean-test
-          - samp-t-distribution-variance-unknown
-          - samp-t-converges-normal
-          - samp-t-distribution-limits
-          - samp-t-squared-f
-          - samp-sqrt-f-t
+          - samp-f-distribution-definition
           - samp-ci-mean-t
           - samp-t-percentile-symmetry
           - samp-welch-t
@@ -619,12 +599,7 @@ items:
         status: card
         cards:
           - samp-chisq-definition
-          - samp-chisq-additive
           - samp-chisq-mean-var-indep
-          - samp-chisq-expectation-squared
-          - samp-chisq-from-normal
-          - samp-chisq-gamma-relation
-          - samp-chisq-degree-of-freedom
           - samp-ci-variance-chisq
           - samp-chisq-percentile
           - samp-noncentral-chisq
@@ -633,9 +608,6 @@ items:
         status: card
         cards:
           - samp-f-distribution-definition
-          - samp-f-inverse-relation
-          - samp-t-squared-f
-          - samp-sqrt-f-t
           - samp-f-ratio-of-variances
           - samp-f-percentile
           - samp-f-anova-ratio
@@ -643,7 +615,6 @@ items:
     status: complete
     cards:
       - est-factorization
-      - dist-order-max
       - population-sample-definition
       - random-sample-iid-definition
       - statistic-definition-basic
@@ -682,7 +653,6 @@ items:
         cards:
           - order-statistic-definition-basic
           - order-statistic-sufficiency
-          - dist-order-max
   - id: math-likelihood-mle
     status: complete
     cards:
