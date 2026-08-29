@@ -1,4 +1,4 @@
-﻿---
+---
 id: samp-xbar-normal-distribution
 title: 正規母集団での標本平均の分布
 category: math-distributions
@@ -30,7 +30,9 @@ $n=25$、$\mu=10$、$\sigma^2=16$ なら $\overline X\sim N(10,16/25)$。
 
 ## 注意
 $\overline X$ の標準偏差を標準誤差 $\operatorname{SE}(\overline X)=\sigma/\sqrt n$ と呼ぶ。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-definition
 title: カイ二乗分布の定義
@@ -64,7 +66,9 @@ $\nu=3$ なら密度は $\operatorname{Gamma}(3/2,1/2)$。自由度3のカイ二
 
 ## 注意
 カイ二乗分布は非対称で右に裾を引く。台は $x>0$。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-additive
 title: 独立なカイ二乗分布の再生性
@@ -96,7 +100,9 @@ $$M_{X+Y}(t)=(1-2t)^{-\nu/2}(1-2t)^{-\mu/2}=(1-2t)^{-(\nu+\mu)/2}.$$
 
 ## 注意
 この再生性は独立な場合だけ成り立つ。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-mean-variance
 title: 正規標本の標本分散とカイ二乗分布
@@ -129,6 +135,7 @@ $n=10$ の正規標本では $9S^2/\sigma^2\sim\chi^2_9$。
 正規性が不可欠。$\overline X$ と $S^2$ の独立性は一定条件の下での特殊な性質。
 
 <!-- CARD -->
+
 ---
 id: samp-chisq-mean-var-indep
 title: 標本平均と標本分散の独立性
@@ -160,7 +167,9 @@ $n=5$ では $\overline X$ と $S^2$ が独立で、$4S^2/\sigma^2\sim\chi^2_4$�
 
 ## 注意
 非正規では一般に独立でない。この独立性がt分布・F分布の構成に必要。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-expectation-squared
 title: 標準正規分布の2乗の期待値
@@ -194,6 +203,7 @@ $E[Z^2]$ は分散と平均の2乗から直に求まる。分散を出すには4
 $E[Z^2]=1$ は標準正規のとき。一般の $N(\mu,\sigma^2)$ では $E[(X-\mu)^2]=\sigma^2$。
 
 <!-- CARD -->
+
 ---
 id: samp-t-distribution-definition
 title: t分布の定義（Studentのt分布）
@@ -226,7 +236,9 @@ $\nu=1$ はコーシー分布で平均・分散とも存在しない。$\nu=30$ 
 
 ## 注意
 分母の $V$ は $Z$ と独立でなければならない。自由度が大きいと標準正規へ近づく。
+
 <!-- CARD -->
+
 ---
 id: samp-t-statistic-mean-test
 title: 母分散未知の正規平均のt統計量
@@ -258,7 +270,9 @@ $n=16$ では $T=(\overline X-\mu)/(S/\sqrt{16})\sim t_{15}$。
 
 ## 注意
 $\sigma$ 既知なら $t$ ではなく $N(0,1)$。自由度は $n-1$。
+
 <!-- CARD -->
+
 ---
 id: samp-t-distribution-variance-unknown
 title: 分散未知の平均の推測にt分布を使う理由
@@ -290,7 +304,9 @@ $\sigma$ を $S$ に置き換えると、独立なカイ二乗との比の形に
 
 ## 注意
 自由度は $n-1$。非正規では近似になる。
+
 <!-- CARD -->
+
 ---
 id: samp-t-converges-normal
 title: 標本平均のt統計量の自由度と正規近似
@@ -327,7 +343,9 @@ $n=10$ では $T=(\overline X-\mu)/(S/\sqrt{10})\sim t_9$。$n$ が大きいほ�
 
 ## 注意
 精密には残差ベクトルは $n-1$ 次元の部分空間を張る。非正規では厳密でない近似。
+
 <!-- CARD -->
+
 ---
 id: samp-t-distribution-limits
 title: t分布の極限と自由度1の特徴
@@ -360,7 +378,9 @@ $\nu\to\infty$ の収束が主結論であり、$\nu=30$ では実用上標準�
 
 ## 注意
 $t_\nu$ 分布は任意の実数 $\nu>0$ に対して定義できる。1標本 $t$ 統計量などの厳密分布では通常 $\nu=n-1$ と整数になるが、Welch の近似では非整数自由度も現れる。
+
 <!-- CARD -->
+
 ---
 id: samp-f-distribution-definition
 title: F分布の定義
@@ -393,7 +413,9 @@ $\nu_1=5,\nu_2=10$ では平均は $10/(10-2)=1.25$。
 
 ## 注意
 逆数もF分布になる。$1/F\sim F_{\nu_2,\nu_1}$。
+
 <!-- CARD -->
+
 ---
 id: samp-f-inverse-relation
 title: F分布の逆数の分布
@@ -424,7 +446,9 @@ $F\sim F_{3,8}$ なら $1/F\sim F_{8,3}$。
 
 ## 注意
 上側分位点は $F_{\nu_1,\nu_2;\alpha}=1/F_{\nu_2,\nu_1;1-\alpha}$ と対応する。
+
 <!-- CARD -->
+
 ---
 id: samp-t-squared-f
 title: t分布の2乗とF分布の関係
@@ -456,7 +480,9 @@ $t_{20}$ の2乗は $F_{1,20}$ に従う。
 
 ## 注意
 両側t検定は $F_{1,\nu}$ で扱える。片側情報（符号）は失われる。
+
 <!-- CARD -->
+
 ---
 id: samp-sqrt-f-t
 title: F分布からt分布へ（自由度1のF）
@@ -489,6 +515,7 @@ $F_{1,10}$ の平方根の分布は $|t_{10}|$ の分布。確率 $P(\sqrt F\le 
 符号の情報（方向）は失われる。tの両側検定とFの片側が対応する。
 
 <!-- CARD -->
+
 ---
 id: samp-f-ratio-of-variances
 title: 2母分散比とF分布
@@ -519,7 +546,9 @@ $n_1=6,n_2=9$ では不偏分散の母分散比は2つの $\chi^2$ を自由度�
 
 ## 注意
 $\sigma_1=\sigma_2$ の帰無仮説下では $S_1^2/S_2^2\sim F_{n_1-1,n_2-1}$。分散比検定に使える。
+
 <!-- CARD -->
+
 ---
 id: samp-z-statistic-known-variance
 title: 母分散既知の正規平均の$z$統計量
@@ -550,39 +579,9 @@ $n=36,\sigma=12$ なら $\sigma/\sqrt n=2$ で $(\overline X-\mu)/2\sim N(0,1)$�
 
 ## 注意
 $\sigma$ 未知のときは t 分布へ移行する。
+
 <!-- CARD -->
----
-id: samp-clt-approx-mean
-title: 大標本での標本平均の正規近似
-category: math-distributions
-subcategory: math-sampling-distributions
-topic: sampling-clt-mean
-type: theorem
-difficulty: 2
-priority: S
-hashtags: [中心極限定理, 標本平均, 正規近似]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標本分布 }]
----
-## 問題
-$X_1,\ldots,X_n$ を平均 $\mu$、有限な分散 $\sigma^2$ の分布からの独立同分布標本とする。$n$ が大きいとき標本平均 $\overline X$ の近似的な分布を答えよ。
 
-## 答え
-$$\overline X\mathrel{\dot\sim}N\left(\mu,\frac{\sigma^2}{n}\right),\qquad \frac{\overline X-\mu}{\sigma/\sqrt n}\xrightarrow{d}N(0,1).$$
-
-## 使用公式・定理
-中心極限定理：平均 $\mu$、有限で正の分散 $\sigma^2$ の独立同分布標本で
-$$\sqrt n\,\frac{\overline X-\mu}{\sigma}\xrightarrow{d}N(0,1).$$
-
-## 計算例
-$n=100$ なら $\overline X\mathrel{\dot{\sim}}N(\mu,\sigma^2/100)$。
-
-## 一手
-独立同分布かつ有限分散を確認し、$n$ が大きければ標本平均を正規分布で近似する。
-
-## 注意
-あくまで近似。歪みが強い分布では $n$ を大きめに取る。
-<!-- CARD -->
 ---
 id: samp-sample-proportion
 title: 標本比率の分布と正規近似
@@ -618,7 +617,9 @@ $n=100,p=0.3$ では $E[\widehat p]=0.3$、$\operatorname{Var}(\widehat p)=0.3\t
 
 ## 注意
 $np\ge5$、$n(1-p)\ge5$ 程度で正規近似が使える。厳密には二項分布。
+
 <!-- CARD -->
+
 ---
 id: samp-sample-variance-expectation
 title: 不偏標本分散の期待値
@@ -650,7 +651,9 @@ $n=5$ では $E[\widetilde S^2]=\frac45\sigma^2$。不偏にするには分母 $
 
 ## 注意
 $\overline X$ の分散を引くことで自由度1が消費される。
+
 <!-- CARD -->
+
 ---
 id: samp-two-sample-pooled-variance
 title: 2標本t検定の結合分散
@@ -684,7 +687,9 @@ $n_1=n_2=10$ なら自由度 $18$。$S_p^2$ は自由度で重み付けた分散
 
 ## 注意
 等分散でない場合（Welchのt検定）は結合分散とこの自由度を使わない。
+
 <!-- CARD -->
+
 ---
 id: samp-order-statistics-distribution
 title: 順序統計量の分布
@@ -722,7 +727,9 @@ $dx$ で割ると答えの密度になる。
 
 ## 注意
 最小値・最大値は重要な特殊ケース。
+
 <!-- CARD -->
+
 ---
 id: samp-max-distribution
 title: 標本最大値の分布
@@ -756,7 +763,9 @@ $$F_M(m)=P(X_1\le m,\ldots,X_n\le m)=F_X(m)^n.$$
 
 ## 注意
 最小値は $1-\{1-F_X(x)\}^n$。最大値との違いに注意。
+
 <!-- CARD -->
+
 ---
 id: samp-min-distribution
 title: 標本最小値の分布
@@ -788,7 +797,9 @@ $P(X_{(1)}>x)=P(X_1>x,\ldots,X_n>x)=\{1-F_X(x)\}^n$ の余事象。
 
 ## 注意
 指数分布の最小値は同じ族の指数分布になり、rate が $n$ 倍になる。
+
 <!-- CARD -->
+
 ---
 id: samp-range-statistic
 title: 標本範囲と$R$管理図
@@ -819,7 +830,9 @@ $n=5$ のとき $d_2=2.326$ なので $E[R]=2.326\sigma$。
 
 ## 注意
 $n$ が大きいとレンジは非効率。$R$ 管理図は小サンプルの工程管理に使う。
+
 <!-- CARD -->
+
 ---
 id: samp-quantile-approx
 title: 標本分位数の分布と漸近正規性
@@ -851,7 +864,9 @@ $$\sqrt n(\widehat q_p-q_p)\xrightarrow{d}N\left(0,\frac{p(1-p)}{f(q_p)^2}\right
 
 ## 注意
 $q_p$ で密度が0だと漸近正規性が崩れる。
+
 <!-- CARD -->
+
 ---
 id: samp-xbar-unbiased
 title: 標本平均の不偏性と期待値
@@ -883,7 +898,9 @@ $n=20,\mu=5$ では $E[\overline X]=5$。
 
 ## 注意
 不偏性 $E[\overline X]=\mu$ は母集団分布によらない。分散 $\sigma^2/n$ は独立和の分散カードで扱う。
+
 <!-- CARD -->
+
 ---
 id: samp-iid-sum-variance
 title: 独立和の分散と標本平均
@@ -914,7 +931,9 @@ $\sigma=3,n=16$ なら $\operatorname{Var}(T)=144$、$\operatorname{SD}(\overlin
 
 ## 注意
 標準偏差には $\sqrt n$ が入る。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-from-normal
 title: 標準正規分布からカイ二乗への変数変換
@@ -951,7 +970,9 @@ $\chi^2_1$ の平均は $1$、分散は $2$。
 
 ## 注意
 $\pm\sqrt x$ の2点を足すので、密度に $1/\sqrt x$ が現れる。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-gamma-relation
 title: カイ二乗分布とガンマ分布の関係
@@ -982,7 +1003,9 @@ $\nu=2$ は $\operatorname{Gamma}(1,1/2)$ で指数分布 $\operatorname{Exp}(1/
 
 ## 注意
 rate $1/2$ に固定された特別なガンマ分布。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-degree-of-freedom
 title: カイ二乗分布の自由度と期待値・分散
@@ -1014,7 +1037,9 @@ $\nu=10$ では平均 $10$、分散 $20$。
 
 ## 注意
 平均と分散を混同しない。分散は平均の2倍。
+
 <!-- CARD -->
+
 ---
 id: samp-normal-linear-combo
 title: 正規標本の線形結合の分布
@@ -1045,7 +1070,9 @@ $a_i=1/n$ なら $Y=\overline X\sim N(\mu,\sigma^2/n)$。
 
 ## 注意
 独立でないと共分散項が残る。
+
 <!-- CARD -->
+
 ---
 id: samp-continuity-correction
 title: 二項分布の正規近似と連続修正
@@ -1076,7 +1103,9 @@ $n=100,p=0.5$ では $P(X\le40)\approx\Phi((40.5-50)/5)=\Phi(-1.9)$。
 
 ## 注意
 $P(X\ge k)$ は $k-0.5$ を使う。
+
 <!-- CARD -->
+
 ---
 id: samp-poisson-normal-approx
 title: ポアソン分布の正規近似
@@ -1107,7 +1136,9 @@ $\lambda=100$ なら $X\approx N(100,100)$、標準偏差 $10$。
 
 ## 注意
 離散分布の近似なので必要に応じ連続修正を使う。
+
 <!-- CARD -->
+
 ---
 id: samp-cochran-theorem
 title: Cochranの定理（平方和の分解）
@@ -1150,7 +1181,9 @@ $$\frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
 
 ## 注意
 分散分析の平方和分解の理論的根拠。正規性がない場合、直交分解自体はできても、各平方和の独立性と厳密なカイ二乗分布は一般には保証されない。
+
 <!-- CARD -->
+
 ---
 id: samp-ci-mean-t
 title: 母平均の信頼区間（分散未知）
@@ -1186,7 +1219,9 @@ $n=16,\overline x=10,S=2,\alpha=0.05$ では $t_{15,0.025}\approx2.131$ で区�
 
 ## 注意
 $\sigma$ 既知なら $z_{\alpha/2}$ を使う。自由度は $n-1$。
+
 <!-- CARD -->
+
 ---
 id: samp-ci-variance-chisq
 title: 母分散の信頼区間（カイ二乗分布）
@@ -1227,7 +1262,9 @@ $n=10,S^2=4,\alpha=0.05$ では $\chi^2_{9,0.975}\approx2.700$、$\chi^2_{9,0.02
 
 ## 注意
 $\chi^2$ は非対称なので両側でも分位点が異なる。
+
 <!-- CARD -->
+
 ---
 id: samp-chisq-percentile
 title: カイ二乗分布の上側分位点の使い方
@@ -1258,7 +1295,9 @@ $\nu=9,\alpha=0.05$ なら $\chi^2_{9,0.975}\approx2.700$、$\chi^2_{9,0.025}\ap
 
 ## 注意
 $\chi^2$ は非対称なので上下の分位点は等距離でない。
+
 <!-- CARD -->
+
 ---
 id: samp-f-percentile
 title: F分布の上側分位点と逆数関係
@@ -1291,6 +1330,7 @@ $F_{3,8;0.05}=1/F_{8,3;0.95}$。
 F分布表は上側分位点のみ載せていることが多い。小さい確率側は逆数で求める。
 
 <!-- CARD -->
+
 ---
 id: samp-t-percentile-symmetry
 title: t分布の対称性と分位点
@@ -1321,7 +1361,9 @@ $t_{10,0.975}=-t_{10,0.025}$。$t_{10,0.025}\approx2.228$ なので $t_{10,0.975
 
 ## 注意
 標準正規分布の $z$ 分位点と同じ性質。$\chi^2$ や $F$ にはない。
+
 <!-- CARD -->
+
 ---
 id: samp-sample-size-mean
 title: 平均の区間推定での標本サイズ設計
@@ -1358,7 +1400,9 @@ $\sigma=10,d=2,\alpha=0.05$ では $z_{0.025}\approx1.96$ で $n=(1.96\times10/2
 
 ## 注意
 $\sigma$ 未知なら $t$ 分布で反復する必要がある。
+
 <!-- CARD -->
+
 ---
 id: samp-sample-size-proportion
 title: 母比率の区間推定での標本サイズ
@@ -1392,7 +1436,9 @@ $p=1/2$ は分散最大で安全側。事前情報があれば実際の $p$ を�
 
 ## 注意
 $p$ が0や1に近いと正規近似の前提が弱くなる。
+
 <!-- CARD -->
+
 ---
 id: samp-welch-t
 title: Welchのt検定と近似自由度
@@ -1427,6 +1473,7 @@ $n_1=n_2=10$、$S_1^2=4S_2^2$ なら $\nu=(S_1^2/10+S_2^2/10)^2/\{(S_1^2/10)^2/9
 $\nu$ は整数である必要がなく、$\nu\le n_1+n_2-2$ となる。ただし、Welch 検定が等分散 t 検定より常に保守的という意味ではない。
 
 <!-- CARD -->
+
 ---
 id: samp-two-proportion-diff
 title: 2標本比率の差の分布
@@ -1458,7 +1505,9 @@ $n_1=n_2=100,p_1=0.6,p_2=0.4$ なら分散は $0.6\times0.4/100+0.4\times0.6/100
 
 ## 注意
 帰無仮説下では共通の $p$ をプールする方が検定のレベルを保ちやすい。
+
 <!-- CARD -->
+
 ---
 id: samp-noncentral-chisq
 title: 非心カイ二乗分布
@@ -1490,7 +1539,9 @@ $\nu=3,\lambda=2$ では $E[X]=5$、$\operatorname{Var}(X)=2(3+4)=14$。
 
 ## 注意
 検出力の計算（適合度検定など）に使われる。
+
 <!-- CARD -->
+
 ---
 id: samp-noncentral-t
 title: 非心t分布の定義
@@ -1524,6 +1575,7 @@ $\nu=15,\delta=2$ では通常のtより右へずれ、$H_1$ 下での検出力�
 非心tの密度は複雑。検出力の計算に使う分布として認識。
 
 <!-- CARD -->
+
 ---
 id: samp-f-anova-ratio
 title: 分散分析のF比と標本分布
@@ -1554,4 +1606,3 @@ $k=3,N=30$ なら $F\sim F_{2,27}$。
 
 ## 注意
 $SS_B$ と $SS_W$ の独立性が本質。非正規では近似になる。
-<!-- CARD -->

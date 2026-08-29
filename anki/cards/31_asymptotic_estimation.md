@@ -34,6 +34,7 @@ $$P(|\overline X_{400}-\mu|>0.5)
 
 ## 注意
 確率収束は「確率1の例外を除いて値が近づく」ことではなく、確率の極限をいう。
+
 <!-- CARD -->
 
 ---
@@ -99,6 +100,7 @@ $$z=\frac{4.3-4}{0.2}=1.5,
 
 ## 注意
 $1/I_1(\theta)$ は $\sqrt n(\widehat\theta-\theta)$ の極限分散であり、$\widehat\theta$ 自身の分散は $1/[nI_1(\theta)]$。
+
 <!-- CARD -->
 
 ---
@@ -156,6 +158,7 @@ $$\widehat{\operatorname{SE}}(\widehat\lambda)
 
 ## 注意
 ここでの $\lambda$ は率であり、平均は $1/\lambda$。
+
 <!-- CARD -->
 
 ---
@@ -217,6 +220,7 @@ $$\operatorname{ASE}(\widehat\tau)=\sqrt{0.32}\approx0.566.$$
 
 ## 注意
 $\tau=\sigma^2$ である。標準偏差 $\sigma$ の漸近分布にはさらにデルタ法が必要。
+
 <!-- CARD -->
 
 ---
@@ -270,6 +274,7 @@ $$\operatorname{Avar}(\widehat\mu)=\frac{(1/2)^2}{100}=0.0025,
 
 ## 注意
 最尤推定量の不変性だけでは分散は出ない。分散計算にはデルタ法を使う。
+
 <!-- CARD -->
 
 ---
@@ -318,6 +323,7 @@ $n=100$ では推定量自身の漸近分散が $1.85185/100\approx0.01852$、�
 
 ## 注意
 $p$ が0または1に近いと微分が大きくなり、正規近似は不安定になる。
+
 <!-- CARD -->
 
 ---
@@ -370,6 +376,7 @@ $n=100$ では漸近分散が $1/(4\cdot100)=0.0025$、漸近標準誤差が $0.
 
 ## 注意
 $p=0,1$ では微分が発散するため、通常のデルタ法をそのまま適用できない。
+
 <!-- CARD -->
 
 ---
@@ -426,6 +433,7 @@ $$\widehat{\operatorname{Avar}}\left(\log\frac{\widehat p_1}{\widehat p_2}\right
 
 ## 注意
 成功数が0なら対数を取れないため、この近似をそのまま使えない。
+
 <!-- CARD -->
 
 ---
@@ -480,6 +488,7 @@ $$\frac{9/2}{200}=0.0225,$$
 
 ## 注意
 分散母数を $\tau=\sigma^2$ と置いてから平方根変換すると追いやすい。
+
 <!-- CARD -->
 
 ---
@@ -526,6 +535,7 @@ $$P(\overline X>2.4)\approx P(Z>2)=1-\Phi(2)\approx0.0228.$$
 
 ## 注意
 指数分布自体は右に歪むが、標本平均は大標本で正規近似できる。
+
 <!-- CARD -->
 
 ---
@@ -586,6 +596,7 @@ $$z=\frac{4.41-4}{\sqrt{4/100}}=\frac{0.41}{0.2}=2.05.$$
 
 ## 注意
 検定で帰無仮説下の標準化を行う場合は、分母に帰無値 $\lambda_0$ を使う方式と区別する。
+
 <!-- CARD -->
 
 ---
@@ -642,6 +653,7 @@ $$\widehat{\operatorname{SE}}(\widehat\lambda)
 
 ## 注意
 率 $\lambda$ と平均 $1/\lambda$ を取り違えない。
+
 <!-- CARD -->
 
 ---
@@ -692,6 +704,7 @@ $$\sqrt{\frac1{200(0.30)(0.70)}}=\sqrt{\frac1{42}}\approx0.1543.$$
 
 ## 注意
 $\widehat p=0$ または1ではロジットが発散し、この近似をそのまま使えない。
+
 <!-- CARD -->
 
 ---
@@ -741,6 +754,7 @@ $$\sqrt{\frac Vn}=\sqrt{\frac2{100}}\approx0.1414.$$
 
 ## 注意
 $\mu_Y$ が0に近いと比の正規近似は不安定になる。
+
 <!-- CARD -->
 
 ---
@@ -773,6 +787,7 @@ $$P\left(\lim_{n\to\infty}X_n=\theta\right)=1.$$
 
 ## 注意
 概収束は確率収束より強い含意関係にある。
+
 <!-- CARD -->
 
 ---
@@ -812,6 +827,7 @@ $$F_{X_n}(x)\longrightarrow\Phi(x)=F_X(x).$$
 
 ## 注意
 分布収束は極限の分布の形だけをいい、確率変数同士の近さを要求しない。
+
 <!-- CARD -->
 
 ---
@@ -844,6 +860,7 @@ $\operatorname{Var}(X_n)\to0$ かつ $E[X_n]\to\theta$ なら $E[(X_n-\theta)^2]
 
 ## 注意
 平均二乗収束は確率収束を含意する。
+
 <!-- CARD -->
 
 ---
@@ -879,6 +896,7 @@ $\overline X_n\xrightarrow{a.s.}\mu$（強法則）なら自動的に $\xrightar
 
 ## 注意
 逆方向は一般に成り立たない。平均二乗収束と概収束の間の包含関係はない。
+
 <!-- CARD -->
 
 ---
@@ -911,6 +929,7 @@ $X_i\overset{\mathrm{i.i.d.}}{\sim}P$、$E[X_i]=\mu\in\mathbb R$ なら $\overli
 
 ## 注意
 弱法則は確率収束を主張し、収束速度は与えない。
+
 <!-- CARD -->
 
 ---
@@ -943,6 +962,7 @@ $E[|X_i|]<\infty$、$E[X_i]=\mu$ なら $\overline X_n\xrightarrow{a.s.}\mu$。
 
 ## 注意
 強法則は弱法則より強い含意を与える。
+
 <!-- CARD -->
 
 ---
@@ -978,6 +998,7 @@ $X_i$ がベルヌーイ分布 $\operatorname{Bernoulli}(p)$ なら $E[X_i]=p$�
 
 ## 注意
 収束の種類は分布収束。標本サイズが十分大きいときの近似に使う。
+
 <!-- CARD -->
 
 ---
@@ -1019,6 +1040,7 @@ $$\frac{\overline X_n-\mu}{S_n/\sqrt n}
 
 ## 注意
 $Y_n$ が定数でない確率変数へ確率収束する場合、積の極限は一般に成り立たない。
+
 <!-- CARD -->
 
 ---
@@ -1054,6 +1076,7 @@ $Z_n\xrightarrow{d}N(0,1)$ なら $g(x)=x^2$ として $Z_n^2\xrightarrow{d}\chi
 
 ## 注意
 多変量でも連続写像 $g$ について同じことが成り立つ。
+
 <!-- CARD -->
 
 ---
@@ -1095,43 +1118,7 @@ $T_n=\overline X_n$、$\theta=\mu$、$g(x)=e^x$ なら $\sqrt n(e^{\overline X_n
 
 ## 注意
 $g'(\theta)=0$ のとき $\sqrt n$ 尺度では0への退化極限となる。非退化な極限を得るには第2次デルタ法を検討する。
-<!-- CARD -->
 
----
-id: asym-sample-mean-normality
-title: 標本平均の漸近正規性を計算する
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: sample-mean-asymptotic
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [標本平均, 中心極限定理, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-
-## 問題
-独立同分布標本 $X_i$ の平均 $\mu$、分散 $\sigma^2$ が既知とする。$\overline X_n$ の近似95%区間の半幅を $n=100$、$\sigma=4$ で求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-- $\xrightarrow{d}$：分布収束
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$$\frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1),$$
-したがって大標本では $\overline X_n\mathrel{\dot\sim}N(\mu,\sigma^2/n)$、標準誤差は $SE=\sigma/\sqrt n$。
-
-## 答え
-中心極限定理より $\overline X_n\approx N(\mu,\sigma^2/n)$ として、標準誤差 $\sigma/\sqrt n$ に95%点を掛ける。
-
-## 計算例
-$SE=4/\sqrt{100}=0.4$。95%点 $z_{0.975}\approx1.96$ より半幅 $1.96\times0.4\approx0.784$。
-
-## 注意
-漸近近似なので標本サイズが十分大きいことが前提。
 <!-- CARD -->
 
 ---
@@ -1168,6 +1155,7 @@ $\sqrt{0.3\times0.7/400}=\sqrt{0.21/400}=\sqrt{0.000525}\approx0.0229$。
 
 ## 注意
 $np$、$n(1-p)$ がともに5以上程度あることが目安。
+
 <!-- CARD -->
 
 ---
@@ -1206,6 +1194,7 @@ $$\frac1{4\cdot400\cdot0.1^2}=0.0625.$$
 
 ## 注意
 境界解などの非正則な場合は一致性が崩れることがある。
+
 <!-- CARD -->
 
 ---
@@ -1265,6 +1254,7 @@ $$\sqrt{\frac{0.4(0.6)}{100}}\approx0.0490.$$
 
 ## 注意
 偏差スコアの期待値0とフィッシャー情報量（1次元）の加法性を用いる。
+
 <!-- CARD -->
 
 ---
@@ -1304,6 +1294,7 @@ $$\widehat{\operatorname{ASE}}(\overline X_n)
 
 ## 注意
 標本分散そのものではなく $1/\sqrt n$ のオーダーである。
+
 <!-- CARD -->
 
 ---
@@ -1341,6 +1332,7 @@ $$\operatorname{ARE}(T,U)=\frac{v_U}{v_T}=\frac94=2.25.$$
 
 ## 注意
 1より小さいほど相対的に情報量が少ない。
+
 <!-- CARD -->
 
 ---
@@ -1373,6 +1365,7 @@ $\overline X_n-\mu=O_p(n^{-1/2})$、$\sqrt n(\overline X_n-\mu)=O_p(1)$。また
 
 ## 注意
 $O_p$ は確率的有界、$o_p$ は確率収束して0。
+
 <!-- CARD -->
 
 ---
@@ -1405,6 +1398,7 @@ $(1/100)/(0.1)^2=0.01/0.01=1$。$n=400$ なら $0.0025/0.01=0.25$。$n\to\infty$
 
 ## 注意
 これは上界であり確率そのものではない。
+
 <!-- CARD -->
 
 ---
@@ -1437,6 +1431,7 @@ $A=\{\lim_{k\to\infty}X_k=\theta\}$ とおくと $P(A)=1$。$B_n=\bigcup_{k\ge n
 
 ## 注意
 逆は一般に成り立たない。
+
 <!-- CARD -->
 
 ---
@@ -1473,6 +1468,7 @@ $$P(|X_n-\theta|>0.1)
 
 ## 注意
 平均二乗収束の直接な含意である。
+
 <!-- CARD -->
 
 ---
@@ -1509,6 +1505,7 @@ $z=(46.5-40)/4.90\approx1.33$、標準正規の累積分布関数 $\Phi(1.33)\ap
 
 ## 注意
 離散への連続修正を忘れない。
+
 <!-- CARD -->
 
 ---
@@ -1550,6 +1547,7 @@ $$\{g'(9)\}^2\sigma^2
 
 ## 注意
 $\mu>0$ が必要（平方根の定義域）。
+
 <!-- CARD -->
 
 ---
@@ -1597,6 +1595,7 @@ $$\operatorname{Avar}(\widehat p)
 
 ## 注意
 標本比率の中心極限定理の分散と一致する。
+
 <!-- CARD -->
 
 ---
@@ -1639,6 +1638,7 @@ $$\operatorname{Avar}(\overline X_n)
 
 ## 注意
 正規母集団では正確にもこの分散になる。
+
 <!-- CARD -->
 
 ---
@@ -1679,6 +1679,7 @@ $$\frac{X_n}{Y_n}\xrightarrow{d}\frac X2\sim N(0,1).$$
 
 ## 注意
 $Y_n$ の極限が0なら、除算にこの形のSlutskyの定理は使えない。
+
 <!-- CARD -->
 
 ---
@@ -1714,6 +1715,7 @@ $\operatorname{ARE}(\widetilde X,\overline X)=\sigma^2/(\pi\sigma^2/2)=2/\pi\app
 
 ## 注意
 正規では平均がより効率的。裾が重い分布では逆転しうる。
+
 <!-- CARD -->
 
 ---
@@ -1761,6 +1763,7 @@ $$P\{n(\overline X-\mu)^2>15.37\}
 
 ## 注意
 1階デルタ法を形式的に使うと分散0の退化分布しか得られない。
+
 <!-- CARD -->
 
 ---
@@ -1816,6 +1819,7 @@ $$\sqrt{0.32}\approx0.5657.$$
 
 ## 注意
 4次中心モーメントの有限性が必要であり、有限分散だけではこの結論は保証されない。
+
 <!-- CARD -->
 
 ---
@@ -1866,6 +1870,7 @@ $$\frac{0.80-\log2}{0.1}\approx1.07.$$
 
 ## 注意
 中央値の漸近分散には母分散ではなく、中央値における密度 $f(m)$ が入る。
+
 <!-- CARD -->
 
 ---
@@ -1914,6 +1919,7 @@ $$\frac{0.2304}{400}=0.000576,\qquad
 
 ## 注意
 $n\widehat p$ または $n(1-\widehat p)$ が小さいと、正規近似の精度が悪い。
+
 <!-- CARD -->
 
 ---
@@ -1969,4 +1975,3 @@ $$\widehat{\operatorname{SE}}(\widetilde\theta)
 
 ## 注意
 最尤推定量 $X_{(n)}$ は異なる $n$ 尺度の非正規極限を持つため、同じ扱いをしない。
-<!-- CARD -->

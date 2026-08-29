@@ -689,7 +689,6 @@ items:
       - samp-sqrt-f-t
       - samp-f-ratio-of-variances
       - samp-z-statistic-known-variance
-      - samp-clt-approx-mean
       - samp-sample-proportion
       - samp-sample-variance-expectation
       - samp-two-sample-pooled-variance
@@ -818,10 +817,8 @@ items:
       - mle-likelihood-construction
       - mle-log-likelihood
       - mle-score-equation
-      - mle-normal-mean
       - mle-normal-variance
       - mle-bernoulli-binomial
-      - mle-poisson
       - mle-exponential
       - mle-uniform-endpoint
       - mle-constrained
@@ -856,8 +853,6 @@ items:
         status: card
         cards:
           - mle-score-equation
-          - mle-normal-mean
-          - mle-poisson
           - mle-exponential
           - mle-boundary-nonregular
           - mle-consistency
@@ -949,12 +944,8 @@ items:
       - est-fisher-two-forms
       - est-fisher-additivity
       - est-fisher-bernoulli-example
-      - est-fisher-poisson-example
-      - est-fisher-exponential
-      - est-fisher-normal-example
       - est-cramer-rao-lower-bound
       - est-crlb-equality
-      - est-crlb-exponential
       - est-efficient-estimator
       - est-asymptotic-efficiency
       - est-mle-fisher-information
@@ -1054,9 +1045,7 @@ items:
       - est-cramer-rao-bernoulli
       - est-delta-log
       - est-crlb-poisson-mean-efficiency
-      - est-crlb-normal-mean-known-variance
       - est-crlb-bernoulli-square
-      - est-fisher-geometric
       - asym-convergence-probability
       - asym-convergence-almost-sure
       - asym-convergence-distribution
@@ -1068,7 +1057,6 @@ items:
       - asym-slutsky
       - asym-continuous-mapping
       - asym-delta-method
-      - asym-sample-mean-normality
       - asym-sample-proportion-normality
       - asym-mle-consistency
       - asym-mle-asymptotic-normality
@@ -1108,13 +1096,11 @@ items:
         cards:
           - est-cramer-rao-bernoulli
           - est-crlb-poisson-mean-efficiency
-          - est-crlb-normal-mean-known-variance
           - est-crlb-bernoulli-square
       - name: フィッシャー情報量（1次元）
         status: card
         cards:
           - est-fisher-bernoulli
-          - est-fisher-geometric
       - name: 最尤推定量の漸近正規性
         status: card
         cards:
@@ -1145,30 +1131,20 @@ items:
       - ci-pivot-definition
       - ci-pivot-construction
       - ci-normal-mean-known
-      - ci-normal-mean-known-calc
       - ci-t-interval-pivot
       - ci-t-vs-z
       - ci-variance-chi-derivation
-      - ci-variance-chi-calc
       - ci-f-variance-ratio
-      - ci-f-variance-ratio-calc
       - ci-two-sample-mean-diff
-      - ci-two-sample-mean-diff-calc
       - ci-welch-interval
-      - ci-welch-calc
       - ci-proportion
-      - ci-proportion-calc
       - ci-proportion-diff
-      - ci-proportion-diff-calc
       - ci-one-sided
-      - ci-one-sided-calc
       - ci-test-duality
       - ci-duality-acceptance
       - ci-asymptotic-def
       - ci-asymptotic-mle
-      - ci-asymptotic-mle-calc
       - ci-delta-method
-      - ci-delta-method-calc
       - ci-length-confidence-tradeoff
       - ci-sample-size-for-width
       - mathstat-shortest-probability-interval
@@ -2947,7 +2923,6 @@ items:
       - enginf-linear-combination-normal
       - enginf-contrast-estimate-se
       - enginf-contrast-t-test
-      - enginf-linear-restriction-wald-f
       - enginf-extra-sum-squares
       - enginf-regression-anova-output
       - enginf-overall-regression-f
@@ -3015,7 +2990,6 @@ items:
       - name: 線形制約
         status: card
         cards:
-          - enginf-linear-restriction-wald-f
           - enginf-extra-sum-squares
           - enginf-glm-wald-joint
           - enginf-restricted-least-squares
@@ -3042,9 +3016,7 @@ items:
       - engasym-lln-sensor-average
       - engasym-consistency-from-mse
       - engasym-clt-sum-probability
-      - engasym-clt-sample-mean-tolerance
       - engasym-binomial-continuity-correction
-      - engasym-delta-square-root
       - engasym-delta-ratio
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
@@ -3062,7 +3034,6 @@ items:
         status: card
         cards:
           - engasym-clt-sum-probability
-          - engasym-clt-sample-mean-tolerance
           - engasym-binomial-continuity-correction
           - engasym-empirical-cdf-point
           - engasym-sample-variance-normal
@@ -3099,7 +3070,6 @@ items:
       - name: デルタ法
         status: card
         cards:
-          - engasym-delta-square-root
           - engasym-delta-ratio
           - engasym-delta-risk-ratio
           - engasym-delta-odds-ratio

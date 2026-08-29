@@ -771,37 +771,6 @@ $$P(S_{100}>1030)\approx1-\Phi(1.5)\approx0.0668.$$
 <!-- CARD -->
 
 ---
-id: engasym-clt-sample-mean-tolerance
-title: 標本平均が許容幅に入る確率を近似する
-category: applied-engineering
-subcategory: engineering-asymptotics
-topic: clt-sample-mean
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [中心極限定理, 標本平均, 工程管理]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-## 問題
-平均50、標準偏差6の工程から独立に36個採取する。標本平均が48から52に入る確率を近似せよ。
-## 記号・用語
-標本平均の標準誤差は $\sigma/\sqrt n$。
-## 使用公式・定理
-$$\frac{\overline X-\mu}{\sigma/\sqrt n}\dot\sim N(0,1).$$
-## 一手／方針
-両端を標準化し、標準正規分布の中央確率を取る。
-## 答え
-$SE=6/6=1$ より
-$$P(48\le\overline X\le52)\approx P(-2\le Z\le2)=2\Phi(2)-1\approx0.9545.$$
-## 計算例
-標本数を9に減らすと標準誤差2となり、同じ幅の確率は約0.6827。
-## 注意
-独立性が弱い系列データでは有効標本数が小さくなる。
-
-<!-- CARD -->
-
----
 id: engasym-binomial-continuity-correction
 title: 二項分布を連続性補正付きで正規近似する
 category: applied-engineering
@@ -830,37 +799,6 @@ $$z=\frac{15.5-10}{3}=1.833,$$
 補正なしでは $z=5/3=1.667$ となる。
 ## 注意
 $X<15$ なら整数では $X\le14$ なので境界は14.5。
-
-<!-- CARD -->
-
----
-id: engasym-delta-square-root
-title: デルタ法で平方根変換の漸近分散を求める
-category: applied-engineering
-subcategory: engineering-asymptotics
-topic: delta-method-sqrt
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [デルタ法, 平方根変換, 漸近分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: デルタ法 }]
----
-## 問題
-$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,V)$、$\theta>0$ のとき、$\sqrt{\widehat\theta}$ の漸近分散を求めよ。（ここで $N$ は正規分布を表す。）
-## 記号・用語
-$g(u)=\sqrt u$ は $u>0$ で微分可能である。
-## 使用公式・定理
-1変量デルタ法の漸近分散定数は $[g'(\theta)]^2V$。
-## 一手／方針
-$g'(\theta)=1/(2\sqrt\theta)$ を二乗する。
-## 答え
-$$\sqrt n(\sqrt{\widehat\theta}-\sqrt\theta)\xrightarrow{d}
-N\left(0,\frac V{4\theta}\right).$$
-## 計算例
-$\widehat\theta$ の分散が $4\theta/n$ なら平方根変換後の近似分散は $1/n$。
-## 注意
-$g'(\theta)=0$ の場合は通常の一次デルタ法では非退化極限が得られない。
 
 <!-- CARD -->
 
@@ -1831,37 +1769,6 @@ $|T|=2.56>2.086$ なので5%水準で $H_0$ を棄却する。
 係数差の95%信頼区間は $-2\pm2.086(0.781)\approx(-3.63,-0.37)$。
 ## 注意
 片側検定なら臨界値と棄却方向が変わる。
-
-<!-- CARD -->
-
----
-id: enginf-linear-restriction-wald-f
-title: 複数の線形制約をF検定する
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: linear-restriction
-type: calc_step
-difficulty: 4
-priority: S
-hashtags: [線形制約, F検定, Wald統計量]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形制約 }]
----
-## 問題
-$H_0:R\beta=r$ の制約数を $q=2$ とする。$(R\widehat\beta-r)^{\mathsf T}[R(X^{\mathsf T}X)^{-1}R^{\mathsf T}]^{-1}(R\widehat\beta-r)=12$、$s^2=3$ のとき $F$ を求めよ。
-## 記号・用語
-$R$ は $q\times k$ 制約行列、$r$ は帰無仮説で指定する $q\times1$ ベクトルである。
-## 使用公式・定理
-$$F=\frac{(R\widehat\beta-r)^{\mathsf T}[R(X^{\mathsf T}X)^{-1}R^{\mathsf T}]^{-1}(R\widehat\beta-r)}{qs^2}.$$
-帰無仮説下で $F_{q,n-k}$ に従う。
-## 一手／方針
-与えられた二次形式を制約数と誤差分散で割る。
-## 答え
-$$F=\frac{12}{2\cdot3}=2.$$
-## 計算例
-残差自由度20なら $F_{2,20,0.05}\approx3.49$ より小さく、5%では棄却しない。
-## 注意
-二次形式を $q$ で割る操作を忘れない。
 
 <!-- CARD -->
 

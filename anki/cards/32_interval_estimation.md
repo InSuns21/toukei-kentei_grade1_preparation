@@ -1,4 +1,3 @@
-
 ---
 id: ci-coverage-probability
 title: 被覆確率と信頼係数の定義
@@ -29,6 +28,7 @@ $$C(\theta)=P_\theta\bigl(L(X)\le \theta\le U(X)\bigr),\qquad \inf_{\theta\in\Th
 
 ## 注意
 頻度主義では $\theta$ は固定され、確率を担うのは区間の方である。「$\theta$ が区間に入る確率」は誤り。
+
 <!-- CARD -->
 
 ---
@@ -61,6 +61,7 @@ $100$ 回同じ実験を繰り返して区間を作れば、被覆確率 $0.95$ 
 
 ## 注意
 ベイズの信用区間（credible interval）とは意味が異なる。
+
 <!-- CARD -->
 
 ---
@@ -93,6 +94,7 @@ $Q(X,\theta)$ の分布が $\theta$ によらず一定。これを用いて $P(a
 
 ## 注意
 ピボット量は推定量（分布が $\theta$ に依存しうる）とは異なる。
+
 <!-- CARD -->
 
 ---
@@ -130,6 +132,7 @@ $$\overline X-z_{\alpha/2}\frac{\sigma}{\sqrt n}
 
 ## 注意
 $Q$ が $\theta$ について単調でないと区間が非連結になることがある。
+
 <!-- CARD -->
 
 ---
@@ -162,38 +165,7 @@ $$\left[\overline X-z_{\alpha/2}\frac{\sigma}{\sqrt n},\ \overline X+z_{\alpha/2
 
 ## 注意
 $\sigma$ 未知なら $t$ 区間へ切り替える。
-<!-- CARD -->
 
----
-id: ci-normal-mean-known-calc
-title: 正規平均・分散既知の区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: normal-mean-known-calc
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [信頼区間, 数値計算, 母平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n=25$、$\sigma=2$、$\overline x=100$、$\alpha=0.05$ のとき $\mu$ の信頼区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-半幅 $E=z_{\alpha/2}\,\sigma/\sqrt n=1.96\times 2/5=0.784$。
-
-## 答え
-標準誤差 $0.4$ に $z_{0.025}=1.96$ をかけ、半幅 $0.784$ の区間 $[99.216,100.784]$ を得る。
-
-## 計算例
-区間は $100\pm0.784=[99.216,100.784]$。
-
-## 注意
-$\sigma/\sqrt n$ は $\sigma$ 既知でなければ使えない。
 <!-- CARD -->
 
 ---
@@ -231,6 +203,7 @@ $T=(\overline X-\mu)/(S/\sqrt n)\sim t_{n-1}$ がピボット量となる。こ�
 
 ## 注意
 母集団が非正規なら $T$ の $t$ 分布は近似であり、小標本では覆率が崩れる。
+
 <!-- CARD -->
 
 ---
@@ -263,6 +236,7 @@ $n$ が大きいと $t_{n-1,\alpha/2}\approx z_{\alpha/2}$ となり両者は近
 
 ## 注意
 同じ標準誤差の数値を用いるなら $t_{n-1,\alpha/2}>z_{\alpha/2}$ なので $t$ 区間の半幅が大きい。ただし実際には $S$ と $\sigma$ も異なるため、得られた個々の区間幅を無条件には比較できない。
+
 <!-- CARD -->
 
 ---
@@ -303,49 +277,7 @@ $\chi^2$ は右に裾が長いので、上側端点は下側分位点 $\chi^2_{n
 
 ## 注意
 対称な正規に比べ区間が非対称になる。
-<!-- CARD -->
 
----
-id: ci-variance-chi-calc
-title: 正規分散のカイ二乗区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: variance-chi-calc
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [カイ二乗区間, 数値計算, 母分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n=16$、$S^2=9$、$\alpha=0.05$ のとき $\sigma^2$ の信頼区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-正規標本では
-$$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.$$
-ここで $\chi^2_{\nu,p}$ は、自由度 $\nu$ のカイ二乗分布の上側確率が $p$ となる点、すなわち
-$$P(\chi^2_\nu>\chi^2_{\nu,p})=p$$
-とする。この規約では、母分散 $\sigma^2$ の信頼係数 $1-\alpha$ の区間は
-$$\left[
-\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},
-\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}
-\right].$$
-
-## 答え
-$n-1=15$、$(n-1)S^2=15\times9=135$ である。$\chi^2_{15,0.025}=27.488$、$\chi^2_{15,0.975}=6.262$ を代入すると
-$$\left[\frac{135}{27.488},\frac{135}{6.262}\right]
-=[4.91,21.56]$$
-を得る。
-
-## 計算例
-区間は $[4.91,21.56]$。
-
-## 注意
-分散の区間は非対称；標準偏差の区間は端点の平方根をとる。
 <!-- CARD -->
 
 ---
@@ -388,38 +320,7 @@ $F_{n_1-1,n_2-1,1-\alpha/2}=1/F_{n_2-1,n_1-1,\alpha/2}$ で計算できる。
 
 ## 注意
 分散比は非対称なので両側でも分位点の向きが異なる。
-<!-- CARD -->
 
----
-id: ci-f-variance-ratio-calc
-title: 2正規母分散比のF区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: f-variance-ratio-calc
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [F分布, 数値計算, 分散比]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n_1=n_2=10$、$S_1^2=6$、$S_2^2=4$、$\alpha=0.05$ のとき $\sigma_1^2/\sigma_2^2$ の信頼区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-比 $S_1^2/S_2^2=1.5$。下端 $1.5/4.026=0.373$、上端 $1.5/0.2484=6.04$。
-
-## 答え
-$F_{9,9,0.025}=4.026$、$F_{9,9,0.975}=1/4.026=0.2484$ を用い、区間 $[0.373,6.04]$ を得る。
-
-## 計算例
-区間は $[0.373,6.04]$。
-
-## 注意
-$1$ を含むので「分散に差がある」とは言えない。
 <!-- CARD -->
 
 ---
@@ -453,38 +354,7 @@ $$S_p^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}.$$
 
 ## 注意
 等分散の仮定が外れると Welch 型へ。
-<!-- CARD -->
 
----
-id: ci-two-sample-mean-diff-calc
-title: 2標本平均差の区間を数値で作る（等分散）
-category: math-estimation
-subcategory: math-interval-estimation
-topic: two-sample-mean-diff-calc
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [2標本, 数値計算, 平均差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n_1=n_2=10$、$S_1^2=S_2^2=4$ でプールすると $S_p^2=4$、$\overline x-\overline y=2$、$\alpha=0.05$ のとき区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-半幅 $=2.101\times0.8944=1.879$。区間 $2\pm1.879=[0.121,3.879]$。
-
-## 答え
-$t_{18,0.025}=2.101$、標準誤差 $\sqrt{4/10+4/10}=0.8944$ より半幅 $1.879$、区間 $[0.121,3.879]$。
-
-## 計算例
-区間は $[0.121,3.879]$。
-
-## 注意
-$0$ を含まないので平均差の存在が示唆される。
 <!-- CARD -->
 
 ---
@@ -518,41 +388,7 @@ $\nu$ は整数でなくてよい；$n_1+n_2-2$ 以下になりやすい。
 
 ## 注意
 検定の Welch と同じ近似自由度を使う。
-<!-- CARD -->
 
----
-id: ci-welch-calc
-title: Welch型区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: welch-calc
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [Welch, 数値計算, 近似自由度]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n_1=12,n_2=15,S_1^2=9,S_2^2=4,\overline x-\overline y=2,\alpha=0.05$ のとき Welch 区間を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$SE=\sqrt{9/12+4/15}=\sqrt{1.0167}=1.008$。$\nu=(1.0167)^2/(0.0511+0.00508)=18.38$。
-
-## 答え
-標準誤差 $1.008$、$\nu\approx18.38$ で $t_{18,0.025}=2.101$ より半幅 $2.118$、区間 $[-0.118,4.118]$。
-
-## 計算例
-区間 $2\pm2.101\times1.008=[-0.118,4.118]$。
-
-## 注意
-$0$ を含むので平均差の有意な差は示せない。
 <!-- CARD -->
 
 ---
@@ -588,38 +424,7 @@ $n$ が十分大ならば近似が良い；境目では連続修正を検討す�
 
 ## 注意
 $p$ が $0$ または $1$ に近いと近似が悪い。
-<!-- CARD -->
 
----
-id: ci-proportion-calc
-title: 母比率の正規近似区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: proportion-calc
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [母比率, 数値計算, 正規近似]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n=400$、$\widehat p=0.3$、$\alpha=0.05$ のとき $p$ の信頼区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-半幅 $=1.96\times0.02291=0.0449$。区間 $0.3\pm0.0449=[0.255,0.345]$。
-
-## 答え
-標準誤差 $\sqrt{0.21/400}=0.02291$ に $1.96$ をかけ、区間 $[0.255,0.345]$ を得る。
-
-## 計算例
-区間は $[0.255,0.345]$。
-
-## 注意
-$n\widehat p\ge5$ 程度が近似の目安。
 <!-- CARD -->
 
 ---
@@ -652,41 +457,7 @@ $\widehat p_1-\widehat p_2$ は漸近正規で、分散 $p_1(1-p_1)/n_1+p_2(1-p_
 
 ## 注意
 差の検定でプールするのとは標準誤差の扱いが異なる。
-<!-- CARD -->
 
----
-id: ci-proportion-diff-calc
-title: 母比率差の区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: proportion-diff-calc
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [母比率差, 数値計算, 正規近似]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n_1=n_2=200$、$\widehat p_1=0.5$、$\widehat p_2=0.4$、$\alpha=0.05$ のとき $p_1-p_2$ の区間を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$SE=\sqrt{0.25/200+0.24/200}=\sqrt{0.00245}=0.04950$。半幅 $=1.96\times0.04950=0.0970$。
-
-## 答え
-標準誤差 $0.0495$ に $1.96$ をかけ、区間 $[0.003,0.197]$ を得る。
-
-## 計算例
-区間 $0.1\pm0.0970=[0.003,0.197]$。
-
-## 注意
-$0$ を含まないので比率に差がある。
 <!-- CARD -->
 
 ---
@@ -719,41 +490,7 @@ $z_{\alpha}$ は上側 $\alpha$ 点（$0.05$ なら $z_{0.05}=1.645$）。
 
 ## 注意
 両側 $1-\alpha$ と片側 $1-\alpha$ では分位点の $\alpha/2$ と $\alpha$ の違いに注意。
-<!-- CARD -->
 
----
-id: ci-one-sided-calc
-title: 片側信頼区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: one-sided-calc
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [片側信頼区間, 数値計算, 区間推定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
----
-
-## 問題
-$n=25$、$\sigma=2$、$\overline x=100$、$\alpha=0.05$ のとき $\mu$ の $95\%$ 下側信頼区間を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$SE=\sigma/\sqrt n=0.4$。$z_{0.05}=1.645$。下側端 $\theta_L=\overline x-z_{0.05}\sigma/\sqrt n=99.342$。
-
-## 答え
-半幅 $1.645\times0.4=0.658$ より、下側信頼区間は $[100-0.658,\infty)=[99.342,\infty)$ となる。
-
-## 計算例
-下側 $[99.342,\infty)$、上側 $(-\infty,100.658]$ が得られる。
-
-## 注意
-片側は両側より半幅が狭い（同じ $1-\alpha$ で）。
 <!-- CARD -->
 
 ---
@@ -789,6 +526,7 @@ $$CI_{1-\alpha}(x)=\{\theta_0: \text{観測 }x\text{ で }H_0:\theta=\theta_0\te
 
 ## 注意
 双対性が成り立つのは「受容域が連結で両側・片側と対応」する標準的な場合。
+
 <!-- CARD -->
 
 ---
@@ -824,6 +562,7 @@ $|z|=|\overline x-\mu|/(\sigma/\sqrt n)\le z_{\alpha/2}$ を $\mu$ について�
 
 ## 注意
 検定と区間は同じ統計量・同じ片側または両側の棄却域を使って反転する。異なる検定を反転すれば異なる信頼集合になる。
+
 <!-- CARD -->
 
 ---
@@ -856,6 +595,7 @@ $\lim_{n\to\infty}P_\theta(\theta\in I_n)=1-\alpha$ となる $I_n$ を漸近 $1
 
 ## 注意
 有限 $n$ では被覆確率が $1-\alpha$ からずれることがある。
+
 <!-- CARD -->
 
 ---
@@ -892,41 +632,7 @@ $\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,I_1(\theta)^{-1})$ より、�
 
 ## 注意
 情報量は真値の関数なので、標本で $\widehat\theta$ に置き換える（Plug-in）。
-<!-- CARD -->
 
----
-id: ci-asymptotic-mle-calc
-title: 最尤推定量の漸近区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: asymptotic-mle-calc
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [最尤推定, 数値計算, 漸近信頼区間]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
----
-
-## 問題
-最尤推定量を用いたベルヌーイ、$n=100$、$\widehat p=0.4$、$\alpha=0.05$ のとき $p$ の漸近区間を求めよ。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$SE=\sqrt{0.0024}=0.0490$。半幅 $=1.96\times0.0490=0.0960$。区間 $0.4\pm0.096=[0.304,0.496]$。
-
-## 答え
-$1/(nI_1(\widehat p))=0.4\times0.6/100=0.0024$、標準誤差 $0.0490$ より区間 $[0.304,0.496]$。
-
-## 計算例
-区間は $[0.304,0.496]$。
-
-## 注意
-Wald型の母比率正規近似区間と一致する（1観測当たりの情報量の逆数 $I_1(p)^{-1}=p(1-p)$ がベルヌーイ分散に等しいため）。
 <!-- CARD -->
 
 ---
@@ -962,38 +668,7 @@ $g(x)=e^x$ なら $|g'(T_n)|=e^{T_n}$；$g(x)=\sqrt x$ なら $1/(2\sqrt{T_n})$�
 
 ## 注意
 区間の端点を $g$ で変換する方法と、分散を伝播させる方法があり、非線形で差が出る。
-<!-- CARD -->
 
----
-id: ci-delta-method-calc
-title: デルタ法の信頼区間を数値で作る
-category: math-estimation
-subcategory: math-interval-estimation
-topic: delta-method-calc
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [デルタ法, 数値計算, 信頼区間]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: デルタ法 }]
----
-
-## 問題
-$T_n=2$、$\widehat\sigma^2=4$、$n=100$、$g(x)=e^x$、$\alpha=0.05$ のとき $g(\theta)$ の区間を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$g(T_n)=e^2=7.389$。標準誤差 $|g'| \widehat\sigma/\sqrt n=7.389\times0.2=1.478$。半幅 $=1.96\times1.478=2.896$。
-
-## 答え
-$g'(T_n)=e^2=7.389$、$\widehat\sigma/\sqrt n=2/10=0.2$ より半幅 $1.96\times7.389\times0.2=2.896$、区間 $[4.49,10.29]$。
-
-## 計算例
-区間 $7.389\pm2.896=[4.49,10.29]$。
-
-## 注意
-端点を $e^x$ で変換した区間とも比較する（非対称の確認用）。
 <!-- CARD -->
 
 ---
@@ -1026,6 +701,7 @@ $0.90$ 区間より $0.95$ 区間の方が広い。
 
 ## 注意
 精度（狭さ）と信頼（被覆）はトレードオフの関係。
+
 <!-- CARD -->
 
 ---
@@ -1058,6 +734,7 @@ $\sigma=2,z_{0.025}=1.96,E=0.5$ なら $n\ge(3.92/0.5)^2=(7.84)^2=61.5$ で $n=6
 
 ## 注意
 $\sigma$ 未知なら事前見積もりか保存的値を用いる。
+
 <!-- CARD -->
 
 ---
@@ -1104,6 +781,7 @@ $$\lambda_L=0.16235,\qquad \lambda_U=1.16685.$$
 
 ## 注意
 $k=0$ のとき下端は0とする。
+
 <!-- CARD -->
 
 ---
@@ -1148,6 +826,7 @@ $$0.025^{1/20}
 
 ## 注意
 Wald区間は $x=0$ で幅0になってしまうため、この状況には不適切である。
+
 <!-- CARD -->
 
 ---
@@ -1193,4 +872,3 @@ $$2.4-1.073=1.327,\qquad
 
 ## 注意
 自由度はペア数から1を引いた $n-1=9$ である。
-<!-- CARD -->

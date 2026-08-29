@@ -21,6 +21,7 @@ $$T=T(X_1,\ldots,X_n)\;(\text{推定量・確率変数}),\qquad T(x_1,\ldots,x_n
 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ の平均の推定量 $\widehat\mu=\overline X$ は確率変数。観測値 $x=(1,2,3)$ に対して推定値は $\overline x=2$。
 ## 一手
 推定量は「関数」で確率変数、推定値は「代入した数」。分散・期待値は推定量に対して取る。
+
 <!-- CARD -->
 
 ---
@@ -64,46 +65,7 @@ $$\operatorname{Var}(T)\ge\frac1{I_n(4)}=\frac15=0.2.$$
 情報量を1観測で求め、独立標本なので $n$ 倍してから逆数を取る。
 ## 注意
 下界を達成したと言うには、不偏性と分散の両方を確認する。
-<!-- CARD -->
 
----
-id: est-crlb-normal-mean-known-variance
-title: 分散既知の正規平均についてクラーメル・ラオの不等式による下界を求める
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: crlb-normal-mean
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [クラーメル・ラオの不等式, 正規分布, フィッシャー情報量（1次元）]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
----
-## 問題
-正規分布 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\sigma^2$ は既知とする。$\mu$ の不偏推定量の分散下界を求めよ。
-## 答え
-1観測の対数密度から
-$$\frac{\partial^2\ell}{\partial\mu^2}=-\frac1{\sigma^2},$$
-ゆえに $I_1(\mu)=1/\sigma^2$、$I_n(\mu)=n/\sigma^2$。したがって
-$$\operatorname{Var}(T)\ge\frac{\sigma^2}{n}.$$
-$\overline X$ は不偏で $\operatorname{Var}(\overline X)=\sigma^2/n$ だから有効である。
-## 使用公式・定理
-$$I_1(\mu)=-E\left[\frac{\partial^2\ell}{\partial\mu^2}\right],\qquad
-\operatorname{Var}(T)\ge\frac1{nI_1(\mu)}.$$
-## 計算例
-1観測の対数尤度は
-$$\ell_1(\mu;X)=C-\frac{(X-\mu)^2}{2\sigma^2}.$$
-したがって
-$$\ell_1''(\mu)=-\frac1{\sigma^2},
-\qquad I_1(\mu)=-E_\mu[\ell_1''(\mu)]=\frac1{\sigma^2}.$$
-$n=25,\sigma^2=9$ なら
-$$I_n(\mu)=\frac{25}{9},
-\qquad \operatorname{Var}(T)\ge\frac1{I_n(\mu)}=\frac9{25}=0.36.$$
-分散下界の平方根は $\sqrt{0.36}=0.6$ である。
-## 一手
-分散下界と標準偏差を混同せず、必要なら最後に平方根を取る。
-## 注意
-$\sigma^2$ も未知なら2母数の情報行列を扱う問題になる。
 <!-- CARD -->
 
 ---
@@ -152,48 +114,9 @@ $$\frac{4(0.4)^3(0.6)}{100}
 推定対象が $\theta$ そのものか $g(\theta)$ かを最初に判定する。
 ## 注意
 $g'(p)$ を掛け忘れて単に $1/I_n(p)$ としない。
+
 <!-- CARD -->
 
----
-id: est-fisher-geometric
-title: 幾何分布のフィッシャー情報量（1次元）を導出する
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: fisher-information-geometric
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [フィッシャー情報量（1次元）, 幾何分布, 計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
----
-## 問題
-$X\sim\operatorname{Geometric}(p)$、台 $x=1,2,\ldots$、確率質量関数 $P(X=x)=p(1-p)^{x-1}$ とする。1観測の $p$ に関するフィッシャー情報量（1次元）を求めよ。
-## 答え
-$$\ell(p;x)=\log p+(x-1)\log(1-p),$$
-$$\frac{\partial^2\ell}{\partial p^2}
-=-\frac1{p^2}-\frac{x-1}{(1-p)^2}.$$
-$E[X-1]=(1-p)/p$ を代入すると
-$$I_1(p)=-E[\ell''(p;X)]
-=\frac1{p^2}+\frac{(1-p)/p}{(1-p)^2}
-=\frac1{p^2(1-p)}.$$
-## 使用公式・定理
-$$I_1(p)=-E\left[\frac{\partial^2\ell(p;X)}{\partial p^2}\right].$$
-## 計算例
-$p=1/2$ とする。1観測の対数尤度と二階微分は
-$$\ell_1(p;X)=\log p+(X-1)\log(1-p),$$
-$$\ell_1''(p)=-\frac1{p^2}-\frac{X-1}{(1-p)^2}.$$
-$E_{1/2}[X-1]=(1-p)/p=1$ なので
-$$I_1(1/2)
-=\frac1{(1/2)^2}+\frac{1}{(1-1/2)^2}
-=4+4=8.$$
-独立な $n$ 観測では情報量が加法的なので
-$$I_n(1/2)=nI_1(1/2)=8n.$$
-## 一手
-2階微分後に、幾何分布の $E[X]=1/p$ を使う。
-## 注意
-台を $0,1,\ldots$ とする別の定義でも情報量は同じだが、対数確率質量関数の形は変わる。
-<!-- CARD -->
 ---
 id: est-unbiasedness
 title: 不偏性の定義
@@ -217,7 +140,9 @@ $$\operatorname{Bias}_\theta(T)=E_\theta[T]-\theta,\qquad T\text{ 不偏}\iff \o
 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ では $E[\overline X]=\mu$ より不偏。不偏標本分散 $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$ は $E[S^2]=\sigma^2$ で不偏。
 ## 一手
 「期待値を取ると母数に一致する」こと。不偏性は全ての $\theta$ で要求される。
+
 <!-- CARD -->
+
 ---
 id: est-consistency
 title: 一致性の定義
@@ -242,7 +167,9 @@ $$T_n\xrightarrow{p}\theta,\quad\text{すなわち}\; \forall\epsilon>0,\;\lim_{
 $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ で $T_n=\overline X$ は $E[\overline X]=\mu$、$\operatorname{Var}(\overline X)=\sigma^2/n\to0$ より一致。母分散の最尤推定量 $n^{-1}\sum(X_i-\overline X)^2$ はバイアスがあるが $n\to\infty$ で $\sigma^2$ に一致。
 ## 一手
 不偏性は有限標本、一致性は $n\to\infty$ の性質。バイアスが消えなくても分散が0へ向かえば一致しうる。
+
 <!-- CARD -->
+
 ---
 id: est-mse-definition
 title: 平均二乗誤差MSEの定義
@@ -267,7 +194,9 @@ $$\operatorname{MSE}_\theta(T)=\operatorname{Var}_\theta(T)+\{\operatorname{Bias
 $T=\overline X$、$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ では不偏なので $\operatorname{MSE}=\operatorname{Var}(\overline X)=\sigma^2/n$。
 ## 一手
 平均二乗誤差は「分散＋バイアス²」。不偏推定量では平均二乗誤差＝分散になる。
+
 <!-- CARD -->
+
 ---
 id: est-bias-variance-tradeoff
 title: バイアス・バリアンス分解の意味
@@ -292,7 +221,9 @@ $$\operatorname{MSE}_\theta(T)=\operatorname{Var}_\theta(T)+\{\operatorname{Bias
 $$E[(T-\theta)^2]=E[(T-E[T])^2]+2(E[T]-\theta)E[T-E[T]]+(E[T]-\theta)^2=\operatorname{Var}(T)+\operatorname{Bias}^2.$$
 ## 一手
 交差項は中心化された確率変数の期待値0から消える。バイアスを下げると分散が上がるトレードオフの基礎。
+
 <!-- CARD -->
+
 ---
 id: est-relative-efficiency
 title: 推定量の相対効率
@@ -318,7 +249,9 @@ $\operatorname{eff}(T_1,T_2)=\frac{\operatorname{Var}_\theta(T_2)}{\operatorname
 $T_1=\overline X$、$T_2=X_1$（正規標本から $\mu$）で $\operatorname{Var}(T_1)=\sigma^2/n<\sigma^2=\operatorname{Var}(T_2)$。$\operatorname{eff}(T_1,T_2)=n>1$。
 ## 一手
 相対効率は「不偏なら分散の逆比」。2つの推定量の良さ比較の指標。
+
 <!-- CARD -->
+
 ---
 id: est-method-of-moments
 title: モーメント法の手順
@@ -342,7 +275,9 @@ $$E[X^j]=\frac1n\sum_{i=1}^n X_i^j,\qquad j=1,\ldots,k.$$
 $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ なら $\overline X=\mu$、$\frac1n\sum X_i^2=\mu^2+\sigma^2$ から $\widehat\mu=\overline X$、$\widehat\sigma^2=\frac1n\sum(X_i-\overline X)^2$。
 ## 一手
 母モーメントを標本モーメントで置き換えて解く。最尤推定とは一般に異なる。
+
 <!-- CARD -->
+
 ---
 id: est-unbiased-construction
 title: 不偏推定量の構成
@@ -374,7 +309,9 @@ $$E\left[\sum_i(X_i-\overline X)^2\right]
 $E[\sum_i(X_i-\overline X)^2]=(n-1)\sigma^2$ より $n-1$ で割ると不偏。
 ## 一手
 最尤推定量（$n$ で割る方）はバイアスがある。不偏分散は $n-1$ で割る。
+
 <!-- CARD -->
+
 ---
 id: est-plug-in
 title: プラグイン推定量
@@ -399,7 +336,9 @@ $$\widehat F_n(x)=\frac1n\sum_{i=1}^n \boldsymbol{1}_{\{X_i\le x\}}.$$
 $F$ の平均 $\mu(F)=\int x\,dF(x)$ を経験分布に代入すると $\mu(\widehat F_n)=\overline X$。
 ## 一手
 「母集団分布を経験分布に置き換える」。モーメント法と密接に関係する。
+
 <!-- CARD -->
+
 ---
 id: est-transform-bias
 title: 推定量の変換とバイアス
@@ -423,7 +362,9 @@ Jensenの不等式（$g$ 凸）：$E[g(T)]\ge g(E[T])$。
 $E[\overline X^2]=\mu^2+\sigma^2/n\ne \mu^2$。不偏な $\overline X$ の2乗は $\mu^2$ の不偏推定量ではない。
 ## 一手
 「不偏性は線形変換では保たれ、非線形変換では保たれない」。Jensenで凸側へシフトする。
+
 <!-- CARD -->
+
 ---
 id: est-rao-blackwell
 title: ラオ・ブラックウェル化
@@ -450,7 +391,9 @@ $$\operatorname{Var}(U)=\operatorname{Var}(E[U\mid T])+E[\operatorname{Var}(U\mi
 $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$U=X_1$ は不偏。$T=\sum_iX_i$ の下で $E[X_1\mid T]=T/n=\overline X$ となり分散が減る。
 ## 一手
 十分統計量の条件付き期待値を取れば不偏性を保ち分散を減らせる。
+
 <!-- CARD -->
+
 ---
 id: est-umvu-idea
 title: 一様最小分散不偏（一様最小分散不偏推定量）推定量の考え方
@@ -474,7 +417,9 @@ $\theta$ のすべての不偏推定量の中で、すべての $\theta$ に対�
 $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では $\overline X$ が $p$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。$T=\sum_iX_i$ は完備十分である。
 ## 一手
 「不偏の中の分散最小」＋「十分統計量の関数」。完備十分統計量があれば一様最小分散不偏（一様最小分散不偏推定量）推定量を構成できる。
+
 <!-- CARD -->
+
 ---
 id: est-loss-risk
 title: 損失関数とリスク関数
@@ -499,7 +444,9 @@ $$R(\theta,T)=E_\theta[L(\theta,T)].$$
 $L(T,\theta)=(T-\theta)^2$ なら $R=E[(T-\theta)^2]=\operatorname{MSE}$。
 ## 一手
 リスク＝損失の期待値。二乗損失では平均二乗誤差と一致する。
+
 <!-- CARD -->
+
 ---
 id: est-estimator-comparison
 title: 推定量比較の典型問題
@@ -525,7 +472,9 @@ $$\operatorname{MSE}(\widehat\sigma^2_1)=\frac{2n-1}{n^2}\sigma^4,\qquad \operat
 なので $n>1$ では最尤推定量の平均二乗誤差の方が小さい。不偏性だけで優劣を決めない例である。
 ## 一手
 まず不偏性、次に分散、総合なら平均二乗誤差。比較は固定した $\theta$ の関数として全母数空間で考える。
+
 <!-- CARD -->
+
 ---
 id: est-score-mean-zero
 title: スコア関数の期待値0
@@ -550,7 +499,9 @@ $E[U(\theta)]=0$、ただし $\frac{\partial f}{\partial\theta}=U f$ と $\int f
 $\operatorname{Bernoulli}(p)$：$U(p)=X/p-(1-X)/(1-p)$。$E[U]=p/p-(1-p)/(1-p)=0$。
 ## 一手
 $\int f=1$ を微分して微分を積分の中へ入れる。交換可能が正則条件。
+
 <!-- CARD -->
+
 ---
 id: est-fisher-information-def
 title: フィッシャー情報量（1次元）の定義
@@ -575,7 +526,9 @@ $I_1(\theta)=E[U(\theta)^2]=\operatorname{Var}_\theta(U(\theta))$（$E[U]=0$ よ
 $\operatorname{Bernoulli}(p)$：$U(p)=X/p-(1-X)/(1-p)$ から $I_1(p)=1/[p(1-p)]$。
 ## 一手
 フィッシャー情報量（1次元）は「スコアの分散」＝データが $\theta$ について運ぶ情報量の尺度。
+
 <!-- CARD -->
+
 ---
 id: est-fisher-two-forms
 title: フィッシャー情報量（1次元）の2つの表式
@@ -599,7 +552,9 @@ $U=\partial\log f/\partial\theta$ と $\partial f/\partial\theta=U f$ を使い�
 $X\sim N(\mu,\sigma^2)$（$\sigma^2$既知）では $\partial^2\ell/\partial\mu^2=-1/\sigma^2$、$-E[\cdot]=1/\sigma^2$。$E[U^2]$ も $1/\sigma^2$ で一致。
 ## 一手
 第1式はスコアの2乗の期待値、第2式は対数密度の2階微分の負の期待値。計算しやすい方を使う。
+
 <!-- CARD -->
+
 ---
 id: est-fisher-additivity
 title: 独立標本での情報量の加法性
@@ -624,7 +579,9 @@ $$I_n(\theta)=\sum_{i=1}^n I_{X_i}(\theta)=nI_1(\theta).$$
 $\operatorname{Bernoulli}(p)$ 標本なら $I_n(p)=n/[p(1-p)]$。
 ## 一手
 標本全体の情報量＝1観測の情報量×$n$。独立でない場合は共分散の寄与に注意。
+
 <!-- CARD -->
+
 ---
 id: est-fisher-bernoulli-example
 title: ベルヌーイ分布のフィッシャー情報量（1次元）
@@ -648,56 +605,9 @@ $$\ell(p;x)=x\log p+(1-x)\log(1-p),\qquad \ell''(p;x)=-\frac{x}{p^2}-\frac{1-x}{
 $$I_1(p)=-E[\ell''(p;X)]=\frac{p}{p^2}+\frac{1-p}{(1-p)^2}=\frac1{p(1-p)}.$$
 ## 一手
 2階微分の負の期待値を取る。分母 $p(1-p)$ は分散 $p(1-p)$ の逆数。
+
 <!-- CARD -->
----
-id: est-fisher-poisson-example
-title: ポアソン分布のフィッシャー情報量（1次元）
-category: math-estimation
-subcategory: math-point-estimator-properties
-topic: fisher-info-poisson
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [フィッシャー情報量（1次元）, ポアソン分布, 計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
----
-## 問題
-$X\sim\operatorname{Poisson}(\lambda)$ の1観測当たりのフィッシャー情報量（1次元）を求めよ。
-## 答え
-$I_1(\lambda)=1/\lambda$。
-## 使用公式・定理
-$$f(x;\lambda)=\frac{\lambda^x e^{-\lambda}}{x!},\qquad \ell(\lambda;x)=x\log\lambda-\lambda-\log x!.$$
-$$\ell'(\lambda;x)=\frac{x}{\lambda}-1,\qquad \ell''(\lambda;x)=-\frac{x}{\lambda^2}.$$
-## 計算例
-$$I_1(\lambda)=-E[\ell''(\lambda;X)]=\frac{E[X]}{\lambda^2}=\frac{\lambda}{\lambda^2}=\frac1\lambda.$$
-## 一手
-$E[X]=\lambda$ を代入。ポアソン分布の情報量は $\lambda$ の逆数。
-<!-- CARD -->
----
-id: est-fisher-normal-example
-title: 正規分布のフィッシャー情報量（1次元）
-category: math-estimation
-subcategory: math-point-estimator-properties
-topic: fisher-info-normal
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [フィッシャー情報量（1次元）, 正規分布, 計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
----
-## 問題
-正規分布 $X\sim N(\mu,\sigma^2)$ の $\mu$ についての1観測当たりのフィッシャー情報量（1次元）を求めよ（$\sigma^2$ 既知）。
-## 答え
-$I_1(\mu)=1/\sigma^2$。
-## 使用公式・定理
-$$\log f(x;\mu)=-\frac12\log(2\pi\sigma^2)-\frac{(x-\mu)^2}{2\sigma^2},\qquad \frac{\partial^2}{\partial\mu^2}\log f=-\frac1{\sigma^2}.$$
-## 計算例
-$$I_1(\mu)=-E\!\left[-\frac1{\sigma^2}\right]=\frac1{\sigma^2}.$$
-## 一手
-2階微分が定数 $-1/\sigma^2$ なので期待値を取る必要もほぼない。標本全体では $n/\sigma^2$。
-<!-- CARD -->
+
 ---
 id: est-cramer-rao-lower-bound
 title: クラーメル・ラオの不等式
@@ -730,7 +640,9 @@ $$\{g'(\theta)\}^2=\operatorname{Cov}(T,U)^2
 $\operatorname{Bernoulli}(p)$ 標本で $g(p)=p$：$I_n(p)=n/[p(1-p)]$ より $\operatorname{Var}(\overline X)\ge p(1-p)/n$。$\overline X$ は等号で下限を達成。
 ## 一手
 下界は「スコアの分散（情報量）」で割る。等号達成はスコアと $T$ の線形関係で判定。
+
 <!-- CARD -->
+
 ---
 id: est-crlb-equality
 title: クラーメル・ラオの不等式の等号成立条件
@@ -756,7 +668,9 @@ Cauchy--Schwarzで等号は $T$ と $U$ が線形従属のとき。
 $\overline X$（ベルヌーイ分布で母数 $p$）は $U(p)=n(\overline X-p)/[p(1-p)]$ と書け、$T-p$ が $U$ に比例するので等号成立。
 ## 一手
 クラーメル・ラオの不等式による下界を達成する推定量は、指数型分布族で十分統計量の線形関数になる傾向がある。
+
 <!-- CARD -->
+
 ---
 id: est-efficient-estimator
 title: 有効推定量
@@ -781,7 +695,9 @@ $$\operatorname{Var}_\theta(T)=\frac1{I_n(\theta)}\quad(\text{または一般の
 正規標本の $\overline X$ は $\operatorname{Var}(\overline X)=\sigma^2/n=1/I_n(\mu)$ で有効。ベルヌーイ標本の $\overline X$ も $p$ に対して有効。
 ## 一手
 「クラーメル・ラオの不等式による下界を達成する不偏推定量」＝最小分散不偏。存在しない場合も多い。
+
 <!-- CARD -->
+
 ---
 id: est-asymptotic-efficiency
 title: 漸近効率
@@ -805,7 +721,9 @@ sources: [{ type: official_syllabus, topic: 有効性 }]
 最尤推定量は正則条件下で $\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,1/I_1(\theta))$ となり漸近有効。
 ## 一手
 有限標本では不偏でも、漸近では最尤推定量が最小漸近分散を達成することが多い。
+
 <!-- CARD -->
+
 ---
 id: est-mle-fisher-information
 title: 最尤推定量とフィッシャー情報量（1次元）
@@ -830,7 +748,9 @@ $$\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N\!\left(0,\frac1{I_1(\theta)}\ri
 $\operatorname{Poisson}(\lambda)$：$I_1(\lambda)=1/\lambda$ より $\sqrt n(\widehat\lambda-\lambda)\xrightarrow{d}N(0,\lambda)$。
 ## 一手
 最尤推定量の漸近分散は「$1/I_n(\theta)$」であり、クラーメル・ラオの不等式による下界に一致する。ここが最尤推定量が漸近有効である理由。
+
 <!-- CARD -->
+
 ---
 id: est-fisher-param-transform
 title: パラメータ変換とフィッシャー情報量（1次元）
@@ -856,7 +776,9 @@ $$I(\eta)=I(\theta)\left(\frac{d\theta}{d\eta}\right)^2,$$
 $X\sim N(\theta,1)$、$\eta=2\theta$ とすると $I(\theta)=1$、$d\theta/d\eta=1/2$ より $I(\eta)=1/4$。
 ## 一手
 変換で情報量は「逆変換の導関数の2乗」倍になる。最尤推定量の漸近分散と整合する（不変量は $I d\theta^2$）。
+
 <!-- CARD -->
+
 ---
 id: est-information-matrix
 title: フィッシャー情報行列（多母数）
@@ -881,7 +803,9 @@ $$I(\theta)_{ij}=E_\theta\!\left[\frac{\partial\log f}{\partial\theta_i}\frac{\p
 $X\sim N(\mu,\sigma^2)$、$\theta=(\mu,\sigma^2)$：$I(\theta)=\begin{pmatrix}1/\sigma^2&0\\0&1/(2\sigma^4)\end{pmatrix}$。
 ## 一手
 多母数では逆行列 $I(\theta)^{-1}$ が漸近分散共分散行列。対角成分が各母数に対するクラーメル・ラオの不等式の下界に相当する。
+
 <!-- CARD -->
+
 ---
 id: est-normal-information-matrix
 title: 正規分布の情報行列の導出
@@ -906,7 +830,9 @@ $$\frac{\partial^2\ell}{\partial\mu^2}=-\frac1{\sigma^2},\quad \frac{\partial^2\
 $E[(X-\mu)^2]=\sigma^2$ より $-E[\partial^2\ell/\partial(\sigma^2)^2]=-1/(2\sigma^4)+1/\sigma^4=1/(2\sigma^4)$。非対角は0。
 ## 一手
 $\mu$ と $\sigma^2$ は直交（非対角0）。$\sigma^2$ 成分の期待値には $E[(X-\mu)^2]=\sigma^2$ を代入。
+
 <!-- CARD -->
+
 ---
 id: est-ols-bline
 title: 最小二乗法と線形推定量（BLUE）
@@ -930,7 +856,9 @@ $$\widehat\beta=(X^TX)^{-1}X^T\mathbf y.$$
 単回帰 $Y_i=\beta_0+\beta_1x_i+\varepsilon_i$ で $\widehat\beta_1=\dfrac{\sum(x_i-\overline x)(Y_i-\overline Y)}{\sum(x_i-\overline x)^2}$。
 ## 一手
 最小二乗法は残差二乗和最小。BLUEは「線形・不偏の中で最小分散」。正規性は分布ではなく分散最小化に不要。
+
 <!-- CARD -->
+
 ---
 id: est-moments-uniform
 category: math-estimation
@@ -955,7 +883,9 @@ $E[X]=\frac{\theta}{2}.$
 $x=(1,2,3)$ なら $\overline x=2$ より $\widehat\theta=4$。
 ## 一手
 1母数なら1次モーメントを等置する。モーメント法は計算が易しく、一般に最尤推定と異なる。
+
 <!-- CARD -->
+
 ---
 id: est-ols-normal-equations
 category: math-estimation
@@ -981,7 +911,9 @@ $\frac{\partial}{\partial\beta}\|\mathbf y-X\beta\|^2=-2X^T(\mathbf y-X\beta)=0.
 単回帰 $Y_i=\beta_0+\beta_1x_i+\varepsilon_i$：$\widehat\beta_1=\dfrac{\sum(x_i-\overline x)(Y_i-\overline Y)}{\sum(x_i-\overline x)^2}$、$\widehat\beta_0=\overline Y-\widehat\beta_1\overline x$。
 ## 一手
 残差 $\mathbf y-X\widehat\beta$ が計画行列の列（各 $X_j$）と直交すること $X^T(\mathbf y-X\widehat\beta)=0$ が正規方程式の実体。
+
 <!-- CARD -->
+
 ---
 id: est-gauss-markov
 category: math-estimation
@@ -1005,7 +937,9 @@ $X$ は列フルランクとする。正規性は不要。誤差の正規性が�
 単回帰で $\widehat\beta_1$ は $\beta_1$ の全ての線形不偏推定量の中で最小分散。
 ## 一手
 BLUEは「線形・不偏の中で最小分散」。等分散・無相関・期待値0が条件で、正規性は不要。
+
 <!-- CARD -->
+
 ---
 id: est-bias-variance-comparison
 category: math-estimation
@@ -1030,57 +964,9 @@ $\operatorname{MSE}=\operatorname{Var}+\operatorname{Bias}^2.$
 $n=10$ のとき $\operatorname{MSE}(\widehat\sigma^2)=(19/100)\sigma^4=0.19\sigma^4$、$\operatorname{MSE}(S^2)=(2/9)\sigma^4\approx0.222\sigma^4$。最尤推定量の方が平均二乗誤差が小さい。
 ## 一手
 不偏でも分散が大きいと平均二乗誤差が大きくなることがある。平均二乗誤差で総合比較すると最尤推定量（$n$ 分）が勝つ。
+
 <!-- CARD -->
----
-id: est-fisher-exponential
-category: math-estimation
-subcategory: math-point-estimator-properties
-topic: fisher-info-exponential
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [フィッシャー情報量（1次元）, 指数分布, 計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
-title: 指数分布のフィッシャー情報量（1次元）
----
-## 問題
-$X\sim\operatorname{Exp}(\lambda)$（台 $x>0$、密度 $f(x)=\lambda e^{-\lambda x}$）の1観測当たりのフィッシャー情報量（1次元）を求めよ。
-## 答え
-$I_1(\lambda)=1/\lambda^2$。
-## 使用公式・定理
-$\ell(\lambda;x)=\log\lambda-\lambda x,\qquad \ell''(\lambda;x)=-\frac1{\lambda^2}.$
-## 計算例
-$I_1(\lambda)=-E[\ell''(\lambda;X)]=\frac1{\lambda^2}.$
-## 一手
-2階微分が定数になるので期待値を取る必要がない。標本全体では $n/\lambda^2$。
-<!-- CARD -->
----
-id: est-crlb-exponential
-category: math-estimation
-subcategory: math-point-estimator-properties
-topic: crlb-exponential
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [クラーメル・ラオの不等式, 指数分布, 不偏推定量]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
-title: 指数分布にクラーメル・ラオの不等式を使う
----
-## 問題
-$X_i\overset{iid}{\sim}\operatorname{Exp}(\lambda)$（rate表示、密度 $f(x)=\lambda e^{-\lambda x}$、平均 $\mu=1/\lambda$）の標本から $\mu$ を不偏推定するときのクラーメル・ラオの不等式による下界を求めよ。また $\lambda$ 自身の下界も示せ。
-## 答え
-$I_1(\lambda)=1/\lambda^2$ より標本全体 $I_n(\lambda)=n/\lambda^2$。$\mu=1/\lambda$ は $g(\lambda)=1/\lambda$、$g'(\lambda)=-1/\lambda^2$ だから
-$\operatorname{Var}(T)\ge\frac{\{g'(\lambda)\}^2}{I_n(\lambda)}=\frac{1/\lambda^4}{n/\lambda^2}=\frac1{n\lambda^2}.$
-$\lambda$ 自身について、クラーメル・ラオの不等式による下界は $\lambda^2/n$。
-## 使用公式・定理
-$g(\theta)$ に対するクラーメル・ラオの不等式：$\operatorname{Var}_\theta(T)\ge\{g'(\theta)\}^2/I_n(\theta)$。$g(\theta)=\theta$ なら $1/I_n(\theta)$。
-## 計算例
-$\sum_iX_i\sim\operatorname{Gamma}(n,\lambda)$（rate）より $\overline X\sim\operatorname{Gamma}(n,n\lambda)$，$\operatorname{Var}(\overline X)=n/(n\lambda)^2=1/(n\lambda^2)$ でクラーメル・ラオの不等式による下界と一致。よって $\overline X$ は $\mu$ の有効推定量。$\lambda$ 自身は $\operatorname{Var}(\overline X)=\lambda^2/n$ ではないので注意。
-## 一手
-$\overline X$（$\mu$ の推定量）はクラーメル・ラオの不等式による下界を達成する有効推定量。$\lambda$ 自身は $1/\overline X$ で推定する（バイアスあり）。$\lambda^2/n$ は $\lambda$ の下界であり $\bar X$ の分散ではない。
-<!-- CARD -->
+
 ---
 id: est-asymptotic-normality-mle
 category: math-estimation
@@ -1105,7 +991,9 @@ $\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,1/I_1(\theta))$。
 $\operatorname{Var}(\overline X)=p(1-p)/n$ で、有限標本でも漸近分散と一致。
 ## 一手
 $\widehat p=\overline X$ は有限標本でも分散が $p(1-p)/n$ でクラーメル・ラオの不等式による下界を達成する有効・漸近有効。
+
 <!-- CARD -->
+
 ---
 id: est-consistency-bias
 category: math-estimation
@@ -1129,7 +1017,9 @@ title: 不偏性と一致性の混同
 各 $n$ で $T_n=X_n$（その標本の最後の1観測だけを使う）とすれば $E[T_n]=\mu$ で不偏だが、$\operatorname{Var}(T_n)=\sigma^2$ のままなので一致しない。
 ## 一手
 不偏性は中心、一致性は収束。不偏でも分散が減らないと一致しない。逆に、一致でも有限標本でバイアスがありうる。
+
 <!-- CARD -->
+
 ---
 id: est-shape-parameter-transform
 category: math-estimation
@@ -1153,7 +1043,9 @@ $g$ 凸：$E[g(T)]\ge g(E[T])$。$g$ 凹なら向きが逆。
 $g(x)=x^2$、$T=\overline X\sim N(\mu,\sigma^2/n)$ なら $E[T^2]=\mu^2+\sigma^2/n>\mu^2$。
 ## 一手
 凸関数は正バイアス、凹関数は負バイアス。デルタ法で1次のバイアス項まで評価できる。
+
 <!-- CARD -->
+
 ---
 id: est-sufficiency-completeness
 category: math-estimation
@@ -1177,7 +1069,9 @@ title: 完備十分統計量と指数型分布族
 $\operatorname{Bernoulli}(p)$：$T=\sum_i X_i$ は $p$ の完備十分統計量で、$\overline X$ が $p$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
 指数型分布族＋開集合なら完備十分である。完備十分統計量の関数で不偏なら一様最小分散不偏（一様最小分散不偏推定量）推定量である。
+
 <!-- CARD -->
+
 ---
 id: est-lehmann-scheffe
 category: math-estimation
@@ -1201,7 +1095,9 @@ $T$ を $\theta$ の完備十分統計量とする。$g(T)$ が $\theta$ の不�
 $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$（$\sigma^2$既知）で $\overline X$ は $\mu$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
 「完備十分統計量の関数」＋「不偏」$\Rightarrow$ 一様最小分散不偏（一様最小分散不偏推定量）推定量。存在の証明はラオ・ブラックウェル化と完備性を使う。
+
 <!-- CARD -->
+
 ---
 id: est-posterior-risk
 category: math-estimation
@@ -1230,7 +1126,9 @@ $$E[(a-\theta)^2\mid x]
 $X\mid\mu\sim N(\mu,\sigma^2)$、事前 $N(\mu_0,\tau^2)$ なら事後平均が最良予測。
 ## 一手
 二乗損失では事後平均がベイズ推定量。頻度論的には平均二乗誤差最小と関連。
+
 <!-- CARD -->
+
 ---
 id: est-information-inequality-summary
 category: math-estimation
@@ -1254,6 +1152,7 @@ $\operatorname{Var}_\theta(T)=1/I_n(\theta)$ が等号条件。
 正規平均 $\overline X$、ベルヌーイ標本の $\overline X$、ポアソン標本の $\overline X$（$\lambda$ の有効推定量）はクラーメル・ラオの不等式による下界を達成する。
 ## 一手
 「分散＝1/情報量」なら有効かつ一様最小分散不偏（UMVU）推定量である。逆は一般に成り立たない（一様最小分散不偏推定量でもクラーメル・ラオの不等式による下界を達成しない場合がある）。
+
 <!-- CARD -->
 
 ---
@@ -1413,6 +1312,7 @@ $$\widehat\sigma^2=7-\left(\frac73\right)^2
 分母が $n$ の分散になり、不偏分散とは異なる。
 
 <!-- CARD -->
+
 ---
 id: est-moments-gamma-two-parameter
 title: ガンマ分布のshapeとrateをモーメント法で解く
@@ -1446,6 +1346,7 @@ $$\frac{m_1\beta}{\beta^2}=m_2
 scale表記なら $\widehat{\text{scale}}=m_2/m_1$ となる。
 
 <!-- CARD -->
+
 ---
 id: est-moments-beta-two-parameter
 title: ベータ分布の2母数を平均と分散から解く
@@ -1480,6 +1381,7 @@ $a,b$ を直接解かず、和 $s=a+b$ を導入する。
 標本分散が $m(1-m)$ 以上だと正の $a,b$ が得られず、モーメント法が母数空間外へ出る。
 
 <!-- CARD -->
+
 ---
 id: est-moments-uniform-two-endpoints
 title: 一様分布の両端点を平均と分散から推定する
@@ -1511,6 +1413,7 @@ $m=5,v=3$ では $\sqrt{3v}=3$。
 推定された区間が実際の標本最小値・最大値を含まない場合があり、最尤法とは性質が異なる。
 
 <!-- CARD -->
+
 ---
 id: est-ols-simple-numeric
 title: 単回帰の切片と傾きを観測値から計算する
@@ -1543,6 +1446,7 @@ $$S_{xy}=(-1)\left(-\frac43\right)+0+\left(\frac53\right)=3.$$
 $S_{xy}$ を $n$ や $n-1$ で割る必要はない。比で相殺される。
 
 <!-- CARD -->
+
 ---
 id: est-ols-matrix-numeric
 title: 行列の正規方程式を解いて最小二乗係数を求める
@@ -1581,6 +1485,7 @@ $X^\top X$ と $X^\top y$ を別々に計算してから連立方程式を解く
 逆行列を明示せず消去法で正規方程式を解いてもよい。
 
 <!-- CARD -->
+
 ---
 id: est-ols-slope-standard-error
 title: 単回帰の残差から傾きの標準誤差を計算する
@@ -1615,6 +1520,7 @@ $$\widehat{\operatorname{SE}}=\sqrt{(1/6)/2}=\sqrt{1/12}.$$
 誤差分散の自由度は、推定した切片と傾きの2個を引いた $n-2$。
 
 <!-- CARD -->
+
 ---
 id: est-wls-through-origin
 title: 不均一分散に重み付き最小二乗法を適用する
@@ -1647,6 +1553,7 @@ $$\sum_iw_ix_i^2=1\cdot1^2+\frac14\cdot2^2=2.$$
 既知分散に比例する共通定数は重みの比で消える。
 
 <!-- CARD -->
+
 ---
 id: est-blue-correlated-estimators
 title: 相関する2つの不偏推定量を最小分散で結合する
@@ -1680,6 +1587,7 @@ $$\frac{v_1v_2-c^2}{v_1+v_2-2c}
 独立の場合の単純な逆分散重みをそのまま使わない。
 
 <!-- CARD -->
+
 ---
 id: est-gls-common-mean
 title: 相関誤差の下で一般化最小二乗推定量を計算する
@@ -1718,6 +1626,7 @@ $$4(2)-0.5(5)-0.5(2)+1(5)=9.5,$$
 $\Sigma=\sigma^2I$ のとき一般化最小二乗法は通常の標本平均へ戻る。
 
 <!-- CARD -->
+
 ---
 id: est-plugin-survival-probability
 title: 経験分布から生存確率をプラグイン推定する
@@ -1749,6 +1658,7 @@ $$\widehat F(3)=3/5,\qquad1-\widehat F(3)=2/5.$$
 右打切りがある寿命データでは単純な経験割合でなくKaplan–Meier推定量を使う。
 
 <!-- CARD -->
+
 ---
 id: est-plugin-coefficient-variation
 title: 平均と分散を代入して変動係数を推定する
@@ -1783,5 +1693,3 @@ $$\widehat{\operatorname{CV}}=\frac{\sqrt{8/3}}4
 汎関数の中の未知量を、それぞれ経験分布から得た標本対応量へ置き換える。
 ## 注意
 不偏分散を使う推定法もある。ここでは経験分布への厳密なプラグインなので分母は $n$。
-
-<!-- CARD -->
