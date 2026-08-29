@@ -1,230 +1,95 @@
 schema_version: 1
-batch_id: 2026-08-29-transformations-merge-prep-10b
+batch_id: 2026-08-29-pgf-merge-prep-11
 items:
-  - id: prob-transform-log
-    note: 1変数の単調変換を、逆変換・Jacobian・台の変換という一般手順へ拡張し、増加・減少・逆数の代表例を同じカードで扱う。
+  - id: prob-pgf-recover-pmf
+    note: 確率母関数の定義、確率質量の復元、妥当性判定、階乗モーメント、代表分布での逆向き導出を一枚へ統合する。
     sections:
       使用公式・定理: |
-        $Y=g(X)$ が台上で1対1かつ単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
+        非負整数値確率変数 $X$ の確率母関数は
         $$
-        f_Y(y)=f_X\{g^{-1}(y)\}\left|\frac{d}{dy}g^{-1}(y)\right|.
+        G_X(s)=E[s^X]=\sum_{k=0}^{\infty}p_ks^k,
+        \qquad p_k=P(X=k).
         $$
-        手順は
+        したがって確率質量は係数として保存され、
         $$
-        \text{逆変換}\to\text{Jacobianの絶対値}\to\text{元密度へ代入}\to\text{変換後の台}
+        p_k=\frac{G_X^{(k)}(0)}{k!}
         $$
-        である。単調減少でもJacobianは絶対値を取るので密度は負にならない。
+        で復元できる。
+
+        逆に、べき級数 $G(s)=\sum_{k\ge0}a_ks^k$ が確率母関数となるには、少なくとも
+        $$
+        a_k\ge0,\qquad G(1)=\sum_{k\ge0}a_k=1
+        $$
+        が必要である。
+
+        また、対応する階乗モーメントが有限なら
+        $$
+        G_X^{(r)}(1)
+        =E\{X(X-1)\cdots(X-r+1)\}.
+        $$
+        つまり $s=0$ で確率質量を読み、$s=1$ で階乗モーメントを読む。
       答え: |
-        $X\sim N(0,1)$、$Y=e^X$ なら
+        $G_X(s)=0.2+0.5s+0.3s^2$ なら
         $$
-        f_Y(y)=\frac{1}{y\sqrt{2\pi}}\exp\left\{-\frac{(\log y)^2}{2}\right\},
-        \qquad y>0.
+        P(X=0)=0.2,\quad P(X=1)=0.5,\quad P(X=2)=0.3,
         $$
+        それ以外は0である。
       計算例: |
-        まず $Y=e^X$ では逆変換が
-        $$x=\log y,\qquad \left|\frac{dx}{dy}\right|=\frac1y$$
-        なので
+        まず係数を読む方向では
         $$
-        f_Y(y)=\phi(\log y)\frac1y
-        =\frac{1}{y\sqrt{2\pi}}e^{-(\log y)^2/2},\qquad y>0.
+        G_X(s)=0.2+0.5s+0.3s^2
         $$
+        から直ちに
+        $$
+        p_0=0.2,\qquad p_1=0.5,\qquad p_2=0.3.
+        $$
+        さらに
+        $$
+        G_X(1)=0.2+0.5+0.3=1
+        $$
+        なので正規化も確認できる。
 
-        単調減少の例として $X\sim U(0,2)$、$Y=3-2X$ なら
-        $$x=\frac{3-y}{2},\qquad \left|\frac{dx}{dy}\right|=\frac12.$$
-        元密度は $1/2$ だから
-        $$f_Y(y)=\frac14.$$
-        台は
-        $$0<\frac{3-y}{2}<2\Longleftrightarrow -1<y<3.$$
+        逆向きに、$X\sim\operatorname{Poisson}(\lambda)$ なら
+        $$
+        \begin{aligned}
+        G_X(s)
+        &=\sum_{k=0}^{\infty}e^{-\lambda}\frac{\lambda^k}{k!}s^k\\
+        &=e^{-\lambda}\sum_{k=0}^{\infty}\frac{(\lambda s)^k}{k!}\\
+        &=e^{-\lambda}e^{\lambda s}\\
+        &=\exp\{\lambda(s-1)\}.
+        \end{aligned}
+        $$
+        ここでは指数級数を使った。
 
-        非線形の単調減少例として $X\sim U(0,1)$、$Y=1/X$ なら
-        $$x=\frac1y,\qquad \left|\frac{dx}{dy}\right|=\frac1{y^2},$$
-        かつ $0<x<1\Longleftrightarrow y>1$ なので
-        $$f_Y(y)=\frac1{y^2},\qquad y>1.$$
-      一手: |
-        1対1の単調変換では、まず $x$ を $y$ の式として解く。次に $|dx/dy|$ を掛け、最後に元の台を $y$ の条件へ変換する。
-      注意: |
-        単調減少では不等号の向きが変わるが、密度へ掛けるJacobianは絶対値である。変換後の台を書かないと正規化を誤りやすい。
-  - id: prob-transform-nonmonotonic
-    note: 多対一変換を累積分布関数法と逆像の枝の和の両方で解ける正本へ拡張し、半正規・カイ二乗1自由度の特殊例を吸収する。
-    sections:
-      使用公式・定理: |
-        $Y=g(X)$ が1対1でない場合、まず
-        $$F_Y(y)=P\{g(X)\le y\}$$
-        を領域確率として求めて微分する方法が安全である。
+        幾何分布 $P(X=k)=p(1-p)^{k-1}$（$k=1,2,\ldots$）なら
+        $$
+        \begin{aligned}
+        G_X(s)
+        &=ps\sum_{j=0}^{\infty}\{(1-p)s\}^j\\
+        &=\frac{ps}{1-(1-p)s},
+        \end{aligned}
+        $$
+        ただし $|(1-p)s|<1$ である。こちらは等比級数を使う。
 
-        ある $y$ に対する逆像が $x_1(y),\ldots,x_m(y)$ で、各枝が局所的に単調なら
+        ポアソン分布の確率母関数を2回微分すると
         $$
-        f_Y(y)=\sum_{j=1}^m f_X\{x_j(y)\}\left|\frac{dx_j}{dy}\right|.
-        $$
-        同じ $y$ へ写る枝を全て足すことが本質である。
-      答え: |
-        $X\sim U(-1,1)$、$Y=X^2$ なら
-        $$f_Y(y)=\frac{1}{2\sqrt y},\qquad 0<y<1.$$
-      計算例: |
-        $0<y<1$ で
-        $$X^2\le y\Longleftrightarrow -\sqrt y\le X\le\sqrt y$$
-        だから
-        $$
-        F_Y(y)=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx=\sqrt y,
+        G_X''(s)=\lambda^2e^{\lambda(s-1)},
         $$
         よって
-        $$f_Y(y)=F_Y'(y)=\frac1{2\sqrt y}.$$
-
-        同じ操作を標準正規分布 $X\sim N(0,1)$ に対して行うと、$Y=X^2$ の逆像は $\pm\sqrt y$ なので
         $$
-        \begin{aligned}
-        f_Y(y)
-        &=\phi(\sqrt y)\frac1{2\sqrt y}
-          +\phi(-\sqrt y)\frac1{2\sqrt y}\\
-        &=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0,
-        \end{aligned}
-        $$
-        これは $\chi_1^2$ の密度である。
-
-        また $Y=|X|$ なら $y>0$ の逆像は $y,-y$ なので、対称性から
-        $$f_Y(y)=\phi(y)+\phi(-y)=2\phi(y).$$
-      一手: |
-        非単調変換では「この $y$ を生む元の $x$ は何個あるか」を先に数える。迷ったら累積分布関数法へ戻る。
-      注意: |
-        1本の逆関数だけを使うと確率質量を落とす。二乗・絶対値では通常、正負2枝を足す。
-  - id: prob-transform-sum-density
-    note: 畳み込みを一つの分布公式ではなく、台の共通部分を求める一般手順へ拡張し、一様和・一様差・異率指数和を吸収する。
-    sections:
-      使用公式・定理: |
-        独立な連続確率変数 $X,Y$ の和 $S=X+Y$ の密度は
-        $$
-        f_S(s)=\int_{-\infty}^{\infty}f_X(x)f_Y(s-x)\,dx.
-        $$
-        差 $D=X-Y$ なら
-        $$
-        f_D(d)=\int_{-\infty}^{\infty}f_X(d+y)f_Y(y)\,dy.
-        $$
-        どちらも先に「両方の密度が正になる積分区間」を台から決める。
-      答え: |
-        独立な $X,Y\sim\operatorname{Exp}(1)$ なら
-        $$f_{X+Y}(s)=se^{-s},\qquad s>0.$$
-      計算例: |
-        指数分布では $x>0$ と $s-x>0$ の共通条件が $0<x<s$ なので
-        $$
-        \begin{aligned}
-        f_S(s)
-        &=\int_0^s e^{-x}e^{-(s-x)}\,dx\\
-        &=e^{-s}\int_0^s1\,dx\\
-        &=se^{-s},\qquad s>0.
-        \end{aligned}
-        $$
-
-        $X,Y\sim U(0,1)$ なら、和では
-        $$\max(0,s-1)<x<\min(1,s)$$
-        が積分範囲で、被積分関数は1だから
-        $$
-        f_S(s)=\begin{cases}
-        s,&0<s<1,\\
-        2-s,&1\le s<2,\\
-        0,&\text{otherwise}.
-        \end{cases}
-        $$
-        差 $D=X-Y$ では台の重なりの長さから
-        $$f_D(d)=1-|d|,\qquad -1<d<1.$$
-
-        さらに $X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$、$\lambda\ne\mu$ なら
-        $$
-        \begin{aligned}
-        f_S(s)
-        &=\int_0^s\lambda e^{-\lambda x}\mu e^{-\mu(s-x)}\,dx\\
-        &=\frac{\lambda\mu}{\mu-\lambda}
-        \left(e^{-\lambda s}-e^{-\mu s}\right),\qquad s>0.
-        \end{aligned}
-        $$
-      一手: |
-        畳み込みでは公式を書いた直後に積分しない。まず元の2つの台を同時に満たす積分区間を解く。
-      注意: |
-        独立性が必要である。台の共通部分を誤ると、積分計算が合っていても密度は誤る。
-  - id: prob-transform-ratio
-    note: 比の分布を領域積分または分母で条件付けて求める一般手順へ拡張し、指数分布の比を同じ正本に吸収する。
-    sections:
-      使用公式・定理: |
-        $Y>0$ のとき $R=X/Y$ について
-        $$
-        F_R(r)=P(X\le rY)
-        =\int P(X\le ry\mid Y=y)f_Y(y)\,dy.
-        $$
-        独立なら条件付き分布は周辺分布へ戻せるので
-        $$
-        F_R(r)=\int F_X(ry)f_Y(y)\,dy
-        $$
-        と書ける。台が有界なら、同じ確率を領域 $\{(x,y):x\le ry\}$ の二重積分で求めてもよい。
-      答え: |
-        独立な $X,Y\sim U(0,1)$ なら
-        $$
-        F_R(r)=\begin{cases}
-        0,&r\le0,\\
-        r/2,&0<r\le1,\\
-        1-1/(2r),&r>1.
-        \end{cases}
-        $$
-      計算例: |
-        $0<r\le1$ では単位正方形内で $0<x<ry$ だから
-        $$F_R(r)=\int_0^1\int_0^{ry}1\,dx\,dy=\frac r2.$$
-        $r>1$ では $y=1/r$ で領域が変わるので
-        $$
-        \begin{aligned}
-        F_R(r)
-        &=\int_0^{1/r}ry\,dy+\int_{1/r}^11\,dy\\
-        &=1-\frac1{2r}.
-        \end{aligned}
-        $$
-
-        一方、独立な $X,Y\sim\operatorname{Exp}(1)$ では分母 $Y=y$ で条件付けて
-        $$
-        \begin{aligned}
-        F_R(r)
-        &=\int_0^\infty P(X\le ry)e^{-y}\,dy\\
-        &=\int_0^\infty(1-e^{-ry})e^{-y}\,dy\\
-        &=1-\frac1{1+r}\\
-        &=\frac r{1+r},\qquad r>0.
-        \end{aligned}
-        $$
-        微分して
-        $$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
-      一手: |
-        分母が正なら、$X/Y\le r$ を $X\le rY$ に直す。次に分母で条件付けるか、台の中の領域として積分する。
-      注意: |
-        分母が負も取り得る場合は不等号の向きが変わるため、符号で場合分けが必要である。
-  - id: prob-transform-iid-maximum-density
-    note: i.i.d.標本の最大値と最小値を累積分布関数・生存関数の双対として一枚にまとめる。
-    sections:
-      使用公式・定理: |
-        $X_1,\ldots,X_n$ が累積分布関数 $F$、密度 $f$ を持つ独立同分布標本とする。最大値 $M=\max_iX_i$ は
-        $$
-        F_M(m)=P(M\le m)=F(m)^n,
-        $$
-        よって
-        $$f_M(m)=nF(m)^{n-1}f(m).$$
-        最小値 $L=\min_iX_i$ は生存関数を使って
-        $$
-        P(L>\ell)=\{1-F(\ell)\}^n,
-        $$
-        よって
-        $$f_L(\ell)=n\{1-F(\ell)\}^{n-1}f(\ell).$$
-      答え: |
-        最大値は $F^n$、最小値は生存関数 $(1-F)^n$ から始める。
-      計算例: |
-        $X_i\sim U(0,1)$、$n=3$ なら $0<m<1$ で
-        $$F_M(m)=m^3,\qquad f_M(m)=3m^2.$$
-
-        一方 $X_i\sim\operatorname{Exp}(\lambda)$ なら
-        $$P(X_i>\ell)=e^{-\lambda\ell}$$
-        なので
-        $$
-        P(L>\ell)=e^{-n\lambda\ell},
+        E[X(X-1)]=G_X''(1)=\lambda^2.
         $$
         したがって
-        $$L\sim\operatorname{Exp}(n\lambda),
-        \qquad
-        f_L(\ell)=n\lambda e^{-n\lambda\ell}.
         $$
+        E[X^2]=E[X(X-1)]+E[X]=\lambda^2+\lambda.
+        $$
+
+        妥当性の反例として
+        $$
+        G(s)=\frac12-\frac14s+\frac34s^2
+        $$
+        は $G(1)=1$ でも、$s$ の係数が負なので確率母関数ではない。
       一手: |
-        最大値の「以下」は全標本が以下、最小値の「超える」は全標本が超える、と積事象へ直す。
+        確率母関数は「確率質量を係数として持つべき級数」と見る。$s=0$ 近傍の係数で分布を復元し、$s=1$ の微分で階乗モーメントを得る。
       注意: |
-        $F(m)^n$ や $(1-F(\ell))^n$ を使うには標本の独立性が必要である。最小値の指数率は $\lambda/n$ ではなく $n\lambda$。
+        二項・幾何・ポアソンの確率母関数を別々の公式として暗記するより、定義へ確率質量を代入し、二項定理・等比級数・指数級数のどれに当たるかを判断する。$G_X(k)$ が $P(X=k)$ なのではない。
