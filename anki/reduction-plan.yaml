@@ -1,56 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-bayes-reduction-29
+batch_id: 2026-08-30-bayes-reduction-30
 items:
-  - id: bayes-beta-equal-tail-interval
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: bayes-normal-credible-interval
-    note: 等裾信用区間は事後分布の下側・上側分位点を取る同一操作であり、Beta分布だけの式を独立カードとして残さない。信用区間の数値操作は正規事後分布のcanonicalで保持する。
-
-  - id: bayes-gamma-exponential-numeric
+  - id: bayes-conjugate-definition
     bucket: duplicates
     reason: duplicate
     canonical_card: bayes-gamma-exponential-update
-    note: Gamma(2,1)と n=3, sum x=5 の数値更新は、尤度核からGamma(5,6)を同定し事後平均・最頻値まで計算するよう強化したcanonicalへ吸収済み。
+    note: 共役事前分布の定義と利点をGamma–指数の実際の共役更新canonicalへ吸収済み。定義だけの独立カードは残さない。
 
-  - id: bayes-normal-hierarchical-gibbs-theta
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-gibbs-full-conditionals
-    note: 正規階層モデルの群効果だけに特化した完全条件付き更新は、一般の完全条件付き分布の作り方と正規–正規の代表計算を統合したGibbs canonicalへ吸収済み。
-
-  - id: bayes-normal-hierarchical-gibbs-mu
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-gibbs-full-conditionals
-    note: 正規階層モデルの全体平均だけに特化したGibbs更新は、更新対象以外を固定して核を同定する一般操作の派生なのでcanonicalへ統合する。
-
-  - id: bayes-beta-binomial-hierarchy
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-normal-hierarchical-shrinkage
-    note: 階層モデルによる部分プーリング・情報共有という主論点は、縮小係数を実際に計算できる正規階層モデルのcanonicalで保持する。分布別の階層化例は増殖させない。
-
-  - id: bayes-prior-predictive
+  - id: bayes-prior-sensitivity
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-posterior-predictive-canonical
-    note: 事前予測も事後予測も条件付き分布を母数分布で周辺化する同じ操作であり、canonicalに事前予測式と両者の違いを追記済み。
+    canonical_card: bayes-proper-improper
+    note: 事前中心・尺度・裾を変えて事後平均・信用区間・予測・意思決定等を比較する感度分析をproper/improper正本へ吸収済み。
 
-  - id: bayes-likelihood-principle
+  - id: bayes-empirical-bayes
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-density-formula
-    note: 事後核では母数に依存しない因子を落としてよい一方、周辺尤度・ベイズファクターでは保存するという注意をベイズ公式canonicalへ吸収済み。
-
-  - id: bayes-evidence-discrete
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: bayes-density-formula
-    note: 離散仮説で全確率から周辺確率を作り事後確率へ正規化する数値例をベイズ公式canonicalへ吸収済み。
-
-  - id: bayes-nig-update
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: bayes-conjugate-definition
-    note: 正規–逆ガンマの4超母数更新式は600枚正本では参照式寄り。共役性の操作は正規–正規、ガンマ–指数、Dirichlet–多項などの代表例で保持し、詳細式はactiveカードから外す。
+    canonical_card: bayes-hierarchical-definition
+    note: 経験ベイズで超母数を推定値へ固定する方法と、完全ベイズで超母数の不確実性まで積分する方法の違いを階層モデルcanonicalへ吸収済み。
