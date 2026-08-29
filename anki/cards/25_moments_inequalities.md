@@ -181,7 +181,7 @@ $\operatorname{Var}(X)=16,\ \operatorname{Var}(Y)=25$ なら
 $$\lvert\operatorname{Cov}(X,Y)\rvert\le\sqrt{16\cdot25}=20.$$
 
 ## 一手
-$\operatorname{Cov}(X,Y)$ にCauchy不等式を適用し、標準偏差の積で割って無次元化する。
+$\operatorname{Cov}(X,Y)$ にコーシー不等式を適用し、標準偏差の積で割って無次元化する。
 
 ## 注意
 $\rho=0$ は無相関を表し、独立性は含意しない。$\lvert\rho\rvert=1$ は退化した直線関係。

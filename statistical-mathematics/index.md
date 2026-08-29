@@ -44,7 +44,7 @@
 | 36 | 30 | A | B | [正規線形観測・Bayes・条件付き正規](core/30_normal_linear_bayes.md) | ◎ |
 | 37 | 18 | A | A | [二項からPoisson極限・再生性・正規近似](core/18_binomial_poisson_normal_limit.md) | ◎ |
 | 38 | 4 | A | B | [カイ二乗モーメント母関数・再生性・Beta接続](core/04_chisq_mgf_beta.md) | ◎ |
-| 39 | 5 | A | A | [カイ二乗・F・t・Cauchyの比と変換](core/05_chisq_f_t_cauchy.md) | ◎ |
+| 39 | 5 | A | A | [カイ二乗・F・t・コーシーの比と変換](core/05_chisq_f_t_cauchy.md) | ◎ |
 | 40 | 6 | A | B | [確率積分変換・一様分布・順序統計量](core/06_probability_integral_transform.md) | ◎ |
 | 41 | 8 | A | B | [条件付き確率・全確率・Bayes](core/08_conditional_probability_bayes.md) | ○ |
 | 42 | 9 | A | A | [指数分布＋一様分布：畳み込み・支持集合・依存](core/09_exponential_uniform_convolution.md) | ◎ |
@@ -60,7 +60,7 @@
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 | 手計算監査 |
 | ---: | ---: | :---: | :---: | --- | --- |
 | 01 | 11 | A | A | [二変量一様分布・条件付き分布・幾何確率](standard/11_bivariate_uniform_conditional_geometry.md) | ◎ |
-| 02 | 12 | A | A | [カイ二乗・Cauchy・逆関数法](standard/12_chisq_cauchy_inverse_transform.md) | ◎・修正済（逆三角関数の数値評価不要） |
+| 02 | 12 | A | A | [カイ二乗・コーシー・逆関数法](standard/12_chisq_cauchy_inverse_transform.md) | ◎・修正済（逆三角関数の数値評価不要） |
 | 03 | 13 | A | A | [指数分布モーメント母関数・指数傾斜](standard/13_exponential_mgf_tilting.md) | ◎ |
 | 04 | 14 | A | A | [標本中心モーメント・不偏補正](standard/14_sample_central_moments.md) | ◎ |
 | 05 | 15 | A | A | [標本平均の歪度・尖度](standard/15_sample_mean_skewness_kurtosis.md) | ◎ |
@@ -74,7 +74,7 @@
 | 13 | 36 | A | A | [ノイズ付き線形観測の条件付き正規](standard/36_noisy_linear_conditional_normal.md) | ◎ |
 | 14 | 47 | A | A | [二項比率Wald区間・被覆確率](standard/47_binomial_wald_coverage.md) | ◎・修正済（巨大な二項和の数値評価不要） |
 | 15 | 50 | A | A | [二項2母数モーメント法・識別](standard/50_two_parameter_binomial_moments.md) | ◎ |
-| 16 | 52 | A | A | [Pareto 最尤推定量・有限標本バイアス・効率](standard/52_pareto_mle_bias_efficiency.md) | ◎ |
+| 16 | 52 | A | A | [パレート 最尤推定量・有限標本バイアス・効率](standard/52_pareto_mle_bias_efficiency.md) | ◎ |
 | 17 | 54 | A | A | [一様分布最大値・不偏推定・分散比較](standard/54_uniform_max_unbiased_variance.md) | ◎ |
 | 18 | 56 | A | A | [超幾何分布・有限母集団補正](standard/56_hypergeometric_fpc.md) | ○ |
 | 19 | 58 | A | A | [層化抽出・Horvitz–Thompson・Neyman配分](standard/58_stratified_ht_neyman_allocation.md) | ○ |
@@ -90,7 +90,7 @@
 | 29 | 86 | B | B | [2変量正規・平均への回帰](standard/86_bivariate_normal_regression_to_mean.md) | ◎ |
 | 30 | 89 | A | B | [稀事象・相対Monte Carlo誤差](standard/89_rare_event_relative_mc_error.md) | ○ |
 | 31 | 91 | A | A | [Box–Muller変換](standard/91_box_muller.md) | ◎・修正済（$\log,\sin,\cos$ の数値評価不要） |
-| 32 | 96 | A | A | [Weibull・生存関数・ハザード](standard/96_weibull_survival_hazard.md) | ◎ |
+| 32 | 96 | A | A | [ワイブル・生存関数・ハザード](standard/96_weibull_survival_hazard.md) | ◎ |
 
 ## Advanced 20
 
@@ -109,7 +109,7 @@
 | 11 | 51 | A | S | [位置母数付き指数・非正則2母数最尤推定量](advanced/51_shifted_exponential_nonregular_mle.md) | ◎ |
 | 12 | 61 | A | S | [2成分Poisson混合・期待値最大化法](advanced/61_poisson_mixture_em.md) | ◎・修正済（収束までの反復計算不要） |
 | 13 | 64 | S | S | [母平均の両側一様最強力不偏検定](advanced/64_two_sided_umpu_mean.md) | 表 |
-| 14 | 69 | B | A | [Cauchy単純対単純Neyman–Pearson検定](advanced/69_cauchy_np_test.md) | ◎・修正済（臨界値の数値求解不要） |
+| 14 | 69 | B | A | [コーシー単純対単純Neyman–Pearson検定](advanced/69_cauchy_np_test.md) | ◎・修正済（臨界値の数値求解不要） |
 | 15 | 76 | S | S | [射影・Cochran・予測誤差](advanced/76_projection_cochran_prediction.md) | ◎ |
 | 16 | 93 | B | A | [重点サンプリング](advanced/93_importance_sampling.md) | ◎ |
 | 17 | 94 | B | A | [制御変量・最適係数](advanced/94_control_variates.md) | ◎ |

@@ -17,7 +17,7 @@ Advanced層の大問を1題1ファイルで管理する。各題は「問題・�
 | 11 | 51 | A | S | [位置母数付き指数・非正則2母数最尤推定量](51_shifted_exponential_nonregular_mle.md) |
 | 12 | 61 | A | S | [2成分Poisson混合・期待値最大化法](61_poisson_mixture_em.md) |
 | 13 | 64 | S | S | [母平均の両側一様最強力不偏検定](64_two_sided_umpu_mean.md) |
-| 14 | 69 | B | A | [Cauchy単純対単純Neyman–Pearson検定](69_cauchy_np_test.md) |
+| 14 | 69 | B | A | [コーシー単純対単純Neyman–Pearson検定](69_cauchy_np_test.md) |
 | 15 | 76 | S | S | [射影・Cochran・予測誤差](76_projection_cochran_prediction.md) |
 | 16 | 93 | B | A | [重点サンプリング](93_importance_sampling.md) |
 | 17 | 94 | B | A | [制御変量・最適係数](94_control_variates.md) |

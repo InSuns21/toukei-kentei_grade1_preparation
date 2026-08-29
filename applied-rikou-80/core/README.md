@@ -35,9 +35,9 @@
 | 22 | 60 | S | B | [工程能力指数 $C_p,C_{pk}$](22_process_capability.md) |
 | 23 | 66 | S | A | [多変量正規の条件付き分布](23_conditional_mvn.md) |
 | 24 | 08 | S | A | [右打ち切り寿命データ・情報量](24_right_censoring.md) |
-| 25 | 03 | S | A | [Weibull寿命モデルの最尤推定量・デルタ法](25_weibull_mle_delta.md) |
+| 25 | 03 | S | A | [ワイブル寿命モデルの最尤推定量・デルタ法](25_weibull_mle_delta.md) |
 | 26 | 06 | S | B | [生存関数・ハザード・条件付き生存](26_survival_hazard.md) |
-| 27 | 01 | S | B | [Weibull分布・指数変換・分位点](27_weibull_basics.md) |
+| 27 | 01 | S | B | [ワイブル分布・指数変換・分位点](27_weibull_basics.md) |
 | 28 | 71 | A | A | [指数型分布族・Score・Fisher情報量](28_exponential_family_information.md) |
 | 29 | 65 | A | B | [多変量正規・線形変換・$\chi^2$](29_mvn_linear_transform.md) |
 | 30 | 33 | A | B | [線形結合・直交対比](30_linear_contrast.md) |

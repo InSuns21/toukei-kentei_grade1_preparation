@@ -1,4 +1,4 @@
-# Core 25 Weibull寿命モデル・最尤推定量・デルタ法
+# Core 25 ワイブル寿命モデル・最尤推定量・デルタ法
 
 - 安定ID: `RIKOU-CORE-25`
 - 80大問 No.: 03
@@ -8,7 +8,7 @@
 
 ## 問題
 
-形状母数 $k>0$ が既知の Weibull 分布
+形状母数 $k>0$ が既知の ワイブル分布
 
 $$
 F(t)=1-\exp\left\{-\left(\frac{t}{\eta}\right)^k\right\},\qquad t>0
@@ -36,7 +36,7 @@ P(Y_i\le y)
 \end{aligned}
 $$
 
-Weibull分布の分布関数を代入すると
+ワイブル分布の分布関数を代入すると
 
 $$
 \begin{aligned}
@@ -228,7 +228,7 @@ $$
 
 ### 4. 信頼度推定量とその漸近分散
 
-Weibull分布の信頼度は
+ワイブル分布の信頼度は
 
 $$
 R(t_0)=P(T>t_0)

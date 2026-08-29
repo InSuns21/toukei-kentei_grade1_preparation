@@ -1,4 +1,4 @@
-# Advanced 14 Cauchy単純対単純Neyman–Pearson検定
+# Advanced 14 コーシー単純対単純Neyman–Pearson検定
 
 - 旧No.: 69
 - 層: Advanced
@@ -9,7 +9,7 @@
 
 ## 問題
 
-1観測 $X$ は位置母数 $\theta$、尺度1のCauchy分布
+1観測 $X$ は位置母数 $\theta$、尺度1のコーシー分布
 
 $$
 f_\theta(x)=\frac{1}{\pi\{1+(x-\theta)^2\}}
@@ -49,7 +49,7 @@ $$
 
 - $H_0:\theta=0$ と $H_1:\theta=1$ はともに母数を一点に固定した **単純仮説**。
 - 両者とも実数全体上で確率密度関数を持つ。
-- Cauchy密度は全 $x\in\mathbb R$ で正なので、$f_1(x)/f_0(x)$ は全実数で定義でき、共通支持は $\mathbb R$。
+- コーシー密度は全 $x\in\mathbb R$ で正なので、$f_1(x)/f_0(x)$ は全実数で定義でき、共通支持は $\mathbb R$。
 
 したがって補題を適用できる。サイズ $\alpha$ の最強力検定は、尤度比が大きい点を優先して棄却するので
 

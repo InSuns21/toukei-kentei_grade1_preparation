@@ -1,4 +1,4 @@
-# Core 27 Weibull分布・中央値・最頻値・ハザード
+# Core 27 ワイブル分布・中央値・最頻値・ハザード
 
 - 安定ID: `RIKOU-CORE-27`
 - 80大問 No.: 01
@@ -9,7 +9,7 @@
 
 ## 問題
 
-Weibull 分布の累積分布関数を
+ワイブル分布の累積分布関数を
 
 $$
 F(t)=1-\exp\left\{-\left(\frac t\eta\right)^k\right\},

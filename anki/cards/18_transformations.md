@@ -324,14 +324,14 @@ $1/b$ をそのまま掛けて負の密度にしない。
 <!-- CARD -->
 ---
 id: prob-transform-reciprocal-uniform
-title: 逆数変換でPareto型密度を導く
+title: 逆数変換でパレート型密度を導く
 category: math-probability
 subcategory: math-transformations
 topic: reciprocal-transform
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [変数変換, 逆数, Pareto分布]
+hashtags: [変数変換, 逆数, パレート分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 変数変換 }]
 ---
