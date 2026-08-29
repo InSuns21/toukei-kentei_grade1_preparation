@@ -7,7 +7,11 @@ terms:
   - { term: ヤコビアン, notation: "\\det DT", meaning: 多変数変換における局所的な体積倍率を与える行列式 }
   - { term: 勾配, notation: "\\nabla g", meaning: 一階偏微分を並べた列ベクトル }
   - { term: ヘッセ行列, notation: "\\nabla^2g", meaning: 二階偏微分を並べた行列 }
+  - { term: 線形包, notation: "\\operatorname{span}\\{\\boldsymbol v_1,\\ldots,\\boldsymbol v_m\\}", meaning: 与えたベクトルのすべての線形結合からなる部分空間。span とも書く }
+  - { term: 零空間, notation: "\\operatorname{Null}(A)", meaning: A\\boldsymbol x=\\boldsymbol0 を満たすベクトル全体。核ともいう }
+  - { term: 特異行列, notation: "\\det A=0", meaning: 逆行列を持たない正方行列。非零ベクトルを0へ写すことと同値 }
   - { term: 階数, notation: "\\operatorname{rank}(A)", meaning: 行列の列空間または行空間の次元 }
+  - { term: 退化次数, notation: "\\dim\\operatorname{Null}(A)", meaning: 零空間の次元。n列の行列では階数との和がnになる }
   - { term: 固有値, notation: "\\lambda", meaning: A v = λ v を満たす非零ベクトルに対応する倍率 }
   - { term: 直交行列, notation: "Q", meaning: 転置が逆行列となり内積とノルムを保存する行列 }
   - { term: 二次形式, notation: "\\boldsymbol{x}^{\\mathsf T}A\\boldsymbol{x}", meaning: 行列で表現される二次式 }
