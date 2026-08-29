@@ -20,6 +20,13 @@ export function readAllCards() {
     .filter((card) => card.published !== false);
 }
 
+export function readArchivedCards() {
+  return walk(path.join(ROOT, "archive"))
+    .filter((file) => file.endsWith(".md") && path.basename(file).toLowerCase() !== "readme.md")
+    .flatMap((file) => parseCards(file))
+    .filter((card) => card.published !== false);
+}
+
 export function loadCurationPolicy() {
   const file = path.join(ROOT, "curation.yaml");
   if (!fs.existsSync(file)) {
@@ -141,7 +148,10 @@ export function readActiveCards() {
 }
 
 export function readCards() {
-  return process.env.ANKI_CARD_MODE === "active" ? readActiveCards() : readAllCards();
+  const mode = process.env.ANKI_CARD_MODE;
+  if (mode === "active") return readActiveCards();
+  if (mode === "reviewed") return [...readAllCards(), ...readArchivedCards()];
+  return readAllCards();
 }
 
 export function parseCards(file) {
