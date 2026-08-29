@@ -51,12 +51,12 @@ jobs:
       - name: Commit validated reduction
         shell: bash
         run: |
-          if git diff --quiet -- anki/cards anki/archive anki/syllabus/coverage.yaml; then
+          if git diff --quiet -- anki/cards anki/archive anki/syllabus/coverage.yaml anki/progress.yaml; then
             echo 'No reduction changes to commit.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add anki/cards anki/archive anki/syllabus/coverage.yaml
+          git add anki/cards anki/archive anki/syllabus/coverage.yaml anki/progress.yaml
           git commit -m 'apply reviewed Anki reduction plan'
           git push origin HEAD:main
