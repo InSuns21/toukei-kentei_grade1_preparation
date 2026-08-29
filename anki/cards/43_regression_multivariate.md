@@ -890,16 +890,27 @@ cmとkgをそのまま混ぜると単位選択で結果が変わる。
 
 ---
 id: mv-factor-model-covariance
-title: 因子分析モデルの共分散を導く
+title: 因子分析の共分散分解と共通性を計算する
 category: applied-common
 subcategory: applied-multivariate
-topic: factor-analysis-model
+topic: factor-analysis-covariance-communality
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [因子分析, 因子負荷量, 分散共分散行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 因子分析モデル }]
+hashtags:
+  - 因子分析
+  - 因子負荷量
+  - 分散共分散行列
+  - 共通性
+  - 独自性
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 因子分析モデル
 ---
 
 ## 問題
@@ -944,23 +955,74 @@ $$
 標準化変数では $h_i^2=\sum_j\lambda_{ij}^2$、$\psi_i=1-h_i^2$。
 
 ## 計算例
-ある標準化変数の2因子への負荷量が $0.6,0.5$ なら
+まず1因子モデルで
+$$
+\boldsymbol\lambda=
+\begin{pmatrix}0.8\\0.6\end{pmatrix},
+\qquad
+\boldsymbol\Psi=
+\begin{pmatrix}0.36&0\\0&0.64\end{pmatrix}
+$$
+とする。負荷量ベクトルの外積は
+$$
+\begin{aligned}
+\boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
+&=
+\begin{pmatrix}0.8\\0.6\end{pmatrix}
+\begin{pmatrix}0.8&0.6\end{pmatrix}\\
+&=
+\begin{pmatrix}
+0.64&0.48\\
+0.48&0.36
+\end{pmatrix}.
+\end{aligned}
+$$
+したがって
+$$
+\begin{aligned}
+\boldsymbol\Sigma
+&=\boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}+\boldsymbol\Psi\\
+&=
+\begin{pmatrix}
+0.64&0.48\\
+0.48&0.36
+\end{pmatrix}
++
+\begin{pmatrix}
+0.36&0\\
+0&0.64
+\end{pmatrix}\\
+&=
+\begin{pmatrix}
+1&0.48\\
+0.48&1
+\end{pmatrix}.
+\end{aligned}
+$$
+対角が1なのは、各標準化変数について
+$$
+\lambda_i^2+\psi_i=1
+$$
+となっているためである。
+
+次に2因子への負荷量が $(0.6,0.5)$ の標準化変数を考えると
 $$
 \begin{aligned}
 h_i^2
 &=0.6^2+0.5^2\\
 &=0.36+0.25\\
-&=0.61.
+&=0.61,
 \end{aligned}
 $$
-よって
 $$
 \psi_i=1-0.61=0.39.
 $$
-この変数の分散の61%を共通因子部分、39%を独自部分が担う。
+つまり分散の61%を共通因子部分、39%を独自部分が担う。
 
 ## 注意
-PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。斜交回転では負荷量平方和の単純な解釈に注意する。
+PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。共分散分解 $\Lambda\Lambda^{\mathsf T}+\Psi$ には共通因子と独自誤差の無相関が必要である。
+
+直交因子なら共通性は負荷量平方和で読める。斜交回転では因子同士が相関するため、単純な負荷量平方和の解釈には注意する。
 
 <!-- CARD -->
 
