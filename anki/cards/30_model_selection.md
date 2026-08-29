@@ -333,40 +333,140 @@ Bは当てはまりの項を5改善したが、罰則が6増えたため総合�
 
 ---
 id: ms-bic-numeric-comparison
-title: 標本サイズを含むBICの罰則を数値で比較する
+title: AIC・BIC・MallowsのCpでモデルを比較する
 category: math-estimation
 subcategory: math-model-selection
-topic: bic-numeric-comparison
+topic: information-criteria-comparison
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [BIC, 標本サイズ, モデル選択]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベイズ情報量規準 }]
+hashtags:
+  - AIC
+  - BIC
+  - MallowsのCp
+  - モデル選択
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ベイズ情報量規準
 ---
 ## 問題
-$n=200$ で、モデルAは $-2\ell(\widehat\theta)=300,k=4$、モデルBは $-2\ell(\widehat\theta)=294,k=7$ である。BICで選択せよ。
+モデル選択で使う AIC、BIC、Mallows の $C_p$ について次を答えよ。
+
+1. AIC と BIC の式を書き、罰則の違いを説明せよ。
+2. $n=200$ で、モデルAは $-2\ell(\widehat\theta)=300,k=4$、モデルBは $-2\ell(\widehat\theta)=294,k=7$ である。AIC と BIC で比較せよ。
+3. 回帰候補モデルで $SSE_p=80$、完全モデルから得た $\widehat\sigma^2=4$、$n=30$、候補モデルの切片込み係数数 $p=6$ のとき Mallows の $C_p$ を求めよ。
 
 ## 答え
-$$\operatorname{BIC}_A\approx321.19,\qquad
-\operatorname{BIC}_B\approx331.09.$$
-小さいモデルAを選ぶ。
+数値例では
+$$
+\operatorname{AIC}_A=308,
+\qquad
+\operatorname{AIC}_B=308
+$$
+で同点。
+
+一方
+$$
+\operatorname{BIC}_A\approx321.19,
+\qquad
+\operatorname{BIC}_B\approx331.09
+$$
+なのでBICではモデルAを選ぶ。
+
+Mallows の $C_p$ は
+$$
+C_p=2.
+$$
 
 ## 使用公式・定理
-$$\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n.$$
-標本サイズが増えると、1母数当たりの罰則 $\log n$ が大きくなる。
+AIC と BIC はどちらも
+$$
+\text{当てはまりの悪さ}+\text{複雑さへの罰則}
+$$
+の形で、値が小さいモデルを選ぶ。
+$$
+\operatorname{AIC}=-2\ell(\widehat\theta)+2k,
+$$
+$$
+\operatorname{BIC}=-2\ell(\widehat\theta)+k\log n.
+$$
+ここで $k$ は推定した自由母数の個数である。
+
+回帰で完全モデルから共通の誤差分散推定値 $\widehat\sigma^2$ を得るとき
+$$
+C_p=\frac{SSE_p}{\widehat\sigma^2}-n+2p.
+$$
+適切に指定された候補モデルでは $C_p$ が $p$ 付近になることが一つの目安である。
 
 ## 計算例
-$\log200\approx5.2983$ なので
-$$\operatorname{BIC}_A=300+4(5.2983)\approx321.19,$$
-$$\operatorname{BIC}_B=294+7(5.2983)\approx331.09.$$
-Bは適合度を6改善したが、追加3母数の罰則は約 $3(5.2983)=15.89$ である。
+AICは
+$$
+\begin{aligned}
+\operatorname{AIC}_A
+&=300+2(4)\\
+&=308,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\operatorname{AIC}_B
+&=294+2(7)\\
+&=308.
+\end{aligned}
+$$
+モデルBは適合度を6改善したが、追加3母数のAIC罰則も $2\times3=6$ 増えたため同点になる。
+
+BICでは
+$$
+\log200\approx5.2983.
+$$
+よって
+$$
+\begin{aligned}
+\operatorname{BIC}_A
+&=300+4(5.2983)\\
+&\approx321.19,
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\operatorname{BIC}_B
+&=294+7(5.2983)\\
+&\approx331.09.
+\end{aligned}
+$$
+追加3母数の罰則は約
+$$
+3\log200\approx15.89
+$$
+で、適合改善6を上回る。
+
+Mallows の $C_p$ は
+$$
+\begin{aligned}
+C_p
+&=\frac{80}{4}-30+2(6)\\
+&=20-30+12\\
+&=2.
+\end{aligned}
+$$
 
 ## 一手
-BICでは先に $\log n$ を計算し、追加母数1個当たりの代償を見る。
+規準名ごとに別暗記せず、まず
+$$
+\text{適合改善が追加した複雑さの罰則を上回るか}
+$$
+を見る。AICは1母数あたり2、BICは1母数あたり $\log n$ を罰する。$n$ が大きいと通常BICの方が追加母数を強く罰する。$C_p$ は回帰の残差平方和を共通の誤差分散で尺度化して複雑さを補正する。
 
 ## 注意
-$\log$ は自然対数である。
+AIC・BICは同じデータ、同じ尤度定義のモデル同士で比較する。BICの $\log$ は自然対数。AICは予測的KL損失、BICは正則条件下でのモデル同定・周辺尤度近似との関係が強く、目的が異なるので常に同じモデルを選ぶとは限らない。
+
+$C_p$ の $\widehat\sigma^2$ は候補ごとに作らず、通常は十分大きい共通モデルから得る。$C_p\approx p$ は絶対的な合否判定ではなく候補比較の目安である。
 
 <!-- CARD -->
 
@@ -412,82 +512,157 @@ $$\operatorname{CV}_B=\frac{3.8+4.2+4.0+4.1+4.4}{5}
 
 ---
 id: ms-ridge-lasso-orthogonal-numeric
-title: 直交設計でRidge縮小とLasso閾値処理を計算する
+title: Ridge縮小とLasso零化を導いて計算する
 category: math-estimation
 subcategory: math-model-selection
-topic: orthogonal-regularization-numeric
+topic: regularization-canonical
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [Ridge回帰, Lasso回帰, ソフト閾値処理]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 正則化 }]
+hashtags:
+  - Ridge回帰
+  - Lasso回帰
+  - 正則化
+  - 特異値分解
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 正則化
 ---
 ## 問題
-(1) $\boldsymbol X^\top\boldsymbol X=\operatorname{diag}(4,1)$、$\boldsymbol X^\top\boldsymbol y=(8,2)^\top$ で $\lambda=1$ のRidge推定量を求めよ。(2) $\boldsymbol X^\top\boldsymbol X=I$、$\boldsymbol X^\top\boldsymbol y=(3,0.5,-2)^\top$ で $\lambda=1$ のLasso推定量を求めよ。
+線形回帰の正則化について次を答えよ。
+
+1. Ridgeの目的関数から閉形式解を導け。
+2. $X^{\mathsf T}X=\operatorname{diag}(4,1)$、$X^{\mathsf T}y=(8,2)^{\mathsf T}$、$\lambda=1$ のRidge推定量を求めよ。
+3. $X^{\mathsf T}X=I$、$X^{\mathsf T}y=(3,0.5,-2)^{\mathsf T}$、$\lambda=1$ のLasso推定量を求めよ。
+4. 特異値 $d=2$ の方向にRidge罰則 $\lambda=3$ を掛けたとき、最小二乗法に対する縮小率を求めよ。
 
 ## 答え
-(1)
-$$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
-=(\boldsymbol X^\top\boldsymbol X+\lambda I)^{-1}\boldsymbol X^\top\boldsymbol y
-=(1.6,1.0)^\top.$$
-(2)
-$$\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=(2,0,-1)^\top.$$
+Ridgeの閉形式解は
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}\boldsymbol y.
+$$
+数値例では
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(1.6,1.0)^{\mathsf T},
+$$
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=(2,0,-1)^{\mathsf T}.
+$$
+特異値 $d=2,\lambda=3$ のRidge縮小率は
+$$
+\frac47.
+$$
 
 ## 使用公式・定理
 Ridgeは
 $$
+Q(\boldsymbol\beta)
+=\|\boldsymbol y-X\boldsymbol\beta\|^2
++\lambda\|\boldsymbol\beta\|^2
+$$
+を最小にする。勾配は
+$$
+\nabla Q
+=-2X^{\mathsf T}(\boldsymbol y-X\boldsymbol\beta)
++2\lambda\boldsymbol\beta.
+$$
+よって
+$$
+(X^{\mathsf T}X+\lambda I)\widehat{\boldsymbol\beta}
+=X^{\mathsf T}\boldsymbol y,
+$$
+$$
 \widehat{\boldsymbol\beta}_{\mathrm{ridge}}
-=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I)^{-1}
-\boldsymbol X^{\mathsf T}\boldsymbol y.
+=(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}\boldsymbol y.
 $$
-Lassoの目的関数を
+
+$X=UDV^{\mathsf T}$ と特異値分解すると、Ridgeは右特異ベクトル方向 $j$ を最小二乗法に比べ
 $$
-\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
+\frac{d_j^2}{d_j^2+\lambda}
+$$
+倍に縮める。小さい特異値方向ほど強く縮小される。
+
+Lassoを
+$$
+\frac12\|\boldsymbol y-X\boldsymbol\beta\|^2
 +\lambda\sum_j|\beta_j|
 $$
-とすると、直交設計では
+と定義すると、直交設計では
 $$
 \widehat\beta_j=S(z_j,\lambda),
 \qquad
 S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+.
 $$
-一般の設計でもKKT条件より、係数 $j$ が0であるための条件は部分残差 $\boldsymbol r_{-j}$ を用いて
+一般の設計でもKKT条件から、部分残差 $\boldsymbol r_{-j}$ に対し
 $$
 |\boldsymbol x_j^{\mathsf T}\boldsymbol r_{-j}|\le\lambda
 $$
-である。
+なら $\widehat\beta_j=0$ が最適条件を満たす。
 
-Elastic NetはL1とL2を同時に使う拡張で
+Elastic Netは
 $$
-\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
+\frac12\|\boldsymbol y-X\boldsymbol\beta\|^2
 +\lambda\left\{
 \alpha\sum_j|\beta_j|
 +\frac{1-\alpha}{2}\sum_j\beta_j^2
-\right\},
+\right\}
 $$
-$\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
+とL1・L2を併用する。$\alpha=1$ でLasso、$\alpha=0$ でRidge型。
 
 ## 計算例
-Ridgeでは
+Ridgeの停留条件は
 $$
-\left(\frac8{4+1},\frac2{1+1}\right)
-=(1.6,1.0).
+\begin{aligned}
+0
+&=-2X^{\mathsf T}(y-X\beta)+2\lambda\beta\\
+&=-2X^{\mathsf T}y+2X^{\mathsf T}X\beta+2\lambda\beta,
+\end{aligned}
 $$
-Lassoでは
+したがって
 $$
-S(3,1)=2,\qquad
-S(0.5,1)=0,\qquad
+(X^{\mathsf T}X+\lambda I)\beta=X^{\mathsf T}y.
+$$
+
+直交対角例では
+$$
+\widehat\beta_1=\frac8{4+1}=1.6,
+\qquad
+\widehat\beta_2=\frac2{1+1}=1.0.
+$$
+
+Lassoはsoft-thresholdingより
+$$
+S(3,1)=2,
+\qquad
+S(0.5,1)=0,
+\qquad
 S(-2,1)=-1.
 $$
-中央の係数が0になる理由はKKT条件でも確認できる。直交設計ではその部分残差との内積が $0.5$ なので
+中央が0になることはKKTでも
 $$
-|0.5|\le1=\lambda,
+|0.5|\le1=\lambda
 $$
-よって0が最適条件を満たす。
+と確認できる。
+
+SVD方向では
+$$
+\begin{aligned}
+\text{縮小率}
+&=\frac{d^2}{d^2+\lambda}\\
+&=\frac{2^2}{2^2+3}\\
+&=\frac47.
+\end{aligned}
+$$
+小さい特異値方向ほど分母の $\lambda$ の影響が相対的に大きい。
 
 ## 一手
-Ridgeは係数を連続的に縮め、Lassoはsoft-thresholdingにより小さい係数をちょうど0へ落とす。Elastic NetはこのL1の疎性とL2の安定化を同じ目的関数へ入れたものと捉える。
+RidgeはL2罰則により**不安定な方向を連続的に縮める**。LassoはL1罰則の非微分点により**小さい係数をちょうど0へ落とす**。同じ「複雑さを罰する」正則化でも、L2の丸い制約境界とL1の角を持つ境界が挙動の違いを生む。
 
 ## 注意
-Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。
+Ridgeは分散を下げる代わりにバイアスを導入する。Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。相関の強い説明変数ではLassoが一部だけを選ぶことがあり、Elastic NetはL2成分により選択を安定化させる場合がある。
