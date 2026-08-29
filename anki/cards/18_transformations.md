@@ -1,4 +1,4 @@
-﻿---
+---
 id: prob-transform-inverse-cdf
 title: 逆関数法で一様分布から任意分布を生成する
 category: math-probability
@@ -34,6 +34,7 @@ $F_X(x)=\begin{cases}1-e^{-x}&(x>0),\\0&(x\le0).\end{cases}$
 $1-U$ も $U(0,1)$ に従うので、$-\log U$ も同じ指数分布になる。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-nonmonotonic
 title: 非単調変換で台を分割して密度を求める
@@ -96,6 +97,7 @@ $$f_Y(y)=\phi(y)+\phi(-y)=2\phi(y).$$
 1本の逆関数だけを使うと確率質量を落とす。二乗・絶対値では通常、正負2枝を足す。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-jacobian-2d
 title: 2変数の同時変換でJacobian行列式を使う
@@ -171,6 +173,7 @@ $$
 台の変換を忘れると密度の積分が1にならない。ここでは菱形の面積2に $1/2$ を掛けて1になる。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-sum-density
 title: 独立な和の密度を畳み込みで求める
@@ -243,6 +246,7 @@ $$
 独立性が必要である。台の共通部分を誤ると、積分計算が合っていても密度は誤る。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-ratio
 title: 独立な比の分布を累積分布関数から求める
@@ -313,6 +317,7 @@ $$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
 分母が負も取り得る場合は不等号の向きが変わるため、符号で場合分けが必要である。
 
 <!-- CARD -->
+
 ---
 id: prob-linear-combination-normal
 title: 独立正規分布の線形結合の分布を求める
@@ -351,6 +356,7 @@ $$W\sim N(-4,97).$$
 $(X,Y)$ が同時正規分布なら、独立でなくても線形結合は正規分布に従い、分散に共分散項 $2ab\operatorname{Cov}(X,Y)$ を加える。周辺分布がそれぞれ正規分布であるだけでは、線形結合が正規分布になるとは限らない。
 
 <!-- CARD -->
+
 ---
 id: prob-linear-combination-moments
 title: 線形結合の平均と分散を一般の分布で計算する
@@ -388,6 +394,7 @@ $$\begin{aligned}\operatorname{Var}(W)&=3^2\cdot4+(-2)^2\cdot1+2\cdot3\cdot(-2)\
 独立なら共分散項は0になるが、この問題では $\operatorname{Cov}(X,Y)=0.5\ne0$ なので落とせない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-log
 title: 対数変換で対数正規分布の密度を導出する
@@ -452,127 +459,6 @@ $$f_Y(y)=\frac1{y^2},\qquad y>1.$$
 <!-- CARD -->
 
 ---
-id: prob-transform-affine-decreasing
-title: 負の係数を持つ一次変換の密度を求める
-category: math-probability
-subcategory: math-transformations
-topic: affine-decreasing-transform
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [変数変換, 単調減少, Jacobian]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X$ は一様分布 $U(0,2)$ に従い、$Y=3-2X$ とする。$Y$ の確率密度関数を求めよ。
-## 答え
-$$f_Y(y)=\frac14,\qquad -1<y<3.$$
-## 使用公式・定理
-$Y=a+bX$（$b\ne0$）なら
-$$f_Y(y)=f_X\left(\frac{y-a}{b}\right)\frac1{|b|}.$$
-## 計算例
-逆変換は $x=(3-y)/2$、$|dx/dy|=1/2$。元密度は $1/2$ なので
-$$f_Y(y)=\frac12\cdot\frac12=\frac14.$$
-$0<(3-y)/2<2$ を解くと $-1<y<3$。
-## 一手
-係数が負なら台の不等号が反転する。Jacobianは絶対値を取る。
-## 注意
-$1/b$ をそのまま掛けて負の密度にしない。
-
-<!-- CARD -->
----
-id: prob-transform-reciprocal-uniform
-title: 逆数変換でパレート型密度を導く
-category: math-probability
-subcategory: math-transformations
-topic: reciprocal-transform
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [変数変換, 逆数, パレート分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X$ は一様分布 $U(0,1)$ に従い、$Y=1/X$ とする。$Y$ の密度と $P(Y>4)$ を求めよ。
-## 答え
-$$f_Y(y)=\frac1{y^2},\qquad y>1,\qquad P(Y>4)=\frac14.$$
-## 使用公式・定理
-単調変換では $f_Y(y)=f_X(x(y))|dx/dy|$。
-## 計算例
-$x=1/y$、$|dx/dy|=1/y^2$。$0<x<1$ は $y>1$ と同値なので上の密度を得る。また
-$$P(Y>4)=P(1/X>4)=P(X<1/4)=1/4.$$
-## 一手
-逆数変換では0に近い元の値が長い右裾を作る。
-## 注意
-期待値は $\int_1^\infty y\cdot y^{-2}dy=\infty$ で存在しない。
-
-<!-- CARD -->
----
-id: prob-transform-half-normal
-title: 標準正規変数の絶対値から半正規密度を求める
-category: math-probability
-subcategory: math-transformations
-topic: absolute-normal-transform
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [半正規分布, 絶対値変換, 多対一変換]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X$ は標準正規分布 $N(0,1)$ に従い、$Y=|X|$ とする。$Y$ の密度と平均を求めよ。
-## 答え
-$$f_Y(y)=2\phi(y)=\sqrt{\frac2\pi}e^{-y^2/2},\quad y>0,$$
-$$E[Y]=\sqrt{\frac2\pi}.$$
-## 使用公式・定理
-$y>0$ には逆像 $x=y,-y$ があるため、両枝の密度を足す。
-## 計算例
-$$f_Y(y)=f_X(y)+f_X(-y)=2\phi(y).$$
-さらに
-$$E[Y]=2\int_0^\infty y\phi(y)dy
-=\frac2{\sqrt{2\pi}}\left[-e^{-y^2/2}\right]_0^\infty
-=\sqrt{\frac2\pi}.$$
-## 一手
-多対一変換では、同じ $y$ へ写るすべての逆像を列挙する。
-## 注意
-$Y$ の台は $y\ge0$ であり、負側の密度は0。
-
-<!-- CARD -->
----
-id: prob-transform-normal-square
-title: 標準正規変数の2乗からカイ二乗密度を導く
-category: math-probability
-subcategory: math-transformations
-topic: normal-square-transform
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [カイ二乗分布, 二乗変換, 標準正規分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X$ は正規分布 $N(0,1)$ に従い、$Y=X^2$ とする。$Y$ の密度を求めよ。
-## 答え
-$$f_Y(y)=\frac1{\sqrt{2\pi y}}e^{-y/2},\qquad y>0.$$
-これは自由度1のカイ二乗分布 $\chi_1^2$ の密度である。
-## 使用公式・定理
-$y>0$ の逆像は $x=\pm\sqrt y$ で、各枝のJacobianは $|dx/dy|=1/(2\sqrt y)$。
-## 計算例
-$$f_Y(y)=\phi(\sqrt y)\frac1{2\sqrt y}
-+\phi(-\sqrt y)\frac1{2\sqrt y}
-=\frac{\phi(\sqrt y)}{\sqrt y}
-=\frac{e^{-y/2}}{\sqrt{2\pi y}}.$$
-## 一手
-二乗変換では正負2枝を足し、Jacobian $1/(2\sqrt y)$ を各枝へ掛ける。
-## 注意
-$y=0$ で密度は発散するが、積分可能である。
-
-<!-- CARD -->
----
 id: prob-transform-uniform-product
 title: 独立一様変数の積の密度を領域積分で求める
 category: math-probability
@@ -602,6 +488,7 @@ $z/x$ が1を超える範囲と超えない範囲を分ける。
 $\int_0^1-\log z\,dz=1$。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-iid-maximum-density
 title: 独立同分布標本の最大値の密度を累積分布関数から求める
@@ -657,158 +544,6 @@ $$
 $F(m)^n$ や $(1-F(\ell))^n$ を使うには標本の独立性が必要である。最小値の指数率は $\lambda/n$ ではなく $n\lambda$。
 
 <!-- CARD -->
----
-id: prob-transform-iid-minimum-density
-title: 独立同分布標本の最小値の密度を生存関数から求める
-category: math-probability
-subcategory: math-transformations
-topic: minimum-transform-density
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [最小値, 順序統計量, 生存関数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X_1,\ldots,X_n$ は累積分布関数 $F$、密度 $f$ を持つ独立同分布標本である。$L=\min_iX_i$ の密度を求め、率 $\lambda$ の指数分布で具体化せよ。
-## 答え
-$$f_L(\ell)=n\{1-F(\ell)\}^{n-1}f(\ell).$$
-指数分布では $L\sim\operatorname{Exp}(n\lambda)$。
-## 使用公式・定理
-$$P(L>\ell)=P(X_1>\ell,\ldots,X_n>\ell)=\{1-F(\ell)\}^n.$$
-## 計算例
-指数分布の生存関数は $e^{-\lambda\ell}$ なので
-$$P(L>\ell)=e^{-n\lambda\ell},\qquad
-f_L(\ell)=n\lambda e^{-n\lambda\ell}.$$
-## 一手
-最小値は累積分布関数より生存関数で処理すると積へ直しやすい。
-## 注意
-最小値の指数率は $\lambda/n$ でなく $n\lambda$。
-
-<!-- CARD -->
----
-id: prob-transform-uniform-sum-triangular
-title: 2つの一様分布の和を区分的に畳み込む
-category: math-probability
-subcategory: math-transformations
-topic: uniform-sum-density
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [畳み込み, 一様分布, 三角分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
----
-## 問題
-$X,Y$ は独立に一様分布 $U(0,1)$ に従う。$S=X+Y$ の密度を求めよ。
-## 答え
-$$f_S(s)=\begin{cases}s&(0<s<1),\\2-s&(1\le s<2),\\0&\text{otherwise}.\end{cases}$$
-## 使用公式・定理
-$$f_S(s)=\int f_X(x)f_Y(s-x)dx.$$
-## 計算例
-$0<x<1$ と $0<s-x<1$ の共通範囲は
-$$\max(0,s-1)<x<\min(1,s).$$
-被積分関数は1なので密度は区間長。$0<s<1$ では長さ $s$、$1\le s<2$ では長さ $2-s$。
-## 一手
-畳み込みでは被積分関数より先に、台の共通部分の長さを求める。
-## 注意
-密度は $s=1$ を頂点として連続につながる。
-
-<!-- CARD -->
----
-id: prob-transform-uniform-difference-triangular
-title: 2つの一様分布の差の密度を求める
-category: math-probability
-subcategory: math-transformations
-topic: uniform-difference-density
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [差の分布, 一様分布, 畳み込み]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
----
-## 問題
-$X,Y$ は独立に一様分布 $U(0,1)$ に従う。$D=X-Y$ の密度を求めよ。
-## 答え
-$$f_D(d)=1-|d|,\qquad -1<d<1.$$
-## 使用公式・定理
-$D=X+(-Y)$ と見るか
-$$f_D(d)=\int f_X(d+y)f_Y(y)dy$$
-を使う。
-## 計算例
-条件 $0<y<1$ と $0<d+y<1$ の共通区間の長さを求める。$0\le d<1$ なら $0<y<1-d$ で長さ $1-d$。$-1<d<0$ なら $-d<y<1$ で長さ $1+d$。まとめて $1-|d|$。
-## 一手
-差の密度は、元の2つの台がずらした後に重なる長さで決まる。
-## 注意
-$X,Y$ が同分布なので $D$ の密度は0を中心に対称。
-
-<!-- CARD -->
----
-id: prob-transform-unequal-exponential-sum
-title: 率の異なる指数分布の和を畳み込みで求める
-category: math-probability
-subcategory: math-transformations
-topic: hypoexponential-sum
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [指数分布, 畳み込み, hypoexponential]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
----
-## 問題
-独立に $X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$ とし、$\lambda\ne\mu$ とする。$S=X+Y$ の密度を求めよ。
-## 答え
-$$f_S(s)=\frac{\lambda\mu}{\mu-\lambda}
-\left(e^{-\lambda s}-e^{-\mu s}\right),\qquad s>0.$$
-## 使用公式・定理
-独立和の畳み込みを $0<x<s$ で計算する。
-## 計算例
-$$\begin{aligned}
-f_S(s)&=\int_0^s\lambda e^{-\lambda x}\mu e^{-\mu(s-x)}dx\\
-&=\lambda\mu e^{-\mu s}\int_0^s e^{(\mu-\lambda)x}dx\\
-&=\frac{\lambda\mu}{\mu-\lambda}(e^{-\lambda s}-e^{-\mu s}).
-\end{aligned}$$
-## 一手
-指数部を $e^{-\mu s}e^{(\mu-\lambda)x}$ に整理してから積分する。
-## 注意
-$\mu\to\lambda$ の極限は $\lambda^2se^{-\lambda s}$ となりGamma$(2,\lambda)$ に一致する。
-
-<!-- CARD -->
----
-id: prob-transform-exponential-ratio
-title: 独立指数変数の比の分布を求める
-category: math-probability
-subcategory: math-transformations
-topic: exponential-ratio-density
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [比の分布, 指数分布, 変数変換]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
----
-## 問題
-$X,Y$ は独立に率1の指数分布に従う。$R=X/Y$ の累積分布関数と密度を求めよ。
-## 答え
-$$F_R(r)=\frac r{1+r},\qquad
-f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
-## 使用公式・定理
-$r>0$ では
-$$P(X/Y\le r)=\int_0^\infty P(X\le ry\mid Y=y)f_Y(y)dy.$$
-## 計算例
-$$F_R(r)=\int_0^\infty(1-e^{-ry})e^{-y}dy
-=1-\int_0^\infty e^{-(1+r)y}dy
-=1-\frac1{1+r}.$$
-微分して密度を得る。
-## 一手
-分母が正なので不等号の向きを変えず、分母で条件付ける。
-## 注意
-平均は $\int_0^\infty r/(1+r)^2dr=\infty$ で存在しない。
-
-<!-- CARD -->
 
 ---
 id: prob-transform-normal-polar
@@ -843,6 +578,7 @@ $$f_R(r)=\int_0^{2\pi}\frac1{2\pi}re^{-r^2/2}d\theta=re^{-r^2/2}.$$
 Jacobianの因子 $r$ を落とさない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-normal-square-sum
 title: 独立標準正規変数の平方和をカイ二乗分布に結び付ける
@@ -873,6 +609,7 @@ $$E[\chi_\nu^2]=\nu,\qquad \operatorname{Var}(\chi_\nu^2)=2\nu$$
 相関がある正規変数の平方和にはそのまま適用できない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-student-t
 title: 正規変数とカイ二乗変数の比からt分布を作る
@@ -902,6 +639,7 @@ $$P(-2.262\le T\le2.262)=0.975-0.025=0.95.$$
 $Z$ と $V$ の独立性が定義の一部。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-f-ratio
 title: 2つのカイ二乗変数の比からF分布を作る
@@ -931,6 +669,7 @@ $$\frac{8/5}{12/10}=\frac{1.6}{1.2}=1.333\ldots.$$
 分子と分母を逆にすると $F_{10,5}$ になり、元の逆数である。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-bivariate-normal-decorrelation
 title: 相関正規変数を線形変換して独立な標準正規変数にする
@@ -963,6 +702,7 @@ $Y$ から $X$ で説明される成分 $\rho X$ を引き、残差分散で標�
 共同正規でない場合、無相関だけから独立とはいえない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-uniform-min-max-joint
 title: 一様標本2個の最小値と最大値の同時密度を求める
@@ -994,6 +734,7 @@ $$\int_0^{1/2}1\,d\ell+\int_{1/2}^12(1-\ell)d\ell
 対角線 $\ell=m$ は面積0なので密度計算に寄与しない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-probability-integral
 title: 確率積分変換で累積分布関数を一様分布にする
@@ -1026,6 +767,7 @@ $$P(1-e^{-2X}\le u)
 離散分布では $F(X)$ は一般に連続一様分布にならない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-discrete-many-to-one
 title: 離散確率変数の多対一変換で確率を足し上げる
@@ -1056,6 +798,7 @@ $$P(Y=4)=P(X=-2)+P(X=2)=0.10+0.15=0.25.$$
 連続変換のJacobian公式を離散分布へ使わない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-standardization-density
 title: 位置尺度変換で密度を標準化する
@@ -1088,6 +831,7 @@ $$f_Z(z)=\frac1{3\sqrt{2\pi}}e^{-9z^2/18}\cdot3
 $N(10,9)$ の第2母数9は分散であり、標準偏差は3。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-normal-ratio-cauchy
 title: 独立標準正規変数の比からコーシー密度を導く
@@ -1123,6 +867,7 @@ w e^{-(1+z^2)w^2/2}dw\\
 コーシー分布の平均と分散は存在しない。
 
 <!-- CARD -->
+
 ---
 id: prob-transform-logit-uniform
 title: 一様変数のロジット変換からロジスティック密度を導く
@@ -1155,5 +900,3 @@ $$f_X(x)=\frac{e^x}{(1+e^x)^2}
 ロジット不等式を $U$ について解き、一様分布の累積分布関数をそのまま使う。
 ## 注意
 ロジスティック密度は0を中心に対称で、台は実数全体。
-
-<!-- CARD -->

@@ -312,26 +312,16 @@ items:
     status: complete
     cards:
       - dist-jacobian-scale
-      - dist-convolution-uniform
+      - prob-transform-sum-density
       - prob-transform-inverse-cdf
       - prob-transform-nonmonotonic
       - prob-transform-jacobian-2d
-      - prob-transform-sum-density
       - prob-transform-ratio
       - prob-linear-combination-normal
       - prob-linear-combination-moments
       - prob-transform-log
-      - prob-transform-affine-decreasing
-      - prob-transform-reciprocal-uniform
-      - prob-transform-half-normal
-      - prob-transform-normal-square
       - prob-transform-uniform-product
       - prob-transform-iid-maximum-density
-      - prob-transform-iid-minimum-density
-      - prob-transform-uniform-sum-triangular
-      - prob-transform-uniform-difference-triangular
-      - prob-transform-unequal-exponential-sum
-      - prob-transform-exponential-ratio
       - prob-transform-normal-polar
       - prob-transform-normal-square-sum
       - prob-transform-student-t
@@ -356,7 +346,6 @@ items:
       - name: 確率変数の線形結合
         status: card
         cards:
-          - dist-convolution-uniform
           - prob-transform-sum-density
           - prob-linear-combination-normal
           - prob-linear-combination-moments

@@ -1,4 +1,4 @@
-﻿---
+---
 id: dist-mgf-poisson
 title: ポアソン分布のモーメント母関数から平均を取り出す
 category: math-probability
@@ -23,32 +23,7 @@ $$\begin{aligned}M_X'(t)&=\lambda e^t\exp\{\lambda(e^t-1)\},\\M_X'(0)&=\lambda\c
 モーメント母関数が0の近傍で有限であることを確認する。
 
 <!-- CARD -->
----
-id: dist-convolution-uniform
-title: 一様分布の和を畳み込みで求める
-category: math-probability
-subcategory: math-transformations
-topic: convolution
-type: strategy
-difficulty: 3
-priority: S
-hashtags: [畳み込み, 台, 一様分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 確率変数の和 }]
----
-## 問題
-独立な $X,Y$ は一様分布 $U(0,1)$ に従うとする。密度は $f(x)=1$（$0<x<1$）、それ以外で0である。$Z=X+Y$ の密度を求めよ。
-## 方針
-畳み込みを立て、$0<x<1$ と $0<z-x<1$ の共通範囲を積分する。
-## 使用公式・定理
-$$f_Z(z)=\int_{-\infty}^{\infty}f_X(x)f_Y(z-x)\,dx.$$
-## 計算例
-条件は $\max(0,z-1)<x<\min(1,z)$。したがって
-$$f_Z(z)=\begin{cases}\int_0^z1\,dx=z&(0<z<1),\\\int_{z-1}^11\,dx=2-z&(1\le z<2),\\0&\text{otherwise}.\end{cases}$$
-## 注意
-公式より先に積分区間を台から決める。
 
-<!-- CARD -->
 ---
 id: dist-order-max
 title: 最大値の分布を累積分布関数から求める
@@ -76,6 +51,7 @@ $$F_M(m)=m^2,\qquad f_M(m)=\frac{d}{dm}m^2=2m.$$
 密度を出した後も台を残す。
 
 <!-- CARD -->
+
 ---
 id: est-moments-exponential
 title: 指数分布のモーメント法推定量を求める
@@ -102,6 +78,7 @@ $x=(1,2,3)$ なら $\overline x=2$ より推定値は $1/2$。
 rate母数化を使っている。
 
 <!-- CARD -->
+
 ---
 id: est-fisher-bernoulli
 title: ベルヌーイ分布のフィッシャー情報量（1次元）を求める
@@ -135,6 +112,7 @@ $$I_1(p)=-E_p[\ell''(p;X)]
 標本全体なら $I_n(p)=nI_1(p)$。
 
 <!-- CARD -->
+
 ---
 id: est-cramer-rao-bernoulli
 title: クラーメル・ラオの不等式へ情報量を代入する
@@ -175,6 +153,7 @@ $$E_p[\overline X]=p,
 不偏性と正則条件が必要である。
 
 <!-- CARD -->
+
 ---
 id: est-aic-choice
 title: AICでモデルを比較する
@@ -202,6 +181,7 @@ $206<208$ なのでAを選ぶ。
 母数数のペナルティを忘れない。
 
 <!-- CARD -->
+
 ---
 id: test-z-rejection
 title: 両側Z検定の棄却域を作る
@@ -228,6 +208,7 @@ $2.5>1.96$ だから $H_0$ を棄却する。
 対立仮説が両側なので両端へ2.5%ずつ配る。
 
 <!-- CARD -->
+
 ---
 id: test-likelihood-ratio
 title: 尤度比検定統計量を制約付き最尤推定から作る
@@ -255,6 +236,7 @@ $$-2\log\Lambda=2\{-40-(-42)\}=2\cdot2=4.$$
 制約下の最大尤度は無制約より大きくならない。
 
 <!-- CARD -->
+
 ---
 id: data-bayes-beta
 title: ベータ–ベルヌーイ共役更新を行う
@@ -281,6 +263,7 @@ $$\pi(p\mid x)\propto p^{2-1}(1-p)^{3-1}p^3(1-p)^2=p^4(1-p)^4.$$
 試行回数5、成功3なので失敗は2。
 
 <!-- CARD -->
+
 ---
 id: data-em-responsibility
 title: 2成分混合分布のE-stepを計算する
@@ -306,6 +289,7 @@ $$\begin{aligned}r_1(x)&=\frac{0.4\cdot0.3}{0.4\cdot0.3+0.6\cdot0.1}\\&=\frac{0.
 分母には全成分の重み付き密度を足す。
 
 <!-- CARD -->
+
 ---
 id: data-monte-carlo-integral
 title: Monte Carlo平均で積分を推定する
@@ -332,6 +316,7 @@ $$\widehat I_3=\frac{(1/4)^2+(1/2)^2+(3/4)^2}{3}=\frac7{24}\approx0.292.$$
 乱数は実際には連続一様分布から生成する。
 
 <!-- CARD -->
+
 ---
 id: multi-conditional-normal
 title: 2変量正規分布の条件付き平均を求める
@@ -357,6 +342,7 @@ $$\begin{aligned}E[X\mid Y=4]&=0+\frac39(4-1)\\&=\frac13\cdot3=1.\end{aligned}$$
 分母は $Y$ の分散である。
 
 <!-- CARD -->
+
 ---
 id: process-stationary-markov
 title: 2状態マルコフ連鎖の定常分布を解く
@@ -383,6 +369,7 @@ $$\boldsymbol\pi=(3/5,2/5)^{\mathsf T}.$$
 行ベクトル規約か列ベクトル規約かを式で明示する。
 
 <!-- CARD -->
+
 ---
 id: process-ma1-autocovariance
 title: MA(1)過程の自己共分散を求める
@@ -408,6 +395,7 @@ $$\begin{aligned}\gamma(0)&=\operatorname{Var}(\varepsilon_t)+0.5^2\operatorname
 $|h|>1$ では重なる革新がなく $\gamma(h)=0$。
 
 <!-- CARD -->
+
 ---
 id: model-poisson-glm
 title: ポアソン回帰係数を平均比で読む
@@ -433,6 +421,7 @@ $$\begin{aligned}\log\frac{\mu(x+2)}{\mu(x)}&=0.4(x+2)-0.4x=0.8,\\\frac{\mu(x+2)
 加法効果でなく乗法効果である。
 
 <!-- CARD -->
+
 ---
 id: eng-xbar-limits
 title: X̄管理図の3σ管理限界を求める
@@ -459,6 +448,7 @@ $$UCL=13,\qquad CL=10,\qquad LCL=7.$$
 個々の観測の標準偏差2でなく標本平均の標準偏差1を使う。
 
 <!-- CARD -->
+
 ---
 id: eng-exponential-reliability
 title: 指数寿命の信頼度とMTBFを求める
@@ -485,6 +475,7 @@ $$\operatorname{MTBF}=E[T]=1/0.01=100.$$
 時間の単位を揃える。
 
 <!-- CARD -->
+
 ---
 id: eng-two-factor-interaction
 title: 2因子実験の交互作用を差の差で読む
