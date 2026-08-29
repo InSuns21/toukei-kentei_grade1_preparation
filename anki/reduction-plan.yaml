@@ -1,18 +1,23 @@
 schema_version: 1
-batch_id: 2026-08-29-interval-structural-dedupe-06
+batch_id: 2026-08-29-interval-consolidation-07
 items:
-  - id: ci-coverage-frequentist
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ci-coverage-probability
-    note: 被覆確率の定義カード自体が「母数は固定・確率を担うのは区間」「95%は反復手順の被覆」を既に説明している。解釈だけの別カードは同じretrievalを反復する。
-  - id: ci-pivot-definition
+  - id: ci-normal-mean-known
     bucket: duplicates
     reason: duplicate
     canonical_card: ci-pivot-construction
-    note: 構成カードはピボット量の母数非依存性を使い、確率不等式を未知母数について実際に解いて正規平均区間まで導く。定義だけを独立カードにしない。
-  - id: ci-test-duality
+    note: ピボット構成canonicalを標準正規の確率不等式→muについて反転→数値95%区間まで補強したため、既知分散z区間の公式再生カードは独立保持しない。
+  - id: ci-t-vs-z
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-duality-acceptance
-    note: 受容域を未知母数について反転して信頼区間を得る証明カードが双対性の定義そのものを具体化しているため、認識カードを別に持たない。
+    canonical_card: ci-t-interval-pivot
+    note: 補強済みt区間canonicalが、未知分散でtを使う理由、既知分散ならz、大標本でt→zまで注意欄に含むため、比較説明だけのカードは重複。
+  - id: ci-asymptotic-def
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ci-asymptotic-mle
+    note: MLE漸近区間canonicalへ被覆確率がn→∞で1-alphaへ収束する定義を吸収し、Poissonで情報量→SE→端点まで計算するため、定義だけのカードは不要。
+  - id: ci-length-confidence-tradeoff
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ci-sample-size-for-width
+    note: 標本サイズ設計canonicalに90%と95%を同じ幅で比較し、必要nが44から62へ増える数値例を追加した。信頼係数↑なら幅↑という説明だけを独立カードにしない。
