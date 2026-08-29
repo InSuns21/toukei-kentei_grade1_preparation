@@ -1,13 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-29-conditional-moments-inequalities-consolidation-15
+batch_id: 2026-08-29-covariance-correlation-consolidation-16
 items:
-  - id: prob-total-variance
+  - id: prob-covariance-computation
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-conditional-covariance
-    note: 全共分散canonicalへY=Xを代入して全分散の法則を導出し、E[Var(X|Z)]=4, Var(E[X|Z])=3からVar(X)=7まで吸収済み。
-  - id: prob-markov-inequality
+    canonical_card: prob-correlation-coefficient
+    note: 強化済み相関canonicalへ同時確率質量関数からE[X],E[Y],E[XY]を計算しCov(X,Y)=E[XY]-E[X]E[Y]を得る全手順を吸収済み。
+  - id: prob-cauchy-schwarz-correlation
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-chebyshev-inequality
-    note: チェビシェフcanonicalへMarkovの一般定理、指示関数による導出、E[Y]=2でP(Y>=10)<=0.2の例を吸収し、二乗偏差へ適用してチェビシェフを導出済み。
+    canonical_card: prob-correlation-coefficient
+    note: 相関canonicalへ中心化変数にコーシー–シュワルツの不等式を適用してCov^2<=VarX VarY、したがって|rho|<=1を導く証明と等号条件を吸収済み。
+  - id: prob-correlation-independence
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-correlation-coefficient
+    note: 相関canonicalへ独立なら無相関、逆は一般に不成立という関係と、X in {-1,0,1}, Y=X^2による無相関だが従属な具体例を吸収済み。
