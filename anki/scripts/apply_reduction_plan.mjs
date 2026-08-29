@@ -46,6 +46,15 @@ function readArchiveCardFiles() {
     });
 }
 
+function countArchivedCards() {
+  let count = 0;
+  for (const file of readArchiveCardFiles()) {
+    const source = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
+    count += source.split(/^<!-- CARD -->\s*$/m).map((part) => part.trim()).filter(Boolean).length;
+  }
+  return count;
+}
+
 const files = readCardFiles();
 const cardIndex = new Map();
 for (const source of files) {
@@ -200,5 +209,20 @@ for (const coverageItem of coverage.items || []) {
 }
 
 fs.writeFileSync(coveragePath, YAML.stringify(coverage), "utf8");
+
+// During the canonical-deck audit we may introduce a stronger replacement
+// card before archiving weaker historical cards. The reviewed corpus is the
+// union of active canonical cards and archived historical cards, so keep the
+// progress counter synchronized automatically instead of requiring a manual
+// edit to the large progress.yaml file after every editorial consolidation.
+const progressPath = path.join(ROOT, "progress.yaml");
+const progress = YAML.parse(fs.readFileSync(progressPath, "utf8").replace(/^\uFEFF/, ""));
+const activeCount = readCardFiles().reduce((sum, source) => sum + source.chunks.length, 0);
+const archiveCount = countArchivedCards();
+progress.reviewed_card_count = activeCount + archiveCount;
+progress.updated_at = new Date().toISOString().slice(0, 10);
+fs.writeFileSync(progressPath, YAML.stringify(progress), "utf8");
+
 console.log(`coverage remapped for ${items.length} archived cards`);
+console.log(`reviewed corpus synchronized: ${activeCount} canonical + ${archiveCount} archive = ${progress.reviewed_card_count}`);
 console.log(`Anki reduction plan applied: ${items.length} cards`);
