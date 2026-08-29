@@ -272,7 +272,6 @@ items:
     status: complete
     cards:
       - dist-clt-standardize
-      - data-monte-carlo-integral
       - dist-weak-law-chebyshev
       - dist-weak-law-sample-mean
       - dist-clt-statement
@@ -1584,13 +1583,12 @@ items:
   - id: math-incomplete-data
     status: complete
     cards:
-      - data-em-responsibility
+      - inc-em-observed-likelihood
       - inc-mcar-mar-mnar
       - inc-missing-indicator-likelihood
       - inc-complete-case-bias
       - inc-mean-imputation-variance
       - inc-ipw-mean
-      - inc-em-observed-likelihood
       - inc-multiple-imputation-rubin
       - surv-censoring-definition
       - surv-right-censored-likelihood
@@ -1614,13 +1612,12 @@ items:
       - name: 欠測（欠損）
         status: card
         cards:
-          - data-em-responsibility
+          - inc-em-observed-likelihood
           - inc-mcar-mar-mnar
           - inc-missing-indicator-likelihood
           - inc-complete-case-bias
           - inc-mean-imputation-variance
           - inc-ipw-mean
-          - inc-em-observed-likelihood
           - inc-multiple-imputation-rubin
       - name: 打ち切り
         status: card
@@ -1650,14 +1647,13 @@ items:
     status: complete
     cards:
       - data-bootstrap-mean
-      - data-monte-carlo-integral
+      - sim-mc-standard-error
       - sim-uniform-prng-definition
       - sim-inverse-transform-continuous
       - sim-inverse-transform-exponential-numeric
       - sim-inverse-transform-discrete
       - sim-accept-reject
       - sim-box-muller
-      - sim-mc-standard-error
       - sim-mc-ci-numeric
       - sim-antithetic-variates
       - sim-control-variate
@@ -1701,7 +1697,6 @@ items:
       - name: モンテカルロシミュレーション
         status: card
         cards:
-          - data-monte-carlo-integral
           - sim-mc-standard-error
           - sim-mc-ci-numeric
           - sim-antithetic-variates
