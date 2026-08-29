@@ -183,42 +183,6 @@ $0<x<1$ の式だけを書いて、$x<0$ と $x\ge1$ を落とさない。
 <!-- CARD -->
 
 ---
-id: prob-survival-hazard
-title: 生存関数から危険率を求める
-category: math-probability
-subcategory: math-distribution-functions
-topic: survival-hazard
-type: formula
-difficulty: 2
-priority: S
-hashtags: [生存関数, 危険率, 指数分布]
-frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
-sources: [{ type: official_syllabus, topic: 生存関数と危険率 }, { type: past_exam, id: SCI-2019-Q1, topic: 生存関数・平均残存寿命 }, { type: past_exam, id: SCI-2017-Q2, topic: 指数待時間・故障率 }]
----
-## 問題
-$X$ はrate $2$ の指数分布に従い、台は $x>0$、確率密度関数は $f_X(x)=2e^{-2x}$ である。$t>0$ で生存関数 $S_X(t)$ と危険率 $h_X(t)$ を求めよ。
-
-## 答え
-生存関数は $t$ より長く生存する確率、危険率は確率密度関数を生存関数で割った値である。
-
-## 使用公式・定理
-$$S_X(t)=P(X>t)=\int_t^\infty f_X(x)\,dx,\qquad h_X(t)=\frac{f_X(t)}{S_X(t)}.$$
-
-## 計算例
-まず
-$$\begin{aligned}S_X(t)&=\int_t^\infty2e^{-2x}\,dx\\&=[-e^{-2x}]_t^\infty\\&=e^{-2t}.\end{aligned}$$
-したがって
-$$h_X(t)=\frac{2e^{-2t}}{e^{-2t}}=2.$$
-
-## 一手
-危険率では分母に、その時点まで生存している確率を置く。
-
-## 注意
-指数分布の危険率は $t$ に依存しない。
-
-<!-- CARD -->
-
----
 id: prob-marginal-density
 title: 同時確率密度関数を積分して周辺密度を求める
 category: math-probability

@@ -60,7 +60,7 @@ items:
       - prob-cdf-from-pmf
       - dist-mgf-poisson
       - prob-cdf-from-density
-      - prob-survival-hazard
+      - prob-cumulative-hazard
       - prob-marginal-density
       - prob-conditional-density
       - prob-pgf-moments
@@ -72,14 +72,9 @@ items:
       - prob-joint-factorization-independence
       - prob-pmf-normalization
       - prob-cdf-validity
-      - prob-interval-from-cdf
       - prob-cdf-endpoint-choice
       - prob-mixed-cdf
       - prob-joint-cdf-from-density
-      - prob-rectangle-from-joint-cdf
-      - prob-survival-from-cdf
-      - prob-cumulative-hazard
-      - prob-survival-from-hazard
       - prob-joint-density-normalization
       - prob-joint-pmf-normalization
       - prob-discrete-independence-cross-product
@@ -133,21 +128,16 @@ items:
           - prob-density-from-cdf-derivative
           - prob-cdf-jump-mass
           - prob-cdf-validity
-          - prob-interval-from-cdf
           - prob-cdf-endpoint-choice
           - prob-mixed-cdf
       - name: 生存関数
         status: card
         cards:
-          - prob-survival-hazard
-          - prob-survival-from-cdf
-          - prob-survival-from-hazard
+          - prob-cumulative-hazard
       - name: 危険率
         status: card
         cards:
-          - prob-survival-hazard
           - prob-cumulative-hazard
-          - prob-survival-from-hazard
       - name: 同時分布
         status: card
         cards:
@@ -155,7 +145,6 @@ items:
           - prob-joint-factorization-independence
           - prob-discrete-marginal
           - prob-joint-cdf-from-density
-          - prob-rectangle-from-joint-cdf
           - prob-joint-density-normalization
           - prob-joint-pmf-normalization
           - prob-discrete-independence-cross-product
