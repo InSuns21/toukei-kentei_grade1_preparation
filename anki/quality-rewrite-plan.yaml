@@ -1,228 +1,227 @@
 schema_version: 1
-batch_id: 2026-08-29-regression-multivariate-traceability-03
+batch_id: 2026-08-29-time-series-traceability-04
 items:
-  - id: mv-mean-covariance-numeric
-    note: 平均・偏差・外積・和という分散共分散行列の計算を答え欄から計算例へ移し、一行ずつ追えるようにする。
+  - id: ts-pacf-lag2-calculation
+    note: PACFの公式代入を答え欄から計算例へ移し、分子・分母を別々に計算して追えるようにする。
     sections:
-      一手: |
-        多変量の分散共分散行列は、まず平均ベクトルを引いて偏差ベクトルを作り、その**外積を足して $n-1$ で割る**。
       答え: |
+        ラグ2偏自己相関は
         $$
-        \overline{\boldsymbol x}
-        =\begin{pmatrix}2\\3\end{pmatrix},
-        \qquad
-        \boldsymbol S
-        =\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+        \alpha_{22}=-0.25.
         $$
       計算例: |
-        まず平均ベクトルは
+        まず分子を計算する。
         $$
         \begin{aligned}
-        \overline{\boldsymbol x}
-        &=\frac12\left\{
-        \begin{pmatrix}1\\2\end{pmatrix}
-        +\begin{pmatrix}3\\4\end{pmatrix}
-        \right\}\\
-        &=\begin{pmatrix}2\\3\end{pmatrix}.
+        \rho_2-\rho_1^2
+        &=0.2-0.6^2\\
+        &=0.2-0.36\\
+        &=-0.16.
         \end{aligned}
         $$
-        したがって2本の偏差ベクトルは
-        $$
-        \boldsymbol d_1
-        =\begin{pmatrix}-1\\-1\end{pmatrix},
-        \qquad
-        \boldsymbol d_2
-        =\begin{pmatrix}1\\1\end{pmatrix}.
-        $$
-        それぞれの外積は
-        $$
-        \boldsymbol d_1\boldsymbol d_1^{\mathsf T}
-        =\begin{pmatrix}1&1\\1&1\end{pmatrix},
-        \qquad
-        \boldsymbol d_2\boldsymbol d_2^{\mathsf T}
-        =\begin{pmatrix}1&1\\1&1\end{pmatrix}.
-        $$
-        $n=2$ なので不偏標本分散共分散行列は
+        次に分母は
         $$
         \begin{aligned}
-        \boldsymbol S
-        &=\frac1{n-1}
-        \left(
-        \boldsymbol d_1\boldsymbol d_1^{\mathsf T}
-        +\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
-        \right)\\
-        &=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+        1-\rho_1^2
+        &=1-0.6^2\\
+        &=1-0.36\\
+        &=0.64.
         \end{aligned}
+        $$
+        よってDurbin--Levinson公式へ代入して
+        $$
+        \begin{aligned}
+        \alpha_{22}
+        &=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}\\
+        &=\frac{-0.16}{0.64}\\
+        &=-0.25.
+        \end{aligned}
+        $$
+        なおAR$(1)$ では理論自己相関が $\rho_2=\rho_1^2$ を満たすので、この分子が0となりラグ2偏自己相関も0になる。
+  - id: ts-ar-causality-check
+    note: 二次方程式の解を一行で飛ばさず、係数整理→解の公式→数値→絶対値比較へ分ける。
+    sections:
+      答え: |
+        AR多項式の2根は約
+        $$
+        z_1=1.31,
+        \qquad
+        z_2=-3.81
+        $$
+        で、ともに絶対値が1より大きい。したがってこのAR$(2)$モデルは因果的である。
+      計算例: |
+        AR多項式は
+        $$
+        \phi(z)=1-0.5z-0.2z^2.
+        $$
+        根を求めるため
+        $$
+        1-0.5z-0.2z^2=0
+        $$
+        を
+        $$
+        0.2z^2+0.5z-1=0
+        $$
+        と書き直す。解の公式より
+        $$
+        \begin{aligned}
+        z
+        &=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{2(0.2)}\\
+        &=\frac{-0.5\pm\sqrt{0.25+0.8}}{0.4}\\
+        &=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
+        \end{aligned}
+        $$
+        $\sqrt{1.05}\approx1.0247$ なので
+        $$
+        z_1\approx\frac{0.5247}{0.4}\approx1.31,
+        $$
+        $$
+        z_2\approx\frac{-1.5247}{0.4}\approx-3.81.
         $$
         最後に
         $$
-        \det(\boldsymbol S)=2\cdot2-2\cdot2=0
+        |z_1|\approx1.31>1,
+        \qquad
+        |z_2|\approx3.81>1
         $$
-        なので、この例では2変数が完全な直線関係にあり $\boldsymbol S$ は特異である。
-  - id: glm-software-deviance-output
-    note: 逸脱度差・自由度差・カイ二乗比較の本計算を計算例へ移し、Residual deviance/dfは補助診断として最後に置く。
+        を確認する。すべての根が単位円の外側なので因果的である。
+  - id: ts-linear-detrend
+    note: 最小二乗の傾き・切片・残差系列を計算例へ移し、公式のどこへ数値を入れたか追えるようにする。
     sections:
-      一手: |
-        入れ子な一般化線形モデルを比較するときは、**逸脱度の差**と**自由度の差**を同時に取り、カイ二乗分布と比較する。
       答え: |
-        追加した2係数に対する尤度比統計量は
+        推定トレンドは
         $$
-        G^2=30,
-        \qquad df=2.
+        \widehat X_t=1+2t
         $$
-        $30>\chi^2_{2,0.95}\approx5.991$ なので、追加係数を同時に0とする帰無仮説を5%水準で棄却する。
+        であり、トレンド除去後の系列は
+        $$
+        (0,0,0)
+        $$
+        である。
       計算例: |
-        簡約モデルの逸脱度を $D_R=120$、追加係数を含むモデルを $D_F=90$ とする。まず逸脱度差は
+        時点は $(1,2,3)$、観測は $(3,5,7)$ なので
+        $$
+        \bar t=\frac{1+2+3}{3}=2,
+        \qquad
+        \bar X=\frac{3+5+7}{3}=5.
+        $$
+        傾きの分子は
         $$
         \begin{aligned}
-        G^2
-        &=D_R-D_F\\
-        &=120-90\\
-        &=30.
+        \sum_t(t-\bar t)(X_t-\bar X)
+        &=(-1)(-2)+0\cdot0+1\cdot2\\
+        &=4,
         \end{aligned}
         $$
-        自由度の差は
+        分母は
         $$
         \begin{aligned}
-        q
-        &=99-97\\
+        \sum_t(t-\bar t)^2
+        &=(-1)^2+0^2+1^2\\
         &=2.
         \end{aligned}
         $$
-        帰無仮説の下では近似的に
+        したがって
         $$
-        G^2\sim\chi^2_2.
+        \widehat b=\frac42=2,
         $$
-        5%上側臨界値は約 $5.991$ なので
         $$
-        30>5.991
+        \widehat a=\bar X-\widehat b\bar t=5-2\cdot2=1.
         $$
-        となり帰無仮説を棄却する。
-
-        なお、当てはめ後の補助診断として
+        推定トレンド値は
         $$
-        \frac{\text{Residual deviance}}{\text{residual df}}
-        =\frac{90}{97}\approx0.928
+        (1+2\cdot1,\ 1+2\cdot2,\ 1+2\cdot3)=(3,5,7)
         $$
-        も確認できるが、この比だけで適合の良否を確定しない。
-  - id: mv-pca-software-output
-    note: 固有値総和→寄与率→主成分得点というPCA出力の読み方を計算例で実際に動かす。
+        なので、元の観測から引けば
+        $$
+        (3,5,7)-(3,5,7)=(0,0,0).
+        $$
+  - id: ts-sample-acf
+    note: 平均→偏差→ラグ1積和→偏差平方和→比の順に計算例へ移す。
     sections:
-      一手: |
-        主成分分析の出力では、まず**固有値 / 固有値総和**で寄与率を計算し、その後に固有ベクトルの成分から主成分軸の意味を読む。
       答え: |
-        第1主成分の寄与率は
+        ラグ1標本自己相関は
         $$
-        \frac{2.4}{2.4+0.5+0.1}=0.80.
+        \widehat\rho_1=0.
         $$
-        よって第1主成分だけで全標準化分散の80%を表す。第1・第2変数に同方向の大きな重み、第3変数に小さな重みを置く軸である。
       計算例: |
-        まず固有値の総和は
+        まず標本平均は
         $$
-        2.4+0.5+0.1=3.0.
+        \bar x=\frac{1+2+3+2}{4}=2.
         $$
-        したがって第1主成分の寄与率は
+        したがって偏差列は
         $$
-        \begin{aligned}
-        \text{寄与率}
-        &=\frac{2.4}{3.0}\\
-        &=0.80.
-        \end{aligned}
+        (x_t-\bar x)=(-1,0,1,0).
         $$
-        次に、標準化された1つの観測を
-        $$
-        \boldsymbol z
-        =\begin{pmatrix}1\\-1\\0.5\end{pmatrix}
-        $$
-        とすると、第1主成分得点は固有ベクトルとの内積だから
+        ラグ1の分子は、1時点ずらした偏差の積を足して
         $$
         \begin{aligned}
-        z_{\mathrm{PC1}}
-        &=0.70(1)+0.68(-1)+0.22(0.5)\\
-        &=0.70-0.68+0.11\\
-        &=0.13.
+        \sum_{t=2}^4(x_t-\bar x)(x_{t-1}-\bar x)
+        &=0(-1)+1(0)+0(1)\\
+        &=0.
         \end{aligned}
         $$
-        固有ベクトル全体の符号を反転すると得点も $-0.13$ になるが、表す主成分軸そのものは同じである。
-  - id: reg-general-linear-hypothesis
-    note: 一般線形仮説の行列式をdベクトル→逆行列→二次形式→分母の順に分解し、F=0.5まで追えるようにする。
-    sections:
-      一手: |
-        $H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ では、まず制約からのずれ
-        $$
-        \boldsymbol d=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
-        $$
-        を作り、$\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d$ という二次形式を $q s^2$ で割る。
-      答え: |
-        $$
-        F=0.5.
-        $$
-        帰無仮説の下では $F_{2,n-p}$ 分布と比較する。
-      計算例: |
-        ここでは
-        $$
-        \boldsymbol d
-        =\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
-        =\begin{pmatrix}2\\1\end{pmatrix},
-        $$
-        $$
-        A
-        =\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
-        =\boldsymbol I_2
-        $$
-        なので $A^{-1}=\boldsymbol I_2$ である。まず分子の二次形式は
+        分母は
         $$
         \begin{aligned}
-        \boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d
-        &=\begin{pmatrix}2&1\end{pmatrix}
-          \begin{pmatrix}1&0\\0&1\end{pmatrix}
-          \begin{pmatrix}2\\1\end{pmatrix}\\
-        &=2^2+1^2\\
-        &=5.
+        \sum_{t=1}^4(x_t-\bar x)^2
+        &=(-1)^2+0^2+1^2+0^2\\
+        &=2.
         \end{aligned}
-        $$
-        制約数は $q=2$、$s^2=5$ だから分母は
-        $$
-        qs^2=2\cdot5=10.
         $$
         よって
         $$
-        F=\frac5{10}=0.5.
+        \widehat\rho_1=\frac02=0.
         $$
-        $q=1$ の1本の線形制約なら、このF統計量は対応するt統計量の二乗と一致する。
-  - id: reg-dffits-numeric
-    note: 答え欄にあったDFFITS計算を、比→平方根→残差との積の3段階に分けて計算例へ移す。
+  - id: ts-spectral-density-ar1
+    note: フィルタ表示→複素絶対値の二乗→余弦への整理→スペクトル密度という導出を計算例で追える形にする。
     sections:
-      一手: |
-        DFFITSは、外的スチューデント化残差の大きさに
-        $$
-        \sqrt{\frac{h_{ii}}{1-h_{ii}}}
-        $$
-        というレバレッジの増幅係数を掛ける。
       答え: |
+        AR$(1)$ のスペクトル密度は
         $$
-        \operatorname{DFFITS}_i=1.
+        f_X(\lambda)
+        =\frac{\sigma^2}
+        {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
         $$
       計算例: |
-        まずレバレッジ部分を計算する。
+        AR$(1)$ を
         $$
-        \frac{h_{ii}}{1-h_{ii}}
-        =\frac{0.2}{0.8}
-        =\frac14.
+        (1-\phi B)X_t=\varepsilon_t
         $$
-        したがって
+        と書けば
         $$
-        \sqrt{\frac{h_{ii}}{1-h_{ii}}}
-        =\sqrt{\frac14}
-        =\frac12.
+        X_t=(1-\phi B)^{-1}\varepsilon_t
         $$
-        外的スチューデント化残差 $t_i=2$ を掛けると
+        なので、線形フィルタは
+        $$
+        \psi(z)=\frac1{1-\phi z}.
+        $$
+        よって
+        $$
+        \left|\psi(e^{-i\lambda})\right|^2
+        =\frac1{|1-\phi e^{-i\lambda}|^2}.
+        $$
+        分母を計算すると
         $$
         \begin{aligned}
-        \operatorname{DFFITS}_i
-        &=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}\\
-        &=2\cdot\frac12\\
-        &=1.
+        |1-\phi e^{-i\lambda}|^2
+        &=(1-\phi e^{-i\lambda})(1-\phi e^{i\lambda})\\
+        &=1-\phi(e^{i\lambda}+e^{-i\lambda})+\phi^2\\
+        &=1-2\phi\cos\lambda+\phi^2.
         \end{aligned}
         $$
-        正の符号は、その観測を入れたときの当てはめ値変化が正方向であることを表す。
+        したがって線形フィルタ公式から
+        $$
+        f_X(\lambda)
+        =\frac{\sigma^2}
+        {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
+        $$
+        例えば $\phi=0.5$, $\sigma^2=1$, $\lambda=0$ なら
+        $$
+        \begin{aligned}
+        f_X(0)
+        &=\frac1{2\pi(1+0.25-1)}\\
+        &=\frac1{2\pi(0.25)}\\
+        &=\frac2\pi.
+        \end{aligned}
+        $$
