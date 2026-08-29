@@ -1,183 +1,228 @@
 schema_version: 1
-batch_id: 2026-08-29-distribution-transform-traceability-02
+batch_id: 2026-08-29-regression-multivariate-traceability-03
 items:
-  - id: samp-chisq-definition
-    note: 自由度3という言い換えだけの例をやめ、一般密度を実際に特殊化して平均・分散まで確認する。
+  - id: mv-mean-covariance-numeric
+    note: 平均・偏差・外積・和という分散共分散行列の計算を答え欄から計算例へ移し、一行ずつ追えるようにする。
     sections:
+      一手: |
+        多変量の分散共分散行列は、まず平均ベクトルを引いて偏差ベクトルを作り、その**外積を足して $n-1$ で割る**。
+      答え: |
+        $$
+        \overline{\boldsymbol x}
+        =\begin{pmatrix}2\\3\end{pmatrix},
+        \qquad
+        \boldsymbol S
+        =\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+        $$
       計算例: |
-        $\nu=3$ とする。一般密度へ代入すると
-        $$
-        f_X(x)
-        =\frac{1}{2^{3/2}\Gamma(3/2)}x^{1/2}e^{-x/2},
-        \qquad x>0.
-        $$
-        ここで
-        $$
-        \Gamma\!\left(\frac32\right)
-        =\frac12\Gamma\!\left(\frac12\right)
-        =\frac{\sqrt\pi}{2}
-        $$
-        だから
+        まず平均ベクトルは
         $$
         \begin{aligned}
-        2^{3/2}\Gamma(3/2)
-        &=2^{3/2}\frac{\sqrt\pi}{2}\\
-        &=\sqrt{2\pi}.
+        \overline{\boldsymbol x}
+        &=\frac12\left\{
+        \begin{pmatrix}1\\2\end{pmatrix}
+        +\begin{pmatrix}3\\4\end{pmatrix}
+        \right\}\\
+        &=\begin{pmatrix}2\\3\end{pmatrix}.
         \end{aligned}
+        $$
+        したがって2本の偏差ベクトルは
+        $$
+        \boldsymbol d_1
+        =\begin{pmatrix}-1\\-1\end{pmatrix},
+        \qquad
+        \boldsymbol d_2
+        =\begin{pmatrix}1\\1\end{pmatrix}.
+        $$
+        それぞれの外積は
+        $$
+        \boldsymbol d_1\boldsymbol d_1^{\mathsf T}
+        =\begin{pmatrix}1&1\\1&1\end{pmatrix},
+        \qquad
+        \boldsymbol d_2\boldsymbol d_2^{\mathsf T}
+        =\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+        $$
+        $n=2$ なので不偏標本分散共分散行列は
+        $$
+        \begin{aligned}
+        \boldsymbol S
+        &=\frac1{n-1}
+        \left(
+        \boldsymbol d_1\boldsymbol d_1^{\mathsf T}
+        +\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
+        \right)\\
+        &=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+        \end{aligned}
+        $$
+        最後に
+        $$
+        \det(\boldsymbol S)=2\cdot2-2\cdot2=0
+        $$
+        なので、この例では2変数が完全な直線関係にあり $\boldsymbol S$ は特異である。
+  - id: glm-software-deviance-output
+    note: 逸脱度差・自由度差・カイ二乗比較の本計算を計算例へ移し、Residual deviance/dfは補助診断として最後に置く。
+    sections:
+      一手: |
+        入れ子な一般化線形モデルを比較するときは、**逸脱度の差**と**自由度の差**を同時に取り、カイ二乗分布と比較する。
+      答え: |
+        追加した2係数に対する尤度比統計量は
+        $$
+        G^2=30,
+        \qquad df=2.
+        $$
+        $30>\chi^2_{2,0.95}\approx5.991$ なので、追加係数を同時に0とする帰無仮説を5%水準で棄却する。
+      計算例: |
+        簡約モデルの逸脱度を $D_R=120$、追加係数を含むモデルを $D_F=90$ とする。まず逸脱度差は
+        $$
+        \begin{aligned}
+        G^2
+        &=D_R-D_F\\
+        &=120-90\\
+        &=30.
+        \end{aligned}
+        $$
+        自由度の差は
+        $$
+        \begin{aligned}
+        q
+        &=99-97\\
+        &=2.
+        \end{aligned}
+        $$
+        帰無仮説の下では近似的に
+        $$
+        G^2\sim\chi^2_2.
+        $$
+        5%上側臨界値は約 $5.991$ なので
+        $$
+        30>5.991
+        $$
+        となり帰無仮説を棄却する。
+
+        なお、当てはめ後の補助診断として
+        $$
+        \frac{\text{Residual deviance}}{\text{residual df}}
+        =\frac{90}{97}\approx0.928
+        $$
+        も確認できるが、この比だけで適合の良否を確定しない。
+  - id: mv-pca-software-output
+    note: 固有値総和→寄与率→主成分得点というPCA出力の読み方を計算例で実際に動かす。
+    sections:
+      一手: |
+        主成分分析の出力では、まず**固有値 / 固有値総和**で寄与率を計算し、その後に固有ベクトルの成分から主成分軸の意味を読む。
+      答え: |
+        第1主成分の寄与率は
+        $$
+        \frac{2.4}{2.4+0.5+0.1}=0.80.
+        $$
+        よって第1主成分だけで全標準化分散の80%を表す。第1・第2変数に同方向の大きな重み、第3変数に小さな重みを置く軸である。
+      計算例: |
+        まず固有値の総和は
+        $$
+        2.4+0.5+0.1=3.0.
+        $$
+        したがって第1主成分の寄与率は
+        $$
+        \begin{aligned}
+        \text{寄与率}
+        &=\frac{2.4}{3.0}\\
+        &=0.80.
+        \end{aligned}
+        $$
+        次に、標準化された1つの観測を
+        $$
+        \boldsymbol z
+        =\begin{pmatrix}1\\-1\\0.5\end{pmatrix}
+        $$
+        とすると、第1主成分得点は固有ベクトルとの内積だから
+        $$
+        \begin{aligned}
+        z_{\mathrm{PC1}}
+        &=0.70(1)+0.68(-1)+0.22(0.5)\\
+        &=0.70-0.68+0.11\\
+        &=0.13.
+        \end{aligned}
+        $$
+        固有ベクトル全体の符号を反転すると得点も $-0.13$ になるが、表す主成分軸そのものは同じである。
+  - id: reg-general-linear-hypothesis
+    note: 一般線形仮説の行列式をdベクトル→逆行列→二次形式→分母の順に分解し、F=0.5まで追えるようにする。
+    sections:
+      一手: |
+        $H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ では、まず制約からのずれ
+        $$
+        \boldsymbol d=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
+        $$
+        を作り、$\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d$ という二次形式を $q s^2$ で割る。
+      答え: |
+        $$
+        F=0.5.
+        $$
+        帰無仮説の下では $F_{2,n-p}$ 分布と比較する。
+      計算例: |
+        ここでは
+        $$
+        \boldsymbol d
+        =\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
+        =\begin{pmatrix}2\\1\end{pmatrix},
+        $$
+        $$
+        A
+        =\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
+        =\boldsymbol I_2
+        $$
+        なので $A^{-1}=\boldsymbol I_2$ である。まず分子の二次形式は
+        $$
+        \begin{aligned}
+        \boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d
+        &=\begin{pmatrix}2&1\end{pmatrix}
+          \begin{pmatrix}1&0\\0&1\end{pmatrix}
+          \begin{pmatrix}2\\1\end{pmatrix}\\
+        &=2^2+1^2\\
+        &=5.
+        \end{aligned}
+        $$
+        制約数は $q=2$、$s^2=5$ だから分母は
+        $$
+        qs^2=2\cdot5=10.
         $$
         よって
         $$
-        f_X(x)=\frac{1}{\sqrt{2\pi}}x^{1/2}e^{-x/2},
-        \qquad x>0.
+        F=\frac5{10}=0.5.
         $$
-        また $\chi^2_\nu$ の平均・分散は $\nu,2\nu$ なので、$\chi^2_3$ では
-        $$
-        E[X]=3,
-        \qquad
-        \operatorname{Var}(X)=6.
-        $$
-  - id: samp-t-distribution-definition
-    note: ν=1はコーシー分布という知識の再掲ではなく、t密度へν=1を代入して標準コーシー密度になることを追える形にする。
+        $q=1$ の1本の線形制約なら、このF統計量は対応するt統計量の二乗と一致する。
+  - id: reg-dffits-numeric
+    note: 答え欄にあったDFFITS計算を、比→平方根→残差との積の3段階に分けて計算例へ移す。
     sections:
+      一手: |
+        DFFITSは、外的スチューデント化残差の大きさに
+        $$
+        \sqrt{\frac{h_{ii}}{1-h_{ii}}}
+        $$
+        というレバレッジの増幅係数を掛ける。
+      答え: |
+        $$
+        \operatorname{DFFITS}_i=1.
+        $$
       計算例: |
-        $\nu=1$ を t 分布の密度へ代入する。まず係数は
+        まずレバレッジ部分を計算する。
         $$
-        \frac{\Gamma\{(1+1)/2\}}
-        {\sqrt{\pi}\,\Gamma(1/2)}
-        =\frac{\Gamma(1)}{\sqrt\pi\,\sqrt\pi}
-        =\frac1\pi.
-        $$
-        また指数は
-        $$
-        -\frac{\nu+1}{2}=-1
-        $$
-        だから
-        $$
-        \begin{aligned}
-        f_T(t)
-        &=\frac1\pi\left(1+t^2\right)^{-1}\\
-        &=\frac{1}{\pi(1+t^2)}.
-        \end{aligned}
-        $$
-        これは標準コーシー分布の密度である。したがって
-        $$
-        t_1=\text{標準コーシー分布}
-        $$
-        が密度から直接確認でき、平均・分散が存在しないことも対応する。
-  - id: prob-transform-jacobian-2d
-    note: Jacobianだけでなく、元の正方形のsupportを(u,v)の菱形へ変換する不等式を省略しない。
-    sections:
-      計算例: |
-        逆変換は
-        $$
-        x=\frac{u+v}{2},
-        \qquad
-        y=\frac{u-v}{2}.
+        \frac{h_{ii}}{1-h_{ii}}
+        =\frac{0.2}{0.8}
+        =\frac14.
         $$
         したがって
         $$
-        \frac{\partial(x,y)}{\partial(u,v)}
-        =\begin{pmatrix}
-        1/2&1/2\\
-        1/2&-1/2
-        \end{pmatrix},
-        $$
-        $$
-        \left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|
-        =\left|-\frac12\right|
+        \sqrt{\frac{h_{ii}}{1-h_{ii}}}
+        =\sqrt{\frac14}
         =\frac12.
         $$
-        次に元の support $0<x<1$, $0<y<1$ を変換する。
-        $$
-        0<\frac{u+v}{2}<1
-        \Longleftrightarrow
-        -u<v<2-u,
-        $$
-        $$
-        0<\frac{u-v}{2}<1
-        \Longleftrightarrow
-        u-2<v<u.
-        $$
-        この2条件の共通部分を整理すると
-        $$
-        -1<v<1,
-        \qquad
-        |v|<u<2-|v|.
-        $$
-        元の同時密度は正方形内で1だから、変数変換公式より
-        $$
-        f_{U,V}(u,v)
-        =1\cdot\frac12
-        =\frac12
-        $$
-        （$-1<v<1$, $|v|<u<2-|v|$）、それ以外では0である。
-  - id: prob-transform-sum-density
-    note: support決定と被積分関数の簡約と積分を1本の長い等式に詰めず、一操作一行へ分ける。
-    sections:
-      計算例: |
-        $f_X(x)$ が正なのは $x>0$、$f_Y(z-x)$ が正なのは
-        $$
-        z-x>0
-        \Longleftrightarrow
-        x<z
-        $$
-        である。したがって $z>0$ のとき積分範囲は
-        $$
-        0<x<z.
-        $$
-        この範囲では
+        外的スチューデント化残差 $t_i=2$ を掛けると
         $$
         \begin{aligned}
-        f_Z(z)
-        &=\int_0^z e^{-x}e^{-(z-x)}\,dx\\
-        &=\int_0^z e^{-z}\,dx\\
-        &=e^{-z}\int_0^z1\,dx\\
-        &=ze^{-z}.
+        \operatorname{DFFITS}_i
+        &=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}\\
+        &=2\cdot\frac12\\
+        &=1.
         \end{aligned}
         $$
-        よって
-        $$
-        f_Z(z)=
-        \begin{cases}
-        ze^{-z},&z>0,\\
-        0,&z\le0.
-        \end{cases}
-        $$
-        これは $\operatorname{Gamma}(2,1)$ の密度である。
-  - id: prob-transform-ratio
-    note: z<=1とz>1で領域がどう変わるかを文章と積分の各行で追える形にする。
-    sections:
-      計算例: |
-        独立性より、単位正方形 $0<x<1$, $0<y<1$ 上で $f_{X,Y}(x,y)=1$ である。
-
-        $0<z\le1$ のときは $zy\le1$ が全ての $0<y<1$ で成り立つので、領域は $0<x<zy$。したがって
-        $$
-        \begin{aligned}
-        F_Z(z)
-        &=\int_0^1\int_0^{zy}1\,dx\,dy\\
-        &=\int_0^1zy\,dy\\
-        &=\frac z2.
-        \end{aligned}
-        $$
-
-        $z>1$ では、$zy=1$ となる $y=1/z$ で領域の形が変わる。$0<y<1/z$ では $0<x<zy$、$1/z\le y<1$ では $0<x<1$ だから
-        $$
-        \begin{aligned}
-        F_Z(z)
-        &=\int_0^{1/z}\int_0^{zy}1\,dx\,dy
-          +\int_{1/z}^1\int_0^11\,dx\,dy\\
-        &=\int_0^{1/z}zy\,dy
-          +\int_{1/z}^11\,dy\\
-        &=\frac{1}{2z}+1-\frac1z\\
-        &=1-\frac{1}{2z}.
-        \end{aligned}
-        $$
-        よって
-        $$
-        F_Z(z)=
-        \begin{cases}
-        0,&z\le0,\\
-        z/2,&0<z\le1,\\
-        1-1/(2z),&z>1.
-        \end{cases}
-        $$
+        正の符号は、その観測を入れたときの当てはめ値変化が正方向であることを表す。
