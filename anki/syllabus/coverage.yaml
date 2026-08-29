@@ -658,7 +658,6 @@ items:
       - samp-xbar-normal-distribution
       - samp-chisq-definition
       - samp-chisq-additive
-      - samp-chisq-mean-variance
       - samp-chisq-mean-var-indep
       - samp-chisq-expectation-squared
       - samp-t-distribution-definition
@@ -676,7 +675,6 @@ items:
       - samp-sample-variance-expectation
       - samp-two-sample-pooled-variance
       - samp-order-statistics-distribution
-      - samp-max-distribution
       - samp-min-distribution
       - samp-range-statistic
       - samp-quantile-approx
@@ -727,7 +725,6 @@ items:
         cards:
           - samp-chisq-definition
           - samp-chisq-additive
-          - samp-chisq-mean-variance
           - samp-chisq-mean-var-indep
           - samp-chisq-expectation-squared
           - samp-chisq-from-normal
