@@ -1,31 +1,4 @@
 ---
-id: process-poisson-wait
-title: ポアソン過程の待ち時間を指数分布へ結び付ける
-category: applied-common
-subcategory: applied-stochastic-processes
-topic: waiting-time
-type: recognition
-difficulty: 2
-priority: S
-hashtags: [ポアソン過程, 指数分布, 待ち時間]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン過程 }]
----
-## 問題
-率 $\lambda=2$ のポアソン過程で、最初の到着時刻 $T_1$ が1を超える確率を求めよ。
-## 答え
-$T_1>t$ は時刻 $t$ まで到着が0回という事象である。
-## 使用公式・定理
-率 $\lambda$ のポアソン過程では、計数 $N(t)$ はポアソン分布 $\operatorname{Poisson}(\lambda t)$ に従うので
-$$P(T_1>t)=P(N(t)=0)=e^{-\lambda t}.$$
-## 計算例
-$$P(T_1>1)=P(N(1)=0)=e^{-2}.$$
-したがって $T_1$ の台は $t>0$、密度は $2e^{-2t}$。
-## 注意
-指数分布のrateと平均 $1/\lambda$ を混同しない。
-
-<!-- CARD -->
----
 id: process-ar1-stationary
 title: AR(1)過程の定常分散を解く
 category: applied-engineering

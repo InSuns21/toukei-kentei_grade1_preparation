@@ -1562,7 +1562,6 @@ items:
       - data-ols-slope
       - reg-simple-model-assumptions
       - reg-ols-normal-equations-simple
-      - reg-ols-simple-formula
       - reg-fitted-residual-numeric
       - reg-residual-orthogonality
       - reg-sst-decomposition
@@ -1610,7 +1609,7 @@ items:
         cards:
           - data-ols-slope
           - reg-simple-model-assumptions
-          - reg-ols-simple-formula
+          - reg-ols-normal-equations-simple
           - reg-slope-geometric-projection
           - reg-slope-variance
           - reg-intercept-variance
@@ -1641,7 +1640,6 @@ items:
         cards:
           - data-ols-slope
           - reg-ols-normal-equations-simple
-          - reg-ols-simple-formula
           - reg-slope-geometric-projection
           - reg-residual-orthogonality
           - reg-matrix-ols-derivation
@@ -2503,7 +2501,7 @@ items:
     cards:
       - process-markov-two-step
       - process-stationary-markov
-      - process-poisson-wait
+      - stoch-poisson-arrival-gamma
       - stoch-markov-property
       - stoch-finite-dimensional-distribution
       - stoch-recurrence-definition
@@ -2520,7 +2518,6 @@ items:
       - stoch-random-walk-martingale
       - stoch-poisson-increments
       - stoch-poisson-count-numeric
-      - stoch-poisson-arrival-gamma
       - stoch-poisson-thinning
       - stoch-poisson-superposition
       - stoch-poisson-conditional-binomial
@@ -2556,10 +2553,9 @@ items:
       - name: ポアソン過程
         status: card
         cards:
-          - process-poisson-wait
+          - stoch-poisson-arrival-gamma
           - stoch-poisson-increments
           - stoch-poisson-count-numeric
-          - stoch-poisson-arrival-gamma
           - stoch-poisson-thinning
           - stoch-poisson-superposition
           - stoch-poisson-conditional-binomial
@@ -2761,10 +2757,8 @@ items:
       - engproc-ctmc-generator-check
       - engproc-ctmc-holding-jump-probability
       - engproc-two-state-ctmc-transition
-      - engproc-poisson-failure-count
       - engproc-nhpp-cumulative-intensity
       - engproc-poisson-rate-estimate-exposure
-      - engproc-compound-poisson-cost
       - engproc-brownian-bridge-conditional
       - engproc-ou-mean-variance
       - engproc-degradation-two-step
@@ -2777,8 +2771,6 @@ items:
       - engproc-absorbing-probability-matrix
       - engproc-markov-reward-long-run
       - engproc-ctmc-uniformization
-      - engproc-poisson-thinning-defects
-      - engproc-poisson-superposition-machines
       - engproc-chapman-kolmogorov-maintenance
       - engproc-stationarity-window-judgment
       - engproc-sample-autocovariance-numeric
@@ -2825,12 +2817,8 @@ items:
       - name: ポアソン過程
         status: card
         cards:
-          - engproc-poisson-failure-count
           - engproc-nhpp-cumulative-intensity
           - engproc-poisson-rate-estimate-exposure
-          - engproc-compound-poisson-cost
-          - engproc-poisson-thinning-defects
-          - engproc-poisson-superposition-machines
       - name: マルコフ連鎖
         status: card
         cards:

@@ -623,36 +623,6 @@ $t=0$ で $p_{00}(0)=1$ になることを確認する。
 <!-- CARD -->
 
 ---
-id: engproc-poisson-failure-count
-title: 一定故障率から期間内故障件数を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: poisson-failure-count
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ポアソン過程, 故障件数, 信頼性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン過程 }]
----
-## 問題
-設備の故障が1日当たり率0.2のポアソン過程に従う。10日間に故障が2件以下である確率を求めよ。
-## 記号・用語
-$N(t)$ は期間 $t$ までの故障件数、平均は $\lambda t$ である。
-## 使用公式・定理
-$N(t)\sim\operatorname{Poisson}(\lambda t)$、$P(N=k)=e^{-m}m^k/k!$。
-## 一手／方針
-平均件数 $m=0.2\cdot10$ を求め、$k=0,1,2$ の確率を足す。
-## 答え
-$$P(N(10)\le2)=e^{-2}\left(1+2+\frac{2^2}{2}\right)=5e^{-2}\approx0.6767.$$
-## 計算例
-3件以上の確率は $1-5e^{-2}\approx0.3233$。
-## 注意
-「2件以下」には0件と1件も含む。
-
-<!-- CARD -->
-
----
 id: engproc-nhpp-cumulative-intensity
 title: 非定常ポアソン過程の累積強度を計算する
 category: applied-engineering
@@ -711,37 +681,6 @@ $$\widehat\lambda=\frac8{500}=0.016\quad\text{件/時間}.$$
 平均故障間隔の推定値は $1/0.016=62.5$ 時間。
 ## 注意
 装置数だけで割らず、観測時間を含む曝露量で割る。
-
-<!-- CARD -->
-
----
-id: engproc-compound-poisson-cost
-title: 複合ポアソン過程の総費用の平均と分散を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: compound-poisson-cost
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ポアソン過程, 複合ポアソン過程, 総費用]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン過程 }]
----
-## 問題
-1か月の故障数 $N\sim\operatorname{Poisson}(4)$、各修理費 $Y_i$ は独立同分布で $E[Y_i]=3$、$\operatorname{Var}(Y_i)=5$、かつ $N$ と独立である。総費用 $S=\sum_{i=1}^NY_i$ の平均と分散を求めよ。
-## 記号・用語
-空和は $N=0$ のとき0とする。
-## 使用公式・定理
-複合ポアソン和では $E[S]=\lambda E[Y]$、$\operatorname{Var}(S)=\lambda E[Y^2]=\lambda\{\operatorname{Var}(Y)+E[Y]^2\}$。
-## 一手／方針
-修理費の二次モーメントを計算してポアソン率を掛ける。
-## 答え
-$$E[S]=4\cdot3=12,$$
-$$\operatorname{Var}(S)=4(5+3^2)=56.$$
-## 計算例
-標準偏差は $\sqrt{56}\approx7.48$。
-## 注意
-$\lambda\operatorname{Var}(Y)=20$ だけでは件数変動の寄与を落としている。
 
 <!-- CARD -->
 
@@ -1109,68 +1048,6 @@ $$P=\begin{pmatrix}1&0\\0&1\end{pmatrix}+\frac12\begin{pmatrix}-2&2\\1&-1\end{pm
 各成分は非負で行和1になっている。
 ## 注意
 $\nu$ を最大離脱率より小さくすると負の確率が生じ得る。
-
-<!-- CARD -->
-
----
-id: engproc-poisson-thinning-defects
-title: ポアソン欠陥流を種類別に分割する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: poisson-thinning
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ポアソン過程, 間引き, 欠陥分類]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン過程 }]
----
-## 問題
-欠陥が率12/時のポアソン過程で発生し、各欠陥は独立に確率0.25で重大欠陥である。2時間の重大欠陥数の分布を求めよ。
-## 記号・用語
-独立間引きでは各到着を他と独立に分類する。
-## 使用公式・定理
-率 $\lambda$ のポアソン過程を確率 $p$ で残すと、率 $p\lambda$ のポアソン過程になる。
-## 一手／方針
-重大欠陥率を求め、観測時間2を掛ける。
-## 答え
-重大欠陥率は $12(0.25)=3$/時。したがって
-$$N_{\mathrm{major}}(2)\sim\operatorname{Poisson}(6).$$
-## 計算例
-軽微欠陥数は平均 $12(0.75)2=18$ のポアソン分布。
-## 注意
-独立分類の下では2種類の計数過程も独立である。
-
-<!-- CARD -->
-
----
-id: engproc-poisson-superposition-machines
-title: 複数設備の故障過程を重ね合わせる
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: poisson-superposition
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ポアソン過程, 重ね合わせ, 故障過程]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン過程 }]
----
-## 問題
-独立な3台の設備の故障率がそれぞれ $0.1,0.2,0.3$/日である。全設備を合わせた5日間の故障数の分布を求めよ。
-## 記号・用語
-重ね合わせは複数の計数過程の到着を一つにまとめる操作である。
-## 使用公式・定理
-独立なポアソン過程の重ね合わせは率の和をもつポアソン過程である。
-## 一手／方針
-3つの故障率を足し、期間5日を掛ける。
-## 答え
-合計率は $0.1+0.2+0.3=0.6$/日なので
-$$N(5)\sim\operatorname{Poisson}(3).$$
-## 計算例
-5日間の無故障確率は $e^{-3}$。
-## 注意
-設備間の故障過程の独立性が必要である。
 
 <!-- CARD -->
 

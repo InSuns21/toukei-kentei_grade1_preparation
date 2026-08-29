@@ -7,11 +7,20 @@ topic: ordinary-least-squares
 type: formula
 difficulty: 2
 priority: S
-hashtags: [回帰分析, 最小二乗法, 平方和]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰分析 }]
+hashtags:
+  - 回帰分析
+  - 最小二乗法
+  - 平方和
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 回帰分析
 archive_reason: duplicate
-canonical_card: reg-ols-simple-formula
+canonical_card: reg-ols-normal-equations-simple
 ---
 ## 問題
 データ $(x,y)=(1,1),(2,2),(3,5)$ に切片あり単回帰を当てはめ、傾き $\widehat\beta_1$ を求めよ。
@@ -28,6 +37,7 @@ $$\begin{aligned}S_{xy}&=(-1)(-5/3)+0(-2/3)+1(7/3)=4,\\S_{xx}&=(-1)^2+0^2+1^2=2.
 切片ありなら必ず中心化する。
 
 <!-- CARD -->
+
 ---
 id: data-odds-ratio
 title: 2×2分割表のオッズ比を計算する
@@ -37,9 +47,18 @@ topic: odds-ratio
 type: formula
 difficulty: 1
 priority: A
-hashtags: [分割表, オッズ比, カテゴリカル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 分割表 }]
+hashtags:
+  - 分割表
+  - オッズ比
+  - カテゴリカル
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 分割表
 archive_reason: duplicate
 canonical_card: cat-odds-ratio-formula
 ---
