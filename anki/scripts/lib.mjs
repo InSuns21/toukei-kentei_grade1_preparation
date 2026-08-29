@@ -24,9 +24,12 @@ export function loadCurationPolicy() {
   const file = path.join(ROOT, "curation.yaml");
   if (!fs.existsSync(file)) {
     return {
-      schema_version: 1,
-      active_card_limit: 950,
-      hard_max_cards: 999,
+      schema_version: 2,
+      selection_mode: "canonical_only",
+      audit_mode: true,
+      target_min_cards: 580,
+      target_max_cards: 620,
+      hard_max_cards: 620,
       priority_order: ["S", "A", "B", "C", "D"],
       preserve_official_term_coverage: true,
       preserve_subcategory_coverage: true,
@@ -56,11 +59,28 @@ function cardComparator(priorityOrder) {
   };
 }
 
+/**
+ * Return the cards used by the normal build.
+ *
+ * canonical_only is the v2 policy: cards/ itself is the canonical deck, so this
+ * function must not hide excess cards by ranking them. During audit_mode an
+ * oversized cards/ tree is intentionally returned as-is and curation.mjs
+ * reports the remaining editorial work.
+ *
+ * legacy_ranked is retained only so an old branch/config can still be read.
+ */
 export function selectActiveCards(cards = readAllCards(), policy = loadCurationPolicy()) {
-  const limit = Number(policy.active_card_limit);
+  const selectionMode = policy.selection_mode || "canonical_only";
+  if (selectionMode === "canonical_only") return [...cards];
+
+  if (selectionMode !== "legacy_ranked") {
+    throw new Error(`curation.yaml: 未知の selection_mode=${selectionMode}`);
+  }
+
   const hardMax = Number(policy.hard_max_cards ?? 999);
-  if (!Number.isInteger(limit) || limit < 1 || limit > hardMax || hardMax > 999) {
-    throw new Error("curation.yaml: active_card_limit は1以上 hard_max_cards 以下、hard_max_cards は999以下にします");
+  const limit = Number(policy.active_card_limit ?? policy.target_max_cards ?? hardMax);
+  if (!Number.isInteger(limit) || limit < 1 || limit > hardMax) {
+    throw new Error("curation.yaml: legacy_ranked の上限値が不正です");
   }
   if (cards.length <= limit) return [...cards];
 
@@ -95,7 +115,7 @@ export function selectActiveCards(cards = readAllCards(), policy = loadCurationP
   }
 
   if (required.size > limit) {
-    throw new Error(`curation.yaml: 必須カード${required.size}枚が active_card_limit=${limit} を超えています`);
+    throw new Error(`curation.yaml: 必須カード${required.size}枚が limit=${limit} を超えています`);
   }
 
   const selected = [];
