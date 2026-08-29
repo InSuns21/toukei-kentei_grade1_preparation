@@ -1,183 +1,254 @@
 schema_version: 1
-batch_id: 2026-08-30-data-analysis-merge-prep-31
+batch_id: 2026-08-30-multivariate-merge-prep-32
 items:
-  - id: mv-pca-variance-max
-    note: PCAの固有値数値問題と切り捨て再構成誤差を分散最大化canonicalへ吸収する。
+  - id: mv-hotelling-one-sample
+    note: T²の計算とF変換を一つの検定手順として統合する。
     sections:
+      問題: |
+        $p$ 次元正規母集団から独立に $n$ 個を標本抽出し、標本分散共分散行列 $\boldsymbol S$ は可逆とする。$H_0:\boldsymbol\mu=\boldsymbol\mu_0$ に対する1標本Hotellingの $T^2$ 統計量と、その正確なF変換を書け。
+
+        数値例として $n=10,p=2$、
+        $$
+        \bar{\boldsymbol x}-\boldsymbol\mu_0=(1,2)^{\mathsf T},
+        \qquad
+        \boldsymbol S=\operatorname{diag}(2,4)
+        $$
+        のとき $T^2$ とF統計量を求めよ。
+      使用公式・定理: |
+        1標本Hotelling統計量は
+        $$
+        T^2=n(\bar{\boldsymbol x}-\boldsymbol\mu_0)^{\mathsf T}
+        \boldsymbol S^{-1}
+        (\bar{\boldsymbol x}-\boldsymbol\mu_0).
+        $$
+        多変量正規母集団からの独立標本で $n>p$、$\boldsymbol S$ が可逆なら、帰無仮説の下で
+        $$
+        F=\frac{n-p}{p(n-1)}T^2
+        \sim F_{p,n-p}.
+        $$
       一手: |
-        主成分分析では「固有ベクトルを使う」と暗記せず、単位ベクトル $\boldsymbol a$ への射影分散
-        $$
-        \operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
-        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        $$
-        を最大化する問題から始める。Lagrange未定乗数法で固有方程式を出し、最大固有値の方向を第1主成分に選ぶ。
-      使用公式・定理: |
-        制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ の下で
-        $$
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        $$
-        を最大化する。Lagrange関数
-        $$
-        L(\boldsymbol a,\lambda)
-        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
-        $$
-        を微分すると
-        $$
-        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
-        $$
-        したがって第1主成分方向は最大固有値の単位固有ベクトルである。
-
-        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると、上位 $m$ 主成分で再構成したときの平均二乗再構成誤差の総和は
-        $$
-        \sum_{j=m+1}^{p}\lambda_j
-        $$
-        である。
+        まず平均ベクトル差を共分散で標準化した二次形式として $T^2$ を計算し、その同じ値を係数 $(n-p)/\{p(n-1)\}$ でF統計量へ変換する。別々の公式ではなく一つの検定手順として扱う。
       答え: |
-        第1主成分は分散共分散行列の最大固有値に対応する単位固有ベクトル方向である。第2主成分以降は、それ以前の主成分に直交する範囲で同じ分散最大化を繰り返す。
-      計算例: |
+        数値例では
         $$
-        \boldsymbol S=
-        \begin{pmatrix}2&1\\1&2\end{pmatrix}
+        T^2=15,
+        \qquad
+        F=\frac{20}{3}\approx6.67,
         $$
-        とする。固有値は
-        $$
-        \begin{aligned}
-        0
-        &=\det(\boldsymbol S-\lambda\boldsymbol I)\\
-        &=\det\begin{pmatrix}2-\lambda&1\\1&2-\lambda\end{pmatrix}\\
-        &=(2-\lambda)^2-1\\
-        &=(\lambda-3)(\lambda-1),
-        \end{aligned}
-        $$
-        より
-        $$
-        \lambda_1=3,\qquad \lambda_2=1.
-        $$
-        $\lambda_1=3$ に対して
-        $$
-        \begin{pmatrix}-1&1\\1&-1\end{pmatrix}
-        \begin{pmatrix}a_1\\a_2\end{pmatrix}
-        =\boldsymbol0
-        $$
-        なので $a_1=a_2$。単位長へ正規化すると
-        $$
-        \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
-        $$
-        第1主成分だけを残すなら捨てる固有値は1なので、平均二乗再構成誤差の総和は
-        $$
-        \lambda_2=1.
-        $$
-      注意: |
-        データは中心化しておく。固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。標準化PCAでは分散共分散行列ではなく相関行列に対して同じ固有値問題を解く。
-
-  - id: reg-dffits-numeric
-    note: DFBETAを同じleave-one-out影響診断の派生としてDFFITS canonicalへ吸収する。
-    sections:
-      使用公式・定理: |
-        DFFITSは観測 $i$ を除いたときの $i$ 自身の当てはめ値変化を尺度化し、外的スチューデント化残差 $t_i$ を用いて
-        $$
-        \operatorname{DFFITS}_i
-        =t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
-        $$
-        と書ける。
-
-        一方、係数 $j$ への影響は
-        $$
-        \operatorname{DFBETA}_{ij}
-        =\widehat\beta_j-\widehat\beta_{j(i)}
-        $$
-        で測る。標準誤差で尺度化したものをDFBETASと呼ぶ。
-      答え: |
-        与えられた $t_i=2,h_{ii}=0.2$ では
-        $$
-        \operatorname{DFFITS}_i=1.
-        $$
-        DFFITSは予測値への影響、DFBETAは特定の回帰係数への影響を測る。
+        帰無仮説の下で $F_{2,8}$ と比較する。
       計算例: |
         まず
         $$
-        \frac{h_{ii}}{1-h_{ii}}
-        =\frac{0.2}{0.8}=\frac14,
+        \boldsymbol S^{-1}=\operatorname{diag}\left(\frac12,\frac14\right).
         $$
         したがって
         $$
-        \sqrt{\frac{h_{ii}}{1-h_{ii}}}=\frac12.
+        \begin{aligned}
+        T^2
+        &=10(1,2)
+        \begin{pmatrix}1/2&0\\0&1/4\end{pmatrix}
+        \begin{pmatrix}1\\2\end{pmatrix}\\
+        &=10\left(\frac12+\frac{4}{4}\right)\\
+        &=10\cdot\frac32\\
+        &=15.
+        \end{aligned}
+        $$
+        次に
+        $$
+        \begin{aligned}
+        F
+        &=\frac{10-2}{2(10-1)}15\\
+        &=\frac8{18}15\\
+        &=\frac{20}{3}\\
+        &\approx6.67.
+        \end{aligned}
+        $$
+      注意: |
+        各成分へ別々にt検定を行う方法では、成分間相関と多重性を正しく扱えない。ここでは標本分散共分散行列の分母を $n-1$ とする規約を使う。
+
+  - id: mv-factor-model-covariance
+    note: 因子モデルの共分散分解から共通性・独自性を同じカードで導く。
+    sections:
+      使用公式・定理: |
+        因子分析モデル
+        $$
+        \boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon,
+        $$
+        $$
+        \operatorname{Var}(\boldsymbol F)=\boldsymbol I,
+        \qquad
+        \operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi,
+        $$
+        かつ $\boldsymbol F$ と $\boldsymbol\varepsilon$ が独立なら
+        $$
+        \operatorname{Var}(\boldsymbol X)
+        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+        $$
+        通常 $\boldsymbol\Psi$ は対角行列で、第 $i$ 変数の共通性は
+        $$
+        h_i^2=(\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T})_{ii}
+        =\sum_{j=1}^{m}\lambda_{ij}^2,
+        $$
+        独自性は $\psi_i=\Psi_{ii}$ である。標準化変数なら
+        $$
+        1=h_i^2+\psi_i.
+        $$
+      一手: |
+        共通性を別公式として暗記せず、共分散分解の対角成分を見る。$\Lambda\Lambda^{\mathsf T}$ の対角が共通因子で説明される分散、$\Psi$ の対角が独自分散である。
+      答え: |
+        $$
+        \operatorname{Var}(\boldsymbol X)
+        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+        $$
+        標準化変数では $h_i^2=\sum_j\lambda_{ij}^2$、$\psi_i=1-h_i^2$。
+      計算例: |
+        ある標準化変数の2因子への負荷量が $0.6,0.5$ なら
+        $$
+        \begin{aligned}
+        h_i^2
+        &=0.6^2+0.5^2\\
+        &=0.36+0.25\\
+        &=0.61.
+        \end{aligned}
         $$
         よって
         $$
-        \operatorname{DFFITS}_i
-        =2\times\frac12=1.
+        \psi_i=1-0.61=0.39.
         $$
-
-        同じ観測について、ある係数が
-        $$
-        \widehat\beta_j=1.2,
-        \qquad
-        \widehat\beta_{j(i)}=0.8
-        $$
-        なら
-        $$
-        \operatorname{DFBETA}_{ij}=1.2-0.8=0.4.
-        $$
-        正の値は、その観測を含めることで係数 $j$ が正方向へ0.4動いたことを表す。
+        この変数の分散の61%を共通因子部分、39%を独自部分が担う。
       注意: |
-        DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジの観測は大きな影響を持ち得るが、閾値超過だけで機械的にデータを削除しない。
+        PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。斜交回転では負荷量平方和の単純な解釈に注意する。
 
-  - id: ms-ridge-lasso-orthogonal-numeric
-    note: LassoのKKT零条件とElastic Netを正則化canonicalへ吸収し、回帰側の派生カードを削減する。
+  - id: mv-lda-direction
+    note: フィッシャー方向の一般式と数値例を統合する。
     sections:
       使用公式・定理: |
-        Ridgeは
+        2群の平均差を
         $$
-        \widehat{\boldsymbol\beta}_{\mathrm{ridge}}
-        =(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I)^{-1}
-        \boldsymbol X^{\mathsf T}\boldsymbol y.
+        \boldsymbol d=\boldsymbol\mu_1-\boldsymbol\mu_0
         $$
-        Lassoの目的関数を
+        とし、共通群内分散共分散行列を $\boldsymbol\Sigma$ とする。フィッシャーの基準
         $$
-        \frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
-        +\lambda\sum_j|\beta_j|
+        J(\boldsymbol w)
+        =\frac{(\boldsymbol w^{\mathsf T}\boldsymbol d)^2}
+        {\boldsymbol w^{\mathsf T}\boldsymbol\Sigma\boldsymbol w}
         $$
-        とすると、直交設計では
+        を最大化する方向は
         $$
-        \widehat\beta_j=S(z_j,\lambda),
-        \qquad
-        S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+.
-        $$
-        一般の設計でもKKT条件より、係数 $j$ が0であるための条件は部分残差 $\boldsymbol r_{-j}$ を用いて
-        $$
-        |\boldsymbol x_j^{\mathsf T}\boldsymbol r_{-j}|\le\lambda
+        \boldsymbol w\propto\boldsymbol\Sigma^{-1}\boldsymbol d
         $$
         である。
-
-        Elastic NetはL1とL2を同時に使う拡張で
-        $$
-        \frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
-        +\lambda\left\{
-        \alpha\sum_j|\beta_j|
-        +\frac{1-\alpha}{2}\sum_j\beta_j^2
-        \right\},
-        $$
-        $\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
-      計算例: |
-        Ridgeでは
-        $$
-        \left(\frac8{4+1},\frac2{1+1}\right)
-        =(1.6,1.0).
-        $$
-        Lassoでは
-        $$
-        S(3,1)=2,\qquad
-        S(0.5,1)=0,\qquad
-        S(-2,1)=-1.
-        $$
-        中央の係数が0になる理由はKKT条件でも確認できる。直交設計ではその部分残差との内積が $0.5$ なので
-        $$
-        |0.5|\le1=\lambda,
-        $$
-        よって0が最適条件を満たす。
       一手: |
-        Ridgeは係数を連続的に縮め、Lassoはsoft-thresholdingにより小さい係数をちょうど0へ落とす。Elastic NetはこのL1の疎性とL2の安定化を同じ目的関数へ入れたものと捉える。
+        平均差そのものではなく、群内分散の大きい方向を割り引くため $\Sigma^{-1}$ で平均差を重み付けする。
+      答え: |
+        $$
+        \boldsymbol w\propto
+        \boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0).
+        $$
+      計算例: |
+        $$
+        \boldsymbol\mu_1=(2,1)^{\mathsf T},
+        \qquad
+        \boldsymbol\mu_0=(0,0)^{\mathsf T},
+        $$
+        $$
+        \boldsymbol\Sigma=\operatorname{diag}(2,1)
+        $$
+        とする。このとき
+        $$
+        \boldsymbol\Sigma^{-1}
+        =\begin{pmatrix}1/2&0\\0&1\end{pmatrix},
+        $$
+        したがって
+        $$
+        \begin{aligned}
+        \boldsymbol w
+        &\propto
+        \begin{pmatrix}1/2&0\\0&1\end{pmatrix}
+        \begin{pmatrix}2\\1\end{pmatrix}\\
+        &=\begin{pmatrix}1\\1\end{pmatrix}.
+        \end{aligned}
+        $$
+        よって判別得点の方向は $x_1+x_2$。
       注意: |
-        Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。
+        $\boldsymbol w$ の倍率は方向を変えない。実際の分類閾値には群平均だけでなく事前確率や誤分類費用も影響する。
+
+  - id: mv-lda-classification-rule
+    note: LDAの分類式へQDAとの共分散仮定の違いを吸収する。
+    sections:
+      使用公式・定理: |
+        群 $k$ が
+        $$
+        \boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
+        $$
+        と共通分散共分散行列を持ち、事前確率が $\pi_k$ なら、群間で共通な項を除いたLDA判別関数は
+        $$
+        \delta_k(\boldsymbol x)
+        =\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        -\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        +\log\pi_k.
+        $$
+        $\delta_k$ が最大の群へ分類する。
+
+        QDAでは群ごとに $\boldsymbol\Sigma_k$ を許すため
+        $$
+        -\frac12\log|\boldsymbol\Sigma_k|
+        -\frac12(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}
+        \boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
+        +\log\pi_k
+        $$
+        を比較し、$\boldsymbol x$ の二次項が群間で打ち消されない。
+      一手: |
+        LDA/QDAは別々に暗記せず、多変量正規密度の対数を群間比較する。共分散が全群共通なら二次項が消えて線形、群別なら残って二次境界になる。
+      答え: |
+        LDAは共通 $\boldsymbol\Sigma$ を仮定して線形境界、QDAは群別 $\boldsymbol\Sigma_k$ を許して二次境界を持つ。
+      計算例: |
+        等事前確率ならLDAの $\log\pi_k$ は全群で同じなので比較から消える。一方、群ごとに共分散が異なるQDAでは $\log|\Sigma_k|$ も分類に効く。
+      注意: |
+        QDAは柔軟だが群ごとに分散共分散行列を推定するため母数が多い。小標本・高次元ではLDAの方が安定しやすい。
+
+  - id: mv-kmeans-one-iteration
+    note: k-meansの目的関数を割当て・重心更新の数値例へ吸収する。
+    sections:
+      使用公式・定理: |
+        k-meansは
+        $$
+        W(C_1,\ldots,C_K)
+        =\sum_{k=1}^{K}\sum_{i\in C_k}
+        \|\boldsymbol x_i-\bar{\boldsymbol x}_k\|^2
+        $$
+        を小さくするよう、
+        1. 現在の重心へ最も近いクラスタに各点を割り当てる
+        2. 各クラスタの重心を所属点の平均へ更新する
+        を交互に行う。固定した割当てでは平方距離和を最小にする代表点は標本平均である。
+      一手: |
+        「最近傍へ割当てる」と「平均へ重心更新する」は、どちらも同じ群内平方和目的関数を減らす座標降下の一手と捉える。
+      答え: |
+        1次元データ $0,2,8,10$、初期重心 $0,10$ では
+        $$
+        C_1=\{0,2\},\qquad C_2=\{8,10\},
+        $$
+        更新後重心は
+        $$
+        \bar x_{C_1}=1,\qquad \bar x_{C_2}=9.
+        $$
+      計算例: |
+        初期重心0,10への距離を比較すると0,2は第1クラスタ、8,10は第2クラスタへ割り当てられる。
+        新しい重心は
+        $$
+        \frac{0+2}{2}=1,
+        \qquad
+        \frac{8+10}{2}=9.
+        $$
+        更新後の目的関数は
+        $$
+        \begin{aligned}
+        W
+        &=(0-1)^2+(2-1)^2\\
+        &\quad +(8-9)^2+(10-9)^2\\
+        &=1+1+1+1\\
+        &=4.
+        \end{aligned}
+        $$
+      注意: |
+        各反復で目的関数は増加しないが、大域最適解を保証しない。初期重心によって局所解が変わるため、複数初期値を試すことがある。
