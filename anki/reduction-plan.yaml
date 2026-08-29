@@ -1,32 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-30-multivariate-reduction-32
+batch_id: 2026-08-30-model-selection-reduction-33
 items:
-  - id: mv-hotelling-f-transform
+  - id: ms-aic-numeric-comparison
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-hotelling-one-sample
-    note: 1標本Hotelling T²の計算から正確なF変換までを一つの検定手順としてcanonicalへ統合済み。
+    canonical_card: ms-bic-numeric-comparison
+    note: AICとBICの式・罰則差・数値比較を同じcanonicalへ統合済み。
 
-  - id: mv-factor-communality
+  - id: reg-mallows-cp
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-factor-model-covariance
-    note: 共通性と独自性は因子モデルの共分散分解の対角成分であり、負荷量0.6,0.5の数値例までcanonicalへ吸収済み。
+    canonical_card: ms-bic-numeric-comparison
+    note: MallowsのCpをAIC・BICと同じ「適合度と複雑さの比較」canonicalへ数値例ごと統合済み。
 
-  - id: mv-lda-numeric
+  - id: ms-ridge-regression
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-lda-direction
-    note: Σ^{-1}(μ1-μ0)からフィッシャー方向を求める数値計算を一般式のcanonicalへ吸収済み。
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: Ridgeの目的関数から勾配・停留条件・閉形式解までcanonicalへ導出付きで統合済み。
 
-  - id: mv-lda-vs-qda
+  - id: ms-lasso-regression
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-lda-classification-rule
-    note: LDAは共通共分散で線形境界、QDAは群別共分散で二次境界という違いを正規対数密度の比較としてclassification canonicalへ統合済み。
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: LassoのL1目的関数、直交設計のsoft-thresholding、KKTによる零化条件までcanonicalへ統合済み。
 
-  - id: mv-kmeans-objective
+  - id: ms-l1-l2-difference
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-kmeans-one-iteration
-    note: k-meansの群内平方和目的関数と、最近傍割当て・重心更新が同じ目的関数を下げる操作であることを数値反復canonicalへ吸収済み。
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: L2の連続縮小とL1の零化を制約境界の違いと合わせてcanonicalの一手・注意へ統合済み。
+
+  - id: reg-ridge-svd-shrinkage
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: SVD方向の縮小率 d_j^2/(d_j^2+lambda) と d=2, lambda=3 の4/7計算をcanonicalへ吸収済み。
