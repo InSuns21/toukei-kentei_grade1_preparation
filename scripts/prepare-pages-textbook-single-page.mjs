@@ -101,10 +101,29 @@ function composeLegacyChapter(files) {
 function inlineLinearAlgebraAppendix(indexText, appendixText) {
   const appendix = demoteHeadings(appendixText, 2).trim();
   const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
-  if (insertionPoint.test(indexText)) {
-    return indexText.replace(insertionPoint, `${appendix}\n\n### 9.5 階数と列フルランク`);
+  const expectedDisplayDelimiters = countOccurrences(indexText, '$$') + countOccurrences(appendix, '$$');
+
+  // String.prototype.replace interprets `$$` in a replacement string as one literal `$`.
+  // Use a replacer callback so TeX display delimiters from the appendix are copied verbatim.
+  const output = insertionPoint.test(indexText)
+    ? indexText.replace(
+        insertionPoint,
+        () => `${appendix}\n\n### 9.5 階数と列フルランク`,
+      )
+    : `${indexText.trimEnd()}\n\n---\n\n${appendix}\n`;
+
+  const actualDisplayDelimiters = countOccurrences(output, '$$');
+  if (actualDisplayDelimiters !== expectedDisplayDelimiters) {
+    throw new Error(
+      `Inlining ${inlineAppendixName} changed display-math delimiters: expected ${expectedDisplayDelimiters}, got ${actualDisplayDelimiters}`,
+    );
   }
-  return `${indexText.trimEnd()}\n\n---\n\n${appendix}\n`;
+
+  return output;
+}
+
+function countOccurrences(text, token) {
+  return text.split(token).length - 1;
 }
 
 function demoteHeadings(text, levels) {
