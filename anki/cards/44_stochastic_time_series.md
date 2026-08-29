@@ -1105,6 +1105,24 @@ $\phi<0$ ならACFは符号を交互に変えながら幾何級数的に減衰�
 ## 注意
 切片 $c$ と定常平均 $\mu$ を混同しない。$|\phi|<1$ は通常の因果的定常AR(1)で必要である。
 
+同じ期待値操作はARMAにも使える。例えば
+$$
+X_t=c+\phi X_{t-1}+\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+で定常平均を $\mu$ とすると、革新の平均が0なので
+$$
+\begin{aligned}
+\mu
+&=c+\phi\mu+E[\varepsilon_t]+\theta E[\varepsilon_{t-1}]\\
+&=c+\phi\mu,
+\end{aligned}
+$$
+よって
+$$
+\mu=\frac{c}{1-\phi}.
+$$
+MA係数 $\theta$ は平均には現れないが、自己共分散や予測には影響する。
+
 <!-- CARD -->
 
 ---
