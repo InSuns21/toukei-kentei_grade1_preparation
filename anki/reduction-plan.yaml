@@ -1,38 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-29-bayesian-consolidation-05
+batch_id: 2026-08-29-interval-structural-dedupe-06
 items:
-  - id: bayes-normal-normal-numeric
+  - id: ci-coverage-frequentist
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-normal-normal-update
-    note: 正規–正規canonical側を平方完成の途中式と同じ数値例まで補強したため、数値代入だけの別カードは同一moveの反復となる。
-  - id: bayes-normal-precision-update
+    canonical_card: ci-coverage-probability
+    note: 被覆確率の定義カード自体が「母数は固定・確率を担うのは区間」「95%は反復手順の被覆」を既に説明している。解釈だけの別カードは同じretrievalを反復する。
+  - id: ci-pivot-definition
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-normal-normal-update
-    note: 事後精度=事前精度+データ精度は補強済みcanonicalの注意と導出に吸収した。分散表記と精度表記を別カードにしない。
-  - id: bayes-factor-definition
+    canonical_card: ci-pivot-construction
+    note: 構成カードはピボット量の母数非依存性を使い、確率不等式を未知母数について実際に解いて正規平均区間まで導く。定義だけを独立カードにしない。
+  - id: ci-test-duality
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-factor-discrete-numeric
-    note: 周辺尤度の積分定義、BFの比、事後オッズへの更新を数値canonicalへ吸収済み。定義だけを独立カードにしない。
-  - id: bayes-factor-prior-sensitivity
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: bayes-factor-discrete-numeric
-    note: ベイズファクターの事前尺度感度はcanonicalの注意へ吸収済み。独立した認識カードとして増殖させない。
-  - id: bayes-factor-improper-prior
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-factor-discrete-numeric
-    note: improper事前で任意定数が周辺尤度比に残る注意はcanonicalへ吸収済み。600枚枠では独立カードにしない。
-  - id: bayes-posterior-odds
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: bayes-factor-discrete-numeric
-    note: 事後オッズ=BF×事前オッズは数値canonicalで式から事後確率まで実際に計算するため重複。
-  - id: bayes-factor-beta-binomial
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-factor-discrete-numeric
-    note: 点帰無対Beta事前の周辺尤度積分はBayes factor一般moveの分布固有派生。600枚デッキでは周辺尤度を積分する原理と数値比較を優先する。
+    canonical_card: ci-duality-acceptance
+    note: 受容域を未知母数について反転して信頼区間を得る証明カードが双対性の定義そのものを具体化しているため、認識カードを別に持たない。
