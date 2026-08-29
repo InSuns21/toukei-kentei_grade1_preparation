@@ -74,7 +74,37 @@ x^{\nu/2-1}e^{-x/2}\qquad(x>0).$$
 カイ二乗分布 $\chi^2_\nu$ は shape-rate 表示で $\operatorname{Gamma}(\nu/2,1/2)$ に一致する。標準正規の平方 $Z^2\sim\chi^2_1$。
 
 ## 計算例
-$\nu=3$ なら密度は $\operatorname{Gamma}(3/2,1/2)$。自由度3のカイ二乗は3個の標準正規平方の和である。
+$\nu=3$ とする。一般密度へ代入すると
+$$
+f_X(x)
+=\frac{1}{2^{3/2}\Gamma(3/2)}x^{1/2}e^{-x/2},
+\qquad x>0.
+$$
+ここで
+$$
+\Gamma\!\left(\frac32\right)
+=\frac12\Gamma\!\left(\frac12\right)
+=\frac{\sqrt\pi}{2}
+$$
+だから
+$$
+\begin{aligned}
+2^{3/2}\Gamma(3/2)
+&=2^{3/2}\frac{\sqrt\pi}{2}\\
+&=\sqrt{2\pi}.
+\end{aligned}
+$$
+よって
+$$
+f_X(x)=\frac{1}{\sqrt{2\pi}}x^{1/2}e^{-x/2},
+\qquad x>0.
+$$
+また $\chi^2_\nu$ の平均・分散は $\nu,2\nu$ なので、$\chi^2_3$ では
+$$
+E[X]=3,
+\qquad
+\operatorname{Var}(X)=6.
+$$
 
 ## 一手
 自由度は独立に足される標準正規平方の個数として読む。
@@ -257,7 +287,30 @@ $t_\nu$ の密度は
 $$f_T(t)=\frac{\Gamma\{(\nu+1)/2\}}{\sqrt{\nu\pi}\,\Gamma(\nu/2)}\left(1+\frac{t^2}{\nu}\right)^{-(\nu+1)/2}.$$
 
 ## 計算例
-$\nu=1$ はコーシー分布で平均・分散とも存在しない。$\nu=30$ は標準正規に近い。
+$\nu=1$ を t 分布の密度へ代入する。まず係数は
+$$
+\frac{\Gamma\{(1+1)/2\}}
+{\sqrt{\pi}\,\Gamma(1/2)}
+=\frac{\Gamma(1)}{\sqrt\pi\,\sqrt\pi}
+=\frac1\pi.
+$$
+また指数は
+$$
+-\frac{\nu+1}{2}=-1
+$$
+だから
+$$
+\begin{aligned}
+f_T(t)
+&=\frac1\pi\left(1+t^2\right)^{-1}\\
+&=\frac{1}{\pi(1+t^2)}.
+\end{aligned}
+$$
+これは標準コーシー分布の密度である。したがって
+$$
+t_1=\text{標準コーシー分布}
+$$
+が密度から直接確認でき、平均・分散が存在しないことも対応する。
 
 ## 一手
 「標準正規 ÷ 独立な(カイ二乗/自由度)の平方根」が t 分布。

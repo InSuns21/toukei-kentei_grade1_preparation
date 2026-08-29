@@ -94,11 +94,49 @@ $(U,V)=g(X,Y)$ が1対1の変換で逆変換が微分可能なら
 $$f_{U,V}(u,v)=f_{X,Y}(x(u,v),y(u,v))\left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|.$$
 
 ## 計算例
-逆変換は $x=(u+v)/2$、$y=(u-v)/2$。Jacobian行列は
-$$\frac{\partial(x,y)}{\partial(u,v)}=\begin{pmatrix}1/2&1/2\\1/2&-1/2\end{pmatrix},\qquad \det=-\frac12.$$
-$|\det|=1/2$。独立性から $f_{X,Y}(x,y)=1$（$0<x,y<1$）なので
-$$f_{U,V}(u,v)=\frac12,\qquad 0<\frac{u+v}{2}<1,\ 0<\frac{u-v}{2}<1.$$
-台は $|v|<u<2-|v|$、$-1<v<1$ の菱形領域である。
+逆変換は
+$$
+x=\frac{u+v}{2},
+\qquad
+y=\frac{u-v}{2}.
+$$
+したがって
+$$
+\frac{\partial(x,y)}{\partial(u,v)}
+=\begin{pmatrix}
+1/2&1/2\\
+1/2&-1/2
+\end{pmatrix},
+$$
+$$
+\left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|
+=\left|-\frac12\right|
+=\frac12.
+$$
+次に元の support $0<x<1$, $0<y<1$ を変換する。
+$$
+0<\frac{u+v}{2}<1
+\Longleftrightarrow
+-u<v<2-u,
+$$
+$$
+0<\frac{u-v}{2}<1
+\Longleftrightarrow
+u-2<v<u.
+$$
+この2条件の共通部分を整理すると
+$$
+-1<v<1,
+\qquad
+|v|<u<2-|v|.
+$$
+元の同時密度は正方形内で1だから、変数変換公式より
+$$
+f_{U,V}(u,v)
+=1\cdot\frac12
+=\frac12
+$$
+（$-1<v<1$, $|v|<u<2-|v|$）、それ以外では0である。
 
 ## 一手
 逆変換→Jacobian行列式→元密度へ代入→台の変換、の順で処理する。
@@ -131,8 +169,34 @@ sources: [{ type: official_syllabus, topic: 確率変数の線形結合 }]
 $$f_Z(z)=\int_{-\infty}^{\infty}f_X(x)f_Y(z-x)\,dx.$$
 
 ## 計算例
-$f_X(x)>0$ には $x>0$、$f_Y(z-x)>0$ には $z-x>0$ すなわち $x<z$ が必要。$z>0$ では
-$$f_Z(z)=\int_0^z e^{-x}e^{-(z-x)}\,dx=\int_0^z e^{-z}\,dx=ze^{-z}.$$
+$f_X(x)$ が正なのは $x>0$、$f_Y(z-x)$ が正なのは
+$$
+z-x>0
+\Longleftrightarrow
+x<z
+$$
+である。したがって $z>0$ のとき積分範囲は
+$$
+0<x<z.
+$$
+この範囲では
+$$
+\begin{aligned}
+f_Z(z)
+&=\int_0^z e^{-x}e^{-(z-x)}\,dx\\
+&=\int_0^z e^{-z}\,dx\\
+&=e^{-z}\int_0^z1\,dx\\
+&=ze^{-z}.
+\end{aligned}
+$$
+よって
+$$
+f_Z(z)=
+\begin{cases}
+ze^{-z},&z>0,\\
+0,&z\le0.
+\end{cases}
+$$
 これは $\operatorname{Gamma}(2,1)$ の密度である。
 
 ## 一手
@@ -166,13 +230,39 @@ $P(X/Y\le z)$ を領域 $\{(x,y):x\le zy\}$ 上の二重積分で計算する。
 $$F_Z(z)=\iint_{g(x,y)\le z}f_{X,Y}(x,y)\,dx\,dy.$$
 
 ## 計算例
-独立性から $f_{X,Y}(x,y)=1$（$0<x,y<1$）。$z>0$ として場合分けする。
+独立性より、単位正方形 $0<x<1$, $0<y<1$ 上で $f_{X,Y}(x,y)=1$ である。
 
-$0<z\le1$ のとき、$x\le zy$ は単位正方形内で直線 $x=zy$ の下側。
-$$F_Z(z)=\int_0^1\int_0^{zy}1\,dx\,dy=\int_0^1 zy\,dy=\frac{z}{2}.$$
+$0<z\le1$ のときは $zy\le1$ が全ての $0<y<1$ で成り立つので、領域は $0<x<zy$。したがって
+$$
+\begin{aligned}
+F_Z(z)
+&=\int_0^1\int_0^{zy}1\,dx\,dy\\
+&=\int_0^1zy\,dy\\
+&=\frac z2.
+\end{aligned}
+$$
 
-$z>1$ のとき、$y<1/z$ では $x$ は $zy$ まで、$y\ge1/z$ では $x$ は1まで。
-$$F_Z(z)=\int_0^{1/z}zy\,dy+\int_{1/z}^1 1\,dy=\frac{1}{2z}+1-\frac1z=1-\frac{1}{2z}.$$
+$z>1$ では、$zy=1$ となる $y=1/z$ で領域の形が変わる。$0<y<1/z$ では $0<x<zy$、$1/z\le y<1$ では $0<x<1$ だから
+$$
+\begin{aligned}
+F_Z(z)
+&=\int_0^{1/z}\int_0^{zy}1\,dx\,dy
+  +\int_{1/z}^1\int_0^11\,dx\,dy\\
+&=\int_0^{1/z}zy\,dy
+  +\int_{1/z}^11\,dy\\
+&=\frac{1}{2z}+1-\frac1z\\
+&=1-\frac{1}{2z}.
+\end{aligned}
+$$
+よって
+$$
+F_Z(z)=
+\begin{cases}
+0,&z\le0,\\
+z/2,&0<z\le1,\\
+1-1/(2z),&z>1.
+\end{cases}
+$$
 
 ## 一手
 不等式の領域を図示し、台との交わり方で積分区間を場合分けする。
