@@ -228,21 +228,77 @@ $Y_1,\ldots,Y_m$ は独立同分布で、$E[Y_b]=\mu$、$\operatorname{Var}(Y_b)
 - SE：標準誤差（standard error）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$X\sim q$ とし、求めたい積分が
+$$
+I=\int h(x)\,dx
+$$
+なら、$q(x)>0$ の範囲で
+$$
+I=\int \frac{h(x)}{q(x)}q(x)\,dx
+=E_q\left[\frac{h(X)}{q(X)}\right]
+$$
+と期待値に直せる。特に
+$$
+I=\int_0^1 g(x)\,dx
+$$
+なら $U\sim U(0,1)$ として
+$$
+I=E[g(U)].
+$$
 
-独立な平均の分散：
-$$\operatorname{Var}(\widehat\mu_m)=\frac1{m^2}m\sigma^2=\frac{\sigma^2}{m}.$$
+独立同分布な $Y_1,\ldots,Y_m$ が $E[Y_b]=\mu$, $\operatorname{Var}(Y_b)=\sigma^2<\infty$ を満たすとき
+$$
+\widehat\mu_m=\frac1m\sum_{b=1}^mY_b,
+$$
+$$
+\operatorname{Var}(\widehat\mu_m)
+=\frac{\sigma^2}{m},
+\qquad
+\operatorname{SE}(\widehat\mu_m)
+=\frac{\sigma}{\sqrt m}.
+$$
+未知の $\sigma$ は反復値の標本標準偏差 $s$ で置き換える。
+
+## 一手
+積分を直接計算しにくいときは、まず「ある確率分布の下での期待値」に書き換える。その分布から独立乱数を生成し、被積分関数の標本平均で期待値を近似する。
 
 ## 答え
-$$\widehat\mu_m=\frac1m\sum_{b=1}^mY_b,\qquad
-\operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}.$$
-未知の $\sigma$ は標本標準偏差sで置き換える。
+Monte Carlo積分は、積分を期待値へ書き換えて独立乱数による標本平均
+$$
+\widehat\mu_m=\frac1m\sum_{b=1}^mY_b
+$$
+で近似する。独立反復なら標準誤差は
+$$
+\operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}
+$$
+であり、実際には $\sigma$ を標本標準偏差 $s$ で推定する。
 
 ## 計算例
-$s=4,m=1600$ なら推定標準誤差は $4/40=0.1$。
+例として
+$$
+I=\int_0^1 x^2\,dx
+$$
+を考える。$U\sim U(0,1)$ なら
+$$
+I=E[U^2].
+$$
+したがって独立な $U_1,\ldots,U_m\sim U(0,1)$ を生成して
+$$
+\widehat I_m=\frac1m\sum_{b=1}^mU_b^2
+$$
+とすればよい。
+
+反復値 $Y_b=U_b^2$ の標本標準偏差が $s=4$、反復数が $m=1600$ の別のMonte Carlo計算なら
+$$
+\widehat{\operatorname{SE}}(\widehat I_m)
+=\frac{4}{\sqrt{1600}}
+=\frac4{40}
+=0.1.
+$$
+誤差を半分程度にしたければ、$1/\sqrt m$ 則より反復数を4倍にする。
 
 ## 注意
-誤差を半分にするには反復数を4倍にする。
+Monte Carlo標準誤差は有限反復による数値誤差であり、元データの標本誤差とは別物である。また独立でないMCMC出力では単純な $s/\sqrt m$ をそのまま使えず、自己相関を考慮した有効標本サイズが必要になる。
 <!-- CARD -->
 
 ---
