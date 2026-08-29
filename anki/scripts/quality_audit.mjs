@@ -79,6 +79,7 @@ for (const card of cards) {
   const formula = card.sections["使用公式・定理"] || "";
   const examplePlain = plainText(example);
   const exampleSignals = operationSignals(example);
+  const answerSignals = operationSignals(answer);
   const formulaSignals = operationSignals(formula);
   const difficulty = Number(card.difficulty || 0);
   const operational = operationTypes.has(card.type);
@@ -110,6 +111,10 @@ for (const card of cards) {
 
   if (operational && formulaSignals >= 3 && exampleSignals <= 1 && examplePlain.length < 180) {
     addIssue(issues, "P1", card, "導出の主要部分が「使用公式・定理」に偏り、計算例が適用過程を再現していません");
+  }
+
+  if (operational && difficulty >= 2 && answerSignals >= 2 && exampleSignals <= 1 && examplePlain.length < 180) {
+    addIssue(issues, "P1", card, "主要な計算が「答え」に集中し、「計算例」が適用過程を担っていません");
   }
 
   if (difficulty >= 3 && operational) {
@@ -153,7 +158,7 @@ const lines = [
   "## 判定基準",
   "",
   "- P0: 計算例が実質空、または計算・解法カードとして本質的操作を確認できない",
-  "- P1: 答え再掲、長い1行式、主要な途中式の飛躍など学習上の問題が疑われる",
+  "- P1: 答え再掲、答え欄への計算偏在、長い1行式、主要な途中式の飛躍など学習上の問題が疑われる",
   "- P2: 一手・説明・長さなど改善余地がある",
   "",
   "## 修正キュー",
@@ -166,6 +171,7 @@ const lines = [
   "",
   "- まず重複・低価値カードを archive し、残す canonical だけを書き直します。",
   "- merge 時は archive 側にしかない有益な導出・条件を canonical へ吸収してから削減します。",
+  "- `答え` は結論を短く示し、主要な導出・数値代入・途中式は `計算例` で追える形にします。",
   "- 自動監査だけでカードを削除しません。",
   "- 既存負債の移行中は通常実行を non-strict とし、`--strict` のときのみ P0 があれば失敗します。",
   "",
