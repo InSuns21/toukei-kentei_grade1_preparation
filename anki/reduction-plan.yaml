@@ -1,58 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-29-bayesian-consolidation-04b
+batch_id: 2026-08-29-bayesian-consolidation-05
 items:
-  - id: bayes-squared-loss-mean
+  - id: bayes-normal-normal-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-loss-decision-canonical
-    note: 二乗損失だけを独立カードにせず、事後期待損失を最小化する一般原理から平均・中央値・分位点・MAPを同じカードで導くcanonicalへ統合する。
-  - id: bayes-absolute-loss-median
+    canonical_card: bayes-normal-normal-update
+    note: 正規–正規canonical側を平方完成の途中式と同じ数値例まで補強したため、数値代入だけの別カードは同一moveの反復となる。
+  - id: bayes-normal-precision-update
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-loss-decision-canonical
-    note: 絶対損失→事後中央値は一般Bayes決定カードの一ケースとして扱う。左右に積分を分ける考え方もcanonical側へ吸収した。
-  - id: bayes-zero-one-map
+    canonical_card: bayes-normal-normal-update
+    note: 事後精度=事前精度+データ精度は補強済みcanonicalの注意と導出に吸収した。分散表記と精度表記を別カードにしない。
+  - id: bayes-factor-definition
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-loss-decision-canonical
-    note: 0-1損失→MAPも同じ「事後期待損失を最小化」の一ケースであり、損失関数ごとにカードを増殖させない。
-  - id: bayes-asymmetric-loss-quantile
+    canonical_card: bayes-factor-discrete-numeric
+    note: 周辺尤度の積分定義、BFの比、事後オッズへの更新を数値canonicalへ吸収済み。定義だけを独立カードにしない。
+  - id: bayes-factor-prior-sensitivity
     bucket: duplicates
     reason: duplicate
-    canonical_card: bayes-loss-decision-canonical
-    note: 非対称絶対損失→事後分位点を一般Bayes決定canonicalへ統合する。c1/(c1+c2) の分位点条件までcanonicalで再現する。
-  - id: bayes-posterior-risk-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: bayes-loss-decision-canonical
-    note: 行動ごとの事後期待損失を比較する数値判断は一般Bayes決定カードの基本操作そのものなので独立反復しない。
-  - id: bayes-beta-binomial-predictive
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: bayes-posterior-predictive-canonical
-    note: 事後予測=新観測尤度を事後分布で積分する一般原理とBeta-Bernoulliの数値例をcanonical側で扱うため重複。
-  - id: bayes-gamma-poisson-predictive
+    canonical_card: bayes-factor-discrete-numeric
+    note: ベイズファクターの事前尺度感度はcanonicalの注意へ吸収済み。独立した認識カードとして増殖させない。
+  - id: bayes-factor-improper-prior
     bucket: too_specific
     reason: too_specific
-    canonical_card: bayes-posterior-predictive-canonical
-    note: Gamma-Poisson混合から負の二項分布を得る関係は有用だが、600枚デッキでは事後予測の一般積分moveを優先し、分布固有の派生はformula/reference側へ寄せる。
-  - id: bayes-exponential-predictive
+    canonical_card: bayes-factor-discrete-numeric
+    note: improper事前で任意定数が周辺尤度比に残る注意はcanonicalへ吸収済み。600枚枠では独立カードにしない。
+  - id: bayes-posterior-odds
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: bayes-factor-discrete-numeric
+    note: 事後オッズ=BF×事前オッズは数値canonicalで式から事後確率まで実際に計算するため重複。
+  - id: bayes-factor-beta-binomial
     bucket: too_specific
     reason: too_specific
-    canonical_card: bayes-posterior-predictive-canonical
-    note: Gamma-指数混合からLomax分布を得る派生は、事後予測の一般積分moveと同型。独立カードとしては優先度が低い。
-  - id: bayes-dirichlet-predictive
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-posterior-predictive-canonical
-    note: Dirichlet事後平均を次カテゴリ確率に使う操作はBeta-Bernoulli予測の多カテゴリ版で、同じ一手を分布別に増やさない。
-  - id: bayes-normal-normal-predictive
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-posterior-predictive-canonical
-    note: 正規事後予測で分散を加える特殊形も、一般事後予測公式の派生。正規分布の和は別カード群で学習できるためBayes側で専用カードを重ねない。
-  - id: bayes-nig-student-predictive
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: bayes-posterior-predictive-canonical
-    note: 正規-逆ガンマ混合からt分布となる高度な派生は通常デッキ600枚枠では過剰。必要な分布関係はformula/reference側へ残す。
+    canonical_card: bayes-factor-discrete-numeric
+    note: 点帰無対Beta事前の周辺尤度積分はBayes factor一般moveの分布固有派生。600枚デッキでは周辺尤度を積分する原理と数値比較を優先する。
