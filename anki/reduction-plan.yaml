@@ -1,13 +1,23 @@
 schema_version: 1
-batch_id: 2026-08-29-sampling-quality-dedupe-01
+batch_id: 2026-08-29-asymptotic-dedupe-02
 items:
-  - id: samp-chisq-mean-variance
+  - id: asym-mle-exponential-rate-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-chisq-mean-var-indep
-    note: 両カードとも正規標本で (n-1)S^2/sigma^2 ~ chi^2_{n-1} を扱う。canonical側をCochran分解・独立性・観測Qの具体計算まで補強済みなので、公式再掲中心の重複側を統合する。
-  - id: samp-max-distribution
+    canonical_card: asym-exponential-rate-mle
+    note: どちらも指数rate lambda の MLE=1/Xbar と ASE=lambda/sqrt(n) を得る。同じ結論をFisher情報量で再計算するカードを残さず、CLT→g(x)=1/x→Delta法で導出するcanonicalへ統合する。
+  - id: asym-poisson-mle-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-order-max
-    note: どちらも最大値について M<=m iff 全Xi<=m から F_M(m)=F_X(m)^n を作り微分する同一move。canonical側はU(0,1), n=2でCDF→密度→support→積分1の確認まで実行しており、一般式を再掲するだけのsampling側より計算例が強い。
+    canonical_card: asym-mle-poisson-tail-probability
+    note: Poisson MLE=Xbar、I_1(lambda)=1/lambda、Avar=lambda/n まで完全に重複。canonical側はさらに標準化して尾確率を求めるため、1枚で同じmoveを最後まで動かせる。
+  - id: asym-delta-bernoulli-odds
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: asym-logit-proportion-delta
+    note: Bernoulli比率へ1次元Delta法を適用する同型例。オッズ p/(1-p) 単独より、logit=log{p/(1-p)} の方が統計推測で標準的で、同じ「微分の二乗×元分散」を練習できる。
+  - id: asym-delta-two-sample-log-risk-ratio
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: asym-ratio-two-means-delta
+    note: 独立2標本に多変量Delta法を使い、対角共分散行列と勾配から分散を作る同一move。平均比のcanonicalを代表例にし、log risk ratio固有の式はformula/reference側で参照可能とする。
