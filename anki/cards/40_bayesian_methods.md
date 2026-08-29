@@ -19,20 +19,74 @@ sources: [{ type: official_syllabus, topic: 事前分布・尤度・事後分布
 - 周辺尤度：尤度を事前分布で平均し、母数を積分消去したデータの確率
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+連続母数では
+$$
+\pi(\theta\mid x)
+=\frac{f(x\mid\theta)\pi(\theta)}{m(x)},
+\qquad
+m(x)=\int f(x\mid u)\pi(u)\,du.
+$$
+離散仮説 $H_k$ では積分が和になり
+$$
+P(x)=\sum_k P(x\mid H_k)P(H_k),
+$$
+$$
+P(H_j\mid x)
+=\frac{P(x\mid H_j)P(H_j)}{P(x)}.
+$$
+$\propto_{\theta}$ で核だけを見る段階では $\theta$ に依存しない正の因子を落としてよいが、周辺尤度やベイズファクターの計算では勝手に落とさない。
 
-分母 $m(x)=\int f(x\mid u)\pi(u)\,du$ は周辺尤度で、事後密度の積分を1にする。
+## 一手
+ベイズ更新ではまず
+$$
+\text{事後分布}\propto_{\theta}\text{尤度}\times\text{事前分布}
+$$
+と書き、母数 $\theta$ に依存する因子だけで分布の核を同定する。最終的な確率や密度が必要なら、周辺尤度で正規化する。
 
 ## 答え
-$$\pi(\theta\mid x)
+$$
+\pi(\theta\mid x)
 =\frac{f(x\mid\theta)\pi(\theta)}
-{\int f(x\mid u)\pi(u)\,du}.$$
+{\int f(x\mid u)\pi(u)\,du}.
+$$
+分布族の同定だけなら
+$$
+\pi(\theta\mid x)\propto_{\theta}f(x\mid\theta)\pi(\theta)
+$$
+として母数に依存しない因子を省ける。
 
 ## 計算例
-核だけを見ると $\pi(\theta\mid x)\propto f(x\mid\theta)\pi(\theta)$。
+離散仮説 $H_1,H_0$ について
+$$
+P(H_1)=0.3,\qquad P(H_0)=0.7,
+$$
+$$
+P(x\mid H_1)=0.8,\qquad P(x\mid H_0)=0.2
+$$
+とする。まず周辺確率は
+$$
+\begin{aligned}
+P(x)
+&=P(x\mid H_1)P(H_1)+P(x\mid H_0)P(H_0)\\
+&=0.8\times0.3+0.2\times0.7\\
+&=0.24+0.14\\
+&=0.38.
+\end{aligned}
+$$
+したがって
+$$
+\begin{aligned}
+P(H_1\mid x)
+&=\frac{0.8\times0.3}{0.38}\\
+&=\frac{0.24}{0.38}\\
+&=\frac{12}{19}\\
+&\approx0.632.
+\end{aligned}
+$$
+連続母数でも分母を積分で作るだけで同じ構造である。
 
 ## 注意
-比例式を最終密度とするなら正規化定数か既知分布名を示す。
+「尤度に比例する」段階と「正規化済みの事後分布」を区別する。二項尤度の組合せ係数のように母数へ依存しない因子は事後分布の核を求めるときには落とせるが、モデル間の周辺尤度を比較するベイズファクターではモデルごとの定数を保存する。
 
 <!-- CARD -->
 
@@ -421,22 +475,74 @@ sources: [{ type: official_syllabus, topic: ギブスサンプリング }]
 - 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+他成分を $\boldsymbol\theta_{-k}$ とすると
+$$
+\pi(\theta_k\mid\boldsymbol\theta_{-k},y)
+\propto_{\theta_k}
+\pi(\theta_1,\ldots,\theta_K\mid y).
+$$
+例えば
+$$
+Y_i\mid\theta\overset{\mathrm{iid}}{\sim}N(\theta,\sigma^2),
+\qquad
+\theta\mid m_0,s_0^2\sim N(m_0,s_0^2)
+$$
+なら、他の母数を固定した完全条件付き分布は
+$$
+V=\left(\frac n{\sigma^2}+\frac1{s_0^2}\right)^{-1},
+\qquad
+M=V\left(\frac{n\bar y}{\sigma^2}+\frac{m_0}{s_0^2}\right),
+$$
+$$
+\theta\mid-\sim N(M,V)
+$$
+となる。
 
-各掃引で $k=1,\ldots,K$ の順に、更新済み成分は新しい値を用いて生成する。
+## 一手
+ギブスサンプリングでは「周辺事後分布を直接求める」のではなく、更新する成分以外をすべて固定し、その成分に依存する因子だけを残して既知分布の核を同定する。
 
 ## 答え
-他成分を $\boldsymbol\theta_{-k}$ とすると
-$$\pi(\theta_k\mid\boldsymbol\theta_{-k},y)
+各成分について
+$$
+\pi(\theta_k\mid\boldsymbol\theta_{-k},y)
 \propto_{\theta_k}
-\pi(\theta_1,\ldots,\theta_K\mid y).$$
-$\theta_k$ に依存しない因子を落として既知分布の核を同定する。
+\pi(\boldsymbol\theta\mid y)
+$$
+と書き、$\theta_k$ に依存しない因子を落として完全条件付き分布を同定する。共役階層モデルでは、この操作が正規–正規更新やガンマ更新などの既知の共役更新に帰着することが多い。
 
 ## 計算例
-共役階層モデルでは各完全条件付き分布が標準分布になることが多い。
+上の正規モデルで
+$$
+m_0=0,\qquad s_0^2=4,\qquad \sigma^2=9,
+\qquad n=9,\qquad \bar y=3
+$$
+とする。まず完全条件付き分布の精度は
+$$
+\frac1V
+=\frac9{9}+\frac14
+=1+\frac14
+=\frac54,
+$$
+したがって
+$$
+V=\frac45=0.8.
+$$
+平均の分子は
+$$
+\frac{9\cdot3}{9}+\frac0{4}=3
+$$
+なので
+$$
+M=0.8\times3=2.4.
+$$
+よって
+$$
+\theta\mid-\sim N(2.4,0.8).
+$$
+正規階層モデルで群効果 $\theta_j$ や全体平均 $\mu$ を更新するときも、条件付けた残りの母数を現在値として扱い、同じ精度加算の型を使う。
 
 ## 注意
-完全条件付き分布は周辺事後分布 $\pi(\theta_k\mid y)$ ではない。
+完全条件付き分布 $\pi(\theta_k\mid\boldsymbol\theta_{-k},y)$ と周辺事後分布 $\pi(\theta_k\mid y)$ は別物である。ギブス掃引では更新済み成分には新しい値を使う。
 
 <!-- CARD -->
 
@@ -924,6 +1030,9 @@ $X_i\mid\lambda\overset{\mathrm{iid}}{\sim}\operatorname{Exp}(\lambda)$（台 $x
 
 Gamma密度の核 $\lambda^{a-1}e^{-b\lambda}$。
 
+## 一手
+指数標本の尤度を $\lambda$ の核だけに整理し、事前ガンマ密度の指数と掛け合わせる。$\lambda$ のべき指数と $e^{-\lambda(\cdot)}$ の係数を読むと、事後ガンマ分布のshapeとrateがそのまま分かる。
+
 ## 答え
 $$L(\lambda)\propto\lambda^n
 \exp\left(-\lambda\sum_i x_i\right),$$
@@ -933,10 +1042,55 @@ $$\lambda\mid\boldsymbol x\sim
 \operatorname{Gamma}\left(a+n,b+\sum_i x_i\right).$$
 
 ## 計算例
-事象数nをshapeへ、総観測時間をrateへ加える。
+事前分布を
+$$
+\lambda\sim\operatorname{Gamma}(2,1)
+$$
+とし、指数標本で
+$$
+n=3,\qquad \sum_{i=1}^n x_i=5
+$$
+を観測したとする。尤度核は
+$$
+L(\lambda)
+\propto
+\lambda^3e^{-5\lambda},
+$$
+事前密度核は
+$$
+\pi(\lambda)
+\propto
+\lambda^{2-1}e^{-1\lambda}.
+$$
+よって事後核は
+$$
+\begin{aligned}
+\pi(\lambda\mid\boldsymbol x)
+&\propto
+\lambda^3e^{-5\lambda}
+\lambda^{1}e^{-\lambda}\\
+&=\lambda^4e^{-6\lambda}.
+\end{aligned}
+$$
+これはshape–rate型
+$$
+\operatorname{Gamma}(5,6)
+$$
+の核なので
+$$
+\lambda\mid\boldsymbol x\sim\operatorname{Gamma}(5,6).
+$$
+事後平均は
+$$
+E[\lambda\mid\boldsymbol x]=\frac56,
+$$
+事後最頻値は
+$$
+\frac{5-1}{6}=\frac23.
+$$
 
 ## 注意
-scale母数化なら第2母数の更新式が異なる。
+ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
 
 <!-- CARD -->
 

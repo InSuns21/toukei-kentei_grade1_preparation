@@ -154,11 +154,17 @@ sources: [{ type: official_syllabus, topic: 事後予測分布 }]
 2. $p\sim\operatorname{Beta}(2,3)$、条件付きで $X\mid p\sim\operatorname{Binomial}(5,p)$ とし、$X=4$ を観測した。次のベルヌーイ試行が成功する事後予測確率を求めよ。
 
 ## 使用公式・定理
-新観測は母数 $\theta$ を条件にすると既存データと独立なので
+新観測は母数 $\theta$ を条件にすると既存データと独立なので、観測後の事後予測分布は
 $$
-p(y\mid x)
-=\int p(y\mid\theta)\pi(\theta\mid x)d\theta.
+p(y_{\mathrm{new}}\mid x)
+=\int p(y_{\mathrm{new}}\mid\theta)\pi(\theta\mid x)d\theta.
 $$
+観測前の事前予測分布は同じ周辺化で
+$$
+m(y)
+=\int p(y\mid\theta)\pi(\theta)d\theta
+$$
+と書く。違いは、母数を平均する重みが事前分布か事後分布かだけである。
 
 ベータ–二項共役更新では
 $$
@@ -216,4 +222,4 @@ $$
 プラグイン法との違いは、$p$ を1個の推定値へ固定せず、事後分布全体で平均している点である。
 
 ## 注意
-ガンマ–ポアソン、ガンマ–指数などでも本質は同じである。分布名が変わっても「$p(y\mid\theta)$ を $\pi(\theta\mid x)$ で積分する」という一手を別カード化しない。
+事前予測と事後予測はどちらも「条件付き分布を母数分布で平均して母数を消去する」操作である。観測前は $\pi(\theta)$、観測後は $\pi(\theta\mid x)$ を使う。ガンマ–ポアソン、ガンマ–指数などでも本質は同じであり、分布名ごとに同じ周辺化操作を別カード化しない。
