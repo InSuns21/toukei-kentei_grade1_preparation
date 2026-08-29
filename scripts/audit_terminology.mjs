@@ -6,6 +6,7 @@ import YAML from 'yaml';
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
+const fixDistributionNames = process.argv.includes('--fix-distribution-names');
 
 const targetRoots = [
   'statistical-mathematics',
@@ -28,7 +29,7 @@ const rules = [
   rule('P 値', 'P値', /P\s+値/g),
   rule('p-value', 'P値', /\bp-value\b/gi),
 
-  rule('Cauchy', 'コーシー', /\bCauchy\b/gi, /コーシー/),
+  rule('Cauchy分布', 'コーシー分布', /\bCauchy(?:\s+distribution|分布)/gi, /コーシー分布/),
   rule('カウチー', 'コーシー', /カウチー/g),
   rule('Weibull', 'ワイブル', /\bWeibull\b/gi, /ワイブル/),
   rule('ウェイブル', 'ワイブル', /ウェイブル/g),
@@ -68,6 +69,23 @@ const rules = [
   acronym('SVD', '特異値分解', /\bSVD\b/g),
   acronym('PCA', '主成分分析', /\bPCA\b/g),
 ];
+
+const distributionFixRules = [
+  { pattern: /\bCauchy\s+distribution\b/gi, replacement: 'コーシー分布' },
+  { pattern: /\bCauchy分布/gi, replacement: 'コーシー分布' },
+  { pattern: /カウチー/g, replacement: 'コーシー' },
+  { pattern: /\bWeibull\s+distribution\b/gi, replacement: 'ワイブル分布' },
+  { pattern: /\bWeibull\b/gi, replacement: 'ワイブル' },
+  { pattern: /ウェイブル/g, replacement: 'ワイブル' },
+  { pattern: /レイブル/g, replacement: 'ワイブル' },
+  { pattern: /\bPareto\s+distribution\b/gi, replacement: 'パレート分布' },
+  { pattern: /\bPareto\b/gi, replacement: 'パレート' },
+];
+
+if (fixDistributionNames) {
+  const changed = autofixDistributionTerminology();
+  console.log(`分布名の一括修正: ${changed} ファイル`);
+}
 
 const syllabusCheck = checkSyllabusTermsInGuide();
 const changedLines = changedOnly ? collectChangedLines() : null;
@@ -128,6 +146,43 @@ function rule(token, preferred, pattern, allowPattern = null) {
 
 function acronym(token, preferred, pattern, allowPattern = null) {
   return rule(token, preferred, pattern, allowPattern ?? new RegExp(escapeRegExp(preferred)));
+}
+
+function autofixDistributionTerminology() {
+  const changedFiles = [];
+  for (const base of targets) {
+    for (const file of walk(base).filter((value) => value.endsWith('.md'))) {
+      const source = fs.readFileSync(file, 'utf8');
+      const sourceLines = source.split('\n');
+      const searchableLines = stripNonProse(source).split('\n');
+      let changed = false;
+
+      for (let i = 0; i < sourceLines.length; i += 1) {
+        if (!(searchableLines[i] ?? '').trim()) continue;
+        let line = sourceLines[i];
+        let searchable = searchableLines[i] ?? '';
+
+        for (const currentRule of distributionFixRules) {
+          const matches = [...searchable.matchAll(currentRule.pattern)];
+          if (!matches.length) continue;
+          for (const match of matches.reverse()) {
+            const start = match.index ?? 0;
+            const end = start + match[0].length;
+            line = `${line.slice(0, start)}${currentRule.replacement}${line.slice(end)}`;
+            changed = true;
+          }
+          searchable = stripNonProse(line);
+        }
+        sourceLines[i] = line;
+      }
+
+      if (changed) {
+        fs.writeFileSync(file, sourceLines.join('\n'));
+        changedFiles.push(relative(file));
+      }
+    }
+  }
+  return changedFiles.length;
 }
 
 function checkSyllabusTermsInGuide() {
