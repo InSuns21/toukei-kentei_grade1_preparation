@@ -1,129 +1,41 @@
 schema_version: 1
-batch_id: 2026-08-29-core-dedupe-01
+batch_id: 2026-08-29-reg-ts-dedupe-01
 items:
-  # CI: 一般形カード自身に計算例があるため、数値代入だけの専用カードを統合する。
-  - id: ci-normal-mean-known-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-normal-mean-known
-    note: 分散既知正規平均の同じzピボットへ数値を代入するだけ。一般形カードにも95%区間の計算例がある。
-  - id: ci-variance-chi-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-variance-chi-derivation
-    note: カイ二乗ピボットから分散区間を作る同じ操作の数値専用版。導出カード側で非対称区間まで扱う。
-  - id: ci-f-variance-ratio-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-f-variance-ratio
-    note: 2母分散比のFピボットへ数値を代入するだけで、新しい判断や変形を要求しない。
-  - id: ci-two-sample-mean-diff-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-two-sample-mean-diff
-    note: 等分散2標本平均差区間の一般形と同じpooled variance計算の数値専用版。
-  - id: ci-welch-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-welch-interval
-    note: Welch区間の一般形とSatterthwaite自由度へ数値を代入するだけ。
-  - id: ci-proportion-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-proportion
-    note: 1標本比率の正規近似区間の数値専用版。一般形カードの計算例で同じmoveを練習できる。
-  - id: ci-proportion-diff-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-proportion-diff
-    note: 2標本比率差の区間公式へ数値を代入するだけで独立カードにする価値が低い。
-  - id: ci-one-sided-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-one-sided
-    note: 片側区間の分位点選択は一般形カードで扱っており、数値専用反復を統合する。
-  - id: ci-asymptotic-mle-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-asymptotic-mle
-    note: MLE漸近正規性からWald型区間を作る同じ操作の数値専用版。
-  - id: ci-delta-method-calc
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: ci-delta-method
-    note: Delta法区間の一般形カード自身に変換・標準誤差の計算例があるため数値専用版を統合する。
+  # Regression: 数理側の一般カードに同じ行列計算・t区間・F表計算が既にある。
+  - id: enginf-linear-model-dimensions
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-multiple-model-matrix
+    note: Y=X beta+epsilon の行列表記と各次元を確認する同一論点。数理側の重回帰行列表記を正本にする。
+  - id: enginf-ols-matrix-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-matrix-ols-derivation
+    note: (X^T X)^{-1}X^T Y を2次行列で計算するだけ。数理側の導出カードにも同型の2x2数値例がある。
+  - id: enginf-coefficient-confidence-interval
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-slope-confidence-interval
+    note: 推定係数±t臨界値×SEという同じ区間構成。一般の係数でも傾きでも解法moveは同一。
+  - id: enginf-regression-anova-output
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-overall-f-test
+    note: SSR・SSEからMSR・MSE・Fを作る操作は重回帰の全体F検定と同一。R2計算はreg-r-squared側で保持する。
 
-  # Delta / CLT: 同じ標準化・同じ微分を名前空間だけ変えて反復しているもの。
-  - id: engasym-delta-square-root
+  # Time series / stochastic processes: 名前空間や工学設定だけを変えた同一操作を統合する。
+  - id: engproc-ar2-root-stability
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-delta-method-sqrt
-    note: 平方根変換のDelta法で導関数を掛ける同一操作。数理側を代表例として残す。
-  - id: samp-clt-approx-mean
+    canonical_card: ts-ar-causality-check
+    note: AR(2)多項式の根を解き、全て単位円外か判定する同一操作。因果性と定常因果解の条件はこの設定では同じ根条件を使う。
+  - id: engproc-random-walk-difference-data
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-clt-statement
-    note: 標本平均をsigma/sqrt(n)で標準化して正規近似するだけで、中心極限定理の標準形と同一。
-  - id: asym-sample-mean-normality
+    canonical_card: ts-difference-random-walk
+    note: 累積系列を1階差分してランダムウォークの増分へ戻す同じ操作。common側はARIMA(0,1,0)まで接続するため情報量が多い。
+  - id: engproc-random-walk-drift-calibration
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-clt-statement
-    note: 標本平均の漸近正規性は中心極限定理そのもの。同じ標準化操作を漸近推定名前空間で反復しない。
-  - id: engasym-clt-sample-mean-tolerance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: dist-clt-sample-mean
-    note: 許容幅の両端を標本平均の標準誤差で標準化する同一のCLT確率近似。理工側には合計値CLTなど別型を残す。
-
-  # MLE: 一般スコア方程式カードの計算例で同じ導出を既に練習するもの。
-  - id: mle-poisson
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mle-score-equation
-    note: 一般スコア方程式カードの計算例がPoisson標本そのもので、lambda=xbarまで導出・二階微分確認している。
-  - id: mle-normal-mean
-    bucket: too_specific
-    reason: too_specific
-    canonical_card: mle-score-equation
-    note: 正規平均の内部解は一般スコア方程式の最も単純な適用。正規分散・境界MLEなど差が出るカードを優先する。
-
-  # Fisher information: 分布だけ変えて同じ「2階微分→負の期待値」を反復する例を1代表へ集約。
-  - id: est-fisher-poisson-example
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-fisher-bernoulli-example
-    note: Fisher情報量の操作は同一。定義・2表式・加法性を別カードで保持し、分布別計算例はBernoulliを代表にする。
-  - id: est-fisher-normal-example
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-fisher-bernoulli-example
-    note: 2階微分の負の期待値という同一move。正規分布ではむしろ計算が単純で独立カード価値が低い。
-  - id: est-fisher-exponential
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-fisher-bernoulli-example
-    note: 分布を指数分布へ変えただけのFisher情報量反復。指数MLE自体は別カードで残す。
-  - id: est-fisher-geometric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-fisher-bernoulli-example
-    note: E[X]を代入する差はあるが中心操作は同じ。600枚目標では分布別Fisher計算を全保持しない。
-
-  # CRLB: θそのものの下界＋達成確認は1代表、g(θ)型と等号条件は別論点として残す。
-  - id: est-crlb-normal-mean-known-variance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-crlb-poisson-mean-efficiency
-    note: I_nを求めて逆数を取り、標本平均が下界達成する同じ操作。Poisson例を代表に残す。
-  - id: est-crlb-exponential
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-crlb-poisson-mean-efficiency
-    note: 分布別に情報量を計算してCRLBへ代入する同一move。g(theta)型や等号成立条件は残す。
-
-  # Regression: 一般線形仮説の同じ二次形式F統計量。
-  - id: enginf-linear-restriction-wald-f
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-general-linear-hypothesis
-    note: H0:R beta=r の二次形式をq s^2で割る同じF統計量。SSE差による部分F・制約付き推定は別moveなので残す。
+    canonical_card: stoch-random-walk-mean-variance
+    note: 独立増分の和について平均をn倍・分散をn倍する同一move。工学側には吸収確率・平均吸収時間など別論点を残す。
