@@ -85,13 +85,8 @@ items:
       - prob-density-bayes-two-class
       - prob-conditional-cdf-from-density
       - prob-pgf-recover-pmf
-      - prob-pgf-binomial
-      - prob-pgf-geometric
-      - prob-pgf-poisson
       - prob-pgf-independent-sum
       - prob-pgf-thinning
-      - prob-pgf-factorial-moment
-      - prob-pgf-validity
       - prob-mgf-mean-variance
       - prob-mgf-affine-transform
       - prob-mgf-iid-sum
@@ -169,13 +164,8 @@ items:
         cards:
           - prob-pgf-moments
           - prob-pgf-recover-pmf
-          - prob-pgf-binomial
-          - prob-pgf-geometric
-          - prob-pgf-poisson
           - prob-pgf-independent-sum
           - prob-pgf-thinning
-          - prob-pgf-factorial-moment
-          - prob-pgf-validity
       - name: モーメント母関数（積率母関数）
         status: card
         cards:
