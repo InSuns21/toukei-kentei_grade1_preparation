@@ -1,4 +1,4 @@
-# Standard 32 Weibull・生存関数・ハザード
+# Standard 32 ワイブル・生存関数・ハザード
 
 - 旧No.: 96
 - 層: Standard
@@ -9,7 +9,7 @@
 
 ## 問題
 
-Weibull分布の累積分布関数を
+ワイブル分布の累積分布関数を
 
 $$
 F(t)=1-\exp\left[-\left(\frac t\lambda\right)^k\right],
