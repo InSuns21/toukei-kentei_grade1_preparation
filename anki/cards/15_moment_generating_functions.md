@@ -52,20 +52,62 @@ sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 $M_X(t)=(1-t)^{-1}$（$t<1$）で、$Y=2X+3$ とする。$M_Y(t)$ を求めよ。
 
 ## 答え
-定数部分を指数因子として外へ出し、$X$ の母関数へ $2t$ を代入する。
+$M_X(t)=(1-t)^{-1}$、$Y=2X+3$ なら
+$$
+M_Y(t)=\frac{e^{3t}}{1-2t},\qquad t<\frac12.
+$$
 
 ## 使用公式・定理
 $Y=aX+b$ なら
-$$M_Y(t)=E[e^{t(aX+b)}]=e^{bt}M_X(at).$$
+$$
+M_Y(t)=E[e^{t(aX+b)}]=e^{bt}M_X(at).
+$$
+また独立な $X_1,\ldots,X_n$ について
+$$
+M_{X_1+\cdots+X_n}(t)=\prod_{i=1}^nM_{X_i}(t).
+$$
+したがって独立な確率変数の線形結合
+$$Y=b+\sum_{i=1}^na_iX_i$$
+では
+$$
+M_Y(t)=e^{bt}\prod_{i=1}^nM_{X_i}(a_it).
+$$
+同じ分布なら同じ因子を累乗できる。
 
 ## 計算例
-$$\begin{aligned}M_Y(t)&=e^{3t}M_X(2t)\\&=\frac{e^{3t}}{1-2t},\qquad t<\frac12.\end{aligned}$$
+1変数のアフィン変換では
+$$
+\begin{aligned}
+M_Y(t)
+&=E[e^{t(2X+3)}]\\
+&=e^{3t}E[e^{(2t)X}]\\
+&=e^{3t}M_X(2t)\\
+&=\frac{e^{3t}}{1-2t},\qquad t<\frac12.
+\end{aligned}
+$$
+
+次に $X_1,X_2,X_3$ が独立同分布で
+$$M_{X_i}(t)=(1-t)^{-1},\qquad t<1$$
+なら
+$$
+\begin{aligned}
+M_{X_1+X_2+X_3}(t)
+&=\prod_{i=1}^3M_{X_i}(t)\\
+&=(1-t)^{-3}.
+\end{aligned}
+$$
+これはshape $3$、rate $1$ のガンマ分布のモーメント母関数である。
+
+さらに独立な $X_1,X_2$ に対して $Z=2X_1-X_2+4$ なら
+$$
+M_Z(t)=e^{4t}M_{X_1}(2t)M_{X_2}(-t).
+$$
 
 ## 一手
-加法定数は前の指数因子、倍率は母関数の引数へ入る。
+定数項は前へ $e^{bt}$ として出し、係数 $a_i$ は各モーメント母関数の引数へ入れ、独立な和は積へ変える。
 
 ## 注意
-存在範囲も $2t<1$ へ変わる。
+同分布だけでは積に分解できず独立性が必要である。各 $M_{X_i}(a_it)$ が有限となる範囲の共通部分が、変換後の存在範囲になる。
 
 <!-- CARD -->
 ---
@@ -151,19 +193,54 @@ sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 $X$ はshape $\alpha>0$、rate $\beta>0$ のガンマ分布に従う。台は $x>0$、確率密度関数は $f_X(x)=\beta^\alpha x^{\alpha-1}e^{-\beta x}/\Gamma(\alpha)$ である。$M_X(t)$ を求めよ。
 
 ## 答え
-指数の率を $\beta-t$ にまとめ、ガンマ積分へ合わせる。
+$$
+M_X(t)=\left(\frac{\beta}{\beta-t}\right)^\alpha,
+\qquad t<\beta.
+$$
 
 ## 使用公式・定理
-$$\int_0^\infty x^{\alpha-1}e^{-cx}\,dx=\frac{\Gamma(\alpha)}{c^\alpha}\qquad(c>0).$$
+shape $\alpha>0$、rate $\beta>0$ のガンマ分布の確率密度関数は
+$$
+f_X(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},\qquad x>0.
+$$
+モーメント母関数は
+$$
+M_X(t)=\int_0^\infty e^{tx}f_X(x)\,dx
+$$
+から求める。ガンマ積分
+$$
+\int_0^\infty x^{\alpha-1}e^{-cx}\,dx
+=\frac{\Gamma(\alpha)}{c^\alpha},\qquad c>0
+$$
+を使う。
 
 ## 計算例
-$$\begin{aligned}M_X(t)&=\frac{\beta^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha-1}e^{-(\beta-t)x}\,dx\\&=\frac{\beta^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha)}{(\beta-t)^\alpha}\\&=\left(\frac{\beta}{\beta-t}\right)^\alpha,\qquad t<\beta.\end{aligned}$$
+定義へ確率密度関数を代入すると
+$$
+\begin{aligned}
+M_X(t)
+&=\frac{\beta^\alpha}{\Gamma(\alpha)}
+  \int_0^\infty x^{\alpha-1}e^{-(\beta-t)x}\,dx\\
+&=\frac{\beta^\alpha}{\Gamma(\alpha)}
+  \frac{\Gamma(\alpha)}{(\beta-t)^\alpha}\\
+&=\left(\frac{\beta}{\beta-t}\right)^\alpha.
+\end{aligned}
+$$
+ただし積分が収束するには
+$$\beta-t>0,$$
+すなわち $t<\beta$ が必要である。
+
+指数分布は $\alpha=1$, $\beta=\lambda$ の特殊形なので
+$$
+M_X(t)=\frac{\lambda}{\lambda-t},\qquad t<\lambda.
+$$
+したがって指数分布のモーメント母関数を別公式として暗記する必要はない。
 
 ## 一手
-$e^{tx}$ を掛けた後の指数係数を新しいrateとして読む。
+$e^{tx}$ を掛けた後、指数部を $e^{-(\beta-t)x}$ にまとめる。残った積分をガンマ積分と比較し、同時に収束条件 $\beta-t>0$ を読む。
 
 ## 注意
-本教材はshape-rate表示であり、尺度表示と混同しない。
+値だけでなく存在範囲を書く。本教材はshape-rate表示であり、尺度表示では式のパラメータ位置が変わる。
 
 <!-- CARD -->
 ---
@@ -254,18 +331,45 @@ sources: [{ type: official_syllabus, topic: モーメント母関数 }]
 2つの確率変数 $X,Y$ について、$M_X(t)=M_Y(t)$ が $-0.1<t<0.1$ で成り立つ。何が結論できるか。また $t=0$ の1点だけで一致する場合はどうか。
 
 ## 答え
-原点を含む開区間で両母関数が有限かつ一致するので、$X,Y$ は同じ分布に従う。$t=0$ の1点だけの一致では結論できない。
+原点を含む開区間で有限なモーメント母関数が一致すれば分布は一致する。$t=0$ の1点だけでは何も同定できない。
 
 ## 使用公式・定理
-モーメント母関数が原点を含む開区間で有限なら、その区間での母関数は分布を一意に定める。
+モーメント母関数が原点を含む開区間で有限なら、その区間でのモーメント母関数は分布を一意に定める。したがって
+$$
+M_X(t)=M_Y(t)
+$$
+が原点近傍で成り立てば $X,Y$ は同じ分布に従う。
+
+正規分布 $N(\mu,\sigma^2)$ のモーメント母関数は
+$$
+M(t)=\exp\left(\mu t+\frac{\sigma^2t^2}{2}\right),
+$$
+しかも全ての実数 $t$ で有限であるため、この形との一致から分布を同定できる。
 
 ## 計算例
-任意の確率変数で
-$$M_X(0)=E[e^{0X}]=1.$$
-したがって $M_X(0)=M_Y(0)$ は常に成り立ち、分布同定の情報を持たない。一方、開区間での一致には一意性定理を使える。
+例えば
+$$M_X(t)=\exp(3t+2t^2)$$
+とする。正規分布の形
+$$
+\exp\left(\mu t+\frac{\sigma^2t^2}{2}\right)
+$$
+と係数を比較すると
+$$
+\mu=3,\qquad \frac{\sigma^2}{2}=2,
+$$
+よって
+$$
+\sigma^2=4,
+\qquad X\sim N(3,4).
+$$
+これは単なる形の暗記ではなく、原点近傍で有限なモーメント母関数の一意性を使った同定である。
+
+一方、任意の確率変数で
+$$M_X(0)=E[e^{0X}]=1$$
+なので、$M_X(0)=M_Y(0)$ だけは常に成り立ち、分布同定の情報を持たない。
 
 ## 一手
-母関数による同定では「原点近傍で有限かつ一致」を確認する。
+モーメント母関数から分布名を読む前に「原点近傍で有限か」を確認し、その後に既知の母関数の形と係数比較する。
 
 ## 注意
-存在範囲を書かずに母関数の一致だけを主張しない。
+正規分布 $N(\mu,\sigma^2)$ の第2引数は標準偏差ではなく分散である。モーメント母関数の存在範囲を書かずに一意性を使わない。
