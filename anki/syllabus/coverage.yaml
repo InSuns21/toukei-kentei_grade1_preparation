@@ -76,13 +76,8 @@ items:
       - prob-mixed-cdf
       - prob-joint-cdf-from-density
       - prob-joint-density-normalization
-      - prob-joint-pmf-normalization
-      - prob-discrete-independence-cross-product
       - prob-conditional-equals-marginal
-      - prob-joint-cdf-independence
       - prob-mixture-marginal
-      - prob-truncated-conditional-density
-      - prob-density-bayes-two-class
       - prob-conditional-cdf-from-density
       - prob-pgf-recover-pmf
       - prob-pgf-independent-sum
@@ -138,9 +133,7 @@ items:
           - prob-discrete-marginal
           - prob-joint-cdf-from-density
           - prob-joint-density-normalization
-          - prob-joint-pmf-normalization
-          - prob-discrete-independence-cross-product
-          - prob-joint-cdf-independence
+          - prob-conditional-equals-marginal
       - name: 周辺分布
         status: card
         cards:
@@ -153,9 +146,8 @@ items:
           - prob-conditional-density
           - prob-discrete-conditional
           - prob-conditional-equals-marginal
-          - prob-truncated-conditional-density
-          - prob-density-bayes-two-class
           - prob-conditional-cdf-from-density
+          - prob-mixture-marginal
       - name: 確率母関数
         status: card
         cards:
