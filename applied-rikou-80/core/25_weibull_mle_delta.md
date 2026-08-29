@@ -8,7 +8,7 @@
 
 ## 問題
 
-形状母数 $k>0$ が既知の ワイブル分布
+形状母数 $k>0$ が既知のワイブル分布
 
 $$
 F(t)=1-\exp\left\{-\left(\frac{t}{\eta}\right)^k\right\},\qquad t>0
