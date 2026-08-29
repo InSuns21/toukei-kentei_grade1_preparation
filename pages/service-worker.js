@@ -1,7 +1,9 @@
 importScripts('./sw-config.js');
 
 const config = self.TOUKEI_SW_CONFIG || {};
-const cacheName = config.cacheName || 'toukei-grade1-runtime-v1';
+const buildRevision = '__TOUKEI_BUILD_REVISION__';
+const cacheBaseName = config.cacheName || 'toukei-grade1-runtime';
+const cacheName = `${cacheBaseName}-${buildRevision}`;
 const cachePrefix = config.cachePrefix || 'toukei-grade1-';
 const supportedStrategies = new Set([
   'network-first',
@@ -9,7 +11,6 @@ const supportedStrategies = new Set([
   'stale-while-revalidate',
 ]);
 let manualCacheJob = null;
-let clientOnlineState = null;
 
 function strategyFor(kind) {
   const configured = config.strategyByKind?.[kind] || config.defaultStrategy || 'network-first';
@@ -33,6 +34,13 @@ function requestKind(request) {
   return null;
 }
 
+function requestForNetwork(request) {
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return request;
+
+  return new Request(request, { cache: 'reload' });
+}
+
 async function cachedFallback(request, cache) {
   const cached = await cache.match(request);
   if (cached) return cached;
@@ -47,7 +55,7 @@ async function cachedFallback(request, cache) {
 }
 
 async function updateCache(cache, request) {
-  const response = await fetch(request);
+  const response = await fetch(requestForNetwork(request));
   if (isCacheable(response)) {
     await cache.put(request, response.clone());
   }
@@ -56,14 +64,11 @@ async function updateCache(cache, request) {
 
 async function networkFirst(request, cache) {
   try {
-    const response = await updateCache(cache, request);
-    clientOnlineState = true;
-    return response;
+    return await updateCache(cache, request);
   } catch {
-    // Once an actual network attempt fails, avoid repeating the same wait for
-    // every Markdown/font request until the page reports that it is online
-    // again. This is especially important in airplane mode.
-    clientOnlineState = false;
+    // A transient failure must not permanently switch this worker into a
+    // cache-first mode. Each later request gets a new network attempt and only
+    // falls back to Cache Storage for that individual failure.
     return cachedFallback(request, cache);
   }
 }
@@ -94,15 +99,8 @@ async function staleWhileRevalidate(event, request, cache) {
 
 async function applyStrategy(event, request, kind) {
   const cache = await caches.open(cacheName);
-
-  // Normal browsing remains Network First. Only when the controlled page has
-  // explicitly reported an offline state (or a real network attempt just
-  // failed) do we bypass the doomed network request and read cache directly.
-  if (clientOnlineState === false) {
-    return cacheFirst(request, cache);
-  }
-
   const strategy = strategyFor(kind);
+
   if (strategy === 'cache-first') {
     return cacheFirst(request, cache);
   }
@@ -298,12 +296,6 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('message', (event) => {
   const data = event.data || {};
-
-  if (data.type === 'SET_CONNECTIVITY' && typeof data.online === 'boolean') {
-    clientOnlineState = data.online;
-    return;
-  }
-
   if (data.type !== 'CACHE_PUBLISHED_FILES') return;
 
   if (manualCacheJob) {
