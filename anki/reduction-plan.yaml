@@ -1,14 +1,50 @@
 schema_version: 1
-batch_id: 2026-08-30-time-series-reduction-35
+batch_id: 2026-08-30-engineering-timeseries-reduction-36
 items:
-  - id: ts-arma11-mean
+  - id: engproc-ar1-intercept-long-run-mean
     bucket: duplicates
     reason: duplicate
     canonical_card: ts-ar1-acf
-    note: ARMA(1,1)でも期待値を取るとMA項の平均が0になり mu=c/(1-phi) となる点をAR(1)モーメントcanonicalへ吸収済み。
+    note: 切片付きAR(1)の長期平均は、平均・分散・ACFを期待値と中心化から導く共通canonicalへ統合済み。
 
-  - id: ts-backshift-arma
+  - id: engproc-arma11-long-run-mean
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-ar1-acf
+    note: ARMA(1,1)の平均でMA項の期待値が0となる操作も共通canonicalの注意へ統合済み。
+
+  - id: engproc-ar1-forecast-mean-reversion
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-ar1-hstep-forecast
+    note: 平均からの偏差をphi^h倍する多期先予測は共通canonicalで導出・数値計算済み。
+
+  - id: engproc-ar1-forecast-interval
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-ar1-hstep-forecast
+    note: 正規革新の下で予測誤差分散から95%予測区間を構成する手順まで共通canonicalへ吸収済み。
+
+  - id: engproc-seasonal-difference-monthly
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-seasonal-difference
+    note: 月次12期差分は一般の季節差分 X_t-X_{t-s} の s=12 数値例にすぎず操作が同一。
+
+  - id: engproc-acf-pacf-model-selection
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-acf-pacf-identification
+    note: ARではPACF打切り・MAではACF打切りという同一のモデル識別操作を共通canonicalが扱う。
+
+  - id: engproc-exponential-smoothing-update
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-simple-exponential-smoothing
+    note: 単純指数平滑の逐次更新式と数値計算は共通canonicalと同一操作。
+
+  - id: engproc-backshift-polynomial-expansion
     bucket: duplicates
     reason: duplicate
     canonical_card: ts-arima-definition
-    note: phi(B)X_t=theta(B)epsilon_t は ARIMA(p,d,q) 定義 phi(B)(1-B)^d X_t=theta(B)epsilon_t の d=0 特殊形である。
+    note: 後退作用素Bの定義とARIMA多項式表現を共通canonicalが扱い、このカードはその単純展開例。
