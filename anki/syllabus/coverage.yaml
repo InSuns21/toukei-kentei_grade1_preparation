@@ -1923,11 +1923,7 @@ items:
       - data-bayes-beta
       - mathstat-gamma-poisson-posterior
       - bayes-density-formula
-      - bayes-squared-loss-mean
-      - bayes-absolute-loss-median
-      - bayes-zero-one-map
-      - bayes-asymmetric-loss-quantile
-      - bayes-posterior-risk-numeric
+      - bayes-loss-decision-canonical
       - bayes-normal-credible-interval
       - bayes-beta-equal-tail-interval
       - bayes-hpd-interval
@@ -1954,19 +1950,14 @@ items:
       - bayes-prior-predictive
       - bayes-likelihood-principle
       - bayes-beta-posterior-mean-mode
-      - bayes-beta-binomial-predictive
-      - bayes-gamma-poisson-predictive
+      - bayes-posterior-predictive-canonical
       - bayes-gamma-exponential-update
       - bayes-gamma-exponential-numeric
-      - bayes-exponential-predictive
       - bayes-normal-normal-update
       - bayes-normal-normal-numeric
-      - bayes-normal-normal-predictive
       - bayes-normal-precision-update
       - bayes-nig-update
-      - bayes-nig-student-predictive
       - bayes-dirichlet-multinomial-update
-      - bayes-dirichlet-predictive
     terms:
       - name: 事前分布
         status: card
@@ -1994,17 +1985,10 @@ items:
           - bayes-evidence-discrete
           - bayes-posterior-odds
           - bayes-beta-posterior-mean-mode
-          - bayes-beta-binomial-predictive
-          - bayes-gamma-poisson-predictive
+          - bayes-posterior-predictive-canonical
           - bayes-gamma-exponential-numeric
-          - bayes-exponential-predictive
           - bayes-normal-normal-numeric
-          - bayes-normal-normal-predictive
-          - bayes-nig-student-predictive
-          - bayes-dirichlet-predictive
-          - bayes-squared-loss-mean
-          - bayes-absolute-loss-median
-          - bayes-zero-one-map
+          - bayes-loss-decision-canonical
           - bayes-normal-credible-interval
           - bayes-beta-equal-tail-interval
           - bayes-hpd-interval

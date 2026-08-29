@@ -33,191 +33,7 @@ $$\pi(\theta\mid x)
 
 ## 注意
 比例式を最終密度とするなら正規化定数か既知分布名を示す。
-<!-- CARD -->
 
----
-id: bayes-squared-loss-mean
-title: 二乗損失のベイズ推定量を導く
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: bayes-squared-loss
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [ベイズ統計, 二乗損失, 事後平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二乗損失→事後平均 }]
----
-
-## 問題
-損失 $L(\theta,a)=(\theta-a)^2$ の下でベイズ推定量が事後平均になることを示せ。
-
-## 記号・用語
-- MAP：最大事後確率（maximum a posteriori）推定
-- 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-条件付き平方完成、または事後期待損失をaで微分する。
-
-## 答え
-$m=E[\theta\mid x]$ とすると
-$$E[(\theta-a)^2\mid x]
-=E[(\theta-m)^2\mid x]+(m-a)^2.$$
-第1項はaに依存しないため、$a=m$ で最小。
-
-## 計算例
-事後分布が $\operatorname{Beta}(9,6)$ ならベイズ推定値は0.6。
-
-## 注意
-最尤推定値やMAPとは一般に異なる。
-<!-- CARD -->
-
----
-id: bayes-absolute-loss-median
-title: 絶対損失のベイズ推定量を導く
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: bayes-absolute-loss
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [ベイズ統計, 絶対損失, 事後中央値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 絶対損失→事後中央値 }]
----
-
-## 問題
-連続な事後分布関数をFとする。$R(a)=E[|\theta-a|\mid x]$ を最小にするaを求めよ。
-
-## 記号・用語
-- 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-絶対偏差の期待値をaの左右に分けて微分する。
-
-## 答え
-微分可能な点で
-$$R'(a)=P(\theta<a\mid x)-P(\theta>a\mid x)
-=2F(a)-1.$$
-したがって $F(a)=1/2$ を満たす事後中央値が最小化する。
-
-## 計算例
-事後分布が左右対称なら平均＝中央値となる。
-
-## 注意
-中央値が区間をなす場合、その区間内の任意のaが最適。
-<!-- CARD -->
-
----
-id: bayes-zero-one-map
-title: 0-1損失とMAPの関係を説明する
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: bayes-zero-one-loss
-type: recognition
-difficulty: 3
-priority: B
-hashtags: [ベイズ統計, 0-1損失, MAP]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 0-1損失→MAP }]
----
-
-## 問題
-離散母数に対する0-1損失 $L(\theta,a)=\boldsymbol1_{\{\theta\ne a\}}$ のベイズ推定量を求めよ。
-
-## 記号・用語
-- MAP：最大事後確率（maximum a posteriori）推定
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-ベイズ推定量は事後期待損失を最小にする決定。
-
-## 答え
-$$E[L(\theta,a)\mid x]
-=1-P(\theta=a\mid x).$$
-よって事後確率を最大にするMAP推定量
-$$a_{\mathrm{MAP}}\in\arg\max_aP(\theta=a\mid x)$$
-が最適。
-
-## 計算例
-事後確率が $(0.2,0.5,0.3)$ なら第2状態を選ぶ。
-
-## 注意
-連続母数では一点の確率が0なので、密度の最頻値との対応は微小区間損失の極限として理解する。
-<!-- CARD -->
-
----
-id: bayes-asymmetric-loss-quantile
-title: 非対称絶対損失から事後分位点を求める
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: bayes-quantile-loss
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [ベイズ統計, 非対称損失, 事後分位点]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベイズ推定量と損失関数 }]
----
-
-## 問題
-過小評価の損失を $c_1(\theta-a)$、過大評価の損失を $c_2(a-\theta)$ とする。最適なaが満たす事後分位点を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-非対称絶対損失のベイズ決定は対応する事後分位点。
-
-## 答え
-事後期待損失の微分を0と置くと
-$$-c_1P(\theta>a\mid x)+c_2P(\theta<a\mid x)=0.$$
-よって
-$$F(a\mid x)=\frac{c_1}{c_1+c_2}.$$
-
-## 計算例
-$c_1=3,c_2=1$ なら75%事後分位点。
-
-## 注意
-過小評価の損失が大きいほど高い分位点を選ぶ。
-<!-- CARD -->
-
----
-id: bayes-posterior-risk-numeric
-title: 事後期待損失から行動を選ぶ
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: posterior-risk
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ベイズ統計, 事後期待損失, 意思決定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ベイズ推定量と損失関数 }]
----
-
-## 問題
-事後確率が $P(\theta_1\mid x)=0.7,\ P(\theta_0\mid x)=0.3$。行動 $a_1$ の損失が $(0,4)$、$a_0$ の損失が $(2,0)$（順に $\theta_1,\theta_0$）ならどちらを選ぶか。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$\rho(a\mid x)=E[L(\theta,a)\mid x]$。
-
-## 答え
-$$\rho(a_1\mid x)=0(0.7)+4(0.3)=1.2,$$
-$$\rho(a_0\mid x)=2(0.7)+0(0.3)=1.4.$$
-したがって事後期待損失の小さい $a_1$。
-
-## 計算例
-最大事後確率だけでなく誤判定費用を反映できる。
-
-## 注意
-損失表の行動と状態の向きを確認する。
 <!-- CARD -->
 
 ---
@@ -256,6 +72,7 @@ $$[0.647,4.153].$$
 
 ## 注意
 第2母数0.8は分散。
+
 <!-- CARD -->
 
 ---
@@ -294,6 +111,7 @@ $$P(p<q_{\gamma/2}\mid x)=P(p>q_{1-\gamma/2}\mid x)=\frac\gamma2.$$
 
 ## 注意
 正規近似で台 $[0,1]$ を外れる場合はBeta分位点を直接使う。
+
 <!-- CARD -->
 
 ---
@@ -332,6 +150,7 @@ P(\theta\in C\mid x)=1-\alpha$$
 
 ## 注意
 多峰分布ではHPD領域が複数区間に分かれ得る。
+
 <!-- CARD -->
 
 ---
@@ -368,6 +187,7 @@ $$P_\theta\{\theta\in C(X)\}=0.95$$
 
 ## 注意
 数値的に同じ区間でも解釈は異なり得る。
+
 <!-- CARD -->
 
 ---
@@ -407,6 +227,7 @@ $BF_{10}=5$ はデータが $M_0$ より $M_1$ の下で5倍予測されやす�
 
 ## 注意
 ベイズファクターは事後確率そのものではない。
+
 <!-- CARD -->
 
 ---
@@ -444,6 +265,7 @@ $$BF_{10}=
 
 ## 注意
 モデル $M_1$ 内でpを積分し、最尤値を代入しない。
+
 <!-- CARD -->
 
 ---
@@ -482,6 +304,7 @@ $P(M_0\mid x)=0.2$。
 
 ## 注意
 周辺尤度は密度値であり、それぞれが0から1の確率である必要はない。
+
 <!-- CARD -->
 
 ---
@@ -521,6 +344,7 @@ $$m_1(x)=\int f_1(x\mid\theta)\pi_1(\theta)\,d\theta$$
 
 ## 注意
 事後推定が頑健でもベイズファクターは事前尺度に敏感なことがある。
+
 <!-- CARD -->
 
 ---
@@ -561,6 +385,7 @@ $$m_k(x)=c_k\int f_k(x\mid\theta_k)h_k(\theta_k)\,d\theta_k$$
 
 ## 注意
 推定でproperな事後分布が得られることとベイズファクターが定義できることは別。
+
 <!-- CARD -->
 
 ---
@@ -599,6 +424,7 @@ p(\theta_j\mid\eta)p(y_j\mid\theta_j).$$
 
 ## 注意
 超母数を固定未知量として推定する経験ベイズ法とは区別する。
+
 <!-- CARD -->
 
 ---
@@ -636,6 +462,7 @@ $\tau^2=1,v_j=3$ なら $B_j=1/4$ で群平均を強く全体平均へ縮小す�
 
 ## 注意
 観測分散 $v_j$ が大きい群ほど縮小が強い。
+
 <!-- CARD -->
 
 ---
@@ -674,6 +501,7 @@ $$p(\theta_j,\theta_k\mid\eta)
 
 ## 注意
 条件付き独立と周辺独立を混同しない。
+
 <!-- CARD -->
 
 ---
@@ -713,6 +541,7 @@ $\theta_k$ に依存しない因子を落として既知分布の核を同定す
 
 ## 注意
 完全条件付き分布は周辺事後分布 $\pi(\theta_k\mid y)$ ではない。
+
 <!-- CARD -->
 
 ---
@@ -752,6 +581,7 @@ $$\theta_j\mid-\sim N(M_j,V_j).$$
 
 ## 注意
 記号「$-$」は他の全母数とデータを条件付ける意味。
+
 <!-- CARD -->
 
 ---
@@ -790,6 +620,7 @@ $$\mu\mid-\sim N(M_\mu,V_\mu).$$
 
 ## 注意
 観測 $Y_{ij}$ は $\theta_j$ を条件付けるとこの完全条件付き核に直接現れない。
+
 <!-- CARD -->
 
 ---
@@ -825,6 +656,7 @@ $n_j$ が小さい群ほど事前擬似度数の影響が大きい。
 
 ## 注意
 全群を同じpとする完全プーリングとは異なる。
+
 <!-- CARD -->
 
 ---
@@ -863,6 +695,7 @@ $$\pi(\theta\mid y)=\int\pi(\theta\mid y,\eta)\pi(\eta\mid y)\,d\eta.$$
 
 ## 注意
 データから事前分布を推定するため、通常の固定事前ベイズとは異なる。
+
 <!-- CARD -->
 
 ---
@@ -900,6 +733,7 @@ Y^{\mathrm{rep},(b)}\sim p(y^{\mathrm{rep}}\mid\theta^{(b)}).$$
 
 ## 注意
 同じデータを更新と評価に使うため、一様な頻度論的P値ではない。
+
 <!-- CARD -->
 
 ---
@@ -937,6 +771,7 @@ $$\pi(\theta\mid x)\propto L(\theta;x)\pi(\theta)$$
 
 ## 注意
 「無情報」という名称だけで一つの事前分布を自動採用しない。
+
 <!-- CARD -->
 
 ---
@@ -971,6 +806,7 @@ $$P(H_1\mid x)=\frac{0.8(0.3)}{0.38}
 
 ## 注意
 尤度 $P(x\mid H_1)$ と事後確率 $P(H_1\mid x)$ を逆にしない。
+
 <!-- CARD -->
 
 ---
@@ -1009,6 +845,7 @@ $BF_{10}>1$ でも事前オッズが極端なら事後で $H_1$ が優勢とは�
 
 ## 注意
 $BF_{10}$ と $BF_{01}=1/BF_{10}$ の向きを確認する。
+
 <!-- CARD -->
 
 ---
@@ -1045,6 +882,7 @@ $$\pi(\theta\mid x)\propto L(\theta;x)\pi(\theta).$$
 
 ## 注意
 共役性は計算上の便利さであり、事前知識への適合性とは別。
+
 <!-- CARD -->
 
 ---
@@ -1084,6 +922,7 @@ $$\int L(\theta;x)\pi(\theta)\,d\theta<\infty$$
 
 ## 注意
 improper事前分布では任意定数が消えないため、通常のベイズファクターは定義できない。
+
 <!-- CARD -->
 
 ---
@@ -1120,6 +959,7 @@ $$m(x)=\int f(x\mid\theta)\pi(\theta)\,d\theta.$$
 
 ## 注意
 事後予測分布は観測xで更新した $\pi(\theta\mid x)$ を使う。
+
 <!-- CARD -->
 
 ---
@@ -1159,6 +999,7 @@ $$\pi(\theta\mid x)\propto_\theta L(\theta;x)\pi(\theta)$$
 
 ## 注意
 周辺尤度やベイズファクターを計算するときは、モデル間で異なる定数を勝手に落とさない。
+
 <!-- CARD -->
 
 ---
@@ -1197,79 +1038,7 @@ $$p_{\mathrm{MAP}}=\frac{9-1}{9+6-2}
 
 ## 注意
 超母数が1以下なら境界が最頻値になり得る。
-<!-- CARD -->
 
----
-id: bayes-beta-binomial-predictive
-title: ベータ–二項事後予測確率を求める
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: beta-binomial-predictive
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ベイズ統計, 事後予測分布, ベータ分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事後予測分布 }]
----
-
-## 問題
-$p\mid x\sim\operatorname{Beta}(\alpha,\beta)$ のとき、次のベルヌーイ試行 $Y$ が成功する事後予測確率を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-事後予測分布 $p(y\mid x)=\int p(y\mid\theta)\pi(\theta\mid x)\,d\theta$。
-
-## 答え
-$$P(Y=1\mid x)
-=\int_0^1P(Y=1\mid p)\pi(p\mid x)\,dp$$
-$$=\int_0^1p\,\pi(p\mid x)\,dp
-=E[p\mid x]=\frac{\alpha}{\alpha+\beta}.$$
-
-## 計算例
-$\operatorname{Beta}(9,6)$ なら次回成功確率は0.6。
-
-## 注意
-プラグイン値だけでなく母数の事後不確実性を積分している。
-<!-- CARD -->
-
----
-id: bayes-gamma-poisson-predictive
-title: ガンマ–ポアソン事後予測分布を導く
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: gamma-poisson-predictive
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [ベイズ統計, ガンマ分布, 負の二項分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ガンマ分布・ポアソン分布 }]
----
-
-## 問題
-$\lambda\mid x\sim\operatorname{Gamma}(\alpha,\beta)$（shape–rate）で、$Y\mid\lambda\sim\operatorname{Poisson}(\lambda)$。Yの事後予測確率を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$\int_0^\infty\lambda^{r-1}e^{-c\lambda}\,d\lambda=\Gamma(r)/c^r$。
-
-## 答え
-$$P(Y=y\mid x)=\int_0^\infty
-\frac{e^{-\lambda}\lambda^y}{y!}
-\frac{\beta^\alpha}{\Gamma(\alpha)}
-\lambda^{\alpha-1}e^{-\beta\lambda}\,d\lambda$$
-$$=\frac{\Gamma(\alpha+y)}{\Gamma(\alpha)y!}
-\left(\frac{\beta}{\beta+1}\right)^\alpha
-\left(\frac1{\beta+1}\right)^y.$$
-
-## 計算例
-これは成功確率 $\beta/(\beta+1)$ の負の二項分布。
-
-## 注意
-ガンマ分布の第2母数がrateであることを明記する。
 <!-- CARD -->
 
 ---
@@ -1311,6 +1080,7 @@ $$\lambda\mid\boldsymbol x\sim
 
 ## 注意
 scale母数化なら第2母数の更新式が異なる。
+
 <!-- CARD -->
 
 ---
@@ -1348,43 +1118,7 @@ $$E[\lambda\mid\boldsymbol x]=\frac56.$$
 
 ## 注意
 率 $\lambda$ の推定であり平均寿命 $1/\lambda$ の事後平均とは異なる。
-<!-- CARD -->
 
----
-id: bayes-exponential-predictive
-title: ガンマ–指数事後予測密度を求める
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: exponential-predictive
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [ベイズ統計, 事後予測分布, Lomax分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事後予測分布 }]
----
-
-## 問題
-$\lambda\mid\boldsymbol x\sim\operatorname{Gamma}(\alpha,\beta)$（shape–rate）、$Y\mid\lambda\sim\operatorname{Exp}(\lambda)$ の事後予測密度を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$。
-
-## 答え
-$y\ge0$ で
-$$p(y\mid\boldsymbol x)=\int_0^\infty
-\lambda e^{-\lambda y}
-\frac{\beta^\alpha}{\Gamma(\alpha)}
-\lambda^{\alpha-1}e^{-\beta\lambda}\,d\lambda$$
-$$=\frac{\alpha\beta^\alpha}{(\beta+y)^{\alpha+1}}.$$
-
-## 計算例
-予測生存関数は $\{\beta/(\beta+y)\}^{\alpha}$。
-
-## 注意
-母数を固定した指数分布より右裾が重いLomax分布になる。
 <!-- CARD -->
 
 ---
@@ -1428,6 +1162,7 @@ $m_n$ は事前平均と標本平均の精度加重平均。
 
 ## 注意
 標本平均の分散は $\sigma^2/n$。
+
 <!-- CARD -->
 
 ---
@@ -1472,42 +1207,7 @@ $$m_n=\frac45\left(\frac0{4}+\frac{9(3)}9\right)
 
 ## 注意
 第2母数は標準偏差でなく分散。
-<!-- CARD -->
 
----
-id: bayes-normal-normal-predictive
-title: 正規–正規事後予測分布を求める
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: normal-predictive
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ベイズ統計, 事後予測分布, 正規分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事後予測分布 }]
----
-
-## 問題
-事後分布が正規分布 $\mu\mid\boldsymbol x\sim N(m_n,s_n^2)$、条件付き分布が正規分布 $Y\mid\mu\sim N(\mu,\sigma^2)$ とする。Yの事後予測分布を求めよ。
-
-## 記号・用語
-- 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-独立な正規変数の和は正規分布で、分散は加算される。
-
-## 答え
-$Y=\mu+\varepsilon$、$\varepsilon\sim N(0,\sigma^2)$ が事後の $\mu$ と独立なので
-$$Y\mid\boldsymbol x\sim N(m_n,\sigma^2+s_n^2).$$
-
-## 計算例
-$m_n=2.4,s_n^2=0.8,\sigma^2=9$ なら $N(2.4,9.8)$。
-
-## 注意
-予測分散には新観測の分散と母数不確実性の両方が入る。
 <!-- CARD -->
 
 ---
@@ -1541,6 +1241,7 @@ $\tau_0=2,n\tau=8$ なら事前平均の重み0.2、標本平均の重み0.8。
 
 ## 注意
 精度と分散を同じ式内で混在させない。
+
 <!-- CARD -->
 
 ---
@@ -1581,42 +1282,7 @@ $$\beta_n=\beta_0+\frac12\sum_i(x_i-\bar x)^2
 
 ## 注意
 逆ガンマ分布の母数化を密度 $\propto(\sigma^2)^{-\alpha-1}e^{-\beta/\sigma^2}$ と明記する。
-<!-- CARD -->
 
----
-id: bayes-nig-student-predictive
-title: 正規–逆ガンマの事後予測分布を書く
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: normal-inverse-gamma-predictive
-type: formula
-difficulty: 5
-priority: B
-hashtags: [ベイズ統計, 事後予測分布, t分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事後予測分布 }]
----
-
-## 問題
-正規–逆Gamma更新後の超母数を $(m_n,\kappa_n,\alpha_n,\beta_n)$ とする。新観測Yの事後予測分布を書け。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-正規分布を逆ガンマ分布で分散混合するとStudentのt分布になる。
-
-## 答え
-$$Y\mid\boldsymbol x\sim
-t_{2\alpha_n}\left(
-m_n,\ \frac{\beta_n(\kappa_n+1)}{\alpha_n\kappa_n}
-\right).$$
-ここで第2母数は尺度の二乗。
-
-## 計算例
-自由度は $2\alpha_n$。
-
-## 注意
-t分布の第2母数を分散とするか尺度とするかを明示する。
 <!-- CARD -->
 
 ---
@@ -1655,38 +1321,3 @@ $$\boldsymbol p\mid\boldsymbol n\sim
 
 ## 注意
 $p_k>0$、$\sum_kp_k=1$。
-<!-- CARD -->
-
----
-id: bayes-dirichlet-predictive
-title: Dirichlet事後予測確率を計算する
-category: math-data-analysis
-subcategory: math-bayesian-methods
-topic: dirichlet-predictive
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ベイズ統計, Dirichlet分布, 事後予測分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 事後予測分布 }]
----
-
-## 問題
-$\boldsymbol p\mid\boldsymbol n\sim\operatorname{Dirichlet}(3,5,2)$ のとき、次の観測がカテゴリ2となる事後予測確率を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-Dirichlet平均 $E[p_k]=\alpha_k/\sum_j\alpha_j$。
-
-## 答え
-$$P(Y=2\mid\boldsymbol n)
-=E[p_2\mid\boldsymbol n]
-=\frac5{3+5+2}=\frac12.$$
-
-## 計算例
-3カテゴリの予測確率は $(0.3,0.5,0.2)$。
-
-## 注意
-事後超母数を分子・分母に使う。
-<!-- CARD -->
