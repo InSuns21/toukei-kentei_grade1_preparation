@@ -488,45 +488,6 @@ $f_X'=0$ の候補と台の端点を比較し、最大を与える点を選ぶ�
 <!-- CARD -->
 
 ---
-id: prob-covariance-computation
-title: 同時分布から共分散を計算する
-category: math-probability
-subcategory: math-distribution-characteristics
-topic: covariance
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [共分散, 同時分布, 期待値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 共分散 }]
----
-## 問題
-$(X,Y)$ の同時確率質量関数を $p(0,0)=0.1$、$p(0,1)=0.2$、$p(1,0)=0.3$、$p(1,1)=0.4$ とする。$\operatorname{Cov}(X,Y)$ を求めよ。
-
-## 答え
-$E[XY]$、$E[X]$、$E[Y]$ を計算し、$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]$ に代入する。
-
-## 使用公式・定理
-共分散は、$E[X^2]<\infty$ かつ $E[Y^2]<\infty$ のとき（Cauchy--Schwarz不等式により $E|XY|<\infty$ も保証される）
-$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y].$
-
-## 計算例
-$X,Y$ はともに0か1の値しか取らないので
-$$E[XY]=1\cdot1\cdot p(1,1)=0.4,$$
-$$E[X]=1\cdot\{p(1,0)+p(1,1)\}=0.7,$$
-$$E[Y]=1\cdot\{p(0,1)+p(1,1)\}=0.6.$$
-したがって
-$$\operatorname{Cov}(X,Y)=0.4-0.7\cdot0.6=0.4-0.42=-0.02.$$
-
-## 一手
-周辺分布を先に求めてから $E[X],E[Y]$ を計算すると間違いが少ない。
-
-## 注意
-共分散が負なら一方が大きいとき他方が小さい傾向を示す。ここではわずかに負。
-
-<!-- CARD -->
-
----
 id: prob-correlation-coefficient
 title: 共分散と標準偏差から相関係数を求める
 category: math-probability
@@ -645,43 +606,6 @@ $$
 
 ## 注意
 相関係数は線形関係の強さを測る量であり、$\rho=0$ は一般には独立を意味しない。ただし多変量正規分布では無相関と独立が同値になる。$|\rho|\le1$ は暗記せず、中心化した変数へのコーシー–シュワルツの不等式から導ける。
-
-<!-- CARD -->
-
----
-id: prob-correlation-independence
-title: 無相関と独立性の関係を判定する
-category: math-probability
-subcategory: math-distribution-characteristics
-topic: correlation-independence
-type: recognition
-difficulty: 2
-priority: A
-hashtags: [相関係数, 統計的独立, 無相関]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 相関係数 }]
----
-## 問題
-$X$ を $p_X(-1)=p_X(0)=p_X(1)=1/3$ とし、$Y=X^2$ とする。$\operatorname{Cov}(X,Y)$ を計算し、$X$ と $Y$ が独立かどうか答えよ。
-
-## 答え
-共分散は0になるが、$Y$ は $X$ の関数なので独立ではない。
-
-## 使用公式・定理
-独立なら $\operatorname{Cov}(X,Y)=0$（無相関）である。しかし逆は一般に成り立たない。$\operatorname{Cov}(X,Y)=0$ でも関数関係があり得る。
-
-## 計算例
-$E[X]=(-1+0+1)/3=0$。$XY=X^3$ で、$X^3$ の取る値は $-1,0,1$ だから
-$$E[XY]=E[X^3]=\frac{-1+0+1}{3}=0.$$
-よって
-$$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y]=0-0\cdot E[Y]=0.$$
-一方、$P(X=1,Y=0)=0$ だが $P(X=1)P(Y=0)=(1/3)(1/3)=1/9\ne0$ なので独立ではない。
-
-## 一手
-「無相関だが独立でない」例は、対称な $X$ と偶関数 $Y=X^2$ の組合せが典型。
-
-## 注意
-多変量正規分布に限り、無相関と独立は同値になる。一般の分布では区別する。
 
 <!-- CARD -->
 

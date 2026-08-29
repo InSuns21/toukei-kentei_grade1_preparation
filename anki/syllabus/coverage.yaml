@@ -177,15 +177,12 @@ items:
       - prob-percentile-from-cdf
       - prob-range-definition
       - prob-mode-from-density
-      - prob-covariance-computation
       - prob-correlation-coefficient
-      - prob-correlation-independence
       - prob-partial-correlation
       - prob-shape-summary
       - prob-total-expectation
       - prob-conditional-covariance
       - prob-covariance-matrix-components
-      - prob-cauchy-schwarz-correlation
       - prob-jensen-inequality
       - prob-chebyshev-inequality
       - mathstat-total-covariance
@@ -251,15 +248,13 @@ items:
       - name: 共分散
         status: card
         cards:
-          - prob-covariance-computation
+          - prob-correlation-coefficient
           - prob-conditional-covariance
           - prob-covariance-matrix-components
       - name: 相関係数
         status: card
         cards:
           - prob-correlation-coefficient
-          - prob-correlation-independence
-          - prob-cauchy-schwarz-correlation
       - name: 偏相関係数
         status: card
         cards:

@@ -165,43 +165,6 @@ $$\operatorname{Cov}(\boldsymbol X)=\begin{pmatrix}4&3\\3&9\end{pmatrix}.$$
 <!-- CARD -->
 
 ---
-id: prob-cauchy-schwarz-correlation
-title: コーシー–シュワルツの不等式で相関係数の範囲を確定する
-category: math-probability
-subcategory: math-distribution-characteristics
-topic: cauchy-schwarz-correlation
-type: theorem
-difficulty: 2
-priority: A
-hashtags: [コーシー–シュワルツの不等式, 相関係数, 不等式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 相関係数 }]
----
-## 問題
-$E[X^2],E[Y^2]<\infty$ のとき、相関係数 $\rho_{X,Y}$ の取り得る範囲を求めよ。
-
-## 答え
-$-1\le\rho_{X,Y}\le1.$
-$\operatorname{Var}(X),\operatorname{Var}(Y)>0$（非退化）の下で、$\lvert\rho\rvert=1$ は直線関係 $Y=aX+b$（$a\ne0$）と同値になる。
-
-## 使用公式・定理
-Cauchy–Schwarzの不等式の期待値版
-$$\operatorname{Cov}(X,Y)^2\le\operatorname{Var}(X)\operatorname{Var}(Y).$$
-$\rho_{X,Y}=\operatorname{Cov}(X,Y)/(\sigma_X\sigma_Y)$ より、両辺を $(\sigma_X\sigma_Y)^2$ で割ると $0\le\rho^2\le1$。
-
-## 計算例
-$\operatorname{Var}(X)=16,\ \operatorname{Var}(Y)=25$ なら
-$$\lvert\operatorname{Cov}(X,Y)\rvert\le\sqrt{16\cdot25}=20.$$
-
-## 一手
-$\operatorname{Cov}(X,Y)$ にコーシー不等式を適用し、標準偏差の積で割って無次元化する。
-
-## 注意
-$\rho=0$ は無相関を表し、独立性は含意しない。$\lvert\rho\rvert=1$ は退化した直線関係。
-
-<!-- CARD -->
-
----
 id: prob-jensen-inequality
 title: Jensenの不等式で凸関数の期待値の向きを定める
 category: math-probability
