@@ -1,238 +1,80 @@
 schema_version: 1
-batch_id: 2026-08-29-sampling-distributions-merge-prep-19
+batch_id: 2026-08-29-sample-mean-merge-prep-20
 items:
-  - id: samp-chisq-definition
-    note: カイ二乗分布の構成、ガンマ分布との関係、平均分散、独立和の再生性を一枚へ統合する。
+  - id: samp-xbar-normal-distribution
+    note: 標本平均について、分布に依らない不偏性・分散と、正規母集団での厳密な正規分布を一枚へ統合する。
     sections:
       使用公式・定理: |
-        独立な標準正規確率変数 $Z_1,\ldots,Z_\nu$ に対して
+        $X_1,\ldots,X_n$ が独立同分布で
         $$
-        Q=\sum_{i=1}^{\nu}Z_i^2\sim\chi^2_\nu.
+        E[X_i]=\mu,\qquad \operatorname{Var}(X_i)=\sigma^2<\infty
         $$
-        したがって自由度 $\nu$ は「独立な標準正規平方を何個足したか」と読める。
+        とする。標本平均
+        $$
+        \overline X=\frac1n\sum_{i=1}^nX_i
+        $$
+        について、期待値の線形性から
+        $$
+        E[\overline X]
+        =\frac1n\sum_{i=1}^nE[X_i]
+        =\mu.
+        $$
+        よって $\overline X$ は母平均 $\mu$ の不偏推定量である。
 
-        密度は
+        また独立性より共分散項が消えるので
         $$
-        f_Q(q)=\frac{1}{2^{\nu/2}\Gamma(\nu/2)}q^{\nu/2-1}e^{-q/2},\qquad q>0,
+        \operatorname{Var}(\overline X)
+        =\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
+        =\frac{\sigma^2}{n}.
         $$
-        であり、shape-rate 表示のガンマ分布
+        したがって標準誤差は
         $$
-        \chi^2_\nu=\operatorname{Gamma}\left(\frac\nu2,\frac12\right)
-        $$
-        に一致する。よって
-        $$
-        E[Q]=\nu,\qquad \operatorname{Var}(Q)=2\nu.
+        \operatorname{SE}(\overline X)=\frac{\sigma}{\sqrt n}.
         $$
 
-        また独立な $Q_1\sim\chi^2_{\nu_1}$、$Q_2\sim\chi^2_{\nu_2}$ なら
+        ここまでは母集団が正規分布でなくても成り立つ。さらに
         $$
-        Q_1+Q_2\sim\chi^2_{\nu_1+\nu_2}.
+        X_i\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)
         $$
-        これは標準正規平方の個数を足すと考えても、モーメント母関数
+        なら、独立な正規確率変数の線形結合も正規分布なので有限標本で厳密に
         $$
-        M_{\chi^2_\nu}(t)=(1-2t)^{-\nu/2},\qquad t<1/2
+        \overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right).
         $$
-        の積から確認してもよい。
+        非正規母集団ではこの最後の正規性は一般に厳密ではなく、大標本なら中心極限定理による近似として現れる。
       答え: |
+        独立同分布で平均 $\mu$、分散 $\sigma^2<\infty$ なら
         $$
-        \sum_{i=1}^{\nu}Z_i^2\sim\chi^2_\nu,
-        \qquad E[Q]=\nu,
-        \qquad \operatorname{Var}(Q)=2\nu.
+        E[\overline X]=\mu,
+        \qquad
+        \operatorname{Var}(\overline X)=\frac{\sigma^2}{n}.
+        $$
+        正規母集団ならさらに
+        $$
+        \overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right).
         $$
       計算例: |
-        $Z\sim N(0,1)$ なら $Z^2\sim\chi^2_1$ なので
+        $n=25$, $\mu=10$, $\sigma^2=16$ とする。母集団の形によらず
         $$
-        E[Z^2]=1,\qquad \operatorname{Var}(Z^2)=2.
+        E[\overline X]=10,
+        \qquad
+        \operatorname{Var}(\overline X)=\frac{16}{25},
         $$
-        独立な $Z_1,\ldots,Z_4\sim N(0,1)$ なら
+        なので
         $$
-        \sum_{i=1}^4Z_i^2\sim\chi^2_4,
+        \operatorname{SE}(\overline X)=\frac45.
         $$
-        したがって平均4、分散8である。
+        母集団が $N(10,16)$ なら、これに加えて
+        $$
+        \overline X\sim N\left(10,\frac{16}{25}\right)
+        $$
+        が有限標本で厳密に成り立つ。
 
-        さらに独立な $X\sim\chi^2_3$, $Y\sim\chi^2_5$ なら
+        また和 $S_n=\sum_{i=1}^nX_i$ については独立性から
         $$
-        X+Y\sim\chi^2_8.
+        \operatorname{Var}(S_n)=n\sigma^2,
         $$
-        $Z^2$ の密度を直接出したければ、変換 $z=\pm\sqrt q$ の2枝を足して
-        $$
-        f_{Z^2}(q)=\frac{1}{\sqrt{2\pi q}}e^{-q/2},\qquad q>0,
-        $$
-        とし、これは $\chi^2_1$ の密度に一致する。
+        これを $n^2$ で割ると標本平均の分散 $\sigma^2/n$ が得られる。
       一手: |
-        標準正規の平方和を見たら、独立な項の個数を自由度として数える。平均・分散は自由度から直ちに読み、独立和では自由度を足す。
+        標本平均を見たら、まず期待値の線形性で不偏性、独立和の分散で $\sigma^2/n$ を出す。正規母集団なら最後に線形結合の閉性から厳密な正規分布まで言う。
       注意: |
-        再生性には独立性が必要である。相関した正規変数の平方和を、そのまま項数自由度のカイ二乗分布とはできない。
-  - id: samp-t-distribution-definition
-    note: t分布の構成、密度・モーメント、自由度1のコーシー分布、大自由度での標準正規極限を一枚へ統合する。
-    sections:
-      使用公式・定理: |
-        独立な
-        $$
-        Z\sim N(0,1),\qquad V\sim\chi^2_\nu
-        $$
-        に対して
-        $$
-        T=\frac{Z}{\sqrt{V/\nu}}\sim t_\nu.
-        $$
-        密度は
-        $$
-        f_T(t)=\frac{\Gamma\{(\nu+1)/2\}}{\sqrt{\nu\pi}\,\Gamma(\nu/2)}
-        \left(1+\frac{t^2}{\nu}\right)^{-(\nu+1)/2},\qquad t\in\mathbb R.
-        $$
-        対称分布で、$\nu>1$ なら $E[T]=0$、$\nu>2$ なら
-        $$
-        \operatorname{Var}(T)=\frac{\nu}{\nu-2}.
-        $$
-
-        $\nu=1$ では
-        $$
-        f_T(t)=\frac1{\pi(1+t^2)},
-        $$
-        すなわち標準コーシー分布で、平均・分散は存在しない。
-
-        また $V/\nu$ は平均1、分散 $2/\nu$ なので
-        $$
-        \frac{V}{\nu}\xrightarrow{p}1.
-        $$
-        よって Slutsky の定理から
-        $$
-        t_\nu\xrightarrow{d}N(0,1)\qquad(\nu\to\infty).
-        $$
-      答え: |
-        $$
-        \frac{Z}{\sqrt{V/\nu}}\sim t_\nu.
-        $$
-        自由度1では標準コーシー分布、自由度が大きくなると標準正規分布へ近づく。
-      計算例: |
-        正規標本 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ では
-        $$
-        Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
-        $$
-        $$
-        V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
-        $$
-        かつ $Z$ と $V$ は独立なので
-        $$
-        \frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}.
-        $$
-        つまり母分散未知で $\sigma$ を $S$ に置き換えると、まさにt分布の構成になる。
-      一手: |
-        「標準正規 ÷ 独立な（カイ二乗/自由度）の平方根」がt分布。母分散未知の正規平均ではこの形を作る。
-      注意: |
-        分子の標準正規変数と分母のカイ二乗変数の独立性が必要である。小自由度では裾が重く、標準正規近似を早く使いすぎない。
-  - id: samp-f-distribution-definition
-    note: F分布の構成、逆数関係、t分布との平方関係を一枚へ統合する。
-    sections:
-      使用公式・定理: |
-        独立な
-        $$
-        U\sim\chi^2_{\nu_1},\qquad V\sim\chi^2_{\nu_2}
-        $$
-        に対して
-        $$
-        F=\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}.
-        $$
-        台は $f>0$ である。分子と分母を入れ替えれば
-        $$
-        \frac1F\sim F_{\nu_2,\nu_1}.
-        $$
-        したがって分位点にも逆数関係がある。
-
-        また $T\sim t_\nu$ なら
-        $$
-        T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
-        $$
-        逆に $F\sim F_{1,\nu}$ なら
-        $$
-        \sqrt F\overset{d}=|T|.
-        $$
-        したがって両側t検定は自由度 $(1,\nu)$ のF統計量へ書き換えられるが、平方化すると符号の情報は失われる。
-      答え: |
-        $$
-        \frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2},
-        \qquad
-        \frac1F\sim F_{\nu_2,\nu_1},
-        \qquad
-        t_\nu^2\sim F_{1,\nu}.
-        $$
-      計算例: |
-        $F\sim F_{3,8}$ なら
-        $$
-        \frac1F\sim F_{8,3}.
-        $$
-        また $T\sim t_{20}$ なら
-        $$
-        T^2\sim F_{1,20}.
-        $$
-        独立な $U\sim\chi^2_5$, $V\sim\chi^2_{10}$ に対して
-        $$
-        \frac{U/5}{V/10}\sim F_{5,10}.
-        $$
-      一手: |
-        「独立なカイ二乗をそれぞれ自由度で割って比を取る」がF分布。逆数では自由度を交換し、分子自由度1ならtの2乗まで連想する。
-      注意: |
-        分子・分母の順序と自由度の順序を一致させる。$\sqrt{F_{1,\nu}}$ はt分布そのものではなく絶対値tの分布である。
-  - id: samp-order-statistics-distribution
-    note: 一般の第k順序統計量を正本に、最小値・最大値と代表例を統合する。
-    sections:
-      使用公式・定理: |
-        $X_1,\ldots,X_n$ を密度 $f$、累積分布関数 $F$ を持つ独立同分布標本とし
-        $$
-        X_{(1)}\le\cdots\le X_{(n)}
-        $$
-        を順序統計量とする。
-
-        $X_{(k)}\le x$ は「$x$ 以下の標本が少なくとも $k$ 個」と同値なので
-        $$
-        P(X_{(k)}\le x)
-        =\sum_{j=k}^{n}\binom njF(x)^j\{1-F(x)\}^{n-j}.
-        $$
-        連続分布なら微小区間に第 $k$ 番目が入る配置を数えて
-        $$
-        f_{X_{(k)}}(x)
-        =\frac{n!}{(k-1)!(n-k)!}
-        F(x)^{k-1}\{1-F(x)\}^{n-k}f(x).
-        $$
-
-        特に最大値 $M=X_{(n)}$ は
-        $$
-        F_M(x)=F(x)^n,
-        \qquad
-        f_M(x)=nF(x)^{n-1}f(x),
-        $$
-        最小値 $L=X_{(1)}$ は
-        $$
-        P(L>x)=\{1-F(x)\}^n,
-        $$
-        $$
-        F_L(x)=1-\{1-F(x)\}^n,
-        \qquad
-        f_L(x)=n\{1-F(x)\}^{n-1}f(x).
-        $$
-      答え: |
-        $$
-        f_{X_{(k)}}(x)
-        =\frac{n!}{(k-1)!(n-k)!}
-        F(x)^{k-1}\{1-F(x)\}^{n-k}f(x).
-        $$
-        最大値と最小値は $k=n,1$ の特殊ケースである。
-      計算例: |
-        $X_i\sim U(0,1)$、$n=3$ なら $0<x<1$ で
-        $$
-        F_M(x)=x^3,
-        \qquad
-        f_M(x)=3x^2.
-        $$
-        また $X_i\sim\operatorname{Exp}(\lambda)$ なら
-        $$
-        P(L>x)=e^{-n\lambda x},
-        $$
-        よって
-        $$
-        L\sim\operatorname{Exp}(n\lambda).
-        $$
-      一手: |
-        一般の第k順序統計量は「x以下がk個以上」を二項分布で数える。最大値は「全部がx以下」、最小値は「全部がxより大きい」の余事象へ直す。
-      注意: |
-        $F(x)^n$ や $\{1-F(x)\}^n$ の積分解には標本の独立性が必要である。最大値・最小値を別公式として暗記せず、一般の順序統計量の端点ケースとして理解する。
+        $E[\overline X]=\mu$ は正規性を必要としない。$\operatorname{Var}(\overline X)=\sigma^2/n$ には独立性または共分散項が0になる条件が必要。有限標本で $\overline X$ が正規分布になるという結論は正規母集団に依存する。
