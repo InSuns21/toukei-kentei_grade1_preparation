@@ -320,21 +320,43 @@ sources: [{ type: official_syllabus, topic: 階層ベイズの考え方 }]
 - 事前分布：データ観測前の母数に関する不確実性を表す分布
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+群別母数 $\theta_1,\ldots,\theta_J$、共通超母数 $\eta$ について、条件付き独立を仮定すれば階層モデルは
+$$
+p(\boldsymbol y,\boldsymbol\theta,\eta)
+=p(\eta)\prod_{j=1}^J
+p(\theta_j\mid\eta)p(y_j\mid\theta_j)
+$$
+と因子分解できる。
 
-データ層、群母数層、超事前分布の3層。
+完全ベイズでは超母数にも事後分布を持たせ
+$$
+\pi(\boldsymbol\theta\mid\boldsymbol y)
+=\int
+\pi(\boldsymbol\theta\mid\boldsymbol y,\eta)
+\pi(\eta\mid\boldsymbol y)d\eta
+$$
+と $\eta$ の不確実性を積分する。経験ベイズでは周辺尤度などから $\widehat\eta$ を推定し、
+$$
+\pi(\boldsymbol\theta\mid\boldsymbol y,\widehat\eta)
+$$
+を使う。
+
+## 一手
+階層モデルを見たら、**データ層 → 群母数層 → 超母数層**の順に条件付き分布を書く。超母数をランダム変数として最後まで積分するか、データから推定した値へ固定するかで完全ベイズと経験ベイズを区別する。
 
 ## 答え
-条件付き独立を仮定すると
-$$p(\boldsymbol y,\boldsymbol\theta,\eta)
-=p(\eta)\prod_{j=1}^J
-p(\theta_j\mid\eta)p(y_j\mid\theta_j).$$
+条件付き独立なら
+$$
+p(\boldsymbol y,\boldsymbol\theta,\eta)
+=p(\eta)\prod_{j=1}^Jp(\theta_j\mid\eta)p(y_j\mid\theta_j).
+$$
+完全ベイズは $\eta$ に超事前分布を置いてその不確実性まで積分し、経験ベイズは $\widehat\eta$ をデータから推定して固定する。
 
 ## 計算例
-各群の推定を共通分布 $p(\theta_j\mid\eta)$ を通じて結び付ける。
+例えば各群の成功確率や平均を $\theta_j$ とし、それらが共通分布 $p(\theta_j\mid\eta)$ から生じるとする。ある群のデータは直接にはその群の $\theta_j$ を更新するが、同時に $\eta$ の推定・事後分布も変えるため、共通階層を通じて他群の推定にも情報が伝わる。
 
 ## 注意
-超母数を固定未知量として推定する経験ベイズ法とは区別する。
+経験ベイズは計算が軽い一方、超母数を推定値へ固定するため、その推定不確実性を過小評価しやすい。完全ベイズでは超母数の不確実性も事後分布へ伝播する。
 
 <!-- CARD -->
 
@@ -674,7 +696,11 @@ sources: [{ type: official_syllabus, topic: 無情報事前分布（基本） }]
 ---
 
 ## 問題
-事前密度 $\pi(\theta)$ がproperである条件と、improper事前分布を使う際の確認事項を述べよ。
+事前密度 $\pi(\theta)$ について次を答えよ。
+
+1. proper事前分布とimproper事前分布を区別せよ。
+2. improper事前分布を形式的に使うとき、事後分布について何を確認すべきか。
+3. 事前分布への感度分析では何を変え、何を比較すべきか。
 
 ## 記号・用語
 - 事前分布：データ観測前の母数に関する不確実性を表す分布
@@ -682,20 +708,47 @@ sources: [{ type: official_syllabus, topic: 無情報事前分布（基本） }]
 - ベイズファクター：2モデルの周辺尤度の比
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+proper事前分布は
+$$
+\pi(\theta)\ge0,
+\qquad
+\int \pi(\theta)d\theta=1
+$$
+を満たす。improper事前分布を使う場合でも、事後分布が定義できるには
+$$
+0<\int L(\theta;x)\pi(\theta)d\theta<\infty
+$$
+が必要である。
 
-事後密度の正規化可能性。
+また
+$$
+\pi(\theta\mid x)\propto L(\theta;x)\pi(\theta)
+$$
+なので、データの情報が弱いほど事前分布の中心・尺度・裾の選択が事後分布へ残りやすい。
+
+## 一手
+事前分布を評価するときは、まず**正規化可能か**を確認する。次に、科学的に妥当な範囲で事前中心・尺度・裾の重さを変え、結論がどこまで動くかを調べる。
 
 ## 答え
-properなら $\pi(\theta)\ge0$ かつ $\int\pi(\theta)\,d\theta=1$。積分が有限でないimproper事前分布を形式的に使う場合は
-$$\int L(\theta;x)\pi(\theta)\,d\theta<\infty$$
-を確認し、事後分布がproperになることを保証する。
+properなら積分1の確率分布、improperなら積分1に正規化できない形式的事前分布である。improper事前を用いるなら事後分布がproperになることを必ず確認する。
+
+感度分析では複数の妥当な事前中心・尺度・裾を設定し、事後平均・信用区間・予測分布・意思決定・ベイズファクターなどがどの程度変わるかを比較する。
 
 ## 計算例
-位置母数の一様事前 $\pi(\mu)\propto1$ は実数全体ではimproper。
+位置母数に対する
+$$
+\pi(\mu)\propto1,\qquad -\infty<\mu<\infty
+$$
+は
+$$
+\int_{-\infty}^{\infty}1\,d\mu=\infty
+$$
+なのでimproperである。正規標本などと組み合わせる場合は、尤度との積を積分して有限になるかを確認する。
+
+一方、二項比率ならBeta事前分布の中心を保ったまま $a+b$ を変えると、有効事前標本サイズを弱く・強くできる。その複数設定で事後平均や信用区間が大きく動くなら、結論は事前分布に敏感である。
 
 ## 注意
-improper事前分布では任意定数が消えないため、通常のベイズファクターは定義できない。
+「無情報」という名称だけで一つの事前分布を自動採用しない。通常のベイズファクターではimproper事前分布の任意定数が周辺尤度比に残るため、原則としてproperなモデル内事前分布が必要になる。
 
 <!-- CARD -->
 
@@ -760,9 +813,24 @@ $X_i\mid\lambda\overset{\mathrm{iid}}{\sim}\operatorname{Exp}(\lambda)$（台 $x
 - 事後分布：事前分布を尤度で更新した、データ観測後の母数分布
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+尤度族に対して、事後分布が事前分布と同じ分布族に属するような事前分布を**共役事前分布**という。共役性により、更新はしばしば十分統計量を超母数へ加える形になる。
 
-Gamma密度の核 $\lambda^{a-1}e^{-b\lambda}$。
+shape–rate型ガンマ分布の密度核は
+$$
+\pi(\lambda)\propto \lambda^{a-1}e^{-b\lambda}.
+$$
+指数標本 $X_i\mid\lambda\overset{\mathrm{iid}}{\sim}\operatorname{Exp}(\lambda)$ の尤度核は
+$$
+L(\lambda)
+\propto
+\lambda^n\exp\left(-\lambda\sum_i x_i\right).
+$$
+したがって事後分布もガンマ分布で
+$$
+\lambda\mid\boldsymbol x
+\sim
+\operatorname{Gamma}\left(a+n,\ b+\sum_i x_i\right).
+$$
 
 ## 一手
 指数標本の尤度を $\lambda$ の核だけに整理し、事前ガンマ密度の指数と掛け合わせる。$\lambda$ のべき指数と $e^{-\lambda(\cdot)}$ の係数を読むと、事後ガンマ分布のshapeとrateがそのまま分かる。
@@ -824,7 +892,7 @@ $$
 $$
 
 ## 注意
-ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
+共役性は計算上の便利さであり、事前知識への科学的な適合性を保証するものではない。ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
 
 <!-- CARD -->
 
