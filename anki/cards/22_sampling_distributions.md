@@ -884,31 +884,80 @@ sources: [{ type: official_syllabus, topic: カイ二乗分布 }]
 正規分布 $N(\mu,\sigma^2)$ からの標本 $X_1,\ldots,X_n$ について、全平方和を標本平均の平方和と残差平方和へ分解し、それぞれの分布と独立性を述べよ。
 
 ## 答え
-$$\sum_{i=1}^n\frac{(X_i-\mu)^2}{\sigma^2}
-=\frac{n(\overline X-\mu)^2}{\sigma^2}
-+\frac{\sum_{i=1}^n(X_i-\overline X)^2}{\sigma^2}.$$ 
-右辺の2項は独立で、
-$$\frac{n(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,$$
-$$\frac{\sum_{i=1}^n(X_i-\overline X)^2}{\sigma^2}
-=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.$$ 
+正規標本では
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
+\qquad
+\overline X\perp S^2.
+$$
+これは平方和を自由度1の平均方向と自由度 $n-1$ の残差方向へ直交分解するCochranの定理から従う。
 
 ## 使用公式・定理
-平方和の恒等式
-$$\sum_{i=1}^n(X_i-\mu)^2
-=\sum_{i=1}^n(X_i-\overline X)^2+n(\overline X-\mu)^2$$
-とCochranの定理を使う。Cochranの定理は、標準正規ベクトルの全平方和を対称べき等行列に対応する平方和へ分解し、行列の階数の和が $n$ なら、各平方和が独立なカイ二乗分布に従うことを与える。
+$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ とする。平方和には恒等式
+$$
+\sum_{i=1}^n(X_i-\mu)^2
+=\sum_{i=1}^n(X_i-\overline X)^2+n(\overline X-\mu)^2
+$$
+がある。標準化すると
+$$
+\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2
+=\frac{(n-1)S^2}{\sigma^2}
++\frac{n(\overline X-\mu)^2}{\sigma^2}.
+$$
+
+Cochranの定理は、標準正規ベクトルの全平方和を対称べき等行列に対応する平方和へ分解し、各行列の階数の和が全次元 $n$ に等しければ、それぞれの平方和が独立なカイ二乗分布に従うことを与える。
+
+この分解では平均方向の階数が1、残差空間の階数が $n-1$ なので
+$$
+\frac{n(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
+$$
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
+$$
+しかも両者は独立である。正規標本では平均方向と残差方向が直交するため
+$$
+\overline X\perp S^2.
+$$
+
+さらに
+$$
+Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
+\qquad
+V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+$$
+が独立なので
+$$
+\frac{Z}{\sqrt{V/(n-1)}}
+=\frac{\overline X-\mu}{S/\sqrt n}
+\sim t_{n-1}.
+$$
+したがってCochran分解が、標本分散のカイ二乗分布とStudentのt統計量の共通の根である。
 
 ## 計算例
-$n=3$ なら
-$$\frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
-\qquad \frac{2S^2}{\sigma^2}\sim\chi^2_2,$$
-かつ両者は独立で、その和は $\chi^2_3$ に従う。
+$n=5$, $\sigma^2=4$, $S^2=6$ なら
+$$
+\frac{(n-1)S^2}{\sigma^2}
+=\frac{4\cdot6}{4}=6
+$$
+で、この統計量は
+$$
+\chi^2_4
+$$
+に従う。
+
+$n=3$ なら平方和は
+$$
+\frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
+\qquad
+\frac{2S^2}{\sigma^2}\sim\chi^2_2
+$$
+という独立な2成分に分かれる。自由度 $1+2=3$ は元の標準正規ベクトルの次元に一致する。
 
 ## 一手
-直交変換で独立な標準正規の平方和に分解。自由度は変換後の成分数。
+正規標本で平方和・標本分散・t統計量が出たら、平均方向1次元と残差方向 $n-1$ 次元への直交分解を考える。自由度は各部分空間の次元として読む。
 
 ## 注意
-分散分析の平方和分解の理論的根拠。正規性がない場合、直交分解自体はできても、各平方和の独立性と厳密なカイ二乗分布は一般には保証されない。
+$\overline X$ と $S^2$ の独立性は正規母集団に特有で、一般の母集団では成り立たない。平方和が分解できるという恒等式だけでは独立性までは言えず、正規性とCochranの定理が必要である。
 
 <!-- CARD -->
 
