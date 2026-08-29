@@ -1,75 +1,77 @@
 schema_version: 1
-batch_id: 2026-08-29-sample-proportion-merge-prep-22
+batch_id: 2026-08-29-cochran-merge-prep-23
 items:
-  - id: samp-sample-proportion
-    note: 標本比率をベルヌーイ標本平均として扱い、1群と独立2群の比率差を一枚へ統合する。
+  - id: samp-cochran-theorem
+    note: Cochranの定理を正本として、平方和分解から標本平均・標本分散の独立性、標本分散のカイ二乗分布、t統計量への接続まで一枚へ統合する。
     sections:
       使用公式・定理: |
-        $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}\operatorname{Bernoulli}(p)$ とすると標本比率は
+        $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)$ とする。平方和には恒等式
         $$
-        \widehat p=\frac1n\sum_{i=1}^nX_i.
+        \sum_{i=1}^n(X_i-\mu)^2
+        =\sum_{i=1}^n(X_i-\overline X)^2+n(\overline X-\mu)^2
         $$
-        したがって標本平均の公式から
+        がある。標準化すると
         $$
-        E[\widehat p]=p,
-        \qquad
-        \operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
-        $$
-        また $n\widehat p\sim\operatorname{Binomial}(n,p)$ なので、正規近似条件が満たされれば
-        $$
-        \widehat p\approx N\left(p,\frac{p(1-p)}{n}\right).
+        \sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2
+        =\frac{(n-1)S^2}{\sigma^2}
+        +\frac{n(\overline X-\mu)^2}{\sigma^2}.
         $$
 
-        独立な2群について
+        Cochranの定理は、標準正規ベクトルの全平方和を対称べき等行列に対応する平方和へ分解し、各行列の階数の和が全次元 $n$ に等しければ、それぞれの平方和が独立なカイ二乗分布に従うことを与える。
+
+        この分解では平均方向の階数が1、残差空間の階数が $n-1$ なので
         $$
-        \widehat p_1-\widehat p_2
-        $$
-        を考えると、期待値の線形性と独立性から
-        $$
-        E[\widehat p_1-\widehat p_2]=p_1-p_2,
+        \frac{n(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
         $$
         $$
-        \operatorname{Var}(\widehat p_1-\widehat p_2)
-        =\frac{p_1(1-p_1)}{n_1}
-        +\frac{p_2(1-p_2)}{n_2}.
+        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
         $$
-        各群で中心極限定理が使えるなら差も近似正規分布になる。
+        しかも両者は独立である。正規標本では平均方向と残差方向が直交するため
+        $$
+        \overline X\perp S^2.
+        $$
+
+        さらに
+        $$
+        Z=\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1),
+        \qquad
+        V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+        $$
+        が独立なので
+        $$
+        \frac{Z}{\sqrt{V/(n-1)}}
+        =\frac{\overline X-\mu}{S/\sqrt n}
+        \sim t_{n-1}.
+        $$
+        したがってCochran分解が、標本分散のカイ二乗分布とStudentのt統計量の共通の根である。
       答え: |
-        1群では
+        正規標本では
         $$
-        E[\widehat p]=p,
+        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},
         \qquad
-        \operatorname{Var}(\widehat p)=\frac{p(1-p)}{n}.
+        \overline X\perp S^2.
         $$
-        独立2群では
-        $$
-        E[\widehat p_1-\widehat p_2]=p_1-p_2,
-        $$
-        $$
-        \operatorname{Var}(\widehat p_1-\widehat p_2)
-        =\frac{p_1(1-p_1)}{n_1}
-        +\frac{p_2(1-p_2)}{n_2}.
-        $$
+        これは平方和を自由度1の平均方向と自由度 $n-1$ の残差方向へ直交分解するCochranの定理から従う。
       計算例: |
-        1群で $n=100,p=0.3$ なら
+        $n=5$, $\sigma^2=4$, $S^2=6$ なら
         $$
-        E[\widehat p]=0.3,
-        \qquad
-        \operatorname{Var}(\widehat p)=\frac{0.3\cdot0.7}{100}=0.0021,
+        \frac{(n-1)S^2}{\sigma^2}
+        =\frac{4\cdot6}{4}=6
         $$
-        標準偏差は約 $0.0458$ である。
+        で、この統計量は
+        $$
+        \chi^2_4
+        $$
+        に従う。
 
-        2群で $n_1=n_2=100$, $p_1=0.6$, $p_2=0.4$ なら
+        $n=3$ なら平方和は
         $$
-        E[\widehat p_1-\widehat p_2]=0.2,
+        \frac{3(\overline X-\mu)^2}{\sigma^2}\sim\chi^2_1,
+        \qquad
+        \frac{2S^2}{\sigma^2}\sim\chi^2_2
         $$
-        $$
-        \operatorname{Var}(\widehat p_1-\widehat p_2)
-        =\frac{0.6\cdot0.4}{100}+\frac{0.4\cdot0.6}{100}
-        =0.0048.
-        $$
-        標準偏差は約 $0.069$ である。
+        という独立な2成分に分かれる。自由度 $1+2=3$ は元の標準正規ベクトルの次元に一致する。
       一手: |
-        標本比率はベルヌーイ標本平均として処理する。2群差なら、期待値は引き、独立なので分散は足す。
+        正規標本で平方和・標本分散・t統計量が出たら、平均方向1次元と残差方向 $n-1$ 次元への直交分解を考える。自由度は各部分空間の次元として読む。
       注意: |
-        1群の正規近似では $np$ と $n(1-p)$ が十分大きいことを確認する。2群でも各群で同様の条件が必要。帰無仮説 $p_1=p_2$ の検定では共通比率をプールすることがあるが、これは比率差の一般的な標本分布式とは別の段階である。
+        $\overline X$ と $S^2$ の独立性は正規母集団に特有で、一般の母集団では成り立たない。平方和が分解できるという恒等式だけでは独立性までは言えず、正規性とCochranの定理が必要である。
