@@ -16,6 +16,21 @@ const targetRoots = [
 ];
 const targets = targetRoots.map((value) => path.join(root, value)).filter(fs.existsSync);
 
+const distributionRules = [
+  rule('Cauchy distribution', 'コーシー分布', /\bCauchy\s+distribution\b/g, /コーシー分布/),
+  rule('Cauchy分布', 'コーシー分布', /\bCauchy\s*分布/g, /コーシー分布/),
+  rule('Cauchy', 'コーシー', /\bCauchy\b(?!\s+distribution)(?!\s*分布)(?!\s*(?:--|-|–|—)?\s*Schwarz)/g, /コーシー/),
+  rule('カウチー', 'コーシー', /カウチー/g),
+  rule('Weibull distribution', 'ワイブル分布', /\bWeibull\s+distribution\b/g, /ワイブル分布/),
+  rule('Weibull分布', 'ワイブル分布', /\bWeibull\s*分布/g, /ワイブル分布/),
+  rule('Weibull', 'ワイブル', /\bWeibull\b(?!\s+distribution)(?!\s*分布)/g, /ワイブル/),
+  rule('ウェイブル', 'ワイブル', /ウェイブル/g),
+  rule('レイブル', 'ワイブル', /レイブル/g),
+  rule('Pareto distribution', 'パレート分布', /\bPareto\s+distribution\b/g, /パレート分布/),
+  rule('Pareto分布', 'パレート分布', /\bPareto\s*分布/g, /パレート分布/),
+  rule('Pareto', 'パレート', /\bPareto\b(?!\s+distribution)(?!\s*分布)/g, /パレート/),
+];
+
 const rules = [
   rule('積率母関数', 'モーメント母関数', /積率母関数/g, /モーメント母関数/),
   rule('累積密度関数', '累積分布関数', /累積密度関数/g),
@@ -29,12 +44,7 @@ const rules = [
   rule('P 値', 'P値', /P\s+値/g),
   rule('p-value', 'P値', /\bp-value\b/gi),
 
-  rule('Cauchy分布', 'コーシー分布', /\bCauchy(?:\s+distribution|分布)/gi, /コーシー分布/),
-  rule('カウチー', 'コーシー', /カウチー/g),
-  rule('Weibull', 'ワイブル', /\bWeibull\b/gi, /ワイブル/),
-  rule('ウェイブル', 'ワイブル', /ウェイブル/g),
-  rule('レイブル', 'ワイブル', /レイブル/g),
-  rule('Pareto', 'パレート', /\bPareto\b/gi, /パレート/),
+  ...distributionRules,
 
   acronym('PMF', '確率質量関数', /\bPMF\b/g),
   acronym('PDF', '確率密度関数', /\bPDF\b/g),
@@ -68,18 +78,6 @@ const rules = [
   acronym('GLM', '一般化線形モデル', /\bGLM\b/g),
   acronym('SVD', '特異値分解', /\bSVD\b/g),
   acronym('PCA', '主成分分析', /\bPCA\b/g),
-];
-
-const distributionFixRules = [
-  { pattern: /\bCauchy\s+distribution\b/gi, replacement: 'コーシー分布' },
-  { pattern: /\bCauchy分布/gi, replacement: 'コーシー分布' },
-  { pattern: /カウチー/g, replacement: 'コーシー' },
-  { pattern: /\bWeibull\s+distribution\b/gi, replacement: 'ワイブル分布' },
-  { pattern: /\bWeibull\b/gi, replacement: 'ワイブル' },
-  { pattern: /ウェイブル/g, replacement: 'ワイブル' },
-  { pattern: /レイブル/g, replacement: 'ワイブル' },
-  { pattern: /\bPareto\s+distribution\b/gi, replacement: 'パレート分布' },
-  { pattern: /\bPareto\b/gi, replacement: 'パレート' },
 ];
 
 if (fixDistributionNames) {
@@ -132,7 +130,7 @@ for (const item of findings.slice(0, 200)) {
 if (findings.length > 200) console.log(`  ...ほか ${findings.length - 200} 件`);
 
 if (!strict) {
-  console.log('監査モードは候補抽出のみです。日本語正式名と同じ行の初出併記、コード、数式、URLは除外しています。');
+  console.log('監査モードは候補抽出のみです。日本語正式名と同じ行の初出併記、コード、数式、URL、安定IDは除外しています。');
 }
 
 if (strict && (syllabusCheck.missing.length || findings.length)) {
@@ -158,17 +156,19 @@ function autofixDistributionTerminology() {
       let changed = false;
 
       for (let i = 0; i < sourceLines.length; i += 1) {
-        if (!(searchableLines[i] ?? '').trim()) continue;
-        let line = sourceLines[i];
         let searchable = searchableLines[i] ?? '';
+        if (!searchable.trim()) continue;
+        let line = sourceLines[i];
 
-        for (const currentRule of distributionFixRules) {
+        for (const currentRule of distributionRules) {
+          if (currentRule.allowPattern?.test(searchable)) continue;
           const matches = [...searchable.matchAll(currentRule.pattern)];
           if (!matches.length) continue;
+
           for (const match of matches.reverse()) {
             const start = match.index ?? 0;
             const end = start + match[0].length;
-            line = `${line.slice(0, start)}${currentRule.replacement}${line.slice(end)}`;
+            line = `${line.slice(0, start)}${currentRule.preferred}${line.slice(end)}`;
             changed = true;
           }
           searchable = stripNonProse(line);
@@ -282,6 +282,7 @@ function stripNonProse(source) {
   value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
   value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
+  value = value.replace(/^\s*(?:id|topic):[^\n]*$/gm, preserveWidth);
   return value;
 }
 
