@@ -1,218 +1,113 @@
 schema_version: 1
-batch_id: 2026-08-30-bayes-merge-prep-29
+batch_id: 2026-08-30-bayes-merge-prep-30
 items:
-  - id: bayes-density-formula
-    note: 離散仮説の周辺確率計算と尤度核で定数を落とす操作を、ベイズ公式の正本へ吸収する。
-    sections:
-      一手: |
-        ベイズ更新ではまず
-        $$
-        \text{事後分布}\propto_{\theta}\text{尤度}\times\text{事前分布}
-        $$
-        と書き、母数 $\theta$ に依存する因子だけで分布の核を同定する。最終的な確率や密度が必要なら、周辺尤度で正規化する。
-      使用公式・定理: |
-        連続母数では
-        $$
-        \pi(\theta\mid x)
-        =\frac{f(x\mid\theta)\pi(\theta)}{m(x)},
-        \qquad
-        m(x)=\int f(x\mid u)\pi(u)\,du.
-        $$
-        離散仮説 $H_k$ では積分が和になり
-        $$
-        P(x)=\sum_k P(x\mid H_k)P(H_k),
-        $$
-        $$
-        P(H_j\mid x)
-        =\frac{P(x\mid H_j)P(H_j)}{P(x)}.
-        $$
-        $\propto_{\theta}$ で核だけを見る段階では $\theta$ に依存しない正の因子を落としてよいが、周辺尤度やベイズファクターの計算では勝手に落とさない。
-      答え: |
-        $$
-        \pi(\theta\mid x)
-        =\frac{f(x\mid\theta)\pi(\theta)}
-        {\int f(x\mid u)\pi(u)\,du}.
-        $$
-        分布族の同定だけなら
-        $$
-        \pi(\theta\mid x)\propto_{\theta}f(x\mid\theta)\pi(\theta)
-        $$
-        として母数に依存しない因子を省ける。
-      計算例: |
-        離散仮説 $H_1,H_0$ について
-        $$
-        P(H_1)=0.3,\qquad P(H_0)=0.7,
-        $$
-        $$
-        P(x\mid H_1)=0.8,\qquad P(x\mid H_0)=0.2
-        $$
-        とする。まず周辺確率は
-        $$
-        \begin{aligned}
-        P(x)
-        &=P(x\mid H_1)P(H_1)+P(x\mid H_0)P(H_0)\\
-        &=0.8\times0.3+0.2\times0.7\\
-        &=0.24+0.14\\
-        &=0.38.
-        \end{aligned}
-        $$
-        したがって
-        $$
-        \begin{aligned}
-        P(H_1\mid x)
-        &=\frac{0.8\times0.3}{0.38}\\
-        &=\frac{0.24}{0.38}\\
-        &=\frac{12}{19}\\
-        &\approx0.632.
-        \end{aligned}
-        $$
-        連続母数でも分母を積分で作るだけで同じ構造である。
-      注意: |
-        「尤度に比例する」段階と「正規化済みの事後分布」を区別する。二項尤度の組合せ係数のように母数へ依存しない因子は事後分布の核を求めるときには落とせるが、モデル間の周辺尤度を比較するベイズファクターではモデルごとの定数を保存する。
-
-  - id: bayes-gibbs-full-conditionals
-    note: 正規階層モデル専用の2枚を吸収できるよう、完全条件付き分布を実際に核から同定する代表例を追加する。
-    sections:
-      一手: |
-        ギブスサンプリングでは「周辺事後分布を直接求める」のではなく、更新する成分以外をすべて固定し、その成分に依存する因子だけを残して既知分布の核を同定する。
-      使用公式・定理: |
-        他成分を $\boldsymbol\theta_{-k}$ とすると
-        $$
-        \pi(\theta_k\mid\boldsymbol\theta_{-k},y)
-        \propto_{\theta_k}
-        \pi(\theta_1,\ldots,\theta_K\mid y).
-        $$
-        例えば
-        $$
-        Y_i\mid\theta\overset{\mathrm{iid}}{\sim}N(\theta,\sigma^2),
-        \qquad
-        \theta\mid m_0,s_0^2\sim N(m_0,s_0^2)
-        $$
-        なら、他の母数を固定した完全条件付き分布は
-        $$
-        V=\left(\frac n{\sigma^2}+\frac1{s_0^2}\right)^{-1},
-        \qquad
-        M=V\left(\frac{n\bar y}{\sigma^2}+\frac{m_0}{s_0^2}\right),
-        $$
-        $$
-        \theta\mid-\sim N(M,V)
-        $$
-        となる。
-      答え: |
-        各成分について
-        $$
-        \pi(\theta_k\mid\boldsymbol\theta_{-k},y)
-        \propto_{\theta_k}
-        \pi(\boldsymbol\theta\mid y)
-        $$
-        と書き、$\theta_k$ に依存しない因子を落として完全条件付き分布を同定する。共役階層モデルでは、この操作が正規–正規更新やガンマ更新などの既知の共役更新に帰着することが多い。
-      計算例: |
-        上の正規モデルで
-        $$
-        m_0=0,\qquad s_0^2=4,\qquad \sigma^2=9,
-        \qquad n=9,\qquad \bar y=3
-        $$
-        とする。まず完全条件付き分布の精度は
-        $$
-        \frac1V
-        =\frac9{9}+\frac14
-        =1+\frac14
-        =\frac54,
-        $$
-        したがって
-        $$
-        V=\frac45=0.8.
-        $$
-        平均の分子は
-        $$
-        \frac{9\cdot3}{9}+\frac0{4}=3
-        $$
-        なので
-        $$
-        M=0.8\times3=2.4.
-        $$
-        よって
-        $$
-        \theta\mid-\sim N(2.4,0.8).
-        $$
-        正規階層モデルで群効果 $\theta_j$ や全体平均 $\mu$ を更新するときも、条件付けた残りの母数を現在値として扱い、同じ精度加算の型を使う。
-      注意: |
-        完全条件付き分布 $\pi(\theta_k\mid\boldsymbol\theta_{-k},y)$ と周辺事後分布 $\pi(\theta_k\mid y)$ は別物である。ギブス掃引では更新済み成分には新しい値を使う。
-
   - id: bayes-gamma-exponential-update
-    note: 数値専用カードを吸収し、ガンマ–指数共役更新を式の導出から数値代入まで一枚で追えるようにする。
+    note: 共役事前分布の定義を実際のGamma–指数更新へ吸収し、定義だけのカードを不要にする。
     sections:
-      一手: |
-        指数標本の尤度を $\lambda$ の核だけに整理し、事前ガンマ密度の指数と掛け合わせる。$\lambda$ のべき指数と $e^{-\lambda(\cdot)}$ の係数を読むと、事後ガンマ分布のshapeとrateがそのまま分かる。
-      計算例: |
-        事前分布を
+      使用公式・定理: |
+        尤度族に対して、事後分布が事前分布と同じ分布族に属するような事前分布を**共役事前分布**という。共役性により、更新はしばしば十分統計量を超母数へ加える形になる。
+
+        shape–rate型ガンマ分布の密度核は
         $$
-        \lambda\sim\operatorname{Gamma}(2,1)
+        \pi(\lambda)\propto \lambda^{a-1}e^{-b\lambda}.
         $$
-        とし、指数標本で
-        $$
-        n=3,\qquad \sum_{i=1}^n x_i=5
-        $$
-        を観測したとする。尤度核は
+        指数標本 $X_i\mid\lambda\overset{\mathrm{iid}}{\sim}\operatorname{Exp}(\lambda)$ の尤度核は
         $$
         L(\lambda)
         \propto
-        \lambda^3e^{-5\lambda},
+        \lambda^n\exp\left(-\lambda\sum_i x_i\right).
         $$
-        事前密度核は
+        したがって事後分布もガンマ分布で
         $$
-        \pi(\lambda)
-        \propto
-        \lambda^{2-1}e^{-1\lambda}.
-        $$
-        よって事後核は
-        $$
-        \begin{aligned}
-        \pi(\lambda\mid\boldsymbol x)
-        &\propto
-        \lambda^3e^{-5\lambda}
-        \lambda^{1}e^{-\lambda}\\
-        &=\lambda^4e^{-6\lambda}.
-        \end{aligned}
-        $$
-        これはshape–rate型
-        $$
-        \operatorname{Gamma}(5,6)
-        $$
-        の核なので
-        $$
-        \lambda\mid\boldsymbol x\sim\operatorname{Gamma}(5,6).
-        $$
-        事後平均は
-        $$
-        E[\lambda\mid\boldsymbol x]=\frac56,
-        $$
-        事後最頻値は
-        $$
-        \frac{5-1}{6}=\frac23.
+        \lambda\mid\boldsymbol x
+        \sim
+        \operatorname{Gamma}\left(a+n,\ b+\sum_i x_i\right).
         $$
       注意: |
-        ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
+        共役性は計算上の便利さであり、事前知識への科学的な適合性を保証するものではない。ここでは第2母数をrateとする。scale母数化では更新式が変わる。また $E[\lambda\mid x]$ と $E[1/\lambda\mid x]$ は異なるので、故障率の事後平均を平均寿命の推定値と取り違えない。
 
-  - id: bayes-posterior-predictive-canonical
-    note: 事前予測を同じ周辺化操作の観測前版として吸収し、独立カードを不要にする。
+  - id: bayes-proper-improper
+    note: proper/improperの判定と事前感度分析を一枚へ統合し、事前分布に関する注意だけのカード増殖を抑える。
+    sections:
+      問題: |
+        事前密度 $\pi(\theta)$ について次を答えよ。
+
+        1. proper事前分布とimproper事前分布を区別せよ。
+        2. improper事前分布を形式的に使うとき、事後分布について何を確認すべきか。
+        3. 事前分布への感度分析では何を変え、何を比較すべきか。
+      使用公式・定理: |
+        proper事前分布は
+        $$
+        \pi(\theta)\ge0,
+        \qquad
+        \int \pi(\theta)d\theta=1
+        $$
+        を満たす。improper事前分布を使う場合でも、事後分布が定義できるには
+        $$
+        0<\int L(\theta;x)\pi(\theta)d\theta<\infty
+        $$
+        が必要である。
+
+        また
+        $$
+        \pi(\theta\mid x)\propto L(\theta;x)\pi(\theta)
+        $$
+        なので、データの情報が弱いほど事前分布の中心・尺度・裾の選択が事後分布へ残りやすい。
+      一手: |
+        事前分布を評価するときは、まず**正規化可能か**を確認する。次に、科学的に妥当な範囲で事前中心・尺度・裾の重さを変え、結論がどこまで動くかを調べる。
+      答え: |
+        properなら積分1の確率分布、improperなら積分1に正規化できない形式的事前分布である。improper事前を用いるなら事後分布がproperになることを必ず確認する。
+
+        感度分析では複数の妥当な事前中心・尺度・裾を設定し、事後平均・信用区間・予測分布・意思決定・ベイズファクターなどがどの程度変わるかを比較する。
+      計算例: |
+        位置母数に対する
+        $$
+        \pi(\mu)\propto1,\qquad -\infty<\mu<\infty
+        $$
+        は
+        $$
+        \int_{-\infty}^{\infty}1\,d\mu=\infty
+        $$
+        なのでimproperである。正規標本などと組み合わせる場合は、尤度との積を積分して有限になるかを確認する。
+
+        一方、二項比率ならBeta事前分布の中心を保ったまま $a+b$ を変えると、有効事前標本サイズを弱く・強くできる。その複数設定で事後平均や信用区間が大きく動くなら、結論は事前分布に敏感である。
+      注意: |
+        「無情報」という名称だけで一つの事前分布を自動採用しない。通常のベイズファクターではimproper事前分布の任意定数が周辺尤度比に残るため、原則としてproperなモデル内事前分布が必要になる。
+
+  - id: bayes-hierarchical-definition
+    note: 経験ベイズと完全ベイズの違いを階層モデルの構造と同じカードへ吸収する。
     sections:
       使用公式・定理: |
-        新観測は母数 $\theta$ を条件にすると既存データと独立なので、観測後の事後予測分布は
+        群別母数 $\theta_1,\ldots,\theta_J$、共通超母数 $\eta$ について、条件付き独立を仮定すれば階層モデルは
         $$
-        p(y_{\mathrm{new}}\mid x)
-        =\int p(y_{\mathrm{new}}\mid\theta)\pi(\theta\mid x)d\theta.
+        p(\boldsymbol y,\boldsymbol\theta,\eta)
+        =p(\eta)\prod_{j=1}^J
+        p(\theta_j\mid\eta)p(y_j\mid\theta_j)
         $$
-        観測前の事前予測分布は同じ周辺化で
-        $$
-        m(y)
-        =\int p(y\mid\theta)\pi(\theta)d\theta
-        $$
-        と書く。違いは、母数を平均する重みが事前分布か事後分布かだけである。
+        と因子分解できる。
 
-        ベータ–二項共役更新では
+        完全ベイズでは超母数にも事後分布を持たせ
         $$
-        p\mid X=x\sim\operatorname{Beta}(a+x,b+n-x).
+        \pi(\boldsymbol\theta\mid\boldsymbol y)
+        =\int
+        \pi(\boldsymbol\theta\mid\boldsymbol y,\eta)
+        \pi(\eta\mid\boldsymbol y)d\eta
         $$
+        と $\eta$ の不確実性を積分する。経験ベイズでは周辺尤度などから $\widehat\eta$ を推定し、
+        $$
+        \pi(\boldsymbol\theta\mid\boldsymbol y,\widehat\eta)
+        $$
+        を使う。
+      一手: |
+        階層モデルを見たら、**データ層 → 群母数層 → 超母数層**の順に条件付き分布を書く。超母数をランダム変数として最後まで積分するか、データから推定した値へ固定するかで完全ベイズと経験ベイズを区別する。
+      答え: |
+        条件付き独立なら
+        $$
+        p(\boldsymbol y,\boldsymbol\theta,\eta)
+        =p(\eta)\prod_{j=1}^Jp(\theta_j\mid\eta)p(y_j\mid\theta_j).
+        $$
+        完全ベイズは $\eta$ に超事前分布を置いてその不確実性まで積分し、経験ベイズは $\widehat\eta$ をデータから推定して固定する。
+      計算例: |
+        例えば各群の成功確率や平均を $\theta_j$ とし、それらが共通分布 $p(\theta_j\mid\eta)$ から生じるとする。ある群のデータは直接にはその群の $\theta_j$ を更新するが、同時に $\eta$ の推定・事後分布も変えるため、共通階層を通じて他群の推定にも情報が伝わる。
       注意: |
-        事前予測と事後予測はどちらも「条件付き分布を母数分布で平均して母数を消去する」操作である。観測前は $\pi(\theta)$、観測後は $\pi(\theta\mid x)$ を使う。ガンマ–ポアソン、ガンマ–指数などでも本質は同じであり、分布名ごとに同じ周辺化操作を別カード化しない。
+        経験ベイズは計算が軽い一方、超母数を推定値へ固定するため、その推定不確実性を過小評価しやすい。完全ベイズでは超母数の不確実性も事後分布へ伝播する。
