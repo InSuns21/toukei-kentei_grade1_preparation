@@ -741,19 +741,86 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 管理図 }]
 ---
 ## 問題
-群サイズ5、総平均 $\overline{\overline X}=20$、平均範囲 $\overline R=4$、定数 $A_2=0.577$ のXbar管理図限界を求めよ。
+$\overline X$ 管理図について次の2場合の管理限界を求めよ。
+
+1. 工程平均 $\mu=10$、工程標準偏差 $\sigma=2$ が既知、群サイズ $n=4$ とする。3標準偏差管理限界を求めよ。
+2. Phase I データから $\overline{\overline X}=20$、$\overline R=4$ を得た。群サイズ5に対する管理図定数が $A_2=0.577$ のとき、$\overline X$ 管理図の管理限界を求めよ。
+
 ## 記号・用語
 $\overline{\overline X}$ は群平均の平均、$\overline R$ は各群の範囲 $R_i=\max X_{ij}-\min X_{ij}$ の平均、$A_2$ は群サイズで決まる管理図定数である。$CL,UCL,LCL$ は中心線、上側・下側管理限界である。
 ## 使用公式・定理
-$$UCL=\overline{\overline X}+A_2\overline R,\qquad LCL=\overline{\overline X}-A_2\overline R.$$
+工程が管理状態にあり各観測の標準偏差が $\sigma$ なら、群平均の標準偏差は
+$$
+\operatorname{SD}(\overline X)=\frac{\sigma}{\sqrt n}.
+$$
+$\mu,\sigma$ が既知なら3標準偏差限界は
+$$
+UCL=\mu+3\frac{\sigma}{\sqrt n},\qquad
+CL=\mu,\qquad
+LCL=\mu-3\frac{\sigma}{\sqrt n}.
+$$
+
+$\sigma$ を群内範囲から推定する通常の $\overline X$--$R$ 管理図では、群サイズごとの定数 $A_2$ を使って
+$$
+UCL=\overline{\overline X}+A_2\overline R,\qquad
+CL=\overline{\overline X},\qquad
+LCL=\overline{\overline X}-A_2\overline R
+$$
+と書く。$A_2\overline R$ は「推定した群平均の3標準誤差幅」に対応する。
+
 ## 一手／方針
-$A_2\overline R$ を中心線へ加減する。
+どちらも本質は **中心線 $\pm$ 群平均の3標準誤差** である。$\sigma$ が既知なら $3\sigma/\sqrt n$ を直接使い、未知で $\overline R$ から推定するときはその換算を含む $A_2\overline R$ を使う。
+
 ## 答え
-$A_2\overline R=0.577(4)=2.308$ より、$UCL=22.308$、$CL=20$、$LCL=17.692$。
+1. 既知 $\sigma$ の場合は
+$$
+UCL=13,\qquad CL=10,\qquad LCL=7.
+$$
+2. $\overline R$ から推定する場合は
+$$
+UCL=22.308,\qquad CL=20,\qquad LCL=17.692.
+$$
+
 ## 計算例
-群平均17.5は下方管理限界外である。
+### 1. $\sigma$ が既知
+
+まず群平均の標準偏差は
+$$
+\frac{\sigma}{\sqrt n}
+=\frac{2}{\sqrt4}
+=1.
+$$
+したがって3標準偏差幅は
+$$
+3\frac{\sigma}{\sqrt n}=3.
+$$
+よって
+$$
+UCL=10+3=13,
+$$
+$$
+LCL=10-3=7.
+$$
+
+### 2. $\sigma$ を $\overline R$ から推定
+
+管理限界の半幅は
+$$
+A_2\overline R
+=0.577\times4
+=2.308.
+$$
+したがって
+$$
+UCL=20+2.308=22.308,
+$$
+$$
+LCL=20-2.308=17.692.
+$$
+例えば群平均17.5は $17.5<17.692$ なので下方管理限界外である。
+
 ## 注意
-先にR管理図で群内ばらつきの安定性を確認する。
+個々の観測値の標準偏差 $\sigma$ と、群平均の標準偏差 $\sigma/\sqrt n$ を混同しない。また $\overline X$--$R$ 管理図では、平均側を解釈する前にR管理図で群内ばらつきが安定しているか確認する。
 <!-- CARD -->
 
 ---
