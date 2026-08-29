@@ -1,38 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-30-model-selection-reduction-33
+batch_id: 2026-08-30-time-series-reduction-34
 items:
-  - id: ms-aic-numeric-comparison
+  - id: ts-ar1-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-bic-numeric-comparison
-    note: AICとBICの式・罰則差・数値比較を同じcanonicalへ統合済み。
+    canonical_card: ts-ar1-acf
+    note: 切片付きAR(1)の定常平均を、中心化→定常分散→ACFまで一続きで導くcanonicalへ統合済み。
 
-  - id: reg-mallows-cp
+  - id: ts-ar1-one-step-forecast
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-bic-numeric-comparison
-    note: MallowsのCpをAIC・BICと同じ「適合度と複雑さの比較」canonicalへ数値例ごと統合済み。
+    canonical_card: ts-ar1-hstep-forecast
+    note: 1期先予測は多期先予測のh=1として、数値例と条件付き期待値の操作ごとcanonicalへ統合済み。
 
-  - id: ms-ridge-regression
+  - id: ts-ar1-forecast-error-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: Ridgeの目的関数から勾配・停留条件・閉形式解までcanonicalへ導出付きで統合済み。
+    canonical_card: ts-ar1-hstep-forecast
+    note: h期先予測の反復展開から将来革新和を取り出し、予測誤差分散まで同じcanonicalで導出済み。
 
-  - id: ms-lasso-regression
+  - id: ts-ar2-stationarity
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: LassoのL1目的関数、直交設計のsoft-thresholding、KKTによる零化条件までcanonicalへ統合済み。
+    canonical_card: ts-ar-causality-check
+    note: AR(p)多項式の全根が単位円外という条件とAR(2)の数値根判定を一般canonicalへ統合済み。
 
-  - id: ms-l1-l2-difference
+  - id: ts-kalman-prediction
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: L2の連続縮小とL1の零化を制約境界の違いと合わせてcanonicalの一手・注意へ統合済み。
+    canonical_card: ts-kalman-update
+    note: Kalman予測→観測更新を一つのフィルタリングサイクルとして、同一数値例でcanonicalへ統合済み。
 
-  - id: reg-ridge-svd-shrinkage
+  - id: ts-random-walk-nonstationary
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: SVD方向の縮小率 d_j^2/(d_j^2+lambda) と d=2, lambda=3 の4/7計算をcanonicalへ吸収済み。
+    canonical_card: ts-difference-random-walk
+    note: Var(X_t)=t sigma^2による非定常性の証明と一階差分による定常化をcanonicalへ統合済み。
