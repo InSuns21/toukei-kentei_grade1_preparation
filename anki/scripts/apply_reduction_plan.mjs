@@ -36,6 +36,16 @@ function readCardFiles() {
     });
 }
 
+function readArchiveCardFiles() {
+  return walk(path.join(ROOT, "archive"))
+    .filter((file) => file.endsWith(".md"))
+    .filter((file) => {
+      const source = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "").trimStart();
+      // archive/README.md and similar documentation are not card corpora.
+      return source.startsWith("---\n") || source.startsWith("---\r\n");
+    });
+}
+
 const files = readCardFiles();
 const cardIndex = new Map();
 for (const source of files) {
@@ -118,9 +128,8 @@ for (const [bucket, chunks] of archiveByBucket) {
 // A card that was yesterday's canonical may itself be consolidated later.
 // Keep every historical archive pointer aimed at the currently active
 // canonical card rather than leaving chains such as A -> B(archived) -> C.
-// This makes multi-stage editorial consolidation safe and keeps archive
-// metadata useful as a direct audit trail.
-for (const file of walk(path.join(ROOT, "archive")).filter((candidate) => candidate.endsWith(".md"))) {
+// Documentation files such as archive/README.md are deliberately excluded.
+for (const file of readArchiveCardFiles()) {
   const source = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
   const rawChunks = source.split(/^<!-- CARD -->\s*$/m).map((part) => part.trim()).filter(Boolean);
   let changed = false;
