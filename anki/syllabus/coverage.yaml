@@ -1,4 +1,4 @@
-﻿schema_version: 3
+schema_version: 3
 scope: 統計数理・統計応用（理工学）
 meaning:
   complete: 全公式用語を操作するカードがある
@@ -889,16 +889,39 @@ items:
     terms:
       - name: モーメント法
         status: card
-        cards: [est-method-of-moments, est-moments-exponential, est-moments-uniform, est-moments-normal-numeric, est-moments-gamma-two-parameter, est-moments-beta-two-parameter, est-moments-uniform-two-endpoints]
+        cards:
+          - est-method-of-moments
+          - est-moments-exponential
+          - est-moments-uniform
+          - est-moments-normal-numeric
+          - est-moments-gamma-two-parameter
+          - est-moments-beta-two-parameter
+          - est-moments-uniform-two-endpoints
       - name: 最小二乗法
         status: card
-        cards: [est-ols-bline, est-ols-normal-equations, est-gauss-markov, est-ols-simple-numeric, est-ols-matrix-numeric, est-ols-slope-standard-error, est-wls-through-origin, est-gls-common-mean]
+        cards:
+          - est-ols-bline
+          - est-ols-normal-equations
+          - est-gauss-markov
+          - est-ols-simple-numeric
+          - est-ols-matrix-numeric
+          - est-ols-slope-standard-error
+          - est-wls-through-origin
+          - est-gls-common-mean
       - name: 線形推定（BLUE）
         status: card
-        cards: [est-ols-bline, est-gauss-markov, est-wls-through-origin, est-blue-correlated-estimators, est-gls-common-mean]
+        cards:
+          - est-ols-bline
+          - est-gauss-markov
+          - est-wls-through-origin
+          - est-blue-correlated-estimators
+          - est-gls-common-mean
       - name: その他の手法
         status: card
-        cards: [est-plug-in, est-plugin-survival-probability, est-plugin-coefficient-variation]
+        cards:
+          - est-plug-in
+          - est-plugin-survival-probability
+          - est-plugin-coefficient-variation
   - id: math-point-estimator-properties
     status: complete
     cards:
@@ -947,19 +970,33 @@ items:
     terms:
       - name: 不偏性
         status: card
-        cards: [est-unbiasedness, est-unbiased-construction, est-consistency-bias]
+        cards:
+          - est-unbiasedness
+          - est-unbiased-construction
+          - est-consistency-bias
       - name: 一致性
         status: card
-        cards: [est-consistency, est-consistency-bias]
+        cards:
+          - est-consistency
+          - est-consistency-bias
       - name: 十分性
         status: card
-        cards: [est-rao-blackwell, est-sufficiency-completeness, est-lehmann-scheffe, est-umvu-idea]
+        cards:
+          - est-rao-blackwell
+          - est-sufficiency-completeness
+          - est-lehmann-scheffe
+          - est-umvu-idea
       - name: 有効性
         status: card
-        cards: [est-relative-efficiency, est-efficient-estimator, est-asymptotic-efficiency, est-information-inequality-summary]
+        cards:
+          - est-relative-efficiency
+          - est-efficient-estimator
+          - est-asymptotic-efficiency
+          - est-information-inequality-summary
       - name: 推定量の相対効率
         status: card
-        cards: [est-relative-efficiency]
+        cards:
+          - est-relative-efficiency
   - id: math-model-selection
     status: complete
     cards:
@@ -1200,31 +1237,66 @@ items:
     terms:
       - name: 仮説
         status: card
-        cards: [test-null-alternative-definition, test-simple-composite-hypotheses, test-ci-duality]
+        cards:
+          - test-null-alternative-definition
+          - test-simple-composite-hypotheses
+          - test-ci-duality
       - name: 検定統計量
         status: card
-        cards: [test-statistic-definition, test-function-randomized-definition]
+        cards:
+          - test-statistic-definition
+          - test-function-randomized-definition
       - name: P値
         status: card
-        cards: [test-pvalue-definition, test-pvalue-two-sided, test-pvalue-smallest-level, test-composite-null-pvalue, test-discrete-pvalue-conservative, mathstat-p-value-uniformity]
+        cards:
+          - test-pvalue-definition
+          - test-pvalue-two-sided
+          - test-pvalue-smallest-level
+          - test-composite-null-pvalue
+          - test-discrete-pvalue-conservative
+          - mathstat-p-value-uniformity
       - name: 有意水準
         status: card
-        cards: [test-critical-region-size, test-level-versus-size, test-randomized-boundary, test-bonferroni-threshold]
+        cards:
+          - test-critical-region-size
+          - test-level-versus-size
+          - test-randomized-boundary
+          - test-bonferroni-threshold
       - name: 棄却域
         status: card
-        cards: [test-critical-region-size, test-one-two-sided-critical-values, test-data-dependent-sidedness, test-z-rejection]
+        cards:
+          - test-critical-region-size
+          - test-one-two-sided-critical-values
+          - test-data-dependent-sidedness
+          - test-z-rejection
       - name: 第一種の過誤
         status: card
-        cards: [test-type-errors-definition, test-familywise-error, test-bonferroni-threshold, test-data-dependent-sidedness]
+        cards:
+          - test-type-errors-definition
+          - test-familywise-error
+          - test-bonferroni-threshold
+          - test-data-dependent-sidedness
       - name: 第二種の過誤
         status: card
-        cards: [test-type-errors-definition, test-power-curve-reading]
+        cards:
+          - test-type-errors-definition
+          - test-power-curve-reading
       - name: 検出力（検定力）
         status: card
-        cards: [test-power-function-definition, test-power-normal-one-sided, test-sample-size-power-z, test-standardized-effect-power, test-unbiased-definition, test-consistency-definition]
+        cards:
+          - test-power-function-definition
+          - test-power-normal-one-sided
+          - test-sample-size-power-z
+          - test-standardized-effect-power
+          - test-unbiased-definition
+          - test-consistency-definition
       - name: 検出力曲線
         status: card
-        cards: [test-power-function-definition, test-power-normal-one-sided, test-power-curve-reading, test-standardized-effect-power]
+        cards:
+          - test-power-function-definition
+          - test-power-normal-one-sided
+          - test-power-curve-reading
+          - test-standardized-effect-power
   - id: math-test-derivation
     status: complete
     cards:
@@ -1261,16 +1333,37 @@ items:
     terms:
       - name: ネイマン・ピアソンの基本定理
         status: card
-        cards: [test-np-bernoulli, test-np-lemma-statement, test-np-normal-mean, test-np-exponential-rate, test-likelihood-ratio-ordering]
+        cards:
+          - test-np-bernoulli
+          - test-np-lemma-statement
+          - test-np-normal-mean
+          - test-np-exponential-rate
+          - test-likelihood-ratio-ordering
       - name: 尤度比検定
         status: card
-        cards: [test-likelihood-ratio, test-glrt-definition, test-glrt-normal-mean-known-variance, test-glrt-normal-variance-known-mean, test-lr-deviance-statistic, test-wilks-theorem, test-lr-bernoulli-numeric, test-profile-likelihood-nuisance, test-lr-pvalue-chi-square]
+        cards:
+          - test-likelihood-ratio
+          - test-glrt-definition
+          - test-glrt-normal-mean-known-variance
+          - test-glrt-normal-variance-known-mean
+          - test-lr-deviance-statistic
+          - test-wilks-theorem
+          - test-lr-bernoulli-numeric
+          - test-profile-likelihood-nuisance
+          - test-lr-pvalue-chi-square
       - name: ワルド型検定
         status: card
-        cards: [test-wald-general, test-wald-bernoulli-numeric, test-lr-wald-score-comparison]
+        cards:
+          - test-wald-general
+          - test-wald-bernoulli-numeric
+          - test-lr-wald-score-comparison
       - name: スコア型検定
         status: card
-        cards: [test-score-general, test-score-bernoulli-numeric, test-lr-wald-score-comparison, test-score-observed-expected-information]
+        cards:
+          - test-score-general
+          - test-score-bernoulli-numeric
+          - test-lr-wald-score-comparison
+          - test-score-observed-expected-information
   - id: math-normal-tests
     status: complete
     cards:
@@ -1299,10 +1392,33 @@ items:
     terms:
       - name: 平均値と分散に関する検定
         status: card
-        cards: [test-normal-z-known-formula, test-normal-z-one-sided-numeric, test-normal-z-left-sided, test-normal-z-two-sided-pvalue, test-normal-t-pivot, test-normal-t-numeric, test-normal-t-assumptions, test-normal-variance-chisquare, test-normal-variance-chisquare-numeric, test-normal-variance-one-sided, test-normal-variance-ratio-f, test-normal-variance-ratio-numeric, test-f-reciprocal-quantile, test-normality-test-selection]
+        cards:
+          - test-normal-z-known-formula
+          - test-normal-z-one-sided-numeric
+          - test-normal-z-left-sided
+          - test-normal-z-two-sided-pvalue
+          - test-normal-t-pivot
+          - test-normal-t-numeric
+          - test-normal-t-assumptions
+          - test-normal-variance-chisquare
+          - test-normal-variance-chisquare-numeric
+          - test-normal-variance-one-sided
+          - test-normal-variance-ratio-f
+          - test-normal-variance-ratio-numeric
+          - test-f-reciprocal-quantile
+          - test-normality-test-selection
       - name: 複数の平均に関する検定
         status: card
-        cards: [test-paired-t-construction, test-paired-t-numeric, test-paired-versus-independent, test-pooled-two-sample-t, test-pooled-two-sample-t-numeric, test-welch-two-sample-formula, test-welch-two-sample-numeric, test-pooled-versus-welch, test-normality-test-selection]
+        cards:
+          - test-paired-t-construction
+          - test-paired-t-numeric
+          - test-paired-versus-independent
+          - test-pooled-two-sample-t
+          - test-pooled-two-sample-t-numeric
+          - test-welch-two-sample-formula
+          - test-welch-two-sample-numeric
+          - test-pooled-versus-welch
+          - test-normality-test-selection
   - id: math-various-tests
     status: complete
     cards:
@@ -1342,13 +1458,46 @@ items:
     terms:
       - name: 二項分布・ポアソン分布など基本的な分布に関する検定
         status: card
-        cards: [test-binomial-exact-one-sample, test-one-proportion-score, test-one-proportion-continuity, test-two-proportion-pooled, test-two-proportion-numeric, test-poisson-one-rate-exact, test-poisson-rate-score, test-two-poisson-unequal-exposure, mathstat-exact-poisson-rate-test, mathstat-mcnemar-exact-test]
+        cards:
+          - test-binomial-exact-one-sample
+          - test-one-proportion-score
+          - test-one-proportion-continuity
+          - test-two-proportion-pooled
+          - test-two-proportion-numeric
+          - test-poisson-one-rate-exact
+          - test-poisson-rate-score
+          - test-two-poisson-unequal-exposure
+          - mathstat-exact-poisson-rate-test
+          - mathstat-mcnemar-exact-test
       - name: 適合度の検定
         status: card
-        cards: [test-chi-square-fit, test-goodness-fit-statistic, test-goodness-fit-numeric, test-goodness-fit-estimated-parameters, test-goodness-fit-expected-counts, test-independence-chisquare, test-independence-2x2-numeric, test-yates-correction, test-fisher-exact-2x2]
+        cards:
+          - test-chi-square-fit
+          - test-goodness-fit-statistic
+          - test-goodness-fit-numeric
+          - test-goodness-fit-estimated-parameters
+          - test-goodness-fit-expected-counts
+          - test-independence-chisquare
+          - test-independence-2x2-numeric
+          - test-yates-correction
+          - test-fisher-exact-2x2
       - name: ノンパラメトリック検定
         status: card
-        cards: [test-sign-test, test-sign-test-numeric, test-wilcoxon-signed-rank, test-wilcoxon-signed-rank-numeric, test-mann-whitney-u, test-mann-whitney-u-numeric, test-ks-one-sample, test-ks-one-sample-numeric, test-permutation-two-sample, mathstat-mcnemar-exact-test, test-mcnemar-asymptotic, test-nonparametric-choice, test-rank-ties, test-procedure-selection-summary]
+        cards:
+          - test-sign-test
+          - test-sign-test-numeric
+          - test-wilcoxon-signed-rank
+          - test-wilcoxon-signed-rank-numeric
+          - test-mann-whitney-u
+          - test-mann-whitney-u-numeric
+          - test-ks-one-sample
+          - test-ks-one-sample-numeric
+          - test-permutation-two-sample
+          - mathstat-mcnemar-exact-test
+          - test-mcnemar-asymptotic
+          - test-nonparametric-choice
+          - test-rank-ties
+          - test-procedure-selection-summary
   - id: math-anova
     status: complete
     cards:
@@ -1386,19 +1535,51 @@ items:
     terms:
       - name: 一元配置分散分析
         status: card
-        cards: [data-anova-decomposition, anova-oneway-model-assumptions, anova-oneway-ss-numeric, anova-oneway-degrees-freedom, anova-oneway-f-statistic, anova-oneway-table-numeric, anova-expected-mean-squares, anova-contrast-definition, anova-contrast-se, anova-contrast-numeric, anova-orthogonal-contrasts, anova-regression-equivalence, anova-residual-diagnostics]
+        cards:
+          - data-anova-decomposition
+          - anova-oneway-model-assumptions
+          - anova-oneway-ss-numeric
+          - anova-oneway-degrees-freedom
+          - anova-oneway-f-statistic
+          - anova-oneway-table-numeric
+          - anova-expected-mean-squares
+          - anova-contrast-definition
+          - anova-contrast-se
+          - anova-contrast-numeric
+          - anova-orthogonal-contrasts
+          - anova-regression-equivalence
+          - anova-residual-diagnostics
       - name: 二元配置分散分析
         status: card
-        cards: [anova-twoway-model, anova-twoway-ss-balanced, anova-twoway-degrees-freedom, anova-twoway-f-tests, anova-no-replication-limitation, anova-randomized-block-model, anova-fixed-random-effects]
+        cards:
+          - anova-twoway-model
+          - anova-twoway-ss-balanced
+          - anova-twoway-degrees-freedom
+          - anova-twoway-f-tests
+          - anova-no-replication-limitation
+          - anova-randomized-block-model
+          - anova-fixed-random-effects
       - name: 交互作用
         status: card
-        cards: [anova-twoway-model, anova-interaction-definition, anova-interaction-contrast-test, anova-interaction-interpretation]
+        cards:
+          - anova-twoway-model
+          - anova-interaction-definition
+          - anova-interaction-contrast-test
+          - anova-interaction-interpretation
       - name: 共分散分析
         status: card
-        cards: [anova-ancova-model, anova-ancova-adjusted-mean, anova-ancova-parallel-slopes]
+        cards:
+          - anova-ancova-model
+          - anova-ancova-adjusted-mean
+          - anova-ancova-parallel-slopes
       - name: 多重比較
         status: card
-        cards: [anova-tukey-hsd-formula, anova-tukey-numeric, anova-bonferroni-comparisons, anova-scheffe-bound, anova-multiple-comparison-choice]
+        cards:
+          - anova-tukey-hsd-formula
+          - anova-tukey-numeric
+          - anova-bonferroni-comparisons
+          - anova-scheffe-bound
+          - anova-multiple-comparison-choice
   - id: math-regression
     status: complete
     cards:
@@ -1450,31 +1631,91 @@ items:
     terms:
       - name: 線形単回帰
         status: card
-        cards: [data-ols-slope, reg-simple-model-assumptions, reg-ols-simple-formula, reg-slope-geometric-projection, reg-slope-variance, reg-intercept-variance, reg-slope-t-test, reg-slope-t-numeric, reg-slope-confidence-interval, reg-mean-response-ci, reg-prediction-interval, reg-ci-versus-pi-numeric]
+        cards:
+          - data-ols-slope
+          - reg-simple-model-assumptions
+          - reg-ols-simple-formula
+          - reg-slope-geometric-projection
+          - reg-slope-variance
+          - reg-intercept-variance
+          - reg-slope-t-test
+          - reg-slope-t-numeric
+          - reg-slope-confidence-interval
+          - reg-mean-response-ci
+          - reg-prediction-interval
+          - reg-ci-versus-pi-numeric
       - name: 線形重回帰
         status: card
-        cards: [reg-multiple-model-matrix, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-coefficient-t-multiple, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared, reg-dummy-variable, reg-interaction-dummy-continuous, reg-multicollinearity-vif, reg-omitted-variable-bias]
+        cards:
+          - reg-multiple-model-matrix
+          - reg-matrix-ols-derivation
+          - reg-beta-unbiased-covariance
+          - reg-coefficient-t-multiple
+          - reg-overall-f-test
+          - reg-overall-f-r2
+          - reg-partial-f-test
+          - reg-partial-f-numeric
+          - reg-f-equals-t-squared
+          - reg-dummy-variable
+          - reg-interaction-dummy-continuous
+          - reg-multicollinearity-vif
+          - reg-omitted-variable-bias
       - name: 最小二乗推定
         status: card
-        cards: [data-ols-slope, reg-ols-normal-equations-simple, reg-ols-simple-formula, reg-slope-geometric-projection, reg-residual-orthogonality, reg-matrix-ols-derivation, reg-beta-unbiased-covariance, reg-hat-matrix-properties, reg-gauss-markov-theorem]
+        cards:
+          - data-ols-slope
+          - reg-ols-normal-equations-simple
+          - reg-ols-simple-formula
+          - reg-slope-geometric-projection
+          - reg-residual-orthogonality
+          - reg-matrix-ols-derivation
+          - reg-beta-unbiased-covariance
+          - reg-hat-matrix-properties
+          - reg-gauss-markov-theorem
       - name: 回帰の分散分析
         status: card
-        cards: [reg-sst-decomposition, reg-error-variance-estimator, reg-overall-f-test, reg-overall-f-r2, reg-partial-f-test, reg-partial-f-numeric, reg-f-equals-t-squared]
+        cards:
+          - reg-sst-decomposition
+          - reg-error-variance-estimator
+          - reg-overall-f-test
+          - reg-overall-f-r2
+          - reg-partial-f-test
+          - reg-partial-f-numeric
+          - reg-f-equals-t-squared
       - name: 重相関係数
         status: card
-        cards: [reg-simple-r2-correlation, reg-multiple-correlation]
+        cards:
+          - reg-simple-r2-correlation
+          - reg-multiple-correlation
       - name: 決定係数
         status: card
-        cards: [reg-sst-decomposition, reg-r-squared, reg-simple-r2-correlation, reg-adjusted-r-squared, reg-overall-f-r2]
+        cards:
+          - reg-sst-decomposition
+          - reg-r-squared
+          - reg-simple-r2-correlation
+          - reg-adjusted-r-squared
+          - reg-overall-f-r2
       - name: 残差
         status: card
-        cards: [reg-fitted-residual-numeric, reg-residual-orthogonality, reg-hat-matrix-properties, reg-leverage-meaning, reg-residual-variance-leverage, reg-studentized-residual, reg-heteroskedasticity-pattern, reg-cooks-distance, reg-model-diagnostics-summary]
+        cards:
+          - reg-fitted-residual-numeric
+          - reg-residual-orthogonality
+          - reg-hat-matrix-properties
+          - reg-leverage-meaning
+          - reg-residual-variance-leverage
+          - reg-studentized-residual
+          - reg-heteroskedasticity-pattern
+          - reg-cooks-distance
+          - reg-model-diagnostics-summary
       - name: 変数変換
         status: card
-        cards: [reg-polynomial-turning-point, reg-log-response-interpretation]
+        cards:
+          - reg-polynomial-turning-point
+          - reg-log-response-interpretation
       - name: 平均への回帰（回帰効果）
         status: card
-        cards: [reg-regression-to-mean]
+        cards:
+          - reg-regression-to-mean
   - id: math-contingency-tables
     status: complete
     cards:
@@ -1508,16 +1749,27 @@ items:
     terms:
       - name: カイ二乗検定
         status: card
-        cards: [cat-table-margins, cat-expected-counts-independence, cat-pearson-shortcut-2x2, cat-likelihood-ratio-g2, cat-standardized-residual, cat-independence-homogeneity, cat-loglinear-deviance-df]
+        cards:
+          - cat-table-margins
+          - cat-expected-counts-independence
+          - cat-pearson-shortcut-2x2
+          - cat-likelihood-ratio-g2
+          - cat-standardized-residual
+          - cat-independence-homogeneity
+          - cat-loglinear-deviance-df
       - name: フィッシャー検定
         status: card
-        cards: [cat-fisher-hypergeometric, cat-zero-cell-correction]
+        cards:
+          - cat-fisher-hypergeometric
+          - cat-zero-cell-correction
       - name: マクネマー検定
         status: card
-        cards: [cat-mcnemar-choice]
+        cards:
+          - cat-mcnemar-choice
       - name: イェーツの補正
         status: card
-        cards: [cat-yates-corrected-shortcut]
+        cards:
+          - cat-yates-corrected-shortcut
   - id: math-nonparametric
     status: complete
     cards:
@@ -1550,16 +1802,27 @@ items:
     terms:
       - name: 符号検定
         status: card
-        cards: [np-sign-median-ci]
+        cards:
+          - np-sign-median-ci
       - name: ウィルコクソン順位和検定（マン・ホイットニーU検定）
         status: card
-        cards: [np-mann-whitney-ranksum-equivalence, np-mann-whitney-null-moments, np-mann-whitney-normal-numeric, np-rank-biserial-effect]
+        cards:
+          - np-mann-whitney-ranksum-equivalence
+          - np-mann-whitney-null-moments
+          - np-mann-whitney-normal-numeric
+          - np-rank-biserial-effect
       - name: ウィルコクソン符号付き順位和検定
         status: card
-        cards: [np-wilcoxon-null-moments, np-wilcoxon-normal-approx, np-hodges-lehmann-paired]
+        cards:
+          - np-wilcoxon-null-moments
+          - np-wilcoxon-normal-approx
+          - np-hodges-lehmann-paired
       - name: 順位相関係数
         status: card
-        cards: [np-spearman-formula, np-spearman-numeric, np-kendall-tau]
+        cards:
+          - np-spearman-formula
+          - np-spearman-numeric
+          - np-kendall-tau
   - id: math-incomplete-data
     status: complete
     cards:
@@ -1592,13 +1855,39 @@ items:
     terms:
       - name: 欠測（欠損）
         status: card
-        cards: [data-em-responsibility, inc-mcar-mar-mnar, inc-missing-indicator-likelihood, inc-complete-case-bias, inc-mean-imputation-variance, inc-ipw-mean, inc-em-observed-likelihood, inc-multiple-imputation-rubin]
+        cards:
+          - data-em-responsibility
+          - inc-mcar-mar-mnar
+          - inc-missing-indicator-likelihood
+          - inc-complete-case-bias
+          - inc-mean-imputation-variance
+          - inc-ipw-mean
+          - inc-em-observed-likelihood
+          - inc-multiple-imputation-rubin
       - name: 打ち切り
         status: card
-        cards: [surv-censoring-definition, surv-right-censored-likelihood, surv-exponential-censored-mle, surv-type-i-type-ii-censoring, surv-kaplan-meier-formula, surv-kaplan-meier-numeric, surv-greenwood-formula, surv-greenwood-numeric, surv-logrank-statistic, surv-logrank-numeric, surv-cox-model, surv-cox-partial-likelihood, surv-hazard-ratio-interpretation, surv-proportional-hazards-check]
+        cards:
+          - surv-censoring-definition
+          - surv-right-censored-likelihood
+          - surv-exponential-censored-mle
+          - surv-type-i-type-ii-censoring
+          - surv-kaplan-meier-formula
+          - surv-kaplan-meier-numeric
+          - surv-greenwood-formula
+          - surv-greenwood-numeric
+          - surv-logrank-statistic
+          - surv-logrank-numeric
+          - surv-cox-model
+          - surv-cox-partial-likelihood
+          - surv-hazard-ratio-interpretation
+          - surv-proportional-hazards-check
       - name: トランケーション
         status: card
-        cards: [surv-truncation-density, surv-left-truncated-exponential, surv-censoring-vs-truncation, surv-delayed-entry-risk-set]
+        cards:
+          - surv-truncation-density
+          - surv-left-truncated-exponential
+          - surv-censoring-vs-truncation
+          - surv-delayed-entry-risk-set
   - id: math-simulation
     status: complete
     cards:
@@ -1644,16 +1933,55 @@ items:
     terms:
       - name: 乱数
         status: card
-        cards: [sim-uniform-prng-definition, sim-inverse-transform-continuous, sim-inverse-transform-exponential-numeric, sim-inverse-transform-discrete, sim-accept-reject, sim-box-muller]
+        cards:
+          - sim-uniform-prng-definition
+          - sim-inverse-transform-continuous
+          - sim-inverse-transform-exponential-numeric
+          - sim-inverse-transform-discrete
+          - sim-accept-reject
+          - sim-box-muller
       - name: モンテカルロシミュレーション
         status: card
-        cards: [data-monte-carlo-integral, sim-mc-standard-error, sim-mc-ci-numeric, sim-antithetic-variates, sim-control-variate, sim-stratified-sampling, sim-importance-sampling, sim-importance-numeric]
+        cards:
+          - data-monte-carlo-integral
+          - sim-mc-standard-error
+          - sim-mc-ci-numeric
+          - sim-antithetic-variates
+          - sim-control-variate
+          - sim-stratified-sampling
+          - sim-importance-sampling
+          - sim-importance-numeric
       - name: MCMC
         status: card
-        cards: [sim-markov-stationary, sim-detailed-balance, sim-mh-algorithm, sim-mh-numeric, sim-random-walk-mh, sim-gibbs-bivariate-normal, sim-mcmc-convergence-conditions, sim-burnin-thinning, sim-ess-mcse]
+        cards:
+          - sim-markov-stationary
+          - sim-detailed-balance
+          - sim-mh-algorithm
+          - sim-mh-numeric
+          - sim-random-walk-mh
+          - sim-gibbs-bivariate-normal
+          - sim-mcmc-convergence-conditions
+          - sim-burnin-thinning
+          - sim-ess-mcse
       - name: ブートストラップ
         status: card
-        cards: [data-bootstrap-mean, boot-empirical-distribution, boot-bias-estimate, boot-bias-corrected-estimator, boot-percentile-ci, boot-basic-ci, boot-parametric-nonparametric, jackknife-leave-one-out, jackknife-standard-error, jackknife-bias, perm-test-principle, perm-test-numeric, randomization-vs-permutation, cv-kfold-estimator, cv-loocv-kfold, boot-sampling-distribution-relation]
+        cards:
+          - data-bootstrap-mean
+          - boot-empirical-distribution
+          - boot-bias-estimate
+          - boot-bias-corrected-estimator
+          - boot-percentile-ci
+          - boot-basic-ci
+          - boot-parametric-nonparametric
+          - jackknife-leave-one-out
+          - jackknife-standard-error
+          - jackknife-bias
+          - perm-test-principle
+          - perm-test-numeric
+          - randomization-vs-permutation
+          - cv-kfold-estimator
+          - cv-loocv-kfold
+          - boot-sampling-distribution-relation
   - id: math-bayesian-methods
     status: complete
     cards:
@@ -1707,16 +2035,62 @@ items:
     terms:
       - name: 事前分布
         status: card
-        cards: [data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-conjugate-definition, bayes-proper-improper, bayes-prior-predictive, bayes-likelihood-principle, bayes-gamma-exponential-update, bayes-normal-normal-update, bayes-nig-update, bayes-dirichlet-multinomial-update, bayes-factor-prior-sensitivity, bayes-factor-improper-prior, bayes-prior-sensitivity]
+        cards:
+          - data-bayes-beta
+          - mathstat-gamma-poisson-posterior
+          - bayes-density-formula
+          - bayes-conjugate-definition
+          - bayes-proper-improper
+          - bayes-prior-predictive
+          - bayes-likelihood-principle
+          - bayes-gamma-exponential-update
+          - bayes-normal-normal-update
+          - bayes-nig-update
+          - bayes-dirichlet-multinomial-update
+          - bayes-factor-prior-sensitivity
+          - bayes-factor-improper-prior
+          - bayes-prior-sensitivity
       - name: 事後分布
         status: card
-        cards: [data-bayes-beta, mathstat-gamma-poisson-posterior, bayes-density-formula, bayes-evidence-discrete, bayes-posterior-odds, bayes-beta-posterior-mean-mode, bayes-beta-binomial-predictive, bayes-gamma-poisson-predictive, bayes-gamma-exponential-numeric, bayes-exponential-predictive, bayes-normal-normal-numeric, bayes-normal-normal-predictive, bayes-nig-student-predictive, bayes-dirichlet-predictive, bayes-squared-loss-mean, bayes-absolute-loss-median, bayes-zero-one-map, bayes-normal-credible-interval, bayes-beta-equal-tail-interval, bayes-hpd-interval, bayes-credible-vs-confidence, bayes-posterior-predictive-check]
+        cards:
+          - data-bayes-beta
+          - mathstat-gamma-poisson-posterior
+          - bayes-density-formula
+          - bayes-evidence-discrete
+          - bayes-posterior-odds
+          - bayes-beta-posterior-mean-mode
+          - bayes-beta-binomial-predictive
+          - bayes-gamma-poisson-predictive
+          - bayes-gamma-exponential-numeric
+          - bayes-exponential-predictive
+          - bayes-normal-normal-numeric
+          - bayes-normal-normal-predictive
+          - bayes-nig-student-predictive
+          - bayes-dirichlet-predictive
+          - bayes-squared-loss-mean
+          - bayes-absolute-loss-median
+          - bayes-zero-one-map
+          - bayes-normal-credible-interval
+          - bayes-beta-equal-tail-interval
+          - bayes-hpd-interval
+          - bayes-credible-vs-confidence
+          - bayes-posterior-predictive-check
       - name: 階層ベイズモデル
         status: card
-        cards: [bayes-hierarchical-definition, bayes-normal-hierarchical-shrinkage, bayes-hierarchical-conditional-independence, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu, bayes-beta-binomial-hierarchy, bayes-empirical-bayes]
+        cards:
+          - bayes-hierarchical-definition
+          - bayes-normal-hierarchical-shrinkage
+          - bayes-hierarchical-conditional-independence
+          - bayes-normal-hierarchical-gibbs-theta
+          - bayes-normal-hierarchical-gibbs-mu
+          - bayes-beta-binomial-hierarchy
+          - bayes-empirical-bayes
       - name: ギブスサンプリング
         status: card
-        cards: [bayes-gibbs-full-conditionals, bayes-normal-hierarchical-gibbs-theta, bayes-normal-hierarchical-gibbs-mu]
+        cards:
+          - bayes-gibbs-full-conditionals
+          - bayes-normal-hierarchical-gibbs-theta
+          - bayes-normal-hierarchical-gibbs-mu
   - id: applied-research-types
     status: complete
     cards:
@@ -1733,13 +2107,25 @@ items:
     terms:
       - name: 実験研究
         status: card
-        cards: [research-experimental-observational, research-randomization-causal]
+        cards:
+          - research-experimental-observational
+          - research-randomization-causal
       - name: 観察研究
         status: card
-        cards: [research-experimental-observational, research-confounding-definition, research-cohort-design, research-case-control-design, research-cross-sectional-design, research-prospective-retrospective]
+        cards:
+          - research-experimental-observational
+          - research-confounding-definition
+          - research-cohort-design
+          - research-case-control-design
+          - research-cross-sectional-design
+          - research-prospective-retrospective
       - name: 調査
         status: card
-        cards: [research-cross-sectional-design, research-census-sample-survey, research-sampling-nonsampling-error, research-target-frame-sample]
+        cards:
+          - research-cross-sectional-design
+          - research-census-sample-survey
+          - research-sampling-nonsampling-error
+          - research-target-frame-sample
   - id: applied-sampling
     status: complete
     cards:
@@ -1778,16 +2164,35 @@ items:
     terms:
       - name: 完全無作為抽出
         status: card
-        cards: [sampling-srs-definition, sampling-srs-pair-inclusion, sampling-mean-unbiased, sampling-fpc-mean-variance, sampling-srs-se-numeric, sampling-total-estimator, sampling-proportion-variance]
+        cards:
+          - sampling-srs-definition
+          - sampling-srs-pair-inclusion
+          - sampling-mean-unbiased
+          - sampling-fpc-mean-variance
+          - sampling-srs-se-numeric
+          - sampling-total-estimator
+          - sampling-proportion-variance
       - name: 層化抽出
         status: card
-        cards: [sampling-stratified-mean, sampling-stratified-variance, sampling-proportional-allocation, sampling-neyman-allocation, sampling-neyman-numeric, sampling-cluster-vs-stratified]
+        cards:
+          - sampling-stratified-mean
+          - sampling-stratified-variance
+          - sampling-proportional-allocation
+          - sampling-neyman-allocation
+          - sampling-neyman-numeric
+          - sampling-cluster-vs-stratified
       - name: 二段階抽出
         status: card
-        cards: [sampling-two-stage-inclusion, sampling-two-stage-total]
+        cards:
+          - sampling-two-stage-inclusion
+          - sampling-two-stage-total
       - name: サンプルサイズの設計
         status: card
-        cards: [sampling-mean-sample-size, sampling-proportion-sample-size, sampling-design-effect, sampling-effective-sample-size]
+        cards:
+          - sampling-mean-sample-size
+          - sampling-proportion-sample-size
+          - sampling-design-effect
+          - sampling-effective-sample-size
   - id: applied-design
     status: complete
     cards:
@@ -1839,22 +2244,63 @@ items:
     terms:
       - name: フィッシャーの3原則
         status: card
-        cards: [design-fisher-three-principles, design-randomization-purpose, design-replication-purpose, design-local-control]
+        cards:
+          - design-fisher-three-principles
+          - design-randomization-purpose
+          - design-replication-purpose
+          - design-local-control
       - name: 一元配置法
         status: card
-        cards: [design-crd-allocation-count, design-crd-difference-means, design-oneway-vs-block, design-anova-effect-size-power]
+        cards:
+          - design-crd-allocation-count
+          - design-crd-difference-means
+          - design-oneway-vs-block
+          - design-anova-effect-size-power
       - name: 二元配置法
         status: card
-        cards: [design-twoway-crossed-nested, design-factorial-definition, design-two-by-two-effects, design-two-by-two-numeric, design-interaction-plot, design-factorial-effect-ss]
+        cards:
+          - design-twoway-crossed-nested
+          - design-factorial-definition
+          - design-two-by-two-effects
+          - design-two-by-two-numeric
+          - design-interaction-plot
+          - design-factorial-effect-ss
       - name: ブロック化
         status: card
-        cards: [design-local-control, design-blocking-paired-variance, design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-block-confounding, design-split-plot-error-strata]
+        cards:
+          - design-local-control
+          - design-blocking-paired-variance
+          - design-rcbd-relative-efficiency
+          - design-rcbd-sums-squares
+          - design-rcbd-degrees-freedom
+          - design-rcbd-anova-numeric
+          - design-rcbd-missing-value
+          - design-block-confounding
+          - design-split-plot-error-strata
       - name: 乱塊法
         status: card
-        cards: [design-rcbd-relative-efficiency, design-rcbd-sums-squares, design-rcbd-degrees-freedom, design-rcbd-anova-numeric, design-rcbd-missing-value, design-oneway-vs-block]
+        cards:
+          - design-rcbd-relative-efficiency
+          - design-rcbd-sums-squares
+          - design-rcbd-degrees-freedom
+          - design-rcbd-anova-numeric
+          - design-rcbd-missing-value
+          - design-oneway-vs-block
       - name: 一部実施要因計画
         status: card
-        cards: [design-two-level-coding, design-two-level-effect-contrast, design-two-cubed-effects-numeric, design-block-confounding, design-fraction-generator, design-defining-relation, design-alias-structure, design-resolution-levels, design-fraction-run-saving, design-orthogonal-array-basic, design-orthogonality-check, design-balanced-orthogonality]
+        cards:
+          - design-two-level-coding
+          - design-two-level-effect-contrast
+          - design-two-cubed-effects-numeric
+          - design-block-confounding
+          - design-fraction-generator
+          - design-defining-relation
+          - design-alias-structure
+          - design-resolution-levels
+          - design-fraction-run-saving
+          - design-orthogonal-array-basic
+          - design-orthogonality-check
+          - design-balanced-orthogonality
   - id: applied-multiple-regression
     status: complete
     cards:
@@ -1888,28 +2334,63 @@ items:
     terms:
       - name: 重回帰モデル
         status: card
-        cards: [reg-frisch-waugh-lovell, reg-general-linear-hypothesis, reg-software-output-interpretation]
+        cards:
+          - reg-frisch-waugh-lovell
+          - reg-general-linear-hypothesis
+          - reg-software-output-interpretation
       - name: 変数選択
         status: card
-        cards: [reg-aic-variable-selection, reg-stepwise-selection-warning, reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-mallows-cp, reg-bic-selection, reg-nested-cross-validation]
+        cards:
+          - reg-aic-variable-selection
+          - reg-stepwise-selection-warning
+          - reg-lasso-soft-threshold
+          - reg-lasso-vs-ridge
+          - reg-elastic-net-objective
+          - reg-mallows-cp
+          - reg-bic-selection
+          - reg-nested-cross-validation
       - name: 残差分析
         status: card
-        cards: [reg-breusch-pagan-idea, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich]
+        cards:
+          - reg-breusch-pagan-idea
+          - reg-press-loocv
+          - reg-dffits-numeric
+          - reg-dfbeta-meaning
+          - reg-hc3-sandwich
       - name: 一般化最小二乗推定
         status: card
-        cards: [reg-gls-estimator, reg-wls-two-points, reg-feasible-gls-steps]
+        cards:
+          - reg-gls-estimator
+          - reg-wls-two-points
+          - reg-feasible-gls-steps
       - name: ガウス・マルコフの定理
         status: card
-        cards: [model-gauss-markov, reg-gls-estimator]
+        cards:
+          - model-gauss-markov
+          - reg-gls-estimator
       - name: 多重共線性
         status: card
-        cards: [reg-condition-number, reg-ridge-closed-form, reg-ridge-svd-shrinkage]
+        cards:
+          - reg-condition-number
+          - reg-ridge-closed-form
+          - reg-ridge-svd-shrinkage
       - name: L1正則化法
         status: card
-        cards: [reg-lasso-soft-threshold, reg-lasso-vs-ridge, reg-elastic-net-objective, reg-lasso-kkt-zero]
+        cards:
+          - reg-lasso-soft-threshold
+          - reg-lasso-vs-ridge
+          - reg-elastic-net-objective
+          - reg-lasso-kkt-zero
       - name: 回帰診断法
         status: card
-        cards: [reg-leverage-threshold, reg-breusch-pagan-idea, reg-robust-sandwich, reg-press-loocv, reg-dffits-numeric, reg-dfbeta-meaning, reg-hc3-sandwich]
+        cards:
+          - reg-leverage-threshold
+          - reg-breusch-pagan-idea
+          - reg-robust-sandwich
+          - reg-press-loocv
+          - reg-dffits-numeric
+          - reg-dfbeta-meaning
+          - reg-hc3-sandwich
   - id: applied-multivariate
     status: complete
     cards:
@@ -1966,79 +2447,334 @@ items:
     terms:
       - name: 主成分分析
         status: card
-        cards: [mv-pca-variance-max, mv-pca-eigen-numeric, mv-pca-contribution-rate, mv-pca-score, mv-pca-loading, mv-pca-covariance-vs-correlation, mv-pca-reconstruction, mv-pca-software-output]
+        cards:
+          - mv-pca-variance-max
+          - mv-pca-eigen-numeric
+          - mv-pca-contribution-rate
+          - mv-pca-score
+          - mv-pca-loading
+          - mv-pca-covariance-vs-correlation
+          - mv-pca-reconstruction
+          - mv-pca-software-output
       - name: 因子分析
         status: card
-        cards: [mv-factor-model-covariance, mv-factor-communality, mv-factor-rotation, mv-factor-score-regression]
+        cards:
+          - mv-factor-model-covariance
+          - mv-factor-communality
+          - mv-factor-rotation
+          - mv-factor-score-regression
       - name: 判別分析
         status: card
-        cards: [mv-lda-direction, mv-lda-numeric, mv-lda-classification-rule, mv-lda-vs-qda]
+        cards:
+          - mv-lda-direction
+          - mv-lda-numeric
+          - mv-lda-classification-rule
+          - mv-lda-vs-qda
       - name: クラスター分析
         status: card
-        cards: [mv-hierarchical-linkage, mv-ward-increase, mv-kmeans-one-iteration, mv-kmeans-objective]
+        cards:
+          - mv-hierarchical-linkage
+          - mv-ward-increase
+          - mv-kmeans-one-iteration
+          - mv-kmeans-objective
       - name: ロジスティック回帰分析
         status: card
-        cards: [model-logistic-odds, glm-logistic-probability, glm-logistic-odds-ratio, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-categorical-interaction, glm-logistic-marginal-effect]
+        cards:
+          - model-logistic-odds
+          - glm-logistic-probability
+          - glm-logistic-odds-ratio
+          - glm-binomial-loglikelihood
+          - glm-logistic-score
+          - glm-irls-update
+          - glm-categorical-interaction
+          - glm-logistic-marginal-effect
       - name: プロビット分析
         status: card
-        cards: [glm-probit-probability]
+        cards:
+          - glm-probit-probability
       - name: トービット分析
         status: card
-        cards: [glm-tobit-likelihood-parts]
+        cards:
+          - glm-tobit-likelihood-parts
       - name: 一般化線形モデル
         status: card
-        cards: [model-poisson-glm, glm-three-components, glm-exponential-family, glm-canonical-links, glm-binomial-loglikelihood, glm-logistic-score, glm-irls-update, glm-poisson-mean-ratio, glm-poisson-offset, glm-deviance-definition, glm-pearson-chi-square, glm-likelihood-ratio-test, glm-categorical-interaction, glm-overdispersion-diagnostic, glm-software-deviance-output]
+        cards:
+          - model-poisson-glm
+          - glm-three-components
+          - glm-exponential-family
+          - glm-canonical-links
+          - glm-binomial-loglikelihood
+          - glm-logistic-score
+          - glm-irls-update
+          - glm-poisson-mean-ratio
+          - glm-poisson-offset
+          - glm-deviance-definition
+          - glm-pearson-chi-square
+          - glm-likelihood-ratio-test
+          - glm-categorical-interaction
+          - glm-overdispersion-diagnostic
+          - glm-software-deviance-output
       - name: 非線形回帰モデル
         status: card
-        cards: [glm-nonlinear-regression-gradient]
+        cards:
+          - glm-nonlinear-regression-gradient
       - name: サポートベクターマシン
         status: card
-        cards: [glm-svm-margin]
+        cards:
+          - glm-svm-margin
   - id: applied-stochastic-processes
     status: complete
-    cards: [process-markov-two-step, process-stationary-markov, process-poisson-wait, stoch-markov-property, stoch-finite-dimensional-distribution, stoch-recurrence-definition, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution]
+    cards:
+      - process-markov-two-step
+      - process-stationary-markov
+      - process-poisson-wait
+      - stoch-markov-property
+      - stoch-finite-dimensional-distribution
+      - stoch-recurrence-definition
+      - stoch-transition-matrix-check
+      - stoch-three-state-two-step
+      - stoch-three-state-stationary
+      - stoch-detailed-balance-check
+      - stoch-communicating-classes
+      - stoch-period-computation
+      - stoch-absorption-probability
+      - stoch-expected-hitting-time
+      - stoch-random-walk-mean-variance
+      - stoch-gambler-ruin
+      - stoch-random-walk-martingale
+      - stoch-poisson-increments
+      - stoch-poisson-count-numeric
+      - stoch-poisson-arrival-gamma
+      - stoch-poisson-thinning
+      - stoch-poisson-superposition
+      - stoch-poisson-conditional-binomial
+      - stoch-compound-poisson-moments
+      - stoch-brownian-definition
+      - stoch-brownian-increment-probability
+      - stoch-brownian-covariance
+      - stoch-brownian-scaling
+      - stoch-brownian-drift
+      - stoch-geometric-brownian-solution
     terms:
       - name: マルコフ連鎖
         status: card
-        cards: [process-markov-two-step, process-stationary-markov, stoch-markov-property, stoch-transition-matrix-check, stoch-three-state-two-step, stoch-three-state-stationary, stoch-detailed-balance-check, stoch-communicating-classes, stoch-period-computation, stoch-absorption-probability, stoch-expected-hitting-time, stoch-recurrence-definition]
+        cards:
+          - process-markov-two-step
+          - process-stationary-markov
+          - stoch-markov-property
+          - stoch-transition-matrix-check
+          - stoch-three-state-two-step
+          - stoch-three-state-stationary
+          - stoch-detailed-balance-check
+          - stoch-communicating-classes
+          - stoch-period-computation
+          - stoch-absorption-probability
+          - stoch-expected-hitting-time
+          - stoch-recurrence-definition
       - name: ランダムウォーク
         status: card
-        cards: [stoch-random-walk-mean-variance, stoch-gambler-ruin, stoch-random-walk-martingale]
+        cards:
+          - stoch-random-walk-mean-variance
+          - stoch-gambler-ruin
+          - stoch-random-walk-martingale
       - name: ポアソン過程
         status: card
-        cards: [process-poisson-wait, stoch-poisson-increments, stoch-poisson-count-numeric, stoch-poisson-arrival-gamma, stoch-poisson-thinning, stoch-poisson-superposition, stoch-poisson-conditional-binomial, stoch-compound-poisson-moments]
+        cards:
+          - process-poisson-wait
+          - stoch-poisson-increments
+          - stoch-poisson-count-numeric
+          - stoch-poisson-arrival-gamma
+          - stoch-poisson-thinning
+          - stoch-poisson-superposition
+          - stoch-poisson-conditional-binomial
+          - stoch-compound-poisson-moments
       - name: ブラウン運動
         status: card
-        cards: [stoch-finite-dimensional-distribution, stoch-brownian-definition, stoch-brownian-increment-probability, stoch-brownian-covariance, stoch-brownian-scaling, stoch-brownian-drift, stoch-geometric-brownian-solution]
+        cards:
+          - stoch-finite-dimensional-distribution
+          - stoch-brownian-definition
+          - stoch-brownian-increment-probability
+          - stoch-brownian-covariance
+          - stoch-brownian-scaling
+          - stoch-brownian-drift
+          - stoch-geometric-brownian-solution
   - id: applied-time-series
     status: complete
-    cards: [ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check, ts-linear-detrend, ts-state-space-definition, ts-kalman-prediction, ts-kalman-update, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma]
+    cards:
+      - ts-arima-definition
+      - ts-difference-random-walk
+      - ts-seasonal-difference
+      - ts-acf-pacf-identification
+      - ts-pacf-lag2-calculation
+      - ts-sample-acf
+      - ts-simple-exponential-smoothing
+      - ts-spectral-density-ar1
+      - ts-software-arima-coefficients
+      - ts-software-residual-diagnostics
+      - ts-ar-causality-check
+      - ts-linear-detrend
+      - ts-state-space-definition
+      - ts-kalman-prediction
+      - ts-kalman-update
+      - ts-weak-vs-strong-stationarity
+      - ts-autocovariance-properties
+      - ts-white-noise-identification
+      - ts-random-walk-nonstationary
+      - ts-ar1-mean
+      - ts-ar1-acf
+      - ts-ar1-one-step-forecast
+      - ts-ar1-hstep-forecast
+      - ts-ar1-forecast-error-variance
+      - ts-ar2-stationarity
+      - ts-yule-walker-ar2
+      - ts-ma1-invertibility
+      - ts-maq-acf-cutoff
+      - ts-arma11-mean
+      - ts-backshift-arma
     terms:
       - name: ARIMAモデル
         status: card
-        cards: [ts-arima-definition, ts-difference-random-walk, ts-seasonal-difference, ts-linear-detrend, ts-weak-vs-strong-stationarity, ts-autocovariance-properties, ts-white-noise-identification, ts-random-walk-nonstationary, ts-ar1-mean, ts-ar1-acf, ts-ar1-one-step-forecast, ts-ar1-hstep-forecast, ts-ar1-forecast-error-variance, ts-ar2-stationarity, ts-yule-walker-ar2, ts-ma1-invertibility, ts-maq-acf-cutoff, ts-arma11-mean, ts-backshift-arma, ts-acf-pacf-identification, ts-pacf-lag2-calculation, ts-sample-acf, ts-simple-exponential-smoothing, ts-spectral-density-ar1, ts-software-arima-coefficients, ts-software-residual-diagnostics, ts-ar-causality-check]
+        cards:
+          - ts-arima-definition
+          - ts-difference-random-walk
+          - ts-seasonal-difference
+          - ts-linear-detrend
+          - ts-weak-vs-strong-stationarity
+          - ts-autocovariance-properties
+          - ts-white-noise-identification
+          - ts-random-walk-nonstationary
+          - ts-ar1-mean
+          - ts-ar1-acf
+          - ts-ar1-one-step-forecast
+          - ts-ar1-hstep-forecast
+          - ts-ar1-forecast-error-variance
+          - ts-ar2-stationarity
+          - ts-yule-walker-ar2
+          - ts-ma1-invertibility
+          - ts-maq-acf-cutoff
+          - ts-arma11-mean
+          - ts-backshift-arma
+          - ts-acf-pacf-identification
+          - ts-pacf-lag2-calculation
+          - ts-sample-acf
+          - ts-simple-exponential-smoothing
+          - ts-spectral-density-ar1
+          - ts-software-arima-coefficients
+          - ts-software-residual-diagnostics
+          - ts-ar-causality-check
       - name: 状態空間モデル
         status: card
-        cards: [ts-state-space-definition, ts-kalman-prediction, ts-kalman-update]
+        cards:
+          - ts-state-space-definition
+          - ts-kalman-prediction
+          - ts-kalman-update
   - id: engineering-multivariate
     status: complete
-    cards: [multi-linear-combination, multi-covariance-psd, multi-pca-eigen, multi-conditional-normal, engmv-normal-density-numeric, engmv-sample-mean-vector, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-correlation-from-covariance, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-unit-change-correlation-invariance, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-pca-rayleigh-process-variance, engmv-factor-covariance-numeric, engmv-factor-communality-numeric, engmv-factor-rotation-invariance, engmv-lda-one-dimensional-boundary, engmv-fisher-discriminant-direction, engmv-lda-prior-probability, engmv-lda-pooled-covariance, engmv-qda-quadratic-term, engmv-single-linkage-update, engmv-complete-linkage-update, engmv-ward-merge-increase, engmv-kmeans-assignment, engmv-kmeans-centroid-update, engmv-silhouette-coefficient, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue, engmv-classical-mds-three-points, engmv-mds-stress]
+    cards:
+      - multi-linear-combination
+      - multi-covariance-psd
+      - multi-pca-eigen
+      - multi-conditional-normal
+      - engmv-normal-density-numeric
+      - engmv-sample-mean-vector
+      - engmv-sample-covariance-matrix
+      - engmv-covariance-matrix-validity
+      - engmv-correlation-from-covariance
+      - engmv-linear-combination-normal
+      - engmv-normal-marginal-numeric
+      - engmv-conditional-normal-numeric
+      - engmv-mahalanobis-control-limit
+      - engmv-eigenvalues-covariance-2x2
+      - engmv-eigenvectors-covariance-2x2
+      - engmv-pca-loading-numeric
+      - engmv-unit-change-correlation-invariance
+      - engmv-normal-uncorrelated-independent
+      - engmv-precision-conditional-independence
+      - engmv-sample-mean-distribution
+      - engmv-wishart-definition
+      - engmv-wishart-expectation
+      - engmv-normal-mean-cov-independence
+      - engmv-hotelling-two-sample
+      - engmv-hotelling-two-sample-decision
+      - engmv-confidence-ellipsoid-known-cov
+      - engmv-spectral-reconstruction
+      - engmv-standardized-pca-2x2
+      - engmv-pca-monitoring-score
+      - engmv-pca-rayleigh-process-variance
+      - engmv-factor-covariance-numeric
+      - engmv-factor-communality-numeric
+      - engmv-factor-rotation-invariance
+      - engmv-lda-one-dimensional-boundary
+      - engmv-fisher-discriminant-direction
+      - engmv-lda-prior-probability
+      - engmv-lda-pooled-covariance
+      - engmv-qda-quadratic-term
+      - engmv-single-linkage-update
+      - engmv-complete-linkage-update
+      - engmv-ward-merge-increase
+      - engmv-kmeans-assignment
+      - engmv-kmeans-centroid-update
+      - engmv-silhouette-coefficient
+      - engmv-canonical-correlation-diagonal
+      - engmv-canonical-eigenvalue
+      - engmv-classical-mds-three-points
+      - engmv-mds-stress
     terms:
       - name: 多変量正規分布
         status: card
-        cards: [multi-linear-combination, multi-conditional-normal, engmv-normal-density-numeric, engmv-linear-combination-normal, engmv-normal-marginal-numeric, engmv-conditional-normal-numeric, engmv-mahalanobis-control-limit, engmv-normal-uncorrelated-independent, engmv-precision-conditional-independence, engmv-sample-mean-distribution, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence, engmv-hotelling-two-sample, engmv-hotelling-two-sample-decision, engmv-confidence-ellipsoid-known-cov]
+        cards:
+          - multi-linear-combination
+          - multi-conditional-normal
+          - engmv-normal-density-numeric
+          - engmv-linear-combination-normal
+          - engmv-normal-marginal-numeric
+          - engmv-conditional-normal-numeric
+          - engmv-mahalanobis-control-limit
+          - engmv-normal-uncorrelated-independent
+          - engmv-precision-conditional-independence
+          - engmv-sample-mean-distribution
+          - engmv-wishart-definition
+          - engmv-wishart-expectation
+          - engmv-normal-mean-cov-independence
+          - engmv-hotelling-two-sample
+          - engmv-hotelling-two-sample-decision
+          - engmv-confidence-ellipsoid-known-cov
       - name: 平均ベクトル
         status: card
-        cards: [engmv-sample-mean-vector, engmv-sample-mean-distribution, engmv-hotelling-two-sample, engmv-confidence-ellipsoid-known-cov]
+        cards:
+          - engmv-sample-mean-vector
+          - engmv-sample-mean-distribution
+          - engmv-hotelling-two-sample
+          - engmv-confidence-ellipsoid-known-cov
       - name: 分散共分散行列
         status: card
-        cards: [multi-covariance-psd, engmv-sample-covariance-matrix, engmv-covariance-matrix-validity, engmv-unit-change-correlation-invariance, engmv-wishart-definition, engmv-wishart-expectation, engmv-normal-mean-cov-independence]
+        cards:
+          - multi-covariance-psd
+          - engmv-sample-covariance-matrix
+          - engmv-covariance-matrix-validity
+          - engmv-unit-change-correlation-invariance
+          - engmv-wishart-definition
+          - engmv-wishart-expectation
+          - engmv-normal-mean-cov-independence
       - name: 相関行列
         status: card
-        cards: [engmv-correlation-from-covariance, engmv-unit-change-correlation-invariance, engmv-standardized-pca-2x2]
+        cards:
+          - engmv-correlation-from-covariance
+          - engmv-unit-change-correlation-invariance
+          - engmv-standardized-pca-2x2
       - name: 固有値・固有ベクトル
         status: card
-        cards: [multi-pca-eigen, engmv-eigenvalues-covariance-2x2, engmv-eigenvectors-covariance-2x2, engmv-pca-loading-numeric, engmv-pca-rayleigh-process-variance, engmv-spectral-reconstruction, engmv-standardized-pca-2x2, engmv-pca-monitoring-score, engmv-canonical-correlation-diagonal, engmv-canonical-eigenvalue]
+        cards:
+          - multi-pca-eigen
+          - engmv-eigenvalues-covariance-2x2
+          - engmv-eigenvectors-covariance-2x2
+          - engmv-pca-loading-numeric
+          - engmv-pca-rayleigh-process-variance
+          - engmv-spectral-reconstruction
+          - engmv-standardized-pca-2x2
+          - engmv-pca-monitoring-score
+          - engmv-canonical-correlation-diagonal
+          - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes
     status: complete
     cards:
@@ -2074,7 +2810,6 @@ items:
       - engproc-residual-white-noise-bounds
       - engproc-random-walk-difference-data
       - engproc-ar1-intercept-long-run-mean
-      - engproc-ar1-stationary-variance
       - engproc-ar1-correlation-half-life
       - engproc-ar1-forecast-mean-reversion
       - engproc-ar1-forecast-interval
@@ -2099,28 +2834,83 @@ items:
     terms:
       - name: ランダムウォーク
         status: card
-        cards: [engproc-random-walk-drift-calibration, engproc-biased-walk-hit-upper, engproc-random-walk-expected-absorption, engproc-random-walk-difference-data]
+        cards:
+          - engproc-random-walk-drift-calibration
+          - engproc-biased-walk-hit-upper
+          - engproc-random-walk-expected-absorption
+          - engproc-random-walk-difference-data
       - name: マルコフ過程
         status: card
-        cards: [engproc-ctmc-generator-check, engproc-ctmc-holding-jump-probability, engproc-two-state-ctmc-transition, engproc-ctmc-uniformization, engproc-ou-mean-variance, engproc-brownian-bridge-conditional, engproc-birth-death-detailed-balance, engproc-mm1-stationary-probability, engproc-mm1-little-law]
+        cards:
+          - engproc-ctmc-generator-check
+          - engproc-ctmc-holding-jump-probability
+          - engproc-two-state-ctmc-transition
+          - engproc-ctmc-uniformization
+          - engproc-ou-mean-variance
+          - engproc-brownian-bridge-conditional
+          - engproc-birth-death-detailed-balance
+          - engproc-mm1-stationary-probability
+          - engproc-mm1-little-law
       - name: ポアソン過程
         status: card
-        cards: [engproc-poisson-failure-count, engproc-nhpp-cumulative-intensity, engproc-poisson-rate-estimate-exposure, engproc-compound-poisson-cost, engproc-poisson-thinning-defects, engproc-poisson-superposition-machines]
+        cards:
+          - engproc-poisson-failure-count
+          - engproc-nhpp-cumulative-intensity
+          - engproc-poisson-rate-estimate-exposure
+          - engproc-compound-poisson-cost
+          - engproc-poisson-thinning-defects
+          - engproc-poisson-superposition-machines
       - name: マルコフ連鎖
         status: card
-        cards: [engproc-degradation-two-step, engproc-repair-chain-stationary-availability, engproc-stationary-mean-recurrence, engproc-birth-death-detailed-balance, engproc-absorbing-fundamental-matrix, engproc-absorbing-probability-matrix, engproc-markov-reward-long-run, engproc-chapman-kolmogorov-maintenance]
+        cards:
+          - engproc-degradation-two-step
+          - engproc-repair-chain-stationary-availability
+          - engproc-stationary-mean-recurrence
+          - engproc-birth-death-detailed-balance
+          - engproc-absorbing-fundamental-matrix
+          - engproc-absorbing-probability-matrix
+          - engproc-markov-reward-long-run
+          - engproc-chapman-kolmogorov-maintenance
       - name: 時系列解析
         status: card
-        cards: [engproc-stationarity-window-judgment, engproc-sample-autocovariance-numeric, engproc-residual-white-noise-bounds, engproc-acf-pacf-model-selection, engproc-pacf-significance-output, engproc-ljung-box-numeric, engproc-exponential-smoothing-update, engproc-ar1-spectral-ratio, engproc-periodogram-period-identification]
+        cards:
+          - engproc-stationarity-window-judgment
+          - engproc-sample-autocovariance-numeric
+          - engproc-residual-white-noise-bounds
+          - engproc-acf-pacf-model-selection
+          - engproc-pacf-significance-output
+          - engproc-ljung-box-numeric
+          - engproc-exponential-smoothing-update
+          - engproc-ar1-spectral-ratio
+          - engproc-periodogram-period-identification
       - name: 自己回帰過程
         status: card
-        cards: [process-ar1-stationary, engproc-ar1-intercept-long-run-mean, engproc-ar1-stationary-variance, engproc-ar1-correlation-half-life, engproc-ar1-forecast-mean-reversion, engproc-ar1-forecast-interval, engproc-ar2-root-stability, engproc-yule-walker-estimate-ar1, engproc-arma11-long-run-mean, engproc-arma11-one-step-forecast]
+        cards:
+          - process-ar1-stationary
+          - engproc-ar1-intercept-long-run-mean
+          - engproc-ar1-correlation-half-life
+          - engproc-ar1-forecast-mean-reversion
+          - engproc-ar1-forecast-interval
+          - engproc-ar2-root-stability
+          - engproc-yule-walker-estimate-ar1
+          - engproc-arma11-long-run-mean
+          - engproc-arma11-one-step-forecast
       - name: 移動平均過程
         status: card
-        cards: [process-ma1-autocovariance, engproc-ma1-moment-identification, engproc-ma1-autocovariance-numeric, engproc-ma1-invertible-shock-recovery, engproc-arma11-one-step-forecast]
+        cards:
+          - process-ma1-autocovariance
+          - engproc-ma1-moment-identification
+          - engproc-ma1-autocovariance-numeric
+          - engproc-ma1-invertible-shock-recovery
+          - engproc-arma11-one-step-forecast
       - name: ARIMA過程
         status: card
-        cards: [engproc-backshift-polynomial-expansion, engproc-arima010-drift-forecast, engproc-arima110-difference-forecast, engproc-seasonal-difference-monthly, engproc-arima-forecast-output]
+        cards:
+          - engproc-backshift-polynomial-expansion
+          - engproc-arima010-drift-forecast
+          - engproc-arima110-difference-forecast
+          - engproc-seasonal-difference-monthly
+          - engproc-arima-forecast-output
   - id: engineering-linear-inference
     status: complete
     cards:
@@ -2170,19 +2960,65 @@ items:
     terms:
       - name: 線形モデル
         status: card
-        cards: [enginf-linear-model-dimensions, enginf-ols-matrix-numeric, enginf-normal-equations-orthogonality, enginf-ols-unbiased-condition, enginf-ols-covariance-matrix, enginf-gauss-markov-comparison, enginf-regression-anova-output, enginf-overall-regression-f, enginf-coefficient-confidence-interval, enginf-mean-response-ci, enginf-new-observation-pi, enginf-leverage-numeric, enginf-studentized-residual, enginf-cooks-distance, enginf-vif-numeric, enginf-wls-two-weights, enginf-gls-whitening, enginf-robust-sandwich-se, enginf-dummy-reference-contrast, enginf-interaction-design-matrix, enginf-interaction-slope-test, enginf-coefficient-output-engineering, enginf-adjusted-r2-output]
+        cards:
+          - enginf-linear-model-dimensions
+          - enginf-ols-matrix-numeric
+          - enginf-normal-equations-orthogonality
+          - enginf-ols-unbiased-condition
+          - enginf-ols-covariance-matrix
+          - enginf-gauss-markov-comparison
+          - enginf-regression-anova-output
+          - enginf-overall-regression-f
+          - enginf-coefficient-confidence-interval
+          - enginf-mean-response-ci
+          - enginf-new-observation-pi
+          - enginf-leverage-numeric
+          - enginf-studentized-residual
+          - enginf-cooks-distance
+          - enginf-vif-numeric
+          - enginf-wls-two-weights
+          - enginf-gls-whitening
+          - enginf-robust-sandwich-se
+          - enginf-dummy-reference-contrast
+          - enginf-interaction-design-matrix
+          - enginf-interaction-slope-test
+          - enginf-coefficient-output-engineering
+          - enginf-adjusted-r2-output
       - name: 一般化線形モデル
         status: card
-        cards: [enginf-logistic-wald-output, enginf-glm-three-components, enginf-logistic-irls-one-step, enginf-poisson-mean, enginf-poisson-offset-rate, enginf-exponential-family-mean-variance, enginf-glm-deviance-residual-output, enginf-glm-link-selection, enginf-glm-wald-joint, enginf-binomial-glm-loglikelihood]
+        cards:
+          - enginf-logistic-wald-output
+          - enginf-glm-three-components
+          - enginf-logistic-irls-one-step
+          - enginf-poisson-mean
+          - enginf-poisson-offset-rate
+          - enginf-exponential-family-mean-variance
+          - enginf-glm-deviance-residual-output
+          - enginf-glm-link-selection
+          - enginf-glm-wald-joint
+          - enginf-binomial-glm-loglikelihood
       - name: 線形結合の分布
         status: card
-        cards: [enginf-linear-combination-normal, enginf-mean-response-ci, enginf-new-observation-pi, enginf-nonlinear-gradient-se, enginf-estimability-linear-function]
+        cards:
+          - enginf-linear-combination-normal
+          - enginf-mean-response-ci
+          - enginf-new-observation-pi
+          - enginf-nonlinear-gradient-se
+          - enginf-estimability-linear-function
       - name: 線形対比
         status: card
-        cards: [model-contrast, enginf-contrast-estimate-se, enginf-contrast-t-test, enginf-dummy-reference-contrast]
+        cards:
+          - model-contrast
+          - enginf-contrast-estimate-se
+          - enginf-contrast-t-test
+          - enginf-dummy-reference-contrast
       - name: 線形制約
         status: card
-        cards: [enginf-linear-restriction-wald-f, enginf-extra-sum-squares, enginf-glm-wald-joint, enginf-restricted-least-squares]
+        cards:
+          - enginf-linear-restriction-wald-f
+          - enginf-extra-sum-squares
+          - enginf-glm-wald-joint
+          - enginf-restricted-least-squares
   - id: engineering-asymptotics
     status: complete
     cards:
@@ -2208,7 +3044,6 @@ items:
       - engasym-clt-sum-probability
       - engasym-clt-sample-mean-tolerance
       - engasym-binomial-continuity-correction
-      - engasym-delta-log
       - engasym-delta-square-root
       - engasym-delta-ratio
       - engasym-delta-risk-ratio
@@ -2220,22 +3055,54 @@ items:
     terms:
       - name: 大数の法則
         status: card
-        cards: [engasym-lln-sensor-average, engasym-method-moments-consistency]
+        cards:
+          - engasym-lln-sensor-average
+          - engasym-method-moments-consistency
       - name: 中心極限定理
         status: card
-        cards: [engasym-clt-sum-probability, engasym-clt-sample-mean-tolerance, engasym-binomial-continuity-correction, engasym-empirical-cdf-point, engasym-sample-variance-normal, engasym-sample-size-mean-precision, engasym-proportion-standardization, engasym-slutsky-studentization]
+        cards:
+          - engasym-clt-sum-probability
+          - engasym-clt-sample-mean-tolerance
+          - engasym-binomial-continuity-correction
+          - engasym-empirical-cdf-point
+          - engasym-sample-variance-normal
+          - engasym-sample-size-mean-precision
+          - engasym-proportion-standardization
+          - engasym-slutsky-studentization
       - name: 最尤推定量の漸近正規性
         status: card
-        cards: [engasym-mle-asymptotic-normality, engasym-poisson-mle-variance, engasym-bernoulli-fisher-information, engasym-wald-ci-generic, engasym-score-wald-lr-equivalence, engasym-local-alternative-power]
+        cards:
+          - engasym-mle-asymptotic-normality
+          - engasym-poisson-mle-variance
+          - engasym-bernoulli-fisher-information
+          - engasym-wald-ci-generic
+          - engasym-score-wald-lr-equivalence
+          - engasym-local-alternative-power
       - name: 漸近分散
         status: card
-        cards: [engasym-poisson-mle-variance, engasym-sample-quantile-variance, engasym-sample-variance-normal, engasym-asymptotic-bias-mse, engasym-relative-efficiency, engasym-estimating-equation-linearization, engasym-sandwich-m-estimator, engasym-multivariate-linear-combination]
+        cards:
+          - engasym-poisson-mle-variance
+          - engasym-sample-quantile-variance
+          - engasym-sample-variance-normal
+          - engasym-asymptotic-bias-mse
+          - engasym-relative-efficiency
+          - engasym-estimating-equation-linearization
+          - engasym-sandwich-m-estimator
+          - engasym-multivariate-linear-combination
       - name: 一致性
         status: card
-        cards: [engasym-lln-sensor-average, engasym-consistency-from-mse, engasym-continuous-mapping-plugin, engasym-method-moments-consistency]
+        cards:
+          - engasym-lln-sensor-average
+          - engasym-consistency-from-mse
+          - engasym-continuous-mapping-plugin
+          - engasym-method-moments-consistency
       - name: デルタ法
         status: card
-        cards: [engasym-delta-log, engasym-delta-square-root, engasym-delta-ratio, engasym-delta-risk-ratio, engasym-delta-odds-ratio]
+        cards:
+          - engasym-delta-square-root
+          - engasym-delta-ratio
+          - engasym-delta-risk-ratio
+          - engasym-delta-odds-ratio
   - id: engineering-quality
     status: complete
     cards:
@@ -2293,19 +3160,70 @@ items:
     terms:
       - name: 管理図
         status: card
-        cards: [engqc-control-chart-selection, engqc-p-chart-baseline-estimation, engqc-xbar-r-chart-limits, engqc-r-chart-limits, engqc-s-chart-limits, engqc-p-chart-constant-n, engqc-p-chart-varying-n, engqc-np-chart, engqc-c-chart, engqc-u-chart, engqc-imr-moving-range, engqc-phase1-phase2, engqc-three-sigma-false-alarm, engqc-arl0-three-sigma, engqc-arl1-mean-shift, engqc-run-rule-eight-one-side, engqc-ewma-update, engqc-ewma-steady-variance, engqc-cusum-one-step, engqc-control-chart-sample-size]
+        cards:
+          - engqc-control-chart-selection
+          - engqc-p-chart-baseline-estimation
+          - engqc-xbar-r-chart-limits
+          - engqc-r-chart-limits
+          - engqc-s-chart-limits
+          - engqc-p-chart-constant-n
+          - engqc-p-chart-varying-n
+          - engqc-np-chart
+          - engqc-c-chart
+          - engqc-u-chart
+          - engqc-imr-moving-range
+          - engqc-phase1-phase2
+          - engqc-three-sigma-false-alarm
+          - engqc-arl0-three-sigma
+          - engqc-arl1-mean-shift
+          - engqc-run-rule-eight-one-side
+          - engqc-ewma-update
+          - engqc-ewma-steady-variance
+          - engqc-cusum-one-step
+          - engqc-control-chart-sample-size
       - name: 信頼性
         status: card
-        cards: [engrel-parallel-common-cause, engrel-parallel-system, engrel-k-out-of-n, engrel-series-component-requirement, engrel-exponential-mtbf, engrel-weibull-hazard-shape, engrel-weibull-reliability, engrel-failure-rate-exact-ci, engrel-competing-risks-exponential, engrel-bathtub-curve]
+        cards:
+          - engrel-parallel-common-cause
+          - engrel-parallel-system
+          - engrel-k-out-of-n
+          - engrel-series-component-requirement
+          - engrel-exponential-mtbf
+          - engrel-weibull-hazard-shape
+          - engrel-weibull-reliability
+          - engrel-failure-rate-exact-ci
+          - engrel-competing-risks-exponential
+          - engrel-bathtub-curve
       - name: 保全性
         status: card
-        cards: [engmaint-steady-availability, engmaint-maintainability-exponential, engmaint-two-state-availability, engmaint-preventive-replacement-rate, engmaint-series-availability, engmaint-reliability-vs-availability]
+        cards:
+          - engmaint-steady-availability
+          - engmaint-maintainability-exponential
+          - engmaint-two-state-availability
+          - engmaint-preventive-replacement-rate
+          - engmaint-series-availability
+          - engmaint-reliability-vs-availability
       - name: プロセス管理
         status: card
-        cards: [engqc-control-chart-selection, engqc-p-chart-baseline-estimation, engqc-control-vs-specification, engqc-common-special-causes, engqc-rational-subgrouping, engqc-phase1-phase2, engqc-process-adjustment-overcontrol, engqc-capability-stability-first]
+        cards:
+          - engqc-control-chart-selection
+          - engqc-p-chart-baseline-estimation
+          - engqc-control-vs-specification
+          - engqc-common-special-causes
+          - engqc-rational-subgrouping
+          - engqc-phase1-phase2
+          - engqc-process-adjustment-overcontrol
+          - engqc-capability-stability-first
       - name: 工程能力指数
         status: card
-        cards: [engqc-cpk-offcenter, engqc-cp-cpk-relationship, engqc-cpm-target, engqc-capability-defect-rate, engqc-capability-stability-first, engqc-one-sided-cpu, engqc-nonnormal-capability]
+        cards:
+          - engqc-cpk-offcenter
+          - engqc-cp-cpk-relationship
+          - engqc-cpm-target
+          - engqc-capability-defect-rate
+          - engqc-capability-stability-first
+          - engqc-one-sided-cpu
+          - engqc-nonnormal-capability
   - id: engineering-design
     status: complete
     cards:
@@ -2357,22 +3275,69 @@ items:
     terms:
       - name: 実験の計画と実施
         status: card
-        cards: [engdesign-objective-response-factor, engdesign-subsampling-variance, engdesign-randomization-permutation, engdesign-rerandomization-balance, engdesign-factorial-pure-error, engdesign-centerpoint-curvature, engdesign-lack-of-fit-decomposition, engdesign-split-plot-randomization, engdesign-split-plot-degrees-freedom, engdesign-nested-df, engdesign-repeated-measures-unit, engdesign-replication-power-ratio, engdesign-choice-integrated]
+        cards:
+          - engdesign-objective-response-factor
+          - engdesign-subsampling-variance
+          - engdesign-randomization-permutation
+          - engdesign-rerandomization-balance
+          - engdesign-factorial-pure-error
+          - engdesign-centerpoint-curvature
+          - engdesign-lack-of-fit-decomposition
+          - engdesign-split-plot-randomization
+          - engdesign-split-plot-degrees-freedom
+          - engdesign-nested-df
+          - engdesign-repeated-measures-unit
+          - engdesign-replication-power-ratio
+          - engdesign-choice-integrated
       - name: 固定効果
         status: card
-        cards: [engdesign-fixed-effect-hypothesis]
+        cards:
+          - engdesign-fixed-effect-hypothesis
       - name: 変量効果
         status: card
-        cards: [engdesign-random-slope-covariance, engdesign-random-effect-blup, engdesign-gage-rr-variance]
+        cards:
+          - engdesign-random-slope-covariance
+          - engdesign-random-effect-blup
+          - engdesign-gage-rr-variance
       - name: 交絡因子
         status: card
-        cards: [engdesign-confounder-randomization, engdesign-block-vs-covariate]
+        cards:
+          - engdesign-confounder-randomization
+          - engdesign-block-vs-covariate
       - name: ブロック化
         status: card
-        cards: [engdesign-precision-weighted-block-difference, engdesign-rcbd-adjusted-difference, engdesign-cyclic-incomplete-blocks, engdesign-graeco-latin-df, engdesign-latin-square-treatment-mean, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding, engdesign-split-plot-randomization, engdesign-incomplete-incidence-matrix, engdesign-bibd-parameter-check, engdesign-bibd-contrast-variance, engdesign-incomplete-block-connectivity]
+        cards:
+          - engdesign-precision-weighted-block-difference
+          - engdesign-rcbd-adjusted-difference
+          - engdesign-cyclic-incomplete-blocks
+          - engdesign-graeco-latin-df
+          - engdesign-latin-square-treatment-mean
+          - engdesign-block-generator-protect-effects
+          - engdesign-block-generator-count
+          - engdesign-partial-confounding
+          - engdesign-split-plot-randomization
+          - engdesign-incomplete-incidence-matrix
+          - engdesign-bibd-parameter-check
+          - engdesign-bibd-contrast-variance
+          - engdesign-incomplete-block-connectivity
       - name: 直交表
         status: card
-        cards: [engdesign-weighted-contrast-covariance, engdesign-missing-run-nonorthogonality, engdesign-oa-l4-assignment, engdesign-oa-column-df, engdesign-oa-level-effect, engdesign-oa-interaction-conflict, engdesign-snr-smaller-better]
+        cards:
+          - engdesign-weighted-contrast-covariance
+          - engdesign-missing-run-nonorthogonality
+          - engdesign-oa-l4-assignment
+          - engdesign-oa-column-df
+          - engdesign-oa-level-effect
+          - engdesign-oa-interaction-conflict
+          - engdesign-snr-smaller-better
       - name: 交絡法
         status: card
-        cards: [engdesign-two-generator-defining-group, engdesign-alias-estimability-choice, engdesign-fractional-run-table, engdesign-wordlength-aberration, engdesign-foldover-dealias, engdesign-block-generator-protect-effects, engdesign-block-generator-count, engdesign-partial-confounding]
+        cards:
+          - engdesign-two-generator-defining-group
+          - engdesign-alias-estimability-choice
+          - engdesign-fractional-run-table
+          - engdesign-wordlength-aberration
+          - engdesign-foldover-dealias
+          - engdesign-block-generator-protect-effects
+          - engdesign-block-generator-count
+          - engdesign-partial-confounding
