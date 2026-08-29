@@ -7,89 +7,114 @@
 ## 現在の削減状況
 
 - 監査開始時 canonical 候補: 1373枚
-- `cards/` から archive へ移動済み: 10枚
-- 現在の canonical 候補: **1363枚**
-- archive: **10枚**
+- `cards/` から archive へ移動済み: **48枚**
+- 現在の canonical 候補: **1325枚**
 - canonical + archive の査読済み履歴集合: 1373枚
+- 目標: 580〜620枚
 
-`audit_mode: true` の間は archive も数学品質検証の対象にするが、通常ビルド・通常card countには含めない。
+`audit_mode: true` の間は archive も数式・front matter 等の数学品質検証対象にするが、通常ビルド・通常 card count・公式 coverage には含めない。
 
-## 本文確認済み・処理済み
+## 処理済みbatch
+
+### 初期pilot・手動監査 — 12枚
+
+代表例:
 
 - `est-bernoulli-mle` → `mle-bernoulli-binomial`
-  - 同じベルヌーイMLE操作。後者が一般の $n$・二項表現・境界注意まで包含。
-  - `archive/duplicates/` へ移動済み。
 - `est-bias-variance` → `est-bias-variance-tradeoff`
-  - $T-E[T]+E[T]-\theta$ の分解と交差項0が同一。
-  - `archive/duplicates/` へ移動済み。
 - `est-delta-log` → `asym-delta-method`
-  - 一般Delta法の対数変換だけの特殊化。独立反復カードとしては過剰。
-  - `archive/too_specific/` へ移動済み。
 - `test-normal-ci` → `ci-normal-mean-known`
-  - 分散既知正規平均の同じ $z$ ピボット・同じ区間構成。
-  - `archive/duplicates/` へ移動済み。
-- `data-ols-slope` → `reg-ols-simple-formula`
-  - ともに切片あり単回帰で $\widehat\beta_1=S_{xy}/S_{xx}$ を中心化平方和から計算する。後者は切片まで同一カードで完結する。
-  - `archive/duplicates/` へ移動済み。
+- `data-ols-slope` → 最終 `reg-ols-normal-equations-simple`
 - `data-odds-ratio` → `cat-odds-ratio-formula`
-  - 2×2表の $ad/(bc)$、基準カテゴリ反転で逆数という注意まで同一。
-  - `archive/duplicates/` へ移動済み。
 - `multi-linear-combination` → `engmv-linear-combination-normal`
-  - 多変量正規の線形結合 $a^TX$ の平均・分散計算が同一。後者は共分散の交差項も明示する。
-  - `archive/duplicates/` へ移動済み。
 - `process-markov-two-step` → `stoch-three-state-two-step`
-  - Chapman--Kolmogorovで中間状態を総和する2段階遷移確率計算が同一。
-  - `archive/duplicates/` へ移動済み。
 - `model-logistic-odds` → `glm-logistic-odds-ratio`
-  - ロジスティック係数差を指数化してオッズ比を得る操作が同一。後者は任意の増分 $c$ へ一般化している。
-  - `archive/duplicates/` へ移動済み。
 - `model-contrast` → `enginf-contrast-estimate-se`
-  - 係数和0という対比の定義だけを独立反復するカードは過剰。後者が定義を使いながら推定値・標準誤差まで実行する。
-  - `archive/duplicates/` へ移動済み。
+- `engproc-ar1-stationary-variance` → `process-ar1-stationary`
+- `engasym-delta-log` → `asym-delta-method`
 
-## 本文比較して「pilot側を残す」と判断した代表例
+`data-ols-slope` は当初 `reg-ols-simple-formula` を canonical としたが、そのカード自身を後で `reg-ols-normal-equations-simple` へ統合した。reduction script が過去 archive の `canonical_card` を最終 canonical へ自動追随させることを確認済み。
 
-削減監査は「古いカードを一括削除」ではない。次は後発カードがあっても現時点で pilot 側を残している。
+### CI / Delta / CLT / MLE / Fisher / CRLB / 回帰 — 23枚
+
+- CI の「一般形 + 数値だけの専用カード」10組を一般形へ統合。
+- `engasym-delta-square-root` → `asym-delta-method-sqrt`。
+- `samp-clt-approx-mean`, `asym-sample-mean-normality` 等の標本平均CLT重複を一般CLTへ統合。
+- `mle-poisson`, `mle-normal-mean` を一般 score-equation card へ整理。
+- Fisher情報量の Bernoulli / Poisson / Normal / Exponential / Geometric という分布違いだけの反復を代表例へ圧縮。
+- CRLB の分布違いだけの反復を代表例へ圧縮し、`g(θ)` 型・等号条件は残した。
+- 一般線形仮説の同じ二次形式F統計量を統合。
+
+### 回帰 / 時系列 — 7枚
+
+- 行列表記の次元確認、2×2 OLS数値計算、係数t区間、回帰ANOVA出力の重複を数理側 canonical へ統合。
+- AR(2)根による安定性判定、ランダムウォーク差分、独立増分和の平均・分散を common 側へ統合。
+
+### OLS / Poisson過程 — 6枚
+
+- `reg-ols-simple-formula` → `reg-ols-normal-equations-simple`。
+- 工学設定に着替えただけのポアソン件数、thinning、superposition、compound Poisson を common 側へ統合。
+- 最初の到着時刻 Exp は第k到着時刻 Gamma の `k=1` として統合。
+
+## 本文比較して「簡単そうだから消す」をしなかった代表例
 
 - `data-anova-decomposition`
-  - 群平均を足して引き、交差項が0になることまで示す。後発の平方和数値計算だけでは代替しない。
+  - 群平均を足して引き、交差項が0になるところまで示す。単なる平方和数値計算とは別価値。
 - `process-ar1-stationary`
-  - 定常分散公式を単に代入せず、$\gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2$ を実際に解く。後発 `engproc-ar1-stationary-variance` より導出カードとして強い。
+  - $\gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2$ を実際に解くため、公式代入だけの後発カードより canonical 向き。
 - `model-gauss-markov`
-  - BLUEの主要条件と「正規性はBLUE性に不要」を1枚で扱う。単なる回帰数値例へ吸収しない。
+  - BLUEの主要条件と「正規性はBLUE性に不要」をまとめている。
 - `eng-capability-index`
-  - $C_p$ の最小基本計算として理工固有性が高く、後発の $C_{pk}$・非正規工程等の派生とは役割が異なる。
+  - $C_p$ の基本操作であり、$C_{pk}$・非正規工程等の派生とは役割が違う。
 - `eng-series-reliability`
-  - 独立直列系の基本積を直接実行する。後発の必要部品信頼度逆算はこの基本操作を前提とする。
+  - 独立直列系の基本積。必要部品信頼度の逆算とは方向が異なる。
+- `engproc-ma1-invertible-shock-recovery`
+  - 単なる可逆条件判定ではなく、観測から革新を逐次復元する別move。
+- `enginf-restricted-least-squares`
+  - 一般線形仮説の検定ではなく、制約下で推定量そのものを求める別move。
 
-## 高確度・未処理
+## 次の高確度クラスタ
+
+### 推定理論chain
 
 - `lehmann-scheffe` / `est-lehmann-scheffe`
-- `asym-delta-method-sqrt` / `engasym-delta-square-root`
-- `engasym-delta-log` / `asym-delta-method`
-- `dist-clt-standardize` / `dist-clt-sample-mean` / `samp-clt-approx-mean` / `asym-sample-mean-normality` / `engasym-clt-sample-mean-tolerance`
-- `dist-continuity-correction-*` / `samp-continuity-correction` / `engasym-binomial-continuity-correction`
+- `rao-blackwell` / `est-rao-blackwell` / `est-rao-blackwell-bernoulli`
+- `suff-complete` / `est-sufficiency-completeness`
+- `umvu-construction` / `est-umvu-idea` / `est-poisson-square-umvu`
+
+ただし定理条件・具体例の片方にしかない説明を先に canonical へ吸収してから archive する。
+
+### 連続修正
+
+- `dist-continuity-correction-interval`
+- `dist-continuity-correction-tail`
+- `dist-continuity-correction-single`
+- `samp-continuity-correction`
+- `engasym-binomial-continuity-correction`
+
+「整数事象を境界±0.5へ直す」という同じmoveを1〜2枚へ整理する。
+
+### 基本確率
+
 - `prob-basic-conditional-probability` / `prob-conditional-definition-direct`
 - `prob-basic-total-probability` / `prob-total-probability`
 - `prob-basic-inclusion-exclusion` / `prob-inclusion-exclusion` / `prob-inclusion-exclusion-three`
 - `prob-basic-bayes` / `prob-bayes-diagnostic`
-- `prob-transform-iid-maximum-density` / `samp-max-distribution` / `dist-order-max`
-- `engproc-ar1-stationary-variance` / `process-ar1-stationary`（pilot側をcanonical候補として比較）
 
-## 一般形 + 数値例の統合候補
+### 順序統計量 max
 
-- `ci-normal-mean-known` / `ci-normal-mean-known-calc`
-- `ci-variance-chi-derivation` / `ci-variance-chi-calc`
-- `ci-f-variance-ratio` / `ci-f-variance-ratio-calc`
-- `ci-two-sample-mean-diff` / `ci-two-sample-mean-diff-calc`
-- `ci-welch-interval` / `ci-welch-calc`
-- `ci-proportion` / `ci-proportion-calc`
-- `ci-proportion-diff` / `ci-proportion-diff-calc`
-- `ci-one-sided` / `ci-one-sided-calc`
-- `ci-asymptotic-mle` / `ci-asymptotic-mle-calc`
-- `ci-delta-method` / `ci-delta-method-calc`
+- `prob-transform-iid-maximum-density`
+- `samp-max-distribution`
+- `dist-order-max`
 
-## 名前空間横断で優先監査する組
+### merge-first が必要な組
+
+- `model-gauss-markov` / `enginf-gauss-markov-comparison`
+  - 前者の条件整理と、後者の「分散共分散行列差が半正定値」という最良性の意味を1枚へ統合したい。
+- `reg-gls-estimator` / `enginf-gls-whitening`
+  - 二次形式最小化と白色化という2説明を1枚へまとめてから片方をarchiveする。
+
+## 名前空間横断で引き続き優先監査
 
 - `test-*` ↔ `np-*` / `cat-*`
 - `reg-*` / `model-*` ↔ `enginf-*`
@@ -98,4 +123,4 @@
 - `stoch-*` / `ts-*` ↔ `engproc-*`
 - `design-*` ↔ `engdesign-*`
 
-自動削除は禁止。各候補は本文・条件・本質的操作・過去問根拠を比較し、`keep / merge / archive / delete / review` のいずれかを確定する。
+自動類似度だけでの削除は禁止。本文・条件・本質的操作・過去問根拠を比較し、`keep / merge / archive / delete / review` を確定する。
