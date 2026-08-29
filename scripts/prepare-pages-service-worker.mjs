@@ -48,8 +48,12 @@ const builtServiceWorker = serviceWorkerSource.replace(revisionMarker, revision)
 if (builtServiceWorker.includes(revisionMarker)) {
   throw new Error(`${serviceWorkerFile}: build revision marker survived substitution`);
 }
-if (!builtServiceWorker.includes(`-${revision}`)) {
-  throw new Error(`${serviceWorkerFile}: revision was not wired into the runtime cache name`);
+const stampedRevisionDeclaration = `const buildRevision = '${revision}';`;
+if (!builtServiceWorker.includes(stampedRevisionDeclaration)) {
+  throw new Error(`${serviceWorkerFile}: build revision was not stamped into the worker`);
+}
+if (!builtServiceWorker.includes('const cacheName = `${cacheBaseName}-${buildRevision}`;')) {
+  throw new Error(`${serviceWorkerFile}: runtime cache name is not revision-scoped`);
 }
 new Function(builtServiceWorker);
 await writeFile(path.join(outDir, serviceWorkerFile), builtServiceWorker, 'utf8');
