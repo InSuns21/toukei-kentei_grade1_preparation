@@ -290,20 +290,75 @@ sources: [{ type: official_syllabus, topic: ベイズファクター（基本）
 - ベイズファクター：2モデルの周辺尤度の比
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+モデル $M_k$ の周辺尤度は
+$$
+m_k(x)
+=\int f_k(x\mid\theta_k)\pi_k(\theta_k)d\theta_k.
+$$
+ベイズファクターは
+$$
+BF_{10}=\frac{m_1(x)}{m_0(x)}.
+$$
+事後オッズは
+$$
+\frac{P(M_1\mid x)}{P(M_0\mid x)}
+=BF_{10}
+\frac{P(M_1)}{P(M_0)}.
+$$
 
-事後オッズ＝ベイズファクター×事前オッズ。
+## 一手
+ベイズファクターでは各モデルの母数を最尤値へ固定せず、**モデル内の事前分布で尤度を積分した周辺尤度**を比べる。その後、事前オッズを掛けて事後オッズへ更新する。
 
 ## 答え
-$$BF_{10}=\frac{0.12}{0.03}=4.$$
-事前オッズが1なので事後オッズは4、したがって
-$$P(M_1\mid x)=\frac4{1+4}=0.8.$$
+$$
+BF_{10}=4,
+\qquad
+P(M_1\mid x)=0.8.
+$$
 
 ## 計算例
-$P(M_0\mid x)=0.2$。
+与えられた周辺尤度は
+$$
+m_1(x)=0.12,
+\qquad
+m_0(x)=0.03.
+$$
+したがって
+$$
+\begin{aligned}
+BF_{10}
+&=\frac{m_1(x)}{m_0(x)}\\
+&=\frac{0.12}{0.03}\\
+&=4.
+\end{aligned}
+$$
+事前モデル確率が等しいので事前オッズは
+$$
+\frac{P(M_1)}{P(M_0)}=1.
+$$
+よって事後オッズは
+$$
+\frac{P(M_1\mid x)}{P(M_0\mid x)}
+=4\cdot1=4.
+$$
+$P(M_0\mid x)=1-P(M_1\mid x)$ と置けば
+$$
+\frac{P(M_1\mid x)}{1-P(M_1\mid x)}=4.
+$$
+したがって
+$$
+\begin{aligned}
+P(M_1\mid x)
+&=4\{1-P(M_1\mid x)\},\\
+5P(M_1\mid x)&=4,\\
+P(M_1\mid x)&=0.8.
+\end{aligned}
+$$
 
 ## 注意
-周辺尤度は密度値であり、それぞれが0から1の確率である必要はない。
+ベイズファクターは事後確率そのものではなく、**データによるモデル間オッズの更新倍率**である。また周辺尤度は事前分布全体で尤度を平均するため、複合モデル側の事前尺度に敏感になり得る。
+
+通常のベイズファクターではモデル内事前分布をproperに取る。improper事前 $\pi_k(\theta)\propto c_kh_k(\theta)$ では任意定数 $c_1/c_0$ が周辺尤度比に残り、ベイズファクターが一意に定まらないことがある。
 
 <!-- CARD -->
 
@@ -1146,22 +1201,102 @@ sources: [{ type: official_syllabus, topic: 正規–正規モデル }]
 
 正規核の平方完成。精度＝分散の逆数。
 
+## 一手
+正規–正規更新では、尤度と事前分布の指数部を足し、$\mu^2$ の係数を**事後精度**、$\mu$ の一次係数を**精度付き平均**として平方完成する。
+
 ## 答え
-対数事後核は
-$$-\frac12\left\{
-\frac{n(\mu-\bar x)^2}{\sigma^2}
-+\frac{(\mu-m_0)^2}{s_0^2}\right\}.$$
-精度を足して
-$$s_n^2=\left(\frac1{s_0^2}+\frac n{\sigma^2}\right)^{-1},$$
-$$m_n=s_n^2\left(\frac{m_0}{s_0^2}
-+\frac{n\bar x}{\sigma^2}\right),$$
-ゆえに $\mu\mid\boldsymbol x\sim N(m_n,s_n^2)$。
+$$
+s_n^2
+=\left(\frac1{s_0^2}+\frac n{\sigma^2}\right)^{-1},
+$$
+$$
+m_n
+=s_n^2\left(
+\frac{m_0}{s_0^2}
++\frac{n\bar x}{\sigma^2}
+\right),
+$$
+したがって
+$$
+\mu\mid\boldsymbol x\sim N(m_n,s_n^2).
+$$
 
 ## 計算例
-$m_n$ は事前平均と標本平均の精度加重平均。
+尤度と事前分布の $\mu$ に依存する部分だけを残すと
+$$
+\pi(\mu\mid\boldsymbol x)
+\propto
+\exp\left[
+-\frac12\left\{
+\frac n{\sigma^2}(\mu-\bar x)^2
++\frac1{s_0^2}(\mu-m_0)^2
+\right\}
+\right].
+$$
+中括弧を $\mu$ について展開する。
+$$
+\begin{aligned}
+&\frac n{\sigma^2}(\mu-\bar x)^2
++\frac1{s_0^2}(\mu-m_0)^2\\
+&=\left(\frac n{\sigma^2}+\frac1{s_0^2}\right)\mu^2
+-2\left(
+\frac{n\bar x}{\sigma^2}
++\frac{m_0}{s_0^2}
+\right)\mu
++C,
+\end{aligned}
+$$
+ここで $C$ は $\mu$ に依存しない。
+
+$$
+A=\frac n{\sigma^2}+\frac1{s_0^2},
+\qquad
+B=\frac{n\bar x}{\sigma^2}+\frac{m_0}{s_0^2}
+$$
+と置けば
+$$
+\begin{aligned}
+A\mu^2-2B\mu
+&=A\left\{
+\mu^2-2\frac BA\mu
+\right\}\\
+&=A\left(\mu-\frac BA\right)^2
+-\frac{B^2}{A}.
+\end{aligned}
+$$
+最後の項は正規化定数へ吸収できるため、事後分布は
+$$
+N\left(\frac BA,\frac1A\right)
+$$
+である。すなわち $s_n^2=1/A$, $m_n=B/A$。
+
+数値例として $m_0=0$, $s_0^2=4$, $\sigma^2=9$, $n=9$, $\bar x=3$ とすると
+$$
+A=\frac14+\frac99=\frac54,
+\qquad
+s_n^2=\frac1A=\frac45=0.8.
+$$
+また
+$$
+B=\frac0{4}+\frac{9\cdot3}{9}=3,
+$$
+したがって
+$$
+m_n=\frac BA=3\cdot\frac45=\frac{12}{5}=2.4.
+$$
+よって
+$$
+\mu\mid\boldsymbol x\sim N(2.4,0.8).
+$$
+事前平均0と標本平均3の間へ縮小されていることも確認できる。
 
 ## 注意
-標本平均の分散は $\sigma^2/n$。
+精度は分散の逆数である。したがって
+$$
+\frac1{s_n^2}
+=\frac1{s_0^2}+\frac n{\sigma^2}
+$$
+は「事後精度＝事前精度＋データ精度」を表す。標本平均の分散は $\sigma^2/n$ なので、データ精度は $n/\sigma^2$ である。
 
 <!-- CARD -->
 
