@@ -28,6 +28,13 @@ const rules = [
   rule('P 値', 'P値', /P\s+値/g),
   rule('p-value', 'P値', /\bp-value\b/gi),
 
+  rule('Cauchy', 'コーシー', /\bCauchy\b/gi, /コーシー/),
+  rule('カウチー', 'コーシー', /カウチー/g),
+  rule('Weibull', 'ワイブル', /\bWeibull\b/gi, /ワイブル/),
+  rule('ウェイブル', 'ワイブル', /ウェイブル/g),
+  rule('レイブル', 'ワイブル', /レイブル/g),
+  rule('Pareto', 'パレート', /\bPareto\b/gi, /パレート/),
+
   acronym('PMF', '確率質量関数', /\bPMF\b/g),
   acronym('PDF', '確率密度関数', /\bPDF\b/g),
   acronym('CDF', '累積分布関数', /\bCDF\b/g),
