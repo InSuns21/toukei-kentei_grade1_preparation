@@ -1,32 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-29-probability-core-consolidation-08
+batch_id: 2026-08-29-cdf-survival-consolidation-09
 items:
-  - id: prob-conditional-multiplication
+  - id: prob-interval-from-cdf
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-conditional-definition-direct
-    note: 条件付き確率の定義をP(A∩B)について解いただけの同一move。canonical側で割り算と掛け算の両方向を数値で扱うよう補強済み。
-  - id: prob-basic-independent-vs-disjoint
+    canonical_card: prob-cdf-endpoint-choice
+    note: 端点処理canonicalへ一般式P(a<X<=b)=F(b)-F(a)、P(a<=X<=b)=F(b)-F(a-)と連続分布の数値例を吸収したため、連続分布専用の区間確率カードは重複。
+  - id: prob-survival-from-cdf
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-independent-events
-    note: 補強済み独立性canonicalで、独立条件P(A∩B)=P(A)P(B)と排反条件P(A∩B)=0を同じ数値例で比較するため、説明専用カードは重複。
-  - id: prob-inclusion-exclusion
+    canonical_card: prob-cumulative-hazard
+    note: 補強済みcanonicalでF→S=1-F→H=-log S→h=H'を一続きに計算するため、生存関数だけを求めるカードは同一変換鎖の一部分。
+  - id: prob-survival-from-hazard
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-inclusion-exclusion-three
-    note: 3事象包除canonicalへ2事象版も吸収し、2事象と3事象を同じ原理で数値計算するため、2事象専用カードを残さない。
-  - id: prob-basic-combination-probability
+    canonical_card: prob-cumulative-hazard
+    note: 補強済みcanonicalでh→H=∫h→S=e^{-H}→F=1-Sの逆変換まで数値で扱うため、危険率から生存関数への片方向カードは重複。
+  - id: prob-survival-hazard
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-counting-sample-space
-    note: 等確率有限標本空間のcanonicalへ、順序ありの硬貨列と順序なしの組合せ抽出を両方追加したため、組合せだけの単独カードは重複。
-  - id: prob-basic-addition-complement
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: prob-basic-sample-space
-    note: 加法・余事象の基本則は確率空間・確率測度の基本性質から直ちに使う参照事項であり、1級600枚デッキで単独カードにしない。公式はformulae.md側へ残す。
-  - id: prob-basic-symmetry
-    bucket: low_priority
-    reason: low_priority
-    note: 対称性による確率1/2は有用な観察だが、独立した解法カードにするほどではなく、有限等確率標本空間や分布の対称性の計算内で都度使う。
+    canonical_card: prob-cumulative-hazard
+    note: 生存関数と危険率の関係h=f/Sもcanonicalへ明記し、順方向・逆方向の両方を計算するため、指数分布の生存関数と危険率だけのカードを独立保持しない。
+  - id: prob-rectangle-from-joint-cdf
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: prob-joint-cdf-from-density
+    note: 同時密度→同時累積分布関数→4隅の包除で長方形確率、という一連の計算をcanonicalへ統合済み。CDFから長方形確率だけを切り出したカードは重複。
