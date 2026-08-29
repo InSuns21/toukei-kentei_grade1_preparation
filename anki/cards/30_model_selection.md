@@ -435,22 +435,59 @@ $$\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
 $$\widehat{\boldsymbol\beta}_{\mathrm{lasso}}=(2,0,-1)^\top.$$
 
 ## 使用公式・定理
-Ridgeの各固有方向では $z_j/(d_j+\lambda)$ へ縮小する。目的関数
-$$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
-+\lambda\sum_j|\beta_j|$$
-のLassoは直交設計で
-$$\widehat\beta_j=S(z_j,\lambda),\qquad
-S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+$$
-となる。
+Ridgeは
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{ridge}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol X+\lambda\boldsymbol I)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol y.
+$$
+Lassoの目的関数を
+$$
+\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
++\lambda\sum_j|\beta_j|
+$$
+とすると、直交設計では
+$$
+\widehat\beta_j=S(z_j,\lambda),
+\qquad
+S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+.
+$$
+一般の設計でもKKT条件より、係数 $j$ が0であるための条件は部分残差 $\boldsymbol r_{-j}$ を用いて
+$$
+|\boldsymbol x_j^{\mathsf T}\boldsymbol r_{-j}|\le\lambda
+$$
+である。
+
+Elastic NetはL1とL2を同時に使う拡張で
+$$
+\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
++\lambda\left\{
+\alpha\sum_j|\beta_j|
++\frac{1-\alpha}{2}\sum_j\beta_j^2
+\right\},
+$$
+$\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
 
 ## 計算例
-Ridgeは
-$$\left(\frac8{4+1},\frac2{1+1}\right)=(1.6,1.0).$$
-Lassoは
-$$S(3,1)=2,\qquad S(0.5,1)=0,\qquad S(-2,1)=-1.$$
+Ridgeでは
+$$
+\left(\frac8{4+1},\frac2{1+1}\right)
+=(1.6,1.0).
+$$
+Lassoでは
+$$
+S(3,1)=2,\qquad
+S(0.5,1)=0,\qquad
+S(-2,1)=-1.
+$$
+中央の係数が0になる理由はKKT条件でも確認できる。直交設計ではその部分残差との内積が $0.5$ なので
+$$
+|0.5|\le1=\lambda,
+$$
+よって0が最適条件を満たす。
 
 ## 一手
-Ridgeは連続的に割り縮め、Lassoは絶対値から $\lambda$ を引いて0未満を0にする。
+Ridgeは係数を連続的に縮め、Lassoはsoft-thresholdingにより小さい係数をちょうど0へ落とす。Elastic NetはこのL1の疎性とL2の安定化を同じ目的関数へ入れたものと捉える。
 
 ## 注意
-Lassoの閾値は、目的関数の二乗誤差に $1/2$ を付けるかどうかで定数が変わる。
+Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。

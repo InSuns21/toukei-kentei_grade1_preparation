@@ -394,9 +394,19 @@ sources: [{ type: official_syllabus, topic: 回帰診断法 }]
 - レバレッジ：説明変数空間での観測の位置を表すハット行列の対角要素
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+DFFITSは観測 $i$ を除いたときの $i$ 自身の当てはめ値変化を尺度化し、外的スチューデント化残差 $t_i$ を用いて
+$$
+\operatorname{DFFITS}_i
+=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
+$$
+と書ける。
 
-DFFITSは観測iを除いたときのi自身の当てはめ値変化を尺度化する。
+一方、係数 $j$ への影響は
+$$
+\operatorname{DFBETA}_{ij}
+=\widehat\beta_j-\widehat\beta_{j(i)}
+$$
+で測る。標準誤差で尺度化したものをDFBETASと呼ぶ。
 
 ## 一手
 DFFITSは、外的スチューデント化残差の大きさに
@@ -406,36 +416,42 @@ $$
 というレバレッジの増幅係数を掛ける。
 
 ## 答え
+与えられた $t_i=2,h_{ii}=0.2$ では
 $$
 \operatorname{DFFITS}_i=1.
 $$
+DFFITSは予測値への影響、DFBETAは特定の回帰係数への影響を測る。
 
 ## 計算例
-まずレバレッジ部分を計算する。
+まず
 $$
 \frac{h_{ii}}{1-h_{ii}}
-=\frac{0.2}{0.8}
-=\frac14.
+=\frac{0.2}{0.8}=\frac14,
 $$
 したがって
 $$
-\sqrt{\frac{h_{ii}}{1-h_{ii}}}
-=\sqrt{\frac14}
-=\frac12.
+\sqrt{\frac{h_{ii}}{1-h_{ii}}}=\frac12.
 $$
-外的スチューデント化残差 $t_i=2$ を掛けると
+よって
 $$
-\begin{aligned}
 \operatorname{DFFITS}_i
-&=t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}\\
-&=2\cdot\frac12\\
-&=1.
-\end{aligned}
+=2\times\frac12=1.
 $$
-正の符号は、その観測を入れたときの当てはめ値変化が正方向であることを表す。
+
+同じ観測について、ある係数が
+$$
+\widehat\beta_j=1.2,
+\qquad
+\widehat\beta_{j(i)}=0.8
+$$
+なら
+$$
+\operatorname{DFBETA}_{ij}=1.2-0.8=0.4.
+$$
+正の値は、その観測を含めることで係数 $j$ が正方向へ0.4動いたことを表す。
 
 ## 注意
-大残差または高レバレッジで絶対値が大きくなる。
+DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジの観測は大きな影響を持ち得るが、閾値超過だけで機械的にデータを削除しない。
 <!-- CARD -->
 
 ---
@@ -912,22 +928,75 @@ sources: [{ type: official_syllabus, topic: 主成分分析 }]
 第1主成分方向が分散共分散行列の最大固有値に対応することを示せ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ の下で
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+$$
+を最大化する。Lagrange関数
+$$
+L(\boldsymbol a,\lambda)
+=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+-\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
+$$
+を微分すると
+$$
+\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+$$
+したがって第1主成分方向は最大固有値の単位固有ベクトルである。
 
-Rayleigh商の最大値は最大固有値。
+固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると、上位 $m$ 主成分で再構成したときの平均二乗再構成誤差の総和は
+$$
+\sum_{j=m+1}^{p}\lambda_j
+$$
+である。
+
+## 一手
+主成分分析では「固有ベクトルを使う」と暗記せず、単位ベクトル $\boldsymbol a$ への射影分散
+$$
+\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
+=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+$$
+を最大化する問題から始める。Lagrange未定乗数法で固有方程式を出し、最大固有値の方向を第1主成分に選ぶ。
 
 ## 答え
-$\|\boldsymbol a\|=1$ の下で
-$$\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$$
-を最大化する。Lagrange関数を微分すると
-$$\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.$$
-目的値はλなので最大固有値の固有ベクトルを選ぶ。
+第1主成分は分散共分散行列の最大固有値に対応する単位固有ベクトル方向である。第2主成分以降は、それ以前の主成分に直交する範囲で同じ分散最大化を繰り返す。
 
 ## 計算例
-第2主成分は第1方向に直交する中で最大化する。
+$$
+\boldsymbol S=
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+$$
+とする。固有値は
+$$
+\begin{aligned}
+0
+&=\det(\boldsymbol S-\lambda\boldsymbol I)\\
+&=\det\begin{pmatrix}2-\lambda&1\\1&2-\lambda\end{pmatrix}\\
+&=(2-\lambda)^2-1\\
+&=(\lambda-3)(\lambda-1),
+\end{aligned}
+$$
+より
+$$
+\lambda_1=3,\qquad \lambda_2=1.
+$$
+$\lambda_1=3$ に対して
+$$
+\begin{pmatrix}-1&1\\1&-1\end{pmatrix}
+\begin{pmatrix}a_1\\a_2\end{pmatrix}
+=\boldsymbol0
+$$
+なので $a_1=a_2$。単位長へ正規化すると
+$$
+\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
+$$
+第1主成分だけを残すなら捨てる固有値は1なので、平均二乗再構成誤差の総和は
+$$
+\lambda_2=1.
+$$
 
 ## 注意
-データは中心化しておく。
+データは中心化しておく。固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。標準化PCAでは分散共分散行列ではなく相関行列に対して同じ固有値問題を解く。
 <!-- CARD -->
 
 ---
