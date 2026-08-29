@@ -1,254 +1,408 @@
 schema_version: 1
-batch_id: 2026-08-30-model-selection-merge-prep-33
+batch_id: 2026-08-30-time-series-merge-prep-34
 items:
-  - id: ms-bic-numeric-comparison
-    note: AIC・BIC・Mallows Cpを同じ「適合改善と複雑さ罰則の比較」canonicalへ統合する。
+  - id: ts-ar1-acf
+    note: AR(1)の定常平均・分散・ACFを一つの2次モーメント導出canonicalへ統合する。
     metadata:
-      title: AIC・BIC・MallowsのCpでモデルを比較する
-      topic: information-criteria-comparison
-      hashtags: [AIC, BIC, MallowsのCp, モデル選択]
+      title: AR(1)の定常平均・分散・自己相関を導く
+      topic: ar1-moments-acf
+      hashtags: [ARIMAモデル, AR1, 定常平均, 自己相関関数]
     sections:
       問題: |
-        モデル選択で使う AIC、BIC、Mallows の $C_p$ について次を答えよ。
-
-        1. AIC と BIC の式を書き、罰則の違いを説明せよ。
-        2. $n=200$ で、モデルAは $-2\ell(\widehat\theta)=300,k=4$、モデルBは $-2\ell(\widehat\theta)=294,k=7$ である。AIC と BIC で比較せよ。
-        3. 回帰候補モデルで $SSE_p=80$、完全モデルから得た $\widehat\sigma^2=4$、$n=30$、候補モデルの切片込み係数数 $p=6$ のとき Mallows の $C_p$ を求めよ。
+        切片付き定常AR(1)
+        $$
+        X_t=c+\phi X_{t-1}+\varepsilon_t,
+        \qquad |\phi|<1,
+        $$
+        $$
+        E[\varepsilon_t]=0,
+        \qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+        $$
+        について、定常平均 $\mu$、定常分散 $\gamma(0)$、自己相関関数 $\rho(h)$ を導け。
       使用公式・定理: |
-        AIC と BIC はどちらも
+        定常なら $E[X_t]=E[X_{t-1}]=\mu$ なので
         $$
-        \text{当てはまりの悪さ}+\text{複雑さへの罰則}
+        \mu=c+\phi\mu.
         $$
-        の形で、値が小さいモデルを選ぶ。
+        中心化した $Y_t=X_t-\mu$ は
         $$
-        \operatorname{AIC}=-2\ell(\widehat\theta)+2k,
+        Y_t=\phi Y_{t-1}+\varepsilon_t
         $$
-        $$
-        \operatorname{BIC}=-2\ell(\widehat\theta)+k\log n.
-        $$
-        ここで $k$ は推定した自由母数の個数である。
+        を満たす。
 
-        回帰で完全モデルから共通の誤差分散推定値 $\widehat\sigma^2$ を得るとき
+        革新は過去と無相関なので
         $$
-        C_p=\frac{SSE_p}{\widehat\sigma^2}-n+2p.
+        \gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2,
         $$
-        適切に指定された候補モデルでは $C_p$ が $p$ 付近になることが一つの目安である。
-      一手: |
-        規準名ごとに別暗記せず、まず
+        また $h\ge1$ では
         $$
-        \text{適合改善が追加した複雑さの罰則を上回るか}
+        \gamma(h)=\phi\gamma(h-1).
         $$
-        を見る。AICは1母数あたり2、BICは1母数あたり $\log n$ を罰する。$n$ が大きいと通常BICの方が追加母数を強く罰する。$C_p$ は回帰の残差平方和を共通の誤差分散で尺度化して複雑さを補正する。
+      一手／方針: |
+        まず期待値を取って平均を求め、その平均を引いて中心化する。中心化後は同じAR(1)再帰から、ラグ0では分散、ラグ $h\ge1$ では共分散の再帰を作る。
       答え: |
-        数値例では
         $$
-        \operatorname{AIC}_A=308,
-        \qquad
-        \operatorname{AIC}_B=308
+        \mu=\frac{c}{1-\phi},
         $$
-        で同点。
-
-        一方
         $$
-        \operatorname{BIC}_A\approx321.19,
-        \qquad
-        \operatorname{BIC}_B\approx331.09
+        \gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2},
         $$
-        なのでBICではモデルAを選ぶ。
-
-        Mallows の $C_p$ は
         $$
-        C_p=2.
+        \rho(h)=\phi^{|h|}.
         $$
       計算例: |
-        AICは
+        $c=1,\phi=0.8,\sigma_\varepsilon^2=4$ とする。まず
         $$
         \begin{aligned}
-        \operatorname{AIC}_A
-        &=300+2(4)\\
-        &=308,
+        \mu
+        &=\frac{1}{1-0.8}\\
+        &=5.
         \end{aligned}
         $$
+        分散は
         $$
         \begin{aligned}
-        \operatorname{AIC}_B
-        &=294+2(7)\\
-        &=308.
+        \gamma(0)
+        &=\frac{4}{1-0.8^2}\\
+        &=\frac{4}{0.36}\\
+        &=\frac{100}{9}\approx11.11.
         \end{aligned}
         $$
-        モデルBは適合度を6改善したが、追加3母数のAIC罰則も $2\times3=6$ 増えたため同点になる。
+        ラグ2の自己相関は
+        $$
+        \rho(2)=0.8^2=0.64.
+        $$
+        $\phi<0$ ならACFは符号を交互に変えながら幾何級数的に減衰する。
+      注意: |
+        切片 $c$ と定常平均 $\mu$ を混同しない。$|\phi|<1$ は通常の因果的定常AR(1)で必要である。
 
-        BICでは
+  - id: ts-ar1-hstep-forecast
+    note: 1期先予測・h期先予測・予測誤差分散を同じ再帰展開から導くcanonicalへ統合する。
+    metadata:
+      title: AR(1)の多期先予測と予測誤差分散を導く
+      topic: ar1-forecast-canonical
+      hashtags: [ARIMAモデル, AR1, 多期先予測, 予測誤差分散]
+    sections:
+      問題: |
+        定常平均 $\mu$ のAR(1)
         $$
-        \log200\approx5.2983.
+        X_t-\mu=\phi(X_{t-1}-\mu)+\varepsilon_t,
+        \qquad |\phi|<1,
+        $$
+        の $h$ 期先予測と予測誤差分散を導け。
+
+        数値例として $\mu=5,\phi=0.8,X_t=7,\sigma_\varepsilon^2=1,h=2$ の予測値と予測誤差分散を求めよ。
+      使用公式・定理: |
+        モデルを前向きに反復すると
+        $$
+        X_{t+h}-\mu
+        =\phi^h(X_t-\mu)
+        +\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j}.
+        $$
+        時刻 $t$ までの情報を $\mathcal F_t$ とすると、将来革新は条件付き平均0だから
+        $$
+        \widehat X_{t+h\mid t}
+        =E[X_{t+h}\mid\mathcal F_t]
+        =\mu+\phi^h(X_t-\mu).
+        $$
+        予測誤差は
+        $$
+        e_{t+h\mid t}
+        =\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j},
+        $$
+        よって独立な革新の分散を加えて
+        $$
+        \operatorname{Var}(e_{t+h\mid t})
+        =\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}
+        =\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
+        $$
+      一手／方針: |
+        予測式と誤差分散を別暗記せず、AR(1)を $h$ 回反復した一つの展開式から、既知部分を条件付き期待値へ、未知の将来革新を予測誤差へ振り分ける。
+      答え: |
+        $$
+        \widehat X_{t+h\mid t}=\mu+\phi^h(X_t-\mu),
+        $$
+        $$
+        \operatorname{Var}(e_{t+h\mid t})
+        =\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.
+        $$
+        $h=1$ なら通常の1期先予測になる。
+
+        数値例では
+        $$
+        \widehat X_{t+2\mid t}=6.28,
+        \qquad
+        \operatorname{Var}(e_{t+2\mid t})=1.64.
+        $$
+      計算例: |
+        まず2期先予測は
+        $$
+        \begin{aligned}
+        \widehat X_{t+2\mid t}
+        &=5+0.8^2(7-5)\\
+        &=5+0.64\cdot2\\
+        &=6.28.
+        \end{aligned}
+        $$
+        予測誤差は
+        $$
+        e_{t+2\mid t}=\varepsilon_{t+2}+0.8\varepsilon_{t+1}
+        $$
+        なので
+        $$
+        \begin{aligned}
+        \operatorname{Var}(e_{t+2\mid t})
+        &=1+0.8^2\\
+        &=1.64.
+        \end{aligned}
+        $$
+        1期先なら
+        $$
+        \widehat X_{t+1\mid t}=5+0.8(7-5)=6.6,
+        $$
+        予測誤差分散は $\sigma_\varepsilon^2=1$。
+      注意: |
+        $h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigma_\varepsilon^2/(1-\phi^2)$ へ近づく。分散では係数を二乗する。
+
+  - id: ts-ar-causality-check
+    note: AR(2)の根条件の一般形と数値判定を一枚へ統合し、定常性との用語上の注意も入れる。
+    metadata:
+      title: AR(p)の因果性を根から判定する
+      topic: ar-root-causality
+      hashtags: [ARモデル, 因果性, 定常性, 特性方程式]
+    sections:
+      問題: |
+        AR$(p)$
+        $$
+        \phi(B)X_t=\varepsilon_t,
+        \qquad
+        \phi(z)=1-\phi_1z-\cdots-\phi_pz^p
+        $$
+        が因果的な定常解を持つ条件を根で述べよ。
+
+        さらに
+        $$
+        X_t=0.5X_{t-1}+0.2X_{t-2}+\varepsilon_t
+        $$
+        を判定せよ。
+      使用公式・定理: |
+        **AR因果性条件**：AR多項式
+        $$
+        \phi(z)=0
+        $$
+        のすべての根が単位円の外側、すなわち
+        $$
+        |z|>1
+        $$
+        なら、現在の $X_t$ を現在・過去の革新の絶対収束する線形和として表せる因果的定常解が得られる。
+      一手／方針: |
+        係数そのものを1と比較せず、AR多項式を作り、その根の絶対値を1と比較する。AR(2)なら二次方程式として解けばよい。
+      答え: |
+        数値例のAR多項式は
+        $$
+        1-0.5z-0.2z^2.
+        $$
+        2根は約
+        $$
+        z_1=1.31,
+        \qquad
+        z_2=-3.81
+        $$
+        で、ともに絶対値が1より大きい。したがって因果的な定常AR(2)モデルである。
+      計算例: |
+        $$
+        1-0.5z-0.2z^2=0
+        $$
+        を
+        $$
+        0.2z^2+0.5z-1=0
+        $$
+        と書く。解の公式より
+        $$
+        \begin{aligned}
+        z
+        &=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{0.4}\\
+        &=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
+        \end{aligned}
         $$
         よって
         $$
-        \begin{aligned}
-        \operatorname{BIC}_A
-        &=300+4(5.2983)\\
-        &\approx321.19,
-        \end{aligned}
+        z_1\approx1.31,
+        \qquad z_2\approx-3.81,
         $$
         $$
-        \begin{aligned}
-        \operatorname{BIC}_B
-        &=294+7(5.2983)\\
-        &\approx331.09.
-        \end{aligned}
-        $$
-        追加3母数の罰則は約
-        $$
-        3\log200\approx15.89
-        $$
-        で、適合改善6を上回る。
-
-        Mallows の $C_p$ は
-        $$
-        \begin{aligned}
-        C_p
-        &=\frac{80}{4}-30+2(6)\\
-        &=20-30+12\\
-        &=2.
-        \end{aligned}
+        |z_1|>1,
+        \qquad |z_2|>1.
         $$
       注意: |
-        AIC・BICは同じデータ、同じ尤度定義のモデル同士で比較する。BICの $\log$ は自然対数。AICは予測的KL損失、BICは正則条件下でのモデル同定・周辺尤度近似との関係が強く、目的が異なるので常に同じモデルを選ぶとは限らない。
+        標準的なARIMAの文脈では「ARの定常条件」としてこの根条件を述べることが多いが、厳密にはここで保証しているのは**因果的な定常解**である。未来の革新に依存する非因果的表現まで許す議論とは区別する。
 
-        $C_p$ の $\widehat\sigma^2$ は候補ごとに作らず、通常は十分大きい共通モデルから得る。$C_p\approx p$ は絶対的な合否判定ではなく候補比較の目安である。
-
-  - id: ms-ridge-lasso-orthogonal-numeric
-    note: Ridge/Lassoの定義、L1-L2差、SVD縮小、KKT零条件、Elastic Netを一つの正則化canonicalへ統合する。
+  - id: ts-kalman-update
+    note: Kalmanの予測ステップと更新ステップを一つのフィルタリングサイクルとして統合する。
     metadata:
-      title: Ridge縮小とLasso零化を導いて計算する
-      topic: regularization-canonical
-      hashtags: [Ridge回帰, Lasso回帰, 正則化, 特異値分解]
+      title: カルマンフィルタの予測→更新を1サイクル計算する
+      topic: kalman-filter-cycle
+      hashtags: [状態空間モデル, カルマンフィルタ, 予測, フィルタリング]
     sections:
       問題: |
-        線形回帰の正則化について次を答えよ。
-
-        1. Ridgeの目的関数から閉形式解を導け。
-        2. $X^{\mathsf T}X=\operatorname{diag}(4,1)$、$X^{\mathsf T}y=(8,2)^{\mathsf T}$、$\lambda=1$ のRidge推定量を求めよ。
-        3. $X^{\mathsf T}X=I$、$X^{\mathsf T}y=(3,0.5,-2)^{\mathsf T}$、$\lambda=1$ のLasso推定量を求めよ。
-        4. 特異値 $d=2$ の方向にRidge罰則 $\lambda=3$ を掛けたとき、最小二乗法に対する縮小率を求めよ。
+        1次元状態空間モデルで
+        $$
+        a_{t-1\mid t-1}=2,
+        \quad P_{t-1\mid t-1}=3,
+        \quad T=0.5,
+        \quad Q=1,
+        $$
+        $$
+        Z=1,
+        \quad H=0.25,
+        \quad y_t=2
+        $$
+        とする。カルマンフィルタの予測平均・予測分散を求め、その後に観測 $y_t$ で更新平均・更新分散を求めよ。
       使用公式・定理: |
-        Ridgeは
+        **予測**：
         $$
-        Q(\boldsymbol\beta)
-        =\|\boldsymbol y-X\boldsymbol\beta\|^2
-        +\lambda\|\boldsymbol\beta\|^2
-        $$
-        を最小にする。勾配は
-        $$
-        \nabla Q
-        =-2X^{\mathsf T}(\boldsymbol y-X\boldsymbol\beta)
-        +2\lambda\boldsymbol\beta.
-        $$
-        よって
-        $$
-        (X^{\mathsf T}X+\lambda I)\widehat{\boldsymbol\beta}
-        =X^{\mathsf T}\boldsymbol y,
+        a_{t\mid t-1}=Ta_{t-1\mid t-1},
         $$
         $$
-        \widehat{\boldsymbol\beta}_{\mathrm{ridge}}
-        =(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}\boldsymbol y.
+        P_{t\mid t-1}=T^2P_{t-1\mid t-1}+Q.
         $$
 
-        $X=UDV^{\mathsf T}$ と特異値分解すると、Ridgeは右特異ベクトル方向 $j$ を最小二乗法に比べ
+        **更新**：
         $$
-        \frac{d_j^2}{d_j^2+\lambda}
-        $$
-        倍に縮める。小さい特異値方向ほど強く縮小される。
-
-        Lassoを
-        $$
-        \frac12\|\boldsymbol y-X\boldsymbol\beta\|^2
-        +\lambda\sum_j|\beta_j|
-        $$
-        と定義すると、直交設計では
-        $$
-        \widehat\beta_j=S(z_j,\lambda),
+        v_t=y_t-Za_{t\mid t-1},
         \qquad
-        S(z,\lambda)=\operatorname{sign}(z)(|z|-\lambda)_+.
+        F_t=Z^2P_{t\mid t-1}+H,
         $$
-        一般の設計でもKKT条件から、部分残差 $\boldsymbol r_{-j}$ に対し
         $$
-        |\boldsymbol x_j^{\mathsf T}\boldsymbol r_{-j}|\le\lambda
+        K_t=\frac{P_{t\mid t-1}Z}{F_t},
         $$
-        なら $\widehat\beta_j=0$ が最適条件を満たす。
+        $$
+        a_{t\mid t}=a_{t\mid t-1}+K_tv_t,
+        $$
+        $$
+        P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}.
+        $$
 
-        Elastic Netは
+        多次元では分散の予測を
         $$
-        \frac12\|\boldsymbol y-X\boldsymbol\beta\|^2
-        +\lambda\left\{
-        \alpha\sum_j|\beta_j|
-        +\frac{1-\alpha}{2}\sum_j\beta_j^2
-        \right\}
+        P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q
         $$
-        とL1・L2を併用する。$\alpha=1$ でLasso、$\alpha=0$ でRidge型。
-      一手: |
-        RidgeはL2罰則により**不安定な方向を連続的に縮める**。LassoはL1罰則の非微分点により**小さい係数をちょうど0へ落とす**。同じ「複雑さを罰する」正則化でも、L2の丸い制約境界とL1の角を持つ境界が挙動の違いを生む。
+        とする。
+      一手／方針: |
+        Kalmanフィルタは「前時点の事後分布を状態方程式で**予測**し、新しい観測でその予測を**更新**する」という2段階を毎時点で繰り返す。式を別カードとして暗記しない。
       答え: |
-        Ridgeの閉形式解は
+        予測は
         $$
-        \widehat{\boldsymbol\beta}_{\mathrm{ridge}}
-        =(X^{\mathsf T}X+\lambda I)^{-1}X^{\mathsf T}\boldsymbol y.
+        a_{t\mid t-1}=1,
+        \qquad P_{t\mid t-1}=1.75.
         $$
-        数値例では
+        更新では
         $$
-        \widehat{\boldsymbol\beta}_{\mathrm{ridge}}=(1.6,1.0)^{\mathsf T},
+        v_t=1,
+        \qquad F_t=2,
+        \qquad K_t=0.875,
         $$
         $$
-        \widehat{\boldsymbol\beta}_{\mathrm{lasso}}=(2,0,-1)^{\mathsf T}.
-        $$
-        特異値 $d=2,\lambda=3$ のRidge縮小率は
-        $$
-        \frac47.
+        a_{t\mid t}=1.875,
+        \qquad P_{t\mid t}=0.21875.
         $$
       計算例: |
-        Ridgeの停留条件は
+        まず予測平均は
+        $$
+        a_{t\mid t-1}=0.5\cdot2=1.
+        $$
+        予測分散は
         $$
         \begin{aligned}
-        0
-        &=-2X^{\mathsf T}(y-X\beta)+2\lambda\beta\\
-        &=-2X^{\mathsf T}y+2X^{\mathsf T}X\beta+2\lambda\beta,
+        P_{t\mid t-1}
+        &=0.5^2\cdot3+1\\
+        &=0.75+1\\
+        &=1.75.
         \end{aligned}
+        $$
+        次に
+        $$
+        v_t=2-1\cdot1=1,
+        $$
+        $$
+        F_t=1^2\cdot1.75+0.25=2,
+        $$
+        $$
+        K_t=\frac{1.75}{2}=0.875.
         $$
         したがって
         $$
-        (X^{\mathsf T}X+\lambda I)\beta=X^{\mathsf T}y.
+        a_{t\mid t}=1+0.875\cdot1=1.875,
         $$
-
-        直交対角例では
-        $$
-        \widehat\beta_1=\frac8{4+1}=1.6,
-        \qquad
-        \widehat\beta_2=\frac2{1+1}=1.0.
-        $$
-
-        Lassoはsoft-thresholdingより
-        $$
-        S(3,1)=2,
-        \qquad
-        S(0.5,1)=0,
-        \qquad
-        S(-2,1)=-1.
-        $$
-        中央が0になることはKKTでも
-        $$
-        |0.5|\le1=\lambda
-        $$
-        と確認できる。
-
-        SVD方向では
         $$
         \begin{aligned}
-        \text{縮小率}
-        &=\frac{d^2}{d^2+\lambda}\\
-        &=\frac{2^2}{2^2+3}\\
-        &=\frac47.
+        P_{t\mid t}
+        &=1.75-0.875\cdot1\cdot1.75\\
+        &=0.21875.
         \end{aligned}
         $$
-        小さい特異値方向ほど分母の $\lambda$ の影響が相対的に大きい。
       注意: |
-        Ridgeは分散を下げる代わりにバイアスを導入する。Lassoの閾値やKKT条件の定数は、二乗誤差項に $1/2$ を付けるかなど目的関数の規約で変わる。通常は説明変数を標準化し、切片は罰しない。相関の強い説明変数ではLassoが一部だけを選ぶことがあり、Elastic NetはL2成分により選択を安定化させる場合がある。
+        分散の予測では状態係数を左右から掛ける。更新後分散が予測分散より小さくなることも検算に使える。数値安定性が必要な実装ではJoseph形式を使う場合がある。
+
+  - id: ts-difference-random-walk
+    note: ランダムウォークの非定常性の証明と一階差分による定常化を同じカードへ統合する。
+    metadata:
+      title: ランダムウォークの非定常性を示して差分で定常化する
+      topic: random-walk-differencing
+      hashtags: [ARIMAモデル, ランダムウォーク, 非定常, 差分]
+    sections:
+      問題: |
+        $$
+        X_t=X_{t-1}+\varepsilon_t,
+        \qquad X_0=0,
+        $$
+        $$
+        E[\varepsilon_t]=0,
+        \qquad \operatorname{Var}(\varepsilon_t)=\sigma^2
+        $$
+        で、革新が互いに無相関とする。
+
+        1. $X_t$ が弱定常でないことを示せ。
+        2. 一階差分 $\Delta X_t$ が定常になることを示せ。
+      使用公式・定理: |
+        再帰式を展開すると
+        $$
+        X_t=\sum_{j=1}^{t}\varepsilon_j.
+        $$
+        したがって無相関な革新の分散加法性より
+        $$
+        \operatorname{Var}(X_t)=t\sigma^2.
+        $$
+        一階差分は
+        $$
+        \Delta X_t=X_t-X_{t-1}=\varepsilon_t.
+        $$
+      一手／方針: |
+        水準系列は革新を累積しているので分散が時間とともに増える。一方、隣接時点を引くと累積が打ち消され、革新そのものへ戻ることを見る。
+      答え: |
+        $$
+        \operatorname{Var}(X_t)=t\sigma^2
+        $$
+        が $t$ に依存するため $X_t$ は弱定常でない。
+
+        しかし
+        $$
+        \Delta X_t=\varepsilon_t
+        $$
+        なので、革新がホワイトノイズなら一階差分系列は弱定常である。したがってランダムウォークは典型的な $I(1)$ 過程である。
+      計算例: |
+        $\sigma^2=2$ なら
+        $$
+        \operatorname{Var}(X_1)=2,
+        \quad \operatorname{Var}(X_5)=10,
+        \quad \operatorname{Var}(X_{20})=40,
+        $$
+        と水準系列の分散は増え続ける。
+
+        一方
+        $$
+        \operatorname{Var}(\Delta X_t)=\operatorname{Var}(\varepsilon_t)=2
+        $$
+        は時点に依存しない。
+      注意: |
+        平均が一定でも分散や自己共分散が時点に依存すれば弱定常ではない。差分を取り過ぎると別の依存構造を作るので、必要次数だけ差分する。
