@@ -1750,13 +1750,10 @@ items:
       - bayes-normal-hierarchical-shrinkage
       - bayes-hierarchical-conditional-independence
       - bayes-gibbs-full-conditionals
-      - bayes-empirical-bayes
       - bayes-posterior-predictive-check
-      - bayes-prior-sensitivity
-      - bayes-conjugate-definition
       - bayes-proper-improper
-      - bayes-beta-posterior-mean-mode
       - bayes-gamma-exponential-update
+      - bayes-beta-posterior-mean-mode
       - bayes-normal-normal-update
       - bayes-dirichlet-multinomial-update
     terms:
@@ -1766,13 +1763,11 @@ items:
           - bayes-posterior-predictive-canonical
           - mathstat-gamma-poisson-posterior
           - bayes-density-formula
-          - bayes-conjugate-definition
-          - bayes-proper-improper
           - bayes-gamma-exponential-update
+          - bayes-proper-improper
           - bayes-normal-normal-update
           - bayes-dirichlet-multinomial-update
           - bayes-factor-discrete-numeric
-          - bayes-prior-sensitivity
       - name: 事後分布
         status: card
         cards:
@@ -1795,7 +1790,6 @@ items:
           - bayes-normal-hierarchical-shrinkage
           - bayes-hierarchical-conditional-independence
           - bayes-gibbs-full-conditionals
-          - bayes-empirical-bayes
       - name: ギブスサンプリング
         status: card
         cards:

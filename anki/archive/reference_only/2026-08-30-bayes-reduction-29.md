@@ -70,7 +70,7 @@ sources:
   - type: official_syllabus
     topic: 共役事前分布
 archive_reason: reference_only
-canonical_card: bayes-conjugate-definition
+canonical_card: bayes-gamma-exponential-update
 archive_note: 正規–逆ガンマの4超母数更新式は600枚正本では参照式寄り。共役性の操作は正規–正規、ガンマ–指数、Dirichlet–多項などの代表例で保持し、詳細式はactiveカードから外す。
 ---
 ## 問題
