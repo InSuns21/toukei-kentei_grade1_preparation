@@ -724,22 +724,71 @@ sources: [{ type: official_syllabus, topic: HotellingのT²検定 }]
 ---
 
 ## 問題
-n=10、$\bar{\boldsymbol x}-\boldsymbol\mu_0=(1,2)^{\mathsf T}$、$\boldsymbol S=\operatorname{diag}(2,4)$ のときT²を求めよ。
+$p$ 次元正規母集団から独立に $n$ 個を標本抽出し、標本分散共分散行列 $\boldsymbol S$ は可逆とする。$H_0:\boldsymbol\mu=\boldsymbol\mu_0$ に対する1標本Hotellingの $T^2$ 統計量と、その正確なF変換を書け。
+
+数値例として $n=10,p=2$、
+$$
+\bar{\boldsymbol x}-\boldsymbol\mu_0=(1,2)^{\mathsf T},
+\qquad
+\boldsymbol S=\operatorname{diag}(2,4)
+$$
+のとき $T^2$ とF統計量を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+1標本Hotelling統計量は
+$$
+T^2=n(\bar{\boldsymbol x}-\boldsymbol\mu_0)^{\mathsf T}
+\boldsymbol S^{-1}
+(\bar{\boldsymbol x}-\boldsymbol\mu_0).
+$$
+多変量正規母集団からの独立標本で $n>p$、$\boldsymbol S$ が可逆なら、帰無仮説の下で
+$$
+F=\frac{n-p}{p(n-1)}T^2
+\sim F_{p,n-p}.
+$$
 
-p次元正規母集団と可逆なSを仮定する。
+## 一手
+まず平均ベクトル差を共分散で標準化した二次形式として $T^2$ を計算し、その同じ値を係数 $(n-p)/\{p(n-1)\}$ でF統計量へ変換する。別々の公式ではなく一つの検定手順として扱う。
 
 ## 答え
-$$T^2=n(\bar{\boldsymbol x}-\boldsymbol\mu_0)^{\mathsf T}\boldsymbol S^{-1}(\bar{\boldsymbol x}-\boldsymbol\mu_0)
-=10\left(\frac12+\frac44\right)=15.$$
+数値例では
+$$
+T^2=15,
+\qquad
+F=\frac{20}{3}\approx6.67,
+$$
+帰無仮説の下で $F_{2,8}$ と比較する。
 
 ## 計算例
-各方向の標準化差を同時に評価する。
+まず
+$$
+\boldsymbol S^{-1}=\operatorname{diag}\left(\frac12,\frac14\right).
+$$
+したがって
+$$
+\begin{aligned}
+T^2
+&=10(1,2)
+\begin{pmatrix}1/2&0\\0&1/4\end{pmatrix}
+\begin{pmatrix}1\\2\end{pmatrix}\\
+&=10\left(\frac12+\frac{4}{4}\right)\\
+&=10\cdot\frac32\\
+&=15.
+\end{aligned}
+$$
+次に
+$$
+\begin{aligned}
+F
+&=\frac{10-2}{2(10-1)}15\\
+&=\frac8{18}15\\
+&=\frac{20}{3}\\
+&\approx6.67.
+\end{aligned}
+$$
 
 ## 注意
-各成分別t検定の寄せ集めではない。
+各成分へ別々にt検定を行う方法では、成分間相関と多重性を正しく扱えない。ここでは標本分散共分散行列の分母を $n-1$ とする規約を使う。
 
 <!-- CARD -->
 
@@ -962,20 +1011,58 @@ $\boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\vareps
 - PCA：主成分分析（principal component analysis）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+因子分析モデル
+$$
+\boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon,
+$$
+$$
+\operatorname{Var}(\boldsymbol F)=\boldsymbol I,
+\qquad
+\operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi,
+$$
+かつ $\boldsymbol F$ と $\boldsymbol\varepsilon$ が独立なら
+$$
+\operatorname{Var}(\boldsymbol X)
+=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+$$
+通常 $\boldsymbol\Psi$ は対角行列で、第 $i$ 変数の共通性は
+$$
+h_i^2=(\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T})_{ii}
+=\sum_{j=1}^{m}\lambda_{ij}^2,
+$$
+独自性は $\psi_i=\Psi_{ii}$ である。標準化変数なら
+$$
+1=h_i^2+\psi_i.
+$$
 
-独立な和の共分散は分散共分散行列の和。
+## 一手
+共通性を別公式として暗記せず、共分散分解の対角成分を見る。$\Lambda\Lambda^{\mathsf T}$ の対角が共通因子で説明される分散、$\Psi$ の対角が独自分散である。
 
 ## 答え
-$$\operatorname{Var}(\boldsymbol X)
-=\boldsymbol\Lambda\operatorname{Var}(\boldsymbol F)\boldsymbol\Lambda^{\mathsf T}+\operatorname{Var}(\boldsymbol\varepsilon)
-=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.$$
+$$
+\operatorname{Var}(\boldsymbol X)
+=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+$$
+標準化変数では $h_i^2=\sum_j\lambda_{ij}^2$、$\psi_i=1-h_i^2$。
 
 ## 計算例
-通常Ψは対角行列。
+ある標準化変数の2因子への負荷量が $0.6,0.5$ なら
+$$
+\begin{aligned}
+h_i^2
+&=0.6^2+0.5^2\\
+&=0.36+0.25\\
+&=0.61.
+\end{aligned}
+$$
+よって
+$$
+\psi_i=1-0.61=0.39.
+$$
+この変数の分散の61%を共通因子部分、39%を独自部分が担う。
 
 ## 注意
-主成分分析は確率的潜在因子モデルと同じではない。
+PCAは観測分散を直交方向へ分解する方法で、因子分析のような確率的潜在因子＋独自誤差モデルとは異なる。斜交回転では負荷量平方和の単純な解釈に注意する。
 
 <!-- CARD -->
 
@@ -1105,21 +1192,59 @@ sources: [{ type: official_syllabus, topic: フィッシャーの線形判別 }]
 2群の平均を $\boldsymbol\mu_1,\boldsymbol\mu_0$、共通群内共分散を $\boldsymbol\Sigma$ とする。フィッシャーの線形判別方向を書け。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+2群の平均差を
+$$
+\boldsymbol d=\boldsymbol\mu_1-\boldsymbol\mu_0
+$$
+とし、共通群内分散共分散行列を $\boldsymbol\Sigma$ とする。フィッシャーの基準
+$$
+J(\boldsymbol w)
+=\frac{(\boldsymbol w^{\mathsf T}\boldsymbol d)^2}
+{\boldsymbol w^{\mathsf T}\boldsymbol\Sigma\boldsymbol w}
+$$
+を最大化する方向は
+$$
+\boldsymbol w\propto\boldsymbol\Sigma^{-1}\boldsymbol d
+$$
+である。
 
-一般化Rayleigh商。
+## 一手
+平均差そのものではなく、群内分散の大きい方向を割り引くため $\Sigma^{-1}$ で平均差を重み付けする。
 
 ## 答え
-群間分離と群内分散の比
-$$J(\boldsymbol w)=\frac{\{\boldsymbol w^{\mathsf T}(\boldsymbol\mu_1-\boldsymbol\mu_0)\}^2}{\boldsymbol w^{\mathsf T}\boldsymbol\Sigma\boldsymbol w}$$
-を最大化すると
-$$\boldsymbol w\propto\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0).$$
+$$
+\boldsymbol w\propto
+\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0).
+$$
 
 ## 計算例
-共分散がIなら平均差方向。
+$$
+\boldsymbol\mu_1=(2,1)^{\mathsf T},
+\qquad
+\boldsymbol\mu_0=(0,0)^{\mathsf T},
+$$
+$$
+\boldsymbol\Sigma=\operatorname{diag}(2,1)
+$$
+とする。このとき
+$$
+\boldsymbol\Sigma^{-1}
+=\begin{pmatrix}1/2&0\\0&1\end{pmatrix},
+$$
+したがって
+$$
+\begin{aligned}
+\boldsymbol w
+&\propto
+\begin{pmatrix}1/2&0\\0&1\end{pmatrix}
+\begin{pmatrix}2\\1\end{pmatrix}\\
+&=\begin{pmatrix}1\\1\end{pmatrix}.
+\end{aligned}
+$$
+よって判別得点の方向は $x_1+x_2$。
 
 ## 注意
-倍率は分類境界を変えない。
+$\boldsymbol w$ の倍率は方向を変えない。実際の分類閾値には群平均だけでなく事前確率や誤分類費用も影響する。
 
 <!-- CARD -->
 
@@ -1181,20 +1306,39 @@ sources: [{ type: official_syllabus, topic: 判別分析 }]
 - QDA：二次判別分析
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-多変量正規密度の対数を群間で比較し、共通項を除く。
-
-## 答え
-$$\delta_k(\boldsymbol x)=\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
--\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k+\log\pi_k.$$
+群 $k$ が
+$$
+\boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
+$$
+と共通分散共分散行列を持ち、事前確率が $\pi_k$ なら、群間で共通な項を除いたLDA判別関数は
+$$
+\delta_k(\boldsymbol x)
+=\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+-\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
++\log\pi_k.
+$$
 $\delta_k$ が最大の群へ分類する。
 
+QDAでは群ごとに $\boldsymbol\Sigma_k$ を許すため
+$$
+-\frac12\log|\boldsymbol\Sigma_k|
+-\frac12(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}
+\boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
++\log\pi_k
+$$
+を比較し、$\boldsymbol x$ の二次項が群間で打ち消されない。
+
+## 一手
+LDA/QDAは別々に暗記せず、多変量正規密度の対数を群間比較する。共分散が全群共通なら二次項が消えて線形、群別なら残って二次境界になる。
+
+## 答え
+LDAは共通 $\boldsymbol\Sigma$ を仮定して線形境界、QDAは群別 $\boldsymbol\Sigma_k$ を許して二次境界を持つ。
+
 ## 計算例
-等事前確率なら $\log\pi_k$ は比較から消える。
+等事前確率ならLDAの $\log\pi_k$ は全群で同じなので比較から消える。一方、群ごとに共分散が異なるQDAでは $\log|\Sigma_k|$ も分類に効く。
 
 ## 注意
-群ごとに共分散が異なる場合はQDAで境界が二次になる。
+QDAは柔軟だが群ごとに分散共分散行列を推定するため母数が多い。小標本・高次元ではLDAの方が安定しやすい。
 
 <!-- CARD -->
 
@@ -1320,19 +1464,51 @@ sources: [{ type: official_syllabus, topic: k-means法 }]
 1次元データ0,2,8,10、初期重心0,10でk-meansを1回更新せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+k-meansは
+$$
+W(C_1,\ldots,C_K)
+=\sum_{k=1}^{K}\sum_{i\in C_k}
+\|\boldsymbol x_i-\bar{\boldsymbol x}_k\|^2
+$$
+を小さくするよう、
+1. 現在の重心へ最も近いクラスタに各点を割り当てる
+2. 各クラスタの重心を所属点の平均へ更新する
+を交互に行う。固定した割当てでは平方距離和を最小にする代表点は標本平均である。
 
-割当てと重心更新を群内平方和が変わらなくなるまで交互に行う。
+## 一手
+「最近傍へ割当てる」と「平均へ重心更新する」は、どちらも同じ群内平方和目的関数を減らす座標降下の一手と捉える。
 
 ## 答え
-近い重心へ割り当てると $C_1=\{0,2\}$、$C_2=\{8,10\}$。新重心は
-$$\bar x_{C_1}=1,\qquad \bar x_{C_2}=9.$$
+1次元データ $0,2,8,10$、初期重心 $0,10$ では
+$$
+C_1=\{0,2\},\qquad C_2=\{8,10\},
+$$
+更新後重心は
+$$
+\bar x_{C_1}=1,\qquad \bar x_{C_2}=9.
+$$
 
 ## 計算例
-更新後の群内平方和は $1+1+1+1=4$。
+初期重心0,10への距離を比較すると0,2は第1クラスタ、8,10は第2クラスタへ割り当てられる。
+新しい重心は
+$$
+\frac{0+2}{2}=1,
+\qquad
+\frac{8+10}{2}=9.
+$$
+更新後の目的関数は
+$$
+\begin{aligned}
+W
+&=(0-1)^2+(2-1)^2\\
+&\quad +(8-9)^2+(10-9)^2\\
+&=1+1+1+1\\
+&=4.
+\end{aligned}
+$$
 
 ## 注意
-初期値により局所解が変わる。
+各反復で目的関数は増加しないが、大域最適解を保証しない。初期重心によって局所解が変わるため、複数初期値を試すことがある。
 
 <!-- CARD -->
 
