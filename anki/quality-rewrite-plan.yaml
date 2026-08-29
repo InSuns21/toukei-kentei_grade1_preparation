@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-29-bayes-canonical-traceability-05
+batch_id: 2026-08-29-bayes-canonical-traceability-05b
 items:
   - id: bayes-normal-normal-update
     note: 一般式・数値例・精度表記を1枚へ統合できるよう、平方完成を途中式付きで導出し数値例まで動かす。
