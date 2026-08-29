@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { access, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
@@ -68,6 +69,30 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
   });
 }
 
+function canonicalizeRemovedTextbookLinks(markdown) {
+  return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+    const trimmed = rawHref.trim();
+    const destination = trimmed.match(/^(\S+)(\s+(?:"[^"]*"|'[^']*'))?$/);
+    if (!destination) return match;
+
+    const href = destination[1];
+    const titleSuffix = destination[2] || '';
+    const suffixAt = href.search(/[?#]/);
+    const hrefPath = suffixAt >= 0 ? href.slice(0, suffixAt) : href;
+    const hrefSuffix = suffixAt >= 0 ? href.slice(suffixAt) : '';
+    if (!hrefPath.startsWith('textbook/volumes/') || !hrefPath.endsWith('.md')) return match;
+
+    const targetPath = path.resolve(siteDir, ...hrefPath.split('/'));
+    if (fs.existsSync(targetPath)) return match;
+
+    const canonicalHref = path.posix.join(path.posix.dirname(hrefPath), 'index.md');
+    const canonicalPath = path.resolve(siteDir, ...canonicalHref.split('/'));
+    if (!fs.existsSync(canonicalPath)) return match;
+
+    return `${open}${canonicalHref}${hrefSuffix}${titleSuffix}${close}`;
+  });
+}
+
 function extractLinks(markdown) {
   return [...markdown.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map((match) => match[1].trim());
 }
@@ -92,6 +117,7 @@ function localTarget(href) {
 
 let markdownCount = 0;
 let linkCount = 0;
+let canonicalizedTextbookLinks = 0;
 const errors = [];
 
 for (const book of books) {
@@ -103,10 +129,12 @@ for (const book of books) {
     const siteRelative = path.posix.join(book, relative);
     const source = await readFile(filePath, 'utf8');
     const oriented = orientMarkdownLinks(source, siteRelative);
-    await writeFile(filePath, oriented, 'utf8');
+    const canonicalized = canonicalizeRemovedTextbookLinks(oriented);
+    if (canonicalized !== oriented) canonicalizedTextbookLinks += 1;
+    await writeFile(filePath, canonicalized, 'utf8');
     markdownCount += 1;
 
-    for (const href of extractLinks(oriented)) {
+    for (const href of extractLinks(canonicalized)) {
       let target;
       try {
         target = localTarget(href);
@@ -136,4 +164,6 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Exercise Markdown Pages links prepared: ${markdownCount} Markdown files, ${linkCount} local links validated.`);
+console.log(
+  `Exercise Markdown Pages links prepared: ${markdownCount} Markdown files, ${linkCount} local links validated, ${canonicalizedTextbookLinks} file(s) redirected to canonical textbook pages.`,
+);
