@@ -15,36 +15,83 @@ sources: [{ type: official_syllabus, topic: 標本分布 }]
 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}$ 正規分布 $N(\mu,\sigma^2)$ のとき、標本平均 $\overline X=n^{-1}\sum_{i=1}^nX_i$ の分布を答えよ。
 
 ## 答え
-$$\overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right).$$
+独立同分布で平均 $\mu$、分散 $\sigma^2<\infty$ なら
+$$
+E[\overline X]=\mu,
+\qquad
+\operatorname{Var}(\overline X)=\frac{\sigma^2}{n}.
+$$
+正規母集団ならさらに
+$$
+\overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right).
+$$
 
 ## 使用公式・定理
-独立同分布なら
-$$E[\overline X]=\mu,\qquad \operatorname{Var}(\overline X)=\frac{\sigma^2}{n}.$$
-独立な正規分布の線形結合は正規分布である。
+$X_1,\ldots,X_n$ が独立同分布で
+$$
+E[X_i]=\mu,\qquad \operatorname{Var}(X_i)=\sigma^2<\infty
+$$
+とする。標本平均
+$$
+\overline X=\frac1n\sum_{i=1}^nX_i
+$$
+について、期待値の線形性から
+$$
+E[\overline X]
+=\frac1n\sum_{i=1}^nE[X_i]
+=\mu.
+$$
+よって $\overline X$ は母平均 $\mu$ の不偏推定量である。
 
-## 計算例
-$n=25$, $\mu=10$, $\sigma^2=16$ とする。まず標本平均の分散を計算すると
+また独立性より共分散項が消えるので
 $$
 \operatorname{Var}(\overline X)
-=\frac{\sigma^2}{n}
-=\frac{16}{25}.
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
+=\frac{\sigma^2}{n}.
 $$
 したがって標準誤差は
 $$
-\operatorname{SE}(\overline X)
-=\sqrt{\frac{16}{25}}
-=\frac45.
+\operatorname{SE}(\overline X)=\frac{\sigma}{\sqrt n}.
 $$
-正規母集団の線形結合なので分布の形も正規のままであり、
+
+ここまでは母集団が正規分布でなくても成り立つ。さらに
 $$
-\overline X\sim N\left(10,\frac{16}{25}\right).
+X_i\overset{\mathrm{i.i.d.}}{\sim}N(\mu,\sigma^2)
 $$
+なら、独立な正規確率変数の線形結合も正規分布なので有限標本で厳密に
+$$
+\overline X\sim N\left(\mu,\frac{\sigma^2}{n}\right).
+$$
+非正規母集団ではこの最後の正規性は一般に厳密ではなく、大標本なら中心極限定理による近似として現れる。
+
+## 計算例
+$n=25$, $\mu=10$, $\sigma^2=16$ とする。母集団の形によらず
+$$
+E[\overline X]=10,
+\qquad
+\operatorname{Var}(\overline X)=\frac{16}{25},
+$$
+なので
+$$
+\operatorname{SE}(\overline X)=\frac45.
+$$
+母集団が $N(10,16)$ なら、これに加えて
+$$
+\overline X\sim N\left(10,\frac{16}{25}\right)
+$$
+が有限標本で厳密に成り立つ。
+
+また和 $S_n=\sum_{i=1}^nX_i$ については独立性から
+$$
+\operatorname{Var}(S_n)=n\sigma^2,
+$$
+これを $n^2$ で割ると標本平均の分散 $\sigma^2/n$ が得られる。
 
 ## 一手
-標本平均の分散は母分散を $n$ で割る。標準偏差は $\sigma/\sqrt n$。
+標本平均を見たら、まず期待値の線形性で不偏性、独立和の分散で $\sigma^2/n$ を出す。正規母集団なら最後に線形結合の閉性から厳密な正規分布まで言う。
 
 ## 注意
-$\overline X$ の標準偏差を標準誤差 $\operatorname{SE}(\overline X)=\sigma/\sqrt n$ と呼ぶ。
+$E[\overline X]=\mu$ は正規性を必要としない。$\operatorname{Var}(\overline X)=\sigma^2/n$ には独立性または共分散項が0になる条件が必要。有限標本で $\overline X$ が正規分布になるという結論は正規母集団に依存する。
 
 <!-- CARD -->
 
