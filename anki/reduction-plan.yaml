@@ -1,33 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-29-poisson-ols-dedupe-02
+batch_id: 2026-08-29-continuity-dedupe-01
 items:
-  - id: reg-ols-simple-formula
+  - id: dist-continuity-correction-single
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: dist-continuity-correction-interval
+    note: 一点事象 X=k は区間 k<=X<=k の特殊例で、連続近似では [k-0.5,k+0.5] へ置き換える。区間カードの同一moveに含める。
+  - id: samp-continuity-correction
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-ols-normal-equations-simple
-    note: 傾き・切片公式は正規方程式を解く導出カードの結論そのもの。公式単独暗記を残さず、導出から再生するカードをcanonicalにする。
-  - id: engproc-poisson-failure-count
+    canonical_card: dist-continuity-correction-interval
+    note: 二項分布の正規近似で整数区間を±0.5修正する同一操作。標本分布名前空間で反復しない。
+  - id: engasym-binomial-continuity-correction
     bucket: duplicates
     reason: duplicate
-    canonical_card: stoch-poisson-count-numeric
-    note: N(t)~Poisson(lambda t) として区間内件数確率を計算する同一操作。工学側はNHPPや曝露時間MLEなど固有論点を残す。
-  - id: engproc-poisson-thinning-defects
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: stoch-poisson-thinning
-    note: 各到着を独立確率pで分類して率をp lambdaへ落とす同じ間引き操作。
-  - id: engproc-poisson-superposition-machines
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: stoch-poisson-superposition
-    note: 独立ポアソン過程を重ねて率を加算する同一定理・同一計算。
-  - id: engproc-compound-poisson-cost
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: stoch-compound-poisson-moments
-    note: 複合ポアソン和の平均lambda muと分散lambda(sigma^2+mu^2)を求める同一moveの数値設定版。
-  - id: process-poisson-wait
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: stoch-poisson-arrival-gamma
-    note: 最初の到着時刻が指数分布になる議論は、第k到着時刻Gamma(k,lambda)のk=1。一般カードをcanonicalにする。
+    canonical_card: dist-continuity-correction-interval
+    note: 工学設定でも二項分布の連続性補正は同じ±0.5操作。engineering-asymptotics にはCLT・Slutsky等の別論点を残す。
