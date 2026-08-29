@@ -1,227 +1,168 @@
 schema_version: 1
-batch_id: 2026-08-29-time-series-traceability-04
+batch_id: 2026-08-29-bayes-canonical-traceability-05
 items:
-  - id: ts-pacf-lag2-calculation
-    note: PACFの公式代入を答え欄から計算例へ移し、分子・分母を別々に計算して追えるようにする。
+  - id: bayes-normal-normal-update
+    note: 一般式・数値例・精度表記を1枚へ統合できるよう、平方完成を途中式付きで導出し数値例まで動かす。
     sections:
+      一手: |
+        正規–正規更新では、尤度と事前分布の指数部を足し、$\mu^2$ の係数を**事後精度**、$\mu$ の一次係数を**精度付き平均**として平方完成する。
       答え: |
-        ラグ2偏自己相関は
         $$
-        \alpha_{22}=-0.25.
-        $$
-      計算例: |
-        まず分子を計算する。
-        $$
-        \begin{aligned}
-        \rho_2-\rho_1^2
-        &=0.2-0.6^2\\
-        &=0.2-0.36\\
-        &=-0.16.
-        \end{aligned}
-        $$
-        次に分母は
-        $$
-        \begin{aligned}
-        1-\rho_1^2
-        &=1-0.6^2\\
-        &=1-0.36\\
-        &=0.64.
-        \end{aligned}
-        $$
-        よってDurbin--Levinson公式へ代入して
-        $$
-        \begin{aligned}
-        \alpha_{22}
-        &=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}\\
-        &=\frac{-0.16}{0.64}\\
-        &=-0.25.
-        \end{aligned}
-        $$
-        なおAR$(1)$ では理論自己相関が $\rho_2=\rho_1^2$ を満たすので、この分子が0となりラグ2偏自己相関も0になる。
-  - id: ts-ar-causality-check
-    note: 二次方程式の解を一行で飛ばさず、係数整理→解の公式→数値→絶対値比較へ分ける。
-    sections:
-      答え: |
-        AR多項式の2根は約
-        $$
-        z_1=1.31,
-        \qquad
-        z_2=-3.81
-        $$
-        で、ともに絶対値が1より大きい。したがってこのAR$(2)$モデルは因果的である。
-      計算例: |
-        AR多項式は
-        $$
-        \phi(z)=1-0.5z-0.2z^2.
-        $$
-        根を求めるため
-        $$
-        1-0.5z-0.2z^2=0
-        $$
-        を
-        $$
-        0.2z^2+0.5z-1=0
-        $$
-        と書き直す。解の公式より
-        $$
-        \begin{aligned}
-        z
-        &=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{2(0.2)}\\
-        &=\frac{-0.5\pm\sqrt{0.25+0.8}}{0.4}\\
-        &=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
-        \end{aligned}
-        $$
-        $\sqrt{1.05}\approx1.0247$ なので
-        $$
-        z_1\approx\frac{0.5247}{0.4}\approx1.31,
+        s_n^2
+        =\left(\frac1{s_0^2}+\frac n{\sigma^2}\right)^{-1},
         $$
         $$
-        z_2\approx\frac{-1.5247}{0.4}\approx-3.81.
-        $$
-        最後に
-        $$
-        |z_1|\approx1.31>1,
-        \qquad
-        |z_2|\approx3.81>1
-        $$
-        を確認する。すべての根が単位円の外側なので因果的である。
-  - id: ts-linear-detrend
-    note: 最小二乗の傾き・切片・残差系列を計算例へ移し、公式のどこへ数値を入れたか追えるようにする。
-    sections:
-      答え: |
-        推定トレンドは
-        $$
-        \widehat X_t=1+2t
-        $$
-        であり、トレンド除去後の系列は
-        $$
-        (0,0,0)
-        $$
-        である。
-      計算例: |
-        時点は $(1,2,3)$、観測は $(3,5,7)$ なので
-        $$
-        \bar t=\frac{1+2+3}{3}=2,
-        \qquad
-        \bar X=\frac{3+5+7}{3}=5.
-        $$
-        傾きの分子は
-        $$
-        \begin{aligned}
-        \sum_t(t-\bar t)(X_t-\bar X)
-        &=(-1)(-2)+0\cdot0+1\cdot2\\
-        &=4,
-        \end{aligned}
-        $$
-        分母は
-        $$
-        \begin{aligned}
-        \sum_t(t-\bar t)^2
-        &=(-1)^2+0^2+1^2\\
-        &=2.
-        \end{aligned}
+        m_n
+        =s_n^2\left(
+        \frac{m_0}{s_0^2}
+        +\frac{n\bar x}{\sigma^2}
+        \right),
         $$
         したがって
         $$
-        \widehat b=\frac42=2,
-        $$
-        $$
-        \widehat a=\bar X-\widehat b\bar t=5-2\cdot2=1.
-        $$
-        推定トレンド値は
-        $$
-        (1+2\cdot1,\ 1+2\cdot2,\ 1+2\cdot3)=(3,5,7)
-        $$
-        なので、元の観測から引けば
-        $$
-        (3,5,7)-(3,5,7)=(0,0,0).
-        $$
-  - id: ts-sample-acf
-    note: 平均→偏差→ラグ1積和→偏差平方和→比の順に計算例へ移す。
-    sections:
-      答え: |
-        ラグ1標本自己相関は
-        $$
-        \widehat\rho_1=0.
+        \mu\mid\boldsymbol x\sim N(m_n,s_n^2).
         $$
       計算例: |
-        まず標本平均は
+        尤度と事前分布の $\mu$ に依存する部分だけを残すと
         $$
-        \bar x=\frac{1+2+3+2}{4}=2.
+        \pi(\mu\mid\boldsymbol x)
+        \propto
+        \exp\left[
+        -\frac12\left\{
+        \frac n{\sigma^2}(\mu-\bar x)^2
+        +\frac1{s_0^2}(\mu-m_0)^2
+        \right\}
+        \right].
         $$
-        したがって偏差列は
-        $$
-        (x_t-\bar x)=(-1,0,1,0).
-        $$
-        ラグ1の分子は、1時点ずらした偏差の積を足して
-        $$
-        \begin{aligned}
-        \sum_{t=2}^4(x_t-\bar x)(x_{t-1}-\bar x)
-        &=0(-1)+1(0)+0(1)\\
-        &=0.
-        \end{aligned}
-        $$
-        分母は
+        中括弧を $\mu$ について展開する。
         $$
         \begin{aligned}
-        \sum_{t=1}^4(x_t-\bar x)^2
-        &=(-1)^2+0^2+1^2+0^2\\
-        &=2.
+        &\frac n{\sigma^2}(\mu-\bar x)^2
+        +\frac1{s_0^2}(\mu-m_0)^2\\
+        &=\left(\frac n{\sigma^2}+\frac1{s_0^2}\right)\mu^2
+        -2\left(
+        \frac{n\bar x}{\sigma^2}
+        +\frac{m_0}{s_0^2}
+        \right)\mu
+        +C,
         \end{aligned}
+        $$
+        ここで $C$ は $\mu$ に依存しない。
+
+        $$
+        A=\frac n{\sigma^2}+\frac1{s_0^2},
+        \qquad
+        B=\frac{n\bar x}{\sigma^2}+\frac{m_0}{s_0^2}
+        $$
+        と置けば
+        $$
+        \begin{aligned}
+        A\mu^2-2B\mu
+        &=A\left\{
+        \mu^2-2\frac BA\mu
+        \right\}\\
+        &=A\left(\mu-\frac BA\right)^2
+        -\frac{B^2}{A}.
+        \end{aligned}
+        $$
+        最後の項は正規化定数へ吸収できるため、事後分布は
+        $$
+        N\left(\frac BA,\frac1A\right)
+        $$
+        である。すなわち $s_n^2=1/A$, $m_n=B/A$。
+
+        数値例として $m_0=0$, $s_0^2=4$, $\sigma^2=9$, $n=9$, $\bar x=3$ とすると
+        $$
+        A=\frac14+\frac99=\frac54,
+        \qquad
+        s_n^2=\frac1A=\frac45=0.8.
+        $$
+        また
+        $$
+        B=\frac0{4}+\frac{9\cdot3}{9}=3,
+        $$
+        したがって
+        $$
+        m_n=\frac BA=3\cdot\frac45=\frac{12}{5}=2.4.
         $$
         よって
         $$
-        \widehat\rho_1=\frac02=0.
+        \mu\mid\boldsymbol x\sim N(2.4,0.8).
         $$
-  - id: ts-spectral-density-ar1
-    note: フィルタ表示→複素絶対値の二乗→余弦への整理→スペクトル密度という導出を計算例で追える形にする。
+        事前平均0と標本平均3の間へ縮小されていることも確認できる。
+      注意: |
+        精度は分散の逆数である。したがって
+        $$
+        \frac1{s_n^2}
+        =\frac1{s_0^2}+\frac n{\sigma^2}
+        $$
+        は「事後精度＝事前精度＋データ精度」を表す。標本平均の分散は $\sigma^2/n$ なので、データ精度は $n/\sigma^2$ である。
+  - id: bayes-factor-discrete-numeric
+    note: ベイズファクターの定義・数値計算・事前オッズ更新・proper事前と感度の注意を1枚へ吸収する。
     sections:
-      答え: |
-        AR$(1)$ のスペクトル密度は
+      使用公式・定理: |
+        モデル $M_k$ の周辺尤度は
         $$
-        f_X(\lambda)
-        =\frac{\sigma^2}
-        {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
+        m_k(x)
+        =\int f_k(x\mid\theta_k)\pi_k(\theta_k)d\theta_k.
+        $$
+        ベイズファクターは
+        $$
+        BF_{10}=\frac{m_1(x)}{m_0(x)}.
+        $$
+        事後オッズは
+        $$
+        \frac{P(M_1\mid x)}{P(M_0\mid x)}
+        =BF_{10}
+        \frac{P(M_1)}{P(M_0)}.
+        $$
+      一手: |
+        ベイズファクターでは各モデルの母数を最尤値へ固定せず、**モデル内の事前分布で尤度を積分した周辺尤度**を比べる。その後、事前オッズを掛けて事後オッズへ更新する。
+      答え: |
+        $$
+        BF_{10}=4,
+        \qquad
+        P(M_1\mid x)=0.8.
         $$
       計算例: |
-        AR$(1)$ を
+        与えられた周辺尤度は
         $$
-        (1-\phi B)X_t=\varepsilon_t
+        m_1(x)=0.12,
+        \qquad
+        m_0(x)=0.03.
         $$
-        と書けば
-        $$
-        X_t=(1-\phi B)^{-1}\varepsilon_t
-        $$
-        なので、線形フィルタは
-        $$
-        \psi(z)=\frac1{1-\phi z}.
-        $$
-        よって
-        $$
-        \left|\psi(e^{-i\lambda})\right|^2
-        =\frac1{|1-\phi e^{-i\lambda}|^2}.
-        $$
-        分母を計算すると
+        したがって
         $$
         \begin{aligned}
-        |1-\phi e^{-i\lambda}|^2
-        &=(1-\phi e^{-i\lambda})(1-\phi e^{i\lambda})\\
-        &=1-\phi(e^{i\lambda}+e^{-i\lambda})+\phi^2\\
-        &=1-2\phi\cos\lambda+\phi^2.
+        BF_{10}
+        &=\frac{m_1(x)}{m_0(x)}\\
+        &=\frac{0.12}{0.03}\\
+        &=4.
         \end{aligned}
         $$
-        したがって線形フィルタ公式から
+        事前モデル確率が等しいので事前オッズは
         $$
-        f_X(\lambda)
-        =\frac{\sigma^2}
-        {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
+        \frac{P(M_1)}{P(M_0)}=1.
         $$
-        例えば $\phi=0.5$, $\sigma^2=1$, $\lambda=0$ なら
+        よって事後オッズは
+        $$
+        \frac{P(M_1\mid x)}{P(M_0\mid x)}
+        =4\cdot1=4.
+        $$
+        $P(M_0\mid x)=1-P(M_1\mid x)$ と置けば
+        $$
+        \frac{P(M_1\mid x)}{1-P(M_1\mid x)}=4.
+        $$
+        したがって
         $$
         \begin{aligned}
-        f_X(0)
-        &=\frac1{2\pi(1+0.25-1)}\\
-        &=\frac1{2\pi(0.25)}\\
-        &=\frac2\pi.
+        P(M_1\mid x)
+        &=4\{1-P(M_1\mid x)\},\\
+        5P(M_1\mid x)&=4,\\
+        P(M_1\mid x)&=0.8.
         \end{aligned}
         $$
+      注意: |
+        ベイズファクターは事後確率そのものではなく、**データによるモデル間オッズの更新倍率**である。また周辺尤度は事前分布全体で尤度を平均するため、複合モデル側の事前尺度に敏感になり得る。
+
+        通常のベイズファクターではモデル内事前分布をproperに取る。improper事前 $\pi_k(\theta)\propto c_kh_k(\theta)$ では任意定数 $c_1/c_0$ が周辺尤度比に残り、ベイズファクターが一意に定まらないことがある。
