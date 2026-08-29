@@ -2024,14 +2024,10 @@ items:
       - reg-general-linear-hypothesis
       - reg-press-loocv
       - reg-dffits-numeric
-      - reg-dfbeta-meaning
       - reg-hc3-sandwich
       - reg-feasible-gls-steps
-      - reg-elastic-net-objective
-      - reg-lasso-kkt-zero
       - reg-ridge-svd-shrinkage
       - reg-mallows-cp
-      - reg-bic-selection
       - reg-nested-cross-validation
       - reg-software-output-interpretation
     terms:
@@ -2048,9 +2044,7 @@ items:
           - reg-stepwise-selection-warning
           - reg-lasso-soft-threshold
           - reg-lasso-vs-ridge
-          - reg-elastic-net-objective
           - reg-mallows-cp
-          - reg-bic-selection
           - reg-nested-cross-validation
       - name: 残差分析
         status: card
@@ -2058,7 +2052,6 @@ items:
           - reg-breusch-pagan-idea
           - reg-press-loocv
           - reg-dffits-numeric
-          - reg-dfbeta-meaning
           - reg-hc3-sandwich
       - name: 一般化最小二乗推定
         status: card
@@ -2082,8 +2075,6 @@ items:
         cards:
           - reg-lasso-soft-threshold
           - reg-lasso-vs-ridge
-          - reg-elastic-net-objective
-          - reg-lasso-kkt-zero
       - name: 回帰診断法
         status: card
         cards:
@@ -2092,7 +2083,6 @@ items:
           - reg-robust-sandwich
           - reg-press-loocv
           - reg-dffits-numeric
-          - reg-dfbeta-meaning
           - reg-hc3-sandwich
   - id: applied-multivariate
     status: complete
@@ -2105,12 +2095,9 @@ items:
       - mv-hotelling-one-sample
       - mv-hotelling-f-transform
       - mv-pca-variance-max
-      - mv-pca-eigen-numeric
-      - mv-pca-contribution-rate
-      - mv-pca-score
+      - mv-pca-software-output
       - mv-pca-loading
       - mv-pca-covariance-vs-correlation
-      - mv-pca-reconstruction
       - mv-factor-model-covariance
       - mv-factor-communality
       - mv-factor-rotation
@@ -2145,19 +2132,14 @@ items:
       - glm-nonlinear-regression-gradient
       - glm-svm-margin
       - glm-software-deviance-output
-      - mv-pca-software-output
     terms:
       - name: 主成分分析
         status: card
         cards:
           - mv-pca-variance-max
-          - mv-pca-eigen-numeric
-          - mv-pca-contribution-rate
-          - mv-pca-score
+          - mv-pca-software-output
           - mv-pca-loading
           - mv-pca-covariance-vs-correlation
-          - mv-pca-reconstruction
-          - mv-pca-software-output
       - name: 因子分析
         status: card
         cards:

@@ -1,5 +1,3 @@
-
-
 ---
 id: mv-mean-covariance-numeric
 title: 多変量標本の平均ベクトルと分散共分散行列を計算する
@@ -82,6 +80,7 @@ $$
 
 ## 注意
 対角は分散、非対角は共分散。
+
 <!-- CARD -->
 
 ---
@@ -117,6 +116,7 @@ $1.20/0.40=3.00$ と出力内の整合性を確認できる。
 
 ## 注意
 有意性だけで効果の大きさ・因果性を結論しない。
+
 <!-- CARD -->
 
 ---
@@ -192,6 +192,7 @@ $$
 
 ## 注意
 分散固定の二項・ポアソンモデルでは近似条件と過分散も確認する。
+
 <!-- CARD -->
 
 ---
@@ -260,6 +261,7 @@ $$
 
 ## 注意
 固有ベクトル成分と変数・主成分間相関を区別する。
+
 <!-- CARD -->
 
 ---
@@ -332,6 +334,7 @@ $q=1$ の1本の線形制約なら、このF統計量は対応するt統計量�
 
 ## 注意
 Rは行フルランクとする。
+
 <!-- CARD -->
 
 ---
@@ -370,6 +373,7 @@ $$e_{(i)}=y_i-\widehat y_{(i)}=\frac{e_i}{1-h_{ii}}
 
 ## 注意
 式は線形最小二乗法に対する恒等式。
+
 <!-- CARD -->
 
 ---
@@ -452,42 +456,7 @@ $$
 
 ## 注意
 DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジの観測は大きな影響を持ち得るが、閾値超過だけで機械的にデータを削除しない。
-<!-- CARD -->
 
----
-id: reg-dfbeta-meaning
-title: DFBETAの符号と大きさを解釈する
-category: applied-common
-subcategory: applied-multiple-regression
-topic: dfbeta
-type: formula
-difficulty: 3
-priority: B
-hashtags: [回帰診断法, DFBETA, 影響点]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰診断法 }]
----
-
-## 問題
-係数jに対する観測iのDFBETAを定義し、正の値を解釈せよ。
-
-## 記号・用語
-- DFBETA：観測を除いたときの回帰係数変化を測る回帰診断量
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-標準誤差で割った尺度化版をDFBETASと呼ぶ。
-
-## 答え
-$$\operatorname{DFBETA}_{ij}=\widehat\beta_j-\widehat\beta_{j(i)},$$
-ここで $\widehat\beta_{j(i)}$ は観測iを除いた推定値。正なら観測iを含めることで係数jが大きくなる。
-
-## 計算例
-$\widehat\beta_j=1.2,\widehat\beta_{j(i)}=0.8$ ならDFBETA=0.4。
-
-## 注意
-各係数ごとに影響が異なる。
 <!-- CARD -->
 
 ---
@@ -527,6 +496,7 @@ $h_{ii}=0$ ならその観測の補正倍率は1。
 
 ## 注意
 誤差の独立性はなお必要で、系列相関には別の補正を使う。
+
 <!-- CARD -->
 
 ---
@@ -566,77 +536,7 @@ $$\widehat{\boldsymbol\beta}_{\mathrm{FGLS}}
 
 ## 注意
 Ωの誤指定は効率や標準誤差へ影響する。
-<!-- CARD -->
 
----
-id: reg-elastic-net-objective
-title: Elastic Netの目的関数を書く
-category: applied-common
-subcategory: applied-multiple-regression
-topic: elastic-net
-type: formula
-difficulty: 3
-priority: B
-hashtags: [L1正則化法, Elastic Net, 変数選択]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: L1正則化法 }]
----
-
-## 問題
-Elastic Netの目的関数を書き、LassoとRidgeを含むことを示せ。
-
-## 記号・用語
-- L1：係数絶対値の和を使うL1罰則
-- L2：係数平方和を使うL2罰則
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-L1とL2罰則の凸結合。
-
-## 答え
-$$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2
-+\lambda\left\{\alpha\sum_j|\beta_j|+\frac{1-\alpha}{2}\sum_j\beta_j^2\right\}.$$
-$\alpha=1$ でLasso、$\alpha=0$ でRidge型になる。
-
-## 計算例
-相関する変数群をまとめて残しつつ疎性も得やすい。
-
-## 注意
-通常は切片を罰せず説明変数を標準化する。
-<!-- CARD -->
-
----
-id: reg-lasso-kkt-zero
-title: Lasso係数が0となるKKT条件を判定する
-category: applied-common
-subcategory: applied-multiple-regression
-topic: lasso-kkt
-type: calc_step
-difficulty: 4
-priority: A
-hashtags: [L1正則化法, Lasso, KKT条件]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: L1正則化法 }]
----
-
-## 問題
-$\frac12\|\boldsymbol y-\boldsymbol X\boldsymbol\beta\|^2+\lambda\sum_j|\beta_j|$ を最小化するLassoで、係数jが0となり得る条件を書け。現在の部分残差との内積が0.7、$\lambda=1$ なら判定せよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-絶対値の0における劣勾配は区間 $[-1,1]$。
-
-## 答え
-$$|\boldsymbol x_j^{\mathsf T}(\boldsymbol y-\boldsymbol X\widehat{\boldsymbol\beta})|\le\lambda$$
-なら $\widehat\beta_j=0$ がKKT条件を満たす。$0.7\le1$ なので0となり得る。
-
-## 計算例
-絶対値がλを超えれば非零係数が必要。
-
-## 注意
-列の尺度と目的関数の係数規約に依存する。
 <!-- CARD -->
 
 ---
@@ -669,6 +569,7 @@ $$\frac{d^2}{d^2+\lambda}=\frac4{4+3}=\frac47.$$
 
 ## 注意
 分散低下と引換えにバイアスを導入する。
+
 <!-- CARD -->
 
 ---
@@ -702,45 +603,7 @@ $$C_p=\frac{SSE_p}{\widehat\sigma^2}-n+2p
 
 ## 注意
 分散推定値を共通の十分大きいモデルから得る。
-<!-- CARD -->
 
----
-id: reg-bic-selection
-title: BICで回帰モデルを比較する
-category: applied-common
-subcategory: applied-multiple-regression
-topic: bic-selection
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [変数選択, BIC, モデル比較]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数選択 }]
----
-
-## 問題
-n=100で、モデル1は最大対数尤度-120・母数5個、モデル2は-116・母数8個である。BICで選べ。$\log100\approx4.605$ とする。
-
-## 記号・用語
-- AIC：赤池情報量規準
-- BIC：ベイズ情報量規準
-- $\ell$：対数尤度
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$BIC=-2\ell(\widehat\theta)+k\log n$。
-
-## 答え
-$$BIC_1=240+5(4.605)=263.025,$$
-$$BIC_2=232+8(4.605)=268.84.$$
-小さいモデル1を選ぶ。
-
-## 計算例
-このnでは1母数当たり罰則4.605でAICの2より強い。
-
-## 注意
-同じ応答データに対する尤度で比較する。
 <!-- CARD -->
 
 ---
@@ -773,6 +636,7 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 
 ## 注意
 前処理や標準化も内側の学習データだけで推定する。
+
 <!-- CARD -->
 
 ---
@@ -807,6 +671,7 @@ $$\operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
 
 ## 注意
 相関があれば $2a_1a_2\sigma_{12}$ を含む。
+
 <!-- CARD -->
 
 ---
@@ -841,6 +706,7 @@ $$d^2=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymb
 
 ## 注意
 分散共分散行列の可逆性が必要。
+
 <!-- CARD -->
 
 ---
@@ -874,6 +740,7 @@ $$T^2=n(\bar{\boldsymbol x}-\boldsymbol\mu_0)^{\mathsf T}\boldsymbol S^{-1}(\bar
 
 ## 注意
 各成分別t検定の寄せ集めではない。
+
 <!-- CARD -->
 
 ---
@@ -908,6 +775,7 @@ n>pが必要。
 
 ## 注意
 標本共分散の分母をn-1とする規約。
+
 <!-- CARD -->
 
 ---
@@ -997,108 +865,7 @@ $$
 
 ## 注意
 データは中心化しておく。固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。標準化PCAでは分散共分散行列ではなく相関行列に対して同じ固有値問題を解く。
-<!-- CARD -->
 
----
-id: mv-pca-eigen-numeric
-title: 2変量分散共分散行列の主成分を求める
-category: applied-common
-subcategory: applied-multivariate
-topic: pca-eigenproblem
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [主成分分析, 固有値, 固有ベクトル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 主成分分析と固有値問題 }]
----
-
-## 問題
-$\boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ の固有値と第1主成分方向を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-主成分方向は分散共分散行列の固有ベクトル。
-
-## 答え
-$$|\boldsymbol S-\lambda\boldsymbol I|=(2-\lambda)^2-1=0$$
-より固有値は3,1。λ=3では $a_1=a_2$ なので、単位固有ベクトルは
-$$\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.$$
-
-## 計算例
-第2方向は $(1,-1)^{\mathsf T}/\sqrt2$。
-
-## 注意
-固有ベクトルの符号は任意。
-<!-- CARD -->
-
----
-id: mv-pca-contribution-rate
-title: 主成分分析の寄与率と累積寄与率を計算する
-category: applied-common
-subcategory: applied-multivariate
-topic: pca-contribution-rate
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [主成分分析, 寄与率, 累積寄与率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 寄与率・累積寄与率 }]
----
-
-## 問題
-固有値が5,3,1,1のとき、第1・第2主成分の寄与率と第2までの累積寄与率を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-第j寄与率は $\lambda_j/\sum_k\lambda_k$。
-
-## 答え
-総分散は10。寄与率は $5/10=0.5$、$3/10=0.3$、累積寄与率は0.8。
-
-## 計算例
-第2までで全分散の80%を保持する。
-
-## 注意
-寄与率だけで解釈可能性は保証されない。
-<!-- CARD -->
-
----
-id: mv-pca-score
-title: 主成分得点を計算する
-category: applied-common
-subcategory: applied-multivariate
-topic: pca-score
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [主成分分析, 主成分得点, 固有ベクトル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 主成分分析 }]
----
-
-## 問題
-中心化観測が $(2,-1)^{\mathsf T}$、第1主成分方向が $(1,1)^{\mathsf T}/\sqrt2$ のとき得点を求めよ。
-
-## 記号・用語
-- PCA：主成分分析（principal component analysis）
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-主成分得点は中心化データの固有ベクトルへの射影。
-
-## 答え
-$$z_1=\boldsymbol a_1^{\mathsf T}(\boldsymbol x-\bar{\boldsymbol x})
-=\frac{2-1}{\sqrt2}=\frac1{\sqrt2}.$$
-
-## 計算例
-全主成分を使えば直交変換で情報を失わない。
-
-## 注意
-標準化主成分分析では先に各変数を標準化する。
 <!-- CARD -->
 
 ---
@@ -1135,6 +902,7 @@ $$\operatorname{Corr}(X_k,Z_j)=\frac{\sqrt{\lambda_j}a_{kj}}{s_k}
 
 ## 注意
 文献により固有ベクトル成分自体を負荷量と呼ぶ。
+
 <!-- CARD -->
 
 ---
@@ -1170,39 +938,7 @@ cmとkgをそのまま混ぜると単位選択で結果が変わる。
 
 ## 注意
 標準化が常に正しいわけではない。
-<!-- CARD -->
 
----
-id: mv-pca-reconstruction
-title: 切り捨て主成分分析の再構成誤差を計算する
-category: applied-common
-subcategory: applied-multivariate
-topic: pca-reconstruction
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [主成分分析, 次元削減, 再構成誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 主成分分析 }]
----
-
-## 問題
-固有値が6,2,1である。第1主成分だけ残すと1観測当たりの平均二乗再構成誤差の総和はいくらか。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-上位m主成分による最小再構成誤差は $\sum_{j>m}\lambda_j$。
-
-## 答え
-捨てた方向の分散和なので
-$$\lambda_2+\lambda_3=2+1=3.$$
-
-## 計算例
-第2まで残せば誤差は1。
-
-## 注意
-データを中心化したEuclid距離での結果。
 <!-- CARD -->
 
 ---
@@ -1240,6 +976,7 @@ $$\operatorname{Var}(\boldsymbol X)
 
 ## 注意
 主成分分析は確率的潜在因子モデルと同じではない。
+
 <!-- CARD -->
 
 ---
@@ -1274,6 +1011,7 @@ $$\psi_i=1-h_i^2=0.39.$$
 
 ## 注意
 斜交回転では単純な平方和解釈に注意する。
+
 <!-- CARD -->
 
 ---
@@ -1309,6 +1047,7 @@ Varimaxは負荷量平方の分散を大きくする直交回転。
 
 ## 注意
 回転後の因子順序・符号は一意でない。
+
 <!-- CARD -->
 
 ---
@@ -1345,6 +1084,7 @@ $$\widehat{\boldsymbol F}
 
 ## 注意
 因子得点は観測された真値ではなく推定値で、推定法により異なる。
+
 <!-- CARD -->
 
 ---
@@ -1380,6 +1120,7 @@ $$\boldsymbol w\propto\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0).
 
 ## 注意
 倍率は分類境界を変えない。
+
 <!-- CARD -->
 
 ---
@@ -1415,6 +1156,7 @@ $$\boldsymbol w=\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0)
 
 ## 注意
 事前確率と誤分類費用が閾値を変える。
+
 <!-- CARD -->
 
 ---
@@ -1453,6 +1195,7 @@ $\delta_k$ が最大の群へ分類する。
 
 ## 注意
 群ごとに共分散が異なる場合はQDAで境界が二次になる。
+
 <!-- CARD -->
 
 ---
@@ -1489,6 +1232,7 @@ QDAは柔軟だが推定母数が多い。
 
 ## 注意
 小標本・高次元ではLDAの方が安定しやすい。
+
 <!-- CARD -->
 
 ---
@@ -1521,6 +1265,7 @@ sources: [{ type: official_syllabus, topic: クラスタリング階層法 }]
 
 ## 注意
 単連結は鎖状化しやすい。
+
 <!-- CARD -->
 
 ---
@@ -1554,6 +1299,7 @@ $$\Delta WSS=\frac{n_An_B}{n_A+n_B}\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B
 
 ## 注意
 通常は平方Euclid距離を前提とする。
+
 <!-- CARD -->
 
 ---
@@ -1587,6 +1333,7 @@ $$\bar x_{C_1}=1,\qquad \bar x_{C_2}=9.$$
 
 ## 注意
 初期値により局所解が変わる。
+
 <!-- CARD -->
 
 ---
@@ -1620,6 +1367,7 @@ Kを増やすとWは増えない。
 
 ## 注意
 カテゴリ変数や外れ値に弱い。
+
 <!-- CARD -->
 
 ---
@@ -1655,6 +1403,7 @@ $$\boldsymbol\Sigma_{XX}^{-1}\boldsymbol\Sigma_{XY}
 
 ## 注意
 共分散ブロックの可逆性が必要。
+
 <!-- CARD -->
 
 ---
@@ -1689,6 +1438,7 @@ m次元座標は $\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}$。
 
 ## 注意
 負の固有値が大きいとEuclid距離としての再現が悪い。
+
 <!-- CARD -->
 
 ---
@@ -1727,6 +1477,7 @@ $$\widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
 
 ## 注意
 係数推定値自体は最小二乗法のまま。
+
 <!-- CARD -->
 
 ---
@@ -1765,6 +1516,7 @@ $$AIC_2=-2(-96)+2(8)=208.$$
 
 ## 注意
 AIC差が小さいと選択の不確実性も大きい。
+
 <!-- CARD -->
 
 ---
@@ -1801,6 +1553,7 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 
 ## 注意
 自動選択は因果的交絡調整の代替ではない。
+
 <!-- CARD -->
 
 ---
@@ -1835,6 +1588,7 @@ X2で説明できる部分を両方から除いて関係を見る。
 
 ## 注意
 必要な切片も残差化に含める。
+
 <!-- CARD -->
 
 ---
@@ -1868,6 +1622,7 @@ $$\kappa(\boldsymbol X)=\frac{s_{\max}}{s_{\min}}=\frac{10}{0.2}=50.$$
 
 ## 注意
 尺度の影響を避けるため標準化後に見る。
+
 <!-- CARD -->
 
 ---
@@ -1900,6 +1655,7 @@ n=100、補助回帰 $R^2=0.08$ ならLM=8。
 
 ## 注意
 正規性や小標本では近似精度に注意する。
+
 <!-- CARD -->
 
 ---
@@ -1932,6 +1688,7 @@ $g$ は平均空間を実数直線上の線形予測子へ写す。
 
 ## 注意
 誤差を応答へ加える通常の線形回帰とは表現が異なる。
+
 <!-- CARD -->
 
 ---
@@ -1965,6 +1722,7 @@ $$E[Y]=b'(\theta),\qquad \operatorname{Var}(Y)=a(\phi)b''(\theta).$$
 
 ## 注意
 分布ごとに台を確認する。
+
 <!-- CARD -->
 
 ---
@@ -1997,6 +1755,7 @@ sources: [{ type: official_syllabus, topic: 正準リンク }]
 
 ## 注意
 正準リンク以外も使用できる。
+
 <!-- CARD -->
 
 ---
@@ -2030,6 +1789,7 @@ $\eta=\log3$ ならp=3/4。
 
 ## 注意
 線形なのは確率ではなく対数オッズ。
+
 <!-- CARD -->
 
 ---
@@ -2065,6 +1825,7 @@ $$OR=e^{2\beta}=e^{2\log1.5}=1.5^2=2.25.$$
 
 ## 注意
 オッズ比を確率差と混同しない。
+
 <!-- CARD -->
 
 ---
@@ -2101,6 +1862,7 @@ $m=1$ ならベルヌーイ尤度。
 
 ## 注意
 独立性を仮定して尤度を積にする。
+
 <!-- CARD -->
 
 ---
@@ -2140,6 +1902,7 @@ $$\frac{\partial\ell}{\partial\boldsymbol\beta}
 
 ## 注意
 完全分離では有限の最尤推定値が存在しないことがある。
+
 <!-- CARD -->
 
 ---
@@ -2185,6 +1948,7 @@ $$\boldsymbol\beta^{\mathrm{new}}=(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsy
 
 ## 注意
 初期値や分離により収束しない場合がある。
+
 <!-- CARD -->
 
 ---
@@ -2217,6 +1981,7 @@ $$\frac{\mu(x+3)}{\mu(x)}=e^{3(0.4)}=e^{1.2}\approx3.32.$$
 
 ## 注意
 係数は平均の差でなく平均比を表す。
+
 <!-- CARD -->
 
 ---
@@ -2251,6 +2016,7 @@ $$\log E[Y\mid x,t]=\log t+\beta_0+\beta_1x.$$
 
 ## 注意
 t>0が必要。
+
 <!-- CARD -->
 
 ---
@@ -2289,6 +2055,7 @@ $$D=2\{\ell_{\mathrm{sat}}-\ell_{\mathrm{fit}}\}
 
 ## 注意
 モデル間比較では自由度も考慮する。
+
 <!-- CARD -->
 
 ---
@@ -2322,6 +2089,7 @@ $$X_P^2=\sum_i\frac{(y_i-\widehat\mu_i)^2}{V(\widehat\mu_i)}
 
 ## 注意
 小標本でのカイ二乗近似に注意する。
+
 <!-- CARD -->
 
 ---
@@ -2359,6 +2127,7 @@ $$G^2=D_R-D_F=30-22=8.$$
 
 ## 注意
 モデルは入れ子で、通常の正則性条件が必要。
+
 <!-- CARD -->
 
 ---
@@ -2391,6 +2160,7 @@ $\beta_2=0.2,\beta_3=0.5$ なら1.22倍と2.01倍。
 
 ## 注意
 確率尺度の交互作用とは一致しないことがある。
+
 <!-- CARD -->
 
 ---
@@ -2424,6 +2194,7 @@ $$\widehat\phi=\frac{X_P^2}{df_E}=\frac{180}{90}=2.$$
 
 ## 注意
 欠落変数、群内相関、ゼロ過剰も原因になり得る。
+
 <!-- CARD -->
 
 ---
@@ -2457,6 +2228,7 @@ $$\frac{\partial p}{\partial x}=\beta p(1-p)
 
 ## 注意
 交互作用があれば微分式に追加項が入る。
+
 <!-- CARD -->
 
 ---
@@ -2493,6 +2265,7 @@ $$P(Y=1\mid x=0.5)=\Phi(0)=0.5.$$
 
 ## 注意
 係数尺度はlogitモデルと異なる。
+
 <!-- CARD -->
 
 ---
@@ -2533,6 +2306,7 @@ $$P(Y_i^*\le0)=\Phi\left(-\frac{\boldsymbol x_i^{\mathsf T}\boldsymbol\beta}{\si
 
 ## 注意
 0が真の値として生じる切断・ゼロ過剰モデルとは異なる。
+
 <!-- CARD -->
 
 ---
@@ -2567,6 +2341,7 @@ $$\boldsymbol\theta^{\mathrm{new}}
 
 ## 注意
 初期値や局所解に依存し得る。更新式には現在値でヤコビ行列Jが列フルランクであることが必要。
+
 <!-- CARD -->
 
 ---
@@ -2605,6 +2380,7 @@ y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\ge1.$$
 
 ## 注意
 非分離データではスラック変数と罰則Cを用いる。
+
 <!-- CARD -->
 
 ---
@@ -2640,6 +2416,7 @@ $0\le h_{ii}\le1$。
 
 ## 注意
 $2k/n$ は機械的な棄却基準ではなく診断の目安。
+
 <!-- CARD -->
 
 ---
@@ -2681,6 +2458,7 @@ $\boldsymbol\Omega=\boldsymbol I$ なら最小二乗法へ戻る。
 
 ## 注意
 $\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X$ の可逆性が必要。
+
 <!-- CARD -->
 
 ---
@@ -2715,6 +2493,7 @@ $$w_1:w_2=1/1:1/4=4:1.$$
 
 ## 注意
 分散モデルを誤ると効率が落ち得る。
+
 <!-- CARD -->
 
 ---
@@ -2755,6 +2534,7 @@ $\lambda=0$ なら最小二乗法。
 
 ## 注意
 通常は切片を罰せず、説明変数を標準化する。
+
 <!-- CARD -->
 
 ---
@@ -2789,6 +2569,7 @@ $|z|\le\lambda$ なら係数は0。
 
 ## 注意
 目的関数の係数規約により閾値の表記は変わる。
+
 <!-- CARD -->
 
 ---
@@ -2825,4 +2606,3 @@ LassoはL1罰則 $\lambda\sum_j|\beta_j|$ で疎な解を作り、変数選択�
 
 ## 注意
 $\lambda$ は交差検証などで選び、尺度依存を避けるため標準化する。
-<!-- CARD -->
