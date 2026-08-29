@@ -1,0 +1,13 @@
+schema_version: 1
+batch_id: 2026-08-29-cross-namespace-01
+items:
+  - id: engproc-ar1-stationary-variance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: process-ar1-stationary
+    note: 同じAR(1)定常分散。canonical側は定常方程式 gamma(0)=phi^2 gamma(0)+sigma_e^2 を実際に解くため、公式代入だけの理工派生より解法カードとして強い。
+  - id: engasym-delta-log
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: asym-delta-method
+    note: 一般Delta法カードがTaylor展開・漸近分散・具体例まで扱う。log変換だけの理工派生を独立反復しない。
