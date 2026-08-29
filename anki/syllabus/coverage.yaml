@@ -1088,8 +1088,6 @@ items:
     cards:
       - test-normal-ci
       - ci-coverage-probability
-      - ci-coverage-frequentist
-      - ci-pivot-definition
       - ci-pivot-construction
       - ci-normal-mean-known
       - ci-t-interval-pivot
@@ -1101,7 +1099,6 @@ items:
       - ci-proportion
       - ci-proportion-diff
       - ci-one-sided
-      - ci-test-duality
       - ci-duality-acceptance
       - ci-asymptotic-def
       - ci-asymptotic-mle
@@ -1119,12 +1116,10 @@ items:
         status: card
         cards:
           - ci-coverage-probability
-          - ci-coverage-frequentist
           - ci-one-sided
       - name: 信頼区間の構成
         status: card
         cards:
-          - ci-pivot-definition
           - ci-pivot-construction
           - ci-normal-mean-known
           - ci-t-interval-pivot
@@ -1139,7 +1134,6 @@ items:
         status: card
         cards:
           - ci-coverage-probability
-          - ci-coverage-frequentist
           - ci-asymptotic-def
   - id: math-testing-foundations
     status: complete
