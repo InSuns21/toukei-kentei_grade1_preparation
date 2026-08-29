@@ -1,18 +1,88 @@
 schema_version: 1
-batch_id: 2026-08-29-independence-consolidation-18
+batch_id: 2026-08-29-sampling-distributions-consolidation-19
 items:
-  - id: prob-pairwise-not-mutual
+  - id: samp-chisq-additive
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-independent-events
-    note: 強化済み独立性canonicalへ3事象の相互独立ではペアごとの独立に加えて3重共通部分の積条件が必要であることと、ペアごとには独立だが相互独立でない具体例を吸収済み。
-  - id: prob-independent-complements
+    canonical_card: samp-chisq-definition
+    note: カイ二乗canonicalへ独立和の再生性とモーメント母関数による確認を吸収済み。
+  - id: samp-chisq-expectation-squared
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-independent-events
-    note: 独立性canonicalへP(A^c∩B)=P(B)-P(A∩B)=P(A^c)P(B)の証明と補事象への独立性の保存を吸収済み。
-  - id: prob-conditioning-breaks-independence
+    canonical_card: samp-chisq-definition
+    note: カイ二乗canonicalへZ^2~chi-square_1と平均1・分散2を吸収済み。
+  - id: samp-chisq-from-normal
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-independent-events
-    note: 独立性canonicalへ無条件で独立でも条件付け後には独立性が失われ得ること、2回の硬貨投げを「表がちょうど1回」で条件付ける反例を吸収済み。
+    canonical_card: samp-chisq-definition
+    note: カイ二乗canonicalへ標準正規平方からchi-square_1を得る2枝の変数変換を吸収済み。
+  - id: samp-chisq-gamma-relation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-chisq-definition
+    note: カイ二乗canonicalへshape-rate表示Gamma(nu/2,1/2)との一致を吸収済み。
+  - id: samp-chisq-degree-of-freedom
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-chisq-definition
+    note: カイ二乗canonicalへ自由度と平均nu・分散2nuの関係を吸収済み。
+  - id: prob-transform-normal-square-sum
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-chisq-definition
+    note: 標準正規の独立平方和、自由度、平均分散は強化済みカイ二乗canonicalに完全統合済み。
+  - id: samp-t-distribution-variance-unknown
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-t-statistic-mean-test
+    note: 母分散未知でsigmaをSへ置き換えるとt_{n-1}になる理由はt統計量canonicalに既に導出され、t分布canonicalにも構成法を統合済み。
+  - id: samp-t-converges-normal
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-t-distribution-definition
+    note: t分布canonicalへV/nuの確率収束とSlutskyによる標準正規極限を吸収済み。
+  - id: samp-t-distribution-limits
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-t-distribution-definition
+    note: t分布canonicalへ自由度1の標準コーシー分布と自由度無限大での標準正規極限を吸収済み。
+  - id: prob-transform-student-t
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-t-distribution-definition
+    note: 標準正規と独立カイ二乗の比によるt分布構成は強化済みt分布canonicalへ統合済み。
+  - id: samp-f-inverse-relation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-f-distribution-definition
+    note: F分布canonicalへ逆数で自由度が交換される関係を吸収済み。
+  - id: samp-t-squared-f
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-f-distribution-definition
+    note: F分布canonicalへt_nu^2~F_{1,nu}の導出を吸収済み。
+  - id: samp-sqrt-f-t
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-f-distribution-definition
+    note: F分布canonicalへsqrt(F_{1,nu})が|t_nu|に対応し符号を失う点を吸収済み。
+  - id: prob-transform-f-ratio
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-f-distribution-definition
+    note: 独立カイ二乗を自由度で割った比によるF分布構成は強化済みF分布canonicalへ統合済み。
+  - id: samp-min-distribution
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-order-statistics-distribution
+    note: 一般の第k順序統計量canonicalへ最小値の生存関数導出と指数分布の最小値例を吸収済み。
+  - id: prob-transform-iid-maximum-density
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-order-statistics-distribution
+    note: 最大値・最小値の一般公式と一様・指数の代表例を第k順序統計量canonicalへ統合済み。
+  - id: dist-order-max
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: samp-order-statistics-distribution
+    note: 一様標本最大値の累積分布関数から密度を求める旧pilotは一般の順序統計量canonicalの特殊例として統合済み。
