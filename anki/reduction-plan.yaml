@@ -1,28 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-29-basic-probability-dedupe-01
+batch_id: 2026-08-29-moments-dedupe-01
 items:
-  - id: prob-basic-conditional-probability
+  - id: dist-poisson-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-conditional-definition-direct
-    note: どちらも P(A|B)=P(A∩B)/P(B) へ数値を代入する同一操作。後者は過去問根拠があり、分母は条件記号右側という一手も明示する。
-  - id: prob-basic-total-probability
+    canonical_card: dist-poisson-moments-by-definition
+    note: ポアソン平均・分散という分布固有の結論は同じ。PGFから階乗モーメントを得る技能は汎用 prob-pgf-moments で保持し、分布固有カードは級数からの導出をcanonicalにする。
+  - id: dist-hypergeometric-moments-by-definition
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: dist-hypergeometric-moments
+    note: Vandermondeで平均だけを導く派生。canonical側は平均に加え分散と有限母集団補正まで扱い、試験で必要な情報が広い。
+  - id: dist-beta-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-total-probability
-    note: 分割ごとに P(D|A_j)P(A_j) を足す全確率の同一計算。既存解法カードへ統合する。
-  - id: prob-basic-bayes
+    canonical_card: dist-beta-moments-by-definition
+    note: 平均・分散の公式提示を、B(a+r,b)/B(a,b)から実際に導出するカードへ統合する。公式自体は同一で、導出側の方が再生可能性が高い。
+  - id: dist-lognormal-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-bayes-diagnostic
-    note: 事後確率を全確率で割る同一move。canonical側は過去問根拠があり、与えられた条件付き確率と求める向きが逆という理由まで扱う。
-  - id: prob-basic-inclusion-exclusion
+    canonical_card: dist-lognormal-moments-by-definition
+    note: 対数正規の平均・分散公式だけのカードを、E[e^{rY}]を平方完成して導くカードへ統合する。公式暗記より導出を正本にする。
+  - id: dist-binomial-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-inclusion-exclusion
-    note: 2事象の和集合で共通部分を1回引く完全重複。3事象版は別カードとして残す。
-  - id: prob-basic-chain-rule
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-chain-rule-three
-    note: 3事象の共通部分を P(A)P(B|A)P(C|A∩B) に分解する同一操作。より一般的な既存chain-ruleカードへ統合する。
+    canonical_card: dist-binomial-bernoulli-sum
+    note: どちらも二項変数を独立Bernoulli指示変数の和へ戻して平均np・分散np(1-p)を得る完全同一move。表現そのものを主題にした後者を残す。
