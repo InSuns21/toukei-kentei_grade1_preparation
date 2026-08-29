@@ -1,12 +1,18 @@
 chapter: "F0-00"
 terms:
   - { term: 広義積分, notation: "\\int_a^b f(x)\\,dx", meaning: 無限区間や特異点を含む積分を極限で定義したもの }
+  - { term: 部分積分, notation: "\\int_a^b f g'= [fg]_a^b-\\int_a^b f'g", meaning: 積の微分公式を積分して得られる積分変形公式 }
   - { term: ガウス積分, notation: "\\int_{-\\infty}^{\\infty}e^{-x^2}\\,dx", meaning: 値が平方根πとなる基本積分 }
   - { term: ガンマ関数, notation: "\\Gamma(s)", meaning: 階乗を実数へ拡張する積分で定義される関数 }
   - { term: ベータ関数, notation: "B(a,b)", meaning: 0から1の区間で定義されガンマ関数と結び付く積分 }
   - { term: ヤコビアン, notation: "\\det DT", meaning: 多変数変換における局所的な体積倍率を与える行列式 }
   - { term: 勾配, notation: "\\nabla g", meaning: 一階偏微分を並べた列ベクトル }
   - { term: ヘッセ行列, notation: "\\nabla^2g", meaning: 二階偏微分を並べた行列 }
+  - { term: 上限, notation: "\\sup A", meaning: 集合 A の上界のうち最小のもの。集合自身に含まれるとは限らない }
+  - { term: 下限, notation: "\\inf A", meaning: 集合 A の下界のうち最大のもの。集合自身に含まれるとは限らない }
+  - { term: ランダウ記号（ビッグオー）, notation: "O(g(x))", meaning: 対象の量が g(x) の定数倍以下の大きさに抑えられることを表す }
+  - { term: ランダウ記号（スモールオー）, notation: "o(g(x))", meaning: 対象の量を g(x) で割った比が0に収束することを表す }
+  - { term: スターリング公式, notation: "n!\\sim\\sqrt{2\\pi n}(n/e)^n", meaning: 階乗の代表的な漸近公式。ガンマ積分の Laplace 法から導ける }
   - { term: 線形包, notation: "\\operatorname{span}\\{\\boldsymbol v_1,\\ldots,\\boldsymbol v_m\\}", meaning: 与えたベクトルのすべての線形結合からなる部分空間。span とも書く }
   - { term: 零空間, notation: "\\operatorname{Null}(A)", meaning: A\\boldsymbol x=\\boldsymbol0 を満たすベクトル全体。核ともいう }
   - { term: 特異行列, notation: "\\det A=0", meaning: 逆行列を持たない正方行列。非零ベクトルを0へ写すことと同値 }
