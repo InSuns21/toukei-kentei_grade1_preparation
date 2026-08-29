@@ -1,53 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-29-transformations-consolidation-10
+batch_id: 2026-08-29-pgf-consolidation-11
 items:
-  - id: prob-transform-affine-decreasing
+  - id: prob-pgf-binomial
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-transform-log
-    note: 単調変換canonicalへ逆変換・Jacobian絶対値・台の変換を一般化し、係数が負の一次変換Y=3-2Xも数値例として吸収済み。
-  - id: prob-transform-reciprocal-uniform
+    canonical_card: prob-pgf-independent-sum
+    note: 二項分布の確率母関数はベルヌーイ独立和の積から(1-p+ps)^nを得るcanonicalで構造的に導出できるため、二項定理だけの分布別カードは独立保持しない。
+  - id: prob-pgf-geometric
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-transform-log
-    note: 単調減少の非線形例Y=1/Xをcanonicalへ吸収し、逆変換x=1/y、Jacobian 1/y^2、台y>1まで扱うため独立カードにしない。
-  - id: prob-transform-half-normal
+    canonical_card: prob-pgf-recover-pmf
+    note: 強化済み確率母関数canonicalへ幾何分布の確率質量から等比級数でps/[1-(1-p)s]を導き、収束条件まで吸収済み。
+  - id: prob-pgf-poisson
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-transform-nonmonotonic
-    note: 多対一変換canonicalでY=|X|の逆像±yを列挙してf_Y(y)=2phi(y)まで扱う。半正規分布固有の平均値は参照事項として独立カードにしない。
-  - id: prob-transform-normal-square
+    canonical_card: prob-pgf-recover-pmf
+    note: 強化済みcanonicalへポアソン分布の確率質量から指数級数でexp{lambda(s-1)}を導く全計算を吸収済み。
+  - id: prob-pgf-factorial-moment
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-transform-nonmonotonic
-    note: 多対一変換canonicalへ標準正規の二乗を追加し、±sqrt(y)の2枝とJacobianからchi-square自由度1の密度まで導出済み。
-  - id: dist-convolution-uniform
+    canonical_card: prob-pgf-recover-pmf
+    note: canonicalへG^(r)(1)が下降階乗モーメントを与える一般式と、ポアソンでE[X(X-1)]=lambda^2、E[X^2]=lambda^2+lambdaまで吸収済み。
+  - id: prob-pgf-validity
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-transform-sum-density
-    note: 一様分布2個の和を台の重なりから三角密度へ導く同一計算。補強済み畳み込みcanonicalで完全に扱う。
-  - id: prob-transform-uniform-sum-triangular
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-sum-density
-    note: 畳み込みcanonicalへU(0,1)同士の和の積分区間max(0,s-1)<x<min(1,s)と区分的三角密度を吸収済み。
-  - id: prob-transform-uniform-difference-triangular
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-sum-density
-    note: 畳み込みcanonicalへ差D=X-Yの一般式とU(0,1)でf_D(d)=1-|d|の計算を吸収済み。
-  - id: prob-transform-unequal-exponential-sum
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-sum-density
-    note: 畳み込みcanonicalへ異なる率lambda,muの指数分布和も積分途中から最終密度まで吸収済み。
-  - id: prob-transform-exponential-ratio
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-ratio
-    note: 比の分布canonicalへ分母で条件付ける一般式とExp(1)同士の比F_R(r)=r/(1+r), f_R(r)=1/(1+r)^2を吸収済み。
-  - id: prob-transform-iid-minimum-density
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-iid-maximum-density
-    note: 最大値canonicalへ最小値を生存関数の双対として統合し、一般密度と指数分布でExp(n lambda)になる計算まで吸収済み。
+    canonical_card: prob-pgf-recover-pmf
+    note: canonicalへ係数非負かつG(1)=1という妥当性判定と、負係数を持つ反例を吸収済み。
