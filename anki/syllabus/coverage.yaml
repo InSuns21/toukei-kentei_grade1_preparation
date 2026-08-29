@@ -15,11 +15,8 @@ items:
       - prob-conditional-definition-direct
       - prob-total-probability
       - prob-independent-events
-      - prob-pairwise-not-mutual
       - prob-complement-at-least-one
       - prob-chain-rule-three
-      - prob-independent-complements
-      - prob-conditioning-breaks-independence
       - prob-counting-sample-space
       - prob-basic-sample-space
       - prob-basic-conditional-independence
@@ -37,15 +34,12 @@ items:
         status: card
         cards:
           - prob-independent-events
-          - prob-pairwise-not-mutual
-          - prob-independent-complements
-          - prob-conditioning-breaks-independence
       - name: 条件付き確率
         status: card
         cards:
           - prob-conditional-definition-direct
           - prob-chain-rule-three
-          - prob-conditioning-breaks-independence
+          - prob-independent-events
       - name: ベイズの定理
         status: card
         cards:
