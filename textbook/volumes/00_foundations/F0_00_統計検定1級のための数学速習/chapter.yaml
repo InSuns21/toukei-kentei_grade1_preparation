@@ -10,10 +10,13 @@ official_scope:
   - 線形結合
 learning_objectives:
   - 一変数・多変数の基本微分公式を使い、テイラー展開と極値判定ができる
-  - 部分積分・置換積分・広義積分を使い、積分の収束条件を判定できる
+  - 部分積分の一般形を導き、部分積分・置換積分・広義積分を使って積分の収束条件を判定できる
   - ガウス積分を極座標とヤコビアンから導出できる
   - ガンマ関数・ベータ関数の定義、漸化式、相互関係を導出して使える
   - 重積分の領域を立式し、一般の変数変換とヤコビアンを計算できる
+  - 上界・下界、sup・inf と最大・最小の違いを説明し、統計で現れる最悪値評価を読める
+  - テイラー展開とランダウ記号を組み合わせ、n^{-1/2} スケールを含む典型的な漸近展開を処理できる
+  - ガンマ積分の Laplace 法からスターリング公式が現れる概略を説明できる
   - 行列式・逆行列・階数・固有値・直交対角化・二次形式・正定値性を扱える
   - 線形包・零空間・特異行列を定義から説明し、階数・退化次数の定理と結び付けて使える
   - 射影行列・シュール補・基本的な行列微分を後続の統計問題で再利用できる
@@ -29,6 +32,8 @@ definitions:
   - { id: F0M-DEF-09, name: 線形包（span） }
   - { id: F0M-DEF-10, name: 零空間（Null） }
   - { id: F0M-DEF-11, name: 特異行列 }
+  - { id: F0M-DEF-12, name: 上限（sup）と下限（inf） }
+  - { id: F0M-DEF-13, name: ランダウ記号 O・o }
 theorems:
   - { id: F0M-THM-01, name: ガウス積分 }
   - { id: F0M-THM-02, name: 重積分の変数変換公式 }
@@ -37,18 +42,21 @@ theorems:
   - { id: F0M-THM-05, name: 正定値性の固有値判定 }
   - { id: F0M-THM-06, name: シルベスターの判定法 }
   - { id: F0M-THM-07, name: 階数・退化次数の定理 }
+  - { id: F0M-THM-08, name: スターリング公式 }
 canonical_examples:
   - 極座標変換によるガウス積分
   - 重積分の変数変換によるベータ関数とガンマ関数の関係
   - 和と比の変換におけるヤコビアン
   - 実対称行列の固有値分解と二次形式
   - 多変量ガウス積分
+  - Taylor 展開とランダウ記号による n^{-1/2} スケールの漸近展開
+  - ガンマ積分の Laplace 法によるスターリング公式の概略導出
   - 多項分布の分散共分散行列に現れる零空間と特異性
 problem_patterns: [MATH-DIFF, MATH-INT, MATH-JAC, MATH-GAMMA-BETA, MATH-LA]
 past_exam_alignment: []
 integrated_exam_problems: [F0M-DRILL-01]
-exercise_counts: { level_a: 6, level_b: 6, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 5, exercises: 6, review: 2 }
+exercise_counts: { level_a: 9, level_b: 7, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
