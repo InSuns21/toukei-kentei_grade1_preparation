@@ -1,53 +1,58 @@
 schema_version: 1
-batch_id: 2026-08-29-model-selection-dedupe-03
+batch_id: 2026-08-29-bayesian-consolidation-04
 items:
-  - id: ms-aic-formula
+  - id: bayes-squared-loss-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-aic-numeric-comparison
-    note: AIC=-2ell+2k の公式だけを再生するカードを別に持たない。canonical側は公式、2モデルへの代入、罰則とのトレードオフ、選択まで一度に実行する。
-  - id: ms-bic-formula
+    canonical_card: bayes-loss-decision-canonical
+    note: 二乗損失だけを独立カードにせず、事後期待損失を最小化する一般原理から平均・中央値・分位点・MAPを同じカードで導くcanonicalへ統合する。
+  - id: bayes-absolute-loss-median
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-bic-numeric-comparison
-    note: BIC=-2ell+k log n の定義だけのカードを、標本サイズからlog nを計算し2モデルを比較するcanonicalへ統合する。
-  - id: ms-cv-model-selection
+    canonical_card: bayes-loss-decision-canonical
+    note: 絶対損失→事後中央値は一般Bayes決定カードの一ケースとして扱う。左右に積分を分ける考え方もcanonical側へ吸収した。
+  - id: bayes-zero-one-map
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-kfold-cv-numeric
-    note: k分割交差検証の説明だけでなく、各foldの損失を平均してモデル選択まで行うcanonicalが同じmoveを包含する。
-  - id: ms-cv-loo
+    canonical_card: bayes-loss-decision-canonical
+    note: 0-1損失→MAPも同じ「事後期待損失を最小化」の一ケースであり、損失関数ごとにカードを増殖させない。
+  - id: bayes-asymmetric-loss-quantile
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: bayes-loss-decision-canonical
+    note: 非対称絶対損失→事後分位点を一般Bayes決定canonicalへ統合する。c1/(c1+c2) の分位点条件までcanonicalで再現する。
+  - id: bayes-posterior-risk-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: bayes-loss-decision-canonical
+    note: 行動ごとの事後期待損失を比較する数値判断は一般Bayes決定カードの基本操作そのものなので独立反復しない。
+  - id: bayes-beta-binomial-predictive
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: bayes-posterior-predictive-canonical
+    note: 事後予測=新観測尤度を事後分布で積分する一般原理とBeta-Bernoulliの数値例をcanonical側で扱うため重複。
+  - id: bayes-gamma-poisson-predictive
     bucket: too_specific
     reason: too_specific
-    canonical_card: ms-kfold-cv-numeric
-    note: LOOCVはk=nの交差検証という特殊例。線形回帰のPRESS/レバレッジによる閉形式は別の回帰canonicalで扱うため、モデル選択側に定義専用カードを重ねない。
-  - id: ms-ridge-shrinkage
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: 直交設計でRidgeが係数を縮める計算は、RidgeとLassoを同じ数値例で比較するcanonicalに包含される。
-  - id: ms-info-criterion-likelihood
-    bucket: reference_only
-    reason: reference_only
-    canonical_card: ms-aic-numeric-comparison
-    note: AIC/BICが最大化対数尤度と母数数を使うというメタ説明は、AIC/BICの数値比較カードから直ちに読める。独立した試験moveではない。
-  - id: ms-aic-asymptotic-loo
+    canonical_card: bayes-posterior-predictive-canonical
+    note: Gamma-Poisson混合から負の二項分布を得る関係は有用だが、600枚デッキでは事後予測の一般積分moveを優先し、分布固有の派生はformula/reference側へ寄せる。
+  - id: bayes-exponential-predictive
     bucket: too_specific
     reason: too_specific
-    canonical_card: ms-aic-numeric-comparison
-    note: AICとLOOCVの漸近同値は理論補足としては有用だが、通常の統計検定1級カード600枚枠で独立に反復する優先度は低い。公式・補足側へ寄せる。
-  - id: ms-bic-consistency
+    canonical_card: bayes-posterior-predictive-canonical
+    note: Gamma-指数混合からLomax分布を得る派生は、事後予測の一般積分moveと同型。独立カードとしては優先度が低い。
+  - id: bayes-dirichlet-predictive
     bucket: too_specific
     reason: too_specific
-    canonical_card: ms-bic-numeric-comparison
-    note: BICのモデル選択一致性は標準的な性質だが、通常デッキではBIC計算・AICとの罰則差を優先し、漸近的一致性だけの独立カードは外す。
-  - id: ms-train-test-error
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ms-overfitting-generalization
-    note: 訓練誤差が低くても検証誤差が悪化するという同一判断。canonical側は複雑度1,3,9の訓練・テスト誤差を並べ、過学習まで説明する。
-  - id: ms-elastic-net
+    canonical_card: bayes-posterior-predictive-canonical
+    note: Dirichlet事後平均を次カテゴリ確率に使う操作はBeta-Bernoulli予測の多カテゴリ版で、同じ一手を分布別に増やさない。
+  - id: bayes-normal-normal-predictive
     bucket: too_specific
     reason: too_specific
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: Elastic NetはL1/L2の混合という派生で、通常デッキではRidgeとLassoの違いを数値で再生できれば十分。定義式はformula/reference側に置く。
+    canonical_card: bayes-posterior-predictive-canonical
+    note: 正規事後予測で分散を加える特殊形も、一般事後予測公式の派生。正規分布の和は別カード群で学習できるためBayes側で専用カードを重ねない。
+  - id: bayes-nig-student-predictive
+    bucket: too_specific
+    reason: too_specific
+    canonical_card: bayes-posterior-predictive-canonical
+    note: 正規-逆ガンマ混合からt分布となる高度な派生は通常デッキ600枚枠では過剰。必要な分布関係はformula/reference側へ残す。
