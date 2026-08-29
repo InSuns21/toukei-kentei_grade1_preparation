@@ -1,28 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-29-pgf-consolidation-11
+batch_id: 2026-08-29-mgf-consolidation-12
 items:
-  - id: prob-pgf-binomial
+  - id: prob-mgf-iid-sum
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-pgf-independent-sum
-    note: 二項分布の確率母関数はベルヌーイ独立和の積から(1-p+ps)^nを得るcanonicalで構造的に導出できるため、二項定理だけの分布別カードは独立保持しない。
-  - id: prob-pgf-geometric
+    canonical_card: prob-mgf-affine-transform
+    note: 強化済みcanonicalへ独立和の積則、同分布なら累乗、一般線形結合Y=b+sum a_i X_iまで統合し、3個のiid和の数値例も吸収済み。
+  - id: prob-mgf-exponential-domain
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-pgf-recover-pmf
-    note: 強化済み確率母関数canonicalへ幾何分布の確率質量から等比級数でps/[1-(1-p)s]を導き、収束条件まで吸収済み。
-  - id: prob-pgf-poisson
+    canonical_card: prob-mgf-gamma
+    note: ガンマ分布canonicalでshape=1, rate=lambdaを代入して指数分布M_X(t)=lambda/(lambda-t), t<lambdaを導出し、収束条件まで扱うため分布別カードは重複。
+  - id: prob-mgf-identify-normal
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-pgf-recover-pmf
-    note: 強化済みcanonicalへポアソン分布の確率質量から指数級数でexp{lambda(s-1)}を導く全計算を吸収済み。
-  - id: prob-pgf-factorial-moment
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-pgf-recover-pmf
-    note: canonicalへG^(r)(1)が下降階乗モーメントを与える一般式と、ポアソンでE[X(X-1)]=lambda^2、E[X^2]=lambda^2+lambdaまで吸収済み。
-  - id: prob-pgf-validity
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-pgf-recover-pmf
-    note: canonicalへ係数非負かつG(1)=1という妥当性判定と、負係数を持つ反例を吸収済み。
+    canonical_card: prob-mgf-uniqueness-domain
+    note: 一意性canonicalへ正規分布のMGFとexp(3t+2t^2)からN(3,4)を同定する完全例を吸収済み。形の照合だけのカードは独立保持しない。
