@@ -560,18 +560,9 @@ items:
       - samp-order-statistics-distribution
       - samp-range-statistic
       - samp-quantile-approx
-      - samp-xbar-unbiased
-      - samp-iid-sum-variance
       - samp-normal-linear-combo
       - samp-poisson-normal-approx
       - samp-cochran-theorem
-      - samp-ci-mean-t
-      - samp-ci-variance-chisq
-      - samp-chisq-percentile
-      - samp-f-percentile
-      - samp-t-percentile-symmetry
-      - samp-sample-size-mean
-      - samp-sample-size-proportion
       - samp-welch-t
       - samp-two-proportion-diff
       - samp-noncentral-chisq
@@ -590,8 +581,6 @@ items:
           - samp-t-distribution-definition
           - samp-t-statistic-mean-test
           - samp-f-distribution-definition
-          - samp-ci-mean-t
-          - samp-t-percentile-symmetry
           - samp-welch-t
           - samp-noncentral-t
           - samp-two-sample-pooled-variance
@@ -600,8 +589,6 @@ items:
         cards:
           - samp-chisq-definition
           - samp-chisq-mean-var-indep
-          - samp-ci-variance-chisq
-          - samp-chisq-percentile
           - samp-noncentral-chisq
           - samp-cochran-theorem
       - name: F分布
@@ -609,7 +596,6 @@ items:
         cards:
           - samp-f-distribution-definition
           - samp-f-ratio-of-variances
-          - samp-f-percentile
           - samp-f-anova-ratio
   - id: math-population-sample-statistic
     status: complete
