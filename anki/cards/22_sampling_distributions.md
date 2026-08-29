@@ -23,7 +23,22 @@ $$E[\overline X]=\mu,\qquad \operatorname{Var}(\overline X)=\frac{\sigma^2}{n}.$
 独立な正規分布の線形結合は正規分布である。
 
 ## 計算例
-$n=25$、$\mu=10$、$\sigma^2=16$ なら $\overline X\sim N(10,16/25)$。
+$n=25$, $\mu=10$, $\sigma^2=16$ とする。まず標本平均の分散を計算すると
+$$
+\operatorname{Var}(\overline X)
+=\frac{\sigma^2}{n}
+=\frac{16}{25}.
+$$
+したがって標準誤差は
+$$
+\operatorname{SE}(\overline X)
+=\sqrt{\frac{16}{25}}
+=\frac45.
+$$
+正規母集団の線形結合なので分布の形も正規のままであり、
+$$
+\overline X\sim N\left(10,\frac{16}{25}\right).
+$$
 
 ## 一手
 標本平均の分散は母分散を $n$ で割る。標準偏差は $\sigma/\sqrt n$。
@@ -93,7 +108,25 @@ $$X+Y\sim\chi^2_{\nu+\mu}.$$
 $$M_{X+Y}(t)=(1-2t)^{-\nu/2}(1-2t)^{-\mu/2}=(1-2t)^{-(\nu+\mu)/2}.$$
 
 ## 計算例
-独立な $X_1\sim\chi^2_3$、$X_2\sim\chi^2_5$ なら $X_1+X_2\sim\chi^2_8$。
+独立な $X\sim\chi^2_3$, $Y\sim\chi^2_5$ とする。各モーメント母関数（積率母関数）は
+$$
+M_X(t)=(1-2t)^{-3/2},
+\qquad
+M_Y(t)=(1-2t)^{-5/2}.
+$$
+独立性より和のモーメント母関数（積率母関数）は積になるので
+$$
+\begin{aligned}
+M_{X+Y}(t)
+&=M_X(t)M_Y(t)\\
+&=(1-2t)^{-3/2}(1-2t)^{-5/2}\\
+&=(1-2t)^{-8/2}.
+\end{aligned}
+$$
+これは自由度8のカイ二乗分布のモーメント母関数（積率母関数）だから
+$$
+X+Y\sim\chi^2_8.
+$$
 
 ## 一手
 自由度は足し算。母関数を掛け合わせて確認する。
@@ -152,6 +185,15 @@ sources: [{ type: official_syllabus, topic: 標本分布 }]
 ## 問題
 $X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}$ 正規分布 $N(\mu,\sigma^2)$ のとき、標本平均 $\overline X$ と不偏標本分散 $S^2$ は独立か。また帰結として $\dfrac{(n-1)S^2}{\sigma^2}$ の分布はどうなるか。
 
+## なぜ
+正規標本では、標準化した平方和が
+$$
+\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)^2
+=\frac{n(\overline X-\mu)^2}{\sigma^2}
++\frac{(n-1)S^2}{\sigma^2}
+$$
+と「平均方向」と「平均から直交する残差方向」に分解できる。Cochranの定理より、この2項は独立で、それぞれ自由度1と $n-1$ のカイ二乗分布に従う。したがって $\overline X$ と $S^2$ も独立になる。
+
 ## 答え
 正規母集団では $\overline X$ と $S^2$ は独立である。これにより
 $$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},\qquad \overline X\perp S^2.$$
@@ -160,10 +202,29 @@ $$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1},\qquad \overline X\perp S^2.$$
 直交変換（Helmert変換など）で平均に対応する第1成分と残差平方和が分離される。標準正規の直交変換は標準正規を保つ。
 
 ## 計算例
-$n=5$ では $\overline X$ と $S^2$ が独立で、$4S^2/\sigma^2\sim\chi^2_4$。
+$n=5$, 母分散 $\sigma^2=4$ の正規標本で、不偏標本分散が $S^2=6$ だったとする。分散に対応するカイ二乗統計量は
+$$
+\begin{aligned}
+Q
+&=\frac{(n-1)S^2}{\sigma^2}\\
+&=\frac{(5-1)\cdot6}{4}\\
+&=6.
+\end{aligned}
+$$
+帰無モデルの下で
+$$
+Q\sim\chi^2_{5-1}=\chi^2_4
+$$
+なので、観測値 $q=6$ を $\chi^2_4$ の分位点と比較して分散の検定・区間推定へ進める。また正規性により $\overline X\perp S^2$ なので、平均側と分散側を独立に組み合わせて t 統計量を作れる。
 
 ## 一手
-正規標本だけの特別な性質。分散の自由度が $n-1$ になる理由でもある。
+正規標本で「標本平均と標本分散」が同時に出たら、Cochran分解により
+$$
+\overline X\perp S^2,
+\qquad
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+$$
+を同時に発火させる。自由度 $n-1$ は平均方向を1本使った残りの次元である。
 
 ## 注意
 非正規では一般に独立でない。この独立性がt分布・F分布の構成に必要。
