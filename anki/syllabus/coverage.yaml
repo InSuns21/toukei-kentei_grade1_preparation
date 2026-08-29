@@ -1089,9 +1089,7 @@ items:
       - test-normal-ci
       - ci-coverage-probability
       - ci-pivot-construction
-      - ci-normal-mean-known
       - ci-t-interval-pivot
-      - ci-t-vs-z
       - ci-variance-chi-derivation
       - ci-f-variance-ratio
       - ci-two-sample-mean-diff
@@ -1100,10 +1098,8 @@ items:
       - ci-proportion-diff
       - ci-one-sided
       - ci-duality-acceptance
-      - ci-asymptotic-def
       - ci-asymptotic-mle
       - ci-delta-method
-      - ci-length-confidence-tradeoff
       - ci-sample-size-for-width
       - mathstat-shortest-probability-interval
       - mathstat-fisher-z-confidence-interval
@@ -1121,7 +1117,6 @@ items:
         status: card
         cards:
           - ci-pivot-construction
-          - ci-normal-mean-known
           - ci-t-interval-pivot
           - ci-variance-chi-derivation
           - ci-f-variance-ratio
@@ -1134,7 +1129,7 @@ items:
         status: card
         cards:
           - ci-coverage-probability
-          - ci-asymptotic-def
+          - ci-asymptotic-mle
   - id: math-testing-foundations
     status: complete
     cards:

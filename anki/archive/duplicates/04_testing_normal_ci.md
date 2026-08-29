@@ -7,11 +7,20 @@ topic: confidence-interval
 type: formula
 difficulty: 2
 priority: S
-hashtags: [信頼区間, 正規分布（ガウス分布）, 被覆確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 区間推定 }]
+hashtags:
+  - 信頼区間
+  - 正規分布（ガウス分布）
+  - 被覆確率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 区間推定
 archive_reason: duplicate
-canonical_card: ci-normal-mean-known
+canonical_card: ci-pivot-construction
 ---
 ## 問題
 $X_i$ は独立同分布に正規分布 $N(\mu,4)$ に従うとする。台は実数全体、密度は $f(x)=(2\sqrt{2\pi})^{-1}\exp\{-(x-\mu)^2/8\}$ である。$n=100$、$\overline x=10$、$z_{0.975}=1.96$ のとき95%信頼区間を求めよ。
