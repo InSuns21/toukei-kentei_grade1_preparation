@@ -407,11 +407,11 @@ MTBF要件への換算は一定故障率を仮定する指数モデルに依存�
 <!-- CARD -->
 
 ---
-id: engrel-ワイブル-hazard-shape
+id: engrel-weibull-hazard-shape
 title: ワイブル分布の形状母数から故障率傾向を判定する
 category: applied-engineering
 subcategory: engineering-quality
-topic: ワイブル-hazard
+topic: weibull-hazard
 type: recognition
 difficulty: 2
 priority: A
@@ -420,7 +420,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 信頼性 }]
 ---
 ## 問題
-ワイブル分布（ワイブル分布）に従う寿命の形状母数 $k$ が $k<1,k=1,k>1$ のとき、故障率の時間傾向を答えよ。
+ワイブル分布（Weibull distribution）に従う寿命の形状母数 $k$ が $k<1,k=1,k>1$ のとき、故障率の時間傾向を答えよ。
 ## 記号・用語
 尺度 $\lambda>0$ のワイブル分布の故障率は $h(t)=\frac{k}{\lambda}(t/\lambda)^{k-1}$。
 ## 使用公式・定理
@@ -436,11 +436,11 @@ $k<1$ は減少故障率、$k=1$ は一定故障率、$k>1$ は増加故障率�
 <!-- CARD -->
 
 ---
-id: engrel-ワイブル-reliability
+id: engrel-weibull-reliability
 title: ワイブル分布の信頼度を計算する
 category: applied-engineering
 subcategory: engineering-quality
-topic: ワイブル-reliability
+topic: weibull-reliability
 type: calc_step
 difficulty: 2
 priority: A
@@ -449,7 +449,7 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 信頼性 }]
 ---
 ## 問題
-形状 $k=2$、尺度 $\lambda=1000$ のワイブル分布（ワイブル分布）に従う寿命について、時刻500の信頼度を求めよ。
+形状 $k=2$、尺度 $\lambda=1000$ のワイブル分布（Weibull distribution）に従う寿命について、時刻500の信頼度を求めよ。
 ## 記号・用語
 尺度 $\lambda$ は $R(\lambda)=e^{-1}$ となる特性寿命である。
 ## 使用公式・定理

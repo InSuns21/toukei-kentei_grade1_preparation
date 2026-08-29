@@ -1443,12 +1443,12 @@ $X=e^Y$ なら $E[X^r]=M_Y(r)$ と置く。
 
 <!-- CARD -->
 ---
-id: dist-ワイブル-survival-hazard
+id: dist-weibull-survival-hazard
 published: true
 title: ワイブル分布の生存関数と危険率を求める
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: ワイブル
+topic: weibull
 type: calc_step
 difficulty: 2
 priority: B
@@ -1473,12 +1473,12 @@ $k=1$ なら指数分布、$k>1$ なら危険率増加、$k<1$ なら減少。
 
 <!-- CARD -->
 ---
-id: dist-ワイブル-mean
+id: dist-weibull-mean
 published: true
 title: ワイブル分布の平均をガンマ関数で表す
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: ワイブル-moment
+topic: weibull-moment
 type: calc_step
 difficulty: 2
 priority: C

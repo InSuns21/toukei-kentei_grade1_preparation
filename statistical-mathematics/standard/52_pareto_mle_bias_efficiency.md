@@ -1,4 +1,4 @@
-# Standard 16 パレート 最尤推定量・有限標本バイアス・効率
+# Standard 16 Pareto 最尤推定量・有限標本バイアス・効率
 
 - 旧No.: 52
 - 層: Standard
@@ -89,7 +89,7 @@ P(Y_i>y)
 \end{aligned}
 $$
 
-パレート分布の上側確率は
+Pareto分布の上側確率は
 
 $$
 P(X_i>x)=\left(\frac{x_m}{x}\right)^\alpha,

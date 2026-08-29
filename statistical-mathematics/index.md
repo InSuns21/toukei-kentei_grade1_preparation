@@ -74,7 +74,7 @@
 | 13 | 36 | A | A | [ノイズ付き線形観測の条件付き正規](standard/36_noisy_linear_conditional_normal.md) | ◎ |
 | 14 | 47 | A | A | [二項比率Wald区間・被覆確率](standard/47_binomial_wald_coverage.md) | ◎・修正済（巨大な二項和の数値評価不要） |
 | 15 | 50 | A | A | [二項2母数モーメント法・識別](standard/50_two_parameter_binomial_moments.md) | ◎ |
-| 16 | 52 | A | A | [パレート 最尤推定量・有限標本バイアス・効率](standard/52_pareto_mle_bias_efficiency.md) | ◎ |
+| 16 | 52 | A | A | [Pareto 最尤推定量・有限標本バイアス・効率](standard/52_pareto_mle_bias_efficiency.md) | ◎ |
 | 17 | 54 | A | A | [一様分布最大値・不偏推定・分散比較](standard/54_uniform_max_unbiased_variance.md) | ◎ |
 | 18 | 56 | A | A | [超幾何分布・有限母集団補正](standard/56_hypergeometric_fpc.md) | ○ |
 | 19 | 58 | A | A | [層化抽出・Horvitz–Thompson・Neyman配分](standard/58_stratified_ht_neyman_allocation.md) | ○ |
@@ -90,7 +90,7 @@
 | 29 | 86 | B | B | [2変量正規・平均への回帰](standard/86_bivariate_normal_regression_to_mean.md) | ◎ |
 | 30 | 89 | A | B | [稀事象・相対Monte Carlo誤差](standard/89_rare_event_relative_mc_error.md) | ○ |
 | 31 | 91 | A | A | [Box–Muller変換](standard/91_box_muller.md) | ◎・修正済（$\log,\sin,\cos$ の数値評価不要） |
-| 32 | 96 | A | A | [ワイブル・生存関数・ハザード](standard/96_weibull_survival_hazard.md) | ◎ |
+| 32 | 96 | A | A | [Weibull・生存関数・ハザード](standard/96_weibull_survival_hazard.md) | ◎ |
 
 ## Advanced 20
 

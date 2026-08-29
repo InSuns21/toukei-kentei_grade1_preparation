@@ -4,7 +4,7 @@ Core 40の次に解く20大問。各題20〜30分、4〜6小問、問題・詳�
 
 | 80 No. | 主題 |
 | ---: | --- |
-| 02 | [ワイブル形状母数・故障率](02_weibull_shape_hazard.md) |
+| 02 | [Weibull形状母数・故障率](02_weibull_shape_hazard.md) |
 | 05 | [Erlang待ち時間](05_erlang_waiting.md) |
 | 07 | [平均余命関数](07_mean_residual_life.md) |
 | 09 | [Kaplan–Meier](09_kaplan_meier.md) |
