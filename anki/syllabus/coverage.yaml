@@ -564,7 +564,6 @@ items:
       - samp-poisson-normal-approx
       - samp-cochran-theorem
       - samp-welch-t
-      - samp-two-proportion-diff
       - samp-noncentral-chisq
       - samp-noncentral-t
       - samp-f-anova-ratio
