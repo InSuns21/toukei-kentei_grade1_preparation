@@ -65,7 +65,7 @@ for (const id of archiveIds) {
   if (!cardIndex.has(id)) throw new Error(`${id}: cards/ に存在しません。既にarchive済みならplanから外してください`);
 }
 for (const [id, canonical] of canonicalMap) {
-  if (archiveIds.has(canonical)) throw new Error(`${id}: canonical_card=${canonical} も同じplanでarchive対象です`);
+  if (archiveIds.has(canonical)) throw new Error(`${id}: canonical_card=${canonical} も同じplanでarchive対象です。1 batch内では最終canonicalへ直接向けてください`);
   if (!cardIndex.has(canonical)) throw new Error(`${id}: canonical_card=${canonical} がcards/に存在しません`);
 }
 for (const [id, replacement] of coverageMap) {
@@ -104,6 +104,8 @@ for (const source of files) {
   }
 }
 
+const remainingIds = new Set([...cardIndex.keys()].filter((id) => !archiveIds.has(id)));
+
 for (const [bucket, chunks] of archiveByBucket) {
   const dir = path.join(ROOT, "archive", bucket);
   fs.mkdirSync(dir, { recursive: true });
@@ -113,7 +115,39 @@ for (const [bucket, chunks] of archiveByBucket) {
   console.log(`archived: ${chunks.length} -> ${path.relative(ROOT, file)}`);
 }
 
-const remainingIds = new Set([...cardIndex.keys()].filter((id) => !archiveIds.has(id)));
+// A card that was yesterday's canonical may itself be consolidated later.
+// Keep every historical archive pointer aimed at the currently active
+// canonical card rather than leaving chains such as A -> B(archived) -> C.
+// This makes multi-stage editorial consolidation safe and keeps archive
+// metadata useful as a direct audit trail.
+for (const file of walk(path.join(ROOT, "archive")).filter((candidate) => candidate.endsWith(".md"))) {
+  const source = fs.readFileSync(file, "utf8").replace(/^\uFEFF/, "");
+  const rawChunks = source.split(/^<!-- CARD -->\s*$/m).map((part) => part.trim()).filter(Boolean);
+  let changed = false;
+  const rendered = rawChunks.map((raw) => {
+    const parsed = parseChunk(raw, file);
+    const meta = { ...parsed.meta };
+    let target = meta.canonical_card ? String(meta.canonical_card) : null;
+    if (target && archiveIds.has(target)) {
+      const replacement = canonicalMap.get(target);
+      if (!replacement) {
+        throw new Error(`${path.relative(ROOT, file)}/${meta.id}: canonical_card=${target} を今回archiveしますが、新canonicalが指定されていません`);
+      }
+      meta.canonical_card = replacement;
+      target = replacement;
+      changed = true;
+    }
+    if (target && !remainingIds.has(target)) {
+      throw new Error(`${path.relative(ROOT, file)}/${meta.id}: canonical_card=${target} がactive cards/にありません`);
+    }
+    return renderChunk(meta, parsed.body).trim();
+  });
+  if (changed) {
+    fs.writeFileSync(file, rendered.join("\n\n<!-- CARD -->\n\n") + "\n", "utf8");
+    console.log(`remapped archived canonical links: ${path.relative(ROOT, file)}`);
+  }
+}
+
 const coveragePath = path.join(ROOT, "syllabus", "coverage.yaml");
 const coverage = YAML.parse(fs.readFileSync(coveragePath, "utf8").replace(/^\uFEFF/, ""));
 
