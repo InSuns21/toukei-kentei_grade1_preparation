@@ -1545,7 +1545,7 @@ scale $s$ は分散ではない。分散は $\pi^2s^2/3$。
 ---
 id: dist-multivariate-normal-density
 published: true
-title: 多変量正規分布の密度と共分散行列条件
+title: 多変量正規分布の密度と分散共分散行列条件
 category: math-distributions
 subcategory: math-continuous-distributions
 topic: multivariate-normal

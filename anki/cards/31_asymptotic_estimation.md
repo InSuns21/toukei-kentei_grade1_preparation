@@ -399,7 +399,7 @@ $$\operatorname{Avar}\{g(\widehat{\boldsymbol\theta})\}
 \nabla g(\boldsymbol\theta).$$
 
 ## 一手
-独立二標本なら共分散行列が対角になり、2項の和になる。
+独立二標本なら分散共分散行列が対角になり、2項の和になる。
 
 ## 答え
 $g(p_1,p_2)=\log p_1-\log p_2$ だから
@@ -720,7 +720,7 @@ sources: [{ type: official_syllabus, topic: デルタ法 }]
 $g(x,y)=x/y$ の勾配は
 $$\nabla g(\mu_X,\mu_Y)
 =\left(\frac1{\mu_Y},-\frac{\mu_X}{\mu_Y^2}\right)^\top.$$
-2標本は独立なので極限共分散行列は
+2標本は独立なので極限分散共分散行列は
 $$\Sigma=\begin{pmatrix}\sigma_X^2&0\\0&\sigma_Y^2\end{pmatrix}.$$
 多変量デルタ法では $V=\nabla g^\top\Sigma\nabla g$ となる。
 

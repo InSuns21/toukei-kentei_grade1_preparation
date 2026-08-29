@@ -32,7 +32,7 @@
 - `advanced/68_pca.md`: 固有値・固有ベクトルを特性方程式から計算し、主成分分散・無相関も行列積で確認。
 - `advanced/69_lda.md`: LDA境界公式を既知とせず、正規対数密度の差から線形境界を導出。
 - `advanced/70_whitening.md`: 固有分解と白色化共分散を途中式付きで計算。
-- `advanced/75_random_generation.md`: 逆CDF、棄却定数、平均採択率を定義から導出。
+- `advanced/75_random_generation.md`: 逆累積分布関数、棄却定数、平均採択率を定義から導出。
 
 一方、`advanced/21_brownian_reflection.md` のように問題文自身が「反射原理から $P(M_T\ge a)=2P(B(T)\ge a)$ を述べよ」と使用する結果を明示している箇所は、反射原理そのものの証明を追加していない。これは省略ではなく、問題文が許可した前提として扱う。
 
@@ -50,7 +50,7 @@ $$
 \tilde\pi=\frac{Y/n-(1-p)}{2p-1}
 $$
 
-は不偏だが、母数制約 $[0,1]$ を課した厳密MLEは
+は不偏だが、母数制約 $[0,1]$ を課した厳密最尤推定量は
 
 $$
 \hat\pi=\min\{1,\max(0,\tilde\pi)\}
@@ -71,7 +71,7 @@ $$
 - 乱数生成: 指数逆変換の $\log$ は式まで、$\sqrt U$ は一般電卓範囲。
 - サンプルサイズ: $z_{0.975}=1.96$ を問題文で与える。
 - 管理図: 必要定数を問題文で与える。
-- 一般化最小二乗、PCA、LDA、白色化: 低次元行列演算と平方根まで。
+- 一般化最小二乗、主成分分析、LDA、白色化: 低次元行列演算と平方根まで。
 
 ## 重複の扱い
 
@@ -79,9 +79,9 @@ Coreとの近接テーマは意図的な変形演習として残した。
 
 - Core Poisson過程 ↔ Standard 条件付き順序統計量 ↔ Advanced NHPP
 - Core AR/MA ↔ Standard モデル識別・ARMA ↔ Advanced 状態空間
-- Core OLS ↔ Standard FWL/GLS
+- Core 通常最小二乗法 ↔ Standard FWL/一般化最小二乗法
 - Core 実験計画 ↔ Standard 交絡/応答曲面 ↔ Advanced CCD/I最適
 - Core 品質管理 ↔ Standard Xbar-S ↔ Advanced 過分散/CUSUM-EWMA
-- Core 多変量正規 ↔ Standard Mahalanobis ↔ Advanced PCA/LDA/白色化
+- Core 多変量正規 ↔ Standard Mahalanobis ↔ Advanced 主成分分析/LDA/白色化
 
 これにより80題全体を「基礎骨格→変形→発展」の三層として運用できる。

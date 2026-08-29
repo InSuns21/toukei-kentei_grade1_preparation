@@ -556,7 +556,7 @@ $$P_p(X_1=1,X_2=0,X_3=1)
 =p(1-p)p=p^2(1-p).$$
 同じ分布に従うだけでは積に分けられず、独立性も必要である。
 ## 一手
-「iid」は independent（独立）と identically distributed（同じ分布）の両方を含む。
+「独立同分布」は independent（独立）と identically distributed（同じ分布）の両方を含む。
 <!-- CARD -->
 ---
 id: statistic-definition-basic
@@ -869,7 +869,7 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 $E_\theta[g(T)]=0\;(\forall\theta)\;\Rightarrow\;P_\theta(g(T)=0)=1\;(\forall\theta)$
 が成り立つとき $T$ は完備統計量。すなわち $T$ に基づく $\theta$ に依らない可積分関数で期待値が恒等的に0になるものは $0$ だけ。
 ## 使用公式・定理
-完備性は指数型分布族でよく成り立つ（次カード）。完備な十分統計量は一様最小分散不偏（UMVU）推定量の構成の要である。
+完備性は指数型分布族でよく成り立つ（次カード）。完備な十分統計量は一様最小分散不偏（一様最小分散不偏推定量）推定量の構成の要である。
 ## 計算例
 $X\sim\operatorname{Poisson}(\lambda)$ とし、すべての $\lambda>0$ について $E_\lambda[g(X)]=0$ と仮定する。このとき
 $$0=E_\lambda[g(X)]
@@ -931,7 +931,7 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 問題
 十分かつ完備な統計量がなぜ重要か。
 ## 答え
-十分かつ完備（complete sufficient）な統計量は、一様最小分散不偏（UMVU）推定量を構成する基盤になる。完備性は「$\theta$ に依らない偏りのない推定量は一意」を保証し、十分性は情報の損失がないことを保証する。
+十分かつ完備（complete sufficient）な統計量は、一様最小分散不偏（一様最小分散不偏推定量）推定量を構成する基盤になる。完備性は「$\theta$ に依らない偏りのない推定量は一意」を保証し、十分性は情報の損失がないことを保証する。
 ## 使用公式・定理
 完備十分統計量 $T$ に対して、$\theta$ の不偏推定量 $\delta(T)$ は（存在すれば）一意的に定まる。
 ## 計算例
@@ -942,9 +942,9 @@ $$E_\lambda[\overline X]
 =\frac1n\sum_{i=1}^nE_\lambda[X_i]
 =\frac1n\cdot n\lambda
 =\lambda$$
-だから不偏である。レーマン・シェッフェの定理より、$\overline X$ は $\lambda$ の一様最小分散不偏（UMVU）推定量である。
+だから不偏である。レーマン・シェッフェの定理より、$\overline X$ は $\lambda$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
-「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ一様最小分散不偏（UMVU）推定量になる。
+「完備十分」$\Rightarrow$ 一意・最良。$\delta(T)$ を $T$ の関数で見つければ一様最小分散不偏（一様最小分散不偏推定量）推定量になる。
 <!-- CARD -->
 ---
 id: rao-blackwell
@@ -1004,9 +1004,9 @@ sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ## 問題
 レーマン・シェッフェの定理を述べよ。
 ## 答え
-$T$ が完備十分統計量であり、$\delta(T)$ が $\theta$ の不偏推定量なら、$\delta(T)$ は $\theta$ の一意な一様最小分散不偏（UMVU）推定量である。
+$T$ が完備十分統計量であり、$\delta(T)$ が $\theta$ の不偏推定量なら、$\delta(T)$ は $\theta$ の一意な一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 使用公式・定理
-完備性により $T$ の関数で不偏なものは一意。よってそのような $\delta(T)$ が存在すれば、これが一様最小分散不偏（UMVU）推定量であり、一意に定まる。
+完備性により $T$ の関数で不偏なものは一意。よってそのような $\delta(T)$ が存在すれば、これが一様最小分散不偏（一様最小分散不偏推定量）推定量であり、一意に定まる。
 ## 計算例
 $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ とし、$\sigma^2$ は既知とする。尤度は
 $$L(\mu;x)
@@ -1015,15 +1015,15 @@ $$L(\mu;x)
 と書ける。自然母数 $\eta=\mu/\sigma^2$ は $\mathbb R$ 全体を動くので、$T=\sum_iX_i$ は完備十分統計量である。さらに
 $$\overline X=\frac Tn,\qquad
 E_\mu[\overline X]=\frac1n\sum_iE_\mu[X_i]=\mu.$$
-よってレーマン・シェッフェの定理から、$\overline X$ は $\mu$ の一様最小分散不偏（UMVU）推定量である。
+よってレーマン・シェッフェの定理から、$\overline X$ は $\mu$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
-「完備十分 $T$ の不偏な関数＝一様最小分散不偏（UMVU）推定量」を確認する。存在すれば一意である。
+「完備十分 $T$ の不偏な関数＝一様最小分散不偏（一様最小分散不偏推定量）推定量」を確認する。存在すれば一意である。
 <!-- CARD -->
 ---
 id: umvu-construction
 category: math-estimation
 subcategory: math-population-sample-statistic
-title: 一様最小分散不偏（UMVU）推定量の構成
+title: 一様最小分散不偏（一様最小分散不偏推定量）推定量の構成
 topic: umvu-construction
 type: strategy
 difficulty: 3
@@ -1033,19 +1033,19 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 十分統計量 }]
 ---
 ## 問題
-完備十分統計量 $T$ を使って $g(\theta)$ の一様最小分散不偏（UMVU）推定量を構成する手順を述べよ。
+完備十分統計量 $T$ を使って $g(\theta)$ の一様最小分散不偏（一様最小分散不偏推定量）推定量を構成する手順を述べよ。
 ## 答え
 1. $g(\theta)$ の不偏推定量 $\delta(X)$ を見つける。
 2. ラオ・ブラックウェル化 $\delta_T=E[\delta(X)\mid T]$ して $T$ の関数にする。
-3. $T$ が完備十分ならレーマン・シェッフェの定理から $\delta_T$ が一様最小分散不偏（UMVU）推定量になる。
+3. $T$ が完備十分ならレーマン・シェッフェの定理から $\delta_T$ が一様最小分散不偏（一様最小分散不偏推定量）推定量になる。
 ## 使用公式・定理
-$\delta_T=E[\delta(X)\mid T]$ は不偏かつ $T$ の関数である。$T$ が完備十分なら一意な一様最小分散不偏（UMVU）推定量になる。
+$\delta_T=E[\delta(X)\mid T]$ は不偏かつ $T$ の関数である。$T$ が完備十分なら一意な一様最小分散不偏（一様最小分散不偏推定量）推定量になる。
 ## 計算例
 $X_1,X_2\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$Y=X_1+X_2\sim\operatorname{Binomial}(2,p)$ は $p$ の完備十分統計量。$p^2$ の不偏推定量
 $\delta(Y)=\frac{Y(Y-1)}{2}.$
-$E[Y]=2p$、$E[Y^2]=\operatorname{Var}(Y)+E[Y]^2=2p(1-p)+4p^2=2p+2p^2$ より $E[Y(Y-1)]=2p^2$，すなわち $E[\delta]=p^2$。$Y$ の関数で不偏なので、レーマン・シェッフェの定理より一様最小分散不偏（UMVU）推定量である。
+$E[Y]=2p$、$E[Y^2]=\operatorname{Var}(Y)+E[Y]^2=2p(1-p)+4p^2=2p+2p^2$ より $E[Y(Y-1)]=2p^2$，すなわち $E[\delta]=p^2$。$Y$ の関数で不偏なので、レーマン・シェッフェの定理より一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
-「既知の不偏推定量 → $T$ で条件付け → 完備十分なら一様最小分散不偏（UMVU）推定量」の3段。
+「既知の不偏推定量 → $T$ で条件付け → 完備十分なら一様最小分散不偏（一様最小分散不偏推定量）推定量」の3段。
 <!-- CARD -->
 ---
 id: basu-theorem

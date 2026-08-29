@@ -63,7 +63,7 @@ topic: mse-decomposition
 type: proof_step
 difficulty: 2
 priority: A
-hashtags: [不偏性, MSE, 証明の一手]
+hashtags: [不偏性, 平均二乗誤差, 証明の一手]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 推定量の評価 }]
 ---

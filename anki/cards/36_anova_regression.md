@@ -1161,7 +1161,7 @@ difficulty: 3
 priority: A
 hashtags: [一元配置分散分析, ダミー変数, 回帰]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一元配置ANOVAと回帰の同値性 }]
+sources: [{ type: official_syllabus, topic: 一元配置分散分析と回帰の同値性 }]
 ---
 
 ## 問題
@@ -2002,7 +2002,7 @@ topic: ols-covariance
 type: calc_step
 difficulty: 4
 priority: S
-hashtags: [最小二乗法, 不偏性, 共分散行列]
+hashtags: [最小二乗法, 不偏性, 分散共分散行列]
 frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
 sources: [{ type: official_syllabus, topic: 線形重回帰 }, { type: past_exam, id: MATH-2024-Q1, topic: 回帰係数の推定・検定・検出力 }]
 ---
@@ -2752,7 +2752,7 @@ $$\operatorname{Var}(\widetilde\beta)-\operatorname{Var}(\widehat\beta)=\sigma^2
 $X$ が列フルランクで
 $$Y=X\beta+\varepsilon,\qquad E[\varepsilon\mid X]=0,\qquad
 \operatorname{Var}(\varepsilon\mid X)=\sigma^2I$$
-なら、最小二乗推定量 $\widehat\beta$ は線形不偏推定量の中で共分散行列が最小、すなわちBLUEである。
+なら、最小二乗推定量 $\widehat\beta$ は線形不偏推定量の中で分散共分散行列が最小、すなわちBLUEである。
 
 ## 計算例
 ある線形不偏推定量 $\widetilde{\boldsymbol\beta}$ について

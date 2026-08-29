@@ -164,7 +164,7 @@ $$
 y^*=X^*\beta+\varepsilon^*.
 $$
 
-誤差の共分散行列は
+誤差の分散共分散行列は
 
 $$
 \begin{aligned}

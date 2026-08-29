@@ -9,7 +9,7 @@ difficulty: 2
 priority: A
 hashtags: [特性関数, 定義, 存在]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: 特性関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 確率変数 $X$ の特性関数を定義し、それが実変数 $t$ について常に存在することを述べよ。
@@ -45,7 +45,7 @@ difficulty: 2
 priority: A
 hashtags: [特性関数, 独立和, 積]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: 特性関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 独立な $X_1,\ldots,X_n$ の和 $S=X_1+\cdots+X_n$ の特性関数を各 $\varphi_{X_i}(t)$ で表せ。
@@ -80,7 +80,7 @@ difficulty: 3
 priority: A
 hashtags: [特性関数, 一意性, 分布の同定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: 特性関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 2つの分布の特性関数が一致するとき、分布はどうなるか。また応用上の意義を述べよ。
@@ -112,7 +112,7 @@ difficulty: 3
 priority: B
 hashtags: [特性関数, 正規分布, モーメント母関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: 特性関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 $X$ を正規分布 $N(\mu,\sigma^2)$ に従う確率変数とする。$X$ の特性関数を求めよ。
@@ -149,7 +149,7 @@ difficulty: 3
 priority: B
 hashtags: [キュムラント母関数, 対数, モーメント母関数]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: キュムラント母関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: キュムラント母関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 キュムラント母関数 $K_X(t)=\log M_X(t)$ を定義し、その展開 $K_X(t)=\sum_{r\ge1}\kappa_r t^r/r!$ の係数 $\kappa_r$（第 $r$ キュムラント）から、第1・第2キュムラントと期待値・分散の関係を述べよ。
@@ -192,7 +192,7 @@ difficulty: 3
 priority: B
 hashtags: [キュムラント, 独立和, 加法性]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: キュムラント母関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: キュムラント母関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 独立な $X,Y$ の和 $S=X+Y$ の各キュムラントを $X,Y$ のキュムラントで表せ。
@@ -228,7 +228,7 @@ difficulty: 3
 priority: B
 hashtags: [特性関数, モーメント母関数, 存在]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: additional, topic: 特性関数（公式MGF/PGFの拡張・ユーザー要請） }]
+sources: [{ type: additional, topic: 特性関数（公式モーメント母関数/確率母関数の拡張・ユーザー要請） }]
 ---
 ## 問題
 対数正規分布やコーシー分布では、原点を含む開区間で有限なモーメント母関数が存在しない。それらでも特性関数は定義されるか。

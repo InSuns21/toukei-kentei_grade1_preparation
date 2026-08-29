@@ -419,7 +419,7 @@ $m$ が一対一でないと母数を一意に識別できない。
 
 ---
 id: engasym-asymptotic-bias-mse
-title: 漸近バイアスを含む近似MSEを計算する
+title: 漸近バイアスを含む近似平均二乗誤差を計算する
 category: applied-engineering
 subcategory: engineering-asymptotics
 topic: asymptotic-mse
@@ -431,9 +431,9 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 漸近分散 }]
 ---
 ## 問題
-$E[\widehat\theta_n]-\theta\approx b/n$、$\operatorname{Var}(\widehat\theta_n)\approx V/n$ とする。1次近似MSEを書け。
+$E[\widehat\theta_n]-\theta\approx b/n$、$\operatorname{Var}(\widehat\theta_n)\approx V/n$ とする。1次近似平均二乗誤差を書け。
 ## 記号・用語
-MSEは分散とバイアス平方の和である。
+平均二乗誤差は分散とバイアス平方の和である。
 ## 使用公式・定理
 $$\operatorname{MSE}(\widehat\theta)=\operatorname{Var}(\widehat\theta)+\operatorname{Bias}(\widehat\theta)^2.$$
 ## 一手／方針
@@ -709,9 +709,9 @@ $$P(|\widehat\theta_n-\theta|>\varepsilon)\le\frac{E[(\widehat\theta_n-\theta)^2
 ## 答え
 右辺は任意の $\varepsilon>0$ で0へ収束するため、$\widehat\theta_n\xrightarrow{p}\theta$。
 ## 計算例
-不偏で分散が $1/n$ ならMSEも $1/n\to0$ なので一致する。
+不偏で分散が $1/n$ なら平均二乗誤差も $1/n\to0$ なので一致する。
 ## 注意
-MSEが0へ行くことは一致性の十分条件であり、常に必要条件ではない。
+平均二乗誤差が0へ行くことは一致性の十分条件であり、常に必要条件ではない。
 <!-- CARD -->
 
 ---
@@ -1138,7 +1138,7 @@ $$\widehat\mu=\frac{10+(1/4)14}{1+1/4}=\frac{13.5}{1.25}=10.8.$$
 
 ---
 id: enginf-gls-whitening
-title: GLSを白色化変換として説明する
+title: 一般化最小二乗法を白色化変換として説明する
 category: applied-engineering
 subcategory: engineering-linear-inference
 topic: generalized-least-squares
@@ -1162,7 +1162,7 @@ $$\operatorname{Var}(C\varepsilon)=\sigma^2C\Omega C^{\mathsf T}=\sigma^2I,$$
 したがって
 $$\widehat\beta_{\mathrm{GLS}}=(X^{\mathsf T}\Omega^{-1}X)^{-1}X^{\mathsf T}\Omega^{-1}Y.$$
 ## 計算例
-$\Omega$ が対角ならGLSは逆分散重みのWLSになる。
+$\Omega$ が対角なら一般化最小二乗法は逆分散重みのWLSになる。
 ## 注意
 $\Omega$ の推定誤差がある場合は有限標本分布が変わり得る。
 <!-- CARD -->

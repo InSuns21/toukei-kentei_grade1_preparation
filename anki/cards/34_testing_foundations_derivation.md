@@ -1077,7 +1077,7 @@ $$\frac{f(x;\theta_2)}{f(x;\theta_1)}$$
 
 ---
 id: test-karlin-rubin-principle
-title: Karlin–Rubin型の考え方でUMP検定を得る
+title: Karlin–Rubin型の考え方で一様最強力検定検定を得る
 category: math-testing
 subcategory: math-test-derivation
 topic: karlin-rubin
@@ -1090,10 +1090,10 @@ sources: [{ type: official_syllabus, topic: Karlin–Rubin型の考え方 }]
 ---
 
 ## 問題
-$T$ に関して単調尤度比をもつ1母数分布族で、$H_0:\theta\le\theta_0$ 対 $H_1:\theta>\theta_0$ のUMP検定の形を述べよ。
+$T$ に関して単調尤度比をもつ1母数分布族で、$H_0:\theta\le\theta_0$ 対 $H_1:\theta>\theta_0$ の一様最強力検定検定の形を述べよ。
 
 ## 記号・用語
-- UMP：一様最強力（uniformly most powerful）
+- 一様最強力検定：一様最強力（uniformly most powerful）
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1113,7 +1113,7 @@ $$T>c$$
 
 ---
 id: test-ump-binomial-one-sided
-title: 二項分布の右片側UMP検定を構成する
+title: 二項分布の右片側一様最強力検定検定を構成する
 category: math-testing
 subcategory: math-test-derivation
 topic: ump-binomial
@@ -1126,16 +1126,16 @@ sources: [{ type: official_syllabus, topic: 一様最強力検定 }]
 ---
 
 ## 問題
-$X\sim\operatorname{Binomial}(20,p)$ で $H_0:p\le0.3$ 対 $H_1:p>0.3$ を考える。UMP検定の棄却方向と臨界値の決め方を述べよ。
+$X\sim\operatorname{Binomial}(20,p)$ で $H_0:p\le0.3$ 対 $H_1:p>0.3$ を考える。一様最強力検定検定の棄却方向と臨界値の決め方を述べよ。
 
 ## 記号・用語
-- UMP：一様最強力（uniformly most powerful）
+- 一様最強力検定：一様最強力（uniformly most powerful）
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-Karlin–Rubin型の定理により、この境界無作為化を含む右片側検定は全ての $p>0.3$ に対してUMP。
+Karlin–Rubin型の定理により、この境界無作為化を含む右片側検定は全ての $p>0.3$ に対して一様最強力検定。
 
 ## 答え
 二項分布は $X$ に関して単調尤度比をもつ。整数 $c$ と $0\le\gamma\le1$ を
@@ -1149,7 +1149,7 @@ P_{0.3}(X\ge9)\approx0.11333>0.05.$$
 したがって $X\ge10$ なら必ず棄却し、$X=9$ なら確率
 $$\gamma=\frac{0.05-P_{0.3}(X\ge10)}{P_{0.3}(X=9)}
 \approx0.03118$$
-で棄却すれば、サイズが厳密に0.05のUMP検定となる。なお、非無作為化検定に限定する場合の棄却域は $\{X\ge10\}$ である。
+で棄却すれば、サイズが厳密に0.05の一様最強力検定検定となる。なお、非無作為化検定に限定する場合の棄却域は $\{X\ge10\}$ である。
 
 ## 注意
 臨界値計算は帰無境界 $p=0.3$ で行う。
@@ -1157,7 +1157,7 @@ $$\gamma=\frac{0.05-P_{0.3}(X\ge10)}{P_{0.3}(X=9)}
 
 ---
 id: test-ump-normal-one-sided
-title: 正規平均の右片側検定がUMPであることを示す
+title: 正規平均の右片側検定が一様最強力検定であることを示す
 category: math-testing
 subcategory: math-test-derivation
 topic: ump-normal
@@ -1170,10 +1170,10 @@ sources: [{ type: official_syllabus, topic: 一様最強力検定 }]
 ---
 
 ## 問題
-正規分布に従う $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ について、$\sigma^2$ は既知とする。$H_0:\mu\le\mu_0$ 対 $H_1:\mu>\mu_0$ のUMP検定を示せ。
+正規分布に従う $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ について、$\sigma^2$ は既知とする。$H_0:\mu\le\mu_0$ 対 $H_1:\mu>\mu_0$ の一様最強力検定検定を示せ。
 
 ## 記号・用語
-- UMP：一様最強力（uniformly most powerful）
+- 一様最強力検定：一様最強力（uniformly most powerful）
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
 
 ## 使用公式・定理
@@ -1187,7 +1187,7 @@ Karlin–Rubin型の定理と、帰無境界で $\overline X\sim N(\mu_0,\sigma^
 ## 答え
 $\mu_2>\mu_1$ の尤度比は $\sum X_i$ の単調増加関数なので、$\overline X$ に関して単調尤度比をもつ。したがって
 $$\overline X>\mu_0+z_{\alpha}\frac\sigma{\sqrt n}$$
-で棄却する検定がUMP。
+で棄却する検定が一様最強力検定。
 
 ## 計算例
 $\alpha=0.05,n=100,\sigma=2$ なら臨界点は $\mu_0+1.645(0.2)=\mu_0+0.329$。
@@ -1195,7 +1195,7 @@ $\alpha=0.05,n=100,\sigma=2$ なら臨界点は $\mu_0+1.645(0.2)=\mu_0+0.329$�
 
 ---
 id: test-no-ump-two-sided
-title: 両側対立でUMP検定が一般に存在しない理由を説明する
+title: 両側対立で一様最強力検定検定が一般に存在しない理由を説明する
 category: math-testing
 subcategory: math-test-derivation
 topic: no-ump-two-sided
@@ -1204,14 +1204,14 @@ difficulty: 3
 priority: A
 hashtags: [一様最強力検定, 両側検定, 最強力検定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 両側検定でUMPが存在しない例 }]
+sources: [{ type: official_syllabus, topic: 両側検定で一様最強力検定が存在しない例 }]
 ---
 
 ## 問題
-正規平均について $H_0:\mu=0$ 対 $H_1:\mu\ne0$ でUMP検定が一般に存在しない理由を述べよ。
+正規平均について $H_0:\mu=0$ 対 $H_1:\mu\ne0$ で一様最強力検定検定が一般に存在しない理由を述べよ。
 
 ## 記号・用語
-- UMP：一様最強力（uniformly most powerful）
+- 一様最強力検定：一様最強力（uniformly most powerful）
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
 - 検出力：対立仮説が真のとき帰無仮説を棄却する確率
 
@@ -1703,7 +1703,7 @@ $0\log0$ が現れる場合は極限値0として扱う。
 
 ---
 id: test-lr-wald-score-comparison
-title: LR・Wald・Score検定の評価点を比較する
+title: 尤度比・Wald・Score検定の評価点を比較する
 category: math-testing
 subcategory: math-test-derivation
 topic: asymptotic-test-equivalence
@@ -1712,11 +1712,11 @@ difficulty: 3
 priority: S
 hashtags: [尤度比検定, ワルド型検定, スコア型検定]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: LR・Wald・Scoreの漸近同値 }]
+sources: [{ type: official_syllabus, topic: 尤度比・Wald・Scoreの漸近同値 }]
 ---
 
 ## 問題
-LR・Wald・Score検定が何を比較し、どの点で曲率を評価するか整理せよ。
+尤度比・Wald・Score検定が何を比較し、どの点で曲率を評価するか整理せよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1724,10 +1724,10 @@ LR・Wald・Score検定が何を比較し、どの点で曲率を評価するか
 正則条件下で3統計量は帰無仮説下に同じカイ二乗極限分布をもち、差は $o_p(1)$。
 
 ## 答え
-LRは制約付き・制約なし最大対数尤度の差、Waldは $\widehat\theta$ と帰無集合の距離を推定値側の分散で標準化、Scoreは帰無値での対数尤度の傾きを帰無情報量で標準化する。
+尤度比は制約付き・制約なし最大対数尤度の差、Waldは $\widehat\theta$ と帰無集合の距離を推定値側の分散で標準化、Scoreは帰無値での対数尤度の傾きを帰無情報量で標準化する。
 
 ## 計算例
-ベルヌーイ例 $n=100,x=60,p_0=0.5$ では、LR $\approx4.027$、Wald $\approx4.167$、Score $=4$ と近い。
+ベルヌーイ例 $n=100,x=60,p_0=0.5$ では、尤度比 $\approx4.027$、Wald $\approx4.167$、Score $=4$ と近い。
 
 ## 注意
 有限標本では一致せず、境界や弱い識別では差が大きくなりうる。

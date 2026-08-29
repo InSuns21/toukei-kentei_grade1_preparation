@@ -4,7 +4,7 @@ Core層の大問を1題1ファイルで管理する。各題は「問題・詳�
 
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 |
 | ---: | ---: | :---: | :---: | --- |
-| 01 | 40 | S | A | [Fisher情報量・Delta法・最尤推定量の漸近効率](40_fisher_information_delta_mle_efficiency.md) |
+| 01 | 40 | S | A | [フィッシャー情報量・Delta法・最尤推定量の漸近効率](40_fisher_information_delta_mle_efficiency.md) |
 | 02 | 70 | S | S | [Bernoulliモデルで尤度比検定・Wald・Scoreを比較する](70_bernoulli_lrt_wald_score.md) |
 | 03 | 63 | S | A | [Neyman–Pearson・単調尤度比・一様最強力検定](63_neyman_pearson_ump.md) |
 | 04 | 41 | S | A | [一様分布の完備十分統計量・Lehmann–Scheffé](41_uniform_complete_sufficient_umvu.md) |

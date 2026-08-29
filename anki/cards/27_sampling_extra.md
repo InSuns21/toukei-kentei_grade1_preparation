@@ -87,7 +87,7 @@ $n$ 個の独立試行が確率 $p_j$（$\sum_jp_j=1$）で $d$ カテゴリー�
 $$X^2=\sum_{j=1}^d\frac{(O_j-E_j)^2}{E_j}\ \overset{d}{\longrightarrow}\ \chi^2_{d-1}.$$
 自由度は $d-1$ である。これは多項標本の度数分布 $O_j$ と期待度数 $E_j=np_j$ の隔たりを測り、適合度検定として使う。
 ## 使用公式・定理
-度数ベクトルの平均は $np$、共分散行列は $n\{\operatorname{diag}(p)-pp^{\mathsf T}\}$ である。標準化残差は互いに相関し、$\sum_j(O_j-np_j)=0$ という1本の線形制約があるため、二次形式 $X^2$ の自由度は $d-1$ となる。既存の多項分布の確率質量関数（$\operatorname{Multinomial}(n;p_1,\ldots,p_d)$、周辺は二項、共分散は負）は `dist-multinomial-definition` を参照。
+度数ベクトルの平均は $np$、分散共分散行列は $n\{\operatorname{diag}(p)-pp^{\mathsf T}\}$ である。標準化残差は互いに相関し、$\sum_j(O_j-np_j)=0$ という1本の線形制約があるため、二次形式 $X^2$ の自由度は $d-1$ となる。既存の多項分布の確率質量関数（$\operatorname{Multinomial}(n;p_1,\ldots,p_d)$、周辺は二項、共分散は負）は `dist-multinomial-definition` を参照。
 ## 計算例
 $n=200$、$d=3$、帰無仮説 $p=(0.5,0.3,0.2)$、観測 $(94,63,43)$ なら $E=(100,60,40)$ で
 $$X^2=\frac{(94-100)^2}{100}+\frac{(63-60)^2}{60}+\frac{(43-40)^2}{40}=0.36+0.15+0.225=0.735,$$

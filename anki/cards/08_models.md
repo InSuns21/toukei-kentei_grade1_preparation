@@ -16,7 +16,7 @@ sources: [{ type: official_syllabus, topic: 線形モデル }]
 ## 答え
 固定計画 $\boldsymbol X\in\mathbb R^{n\times p}$（$n\ge p$）について、$\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$、$\boldsymbol\beta\in\mathbb R^p$、$E[\boldsymbol\varepsilon]=\boldsymbol0$、$\operatorname{Cov}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol I_n$（$\sigma^2>0$）、$\boldsymbol X$ が列フルランクであること。
 ## 使用公式・定理
-Gauss--Markov定理：上記条件の下で、最小二乗推定量は線形不偏推定量の中で共分散行列が最小である。
+Gauss--Markov定理：上記条件の下で、最小二乗推定量は線形不偏推定量の中で分散共分散行列が最小である。
 ## 計算例
 このとき
 $$\widehat{\boldsymbol\beta}=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol Y,$$

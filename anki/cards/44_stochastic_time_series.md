@@ -205,7 +205,7 @@ $t_1,\ldots,t_m\in T$ は任意の有限個の時点、$x_1,\ldots,x_m$ は実�
 分布関数で書けば
 $$F_{t_1,\ldots,t_m}(x_1,\ldots,x_m)=P(X_{t_1}\le x_1,\ldots,X_{t_m}\le x_m).$$
 ## 計算例
-標準ブラウン運動で $0<s<t$ なら、$(B_s,B_t)$ は平均 $(0,0)^\top$、共分散行列
+標準ブラウン運動で $0<s<t$ なら、$(B_s,B_t)$ は平均 $(0,0)^\top$、分散共分散行列
 $$\begin{pmatrix}s&s\\s&t\end{pmatrix}$$
 の2次元正規分布である。
 ## 注意
@@ -487,7 +487,7 @@ $$\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t,\qquad \boldsym
 ## 計算例
 局所水準モデルは $\alpha_t=\alpha_{t-1}+\eta_t$、$y_t=\alpha_t+\varepsilon_t$ であり、$T=Z=1$ である。
 ## 注意
-$Q$ と $H$ はそれぞれ状態雑音と観測雑音の共分散行列である。
+$Q$ と $H$ はそれぞれ状態雑音と観測雑音の分散共分散行列である。
 <!-- CARD -->
 
 ---

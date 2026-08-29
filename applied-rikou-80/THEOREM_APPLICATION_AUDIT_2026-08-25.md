@@ -22,9 +22,9 @@
   - 全体F・部分Fで「回帰だからF」を禁止。
   - 正規・等分散・nested・フルランク・直交射影を確認。
 - `core/07_wald_lr_score.md`
-  - CLT、LLN、Slutsky、Wilksを名前付きで使い、$0<p_0<1$ を確認。
+  - 中心極限定理、大数の法則、Slutsky、Wilksを名前付きで使い、$0<p_0<1$ を確認。
 - `core/08_markov_mle_lrt.md`
-  - i.i.d.版Wilksを無条件に流用しない。
+  - 独立同分布版Wilksを無条件に流用しない。
   - 有限状態Markovモデルで内部遷移確率、既約・非周期・エルゴード、推移数発散、滑らかなランク1制約を確認。
 - `core/09_markov_stationary.md`
   - 有限Markov連鎖の収束定理、エルゴード定理、Kac公式を区別。

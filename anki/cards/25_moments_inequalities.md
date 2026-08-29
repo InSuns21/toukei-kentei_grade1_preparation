@@ -117,7 +117,7 @@ $X=Y$ と置くと全分散の法則に一致する。$E[X^2],E[Y^2]<\infty$ の
 <!-- CARD -->
 ---
 id: prob-covariance-matrix-components
-title: 共分散行列の成分を対角・非対角で読み取る
+title: 分散共分散行列の成分を対角・非対角で読み取る
 category: math-probability
 subcategory: math-distribution-characteristics
 topic: covariance-matrix-components
@@ -126,7 +126,7 @@ difficulty: 2
 priority: S
 hashtags: [共分散行列, 分散共分散行列, 成分]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 共分散行列 }]
+sources: [{ type: official_syllabus, topic: 分散共分散行列 }]
 ---
 ## 問題
 $p$ 変量ベクトル $\boldsymbol X$ の分散共分散行列 $\boldsymbol\Sigma=\operatorname{Cov}(\boldsymbol X)$ の第 $ij$ 成分 $\Sigma_{ij}$ はどのような量か。特に $i=j$ と $i\ne j$ の場合を述べよ。
@@ -145,7 +145,7 @@ $\operatorname{Var}(X_1)=4,\ \operatorname{Var}(X_2)=9,\ \operatorname{Cov}(X_1,
 $$\operatorname{Cov}(\boldsymbol X)=\begin{pmatrix}4&3\\3&9\end{pmatrix}.$$
 
 ## 一手
-対角は分散、非対角は共分散。共分散行列は常に対称行列になる。
+対角は分散、非対角は共分散。分散共分散行列は常に対称行列になる。
 
 ## 注意
 任意の実数ベクトル $\boldsymbol a$ に対し $\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\ge0$ なので半正定値である。

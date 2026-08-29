@@ -13,7 +13,7 @@
 1. $C=R(X^\top X)^{-1}R^\top$ として $\hat\beta_R$ を書け。
 2. 真の $\beta$ が制約を満たさない場合の $\hat\beta_R$ のバイアスを求めよ。
 3. $\operatorname{Var}(\hat\beta_R)$ を求め、通常最小二乗法より分散が減少することを示せ。
-4. 特に $X^\top X=nI_2$, 制約 $\beta_2=0$、真値 $\beta_2=\delta$ とする。$\beta$ 全体の二乗誤差損失に対する 通常最小二乗法 と制約推定量の 平均二乗誤差 を比較し、制約推定量が有利となる条件を求めよ。
+4. 特に $X^\top X=nI_2$, 制約 $\beta_2=0$、真値 $\beta_2=\delta$ とする。$\beta$ 全体の二乗誤差損失に対する通常最小二乗法と制約推定量の平均二乗誤差を比較し、制約推定量が有利となる条件を求めよ。
 
 ## 詳細解答
 
@@ -128,7 +128,7 @@ $$
 
 ### 4. 直交設計の例
 
-$X^\top X=nI_2$ なので 通常最小二乗法 の各成分分散は $\sigma^2/n$。したがって
+$X^\top X=nI_2$ なので通常最小二乗法の各成分分散は $\sigma^2/n$。したがって
 
 $$
 \operatorname{MSE}(\hat\beta)=E\|\hat\beta-\beta\|^2=\frac{2\sigma^2}{n}.
@@ -174,7 +174,7 @@ $$
 =\sigma^2\{K-KR^\top C^{-1}RK\},
 $$
 
-したがって 通常最小二乗法 との差は $\sigma^2KR^\top C^{-1}RK\succeq0$。直交設計の例では
+したがって通常最小二乗法との差は $\sigma^2KR^\top C^{-1}RK\succeq0$。直交設計の例では
 
 $$
 \operatorname{MSE}_{U}=2\sigma^2/n,\qquad

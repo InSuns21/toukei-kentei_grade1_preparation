@@ -6,7 +6,7 @@
 
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 | 手計算監査 |
 | ---: | ---: | :---: | :---: | --- | --- |
-| 01 | 40 | S | A | [Fisher情報量・Delta法・最尤推定量の漸近効率](core/40_fisher_information_delta_mle_efficiency.md) | ◎ |
+| 01 | 40 | S | A | [フィッシャー情報量・Delta法・最尤推定量の漸近効率](core/40_fisher_information_delta_mle_efficiency.md) | ◎ |
 | 02 | 70 | S | S | [Bernoulliモデルで尤度比検定・Wald・Scoreを比較する](core/70_bernoulli_lrt_wald_score.md) | ◎・修正済（対数の数値評価不要） |
 | 03 | 63 | S | A | [Neyman–Pearson・単調尤度比・一様最強力検定](core/63_neyman_pearson_ump.md) | 表 |
 | 04 | 41 | S | A | [一様分布の完備十分統計量・Lehmann–Scheffé](core/41_uniform_complete_sufficient_umvu.md) | ◎ |
@@ -67,7 +67,7 @@
 | 06 | 16 | B | B | [依存する一様分布・無相関](standard/16_dependent_uniform_uncorrelated.md) | ◎ |
 | 07 | 19 | A | A | [経験分布・tail integral・混合重尾](standard/19_empirical_distribution_tail_mixture.md) | ◎ |
 | 08 | 20 | A | A | [最大順序統計量・極値極限](standard/20_max_order_extreme_limit.md) | ◎ |
-| 09 | 21 | A | A | [多項分布・共分散行列・多変量中心極限定理](standard/21_multinomial_covariance_mvn_clt.md) | ◎ |
+| 09 | 21 | A | A | [多項分布・分散共分散行列・多変量中心極限定理](standard/21_multinomial_covariance_mvn_clt.md) | ◎ |
 | 10 | 22 | A | A | [階層Bernoulli・全分散・級内相関](standard/22_hierarchical_bernoulli_icc.md) | ◎ |
 | 11 | 29 | A | A | [二値化正規・相関減衰](standard/29_dichotomized_normal_correlation.md) | ◎ |
 | 12 | 32 | A | A | [不均一分散Gaussian bridge](standard/32_heteroscedastic_gaussian_bridge.md) | ◎ |

@@ -26,7 +26,7 @@ $$E[Y]=\boldsymbol a^{\mathsf T}\boldsymbol\mu=-1,\qquad \operatorname{Var}(Y)=\
 <!-- CARD -->
 ---
 id: multi-covariance-psd
-title: 共分散行列の半正定値性を二次形式で確認する
+title: 分散共分散行列の半正定値性を二次形式で確認する
 category: applied-engineering
 subcategory: engineering-multivariate
 topic: covariance-matrix
@@ -35,10 +35,10 @@ difficulty: 2
 priority: S
 hashtags: [分散共分散行列, 半正定値, 二次形式]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 共分散行列 }]
+sources: [{ type: official_syllabus, topic: 分散共分散行列 }]
 ---
 ## 問題
-共分散行列 $\boldsymbol\Sigma$ が半正定値である理由を示せ。
+分散共分散行列 $\boldsymbol\Sigma$ が半正定値である理由を示せ。
 ## 答え
 任意の定数ベクトル $\boldsymbol a$ に対し、二次形式を分散と読む。
 ## 使用公式・定理
@@ -47,7 +47,7 @@ $$\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)=\boldsymbol a^{\mat
 $$\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\ge0.$$
 例えば $\boldsymbol\Sigma=\begin{pmatrix}1&1\\1&1\end{pmatrix}$ は半正定値だが正定値ではない。
 ## 注意
-共分散行列は常に対称である。
+分散共分散行列は常に対称である。
 
 <!-- CARD -->
 ---

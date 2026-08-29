@@ -239,7 +239,7 @@ $$
 \operatorname{MSE}(\widehat\lambda)=\frac\lambda n.
 $$
 
-任意の $\varepsilon>0$ に対し チェビシェフの不等式より
+任意の $\varepsilon>0$ に対しチェビシェフの不等式より
 
 $$
 P(|\widehat\lambda-\lambda|\ge\varepsilon)

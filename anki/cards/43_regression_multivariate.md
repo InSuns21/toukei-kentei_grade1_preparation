@@ -2,20 +2,20 @@
 
 ---
 id: mv-mean-covariance-numeric
-title: 多変量標本の平均ベクトルと共分散行列を計算する
+title: 多変量標本の平均ベクトルと分散共分散行列を計算する
 category: applied-common
 subcategory: applied-multivariate
 topic: multivariate-mean-covariance
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [平均ベクトル, 共分散行列, 多変量解析]
+hashtags: [平均ベクトル, 分散共分散行列, 多変量解析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと共分散行列 }]
+sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと分散共分散行列 }]
 ---
 
 ## 問題
-2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本共分散行列を求めよ。
+2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本分散共分散行列を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -108,7 +108,7 @@ Residual deviance/dfは $90/97\approx0.928$ だが、これだけで適合を確
 
 ---
 id: mv-pca-software-output
-title: PCAの固有値・負荷量出力を解釈する
+title: 主成分分析の固有値・負荷量出力を解釈する
 category: applied-common
 subcategory: applied-multivariate
 topic: pca-software-output
@@ -121,7 +121,7 @@ sources: [{ type: official_syllabus, topic: ソフトウェア出力結果の解
 ---
 
 ## 問題
-標準化PCAの出力で固有値が2.4,0.5,0.1、第1主成分の固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ だった。第1主成分の寄与率と解釈を述べよ。
+標準化主成分分析の出力で固有値が2.4,0.5,0.1、第1主成分の固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ だった。第1主成分の寄与率と解釈を述べよ。
 
 ## 記号・用語
 - PCA：主成分分析（principal component analysis）
@@ -343,7 +343,7 @@ sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
 ---
 
 ## 問題
-誤差共分散行列Ωが未知だが母数化できるとき、実行可能一般化最小二乗法（FGLS）の手順を述べよ。
+誤差分散共分散行列Ωが未知だが母数化できるとき、実行可能一般化最小二乗法（FGLS）の手順を述べよ。
 
 ## 記号・用語
 - FGLS：実行可能一般化最小二乗法
@@ -576,16 +576,16 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 
 ---
 id: mv-covariance-linear-transform
-title: 線形変換後の共分散行列を求める
+title: 線形変換後の分散共分散行列を求める
 category: applied-common
 subcategory: applied-multivariate
 topic: covariance-transform
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [共分散行列, 線形変換, 多変量解析]
+hashtags: [分散共分散行列, 線形変換, 多変量解析]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと共分散行列 }]
+sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと分散共分散行列 }]
 ---
 
 ## 問題
@@ -617,7 +617,7 @@ topic: mahalanobis-distance
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [Mahalanobis距離, 共分散行列, 外れ値]
+hashtags: [Mahalanobis距離, 分散共分散行列, 外れ値]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: Mahalanobis距離 }]
 ---
@@ -639,7 +639,7 @@ $$d^2=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymb
 標準化座標ではEuclid距離になる。
 
 ## 注意
-共分散行列の可逆性が必要。
+分散共分散行列の可逆性が必要。
 <!-- CARD -->
 
 ---
@@ -690,7 +690,7 @@ sources: [{ type: official_syllabus, topic: HotellingのT²検定 }]
 ---
 
 ## 問題
-独立な10個の観測が2次元正規分布から得られ、標本共分散行列Sが可逆である。1標本T²検定で $T^2=15$ のときF統計量を求めよ。
+独立な10個の観測が2次元正規分布から得られ、標本分散共分散行列Sが可逆である。1標本T²検定で $T^2=15$ のときF統計量を求めよ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -711,7 +711,7 @@ n>pが必要。
 
 ---
 id: mv-pca-variance-max
-title: PCAを分散最大化として導く
+title: 主成分分析を分散最大化として導く
 category: applied-common
 subcategory: applied-multivariate
 topic: pca-variance-maximization
@@ -724,7 +724,7 @@ sources: [{ type: official_syllabus, topic: 主成分分析 }]
 ---
 
 ## 問題
-第1主成分方向が共分散行列の最大固有値に対応することを示せ。
+第1主成分方向が分散共分散行列の最大固有値に対応することを示せ。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -747,7 +747,7 @@ $$\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.$$
 
 ---
 id: mv-pca-eigen-numeric
-title: 2変量共分散行列の主成分を求める
+title: 2変量分散共分散行列の主成分を求める
 category: applied-common
 subcategory: applied-multivariate
 topic: pca-eigenproblem
@@ -756,7 +756,7 @@ difficulty: 4
 priority: B
 hashtags: [主成分分析, 固有値, 固有ベクトル]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: PCAと固有値問題 }]
+sources: [{ type: official_syllabus, topic: 主成分分析と固有値問題 }]
 ---
 
 ## 問題
@@ -765,7 +765,7 @@ $\boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ の固有値と第1主成�
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-主成分方向は共分散行列の固有ベクトル。
+主成分方向は分散共分散行列の固有ベクトル。
 
 ## 答え
 $$|\boldsymbol S-\lambda\boldsymbol I|=(2-\lambda)^2-1=0$$
@@ -781,7 +781,7 @@ $$\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.$$
 
 ---
 id: mv-pca-contribution-rate
-title: PCAの寄与率と累積寄与率を計算する
+title: 主成分分析の寄与率と累積寄与率を計算する
 category: applied-common
 subcategory: applied-multivariate
 topic: pca-contribution-rate
@@ -844,7 +844,7 @@ $$z_1=\boldsymbol a_1^{\mathsf T}(\boldsymbol x-\bar{\boldsymbol x})
 全主成分を使えば直交変換で情報を失わない。
 
 ## 注意
-標準化PCAでは先に各変数を標準化する。
+標準化主成分分析では先に各変数を標準化する。
 <!-- CARD -->
 
 ---
@@ -862,7 +862,7 @@ sources: [{ type: official_syllabus, topic: 主成分負荷量 }]
 ---
 
 ## 問題
-共分散PCAで固有値 $\lambda_j=4$、固有ベクトルのk成分 $a_{kj}=0.3$、元変数の標準偏差 $s_k=1.5$。$X_k$ と主成分jの相関を求めよ。
+共分散主成分分析で固有値 $\lambda_j=4$、固有ベクトルのk成分 $a_{kj}=0.3$、元変数の標準偏差 $s_k=1.5$。$X_k$ と主成分jの相関を求めよ。
 
 ## 記号・用語
 - PCA：主成分分析（principal component analysis）
@@ -885,7 +885,7 @@ $$\operatorname{Corr}(X_k,Z_j)=\frac{\sqrt{\lambda_j}a_{kj}}{s_k}
 
 ---
 id: mv-pca-covariance-vs-correlation
-title: 共分散PCAと相関PCAを選び分ける
+title: 共分散主成分分析と相関主成分分析を選び分ける
 category: applied-common
 subcategory: applied-multivariate
 topic: standardized-pca
@@ -894,11 +894,11 @@ difficulty: 2
 priority: B
 hashtags: [主成分分析, 標準化PCA, 相関行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標準化PCAと相関行列 }]
+sources: [{ type: official_syllabus, topic: 標準化主成分分析と相関行列 }]
 ---
 
 ## 問題
-測定単位や分散が大きく異なる変数群では、共分散行列と相関行列のどちらでPCAを行うべきか。
+測定単位や分散が大きく異なる変数群では、分散共分散行列と相関行列のどちらで主成分分析を行うべきか。
 
 ## 記号・用語
 - PCA：主成分分析（principal component analysis）
@@ -906,10 +906,10 @@ sources: [{ type: official_syllabus, topic: 標準化PCAと相関行列 }]
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-標準化変数 $Z_j=(X_j-\bar X_j)/s_j$ の共分散行列が相関行列。
+標準化変数 $Z_j=(X_j-\bar X_j)/s_j$ の分散共分散行列が相関行列。
 
 ## 答え
-尺度差を主成分へ反映させる科学的理由がなければ、各変数を標準化した相関行列PCAを用いる。共分散PCAは元単位の大分散変数を強く重視する。
+尺度差を主成分へ反映させる科学的理由がなければ、各変数を標準化した相関行列主成分分析を用いる。共分散主成分分析は元単位の大分散変数を強く重視する。
 
 ## 計算例
 cmとkgをそのまま混ぜると単位選択で結果が変わる。
@@ -920,7 +920,7 @@ cmとkgをそのまま混ぜると単位選択で結果が変わる。
 
 ---
 id: mv-pca-reconstruction
-title: 切り捨てPCAの再構成誤差を計算する
+title: 切り捨て主成分分析の再構成誤差を計算する
 category: applied-common
 subcategory: applied-multivariate
 topic: pca-reconstruction
@@ -960,7 +960,7 @@ topic: factor-analysis-model
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [因子分析, 因子負荷量, 共分散行列]
+hashtags: [因子分析, 因子負荷量, 分散共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 因子分析モデル }]
 ---
@@ -974,7 +974,7 @@ $\boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\vareps
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
 
-独立な和の共分散は共分散行列の和。
+独立な和の共分散は分散共分散行列の和。
 
 ## 答え
 $$\operatorname{Var}(\boldsymbol X)
@@ -985,7 +985,7 @@ $$\operatorname{Var}(\boldsymbol X)
 通常Ψは対角行列。
 
 ## 注意
-PCAは確率的潜在因子モデルと同じではない。
+主成分分析は確率的潜在因子モデルと同じではない。
 <!-- CARD -->
 
 ---
@@ -1102,7 +1102,7 @@ topic: fisher-linear-discriminant
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [判別分析, フィッシャーの線形判別, 共分散行列]
+hashtags: [判別分析, フィッシャーの線形判別, 分散共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: フィッシャーの線形判別 }]
 ---
@@ -1228,7 +1228,7 @@ sources: [{ type: official_syllabus, topic: 判別分析 }]
 正規密度の二次形式 $-(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}\boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)/2$。
 
 ## 答え
-LDAは全群で共通共分散行列を仮定し、判別境界は線形。QDAは群別共分散行列を許し、対数密度比に二次項が残るため境界は二次。
+LDAは全群で共通分散共分散行列を仮定し、判別境界は線形。QDAは群別分散共分散行列を許し、対数密度比に二次項が残るため境界は二次。
 
 ## 計算例
 QDAは柔軟だが推定母数が多い。
@@ -1439,7 +1439,7 @@ m次元座標は $\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}$。
 
 ---
 id: reg-robust-sandwich
-title: 異分散頑健共分散行列を書く
+title: 異分散頑健分散共分散行列を書く
 category: applied-common
 subcategory: applied-multiple-regression
 topic: robust-standard-error
@@ -1531,7 +1531,7 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 同じデータで変数選択した後、通常のt検定をそのまま報告する問題点は何か。
 
 ## 記号・用語
-- p値：帰無仮説の下で、観測結果以上に帰無仮説と整合しない結果が出る確率
+- P値：帰無仮説の下で、観測結果以上に帰無仮説と整合しない結果が出る確率
 - 交絡：処置・曝露と結果の双方に関係する第三の要因によって効果比較が歪むこと
 
 ## 使用公式・定理
@@ -1540,7 +1540,7 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 推論手順の標本分布にはモデル選択規則も含める必要がある。
 
 ## 答え
-選択過程を固定済みとみなす通常の標準誤差・p値は選択の不確実性を無視し、第一種過誤や係数の過大評価を招き得る。
+選択過程を固定済みとみなす通常の標準誤差・P値は選択の不確実性を無視し、第一種過誤や係数の過大評価を招き得る。
 
 ## 計算例
 予測評価は独立テスト標本や入れ子交差検証で行う。
@@ -2397,13 +2397,13 @@ topic: generalized-least-squares
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [一般化最小二乗推定, GLS, 相関誤差]
+hashtags: [一般化最小二乗推定, 一般化最小二乗法, 相関誤差]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
 ---
 
 ## 問題
-$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol\Omega$、$\boldsymbol\Omega$ が既知の正定値行列のときGLS推定量を書け。
+$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol\Omega$、$\boldsymbol\Omega$ が既知の正定値行列のとき一般化最小二乗法推定量を書け。
 
 ## 記号・用語
 - GLS：一般化最小二乗法

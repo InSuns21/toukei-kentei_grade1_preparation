@@ -494,7 +494,7 @@ $$
 3. 離散なら総和、連続なら積分を1と置く。
 4. 台の外で0と明記する。
 
-### CDF-1：端点で区分する
+### 累積分布関数-1：端点で区分する
 
 $F_X(x)=P(X\le x)$ を使い、台の左・内部・右に分けます。離散点では不等号が $\le$ なので、その点の質量を累積分布関数の値に含めます。
 
@@ -914,7 +914,7 @@ $$
 - level: B
 - minutes: 14
 - topics: 累積分布関数、独立
-- techniques: CDF-1, INDEP-RV-1
+- techniques: 累積分布関数-1, INDEP-RV-1
 - calculation_load: medium
 
 $X,Y$ は独立で、各累積分布関数は
@@ -1004,7 +1004,7 @@ $$
 - level: C
 - minutes: 24
 - topics: 混合分布、累積分布関数、点確率
-- techniques: NORM-1, CDF-1, ATOM-1
+- techniques: NORM-1, 累積分布関数-1, ATOM-1
 - calculation_load: medium
 
 $P(X=0)=1/4$ で、$0<x<1$ に連続部分の密度
@@ -1384,7 +1384,7 @@ $$
 - level: C
 - minutes: 25
 - topics: 累積分布関数、独立、順序
-- techniques: CDF-1, INDEP-RV-1
+- techniques: 累積分布関数-1, INDEP-RV-1
 - calculation_load: medium
 
 $X,Y$ は独立で $(0,1)$ 上の一様分布に従う。$M=\max(X,Y)$, $L=\min(X,Y)$ とする。
@@ -1536,7 +1536,7 @@ $$
 - level: C
 - minutes: 25
 - topics: 累積分布関数、混合分布
-- techniques: CDF-1, ATOM-1
+- techniques: 累積分布関数-1, ATOM-1
 - calculation_load: medium
 
 $$

@@ -210,7 +210,7 @@ sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
 ## 使用公式・定理
 **多変量正規分布の周辺化**：成分を抜き出したベクトルも正規分布で、平均と分散共分散行列の対応する行・列を抜き出す。
 ## 一手／方針
-成分1と3に対応する平均成分と共分散行列の行・列だけを残す。
+成分1と3に対応する平均成分と分散共分散行列の行・列だけを残す。
 ## 答え
 $$\begin{pmatrix}X_1\\X_3\end{pmatrix}\sim N_2\left(\begin{pmatrix}1\\3\end{pmatrix},\begin{pmatrix}4&2\\2&9\end{pmatrix}\right).$$
 ## 計算例
@@ -423,9 +423,9 @@ sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
 ## 問題
 $(X_1,X_2,X_3)^\top$ が多変量正規分布に従い、分散共分散行列が $\begin{pmatrix}1&0&2\\0&4&0\\2&0&9\end{pmatrix}$ である。$X_2$ と $(X_1,X_3)^\top$ は独立か。
 ## 記号・用語
-2つの部分ベクトルの交差共分散行列は、一方の成分と他方の成分の共分散を並べた行列である。
+2つの部分ベクトルの交差分散共分散行列は、一方の成分と他方の成分の共分散を並べた行列である。
 ## 使用公式・定理
-**多変量正規分布の独立性**：同時に多変量正規分布に従う部分ベクトルは、交差共分散行列が0なら独立である。
+**多変量正規分布の独立性**：同時に多変量正規分布に従う部分ベクトルは、交差分散共分散行列が0なら独立である。
 ## 一手／方針
 $X_2$ と残り2成分の共分散を対応する行列成分から読む。
 ## 答え
@@ -615,7 +615,7 @@ $$T^2=\frac{100}{20}\cdot1.5=7.5.$$
 ## 計算例
 検定では $\{(n_1+n_2-p-1)/[(n_1+n_2-2)p]\}T^2$ を自由度 $(p,n_1+n_2-p-1)$ のF分布と比較する。
 ## 注意
-2群の多変量正規性、独立性、共通共分散行列、$S_p$ の可逆性が必要である。
+2群の多変量正規性、独立性、共通分散共分散行列、$S_p$ の可逆性が必要である。
 <!-- CARD -->
 
 ---
@@ -681,7 +681,7 @@ $$\Sigma=\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix}+\frac12\begin{pmatrix}1&-1\
 
 ---
 id: engmv-standardized-pca-2x2
-title: 相関行列による標準化PCAを計算する
+title: 相関行列による標準化主成分分析を計算する
 category: applied-engineering
 subcategory: engineering-multivariate
 topic: standardized-pca
@@ -690,14 +690,14 @@ difficulty: 3
 priority: B
 hashtags: [主成分分析, 相関行列, 標準化]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標準化PCAと相関行列 }]
+sources: [{ type: official_syllabus, topic: 標準化主成分分析と相関行列 }]
 ---
 ## 問題
 相関行列 $R=\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}$ に基づく第1主成分と寄与率を求めよ。
 ## 記号・用語
 $Z_1,Z_2$ は平均0、分散1に標準化した変数である。
 ## 使用公式・定理
-**相関PCA**：相関行列の最大固有値に対応する単位固有ベクトルを第1主成分係数とする。
+**相関主成分分析**：相関行列の最大固有値に対応する単位固有ベクトルを第1主成分係数とする。
 ## 一手／方針
 対角成分が等しい2次相関行列なので、和方向と差方向を候補にする。
 ## 答え
@@ -706,7 +706,7 @@ $$Y_1=\frac{Z_1+Z_2}{\sqrt2},\qquad c_1=\frac{1.8}{1.8+0.2}=0.9.$$
 ## 計算例
 第1主成分だけで標準化後の全分散の90%を説明する。
 ## 注意
-元変数の単位が大きく異なるとき、共分散PCAより相関PCAが適することが多い。
+元変数の単位が大きく異なるとき、共分散主成分分析より相関主成分分析が適することが多い。
 <!-- CARD -->
 
 ---
@@ -956,7 +956,7 @@ topic: quadratic-discriminant-analysis
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [判別分析, 二次判別, 共分散行列]
+hashtags: [判別分析, 二次判別, 分散共分散行列]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 判別分析 }]
 ---
@@ -1175,7 +1175,7 @@ $\operatorname{Cov}(\boldsymbol X)=I_2$、$\operatorname{Cov}(\boldsymbol Y)=I_2
 ## 記号・用語
 正準相関は $\boldsymbol a^\top\boldsymbol X$ と $\boldsymbol b^\top\boldsymbol Y$ の相関を順に最大化した値である。
 ## 使用公式・定理
-各群が白色化済みなら、正準相関は交差共分散行列の特異値である。
+各群が白色化済みなら、正準相関は交差分散共分散行列の特異値である。
 ## 一手／方針
 対角行列の特異値は対角成分の絶対値として読む。
 ## 答え
@@ -1206,7 +1206,7 @@ $\Sigma_{YX}=\Sigma_{XY}^\top$ とする。
 ## 使用公式・定理
 正準相関の二乗は $\Sigma_{XX}^{-1}\Sigma_{XY}\Sigma_{YY}^{-1}\Sigma_{YX}$ の固有値である。
 ## 一手／方針
-単位行列の逆行列を消し、非対角な交差共分散行列の積を作って固有値を求める。
+単位行列の逆行列を消し、非対角な交差分散共分散行列の積を作って固有値を求める。
 ## 答え
 $$\Sigma_{XY}\Sigma_{YX}=\begin{pmatrix}0.41&0.40\\0.40&0.41\end{pmatrix}.$$
 固有値は $0.81,0.01$ なので、正準相関は
@@ -1337,5 +1337,5 @@ $3.542<3.59$ なので5%水準では $H_0$ を棄却しない。
 ## 計算例
 統計量は臨界値に近いが、「平均ベクトルが等しいと証明した」とは結論しない。
 ## 注意
-2群の独立性、多変量正規性、共通共分散行列、プール共分散の可逆性が必要である。
+2群の独立性、多変量正規性、共通分散共分散行列、プール共分散の可逆性が必要である。
 <!-- CARD -->

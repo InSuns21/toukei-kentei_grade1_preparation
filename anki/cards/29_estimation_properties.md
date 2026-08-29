@@ -266,7 +266,7 @@ $$\operatorname{MSE}_\theta(T)=\operatorname{Var}_\theta(T)+\{\operatorname{Bias
 ## 計算例
 $T=\overline X$、$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ では不偏なので $\operatorname{MSE}=\operatorname{Var}(\overline X)=\sigma^2/n$。
 ## 一手
-MSEは「分散＋バイアス²」。不偏推定量では MSE＝分散になる。
+平均二乗誤差は「分散＋バイアス²」。不偏推定量では平均二乗誤差＝分散になる。
 <!-- CARD -->
 ---
 id: est-bias-variance-tradeoff
@@ -313,7 +313,7 @@ sources: [{ type: official_syllabus, topic: 推定量の相対効率 }]
 $\operatorname{eff}(T_1,T_2)=\frac{\operatorname{Var}_\theta(T_2)}{\operatorname{Var}_\theta(T_1)}.$
 値が $>1$ なら分母 $T_1$ の分散が小さく、$T_1$ が優れる。分散が小さい方を「より効率的」という。
 ## 使用公式・定理
-不偏推定量では分散が小さくMSEが小さい。バイアスがある場合はMSEで比較する。
+不偏推定量では分散が小さく平均二乗誤差が小さい。バイアスがある場合は平均二乗誤差で比較する。
 ## 計算例
 $T_1=\overline X$、$T_2=X_1$（正規標本から $\mu$）で $\operatorname{Var}(T_1)=\sigma^2/n<\sigma^2=\operatorname{Var}(T_2)$。$\operatorname{eff}(T_1,T_2)=n>1$。
 ## 一手
@@ -453,7 +453,7 @@ $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$U=X_1$ は不偏。$T=\su
 <!-- CARD -->
 ---
 id: est-umvu-idea
-title: 一様最小分散不偏（UMVU）推定量の考え方
+title: 一様最小分散不偏（一様最小分散不偏推定量）推定量の考え方
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: umvu
@@ -467,13 +467,13 @@ sources: [{ type: official_syllabus, topic: 十分性 }]
 ## 問題
 一様最小分散不偏推定量（UMVU）とは何か。
 ## 答え
-$\theta$ のすべての不偏推定量の中で、すべての $\theta$ に対して分散が最小となる不偏推定量。完備十分統計量 $T$ が存在し、$T$ の関数として不偏推定量が得られれば、レーマン・シェッフェの定理によりそれが一意な一様最小分散不偏（UMVU）推定量となる。
+$\theta$ のすべての不偏推定量の中で、すべての $\theta$ に対して分散が最小となる不偏推定量。完備十分統計量 $T$ が存在し、$T$ の関数として不偏推定量が得られれば、レーマン・シェッフェの定理によりそれが一意な一様最小分散不偏（一様最小分散不偏推定量）推定量となる。
 ## 使用公式・定理
 ラオ・ブラックウェル化で十分統計量の関数へ改善し、完備性で一意性（レーマン・シェッフェの定理）を得る。
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では $\overline X$ が $p$ の一様最小分散不偏（UMVU）推定量である。$T=\sum_iX_i$ は完備十分である。
+$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では $\overline X$ が $p$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。$T=\sum_iX_i$ は完備十分である。
 ## 一手
-「不偏の中の分散最小」＋「十分統計量の関数」。完備十分統計量があれば一様最小分散不偏（UMVU）推定量を構成できる。
+「不偏の中の分散最小」＋「十分統計量の関数」。完備十分統計量があれば一様最小分散不偏（一様最小分散不偏推定量）推定量を構成できる。
 <!-- CARD -->
 ---
 id: est-loss-risk
@@ -498,7 +498,7 @@ $$R(\theta,T)=E_\theta[L(\theta,T)].$$
 ## 計算例
 $L(T,\theta)=(T-\theta)^2$ なら $R=E[(T-\theta)^2]=\operatorname{MSE}$。
 ## 一手
-リスク＝損失の期待値。二乗損失ではMSEと一致する。
+リスク＝損失の期待値。二乗損失では平均二乗誤差と一致する。
 <!-- CARD -->
 ---
 id: est-estimator-comparison
@@ -509,22 +509,22 @@ topic: estimator-comparison
 type: strategy
 difficulty: 3
 priority: A
-hashtags: [推定量比較, MSE, バイアス分散]
+hashtags: [推定量比較, 平均二乗誤差, バイアス分散]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 推定量の相対効率 }]
 ---
 ## 問題
 同一母数 $\theta$ の2つの推定量 $T_1,T_2$ を比較するときの典型手順を述べよ。
 ## 答え
-1) それぞれの期待値とバイアス、2) 分散、3) 必要ならMSEを計算し比較する。不偏なら分散（相対効率）で、そうでなければMSEで比較する。
+1) それぞれの期待値とバイアス、2) 分散、3) 必要なら平均二乗誤差を計算し比較する。不偏なら分散（相対効率）で、そうでなければ平均二乗誤差で比較する。
 ## 使用公式・定理
 $$\operatorname{MSE}(T)=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.$$
 ## 計算例
 正規標本で $\widehat\sigma^2_1=\frac1n\sum(X_i-\overline X)^2$（最尤推定量）と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$：$E[\widehat\sigma^2_1]=\frac{n-1}{n}\sigma^2$（負バイアス）、$S^2$ は不偏。一方、
 $$\operatorname{MSE}(\widehat\sigma^2_1)=\frac{2n-1}{n^2}\sigma^4,\qquad \operatorname{MSE}(S^2)=\frac{2}{n-1}\sigma^4,$$
-なので $n>1$ では最尤推定量のMSEの方が小さい。不偏性だけで優劣を決めない例である。
+なので $n>1$ では最尤推定量の平均二乗誤差の方が小さい。不偏性だけで優劣を決めない例である。
 ## 一手
-まず不偏性、次に分散、総合ならMSE。比較は固定した $\theta$ の関数として全母数空間で考える。
+まず不偏性、次に分散、総合なら平均二乗誤差。比較は固定した $\theta$ の関数として全母数空間で考える。
 <!-- CARD -->
 ---
 id: est-score-mean-zero
@@ -776,7 +776,7 @@ sources: [{ type: official_syllabus, topic: 有効性 }]
 $\theta$ の不偏推定量のうち、その分散がクラーメル・ラオの不等式による下界に等しいもの：
 $$\operatorname{Var}_\theta(T)=\frac1{I_n(\theta)}\quad(\text{または一般の }g(\theta)\text{ では }\{g'(\theta)\}^2/I_n(\theta)).$$
 ## 使用公式・定理
-有効推定量はクラーメル・ラオの不等式による下界を達成するから、不偏推定量の中で一様最小分散不偏（UMVU）推定量でもある。
+有効推定量はクラーメル・ラオの不等式による下界を達成するから、不偏推定量の中で一様最小分散不偏（一様最小分散不偏推定量）推定量でもある。
 ## 計算例
 正規標本の $\overline X$ は $\operatorname{Var}(\overline X)=\sigma^2/n=1/I_n(\mu)$ で有効。ベルヌーイ標本の $\overline X$ も $p$ に対して有効。
 ## 一手
@@ -880,7 +880,7 @@ $$I(\theta)_{ij}=E_\theta\!\left[\frac{\partial\log f}{\partial\theta_i}\frac{\p
 ## 計算例
 $X\sim N(\mu,\sigma^2)$、$\theta=(\mu,\sigma^2)$：$I(\theta)=\begin{pmatrix}1/\sigma^2&0\\0&1/(2\sigma^4)\end{pmatrix}$。
 ## 一手
-多母数では逆行列 $I(\theta)^{-1}$ が漸近共分散行列。対角成分が各母数に対するクラーメル・ラオの不等式の下界に相当する。
+多母数では逆行列 $I(\theta)^{-1}$ が漸近分散共分散行列。対角成分が各母数に対するクラーメル・ラオの不等式の下界に相当する。
 <!-- CARD -->
 ---
 id: est-normal-information-matrix
@@ -1014,22 +1014,22 @@ topic: estimator-comparison
 type: calc_step
 difficulty: 3
 priority: A
-hashtags: [MSE, 推定量比較, 正規分布]
+hashtags: [平均二乗誤差, 推定量比較, 正規分布]
 frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
 sources: [{ type: official_syllabus, topic: 推定量の相対効率 }]
-title: 推定量のMSE比較の計算
+title: 推定量の平均二乗誤差比較の計算
 ---
 ## 問題
-正規分布に従う標本 $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\widehat\sigma^2=\frac1n\sum(X_i-\overline X)^2$ と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$ のMSEを比較せよ。
+正規分布に従う標本 $X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\widehat\sigma^2=\frac1n\sum(X_i-\overline X)^2$ と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$ の平均二乗誤差を比較せよ。
 ## 答え
-$\widehat\sigma^2$ は $E=\frac{n-1}{n}\sigma^2$（バイアス $=-\sigma^2/n$）、$\operatorname{Var}(\widehat\sigma^2)=2(n-1)\sigma^4/n^2$。$S^2$ は不偏で $\operatorname{Var}(S^2)=2\sigma^4/(n-1)$。MSE比較では
+$\widehat\sigma^2$ は $E=\frac{n-1}{n}\sigma^2$（バイアス $=-\sigma^2/n$）、$\operatorname{Var}(\widehat\sigma^2)=2(n-1)\sigma^4/n^2$。$S^2$ は不偏で $\operatorname{Var}(S^2)=2\sigma^4/(n-1)$。平均二乗誤差比較では
 $\operatorname{MSE}(\widehat\sigma^2)=\frac{2n-1}{n^2}\sigma^4<\frac{2}{n-1}\sigma^4=\operatorname{MSE}(S^2)\quad(n>1).$
 ## 使用公式・定理
 $\operatorname{MSE}=\operatorname{Var}+\operatorname{Bias}^2.$
 ## 計算例
-$n=10$ のとき $\operatorname{MSE}(\widehat\sigma^2)=(19/100)\sigma^4=0.19\sigma^4$、$\operatorname{MSE}(S^2)=(2/9)\sigma^4\approx0.222\sigma^4$。最尤推定量の方がMSEが小さい。
+$n=10$ のとき $\operatorname{MSE}(\widehat\sigma^2)=(19/100)\sigma^4=0.19\sigma^4$、$\operatorname{MSE}(S^2)=(2/9)\sigma^4\approx0.222\sigma^4$。最尤推定量の方が平均二乗誤差が小さい。
 ## 一手
-不偏でも分散が大きいとMSEが大きくなることがある。MSEで総合比較すると最尤推定量（$n$ 分）が勝つ。
+不偏でも分散が大きいと平均二乗誤差が大きくなることがある。平均二乗誤差で総合比較すると最尤推定量（$n$ 分）が勝つ。
 <!-- CARD -->
 ---
 id: est-fisher-exponential
@@ -1170,13 +1170,13 @@ title: 完備十分統計量と指数型分布族
 ## 問題
 指数型分布族 $f(x;\theta)=\exp\{\eta(\theta)T(x)-A(\theta)\}\cdot h(x)$ で、$T(x)$ が完備十分統計量になる条件を述べよ。
 ## 答え
-自然母数空間が空でない開集合（内点）を含むとき、$T=\sum_i T(X_i)$ は指数型分布族の完備十分統計量になる。したがってレーマン・シェッフェの定理より、$T$ の関数で不偏な推定量は一様最小分散不偏（UMVU）推定量である。
+自然母数空間が空でない開集合（内点）を含むとき、$T=\sum_i T(X_i)$ は指数型分布族の完備十分統計量になる。したがってレーマン・シェッフェの定理より、$T$ の関数で不偏な推定量は一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 使用公式・定理
 指数型分布族の十分統計量 $T=\sum_i T(X_i)$。自然母数空間に内点（空でない開集合）が存在すれば完備性が成り立つ。
 ## 計算例
-$\operatorname{Bernoulli}(p)$：$T=\sum_i X_i$ は $p$ の完備十分統計量で、$\overline X$ が $p$ の一様最小分散不偏（UMVU）推定量である。
+$\operatorname{Bernoulli}(p)$：$T=\sum_i X_i$ は $p$ の完備十分統計量で、$\overline X$ が $p$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
-指数型分布族＋開集合なら完備十分である。完備十分統計量の関数で不偏なら一様最小分散不偏（UMVU）推定量である。
+指数型分布族＋開集合なら完備十分である。完備十分統計量の関数で不偏なら一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 <!-- CARD -->
 ---
 id: est-lehmann-scheffe
@@ -1194,13 +1194,13 @@ title: レーマン・シェッフェの定理
 ## 問題
 レーマン・シェッフェの定理を述べよ。
 ## 答え
-$T$ を $\theta$ の完備十分統計量とする。$g(T)$ が $\theta$ の不偏推定量ならば、$g(T)$ は $\theta$ の一意な一様最小分散不偏（UMVU）推定量である。
+$T$ を $\theta$ の完備十分統計量とする。$g(T)$ が $\theta$ の不偏推定量ならば、$g(T)$ は $\theta$ の一意な一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 使用公式・定理
 完備十分統計量の関数で不偏な推定量は一意（完備性）であり、ラオ・ブラックウェル化により最小分散となる。
 ## 計算例
-$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$（$\sigma^2$既知）で $\overline X$ は $\mu$ の一様最小分散不偏（UMVU）推定量である。
+$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$（$\sigma^2$既知）で $\overline X$ は $\mu$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 ## 一手
-「完備十分統計量の関数」＋「不偏」$\Rightarrow$ 一様最小分散不偏（UMVU）推定量。存在の証明はラオ・ブラックウェル化と完備性を使う。
+「完備十分統計量の関数」＋「不偏」$\Rightarrow$ 一様最小分散不偏（一様最小分散不偏推定量）推定量。存在の証明はラオ・ブラックウェル化と完備性を使う。
 <!-- CARD -->
 ---
 id: est-posterior-risk
@@ -1229,7 +1229,7 @@ $$E[(a-\theta)^2\mid x]
 ## 計算例
 $X\mid\mu\sim N(\mu,\sigma^2)$、事前 $N(\mu_0,\tau^2)$ なら事後平均が最良予測。
 ## 一手
-二乗損失では事後平均がベイズ推定量。頻度論的にはMSE最小と関連。
+二乗損失では事後平均がベイズ推定量。頻度論的には平均二乗誤差最小と関連。
 <!-- CARD -->
 ---
 id: est-information-inequality-summary
@@ -1247,7 +1247,7 @@ title: クラーメル・ラオの不等式による下界達成の判定
 ## 問題
 不偏推定量 $T$ の分散がクラーメル・ラオの不等式による下界 $1/I_n(\theta)$ に等しいとき、何が言えるか。
 ## 答え
-$T$ は有効推定量（efficient estimator）であり、不偏推定量の中で一様最小分散不偏（UMVU）推定量である。またスコア $U$ と $T-g(\theta)=a(\theta)U$ で線形関係にある。
+$T$ は有効推定量（efficient estimator）であり、不偏推定量の中で一様最小分散不偏（一様最小分散不偏推定量）推定量である。またスコア $U$ と $T-g(\theta)=a(\theta)U$ で線形関係にある。
 ## 使用公式・定理
 $\operatorname{Var}_\theta(T)=1/I_n(\theta)$ が等号条件。
 ## 計算例
@@ -1341,7 +1341,7 @@ $$\frac{2e^{-4}}{50}\approx0.000733.$$
 
 ---
 id: est-poisson-square-umvu
-title: ポアソン母数の2乗の一様最小分散不偏（UMVU）推定量を階乗モーメントで作る
+title: ポアソン母数の2乗の一様最小分散不偏（一様最小分散不偏推定量）推定量を階乗モーメントで作る
 category: math-estimation
 subcategory: math-point-estimator-properties
 topic: poisson-square-umvu
@@ -1353,16 +1353,16 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 十分性 }]
 ---
 ## 問題
-$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$S=\sum_iX_i$ とする。$\lambda^2$ の一様最小分散不偏（UMVU）推定量を構成せよ。
+$X_1,\ldots,X_n$ はポアソン分布 $\operatorname{Poisson}(\lambda)$ からの独立同分布標本で、$S=\sum_iX_i$ とする。$\lambda^2$ の一様最小分散不偏（一様最小分散不偏推定量）推定量を構成せよ。
 
 ## 答え
 $$T(S)=\frac{S(S-1)}{n^2}$$
-が $\lambda^2$ の一様最小分散不偏（UMVU）推定量である。
+が $\lambda^2$ の一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 
 ## 使用公式・定理
 $$S\sim\operatorname{Poisson}(n\lambda),\qquad
 E[S(S-1)]=(n\lambda)^2.$$
-また、ポアソン1母数指数型分布族では $S$ は完備十分統計量である。レーマン・シェッフェの定理により、$S$ の関数である不偏推定量は一様最小分散不偏（UMVU）推定量である。
+また、ポアソン1母数指数型分布族では $S$ は完備十分統計量である。レーマン・シェッフェの定理により、$S$ の関数である不偏推定量は一様最小分散不偏（一様最小分散不偏推定量）推定量である。
 
 ## 計算例
 $$E\left[\frac{S(S-1)}{n^2}\right]
@@ -1694,9 +1694,9 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: 線形推定（BLUE） }]
 ---
 ## 問題
-$\boldsymbol Y=\mu\boldsymbol1+\boldsymbol\varepsilon$、$\boldsymbol y=(2,5)^\top$、誤差共分散行列
+$\boldsymbol Y=\mu\boldsymbol1+\boldsymbol\varepsilon$、$\boldsymbol y=(2,5)^\top$、誤差分散共分散行列
 $$\Sigma=\begin{pmatrix}1&0.5\\0.5&4\end{pmatrix}$$
-とする。$\mu$ のGLS推定値と分散を求めよ。
+とする。$\mu$ の一般化最小二乗法推定値と分散を求めよ。
 ## 答え
 $$\widehat\mu_{\mathrm{GLS}}=2.375,\qquad
 \operatorname{Var}(\widehat\mu_{\mathrm{GLS}})=0.9375.$$
@@ -1715,7 +1715,7 @@ $$4(2)-0.5(5)-0.5(2)+1(5)=9.5,$$
 ## 一手
 相関・不均一分散を $\Sigma^{-1}$ で重み付けする。
 ## 注意
-$\Sigma=\sigma^2I$ のときGLSは通常の標本平均へ戻る。
+$\Sigma=\sigma^2I$ のとき一般化最小二乗法は通常の標本平均へ戻る。
 
 <!-- CARD -->
 ---

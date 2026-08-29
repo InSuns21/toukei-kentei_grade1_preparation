@@ -19,7 +19,7 @@ $\sigma_1,\sigma_2>0,\ -1<\rho<1$ のとき
 $$f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\right)\right\}.$$
 
 ## 使用公式・定理
-5個のパラメータ $(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ で指定される。共分散行列は
+5個のパラメータ $(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ で指定される。分散共分散行列は
 $$\boldsymbol\Sigma=
 \begin{pmatrix}\sigma_1^2&\rho\sigma_1\sigma_2\\
 \rho\sigma_1\sigma_2&\sigma_2^2\end{pmatrix},$$
@@ -40,7 +40,7 @@ $$f(\boldsymbol x)=\frac{
 $\mu_1=\mu_2=0,\sigma_1=\sigma_2=1,\rho=0$ なら標準二変量正規になり、密度は $f=\frac1{2\pi}\exp\{-\frac{x^2+y^2}{2}\}$。
 
 ## 一手
-相関係数 $\rho$ は共分散行列の非対角項を $\sigma_1\sigma_2$ で正規化したもの。$\rho=0$ と独立が一致するのはこの場合だけ。
+相関係数 $\rho$ は分散共分散行列の非対角項を $\sigma_1\sigma_2$ で正規化したもの。$\rho=0$ と独立が一致するのはこの場合だけ。
 
 ## 注意
 正定値性のため $\lvert\rho\rvert<1$ が要る。$\lvert\rho\rvert=1$ では退化（超平面上に分布）する。

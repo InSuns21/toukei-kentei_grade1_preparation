@@ -497,16 +497,16 @@ $$=2\frac{\binom{12}{9}+\binom{12}{10}+\binom{12}{11}+\binom{12}{12}}{2^{12}}
 <!-- CARD -->
 ---
 id: mathstat-p-value-uniformity
-title: 連続な帰無分布の下でp値が一様分布になることを示す
+title: 連続な帰無分布の下でP値が一様分布になることを示す
 category: math-testing
 subcategory: math-testing-foundations
 topic: p-value-uniformity
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [p値, 一様分布, 有意水準]
+hashtags: [P値, 一様分布, 有意水準]
 frequency: { past_exam: 0, textbook: 1, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: textbook, id: MATHSTAT-CH7-Q19, topic: p値の帰無分布 }]
+sources: [{ type: textbook, id: MATHSTAT-CH7-Q19, topic: P値の帰無分布 }]
 ---
 
 ## 問題

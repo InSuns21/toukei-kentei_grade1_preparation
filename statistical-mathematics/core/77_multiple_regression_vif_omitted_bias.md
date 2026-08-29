@@ -124,7 +124,7 @@ $$
 =(X^\top X)^{-1}X^\top\varepsilon.
 $$
 
-誤差の共分散行列は $\sigma^2I$ だから
+誤差の分散共分散行列は $\sigma^2I$ だから
 
 $$
 \begin{aligned}
