@@ -27,6 +27,7 @@ $$P(X_{t+1}=j\mid X_t=i,X_{t-1},\ldots,X_0)
 右辺を $p_{ij}$ とおけば、時間一様な連鎖の遷移確率になる。
 ## 注意
 独立性より弱い条件であり、未来は現在には依存してよい。
+
 <!-- CARD -->
 
 ---
@@ -89,6 +90,7 @@ $$
 
 ## 注意
 PACFは単なる $\rho_2$ ではなく、ラグ1の線形効果を除いた相関である。
+
 <!-- CARD -->
 
 ---
@@ -119,6 +121,7 @@ $$z=0.72/0.15=4.8>1.96$$
 近似95%信頼区間は $0.72\pm1.96(0.15)=(0.426,1.014)$ である。
 ## 注意
 推定値が定常域内でも、信頼区間が1を含むなら単位根の有無は専用検定も含め慎重に判断する。
+
 <!-- CARD -->
 
 ---
@@ -148,6 +151,7 @@ $0.016<0.05$ なので、5%水準で残差の白色性を棄却する。モデ�
 ARまたはMA次数の見直し、季節項の追加、外れ値の確認が次の候補となる。
 ## 注意
 「棄却しない」は残差が完全に独立で正規分布に従うことまで保証しない。
+
 <!-- CARD -->
 
 ---
@@ -245,6 +249,7 @@ $$
 
 ## 注意
 標準的なARIMAの文脈では「ARの定常条件」としてこの根条件を述べることが多いが、厳密にはここで保証しているのは**因果的な定常解**である。未来の革新に依存する非因果的表現まで許す議論とは区別する。
+
 <!-- CARD -->
 
 ---
@@ -321,6 +326,7 @@ $$
 
 ## 注意
 トレンド除去後も自己相関や季節性が残っていないかを確認する。
+
 <!-- CARD -->
 
 ---
@@ -353,6 +359,7 @@ $$\begin{pmatrix}s&s\\s&t\end{pmatrix}$$
 の2次元正規分布である。
 ## 注意
 各時点の周辺分布だけでは、時点間の依存関係は決まらない。
+
 <!-- CARD -->
 
 ---
@@ -385,6 +392,7 @@ $$P_1(T_1<\infty)=P_1(X_1=1)=\frac12<1$$
 有限状態の既約マルコフ連鎖なら、すべての状態は再帰的である。
 ## 注意
 定常分布の存在と再帰性を結び付けるときは、既約性などの条件を確認する。
+
 <!-- CARD -->
 
 ---
@@ -417,6 +425,7 @@ $$X_t-X_{t-1}=\phi(X_{t-1}-X_{t-2})+\varepsilon_t$$
 と展開できる。
 ## 注意
 定常性は水準系列ではなく、差分系列に対して考える。
+
 <!-- CARD -->
 
 ---
@@ -504,6 +513,7 @@ $$
 
 ## 注意
 平均が一定でも分散や自己共分散が時点に依存すれば弱定常ではない。差分を取り過ぎると別の依存構造を作るので、必要次数だけ差分する。
+
 <!-- CARD -->
 
 ---
@@ -534,6 +544,7 @@ $$\nabla_{12}X_{25}=X_{25}-X_{13}=130-118=12.$$
 周期4の四半期系列なら $\nabla_4X_t=X_t-X_{t-4}$ を使う。
 ## 注意
 通常差分 $X_t-X_{t-1}$ と季節差分 $X_t-X_{t-s}$ は目的が異なる。
+
 <!-- CARD -->
 
 ---
@@ -563,6 +574,7 @@ PACFがラグ2以降ほぼ0でACFが減衰するなら AR$(1)$、ACFがラグ2�
 標本ACFが $(0.7,0.49,0.34,\ldots)$、標本PACFが $(0.7,0.02,-0.01,\ldots)$ なら AR$(1)$ を候補にする。
 ## 注意
 標本変動があるため、情報量規準や残差診断も併用する。
+
 <!-- CARD -->
 
 ---
@@ -625,6 +637,7 @@ $$
 
 ## 注意
 標本自己共分散の分母規約は複数あるので、問題で与えられた定義に従う。
+
 <!-- CARD -->
 
 ---
@@ -656,6 +669,7 @@ $$S_t=0.3\cdot120+0.7\cdot100=106.$$
 $\alpha$ が1に近いほど新しい観測へ速く反応する。
 ## 注意
 単純指数平滑法は、明示的なトレンドや季節性を含まない水準系列に適する。
+
 <!-- CARD -->
 
 ---
@@ -733,6 +747,7 @@ $$
 
 ## 注意
 $1/(2\pi)$ を含める正規化規約を用いた。
+
 <!-- CARD -->
 
 ---
@@ -764,37 +779,7 @@ $$\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t,\qquad \boldsym
 局所水準モデルは $\alpha_t=\alpha_{t-1}+\eta_t$、$y_t=\alpha_t+\varepsilon_t$ であり、$T=Z=1$ である。
 ## 注意
 $Q$ と $H$ はそれぞれ状態雑音と観測雑音の分散共分散行列である。
-<!-- CARD -->
 
----
-id: ts-kalman-prediction
-title: カルマンフィルタの予測ステップを計算する
-category: applied-common
-subcategory: applied-time-series
-topic: kalman-prediction
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [状態空間モデル, カルマンフィルタ, 予測]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 状態空間モデル }]
----
-## 問題
-$a_{t-1\mid t-1}=2$、$P_{t-1\mid t-1}=3$、$T=0.5$、$Q=1$ の1次元モデルで予測平均と予測分散を求めよ。
-## 記号・用語
-$a_{t\mid t-1}$ と $P_{t\mid t-1}$ は、時刻 $t-1$ までの観測に基づく状態 $\alpha_t$ の条件付き平均と条件付き分散である。
-## 使用公式・定理
-**カルマン予測式**：
-$$a_{t\mid t-1}=Ta_{t-1\mid t-1},\qquad P_{t\mid t-1}=T^2P_{t-1\mid t-1}+Q.$$
-## 一手／方針
-平均には $T$、分散には $T^2$ を掛け、独立な状態雑音の分散 $Q$ を足す。
-## 答え
-$$a_{t\mid t-1}=0.5\cdot2=1,$$
-$$P_{t\mid t-1}=0.5^2\cdot3+1=1.75.$$
-## 計算例
-多次元では分散式を $P_{t\mid t-1}=TP_{t-1\mid t-1}T^\top+Q$ とする。
-## 注意
-分散に $T$ を1回だけ掛けない。
 <!-- CARD -->
 
 ---
@@ -926,6 +911,7 @@ $$
 
 ## 注意
 分散の予測では状態係数を左右から掛ける。更新後分散が予測分散より小さくなることも検算に使える。数値安定性が必要な実装ではJoseph形式を使う場合がある。
+
 <!-- CARD -->
 
 ---
@@ -955,6 +941,7 @@ sources: [{ type: official_syllabus, topic: ARIMAモデル }]
 有限分散を持つ強定常過程は弱定常。
 ## 注意
 弱定常から強定常は一般には従わない。
+
 <!-- CARD -->
 
 ---
@@ -985,6 +972,7 @@ $$\gamma(0)=\operatorname{Var}(X_t)\ge0,\quad
 自己相関は $\rho(h)=\gamma(h)/\gamma(0)$。
 ## 注意
 任意の数列が自己共分散になるわけではなく非負定値性も要する。
+
 <!-- CARD -->
 
 ---
@@ -1016,65 +1004,7 @@ $$E[\varepsilon_t]=0,\qquad
 ACFはラグ0だけ1で、他は0。
 ## 注意
 弱ホワイトノイズは独立性や正規性を必ずしも仮定しない。
-<!-- CARD -->
 
----
-id: ts-random-walk-nonstationary
-title: ランダムウォークが非定常であると判定する
-category: applied-common
-subcategory: applied-time-series
-topic: random-walk-time-series
-type: proof_step
-difficulty: 2
-priority: B
-hashtags: [ARIMAモデル, ランダムウォーク, 非定常]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-$X_t=X_{t-1}+\varepsilon_t$、$X_0=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$ が弱定常でない理由を示せ。
-## 記号・用語
-$X_t$ は時刻 $t$ の値、$\varepsilon_t$ は互いに無相関な革新で、$E[\varepsilon_t]=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$ とする。
-## 使用公式・定理
-$X_t=\sum_{j=1}^t\varepsilon_j$。
-## 一手／方針
-初期値から革新の和へ展開し、互いに無相関な革新の分散を加えて時刻依存性を示す。
-## 答え
-$$\operatorname{Var}(X_t)=t\sigma^2$$
-が時点 $t$ に依存するため弱定常でない。
-## 計算例
-一階差分 $\Delta X_t=\varepsilon_t$ は定常。
-## 注意
-平均0だけでは定常性を保証しない。
-<!-- CARD -->
-
----
-id: ts-ar1-mean
-title: 切片付きAR(1)の定常平均を求める
-category: applied-common
-subcategory: applied-time-series
-topic: ar1-mean
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ARIMAモデル, AR1, 定常平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-$X_t=c+\phi X_{t-1}+\varepsilon_t$、$|\phi|<1$ の定常平均を求めよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-定常なら $E[X_t]=E[X_{t-1}]=\mu$。
-## 一手／方針
-モデル両辺の期待値を取り、定常平均が時刻によらないことから一次方程式を解く。
-## 答え
-$$\mu=c+\phi\mu\iff\mu=\frac{c}{1-\phi}.$$
-## 計算例
-$c=2,\phi=0.5$ なら平均4。
-## 注意
-切片 $c$ と定常平均 $\mu$ を混同しない。
 <!-- CARD -->
 
 ---
@@ -1174,35 +1104,7 @@ $\phi<0$ ならACFは符号を交互に変えながら幾何級数的に減衰�
 
 ## 注意
 切片 $c$ と定常平均 $\mu$ を混同しない。$|\phi|<1$ は通常の因果的定常AR(1)で必要である。
-<!-- CARD -->
 
----
-id: ts-ar1-one-step-forecast
-title: AR(1)の1期先予測を計算する
-category: applied-common
-subcategory: applied-time-series
-topic: ar1-forecast
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ARIMAモデル, AR1, 予測]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-$X_t=1+0.8X_{t-1}+\varepsilon_t$、$X_t=5$ のとき1期先予測値を求めよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-$E[\varepsilon_{t+1}\mid\mathcal F_t]=0$。
-## 一手／方針
-次時点のモデル式を条件付き期待値に入れ、未知の革新だけを平均0で落とす。
-## 答え
-$$\widehat X_{t+1\mid t}=1+0.8(5)=5.$$
-## 計算例
-予測誤差は $\varepsilon_{t+1}$。
-## 注意
-定常平均は5だが、一般には現在値を代入して予測する。
 <!-- CARD -->
 
 ---
@@ -1315,67 +1217,7 @@ $$
 
 ## 注意
 $h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigma_\varepsilon^2/(1-\phi^2)$ へ近づく。分散では係数を二乗する。
-<!-- CARD -->
 
----
-id: ts-ar1-forecast-error-variance
-title: AR(1)の多期先予測誤差分散を求める
-category: applied-common
-subcategory: applied-time-series
-topic: ar1-forecast-error
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ARIMAモデル, AR1, 予測誤差分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-革新分散 $\sigma_\varepsilon^2$ のAR(1)の $h$ 期先予測誤差分散を求めよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-誤差は $\sum_{j=0}^{h-1}\phi^j\varepsilon_{t+h-j}$。
-## 一手／方針
-実現値を革新の有限和へ展開し、予測値との差に残る将来革新の分散を加える。
-## 答え
-$$\operatorname{Var}(e_{t+h\mid t})
-=\sigma_\varepsilon^2\sum_{j=0}^{h-1}\phi^{2j}
-=\sigma_\varepsilon^2\frac{1-\phi^{2h}}{1-\phi^2}.$$
-## 計算例
-$h\to\infty$ で定常分散へ近づく。
-## 注意
-係数を二乗して分散を足す。
-<!-- CARD -->
-
----
-id: ts-ar2-stationarity
-title: AR(2)の定常条件を根で判定する
-category: applied-common
-subcategory: applied-time-series
-topic: ar2-stationarity
-type: recognition
-difficulty: 4
-priority: A
-hashtags: [ARIMAモデル, AR2, 定常条件]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-$X_t=\phi_1X_{t-1}+\phi_2X_{t-2}+\varepsilon_t$ の定常条件を根で述べよ。
-## 記号・用語
-- $B$：後退作用素、$BX_t=X_{t-1}$
-## 使用公式・定理
-AR多項式は $\phi(z)=1-\phi_1z-\phi_2z^2$。
-## 一手／方針
-AR多項式を作って二次方程式を解き、2根の絶対値をそれぞれ1と比較する。
-## 答え
-$$1-\phi_1z-\phi_2z^2=0$$
-のすべての根が単位円の外側、すなわち $|z|>1$ にあれば定常である。
-## 計算例
-$\phi_1=0.5,\phi_2=0.2$ なら特性方程式 $1-0.5z-0.2z^2=0$ の根は $z=(-0.5\pm\sqrt{1.05})/0.4$。絶対値は約 $1.31,3.81$ でともに1を超えるため定常である。
-## 注意
-AR係数そのものを単に1未満と判定しない。
 <!-- CARD -->
 
 ---
@@ -1408,6 +1250,7 @@ $$\phi_1=0.5625,\qquad\phi_2=0.0625.$$
 第1式から $\phi_1=0.6-0.6\phi_2$ と代入する。
 ## 注意
 標本ACFを代入した解は推定値である。
+
 <!-- CARD -->
 
 ---
@@ -1437,6 +1280,7 @@ MA多項式 $1+\theta z$ の根が単位円外なら可逆。
 可逆なら現在の革新を過去の観測の収束級数で表せる。
 ## 注意
 MA過程は有限次数なら常に定常だが、可逆とは別条件。
+
 <!-- CARD -->
 
 ---
@@ -1467,6 +1311,7 @@ $$\gamma(h)=\rho(h)=0.$$
 MA(1)ではラグ2以降のACFが0。
 ## 注意
 標本ACFは有限標本誤差により厳密には0にならない。
+
 <!-- CARD -->
 
 ---
@@ -1496,6 +1341,7 @@ $$\mu=c+\phi\mu\iff\mu=\frac{c}{1-\phi}.$$
 MA係数 $\theta$ は平均に影響しない。
 ## 注意
 定常性にはAR部分の $|\phi|<1$ が必要。
+
 <!-- CARD -->
 
 ---
@@ -1525,6 +1371,7 @@ $$\phi(B)X_t=\theta(B)\varepsilon_t.$$
 ARMA(1,1)は $(1-\phi B)X_t=(1+\theta B)\varepsilon_t$。
 ## 注意
 MA多項式の符号規約は文献により異なる。
+
 <!-- CARD -->
 
 ---
@@ -1554,6 +1401,7 @@ $P=\begin{pmatrix}0.7&0.3\\-0.1&1.1\end{pmatrix}$ は遷移行列か。
 行和はどちらも1だが、非負条件を満たさない。
 ## 注意
 行和だけを確認して終えない。
+
 <!-- CARD -->
 
 ---
@@ -1583,6 +1431,7 @@ $$p_{13}^{(2)}=(1/2)0+(1/2)(1/2)+0=1/4.$$
 行列積 $P^2$ の第 $(1,3)$ 成分と同じ。
 ## 注意
 同じ行の要素同士を掛けない。
+
 <!-- CARD -->
 
 ---
@@ -1613,6 +1462,7 @@ $$\boldsymbol\pi=(1/4,1/4,1/2).$$
 代入すると $\boldsymbol\pi P=(1/4,1/4,1/2)$。
 ## 注意
 固有方程式だけでなく総和1も使う。
+
 <!-- CARD -->
 
 ---
@@ -1643,6 +1493,7 @@ $$0.6(0.2)=0.12=0.4(0.3)$$
 2状態では非対角の1組を確認すればよい。
 ## 注意
 定常性は詳細釣合いを必ずしも必要としない。
+
 <!-- CARD -->
 
 ---
@@ -1672,6 +1523,7 @@ $\{1,2\}$ と $\{3\}$ が通信類であり、全状態が1類でないので既
 3から1または2へ戻れない。
 ## 注意
 一方向に到達できるだけでは通信しない。
+
 <!-- CARD -->
 
 ---
@@ -1702,6 +1554,7 @@ $$d(i)=\gcd(2,4,6,\ldots)=2.$$
 自己ループ $p_{ii}>0$ があれば周期は1。
 ## 注意
 最小帰還時刻ではなく最大公約数を取る。
+
 <!-- CARD -->
 
 ---
@@ -1731,6 +1584,7 @@ $$h_1=(1-p)h_0+ph_2=p.$$
 $p=0.7$ なら2へ吸収される確率は0.7。
 ## 注意
 吸収状態の境界値を先に固定する。
+
 <!-- CARD -->
 
 ---
@@ -1761,6 +1615,7 @@ $$m_1=1+\tfrac12m_0+\tfrac12m_1
 幾何分布の成功確率 $1/2$ の平均とも一致する。
 ## 注意
 右辺の1は現在からの1ステップである。
+
 <!-- CARD -->
 
 ---
@@ -1791,6 +1646,7 @@ $$E[S_n]=n(2p-1),\qquad\operatorname{Var}(S_n)=4np(1-p).$$
 $p=1/2$ なら平均0、分散 $n$。
 ## 注意
 $E[\xi_i^2]=1$ を使うと分散を速く計算できる。
+
 <!-- CARD -->
 
 ---
@@ -1822,6 +1678,7 @@ $h_i=(h_{i-1}+h_{i+1})/2$ を移項すると $h_{i+1}-h_i=h_i-h_{i-1}$。した�
 $N=10,i=3$ なら確率は0.3。
 ## 注意
 非対称歩行では一般に一次式にならない。
+
 <!-- CARD -->
 
 ---
@@ -1853,6 +1710,7 @@ $$E[S_n\mid\mathcal F_{n-1}]
 $E[S_n]=E[S_0]$ も従う。
 ## 注意
 偏り $p\ne1/2$ では $S_n$ 自身はマルチンゲールでない。
+
 <!-- CARD -->
 
 ---
@@ -1883,6 +1741,7 @@ $$N(t)-N(s)\sim\operatorname{Poisson}\{\lambda(t-s)\}.$$
 $\lambda=2,s=1,t=3$ なら平均4のポアソン分布。
 ## 注意
 $N(t)$ の値ではなく区間内の到着数である。
+
 <!-- CARD -->
 
 ---
@@ -1913,6 +1772,7 @@ $$P\{N(2)=4\}=e^{-6}\frac{6^4}{4!}\approx0.1339.$$
 $6^4/4!=54$ を先に計算する。
 ## 注意
 率と時間を掛けて無次元の平均にする。
+
 <!-- CARD -->
 
 ---
@@ -1943,6 +1803,7 @@ $$T_k=\sum_{i=1}^kW_i\sim\operatorname{Gamma}(k,\lambda)$$
 $k=3,\lambda=2$ なら平均到着時刻は1.5。
 ## 注意
 第 $k$ 到着までの「時間」であり件数ではない。
+
 <!-- CARD -->
 
 ---
@@ -1972,6 +1833,7 @@ $N(t)$ は時刻 $t$ までの到着数を表す計数過程、$\lambda>0$ は�
 1時間の期待件数もそれぞれ3件と7件。
 ## 注意
 採用確率が時刻や履歴に依存しないことを要する。
+
 <!-- CARD -->
 
 ---
@@ -2001,6 +1863,7 @@ $N(t)$ は時刻 $t$ までの到着数を表す計数過程、$\lambda>0$ は�
 時間 $t$ の件数は $\operatorname{Poisson}(7t)$。
 ## 注意
 元の過程間の独立性が必要。
+
 <!-- CARD -->
 
 ---
@@ -2032,6 +1895,7 @@ $$P\{N(1)=2\mid N(2)=6\}
 ## 注意
 無条件ではポアソン分布である。
 $N(t)=n$ の条件下で、順序を無視した $n$ 個の到着点は独立な一様分布と同じであり、順序付き到着時刻はその順序統計量である。
+
 <!-- CARD -->
 
 ---
@@ -2061,6 +1925,7 @@ $N\sim\operatorname{Poisson}(\lambda)$ とする。$Y_1,Y_2,\ldots$ は互いに
 $E[S\mid N]=N\mu$、$\operatorname{Var}(S\mid N)=N\sigma^2$。
 ## 注意
 分散は $\lambda\sigma^2$ だけではない。
+
 <!-- CARD -->
 
 ---
@@ -2090,6 +1955,7 @@ $B(0)=0$、$B(t)-B(s)\sim N(0,t-s)$（$s<t$）、重ならない区間の増分�
 $B(3)-B(1)\sim N(0,2)$。
 ## 注意
 独立なのは値 $B(s),B(t)$ ではなく重ならない増分。
+
 <!-- CARD -->
 
 ---
@@ -2120,6 +1986,7 @@ $$P\{B(3)-B(1)>2\}
 標準偏差は時間差でなく $\sqrt2$。
 ## 注意
 分散が時間差に等しい。
+
 <!-- CARD -->
 
 ---
@@ -2151,6 +2018,7 @@ $$\operatorname{Cov}\{B(s),B(t)\}
 $\operatorname{Cov}\{B(2),B(5)\}=2$。
 ## 注意
 相関係数は共分散を標準偏差で割る必要がある。
+
 <!-- CARD -->
 
 ---
@@ -2182,6 +2050,7 @@ $$\{B(ct)\}_{t\ge0}\overset{d}=
 $B(4)\overset d=2B(1)$。
 ## 注意
 同じ標本路上の等式ではなく有限次元分布の一致。
+
 <!-- CARD -->
 
 ---
@@ -2212,6 +2081,7 @@ $$X(t)\sim N(\mu t,\sigma^2t).$$
 $\mu=1,\sigma=2,t=3$ なら $N(3,12)$。
 ## 注意
 第2母数は標準偏差でなく分散。
+
 <!-- CARD -->
 
 ---
@@ -2241,4 +2111,3 @@ $$X_t=X_0\exp\{(\mu-\sigma^2/2)t+\sigma B_t\}.$$
 $E[X_t]=X_0e^{\mu t}$。
 ## 注意
 指数内の伊藤補正 $-\sigma^2t/2$ を落とさない。
-<!-- CARD -->

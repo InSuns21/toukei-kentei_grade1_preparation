@@ -2275,18 +2275,12 @@ items:
       - ts-ar-causality-check
       - ts-linear-detrend
       - ts-state-space-definition
-      - ts-kalman-prediction
       - ts-kalman-update
       - ts-weak-vs-strong-stationarity
       - ts-autocovariance-properties
       - ts-white-noise-identification
-      - ts-random-walk-nonstationary
-      - ts-ar1-mean
       - ts-ar1-acf
-      - ts-ar1-one-step-forecast
       - ts-ar1-hstep-forecast
-      - ts-ar1-forecast-error-variance
-      - ts-ar2-stationarity
       - ts-yule-walker-ar2
       - ts-ma1-invertibility
       - ts-maq-acf-cutoff
@@ -2303,13 +2297,9 @@ items:
           - ts-weak-vs-strong-stationarity
           - ts-autocovariance-properties
           - ts-white-noise-identification
-          - ts-random-walk-nonstationary
-          - ts-ar1-mean
           - ts-ar1-acf
-          - ts-ar1-one-step-forecast
           - ts-ar1-hstep-forecast
-          - ts-ar1-forecast-error-variance
-          - ts-ar2-stationarity
+          - ts-ar-causality-check
           - ts-yule-walker-ar2
           - ts-ma1-invertibility
           - ts-maq-acf-cutoff
@@ -2322,12 +2312,10 @@ items:
           - ts-spectral-density-ar1
           - ts-software-arima-coefficients
           - ts-software-residual-diagnostics
-          - ts-ar-causality-check
       - name: 状態空間モデル
         status: card
         cards:
           - ts-state-space-definition
-          - ts-kalman-prediction
           - ts-kalman-update
   - id: engineering-multivariate
     status: complete
