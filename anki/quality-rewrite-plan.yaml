@@ -1,200 +1,230 @@
 schema_version: 1
-batch_id: 2026-08-29-cdf-survival-merge-prep-09
+batch_id: 2026-08-29-transformations-merge-prep-10
 items:
-  - id: prob-cdf-endpoint-choice
-    note: 区間確率の一般式と左極限の使い分けを1枚にまとめ、連続分布の単純なF(b)-F(a)も特殊形として吸収する。
+  - id: prob-transform-log
+    note: 1変数の単調変換を、逆変換・Jacobian・台の変換という一般手順へ拡張し、増加・減少・逆数の代表例を同じカードで扱う。
     sections:
       使用公式・定理: |
-        累積分布関数を
+        $Y=g(X)$ が台上で1対1かつ単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
         $$
-        F_X(x)=P(X\le x),
-        \qquad
-        F_X(x-)=P(X<x)
+        f_Y(y)=f_X\{g^{-1}(y)\}\left|\frac{d}{dy}g^{-1}(y)\right|.
         $$
-        とする。すると
+        手順は
         $$
-        P(a<X\le b)=F_X(b)-F_X(a),
+        \text{逆変換}\to\text{Jacobianの絶対値}\to\text{元密度へ代入}\to\text{変換後の台}
         $$
-        $$
-        P(a\le X\le b)=F_X(b)-F_X(a-).
-        $$
-        右端を含まない場合も同様に $F_X(b-)$ を使う。連続分布では $F_X(x-)=F_X(x)$ なので端点の違いは消える。
+        である。単調減少でもJacobianは絶対値を取るので密度は負にならない。
       答え: |
-        $F_X(1-)=0.2$, $F_X(1)=0.5$, $F_X(3)=0.9$ なら
+        $X\sim N(0,1)$、$Y=e^X$ なら
         $$
-        P(1\le X\le3)=F_X(3)-F_X(1-)=0.7.
+        f_Y(y)=\frac{1}{y\sqrt{2\pi}}\exp\left\{-\frac{(\log y)^2}{2}\right\},
+        \qquad y>0.
         $$
       計算例: |
-        左端 $1$ を含むので、引くのは $P(X<1)=F_X(1-)$ である。したがって
+        まず $Y=e^X$ では逆変換が
+        $$x=\log y,\qquad \left|\frac{dx}{dy}\right|=\frac1y$$
+        なので
         $$
-        \begin{aligned}
-        P(1\le X\le3)
-        &=P(X\le3)-P(X<1)\\
-        &=F_X(3)-F_X(1-)\\
-        &=0.9-0.2\\
-        &=0.7.
-        \end{aligned}
+        f_Y(y)=\phi(\log y)\frac1y
+        =\frac{1}{y\sqrt{2\pi}}e^{-(\log y)^2/2},\qquad y>0.
         $$
-        点 $1$ の確率は
-        $$
-        P(X=1)=F_X(1)-F_X(1-)=0.5-0.2=0.3
-        $$
-        で、この $0.3$ も区間確率 $0.7$ に含まれる。
 
-        一方、連続分布で $F(x)=x^2$（$0\le x\le1$）なら左極限と関数値は一致するので
-        $$
-        \begin{aligned}
-        P\left(\frac14<X\le\frac34\right)
-        &=F\left(\frac34\right)-F\left(\frac14\right)\\
-        &=\frac9{16}-\frac1{16}\\
-        &=\frac12.
-        \end{aligned}
-        $$
+        単調減少の例として $X\sim U(0,2)$、$Y=3-2X$ なら
+        $$x=\frac{3-y}{2},\qquad \left|\frac{dx}{dy}\right|=\frac12.$$
+        元密度は $1/2$ だから
+        $$f_Y(y)=\frac14.$$
+        台は
+        $$0<\frac{3-y}{2}<2\Longleftrightarrow -1<y<3.$$
+
+        非線形の単調減少例として $X\sim U(0,1)$、$Y=1/X$ なら
+        $$x=\frac1y,\qquad \left|\frac{dx}{dy}\right|=\frac1{y^2},$$
+        かつ $0<x<1\Longleftrightarrow y>1$ なので
+        $$f_Y(y)=\frac1{y^2},\qquad y>1.$$
       一手: |
-        区間確率は「右端までの累積」から「左端より前の累積」を引く。左端を含むなら $F(a-)$、含まないなら $F(a)$ を引く。
+        1対1の単調変換では、まず $x$ を $y$ の式として解く。次に $|dx/dy|$ を掛け、最後に元の台を $y$ の条件へ変換する。
       注意: |
-        離散・混合分布では $F(a-)$ と $F(a)$ が異なり得る。連続分布だけを見て端点記号を無視する癖を付けない。
-  - id: prob-cumulative-hazard
-    note: 累積分布関数・生存関数・累積危険率・危険率の相互変換を1枚に統合し、順方向と逆方向を両方計算する。
+        単調減少では不等号の向きが変わるが、密度へ掛けるJacobianは絶対値である。変換後の台を書かないと正規化を誤りやすい。
+  - id: prob-transform-nonmonotonic
+    note: 多対一変換をCDF法と逆像の枝の和の両方で解ける正本へ拡張し、半正規・カイ二乗1自由度の特殊例を吸収する。
     sections:
       使用公式・定理: |
-        非負で絶対連続な寿命変数について
-        $$
-        S(t)=1-F(t),
-        $$
-        $$
-        H(t)=-\log S(t),
-        \qquad
-        h(t)=H'(t)=\frac{f(t)}{S(t)}.
-        $$
-        逆向きには
-        $$
-        H(t)=\int_0^t h(u)\,du,
-        \qquad
-        S(t)=e^{-H(t)},
-        \qquad
-        F(t)=1-S(t).
-        $$
-        したがって $F,S,H,h$ は、必要な滑らかさの下で相互に変換できる。
-      答え: |
-        $S(t)=e^{-t^2}$ なら
-        $$
-        H(t)=t^2,
-        \qquad
-        h(t)=2t.
-        $$
-      計算例: |
-        まず累積分布関数から始める例として
-        $$
-        F(t)=1-e^{-t^2}\qquad(t\ge0)
-        $$
-        とする。生存関数は
-        $$
-        \begin{aligned}
-        S(t)
-        &=1-F(t)\\
-        &=1-(1-e^{-t^2})\\
-        &=e^{-t^2}.
-        \end{aligned}
-        $$
-        したがって
-        $$
-        \begin{aligned}
-        H(t)
-        &=-\log S(t)\\
-        &=-\log(e^{-t^2})\\
-        &=t^2,
-        \end{aligned}
-        $$
-        さらに
-        $$
-        h(t)=H'(t)=2t.
-        $$
+        $Y=g(X)$ が1対1でない場合、まず
+        $$F_Y(y)=P\{g(X)\le y\}$$
+        を領域確率として求めて微分する方法が安全である。
 
-        逆向きに、危険率が
+        ある $y$ に対する逆像が $x_1(y),\ldots,x_m(y)$ で、各枝が局所的に単調なら
         $$
-        h(t)=3t^2
+        f_Y(y)=\sum_{j=1}^m f_X\{x_j(y)\}\left|\frac{dx_j}{dy}\right|.
         $$
-        と与えられたなら
+        同じ $y$ へ写る枝を全て足すことが本質である。
+      答え: |
+        $X\sim U(-1,1)$、$Y=X^2$ なら
+        $$f_Y(y)=\frac{1}{2\sqrt y},\qquad 0<y<1.$$
+      計算例: |
+        $0<y<1$ で
+        $$X^2\le y\Longleftrightarrow -\sqrt y\le X\le\sqrt y$$
+        だから
         $$
-        \begin{aligned}
-        H(t)
-        &=\int_0^t3u^2\,du\\
-        &=[u^3]_0^t\\
-        &=t^3,
-        \end{aligned}
+        F_Y(y)=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx=\sqrt y,
         $$
         よって
+        $$f_Y(y)=F_Y'(y)=\frac1{2\sqrt y}.$$
+
+        同じ操作を標準正規分布 $X\sim N(0,1)$ に対して行うと、$Y=X^2$ の逆像は $\pm\sqrt y$ なので
         $$
-        S(t)=e^{-t^3},
-        \qquad
-        F(t)=1-e^{-t^3}.
+        \begin{aligned}
+        f_Y(y)
+        &=\phi(\sqrt y)\frac1{2\sqrt y}
+          +\phi(-\sqrt y)\frac1{2\sqrt y}\\
+        &=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0,
+        \end{aligned}
         $$
-        「危険率をそのまま指数へ入れる」のではなく、必ず一度積分して累積危険率を作る。
+        これは $\chi_1^2$ の密度である。
+
+        また $Y=|X|$ なら $y>0$ の逆像は $y,-y$ なので、対称性から
+        $$f_Y(y)=\phi(y)+\phi(-y)=2\phi(y).$$
       一手: |
-        順方向は
-        $$
-        F\to S=1-F\to H=-\log S\to h=H',
-        $$
-        逆方向は
-        $$
-        h\to H=\int h\to S=e^{-H}\to F=1-S.
-        $$
-        この鎖を覚えると個別公式を暗記する必要がない。
+        非単調変換では「この $y$ を生む元の $x$ は何個あるか」を先に数える。迷ったらCDF法へ戻る。
       注意: |
-        危険率 $h(t)$ は確率そのものではなく、時点 $t$ まで生存した条件の下での瞬間的な発生率である。累積危険率 $H(t)$ と混同しない。
-  - id: prob-joint-cdf-from-density
-    note: 同時密度を積分して同時累積分布関数を作り、その同じ累積分布関数から長方形確率まで計算する一連の技能へ統合する。
+        1本の逆関数だけを使うと確率質量を落とす。二乗・絶対値では通常、正負2枝を足す。
+  - id: prob-transform-sum-density
+    note: 畳み込みを一つの分布公式ではなく、台の共通部分を求める一般手順へ拡張し、一様和・一様差・異率指数和を吸収する。
     sections:
       使用公式・定理: |
-        同時累積分布関数は
+        独立な連続確率変数 $X,Y$ の和 $S=X+Y$ の密度は
         $$
-        F_{X,Y}(x,y)
-        =P(X\le x,Y\le y)
-        =\int_{-\infty}^x\int_{-\infty}^y
-        f_{X,Y}(u,v)\,dv\,du.
+        f_S(s)=\int_{-\infty}^{\infty}f_X(x)f_Y(s-x)\,dx.
         $$
-        そこから長方形確率は包除原理により
+        差 $D=X-Y$ なら
         $$
-        \begin{aligned}
-        P(a<X\le b,c<Y\le d)
-        ={}&F(b,d)-F(a,d)\\
-        &-F(b,c)+F(a,c)
-        \end{aligned}
+        f_D(d)=\int_{-\infty}^{\infty}f_X(d+y)f_Y(y)\,dy.
         $$
-        と求める。
+        どちらも先に「両方の密度が正になる積分区間」を台から決める。
       答え: |
-        $f_{X,Y}(x,y)=1$（$0<x<1$, $0<y<1$）なら、$0\le x,y\le1$ で
-        $$
-        F_{X,Y}(x,y)=xy.
-        $$
+        独立な $X,Y\sim\operatorname{Exp}(1)$ なら
+        $$f_{X+Y}(s)=se^{-s},\qquad s>0.$$
       計算例: |
-        まず点 $(x,y)$ の左下にある確率を積分する。
+        指数分布では $x>0$ と $s-x>0$ の共通条件が $0<x<s$ なので
         $$
         \begin{aligned}
-        F_{X,Y}(x,y)
-        &=\int_0^x\int_0^y1\,dv\,du\\
-        &=\int_0^x y\,du\\
-        &=xy.
+        f_S(s)
+        &=\int_0^s e^{-x}e^{-(s-x)}\,dx\\
+        &=e^{-s}\int_0^s1\,dx\\
+        &=se^{-s},\qquad s>0.
         \end{aligned}
         $$
-        次に同じ累積分布関数を使って
+
+        $X,Y\sim U(0,1)$ なら、和では
+        $$\max(0,s-1)<x<\min(1,s)$$
+        が積分範囲で、被積分関数は1だから
         $$
-        P(0.2<X\le0.8,0.3<Y\le0.7)
+        f_S(s)=\begin{cases}
+        s,&0<s<1,\\
+        2-s,&1\le s<2,\\
+        0,&\text{otherwise}.
+        \end{cases}
         $$
-        を求める。4隅を $+,-,-,+$ で組み合わせると
+        差 $D=X-Y$ では台の重なりの長さから
+        $$f_D(d)=1-|d|,\qquad -1<d<1.$$
+
+        さらに $X\sim\operatorname{Exp}(\lambda)$、$Y\sim\operatorname{Exp}(\mu)$、$\lambda\ne\mu$ なら
         $$
         \begin{aligned}
-        P
-        &=F(0.8,0.7)-F(0.2,0.7)\\
-        &\quad-F(0.8,0.3)+F(0.2,0.3)\\
-        &=0.8\cdot0.7-0.2\cdot0.7\\
-        &\quad-0.8\cdot0.3+0.2\cdot0.3\\
-        &=0.56-0.14-0.24+0.06\\
-        &=0.24.
+        f_S(s)
+        &=\int_0^s\lambda e^{-\lambda x}\mu e^{-\mu(s-x)}\,dx\\
+        &=\frac{\lambda\mu}{\mu-\lambda}
+        \left(e^{-\lambda s}-e^{-\mu s}\right),\qquad s>0.
         \end{aligned}
         $$
       一手: |
-        同時密度からは左下領域を積分して累積分布関数を作る。長方形確率へ戻すときは4隅を $+,-,-,+$ で包除する。
+        畳み込みでは公式を書いた直後に積分しない。まず元の2つの台を同時に満たす積分区間を解く。
       注意: |
-        $F_{X,Y}(x,y)$ は点 $(x,y)$ での密度値ではなく、その点までの累積確率である。長方形確率では最後の左下項を足し戻す。
+        独立性が必要である。台の共通部分を誤ると、積分計算が合っていても密度は誤る。
+  - id: prob-transform-ratio
+    note: 比の分布を領域積分または分母で条件付けて求める一般手順へ拡張し、指数分布の比を同じ正本に吸収する。
+    sections:
+      使用公式・定理: |
+        $Y>0$ のとき $R=X/Y$ について
+        $$
+        F_R(r)=P(X\le rY)
+        =\int P(X\le ry\mid Y=y)f_Y(y)\,dy.
+        $$
+        独立なら条件付き分布は周辺分布へ戻せるので
+        $$
+        F_R(r)=\int F_X(ry)f_Y(y)\,dy
+        $$
+        と書ける。台が有界なら、同じ確率を領域 $\{(x,y):x\le ry\}$ の二重積分で求めてもよい。
+      答え: |
+        独立な $X,Y\sim U(0,1)$ なら
+        $$
+        F_R(r)=\begin{cases}
+        0,&r\le0,\\
+        r/2,&0<r\le1,\\
+        1-1/(2r),&r>1.
+        \end{cases}
+        $$
+      計算例: |
+        $0<r\le1$ では単位正方形内で $0<x<ry$ だから
+        $$F_R(r)=\int_0^1\int_0^{ry}1\,dx\,dy=\frac r2.$$
+        $r>1$ では $y=1/r$ で領域が変わるので
+        $$
+        \begin{aligned}
+        F_R(r)
+        &=\int_0^{1/r}ry\,dy+\int_{1/r}^11\,dy\\
+        &=1-\frac1{2r}.
+        \end{aligned}
+        $$
+
+        一方、独立な $X,Y\sim\operatorname{Exp}(1)$ では分母 $Y=y$ で条件付けて
+        $$
+        \begin{aligned}
+        F_R(r)
+        &=\int_0^\infty P(X\le ry)e^{-y}\,dy\\
+        &=\int_0^\infty(1-e^{-ry})e^{-y}\,dy\\
+        &=1-\frac1{1+r}\\
+        &=\frac r{1+r},\qquad r>0.
+        \end{aligned}
+        $$
+        微分して
+        $$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
+      一手: |
+        分母が正なら、$X/Y\le r$ を $X\le rY$ に直す。次に分母で条件付けるか、台の中の領域として積分する。
+      注意: |
+        分母が負も取り得る場合は不等号の向きが変わるため、符号で場合分けが必要である。
+  - id: prob-transform-iid-maximum-density
+    note: i.i.d.標本の最大値と最小値をCDF・生存関数の双対として一枚にまとめる。
+    sections:
+      使用公式・定理: |
+        $X_1,\ldots,X_n$ が累積分布関数 $F$、密度 $f$ を持つ独立同分布標本とする。最大値 $M=\max_iX_i$ は
+        $$
+        F_M(m)=P(M\le m)=F(m)^n,
+        $$
+        よって
+        $$f_M(m)=nF(m)^{n-1}f(m).$$
+        最小値 $L=\min_iX_i$ は生存関数を使って
+        $$
+        P(L>\ell)=\{1-F(\ell)\}^n,
+        $$
+        よって
+        $$f_L(\ell)=n\{1-F(\ell)\}^{n-1}f(\ell).$$
+      答え: |
+        最大値は $F^n$、最小値は生存関数 $(1-F)^n$ から始める。
+      計算例: |
+        $X_i\sim U(0,1)$、$n=3$ なら $0<m<1$ で
+        $$F_M(m)=m^3,\qquad f_M(m)=3m^2.$$
+
+        一方 $X_i\sim\operatorname{Exp}(\lambda)$ なら
+        $$P(X_i>\ell)=e^{-\lambda\ell}$$
+        なので
+        $$
+        P(L>\ell)=e^{-n\lambda\ell},
+        $$
+        したがって
+        $$L\sim\operatorname{Exp}(n\lambda),
+        \qquad
+        f_L(\ell)=n\lambda e^{-n\lambda\ell}.
+        $$
+      一手: |
+        最大値の「以下」は全標本が以下、最小値の「超える」は全標本が超える、と積事象へ直す。
+      注意: |
+        $F(m)^n$ や $(1-F(\ell))^n$ を使うには標本の独立性が必要である。最小値の指数率は $\lambda/n$ ではなく $n\lambda$。
