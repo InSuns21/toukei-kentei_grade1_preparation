@@ -1,50 +1,80 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-timeseries-reduction-36
+batch_id: 2026-08-30-engineering-multivariate-reduction-37
 items:
-  - id: engproc-ar1-intercept-long-run-mean
+  - id: engmv-sample-mean-vector
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar1-acf
-    note: 切片付きAR(1)の長期平均は、平均・分散・ACFを期待値と中心化から導く共通canonicalへ統合済み。
+    canonical_card: mv-mean-covariance-numeric
+    note: 標本平均ベクトルは標本分散共分散行列まで同じ標本から外積で計算するcanonicalへ統合済み。
 
-  - id: engproc-arma11-long-run-mean
+  - id: engmv-sample-covariance-matrix
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar1-acf
-    note: ARMA(1,1)の平均でMA項の期待値が0となる操作も共通canonicalの注意へ統合済み。
+    canonical_card: mv-mean-covariance-numeric
+    note: 平均ベクトル→偏差ベクトル→外積和→不偏標本分散共分散行列の計算をcanonicalが行単位で扱う。
 
-  - id: engproc-ar1-forecast-mean-reversion
+  - id: engmv-covariance-matrix-validity
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar1-hstep-forecast
-    note: 平均からの偏差をphi^h倍する多期先予測は共通canonicalで導出・数値計算済み。
+    canonical_card: multi-covariance-psd
+    note: 分散共分散行列の必要条件を二次形式=分散として説明する同一subcategoryのcanonicalへ統合する。
 
-  - id: engproc-ar1-forecast-interval
+  - id: engmv-eigenvalues-covariance-2x2
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar1-hstep-forecast
-    note: 正規革新の下で予測誤差分散から95%予測区間を構成する手順まで共通canonicalへ吸収済み。
+    canonical_card: mv-pca-variance-max
+    note: 2x2特性方程式から固有値を求める操作はPCA分散最大化canonicalの数値例で実施済み。
 
-  - id: engproc-seasonal-difference-monthly
+  - id: engmv-eigenvectors-covariance-2x2
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-seasonal-difference
-    note: 月次12期差分は一般の季節差分 X_t-X_{t-s} の s=12 数値例にすぎず操作が同一。
+    canonical_card: mv-pca-variance-max
+    note: 最大固有値の固有方程式を解き単位長へ正規化する操作までPCA canonicalに統合済み。
 
-  - id: engproc-acf-pacf-model-selection
+  - id: engmv-pca-loading-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-acf-pacf-identification
-    note: ARではPACF打切り・MAではACF打切りという同一のモデル識別操作を共通canonicalが扱う。
+    canonical_card: mv-pca-loading
+    note: 固有値・固有ベクトル成分・元変数標準偏差から主成分負荷量を求める専用canonicalが存在する。
 
-  - id: engproc-exponential-smoothing-update
+  - id: engmv-pca-monitoring-score
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-simple-exponential-smoothing
-    note: 単純指数平滑の逐次更新式と数値計算は共通canonicalと同一操作。
+    canonical_card: mv-pca-software-output
+    note: 標準化観測と固有ベクトルの内積による主成分得点の数値計算をcanonicalが既に扱う。
 
-  - id: engproc-backshift-polynomial-expansion
+  - id: engmv-factor-covariance-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-arima-definition
-    note: 後退作用素Bの定義とARIMA多項式表現を共通canonicalが扱い、このカードはその単純展開例。
+    canonical_card: mv-factor-model-covariance
+    note: lambda lambda^T + Psi の行列計算例を共通canonicalへ吸収済み。
+
+  - id: engmv-factor-communality-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-factor-model-covariance
+    note: 共通性=負荷量平方和、標準化時の独自性=1-共通性を同じcanonicalで数値計算済み。
+
+  - id: engmv-factor-rotation-invariance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-factor-rotation
+    note: 直交回転 Lambda*=Lambda T で Lambda*Lambda*^T が不変となる導出をcanonicalが扱う。
+
+  - id: engmv-qda-quadratic-term
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-lda-classification-rule
+    note: 共通共分散なら二次項が消えてLDA、群別共分散なら二次項が残ってQDAになる点を同じ正規判別canonicalへ統合済み。
+
+  - id: engmv-kmeans-assignment
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-kmeans-one-iteration
+    note: 最近傍重心への割当ては、割当て→重心更新を同一目的関数で扱うcanonicalの前半そのもの。
+
+  - id: engmv-kmeans-centroid-update
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-kmeans-one-iteration
+    note: 所属点平均への重心更新は、割当てと一組で同一canonicalに数値計算済み。
