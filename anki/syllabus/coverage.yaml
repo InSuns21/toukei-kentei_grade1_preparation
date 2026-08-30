@@ -2447,18 +2447,9 @@ items:
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
-      - engdesign-subsampling-variance
-      - engdesign-randomization-permutation
-      - engdesign-rerandomization-balance
-      - engdesign-precision-weighted-block-difference
       - engdesign-rcbd-adjusted-difference
       - engdesign-cyclic-incomplete-blocks
-      - engdesign-graeco-latin-df
-      - engdesign-latin-square-treatment-mean
-      - engdesign-random-slope-covariance
       - engdesign-fixed-effect-hypothesis
-      - engdesign-random-effect-blup
-      - engdesign-gage-rr-variance
       - engdesign-block-vs-covariate
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
@@ -2473,9 +2464,6 @@ items:
       - name: 実験の計画と実施
         status: card
         cards:
-          - engdesign-subsampling-variance
-          - engdesign-randomization-permutation
-          - engdesign-rerandomization-balance
           - engdesign-lack-of-fit-decomposition
           - engdesign-split-plot-randomization
           - engdesign-nested-df
@@ -2488,9 +2476,7 @@ items:
       - name: 変量効果
         status: card
         cards:
-          - engdesign-random-slope-covariance
-          - engdesign-random-effect-blup
-          - engdesign-gage-rr-variance
+          - engdesign-fixed-effect-hypothesis
       - name: 交絡因子
         status: card
         cards:
@@ -2499,11 +2485,9 @@ items:
       - name: ブロック化
         status: card
         cards:
-          - engdesign-precision-weighted-block-difference
+          - engdesign-confounder-randomization
           - engdesign-rcbd-adjusted-difference
           - engdesign-cyclic-incomplete-blocks
-          - engdesign-graeco-latin-df
-          - engdesign-latin-square-treatment-mean
           - engdesign-block-generator-protect-effects
           - engdesign-split-plot-randomization
           - engdesign-incomplete-incidence-matrix
