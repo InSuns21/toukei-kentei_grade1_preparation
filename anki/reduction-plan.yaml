@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-absorbing-probability-reduction-130
+batch_id: 2026-08-30-mm1-stationary-reduction-132
 items:
-  - id: engproc-absorbing-probability-matrix
+  - id: engproc-mm1-stationary-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: engproc-absorbing-fundamental-matrix
-    note: 吸収連鎖の標準形からQ,Rを取り出し、N=(I-Q)^(-1)、期待訪問回数、平均吸収時間、B=NRによる吸収確率までcanonical cardへ統合済み。
+    canonical_card: engproc-birth-death-detailed-balance
+    note: 出生死亡過程の詳細釣合いから一般定常分布を構成し、M/M/1のrho<1、pi_n=(1-rho)rho^n、lambda=2・mu=3のpi_3数値例までcanonical cardへ統合済み。Littleの法則による性能指標は別技能として残す。
