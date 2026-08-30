@@ -1512,40 +1512,163 @@ $$
 
 ---
 id: reg-robust-sandwich
-title: 異分散頑健分散共分散行列を書く
+title: 異分散頑健分散をsandwich形からHC3まで計算する
 category: applied-common
 subcategory: applied-multiple-regression
-topic: robust-standard-error
+topic: robust-standard-error-canonical
 type: formula
 difficulty: 4
 priority: S
-hashtags: [異分散, 標準誤差, サンドイッチ推定量]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 異分散と標準誤差 }]
+hashtags:
+  - 回帰診断法
+  - 異分散
+  - 頑健標準誤差
+  - sandwich
+  - HC3
+  - レバレッジ
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 異分散と標準誤差
 ---
 
 ## 問題
-最小二乗法のHC0型異分散頑健共分散推定量を書け。
+線形回帰
+$$
+\boldsymbol y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon
+$$
+で誤差は互いに独立だが、
+$$
+\operatorname{Var}(\varepsilon_i\mid\boldsymbol X)=\sigma_i^2
+$$
+と異分散を許す。
+
+1. 最小二乗推定量の係数値は変えずに、異分散に頑健なHC0分散共分散行列を書け。
+2. 高レバレッジ点への小標本補正を強めるHC3では、各残差平方をどう補正するか。
+3. 切片のみ、$n=2$、残差 $(1,-1)$、レバレッジ $h_{11}=h_{22}=1/2$ の例で、HC0とHC3の切片分散推定値を比較せよ。
 
 ## 記号・用語
-- HC0：異分散頑健共分散推定量の基本形
+- **sandwich形**：推定分散を「bread × meat × bread」の積で表す形。
+- **レバレッジ** $h_{ii}$：ハット行列
+$$
+\boldsymbol H=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+$$
+の第 $i$ 対角成分。
+- **HC0**：残差平方 $e_i^2$ をそのまま用いる基本的な異分散頑健分散。
+- **HC3**：$e_i^2/(1-h_{ii})^2$ を用いて高レバレッジ点を強く補正する型。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+最小二乗推定量は
+$$
+\widehat{\boldsymbol\beta}
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol y.
+$$
+異分散があっても $E[\boldsymbol\varepsilon\mid\boldsymbol X]=\boldsymbol0$ なら、この係数推定式自体は変えない。
 
-一般形は bread–meat–bread のサンドイッチ形。
+誤差共分散を
+$$
+\boldsymbol\Omega
+=\operatorname{diag}(\sigma_1^2,\ldots,\sigma_n^2)
+$$
+とすると条件付き分散は
+$$
+\operatorname{Var}(\widehat{\boldsymbol\beta}\mid\boldsymbol X)
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega\boldsymbol X
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
+$$
+未知の $\sigma_i^2$ を $e_i^2$ で置き換えるHC0は
+$$
+\boxed{
+\widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}
+\operatorname{diag}(e_i^2)
+\boldsymbol X
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+}.
+$$
+
+HC3では、最小二乗残差が高レバレッジ点で縮みやすいことを補うため
+$$
+e_i^2
+\quad\longrightarrow\quad
+\frac{e_i^2}{(1-h_{ii})^2}
+$$
+と置き換える。したがって
+$$
+\boxed{
+\widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat{\boldsymbol\beta})
+=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}
+\operatorname{diag}\left\{\frac{e_i^2}{(1-h_{ii})^2}\right\}
+\boldsymbol X
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+}.
+$$
+
+## 一手
+**係数を直す方法と標準誤差を直す方法を混同しない。** 異分散頑健標準誤差では $\widehat{\beta}$ は最小二乗法のまま、分散共分散行列の中央の行列だけを残差から作り直す。HC3ならさらに各残差平方を $(1-h_{ii})^2$ で割る。
 
 ## 答え
-$$\widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
-=(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-\boldsymbol X^{\mathsf T}\operatorname{diag}(e_1^2,\ldots,e_n^2)\boldsymbol X
-(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.$$
+切片のみモデルでは
+$$
+\boldsymbol X=\begin{pmatrix}1\\1\end{pmatrix},
+\qquad
+\boldsymbol X^{\mathsf T}\boldsymbol X=2,
+\qquad
+(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}=\frac12.
+$$
+HC0のmeatは
+$$
+\boldsymbol X^{\mathsf T}\operatorname{diag}(1,1)\boldsymbol X
+=1+1=2.
+$$
+よって
+$$
+\widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat\beta_0)
+=\frac12\cdot2\cdot\frac12
+=\frac12.
+$$
+
+HC3では $h_{11}=h_{22}=1/2$ なので各補正残差平方は
+$$
+\frac{1}{(1-1/2)^2}=4.
+$$
+meatは
+$$
+4+4=8,
+$$
+したがって
+$$
+\widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat\beta_0)
+=\frac12\cdot8\cdot\frac12
+=2.
+$$
+この算術例ではHC3はHC0の4倍の分散を与える。
 
 ## 計算例
-等分散を仮定せず係数の標準誤差を補正する。
+一般に $h_{ii}=0.1$ ならHC3の残差平方倍率は
+$$
+\frac1{(1-0.1)^2}
+=\frac1{0.81}
+\approx1.235.
+$$
+一方 $h_{ii}=0.5$ なら
+$$
+\frac1{(1-0.5)^2}=4.
+$$
+したがってHC3は、同じ残差の大きさでも高レバレッジ点ほど強く分散推定へ反映する。
 
 ## 注意
-係数推定値自体は最小二乗法のまま。
+頑健標準誤差は異分散に対する分散推定の修正であり、平均構造の誤指定を直すものではない。説明変数との相関を持つ欠落変数などで $E[\varepsilon\mid X]=0$ が崩れれば、係数推定自体の問題は残る。
+
+また通常のHC型は観測間独立を前提とする。系列相関・クラスタ内相関がある場合は、その依存構造に対応した頑健分散を用いる。HC0・HC1・HC2・HC3には有限標本補正の違いがあり、試験では問題文の規約を確認する。
 
 <!-- CARD -->
 
