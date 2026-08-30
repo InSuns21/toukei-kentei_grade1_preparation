@@ -609,7 +609,6 @@ items:
       - complete-statistic
       - exponential-family-completeness
       - suff-complete
-      - lehmann-scheffe
       - umvu-construction
       - basu-theorem
       - order-statistic-sufficiency
