@@ -1,9 +1,27 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-delta-ratio-reduction-177
+batch_id: 2026-08-31-convergence-duplicates-179
 items:
-  - id: engasym-delta-ratio
+  - id: engasym-lln-sensor-average
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-ratio-two-means-delta
-    coverage_card: asym-ratio-two-means-delta
-    note: 多変量デルタ法の正本へ、一般の分散共分散行列Sigmaに対する比 a_hat/b_hat の勾配、V=Sigma11/b^2+a^2 Sigma22/b^4-2a Sigma12/b^3、独立2標本の数値例、共分散ありの数値例、分母が0近傍での不安定性まで統合済み。
+    canonical_card: asym-wlln
+    coverage_card: asym-wlln
+    note: センサー誤差という文脈以外は、独立同分布・有限平均から標本平均が母平均へ確率収束する弱大数の法則そのもの。一般側正本へ吸収する。
+  - id: engasym-consistency-from-mse
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-convergence-ms
+    coverage_card: asym-convergence-ms
+    note: 平均二乗収束の正本へ、MSE→0からMarkovの不等式で P(|T_n-theta|>epsilon) を0へ押さえる一致性証明、MSEのバイアス・分散分解、数値例まで統合済み。
+  - id: asym-ms-conv-prob
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-convergence-ms
+    coverage_card: asym-convergence-ms
+    note: 平均二乗収束が確率収束を含意する証明専用カード。強化済み正本 asym-convergence-ms が同じMarkov不等式の証明と数値例を包含する。
+  - id: asym-mle-av-binomial
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-mle-asymptotic-normality
+    coverage_card: asym-mle-asymptotic-normality
+    note: ベルヌーイ標本の情報量 I_1(p)=1/[p(1-p)] と Avar(p_hat)=p(1-p)/n の導出は、最尤推定量の漸近正規性正本のベルヌーイ計算例ですでに導出済み。
