@@ -224,39 +224,126 @@ $$E[MS_A]=\sigma^2+\frac{4\cdot2}{3-1}
 
 ---
 id: anova-contrast-definition
-title: 一元配置の対比を定義する
+title: 一元配置の対比を定義し標準誤差・t検定まで計算する
 category: math-data-analysis
 subcategory: math-anova
-topic: contrast
+topic: anova-contrast-canonical
 type: formula
 difficulty: 2
 priority: A
-hashtags: [対比, 群平均, 一元配置分散分析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
+hashtags:
+  - 一元配置分散分析
+  - 対比
+  - 標準誤差
+  - t検定
+  - 計画比較
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一元配置分散分析
 ---
 
 ## 問題
-母平均の線形結合 $L=\sum_i c_i\mu_i$ が対比である条件を書け。
+一元配置分散分析で母平均を $\mu_1,\ldots,\mu_a$ とする。
+
+1. 線形結合 $L=\sum_{i=1}^a c_i\mu_i$ が対比である条件と、その意味を説明せよ。
+2. 独立な群平均から作る推定量 $\widehat L=\sum_i c_i\bar Y_{i\cdot}$ の分散と標準誤差を書け。
+3. 3群に各5個の観測があり、群平均が $(10,13,15)$、誤差平均平方が $MS_E=4$ だった。対比
+$$
+L=\mu_1-\frac{\mu_2+\mu_3}{2}
+$$
+について $H_0:L=0$ を両側5%で検定し、95%信頼区間も求めよ。誤差自由度12のt分布の両側5%臨界値を2.179とする。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+対比の係数は
+$$
+\sum_{i=1}^a c_i=0
+$$
+を満たす。これは全ての母平均へ同じ定数 $d$ を加えても
+$$
+\sum_i c_i(\mu_i+d)=\sum_i c_i\mu_i+d\sum_i c_i=L
+$$
+となり、共通水準ではなく群間差だけを測ることを意味する。
 
-共通の水準を全平均へ加えても対比値は変わらない。
+独立な群平均について
+$$
+\operatorname{Var}(\bar Y_{i\cdot})=\frac{\sigma^2}{n_i}
+$$
+なので
+$$
+\operatorname{Var}(\widehat L)=\sigma^2\sum_i\frac{c_i^2}{n_i}.
+$$
+$\sigma^2$ を分散分析の誤差平均平方 $MS_E$ で推定すれば
+$$
+\operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i\frac{c_i^2}{n_i}}.
+$$
+帰無仮説 $H_0:L=L_0$ に対して
+$$
+t=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
+$$
+を使い、自由度は分散分析の誤差自由度 $N-a$ である。
+
+## 一手
+**係数和0を確認→群平均から対比値を計算→係数二乗を各群サイズで割って標準誤差→t標準化。** 定義・標準誤差・検定を別々に暗記せず、この順で一続きに処理する。
 
 ## 答え
-$$\sum_{i=1}^a c_i=0$$
-を満たすとき対比という。推定量は
-$$\widehat L=\sum_i c_i\overline Y_{i\cdot}.$$
+数値例の係数は
+$$
+(c_1,c_2,c_3)=\left(1,-\frac12,-\frac12\right)
+$$
+であり
+$$
+1-\frac12-\frac12=0
+$$
+だから対比である。
+
+推定値は
+$$
+\widehat L=10-\frac{13+15}{2}=10-14=-4.
+$$
+標準誤差は
+$$
+\begin{aligned}
+\operatorname{SE}(\widehat L)
+&=\sqrt{4\left(\frac{1^2}{5}+\frac{(1/2)^2}{5}+\frac{(1/2)^2}{5}\right)}\\
+&=\sqrt{4(0.20+0.05+0.05)}\\
+&=\sqrt{1.2}\\
+&\approx1.095.
+\end{aligned}
+$$
+よって
+$$
+t=\frac{-4}{1.095}\approx-3.65.
+$$
+$|t|=3.65>2.179$ なので5%水準で $H_0:L=0$ を棄却する。
 
 ## 計算例
-3群で群1と群2・3の平均を比べる係数を $(1,-1/2,-1/2)$ とすると
-$$1-\frac12-\frac12=0$$
-なので対比である。群平均が $(10,13,15)$ なら
-$$\widehat L=10-\frac{13}{2}-\frac{15}{2}=-4.$$
+95%信頼区間は
+$$
+\widehat L\pm2.179\operatorname{SE}(\widehat L)
+$$
+だから
+$$
+-4\pm2.179\times1.095\approx-4\pm2.386.
+$$
+したがって
+$$
+(-6.386,\,-1.614).
+$$
+0を含まないため、同じ両側5%検定の棄却結果と一致する。
+
+例えば単純な2群差 $L=\mu_1-\mu_2$ なら係数は $(1,-1)$ で、
+$$
+\operatorname{SE}(\widehat L)=\sqrt{MS_E\left(\frac1{n_1}+\frac1{n_2}\right)}
+$$
+となり、共通分散の2群比較の形がそのまま出る。
 
 ## 注意
-係数和が0でない単なる線形結合は対比ではない。
+係数和が0でない単なる線形結合は対比ではない。複数の対比をデータを見てから大量に検定すると第1種過誤率が膨らむため、事前に定めた計画対比か、必要に応じて多重比較の補正を用いる。ここでのt分布による正確な有限標本推測は、独立・正規・等分散の一元配置モデルを前提とする。
 
 <!-- CARD -->
 
