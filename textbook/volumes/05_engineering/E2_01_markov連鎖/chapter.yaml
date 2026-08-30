@@ -1,0 +1,37 @@
+id: "E2-01"
+title: "マルコフ連鎖・マルコフ過程"
+volume: "engineering"
+status: revision
+prerequisites:
+  - P1-02
+  - P2-01
+  - F0-00
+official_scope:
+  - マルコフ連鎖
+  - マルコフ過程
+learning_objectives:
+  - 確率過程とマルコフ性を条件付き確率で表せる
+  - 遷移行列と多段階遷移確率を計算できる
+  - 定常分布と極限分布を区別できる
+  - 既約性・周期性・吸収状態を判定できる
+  - 吸収確率と平均到達時間の再帰方程式を解ける
+  - 連続時間マルコフ連鎖の生成行列を説明できる
+definitions:
+  - { id: E201-DEF-01, name: マルコフ性 }
+  - { id: E201-DEF-02, name: 遷移行列 }
+  - { id: E201-DEF-03, name: 定常分布 }
+  - { id: E201-DEF-04, name: 既約性と周期 }
+  - { id: E201-DEF-05, name: 生成行列 }
+theorems:
+  - { id: E201-THM-01, name: チャップマン・コルモゴロフ方程式 }
+  - { id: E201-THM-02, name: 有限既約非周期連鎖の収束 }
+canonical_examples: [二状態マルコフ連鎖, 定常分布, 吸収連鎖, 平均到達時間, 連続時間マルコフ連鎖]
+problem_patterns: [MARKOV-TRANSITION-1, MARKOV-STATIONARY-1, MARKOV-ABSORB-1, MARKOV-HITTING-1, CTMC-1]
+past_exam_alignment: []
+integrated_exam_problems: [E2-01-C01, E2-01-C02, E2-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 9, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

@@ -1,0 +1,41 @@
+id: "E4-01"
+title: "管理図と工程能力"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - P3-01
+  - P3-02
+  - P4-02
+official_scope:
+  - 管理図
+  - プロセス管理
+  - 工程能力指数
+learning_objectives:
+  - 管理図の3シグマ限界を標本分布から導ける
+  - Xbar管理図とR管理図を使い分けられる
+  - p管理図とnp管理図を二項分布から構成できる
+  - 管理限界と規格限界を区別できる
+  - 管理状態での平均連長を説明できる
+  - 平均シフト後の検出確率と平均連長を計算できる
+  - CpとCpkを計算し中心ずれを解釈できる
+  - 管理状態確認後に工程能力を評価する理由を説明できる
+definitions:
+  - { id: E401-DEF-01, name: 管理状態 }
+  - { id: E401-DEF-02, name: 共通原因と特殊原因 }
+  - { id: E401-DEF-03, name: 管理限界 }
+  - { id: E401-DEF-04, name: 工程能力指数 }
+  - { id: E401-DEF-05, name: 平均連長 }
+theorems:
+  - { id: E401-THM-01, name: Xbar管理図の3シグマ限界 }
+  - { id: E401-THM-02, name: p管理図とnp管理図の3シグマ限界 }
+  - { id: E401-THM-03, name: 平均シフト後の信号確率 }
+canonical_examples: [Xbar管理図, R管理図, p管理図, np管理図, 平均連長, CpとCpk]
+problem_patterns: [CONTROL-CHART-XBAR-1, CONTROL-CHART-R-1, CONTROL-CHART-P-1, CONTROL-CHART-NP-1, CONTROL-ARL-1, CAPABILITY-1]
+past_exam_alignment: []
+integrated_exam_problems: [E4-01-C01, E4-01-C02, E4-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 9, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

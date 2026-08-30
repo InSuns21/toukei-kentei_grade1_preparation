@@ -10,21 +10,21 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-28
+  updated_at: 2026-08-30
   current_chapter: null
   next_chapter: S1-02
   next_work:
     type: chapter
     id: S1-02
-  last_completed_chapter: S1-01
+  last_completed_chapter: E3-01
   summary:
     total: 38
-    planned: 24
+    planned: 14
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 14
+    reviewed: 24
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -60,19 +60,19 @@ progress:
     I3-03: { status: planned }
     I4-01: { status: planned }
     I4-02: { status: planned }
-    L1-01: { status: planned }
-    L1-02: { status: planned }
-    L1-03: { status: planned }
-    L2-01: { status: planned }
+    L1-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L1-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L1-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L2-02: { status: planned }
     E1-01: { status: planned }
     E1-02: { status: planned }
-    E2-01: { status: planned }
-    E2-02: { status: planned }
-    E2-03: { status: planned }
-    E3-01: { status: planned }
-    E4-01: { status: planned }
-    E4-02: { status: planned }
+    E2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E2-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E2-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E3-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E4-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E4-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
 
 volumes:
   - { id: foundations, directory: volumes/00_foundations, title: 数学・答案基礎 }
@@ -82,7 +82,7 @@ volumes:
   - { id: linear_models, directory: volumes/04_linear_models, title: 線形モデルとデータ解析 }
   - { id: engineering, directory: volumes/05_engineering, title: 統計応用・理工学 }
 
-# 配列順が執筆優先順。official_scope は公式範囲表との機械可読な対応語。
+# 配列順が執筆優先順。2026-08-30は理工学の弱点補強を優先し、数理推測の未完成章より先に応用章を配置する。
 chapters:
   - id: F0-00
     title: 統計検定1級のための数学速習
@@ -102,6 +102,18 @@ chapters:
   - { id: P4-02, title: 確率変数の収束・大数則・中心極限定理, volume: distributions, prerequisites: [ P2-02, P3-02 ], official_scope: [ 大数の弱法則, 中心極限定理, 正規近似, ポアソン近似 ] }
   - { id: P4-03, title: 経験分布・乱数生成・Monte Carlo, volume: distributions, prerequisites: [ P2-01, P4-01, P4-02 ], official_scope: [ 経験分布関数, 標本分位点, 逆関数法, 棄却法, Monte Carlo積分, シミュレーション誤差 ] }
   - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P3-03, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
+
+  - { id: E2-01, title: Markov連鎖, volume: engineering, prerequisites: [ P1-02, F0-00 ], official_scope: [ マルコフ連鎖, マルコフ過程 ] }
+  - { id: E2-02, title: Poisson過程・ランダムウォーク, volume: engineering, prerequisites: [ P3-01, P3-02, E2-01 ], official_scope: [ ポアソン過程, ランダムウォーク ] }
+  - { id: E2-03, title: AR・MA・ARIMA時系列, volume: engineering, prerequisites: [ P3-03, E2-01 ], official_scope: [ 自己回帰過程, 移動平均過程, ARIMA過程, 時系列解析 ] }
+  - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ P2-02, P3-02, S1-01, F0-00 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差, 線形モデル ] }
+  - { id: L1-02, title: 重回帰・線形モデルの行列表現, volume: linear_models, prerequisites: [ L1-01 ], official_scope: [ 線形重回帰, ガウス・マルコフの定理, 線形対比, 線形制約, 線形結合の分布 ] }
+  - { id: L1-03, title: 分散分析, volume: linear_models, prerequisites: [ L1-02, S1-01 ], official_scope: [ 一元配置分散分析, 二元配置分散分析, 交互作用, 多重比較 ] }
+  - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ P3-01, L1-02 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }
+  - { id: E4-01, title: 管理図と工程能力, volume: engineering, prerequisites: [ P3-02, P4-02 ], official_scope: [ 管理図, プロセス管理, 工程能力指数 ] }
+  - { id: E4-02, title: 信頼性・保全性, volume: engineering, prerequisites: [ P3-02, P3-05, E4-01 ], official_scope: [ 信頼性, 保全性, ハザード, MTBF ] }
+  - { id: E3-01, title: 実験計画・直交表・交絡, volume: engineering, prerequisites: [ L1-03 ], official_scope: [ 固定効果, 変量効果, ブロック化, 直交表, 交絡法 ] }
+
   - { id: S1-02, title: 統計量・十分性・分解定理, volume: inference, prerequisites: [ S1-01, P4-01 ], official_scope: [ 十分統計量, ネイマンの分解定理 ] }
   - { id: S1-03, title: 有限母集団・標本抽出, volume: inference, prerequisites: [ P3-01, P4-02 ], official_scope: [ 単純無作為抽出, Horvitz--Thompson推定量, 有限母集団補正, 層化抽出, 比推定量, 標本設計 ] }
   - { id: I1-01, title: 尤度・最尤推定, volume: inference, prerequisites: [ S1-02 ], official_scope: [ 尤度関数, 対数尤度関数, 有効スコア関数, 最尤推定 ] }
@@ -113,16 +125,6 @@ chapters:
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
   - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
   - { id: I4-02, title: 欠測・不完全データ・EM法, volume: inference, prerequisites: [ I4-01, P3-04, L1-02 ], official_scope: [ MCAR, MAR, MNAR, 観測データ尤度, EM法, 打切り, 切断, 欠測を含むモデル診断 ] }
-  - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ I1-02, F0-00 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差 ] }
-  - { id: L1-02, title: 重回帰・線形モデルの行列表現, volume: linear_models, prerequisites: [ L1-01 ], official_scope: [ 線形重回帰, ガウス・マルコフの定理, 線形対比, 線形制約 ] }
-  - { id: L1-03, title: 分散分析, volume: linear_models, prerequisites: [ L1-02, S1-01 ], official_scope: [ 一元配置分散分析, 二元配置分散分析, 交互作用, 多重比較 ] }
-  - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ I1-01, L1-02 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }
   - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01 ], official_scope: [ カルバック・ライブラー情報量, AIC, クロスバリデーション, 変数選択 ] }
   - { id: E1-01, title: 多変量正規分布と標本平均ベクトル, volume: engineering, prerequisites: [ P3-03, S1-01, F0-00 ], official_scope: [ 平均ベクトル, 分散共分散行列, 相関行列 ] }
   - { id: E1-02, title: 主成分分析・固有値問題, volume: engineering, prerequisites: [ E1-01 ], official_scope: [ 主成分分析, 固有値, 固有ベクトル, 寄与率 ] }
-  - { id: E2-01, title: Markov連鎖, volume: engineering, prerequisites: [ P1-02, F0-00 ], official_scope: [ マルコフ連鎖, マルコフ過程 ] }
-  - { id: E2-02, title: Poisson過程・ランダムウォーク, volume: engineering, prerequisites: [ P3-01, E2-01 ], official_scope: [ ポアソン過程, ランダムウォーク ] }
-  - { id: E2-03, title: AR・MA・ARIMA時系列, volume: engineering, prerequisites: [ P3-03, E2-01 ], official_scope: [ 自己回帰過程, 移動平均過程, ARIMA過程, 時系列解析 ] }
-  - { id: E3-01, title: 実験計画・直交表・交絡, volume: engineering, prerequisites: [ L1-03 ], official_scope: [ 固定効果, 変量効果, ブロック化, 直交表, 交絡法 ] }
-  - { id: E4-01, title: 管理図と工程能力, volume: engineering, prerequisites: [ P3-02, I2-02 ], official_scope: [ 管理図, プロセス管理, 工程能力指数 ] }
-  - { id: E4-02, title: 信頼性・保全性, volume: engineering, prerequisites: [ P3-02, E4-01 ], official_scope: [ 信頼性, 保全性, ハザード, MTBF ] }

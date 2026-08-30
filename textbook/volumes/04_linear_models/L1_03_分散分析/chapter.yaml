@@ -1,0 +1,40 @@
+id: "L1-03"
+title: "分散分析"
+volume: "linear_models"
+status: revision
+prerequisites:
+  - L1-02
+  - S1-01
+official_scope:
+  - 一元配置分散分析
+  - 二元配置分散分析
+  - 交互作用
+  - 線形対比
+  - 多重比較
+learning_objectives:
+  - 一元配置の平方和分解を導ける
+  - 分散分析表の自由度とF統計量を構成できる
+  - 二元配置の主効果と交互作用を差の差として説明できる
+  - 分散分析を一般線形仮説として理解できる
+  - 指定線形対比の推定値と標準誤差を計算できる
+  - Bonferroni法とシェッフェ法の保護対象を区別できる
+definitions:
+  - { id: L103-DEF-01, name: 一元配置モデル }
+  - { id: L103-DEF-02, name: 主効果と交互作用 }
+  - { id: L103-DEF-03, name: 家族内第一種過誤確率 }
+  - { id: L103-DEF-04, name: 線形対比 }
+theorems:
+  - { id: L103-THM-01, name: 一元配置の平方和分解 }
+  - { id: L103-THM-02, name: 一元配置F検定 }
+  - { id: L103-THM-03, name: Bonferroni法の同時誤差制御 }
+  - { id: L103-THM-04, name: シェッフェ法の同時信頼区間 }
+canonical_examples: [一元配置分散分析, 二元配置, 交互作用, 線形対比, Bonferroni法, シェッフェ法]
+problem_patterns: [ANOVA-ONEWAY-1, ANOVA-TWOWAY-1, CONTRAST-ANOVA-1, MULTIPLE-COMPARISON-1]
+past_exam_alignment: []
+integrated_exam_problems: [L1-03-C01, L1-03-C03, L1-03-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 9, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

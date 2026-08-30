@@ -1,0 +1,33 @@
+id: "E2-02"
+title: "Poisson過程・ランダムウォーク"
+volume: "engineering"
+status: reviewed
+prerequisites:
+  - P3-01
+  - P3-02
+  - E2-01
+official_scope:
+  - ポアソン過程
+  - ランダムウォーク
+learning_objectives:
+  - ランダムウォークの平均・分散・位置分布を求められる
+  - 到達確率の差分方程式を立てられる
+  - Poisson過程と指数待ち時間の関係を導ける
+  - 重ね合わせと間引きを扱える
+definitions:
+  - { id: E202-DEF-01, name: 単純ランダムウォーク }
+  - { id: E202-DEF-02, name: Poisson過程 }
+  - { id: E202-DEF-03, name: 到着間隔 }
+theorems:
+  - { id: E202-THM-01, name: Poisson過程の待ち時間表現 }
+  - { id: E202-THM-02, name: 重ね合わせと間引き }
+canonical_examples: [単純ランダムウォーク, 破産問題, Poisson待ち時間, 間引き]
+problem_patterns: [RANDOM-WALK-1, POISSON-PROCESS-1, THINNING-1]
+past_exam_alignment: []
+integrated_exam_problems: [E2-02-C01]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

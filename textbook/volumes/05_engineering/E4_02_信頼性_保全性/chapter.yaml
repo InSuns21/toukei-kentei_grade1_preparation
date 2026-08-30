@@ -1,0 +1,39 @@
+id: "E4-02"
+title: "信頼性・保全性"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - P3-02
+  - P3-05
+  - E2-01
+official_scope:
+  - 信頼性
+  - 保全性
+learning_objectives:
+  - 信頼度・密度・危険率の関係を導ける
+  - 指数・ワイブル寿命モデルを解釈できる
+  - 平均故障時間・平均故障間隔・平均修復時間を区別できる
+  - 直列・並列・k-out-of-nシステムの信頼度を計算できる
+  - 共通原因故障の影響を説明できる
+  - 保全度と長期アベイラビリティを計算できる
+  - 2状態連続時間マルコフ過程からアベイラビリティを導ける
+definitions:
+  - { id: E402-DEF-01, name: 信頼度関数 }
+  - { id: E402-DEF-02, name: 危険率 }
+  - { id: E402-DEF-03, name: 保全度 }
+  - { id: E402-DEF-04, name: アベイラビリティ }
+  - { id: E402-DEF-05, name: 平均故障時間・平均故障間隔・平均修復時間 }
+theorems:
+  - { id: E402-THM-01, name: 信頼度と累積危険率の関係 }
+  - { id: E402-THM-02, name: 独立直列・並列系の信頼度 }
+  - { id: E402-THM-03, name: 2状態修理可能系の定常アベイラビリティ }
+canonical_examples: [指数寿命, ワイブル危険率, 直列並列系, k-out-of-n系, 共通原因故障, 定常アベイラビリティ]
+problem_patterns: [RELIABILITY-HAZARD-1, RELIABILITY-SYSTEM-1, RELIABILITY-KOUTOFN-1, MAINTAINABILITY-1, AVAILABILITY-MARKOV-1]
+past_exam_alignment: []
+integrated_exam_problems: [E4-02-C01, E4-02-C04, E4-02-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 9, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
