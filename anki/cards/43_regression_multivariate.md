@@ -1518,16 +1518,27 @@ $$
 
 ---
 id: reg-aic-variable-selection
-title: AICで回帰モデルを比較する
+title: AICで回帰モデルを比較し変数選択の注意まで判断する
 category: applied-common
 subcategory: applied-multiple-regression
-topic: variable-selection-aic
+topic: variable-selection-aic-canonical
 type: calc_step
 difficulty: 3
 priority: B
-hashtags: [変数選択, AIC, モデル比較]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数選択 }]
+hashtags:
+  - AIC
+  - 変数選択
+  - ステップワイズ法
+  - 選択後推論
+  - 交差検証
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 変数選択
 ---
 
 ## 問題
@@ -1551,7 +1562,13 @@ $$AIC_2=-2(-96)+2(8)=208.$$
 尤度改善8が罰則増加6を上回った。
 
 ## 注意
-AIC差が小さいと選択の不確実性も大きい。
+AIC差が小さいと選択の不確実性も大きい。AICは候補モデル集合の中で予測的な情報損失を比較する基準であり、「真のモデルを必ず特定する検定」ではない。
+
+**ステップワイズ法はAICそのものではなく、候補モデルを探索するアルゴリズムである。** 前進・後退・逐次増減のような局所探索では、すべての変数部分集合を総当たりしているとは限らず、開始モデルや探索経路によって最終モデルが変わり得る。したがって「stepwiseで得たモデル=全候補中のAIC最小モデル」とは限らない。
+
+また同じデータで変数選択した後、その選択過程を無視して通常の回帰係数のp値や信頼区間をそのまま読むと、不確実性を過小評価して楽観的になり得る。探索を繰り返すほどこの問題は強くなる。
+
+予測目的なら、選択も含めた手順全体を交差検証などの外部評価で比べる。説明・推論目的なら、事前に定めたモデル、選択後推論、あるいは別データでの確認などを検討する。
 
 <!-- CARD -->
 
