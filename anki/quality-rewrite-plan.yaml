@@ -1,118 +1,154 @@
 schema_version: 1
-batch_id: 2026-08-31-sample-quantile-canonical-180
+batch_id: 2026-08-31-sample-variance-canonical-182
 items:
-  - id: asym-exponential-sample-median
-    note: 指数分布の標本中央値だけのカードを、一般の標本p分位点の漸近正規性・逆関数の一次近似・数値例まで含む正本へ拡張し、engineering側の標本分位点単独カードを吸収する。
+  - id: asym-sample-variance-fourth-moment
+    note: 標本分散の正本へ、一般分布の4次中心モーメントを使うCLT導出と、正規標本で不偏標本分散の厳密カイ二乗分布から同じ漸近分散を得る別ルートを統合し、engineering側の正規標本専用カードを吸収する。
     metadata:
-      title: 標本分位点の漸近分散を一般式から指数分布の中央値まで求める
-      topic: sample-quantile-asymptotic-canonical
+      title: 標本分散の漸近分布を4次モーメントと正規標本のカイ二乗分布から導く
+      topic: sample-variance-asymptotic-canonical
       type: strategy
       difficulty: 4
-      priority: A
-      hashtags: [標本分位点, 標本中央値, 漸近正規性, 経験分布, 逆関数]
+      priority: S
+      hashtags: [標本分散, 4次中心モーメント, 漸近正規性, カイ二乗分布, Slutskyの定理]
     sections:
       問題: |
-        独立同分布な連続標本について、母分布関数を $F$、密度を $f$ とする。$0<p<1$ に対し母 $p$ 分位点 $q_p$ が
+        独立同分布標本 $X_1,\ldots,X_n$ について、$E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2$、4次中心モーメント $\mu_4=E[(X_i-\mu)^4]<\infty$ とする。
         $$
-        F(q_p)=p
+        V_n=\frac1n\sum_{i=1}^n(X_i-\overline X)^2,
+        \qquad
+        S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2
         $$
-        を満たし、$q_p$ の近傍で $F$ は微分可能、$f$ は連続かつ $f(q_p)>0$ とする。次を解け。
+        とおく。次を解け。
 
-        1. 標本 $p$ 分位点 $\widehat q_p$ の漸近分布を述べよ。
-        2. なぜ分散に $1/f(q_p)^2$ が現れるのか、経験分布 $F_n$ の揺らぎと逆関数の一次近似から説明せよ。
-        3. 率1の指数分布で標本中央値 $M_n$ の漸近分布を求め、$n=100$ の漸近標準誤差を計算せよ。
-        4. $M_{100}=0.80$ が観測されたとき、母中央値を中心とした標準化値を求めよ。
+        1. $V_n$ の漸近分布を4次中心モーメントを使って導け。
+        2. $S^2$ も同じ漸近分布を持つことを説明せよ。
+        3. さらに母集団が正規分布 $N(\mu,\sigma^2)$ のとき、$(n-1)S^2/\sigma^2$ の厳密分布から同じ結論を別ルートで導け。
+        4. $\sigma^2=4,n=100$ のとき標本分散の漸近標準誤差を求めよ。また標本分散の観測値が9なら、正規分布を仮定したプラグイン標準誤差を求めよ。
       記号・用語: |
-        $\widehat q_p$ は経験分布 $F_n$ に基づく標本 $p$ 分位点である。標本中央値は $p=1/2$ の特別な場合である。
+        $V_n$ は分母 $n$ の標本分散、$S^2$ は不偏標本分散である。有限標本では異なるが
+        $$
+        S^2=\frac{n}{n-1}V_n
+        $$
+        なので大標本の $\sqrt n$ 尺度では同じ漸近分布を持つ。
 
-        $\xrightarrow{d}$ は分布収束を表す。漸近分散定数 $v$ とは
+        $\mu_4$ は4次中心モーメントである。正規分布では
         $$
-        \sqrt n(T_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v)
+        \mu_4=3\sigma^4.
         $$
-        の $v$ をいうので、$T_n$ 自身の大標本分散はおよそ $v/n$ である。
       使用公式・定理: |
-        標本分位点の漸近正規性は
+        恒等式
         $$
-        \sqrt n(\widehat q_p-q_p)
+        V_n
+        =\frac1n\sum_{i=1}^n(X_i-\mu)^2-(\overline X-\mu)^2
+        $$
+        を使う。
+
+        確率変数 $(X_i-\mu)^2$ の平均は $\sigma^2$、分散は
+        $$
+        \operatorname{Var}\{(X_i-\mu)^2\}
+        =\mu_4-\sigma^4.
+        $$
+        したがって中心極限定理より
+        $$
+        \sqrt n\left\{
+        \frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+        \right\}
         \xrightarrow{d}
-        \text{正規分布 }N\left(0,\frac{p(1-p)}{f(q_p)^2}\right).
+        \text{正規分布 }N(0,\mu_4-\sigma^4).
+        $$
+        また $\overline X-\mu=O_p(n^{-1/2})$ なので
+        $$
+        \sqrt n(\overline X-\mu)^2=o_p(1).
         $$
 
-        直観的には、$F_n(q_p)$ はベルヌーイ指標の平均なので
+        正規標本なら厳密に
         $$
-        \sqrt n\{F_n(q_p)-p\}
-        \xrightarrow{d}
-        \text{正規分布 }N(0,p(1-p)).
+        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
         $$
-        また $F(q_p+h)\approx p+f(q_p)h$ より、逆関数の一次近似として
+        自由度 $\nu\to\infty$ で
         $$
-        \widehat q_p-q_p
-        \approx
-        -\frac{F_n(q_p)-p}{f(q_p)}.
+        \frac{\chi^2_\nu-\nu}{\sqrt{2\nu}}
+        \xrightarrow{d}\text{正規分布 }N(0,1).
         $$
-        したがって分散は $1/f(q_p)^2$ 倍される。
       一手／方針: |
-        **まず母分位点 $q_p$ を求め、その点での密度 $f(q_p)$ を評価して公式へ代入する。** 公式暗記だけでなく、経験分布の縦方向の揺らぎ $F_n(q_p)-p$ を、逆関数の傾き $1/f(q_p)$ で横方向の分位点誤差へ変換すると理解する。
+        **一般分布では「真の平均からの平方和」に直して中心極限定理、正規分布ならカイ二乗分布から別解。** 2つのルートが正規分布で同じ $2\sigma^4$ に合流することを確認する。
       答え: |
-        1.
+        1. 恒等式より
+        $$
+        \sqrt n(V_n-\sigma^2)
+        =
+        \sqrt n\left\{
+        \frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+        \right\}
+        -\sqrt n(\overline X-\mu)^2.
+        $$
+        第1項は中心極限定理、第2項は $o_p(1)$ なので
         $$
         \boxed{
-        \sqrt n(\widehat q_p-q_p)
+        \sqrt n(V_n-\sigma^2)
         \xrightarrow{d}
-        \text{正規分布 }N\left(0,\frac{p(1-p)}{f(q_p)^2}\right)}.
-        $$
-        よって $\widehat q_p$ 自身の漸近分散は
-        $$
-        \frac{p(1-p)}{n f(q_p)^2}.
+        \text{正規分布 }N(0,\mu_4-\sigma^4)}.
         $$
 
-        2. $F_n(q_p)$ の $\sqrt n$ 尺度での分散定数は $p(1-p)$。一方、$F$ を逆に解いて分位点へ戻すときの局所的な傾きは $1/f(q_p)$ なので、分散にはその二乗 $1/f(q_p)^2$ が掛かる。
-
-        3. 率1の指数分布では
+        2.
         $$
-        F(x)=1-e^{-x},\qquad f(x)=e^{-x}\quad(x>0).
+        S^2=\frac{n}{n-1}V_n,
+        \qquad \frac{n}{n-1}\to1
         $$
-        母中央値 $m$ は
-        $$
-        1-e^{-m}=\frac12
-        \quad\Longrightarrow\quad
-        m=\log2.
-        $$
-        また
-        $$
-        f(m)=e^{-\log2}=\frac12.
-        $$
-        $p=1/2$ だから極限分散定数は
-        $$
-        \frac{(1/2)(1/2)}{(1/2)^2}=1.
-        $$
-        したがって
+        であり、$\sqrt n\{(n/(n-1))-1\}=O(n^{-1/2})\to0$ だから
         $$
         \boxed{
-        \sqrt n(M_n-\log2)
-        \xrightarrow{d}\text{正規分布 }N(0,1)}.
-        $$
-        $n=100$ での漸近標準誤差は
-        $$
-        \boxed{1/\sqrt{100}=0.1}.
+        \sqrt n(S^2-\sigma^2)
+        \xrightarrow{d}
+        \text{正規分布 }N(0,\mu_4-\sigma^4)}.
         $$
 
-        4.
+        3. 正規分布では
         $$
-        z=\frac{0.80-\log2}{0.1}
-        \approx\boxed{1.07}.
+        U_n=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+        $$
+        よって
+        $$
+        \frac{U_n-(n-1)}{\sqrt{2(n-1)}}
+        =
+        \frac{\sqrt{n-1}(S^2-\sigma^2)}{\sqrt2\,\sigma^2}
+        \xrightarrow{d}\text{正規分布 }N(0,1).
+        $$
+        $\sqrt n/\sqrt{n-1}\to1$ とSlutskyの定理から
+        $$
+        \boxed{
+        \sqrt n(S^2-\sigma^2)
+        \xrightarrow{d}
+        \text{正規分布 }N(0,2\sigma^4)}.
+        $$
+        一般式でも正規分布では $\mu_4=3\sigma^4$ なので
+        $$
+        \mu_4-\sigma^4=2\sigma^4
+        $$
+        となり一致する。
+
+        4. $\sigma^2=4$ なら $\sigma^4=16$ なので
+        $$
+        \operatorname{ASE}(S^2)
+        \approx\sqrt{\frac{2\sigma^4}{n}}
+        =\sqrt{\frac{32}{100}}
+        \approx\boxed{0.5657}.
+        $$
+        観測された標本分散9を $\sigma^2$ にプラグインするなら $\widehat\sigma^4=9^2=81$ なので
+        $$
+        \widehat{\operatorname{ASE}}(S^2)
+        =\sqrt{\frac{2\cdot81}{100}}
+        \approx\boxed{1.273}.
         $$
       計算例: |
-        $p=0.25$、$f(q_{0.25})=0.4$ とする。このとき極限分散定数は
+        非正規分布では正規分布の $2\sigma^4$ を機械的に使わない。例えば $\sigma^2=2$、$\mu_4=20$ なら
         $$
-        \frac{0.25\cdot0.75}{0.4^2}
-        =\frac{0.1875}{0.16}
-        =1.171875.
+        \mu_4-\sigma^4=20-4=16.
         $$
-        $n=200$ なら標本25%分位点の漸近標準誤差は
+        $n=100$ では標本分散の漸近標準誤差は
         $$
-        \sqrt{\frac{1.171875}{200}}
-        \approx0.0765.
+        \sqrt{16/100}=0.4.
         $$
+        一方、正規分布だと同じ $\sigma^2=2$ でも極限分散定数は $2\sigma^4=8$ となる。
       注意: |
-        $f(q_p)>0$ が重要である。分位点付近の密度が小さいほど、経験分布の小さな縦揺れが大きな横方向の分位点誤差に変換される。裾の分位点や密度が非常に小さい領域では有限標本の正規近似が不安定になりやすい。また、ここで扱うのは固定した1つの $p$ に対する結果であり、分位点関数全体の一様収束とは別である。
+        一般式には4次中心モーメントの有限性が必要であり、有限分散だけでは十分でない。正規標本のカイ二乗関係は厳密な有限標本結果だが、非正規分布では成立しない。また $V_n$ と $S^2$ は漸近的には同じでも有限標本では分母が異なるため、問題文の定義を確認する。
