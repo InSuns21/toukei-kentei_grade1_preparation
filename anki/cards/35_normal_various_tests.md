@@ -675,38 +675,64 @@ $$z=\frac{59.5-50}{5}=1.9.$$
 
 ---
 id: test-two-proportion-pooled
-title: 2母比率差の帰無標準誤差を導く
+title: 2母比率差のZ検定をプール比率からP値まで解く
 category: math-testing
 subcategory: math-various-tests
-topic: two-proportion-z
-type: formula
+topic: two-proportion-z-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [母比率差, 二項分布, 2標本検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二項分布・ポアソン分布など基本的な分布に関する検定 }]
+hashtags:
+  - 母比率差
+  - Z検定
+  - 2標本検定
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 二項分布・ポアソン分布など基本的な分布に関する検定
 ---
 
 ## 問題
-独立な $X_j\sim\operatorname{Binomial}(n_j,p_j)$ に対し $H_0:p_1=p_2$ を検定するZ統計量を書け。
+独立な $X_j\sim\operatorname{Binomial}(n_j,p_j)$ に対し $H_0:p_1=p_2$ を検定するZ統計量を示せ。さらに $(x_1,n_1)=(60,100)$、$(x_2,n_2)=(40,100)$ について両側5%で検定せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+各群の標本比率を $\widehat p_j=X_j/n_j$ とする。帰無仮説の下では共通比率を
+$$
+\widehat p=\frac{X_1+X_2}{n_1+n_2}
+$$
+とプールし、
+$$
+Z=\frac{\widehat p_1-\widehat p_2}
+{\sqrt{\widehat p(1-\widehat p)(1/n_1+1/n_2)}}
+$$
+を用いる。両側5%なら $|Z|>1.96$ で棄却する。
 
-検定では帰無仮説下に共通比率をプールする。
+## 一手
+分子には観測された2群の標本比率差を置き、分母だけを「$p_1=p_2$」という帰無仮説の下でプールする。
 
 ## 答え
-各群の標本比率を $\widehat p_j=X_j/n_j$ とする。共通比率の制約付き推定量
-$$\widehat p=\frac{X_1+X_2}{n_1+n_2}$$
-を使い、
-$$Z=\frac{\widehat p_1-\widehat p_2}
-{\sqrt{\widehat p(1-\widehat p)(1/n_1+1/n_2)}}.$$
+$$
+\widehat p=\frac{60+40}{200}=0.5,
+$$
+$$
+\operatorname{SE}_0
+=\sqrt{0.5(1-0.5)(1/100+1/100)}
+=\sqrt{0.005}\approx0.07071,
+$$
+$$
+Z=\frac{0.6-0.4}{0.07071}\approx2.828.
+$$
+$2.828>1.96$ なので両側5%で棄却し、P値は約0.0047である。
 
 ## 計算例
-$n_1=n_2=100,x_1=60,x_2=40$ なら $\widehat p=0.5$。
+帰無仮説下の各群の期待成功数・期待失敗数はともに50であり、この例では正規近似のための期待度数は十分大きい。
 
 ## 注意
-帰無仮説下の各群の期待成功数 $n_j\widehat p$ と期待失敗数 $n_j(1-\widehat p)$ が十分大きい大標本近似である。信頼区間の標準誤差では通常、群別比率を用いてプールしない。
+これは大標本近似である。信頼区間では通常、帰無仮説を課さず群別比率を用いた標準誤差を使うため、「検定のプール標準誤差」と混同しない。
 
 <!-- CARD -->
 
@@ -852,38 +878,76 @@ $t_1=1,t_2=3,k=12$ なら帰無分布は $\operatorname{Binomial}(12,1/4)$。
 
 ---
 id: test-goodness-fit-statistic
-title: Pearson適合度検定統計量を構成する
+title: Pearson適合度検定を期待度数・自由度・区分統合まで解く
 category: math-testing
 subcategory: math-various-tests
-topic: goodness-of-fit
-type: formula
-difficulty: 2
-priority: A
-hashtags: [適合度の検定, Pearson統計量, カイ二乗分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 適合度の検定 }]
+topic: goodness-of-fit-canonical
+type: strategy
+difficulty: 3
+priority: S
+hashtags:
+  - 適合度の検定
+  - Pearson統計量
+  - 自由度
+  - 期待度数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 適合度の検定
 ---
 
 ## 問題
-$k$ 区分の観測度数 $O_j$ と帰無仮説下の期待度数 $E_j=np_j$ からPearson統計量を書け。
+$k$ 区分の観測度数 $O_j$ と帰無仮説下の期待度数 $E_j=np_j$ によるPearson適合度検定について、統計量と自由度を書け。帰無分布の確率に $r$ 個の母数を同じデータから推定した場合も述べよ。
+
+さらに次を計算せよ。
+1. $n=100$、4区分の帰無確率が各 $1/4$、観測度数 $(35,25,20,20)$。
+2. $n=50$ 個の度数データの総和が40で、ポアソン分布への適合を区分 $0,1,2,3+$ で調べる。$X=0$ の期待度数と自由度を求める。
 
 ## 記号・用語
 - $\xrightarrow{d}$：分布収束
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+X^2=\sum_{j=1}^{k}\frac{(O_j-E_j)^2}{E_j}.
+$$
+母数を推定しない単純帰無仮説では近似的に $\chi^2_{k-1}$。同じデータから独立な母数を $r$ 個推定した場合、通常は
+$$
+\nu=k-1-r
+$$
+とする。度数和が固定されるためまず1自由度を失い、さらに推定した母数ごとに自由度を失う。
 
-度数和が $n$ に固定されるため自由度を1つ失う。
+## 一手
+まず全区分の期待度数を作り、合計が標本数になることを確認する。その後にPearson寄与を足す。母数をデータから推定したなら自由度を引き、期待度数が極端に小さい区分は意味を壊さない範囲で隣接区分と統合する。
 
 ## 答え
-$$X^2=\sum_{j=1}^k\frac{(O_j-E_j)^2}{E_j}.$$
-母数を推定しない単純帰無仮説では、条件の下で $X^2\xrightarrow{d}\chi^2_{k-1}$。
+1. 期待度数は各25なので
+$$
+X^2=\frac{(35-25)^2}{25}+0+\frac{(20-25)^2}{25}+\frac{(20-25)^2}{25}=6.
+$$
+自由度は3。上側5%点7.815より小さいので棄却しない。
+
+2. ポアソン分布の母数は
+$$
+\widehat\lambda=\frac{40}{50}=0.8.
+$$
+よって
+$$
+E_0=50e^{-0.8}\approx22.47.
+$$
+区分数4、推定母数1なので
+$$
+\nu=4-1-1=2.
+$$
 
 ## 計算例
-$k=4$ で確率がすべて既知なら自由度3。
+期待度数が $(40,35,20,3,2)$ なら末尾2区分を統合して期待度数5とすることを検討する。区分数が5から4へ減れば、その分だけ自由度も1減る。
 
 ## 注意
-統計量が大きいとき適合が悪いとして棄却する。
+カイ二乗近似の条件を見るときは観測度数ではなく期待度数を見る。母数が外部データから既知として与えられているなら推定母数数として引かない。区分統合の基準は機械的な数字だけでなく、区分の意味も保つ必要がある。
 
 <!-- CARD -->
 
@@ -994,36 +1058,67 @@ Pearson統計量のカイ二乗近似は各期待度数が十分増大する漸�
 
 ---
 id: test-independence-chisquare
-title: 分割表の独立性検定統計量を構成する
+title: 分割表の独立性カイ二乗検定を期待表から判定まで解く
 category: math-testing
 subcategory: math-various-tests
-topic: independence-chisquare
-type: formula
-difficulty: 2
+topic: independence-chisquare-canonical
+type: strategy
+difficulty: 3
 priority: S
-hashtags: [独立性のカイ二乗検定, 分割表, 期待度数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 独立性のカイ二乗検定 }]
+hashtags:
+  - 独立性のカイ二乗検定
+  - 分割表
+  - 期待度数
+  - 2×2表
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 独立性のカイ二乗検定
 ---
 
 ## 問題
-$r\times c$ 分割表で独立性を検定する期待度数とPearson統計量を書け。
+$r\times c$ 分割表の独立性検定について期待度数、Pearson統計量、自由度を書け。さらに観測表
+$$
+\begin{pmatrix}30&20\\10&40\end{pmatrix}
+$$
+のPearson統計量を求め、5%で判定せよ。2×2表に対するYatesの連続修正の考え方も述べよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+独立性の帰無仮説下では
+$$
+E_{ij}=\frac{n_{i\cdot}n_{\cdot j}}{n},
+$$
+$$
+X^2=\sum_{i=1}^{r}\sum_{j=1}^{c}\frac{(O_{ij}-E_{ij})^2}{E_{ij}},
+\qquad
+\nu=(r-1)(c-1).
+$$
+2×2表のYates連続修正では各セルの偏差 $|O_{ij}-E_{ij}|$ を概ね0.5小さくして離散度数と連続近似のずれを補正する。
 
-独立ならセル確率は行周辺確率と列周辺確率の積。
+## 一手
+まず行周辺度数と列周辺度数から期待表を作る。期待表を作らず観測セル同士を直接比較しない。
 
 ## 答え
-$$E_{ij}=\frac{n_{i\cdot}n_{\cdot j}}n,\qquad
-X^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(O_{ij}-E_{ij})^2}{E_{ij}}.$$
-帰無仮説下で近似的に $\chi^2_{(r-1)(c-1)}$。
+行合計は $(50,50)$、列合計は $(40,60)$、総数100なので期待表は
+$$
+\begin{pmatrix}20&30\\20&30\end{pmatrix}.
+$$
+よって
+$$
+X^2=\frac{100}{20}+\frac{100}{30}+\frac{100}{20}+\frac{100}{30}
+=\frac{50}{3}\approx16.67.
+$$
+自由度1で、$16.67>3.841$ なので5%で独立性を棄却する。
 
 ## 計算例
-$2\times3$ 表なら自由度 $(2-1)(3-1)=2$。
+例えば1セルで $|O-E|=2,E=10$ なら未修正の寄与は $2^2/10=0.4$。Yates型の修正では偏差を $2-0.5=1.5$ として寄与は $1.5^2/10=0.225$ となり、一般に統計量を小さくする方向に働く。
 
 ## 注意
-標本が独立で、期待度数が十分大きいことを確認する。
+Pearson近似には独立標本と十分な期待度数が必要である。2×2表で期待度数が小さい場合は、Yates修正だけに頼るより固定周辺度数に条件付けるフィッシャー検定を検討する。Yates修正は保守的になりやすい。
 
 <!-- CARD -->
 
