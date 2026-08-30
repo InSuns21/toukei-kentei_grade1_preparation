@@ -1,28 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-basics-reduction-91
+batch_id: 2026-08-30-legacy-data-resampling-reduction-93
 items:
-  - id: eng-capability-index
+  - id: data-anova-decomposition
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-cpk-offcenter
-    note: Cpの定義・計算はCpkとの比較、等号条件、偏心診断まで含む工程能力canonical cardへ統合済み。
-  - id: engqc-cp-cpk-relationship
+    canonical_card: anova-oneway-f-statistic
+    note: 一元配置ANOVAの平方和分解はモデル、自由度、F統計量、数値検算まで含むcanonical cardへ完全包含されている。
+  - id: data-bootstrap-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-cpk-offcenter
-    note: Cpk<=Cpの関係、等号条件、中心ずれの診断は同一canonical cardへ統合済み。
-  - id: eng-series-reliability
+    canonical_card: boot-empirical-distribution
+    note: 経験分布から復元抽出し同じ統計量を再計算して標準誤差を求める一連の操作をcanonical cardへ統合済み。
+  - id: multi-pca-eigen
     bucket: duplicates
     reason: duplicate
-    canonical_card: engrel-series-component-requirement
-    note: 独立直列系の積公式・数値計算・部品信頼度の逆算を直列並列信頼性canonical cardへ統合済み。
-  - id: engrel-parallel-system
+    canonical_card: mv-pca-variance-max
+    note: 最大分散方向から固有値問題を導く内容は、共分散・相関行列の選択、寄与率、主成分得点まで含むPCA canonical cardへ包含されている。
+  - id: process-ar1-stationary
     bucket: duplicates
     reason: duplicate
-    canonical_card: engrel-series-component-requirement
-    note: 独立並列系の補集合公式と数値例は直列系との方法選択を含むcanonical cardへ統合済み。
-  - id: eng-blocking
+    canonical_card: ts-ar1-acf
+    note: AR(1)定常分散の導出は定常平均・分散・自己相関を一続きで導くcanonical cardへ包含されている。
+  - id: boot-bias-corrected-estimator
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-confounder-randomization
-    note: ブロック化の目的、乱塊法の加法モデル、ブロック内無作為化と交絡回避をcanonical cardへ統合済み。
+    canonical_card: boot-bias-estimate
+    note: バイアス推定値から補正推定値まで同じ2量で連続計算するcanonical cardへ統合済み。
+  - id: boot-basic-ci
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: boot-percentile-ci
+    note: 同一のブートストラップ分位点からパーセンタイル区間とbasic区間を比較計算するcanonical cardへ統合済み。
+  - id: jackknife-standard-error
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: jackknife-leave-one-out
+    note: delete-one推定値の生成から専用係数を使うジャックナイフ標準誤差までcanonical cardへ統合済み。
