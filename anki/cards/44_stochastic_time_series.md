@@ -722,79 +722,110 @@ $\alpha$ が1に近いほど新しい観測へ速く反応する。
 
 ---
 id: ts-spectral-density-ar1
-title: AR(1)のスペクトル密度を導く
+title: AR(1)のスペクトル密度を導き周波数特性を読む
 category: applied-common
 subcategory: applied-time-series
-topic: spectral-density
-type: calc_step
+topic: ar1-spectral-density-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [スペクトル密度, ARモデル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: スペクトル密度 }]
+priority: A
+hashtags:
+  - 時系列解析
+  - ARモデル
+  - スペクトル密度
+  - 周波数解析
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: スペクトル密度
 ---
 ## 問題
-$X_t=\phi X_{t-1}+\varepsilon_t$、$|\phi|<1$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$ のスペクトル密度を求めよ。
+定常AR$(1)$過程
+$$
+X_t=\phi X_{t-1}+\varepsilon_t,
+\qquad |\phi|<1,
+\qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+$$
+を考える。
+1. スペクトル密度 $f_X(\lambda)$ を導け。
+2. $f_X(0)/f_X(\pi)$ を一般の $\phi$ で求め、$\phi>0$ と $\phi<0$ でどの周波数帯が強くなるか説明せよ。
+3. $\phi=0.6$ のとき $f_X(0)/f_X(\pi)$ を求めよ。
+
 ## 記号・用語
-$\lambda\in[-\pi,\pi]$ は角周波数、$f(\lambda)$ はスペクトル密度である。
+$\lambda\in[-\pi,\pi]$ は角周波数、$f_X(\lambda)$ は周波数ごとの変動の強さを表すスペクトル密度である。$\lambda=0$ は非常にゆっくりした変動、$\lambda=\pi$ は離散時間で表せる最高周波数側に対応する。
+
 ## 使用公式・定理
-**線形フィルタ公式**：$X_t=\psi(B)\varepsilon_t$ なら
-$$f_X(\lambda)=\frac{\sigma^2}{2\pi}|\psi(e^{-i\lambda})|^2.$$
-## 一手／方針
-AR$(1)$ では $\psi(B)=(1-\phi B)^{-1}$ として代入する。
-## 答え
-AR$(1)$ のスペクトル密度は
+バックシフト演算子 $B$ を用いると
+$$
+(1-\phi B)X_t=\varepsilon_t,
+$$
+したがって
+$$
+X_t=(1-\phi B)^{-1}\varepsilon_t.
+$$
+ホワイトノイズを線形フィルタ $\psi(B)$ に通した系列のスペクトル密度は
 $$
 f_X(\lambda)
-=\frac{\sigma^2}
+=\frac{\sigma_\varepsilon^2}{2\pi}
+\left|\psi(e^{-i\lambda})\right|^2.
+$$
+AR$(1)$では
+$$
+\psi(e^{-i\lambda})=(1-\phi e^{-i\lambda})^{-1},
+$$
+かつ
+$$
+|1-\phi e^{-i\lambda}|^2
+=(1-\phi e^{-i\lambda})(1-\phi e^{i\lambda})
+=1+\phi^2-2\phi\cos\lambda.
+$$
+
+## 一手／方針
+**AR方程式を伝達関数へ直してから絶対値二乗を取る。** 周波数の解釈では、式全体を暗記せず $\lambda=0,\pi$ を代入して分母を比較する。
+
+## 答え
+1.
+$$
+f_X(\lambda)
+=\frac{\sigma_\varepsilon^2}
 {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
+$$
+
+2. $\cos0=1,\cos\pi=-1$ より
+$$
+f_X(0)=\frac{\sigma_\varepsilon^2}{2\pi(1-\phi)^2},
+\qquad
+f_X(\pi)=\frac{\sigma_\varepsilon^2}{2\pi(1+\phi)^2}.
+$$
+したがって
+$$
+\frac{f_X(0)}{f_X(\pi)}
+=\left(\frac{1+\phi}{1-\phi}\right)^2.
+$$
+$\phi>0$ ならこの比は1より大きく低周波成分が強い。$\phi<0$ なら1より小さく高周波成分が相対的に強い。$\phi=0$ ならスペクトルは平坦でホワイトノイズになる。
+
+3. $\phi=0.6$ なら
+$$
+\frac{f_X(0)}{f_X(\pi)}
+=\left(\frac{1.6}{0.4}\right)^2
+=16.
 $$
 
 ## 計算例
-AR$(1)$ を
+$\phi=-0.6$ なら
 $$
-(1-\phi B)X_t=\varepsilon_t
+\frac{f_X(0)}{f_X(\pi)}
+=\left(\frac{0.4}{1.6}\right)^2
+=\frac1{16}.
 $$
-と書けば
-$$
-X_t=(1-\phi B)^{-1}\varepsilon_t
-$$
-なので、線形フィルタは
-$$
-\psi(z)=\frac1{1-\phi z}.
-$$
-よって
-$$
-\left|\psi(e^{-i\lambda})\right|^2
-=\frac1{|1-\phi e^{-i\lambda}|^2}.
-$$
-分母を計算すると
-$$
-\begin{aligned}
-|1-\phi e^{-i\lambda}|^2
-&=(1-\phi e^{-i\lambda})(1-\phi e^{i\lambda})\\
-&=1-\phi(e^{i\lambda}+e^{-i\lambda})+\phi^2\\
-&=1-2\phi\cos\lambda+\phi^2.
-\end{aligned}
-$$
-したがって線形フィルタ公式から
-$$
-f_X(\lambda)
-=\frac{\sigma^2}
-{2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
-$$
-例えば $\phi=0.5$, $\sigma^2=1$, $\lambda=0$ なら
-$$
-\begin{aligned}
-f_X(0)
-&=\frac1{2\pi(1+0.25-1)}\\
-&=\frac1{2\pi(0.25)}\\
-&=\frac2\pi.
-\end{aligned}
-$$
+正のAR係数では系列がゆっくり持続しやすく低周波側が強くなるのに対し、負のAR係数では符号が交互に変わりやすく高周波側が強くなる。
 
 ## 注意
-$1/(2\pi)$ を含める正規化規約を用いた。
+$f_X(0)/f_X(\pi)$ は分母の比が逆転するので、$(1+\phi)^2/(1-\phi)^2$ になる点に注意する。また $|\phi|<1$ は定常なAR$(1)$としてこのスペクトルを扱うための条件である。スペクトル密度の大きさは周波数ごとの変動の強さであり、特定周波数の確率そのものではない。
 
 <!-- CARD -->
 
