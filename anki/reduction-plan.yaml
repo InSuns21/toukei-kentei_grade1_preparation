@@ -1,23 +1,27 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-cross-category-reduction-164
+batch_id: 2026-08-31-multivariate-cross-category-reduction-164b
 items:
   - id: engmv-correlation-from-covariance
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-covariance-linear-transform
-    note: 分散共分散行列から相関行列への標準化、正の単位変更で相関が不変になる数値例、負の尺度変換で符号が反転する注意まで、線形変換canonical cardへ統合済み。
+    coverage_card: mv-covariance-linear-transform
+    note: 分散共分散行列から相関行列への標準化、正の単位変更で相関が不変になる数値例、負の尺度変換で符号が反転する注意まで、線形変換canonical cardへ統合済み。engineering-multivariateの相関行列coverageもこの正本へ明示的に付け替える。
   - id: engmv-spectral-reconstruction
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-pca-variance-max
-    note: 直交固有値分解Sigma=U Lambda U^Tと固有対からの2次元分散共分散行列再構成、低次元近似で捨てる分散の解釈までPCA canonical cardへ統合済み。
+    coverage_card: mv-pca-variance-max
+    note: 直交固有値分解Sigma=U Lambda U^Tと固有対からの2次元分散共分散行列再構成、低次元近似で捨てる分散の解釈までPCA canonical cardへ統合済み。固有値・固有ベクトルcoverageも正本へ明示的に付け替える。
   - id: engmv-silhouette-coefficient
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-hierarchical-linkage
-    note: silhouette係数s=(b-a)/max(a,b)、a=2,b=5でs=0.6の数値例と値の解釈を、連結法・Ward法からクラスタ評価まで通すcanonical cardへ統合済み。
+    coverage_card: mv-hierarchical-linkage
+    note: silhouette係数s=(b-a)/max(a,b)、a=2,b=5でs=0.6の数値例と値の解釈を、連結法・Ward法からクラスタ評価まで通すcanonical cardへ統合済み。該当coverageがあれば正本へ付け替える。
   - id: mv-mahalanobis-distance
     bucket: duplicates
     reason: duplicate
     canonical_card: engmv-mahalanobis-control-limit
-    note: Mahalanobis二乗距離の定義・逆分散共分散行列による標準化・数値計算は、正規ベクトルのカイ二乗二次形式から個体管理限界と平均ベクトル信頼楕円まで扱う上位canonical cardに包含されているため単独カードを残さない。
+    coverage_card: engmv-mahalanobis-control-limit
+    note: Mahalanobis二乗距離の定義・逆分散共分散行列による標準化・数値計算は、正規ベクトルのカイ二乗二次形式から個体管理限界と平均ベクトル信頼楕円まで扱う上位canonical cardに包含されている。一般多変量側coverageもこの正本へ付け替える。
