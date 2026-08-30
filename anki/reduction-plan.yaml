@@ -1,20 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-regression-f-tests-reduction-49
+batch_id: 2026-08-30-regression-leverage-reduction-50
 items:
-  - id: reg-overall-f-r2
+  - id: reg-leverage-meaning
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-overall-f-test
-    note: 決定係数から全体F統計量を求める式を、平方和表示との同値性・数値判定まで含む正本へ統合済み。
+    canonical_card: reg-hat-matrix-properties
+    note: レバレッジの定義、総和と平均をハット行列の射影性から導く正本へ統合済み。
 
-  - id: reg-partial-f-numeric
+  - id: reg-residual-variance-leverage
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-partial-f-test
-    note: 入れ子モデルの部分F検定の数値計算と臨界値判定を一般式の正本へ統合済み。
+    canonical_card: reg-hat-matrix-properties
+    note: 残差生成行列I-Hから残差共分散とVar(e_i)=sigma^2(1-h_ii)を導く正本へ統合済み。
 
-  - id: reg-f-equals-t-squared
+  - id: reg-studentized-residual
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-partial-f-test
-    note: 1係数追加時に部分F統計量が同じ係数のt統計量の二乗に一致する導出を正本へ統合済み。
+    canonical_card: reg-hat-matrix-properties
+    note: レバレッジによる残差分散差を補正する標準化残差を数値例付き正本へ統合済み。
