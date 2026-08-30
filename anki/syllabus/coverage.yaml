@@ -1246,8 +1246,6 @@ items:
       - anova-no-replication-limitation
       - anova-randomized-block-model
       - anova-ancova-model
-      - anova-ancova-adjusted-mean
-      - anova-ancova-parallel-slopes
       - anova-fixed-random-effects
       - anova-residual-diagnostics
       - anova-regression-equivalence
@@ -1278,8 +1276,6 @@ items:
         status: card
         cards:
           - anova-ancova-model
-          - anova-ancova-adjusted-mean
-          - anova-ancova-parallel-slopes
       - name: 多重比較
         status: card
         cards:
