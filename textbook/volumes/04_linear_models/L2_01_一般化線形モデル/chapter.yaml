@@ -1,31 +1,39 @@
 id: "L2-01"
 title: "一般化線形モデル"
 volume: "linear_models"
-status: reviewed
+status: revision
 prerequisites:
   - P3-01
   - L1-02
+  - P2-02
+  - F0-00
 official_scope:
   - 一般化線形モデル
   - ロジスティック回帰
   - ポアソン回帰
 learning_objectives:
-  - GLMの三要素を説明できる
-  - ロジスティック回帰とPoisson回帰を構成できる
-  - 回帰係数をオッズ比・率比として解釈できる
-  - 対数尤度とスコアを導ける
+  - 一般化線形モデルの三要素を説明できる
+  - ベルヌーイ・ポアソンの確率関数から尤度とスコアを導ける
+  - ロジスティック回帰係数をオッズ比として解釈できる
+  - ポアソン回帰係数を平均件数比・発生率比として解釈できる
+  - オフセットの役割を説明できる
+  - 指数型分布族の平均・分散を正規化式から導ける
+  - 逸脱度と入れ子モデルの逸脱度差を説明できる
 definitions:
   - { id: L201-DEF-01, name: 一般化線形モデル }
   - { id: L201-DEF-02, name: リンク関数 }
-  - { id: L201-DEF-03, name: deviance }
+  - { id: L201-DEF-03, name: 逸脱度 }
+  - { id: L201-DEF-04, name: オフセット }
 theorems:
   - { id: L201-THM-01, name: 指数型分布族の平均と分散 }
-canonical_examples: [ロジスティック回帰, Poisson回帰, offset, deviance]
-problem_patterns: [GLM-LOGISTIC-1, GLM-POISSON-1, GLM-LIKELIHOOD-1]
+  - { id: L201-THM-02, name: ロジスティック回帰のスコアとヘッセ行列 }
+  - { id: L201-THM-03, name: 入れ子モデルの逸脱度差 }
+canonical_examples: [ロジスティック回帰, ポアソン回帰, オフセット, 逸脱度]
+problem_patterns: [GLM-LOGISTIC-1, GLM-POISSON-1, GLM-LIKELIHOOD-1, GLM-DEVIANCE-1]
 past_exam_alignment: []
-integrated_exam_problems: [L2-01-C01]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 5, review: 2 }
+integrated_exam_problems: [L2-01-C01, L2-01-C04, L2-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 9, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
