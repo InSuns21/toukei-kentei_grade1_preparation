@@ -1936,41 +1936,227 @@ $m=1$ ならベルヌーイ尤度。
 
 ---
 id: glm-logistic-score
-title: ロジスティック回帰のスコアを導く
+title: ロジスティック回帰を確率・オッズ比・尤度・スコア・IRLSまで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: logistic-score
+topic: logistic-regression-canonical
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [ロジスティック回帰分析, スコア, 最尤法]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一般化線形モデルの推定 }]
+hashtags:
+  - ロジスティック回帰分析
+  - ロジット
+  - オッズ比
+  - 尤度
+  - スコア
+  - IRLS
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一般化線形モデルの推定
 ---
 
 ## 問題
-独立なベルヌーイ応答のロジスティック回帰でスコア方程式を書け。
+独立なベルヌーイ応答 $Y_i\in\{0,1\}$ に対し
+$$
+\eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta,
+\qquad
+\operatorname{logit}(p_i)=\eta_i
+$$
+とする。
+
+1. $p_i$ を $\eta_i$ から表せ。
+2. 説明変数 $x_j$ が $c$ 増えたときのオッズ比を表せ。
+3. 対数尤度を $\eta_i$ を用いて書き、その勾配であるスコアベクトルを導け。
+4. フィッシャー情報行列とフィッシャー・スコアリング更新を書き、IRLSの重み付き最小二乗形へ変形せよ。
+5. 数値例として $\eta=0$ の予測確率、$\beta_j=\log1.5$ で $x_j$ が2増える場合のオッズ比を求めよ。
 
 ## 記号・用語
 - $\ell$：対数尤度
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+ロジットの逆関数は
+$$
+p_i
+=\frac{e^{\eta_i}}{1+e^{\eta_i}}
+=\frac1{1+e^{-\eta_i}}.
+$$
+したがってオッズは
+$$
+\frac{p_i}{1-p_i}=e^{\eta_i}.
+$$
+他の説明変数を固定して $x_j$ を $c$ 増やすと線形予測子は $c\beta_j$ 増えるので、オッズ比は
+$$
+\boxed{\exp(c\beta_j)}.
+$$
 
-連鎖律とベルヌーイ対数尤度。
+ベルヌーイ対数尤度は
+$$
+\ell(\boldsymbol\beta)
+=\sum_i\left\{y_i\log p_i+(1-y_i)\log(1-p_i)\right\}.
+$$
+$p_i=e^{\eta_i}/(1+e^{\eta_i})$ を代入すると
+$$
+\ell(\boldsymbol\beta)
+=\sum_i\left\{y_i\eta_i-\log(1+e^{\eta_i})\right\}.
+$$
+また
+$$
+\frac{dp_i}{d\eta_i}=p_i(1-p_i).
+$$
+よって各観測について
+$$
+\frac{\partial\ell_i}{\partial\eta_i}
+=y_i-p_i,
+$$
+さらに $\partial\eta_i/\partial\boldsymbol\beta=\boldsymbol x_i$ だから
+$$
+\boxed{
+\boldsymbol U(\boldsymbol\beta)
+=\frac{\partial\ell}{\partial\boldsymbol\beta}
+=\sum_i\boldsymbol x_i(y_i-p_i)
+=\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
+}.
+$$
+
+$\boldsymbol W=\operatorname{diag}\{p_i(1-p_i)\}$ とすると
+$$
+-\frac{\partial^2\ell}{\partial\boldsymbol\beta\partial\boldsymbol\beta^{\mathsf T}}
+=\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
+$$
+したがってフィッシャー情報行列も
+$$
+\boldsymbol I(\boldsymbol\beta)
+=\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X.
+$$
+フィッシャー・スコアリング（この場合Newton法と一致）は
+$$
+\boxed{
+\boldsymbol\beta^{\mathrm{new}}
+=\boldsymbol\beta^{\mathrm{old}}
++(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
+}.
+$$
+作業応答
+$$
+z_i
+=\eta_i+\frac{y_i-p_i}{p_i(1-p_i)}
+$$
+を置けば同じ更新は
+$$
+\boxed{
+\boldsymbol\beta^{\mathrm{new}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol z
+}
+$$
+となり、これが反復重み付き最小二乗法（IRLS）である。
+
+## 一手
+**ロジスティック回帰は「$\eta\to p\to\ell\to U\to I\to$ IRLS」の一本の鎖で覚える。** 係数解釈も同じ $\eta$ から、$x_j$ の増分 $c\beta_j$ を指数化してオッズ比 $e^{c\beta_j}$ と読む。
 
 ## 答え
-$p_i=e^{\eta_i}/(1+e^{\eta_i})$、$\partial p_i/\partial\eta_i=p_i(1-p_i)$ より
-$$\frac{\partial\ell}{\partial\boldsymbol\beta}
-=\sum_i\boldsymbol x_i(y_i-p_i)
-=\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p).$$
-したがって $\boldsymbol X^{\mathsf T}(\boldsymbol y-\widehat{\boldsymbol p})=0$ を解く。
+基本関係は
+$$
+p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}},
+\qquad
+\frac{p_i}{1-p_i}=e^{\eta_i}.
+$$
+$x_j$ が $c$ 増えるとオッズ比は
+$$
+e^{c\beta_j}.
+$$
+対数尤度、スコア、情報行列は
+$$
+\ell(\boldsymbol\beta)
+=\sum_i\{y_i\eta_i-\log(1+e^{\eta_i})\},
+$$
+$$
+\boldsymbol U(\boldsymbol\beta)
+=\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p),
+$$
+$$
+\boldsymbol I(\boldsymbol\beta)
+=\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
+\qquad
+w_i=p_i(1-p_i).
+$$
+これをフィッシャー・スコアリングで反復するとIRLSになる。
+
+数値例では $\eta=0$ なら
+$$
+p=\frac1{1+1}=\frac12.
+$$
+また $\beta_j=\log1.5$、$c=2$ なら
+$$
+OR=e^{2\log1.5}=1.5^2=2.25.
+$$
 
 ## 計算例
-一般には閉形式がなく反復法を使う。
+切片のみモデルで現在値 $\beta^{(0)}=0$、観測が
+$$
+(y_1,y_2,y_3,y_4)=(1,1,1,0)
+$$
+とする。まず全観測で
+$$
+\eta_i^{(0)}=0,
+\qquad
+p_i^{(0)}=\frac12,
+\qquad
+w_i^{(0)}=\frac14.
+$$
+スコアは
+$$
+\begin{aligned}
+U(\beta^{(0)})
+&=\sum_{i=1}^4(y_i-p_i)\\
+&=3-4\cdot\frac12\\
+&=1.
+\end{aligned}
+$$
+情報量は
+$$
+I(\beta^{(0)})
+=\sum_{i=1}^4w_i
+=4\cdot\frac14
+=1.
+$$
+したがって1回目のフィッシャー・スコアリング更新は
+$$
+\beta^{(1)}
+=0+I^{-1}U
+=1.
+$$
+同じ計算をIRLSで見ると、作業応答は成功観測で
+$$
+z=0+\frac{1-1/2}{1/4}=2,
+$$
+失敗観測で
+$$
+z=0+\frac{0-1/2}{1/4}=-2.
+$$
+すべて同じ重み $1/4$ なので重み付き平均は
+$$
+\frac{2+2+2-2}{4}=1,
+$$
+よって同じ $\beta^{(1)}=1$ が得られる。
 
 ## 注意
-完全分離では有限の最尤推定値が存在しないことがある。
+オッズ比は確率差ではない。例えば基準確率が異なれば、同じオッズ比でも確率の増分は異なる。
+
+二項応答 $Y_i\sim\operatorname{Bin}(m_i,p_i)$ では
+$$
+\ell_i
+=y_i\log p_i+(m_i-y_i)\log(1-p_i)+\text{const.}
+$$
+とし、成功割合を応答にする表記ではIRLSの重みに $m_i$ が入る。
+
+完全分離・準完全分離では係数が発散し、有限の通常最尤推定値が存在しないことがある。IRLSが収束しないときは単なる数値計算不良と決めつけず分離も疑う。
 
 <!-- CARD -->
 
