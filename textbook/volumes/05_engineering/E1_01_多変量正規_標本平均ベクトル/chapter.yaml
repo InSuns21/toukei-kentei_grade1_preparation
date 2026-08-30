@@ -1,7 +1,7 @@
 id: "E1-01"
 title: "多変量正規分布と標本平均ベクトル"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P3-03
   - S1-01
