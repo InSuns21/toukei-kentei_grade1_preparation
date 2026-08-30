@@ -235,7 +235,7 @@ sources:
   - type: official_syllabus
     topic: ARIMAモデル
 archive_reason: duplicate
-canonical_card: ts-difference-random-walk
+canonical_card: ts-arima-definition
 archive_note: Var(X_t)=t sigma^2による非定常性の証明と一階差分による定常化をcanonicalへ統合済み。
 ---
 ## 問題

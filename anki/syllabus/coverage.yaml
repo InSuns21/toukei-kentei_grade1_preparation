@@ -2014,8 +2014,6 @@ items:
     status: complete
     cards:
       - ts-arima-definition
-      - ts-difference-random-walk
-      - ts-seasonal-difference
       - ts-acf-pacf-identification
       - ts-pacf-lag2-calculation
       - ts-sample-acf
@@ -2028,8 +2026,6 @@ items:
       - ts-state-space-definition
       - ts-kalman-update
       - ts-weak-vs-strong-stationarity
-      - ts-autocovariance-properties
-      - ts-white-noise-identification
       - ts-ar1-acf
       - ts-ar1-hstep-forecast
       - ts-yule-walker-ar2
@@ -2040,12 +2036,8 @@ items:
         status: card
         cards:
           - ts-arima-definition
-          - ts-difference-random-walk
-          - ts-seasonal-difference
           - ts-linear-detrend
           - ts-weak-vs-strong-stationarity
-          - ts-autocovariance-properties
-          - ts-white-noise-identification
           - ts-ar1-acf
           - ts-ar1-hstep-forecast
           - ts-ar-causality-check
