@@ -349,36 +349,94 @@ ABC=+1の4点を一方、−1の4点を他方のブロックへ置く。
 
 ---
 id: design-fraction-generator
-title: 2水準一部実施計画の生成式を書く
+title: 生成子から一部実施計画・定義対比群・実験点数まで構成する
 category: applied-common
 subcategory: applied-design
-topic: fractional-generator
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [一部実施要因計画, 生成式, 2水準要因計画]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 部分実施要因計画 }]
+topic: fractional-factorial-construction-canonical
+type: strategy
+difficulty: 4
+priority: A
+hashtags:
+  - 一部実施要因計画
+  - 生成式
+  - 定義関係
+  - 実験点数
+  - 2水準要因計画
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 部分実施要因計画
 ---
 
 ## 問題
-$2^{3-1}$ 半実施計画で生成式 $C=AB$ を使う。A,Bの符号が $(--), (+-),(-+),(++)$ のときC符号を書け。
+2水準一部実施要因計画について次を解け。
+1. $2^{3-1}$ 計画で生成式 $C=AB$ を使う。A,Bの符号を $(--),(+-),(-+),(++)$ としたときC列と採用する4実施を書き、定義関係も求めよ。
+2. $2^{5-2}$ 計画で独立生成式 $D=AB,E=AC$ を使う。実験点数と完全な定義対比群を求めよ。
+3. 6因子の完全要因計画と $2^{6-2}$ 計画の実験点数を比較せよ。
+
+## 記号・用語
+$2^{k-p}$ 計画は、$k$ 個の2水準因子に対し $p$ 個の独立生成子を課した $1/2^p$ 実施計画である。$I$ は全行で $+1$ となる恒等列。生成式を $I=$ の形へ直した語と、それらの積全体を定義対比群と呼ぶ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+±1符号では同じ列を掛けると $A^2=B^2=\cdots=I$ である。したがって例えば
+$$
+C=AB\quad\Longleftrightarrow\quad I=ABC.
+$$
+$p$ 個の独立生成子なら実験点数は
+$$
+2^{k-p},
+$$
+定義対比群の語数は恒等語を含めて $2^p$ 個である。複数生成子では各定義語だけでなく、それら同士の積も必ず含める。
 
-生成式の両辺へCを掛けると定義関係 $I=ABC$。
+## 一手／方針
+**生成子を見たら「列を作る → $I=$ へ直す → 独立生成子同士を全て掛ける → 点数を $2^{k-p}$ で確認する」の順に処理する。** 実験表・定義関係・点数を別暗記しない。
 
 ## 答え
-CはAとBの積なので
-$$C=(+,-,-,+).$$
-実験点は $(A,B,C)=(--+),(+--),(-+-),(+++)$。
+1. $C=AB$ なので
+$$
+C=(+,-,-,+).
+$$
+採用実施は
+$$
+(--+),(+--),(-+-),(+++).
+$$
+両辺へCを掛けると
+$$
+I=ABC.
+$$
+
+2. 実験点数は
+$$
+2^{5-2}=8.
+$$
+$D=AB$ から $I=ABD$、$E=AC$ から $I=ACE$。さらに
+$$
+(ABD)(ACE)=BCDE
+$$
+なので
+$$
+I=ABD=ACE=BCDE.
+$$
+
+3. 完全計画は
+$$
+2^6=64
+$$
+点、$1/4$ 実施は
+$$
+2^{6-2}=16
+$$
+点なので、48点、すなわち75%を削減する。
 
 ## 計算例
-完全8点のうちABC=+1の4点を選ぶ。
+$2^{4-1}$ で $D=ABC$ なら $I=ABCD$ で、実験点数は8点である。反対の符号 $D=-ABC$ を選べば補完する別の半実施になる。
 
 ## 注意
-反対の半実施ABC=−1を選んでも別のfractionとなる。
+生成子は独立でなければならない。実験点削減の代償として効果間の別名関係が生じるため、構成後は必ず定義対比群から別名構造と解像度を確認する。
 <!-- CARD -->
 
 ---
@@ -416,37 +474,77 @@ $$I=ABCD.$$
 
 ---
 id: design-alias-structure
-title: 定義関係からalias構造を作る
+title: 定義対比群から別名構造・解像度・推定可能性を判定する
 category: applied-common
 subcategory: applied-design
-topic: alias-structure
-type: calc_step
+topic: alias-resolution-estimability-canonical
+type: strategy
 difficulty: 4
-priority: B
-hashtags: [一部実施要因計画, alias, 交絡]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交絡 }]
+priority: A
+hashtags:
+  - 一部実施要因計画
+  - 別名構造
+  - 解像度
+  - 交絡
+  - 定義関係
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 交絡
 ---
 
 ## 問題
-定義関係 $I=ABC$ の $2^{3-1}$ 計画でAのaliasと、ABのaliasを求めよ。
+一部実施要因計画の定義対比群を用いて次を解け。
+1. $I=ABC$ の $2^{3-1}$ 計画で、AとABの別名相手を求めよ。
+2. $I=ABCD$ の半実施で3因子以上の交互作用を無視するとき、A、AB、ACのうち単独で推定できるものを判定せよ。
+3. 解像度III、IV、Vで、主効果と2因子交互作用が何と別名になるかを述べよ。
+4. 定義語が計画1では $ABD,ACE,BCDE$、計画2では $ABCD,ABCE,DE$ である。各計画の解像度を求め、主効果推定により適する方を選べ。
+
+## 記号・用語
+別名（alias）とは、計画上同じ符号列を持つためデータだけでは分離できない効果の組をいう。解像度（resolution）は定義対比群に含まれる非恒等語の最短文字数であり、短いほど低次効果同士の交絡が強い。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+効果 $E$ の別名群は、$E$ に定義対比群の各語を掛けて得る。±1符号なので同じ文字が2回現れれば消える。
 
-同じ符号列になる効果はデータから分離できない。
+解像度の基本的な読み方は次の通り。
+- III：主効果と2因子交互作用が別名になり得る。
+- IV：主効果は2因子交互作用とは別名にならないが、2因子交互作用同士は別名になり得る。
+- V：主効果は4因子以上、2因子交互作用は3因子以上とのみ別名になる。
+
+## 一手／方針
+**まず対象効果へ定義語を掛けて別名相手を具体的に出す。次に最短定義語長から解像度を読み、最後に「無視してよい高次効果か」を使って推定可能性を判断する。** 解像度だけを暗記して終えない。
 
 ## 答え
-各効果へ定義語ABCを掛ける。
-$$A=A(ABC)=BC,$$
-$$AB=AB(ABC)=C.$$
-したがって $A\leftrightarrow BC$、$AB\leftrightarrow C$。
+1. $I=ABC$ なので
+$$
+A=A(ABC)=BC,
+$$
+$$
+AB=AB(ABC)=C.
+$$
+よって $A\leftrightarrow BC$、$AB\leftrightarrow C$。
+
+2. $I=ABCD$ から
+$$
+A\leftrightarrow BCD,\qquad
+AB\leftrightarrow CD,\qquad
+AC\leftrightarrow BD.
+$$
+3因子以上を無視する仮定ではAは単独推定できる。一方ABとACは別の2因子交互作用と混ざるので単独推定できない。
+
+3. IIIでは主効果と2因子交互作用が交絡し得る。IVでは主効果は2因子交互作用から分離されるが2因子交互作用同士が交絡し得る。Vでは主効果と2因子交互作用を互いに分離できる。
+
+4. 計画1の最短語長は3なので解像度III。計画2には長さ2の $DE$ があるので解像度II。主効果同士の交絡を避ける観点では計画1を選ぶ。
 
 ## 計算例
-同様に $B\leftrightarrow AC$。
+同じ解像度の候補同士なら、最短語長の語が少ない方を優先する最小アベレーションの考え方を使う。例えば解像度III同士なら長さ3の定義語数をまず比較する。
 
 ## 注意
-等号は効果の真値が等しい意味でなく、推定列が同じ意味。
+「高次交互作用は無視できる」は効果の疎性に基づく仮定であり、データだけから常に保証されるわけではない。また別名の等号は真の効果値が等しいという意味ではなく、推定に使う列が同じという意味である。
 <!-- CARD -->
 
 ---
