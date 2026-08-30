@@ -1,27 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-cross-category-reduction-164d
+batch_id: 2026-08-31-engineering-quality-reduction-166
 items:
-  - id: engmv-correlation-from-covariance
+  - id: engqc-cpm-target
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-covariance-linear-transform
-    coverage_card: mv-covariance-linear-transform
-    note: 分散共分散行列から相関行列への標準化、正の単位変更で相関が不変になる数値例、負の尺度変換で符号が反転する注意まで、線形変換canonical cardへ統合済み。engineering-multivariateの相関行列coverageもこの正本へ明示的に付け替える。
-  - id: engmv-spectral-reconstruction
+    canonical_card: engqc-cpk-offcenter
+    coverage_card: engqc-cpk-offcenter
+    note: Cpmの定義、目標値ずれを含む数値例、mu=TならCpへ戻る関係まで工程能力canonical cardへ統合済み。
+  - id: engqc-capability-defect-rate
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-pca-variance-max
-    coverage_card: mv-pca-variance-max
-    note: 直交固有値分解Sigma=U Lambda U^Tと固有対からの2次元分散共分散行列再構成、低次元近似で捨てる分散の解釈までPCA canonical cardへ統合済み。固有値・固有ベクトルcoverageも正本へ明示的に付け替える。
-  - id: engmv-silhouette-coefficient
+    canonical_card: engqc-cpk-offcenter
+    coverage_card: engqc-cpk-offcenter
+    note: 正規工程の両側規格外率、標準化、2700ppmの数値例、Cp=Cpk=1との対応、非正規時の注意まで工程能力canonical cardへ統合済み。
+  - id: engqc-arl1-mean-shift
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-hierarchical-linkage
-    coverage_card: mv-hierarchical-linkage
-    note: silhouette係数s=(b-a)/max(a,b)、a=2,b=5でs=0.6の数値例と値の解釈を、連結法・Ward法からクラスタ評価まで通すcanonical cardへ統合済み。該当coverageがあれば正本へ付け替える。
-  - id: mv-mahalanobis-distance
+    canonical_card: engqc-three-sigma-false-alarm
+    coverage_card: engqc-three-sigma-false-alarm
+    note: 平均シフト後の1点検出確率とARL1、標準誤差単位のシフト量を管理図検出性能canonical cardへ統合済み。
+  - id: engqc-control-chart-sample-size
     bucket: duplicates
     reason: duplicate
-    canonical_card: engmv-mahalanobis-control-limit
-    coverage_card: engmv-mahalanobis-control-limit
-    note: Mahalanobis二乗距離の定義・逆分散共分散行列による標準化・数値計算は、正規ベクトルのカイ二乗二次形式から個体管理限界と平均ベクトル信頼楕円まで扱う上位canonical cardに包含されている。一般多変量側coverageもこの正本へ付け替える。
+    canonical_card: engqc-three-sigma-false-alarm
+    coverage_card: engqc-three-sigma-false-alarm
+    note: 群サイズで標準誤差が縮む機構、Delta=delta sqrt(n)/sigma、delta=1.5sigmaでn=4となる数値例、平均位置だけの設計は高検出確率を保証しない注意まで統合済み。
+  - id: engqc-process-adjustment-overcontrol
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engqc-phase1-phase2
+    coverage_card: engqc-phase1-phase2
+    note: 安定工程への過剰調整をPhase I・II運用canonical cardへ統合し、偏差epsilon_(t+1)-epsilon_tと分散2sigma^2の導出、sigma=2の数値例まで追加済み。
