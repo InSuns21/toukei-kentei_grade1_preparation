@@ -1,33 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-30-orthogonal-array-reduction-104
+batch_id: 2026-08-30-two-level-factorial-reduction-106
 items:
-  - id: design-orthogonality-check
+  - id: design-two-level-coding
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: ±1列の内積による直交性確認は、直交表workflowの数値例としてcanonical cardへ統合済み。
-  - id: design-balanced-orthogonality
+    canonical_card: design-two-level-effect-contrast
+    note: ±1符号化、交互作用列の積、回帰係数と効果の関係はcanonical cardへ統合済み。
+  - id: design-two-cubed-effects-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: X^T Xの交差項が0となり平方和を分離できる理由はcanonical cardへ統合済み。
-  - id: engdesign-oa-l4-assignment
+    canonical_card: design-two-level-effect-contrast
+    note: 2^3計画のA効果・AB効果の数値計算はcanonical cardへ統合済み。
+  - id: design-factorial-effect-ss
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: L4の列積から交互作用列を作る操作はcanonical cardへ統合済み。
-  - id: engdesign-oa-column-df
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: L8の全自由度・割付自由度・残り自由度の確認はcanonical cardへ統合済み。
-  - id: engdesign-oa-level-effect
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: 水準平均差から2水準因子効果を計算する手順はcanonical cardへ統合済み。
-  - id: engdesign-oa-interaction-conflict
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: design-orthogonal-array-basic
-    note: C主効果とAB交互作用が同じ列に載る場合の識別不能判定はcanonical cardへ統合済み。
+    canonical_card: design-two-level-effect-contrast
+    note: 等反復2水準計画で同じコントラストから効果平方和を計算する手順はcanonical cardへ統合済み。
