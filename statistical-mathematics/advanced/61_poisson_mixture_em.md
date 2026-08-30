@@ -29,12 +29,65 @@ $$
 
 から得られた。潜在変数 $Z_i\in\{0,1\}$ を「観測 $i$ が成分1から生じたこと」の指標とする。
 
+母数ベクトルを
+
+$$
+\theta=(\pi,\lambda_1,\lambda_2)
+$$
+
+と書く。期待値最大化法では、現在の反復値 $\theta^{(m)}$ を固定して潜在変数の条件付き期待値を計算し、その期待値を用いて次の反復値 $\theta^{(m+1)}$ を決める。
+
 1. 完全データ $(x_i,Z_i)$ の尤度と対数尤度を書け。
-2. 期待値計算ステップにおける責任度 $r_i=E[Z_i\mid x_i]$ を Bayes 則から求めよ。
-3. 最大化ステップでの $\pi,\lambda_1,\lambda_2$ の更新式を、偏微分と方程式の整理を示して導け。
+2. 現在値 $\theta^{(m)}$ の下で、期待値計算ステップの責任度
+   $$
+   r_i^{(m)}=E_{\theta^{(m)}}[Z_i\mid x_i]
+   $$
+   を Bayes 則から求めよ。
+3. 
+   $$
+   Q(\theta\mid\theta^{(m)})
+   =E_{\theta^{(m)}}[\ell_c(\theta;X,Z)\mid X=x]
+   $$
+   を書き、$r_i^{(m)}$ を固定したまま $\theta$ について最大化して、$\pi^{(m+1)},\lambda_1^{(m+1)},\lambda_2^{(m+1)}$ の更新式を導け。
 4. 数値反復を手で最後まで行う必要がない理由と、ラベル交換を説明せよ。
 
 ## 詳細解答
+
+### 0. 期待値最大化法で何をしているのか
+
+観測データだけの尤度は
+
+$$
+L(\theta)
+=\prod_{i=1}^n
+\left\{
+\pi p(x_i\mid\lambda_1)
++(1-\pi)p(x_i\mid\lambda_2)
+\right\}
+$$
+
+である。対数を取ると
+
+$$
+\ell(\theta)
+=\sum_{i=1}^n
+\log\left\{
+\pi p(x_i\mid\lambda_1)
++(1-\pi)p(x_i\mid\lambda_2)
+\right\},
+$$
+
+となり、対数の中に和が残るため直接最大化しにくい。
+
+そこで「各観測がどちらの成分から出たか」を表す $Z_i$ が観測できたと仮定すると、完全データ対数尤度は扱いやすい形になる。期待値最大化法は、
+
+- 現在の母数で $Z_i$ の条件付き分布を計算する。
+- その条件付き分布で完全データ対数尤度を平均する。
+- その平均を新しい母数について最大化する。
+
+という操作を繰り返す方法である。
+
+重要なのは、第3問の最大化時には **$r_i^{(m)}$ は現在値 $\theta^{(m)}$ から既に計算済みの定数**として扱うことである。
 
 ### 1. 完全データ尤度と対数尤度
 
@@ -50,7 +103,7 @@ $$
 独立性から完全データ尤度は
 
 $$
-L_c(\pi,\lambda_1,\lambda_2)
+L_c(\theta; x,z)
 =\prod_{i=1}^n
 \{\pi p(x_i\mid\lambda_1)\}^{Z_i}
 \{(1-\pi)p(x_i\mid\lambda_2)\}^{1-Z_i}.
@@ -75,7 +128,7 @@ $$
 
 $$
 \begin{aligned}
-\ell_c
+\ell_c(\theta;x,z)
 &=\sum_{i=1}^n Z_i
 \{\log\pi-\lambda_1+x_i\log\lambda_1-\log(x_i!)\}\\
 &\quad+\sum_{i=1}^n(1-Z_i)
@@ -83,17 +136,17 @@ $$
 \end{aligned}
 $$
 
-$Z_i+(1-Z_i)=1$ なので、$-\log(x_i!)$ の部分をまとめると
+$Z_i+(1-Z_i)=1$ なので、$-\log(x_i!)$ の部分は
 
 $$
 -\sum_{i=1}^n\log(x_i!)
 $$
 
-となる。この項は $\pi,\lambda_1,\lambda_2$ を含まず、最大化には影響しない。したがって、この確認をした後で母数に依存しない項を省けば
+にまとまる。この項は $\theta$ に依存しない。従って
 
 $$
 \boxed{
-\ell_c
+\ell_c(\theta;x,z)
 =\sum_{i=1}^n\left[
 Z_i\{\log\pi-\lambda_1+x_i\log\lambda_1\}
 +(1-Z_i)\{\log(1-\pi)-\lambda_2+x_i\log\lambda_2\}
@@ -101,80 +154,98 @@ Z_i\{\log\pi-\lambda_1+x_i\log\lambda_1\}
 }.
 $$
 
-### 2. 期待値計算ステップ：責任度
+### 2. 期待値計算ステップ：現在値で責任度を求める
+
+現在の反復値を
+
+$$
+\theta^{(m)}
+=\left(\pi^{(m)},\lambda_1^{(m)},\lambda_2^{(m)}\right)
+$$
+
+とする。
 
 $Z_i$ は0-1変数なので
 
 $$
-E[Z_i\mid x_i]
-=P(Z_i=1\mid x_i).
+r_i^{(m)}
+=E_{\theta^{(m)}}[Z_i\mid x_i]
+=P_{\theta^{(m)}}(Z_i=1\mid x_i).
 $$
 
-ここで
-
-$$
-P(Z_i=1)=\pi,
-\qquad
-P(Z_i=0)=1-\pi,
-$$
-
-また
-
-$$
-P(x_i\mid Z_i=1)=p(x_i\mid\lambda_1),
-$$
-
-$$
-P(x_i\mid Z_i=0)=p(x_i\mid\lambda_2).
-$$
-
-したがって Bayes 則より
+Bayes 則より
 
 $$
 \begin{aligned}
-r_i
-&=P(Z_i=1\mid x_i)\\
-&=\frac{P(Z_i=1)P(x_i\mid Z_i=1)}
-{P(Z_i=1)P(x_i\mid Z_i=1)+P(Z_i=0)P(x_i\mid Z_i=0)}\\
+r_i^{(m)}
+&=\frac{
+P_{\theta^{(m)}}(Z_i=1)
+P_{\theta^{(m)}}(x_i\mid Z_i=1)
+}
+{
+\sum_{z=0}^1
+P_{\theta^{(m)}}(Z_i=z)
+P_{\theta^{(m)}}(x_i\mid Z_i=z)
+}\\
 &=\boxed{
-\frac{\pi p(x_i\mid\lambda_1)}
-{\pi p(x_i\mid\lambda_1)+(1-\pi)p(x_i\mid\lambda_2)}
+\frac{
+\pi^{(m)}p(x_i\mid\lambda_1^{(m)})
+}
+{
+\pi^{(m)}p(x_i\mid\lambda_1^{(m)})
++\{1-\pi^{(m)}\}p(x_i\mid\lambda_2^{(m)})
+}
 }.
 \end{aligned}
 $$
 
-実際の反復では、右辺の $\pi,\lambda_1,\lambda_2$ に現在の反復値を入れる。
+この $r_i^{(m)}$ は「現在の母数の下で、観測 $x_i$ が成分1に属する条件付き確率」である。
 
-### 3. 最大化ステップ：更新式を偏微分から導く
+### 3. 最大化ステップ：$Q(\theta\mid\theta^{(m)})$ を最大化する
 
-期待値計算ステップでは、観測された $x$ の下で完全データ対数尤度の条件付き期待値を取る。$Z_i$ を含む部分は
+完全データ対数尤度を、現在値 $\theta^{(m)}$ の下での $Z\mid X=x$ について平均する。
 
 $$
-E[Z_i\mid x_i]=r_i,
+Q(\theta\mid\theta^{(m)})
+=E_{\theta^{(m)}}[
+\ell_c(\theta;X,Z)\mid X=x
+].
+$$
+
+ここでは期待値を取る分布を決める母数は $\theta^{(m)}$、最大化したい変数は新しい $\theta$ である。この2つを混同しないことが重要である。
+
+$$
+E_{\theta^{(m)}}[Z_i\mid x_i]=r_i^{(m)},
 \qquad
-E[1-Z_i\mid x_i]=1-r_i
+E_{\theta^{(m)}}[1-Z_i\mid x_i]=1-r_i^{(m)}
 $$
 
-に置き換わるので、母数に依存する部分は
+だから、母数に依存する部分は
 
 $$
-Q(\pi,\lambda_1,\lambda_2)
-=\sum_{i=1}^n\left[
-r_i\{\log\pi-\lambda_1+x_i\log\lambda_1\}
-+(1-r_i)\{\log(1-\pi)-\lambda_2+x_i\log\lambda_2\}
-\right]
+\begin{aligned}
+Q(\theta\mid\theta^{(m)})
+&=\sum_{i=1}^n\Bigl[
+r_i^{(m)}\{\log\pi-\lambda_1+x_i\log\lambda_1\}\\
+&\qquad+\{1-r_i^{(m)}\}
+\{\log(1-\pi)-\lambda_2+x_i\log\lambda_2\}
+\Bigr]+C.
+\end{aligned}
 $$
 
-となる。最大化ステップでは、この $Q$ を各母数について最大化する。
+以下、$r_i^{(m)}$ は固定された数として扱う。
 
 #### $\pi$ の更新
 
-$\pi$ を含む項だけ抜き出すと
+$\pi$ を含む項は
 
 $$
 Q_\pi
 =\sum_{i=1}^n
-\{r_i\log\pi+(1-r_i)\log(1-\pi)\}.
+\left\{
+r_i^{(m)}\log\pi
++\{1-r_i^{(m)}\}\log(1-\pi)
+\right\}.
 $$
 
 偏微分すると
@@ -183,82 +254,56 @@ $$
 \frac{\partial Q}{\partial\pi}
 =\sum_{i=1}^n
 \left\{
-\frac{r_i}{\pi}
--\frac{1-r_i}{1-\pi}
+\frac{r_i^{(m)}}{\pi}
+-\frac{1-r_i^{(m)}}{1-\pi}
 \right\}.
 $$
 
-これを0と置き、分母を払う。
+0と置いて分母を払うと
 
 $$
-\sum_i r_i(1-\pi)
--\sum_i(1-r_i)\pi=0.
+\sum_i r_i^{(m)}(1-\pi)
+-\pi\sum_i\{1-r_i^{(m)}\}=0.
 $$
 
-展開すると
+整理して
 
 $$
-\sum_i r_i
--\pi\sum_i r_i
--\pi\sum_i(1-r_i)=0.
-$$
-
-括弧内は
-
-$$
-\sum_i r_i+\sum_i(1-r_i)=n
-$$
-
-なので
-
-$$
-\sum_i r_i-n\pi=0.
+\sum_i r_i^{(m)}-n\pi=0.
 $$
 
 したがって
 
 $$
 \boxed{
-\pi^{\mathrm{new}}=\frac1n\sum_{i=1}^n r_i
+\pi^{(m+1)}
+=\frac1n\sum_{i=1}^n r_i^{(m)}
 }.
 $$
 
 #### $\lambda_1$ の更新
 
-$\lambda_1$ を含む項は
-
 $$
 Q_{\lambda_1}
-=\sum_i r_i(-\lambda_1+x_i\log\lambda_1).
+=\sum_i r_i^{(m)}
+(-\lambda_1+x_i\log\lambda_1).
 $$
 
 偏微分すると
 
 $$
 \frac{\partial Q}{\partial\lambda_1}
-=-\sum_i r_i
-+\frac1{\lambda_1}\sum_i r_ix_i.
+=-\sum_i r_i^{(m)}
++\frac1{\lambda_1}\sum_i r_i^{(m)}x_i.
 $$
 
-0と置いて
-
-$$
--\sum_i r_i
-+\frac1{\lambda_1}\sum_i r_ix_i=0.
-$$
-
-両辺に $\lambda_1$ を掛けると
-
-$$
--\lambda_1\sum_i r_i+\sum_i r_ix_i=0,
-$$
-
-したがって
+0と置いて整理すると
 
 $$
 \boxed{
-\lambda_1^{\mathrm{new}}
-=\frac{\sum_i r_ix_i}{\sum_i r_i}
+\lambda_1^{(m+1)}
+=\frac{\sum_i r_i^{(m)}x_i}
+{\sum_i r_i^{(m)}}
 }.
 $$
 
@@ -268,65 +313,78 @@ $$
 
 $$
 Q_{\lambda_2}
-=\sum_i(1-r_i)(-\lambda_2+x_i\log\lambda_2)
+=\sum_i\{1-r_i^{(m)}\}
+(-\lambda_2+x_i\log\lambda_2)
 $$
 
-だから
-
-$$
-\frac{\partial Q}{\partial\lambda_2}
-=-\sum_i(1-r_i)
-+\frac1{\lambda_2}\sum_i(1-r_i)x_i.
-$$
-
-0と置いて両辺に $\lambda_2$ を掛けると
-
-$$
--\lambda_2\sum_i(1-r_i)
-+\sum_i(1-r_i)x_i=0.
-$$
-
-よって
+なので
 
 $$
 \boxed{
-\lambda_2^{\mathrm{new}}
-=\frac{\sum_i(1-r_i)x_i}{\sum_i(1-r_i)}
+\lambda_2^{(m+1)}
+=\frac{\sum_i\{1-r_i^{(m)}\}x_i}
+{\sum_i\{1-r_i^{(m)}\}}
 }.
 $$
 
-各変数について2階微分は負である。例えば
+例えば $\lambda_1$ について
 
 $$
 \frac{\partial^2Q}{\partial\lambda_1^2}
-=-\frac{1}{\lambda_1^2}\sum_i r_ix_i\le0
+=-\frac1{\lambda_1^2}
+\sum_i r_i^{(m)}x_i
+\le0,
 $$
 
-であり、通常の非退化な場合には上の停留点が最大点になる。
+であり、通常の非退化な場合には上の停留点が最大点になる。$\pi$ と $\lambda_2$ についても同様に確認できる。
 
 ### 4. 反復とラベル交換
 
-期待値最大化法では、期待値計算ステップで責任度を計算し、最大化ステップで母数を更新する操作を収束まで繰り返す。収束まで何十回も数値反復する作業は計算機向きであり、手計算試験で評価すべき主題は責任度と更新式を導けることにある。
+以上を
 
-また成分ラベルを入れ替えた
+$$
+\theta^{(m)}
+\longrightarrow
+r_1^{(m)},\ldots,r_n^{(m)}
+\longrightarrow
+\theta^{(m+1)}
+$$
+
+と反復する。
+
+収束まで何十回も数値計算する作業は計算機向きであり、手計算試験で評価すべき主題は
+
+- 潜在変数を導入して完全データ尤度を書けること。
+- Bayes 則から責任度を導けること。
+- 現在値で計算した責任度を固定して最大化し、更新式を導けること。
+
+である。
+
+また
 
 $$
 (\pi,\lambda_1,\lambda_2)
-\quad\text{と}\quad
+$$
+
+と
+
+$$
 (1-\pi,\lambda_2,\lambda_1)
 $$
 
-は同じ混合分布を表す。この非識別性をラベル交換という。必要なら
+は成分の名前を交換しただけで同じ混合分布を表す。これをラベル交換による非識別性という。
+
+必要なら
 
 $$
 \lambda_1<\lambda_2
 $$
 
-などの識別規約を置いてラベルを固定する。
+などの規約を置いて成分ラベルを固定する。
 
 ## 本番答案
 
-Poisson 分布の確率質量関数を代入すると、完全データ尤度は
+完全データ尤度は
 
 $$
 L_c
@@ -335,41 +393,63 @@ L_c
 \left\{(1-\pi)\frac{e^{-\lambda_2}\lambda_2^{x_i}}{x_i!}\right\}^{1-Z_i}.
 $$
 
-したがって、母数に依存しない $-\sum_i\log(x_i!)$ を分離した上で
+現在値
 
 $$
-\ell_c
-=\sum_i[Z_i\{\log\pi-\lambda_1+x_i\log\lambda_1\}
-+(1-Z_i)\{\log(1-\pi)-\lambda_2+x_i\log\lambda_2\}]+C.
+\theta^{(m)}
+=(\pi^{(m)},\lambda_1^{(m)},\lambda_2^{(m)})
 $$
 
-Bayes則より
+に対し Bayes 則から
 
 $$
-r_i
-=\frac{\pi p(x_i\mid\lambda_1)}
-{\pi p(x_i\mid\lambda_1)+(1-\pi)p(x_i\mid\lambda_2)}.
-$$
-
-条件付き期待値を取ると $Z_i$ は $r_i$ に置き換わる。$Q$ を各母数で偏微分して0と置けば
-
-$$
-\pi^{\mathrm{new}}=\frac1n\sum_i r_i,
+r_i^{(m)}
+=\frac{
+\pi^{(m)}p(x_i\mid\lambda_1^{(m)})
+}
+{
+\pi^{(m)}p(x_i\mid\lambda_1^{(m)})
++\{1-\pi^{(m)}\}p(x_i\mid\lambda_2^{(m)})
+}.
 $$
 
 $$
-\lambda_1^{\mathrm{new}}
-=\frac{\sum_i r_ix_i}{\sum_i r_i},
+Q(\theta\mid\theta^{(m)})
+=E_{\theta^{(m)}}[
+\ell_c(\theta;X,Z)\mid X=x
+]
+$$
+
+では $r_i^{(m)}$ を固定値として扱う。各母数で偏微分して0と置けば
+
+$$
+\pi^{(m+1)}
+=\frac1n\sum_i r_i^{(m)},
+$$
+
+$$
+\lambda_1^{(m+1)}
+=\frac{\sum_i r_i^{(m)}x_i}{\sum_i r_i^{(m)}},
 \qquad
-\lambda_2^{\mathrm{new}}
-=\frac{\sum_i(1-r_i)x_i}{\sum_i(1-r_i)}.
+\lambda_2^{(m+1)}
+=\frac{\sum_i\{1-r_i^{(m)}\}x_i}
+{\sum_i\{1-r_i^{(m)}\}}.
 $$
 
-ラベルを交換した $(\pi,\lambda_1,\lambda_2)$ と $(1-\pi,\lambda_2,\lambda_1)$ は同じ混合分布を表す。
+成分ラベルを交換した
+
+$$
+(\pi,\lambda_1,\lambda_2)
+\quad\text{と}\quad
+(1-\pi,\lambda_2,\lambda_1)
+$$
+
+は同じ混合分布を表す。
 
 ## 採点基準
 
-- 確率質量関数から完全データ尤度・対数尤度を作る: 5点
-- Bayes則から責任度を導く: 5点
-- 最大化ステップの3つの偏微分と方程式整理: 8点
-- 反復計算とラベル交換の説明: 2点
+- 完全データ尤度・対数尤度: 4点
+- 現在値を明示した責任度の導出: 5点
+- $Q(\theta\mid\theta^{(m)})$ の意味と母数の役割分離: 3点
+- 最大化ステップの更新式導出: 6点
+- 反復とラベル交換の説明: 2点
