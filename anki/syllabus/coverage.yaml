@@ -2398,7 +2398,6 @@ items:
       - engqc-process-adjustment-overcontrol
       - engqc-cpm-target
       - engqc-capability-defect-rate
-      - engqc-nonnormal-capability
       - engrel-parallel-common-cause
       - engrel-k-out-of-n
       - engrel-weibull-reliability
@@ -2451,7 +2450,6 @@ items:
           - engqc-cpk-offcenter
           - engqc-cpm-target
           - engqc-capability-defect-rate
-          - engqc-nonnormal-capability
   - id: engineering-design
     status: complete
     cards:
