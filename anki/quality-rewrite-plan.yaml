@@ -1,136 +1,102 @@
 schema_version: 1
-batch_id: 2026-08-30-regression-leverage-merge-prep-50
+batch_id: 2026-08-30-anova-contrast-merge-prep-51
 items:
-  - id: reg-hat-matrix-properties
-    note: ハット行列の射影性、レバレッジ、残差分散、標準化残差を同じH行列から導く一枚の診断正本へ統合する。
+  - id: anova-contrast-definition
+    note: 対比の定義、推定量の分散・標準誤差、t検定と信頼区間の数値計算を一枚へ統合する。
     metadata:
-      title: ハット行列からレバレッジ・残差分散・標準化残差まで導く
-      topic: regression-leverage-diagnostics-canonical
-      hashtags: [回帰診断, ハット行列, レバレッジ, 残差分散, 標準化残差]
+      title: 一元配置の対比を定義し標準誤差・t検定まで計算する
+      topic: anova-contrast-canonical
+      hashtags: [一元配置分散分析, 対比, 標準誤差, t検定, 計画比較]
     sections:
       問題: |
-        列フルランクの線形回帰
-        $$
-        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon,
-        \qquad
-        E[\boldsymbol\varepsilon]=\mathbf0,
-        \qquad
-        \operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I
-        $$
-        を考える。切片を含み、$X$ の列数を $k$ とする。
+        一元配置分散分析で母平均を $\mu_1,\ldots,\mu_a$ とする。
 
-        1. ハット行列 $H$ を定義し、対称性・冪等性を示せ。
-        2. 対角要素 $h_{ii}$ がレバレッジであること、$\sum_i h_{ii}=k$ であることを示せ。
-        3. 残差 $\mathbf e$ の共分散行列と $\operatorname{Var}(e_i)$ を求め、標準化残差を書け。
-        4. $X=\begin{pmatrix}1&-1\\1&0\\1&1\end{pmatrix}$ で $H$ と各レバレッジを計算せよ。さらに残差が $(1,-2,1)^\mathsf T$、残差標準偏差が $s=2$ のとき標準化残差を求めよ。
+        1. 線形結合 $L=\sum_{i=1}^a c_i\mu_i$ が対比である条件と、その意味を説明せよ。
+        2. 独立な群平均から作る推定量 $\widehat L=\sum_i c_i\bar Y_{i\cdot}$ の分散と標準誤差を書け。
+        3. 3群に各5個の観測があり、群平均が $(10,13,15)$、誤差平均平方が $MS_E=4$ だった。対比
+        $$
+        L=\mu_1-\frac{\mu_2+\mu_3}{2}
+        $$
+        について $H_0:L=0$ を両側5%で検定し、95%信頼区間も求めよ。誤差自由度12のt分布の両側5%臨界値を2.179とする。
       使用公式・定理: |
-        最小二乗法の当てはめ値は
+        対比の係数は
         $$
-        \widehat{\mathbf y}=X\widehat{\boldsymbol\beta}
-        =X(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y
-        =H\mathbf y,
+        \sum_{i=1}^a c_i=0
         $$
-        したがって
+        を満たす。これは全ての母平均へ同じ定数 $d$ を加えても
         $$
-        H=X(X^\mathsf TX)^{-1}X^\mathsf T.
+        \sum_i c_i(\mu_i+d)=\sum_i c_i\mu_i+d\sum_i c_i=L
         $$
-        $X^\mathsf TX$ は対称なので
-        $$
-        H^\mathsf T=H,
-        $$
-        また
-        $$
-        H^2
-        =X(X^\mathsf TX)^{-1}X^\mathsf TX(X^\mathsf TX)^{-1}X^\mathsf T
-        =H.
-        $$
-        よって $H$ は $\operatorname{col}(X)$ への直交射影行列である。
+        となり、共通水準ではなく群間差だけを測ることを意味する。
 
-        残差は
+        独立な群平均について
         $$
-        \mathbf e=\mathbf y-\widehat{\mathbf y}=(I-H)\mathbf y.
+        \operatorname{Var}(\bar Y_{i\cdot})=\frac{\sigma^2}{n_i}
         $$
-        $I-H$ も対称かつ冪等なので
+        なので
         $$
-        \operatorname{Var}(\mathbf e)
-        =\sigma^2(I-H).
+        \operatorname{Var}(\widehat L)=\sigma^2\sum_i\frac{c_i^2}{n_i}.
         $$
-        したがって
+        $\sigma^2$ を分散分析の誤差平均平方 $MS_E$ で推定すれば
         $$
-        \operatorname{Var}(e_i)=\sigma^2(1-h_{ii}).
+        \operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i\frac{c_i^2}{n_i}}.
         $$
-        $\sigma$ を残差標準偏差 $s$ で置き換えた標準化残差を
+        帰無仮説 $H_0:L=L_0$ に対して
         $$
-        r_i=\frac{e_i}{s\sqrt{1-h_{ii}}}
+        t=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
         $$
-        とする。
+        を使い、自由度は分散分析の誤差自由度 $N-a$ である。
       一手: |
-        **回帰診断の出発点を全部 $H$ に戻す。** 当てはめは $H\mathbf y$、残差は $(I-H)\mathbf y$、レバレッジは $h_{ii}$、残差分散は $1-h_{ii}$ で決まる。
+        **係数和0を確認→群平均から対比値を計算→係数二乗を各群サイズで割って標準誤差→t標準化。** 定義・標準誤差・検定を別々に暗記せず、この順で一続きに処理する。
       答え: |
-        ハット行列は対称・冪等で、その固有値は0または1である。列フルランクなら
+        数値例の係数は
         $$
-        \operatorname{rank}(H)=k.
+        (c_1,c_2,c_3)=\left(1,-\frac12,-\frac12\right)
         $$
-        対称冪等行列ではトレースはランクに等しいので
+        であり
         $$
-        \sum_{i=1}^n h_{ii}=\operatorname{tr}(H)=k.
+        1-\frac12-\frac12=0
         $$
-        よって平均レバレッジは
-        $$
-        \frac1n\sum_i h_{ii}=\frac{k}{n}.
-        $$
+        だから対比である。
 
-        数値例では
+        推定値は
         $$
-        X^\mathsf TX=\begin{pmatrix}3&0\\0&2\end{pmatrix},
-        \qquad
-        (X^\mathsf TX)^{-1}=\begin{pmatrix}1/3&0\\0&1/2\end{pmatrix}.
+        \widehat L=10-\frac{13+15}{2}=10-14=-4.
         $$
-        したがって
+        標準誤差は
         $$
-        H=
-        \begin{pmatrix}
-        5/6&1/3&-1/6\\
-        1/3&1/3&1/3\\
-        -1/6&1/3&5/6
-        \end{pmatrix}.
-        $$
-        レバレッジは
-        $$
-        (h_{11},h_{22},h_{33})=\left(\frac56,\frac13,\frac56\right),
-        $$
-        その和は
-        $$
-        \frac56+\frac13+\frac56=2=k
-        $$
-        である。
-      計算例: |
-        残差 $(1,-2,1)^\mathsf T$、$s=2$ なら、1番目と3番目では
-        $$
-        s\sqrt{1-h_{ii}}
-        =2\sqrt{1-\frac56}
-        =2\sqrt{\frac16}
-        \approx0.8165,
+        \begin{aligned}
+        \operatorname{SE}(\widehat L)
+        &=\sqrt{4\left(\frac{1^2}{5}+\frac{(1/2)^2}{5}+\frac{(1/2)^2}{5}\right)}\\
+        &=\sqrt{4(0.20+0.05+0.05)}\\
+        &=\sqrt{1.2}\\
+        &\approx1.095.
+        \end{aligned}
         $$
         よって
         $$
-        r_1=r_3\approx\frac1{0.8165}\approx1.225.
+        t=\frac{-4}{1.095}\approx-3.65.
         $$
-        2番目では
+        $|t|=3.65>2.179$ なので5%水準で $H_0:L=0$ を棄却する。
+      計算例: |
+        95%信頼区間は
         $$
-        s\sqrt{1-h_{22}}
-        =2\sqrt{\frac23}
-        \approx1.633,
+        \widehat L\pm2.179\operatorname{SE}(\widehat L)
+        $$
+        だから
+        $$
+        -4\pm2.179\times1.095\approx-4\pm2.386.
         $$
         したがって
         $$
-        r_2\approx\frac{-2}{1.633}\approx-1.225.
+        (-6.386,\,-1.614).
         $$
+        0を含まないため、同じ両側5%検定の棄却結果と一致する。
 
-        生の残差は $(1,-2,1)$ と大きさが違うが、レバレッジによる分散差を補正すると絶対値は同程度になる。高レバレッジ点では
+        例えば単純な2群差 $L=\mu_1-\mu_2$ なら係数は $(1,-1)$ で、
         $$
-        \operatorname{Var}(e_i)=\sigma^2(1-h_{ii})
+        \operatorname{SE}(\widehat L)=\sqrt{MS_E\left(\frac1{n_1}+\frac1{n_2}\right)}
         $$
-        が小さくなるため、生の残差だけを横並び比較しない。
+        となり、共通分散の2群比較の形がそのまま出る。
       注意: |
-        高レバレッジとは説明変数空間で特殊な位置にあることを意味し、それだけで影響点とは限らない。影響度は残差の大きさも合わせてCookの距離などで確認する。ここでの $r_i=e_i/(s\sqrt{1-h_{ii}})$ は通常の内部標準化残差であり、観測 $i$ を除いて分散を再推定する外部スチューデント化残差とは区別する。
+        係数和が0でない単なる線形結合は対比ではない。複数の対比をデータを見てから大量に検定すると第1種過誤率が膨らむため、事前に定めた計画対比か、必要に応じて多重比較の補正を用いる。ここでのt分布による正確な有限標本推測は、独立・正規・等分散の一元配置モデルを前提とする。
