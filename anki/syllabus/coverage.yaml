@@ -2407,7 +2407,6 @@ items:
       - engmaint-maintainability-exponential
       - engrel-failure-rate-exact-ci
       - engrel-competing-risks-exponential
-      - engrel-bathtub-curve
       - engmaint-preventive-replacement-rate
       - engmaint-series-availability
       - engmaint-reliability-vs-availability
@@ -2436,7 +2435,6 @@ items:
           - engrel-weibull-reliability
           - engrel-failure-rate-exact-ci
           - engrel-competing-risks-exponential
-          - engrel-bathtub-curve
       - name: 保全性
         status: card
         cards:
