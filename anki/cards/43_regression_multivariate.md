@@ -2139,34 +2139,154 @@ $$
 
 ---
 id: glm-poisson-mean-ratio
-title: ポアソン回帰の平均比を計算する
+title: ポアソン回帰を平均比・発生率・offsetまで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: poisson-regression
+topic: poisson-regression-canonical
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [ポアソン回帰, 対数リンク, 平均比]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ポアソン回帰 }]
+hashtags:
+  - ポアソン回帰
+  - 対数リンク
+  - 平均比
+  - 発生率
+  - offset
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ポアソン回帰
 ---
 
 ## 問題
-$\log\mu=0.2+0.4x$ のポアソン回帰でxが3増えると平均は何倍になるか。
+ポアソン回帰で
+$$
+Y\mid x,t\sim\operatorname{Poisson}(\mu),
+\qquad
+\log\mu=\log t+\beta_0+\beta_1x
+$$
+とする。$t>0$ は観測時間・人口・走行距離などの曝露量である。
+
+1. $x$ が $c$ 増えたとき、同じ曝露量における期待件数と発生率は何倍になるか。
+2. $\log t$ がoffsetと呼ばれる理由を説明せよ。
+3. $\beta_0=0.2,\beta_1=0.4$、$x$ が3増える場合の平均比を求めよ。
+4. $t=5,x=2$ のとき期待件数を求めよ。
+
+## 記号・用語
+- **曝露量** $t$：件数が機会量に比例すると考えるときの観測時間・人口・面積など。
+- **offset**：係数を推定せず、あらかじめ1に固定して線形予測子へ加える既知項。
+- **発生率** $\lambda$：単位曝露量あたりの期待件数。ここでは $\mu=t\lambda$。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+発生率を
+$$
+\log\lambda=\beta_0+\beta_1x
+$$
+とすると
+$$
+\lambda=\exp(\beta_0+\beta_1x).
+$$
+期待件数は
+$$
+\mu=t\lambda
+=t\exp(\beta_0+\beta_1x),
+$$
+したがって
+$$
+\boxed{
+\log\mu=\log t+\beta_0+\beta_1x
+}.
+$$
+$\log t$ は係数を1に固定するためoffsetである。
 
-対数リンクでは $\mu=e^\eta$。
+$x$ を $x+c$ へ変えると
+$$
+\begin{aligned}
+\frac{\lambda(x+c)}{\lambda(x)}
+&=\frac{\exp\{\beta_0+\beta_1(x+c)\}}
+{\exp(\beta_0+\beta_1x)}\\
+&=\exp(c\beta_1).
+\end{aligned}
+$$
+曝露量 $t$ が同じなら $\mu=t\lambda$ なので期待件数比も同じく
+$$
+\boxed{\exp(c\beta_1)}.
+$$
+
+## 一手
+**ポアソン回帰は「対数を外して乗法効果を読む」。** まず
+$$
+\mu=t\exp(X\beta)
+$$
+に戻す。係数は加法的な件数差ではなく指数化した平均比・率比を表し、曝露量だけは $\log t$ を係数1のoffsetとして入れる。
 
 ## 答え
-$$\frac{\mu(x+3)}{\mu(x)}=e^{3(0.4)}=e^{1.2}\approx3.32.$$
+$x$ が $c$ 増えると、同じ曝露量で発生率・期待件数はいずれも
+$$
+e^{c\beta_1}
+$$
+倍になる。
+
+$\beta_1=0.4,c=3$ なら
+$$
+\begin{aligned}
+\text{平均比}
+&=e^{3(0.4)}\\
+&=e^{1.2}\\
+&\approx3.32.
+\end{aligned}
+$$
+
+また $\beta_0=0.2,\beta_1=0.4,t=5,x=2$ では
+$$
+\begin{aligned}
+\lambda
+&=e^{0.2+0.4\cdot2}\\
+&=e^1\\
+&\approx2.718,
+\end{aligned}
+$$
+したがって
+$$
+\begin{aligned}
+\mu
+&=5e^1\\
+&\approx13.59.
+\end{aligned}
+$$
 
 ## 計算例
-1増加なら $e^{0.4}\approx1.49$ 倍。
+同じ発生率 $\lambda=2$ 件/時間の対象を、Aでは2時間、Bでは5時間観測するとする。このとき
+$$
+E[Y_A]=2\cdot2=4,
+\qquad
+E[Y_B]=5\cdot2=10.
+$$
+件数だけ比べるとBはAの2.5倍だが、これは曝露量の違いだけである。
+
+対数尺度では
+$$
+\log E[Y_A]=\log2+\log2,
+$$
+$$
+\log E[Y_B]=\log5+\log2.
+$$
+発生率部分 $\log2$ は同じで、違いはoffset $\log t$ だけである。
+
+一方、説明変数の変化によって $\beta_1=\log1.5$ だけ線形予測子が増えるなら、曝露量に関係なく率比は
+$$
+e^{\beta_1}=1.5
+$$
+である。
 
 ## 注意
-係数は平均の差でなく平均比を表す。
+$t$ は正でなければ $\log t$ を定義できない。offsetの係数を自由に推定すると「件数が曝露量に比例する」という仮定自体を変えることになる。
+
+ポアソン分布では条件付き平均と分散が等しい。実データで過分散が強ければ、標準誤差やモデル選択に影響するため、Pearson統計量・逸脱度・残差構造を別途診断する。
 
 <!-- CARD -->
 
