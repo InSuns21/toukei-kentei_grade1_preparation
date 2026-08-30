@@ -1,27 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-31-asymptotic-core-reduction-174
+batch_id: 2026-08-31-engineering-asymptotic-duplicates-175
 items:
-  - id: asym-slutsky-example
+  - id: engasym-proportion-standardization
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-slutsky
-    coverage_card: asym-slutsky
-    note: Slutskyの和・積・商とN(0,4)を2で割る数値例まで正本へ統合済み。
-  - id: engasym-slutsky-studentization
+    canonical_card: asym-mle-asymptotic-normality
+    coverage_card: asym-mle-asymptotic-normality
+    note: 一般側正本がベルヌーイのフィッシャー情報量を導出し、sqrt(n)(p_hat-p)→N(0,p(1-p))、p=0.4,n=100で標準誤差約0.0490まで含むため、標本比率CLT単独カードは完全重複。
+  - id: engasym-mle-asymptotic-normality
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-slutsky
-    coverage_card: asym-slutsky
-    note: S_n^2の一致性からS_n/sigma→p1を作り、未知分散でstudentizeした平均が標準正規極限を持つ導出まで正本へ統合済み。
-  - id: engasym-continuous-mapping-plugin
+    canonical_card: asym-mle-asymptotic-normality
+    coverage_card: asym-mle-asymptotic-normality
+    note: 一般側正本がスコア方程式のTaylor展開、Slutskyの定理、情報量逆数の極限分散、ベルヌーイ数値例まで含み、理工学側の公式再生カードを包含する。
+  - id: engasym-bernoulli-fisher-information
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-continuous-mapping
-    coverage_card: asym-continuous-mapping
-    note: 確率収束版の連続写像定理、p_hat(1-p_hat)の一致性、p_hat=0.36・n=400で標準誤差0.024のプラグイン例まで正本へ統合済み。
-  - id: engasym-score-wald-lr-equivalence
+    canonical_card: asym-mle-asymptotic-normality
+    coverage_card: asym-mle-asymptotic-normality
+    note: 一般側正本の計算例でベルヌーイ対数尤度を2回微分し I_1(p)=1/[p(1-p)] を導出済み。p=0,1の境界注意も正則条件の注意に含まれる。
+  - id: engasym-poisson-mle-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-lr-wald-score-comparison
-    coverage_card: test-lr-wald-score-comparison
-    note: 尤度比・ワルド型・スコア型の評価点、共通chi-square極限、統計量差o_p(1)、有限標本差、境界母数の非正則性まで検定正本へ統合済み。
+    canonical_card: asym-mle-poisson-tail-probability
+    coverage_card: asym-mle-poisson-tail-probability
+    note: 一般側正本がポアソン分布の情報量 I_1(lambda)=1/lambda を対数尤度から導出し、Avar(lambda_hat)=lambda/n、lambda=4,n=100でSE=0.2、さらに確率近似まで扱うため上位互換。
+  - id: engasym-relative-efficiency
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-asymptotic-relative-efficiency
+    coverage_card: asym-asymptotic-relative-efficiency
+    note: 一般側正本がクラーメル・ラオ下界、最尤推定量の漸近効率、ARE(T,U)=v_U/v_T、v_T=4,v_U=9で2.25、比の向きの規約注意まで含むため完全重複。
