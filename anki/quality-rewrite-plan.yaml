@@ -1,137 +1,147 @@
 schema_version: 1
-batch_id: 2026-08-30-factor-score-merge-prep-58
+batch_id: 2026-08-30-mds-canonical-merge-prep-59
 items:
-  - id: mv-factor-model-covariance
-    note: 因子分析正本へ回帰法による因子得点予測を吸収し、モデル・共分散分解・回転・個体得点まで一枚で扱う。
+  - id: mv-mds-double-centering
+    note: 古典的MDSを二重中心化から座標復元・3点数値例・stressによる再現誤差評価まで一枚へ統合する。
     metadata:
-      title: 因子分析を共分散分解・回転・因子得点まで通す
-      topic: factor-analysis-canonical
-      hashtags: [因子分析, 因子負荷量, 共通性, 独自性, 因子回転, Varimax回転, 因子得点]
+      title: 古典的MDSを二重中心化から座標復元・stress評価まで通す
+      topic: multidimensional-scaling-canonical
+      hashtags: [多次元尺度構成法, MDS, 二重中心化, 距離行列, Gram行列, stress]
     sections:
       問題: |
-        因子分析モデル
-        $$
-        \boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon
-        $$
-        を考える。$\operatorname{Var}(\boldsymbol F)=\boldsymbol I$、$\operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi$、$\boldsymbol F$ と $\boldsymbol\varepsilon$ は独立とする。
+        $n$ 個の対象間距離 $d_{ij}$ だけが与えられているとする。
 
-        1. $\boldsymbol X$ の分散共分散行列を求め、標準化変数の共通性と独自性を書け。
-        2. 直交行列 $\boldsymbol T$ による回転 $\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T$ が共通共分散部分を変えないことを示し、Varimax回転の目的を述べよ。
-        3. $\operatorname{Var}(\boldsymbol X)=\boldsymbol\Sigma$ とするとき、回帰法による因子得点予測式を導け。
+        1. 古典的多次元尺度構成法（MDS）で平方距離行列から中心化Gram行列を作り、$m$ 次元座標を復元する手順を書け。
+        2. 3点の距離が
+        $$
+        d_{12}=1,\qquad d_{23}=1,\qquad d_{13}=2
+        $$
+        のとき、中心を0とする1次元配置を求め、二重中心化で確認せよ。
+        3. 元距離 $(1,2,3)$ に対し配置上の距離が $(1,2,2)$ だったとき、正規化stress
+        $$
+        \sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}{\sum_{i<j}d_{ij}^2}}
+        $$
+        を計算せよ。
       使用公式・定理: |
-        独立性から
+        中心化行列を
         $$
-        \boldsymbol\Sigma
-        =\operatorname{Var}(\boldsymbol X)
-        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+        \boldsymbol J
+        =\boldsymbol I-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T}
         $$
-        通常 $\boldsymbol\Psi$ は対角行列で、第 $i$ 変数の共通性は
+        とし、平方距離行列を
         $$
-        h_i^2
-        =(\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T})_{ii}
-        =\sum_{j=1}^m\lambda_{ij}^2,
+        \boldsymbol D^{(2)}=(d_{ij}^2)
         $$
-        独自性は $\psi_i=\Psi_{ii}$。標準化変数なら
+        とする。中心化された座標行列を $\boldsymbol X$、Gram行列を
         $$
-        1=h_i^2+\psi_i.
+        \boldsymbol B=\boldsymbol X\boldsymbol X^{\mathsf T}
         $$
+        とすると
+        $$
+        d_{ij}^2=b_{ii}+b_{jj}-2b_{ij}.
+        $$
+        この関係を行・列方向に中心化すると
+        $$
+        \boxed{\boldsymbol B=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J}
+        $$
+        を得る。
 
-        直交回転では
+        $\boldsymbol B$ を
         $$
-        \boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I,
-        \qquad
-        \boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T,
+        \boldsymbol B
+        =\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+        $$
+        と固有分解し、正の上位 $m$ 固有値を
+        $$
+        \boldsymbol\Lambda_m
+        =\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
+        $$
+        とすれば、座標の一つは
+        $$
+        \boxed{\boldsymbol X_m=\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}}
+        $$
+        である。
+
+        低次元近似の距離再現誤差を見る代表的指標として
+        $$
+        \operatorname{Stress}
+        =\sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}
+        {\sum_{i<j}d_{ij}^2}}
+        $$
+        があり、0に近いほど元距離をよく再現する。
+      一手: |
+        **MDSは「距離→平方→二重中心化して内積→固有分解して座標→復元距離をstressで確認」の一続きで処理する。** 距離を直接PCAへ入れない。
+      答え: |
+        3点例では
+        $$
+        \boldsymbol D^{(2)}
+        =\begin{pmatrix}
+        0&1&4\\
+        1&0&1\\
+        4&1&0
+        \end{pmatrix}.
+        $$
+        二重中心化すると
+        $$
+        \boldsymbol B
+        =-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J
+        =\begin{pmatrix}
+        1&0&-1\\
+        0&0&0\\
+        -1&0&1
+        \end{pmatrix}.
+        $$
+        これは
+        $$
+        \boldsymbol x
+        =\begin{pmatrix}-1\\0\\1\end{pmatrix}
+        $$
+        に対して
+        $$
+        \boldsymbol B=\boldsymbol x\boldsymbol x^{\mathsf T}
+        $$
+        と書けるので、中心を0とする1次元配置の一つは
+        $$
+        x_1=-1,\qquad x_2=0,\qquad x_3=1.
+        $$
+        実際
+        $$
+        |x_1-x_2|=1,\quad |x_2-x_3|=1,\quad |x_1-x_3|=2
+        $$
+        で元距離を完全に再現する。
+
+        stress例では分子が
+        $$
+        (1-1)^2+(2-2)^2+(3-2)^2=1,
+        $$
+        分母が
+        $$
+        1^2+2^2+3^2=14
         $$
         なので
         $$
-        \boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
-        =\boldsymbol\Lambda\boldsymbol T\boldsymbol T^{\mathsf T}\boldsymbol\Lambda^{\mathsf T}
-        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
-        $$
-        したがって直交回転は再現する共通共分散を変えず、負荷量の見え方だけを変える。
-
-        因子得点は観測ごとの潜在因子 $\boldsymbol F$ を予測する量である。最良線形予測の係数は
-        $$
-        \operatorname{Cov}(\boldsymbol F,\boldsymbol X)
-        \operatorname{Var}(\boldsymbol X)^{-1}.
-        $$
-        モデルより
-        $$
-        \begin{aligned}
-        \operatorname{Cov}(\boldsymbol F,\boldsymbol X)
-        &=\operatorname{Cov}\left(\boldsymbol F,
-        \boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon\right)\\
-        &=\operatorname{Var}(\boldsymbol F)\boldsymbol\Lambda^{\mathsf T}\\
-        &=\boldsymbol\Lambda^{\mathsf T},
-        \end{aligned}
-        $$
-        だから回帰法による予測は
-        $$
-        \widehat{\boldsymbol F}
-        =\boldsymbol\Lambda^{\mathsf T}\boldsymbol\Sigma^{-1}
-        (\boldsymbol X-\boldsymbol\mu).
-        $$
-      一手: |
-        **因子分析は $\Sigma=\Lambda\Lambda^T+\Psi$ を中心に整理する。** 変数側では共通性・独自性、因子軸側では回転、観測個体側では $\Lambda^T\Sigma^{-1}(X-\mu)$ による因子得点予測へつながる。
-      答え: |
-        1因子で
-        $$
-        \boldsymbol\lambda=\begin{pmatrix}0.8\\0.6\end{pmatrix},
-        \qquad
-        \boldsymbol\Psi=\begin{pmatrix}0.36&0\\0&0.64\end{pmatrix}
-        $$
-        なら
-        $$
-        \boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
-        =\begin{pmatrix}0.64&0.48\\0.48&0.36\end{pmatrix},
-        $$
-        $$
-        \boldsymbol\Sigma
-        =\begin{pmatrix}1&0.48\\0.48&1\end{pmatrix}.
-        $$
-        共通性は $(0.64,0.36)$、独自性は $(0.36,0.64)$ である。
-
-        2因子への負荷量が $(0.6,0.5)$ の標準化変数なら
-        $$
-        h_i^2=0.6^2+0.5^2=0.61,
-        \qquad
-        \psi_i=0.39.
+        \operatorname{Stress}
+        =\sqrt{\frac1{14}}
+        =\frac1{\sqrt{14}}
+        \approx0.267.
         $$
       計算例: |
-        直交回転の例として
+        3点例の $\boldsymbol B$ はランク1で、非零固有値は
         $$
-        \boldsymbol T=
-        \begin{pmatrix}0&-1\\1&0\end{pmatrix}
+        \lambda_1=\operatorname{tr}(\boldsymbol B)=2.
         $$
-        なら $\boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I$ なので、回転前後で
+        対応する単位固有ベクトルを
         $$
-        \boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}
+        \boldsymbol u_1
+        =\frac1{\sqrt2}(-1,0,1)^{\mathsf T}
         $$
-        は同じである。Varimax回転は負荷量平方のばらつきを大きくし、各変数が少数の因子に強く負荷する単純構造を狙う。
-
-        因子得点の具体例として1因子、
+        と取れば
         $$
-        \boldsymbol\Lambda=\begin{pmatrix}0.8\\0.6\end{pmatrix},
-        \qquad
-        \boldsymbol\Sigma=
-        \begin{pmatrix}1&0.48\\0.48&1\end{pmatrix},
-        \qquad
-        \boldsymbol X-\boldsymbol\mu=\begin{pmatrix}1\\0\end{pmatrix}
+        \boldsymbol U_1\boldsymbol\Lambda_1^{1/2}
+        =\frac1{\sqrt2}
+        \begin{pmatrix}-1\\0\\1\end{pmatrix}\sqrt2
+        =\begin{pmatrix}-1\\0\\1\end{pmatrix}.
         $$
-        とする。逆行列は
-        $$
-        \boldsymbol\Sigma^{-1}
-        =\frac1{1-0.48^2}
-        \begin{pmatrix}1&-0.48\\-0.48&1\end{pmatrix}.
-        $$
-        したがって
-        $$
-        \widehat F
-        =\begin{pmatrix}0.8&0.6\end{pmatrix}
-        \boldsymbol\Sigma^{-1}
-        \begin{pmatrix}1\\0\end{pmatrix}
-        =\frac{0.8-0.288}{0.7696}
-        \approx0.665.
-        $$
+        したがって固有分解からも同じ1次元配置が得られる。
       注意: |
-        PCAは観測分散を直交方向へ分解する方法で、因子分析は潜在因子と独自誤差を仮定する確率モデルである。直交回転では因子間無相関を保つが、斜交回転では因子間相関を許す。因子得点は観測された真の因子値ではなく推定値で、回帰法以外の推定法もあるため一意ではない。回転後の因子の符号や順序も一意ではない。
+        距離から得る配置は平行移動・回転・鏡映までは一意でない。古典的MDSで $\boldsymbol B$ に大きな負の固有値が出る場合、与えられた距離は低次元Euclid空間では正確に再現しにくい。stressには複数の正規化規約があるので、試験では問題文の定義に従う。
