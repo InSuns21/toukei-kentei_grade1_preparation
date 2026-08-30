@@ -1,170 +1,310 @@
 schema_version: 1
-batch_id: 2026-08-30-pca-canonical-merge-prep-56
+batch_id: 2026-08-30-multivariate-core-merge-prep-57
 items:
-  - id: mv-pca-variance-max
-    note: 主成分分析を、共分散/相関行列の選択から分散最大化・固有値問題・寄与率・得点・負荷量・出力解釈まで一枚へ統合する。
+  - id: mv-hierarchical-linkage
+    note: 階層クラスタリングの単連結・完全連結・群平均・Ward法を、併合基準と数値計算まで一枚へ統合する。
     metadata:
-      title: 主成分分析を行列選択から固有値・得点・負荷量まで通す
-      topic: pca-canonical
-      hashtags: [主成分分析, 固有値, 寄与率, 主成分得点, 主成分負荷量, 相関行列]
+      title: 階層クラスタリングの連結法とWard法を使い分ける
+      topic: hierarchical-clustering-canonical
+      hashtags: [クラスター分析, 階層法, 単連結法, 完全連結法, 群平均法, Ward法]
     sections:
       問題: |
-        中心化した $p$ 次元データの主成分分析を考える。
+        凝集型階層クラスタリングを考える。
 
-        1. 第1主成分が分散共分散行列の最大固有値に対応する固有ベクトルになることを、分散最大化から導け。
-        2. 変数の単位・分散が大きく異なるとき、共分散行列PCAと相関行列PCAをどう使い分けるか。
-        3. 固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ の標準化PCAについて、第1主成分の寄与率と、標準化観測 $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ の第1主成分得点を求めよ。
-        4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、元変数 $X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
+        1. 単連結法・完全連結法・群平均法で、2クラスタ $A,B$ 間の距離をどう定義するか述べよ。
+        2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として、併合による群内平方和増加を書け。
+        3. $n_A=2,n_B=3$、重心間距離が5のときWard法の平方和増加を計算せよ。
+        4. 単連結法が鎖状化しやすい理由と、Ward法で距離だけでなくクラスタサイズも効く理由を説明せよ。
       使用公式・定理: |
-        主成分分析（PCA）では、単位ベクトル $\boldsymbol a$ への射影
-        $$
-        Z=\boldsymbol a^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
-        $$
-        の分散
-        $$
-        \operatorname{Var}(Z)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        $$
-        を
-        $$
-        \boldsymbol a^{\mathsf T}\boldsymbol a=1
-        $$
-        の下で最大化する。Lagrange関数
-        $$
-        L(\boldsymbol a,\lambda)
-        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
-        $$
-        を $\boldsymbol a$ で微分すると
-        $$
-        2\boldsymbol\Sigma\boldsymbol a-2\lambda\boldsymbol a=\boldsymbol0,
-        $$
-        したがって
-        $$
-        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
-        $$
-        よって第1主成分方向は最大固有値 $\lambda_1$ の単位固有ベクトル $\boldsymbol a_1$ である。第2主成分以降は前の主成分に直交する条件の下で同様に得られる。
+        凝集型階層法では、現在のクラスタ集合から「最も近い」クラスタ対を一つ選んで逐次併合する。ただし何をクラスタ間距離と呼ぶかが連結法によって異なる。
 
-        固有値を
+        点間距離を $d(\boldsymbol x,\boldsymbol y)$ とすると
         $$
-        \lambda_1\ge\cdots\ge\lambda_p
+        d_{\mathrm{single}}(A,B)
+        =\min_{\boldsymbol x\in A,\boldsymbol y\in B}d(\boldsymbol x,\boldsymbol y),
         $$
-        とすると、第 $j$ 主成分の分散は $\lambda_j$、寄与率は
         $$
-        \frac{\lambda_j}{\sum_{r=1}^p\lambda_r},
+        d_{\mathrm{complete}}(A,B)
+        =\max_{\boldsymbol x\in A,\boldsymbol y\in B}d(\boldsymbol x,\boldsymbol y),
         $$
-        上位 $m$ 主成分を残した累積寄与率は
         $$
-        \frac{\sum_{j=1}^m\lambda_j}{\sum_{r=1}^p\lambda_r}.
-        $$
-        上位 $m$ 成分で再構成したときに捨てる分散の総和は
-        $$
-        \sum_{j=m+1}^p\lambda_j.
+        d_{\mathrm{average}}(A,B)
+        =\frac1{n_An_B}
+        \sum_{\boldsymbol x\in A}\sum_{\boldsymbol y\in B}
+        d(\boldsymbol x,\boldsymbol y).
         $$
 
-        測定単位や分散の大きさ自体に意味があるなら分散共分散行列 $\boldsymbol S$ を使う。尺度差を消して相関構造を比較したいなら
+        Ward法は通常、平方Euclid距離を基礎に、併合後の群内平方和（WSS）の増加が最小になる対を選ぶ。2クラスタを併合したときの増加量は
         $$
-        Z_k=\frac{X_k-\bar X_k}{s_k}
+        \Delta WSS(A,B)
+        =\frac{n_An_B}{n_A+n_B}
+        \left\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\right\|^2.
         $$
-        と標準化し、相関行列 $\boldsymbol R$ に対して同じ固有値問題を解く。
-
-        共分散PCAで第 $j$ 主成分を
-        $$
-        Z_j=\boldsymbol a_j^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
-        $$
-        とすれば
-        $$
-        \operatorname{Var}(Z_j)=\lambda_j,
-        \qquad
-        \operatorname{Cov}(X_k,Z_j)=\lambda_j a_{kj}.
-        $$
-        したがって変数 $X_k$ と主成分 $Z_j$ の相関は
-        $$
-        \operatorname{Corr}(X_k,Z_j)
-        =\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
-        $$
-        この相関を主成分負荷量と呼ぶ規約がある。
       一手: |
-        **PCAは「使う行列を決める→固有値問題を解く→固有値から分散・寄与率、固有ベクトルから得点軸を読む」の一続きで処理する。** 負荷量を変数との相関として問われたら、固有ベクトル成分だけで終わらず $\sqrt{\lambda_j}/s_k$ を掛ける。
+        **階層法では最初に「何を近さと定義している手法か」を確認する。** 単連結は最短点対、完全連結は最長点対、群平均は全点対平均、Wardは距離そのものではなく併合時のWSS増加を見る。
       答え: |
-        分散最大化の一階条件は
+        点対距離が $2,4,6,8$ の4通りなら群平均距離は
         $$
-        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a
+        \frac{2+4+6+8}{4}=5.
         $$
-        であり、目的値は
-        $$
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        =\lambda
-        $$
-        だから最大固有値の方向が第1主成分になる。
 
-        数値例では固有値総和は
-        $$
-        2.4+0.5+0.1=3.0
-        $$
-        なので第1主成分の寄与率は
-        $$
-        \frac{2.4}{3.0}=0.80.
-        $$
-        第1・第2変数に同方向の大きな重み、第3変数に比較的小さな重みを置く軸である。
-
-        標準化観測の第1主成分得点は
+        Ward法の数値例では
         $$
         \begin{aligned}
-        z_{\mathrm{PC1}}
-        &=0.70(1)+0.68(-1)+0.22(0.5)\\
-        &=0.70-0.68+0.11\\
-        &=0.13.
+        \Delta WSS
+        &=\frac{2\cdot3}{2+3}\,5^2\\
+        &=\frac65\cdot25\\
+        &=30.
         \end{aligned}
         $$
-
-        また $\lambda_j=4,a_{kj}=0.3,s_k=1.5$ なら
-        $$
-        \operatorname{Corr}(X_k,Z_j)
-        =\frac{\sqrt4\cdot0.3}{1.5}
-        =\frac{0.6}{1.5}
-        =0.4.
-        $$
+        したがってWard法では、候補となる各クラスタ対についてこの増加量を計算し、最小の対を併合する。
       計算例: |
-        相関行列
+        同じ重心間距離5でも、$n_A=n_B=1$ なら
         $$
-        \boldsymbol R=
-        \begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
+        \Delta WSS=\frac{1\cdot1}{2}25=12.5,
         $$
-        で標準化PCAを行う。固有値は
+        一方 $n_A=n_B=10$ なら
         $$
-        \lambda_1=1+0.8=1.8,
-        \qquad
-        \lambda_2=1-0.8=0.2,
+        \Delta WSS=\frac{100}{20}25=125.
         $$
-        第1固有ベクトルは
-        $$
-        \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
-        $$
-        したがって
-        $$
-        \mathrm{PC1}=\frac{Z_1+Z_2}{\sqrt2},
-        $$
-        寄与率は
-        $$
-        \frac{1.8}{1.8+0.2}=0.90.
-        $$
-        第1主成分だけで標準化後の全分散の90%を表す。
+        よってWard法では重心間距離が同じでも、大きいクラスタ同士の併合はWSSを大きく増やしやすい。
 
-        一方、分散共分散行列
+        単連結法では、2つのクラスタ間に1組でも非常に近い点対があれば併合される。この性質が細長い点列を次々につなぐ「鎖状化」を起こしやすい。
+      注意: |
+        単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与えうる。Ward法は一般の任意距離へ機械的に置き換えるものではなく、通常は平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なる場合は、クラスタリング前の標準化の要否も検討する。
+
+  - id: mv-lda-classification-rule
+    note: Fisherの線形判別方向を、LDAの確率モデル・判別得点・共通共分散推定・事前確率・QDAとの差まで扱う正本へ統合する。
+    metadata:
+      title: Fisher方向からLDAの判別得点・分類境界まで通す
+      topic: lda-classification-canonical
+      hashtags: [判別分析, Fisher線形判別, LDA, QDA, 事前確率, プール分散共分散行列]
+    sections:
+      問題: |
+        2群の平均を $\boldsymbol\mu_1,\boldsymbol\mu_0$、共通群内分散共分散行列を $\boldsymbol\Sigma$ とする。
+
+        1. Fisherの線形判別基準を書き、最適方向が
         $$
-        \boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+        \boldsymbol w\propto\boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0)
+        $$
+        になることを説明せよ。
+        2. 各群が共通 $\boldsymbol\Sigma$ の多変量正規分布に従い、事前確率が $\pi_k$ のとき、LDAの判別得点を書け。
+        3. 共通共分散が未知の2群で、不偏標本分散共分散行列 $\boldsymbol S_1,\boldsymbol S_2$ からプール推定量を書け。
+        4. LDAとQDAの分類境界の違いを説明せよ。
+      使用公式・定理: |
+        2群の平均差を
+        $$
+        \boldsymbol d=\boldsymbol\mu_1-\boldsymbol\mu_0
+        $$
+        とする。Fisherの基準は
+        $$
+        J(\boldsymbol w)
+        =\frac{(\boldsymbol w^{\mathsf T}\boldsymbol d)^2}
+        {\boldsymbol w^{\mathsf T}\boldsymbol\Sigma\boldsymbol w}.
+        $$
+        分母を1に固定して分子を最大化するLagrange条件から
+        $$
+        \boldsymbol d\boldsymbol d^{\mathsf T}\boldsymbol w
+        =\lambda\boldsymbol\Sigma\boldsymbol w
+        $$
+        となる。左辺は $\boldsymbol d$ の定数倍なので
+        $$
+        \boldsymbol w\propto\boldsymbol\Sigma^{-1}\boldsymbol d.
+        $$
+        つまり平均差をそのまま使うのではなく、群内分散の大きい方向を $\boldsymbol\Sigma^{-1}$ で割り引く。
+
+        一方、確率モデルとして
+        $$
+        \boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
+        $$
+        と共通分散共分散を仮定すると、対数事後確率から群 $k$ のLDA得点は、群によらない項を除いて
+        $$
+        \delta_k(\boldsymbol x)
+        =\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        -\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
+        +\log\pi_k.
+        $$
+        2群の得点差 $\delta_1-\delta_0$ における $\boldsymbol x$ の係数は
+        $$
+        \boldsymbol\Sigma^{-1}(\boldsymbol\mu_1-\boldsymbol\mu_0),
+        $$
+        であり、Fisher方向と一致する。
+
+        共通 $\boldsymbol\Sigma$ を2群標本から推定するなら
+        $$
+        \boldsymbol S_p
+        =\frac{(n_1-1)\boldsymbol S_1+(n_2-1)\boldsymbol S_2}
+        {n_1+n_2-2}.
+        $$
+
+        QDAは群ごとに $\boldsymbol\Sigma_k$ を許し、
+        $$
+        -\frac12\log|\boldsymbol\Sigma_k|
+        -\frac12(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}
+        \boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
+        +\log\pi_k
+        $$
+        を比較するため、一般に二次の分類境界になる。
+      一手: |
+        **2群LDAは「平均差を共通共分散の逆行列で標準化した方向」が本体。** Fisher基準からも正規モデルの対数尤度比からも同じ $\Sigma^{-1}(\mu_1-\mu_0)$ が出る。その方向を得た後、事前確率を含む切片項で分類境界を決める。
+      答え: |
+        例として
+        $$
+        \boldsymbol\mu_1=(2,1)^{\mathsf T},
+        \qquad
+        \boldsymbol\mu_0=(0,0)^{\mathsf T},
+        \qquad
+        \boldsymbol\Sigma=\operatorname{diag}(2,1)
         $$
         なら
         $$
-        \det(\boldsymbol S-\lambda\boldsymbol I)
-        =(\lambda-3)(\lambda-1)
+        \boldsymbol\Sigma^{-1}
+        =\operatorname{diag}\left(\frac12,1\right),
         $$
-        なので最大固有値は3、対応方向は
+        よって
         $$
-        \frac1{\sqrt2}(1,1)^{\mathsf T}.
+        \boldsymbol w
+        \propto
+        \begin{pmatrix}1/2&0\\0&1\end{pmatrix}
+        \begin{pmatrix}2\\1\end{pmatrix}
+        =\begin{pmatrix}1\\1\end{pmatrix}.
         $$
-        第1成分だけ残したときに捨てる分散は $\lambda_2=1$ である。
-      注意: |
-        データは少なくとも中心化してからPCAを行う。共分散PCAは測定単位の変更で結果が変わるので、単位差に科学的意味がない場合は標準化を検討する。ただし標準化が常に正しいわけではない。
+        判別方向は $x_1+x_2$ である。
 
-        固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。文献・ソフトウェアによって「主成分負荷量」を固有ベクトル成分そのものと呼ぶ場合と、変数と主成分の相関と呼ぶ場合があるため定義を確認する。
+        1変量、共通分散1、$\mu_0=0,\mu_1=4$、等事前確率なら分類境界は中点
+        $$
+        c=2
+        $$
+        となる。$x=3$ は群1側に分類される。
+      計算例: |
+        事前確率の影響を見る。共通分散1、$\mu_0=0,\mu_1=2$、$\pi_0=0.8,\pi_1=0.2$、$x=1$ なら
+        $$
+        \delta_0(1)=\log0.8\approx-0.223,
+        $$
+        $$
+        \delta_1(1)=2-2+\log0.2\approx-1.609.
+        $$
+        幾何学的な中点でも、事前確率が大きい群0へ分類される。
+
+        また $n_1=6,n_0=4$、
+        $$
+        \boldsymbol S_1=\operatorname{diag}(2,4),
+        \qquad
+        \boldsymbol S_0=\operatorname{diag}(5,1)
+        $$
+        なら
+        $$
+        \begin{aligned}
+        \boldsymbol S_p
+        &=\frac{5\boldsymbol S_1+3\boldsymbol S_0}{8}\\
+        &=\operatorname{diag}\left(\frac{25}{8},\frac{23}{8}\right).
+        \end{aligned}
+        $$
+      注意: |
+        $\boldsymbol w$ の倍率は分類方向を変えないが、実際の境界には事前確率や誤分類損失が効く。プール共分散は単純平均ではなく自由度加重平均である。LDAは共通共分散なら線形境界、QDAは群別共分散を許すため一般に二次境界となる。QDAは柔軟だが小標本・高次元では共分散推定が不安定になりやすい。
+
+  - id: mv-factor-model-covariance
+    note: 因子分析の共分散分解・共通性・独自性に、直交因子回転の不変性とVarimaxの目的を統合する。
+    metadata:
+      title: 因子分析の共分散分解・共通性・因子回転をまとめる
+      topic: factor-analysis-canonical
+      hashtags: [因子分析, 因子負荷量, 共通性, 独自性, 因子回転, Varimax回転]
+    sections:
+      問題: |
+        因子分析モデル
+        $$
+        \boldsymbol X=\boldsymbol\mu+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon
+        $$
+        を考える。$\operatorname{Var}(\boldsymbol F)=\boldsymbol I$、$\operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi$、$\boldsymbol F$ と $\boldsymbol\varepsilon$ は独立とする。
+
+        1. $\boldsymbol X$ の分散共分散行列を求め、標準化変数の共通性と独自性を書け。
+        2. 直交行列 $\boldsymbol T$ により負荷量を $\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T$ と回転しても、モデルが再現する共通共分散部分が変わらないことを示せ。
+        3. 因子回転を行う目的と、Varimax回転の狙いを説明せよ。
+      使用公式・定理: |
+        独立性から
+        $$
+        \operatorname{Var}(\boldsymbol X)
+        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
+        $$
+        通常 $\boldsymbol\Psi$ は対角行列で、第 $i$ 変数の共通性は
+        $$
+        h_i^2
+        =(\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T})_{ii}
+        =\sum_{j=1}^m\lambda_{ij}^2,
+        $$
+        独自性は
+        $$
+        \psi_i=\Psi_{ii}.
+        $$
+        標準化変数なら
+        $$
+        1=h_i^2+\psi_i.
+        $$
+
+        直交回転では
+        $$
+        \boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I,
+        \qquad
+        \boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T.
+        $$
+        したがって
+        $$
+        \begin{aligned}
+        \boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
+        &=\boldsymbol\Lambda\boldsymbol T
+        \boldsymbol T^{\mathsf T}\boldsymbol\Lambda^{\mathsf T}\\
+        &=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
+        \end{aligned}
+        $$
+        よって共通共分散の再現は変えずに、負荷量の見え方だけを変えられる。
+      一手: |
+        **因子分析ではまず $\Sigma=\Lambda\Lambda^T+\Psi$ を基準に考える。** 共通性はその対角、独自性は $\Psi$ の対角。直交回転は $\Lambda\Lambda^T$ を不変に保ったまま、解釈しやすい単純構造へ負荷量を並べ替える操作である。
+      答え: |
+        1因子で
+        $$
+        \boldsymbol\lambda=\begin{pmatrix}0.8\\0.6\end{pmatrix},
+        \qquad
+        \boldsymbol\Psi=\begin{pmatrix}0.36&0\\0&0.64\end{pmatrix}
+        $$
+        なら
+        $$
+        \boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
+        =\begin{pmatrix}0.64&0.48\\0.48&0.36\end{pmatrix},
+        $$
+        したがって
+        $$
+        \boldsymbol\Sigma
+        =\begin{pmatrix}1&0.48\\0.48&1\end{pmatrix}.
+        $$
+        各変数で共通性と独自性の和が1になっている。
+
+        2因子への負荷量が $(0.6,0.5)$ の標準化変数なら
+        $$
+        h_i^2=0.6^2+0.5^2=0.61,
+        \qquad
+        \psi_i=1-0.61=0.39.
+        $$
+      計算例: |
+        2因子の負荷量行列を
+        $$
+        \boldsymbol\Lambda=
+        \begin{pmatrix}
+        0.8&0.2\\
+        0.6&0.5
+        \end{pmatrix}
+        $$
+        とし、90度回転
+        $$
+        \boldsymbol T=
+        \begin{pmatrix}0&-1\\1&0\end{pmatrix}
+        $$
+        を考える。$\boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I$ なので
+        $$
+        \boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
+        =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
+        $$
+        つまり因子軸の向きや因子の符号・順序を変えても、直交回転なら共通共分散の再現は変わらない。
+
+        Varimax回転は、各因子について負荷量平方のばらつきを大きくし、多くの変数が「少数の因子には大きく、その他には小さく」負荷する単純構造を得て解釈しやすくする代表的な直交回転である。
+      注意: |
+        PCAは観測分散を直交方向へ分解する方法で、因子分析は潜在因子と独自誤差を仮定する確率モデルである。直交回転では因子間無相関を保つが、斜交回転では因子同士の相関を許すため、共通性を単純な負荷量平方和として読む際の扱いが変わる。回転後の因子順序や符号は一意でない。
