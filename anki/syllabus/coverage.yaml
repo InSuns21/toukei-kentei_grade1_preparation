@@ -2389,8 +2389,6 @@ items:
       - engqc-s-chart-limits
       - engqc-imr-moving-range
       - engqc-control-vs-specification
-      - engqc-common-special-causes
-      - engqc-rational-subgrouping
       - engqc-phase1-phase2
       - engqc-three-sigma-false-alarm
       - engqc-arl1-mean-shift
@@ -2452,8 +2450,6 @@ items:
         cards:
           - engqc-control-chart-selection
           - engqc-control-vs-specification
-          - engqc-common-special-causes
-          - engqc-rational-subgrouping
           - engqc-phase1-phase2
           - engqc-process-adjustment-overcontrol
           - engqc-cpk-offcenter
