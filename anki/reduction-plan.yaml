@@ -1,8 +1,13 @@
 schema_version: 1
-batch_id: 2026-08-30-gambler-ruin-reduction-136
+batch_id: 2026-08-30-process-capability-reduction-138
 items:
-  - id: engproc-biased-walk-hit-upper
+  - id: engqc-capability-stability-first
     bucket: duplicates
     reason: duplicate
-    canonical_card: stoch-gambler-ruin
-    note: 最初の1歩による差分方程式から偏りありの到達確率を導出し、対称p=qの特殊例とp=0.6,q=0.4,N=5,i=2の135/211数値例までcanonical cardへ統合済み。
+    canonical_card: engqc-cpk-offcenter
+    note: 工程能力指数を計算する前に管理図などで統計的安定性を確認する理由と、高い能力指数が管理状態を保証しない注意をcanonical cardへ統合済み。
+  - id: engqc-one-sided-cpu
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engqc-cpk-offcenter
+    note: 片側規格でCpu/Cplを使う判断、公式、USL=25・mu=20・sigma=1.5のCpu=1.111数値例をcanonical cardへ統合済み。
