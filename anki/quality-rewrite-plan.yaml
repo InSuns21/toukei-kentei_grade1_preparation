@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-one-rate-exact-asymptotic-canonical-88
+batch_id: 2026-08-30-one-rate-exact-asymptotic-canonical-88b
 items:
   - id: test-one-proportion-score
     note: 1母比率検定を、正確二項検定・スコア型Z近似・連続修正の方法選択まで含む1枚のcanonical cardへ統合する。
