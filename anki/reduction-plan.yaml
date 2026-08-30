@@ -1,18 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-two-level-factorial-reduction-106
+batch_id: 2026-08-30-block-generator-reduction-108
 items:
-  - id: design-two-level-coding
+  - id: engdesign-block-generator-count
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-two-level-effect-contrast
-    note: ±1符号化、交互作用列の積、回帰係数と効果の関係はcanonical cardへ統合済み。
-  - id: design-two-cubed-effects-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: design-two-level-effect-contrast
-    note: 2^3計画のA効果・AB効果の数値計算はcanonical cardへ統合済み。
-  - id: design-factorial-effect-ss
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: design-two-level-effect-contrast
-    note: 等反復2水準計画で同じコントラストから効果平方和を計算する手順はcanonical cardへ統合済み。
+    canonical_card: engdesign-block-generator-protect-effects
+    note: 独立生成子数からブロック数・各ブロック実施数を求める操作は、生成子選択とブロック定義群まで含むcanonical cardへ統合済み。
