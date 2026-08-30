@@ -1,13 +1,45 @@
 schema_version: 1
-batch_id: 2026-08-30-block-confounding-reduction-151
+batch_id: 2026-08-30-doe-over-specific-reduction-153
 items:
-  - id: design-block-confounding
+  - id: engdesign-random-slope-covariance
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: engdesign-fixed-effect-hypothesis
+    note: 理工学シラバスの固定効果・変量効果に対して、変量傾きまで独立カード化するのは発展的。固定/変量の判別、変量切片の分散・共分散・級内相関をcanonical cardへ統合済み。
+  - id: engdesign-random-effect-blup
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: engdesign-fixed-effect-hypothesis
+    note: BLUPによる個別群効果予測は固定効果・変量効果の基本判別より発展的で、1級理工学の正本セットでは独立カードにしない。分散成分と級内相関はcanonical cardで保持する。
+  - id: engdesign-randomization-permutation
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-block-generator-protect-effects
-    note: 2^3計画をABC符号で2ブロック化したときABCとブロック効果が完全交絡する例、重要な主効果・低次交互作用をブロック生成子へ選ばない判断をcanonical cardへ統合済み。
-  - id: engdesign-partial-confounding
+    canonical_card: design-fisher-three-principles
+    note: 乱数順の先頭3単位をAへ割り付けるだけの操作は、無作為化の目的と実施を扱うフィッシャー3原則正本に対して独立検索単位にならない。
+  - id: engdesign-rerandomization-balance
+    bucket: too_specific
+    reason: low_priority
+    note: 共変量釣合い基準による再無作為化は、公式理工学シラバスの実験計画項目より発展的。基本の無作為化・ブロック化を優先するため隔離する。
+  - id: engdesign-latin-square-treatment-mean
+    bucket: low_priority
+    reason: low_priority
+    note: ラテン方格配置から3観測を拾って平均するだけの計算は、ブロック化の理解に追加する独立技能が乏しいため隔離する。
+  - id: engdesign-graeco-latin-df
+    bucket: too_specific
+    reason: low_priority
+    note: グレコ・ラテン方格の自由度公式は、公式理工学シラバスに明記されたブロック化・直交表・交絡法に比べ優先度が低く、600枚正本では発展扱いとする。
+  - id: engdesign-precision-weighted-block-difference
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: engdesign-confounder-randomization
+    note: 精度の異なるブロック差の逆分散重み統合は一般的なメタ解析的計算へ寄り、実験計画のブロック化正本から外れる。ブロック化の目的と加法モデルはcanonical cardで保持する。
+  - id: engdesign-gage-rr-variance
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: engdesign-fixed-effect-hypothesis
+    note: Gage R&R固有の分散割合計算は、理工学シラバスの変量効果そのものより応用先が限定される。分散成分の基本は固定/変量効果正本へ残す。
+  - id: engdesign-subsampling-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-block-generator-protect-effects
-    note: 完全交絡と部分交絡の違い、反復1でABC・反復2でABDを交絡させ、各効果を交絡していない反復から推定して情報を回復する例をcanonical cardへ統合済み。
+    canonical_card: design-fisher-three-principles
+    note: 実験単位内の複数測定を独立反復と数えない点、技術的反復は独立な誤差自由度を増やさない点はフィッシャー3原則正本へ統合済み。専用の分散数値例は独立カードにしない。
