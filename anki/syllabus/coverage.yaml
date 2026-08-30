@@ -2022,7 +2022,6 @@ items:
       - ts-software-residual-diagnostics
       - ts-ar-causality-check
       - ts-linear-detrend
-      - ts-state-space-definition
       - ts-kalman-update
       - ts-weak-vs-strong-stationarity
       - ts-ar1-acf
@@ -2050,7 +2049,6 @@ items:
       - name: 状態空間モデル
         status: card
         cards:
-          - ts-state-space-definition
           - ts-kalman-update
   - id: engineering-multivariate
     status: complete
