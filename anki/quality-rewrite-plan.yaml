@@ -1,147 +1,204 @@
 schema_version: 1
-batch_id: 2026-08-30-mds-canonical-merge-prep-59
+batch_id: 2026-08-30-logistic-canonical-merge-prep-61
 items:
-  - id: mv-mds-double-centering
-    note: 古典的MDSを二重中心化から座標復元・3点数値例・stressによる再現誤差評価まで一枚へ統合する。
+  - id: glm-logistic-score
+    note: ロジスティック回帰の予測確率・オッズ比・二項尤度・スコア・Fisher scoring/IRLSを一つの計算鎖へ統合する。
     metadata:
-      title: 古典的MDSを二重中心化から座標復元・stress評価まで通す
-      topic: multidimensional-scaling-canonical
-      hashtags: [多次元尺度構成法, MDS, 二重中心化, 距離行列, Gram行列, stress]
+      title: ロジスティック回帰を確率・オッズ比・尤度・スコア・IRLSまで通す
+      topic: logistic-regression-canonical
+      hashtags: [ロジスティック回帰分析, ロジット, オッズ比, 尤度, スコア, IRLS]
     sections:
       問題: |
-        $n$ 個の対象間距離 $d_{ij}$ だけが与えられているとする。
+        独立なベルヌーイ応答 $Y_i\in\{0,1\}$ に対し
+        $$
+        \eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta,
+        \qquad
+        \operatorname{logit}(p_i)=\eta_i
+        $$
+        とする。
 
-        1. 古典的多次元尺度構成法（MDS）で平方距離行列から中心化Gram行列を作り、$m$ 次元座標を復元する手順を書け。
-        2. 3点の距離が
+        1. $p_i$ を $\eta_i$ から表せ。
+        2. 説明変数 $x_j$ が $c$ 増えたときのオッズ比を表せ。
+        3. 対数尤度を $\eta_i$ を用いて書き、スコア
         $$
-        d_{12}=1,\qquad d_{23}=1,\qquad d_{13}=2
+        \boldsymbol U(\boldsymbol\beta)
+        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
         $$
-        のとき、中心を0とする1次元配置を求め、二重中心化で確認せよ。
-        3. 元距離 $(1,2,3)$ に対し配置上の距離が $(1,2,2)$ だったとき、正規化stress
-        $$
-        \sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}{\sum_{i<j}d_{ij}^2}}
-        $$
-        を計算せよ。
+        を導け。
+        4. Fisher情報行列とFisher scoring更新を書き、IRLSの重み付き最小二乗形へ変形せよ。
+        5. 数値例として $\eta=0$ の予測確率、$\beta_j=\log1.5$ で $x_j$ が2増える場合のオッズ比を求めよ。
       使用公式・定理: |
-        中心化行列を
+        ロジットの逆関数は
         $$
-        \boldsymbol J
-        =\boldsymbol I-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T}
+        p_i
+        =\frac{e^{\eta_i}}{1+e^{\eta_i}}
+        =\frac1{1+e^{-\eta_i}}.
         $$
-        とし、平方距離行列を
+        したがってオッズは
         $$
-        \boldsymbol D^{(2)}=(d_{ij}^2)
+        \frac{p_i}{1-p_i}=e^{\eta_i}.
         $$
-        とする。中心化された座標行列を $\boldsymbol X$、Gram行列を
+        他の説明変数を固定して $x_j$ を $c$ 増やすと線形予測子は $c\beta_j$ 増えるので、オッズ比は
         $$
-        \boldsymbol B=\boldsymbol X\boldsymbol X^{\mathsf T}
+        \boxed{\exp(c\beta_j)}.
         $$
-        とすると
-        $$
-        d_{ij}^2=b_{ii}+b_{jj}-2b_{ij}.
-        $$
-        この関係を行・列方向に中心化すると
-        $$
-        \boxed{\boldsymbol B=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J}
-        $$
-        を得る。
 
-        $\boldsymbol B$ を
+        ベルヌーイ対数尤度は
         $$
-        \boldsymbol B
-        =\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+        \ell(\boldsymbol\beta)
+        =\sum_i\left\{y_i\log p_i+(1-y_i)\log(1-p_i)\right\}.
         $$
-        と固有分解し、正の上位 $m$ 固有値を
+        $p_i=e^{\eta_i}/(1+e^{\eta_i})$ を代入すると
         $$
-        \boldsymbol\Lambda_m
-        =\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
+        \ell(\boldsymbol\beta)
+        =\sum_i\left\{y_i\eta_i-\log(1+e^{\eta_i})\right\}.
         $$
-        とすれば、座標の一つは
+        また
         $$
-        \boxed{\boldsymbol X_m=\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}}
+        \frac{dp_i}{d\eta_i}=p_i(1-p_i).
         $$
-        である。
+        よって各観測について
+        $$
+        \frac{\partial\ell_i}{\partial\eta_i}
+        =y_i-p_i,
+        $$
+        さらに $\partial\eta_i/\partial\boldsymbol\beta=\boldsymbol x_i$ だから
+        $$
+        \boxed{
+        \boldsymbol U(\boldsymbol\beta)
+        =\frac{\partial\ell}{\partial\boldsymbol\beta}
+        =\sum_i\boldsymbol x_i(y_i-p_i)
+        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
+        }.
+        $$
 
-        低次元近似の距離再現誤差を見る代表的指標として
+        $\boldsymbol W=\operatorname{diag}\{p_i(1-p_i)\}$ とすると
         $$
-        \operatorname{Stress}
-        =\sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}
-        {\sum_{i<j}d_{ij}^2}}
+        -\frac{\partial^2\ell}{\partial\boldsymbol\beta\partial\boldsymbol\beta^{\mathsf T}}
+        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
         $$
-        があり、0に近いほど元距離をよく再現する。
+        したがってFisher情報行列も
+        $$
+        \boldsymbol I(\boldsymbol\beta)
+        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X.
+        $$
+        Fisher scoring（この場合Newton法と一致）は
+        $$
+        \boxed{
+        \boldsymbol\beta^{\mathrm{new}}
+        =\boldsymbol\beta^{\mathrm{old}}
+        +(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
+        }.
+        $$
+        作業応答
+        $$
+        z_i
+        =\eta_i+\frac{y_i-p_i}{p_i(1-p_i)}
+        $$
+        を置けば同じ更新は
+        $$
+        \boxed{
+        \boldsymbol\beta^{\mathrm{new}}
+        =(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol z
+        }
+        $$
+        となり、これが反復重み付き最小二乗法（IRLS）である。
       一手: |
-        **MDSは「距離→平方→二重中心化して内積→固有分解して座標→復元距離をstressで確認」の一続きで処理する。** 距離を直接PCAへ入れない。
+        **ロジスティック回帰は「$\eta\to p\to\ell\to U\to I\to$ IRLS」の一本の鎖で覚える。** 係数解釈も同じ $\eta$ から、$x_j$ の増分 $c\beta_j$ を指数化してオッズ比 $e^{c\beta_j}$ と読む。
       答え: |
-        3点例では
+        基本関係は
         $$
-        \boldsymbol D^{(2)}
-        =\begin{pmatrix}
-        0&1&4\\
-        1&0&1\\
-        4&1&0
-        \end{pmatrix}.
+        p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}},
+        \qquad
+        \frac{p_i}{1-p_i}=e^{\eta_i}.
         $$
-        二重中心化すると
+        $x_j$ が $c$ 増えるとオッズ比は
         $$
-        \boldsymbol B
-        =-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J
-        =\begin{pmatrix}
-        1&0&-1\\
-        0&0&0\\
-        -1&0&1
-        \end{pmatrix}.
+        e^{c\beta_j}.
         $$
-        これは
+        対数尤度、スコア、情報行列は
         $$
-        \boldsymbol x
-        =\begin{pmatrix}-1\\0\\1\end{pmatrix}
+        \ell(\boldsymbol\beta)
+        =\sum_i\{y_i\eta_i-\log(1+e^{\eta_i})\},
         $$
-        に対して
         $$
-        \boldsymbol B=\boldsymbol x\boldsymbol x^{\mathsf T}
+        \boldsymbol U(\boldsymbol\beta)
+        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p),
         $$
-        と書けるので、中心を0とする1次元配置の一つは
         $$
-        x_1=-1,\qquad x_2=0,\qquad x_3=1.
+        \boldsymbol I(\boldsymbol\beta)
+        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
+        \qquad
+        w_i=p_i(1-p_i).
         $$
-        実際
-        $$
-        |x_1-x_2|=1,\quad |x_2-x_3|=1,\quad |x_1-x_3|=2
-        $$
-        で元距離を完全に再現する。
+        これをFisher scoringで反復するとIRLSになる。
 
-        stress例では分子が
+        数値例では $\eta=0$ なら
         $$
-        (1-1)^2+(2-2)^2+(3-2)^2=1,
+        p=\frac1{1+1}=\frac12.
         $$
-        分母が
+        また $\beta_j=\log1.5$、$c=2$ なら
         $$
-        1^2+2^2+3^2=14
-        $$
-        なので
-        $$
-        \operatorname{Stress}
-        =\sqrt{\frac1{14}}
-        =\frac1{\sqrt{14}}
-        \approx0.267.
+        OR=e^{2\log1.5}=1.5^2=2.25.
         $$
       計算例: |
-        3点例の $\boldsymbol B$ はランク1で、非零固有値は
+        切片のみモデルで現在値 $\beta^{(0)}=0$、観測が
         $$
-        \lambda_1=\operatorname{tr}(\boldsymbol B)=2.
+        (y_1,y_2,y_3,y_4)=(1,1,1,0)
         $$
-        対応する単位固有ベクトルを
+        とする。まず全観測で
         $$
-        \boldsymbol u_1
-        =\frac1{\sqrt2}(-1,0,1)^{\mathsf T}
+        \eta_i^{(0)}=0,
+        \qquad
+        p_i^{(0)}=\frac12,
+        \qquad
+        w_i^{(0)}=\frac14.
         $$
-        と取れば
+        スコアは
         $$
-        \boldsymbol U_1\boldsymbol\Lambda_1^{1/2}
-        =\frac1{\sqrt2}
-        \begin{pmatrix}-1\\0\\1\end{pmatrix}\sqrt2
-        =\begin{pmatrix}-1\\0\\1\end{pmatrix}.
+        \begin{aligned}
+        U(\beta^{(0)})
+        &=\sum_{i=1}^4(y_i-p_i)\\
+        &=3-4\cdot\frac12\\
+        &=1.
+        \end{aligned}
         $$
-        したがって固有分解からも同じ1次元配置が得られる。
+        情報量は
+        $$
+        I(\beta^{(0)})
+        =\sum_{i=1}^4w_i
+        =4\cdot\frac14
+        =1.
+        $$
+        したがって1回目のFisher scoring更新は
+        $$
+        \beta^{(1)}
+        =0+I^{-1}U
+        =1.
+        $$
+        同じ計算をIRLSで見ると、作業応答は成功観測で
+        $$
+        z=0+\frac{1-1/2}{1/4}=2,
+        $$
+        失敗観測で
+        $$
+        z=0+\frac{0-1/2}{1/4}=-2.
+        $$
+        すべて同じ重み $1/4$ なので重み付き平均は
+        $$
+        \frac{2+2+2-2}{4}=1,
+        $$
+        よって同じ $\beta^{(1)}=1$ が得られる。
       注意: |
-        距離から得る配置は平行移動・回転・鏡映までは一意でない。古典的MDSで $\boldsymbol B$ に大きな負の固有値が出る場合、与えられた距離は低次元Euclid空間では正確に再現しにくい。stressには複数の正規化規約があるので、試験では問題文の定義に従う。
+        オッズ比は確率差ではない。例えば基準確率が異なれば、同じオッズ比でも確率の増分は異なる。
+
+        二項応答 $Y_i\sim\operatorname{Bin}(m_i,p_i)$ では
+        $$
+        \ell_i
+        =y_i\log p_i+(m_i-y_i)\log(1-p_i)+\text{const.}
+        $$
+        とし、成功割合を応答にする表記ではIRLSの重みに $m_i$ が入る。
+
+        完全分離・準完全分離では係数が発散し、有限の通常最尤推定値が存在しないことがある。IRLSが収束しないときは単なる数値計算不良と決めつけず分離も疑う。
