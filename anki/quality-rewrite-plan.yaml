@@ -1,141 +1,232 @@
 schema_version: 1
-batch_id: 2026-08-30-attribute-control-charts-canonical-96
+batch_id: 2026-08-30-qc-workflows-canonical-98
 items:
-  - id: engqc-control-chart-selection
-    note: p・np・c・u管理図を、データ型と検査量から選択し、Phase I基準値を推定して管理限界まで計算する1つの実戦workflowへ統合する。
+  - id: engqc-three-sigma-false-alarm
+    note: 3シグマ単点誤警報確率と、その逆数としての管理内ARLは同一の幾何分布workflowなので1枚へ統合する。
     metadata:
-      title: 計数管理図を選択し基準値から3シグマ限界まで計算する
-      topic: attribute-control-chart-canonical
+      title: 3シグマ誤警報確率から管理内平均連長まで導く
+      topic: false-alarm-arl0-canonical
       type: strategy
-      difficulty: 3
-      priority: S
-      hashtags: [管理図, p管理図, np管理図, c管理図, u管理図]
+      difficulty: 2
+      priority: A
+      hashtags: [管理図, 3シグマ, 誤警報, 平均連長]
     sections:
       問題: |
-        次の計数データについて、使う管理図を選び、必要な管理限界を求めよ。
-
-        1. Phase Iで群サイズ $(80,120,100)$、不適合品数 $(4,9,7)$ を得た。まず基準不適合品率 $\overline p$ を推定せよ。次に、群サイズ $n_i=100$ の群に対するp管理図の3シグマ限界を求めよ。
-        2. 各群の標本数が一定で $n=100$、基準不適合品率が $p_0=0.08$ であり、不適合**品数**そのものを監視したい。管理図を選び限界を求めよ。
-        3. 検査機会数が毎回同じ製品について、不適合**箇所数**の平均が $\overline c=9$ である。管理図を選び限界を求めよ。
-        4. 検査面積が群ごとに異なり、単位面積当たり平均不適合数が $\overline u=0.5$、ある群の検査量が $n_i=25$ である。管理図を選び限界を求めよ。
+        管理状態の標準化統計量が各時点で独立に標準正規分布に従い、単点の3シグマルール $|Z|>3$ で信号を出すとする。
+        1. 1点当たりの誤警報確率 $\alpha$ を求めよ。
+        2. 信号が出るまでの点数 $N$ の分布を述べ、管理内平均連長 $ARL_0=E[N]$ を求めよ。
+        3. 1時間に1点観測するなら、平均して何時間に1回誤警報が出るか。
       記号・用語: |
-        **不適合品**は製品1個全体を合格・不合格の2値で数える。一方、**不適合**は1製品・1面積内に複数個生じ得る欠点を数える。
-
-        - $p$ 管理図：不適合品**率**。標本数が変わっても使える。
-        - $np$ 管理図：不適合品**数**。標本数一定。
-        - $c$ 管理図：不適合**数**。検査機会数・面積などが一定。
-        - $u$ 管理図：単位検査量当たり不適合**数**。検査量が変動。
-
-        $CL,UCL,LCL$ は中心線、上側管理限界、下側管理限界である。Phase Iは過去データから管理基準を作る段階である。
+        $ARL$（average run length、平均連長）は管理図が信号を出すまでの観測点数の期待値である。添字0は工程が管理状態である場合を表す。
       使用公式・定理: |
-        不適合品データは二項分布、不適合数データはポアソン分布を基本モデルとする。
-
-        Phase Iで不適合品率を推定する場合は、群率の単純平均ではなく
+        標準正規分布の累積分布関数を $\Phi$ とすると、3シグマ単点ルールの誤警報確率は
         $$
-        \overline p=\frac{\sum_i d_i}{\sum_i n_i}
+        \alpha=P(|Z|>3)=2\{1-\Phi(3)\}\approx0.00270.
         $$
-        と全不適合品数を全検査数で割る。
-
-        p管理図は群 $i$ ごとに
+        各点が独立で毎回一定確率 $\alpha$ で信号を出すなら、信号までの点数は成功確率 $\alpha$ の幾何分布に従うため
         $$
-        CL=\overline p,
-        $$
-        $$
-        UCL_i=\overline p+3\sqrt{\frac{\overline p(1-\overline p)}{n_i}},
-        \qquad
-        LCL_i=\max\left\{0,\overline p-3\sqrt{\frac{\overline p(1-\overline p)}{n_i}}\right\}.
-        $$
-
-        標本数一定のnp管理図は
-        $$
-        CL=np_0,
-        $$
-        $$
-        UCL=np_0+3\sqrt{np_0(1-p_0)},
-        \qquad
-        LCL=\max\{0,np_0-3\sqrt{np_0(1-p_0)}\}.
-        $$
-
-        c管理図は
-        $$
-        CL=\overline c,
-        $$
-        $$
-        UCL=\overline c+3\sqrt{\overline c},
-        \qquad
-        LCL=\max\{0,\overline c-3\sqrt{\overline c}\}.
-        $$
-
-        u管理図は
-        $$
-        CL=\overline u,
-        $$
-        $$
-        UCL_i=\overline u+3\sqrt{\frac{\overline u}{n_i}},
-        \qquad
-        LCL_i=\max\left\{0,\overline u-3\sqrt{\frac{\overline u}{n_i}}\right\}.
+        ARL_0=E[N]=\frac1\alpha.
         $$
       一手／方針: |
-        **最初に「不適合品か不適合か」、次に「率か個数か／検査量が一定か」を判定する。** 管理図名を先に暗記して式を探すのではなく、確率モデルを決めれば限界式が出る。
-
-        - 不適合品 → 二項分布 → 率ならp、個数ならnp。
-        - 不適合 → ポアソン分布 → 検査量一定ならc、可変ならu。
-
-        p・uでは標本数や検査量が変わると標準誤差も変わるため、管理限界は群ごとに変える。
+        **まず1点で誤って外へ出る確率を両側裾から求め、その信号を「成功」とする幾何分布へつなぐ。** 0.0027と約370を独立した暗記事項にしない。
       答え: |
-        1. 全体の基準不適合品率は
         $$
-        \overline p=\frac{4+9+7}{80+120+100}=\frac{20}{300}=0.0667.
-        $$
-        不適合品**率**を扱うのでp管理図である。$n_i=100$ では
-        $$
-        SE=\sqrt{\frac{0.0667(1-0.0667)}{100}}\approx0.02494,
-        $$
-        よって
-        $$
-        UCL\approx0.0667+3(0.02494)=0.1415,
-        $$
-        $$
-        LCL=\max\{0,0.0667-3(0.02494)\}=0.
-        $$
-
-        2. 不適合品**数**かつ $n$ 一定なのでnp管理図である。
-        $$
-        CL=100(0.08)=8,
-        $$
-        $$
-        \sqrt{100(0.08)(0.92)}\approx2.713,
+        \alpha\approx2(0.00135)=0.00270.
         $$
         したがって
         $$
-        UCL\approx16.14,\qquad LCL=0.
+        N\sim\operatorname{Geom}(0.00270),\qquad
+        ARL_0=\frac1{0.00270}\approx370.4.
+        $$
+        1時間に1点なら、管理状態でも平均約370時間に1回は単点ルールだけで誤警報が生じる。
+      計算例: |
+        もし単点信号確率が $0.01$ なら $ARL=100$ 点である。信号確率が2倍になれば平均連長は半分になる。
+      注意: |
+        点間相関がある場合や複数のランルールを併用する場合、単純な独立幾何分布にはならない。Phase Iで平均や分散を推定した誤差によっても実際の誤警報率は理論値とずれ得る。
+
+  - id: engmaint-steady-availability
+    note: MTBF/MTTRによる可用度と故障率lambda・修復率muによる2状態モデル表現を、逆数関係と定常確率の導出を含めて1枚へ統合する。
+    metadata:
+      title: 定常可用度をMTBF・MTTRと故障率・修復率の両方から導く
+      topic: steady-availability-canonical
+      type: strategy
+      difficulty: 3
+      priority: A
+      hashtags: [保全性, 可用度, MTBF, MTTR, 故障率, 修復率]
+    sections:
+      問題: |
+        修理可能な2状態系を考える。
+        1. 平均故障間隔 $MTBF=1000$ 時間、平均修復時間 $MTTR=20$ 時間の定常可用度 $A$ を求めよ。
+        2. 故障率 $\lambda=0.01$、修復率 $\mu=0.2$ の連続時間2状態モデルで、定常可用度を定常確率から導いて求めよ。
+        3. 指数的な故障・修復時間では、2つの公式が同じになることを示せ。
+      記号・用語: |
+        可用度は任意の十分遠い時点で系が動作可能である長期確率である。$MTBF$ は平均故障間隔、$MTTR$ は平均修復時間、$\lambda$ は稼働状態から故障状態への率、$\mu$ は故障状態から稼働状態への修復率である。
+      使用公式・定理: |
+        稼働時間と修復時間を交互に繰り返す更新過程では、長期の稼働時間割合は
+        $$
+        A=\frac{MTBF}{MTBF+MTTR}.
+        $$
+        2状態連続時間マルコフモデルの定常確率 $\pi_U,\pi_D$ は
+        $$
+        \pi_U\lambda=\pi_D\mu,\qquad \pi_U+\pi_D=1
+        $$
+        を満たすので
+        $$
+        A=\pi_U=\frac{\mu}{\lambda+\mu}.
+        $$
+        指数分布の平均より
+        $$
+        MTBF=\frac1\lambda,\qquad MTTR=\frac1\mu.
+        $$
+      一手／方針: |
+        **平均時間で与えられたら「稼働時間／1サイクル時間」、率で与えられたら定常流量の釣合いを使う。** 最後に $MTBF=1/\lambda,MTTR=1/\mu$ を代入すれば両表現が同一だと確認できる。
+      答え: |
+        1. 
+        $$
+        A=\frac{1000}{1000+20}=\frac{50}{51}\approx0.9804.
         $$
 
-        3. 不適合**数**かつ検査機会一定なのでc管理図である。
+        2. 定常釣合いから
         $$
-        CL=9,
-        $$
-        $$
-        UCL=9+3\sqrt9=18,
-        \qquad
-        LCL=\max\{0,9-9\}=0.
+        A=\frac{0.2}{0.01+0.2}=\frac{20}{21}\approx0.9524.
         $$
 
-        4. 不適合**数**かつ検査量可変なのでu管理図である。
+        3. 
         $$
-        \sqrt{\frac{0.5}{25}}\approx0.1414,
+        \frac{MTBF}{MTBF+MTTR}
+        =\frac{1/\lambda}{1/\lambda+1/\mu}
+        =\frac{\mu}{\lambda+\mu}.
+        $$
+      計算例: |
+        $\lambda=0.01,\mu=0.2$ なら $MTBF=100,MTTR=5$ なので、時間表現でも
+        $$
+        A=\frac{100}{105}=\frac{20}{21}
+        $$
+        と一致する。
+      注意: |
+        $MTBF=1/\lambda$ や $MTTR=1/\mu$ は指数分布を仮定した場合の関係である。一方、更新過程の長期可用度 $MTBF/(MTBF+MTTR)$ 自体は、適切な再生条件の下で平均時間を用いてより一般に成立する。可用度は「時点で動いている確率」であり、使命時間中ずっと無故障である信頼度とは異なる。
+
+  - id: engqc-ewma-update
+    note: EWMAの逐次更新と定常分散は同じ再帰式から連続して導けるため、公式暗記ではなく再帰式から分散を導く1枚へ統合する。
+    metadata:
+      title: EWMAを逐次更新し再帰式から定常分散まで導く
+      topic: ewma-canonical
+      type: strategy
+      difficulty: 3
+      priority: A
+      hashtags: [管理図, EWMA管理図, 小変化検出, 分散]
+    sections:
+      問題: |
+        独立な観測 $X_t$ の平均を $\mu$、分散を $\sigma^2$ とし、EWMA統計量を
+        $$
+        Z_t=\lambda X_t+(1-\lambda)Z_{t-1},\qquad0<\lambda\le1
+        $$
+        とする。
+        1. $Z_{t-1}=10,X_t=14,\lambda=0.25$ のとき $Z_t$ を求めよ。
+        2. 定常状態で $\operatorname{Var}(Z_t)=v$ と置き、$v=\sigma^2\lambda/(2-\lambda)$ を導け。
+        3. $\sigma^2=9,\lambda=0.2$ のとき定常分散を求めよ。
+      記号・用語: |
+        EWMAは指数加重移動平均（exponentially weighted moving average）であり、直近の観測と過去の平滑化統計量を重み付けして更新する。小さい $\lambda$ は過去を長く引きずるため、持続的な小変化を平滑に蓄積する。
+      使用公式・定理: |
+        更新式は
+        $$
+        Z_t=\lambda X_t+(1-\lambda)Z_{t-1}.
+        $$
+        $X_t$ と過去の $Z_{t-1}$ が独立で定常分散を $v$ とすると
+        $$
+        v=\lambda^2\sigma^2+(1-\lambda)^2v.
         $$
         よって
         $$
-        UCL\approx0.9243,
-        \qquad
-        LCL\approx0.0757.
+        v\{1-(1-\lambda)^2\}=\lambda^2\sigma^2,
         $$
+        $$
+        v=\sigma^2\frac{\lambda}{2-\lambda}.
+        $$
+      一手／方針: |
+        **更新計算と分散公式を別暗記しない。** まず重み付き再帰を使い、長期分散が問われたら同じ再帰式の両辺へ分散を取って定常条件 $\operatorname{Var}(Z_t)=\operatorname{Var}(Z_{t-1})$ を置く。
+      答え: |
+        1. 
+        $$
+        Z_t=0.25(14)+0.75(10)=11.
+        $$
+
+        2. 上の分散再帰を解いて
+        $$
+        \operatorname{Var}(Z_\infty)=\sigma^2\frac{\lambda}{2-\lambda}.
+        $$
+
+        3. 
+        $$
+        \operatorname{Var}(Z_\infty)
+        =9\frac{0.2}{1.8}=1.
+        $$
+        したがって定常標準偏差は1である。
       計算例: |
-        p管理図で $\overline p=0.05$ のとき、$n_i=100$ の群と $n_i=400$ の群では後者の標準誤差が前者の半分になる。したがって標本数が大きい群ほど管理限界は狭い。
-
-        同じ「傷の個数」でも、毎回同じ面積を検査するならc管理図、面積が変わるなら単位面積当たりへ直してu管理図を使う。
+        定常標準偏差が1で限界幅係数 $L=3$ なら、中心線からの定常限界幅は3である。$\lambda=1$ なら $Z_t=X_t$ となり、定常分散も $\sigma^2$ に戻る。
       注意: |
-        3シグマ限界は二項分布・ポアソン分布の正規近似に基づくため、期待度数が小さい場合は正確限界を検討する。負になった下方限界は0へ切り上げる。
+        初期時点では分散はまだ定常値に達しておらず、時変管理限界を用いる設計もある。$\lambda$ を小さくすると定常分散は小さくなるが、単純に「小さいほど常に良い」わけではなく、検出したいシフトの大きさとARLを考えて設計する。
 
-        標本数一定でも不適合品**率**を表示したければp管理図を使える。np管理図は不適合品**数**を直接表示したい場合に便利である。管理限界は工程データから得る統計的限界であり、顧客の規格限界とは別物である。
+  - id: engqc-xbar-r-chart-limits
+    note: Xbar-R管理図は平均図とR図を対で解釈するため、平均限界だけのカードへR図の限界と先にR図を確認する判断を統合する。
+    metadata:
+      title: Xbar-R管理図の平均とばらつきの限界を対で計算する
+      topic: xbar-r-chart-canonical
+      type: strategy
+      difficulty: 3
+      priority: S
+      hashtags: [管理図, Xbar管理図, R管理図, 工程平均, 工程分散]
+    sections:
+      問題: |
+        $\overline X$--$R$ 管理図について次を求めよ。
+        1. 工程平均 $\mu=10$、工程標準偏差 $\sigma=2$ が既知、群サイズ $n=4$ のとき、$\overline X$ 管理図の3シグマ限界を求めよ。
+        2. Phase Iデータから $\overline{\overline X}=20,\overline R=4$ を得た。群サイズ5で $A_2=0.577,D_3=0,D_4=2.114$ とする。$\overline X$ 管理図とR管理図の両方の限界を求めよ。
+        3. 実運用では平均図とR図のどちらを先に確認すべきか、その理由を述べよ。
+      記号・用語: |
+        $\overline{\overline X}$ は群平均の平均、$R_i=\max_jX_{ij}-\min_jX_{ij}$ は第 $i$ 群の範囲、$\overline R$ は範囲の平均である。$A_2,D_3,D_4$ は群サイズに応じた管理図定数である。
+      使用公式・定理: |
+        $\sigma$ 既知なら群平均の標準偏差は $\sigma/\sqrt n$ なので
+        $$
+        UCL_{\overline X}=\mu+3\frac{\sigma}{\sqrt n},\quad
+        CL_{\overline X}=\mu,\quad
+        LCL_{\overline X}=\mu-3\frac{\sigma}{\sqrt n}.
+        $$
+        $\sigma$ を範囲から推定する標準的な $\overline X$--$R$ 管理図では
+        $$
+        UCL_{\overline X}=\overline{\overline X}+A_2\overline R,
+        \quad CL_{\overline X}=\overline{\overline X},
+        \quad LCL_{\overline X}=\overline{\overline X}-A_2\overline R,
+        $$
+        $$
+        UCL_R=D_4\overline R,\quad CL_R=\overline R,\quad LCL_R=D_3\overline R.
+        $$
+      一手／方針: |
+        **Xbar-Rは2枚の管理図を1組として扱う。** Phase IではまずR図で群内ばらつきが安定していることを確認し、その後にそのばらつき推定を使う平均図を解釈する。
+      答え: |
+        1. 
+        $$
+        3\frac{\sigma}{\sqrt n}=3\frac2{2}=3
+        $$
+        なので
+        $$
+        UCL=13,\quad CL=10,\quad LCL=7.
+        $$
+
+        2. 平均図は
+        $$
+        A_2\overline R=0.577\times4=2.308
+        $$
+        より
+        $$
+        UCL_{\overline X}=22.308,\quad CL_{\overline X}=20,\quad LCL_{\overline X}=17.692.
+        $$
+        R図は
+        $$
+        UCL_R=2.114\times4=8.456,\quad CL_R=4,\quad LCL_R=0.
+        $$
+
+        3. R図を先に確認する。群内ばらつきが特殊原因で不安定なら、$\overline R$ を使った平均図の限界自体が安定な工程分散を表さず、平均図の判定も信用しにくいからである。
+      計算例: |
+        $D_3=0$ の群サイズではR図の下方管理限界は0になる。これは範囲が負になれないこととも整合する。
+      注意: |
+        個々の観測値の標準偏差 $\sigma$ と群平均の標準偏差 $\sigma/\sqrt n$ を混同しない。群サイズが大きい場合や標準偏差 $S$ を使う設計では $\overline X$--$S$ 管理図を使うことがあり、その定数は別である。
