@@ -26,54 +26,200 @@ $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ の平均の推定量 $\wideh
 
 ---
 id: est-unbiasedness
-title: 不偏性の定義
+title: 不偏性を定義しバイアス補正で不偏推定量を構成する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: unbiasedness
+topic: unbiasedness-canonical
 type: condition
 difficulty: 1
 priority: S
-hashtags: [不偏性, バイアス, 推定量]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 不偏性 }]
+hashtags:
+  - 不偏推定量
+  - バイアス
+  - 標本分散
+  - 推定量
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 不偏性
 ---
 ## 問題
-推定量 $T$ が $\theta$ の不偏推定量であるとは何か。バイアスも定義せよ。
+母数 $\theta$ の推定量 $T$ が不偏であるとは何を意味するか。
+
+さらに正規分布に限らず、独立同分布標本 $X_1,\ldots,X_n$ が分散 $\sigma^2$ を持つとする。
+$$
+Q=\sum_{i=1}^n(X_i-\bar X)^2
+$$
+について $E[Q]=(n-1)\sigma^2$ を用い、$\sigma^2$ の不偏推定量を構成せよ。
+
 ## 答え
-全ての $\theta$ について $E_\theta[T]=\theta$ となるとき不偏という。バイアスは $B_\theta(T)=E_\theta[T]-\theta$。
+不偏性は
+$$
+E_\theta[T]=g(\theta)
+$$
+である。
+
+$E[Q]=(n-1)\sigma^2$ なので
+$$
+S^2=\frac{Q}{n-1}
+=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
+$$
+とすれば
+$$
+E[S^2]=\sigma^2.
+$$
+
 ## 使用公式・定理
-$$\operatorname{Bias}_\theta(T)=E_\theta[T]-\theta,\qquad T\text{ 不偏}\iff \operatorname{Bias}_\theta(T)=0\;\forall\theta.$$
+推定量 $T$ が $g(\theta)$ の不偏推定量であるとは、すべての許される $\theta$ について
+$$
+E_\theta[T]=g(\theta)
+$$
+が成り立つことをいう。バイアスは
+$$
+\operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta).
+$$
+
+既知の期待値が定数倍だけずれているなら、その倍率を補正すれば不偏化できる。
+
 ## 計算例
-$X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ では $E[\overline X]=\mu$ より不偏。不偏標本分散 $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$ は $E[S^2]=\sigma^2$ で不偏。
+分母を $n$ とした
+$$
+\widetilde\sigma^2=\frac Qn
+$$
+では
+$$
+\begin{aligned}
+E[\widetilde\sigma^2]
+&=\frac1nE[Q]\\
+&=\frac{n-1}{n}\sigma^2,
+\end{aligned}
+$$
+なので有限標本では下方バイアスがある。
+
+そこで
+$$
+S^2=\frac n{n-1}\widetilde\sigma^2
+$$
+と補正すれば
+$$
+E[S^2]
+=\frac n{n-1}\frac{n-1}{n}\sigma^2
+=\sigma^2.
+$$
+例えば $n=5$ なら、分母5の推定量の期待値は $0.8\sigma^2$ であり、$5/4$ 倍すると不偏になる。
+
 ## 一手
-「期待値を取ると母数に一致する」こと。不偏性は全ての $\theta$ で要求される。
+**まず推定量の期待値を計算し、推定対象との差を確認する。** 定数倍のずれなら逆数を掛けて補正する。
+
+## 注意
+不偏性は有限標本での期待値に関する性質であり、一致性とは別である。不偏推定量が常に平均二乗誤差MSE最小とは限らず、有偏でも分散が十分小さければMSEが小さくなる場合がある。
 
 <!-- CARD -->
 
 ---
 id: est-consistency
-title: 一致性の定義
+title: 一致性を定義し有偏推定量でも一致しうることを確認する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: consistency
+topic: consistency-canonical
 type: condition
 difficulty: 2
 priority: S
-hashtags: [一致性, 確率収束, 標本サイズ]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一致性 }]
+hashtags:
+  - 一致推定量
+  - 確率収束
+  - バイアス
+  - 分散
+  - 標本分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一致性
 ---
 ## 問題
-推定量列 $T_n$（標本サイズ $n$ の関数）が $\theta$ の一致推定量であるとはどういう意味か。
+推定量列 $T_n$ が母数 $\theta$ の一致推定量であるとは何を意味するか。
+
+また独立同分布標本で
+$$
+\widetilde\sigma_n^2
+=\frac1n\sum_{i=1}^n(X_i-\bar X)^2
+$$
+は有限標本では $\sigma^2$ の不偏推定量ではない。このことだけから一致性を否定できるか。バイアスを調べて答えよ。
+
 ## 答え
-$n\to\infty$ のとき $T_n$ が $\theta$ へ確率収束すること：
-$$T_n\xrightarrow{p}\theta,\quad\text{すなわち}\; \forall\epsilon>0,\;\lim_{n\to\infty}P_\theta(|T_n-\theta|\ge\epsilon)=0.$$
+一致性は
+$$
+T_n\xrightarrow{p}\theta
+$$
+である。
+
+分母 $n$ の標本分散は
+$$
+E[\widetilde\sigma_n^2]
+=\frac{n-1}{n}\sigma^2,
+$$
+したがってバイアスは
+$$
+-\frac{\sigma^2}{n}\to0.
+$$
+よって有限標本で有偏であることは、一致性を否定する理由にならない。
+
 ## 使用公式・定理
-十分条件：$\lim_n E[T_n]=\theta$ かつ $\lim_n\operatorname{Var}(T_n)=0$（平均二乗一致性）。
+一致性は、任意の $\varepsilon>0$ に対して
+$$
+P_\theta(|T_n-\theta|>\varepsilon)\to0
+$$
+すなわち
+$$
+T_n\xrightarrow{p}\theta
+$$
+と定義する。
+
+十分な条件の一つは
+$$
+E[T_n]\to\theta,
+\qquad
+\operatorname{Var}(T_n)\to0.
+$$
+このときChebyshevの不等式などから確率収束を示せる。
+
 ## 計算例
-$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ で $T_n=\overline X$ は $E[\overline X]=\mu$、$\operatorname{Var}(\overline X)=\sigma^2/n\to0$ より一致。母分散の最尤推定量 $n^{-1}\sum(X_i-\overline X)^2$ はバイアスがあるが $n\to\infty$ で $\sigma^2$ に一致。
+$n=5$ では
+$$
+E[\widetilde\sigma_5^2]=0.8\sigma^2
+$$
+でかなりずれているが、$n=100$ なら
+$$
+E[\widetilde\sigma_{100}^2]=0.99\sigma^2.
+$$
+バイアスの絶対値は
+$$
+\frac{\sigma^2}{n}
+$$
+なので0へ収束する。
+
+さらに有限4次モーメントなど通常の条件の下では標本第2モーメントと標本平均が大数の法則で収束するため
+$$
+\widetilde\sigma_n^2
+=\frac1n\sum_iX_i^2-\bar X^2
+\xrightarrow{p}
+E[X^2]-\{E[X]\}^2
+=\sigma^2.
+$$
+
 ## 一手
-不偏性は有限標本、一致性は $n\to\infty$ の性質。バイアスが消えなくても分散が0へ向かえば一致しうる。
+**有限標本の不偏性ではなく、$n\to\infty$ でバイアスとばらつきが消えるかを見る。** 「有偏だから不一致」は誤り。
+
+## 注意
+不偏性は各 $n$ での期待値、一致性は $n\to\infty$ の確率収束である。不偏でも分散が消えなければ一致しないことがあり、有偏でもバイアスとばらつきが消えれば一致する。
 
 <!-- CARD -->
 
