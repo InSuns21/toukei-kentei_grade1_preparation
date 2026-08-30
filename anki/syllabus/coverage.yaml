@@ -1872,7 +1872,7 @@ items:
       - glm-poisson-mean-ratio
       - mv-mean-covariance-numeric
       - mv-covariance-linear-transform
-      - mv-mahalanobis-distance
+      - engmv-mahalanobis-control-limit
       - mv-hotelling-one-sample
       - mv-pca-variance-max
       - mv-factor-model-covariance
@@ -2049,13 +2049,13 @@ items:
     cards:
       - multi-linear-combination
       - multi-covariance-psd
-      - engmv-correlation-from-covariance
+      - mv-covariance-linear-transform
       - engmv-mahalanobis-control-limit
       - engmv-normal-uncorrelated-independent
       - engmv-normal-mean-cov-independence
       - engmv-hotelling-two-sample
-      - engmv-spectral-reconstruction
-      - engmv-silhouette-coefficient
+      - mv-pca-variance-max
+      - mv-hierarchical-linkage
       - engmv-canonical-eigenvalue
     terms:
       - name: 多変量正規分布
@@ -2076,16 +2076,16 @@ items:
         status: card
         cards:
           - multi-covariance-psd
-          - engmv-correlation-from-covariance
+          - mv-covariance-linear-transform
           - engmv-normal-mean-cov-independence
       - name: 相関行列
         status: card
         cards:
-          - engmv-correlation-from-covariance
+          - mv-covariance-linear-transform
       - name: 固有値・固有ベクトル
         status: card
         cards:
-          - engmv-spectral-reconstruction
+          - mv-pca-variance-max
           - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes
     status: complete

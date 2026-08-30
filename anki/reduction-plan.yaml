@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-cross-category-reduction-164c
+batch_id: 2026-08-31-multivariate-cross-category-reduction-164d
 items:
   - id: engmv-correlation-from-covariance
     bucket: duplicates

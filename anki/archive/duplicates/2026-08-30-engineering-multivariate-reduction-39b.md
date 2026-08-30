@@ -147,7 +147,7 @@ sources:
   - type: official_syllabus
     topic: 分散共分散行列
 archive_reason: duplicate
-canonical_card: engmv-correlation-from-covariance
+canonical_card: mv-covariance-linear-transform
 archive_note: 共分散から相関への標準化と正の単位変換で倍率が相殺される数値例を同一canonicalへ統合済み。
 ---
 ## 問題
