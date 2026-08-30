@@ -2018,33 +2018,27 @@ items:
       - ts-sample-acf
       - ts-simple-exponential-smoothing
       - ts-spectral-density-ar1
-      - ts-software-arima-coefficients
       - ts-software-residual-diagnostics
       - ts-ar-causality-check
-      - ts-linear-detrend
       - ts-kalman-update
       - ts-weak-vs-strong-stationarity
       - ts-ar1-acf
       - ts-ar1-hstep-forecast
-      - ts-yule-walker-ar2
       - ts-maq-acf-cutoff
     terms:
       - name: ARIMAモデル
         status: card
         cards:
           - ts-arima-definition
-          - ts-linear-detrend
           - ts-weak-vs-strong-stationarity
           - ts-ar1-acf
           - ts-ar1-hstep-forecast
           - ts-ar-causality-check
-          - ts-yule-walker-ar2
-          - ts-maq-acf-cutoff
           - ts-acf-pacf-identification
+          - ts-maq-acf-cutoff
           - ts-sample-acf
           - ts-simple-exponential-smoothing
           - ts-spectral-density-ar1
-          - ts-software-arima-coefficients
           - ts-software-residual-diagnostics
       - name: 状態空間モデル
         status: card
