@@ -1,7 +1,7 @@
 id: "E2-05"
 title: "状態空間モデル"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - E2-03
   - E1-01
