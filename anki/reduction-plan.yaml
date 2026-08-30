@@ -1,14 +1,26 @@
 schema_version: 1
-batch_id: 2026-08-30-method-of-moments-reduction-45
+batch_id: 2026-08-30-oneway-anova-reduction-46
 items:
-  - id: est-moments-uniform
+  - id: anova-oneway-model-assumptions
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-method-of-moments
-    note: 一様分布U(0,theta)のモーメント法推定を、一般手順・最尤推定との違い・数値例を含む正本へ統合済み。
+    canonical_card: anova-oneway-f-statistic
+    note: 固定効果モデル、識別制約、独立・正規・等分散の仮定を一元配置の正本へ統合済み。
 
-  - id: est-moments-uniform-two-endpoints
+  - id: anova-oneway-ss-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-method-of-moments
-    note: 一様分布U(a,b)の2母数モーメント方程式と端点推定を、第1・第2標本モーメントから逐次導出する正本へ統合済み。
+    canonical_card: anova-oneway-f-statistic
+    note: 全平方和・群間平方和・誤差平方和の定義と数値計算、加法分解を正本へ統合済み。
+
+  - id: anova-oneway-degrees-freedom
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: anova-oneway-f-statistic
+    note: 全体・群間・誤差の自由度と加法分解を正本へ統合済み。
+
+  - id: anova-oneway-table-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: anova-oneway-f-statistic
+    note: 平均平方、F統計量、分散分析表、臨界値による判定を同じ正本の実数例へ統合済み。
