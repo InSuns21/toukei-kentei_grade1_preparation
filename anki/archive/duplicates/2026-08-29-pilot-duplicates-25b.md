@@ -97,7 +97,7 @@ sources:
   - type: official_syllabus
     topic: フィッシャー情報量（1次元）
 archive_reason: duplicate
-canonical_card: est-fisher-bernoulli-example
+canonical_card: est-fisher-information-def
 coverage_card: asym-mle-poisson-tail-probability
 archive_note: Bernoulli 1観測の対数尤度を2回微分して I_1(p)=1/[p(1-p)]
   を得る同一計算。後発canonicalの方を残す。漸近推定subcategoryのフィッシャー情報量coverageは、実際に I_1(λ)
@@ -146,7 +146,7 @@ sources:
   - type: official_syllabus
     topic: クラーメル・ラオの不等式
 archive_reason: duplicate
-canonical_card: est-crlb-bernoulli-square
+canonical_card: est-cramer-rao-lower-bound
 archive_note: g(p)=p に対するCRLBは、母数関数 g(p) の一般形を扱うcanonicalで g'(p)=1
   と置いた特殊例。Bernoulli Fisher情報量の再導出も重複する。
 ---

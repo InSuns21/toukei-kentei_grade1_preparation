@@ -746,10 +746,9 @@ items:
       - est-unbiasedness
       - est-consistency
       - est-consistency-bias
-      - est-mse-definition
       - est-bias-variance-tradeoff
       - est-bias-variance-comparison
-      - est-relative-efficiency
+      - est-estimator-comparison
       - est-unbiased-construction
       - est-transform-bias
       - est-shape-parameter-transform
@@ -759,12 +758,7 @@ items:
       - est-umvu-idea
       - est-loss-risk
       - est-posterior-risk
-      - est-estimator-comparison
-      - est-score-mean-zero
       - est-fisher-information-def
-      - est-fisher-two-forms
-      - est-fisher-additivity
-      - est-fisher-bernoulli-example
       - est-cramer-rao-lower-bound
       - est-crlb-equality
       - est-efficient-estimator
@@ -773,7 +767,6 @@ items:
       - est-asymptotic-normality-mle
       - est-fisher-param-transform
       - est-information-matrix
-      - est-normal-information-matrix
       - est-information-inequality-summary
       - mathstat-inverse-variance-weighting
       - est-rao-blackwell-bernoulli
@@ -801,14 +794,14 @@ items:
       - name: 有効性
         status: card
         cards:
-          - est-relative-efficiency
+          - est-estimator-comparison
           - est-efficient-estimator
           - est-asymptotic-efficiency
           - est-information-inequality-summary
       - name: 推定量の相対効率
         status: card
         cards:
-          - est-relative-efficiency
+          - est-estimator-comparison
   - id: math-model-selection
     status: complete
     cards:
@@ -842,9 +835,8 @@ items:
     status: complete
     cards:
       - asym-mle-poisson-tail-probability
-      - est-crlb-bernoulli-square
+      - asym-asymptotic-relative-efficiency
       - est-delta-log
-      - est-crlb-poisson-mean-efficiency
       - asym-convergence-probability
       - asym-convergence-almost-sure
       - asym-convergence-distribution
@@ -860,7 +852,6 @@ items:
       - asym-mle-consistency
       - asym-mle-asymptotic-normality
       - asym-asymptotic-variance-se
-      - asym-asymptotic-relative-efficiency
       - asym-order-notation
       - asym-prob-conv-chebyshev
       - asym-as-conv-prob
@@ -888,8 +879,7 @@ items:
       - name: クラーメル・ラオの不等式
         status: card
         cards:
-          - est-crlb-bernoulli-square
-          - est-crlb-poisson-mean-efficiency
+          - asym-asymptotic-relative-efficiency
       - name: フィッシャー情報量（1次元）
         status: card
         cards:
