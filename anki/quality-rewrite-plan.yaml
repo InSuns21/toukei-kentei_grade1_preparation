@@ -1,173 +1,136 @@
 schema_version: 1
-batch_id: 2026-08-30-regression-f-tests-merge-prep-49
+batch_id: 2026-08-30-regression-leverage-merge-prep-50
 items:
-  - id: reg-overall-f-test
-    note: 重回帰の全体F検定を平方和表示と決定係数表示の同じ統計量として統合し、数値判定まで一枚で通す。
+  - id: reg-hat-matrix-properties
+    note: ハット行列の射影性、レバレッジ、残差分散、標準化残差を同じH行列から導く一枚の診断正本へ統合する。
     metadata:
-      title: 重回帰の全体F検定を平方和と決定係数の両方から計算する
-      topic: overall-f-canonical
-      hashtags: [重回帰, 全体F検定, 決定係数, 平方和, 分散分析]
+      title: ハット行列からレバレッジ・残差分散・標準化残差まで導く
+      topic: regression-leverage-diagnostics-canonical
+      hashtags: [回帰診断, ハット行列, レバレッジ, 残差分散, 標準化残差]
     sections:
       問題: |
-        切片と $p$ 個の説明変数を持つ重回帰を考える。標本サイズを $n$ とし、計画行列は列フルランク、誤差は独立な正規分布に従い共通分散 $\sigma^2$ を持つとする。
-
-        1. 帰無仮説
+        列フルランクの線形回帰
         $$
-        H_0:\beta_1=\cdots=\beta_p=0
-        $$
-        を検定する全体F統計量を、回帰平方和 $SSR$ と残差平方和 $SSE$ で書け。
-        2. 同じ統計量を決定係数 $R^2$ だけで表せ。
-        3. $n=30,p=3,R^2=0.40$、5%上側臨界値を2.98として判定せよ。
-      使用公式・定理: |
-        切片を含む通常の回帰では
-        $$
-        SST=SSR+SSE,
+        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon,
         \qquad
-        R^2=\frac{SSR}{SST},
+        E[\boldsymbol\varepsilon]=\mathbf0,
         \qquad
-        1-R^2=\frac{SSE}{SST}.
+        \operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I
         $$
-        全体F統計量は
-        $$
-        F=\frac{SSR/p}{SSE/(n-p-1)}.
-        $$
-        帰無仮説の下で
-        $$
-        F\sim F_{p,n-p-1}.
-        $$
-        分子・分母をともに $SST$ で割れば
-        $$
-        F
-        =\frac{R^2/p}{(1-R^2)/(n-p-1)}.
-        $$
-      一手: |
-        **平方和のF式をまず書き、$SSR/SST=R^2$ と $SSE/SST=1-R^2$ を代入する。** 「決定係数から求めるF」は別公式ではなく同じ全体F検定の書き換えである。
-      答え: |
-        $n=30,p=3,R^2=0.40$ なので
-        $$
-        F
-        =\frac{0.40/3}{0.60/(30-3-1)}
-        =\frac{0.40/3}{0.60/26}.
-        $$
-        分子は
-        $$
-        \frac{0.40}{3}\approx0.13333,
-        $$
-        分母は
-        $$
-        \frac{0.60}{26}\approx0.02308,
-        $$
-        よって
-        $$
-        F\approx5.78.
-        $$
-        $5.78>2.98$ なので5%水準で $H_0$ を棄却し、説明変数全体として有意な線形関係があると判断する。
-      計算例: |
-        同じモデルで $SST=200$ とすると
-        $$
-        SSR=R^2SST=0.40\times200=80,
-        $$
-        $$
-        SSE=(1-R^2)SST=0.60\times200=120.
-        $$
-        平方和表示から計算しても
-        $$
-        F
-        =\frac{80/3}{120/26}
-        =\frac{26.666\ldots}{4.615\ldots}
-        \approx5.78,
-        $$
-        と一致する。
-      注意: |
-        全体F検定で棄却しても、全ての個別係数が有意とは限らない。少なくとも1つの傾き係数が0でないことを示す検定である。また統計的有意性は因果関係を意味しない。正確なF分布による有限標本検定には、固定された列フルランクの計画行列と独立・正規・等分散誤差を仮定する。
+        を考える。切片を含み、$X$ の列数を $k$ とする。
 
-  - id: reg-partial-f-test
-    note: 入れ子回帰の部分F検定について一般式、数値判定、1係数追加時のF=t二乗を一枚へ統合する。
-    metadata:
-      title: 入れ子回帰の部分F検定を数値計算し1係数ならt二乗へつなぐ
-      topic: partial-f-canonical
-      hashtags: [重回帰, 部分F検定, 入れ子モデル, t検定, 平方和]
-    sections:
-      問題: |
-        固定された列フルランクの計画行列の下で、誤差が独立な正規分布に従い共通分散を持つ重回帰を考える。説明変数を除いた縮小モデルをR、追加後の完全モデルをFとする。
-
-        1. 標本サイズを $n$、完全モデルの切片以外の説明変数数を $p_F$、追加係数数を $q$、両モデルの残差平方和を $SSE_R,SSE_F$ として部分F統計量を書け。
-        2. $n=30,p_F=4,q=2,SSE_R=100,SSE_F=70$、5%上側臨界値を3.39として判定せよ。
-        3. $q=1$ のとき、同じ1係数を検定するt統計量との間に $F=t^2$ が成り立つことを示せ。
+        1. ハット行列 $H$ を定義し、対称性・冪等性を示せ。
+        2. 対角要素 $h_{ii}$ がレバレッジであること、$\sum_i h_{ii}=k$ であることを示せ。
+        3. 残差 $\mathbf e$ の共分散行列と $\operatorname{Var}(e_i)$ を求め、標準化残差を書け。
+        4. $X=\begin{pmatrix}1&-1\\1&0\\1&1\end{pmatrix}$ で $H$ と各レバレッジを計算せよ。さらに残差が $(1,-2,1)^\mathsf T$、残差標準偏差が $s=2$ のとき標準化残差を求めよ。
       使用公式・定理: |
-        入れ子モデルでは、完全モデルは縮小モデルを特殊例として含むため
+        最小二乗法の当てはめ値は
         $$
-        SSE_R\ge SSE_F.
+        \widehat{\mathbf y}=X\widehat{\boldsymbol\beta}
+        =X(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y
+        =H\mathbf y,
         $$
-        追加した $q$ 個の係数が全て0という帰無仮説の下で
+        したがって
         $$
-        F
-        =\frac{(SSE_R-SSE_F)/q}{SSE_F/(n-p_F-1)}
-        \sim F_{q,n-p_F-1}.
+        H=X(X^\mathsf TX)^{-1}X^\mathsf T.
         $$
-        完全モデルの残差平均平方を
+        $X^\mathsf TX$ は対称なので
         $$
-        MSE_F=\frac{SSE_F}{n-p_F-1}
-        $$
-        と書けば、分子は「追加した $q$ 個の係数による残差平方和の減少を1自由度当たりに直した量」である。
-
-        $q=1$ で係数 $\beta_j$ だけを追加する場合、同じ帰無仮説 $H_0:\beta_j=0$ に対するt統計量は
-        $$
-        t=\frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}.
-        $$
-        1自由度の追加平方和は
-        $$
-        SSE_R-SSE_F
-        =\frac{\widehat\beta_j^2}{\{(X^\mathsf TX)^{-1}\}_{jj}},
+        H^\mathsf T=H,
         $$
         また
         $$
-        \operatorname{SE}(\widehat\beta_j)^2
-        =MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}.
+        H^2
+        =X(X^\mathsf TX)^{-1}X^\mathsf TX(X^\mathsf TX)^{-1}X^\mathsf T
+        =H.
         $$
+        よって $H$ は $\operatorname{col}(X)$ への直交射影行列である。
+
+        残差は
+        $$
+        \mathbf e=\mathbf y-\widehat{\mathbf y}=(I-H)\mathbf y.
+        $$
+        $I-H$ も対称かつ冪等なので
+        $$
+        \operatorname{Var}(\mathbf e)
+        =\sigma^2(I-H).
+        $$
+        したがって
+        $$
+        \operatorname{Var}(e_i)=\sigma^2(1-h_{ii}).
+        $$
+        $\sigma$ を残差標準偏差 $s$ で置き換えた標準化残差を
+        $$
+        r_i=\frac{e_i}{s\sqrt{1-h_{ii}}}
+        $$
+        とする。
       一手: |
-        **縮小モデルと完全モデルの残差平方和の差を、追加した自由度 $q$ で割って完全モデルの残差平均平方と比べる。** $q=1$ ならその比は同じ係数のt統計量の二乗になる。
+        **回帰診断の出発点を全部 $H$ に戻す。** 当てはめは $H\mathbf y$、残差は $(I-H)\mathbf y$、レバレッジは $h_{ii}$、残差分散は $1-h_{ii}$ で決まる。
       答え: |
-        数値例では分母自由度は
+        ハット行列は対称・冪等で、その固有値は0または1である。列フルランクなら
         $$
-        n-p_F-1=30-4-1=25.
+        \operatorname{rank}(H)=k.
         $$
-        残差平方和の減少は
+        対称冪等行列ではトレースはランクに等しいので
         $$
-        SSE_R-SSE_F=100-70=30,
+        \sum_{i=1}^n h_{ii}=\operatorname{tr}(H)=k.
         $$
-        その1自由度当たりは
+        よって平均レバレッジは
         $$
-        \frac{30}{2}=15.
+        \frac1n\sum_i h_{ii}=\frac{k}{n}.
         $$
-        完全モデルの残差平均平方は
+
+        数値例では
         $$
-        \frac{70}{25}=2.8.
+        X^\mathsf TX=\begin{pmatrix}3&0\\0&2\end{pmatrix},
+        \qquad
+        (X^\mathsf TX)^{-1}=\begin{pmatrix}1/3&0\\0&1/2\end{pmatrix}.
+        $$
+        したがって
+        $$
+        H=
+        \begin{pmatrix}
+        5/6&1/3&-1/6\\
+        1/3&1/3&1/3\\
+        -1/6&1/3&5/6
+        \end{pmatrix}.
+        $$
+        レバレッジは
+        $$
+        (h_{11},h_{22},h_{33})=\left(\frac56,\frac13,\frac56\right),
+        $$
+        その和は
+        $$
+        \frac56+\frac13+\frac56=2=k
+        $$
+        である。
+      計算例: |
+        残差 $(1,-2,1)^\mathsf T$、$s=2$ なら、1番目と3番目では
+        $$
+        s\sqrt{1-h_{ii}}
+        =2\sqrt{1-\frac56}
+        =2\sqrt{\frac16}
+        \approx0.8165,
         $$
         よって
         $$
-        F=\frac{15}{2.8}\approx5.36.
+        r_1=r_3\approx\frac1{0.8165}\approx1.225.
         $$
-        $5.36>3.39$ なので、追加した2係数がともに0という帰無仮説を5%水準で棄却する。
+        2番目では
+        $$
+        s\sqrt{1-h_{22}}
+        =2\sqrt{\frac23}
+        \approx1.633,
+        $$
+        したがって
+        $$
+        r_2\approx\frac{-2}{1.633}\approx-1.225.
+        $$
 
-        $q=1$ なら
+        生の残差は $(1,-2,1)$ と大きさが違うが、レバレッジによる分散差を補正すると絶対値は同程度になる。高レバレッジ点では
         $$
-        F
-        =\frac{SSE_R-SSE_F}{MSE_F}
-        =\frac{\widehat\beta_j^2}
-        {MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}}
-        =\left(
-        \frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}
-        \right)^2
-        =t^2.
+        \operatorname{Var}(e_i)=\sigma^2(1-h_{ii})
         $$
-      計算例: |
-        1係数の検定で $t=2.50$ なら
-        $$
-        F=t^2=2.50^2=6.25.
-        $$
-        したがって両側t検定と、分子自由度1の部分F検定は同じ帰無仮説に対して同じ棄却判断を与える。
-
-        一方、先の $q=2$ の例では $F\approx5.36$ は2係数の**同時検定**であり、どちらの係数が重要なのかをこの値だけから特定することはできない。
+        が小さくなるため、生の残差だけを横並び比較しない。
       注意: |
-        縮小モデルと完全モデルが入れ子でない場合、この残差平方和差による部分F検定は使えない。$q>1$ の部分F検定は係数群の共同有意性を調べるものであり、個々の係数の有意性とは別である。$F=t^2$ がそのまま成り立つのは同じ1係数・同じ誤差分散推定に対する検定である。
+        高レバレッジとは説明変数空間で特殊な位置にあることを意味し、それだけで影響点とは限らない。影響度は残差の大きさも合わせてCookの距離などで確認する。ここでの $r_i=e_i/(s\sqrt{1-h_{ii}})$ は通常の内部標準化残差であり、観測 $i$ を除いて分散を再推定する外部スチューデント化残差とは区別する。
