@@ -1177,7 +1177,6 @@ items:
   - id: math-anova
     status: complete
     cards:
-      - data-anova-decomposition
       - anova-oneway-f-statistic
       - anova-expected-mean-squares
       - anova-contrast-definition
@@ -1197,7 +1196,6 @@ items:
       - name: 一元配置分散分析
         status: card
         cards:
-          - data-anova-decomposition
           - anova-oneway-f-statistic
           - anova-expected-mean-squares
           - anova-contrast-definition
@@ -1491,7 +1489,7 @@ items:
   - id: math-simulation
     status: complete
     cards:
-      - data-bootstrap-mean
+      - boot-empirical-distribution
       - sim-mc-standard-error
       - sim-uniform-prng-definition
       - sim-inverse-transform-continuous
@@ -1514,14 +1512,10 @@ items:
       - sim-mcmc-convergence-conditions
       - sim-burnin-thinning
       - sim-ess-mcse
-      - boot-empirical-distribution
       - boot-bias-estimate
-      - boot-bias-corrected-estimator
       - boot-percentile-ci
-      - boot-basic-ci
       - boot-parametric-nonparametric
       - jackknife-leave-one-out
-      - jackknife-standard-error
       - jackknife-bias
       - perm-test-principle
       - perm-test-numeric
@@ -1564,15 +1558,11 @@ items:
       - name: ブートストラップ
         status: card
         cards:
-          - data-bootstrap-mean
           - boot-empirical-distribution
           - boot-bias-estimate
-          - boot-bias-corrected-estimator
           - boot-percentile-ci
-          - boot-basic-ci
           - boot-parametric-nonparametric
           - jackknife-leave-one-out
-          - jackknife-standard-error
           - jackknife-bias
           - perm-test-principle
           - perm-test-numeric
@@ -2115,7 +2105,6 @@ items:
     cards:
       - multi-linear-combination
       - multi-covariance-psd
-      - multi-pca-eigen
       - engmv-correlation-from-covariance
       - engmv-mahalanobis-control-limit
       - engmv-normal-uncorrelated-independent
@@ -2152,13 +2141,11 @@ items:
       - name: 固有値・固有ベクトル
         status: card
         cards:
-          - multi-pca-eigen
           - engmv-spectral-reconstruction
           - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes
     status: complete
     cards:
-      - process-ar1-stationary
       - engproc-ma1-autocovariance-numeric
       - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
@@ -2242,7 +2229,6 @@ items:
       - name: 自己回帰過程
         status: card
         cards:
-          - process-ar1-stationary
           - engproc-ar1-correlation-half-life
           - engproc-yule-walker-estimate-ar1
           - engproc-arma11-one-step-forecast

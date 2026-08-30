@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 自己回帰過程
 archive_reason: duplicate
-canonical_card: process-ar1-stationary
+canonical_card: ts-ar1-acf
 archive_note: 同じAR(1)定常分散。canonical側は定常方程式 gamma(0)=phi^2 gamma(0)+sigma_e^2
   を実際に解くため、公式代入だけの理工派生より解法カードとして強い。engineering-stochastic-processes
   の自己回帰過程coverageは他の同一subcategoryカードで維持する。
