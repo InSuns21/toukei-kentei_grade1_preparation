@@ -1,14 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-anova-interaction-reduction-53
+batch_id: 2026-08-30-anova-ancova-reduction-54
 items:
-  - id: anova-interaction-contrast-test
+  - id: anova-ancova-adjusted-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-interaction-definition
-    note: 2×2交互作用の差の差、標準誤差、t/F検定を一続きに扱う正本へ統合済み。
+    canonical_card: anova-ancova-model
+    note: 共通傾きモデルの確認後に調整平均を計算する数値例を、ANCOVAの正本へ統合済み。
 
-  - id: anova-interaction-interpretation
+  - id: anova-ancova-parallel-slopes
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-interaction-definition
-    note: 交互作用が有意な場合に単純主効果を確認する解釈まで、差の差の定義・検定を含む正本へ統合済み。
+    canonical_card: anova-ancova-model
+    note: 群×共変量交互作用を追加した完全モデルとの部分F検定による平行回帰確認を、ANCOVAの正本へ統合済み。
