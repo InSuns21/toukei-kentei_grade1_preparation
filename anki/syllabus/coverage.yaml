@@ -1998,11 +1998,7 @@ items:
       - glm-three-components
       - glm-exponential-family
       - glm-canonical-links
-      - glm-logistic-probability
-      - glm-logistic-odds-ratio
-      - glm-binomial-loglikelihood
       - glm-logistic-score
-      - glm-irls-update
       - glm-poisson-offset
       - glm-deviance-definition
       - glm-pearson-chi-square
@@ -2037,11 +2033,7 @@ items:
         status: card
         cards:
           - model-logistic-odds
-          - glm-logistic-probability
-          - glm-logistic-odds-ratio
-          - glm-binomial-loglikelihood
           - glm-logistic-score
-          - glm-irls-update
           - glm-categorical-interaction
           - glm-logistic-marginal-effect
       - name: プロビット分析
@@ -2059,9 +2051,7 @@ items:
           - glm-three-components
           - glm-exponential-family
           - glm-canonical-links
-          - glm-binomial-loglikelihood
           - glm-logistic-score
-          - glm-irls-update
           - glm-poisson-offset
           - glm-deviance-definition
           - glm-pearson-chi-square

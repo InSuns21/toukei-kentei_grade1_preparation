@@ -7,11 +7,20 @@ topic: logistic-regression
 type: recognition
 difficulty: 2
 priority: A
-hashtags: [一般化線形モデル, ロジスティック回帰, オッズ比]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
+hashtags:
+  - 一般化線形モデル
+  - ロジスティック回帰
+  - オッズ比
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一般化線形モデル
 archive_reason: duplicate
-canonical_card: glm-logistic-odds-ratio
+canonical_card: glm-logistic-score
 ---
 ## 問題
 $\log\{p(x)/(1-p(x))\}=\beta_0+0.7x$ のとき、$x$ が1増えた際のオッズ比を求めよ。
@@ -25,6 +34,7 @@ $$\exp\{(\beta_0+0.7(x+1))-(\beta_0+0.7x)\}=e^{0.7}\approx2.01.$$
 確率そのものが常に約2倍になるわけではない。
 
 <!-- CARD -->
+
 ---
 id: model-contrast
 title: 線形対比の係数条件を確認する
@@ -34,9 +44,18 @@ topic: linear-contrast
 type: condition
 difficulty: 2
 priority: S
-hashtags: [線形対比, 制約, 分散分析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形対比と制約 }]
+hashtags:
+  - 線形対比
+  - 制約
+  - 分散分析
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形対比と制約
 archive_reason: duplicate
 canonical_card: enginf-contrast-estimate-se
 ---
