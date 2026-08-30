@@ -745,11 +745,9 @@ items:
       - est-estimator-estimate-parameter
       - est-unbiasedness
       - est-consistency
-      - est-consistency-bias
       - est-bias-variance-tradeoff
       - est-bias-variance-comparison
       - est-estimator-comparison
-      - est-unbiased-construction
       - est-transform-bias
       - est-shape-parameter-transform
       - est-rao-blackwell
@@ -774,13 +772,11 @@ items:
         status: card
         cards:
           - est-unbiasedness
-          - est-unbiased-construction
-          - est-consistency-bias
+          - est-consistency
       - name: 一致性
         status: card
         cards:
           - est-consistency
-          - est-consistency-bias
       - name: 十分性
         status: card
         cards:
