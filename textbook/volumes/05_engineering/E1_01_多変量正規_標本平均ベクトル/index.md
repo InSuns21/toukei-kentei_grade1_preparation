@@ -1308,7 +1308,7 @@ $$
 2. 対数を取ると
 
 $$
-\log\pi_g-rac p2\log(2\pi)-\frac12\log|\Sigma|
+\log\pi_g-(p/2)\log(2\pi)-\frac12\log|\Sigma|
 -\frac12(\boldsymbol x-\boldsymbol\mu_g)^{\mathsf T}\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu_g).
 $$
 
@@ -1340,7 +1340,7 @@ $$
 Bayes則の分母は群共通なので $\pi_gf_g$ を比較する。対数密度の二次形式を展開し群共通項を除くと
 
 $$
-\delta_g=\mu_g^{\mathsf T}\Sigma^{-1}x-rac12\mu_g^{\mathsf T}\Sigma^{-1}\mu_g+\log\pi_g.
+\delta_g=\mu_g^{\mathsf T}\Sigma^{-1}x-(1/2)\mu_g^{\mathsf T}\Sigma^{-1}\mu_g+\log\pi_g.
 $$
 
 共通 $\Sigma$ では $x^{\mathsf T}\Sigma^{-1}x$ が消えるため線形。$\Sigma_g$ が異なると二次項が残る。
