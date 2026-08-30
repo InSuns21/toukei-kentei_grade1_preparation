@@ -1,33 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-30-proportion-gof-independence-duplicates-87
+batch_id: 2026-08-30-one-rate-exact-asymptotic-duplicates-89
 items:
-  - id: test-two-proportion-numeric
+  - id: test-binomial-exact-one-sample
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-two-proportion-pooled
-    note: 2母比率差のプール比率、標準誤差、Z統計量、両側P値の数値計算はcanonical cardへ統合済み。
-  - id: test-goodness-fit-numeric
+    canonical_card: test-one-proportion-score
+    note: 正確二項裾確率、小標本時の方法選択、大標本スコア型Z近似まで1母比率検定canonical cardへ統合済み。
+  - id: test-one-proportion-continuity
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-goodness-fit-statistic
-    note: Pearson適合度統計量の数値計算と臨界値判定はcanonical cardへ統合済み。
-  - id: test-goodness-fit-estimated-parameters
+    canonical_card: test-one-proportion-score
+    note: 二項分布の正規近似における連続修正と数値例は1母比率検定canonical cardへ統合済み。
+  - id: test-poisson-rate-score
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-goodness-fit-statistic
-    note: 同じデータから母数を推定したときの自由度 k-1-r とポアソン適合度の数値例はcanonical cardへ統合済み。
-  - id: test-goodness-fit-expected-counts
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: test-goodness-fit-statistic
-    note: 小さい期待度数の確認、隣接区分の統合、区分統合に伴う自由度減少はcanonical cardへ統合済み。
-  - id: test-independence-2x2-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: test-independence-chisquare
-    note: 2×2表の期待度数作成、Pearson統計量、自由度、数値判定は独立性検定canonical cardへ統合済み。
-  - id: test-yates-correction
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: test-independence-chisquare
-    note: 2×2表のYates連続修正の意味と数値寄与は独立性検定canonical cardへ統合済み。小期待度数ではフィッシャー検定を別法として残す。
+    canonical_card: test-poisson-one-rate-exact
+    note: 大標本のポアソン率スコア型Z近似と期待事象数による正確法・近似法の選択はcanonical cardへ統合済み。
