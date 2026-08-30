@@ -1,15 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-design-reduction-168
+batch_id: 2026-08-31-time-series-cross-category-reduction-170
 items:
-  - id: engdesign-block-vs-covariate
+  - id: engproc-pacf-significance-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-confounder-randomization
-    coverage_card: engdesign-confounder-randomization
-    note: 局外因子をブロックとして割付に使う場合と、処置前連続量を共変量として共分散分析に残す場合の比較・仮定・処置後変数を調整する危険までブロック化canonical cardへ統合済み。
-  - id: engdesign-bibd-contrast-variance
+    canonical_card: ts-acf-pacf-identification
+    coverage_card: ts-acf-pacf-identification
+    note: n=100で近似95%限界0.196を計算し、PACF 0.55,-0.24,0.12からラグ1・2を有意と判定する数値例までACF・PACF canonical cardへ統合済み。
+  - id: engproc-arima-forecast-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-incomplete-block-connectivity
-    coverage_card: engdesign-incomplete-block-connectivity
-    note: 不完備ブロックの接続性からBIBDのbk=vr、lambda(v-1)=r(k-1)、処置差分散と標準誤差の数値計算までcanonical cardへ統合済み。
+    canonical_card: engproc-arima110-difference-forecast
+    coverage_card: engproc-arima110-difference-forecast
+    note: forecast=80.0、prediction standard error=2.5から95%予測区間(75.1,84.9)を復元し、係数標準誤差との違いまでARIMA予測canonical cardへ統合済み。
