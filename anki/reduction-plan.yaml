@@ -1,33 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-quality-reduction-166
+batch_id: 2026-08-31-engineering-design-reduction-168
 items:
-  - id: engqc-cpm-target
+  - id: engdesign-block-vs-covariate
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-cpk-offcenter
-    coverage_card: engqc-cpk-offcenter
-    note: Cpmの定義、目標値ずれを含む数値例、mu=TならCpへ戻る関係まで工程能力canonical cardへ統合済み。
-  - id: engqc-capability-defect-rate
+    canonical_card: engdesign-confounder-randomization
+    coverage_card: engdesign-confounder-randomization
+    note: 局外因子をブロックとして割付に使う場合と、処置前連続量を共変量として共分散分析に残す場合の比較・仮定・処置後変数を調整する危険までブロック化canonical cardへ統合済み。
+  - id: engdesign-bibd-contrast-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-cpk-offcenter
-    coverage_card: engqc-cpk-offcenter
-    note: 正規工程の両側規格外率、標準化、2700ppmの数値例、Cp=Cpk=1との対応、非正規時の注意まで工程能力canonical cardへ統合済み。
-  - id: engqc-arl1-mean-shift
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-three-sigma-false-alarm
-    coverage_card: engqc-three-sigma-false-alarm
-    note: 平均シフト後の1点検出確率とARL1、標準誤差単位のシフト量を管理図検出性能canonical cardへ統合済み。
-  - id: engqc-control-chart-sample-size
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-three-sigma-false-alarm
-    coverage_card: engqc-three-sigma-false-alarm
-    note: 群サイズで標準誤差が縮む機構、Delta=delta sqrt(n)/sigma、delta=1.5sigmaでn=4となる数値例、平均位置だけの設計は高検出確率を保証しない注意まで統合済み。
-  - id: engqc-process-adjustment-overcontrol
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-phase1-phase2
-    coverage_card: engqc-phase1-phase2
-    note: 安定工程への過剰調整をPhase I・II運用canonical cardへ統合し、偏差epsilon_(t+1)-epsilon_tと分散2sigma^2の導出、sigma=2の数値例まで追加済み。
+    canonical_card: engdesign-incomplete-block-connectivity
+    coverage_card: engdesign-incomplete-block-connectivity
+    note: 不完備ブロックの接続性からBIBDのbk=vr、lambda(v-1)=r(k-1)、処置差分散と標準誤差の数値計算までcanonical cardへ統合済み。
