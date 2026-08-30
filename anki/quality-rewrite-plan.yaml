@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-logistic-canonical-merge-prep-61
+batch_id: 2026-08-30-logistic-canonical-merge-prep-61b
 items:
   - id: glm-logistic-score
-    note: ロジスティック回帰の予測確率・オッズ比・二項尤度・スコア・Fisher scoring/IRLSを一つの計算鎖へ統合する。
+    note: ロジスティック回帰の予測確率・オッズ比・二項尤度・スコア・フィッシャー・スコアリング/IRLSを一つの計算鎖へ統合する。
     metadata:
       title: ロジスティック回帰を確率・オッズ比・尤度・スコア・IRLSまで通す
       topic: logistic-regression-canonical
@@ -19,13 +19,8 @@ items:
 
         1. $p_i$ を $\eta_i$ から表せ。
         2. 説明変数 $x_j$ が $c$ 増えたときのオッズ比を表せ。
-        3. 対数尤度を $\eta_i$ を用いて書き、スコア
-        $$
-        \boldsymbol U(\boldsymbol\beta)
-        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
-        $$
-        を導け。
-        4. Fisher情報行列とFisher scoring更新を書き、IRLSの重み付き最小二乗形へ変形せよ。
+        3. 対数尤度を $\eta_i$ を用いて書き、その勾配であるスコアベクトルを導け。
+        4. フィッシャー情報行列とフィッシャー・スコアリング更新を書き、IRLSの重み付き最小二乗形へ変形せよ。
         5. 数値例として $\eta=0$ の予測確率、$\beta_j=\log1.5$ で $x_j$ が2増える場合のオッズ比を求めよ。
       使用公式・定理: |
         ロジットの逆関数は
@@ -77,12 +72,12 @@ items:
         -\frac{\partial^2\ell}{\partial\boldsymbol\beta\partial\boldsymbol\beta^{\mathsf T}}
         =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
         $$
-        したがってFisher情報行列も
+        したがってフィッシャー情報行列も
         $$
         \boldsymbol I(\boldsymbol\beta)
         =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X.
         $$
-        Fisher scoring（この場合Newton法と一致）は
+        フィッシャー・スコアリング（この場合Newton法と一致）は
         $$
         \boxed{
         \boldsymbol\beta^{\mathrm{new}}
@@ -133,7 +128,7 @@ items:
         \qquad
         w_i=p_i(1-p_i).
         $$
-        これをFisher scoringで反復するとIRLSになる。
+        これをフィッシャー・スコアリングで反復するとIRLSになる。
 
         数値例では $\eta=0$ なら
         $$
@@ -172,7 +167,7 @@ items:
         =4\cdot\frac14
         =1.
         $$
-        したがって1回目のFisher scoring更新は
+        したがって1回目のフィッシャー・スコアリング更新は
         $$
         \beta^{(1)}
         =0+I^{-1}U
