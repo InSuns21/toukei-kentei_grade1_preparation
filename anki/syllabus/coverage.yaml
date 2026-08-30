@@ -1744,7 +1744,6 @@ items:
   - id: applied-design
     status: complete
     cards:
-      - eng-blocking
       - design-fisher-three-principles
       - design-randomization-purpose
       - design-replication-purpose
@@ -2440,8 +2439,8 @@ items:
     status: complete
     cards:
       - engqc-xbar-r-chart-limits
-      - eng-capability-index
-      - eng-series-reliability
+      - engqc-cpk-offcenter
+      - engrel-series-component-requirement
       - engrel-exponential-mtbf
       - engqc-control-chart-selection
       - engqc-r-chart-limits
@@ -2466,17 +2465,13 @@ items:
       - engqc-control-chart-sample-size
       - engqc-process-adjustment-overcontrol
       - engqc-p-chart-baseline-estimation
-      - engqc-cpk-offcenter
-      - engqc-cp-cpk-relationship
       - engqc-cpm-target
       - engqc-capability-defect-rate
       - engqc-capability-stability-first
       - engqc-one-sided-cpu
       - engqc-nonnormal-capability
       - engrel-parallel-common-cause
-      - engrel-parallel-system
       - engrel-k-out-of-n
-      - engrel-series-component-requirement
       - engrel-weibull-hazard-shape
       - engrel-weibull-reliability
       - engmaint-steady-availability
@@ -2516,9 +2511,8 @@ items:
         status: card
         cards:
           - engrel-parallel-common-cause
-          - engrel-parallel-system
-          - engrel-k-out-of-n
           - engrel-series-component-requirement
+          - engrel-k-out-of-n
           - engrel-exponential-mtbf
           - engrel-weibull-hazard-shape
           - engrel-weibull-reliability
@@ -2549,7 +2543,6 @@ items:
         status: card
         cards:
           - engqc-cpk-offcenter
-          - engqc-cp-cpk-relationship
           - engqc-cpm-target
           - engqc-capability-defect-rate
           - engqc-capability-stability-first
@@ -2558,7 +2551,7 @@ items:
   - id: engineering-design
     status: complete
     cards:
-      - eng-blocking
+      - engdesign-confounder-randomization
       - engdesign-objective-response-factor
       - engdesign-weighted-contrast-covariance
       - engdesign-missing-run-nonorthogonality
@@ -2586,7 +2579,6 @@ items:
       - engdesign-fixed-effect-hypothesis
       - engdesign-random-effect-blup
       - engdesign-gage-rr-variance
-      - engdesign-confounder-randomization
       - engdesign-block-vs-covariate
       - engdesign-oa-column-df
       - engdesign-oa-level-effect
