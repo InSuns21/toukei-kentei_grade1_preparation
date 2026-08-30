@@ -1,98 +1,102 @@
 schema_version: 1
-batch_id: 2026-08-30-arima-difference-forecast-canonical-117
+batch_id: 2026-08-30-maq-autocovariance-canonical-119
 items:
-  - id: engproc-arima110-difference-forecast
-    note: ARIMA(1,1,0)とドリフト付きARIMA(0,1,0)の予測は、差分系列の将来値を予測して水準へ累積する同一workflowなので1枚へ統合する。
+  - id: ts-maq-acf-cutoff
+    note: MA(q)のACF打切り理由とMA(1)の自己共分散数値計算は、共通する革新だけが共分散に残るという同一原理なので1枚へ統合する。
     metadata:
-      title: ARIMA予測を差分系列から作り水準へ累積する
-      topic: arima-difference-forecast-canonical
+      title: MA(q)の自己共分散を導きACFの打切りを説明する
+      topic: maq-autocovariance-acf-canonical
       type: strategy
       difficulty: 3
       priority: A
-      hashtags: [時系列解析, ARIMA過程, 差分, 予測, ドリフト]
+      hashtags: [時系列解析, MAモデル, 自己共分散, 自己相関関数]
     sections:
       問題: |
-        水準系列 $X_t$ の1階差分を
+        平均0のMA$(q)$過程
         $$
-        Y_t=\Delta X_t=X_t-X_{t-1}
+        X_t=\sum_{j=0}^{q}\theta_j\varepsilon_{t-j},
+        \qquad \theta_0=1,
+        \qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
         $$
-        とする。
-        1. 将来の差分予測 $\widehat Y_{t+j\mid t}$ から、$h$期先の水準予測 $\widehat X_{t+h\mid t}$ を作る一般式を導け。
-        2. ARIMA$(1,1,0)$ として
+        を考える。革新 $\varepsilon_t$ は異時点で互いに無相関とする。
+        1. 自己共分散 $\gamma(h)$ の式を導き、$h>q$ で0になる理由を説明せよ。
+        2. MA$(1)$
         $$
-        Y_t=0.5Y_{t-1}+\varepsilon_t,
+        X_t=\varepsilon_t+0.5\varepsilon_{t-1},
+        \qquad \sigma_\varepsilon^2=4
         $$
-        $X_t=50,Y_t=4$ のとき、$X_{t+2}$ の点予測を求めよ。
-        3. ドリフト付きARIMA$(0,1,0)$
-        $$
-        \Delta X_t=1.5+\varepsilon_t,
-        $$
-        $X_t=100$ のとき、3期先の点予測を求めよ。
+        について、$\gamma(0),\gamma(1),\gamma(2)$ と $\rho(1)$ を求めよ。
       記号・用語: |
-        $\Delta X_t$ は1期の増分、$Y_t$ は差分系列である。ARIMAモデルでは非定常な水準系列を差分して定常なARMA型系列として扱い、その差分の予測を最後に足し戻して水準へ戻す。
+        $\gamma(h)=\operatorname{Cov}(X_t,X_{t-h})$ はラグ $h$ の自己共分散、$\rho(h)=\gamma(h)/\gamma(0)$ は自己相関である。MA過程では各 $X_t$ が有限個の革新の線形結合で表される。
       使用公式・定理: |
-        恒等式
+        $h\ge0$ とする。2時点を展開すると
         $$
-        X_{t+h}=X_t+\sum_{j=1}^{h}\Delta X_{t+j}
+        X_t=\sum_{j=0}^{q}\theta_j\varepsilon_{t-j},
+        \qquad
+        X_{t-h}=\sum_{k=0}^{q}\theta_k\varepsilon_{t-h-k}.
         $$
-        の条件付き期待値を取れば
+        異時点の革新は無相関なので、共分散に残るのは
         $$
-        \widehat X_{t+h\mid t}
-        =X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}.
+        t-j=t-h-k
         $$
-
-        ARIMA$(1,1,0)$ で差分が
+        すなわち $j=h+k$ を満たす同じ革新の組だけである。したがって $0\le h\le q$ では
         $$
-        Y_t=\phi Y_{t-1}+\varepsilon_t
+        \gamma(h)
+        =\sigma_\varepsilon^2
+        \sum_{k=0}^{q-h}\theta_{k+h}\theta_k,
         $$
-        に従うなら、未来の革新の条件付き期待値を0として
+        そして $h>q$ では共有する革新が存在しないので
         $$
-        \widehat Y_{t+j\mid t}=\phi^jY_t.
+        \gamma(h)=0.
         $$
-
-        ドリフト付きARIMA$(0,1,0)$
-        $$
-        \Delta X_t=d+\varepsilon_t
-        $$
-        では各将来差分の条件付き期待値が $d$ なので
-        $$
-        \widehat X_{t+h\mid t}=X_t+hd.
-        $$
+        定常性より $\gamma(-h)=\gamma(h)$ である。
       一手／方針: |
-        **水準を直接予測しようとせず、まず差分系列の各将来値を予測し、それらを現在の水準へ累積する。** ドリフト付きランダムウォークは「将来差分の予測が毎期 $d$」という特殊例として同じ手順で処理する。
+        **公式を暗記するより、$X_t$ と $X_{t-h}$ に共通して現れる革新を拾う。** 共通項があるラグだけ自己共分散が残り、次数 $q$ を超えると共有する革新がなくなる。この見方から一般式とACFの打切りを同時に得る。
       答え: |
         1. 
         $$
-        \widehat X_{t+h\mid t}
-        =X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}.
+        \gamma(h)
+        =\sigma_\varepsilon^2
+        \sum_{k=0}^{q-h}\theta_{k+h}\theta_k
+        \qquad(0\le h\le q),
         $$
+        $$
+        \gamma(h)=0
+        \qquad(h>q).
+        $$
+        よってMA$(q)$の理論ACFはラグ $q$ で打ち切られる。
 
-        2. $\phi=0.5,Y_t=4$ なので
+        2. MA$(1)$では
         $$
-        \widehat Y_{t+1\mid t}=0.5(4)=2,
+        \gamma(0)=(1+\theta^2)\sigma_\varepsilon^2,
+        \qquad
+        \gamma(1)=\theta\sigma_\varepsilon^2,
+        \qquad
+        \gamma(h)=0\ (h\ge2).
+        $$
+        $
+        \theta=0.5,\sigma_\varepsilon^2=4
+        $
+        を代入すると
+        $$
+        \gamma(0)=(1+0.5^2)4=5,
         $$
         $$
-        \widehat Y_{t+2\mid t}=0.5^2(4)=1.
+        \gamma(1)=0.5\cdot4=2,
+        \qquad
+        \gamma(2)=0.
         $$
-        よって
+        したがって
         $$
-        \widehat X_{t+2\mid t}=50+2+1=53.
-        $$
-
-        3. 将来の各差分の予測値は1.5なので
-        $$
-        \widehat X_{t+3\mid t}
-        =100+3(1.5)=104.5.
+        \rho(1)=\frac{\gamma(1)}{\gamma(0)}=\frac25=0.4.
         $$
       計算例: |
-        ドリフトなしARIMA$(0,1,0)$、すなわち
+        MA$(1)$で一般の係数 $\theta$ なら
         $$
-        \Delta X_t=\varepsilon_t
+        \rho(1)=\frac{\theta}{1+\theta^2},
+        \qquad
+        \rho(h)=0\quad(|h|\ge2).
         $$
-        なら将来差分の条件付き期待値はすべて0である。したがって任意の $h\ge1$ について
-        $$
-        \widehat X_{t+h\mid t}=X_t.
-        $$
-        これはランダムウォークの点予測が現在値に等しいことを表す。
+        たとえば $\theta=-0.5$ なら $\rho(1)=-0.4$ であり、ラグ1の符号は変わるがラグ2以降が0という打切り位置は変わらない。
       注意: |
-        $\widehat Y_{t+h\mid t}$ だけを $X_t$ に足してはいけない。水準へ戻すには途中の差分予測をすべて累積する。またドリフト $d$ は差分系列の平均であり、水準系列の固定切片ではない。予測区間を求める場合は将来革新の分散も累積するため、点予測だけの計算とは別に予測誤差分散を扱う。
+        理論ACFがラグ $q$ より先で厳密に0でも、有限標本の標本ACFは標本変動により0にはならない。モデル同定では「ほぼ0になる」という見え方とPACF、情報量規準、残差診断を併用する。またMA多項式の符号規約が異なる教科書では係数 $\theta_j$ の符号表示が変わるので、必ず与えられたモデル式から計算する。
