@@ -1,154 +1,125 @@
 schema_version: 1
-batch_id: 2026-08-30-estimator-properties-merge-prep-44
+batch_id: 2026-08-30-method-of-moments-merge-prep-45
 items:
-  - id: est-unbiasedness
-    note: 不偏性の定義と不偏推定量を作る代表操作を一枚に統合する。
+  - id: est-method-of-moments
+    note: モーメント法の一般手順、1母数の一様分布、2母数の一様分布を一枚の正本へ統合する。
     metadata:
-      title: 不偏性を定義しバイアス補正で不偏推定量を構成する
-      topic: unbiasedness-canonical
-      hashtags: [不偏推定量, バイアス, 標本分散, 推定量]
+      title: モーメント法を一般式から1母数・2母数の一様分布まで解く
+      topic: method-of-moments-canonical
+      hashtags: [モーメント法, 母モーメント, 標本モーメント, 一様分布]
     sections:
       問題: |
-        母数 $\theta$ の推定量 $T$ が不偏であるとは何を意味するか。
+        母数が $k$ 個あるときのモーメント法の一般手順を述べよ。
 
-        さらに正規分布に限らず、独立同分布標本 $X_1,\ldots,X_n$ が分散 $\sigma^2$ を持つとする。
-        $$
-        Q=\sum_{i=1}^n(X_i-\bar X)^2
-        $$
-        について $E[Q]=(n-1)\sigma^2$ を用い、$\sigma^2$ の不偏推定量を構成せよ。
+        さらに次をモーメント法で推定せよ。
+
+        1. $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$ の $\theta$。
+        2. $X_1,\ldots,X_n\overset{iid}{\sim}U(a,b)$ の $a,b$。
       使用公式・定理: |
-        推定量 $T$ が $g(\theta)$ の不偏推定量であるとは、すべての許される $\theta$ について
+        母数を $\theta_1,\ldots,\theta_k$ とする。母モーメント
         $$
-        E_\theta[T]=g(\theta)
+        \mu'_j(\theta_1,\ldots,\theta_k)=E[X^j]
         $$
-        が成り立つことをいう。バイアスは
+        と標本モーメント
         $$
-        \operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta).
+        m'_j=\frac1n\sum_{i=1}^nX_i^j
+        $$
+        を $j=1,\ldots,k$ について等置し、
+        $$
+        \mu'_j(\theta_1,\ldots,\theta_k)=m'_j
+        $$
+        の連立方程式を解く。
+
+        $U(0,\theta)$ では
+        $$
+        E[X]=\frac\theta2.
         $$
 
-        既知の期待値が定数倍だけずれているなら、その倍率を補正すれば不偏化できる。
-      一手: |
-        **まず推定量の期待値を計算し、推定対象との差を確認する。** 定数倍のずれなら逆数を掛けて補正する。
-      答え: |
-        不偏性は
+        $U(a,b)$ では
         $$
-        E_\theta[T]=g(\theta)
-        $$
-        である。
-
-        $E[Q]=(n-1)\sigma^2$ なので
-        $$
-        S^2=\frac{Q}{n-1}
-        =\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
-        $$
-        とすれば
-        $$
-        E[S^2]=\sigma^2.
-        $$
-      計算例: |
-        分母を $n$ とした
-        $$
-        \widetilde\sigma^2=\frac Qn
-        $$
-        では
-        $$
-        \begin{aligned}
-        E[\widetilde\sigma^2]
-        &=\frac1nE[Q]\\
-        &=\frac{n-1}{n}\sigma^2,
-        \end{aligned}
-        $$
-        なので有限標本では下方バイアスがある。
-
-        そこで
-        $$
-        S^2=\frac n{n-1}\widetilde\sigma^2
-        $$
-        と補正すれば
-        $$
-        E[S^2]
-        =\frac n{n-1}\frac{n-1}{n}\sigma^2
-        =\sigma^2.
-        $$
-        例えば $n=5$ なら、分母5の推定量の期待値は $0.8\sigma^2$ であり、$5/4$ 倍すると不偏になる。
-      注意: |
-        不偏性は有限標本での期待値に関する性質であり、一致性とは別である。不偏推定量が常に平均二乗誤差MSE最小とは限らず、有偏でも分散が十分小さければMSEが小さくなる場合がある。
-
-  - id: est-consistency
-    note: 一致性の定義と、有偏でもバイアスが消えれば一致しうる点を同じ正本へ統合する。
-    metadata:
-      title: 一致性を定義し有偏推定量でも一致しうることを確認する
-      topic: consistency-canonical
-      hashtags: [一致推定量, 確率収束, バイアス, 分散, 標本分散]
-    sections:
-      問題: |
-        推定量列 $T_n$ が母数 $\theta$ の一致推定量であるとは何を意味するか。
-
-        また独立同分布標本で
-        $$
-        \widetilde\sigma_n^2
-        =\frac1n\sum_{i=1}^n(X_i-\bar X)^2
-        $$
-        は有限標本では $\sigma^2$ の不偏推定量ではない。このことだけから一致性を否定できるか。バイアスを調べて答えよ。
-      使用公式・定理: |
-        一致性は、任意の $\varepsilon>0$ に対して
-        $$
-        P_\theta(|T_n-\theta|>\varepsilon)\to0
-        $$
-        すなわち
-        $$
-        T_n\xrightarrow{p}\theta
-        $$
-        と定義する。
-
-        十分な条件の一つは
-        $$
-        E[T_n]\to\theta,
+        E[X]=\frac{a+b}{2},
         \qquad
-        \operatorname{Var}(T_n)\to0.
+        \operatorname{Var}(X)=\frac{(b-a)^2}{12}.
         $$
-        このときChebyshevの不等式などから確率収束を示せる。
+        また
+        $$
+        \operatorname{Var}(X)=E[X^2]-E[X]^2
+        $$
+        を使えば、第1・第2標本モーメントから解ける。
       一手: |
-        **有限標本の不偏性ではなく、$n\to\infty$ でバイアスとばらつきが消えるかを見る。** 「有偏だから不一致」は誤り。
+        **未知母数の個数だけ母モーメント方程式を作り、標本モーメントへ置換して連立で解く。** 分布ごとの公式を暗記するのではなく、この手順から毎回導く。
       答え: |
-        一致性は
+        一般には
         $$
-        T_n\xrightarrow{p}\theta
+        E[X^j]=\frac1n\sum_{i=1}^nX_i^j,
+        \qquad j=1,\ldots,k
         $$
-        である。
+        を解く。
 
-        分母 $n$ の標本分散は
+        $U(0,\theta)$ では
         $$
-        E[\widetilde\sigma_n^2]
-        =\frac{n-1}{n}\sigma^2,
+        \bar X=\frac\theta2
         $$
-        したがってバイアスは
+        より
         $$
-        -\frac{\sigma^2}{n}\to0.
+        \widehat\theta_{\mathrm{MM}}=2\bar X.
         $$
-        よって有限標本で有偏であることは、一致性を否定する理由にならない。
+
+        $U(a,b)$ では
+        $$
+        \bar X=\frac{a+b}{2},
+        $$
+        かつ
+        $$
+        m'_2-\bar X^2=\frac{(b-a)^2}{12},
+        \qquad
+        m'_2=\frac1n\sum_{i=1}^nX_i^2.
+        $$
+        したがって
+        $$
+        b-a=\sqrt{12\left(m'_2-\bar X^2\right)}
+        $$
+        であり、
+        $$
+        \widehat a
+        =\bar X-\sqrt{3\left(m'_2-\bar X^2\right)},
+        $$
+        $$
+        \widehat b
+        =\bar X+\sqrt{3\left(m'_2-\bar X^2\right)}.
+        $$
       計算例: |
-        $n=5$ では
+        観測値が $1,2,3$ のとき
         $$
-        E[\widetilde\sigma_5^2]=0.8\sigma^2
+        \bar X=2.
         $$
-        でかなりずれているが、$n=100$ なら
-        $$
-        E[\widetilde\sigma_{100}^2]=0.99\sigma^2.
-        $$
-        バイアスの絶対値は
-        $$
-        \frac{\sigma^2}{n}
-        $$
-        なので0へ収束する。
 
-        さらに有限4次モーメントなど通常の条件の下では標本第2モーメントと標本平均が大数の法則で収束するため
+        $U(0,\theta)$ なら
         $$
-        \widetilde\sigma_n^2
-        =\frac1n\sum_iX_i^2-\bar X^2
-        \xrightarrow{p}
-        E[X^2]-\{E[X]\}^2
-        =\sigma^2.
+        \widehat\theta_{\mathrm{MM}}=2\bar X=4.
+        $$
+        一方、このモデルの最尤推定量は標本最大値なので $3$ であり、モーメント法と最尤推定法は一般に一致しない。
+
+        次に $U(a,b)$ とすると
+        $$
+        m'_2=\frac{1^2+2^2+3^2}{3}=\frac{14}{3},
+        $$
+        よって
+        $$
+        m'_2-\bar X^2
+        =\frac{14}{3}-4
+        =\frac23.
+        $$
+        したがって
+        $$
+        \sqrt{3\left(m'_2-\bar X^2\right)}
+        =\sqrt2,
+        $$
+        なので
+        $$
+        \widehat a=2-\sqrt2\approx0.586,
+        \qquad
+        \widehat b=2+\sqrt2\approx3.414.
         $$
       注意: |
-        不偏性は各 $n$ での期待値、一致性は $n\to\infty$ の確率収束である。不偏でも分散が消えなければ一致しないことがあり、有偏でもバイアスとばらつきが消えれば一致する。
+        モーメント法は「母モーメントを標本モーメントで置き換える」一般原理であり、分布別の推定公式を別々に暗記する必要はない。有限標本では推定値が母数空間の境界条件を自動的に満たすとは限らず、最尤推定法とも一般に異なる。
