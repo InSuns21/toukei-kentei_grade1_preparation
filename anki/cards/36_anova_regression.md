@@ -811,36 +811,118 @@ $$
 
 ---
 id: anova-interaction-definition
-title: 交互作用を差の差で表す
+title: 2×2交互作用を差の差で定義し検定・解釈まで通す
 category: math-data-analysis
 subcategory: math-anova
-topic: interaction-definition
+topic: interaction-canonical
 type: formula
 difficulty: 2
 priority: S
-hashtags: [交互作用, 差の差, 二元配置分散分析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交互作用 }]
+hashtags:
+  - 交互作用
+  - 差の差
+  - 二元配置分散分析
+  - t検定
+  - 単純主効果
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 交互作用
 ---
 
 ## 問題
-2×2母平均 $\mu_{ij}$ の交互作用を1つの対比で表せ。
+因子AとBが各2水準の二元配置を考える。セル母平均を $\mu_{ij}$ とする。
+
+1. A×B交互作用を「差の差」の対比で表し、0であることの意味を説明せよ。
+2. 各セルに $n$ 個の独立な観測があり、誤差は正規分布に従い共通分散 $\sigma^2$ を持つとする。交互作用対比推定量の分散と、$MS_E$ を使った標準誤差を書け。
+3. 各セル5反復、セル平均が
+$$
+\begin{pmatrix}10&12\\14&20\end{pmatrix},
+$$
+$MS_E=5$ のとき、交互作用なしを両側5%で検定せよ。誤差自由度16のt分布の両側臨界値を2.120とする。
+4. 交互作用が有意だった場合、主効果をどう解釈するか述べよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+2×2の交互作用は
+$$
+\Delta_{AB}
+=(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})
+=\mu_{11}-\mu_{12}-\mu_{21}+\mu_{22}
+$$
+で表せる。$\Delta_{AB}=0$ なら、Aの効果はBの水準によらず同じで、平均構造は加法的である。
 
-交互作用は一方の因子効果が他方の因子水準で変化すること。
+各セル平均が独立で
+$$
+\operatorname{Var}(\bar Y_{ij})=\frac{\sigma^2}{n}
+$$
+なら、係数が $(1,-1,-1,1)$ なので
+$$
+\operatorname{Var}(\widehat\Delta_{AB})
+=\frac{4\sigma^2}{n}.
+$$
+よって
+$$
+\operatorname{SE}(\widehat\Delta_{AB})
+=2\sqrt{\frac{MS_E}{n}}.
+$$
+交互作用なし $H_0:\Delta_{AB}=0$ に対して
+$$
+t=\frac{\widehat\Delta_{AB}}{\operatorname{SE}(\widehat\Delta_{AB})}
+$$
+を使う。2×2交互作用の自由度は1なので、同じ仮説をF検定すれば
+$$
+F=t^2.
+$$
+
+## 一手
+**まずセル平均表から「縦差を2本」または「横差を2本」作り、その差をもう一度取る。** これが交互作用対比であり、その後に標準誤差で割って検定する。有意なら平均した主効果だけで終わらず単純主効果を見る。
 
 ## 答え
-$$\Delta_{AB}=(\mu_{22}-\mu_{12})-(\mu_{21}-\mu_{11})
-=\mu_{11}-\mu_{12}-\mu_{21}+\mu_{22}.$$
-$\Delta_{AB}=0$ ならA効果はB水準によらず同じで、加法的である。
+数値例では
+$$
+\widehat\Delta_{AB}
+=10-12-14+20
+=4.
+$$
+同じ値は
+$$
+(20-12)-(14-10)=8-4=4
+$$
+と差の差からも得られる。
+
+標準誤差は
+$$
+\begin{aligned}
+\operatorname{SE}(\widehat\Delta_{AB})
+&=2\sqrt{\frac55}\\
+&=2.
+\end{aligned}
+$$
+したがって
+$$
+t=\frac42=2.
+$$
+$|t|=2<2.120$ なので、5%水準では交互作用なしを棄却しない。自由度1の交互作用なので
+$$
+F=t^2=4
+$$
+と書いても同じ仮説を検定している。
 
 ## 計算例
-平均表 $\begin{pmatrix}10&12\\14&20\end{pmatrix}$ なら $(20-12)-(14-10)=4$。
+交互作用が解釈を変える例として、B=1でAの平均差が0、B=2でAの平均差が10だったとする。このときAの平均主効果を5とだけ報告すると、Bの水準による効果差を隠してしまう。
+
+交互作用が有意なら、例えばBの各水準 $j$ を固定して
+$$
+H_0:\mu_{1j}=\mu_{2j}
+$$
+というAの単純主効果を調べる。逆にAを固定してBの単純主効果を調べてもよい。複数の単純主効果を検定するときは多重性にも配慮する。
 
 ## 注意
-線が交差しなくても傾きが異なれば交互作用はある。
+交互作用は「線が交差すること」そのものではない。プロファイルが平行でなければ、交差していなくても交互作用はある。交互作用が有意なときは全水準で平均した主効果を一律に解釈しない。ここでの正確なt/F検定は独立・正規・等分散の二元配置モデルを前提とする。
 
 <!-- CARD -->
 
