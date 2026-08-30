@@ -1,461 +1,173 @@
 schema_version: 1
-batch_id: 2026-08-30-regression-core-merge-prep-48b
+batch_id: 2026-08-30-regression-f-tests-merge-prep-49
 items:
-  - id: reg-ols-normal-equations-simple
-    note: 単回帰の最小二乗推定、当てはめ値、残差、正規方程式から得る残差直交条件を一枚へ統合する。
+  - id: reg-overall-f-test
+    note: 重回帰の全体F検定を平方和表示と決定係数表示の同じ統計量として統合し、数値判定まで一枚で通す。
     metadata:
-      title: 単回帰を最小二乗推定から当てはめ・残差直交まで通す
-      topic: simple-regression-ols-canonical
-      hashtags: [単回帰, 最小二乗法, 正規方程式, 残差, 直交条件]
+      title: 重回帰の全体F検定を平方和と決定係数の両方から計算する
+      topic: overall-f-canonical
+      hashtags: [重回帰, 全体F検定, 決定係数, 平方和, 分散分析]
     sections:
       問題: |
-        切片を含む単回帰
-        $$
-        y_i=\beta_0+\beta_1x_i+\varepsilon_i
-        $$
-        について、残差平方和を最小にして $\widehat\beta_0,\widehat\beta_1$ を導け。さらに当てはめ値 $\widehat y_i$ と残差 $e_i$ を定義し、正規方程式から残差の2つの直交条件を示せ。
+        切片と $p$ 個の説明変数を持つ重回帰を考える。標本サイズを $n$ とし、計画行列は列フルランク、誤差は独立な正規分布に従い共通分散 $\sigma^2$ を持つとする。
 
-        数値例として $(x_i,y_i)=(1,2),(2,3),(3,5)$ を最後まで計算せよ。
+        1. 帰無仮説
+        $$
+        H_0:\beta_1=\cdots=\beta_p=0
+        $$
+        を検定する全体F統計量を、回帰平方和 $SSR$ と残差平方和 $SSE$ で書け。
+        2. 同じ統計量を決定係数 $R^2$ だけで表せ。
+        3. $n=30,p=3,R^2=0.40$、5%上側臨界値を2.98として判定せよ。
       使用公式・定理: |
-        残差平方和を
+        切片を含む通常の回帰では
         $$
-        Q(\beta_0,\beta_1)
-        =\sum_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2
-        $$
-        とする。偏微分して
-        $$
-        \frac{\partial Q}{\partial\beta_0}
-        =-2\sum_i(y_i-\beta_0-\beta_1x_i)=0,
-        $$
-        $$
-        \frac{\partial Q}{\partial\beta_1}
-        =-2\sum_i x_i(y_i-\beta_0-\beta_1x_i)=0.
-        $$
-        ここから
-        $$
-        S_{xx}=\sum_i(x_i-\bar x)^2,
+        SST=SSR+SSE,
         \qquad
-        S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)
-        $$
-        とおけば
-        $$
-        \widehat\beta_1=\frac{S_{xy}}{S_{xx}},
+        R^2=\frac{SSR}{SST},
         \qquad
-        \widehat\beta_0=\bar y-\widehat\beta_1\bar x.
+        1-R^2=\frac{SSE}{SST}.
         $$
-        当てはめ値と残差は
+        全体F統計量は
         $$
-        \widehat y_i=\widehat\beta_0+\widehat\beta_1x_i,
-        \qquad
-        e_i=y_i-\widehat y_i.
+        F=\frac{SSR/p}{SSE/(n-p-1)}.
+        $$
+        帰無仮説の下で
+        $$
+        F\sim F_{p,n-p-1}.
+        $$
+        分子・分母をともに $SST$ で割れば
+        $$
+        F
+        =\frac{R^2/p}{(1-R^2)/(n-p-1)}.
         $$
       一手: |
-        **残差平方和を微分して正規方程式を作る。** その同じ方程式を推定後に読み直すと $\sum e_i=0$ と $\sum x_ie_i=0$ が直ちに出る。
+        **平方和のF式をまず書き、$SSR/SST=R^2$ と $SSE/SST=1-R^2$ を代入する。** 「決定係数から求めるF」は別公式ではなく同じ全体F検定の書き換えである。
       答え: |
-        正規方程式から
+        $n=30,p=3,R^2=0.40$ なので
         $$
-        \sum_i e_i=0,
-        \qquad
-        \sum_i x_ie_i=0.
+        F
+        =\frac{0.40/3}{0.60/(30-3-1)}
+        =\frac{0.40/3}{0.60/26}.
         $$
-        すなわち切片を含む最小二乗法では、残差は定数ベクトルと説明変数ベクトルの双方に直交する。
-
-        数値例では
+        分子は
         $$
-        \bar x=2,
-        \qquad
-        \bar y=\frac{10}{3},
+        \frac{0.40}{3}\approx0.13333,
         $$
+        分母は
         $$
-        S_{xx}=(-1)^2+0^2+1^2=2,
-        $$
-        $$
-        S_{xy}=(-1)\left(-\frac43\right)+0+1\left(\frac53\right)=3.
+        \frac{0.60}{26}\approx0.02308,
         $$
         よって
         $$
-        \widehat\beta_1=\frac32,
-        \qquad
-        \widehat\beta_0=\frac13.
+        F\approx5.78.
         $$
+        $5.78>2.98$ なので5%水準で $H_0$ を棄却し、説明変数全体として有意な線形関係があると判断する。
       計算例: |
-        回帰直線は
+        同じモデルで $SST=200$ とすると
         $$
-        \widehat y=\frac13+\frac32x.
-        $$
-        したがって
-        $$
-        (\widehat y_1,\widehat y_2,\widehat y_3)
-        =\left(\frac{11}{6},\frac{10}{3},\frac{29}{6}\right),
+        SSR=R^2SST=0.40\times200=80,
         $$
         $$
-        (e_1,e_2,e_3)
-        =\left(\frac16,-\frac13,\frac16\right).
+        SSE=(1-R^2)SST=0.60\times200=120.
         $$
-        実際
+        平方和表示から計算しても
         $$
-        \sum_i e_i
-        =\frac16-\frac13+\frac16=0,
+        F
+        =\frac{80/3}{120/26}
+        =\frac{26.666\ldots}{4.615\ldots}
+        \approx5.78,
         $$
-        $$
-        \sum_i x_ie_i
-        =\frac16-\frac23+\frac12=0.
-        $$
-        「係数を求める計算」と「残差の直交性」は別公式ではなく、同じ正規方程式の表裏である。
+        と一致する。
       注意: |
-        $S_{xx}>0$、すなわち全ての $x_i$ が同一でないことが必要。$\sum e_i=0$ は切片を含む回帰の性質であり、切片なし回帰では一般に成立しない。誤差 $\varepsilon_i$ は観測不能な確率変数、残差 $e_i$ は推定後に得る実現値である。
+        全体F検定で棄却しても、全ての個別係数が有意とは限らない。少なくとも1つの傾き係数が0でないことを示す検定である。また統計的有意性は因果関係を意味しない。正確なF分布による有限標本検定には、固定された列フルランクの計画行列と独立・正規・等分散誤差を仮定する。
 
-  - id: reg-sst-decomposition
-    note: 回帰平方和分解、決定係数、単回帰での相関係数との関係、自由度調整済み決定係数を一枚へ統合する。
+  - id: reg-partial-f-test
+    note: 入れ子回帰の部分F検定について一般式、数値判定、1係数追加時のF=t二乗を一枚へ統合する。
     metadata:
-      title: 回帰の平方和分解から決定係数・相関・自由度調整までつなぐ
-      topic: regression-goodness-of-fit-canonical
-      hashtags: [回帰分析, 平方和分解, 決定係数, 相関係数, 自由度調整済み決定係数]
+      title: 入れ子回帰の部分F検定を数値計算し1係数ならt二乗へつなぐ
+      topic: partial-f-canonical
+      hashtags: [重回帰, 部分F検定, 入れ子モデル, t検定, 平方和]
     sections:
       問題: |
-        切片を含む線形回帰で、全平方和・回帰平方和・残差平方和の分解を示し、決定係数を定義せよ。さらに
+        固定された列フルランクの計画行列の下で、誤差が独立な正規分布に従い共通分散を持つ重回帰を考える。説明変数を除いた縮小モデルをR、追加後の完全モデルをFとする。
 
-        1. 単回帰では $R^2=r_{xy}^2$ となることを示せ。
-        2. 説明変数が $p$ 個の自由度調整済み決定係数を書け。
-        3. $(x,y)=(1,2),(2,3),(3,5)$ で各量を計算せよ。
+        1. 標本サイズを $n$、完全モデルの切片以外の説明変数数を $p_F$、追加係数数を $q$、両モデルの残差平方和を $SSE_R,SSE_F$ として部分F統計量を書け。
+        2. $n=30,p_F=4,q=2,SSE_R=100,SSE_F=70$、5%上側臨界値を3.39として判定せよ。
+        3. $q=1$ のとき、同じ1係数を検定するt統計量との間に $F=t^2$ が成り立つことを示せ。
       使用公式・定理: |
+        入れ子モデルでは、完全モデルは縮小モデルを特殊例として含むため
         $$
-        SST=\sum_i(y_i-\bar y)^2,
-        \qquad
-        SSR=\sum_i(\widehat y_i-\bar y)^2,
-        \qquad
-        SSE=\sum_i e_i^2.
+        SSE_R\ge SSE_F.
         $$
-        切片を含む最小二乗法では残差と当てはめ成分が直交するので
+        追加した $q$ 個の係数が全て0という帰無仮説の下で
         $$
-        SST=SSR+SSE.
+        F
+        =\frac{(SSE_R-SSE_F)/q}{SSE_F/(n-p_F-1)}
+        \sim F_{q,n-p_F-1}.
         $$
-        よって
+        完全モデルの残差平均平方を
         $$
-        R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}.
+        MSE_F=\frac{SSE_F}{n-p_F-1}
         $$
-        単回帰では
-        $$
-        \widehat\beta_1=\frac{S_{xy}}{S_{xx}},
-        \qquad
-        SSR=\widehat\beta_1^2S_{xx}=\frac{S_{xy}^2}{S_{xx}},
-        $$
-        したがって
-        $$
-        R^2=\frac{S_{xy}^2}{S_{xx}S_{yy}}=r_{xy}^2.
-        $$
-        説明変数が $p$ 個なら
-        $$
-        \bar R^2
-        =1-\frac{SSE/(n-p-1)}{SST/(n-1)}
-        =1-(1-R^2)\frac{n-1}{n-p-1}.
-        $$
-      一手: |
-        **まず $y_i-\bar y=(\widehat y_i-\bar y)+e_i$ と分け、交差項が残差直交で0になることを使う。** $R^2$ の各公式はこの平方和分解から出す。
-      答え: |
-        数値例では $\bar y=10/3$ なので
-        $$
-        SST
-        =\left(-\frac43\right)^2+\left(-\frac13\right)^2+\left(\frac53\right)^2
-        =\frac{14}{3}.
-        $$
-        前問の残差 $(1/6,-1/3,1/6)$ から
-        $$
-        SSE=\frac1{36}+\frac19+\frac1{36}=\frac16.
-        $$
-        よって
-        $$
-        SSR=SST-SSE
-        =\frac{14}{3}-\frac16
-        =\frac92,
-        $$
-        $$
-        R^2=1-\frac{1/6}{14/3}=1-\frac1{28}=\frac{27}{28}\approx0.9643.
-        $$
-      計算例: |
-        この例では
-        $$
-        S_{xx}=2,
-        \qquad
-        S_{xy}=3,
-        \qquad
-        S_{yy}=\frac{14}{3}.
-        $$
-        したがって標本相関係数は正で
-        $$
-        r_{xy}
-        =\frac{3}{\sqrt{2(14/3)}},
-        $$
-        $$
-        r_{xy}^2
-        =\frac9{28/3}
-        =\frac{27}{28}
-        =R^2.
-        $$
-        また $n=3,p=1$ なので
-        $$
-        \bar R^2
-        =1-\left(1-\frac{27}{28}\right)\frac{2}{1}
-        =\frac{13}{14}\approx0.9286.
-        $$
-        説明変数を増やすと通常の $R^2$ は低下しないが、自由度調整済み決定係数は改善が小さければ低下しうる。
-      注意: |
-        $R^2$ が高いことは因果関係やモデル妥当性を保証しない。単回帰では $R^2=r^2$ だが、$R^2$ だけから相関係数の符号は分からない。中心化平方和の分解は切片を含む通常の回帰を前提とする。
+        と書けば、分子は「追加した $q$ 個の係数による残差平方和の減少を1自由度当たりに直した量」である。
 
-  - id: reg-slope-t-test
-    note: 単回帰係数の分散・標準誤差、傾きのt検定、数値判定、信頼区間を一枚へ統合する。
-    metadata:
-      title: 単回帰係数の分散から傾きのt検定・信頼区間まで通す
-      topic: simple-regression-inference-canonical
-      hashtags: [単回帰, 回帰係数, 分散, t検定, 信頼区間]
-    sections:
-      問題: |
-        単回帰
+        $q=1$ で係数 $\beta_j$ だけを追加する場合、同じ帰無仮説 $H_0:\beta_j=0$ に対するt統計量は
         $$
-        Y_i=\beta_0+\beta_1x_i+\varepsilon_i,
-        \qquad
-        \varepsilon_i\overset{\mathrm{iid}}\sim N(0,\sigma^2)
+        t=\frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}.
         $$
-        を考え、誤差は正規分布 $N(0,\sigma^2)$ に独立同分布で従うとする。$\widehat\beta_1,\widehat\beta_0$ の分散を書き、$\sigma^2$ 未知のときの傾きのt検定と信頼区間を構成せよ。
-
-        数値例として $\widehat\beta_1=2.0$、標準誤差0.5、$n=20$ とする。$H_0:\beta_1=0$ を両側5%で検定し、自由度18のt分布の両側5%臨界値を2.101として95%信頼区間も求めよ。
-      使用公式・定理: |
+        1自由度の追加平方和は
         $$
-        S_{xx}=\sum_i(x_i-\bar x)^2.
-        $$
-        固定された説明変数の下で
-        $$
-        \operatorname{Var}(\widehat\beta_1)=\frac{\sigma^2}{S_{xx}},
-        $$
-        $$
-        \operatorname{Var}(\widehat\beta_0)
-        =\sigma^2\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right).
+        SSE_R-SSE_F
+        =\frac{\widehat\beta_j^2}{\{(X^\mathsf TX)^{-1}\}_{jj}},
         $$
         また
         $$
-        s^2=\frac{SSE}{n-2}
-        $$
-        として
-        $$
-        \operatorname{SE}(\widehat\beta_1)=\frac{s}{\sqrt{S_{xx}}}.
-        $$
-        $H_0:\beta_1=\beta_{1,0}$ の下で
-        $$
-        t=\frac{\widehat\beta_1-\beta_{1,0}}
-        {\operatorname{SE}(\widehat\beta_1)}
-        \sim t_{n-2}.
-        $$
-        $100(1-\alpha)\%$ 信頼区間は
-        $$
-        \widehat\beta_1
-        \pm t_{n-2,1-\alpha/2}\operatorname{SE}(\widehat\beta_1).
+        \operatorname{SE}(\widehat\beta_j)^2
+        =MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}.
         $$
       一手: |
-        **係数の分散→$\sigma^2$ を残差平均平方で推定→標準誤差→t標準化、の順に進める。** 検定と信頼区間は同じ標準誤差を使う。
+        **縮小モデルと完全モデルの残差平方和の差を、追加した自由度 $q$ で割って完全モデルの残差平均平方と比べる。** $q=1$ ならその比は同じ係数のt統計量の二乗になる。
       答え: |
-        数値例では
+        数値例では分母自由度は
         $$
-        t=\frac{2.0-0}{0.5}=4.0.
+        n-p_F-1=30-4-1=25.
         $$
-        $|4.0|>2.101$ なので5%水準で $H_0$ を棄却する。
-
-        95%信頼区間は
+        残差平方和の減少は
         $$
-        2.0\pm2.101\times0.5
-        =2.0\pm1.0505,
+        SSE_R-SSE_F=100-70=30,
         $$
-        したがって
+        その1自由度当たりは
         $$
-        (0.9495,\ 3.0505).
+        \frac{30}{2}=15.
         $$
-        0を含まないので、同じ両側5%検定の棄却結果と一致する。
-      計算例: |
-        係数分散の大きさも数値で確認する。例えば
+        完全モデルの残差平均平方は
         $$
-        n=10,\quad \bar x=2,\quad S_{xx}=20,\quad s^2=4
-        $$
-        なら
-        $$
-        \operatorname{SE}(\widehat\beta_1)
-        =\sqrt{\frac4{20}}
-        \approx0.447,
-        $$
-        $$
-        \operatorname{SE}(\widehat\beta_0)
-        =\sqrt{4\left(\frac1{10}+\frac4{20}\right)}
-        =\sqrt{1.2}
-        \approx1.095.
-        $$
-        $S_{xx}$ が大きいほど傾き推定の標準誤差は小さくなる。
-      注意: |
-        正確なt分布には独立な正規・等分散誤差を仮定する。統計的有意性と傾きの実質的大きさは別問題である。観測範囲を無理に広げて $S_{xx}$ を大きくすることが常に妥当とは限らない。
-
-  - id: reg-mean-response-ci
-    note: 平均応答の信頼区間、新規1観測の予測区間、両者の幅の違いを同じレバレッジ式から一枚へ統合する。
-    metadata:
-      title: 平均応答の信頼区間と新規観測の予測区間を同じ式から比較する
-      topic: simple-regression-intervals-canonical
-      hashtags: [単回帰, 平均応答, 信頼区間, 予測区間, レバレッジ]
-    sections:
-      問題: |
-        単回帰で $x=x_0$ における
-
-        1. 平均応答 $E[Y\mid x_0]$ の信頼区間
-        2. 新しい1観測 $Y_{\mathrm{new}}\mid x_0$ の予測区間
-
-        を書き、なぜ後者が広いか説明せよ。
-
-        $n=10$、$x_0=\bar x$、$\widehat y_0=20$、残差標準偏差 $s=2$、自由度8のt分布の両側5%臨界値を2.306として95%の両区間を求めよ。
-      使用公式・定理: |
-        $$
-        h_0=\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}.
-        $$
-        平均応答の推定標準誤差は
-        $$
-        s\sqrt{h_0},
-        $$
-        したがって信頼区間は
-        $$
-        \widehat y_0\pm t_{n-2,1-\alpha/2}s\sqrt{h_0}.
-        $$
-        新しい1観測では新たな誤差分散 $\sigma^2$ が加わるため、予測標準誤差は
-        $$
-        s\sqrt{1+h_0},
-        $$
-        予測区間は
-        $$
-        \widehat y_0\pm t_{n-2,1-\alpha/2}s\sqrt{1+h_0}.
-        $$
-      一手: |
-        **平均そのものを推定するなら $h_0$、新しい個体を予測するなら $1+h_0$。** この「+1」が個体固有の新しい誤差分散である。
-      答え: |
-        $x_0=\bar x$ なので
-        $$
-        h_0=\frac1{10}=0.1.
-        $$
-        平均応答区間の半幅は
-        $$
-        2.306\times2\sqrt{0.1}\approx1.459,
+        \frac{70}{25}=2.8.
         $$
         よって
         $$
-        (18.541,\ 21.459).
+        F=\frac{15}{2.8}\approx5.36.
         $$
+        $5.36>3.39$ なので、追加した2係数がともに0という帰無仮説を5%水準で棄却する。
 
-        予測区間の半幅は
+        $q=1$ なら
         $$
-        2.306\times2\sqrt{1.1}\approx4.837,
-        $$
-        よって
-        $$
-        (15.163,\ 24.837).
+        F
+        =\frac{SSE_R-SSE_F}{MSE_F}
+        =\frac{\widehat\beta_j^2}
+        {MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}}
+        =\left(
+        \frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}
+        \right)^2
+        =t^2.
         $$
       計算例: |
-        両者の標準誤差の比は
+        1係数の検定で $t=2.50$ なら
         $$
-        \frac{\sqrt{1+h_0}}{\sqrt{h_0}}
-        =\sqrt{\frac{1.1}{0.1}}
-        =\sqrt{11}
-        \approx3.317.
+        F=t^2=2.50^2=6.25.
         $$
-        同じ $x_0$、同じt臨界値でも、新しい1観測の予測区間は個体差の分だけ大幅に広い。
+        したがって両側t検定と、分子自由度1の部分F検定は同じ帰無仮説に対して同じ棄却判断を与える。
 
-        また $|x_0-\bar x|$ が大きいほど $h_0$ が増え、平均応答区間も予測区間も広がる。
+        一方、先の $q=2$ の例では $F\approx5.36$ は2係数の**同時検定**であり、どちらの係数が重要なのかをこの値だけから特定することはできない。
       注意: |
-        平均応答の信頼区間と新規1観測の予測区間を混同しない。観測された説明変数範囲から大きく外れた外挿では、数式上区間を作れても線形モデル自体の妥当性が弱い。
-
-  - id: reg-multiple-model-matrix
-    note: 重回帰の行列表現、最小二乗法推定量の導出、不偏性と共分散行列を一枚へ統合する。
-    metadata:
-      title: 重回帰を行列で表し最小二乗推定量・不偏性・共分散まで導く
-      topic: multiple-regression-matrix-canonical
-      hashtags: [重回帰, 行列表現, 最小二乗法, 不偏性, 共分散行列]
-    sections:
-      問題: |
-        重回帰モデルを行列で
-        $$
-        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon
-        $$
-        と表す。$E[\boldsymbol\varepsilon]=\mathbf0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I$ とする。
-
-        1. 残差平方和を最小化して最小二乗推定量を導け。
-        2. 不偏性と共分散行列を導け。
-        3. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
-      使用公式・定理: |
-        残差平方和は
-        $$
-        S(\boldsymbol\beta)
-        =(\mathbf y-X\boldsymbol\beta)^\mathsf T
-        (\mathbf y-X\boldsymbol\beta).
-        $$
-        勾配を0とすると
-        $$
-        -2X^\mathsf T(\mathbf y-X\boldsymbol\beta)=\mathbf0,
-        $$
-        すなわち正規方程式
-        $$
-        X^\mathsf TX\widehat{\boldsymbol\beta}=X^\mathsf T\mathbf y
-        $$
-        を得る。$X$ が列フルランクなら
-        $$
-        \widehat{\boldsymbol\beta}
-        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y.
-        $$
-        また
-        $$
-        \widehat{\boldsymbol\beta}
-        =\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
-        $$
-      一手: |
-        **残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。** その形から期待値と共分散が一度に出る。
-      答え: |
-        $E[\boldsymbol\varepsilon]=\mathbf0$ より
-        $$
-        E[\widehat{\boldsymbol\beta}]=\boldsymbol\beta.
-        $$
-        また
-        $$
-        \begin{aligned}
-        \operatorname{Var}(\widehat{\boldsymbol\beta})
-        &=(X^\mathsf TX)^{-1}X^\mathsf T
-        (\sigma^2I)X(X^\mathsf TX)^{-1}\\
-        &=\sigma^2(X^\mathsf TX)^{-1}.
-        \end{aligned}
-        $$
-
-        数値例では
-        $$
-        X^\mathsf TX=\begin{pmatrix}3&3\\3&5\end{pmatrix},
-        \qquad
-        X^\mathsf T\mathbf y=\begin{pmatrix}9\\13\end{pmatrix}.
-        $$
-        逆行列は
-        $$
-        (X^\mathsf TX)^{-1}
-        =\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix}.
-        $$
-        よって
-        $$
-        \widehat{\boldsymbol\beta}
-        =\frac16
-        \begin{pmatrix}5&-3\\-3&3\end{pmatrix}
-        \begin{pmatrix}9\\13\end{pmatrix}
-        =\begin{pmatrix}1\\2\end{pmatrix}.
-        $$
-      計算例: |
-        この設計では
-        $$
-        \widehat y=1+2x
-        $$
-        で3点を完全に通る。また係数共分散行列は
-        $$
-        \operatorname{Var}(\widehat{\boldsymbol\beta})
-        =\frac{\sigma^2}{6}
-        \begin{pmatrix}
-        5&-3\\
-        -3&3
-        \end{pmatrix}.
-        $$
-        対角要素が各係数推定量の分散、非対角要素が係数推定量間の共分散である。
-      注意: |
-        一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくない。実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。
+        縮小モデルと完全モデルが入れ子でない場合、この残差平方和差による部分F検定は使えない。$q>1$ の部分F検定は係数群の共同有意性を調べるものであり、個々の係数の有意性とは別である。$F=t^2$ がそのまま成り立つのは同じ1係数・同じ誤差分散推定に対する検定である。
