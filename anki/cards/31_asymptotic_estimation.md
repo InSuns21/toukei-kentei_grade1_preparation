@@ -484,51 +484,121 @@ $\widehat p=0$ または1ではロジットが発散し、この近似をその�
 
 ---
 id: asym-ratio-two-means-delta
-title: 2標本平均の比に多変量デルタ法を使う
+title: 多変量デルタ法で比推定量の漸近分散を共分散込みで求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: ratio-estimator-multivariate-delta
-type: calc_step
+topic: ratio-estimator-multivariate-delta-canonical
+type: strategy
 difficulty: 4
 priority: S
-hashtags: [多変量デルタ法, 比推定量, 2標本]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: デルタ法 }]
+hashtags:
+  - 多変量デルタ法
+  - 比推定量
+  - 漸近分散
+  - 共分散
+  - 2標本
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: デルタ法
 ---
 
 ## 問題
-独立な2標本について、各標本サイズを $n$、母平均を $\mu_X,\mu_Y$、母分散を $\sigma_X^2,\sigma_Y^2$ とする。$\mu_Y\ne0$ のとき、$R=\overline X/\overline Y$ の漸近分布を求めよ。
+2つの推定量について、正規分布への漸近収束
+$$
+\sqrt n\left\{
+\begin{pmatrix}\widehat a\\\widehat b\end{pmatrix}
+-
+\begin{pmatrix}a\\b\end{pmatrix}
+\right\}
+\xrightarrow{d}N_2(0,\Sigma),
+\qquad b\ne0
+$$
+が成り立つとする。次を解け。
+
+1. $R_n=\widehat a/\widehat b$ の漸近分散定数を、$\Sigma_{11},\Sigma_{22},\Sigma_{12}$ で表せ。
+2. 独立な2標本平均 $\overline X,\overline Y$ で、母平均が $\mu_X=4,\mu_Y=2$、母分散が $\sigma_X^2=4,\sigma_Y^2=1$、両標本サイズが $n=100$ のとき、$\overline X/\overline Y$ の漸近標準誤差を求めよ。
+3. 分母の母数 $b$ が0に近いとき、この近似に注意が必要な理由を述べよ。
 
 ## 記号・用語
-- $\xrightarrow{d}$：分布収束
+$\Sigma$ は $\sqrt n$ 倍した2推定量の極限分散共分散行列である。多変量デルタ法では、滑らかな関数 $g(a,b)$ の一次近似を勾配 $\nabla g(a,b)$ で表し、その方向の分散を計算する。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+多変量デルタ法より
+$$
+\sqrt n\{g(\widehat a,\widehat b)-g(a,b)\}
+\xrightarrow{d}
+N\left(0,\nabla g(a,b)^{\mathsf T}\Sigma\nabla g(a,b)\right),
+$$
+ここで右辺の $N$ は正規分布を表す。
 
-$g(x,y)=x/y$ の勾配は
-$$\nabla g(\mu_X,\mu_Y)
-=\left(\frac1{\mu_Y},-\frac{\mu_X}{\mu_Y^2}\right)^\top.$$
-2標本は独立なので極限分散共分散行列は
-$$\Sigma=\begin{pmatrix}\sigma_X^2&0\\0&\sigma_Y^2\end{pmatrix}.$$
-多変量デルタ法では $V=\nabla g^\top\Sigma\nabla g$ となる。
+比では
+$$
+g(a,b)=\frac ab,
+\qquad
+\nabla g(a,b)
+=\begin{pmatrix}1/b\\-a/b^2\end{pmatrix}.
+$$
+したがって
+$$
+V_R
+=\frac{\Sigma_{11}}{b^2}
++\frac{a^2\Sigma_{22}}{b^4}
+-\frac{2a\Sigma_{12}}{b^3}.
+$$
 
-## 一手
-比の分母が確率変数なら、分子だけでなく分母方向の微分も含める。
+## 一手／方針
+**比を見たら $g(a,b)=a/b$ の勾配を先に作り、$\nabla g^{\mathsf T}\Sigma\nabla g$ を計算する。** 独立なら共分散項だけが0になり、一般式から独立2標本の公式が直ちに出る。
 
 ## 答え
-$$\sqrt n\left(R-\frac{\mu_X}{\mu_Y}\right)
-\xrightarrow{d}N(0,V),$$
-$$V=\frac{\sigma_X^2}{\mu_Y^2}
-+\frac{\mu_X^2\sigma_Y^2}{\mu_Y^4}.$$
+1. 漸近分散定数は
+$$
+\boxed{
+V_R
+=\frac{\Sigma_{11}}{b^2}
++\frac{a^2\Sigma_{22}}{b^4}
+-\frac{2a\Sigma_{12}}{b^3}}
+$$
+である。したがって $R_n$ 自身の大標本での分散はおよそ $V_R/n$。
+
+2. 独立なので $\Sigma_{12}=0$。また
+$$
+\Sigma=\begin{pmatrix}4&0\\0&1\end{pmatrix}.
+$$
+よって
+$$
+V_R
+=\frac4{2^2}+\frac{4^2\cdot1}{2^4}
+=1+1=2.
+$$
+$n=100$ だから
+$$
+\operatorname{ASE}(R_n)
+=\sqrt{\frac2{100}}
+\approx\boxed{0.1414}.
+$$
+
+3. 勾配には $1/b$ と $1/b^2$ が含まれるため、$b$ が0に近いと一次近似の係数が非常に大きくなり、比の分布が強く歪んで正規近似が不安定になりやすい。
 
 ## 計算例
-$\mu_X=4,\mu_Y=2,\sigma_X^2=4,\sigma_Y^2=1$ なら
-$$V=\frac4{2^2}+\frac{4^2\cdot1}{2^4}=1+1=2.$$
-$n=100$ では比推定量の漸近標準誤差は
-$$\sqrt{\frac Vn}=\sqrt{\frac2{100}}\approx0.1414.$$
+共分散がある例として $a=2,b=1$、
+$$
+\Sigma=\begin{pmatrix}4&1\\1&9\end{pmatrix}
+$$
+なら
+$$
+V_R
+=4+4\cdot9-2\cdot2\cdot1
+=36.
+$$
+共分散項を落としてしまうと $40$ となるため、同じ標本から作った2推定量では $\Sigma_{12}$ を無視しない。
 
 ## 注意
-$\mu_Y$ が0に近いと比の正規近似は不安定になる。
+独立2標本では共分散項は0だが、同一標本から計算した2推定量では一般に0ではない。分母が0または0に近い場合、比の推定にはデルタ法による対称な正規近似よりFieller型区間など別の扱いが適することがある。
 
 <!-- CARD -->
 
