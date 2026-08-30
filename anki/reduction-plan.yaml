@@ -1,8 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-30-capability-nonnormal-reduction-145
+batch_id: 2026-08-30-design-principles-reduction-147
 items:
-  - id: engqc-nonnormal-capability
+  - id: design-randomization-purpose
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-cpk-offcenter
-    note: 非正規工程では平均±3σと正規分布の分位点・規格外率が対応しないためCpkからppmを機械的に換算できない点、分布当てはめ・変換・実分位点による代替評価をcanonical cardへ統合済み。
+    canonical_card: design-fisher-three-principles
+    note: 無作為化が割付前背景因子と処置の系統的な結び付きを避け、割付機構に基づく推論を支える理由と、有限標本で完全均衡を保証しない注意をcanonical cardへ統合済み。
+  - id: design-replication-purpose
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 真の反復を独立な実験単位への処置割付として定義し、技術的反復との違い、処置効果の誤差自由度を増やさない注意をcanonical cardへ統合済み。
+  - id: design-local-control
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 局所管理を処置前に分かる異質性によるブロック化とブロック内無作為化として説明し、誤差変動を分離して精度を上げる仕組みをcanonical cardへ統合済み。
+  - id: design-experimental-observational-unit
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 実験単位を処置を独立に割り付けられる最小単位、観測単位を応答測定単位として区別し、炉運転と製品の具体例をcanonical cardへ統合済み。
+  - id: design-pseudoreplication
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 同一実験単位内の複数観測を独立反復として扱う擬似反復、誤差自由度と標準誤差への影響、階層モデルでも真の反復不足は補えない注意をcanonical cardへ統合済み。
+  - id: engdesign-objective-response-factor
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 応答・因子・実験単位の同定と、同じ炉で処理する複数製品を独立反復としない工学例をcanonical cardへ統合済み。
+  - id: engdesign-replication-power-ratio
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fisher-three-principles
+    note: 独立反復数を増やすと平均の標準誤差が概ね反復数の平方根に反比例して低下する関係をcanonical cardへ統合済み。したがって標準誤差を半分にするには反復数を4倍にする数値専用カードは不要。
