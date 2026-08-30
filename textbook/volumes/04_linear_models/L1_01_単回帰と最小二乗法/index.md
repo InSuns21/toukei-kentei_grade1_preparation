@@ -218,7 +218,7 @@ $$
 期待値は
 $$
 E[\hat\beta_1]
-=\beta_1+rac{\sum(x_i-\bar x)E[\varepsilon_i]}{S_{xx}}
+=\beta_1+\frac{\sum(x_i-\bar x)E[\varepsilon_i]}{S_{xx}}
 =\beta_1.
 $$
 また誤差が互いに無相関で分散 $\sigma^2$ だから
