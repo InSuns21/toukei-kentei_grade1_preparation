@@ -390,40 +390,107 @@ $$\sum_i\frac{c_id_i}{n_i}
 
 ---
 id: anova-tukey-hsd-formula
-title: テューキー法の同時比較幅を書く
+title: テューキー法で同時比較幅を作り有意な群対を判定する
 category: math-data-analysis
 subcategory: math-anova
-topic: tukey-hsd
+topic: tukey-hsd-canonical
 type: formula
 difficulty: 3
 priority: A
-hashtags: [テューキー法, 多重比較, Student化範囲分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多重比較 }]
+hashtags:
+  - テューキー法
+  - 多重比較
+  - Student化範囲分布
+  - Tukey-Kramer
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多重比較
 ---
 
 ## 問題
-各観測が独立な正規分布に従い、全群で分散が共通であるとする。$a$ 群の各標本サイズが共通に $n$、誤差平均平方が $MS_E$ であるとき、Student化範囲分布の上側臨界値 $q_{a,N-a,\alpha}$ を使うテューキーHSD法の棄却条件を書け。
+各観測が独立な正規分布に従い、全群で分散が共通である一元配置を考える。$a$ 群の各標本サイズが共通に $n$、誤差平均平方が $MS_E$、Student化範囲分布の上側臨界値が $q_{a,N-a,\alpha}$ である。
+
+1. テューキーHSD法で群 $i,j$ の平均差を有意とする条件を書け。
+2. 3群の標本平均が $(10,13,16)$、$MS_E=4$、各群 $n=4$、臨界値 $q=3.5$ のとき、有意な群対を全て求めよ。
+3. 群サイズが等しくない場合のTukey-Kramer法の比較幅も書け。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+テューキー法は、全ての群対比較を同時に行うときの家族内第一種過誤率を $\alpha$ 以下に制御する方法である。
 
-全群対比較の家族内第一種過誤率を $\alpha$ 以下に制御する。
+等群サイズ $n$ では比較幅
+$$
+\mathrm{HSD}=q_{a,N-a,\alpha}\sqrt{\frac{MS_E}{n}}
+$$
+を作り、
+$$
+|\bar Y_{i\cdot}-\bar Y_{j\cdot}|>\mathrm{HSD}
+$$
+なら群 $i,j$ の母平均差を有意とする。
+
+不等群サイズ $n_i,n_j$ ではTukey-Kramer法として
+$$
+|\bar Y_{i\cdot}-\bar Y_{j\cdot}|
+>q_{a,N-a,\alpha}
+\sqrt{\frac{MS_E}{2}\left(\frac1{n_i}+\frac1{n_j}\right)}
+$$
+を用いる。$n_i=n_j=n$ と置けば右辺はHSDへ戻る。
+
+## 一手
+**まずStudent化範囲分布の臨界値から「共通の比較幅」を1個作り、その幅と全ての標本平均差を比較する。** 群対ごとに別々の無補正t検定を繰り返さない。
 
 ## 答え
-全ての群対について
-$$|\overline Y_{i\cdot}-\overline Y_{j\cdot}|>
-q_{a,N-a,\alpha}\sqrt{\frac{MS_E}{n}}$$
-ならその群対差を有意とする。$q$ はStudent化範囲分布の上側確率点。
+等群サイズでは
+$$
+\mathrm{HSD}=q\sqrt{\frac{MS_E}{n}}
+$$
+である。数値を代入すると
+$$
+\mathrm{HSD}
+=3.5\sqrt{\frac44}
+=3.5.
+$$
+
+3つの群対の絶対平均差は
+$$
+|10-13|=3,
+$$
+$$
+|10-16|=6,
+$$
+$$
+|13-16|=3.
+$$
+したがって
+$$
+6>3.5
+$$
+となる群1–群3だけが有意で、他の2群対は有意でない。
 
 ## 計算例
-$q=4,MS_E=9,n=9$ なら
-$$\mathrm{HSD}=q\sqrt{\frac{MS_E}{n}}
-=4\sqrt{\frac99}=4.$$
-例えば2群の標本平均差が $|15-10|=5$ なら $5>4$ なので有意、$|13-10|=3$ なら $3<4$ なので有意でない。
+比較幅そのものの意味も数値で確認する。例えば $q=4,MS_E=9,n=9$ なら
+$$
+\mathrm{HSD}=4\sqrt{\frac99}=4.
+$$
+よって平均差5は有意、平均差3は有意でない。
+
+また不等群サイズの例として $MS_E=4,q=3.5,n_i=4,n_j=9$ ならTukey-Kramerの比較幅は
+$$
+\begin{aligned}
+3.5\sqrt{\frac42\left(\frac14+\frac19\right)}
+&=3.5\sqrt{2\cdot\frac{13}{36}}\\
+&=3.5\sqrt{\frac{13}{18}}\\
+&\approx2.974.
+\end{aligned}
+$$
+この群対では標本平均差が3なら $3>2.974$ なので有意となる。
 
 ## 注意
-不等群サイズではテューキー・クレーマー法を使う。
+テューキー法が直接対象とするのは全ての群対比較であり、任意の対比全体を同時に扱うシェッフェ法とは目的が異なる。正確な有限標本手順では、一元配置モデルの独立性・正規性・等分散性を前提とする。境界と等しい場合は採用している棄却域の不等号規約に従う。
 
 <!-- CARD -->
 
