@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-lack-of-fit-curvature-reduction-112
+batch_id: 2026-08-30-ma1-invertibility-reduction-114
 items:
-  - id: engdesign-centerpoint-curvature
+  - id: engproc-ma1-invertible-shock-recovery
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-lack-of-fit-decomposition
-    note: 中心点の曲率平方和、中心点反復による純粋誤差、残差の適合不足分解とF検定までcanonical cardへ統合済み。個別二次項の識別には追加設計が必要という注意も保持した。
+    canonical_card: ts-ma1-invertibility
+    note: MA(1)の再帰表示から可逆条件を導き、観測値から革新を逐次復元する数値例までcanonical cardへ統合済み。
