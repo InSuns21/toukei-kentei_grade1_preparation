@@ -60,6 +60,11 @@ jobs:
           git add anki/cards anki/archive anki/syllabus/coverage.yaml anki/progress.yaml
           git commit -m 'apply reviewed Anki reduction plan'
 
+          # Validation may regenerate tracked audit/build artifacts that are
+          # intentionally not part of the reduction commit. Discard only those
+          # remaining uncommitted changes before rebasing the validated commit.
+          git reset --hard HEAD
+
           # main may advance while validation is running. Rebase the validated
           # bot commit onto the latest main before pushing so unrelated commits
           # do not turn a successful reduction into a non-fast-forward failure.
