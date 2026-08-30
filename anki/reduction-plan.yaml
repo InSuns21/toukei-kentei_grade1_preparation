@@ -1,18 +1,27 @@
 schema_version: 1
-batch_id: 2026-08-31-time-series-consolidation-reduction-162
+batch_id: 2026-08-31-multivariate-cross-category-reduction-164c
 items:
-  - id: ts-linear-detrend
+  - id: engmv-correlation-from-covariance
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-arima-definition
-    note: 線形トレンドの最小二乗推定と除去の数値例を、決定論的トレンド・確率的トレンド・季節性で定常化手段を選ぶARIMA canonical cardへ統合済み。単純な回帰代入だけの独立カードは残さない。
-  - id: ts-software-arima-coefficients
+    canonical_card: mv-covariance-linear-transform
+    coverage_card: mv-covariance-linear-transform
+    note: 分散共分散行列から相関行列への標準化、正の単位変更で相関が不変になる数値例、負の尺度変換で符号が反転する注意まで、線形変換canonical cardへ統合済み。engineering-multivariateの相関行列coverageもこの正本へ明示的に付け替える。
+  - id: engmv-spectral-reconstruction
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-software-residual-diagnostics
-    note: AR係数のWald検定、近似信頼区間、定常域確認、単位根検定との区別を、Ljung--Box残差診断と一続きで読むソフトウェア出力canonical cardへ統合済み。
-  - id: ts-yule-walker-ar2
+    canonical_card: mv-pca-variance-max
+    coverage_card: mv-pca-variance-max
+    note: 直交固有値分解Sigma=U Lambda U^Tと固有対からの2次元分散共分散行列再構成、低次元近似で捨てる分散の解釈までPCA canonical cardへ統合済み。固有値・固有ベクトルcoverageも正本へ明示的に付け替える。
+  - id: engmv-silhouette-coefficient
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-acf-pacf-identification
-    note: AR(2)のYule--Walker方程式とrho1=0.6,rho2=0.4からphi1=0.5625,phi2=0.0625を求める数値例を、ACF/PACFモデル同定とPACF導出のcanonical cardへ統合済み。
+    canonical_card: mv-hierarchical-linkage
+    coverage_card: mv-hierarchical-linkage
+    note: silhouette係数s=(b-a)/max(a,b)、a=2,b=5でs=0.6の数値例と値の解釈を、連結法・Ward法からクラスタ評価まで通すcanonical cardへ統合済み。該当coverageがあれば正本へ付け替える。
+  - id: mv-mahalanobis-distance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-mahalanobis-control-limit
+    coverage_card: engmv-mahalanobis-control-limit
+    note: Mahalanobis二乗距離の定義・逆分散共分散行列による標準化・数値計算は、正規ベクトルのカイ二乗二次形式から個体管理限界と平均ベクトル信頼楕円まで扱う上位canonical cardに包含されている。一般多変量側coverageもこの正本へ付け替える。
