@@ -1,8 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-factor-score-reduction-58
+batch_id: 2026-08-30-mds-canonical-correlation-reduction-59
 items:
-  - id: mv-factor-score-regression
+  - id: engmv-classical-mds-three-points
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-factor-model-covariance
-    note: 回帰法による因子得点予測式を、共分散分解・回転と同じ因子分析正本へ統合済み。
+    canonical_card: mv-mds-double-centering
+    note: 3点距離からの1次元配置を、二重中心化・固有分解・座標復元まで含むMDS正本の数値例へ統合済み。
+
+  - id: engmv-mds-stress
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-mds-double-centering
+    note: 配置距離の再現誤差を測る正規化stressを、古典的MDSの座標復元後の評価として正本へ統合済み。
+
+  - id: mv-canonical-correlation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-canonical-eigenvalue
+    note: 正準相関の一般固有値問題を、白色化・特異値・非対角数値例まで備えた工学側正本へ統合する。
