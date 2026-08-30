@@ -1,33 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-asymptotic-duplicates-175
+batch_id: 2026-08-31-multivariate-delta-ratio-reduction-177
 items:
-  - id: engasym-proportion-standardization
+  - id: engasym-delta-ratio
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-mle-asymptotic-normality
-    coverage_card: asym-mle-asymptotic-normality
-    note: 一般側正本がベルヌーイのフィッシャー情報量を導出し、sqrt(n)(p_hat-p)→N(0,p(1-p))、p=0.4,n=100で標準誤差約0.0490まで含むため、標本比率CLT単独カードは完全重複。
-  - id: engasym-mle-asymptotic-normality
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: asym-mle-asymptotic-normality
-    coverage_card: asym-mle-asymptotic-normality
-    note: 一般側正本がスコア方程式のTaylor展開、Slutskyの定理、情報量逆数の極限分散、ベルヌーイ数値例まで含み、理工学側の公式再生カードを包含する。
-  - id: engasym-bernoulli-fisher-information
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: asym-mle-asymptotic-normality
-    coverage_card: asym-mle-asymptotic-normality
-    note: 一般側正本の計算例でベルヌーイ対数尤度を2回微分し I_1(p)=1/[p(1-p)] を導出済み。p=0,1の境界注意も正則条件の注意に含まれる。
-  - id: engasym-poisson-mle-variance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: asym-mle-poisson-tail-probability
-    coverage_card: asym-mle-poisson-tail-probability
-    note: 一般側正本がポアソン分布の情報量 I_1(lambda)=1/lambda を対数尤度から導出し、Avar(lambda_hat)=lambda/n、lambda=4,n=100でSE=0.2、さらに確率近似まで扱うため上位互換。
-  - id: engasym-relative-efficiency
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: asym-asymptotic-relative-efficiency
-    coverage_card: asym-asymptotic-relative-efficiency
-    note: 一般側正本がクラーメル・ラオ下界、最尤推定量の漸近効率、ARE(T,U)=v_U/v_T、v_T=4,v_U=9で2.25、比の向きの規約注意まで含むため完全重複。
+    canonical_card: asym-ratio-two-means-delta
+    coverage_card: asym-ratio-two-means-delta
+    note: 多変量デルタ法の正本へ、一般の分散共分散行列Sigmaに対する比 a_hat/b_hat の勾配、V=Sigma11/b^2+a^2 Sigma22/b^4-2a Sigma12/b^3、独立2標本の数値例、共分散ありの数値例、分母が0近傍での不安定性まで統合済み。
