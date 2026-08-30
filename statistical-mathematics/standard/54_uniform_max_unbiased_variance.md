@@ -35,57 +35,40 @@ $$
 
 ## 詳細解答
 
-### 1. $T_1$ の平均と 2. 分散
+### 1. $T_1,T_2$ の不偏性
 
-問題文の密度から
-
-$$
-E[X_i]=\int_0^\theta x\frac1\theta\,dx
-=\frac\theta2,
-$$
+まず1標本 $X_i$ の平均を密度から求める。
 
 $$
-E[X_i^2]=\int_0^\theta x^2\frac1\theta\,dx
-=\frac{\theta^2}{3}.
+\begin{aligned}
+E[X_i]
+&=\int_0^\theta x\frac1\theta\,dx\\
+&=\frac1\theta\left[\frac{x^2}{2}\right]_0^\theta\\
+&=\frac\theta2.
+\end{aligned}
 $$
 
 従って
 
 $$
-\operatorname{Var}(X_i)
-=E[X_i^2]-E[X_i]^2
-=\frac{\theta^2}{3}-\frac{\theta^2}{4}
-=\frac{\theta^2}{12}.
+E[\bar X]=\frac\theta2
 $$
 
-独立性から
+であり、
 
 $$
-E[\bar X]=\frac\theta2,
-\qquad
-\operatorname{Var}(\bar X)=\frac{\theta^2}{12n}.
+\boxed{E[T_1]=2E[\bar X]=\theta}.
 $$
 
-よって
+次に最大値 $M$ の分布を定義から求める。$0\le m\le\theta$ では
 
 $$
-E[T_1]=2E[\bar X]=\theta,
-$$
-
-$$
-\boxed{\operatorname{Var}(T_1)=\frac{\theta^2}{3n}}.
-$$
-
-### 最大値 $M$ の分布を定義から求める
-
-$0\le m\le\theta$ では、1標本の累積分布関数は
-
-$$
-P(X_i\le m)=\int_0^m\frac1\theta\,dx
+P(X_i\le m)
+=\int_0^m\frac1\theta\,dx
 =\frac m\theta.
 $$
 
-最大値が $m$ 以下であることは全観測値が $m$ 以下であることと同値なので、独立性より
+最大値が $m$ 以下であることは、全観測値が $m$ 以下であることと同値である。独立性より
 
 $$
 \begin{aligned}
@@ -100,29 +83,95 @@ $$
 従って密度は
 
 $$
-f_M(m)=\frac{d}{dm}F_M(m)
-=\frac{n m^{n-1}}{\theta^n},
-\qquad0<m<\theta.
+f_M(m)
+=\frac{d}{dm}F_M(m)
+=\frac{nm^{n-1}}{\theta^n},
+\qquad 0<m<\theta.
 $$
 
-ここから
+よって
 
 $$
 \begin{aligned}
 E[M]
 &=\int_0^\theta m\frac{nm^{n-1}}{\theta^n}\,dm\\
-&=\frac n{\theta^n}\frac{\theta^{n+1}}{n+1}\\
-&=\frac n{n+1}\theta,
+&=\frac n{\theta^n}
+\left[\frac{m^{n+1}}{n+1}\right]_0^\theta\\
+&=\frac n{n+1}\theta.
 \end{aligned}
 $$
 
-また
+したがって
+
+$$
+\begin{aligned}
+E[T_2]
+&=\frac{n+1}{n}E[M]\\
+&=\frac{n+1}{n}\frac n{n+1}\theta\\
+&=\theta.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{T_1,T_2\text{ はともに }\theta\text{ の不偏推定量}}.
+$$
+
+### 2. 分散を求めて比較する
+
+#### $T_1$ の分散
+
+まず
+
+$$
+\begin{aligned}
+E[X_i^2]
+&=\int_0^\theta x^2\frac1\theta\,dx\\
+&=\frac1\theta\left[\frac{x^3}{3}\right]_0^\theta\\
+&=\frac{\theta^2}{3}.
+\end{aligned}
+$$
+
+従って
+
+$$
+\begin{aligned}
+\operatorname{Var}(X_i)
+&=E[X_i^2]-E[X_i]^2\\
+&=\frac{\theta^2}{3}-\frac{\theta^2}{4}\\
+&=\frac{\theta^2}{12}.
+\end{aligned}
+$$
+
+独立性から
+
+$$
+\operatorname{Var}(\bar X)
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i)
+=\frac{\theta^2}{12n}.
+$$
+
+よって
+
+$$
+\boxed{
+\operatorname{Var}(T_1)
+=4\operatorname{Var}(\bar X)
+=\frac{\theta^2}{3n}
+}.
+$$
+
+#### $T_2$ の分散
+
+問1で求めた $M$ の密度から
 
 $$
 \begin{aligned}
 E[M^2]
 &=\int_0^\theta m^2\frac{nm^{n-1}}{\theta^n}\,dm\\
-&=\frac n{\theta^n}\frac{\theta^{n+2}}{n+2}\\
+&=\frac n{\theta^n}
+\left[\frac{m^{n+2}}{n+2}\right]_0^\theta\\
 &=\frac n{n+2}\theta^2.
 \end{aligned}
 $$
@@ -133,29 +182,35 @@ $$
 \begin{aligned}
 \operatorname{Var}(M)
 &=E[M^2]-E[M]^2\\
-&=\frac n{n+2}\theta^2-
-\left(\frac n{n+1}\theta\right)^2\\
-&=\boxed{\frac{n\theta^2}{(n+1)^2(n+2)}}.
+&=\frac n{n+2}\theta^2
+-\left(\frac n{n+1}\theta\right)^2\\
+&=\theta^2\left\{
+\frac{n(n+1)^2-n^2(n+2)}{(n+2)(n+1)^2}
+\right\}\\
+&=\theta^2\frac{n}{(n+1)^2(n+2)}.
 \end{aligned}
 $$
 
-よって
+ここで分子は
 
 $$
-E[T_2]
-=\frac{n+1}{n}E[M]
-=\theta,
+n(n+1)^2-n^2(n+2)
+=n\{(n+1)^2-n(n+2)\}=n
 $$
+
+と整理した。
+
+よって
 
 $$
 \begin{aligned}
 \operatorname{Var}(T_2)
 &=\left(\frac{n+1}{n}\right)^2\operatorname{Var}(M)\\
+&=\left(\frac{n+1}{n}\right)^2
+\frac{n\theta^2}{(n+1)^2(n+2)}\\
 &=\boxed{\frac{\theta^2}{n(n+2)}}.
 \end{aligned}
 $$
-
-### 3. 比較と解釈
 
 $n>1$ では
 
@@ -166,10 +221,10 @@ $$
 だから
 
 $$
-\operatorname{Var}(T_2)<\operatorname{Var}(T_1).
+\boxed{\operatorname{Var}(T_2)<\operatorname{Var}(T_1)}.
 $$
 
-さらにオーダーを見ると
+さらに
 
 $$
 \operatorname{Var}(T_1)=O(n^{-1}),
@@ -177,16 +232,55 @@ $$
 \operatorname{Var}(T_2)=O(n^{-2}).
 $$
 
-このモデルでは $\theta$ が密度の係数だけでなく支持集合の右端そのものを決める。最大値 $M$ はその端点へ直接近づくため、標本平均より $\theta$ に関する情報を強く持つ。
+したがって標本数が増えたとき、最大値に基づく $T_2$ の方が急速に精度が上がる。
 
-通常の正則モデルでは支持集合が母数に依存しないことが多いが、本問では支持が $\theta$ に依存する。この非正則性が、最大値による $O(n^{-2})$ の分散という速い収束と関係している。
+### 3. なぜ最大値を使う推定量が有利なのか
+
+本問では未知母数 $\theta$ が単に平均や分散を変えるだけでなく、確率密度が正になる範囲
+
+$$
+0<x<\theta
+$$
+
+の **右端そのもの** を決めている。
+
+標本平均は標本全体の中心位置を見る統計量である。一方、最大値
+
+$$
+M=X_{(n)}
+$$
+
+は未知の右端 $\theta$ のすぐ近くまで直接到達する統計量である。
+
+実際、$0<t<1$ に対して
+
+$$
+P\left(\frac M\theta\le t\right)
+=t^n.
+$$
+
+従って任意の $\varepsilon\in(0,1)$ について
+
+$$
+P\left(\theta-M>\varepsilon\theta\right)
+=P\left(\frac M\theta<1-\varepsilon\right)
+=(1-\varepsilon)^n,
+$$
+
+これは $n$ とともに指数的に0へ減る。
+
+さらに $T_2$ の分散が $O(n^{-2})$ であることから、典型的な誤差の大きさは $O(n^{-1})$ である。通常の標本平均型推定量の典型的誤差 $O(n^{-1/2})$ より速い。
+
+このような速い収束が可能なのは、支持集合 $(0,\theta)$ が未知母数に依存する **非正則モデル**だからである。通常の正則モデルの「最尤推定量は $n^{-1/2}$ スケール」という直感を、そのまま端点母数へ適用してはいけない。
 
 ## 本番答案
 
-密度 $f(x;\theta)=1/\theta$（$0<x<\theta$）から
+密度から
 
 $$
 E[X]=\frac\theta2,
+\qquad
+E[X^2]=\frac{\theta^2}{3},
 \qquad
 \operatorname{Var}(X)=\frac{\theta^2}{12}.
 $$
@@ -217,28 +311,36 @@ $$
 
 $$
 E[M]=\frac n{n+1}\theta,
-\quad
-E[M^2]=\frac n{n+2}\theta^2,
-$$
-
-$$
-\operatorname{Var}(M)
-=\frac{n\theta^2}{(n+1)^2(n+2)}.
+\qquad
+E[M^2]=\frac n{n+2}\theta^2.
 $$
 
 よって
 
 $$
 E[T_2]=\theta,
-\qquad
-\operatorname{Var}(T_2)=\frac{\theta^2}{n(n+2)}.
 $$
 
-$n>1$ で $T_2$ の方が小分散であり、支持の端点が未知母数であるため最大値が強い情報を持つ。
+$$
+\operatorname{Var}(T_2)
+=\left(\frac{n+1}{n}\right)^2
+\left\{
+\frac n{n+2}\theta^2-rac{n^2}{(n+1)^2}\theta^2
+\right\}
+=\frac{\theta^2}{n(n+2)}.
+$$
+
+$n>1$ では
+
+$$
+\operatorname{Var}(T_2)<\operatorname{Var}(T_1).
+$$
+
+$\theta$ は支持の右端を決めるため最大値が端点情報を直接使え、$T_2$ は $O(n^{-2})$ の分散を持つ。
 
 ## 採点基準
 
-- 密度から $T_1$ の不偏性・分散を導出: 5点
-- 最大値の累積分布関数・密度: 5点
-- $T_2$ の不偏性・分散: 6点
-- 分散オーダーと端点母数の解釈: 4点
+- $T_1$ の不偏性と $T_2$ の不偏性（最大値の分布導出を含む）: 6点
+- $T_1$ の分散: 4点
+- $T_2$ の二次モーメント・分散・比較: 6点
+- 分散オーダーと端点母数・非正則性の解釈: 4点
