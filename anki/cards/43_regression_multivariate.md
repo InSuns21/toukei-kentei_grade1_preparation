@@ -2756,43 +2756,198 @@ $2k/n$ は機械的な棄却基準ではなく診断の目安。
 
 ---
 id: reg-gls-estimator
-title: 一般化最小二乗推定量を導く
+title: GLSを導出しWLS・FGLSまで通す
 category: applied-common
 subcategory: applied-multiple-regression
-topic: generalized-least-squares
+topic: generalized-least-squares-canonical
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [一般化最小二乗推定, 一般化最小二乗法, 相関誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一般化最小二乗推定 }]
+hashtags:
+  - 一般化最小二乗法
+  - GLS
+  - WLS
+  - FGLS
+  - 異分散
+  - 分散共分散行列
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一般化最小二乗推定
 ---
 
 ## 問題
-$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2\boldsymbol\Omega$、$\boldsymbol\Omega$ が既知の正定値行列のとき一般化最小二乗法推定量を書け。
+線形モデル
+$$
+\boldsymbol y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
+\qquad
+E(\boldsymbol\varepsilon\mid\boldsymbol X)=\boldsymbol0,
+$$
+$$
+\operatorname{Var}(\boldsymbol\varepsilon\mid\boldsymbol X)
+=\sigma^2\boldsymbol\Omega
+$$
+で、$\boldsymbol\Omega$ は正定値とする。
+
+1. $\boldsymbol\Omega$ が既知のとき、一般化最小二乗推定量（GLS）を二次形式の最小化から導け。
+2. 誤差が独立で分散が観測ごとに異なるとき、GLSが重み付き最小二乗法（WLS）になることを示せ。
+3. $\boldsymbol\Omega$ が未知だが母数化して推定できるとき、実行可能GLS（FGLS）の手順を述べよ。
+4. 切片のみの2観測 $y_1=1,y_2=3$ で誤差分散がそれぞれ $1,4$ のとき、WLS推定値を求めよ。
 
 ## 記号・用語
-- GLS：一般化最小二乗法
+- **GLS**：一般化最小二乗法（generalized least squares）。誤差共分散の形を使って残差を重み付けする。
+- **WLS**：重み付き最小二乗法（weighted least squares）。誤差共分散が対角のGLS。
+- **FGLS**：実行可能一般化最小二乗法（feasible GLS）。未知の $\Omega$ をデータから推定してGLSへ代入する。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+GLSは
+$$
+Q(\boldsymbol\beta)
+=(\boldsymbol y-\boldsymbol X\boldsymbol\beta)^{\mathsf T}
+\boldsymbol\Omega^{-1}
+(\boldsymbol y-\boldsymbol X\boldsymbol\beta)
+$$
+を最小化する。
 
-$\partial Q/\partial\boldsymbol\beta=-2\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}(\boldsymbol y-\boldsymbol X\boldsymbol\beta)$。
+微分すると
+$$
+\frac{\partial Q}{\partial\boldsymbol\beta}
+=-2\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}
+(\boldsymbol y-\boldsymbol X\boldsymbol\beta).
+$$
+これを0と置けば一般化正規方程式
+$$
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+=\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
+$$
+を得る。したがって
+$$
+\boxed{
+\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
+}.
+$$
+また
+$$
+\operatorname{Var}(\widehat{\boldsymbol\beta}_{\mathrm{GLS}}\mid\boldsymbol X)
+=\sigma^2
+(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}.
+$$
+
+独立な異分散で
+$$
+\operatorname{Var}(\varepsilon_i)=\sigma_i^2
+$$
+なら、共通倍率を無視して
+$$
+\boldsymbol\Omega^{-1}
+=\operatorname{diag}(w_1,\ldots,w_n),
+\qquad
+w_i\propto\frac1{\sigma_i^2}.
+$$
+よってGLSの二次形式は
+$$
+Q(\boldsymbol\beta)
+=\sum_{i=1}^n w_i
+(y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2
+$$
+となりWLSに一致する。
+
+## 一手
+**GLS・WLS・FGLSを別公式として暗記しない。** 基本は「残差を誤差共分散の逆行列 $\Omega^{-1}$ で測る」GLSである。$\Omega$ が対角なら逆分散重みのWLS、$\Omega$ が未知なら推定した $\widehat\Omega$ を代入するFGLSになる。
 
 ## 答え
-重み付き平方和
-$$Q=(\boldsymbol y-\boldsymbol X\boldsymbol\beta)^{\mathsf T}\boldsymbol\Omega^{-1}(\boldsymbol y-\boldsymbol X\boldsymbol\beta)$$
-を微分して0と置くと
-$$\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
-=\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y,$$
-$$\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
-=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y.$$
+既知 $\Omega$ では
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y.
+$$
+
+独立異分散では
+$$
+w_i\propto\frac1{\sigma_i^2}
+$$
+としてWLSを行う。
+
+$\Omega$ が未知ならFGLSでは、典型的に
+1. 最小二乗法などで暫定残差を求める。
+2. 残差から分散・相関モデルの母数を推定して $\widehat\Omega$ を作る。
+3.
+$$
+\widehat{\boldsymbol\beta}_{\mathrm{FGLS}}
+=(\boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol y
+$$
+を計算する。
+
+数値例では分散が $1,4$ なので相対重みは
+$$
+w_1:w_2=1:\frac14=4:1.
+$$
+切片のみモデルのWLS推定値は加重平均だから
+$$
+\widehat\beta_0
+=\frac{1\cdot1+(1/4)\cdot3}{1+1/4}
+=\frac{1.75}{1.25}
+=1.4.
+$$
 
 ## 計算例
-$\boldsymbol\Omega=\boldsymbol I$ なら最小二乗法へ戻る。
+同じ数値例を行列で確認する。
+$$
+\boldsymbol X=
+\begin{pmatrix}1\\1\end{pmatrix},
+\qquad
+\boldsymbol y=
+\begin{pmatrix}1\\3\end{pmatrix},
+\qquad
+\boldsymbol\Omega=
+\begin{pmatrix}1&0\\0&4\end{pmatrix}.
+$$
+したがって
+$$
+\boldsymbol\Omega^{-1}
+=\begin{pmatrix}1&0\\0&1/4\end{pmatrix}.
+$$
+分母は
+$$
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+=1+\frac14
+=\frac54,
+$$
+分子は
+$$
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
+=1+\frac34
+=\frac74.
+$$
+よって
+$$
+\widehat\beta_0
+=\left(\frac54\right)^{-1}\frac74
+=\frac45\frac74
+=\frac75
+=1.4.
+$$
+分散の小さい第1観測へ4倍の相対重みを置くため、単純平均2より第1観測1へ近い推定値になる。
 
 ## 注意
-$\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X$ の可逆性が必要。
+GLSには $\Omega$ の正定値性と
+$$
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+$$
+の可逆性が必要である。
+
+異分散があっても $E(\varepsilon\mid X)=0$ なら最小二乗法の係数推定量は不偏・一致であり得るが、通常の等分散標準誤差は不適切になり、既知の正しい $\Omega$ を使うGLSより効率も落ち得る。一方、FGLSは $\Omega$ の推定モデルが誤っていれば効率や標準誤差へ影響する。
+
+WLSの重みは**標準偏差の逆数ではなく分散の逆数**である。全重みに同じ正の定数を掛けても係数推定値は変わらない。
 
 <!-- CARD -->
 
