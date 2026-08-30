@@ -2099,42 +2099,110 @@ $$t=\frac{2-0}{0.5}=4.$$
 
 ---
 id: reg-overall-f-test
-title: 重回帰の全体F検定を構成する
+title: 重回帰の全体F検定を平方和と決定係数の両方から計算する
 category: math-data-analysis
 subcategory: math-regression
-topic: overall-f
+topic: overall-f-canonical
 type: formula
 difficulty: 3
 priority: S
-hashtags: [重回帰, F検定, 回帰の分散分析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
+hashtags:
+  - 重回帰
+  - 全体F検定
+  - 決定係数
+  - 平方和
+  - 分散分析
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 回帰の分散分析
 ---
 
 ## 問題
-標本サイズ $n$、切片以外の説明変数数 $p$ の重回帰を考える。固定された列フルランクの計画行列の下で、誤差は独立な正規分布に従い共通分散を持つとする。回帰平方和を $SSR$、残差平方和を $SSE$ として、切片以外の $p$ 係数が全て0という帰無仮説のF統計量を書け。
+切片と $p$ 個の説明変数を持つ重回帰を考える。標本サイズを $n$ とし、計画行列は列フルランク、誤差は独立な正規分布に従い共通分散 $\sigma^2$ を持つとする。
+
+1. 帰無仮説
+$$
+H_0:\beta_1=\cdots=\beta_p=0
+$$
+を検定する全体F統計量を、回帰平方和 $SSR$ と残差平方和 $SSE$ で書け。
+2. 同じ統計量を決定係数 $R^2$ だけで表せ。
+3. $n=30,p=3,R^2=0.40$、5%上側臨界値を2.98として判定せよ。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
 - SSR：回帰平方和（regression sum of squares）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+切片を含む通常の回帰では
+$$
+SST=SSR+SSE,
+\qquad
+R^2=\frac{SSR}{SST},
+\qquad
+1-R^2=\frac{SSE}{SST}.
+$$
+全体F統計量は
+$$
+F=\frac{SSR/p}{SSE/(n-p-1)}.
+$$
+帰無仮説の下で
+$$
+F\sim F_{p,n-p-1}.
+$$
+分子・分母をともに $SST$ で割れば
+$$
+F
+=\frac{R^2/p}{(1-R^2)/(n-p-1)}.
+$$
 
-完全モデルと切片のみモデルの残差平方和差が $SSR$。
+## 一手
+**平方和のF式をまず書き、$SSR/SST=R^2$ と $SSE/SST=1-R^2$ を代入する。** 「決定係数から求めるF」は別公式ではなく同じ全体F検定の書き換えである。
 
 ## 答え
-$$H_0:\beta_1=\cdots=\beta_p=0,$$
-$$F=\frac{SSR/p}{SSE/(n-p-1)}\sim F_{p,n-p-1}.$$
+$n=30,p=3,R^2=0.40$ なので
+$$
+F
+=\frac{0.40/3}{0.60/(30-3-1)}
+=\frac{0.40/3}{0.60/26}.
+$$
+分子は
+$$
+\frac{0.40}{3}\approx0.13333,
+$$
+分母は
+$$
+\frac{0.60}{26}\approx0.02308,
+$$
+よって
+$$
+F\approx5.78.
+$$
+$5.78>2.98$ なので5%水準で $H_0$ を棄却し、説明変数全体として有意な線形関係があると判断する。
 
 ## 計算例
-$SSR=60,SSE=40,n=25,p=4$ なら
-$$F=\frac{60/4}{40/(25-4-1)}
-=\frac{15}{2}=7.5.$$
-自由度 $(4,20)$ の5%臨界値を2.87とすれば、$7.5>2.87$ なので全係数0を棄却する。
+同じモデルで $SST=200$ とすると
+$$
+SSR=R^2SST=0.40\times200=80,
+$$
+$$
+SSE=(1-R^2)SST=0.60\times200=120.
+$$
+平方和表示から計算しても
+$$
+F
+=\frac{80/3}{120/26}
+=\frac{26.666\ldots}{4.615\ldots}
+\approx5.78,
+$$
+と一致する。
 
 ## 注意
-全体有意でも全ての個別係数が有意とは限らない。
+全体F検定で棄却しても、全ての個別係数が有意とは限らない。少なくとも1つの傾き係数が0でないことを示す検定である。また統計的有意性は因果関係を意味しない。正確なF分布による有限標本検定には、固定された列フルランクの計画行列と独立・正規・等分散誤差を仮定する。
 
 <!-- CARD -->
 
@@ -2184,39 +2252,117 @@ $$F=\frac{R^2/p}{(1-R^2)/(n-p-1)}
 
 ---
 id: reg-partial-f-test
-title: 入れ子モデルの部分F検定を書く
+title: 入れ子回帰の部分F検定を数値計算し1係数ならt二乗へつなぐ
 category: math-data-analysis
 subcategory: math-regression
-topic: partial-f
+topic: partial-f-canonical
 type: formula
 difficulty: 3
 priority: S
-hashtags: [部分F検定, 入れ子モデル, 変数追加]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
+hashtags:
+  - 重回帰
+  - 部分F検定
+  - 入れ子モデル
+  - t検定
+  - 平方和
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 回帰の分散分析
 ---
 
 ## 問題
-固定された列フルランクの計画行列の下で誤差が独立な正規分布に従い、共通分散を持つ重回帰を考える。説明変数を除いた縮小モデルをR、追加後の完全モデルをFとし、それぞれの残差平方和を $SSE_R,SSE_F$ とする。標本サイズを $n$、完全モデルの切片以外の説明変数数を $p_F$、追加係数数を $q$ として部分F統計量を書け。
+固定された列フルランクの計画行列の下で、誤差が独立な正規分布に従い共通分散を持つ重回帰を考える。説明変数を除いた縮小モデルをR、追加後の完全モデルをFとする。
+
+1. 標本サイズを $n$、完全モデルの切片以外の説明変数数を $p_F$、追加係数数を $q$、両モデルの残差平方和を $SSE_R,SSE_F$ として部分F統計量を書け。
+2. $n=30,p_F=4,q=2,SSE_R=100,SSE_F=70$、5%上側臨界値を3.39として判定せよ。
+3. $q=1$ のとき、同じ1係数を検定するt統計量との間に $F=t^2$ が成り立つことを示せ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+入れ子モデルでは、完全モデルは縮小モデルを特殊例として含むため
+$$
+SSE_R\ge SSE_F.
+$$
+追加した $q$ 個の係数が全て0という帰無仮説の下で
+$$
+F
+=\frac{(SSE_R-SSE_F)/q}{SSE_F/(n-p_F-1)}
+\sim F_{q,n-p_F-1}.
+$$
+完全モデルの残差平均平方を
+$$
+MSE_F=\frac{SSE_F}{n-p_F-1}
+$$
+と書けば、分子は「追加した $q$ 個の係数による残差平方和の減少を1自由度当たりに直した量」である。
 
-入れ子モデルでは $SSE_R\ge SSE_F$。
+$q=1$ で係数 $\beta_j$ だけを追加する場合、同じ帰無仮説 $H_0:\beta_j=0$ に対するt統計量は
+$$
+t=\frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}.
+$$
+1自由度の追加平方和は
+$$
+SSE_R-SSE_F
+=\frac{\widehat\beta_j^2}{\{(X^\mathsf TX)^{-1}\}_{jj}},
+$$
+また
+$$
+\operatorname{SE}(\widehat\beta_j)^2
+=MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}.
+$$
+
+## 一手
+**縮小モデルと完全モデルの残差平方和の差を、追加した自由度 $q$ で割って完全モデルの残差平均平方と比べる。** $q=1$ ならその比は同じ係数のt統計量の二乗になる。
 
 ## 答え
-$$F=\frac{(SSE_R-SSE_F)/q}{SSE_F/(n-p_F-1)}
-\sim F_{q,n-p_F-1}$$
-が追加係数全て0の帰無仮説下で成り立つ。
+数値例では分母自由度は
+$$
+n-p_F-1=30-4-1=25.
+$$
+残差平方和の減少は
+$$
+SSE_R-SSE_F=100-70=30,
+$$
+その1自由度当たりは
+$$
+\frac{30}{2}=15.
+$$
+完全モデルの残差平均平方は
+$$
+\frac{70}{25}=2.8.
+$$
+よって
+$$
+F=\frac{15}{2.8}\approx5.36.
+$$
+$5.36>3.39$ なので、追加した2係数がともに0という帰無仮説を5%水準で棄却する。
+
+$q=1$ なら
+$$
+F
+=\frac{SSE_R-SSE_F}{MSE_F}
+=\frac{\widehat\beta_j^2}
+{MSE_F\{(X^\mathsf TX)^{-1}\}_{jj}}
+=\left(
+\frac{\widehat\beta_j}{\operatorname{SE}(\widehat\beta_j)}
+\right)^2
+=t^2.
+$$
 
 ## 計算例
-$n=30,p_F=4,q=2,SSE_R=100,SSE_F=70$ なら
-$$F=\frac{(100-70)/2}{70/(30-4-1)}
-=\frac{15}{2.8}\approx5.36.$$
-分子自由度は2、分母自由度は25である。
+1係数の検定で $t=2.50$ なら
+$$
+F=t^2=2.50^2=6.25.
+$$
+したがって両側t検定と、分子自由度1の部分F検定は同じ帰無仮説に対して同じ棄却判断を与える。
+
+一方、先の $q=2$ の例では $F\approx5.36$ は2係数の**同時検定**であり、どちらの係数が重要なのかをこの値だけから特定することはできない。
 
 ## 注意
-モデルが入れ子でない場合、この平方和差F検定は使えない。
+縮小モデルと完全モデルが入れ子でない場合、この残差平方和差による部分F検定は使えない。$q>1$ の部分F検定は係数群の共同有意性を調べるものであり、個々の係数の有意性とは別である。$F=t^2$ がそのまま成り立つのは同じ1係数・同じ誤差分散推定に対する検定である。
 
 <!-- CARD -->
 
