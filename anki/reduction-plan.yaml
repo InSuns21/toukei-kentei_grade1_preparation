@@ -1,15 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-time-series-cross-category-reduction-170
+batch_id: 2026-08-31-yule-walker-ar1-reduction-172
 items:
-  - id: engproc-pacf-significance-output
+  - id: engproc-yule-walker-estimate-ar1
     bucket: duplicates
     reason: duplicate
     canonical_card: ts-acf-pacf-identification
     coverage_card: ts-acf-pacf-identification
-    note: n=100で近似95%限界0.196を計算し、PACF 0.55,-0.24,0.12からラグ1・2を有意と判定する数値例までACF・PACF canonical cardへ統合済み。
-  - id: engproc-arima-forecast-output
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engproc-arima110-difference-forecast
-    coverage_card: engproc-arima110-difference-forecast
-    note: forecast=80.0、prediction standard error=2.5から95%予測区間(75.1,84.9)を復元し、係数標準誤差との違いまでARIMA予測canonical cardへ統合済み。
+    note: AR(1)で標本自己共分散からphi=gamma1/gamma0を推定し、gamma0(1-phi^2)から革新分散を求める手順、gamma0=10,gamma1=6でphi=0.6・革新分散6.4の数値例、定常性確認、有限標本の偏り注意まで時系列canonical cardへ統合済み。
