@@ -754,8 +754,6 @@ items:
       - est-shape-parameter-transform
       - est-rao-blackwell
       - est-sufficiency-completeness
-      - est-lehmann-scheffe
-      - est-umvu-idea
       - est-loss-risk
       - est-posterior-risk
       - est-fisher-information-def
@@ -769,7 +767,6 @@ items:
       - est-information-matrix
       - est-information-inequality-summary
       - mathstat-inverse-variance-weighting
-      - est-rao-blackwell-bernoulli
       - est-generalized-crlb-poisson-zero
       - est-poisson-square-umvu
     terms:
@@ -789,8 +786,6 @@ items:
         cards:
           - est-rao-blackwell
           - est-sufficiency-completeness
-          - est-lehmann-scheffe
-          - est-umvu-idea
       - name: 有効性
         status: card
         cards:
