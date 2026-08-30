@@ -179,7 +179,7 @@ $$
 完全なモデルを効果尺度で
 
 $$
-y=\mu+rac{A}{2}x_A+rac{BC}{2}x_{BC}+\cdots+\varepsilon
+y=\mu+\frac{A}{2}x_A+\frac{BC}{2}x_{BC}+\cdots+\varepsilon
 $$
 
 と考える。
@@ -193,7 +193,7 @@ $$
 なので
 
 $$
-\frac{A}{2}x_A+rac{BC}{2}x_{BC}
+\frac{A}{2}x_A+\frac{BC}{2}x_{BC}
 =\frac{A+BC}{2}x_A.
 $$
 
