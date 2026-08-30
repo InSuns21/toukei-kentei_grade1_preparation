@@ -1,36 +1,23 @@
 schema_version: 1
-batch_id: 2026-08-30-block-design-reduction-155
+batch_id: 2026-08-30-time-series-foundations-differencing-reduction-157
 items:
-  - id: design-rcbd-sums-squares
+  - id: ts-autocovariance-properties
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-rcbd-anova-numeric
-    note: 乱塊法の処置・ブロック・誤差平方和の定義と分解を、加法モデルからF検定まで解くcanonical cardへ統合済み。
-  - id: design-rcbd-degrees-freedom
+    canonical_card: ts-weak-vs-strong-stationarity
+    note: 自己共分散のgamma(0)>=0、対称性、|gamma(h)|<=gamma(0)、自己相関定義、非負定値性を弱定常性canonical cardへ統合済み。
+  - id: ts-white-noise-identification
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-rcbd-anova-numeric
-    note: df_T=ab-1、df_A=a-1、df_B=b-1、df_E=(a-1)(b-1) と自由度和の検算をcanonical cardへ統合済み。
-  - id: engdesign-rcbd-adjusted-difference
+    canonical_card: ts-weak-vs-strong-stationarity
+    note: 弱ホワイトノイズの平均0・分散一定・異時点無相関、ACF、独立性を意味しない注意までcanonical cardへ統合済み。
+  - id: ts-difference-random-walk
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-rcbd-anova-numeric
-    note: 2処置3ブロックの数値例(4,3,2)から処置差3を求め、加法モデルでブロック共通項が差により消える導出までcanonical cardへ統合済み。
-  - id: engdesign-weighted-contrast-covariance
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: design-orthogonal-array-basic
-    note: 不等反復では通常の係数内積ではなく反復数で重み付けされた共分散を見るという注意は直交表canonical cardに保持済み。専用の共分散数値代入は600枚正本では独立カードにしない。
-  - id: engdesign-cyclic-incomplete-blocks
-    bucket: too_specific
-    reason: low_priority
-    note: 基本ブロックを法vで巡回して計画を機械的に生成する操作は、ブロック化の中心概念より特殊。過去問対応の不完備ブロック推定可能性カードを優先し、発展隔離する。
-  - id: engdesign-incomplete-incidence-matrix
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: engdesign-incomplete-block-connectivity
-    note: 与えられたブロックから0-1接続行列を転記するだけのカードは、過去問対応の接続グラフによる処置対比の推定可能性判定に比べ独立演習価値が低い。
-  - id: engdesign-bibd-parameter-check
-    bucket: too_specific
-    reason: low_priority
-    note: BIBDのvr=bk、lambda(v-1)=r(k-1)への単純代入は、公式シラバスの一般的なブロック化より特殊で、現在の頻度情報も0。過去問対応の不完備ブロック推定可能性を残して発展隔離する。
+    canonical_card: ts-arima-definition
+    note: ランダムウォークを展開してVar(X_t)=t sigma^2から非定常性を示し、差分がホワイトノイズとなる導出、ARIMA(0,1,0)・I(1)の位置付けまでcanonical cardへ統合済み。
+  - id: ts-seasonal-difference
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-arima-definition
+    note: 周期12の季節差分数値例と通常差分との目的の違いをARIMA差分canonical cardへ統合済み。
