@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-rao-blackwell-canonical-reduction-73
+batch_id: 2026-08-30-lehmann-scheffe-canonical-reduction-74
 items:
-  - id: rao-blackwell
+  - id: lehmann-scheffe
     bucket: duplicates
     reason: duplicate
     canonical_card: est-rao-blackwell
-    note: Rao–Blackwell化の不偏性保存・分散減少は、Lehmann–Scheffé/UMVUまで一続きに扱う est-rao-blackwell 正本へ統合済み。独立反復する旧定理カードは重複のため隔離する。
+    note: 完備十分統計量の不偏関数が一意なUMVUになるLehmann–Schefféの役割は est-rao-blackwell 正本でRao–Blackwell化との接続まで含めて扱っているため、単独定理カードを隔離する。
