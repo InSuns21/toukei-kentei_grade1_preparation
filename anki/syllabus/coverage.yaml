@@ -2282,7 +2282,7 @@ items:
       - engasym-lln-sensor-average
       - engasym-consistency-from-mse
       - engasym-clt-sum-probability
-      - engasym-delta-ratio
+      - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
       - asym-mle-poisson-tail-probability
@@ -2331,7 +2331,7 @@ items:
       - name: デルタ法
         status: card
         cards:
-          - engasym-delta-ratio
+          - asym-ratio-two-means-delta
           - engasym-delta-risk-ratio
           - engasym-delta-odds-ratio
   - id: engineering-quality
