@@ -1703,34 +1703,59 @@ $0\log0$ が現れる場合は極限値0として扱う。
 
 ---
 id: test-lr-wald-score-comparison
-title: 尤度比・Wald・Score検定の評価点を比較する
+title: 尤度比・ワルド型・スコア型検定を評価点と漸近同値性から比較する
 category: math-testing
 subcategory: math-test-derivation
 topic: asymptotic-test-equivalence
-type: recognition
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [尤度比検定, ワルド型検定, スコア型検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 尤度比・Wald・Scoreの漸近同値 }]
+hashtags:
+  - 尤度比検定
+  - ワルド型検定
+  - スコア型検定
+  - 漸近同値
+  - カイ二乗分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 尤度比・Wald・Scoreの漸近同値
 ---
 
 ## 問題
-尤度比・Wald・Score検定が何を比較し、どの点で曲率を評価するか整理せよ。
+1次元母数で $H_0:\theta=\theta_0$ を検定する。
+1. 尤度比・ワルド型・スコア型検定が尤度の何をどこで評価するか説明せよ。
+2. 正則条件の下で帰無仮説下の3統計量の漸近分布と相互関係を述べよ。
+3. 漸近同値が有限標本での完全一致を意味しないこと、境界母数では通常の結論が崩れ得ることを説明せよ。
+
+## 記号・用語
+$\widehat\theta$ は制約なし最尤推定量、$U_n(\theta)$ はスコア、$I_n(\theta)$ はフィッシャー情報量（1次元）とする。
+尤度比検定は制約あり・なしの最大尤度差、ワルド型検定は $\widehat\theta$ と帰無値の距離、スコア型検定は帰無値での尤度の傾きを使う。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+代表的には
+$$W_n=(\widehat\theta-\theta_0)^2I_n(\widehat\theta),$$
+$$S_n=\frac{U_n(\theta_0)^2}{I_n(\theta_0)},$$
+$$LR_n=2\{\ell_n(\widehat\theta)-\ell_n(\theta_0)\}.$$
+正則条件の下で $H_0$ では3者とも $\chi_1^2$ へ分布収束し、互いの差は $o_p(1)$。
 
-正則条件下で3統計量は帰無仮説下に同じカイ二乗極限分布をもち、差は $o_p(1)$。
+## 一手／方針
+ワルド型は推定値付近、スコア型は帰無値、尤度比は両者の最大対数尤度を使うが、帰無値近傍の二次近似では同じ主要項へ帰着する。
 
 ## 答え
-尤度比は制約付き・制約なし最大対数尤度の差、Waldは $\widehat\theta$ と帰無集合の距離を推定値側の分散で標準化、Scoreは帰無値での対数尤度の傾きを帰無情報量で標準化する。
+1. 評価点は上記のとおり異なる。
+2. 3統計量はいずれも自由度1のカイ二乗分布へ収束し、差は確率的に0へ近づく。
+3. 有限標本では統計量やP値は一致しなくてよい。母数が許容領域の境界にあると通常の内部点での二次近似条件が崩れ、非標準な極限分布になることがある。
 
 ## 計算例
-ベルヌーイ例 $n=100,x=60,p_0=0.5$ では、尤度比 $\approx4.027$、Wald $\approx4.167$、Score $=4$ と近い。
+$W_n=4.10,S_n=3.95,LR_n=4.02$ は少し異なるが、いずれも $\chi_1^2$ の5%臨界値約3.84を上回るので同じ棄却判断になる。
 
 ## 注意
-有限標本では一致せず、境界や弱い識別では差が大きくなりうる。
+小標本、弱識別、境界母数、強い非線形性では3検定の差が無視できないことがある。
 <!-- CARD -->
 
 ---

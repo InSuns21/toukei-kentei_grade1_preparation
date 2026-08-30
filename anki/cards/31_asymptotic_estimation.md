@@ -778,79 +778,114 @@ $X_i$ がベルヌーイ分布 $\operatorname{Bernoulli}(p)$ なら $E[X_i]=p$�
 
 ---
 id: asym-slutsky
-title: Slutskyの定理を述べる
+title: Slutskyの定理で未知量を一致推定量へ置き換え標準化する
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: slutsky
-type: theorem
+topic: slutsky-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [Slutskyの定理, 分布収束, 漸近理論]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 収束の概念 }]
+hashtags:
+  - Slutskyの定理
+  - 分布収束
+  - 確率収束
+  - 標準化
+  - 漸近理論
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 収束の概念
 ---
 
 ## 問題
-Slutsky（スルツキー）の定理を述べよ。
+Slutsky（スルツキー）の定理について次を答えよ。
+1. $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ のとき、和・積・商の極限を述べよ。
+2. $X_n$ が正規分布 $N(0,4)$ へ分布収束し、$Y_n\xrightarrow{p}2$ のとき $X_n/Y_n$ の極限分布を求めよ。
+3. 独立同分布標本で、$\sqrt n(\overline X_n-\mu)/\sigma$ が標準正規分布 $N(0,1)$ へ分布収束し、$S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ とする。$(\overline X_n-\mu)/(S_n/\sqrt n)$ の極限分布を示せ。
 
 ## 記号・用語
-- $\xrightarrow{d}$：分布収束
+$\xrightarrow{d}$ は分布収束、$\xrightarrow{p}$ は確率収束。Slutskyの定理は、主要な確率変数に掛かる・足される量が定数へ確率収束するとき、その量を漸近的に定数へ置き換えられることをいう。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ なら
+$$X_n+Y_n\xrightarrow{d}X+c,\qquad X_nY_n\xrightarrow{d}cX.$$
+$c\ne0$ なら
+$$\frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.$$
+また $S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ なら連続写像定理により $S_n/\sigma\xrightarrow{p}1$。
 
-$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$（定数）なら $X_n+Y_n\xrightarrow{d}X+c$、$X_nY_n\xrightarrow{d}cX$、$X_n/Y_n\xrightarrow{d}X/c\ (c\ne0)$。
+## 一手／方針
+分布収束する「主役」と、定数へ確率収束する「置換量」に分ける。未知標準偏差の置換では $S_n/\sigma\to_p1$ を作る。
 
 ## 答え
-分布収束する列と、定数へ確率収束する列の和・積・商は、極限分布の対応する演算の分布へ収束する。
+1. 和・積は上式、商は $c\ne0$ のとき $X/c$ へ分布収束する。
+2. $X\sim N(0,4)$ を2で割るので $X/2\sim N(0,1)$、したがって標準正規分布へ収束する。
+3. $Z_n=\sqrt n(\overline X_n-\mu)/\sigma\to_dN(0,1)$、$S_n/\sigma\to_p1$ だから
+$$\frac{\overline X_n-\mu}{S_n/\sqrt n}=\frac{Z_n}{S_n/\sigma}\xrightarrow{d}N(0,1).$$
 
 ## 計算例
-$\sigma=2$ とし、$Z_n=\sqrt n(\overline X_n-\mu)/2\xrightarrow{d}N(0,1)$、$S_n^2\xrightarrow{p}4$ とする。連続写像定理より
-$$\frac{S_n}{2}=\sqrt{\frac{S_n^2}{4}}\xrightarrow{p}1.$$
-したがってSlutskyの定理から
-$$\frac{\overline X_n-\mu}{S_n/\sqrt n}
-=\frac{\sqrt n(\overline X_n-\mu)/2}{S_n/2}
-=\frac{Z_n}{S_n/2}
-\xrightarrow{d}N(0,1).$$
+$X_n\to_dN(0,4)$、$Y_n\to_p2$ なら、分散は $4/2^2=1$ となり $X_n/Y_n\to_dN(0,1)$。
 
 ## 注意
-$Y_n$ が定数でない確率変数へ確率収束する場合、積の極限は一般に成り立たない。
+商では分母の極限が0でないことが必要。有限標本で推定標準偏差へ置換した統計量が厳密に同じ分布になることを主張する定理ではない。
 
 <!-- CARD -->
 
 ---
 id: asym-continuous-mapping
-title: 連続写像定理を述べる
+title: 連続写像定理で変換後の収束とプラグイン推定量の一致性を示す
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: continuous-mapping-theorem
-type: theorem
+topic: continuous-mapping-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [連続写像定理, 分布収束, 漸近理論]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 収束の概念 }]
+hashtags:
+  - 連続写像定理
+  - 分布収束
+  - 確率収束
+  - 一致性
+  - プラグイン法
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 収束の概念
 ---
 
 ## 問題
-連続写像定理（連続写像定理）を述べよ。
+1. $X_n\to_dX$ と $X_n\to_p\theta$ のそれぞれについて、連続関数 $g$ を作用させた結論を述べよ。
+2. $Z_n$ が標準正規分布 $N(0,1)$ へ分布収束するとき $Z_n^2$ の極限分布を求めよ。
+3. $\widehat p\to_pp$、$0<p<1$ のとき、$\widehat p(1-\widehat p)$ が $p(1-p)$ の一致推定量であることを示せ。
 
 ## 記号・用語
-- $\xrightarrow{d}$：分布収束
+プラグイン法は、未知母数の関数 $g(\theta)$ を $g(\widehat\theta)$ で推定する考え方である。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$g$ が極限値で連続なら
+$$X_n\xrightarrow{d}X\Rightarrow g(X_n)\xrightarrow{d}g(X),$$
+$$X_n\xrightarrow{p}\theta\Rightarrow g(X_n)\xrightarrow{p}g(\theta).$$
 
-$X_n\xrightarrow{d}X$ かつ $g$ が連続なら $g(X_n)\xrightarrow{d}g(X)$。
+## 一手／方針
+元の推定量の収束を確認し、次に変換 $g$ が極限値で連続か確認する。
 
 ## 答え
-分布収束する列に連続関数を施したものは、極限分布に同じ関数を施した分布へ収束する。
+1. 分布収束・確率収束とも連続関数を通して保存される。
+2. $g(z)=z^2$ は連続なので $Z_n^2\to_d\chi_1^2$。
+3. $g(x)=x(1-x)$ は連続なので $\widehat p(1-\widehat p)\to_pp(1-p)$。
 
 ## 計算例
-$Z_n\xrightarrow{d}N(0,1)$ なら $g(x)=x^2$ として $Z_n^2\xrightarrow{d}\chi^2_1$。
+$\widehat p=0.36,n=400$ なら $\widehat p(1-\widehat p)=0.2304$、標本比率の推定標準誤差は
+$$\sqrt{0.2304/400}=0.024.$$
 
 ## 注意
-多変量でも連続写像 $g$ について同じことが成り立つ。
+連続写像定理だけでは収束速度や漸近分散は与えない。変換後の $\sqrt n$ 尺度の極限にはデルタ法などを使う。
 
 <!-- CARD -->
 
