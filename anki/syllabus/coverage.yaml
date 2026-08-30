@@ -2127,7 +2127,6 @@ items:
   - id: engineering-stochastic-processes
     status: complete
     cards:
-      - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
       - engproc-two-state-ctmc-transition
@@ -2156,7 +2155,6 @@ items:
       - name: ランダムウォーク
         status: card
         cards:
-          - engproc-biased-walk-hit-upper
           - engproc-random-walk-expected-absorption
       - name: マルコフ過程
         status: card
