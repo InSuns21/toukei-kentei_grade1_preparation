@@ -1,34 +1,41 @@
 id: "E3-01"
 title: "実験計画・直交表・交絡"
 volume: "engineering"
-status: reviewed
+status: self_review
 prerequisites:
   - L1-03
 official_scope:
+  - 実験の計画と実施
   - 固定効果
   - 変量効果
+  - 交絡因子
   - ブロック化
   - 直交表
   - 交絡法
 learning_objectives:
   - 無作為化・反復・ブロック化を区別できる
   - 固定効果と変量効果を推測対象から判定できる
+  - 乱塊法の平方和とF統計量を計算できる
+  - 一元変量効果モデルの分散成分を推定できる
   - 2水準要因実験の主効果と交互作用を計算できる
   - L4直交表の列の直交性と積列を確認できる
-  - 直交表の列割付と交絡法の原理を説明できる
+  - 一部実施要因計画の別名関係を導ける
+  - ブロック交絡の原理と代償を説明できる
 definitions:
   - { id: E301-DEF-01, name: 固定効果と変量効果 }
   - { id: E301-DEF-02, name: ブロック化 }
   - { id: E301-DEF-03, name: 直交表 }
   - { id: E301-DEF-04, name: 交絡 }
+  - { id: E301-DEF-05, name: 別名関係 }
 theorems:
   - { id: E301-THM-01, name: 一元変量効果モデルの期待平均平方 }
-canonical_examples: [乱塊法, 二水準要因実験, L4直交表, ブロック交絡]
-problem_patterns: [DOE-BLOCK-1, DOE-RANDOM-EFFECT-1, DOE-ORTHOGONAL-1, DOE-CONFOUND-1]
+  - { id: E301-THM-02, name: 乱塊法の平方和分解 }
+canonical_examples: [乱塊法, 二水準要因実験, L4直交表, 一部実施要因計画, ブロック交絡]
+problem_patterns: [DOE-BLOCK-1, DOE-RANDOM-EFFECT-1, DOE-ORTHOGONAL-1, DOE-FRACTIONAL-1, DOE-CONFOUND-1]
 past_exam_alignment: []
-integrated_exam_problems: [E3-01-C01]
-exercise_counts: { level_a: 1, level_b: 2, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 5, exercises: 6, review: 3 }
+integrated_exam_problems: [E3-01-C01, E3-01-C04, E3-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+estimated_hours: { reading: 5, exercises: 10, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
