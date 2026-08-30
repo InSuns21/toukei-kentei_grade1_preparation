@@ -2142,7 +2142,6 @@ items:
       - engproc-mm1-stationary-probability
       - engproc-mm1-little-law
       - engproc-absorbing-fundamental-matrix
-      - engproc-absorbing-probability-matrix
       - engproc-markov-reward-long-run
       - engproc-ctmc-uniformization
       - engproc-chapman-kolmogorov-maintenance
@@ -2185,7 +2184,6 @@ items:
           - engproc-stationary-mean-recurrence
           - engproc-birth-death-detailed-balance
           - engproc-absorbing-fundamental-matrix
-          - engproc-absorbing-probability-matrix
           - engproc-markov-reward-long-run
           - engproc-chapman-kolmogorov-maintenance
       - name: 時系列解析
