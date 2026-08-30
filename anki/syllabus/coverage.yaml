@@ -2520,7 +2520,6 @@ items:
       - engdesign-block-vs-covariate
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
-      - engdesign-split-plot-degrees-freedom
       - engdesign-incomplete-incidence-matrix
       - engdesign-bibd-parameter-check
       - engdesign-bibd-contrast-variance
@@ -2541,7 +2540,6 @@ items:
           - engdesign-centerpoint-curvature
           - engdesign-lack-of-fit-decomposition
           - engdesign-split-plot-randomization
-          - engdesign-split-plot-degrees-freedom
           - engdesign-nested-df
           - engdesign-repeated-measures-unit
           - engdesign-replication-power-ratio
