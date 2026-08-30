@@ -1999,10 +1999,7 @@ items:
       - glm-logistic-score
       - glm-poisson-offset
       - glm-deviance-definition
-      - glm-pearson-chi-square
-      - glm-likelihood-ratio-test
       - glm-categorical-interaction
-      - glm-overdispersion-diagnostic
       - glm-logistic-marginal-effect
       - glm-probit-probability
       - glm-tobit-likelihood-parts
@@ -2050,10 +2047,7 @@ items:
           - glm-logistic-score
           - glm-poisson-offset
           - glm-deviance-definition
-          - glm-pearson-chi-square
-          - glm-likelihood-ratio-test
           - glm-categorical-interaction
-          - glm-overdispersion-diagnostic
           - glm-software-deviance-output
       - name: 非線形回帰モデル
         status: card
