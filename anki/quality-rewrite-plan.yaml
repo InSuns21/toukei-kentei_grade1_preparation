@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-method-of-moments-merge-prep-45
+batch_id: 2026-08-30-method-of-moments-merge-prep-45b
 items:
   - id: est-method-of-moments
     note: モーメント法の一般手順、1母数の一様分布、2母数の一様分布を一枚の正本へ統合する。
@@ -13,8 +13,8 @@ items:
 
         さらに次をモーメント法で推定せよ。
 
-        1. $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$ の $\theta$。
-        2. $X_1,\ldots,X_n\overset{iid}{\sim}U(a,b)$ の $a,b$。
+        1. 一様分布 $U(0,\theta)$ に従う $X_1,\ldots,X_n$ から $\theta$ を推定する。
+        2. 一様分布 $U(a,b)$ に従う $X_1,\ldots,X_n$ から $a,b$ を推定する。
       使用公式・定理: |
         母数を $\theta_1,\ldots,\theta_k$ とする。母モーメント
         $$
@@ -30,12 +30,12 @@ items:
         $$
         の連立方程式を解く。
 
-        $U(0,\theta)$ では
+        一様分布 $U(0,\theta)$ では
         $$
         E[X]=\frac\theta2.
         $$
 
-        $U(a,b)$ では
+        一様分布 $U(a,b)$ では
         $$
         E[X]=\frac{a+b}{2},
         \qquad
@@ -56,7 +56,7 @@ items:
         $$
         を解く。
 
-        $U(0,\theta)$ では
+        一様分布 $U(0,\theta)$ では
         $$
         \bar X=\frac\theta2
         $$
@@ -65,7 +65,7 @@ items:
         \widehat\theta_{\mathrm{MM}}=2\bar X.
         $$
 
-        $U(a,b)$ では
+        一様分布 $U(a,b)$ では
         $$
         \bar X=\frac{a+b}{2},
         $$
@@ -94,13 +94,13 @@ items:
         \bar X=2.
         $$
 
-        $U(0,\theta)$ なら
+        一様分布 $U(0,\theta)$ なら
         $$
         \widehat\theta_{\mathrm{MM}}=2\bar X=4.
         $$
         一方、このモデルの最尤推定量は標本最大値なので $3$ であり、モーメント法と最尤推定法は一般に一致しない。
 
-        次に $U(a,b)$ とすると
+        次に一様分布 $U(a,b)$ とすると
         $$
         m'_2=\frac{1^2+2^2+3^2}{3}=\frac{14}{3},
         $$
