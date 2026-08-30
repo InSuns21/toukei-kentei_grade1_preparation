@@ -10,10 +10,10 @@
 
 $X_1,\ldots,X_n\overset{\mathrm{iid}}\sim U(0,\theta)$、$\theta>0$ とし、$M=X_{(n)}$ とする。
 
-1. $M$が$\theta$の十分統計量であることを示せ。
-2. $M$が完備であることを示せ。完備性の確認では、期待値を表す積分を上端 $\theta$ で微分してよいものとする。
-3. $E[M]$を求め、$\theta$の一様最小分散不偏推定量を求めよ。
-4. $\theta^2$の一様最小分散不偏推定量も求めよ。
+1. $M$ が $\theta$ の十分統計量であることを示せ。
+2. $M$ が完備であることを示せ。完備性の確認では、期待値を表す積分を上端 $\theta$ で微分してよいものとする。
+3. $E[M]$ を求め、$\theta$ の一様最小分散不偏推定量（UMVU推定量）を求めよ。
+4. $\theta^2$ の一様最小分散不偏推定量も求めよ。
 
 ## 詳細解答
 
@@ -30,13 +30,15 @@ f_\theta(x)
 \end{aligned}
 $$
 
-**Neyman–Fisher 因子分解定理**を使う。同時確率密度関数または同時確率質量関数が
+ここで使う **Neyman–Fisher 因子分解定理**は、同時密度または同時確率質量関数が
 
 $$
-f_\theta(x)=g_\theta(M(x))h(x)
+f_\theta(x)=g_\theta(T(x))h(x)
 $$
 
-と書け、$h$ が母数に依存しないなら $M$ は十分統計量である。本問では
+と書け、$h$ が母数 $\theta$ に依存しないなら $T$ は十分統計量である、という定理である。
+
+本問では
 
 $$
 g_\theta(m)=\theta^{-n}\boldsymbol{1}_{\{m<\theta\}},
@@ -44,77 +46,197 @@ g_\theta(m)=\theta^{-n}\boldsymbol{1}_{\{m<\theta\}},
 h(x)=\prod_i\boldsymbol{1}_{\{x_i>0\}}
 $$
 
-と分解できる。よって
+と分解できる。母数依存部分は $M$ を通じてしか現れないので
 
 $$
-\boxed{M\text{ は }\theta\text{ の十分統計量}}.
+\boxed{M\text{ は }\theta\text{ の十分統計量}}
 $$
+
+である。
 
 ### 2. 完備性
 
-$M$ の累積分布関数は $0<m<\theta$ で
+まず $M$ の分布を求める。$0<m<\theta$ で
 
 $$
-P_\theta(M\le m)=\left(\frac m\theta\right)^n,
+\begin{aligned}
+P_\theta(M\le m)
+&=P_\theta(X_1\le m,\ldots,X_n\le m)\\
+&=\prod_{i=1}^nP_\theta(X_i\le m)\\
+&=\left(\frac m\theta\right)^n.
+\end{aligned}
 $$
 
-したがって確率密度関数は
+従って密度は
 
 $$
-f_M(m)=\frac{n m^{n-1}}{\theta^n},\qquad 0<m<\theta.
+f_M(m)
+=\frac{d}{dm}\left(\frac m\theta\right)^n
+=\frac{n m^{n-1}}{\theta^n},
+\qquad 0<m<\theta.
 $$
 
-$E_\theta[|g(M)|]$ が有限で、全ての $\theta>0$ について
+完備性の定義を確認する。$E_\theta[|g(M)|]<\infty$ で、すべての $\theta>0$ に対して
 
 $$
 E_\theta[g(M)]=0
 $$
 
-とする。すると
+ならば $g(M)=0$ が確率1で成り立つことを示せばよい。
+
+期待値を密度で書くと
 
 $$
-\frac n{\theta^n}\int_0^\theta g(m)m^{n-1}\,dm=0,
+\frac n{\theta^n}
+\int_0^\theta g(m)m^{n-1}\,dm=0.
 $$
 
-したがって
+$n/\theta^n>0$ なので
 
 $$
-F(\theta)=\int_0^\theta g(m)m^{n-1}\,dm=0
+F(\theta)
+:=\int_0^\theta g(m)m^{n-1}\,dm
+=0
 $$
 
-が全 $\theta>0$ で成立する。
+が全ての $\theta>0$ で成り立つ。
 
-問題文で積分を上端 $\theta$ について微分してよいとしているので、積分の基本定理から
+問題文の仮定により上端 $\theta$ で微分してよいから、積分の基本定理より
 
 $$
 F'(\theta)=g(\theta)\theta^{n-1}=0.
 $$
 
-$\theta^{n-1}>0$ だから
+$\theta^{n-1}>0$ なので
 
 $$
-g(\theta)=0
+g(\theta)=0,
+\qquad \theta>0.
 $$
 
-である。したがって、期待値が0になる関数は0でなければならず、
+従って
 
 $$
 \boxed{M\text{ は完備}}
 $$
 
-と確認できる。
+である。
 
-### 3・4. Lehmann–Scheffé定理
+### 3. $\theta$ の UMVU 推定量
 
-まず
+上で求めた密度を使うと、一般に $k>-n$ について
+
+$$
+\begin{aligned}
+E[M^k]
+&=\int_0^\theta
+m^k\frac{n m^{n-1}}{\theta^n}\,dm\\
+&=\frac n{\theta^n}
+\int_0^\theta m^{n+k-1}\,dm\\
+&=\frac n{\theta^n}
+\frac{\theta^{n+k}}{n+k}\\
+&=\boxed{\frac{n}{n+k}\theta^k}.
+\end{aligned}
+$$
+
+$k=1$ とすれば
+
+$$
+E[M]=\frac n{n+1}\theta.
+$$
+
+従って
+
+$$
+\widehat\theta
+=\frac{n+1}{n}M
+$$
+
+は $\theta$ の不偏推定量である。
+
+ここで **Lehmann–Scheffé の定理**を使う。定理は、完備十分統計量 $T$ の関数であり、推定対象に対して不偏な推定量は、その対象の一意な UMVU 推定量である、というものである。
+
+本問では問1・2より $M$ は完備十分で、$\widehat\theta$ は $M$ の関数かつ不偏だから
+
+$$
+\boxed{
+\widehat\theta_{\mathrm{UMVU}}
+=\frac{n+1}{n}M
+}.
+$$
+
+### 4. $\theta^2$ の UMVU 推定量
+
+問3で導いた一般式に $k=2$ を入れると
+
+$$
+E[M^2]
+=\frac n{n+2}\theta^2.
+$$
+
+従って
+
+$$
+\widehat{\theta^2}
+=\frac{n+2}{n}M^2
+$$
+
+は $\theta^2$ の不偏推定量である。
+
+これも完備十分統計量 $M$ の関数なので、Lehmann–Scheffé の定理から
+
+$$
+\boxed{
+\widehat{\theta^2}_{\mathrm{UMVU}}
+=\frac{n+2}{n}M^2
+}.
+$$
+
+問3と問4で同じ定理を使うが、**推定対象が $\theta$ と $\theta^2$ で異なるので、不偏性はそれぞれ別に確認する必要がある**。
+
+## 本番答案
+
+同時密度は
+
+$$
+f_\theta(x)
+=\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}
+\prod_i\boldsymbol{1}_{\{x_i>0\}}
+=g_\theta(M)h(x).
+$$
+
+よって Neyman–Fisher 因子分解定理から $M$ は十分。
+
+また
+
+$$
+P(M\le m)=\left(\frac m\theta\right)^n,
+\qquad
+f_M(m)=\frac{nm^{n-1}}{\theta^n}.
+$$
+
+全 $\theta>0$ で $E[g(M)]=0$ なら
+
+$$
+\int_0^\theta g(m)m^{n-1}dm=0.
+$$
+
+上端で微分して
+
+$$
+g(\theta)\theta^{n-1}=0,
+$$
+
+従って $g(\theta)=0$ であり $M$ は完備。
+
+さらに
 
 $$
 E[M^k]
-=\int_0^\theta m^k\frac{n m^{n-1}}{\theta^n}dm
-=\frac{n}{n+k}\theta^k.
+=\frac n{n+k}\theta^k.
 $$
 
-よって
+したがって
 
 $$
 E[M]=\frac n{n+1}\theta,
@@ -122,68 +244,21 @@ E[M]=\frac n{n+1}\theta,
 E[M^2]=\frac n{n+2}\theta^2.
 $$
 
-ここで **Lehmann–Scheffé の定理**を使う。定理の条件は、
-
-- 統計量が十分かつ完備である。
-- その統計量から作った推定量の期待値が有限で、推定対象に対して不偏である。
-
-ことである。本問では $M$ が上で完備十分と確認済みで、$0<M<\theta$ だから $M$ と $M^2$ の期待値は有限である。さらに上の期待値から補正後は不偏である。したがって
+完備十分統計量 $M$ の関数として不偏なので、Lehmann–Scheffé の定理から
 
 $$
-\boxed{\widehat\theta_{UMVU}=\frac{n+1}{n}M},
-$$
-
-$$
-\boxed{\widehat{\theta^2}_{UMVU}=\frac{n+2}{n}M^2}
-$$
-
-はそれぞれ一意な一様最小分散不偏推定量である。
-
-## 本番答案
-
-同時確率密度関数は
-
-$$
-f_\theta(x)=
-\theta^{-n}\boldsymbol{1}_{\{M<\theta\}}
-\prod_i\boldsymbol{1}_{\{x_i>0\}}
-=g_\theta(M)h(x).
-$$
-
-母数依存部分が $M$ だけを通じて現れるので **Neyman–Fisher 因子分解定理**から $M$ は十分。
-
-また
-
-$$
-E[g(M)]
-=\frac n{\theta^n}\int_0^\theta g(m)m^{n-1}dm=0
-$$
-
-が全 $\theta$ で成り立つなら、問題文の条件の下で上端 $\theta$ について微分して
-
-$$
-g(\theta)\theta^{n-1}=0.
-$$
-
-従って $g(\theta)=0$ で、$M$ は完備。
-
-$$
-E[M^k]=\frac n{n+k}\theta^k.
-$$
-
-したがって補正後の $M,M^2$ は完備十分統計量から作られる不偏推定量なので **Lehmann–Scheffé 定理**を適用でき、
-
-$$
-\frac{n+1}{n}M,
+\boxed{
+\widehat\theta_{\mathrm{UMVU}}=\frac{n+1}{n}M
+},
 \qquad
-\frac{n+2}{n}M^2
+\boxed{
+\widehat{\theta^2}_{\mathrm{UMVU}}=\frac{n+2}{n}M^2
+}.
 $$
-
-が一様最小分散不偏推定量。
 
 ## 採点基準
 
 - 十分性（因子分解定理・条件確認）: 4点
-- 完備性: 7点
-- $E[M]$と$\theta$の一様最小分散不偏推定量（Lehmann–Scheffé定理の条件確認）: 5点
-- $\theta^2$の一様最小分散不偏推定量: 4点
+- 完備性（$M$ の密度と上端微分）: 7点
+- $E[M]$ と $\theta$ の UMVU 推定量: 5点
+- $E[M^2]$ と $\theta^2$ の UMVU 推定量: 4点
