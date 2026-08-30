@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-regression-core-merge-prep-48
+batch_id: 2026-08-30-regression-core-merge-prep-48b
 items:
   - id: reg-ols-normal-equations-simple
     note: 単回帰の最小二乗推定、当てはめ値、残差、正規方程式から得る残差直交条件を一枚へ統合する。
@@ -216,7 +216,7 @@ items:
         \qquad
         \varepsilon_i\overset{\mathrm{iid}}\sim N(0,\sigma^2)
         $$
-        について、$\widehat\beta_1,\widehat\beta_0$ の分散を書き、$\sigma^2$ 未知のときの傾きのt検定と信頼区間を構成せよ。
+        を考え、誤差は正規分布 $N(0,\sigma^2)$ に独立同分布で従うとする。$\widehat\beta_1,\widehat\beta_0$ の分散を書き、$\sigma^2$ 未知のときの傾きのt検定と信頼区間を構成せよ。
 
         数値例として $\widehat\beta_1=2.0$、標準誤差0.5、$n=20$ とする。$H_0:\beta_1=0$ を両側5%で検定し、自由度18のt分布の両側5%臨界値を2.101として95%信頼区間も求めよ。
       使用公式・定理: |
