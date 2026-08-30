@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-lasso-ridge-reduction-69
+batch_id: 2026-08-30-aic-stepwise-reduction-71
 items:
-  - id: reg-lasso-vs-ridge
+  - id: reg-stepwise-selection-warning
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-lasso-soft-threshold
-    note: L1/L2罰則、疎化と連続縮小、標準化、相関説明変数での挙動比較をLasso正本へ統合済み。
+    canonical_card: reg-aic-variable-selection
+    note: stepwise探索の局所性、選択後推論の楽観性、CV等で手順全体を評価する注意をAIC変数選択正本へ統合済み。
