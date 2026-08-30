@@ -344,36 +344,6 @@ $$
 <!-- CARD -->
 
 ---
-id: engdesign-partial-confounding
-title: 部分交絡で情報を回復する仕組みを説明する
-category: applied-engineering
-subcategory: engineering-design
-topic: partial-confounding
-type: recognition
-difficulty: 3
-priority: B
-hashtags: [交絡法, 部分交絡, 反復]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交絡法 }]
----
-## 問題
-同じ要因計画を複数反復するとき、各反復で異なる交互作用をブロックと交絡させる部分交絡の利点を答えよ。
-## 記号・用語
-完全交絡は全反復で同じ効果をブロックと一致させ、部分交絡は反復ごとに一致させる効果を変える。
-## 使用公式・定理
-ある効果が交絡していない反復の情報を用いれば、その効果を推定できる。
-## 一手／方針
-各効果について少なくとも一部の反復でブロック列と異なるかを見る。
-## 答え
-ブロックサイズを保ちながら、交絡対象を反復間で分散させて主要な交互作用の情報を部分的に回復できる。
-## 計算例
-反復1でABC、反復2でABDを交絡させれば、ABCは反復2、ABDは反復1から推定できる。
-## 注意
-効果ごとの情報量は完全直交計画より少なくなり得る。
-
-<!-- CARD -->
-
----
 id: engdesign-subsampling-variance
 title: 実験単位内の複数測定が平均分散をどれだけ減らすか計算する
 category: applied-engineering

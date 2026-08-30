@@ -354,42 +354,6 @@ $$
 <!-- CARD -->
 
 ---
-id: design-block-confounding
-title: ブロック化で高次交互作用を交絡させる
-category: applied-common
-subcategory: applied-design
-topic: block-confounding
-type: recognition
-difficulty: 4
-priority: B
-hashtags: [交絡, ブロック化, 要因実験]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交絡 }]
----
-
-## 問題
-$2^3$ 計画を各4点の2ブロックへ分けるため、ABC符号でブロックを作った。何が交絡するか。
-
-## 記号・用語
-- 交絡：実験計画上、複数の効果が同じコントラストに対応して分離できない状態
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-同じ計画行列の列をもつ効果は完全交絡する。
-
-## 答え
-ブロック指標がABC列と同一なので、ブロック効果とABC交互作用を分離できない。ABCを無視できると仮定して主効果・低次交互作用を推定する。
-
-## 計算例
-ABC=+1の4点を一方、−1の4点を他方のブロックへ置く。
-
-## 注意
-重要と考える主効果や2因子交互作用をブロックと交絡させない。
-
-<!-- CARD -->
-
----
 id: design-fraction-generator
 title: 生成子から一部実施計画・定義対比群・実験点数まで構成する
 category: applied-common

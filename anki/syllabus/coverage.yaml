@@ -1751,7 +1751,6 @@ items:
       - design-two-level-effect-contrast
       - design-random-oneway-components
       - design-random-intercept-covariance
-      - design-block-confounding
       - design-fraction-generator
       - design-alias-structure
       - design-orthogonal-array-basic
@@ -1792,7 +1791,6 @@ items:
           - design-rcbd-degrees-freedom
           - design-rcbd-anova-numeric
           - design-rcbd-missing-value
-          - design-block-confounding
           - design-split-plot-error-strata
       - name: 乱塊法
         status: card
@@ -1807,7 +1805,6 @@ items:
         status: card
         cards:
           - design-two-level-effect-contrast
-          - design-block-confounding
           - design-fraction-generator
           - design-alias-structure
           - design-orthogonal-array-basic
@@ -2450,7 +2447,6 @@ items:
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
-      - engdesign-partial-confounding
       - engdesign-subsampling-variance
       - engdesign-randomization-permutation
       - engdesign-rerandomization-balance
@@ -2509,7 +2505,6 @@ items:
           - engdesign-graeco-latin-df
           - engdesign-latin-square-treatment-mean
           - engdesign-block-generator-protect-effects
-          - engdesign-partial-confounding
           - engdesign-split-plot-randomization
           - engdesign-incomplete-incidence-matrix
           - engdesign-bibd-parameter-check
@@ -2525,4 +2520,3 @@ items:
         cards:
           - engdesign-foldover-dealias
           - engdesign-block-generator-protect-effects
-          - engdesign-partial-confounding
