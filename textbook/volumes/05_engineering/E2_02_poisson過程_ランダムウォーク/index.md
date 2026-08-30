@@ -29,6 +29,13 @@
 1. P3-01: 二項分布、ポアソン分布。
 2. P3-02: 指数分布、ガンマ分布。
 3. E2-01: 一段先で条件付ける再帰方程式、マルコフ性。
+4. F0-00 §12.2: ランダウ記号 $O(\cdot),o(\cdot)$。本章の第8節では特に
+   $$
+   r(h)=o(h)
+   \quad\Longleftrightarrow\quad
+   \frac{r(h)}{h}\to0\qquad(h\downarrow0)
+   $$
+   を使います。定義を確認したい場合は [F0-00 統計検定1級のための数学速習](../../00_foundations/F0_00_統計検定1級のための数学速習/index.md) を参照してください。
 
 ---
 
@@ -380,46 +387,473 @@ $$N_1(t)+N_2(t)\sim\operatorname{Poisson}\{(\lambda_1+\lambda_2)t\}.$$
 
 ### 7.2 間引き
 
-率$\lambda$の各到着を独立に確率$r$でA種へ分類します。$N(t)=n$ を条件付けると
-$$N_A(t)\mid N(t)=n\sim\operatorname{Bin}(n,r).$$
-周辺確率を計算すると
+率 $\lambda$ のポアソン過程の各到着に、互いに独立な印を付けるとします。各到着を確率 $r$ でA種、確率 $1-r$ でB種へ分類し、時刻 $t$ までの件数を
+$$
+N_A(t),\qquad N_B(t)
+$$
+とします。当然
+$$
+N_A(t)+N_B(t)=N(t)
+$$
+です。
+
+#### 7.2.1 まずA種だけを見る：条件付きでは二項分布
+
+総到着数 $N(t)=n$ を固定すると、その $n$ 個を独立にA/Bへ分類するだけなので
+$$
+\boxed{
+N_A(t)\mid N(t)=n
+\sim\operatorname{Bin}(n,r)
+}.
+$$
+
+したがって全確率の公式から
 $$
 \begin{aligned}
 P(N_A(t)=k)
 &=\sum_{n=k}^\infty
+P(N_A(t)=k\mid N(t)=n)P(N(t)=n)\\
+&=\sum_{n=k}^\infty
 \binom nk r^k(1-r)^{n-k}
-e^{-\lambda t}\frac{(\lambda t)^n}{n!}\\
+e^{-\lambda t}\frac{(\lambda t)^n}{n!}.
+\end{aligned}
+$$
+
+$n=k+m$ と置けば
+$$
+\begin{aligned}
+P(N_A(t)=k)
+&=e^{-\lambda t}\frac{(r\lambda t)^k}{k!}
+\sum_{m=0}^\infty
+\frac{\{(1-r)\lambda t\}^m}{m!}\\
+&=e^{-\lambda t}\frac{(r\lambda t)^k}{k!}
+e^{(1-r)\lambda t}\\
 &=e^{-r\lambda t}\frac{(r\lambda t)^k}{k!}.
 \end{aligned}
 $$
-したがってA種は率 $r\lambda$ のポアソン過程、残りは率 $(1-r)\lambda$ のポアソン過程となり、二つは独立です。
+
+よって固定した $t$ について
+$$
+\boxed{
+N_A(t)\sim\operatorname{Poisson}(r\lambda t)
+}.
+$$
+同様に
+$$
+N_B(t)\sim\operatorname{Poisson}\{(1-r)\lambda t\}.
+$$
+
+しかし、**ここまででは $N_A(t)$ と $N_B(t)$ が独立であることはまだ示していません。** 周辺分布がそれぞれポアソン分布だというだけでは、二つの確率変数の独立性は一般には結論できません。
+
+#### 7.2.2 共同分布を計算して独立性を示す
+
+$N_A(t)=k,N_B(t)=\ell$ が同時に起きるには、総到着数が
+$$
+N(t)=k+\ell
+$$
+でなければなりません。
+
+総数 $k+\ell$ のうち、どの $k$ 個がA種になるかを選ぶので、条件付き確率は
+$$
+P(N_A(t)=k,N_B(t)=\ell\mid N(t)=k+\ell)
+=\binom{k+\ell}{k}r^k(1-r)^\ell.
+$$
+
+したがって
+$$
+\begin{aligned}
+&P(N_A(t)=k,N_B(t)=\ell)\\
+&=P(N(t)=k+\ell)
+\binom{k+\ell}{k}r^k(1-r)^\ell\\
+&=e^{-\lambda t}
+\frac{(\lambda t)^{k+\ell}}{(k+\ell)!}
+\frac{(k+\ell)!}{k!\,\ell!}
+r^k(1-r)^\ell\\
+&=e^{-\lambda t}
+\frac{(r\lambda t)^k}{k!}
+\frac{\{(1-r)\lambda t\}^\ell}{\ell!}.
+\end{aligned}
+$$
+
+ここで
+$$
+e^{-\lambda t}
+=e^{-r\lambda t}e^{-(1-r)\lambda t}
+$$
+なので
+$$
+\begin{aligned}
+&P(N_A(t)=k,N_B(t)=\ell)\\
+&=
+\left[
+e^{-r\lambda t}
+\frac{(r\lambda t)^k}{k!}
+\right]
+\left[
+e^{-(1-r)\lambda t}
+\frac{\{(1-r)\lambda t\}^\ell}{\ell!}
+\right]\\
+&=P(N_A(t)=k)P(N_B(t)=\ell).
+\end{aligned}
+$$
+
+したがって
+$$
+\boxed{N_A(t)\ \text{と}\ N_B(t)\ \text{は独立}}
+$$
+です。
+
+少し意外ですが、$N(t)=n$ を条件付けた後では
+$$
+N_B(t)=n-N_A(t)
+$$
+なので両者は独立ではありません。**総数 $N(t)$ 自体もポアソン分布でランダムに動くことによって、条件を外した後のA件数とB件数が独立になる**というのが間引きの重要な点です。
+
+#### 7.2.3 「各時刻でポアソン」だけでなく、過程としてポアソンになる理由
+
+ポアソン過程であるためには、固定した時刻 $t$ の分布だけでなく、増分の性質も確認する必要があります。
+
+任意の区間
+$$
+I=(s,s+u]
+$$
+を考えます。元の過程のこの区間内の到着数は
+$$
+N(s+u)-N(s)
+\sim\operatorname{Poisson}(\lambda u).
+$$
+この区間内の各到着を同じように確率 $r$ でA種へ分類すれば、先ほどと全く同じ計算から
+$$
+N_A(s+u)-N_A(s)
+\sim\operatorname{Poisson}(r\lambda u).
+$$
+したがってA種の増分分布は区間の長さ $u$ だけで決まり、**定常増分**を持ちます。
+
+さらに、互いに重ならない区間 $I_1,I_2,\ldots$ では、元のポアソン過程の件数増分が独立です。しかも各到着に付けるA/Bの印も互いに独立なので、各区間のA種件数も独立になります。したがってA種過程は **独立増分**も持ちます。
+
+よって
+$$
+\boxed{
+\{N_A(t)\}\text{ は率 }r\lambda\text{ のポアソン過程}
+}
+$$
+です。同様に
+$$
+\boxed{
+\{N_B(t)\}\text{ は率 }(1-r)\lambda\text{ のポアソン過程}
+}
+$$
+です。
+
+さらに、任意の共通の時間分割ごとに上の共同分布の因数分解が成り立ち、異なる区間どうしの増分も独立なので、A種過程とB種過程は **過程としても互いに独立**です。
+
+これをポアソン過程の **間引き**（thinning）または **分割**（splitting）と呼びます。
 
 ## 8. 小区間条件からの構成
 
-ポアソン過程を別の形で定義する場合、短い時間$h$について
-$$P(N(h)=1)=\lambda h+o(h),$$
-$$P(N(h)\ge2)=o(h)$$
-を仮定します。独立定常増分を使い、
-$$p_k(t)=P(N(t)=k)$$
-と置くと
+第4節では
 $$
-p_0(t+h)=p_0(t)\{1-\lambda h+o(h)\}
+N(t)\sim\operatorname{Poisson}(\lambda t)
 $$
-から
-$$p_0'(t)=-\lambda p_0(t),\qquad p_0(0)=1,$$
-よって $p_0(t)=e^{-\lambda t}$。
+を定義の一部として使いました。一方、ポアソン過程をもっと「局所的な発生規則」から定義する流儀もあります。
 
-$k\ge1$では
+ここでは $N(0)=0$、独立定常増分を持つ件数過程について、短い時間 $h>0$ で
 $$
-p_k(t+h)=p_k(t)(1-\lambda h)+p_{k-1}(t)\lambda h+o(h),
+\boxed{
+P(N(h)=1)=\lambda h+o(h)
+}
+$$
+および
+$$
+\boxed{
+P(N(h)\ge2)=o(h)
+}
+$$
+を仮定します。
+
+意味としては、
+
+- 1件起こる確率は、時間長 $h$ に比例して約 $\lambda h$。
+- 2件以上まとめて起こる確率は、$h$ に比べてさらに小さい。
+
+ということです。
+
+E2-01 の連続時間マルコフ連鎖で使った
+$$
+P(h)=I+hQ+o(h)
+$$
+と同じく、**非常に短い時間での一次近似から全時間の分布を作る**という考え方です。
+
+### 8.1 まず「0件」の短時間確率を作る
+
+確率の総和は1なので
+$$
+P(N(h)=0)
+=1-P(N(h)=1)-P(N(h)\ge2).
+$$
+仮定を代入すると
+$$
+\begin{aligned}
+P(N(h)=0)
+&=1-\{\lambda h+o(h)\}-o(h)\\
+&=\boxed{1-\lambda h+o(h)}.
+\end{aligned}
+$$
+
+したがって小区間では
+$$
+\begin{cases}
+P(N(h)=0)=1-\lambda h+o(h),\\
+P(N(h)=1)=\lambda h+o(h),\\
+P(N(h)\ge2)=o(h).
+\end{cases}
+$$
+
+この3本が、以下の微分方程式を作る材料になります。
+
+### 8.2 0件確率 $p_0(t)$ の微分方程式
+
+$$
+p_k(t)=P(N(t)=k)
+$$
+と置きます。
+
+$t+h$ まで0件であるためには、
+
+1. 時刻 $t$ まで0件。
+2. その後の区間 $(t,t+h]$ でも0件。
+
+の両方が必要です。
+
+増分の独立性から、この二つの事象は独立です。また定常増分により、長さ $h$ の後半区間の件数分布は $N(h)$ と同じです。したがって
+$$
+\begin{aligned}
+p_0(t+h)
+&=p_0(t)P\{N(t+h)-N(t)=0\}\\
+&=p_0(t)P(N(h)=0)\\
+&=p_0(t)\{1-\lambda h+o(h)\}.
+\end{aligned}
+$$
+
+両辺から $p_0(t)$ を引くと
+$$
+p_0(t+h)-p_0(t)
+=-\lambda h\,p_0(t)+p_0(t)o(h).
+$$
+$p_0(t)$ は $0\le p_0(t)\le1$ の定数なので、$p_0(t)o(h)$ も $o(h)$ です。したがって
+$$
+\frac{p_0(t+h)-p_0(t)}{h}
+=-\lambda p_0(t)+o(1).
+$$
+
+$h\downarrow0$ とすると
+$$
+\boxed{p_0'(t)=-\lambda p_0(t)}.
+$$
+
+初期条件は $N(0)=0$ より
+$$
+p_0(0)=1.
 $$
 したがって
 $$
-p_k'(t)=-\lambda p_k(t)+\lambda p_{k-1}(t).
+\boxed{p_0(t)=e^{-\lambda t}}.
 $$
-これを順に解くと
-$$p_k(t)=e^{-\lambda t}(\lambda t)^k/k!$$
-を得ます。
+
+つまり、**小区間で「何も起こらない確率」が $1-\lambda h$ だけ減るという局所条件を積み上げると、有限時間での無到着確率が指数関数になる**わけです。
+
+### 8.3 一般の $k$ 件確率：小区間で何件増えたかに分ける
+
+$k\ge1$ とします。$t+h$ までにちょうど $k$ 件になる場合を、最後の短い区間 $(t,t+h]$ で増えた件数によって分けます。
+
+増分を
+$$
+\Delta_hN(t)=N(t+h)-N(t)
+$$
+と書くと、厳密には
+$$
+\begin{aligned}
+p_k(t+h)
+&=\sum_{j=0}^k
+P\{N(t)=k-j,\Delta_hN(t)=j\}.
+\end{aligned}
+$$
+
+独立増分より
+$$
+P\{N(t)=k-j,\Delta_hN(t)=j\}
+=p_{k-j}(t)P(N(h)=j),
+$$
+なので
+$$
+\begin{aligned}
+p_k(t+h)
+&=p_k(t)P(N(h)=0)\\
+&\quad+p_{k-1}(t)P(N(h)=1)\\
+&\quad+\sum_{j=2}^k p_{k-j}(t)P(N(h)=j).
+\end{aligned}
+$$
+
+ここで最後の和は
+$$
+0\le
+\sum_{j=2}^k p_{k-j}(t)P(N(h)=j)
+\le P(N(h)\ge2)=o(h)
+$$
+なので、全体として $o(h)$ です。
+
+また
+$$
+P(N(h)=0)=1-\lambda h+o(h),
+$$
+$$
+P(N(h)=1)=\lambda h+o(h)
+$$
+です。したがって
+$$
+\begin{aligned}
+p_k(t+h)
+&=p_k(t)\{1-\lambda h+o(h)\}\\
+&\quad+p_{k-1}(t)\{\lambda h+o(h)\}+o(h)\\
+&=p_k(t)(1-\lambda h)
++p_{k-1}(t)\lambda h+o(h).
+\end{aligned}
+$$
+
+この式で重要なのは、一次の精度では
+
+- $t$ までにすでに $k$ 件で、最後の区間では0件。
+- $t$ までに $k-1$ 件で、最後の区間で1件。
+
+の2通りだけが残り、**最後の区間で2件以上起こる場合は $o(h)$ に吸収される**ことです。
+
+両辺から $p_k(t)$ を引き、$h$ で割ると
+$$
+\frac{p_k(t+h)-p_k(t)}{h}
+=-\lambda p_k(t)+\lambda p_{k-1}(t)+o(1).
+$$
+
+よって $h\downarrow0$ で
+$$
+\boxed{
+p_k'(t)
+=-\lambda p_k(t)+\lambda p_{k-1}(t),
+\qquad k\ge1
+}.
+$$
+
+これは「$k$ 件状態への流入」と「$k$ 件状態からの流出」の差と見ることもできます。
+
+### 8.4 微分方程式を実際に解く
+
+ここで「順に解く」とだけ書くと飛躍が残るので、積分因子を使って実際に解きます。
+
+すでに
+$$
+p_0(t)=e^{-\lambda t}
+$$
+が分かっています。
+
+まず $k=1$ では
+$$
+p_1'(t)+\lambda p_1(t)
+=\lambda p_0(t)
+=\lambda e^{-\lambda t}.
+$$
+両辺に積分因子 $e^{\lambda t}$ を掛けると
+$$
+\frac{d}{dt}\{e^{\lambda t}p_1(t)\}
+=\lambda.
+$$
+$N(0)=0$ なので $p_1(0)=0$。したがって0から$t$まで積分して
+$$
+e^{\lambda t}p_1(t)=\lambda t,
+$$
+よって
+$$
+\boxed{p_1(t)=e^{-\lambda t}\lambda t}.
+$$
+
+次に一般の $k$ を考えます。帰納法で
+$$
+p_{k-1}(t)
+=e^{-\lambda t}\frac{(\lambda t)^{k-1}}{(k-1)!}
+$$
+まで分かっているとします。
+
+微分方程式
+$$
+p_k'(t)+\lambda p_k(t)
+=\lambda p_{k-1}(t)
+$$
+に $e^{\lambda t}$ を掛けると
+$$
+\begin{aligned}
+\frac{d}{dt}\{e^{\lambda t}p_k(t)\}
+&=\lambda e^{\lambda t}p_{k-1}(t)\\
+&=\lambda\frac{(\lambda t)^{k-1}}{(k-1)!}\\
+&=\frac{\lambda^k t^{k-1}}{(k-1)!}.
+\end{aligned}
+$$
+
+$k\ge1$ では $p_k(0)=0$ なので、0から$t$まで積分して
+$$
+\begin{aligned}
+e^{\lambda t}p_k(t)
+&=\int_0^t
+\frac{\lambda^k s^{k-1}}{(k-1)!}\,ds\\
+&=\frac{\lambda^k t^k}{k!}.
+\end{aligned}
+$$
+
+したがって
+$$
+\boxed{
+p_k(t)
+=e^{-\lambda t}\frac{(\lambda t)^k}{k!}
+}.
+$$
+
+よって小区間条件と独立定常増分から
+$$
+\boxed{
+N(t)\sim\operatorname{Poisson}(\lambda t)
+}
+$$
+が導かれました。
+
+流れをまとめると
+$$
+\boxed{
+\begin{array}{c}
+P(N(h)=1)=\lambda h+o(h),\\
+P(N(h)\ge2)=o(h)
+\end{array}
+}
+$$
+$$
+\Downarrow
+$$
+$$
+P(N(h)=0)=1-\lambda h+o(h)
+$$
+$$
+\Downarrow
+$$
+$$
+\begin{cases}
+p_0'=-\lambda p_0,\\
+p_k'=-\lambda p_k+\lambda p_{k-1}\quad(k\ge1)
+\end{cases}
+$$
+$$
+\Downarrow
+$$
+$$
+\boxed{
+p_k(t)=e^{-\lambda t}\dfrac{(\lambda t)^k}{k!}
+}.
+$$
 
 ---
 
@@ -684,44 +1118,75 @@ $e^{-1}$、$2e^{-2}$、$3e^{-2}$。$T_2>0.5$ は $N(0.5)\le1$。
 各確率5点、事象関係5点。合計20点。
 <!-- solution-end -->
 
-#### E2-02-C03 間引きの条件付き導出
+#### E2-02-C03 間引きの条件付き導出と独立性
 - level: C
-- minutes: 24
+- minutes: 30
 - topics: ポアソン過程, 間引き
-- techniques: 条件付き二項分布, 全確率
+- techniques: 条件付き二項分布, 全確率, 共同分布
 - calculation_load: high
 
-率$\lambda$のポアソン過程の各到着を独立に確率$r$でA種へ分類する。$N_A(t)$をA種件数とする。
+率$\lambda$のポアソン過程の各到着を独立に確率$r$でA種、確率$1-r$でB種へ分類する。$N_A(t),N_B(t)$をそれぞれの件数とする。
 
 1. $N(t)=n$ の条件のもとで $N_A(t)$ の分布を答えよ。
-2. 全確率の公式から $P(N_A(t)=k)$ を和で書け。
-3. 和を整理して率$r\lambda$のポアソン分布になることを示せ。
+2. 全確率の公式から $N_A(t)\sim\operatorname{Poisson}(r\lambda t)$ を示せ。
+3. $P(N_A(t)=k,N_B(t)=\ell)$ を計算し、$N_A(t)$ と $N_B(t)$ が独立であることを示せ。
+4. 固定した $t$ の分布だけでなく、$\{N_A(t)\},\{N_B(t)\}$ がそれぞれポアソン過程になり、互いに独立な過程である理由を説明せよ。
 
 <!-- solution-start -->
 ##### 解答
 ###### 詳細解答
-条件付きでは各$n$到着を独立分類するので
-$$N_A(t)\mid N(t)=n\sim\operatorname{Bin}(n,r).$$
+総到着数を固定すれば各到着を独立分類するので
+$$
+N_A(t)\mid N(t)=n
+\sim\operatorname{Bin}(n,r).
+$$
 したがって
 $$
-P(N_A=k)=\sum_{n=k}^\infty
+P(N_A(t)=k)=\sum_{n=k}^\infty
 \binom nk r^k(1-r)^{n-k}
 e^{-\lambda t}\frac{(\lambda t)^n}{n!}.
 $$
 $n=k+m$ と置くと
 $$
 \begin{aligned}
-P(N_A=k)
+P(N_A(t)=k)
 &=e^{-\lambda t}\frac{(r\lambda t)^k}{k!}
 \sum_{m=0}^\infty\frac{\{(1-r)\lambda t\}^m}{m!}\\
-&=e^{-\lambda t}\frac{(r\lambda t)^k}{k!}e^{(1-r)\lambda t}\\
 &=e^{-r\lambda t}\frac{(r\lambda t)^k}{k!}.
 \end{aligned}
 $$
+よって
+$$
+N_A(t)\sim\operatorname{Poisson}(r\lambda t).
+$$
+
+次に $N_A(t)=k,N_B(t)=\ell$ なら総数は $k+\ell$。したがって
+$$
+\begin{aligned}
+&P(N_A(t)=k,N_B(t)=\ell)\\
+&=e^{-\lambda t}\frac{(\lambda t)^{k+\ell}}{(k+\ell)!}
+\binom{k+\ell}{k}r^k(1-r)^\ell\\
+&=e^{-\lambda t}
+\frac{(r\lambda t)^k}{k!}
+\frac{\{(1-r)\lambda t\}^\ell}{\ell!}\\
+&=\left[e^{-r\lambda t}\frac{(r\lambda t)^k}{k!}\right]
+\left[e^{-(1-r)\lambda t}\frac{\{(1-r)\lambda t\}^\ell}{\ell!}\right].
+\end{aligned}
+$$
+右辺はA種とB種の周辺確率の積なので独立。
+
+さらに任意の区間長 $u$ に対して同じ間引き計算ができるため、A種増分は $\operatorname{Poisson}(r\lambda u)$、B種増分は $\operatorname{Poisson}\{(1-r)\lambda u\}$ となり定常増分を持つ。互いに重ならない区間では元過程の増分が独立で、分類も独立なので、それぞれの種の増分も独立。したがって両者は各々ポアソン過程である。
+
+また各区間でA/B共同分布が因数分解し、異なる区間の組も独立なので、有限個の区間増分についてA側とB側の共同分布全体が因数分解する。よってA種過程とB種過程は過程としても独立。
 ###### 本番答案
-条件付き二項分布を全確率で混合し、指数級数を使うと $N_A(t)\sim\operatorname{Poisson}(r\lambda t)$。
+条件付き二項分布を全確率で混合するとA種は率$r\lambda$のポアソン分布。A/B共同確率は
+$$
+P(N_A=k,N_B=\ell)
+=P(N_A=k)P(N_B=\ell)
+$$
+と因数分解する。任意の区間でも同じ分布が成り立ち、元過程の独立増分と独立分類から、両者は独立なポアソン過程となる。
 ###### 採点基準
-条件付き分布5点、全確率式6点、変数置換・級数5点、結論4点。合計20点。
+条件付き分布4点、A種周辺分布6点、共同分布と独立性6点、過程としての独立定常増分4点。合計20点。
 <!-- solution-end -->
 
 #### E2-02-C04 到着時刻のガンマ分布
@@ -782,47 +1247,117 @@ $$
 
 #### E2-02-D01 小区間条件からポアソン分布を導く
 - level: D
-- minutes: 35
+- minutes: 40
 - topics: ポアソン過程
-- techniques: 微分方程式
+- techniques: 微分方程式, 積分因子, 帰納法
 - calculation_load: high
 
 $N(0)=0$、独立定常増分を持つ件数過程について、$h\downarrow0$ で
 $$P(N(h)=1)=\lambda h+o(h),$$
-$$P(N(h)=0)=1-\lambda h+o(h),$$
 $$P(N(h)\ge2)=o(h)$$
 とする。$p_k(t)=P(N(t)=k)$ と置く。
 
-1. $p_0'(t)=-\lambda p_0(t)$ を導き $p_0(t)$ を求めよ。
-2. $k\ge1$ について $p_k'(t)=-\lambda p_k(t)+\lambda p_{k-1}(t)$ を導け。
-3. $p_k(t)=e^{-\lambda t}(\lambda t)^k/k!$ がこの連立微分方程式と初期条件を満たすことを確認せよ。
+1. $P(N(h)=0)=1-\lambda h+o(h)$ を導き、$p_0'(t)=-\lambda p_0(t)$ から $p_0(t)$ を求めよ。
+2. $k\ge1$ について、最後の小区間 $(t,t+h]$ の増分が0件、1件、2件以上の場合に分け、2件以上の寄与が $o(h)$ になることを示して
+   $$
+   p_k'(t)=-\lambda p_k(t)+\lambda p_{k-1}(t)
+   $$
+   を導け。
+3. 積分因子 $e^{\lambda t}$ を用い、$k$ に関する帰納法で
+   $$
+   p_k(t)=e^{-\lambda t}\frac{(\lambda t)^k}{k!}
+   $$
+   を導け。
 
 <!-- solution-start -->
 ##### 解答
 ###### 詳細解答
-独立増分より
-$$p_0(t+h)=p_0(t)P(N(h)=0)=p_0(t)\{1-\lambda h+o(h)\}.$$
+確率の総和から
+$$
+\begin{aligned}
+P(N(h)=0)
+&=1-P(N(h)=1)-P(N(h)\ge2)\\
+&=1-\lambda h+o(h).
+\end{aligned}
+$$
+独立定常増分より
+$$
+p_0(t+h)=p_0(t)P(N(h)=0)
+=p_0(t)\{1-\lambda h+o(h)\}.
+$$
 したがって
-$$\frac{p_0(t+h)-p_0(t)}h=-\lambda p_0(t)+o(1),$$
-極限から $p_0'=-\lambda p_0$。$p_0(0)=1$ なので $p_0=e^{-\lambda t}$。
+$$
+\frac{p_0(t+h)-p_0(t)}h
+=-\lambda p_0(t)+o(1),
+$$
+極限から
+$$p_0'=-\lambda p_0.$$
+$p_0(0)=1$ より
+$$
+p_0(t)=e^{-\lambda t}.
+$$
 
-$k\ge1$では、$t$までに$k$件で次の$h$に0件、または$t$までに$k-1$件で次に1件という一次の寄与を残し
+$k\ge1$ では
 $$
-p_k(t+h)=p_k(t)(1-\lambda h)+p_{k-1}(t)\lambda h+o(h).
+\begin{aligned}
+p_k(t+h)
+&=p_k(t)P(N(h)=0)
++p_{k-1}(t)P(N(h)=1)\\
+&\quad+\sum_{j=2}^kp_{k-j}(t)P(N(h)=j).
+\end{aligned}
 $$
-差を取り$h$で割って極限すると所望の式。
+最後の和は
+$$
+0\le\sum_{j=2}^kp_{k-j}(t)P(N(h)=j)
+\le P(N(h)\ge2)=o(h),
+$$
+なので
+$$
+p_k(t+h)
+=p_k(t)(1-\lambda h)
++p_{k-1}(t)\lambda h+o(h).
+$$
+差を取り $h$ で割って極限すると
+$$
+p_k'=-\lambda p_k+\lambda p_{k-1}.
+$$
 
-候補式を微分すると
+次に帰納的に解く。$p_0(t)=e^{-\lambda t}$ は既知。$k\ge1$ について
 $$
-p_k'
-=-\lambda p_k+e^{-\lambda t}\frac{k\lambda(\lambda t)^{k-1}}{k!}
-=-\lambda p_k+\lambda p_{k-1}.
+p_{k-1}(t)
+=e^{-\lambda t}\frac{(\lambda t)^{k-1}}{(k-1)!}
 $$
-$t=0$では $p_0(0)=1,p_k(0)=0(k\ge1)$ なので条件を満たす。
+と仮定する。
+
+$$
+p_k'+\lambda p_k=\lambda p_{k-1}
+$$
+に $e^{\lambda t}$ を掛けると
+$$
+\frac{d}{dt}\{e^{\lambda t}p_k(t)\}
+=\frac{\lambda^k t^{k-1}}{(k-1)!}.
+$$
+$N(0)=0$ より $p_k(0)=0$ なので、0から$t$まで積分して
+$$
+e^{\lambda t}p_k(t)
+=\frac{\lambda^k t^k}{k!}.
+$$
+したがって
+$$
+\boxed{
+p_k(t)=e^{-\lambda t}\frac{(\lambda t)^k}{k!}
+}.
+$$
 ###### 本番答案
-短時間増分で0件・1件の一次項だけを残して微分方程式を得る。解は $p_k(t)=e^{-\lambda t}(\lambda t)^k/k!$。
+小区間条件から0件確率を作り、独立定常増分で
+$$p_0'=-\lambda p_0,
+\qquad
+p_k'=-\lambda p_k+\lambda p_{k-1}
+$$
+を導く。積分因子 $e^{\lambda t}$ と帰納法より
+$$p_k(t)=e^{-\lambda t}(\lambda t)^k/k!.$$
 ###### 採点基準
-$p_0$方程式7点、一般再帰7点、候補解確認4点、初期条件2点。合計20点。
+0件確率と$p_0$方程式6点、一般再帰と$o(h)$評価8点、積分因子・帰納法6点。合計20点。
 <!-- solution-end -->
 
 ## 10. 30分ドリル
@@ -872,4 +1407,6 @@ A平均分散15点、到達確率20点、B件数20点、第2到着15点、間引
 - 到達確率の再帰式には$+1$がなく、平均到達時間には最初の1歩の$+1$がある。
 - ポアソン件数と待ち時間は $T_k>t\iff N(t)\le k-1$ でつながる。
 - ガンマ分布の母数はshape-rateであることを確認する。
+- 間引きでは「各種の周辺分布がポアソン」だけでなく、共同分布の因数分解で独立性を確認する。
+- 小区間条件では、0件・1件の一次項を残し、2件以上を$o(h)$として落とすことが微分方程式の核心である。
 - 重ね合わせでは率を足し、独立間引きでは率に分類確率を掛ける。
