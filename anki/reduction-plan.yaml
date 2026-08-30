@@ -1,14 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-glm-foundation-reduction-62
+batch_id: 2026-08-30-glm-diagnostics-reduction-63
 items:
-  - id: glm-exponential-family
+  - id: glm-pearson-chi-square
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-three-components
-    note: 指数型分布族の標準形、自然母数、平均・分散の導出を一般化線形モデル正本へ統合済み。
+    canonical_card: glm-deviance-definition
+    note: Pearson残差・Pearsonカイ二乗統計量と分散診断を一般化線形モデル診断正本へ統合済み。
 
-  - id: glm-canonical-links
+  - id: glm-likelihood-ratio-test
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-three-components
-    note: 正準リンクの定義と正規・二項・ポアソンの対応を一般化線形モデル正本へ統合済み。
+    canonical_card: glm-deviance-definition
+    note: 入れ子モデルの逸脱度差と尤度比検定を一般化線形モデル診断正本へ統合済み。
+
+  - id: glm-overdispersion-diagnostic
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-deviance-definition
+    note: Pearson統計量による過分散倍率推定と解釈を一般化線形モデル診断正本へ統合済み。
