@@ -1763,8 +1763,6 @@ items:
       - design-fraction-generator
       - design-alias-structure
       - design-orthogonal-array-basic
-      - design-orthogonality-check
-      - design-balanced-orthogonality
       - design-power-determinants
       - design-two-sample-size
       - design-paired-sample-size
@@ -1826,8 +1824,6 @@ items:
           - design-fraction-generator
           - design-alias-structure
           - design-orthogonal-array-basic
-          - design-orthogonality-check
-          - design-balanced-orthogonality
   - id: applied-multiple-regression
     status: complete
     cards:
@@ -2515,7 +2511,6 @@ items:
       - engdesign-block-generator-protect-effects
       - engdesign-block-generator-count
       - engdesign-partial-confounding
-      - engdesign-oa-l4-assignment
       - engdesign-subsampling-variance
       - engdesign-randomization-permutation
       - engdesign-rerandomization-balance
@@ -2529,9 +2524,6 @@ items:
       - engdesign-random-effect-blup
       - engdesign-gage-rr-variance
       - engdesign-block-vs-covariate
-      - engdesign-oa-column-df
-      - engdesign-oa-level-effect
-      - engdesign-oa-interaction-conflict
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
       - engdesign-split-plot-degrees-freedom
@@ -2596,10 +2588,6 @@ items:
         cards:
           - engdesign-weighted-contrast-covariance
           - engdesign-missing-run-nonorthogonality
-          - engdesign-oa-l4-assignment
-          - engdesign-oa-column-df
-          - engdesign-oa-level-effect
-          - engdesign-oa-interaction-conflict
           - engdesign-snr-smaller-better
       - name: 交絡法
         status: card
