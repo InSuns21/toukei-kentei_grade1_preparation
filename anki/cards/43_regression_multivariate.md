@@ -2954,16 +2954,28 @@ $\lambda=0$ なら最小二乗法。
 
 ---
 id: reg-lasso-soft-threshold
-title: 直交計画のLasso解を計算する
+title: 直交計画のLasso解を計算しRidgeと比較する
 category: applied-common
 subcategory: applied-multiple-regression
-topic: lasso
+topic: lasso-ridge-canonical
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [L1正則化法, Lasso, ソフト閾値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: L1正則化法 }]
+hashtags:
+  - Lasso
+  - Ridge回帰
+  - L1正則化
+  - L2正則化
+  - 変数選択
+  - 標準化
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: L1正則化法
 ---
 
 ## 問題
@@ -2983,7 +2995,19 @@ $$\widehat\beta=\operatorname{sign}(z)(|z|-\lambda)_+
 $|z|\le\lambda$ なら係数は0。
 
 ## 注意
-目的関数の係数規約により閾値の表記は変わる。
+通常は切片を罰せず、説明変数を標準化する。尺度が異なるまま同じ $\lambda$ を掛けると、単位の違いだけで罰則の効き方が変わるためである。$\lambda$ は交差検証などで選ぶ。
+
+**Ridgeとの違いも同じ正則化問題として整理する。** Lassoは
+$$
+\lambda\sum_j|\beta_j|
+$$
+という $L^1$ 罰則を使い、制約領域に角があるため解が座標軸上へ乗りやすく、係数を厳密に0へして変数選択を兼ねる。一方Ridgeは
+$$
+\lambda\sum_j\beta_j^2
+$$
+という $L^2$ 罰則で係数を連続的に0へ縮小するが、通常は厳密な0にはしない。
+
+強く相関した説明変数があるとき、Ridgeは相関した変数群の係数をまとめて縮小して推定を安定化しやすい。Lassoはその中から一部を0にして選ぶことがあり、どの変数が残るかがデータの小さな変化で不安定になる場合がある。したがって「Lasso=常に優れた変数選択、Ridge=変数選択できないから劣る」と理解しない。
 
 <!-- CARD -->
 
