@@ -2154,7 +2154,6 @@ items:
       - engproc-ar1-correlation-half-life
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
-      - engproc-ma1-invertible-shock-recovery
       - engproc-arma11-one-step-forecast
       - engproc-arima010-drift-forecast
       - engproc-arima110-difference-forecast
@@ -2218,7 +2217,6 @@ items:
         cards:
           - engproc-ma1-autocovariance-numeric
           - engproc-ma1-moment-identification
-          - engproc-ma1-invertible-shock-recovery
           - engproc-arma11-one-step-forecast
       - name: ARIMA過程
         status: card
