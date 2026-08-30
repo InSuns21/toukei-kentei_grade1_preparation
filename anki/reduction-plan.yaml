@@ -1,18 +1,28 @@
 schema_version: 1
-batch_id: 2026-08-30-one-rate-exact-asymptotic-duplicates-89
+batch_id: 2026-08-30-engineering-basics-reduction-91
 items:
-  - id: test-binomial-exact-one-sample
+  - id: eng-capability-index
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-one-proportion-score
-    note: 正確二項裾確率、小標本時の方法選択、大標本スコア型Z近似まで1母比率検定canonical cardへ統合済み。
-  - id: test-one-proportion-continuity
+    canonical_card: engqc-cpk-offcenter
+    note: Cpの定義・計算はCpkとの比較、等号条件、偏心診断まで含む工程能力canonical cardへ統合済み。
+  - id: engqc-cp-cpk-relationship
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-one-proportion-score
-    note: 二項分布の正規近似における連続修正と数値例は1母比率検定canonical cardへ統合済み。
-  - id: test-poisson-rate-score
+    canonical_card: engqc-cpk-offcenter
+    note: Cpk<=Cpの関係、等号条件、中心ずれの診断は同一canonical cardへ統合済み。
+  - id: eng-series-reliability
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-poisson-one-rate-exact
-    note: 大標本のポアソン率スコア型Z近似と期待事象数による正確法・近似法の選択はcanonical cardへ統合済み。
+    canonical_card: engrel-series-component-requirement
+    note: 独立直列系の積公式・数値計算・部品信頼度の逆算を直列並列信頼性canonical cardへ統合済み。
+  - id: engrel-parallel-system
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engrel-series-component-requirement
+    note: 独立並列系の補集合公式と数値例は直列系との方法選択を含むcanonical cardへ統合済み。
+  - id: eng-blocking
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engdesign-confounder-randomization
+    note: ブロック化の目的、乱塊法の加法モデル、ブロック内無作為化と交絡回避をcanonical cardへ統合済み。
