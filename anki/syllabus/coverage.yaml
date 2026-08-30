@@ -1996,8 +1996,6 @@ items:
       - mv-kmeans-one-iteration
       - mv-mds-double-centering
       - glm-three-components
-      - glm-exponential-family
-      - glm-canonical-links
       - glm-logistic-score
       - glm-poisson-offset
       - glm-deviance-definition
@@ -2049,8 +2047,6 @@ items:
         cards:
           - glm-poisson-mean-ratio
           - glm-three-components
-          - glm-exponential-family
-          - glm-canonical-links
           - glm-logistic-score
           - glm-poisson-offset
           - glm-deviance-definition
