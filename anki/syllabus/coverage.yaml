@@ -2321,15 +2321,9 @@ items:
       - multi-pca-eigen
       - engmv-correlation-from-covariance
       - engmv-mahalanobis-control-limit
-      - engmv-unit-change-correlation-invariance
       - engmv-normal-uncorrelated-independent
-      - engmv-precision-conditional-independence
-      - engmv-sample-mean-distribution
-      - engmv-wishart-definition
-      - engmv-wishart-expectation
       - engmv-normal-mean-cov-independence
       - engmv-hotelling-two-sample
-      - engmv-hotelling-two-sample-decision
       - engmv-confidence-ellipsoid-known-cov
       - engmv-spectral-reconstruction
       - engmv-silhouette-coefficient
@@ -2344,33 +2338,25 @@ items:
           - multi-linear-combination
           - engmv-mahalanobis-control-limit
           - engmv-normal-uncorrelated-independent
-          - engmv-precision-conditional-independence
-          - engmv-sample-mean-distribution
-          - engmv-wishart-definition
-          - engmv-wishart-expectation
           - engmv-normal-mean-cov-independence
           - engmv-hotelling-two-sample
-          - engmv-hotelling-two-sample-decision
           - engmv-confidence-ellipsoid-known-cov
       - name: 平均ベクトル
         status: card
         cards:
-          - engmv-sample-mean-distribution
+          - engmv-normal-mean-cov-independence
           - engmv-hotelling-two-sample
           - engmv-confidence-ellipsoid-known-cov
       - name: 分散共分散行列
         status: card
         cards:
           - multi-covariance-psd
-          - engmv-unit-change-correlation-invariance
-          - engmv-wishart-definition
-          - engmv-wishart-expectation
+          - engmv-correlation-from-covariance
           - engmv-normal-mean-cov-independence
       - name: 相関行列
         status: card
         cards:
           - engmv-correlation-from-covariance
-          - engmv-unit-change-correlation-invariance
       - name: 固有値・固有ベクトル
         status: card
         cards:
