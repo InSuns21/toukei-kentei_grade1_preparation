@@ -1,125 +1,160 @@
 schema_version: 1
-batch_id: 2026-08-30-method-of-moments-merge-prep-45b
+batch_id: 2026-08-30-oneway-anova-merge-prep-46
 items:
-  - id: est-method-of-moments
-    note: モーメント法の一般手順、1母数の一様分布、2母数の一様分布を一枚の正本へ統合する。
+  - id: anova-oneway-f-statistic
+    note: 一元配置分散分析のモデル仮定、平方和分解、自由度、平均平方、F統計量、検定判定を一続きの正本へ統合する。
     metadata:
-      title: モーメント法を一般式から1母数・2母数の一様分布まで解く
-      topic: method-of-moments-canonical
-      hashtags: [モーメント法, 母モーメント, 標本モーメント, 一様分布]
+      title: 一元配置分散分析をモデルから平方和・自由度・F検定まで通す
+      topic: oneway-anova-canonical
+      hashtags: [一元配置分散分析, 平方和, 自由度, F検定, 分散分析表]
     sections:
       問題: |
-        母数が $k$ 個あるときのモーメント法の一般手順を述べよ。
+        $a$ 群の一元配置分散分析を考える。群 $i$ の観測を $Y_{ij}$、群サイズを $n_i$、総標本数を $N=\sum_i n_i$ とする。
 
-        さらに次をモーメント法で推定せよ。
-
-        1. 一様分布 $U(0,\theta)$ に従う $X_1,\ldots,X_n$ から $\theta$ を推定する。
-        2. 一様分布 $U(a,b)$ に従う $X_1,\ldots,X_n$ から $a,b$ を推定する。
+        1. 固定効果モデルと誤差の仮定を書け。
+        2. 全平方和・群間平方和・誤差平方和を定義し、平方和分解を書け。
+        3. 各自由度、平均平方、F統計量を書け。
+        4. 観測が群ごとに $(1,2)$、$(3,4)$、$(5,6)$ で、自由度 $(2,3)$ のF分布の5%上側臨界値を9.55とする。全群の母平均が等しいか検定せよ。
       使用公式・定理: |
-        母数を $\theta_1,\ldots,\theta_k$ とする。母モーメント
+        固定効果モデルは
         $$
-        \mu'_j(\theta_1,\ldots,\theta_k)=E[X^j]
+        Y_{ij}=\mu+\alpha_i+\varepsilon_{ij},
         $$
-        と標本モーメント
+        識別のため例えば
         $$
-        m'_j=\frac1n\sum_{i=1}^nX_i^j
+        \sum_{i=1}^a n_i\alpha_i=0
         $$
-        を $j=1,\ldots,k$ について等置し、
+        と置く。誤差には
         $$
-        \mu'_j(\theta_1,\ldots,\theta_k)=m'_j
+        \varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2)
         $$
-        の連立方程式を解く。
+        を仮定する。したがって正確なF検定では独立性・正規性・等分散性が前提となる。
 
-        一様分布 $U(0,\theta)$ では
+        群平均を $\bar Y_{i\cdot}$、全平均を $\bar Y_{\cdot\cdot}$ とすると
         $$
-        E[X]=\frac\theta2.
+        SS_T=\sum_i\sum_j(Y_{ij}-\bar Y_{\cdot\cdot})^2,
         $$
-
-        一様分布 $U(a,b)$ では
         $$
-        E[X]=\frac{a+b}{2},
-        \qquad
-        \operatorname{Var}(X)=\frac{(b-a)^2}{12}.
+        SS_A=\sum_i n_i(\bar Y_{i\cdot}-\bar Y_{\cdot\cdot})^2,
         $$
-        また
         $$
-        \operatorname{Var}(X)=E[X^2]-E[X]^2
-        $$
-        を使えば、第1・第2標本モーメントから解ける。
-      一手: |
-        **未知母数の個数だけ母モーメント方程式を作り、標本モーメントへ置換して連立で解く。** 分布ごとの公式を暗記するのではなく、この手順から毎回導く。
-      答え: |
-        一般には
-        $$
-        E[X^j]=\frac1n\sum_{i=1}^nX_i^j,
-        \qquad j=1,\ldots,k
-        $$
-        を解く。
-
-        一様分布 $U(0,\theta)$ では
-        $$
-        \bar X=\frac\theta2
-        $$
-        より
-        $$
-        \widehat\theta_{\mathrm{MM}}=2\bar X.
-        $$
-
-        一様分布 $U(a,b)$ では
-        $$
-        \bar X=\frac{a+b}{2},
+        SS_E=\sum_i\sum_j(Y_{ij}-\bar Y_{i\cdot})^2,
         $$
         かつ
         $$
-        m'_2-\bar X^2=\frac{(b-a)^2}{12},
+        SS_T=SS_A+SS_E.
+        $$
+
+        自由度も
+        $$
+        N-1=(a-1)+(N-a)
+        $$
+        と分解する。したがって
+        $$
+        MS_A=\frac{SS_A}{a-1},
         \qquad
-        m'_2=\frac1n\sum_{i=1}^nX_i^2.
-        $$
-        したがって
-        $$
-        b-a=\sqrt{12\left(m'_2-\bar X^2\right)}
-        $$
-        であり、
-        $$
-        \widehat a
-        =\bar X-\sqrt{3\left(m'_2-\bar X^2\right)},
+        MS_E=\frac{SS_E}{N-a},
         $$
         $$
-        \widehat b
-        =\bar X+\sqrt{3\left(m'_2-\bar X^2\right)}.
+        F=\frac{MS_A}{MS_E}.
         $$
-      計算例: |
-        観測値が $1,2,3$ のとき
+        帰無仮説
         $$
-        \bar X=2.
+        H_0:\mu_1=\cdots=\mu_a
+        $$
+        の下で
+        $$
+        F\sim F_{a-1,N-a}.
+        $$
+      一手: |
+        **群平均と全平均を出したら、平方和→自由度→平均平方→Fの順に表を埋める。** 一元配置分散分析はこれを一つの計算鎖として扱う。
+      答え: |
+        モデルは
+        $$
+        Y_{ij}=\mu+\alpha_i+\varepsilon_{ij},
+        \qquad
+        \varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2).
         $$
 
-        一様分布 $U(0,\theta)$ なら
+        一般に
         $$
-        \widehat\theta_{\mathrm{MM}}=2\bar X=4.
+        SS_T=SS_A+SS_E,
         $$
-        一方、このモデルの最尤推定量は標本最大値なので $3$ であり、モーメント法と最尤推定法は一般に一致しない。
-
-        次に一様分布 $U(a,b)$ とすると
+        自由度は
         $$
-        m'_2=\frac{1^2+2^2+3^2}{3}=\frac{14}{3},
+        \nu_T=N-1,
+        \qquad
+        \nu_A=a-1,
+        \qquad
+        \nu_E=N-a.
         $$
         よって
         $$
-        m'_2-\bar X^2
-        =\frac{14}{3}-4
-        =\frac23.
+        F=\frac{SS_A/(a-1)}{SS_E/(N-a)}.
+        $$
+
+        数値例では $a=3,N=6$、群平均は
+        $$
+        1.5,\ 3.5,\ 5.5,
+        $$
+        全平均は
+        $$
+        \bar Y_{\cdot\cdot}=3.5.
         $$
         したがって
         $$
-        \sqrt{3\left(m'_2-\bar X^2\right)}
-        =\sqrt2,
+        SS_A=2\{(1.5-3.5)^2+(3.5-3.5)^2+(5.5-3.5)^2\}=16,
+        $$
+        $$
+        SS_E=3\{(-0.5)^2+(0.5)^2\}=1.5.
+        $$
+        自由度は
+        $$
+        \nu_A=2,
+        \qquad
+        \nu_E=3,
         $$
         なので
         $$
-        \widehat a=2-\sqrt2\approx0.586,
+        MS_A=\frac{16}{2}=8,
         \qquad
-        \widehat b=2+\sqrt2\approx3.414.
+        MS_E=\frac{1.5}{3}=0.5,
         $$
+        $$
+        F=\frac8{0.5}=16.
+        $$
+        $16>9.55$ より5%水準で $H_0$ を棄却し、少なくとも1群の母平均が異なると判断する。
+      計算例: |
+        全平均との差からも平方和分解を確認できる。
+        $$
+        \begin{aligned}
+        SS_T
+        &=(-2.5)^2+(-1.5)^2+(-0.5)^2\\
+        &\quad +(0.5)^2+(1.5)^2+(2.5)^2\\
+        &=17.5.
+        \end{aligned}
+        $$
+        一方
+        $$
+        SS_A+SS_E=16+1.5=17.5
+        $$
+        で一致する。
+
+        分散分析表の中身は
+        $$
+        \begin{array}{c|c|c|c|c}
+        \text{要因}&\text{平方和}&\text{自由度}&\text{平均平方}&F\\ \hline
+        \text{群間}&16&2&8&16\\
+        \text{誤差}&1.5&3&0.5&\\
+        \text{全体}&17.5&5&&
+        \end{array}
+        $$
+        となり、平方和と自由度の両方で
+        $$
+        17.5=16+1.5,
+        \qquad
+        5=2+3
+        $$
+        を確認できる。
       注意: |
-        モーメント法は「母モーメントを標本モーメントで置き換える」一般原理であり、分布別の推定公式を別々に暗記する必要はない。有限標本では推定値が母数空間の境界条件を自動的に満たすとは限らず、最尤推定法とも一般に異なる。
+        F検定で棄却して分かるのは「少なくとも1群の平均が異なる」ことまでで、どの群対が異なるかは多重比較などを別途行う。群間平方和では群平均の偏差を必ず群サイズ $n_i$ 倍する。
