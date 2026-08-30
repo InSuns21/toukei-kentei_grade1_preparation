@@ -1,8 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-30-weibull-bathtub-reduction-141
+batch_id: 2026-08-30-availability-control-limit-reduction-143
 items:
-  - id: engrel-bathtub-curve
+  - id: engmaint-reliability-vs-availability
     bucket: duplicates
     reason: duplicate
-    canonical_card: engrel-weibull-reliability
-    note: 浴槽曲線の初期故障・偶発故障・摩耗故障の3局面、故障率の減少・一定・増加、スクリーニングと予防保全の対応をcanonical cardへ統合済み。単一Weibull分布1本で浴槽曲線全体を表すわけではない注意も正本に含めた。
+    canonical_card: engmaint-steady-availability
+    note: 信頼度を使命時間中の無故障継続確率、可用度を修復後の復帰を許す時点稼働確率として区別する説明と、高可用度でも使命信頼度が低くなり得る数値例をcanonical cardへ統合済み。
+  - id: engmaint-series-availability
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmaint-steady-availability
+    note: 独立直列設備の系可用度を成分可用度の積で求める公式、0.98×0.95=0.931の数値例、共通原因や保全要員共有で独立性が崩れる注意をcanonical cardへ統合済み。
+  - id: engqc-control-vs-specification
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engqc-control-chart-selection
+    note: 管理限界は工程データから決まる統計的安定性の基準、規格限界は設計・顧客要求から決まる適合性の基準という区別をcanonical cardへ明示済み。工程能力正本engqc-cpk-offcenterにも同じ注意があるため独立認識カードは不要。
