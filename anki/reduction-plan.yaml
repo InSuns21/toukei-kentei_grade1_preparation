@@ -1,33 +1,23 @@
 schema_version: 1
-batch_id: 2026-08-30-attribute-control-charts-reduction-97
+batch_id: 2026-08-30-qc-workflows-reduction-99
 items:
-  - id: engqc-p-chart-baseline-estimation
+  - id: engqc-arl0-three-sigma
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: Phase Iの基準不適合品率推定からp管理図限界までcanonical cardへ統合済み。
-  - id: engqc-p-chart-constant-n
+    canonical_card: engqc-three-sigma-false-alarm
+    note: 3シグマ単点誤警報確率から幾何分布を介して管理内平均連長を導くcanonical cardへ統合済み。
+  - id: engmaint-two-state-availability
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: p管理図の3シグマ限界と数値計算は、管理図選択を含むcanonical cardへ統合済み。
-  - id: engqc-p-chart-varying-n
+    canonical_card: engmaint-steady-availability
+    note: 故障率・修復率による2状態定常可用度はMTBF・MTTR表現との等価性まで含むcanonical cardへ統合済み。
+  - id: engqc-ewma-steady-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: 標本数可変時の群別p管理図限界はcanonical cardへ統合済み。
-  - id: engqc-np-chart
+    canonical_card: engqc-ewma-update
+    note: EWMA更新式から定常分散を再帰的に導くcanonical cardへ統合済み。
+  - id: engqc-r-chart-limits
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: 標本数一定の不適合品数をnp管理図で扱う判断と限界計算をcanonical cardへ統合済み。
-  - id: engqc-c-chart
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: 検査機会一定の不適合数に対するc管理図の選択と限界計算をcanonical cardへ統合済み。
-  - id: engqc-u-chart
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-control-chart-selection
-    note: 検査量可変の単位当たり不適合数に対するu管理図の選択と限界計算をcanonical cardへ統合済み。
+    canonical_card: engqc-xbar-r-chart-limits
+    note: R図の限界は平均図との対計算とR図を先に確認する判断まで含むcanonical cardへ統合済み。
