@@ -1,7 +1,7 @@
 id: "E1-02"
 title: "主成分分析・固有値問題"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - E1-01
   - F0-00
