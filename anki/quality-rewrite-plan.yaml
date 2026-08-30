@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-are-mle-canonical-184
+batch_id: 2026-08-31-are-mle-canonical-184b
 items:
   - id: asym-asymptotic-relative-efficiency
     note: 漸近相対効率の正本へ、正規母集団における標本平均と標本中央値の比較を統合し、中央値専用AREカードを吸収する。
@@ -124,7 +124,7 @@ items:
       type: strategy
       difficulty: 4
       priority: S
-      hashtags: [最尤推定量, 漸近正規性, スコア, フィッシャー情報量, Taylor展開]
+      hashtags: [最尤推定量, 漸近正規性, スコア, フィッシャー情報量（1次元）, Taylor展開]
     sections:
       問題: |
         1次元の正則な独立同分布モデルで母数を $\theta$、最尤推定量を $\widehat\theta$ とする。次を答えよ。
