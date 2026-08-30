@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-block-generator-reduction-108
+batch_id: 2026-08-30-split-plot-reduction-110
 items:
-  - id: engdesign-block-generator-count
+  - id: engdesign-split-plot-degrees-freedom
     bucket: duplicates
     reason: duplicate
-    canonical_card: engdesign-block-generator-protect-effects
-    note: 独立生成子数からブロック数・各ブロック実施数を求める操作は、生成子選択とブロック定義群まで含むcanonical cardへ統合済み。
+    canonical_card: engdesign-split-plot-randomization
+    note: 一次・二次実験単位、2段階無作為化、AとB・ABに対応する誤差項、一次・二次誤差自由度の計算をcanonical cardへ統合済み。
