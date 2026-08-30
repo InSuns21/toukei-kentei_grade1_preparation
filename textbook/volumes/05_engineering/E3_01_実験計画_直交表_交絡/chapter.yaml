@@ -1,7 +1,7 @@
 id: "E3-01"
 title: "実験計画・直交表・交絡"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - L1-03
 official_scope:

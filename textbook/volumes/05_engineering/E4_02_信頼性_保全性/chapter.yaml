@@ -1,7 +1,7 @@
 id: "E4-02"
 title: "信頼性・保全性"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P3-02
   - P3-05

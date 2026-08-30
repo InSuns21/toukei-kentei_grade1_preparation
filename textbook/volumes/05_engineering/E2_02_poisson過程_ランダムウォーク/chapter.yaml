@@ -1,7 +1,7 @@
 id: "E2-02"
 title: "Poisson過程・ランダムウォーク"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P3-01
   - P3-02

@@ -11,20 +11,20 @@ exam:
 progress:
   schema_version: 1
   updated_at: 2026-08-30
-  current_chapter: E2-01
-  next_chapter: E2-01
+  current_chapter: null
+  next_chapter: S1-02
   next_work:
     type: chapter
-    id: E2-01
-  last_completed_chapter: S1-01
+    id: S1-02
+  last_completed_chapter: E3-01
   summary:
     total: 38
     planned: 14
     drafting: 0
-    self_review: 10
+    self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 14
+    reviewed: 24
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -60,19 +60,19 @@ progress:
     I3-03: { status: planned }
     I4-01: { status: planned }
     I4-02: { status: planned }
-    L1-01: { status: self_review, started_at: 2026-08-30 }
-    L1-02: { status: self_review, started_at: 2026-08-30 }
-    L1-03: { status: self_review, started_at: 2026-08-30 }
-    L2-01: { status: self_review, started_at: 2026-08-30 }
+    L1-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L1-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L1-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    L2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L2-02: { status: planned }
     E1-01: { status: planned }
     E1-02: { status: planned }
-    E2-01: { status: self_review, started_at: 2026-08-30 }
-    E2-02: { status: self_review, started_at: 2026-08-30 }
-    E2-03: { status: self_review, started_at: 2026-08-30 }
-    E3-01: { status: self_review, started_at: 2026-08-30 }
-    E4-01: { status: self_review, started_at: 2026-08-30 }
-    E4-02: { status: self_review, started_at: 2026-08-30 }
+    E2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E2-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E2-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E3-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E4-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
+    E4-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
 
 volumes:
   - { id: foundations, directory: volumes/00_foundations, title: 数学・答案基礎 }

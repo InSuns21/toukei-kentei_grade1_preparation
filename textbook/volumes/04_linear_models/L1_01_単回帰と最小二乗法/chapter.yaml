@@ -1,7 +1,7 @@
 id: "L1-01"
 title: "単回帰と最小二乗法"
 volume: "linear_models"
-status: self_review
+status: reviewed
 prerequisites:
   - P2-02
   - P3-02

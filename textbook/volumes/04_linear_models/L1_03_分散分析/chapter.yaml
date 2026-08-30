@@ -1,7 +1,7 @@
 id: "L1-03"
 title: "分散分析"
 volume: "linear_models"
-status: self_review
+status: reviewed
 prerequisites:
   - L1-02
   - S1-01

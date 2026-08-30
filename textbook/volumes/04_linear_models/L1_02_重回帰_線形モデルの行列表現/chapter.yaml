@@ -1,7 +1,7 @@
 id: "L1-02"
 title: "重回帰・線形モデルの行列表現"
 volume: "linear_models"
-status: self_review
+status: reviewed
 prerequisites:
   - L1-01
 official_scope:

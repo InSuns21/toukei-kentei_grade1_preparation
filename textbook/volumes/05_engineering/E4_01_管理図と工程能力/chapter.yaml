@@ -1,7 +1,7 @@
 id: "E4-01"
 title: "管理図と工程能力"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P3-02
   - P4-02

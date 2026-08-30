@@ -1,7 +1,7 @@
 id: "E2-01"
 title: "Markov連鎖"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P1-02
   - F0-00

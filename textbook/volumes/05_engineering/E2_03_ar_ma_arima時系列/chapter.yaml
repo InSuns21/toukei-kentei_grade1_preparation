@@ -1,7 +1,7 @@
 id: "E2-03"
 title: "AR・MA・ARIMA時系列"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - P3-03
   - E2-01
