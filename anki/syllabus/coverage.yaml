@@ -1090,16 +1090,10 @@ items:
       - test-paired-t-construction
       - test-paired-versus-independent
       - test-pooled-two-sample-t
-      - test-pooled-two-sample-t-numeric
       - test-welch-two-sample-formula
-      - test-welch-two-sample-numeric
       - test-pooled-versus-welch
       - test-normal-variance-chisquare
-      - test-normal-variance-chisquare-numeric
-      - test-normal-variance-one-sided
       - test-normal-variance-ratio-f
-      - test-normal-variance-ratio-numeric
-      - test-f-reciprocal-quantile
       - test-normality-test-selection
     terms:
       - name: 平均値と分散に関する検定
@@ -1108,11 +1102,7 @@ items:
           - test-normal-z-known-formula
           - test-normal-t-pivot
           - test-normal-variance-chisquare
-          - test-normal-variance-chisquare-numeric
-          - test-normal-variance-one-sided
           - test-normal-variance-ratio-f
-          - test-normal-variance-ratio-numeric
-          - test-f-reciprocal-quantile
           - test-normality-test-selection
       - name: 複数の平均に関する検定
         status: card
@@ -1120,9 +1110,7 @@ items:
           - test-paired-t-construction
           - test-paired-versus-independent
           - test-pooled-two-sample-t
-          - test-pooled-two-sample-t-numeric
           - test-welch-two-sample-formula
-          - test-welch-two-sample-numeric
           - test-pooled-versus-welch
           - test-normality-test-selection
   - id: math-various-tests
