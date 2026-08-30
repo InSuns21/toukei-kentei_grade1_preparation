@@ -1,90 +1,107 @@
 schema_version: 1
-batch_id: 2026-08-30-ar1-spectrum-canonical-121b
+batch_id: 2026-08-30-ar1-acf-decay-canonical-123
 items:
-  - id: ts-spectral-density-ar1
-    note: AR(1)スペクトル密度の導出と低周波・高周波比の数値計算は同一式の解釈なので、導出から周波数特性まで1枚へ統合する。
+  - id: ts-ar1-acf
+    note: AR(1)の定常平均・分散・自己相関の導出と、自己相関の半減ラグ計算は同じ幾何減衰の理解なので1枚へ統合する。
     metadata:
-      title: AR(1)のスペクトル密度を導き周波数特性を読む
-      topic: ar1-spectral-density-canonical
+      title: AR(1)の定常モーメントとACFを導き減衰速度を読む
+      topic: ar1-moments-acf-decay-canonical
       type: strategy
       difficulty: 3
       priority: A
-      hashtags: [時系列解析, ARモデル, スペクトル密度, 周波数解析]
+      hashtags: [時系列解析, ARモデル, 自己共分散, 自己相関関数, 半減ラグ]
     sections:
       問題: |
-        定常AR$(1)$過程
+        AR$(1)$過程
         $$
-        X_t=\phi X_{t-1}+\varepsilon_t,
+        X_t=c+\phi X_{t-1}+\varepsilon_t,
         \qquad |\phi|<1,
+        \qquad E[\varepsilon_t]=0,
         \qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
         $$
         を考える。
-        1. スペクトル密度 $f_X(\lambda)$ を導け。
-        2. $f_X(0)/f_X(\pi)$ を一般の $\phi$ で求め、$\phi>0$ と $\phi<0$ でどの周波数帯が強くなるか説明せよ。
-        3. $\phi=0.6$ のとき $f_X(0)/f_X(\pi)$ を求めよ。
+        1. 定常平均 $\mu$、定常分散 $\gamma(0)$、自己相関 $\rho(h)$ を導け。
+        2. $c=0,\phi=0.8,\sigma_\varepsilon^2=4$ のとき、$\gamma(0)$ と $\rho(2)$ を求めよ。
+        3. 同じ $\phi=0.8$ で、自己相関が0.5以下になる最小の非負整数ラグ $h$ を求めよ。
       記号・用語: |
-        $\lambda\in[-\pi,\pi]$ は角周波数、$f_X(\lambda)$ は周波数ごとの変動の強さを表すスペクトル密度である。$\lambda=0$ は非常にゆっくりした変動、$\lambda=\pi$ は離散時間で表せる最高周波数側に対応する。
+        $\mu=E[X_t]$ は定常平均、$\gamma(h)=\operatorname{Cov}(X_t,X_{t-h})$ は自己共分散、$\rho(h)=\gamma(h)/\gamma(0)$ は自己相関である。定常AR$(1)$では現在の偏差が前期の偏差を係数 $\phi$ だけ引き継ぐ。
       使用公式・定理: |
-        バックシフト演算子 $B$ を用いると
+        定常平均を取ると
         $$
-        (1-\phi B)X_t=\varepsilon_t,
+        \mu=c+\phi\mu,
+        $$
+        よって
+        $$
+        \mu=\frac{c}{1-\phi}.
+        $$
+        中心化した $Y_t=X_t-\mu$ は
+        $$
+        Y_t=\phi Y_{t-1}+\varepsilon_t
+        $$
+        を満たす。革新は過去と無相関なので
+        $$
+        \gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2,
         $$
         したがって
         $$
-        X_t=(1-\phi B)^{-1}\varepsilon_t.
+        \gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2}.
         $$
-        ホワイトノイズを線形フィルタ $\psi(B)$ に通した系列のスペクトル密度は
+        また $h\ge1$ では
         $$
-        f_X(\lambda)
-        =\frac{\sigma_\varepsilon^2}{2\pi}
-        \left|\psi(e^{-i\lambda})\right|^2.
+        \gamma(h)=\phi\gamma(h-1),
         $$
-        AR$(1)$では
+        よって
         $$
-        \psi(e^{-i\lambda})=(1-\phi e^{-i\lambda})^{-1},
-        $$
-        かつ
-        $$
-        |1-\phi e^{-i\lambda}|^2
-        =(1-\phi e^{-i\lambda})(1-\phi e^{i\lambda})
-        =1+\phi^2-2\phi\cos\lambda.
-        $$
-      一手／方針: |
-        **AR方程式を伝達関数へ直してから絶対値二乗を取る。** 周波数の解釈では、式全体を暗記せず $\lambda=0,\pi$ を代入して分母を比較する。
-      答え: |
-        1.
-        $$
-        f_X(\lambda)
-        =\frac{\sigma_\varepsilon^2}
-        {2\pi\{1+\phi^2-2\phi\cos\lambda\}}.
-        $$
-
-        2. $\cos0=1,\cos\pi=-1$ より
-        $$
-        f_X(0)=\frac{\sigma_\varepsilon^2}{2\pi(1-\phi)^2},
+        \gamma(h)=\phi^h\gamma(0),
         \qquad
-        f_X(\pi)=\frac{\sigma_\varepsilon^2}{2\pi(1+\phi)^2}.
+        \rho(h)=\phi^h
+        \quad(h\ge0).
         $$
-        したがって
+        共分散の対称性から一般には $\rho(h)=\phi^{|h|}$ と書ける。
+      一手／方針: |
+        **平均を引いてAR(1)を中心化し、分散は1本の分散方程式、自己共分散は1期ずつの再帰で導く。** 半減ラグは別公式として暗記せず、得られた $|\rho(h)|=|\phi|^h$ が所定の閾値以下になる最小整数を求める。
+      答え: |
+        1. 
         $$
-        \frac{f_X(0)}{f_X(\pi)}
-        =\left(\frac{1+\phi}{1-\phi}\right)^2.
+        \mu=\frac{c}{1-\phi},
+        \qquad
+        \gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2},
+        \qquad
+        \rho(h)=\phi^{|h|}.
         $$
-        $\phi>0$ ならこの比は1より大きく低周波成分が強い。$\phi<0$ なら1より小さく高周波成分が相対的に強い。$\phi=0$ ならスペクトルは平坦でホワイトノイズになる。
 
-        3. $\phi=0.6$ なら
+        2. $c=0,\phi=0.8,\sigma_\varepsilon^2=4$ なので
         $$
-        \frac{f_X(0)}{f_X(\pi)}
-        =\left(\frac{1.6}{0.4}\right)^2
-        =16.
+        \gamma(0)=\frac{4}{1-0.8^2}
+        =\frac{4}{0.36}
+        =\frac{100}{9}\approx11.11,
         $$
+        $$
+        \rho(2)=0.8^2=0.64.
+        $$
+
+        3. $0<\phi<1$ なので
+        $$
+        0.8^h\le0.5
+        $$
+        を解く。対数を取ると
+        $$
+        h\ge\frac{\log0.5}{\log0.8}\approx3.106.
+        $$
+        よって最小整数は
+        $$
+        h=4.
+        $$
+        実際、$0.8^3=0.512>0.5$、$0.8^4=0.4096\le0.5$ である。
       計算例: |
-        $\phi=-0.6$ なら
+        $\phi=-0.8$ なら
         $$
-        \frac{f_X(0)}{f_X(\pi)}
-        =\left(\frac{0.4}{1.6}\right)^2
-        =\frac1{16}.
+        \rho(h)=(-0.8)^h
         $$
-        正のAR係数では系列がゆっくり持続しやすく低周波側が強くなるのに対し、負のAR係数では符号が交互に変わりやすく高周波側が強くなる。
+        なので符号はラグごとに交互に変わる。一方、相関の大きさは
+        $$
+        |\rho(h)|=0.8^h
+        $$
+        だから、絶対値が0.5以下になる最小ラグは同じく4である。
       注意: |
-        $f_X(0)/f_X(\pi)$ は分母の比が逆転するので、$(1+\phi)^2/(1-\phi)^2$ になる点に注意する。また $|\phi|<1$ は定常なAR$(1)$としてこのスペクトルを扱うための条件である。スペクトル密度の大きさは周波数ごとの変動の強さであり、特定周波数の確率そのものではない。
+        $|\phi|<1$ は定常AR$(1)$の条件である。$\phi<0$ のとき「自己相関が0.5以下」を符号付きの不等式として読むとラグ1ですでに満たし得るので、減衰速度を測る半減ラグでは通常 $|\rho(h)|$ を使う。また標本自己相関は有限標本変動を含むため、理論値 $\phi^h$ と厳密には一致しない。
