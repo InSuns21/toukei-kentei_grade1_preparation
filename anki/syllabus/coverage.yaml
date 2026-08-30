@@ -635,7 +635,6 @@ items:
       - est-bernoulli-mle
       - mle-likelihood-vs-probability
       - mle-score-equation
-      - mle-log-likelihood
       - mle-normal-variance
       - mle-bernoulli-binomial
       - mle-exponential
@@ -662,7 +661,6 @@ items:
       - name: 対数尤度関数
         status: card
         cards:
-          - mle-log-likelihood
           - mle-score-equation
       - name: 有効スコア関数
         status: card

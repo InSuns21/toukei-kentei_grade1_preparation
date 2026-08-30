@@ -33,35 +33,6 @@ $$\frac{L(0.7;1)}{L(0.2;1)}=\frac{0.7}{0.2}=3.5.$$
 <!-- CARD -->
 
 ---
-id: mle-log-likelihood
-title: 対数尤度への変換
-category: math-estimation
-subcategory: math-likelihood-mle
-topic: log-likelihood
-type: strategy
-difficulty: 2
-priority: S
-hashtags: [最尤推定, 対数尤度, 単調変換]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 対数尤度関数 }]
----
-## 問題
-なぜ最尤推定では尤度 $L(\theta;x)$ の代わりに対数尤度 $\ell(\theta;x)=\log L(\theta;x)$ を最大化するのか。
-## 答え
-対数は単調増加で最大点が変わらない。積を和に変え、微分・最大化を容易にする。
-$$\ell(\theta;x)=\sum_{i=1}^n \log f(x_i;\theta).$$
-## 使用公式・定理
-$\log$ は単調増加なので $\mathop{\rm arg\,max}_\theta L(\theta;x)=\mathop{\rm arg\,max}_\theta \ell(\theta;x)$。独立同分布なら対数で総和に分解する。
-## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$ のとき
-$\ell(\lambda;x)=\sum_{i=1}^n(x_i\log\lambda-\lambda-\log x_i!)=\log\lambda\sum_i x_i-n\lambda-\sum_i\log x_i!.$
-$\theta$ に依存しない項 $\sum_i\log x_i!$ は最大化から落とせる。
-## 一手
-まず $\log$ を取って積を和に直す。定数項は $\theta$ に依らないので最大化から落とせる。
-
-<!-- CARD -->
-
----
 id: mle-score-equation
 title: 尤度からスコア方程式まで最尤推定を一気に解く
 category: math-estimation
