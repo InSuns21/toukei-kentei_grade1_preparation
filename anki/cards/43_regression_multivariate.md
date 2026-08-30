@@ -727,91 +727,195 @@ $$
 
 ---
 id: mv-pca-variance-max
-title: 主成分分析を分散最大化として導く
+title: 主成分分析を行列選択から固有値・得点・負荷量まで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: pca-variance-maximization
+topic: pca-canonical
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [主成分分析, 分散最大化, 固有値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 主成分分析 }]
+hashtags:
+  - 主成分分析
+  - 固有値
+  - 寄与率
+  - 主成分得点
+  - 主成分負荷量
+  - 相関行列
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 主成分分析
 ---
 
 ## 問題
-第1主成分方向が分散共分散行列の最大固有値に対応することを示せ。
+中心化した $p$ 次元データの主成分分析を考える。
+
+1. 第1主成分が分散共分散行列の最大固有値に対応する固有ベクトルになることを、分散最大化から導け。
+2. 変数の単位・分散が大きく異なるとき、共分散行列PCAと相関行列PCAをどう使い分けるか。
+3. 固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ の標準化PCAについて、第1主成分の寄与率と、標準化観測 $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ の第1主成分得点を求めよ。
+4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、元変数 $X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
 
 ## 使用公式・定理
-制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ の下で
+主成分分析（PCA）では、単位ベクトル $\boldsymbol a$ への射影
 $$
-\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+Z=\boldsymbol a^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
 $$
-を最大化する。Lagrange関数
+の分散
+$$
+\operatorname{Var}(Z)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+$$
+を
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol a=1
+$$
+の下で最大化する。Lagrange関数
 $$
 L(\boldsymbol a,\lambda)
 =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
 -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
 $$
-を微分すると
+を $\boldsymbol a$ で微分すると
+$$
+2\boldsymbol\Sigma\boldsymbol a-2\lambda\boldsymbol a=\boldsymbol0,
+$$
+したがって
 $$
 \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
 $$
-したがって第1主成分方向は最大固有値の単位固有ベクトルである。
+よって第1主成分方向は最大固有値 $\lambda_1$ の単位固有ベクトル $\boldsymbol a_1$ である。第2主成分以降は前の主成分に直交する条件の下で同様に得られる。
 
-固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると、上位 $m$ 主成分で再構成したときの平均二乗再構成誤差の総和は
+固有値を
 $$
-\sum_{j=m+1}^{p}\lambda_j
+\lambda_1\ge\cdots\ge\lambda_p
 $$
-である。
+とすると、第 $j$ 主成分の分散は $\lambda_j$、寄与率は
+$$
+\frac{\lambda_j}{\sum_{r=1}^p\lambda_r},
+$$
+上位 $m$ 主成分を残した累積寄与率は
+$$
+\frac{\sum_{j=1}^m\lambda_j}{\sum_{r=1}^p\lambda_r}.
+$$
+上位 $m$ 成分で再構成したときに捨てる分散の総和は
+$$
+\sum_{j=m+1}^p\lambda_j.
+$$
+
+測定単位や分散の大きさ自体に意味があるなら分散共分散行列 $\boldsymbol S$ を使う。尺度差を消して相関構造を比較したいなら
+$$
+Z_k=\frac{X_k-\bar X_k}{s_k}
+$$
+と標準化し、相関行列 $\boldsymbol R$ に対して同じ固有値問題を解く。
+
+共分散PCAで第 $j$ 主成分を
+$$
+Z_j=\boldsymbol a_j^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
+$$
+とすれば
+$$
+\operatorname{Var}(Z_j)=\lambda_j,
+\qquad
+\operatorname{Cov}(X_k,Z_j)=\lambda_j a_{kj}.
+$$
+したがって変数 $X_k$ と主成分 $Z_j$ の相関は
+$$
+\operatorname{Corr}(X_k,Z_j)
+=\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
+$$
+この相関を主成分負荷量と呼ぶ規約がある。
 
 ## 一手
-主成分分析では「固有ベクトルを使う」と暗記せず、単位ベクトル $\boldsymbol a$ への射影分散
-$$
-\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
-=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-$$
-を最大化する問題から始める。Lagrange未定乗数法で固有方程式を出し、最大固有値の方向を第1主成分に選ぶ。
+**PCAは「使う行列を決める→固有値問題を解く→固有値から分散・寄与率、固有ベクトルから得点軸を読む」の一続きで処理する。** 負荷量を変数との相関として問われたら、固有ベクトル成分だけで終わらず $\sqrt{\lambda_j}/s_k$ を掛ける。
 
 ## 答え
-第1主成分は分散共分散行列の最大固有値に対応する単位固有ベクトル方向である。第2主成分以降は、それ以前の主成分に直交する範囲で同じ分散最大化を繰り返す。
+分散最大化の一階条件は
+$$
+\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a
+$$
+であり、目的値は
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+=\lambda
+$$
+だから最大固有値の方向が第1主成分になる。
 
-## 計算例
+数値例では固有値総和は
 $$
-\boldsymbol S=
-\begin{pmatrix}2&1\\1&2\end{pmatrix}
+2.4+0.5+0.1=3.0
 $$
-とする。固有値は
+なので第1主成分の寄与率は
+$$
+\frac{2.4}{3.0}=0.80.
+$$
+第1・第2変数に同方向の大きな重み、第3変数に比較的小さな重みを置く軸である。
+
+標準化観測の第1主成分得点は
 $$
 \begin{aligned}
-0
-&=\det(\boldsymbol S-\lambda\boldsymbol I)\\
-&=\det\begin{pmatrix}2-\lambda&1\\1&2-\lambda\end{pmatrix}\\
-&=(2-\lambda)^2-1\\
-&=(\lambda-3)(\lambda-1),
+z_{\mathrm{PC1}}
+&=0.70(1)+0.68(-1)+0.22(0.5)\\
+&=0.70-0.68+0.11\\
+&=0.13.
 \end{aligned}
 $$
-より
+
+また $\lambda_j=4,a_{kj}=0.3,s_k=1.5$ なら
 $$
-\lambda_1=3,\qquad \lambda_2=1.
+\operatorname{Corr}(X_k,Z_j)
+=\frac{\sqrt4\cdot0.3}{1.5}
+=\frac{0.6}{1.5}
+=0.4.
 $$
-$\lambda_1=3$ に対して
+
+## 計算例
+相関行列
 $$
-\begin{pmatrix}-1&1\\1&-1\end{pmatrix}
-\begin{pmatrix}a_1\\a_2\end{pmatrix}
-=\boldsymbol0
+\boldsymbol R=
+\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
 $$
-なので $a_1=a_2$。単位長へ正規化すると
+で標準化PCAを行う。固有値は
+$$
+\lambda_1=1+0.8=1.8,
+\qquad
+\lambda_2=1-0.8=0.2,
+$$
+第1固有ベクトルは
 $$
 \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
 $$
-第1主成分だけを残すなら捨てる固有値は1なので、平均二乗再構成誤差の総和は
+したがって
 $$
-\lambda_2=1.
+\mathrm{PC1}=\frac{Z_1+Z_2}{\sqrt2},
 $$
+寄与率は
+$$
+\frac{1.8}{1.8+0.2}=0.90.
+$$
+第1主成分だけで標準化後の全分散の90%を表す。
+
+一方、分散共分散行列
+$$
+\boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+$$
+なら
+$$
+\det(\boldsymbol S-\lambda\boldsymbol I)
+=(\lambda-3)(\lambda-1)
+$$
+なので最大固有値は3、対応方向は
+$$
+\frac1{\sqrt2}(1,1)^{\mathsf T}.
+$$
+第1成分だけ残したときに捨てる分散は $\lambda_2=1$ である。
 
 ## 注意
-データは中心化しておく。固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。標準化PCAでは分散共分散行列ではなく相関行列に対して同じ固有値問題を解く。
+データは少なくとも中心化してからPCAを行う。共分散PCAは測定単位の変更で結果が変わるので、単位差に科学的意味がない場合は標準化を検討する。ただし標準化が常に正しいわけではない。
+
+固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。文献・ソフトウェアによって「主成分負荷量」を固有ベクトル成分そのものと呼ぶ場合と、変数と主成分の相関と呼ぶ場合があるため定義を確認する。
 
 <!-- CARD -->
 
