@@ -1,33 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-30-normal-test-duplicates-81
+batch_id: 2026-08-30-model-selection-duplicates-83
 items:
-  - id: test-normal-z-one-sided-numeric
+  - id: ms-kl-nonnegativity
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-z-known-formula
-    note: 右片側Z検定の方向判定・数値計算・P値は、右・左・両側を一続きに扱うZ検定canonical cardへ統合済み。
-  - id: test-normal-z-left-sided
+    canonical_card: ms-kl-divergence
+    note: KL情報量の非負性とギブスの不等式による確認は定義・数値例を含むKL canonical cardへ統合済み。
+  - id: ms-overfitting-generalization
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-z-known-formula
-    note: 左片側Z検定の臨界方向・符号判断・数値例・P値はZ検定canonical cardへ統合済み。
-  - id: test-normal-z-two-sided-pvalue
+    canonical_card: ms-kfold-cv-numeric
+    note: 訓練誤差が非増加でも汎化誤差が悪化しうる過学習の説明は、交差検証によるモデル選択canonical cardへ統合済み。
+  - id: ms-variable-selection-stepwise
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-z-known-formula
-    note: 両側Z検定のP値計算と有意水準による判定はZ検定canonical cardへ統合済み。
-  - id: test-normal-t-numeric
+    canonical_card: ms-bic-numeric-comparison
+    note: 前進選択・後退消去・ステップワイズ法は、AIC等を局所的に改善する探索として情報量規準canonical cardへ統合済み。
+  - id: ms-regularization-bias-variance
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-t-pivot
-    note: 1標本t検定の標準誤差・自由度・数値判定・P値は導出を含むcanonical cardへ統合済み。
-  - id: test-normal-t-assumptions
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: 正則化でバイアスが増えバリアンスが減る関係と予測誤差への影響はRidge/Lasso canonical cardへ統合済み。
+  - id: ms-multicollinearity-ridge
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-t-pivot
-    note: 1標本t検定が有限標本で正確となる正規性条件と小標本・外れ値への注意はcanonical cardへ統合済み。
-  - id: test-paired-t-numeric
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: 多重共線性で小さい固有値方向が不安定になりRidgeが安定化する理由は特異値縮小と数値例を含むcanonical cardへ統合済み。
+  - id: ms-lasso-selection
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-paired-t-construction
-    note: 対応のあるt検定は差への帰着から統計量計算・自由度・方向判定までcanonical cardへ統合済み。
+    canonical_card: ms-ridge-lasso-orthogonal-numeric
+    note: Lassoのsoft-thresholdingによる零化、変数選択性、選択一致性には追加条件が必要という限界までRidge/Lasso canonical cardへ統合済み。
