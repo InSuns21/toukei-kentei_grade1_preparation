@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-normal-test-canonical-80
+batch_id: 2026-08-30-normal-test-canonical-80b
 items:
   - id: test-normal-z-known-formula
     note: 分散既知の正規平均Z検定について、公式・片側方向・両側P値・数値計算を1枚のcanonical cardへ統合する。
@@ -12,7 +12,7 @@ items:
       hashtags: [正規分布, Z検定, 片側検定, P値]
     sections:
       問題: |
-        $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\sigma^2$ は既知とする。$H_0:\mu=\mu_0$ のZ検定について、対立仮説が右片側・左片側・両側の場合の棄却方向とP値を書け。
+        正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本 $X_1,\ldots,X_n$ を考え、$\sigma^2$ は既知とする。$H_0:\mu=\mu_0$ のZ検定について、対立仮説が右片側・左片側・両側の場合の棄却方向とP値を書け。
 
         さらに次を計算せよ。
         1. $\sigma=3,n=36,\bar x=11.2$、$H_0:\mu=10$ 対 $H_1:\mu>10$ を5%で検定する。
@@ -69,7 +69,7 @@ items:
       hashtags: [正規分布, t検定, 1標本, P値]
     sections:
       問題: |
-        $X_1,\ldots,X_n\overset{iid}{\sim}N(\mu,\sigma^2)$ で $\sigma^2$ は未知とする。$H_0:\mu=\mu_0$ の1標本t検定について、統計量と帰無分布を導き、有限標本で正確となる条件を述べよ。
+        正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本 $X_1,\ldots,X_n$ を考え、$\sigma^2$ は未知とする。$H_0:\mu=\mu_0$ の1標本t検定について、統計量と帰無分布を導き、有限標本で正確となる条件を述べよ。
 
         さらに $n=16,\bar x=52,s=4$、$H_0:\mu=50$ 対 $H_1:\mu\ne50$ を5%で検定せよ。ただし $t_{15,0.025}=2.131$ とする。
       使用公式・定理: |
