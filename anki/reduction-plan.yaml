@@ -1,9 +1,27 @@
 schema_version: 1
-batch_id: 2026-08-31-yule-walker-ar1-reduction-172
+batch_id: 2026-08-31-asymptotic-core-reduction-174
 items:
-  - id: engproc-yule-walker-estimate-ar1
+  - id: asym-slutsky-example
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-acf-pacf-identification
-    coverage_card: ts-acf-pacf-identification
-    note: AR(1)で標本自己共分散からphi=gamma1/gamma0を推定し、gamma0(1-phi^2)から革新分散を求める手順、gamma0=10,gamma1=6でphi=0.6・革新分散6.4の数値例、定常性確認、有限標本の偏り注意まで時系列canonical cardへ統合済み。
+    canonical_card: asym-slutsky
+    coverage_card: asym-slutsky
+    note: Slutskyの和・積・商とN(0,4)を2で割る数値例まで正本へ統合済み。
+  - id: engasym-slutsky-studentization
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-slutsky
+    coverage_card: asym-slutsky
+    note: S_n^2の一致性からS_n/sigma→p1を作り、未知分散でstudentizeした平均が標準正規極限を持つ導出まで正本へ統合済み。
+  - id: engasym-continuous-mapping-plugin
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-continuous-mapping
+    coverage_card: asym-continuous-mapping
+    note: 確率収束版の連続写像定理、p_hat(1-p_hat)の一致性、p_hat=0.36・n=400で標準誤差0.024のプラグイン例まで正本へ統合済み。
+  - id: engasym-score-wald-lr-equivalence
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-lr-wald-score-comparison
+    coverage_card: test-lr-wald-score-comparison
+    note: 尤度比・ワルド型・スコア型の評価点、共通chi-square極限、統計量差o_p(1)、有限標本差、境界母数の非正則性まで検定正本へ統合済み。
