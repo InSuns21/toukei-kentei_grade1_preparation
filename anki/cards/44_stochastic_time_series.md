@@ -445,34 +445,155 @@ $$P_1(T_1<\infty)=P_1(X_1=1)=\frac12<1$$
 
 ---
 id: ts-arima-definition
-title: ARIMAモデルを差分演算子で書く
+title: ARIMAを差分から構成しランダムウォーク・季節差分まで判定する
 category: applied-common
 subcategory: applied-time-series
-topic: arima-definition
-type: formula
-difficulty: 2
+topic: arima-differencing-canonical
+type: strategy
+difficulty: 3
 priority: A
-hashtags: [ARIMAモデル, 差分, バックシフト]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+hashtags:
+  - ARIMAモデル
+  - 差分
+  - ランダムウォーク
+  - 非定常
+  - 季節差分
+  - バックシフト
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-ARIMA$(p,d,q)$ モデルをバックシフト演算子で定義せよ。
+ARIMAモデルと差分について次を解け。
+
+1. ARIMA$(p,d,q)$ をバックシフト演算子で定義し、$d$ の意味を説明せよ。
+2. ランダムウォーク
+$$
+X_t=X_{t-1}+\varepsilon_t,
+\qquad X_0=0,
+$$
+で $E[\varepsilon_t]=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$、革新は互いに無相関とする。水準系列が弱定常でないことを示し、一階差分で何になるか答えよ。
+3. ランダムウォークをARIMA$(p,d,q)$ の形で分類せよ。
+4. 周期12の系列で $X_{25}=130,X_{13}=118$ のとき季節差分を求め、通常の一階差分との目的の違いを述べよ。
+
 ## 記号・用語
-$BX_t=X_{t-1}$、$\phi(B)=1-\phi_1B-\cdots-\phi_pB^p$、$\theta(B)=1+\theta_1B+\cdots+\theta_qB^q$ とする。$\varepsilon_t$ はホワイトノイズである。
+バックシフト演算子を
+$$
+BX_t=X_{t-1}
+$$
+とし、
+$$
+\phi(B)=1-\phi_1B-\cdots-\phi_pB^p,
+$$
+$$
+\theta(B)=1+\theta_1B+\cdots+\theta_qB^q
+$$
+とする。
+
+通常の一階差分は
+$$
+\Delta X_t=(1-B)X_t=X_t-X_{t-1},
+$$
+周期 $s$ の季節差分は
+$$
+\Delta_sX_t=(1-B^s)X_t=X_t-X_{t-s}
+$$
+である。
+
 ## 使用公式・定理
-**定義（ARIMAモデル）**：
-$$\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t.$$
+ARIMA$(p,d,q)$ は
+$$
+\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t
+$$
+と表す。すなわち
+$$
+Y_t=(1-B)^dX_t
+$$
+とおいた差分系列 $Y_t$ がARMA$(p,q)$ に従う。
+
+ランダムウォークは再帰式を展開すると
+$$
+X_t=\sum_{j=1}^t\varepsilon_j
+$$
+なので
+$$
+\operatorname{Var}(X_t)=t\sigma^2.
+$$
+一方、
+$$
+(1-B)X_t=X_t-X_{t-1}=\varepsilon_t.
+$$
+
 ## 一手／方針
-$d$ 回差分した $Y_t=(1-B)^dX_t$ が ARMA$(p,q)$ に従うと読む。
+**ARIMAでは最初に「水準系列は定常か」を見る。非定常なら、トレンド型なら通常差分、周期的な季節成分なら季節差分を候補にし、必要な差分後にARMA構造を考える。**
+
+$d$ は単なる記号として暗記せず、「何回通常差分すれば定常なARMA系列になるか」と読む。ランダムウォークは分散が時刻とともに増えることを確認してから差分する。
+
 ## 答え
-ARIMA$(p,d,q)$ は、$d$ 回差分後に ARMA$(p,q)$ となるモデルである。
+1.
+$$
+\boxed{\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t}.
+$$
+$d$ は通常差分の次数であり、$d$ 回差分した系列がARMA$(p,q)$ に従う。
+
+2. ランダムウォークでは
+$$
+\operatorname{Var}(X_t)=t\sigma^2
+$$
+が時点 $t$ に依存するため弱定常でない。しかし
+$$
+\Delta X_t=X_t-X_{t-1}=\varepsilon_t
+$$
+なので、一階差分はホワイトノイズとなり弱定常である。
+
+3. 一階差分後がホワイトノイズ、すなわちARMA$(0,0)$ なので、ランダムウォークは
+$$
+\boxed{\operatorname{ARIMA}(0,1,0)}
+$$
+の代表例であり、$I(1)$ 過程である。
+
+4. 周期12なら
+$$
+\Delta_{12}X_{25}=X_{25}-X_{13}=130-118=\boxed{12}.
+$$
+通常差分は隣接時点の持続的な水準変化・確率的トレンドを除くのに使い、季節差分は同じ季節どうしを引いて周期 $s$ の繰返し成分を除くのに使う。
+
 ## 計算例
 ARIMA$(1,1,0)$ は
-$$X_t-X_{t-1}=\phi(X_{t-1}-X_{t-2})+\varepsilon_t$$
-と展開できる。
+$$
+(1-\phi B)(1-B)X_t=\varepsilon_t
+$$
+だから、$Y_t=\Delta X_t$ とおけば
+$$
+Y_t=\phi Y_{t-1}+\varepsilon_t.
+$$
+水準系列 $X_t$ に直接AR$(1)$を当てるのではなく、一階差分系列がAR$(1)$になるモデルと読める。
+
+また $\sigma^2=2$ のランダムウォークでは
+$$
+\operatorname{Var}(X_1)=2,
+\quad
+\operatorname{Var}(X_5)=10,
+\quad
+\operatorname{Var}(X_{20})=40,
+$$
+だが
+$$
+\operatorname{Var}(\Delta X_t)=2
+$$
+は一定である。
+
 ## 注意
-定常性は水準系列ではなく、差分系列に対して考える。
+平均が一定でも、分散や自己共分散が時点に依存すれば弱定常ではない。
+
+差分は多ければよいわけではない。過差分は不要なMA型依存などを作ることがあるので、定常化に必要な次数にとどめる。
+
+通常差分 $(1-B)$ と季節差分 $(1-B^s)$ は目的が異なる。季節ARIMAでは両者を組み合わせることもあるが、まず問題文の非定常性が通常トレンド由来か季節性由来かを見分ける。
 
 <!-- CARD -->
 
@@ -1052,31 +1173,161 @@ $$
 
 ---
 id: ts-weak-vs-strong-stationarity
-title: 弱定常性と強定常性を区別する
+title: 弱定常性・自己共分散・ホワイトノイズを一続きで判定する
 category: applied-common
 subcategory: applied-time-series
-topic: stationarity
-type: recognition
+topic: stationarity-autocovariance-white-noise-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [ARIMAモデル, 弱定常, 強定常]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+hashtags:
+  - 時系列解析
+  - 弱定常
+  - 強定常
+  - 自己共分散
+  - 自己相関関数
+  - ホワイトノイズ
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-弱定常性と強定常性の定義を述べよ。
+時系列の定常性と基本的な依存構造について次を解け。
+
+1. 弱定常性と強定常性を定義し、両者の関係を述べよ。
+2. 弱定常過程の自己共分散 $\gamma(h)$ が満たす基本性質を3つ挙げ、自己相関 $\rho(h)$ を定義せよ。
+3. 弱ホワイトノイズ $\{\varepsilon_t\}$ を平均・分散・異時点共分散で定義せよ。
+4. $\gamma(0)=4,\gamma(1)=5$ という自己共分散候補は妥当か。
+5. 平均0、分散9で、異なる時点どうしが無相関な過程は弱ホワイトノイズか。また独立性まで結論できるか。
+
 ## 記号・用語
-- $\gamma(h)$：ラグ $h$ の自己共分散
+**弱定常**とは、平均が時点によらず一定で、自己共分散が2時点の絶対位置ではなくラグだけに依存することをいう。
+
+**強定常**とは、任意の有限個の時点を同じだけ平行移動しても、その同時分布が変わらないことをいう。
+
+弱ホワイトノイズは「平均0・分散一定・異時点で無相関」という2次モーメントで定義される過程であり、一般には独立性や正規性まで要求しない。
+
 ## 使用公式・定理
-弱定常は2次まで、強定常はすべての有限次元分布の時間移動不変性を問う。
+弱定常過程では
+$$
+E[X_t]=\mu,
+\qquad
+\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)
+$$
+が $t$ に依存しない。
+
+自己共分散には
+$$
+\gamma(0)=\operatorname{Var}(X_t)\ge0,
+$$
+$$
+\gamma(-h)=\gamma(h),
+$$
+$$
+|\gamma(h)|\le\gamma(0)
+$$
+が成り立つ。さらに任意の有限係数列 $a_1,\ldots,a_m$ に対して
+$$
+\sum_{i,j}a_ia_j\gamma(t_i-t_j)\ge0
+$$
+となる非負定値性も必要である。
+
+自己相関は
+$$
+\rho(h)=\frac{\gamma(h)}{\gamma(0)}
+$$
+である。
+
+弱ホワイトノイズは
+$$
+E[\varepsilon_t]=0,
+\qquad
+\operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2,
+$$
+$$
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0
+\quad(t\ne s)
+$$
+を満たす。
+
 ## 一手／方針
-強定常性は同時分布、弱定常性は平均と自己共分散だけを比較し、どちらまで確認できたかを分ける。
+**時系列の前提を問われたら「平均 → 分散 → ラグごとの共分散」の順に確認する。** 弱定常なら自己共分散を $\gamma(h)$ と書けるので、対称性・大きさ・非負定値性を確認する。ホワイトノイズなら、その自己共分散がラグ0以外で0になる特別な弱定常過程と見る。
+
 ## 答え
-弱定常は $E[X_t]=\mu$ が一定で $\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)$ が $t$ に依存しないこと。強定常は任意の $k,h$ で $(X_{t_1},\ldots,X_{t_k})$ と $(X_{t_1+h},\ldots,X_{t_k+h})$ が同分布であること。
+1. 弱定常は
+$$
+E[X_t]=\mu,
+\qquad
+\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)
+$$
+が時点 $t$ に依存しないこと。強定常は任意の $k$ と時点 $t_1,\ldots,t_k$、平行移動量 $r$ に対し
+$$
+(X_{t_1},\ldots,X_{t_k})
+\overset d=
+(X_{t_1+r},\ldots,X_{t_k+r})
+$$
+となること。有限2次モーメントを持つ強定常過程は弱定常だが、逆は一般には成り立たない。
+
+2. 基本性質は
+$$
+\boxed{\gamma(0)\ge0},\qquad
+\boxed{\gamma(-h)=\gamma(h)},\qquad
+\boxed{|\gamma(h)|\le\gamma(0)}.
+$$
+自己相関は
+$$
+\boxed{\rho(h)=\gamma(h)/\gamma(0)}.
+$$
+
+3. 弱ホワイトノイズは
+$$
+E[\varepsilon_t]=0,
+\quad
+\operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2,
+\quad
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0\ (t\ne s).
+$$
+したがって
+$$
+\gamma_\varepsilon(h)=
+\begin{cases}
+\sigma_\varepsilon^2,&h=0,\\
+0,&h\ne0.
+\end{cases}
+$$
+
+4. 妥当でない。自己共分散には
+$$
+|\gamma(1)|\le\gamma(0)
+$$
+が必要だが、ここでは $5>4$ だからである。
+
+5. 平均0・分散9一定・異時点無相関なので弱ホワイトノイズである。ただし無相関だけから一般に独立性は従わない。正規過程など追加条件があれば無相関から独立を言える場合がある。
+
 ## 計算例
-有限分散を持つ強定常過程は弱定常。
+弱ホワイトノイズで $\sigma_\varepsilon^2=9$ なら
+$$
+\gamma(0)=9,\qquad
+\gamma(1)=\gamma(2)=\cdots=0,
+$$
+したがって
+$$
+\rho(0)=1,\qquad
+\rho(h)=0\quad(h\ne0).
+$$
+これはAR・MAモデルの「革新」の基準となる依存のない2次構造である。
+
 ## 注意
-弱定常から強定常は一般には従わない。
+「定常」は平均が一定というだけでは足りない。分散が時点で変わるランダムウォークは、平均0でも弱定常でない。
+
+また $|\gamma(h)|\le\gamma(0)$ と対称性を満たすだけで、任意の数列が自己共分散関数になるわけではない。完全な妥当性には非負定値性が必要である。
+
+弱ホワイトノイズの「白色」は無相関を意味し、独立・正規とは区別する。
 
 <!-- CARD -->
 
