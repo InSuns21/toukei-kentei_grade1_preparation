@@ -415,7 +415,7 @@ sources:
   - type: official_syllabus
     topic: 因子回転の考え方
 archive_reason: duplicate
-canonical_card: mv-factor-rotation
+canonical_card: mv-factor-model-covariance
 archive_note: 直交回転 Lambda*=Lambda T で Lambda*Lambda*^T が不変となる導出をcanonicalが扱う。
 ---
 ## 問題

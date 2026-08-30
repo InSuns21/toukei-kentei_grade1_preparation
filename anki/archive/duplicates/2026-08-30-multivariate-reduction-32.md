@@ -112,7 +112,7 @@ sources:
   - type: official_syllabus
     topic: 判別分析
 archive_reason: duplicate
-canonical_card: mv-lda-direction
+canonical_card: mv-lda-classification-rule
 archive_note: Σ^{-1}(μ1-μ0)からフィッシャー方向を求める数値計算を一般式のcanonicalへ吸収済み。
 ---
 ## 問題

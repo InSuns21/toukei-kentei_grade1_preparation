@@ -1991,12 +1991,9 @@ items:
       - mv-hotelling-one-sample
       - mv-pca-variance-max
       - mv-factor-model-covariance
-      - mv-factor-rotation
       - mv-factor-score-regression
-      - mv-lda-direction
       - mv-lda-classification-rule
       - mv-hierarchical-linkage
-      - mv-ward-increase
       - mv-kmeans-one-iteration
       - mv-canonical-correlation
       - mv-mds-double-centering
@@ -2029,18 +2026,15 @@ items:
         status: card
         cards:
           - mv-factor-model-covariance
-          - mv-factor-rotation
           - mv-factor-score-regression
       - name: 判別分析
         status: card
         cards:
-          - mv-lda-direction
           - mv-lda-classification-rule
       - name: クラスター分析
         status: card
         cards:
           - mv-hierarchical-linkage
-          - mv-ward-increase
           - mv-kmeans-one-iteration
       - name: ロジスティック回帰分析
         status: card

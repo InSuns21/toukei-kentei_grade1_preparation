@@ -328,7 +328,7 @@ sources:
   - type: official_syllabus
     topic: フィッシャーの線形判別
 archive_reason: duplicate
-canonical_card: mv-lda-direction
+canonical_card: mv-lda-classification-rule
 archive_note: Fisher方向Sigma^{-1}(mu1-mu0)は共通canonicalの中心操作。分類境界の役割はLDA分類canonical側で保持している。
 ---
 ## 問題
@@ -541,7 +541,7 @@ sources:
   - type: official_syllabus
     topic: クラスタリング：階層法
 archive_reason: duplicate
-canonical_card: mv-ward-increase
+canonical_card: mv-hierarchical-linkage
 archive_note: Ward法の併合平方和増加を計算し最小の対を選ぶ操作は共通canonicalの同じ公式に基づく。
 ---
 ## 問題
