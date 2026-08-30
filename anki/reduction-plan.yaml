@@ -1,80 +1,80 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-reduction-38
+batch_id: 2026-08-30-engineering-multivariate-reduction-39
 items:
-  - id: engmv-normal-density-numeric
+  - id: engmv-sample-mean-distribution
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-multivariate-normal-density
-    note: 2変量正規密度の行列式・逆行列・二次形式・数値代入を一般canonicalへ吸収済み。
+    canonical_card: engmv-normal-mean-cov-independence
+    note: 標本平均の分布と共分散Sigma/nを、Wishart・標本共分散との独立性まで一続きに扱うcanonicalへ統合済み。
 
-  - id: engmv-normal-marginal-numeric
+  - id: engmv-wishart-definition
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-bivariate-normal-marginal
-    note: 任意の部分ベクトルの周辺化へ一般化し、3変量から第1・第3成分を抜く同じ数値例をcanonicalへ吸収済み。
+    canonical_card: engmv-normal-mean-cov-independence
+    note: 正規ベクトル外積和によるWishart定義、p=1でのカイ二乗への帰着までcanonicalへ統合済み。
+
+  - id: engmv-wishart-expectation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-normal-mean-cov-independence
+    note: E[W]=nu Sigmaを外積和の期待値から導き、E[S]=Sigmaまで同じcanonicalで確認する。
+
+  - id: engmv-unit-change-correlation-invariance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-correlation-from-covariance
+    note: 共分散から相関への標準化と正の単位変換で倍率が相殺される数値例を同一canonicalへ統合済み。
+
+  - id: engmv-precision-conditional-independence
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-normal-uncorrelated-independent
+    note: 共分散行列の0による周辺独立と精度行列の0による条件付き独立を一枚で対比するcanonicalへ統合済み。
+
+  - id: engmv-hotelling-two-sample-decision
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: engmv-hotelling-two-sample
+    note: T二乗計算からF変換・自由度・臨界値比較まで一続きの検定手順としてcanonicalへ統合済み。
 
   - id: engmv-conditional-normal-numeric
     bucket: duplicates
     reason: duplicate
     canonical_card: dist-multivariate-normal-conditional
-    note: 平均(1,2)、共分散[[4,3],[3,9]]、Y=5からX|Y=5~N(2,3)を求める数値例がcanonicalと同一。
-
-  - id: engmv-linear-combination-normal
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-linear-combination-normal
-    note: 多変量正規ベクトルの一般線形結合へcanonicalを拡張し、相関ありのN(-3,36)数値例も吸収済み。
+    note: 平均(1,2)、共分散行列[[4,3],[3,9]]、Y=5でN(2,3)を得る同一数値例を共通canonicalが既に扱う。
 
   - id: engmv-pca-rayleigh-process-variance
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-pca-variance-max
-    note: Rayleigh商最大化から最大固有値・固有ベクトルを求める操作はPCA canonicalでLagrange法と2x2数値例まで扱う。
+    note: Rayleigh商最大化から固有方程式を出し最大固有値・単位固有ベクトルを求める操作は共通PCA canonicalと同一。
 
   - id: engmv-standardized-pca-2x2
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-pca-covariance-vs-correlation
-    note: 相関行列[[1,.8],[.8,1]]の固有値1.8,.2、PC1、寄与率0.9をcanonicalへ吸収済み。
+    note: 相関行列[[1,0.8],[0.8,1]]の固有値1.8,0.2、第一主成分(1,1)/sqrt2、寄与率0.9の数値例を共通canonicalへ吸収済み。
 
   - id: engmv-lda-one-dimensional-boundary
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-lda-classification-rule
-    note: 共通分散・等事前確率の1変量LDAで境界が2平均の中点になる数値例をcanonicalへ吸収済み。
+    note: 共通分散・等事前確率の1変量LDA境界が平均の中点になる特殊例をcanonicalへ統合済み。
 
   - id: engmv-fisher-discriminant-direction
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-lda-direction
-    note: Fisher方向Sigma^{-1}(mu1-mu0)は共通canonicalの中心操作。分類境界の役割はLDA分類canonical側で保持している。
+    note: Fisher方向w proportional Sigma^{-1}(mu1-mu0)の数値計算を共通canonicalが既に扱う。
 
   - id: engmv-lda-prior-probability
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-lda-classification-rule
-    note: 事前確率0.8/0.2を含む判別得点の数値比較をcanonicalへ吸収済み。
+    note: log事前確率を含む判別得点の数値比較を共通LDA canonicalへ吸収済み。
 
   - id: engmv-lda-pooled-covariance
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-lda-classification-rule
-    note: 自由度加重のプール分散共分散行列とdiag(25/8,23/8)の数値計算をcanonicalへ吸収済み。
-
-  - id: engmv-single-linkage-update
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-hierarchical-linkage
-    note: 単連結法のクラスタ間距離=minという同一操作を共通canonicalが扱う。
-
-  - id: engmv-complete-linkage-update
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-hierarchical-linkage
-    note: 完全連結法のクラスタ間距離=maxという同一操作を共通canonicalが扱う。
-
-  - id: engmv-ward-merge-increase
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-ward-increase
-    note: Ward法の併合平方和増加を計算し最小の対を選ぶ操作は共通canonicalの同じ公式に基づく。
+    note: 未知の共通共分散を自由度加重したプール共分散で推定する手順と数値例を共通LDA canonicalへ統合済み。
