@@ -1,20 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-mds-canonical-correlation-reduction-59
+batch_id: 2026-08-30-pca-reduction-60
 items:
-  - id: engmv-classical-mds-three-points
+  - id: mv-pca-loading
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-mds-double-centering
-    note: 3点距離からの1次元配置を、二重中心化・固有分解・座標復元まで含むMDS正本の数値例へ統合済み。
+    canonical_card: mv-pca-variance-max
+    note: 主成分負荷量を変数と主成分の相関として求める式と規約差を、PCA正本へ統合済み。
 
-  - id: engmv-mds-stress
+  - id: mv-pca-covariance-vs-correlation
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-mds-double-centering
-    note: 配置距離の再現誤差を測る正規化stressを、古典的MDSの座標復元後の評価として正本へ統合済み。
+    canonical_card: mv-pca-variance-max
+    note: 共分散PCAと相関PCAの選択、標準化、寄与率の計算をPCA正本へ統合済み。
 
-  - id: mv-canonical-correlation
+  - id: mv-pca-software-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: engmv-canonical-eigenvalue
-    note: 正準相関の一般固有値問題を、白色化・特異値・非対角数値例まで備えた工学側正本へ統合する。
+    canonical_card: mv-pca-variance-max
+    note: 固有値・固有ベクトル・寄与率・主成分得点を用いた出力解釈をPCA正本へ統合済み。
