@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-mle-likelihood-construction-reduction-78
+batch_id: 2026-08-30-mle-log-likelihood-reduction-79
 items:
-  - id: mle-likelihood-construction
+  - id: mle-log-likelihood
     bucket: duplicates
     reason: duplicate
     canonical_card: mle-score-equation
-    note: 独立標本から尤度を積で立てる操作と、台が母数に依存するとき指示条件・境界を確認する注意は mle-score-equation 正本の「尤度→対数尤度→スコア方程式→最大性・境界確認」に統合済み。途中工程だけを単独で反復するカードは重複のため隔離する。
+    note: 対数の単調性で最大点が変わらないこと、積を和へ変えること、母数に依存しない定数項を最大化から落とせることは mle-score-equation 正本に統合済み。最尤推定の途中工程だけを単独で問うカードは重複のため隔離する。
