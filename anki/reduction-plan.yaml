@@ -1,8 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-30-mle-log-likelihood-reduction-79
+batch_id: 2026-08-30-normal-test-duplicates-81
 items:
-  - id: mle-log-likelihood
+  - id: test-normal-z-one-sided-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: mle-score-equation
-    note: 対数の単調性で最大点が変わらないこと、積を和へ変えること、母数に依存しない定数項を最大化から落とせることは mle-score-equation 正本に統合済み。最尤推定の途中工程だけを単独で問うカードは重複のため隔離する。
+    canonical_card: test-normal-z-known-formula
+    note: 右片側Z検定の方向判定・数値計算・P値は、右・左・両側を一続きに扱うZ検定canonical cardへ統合済み。
+  - id: test-normal-z-left-sided
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-normal-z-known-formula
+    note: 左片側Z検定の臨界方向・符号判断・数値例・P値はZ検定canonical cardへ統合済み。
+  - id: test-normal-z-two-sided-pvalue
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-normal-z-known-formula
+    note: 両側Z検定のP値計算と有意水準による判定はZ検定canonical cardへ統合済み。
+  - id: test-normal-t-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-normal-t-pivot
+    note: 1標本t検定の標準誤差・自由度・数値判定・P値は導出を含むcanonical cardへ統合済み。
+  - id: test-normal-t-assumptions
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-normal-t-pivot
+    note: 1標本t検定が有限標本で正確となる正規性条件と小標本・外れ値への注意はcanonical cardへ統合済み。
+  - id: test-paired-t-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-paired-t-construction
+    note: 対応のあるt検定は差への帰着から統計量計算・自由度・方向判定までcanonical cardへ統合済み。
