@@ -1243,8 +1243,6 @@ items:
       - anova-multiple-comparison-choice
       - anova-twoway-f-tests
       - anova-interaction-definition
-      - anova-interaction-contrast-test
-      - anova-interaction-interpretation
       - anova-no-replication-limitation
       - anova-randomized-block-model
       - anova-ancova-model
@@ -1276,8 +1274,6 @@ items:
         cards:
           - anova-twoway-f-tests
           - anova-interaction-definition
-          - anova-interaction-contrast-test
-          - anova-interaction-interpretation
       - name: 共分散分析
         status: card
         cards:
