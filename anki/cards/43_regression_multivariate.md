@@ -2291,41 +2291,6 @@ $t$ は正でなければ $\log t$ を定義できない。offsetの係数を自
 <!-- CARD -->
 
 ---
-id: glm-poisson-offset
-title: 曝露量をoffsetとして組み込む
-category: applied-common
-subcategory: applied-multivariate
-topic: poisson-offset
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ポアソン回帰, offset, 発生率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 対数リンク }]
----
-
-## 問題
-観測時間tに比例する件数Yをポアソン回帰し、率 $\lambda$ に $\log\lambda=\beta_0+\beta_1x$ を仮定する。平均の式を書け。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$\log t$ を係数1に固定したoffsetとする。
-
-## 答え
-$$E[Y\mid x,t]=t\lambda=t\exp(\beta_0+\beta_1x),$$
-したがって
-$$\log E[Y\mid x,t]=\log t+\beta_0+\beta_1x.$$
-
-## 計算例
-観測時間2倍なら同じ率で期待件数も2倍。
-
-## 注意
-t>0が必要。
-
-<!-- CARD -->
-
----
 id: glm-deviance-definition
 title: 一般化線形モデルを逸脱度・Pearson統計量・尤度比・過分散まで診断する
 category: applied-common

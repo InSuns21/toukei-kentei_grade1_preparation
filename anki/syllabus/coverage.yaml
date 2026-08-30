@@ -1997,7 +1997,6 @@ items:
       - mv-mds-double-centering
       - glm-three-components
       - glm-logistic-score
-      - glm-poisson-offset
       - glm-deviance-definition
       - glm-categorical-interaction
       - glm-logistic-marginal-effect
@@ -2045,7 +2044,6 @@ items:
           - glm-poisson-mean-ratio
           - glm-three-components
           - glm-logistic-score
-          - glm-poisson-offset
           - glm-deviance-definition
           - glm-categorical-interaction
           - glm-software-deviance-output
