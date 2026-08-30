@@ -1,0 +1,7 @@
+chapter: "L2-01"
+terms:
+  - { term: 一般化線形モデル, meaning: 応答分布とリンク関数を選び平均を線形予測子へ結び付けるモデル群 }
+  - { term: リンク関数, meaning: 応答平均を線形予測子へ変換する関数 }
+  - { term: ロジット, meaning: 確率pをlog p over one minus pへ変換する関数 }
+  - { term: offset, meaning: 係数を1に固定して線形予測子へ入れる既知量 }
+  - { term: deviance, meaning: 飽和モデルと候補モデルの最大対数尤度差を2倍した適合度指標 }

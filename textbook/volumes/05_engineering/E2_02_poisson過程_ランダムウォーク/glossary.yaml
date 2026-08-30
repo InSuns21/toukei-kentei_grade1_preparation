@@ -1,0 +1,6 @@
+chapter: "E2-02"
+terms:
+  - { term: ランダムウォーク, meaning: 独立な確率的増分を逐次加えて位置を作る確率過程 }
+  - { term: Poisson過程, meaning: 独立・定常増分を持ち区間件数がPoisson分布に従う計数過程 }
+  - { term: 到着間隔, meaning: 連続する二つの事象発生時刻の差 }
+  - { term: 間引き, meaning: 各到着を独立に分類して別のPoisson過程を作る操作 }

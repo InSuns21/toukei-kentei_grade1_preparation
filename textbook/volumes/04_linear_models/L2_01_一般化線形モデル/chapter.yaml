@@ -1,0 +1,32 @@
+id: "L2-01"
+title: "一般化線形モデル"
+volume: "linear_models"
+status: self_review
+prerequisites:
+  - I1-01
+  - L1-02
+official_scope:
+  - 一般化線形モデル
+  - ロジスティック回帰
+  - ポアソン回帰
+learning_objectives:
+  - GLMの三要素を説明できる
+  - ロジスティック回帰とPoisson回帰を構成できる
+  - 回帰係数をオッズ比・率比として解釈できる
+  - 対数尤度とスコアを導ける
+definitions:
+  - { id: L201-DEF-01, name: 一般化線形モデル }
+  - { id: L201-DEF-02, name: リンク関数 }
+  - { id: L201-DEF-03, name: deviance }
+theorems:
+  - { id: L201-THM-01, name: 指数型分布族の平均と分散 }
+canonical_examples: [ロジスティック回帰, Poisson回帰, offset, deviance]
+problem_patterns: [GLM-LOGISTIC-1, GLM-POISSON-1, GLM-LIKELIHOOD-1]
+past_exam_alignment: []
+integrated_exam_problems: [L2-01-C01]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

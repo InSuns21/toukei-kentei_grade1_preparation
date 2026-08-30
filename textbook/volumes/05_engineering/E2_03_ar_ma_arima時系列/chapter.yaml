@@ -1,0 +1,35 @@
+id: "E2-03"
+title: "AR・MA・ARIMA時系列"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - P3-03
+  - E2-01
+official_scope:
+  - 自己回帰過程
+  - 移動平均過程
+  - ARIMA過程
+  - 時系列解析
+learning_objectives:
+  - 弱定常性とACFを定義できる
+  - AR(1)の平均・分散・ACFを導ける
+  - MA(1)の自己共分散を導ける
+  - ARIMAの差分次数を判定できる
+  - ARとMAをACF/PACFから識別できる
+definitions:
+  - { id: E203-DEF-01, name: 弱定常性 }
+  - { id: E203-DEF-02, name: 自己相関関数 }
+  - { id: E203-DEF-03, name: ARMAとARIMA }
+theorems:
+  - { id: E203-THM-01, name: AR(1)の自己共分散 }
+  - { id: E203-THM-02, name: Yule--Walker方程式 }
+canonical_examples: [AR1, MA1, ACFとPACF, ARIMA, 多段階予測]
+problem_patterns: [AR-1, MA-1, ARIMA-1, TIME-SERIES-FORECAST-1]
+past_exam_alignment: []
+integrated_exam_problems: [E2-03-C01]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

@@ -1,0 +1,9 @@
+chapter: "E4-02"
+terms:
+  - { term: 信頼度, meaning: 指定時刻まで故障せず機能する確率 }
+  - { term: ハザード率, meaning: その時点まで生存した条件のもとで直後に故障する瞬間的な強さ }
+  - { term: MTTF, meaning: 非修理アイテムの平均故障時間 }
+  - { term: MTBF, meaning: 修理可能アイテムで故障から次の故障までの平均稼働間隔 }
+  - { term: MTTR, meaning: 平均修理時間 }
+  - { term: 保全度, meaning: 故障後所定時間内に修理が完了する確率 }
+  - { term: アベイラビリティ, meaning: 長期的にシステムが稼働可能な時間割合 }

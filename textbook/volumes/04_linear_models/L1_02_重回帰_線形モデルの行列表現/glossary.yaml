@@ -1,0 +1,7 @@
+chapter: "L1-02"
+terms:
+  - { term: デザイン行列, meaning: 各観測の説明変数を行として並べた行列 }
+  - { term: 射影行列, meaning: 観測ベクトルをモデルが表現できる部分空間へ写す行列 }
+  - { term: BLUE, meaning: 線形不偏推定量の中で分散が最小の推定量 }
+  - { term: 線形対比, meaning: 群平均の係数和が0となる線形結合で平均間の比較を表す量 }
+  - { term: 線形制約, meaning: 回帰係数に課す条件をR beta equals rの形で表したもの }
