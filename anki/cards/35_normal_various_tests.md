@@ -604,35 +604,91 @@ $$p\text{値}=P_{0.5}(X\ge9)
 
 ---
 id: test-one-proportion-score
-title: 1標本比率のScore型Z検定を構成する
+title: 1母比率検定を正確二項法とZ近似から選んで解く
 category: math-testing
 subcategory: math-various-tests
-topic: one-proportion-z
-type: formula
-difficulty: 2
-priority: A
-hashtags: [母比率, 二項分布, スコア型検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二項分布・ポアソン分布など基本的な分布に関する検定 }]
+topic: one-proportion-test-canonical
+type: strategy
+difficulty: 3
+priority: S
+hashtags:
+  - 母比率
+  - 二項分布
+  - 正確検定
+  - スコア検定
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 二項分布・ポアソン分布など基本的な分布に関する検定
 ---
 
 ## 問題
-$X\sim\operatorname{Binomial}(n,p)$ の $H_0:p=p_0$ に対する大標本Z統計量を書け。
+$X\sim\operatorname{Binomial}(n,p)$ とする。$H_0:p=p_0$ の1母比率検定について、正確二項検定と大標本のスコア型Z検定をどう使い分けるか述べよ。
+
+さらに次を計算せよ。
+1. $n=10,x=9,p_0=0.5$、$H_1:p>0.5$ の正確P値。
+2. $n=100,x=60,p_0=0.5$ のスコア型Z統計量。
+3. 2と同じ帰無分布で $P(X\ge60)$ を連続修正付き正規近似したときの標準化値。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+正確検定では帰無仮説下の二項分布
+$$
+X\sim\operatorname{Binomial}(n,p_0)
+$$
+の裾確率を直接用いる。右片側なら
+$$
+P_{p_0}(X\ge x_{\rm obs}).
+$$
 
-Score型では分母を帰無値 $p_0$ で評価する。
+大標本では $\widehat p=X/n$ として、帰無値で分散を評価した
+$$
+Z=\frac{\widehat p-p_0}
+{\sqrt{p_0(1-p_0)/n}}
+$$
+を用い、帰無仮説下で標準正規分布に近似する。
+
+離散な二項変数を連続正規分布で近似する際、右裾 $P(X\ge x)$ は境界を $x-0.5$ とする連続修正を使える。
+
+## 一手
+まず帰無仮説下の期待成功数 $np_0$ と期待失敗数 $n(1-p_0)$ を確認する。小さいなら二項分布の正確な裾確率を優先し、十分大きいならZ近似を使える。近似精度を上げたいときは連続修正も検討する。
 
 ## 答え
-$$Z=\frac{\widehat p-p_0}{\sqrt{p_0(1-p_0)/n}},\qquad \widehat p=X/n.$$
-帰無仮説下で近似的に $N(0,1)$。
+1. 正確P値は
+$$
+P_{0.5}(X\ge9)
+=\frac{\binom{10}{9}+\binom{10}{10}}{2^{10}}
+=\frac{11}{1024}
+\approx0.01074.
+$$
+
+2. $\widehat p=0.6$ なので
+$$
+Z=\frac{0.6-0.5}{\sqrt{0.5(0.5)/100}}
+=\frac{0.1}{0.05}=2.
+$$
+
+3. 帰無分布の平均は50、標準偏差は5で、$X\ge60$ を $Y>59.5$ と近似するから
+$$
+z=\frac{59.5-50}{5}=1.9.
+$$
 
 ## 計算例
-$n=100,x=60,p_0=0.5$ なら $Z=0.1/0.05=2$。
+2の修正なし右片側近似P値は
+$$
+1-\Phi(2)\approx0.0228,
+$$
+連続修正付きでは
+$$
+1-\Phi(1.9)\approx0.0287.
+$$
+離散分布の正確P値と近似P値は一致するとは限らない。
 
 ## 注意
-$np_0,n(1-p_0)$ が小さい場合は正確二項検定を検討する。
+両側の正確二項P値には複数の定義があるため、必要なら定義を明示する。大標本Z検定の分母は帰無値 $p_0$ で評価する点を、信頼区間で使う標準誤差と混同しない。
 
 <!-- CARD -->
 
@@ -738,35 +794,81 @@ $2.828>1.96$ なので両側5%で棄却し、P値は約0.0047である。
 
 ---
 id: test-poisson-one-rate-exact
-title: 1標本ポアソン率を正確な裾確率で検定する
+title: 1ポアソン率検定を正確法とZ近似から選んで解く
 category: math-testing
 subcategory: math-various-tests
-topic: poisson-rate-exact
-type: calc_step
+topic: poisson-one-rate-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [ポアソン分布, 正確検定, 率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二項分布・ポアソン分布など基本的な分布に関する検定 }]
+hashtags:
+  - ポアソン分布
+  - 正確検定
+  - スコア検定
+  - 率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 二項分布・ポアソン分布など基本的な分布に関する検定
 ---
 
 ## 問題
-観測時間 $t=2$ で事象数 $X=8$、$X\sim\operatorname{Poisson}(t\lambda)$ とする。$H_0:\lambda=2$ 対 $H_1:\lambda>2$ の正確P値を書け。
+観測時間または曝露量を $t$ とし、$X\sim\operatorname{Poisson}(t\lambda)$ とする。$H_0:\lambda=\lambda_0$ の検定について、正確な裾確率と大標本Z近似をどう使い分けるか述べよ。
+
+さらに次を計算せよ。
+1. $t=2,X=8,\lambda_0=2$、$H_1:\lambda>2$ の正確P値。
+2. $t=100,X=230,\lambda_0=2$ のスコア型Z統計量。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+帰無仮説下では
+$$
+X\sim\operatorname{Poisson}(t\lambda_0),
+\qquad
+E_0[X]=\operatorname{Var}_0(X)=t\lambda_0.
+$$
+右片側の正確P値は
+$$
+P_{t\lambda_0}(X\ge x_{\rm obs}).
+$$
 
-上側対立では帰無ポアソン分布の上側裾確率を使う。
+帰無平均 $t\lambda_0$ が十分大きいときは
+$$
+Z=\frac{X-t\lambda_0}{\sqrt{t\lambda_0}}
+$$
+を標準正規分布で近似できる。
+
+## 一手
+率 $\lambda_0$ そのものではなく、帰無仮説下の期待事象数 $t\lambda_0$ をまず確認する。期待事象数が小さいならポアソン分布の裾を直接足し、大きければZ近似が使いやすい。
 
 ## 答え
-$H_0$ 下で $X\sim\operatorname{Poisson}(4)$ なので
-$$p=P_4(X\ge8)=\sum_{x=8}^{\infty}e^{-4}\frac{4^x}{x!}.$$
+1. $H_0$ 下では平均 $t\lambda_0=4$ なので
+$$
+p=P_4(X\ge8)
+=\sum_{x=8}^{\infty}e^{-4}\frac{4^x}{x!}
+\approx0.0511.
+$$
+よって5%では棄却しない。
+
+2. 帰無平均は200だから
+$$
+Z=\frac{230-200}{\sqrt{200}}
+\approx2.121.
+$$
 
 ## 計算例
-補集合を使えば $p=1-\sum_{x=0}^{7}e^{-4}4^x/x!\approx0.0511$ で、5%では棄却しない。
+正確P値は補集合を使って
+$$
+P_4(X\ge8)
+=1-\sum_{x=0}^{7}e^{-4}\frac{4^x}{x!}
+$$
+と計算してもよい。大標本例の右片側近似P値はおよそ0.017である。
 
 ## 注意
-率 $\lambda$ と観測期間当たり平均 $t\lambda$ を区別する。
+観測期間当たり平均は $t\lambda$ であり、率 $\lambda$ と区別する。小さい期待事象数では正規近似より正確検定を優先する。2群のポアソン率比較では、総事象数で条件付けて二項分布へ帰着する別の正確法がある。
 
 <!-- CARD -->
 
