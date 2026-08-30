@@ -574,31 +574,90 @@ $k<1$ は減少故障率、$k=1$ は一定故障率、$k>1$ は増加故障率�
 
 ---
 id: engrel-weibull-reliability
-title: ワイブル分布の信頼度を計算する
+title: ワイブル分布の信頼度から故障率の形まで導く
 category: applied-engineering
 subcategory: engineering-quality
-topic: weibull-reliability
-type: calc_step
-difficulty: 2
+topic: weibull-reliability-hazard-canonical
+type: strategy
+difficulty: 3
 priority: A
-hashtags: [信頼性, ワイブル分布, 信頼度]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 信頼性 }]
+hashtags:
+  - 信頼性
+  - ワイブル分布
+  - 信頼度
+  - 故障率
+  - 形状母数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 信頼性
 ---
 ## 問題
-形状 $k=2$、尺度 $\lambda=1000$ のワイブル分布（Weibull distribution）に従う寿命について、時刻500の信頼度を求めよ。
+形状母数 $k>0$、尺度母数 $\lambda>0$ のワイブル分布に従う寿命 $T$ を考える。
+1. 信頼度関数 $R(t)=P(T>t)$ と故障率 $h(t)$ を書け。
+2. $h(t)$ を $R(t)$ から導き、$k<1,k=1,k>1$ で故障率がどう変化するか説明せよ。
+3. $k=2,\lambda=1000$ のとき、時刻 $t=500$ の信頼度と故障率を求めよ。
+
 ## 記号・用語
-尺度 $\lambda$ は $R(\lambda)=e^{-1}$ となる特性寿命である。
+信頼度 $R(t)=P(T>t)$ は時刻 $t$ まで故障しない確率である。故障率 $h(t)$ は時刻 $t$ まで生存した条件の下で直後に故障する瞬間的な率で、一般に
+$$
+h(t)=\frac{f(t)}{R(t)}=-\frac{d}{dt}\log R(t)
+$$
+と書ける。尺度母数 $\lambda$ は $R(\lambda)=e^{-1}$ となる特性寿命であり、一般には平均寿命そのものではない。
+
 ## 使用公式・定理
-$$R(t)=\exp\{-(t/\lambda)^k\}.$$
+ワイブル分布の信頼度は
+$$
+R(t)=\exp\left\{-\left(\frac{t}{\lambda}\right)^k\right\}.
+$$
+したがって
+$$
+-\log R(t)=\left(\frac{t}{\lambda}\right)^k
+$$
+を微分すれば
+$$
+h(t)=-\frac{d}{dt}\log R(t)
+=\frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}.
+$$
+よって時間依存性は $t^{k-1}$ の指数の符号だけで判定できる。
+
 ## 一手／方針
-時間比を形状母数乗して負の指数へ入れる。
+**信頼度と故障率を別公式として暗記しない。** まず $R(t)$ を書き、故障率が必要なら $h(t)=-d\log R(t)/dt$ で導く。最後に $k-1$ の符号を見れば減少・一定・増加故障率を判定できる。
+
 ## 答え
-$$R(500)=\exp\{-(0.5)^2\}=e^{-0.25}\approx0.7788.$$
+1.
+$$
+R(t)=\exp\left\{-\left(\frac{t}{\lambda}\right)^k\right\},\qquad
+h(t)=\frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}.
+$$
+
+2. $k<1$ なら $k-1<0$ なので故障率は時間とともに減少する。$k=1$ なら
+$$
+h(t)=\frac1\lambda
+$$
+で一定となり指数分布に一致する。$k>1$ なら故障率は時間とともに増加する。
+
+3. $k=2,\lambda=1000,t=500$ では
+$$
+R(500)=\exp\{-(0.5)^2\}=e^{-0.25}\approx0.7788,
+$$
+$$
+h(500)=\frac{2}{1000}(0.5)=0.001\quad \text{(時間}^{-1}\text{)}.
+$$
+
 ## 計算例
-$t=1000$ なら形状に関係なく $e^{-1}$。
+$t=\lambda$ なら形状母数 $k$ にかかわらず $R(\lambda)=e^{-1}$ である。一方、故障率は
+$$
+h(\lambda)=\frac{k}{\lambda}
+$$
+なので形状母数に依存する。たとえば $k=0.5$ なら減少故障率、$k=1$ なら一定故障率、$k=3$ なら増加故障率である。
+
 ## 注意
-尺度と平均寿命は一般には同じでない。
+$k<1,=1,>1$ はそれぞれ初期故障・偶発故障・摩耗故障の局面を近似するのに使えるが、浴槽曲線全体を単一のワイブル分布1本で表せるという意味ではない。尺度母数 $\lambda$ と平均寿命も一般には一致しない。
 
 <!-- CARD -->
 
