@@ -61,6 +61,6 @@ Advanced 05・15ではこのページを前提補講として参照し、同じ�
 | 17 | 94 | B | A | [制御変量・最適係数](94_control_variates.md) |
 | 18 | 95 | B | A | [層化Monte Carlo](95_stratified_monte_carlo.md) |
 | 19 | 99 | S | A | [複合帰無・妥当なP値](99_composite_null_valid_pvalue.md) |
-| 20 | 100 | S | S | [一致検定・局所対立・漸近検出力](100_equivalence_local_power.md) |
+| 20 | 100 | S | S | [検定の一致性・局所対立・漸近検出力](100_consistency_local_power.md) |
 
 **Advanced 20: 20 / 20 実装済み。**
