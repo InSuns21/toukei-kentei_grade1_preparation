@@ -334,7 +334,9 @@ function extractProblem(source) {
   if (!startMatch) return null;
   const startIndex = (startMatch.index ?? 0) + startMatch[0].length;
   const tail = source.slice(startIndex);
-  const endMatch = /^## 詳細解答\s*$/m.exec(tail);
+  // 問題の後に「この問題で使う記法」「前提」などのH2節を置く場合がある。
+  // そこにある番号付きリストを小問と誤認しないよう、次のH2見出しまでを問題本文とする。
+  const endMatch = /^##\s+(?!問題\s*$).+$/m.exec(tail);
   const endIndex = endMatch ? startIndex + (endMatch.index ?? tail.length) : source.length;
   return {
     text: source.slice(startIndex, endIndex),
