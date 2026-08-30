@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-lehmann-scheffe-canonical-reduction-74
+batch_id: 2026-08-30-umvu-construction-canonical-reduction-75
 items:
-  - id: lehmann-scheffe
+  - id: umvu-construction
     bucket: duplicates
     reason: duplicate
     canonical_card: est-rao-blackwell
-    note: 完備十分統計量の不偏関数が一意なUMVUになるLehmann–Schefféの役割は est-rao-blackwell 正本でRao–Blackwell化との接続まで含めて扱っているため、単独定理カードを隔離する。
+    note: UMVU構成の手順「不偏推定量→十分統計量で条件付け→完備性で一意なUMVU」は est-rao-blackwell 正本の一手・Bernoulli例に統合済み。単独の構成カードは復習上の重複になるため隔離する。
