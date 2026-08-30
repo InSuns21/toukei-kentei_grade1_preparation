@@ -1,0 +1,47 @@
+id: "E1-01"
+title: "多変量正規分布と標本平均ベクトル"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - P3-03
+  - S1-01
+  - F0-00
+official_scope:
+  - 多変量正規分布
+  - 平均ベクトル
+  - 分散共分散行列
+  - 相関行列
+  - 固有値
+  - 固有ベクトル
+learning_objectives:
+  - 線形変換後の平均ベクトルと分散共分散行列を導出できる
+  - 独立な多変量正規標本の標本平均ベクトルの分布を導出できる
+  - Mahalanobis距離を計算し尺度と相関の補正を説明できる
+  - 固有分解から白色化変換を構成できる
+  - 条件付き正規分布を線形予測と残差化から説明できる
+  - 共通分散共分散行列をもつ正規2群から線形判別関数を導ける
+definitions:
+  - { id: E101-DEF-01, name: 標本平均ベクトル }
+  - { id: E101-DEF-02, name: Mahalanobis距離 }
+  - { id: E101-DEF-03, name: 白色化 }
+  - { id: E101-DEF-04, name: 線形判別関数 }
+theorems:
+  - { id: E101-THM-01, name: 多変量正規標本平均の分布 }
+  - { id: E101-THM-02, name: 線形変換の分散共分散行列 }
+  - { id: E101-THM-03, name: Mahalanobis距離二乗のカイ二乗分布 }
+  - { id: E101-THM-04, name: 多変量正規の条件付き分布 }
+canonical_examples: [標本平均ベクトル, Mahalanobis距離, 白色化, 条件付き予測, 線形判別]
+problem_patterns: [MV-LINEAR-1, MV-MEAN-1, MV-DIST-1, MV-WHITE-1, MV-COND-1, MV-LDA-1]
+past_exam_alignment:
+  - { id: RIKOU-65, current_skills: [多変量正規分布, 線形変換, 分散共分散行列], later_skills: [主成分分析] }
+  - { id: RIKOU-66, current_skills: [条件付き正規分布, 条件付き期待値], later_skills: [線形予測] }
+  - { id: RIKOU-67, current_skills: [Mahalanobis距離, 相関行列], later_skills: [主成分分析] }
+  - { id: RIKOU-69, current_skills: [線形判別分析], later_skills: [] }
+  - { id: RIKOU-70, current_skills: [白色化, 共分散固有構造], later_skills: [主成分分析] }
+integrated_exam_problems: [E1-01-C01, E1-01-C02, E1-01-C04, E1-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 7, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
