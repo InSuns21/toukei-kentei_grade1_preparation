@@ -1911,13 +1911,12 @@ items:
       - reg-frisch-waugh-lovell
       - reg-condition-number
       - reg-breusch-pagan-idea
-      - reg-leverage-threshold
+      - reg-dffits-numeric
       - reg-gls-estimator
       - reg-ridge-closed-form
       - reg-lasso-soft-threshold
       - reg-general-linear-hypothesis
       - reg-press-loocv
-      - reg-dffits-numeric
       - reg-nested-cross-validation
       - reg-software-output-interpretation
     terms:
@@ -1961,11 +1960,10 @@ items:
       - name: 回帰診断法
         status: card
         cards:
-          - reg-leverage-threshold
+          - reg-dffits-numeric
           - reg-breusch-pagan-idea
           - reg-robust-sandwich
           - reg-press-loocv
-          - reg-dffits-numeric
   - id: applied-multivariate
     status: complete
     cards:
