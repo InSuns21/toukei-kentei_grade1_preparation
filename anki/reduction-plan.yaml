@@ -1,20 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-glm-diagnostics-reduction-63
+batch_id: 2026-08-30-pca-reduction-64
 items:
-  - id: glm-pearson-chi-square
+  - id: mv-pca-loading
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-deviance-definition
-    note: Pearson残差・Pearsonカイ二乗統計量と分散診断を一般化線形モデル診断正本へ統合済み。
+    canonical_card: mv-pca-variance-max
+    note: 主成分負荷量を固有値・固有ベクトルから求める式と規約差をPCA正本へ統合済み。
 
-  - id: glm-likelihood-ratio-test
+  - id: mv-pca-covariance-vs-correlation
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-deviance-definition
-    note: 入れ子モデルの逸脱度差と尤度比検定を一般化線形モデル診断正本へ統合済み。
+    canonical_card: mv-pca-variance-max
+    note: 共分散PCAと相関PCAの選択、標準化、寄与率計算をPCA正本へ統合済み。
 
-  - id: glm-overdispersion-diagnostic
+  - id: mv-pca-software-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-deviance-definition
-    note: Pearson統計量による過分散倍率推定と解釈を一般化線形モデル診断正本へ統合済み。
+    canonical_card: mv-pca-variance-max
+    note: 固有値・固有ベクトル出力から寄与率・得点・軸の意味を読む手順をPCA正本へ統合済み。
