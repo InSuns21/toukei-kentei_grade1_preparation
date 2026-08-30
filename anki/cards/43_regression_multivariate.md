@@ -509,41 +509,6 @@ $$
 <!-- CARD -->
 
 ---
-id: mv-mahalanobis-distance
-title: Mahalanobis距離を計算する
-category: applied-common
-subcategory: applied-multivariate
-topic: mahalanobis-distance
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [Mahalanobis距離, 分散共分散行列, 外れ値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Mahalanobis距離 }]
----
-
-## 問題
-$\boldsymbol x-\boldsymbol\mu=(2,1)^{\mathsf T}$、$\boldsymbol\Sigma=\operatorname{diag}(4,1)$ のときMahalanobis距離を求めよ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-分散の大きい方向の差を小さく重み付けする。
-
-## 答え
-$$d^2=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)
-=\frac{2^2}{4}+\frac{1^2}{1}=2,$$
-よって $d=\sqrt2$。
-
-## 計算例
-標準化座標ではEuclid距離になる。
-
-## 注意
-分散共分散行列の可逆性が必要。
-
-<!-- CARD -->
-
----
 id: mv-hotelling-one-sample
 title: 1標本HotellingのT²を計算する
 category: applied-common
