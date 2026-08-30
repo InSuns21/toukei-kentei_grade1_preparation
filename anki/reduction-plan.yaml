@@ -1,13 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-control-chart-operation-reduction-140
+batch_id: 2026-08-30-weibull-bathtub-reduction-141
 items:
-  - id: engqc-common-special-causes
+  - id: engrel-bathtub-curve
     bucket: duplicates
     reason: duplicate
-    canonical_card: engqc-phase1-phase2
-    note: 共通原因・特殊原因の区別と、特殊原因は局所対応・共通原因は工程システム改善という対応方針をcanonical cardへ統合済み。
-  - id: engqc-rational-subgrouping
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engqc-phase1-phase2
-    note: 合理的群分けの目的、群内を短期変動・群間を工程変化の検出場所にする考え方、午前午後の水準変化例をcanonical cardへ統合済み。
+    canonical_card: engrel-weibull-reliability
+    note: 浴槽曲線の初期故障・偶発故障・摩耗故障の3局面、故障率の減少・一定・増加、スクリーニングと予防保全の対応をcanonical cardへ統合済み。単一Weibull分布1本で浴槽曲線全体を表すわけではない注意も正本に含めた。
