@@ -199,28 +199,78 @@ $T=\overline X$、$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ では不偏なので 
 
 ---
 id: est-bias-variance-tradeoff
-title: バイアス・バリアンス分解の意味
+title: 平均二乗誤差MSEを定義しバイアス・バリアンス分解を導く
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: bias-variance-decomposition
+topic: mse-bias-variance-canonical
 type: proof_step
 difficulty: 2
 priority: A
-hashtags: [バイアス, バリアンス, 分解]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 推定量の評価 }]
+hashtags:
+  - MSE
+  - 平均二乗誤差
+  - バイアス
+  - 分散
+  - 推定量比較
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 推定量の評価
 ---
 ## 問題
-平均二乗誤差が「分散」と「バイアスの2乗」に分解できることを導け。$T-\theta$ を $T-E[T]$ と $E[T]-\theta$ に分けて示せ。
+母数 $\theta$ の推定量 $T$ について平均二乗誤差
+$$
+\operatorname{MSE}_\theta(T)=E_\theta[(T-\theta)^2]
+$$
+を、分散とバイアスに分解せよ。
+
+さらに $E[\bar X]=\mu$、$\operatorname{Var}(\bar X)=\sigma^2/n$ として、$T=c\bar X$ の $\mu$ に対するMSEを求めよ。
+
 ## 答え
-$T-\theta=(T-E[T])+(E[T]-\theta)$ と分解し、交差項の期待値が0になる：
-$$E[(T-E[T])(E[T]-\theta)]=(E[T]-\theta)E[T-E[T]]=0.$$
+$$
+\operatorname{MSE}_\theta(T)
+=\operatorname{Var}_\theta(T)+\operatorname{Bias}_\theta(T)^2.
+$$
+$T=c\bar X$ なら
+$$
+\operatorname{MSE}_\mu(c\bar X)
+=\frac{c^2\sigma^2}{n}+(c-1)^2\mu^2.
+$$
+
 ## 使用公式・定理
-$$\operatorname{MSE}_\theta(T)=\operatorname{Var}_\theta(T)+\{\operatorname{Bias}_\theta(T)\}^2.$$
+$$
+\operatorname{Bias}_\theta(T)=E[T]-\theta,
+\qquad
+T-\theta=(T-E[T])+(E[T]-\theta).
+$$
+
 ## 計算例
-$$E[(T-\theta)^2]=E[(T-E[T])^2]+2(E[T]-\theta)E[T-E[T]]+(E[T]-\theta)^2=\operatorname{Var}(T)+\operatorname{Bias}^2.$$
+$$
+\begin{aligned}
+E[(T-\theta)^2]
+&=E[(T-E[T])^2]\\
+&\quad+2(E[T]-\theta)E[T-E[T]]\\
+&\quad+(E[T]-\theta)^2\\
+&=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.
+\end{aligned}
+$$
+また $T=c\bar X$ では
+$$
+\operatorname{Bias}(T)=(c-1)\mu,
+\qquad
+\operatorname{Var}(T)=\frac{c^2\sigma^2}{n},
+$$
+なので上式を得る。
+
 ## 一手
-交差項は中心化された確率変数の期待値0から消える。バイアスを下げると分散が上がるトレードオフの基礎。
+**誤差を中心化された揺らぎと系統的ずれに分ける。** 交差項は $E[T-E[T]]=0$ で消える。
+
+## 注意
+不偏性だけで推定量の良さは決まらない。小さなバイアスを許すことで分散を大きく減らし、MSEを下げられる場合がある。
 
 <!-- CARD -->
 
@@ -449,29 +499,104 @@ $L(T,\theta)=(T-\theta)^2$ なら $R=E[(T-\theta)^2]=\operatorname{MSE}$。
 
 ---
 id: est-estimator-comparison
-title: 推定量比較の典型問題
+title: 推定量をバイアス・分散・MSE・相対効率で比較する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: estimator-comparison
+topic: estimator-comparison-canonical
 type: strategy
 difficulty: 3
 priority: A
-hashtags: [推定量比較, 平均二乗誤差, バイアス分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 推定量の相対効率 }]
+hashtags:
+  - 推定量比較
+  - 相対効率
+  - MSE
+  - 不偏性
+  - バイアス
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 推定量の相対効率
 ---
 ## 問題
-同一母数 $\theta$ の2つの推定量 $T_1,T_2$ を比較するときの典型手順を述べよ。
+同じ母数 $\theta$ を推定する $T_1,T_2$ を比較する手順を述べよ。不偏推定量同士の相対効率も定義せよ。
+
+さらに正規分布からの独立標本で、母分散 $\sigma^2$ の最尤推定量
+$$
+T_1=\frac1n\sum_{i=1}^n(X_i-\bar X)^2
+$$
+と不偏標本分散
+$$
+T_2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
+$$
+をMSEで比較せよ。$n=5$ の値も比較せよ。
+
 ## 答え
-1) それぞれの期待値とバイアス、2) 分散、3) 必要なら平均二乗誤差を計算し比較する。不偏なら分散（相対効率）で、そうでなければ平均二乗誤差で比較する。
+正規標本の分散推定では
+$$
+\operatorname{MSE}(T_1)=\frac{2n-1}{n^2}\sigma^4,
+\qquad
+\operatorname{MSE}(T_2)=\frac2{n-1}\sigma^4.
+$$
+$n=5$ なら
+$$
+\operatorname{MSE}(T_1)=\frac9{25}\sigma^4=0.36\sigma^4,
+$$
+$$
+\operatorname{MSE}(T_2)=\frac12\sigma^4=0.50\sigma^4,
+$$
+なので、このMSE基準では有偏な最尤推定量 $T_1$ の方が小さい。
+
 ## 使用公式・定理
-$$\operatorname{MSE}(T)=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.$$
+一般には
+$$
+\operatorname{MSE}(T)
+=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.
+$$
+不偏推定量同士なら分散だけを比較できる。$T_1$ を基準とする相対効率を
+$$
+\operatorname{eff}(T_1,T_2)
+=\frac{\operatorname{Var}(T_2)}{\operatorname{Var}(T_1)}
+$$
+と定義するなら、1より大きいほど $T_1$ の分散が小さい。
+
 ## 計算例
-正規標本で $\widehat\sigma^2_1=\frac1n\sum(X_i-\overline X)^2$（最尤推定量）と $S^2=\frac1{n-1}\sum(X_i-\overline X)^2$：$E[\widehat\sigma^2_1]=\frac{n-1}{n}\sigma^2$（負バイアス）、$S^2$ は不偏。一方、
-$$\operatorname{MSE}(\widehat\sigma^2_1)=\frac{2n-1}{n^2}\sigma^4,\qquad \operatorname{MSE}(S^2)=\frac{2}{n-1}\sigma^4,$$
-なので $n>1$ では最尤推定量の平均二乗誤差の方が小さい。不偏性だけで優劣を決めない例である。
+$Q=\sum_i(X_i-\bar X)^2$ とおく。正規標本では
+$$
+E[Q]=(n-1)\sigma^2,
+\qquad
+\operatorname{Var}(Q)=2(n-1)\sigma^4.
+$$
+したがって
+$$
+E[T_1]=\frac{n-1}{n}\sigma^2,
+$$
+バイアスは $-\sigma^2/n$、分散は
+$$
+\operatorname{Var}(T_1)=\frac{2(n-1)}{n^2}\sigma^4.
+$$
+よって
+$$
+\begin{aligned}
+\operatorname{MSE}(T_1)
+&=\frac{2(n-1)}{n^2}\sigma^4+\frac{1}{n^2}\sigma^4\\
+&=\frac{2n-1}{n^2}\sigma^4.
+\end{aligned}
+$$
+$T_2$ は不偏で
+$$
+\operatorname{Var}(T_2)=\frac2{n-1}\sigma^4,
+$$
+したがってMSEも同じ値である。
+
 ## 一手
-まず不偏性、次に分散、総合なら平均二乗誤差。比較は固定した $\theta$ の関数として全母数空間で考える。
+**まず期待値を見て不偏かを判定する。不偏同士なら分散・相対効率、有偏を含むならMSEで比較する。**
+
+## 注意
+相対効率は文献により比の向きを逆に定義することがあるため、どちらを分母にしたか明記する。不偏性だけでMSE最小を意味しない。
 
 <!-- CARD -->
 
@@ -504,28 +629,121 @@ $\int f=1$ を微分して微分を積分の中へ入れる。交換可能が正
 
 ---
 id: est-fisher-information-def
-title: フィッシャー情報量（1次元）の定義
+title: スコアからフィッシャー情報量（1次元）の2表式と加法性を導く
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: fisher-information
+topic: fisher-information-canonical
 type: condition
 difficulty: 2
 priority: S
-hashtags: [フィッシャー情報量（1次元）, スコア, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
+hashtags:
+  - フィッシャー情報量（1次元）
+  - スコア関数
+  - 正則条件
+  - 加法性
+  - ベルヌーイ分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: フィッシャー情報量（1次元）
 ---
 ## 問題
-正則条件の下で、1観測当たりのフィッシャー情報量（1次元）を定義せよ。
+1母数モデル $f(x;\theta)$ について、スコア
+$$
+U_1(\theta)=\frac{\partial}{\partial\theta}\log f(X;\theta)
+$$
+を用いて次を示せ。
+
+1. 正則条件の下で $E_\theta[U_1(\theta)]=0$。
+2. 1観測のフィッシャー情報量（1次元）が
+$$
+I_1(\theta)=E[U_1(\theta)^2]
+=-E\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right]
+$$
+と2通りに書ける。
+3. 独立同分布標本では $I_n(\theta)=nI_1(\theta)$。
+
+さらにベルヌーイ分布に従う $X\sim\operatorname{Bernoulli}(p)$ について $I_1(p)$ を求め、$p=0.4,n=10$ の標本全体の情報量を計算せよ。
+
 ## 答え
-スコア関数の分散（＝期待値0より）：
-$$I_1(\theta)=E_\theta[U(\theta)^2],\qquad U(\theta)=\frac{\partial}{\partial\theta}\log f(X;\theta).$$
+正則条件の下で
+$$
+E[U_1]=0,
+\qquad
+I_1(\theta)=E[U_1^2]=-E[\ell_1''(\theta)],
+\qquad
+I_n(\theta)=nI_1(\theta).
+$$
+ベルヌーイ分布では
+$$
+I_1(p)=\frac{1}{p(1-p)}.
+$$
+$p=0.4,n=10$ なら
+$$
+I_{10}(0.4)=\frac{10}{0.4\cdot0.6}
+=\frac{125}{3}\approx41.67.
+$$
+
 ## 使用公式・定理
-$I_1(\theta)=E[U(\theta)^2]=\operatorname{Var}_\theta(U(\theta))$（$E[U]=0$ より）。
+微分と積分の交換が許される正則条件の下で
+$$
+\frac{\partial f}{\partial\theta}
+=f\frac{\partial\log f}{\partial\theta}
+=fU_1,
+\qquad
+\int f(x;\theta)\,dx=1.
+$$
+独立標本では
+$$
+U_n(\theta)=\sum_{i=1}^nU_i(\theta).
+$$
+
 ## 計算例
-$\operatorname{Bernoulli}(p)$：$U(p)=X/p-(1-X)/(1-p)$ から $I_1(p)=1/[p(1-p)]$。
+正規化条件を微分すると
+$$
+\begin{aligned}
+0
+&=\frac{\partial}{\partial\theta}\int f(x;\theta)\,dx\\
+&=\int \frac{\partial f}{\partial\theta}\,dx\\
+&=\int U_1(\theta)f(x;\theta)\,dx\\
+&=E[U_1(\theta)].
+\end{aligned}
+$$
+さらにもう1回微分すると
+$$
+E\left[\frac{\partial U_1}{\partial\theta}\right]+E[U_1^2]=0,
+$$
+よって
+$$
+E[U_1^2]=-E[\ell_1''(\theta)].
+$$
+
+ベルヌーイ分布では
+$$
+\ell_1(p;X)=X\log p+(1-X)\log(1-p),
+$$
+$$
+\ell_1''(p)=-\frac{X}{p^2}-\frac{1-X}{(1-p)^2}.
+$$
+したがって
+$$
+\begin{aligned}
+I_1(p)
+&=-E[\ell_1''(p)]\\
+&=\frac{p}{p^2}+\frac{1-p}{(1-p)^2}\\
+&=\frac{1}{p(1-p)}.
+\end{aligned}
+$$
+
 ## 一手
-フィッシャー情報量（1次元）は「スコアの分散」＝データが $\theta$ について運ぶ情報量の尺度。
+**$\int f=1$ を1回微分してスコア平均0、もう1回微分してフィッシャー情報量（1次元）の2表式を得る。** 独立標本ではスコアの分散を足す。
+
+## 注意
+$-E[\ell'']=E[U^2]$ は正則条件なしに常に成立するわけではない。台が母数に依存するモデルでは境界項にも注意する。独立でなければ情報量は単純に $n$ 倍とは限らない。
 
 <!-- CARD -->
 
@@ -610,36 +828,102 @@ $$I_1(p)=-E[\ell''(p;X)]=\frac{p}{p^2}+\frac{1-p}{(1-p)^2}=\frac1{p(1-p)}.$$
 
 ---
 id: est-cramer-rao-lower-bound
-title: クラーメル・ラオの不等式
+title: クラーメル・ラオの不等式を導き母数と母数関数の下界を計算する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: cramer-rao
+topic: cramer-rao-canonical
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [クラーメル・ラオの不等式, 分散下界, フィッシャー情報量（1次元）]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: クラーメル・ラオの不等式 }]
+hashtags:
+  - クラーメル・ラオの不等式
+  - フィッシャー情報量（1次元）
+  - 有効推定量
+  - ポアソン分布
+  - ベルヌーイ分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: クラーメル・ラオの不等式
 ---
 ## 問題
-クラーメル・ラオの不等式を述べよ。$g(\theta)$ の不偏推定量 $T$ の分散の下界は何か。
+正則な1母数モデルで $E_\theta[T]=g(\theta)$ とする。不偏推定量 $T$ に対するクラーメル・ラオの不等式による分散下界を導け。
+
+さらに、ポアソン分布に従う独立標本で $\lambda$ の下界と標本平均の効率性を確認せよ。またベルヌーイ分布に従う独立標本で $p^2$ の不偏推定量の分散下界を求め、$p=0.4,n=100$ を代入せよ。
+
 ## 答え
-正則条件の下で、$E[T]=g(\theta)$ なる $T$ に対し
-$$\operatorname{Var}_\theta(T)\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.$$
-$g(\theta)=\theta$ のときは $\operatorname{Var}_\theta(T)\ge1/I_n(\theta)$。
+一般に
+$$
+\operatorname{Var}_\theta(T)
+\ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.
+$$
+ポアソン分布では $I_n(\lambda)=n/\lambda$ なので下界は $\lambda/n$ で、$\bar X$ が達成する。
+
+ベルヌーイ分布で $g(p)=p^2$ なら
+$$
+\operatorname{Var}(T)
+\ge\frac{(2p)^2}{n/[p(1-p)]}
+=\frac{4p^3(1-p)}{n}.
+$$
+$p=0.4,n=100$ では $0.001536$。
+
 ## 使用公式・定理
-標本全体のスコアを $U=\partial\log L(\theta;X)/\partial\theta$ とする。$E_\theta[T]=g(\theta)$ を微分すると
-$$g'(\theta)=\frac{\partial}{\partial\theta}\int T(x)L(\theta;x)\,dx
-=\int T(x)U(\theta;x)L(\theta;x)\,dx=E_\theta[TU].$$
-$E_\theta[U]=0$ なので $E_\theta[TU]=\operatorname{Cov}_\theta(T,U)$。Cauchy--Schwarzの不等式から
-$$\{g'(\theta)\}^2=\operatorname{Cov}(T,U)^2
-\le\operatorname{Var}(T)\operatorname{Var}(U)
-=\operatorname{Var}(T)I_n(\theta).$$
-両辺を $I_n(\theta)>0$ で割ればクラーメル・ラオの不等式を得る。
+標本全体のスコア $U_n(\theta)$ について
+$$
+E[U_n]=0,
+\qquad
+\operatorname{Var}(U_n)=I_n(\theta).
+$$
+$E[T]=g(\theta)$ を微分すると
+$$
+g'(\theta)=E[TU_n]=\operatorname{Cov}(T,U_n).
+$$
+ここへCauchy--Schwarzの不等式を使う。
+
 ## 計算例
-$\operatorname{Bernoulli}(p)$ 標本で $g(p)=p$：$I_n(p)=n/[p(1-p)]$ より $\operatorname{Var}(\overline X)\ge p(1-p)/n$。$\overline X$ は等号で下限を達成。
+一般形は
+$$
+\begin{aligned}
+\{g'(\theta)\}^2
+&=\operatorname{Cov}(T,U_n)^2\\
+&\le\operatorname{Var}(T)\operatorname{Var}(U_n)\\
+&=\operatorname{Var}(T)I_n(\theta).
+\end{aligned}
+$$
+
+ポアソン分布の1観測では
+$$
+-E[\ell_1''(\lambda)]
+=E\left[\frac{X}{\lambda^2}\right]
+=\frac1\lambda,
+$$
+よって $I_n(\lambda)=n/\lambda$。さらに
+$$
+E[\bar X]=\lambda,
+\qquad
+\operatorname{Var}(\bar X)=\frac\lambda n,
+$$
+なので有限標本で下界に一致する。
+
+ベルヌーイ分布では
+$$
+I_n(p)=\frac{n}{p(1-p)},
+\qquad g'(p)=2p.
+$$
+$p=0.4,n=100$ なら
+$$
+\frac{4(0.4)^3(0.6)}{100}=0.001536.
+$$
+
 ## 一手
-下界は「スコアの分散（情報量）」で割る。等号達成はスコアと $T$ の線形関係で判定。
+**推定対象が $\theta$ か $g(\theta)$ かを最初に判定する。** $g'(\theta)$ を出し、スコアとの共分散にCauchy--Schwarzの不等式を適用する。
+
+## 注意
+クラーメル・ラオの不等式は正則条件を要する。不偏性を確認せず「下界を達成する」と言ってはいけない。$g(\theta)$ の推定では $g'(\theta)^2$ を落とさない。
 
 <!-- CARD -->
 
@@ -781,28 +1065,100 @@ $X\sim N(\theta,1)$、$\eta=2\theta$ とすると $I(\theta)=1$、$d\theta/d\eta
 
 ---
 id: est-information-matrix
-title: フィッシャー情報行列（多母数）
+title: フィッシャー情報行列を定義し正規2母数モデルで計算する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: fisher-information-matrix
+topic: fisher-information-matrix-canonical
 type: condition
 difficulty: 3
 priority: A
-hashtags: [フィッシャー情報行列, 多母数, スコアベクトル]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: フィッシャー情報量（1次元） }]
+hashtags:
+  - フィッシャー情報行列
+  - 多母数
+  - スコアベクトル
+  - 正規分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: フィッシャー情報量（1次元）
 ---
 ## 問題
-$\theta=(\theta_1,\ldots,\theta_k)$ のときのフィッシャー情報行列 $I(\theta)$ を定義せよ。
+多母数 $\boldsymbol\theta=(\theta_1,\ldots,\theta_k)^{\mathsf T}$ に対するフィッシャー情報行列を定義せよ。
+
+さらに正規分布に従う
+$$
+X\sim N(\mu,v),\qquad v=\sigma^2>0
+$$
+について $\boldsymbol\theta=(\mu,v)^{\mathsf T}$ とした1観測の情報行列を導け。$v=4$ の数値も求めよ。
+
 ## 答え
-$k\times k$ 行列で、$(i,j)$成分は
-$$I(\theta)_{ij}=E_\theta\!\left[\frac{\partial\log f}{\partial\theta_i}\frac{\partial\log f}{\partial\theta_j}\right]=-E_\theta\!\left[\frac{\partial^2\log f}{\partial\theta_i\partial\theta_j}\right].$$
+$$
+\boldsymbol I(\mu,v)
+=\begin{pmatrix}
+1/v&0\\
+0&1/(2v^2)
+\end{pmatrix}.
+$$
+$v=4$ なら
+$$
+\boldsymbol I(\mu,4)
+=\begin{pmatrix}1/4&0\\0&1/32\end{pmatrix}.
+$$
+
 ## 使用公式・定理
-スコアベクトル $U=\nabla_\theta\log f$ に対し $I(\theta)=E[UU^T]$。正則条件下で対称・半正定値。
+スコアベクトル
+$$
+\boldsymbol U=\nabla_{\boldsymbol\theta}\ell(\boldsymbol\theta;X)
+$$
+に対し、正則条件の下で
+$$
+\boldsymbol I(\boldsymbol\theta)
+=E[\boldsymbol U\boldsymbol U^{\mathsf T}]
+=-E[\nabla^2_{\boldsymbol\theta}\ell].
+$$
+正規分布では $E[(X-\mu)^2]=v$。
+
 ## 計算例
-$X\sim N(\mu,\sigma^2)$、$\theta=(\mu,\sigma^2)$：$I(\theta)=\begin{pmatrix}1/\sigma^2&0\\0&1/(2\sigma^4)\end{pmatrix}$。
+定数を除く対数密度は
+$$
+\ell(\mu,v)=-\frac12\log v-\frac{(X-\mu)^2}{2v}.
+$$
+まず
+$$
+\frac{\partial^2\ell}{\partial\mu^2}=-\frac1v
+$$
+なので $I_{\mu\mu}=1/v$。
+交差微分は
+$$
+\frac{\partial^2\ell}{\partial v\partial\mu}
+=-\frac{X-\mu}{v^2}
+$$
+で、期待値が0だから $I_{\mu v}=0$。
+
+また
+$$
+\frac{\partial^2\ell}{\partial v^2}
+=\frac1{2v^2}-\frac{(X-\mu)^2}{v^3}.
+$$
+よって
+$$
+\begin{aligned}
+I_{vv}
+&=-E\left[\frac1{2v^2}-\frac{(X-\mu)^2}{v^3}\right]\\
+&=-\frac1{2v^2}+\frac{v}{v^3}\\
+&=\frac1{2v^2}.
+\end{aligned}
+$$
+
 ## 一手
-多母数では逆行列 $I(\theta)^{-1}$ が漸近分散共分散行列。対角成分が各母数に対するクラーメル・ラオの不等式の下界に相当する。
+多母数では **Hessianを作る → 各成分の負の期待値を取る**。非対角成分が0なら、そのパラメータ化では情報行列が対角になる。
+
+## 注意
+$v=\sigma^2$ を母数にした結果である。$\sigma$ を母数に選べば成分は変わる。多母数版のクラーメル・ラオの不等式による下界や漸近分散共分散行列には $I^{-1}$ が現れる。
 
 <!-- CARD -->
 
