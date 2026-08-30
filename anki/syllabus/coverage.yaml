@@ -1309,9 +1309,6 @@ items:
       - reg-mean-response-ci
       - reg-multiple-model-matrix
       - reg-hat-matrix-properties
-      - reg-leverage-meaning
-      - reg-residual-variance-leverage
-      - reg-studentized-residual
       - reg-coefficient-t-multiple
       - reg-overall-f-test
       - reg-partial-f-test
@@ -1380,9 +1377,6 @@ items:
         cards:
           - reg-ols-normal-equations-simple
           - reg-hat-matrix-properties
-          - reg-leverage-meaning
-          - reg-residual-variance-leverage
-          - reg-studentized-residual
           - reg-heteroskedasticity-pattern
           - reg-cooks-distance
           - reg-model-diagnostics-summary
