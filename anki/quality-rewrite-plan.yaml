@@ -1,78 +1,86 @@
 schema_version: 1
-batch_id: 2026-08-30-dffits-leverage-merge-prep-72
+batch_id: 2026-08-30-mle-standard-workflow-77
 items:
-  - id: reg-dffits-numeric
-    note: 高レバレッジ判定をDFFITS/DFBETAの影響診断正本へ吸収し、位置・残差・影響を一続きで判断できるようにする。
+  - id: mle-score-equation
+    note: 尤度構成・対数尤度・スコア方程式を、同じMLE解法の途中工程として1枚のcanonical cardへ統合する。
     metadata:
-      title: レバレッジからDFFITS・DFBETAまで影響診断する
-      topic: regression-influence-diagnostics-canonical
-      hashtags: [回帰診断法, レバレッジ, DFFITS, DFBETA, 影響点]
+      title: 尤度からスコア方程式まで最尤推定を一気に解く
+      topic: mle-standard-workflow-canonical
+      type: strategy
+      difficulty: 3
+      priority: S
+      hashtags: [最尤推定, 尤度関数, 対数尤度, スコア方程式]
     sections:
+      問題: |
+        $X_1,\ldots,X_n$ が独立同分布で密度または確率関数 $f(x;\theta)$ に従うとする。内点に最尤推定値がある通常の1母数問題について、観測値から尤度を立て、対数尤度、スコア方程式を経て最尤推定値を求める標準手順を述べよ。あわせて Poisson 標本 $(2,5,3,0)$ から $\lambda$ を推定せよ。
       使用公式・定理: |
-        ハット行列を
+        独立性より尤度は
         $$
-        \boldsymbol H
-        =\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+        L(\theta;x)=\prod_{i=1}^n f(x_i;\theta).
         $$
-        とすると、レバレッジは $h_{ii}=H_{ii}$ である。切片を含む係数総数を $k$ とすれば
+        対数は単調増加なので最大点を変えず、
         $$
-        \sum_{i=1}^{n}h_{ii}=\operatorname{tr}(H)=k,
-        \qquad
-        \overline h=\frac{k}{n}.
+        \ell(\theta;x)=\log L(\theta;x)
+        =\sum_{i=1}^n\log f(x_i;\theta)
         $$
-        したがって $2k/n$ や $3k/n$ は「高レバレッジ候補」を拾う経験的目安として使われる。
+        と積を和へ変えられる。内点の候補はスコア関数
+        $$
+        U(\theta)=\frac{\partial\ell(\theta;x)}{\partial\theta}
+        $$
+        に対する方程式 $U(\theta)=0$ から求める。
 
-        DFFITSは観測 $i$ を除いたときの $i$ 自身の当てはめ値変化を尺度化し、外的スチューデント化残差 $t_i$ を用いて
-        $$
-        \operatorname{DFFITS}_i
-        =t_i\sqrt{\frac{h_{ii}}{1-h_{ii}}}
-        $$
-        と書ける。
-
-        一方、係数 $j$ への影響は
-        $$
-        \operatorname{DFBETA}_{ij}
-        =\widehat\beta_j-\widehat\beta_{j(i)}
-        $$
-        で測る。標準誤差で尺度化したものをDFBETASと呼ぶ。
+        ただし、$U(\theta)=0$ の解はあくまで候補である。二階微分、尤度の形、端点との比較などで最大点であることを確認する。台が $\theta$ に依存する場合や境界解では、微分して0という手順だけでは解けないことがある。
       一手: |
-        回帰診断では、まず $h_{ii}$ で**説明変数空間での位置の異常さ**を見て、その観測の残差も大きいかを確認し、最後にDFFITSやDFBETAで**実際に当てはめをどれだけ動かすか**を見る。高レバレッジだけでは影響点とは限らない。
+        MLE の標準手順は
+        $$
+        \text{標本の同時分布}
+        \to L(\theta)
+        \to \ell(\theta)
+        \to U(\theta)=0
+        \to \text{最大性・境界確認}
+        $$
+        である。公式として推定量を暗記するのではなく、まず各観測の密度・確率を掛けて尤度を自分で立てる。
+      答え: |
+        通常の正則な1母数問題では、
+        $$
+        L(\theta;x)=\prod_i f(x_i;\theta),\qquad
+        \ell(\theta;x)=\sum_i\log f(x_i;\theta)
+        $$
+        を作り、$U(\theta)=\ell'(\theta)=0$ を解いて候補 $\widehat\theta$ を得る。その後、二階微分や端点比較で最大点を確認する。
+
+        Poisson 標本 $(2,5,3,0)$ では
+        $$
+        \widehat\lambda=\overline x=\frac{10}{4}=2.5.
+        $$
       計算例: |
-        まず元のDFFITS例では
+        $X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、観測値 $(2,5,3,0)$ とする。各観測の確率関数を掛けると
         $$
-        t_i=2,\qquad h_{ii}=0.2
+        L(\lambda)
+        =\prod_{i=1}^4\frac{e^{-\lambda}\lambda^{x_i}}{x_i!}
+        =\frac{e^{-4\lambda}\lambda^{10}}{2!5!3!0!}.
         $$
-        なので
+        対数を取れば
         $$
-        \frac{h_{ii}}{1-h_{ii}}
-        =\frac{0.2}{0.8}=\frac14,
+        \ell(\lambda)
+        =-4\lambda+10\log\lambda-C,
         $$
+        ただし $C=\sum_i\log(x_i!)$ は $\lambda$ に依存しない定数である。したがって
         $$
-        \operatorname{DFFITS}_i
-        =2\sqrt{\frac14}=1.
+        U(\lambda)=\ell'(\lambda)
+        =-4+\frac{10}{\lambda}.
         $$
-
-        同じ観測について、ある係数が
+        $U(\widehat\lambda)=0$ より
         $$
-        \widehat\beta_j=1.2,
-        \qquad
-        \widehat\beta_{j(i)}=0.8
+        -4+\frac{10}{\widehat\lambda}=0
+        \quad\Longrightarrow\quad
+        \widehat\lambda=2.5.
         $$
-        なら
+        さらに
         $$
-        \operatorname{DFBETA}_{ij}=1.2-0.8=0.4.
+        \ell''(\lambda)=-\frac{10}{\lambda^2}<0
         $$
-
-        次に $n=50$、切片を含む係数総数 $k=5$ の回帰では平均レバレッジは
-        $$
-        \overline h=\frac{k}{n}=\frac5{50}=0.10.
-        $$
-        2倍基準は
-        $$
-        \frac{2k}{n}=0.20.
-        $$
-        $h_{ii}=0.30$ の観測は $0.30>0.20$ なので高レバレッジ候補として詳しく診断する。ただし、これだけを理由に削除しない。
+        なので、この臨界点は最大点である。
       注意: |
-        $0\le h_{ii}\le1$ である。$2k/n$ や $3k/n$ は機械的な棄却基準ではなく、精査対象を拾う診断上の目安にすぎない。
+        「尤度を立てる」「logを取る」「score=0」は別々の暗記事項ではなく、通常のMLEで一続きに行う操作である。$\log$ は最大点を変えないが、$\theta$ に依存しない定数項を捨ててよいのは最大化だけが目的だからである。
 
-        DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジのどちらか一方だけで影響点とは決まらず、両者が組み合わさると影響が大きくなりやすい。異常値を機械的に除外せず、入力誤り・別集団・モデル不適合などの原因を確認する。
+        一方、例えば $\operatorname{Uniform}(0,\theta)$ のように台が母数に依存する問題では、尤度中の指示条件が本質になる。スコア方程式だけを機械的に使わず、母数空間と境界を必ず確認する。
