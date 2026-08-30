@@ -604,32 +604,86 @@ $t=1000$ なら形状に関係なく $e^{-1}$。
 
 ---
 id: engmaint-steady-availability
-title: MTBFとMTTRから定常可用度を計算する
+title: 定常可用度をMTBF・MTTRと故障率・修復率の両方から導く
 category: applied-engineering
 subcategory: engineering-quality
-topic: steady-availability
-type: calc_step
-difficulty: 1
-priority: S
-hashtags: [保全性, 可用度, MTBF]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 保全性 }]
+topic: steady-availability-canonical
+type: strategy
+difficulty: 3
+priority: A
+hashtags:
+  - 保全性
+  - 可用度
+  - MTBF
+  - MTTR
+  - 故障率
+  - 修復率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 保全性
 ---
 ## 問題
-平均故障間隔 $MTBF=1000$ 時間、平均修復時間 $MTTR=20$ 時間の修理可能系の定常可用度を求めよ。
+修理可能な2状態系を考える。
+1. 平均故障間隔 $MTBF=1000$ 時間、平均修復時間 $MTTR=20$ 時間の定常可用度 $A$ を求めよ。
+2. 故障率 $\lambda=0.01$、修復率 $\mu=0.2$ の連続時間2状態モデルで、定常可用度を定常確率から導いて求めよ。
+3. 指数的な故障・修復時間では、2つの公式が同じになることを示せ。
+
 ## 記号・用語
-可用度は任意時点で系が動作可能である長期確率である。
+可用度は任意の十分遠い時点で系が動作可能である長期確率である。$MTBF$ は平均故障間隔、$MTTR$ は平均修復時間、$\lambda$ は稼働状態から故障状態への率、$\mu$ は故障状態から稼働状態への修復率である。
+
 ## 使用公式・定理
-交互更新モデルでは
-$$A=\frac{MTBF}{MTBF+MTTR}.$$
+稼働時間と修復時間を交互に繰り返す更新過程では、長期の稼働時間割合は
+$$
+A=\frac{MTBF}{MTBF+MTTR}.
+$$
+2状態連続時間マルコフモデルの定常確率 $\pi_U,\pi_D$ は
+$$
+\pi_U\lambda=\pi_D\mu,\qquad \pi_U+\pi_D=1
+$$
+を満たすので
+$$
+A=\pi_U=\frac{\mu}{\lambda+\mu}.
+$$
+指数分布の平均より
+$$
+MTBF=\frac1\lambda,\qquad MTTR=\frac1\mu.
+$$
+
 ## 一手／方針
-稼働時間を1サイクルの稼働時間と停止時間の和で割る。
+**平均時間で与えられたら「稼働時間／1サイクル時間」、率で与えられたら定常流量の釣合いを使う。** 最後に $MTBF=1/\lambda,MTTR=1/\mu$ を代入すれば両表現が同一だと確認できる。
+
 ## 答え
-$$A=\frac{1000}{1020}\approx0.9804.$$
+1. 
+$$
+A=\frac{1000}{1000+20}=\frac{50}{51}\approx0.9804.
+$$
+
+2. 定常釣合いから
+$$
+A=\frac{0.2}{0.01+0.2}=\frac{20}{21}\approx0.9524.
+$$
+
+3. 
+$$
+\frac{MTBF}{MTBF+MTTR}
+=\frac{1/\lambda}{1/\lambda+1/\mu}
+=\frac{\mu}{\lambda+\mu}.
+$$
+
 ## 計算例
-長期停止割合は約1.96%。
+$\lambda=0.01,\mu=0.2$ なら $MTBF=100,MTTR=5$ なので、時間表現でも
+$$
+A=\frac{100}{105}=\frac{20}{21}
+$$
+と一致する。
+
 ## 注意
-信頼度は無故障継続確率、可用度は修理後の再稼働を含む。
+$MTBF=1/\lambda$ や $MTTR=1/\mu$ は指数分布を仮定した場合の関係である。一方、更新過程の長期可用度 $MTBF/(MTBF+MTTR)$ 自体は、適切な再生条件の下で平均時間を用いてより一般に成立する。可用度は「時点で動いている確率」であり、使命時間中ずっと無故障である信頼度とは異なる。
 
 <!-- CARD -->
 
@@ -876,98 +930,87 @@ sources: [{ type: official_syllabus, topic: 保全性 }]
 
 ---
 id: engqc-xbar-r-chart-limits
-title: Xbar-R管理図の平均管理限界を計算する
+title: Xbar-R管理図の平均とばらつきの限界を対で計算する
 category: applied-engineering
 subcategory: engineering-quality
-topic: xbar-r-chart
-type: calc_step
-difficulty: 2
+topic: xbar-r-chart-canonical
+type: strategy
+difficulty: 3
 priority: S
-hashtags: [管理図, Xbar-R管理図, 群平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 管理図 }]
+hashtags:
+  - 管理図
+  - Xbar管理図
+  - R管理図
+  - 工程平均
+  - 工程分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 管理図
 ---
 ## 問題
-$\overline X$ 管理図について次の2場合の管理限界を求めよ。
-
-1. 工程平均 $\mu=10$、工程標準偏差 $\sigma=2$ が既知、群サイズ $n=4$ とする。3標準偏差管理限界を求めよ。
-2. Phase I データから $\overline{\overline X}=20$、$\overline R=4$ を得た。群サイズ5に対する管理図定数が $A_2=0.577$ のとき、$\overline X$ 管理図の管理限界を求めよ。
+$\overline X$--$R$ 管理図について次を求めよ。
+1. 工程平均 $\mu=10$、工程標準偏差 $\sigma=2$ が既知、群サイズ $n=4$ のとき、$\overline X$ 管理図の3シグマ限界を求めよ。
+2. Phase Iデータから $\overline{\overline X}=20,\overline R=4$ を得た。群サイズ5で $A_2=0.577,D_3=0,D_4=2.114$ とする。$\overline X$ 管理図とR管理図の両方の限界を求めよ。
+3. 実運用では平均図とR図のどちらを先に確認すべきか、その理由を述べよ。
 
 ## 記号・用語
-$\overline{\overline X}$ は群平均の平均、$\overline R$ は各群の範囲 $R_i=\max X_{ij}-\min X_{ij}$ の平均、$A_2$ は群サイズで決まる管理図定数である。$CL,UCL,LCL$ は中心線、上側・下側管理限界である。
-## 使用公式・定理
-工程が管理状態にあり各観測の標準偏差が $\sigma$ なら、群平均の標準偏差は
-$$
-\operatorname{SD}(\overline X)=\frac{\sigma}{\sqrt n}.
-$$
-$\mu,\sigma$ が既知なら3標準偏差限界は
-$$
-UCL=\mu+3\frac{\sigma}{\sqrt n},\qquad
-CL=\mu,\qquad
-LCL=\mu-3\frac{\sigma}{\sqrt n}.
-$$
+$\overline{\overline X}$ は群平均の平均、$R_i=\max_jX_{ij}-\min_jX_{ij}$ は第 $i$ 群の範囲、$\overline R$ は範囲の平均である。$A_2,D_3,D_4$ は群サイズに応じた管理図定数である。
 
-$\sigma$ を群内範囲から推定する通常の $\overline X$--$R$ 管理図では、群サイズごとの定数 $A_2$ を使って
+## 使用公式・定理
+$\sigma$ 既知なら群平均の標準偏差は $\sigma/\sqrt n$ なので
 $$
-UCL=\overline{\overline X}+A_2\overline R,\qquad
-CL=\overline{\overline X},\qquad
-LCL=\overline{\overline X}-A_2\overline R
+UCL_{\overline X}=\mu+3\frac{\sigma}{\sqrt n},\quad
+CL_{\overline X}=\mu,\quad
+LCL_{\overline X}=\mu-3\frac{\sigma}{\sqrt n}.
 $$
-と書く。$A_2\overline R$ は「推定した群平均の3標準誤差幅」に対応する。
+$\sigma$ を範囲から推定する標準的な $\overline X$--$R$ 管理図では
+$$
+UCL_{\overline X}=\overline{\overline X}+A_2\overline R,
+\quad CL_{\overline X}=\overline{\overline X},
+\quad LCL_{\overline X}=\overline{\overline X}-A_2\overline R,
+$$
+$$
+UCL_R=D_4\overline R,\quad CL_R=\overline R,\quad LCL_R=D_3\overline R.
+$$
 
 ## 一手／方針
-どちらも本質は **中心線 $\pm$ 群平均の3標準誤差** である。$\sigma$ が既知なら $3\sigma/\sqrt n$ を直接使い、未知で $\overline R$ から推定するときはその換算を含む $A_2\overline R$ を使う。
+**Xbar-Rは2枚の管理図を1組として扱う。** Phase IではまずR図で群内ばらつきが安定していることを確認し、その後にそのばらつき推定を使う平均図を解釈する。
 
 ## 答え
-1. 既知 $\sigma$ の場合は
+1. 
 $$
-UCL=13,\qquad CL=10,\qquad LCL=7.
+3\frac{\sigma}{\sqrt n}=3\frac2{2}=3
 $$
-2. $\overline R$ から推定する場合は
+なので
 $$
-UCL=22.308,\qquad CL=20,\qquad LCL=17.692.
+UCL=13,\quad CL=10,\quad LCL=7.
 $$
+
+2. 平均図は
+$$
+A_2\overline R=0.577\times4=2.308
+$$
+より
+$$
+UCL_{\overline X}=22.308,\quad CL_{\overline X}=20,\quad LCL_{\overline X}=17.692.
+$$
+R図は
+$$
+UCL_R=2.114\times4=8.456,\quad CL_R=4,\quad LCL_R=0.
+$$
+
+3. R図を先に確認する。群内ばらつきが特殊原因で不安定なら、$\overline R$ を使った平均図の限界自体が安定な工程分散を表さず、平均図の判定も信用しにくいからである。
 
 ## 計算例
-### 1. $\sigma$ が既知
-
-まず群平均の標準偏差は
-$$
-\frac{\sigma}{\sqrt n}
-=\frac{2}{\sqrt4}
-=1.
-$$
-したがって3標準偏差幅は
-$$
-3\frac{\sigma}{\sqrt n}=3.
-$$
-よって
-$$
-UCL=10+3=13,
-$$
-$$
-LCL=10-3=7.
-$$
-
-### 2. $\sigma$ を $\overline R$ から推定
-
-管理限界の半幅は
-$$
-A_2\overline R
-=0.577\times4
-=2.308.
-$$
-したがって
-$$
-UCL=20+2.308=22.308,
-$$
-$$
-LCL=20-2.308=17.692.
-$$
-例えば群平均17.5は $17.5<17.692$ なので下方管理限界外である。
+$D_3=0$ の群サイズではR図の下方管理限界は0になる。これは範囲が負になれないこととも整合する。
 
 ## 注意
-個々の観測値の標準偏差 $\sigma$ と、群平均の標準偏差 $\sigma/\sqrt n$ を混同しない。また $\overline X$--$R$ 管理図では、平均側を解釈する前にR管理図で群内ばらつきが安定しているか確認する。
+個々の観測値の標準偏差 $\sigma$ と群平均の標準偏差 $\sigma/\sqrt n$ を混同しない。群サイズが大きい場合や標準偏差 $S$ を使う設計では $\overline X$--$S$ 管理図を使うことがあり、その定数は別である。
 
 <!-- CARD -->
 
@@ -1183,31 +1226,65 @@ Phase Iの推定誤差により実際の誤警報率は理論値と異なり得�
 
 ---
 id: engqc-three-sigma-false-alarm
-title: 3シグマ管理図の1点誤警報確率を求める
+title: 3シグマ誤警報確率から管理内平均連長まで導く
 category: applied-engineering
 subcategory: engineering-quality
-topic: false-alarm-probability
-type: calc_step
-difficulty: 1
-priority: S
-hashtags: [管理図, 第1種過誤, 正規分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 管理図 }]
+topic: false-alarm-arl0-canonical
+type: strategy
+difficulty: 2
+priority: A
+hashtags:
+  - 管理図
+  - 3シグマ
+  - 誤警報
+  - 平均連長
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 管理図
 ---
 ## 問題
-工程が管理状態で標準化統計量が標準正規分布に従うとき、両側3シグマ限界を1点が越える確率を求めよ。
+管理状態の標準化統計量が各時点で独立に標準正規分布に従い、単点の3シグマルール $|Z|>3$ で信号を出すとする。
+1. 1点当たりの誤警報確率 $\alpha$ を求めよ。
+2. 信号が出るまでの点数 $N$ の分布を述べ、管理内平均連長 $ARL_0=E[N]$ を求めよ。
+3. 1時間に1点観測するなら、平均して何時間に1回誤警報が出るか。
+
 ## 記号・用語
-誤警報は管理状態なのに管理外信号を出す第1種過誤である。標準正規分布に従う $Z$ に対し $\Phi(z)=P(Z\le z)$ とする。
+$ARL$（average run length、平均連長）は管理図が信号を出すまでの観測点数の期待値である。添字0は工程が管理状態である場合を表す。
+
 ## 使用公式・定理
-$P(|Z|>3)=2\{1-\Phi(3)\}$。
+標準正規分布の累積分布関数を $\Phi$ とすると、3シグマ単点ルールの誤警報確率は
+$$
+\alpha=P(|Z|>3)=2\{1-\Phi(3)\}\approx0.00270.
+$$
+各点が独立で毎回一定確率 $\alpha$ で信号を出すなら、信号までの点数は成功確率 $\alpha$ の幾何分布に従うため
+$$
+ARL_0=E[N]=\frac1\alpha.
+$$
+
 ## 一手／方針
-標準正規分布の両側裾確率を計算する。
+**まず1点で誤って外へ出る確率を両側裾から求め、その信号を「成功」とする幾何分布へつなぐ。** 0.0027と約370を独立した暗記事項にしない。
+
 ## 答え
-$$P(|Z|>3)\approx2(0.00135)=0.00270.$$
+$$
+\alpha\approx2(0.00135)=0.00270.
+$$
+したがって
+$$
+N\sim\operatorname{Geom}(0.00270),\qquad
+ARL_0=\frac1{0.00270}\approx370.4.
+$$
+1時間に1点なら、管理状態でも平均約370時間に1回は単点ルールだけで誤警報が生じる。
+
 ## 計算例
-約0.27%、およそ370点に1回の割合で単点ルールの誤警報が起こる。
+もし単点信号確率が $0.01$ なら $ARL=100$ 点である。信号確率が2倍になれば平均連長は半分になる。
+
 ## 注意
-複数のランルールを併用すると総誤警報率は高くなる。
+点間相関がある場合や複数のランルールを併用する場合、単純な独立幾何分布にはならない。Phase Iで平均や分散を推定した誤差によっても実際の誤警報率は理論値とずれ得る。
 
 <!-- CARD -->
 
@@ -1303,31 +1380,83 @@ sources: [{ type: official_syllabus, topic: 管理図 }]
 
 ---
 id: engqc-ewma-update
-title: EWMA管理統計量を逐次更新する
+title: EWMAを逐次更新し再帰式から定常分散まで導く
 category: applied-engineering
 subcategory: engineering-quality
-topic: ewma-chart
-type: calc_step
-difficulty: 2
+topic: ewma-canonical
+type: strategy
+difficulty: 3
 priority: A
-hashtags: [管理図, EWMA管理図, 小変化検出]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 管理図 }]
+hashtags:
+  - 管理図
+  - EWMA管理図
+  - 小変化検出
+  - 分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 管理図
 ---
 ## 問題
-$Z_{t-1}=10$、新観測 $X_t=14$、平滑化係数 $\lambda=0.25$ のEWMA統計量 $Z_t$ を求めよ。
+独立な観測 $X_t$ の平均を $\mu$、分散を $\sigma^2$ とし、EWMA統計量を
+$$
+Z_t=\lambda X_t+(1-\lambda)Z_{t-1},\qquad0<\lambda\le1
+$$
+とする。
+1. $Z_{t-1}=10,X_t=14,\lambda=0.25$ のとき $Z_t$ を求めよ。
+2. 定常状態で $\operatorname{Var}(Z_t)=v$ と置き、$v=\sigma^2\lambda/(2-\lambda)$ を導け。
+3. $\sigma^2=9,\lambda=0.2$ のとき定常分散を求めよ。
+
 ## 記号・用語
-EWMAは指数加重移動平均（exponentially weighted moving average）である。
+EWMAは指数加重移動平均（exponentially weighted moving average）であり、直近の観測と過去の平滑化統計量を重み付けして更新する。小さい $\lambda$ は過去を長く引きずるため、持続的な小変化を平滑に蓄積する。
+
 ## 使用公式・定理
-$$Z_t=\lambda X_t+(1-\lambda)Z_{t-1}.$$
+更新式は
+$$
+Z_t=\lambda X_t+(1-\lambda)Z_{t-1}.
+$$
+$X_t$ と過去の $Z_{t-1}$ が独立で定常分散を $v$ とすると
+$$
+v=\lambda^2\sigma^2+(1-\lambda)^2v.
+$$
+よって
+$$
+v\{1-(1-\lambda)^2\}=\lambda^2\sigma^2,
+$$
+$$
+v=\sigma^2\frac{\lambda}{2-\lambda}.
+$$
+
 ## 一手／方針
-新観測へ重み0.25、過去統計量へ0.75を掛ける。
+**更新計算と分散公式を別暗記しない。** まず重み付き再帰を使い、長期分散が問われたら同じ再帰式の両辺へ分散を取って定常条件 $\operatorname{Var}(Z_t)=\operatorname{Var}(Z_{t-1})$ を置く。
+
 ## 答え
-$$Z_t=0.25(14)+0.75(10)=11.$$
+1. 
+$$
+Z_t=0.25(14)+0.75(10)=11.
+$$
+
+2. 上の分散再帰を解いて
+$$
+\operatorname{Var}(Z_\infty)=\sigma^2\frac{\lambda}{2-\lambda}.
+$$
+
+3. 
+$$
+\operatorname{Var}(Z_\infty)
+=9\frac{0.2}{1.8}=1.
+$$
+したがって定常標準偏差は1である。
+
 ## 計算例
-次も14なら $Z_{t+1}=0.25(14)+0.75(11)=11.75$。
+定常標準偏差が1で限界幅係数 $L=3$ なら、中心線からの定常限界幅は3である。$\lambda=1$ なら $Z_t=X_t$ となり、定常分散も $\sigma^2$ に戻る。
+
 ## 注意
-$\lambda$ が小さいほど小さな持続変化に敏感だが反応は遅い。
+初期時点では分散はまだ定常値に達しておらず、時変管理限界を用いる設計もある。$\lambda$ を小さくすると定常分散は小さくなるが、単純に「小さいほど常に良い」わけではなく、検出したいシフトの大きさとARLを考えて設計する。
 
 <!-- CARD -->
 
