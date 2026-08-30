@@ -1750,52 +1750,140 @@ $$\sqrt{0.32}\approx0.5657.$$
 
 ---
 id: asym-exponential-sample-median
-title: 指数分布の標本中央値の漸近分布を数値化する
+title: 標本分位点の漸近分散を一般式から指数分布の中央値まで求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: sample-median-asymptotic-example
-type: calc_step
-difficulty: 3
+topic: sample-quantile-asymptotic-canonical
+type: strategy
+difficulty: 4
 priority: A
-hashtags: [標本中央値, 指数分布, 漸近正規性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+hashtags:
+  - 標本分位点
+  - 標本中央値
+  - 漸近正規性
+  - 経験分布
+  - 逆関数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 漸近的性質
 ---
 
 ## 問題
-$X_1,\ldots,X_n$ は率1の指数分布からの独立同分布標本で、標本中央値を $M_n$ とする。$M_n$ の漸近分布を求め、$n=100$ での漸近標準誤差を計算せよ。
+独立同分布な連続標本について、母分布関数を $F$、密度を $f$ とする。$0<p<1$ に対し母 $p$ 分位点 $q_p$ が
+$$
+F(q_p)=p
+$$
+を満たし、$q_p$ の近傍で $F$ は微分可能、$f$ は連続かつ $f(q_p)>0$ とする。次を解け。
+
+1. 標本 $p$ 分位点 $\widehat q_p$ の漸近分布を述べよ。
+2. なぜ分散に $1/f(q_p)^2$ が現れるのか、経験分布 $F_n$ の揺らぎと逆関数の一次近似から説明せよ。
+3. 率1の指数分布で標本中央値 $M_n$ の漸近分布を求め、$n=100$ の漸近標準誤差を計算せよ。
+4. $M_{100}=0.80$ が観測されたとき、母中央値を中心とした標準化値を求めよ。
 
 ## 記号・用語
-- $\xrightarrow{d}$：分布収束
+$\widehat q_p$ は経験分布 $F_n$ に基づく標本 $p$ 分位点である。標本中央値は $p=1/2$ の特別な場合である。
+
+$\xrightarrow{d}$ は分布収束を表す。漸近分散定数 $v$ とは
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v)
+$$
+の $v$ をいうので、$T_n$ 自身の大標本分散はおよそ $v/n$ である。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+標本分位点の漸近正規性は
+$$
+\sqrt n(\widehat q_p-q_p)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,\frac{p(1-p)}{f(q_p)^2}\right).
+$$
 
-連続分布の母中央値 $m$ で $f(m)>0$ なら
-$$\sqrt n(M_n-m)
-\xrightarrow{d}N\left(0,\frac1{4f(m)^2}\right).$$
-率1の指数分布では $F(x)=1-e^{-x}$、$f(x)=e^{-x}$（$x>0$）。
+直観的には、$F_n(q_p)$ はベルヌーイ指標の平均なので
+$$
+\sqrt n\{F_n(q_p)-p\}
+\xrightarrow{d}
+\text{正規分布 }N(0,p(1-p)).
+$$
+また $F(q_p+h)\approx p+f(q_p)h$ より、逆関数の一次近似として
+$$
+\widehat q_p-q_p
+\approx
+-\frac{F_n(q_p)-p}{f(q_p)}.
+$$
+したがって分散は $1/f(q_p)^2$ 倍される。
 
-## 一手
-まず母中央値を $F(m)=1/2$ から求め、その点の密度を公式へ代入する。
+## 一手／方針
+**まず母分位点 $q_p$ を求め、その点での密度 $f(q_p)$ を評価して公式へ代入する。** 公式暗記だけでなく、経験分布の縦方向の揺らぎ $F_n(q_p)-p$ を、逆関数の傾き $1/f(q_p)$ で横方向の分位点誤差へ変換すると理解する。
 
 ## 答え
-母中央値は $m=\log2$ であり
-$$\sqrt n(M_n-\log2)\xrightarrow{d}N(0,1).$$
-したがって $n=100$ での漸近標準誤差は $1/\sqrt{100}=0.1$。
+1.
+$$
+\boxed{
+\sqrt n(\widehat q_p-q_p)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,\frac{p(1-p)}{f(q_p)^2}\right)}.
+$$
+よって $\widehat q_p$ 自身の漸近分散は
+$$
+\frac{p(1-p)}{n f(q_p)^2}.
+$$
+
+2. $F_n(q_p)$ の $\sqrt n$ 尺度での分散定数は $p(1-p)$。一方、$F$ を逆に解いて分位点へ戻すときの局所的な傾きは $1/f(q_p)$ なので、分散にはその二乗 $1/f(q_p)^2$ が掛かる。
+
+3. 率1の指数分布では
+$$
+F(x)=1-e^{-x},\qquad f(x)=e^{-x}\quad(x>0).
+$$
+母中央値 $m$ は
+$$
+1-e^{-m}=\frac12
+\quad\Longrightarrow\quad
+m=\log2.
+$$
+また
+$$
+f(m)=e^{-\log2}=\frac12.
+$$
+$p=1/2$ だから極限分散定数は
+$$
+\frac{(1/2)(1/2)}{(1/2)^2}=1.
+$$
+したがって
+$$
+\boxed{
+\sqrt n(M_n-\log2)
+\xrightarrow{d}\text{正規分布 }N(0,1)}.
+$$
+$n=100$ での漸近標準誤差は
+$$
+\boxed{1/\sqrt{100}=0.1}.
+$$
+
+4.
+$$
+z=\frac{0.80-\log2}{0.1}
+\approx\boxed{1.07}.
+$$
 
 ## 計算例
-中央値は
-$$F(m)=\frac12
-\Rightarrow1-e^{-m}=\frac12
-\Rightarrow m=\log2.$$
-さらに $f(m)=e^{-\log2}=1/2$ だから
-$$\frac1{4f(m)^2}=\frac1{4(1/2)^2}=1.$$
-$M_{100}=0.80$ なら標準化値は
-$$\frac{0.80-\log2}{0.1}\approx1.07.$$
+$p=0.25$、$f(q_{0.25})=0.4$ とする。このとき極限分散定数は
+$$
+\frac{0.25\cdot0.75}{0.4^2}
+=\frac{0.1875}{0.16}
+=1.171875.
+$$
+$n=200$ なら標本25%分位点の漸近標準誤差は
+$$
+\sqrt{\frac{1.171875}{200}}
+\approx0.0765.
+$$
 
 ## 注意
-中央値の漸近分散には母分散ではなく、中央値における密度 $f(m)$ が入る。
+$f(q_p)>0$ が重要である。分位点付近の密度が小さいほど、経験分布の小さな縦揺れが大きな横方向の分位点誤差に変換される。裾の分位点や密度が非常に小さい領域では有限標本の正規近似が不安定になりやすい。また、ここで扱うのは固定した1つの $p$ に対する結果であり、分位点関数全体の一様収束とは別である。
 
 <!-- CARD -->
 
