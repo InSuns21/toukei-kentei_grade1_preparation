@@ -546,7 +546,7 @@ $$
 
 ---
 id: ts-acf-pacf-identification
-title: ACF・PACFの有意性からAR/MA候補を絞りYule–Walkerで係数まで求める
+title: ACF・PACFの有意性からAR/MA候補を絞りYule–Walkerで係数・革新分散まで求める
 category: applied-common
 subcategory: applied-time-series
 topic: acf-pacf-yule-walker-canonical
@@ -579,11 +579,17 @@ ACF・PACFとYule--Walker方程式について次を解け。
 4. 標本ACFが $(0.45,0.01,-0.02,\ldots)$ とラグ1でほぼ打ち切られ、PACFが徐々に減衰するなら第一候補を答えよ。
 5. $\rho_1=0.6,\rho_2=0.2$ のときラグ2偏自己相関 $\alpha_{22}$ を求めよ。
 6. AR$(2)$で $\rho(1)=0.6,\rho(2)=0.4$ とする。Yule--Walker方程式から $\phi_1,\phi_2$ を求めよ。
+7. 平均0のAR$(1)$
+$$
+X_t=\phi X_{t-1}+\varepsilon_t,
+\qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+$$
+について、標本自己共分散が $\widehat\gamma(0)=10,\widehat\gamma(1)=6$ であった。Yule--Walker法で $\phi$ と $\sigma_\varepsilon^2$ を推定せよ。
 
 ## 記号・用語
 ACFは自己相関関数、PACFは偏自己相関関数である。ラグ $k$ のPACFは、$X_t$ を $X_{t-1},\ldots,X_{t-k}$ で最良線形予測したときの最遠ラグ $X_{t-k}$ の係数とみなせる。
 
-Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ。標本自己相関を代入すればAR係数のモーメント型推定にも使える。
+Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ。標本自己相関・自己共分散を代入すれば、AR係数や革新分散のモーメント型推定にも使える。
 
 ## 使用公式・定理
 理論的な目安は次である。
@@ -611,10 +617,27 @@ $$
 \rho(2)=\phi_1\rho(1)+\phi_2.
 $$
 
-## 一手／方針
-**モデル同定では「ACFとPACFのどちらが打ち切られるか」を先に見る。** 有限標本では厳密な0にならないので、近似限界を使って「標本変動で説明できる小ささか」を判断する。
+AR$(1)$では
+$$
+\gamma(1)=\phi\gamma(0)
+$$
+なので
+$$
+\phi=\frac{\gamma(1)}{\gamma(0)}.
+$$
+また定常分散の関係
+$$
+\gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2}
+$$
+より
+$$
+\sigma_\varepsilon^2=\gamma(0)(1-\phi^2).
+$$
 
-次数候補を得たら、Yule--Walkerなどで係数を求め、最後に情報量規準・係数推定・残差診断で候補を確認する。
+## 一手／方針
+**モデル同定では「ACFとPACFのどちらが打ち切られるか」を先に見る。** 有限標本では厳密な0にならないので、近似限界を使って標本変動で説明できる小ささかを判断する。
+
+次数候補を得たらYule--Walkerなどで係数を求める。AR$(1)$ではラグ1の自己共分散式から係数を出し、ラグ0の式へ戻れば革新分散まで一続きで求まる。最後に情報量規準・係数推定・残差診断で候補を確認する。
 
 ## 答え
 1. AR$(p)$ はACFが減衰しPACFがラグ $p$ で打ち切られる。MA$(q)$ はACFがラグ $q$ で打ち切られPACFが減衰する。ARMA$(p,q)$ は両方とも一般に減衰する。
@@ -666,6 +689,22 @@ $$
 \boxed{\phi_1=0.5625}.
 $$
 
+7.
+$$
+\widehat\phi
+=\frac{\widehat\gamma(1)}{\widehat\gamma(0)}
+=\frac6{10}
+=\boxed{0.6}.
+$$
+次に
+$$
+\widehat\sigma_\varepsilon^2
+=\widehat\gamma(0)(1-\widehat\phi^2)
+=10(1-0.6^2)
+=\boxed{6.4}.
+$$
+推定係数は $|0.6|<1$ なのでAR$(1)$の定常域内である。
+
 ## 計算例
 AR$(1)$では理論的に $\rho_2=\rho_1^2$ なので
 $$
@@ -673,10 +712,16 @@ $$
 $$
 したがってAR$(1)$の理論PACFがラグ1で打ち切られることを、ラグ2について直接確認できる。
 
+また $\widehat\gamma(0)=25,\widehat\gamma(1)=10$ なら $\widehat\phi=0.4$、革新分散は
+$$
+25(1-0.4^2)=21
+$$
+となる。
+
 ## 注意
 $\pm1.96/\sqrt n$ は各ラグを個別に見る近似的な目安であり、多数ラグを同時に検定する厳密な同時信頼帯ではない。ACF・PACFだけで次数を確定せず、情報量規準と残差診断を併用する。
 
-PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した量である。
+標本自己共分散を理論式へ代入して得るYule--Walker推定量には有限標本で偏りがあり得る。PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した量である。
 
 <!-- CARD -->
 
