@@ -2130,7 +2130,6 @@ items:
       - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
-      - engproc-ctmc-holding-jump-probability
       - engproc-two-state-ctmc-transition
       - engproc-nhpp-cumulative-intensity
       - engproc-poisson-rate-estimate-exposure
@@ -2166,7 +2165,6 @@ items:
         status: card
         cards:
           - engproc-ctmc-generator-check
-          - engproc-ctmc-holding-jump-probability
           - engproc-two-state-ctmc-transition
           - engproc-ctmc-uniformization
           - engproc-ou-mean-variance
