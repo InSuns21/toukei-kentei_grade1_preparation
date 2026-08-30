@@ -1,33 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-30-model-selection-duplicates-83
+batch_id: 2026-08-30-normal-two-sample-variance-duplicates-85
 items:
-  - id: ms-kl-nonnegativity
+  - id: test-pooled-two-sample-t-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-kl-divergence
-    note: KL情報量の非負性とギブスの不等式による確認は定義・数値例を含むKL canonical cardへ統合済み。
-  - id: ms-overfitting-generalization
+    canonical_card: test-pooled-two-sample-t
+    note: 等分散2標本t検定の結合分散、統計量、自由度、数値判定はcanonical cardへ統合済み。
+  - id: test-welch-two-sample-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-kfold-cv-numeric
-    note: 訓練誤差が非増加でも汎化誤差が悪化しうる過学習の説明は、交差検証によるモデル選択canonical cardへ統合済み。
-  - id: ms-variable-selection-stepwise
+    canonical_card: test-welch-two-sample-formula
+    note: Welch統計量とWelch–Satterthwaite自由度の数値計算はcanonical cardへ統合済み。
+  - id: test-normal-variance-chisquare-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-bic-numeric-comparison
-    note: 前進選択・後退消去・ステップワイズ法は、AIC等を局所的に改善する探索として情報量規準canonical cardへ統合済み。
-  - id: ms-regularization-bias-variance
+    canonical_card: test-normal-variance-chisquare
+    note: 正規母分散の両側カイ二乗検定の数値計算と臨界値判定はcanonical cardへ統合済み。
+  - id: test-normal-variance-one-sided
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: 正則化でバイアスが増えバリアンスが減る関係と予測誤差への影響はRidge/Lasso canonical cardへ統合済み。
-  - id: ms-multicollinearity-ridge
+    canonical_card: test-normal-variance-chisquare
+    note: 母分散の大小による上側・下側棄却方向と上側点記法はcanonical cardへ統合済み。
+  - id: test-normal-variance-ratio-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: 多重共線性で小さい固有値方向が不安定になりRidgeが安定化する理由は特異値縮小と数値例を含むcanonical cardへ統合済み。
-  - id: ms-lasso-selection
+    canonical_card: test-normal-variance-ratio-f
+    note: 2正規母分散比の片側F統計量、自由度、数値判定はcanonical cardへ統合済み。
+  - id: test-f-reciprocal-quantile
     bucket: duplicates
     reason: duplicate
-    canonical_card: ms-ridge-lasso-orthogonal-numeric
-    note: Lassoのsoft-thresholdingによる零化、変数選択性、選択一致性には追加条件が必要という限界までRidge/Lasso canonical cardへ統合済み。
+    canonical_card: test-normal-variance-ratio-f
+    note: F分布の逆数関係と自由度交換、両側検定の下側臨界値はcanonical cardへ統合済み。
