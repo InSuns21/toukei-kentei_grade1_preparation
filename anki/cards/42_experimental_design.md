@@ -1107,41 +1107,179 @@ $a=4,b=5$ なら自由度は全19、処置3、ブロック4、誤差12。
 
 ---
 id: design-rcbd-anova-numeric
-title: 乱塊法のF統計量を計算する
+title: 乱塊法を平方和分解からF検定・処置差まで一続きで解く
 category: applied-common
 subcategory: applied-design
-topic: rcbd-anova-numeric
-type: calc_step
+topic: randomized-complete-block-anova-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [乱塊法, F検定, 数値計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 乱塊法 }]
+priority: A
+hashtags:
+  - 乱塊法
+  - ブロック化
+  - 分散分析
+  - 平方和
+  - F検定
+  - 処置差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 乱塊法
 ---
 
 ## 問題
-$a=3,b=4$ の乱塊法で $SS_A=24,SS_B=15,SS_E=12$。処置効果のF統計量を求めよ。
+$a$ 処置を $b$ ブロックの各々で1回ずつ観測する乱塊法を考える。
+
+1. 加法モデルを書き、処置平方和・ブロック平方和・誤差平方和を平均から表せ。
+2. 全体・処置・ブロック・誤差の自由度を書け。
+3. $a=3,b=4$ で $SS_A=24,SS_B=15,SS_E=12$ を得た。処置効果とブロック効果の平均平方、F統計量を求めよ。
+4. 2処置A,Bを3ブロックで観測し、各ブロックの $(A,B)$ が $(10,14),(9,12),(13,15)$ だった。B−Aの処置差を求め、なぜブロック水準を差で消せるか説明せよ。
+
+## 記号・用語
+乱塊法では、応答へ影響するが主目的ではない局外因子をブロックとしてまとめ、**各ブロック内で全処置を比較**する。各セル1観測の基本的な加法モデルは
+$$
+Y_{ij}=\mu+\alpha_i+\beta_j+\varepsilon_{ij},
+\qquad
+\sum_i\alpha_i=0,\quad \sum_j\beta_j=0.
+$$
+ここで $\alpha_i$ は処置効果、$\beta_j$ はブロック効果である。
+
+各セル1観測では処置×ブロック交互作用を独立に推定できないので、基本解析では交互作用を無視できる加法性を仮定し、その残りを誤差として扱う。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+全平均を $\bar Y_{\cdot\cdot}$、処置平均を $\bar Y_{i\cdot}$、ブロック平均を $\bar Y_{\cdot j}$ とすると、バランスした乱塊法では
+$$
+SS_T=\sum_{i=1}^a\sum_{j=1}^b
+(Y_{ij}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_A=b\sum_{i=1}^a
+(\bar Y_{i\cdot}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_B=a\sum_{j=1}^b
+(\bar Y_{\cdot j}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_E=SS_T-SS_A-SS_B.
+$$
 
-処置数を $a$、ブロック数を $b$ とすると、処置と誤差の自由度は
-$$df_A=a-1,\qquad df_E=(a-1)(b-1).$$
-平方和 $SS$ を自由度で割った平均平方を $MS=SS/df$ と定義し、処置効果の検定統計量を
-$$F_A=\frac{MS_A}{MS_E}$$
-とする。
-帰無仮説 $H_0:\tau_1=\cdots=\tau_a=0$ の下で $F_A\sim F_{a-1,(a-1)(b-1)}$。
+自由度は
+$$
+df_T=ab-1,
+\quad df_A=a-1,
+\quad df_B=b-1,
+\quad df_E=(a-1)(b-1).
+$$
+各平均平方を $MS=SS/df$ とし、処置効果の帰無仮説
+$$
+H_0:\alpha_1=\cdots=\alpha_a=0
+$$
+は
+$$
+F_A=\frac{MS_A}{MS_E}
+$$
+で検定する。ブロック効果も同様に $F_B=MS_B/MS_E$ で評価できる。
+
+2処置だけなら、同じブロック内で差
+$$
+D_j=Y_{Bj}-Y_{Aj}
+$$
+を取ると加法モデルの $\mu$ と $\beta_j$ が消え、処置差は $\bar D$ で推定できる。
+
+## 一手／方針
+**乱塊法では「ブロックで説明できる変動を先に取り除き、残った誤差で処置差を測る」と考える。**
+
+1. 処置平均・ブロック平均・全平均を作る。
+2. $SS_T=SS_A+SS_B+SS_E$ と分解する。
+3. 自由度を $ab-1=(a-1)+(b-1)+(a-1)(b-1)$ で確認する。
+4. 平均平方へ直し、処置は $MS_A/MS_E$ で検定する。
+5. 2処置なら、同一ブロック内差を取る見方でも処置差を確認する。
 
 ## 答え
-$$df_A=2,\qquad df_E=(3-1)(4-1)=6,$$
-$$MS_A=24/2=12,\qquad MS_E=12/6=2,$$
-$$F_A=MS_A/MS_E=6.$$
+1. 平方和は
+$$
+SS_A=b\sum_i(\bar Y_{i\cdot}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_B=a\sum_j(\bar Y_{\cdot j}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_E=SS_T-SS_A-SS_B.
+$$
+ブロック間の系統差を $SS_B$ として分離することで、処置比較に使う誤差から局外変動を除く。
+
+2.
+$$
+\boxed{df_T=ab-1},\qquad
+\boxed{df_A=a-1},
+$$
+$$
+\boxed{df_B=b-1},\qquad
+\boxed{df_E=(a-1)(b-1)}.
+$$
+
+3. $a=3,b=4$ なので
+$$
+df_A=2,\quad df_B=3,\quad df_E=6.
+$$
+よって
+$$
+MS_A=24/2=12,
+\qquad
+MS_B=15/3=5,
+\qquad
+MS_E=12/6=2.
+$$
+したがって
+$$
+\boxed{F_A=12/2=6},
+\qquad
+\boxed{F_B=5/2=2.5}.
+$$
+処置効果については $F_{2,6}$ 分布の臨界値またはP値と比較する。
+
+4. 各ブロック内差は
+$$
+(14-10,\ 12-9,\ 15-13)=(4,3,2)
+$$
+なので
+$$
+\widehat{\mu_B-\mu_A}
+=\bar D
+=\frac{4+3+2}{3}
+=\boxed{3}.
+$$
+加法モデルでは
+$$
+Y_{Bj}-Y_{Aj}
+=(\alpha_B-\alpha_A)+(\varepsilon_{Bj}-\varepsilon_{Aj}),
+$$
+となり、同じブロックに共通する $\mu+\beta_j$ が相殺される。
 
 ## 計算例
-ブロック平方和は処置F統計量の分子に入らない。
+上の3処置4ブロック例では
+$$
+SS_T=SS_A+SS_B+SS_E=24+15+12=51,
+$$
+自由度も
+$$
+11=2+3+6
+$$
+と一致する。この2つの和を確認すると、平方和や自由度の取り違えを検算できる。
+
+2処置の場合は対応のある比較と似ており、ブロック内差を見るとブロック間の大きな水準差が消える。ただし乱塊法は一般に3処置以上へも拡張され、その場合は平方和分解による分散分析が基本になる。
 
 ## 注意
-分母はブロック平均平方でなく誤差平均平方。
+各セル1観測の乱塊法では処置×ブロック交互作用を誤差から分離できない。交互作用が無視できない状況では、この単純な加法モデルのF検定を機械的に使わない。
+
+欠測があると直交した平方和分解が崩れるため、欠測値補完や一般線形モデルとしての解析が必要になる。これは別カードで扱う。
+
+ブロック化は、ブロック内が似ていてブロック間差が大きいときに有効である。ブロック因子と応答の関係が弱ければ、自由度を消費するだけで精度改善が小さいこともある。
 
 <!-- CARD -->
 
