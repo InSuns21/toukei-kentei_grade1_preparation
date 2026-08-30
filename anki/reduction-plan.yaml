@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-estimation-theory-reduction-41
+batch_id: 2026-08-30-estimation-theory-reduction-41b
 items:
   - id: est-score-mean-zero
     bucket: duplicates
@@ -35,13 +35,15 @@ items:
     bucket: duplicates
     reason: duplicate
     canonical_card: est-cramer-rao-lower-bound
-    note: ポアソン平均の分散下界lambda/nと標本平均が有限標本で達成する計算を正本へ統合済み。
+    coverage_card: asym-asymptotic-relative-efficiency
+    note: ポアソン平均の有限標本下界と達成例は一般CR正本へ統合し、math-asymptotic-estimationの公式coverageは有限標本下界から漸近効率へつなぐ正本で維持する。
 
   - id: est-crlb-bernoulli-square
     bucket: duplicates
     reason: duplicate
     canonical_card: est-cramer-rao-lower-bound
-    note: g(p)=p^2でg'(p)^2を含むクラーメル・ラオの不等式による下界と数値例を正本へ統合済み。
+    coverage_card: asym-asymptotic-relative-efficiency
+    note: g(p)=p^2の具体例は一般CR正本へ統合し、math-asymptotic-estimationのクラーメル・ラオ公式coverageは同一subcategoryの漸近効率正本で維持する。
 
   - id: est-mse-definition
     bucket: duplicates
