@@ -2015,7 +2015,6 @@ items:
     cards:
       - ts-arima-definition
       - ts-acf-pacf-identification
-      - ts-pacf-lag2-calculation
       - ts-sample-acf
       - ts-simple-exponential-smoothing
       - ts-spectral-density-ar1
@@ -2029,7 +2028,6 @@ items:
       - ts-ar1-acf
       - ts-ar1-hstep-forecast
       - ts-yule-walker-ar2
-      - ts-ma1-invertibility
       - ts-maq-acf-cutoff
     terms:
       - name: ARIMAモデル
@@ -2042,10 +2040,8 @@ items:
           - ts-ar1-hstep-forecast
           - ts-ar-causality-check
           - ts-yule-walker-ar2
-          - ts-ma1-invertibility
           - ts-maq-acf-cutoff
           - ts-acf-pacf-identification
-          - ts-pacf-lag2-calculation
           - ts-sample-acf
           - ts-simple-exponential-smoothing
           - ts-spectral-density-ar1

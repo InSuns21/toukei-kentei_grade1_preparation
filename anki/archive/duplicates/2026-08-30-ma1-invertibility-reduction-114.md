@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 移動平均過程
 archive_reason: duplicate
-canonical_card: ts-ma1-invertibility
+canonical_card: ts-ar-causality-check
 archive_note: MA(1)の再帰表示から可逆条件を導き、観測値から革新を逐次復元する数値例までcanonical cardへ統合済み。
 ---
 ## 問題
