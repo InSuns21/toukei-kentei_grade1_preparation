@@ -627,64 +627,121 @@ PACFがラグ2以降ほぼ0でACFが減衰するなら AR$(1)$、ACFがラグ2�
 
 ---
 id: ts-sample-acf
-title: 標本自己相関を計算する
+title: 標本自己共分散から標本自己相関まで一続きで計算する
 category: applied-common
 subcategory: applied-time-series
-topic: sample-acf
-type: calc_step
+topic: sample-autocovariance-acf-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [自己相関関数, 標本自己相関]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 自己相関関数 }]
+hashtags:
+  - 時系列解析
+  - 標本自己共分散
+  - 標本自己相関
+  - ACF
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 自己相関関数
 ---
 ## 問題
-データ $(1,2,3,2)$ のラグ1標本自己相関を計算せよ。
-## 記号・用語
-$\bar x=n^{-1}\sum_{t=1}^n x_t$ とする。
-## 使用公式・定理
-**標本自己相関**：
-$$\widehat\rho_k=\frac{\sum_{t=k+1}^n(x_t-\bar x)(x_{t-k}-\bar x)}{\sum_{t=1}^n(x_t-\bar x)^2}.$$
-## 一手／方針
-平均を引き、分子では1時点ずらした偏差の積を足す。
-## 答え
-ラグ1標本自己相関は
+観測列 $x_1,\ldots,x_n$ について、まず分母を $n$ にそろえた標本自己共分散を
 $$
-\widehat\rho_1=0.
+\widehat\gamma(k)
+=\frac1n\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)
+\qquad(k\ge0)
+$$
+と定義する。
+1. この定義から標本自己相関 $\widehat\rho(k)$ の計算式を導け。
+2. $(x_1,x_2,x_3,x_4)=(1,2,3,2)$ のラグ1標本自己相関を求めよ。
+3. $(x_1,x_2,x_3,x_4)=(1,3,2,4)$ のラグ1標本自己共分散と標本自己相関を求めよ。
+
+## 記号・用語
+$\bar x=n^{-1}\sum_{t=1}^n x_t$ は標本平均、$\widehat\gamma(k)$ はラグ $k$ の標本自己共分散、$\widehat\rho(k)$ はラグ $k$ の標本自己相関である。自己共分散は変動の大きさを単位付きで測り、自己相関はそれをラグ0の分散尺度で正規化して無次元化する。
+
+## 使用公式・定理
+分母をすべて $n$ にそろえた定義なら
+$$
+\widehat\rho(k)
+=\frac{\widehat\gamma(k)}{\widehat\gamma(0)}.
+$$
+ここで
+$$
+\widehat\gamma(0)
+=\frac1n\sum_{t=1}^{n}(x_t-\bar x)^2
+$$
+だから、共通の $1/n$ が消えて
+$$
+\widehat\rho(k)
+=\frac{\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)}
+{\sum_{t=1}^{n}(x_t-\bar x)^2}.
 $$
 
-## 計算例
-まず標本平均は
+## 一手／方針
+**平均を求める→偏差列を作る→ラグをずらした偏差の積を足す→必要ならラグ0で正規化する。** 自己共分散と自己相関を別々の公式として暗記せず、同じ偏差積から順に作る。
+
+## 答え
+1. 分母 $n$ の自己共分散規約では
 $$
-\bar x=\frac{1+2+3+2}{4}=2.
+\widehat\rho(k)
+=\frac{\widehat\gamma(k)}{\widehat\gamma(0)}
+=\frac{\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)}
+{\sum_{t=1}^{n}(x_t-\bar x)^2}.
 $$
-したがって偏差列は
+
+2. $(1,2,3,2)$ では
 $$
-(x_t-\bar x)=(-1,0,1,0).
+\bar x=2,
 $$
-ラグ1の分子は、1時点ずらした偏差の積を足して
+偏差列は $(-1,0,1,0)$ である。ラグ1の偏差積和は
 $$
-\begin{aligned}
-\sum_{t=2}^4(x_t-\bar x)(x_{t-1}-\bar x)
-&=0(-1)+1(0)+0(1)\\
-&=0.
-\end{aligned}
+0(-1)+1(0)+0(1)=0,
 $$
-分母は
+ラグ0の偏差平方和は
 $$
-\begin{aligned}
-\sum_{t=1}^4(x_t-\bar x)^2
-&=(-1)^2+0^2+1^2+0^2\\
-&=2.
-\end{aligned}
+1+0+1+0=2.
 $$
 よって
 $$
-\widehat\rho_1=\frac02=0.
+\widehat\rho(1)=0.
 $$
 
+3. $(1,3,2,4)$ では
+$$
+\bar x=2.5,
+$$
+偏差列は $(-1.5,0.5,-0.5,1.5)$ である。ラグ1の偏差積和は
+$$
+0.5(-1.5)+(-0.5)(0.5)+1.5(-0.5)=-1.75.
+$$
+したがって
+$$
+\widehat\gamma(1)=\frac{-1.75}{4}=-0.4375.
+$$
+また偏差平方和は
+$$
+2.25+0.25+0.25+2.25=5,
+$$
+なので
+$$
+\widehat\gamma(0)=\frac54=1.25,
+\qquad
+\widehat\rho(1)=\frac{-0.4375}{1.25}=-0.35.
+$$
+
+## 計算例
+3のデータでは、自己相関を直接計算しても
+$$
+\widehat\rho(1)=\frac{-1.75}{5}=-0.35
+$$
+となる。これは分母を各ラグで共通の $n$ にした自己共分散を正規化した結果と一致する。
+
 ## 注意
-標本自己共分散の分母規約は複数あるので、問題で与えられた定義に従う。
+標本自己共分散には複数の規約がある。たとえばラグ $k$ で分母を $n-k$ とする定義も使われる。その場合、$\widehat\gamma(k)/\widehat\gamma(0)$ は上の「偏差積和÷偏差平方和」と同じ数値にはならない。問題文やソフトウェアの定義を先に確認し、分母規約を途中で混ぜない。また標本ACFは有限標本では理論ACFと一致しない。
 
 <!-- CARD -->
 
