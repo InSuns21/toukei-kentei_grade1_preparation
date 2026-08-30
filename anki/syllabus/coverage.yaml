@@ -1753,12 +1753,9 @@ items:
       - design-two-by-two-effects
       - design-two-by-two-numeric
       - design-interaction-plot
-      - design-factorial-effect-ss
+      - design-two-level-effect-contrast
       - design-random-oneway-components
       - design-random-intercept-covariance
-      - design-two-level-coding
-      - design-two-level-effect-contrast
-      - design-two-cubed-effects-numeric
       - design-block-confounding
       - design-fraction-generator
       - design-alias-structure
@@ -1792,7 +1789,7 @@ items:
           - design-two-by-two-effects
           - design-two-by-two-numeric
           - design-interaction-plot
-          - design-factorial-effect-ss
+          - design-two-level-effect-contrast
       - name: ブロック化
         status: card
         cards:
@@ -1817,9 +1814,7 @@ items:
       - name: 一部実施要因計画
         status: card
         cards:
-          - design-two-level-coding
           - design-two-level-effect-contrast
-          - design-two-cubed-effects-numeric
           - design-block-confounding
           - design-fraction-generator
           - design-alias-structure
