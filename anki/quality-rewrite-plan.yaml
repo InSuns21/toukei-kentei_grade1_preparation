@@ -1,96 +1,91 @@
 schema_version: 1
-batch_id: 2026-08-30-asymptotic-cramer-rao-coverage-42
+batch_id: 2026-08-30-rao-blackwell-umvu-merge-prep-43
 items:
-  - id: asym-asymptotic-relative-efficiency
-    note: math-asymptotic-estimation内でクラーメル・ラオの不等式のcoverageを保ちつつ、有限標本下界から漸近効率へつなぐ正本にする。
+  - id: est-rao-blackwell
+    note: Rao–Blackwellの分散改善、Bernoulli具体計算、完備十分統計量によるLehmann–ScheffeとUMVUの一意性を一続きの構成手順へ統合する。
     metadata:
-      title: クラーメル・ラオの不等式から漸近効率と漸近相対効率を整理する
-      topic: cramer-rao-asymptotic-efficiency
-      hashtags: [クラーメル・ラオの不等式, フィッシャー情報量（1次元）, 漸近効率, 漸近相対効率]
+      title: ラオ・ブラックウェル化からLehmann–Scheffé定理でUMVUを構成する
+      topic: rao-blackwell-lehmann-scheffe-umvu
+      hashtags: [ラオ・ブラックウェルの定理, 十分統計量, 完備性, Lehmann-Scheffe, UMVU]
     sections:
       問題: |
-        正則な1母数モデルで1観測当たりのフィッシャー情報量（1次元）を $I_1(\theta)$ とする。
+        母数 $\theta$ の不偏推定量 $U$ と十分統計量 $T$ があるとする。
 
-        1. $E_\theta[T_n]=\theta$ を満たす不偏推定量に対するクラーメル・ラオの不等式を書け。
-        2. 正則な最尤推定量の漸近分布と、フィッシャー情報量（1次元）との関係を述べよ。
-        3. 二つの漸近正規推定量 $T_n,U_n$ の漸近相対効率を定義せよ。
-
-        数値例として
+        1. ラオ・ブラックウェル化
         $$
-        \operatorname{AVar}(\sqrt n\,T_n)=4,
-        \qquad
-        \operatorname{AVar}(\sqrt n\,U_n)=9
+        U^*(T)=E_\theta[U\mid T]
         $$
-        のとき $T_n$ の $U_n$ に対する漸近相対効率を求めよ。
+        により不偏性が保たれ、分散が増えないことを示せ。
+        2. $T$ がさらに完備なら、$U^*(T)$ が一様最小分散不偏推定量となる理由を述べよ。
+        3. ベルヌーイ分布に従う独立標本 $X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$ で、粗い不偏推定量 $U=X_1$ と $T=\sum_iX_i$ を用いて $E[X_1\mid T]$ を計算せよ。
       使用公式・定理: |
-        独立同分布標本では標本全体の情報量は
+        $T$ が $\theta$ の十分統計量なら、ラオ・ブラックウェルの定理より
         $$
-        I_n(\theta)=nI_1(\theta).
+        U^*=E[U\mid T]
         $$
-        クラーメル・ラオの不等式より、正則条件の下で不偏推定量 $T_n$ は
+        は $T$ の関数であり、$U$ が不偏なら
         $$
-        \operatorname{Var}_\theta(T_n)
-        \ge \frac{1}{I_n(\theta)}
-        =\frac{1}{nI_1(\theta)}.
+        E[U^*]=E[E[U\mid T]]=E[U]=\theta.
+        $$
+        また全分散公式
+        $$
+        \operatorname{Var}(U)
+        =E[\operatorname{Var}(U\mid T)]
+        +\operatorname{Var}(E[U\mid T])
+        $$
+        から
+        $$
+        \operatorname{Var}(U^*)\le\operatorname{Var}(U).
         $$
 
-        また正則な最尤推定量は通常
-        $$
-        \sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
-        \xrightarrow{d}
-        N\left(0,I_1(\theta)^{-1}\right)
-        $$
-        を満たし、有限標本の不偏性とは別概念だが、漸近分散が情報下界に対応する。
-
-        漸近正規推定量について
-        $$
-        \sqrt n(T_n-\theta)\xrightarrow{d}N(0,v_T),
-        \qquad
-        \sqrt n(U_n-\theta)\xrightarrow{d}N(0,v_U)
-        $$
-        なら、ここでは
-        $$
-        \operatorname{ARE}(T,U)=\frac{v_U}{v_T}
-        $$
-        と定義する。
+        さらに $T$ が完備十分統計量で、$h(T)$ が $g(\theta)$ の不偏推定量なら、Lehmann–Scheffé定理により $h(T)$ は $g(\theta)$ の一意な一様最小分散不偏推定量である。
       一手: |
-        **有限標本では分散を $1/I_n$ と比較し、漸近理論では $\sqrt n$ 倍した推定誤差の極限分散を $I_1^{-1}$ と比較する。** その上で二つの極限分散の比を取れば漸近相対効率になる。
+        **不偏推定量を作る → 十分統計量で条件付ける → 完備性があれば一意なUMVUと結論する。** Rao–Blackwellは「分散を下げる操作」、Lehmann–Schefféは「完備十分統計量の関数なら最適性と一意性まで確定する定理」と役割を分ける。
       答え: |
-        不偏推定量には
         $$
-        \operatorname{Var}(T_n)\ge\frac{1}{nI_1(\theta)}.
+        U^*=E[U\mid T]
         $$
-        正則な最尤推定量は
+        は不偏で
         $$
-        \sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
-        \xrightarrow{d}N(0,I_1(\theta)^{-1})
+        \operatorname{Var}(U^*)\le\operatorname{Var}(U).
         $$
-        となるのが基本である。
+        $T$ が完備十分なら、$U^*$ はLehmann–Scheffé定理により一意な一様最小分散不偏推定量となる。
 
-        数値例では
+        ベルヌーイ標本では
         $$
-        \operatorname{ARE}(T,U)=\frac94=2.25.
+        E[X_1\mid T=t]=\frac tn,
         $$
-        したがって同じ標本サイズなら $T_n$ の方が小さい極限分散を持つ。
+        よって
+        $$
+        E[X_1\mid T]=\frac Tn=\bar X.
+        $$
       計算例: |
-        例えば $I_1(\theta)=1/4$ なら、$n=100$ に対するクラーメル・ラオの分散下界は
+        ベルヌーイ標本で $T=t$ と分かったとき、「$n$ 個のうちちょうど $t$ 個が1」という配置は交換可能である。したがって各 $X_i$ が1である条件付き確率は等しく、
         $$
-        \frac{1}{100(1/4)}=0.04.
+        \sum_{i=1}^nP(X_i=1\mid T=t)=t
         $$
-        一方、漸近分布の尺度では
+        だから
         $$
-        I_1(\theta)^{-1}=4
+        P(X_1=1\mid T=t)=\frac tn.
         $$
-        なので
+        $X_1$ は0-1変数なので
         $$
-        \sqrt n(\widehat\theta-\theta)
+        E[X_1\mid T=t]=P(X_1=1\mid T=t)=\frac tn.
         $$
-        の極限分散4と、$\widehat\theta$ 自身の漸近分散 $4/n$ を混同しない。
+        よって
+        $$
+        U^*=E[X_1\mid T]=\frac Tn=\bar X.
+        $$
 
-        また $v_T=4,v_U=9$ なら
+        分散も
         $$
-        \operatorname{ARE}(T,U)=\frac{9}{4}=2.25.
+        \operatorname{Var}(X_1)=p(1-p),
         $$
-        これは $T_n$ の極限分散が $U_n$ の $4/9$ であることを表す。
+        $$
+        \operatorname{Var}(\bar X)=\frac{p(1-p)}n
+        $$
+        なので、$n>1$ では条件付けにより実際に分散が小さくなる。
+
+        さらにベルヌーイ族では $T=\sum_iX_i\sim\operatorname{Binomial}(n,p)$ は完備十分統計量である。したがって $T/n$ は $p$ の不偏推定量であり、Lehmann–Scheffé定理から $p$ の一意な一様最小分散不偏推定量である。
       注意: |
-        クラーメル・ラオの不等式は有限標本の不偏推定量に対する正則条件付き下界であり、最尤推定量の漸近効率とは同一の主張ではない。漸近相対効率は文献によって比の向きが逆の場合があるため定義を確認する。
+        Rao–Blackwell化だけで常に一意性まで得られるわけではない。十分統計量で条件付ければ分散は改善するが、Lehmann–Schefféによる一意なUMVUの結論には完備性が必要である。また「完備」は統計量の分布族について $E_\theta[a(T)]=0$ が全ての $\theta$ で成り立つなら $a(T)=0$ ほとんど確実、という性質である。
