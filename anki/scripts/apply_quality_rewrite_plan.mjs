@@ -55,30 +55,63 @@ function cardIdFromChunk(chunk) {
   return meta?.id || null;
 }
 
-function replaceSectionInBody(body, sectionName, replacement) {
-  const eol = body.includes("\r\n") ? "\r\n" : "\n";
-  const lines = body.split(/\r?\n/);
+const strategySectionAliases = new Set(["一手／方針", "一手", "重要な一手", "方針"]);
+
+function normalizedSectionName(sectionName) {
+  return strategySectionAliases.has(sectionName) ? "一手／方針" : sectionName;
+}
+
+function sectionAliasNames(sectionName) {
+  return strategySectionAliases.has(sectionName) ? strategySectionAliases : new Set([sectionName]);
+}
+
+function collectHeadings(lines) {
   const headings = [];
   for (let i = 0; i < lines.length; i += 1) {
     const match = lines[i].match(/^##\s+(.+?)\s*$/);
     if (match) headings.push({ index: i, name: match[1].trim() });
   }
+  return headings;
+}
 
-  const currentIndex = headings.findIndex((heading) => heading.name === sectionName);
+function replaceSectionInBody(body, sectionName, replacement) {
+  const eol = body.includes("\r\n") ? "\r\n" : "\n";
+  const lines = body.split(/\r?\n/);
+  const canonicalName = normalizedSectionName(sectionName);
+  const aliasNames = sectionAliasNames(sectionName);
+  let headings = collectHeadings(lines);
+  const matching = headings.filter((heading) => aliasNames.has(heading.name));
   const replacementLines = replacement.trim().split(/\r?\n/);
-  if (currentIndex >= 0) {
-    const start = headings[currentIndex].index + 1;
-    const end = currentIndex + 1 < headings.length ? headings[currentIndex + 1].index : lines.length;
-    lines.splice(start, end - start, ...replacementLines, "");
+
+  if (matching.length) {
+    // A strategy section has historically appeared under several aliases.
+    // Keep the earliest position, remove later aliases, and normalize the heading.
+    for (let i = matching.length - 1; i >= 1; i -= 1) {
+      headings = collectHeadings(lines);
+      const duplicate = headings.find((heading) => heading.name === matching[i].name && heading.index >= matching[i].index);
+      if (!duplicate) continue;
+      const duplicatePosition = headings.findIndex((heading) => heading.index === duplicate.index);
+      const end = duplicatePosition + 1 < headings.length ? headings[duplicatePosition + 1].index : lines.length;
+      lines.splice(duplicate.index, end - duplicate.index);
+    }
+
+    headings = collectHeadings(lines);
+    const current = headings.find((heading) => aliasNames.has(heading.name));
+    if (!current) throw new Error(`${sectionName}: failed to resolve existing section alias`);
+    const currentPosition = headings.findIndex((heading) => heading.index === current.index);
+    const end = currentPosition + 1 < headings.length ? headings[currentPosition + 1].index : lines.length;
+    lines[current.index] = `## ${canonicalName}`;
+    lines.splice(current.index + 1, end - current.index - 1, ...replacementLines, "");
     return lines.join(eol).replace(/\s+$/, "");
   }
 
-  const preferredOrder = ["問題", "記号・用語", "使用公式・定理", "なぜ", "なぜ？", "一手", "重要な一手", "方針", "答え", "計算例", "条件・注意", "注意"];
-  const desiredRank = preferredOrder.indexOf(sectionName);
+  const preferredOrder = ["問題", "記号・用語", "使用公式・定理", "なぜ", "なぜ？", "一手／方針", "答え", "計算例", "条件・注意", "注意"];
+  const desiredRank = preferredOrder.indexOf(canonicalName);
   let insertAt = lines.length;
   if (desiredRank >= 0) {
     const next = headings.find((heading) => {
-      const rank = preferredOrder.indexOf(heading.name);
+      const headingName = normalizedSectionName(heading.name);
+      const rank = preferredOrder.indexOf(headingName);
       return rank >= 0 && rank > desiredRank;
     });
     if (next) insertAt = next.index;
@@ -87,7 +120,7 @@ function replaceSectionInBody(body, sectionName, replacement) {
     if (noteHeading) insertAt = noteHeading.index;
   }
 
-  const block = [`## ${sectionName}`, ...replacementLines, ""];
+  const block = [`## ${canonicalName}`, ...replacementLines, ""];
   lines.splice(insertAt, 0, ...(insertAt > 0 && lines[insertAt - 1] !== "" ? [""] : []), ...block);
   return lines.join(eol).replace(/\s+$/, "");
 }
