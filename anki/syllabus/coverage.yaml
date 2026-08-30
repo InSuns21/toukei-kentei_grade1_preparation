@@ -2271,13 +2271,13 @@ items:
       - engasym-sample-variance-normal
       - engasym-method-moments-consistency
       - engasym-asymptotic-bias-mse
-      - engasym-relative-efficiency
+      - asym-asymptotic-relative-efficiency
       - engasym-estimating-equation-linearization
       - engasym-sandwich-m-estimator
       - engasym-multivariate-linear-combination
       - test-lr-wald-score-comparison
       - engasym-sample-size-mean-precision
-      - engasym-proportion-standardization
+      - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
       - engasym-lln-sensor-average
       - engasym-consistency-from-mse
@@ -2285,9 +2285,7 @@ items:
       - engasym-delta-ratio
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
-      - engasym-mle-asymptotic-normality
-      - engasym-poisson-mle-variance
-      - engasym-bernoulli-fisher-information
+      - asym-mle-poisson-tail-probability
       - engasym-wald-ci-generic
     terms:
       - name: 大数の法則
@@ -2302,25 +2300,24 @@ items:
           - engasym-empirical-cdf-point
           - engasym-sample-variance-normal
           - engasym-sample-size-mean-precision
-          - engasym-proportion-standardization
+          - asym-mle-asymptotic-normality
           - asym-slutsky
       - name: 最尤推定量の漸近正規性
         status: card
         cards:
-          - engasym-mle-asymptotic-normality
-          - engasym-poisson-mle-variance
-          - engasym-bernoulli-fisher-information
+          - asym-mle-asymptotic-normality
+          - asym-mle-poisson-tail-probability
           - engasym-wald-ci-generic
           - test-lr-wald-score-comparison
           - engasym-local-alternative-power
       - name: 漸近分散
         status: card
         cards:
-          - engasym-poisson-mle-variance
+          - asym-mle-poisson-tail-probability
           - engasym-sample-quantile-variance
           - engasym-sample-variance-normal
           - engasym-asymptotic-bias-mse
-          - engasym-relative-efficiency
+          - asym-asymptotic-relative-efficiency
           - engasym-estimating-equation-linearization
           - engasym-sandwich-m-estimator
           - engasym-multivariate-linear-combination
