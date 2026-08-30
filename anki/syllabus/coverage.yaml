@@ -2504,7 +2504,6 @@ items:
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
-      - engdesign-block-generator-count
       - engdesign-partial-confounding
       - engdesign-subsampling-variance
       - engdesign-randomization-permutation
@@ -2571,7 +2570,6 @@ items:
           - engdesign-graeco-latin-df
           - engdesign-latin-square-treatment-mean
           - engdesign-block-generator-protect-effects
-          - engdesign-block-generator-count
           - engdesign-partial-confounding
           - engdesign-split-plot-randomization
           - engdesign-incomplete-incidence-matrix
@@ -2589,5 +2587,4 @@ items:
         cards:
           - engdesign-foldover-dealias
           - engdesign-block-generator-protect-effects
-          - engdesign-block-generator-count
           - engdesign-partial-confounding
