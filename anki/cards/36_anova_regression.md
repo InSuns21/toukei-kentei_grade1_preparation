@@ -131,42 +131,184 @@ $$N-1=(a-1)+(N-a).$$
 
 ---
 id: anova-oneway-f-statistic
-title: 一元配置分散分析のF統計量を構成する
+title: 一元配置分散分析をモデルから平方和・自由度・F検定まで通す
 category: math-data-analysis
 subcategory: math-anova
-topic: oneway-f
+topic: oneway-anova-canonical
 type: formula
 difficulty: 2
 priority: S
-hashtags: [F検定, 平均平方, 一元配置分散分析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一元配置分散分析 }]
+hashtags:
+  - 一元配置分散分析
+  - 平方和
+  - 自由度
+  - F検定
+  - 分散分析表
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一元配置分散分析
 ---
 
 ## 問題
-各観測が独立な正規分布に従い、全群で分散が共通である一元配置分散分析を考える。$a$ 群、総標本数 $N$、群間平方和 $SS_A$、群内（誤差）平方和 $SS_E$ として、群間平均平方 $MS_A$、誤差平均平方 $MS_E$、および全群の母平均が等しいという帰無仮説を検定するF統計量を書け。
+$a$ 群の一元配置分散分析を考える。群 $i$ の観測を $Y_{ij}$、群サイズを $n_i$、総標本数を $N=\sum_i n_i$ とする。
+
+1. 固定効果モデルと誤差の仮定を書け。
+2. 全平方和・群間平方和・誤差平方和を定義し、平方和分解を書け。
+3. 各自由度、平均平方、F統計量を書け。
+4. 観測が群ごとに $(1,2)$、$(3,4)$、$(5,6)$ で、自由度 $(2,3)$ のF分布の5%上側臨界値を9.55とする。全群の母平均が等しいか検定せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+固定効果モデルは
+$$
+Y_{ij}=\mu+\alpha_i+\varepsilon_{ij},
+$$
+識別のため例えば
+$$
+\sum_{i=1}^a n_i\alpha_i=0
+$$
+と置く。誤差には
+$$
+\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2)
+$$
+を仮定する。したがって正確なF検定では独立性・正規性・等分散性が前提となる。
 
-帰無仮説下では $MS_A$ と $MS_E$ はともに $\sigma^2$ を推定する。
+群平均を $\bar Y_{i\cdot}$、全平均を $\bar Y_{\cdot\cdot}$ とすると
+$$
+SS_T=\sum_i\sum_j(Y_{ij}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_A=\sum_i n_i(\bar Y_{i\cdot}-\bar Y_{\cdot\cdot})^2,
+$$
+$$
+SS_E=\sum_i\sum_j(Y_{ij}-\bar Y_{i\cdot})^2,
+$$
+かつ
+$$
+SS_T=SS_A+SS_E.
+$$
+
+自由度も
+$$
+N-1=(a-1)+(N-a)
+$$
+と分解する。したがって
+$$
+MS_A=\frac{SS_A}{a-1},
+\qquad
+MS_E=\frac{SS_E}{N-a},
+$$
+$$
+F=\frac{MS_A}{MS_E}.
+$$
+帰無仮説
+$$
+H_0:\mu_1=\cdots=\mu_a
+$$
+の下で
+$$
+F\sim F_{a-1,N-a}.
+$$
+
+## 一手
+**群平均と全平均を出したら、平方和→自由度→平均平方→Fの順に表を埋める。** 一元配置分散分析はこれを一つの計算鎖として扱う。
 
 ## 答え
-$$MS_A=\frac{SS_A}{a-1},\qquad MS_E=\frac{SS_E}{N-a},$$
-$$F=\frac{MS_A}{MS_E}.$$
-$H_0:\mu_1=\cdots=\mu_a$ の下で
-$$F\sim F_{a-1,N-a}.$$
+モデルは
+$$
+Y_{ij}=\mu+\alpha_i+\varepsilon_{ij},
+\qquad
+\varepsilon_{ij}\overset{\mathrm{iid}}\sim N(0,\sigma^2).
+$$
+
+一般に
+$$
+SS_T=SS_A+SS_E,
+$$
+自由度は
+$$
+\nu_T=N-1,
+\qquad
+\nu_A=a-1,
+\qquad
+\nu_E=N-a.
+$$
+よって
+$$
+F=\frac{SS_A/(a-1)}{SS_E/(N-a)}.
+$$
+
+数値例では $a=3,N=6$、群平均は
+$$
+1.5,\ 3.5,\ 5.5,
+$$
+全平均は
+$$
+\bar Y_{\cdot\cdot}=3.5.
+$$
+したがって
+$$
+SS_A=2\{(1.5-3.5)^2+(3.5-3.5)^2+(5.5-3.5)^2\}=16,
+$$
+$$
+SS_E=3\{(-0.5)^2+(0.5)^2\}=1.5.
+$$
+自由度は
+$$
+\nu_A=2,
+\qquad
+\nu_E=3,
+$$
+なので
+$$
+MS_A=\frac{16}{2}=8,
+\qquad
+MS_E=\frac{1.5}{3}=0.5,
+$$
+$$
+F=\frac8{0.5}=16.
+$$
+$16>9.55$ より5%水準で $H_0$ を棄却し、少なくとも1群の母平均が異なると判断する。
 
 ## 計算例
-$a=3,N=15,SS_A=16,SS_E=24$ なら
-$$MS_A=\frac{16}{3-1}=8,
-\qquad MS_E=\frac{24}{15-3}=2.$$
-したがって
-$$F=\frac{MS_A}{MS_E}=\frac82=4,$$
-帰無仮説の下では自由度 $(2,12)$ のF分布と比較する。
+全平均との差からも平方和分解を確認できる。
+$$
+\begin{aligned}
+SS_T
+&=(-2.5)^2+(-1.5)^2+(-0.5)^2\\
+&\quad +(0.5)^2+(1.5)^2+(2.5)^2\\
+&=17.5.
+\end{aligned}
+$$
+一方
+$$
+SS_A+SS_E=16+1.5=17.5
+$$
+で一致する。
+
+分散分析表の中身は
+$$
+\begin{array}{c|c|c|c|c}
+\text{要因}&\text{平方和}&\text{自由度}&\text{平均平方}&F\\ \hline
+\text{群間}&16&2&8&16\\
+\text{誤差}&1.5&3&0.5&\\
+\text{全体}&17.5&5&&
+\end{array}
+$$
+となり、平方和と自由度の両方で
+$$
+17.5=16+1.5,
+\qquad
+5=2+3
+$$
+を確認できる。
 
 ## 注意
-群間変動が大きい右片側で棄却する。
+F検定で棄却して分かるのは「少なくとも1群の平均が異なる」ことまでで、どの群対が異なるかは多重比較などを別途行う。群間平方和では群平均の偏差を必ず群サイズ $n_i$ 倍する。
 
 <!-- CARD -->
 
