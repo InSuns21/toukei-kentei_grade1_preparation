@@ -1917,14 +1917,12 @@ items:
       - reg-breusch-pagan-idea
       - reg-leverage-threshold
       - reg-gls-estimator
-      - reg-wls-two-points
       - reg-ridge-closed-form
       - reg-lasso-soft-threshold
       - reg-lasso-vs-ridge
       - reg-general-linear-hypothesis
       - reg-press-loocv
       - reg-dffits-numeric
-      - reg-feasible-gls-steps
       - reg-nested-cross-validation
       - reg-software-output-interpretation
     terms:
@@ -1953,8 +1951,6 @@ items:
         status: card
         cards:
           - reg-gls-estimator
-          - reg-wls-two-points
-          - reg-feasible-gls-steps
       - name: ガウス・マルコフの定理
         status: card
         cards:
