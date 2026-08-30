@@ -17,7 +17,7 @@ const phraseCategories = [
     name: '強い省略表現',
     weight: 5,
     scoreCap: 10,
-    pattern: /定数を除いて|定数項を除いて|比例定数を(?:無視|除いて)|簡単な計算(?:で|により)|計算すると|計算すれば|整理すると|整理すれば|直ちに(?:分かる|わかる|得られる|従う)/g,
+    pattern: /定数を除いて|定数項を除いて|比例定数を(?:無視|除いて)|簡単な計算(?:で|により)|直ちに(?:分かる|わかる|得られる|従う)/g,
   },
   {
     name: '微分の省略候補',
@@ -65,7 +65,7 @@ const phraseCategories = [
     name: '式変形の省略候補',
     weight: 1,
     scoreCap: 2,
-    pattern: /展開すると|変形すると|代入すると|両辺を整理すると|これを解くと|連立すると/g,
+    pattern: /計算すると|計算すれば|整理すると|整理すれば|展開すると|変形すると|代入すると|両辺を整理すると|これを解くと|連立すると/g,
   },
 ];
 
@@ -201,7 +201,7 @@ if (benchmarkLength !== null) {
   lines.push(`代表的な粒度参照: statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md（詳細解答の非空白文字数 ${benchmarkLength}）`);
   lines.push('注意: 参照例との文字数一致は要求しない。採点対象の出発点・条件・途中計算・結論が再現可能かを優先する。');
 }
-lines.push('優先度: 強い省略表現・線形代数/変数変換のブラックボックス化・漸近定理の丸投げ・小問構造不足を重く、通常の「微分すると」「代入すると」等は低く評価する。');
+lines.push('優先度: 「簡単な計算により」「直ちに得られる」等の強い省略・線形代数/変数変換のブラックボックス化・漸近定理の丸投げ・小問構造不足を重く、通常の「計算すると」「整理すると」「微分すると」「代入すると」等は低く評価する。');
 lines.push('長い良質解答ほど接続語が多い問題を避けるため、カテゴリごとに1ファイル当たりの加点上限を設ける。');
 if (missingDetailedAnswer) lines.push(`詳細解答セクションなし: ${missingDetailedAnswer} ファイル`);
 lines.push('');
@@ -220,7 +220,8 @@ for (const value of valueOrder) {
 lines.push('');
 lines.push(`S/A候補ファイル（全${highValueRanked.length}件）:`);
 for (const item of highValueRanked) {
-  const examples = item.findings
+  const examples = [...item.findings]
+    .sort((a, b) => b.weight - a.weight || a.line - b.line)
     .slice(0, 5)
     .map((finding) => `${finding.line}:${finding.phrase}`)
     .join(', ');
@@ -229,7 +230,8 @@ for (const item of highValueRanked) {
 lines.push('');
 lines.push(`B候補ファイル（全${bValueRanked.length}件）:`);
 for (const item of bValueRanked) {
-  const examples = item.findings
+  const examples = [...item.findings]
+    .sort((a, b) => b.weight - a.weight || a.line - b.line)
     .slice(0, 5)
     .map((finding) => `${finding.line}:${finding.phrase}`)
     .join(', ');
@@ -238,7 +240,8 @@ for (const item of bValueRanked) {
 lines.push('');
 lines.push('優先監査ファイル（上位60件）:');
 for (const item of ranked.slice(0, 60)) {
-  const examples = item.findings
+  const examples = [...item.findings]
+    .sort((a, b) => b.weight - a.weight || a.line - b.line)
     .slice(0, 5)
     .map((finding) => `${finding.line}:${finding.phrase}`)
     .join(', ');
@@ -260,7 +263,7 @@ if (summaryPath) {
     markdown.push(`代表的な粒度参照は \`statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md\`（詳細解答の非空白文字数 ${benchmarkLength}）。文字数一致ではなく、出発点・条件・途中計算・結論の再現可能性を基準にする。`);
   }
   markdown.push('');
-  markdown.push('通常の「微分すると」「代入すると」等は低ウェイトかつカテゴリ別上限付き、強い省略・線形代数/変数変換・漸近定理・小問構造不足を高ウェイトとして順位付けする。');
+  markdown.push('通常の「計算すると」「整理すると」「微分すると」「代入すると」等は低ウェイトかつカテゴリ別上限付き、強い省略・線形代数/変数変換・漸近定理・小問構造不足を高ウェイトとして順位付けする。');
   markdown.push('');
   markdown.push('### 演習価値別候補');
   markdown.push('');
