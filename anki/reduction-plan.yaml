@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-ma1-invertibility-reduction-114
+batch_id: 2026-08-30-ljung-box-reduction-116
 items:
-  - id: engproc-ma1-invertible-shock-recovery
+  - id: engproc-ljung-box-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ma1-invertibility
-    note: MA(1)の再帰表示から可逆条件を導き、観測値から革新を逐次復元する数値例までcanonical cardへ統合済み。
+    canonical_card: ts-software-residual-diagnostics
+    note: Ljung--Box統計量の数値計算、自由度の扱い、P値出力の解釈、モデル見直しまでcanonical cardへ統合済み。
