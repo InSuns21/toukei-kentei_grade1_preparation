@@ -1,8 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-anova-tukey-reduction-52
+batch_id: 2026-08-30-anova-interaction-reduction-53
 items:
-  - id: anova-tukey-numeric
+  - id: anova-interaction-contrast-test
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-tukey-hsd-formula
-    note: テューキーHSDの比較幅を作って全群対を判定する数値計算を、等群サイズ公式とTukey-Kramer拡張を含む正本へ統合済み。
+    canonical_card: anova-interaction-definition
+    note: 2×2交互作用の差の差、標準誤差、t/F検定を一続きに扱う正本へ統合済み。
+
+  - id: anova-interaction-interpretation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: anova-interaction-definition
+    note: 交互作用が有意な場合に単純主効果を確認する解釈まで、差の差の定義・検定を含む正本へ統合済み。
