@@ -1,20 +1,26 @@
 schema_version: 1
-batch_id: 2026-08-30-pca-reduction-60
+batch_id: 2026-08-30-logistic-reduction-61
 items:
-  - id: mv-pca-loading
+  - id: glm-logistic-probability
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-pca-variance-max
-    note: 主成分負荷量を変数と主成分の相関として求める式と規約差を、PCA正本へ統合済み。
+    canonical_card: glm-logistic-score
+    note: 逆ロジットによる予測確率をロジスティック回帰正本へ統合済み。
 
-  - id: mv-pca-covariance-vs-correlation
+  - id: glm-logistic-odds-ratio
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-pca-variance-max
-    note: 共分散PCAと相関PCAの選択、標準化、寄与率の計算をPCA正本へ統合済み。
+    canonical_card: glm-logistic-score
+    note: 係数からオッズ比を読む手順をロジスティック回帰正本へ統合済み。
 
-  - id: mv-pca-software-output
+  - id: glm-binomial-loglikelihood
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-pca-variance-max
-    note: 固有値・固有ベクトル・寄与率・主成分得点を用いた出力解釈をPCA正本へ統合済み。
+    canonical_card: glm-logistic-score
+    note: ベルヌーイ・二項対数尤度をロジスティック回帰正本へ統合済み。
+
+  - id: glm-irls-update
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-logistic-score
+    note: フィッシャー・スコアリングからIRLS更新までをロジスティック回帰正本へ統合済み。
