@@ -83,7 +83,7 @@ P(X\le x)
 \end{aligned}
 $$
 
-because $U\sim U(0,1)$ and $0\le F(x)\le1$. Hence
+ここで $U\sim U(0,1)$ かつ $0\le F(x)\le1$ を用いた。したがって
 
 $$
 \boxed{P(X\le x)=F(x)}.
