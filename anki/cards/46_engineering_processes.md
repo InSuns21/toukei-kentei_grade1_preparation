@@ -754,32 +754,106 @@ $W$ は待ち時間だけでなくサービス時間も含む。
 
 ---
 id: engproc-absorbing-fundamental-matrix
-title: 吸収連鎖の基本行列を計算する
+title: 吸収連鎖をQ,Rから基本行列・吸収時間・吸収確率まで解く
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: absorbing-fundamental-matrix
-type: calc_step
+topic: absorbing-chain-fundamental-probability-canonical
+type: strategy
 difficulty: 4
-priority: B
-hashtags: [マルコフ連鎖, 吸収連鎖, 基本行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+priority: A
+hashtags:
+  - マルコフ連鎖
+  - 吸収連鎖
+  - 基本行列
+  - 吸収確率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ連鎖
 ---
 ## 問題
-2つの一時状態の部分行列が $Q=\begin{pmatrix}0.5&0.2\\0.1&0.6\end{pmatrix}$ である。基本行列 $N$ を求めよ。
+吸収状態を後ろに並べた吸収マルコフ連鎖の遷移行列を
+$$
+P=\begin{pmatrix}Q&R\\0&I\end{pmatrix}
+$$
+とする。一時状態が2つで
+$$
+Q=\begin{pmatrix}0.5&0.2\\0.1&0.6\end{pmatrix},
+\qquad
+R=\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}
+$$
+とする。
+1. 基本行列 $N$ を求め、その意味を説明せよ。
+2. 各一時状態から吸収までの平均ステップ数を求めよ。
+3. 各一時状態から各吸収状態へ最終的に吸収される確率行列 $B$ を求めよ。
+
 ## 記号・用語
-$N_{ij}$ は状態 $i$ から出発して吸収前に一時状態 $j$ を訪れる期待回数である。
+$Q$ は一時状態間の遷移部分、$R$ は一時状態から吸収状態への1ステップ遷移部分である。基本行列
+$$
+N=(I-Q)^{-1}
+$$
+の成分 $N_{ij}$ は、一時状態 $i$ から出発したとき、吸収される前に一時状態 $j$ を訪れる期待回数を表す。
+
 ## 使用公式・定理
-吸収連鎖の基本行列は $N=(I-Q)^{-1}$。
+吸収されるまで一時状態内にとどまる確率を足し上げると
+$$
+I+Q+Q^2+\cdots=(I-Q)^{-1}=N.
+$$
+したがって、一時状態 $i$ から吸収までの平均ステップ数を並べたベクトルは
+$$
+\mathbf t=N\mathbf 1.
+$$
+また最終吸収先の確率行列は
+$$
+B=NR.
+$$
+これは「一時状態 $k$ を訪れる期待回数」と「そこから吸収状態へ1ステップで移る確率」を全ての $k$ について足し合わせたものと解釈できる。
+
 ## 一手／方針
-$I-Q$ を作り、2次逆行列公式を使う。
+**標準形を見たら $Q$ と $R$ を切り出し、まず $N=(I-Q)^{-1}$ を作る。** その同じ $N$ から、行和で平均吸収時間、$NR$ で吸収先確率を続けて求める。$N$ を計算して終わりにしない。
+
 ## 答え
-$$I-Q=\begin{pmatrix}0.5&-0.2\\-0.1&0.4\end{pmatrix},\qquad |I-Q|=0.18,$$
-$$N=\frac1{0.18}\begin{pmatrix}0.4&0.2\\0.1&0.5\end{pmatrix}=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}.$$
+1. 
+$$
+I-Q=\begin{pmatrix}0.5&-0.2\\-0.1&0.4\end{pmatrix}.
+$$
+行列式は
+$$
+0.5(0.4)-(-0.2)(-0.1)=0.18
+$$
+なので
+$$
+N=(I-Q)^{-1}
+=\frac1{0.18}\begin{pmatrix}0.4&0.2\\0.1&0.5\end{pmatrix}
+=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}.
+$$
+
+2. 
+$$
+\mathbf t=N\mathbf1
+=\begin{pmatrix}20/9+10/9\\5/9+25/9\end{pmatrix}
+=\begin{pmatrix}10/3\\10/3\end{pmatrix}.
+$$
+よってどちらの一時状態から出発しても、吸収までの平均ステップ数は $10/3$ である。
+
+3. 
+$$
+B=NR
+=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}
+\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}
+=\begin{pmatrix}5/9&4/9\\7/18&11/18\end{pmatrix}.
+$$
+各行和は1であり、最終的にいずれかの吸収状態へ入ることと整合する。
+
 ## 計算例
-第1行和 $10/3$ は状態1から吸収まで一時状態にいる平均時点数。
+状態1から出発した場合、吸収前の一時状態1の期待訪問回数は $20/9$、一時状態2は $10/9$ で、その合計 $10/3$ が平均吸収ステップ数になる。また第1吸収状態へ入る最終確率は $5/9$、第2吸収状態へ入る確率は $4/9$ である。
+
 ## 注意
-ここでの $N$ は計数過程でなく基本行列の記号である。
+基本行列の $Q$ は「一時状態間の遷移確率部分」であり、連続時間マルコフ連鎖の生成行列を表す $Q$ とは別物である。文脈を確認する。また $N_{ij}$ は確率ではなく期待訪問回数なので1を超えてよい。$B$ の各成分は確率なので0から1の範囲にあり、各行和は1になる。
 
 <!-- CARD -->
 
