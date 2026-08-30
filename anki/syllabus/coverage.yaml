@@ -2353,14 +2353,9 @@ items:
       - engqc-imr-moving-range
       - engqc-phase1-phase2
       - engqc-three-sigma-false-alarm
-      - engqc-arl1-mean-shift
       - engqc-run-rule-eight-one-side
       - engqc-ewma-update
       - engqc-cusum-one-step
-      - engqc-control-chart-sample-size
-      - engqc-process-adjustment-overcontrol
-      - engqc-cpm-target
-      - engqc-capability-defect-rate
       - engrel-parallel-common-cause
       - engrel-k-out-of-n
       - engrel-weibull-reliability
@@ -2379,11 +2374,9 @@ items:
           - engqc-imr-moving-range
           - engqc-phase1-phase2
           - engqc-three-sigma-false-alarm
-          - engqc-arl1-mean-shift
           - engqc-run-rule-eight-one-side
           - engqc-ewma-update
           - engqc-cusum-one-step
-          - engqc-control-chart-sample-size
       - name: 信頼性
         status: card
         cards:
@@ -2405,14 +2398,11 @@ items:
         cards:
           - engqc-control-chart-selection
           - engqc-phase1-phase2
-          - engqc-process-adjustment-overcontrol
           - engqc-cpk-offcenter
       - name: 工程能力指数
         status: card
         cards:
           - engqc-cpk-offcenter
-          - engqc-cpm-target
-          - engqc-capability-defect-rate
   - id: engineering-design
     status: complete
     cards:
