@@ -2401,8 +2401,6 @@ items:
       - engqc-process-adjustment-overcontrol
       - engqc-cpm-target
       - engqc-capability-defect-rate
-      - engqc-capability-stability-first
-      - engqc-one-sided-cpu
       - engqc-nonnormal-capability
       - engrel-parallel-common-cause
       - engrel-k-out-of-n
@@ -2458,15 +2456,13 @@ items:
           - engqc-rational-subgrouping
           - engqc-phase1-phase2
           - engqc-process-adjustment-overcontrol
-          - engqc-capability-stability-first
+          - engqc-cpk-offcenter
       - name: 工程能力指数
         status: card
         cards:
           - engqc-cpk-offcenter
           - engqc-cpm-target
           - engqc-capability-defect-rate
-          - engqc-capability-stability-first
-          - engqc-one-sided-cpu
           - engqc-nonnormal-capability
   - id: engineering-design
     status: complete
