@@ -845,69 +845,157 @@ $\sigma=2$ ならMCSEは $2/\sqrt{200}\approx0.141$。
 
 ---
 id: boot-empirical-distribution
-title: ノンパラメトリック・ブートストラップの経験分布を書く
+title: ノンパラメトリック・ブートストラップを再標本化から標準誤差まで通す
 category: math-data-analysis
 subcategory: math-simulation
-topic: bootstrap-empirical-distribution
-type: formula
-difficulty: 2
+topic: bootstrap-resampling-se-canonical
+type: strategy
+difficulty: 3
 priority: B
-hashtags: [ブートストラップ, 経験分布, リサンプリング]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブートストラップ }]
+hashtags:
+  - ブートストラップ
+  - 経験分布
+  - リサンプリング
+  - 標準誤差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ブートストラップ
 ---
 
 ## 問題
-標本 $x_1,\ldots,x_n$ に基づくノンパラメトリック・ブートストラップの再標本化分布を書け。
+標本 $x_1,\ldots,x_n$ と統計量 $\widehat\theta=T(x_1,\ldots,x_n)$ がある。
+1. ノンパラメトリック・ブートストラップで再標本を生成する分布を書け。
+2. $B$ 回の再標本から $\widehat\theta^{*(1)},\ldots,\widehat\theta^{*(B)}$ を得たとき、ブートストラップ標準誤差を書け。
+3. 標本 $(1,2,3)$ から4個の再標本 $(1,1,2),(1,2,3),(2,3,3),(1,3,3)$ が得られ、統計量を標本平均とした。4個のブートストラップ推定値と、その標準偏差を計算せよ。
+
+## 記号・用語
+経験分布 $\widehat F_n$ は観測された各標本点へ確率 $1/n$ を置く分布である。$\widehat\theta^{*(b)}$ は第 $b$ ブートストラップ標本へ元と同じ統計量 $T$ を適用した値、$B$ は反復回数である。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+経験分布は
+$$
+\widehat F_n(x)=\frac1n\sum_{i=1}^n\boldsymbol1_{\{x_i\le x\}}.
+$$
+各反復で
+$$
+X_1^*,\ldots,X_n^*\overset{\mathrm{iid}}{\sim}\widehat F_n
+$$
+と復元抽出し、
+$$
+\widehat\theta^{*(b)}=T(X_1^{*(b)},\ldots,X_n^{*(b)})
+$$
+を計算する。ブートストラップ推定値の平均を
+$$
+\overline{\theta^*}=\frac1B\sum_{b=1}^B\widehat\theta^{*(b)}
+$$
+とすると、標準誤差の推定値は
+$$
+\widehat{\operatorname{SE}}_{\mathrm{boot}}
+=\sqrt{\frac1{B-1}\sum_{b=1}^B
+\left(\widehat\theta^{*(b)}-\overline{\theta^*}\right)^2}.
+$$
 
-各元の抽出確率は $1/n$。統計量は $\widehat\theta^*=T(X_1^*,\ldots,X_n^*)$。
+## 一手／方針
+**元標本を母集団そのものだとみなすのではなく、経験分布を未知の母分布の代用品として使う。** そこから元と同じ大きさ $n$ を復元抽出し、元と同じ推定手順を繰り返す。最後に得られた推定値の散らばりを、元の推定量の標本変動の近似として読む。
 
 ## 答え
-経験分布
-$$\widehat F_n(x)=\frac1n\sum_{i=1}^n\boldsymbol1_{\{x_i\le x\}}$$
-から、大きさnの標本 $X_1^*,\ldots,X_n^*$ を復元抽出する。
+数値例の4個のブートストラップ平均は
+$$
+\frac43,\quad 2,\quad \frac83,\quad \frac73.
+$$
+その平均は
+$$
+\overline{\theta^*}=\frac{25}{12}.
+$$
+偏差平方和は
+$$
+\sum_{b=1}^4
+\left(\widehat\theta^{*(b)}-\frac{25}{12}\right)^2
+=\frac{35}{36},
+$$
+したがって
+$$
+\widehat{\operatorname{SE}}_{\mathrm{boot}}
+=\sqrt{\frac{35}{108}}
+\approx0.569.
+$$
 
 ## 計算例
-$n=3$ なら順序付き再標本は $3^3=27$ 通り。
+$n=3$ なら順序を区別した再標本は $3^3=27$ 通りあり得る。実際のブートストラップでは通常この全列挙ではなく、大きな $B$ をとって乱数で再標本化する。上の $B=4$ は計算手順を確認するためだけの小さな例である。
 
 ## 注意
-非復元抽出では元の標本が並べ替わるだけで分布を近似できない。
+復元抽出が本質であり、非復元抽出では元標本の並べ替えに近くなる。ブートストラップ標準誤差は**元の統計量の標本変動を近似する量**であり、有限回 $B$ しか反復しないことによるMonte Carlo誤差とは区別する。非滑らかな統計量、境界母数、極端値などでは通常のブートストラップがうまく近似しないことがある。
 <!-- CARD -->
 
 ---
 id: boot-bias-estimate
-title: ブートストラップのバイアス推定値を計算する
+title: ブートストラップのバイアスを推定し補正値まで計算する
 category: math-data-analysis
 subcategory: math-simulation
-topic: bootstrap-bias
+topic: bootstrap-bias-correction-canonical
 type: calc_step
 difficulty: 2
-priority: C
-hashtags: [ブートストラップ, バイアス, 数値計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブートストラップ }]
+priority: B
+hashtags:
+  - ブートストラップ
+  - バイアス
+  - バイアス補正
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ブートストラップ
 ---
 
 ## 問題
-元の推定値が $\widehat\theta=10$、ブートストラップ反復平均が $\bar\theta^*=10.6$ だった。ブートストラップのバイアス推定値を求めよ。
+元の推定値が $\widehat\theta=10$、ブートストラップ反復の平均が $\overline{\theta^*}=10.6$ であった。
+1. ブートストラップによるバイアス推定値を求めよ。
+2. その推定バイアスを1次的に差し引いた補正推定値を求めよ。
+
+## 記号・用語
+$\widehat\theta$ は元標本からの推定値、$\overline{\theta^*}$ はブートストラップ推定値の反復平均である。ブートストラップでは経験分布の下で生じる推定量のずれを、元の母分布の下でのバイアスの近似として使う。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+推定バイアスは
+$$
+\widehat{\operatorname{bias}}_{\mathrm{boot}}
+=\overline{\theta^*}-\widehat\theta.
+$$
+これを元の推定値から引く1次バイアス補正は
+$$
+\widehat\theta_{\mathrm{bc}}
+=\widehat\theta-\widehat{\operatorname{bias}}_{\mathrm{boot}}
+=2\widehat\theta-\overline{\theta^*}.
+$$
 
-ブートストラップ標本の世界で $E_{\widehat F}[\widehat\theta^*]-\widehat\theta$ が元のバイアスを近似する。
+## 一手／方針
+**「ブートストラップ世界で元の推定値からどちらへずれたか」を先に計算し、そのずれを元の推定値から逆向きに差し引く。** バイアスの符号と補正方向を別々に暗記しない。
 
 ## 答え
-$$\widehat{\operatorname{bias}}_{\mathrm{boot}}
-=\bar\theta^*-\widehat\theta=10.6-10=0.6.$$
+$$
+\widehat{\operatorname{bias}}_{\mathrm{boot}}
+=10.6-10=0.6.
+$$
+よって
+$$
+\widehat\theta_{\mathrm{bc}}
+=10-0.6=9.4.
+$$
+同じ結果は $2(10)-10.6=9.4$ からも得られる。
 
 ## 計算例
-正の0.6は推定量が上方へずれる傾向を表す。
+もし $\overline{\theta^*}=9.7$ なら推定バイアスは $-0.3$ で、補正値は $10-(-0.3)=10.3$ となる。負のバイアスなら補正方向は上向きになる。
 
 ## 注意
-バイアスの符号を逆にしない。
+バイアスを減らしても分散が増えれば平均二乗誤差が改善するとは限らない。補正式を機械的に適用する前に、ブートストラップ近似自体が妥当な状況かを確認する。
 <!-- CARD -->
 
 ---
@@ -948,34 +1036,71 @@ $$\widehat\theta_{\mathrm{bc}}
 
 ---
 id: boot-percentile-ci
-title: ブートストラップのパーセンタイル区間を求める
+title: パーセンタイル区間と基本区間を同じ分位点から計算する
 category: math-data-analysis
 subcategory: math-simulation
-topic: bootstrap-percentile-interval
-type: calc_step
+topic: bootstrap-ci-percentile-basic-canonical
+type: strategy
 difficulty: 3
-priority: C
-hashtags: [ブートストラップ, パーセンタイル区間, 区間推定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: Percentile区間 }]
+priority: B
+hashtags:
+  - ブートストラップ
+  - パーセンタイル区間
+  - 基本区間
+  - 区間推定
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: Percentile区間
 ---
 
 ## 問題
-ブートストラップ反復分布の2.5%点が1.2、97.5%点が3.8である。95%パーセンタイル区間を答えよ。
+元の推定値を $\widehat\theta=2.5$ とし、ブートストラップ分布の2.5%点と97.5%点が
+$$
+q_{0.025}^*=0.8,\qquad q_{0.975}^*=3.4
+$$
+であった。
+1. 95%パーセンタイル区間を求めよ。
+2. 95%基本区間（basic区間）を求めよ。
+3. 2つの作り方の違いを述べよ。
+
+## 記号・用語
+$q_\alpha^*$ はブートストラップ推定値 $\widehat\theta^*$ の $\alpha$ 分位点である。パーセンタイル区間はこの分位点を直接使い、基本区間は $\widehat\theta^*-\widehat\theta$ の誤差分布を反転して作る。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+両側 $100(1-\alpha)$% パーセンタイル区間は
+$$
+[q_{\alpha/2}^*,\ q_{1-\alpha/2}^*].
+$$
+基本区間は
+$$
+[2\widehat\theta-q_{1-\alpha/2}^*,\ 2\widehat\theta-q_{\alpha/2}^*].
+$$
+基本区間では誤差分布を反転するため、上側分位点が下端、下側分位点が上端に現れる。
 
-パーセンタイル区間はブートストラップ統計量の両側分位点をそのまま端点にする。
+## 一手／方針
+**パーセンタイル区間は分位点をそのまま置く。basic区間は元の推定値 $\widehat\theta$ を中心に分位点を反射する。** 同じ分位点を使って2本を並べて計算すると混同しにくい。
 
 ## 答え
-$$[q_{0.025}^*,q_{0.975}^*]=[1.2,3.8].$$
+パーセンタイル区間は
+$$
+[0.8,3.4].
+$$
+基本区間は
+$$
+[2(2.5)-3.4,\ 2(2.5)-0.8]
+=[1.6,4.2].
+$$
 
 ## 計算例
-単調増加変換gについて端点をgで変換できる。
+$\widehat\theta=2.5$ に対し、下側分位点0.8は中心から1.7下、上側分位点3.4は0.9上にある。basic区間ではこの非対称な誤差を反対側へ写すため、下端は $2.5-0.9=1.6$、上端は $2.5+1.7=4.2$ となる。
 
 ## 注意
-元の推定値を中心に反射する基本区間（basic区間）と混同しない。
+パーセンタイル区間とbasic区間は一般に一致しない。単調変換に対する性質なども異なる。どちらも有限標本で常に正確な被覆率を保証するわけではなく、強い歪みや境界問題では他の補正法が必要になることがある。
 <!-- CARD -->
 
 ---
@@ -1045,36 +1170,87 @@ Parametric法はモデルが正しければ効率的だが、誤指定の影響�
 
 ---
 id: jackknife-leave-one-out
-title: ジャックナイフ法の1個抜き推定値を作る
+title: ジャックナイフを1個抜き推定から標準誤差まで通す
 category: math-data-analysis
 subcategory: math-simulation
-topic: jackknife
-type: calc_step
-difficulty: 2
-priority: C
-hashtags: [ジャックナイフ法, 1個抜き法, リサンプリング]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブートストラップ }]
+topic: jackknife-resampling-se-canonical
+type: strategy
+difficulty: 3
+priority: B
+hashtags:
+  - ジャックナイフ法
+  - 1個抜き法
+  - 標準誤差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ブートストラップ
 ---
 
 ## 問題
-標本 $(1,2,6)$ について、統計量を標本平均として3個の1個抜き推定値を求めよ。
+標本 $(1,2,6)$ について統計量を標本平均とする。
+1. 3個の1個抜き推定値 $\widehat\theta_{(-i)}$ と、その平均 $\overline\theta_{(-\cdot)}$ を求めよ。
+2. ジャックナイフ標準誤差を求めよ。
+
+## 記号・用語
+$\widehat\theta_{(-i)}$ は第 $i$ 観測だけを除いた $n-1$ 個のデータへ元と同じ統計量を適用した値である。標準的なdelete-oneジャックナイフでは、この推定値を $n$ 個作る。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+\overline\theta_{(-\cdot)}
+=\frac1n\sum_{i=1}^n\widehat\theta_{(-i)}.
+$$
+ジャックナイフ分散推定値と標準誤差は
+$$
+\widehat{\operatorname{Var}}_{\mathrm{jack}}(\widehat\theta)
+=\frac{n-1}{n}\sum_{i=1}^n
+\left(\widehat\theta_{(-i)}-\overline\theta_{(-\cdot)}\right)^2,
+$$
+$$
+\widehat{\operatorname{SE}}_{\mathrm{jack}}
+=\sqrt{\widehat{\operatorname{Var}}_{\mathrm{jack}}(\widehat\theta)}.
+$$
 
-$\widehat\theta_{(-i)}$ は第i観測だけを除いた $n-1$ 個から計算する。
+## 一手／方針
+**まず各観測を1個ずつ消して同じ推定をやり直し、その $n$ 個の推定値の散らばりを専用係数 $(n-1)/n$ で尺度化する。** 「1個抜き標本を作る」と「標準誤差を出す」を別手順として暗記しない。
 
 ## 答え
-$$\widehat\theta_{(-1)}=\frac{2+6}{2}=4,\quad
-\widehat\theta_{(-2)}=\frac{1+6}{2}=3.5,\quad
-\widehat\theta_{(-3)}=\frac{1+2}{2}=1.5.$$
+1個抜き推定値は
+$$
+\widehat\theta_{(-1)}=\frac{2+6}{2}=4,
+$$
+$$
+\widehat\theta_{(-2)}=\frac{1+6}{2}=3.5,
+$$
+$$
+\widehat\theta_{(-3)}=\frac{1+2}{2}=1.5.
+$$
+したがって
+$$
+\overline\theta_{(-\cdot)}=\frac{4+3.5+1.5}{3}=3.
+$$
+偏差平方和は
+$$
+(4-3)^2+(3.5-3)^2+(1.5-3)^2
+=1+0.25+2.25=3.5.
+$$
+よって
+$$
+\widehat{\operatorname{SE}}_{\mathrm{jack}}
+=\sqrt{\frac23\cdot3.5}
+=\sqrt{\frac73}
+\approx1.528.
+$$
 
 ## 計算例
-平均は $\bar\theta_{(-\cdot)}=(4+3.5+1.5)/3=3$。
+ブートストラップでは通常 $B$ を自由に大きく取るのに対し、標準的なdelete-oneジャックナイフの反復数は標本サイズと同じ $n$ 個である。
 
 ## 注意
-ブートストラップと異なり、標準的なジャックナイフ法の反復数は $n$ 個。
+係数 $(n-1)/n$ を通常の標本分散の係数 $1/(n-1)$ と混同しない。ジャックナイフは滑らかな統計量では有効だが、中央値など非滑らかな統計量では単純なdelete-one近似が不安定になる場合がある。
 <!-- CARD -->
 
 ---
