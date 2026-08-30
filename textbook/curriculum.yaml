@@ -11,20 +11,20 @@ exam:
 progress:
   schema_version: 1
   updated_at: 2026-08-31
-  current_chapter: E2-04
+  current_chapter: null
   next_chapter: E2-05
   next_work:
     type: chapter
-    id: E2-04
-  last_completed_chapter: E1-02
+    id: E2-05
+  last_completed_chapter: E2-04
   summary:
     total: 43
     planned: 16
     drafting: 0
-    self_review: 1
+    self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 26
+    reviewed: 27
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -73,7 +73,7 @@ progress:
     E2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     E2-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     E2-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
-    E2-04: { status: self_review, started_at: 2026-08-31 }
+    E2-04: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     E2-05: { status: planned }
     E3-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     E4-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
