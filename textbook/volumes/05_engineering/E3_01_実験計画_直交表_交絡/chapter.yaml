@@ -4,6 +4,7 @@ volume: "engineering"
 status: self_review
 prerequisites:
   - L1-03
+  - L1-02
 official_scope:
   - 実験の計画と実施
   - 固定効果
@@ -13,29 +14,39 @@ official_scope:
   - 直交表
   - 交絡法
 learning_objectives:
-  - 無作為化・反復・ブロック化を区別できる
-  - 固定効果と変量効果を推測対象から判定できる
-  - 乱塊法の平方和とF統計量を計算できる
-  - 一元変量効果モデルの分散成分を推定できる
-  - 2水準要因実験の主効果と交互作用を計算できる
-  - L4直交表の列の直交性と積列を確認できる
-  - 一部実施要因計画の別名関係を導ける
-  - ブロック交絡の原理と代償を説明できる
+  - 実験単位・因子・水準・処理・反復を具体例から判定できる
+  - フィッシャーの3原則である無作為化・反復・局所管理を設計目的から説明できる
+  - 完全無作為化法と乱塊法を使い分け分散分析表を構成できる
+  - 固定効果と変量効果を推測対象から判定し期待平均平方から分散成分を求められる
+  - 2水準要因計画の主効果・交互作用・平方和を符号列から導ける
+  - 分割法の一次誤差と二次誤差を区別して正しいF比を作れる
+  - 直交表の列割付と交互作用列を判定できる
+  - 一部実施要因計画の定義関係・別名関係・解像度を求められる
+  - ブロック生成子から交絡構造と設計上の代償を説明できる
+  - 応答曲面の最急上昇方向とD最適性を線形モデルから説明できる
 definitions:
-  - { id: E301-DEF-01, name: 固定効果と変量効果 }
-  - { id: E301-DEF-02, name: ブロック化 }
-  - { id: E301-DEF-03, name: 直交表 }
-  - { id: E301-DEF-04, name: 交絡 }
-  - { id: E301-DEF-05, name: 別名関係 }
+  - { id: E301-DEF-01, name: 実験単位・因子・水準・処理 }
+  - { id: E301-DEF-02, name: フィッシャーの3原則 }
+  - { id: E301-DEF-03, name: 固定効果・変量効果・混合効果 }
+  - { id: E301-DEF-04, name: ブロック化と乱塊法 }
+  - { id: E301-DEF-05, name: 分割法と誤差層 }
+  - { id: E301-DEF-06, name: 直交表 }
+  - { id: E301-DEF-07, name: 一部実施要因計画・別名関係・解像度 }
+  - { id: E301-DEF-08, name: 交絡法 }
+  - { id: E301-DEF-09, name: 応答曲面法 }
+  - { id: E301-DEF-10, name: D最適計画 }
 theorems:
   - { id: E301-THM-01, name: 一元変量効果モデルの期待平均平方 }
   - { id: E301-THM-02, name: 乱塊法の平方和分解 }
-canonical_examples: [乱塊法, 二水準要因実験, L4直交表, 一部実施要因計画, ブロック交絡]
-problem_patterns: [DOE-BLOCK-1, DOE-RANDOM-EFFECT-1, DOE-ORTHOGONAL-1, DOE-FRACTIONAL-1, DOE-CONFOUND-1]
+  - { id: E301-THM-03, name: 2水準要因計画の効果と平方和 }
+  - { id: E301-THM-04, name: 分割法の誤差自由度分解 }
+  - { id: E301-THM-05, name: D最適性と情報行列 }
+canonical_examples: [完全無作為化法, 乱塊法, 一元変量効果モデル, 二水準要因実験, 分割法, L4直交表, 一部実施要因計画, ブロック交絡, 応答曲面, D最適計画]
+problem_patterns: [DESIGN-1, RANDOMIZE-1, BLOCK-1, EFFECT-1, FACTORIAL-1, ERROR-STRATUM-1, ALIAS-1, CONFOUND-1, OPTIMAL-1]
 past_exam_alignment: []
-integrated_exam_problems: [E3-01-C01, E3-01-C04, E3-01-DRILL-01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
-estimated_hours: { reading: 5, exercises: 10, review: 3 }
+integrated_exam_problems: [E3-01-C01, E3-01-C02, E3-01-C03, E3-01-C04, E3-01-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 5, level_c: 5, level_d: 2 }
+estimated_hours: { reading: 8, exercises: 14, review: 4 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
