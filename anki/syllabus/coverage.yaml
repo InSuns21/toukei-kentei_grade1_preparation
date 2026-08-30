@@ -1233,11 +1233,7 @@ items:
     status: complete
     cards:
       - data-anova-decomposition
-      - anova-oneway-model-assumptions
-      - anova-oneway-ss-numeric
-      - anova-oneway-degrees-freedom
       - anova-oneway-f-statistic
-      - anova-oneway-table-numeric
       - anova-expected-mean-squares
       - anova-contrast-definition
       - anova-contrast-se
@@ -1268,11 +1264,7 @@ items:
         status: card
         cards:
           - data-anova-decomposition
-          - anova-oneway-model-assumptions
-          - anova-oneway-ss-numeric
-          - anova-oneway-degrees-freedom
           - anova-oneway-f-statistic
-          - anova-oneway-table-numeric
           - anova-expected-mean-squares
           - anova-contrast-definition
           - anova-contrast-se
