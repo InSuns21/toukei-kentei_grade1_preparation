@@ -1,20 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-multivariate-core-reduction-57
+batch_id: 2026-08-30-factor-score-reduction-58
 items:
-  - id: mv-ward-increase
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-hierarchical-linkage
-    note: Ward法のWSS増加式、クラスタサイズ依存性、数値計算を階層クラスタリング正本へ統合済み。
-
-  - id: mv-lda-direction
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-lda-classification-rule
-    note: Fisher基準からΣ^{-1}(μ1-μ0)を導き、正規モデルのLDA判別得点との一致まで正本へ統合済み。
-
-  - id: mv-factor-rotation
+  - id: mv-factor-score-regression
     bucket: duplicates
     reason: duplicate
     canonical_card: mv-factor-model-covariance
-    note: 直交回転でΛΛ^Tが不変であること、Varimaxの目的、回転後の解釈上の注意を因子分析正本へ統合済み。
+    note: 回帰法による因子得点予測式を、共分散分解・回転と同じ因子分析正本へ統合済み。
