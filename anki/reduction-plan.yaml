@@ -1,9 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-sample-variance-reduction-183
+batch_id: 2026-08-31-are-mle-reduction-185
 items:
-  - id: engasym-sample-variance-normal
+  - id: asym-are-median-mean
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-sample-variance-fourth-moment
-    coverage_card: asym-sample-variance-fourth-moment
-    note: 一般側正本へ、一般分布の4次中心モーメントによる導出に加え、正規標本の (n-1)S^2/sigma^2 ~ chi^2_{n-1} からの別導出、極限分散2sigma^4、n=100・S^2=9のプラグイン標準誤差約1.273まで統合済み。
+    canonical_card: asym-asymptotic-relative-efficiency
+    coverage_card: asym-asymptotic-relative-efficiency
+    note: ARE正本へ、正規母集団で標本平均の極限分散sigma^2、標本中央値の極限分散pi sigma^2/2、ARE(median,mean)=2/pi≈0.637、n=100・sigma=2の数値比較、ロバスト性注意まで統合済み。
+  - id: asym-mle-av-normal
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: asym-mle-asymptotic-normality
+    coverage_card: asym-mle-asymptotic-normality
+    note: 最尤推定量の漸近正規性正本へ、既知分散の正規平均で I_1(mu)=1/sigma^2 を対数尤度から導出し、Avar(Xbar)=sigma^2/n、sigma^2=9,n=100でASE=0.3まで統合済み。
