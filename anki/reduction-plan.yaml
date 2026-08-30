@@ -1,7 +1,7 @@
 schema_version: 1
-batch_id: 2026-08-30-stationary-availability-reduction-134
+batch_id: 2026-08-30-stationary-availability-reduction-134b
 items:
-  - id: engproc-stationary-availability
+  - id: engproc-repair-chain-stationary-availability
     bucket: duplicates
     reason: duplicate
     canonical_card: stoch-three-state-stationary
