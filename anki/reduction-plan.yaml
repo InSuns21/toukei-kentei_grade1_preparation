@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-ljung-box-reduction-116
+batch_id: 2026-08-30-arima-drift-reduction-118
 items:
-  - id: engproc-ljung-box-numeric
+  - id: engproc-arima010-drift-forecast
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-software-residual-diagnostics
-    note: Ljung--Box統計量の数値計算、自由度の扱い、P値出力の解釈、モデル見直しまでcanonical cardへ統合済み。
+    canonical_card: engproc-arima110-difference-forecast
+    note: ドリフト付きARIMA(0,1,0)は、差分を予測して水準へ累積する一般ARIMA予測workflowの特殊例としてcanonical cardへ統合済み。
