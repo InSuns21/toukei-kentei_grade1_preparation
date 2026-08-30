@@ -37,6 +37,10 @@ AR(1)、AR(2) の状態空間表現を入れ、E2-03 から状態空間モデル
 
 Level A 4題 / B 4題 / C 4題 / D 1題 / 30分ドリルを配置。Advanced 30 状態空間モデル・1期先Kalman更新へ接続した。
 
+### 自動検証
+
+Validate textbook と Validate terminology の初回CIはともに success。
+
 ## 結論
 
-読者粒度は P3-02 基準を満たす。自動検証通過後に最終 PASS とする。
+**PASS**。読者粒度は P3-02 基準を満たし、自動検証とも整合した。
