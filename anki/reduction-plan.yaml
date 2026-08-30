@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-aic-stepwise-reduction-71
+batch_id: 2026-08-30-rao-blackwell-canonical-reduction-73
 items:
-  - id: reg-stepwise-selection-warning
+  - id: rao-blackwell
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-aic-variable-selection
-    note: stepwise探索の局所性、選択後推論の楽観性、CV等で手順全体を評価する注意をAIC変数選択正本へ統合済み。
+    canonical_card: est-rao-blackwell
+    note: Rao–Blackwell化の不偏性保存・分散減少は、Lehmann–Scheffé/UMVUまで一続きに扱う est-rao-blackwell 正本へ統合済み。独立反復する旧定理カードは重複のため隔離する。
