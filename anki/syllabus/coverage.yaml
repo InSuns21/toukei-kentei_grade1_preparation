@@ -2139,7 +2139,6 @@ items:
       - engproc-repair-chain-stationary-availability
       - engproc-stationary-mean-recurrence
       - engproc-birth-death-detailed-balance
-      - engproc-mm1-stationary-probability
       - engproc-mm1-little-law
       - engproc-absorbing-fundamental-matrix
       - engproc-markov-reward-long-run
@@ -2169,7 +2168,6 @@ items:
           - engproc-ou-mean-variance
           - engproc-brownian-bridge-conditional
           - engproc-birth-death-detailed-balance
-          - engproc-mm1-stationary-probability
           - engproc-mm1-little-law
       - name: ポアソン過程
         status: card
