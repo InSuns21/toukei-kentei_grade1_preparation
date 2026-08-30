@@ -1493,11 +1493,9 @@ items:
       - sim-mc-standard-error
       - sim-uniform-prng-definition
       - sim-inverse-transform-continuous
-      - sim-inverse-transform-exponential-numeric
       - sim-inverse-transform-discrete
       - sim-accept-reject
       - sim-box-muller
-      - sim-mc-ci-numeric
       - sim-antithetic-variates
       - sim-control-variate
       - sim-stratified-sampling
@@ -1529,7 +1527,6 @@ items:
         cards:
           - sim-uniform-prng-definition
           - sim-inverse-transform-continuous
-          - sim-inverse-transform-exponential-numeric
           - sim-inverse-transform-discrete
           - sim-accept-reject
           - sim-box-muller
@@ -1537,7 +1534,6 @@ items:
         status: card
         cards:
           - sim-mc-standard-error
-          - sim-mc-ci-numeric
           - sim-antithetic-variates
           - sim-control-variate
           - sim-stratified-sampling
