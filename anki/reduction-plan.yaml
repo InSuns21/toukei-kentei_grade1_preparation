@@ -1,8 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-anova-no-rep-reduction-55
+batch_id: 2026-08-30-pca-canonical-reduction-56
 items:
-  - id: anova-no-replication-limitation
+  - id: mv-pca-software-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-twoway-f-tests
-    note: 反復なしでは純粋誤差自由度が0となり交互作用と誤差を分離できない点、加法モデル仮定に基づく扱い、2×3数値例まで二元配置正本へ吸収済み。
+    canonical_card: mv-pca-variance-max
+    note: 固有値から寄与率を計算し、固有ベクトルから主成分軸・得点を解釈する内容をPCA正本へ統合済み。
+
+  - id: mv-pca-loading
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-pca-variance-max
+    note: 主成分負荷量を変数と主成分の相関として導く式と数値例をPCA正本へ統合済み。
+
+  - id: mv-pca-covariance-vs-correlation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: mv-pca-variance-max
+    note: 共分散PCAと相関PCAの使い分け、標準化、相関行列の固有値計算と寄与率をPCA正本へ統合済み。
