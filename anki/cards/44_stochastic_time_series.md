@@ -204,18 +204,20 @@ Ljung--Box検定で棄却しないことは、残差が完全に独立である�
 
 ---
 id: ts-ar-causality-check
-title: AR(p)の因果性を根から判定する
+title: ARの因果性とMAの可逆性を根・再帰表示から判定する
 category: applied-common
 subcategory: applied-time-series
-topic: ar-root-causality
-type: calc_step
+topic: arma-root-causality-invertibility-canonical
+type: strategy
 difficulty: 3
-priority: B
+priority: A
 hashtags:
+  - 時系列解析
   - ARモデル
+  - MAモデル
   - 因果性
-  - 定常性
-  - 特性方程式
+  - 可逆性
+  - 単位円
 frequency:
   past_exam: 0
   textbook: 0
@@ -226,77 +228,167 @@ sources:
     topic: 因果性・可逆性
 ---
 ## 問題
-AR$(p)$
+AR・MAモデルの因果性と可逆性について次を解け。
+
+1. AR$(p)$
 $$
 \phi(B)X_t=\varepsilon_t,
 \qquad
 \phi(z)=1-\phi_1z-\cdots-\phi_pz^p
 $$
-が因果的な定常解を持つ条件を根で述べよ。
-
-さらに
+が因果的な定常解を持つ根条件を述べよ。
+2. AR$(2)$
 $$
 X_t=0.5X_{t-1}+0.2X_{t-2}+\varepsilon_t
 $$
-を判定せよ。
+が因果的か判定せよ。
+3. MA$(q)$
+$$
+X_t=\theta(B)\varepsilon_t,
+\qquad
+\theta(z)=1+\theta_1z+\cdots+\theta_qz^q
+$$
+が可逆となる根条件を述べよ。
+4. MA$(1)$
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+について、再帰代入から $|\theta|<1$ が必要になる理由を示し、$\theta=1.2$ を判定せよ。
+5. $\theta=0.4$、$X_t=3.0$、$\varepsilon_{t-1}=-0.5$ のとき $\varepsilon_t$ を求め、さらに $X_{t+1}=1.8$ なら $\varepsilon_{t+1}$ を求めよ。
 
 ## 記号・用語
-AR多項式は $\phi(z)=1-0.5z-0.2z^2$。因果的とは、$X_t$ が現在・過去の革新の収束する線形和で表せることをいう。
+**因果的**とは、現在の $X_t$ が現在・過去の革新 $\varepsilon_t,\varepsilon_{t-1},\ldots$ の収束する線形和で表せることをいう。
+
+**可逆**とは、現在の革新 $\varepsilon_t$ を現在・過去の観測 $X_t,X_{t-1},\ldots$ の収束する線形和として一意に復元できることをいう。
+
+ARとMAでは意味は違うが、標準的な符号規約ではどちらも対応する多項式の根が単位円の外側にあるかを確認する。
+
 ## 使用公式・定理
-**AR因果性条件**：AR多項式
+AR$(p)$ の因果性条件は
 $$
 \phi(z)=0
 $$
-のすべての根が単位円の外側、すなわち
+の全ての根が
 $$
 |z|>1
 $$
-なら、現在の $X_t$ を現在・過去の革新の絶対収束する線形和として表せる因果的定常解が得られる。
+を満たすことである。
+
+MA$(q)$ の可逆性条件も
+$$
+\theta(z)=0
+$$
+の全ての根が
+$$
+|z|>1
+$$
+を満たすことである。
+
+MA$(1)$ では
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+から
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+$$
+と解き、再帰代入すると
+$$
+\varepsilon_t
+=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\theta^3X_{t-3}+\cdots.
+$$
+この係数列が減衰するには $|\theta|<1$ が必要である。また
+$$
+1+\theta z=0
+$$
+の根 $z=-1/\theta$ が $|z|>1$ という条件とも同値である。
 
 ## 一手／方針
-係数そのものを1と比較せず、AR多項式を作り、その根の絶対値を1と比較する。AR(2)なら二次方程式として解けばよい。
+**まずモデル式からAR多項式またはMA多項式を作り、根を求めて絶対値を1と比較する。**
+
+ARなら「過去の革新から現在を安定に作れるか」、MAなら「過去の観測から革新を安定に戻せるか」と意味を対応させる。係数そのものを機械的に1と比較するのはAR$(1)$やMA$(1)$の特殊形にすぎない。
 
 ## 答え
-数値例のAR多項式は
+1. AR多項式 $\phi(z)=0$ の全根が単位円の外側、すなわち
 $$
-1-0.5z-0.2z^2.
+\boxed{|z|>1}
 $$
-2根は約
-$$
-z_1=1.31,
-\qquad
-z_2=-3.81
-$$
-で、ともに絶対値が1より大きい。したがって因果的な定常AR(2)モデルである。
+なら因果的な定常解を持つ。
 
-## 計算例
+2. AR多項式は
 $$
-1-0.5z-0.2z^2=0
+1-0.5z-0.2z^2=0.
 $$
-を
+すなわち
 $$
 0.2z^2+0.5z-1=0
 $$
-と書く。解の公式より
+だから
 $$
-\begin{aligned}
-z
-&=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{0.4}\\
-&=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
-\end{aligned}
+z=\frac{-0.5\pm\sqrt{1.05}}{0.4}
 $$
-よって
+より
 $$
-z_1\approx1.31,
-\qquad z_2\approx-3.81,
+z_1\approx1.31,\qquad z_2\approx-3.81.
 $$
+どちらも絶対値が1より大きいので
 $$
-|z_1|>1,
-\qquad |z_2|>1.
+\boxed{\text{因果的な定常AR(2)}}
+$$
+である。
+
+3. MA多項式 $\theta(z)=0$ の全根が
+$$
+\boxed{|z|>1}
+$$
+なら可逆である。
+
+4. MA$(1)$では再帰表示の係数が
+$$
+1,-\theta,\theta^2,-\theta^3,\ldots
+$$
+と続くので、安定に減衰するには
+$$
+\boxed{|\theta|<1}
+$$
+が必要である。$\theta=1.2$ では満たさないため可逆でない。
+
+5.
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+=3.0-0.4(-0.5)=\boxed{3.2}.
+$$
+次に
+$$
+\varepsilon_{t+1}=X_{t+1}-0.4\varepsilon_t
+=1.8-0.4(3.2)=\boxed{0.52}.
 $$
 
+## 計算例
+AR$(1)$
+$$
+X_t=\phi X_{t-1}+\varepsilon_t
+$$
+では $\phi(z)=1-\phi z$ の根は $z=1/\phi$ なので、根条件は
+$$
+|1/\phi|>1\iff|\phi|<1
+$$
+となる。
+
+MA$(1)$
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+でも $1+\theta z$ の根から
+$$
+|\theta|<1
+$$
+が得られる。見かけ上同じ絶対値条件でも、ARでは因果性、MAでは可逆性を保証している点が違う。
+
 ## 注意
-標準的なARIMAの文脈では「ARの定常条件」としてこの根条件を述べることが多いが、厳密にはここで保証しているのは**因果的な定常解**である。未来の革新に依存する非因果的表現まで許す議論とは区別する。
+有限次数MA過程はホワイトノイズの有限線形結合なので、通常は弱定常性そのものと可逆性は別問題である。一方ARの根条件は、標準的なARIMAの文脈では「定常条件」と呼ばれることも多いが、厳密には過去の革新による因果的な定常解を保証する条件として理解する。
+
+MAモデルを $X_t=\varepsilon_t-\theta\varepsilon_{t-1}$ のような別の符号規約で書く教科書もある。係数符号を丸暗記せず、必ず与えられた多項式を作って根を判定する。
 
 <!-- CARD -->
 
@@ -599,31 +691,123 @@ $$
 
 ---
 id: ts-acf-pacf-identification
-title: ACFとPACFからモデル候補を識別する
+title: ACF・PACFからAR/MA候補を絞りラグ2PACFまで計算する
 category: applied-common
 subcategory: applied-time-series
-topic: acf-pacf-identification
-type: formula
-difficulty: 2
+topic: acf-pacf-identification-canonical
+type: strategy
+difficulty: 3
 priority: A
-hashtags: [自己相関関数, 偏自己相関関数, モデル同定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ACF・PACFによるモデル同定 }]
+hashtags:
+  - 時系列解析
+  - 自己相関関数
+  - 偏自己相関関数
+  - PACF
+  - モデル同定
+  - Durbin-Levinson
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ACF・PACFによるモデル同定
 ---
 ## 問題
-ACFとPACFの形から AR$(p)$ と MA$(q)$ を識別する目安を答えよ。
+ACF・PACFによるモデル同定について次を解け。
+
+1. AR$(p)$、MA$(q)$、ARMA$(p,q)$ の理論ACF・PACFの典型的な形を述べよ。
+2. 標本ACFが $(0.70,0.49,0.34,\ldots)$ と減衰し、標本PACFが $(0.70,0.02,-0.01,\ldots)$ とラグ1以降ほぼ0なら、第一候補を答えよ。
+3. 逆に標本ACFが $(0.45,0.01,-0.02,\ldots)$ とラグ1でほぼ打ち切られ、PACFが徐々に減衰するなら第一候補を答えよ。
+4. 定常時系列で $\rho_1=0.6,\rho_2=0.2$ のとき、ラグ2偏自己相関 $\alpha_{22}$ を求めよ。
+5. AR$(1)$で理論PACFがラグ2以降0になることを、$\rho_2=\rho_1^2$ を使って確かめよ。
+
 ## 記号・用語
-ACFは自己相関関数、PACFは中間時点の線形効果を除いた偏自己相関関数である。
+ACFは自己相関関数 $\rho(h)$ である。
+
+ラグ $k$ のPACFは、$X_t$ を
+$$
+X_{t-1},\ldots,X_{t-k}
+$$
+で最良線形予測したときの、最も遠い $X_{t-k}$ の係数と解釈できる。したがってラグ2 PACFは、ラグ1の線形効果を調整した後に $X_{t-2}$ が追加で持つ線形関係を表す。
+
 ## 使用公式・定理
-**モデル同定の目安**：AR$(p)$ はACFが減衰してPACFがラグ $p$ で打ち切られ、MA$(q)$ はACFがラグ $q$ で打ち切られてPACFが減衰する。
+モデル同定の理論的な目安は次の通り。
+- AR$(p)$：ACFは減衰、PACFはラグ $p$ で打ち切り。
+- MA$(q)$：ACFはラグ $q$ で打ち切り、PACFは減衰。
+- ARMA$(p,q)$：ACF・PACFとも一般に減衰。
+
+ラグ2の最良線形予測を
+$$
+\widehat X_t=a_1X_{t-1}+a_2X_{t-2}
+$$
+とすると、標準化したYule--Walker方程式は
+$$
+\begin{pmatrix}1&\rho_1\\\rho_1&1\end{pmatrix}
+\begin{pmatrix}a_1\\a_2\end{pmatrix}
+=
+\begin{pmatrix}\rho_1\\\rho_2\end{pmatrix}.
+$$
+第1式から $a_1=\rho_1(1-a_2)$ を第2式へ代入すると
+$$
+a_2(1-\rho_1^2)=\rho_2-\rho_1^2.
+$$
+よってラグ2 PACFは
+$$
+\alpha_{22}=a_2
+=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}.
+$$
+
 ## 一手／方針
-厳密に0となる側を探し、次数候補を決める。
+**まず「どちらが打ち切られ、どちらが減衰するか」でARかMAかを絞る。** 次数を読むときは標本値が厳密に0になることを期待せず、有意なスパイクがどこまで続くかを見る。
+
+PACFの数値計算では公式だけを覚えず、ラグ2なら $X_{t-1}$ と $X_{t-2}$ を同時に使うYule--Walker方程式の第2係数だと理解して計算する。
+
 ## 答え
-PACFがラグ2以降ほぼ0でACFが減衰するなら AR$(1)$、ACFがラグ2以降ほぼ0でPACFが減衰するなら MA$(1)$ が候補である。
+1. AR$(p)$ はACFが減衰してPACFが $p$ で打ち切られる。MA$(q)$ はACFが $q$ で打ち切られてPACFが減衰する。ARMA$(p,q)$ は両方とも一般に減衰する。
+
+2. PACFがラグ1だけ大きく、ACFが幾何級数的に減衰しているので
+$$
+\boxed{\operatorname{AR}(1)}
+$$
+が第一候補である。
+
+3. ACFがラグ1で打ち切られ、PACFが減衰しているので
+$$
+\boxed{\operatorname{MA}(1)}
+$$
+が第一候補である。
+
+4.
+$$
+\alpha_{22}
+=\frac{0.2-0.6^2}{1-0.6^2}
+=\frac{-0.16}{0.64}
+=\boxed{-0.25}.
+$$
+これは単なる $\rho_2=0.2$ ではなく、ラグ1の線形効果を取り除いた後の追加関係である。
+
+5. AR$(1)$では
+$$
+\rho_2=\rho_1^2
+$$
+なので
+$$
+\alpha_{22}
+=\frac{\rho_1^2-\rho_1^2}{1-\rho_1^2}=\boxed{0}.
+$$
+同様に理論PACFはラグ2以降で0になる。
+
 ## 計算例
-標本ACFが $(0.7,0.49,0.34,\ldots)$、標本PACFが $(0.7,0.02,-0.01,\ldots)$ なら AR$(1)$ を候補にする。
+標本ACFがラグ1,2で大きく、その後ほぼ0、PACFが緩やかに減衰するならMA$(2)$を候補にする。逆にPACFがラグ1,2で大きく、その後ほぼ0、ACFが減衰するならAR$(2)$を候補にする。
+
+ただしAR$(2)$でも係数によってACFは単純な正の指数減衰だけでなく、符号交替や減衰振動を示し得る。形の暗記は「打ち切りか減衰か」を中心に使う。
+
 ## 注意
-標本変動があるため、情報量規準や残差診断も併用する。
+ACF/PACFによる識別は理論パターンを使った初期候補の絞り込みであり、有限標本では標本変動がある。厳密な0ではなく、おおよその打ち切りを見る。最終的には情報量規準、係数推定、残差診断なども併用する。
+
+PACFの定義は単なる $\rho_k$ ではない。中間ラグを調整した偏相関・最良線形予測の最遠ラグ係数として理解する。
 
 <!-- CARD -->
 
