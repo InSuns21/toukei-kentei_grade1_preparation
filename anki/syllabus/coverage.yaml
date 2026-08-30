@@ -1314,10 +1314,7 @@ items:
       - reg-studentized-residual
       - reg-coefficient-t-multiple
       - reg-overall-f-test
-      - reg-overall-f-r2
       - reg-partial-f-test
-      - reg-partial-f-numeric
-      - reg-f-equals-t-squared
       - reg-multiple-correlation
       - reg-dummy-variable
       - reg-interaction-dummy-continuous
@@ -1347,10 +1344,7 @@ items:
           - reg-multiple-model-matrix
           - reg-coefficient-t-multiple
           - reg-overall-f-test
-          - reg-overall-f-r2
           - reg-partial-f-test
-          - reg-partial-f-numeric
-          - reg-f-equals-t-squared
           - reg-dummy-variable
           - reg-interaction-dummy-continuous
           - reg-multicollinearity-vif
@@ -1370,10 +1364,7 @@ items:
           - reg-sst-decomposition
           - reg-error-variance-estimator
           - reg-overall-f-test
-          - reg-overall-f-r2
           - reg-partial-f-test
-          - reg-partial-f-numeric
-          - reg-f-equals-t-squared
       - name: 重相関係数
         status: card
         cards:
@@ -1383,7 +1374,7 @@ items:
         status: card
         cards:
           - reg-sst-decomposition
-          - reg-overall-f-r2
+          - reg-overall-f-test
       - name: 残差
         status: card
         cards:
