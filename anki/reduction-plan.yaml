@@ -1,26 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-logistic-reduction-61
+batch_id: 2026-08-30-glm-foundation-reduction-62
 items:
-  - id: glm-logistic-probability
+  - id: glm-exponential-family
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-logistic-score
-    note: 逆ロジットによる予測確率をロジスティック回帰正本へ統合済み。
+    canonical_card: glm-three-components
+    note: 指数型分布族の標準形、自然母数、平均・分散の導出を一般化線形モデル正本へ統合済み。
 
-  - id: glm-logistic-odds-ratio
+  - id: glm-canonical-links
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-logistic-score
-    note: 係数からオッズ比を読む手順をロジスティック回帰正本へ統合済み。
-
-  - id: glm-binomial-loglikelihood
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-logistic-score
-    note: ベルヌーイ・二項対数尤度をロジスティック回帰正本へ統合済み。
-
-  - id: glm-irls-update
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-logistic-score
-    note: フィッシャー・スコアリングからIRLS更新までをロジスティック回帰正本へ統合済み。
+    canonical_card: glm-three-components
+    note: 正準リンクの定義と正規・二項・ポアソンの対応を一般化線形モデル正本へ統合済み。
