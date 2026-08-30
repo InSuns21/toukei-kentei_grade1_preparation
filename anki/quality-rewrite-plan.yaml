@@ -1,104 +1,99 @@
 schema_version: 1
-batch_id: 2026-08-31-asymptotic-core-canonical-173b
+batch_id: 2026-08-31-multivariate-delta-ratio-canonical-176
 items:
-  - id: asym-slutsky
-    note: Slutskyの定理へ比の例と未知分散のstudentizationを統合する。
+  - id: asym-ratio-two-means-delta
+    note: 比推定量の多変量デルタ法正本を、独立2標本だけでなく共分散を含む一般2変量漸近正規推定量へ拡張し、engineering側の一般比率デルタ法カードを吸収する。
     metadata:
-      title: Slutskyの定理で未知量を一致推定量へ置き換え標準化する
-      topic: slutsky-canonical
+      title: 多変量デルタ法で比推定量の漸近分散を共分散込みで求める
+      topic: ratio-estimator-multivariate-delta-canonical
       type: strategy
-      difficulty: 3
+      difficulty: 4
       priority: S
-      hashtags: [Slutskyの定理, 分布収束, 確率収束, 標準化, 漸近理論]
+      hashtags: [多変量デルタ法, 比推定量, 漸近分散, 共分散, 2標本]
     sections:
       問題: |
-        Slutsky（スルツキー）の定理について次を答えよ。
-        1. $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ のとき、和・積・商の極限を述べよ。
-        2. $X_n$ が正規分布 $N(0,4)$ へ分布収束し、$Y_n\xrightarrow{p}2$ のとき $X_n/Y_n$ の極限分布を求めよ。
-        3. 独立同分布標本で、$\sqrt n(\overline X_n-\mu)/\sigma$ が標準正規分布 $N(0,1)$ へ分布収束し、$S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ とする。$(\overline X_n-\mu)/(S_n/\sqrt n)$ の極限分布を示せ。
-      記号・用語: |
-        $\xrightarrow{d}$ は分布収束、$\xrightarrow{p}$ は確率収束。Slutskyの定理は、主要な確率変数に掛かる・足される量が定数へ確率収束するとき、その量を漸近的に定数へ置き換えられることをいう。
-      使用公式・定理: |
-        $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ なら
-        $$X_n+Y_n\xrightarrow{d}X+c,\qquad X_nY_n\xrightarrow{d}cX.$$
-        $c\ne0$ なら
-        $$\frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.$$
-        また $S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ なら連続写像定理により $S_n/\sigma\xrightarrow{p}1$。
-      一手／方針: |
-        分布収束する「主役」と、定数へ確率収束する「置換量」に分ける。未知標準偏差の置換では $S_n/\sigma\to_p1$ を作る。
-      答え: |
-        1. 和・積は上式、商は $c\ne0$ のとき $X/c$ へ分布収束する。
-        2. $X\sim N(0,4)$ を2で割るので $X/2\sim N(0,1)$、したがって標準正規分布へ収束する。
-        3. $Z_n=\sqrt n(\overline X_n-\mu)/\sigma\to_dN(0,1)$、$S_n/\sigma\to_p1$ だから
-        $$\frac{\overline X_n-\mu}{S_n/\sqrt n}=\frac{Z_n}{S_n/\sigma}\xrightarrow{d}N(0,1).$$
-      計算例: |
-        $X_n\to_dN(0,4)$、$Y_n\to_p2$ なら、分散は $4/2^2=1$ となり $X_n/Y_n\to_dN(0,1)$。
-      注意: |
-        商では分母の極限が0でないことが必要。有限標本で推定標準偏差へ置換した統計量が厳密に同じ分布になることを主張する定理ではない。
+        2つの推定量について、正規分布への漸近収束
+        $$
+        \sqrt n\left\{
+        \begin{pmatrix}\widehat a\\\widehat b\end{pmatrix}
+        -
+        \begin{pmatrix}a\\b\end{pmatrix}
+        \right\}
+        \xrightarrow{d}N_2(0,\Sigma),
+        \qquad b\ne0
+        $$
+        が成り立つとする。次を解け。
 
-  - id: asym-continuous-mapping
-    note: 連続写像定理へ確率収束版とプラグイン推定量の一致性を統合する。
-    metadata:
-      title: 連続写像定理で変換後の収束とプラグイン推定量の一致性を示す
-      topic: continuous-mapping-canonical
-      type: strategy
-      difficulty: 2
-      priority: A
-      hashtags: [連続写像定理, 分布収束, 確率収束, 一致性, プラグイン法]
-    sections:
-      問題: |
-        1. $X_n\to_dX$ と $X_n\to_p\theta$ のそれぞれについて、連続関数 $g$ を作用させた結論を述べよ。
-        2. $Z_n$ が標準正規分布 $N(0,1)$ へ分布収束するとき $Z_n^2$ の極限分布を求めよ。
-        3. $\widehat p\to_pp$、$0<p<1$ のとき、$\widehat p(1-\widehat p)$ が $p(1-p)$ の一致推定量であることを示せ。
+        1. $R_n=\widehat a/\widehat b$ の漸近分散定数を、$\Sigma_{11},\Sigma_{22},\Sigma_{12}$ で表せ。
+        2. 独立な2標本平均 $\overline X,\overline Y$ で、母平均が $\mu_X=4,\mu_Y=2$、母分散が $\sigma_X^2=4,\sigma_Y^2=1$、両標本サイズが $n=100$ のとき、$\overline X/\overline Y$ の漸近標準誤差を求めよ。
+        3. 分母の母数 $b$ が0に近いとき、この近似に注意が必要な理由を述べよ。
       記号・用語: |
-        プラグイン法は、未知母数の関数 $g(\theta)$ を $g(\widehat\theta)$ で推定する考え方である。
+        $\Sigma$ は $\sqrt n$ 倍した2推定量の極限分散共分散行列である。多変量デルタ法では、滑らかな関数 $g(a,b)$ の一次近似を勾配 $\nabla g(a,b)$ で表し、その方向の分散を計算する。
       使用公式・定理: |
-        $g$ が極限値で連続なら
-        $$X_n\xrightarrow{d}X\Rightarrow g(X_n)\xrightarrow{d}g(X),$$
-        $$X_n\xrightarrow{p}\theta\Rightarrow g(X_n)\xrightarrow{p}g(\theta).$$
-      一手／方針: |
-        元の推定量の収束を確認し、次に変換 $g$ が極限値で連続か確認する。
-      答え: |
-        1. 分布収束・確率収束とも連続関数を通して保存される。
-        2. $g(z)=z^2$ は連続なので $Z_n^2\to_d\chi_1^2$。
-        3. $g(x)=x(1-x)$ は連続なので $\widehat p(1-\widehat p)\to_pp(1-p)$。
-      計算例: |
-        $\widehat p=0.36,n=400$ なら $\widehat p(1-\widehat p)=0.2304$、標本比率の推定標準誤差は
-        $$\sqrt{0.2304/400}=0.024.$$
-      注意: |
-        連続写像定理だけでは収束速度や漸近分散は与えない。変換後の $\sqrt n$ 尺度の極限にはデルタ法などを使う。
+        多変量デルタ法より
+        $$
+        \sqrt n\{g(\widehat a,\widehat b)-g(a,b)\}
+        \xrightarrow{d}
+        N\left(0,\nabla g(a,b)^{\mathsf T}\Sigma\nabla g(a,b)\right),
+        $$
+        ここで右辺の $N$ は正規分布を表す。
 
-  - id: test-lr-wald-score-comparison
-    note: 尤度比・ワルド型・スコア型検定へ評価点の違い、共通カイ二乗極限、境界母数の注意を統合する。
-    metadata:
-      title: 尤度比・ワルド型・スコア型検定を評価点と漸近同値性から比較する
-      topic: asymptotic-test-equivalence
-      type: strategy
-      difficulty: 3
-      priority: S
-      hashtags: [尤度比検定, ワルド型検定, スコア型検定, 漸近同値, カイ二乗分布]
-    sections:
-      問題: |
-        1次元母数で $H_0:\theta=\theta_0$ を検定する。
-        1. 尤度比・ワルド型・スコア型検定が尤度の何をどこで評価するか説明せよ。
-        2. 正則条件の下で帰無仮説下の3統計量の漸近分布と相互関係を述べよ。
-        3. 漸近同値が有限標本での完全一致を意味しないこと、境界母数では通常の結論が崩れ得ることを説明せよ。
-      記号・用語: |
-        $\widehat\theta$ は制約なし最尤推定量、$U_n(\theta)$ はスコア、$I_n(\theta)$ はフィッシャー情報量（1次元）とする。
-        尤度比検定は制約あり・なしの最大尤度差、ワルド型検定は $\widehat\theta$ と帰無値の距離、スコア型検定は帰無値での尤度の傾きを使う。
-      使用公式・定理: |
-        代表的には
-        $$W_n=(\widehat\theta-\theta_0)^2I_n(\widehat\theta),$$
-        $$S_n=\frac{U_n(\theta_0)^2}{I_n(\theta_0)},$$
-        $$LR_n=2\{\ell_n(\widehat\theta)-\ell_n(\theta_0)\}.$$
-        正則条件の下で $H_0$ では3者とも $\chi_1^2$ へ分布収束し、互いの差は $o_p(1)$。
+        比では
+        $$
+        g(a,b)=\frac ab,
+        \qquad
+        \nabla g(a,b)
+        =\begin{pmatrix}1/b\\-a/b^2\end{pmatrix}.
+        $$
+        したがって
+        $$
+        V_R
+        =\frac{\Sigma_{11}}{b^2}
+        +\frac{a^2\Sigma_{22}}{b^4}
+        -\frac{2a\Sigma_{12}}{b^3}.
+        $$
       一手／方針: |
-        ワルド型は推定値付近、スコア型は帰無値、尤度比は両者の最大対数尤度を使うが、帰無値近傍の二次近似では同じ主要項へ帰着する。
+        **比を見たら $g(a,b)=a/b$ の勾配を先に作り、$\nabla g^{\mathsf T}\Sigma\nabla g$ を計算する。** 独立なら共分散項だけが0になり、一般式から独立2標本の公式が直ちに出る。
       答え: |
-        1. 評価点は上記のとおり異なる。
-        2. 3統計量はいずれも自由度1のカイ二乗分布へ収束し、差は確率的に0へ近づく。
-        3. 有限標本では統計量やP値は一致しなくてよい。母数が許容領域の境界にあると通常の内部点での二次近似条件が崩れ、非標準な極限分布になることがある。
+        1. 漸近分散定数は
+        $$
+        \boxed{
+        V_R
+        =\frac{\Sigma_{11}}{b^2}
+        +\frac{a^2\Sigma_{22}}{b^4}
+        -\frac{2a\Sigma_{12}}{b^3}}
+        $$
+        である。したがって $R_n$ 自身の大標本での分散はおよそ $V_R/n$。
+
+        2. 独立なので $\Sigma_{12}=0$。また
+        $$
+        \Sigma=\begin{pmatrix}4&0\\0&1\end{pmatrix}.
+        $$
+        よって
+        $$
+        V_R
+        =\frac4{2^2}+\frac{4^2\cdot1}{2^4}
+        =1+1=2.
+        $$
+        $n=100$ だから
+        $$
+        \operatorname{ASE}(R_n)
+        =\sqrt{\frac2{100}}
+        \approx\boxed{0.1414}.
+        $$
+
+        3. 勾配には $1/b$ と $1/b^2$ が含まれるため、$b$ が0に近いと一次近似の係数が非常に大きくなり、比の分布が強く歪んで正規近似が不安定になりやすい。
       計算例: |
-        $W_n=4.10,S_n=3.95,LR_n=4.02$ は少し異なるが、いずれも $\chi_1^2$ の5%臨界値約3.84を上回るので同じ棄却判断になる。
+        共分散がある例として $a=2,b=1$、
+        $$
+        \Sigma=\begin{pmatrix}4&1\\1&9\end{pmatrix}
+        $$
+        なら
+        $$
+        V_R
+        =4+4\cdot9-2\cdot2\cdot1
+        =36.
+        $$
+        共分散項を落としてしまうと $40$ となるため、同じ標本から作った2推定量では $\Sigma_{12}$ を無視しない。
       注意: |
-        小標本、弱識別、境界母数、強い非線形性では3検定の差が無視できないことがある。
+        独立2標本では共分散項は0だが、同一標本から計算した2推定量では一般に0ではない。分母が0または0に近い場合、比の推定にはデルタ法による対称な正規近似よりFieller型区間など別の扱いが適することがある。
