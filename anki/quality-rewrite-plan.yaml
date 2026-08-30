@@ -1,199 +1,161 @@
 schema_version: 1
-batch_id: 2026-08-30-logistic-canonical-merge-prep-61b
+batch_id: 2026-08-30-glm-foundation-merge-prep-62
 items:
-  - id: glm-logistic-score
-    note: ロジスティック回帰の予測確率・オッズ比・二項尤度・スコア・フィッシャー・スコアリング/IRLSを一つの計算鎖へ統合する。
+  - id: glm-three-components
+    note: GLMの3要素・指数型分布族・平均分散公式・自然母数・正準リンクを一枚の導入正本へ統合する。
     metadata:
-      title: ロジスティック回帰を確率・オッズ比・尤度・スコア・IRLSまで通す
-      topic: logistic-regression-canonical
-      hashtags: [ロジスティック回帰分析, ロジット, オッズ比, 尤度, スコア, IRLS]
+      title: 一般化線形モデルを指数型分布族・3要素・正準リンクまで通す
+      topic: glm-foundations-canonical
+      hashtags: [一般化線形モデル, 指数型分布族, 自然母数, リンク関数, 正準リンク]
     sections:
       問題: |
-        独立なベルヌーイ応答 $Y_i\in\{0,1\}$ に対し
-        $$
-        \eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta,
-        \qquad
-        \operatorname{logit}(p_i)=\eta_i
-        $$
-        とする。
+        一般化線形モデル（GLM）について次を答えよ。
 
-        1. $p_i$ を $\eta_i$ から表せ。
-        2. 説明変数 $x_j$ が $c$ 増えたときのオッズ比を表せ。
-        3. 対数尤度を $\eta_i$ を用いて書き、その勾配であるスコアベクトルを導け。
-        4. フィッシャー情報行列とフィッシャー・スコアリング更新を書き、IRLSの重み付き最小二乗形へ変形せよ。
-        5. 数値例として $\eta=0$ の予測確率、$\beta_j=\log1.5$ で $x_j$ が2増える場合のオッズ比を求めよ。
+        1. GLMを構成する3要素を述べよ。
+        2. 応答分布の指数型分布族の標準形を書き、平均と分散を $b(\theta)$ から表せ。
+        3. 正準リンクの意味を説明し、正規・二項・ポアソン分布の正準リンクを答えよ。
+        4. ポアソン分布とベルヌーイ分布を指数型分布族の形へ直し、自然母数を確認せよ。
       使用公式・定理: |
-        ロジットの逆関数は
-        $$
-        p_i
-        =\frac{e^{\eta_i}}{1+e^{\eta_i}}
-        =\frac1{1+e^{-\eta_i}}.
-        $$
-        したがってオッズは
-        $$
-        \frac{p_i}{1-p_i}=e^{\eta_i}.
-        $$
-        他の説明変数を固定して $x_j$ を $c$ 増やすと線形予測子は $c\beta_j$ 増えるので、オッズ比は
-        $$
-        \boxed{\exp(c\beta_j)}.
-        $$
+        GLMの3要素は次の3つである。
 
-        ベルヌーイ対数尤度は
+        1. **確率成分**：条件付き応答 $Y_i\mid\boldsymbol x_i$ が指数型分布族に従う。
+        2. **系統成分**：説明変数を線形予測子
         $$
-        \ell(\boldsymbol\beta)
-        =\sum_i\left\{y_i\log p_i+(1-y_i)\log(1-p_i)\right\}.
+        \eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta
         $$
-        $p_i=e^{\eta_i}/(1+e^{\eta_i})$ を代入すると
+        にまとめる。
+        3. **リンク関数**：条件付き平均
         $$
-        \ell(\boldsymbol\beta)
-        =\sum_i\left\{y_i\eta_i-\log(1+e^{\eta_i})\right\}.
+        \mu_i=E[Y_i\mid\boldsymbol x_i]
         $$
-        また
+        と線形予測子を
         $$
-        \frac{dp_i}{d\eta_i}=p_i(1-p_i).
+        g(\mu_i)=\eta_i
         $$
-        よって各観測について
-        $$
-        \frac{\partial\ell_i}{\partial\eta_i}
-        =y_i-p_i,
-        $$
-        さらに $\partial\eta_i/\partial\boldsymbol\beta=\boldsymbol x_i$ だから
-        $$
-        \boxed{
-        \boldsymbol U(\boldsymbol\beta)
-        =\frac{\partial\ell}{\partial\boldsymbol\beta}
-        =\sum_i\boldsymbol x_i(y_i-p_i)
-        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
-        }.
-        $$
+        で結ぶ。
 
-        $\boldsymbol W=\operatorname{diag}\{p_i(1-p_i)\}$ とすると
+        指数型分布族を
         $$
-        -\frac{\partial^2\ell}{\partial\boldsymbol\beta\partial\boldsymbol\beta^{\mathsf T}}
-        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
+        f(y;\theta,\phi)
+        =\exp\left\{
+        \frac{y\theta-b(\theta)}{a(\phi)}
+        +c(y,\phi)
+        \right\}
         $$
-        したがってフィッシャー情報行列も
+        と書く。$\theta$ は自然母数、$\phi$ は分散母数である。正規化条件を $\theta$ で微分すると
         $$
-        \boldsymbol I(\boldsymbol\beta)
-        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X.
+        E[Y]=b'(\theta),
         $$
-        フィッシャー・スコアリング（この場合Newton法と一致）は
+        さらにもう一度微分すると
         $$
-        \boxed{
-        \boldsymbol\beta^{\mathrm{new}}
-        =\boldsymbol\beta^{\mathrm{old}}
-        +(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p)
-        }.
+        \operatorname{Var}(Y)=a(\phi)b''(\theta)
         $$
-        作業応答
+        を得る。
+
+        **正準リンク**とは、リンクを自然母数へ一致させ
         $$
-        z_i
-        =\eta_i+\frac{y_i-p_i}{p_i(1-p_i)}
+        \boxed{g(\mu)=\theta}
         $$
-        を置けば同じ更新は
-        $$
-        \boxed{
-        \boldsymbol\beta^{\mathrm{new}}
-        =(\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol z
-        }
-        $$
-        となり、これが反復重み付き最小二乗法（IRLS）である。
+        とする選択である。代表例は
+
+        - 正規分布：恒等リンク $g(\mu)=\mu$
+        - 二項分布：ロジットリンク $g(p)=\log\{p/(1-p)\}$
+        - ポアソン分布：対数リンク $g(\mu)=\log\mu$
+
+        である。
       一手: |
-        **ロジスティック回帰は「$\eta\to p\to\ell\to U\to I\to$ IRLS」の一本の鎖で覚える。** 係数解釈も同じ $\eta$ から、$x_j$ の増分 $c\beta_j$ を指数化してオッズ比 $e^{c\beta_j}$ と読む。
+        **GLMは「分布を指数型分布族で書く → 自然母数 $\theta$ を読む → 平均 $\mu$ と線形予測子 $\eta=X\beta$ をリンクで結ぶ」と追う。** 正準リンクは、その最後のリンクを $g(\mu)=\theta$ と選ぶだけである。
       答え: |
-        基本関係は
+        ポアソン分布では
         $$
-        p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}},
+        P(Y=y)
+        =\frac{e^{-\mu}\mu^y}{y!}
+        =\exp\{y\log\mu-\mu-\log(y!)\}.
+        $$
+        よって
+        $$
+        \theta=\log\mu,
         \qquad
-        \frac{p_i}{1-p_i}=e^{\eta_i}.
-        $$
-        $x_j$ が $c$ 増えるとオッズ比は
-        $$
-        e^{c\beta_j}.
-        $$
-        対数尤度、スコア、情報行列は
-        $$
-        \ell(\boldsymbol\beta)
-        =\sum_i\{y_i\eta_i-\log(1+e^{\eta_i})\},
-        $$
-        $$
-        \boldsymbol U(\boldsymbol\beta)
-        =\boldsymbol X^{\mathsf T}(\boldsymbol y-\boldsymbol p),
-        $$
-        $$
-        \boldsymbol I(\boldsymbol\beta)
-        =\boldsymbol X^{\mathsf T}\boldsymbol W\boldsymbol X,
+        b(\theta)=e^\theta,
         \qquad
-        w_i=p_i(1-p_i).
+        a(\phi)=1.
         $$
-        これをフィッシャー・スコアリングで反復するとIRLSになる。
+        したがって
+        $$
+        b'(\theta)=e^\theta=\mu,
+        \qquad
+        b''(\theta)=e^\theta=\mu,
+        $$
+        なので $E[Y]=\operatorname{Var}(Y)=\mu$ であり、正準リンクは
+        $$
+        g(\mu)=\log\mu.
+        $$
 
-        数値例では $\eta=0$ なら
+        ベルヌーイ分布では
         $$
-        p=\frac1{1+1}=\frac12.
+        P(Y=y)=p^y(1-p)^{1-y}.
         $$
-        また $\beta_j=\log1.5$、$c=2$ なら
-        $$
-        OR=e^{2\log1.5}=1.5^2=2.25.
-        $$
-      計算例: |
-        切片のみモデルで現在値 $\beta^{(0)}=0$、観測が
-        $$
-        (y_1,y_2,y_3,y_4)=(1,1,1,0)
-        $$
-        とする。まず全観測で
-        $$
-        \eta_i^{(0)}=0,
-        \qquad
-        p_i^{(0)}=\frac12,
-        \qquad
-        w_i^{(0)}=\frac14.
-        $$
-        スコアは
+        対数を整理すると
         $$
         \begin{aligned}
-        U(\beta^{(0)})
-        &=\sum_{i=1}^4(y_i-p_i)\\
-        &=3-4\cdot\frac12\\
-        &=1.
+        \log P(Y=y)
+        &=y\log p+(1-y)\log(1-p)\\
+        &=y\log\frac{p}{1-p}+\log(1-p).
         \end{aligned}
         $$
-        情報量は
+        ここで
         $$
-        I(\beta^{(0)})
-        =\sum_{i=1}^4w_i
-        =4\cdot\frac14
-        =1.
+        \theta=\log\frac{p}{1-p}
         $$
-        したがって1回目のフィッシャー・スコアリング更新は
+        と置けば
         $$
-        \beta^{(1)}
-        =0+I^{-1}U
-        =1.
+        p=\frac{e^\theta}{1+e^\theta},
+        \qquad
+        \log(1-p)=-\log(1+e^\theta),
         $$
-        同じ計算をIRLSで見ると、作業応答は成功観測で
+        だから
         $$
-        z=0+\frac{1-1/2}{1/4}=2,
+        P(Y=y)
+        =\exp\{y\theta-\log(1+e^\theta)\}.
         $$
-        失敗観測で
+        よって
         $$
-        z=0+\frac{0-1/2}{1/4}=-2.
+        b(\theta)=\log(1+e^\theta),
         $$
-        すべて同じ重み $1/4$ なので重み付き平均は
+        自然母数そのものがロジットなので正準リンクは
         $$
-        \frac{2+2+2-2}{4}=1,
+        g(p)=\log\frac{p}{1-p}.
         $$
-        よって同じ $\beta^{(1)}=1$ が得られる。
+      計算例: |
+        ポアソン回帰で平均が $\mu=3$ なら、正準リンクによる線形予測子は
+        $$
+        \eta=\log3\approx1.099.
+        $$
+        逆に $\eta=\log5$ なら
+        $$
+        \mu=e^\eta=5.
+        $$
+
+        ベルヌーイ応答で成功確率が $p=0.8$ なら
+        $$
+        \eta
+        =\log\frac{0.8}{0.2}
+        =\log4
+        \approx1.386.
+        $$
+        逆に $\eta=0$ ならオッズが1なので
+        $$
+        p=\frac12.
+        $$
+
+        この2例では、分布ごとに異なる平均の範囲
+        $$
+        \mu>0\quad\text{または}\quad0<p<1
+        $$
+        を、リンク関数が実数全体を取る線形予測子へ写している。
       注意: |
-        オッズ比は確率差ではない。例えば基準確率が異なれば、同じオッズ比でも確率の増分は異なる。
+        「GLMでは必ず正準リンクを使う」わけではない。正準リンクは計算や理論が簡潔になる代表的選択だが、目的に応じて非正準リンクも使える。
 
-        二項応答 $Y_i\sim\operatorname{Bin}(m_i,p_i)$ では
-        $$
-        \ell_i
-        =y_i\log p_i+(m_i-y_i)\log(1-p_i)+\text{const.}
-        $$
-        とし、成功割合を応答にする表記ではIRLSの重みに $m_i$ が入る。
+        指数型分布族として扱う際は、台が未知母数に依存しないなど通常の正則性にも注意する。また $a(\phi)$ の具体形や分散母数の有無は分布ごとに異なる。
 
-        完全分離・準完全分離では係数が発散し、有限の通常最尤推定値が存在しないことがある。IRLSが収束しないときは単なる数値計算不良と決めつけず分離も疑う。
+        通常の正規線形回帰は、正規分布＋恒等リンクを用いるGLMの特殊例として含まれる。
