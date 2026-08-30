@@ -245,35 +245,63 @@ sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定
 
 ---
 id: test-pooled-two-sample-t
-title: 等分散2標本t統計量を構成する
+title: 等分散2標本t検定を結合分散から数値判定まで解く
 category: math-testing
 subcategory: math-normal-tests
-topic: pooled-two-sample-t
-type: formula
+topic: pooled-two-sample-t-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [2標本t検定, 等分散, 複数の平均に関する検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 複数の平均に関する検定 }]
+hashtags:
+  - 2標本t検定
+  - 等分散
+  - 結合分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 複数の平均に関する検定
 ---
 
 ## 問題
-独立な正規分布 $N(\mu_X,\sigma^2)$ からの標本 $X_i$ と、正規分布 $N(\mu_Y,\sigma^2)$ からの標本 $Y_j$ で共通分散は未知とする。平均差0の検定統計量を書け。
+独立な2群がそれぞれ正規分布 $N(\mu_X,\sigma^2)$、$N(\mu_Y,\sigma^2)$ に従い、共通分散 $\sigma^2$ は未知とする。$H_0:\mu_X=\mu_Y$ の等分散2標本t検定の統計量を示し、$n_X=n_Y=10,\bar x=12,\bar y=10,s_X^2=4,s_Y^2=6$ について両側5%で検定せよ。ただし $t_{18,0.025}=2.101$ とする。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+共通分散は2群の残差平方和を自由度で重み付けして
+$$
+S_p^2=\frac{(n_X-1)S_X^2+(n_Y-1)S_Y^2}{n_X+n_Y-2}
+$$
+と推定する。帰無仮説の下で
+$$
+T=\frac{\bar X-\bar Y}{S_p\sqrt{1/n_X+1/n_Y}}
+\sim t_{n_X+n_Y-2}.
+$$
 
-独立な残差平方和を加えると自由度も $(n_X-1)+(n_Y-1)$ と加わる。
+## 一手
+等分散を仮定できる独立2標本なら、まず2群の分散を結合して $S_p^2$ を作り、その後に平均差を共通標準誤差で割る。
 
 ## 答え
-$$S_p^2=\frac{(n_X-1)S_X^2+(n_Y-1)S_Y^2}{n_X+n_Y-2},$$
-$$T=\frac{\overline X-\overline Y}{S_p\sqrt{1/n_X+1/n_Y}}\sim t_{n_X+n_Y-2}.$$
+$$
+S_p^2=\frac{9\cdot4+9\cdot6}{18}=5,
+$$
+$$
+T=\frac{12-10}{\sqrt5\sqrt{1/10+1/10}}=2,
+\qquad \mathrm{df}=18.
+$$
+$|2|<2.101$ なので両側5%では $H_0$ を棄却しない。
 
 ## 計算例
-$n_X=10,n_Y=12$ なら自由度は20。
+自由度は
+$$
+(n_X-1)+(n_Y-1)=9+9=18
+$$
+と、2群の残差自由度の和になる。
 
 ## 注意
-等分散仮定がない場合はWelch検定を使う。
+等分散の根拠がない場合はWelch検定を標準選択とする。対応のある標本ではこの式ではなく、ペア差の1標本t検定へ帰着する。
 
 <!-- CARD -->
 
@@ -314,36 +342,61 @@ $2<2.101$ なので5%では棄却しない。
 
 ---
 id: test-welch-two-sample-formula
-title: Welchの2標本t統計量と自由度を再生する
+title: Welchの2標本t検定を自由度計算まで完遂する
 category: math-testing
 subcategory: math-normal-tests
-topic: welch-test
-type: formula
+topic: welch-two-sample-canonical
+type: strategy
 difficulty: 3
-priority: A
-hashtags: [Welch検定, 2標本t検定, 不等分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 複数の平均に関する検定 }]
+priority: S
+hashtags:
+  - Welch検定
+  - 2標本t検定
+  - 不等分散
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 複数の平均に関する検定
 ---
 
 ## 問題
-独立2標本で等分散を仮定しない平均差検定の統計量とSatterthwaite自由度を書け。
+独立2標本の平均差を、等分散を仮定せずに検定するWelch検定の統計量とWelch–Satterthwaite自由度を書け。さらに $n_X=10,n_Y=20,\bar x=15,\bar y=12,s_X^2=25,s_Y^2=20$ の統計量と近似自由度を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+T_W=\frac{\bar X-\bar Y}{\sqrt{S_X^2/n_X+S_Y^2/n_Y}},
+$$
+$$
+\nu=\frac{(S_X^2/n_X+S_Y^2/n_Y)^2}
+{(S_X^2/n_X)^2/(n_X-1)+(S_Y^2/n_Y)^2/(n_Y-1)}.
+$$
+帰無分布を $t_\nu$ で近似する。$\nu$ は整数でなくてよい。
 
-帰無分布を $t_\nu$ で近似する。
+## 一手
+各群の「分散÷標本数」を別々に標準誤差へ入れ、その同じ2項をSatterthwaite式にも使う。
 
 ## 答え
-$$T_W=\frac{\overline X-\overline Y}{\sqrt{S_X^2/n_X+S_Y^2/n_Y}},$$
-$$\nu=\frac{(S_X^2/n_X+S_Y^2/n_Y)^2}
-{(S_X^2/n_X)^2/(n_X-1)+(S_Y^2/n_Y)^2/(n_Y-1)}.$$
+$$
+\operatorname{SE}=\sqrt{25/10+20/20}=\sqrt{3.5},
+$$
+$$
+T_W=\frac3{\sqrt{3.5}}\approx1.604.
+$$
+また
+$$
+\nu=\frac{3.5^2}{2.5^2/9+1^2/19}
+\approx16.40.
+$$
 
 ## 計算例
-$S_X^2/n_X=1,S_Y^2/n_Y=1$、両群自由度9なら $\nu=4/(1/9+1/9)=18$。
+両側5%臨界値を約2.11とすれば $|1.604|<2.11$ なので棄却しない。分散の大きい小標本群があると、自由度は大きく下がりやすい。
 
 ## 注意
-$\nu$ は整数でなくてよい。
+等分散を事前F検定で判定してから検定法を切り替えるより、等分散の根拠がなければWelchを用いる方が手順として素直である。対応標本には使わない。
 
 <!-- CARD -->
 
@@ -419,37 +472,64 @@ $n_X=10,n_Y=40,s_X^2=100,s_Y^2=4$ のような不均衡では、結合分散は�
 
 ---
 id: test-normal-variance-chisquare
-title: 正規母分散のカイ二乗検定を構成する
+title: 正規母分散のカイ二乗検定を片側・両側とも解く
 category: math-testing
 subcategory: math-normal-tests
-topic: variance-chisquare
-type: formula
+topic: variance-chisquare-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [正規分布, カイ二乗検定, 母分散]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定 }, { type: past_exam, id: MATH-2018-Q1, topic: カイ二乗分布・母標準偏差 }]
+hashtags:
+  - 正規分布
+  - カイ二乗検定
+  - 母分散
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 平均値と分散に関する検定
+  - type: past_exam
+    id: MATH-2018-Q1
+    topic: カイ二乗分布・母標準偏差
 ---
 
 ## 問題
-正規分布 $N(\mu,\sigma^2)$ からの標本で、$H_0:\sigma^2=\sigma_0^2$ の検定統計量と帰無分布を書け。
+正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本について、$H_0:\sigma^2=\sigma_0^2$ の検定統計量を示し、対立仮説が $\sigma^2>\sigma_0^2$、$\sigma^2<\sigma_0^2$、$\sigma^2\ne\sigma_0^2$ の場合の棄却方向を書け。
+
+さらに $n=16,s^2=9,\sigma_0^2=4$ を両側5%で検定せよ。自由度15の中央95%区間の端点を $6.262,27.488$ とする。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+帰無仮説の下で
+$$
+Q=\frac{(n-1)S^2}{\sigma_0^2}\sim\chi^2_{n-1}.
+$$
+$\chi^2_{\nu,\gamma}$ を上側確率 $\gamma$ の点とすると、有意水準 $\alpha$ で
+$$
+\begin{array}{c|c}
+H_1 & \text{棄却域}\\ \hline
+\sigma^2>\sigma_0^2 & Q>\chi^2_{n-1,\alpha}\\
+\sigma^2<\sigma_0^2 & Q<\chi^2_{n-1,1-\alpha}\\
+\sigma^2\ne\sigma_0^2 & Q<\chi^2_{n-1,1-\alpha/2}\ \text{または}\ Q>\chi^2_{n-1,\alpha/2}
+\end{array}
+$$
 
-両側有意水準 $\alpha$ では
-$$Q<\chi^2_{n-1,1-\alpha/2}\quad\text{または}\quad
-Q>\chi^2_{n-1,\alpha/2}$$
-で棄却する。添字は上側確率。
+## 一手
+$Q$ は $S^2$ と同じ向きに増減するので、「母分散が大きい」対立は上側、「小さい」対立は下側を見る。
 
 ## 答え
-$$Q=\frac{(n-1)S^2}{\sigma_0^2}\sim\chi^2_{n-1}.$$
+$$
+Q=\frac{15\cdot9}{4}=33.75.
+$$
+$33.75>27.488$ なので両側5%で $H_0$ を棄却する。
 
 ## 計算例
-$n=21$ なら自由度20。
+片側検定で上側5%点が30、下側5%点が10なら、$H_1:\sigma^2>\sigma_0^2$ では $Q>30$、$H_1:\sigma^2<\sigma_0^2$ では $Q<10$ が棄却域となる。
 
 ## 注意
-母平均未知でも標本平均まわりの $S^2$ を使えば自由度は $n-1$。
+上側点記法では下側5%点は添字 $0.95$ になる。母平均未知でも標本平均まわりの不偏標本分散を使えば自由度は $n-1$ である。有限標本でこのカイ二乗分布が正確なのは正規標本であるため。
 
 <!-- CARD -->
 
@@ -526,34 +606,74 @@ $$Q<\chi^2_{n-1,1-\alpha}.$$
 
 ---
 id: test-normal-variance-ratio-f
-title: 2正規母分散比のF検定を構成する
+title: 2正規母分散比のF検定を逆数関係まで使って解く
 category: math-testing
 subcategory: math-normal-tests
-topic: variance-ratio-f
-type: formula
+topic: variance-ratio-f-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [正規分布, F検定, 等分散]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定 }, { type: past_exam, id: MATH-2014-Q4, topic: F分布・二標本比較 }]
+hashtags:
+  - 正規分布
+  - F検定
+  - 分散比
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 平均値と分散に関する検定
+  - type: past_exam
+    id: MATH-2014-Q4
+    topic: F分布・二標本比較
 ---
 
 ## 問題
-独立な2正規標本で $H_0:\sigma_X^2=\sigma_Y^2$ を検定する統計量と帰無分布を書け。
+独立な2つの正規分布からの標本について $H_0:\sigma_X^2=\sigma_Y^2$ を検定するF統計量と帰無分布を書け。またF分布の逆数関係から下側臨界値を上側点で表せ。
+
+さらに $n_X=11,n_Y=16,s_X^2=12,s_Y^2=3$ で、$H_1:\sigma_X^2>\sigma_Y^2$ を検定する統計量を求めよ。上側5%点 $F_{10,15,0.05}=2.54$ とする。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+帰無仮説の下で
+$$
+F=\frac{S_X^2}{S_Y^2}\sim F_{n_X-1,n_Y-1}.
+$$
+また
+$$
+F\sim F_{\nu_1,\nu_2}
+\quad\Longrightarrow\quad
+\frac1F\sim F_{\nu_2,\nu_1}.
+$$
+$F_{\nu_1,\nu_2,\alpha}$ を上側 $\alpha$ 点とすれば、元のF分布の下側 $\alpha$ 点は
+$$
+\frac1{F_{\nu_2,\nu_1,\alpha}}.
+$$
 
-独立な $U\sim\chi^2_{\nu_1}$、$V\sim\chi^2_{\nu_2}$ に対し $(U/\nu_1)/(V/\nu_2)\sim F_{\nu_1,\nu_2}$。
+## 一手
+「$\sigma_X^2$ の方が大きい」という片側対立なら $S_X^2/S_Y^2$ と置いて右上側を見る。分子・分母を交換したら自由度の順序も交換する。
 
 ## 答え
-$$F=\frac{S_X^2}{S_Y^2}\sim F_{n_X-1,n_Y-1}.$$
+$$
+F=\frac{12}{3}=4,
+\qquad (\nu_1,\nu_2)=(10,15).
+$$
+$4>2.54$ なので5%で $H_0$ を棄却する。
 
 ## 計算例
-$n_X=11,n_Y=16$ なら自由度は $(10,15)$。
+両側有意水準 $\alpha$ では、上側臨界値は
+$$
+F_{\nu_1,\nu_2,\alpha/2},
+$$
+下側臨界値は
+$$
+\frac1{F_{\nu_2,\nu_1,\alpha/2}}
+$$
+となる。
 
 ## 注意
-分子・分母を交換すると自由度の順序も交換する。
+F検定は正規性への依存が強い。平均差の検定法を選ぶためだけの事前F検定として機械的に使うのではなく、分散そのものが検定対象のときに使う。
 
 <!-- CARD -->
 
