@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-ma1-autocovariance-reduction-120
+batch_id: 2026-08-30-ar1-spectrum-reduction-122
 items:
-  - id: engproc-ma1-autocovariance-numeric
+  - id: engproc-ar1-spectral-ratio
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-maq-acf-cutoff
-    note: MA(q)の一般自己共分散式、ACF打切りの導出、MA(1)の数値計算と自己相関までcanonical cardへ統合済み。
+    canonical_card: ts-spectral-density-ar1
+    note: AR(1)スペクトル密度の導出、f(0)/f(pi)の一般式、phi=0.6の数値例、AR係数の符号による低周波・高周波強度の解釈までcanonical cardへ統合済み。
