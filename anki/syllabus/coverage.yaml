@@ -2150,7 +2150,6 @@ items:
       - engproc-stationarity-window-judgment
       - engproc-sample-autocovariance-numeric
       - engproc-residual-white-noise-bounds
-      - engproc-ar1-correlation-half-life
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
       - engproc-arma11-one-step-forecast
@@ -2203,7 +2202,6 @@ items:
       - name: 自己回帰過程
         status: card
         cards:
-          - engproc-ar1-correlation-half-life
           - engproc-yule-walker-estimate-ar1
           - engproc-arma11-one-step-forecast
       - name: 移動平均過程
