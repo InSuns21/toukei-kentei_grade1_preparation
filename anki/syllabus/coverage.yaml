@@ -686,7 +686,6 @@ items:
     cards:
       - est-method-of-moments
       - data-ols-slope
-      - est-moments-uniform
       - est-plug-in
       - est-ols-bline
       - est-ols-normal-equations
@@ -694,7 +693,6 @@ items:
       - est-moments-normal-numeric
       - est-moments-gamma-two-parameter
       - est-moments-beta-two-parameter
-      - est-moments-uniform-two-endpoints
       - est-ols-simple-numeric
       - est-ols-matrix-numeric
       - est-ols-slope-standard-error
@@ -708,11 +706,9 @@ items:
         status: card
         cards:
           - est-method-of-moments
-          - est-moments-uniform
           - est-moments-normal-numeric
           - est-moments-gamma-two-parameter
           - est-moments-beta-two-parameter
-          - est-moments-uniform-two-endpoints
       - name: 最小二乗法
         status: card
         cards:
