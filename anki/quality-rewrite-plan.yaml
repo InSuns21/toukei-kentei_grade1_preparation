@@ -1,316 +1,290 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-cross-category-canonical-163
+batch_id: 2026-08-31-engineering-quality-canonical-165
 items:
-  - id: mv-covariance-linear-transform
-    note: 線形変換後の分散共分散行列と、分散共分散行列から相関行列への標準化・単位変更不変性は同じ行列変換の検索単位として統合する。理工学側の相関行列単純計算カードを不要にする。
+  - id: engqc-cpk-offcenter
+    note: 工程能力の判断単位を、安定性確認からCp・Cpk・片側能力・Cpm・正規工程の規格外率まで一本化する。単純なCpm代入カードと規格外率カードを吸収する。
     metadata:
-      title: 線形変換した共分散から相関行列・単位変更不変性まで扱う
-      topic: covariance-correlation-transform-canonical
+      title: 工程の安定性からCp・Cpk・Cpm・規格外率まで診断する
+      topic: capability-index-canonical
       type: strategy
       difficulty: 3
-      priority: A
-      hashtags: [多変量解析, 分散共分散行列, 相関行列, 線形変換, 標準化]
+      priority: S
+      hashtags: [工程能力指数, Cp, Cpk, Cpm, Cpu, Cpl, 規格外率, 工程管理]
     sections:
       問題: |
-        確率ベクトル $\boldsymbol X$ の分散共分散行列を
-        $$
-        \boldsymbol\Sigma=
-        \begin{pmatrix}4&3\\3&9\end{pmatrix}
-        $$
-        とする。
+        工程能力について次を解け。
 
-        1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
-        2. $Y_1=X_1+X_2$ の分散を求めよ。
-        3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
-        4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
-        5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
+        1. 安定した正規工程で $USL=110,LSL=90,\mu=106,\sigma=2$ とする。$C_p$ と $C_{pk}$ を求め、能力低下の主因がばらつきか中心ずれか答えよ。
+        2. 一般に $C_{pk}\le C_p$ となる理由と等号条件を示せ。
+        3. 上側規格だけが $USL=25$、$\mu=20,\sigma=1.5$ のとき、$C_{pu}$ を求めよ。
+        4. $USL=110,LSL=90$、品質目標値 $T=100$、$\mu=102,\sigma=2$ のとき $C_{pm}$ を求め、$C_p$ との違いを説明せよ。
+        5. 正規分布 $N(100,2^2)$ に従う安定工程で規格が $94\le X\le106$ のとき、規格外率とppmを求めよ。この設定の $C_p,C_{pk}$ も答えよ。
+        6. 工程能力指数を計算する前に工程の安定性を確認すべき理由と、強く非正規な工程で $C_{pk}$ を正規分布のppmへ機械的に換算してはいけない理由を述べよ。
       記号・用語: |
-        分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
+        $USL,LSL$ は上側・下側規格限界、$T$ は品質目標値、$\mu,\sigma$ は工程平均と工程標準偏差である。
+
+        - $C_p$：規格幅と自然変動幅 $6\sigma$ の比で、中心ずれを見ない。
+        - $C_{pk}$：平均から近い側の規格限界までの余裕を測り、中心ずれも反映する。
+        - $C_{pu},C_{pl}$：片側規格に対する能力指数。
+        - $C_{pm}$：ばらつきだけでなく、品質目標値 $T$ からの平均のずれも罰する指数。
+
+        ppmはparts per million、すなわち100万分率である。工程が統計的管理状態にあるとは、特殊原因による系統的な変化がなく、工程分布が時間を通じて概ね安定している状態をいう。
       使用公式・定理: |
-        定数ベクトルの共分散は0なので
+        両側規格では
         $$
-        \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
-        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
+        C_p=\frac{USL-LSL}{6\sigma},
+        $$
+        $$
+        C_{pk}=\min\left\{\frac{USL-\mu}{3\sigma},\frac{\mu-LSL}{3\sigma}\right\}.
+        $$
+        規格中心 $m=(USL+LSL)/2$、規格半幅 $d=(USL-LSL)/2$ とすると
+        $$
+        C_p=\frac d{3\sigma},\qquad
+        C_{pk}=\frac{d-|\mu-m|}{3\sigma}.
+        $$
+        よって $C_{pk}\le C_p$ で、等号は $\mu=m$ のときである。
+
+        片側規格では
+        $$
+        C_{pu}=\frac{USL-\mu}{3\sigma},\qquad
+        C_{pl}=\frac{\mu-LSL}{3\sigma}.
         $$
 
-        線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
+        目標値ずれも含めると
         $$
-        \operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+        C_{pm}=\frac{USL-LSL}{6\sqrt{\sigma^2+(\mu-T)^2}}.
         $$
+        特に $\mu=T$ なら $C_{pm}=C_p$ である。
 
-        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
+        正規工程の規格外率は標準正規分布の累積分布関数 $\Phi$ を用いて
         $$
-        \boldsymbol R
-        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
+        P(X<LSL)+P(X>USL)
+        =\Phi\left(\frac{LSL-\mu}{\sigma}\right)
+        +1-\Phi\left(\frac{USL-\mu}{\sigma}\right)
         $$
-        成分では
-        $$
-        \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
-        $$
+        と計算する。
       一手／方針: |
-        **「線形変換なら $A\Sigma A^{\mathsf T}$、尺度を消したいなら左右から標準偏差の逆数を掛ける」と整理する。**
+        **「安定性 → 分布仮定 → 規格の片側・両側 → 中心ずれや目標値ずれを何まで評価するか → 必要なら規格外確率」の順で処理する。**
 
-        相関の単位変更不変性は別公式として暗記せず、分子の共分散と分母の標準偏差積が同じ倍率で変わって相殺されることから確認する。
+        $C_p$ と $C_{pk}$ の差が大きければ中心ずれを疑う。品質目標値そのものからのずれを評価するなら $C_{pm}$ を見る。ppmへ進むときは正規性を追加仮定していることを明示する。
       答え: |
         1.
         $$
-        \boxed{\operatorname{Cov}(\boldsymbol Y)
-        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
+        C_p=\frac{110-90}{6\cdot2}=\frac{20}{12}\approx\boxed{1.667}.
         $$
-        $\boldsymbol b$ は確率変動を持たないので共分散へ寄与しない。
+        一方
+        $$
+        C_{pu}=\frac{110-106}{6}=\frac23,\qquad
+        C_{pl}=\frac{106-90}{6}=\frac83,
+        $$
+        なので
+        $$
+        C_{pk}=\boxed{0.667}.
+        $$
+        $C_p$ は十分大きいのに $C_{pk}$ が小さいため、主因はばらつきより**中心ずれ**である。
 
-        2. $\boldsymbol a=(1,1)^{\mathsf T}$ として
+        2.
         $$
-        \operatorname{Var}(X_1+X_2)
-        =4+9+2\cdot3
-        =\boxed{19}.
+        C_{pk}=\frac{d-|\mu-m|}{3\sigma}\le\frac d{3\sigma}=C_p.
         $$
+        等号は $|\mu-m|=0$、すなわち $\mu=m$ のとき。
 
-        3. 標準偏差は $2,3$ なので
+        3.
         $$
-        \rho_{12}=\frac3{2\cdot3}=\frac12,
-        $$
-        $$
-        \boxed{\boldsymbol R=
-        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
-        $$
-
-        4. 単位変更後の分散共分散行列は
-        $$
-        \boldsymbol\Sigma_Z
-        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
-        $$
-        よって
-        $$
-        \rho_{Z_1Z_2}
-        =\frac{3000}{\sqrt{400\cdot90000}}
-        =\boxed{0.5}.
-        $$
-
-        5. 片方だけを負の定数倍すると、共分散の符号だけが反転し標準偏差は正なので、相関係数の符号が反転する。
-      計算例: |
-        一般に $Z_1=c_1X_1,Z_2=c_2X_2$ なら
-        $$
-        \operatorname{Cov}(Z_1,Z_2)=c_1c_2\operatorname{Cov}(X_1,X_2),
-        $$
-        $$
-        \operatorname{sd}(Z_i)=|c_i|\operatorname{sd}(X_i).
-        $$
-        したがって
-        $$
-        \operatorname{Corr}(Z_1,Z_2)
-        =\operatorname{sgn}(c_1c_2)\operatorname{Corr}(X_1,X_2).
-        $$
-        正の単位換算なら相関は不変である。
-      注意: |
-        $\operatorname{Var}(a_1X_1+a_2X_2)$ では、相関があると交差項
-        $$
-        2a_1a_2\operatorname{Cov}(X_1,X_2)
-        $$
-        を落とせない。相関行列と分散共分散行列のどちらをPCAなどへ使うかは、変数の単位・尺度を残したいかどうかで意味が変わる。
-
-  - id: mv-pca-variance-max
-    note: PCA正本へ固有値分解から分散共分散行列を再構成する操作を統合する。分散最大化、寄与率、得点、負荷量、再構成を同じ固有値・固有ベクトルの一連の読み方として扱う。
-    metadata:
-      title: 主成分分析を分散最大化から得点・負荷量・再構成まで通す
-      topic: pca-spectral-canonical
-      type: strategy
-      difficulty: 4
-      priority: A
-      hashtags: [主成分分析, 固有値, 固有ベクトル, 寄与率, 主成分得点, 主成分負荷量, スペクトル分解]
-    sections:
-      問題: |
-        中心化した $p$ 次元データの主成分分析について次を解け。
-
-        1. 第1主成分 $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散を最大にする問題から、$\boldsymbol a$ が分散共分散行列の最大固有値に対応する固有ベクトルになることを導け。ただし $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ とする。
-        2. 共分散行列PCAと相関行列PCAをどう使い分けるか。
-        3. 標準化PCAで固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$、観測が $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ のとき、第1主成分の寄与率と主成分得点を求めよ。
-        4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、$X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
-        5. 固有値 $3,1$、対応する単位固有ベクトル
-        $$
-        \boldsymbol u_1=\frac1{\sqrt2}(1,1)^{\mathsf T},\qquad
-        \boldsymbol u_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
-        $$
-        から分散共分散行列を再構成せよ。
-      記号・用語: |
-        主成分分析は、データの分散を大きく保つ互いに直交した方向を固有値問題で求める次元圧縮法である。固有値は各主成分の分散、固有ベクトルは主成分軸を表す。
-      使用公式・定理: |
-        射影 $Y=\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散は
-        $$
-        \operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
-        $$
-        制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ のもとでラグランジュ関数を微分すると
-        $$
-        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
-        $$
-        最大値は最大固有値 $\lambda_1$ である。
-
-        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると
-        $$
-        \text{寄与率}_j=\frac{\lambda_j}{\sum_r\lambda_r},
-        \qquad
-        \text{累積寄与率}_m=\frac{\sum_{j=1}^m\lambda_j}{\sum_r\lambda_r}.
-        $$
-
-        共分散PCAで第 $j$ 主成分 $Y_j=\boldsymbol a_j^{\mathsf T}\boldsymbol X$ と元変数 $X_k$ の相関は
-        $$
-        \operatorname{Corr}(X_k,Y_j)
-        =\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
-        $$
-
-        対称な分散共分散行列は直交固有値分解により
-        $$
-        \boldsymbol\Sigma
-        =\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
-        =\sum_{j=1}^p\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
-        $$
-        と再構成できる。
-      一手／方針: |
-        **PCAは「使う行列を決める → 固有値問題 → 固有値から分散・寄与率 → 固有ベクトルから得点軸 → 必要なら固有対から元の共分散を再構成」の順で処理する。**
-
-        固有値分解とPCAを別々の公式として覚えず、同じ固有対を「方向」「分散」「再構成」の3通りに読んでいると捉える。
-      答え: |
-        1. ラグランジュ関数
-        $$
-        L=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
-        $$
-        の一階条件から
-        $$
-        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
-        $$
-        よって第1主成分軸は最大固有値に対応する単位固有ベクトルである。
-
-        2. 元の単位や分散の大きさ自体に意味があるなら共分散行列、単位が異なり尺度差を消して各変数を同等に扱いたいなら相関行列を使うのが基本である。
-
-        3. 固有値総和は3なので
-        $$
-        \text{寄与率}_1=2.4/3=\boxed{0.80}.
-        $$
-        得点は
-        $$
-        0.70(1)+0.68(-1)+0.22(0.5)
-        =\boxed{0.13}.
+        C_{pu}=\frac{25-20}{3\cdot1.5}=\frac5{4.5}\approx\boxed{1.111}.
         $$
 
         4.
         $$
-        \boxed{\operatorname{Corr}(X_k,Y_j)
-        =\frac{\sqrt{\lambda_j}a_{kj}}{s_k}}.
+        C_{pm}=\frac{20}{6\sqrt{2^2+(102-100)^2}}
+        =\frac{20}{6\sqrt8}
+        \approx\boxed{1.179}.
+        $$
+        この設定では
+        $$
+        C_p=\frac{20}{12}\approx1.667
+        $$
+        であり、$C_{pm}$ は目標値からの2のずれも分母へ入れるため小さくなる。
+
+        5. 上下規格は平均からそれぞれ $3\sigma$ なので
+        $$
+        P(X<94)+P(X>106)=2\{1-\Phi(3)\}\approx\boxed{0.00270}.
+        $$
+        したがって約 $0.27\%$、すなわち約 $\boxed{2700\ \mathrm{ppm}}$ である。また
+        $$
+        C_p=C_{pk}=\frac{106-94}{6\cdot2}=\boxed{1}.
         $$
 
-        5.
-        $$
-        \boldsymbol\Sigma
-        =3\boldsymbol u_1\boldsymbol u_1^{\mathsf T}
-        +\boldsymbol u_2\boldsymbol u_2^{\mathsf T}
-        $$
-        $$
-        =\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix}
-        +\frac12\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
-        =\boxed{\begin{pmatrix}2&1\\1&2\end{pmatrix}}.
-        $$
+        6. 特殊原因で平均や分散が時間変化する工程では、全期間から計算した $\mu,\sigma$ が将来の工程を表さないため、まず管理状態を確認する。さらに非正規工程では平均から何標準偏差離れたかと裾確率の対応が正規分布と異なるので、$C_{pk}$ から正規ppmへ機械的に換算できない。
       計算例: |
-        上位 $m$ 成分だけで近似すると
+        同じ $USL=110,LSL=90,\sigma=2$ でも $\mu=100$ なら
         $$
-        \boldsymbol\Sigma_m
-        =\sum_{j=1}^m\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
+        C_{pk}=C_p\approx1.667.
         $$
-        となる。捨てた方向の分散総和は
-        $$
-        \sum_{j=m+1}^p\lambda_j
-        $$
-        であり、PCAの低次元近似で失う分散量として解釈できる。
-      注意: |
-        固有ベクトル全体の符号は任意で、$\boldsymbol u$ と $-\boldsymbol u$ は同じ主成分軸を表す。「主成分負荷量」を固有ベクトル成分と呼ぶ文献と、元変数と主成分の相関と呼ぶ文献があるため定義を確認する。
+        一方、$\mu=106$ では $C_p$ は変わらないが $C_{pk}\approx0.667$ まで低下する。この比較で「工程の幅」と「中心位置」を分けて診断できる。
 
-  - id: mv-hierarchical-linkage
-    note: 階層クラスタリングの連結法・Ward法と、得られたクラスタリングをsilhouette係数で評価する操作を一つの正本へ統合する。理工学側のsilhouette単純代入カードを不要にする。
+        $C_{pm}$ では $\mu=T$ なら $\sqrt{\sigma^2+(\mu-T)^2}=\sigma$ となるので $C_{pm}=C_p$ へ戻る。
+      注意: |
+        管理限界は工程の統計的変動から定める限界、規格限界は顧客・設計上の要求であり別物である。高い工程能力指数だけでは管理状態を保証しない。
+
+        非正規工程では、適切な分布モデル、変換、または実分位点に基づく能力評価を検討する。片側規格しかない場合に、存在しない反対側規格を仮定して $C_p$ を作らない。
+
+  - id: engqc-three-sigma-false-alarm
+    note: 管理図の検出性能を、管理内誤警報ARL0、平均シフト後の検出確率ARL1、群サイズがシフトの見え方へ与える効果まで一つの正本へ統合する。
     metadata:
-      title: 階層クラスタリングを連結法・Ward法からsilhouette評価まで通す
-      topic: hierarchical-clustering-evaluation-canonical
+      title: 3シグマ管理図の誤警報・シフト検出力・ARL・群サイズを通して解く
+      topic: control-chart-detection-arl-canonical
       type: strategy
       difficulty: 3
-      priority: A
-      hashtags: [クラスター分析, 階層法, 単連結法, 完全連結法, 群平均法, Ward法, silhouette係数]
+      priority: S
+      hashtags: [管理図, 3シグマ, 誤警報, 検出力, ARL, 平均連長, 群サイズ]
     sections:
       問題: |
-        凝集型階層クラスタリングについて次を解け。
+        群平均を用いる両側3シグマ管理図を考える。管理状態では標準化統計量 $Z$ が各時点で独立に標準正規分布に従うとする。
 
-        1. 単連結法・完全連結法・群平均法で、2クラスタ $A,B$ 間の距離をどう定義するか述べよ。
-        2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として併合による群内平方和増加を書け。
-        3. $n_A=2,n_B=3$、重心間Euclid距離が5のときWard法の平方和増加を求めよ。
-        4. 単連結法が鎖状化しやすい理由を説明せよ。
-        5. ある点について、同一クラスタ内の他点への平均距離が $a=2$、最も近い別クラスタへの平均距離が $b=5$ のときsilhouette係数を求め、値を解釈せよ。
+        1. 1点当たりの誤警報確率 $\alpha$ と管理内平均連長 $ARL_0$ を求めよ。
+        2. 工程平均が群平均の標準誤差の2倍だけ上方へ移動したとする。シフト後の標準化統計量は $N(2,1)$ に従う。1点当たり検出確率 $p_s$ と $ARL_1$ を求めよ。
+        3. 個々の観測の標準偏差を $\sigma$、工程平均の上方シフトを $\delta>0$、群サイズを $n$ とする。シフト後の標準化平均の平均 $\Delta$ を求めよ。
+        4. シフト量が $\delta=1.5\sigma$ のとき、シフト後平均そのものが上側3シグマ限界に達する最小群サイズを求めよ。この条件が「高い検出確率」を意味しない理由も説明せよ。
       記号・用語: |
-        凝集型階層法は、各点を別クラスタとして始め、クラスタ間距離の規則に従って逐次併合する方法である。silhouette係数は、作ったクラスタへの凝集度と他クラスタからの分離度を同時に評価する指標である。
+        $ARL$（average run length、平均連長）は管理図が信号を出すまでの観測点数の期待値である。$ARL_0$ は管理状態、$ARL_1$ は工程変化後を表す。
+
+        1点ごとの信号確率が $p$ で時点間独立なら、信号までの点数は成功確率 $p$ の幾何分布に従い、平均は $1/p$ である。
       使用公式・定理: |
-        点間距離を $d(\boldsymbol x,\boldsymbol y)$ とすると
+        管理状態の両側3シグマルールでは
         $$
-        d_{\min}(A,B)=\min_{x\in A,y\in B}d(x,y),
+        \alpha=P(|Z|>3)=2\{1-\Phi(3)\}.
         $$
+        よって
         $$
-        d_{\max}(A,B)=\max_{x\in A,y\in B}d(x,y),
-        $$
-        $$
-        d_{\mathrm{avg}}(A,B)
-        =\frac1{n_An_B}\sum_{x\in A}\sum_{y\in B}d(x,y).
+        ARL_0=\frac1\alpha.
         $$
 
-        Ward法では通常、平方Euclid距離に基づく群内平方和の増加
+        上方へ標準誤差単位で $\Delta$ だけ平均シフトした場合は $Z\sim N(\Delta,1)$ なので
         $$
-        \Delta WSS(A,B)
-        =\frac{n_An_B}{n_A+n_B}
-        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2
+        p_s=P(Z>3)+P(Z<-3)
+        =1-\Phi(3-\Delta)+\Phi(-3-\Delta),
         $$
-        が最小の対を併合する。
+        $$
+        ARL_1=\frac1{p_s}.
+        $$
 
-        silhouette係数は
+        個体標準偏差が $\sigma$、群サイズが $n$ なら群平均の標準誤差は $\sigma/\sqrt n$ なので、絶対シフト $\delta$ は
         $$
-        s=\frac{b-a}{\max(a,b)},\qquad -1\le s\le1,
+        \Delta=\frac{\delta}{\sigma/\sqrt n}
+        =\frac{\delta\sqrt n}{\sigma}
         $$
-        ここで $a$ は同一クラスタ内平均距離、$b$ は最も近い別クラスタへの平均距離である。
+        標準誤差単位に拡大される。
       一手／方針: |
-        **まず「何をクラスタ間距離とするか」で併合規則を決め、作った分割は別に凝集度・分離度で評価する。**
+        **「まず1点の信号確率を正規分布で求め、独立反復なら逆数をARLにする」。**
 
-        Ward法は単なる点間距離の最小化ではなく、併合で増える群内平方和を見る。silhouetteでは $a$ が小さく $b$ が大きいほど良い分割と読む。
+        群サイズの効果は別公式として覚えず、標準誤差 $\sigma/\sqrt n$ が小さくなるため同じ絶対シフトが $\Delta=\delta\sqrt n/\sigma$ 倍に見える、と理解する。
       答え: |
-        1. 単連結は点対距離の最小値、完全連結は最大値、群平均は全点対距離の平均をクラスタ間距離とする。
+        1.
+        $$
+        \alpha=2\{1-\Phi(3)\}\approx0.00270,
+        $$
+        したがって
+        $$
+        ARL_0\approx\frac1{0.00270}\approx\boxed{370}.
+        $$
+        1時間に1点なら、理論上は平均約370時間に1回の誤警報である。
 
-        2.
+        2. $\Delta=2$ なので
         $$
-        \boxed{\Delta WSS
-        =\frac{n_An_B}{n_A+n_B}
-        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2}.
+        p_s=1-\Phi(1)+\Phi(-5)\approx0.1587,
         $$
+        $$
+        ARL_1\approx\frac1{0.1587}\approx\boxed{6.30}.
+        $$
+        つまり平均約6.3群で信号が出る。
 
         3.
         $$
-        \Delta WSS
-        =\frac{2\cdot3}{5}\,5^2
-        =\boxed{30}.
+        \boxed{\Delta=\frac{\delta\sqrt n}{\sigma}}.
         $$
+        $n$ を4倍にすると、同じシフトは標準化尺度で2倍に見える。
 
-        4. 単連結法は1組でも近い点対があればクラスタ全体を結合するため、細長い点列を橋渡しして鎖状化しやすい。
-
-        5.
+        4. シフト後平均が上側限界位置に来る条件は
         $$
-        s=\frac{5-2}{5}=\boxed{0.6}.
+        \delta=\frac{3\sigma}{\sqrt n}.
         $$
-        0に比べて1に近い正の値なので、この点は自クラスタ内で比較的まとまり、近隣クラスタともある程度分離している。
+        $\delta=1.5\sigma$ を代入すると
+        $$
+        1.5=\frac3{\sqrt n},\qquad \sqrt n=2,
+        $$
+        よって最小は
+        $$
+        \boxed{n=4}.
+        $$
+        ただし平均がちょうど上側限界にあるなら、正規分布のばらつきのため上側へ出る確率はおよそ1/2にすぎない。これは所望検出確率を直接指定した設計ではない。
       計算例: |
-        同じ重心間距離5でも $n_A=n_B=1$ なら
-        $$
-        \Delta WSS=\frac12\cdot25=12.5,
-        $$
-        $n_A=n_B=10$ なら
-        $$
-        \Delta WSS=\frac{100}{20}\cdot25=125.
-        $$
-        したがってWard法は重心間距離だけでなくクラスタサイズも反映する。
-
-        silhouette係数は $s\approx1$ なら良好な凝集・分離、$s\approx0$ なら境界付近、$s<0$ なら他クラスタの方が近い可能性を示す。
+        $\delta=\sigma$ の上方シフトを考えると、$n=1$ では $\Delta=1$、$n=4$ では $\Delta=2$、$n=9$ では $\Delta=3$ となる。群サイズを増やすほど小さな平均シフトを検出しやすくなる。
       注意: |
-        単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与える。Ward法は通常、平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なるなら標準化の要否を検討する。
+        $ARL=1/p$ は各時点の信号事象を独立で同じ確率とみなせる場合の結果である。自己相関、複数のランルール、Phase Iで推定した管理限界などがあると実際のARLは単純計算からずれる。
 
-        silhouetteの単独点クラスタの扱いは実装規約による。silhouette値が高いことだけでクラスタ数や方法を機械的に決めず、解釈可能性や目的も合わせて確認する。
+        シフト量が「個体標準偏差 $\sigma$ の何倍」なのか「群平均の標準誤差の何倍」なのかを混同しない。
+
+  - id: engqc-phase1-phase2
+    note: 管理図運用の正本へ合理的群分け、Phase I・II、共通原因と特殊原因、特殊原因への対応、安定工程への過剰調整が分散を増やす機構まで統合する。
+    metadata:
+      title: 合理的群分けからPhase I・II・特殊原因対応・過剰調整まで運用する
+      topic: control-chart-operation-canonical
+      type: strategy
+      difficulty: 3
+      priority: S
+      hashtags: [管理図, 合理的群分け, Phase I, Phase II, 特殊原因, 共通原因, 過剰調整]
+    sections:
+      問題: |
+        管理図の実務運用について次を答えよ。
+
+        1. 合理的群分けとは何か。群内変動と群間変動をどう考えるか。
+        2. Phase IとPhase IIの役割の違いを説明せよ。
+        3. Phase Iで管理限界外の点が見つかったとき、単にその点を削除すればよいわけではない理由を述べよ。
+        4. 管理状態にある工程の各観測を $X_t=\mu+\varepsilon_t$、$\varepsilon_t$ は独立で平均0、分散 $\sigma^2$ とする。観測 $X_t$ が平均から $\varepsilon_t$ だけずれたことを見て、設備設定を次回に $-\varepsilon_t$ だけ補正する過剰調整を毎回行うとする。次回観測の平均からの偏差とその分散を求め、なぜ過剰調整が変動を増やし得るか説明せよ。
+      記号・用語: |
+        **共通原因**は安定工程に内在する多数の小さな変動要因、**特殊原因**は特定可能で除去・是正の対象になり得る異常要因である。
+
+        合理的群分けでは、短時間・同条件で取った観測を群内へまとめ、特殊原因による時間的・条件的な変化ができるだけ群間差として現れるようにする。
+      使用公式・定理: |
+        Phase Iは過去データを使って工程の安定性を吟味し、特殊原因を調査したうえで中心線・管理限界を推定する段階である。Phase IIは確立した基準を用いて将来の工程を逐次監視する段階である。
+
+        過剰調整の簡単なモデルでは、時点 $t$ の偶然偏差 $\varepsilon_t$ を打ち消すため次回設定を $-\varepsilon_t$ だけ動かすと、次回の平均からの偏差は
+        $$
+        -\varepsilon_t+\varepsilon_{t+1}.
+        $$
+        独立性より
+        $$
+        \operatorname{Var}(-\varepsilon_t+\varepsilon_{t+1})
+        =\sigma^2+\sigma^2=2\sigma^2.
+        $$
+      一手／方針: |
+        **管理図の信号は「設備を直ちに動かせ」という命令ではなく、「特殊原因があるか調査せよ」という診断信号として読む。**
+
+        Phase Iでは原因を調べ、説明可能な特殊原因が除去された工程から基準を作る。Phase IIではその基準からの逸脱を監視する。管理内のランダムな上下動へ反射的に補正をかけない。
+      答え: |
+        1. 同一時点・同一条件の短期変動を群内へ集め、時間変化・ロット差・設備差など検出したい変化を群間へ出しやすくするのが合理的群分けである。群分けが悪いと異常変動を群内分散へ混ぜて管理限界を不必要に広げることがある。
+
+        2. Phase Iは基準を**作る**段階、Phase IIは基準で将来を**監視する**段階である。Phase Iでは中心線・管理限界自体が推定対象で、Phase IIでは原則として確立した基準に照らして信号を判定する。
+
+        3. 限界外点はまず原因調査の対象である。記録ミス、設備異常、原材料変更など説明可能な特殊原因が確認され、工程から除去・是正された場合に、その期間を基準データから除外して限界を再推定する。原因不明の点を機械的に消すと、都合のよい基準を作ってしまう。
+
+        4. 補正後の次回偏差は
+        $$
+        \boxed{\varepsilon_{t+1}-\varepsilon_t}
+        $$
+        であり、その分散は
+        $$
+        \boxed{2\sigma^2}.
+        $$
+        もともと分散 $\sigma^2$ の共通原因変動だったのに、前回の偶然誤差を設備へ持ち込むため変動が増える。これが過剰調整の典型的な機構である。
+      計算例: |
+        元工程の標準偏差が $\sigma=2$ なら、上の単純モデルで過剰調整後の標準偏差は
+        $$
+        \sqrt{2\sigma^2}=2\sqrt2\approx2.83
+        $$
+        まで増える。管理内の1点が平均より高かったというだけで次回設定を下げると、共通原因を特殊原因と誤認していることになる。
+      注意: |
+        管理限界外だから即座に「不良品」とは限らず、規格限界内だから工程が「管理状態」とも限らない。管理図は時間的安定性、規格は製品要求を扱う。
+
+        Phase Iで平均・分散を同じデータから推定するため、母数既知の理論的な3シグマ誤警報率と実際の誤警報率は完全には一致しない。自己相関が強い系列では通常の独立前提の管理図をそのまま使わない。
