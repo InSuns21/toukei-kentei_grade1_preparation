@@ -1,0 +1,41 @@
+id: "E2-04"
+title: "ブラウン運動・拡散極限"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - E2-02
+  - P3-03
+  - P4-02
+official_scope:
+  - ブラウン運動
+  - ランダムウォーク
+  - 確率過程
+  - 多変量正規分布
+learning_objectives:
+  - 標準ブラウン運動の定義を独立増分・正規増分・連続経路に分けて説明できる
+  - 平均・分散・共分散を独立増分から導出できる
+  - 複数時点の同時分布を多変量正規分布として構成できる
+  - ランダムウォークの拡散スケーリングとブラウン運動の関係を説明できる
+  - 自己相似性を増分分布から説明できる
+  - 反射原理から最大値分布と初到達時刻分布を導出できる
+  - ドリフト付きブラウン運動の平均・分散・増分分布を計算できる
+definitions:
+  - { id: E204-DEF-01, name: 標準ブラウン運動 }
+  - { id: E204-DEF-02, name: 拡散スケーリング }
+  - { id: E204-DEF-03, name: 初到達時刻 }
+  - { id: E204-DEF-04, name: ドリフト付きブラウン運動 }
+theorems:
+  - { id: E204-THM-01, name: ブラウン運動の共分散関数 }
+  - { id: E204-THM-02, name: ブラウン運動の自己相似性 }
+  - { id: E204-THM-03, name: 反射原理 }
+canonical_examples: [共分散関数, 条件付き未来分布, 拡散極限, 最大値分布, 初到達時刻]
+problem_patterns: [BM-COV-1, BM-COND-1, BM-SCALE-1, BM-REFLECT-1, BM-HIT-1]
+past_exam_alignment:
+  - { id: RIKOU-ADVANCED-21, current_skills: [ブラウン運動, 反射原理, 初到達時刻], later_skills: [] }
+integrated_exam_problems: [E2-04-C01, E2-04-C02, E2-04-D01, E2-04-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 6, exercises: 9, review: 2 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
