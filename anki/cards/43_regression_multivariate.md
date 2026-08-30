@@ -1340,42 +1340,6 @@ $$
 <!-- CARD -->
 
 ---
-id: mv-canonical-correlation
-title: 正準相関を固有値問題で表す
-category: applied-common
-subcategory: applied-multivariate
-topic: canonical-correlation
-type: formula
-difficulty: 4
-priority: C
-hashtags: [正準相関分析, 固有値, 多変量解析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 正準相関分析 }]
----
-
-## 問題
-変数群X,Yの第1正準相関を共分散ブロックから表せ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-両線形結合の分散を1と制約したLagrange最適化。
-
-## 答え
-$\boldsymbol a^{\mathsf T}\boldsymbol X$ と $\boldsymbol b^{\mathsf T}\boldsymbol Y$ の相関を最大化する。正準相関の二乗 $\rho^2$ は
-$$\boldsymbol\Sigma_{XX}^{-1}\boldsymbol\Sigma_{XY}
-\boldsymbol\Sigma_{YY}^{-1}\boldsymbol\Sigma_{YX}$$
-の最大固有値。
-
-## 計算例
-各群が1変数なら通常の相関係数の絶対値。
-
-## 注意
-共分散ブロックの可逆性が必要。
-
-<!-- CARD -->
-
----
 id: mv-mds-double-centering
 title: 古典的MDSを二重中心化から座標復元・stress評価まで通す
 category: applied-common

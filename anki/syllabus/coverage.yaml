@@ -1994,7 +1994,6 @@ items:
       - mv-lda-classification-rule
       - mv-hierarchical-linkage
       - mv-kmeans-one-iteration
-      - mv-canonical-correlation
       - mv-mds-double-centering
       - glm-three-components
       - glm-exponential-family
@@ -2218,8 +2217,6 @@ items:
       - engmv-spectral-reconstruction
       - engmv-silhouette-coefficient
       - engmv-canonical-eigenvalue
-      - engmv-classical-mds-three-points
-      - engmv-mds-stress
     terms:
       - name: 多変量正規分布
         status: card
