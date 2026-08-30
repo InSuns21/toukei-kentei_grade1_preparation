@@ -1,10 +1,10 @@
 schema_version: 1
-batch_id: 2026-08-31-time-series-cross-category-canonical-169
+batch_id: 2026-08-31-yule-walker-ar1-canonical-171
 items:
   - id: ts-acf-pacf-identification
-    note: ACF・PACF正本へ標本PACFの近似95%限界による有意ラグ判定を数値例付きで統合し、engineering側のPACF出力単独カードを吸収する。
+    note: ACF・PACFとYule-Walkerの正本へ、AR(1)で標本自己共分散から係数と革新分散を同時に推定する計算を統合する。engineering側のAR(1) Yule-Walker単独カードを吸収する。
     metadata:
-      title: ACF・PACFの有意性からAR/MA候補を絞りYule–Walkerで係数まで求める
+      title: ACF・PACFの有意性からAR/MA候補を絞りYule–Walkerで係数・革新分散まで求める
       topic: acf-pacf-yule-walker-canonical
       type: strategy
       difficulty: 3
@@ -20,10 +20,16 @@ items:
         4. 標本ACFが $(0.45,0.01,-0.02,\ldots)$ とラグ1でほぼ打ち切られ、PACFが徐々に減衰するなら第一候補を答えよ。
         5. $\rho_1=0.6,\rho_2=0.2$ のときラグ2偏自己相関 $\alpha_{22}$ を求めよ。
         6. AR$(2)$で $\rho(1)=0.6,\rho(2)=0.4$ とする。Yule--Walker方程式から $\phi_1,\phi_2$ を求めよ。
+        7. 平均0のAR$(1)$
+        $$
+        X_t=\phi X_{t-1}+\varepsilon_t,
+        \qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+        $$
+        について、標本自己共分散が $\widehat\gamma(0)=10,\widehat\gamma(1)=6$ であった。Yule--Walker法で $\phi$ と $\sigma_\varepsilon^2$ を推定せよ。
       記号・用語: |
         ACFは自己相関関数、PACFは偏自己相関関数である。ラグ $k$ のPACFは、$X_t$ を $X_{t-1},\ldots,X_{t-k}$ で最良線形予測したときの最遠ラグ $X_{t-k}$ の係数とみなせる。
 
-        Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ。標本自己相関を代入すればAR係数のモーメント型推定にも使える。
+        Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ。標本自己相関・自己共分散を代入すれば、AR係数や革新分散のモーメント型推定にも使える。
       使用公式・定理: |
         理論的な目安は次である。
 
@@ -49,10 +55,27 @@ items:
         $$
         \rho(2)=\phi_1\rho(1)+\phi_2.
         $$
-      一手／方針: |
-        **モデル同定では「ACFとPACFのどちらが打ち切られるか」を先に見る。** 有限標本では厳密な0にならないので、近似限界を使って「標本変動で説明できる小ささか」を判断する。
 
-        次数候補を得たら、Yule--Walkerなどで係数を求め、最後に情報量規準・係数推定・残差診断で候補を確認する。
+        AR$(1)$では
+        $$
+        \gamma(1)=\phi\gamma(0)
+        $$
+        なので
+        $$
+        \phi=\frac{\gamma(1)}{\gamma(0)}.
+        $$
+        また定常分散の関係
+        $$
+        \gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2}
+        $$
+        より
+        $$
+        \sigma_\varepsilon^2=\gamma(0)(1-\phi^2).
+        $$
+      一手／方針: |
+        **モデル同定では「ACFとPACFのどちらが打ち切られるか」を先に見る。** 有限標本では厳密な0にならないので、近似限界を使って標本変動で説明できる小ささかを判断する。
+
+        次数候補を得たらYule--Walkerなどで係数を求める。AR$(1)$ではラグ1の自己共分散式から係数を出し、ラグ0の式へ戻れば革新分散まで一続きで求まる。最後に情報量規準・係数推定・残差診断で候補を確認する。
       答え: |
         1. AR$(p)$ はACFが減衰しPACFがラグ $p$ で打ち切られる。MA$(q)$ はACFがラグ $q$ で打ち切られPACFが減衰する。ARMA$(p,q)$ は両方とも一般に減衰する。
 
@@ -102,128 +125,35 @@ items:
         \boxed{\phi_2=0.0625},\qquad
         \boxed{\phi_1=0.5625}.
         $$
+
+        7.
+        $$
+        \widehat\phi
+        =\frac{\widehat\gamma(1)}{\widehat\gamma(0)}
+        =\frac6{10}
+        =\boxed{0.6}.
+        $$
+        次に
+        $$
+        \widehat\sigma_\varepsilon^2
+        =\widehat\gamma(0)(1-\widehat\phi^2)
+        =10(1-0.6^2)
+        =\boxed{6.4}.
+        $$
+        推定係数は $|0.6|<1$ なのでAR$(1)$の定常域内である。
       計算例: |
         AR$(1)$では理論的に $\rho_2=\rho_1^2$ なので
         $$
         \alpha_{22}=\frac{\rho_1^2-\rho_1^2}{1-\rho_1^2}=0.
         $$
         したがってAR$(1)$の理論PACFがラグ1で打ち切られることを、ラグ2について直接確認できる。
+
+        また $\widehat\gamma(0)=25,\widehat\gamma(1)=10$ なら $\widehat\phi=0.4$、革新分散は
+        $$
+        25(1-0.4^2)=21
+        $$
+        となる。
       注意: |
         $\pm1.96/\sqrt n$ は各ラグを個別に見る近似的な目安であり、多数ラグを同時に検定する厳密な同時信頼帯ではない。ACF・PACFだけで次数を確定せず、情報量規準と残差診断を併用する。
 
-        PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した量である。
-
-  - id: engproc-arima110-difference-forecast
-    note: ARIMA予測正本へソフトウェアが返すforecastとprediction standard errorから予測区間を復元する数値例を統合し、ARIMA予測出力単独カードを吸収する。
-    metadata:
-      title: ARIMA予測を差分から水準へ戻し点予測・予測区間まで作る
-      topic: arima-difference-forecast-canonical
-      type: strategy
-      difficulty: 3
-      priority: A
-      hashtags: [時系列解析, ARIMA過程, 差分, 予測, 予測区間, ドリフト]
-    sections:
-      問題: |
-        水準系列 $X_t$ の1階差分を
-        $$
-        Y_t=\Delta X_t=X_t-X_{t-1}
-        $$
-        とする。
-
-        1. 将来の差分予測 $\widehat Y_{t+j\mid t}$ から、$h$期先の水準予測 $\widehat X_{t+h\mid t}$ を作る一般式を導け。
-        2. ARIMA$(1,1,0)$ として
-        $$
-        Y_t=0.5Y_{t-1}+\varepsilon_t,
-        $$
-        $X_t=50,Y_t=4$ のとき、$X_{t+2}$ の点予測を求めよ。
-        3. ドリフト付きARIMA$(0,1,0)$
-        $$
-        \Delta X_t=1.5+\varepsilon_t,
-        $$
-        $X_t=100$ のとき3期先の点予測を求めよ。
-        4. 推定済みARIMAモデルの出力が1期先について `forecast = 80.0`, `prediction standard error = 2.5` であった。正規近似による95%予測区間を求めよ。
-      記号・用語: |
-        $\Delta X_t$ は1期の増分、$Y_t$ は差分系列である。ARIMAモデルでは非定常な水準系列を差分して定常なARMA型系列として扱い、その予測を最後に累積して水準へ戻す。
-
-        予測誤差標準偏差は、将来観測 $X_{t+h}-\widehat X_{t+h\mid t}$ の不確実性を表す。係数推定値の標準誤差とは別物である。
-      使用公式・定理: |
-        恒等式
-        $$
-        X_{t+h}=X_t+\sum_{j=1}^{h}\Delta X_{t+j}
-        $$
-        の条件付き期待値を取れば
-        $$
-        \widehat X_{t+h\mid t}
-        =X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}.
-        $$
-
-        ARIMA$(1,1,0)$で
-        $$
-        Y_t=\phi Y_{t-1}+\varepsilon_t
-        $$
-        なら
-        $$
-        \widehat Y_{t+j\mid t}=\phi^jY_t.
-        $$
-
-        ドリフト付きARIMA$(0,1,0)$では
-        $$
-        \widehat X_{t+h\mid t}=X_t+hd.
-        $$
-
-        正規革新を仮定し、予測誤差標準偏差を $s_h$ とすれば近似95%予測区間は
-        $$
-        \widehat X_{t+h\mid t}\pm1.96s_h.
-        $$
-      一手／方針: |
-        **まず差分系列を予測し、それを現在の水準へ累積する。点予測を作った後、予測誤差標準偏差が与えられたらその周りへ予測区間を付ける。**
-
-        差分系列の予測値1個だけを $X_t$ に足すのではなく、$h$期先なら途中の将来差分を全て足す。
-      答え: |
-        1.
-        $$
-        \boxed{\widehat X_{t+h\mid t}
-        =X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}}.
-        $$
-
-        2. $\phi=0.5,Y_t=4$ なので
-        $$
-        \widehat Y_{t+1\mid t}=2,
-        $$
-        $$
-        \widehat Y_{t+2\mid t}=1.
-        $$
-        よって
-        $$
-        \widehat X_{t+2\mid t}=50+2+1=\boxed{53}.
-        $$
-
-        3. 将来の各差分の予測値は1.5なので
-        $$
-        \widehat X_{t+3\mid t}=100+3(1.5)=\boxed{104.5}.
-        $$
-
-        4.
-        $$
-        80.0\pm1.96(2.5)=80.0\pm4.9
-        $$
-        なので
-        $$
-        \boxed{(75.1,84.9)}.
-        $$
-      計算例: |
-        ドリフトなしARIMA$(0,1,0)$、すなわちランダムウォーク
-        $$
-        \Delta X_t=\varepsilon_t
-        $$
-        では将来差分の条件付き期待値は全て0なので
-        $$
-        \widehat X_{t+h\mid t}=X_t
-        $$
-        である。
-
-        予測値80.0、予測誤差標準偏差2.5に対し実現値85.3なら、95%予測区間の上側84.9を超えるためモデル再点検の材料になる。
-      注意: |
-        予測区間に使うのは予測誤差の標準偏差であり、AR係数やMA係数の推定標準誤差ではない。多期先では将来革新が累積するため、一般に予測誤差分散も期先とともに変化する。
-
-        ドリフト $d$ は差分系列の平均であり、水準系列の固定切片とは異なる。
+        標本自己共分散を理論式へ代入して得るYule--Walker推定量には有限標本で偏りがあり得る。PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した量である。
