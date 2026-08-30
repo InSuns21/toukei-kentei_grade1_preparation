@@ -7,6 +7,11 @@ const exerciseRoots = ['statistical-mathematics', 'applied-rikou-80']
   .map((name) => path.join(root, name))
   .filter(fs.existsSync);
 
+// この監査は「誤り判定」ではなく人手レビュー候補の優先順位付け。
+// 「微分すると」「尤度は」「代入すると」のような通常の接続語は、
+// 直後に途中式が十分書かれていても検出されるため重みを低くする。
+// 一方、強い省略表現、線形代数のブラックボックス化、変数変換、
+// 漸近定理の丸投げ、小問構造の不足は高い重みを保つ。
 const phraseCategories = [
   {
     name: '強い省略表現',
@@ -15,12 +20,12 @@ const phraseCategories = [
   },
   {
     name: '微分の省略候補',
-    weight: 4,
+    weight: 1,
     pattern: /(?:偏|全)?微分すると|(?:偏|全)?微分すれば|行列微分(?:すると|により|より)|勾配を取ると/g,
   },
   {
     name: '積分の省略候補',
-    weight: 4,
+    weight: 1,
     pattern: /積分すると|積分すれば|部分積分すると|部分積分すれば|置換積分すると|置換すると/g,
   },
   {
@@ -35,12 +40,12 @@ const phraseCategories = [
   },
   {
     name: '尤度・情報量の省略候補',
-    weight: 3,
+    weight: 1,
     pattern: /対数尤度(?:は|を取ると)|尤度(?:は|を作ると)|スコア(?:は|を求めると)|フィッシャー情報量(?:は|を求めると)/g,
   },
   {
     name: '分布・期待値の省略候補',
-    weight: 2,
+    weight: 1,
     pattern: /分布(?:より|から)|独立性より|正規性より|期待値を取ると|分散を取ると/g,
   },
   {
@@ -50,7 +55,7 @@ const phraseCategories = [
   },
   {
     name: '式変形の省略候補',
-    weight: 3,
+    weight: 1,
     pattern: /展開すると|変形すると|代入すると|両辺を整理すると|これを解くと|連立すると/g,
   },
 ];
@@ -183,6 +188,7 @@ if (benchmarkLength !== null) {
   lines.push(`代表的な粒度参照: statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md（詳細解答の非空白文字数 ${benchmarkLength}）`);
   lines.push('注意: 参照例との文字数一致は要求しない。採点対象の出発点・条件・途中計算・結論が再現可能かを優先する。');
 }
+lines.push('優先度: 強い省略表現・線形代数/変数変換のブラックボックス化・漸近定理の丸投げ・小問構造不足を重く、通常の「微分すると」「代入すると」等は低く評価する。');
 if (missingDetailedAnswer) lines.push(`詳細解答セクションなし: ${missingDetailedAnswer} ファイル`);
 lines.push('');
 lines.push('カテゴリ別件数:');
@@ -239,6 +245,8 @@ if (summaryPath) {
     markdown.push('');
     markdown.push(`代表的な粒度参照は \`statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md\`（詳細解答の非空白文字数 ${benchmarkLength}）。文字数一致ではなく、出発点・条件・途中計算・結論の再現可能性を基準にする。`);
   }
+  markdown.push('');
+  markdown.push('通常の「微分すると」「代入すると」等は低ウェイト、強い省略・線形代数/変数変換・漸近定理・小問構造不足を高ウェイトとして順位付けする。');
   markdown.push('');
   markdown.push('### 演習価値別候補');
   markdown.push('');
@@ -323,7 +331,9 @@ function countProblemTasks(text) {
 }
 
 function countDetailedTaskHeadings(text) {
-  return (text.match(/^###\s+\d+\./gm) ?? []).length;
+  // 詳細解答側は `### 1.` だけでなく `## 1.` を使う既存ファイルもある。
+  // 見出しレベルの違いだけで「小問対応見出し不足」にしない。
+  return (text.match(/^#{2,4}\s+\d+\./gm) ?? []).length;
 }
 
 function compactLength(text) {
