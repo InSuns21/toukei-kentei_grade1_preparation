@@ -677,34 +677,123 @@ $$F_{X_n}(x)\longrightarrow\Phi(x)=F_X(x).$$
 
 ---
 id: asym-convergence-ms
-title: 平均二乗収束の定義を書く
+title: 平均二乗収束からMarkovの不等式で一致性を示す
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: convergence-in-mean-square
-type: formula
+topic: mean-square-convergence-consistency-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [平均二乗収束, 分散, 漸近理論]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 収束の概念 }]
+hashtags:
+  - 平均二乗収束
+  - 一致性
+  - 平均二乗誤差
+  - Markovの不等式
+  - 確率収束
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 収束の概念
 ---
 
 ## 問題
-$X_n\xrightarrow{qm}\theta$（平均二乗収束）の定義を書け。
+推定量 $T_n$ と母数 $\theta$ について次を答えよ。
+
+1. $T_n\xrightarrow{qm}\theta$（平均二乗収束）の定義を書け。
+2. $E[(T_n-\theta)^2]\to0$ なら $T_n\xrightarrow{p}\theta$ であることを、Markovの不等式を使って示せ。
+3. 平均二乗誤差をバイアスと分散に分解せよ。
+4. $E[T_n]-\theta=1/n$、$\operatorname{Var}(T_n)=4/n$ のとき、平均二乗誤差が0へ収束することを確認せよ。
+
+## 記号・用語
+$T_n\xrightarrow{qm}\theta$ は平均二乗収束、$T_n\xrightarrow{p}\theta$ は確率収束を表す。一致推定量とは $T_n\xrightarrow{p}\theta$ を満たす推定量である。
+
+平均二乗誤差（MSE）は
+$$
+\operatorname{MSE}(T_n)=E[(T_n-\theta)^2]
+$$
+である。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+平均二乗収束の定義は
+$$
+E[(T_n-\theta)^2]\longrightarrow0.
+$$
 
-$$E[(X_n-\theta)^2]\to0\quad(n\to\infty).$$
+Markovの不等式を非負確率変数 $(T_n-\theta)^2$ に適用すると、任意の $\varepsilon>0$ について
+$$
+P(|T_n-\theta|>\varepsilon)
+=P((T_n-\theta)^2>\varepsilon^2)
+\le
+\frac{E[(T_n-\theta)^2]}{\varepsilon^2}.
+$$
+
+また
+$$
+\operatorname{MSE}(T_n)
+=\operatorname{Var}(T_n)
++\{E[T_n]-\theta\}^2.
+$$
+
+## 一手／方針
+**平均二乗誤差が与えられたら、ずれの二乗を非負確率変数としてMarkovの不等式へ入れる。** これで確率収束の定義に現れる外側確率を直接0へ押さえられる。
 
 ## 答え
-ずれの2乗の期待値が0へ収束することをいう。
+1.
+$$
+T_n\xrightarrow{qm}\theta
+\iff
+E[(T_n-\theta)^2]\to0.
+$$
+
+2. 任意の $\varepsilon>0$ に対して
+$$
+P(|T_n-\theta|>\varepsilon)
+\le
+\frac{E[(T_n-\theta)^2]}{\varepsilon^2}
+\longrightarrow0.
+$$
+よって
+$$
+\boxed{T_n\xrightarrow{p}\theta}.
+$$
+したがって平均二乗収束は確率収束を含意する。
+
+3.
+$$
+\boxed{
+E[(T_n-\theta)^2]
+=\operatorname{Var}(T_n)
++\operatorname{Bias}(T_n)^2}.
+$$
+
+4.
+$$
+\operatorname{MSE}(T_n)
+=\frac4n+\frac1{n^2}
+\longrightarrow0.
+$$
+したがって $T_n$ は平均二乗収束し、特に一致推定量である。
 
 ## 計算例
-$\operatorname{Var}(X_n)\to0$ かつ $E[X_n]\to\theta$ なら $E[(X_n-\theta)^2]=\operatorname{Var}(X_n)+(E[X_n]-\theta)^2\to0$。
+$n=100$ なら
+$$
+\operatorname{MSE}(T_{100})
+=\frac4{100}+\frac1{10000}
+=0.0401.
+$$
+例えば $\varepsilon=0.5$ に対してMarkovの不等式から
+$$
+P(|T_{100}-\theta|>0.5)
+\le\frac{0.0401}{0.25}=0.1604.
+$$
+この上界自体は有限標本では粗くても、$n\to\infty$ で0へ収束することが一致性の証明には十分である。
 
 ## 注意
-平均二乗収束は確率収束を含意する。
+平均二乗収束は確率収束より強い。逆に $T_n\xrightarrow{p}\theta$ だけから平均二乗収束は一般には従わない。MSEが小さいことはバイアスと分散の両方を同時に制御している。
 
 <!-- CARD -->
 
