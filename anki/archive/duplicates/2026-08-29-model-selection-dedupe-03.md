@@ -178,7 +178,7 @@ sources:
   - type: official_syllabus
     topic: モデル評価基準
 archive_reason: duplicate
-canonical_card: ms-overfitting-generalization
+canonical_card: ms-kfold-cv-numeric
 archive_note: 訓練誤差が低くても検証誤差が悪化するという同一判断。canonical側は複雑度1,3,9の訓練・テスト誤差を並べ、過学習まで説明する。
 ---
 ## 問題

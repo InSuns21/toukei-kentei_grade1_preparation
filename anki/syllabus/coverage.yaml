@@ -787,22 +787,15 @@ items:
     status: complete
     cards:
       - ms-bic-numeric-comparison
-      - ms-overfitting-generalization
-      - ms-kl-divergence
-      - ms-kl-nonnegativity
-      - ms-variable-selection-stepwise
       - ms-kfold-cv-numeric
+      - ms-kl-divergence
       - ms-ridge-lasso-orthogonal-numeric
-      - ms-regularization-bias-variance
-      - ms-lasso-selection
-      - ms-multicollinearity-ridge
       - ms-prediction-vs-inference
     terms:
       - name: カルバック・ライブラー情報量
         status: card
         cards:
           - ms-kl-divergence
-          - ms-kl-nonnegativity
       - name: 情報量規準AIC
         status: card
         cards:
@@ -811,7 +804,7 @@ items:
         status: card
         cards:
           - ms-kfold-cv-numeric
-          - ms-variable-selection-stepwise
+          - ms-bic-numeric-comparison
   - id: math-asymptotic-estimation
     status: complete
     cards:
