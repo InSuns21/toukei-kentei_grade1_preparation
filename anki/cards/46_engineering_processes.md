@@ -95,33 +95,119 @@ $$\widehat X_{t+3\mid t}=100+3(1.5)=104.5.$$
 
 ---
 id: engproc-arima110-difference-forecast
-title: ARIMA(1,1,0)を差分系列で予測する
+title: ARIMA予測を差分系列から作り水準へ累積する
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: arima110-forecast
-type: calc_step
+topic: arima-difference-forecast-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [時系列解析, ARIMA過程, 差分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMA過程 }]
+hashtags:
+  - 時系列解析
+  - ARIMA過程
+  - 差分
+  - 予測
+  - ドリフト
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMA過程
 ---
 ## 問題
-$Y_t=\Delta X_t$ が $Y_t=0.5Y_{t-1}+\varepsilon_t$ に従う。$X_t=50$、$Y_t=4$ のとき $X_{t+2}$ の点予測を求めよ。
+水準系列 $X_t$ の1階差分を
+$$
+Y_t=\Delta X_t=X_t-X_{t-1}
+$$
+とする。
+1. 将来の差分予測 $\widehat Y_{t+j\mid t}$ から、$h$期先の水準予測 $\widehat X_{t+h\mid t}$ を作る一般式を導け。
+2. ARIMA$(1,1,0)$ として
+$$
+Y_t=0.5Y_{t-1}+\varepsilon_t,
+$$
+$X_t=50,Y_t=4$ のとき、$X_{t+2}$ の点予測を求めよ。
+3. ドリフト付きARIMA$(0,1,0)$
+$$
+\Delta X_t=1.5+\varepsilon_t,
+$$
+$X_t=100$ のとき、3期先の点予測を求めよ。
+
 ## 記号・用語
-$Y_t$ は水準 $X_t$ の1階差分、$\widehat Y_{t+h\mid t}$ は将来の増分予測である。
+$\Delta X_t$ は1期の増分、$Y_t$ は差分系列である。ARIMAモデルでは非定常な水準系列を差分して定常なARMA型系列として扱い、その差分の予測を最後に足し戻して水準へ戻す。
+
 ## 使用公式・定理
-AR(1)差分の予測は $\widehat Y_{t+h\mid t}=\phi^hY_t$、水準予測は
-$$\widehat X_{t+h\mid t}=X_t+\sum_{j=1}^h\widehat Y_{t+j\mid t}.$$
+恒等式
+$$
+X_{t+h}=X_t+\sum_{j=1}^{h}\Delta X_{t+j}
+$$
+の条件付き期待値を取れば
+$$
+\widehat X_{t+h\mid t}
+=X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}.
+$$
+
+ARIMA$(1,1,0)$ で差分が
+$$
+Y_t=\phi Y_{t-1}+\varepsilon_t
+$$
+に従うなら、未来の革新の条件付き期待値を0として
+$$
+\widehat Y_{t+j\mid t}=\phi^jY_t.
+$$
+
+ドリフト付きARIMA$(0,1,0)$
+$$
+\Delta X_t=d+\varepsilon_t
+$$
+では各将来差分の条件付き期待値が $d$ なので
+$$
+\widehat X_{t+h\mid t}=X_t+hd.
+$$
+
 ## 一手／方針
-まず各期の差分を予測し、その差分を現在の水準へ足し戻す。
+**水準を直接予測しようとせず、まず差分系列の各将来値を予測し、それらを現在の水準へ累積する。** ドリフト付きランダムウォークは「将来差分の予測が毎期 $d$」という特殊例として同じ手順で処理する。
+
 ## 答え
-$$\widehat Y_{t+1\mid t}=0.5(4)=2,\qquad \widehat Y_{t+2\mid t}=0.5^2(4)=1,$$
-$$\widehat X_{t+2\mid t}=50+2+1=53.$$
+1. 
+$$
+\widehat X_{t+h\mid t}
+=X_t+\sum_{j=1}^{h}\widehat Y_{t+j\mid t}.
+$$
+
+2. $\phi=0.5,Y_t=4$ なので
+$$
+\widehat Y_{t+1\mid t}=0.5(4)=2,
+$$
+$$
+\widehat Y_{t+2\mid t}=0.5^2(4)=1.
+$$
+よって
+$$
+\widehat X_{t+2\mid t}=50+2+1=53.
+$$
+
+3. 将来の各差分の予測値は1.5なので
+$$
+\widehat X_{t+3\mid t}
+=100+3(1.5)=104.5.
+$$
+
 ## 計算例
-1期先水準は $50+2=52$ である。
+ドリフトなしARIMA$(0,1,0)$、すなわち
+$$
+\Delta X_t=\varepsilon_t
+$$
+なら将来差分の条件付き期待値はすべて0である。したがって任意の $h\ge1$ について
+$$
+\widehat X_{t+h\mid t}=X_t.
+$$
+これはランダムウォークの点予測が現在値に等しいことを表す。
+
 ## 注意
-$Y_{t+2}$ の予測値1だけを $X_t$ に足すのではなく、途中の差分もすべて累積する。
+$\widehat Y_{t+h\mid t}$ だけを $X_t$ に足してはいけない。水準へ戻すには途中の差分予測をすべて累積する。またドリフト $d$ は差分系列の平均であり、水準系列の固定切片ではない。予測区間を求める場合は将来革新の分散も累積するため、点予測だけの計算とは別に予測誤差分散を扱う。
 
 <!-- CARD -->
 
