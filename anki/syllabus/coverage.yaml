@@ -831,8 +831,6 @@ items:
       - asym-as-conv-prob
       - asym-clt-binomial-normal
       - asym-delta-method-sqrt
-      - asym-mle-av-normal
-      - asym-are-median-mean
       - asym-exponential-mean-tail
       - asym-exponential-rate-mle
       - asym-logit-proportion-delta
@@ -860,7 +858,6 @@ items:
         cards:
           - asym-mle-consistency
           - asym-mle-asymptotic-normality
-          - asym-mle-av-normal
           - asym-mle-poisson-tail-probability
           - asym-exponential-rate-mle
           - asym-mle-normal-variance-known-mean
