@@ -1761,10 +1761,7 @@ items:
       - design-two-cubed-effects-numeric
       - design-block-confounding
       - design-fraction-generator
-      - design-defining-relation
       - design-alias-structure
-      - design-resolution-levels
-      - design-fraction-run-saving
       - design-orthogonal-array-basic
       - design-orthogonality-check
       - design-balanced-orthogonality
@@ -1827,10 +1824,7 @@ items:
           - design-two-cubed-effects-numeric
           - design-block-confounding
           - design-fraction-generator
-          - design-defining-relation
           - design-alias-structure
-          - design-resolution-levels
-          - design-fraction-run-saving
           - design-orthogonal-array-basic
           - design-orthogonality-check
           - design-balanced-orthogonality
@@ -2517,10 +2511,6 @@ items:
       - engdesign-factorial-pure-error
       - engdesign-centerpoint-curvature
       - engdesign-lack-of-fit-decomposition
-      - engdesign-two-generator-defining-group
-      - engdesign-alias-estimability-choice
-      - engdesign-fractional-run-table
-      - engdesign-wordlength-aberration
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
       - engdesign-block-generator-count
@@ -2614,10 +2604,6 @@ items:
       - name: 交絡法
         status: card
         cards:
-          - engdesign-two-generator-defining-group
-          - engdesign-alias-estimability-choice
-          - engdesign-fractional-run-table
-          - engdesign-wordlength-aberration
           - engdesign-foldover-dealias
           - engdesign-block-generator-protect-effects
           - engdesign-block-generator-count
