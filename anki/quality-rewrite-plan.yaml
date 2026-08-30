@@ -1,129 +1,137 @@
 schema_version: 1
-batch_id: 2026-08-30-poisson-regression-merge-prep-64
+batch_id: 2026-08-30-robust-covariance-merge-prep-65
 items:
-  - id: glm-poisson-mean-ratio
-    note: ポアソン回帰の平均比・発生率・曝露量offsetを一つの対数リンク計算へ統合する。
+  - id: reg-robust-sandwich
+    note: 異分散頑健分散共分散行列の基本形とHC3レバレッジ補正を一枚へ統合する。
     metadata:
-      title: ポアソン回帰を平均比・発生率・offsetまで通す
-      topic: poisson-regression-canonical
-      hashtags: [ポアソン回帰, 対数リンク, 平均比, 発生率, offset]
+      title: 異分散頑健分散をsandwich形からHC3まで計算する
+      topic: robust-standard-error-canonical
+      hashtags: [回帰診断法, 異分散, 頑健標準誤差, sandwich, HC3, レバレッジ]
     sections:
       問題: |
-        ポアソン回帰で
+        線形回帰
         $$
-        Y\mid x,t\sim\operatorname{Poisson}(\mu),
-        \qquad
-        \log\mu=\log t+\beta_0+\beta_1x
+        \boldsymbol y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon
         $$
-        とする。$t>0$ は観測時間・人口・走行距離などの曝露量である。
+        で誤差は互いに独立だが、
+        $$
+        \operatorname{Var}(\varepsilon_i\mid\boldsymbol X)=\sigma_i^2
+        $$
+        と異分散を許す。
 
-        1. $x$ が $c$ 増えたとき、同じ曝露量における期待件数と発生率は何倍になるか。
-        2. $\log t$ がoffsetと呼ばれる理由を説明せよ。
-        3. $\beta_0=0.2,\beta_1=0.4$、$x$ が3増える場合の平均比を求めよ。
-        4. $t=5,x=2$ のとき期待件数を求めよ。
+        1. 最小二乗推定量の係数値は変えずに、異分散に頑健なHC0分散共分散行列を書け。
+        2. 高レバレッジ点への小標本補正を強めるHC3では、各残差平方をどう補正するか。
+        3. 切片のみ、$n=2$、残差 $(1,-1)$、レバレッジ $h_{11}=h_{22}=1/2$ の例で、HC0とHC3の切片分散推定値を比較せよ。
       記号・用語: |
-        - **曝露量** $t$：件数が機会量に比例すると考えるときの観測時間・人口・面積など。
-        - **offset**：係数を推定せず、あらかじめ1に固定して線形予測子へ加える既知項。
-        - **発生率** $\lambda$：単位曝露量あたりの期待件数。ここでは $\mu=t\lambda$。
+        - **sandwich形**：推定分散を「bread × meat × bread」の積で表す形。
+        - **レバレッジ** $h_{ii}$：ハット行列
+        $$
+        \boldsymbol H=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+        $$
+        の第 $i$ 対角成分。
+        - **HC0**：残差平方 $e_i^2$ をそのまま用いる基本的な異分散頑健分散。
+        - **HC3**：$e_i^2/(1-h_{ii})^2$ を用いて高レバレッジ点を強く補正する型。
       使用公式・定理: |
-        発生率を
+        最小二乗推定量は
         $$
-        \log\lambda=\beta_0+\beta_1x
+        \widehat{\boldsymbol\beta}
+        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol y.
         $$
-        とすると
+        異分散があっても $E[\boldsymbol\varepsilon\mid\boldsymbol X]=\boldsymbol0$ なら、この係数推定式自体は変えない。
+
+        誤差共分散を
         $$
-        \lambda=\exp(\beta_0+\beta_1x).
+        \boldsymbol\Omega
+        =\operatorname{diag}(\sigma_1^2,\ldots,\sigma_n^2)
         $$
-        期待件数は
+        とすると条件付き分散は
         $$
-        \mu=t\lambda
-        =t\exp(\beta_0+\beta_1x),
+        \operatorname{Var}(\widehat{\boldsymbol\beta}\mid\boldsymbol X)
+        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega\boldsymbol X
+        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
         $$
-        したがって
+        未知の $\sigma_i^2$ を $e_i^2$ で置き換えるHC0は
         $$
         \boxed{
-        \log\mu=\log t+\beta_0+\beta_1x
+        \widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
+        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}
+        \operatorname{diag}(e_i^2)
+        \boldsymbol X
+        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
         }.
         $$
-        $\log t$ は係数を1に固定するためoffsetである。
 
-        $x$ を $x+c$ へ変えると
+        HC3では、最小二乗残差が高レバレッジ点で縮みやすいことを補うため
         $$
-        \begin{aligned}
-        \frac{\lambda(x+c)}{\lambda(x)}
-        &=\frac{\exp\{\beta_0+\beta_1(x+c)\}}
-        {\exp(\beta_0+\beta_1x)}\\
-        &=\exp(c\beta_1).
-        \end{aligned}
+        e_i^2
+        \quad\longrightarrow\quad
+        \frac{e_i^2}{(1-h_{ii})^2}
         $$
-        曝露量 $t$ が同じなら $\mu=t\lambda$ なので期待件数比も同じく
+        と置き換える。したがって
         $$
-        \boxed{\exp(c\beta_1)}.
+        \boxed{
+        \widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat{\boldsymbol\beta})
+        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}
+        \operatorname{diag}\left\{\frac{e_i^2}{(1-h_{ii})^2}\right\}
+        \boldsymbol X
+        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        }.
         $$
       一手: |
-        **ポアソン回帰は「対数を外して乗法効果を読む」。** まず
-        $$
-        \mu=t\exp(X\beta)
-        $$
-        に戻す。係数は加法的な件数差ではなく指数化した平均比・率比を表し、曝露量だけは $\log t$ を係数1のoffsetとして入れる。
+        **係数を直す方法と標準誤差を直す方法を混同しない。** 異分散頑健標準誤差では $\widehat{\beta}$ は最小二乗法のまま、分散共分散行列の中央の行列だけを残差から作り直す。HC3ならさらに各残差平方を $(1-h_{ii})^2$ で割る。
       答え: |
-        $x$ が $c$ 増えると、同じ曝露量で発生率・期待件数はいずれも
+        切片のみモデルでは
         $$
-        e^{c\beta_1}
+        \boldsymbol X=\begin{pmatrix}1\\1\end{pmatrix},
+        \qquad
+        \boldsymbol X^{\mathsf T}\boldsymbol X=2,
+        \qquad
+        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}=\frac12.
         $$
-        倍になる。
+        HC0のmeatは
+        $$
+        \boldsymbol X^{\mathsf T}\operatorname{diag}(1,1)\boldsymbol X
+        =1+1=2.
+        $$
+        よって
+        $$
+        \widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat\beta_0)
+        =\frac12\cdot2\cdot\frac12
+        =\frac12.
+        $$
 
-        $\beta_1=0.4,c=3$ なら
+        HC3では $h_{11}=h_{22}=1/2$ なので各補正残差平方は
         $$
-        \begin{aligned}
-        \text{平均比}
-        &=e^{3(0.4)}\\
-        &=e^{1.2}\\
-        &\approx3.32.
-        \end{aligned}
+        \frac{1}{(1-1/2)^2}=4.
         $$
-
-        また $\beta_0=0.2,\beta_1=0.4,t=5,x=2$ では
+        meatは
         $$
-        \begin{aligned}
-        \lambda
-        &=e^{0.2+0.4\cdot2}\\
-        &=e^1\\
-        &\approx2.718,
-        \end{aligned}
+        4+4=8,
         $$
         したがって
         $$
-        \begin{aligned}
-        \mu
-        &=5e^1\\
-        &\approx13.59.
-        \end{aligned}
+        \widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat\beta_0)
+        =\frac12\cdot8\cdot\frac12
+        =2.
         $$
+        この算術例ではHC3はHC0の4倍の分散を与える。
       計算例: |
-        同じ発生率 $\lambda=2$ 件/時間の対象を、Aでは2時間、Bでは5時間観測するとする。このとき
+        一般に $h_{ii}=0.1$ ならHC3の残差平方倍率は
         $$
-        E[Y_A]=2\cdot2=4,
-        \qquad
-        E[Y_B]=5\cdot2=10.
+        \frac1{(1-0.1)^2}
+        =\frac1{0.81}
+        \approx1.235.
         $$
-        件数だけ比べるとBはAの2.5倍だが、これは曝露量の違いだけである。
-
-        対数尺度では
+        一方 $h_{ii}=0.5$ なら
         $$
-        \log E[Y_A]=\log2+\log2,
+        \frac1{(1-0.5)^2}=4.
         $$
-        $$
-        \log E[Y_B]=\log5+\log2.
-        $$
-        発生率部分 $\log2$ は同じで、違いはoffset $\log t$ だけである。
-
-        一方、説明変数の変化によって $\beta_1=\log1.5$ だけ線形予測子が増えるなら、曝露量に関係なく率比は
-        $$
-        e^{\beta_1}=1.5
-        $$
-        である。
+        したがってHC3は、同じ残差の大きさでも高レバレッジ点ほど強く分散推定へ反映する。
       注意: |
-        $t$ は正でなければ $\log t$ を定義できない。offsetの係数を自由に推定すると「件数が曝露量に比例する」という仮定自体を変えることになる。
+        頑健標準誤差は異分散に対する分散推定の修正であり、平均構造の誤指定を直すものではない。説明変数との相関を持つ欠落変数などで $E[\varepsilon\mid X]=0$ が崩れれば、係数推定自体の問題は残る。
 
-        ポアソン分布では条件付き平均と分散が等しい。実データで過分散が強ければ、標準誤差やモデル選択に影響するため、Pearson統計量・逸脱度・残差構造を別途診断する。
+        また通常のHC型は観測間独立を前提とする。系列相関・クラスタ内相関がある場合は、その依存構造に対応した頑健分散を用いる。HC0・HC1・HC2・HC3には有限標本補正の違いがあり、試験では問題文の規約を確認する。
