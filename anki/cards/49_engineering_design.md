@@ -1,34 +1,4 @@
 ---
-id: engdesign-objective-response-factor
-title: 実験目的から応答・因子・実験単位を特定する
-category: applied-engineering
-subcategory: engineering-design
-topic: experiment-planning
-type: recognition
-difficulty: 1
-priority: B
-hashtags: [実験の計画と実施, 応答, 実験単位]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-焼成温度が製品強度へ与える影響を調べ、同じ炉で一度に焼く5個へ同じ温度を与える。応答、因子、実験単位を答えよ。
-## 記号・用語
-応答は測定する結果、因子は操作する条件、実験単位は処置を独立に割り付けられる最小単位である。
-## 使用公式・定理
-独立な反復数は測定個数ではなく、処置を独立に無作為化できる実験単位数で数える。
-## 一手／方針
-何を測るか、何を変えるか、どこまで別々に温度を割り付けられるかを分ける。
-## 答え
-応答は製品強度、因子は焼成温度、実験単位は炉の1回の運転である。
-## 計算例
-4回の炉運転を各温度へ割り付ければ各温度4反復であり、各運転内5個は測定の反復である。
-## 注意
-炉内の5個を独立反復として扱うと疑似反復になる。
-
-<!-- CARD -->
-
----
 id: engdesign-weighted-contrast-covariance
 title: 不等反復で2コントラストの共分散を判定する
 category: applied-engineering
@@ -1111,36 +1081,6 @@ sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
 処置×時点交互作用は処置効果の時間変化を表す。
 ## 注意
 30観測を独立として通常の二元配置法を使うと誤差構造を誤る。
-
-<!-- CARD -->
-
----
-id: engdesign-replication-power-ratio
-title: 反復数と標準誤差の関係を計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: replication-precision
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [実験の計画と実施, 反復, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-等分散で2処置を各 $n$ 回独立反復する。平均差の標準誤差を現在の半分にするには反復数を何倍にすべきか。
-## 記号・用語
-$\sigma^2$ は1実験単位の誤差分散である。
-## 使用公式・定理
-$\operatorname{SE}(\overline Y_1-\overline Y_2)=\sigma\sqrt{2/n}$。
-## 一手／方針
-標準誤差が $n^{-1/2}$ に比例することを使う。
-## 答え
-$1/\sqrt c=1/2$ より $c=4$。反復数を4倍にする。
-## 計算例
-各処置5反復から20反復へ増やすと標準誤差は半分になる。
-## 注意
-測定を同じ実験単位内で増やすだけでは独立反復数は増えない。
 
 <!-- CARD -->
 

@@ -1731,11 +1731,6 @@ items:
     status: complete
     cards:
       - design-fisher-three-principles
-      - design-randomization-purpose
-      - design-replication-purpose
-      - design-local-control
-      - design-experimental-observational-unit
-      - design-pseudoreplication
       - design-crd-allocation-count
       - design-crd-difference-means
       - design-blocking-paired-variance
@@ -1771,9 +1766,6 @@ items:
         status: card
         cards:
           - design-fisher-three-principles
-          - design-randomization-purpose
-          - design-replication-purpose
-          - design-local-control
       - name: 一元配置法
         status: card
         cards:
@@ -1793,7 +1785,7 @@ items:
       - name: ブロック化
         status: card
         cards:
-          - design-local-control
+          - design-fisher-three-principles
           - design-blocking-paired-variance
           - design-rcbd-relative-efficiency
           - design-rcbd-sums-squares
@@ -2454,7 +2446,6 @@ items:
     status: complete
     cards:
       - engdesign-confounder-randomization
-      - engdesign-objective-response-factor
       - engdesign-weighted-contrast-covariance
       - engdesign-missing-run-nonorthogonality
       - engdesign-factorial-pure-error
@@ -2483,13 +2474,11 @@ items:
       - engdesign-incomplete-block-connectivity
       - engdesign-nested-df
       - engdesign-repeated-measures-unit
-      - engdesign-replication-power-ratio
       - engdesign-choice-integrated
     terms:
       - name: 実験の計画と実施
         status: card
         cards:
-          - engdesign-objective-response-factor
           - engdesign-subsampling-variance
           - engdesign-randomization-permutation
           - engdesign-rerandomization-balance
@@ -2498,7 +2487,6 @@ items:
           - engdesign-split-plot-randomization
           - engdesign-nested-df
           - engdesign-repeated-measures-unit
-          - engdesign-replication-power-ratio
           - engdesign-choice-integrated
       - name: 固定効果
         status: card
