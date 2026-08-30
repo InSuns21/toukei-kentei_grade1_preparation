@@ -2004,7 +2004,6 @@ items:
       - glm-tobit-likelihood-parts
       - glm-nonlinear-regression-gradient
       - glm-svm-margin
-      - glm-software-deviance-output
     terms:
       - name: 主成分分析
         status: card
@@ -2046,7 +2045,6 @@ items:
           - glm-logistic-score
           - glm-deviance-definition
           - glm-categorical-interaction
-          - glm-software-deviance-output
       - name: 非線形回帰モデル
         status: card
         cards:
