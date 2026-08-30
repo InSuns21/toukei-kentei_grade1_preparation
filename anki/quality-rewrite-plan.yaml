@@ -1,137 +1,172 @@
 schema_version: 1
-batch_id: 2026-08-30-robust-covariance-merge-prep-65
+batch_id: 2026-08-30-gls-wls-fgls-merge-prep-66
 items:
-  - id: reg-robust-sandwich
-    note: 異分散頑健分散共分散行列の基本形とHC3レバレッジ補正を一枚へ統合する。
+  - id: reg-gls-estimator
+    note: GLSを正本とし、対角共分散でのWLSと未知共分散でのFGLSを同じ推定原理へ統合する。
     metadata:
-      title: 異分散頑健分散をsandwich形からHC3まで計算する
-      topic: robust-standard-error-canonical
-      hashtags: [回帰診断法, 異分散, 頑健標準誤差, sandwich, HC3, レバレッジ]
+      title: GLSを導出しWLS・FGLSまで通す
+      topic: generalized-least-squares-canonical
+      hashtags: [一般化最小二乗法, GLS, WLS, FGLS, 異分散, 分散共分散行列]
     sections:
       問題: |
-        線形回帰
+        線形モデル
         $$
-        \boldsymbol y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon
+        \boldsymbol y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
+        \qquad
+        E(\boldsymbol\varepsilon\mid\boldsymbol X)=\boldsymbol0,
         $$
-        で誤差は互いに独立だが、
         $$
-        \operatorname{Var}(\varepsilon_i\mid\boldsymbol X)=\sigma_i^2
+        \operatorname{Var}(\boldsymbol\varepsilon\mid\boldsymbol X)
+        =\sigma^2\boldsymbol\Omega
         $$
-        と異分散を許す。
+        で、$\boldsymbol\Omega$ は正定値とする。
 
-        1. 最小二乗推定量の係数値は変えずに、異分散に頑健なHC0分散共分散行列を書け。
-        2. 高レバレッジ点への小標本補正を強めるHC3では、各残差平方をどう補正するか。
-        3. 切片のみ、$n=2$、残差 $(1,-1)$、レバレッジ $h_{11}=h_{22}=1/2$ の例で、HC0とHC3の切片分散推定値を比較せよ。
+        1. $\boldsymbol\Omega$ が既知のとき、一般化最小二乗推定量（GLS）を二次形式の最小化から導け。
+        2. 誤差が独立で分散が観測ごとに異なるとき、GLSが重み付き最小二乗法（WLS）になることを示せ。
+        3. $\boldsymbol\Omega$ が未知だが母数化して推定できるとき、実行可能GLS（FGLS）の手順を述べよ。
+        4. 切片のみの2観測 $y_1=1,y_2=3$ で誤差分散がそれぞれ $1,4$ のとき、WLS推定値を求めよ。
       記号・用語: |
-        - **sandwich形**：推定分散を「bread × meat × bread」の積で表す形。
-        - **レバレッジ** $h_{ii}$：ハット行列
-        $$
-        \boldsymbol H=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
-        $$
-        の第 $i$ 対角成分。
-        - **HC0**：残差平方 $e_i^2$ をそのまま用いる基本的な異分散頑健分散。
-        - **HC3**：$e_i^2/(1-h_{ii})^2$ を用いて高レバレッジ点を強く補正する型。
+        - **GLS**：一般化最小二乗法（generalized least squares）。誤差共分散の形を使って残差を重み付けする。
+        - **WLS**：重み付き最小二乗法（weighted least squares）。誤差共分散が対角のGLS。
+        - **FGLS**：実行可能一般化最小二乗法（feasible GLS）。未知の $\Omega$ をデータから推定してGLSへ代入する。
       使用公式・定理: |
-        最小二乗推定量は
+        GLSは
         $$
-        \widehat{\boldsymbol\beta}
-        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}\boldsymbol y.
+        Q(\boldsymbol\beta)
+        =(\boldsymbol y-\boldsymbol X\boldsymbol\beta)^{\mathsf T}
+        \boldsymbol\Omega^{-1}
+        (\boldsymbol y-\boldsymbol X\boldsymbol\beta)
         $$
-        異分散があっても $E[\boldsymbol\varepsilon\mid\boldsymbol X]=\boldsymbol0$ なら、この係数推定式自体は変えない。
+        を最小化する。
 
-        誤差共分散を
+        微分すると
         $$
-        \boldsymbol\Omega
-        =\operatorname{diag}(\sigma_1^2,\ldots,\sigma_n^2)
+        \frac{\partial Q}{\partial\boldsymbol\beta}
+        =-2\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}
+        (\boldsymbol y-\boldsymbol X\boldsymbol\beta).
         $$
-        とすると条件付き分散は
+        これを0と置けば一般化正規方程式
         $$
-        \operatorname{Var}(\widehat{\boldsymbol\beta}\mid\boldsymbol X)
-        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}\boldsymbol\Omega\boldsymbol X
-        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+        \widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+        =\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
         $$
-        未知の $\sigma_i^2$ を $e_i^2$ で置き換えるHC0は
+        を得る。したがって
         $$
         \boxed{
-        \widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat{\boldsymbol\beta})
-        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}
-        \operatorname{diag}(e_i^2)
-        \boldsymbol X
-        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
+        \widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+        =(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
         }.
+        $$
+        また
+        $$
+        \operatorname{Var}(\widehat{\boldsymbol\beta}_{\mathrm{GLS}}\mid\boldsymbol X)
+        =\sigma^2
+        (\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}.
         $$
 
-        HC3では、最小二乗残差が高レバレッジ点で縮みやすいことを補うため
+        独立な異分散で
         $$
-        e_i^2
-        \quad\longrightarrow\quad
-        \frac{e_i^2}{(1-h_{ii})^2}
+        \operatorname{Var}(\varepsilon_i)=\sigma_i^2
         $$
-        と置き換える。したがって
+        なら、共通倍率を無視して
         $$
-        \boxed{
-        \widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat{\boldsymbol\beta})
-        =(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}
-        \operatorname{diag}\left\{\frac{e_i^2}{(1-h_{ii})^2}\right\}
-        \boldsymbol X
-        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}
-        }.
+        \boldsymbol\Omega^{-1}
+        =\operatorname{diag}(w_1,\ldots,w_n),
+        \qquad
+        w_i\propto\frac1{\sigma_i^2}.
         $$
+        よってGLSの二次形式は
+        $$
+        Q(\boldsymbol\beta)
+        =\sum_{i=1}^n w_i
+        (y_i-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)^2
+        $$
+        となりWLSに一致する。
       一手: |
-        **係数を直す方法と標準誤差を直す方法を混同しない。** 異分散頑健標準誤差では $\widehat{\beta}$ は最小二乗法のまま、分散共分散行列の中央の行列だけを残差から作り直す。HC3ならさらに各残差平方を $(1-h_{ii})^2$ で割る。
+        **GLS・WLS・FGLSを別公式として暗記しない。** 基本は「残差を誤差共分散の逆行列 $\Omega^{-1}$ で測る」GLSである。$\Omega$ が対角なら逆分散重みのWLS、$\Omega$ が未知なら推定した $\widehat\Omega$ を代入するFGLSになる。
       答え: |
-        切片のみモデルでは
+        既知 $\Omega$ では
         $$
-        \boldsymbol X=\begin{pmatrix}1\\1\end{pmatrix},
-        \qquad
-        \boldsymbol X^{\mathsf T}\boldsymbol X=2,
-        \qquad
-        (\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}=\frac12.
-        $$
-        HC0のmeatは
-        $$
-        \boldsymbol X^{\mathsf T}\operatorname{diag}(1,1)\boldsymbol X
-        =1+1=2.
-        $$
-        よって
-        $$
-        \widehat{\operatorname{Var}}_{\mathrm{HC0}}(\widehat\beta_0)
-        =\frac12\cdot2\cdot\frac12
-        =\frac12.
+        \widehat{\boldsymbol\beta}_{\mathrm{GLS}}
+        =(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y.
         $$
 
-        HC3では $h_{11}=h_{22}=1/2$ なので各補正残差平方は
+        独立異分散では
         $$
-        \frac{1}{(1-1/2)^2}=4.
+        w_i\propto\frac1{\sigma_i^2}
         $$
-        meatは
+        としてWLSを行う。
+
+        $\Omega$ が未知ならFGLSでは、典型的に
+        1. OLSなどで暫定残差を求める。
+        2. 残差から分散・相関モデルの母数を推定して $\widehat\Omega$ を作る。
+        3. 
         $$
-        4+4=8,
+        \widehat{\boldsymbol\beta}_{\mathrm{FGLS}}
+        =(\boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol X)^{-1}
+        \boldsymbol X^{\mathsf T}\widehat\Omega^{-1}\boldsymbol y
+        $$
+        を計算する。
+
+        数値例では分散が $1,4$ なので相対重みは
+        $$
+        w_1:w_2=1:\frac14=4:1.
+        $$
+        切片のみモデルのWLS推定値は加重平均だから
+        $$
+        \widehat\beta_0
+        =\frac{1\cdot1+(1/4)\cdot3}{1+1/4}
+        =\frac{1.75}{1.25}
+        =1.4.
+        $$
+      計算例: |
+        同じ数値例を行列で確認する。
+        $$
+        \boldsymbol X=
+        \begin{pmatrix}1\\1\end{pmatrix},
+        \qquad
+        \boldsymbol y=
+        \begin{pmatrix}1\\3\end{pmatrix},
+        \qquad
+        \boldsymbol\Omega=
+        \begin{pmatrix}1&0\\0&4\end{pmatrix}.
         $$
         したがって
         $$
-        \widehat{\operatorname{Var}}_{\mathrm{HC3}}(\widehat\beta_0)
-        =\frac12\cdot8\cdot\frac12
-        =2.
+        \boldsymbol\Omega^{-1}
+        =\begin{pmatrix}1&0\\0&1/4\end{pmatrix}.
         $$
-        この算術例ではHC3はHC0の4倍の分散を与える。
-      計算例: |
-        一般に $h_{ii}=0.1$ ならHC3の残差平方倍率は
+        分母は
         $$
-        \frac1{(1-0.1)^2}
-        =\frac1{0.81}
-        \approx1.235.
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+        =1+\frac14
+        =\frac54,
         $$
-        一方 $h_{ii}=0.5$ なら
+        分子は
         $$
-        \frac1{(1-0.5)^2}=4.
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
+        =1+\frac34
+        =\frac74.
         $$
-        したがってHC3は、同じ残差の大きさでも高レバレッジ点ほど強く分散推定へ反映する。
+        よって
+        $$
+        \widehat\beta_0
+        =\left(\frac54\right)^{-1}\frac74
+        =\frac45\frac74
+        =\frac75
+        =1.4.
+        $$
+        分散の小さい第1観測へ4倍の相対重みを置くため、単純平均2より第1観測1へ近い推定値になる。
       注意: |
-        頑健標準誤差は異分散に対する分散推定の修正であり、平均構造の誤指定を直すものではない。説明変数との相関を持つ欠落変数などで $E[\varepsilon\mid X]=0$ が崩れれば、係数推定自体の問題は残る。
+        GLSには $\Omega$ の正定値性と
+        $$
+        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
+        $$
+        の可逆性が必要である。
 
-        また通常のHC型は観測間独立を前提とする。系列相関・クラスタ内相関がある場合は、その依存構造に対応した頑健分散を用いる。HC0・HC1・HC2・HC3には有限標本補正の違いがあり、試験では問題文の規約を確認する。
+        異分散があっても $E(\varepsilon\mid X)=0$ ならOLS係数は不偏・一致であり得るが、通常の等分散標準誤差は不適切になり、既知の正しい $\Omega$ を使うGLSより効率も落ち得る。一方、FGLSは $\Omega$ の推定モデルが誤っていれば効率や標準誤差へ影響する。
+
+        WLSの重みは**標準偏差の逆数ではなく分散の逆数**である。全重みに同じ正の定数を掛けても係数推定値は変わらない。
