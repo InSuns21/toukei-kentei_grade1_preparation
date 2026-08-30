@@ -269,30 +269,114 @@ $E[\overline X^2]=\mu^2+\sigma^2/n\ne \mu^2$。不偏な $\overline X$ の2乗�
 
 ---
 id: est-rao-blackwell
-title: ラオ・ブラックウェル化
+title: ラオ・ブラックウェル化からLehmann–Scheffé定理でUMVUを構成する
 category: math-estimation
 subcategory: math-point-estimator-properties
-topic: rao-blackwell
+topic: rao-blackwell-lehmann-scheffe-umvu
 type: theorem
 difficulty: 3
 priority: S
-hashtags: [ラオ・ブラックウェル化, 十分統計量, 分散減少]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 十分統計量 }]
+hashtags:
+  - ラオ・ブラックウェルの定理
+  - 十分統計量
+  - 完備性
+  - Lehmann-Scheffe
+  - UMVU
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 十分統計量
 ---
 ## 問題
-ラオ・ブラックウェルの定理を述べよ。十分統計量 $T$ と、$E_\theta[U^2]<\infty$ を満たす不偏推定量 $U$ からどう改善するか。
+母数 $\theta$ の不偏推定量 $U$ と十分統計量 $T$ があるとする。
+
+1. ラオ・ブラックウェル化
+$$
+U^*(T)=E_\theta[U\mid T]
+$$
+により不偏性が保たれ、分散が増えないことを示せ。
+2. $T$ がさらに完備なら、$U^*(T)$ が一様最小分散不偏推定量となる理由を述べよ。
+3. ベルヌーイ分布に従う独立標本 $X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$ で、粗い不偏推定量 $U=X_1$ と $T=\sum_iX_i$ を用いて $E[X_1\mid T]$ を計算せよ。
+
 ## 答え
-$T$ を $\theta$ の十分統計量、$U$ を $E_\theta[U^2]<\infty$ を満たす不偏推定量とする。$\widehat\theta=E[U\mid T]$ は不偏かつ
-$$\operatorname{Var}_\theta(\widehat\theta)\le\operatorname{Var}_\theta(U),$$
-等号は $\widehat\theta=U$（a.s.）のときのみ。
+$$
+U^*=E[U\mid T]
+$$
+は不偏で
+$$
+\operatorname{Var}(U^*)\le\operatorname{Var}(U).
+$$
+$T$ が完備十分なら、$U^*$ はLehmann–Scheffé定理により一意な一様最小分散不偏推定量となる。
+
+ベルヌーイ標本では
+$$
+E[X_1\mid T=t]=\frac tn,
+$$
+よって
+$$
+E[X_1\mid T]=\frac Tn=\bar X.
+$$
+
 ## 使用公式・定理
-条件付き期待値の全分散公式：
-$$\operatorname{Var}(U)=\operatorname{Var}(E[U\mid T])+E[\operatorname{Var}(U\mid T)]\ge\operatorname{Var}(E[U\mid T]).$$
+$T$ が $\theta$ の十分統計量なら、ラオ・ブラックウェルの定理より
+$$
+U^*=E[U\mid T]
+$$
+は $T$ の関数であり、$U$ が不偏なら
+$$
+E[U^*]=E[E[U\mid T]]=E[U]=\theta.
+$$
+また全分散公式
+$$
+\operatorname{Var}(U)
+=E[\operatorname{Var}(U\mid T)]
++\operatorname{Var}(E[U\mid T])
+$$
+から
+$$
+\operatorname{Var}(U^*)\le\operatorname{Var}(U).
+$$
+
+さらに $T$ が完備十分統計量で、$h(T)$ が $g(\theta)$ の不偏推定量なら、Lehmann–Scheffé定理により $h(T)$ は $g(\theta)$ の一意な一様最小分散不偏推定量である。
+
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$U=X_1$ は不偏。$T=\sum_iX_i$ の下で $E[X_1\mid T]=T/n=\overline X$ となり分散が減る。
+ベルヌーイ標本で $T=t$ と分かったとき、「$n$ 個のうちちょうど $t$ 個が1」という配置は交換可能である。したがって各 $X_i$ が1である条件付き確率は等しく、
+$$
+\sum_{i=1}^nP(X_i=1\mid T=t)=t
+$$
+だから
+$$
+P(X_1=1\mid T=t)=\frac tn.
+$$
+$X_1$ は0-1変数なので
+$$
+E[X_1\mid T=t]=P(X_1=1\mid T=t)=\frac tn.
+$$
+よって
+$$
+U^*=E[X_1\mid T]=\frac Tn=\bar X.
+$$
+
+分散も
+$$
+\operatorname{Var}(X_1)=p(1-p),
+$$
+$$
+\operatorname{Var}(\bar X)=\frac{p(1-p)}n
+$$
+なので、$n>1$ では条件付けにより実際に分散が小さくなる。
+
+さらにベルヌーイ族では $T=\sum_iX_i\sim\operatorname{Binomial}(n,p)$ は完備十分統計量である。したがって $T/n$ は $p$ の不偏推定量であり、Lehmann–Scheffé定理から $p$ の一意な一様最小分散不偏推定量である。
+
 ## 一手
-十分統計量の条件付き期待値を取れば不偏性を保ち分散を減らせる。
+**不偏推定量を作る → 十分統計量で条件付ける → 完備性があれば一意なUMVUと結論する。** Rao–Blackwellは「分散を下げる操作」、Lehmann–Schefféは「完備十分統計量の関数なら最適性と一意性まで確定する定理」と役割を分ける。
+
+## 注意
+Rao–Blackwell化だけで常に一意性まで得られるわけではない。十分統計量で条件付ければ分散は改善するが、Lehmann–Schefféによる一意なUMVUの結論には完備性が必要である。また「完備」は統計量の分布族について $E_\theta[a(T)]=0$ が全ての $\theta$ で成り立つなら $a(T)=0$ ほとんど確実、という性質である。
 
 <!-- CARD -->
 
