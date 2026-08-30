@@ -1738,32 +1738,127 @@ $$p_{13}^{(2)}=(1/2)0+(1/2)(1/2)+0=1/4.$$
 
 ---
 id: stoch-three-state-stationary
-title: 3状態連鎖の定常分布を解く
+title: 定常分布を連立方程式で解き長期割合を読む
 category: applied-common
 subcategory: applied-stochastic-processes
-topic: stationary-distribution
-type: calc_step
+topic: stationary-distribution-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [マルコフ連鎖, 定常分布, 連立方程式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+hashtags:
+  - マルコフ連鎖
+  - 定常分布
+  - 連立方程式
+  - 可用率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ連鎖
 ---
 ## 問題
-$P=\begin{pmatrix}0&1&0\\0&0&1\\1/2&0&1/2\end{pmatrix}$ の定常分布を求めよ。
+離散時間マルコフ連鎖について次を解け。
+1. 遷移行列
+$$
+P=\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+1/2&0&1/2
+\end{pmatrix}
+$$
+の定常分布 $\boldsymbol\pi=(\pi_1,\pi_2,\pi_3)$ を求めよ。
+2. 稼働状態0・故障状態1の遷移行列
+$$
+P=\begin{pmatrix}
+0.9&0.1\\
+0.4&0.6
+\end{pmatrix}
+$$
+について定常分布を求め、長期可用率を答えよ。
+
 ## 記号・用語
-- $\boldsymbol\pi=(\pi_1,\pi_2,\pi_3)$：定常分布
+定常分布 $\boldsymbol\pi$ は、1期進めても分布が変わらない確率ベクトルである。行ベクトル表記なら
+$$
+\boldsymbol\pi P=\boldsymbol\pi,
+\qquad
+\sum_i\pi_i=1,
+\qquad
+\pi_i\ge0.
+$$
+長期可用率とは、十分長い時間で見たときに系が稼働状態にいる割合である。有限既約連鎖では各状態の長期滞在割合を対応する定常確率として読める。
+
 ## 使用公式・定理
-$\boldsymbol\pi P=\boldsymbol\pi$、$\sum_i\pi_i=1$。
+定常分布は
+$$
+\boldsymbol\pi P=\boldsymbol\pi
+$$
+と正規化条件
+$$
+\sum_i\pi_i=1
+$$
+を連立して求める。
+
+2状態連鎖
+$$
+P=\begin{pmatrix}
+1-a&a\\
+b&1-b
+\end{pmatrix}
+$$
+では定常状態で状態間の流量が釣り合うため
+$$
+\pi_0a=\pi_1b
+$$
+と $\pi_0+\pi_1=1$ から解ける。
+
 ## 一手／方針
-未知の定常確率を置き、定常方程式と確率の総和1を連立して解く。
+**まず $\boldsymbol\pi P=\boldsymbol\pi$ を成分ごとに書き、独立な式だけ残して最後に確率の総和1で正規化する。** 2状態なら往復流量の釣合いを使うと速い。求めた定常確率を、問題文の「長期割合」「長期可用率」などの意味へ戻して答える。
+
 ## 答え
-$\pi_2=\pi_1$、$\pi_3=2\pi_1$ より
-$$\boldsymbol\pi=(1/4,1/4,1/2).$$
+1. 定常方程式から
+$$
+\pi_1=\frac12\pi_3,
+\qquad
+\pi_2=\pi_1.
+$$
+したがって $\pi_3=2\pi_1$ であり、
+$$
+\pi_1+\pi_2+\pi_3
+=\pi_1+\pi_1+2\pi_1=1.
+$$
+よって
+$$
+\boldsymbol\pi=\left(\frac14,\frac14,\frac12\right).
+$$
+
+2. 稼働から故障への定常流量と故障から修復への定常流量を等置すると
+$$
+0.1\pi_0=0.4\pi_1.
+$$
+よって $\pi_0=4\pi_1$。さらに $\pi_0+\pi_1=1$ なので
+$$
+(\pi_0,\pi_1)=(0.8,0.2).
+$$
+したがって長期可用率は
+$$
+\boxed{0.8}
+$$
+である。
+
 ## 計算例
-代入すると $\boldsymbol\pi P=(1/4,1/4,1/2)$。
+一般の2状態故障修復連鎖で、1期当たり故障確率を $a$、修復確率を $b$ とすると
+$$
+\pi_0=\frac{b}{a+b},
+\qquad
+\pi_1=\frac{a}{a+b}.
+$$
+したがって $a$ が小さくなる、または $b$ が大きくなるほど長期可用率 $\pi_0$ は高くなる。
+
 ## 注意
-固有方程式だけでなく総和1も使う。
+$\boldsymbol\pi P=\boldsymbol\pi$ の各成分方程式はすべて独立とは限らないため、最後に $\sum_i\pi_i=1$ を必ず使う。定常分布が存在しても、任意の初期分布から $\boldsymbol\pi$ へ収束するとは限らない。有限既約かつ非周期的な連鎖なら分布は定常分布へ収束する。また詳細釣合い $\pi_ip_{ij}=\pi_jp_{ji}$ は定常性を示す十分条件として便利だが、一般の定常分布が必ず詳細釣合いを満たすわけではない。
 
 <!-- CARD -->
 
