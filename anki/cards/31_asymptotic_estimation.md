@@ -1074,39 +1074,122 @@ $$\widehat{\operatorname{ASE}}(\overline X_n)
 
 ---
 id: asym-asymptotic-relative-efficiency
-title: 漸近相対効率を定義する
+title: クラーメル・ラオの不等式から漸近効率と漸近相対効率を整理する
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: asymptotic-relative-efficiency
+topic: cramer-rao-asymptotic-efficiency
 type: formula
 difficulty: 3
 priority: A
-hashtags: [漸近相対効率, 有効性, 漸近理論]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 漸近理論 }]
+hashtags:
+  - クラーメル・ラオの不等式
+  - フィッシャー情報量（1次元）
+  - 漸近効率
+  - 漸近相対効率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 漸近理論
 ---
 
 ## 問題
-二つの漸近正規推定量 $T_n,U_n$ の漸近相対効率を定義せよ。
+正則な1母数モデルで1観測当たりのフィッシャー情報量（1次元）を $I_1(\theta)$ とする。
+
+1. $E_\theta[T_n]=\theta$ を満たす不偏推定量に対するクラーメル・ラオの不等式を書け。
+2. 正則な最尤推定量の漸近分布と、フィッシャー情報量（1次元）との関係を述べよ。
+3. 二つの漸近正規推定量 $T_n,U_n$ の漸近相対効率を定義せよ。
+
+数値例として
+$$
+\operatorname{AVar}(\sqrt n\,T_n)=4,
+\qquad
+\operatorname{AVar}(\sqrt n\,U_n)=9
+$$
+のとき $T_n$ の $U_n$ に対する漸近相対効率を求めよ。
 
 ## 記号・用語
 - ARE：漸近相対効率（asymptotic relative efficiency）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+独立同分布標本では標本全体の情報量は
+$$
+I_n(\theta)=nI_1(\theta).
+$$
+クラーメル・ラオの不等式より、正則条件の下で不偏推定量 $T_n$ は
+$$
+\operatorname{Var}_\theta(T_n)
+\ge \frac{1}{I_n(\theta)}
+=\frac{1}{nI_1(\theta)}.
+$$
 
-$$\operatorname{ARE}(T,U)=\frac{v_U}{v_T},\qquad v_T=\operatorname{AVar}(\sqrt n\,T_n),\ v_U=\operatorname{AVar}(\sqrt n\,U_n).$$
+また正則な最尤推定量は通常
+$$
+\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
+\xrightarrow{d}
+N\left(0,I_1(\theta)^{-1}\right)
+$$
+を満たし、有限標本の不偏性とは別概念だが、漸近分散が情報下界に対応する。
+
+漸近正規推定量について
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v_T),
+\qquad
+\sqrt n(U_n-\theta)\xrightarrow{d}N(0,v_U)
+$$
+なら、ここでは
+$$
+\operatorname{ARE}(T,U)=\frac{v_U}{v_T}
+$$
+と定義する。
+
+## 一手
+**有限標本では分散を $1/I_n$ と比較し、漸近理論では $\sqrt n$ 倍した推定誤差の極限分散を $I_1^{-1}$ と比較する。** その上で二つの極限分散の比を取れば漸近相対効率になる。
 
 ## 答え
-極限分散の逆数の比として定義する。
+不偏推定量には
+$$
+\operatorname{Var}(T_n)\ge\frac{1}{nI_1(\theta)}.
+$$
+正則な最尤推定量は
+$$
+\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
+\xrightarrow{d}N(0,I_1(\theta)^{-1})
+$$
+となるのが基本である。
+
+数値例では
+$$
+\operatorname{ARE}(T,U)=\frac94=2.25.
+$$
+したがって同じ標本サイズなら $T_n$ の方が小さい極限分散を持つ。
 
 ## 計算例
-$\operatorname{AVar}(\sqrt n\,T_n)=v_T=4$、$\operatorname{AVar}(\sqrt n\,U_n)=v_U=9$ なら
-$$\operatorname{ARE}(T,U)=\frac{v_U}{v_T}=\frac94=2.25.$$
-同じ標本数なら $T_n$ の極限分散の方が小さく、$T_n$ の方が漸近的に効率的である。
+例えば $I_1(\theta)=1/4$ なら、$n=100$ に対するクラーメル・ラオの分散下界は
+$$
+\frac{1}{100(1/4)}=0.04.
+$$
+一方、漸近分布の尺度では
+$$
+I_1(\theta)^{-1}=4
+$$
+なので
+$$
+\sqrt n(\widehat\theta-\theta)
+$$
+の極限分散4と、$\widehat\theta$ 自身の漸近分散 $4/n$ を混同しない。
+
+また $v_T=4,v_U=9$ なら
+$$
+\operatorname{ARE}(T,U)=\frac{9}{4}=2.25.
+$$
+これは $T_n$ の極限分散が $U_n$ の $4/9$ であることを表す。
 
 ## 注意
-1より小さいほど相対的に情報量が少ない。
+クラーメル・ラオの不等式は有限標本の不偏推定量に対する正則条件付き下界であり、最尤推定量の漸近効率とは同一の主張ではない。漸近相対効率は文献によって比の向きが逆の場合があるため定義を確認する。
 
 <!-- CARD -->
 
