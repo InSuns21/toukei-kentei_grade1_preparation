@@ -720,39 +720,202 @@ $1+2+2+18=23$ と自由度の加法性も確認できる。
 
 ---
 id: anova-twoway-f-tests
-title: 二元配置の3つのF検定を構成する
+title: 二元配置分散分析をモデルから平方和・自由度・3つのF検定まで通す
 category: math-data-analysis
 subcategory: math-anova
-topic: twoway-f
+topic: twoway-anova-canonical
 type: formula
 difficulty: 3
 priority: S
-hashtags: [二元配置分散分析, F検定, 平均平方]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 二元配置分散分析 }]
+hashtags:
+  - 二元配置分散分析
+  - 交互作用
+  - 平方和
+  - 自由度
+  - F検定
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 二元配置分散分析
 ---
 
 ## 問題
-独立な正規誤差が共通分散 $\sigma^2$ を持つ反復あり二元配置固定効果モデルで、A・B・交互作用の各平均平方を $MS_A,MS_B,MS_{AB}$、誤差平均平方を $MS_E$ とする。3つのF統計量を書け。
+因子Aが $a$ 水準、因子Bが $b$ 水準、各セルに $n$ 回の反復がある釣合い二元配置固定効果モデルを考える。
+
+1. 交互作用を含むモデルと誤差の仮定を書け。
+2. $SS_A,SS_B,SS_{AB},SS_E$ と全平方和の分解を書け。
+3. 各自由度と、A・B・交互作用を検定するF統計量を書け。
+4. $a=b=n=2$ で、各セルの観測値が
+   - A1B1: $(8,10)$
+   - A1B2: $(12,14)$
+   - A2B1: $(10,12)$
+   - A2B2: $(18,20)$
+   だった。自由度 $(1,4)$ のF分布の5%上側臨界値を7.71として、A・B・交互作用を検定せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+反復あり固定効果モデルを
+$$
+Y_{ijk}=\mu+\alpha_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk}
+$$
+と書く。ここで $\gamma_{ij}$ は交互作用で、例えば識別制約として
+$$
+\sum_i\alpha_i=0,
+\qquad
+\sum_j\beta_j=0,
+$$
+$$
+\sum_i\gamma_{ij}=0\ (\forall j),
+\qquad
+\sum_j\gamma_{ij}=0\ (\forall i)
+$$
+を置く。誤差は
+$$
+\varepsilon_{ijk}\overset{\mathrm{iid}}\sim N(0,\sigma^2)
+$$
+とする。
 
-各帰無仮説下で対応する効果平均平方と誤差平均平方の比がF分布に従う。
+セル平均を $\bar Y_{ij\cdot}$、Aの周辺平均を $\bar Y_{i\cdot\cdot}$、Bの周辺平均を $\bar Y_{\cdot j\cdot}$、全平均を $\bar Y_{\cdot\cdot\cdot}$ とすると、釣合い配置では
+$$
+SS_A=bn\sum_i(\bar Y_{i\cdot\cdot}-\bar Y_{\cdot\cdot\cdot})^2,
+$$
+$$
+SS_B=an\sum_j(\bar Y_{\cdot j\cdot}-\bar Y_{\cdot\cdot\cdot})^2,
+$$
+$$
+SS_{AB}=n\sum_i\sum_j
+(\bar Y_{ij\cdot}-\bar Y_{i\cdot\cdot}-\bar Y_{\cdot j\cdot}+\bar Y_{\cdot\cdot\cdot})^2,
+$$
+$$
+SS_E=\sum_i\sum_j\sum_k(Y_{ijk}-\bar Y_{ij\cdot})^2.
+$$
+したがって
+$$
+SS_T=SS_A+SS_B+SS_{AB}+SS_E.
+$$
+
+自由度は
+$$
+\nu_A=a-1,
+\quad
+\nu_B=b-1,
+\quad
+\nu_{AB}=(a-1)(b-1),
+$$
+$$
+\nu_E=ab(n-1),
+\qquad
+\nu_T=abn-1.
+$$
+各平均平方を対応する平方和/自由度で作り、
+$$
+F_A=\frac{MS_A}{MS_E},
+\qquad
+F_B=\frac{MS_B}{MS_E},
+\qquad
+F_{AB}=\frac{MS_{AB}}{MS_E}
+$$
+とする。
+
+## 一手
+**全平均→周辺平均→セル平均の順に整理し、A・B・交互作用・誤差へ平方和を分ける。** その後は自由度→平均平方→Fの順で一元配置と同じ流れを使う。
 
 ## 答え
-$$F_A=MS_A/MS_E,\qquad F_B=MS_B/MS_E,\qquad F_{AB}=MS_{AB}/MS_E.$$
-分子自由度は順に $a-1,b-1,(a-1)(b-1)$、分母自由度は全て $ab(n-1)$。
+数値例ではセル平均は
+$$
+\begin{pmatrix}
+9&13\\
+11&19
+\end{pmatrix}.
+$$
+Aの周辺平均は $(11,15)$、Bの周辺平均は $(10,16)$、全平均は13である。
+
+よって
+$$
+SS_A
+=4\{(11-13)^2+(15-13)^2\}
+=32,
+$$
+$$
+SS_B
+=4\{(10-13)^2+(16-13)^2\}
+=72.
+$$
+交互作用偏差は順に
+$$
+1,-1,-1,1
+$$
+なので
+$$
+SS_{AB}=2(1^2+(-1)^2+(-1)^2+1^2)=8.
+$$
+各セル内では平均との差が $-1,1$ だから
+$$
+SS_E=4\{(-1)^2+1^2\}=8.
+$$
+
+自由度は
+$$
+\nu_A=\nu_B=\nu_{AB}=1,
+\qquad
+\nu_E=4.
+$$
+したがって
+$$
+MS_A=32,
+\quad
+MS_B=72,
+\quad
+MS_{AB}=8,
+\quad
+MS_E=2,
+$$
+$$
+F_A=16,
+\qquad
+F_B=36,
+\qquad
+F_{AB}=4.
+$$
+5%上側臨界値7.71と比べると、AとBの主効果は有意、交互作用は有意ではない。
 
 ## 計算例
-$MS_A=18,MS_B=6,MS_{AB}=12,MS_E=3$ なら
-$$F_A=18/3=6,
-\quad F_B=6/3=2,
-\quad F_{AB}=12/3=4.$$
-対応する5%臨界値を順に4.5、3.5、3.6とすれば、Aと交互作用は棄却し、Bは棄却しない。
+平方和と自由度の加法性も確認する。
+$$
+SS_T=32+72+8+8=120,
+$$
+$$
+\nu_T=1+1+1+4=7=2\cdot2\cdot2-1.
+$$
+
+例えばA1B1の交互作用偏差は
+$$
+9-11-10+13=1,
+$$
+A1B2では
+$$
+13-11-16+13=-1.
+$$
+つまり交互作用平方和は「セル平均から、A主効果とB主効果だけで説明できる加法部分を引いた残り」を二乗して集めている。
+
+分散分析表は
+$$
+\begin{array}{c|c|c|c|c}
+\text{要因}&\text{平方和}&\text{自由度}&\text{平均平方}&F\\ \hline
+A&32&1&32&16\\
+B&72&1&72&36\\
+AB&8&1&8&4\\
+\text{誤差}&8&4&2&\\
+\text{全体}&120&7&&
+\end{array}
+$$
+となる。
 
 ## 注意
-変量効果・混合効果モデルでは適切な分母平均平方が変わることがある。
+交互作用が有意なら、AやBの主効果だけを一律に解釈せず、単純主効果やセル平均の構造を確認する。反復なし $n=1$ では $\nu_E=ab(n-1)=0$ となり、純粋誤差と交互作用をこの形では分離して検定できない。不均衡配置では平方和の型や投入順序にも注意する。
 
 <!-- CARD -->
 
