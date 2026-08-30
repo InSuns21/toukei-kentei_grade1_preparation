@@ -1,7 +1,10 @@
 chapter: "L2-01"
 terms:
-  - { term: 一般化線形モデル, meaning: 応答分布とリンク関数を選び平均を線形予測子へ結び付けるモデル群 }
-  - { term: リンク関数, meaning: 応答平均を線形予測子へ変換する関数 }
-  - { term: ロジット, meaning: 確率pをlog p over one minus pへ変換する関数 }
-  - { term: offset, meaning: 係数を1に固定して線形予測子へ入れる既知量 }
-  - { term: deviance, meaning: 飽和モデルと候補モデルの最大対数尤度差を2倍した適合度指標 }
+  - { term: 一般化線形モデル, meaning: 応答分布・線形予測子・リンク関数を組み合わせる回帰モデル }
+  - { term: 線形予測子, meaning: 説明変数と回帰係数の線形結合 }
+  - { term: リンク関数, meaning: 応答平均を線形予測子へ結ぶ関数 }
+  - { term: ロジット, meaning: 確率pをlog(p/(1-p))へ変換する関数 }
+  - { term: オッズ比, meaning: 説明変数の変化に伴うオッズの比 }
+  - { term: ポアソン回帰, meaning: 計数応答をポアソン分布と対数リンクで表す代表的な一般化線形モデル }
+  - { term: オフセット, meaning: 係数を1に固定して線形予測子へ加える既知量 }
+  - { term: 逸脱度, meaning: 飽和モデルと候補モデルの最大対数尤度差を2倍した適合度指標 }
