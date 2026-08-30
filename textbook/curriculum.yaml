@@ -10,7 +10,7 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-30
+  updated_at: 2026-08-31
   current_chapter: null
   next_chapter: S1-02
   next_work:
@@ -19,9 +19,9 @@ progress:
   last_completed_chapter: E3-01
   summary:
     total: 38
-    planned: 14
+    planned: 12
     drafting: 0
-    self_review: 0
+    self_review: 2
     independent_review: 0
     revision: 0
     reviewed: 24
@@ -65,8 +65,8 @@ progress:
     L1-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L2-02: { status: planned }
-    E1-01: { status: planned }
-    E1-02: { status: planned }
+    E1-01: { status: self_review, started_at: 2026-08-31 }
+    E1-02: { status: self_review, started_at: 2026-08-31 }
     E2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     E2-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     E2-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
@@ -82,7 +82,7 @@ volumes:
   - { id: linear_models, directory: volumes/04_linear_models, title: 線形モデルとデータ解析 }
   - { id: engineering, directory: volumes/05_engineering, title: 統計応用・理工学 }
 
-# 配列順が執筆優先順。2026-08-30は理工学の弱点補強を優先し、数理推測の未完成章より先に応用章を配置する。
+# 配列順が執筆優先順。2026-08-31は理工学の弱点補強を優先し、数理推測の未完成章より先に応用章を配置する。
 chapters:
   - id: F0-00
     title: 統計検定1級のための数学速習
@@ -103,6 +103,8 @@ chapters:
   - { id: P4-03, title: 経験分布・乱数生成・Monte Carlo, volume: distributions, prerequisites: [ P2-01, P4-01, P4-02 ], official_scope: [ 経験分布関数, 標本分位点, 逆関数法, 棄却法, Monte Carlo積分, シミュレーション誤差 ] }
   - { id: S1-01, title: 標本分布とカイ二乗・t・F分布, volume: inference, prerequisites: [ P3-02, P3-03, P4-02 ], official_scope: [ 標本分布, t分布, カイ二乗分布, F分布 ] }
 
+  - { id: E1-01, title: 多変量正規分布と標本平均ベクトル, volume: engineering, prerequisites: [ P3-03, S1-01, F0-00 ], official_scope: [ 多変量正規分布, 平均ベクトル, 分散共分散行列, 相関行列, 固有値, 固有ベクトル ] }
+  - { id: E1-02, title: 主成分分析・固有値問題, volume: engineering, prerequisites: [ E1-01, F0-00 ], official_scope: [ 主成分分析, 固有値, 固有ベクトル, 寄与率, 相関行列 ] }
   - { id: E2-01, title: Markov連鎖, volume: engineering, prerequisites: [ P1-02, F0-00 ], official_scope: [ マルコフ連鎖, マルコフ過程 ] }
   - { id: E2-02, title: Poisson過程・ランダムウォーク, volume: engineering, prerequisites: [ P3-01, P3-02, E2-01 ], official_scope: [ ポアソン過程, ランダムウォーク ] }
   - { id: E2-03, title: AR・MA・ARIMA時系列, volume: engineering, prerequisites: [ P3-03, E2-01 ], official_scope: [ 自己回帰過程, 移動平均過程, ARIMA過程, 時系列解析 ] }
@@ -126,5 +128,3 @@ chapters:
   - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
   - { id: I4-02, title: 欠測・不完全データ・EM法, volume: inference, prerequisites: [ I4-01, P3-04, L1-02 ], official_scope: [ MCAR, MAR, MNAR, 観測データ尤度, EM法, 打切り, 切断, 欠測を含むモデル診断 ] }
   - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01 ], official_scope: [ カルバック・ライブラー情報量, AIC, クロスバリデーション, 変数選択 ] }
-  - { id: E1-01, title: 多変量正規分布と標本平均ベクトル, volume: engineering, prerequisites: [ P3-03, S1-01, F0-00 ], official_scope: [ 平均ベクトル, 分散共分散行列, 相関行列 ] }
-  - { id: E1-02, title: 主成分分析・固有値問題, volume: engineering, prerequisites: [ E1-01 ], official_scope: [ 主成分分析, 固有値, 固有ベクトル, 寄与率 ] }
