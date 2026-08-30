@@ -1,33 +1,33 @@
 schema_version: 1
-batch_id: 2026-08-30-normal-two-sample-variance-duplicates-85
+batch_id: 2026-08-30-proportion-gof-independence-duplicates-87
 items:
-  - id: test-pooled-two-sample-t-numeric
+  - id: test-two-proportion-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-pooled-two-sample-t
-    note: 等分散2標本t検定の結合分散、統計量、自由度、数値判定はcanonical cardへ統合済み。
-  - id: test-welch-two-sample-numeric
+    canonical_card: test-two-proportion-pooled
+    note: 2母比率差のプール比率、標準誤差、Z統計量、両側P値の数値計算はcanonical cardへ統合済み。
+  - id: test-goodness-fit-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-welch-two-sample-formula
-    note: Welch統計量とWelch–Satterthwaite自由度の数値計算はcanonical cardへ統合済み。
-  - id: test-normal-variance-chisquare-numeric
+    canonical_card: test-goodness-fit-statistic
+    note: Pearson適合度統計量の数値計算と臨界値判定はcanonical cardへ統合済み。
+  - id: test-goodness-fit-estimated-parameters
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-variance-chisquare
-    note: 正規母分散の両側カイ二乗検定の数値計算と臨界値判定はcanonical cardへ統合済み。
-  - id: test-normal-variance-one-sided
+    canonical_card: test-goodness-fit-statistic
+    note: 同じデータから母数を推定したときの自由度 k-1-r とポアソン適合度の数値例はcanonical cardへ統合済み。
+  - id: test-goodness-fit-expected-counts
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-variance-chisquare
-    note: 母分散の大小による上側・下側棄却方向と上側点記法はcanonical cardへ統合済み。
-  - id: test-normal-variance-ratio-numeric
+    canonical_card: test-goodness-fit-statistic
+    note: 小さい期待度数の確認、隣接区分の統合、区分統合に伴う自由度減少はcanonical cardへ統合済み。
+  - id: test-independence-2x2-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-variance-ratio-f
-    note: 2正規母分散比の片側F統計量、自由度、数値判定はcanonical cardへ統合済み。
-  - id: test-f-reciprocal-quantile
+    canonical_card: test-independence-chisquare
+    note: 2×2表の期待度数作成、Pearson統計量、自由度、数値判定は独立性検定canonical cardへ統合済み。
+  - id: test-yates-correction
     bucket: duplicates
     reason: duplicate
-    canonical_card: test-normal-variance-ratio-f
-    note: F分布の逆数関係と自由度交換、両側検定の下側臨界値はcanonical cardへ統合済み。
+    canonical_card: test-independence-chisquare
+    note: 2×2表のYates連続修正の意味と数値寄与は独立性検定canonical cardへ統合済み。小期待度数ではフィッシャー検定を別法として残す。
