@@ -1,7 +1,7 @@
 id: "E2-04"
 title: "ブラウン運動・拡散極限"
 volume: "engineering"
-status: self_review
+status: reviewed
 prerequisites:
   - E2-02
   - P3-03
