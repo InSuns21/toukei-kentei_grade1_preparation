@@ -1,38 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-reduction-39b
+batch_id: 2026-08-30-engineering-multivariate-reduction-40
 items:
-  - id: engmv-sample-mean-distribution
+  - id: engmv-confidence-ellipsoid-known-cov
     bucket: duplicates
     reason: duplicate
-    canonical_card: engmv-normal-mean-cov-independence
-    note: 標本平均の分布と共分散Sigma/nを、Wishart・標本共分散との独立性まで一続きに扱うcanonicalへ統合済み。
+    canonical_card: engmv-mahalanobis-control-limit
+    note: 既知共分散の平均ベクトル信頼楕円は、正規ベクトルのMahalanobis二次形式とカイ二乗分位点を用いる同一canonicalへ統合済み。
 
-  - id: engmv-wishart-definition
+  - id: engmv-canonical-correlation-diagonal
     bucket: duplicates
     reason: duplicate
-    canonical_card: engmv-normal-mean-cov-independence
-    note: 正規ベクトル外積和によるWishart定義、p=1でのカイ二乗への帰着までcanonicalへ統合済み。
-
-  - id: engmv-wishart-expectation
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engmv-normal-mean-cov-independence
-    note: E[W]=nu Sigmaを外積和の期待値から導き、E[S]=Sigmaまで同じcanonicalで確認する。
-
-  - id: engmv-unit-change-correlation-invariance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engmv-correlation-from-covariance
-    note: 共分散から相関への標準化と正の単位変換で倍率が相殺される数値例を同一canonicalへ統合済み。
-
-  - id: engmv-precision-conditional-independence
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engmv-normal-uncorrelated-independent
-    note: 共分散行列の0による周辺独立と精度行列の0による条件付き独立を一枚で対比するcanonicalへ統合済み。
-
-  - id: engmv-hotelling-two-sample-decision
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: engmv-hotelling-two-sample
-    note: T二乗計算からF変換・自由度・臨界値比較まで一続きの検定手順としてcanonicalへ統合済み。
+    canonical_card: engmv-canonical-eigenvalue
+    note: 白色化済みの対角交差共分散では正準相関が特異値になる特殊例を、一般固有値問題のcanonicalへ数値例ごと統合済み。
