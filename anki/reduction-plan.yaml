@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-glm-deviance-output-reduction-65
+batch_id: 2026-08-30-robust-covariance-reduction-66
 items:
-  - id: glm-software-deviance-output
+  - id: reg-hc3-sandwich
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-deviance-definition
-    note: ソフト出力の逸脱度差・自由度差から尤度比検定を行う手順は、逸脱度・Pearson統計量・尤度比・過分散のGLM診断正本に包含済み。
+    canonical_card: reg-robust-sandwich
+    note: HC3のレバレッジ補正、HC0との比較、適用上の注意を異分散頑健分散正本へ統合済み。
