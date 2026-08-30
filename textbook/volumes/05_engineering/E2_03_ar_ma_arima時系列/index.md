@@ -121,7 +121,7 @@ $Y_t=X_t-\mu$ と中心化すると
 $$
 Y_t=\phi Y_{t-1}+\varepsilon_t.
 $$
-$arepsilon_t$ は過去の $Y_{t-1}$ と無相関なので
+$\varepsilon_t$ は過去の $Y_{t-1}$ と無相関なので
 $$
 \gamma(0)
 =\operatorname{Var}(Y_t)
@@ -153,7 +153,7 @@ $$
 $$
 X_t=\phi_1X_{t-1}+\cdots+\phi_pX_{t-p}+\varepsilon_t
 $$
-について、両辺と $X_{t-k}$ の共分散を取ります。$k\ge1$ では $arepsilon_t$ と過去が無相関なので
+について、両辺と $X_{t-k}$ の共分散を取ります。$k\ge1$ では $\varepsilon_t$ と過去が無相関なので
 $$
 \gamma(k)
 =\phi_1\gamma(k-1)+\cdots+\phi_p\gamma(k-p).
@@ -182,7 +182,7 @@ $$
 &=(1+\theta^2)\sigma_\varepsilon^2.
 \end{aligned}
 $$
-ラグ1では共通して含まれるショックが $arepsilon_{t-1}$ だけなので
+ラグ1では共通して含まれるショックが $\varepsilon_{t-1}$ だけなので
 $$
 \gamma(1)=\theta\sigma_\varepsilon^2.
 $$
@@ -441,7 +441,7 @@ $\Delta X_t=\varepsilon_t$。したがってARIMA(0,1,0)。
 $$
 X_t=\phi X_{t-1}+\varepsilon_t,\qquad |\phi|<1
 $$
-を考える。白色雑音 $\varepsilon_t$ は過去の $X_{t-h}$ と無相関とする。$ho(h)=\phi^{|h|}$ を導け。
+を考える。白色雑音 $\varepsilon_t$ は過去の $X_{t-h}$ と無相関とする。$\rho(h)=\phi^{|h|}$ を導け。
 
 <!-- solution-start -->
 
@@ -518,7 +518,7 @@ $$
 
 ###### 本番答案
 
-$ho(1)=0.5+0.2ho(1)$ より $\rho(1)=0.625$。さらに $\rho(2)=0.5\rho(1)+0.2=0.5125$。
+$\rho(1)=0.5+0.2\rho(1)$ より $\rho(1)=0.625$。さらに $\rho(2)=0.5\rho(1)+0.2=0.5125$。
 
 ###### 採点基準
 
@@ -537,7 +537,7 @@ $ho(1)=0.5+0.2ho(1)$ より $\rho(1)=0.625$。さらに $\rho(2)=0.5\rho(1)+0.
 $$X_t=\varepsilon_t+2\varepsilon_{t-1}$$
 とする。
 
-1. $ho(1)$ を求めよ。
+1. $\rho(1)$ を求めよ。
 2. $\tilde X_t=\tilde\varepsilon_t+0.5\tilde\varepsilon_{t-1}$ とし、$\operatorname{Var}(\tilde\varepsilon_t)=4\sigma^2$ とすると、$X_t$ と $\tilde X_t$ の自己共分散が一致することを示せ。
 3. 反転可能な表現としてどちらを選ぶか答えよ。
 
@@ -551,7 +551,7 @@ $X_t$ では
 $$
 \gamma(0)=5\sigma^2,\qquad \gamma(1)=2\sigma^2,
 $$
-したがって $ho(1)=2/5$。
+したがって $\rho(1)=2/5$。
 
 一方、$\tilde X_t$ では
 $$
@@ -566,7 +566,7 @@ $$
 
 ###### 本番答案
 
-$ho(1)=2/5$。係数0.5、雑音分散 $4\sigma^2$ の表現でも $(\gamma(0),\gamma(1))=(5\sigma^2,2\sigma^2)$。反転可能なのは $|0.5|<1$ の後者。
+$\rho(1)=2/5$。係数0.5、雑音分散 $4\sigma^2$ の表現でも $(\gamma(0),\gamma(1))=(5\sigma^2,2\sigma^2)$。反転可能なのは $|0.5|<1$ の後者。
 
 ###### 採点基準
 
@@ -633,7 +633,7 @@ $\hat X_{t+2\mid t}=0.25X_t$。誤差は $0.5\varepsilon_{t+1}+\varepsilon_{t+2}
 $$
 X_t=\phi_1X_{t-1}+\phi_2X_{t-2}+\varepsilon_t
 $$
-について、$ho(1)=0.6,ho(2)=0.4$ が与えられた。$\phi_1,\phi_2$ を求めよ。
+について、$\rho(1)=0.6,\rho(2)=0.4$ が与えられた。$\phi_1,\phi_2$ を求めよ。
 
 <!-- solution-start -->
 
@@ -749,7 +749,7 @@ $$
 
 ###### 本番答案
 
-$\Delta X_t=Y_t$ がAR(1)なのでARIMA(1,1,0)。$ho_Y(h)=0.6^{|h|}$。1期先3、2期先1.8。
+$\Delta X_t=Y_t$ がAR(1)なのでARIMA(1,1,0)。$\rho_Y(h)=0.6^{|h|}$。1期先3、2期先1.8。
 
 ###### 採点基準
 
@@ -933,7 +933,7 @@ $$
 
 1. $Y_t=\Delta X_t$ とおき、$Y_t$ のモデルを書け。
 2. $X_t$ のARIMA次数を答えよ。
-3. $Y_t$ の定常分散と $ho_Y(1),\rho_Y(2)$ を求めよ。
+3. $Y_t$ の定常分散と $\rho_Y(1),\rho_Y(2)$ を求めよ。
 4. 現在 $Y_t=6$ のとき、1期先・2期先の条件付き平均を求めよ。
 5. 2期先予測誤差分散を求めよ。
 
