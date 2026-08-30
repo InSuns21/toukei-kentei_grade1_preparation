@@ -1919,7 +1919,6 @@ items:
       - reg-gls-estimator
       - reg-ridge-closed-form
       - reg-lasso-soft-threshold
-      - reg-lasso-vs-ridge
       - reg-general-linear-hypothesis
       - reg-press-loocv
       - reg-dffits-numeric
@@ -1938,7 +1937,6 @@ items:
           - reg-aic-variable-selection
           - reg-stepwise-selection-warning
           - reg-lasso-soft-threshold
-          - reg-lasso-vs-ridge
           - reg-nested-cross-validation
       - name: 残差分析
         status: card
@@ -1965,7 +1963,6 @@ items:
         status: card
         cards:
           - reg-lasso-soft-threshold
-          - reg-lasso-vs-ridge
       - name: 回帰診断法
         status: card
         cards:
