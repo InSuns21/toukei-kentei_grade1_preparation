@@ -1,8 +1,18 @@
 schema_version: 1
-batch_id: 2026-08-31-state-space-definition-reduction-160
+batch_id: 2026-08-31-time-series-consolidation-reduction-162
 items:
-  - id: ts-state-space-definition
+  - id: ts-linear-detrend
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-kalman-update
-    note: 線形ガウス状態空間モデルの状態方程式・観測方程式、状態雑音Qと観測雑音Hの役割、局所水準モデルの位置付けを、予測→観測更新まで一続きで解くKalman canonical cardへ統合済み。定義だけの独立カードは残さない。
+    canonical_card: ts-arima-definition
+    note: 線形トレンドの最小二乗推定と除去の数値例を、決定論的トレンド・確率的トレンド・季節性で定常化手段を選ぶARIMA canonical cardへ統合済み。単純な回帰代入だけの独立カードは残さない。
+  - id: ts-software-arima-coefficients
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-software-residual-diagnostics
+    note: AR係数のWald検定、近似信頼区間、定常域確認、単位根検定との区別を、Ljung--Box残差診断と一続きで読むソフトウェア出力canonical cardへ統合済み。
+  - id: ts-yule-walker-ar2
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-acf-pacf-identification
+    note: AR(2)のYule--Walker方程式とrho1=0.6,rho2=0.4からphi1=0.5625,phi2=0.0625を求める数値例を、ACF/PACFモデル同定とPACF導出のcanonical cardへ統合済み。
