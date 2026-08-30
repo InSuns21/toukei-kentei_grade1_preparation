@@ -58,31 +58,74 @@ $$\overline p=\frac{4+9+7}{80+120+100}=\frac{20}{300}=0.0667.$$
 
 ---
 id: engqc-cpk-offcenter
-title: 偏心工程のCpkを計算する
+title: CpとCpkを計算し工程のばらつきと偏心を診断する
 category: applied-engineering
 subcategory: engineering-quality
-topic: capability-cpk
-type: calc_step
+topic: capability-cp-cpk-canonical
+type: strategy
 difficulty: 2
 priority: S
-hashtags: [工程能力指数, Cpk, 工程平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 工程能力指数 }]
+hashtags:
+  - 工程能力指数
+  - Cp
+  - Cpk
+  - 工程平均
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 工程能力指数
 ---
 ## 問題
-$USL=110,LSL=90,\mu=106,\sigma=2$ の $C_{pk}$ を求めよ。
+安定した正規工程で $USL=110,LSL=90,\mu=106,\sigma=2$ とする。
+1. $C_p$ と $C_{pk}$ を求めよ。
+2. 一般に $C_{pk}\le C_p$ となる理由と等号条件を述べよ。
+3. この工程では「ばらつき」と「中心ずれ」のどちらが能力低下の主因か答えよ。
+
 ## 記号・用語
-$C_{pk}$ は工程平均から近い側の規格限界までの余裕を評価する。$USL,LSL$ は上側・下側規格限界である。
+$USL,LSL$ は上側・下側規格限界、$\mu,\sigma$ は工程平均と工程標準偏差である。$C_p$ は規格幅と自然変動幅 $6\sigma$ の比、$C_{pk}$ は平均から近い側の規格限界までの余裕を測る。
+
 ## 使用公式・定理
-$$C_{pk}=\min\left\{\frac{USL-\mu}{3\sigma},\frac{\mu-LSL}{3\sigma}\right\}.$$
+$$
+C_p=\frac{USL-LSL}{6\sigma},
+$$
+$$
+C_{pk}=\min\left\{\frac{USL-\mu}{3\sigma},\frac{\mu-LSL}{3\sigma}\right\}.
+$$
+規格中心を $m=(USL+LSL)/2$ とすると、平均から近い規格限界までの距離は規格半幅以下なので $C_{pk}\le C_p$ である。
+
 ## 一手／方針
 上下それぞれの片側能力を計算し、小さい方を取る。
+
+## 一手
+まず規格幅から $C_p$ を出し、次に上側・下側の片側能力を両方計算して小さい方を $C_{pk}$ とする。最後に両者の差から中心ずれの影響を読む。
+
 ## 答え
-上側は $4/6=0.667$、下側は $16/6=2.667$ なので $C_{pk}=0.667$。
+$$
+C_p=\frac{110-90}{6\cdot2}=\frac{20}{12}\approx1.667.
+$$
+上側能力は
+$$
+\frac{110-106}{3\cdot2}=\frac46\approx0.667,
+$$
+下側能力は
+$$
+\frac{106-90}{6}=\frac{16}{6}\approx2.667
+$$
+なので
+$$
+C_{pk}\approx0.667.
+$$
+一般に $C_{pk}\le C_p$ で、$\mu=(USL+LSL)/2$、すなわち工程平均が規格中心にあるとき等号となる。この例は $C_p$ が十分大きいのに $C_{pk}$ が小さいため、能力低下の主因は中心ずれである。
+
 ## 計算例
-同じ標準偏差でも平均100なら $C_{pk}=1.667=C_p$。
+同じ $USL,LSL,\sigma$ で $\mu=100$ なら、上下の片側能力はいずれも $10/6=1.667$ となり、$C_{pk}=C_p=1.667$ である。
+
 ## 注意
-偏心工程では $C_{pk}<C_p$。
+工程能力指数は工程が統計的に安定していることを前提に解釈する。$C_p$ は平均の偏りを反映しない。片側規格だけの場合は $C_{pu}$ または $C_{pl}$ を使い、存在しない側まで仮定して $C_p$ を作らない。
 <!-- CARD -->
 
 ---
@@ -349,31 +392,76 @@ $$\binom32(0.9)^2(0.1)+(0.9)^3=0.243+0.729=0.972.$$
 
 ---
 id: engrel-series-component-requirement
-title: 直列系の目標から部品信頼度を逆算する
+title: 直列・並列システムの信頼度を計算し部品要件を逆算する
 category: applied-engineering
 subcategory: engineering-quality
-topic: component-reliability-requirement
-type: calc_step
-difficulty: 1
+topic: series-parallel-reliability-canonical
+type: strategy
+difficulty: 2
 priority: S
-hashtags: [信頼性, 直列システム, 信頼度設計]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 信頼性 }]
+hashtags:
+  - 信頼性
+  - 直列システム
+  - 並列システム
+  - 冗長化
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 信頼性
 ---
 ## 問題
-独立で同一信頼度 $r$ の3部品からなる直列系に、使命時間で信頼度0.90以上を要求する。各部品に必要な最小信頼度を求めよ。
+部品寿命は独立とする。
+1. 信頼度が $0.9,0.8$ の2部品を、両方が動作して初めて成功する直列系にしたときの信頼度を求めよ。
+2. 同じ2部品を、少なくとも一方が動けば成功する並列系にしたときの信頼度を求めよ。
+3. 独立で同一信頼度 $r$ の3部品からなる直列系に信頼度0.90以上を要求するとき、各部品に必要な最小 $r$ を求めよ。
+
 ## 記号・用語
-$r$ は使命時間まで部品が動作する確率である。直列系は全部品が動作して成功する。
+$R_i(t)=P(T_i>t)$ は使命時間 $t$ まで部品 $i$ が動作する確率である。直列系は全成分の動作が必要、並列系は少なくとも1成分の動作で成功する。
+
 ## 使用公式・定理
-独立直列系では $R_S=r^3$。目標条件は $r^3\ge0.90$。
+独立な直列系では
+$$
+R_S(t)=\prod_{i=1}^mR_i(t).
+$$
+独立な並列系では「全成分が故障」の補集合を使って
+$$
+R_P(t)=1-\prod_{i=1}^m\{1-R_i(t)\}.
+$$
+同一信頼度 $r$ の $m$ 部品直列系なら $R_S=r^m$ なので、系目標 $R_0$ から
+$$
+r\ge R_0^{1/m}
+$$
+と逆算できる。
+
 ## 一手／方針
 両辺の正の3乗根を取る。
+
+## 一手
+成功条件を事象で言い換える。直列なら「すべて成功」なので積、並列なら「少なくとも1つ成功」なので全故障の補集合を取る。逆算問題では得られた系信頼度の式を部品信頼度について解く。
+
 ## 答え
-$$r\ge0.90^{1/3}\approx0.96549.$$
+1. 直列系は
+$$
+R_S=0.9\cdot0.8=0.72.
+$$
+2. 並列系は
+$$
+R_P=1-(1-0.9)(1-0.8)=1-0.02=0.98.
+$$
+3. $r^3\ge0.90$ より
+$$
+r\ge0.90^{1/3}\approx0.96549.
+$$
+
 ## 計算例
-各部品を0.97とすれば系信頼度は $0.97^3\approx0.9127$ で目標を満たす。
+3部品をすべて $r=0.97$ とすれば、直列系信頼度は $0.97^3\approx0.9127$ となり目標0.90を満たす。
+
 ## 注意
-部品間に依存故障があれば積公式からは逆算できない。
+積や補集合の積への分解には部品故障の独立性が必要である。共通原因故障などの依存がある場合は、この基本公式を無条件には使えない。$k$-out-of-$n$ 系は動作部品数の分布を使う別の判断単位として扱う。
 <!-- CARD -->
 
 ---
