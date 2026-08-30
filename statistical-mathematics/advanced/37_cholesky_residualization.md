@@ -16,6 +16,9 @@
 
 つまり、本問は「Cholesky分解を知っているから解く」のではなく、**逐次残差化を最後まで行った結果としてCholesky分解が現れ、その逆向きの変換が多変量正規乱数の生成法になる**構成である。
 
+> **補足：では、Cholesky因子 $L$ は実際にどう計算するのか？**  
+> $2\times2$・$3\times3$ の具体例から一般の計算手順まで導出した [「Cholesky分解はどうやって求めるのか」](#/statistical-mathematics/advanced/37_cholesky_algorithm_supplement) を参照。
+
 ## 問題
 
 $(X_1,X_2,X_3)$ は平均0の3変量正規分布に従い、分散共分散行列を
@@ -336,6 +339,8 @@ $$
 $$
 
 と、対角成分が正の下三角行列 $L$ を用いて表すことを **Cholesky分解** という。
+
+> 実際に与えられた $\Sigma$ から $L$ を求める計算手順は、補足 [「Cholesky分解はどうやって求めるのか」](#/statistical-mathematics/advanced/37_cholesky_algorithm_supplement) を参照。
 
 したがって今回の逐次残差化は、独立標準正規 $Z$ から相関した正規ベクトル $X=LZ$ を作るCholesky変換を逆向きに解いたものになっている。
 
