@@ -1,91 +1,154 @@
 schema_version: 1
-batch_id: 2026-08-30-rao-blackwell-umvu-merge-prep-43
+batch_id: 2026-08-30-estimator-properties-merge-prep-44
 items:
-  - id: est-rao-blackwell
-    note: Rao–Blackwellの分散改善、Bernoulli具体計算、完備十分統計量によるLehmann–ScheffeとUMVUの一意性を一続きの構成手順へ統合する。
+  - id: est-unbiasedness
+    note: 不偏性の定義と不偏推定量を作る代表操作を一枚に統合する。
     metadata:
-      title: ラオ・ブラックウェル化からLehmann–Scheffé定理でUMVUを構成する
-      topic: rao-blackwell-lehmann-scheffe-umvu
-      hashtags: [ラオ・ブラックウェルの定理, 十分統計量, 完備性, Lehmann-Scheffe, UMVU]
+      title: 不偏性を定義しバイアス補正で不偏推定量を構成する
+      topic: unbiasedness-canonical
+      hashtags: [不偏推定量, バイアス, 標本分散, 推定量]
     sections:
       問題: |
-        母数 $\theta$ の不偏推定量 $U$ と十分統計量 $T$ があるとする。
+        母数 $\theta$ の推定量 $T$ が不偏であるとは何を意味するか。
 
-        1. ラオ・ブラックウェル化
+        さらに正規分布に限らず、独立同分布標本 $X_1,\ldots,X_n$ が分散 $\sigma^2$ を持つとする。
         $$
-        U^*(T)=E_\theta[U\mid T]
+        Q=\sum_{i=1}^n(X_i-\bar X)^2
         $$
-        により不偏性が保たれ、分散が増えないことを示せ。
-        2. $T$ がさらに完備なら、$U^*(T)$ が一様最小分散不偏推定量となる理由を述べよ。
-        3. ベルヌーイ分布に従う独立標本 $X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$ で、粗い不偏推定量 $U=X_1$ と $T=\sum_iX_i$ を用いて $E[X_1\mid T]$ を計算せよ。
+        について $E[Q]=(n-1)\sigma^2$ を用い、$\sigma^2$ の不偏推定量を構成せよ。
       使用公式・定理: |
-        $T$ が $\theta$ の十分統計量なら、ラオ・ブラックウェルの定理より
+        推定量 $T$ が $g(\theta)$ の不偏推定量であるとは、すべての許される $\theta$ について
         $$
-        U^*=E[U\mid T]
+        E_\theta[T]=g(\theta)
         $$
-        は $T$ の関数であり、$U$ が不偏なら
+        が成り立つことをいう。バイアスは
         $$
-        E[U^*]=E[E[U\mid T]]=E[U]=\theta.
-        $$
-        また全分散公式
-        $$
-        \operatorname{Var}(U)
-        =E[\operatorname{Var}(U\mid T)]
-        +\operatorname{Var}(E[U\mid T])
-        $$
-        から
-        $$
-        \operatorname{Var}(U^*)\le\operatorname{Var}(U).
+        \operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta).
         $$
 
-        さらに $T$ が完備十分統計量で、$h(T)$ が $g(\theta)$ の不偏推定量なら、Lehmann–Scheffé定理により $h(T)$ は $g(\theta)$ の一意な一様最小分散不偏推定量である。
+        既知の期待値が定数倍だけずれているなら、その倍率を補正すれば不偏化できる。
       一手: |
-        **不偏推定量を作る → 十分統計量で条件付ける → 完備性があれば一意なUMVUと結論する。** Rao–Blackwellは「分散を下げる操作」、Lehmann–Schefféは「完備十分統計量の関数なら最適性と一意性まで確定する定理」と役割を分ける。
+        **まず推定量の期待値を計算し、推定対象との差を確認する。** 定数倍のずれなら逆数を掛けて補正する。
       答え: |
+        不偏性は
         $$
-        U^*=E[U\mid T]
+        E_\theta[T]=g(\theta)
         $$
-        は不偏で
-        $$
-        \operatorname{Var}(U^*)\le\operatorname{Var}(U).
-        $$
-        $T$ が完備十分なら、$U^*$ はLehmann–Scheffé定理により一意な一様最小分散不偏推定量となる。
+        である。
 
-        ベルヌーイ標本では
+        $E[Q]=(n-1)\sigma^2$ なので
         $$
-        E[X_1\mid T=t]=\frac tn,
+        S^2=\frac{Q}{n-1}
+        =\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
         $$
-        よって
+        とすれば
         $$
-        E[X_1\mid T]=\frac Tn=\bar X.
+        E[S^2]=\sigma^2.
         $$
       計算例: |
-        ベルヌーイ標本で $T=t$ と分かったとき、「$n$ 個のうちちょうど $t$ 個が1」という配置は交換可能である。したがって各 $X_i$ が1である条件付き確率は等しく、
+        分母を $n$ とした
         $$
-        \sum_{i=1}^nP(X_i=1\mid T=t)=t
+        \widetilde\sigma^2=\frac Qn
         $$
-        だから
+        では
         $$
-        P(X_1=1\mid T=t)=\frac tn.
+        \begin{aligned}
+        E[\widetilde\sigma^2]
+        &=\frac1nE[Q]\\
+        &=\frac{n-1}{n}\sigma^2,
+        \end{aligned}
         $$
-        $X_1$ は0-1変数なので
-        $$
-        E[X_1\mid T=t]=P(X_1=1\mid T=t)=\frac tn.
-        $$
-        よって
-        $$
-        U^*=E[X_1\mid T]=\frac Tn=\bar X.
-        $$
+        なので有限標本では下方バイアスがある。
 
-        分散も
+        そこで
         $$
-        \operatorname{Var}(X_1)=p(1-p),
+        S^2=\frac n{n-1}\widetilde\sigma^2
         $$
+        と補正すれば
         $$
-        \operatorname{Var}(\bar X)=\frac{p(1-p)}n
+        E[S^2]
+        =\frac n{n-1}\frac{n-1}{n}\sigma^2
+        =\sigma^2.
         $$
-        なので、$n>1$ では条件付けにより実際に分散が小さくなる。
-
-        さらにベルヌーイ族では $T=\sum_iX_i\sim\operatorname{Binomial}(n,p)$ は完備十分統計量である。したがって $T/n$ は $p$ の不偏推定量であり、Lehmann–Scheffé定理から $p$ の一意な一様最小分散不偏推定量である。
+        例えば $n=5$ なら、分母5の推定量の期待値は $0.8\sigma^2$ であり、$5/4$ 倍すると不偏になる。
       注意: |
-        Rao–Blackwell化だけで常に一意性まで得られるわけではない。十分統計量で条件付ければ分散は改善するが、Lehmann–Schefféによる一意なUMVUの結論には完備性が必要である。また「完備」は統計量の分布族について $E_\theta[a(T)]=0$ が全ての $\theta$ で成り立つなら $a(T)=0$ ほとんど確実、という性質である。
+        不偏性は有限標本での期待値に関する性質であり、一致性とは別である。不偏推定量が常に平均二乗誤差MSE最小とは限らず、有偏でも分散が十分小さければMSEが小さくなる場合がある。
+
+  - id: est-consistency
+    note: 一致性の定義と、有偏でもバイアスが消えれば一致しうる点を同じ正本へ統合する。
+    metadata:
+      title: 一致性を定義し有偏推定量でも一致しうることを確認する
+      topic: consistency-canonical
+      hashtags: [一致推定量, 確率収束, バイアス, 分散, 標本分散]
+    sections:
+      問題: |
+        推定量列 $T_n$ が母数 $\theta$ の一致推定量であるとは何を意味するか。
+
+        また独立同分布標本で
+        $$
+        \widetilde\sigma_n^2
+        =\frac1n\sum_{i=1}^n(X_i-\bar X)^2
+        $$
+        は有限標本では $\sigma^2$ の不偏推定量ではない。このことだけから一致性を否定できるか。バイアスを調べて答えよ。
+      使用公式・定理: |
+        一致性は、任意の $\varepsilon>0$ に対して
+        $$
+        P_\theta(|T_n-\theta|>\varepsilon)\to0
+        $$
+        すなわち
+        $$
+        T_n\xrightarrow{p}\theta
+        $$
+        と定義する。
+
+        十分な条件の一つは
+        $$
+        E[T_n]\to\theta,
+        \qquad
+        \operatorname{Var}(T_n)\to0.
+        $$
+        このときChebyshevの不等式などから確率収束を示せる。
+      一手: |
+        **有限標本の不偏性ではなく、$n\to\infty$ でバイアスとばらつきが消えるかを見る。** 「有偏だから不一致」は誤り。
+      答え: |
+        一致性は
+        $$
+        T_n\xrightarrow{p}\theta
+        $$
+        である。
+
+        分母 $n$ の標本分散は
+        $$
+        E[\widetilde\sigma_n^2]
+        =\frac{n-1}{n}\sigma^2,
+        $$
+        したがってバイアスは
+        $$
+        -\frac{\sigma^2}{n}\to0.
+        $$
+        よって有限標本で有偏であることは、一致性を否定する理由にならない。
+      計算例: |
+        $n=5$ では
+        $$
+        E[\widetilde\sigma_5^2]=0.8\sigma^2
+        $$
+        でかなりずれているが、$n=100$ なら
+        $$
+        E[\widetilde\sigma_{100}^2]=0.99\sigma^2.
+        $$
+        バイアスの絶対値は
+        $$
+        \frac{\sigma^2}{n}
+        $$
+        なので0へ収束する。
+
+        さらに有限4次モーメントなど通常の条件の下では標本第2モーメントと標本平均が大数の法則で収束するため
+        $$
+        \widetilde\sigma_n^2
+        =\frac1n\sum_iX_i^2-\bar X^2
+        \xrightarrow{p}
+        E[X^2]-\{E[X]\}^2
+        =\sigma^2.
+        $$
+      注意: |
+        不偏性は各 $n$ での期待値、一致性は $n\to\infty$ の確率収束である。不偏でも分散が消えなければ一致しないことがあり、有偏でもバイアスとばらつきが消えれば一致する。
