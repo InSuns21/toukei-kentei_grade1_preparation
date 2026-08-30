@@ -1694,57 +1694,176 @@ $$P\{n(\overline X-\mu)^2>15.37\}
 
 ---
 id: asym-sample-variance-fourth-moment
-title: 標本分散の漸近分散を4次中心モーメントから求める
+title: 標本分散の漸近分布を4次モーメントと正規標本のカイ二乗分布から導く
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: sample-variance-asymptotic-normality
-type: calc_step
+topic: sample-variance-asymptotic-canonical
+type: strategy
 difficulty: 4
 priority: S
-hashtags: [標本分散, 4次中心モーメント, 漸近正規性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 漸近的性質 }]
+hashtags:
+  - 標本分散
+  - 4次中心モーメント
+  - 漸近正規性
+  - カイ二乗分布
+  - Slutskyの定理
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 漸近的性質
 ---
 
 ## 問題
-$E[(X_i-\mu)^4]=\mu_4<\infty$ とし
-$$V_n=\frac1n\sum_{i=1}^n(X_i-\overline X)^2$$
-とする。$V_n$ の漸近分布を求め、正規分布で $\sigma^2=4,n=100$ の漸近標準誤差を計算せよ。
+独立同分布標本 $X_1,\ldots,X_n$ について、$E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2$、4次中心モーメント $\mu_4=E[(X_i-\mu)^4]<\infty$ とする。
+$$
+V_n=\frac1n\sum_{i=1}^n(X_i-\overline X)^2,
+\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\overline X)^2
+$$
+とおく。次を解け。
+
+1. $V_n$ の漸近分布を4次中心モーメントを使って導け。
+2. $S^2$ も同じ漸近分布を持つことを説明せよ。
+3. さらに母集団が正規分布 $N(\mu,\sigma^2)$ のとき、$(n-1)S^2/\sigma^2$ の厳密分布から同じ結論を別ルートで導け。
+4. $\sigma^2=4,n=100$ のとき標本分散の漸近標準誤差を求めよ。また標本分散の観測値が9なら、正規分布を仮定したプラグイン標準誤差を求めよ。
 
 ## 記号・用語
-- $\xrightarrow{d}$：分布収束
+$V_n$ は分母 $n$ の標本分散、$S^2$ は不偏標本分散である。有限標本では異なるが
+$$
+S^2=\frac{n}{n-1}V_n
+$$
+なので大標本の $\sqrt n$ 尺度では同じ漸近分布を持つ。
+
+$\mu_4$ は4次中心モーメントである。正規分布では
+$$
+\mu_4=3\sigma^4.
+$$
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
 恒等式
-$$V_n=\frac1n\sum_{i=1}^n(X_i-\mu)^2-(\overline X-\mu)^2$$
-を使う。第1項には確率変数 $(X_i-\mu)^2$ の中心極限定理を適用し、第2項は $O_p(n^{-1})$ なので $\sqrt n$ 尺度では消える。
+$$
+V_n
+=\frac1n\sum_{i=1}^n(X_i-\mu)^2-(\overline X-\mu)^2
+$$
+を使う。
 
-## 一手
-標本平均からの平方和を、真の平均からの平方和と平均誤差の2乗へ分解する。
+確率変数 $(X_i-\mu)^2$ の平均は $\sigma^2$、分散は
+$$
+\operatorname{Var}\{(X_i-\mu)^2\}
+=\mu_4-\sigma^4.
+$$
+したがって中心極限定理より
+$$
+\sqrt n\left\{
+\frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+\right\}
+\xrightarrow{d}
+\text{正規分布 }N(0,\mu_4-\sigma^4).
+$$
+また $\overline X-\mu=O_p(n^{-1/2})$ なので
+$$
+\sqrt n(\overline X-\mu)^2=o_p(1).
+$$
+
+正規標本なら厳密に
+$$
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+$$
+自由度 $\nu\to\infty$ で
+$$
+\frac{\chi^2_\nu-\nu}{\sqrt{2\nu}}
+\xrightarrow{d}\text{正規分布 }N(0,1).
+$$
+
+## 一手／方針
+**一般分布では「真の平均からの平方和」に直して中心極限定理、正規分布ならカイ二乗分布から別解。** 2つのルートが正規分布で同じ $2\sigma^4$ に合流することを確認する。
 
 ## 答え
-$$\sqrt n(V_n-\sigma^2)
-\xrightarrow{d}N(0,\mu_4-\sigma^4).$$
-正規分布では $\mu_4=3\sigma^4$ なので、漸近標準誤差は
-$$\sqrt{\frac{2\sigma^4}{n}}
-=\sqrt{\frac{2\cdot16}{100}}\approx0.5657.$$
+1. 恒等式より
+$$
+\sqrt n(V_n-\sigma^2)
+=
+\sqrt n\left\{
+\frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+\right\}
+-\sqrt n(\overline X-\mu)^2.
+$$
+第1項は中心極限定理、第2項は $o_p(1)$ なので
+$$
+\boxed{
+\sqrt n(V_n-\sigma^2)
+\xrightarrow{d}
+\text{正規分布 }N(0,\mu_4-\sigma^4)}.
+$$
+
+2.
+$$
+S^2=\frac{n}{n-1}V_n,
+\qquad \frac{n}{n-1}\to1
+$$
+であり、$\sqrt n\{(n/(n-1))-1\}=O(n^{-1/2})\to0$ だから
+$$
+\boxed{
+\sqrt n(S^2-\sigma^2)
+\xrightarrow{d}
+\text{正規分布 }N(0,\mu_4-\sigma^4)}.
+$$
+
+3. 正規分布では
+$$
+U_n=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+$$
+よって
+$$
+\frac{U_n-(n-1)}{\sqrt{2(n-1)}}
+=
+\frac{\sqrt{n-1}(S^2-\sigma^2)}{\sqrt2\,\sigma^2}
+\xrightarrow{d}\text{正規分布 }N(0,1).
+$$
+$\sqrt n/\sqrt{n-1}\to1$ とSlutskyの定理から
+$$
+\boxed{
+\sqrt n(S^2-\sigma^2)
+\xrightarrow{d}
+\text{正規分布 }N(0,2\sigma^4)}.
+$$
+一般式でも正規分布では $\mu_4=3\sigma^4$ なので
+$$
+\mu_4-\sigma^4=2\sigma^4
+$$
+となり一致する。
+
+4. $\sigma^2=4$ なら $\sigma^4=16$ なので
+$$
+\operatorname{ASE}(S^2)
+\approx\sqrt{\frac{2\sigma^4}{n}}
+=\sqrt{\frac{32}{100}}
+\approx\boxed{0.5657}.
+$$
+観測された標本分散9を $\sigma^2$ にプラグインするなら $\widehat\sigma^4=9^2=81$ なので
+$$
+\widehat{\operatorname{ASE}}(S^2)
+=\sqrt{\frac{2\cdot81}{100}}
+\approx\boxed{1.273}.
+$$
 
 ## 計算例
-$$\operatorname{Var}\{(X_i-\mu)^2\}
-=E[(X_i-\mu)^4]-\{E[(X_i-\mu)^2]\}^2
-=\mu_4-\sigma^4.$$
-したがって第1項の $\sqrt n$ 極限分散が $\mu_4-\sigma^4$ となる。
-正規分布で $\sigma^2=4$ なら
-$$\sigma^4=16,
-\qquad \mu_4=3\sigma^4=48,$$
-$$\mu_4-\sigma^4=48-16=32.$$
-$n=100$ では $V_n$ 自身の漸近分散は $32/100=0.32$、漸近標準誤差は
-$$\sqrt{0.32}\approx0.5657.$$
+非正規分布では正規分布の $2\sigma^4$ を機械的に使わない。例えば $\sigma^2=2$、$\mu_4=20$ なら
+$$
+\mu_4-\sigma^4=20-4=16.
+$$
+$n=100$ では標本分散の漸近標準誤差は
+$$
+\sqrt{16/100}=0.4.
+$$
+一方、正規分布だと同じ $\sigma^2=2$ でも極限分散定数は $2\sigma^4=8$ となる。
 
 ## 注意
-4次中心モーメントの有限性が必要であり、有限分散だけではこの結論は保証されない。
+一般式には4次中心モーメントの有限性が必要であり、有限分散だけでは十分でない。正規標本のカイ二乗関係は厳密な有限標本結果だが、非正規分布では成立しない。また $V_n$ と $S^2$ は漸近的には同じでも有限標本では分母が異なるため、問題文の定義を確認する。
 
 <!-- CARD -->
 
