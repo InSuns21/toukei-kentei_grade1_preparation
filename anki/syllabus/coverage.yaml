@@ -1991,7 +1991,6 @@ items:
       - mv-hotelling-one-sample
       - mv-pca-variance-max
       - mv-factor-model-covariance
-      - mv-factor-score-regression
       - mv-lda-classification-rule
       - mv-hierarchical-linkage
       - mv-kmeans-one-iteration
@@ -2026,7 +2025,6 @@ items:
         status: card
         cards:
           - mv-factor-model-covariance
-          - mv-factor-score-regression
       - name: 判別分析
         status: card
         cards:
