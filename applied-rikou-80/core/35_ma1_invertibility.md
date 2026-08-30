@@ -17,7 +17,7 @@ $$
 
 1. $\gamma(0),\gamma(1),\gamma(h)$ $(|h|\ge2)$ を求めよ。
 2. 自己相関関数を求めよ。
-3. 一般の MA(1) $X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ の可逆条件を述べよ。
+3. 一般の MA(1) $X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ について、「可逆」とは何を意味するかを説明し、可逆条件を導け。
 4. $\theta=2$, イノベーション分散1のMA(1)が本問と同じ自己共分散を持つことを確認し、可逆性が識別に必要な理由を説明せよ。
 
 ## 詳細解答
@@ -25,44 +25,197 @@ $$
 ### 1. 自己共分散
 
 $$
-\gamma(0)=4(1+0.5^2)=5.
+X_t=\varepsilon_t+0.5\varepsilon_{t-1}
 $$
 
-隣接時点で共有するイノベーションは $\varepsilon_{t-1}$ だけなので
+なので、白色雑音の異時点無相関性を使うと
 
 $$
-\gamma(1)=0.5\cdot4=2.
+\begin{aligned}
+\gamma(0)
+&=\operatorname{Var}(X_t)\\
+&=\operatorname{Var}(\varepsilon_t)
++0.5^2\operatorname{Var}(\varepsilon_{t-1})\\
+&=4(1+0.5^2)\\
+&=\boxed{5}.
+\end{aligned}
 $$
 
-$|h|\ge2$ では共有イノベーションがなく
+次に
 
 $$
-\gamma(h)=0.
+X_{t-1}=\varepsilon_{t-1}+0.5\varepsilon_{t-2}.
 $$
+
+$X_t$ と $X_{t-1}$ が共有するイノベーションは $\varepsilon_{t-1}$ だけだから
+
+$$
+\begin{aligned}
+\gamma(1)
+&=\operatorname{Cov}(X_t,X_{t-1})\\
+&=\operatorname{Cov}(
+\varepsilon_t+0.5\varepsilon_{t-1},
+\varepsilon_{t-1}+0.5\varepsilon_{t-2})\\
+&=0.5\operatorname{Var}(\varepsilon_{t-1})\\
+&=\boxed{2}.
+\end{aligned}
+$$
+
+$|h|\ge2$ では $X_t$ と $X_{t-h}$ に共通するイノベーションがないので
+
+$$
+\boxed{\gamma(h)=0\qquad(|h|\ge2)}.
+$$
+
+---
 
 ### 2. 自己相関関数
 
 $$
-\rho(1)=2/5=0.4,
+\rho(h)=\frac{\gamma(h)}{\gamma(0)}
+$$
+
+だから
+
+$$
+\boxed{\rho(1)=\frac25=0.4},
 $$
 
 $$
-\rho(h)=0\quad(|h|\ge2).
+\boxed{\rho(h)=0\qquad(|h|\ge2)}.
 $$
 
-### 3. 可逆条件
+---
 
-移動平均多項式 $1+\theta B$ の根 $B=-1/\theta$ が単位円外にあること、すなわち
+### 3. 可逆性の意味と条件を導く
+
+一般の MA(1)
 
 $$
-\boxed{|\theta|<1}
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
 $$
 
-が可逆条件。
+を考える。
 
-### 4. 非一意性
+**可逆**とは、観測系列 $X_t,X_{t-1},\ldots$ から現在のイノベーション $\varepsilon_t$ を一意に、かつ収束する無限線形結合として復元できることをいう。
 
-$\theta'=2$, $\sigma'^2=1$ なら
+モデル式を $\varepsilon_t$ について解くと
+
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}.
+$$
+
+さらに1期前について
+
+$$
+\varepsilon_{t-1}=X_{t-1}-\theta\varepsilon_{t-2}
+$$
+
+だから
+
+$$
+\begin{aligned}
+\varepsilon_t
+&=X_t-\theta(X_{t-1}-\theta\varepsilon_{t-2})\\
+&=X_t-\theta X_{t-1}+\theta^2\varepsilon_{t-2}.
+\end{aligned}
+$$
+
+同じ代入を繰り返すと
+
+$$
+\varepsilon_t
+=X_t-\theta X_{t-1}+\theta^2X_{t-2}
+-\theta^3X_{t-3}+\cdots.
+$$
+
+すなわち
+
+$$
+\boxed{
+\varepsilon_t
+=\sum_{j=0}^{\infty}(-\theta)^jX_{t-j}
+}
+$$
+
+と表したい。
+
+この級数で古い観測の係数 $(-\theta)^j$ が0へ減衰するためには
+
+$$
+|\theta|<1
+$$
+
+が必要である。したがって MA(1) の可逆条件は
+
+$$
+\boxed{|\theta|<1}.
+$$
+
+同じことを後退作用素 $B$ を使えば、
+
+$$
+X_t=(1+\theta B)\varepsilon_t
+$$
+
+に対して
+
+$$
+\varepsilon_t
+=(1+\theta B)^{-1}X_t
+=(1-\theta B+\theta^2B^2-\cdots)X_t
+$$
+
+という幾何級数展開が収束する条件が $|\theta|<1$、と見ることもできる。
+
+したがって「移動平均多項式 $1+\theta z$ の根 $z=-1/\theta$ が単位円外」という教科書的条件
+
+$$
+|z|>1
+$$
+
+も
+
+$$
+\left|-\frac1\theta\right|>1
+\iff |\theta|<1
+$$
+
+と同じ内容である。
+
+---
+
+### 4. なぜ可逆性が識別に必要か
+
+一般の MA(1) では
+
+$$
+\gamma(0)=\sigma_\varepsilon^2(1+\theta^2),
+\qquad
+\gamma(1)=\theta\sigma_\varepsilon^2.
+$$
+
+本問は
+
+$$
+(\theta,\sigma_\varepsilon^2)=(0.5,4)
+$$
+
+なので
+
+$$
+\gamma(0)=4(1+0.5^2)=5,
+\qquad
+\gamma(1)=0.5\cdot4=2.
+$$
+
+一方
+
+$$
+(\theta',\sigma'^2)=(2,1)
+$$
+
+とすると
 
 $$
 \gamma'(0)=1(1+2^2)=5,
@@ -70,7 +223,57 @@ $$
 \gamma'(1)=2\cdot1=2.
 $$
 
-したがって2次モーメントだけでは $(\theta,\sigma^2)=(0.5,4)$ と $(2,1)$ を区別できない。可逆性 $|\theta|<1$ を課して一意な表現を選ぶ。
+したがって両モデルは同じ自己共分散関数を持つ。
+
+実際、一般に
+
+$$
+(\theta,\sigma^2)
+\quad\text{と}\quad
+\left(\frac1\theta,\theta^2\sigma^2\right)
+$$
+
+は $\theta\ne0$ のとき同じ $\gamma(0),\gamma(1)$ を与える。
+
+このままでは2次モーメントから MA 係数を一意に決められない。そこで
+
+$$
+|\theta|<1
+$$
+
+という可逆性を課し、同じ観測上の2次構造を与える複数の表現から一意な代表を選ぶ。
+
+本問では
+
+$$
+|0.5|<1,
+\qquad
+|2|>1
+$$
+
+なので、可逆表現は
+
+$$
+\boxed{\theta=0.5,\quad \sigma_\varepsilon^2=4}
+$$
+
+である。
+
+## 何を覚えるか
+
+可逆条件 $|\theta|<1$ を単なる公式として覚えるより、
+
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+$$
+
+を再帰的に代入して
+
+$$
+\varepsilon_t=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\cdots
+$$
+
+を作ると、なぜ係数が減衰しなければならないかが分かる。
 
 ## 本番答案
 
@@ -82,15 +285,28 @@ $$
 \gamma(h)=0\ (|h|\ge2),
 $$
 
-したがって $\rho(1)=0.4$、以後0。MA(1) の可逆条件は $|\theta|<1$。
+したがって $\rho(1)=0.4$、以後0。
+
+一般の MA(1) では
+
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\cdots.
+$$
+
+過去の係数が減衰してこの表現が収束するための条件は
+
+$$
+\boxed{|\theta|<1}.
+$$
 
 $(\theta',\sigma'^2)=(2,1)$ でも $\gamma(0)=5,\gamma(1)=2$ となるため、可逆条件は同じ2次構造を持つ複数表現から一意なものを選ぶ識別条件である。
 
 ## 採点基準
 
-- 自己共分散: 7点
+- 自己共分散を共有イノベーションから導出: 6点
 - 自己相関関数: 3点
-- 可逆条件: 4点
-- 識別の説明: 6点
+- 再帰展開から可逆条件 $|\theta|<1$ を導出: 6点
+- 非一意性と識別の説明: 5点
 
-25分経過時は「共有するイノベーション」を見て $\gamma(h)$ を直接出す。
+25分経過時は「共有するイノベーション」と「$\varepsilon_t$ の再帰展開」を必ず残す。
