@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-ar1-spectrum-canonical-121
+batch_id: 2026-08-30-ar1-spectrum-canonical-121b
 items:
   - id: ts-spectral-density-ar1
     note: AR(1)スペクトル密度の導出と低周波・高周波比の数値計算は同一式の解釈なので、導出から周波数特性まで1枚へ統合する。
@@ -41,7 +41,7 @@ items:
         $$
         AR$(1)$では
         $$
-        \psi(e^{-i\lambda})=rac{1}{1-\phi e^{-i\lambda}},
+        \psi(e^{-i\lambda})=(1-\phi e^{-i\lambda})^{-1},
         $$
         かつ
         $$
@@ -52,7 +52,7 @@ items:
       一手／方針: |
         **AR方程式を伝達関数へ直してから絶対値二乗を取る。** 周波数の解釈では、式全体を暗記せず $\lambda=0,\pi$ を代入して分母を比較する。
       答え: |
-        1. 
+        1.
         $$
         f_X(\lambda)
         =\frac{\sigma_\varepsilon^2}
