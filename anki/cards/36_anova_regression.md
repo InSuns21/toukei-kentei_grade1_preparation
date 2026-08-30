@@ -1893,49 +1893,163 @@ $$
 
 ---
 id: reg-hat-matrix-properties
-title: ハット行列の性質を示す
+title: ハット行列からレバレッジ・残差分散・標準化残差まで導く
 category: math-data-analysis
 subcategory: math-regression
-topic: hat-matrix
+topic: regression-leverage-diagnostics-canonical
 type: calc_step
 difficulty: 4
 priority: A
-hashtags: [ハット行列, 射影, 当てはめ値]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形重回帰 }]
+hashtags:
+  - 回帰診断
+  - ハット行列
+  - レバレッジ
+  - 残差分散
+  - 標準化残差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形重回帰
 ---
 
 ## 問題
-列フルランクの計画行列 $\boldsymbol X$ を持つ線形回帰で、観測ベクトルを当てはめ値へ写すハット行列 $\boldsymbol H$ を定義し、対称性と冪等性を示せ。
+列フルランクの線形回帰
+$$
+\mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon,
+\qquad
+E[\boldsymbol\varepsilon]=\mathbf0,
+\qquad
+\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I
+$$
+を考える。切片を含み、$X$ の列数を $k$ とする。
+
+1. ハット行列 $H$ を定義し、対称性・冪等性を示せ。
+2. 対角要素 $h_{ii}$ がレバレッジであること、$\sum_i h_{ii}=k$ であることを示せ。
+3. 残差 $\mathbf e$ の共分散行列と $\operatorname{Var}(e_i)$ を求め、標準化残差を書け。
+4. $X=\begin{pmatrix}1&-1\\1&0\\1&1\end{pmatrix}$ で $H$ と各レバレッジを計算せよ。さらに残差が $(1,-2,1)^\mathsf T$、残差標準偏差が $s=2$ のとき標準化残差を求めよ。
 
 ## 記号・用語
 - ハット行列：観測ベクトルを当てはめ値へ写す射影行列
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+最小二乗法の当てはめ値は
+$$
+\widehat{\mathbf y}=X\widehat{\boldsymbol\beta}
+=X(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y
+=H\mathbf y,
+$$
+したがって
+$$
+H=X(X^\mathsf TX)^{-1}X^\mathsf T.
+$$
+$X^\mathsf TX$ は対称なので
+$$
+H^\mathsf T=H,
+$$
+また
+$$
+H^2
+=X(X^\mathsf TX)^{-1}X^\mathsf TX(X^\mathsf TX)^{-1}X^\mathsf T
+=H.
+$$
+よって $H$ は $\operatorname{col}(X)$ への直交射影行列である。
 
-対称冪等行列は直交射影行列。
+残差は
+$$
+\mathbf e=\mathbf y-\widehat{\mathbf y}=(I-H)\mathbf y.
+$$
+$I-H$ も対称かつ冪等なので
+$$
+\operatorname{Var}(\mathbf e)
+=\sigma^2(I-H).
+$$
+したがって
+$$
+\operatorname{Var}(e_i)=\sigma^2(1-h_{ii}).
+$$
+$\sigma$ を残差標準偏差 $s$ で置き換えた標準化残差を
+$$
+r_i=\frac{e_i}{s\sqrt{1-h_{ii}}}
+$$
+とする。
+
+## 一手
+**回帰診断の出発点を全部 $H$ に戻す。** 当てはめは $H\mathbf y$、残差は $(I-H)\mathbf y$、レバレッジは $h_{ii}$、残差分散は $1-h_{ii}$ で決まる。
 
 ## 答え
-$$\widehat Y=HY,\qquad H=X(X^{\mathsf T}X)^{-1}X^{\mathsf T}.$$
-$(X^{\mathsf T}X)^{-1}$ は対称なので $H^{\mathsf T}=H$。また
-$$H^2=X(X^{\mathsf T}X)^{-1}(X^{\mathsf T}X)(X^{\mathsf T}X)^{-1}X^{\mathsf T}=H.$$
+ハット行列は対称・冪等で、その固有値は0または1である。列フルランクなら
+$$
+\operatorname{rank}(H)=k.
+$$
+対称冪等行列ではトレースはランクに等しいので
+$$
+\sum_{i=1}^n h_{ii}=\operatorname{tr}(H)=k.
+$$
+よって平均レバレッジは
+$$
+\frac1n\sum_i h_{ii}=\frac{k}{n}.
+$$
 
-## 計算例
-$\boldsymbol X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$ なら
-$$\boldsymbol H
-=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
-=\begin{pmatrix}
+数値例では
+$$
+X^\mathsf TX=\begin{pmatrix}3&0\\0&2\end{pmatrix},
+\qquad
+(X^\mathsf TX)^{-1}=\begin{pmatrix}1/3&0\\0&1/2\end{pmatrix}.
+$$
+したがって
+$$
+H=
+\begin{pmatrix}
 5/6&1/3&-1/6\\
 1/3&1/3&1/3\\
 -1/6&1/3&5/6
-\end{pmatrix}.$$
-行列は対称で、$\boldsymbol H^2=\boldsymbol H$ を直接確認できる。また
-$$\operatorname{tr}(\boldsymbol H)=5/6+1/3+5/6=2,$$
-これは $\boldsymbol X$ の列数・階数2に等しい。
+\end{pmatrix}.
+$$
+レバレッジは
+$$
+(h_{11},h_{22},h_{33})=\left(\frac56,\frac13,\frac56\right),
+$$
+その和は
+$$
+\frac56+\frac13+\frac56=2=k
+$$
+である。
+
+## 計算例
+残差 $(1,-2,1)^\mathsf T$、$s=2$ なら、1番目と3番目では
+$$
+s\sqrt{1-h_{ii}}
+=2\sqrt{1-\frac56}
+=2\sqrt{\frac16}
+\approx0.8165,
+$$
+よって
+$$
+r_1=r_3\approx\frac1{0.8165}\approx1.225.
+$$
+2番目では
+$$
+s\sqrt{1-h_{22}}
+=2\sqrt{\frac23}
+\approx1.633,
+$$
+したがって
+$$
+r_2\approx\frac{-2}{1.633}\approx-1.225.
+$$
+
+生の残差は $(1,-2,1)$ と大きさが違うが、レバレッジによる分散差を補正すると絶対値は同程度になる。高レバレッジ点では
+$$
+\operatorname{Var}(e_i)=\sigma^2(1-h_{ii})
+$$
+が小さくなるため、生の残差だけを横並び比較しない。
 
 ## 注意
-残差生成行列は $I-H$。
+高レバレッジとは説明変数空間で特殊な位置にあることを意味し、それだけで影響点とは限らない。影響度は残差の大きさも合わせてCookの距離などで確認する。ここでの $r_i=e_i/(s\sqrt{1-h_{ii}})$ は通常の内部標準化残差であり、観測 $i$ を除いて分散を再推定する外部スチューデント化残差とは区別する。
 
 <!-- CARD -->
 
