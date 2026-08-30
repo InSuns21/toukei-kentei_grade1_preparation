@@ -5,10 +5,11 @@ status: self_review
 prerequisites:
   - L1-01
 official_scope:
-  - 線形モデル
+  - 線形重回帰
   - ガウス・マルコフの定理
   - 線形対比
   - 線形制約
+  - 線形結合の分布
 learning_objectives:
   - 線形モデルを行列表現できる
   - 最小二乗推定量と分散共分散行列を導ける

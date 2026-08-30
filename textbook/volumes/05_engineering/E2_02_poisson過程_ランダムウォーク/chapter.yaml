@@ -4,6 +4,7 @@ volume: "engineering"
 status: self_review
 prerequisites:
   - P3-01
+  - P3-02
   - E2-01
 official_scope:
   - ポアソン過程

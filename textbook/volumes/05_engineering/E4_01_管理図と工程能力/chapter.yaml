@@ -4,14 +4,15 @@ volume: "engineering"
 status: self_review
 prerequisites:
   - P3-02
-  - I2-02
+  - P4-02
 official_scope:
   - 管理図
   - プロセス管理
   - 工程能力指数
 learning_objectives:
   - 管理図の3sigma限界を標本分布から導ける
-  - p管理図を二項分布から構成できる
+  - Xbar管理図とR管理図を使い分けられる
+  - p管理図とnp管理図を二項分布から構成できる
   - 管理限界と規格限界を区別できる
   - CpとCpkを計算し中心ずれを解釈できる
 definitions:
@@ -20,8 +21,8 @@ definitions:
   - { id: E401-DEF-03, name: 工程能力指数 }
 theorems:
   - { id: E401-THM-01, name: Xbar管理図の3sigma限界 }
-canonical_examples: [Xbar管理図, p管理図, CpとCpk]
-problem_patterns: [CONTROL-CHART-XBAR-1, CONTROL-CHART-P-1, CAPABILITY-1]
+canonical_examples: [Xbar管理図, R管理図, p管理図, np管理図, CpとCpk]
+problem_patterns: [CONTROL-CHART-XBAR-1, CONTROL-CHART-R-1, CONTROL-CHART-P-1, CONTROL-CHART-NP-1, CAPABILITY-1]
 past_exam_alignment: []
 integrated_exam_problems: [E4-01-C01]
 exercise_counts: { level_a: 1, level_b: 1, level_c: 1, level_d: 0 }

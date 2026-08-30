@@ -2,6 +2,7 @@ chapter: "E2-03"
 terms:
   - { term: 弱定常, meaning: 平均が時点によらず共分散が時点差だけで決まる性質 }
   - { term: 自己相関関数, meaning: 同一系列の異なる時点間の相関をラグの関数として表したもの }
+  - { term: 標本自己相関関数, meaning: 有限個の観測系列から自己相関関数を推定した量 }
   - { term: AR過程, meaning: 現在値を過去の系列値と白色雑音で表す過程 }
   - { term: MA過程, meaning: 現在値を現在と過去の白色雑音の有限線形結合で表す過程 }
   - { term: ARIMA, meaning: 差分後の系列がARMAに従うモデル }

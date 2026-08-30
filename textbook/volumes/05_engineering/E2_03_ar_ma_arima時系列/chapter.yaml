@@ -12,6 +12,7 @@ official_scope:
   - 時系列解析
 learning_objectives:
   - 弱定常性とACFを定義できる
+  - 観測系列から標本ACFを計算できる
   - AR(1)の平均・分散・ACFを導ける
   - MA(1)の自己共分散を導ける
   - ARIMAの差分次数を判定できる
@@ -19,11 +20,12 @@ learning_objectives:
 definitions:
   - { id: E203-DEF-01, name: 弱定常性 }
   - { id: E203-DEF-02, name: 自己相関関数 }
-  - { id: E203-DEF-03, name: ARMAとARIMA }
+  - { id: E203-DEF-03, name: 標本自己相関関数 }
+  - { id: E203-DEF-04, name: ARMAとARIMA }
 theorems:
   - { id: E203-THM-01, name: AR(1)の自己共分散 }
   - { id: E203-THM-02, name: Yule--Walker方程式 }
-canonical_examples: [AR1, MA1, ACFとPACF, ARIMA, 多段階予測]
+canonical_examples: [標本ACF, AR1, MA1, ACFとPACF, ARIMA, 多段階予測]
 problem_patterns: [AR-1, MA-1, ARIMA-1, TIME-SERIES-FORECAST-1]
 past_exam_alignment: []
 integrated_exam_problems: [E2-03-C01]

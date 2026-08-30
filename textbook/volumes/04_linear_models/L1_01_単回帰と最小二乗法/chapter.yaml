@@ -3,11 +3,16 @@ title: "単回帰と最小二乗法"
 volume: "linear_models"
 status: self_review
 prerequisites:
-  - I1-02
+  - P2-02
+  - P3-02
+  - S1-01
   - F0-00
 official_scope:
+  - 線形単回帰
+  - 最小二乗推定
+  - 決定係数
+  - 残差
   - 線形モデル
-  - 線形結合の分布
 learning_objectives:
   - 単回帰モデルの各項の意味を説明できる
   - 残差平方和から最小二乗推定量を導ける

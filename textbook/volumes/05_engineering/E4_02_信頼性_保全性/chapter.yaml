@@ -4,6 +4,7 @@ volume: "engineering"
 status: self_review
 prerequisites:
   - P3-02
+  - P3-05
   - E4-01
 official_scope:
   - 信頼性

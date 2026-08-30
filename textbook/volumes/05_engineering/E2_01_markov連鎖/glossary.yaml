@@ -1,5 +1,8 @@
 chapter: "E2-01"
 terms:
+  - { term: 確率過程, meaning: 時刻ごとに定義された確率変数の集まり }
+  - { term: Markov過程, meaning: 現在を条件にすると将来の分布がそれ以前の履歴に追加依存しない確率過程 }
+  - { term: Markov連鎖, meaning: 離散時間で有限または可算状態を取るMarkov過程 }
   - { term: Markov性, meaning: 現在を条件にすると次の状態の分布がそれ以前の履歴に依存しない性質 }
   - { term: 遷移行列, meaning: 現在の状態から次の状態への条件付き確率を並べた行列 }
   - { term: 定常分布, meaning: 1段階遷移しても変化しない確率分布 }

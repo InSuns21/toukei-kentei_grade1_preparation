@@ -3,7 +3,7 @@ title: "一般化線形モデル"
 volume: "linear_models"
 status: self_review
 prerequisites:
-  - I1-01
+  - P3-01
   - L1-02
 official_scope:
   - 一般化線形モデル
