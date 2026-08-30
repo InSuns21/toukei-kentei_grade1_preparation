@@ -2136,7 +2136,6 @@ items:
       - engproc-brownian-bridge-conditional
       - engproc-ou-mean-variance
       - engproc-degradation-two-step
-      - engproc-repair-chain-stationary-availability
       - engproc-stationary-mean-recurrence
       - engproc-birth-death-detailed-balance
       - engproc-mm1-little-law
@@ -2178,7 +2177,6 @@ items:
         status: card
         cards:
           - engproc-degradation-two-step
-          - engproc-repair-chain-stationary-availability
           - engproc-stationary-mean-recurrence
           - engproc-birth-death-detailed-balance
           - engproc-absorbing-fundamental-matrix
