@@ -1,0 +1,46 @@
+id: "E2-05"
+title: "状態空間モデル"
+volume: "engineering"
+status: reviewed
+prerequisites:
+  - E2-03
+  - E1-01
+  - F0-00
+official_scope:
+  - 状態空間モデル
+  - 状態方程式
+  - 観測方程式
+  - Kalmanフィルタ
+  - 時系列解析
+learning_objectives:
+  - 状態と観測を分ける理由を具体例から説明できる
+  - 線形Gaussian状態空間モデルの状態方程式・観測方程式・ノイズを識別できる
+  - 1期先予測平均・予測分散を導出できる
+  - イノベーションとその分散を計算できる
+  - 多変量正規分布の条件付き分布からKalman gainと更新式を導出できる
+  - スカラー形と行列形のKalman filterを使い分けられる
+  - filtering・prediction・smoothingの違いを説明できる
+  - ARモデルや局所レベルモデルを状態空間表現へ書き換えられる
+  - イノベーション分解からGaussian尤度を構成できる
+definitions:
+  - { id: E205-DEF-01, name: 状態空間モデル }
+  - { id: E205-DEF-02, name: 状態方程式 }
+  - { id: E205-DEF-03, name: 観測方程式 }
+  - { id: E205-DEF-04, name: イノベーション }
+  - { id: E205-DEF-05, name: Kalman gain }
+  - { id: E205-DEF-06, name: filtering・prediction・smoothing }
+theorems:
+  - { id: E205-THM-01, name: 線形Gaussian状態の1期先予測 }
+  - { id: E205-THM-02, name: Kalman更新 }
+  - { id: E205-THM-03, name: イノベーション尤度分解 }
+canonical_examples: [局所レベルモデル, スカラーKalman更新, AR1の状態空間表現, 行列Kalman更新, イノベーション尤度]
+problem_patterns: [SS-READ-1, SS-PREDICT-1, SS-UPDATE-1, SS-MATRIX-1, SS-REPRESENT-1, SS-LIKELIHOOD-1]
+past_exam_alignment:
+  - { id: RIKOU-ADVANCED-30, current_skills: [状態空間モデル, Kalman更新, 条件付き正規分布], later_skills: [] }
+integrated_exam_problems: [E2-05-C01, E2-05-C02, E2-05-D01, E2-05-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 7, exercises: 10, review: 2 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
