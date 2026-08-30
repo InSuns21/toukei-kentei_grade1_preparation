@@ -17,7 +17,8 @@
 - AR(2) の companion form は状態 $[y_t,y_{t-1}]^{\mathsf T}$ に対して正しい。
 - イノベーション尤度の符号、行列式、二次形式を確認した。
 - 数値演習 B01、B03、C01、DRILL-01 を再計算し一致した。
+- Validate textbook と Validate terminology の初回CIがともに success であることを確認した。
 
 ## 結論
 
-数理上の重大な問題は見当たらない。自動検証通過後に最終 PASS とする。
+**PASS**。数理上の重大な問題は見当たらず、自動検証とも整合した。
