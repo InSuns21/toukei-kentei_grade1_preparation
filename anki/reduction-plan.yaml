@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-ctmc-holding-reduction-128
+batch_id: 2026-08-30-absorbing-probability-reduction-130
 items:
-  - id: engproc-ctmc-holding-jump-probability
+  - id: engproc-absorbing-probability-matrix
     bucket: duplicates
     reason: duplicate
-    canonical_card: engproc-ctmc-generator-check
-    note: 生成行列の判定、離脱率、指数保持時間、平均保持時間、埋込ジャンプ確率までcanonical cardへ統合済み。
+    canonical_card: engproc-absorbing-fundamental-matrix
+    note: 吸収連鎖の標準形からQ,Rを取り出し、N=(I-Q)^(-1)、期待訪問回数、平均吸収時間、B=NRによる吸収確率までcanonical cardへ統合済み。
