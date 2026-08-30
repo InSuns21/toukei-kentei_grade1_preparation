@@ -33,36 +33,91 @@ sources: [{ type: official_syllabus, topic: 乱数 }]
 
 ---
 id: sim-inverse-transform-continuous
-title: 逆関数法の原理を導く
+title: 逆関数法を原理証明から指数分布の乱数生成まで通す
 category: math-data-analysis
 subcategory: math-simulation
-topic: inverse-transform
-type: calc_step
+topic: inverse-transform-canonical
+type: strategy
 difficulty: 3
 priority: B
-hashtags: [乱数, 逆関数法, 分布関数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 乱数 }]
+hashtags:
+  - 乱数
+  - 逆関数法
+  - 分布関数
+  - 指数分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 乱数
 ---
 
 ## 問題
-一様分布 $U\sim U(0,1)$ とし、連続で狭義単調増加な分布関数 $F$ に対して $X=F^{-1}(U)$ がFを分布関数にもつことを示せ。
+一様分布に従う $U\sim U(0,1)$ とする。
+1. 連続で狭義単調増加な分布関数 $F$ に対して $X=F^{-1}(U)$ が $F$ を分布関数にもつことを示せ。
+2. 率 $\lambda>0$ の指数分布
+$$
+F(x)=1-e^{-\lambda x}\qquad(x\ge0)
+$$
+に従う乱数の生成式を導け。
+3. $\lambda=2,U=0.8$ のとき生成される $X$ を計算せよ。
+
+## 記号・用語
+逆関数法は、一様乱数を目標分布の分布関数の逆関数へ通して目標乱数へ変換する方法である。一般の分布では一般化逆関数
+$$
+F^{-1}(u)=\inf\{x:F(x)\ge u\}
+$$
+を使う。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$U\sim U(0,1)$ なら $0\le u\le1$ で $P(U\le u)=u$。$F$ が連続かつ狭義単調増加なら
+$$
+P\{F^{-1}(U)\le x\}
+=P\{U\le F(x)\}
+=F(x).
+$$
+指数分布では
+$$
+U=1-e^{-\lambda X}
+$$
+を $X$ について解けばよい。
 
-$U\sim U(0,1)$ なら $0\le u\le1$ で $P(U\le u)=u$。
+## 一手／方針
+**分布関数を一様乱数 $U$ と等置し、未知量 $X$ について解く。** 原理証明では単調性で事象 $F^{-1}(U)\le x$ を $U\le F(x)$ に移す。個別分布では同じ操作を具体的な $F$ に適用する。
 
 ## 答え
-単調性より
-$$P(X\le x)=P\{F^{-1}(U)\le x\}
-=P\{U\le F(x)\}=F(x).$$
+原理は
+$$
+P(X\le x)=P\{F^{-1}(U)\le x\}
+=P\{U\le F(x)\}=F(x)
+$$
+で示される。
+
+指数分布では
+$$
+U=1-e^{-\lambda X}
+\Longrightarrow
+X=-\frac1\lambda\log(1-U).
+$$
+$1-U\sim U(0,1)$ なので、同分布の生成式として
+$$
+X=-\frac1\lambda\log U
+$$
+を使ってもよい。
+
+$\lambda=2,U=0.8$ では
+$$
+X=-\frac12\log(0.2)\approx0.8047.
+$$
 
 ## 計算例
-$F(x)=x^2$（$0\le x\le1$）なら $X=\sqrt U$。
+$F(x)=x^2$（$0\le x\le1$）なら $X=\sqrt U$。また指数分布で $\lambda=1,U=0.5$ なら $X=\log2$ となる。
 
 ## 注意
-一般化逆関数 $F^{-1}(u)=\inf\{x:F(x)\ge u\}$ を使えば不連続なFにも拡張できる。
+実装で $-\log U$ を使う場合、$U=0$ では対数が定義されないため端点0を避ける。離散分布では通常の逆関数が存在しないため一般化逆関数または累積確率の区間判定を使う。この離散版は別の操作判断を伴うため別カードとして残す。
 
 <!-- CARD -->
 
@@ -215,96 +270,96 @@ $U_1=0$ では対数が定義されない。
 
 ---
 id: sim-mc-standard-error
-title: Monte Carlo平均の標準誤差を求める
+title: Monte Carlo推定を期待値化から標準誤差・近似区間まで通す
 category: math-data-analysis
 subcategory: math-simulation
-topic: monte-carlo-error
-type: formula
-difficulty: 2
+topic: monte-carlo-error-canonical
+type: strategy
+difficulty: 3
 priority: B
-hashtags: [モンテカルロシミュレーション, 標準誤差, 中心極限定理]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: モンテカルロシミュレーション }]
+hashtags:
+  - モンテカルロシミュレーション
+  - 標準誤差
+  - 中心極限定理
+  - 数値誤差
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: モンテカルロシミュレーション
 ---
 
 ## 問題
-$Y_1,\ldots,Y_m$ は独立同分布で、$E[Y_b]=\mu$、$\operatorname{Var}(Y_b)=\sigma^2<\infty$ とする。Monte Carlo平均の標準誤差を書け。
-
-## 記号・用語
-- SE：標準誤差（standard error）
-
-## 使用公式・定理
-$X\sim q$ とし、求めたい積分が
-$$
-I=\int h(x)\,dx
-$$
-なら、$q(x)>0$ の範囲で
-$$
-I=\int \frac{h(x)}{q(x)}q(x)\,dx
-=E_q\left[\frac{h(X)}{q(X)}\right]
-$$
-と期待値に直せる。特に
-$$
-I=\int_0^1 g(x)\,dx
-$$
-なら $U\sim U(0,1)$ として
-$$
-I=E[g(U)].
-$$
-
-独立同分布な $Y_1,\ldots,Y_m$ が $E[Y_b]=\mu$, $\operatorname{Var}(Y_b)=\sigma^2<\infty$ を満たすとき
-$$
-\widehat\mu_m=\frac1m\sum_{b=1}^mY_b,
-$$
-$$
-\operatorname{Var}(\widehat\mu_m)
-=\frac{\sigma^2}{m},
-\qquad
-\operatorname{SE}(\widehat\mu_m)
-=\frac{\sigma}{\sqrt m}.
-$$
-未知の $\sigma$ は反復値の標本標準偏差 $s$ で置き換える。
-
-## 一手
-積分を直接計算しにくいときは、まず「ある確率分布の下での期待値」に書き換える。その分布から独立乱数を生成し、被積分関数の標本平均で期待値を近似する。
-
-## 答え
-Monte Carlo積分は、積分を期待値へ書き換えて独立乱数による標本平均
+$Y_1,\ldots,Y_m$ は独立同分布で $E[Y_b]=\mu$, $\operatorname{Var}(Y_b)=\sigma^2<\infty$ とし、
 $$
 \widehat\mu_m=\frac1m\sum_{b=1}^mY_b
 $$
-で近似する。独立反復なら標準誤差は
+で $\mu$ をMonte Carlo推定する。
+1. $\widehat\mu_m$ の分散と標準誤差を求めよ。
+2. $m=2500$, $\widehat\mu_m=1.40$, 反復値の標本標準偏差 $s=2.5$ のとき、Monte Carlo誤差だけに関する近似95%区間を求めよ。
+3. 標準誤差を半分にするには反復数を何倍にすべきか。
+
+## 記号・用語
+Monte Carlo標準誤差は、有限回の乱数反復によって生じる**数値計算上の不確実性**を表す。元データを有限標本しか観測していないことによる統計的な標本誤差とは別物である。
+
+## 使用公式・定理
+独立性より
 $$
-\operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}
+\operatorname{Var}(\widehat\mu_m)
+=\operatorname{Var}\left(\frac1m\sum_{b=1}^mY_b\right)
+=\frac{\sigma^2}{m},
 $$
-であり、実際には $\sigma$ を標本標準偏差 $s$ で推定する。
+したがって
+$$
+\operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}.
+$$
+$\sigma$ が未知なら反復値の標本標準偏差 $s$ で置き換える。中心極限定理による近似95%区間は
+$$
+\widehat\mu_m\pm1.96\frac{s}{\sqrt m}.
+$$
+積分 $I=\int h(x)\,dx$ も、適当な密度 $q$ に対して
+$$
+I=E_q\left[\frac{h(X)}{q(X)}\right]
+$$
+と期待値へ書き換えれば同じ標本平均の枠組みで扱える。
+
+## 一手／方針
+**積分や期待値を独立反復の平均へ落とし、その平均の分散が $1/m$、標準誤差が $1/\sqrt m$ で減ることを使う。** 推定値だけで終わらず、反復値の散らばり $s$ から数値誤差も同時に報告する。
+
+## 答え
+一般に
+$$
+\operatorname{Var}(\widehat\mu_m)=\frac{\sigma^2}{m},\qquad
+\operatorname{SE}(\widehat\mu_m)=\frac{\sigma}{\sqrt m}.
+$$
+数値例では
+$$
+\widehat{\operatorname{SE}}
+=\frac{2.5}{\sqrt{2500}}
+=0.05.
+$$
+よって近似95%区間は
+$$
+1.40\pm1.96(0.05)
+=[1.302,1.498].
+$$
+標準誤差は $1/\sqrt m$ に比例するため、半分にするには $m$ を4倍にする。
 
 ## 計算例
-例として
 $$
-I=\int_0^1 x^2\,dx
+I=\int_0^1x^2\,dx
 $$
-を考える。$U\sim U(0,1)$ なら
-$$
-I=E[U^2].
-$$
-したがって独立な $U_1,\ldots,U_m\sim U(0,1)$ を生成して
+は $U\sim U(0,1)$ として $I=E[U^2]$ と書けるため、独立な一様乱数から
 $$
 \widehat I_m=\frac1m\sum_{b=1}^mU_b^2
 $$
-とすればよい。
-
-反復値 $Y_b=U_b^2$ の標本標準偏差が $s=4$、反復数が $m=1600$ の別のMonte Carlo計算なら
-$$
-\widehat{\operatorname{SE}}(\widehat I_m)
-=\frac{4}{\sqrt{1600}}
-=\frac4{40}
-=0.1.
-$$
-誤差を半分程度にしたければ、$1/\sqrt m$ 則より反復数を4倍にする。
+と推定できる。反復値の標本標準偏差が $s=4$, $m=1600$ なら標準誤差は $4/40=0.1$ である。
 
 ## 注意
-Monte Carlo標準誤差は有限反復による数値誤差であり、元データの標本誤差とは別物である。また独立でないMCMC出力では単純な $s/\sqrt m$ をそのまま使えず、自己相関を考慮した有効標本サイズが必要になる。
+この近似区間は有限反復によるMonte Carlo誤差を表す区間であり、統計モデルの母数に対する通常の信頼区間とは区別する。MCMCのように反復が自己相関をもつ場合、単純な $s/\sqrt m$ は使えず、有効標本サイズなどで依存を考慮する必要がある。
 
 <!-- CARD -->
 
