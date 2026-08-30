@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-mm1-stationary-reduction-132
+batch_id: 2026-08-30-stationary-availability-reduction-134
 items:
-  - id: engproc-mm1-stationary-probability
+  - id: engproc-stationary-availability
     bucket: duplicates
     reason: duplicate
-    canonical_card: engproc-birth-death-detailed-balance
-    note: 出生死亡過程の詳細釣合いから一般定常分布を構成し、M/M/1のrho<1、pi_n=(1-rho)rho^n、lambda=2・mu=3のpi_3数値例までcanonical cardへ統合済み。Littleの法則による性能指標は別技能として残す。
+    canonical_card: stoch-three-state-stationary
+    note: πP=πと正規化で定常分布を解く一般手順に、故障修復2状態連鎖の(0.8,0.2)と長期可用率0.8の工学数値例まで統合済み。詳細釣合いは別技能として残す。
