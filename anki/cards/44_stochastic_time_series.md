@@ -1460,32 +1460,122 @@ $$
 
 ---
 id: ts-maq-acf-cutoff
-title: MA(q)のACF打切りを説明する
+title: MA(q)の自己共分散を導きACFの打切りを説明する
 category: applied-common
 subcategory: applied-time-series
-topic: maq-acf
-type: proof_step
+topic: maq-autocovariance-acf-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [ARIMAモデル, MAモデル, 自己相関関数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+priority: A
+hashtags:
+  - 時系列解析
+  - MAモデル
+  - 自己共分散
+  - 自己相関関数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-MA($q$)過程のACFがラグ $q$ で打ち切られる理由を述べよ。
+平均0のMA$(q)$過程
+$$
+X_t=\sum_{j=0}^{q}\theta_j\varepsilon_{t-j},
+\qquad \theta_0=1,
+\qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
+$$
+を考える。革新 $\varepsilon_t$ は異時点で互いに無相関とする。
+1. 自己共分散 $\gamma(h)$ の式を導き、$h>q$ で0になる理由を説明せよ。
+2. MA$(1)$
+$$
+X_t=\varepsilon_t+0.5\varepsilon_{t-1},
+\qquad \sigma_\varepsilon^2=4
+$$
+について、$\gamma(0),\gamma(1),\gamma(2)$ と $\rho(1)$ を求めよ。
+
 ## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
+$\gamma(h)=\operatorname{Cov}(X_t,X_{t-h})$ はラグ $h$ の自己共分散、$\rho(h)=\gamma(h)/\gamma(0)$ は自己相関である。MA過程では各 $X_t$ が有限個の革新の線形結合で表される。
+
 ## 使用公式・定理
-$X_t=\sum_{j=0}^q\theta_j\varepsilon_{t-j}$ で革新は異時点で無相関。
+$h\ge0$ とする。2時点を展開すると
+$$
+X_t=\sum_{j=0}^{q}\theta_j\varepsilon_{t-j},
+\qquad
+X_{t-h}=\sum_{k=0}^{q}\theta_k\varepsilon_{t-h-k}.
+$$
+異時点の革新は無相関なので、共分散に残るのは
+$$
+t-j=t-h-k
+$$
+すなわち $j=h+k$ を満たす同じ革新の組だけである。したがって $0\le h\le q$ では
+$$
+\gamma(h)
+=\sigma_\varepsilon^2
+\sum_{k=0}^{q-h}\theta_{k+h}\theta_k,
+$$
+そして $h>q$ では共有する革新が存在しないので
+$$
+\gamma(h)=0.
+$$
+定常性より $\gamma(-h)=\gamma(h)$ である。
+
 ## 一手／方針
-2時点のMA表示に共通して現れる革新だけを拾い、ラグが次数を超えると共通項が消えることを示す。
+**公式を暗記するより、$X_t$ と $X_{t-h}$ に共通して現れる革新を拾う。** 共通項があるラグだけ自己共分散が残り、次数 $q$ を超えると共有する革新がなくなる。この見方から一般式とACFの打切りを同時に得る。
+
 ## 答え
-$|h|>q$ では $X_t$ と $X_{t-h}$ が共有する革新がないため
-$$\gamma(h)=\rho(h)=0.$$
+1. 
+$$
+\gamma(h)
+=\sigma_\varepsilon^2
+\sum_{k=0}^{q-h}\theta_{k+h}\theta_k
+\qquad(0\le h\le q),
+$$
+$$
+\gamma(h)=0
+\qquad(h>q).
+$$
+よってMA$(q)$の理論ACFはラグ $q$ で打ち切られる。
+
+2. MA$(1)$では
+$$
+\gamma(0)=(1+\theta^2)\sigma_\varepsilon^2,
+\qquad
+\gamma(1)=\theta\sigma_\varepsilon^2,
+\qquad
+\gamma(h)=0\ (h\ge2).
+$$
+$
+\theta=0.5,\sigma_\varepsilon^2=4
+$
+を代入すると
+$$
+\gamma(0)=(1+0.5^2)4=5,
+$$
+$$
+\gamma(1)=0.5\cdot4=2,
+\qquad
+\gamma(2)=0.
+$$
+したがって
+$$
+\rho(1)=\frac{\gamma(1)}{\gamma(0)}=\frac25=0.4.
+$$
+
 ## 計算例
-MA(1)ではラグ2以降のACFが0。
+MA$(1)$で一般の係数 $\theta$ なら
+$$
+\rho(1)=\frac{\theta}{1+\theta^2},
+\qquad
+\rho(h)=0\quad(|h|\ge2).
+$$
+たとえば $\theta=-0.5$ なら $\rho(1)=-0.4$ であり、ラグ1の符号は変わるがラグ2以降が0という打切り位置は変わらない。
+
 ## 注意
-標本ACFは有限標本誤差により厳密には0にならない。
+理論ACFがラグ $q$ より先で厳密に0でも、有限標本の標本ACFは標本変動により0にはならない。モデル同定では「ほぼ0になる」という見え方とPACF、情報量規準、残差診断を併用する。またMA多項式の符号規約が異なる教科書では係数 $\theta_j$ の符号表示が変わるので、必ず与えられたモデル式から計算する。
 
 <!-- CARD -->
 
