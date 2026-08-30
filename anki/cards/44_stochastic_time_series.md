@@ -31,113 +31,21 @@ $$P(X_{t+1}=j\mid X_t=i,X_{t-1},\ldots,X_0)
 <!-- CARD -->
 
 ---
-id: ts-pacf-lag2-calculation
-title: ラグ2偏自己相関を計算する
-category: applied-common
-subcategory: applied-time-series
-topic: partial-autocorrelation
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [偏自己相関関数, PACF, 数値計算]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 偏自己相関関数 }]
----
-## 問題
-$\rho_1=0.6$、$\rho_2=0.2$ の定常時系列について、ラグ2偏自己相関を計算せよ。
-## 記号・用語
-$\rho_h$ はラグ $h$ の自己相関、$\alpha_{22}$ は $X_t$ を $X_{t-1},X_{t-2}$ で線形予測したときの $X_{t-2}$ の係数であり、ラグ2偏自己相関に等しい。
-## 使用公式・定理
-**ラグ2のDurbin--Levinson公式**：
-$$\alpha_{22}=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}.$$
-## 一手／方針
-分子と分母を別々に計算し、自己相関を公式へ代入する。
-## 答え
-ラグ2偏自己相関は
-$$
-\alpha_{22}=-0.25.
-$$
-
-## 計算例
-まず分子を計算する。
-$$
-\begin{aligned}
-\rho_2-\rho_1^2
-&=0.2-0.6^2\\
-&=0.2-0.36\\
-&=-0.16.
-\end{aligned}
-$$
-次に分母は
-$$
-\begin{aligned}
-1-\rho_1^2
-&=1-0.6^2\\
-&=1-0.36\\
-&=0.64.
-\end{aligned}
-$$
-よってDurbin--Levinson公式へ代入して
-$$
-\begin{aligned}
-\alpha_{22}
-&=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}\\
-&=\frac{-0.16}{0.64}\\
-&=-0.25.
-\end{aligned}
-$$
-なおAR$(1)$ では理論自己相関が $\rho_2=\rho_1^2$ を満たすので、この分子が0となりラグ2偏自己相関も0になる。
-
-## 注意
-PACFは単なる $\rho_2$ ではなく、ラグ1の線形効果を除いた相関である。
-
-<!-- CARD -->
-
----
-id: ts-software-arima-coefficients
-title: ARIMA推定結果の係数表を解釈する
-category: applied-common
-subcategory: applied-time-series
-topic: software-output-interpretation
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [ARIMAモデル, ソフトウェア出力, 係数検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ソフトウェアの出力結果の解釈 }]
----
-## 問題
-ARIMA$(1,0,0)$ の出力が「AR(1)係数 $0.72$、標準誤差 $0.15$」であった。係数の有意性と定常性を判定せよ。
-## 記号・用語
-$\widehat\phi$ はAR係数の推定値、$\operatorname{SE}(\widehat\phi)$ はその標準誤差である。
-## 使用公式・定理
-**Wald統計量**：$z=\widehat\phi/\operatorname{SE}(\widehat\phi)$。大標本で両側5%臨界値は $1.96$。AR$(1)$ の定常条件は $|\phi|<1$。
-## 一手／方針
-係数を標準誤差で割って有意性を判定し、推定係数の絶対値で定常性を確認する。
-## 答え
-$$z=0.72/0.15=4.8>1.96$$
-なので係数0を棄却する。また $|0.72|<1$ なので推定モデルは定常である。
-## 計算例
-近似95%信頼区間は $0.72\pm1.96(0.15)=(0.426,1.014)$ である。
-## 注意
-推定値が定常域内でも、信頼区間が1を含むなら単位根の有無は専用検定も含め慎重に判断する。
-
-<!-- CARD -->
-
----
 id: ts-software-residual-diagnostics
-title: Ljung--Box統計量を計算し残差の白色性を診断する
+title: ARIMAの係数表とLjung–Box残差診断を一続きで解釈する
 category: applied-common
 subcategory: applied-time-series
-topic: ljung-box-residual-diagnostics-canonical
+topic: arima-software-output-diagnostics-canonical
 type: strategy
 difficulty: 3
 priority: A
 hashtags:
   - 時系列解析
-  - 残差診断
-  - Ljung-Box検定
+  - ARIMAモデル
   - ソフトウェア出力
+  - 係数検定
+  - Ljung-Box検定
+  - 残差診断
 frequency:
   past_exam: 0
   textbook: 0
@@ -148,74 +56,96 @@ sources:
     topic: ソフトウェアの出力結果の解釈
 ---
 ## 問題
-時系列モデルの残差をLjung--Box検定で診断する。
-1. 標本数 $n=50$、残差自己相関が $r_1=0.20,r_2=-0.10$ のとき、ラグ $m=2$ までのLjung--Box統計量 $Q$ を計算せよ。ここでは推定済みAR・MA係数を差し引かない単純な比較として、自由度2の5%上側点を5.991とする。
-2. 別の推定結果で「$Q(12)=24.8$、$p=0.016$」と出力された。5%水準で残差の白色性とモデルの妥当性を判定せよ。
-3. ARMA$(p,q)$ を当てはめた残差へ検定を使うとき、自由度について何に注意すべきか述べよ。
+ARIMAモデルの推定後出力について次を解け。
+
+1. ARIMA$(1,0,0)$ の出力が「AR(1)係数 $\widehat\phi=0.72$、標準誤差 $0.15$」であった。$H_0:\phi=0$ を両側5%で検定し、近似95%信頼区間を求めよ。また推定係数がAR$(1)$の定常域内か判定せよ。
+2. 標本数 $n=50$、残差自己相関が $r_1=0.20,r_2=-0.10$ のとき、ラグ $m=2$ までのLjung--Box統計量 $Q$ を求めよ。ここでは自由度2の5%上側点を5.991とする。
+3. 別の出力で $Q(12)=24.8,\ p=0.016$ と表示された。5%水準で残差の白色性を判定し、モデル改善の必要性を述べよ。
+4. 推定済みARMA$(p,q)$の残差へLjung--Box検定を使うときの自由度上の注意を述べよ。
 
 ## 記号・用語
-$r_h$ はラグ $h$ の残差自己相関、$m$ はまとめて調べる最大ラグである。帰無仮説は「少なくとも指定したラグまで残差自己相関が0」である。残差に自己相関が残るなら、元のモデルが時系列依存を取り切れていない可能性がある。
+係数表は「推定された動学係数が0と区別できるか」を見る。一方、残差診断は「モデルを当てた後にも時系列依存が残っていないか」を見る。**係数が有意でも残差に自己相関が残れば、モデルとして十分とはいえない。**
 
 ## 使用公式・定理
+係数0の大標本Wald統計量は
+$$
+z=\frac{\widehat\phi}{\operatorname{SE}(\widehat\phi)}.
+$$
+近似95%信頼区間は
+$$
+\widehat\phi\pm1.96\operatorname{SE}(\widehat\phi).
+$$
+AR$(1)$の因果的定常域は $|\phi|<1$ である。
+
 Ljung--Box統計量は
 $$
 Q=n(n+2)\sum_{h=1}^{m}\frac{r_h^2}{n-h}.
 $$
-帰無仮説の下で大標本ではカイ二乗分布で近似する。モデルを推定していない系列の白色性検定なら基本的に自由度 $m$ を用いる。
-
-推定済みARMA$(p,q)$ の残差診断では、教科書的には推定したAR・MA係数数を差し引いて
-$$
-m-p-q
-$$
-程度の自由度を使うことが多い。ただし季節項やソフトウェアによって自由度補正の規約が異なるため、出力されたP値を読む問題ではそのソフトウェアの規約に従う。
+大標本ではカイ二乗分布で近似する。推定前の白色性検定なら基本的に自由度 $m$、推定済みARMA$(p,q)$の残差では教科書的には $m-p-q$ 程度へ補正することが多い。
 
 ## 一手／方針
-**残差自己相関が与えられたら $Q$ を計算し、適切な自由度のカイ二乗分布と比較する。P値が出力済みなら再計算せず $p<\alpha$ を判定し、その結果を「残差に時系列構造が残っているか」という言葉へ戻す。**
+**推定後出力は「係数 → モデル条件 → 残差」の順で読む。**
+
+1. 係数を標準誤差で割り、有意性を見る。
+2. AR係数なら根条件・定常域を確認する。
+3. 最後に残差が白色化しているかをLjung--Boxや残差ACFで確認する。
+
+出力済みP値があるときは、そのソフトウェアの自由度規約に従って判定する。
 
 ## 答え
-1. 
+1.
+$$
+z=0.72/0.15=\boxed{4.8}>1.96
+$$
+なので $H_0:\phi=0$ を棄却する。近似95%信頼区間は
+$$
+0.72\pm1.96(0.15)=(\boxed{0.426},\boxed{1.014}).
+$$
+推定値自体は $|0.72|<1$ なので定常域内である。
+
+2.
 $$
 Q=50(52)\left(\frac{0.20^2}{49}+\frac{(-0.10)^2}{48}\right)
+\approx\boxed{2.66}.
 $$
-$$
-=2600(0.0008163+0.0002083)\approx2.66.
-$$
-$2.66<5.991$ なので、この単純な自由度2の比較では帰無仮説を棄却しない。
+$2.66<5.991$ なので、この比較では残差無相関の帰無仮説を棄却しない。
 
-2. 
-$$
-0.016<0.05
-$$
-なので、5%水準で「指定ラグまで残差が無相関」という帰無仮説を棄却する。したがって残差に自己相関が残っており、モデルが時系列依存を十分に取り切れていない可能性がある。
+3. $0.016<0.05$ なので帰無仮説を棄却する。残差に自己相関が残っており、AR・MA次数、差分、季節構造などの見直し候補がある。
 
-3. 推定済みARMAモデルの残差では、単純に自由度 $m$ とせず、推定した動的係数数を考慮する。問題文やソフトウェアがP値を直接与えている場合は、その出力の自由度規約を勝手に変更しない。
+4. 推定済みモデルの残差では、単純に自由度 $m$ とせず推定した動的係数数を考慮する。ソフトウェアがP値を直接出している場合は、その実装の補正规約を確認する。
 
 ## 計算例
-たとえばARMA$(1,1)$ の残差をラグ $m=10$ まで調べ、教科書的な補正 $m-p-q$ を採用するなら自由度は
+ARMA$(1,1)$の残差を $m=10$ まで調べ、$m-p-q$ の教科書的補正を使うなら自由度は
 $$
 10-1-1=8
 $$
-が目安になる。一方、同じ $Q$ でも自由度を変えればP値は変わるので、モデル比較やソフトウェア出力の読解では自由度規約の確認が必要である。
+が目安になる。
+
+また係数の近似95%区間 $(0.426,1.014)$ は1を含む。これは「推定値が0.72だから定常で確定」とは言い切れないことを示す一つの注意材料であり、単位根の有無を正式に検定するなら専用の単位根検定を使う。
 
 ## 注意
-Ljung--Box検定で棄却しないことは、残差が完全に独立であること、正規分布に従うこと、分散が一定であることまで保証しない。残差ACF、外れ値、分散変動なども別に確認する。また多数のラグの個別自己相関を一つずつ検定する方法とは異なり、Ljung--Box検定は指定ラグまでをまとめて評価する検定である。
+$H_0:\phi=0$ のWald検定と $H_0:\phi=1$ の単位根検定は別物である。係数が0から有意に離れていることは、単位根がないことを意味しない。
+
+Ljung--Box検定で棄却しないことも、残差の独立性・正規性・等分散性まで保証しない。残差ACF、外れ値、分散変動などは別に確認する。
 
 <!-- CARD -->
 
 ---
 id: ts-ar-causality-check
-title: AR(p)の因果性を根から判定する
+title: ARの因果性とMAの可逆性を根・再帰表示から判定する
 category: applied-common
 subcategory: applied-time-series
-topic: ar-root-causality
-type: calc_step
+topic: arma-root-causality-invertibility-canonical
+type: strategy
 difficulty: 3
-priority: B
+priority: A
 hashtags:
+  - 時系列解析
   - ARモデル
+  - MAモデル
   - 因果性
-  - 定常性
-  - 特性方程式
+  - 可逆性
+  - 単位円
 frequency:
   past_exam: 0
   textbook: 0
@@ -226,154 +156,167 @@ sources:
     topic: 因果性・可逆性
 ---
 ## 問題
-AR$(p)$
+AR・MAモデルの因果性と可逆性について次を解け。
+
+1. AR$(p)$
 $$
 \phi(B)X_t=\varepsilon_t,
 \qquad
 \phi(z)=1-\phi_1z-\cdots-\phi_pz^p
 $$
-が因果的な定常解を持つ条件を根で述べよ。
-
-さらに
+が因果的な定常解を持つ根条件を述べよ。
+2. AR$(2)$
 $$
 X_t=0.5X_{t-1}+0.2X_{t-2}+\varepsilon_t
 $$
-を判定せよ。
+が因果的か判定せよ。
+3. MA$(q)$
+$$
+X_t=\theta(B)\varepsilon_t,
+\qquad
+\theta(z)=1+\theta_1z+\cdots+\theta_qz^q
+$$
+が可逆となる根条件を述べよ。
+4. MA$(1)$
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+について、再帰代入から $|\theta|<1$ が必要になる理由を示し、$\theta=1.2$ を判定せよ。
+5. $\theta=0.4$、$X_t=3.0$、$\varepsilon_{t-1}=-0.5$ のとき $\varepsilon_t$ を求め、さらに $X_{t+1}=1.8$ なら $\varepsilon_{t+1}$ を求めよ。
 
 ## 記号・用語
-AR多項式は $\phi(z)=1-0.5z-0.2z^2$。因果的とは、$X_t$ が現在・過去の革新の収束する線形和で表せることをいう。
+**因果的**とは、現在の $X_t$ が現在・過去の革新 $\varepsilon_t,\varepsilon_{t-1},\ldots$ の収束する線形和で表せることをいう。
+
+**可逆**とは、現在の革新 $\varepsilon_t$ を現在・過去の観測 $X_t,X_{t-1},\ldots$ の収束する線形和として一意に復元できることをいう。
+
+ARとMAでは意味は違うが、標準的な符号規約ではどちらも対応する多項式の根が単位円の外側にあるかを確認する。
+
 ## 使用公式・定理
-**AR因果性条件**：AR多項式
+AR$(p)$ の因果性条件は
 $$
 \phi(z)=0
 $$
-のすべての根が単位円の外側、すなわち
+の全ての根が
 $$
 |z|>1
 $$
-なら、現在の $X_t$ を現在・過去の革新の絶対収束する線形和として表せる因果的定常解が得られる。
+を満たすことである。
+
+MA$(q)$ の可逆性条件も
+$$
+\theta(z)=0
+$$
+の全ての根が
+$$
+|z|>1
+$$
+を満たすことである。
+
+MA$(1)$ では
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+から
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+$$
+と解き、再帰代入すると
+$$
+\varepsilon_t
+=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\theta^3X_{t-3}+\cdots.
+$$
+この係数列が減衰するには $|\theta|<1$ が必要である。また
+$$
+1+\theta z=0
+$$
+の根 $z=-1/\theta$ が $|z|>1$ という条件とも同値である。
 
 ## 一手／方針
-係数そのものを1と比較せず、AR多項式を作り、その根の絶対値を1と比較する。AR(2)なら二次方程式として解けばよい。
+**まずモデル式からAR多項式またはMA多項式を作り、根を求めて絶対値を1と比較する。**
+
+ARなら「過去の革新から現在を安定に作れるか」、MAなら「過去の観測から革新を安定に戻せるか」と意味を対応させる。係数そのものを機械的に1と比較するのはAR$(1)$やMA$(1)$の特殊形にすぎない。
 
 ## 答え
-数値例のAR多項式は
+1. AR多項式 $\phi(z)=0$ の全根が単位円の外側、すなわち
 $$
-1-0.5z-0.2z^2.
+\boxed{|z|>1}
 $$
-2根は約
-$$
-z_1=1.31,
-\qquad
-z_2=-3.81
-$$
-で、ともに絶対値が1より大きい。したがって因果的な定常AR(2)モデルである。
+なら因果的な定常解を持つ。
 
-## 計算例
+2. AR多項式は
 $$
-1-0.5z-0.2z^2=0
+1-0.5z-0.2z^2=0.
 $$
-を
+すなわち
 $$
 0.2z^2+0.5z-1=0
 $$
-と書く。解の公式より
+だから
 $$
-\begin{aligned}
-z
-&=\frac{-0.5\pm\sqrt{0.5^2-4(0.2)(-1)}}{0.4}\\
-&=\frac{-0.5\pm\sqrt{1.05}}{0.4}.
-\end{aligned}
+z=\frac{-0.5\pm\sqrt{1.05}}{0.4}
 $$
-よって
+より
 $$
-z_1\approx1.31,
-\qquad z_2\approx-3.81,
+z_1\approx1.31,\qquad z_2\approx-3.81.
 $$
+どちらも絶対値が1より大きいので
 $$
-|z_1|>1,
-\qquad |z_2|>1.
-$$
-
-## 注意
-標準的なARIMAの文脈では「ARの定常条件」としてこの根条件を述べることが多いが、厳密にはここで保証しているのは**因果的な定常解**である。未来の革新に依存する非因果的表現まで許す議論とは区別する。
-
-<!-- CARD -->
-
----
-id: ts-linear-detrend
-title: 線形トレンドを推定して除去する
-category: applied-common
-subcategory: applied-time-series
-topic: trend-removal
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [トレンド, 最小二乗法, 定常化]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: トレンド・季節性 }]
----
-## 問題
-$(X_1,X_2,X_3)=(3,5,7)$ に線形トレンド $a+bt$ を当てはめ、トレンド除去後の系列を求めよ。
-## 記号・用語
-$a$ は切片、$b$ は1時点当たりの増分、$e_t=X_t-(a+bt)$ はトレンド除去後の残差である。
-## 使用公式・定理
-**最小二乗公式**：
-$$\widehat b=\frac{\sum_t(t-\bar t)(X_t-\bar X)}{\sum_t(t-\bar t)^2},\qquad \widehat a=\bar X-\widehat b\bar t.$$
-## 一手／方針
-時点を説明変数として回帰し、各観測から推定トレンドを引く。
-## 答え
-推定トレンドは
-$$
-\widehat X_t=1+2t
-$$
-であり、トレンド除去後の系列は
-$$
-(0,0,0)
+\boxed{\text{因果的な定常AR(2)}}
 $$
 である。
 
-## 計算例
-時点は $(1,2,3)$、観測は $(3,5,7)$ なので
+3. MA多項式 $\theta(z)=0$ の全根が
 $$
-\bar t=\frac{1+2+3}{3}=2,
-\qquad
-\bar X=\frac{3+5+7}{3}=5.
+\boxed{|z|>1}
 $$
-傾きの分子は
+なら可逆である。
+
+4. MA$(1)$では再帰表示の係数が
 $$
-\begin{aligned}
-\sum_t(t-\bar t)(X_t-\bar X)
-&=(-1)(-2)+0\cdot0+1\cdot2\\
-&=4,
-\end{aligned}
+1,-\theta,\theta^2,-\theta^3,\ldots
 $$
-分母は
+と続くので、安定に減衰するには
 $$
-\begin{aligned}
-\sum_t(t-\bar t)^2
-&=(-1)^2+0^2+1^2\\
-&=2.
-\end{aligned}
+\boxed{|\theta|<1}
 $$
-したがって
+が必要である。$\theta=1.2$ では満たさないため可逆でない。
+
+5.
 $$
-\widehat b=\frac42=2,
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}
+=3.0-0.4(-0.5)=\boxed{3.2}.
 $$
+次に
 $$
-\widehat a=\bar X-\widehat b\bar t=5-2\cdot2=1.
-$$
-推定トレンド値は
-$$
-(1+2\cdot1,\ 1+2\cdot2,\ 1+2\cdot3)=(3,5,7)
-$$
-なので、元の観測から引けば
-$$
-(3,5,7)-(3,5,7)=(0,0,0).
+\varepsilon_{t+1}=X_{t+1}-0.4\varepsilon_t
+=1.8-0.4(3.2)=\boxed{0.52}.
 $$
 
+## 計算例
+AR$(1)$
+$$
+X_t=\phi X_{t-1}+\varepsilon_t
+$$
+では $\phi(z)=1-\phi z$ の根は $z=1/\phi$ なので、根条件は
+$$
+|1/\phi|>1\iff|\phi|<1
+$$
+となる。
+
+MA$(1)$
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+でも $1+\theta z$ の根から
+$$
+|\theta|<1
+$$
+が得られる。見かけ上同じ絶対値条件でも、ARでは因果性、MAでは可逆性を保証している点が違う。
+
 ## 注意
-トレンド除去後も自己相関や季節性が残っていないかを確認する。
+有限次数MA過程はホワイトノイズの有限線形結合なので、通常は弱定常性そのものと可逆性は別問題である。一方ARの根条件は、標準的なARIMAの文脈では「定常条件」と呼ばれることも多いが、厳密には過去の革新による因果的な定常解を保証する条件として理解する。
+
+MAモデルを $X_t=\varepsilon_t-\theta\varepsilon_{t-1}$ のような別の符号規約で書く教科書もある。係数符号を丸暗記せず、必ず与えられた多項式を作って根を判定する。
 
 <!-- CARD -->
 
@@ -445,51 +388,21 @@ $$P_1(T_1<\infty)=P_1(X_1=1)=\frac12<1$$
 
 ---
 id: ts-arima-definition
-title: ARIMAモデルを差分演算子で書く
+title: ARIMAを差分から構成しトレンド除去・季節差分まで選択する
 category: applied-common
 subcategory: applied-time-series
-topic: arima-definition
-type: formula
-difficulty: 2
-priority: A
-hashtags: [ARIMAモデル, 差分, バックシフト]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-ARIMA$(p,d,q)$ モデルをバックシフト演算子で定義せよ。
-## 記号・用語
-$BX_t=X_{t-1}$、$\phi(B)=1-\phi_1B-\cdots-\phi_pB^p$、$\theta(B)=1+\theta_1B+\cdots+\theta_qB^q$ とする。$\varepsilon_t$ はホワイトノイズである。
-## 使用公式・定理
-**定義（ARIMAモデル）**：
-$$\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t.$$
-## 一手／方針
-$d$ 回差分した $Y_t=(1-B)^dX_t$ が ARMA$(p,q)$ に従うと読む。
-## 答え
-ARIMA$(p,d,q)$ は、$d$ 回差分後に ARMA$(p,q)$ となるモデルである。
-## 計算例
-ARIMA$(1,1,0)$ は
-$$X_t-X_{t-1}=\phi(X_{t-1}-X_{t-2})+\varepsilon_t$$
-と展開できる。
-## 注意
-定常性は水準系列ではなく、差分系列に対して考える。
-
-<!-- CARD -->
-
----
-id: ts-difference-random-walk
-title: ランダムウォークの非定常性を示して差分で定常化する
-category: applied-common
-subcategory: applied-time-series
-topic: random-walk-differencing
-type: calc_step
-difficulty: 2
+topic: arima-differencing-detrending-canonical
+type: strategy
+difficulty: 3
 priority: A
 hashtags:
+  - 時系列解析
   - ARIMAモデル
-  - ランダムウォーク
-  - 非定常
   - 差分
+  - ランダムウォーク
+  - トレンド
+  - 季節差分
+  - バックシフト
 frequency:
   past_exam: 0
   textbook: 0
@@ -497,131 +410,268 @@ frequency:
   source_confirmations: 0
 sources:
   - type: official_syllabus
-    topic: 差分・ARIMAモデル
+    topic: ARIMAモデル
 ---
 ## 問題
-$$
-X_t=X_{t-1}+\varepsilon_t,
-\qquad X_0=0,
-$$
-$$
-E[\varepsilon_t]=0,
-\qquad \operatorname{Var}(\varepsilon_t)=\sigma^2
-$$
-で、革新が互いに無相関とする。
+非定常時系列の定常化とARIMAモデルについて次を解け。
 
-1. $X_t$ が弱定常でないことを示せ。
-2. 一階差分 $\Delta X_t$ が定常になることを示せ。
+1. ARIMA$(p,d,q)$ をバックシフト演算子で定義し、$d$ の意味を説明せよ。
+2. ランダムウォーク
+$$
+X_t=X_{t-1}+\varepsilon_t,\qquad X_0=0
+$$
+で $E[\varepsilon_t]=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$、革新は互いに無相関とする。水準系列が弱定常でないことを示し、一階差分後の系列を答えよ。
+3. このランダムウォークをARIMA$(p,d,q)$で分類せよ。
+4. $(X_1,X_2,X_3)=(3,5,7)$ に決定論的線形トレンド $a+bt$ を最小二乗で当てはめ、トレンド除去後の系列を求めよ。
+5. 周期12の系列で $X_{25}=130,X_{13}=118$ のとき季節差分を求めよ。
+6. 「線形トレンド除去」「通常差分」「季節差分」を、どの型の非定常性に使うか比較せよ。
 
 ## 記号・用語
-$\nabla X_t=(1-B)X_t=X_t-X_{t-1}$ は1階差分である。
+バックシフト演算子を $BX_t=X_{t-1}$ とする。通常差分と季節差分は
+$$
+\Delta X_t=(1-B)X_t=X_t-X_{t-1},
+$$
+$$
+\Delta_sX_t=(1-B^s)X_t=X_t-X_{t-s}
+$$
+である。
+
+**決定論的トレンド**は $a+bt$ のように時点の関数として表せる平均構造であり、回帰で推定して引く方法がある。一方、ランダムウォークのような**確率的トレンド**ではショックが累積するため、通常差分による定常化が基本になる。
+
 ## 使用公式・定理
-再帰式を展開すると
 $$
-X_t=\sum_{j=1}^{t}\varepsilon_j.
+\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t
 $$
-したがって無相関な革新の分散加法性より
+がARIMA$(p,d,q)$であり、$d$回通常差分した系列がARMA$(p,q)$になる。
+
+ランダムウォークでは
 $$
-\operatorname{Var}(X_t)=t\sigma^2.
+X_t=\sum_{j=1}^t\varepsilon_j,
+\qquad
+\operatorname{Var}(X_t)=t\sigma^2,
 $$
-一階差分は
+したがって水準系列は弱定常でない。一方
 $$
-\Delta X_t=X_t-X_{t-1}=\varepsilon_t.
+(1-B)X_t=\varepsilon_t
+$$
+である。
+
+線形トレンド $a+bt$ の最小二乗推定は
+$$
+\widehat b=\frac{\sum_t(t-\bar t)(X_t-\bar X)}{\sum_t(t-\bar t)^2},
+\qquad
+\widehat a=\bar X-\widehat b\bar t.
 $$
 
 ## 一手／方針
-水準系列は革新を累積しているので分散が時間とともに増える。一方、隣接時点を引くと累積が打ち消され、革新そのものへ戻ることを見る。
+**最初に非定常性の型を判定する。**
+
+- 平均が時点に沿ってほぼ直線的に動く決定論的トレンドなら、時点に回帰してトレンドを引く。
+- ショックが累積し水準が漂う確率的トレンドなら、通常差分を考える。
+- 同じ季節の値が周期的にずれるなら、季節差分を考える。
+
+差分回数 $d$ は暗記する番号ではなく、「何回通常差分すれば定常なARMA系列になるか」と読む。
 
 ## 答え
+1.
+$$
+\boxed{\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t}.
+$$
+$d$ は通常差分の次数である。
+
+2. ランダムウォークでは
 $$
 \operatorname{Var}(X_t)=t\sigma^2
 $$
-が $t$ に依存するため $X_t$ は弱定常でない。
+が時点に依存するので弱定常でない。しかし
+$$
+\Delta X_t=X_t-X_{t-1}=\varepsilon_t
+$$
+なので一階差分はホワイトノイズとなる。
 
-しかし
+3. 一階差分後がARMA$(0,0)$なので
 $$
-\Delta X_t=\varepsilon_t
+\boxed{\operatorname{ARIMA}(0,1,0)}
 $$
-なので、革新がホワイトノイズなら一階差分系列は弱定常である。したがってランダムウォークは典型的な $I(1)$ 過程である。
+であり、代表的な $I(1)$ 過程である。
+
+4. $t=(1,2,3)$、$X=(3,5,7)$ では
+$$
+\bar t=2,\qquad \bar X=5,
+$$
+$$
+\widehat b=2,\qquad \widehat a=1.
+$$
+よって推定トレンドは
+$$
+\widehat X_t=1+2t
+$$
+で、トレンド除去後は
+$$
+\boxed{(0,0,0)}.
+$$
+
+5.
+$$
+\Delta_{12}X_{25}=130-118=\boxed{12}.
+$$
+
+6. 線形トレンド除去は決定論的な平均構造、通常差分は確率的トレンド、季節差分は周期的な非定常性を主に狙う。
 
 ## 計算例
-$\sigma^2=2$ なら
+ARIMA$(1,1,0)$ は
 $$
-\operatorname{Var}(X_1)=2,
-\quad \operatorname{Var}(X_5)=10,
-\quad \operatorname{Var}(X_{20})=40,
+(1-\phi B)(1-B)X_t=\varepsilon_t
 $$
-と水準系列の分散は増え続ける。
+だから、$Y_t=\Delta X_t$ とおけば
+$$
+Y_t=\phi Y_{t-1}+\varepsilon_t.
+$$
+水準系列へ直接AR$(1)$を当てるのではなく、差分系列がAR$(1)$になるモデルと読む。
 
-一方
+また $\sigma^2=2$ のランダムウォークなら
 $$
-\operatorname{Var}(\Delta X_t)=\operatorname{Var}(\varepsilon_t)=2
+\operatorname{Var}(X_1)=2,\quad
+\operatorname{Var}(X_5)=10,\quad
+\operatorname{Var}(X_{20})=40,
 $$
-は時点に依存しない。
+だが $\operatorname{Var}(\Delta X_t)=2$ は一定である。
 
 ## 注意
-平均が一定でも分散や自己共分散が時点に依存すれば弱定常ではない。差分を取り過ぎると別の依存構造を作るので、必要次数だけ差分する。
+「トレンドがあるから必ず差分」とは限らない。決定論的トレンドを持つ系列を差分すると別の依存構造を作ることがあるし、ランダムウォークに単純な線形回帰を当てて残差を定常とみなすのも危険である。
 
-<!-- CARD -->
-
----
-id: ts-seasonal-difference
-title: 季節差分を計算する
-category: applied-common
-subcategory: applied-time-series
-topic: seasonal-difference
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [季節性, 季節差分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: トレンド・季節性 }]
----
-## 問題
-周期12の季節性をもつ系列で、$X_{25}=130$、$X_{13}=118$ のとき季節差分を求めよ。
-## 記号・用語
-$B^{12}X_t=X_{t-12}$、$\nabla_{12}=1-B^{12}$ とする。
-## 使用公式・定理
-**季節差分**：
-$$\nabla_sX_t=(1-B^s)X_t=X_t-X_{t-s}.$$
-## 一手／方針
-同じ季節どうしを引き、繰り返す季節成分を除く。
-## 答え
-$$\nabla_{12}X_{25}=X_{25}-X_{13}=130-118=12.$$
-## 計算例
-周期4の四半期系列なら $\nabla_4X_t=X_t-X_{t-4}$ を使う。
-## 注意
-通常差分 $X_t-X_{t-1}$ と季節差分 $X_t-X_{t-s}$ は目的が異なる。
+差分は多ければよいわけではなく、過差分は不要なMA型依存を作る場合がある。通常差分 $(1-B)$ と季節差分 $(1-B^s)$ も目的が異なる。
 
 <!-- CARD -->
 
 ---
 id: ts-acf-pacf-identification
-title: ACFとPACFからモデル候補を識別する
+title: ACF・PACFからAR/MA候補を絞りYule–WalkerでAR係数まで求める
 category: applied-common
 subcategory: applied-time-series
-topic: acf-pacf-identification
-type: formula
-difficulty: 2
+topic: acf-pacf-yule-walker-canonical
+type: strategy
+difficulty: 3
 priority: A
-hashtags: [自己相関関数, 偏自己相関関数, モデル同定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ACF・PACFによるモデル同定 }]
+hashtags:
+  - 時系列解析
+  - 自己相関関数
+  - 偏自己相関関数
+  - モデル同定
+  - Yule-Walker方程式
+  - ARモデル
+  - MAモデル
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ACF・PACFによるモデル同定
 ---
 ## 問題
-ACFとPACFの形から AR$(p)$ と MA$(q)$ を識別する目安を答えよ。
+ACF・PACFとYule--Walker方程式について次を解け。
+
+1. AR$(p)$、MA$(q)$、ARMA$(p,q)$ の理論ACF・PACFの典型的な形を述べよ。
+2. 標本ACFが $(0.70,0.49,0.34,\ldots)$ と減衰し、標本PACFが $(0.70,0.02,-0.01,\ldots)$ なら第一候補を答えよ。
+3. 標本ACFが $(0.45,0.01,-0.02,\ldots)$ とラグ1でほぼ打ち切られ、PACFが徐々に減衰するなら第一候補を答えよ。
+4. $\rho_1=0.6,\rho_2=0.2$ のときラグ2偏自己相関 $\alpha_{22}$ を求めよ。
+5. AR$(2)$で $\rho(1)=0.6,\rho(2)=0.4$ とする。Yule--Walker方程式から $\phi_1,\phi_2$ を求めよ。
+
 ## 記号・用語
-ACFは自己相関関数、PACFは中間時点の線形効果を除いた偏自己相関関数である。
+ラグ $k$ のPACFは、$X_t$ を $X_{t-1},\ldots,X_{t-k}$ で最良線形予測したときの最遠ラグ $X_{t-k}$ の係数とみなせる。
+
+Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ方程式である。標本ACFを代入すればAR係数の推定にも使える。
+
 ## 使用公式・定理
-**モデル同定の目安**：AR$(p)$ はACFが減衰してPACFがラグ $p$ で打ち切られ、MA$(q)$ はACFがラグ $q$ で打ち切られてPACFが減衰する。
+理論的な目安は
+- AR$(p)$：ACFは減衰、PACFはラグ $p$ で打ち切り。
+- MA$(q)$：ACFはラグ $q$ で打ち切り、PACFは減衰。
+- ARMA$(p,q)$：ACF・PACFとも一般に減衰。
+
+ラグ2の最良線形予測係数は
+$$
+\begin{pmatrix}1&\rho_1\\\rho_1&1\end{pmatrix}
+\begin{pmatrix}a_1\\a_2\end{pmatrix}
+=
+\begin{pmatrix}\rho_1\\\rho_2\end{pmatrix}.
+$$
+したがって
+$$
+\alpha_{22}=a_2
+=\frac{\rho_2-\rho_1^2}{1-\rho_1^2}.
+$$
+
+AR$(2)$
+$$
+X_t=\phi_1X_{t-1}+\phi_2X_{t-2}+\varepsilon_t
+$$
+のYule--Walker方程式は
+$$
+\rho(1)=\phi_1+\phi_2\rho(1),
+$$
+$$
+\rho(2)=\phi_1\rho(1)+\phi_2.
+$$
+
 ## 一手／方針
-厳密に0となる側を探し、次数候補を決める。
+**モデル同定では「どちらが打ち切られるか」を先に見る。係数計算へ進むときは、PACFもAR係数も同じ自己相関行列から出ると理解する。**
+
+標本ACF/PACFは有限標本では厳密に0にならないため、スパイクの有意性・情報量規準・残差診断も併用する。
+
 ## 答え
-PACFがラグ2以降ほぼ0でACFが減衰するなら AR$(1)$、ACFがラグ2以降ほぼ0でPACFが減衰するなら MA$(1)$ が候補である。
+1. AR$(p)$ はACFが減衰しPACFが $p$ で打ち切られる。MA$(q)$ はACFが $q$ で打ち切られPACFが減衰する。ARMA$(p,q)$ は両方とも一般に減衰する。
+
+2. PACFがラグ1だけ大きくACFが減衰しているので
+$$
+\boxed{\operatorname{AR}(1)}
+$$
+が第一候補である。
+
+3. ACFがラグ1で打ち切られPACFが減衰するので
+$$
+\boxed{\operatorname{MA}(1)}
+$$
+が第一候補である。
+
+4.
+$$
+\alpha_{22}=\frac{0.2-0.6^2}{1-0.6^2}
+=\frac{-0.16}{0.64}=\boxed{-0.25}.
+$$
+
+5.
+$$
+0.6=\phi_1+0.6\phi_2,
+\qquad
+0.4=0.6\phi_1+\phi_2.
+$$
+第1式から $\phi_1=0.6-0.6\phi_2$。第2式へ代入すると
+$$
+0.4=0.36+0.64\phi_2,
+$$
+よって
+$$
+\boxed{\phi_2=0.0625},
+\qquad
+\boxed{\phi_1=0.5625}.
+$$
+
 ## 計算例
-標本ACFが $(0.7,0.49,0.34,\ldots)$、標本PACFが $(0.7,0.02,-0.01,\ldots)$ なら AR$(1)$ を候補にする。
+AR$(1)$では $\rho_2=\rho_1^2$ なので
+$$
+\alpha_{22}
+=\frac{\rho_1^2-\rho_1^2}{1-\rho_1^2}=0.
+$$
+したがって理論PACFがラグ1で打ち切られることを、ラグ2について直接確認できる。
+
+一方、標本自己相関 $\widehat\rho_1,\widehat\rho_2$ をYule--Walker方程式へ入れた場合、得られる $\widehat\phi_1,\widehat\phi_2$ は推定値である。
+
 ## 注意
-標本変動があるため、情報量規準や残差診断も併用する。
+ACF/PACFによる識別は初期候補を絞る方法であり、有限標本の標本ACF/PACFは理論値のように厳密に打ち切られない。最終的には情報量規準、係数推定、残差診断まで確認する。
+
+PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した偏相関・最良線形予測の最遠ラグ係数である。
 
 <!-- CARD -->
 
@@ -887,47 +937,16 @@ $f_X(0)/f_X(\pi)$ は分母の比が逆転するので、$(1+\phi)^2/(1-\phi)^2$
 <!-- CARD -->
 
 ---
-id: ts-state-space-definition
-title: 線形ガウス状態空間モデルを定義する
-category: applied-common
-subcategory: applied-time-series
-topic: state-space-definition
-type: formula
-difficulty: 2
-priority: A
-hashtags: [状態空間モデル, カルマンフィルタ]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 状態空間モデル }]
----
-## 問題
-正規分布を用いる線形ガウス状態空間モデルの状態方程式と観測方程式を書け。
-## 記号・用語
-$\boldsymbol\alpha_t$ は潜在状態、$\boldsymbol y_t$ は観測、$\boldsymbol\eta_t\sim N(\boldsymbol0,Q)$ は状態雑音、$\boldsymbol\varepsilon_t\sim N(\boldsymbol0,H)$ は観測雑音である。
-## 使用公式・定理
-**定義（状態空間モデル）**：
-$$\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t,\qquad \boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t,$$
-初期状態と2種類の雑音は互いに独立とする。
-## 一手／方針
-時間発展を状態方程式、状態から観測への対応を観測方程式に分ける。
-## 答え
-潜在状態の推移と観測生成を2本の線形式で表すモデルである。
-## 計算例
-局所水準モデルは $\alpha_t=\alpha_{t-1}+\eta_t$、$y_t=\alpha_t+\varepsilon_t$ であり、$T=Z=1$ である。
-## 注意
-$Q$ と $H$ はそれぞれ状態雑音と観測雑音の分散共分散行列である。
-
-<!-- CARD -->
-
----
 id: ts-kalman-update
-title: カルマンフィルタの予測→更新を1サイクル計算する
+title: 状態空間モデルを書きカルマンフィルタの予測→更新を1サイクル解く
 category: applied-common
 subcategory: applied-time-series
-topic: kalman-filter-cycle
-type: calc_step
+topic: state-space-kalman-cycle-canonical
+type: strategy
 difficulty: 3
 priority: A
 hashtags:
+  - 時系列解析
   - 状態空間モデル
   - カルマンフィルタ
   - 予測
@@ -942,32 +961,47 @@ sources:
     topic: 状態空間モデル
 ---
 ## 問題
-1次元状態空間モデルで
+線形ガウス状態空間モデルとカルマンフィルタについて次を解け。
+
+1. 潜在状態 $\boldsymbol\alpha_t$ と観測 $\boldsymbol y_t$ を用いる状態方程式・観測方程式を書き、$Q,H$ の意味を述べよ。
+2. 1次元モデルで
 $$
-a_{t-1\mid t-1}=2,
-\quad P_{t-1\mid t-1}=3,
-\quad T=0.5,
-\quad Q=1,
+a_{t-1\mid t-1}=2,\quad P_{t-1\mid t-1}=3,
+\quad T=0.5,\quad Q=1,
 $$
 $$
-Z=1,
-\quad H=0.25,
-\quad y_t=2
+Z=1,\quad H=0.25,\quad y_t=2
 $$
-とする。カルマンフィルタの予測平均・予測分散を求め、その後に観測 $y_t$ で更新平均・更新分散を求めよ。
+とする。予測平均・予測分散、予測誤差、その分散、カルマンゲイン、更新平均・更新分散を順に求めよ。
+3. 観測雑音分散 $H$ が非常に小さいときと非常に大きいとき、カルマンゲインがどう変化し、更新値が予測と観測のどちらを強く信頼するか説明せよ。
 
 ## 記号・用語
-$v_t=y_t-Za_{t\mid t-1}$ は予測誤差、$F_t=Z^2P_{t\mid t-1}+H$ はその分散、$K_t=P_{t\mid t-1}Z/F_t$ はカルマンゲインである。
+線形ガウス状態空間モデルは、直接観測できない**潜在状態**の時間発展と、その状態から観測値が生成される仕組みを2本の式で分けて表す。
+
+状態雑音 $\boldsymbol\eta_t$ は状態自身の予測できない変化、観測雑音 $\boldsymbol\varepsilon_t$ は状態を測る際の誤差を表す。カルマンフィルタは、前時点までの情報から状態を**予測**し、新しい観測でその予測を**更新**する逐次推定法である。
+
 ## 使用公式・定理
-**予測**：
+線形ガウス状態空間モデルを
+$$
+\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t,
+\qquad
+\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t,
+$$
+$$
+\boldsymbol\eta_t\sim N(\boldsymbol0,Q),
+\qquad
+\boldsymbol\varepsilon_t\sim N(\boldsymbol0,H)
+$$
+とする。初期状態と各雑音は標準的には互いに独立と仮定する。
+
+1次元で前時点のフィルタ済み状態平均・分散を $a_{t-1\mid t-1},P_{t-1\mid t-1}$ とすると、予測は
 $$
 a_{t\mid t-1}=Ta_{t-1\mid t-1},
 $$
 $$
 P_{t\mid t-1}=T^2P_{t-1\mid t-1}+Q.
 $$
-
-**更新**：
+観測が来たら
 $$
 v_t=y_t-Za_{t\mid t-1},
 \qquad
@@ -980,166 +1014,239 @@ $$
 a_{t\mid t}=a_{t\mid t-1}+K_tv_t,
 $$
 $$
-P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}.
+P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}
 $$
+と更新する。
 
-多次元では分散の予測を
+多次元の予測分散は
 $$
 P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q
 $$
-とする。
+である。
 
 ## 一手／方針
-Kalmanフィルタは「前時点の事後分布を状態方程式で**予測**し、新しい観測でその予測を**更新**する」という2段階を毎時点で繰り返す。式を別カードとして暗記しない。
+**「状態方程式で予測 → 観測方程式で予測誤差を作る → 誤差の不確実性からカルマンゲインを決める → 予測を観測方向へ修正」の順に解く。**
+
+状態空間モデルの2本の定義式を独立暗記せず、カルマンフィルタのどの段階で使われるかと対応させる。数値問題では更新後分散が予測分散より小さくなることを検算に使う。
 
 ## 答え
-予測は
+1. 状態方程式と観測方程式は
 $$
-a_{t\mid t-1}=1,
-\qquad P_{t\mid t-1}=1.75.
-$$
-更新では
-$$
-v_t=1,
-\qquad F_t=2,
-\qquad K_t=0.875,
+\boxed{\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t},
 $$
 $$
-a_{t\mid t}=1.875,
-\qquad P_{t\mid t}=0.21875.
+\boxed{\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t}.
 $$
+$Q$ は状態雑音の分散共分散行列、$H$ は観測雑音の分散共分散行列である。
+
+2. まず予測は
+$$
+a_{t\mid t-1}=0.5\cdot2=\boxed{1},
+$$
+$$
+P_{t\mid t-1}=0.5^2\cdot3+1=\boxed{1.75}.
+$$
+観測との差は
+$$
+v_t=2-1=\boxed{1},
+$$
+その分散は
+$$
+F_t=1.75+0.25=\boxed{2}.
+$$
+よって
+$$
+K_t=1.75/2=\boxed{0.875}.
+$$
+更新後は
+$$
+a_{t\mid t}=1+0.875(1)=\boxed{1.875},
+$$
+$$
+P_{t\mid t}=1.75-0.875(1.75)=\boxed{0.21875}.
+$$
+
+3. $H$ が小さいほど観測は高精度なので $K_t$ は大きくなり、更新平均は観測側へ大きく動く。$H$ が大きいほど観測を信用しにくいため $K_t$ は小さくなり、更新平均は予測値に近く残る。
 
 ## 計算例
-まず予測平均は
+局所水準モデル
 $$
-a_{t\mid t-1}=0.5\cdot2=1.
+\alpha_t=\alpha_{t-1}+\eta_t,
+\qquad
+y_t=\alpha_t+\varepsilon_t
 $$
-予測分散は
+は $T=Z=1$ の状態空間モデルである。
+
+1次元で $Z=1$ の場合
 $$
-\begin{aligned}
-P_{t\mid t-1}
-&=0.5^2\cdot3+1\\
-&=0.75+1\\
-&=1.75.
-\end{aligned}
+K_t=\frac{P^-}{P^-+H}
 $$
-次に
-$$
-v_t=2-1\cdot1=1,
-$$
-$$
-F_t=1^2\cdot1.75+0.25=2,
-$$
-$$
-K_t=\frac{1.75}{2}=0.875.
-$$
-したがって
-$$
-a_{t\mid t}=1+0.875\cdot1=1.875,
-$$
-$$
-\begin{aligned}
-P_{t\mid t}
-&=1.75-0.875\cdot1\cdot1.75\\
-&=0.21875.
-\end{aligned}
-$$
+と書ける。例えば予測分散 $P^-=1$ に対し $H=0.01$ なら $K\approx0.990$、$H=100$ なら $K\approx0.0099$ となり、「不確実性の小さい方を強く信頼する」重みとして読める。
 
 ## 注意
-分散の予測では状態係数を左右から掛ける。更新後分散が予測分散より小さくなることも検算に使える。数値安定性が必要な実装ではJoseph形式を使う場合がある。
+状態 $\boldsymbol\alpha_t$ は観測そのものではなく潜在変数である。状態雑音 $Q$ と観測雑音 $H$ を取り違えない。
+
+多次元では分散予測で $T$ を左右から掛け、観測分散やカルマンゲインも行列になる。実装上は数値安定性のためJoseph形式などを使うことがあるが、1級対策ではまず「予測→更新」の意味と基本式を優先する。
 
 <!-- CARD -->
 
 ---
 id: ts-weak-vs-strong-stationarity
-title: 弱定常性と強定常性を区別する
+title: 弱定常性・自己共分散・ホワイトノイズを一続きで判定する
 category: applied-common
 subcategory: applied-time-series
-topic: stationarity
-type: recognition
+topic: stationarity-autocovariance-white-noise-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [ARIMAモデル, 弱定常, 強定常]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+hashtags:
+  - 時系列解析
+  - 弱定常
+  - 強定常
+  - 自己共分散
+  - 自己相関関数
+  - ホワイトノイズ
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-弱定常性と強定常性の定義を述べよ。
+時系列の定常性と基本的な依存構造について次を解け。
+
+1. 弱定常性と強定常性を定義し、両者の関係を述べよ。
+2. 弱定常過程の自己共分散 $\gamma(h)$ が満たす基本性質を3つ挙げ、自己相関 $\rho(h)$ を定義せよ。
+3. 弱ホワイトノイズ $\{\varepsilon_t\}$ を平均・分散・異時点共分散で定義せよ。
+4. $\gamma(0)=4,\gamma(1)=5$ という自己共分散候補は妥当か。
+5. 平均0、分散9で、異なる時点どうしが無相関な過程は弱ホワイトノイズか。また独立性まで結論できるか。
+
 ## 記号・用語
-- $\gamma(h)$：ラグ $h$ の自己共分散
+**弱定常**とは、平均が時点によらず一定で、自己共分散が2時点の絶対位置ではなくラグだけに依存することをいう。
+
+**強定常**とは、任意の有限個の時点を同じだけ平行移動しても、その同時分布が変わらないことをいう。
+
+弱ホワイトノイズは「平均0・分散一定・異時点で無相関」という2次モーメントで定義される過程であり、一般には独立性や正規性まで要求しない。
+
 ## 使用公式・定理
-弱定常は2次まで、強定常はすべての有限次元分布の時間移動不変性を問う。
+弱定常過程では
+$$
+E[X_t]=\mu,
+\qquad
+\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)
+$$
+が $t$ に依存しない。
+
+自己共分散には
+$$
+\gamma(0)=\operatorname{Var}(X_t)\ge0,
+$$
+$$
+\gamma(-h)=\gamma(h),
+$$
+$$
+|\gamma(h)|\le\gamma(0)
+$$
+が成り立つ。さらに任意の有限係数列 $a_1,\ldots,a_m$ に対して
+$$
+\sum_{i,j}a_ia_j\gamma(t_i-t_j)\ge0
+$$
+となる非負定値性も必要である。
+
+自己相関は
+$$
+\rho(h)=\frac{\gamma(h)}{\gamma(0)}
+$$
+である。
+
+弱ホワイトノイズは
+$$
+E[\varepsilon_t]=0,
+\qquad
+\operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2,
+$$
+$$
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0
+\quad(t\ne s)
+$$
+を満たす。
+
 ## 一手／方針
-強定常性は同時分布、弱定常性は平均と自己共分散だけを比較し、どちらまで確認できたかを分ける。
+**時系列の前提を問われたら「平均 → 分散 → ラグごとの共分散」の順に確認する。** 弱定常なら自己共分散を $\gamma(h)$ と書けるので、対称性・大きさ・非負定値性を確認する。ホワイトノイズなら、その自己共分散がラグ0以外で0になる特別な弱定常過程と見る。
+
 ## 答え
-弱定常は $E[X_t]=\mu$ が一定で $\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)$ が $t$ に依存しないこと。強定常は任意の $k,h$ で $(X_{t_1},\ldots,X_{t_k})$ と $(X_{t_1+h},\ldots,X_{t_k+h})$ が同分布であること。
-## 計算例
-有限分散を持つ強定常過程は弱定常。
-## 注意
-弱定常から強定常は一般には従わない。
+1. 弱定常は
+$$
+E[X_t]=\mu,
+\qquad
+\operatorname{Cov}(X_t,X_{t+h})=\gamma(h)
+$$
+が時点 $t$ に依存しないこと。強定常は任意の $k$ と時点 $t_1,\ldots,t_k$、平行移動量 $r$ に対し
+$$
+(X_{t_1},\ldots,X_{t_k})
+\overset d=
+(X_{t_1+r},\ldots,X_{t_k+r})
+$$
+となること。有限2次モーメントを持つ強定常過程は弱定常だが、逆は一般には成り立たない。
 
-<!-- CARD -->
+2. 基本性質は
+$$
+\boxed{\gamma(0)\ge0},\qquad
+\boxed{\gamma(-h)=\gamma(h)},\qquad
+\boxed{|\gamma(h)|\le\gamma(0)}.
+$$
+自己相関は
+$$
+\boxed{\rho(h)=\gamma(h)/\gamma(0)}.
+$$
 
----
-id: ts-autocovariance-properties
-title: 自己共分散関数の性質を確認する
-category: applied-common
-subcategory: applied-time-series
-topic: autocovariance
-type: formula
-difficulty: 2
-priority: A
-hashtags: [ARIMAモデル, 自己共分散, 定常性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-弱定常過程の自己共分散 $\gamma(h)$ の基本性質を述べよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-$\gamma(h)=\operatorname{Cov}(X_t,X_{t+h})$。
-## 一手／方針
-自己共分散の定義で時点を同じだけ平行移動し、定常性と共分散の対称性を順に使う。
-## 答え
-$$\gamma(0)=\operatorname{Var}(X_t)\ge0,\quad
-\gamma(-h)=\gamma(h),\quad|\gamma(h)|\le\gamma(0).$$
-## 計算例
-自己相関は $\rho(h)=\gamma(h)/\gamma(0)$。
-## 注意
-任意の数列が自己共分散になるわけではなく非負定値性も要する。
-
-<!-- CARD -->
-
----
-id: ts-white-noise-identification
-title: ホワイトノイズの平均と自己共分散を書く
-category: applied-common
-subcategory: applied-time-series
-topic: white-noise
-type: formula
-difficulty: 1
-priority: B
-hashtags: [ARIMAモデル, ホワイトノイズ, 自己共分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-弱ホワイトノイズ $\{\varepsilon_t\}$ を定義せよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-異時点で無相関で分散が一定の平均0過程。
-## 一手／方針
-平均一定、分散一定、異時点の共分散0の3条件をデータまたはモデルから一つずつ確認する。
-## 答え
-$$E[\varepsilon_t]=0,\qquad
+3. 弱ホワイトノイズは
+$$
+E[\varepsilon_t]=0,
+\quad
+\operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2,
+\quad
+\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0\ (t\ne s).
+$$
+したがって
+$$
 \gamma_\varepsilon(h)=
-\begin{cases}\sigma_\varepsilon^2&h=0,\\0&h\ne0.\end{cases}$$
+\begin{cases}
+\sigma_\varepsilon^2,&h=0,\\
+0,&h\ne0.
+\end{cases}
+$$
+
+4. 妥当でない。自己共分散には
+$$
+|\gamma(1)|\le\gamma(0)
+$$
+が必要だが、ここでは $5>4$ だからである。
+
+5. 平均0・分散9一定・異時点無相関なので弱ホワイトノイズである。ただし無相関だけから一般に独立性は従わない。正規過程など追加条件があれば無相関から独立を言える場合がある。
+
 ## 計算例
-ACFはラグ0だけ1で、他は0。
+弱ホワイトノイズで $\sigma_\varepsilon^2=9$ なら
+$$
+\gamma(0)=9,\qquad
+\gamma(1)=\gamma(2)=\cdots=0,
+$$
+したがって
+$$
+\rho(0)=1,\qquad
+\rho(h)=0\quad(h\ne0).
+$$
+これはAR・MAモデルの「革新」の基準となる依存のない2次構造である。
+
 ## 注意
-弱ホワイトノイズは独立性や正規性を必ずしも仮定しない。
+「定常」は平均が一定というだけでは足りない。分散が時点で変わるランダムウォークは、平均0でも弱定常でない。
+
+また $|\gamma(h)|\le\gamma(0)$ と対称性を満たすだけで、任意の数列が自己共分散関数になるわけではない。完全な妥当性には非負定値性が必要である。
+
+弱ホワイトノイズの「白色」は無相関を意味し、独立・正規とは区別する。
 
 <!-- CARD -->
 
@@ -1409,153 +1516,6 @@ $h\to\infty$ では予測値は $\mu$、予測誤差分散は定常分散 $\sigm
 <!-- CARD -->
 
 ---
-id: ts-yule-walker-ar2
-title: AR(2)のYule–Walker方程式を解く
-category: applied-common
-subcategory: applied-time-series
-topic: yule-walker
-type: calc_step
-difficulty: 4
-priority: A
-hashtags: [ARIMAモデル, Yule-Walker方程式, AR2]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
----
-## 問題
-AR(2)で $\rho(1)=0.6,\rho(2)=0.4$。Yule–Walker方程式から $\phi_1,\phi_2$ を求めよ。
-## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
-## 使用公式・定理
-$$\rho(1)=\phi_1+\phi_2\rho(1),\quad
-\rho(2)=\phi_1\rho(1)+\phi_2.$$
-## 一手／方針
-与えられた自己相関を2本のYule--Walker方程式へ代入し、連立一次方程式を消去法で解く。
-## 答え
-$0.6=\phi_1+0.6\phi_2$、$0.4=0.6\phi_1+\phi_2$ を解き
-$$\phi_1=0.5625,\qquad\phi_2=0.0625.$$
-第1式から $\phi_1=0.6-0.6\phi_2$。これを第2式へ代入すると $0.4=0.36+0.64\phi_2$ なので $\phi_2=0.0625$、さらに $\phi_1=0.5625$ を得る。
-## 計算例
-第1式から $\phi_1=0.6-0.6\phi_2$ と代入する。
-## 注意
-標本ACFを代入した解は推定値である。
-
-<!-- CARD -->
-
----
-id: ts-ma1-invertibility
-title: MA(1)の可逆条件を導き革新を観測から復元する
-category: applied-common
-subcategory: applied-time-series
-topic: ma1-invertibility-canonical
-type: strategy
-difficulty: 3
-priority: A
-hashtags:
-  - 時系列解析
-  - MAモデル
-  - 可逆性
-  - 革新
-  - バックシフト演算子
-frequency:
-  past_exam: 0
-  textbook: 0
-  independent_problems: 0
-  source_confirmations: 0
-sources:
-  - type: official_syllabus
-    topic: ARIMAモデル
----
-## 問題
-MA(1)
-$$
-X_t=\varepsilon_t+\theta\varepsilon_{t-1}
-$$
-を考える。
-1. 観測系列から革新 $\varepsilon_t$ を一意に安定復元できるための可逆条件を、再帰代入とMA多項式の根の両方から導け。
-2. $\theta=1.2$ のモデルが可逆か判定せよ。
-3. $\theta=0.4$、$X_t=3.0$、$\varepsilon_{t-1}=-0.5$ のとき $\varepsilon_t$ を求めよ。さらに $X_{t+1}=1.8$ なら $\varepsilon_{t+1}$ も求めよ。
-
-## 記号・用語
-$\varepsilon_t$ は時点 $t$ の革新である。**可逆性**とは、現在の革新を現在・過去の観測 $X_t,X_{t-1},\ldots$ の収束する線形和として表せる性質をいう。モデル式の符号規約を
-$$
-X_t=(1+\theta B)\varepsilon_t
-$$
-とする。
-
-## 使用公式・定理
-モデル式を革新について解くと
-$$
-\varepsilon_t=X_t-\theta\varepsilon_{t-1}.
-$$
-さらに
-$$
-\varepsilon_{t-1}=X_{t-1}-\theta\varepsilon_{t-2}
-$$
-を代入すれば
-$$
-\varepsilon_t
-=X_t-\theta X_{t-1}+\theta^2\varepsilon_{t-2}.
-$$
-再帰を続けると形式的に
-$$
-\varepsilon_t
-=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\theta^3X_{t-3}+\cdots.
-$$
-係数が減衰してこの表現が安定するには
-$$
-|\theta|<1
-$$
-が必要である。
-
-同じ条件はMA多項式
-$$
-1+\theta z=0
-$$
-の根
-$$
-z=-\frac1\theta
-$$
-が単位円の外側、すなわち $|z|>1$ であることと同値である。
-
-## 一手／方針
-**可逆条件を根の公式だけで暗記しない。** まず $\varepsilon_t=X_t-\theta\varepsilon_{t-1}$ と解いて再帰代入し、過去観測の係数 $1,-\theta,\theta^2,\ldots$ が減衰する条件を見る。その後でMA多項式の根条件と一致することを確認する。
-
-## 答え
-1. 再帰表示の係数が幾何級数的に減衰する条件は
-$$
-|\theta|<1.
-$$
-また $1+\theta z=0$ の根は $z=-1/\theta$ なので、根が単位円外という条件 $|z|>1$ も同じく $|\theta|<1$ を与える。
-
-2. $|1.2|>1$ なので可逆でない。
-
-3. 
-$$
-\varepsilon_t
-=3.0-0.4(-0.5)
-=3.2.
-$$
-次時点は
-$$
-\varepsilon_{t+1}
-=1.8-0.4(3.2)
-=0.52.
-$$
-
-## 計算例
-$\theta=-0.5$ なら
-$$
-\varepsilon_t
-=X_t+0.5X_{t-1}+0.25X_{t-2}+\cdots
-$$
-となり、係数は減衰する。一方 $\theta=1.2$ では $1,-1.2,1.2^2,\ldots$ と係数が減衰せず、過去観測から安定に革新を復元できない。
-
-## 注意
-有限次数MA過程はホワイトノイズの有限線形結合なので定常性自体は満たせるが、可逆性は別条件である。また $X_t=\varepsilon_t-\theta\varepsilon_{t-1}$ のような別の符号規約では多項式の符号も変わるため、係数の符号を丸暗記せずモデル式から導く。
-
-<!-- CARD -->
-
----
 id: ts-maq-acf-cutoff
 title: MA(q)の自己共分散を導きACFの打切りを説明する
 category: applied-common
@@ -1738,32 +1698,127 @@ $$p_{13}^{(2)}=(1/2)0+(1/2)(1/2)+0=1/4.$$
 
 ---
 id: stoch-three-state-stationary
-title: 3状態連鎖の定常分布を解く
+title: 定常分布を連立方程式で解き長期割合を読む
 category: applied-common
 subcategory: applied-stochastic-processes
-topic: stationary-distribution
-type: calc_step
+topic: stationary-distribution-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [マルコフ連鎖, 定常分布, 連立方程式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+hashtags:
+  - マルコフ連鎖
+  - 定常分布
+  - 連立方程式
+  - 可用率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ連鎖
 ---
 ## 問題
-$P=\begin{pmatrix}0&1&0\\0&0&1\\1/2&0&1/2\end{pmatrix}$ の定常分布を求めよ。
+離散時間マルコフ連鎖について次を解け。
+1. 遷移行列
+$$
+P=\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+1/2&0&1/2
+\end{pmatrix}
+$$
+の定常分布 $\boldsymbol\pi=(\pi_1,\pi_2,\pi_3)$ を求めよ。
+2. 稼働状態0・故障状態1の遷移行列
+$$
+P=\begin{pmatrix}
+0.9&0.1\\
+0.4&0.6
+\end{pmatrix}
+$$
+について定常分布を求め、長期可用率を答えよ。
+
 ## 記号・用語
-- $\boldsymbol\pi=(\pi_1,\pi_2,\pi_3)$：定常分布
+定常分布 $\boldsymbol\pi$ は、1期進めても分布が変わらない確率ベクトルである。行ベクトル表記なら
+$$
+\boldsymbol\pi P=\boldsymbol\pi,
+\qquad
+\sum_i\pi_i=1,
+\qquad
+\pi_i\ge0.
+$$
+長期可用率とは、十分長い時間で見たときに系が稼働状態にいる割合である。有限既約連鎖では各状態の長期滞在割合を対応する定常確率として読める。
+
 ## 使用公式・定理
-$\boldsymbol\pi P=\boldsymbol\pi$、$\sum_i\pi_i=1$。
+定常分布は
+$$
+\boldsymbol\pi P=\boldsymbol\pi
+$$
+と正規化条件
+$$
+\sum_i\pi_i=1
+$$
+を連立して求める。
+
+2状態連鎖
+$$
+P=\begin{pmatrix}
+1-a&a\\
+b&1-b
+\end{pmatrix}
+$$
+では定常状態で状態間の流量が釣り合うため
+$$
+\pi_0a=\pi_1b
+$$
+と $\pi_0+\pi_1=1$ から解ける。
+
 ## 一手／方針
-未知の定常確率を置き、定常方程式と確率の総和1を連立して解く。
+**まず $\boldsymbol\pi P=\boldsymbol\pi$ を成分ごとに書き、独立な式だけ残して最後に確率の総和1で正規化する。** 2状態なら往復流量の釣合いを使うと速い。求めた定常確率を、問題文の「長期割合」「長期可用率」などの意味へ戻して答える。
+
 ## 答え
-$\pi_2=\pi_1$、$\pi_3=2\pi_1$ より
-$$\boldsymbol\pi=(1/4,1/4,1/2).$$
+1. 定常方程式から
+$$
+\pi_1=\frac12\pi_3,
+\qquad
+\pi_2=\pi_1.
+$$
+したがって $\pi_3=2\pi_1$ であり、
+$$
+\pi_1+\pi_2+\pi_3
+=\pi_1+\pi_1+2\pi_1=1.
+$$
+よって
+$$
+\boldsymbol\pi=\left(\frac14,\frac14,\frac12\right).
+$$
+
+2. 稼働から故障への定常流量と故障から修復への定常流量を等置すると
+$$
+0.1\pi_0=0.4\pi_1.
+$$
+よって $\pi_0=4\pi_1$。さらに $\pi_0+\pi_1=1$ なので
+$$
+(\pi_0,\pi_1)=(0.8,0.2).
+$$
+したがって長期可用率は
+$$
+\boxed{0.8}
+$$
+である。
+
 ## 計算例
-代入すると $\boldsymbol\pi P=(1/4,1/4,1/2)$。
+一般の2状態故障修復連鎖で、1期当たり故障確率を $a$、修復確率を $b$ とすると
+$$
+\pi_0=\frac{b}{a+b},
+\qquad
+\pi_1=\frac{a}{a+b}.
+$$
+したがって $a$ が小さくなる、または $b$ が大きくなるほど長期可用率 $\pi_0$ は高くなる。
+
 ## 注意
-固有方程式だけでなく総和1も使う。
+$\boldsymbol\pi P=\boldsymbol\pi$ の各成分方程式はすべて独立とは限らないため、最後に $\sum_i\pi_i=1$ を必ず使う。定常分布が存在しても、任意の初期分布から $\boldsymbol\pi$ へ収束するとは限らない。有限既約かつ非周期的な連鎖なら分布は定常分布へ収束する。また詳細釣合い $\pi_ip_{ij}=\pi_jp_{ji}$ は定常性を示す十分条件として便利だが、一般の定常分布が必ず詳細釣合いを満たすわけではない。
 
 <!-- CARD -->
 
@@ -1953,33 +2008,120 @@ $E[\xi_i^2]=1$ を使うと分散を速く計算できる。
 
 ---
 id: stoch-gambler-ruin
-title: 対称ランダムウォークの破産確率を求める
+title: 吸収ランダムウォークの到達確率を偏りあり・対称で解く
 category: applied-common
 subcategory: applied-stochastic-processes
-topic: gambler-ruin
-type: calc_step
+topic: gambler-ruin-canonical
+type: strategy
 difficulty: 4
 priority: A
-hashtags: [ランダムウォーク, 破産問題, 吸収確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ランダムウォーク }]
+hashtags:
+  - ランダムウォーク
+  - 破産問題
+  - 吸収確率
+  - 差分方程式
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ランダムウォーク
 ---
 ## 問題
-$0$ と $N$ で吸収される対称ランダムウォークが $i$ から出発する。$N$ へ先に到達する確率を求めよ。
+状態 $0,1,\ldots,N$ 上のランダムウォークを考える。$0$ と $N$ は吸収状態で、内部状態では確率 $p$ で $+1$、確率 $q=1-p$ で $-1$ 進む。状態 $i$ から出発して、0より先に $N$ へ到達する確率を $h_i$ とする。
+1. $p\ne q$ のとき $h_i$ を差分方程式から導け。
+2. 対称な場合 $p=q=1/2$ の $h_i$ を導け。
+3. $N=5,i=2,p=0.6,q=0.4$ のとき数値を求めよ。
+
 ## 記号・用語
-$S_n=\sum_{k=1}^n\xi_k$ はランダムウォーク、$\xi_k$ は互いに独立で同じ分布に従う増分である。$\mathcal F_n$ は時刻 $n$ までの情報を表す。
+$T_j$ を状態 $j$ への初到達時刻とすると
+$$
+h_i=P_i(T_N<T_0)
+$$
+である。これは上側境界 $N$ への吸収確率であり、下側境界0へ先に到達する確率は $1-h_i$ である。
+
 ## 使用公式・定理
-$h_i=(h_{i-1}+h_{i+1})/2$、$h_0=0,h_N=1$。
+最初の1歩で条件付けると、$1\le i\le N-1$ で
+$$
+h_i=ph_{i+1}+qh_{i-1},
+$$
+境界条件は
+$$
+h_0=0,\qquad h_N=1
+$$
+である。
+
+$p\ne q$ のとき、差分
+$$
+d_i=h_i-h_{i-1}
+$$
+を置くと
+$$
+p(h_{i+1}-h_i)=q(h_i-h_{i-1}),
+$$
+したがって
+$$
+d_{i+1}=\frac qp d_i.
+$$
+よって差分は等比数列になる。
+
 ## 一手／方針
-次の1歩で条件付けて吸収確率の二階差分方程式を作り、2つの境界条件で定数を決める。
+**完成公式を暗記するのではなく、「最初の1歩で条件付ける→隣接差分 $d_i$ を置く→等比数列を足し上げる→2つの境界条件で定数を決める」と進める。** 対称な場合だけは比 $q/p=1$ となるため別に扱い、差分が一定であることから一次式を得る。
+
 ## 答え
-差分方程式の解は一次式なので
-$$h_i=\frac{i}{N}.$$
-$h_i=(h_{i-1}+h_{i+1})/2$ を移項すると $h_{i+1}-h_i=h_i-h_{i-1}$。したがって差分は一定で $h_i=A+Bi$、境界条件 $h_0=0,h_N=1$ から $h_i=i/N$ となる。
+1. $p\ne q$ とする。$r=q/p$ とおけば
+$$
+d_i=d_1r^{i-1}.
+$$
+$h_0=0$ より
+$$
+h_i=\sum_{j=1}^i d_j
+=d_1\frac{1-r^i}{1-r}.
+$$
+さらに $h_N=1$ だから
+$$
+1=d_1\frac{1-r^N}{1-r}.
+$$
+したがって
+$$
+\boxed{
+h_i=\frac{1-(q/p)^i}{1-(q/p)^N}
+}.
+$$
+
+2. $p=q=1/2$ では
+$$
+h_i=\frac{h_{i+1}+h_{i-1}}2
+$$
+なので
+$$
+h_{i+1}-h_i=h_i-h_{i-1}.
+$$
+差分が一定で $h_i$ は $i$ の一次式になる。$h_0=0,h_N=1$ より
+$$
+\boxed{h_i=\frac{i}{N}}.
+$$
+
+3. $q/p=(0.4)/(0.6)=2/3$ なので
+$$
+h_2
+=\frac{1-(2/3)^2}{1-(2/3)^5}
+=\frac{5/9}{211/243}
+=\frac{135}{211}
+\approx0.640.
+$$
+
 ## 計算例
-$N=10,i=3$ なら確率は0.3。
+同じ $N=5,i=2$ でも対称ランダムウォークなら
+$$
+h_2=\frac25=0.4.
+$$
+$p=0.6>q=0.4$ では上向きのドリフトがあるため、上側到達確率は約0.640へ増える。逆に $p<q$ なら上側到達確率は対称時より小さくなる。
+
 ## 注意
-非対称歩行では一般に一次式にならない。
+$p\ne q$ 用の式へ $p=q$ を直接代入すると分子・分母がともに0になるので使えない。対称の場合は差分方程式を直接解くか、極限として $i/N$ を得る。また「0へ先に到達する破産確率」を問われた場合は、上側到達確率と取り違えず $1-h_i$ を答える。境界が0と$N$以外なら、状態を平行移動して同じ考え方を使う。
 
 <!-- CARD -->
 

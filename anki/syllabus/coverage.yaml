@@ -1731,17 +1731,10 @@ items:
     status: complete
     cards:
       - design-fisher-three-principles
-      - design-randomization-purpose
-      - design-replication-purpose
-      - design-local-control
-      - design-experimental-observational-unit
-      - design-pseudoreplication
       - design-crd-allocation-count
       - design-crd-difference-means
       - design-blocking-paired-variance
       - design-rcbd-relative-efficiency
-      - design-rcbd-sums-squares
-      - design-rcbd-degrees-freedom
       - design-rcbd-anova-numeric
       - design-latin-square-definition
       - design-latin-square-model
@@ -1756,7 +1749,6 @@ items:
       - design-two-level-effect-contrast
       - design-random-oneway-components
       - design-random-intercept-covariance
-      - design-block-confounding
       - design-fraction-generator
       - design-alias-structure
       - design-orthogonal-array-basic
@@ -1771,9 +1763,6 @@ items:
         status: card
         cards:
           - design-fisher-three-principles
-          - design-randomization-purpose
-          - design-replication-purpose
-          - design-local-control
       - name: 一元配置法
         status: card
         cards:
@@ -1793,21 +1782,16 @@ items:
       - name: ブロック化
         status: card
         cards:
-          - design-local-control
+          - design-fisher-three-principles
           - design-blocking-paired-variance
           - design-rcbd-relative-efficiency
-          - design-rcbd-sums-squares
-          - design-rcbd-degrees-freedom
           - design-rcbd-anova-numeric
           - design-rcbd-missing-value
-          - design-block-confounding
           - design-split-plot-error-strata
       - name: 乱塊法
         status: card
         cards:
           - design-rcbd-relative-efficiency
-          - design-rcbd-sums-squares
-          - design-rcbd-degrees-freedom
           - design-rcbd-anova-numeric
           - design-rcbd-missing-value
           - design-oneway-vs-block
@@ -1815,7 +1799,6 @@ items:
         status: card
         cards:
           - design-two-level-effect-contrast
-          - design-block-confounding
           - design-fraction-generator
           - design-alias-structure
           - design-orthogonal-array-basic
@@ -2031,55 +2014,35 @@ items:
     status: complete
     cards:
       - ts-arima-definition
-      - ts-difference-random-walk
-      - ts-seasonal-difference
       - ts-acf-pacf-identification
-      - ts-pacf-lag2-calculation
       - ts-sample-acf
       - ts-simple-exponential-smoothing
       - ts-spectral-density-ar1
-      - ts-software-arima-coefficients
       - ts-software-residual-diagnostics
       - ts-ar-causality-check
-      - ts-linear-detrend
-      - ts-state-space-definition
       - ts-kalman-update
       - ts-weak-vs-strong-stationarity
-      - ts-autocovariance-properties
-      - ts-white-noise-identification
       - ts-ar1-acf
       - ts-ar1-hstep-forecast
-      - ts-yule-walker-ar2
-      - ts-ma1-invertibility
       - ts-maq-acf-cutoff
     terms:
       - name: ARIMAモデル
         status: card
         cards:
           - ts-arima-definition
-          - ts-difference-random-walk
-          - ts-seasonal-difference
-          - ts-linear-detrend
           - ts-weak-vs-strong-stationarity
-          - ts-autocovariance-properties
-          - ts-white-noise-identification
           - ts-ar1-acf
           - ts-ar1-hstep-forecast
           - ts-ar-causality-check
-          - ts-yule-walker-ar2
-          - ts-ma1-invertibility
-          - ts-maq-acf-cutoff
           - ts-acf-pacf-identification
-          - ts-pacf-lag2-calculation
+          - ts-maq-acf-cutoff
           - ts-sample-acf
           - ts-simple-exponential-smoothing
           - ts-spectral-density-ar1
-          - ts-software-arima-coefficients
           - ts-software-residual-diagnostics
       - name: 状態空間モデル
         status: card
         cards:
-          - ts-state-space-definition
           - ts-kalman-update
   - id: engineering-multivariate
     status: complete
@@ -2127,23 +2090,18 @@ items:
   - id: engineering-stochastic-processes
     status: complete
     cards:
-      - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
-      - engproc-ctmc-holding-jump-probability
       - engproc-two-state-ctmc-transition
       - engproc-nhpp-cumulative-intensity
       - engproc-poisson-rate-estimate-exposure
       - engproc-brownian-bridge-conditional
       - engproc-ou-mean-variance
       - engproc-degradation-two-step
-      - engproc-repair-chain-stationary-availability
       - engproc-stationary-mean-recurrence
       - engproc-birth-death-detailed-balance
-      - engproc-mm1-stationary-probability
       - engproc-mm1-little-law
       - engproc-absorbing-fundamental-matrix
-      - engproc-absorbing-probability-matrix
       - engproc-markov-reward-long-run
       - engproc-ctmc-uniformization
       - engproc-chapman-kolmogorov-maintenance
@@ -2160,19 +2118,16 @@ items:
       - name: ランダムウォーク
         status: card
         cards:
-          - engproc-biased-walk-hit-upper
           - engproc-random-walk-expected-absorption
       - name: マルコフ過程
         status: card
         cards:
           - engproc-ctmc-generator-check
-          - engproc-ctmc-holding-jump-probability
           - engproc-two-state-ctmc-transition
           - engproc-ctmc-uniformization
           - engproc-ou-mean-variance
           - engproc-brownian-bridge-conditional
           - engproc-birth-death-detailed-balance
-          - engproc-mm1-stationary-probability
           - engproc-mm1-little-law
       - name: ポアソン過程
         status: card
@@ -2183,11 +2138,9 @@ items:
         status: card
         cards:
           - engproc-degradation-two-step
-          - engproc-repair-chain-stationary-availability
           - engproc-stationary-mean-recurrence
           - engproc-birth-death-detailed-balance
           - engproc-absorbing-fundamental-matrix
-          - engproc-absorbing-probability-matrix
           - engproc-markov-reward-long-run
           - engproc-chapman-kolmogorov-maintenance
       - name: 時系列解析
@@ -2398,9 +2351,6 @@ items:
       - engqc-control-chart-selection
       - engqc-s-chart-limits
       - engqc-imr-moving-range
-      - engqc-control-vs-specification
-      - engqc-common-special-causes
-      - engqc-rational-subgrouping
       - engqc-phase1-phase2
       - engqc-three-sigma-false-alarm
       - engqc-arl1-mean-shift
@@ -2411,9 +2361,6 @@ items:
       - engqc-process-adjustment-overcontrol
       - engqc-cpm-target
       - engqc-capability-defect-rate
-      - engqc-capability-stability-first
-      - engqc-one-sided-cpu
-      - engqc-nonnormal-capability
       - engrel-parallel-common-cause
       - engrel-k-out-of-n
       - engrel-weibull-reliability
@@ -2421,10 +2368,7 @@ items:
       - engmaint-maintainability-exponential
       - engrel-failure-rate-exact-ci
       - engrel-competing-risks-exponential
-      - engrel-bathtub-curve
       - engmaint-preventive-replacement-rate
-      - engmaint-series-availability
-      - engmaint-reliability-vs-availability
     terms:
       - name: 管理図
         status: card
@@ -2450,83 +2394,49 @@ items:
           - engrel-weibull-reliability
           - engrel-failure-rate-exact-ci
           - engrel-competing-risks-exponential
-          - engrel-bathtub-curve
       - name: 保全性
         status: card
         cards:
           - engmaint-steady-availability
           - engmaint-maintainability-exponential
           - engmaint-preventive-replacement-rate
-          - engmaint-series-availability
-          - engmaint-reliability-vs-availability
       - name: プロセス管理
         status: card
         cards:
           - engqc-control-chart-selection
-          - engqc-control-vs-specification
-          - engqc-common-special-causes
-          - engqc-rational-subgrouping
           - engqc-phase1-phase2
           - engqc-process-adjustment-overcontrol
-          - engqc-capability-stability-first
+          - engqc-cpk-offcenter
       - name: 工程能力指数
         status: card
         cards:
           - engqc-cpk-offcenter
           - engqc-cpm-target
           - engqc-capability-defect-rate
-          - engqc-capability-stability-first
-          - engqc-one-sided-cpu
-          - engqc-nonnormal-capability
   - id: engineering-design
     status: complete
     cards:
       - engdesign-confounder-randomization
-      - engdesign-objective-response-factor
-      - engdesign-weighted-contrast-covariance
-      - engdesign-missing-run-nonorthogonality
-      - engdesign-factorial-pure-error
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
-      - engdesign-partial-confounding
-      - engdesign-subsampling-variance
-      - engdesign-randomization-permutation
-      - engdesign-rerandomization-balance
-      - engdesign-precision-weighted-block-difference
-      - engdesign-rcbd-adjusted-difference
-      - engdesign-cyclic-incomplete-blocks
-      - engdesign-graeco-latin-df
-      - engdesign-latin-square-treatment-mean
-      - engdesign-random-slope-covariance
       - engdesign-fixed-effect-hypothesis
-      - engdesign-random-effect-blup
-      - engdesign-gage-rr-variance
       - engdesign-block-vs-covariate
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
-      - engdesign-incomplete-incidence-matrix
-      - engdesign-bibd-parameter-check
-      - engdesign-bibd-contrast-variance
       - engdesign-incomplete-block-connectivity
+      - engdesign-bibd-contrast-variance
       - engdesign-nested-df
       - engdesign-repeated-measures-unit
-      - engdesign-replication-power-ratio
       - engdesign-choice-integrated
     terms:
       - name: 実験の計画と実施
         status: card
         cards:
-          - engdesign-objective-response-factor
-          - engdesign-subsampling-variance
-          - engdesign-randomization-permutation
-          - engdesign-rerandomization-balance
-          - engdesign-factorial-pure-error
           - engdesign-lack-of-fit-decomposition
           - engdesign-split-plot-randomization
           - engdesign-nested-df
           - engdesign-repeated-measures-unit
-          - engdesign-replication-power-ratio
           - engdesign-choice-integrated
       - name: 固定効果
         status: card
@@ -2535,9 +2445,7 @@ items:
       - name: 変量効果
         status: card
         cards:
-          - engdesign-random-slope-covariance
-          - engdesign-random-effect-blup
-          - engdesign-gage-rr-variance
+          - engdesign-fixed-effect-hypothesis
       - name: 交絡因子
         status: card
         cards:
@@ -2546,27 +2454,17 @@ items:
       - name: ブロック化
         status: card
         cards:
-          - engdesign-precision-weighted-block-difference
-          - engdesign-rcbd-adjusted-difference
-          - engdesign-cyclic-incomplete-blocks
-          - engdesign-graeco-latin-df
-          - engdesign-latin-square-treatment-mean
+          - engdesign-confounder-randomization
           - engdesign-block-generator-protect-effects
-          - engdesign-partial-confounding
           - engdesign-split-plot-randomization
-          - engdesign-incomplete-incidence-matrix
-          - engdesign-bibd-parameter-check
-          - engdesign-bibd-contrast-variance
           - engdesign-incomplete-block-connectivity
+          - engdesign-bibd-contrast-variance
       - name: 直交表
         status: card
         cards:
-          - engdesign-weighted-contrast-covariance
-          - engdesign-missing-run-nonorthogonality
           - engdesign-snr-smaller-better
       - name: 交絡法
         status: card
         cards:
           - engdesign-foldover-dealias
           - engdesign-block-generator-protect-effects
-          - engdesign-partial-confounding

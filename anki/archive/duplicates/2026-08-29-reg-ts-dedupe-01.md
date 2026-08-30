@@ -238,7 +238,7 @@ sources:
   - type: official_syllabus
     topic: ランダムウォーク
 archive_reason: duplicate
-canonical_card: ts-difference-random-walk
+canonical_card: ts-arima-definition
 archive_note: 累積系列を1階差分してランダムウォークの増分へ戻す同じ操作。common側はARIMA(0,1,0)まで接続するため情報量が多い。
 ---
 ## 問題

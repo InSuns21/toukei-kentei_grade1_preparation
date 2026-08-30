@@ -379,36 +379,132 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 
 ---
 id: mv-covariance-linear-transform
-title: 線形変換後の分散共分散行列を求める
+title: 線形変換した共分散から相関行列・単位変更不変性まで扱う
 category: applied-common
 subcategory: applied-multivariate
-topic: covariance-transform
-type: calc_step
+topic: covariance-correlation-transform-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [分散共分散行列, 線形変換, 多変量解析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと分散共分散行列 }]
+hashtags:
+  - 多変量解析
+  - 分散共分散行列
+  - 相関行列
+  - 線形変換
+  - 標準化
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多変量平均ベクトルと分散共分散行列
 ---
 
 ## 問題
-$\operatorname{Var}(\boldsymbol X)=\operatorname{diag}(1,4)$、$Y=X_1+2X_2$ の分散を求めよ。
+確率ベクトル $\boldsymbol X$ の分散共分散行列を
+$$
+\boldsymbol\Sigma=
+\begin{pmatrix}4&3\\3&9\end{pmatrix}
+$$
+とする。
+
+1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
+2. $Y_1=X_1+X_2$ の分散を求めよ。
+3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
+4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
+5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
+
+## 記号・用語
+分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+定数ベクトルの共分散は0なので
+$$
+\operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
+=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
+$$
 
-$\operatorname{Var}(\boldsymbol A\boldsymbol X)=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}$。
+線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
+$$
+\operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+$$
+
+$\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
+$$
+\boldsymbol R
+=\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
+$$
+成分では
+$$
+\rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
+$$
+
+## 一手／方針
+**「線形変換なら $A\Sigma A^{\mathsf T}$、尺度を消したいなら左右から標準偏差の逆数を掛ける」と整理する。**
+
+相関の単位変更不変性は別公式として暗記せず、分子の共分散と分母の標準偏差積が同じ倍率で変わって相殺されることから確認する。
 
 ## 答え
-$\boldsymbol a=(1,2)^{\mathsf T}$ として
-$$\operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-=1^2(1)+2^2(4)=17.$$
+1.
+$$
+\boxed{\operatorname{Cov}(\boldsymbol Y)
+=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
+$$
+$\boldsymbol b$ は確率変動を持たないので共分散へ寄与しない。
+
+2. $\boldsymbol a=(1,1)^{\mathsf T}$ として
+$$
+\operatorname{Var}(X_1+X_2)
+=4+9+2\cdot3
+=\boxed{19}.
+$$
+
+3. 標準偏差は $2,3$ なので
+$$
+\rho_{12}=\frac3{2\cdot3}=\frac12,
+$$
+$$
+\boxed{\boldsymbol R=
+\begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
+$$
+
+4. 単位変更後の分散共分散行列は
+$$
+\boldsymbol\Sigma_Z
+=\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
+$$
+よって
+$$
+\rho_{Z_1Z_2}
+=\frac{3000}{\sqrt{400\cdot90000}}
+=\boxed{0.5}.
+$$
+
+5. 片方だけを負の定数倍すると、共分散の符号だけが反転し標準偏差は正なので、相関係数の符号が反転する。
 
 ## 計算例
-共分散0なので交差項はない。
+一般に $Z_1=c_1X_1,Z_2=c_2X_2$ なら
+$$
+\operatorname{Cov}(Z_1,Z_2)=c_1c_2\operatorname{Cov}(X_1,X_2),
+$$
+$$
+\operatorname{sd}(Z_i)=|c_i|\operatorname{sd}(X_i).
+$$
+したがって
+$$
+\operatorname{Corr}(Z_1,Z_2)
+=\operatorname{sgn}(c_1c_2)\operatorname{Corr}(X_1,X_2).
+$$
+正の単位換算なら相関は不変である。
 
 ## 注意
-相関があれば $2a_1a_2\sigma_{12}$ を含む。
+$\operatorname{Var}(a_1X_1+a_2X_2)$ では、相関があると交差項
+$$
+2a_1a_2\operatorname{Cov}(X_1,X_2)
+$$
+を落とせない。相関行列と分散共分散行列のどちらをPCAなどへ使うかは、変数の単位・尺度を残したいかどうかで意味が変わる。
 
 <!-- CARD -->
 
@@ -532,20 +628,21 @@ $$
 
 ---
 id: mv-pca-variance-max
-title: 主成分分析を行列選択から固有値・得点・負荷量まで通す
+title: 主成分分析を分散最大化から得点・負荷量・再構成まで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: pca-canonical
-type: calc_step
+topic: pca-spectral-canonical
+type: strategy
 difficulty: 4
 priority: A
 hashtags:
   - 主成分分析
   - 固有値
+  - 固有ベクトル
   - 寄与率
   - 主成分得点
   - 主成分負荷量
-  - 相関行列
+  - スペクトル分解
 frequency:
   past_exam: 0
   textbook: 0
@@ -557,170 +654,115 @@ sources:
 ---
 
 ## 問題
-中心化した $p$ 次元データの主成分分析を考える。
+中心化した $p$ 次元データの主成分分析について次を解け。
 
-1. 第1主成分が分散共分散行列の最大固有値に対応する固有ベクトルになることを、分散最大化から導け。
-2. 変数の単位・分散が大きく異なるとき、共分散行列PCAと相関行列PCAをどう使い分けるか。
-3. 固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$ の標準化PCAについて、第1主成分の寄与率と、標準化観測 $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ の第1主成分得点を求めよ。
-4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、元変数 $X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
+1. 第1主成分 $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散を最大にする問題から、$\boldsymbol a$ が分散共分散行列の最大固有値に対応する固有ベクトルになることを導け。ただし $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ とする。
+2. 共分散行列PCAと相関行列PCAをどう使い分けるか。
+3. 標準化PCAで固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$、観測が $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ のとき、第1主成分の寄与率と主成分得点を求めよ。
+4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、$X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
+5. 固有値 $3,1$、対応する単位固有ベクトル
+$$
+\boldsymbol u_1=\frac1{\sqrt2}(1,1)^{\mathsf T},\qquad
+\boldsymbol u_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
+$$
+から分散共分散行列を再構成せよ。
+
+## 記号・用語
+主成分分析は、データの分散を大きく保つ互いに直交した方向を固有値問題で求める次元圧縮法である。固有値は各主成分の分散、固有ベクトルは主成分軸を表す。
 
 ## 使用公式・定理
-主成分分析（PCA）では、単位ベクトル $\boldsymbol a$ への射影
+射影 $Y=\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散は
 $$
-Z=\boldsymbol a^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
+\operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
 $$
-の分散
-$$
-\operatorname{Var}(Z)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-$$
-を
-$$
-\boldsymbol a^{\mathsf T}\boldsymbol a=1
-$$
-の下で最大化する。Lagrange関数
-$$
-L(\boldsymbol a,\lambda)
-=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
--\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
-$$
-を $\boldsymbol a$ で微分すると
-$$
-2\boldsymbol\Sigma\boldsymbol a-2\lambda\boldsymbol a=\boldsymbol0,
-$$
-したがって
+制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ のもとでラグランジュ関数を微分すると
 $$
 \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
 $$
-よって第1主成分方向は最大固有値 $\lambda_1$ の単位固有ベクトル $\boldsymbol a_1$ である。第2主成分以降は前の主成分に直交する条件の下で同様に得られる。
+最大値は最大固有値 $\lambda_1$ である。
 
-固有値を
+固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると
 $$
-\lambda_1\ge\cdots\ge\lambda_p
-$$
-とすると、第 $j$ 主成分の分散は $\lambda_j$、寄与率は
-$$
-\frac{\lambda_j}{\sum_{r=1}^p\lambda_r},
-$$
-上位 $m$ 主成分を残した累積寄与率は
-$$
-\frac{\sum_{j=1}^m\lambda_j}{\sum_{r=1}^p\lambda_r}.
-$$
-上位 $m$ 成分で再構成したときに捨てる分散の総和は
-$$
-\sum_{j=m+1}^p\lambda_j.
-$$
-
-測定単位や分散の大きさ自体に意味があるなら分散共分散行列 $\boldsymbol S$ を使う。尺度差を消して相関構造を比較したいなら
-$$
-Z_k=\frac{X_k-\bar X_k}{s_k}
-$$
-と標準化し、相関行列 $\boldsymbol R$ に対して同じ固有値問題を解く。
-
-共分散PCAで第 $j$ 主成分を
-$$
-Z_j=\boldsymbol a_j^{\mathsf T}(\boldsymbol X-\boldsymbol\mu)
-$$
-とすれば
-$$
-\operatorname{Var}(Z_j)=\lambda_j,
+\text{寄与率}_j=\frac{\lambda_j}{\sum_r\lambda_r},
 \qquad
-\operatorname{Cov}(X_k,Z_j)=\lambda_j a_{kj}.
+\text{累積寄与率}_m=\frac{\sum_{j=1}^m\lambda_j}{\sum_r\lambda_r}.
 $$
-したがって変数 $X_k$ と主成分 $Z_j$ の相関は
+
+共分散PCAで第 $j$ 主成分 $Y_j=\boldsymbol a_j^{\mathsf T}\boldsymbol X$ と元変数 $X_k$ の相関は
 $$
-\operatorname{Corr}(X_k,Z_j)
+\operatorname{Corr}(X_k,Y_j)
 =\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
 $$
-この相関を主成分負荷量と呼ぶ規約がある。
 
-## 一手
-**PCAは「使う行列を決める→固有値問題を解く→固有値から分散・寄与率、固有ベクトルから得点軸を読む」の一続きで処理する。** 負荷量を変数との相関として問われたら、固有ベクトル成分だけで終わらず $\sqrt{\lambda_j}/s_k$ を掛ける。
+対称な分散共分散行列は直交固有値分解により
+$$
+\boldsymbol\Sigma
+=\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+=\sum_{j=1}^p\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
+$$
+と再構成できる。
+
+## 一手／方針
+**PCAは「使う行列を決める → 固有値問題 → 固有値から分散・寄与率 → 固有ベクトルから得点軸 → 必要なら固有対から元の共分散を再構成」の順で処理する。**
+
+固有値分解とPCAを別々の公式として覚えず、同じ固有対を「方向」「分散」「再構成」の3通りに読んでいると捉える。
 
 ## 答え
-分散最大化の一階条件は
+1. ラグランジュ関数
 $$
-\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a
+L=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+-\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
 $$
-であり、目的値は
+の一階条件から
 $$
-\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-=\lambda
+\boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
 $$
-だから最大固有値の方向が第1主成分になる。
+よって第1主成分軸は最大固有値に対応する単位固有ベクトルである。
 
-数値例では固有値総和は
-$$
-2.4+0.5+0.1=3.0
-$$
-なので第1主成分の寄与率は
-$$
-\frac{2.4}{3.0}=0.80.
-$$
-第1・第2変数に同方向の大きな重み、第3変数に比較的小さな重みを置く軸である。
+2. 元の単位や分散の大きさ自体に意味があるなら共分散行列、単位が異なり尺度差を消して各変数を同等に扱いたいなら相関行列を使うのが基本である。
 
-標準化観測の第1主成分得点は
+3. 固有値総和は3なので
 $$
-\begin{aligned}
-z_{\mathrm{PC1}}
-&=0.70(1)+0.68(-1)+0.22(0.5)\\
-&=0.70-0.68+0.11\\
-&=0.13.
-\end{aligned}
+\text{寄与率}_1=2.4/3=\boxed{0.80}.
+$$
+得点は
+$$
+0.70(1)+0.68(-1)+0.22(0.5)
+=\boxed{0.13}.
 $$
 
-また $\lambda_j=4,a_{kj}=0.3,s_k=1.5$ なら
+4.
 $$
-\operatorname{Corr}(X_k,Z_j)
-=\frac{\sqrt4\cdot0.3}{1.5}
-=\frac{0.6}{1.5}
-=0.4.
+\boxed{\operatorname{Corr}(X_k,Y_j)
+=\frac{\sqrt{\lambda_j}a_{kj}}{s_k}}.
+$$
+
+5.
+$$
+\boldsymbol\Sigma
+=3\boldsymbol u_1\boldsymbol u_1^{\mathsf T}
++\boldsymbol u_2\boldsymbol u_2^{\mathsf T}
+$$
+$$
+=\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix}
++\frac12\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
+=\boxed{\begin{pmatrix}2&1\\1&2\end{pmatrix}}.
 $$
 
 ## 計算例
-相関行列
+上位 $m$ 成分だけで近似すると
 $$
-\boldsymbol R=
-\begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
+\boldsymbol\Sigma_m
+=\sum_{j=1}^m\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
 $$
-で標準化PCAを行う。固有値は
+となる。捨てた方向の分散総和は
 $$
-\lambda_1=1+0.8=1.8,
-\qquad
-\lambda_2=1-0.8=0.2,
+\sum_{j=m+1}^p\lambda_j
 $$
-第1固有ベクトルは
-$$
-\boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T}.
-$$
-したがって
-$$
-\mathrm{PC1}=\frac{Z_1+Z_2}{\sqrt2},
-$$
-寄与率は
-$$
-\frac{1.8}{1.8+0.2}=0.90.
-$$
-第1主成分だけで標準化後の全分散の90%を表す。
-
-一方、分散共分散行列
-$$
-\boldsymbol S=\begin{pmatrix}2&1\\1&2\end{pmatrix}
-$$
-なら
-$$
-\det(\boldsymbol S-\lambda\boldsymbol I)
-=(\lambda-3)(\lambda-1)
-$$
-なので最大固有値は3、対応方向は
-$$
-\frac1{\sqrt2}(1,1)^{\mathsf T}.
-$$
-第1成分だけ残したときに捨てる分散は $\lambda_2=1$ である。
+であり、PCAの低次元近似で失う分散量として解釈できる。
 
 ## 注意
-データは少なくとも中心化してからPCAを行う。共分散PCAは測定単位の変更で結果が変わるので、単位差に科学的意味がない場合は標準化を検討する。ただし標準化が常に正しいわけではない。
-
-固有ベクトル全体の符号は任意であり、$\boldsymbol a$ と $-\boldsymbol a$ は同じ主成分軸を表す。文献・ソフトウェアによって「主成分負荷量」を固有ベクトル成分そのものと呼ぶ場合と、変数と主成分の相関と呼ぶ場合があるため定義を確認する。
+固有ベクトル全体の符号は任意で、$\boldsymbol u$ と $-\boldsymbol u$ は同じ主成分軸を表す。「主成分負荷量」を固有ベクトル成分と呼ぶ文献と、元変数と主成分の相関と呼ぶ文献があるため定義を確認する。
 
 <!-- CARD -->
 
@@ -1051,13 +1093,13 @@ $\boldsymbol w$ の倍率は分類方向を変えないが、実際の境界に�
 
 ---
 id: mv-hierarchical-linkage
-title: 階層クラスタリングの連結法とWard法を使い分ける
+title: 階層クラスタリングを連結法・Ward法からsilhouette評価まで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: hierarchical-clustering-canonical
-type: recognition
-difficulty: 2
-priority: B
+topic: hierarchical-clustering-evaluation-canonical
+type: strategy
+difficulty: 3
+priority: A
 hashtags:
   - クラスター分析
   - 階層法
@@ -1065,6 +1107,7 @@ hashtags:
   - 完全連結法
   - 群平均法
   - Ward法
+  - silhouette係数
 frequency:
   past_exam: 0
   textbook: 0
@@ -1076,74 +1119,91 @@ sources:
 ---
 
 ## 問題
-凝集型階層クラスタリングを考える。
+凝集型階層クラスタリングについて次を解け。
 
 1. 単連結法・完全連結法・群平均法で、2クラスタ $A,B$ 間の距離をどう定義するか述べよ。
-2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として、併合による群内平方和増加を書け。
-3. $n_A=2,n_B=3$、重心間距離が5のときWard法の平方和増加を計算せよ。
-4. 単連結法が鎖状化しやすい理由と、Ward法で距離だけでなくクラスタサイズも効く理由を説明せよ。
+2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として併合による群内平方和増加を書け。
+3. $n_A=2,n_B=3$、重心間Euclid距離が5のときWard法の平方和増加を求めよ。
+4. 単連結法が鎖状化しやすい理由を説明せよ。
+5. ある点について、同一クラスタ内の他点への平均距離が $a=2$、最も近い別クラスタへの平均距離が $b=5$ のときsilhouette係数を求め、値を解釈せよ。
+
+## 記号・用語
+凝集型階層法は、各点を別クラスタとして始め、クラスタ間距離の規則に従って逐次併合する方法である。silhouette係数は、作ったクラスタへの凝集度と他クラスタからの分離度を同時に評価する指標である。
 
 ## 使用公式・定理
-凝集型階層法では、現在のクラスタ集合から「最も近い」クラスタ対を一つ選んで逐次併合する。ただし何をクラスタ間距離と呼ぶかが連結法によって異なる。
-
 点間距離を $d(\boldsymbol x,\boldsymbol y)$ とすると
 $$
-d_{\mathrm{single}}(A,B)
-=\min_{\boldsymbol x\in A,\boldsymbol y\in B}d(\boldsymbol x,\boldsymbol y),
+d_{\min}(A,B)=\min_{x\in A,y\in B}d(x,y),
 $$
 $$
-d_{\mathrm{complete}}(A,B)
-=\max_{\boldsymbol x\in A,\boldsymbol y\in B}d(\boldsymbol x,\boldsymbol y),
+d_{\max}(A,B)=\max_{x\in A,y\in B}d(x,y),
 $$
 $$
-d_{\mathrm{average}}(A,B)
-=\frac1{n_An_B}
-\sum_{\boldsymbol x\in A}\sum_{\boldsymbol y\in B}
-d(\boldsymbol x,\boldsymbol y).
+d_{\mathrm{avg}}(A,B)
+=\frac1{n_An_B}\sum_{x\in A}\sum_{y\in B}d(x,y).
 $$
 
-Ward法は通常、平方Euclid距離を基礎に、併合後の群内平方和（WSS）の増加が最小になる対を選ぶ。2クラスタを併合したときの増加量は
+Ward法では通常、平方Euclid距離に基づく群内平方和の増加
 $$
 \Delta WSS(A,B)
 =\frac{n_An_B}{n_A+n_B}
-\left\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\right\|^2.
+\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2
 $$
+が最小の対を併合する。
 
-## 一手
-**階層法では最初に「何を近さと定義している手法か」を確認する。** 単連結は最短点対、完全連結は最長点対、群平均は全点対平均、Wardは距離そのものではなく併合時のWSS増加を見る。
+silhouette係数は
+$$
+s=\frac{b-a}{\max(a,b)},\qquad -1\le s\le1,
+$$
+ここで $a$ は同一クラスタ内平均距離、$b$ は最も近い別クラスタへの平均距離である。
+
+## 一手／方針
+**まず「何をクラスタ間距離とするか」で併合規則を決め、作った分割は別に凝集度・分離度で評価する。**
+
+Ward法は単なる点間距離の最小化ではなく、併合で増える群内平方和を見る。silhouetteでは $a$ が小さく $b$ が大きいほど良い分割と読む。
 
 ## 答え
-点対距離が $2,4,6,8$ の4通りなら群平均距離は
+1. 単連結は点対距離の最小値、完全連結は最大値、群平均は全点対距離の平均をクラスタ間距離とする。
+
+2.
 $$
-\frac{2+4+6+8}{4}=5.
+\boxed{\Delta WSS
+=\frac{n_An_B}{n_A+n_B}
+\|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2}.
 $$
 
-Ward法の数値例では
+3.
 $$
-\begin{aligned}
 \Delta WSS
-&=\frac{2\cdot3}{2+3}\,5^2\\
-&=\frac65\cdot25\\
-&=30.
-\end{aligned}
+=\frac{2\cdot3}{5}\,5^2
+=\boxed{30}.
 $$
-したがってWard法では、候補となる各クラスタ対についてこの増加量を計算し、最小の対を併合する。
+
+4. 単連結法は1組でも近い点対があればクラスタ全体を結合するため、細長い点列を橋渡しして鎖状化しやすい。
+
+5.
+$$
+s=\frac{5-2}{5}=\boxed{0.6}.
+$$
+0に比べて1に近い正の値なので、この点は自クラスタ内で比較的まとまり、近隣クラスタともある程度分離している。
 
 ## 計算例
-同じ重心間距離5でも、$n_A=n_B=1$ なら
+同じ重心間距離5でも $n_A=n_B=1$ なら
 $$
-\Delta WSS=\frac{1\cdot1}{2}25=12.5,
+\Delta WSS=\frac12\cdot25=12.5,
 $$
-一方 $n_A=n_B=10$ なら
+$n_A=n_B=10$ なら
 $$
-\Delta WSS=\frac{100}{20}25=125.
+\Delta WSS=\frac{100}{20}\cdot25=125.
 $$
-よってWard法では重心間距離が同じでも、大きいクラスタ同士の併合はWSSを大きく増やしやすい。
+したがってWard法は重心間距離だけでなくクラスタサイズも反映する。
 
-単連結法では、2つのクラスタ間に1組でも非常に近い点対があれば併合される。この性質が細長い点列を次々につなぐ「鎖状化」を起こしやすい。
+silhouette係数は $s\approx1$ なら良好な凝集・分離、$s\approx0$ なら境界付近、$s<0$ なら他クラスタの方が近い可能性を示す。
 
 ## 注意
-単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与えうる。Ward法は一般の任意距離へ機械的に置き換えるものではなく、通常は平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なる場合は、クラスタリング前の標準化の要否も検討する。
+単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与える。Ward法は通常、平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なるなら標準化の要否を検討する。
+
+silhouetteの単独点クラスタの扱いは実装規約による。silhouette値が高いことだけでクラスタ数や方法を機械的に決めず、解釈可能性や目的も合わせて確認する。
 
 <!-- CARD -->
 

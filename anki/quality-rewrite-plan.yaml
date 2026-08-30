@@ -1,101 +1,316 @@
 schema_version: 1
-batch_id: 2026-08-30-sample-autocov-acf-canonical-125
+batch_id: 2026-08-31-multivariate-cross-category-canonical-163
 items:
-  - id: ts-sample-acf
-    note: 標本自己共分散と標本自己相関は、平均を引いた偏差積をラグごとに集計する同一workflowなので1枚へ統合する。分母nとn-kの規約差も明示する。
+  - id: mv-covariance-linear-transform
+    note: 線形変換後の分散共分散行列と、分散共分散行列から相関行列への標準化・単位変更不変性は同じ行列変換の検索単位として統合する。理工学側の相関行列単純計算カードを不要にする。
     metadata:
-      title: 標本自己共分散から標本自己相関まで一続きで計算する
-      topic: sample-autocovariance-acf-canonical
+      title: 線形変換した共分散から相関行列・単位変更不変性まで扱う
+      topic: covariance-correlation-transform-canonical
       type: strategy
-      difficulty: 2
+      difficulty: 3
       priority: A
-      hashtags: [時系列解析, 標本自己共分散, 標本自己相関, ACF]
+      hashtags: [多変量解析, 分散共分散行列, 相関行列, 線形変換, 標準化]
     sections:
       問題: |
-        観測列 $x_1,\ldots,x_n$ について、まず分母を $n$ にそろえた標本自己共分散を
+        確率ベクトル $\boldsymbol X$ の分散共分散行列を
         $$
-        \widehat\gamma(k)
-        =\frac1n\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)
-        \qquad(k\ge0)
+        \boldsymbol\Sigma=
+        \begin{pmatrix}4&3\\3&9\end{pmatrix}
         $$
-        と定義する。
-        1. この定義から標本自己相関 $\widehat\rho(k)$ の計算式を導け。
-        2. $(x_1,x_2,x_3,x_4)=(1,2,3,2)$ のラグ1標本自己相関を求めよ。
-        3. $(x_1,x_2,x_3,x_4)=(1,3,2,4)$ のラグ1標本自己共分散と標本自己相関を求めよ。
+        とする。
+
+        1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
+        2. $Y_1=X_1+X_2$ の分散を求めよ。
+        3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
+        4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
+        5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
       記号・用語: |
-        $\bar x=n^{-1}\sum_{t=1}^n x_t$ は標本平均、$\widehat\gamma(k)$ はラグ $k$ の標本自己共分散、$\widehat\rho(k)$ はラグ $k$ の標本自己相関である。自己共分散は変動の大きさを単位付きで測り、自己相関はそれをラグ0の分散尺度で正規化して無次元化する。
+        分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
       使用公式・定理: |
-        分母をすべて $n$ にそろえた定義なら
+        定数ベクトルの共分散は0なので
         $$
-        \widehat\rho(k)
-        =\frac{\widehat\gamma(k)}{\widehat\gamma(0)}.
-        $$
-        ここで
-        $$
-        \widehat\gamma(0)
-        =\frac1n\sum_{t=1}^{n}(x_t-\bar x)^2
-        $$
-        だから、共通の $1/n$ が消えて
-        $$
-        \widehat\rho(k)
-        =\frac{\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)}
-        {\sum_{t=1}^{n}(x_t-\bar x)^2}.
-        $$
-      一手／方針: |
-        **平均を求める→偏差列を作る→ラグをずらした偏差の積を足す→必要ならラグ0で正規化する。** 自己共分散と自己相関を別々の公式として暗記せず、同じ偏差積から順に作る。
-      答え: |
-        1. 分母 $n$ の自己共分散規約では
-        $$
-        \widehat\rho(k)
-        =\frac{\widehat\gamma(k)}{\widehat\gamma(0)}
-        =\frac{\sum_{t=k+1}^{n}(x_t-\bar x)(x_{t-k}-\bar x)}
-        {\sum_{t=1}^{n}(x_t-\bar x)^2}.
+        \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
         $$
 
-        2. $(1,2,3,2)$ では
+        線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
         $$
-        \bar x=2,
+        \operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
         $$
-        偏差列は $(-1,0,1,0)$ である。ラグ1の偏差積和は
+
+        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
         $$
-        0(-1)+1(0)+0(1)=0,
+        \boldsymbol R
+        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
         $$
-        ラグ0の偏差平方和は
+        成分では
         $$
-        1+0+1+0=2.
+        \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
+        $$
+      一手／方針: |
+        **「線形変換なら $A\Sigma A^{\mathsf T}$、尺度を消したいなら左右から標準偏差の逆数を掛ける」と整理する。**
+
+        相関の単位変更不変性は別公式として暗記せず、分子の共分散と分母の標準偏差積が同じ倍率で変わって相殺されることから確認する。
+      答え: |
+        1.
+        $$
+        \boxed{\operatorname{Cov}(\boldsymbol Y)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
+        $$
+        $\boldsymbol b$ は確率変動を持たないので共分散へ寄与しない。
+
+        2. $\boldsymbol a=(1,1)^{\mathsf T}$ として
+        $$
+        \operatorname{Var}(X_1+X_2)
+        =4+9+2\cdot3
+        =\boxed{19}.
+        $$
+
+        3. 標準偏差は $2,3$ なので
+        $$
+        \rho_{12}=\frac3{2\cdot3}=\frac12,
+        $$
+        $$
+        \boxed{\boldsymbol R=
+        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
+        $$
+
+        4. 単位変更後の分散共分散行列は
+        $$
+        \boldsymbol\Sigma_Z
+        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
         $$
         よって
         $$
-        \widehat\rho(1)=0.
+        \rho_{Z_1Z_2}
+        =\frac{3000}{\sqrt{400\cdot90000}}
+        =\boxed{0.5}.
         $$
 
-        3. $(1,3,2,4)$ では
+        5. 片方だけを負の定数倍すると、共分散の符号だけが反転し標準偏差は正なので、相関係数の符号が反転する。
+      計算例: |
+        一般に $Z_1=c_1X_1,Z_2=c_2X_2$ なら
         $$
-        \bar x=2.5,
+        \operatorname{Cov}(Z_1,Z_2)=c_1c_2\operatorname{Cov}(X_1,X_2),
         $$
-        偏差列は $(-1.5,0.5,-0.5,1.5)$ である。ラグ1の偏差積和は
         $$
-        0.5(-1.5)+(-0.5)(0.5)+1.5(-0.5)=-1.75.
+        \operatorname{sd}(Z_i)=|c_i|\operatorname{sd}(X_i).
         $$
         したがって
         $$
-        \widehat\gamma(1)=\frac{-1.75}{4}=-0.4375.
+        \operatorname{Corr}(Z_1,Z_2)
+        =\operatorname{sgn}(c_1c_2)\operatorname{Corr}(X_1,X_2).
         $$
-        また偏差平方和は
+        正の単位換算なら相関は不変である。
+      注意: |
+        $\operatorname{Var}(a_1X_1+a_2X_2)$ では、相関があると交差項
         $$
-        2.25+0.25+0.25+2.25=5,
+        2a_1a_2\operatorname{Cov}(X_1,X_2)
         $$
-        なので
+        を落とせない。相関行列と分散共分散行列のどちらをPCAなどへ使うかは、変数の単位・尺度を残したいかどうかで意味が変わる。
+
+  - id: mv-pca-variance-max
+    note: PCA正本へ固有値分解から分散共分散行列を再構成する操作を統合する。分散最大化、寄与率、得点、負荷量、再構成を同じ固有値・固有ベクトルの一連の読み方として扱う。
+    metadata:
+      title: 主成分分析を分散最大化から得点・負荷量・再構成まで通す
+      topic: pca-spectral-canonical
+      type: strategy
+      difficulty: 4
+      priority: A
+      hashtags: [主成分分析, 固有値, 固有ベクトル, 寄与率, 主成分得点, 主成分負荷量, スペクトル分解]
+    sections:
+      問題: |
+        中心化した $p$ 次元データの主成分分析について次を解け。
+
+        1. 第1主成分 $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散を最大にする問題から、$\boldsymbol a$ が分散共分散行列の最大固有値に対応する固有ベクトルになることを導け。ただし $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ とする。
+        2. 共分散行列PCAと相関行列PCAをどう使い分けるか。
+        3. 標準化PCAで固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$、観測が $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ のとき、第1主成分の寄与率と主成分得点を求めよ。
+        4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、$X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
+        5. 固有値 $3,1$、対応する単位固有ベクトル
         $$
-        \widehat\gamma(0)=\frac54=1.25,
+        \boldsymbol u_1=\frac1{\sqrt2}(1,1)^{\mathsf T},\qquad
+        \boldsymbol u_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
+        $$
+        から分散共分散行列を再構成せよ。
+      記号・用語: |
+        主成分分析は、データの分散を大きく保つ互いに直交した方向を固有値問題で求める次元圧縮法である。固有値は各主成分の分散、固有ベクトルは主成分軸を表す。
+      使用公式・定理: |
+        射影 $Y=\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散は
+        $$
+        \operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+        $$
+        制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ のもとでラグランジュ関数を微分すると
+        $$
+        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+        $$
+        最大値は最大固有値 $\lambda_1$ である。
+
+        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると
+        $$
+        \text{寄与率}_j=\frac{\lambda_j}{\sum_r\lambda_r},
         \qquad
-        \widehat\rho(1)=\frac{-0.4375}{1.25}=-0.35.
+        \text{累積寄与率}_m=\frac{\sum_{j=1}^m\lambda_j}{\sum_r\lambda_r}.
+        $$
+
+        共分散PCAで第 $j$ 主成分 $Y_j=\boldsymbol a_j^{\mathsf T}\boldsymbol X$ と元変数 $X_k$ の相関は
+        $$
+        \operatorname{Corr}(X_k,Y_j)
+        =\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
+        $$
+
+        対称な分散共分散行列は直交固有値分解により
+        $$
+        \boldsymbol\Sigma
+        =\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+        =\sum_{j=1}^p\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
+        $$
+        と再構成できる。
+      一手／方針: |
+        **PCAは「使う行列を決める → 固有値問題 → 固有値から分散・寄与率 → 固有ベクトルから得点軸 → 必要なら固有対から元の共分散を再構成」の順で処理する。**
+
+        固有値分解とPCAを別々の公式として覚えず、同じ固有対を「方向」「分散」「再構成」の3通りに読んでいると捉える。
+      答え: |
+        1. ラグランジュ関数
+        $$
+        L=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
+        $$
+        の一階条件から
+        $$
+        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+        $$
+        よって第1主成分軸は最大固有値に対応する単位固有ベクトルである。
+
+        2. 元の単位や分散の大きさ自体に意味があるなら共分散行列、単位が異なり尺度差を消して各変数を同等に扱いたいなら相関行列を使うのが基本である。
+
+        3. 固有値総和は3なので
+        $$
+        \text{寄与率}_1=2.4/3=\boxed{0.80}.
+        $$
+        得点は
+        $$
+        0.70(1)+0.68(-1)+0.22(0.5)
+        =\boxed{0.13}.
+        $$
+
+        4.
+        $$
+        \boxed{\operatorname{Corr}(X_k,Y_j)
+        =\frac{\sqrt{\lambda_j}a_{kj}}{s_k}}.
+        $$
+
+        5.
+        $$
+        \boldsymbol\Sigma
+        =3\boldsymbol u_1\boldsymbol u_1^{\mathsf T}
+        +\boldsymbol u_2\boldsymbol u_2^{\mathsf T}
+        $$
+        $$
+        =\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix}
+        +\frac12\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
+        =\boxed{\begin{pmatrix}2&1\\1&2\end{pmatrix}}.
         $$
       計算例: |
-        3のデータでは、自己相関を直接計算しても
+        上位 $m$ 成分だけで近似すると
         $$
-        \widehat\rho(1)=\frac{-1.75}{5}=-0.35
+        \boldsymbol\Sigma_m
+        =\sum_{j=1}^m\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
         $$
-        となる。これは分母を各ラグで共通の $n$ にした自己共分散を正規化した結果と一致する。
+        となる。捨てた方向の分散総和は
+        $$
+        \sum_{j=m+1}^p\lambda_j
+        $$
+        であり、PCAの低次元近似で失う分散量として解釈できる。
       注意: |
-        標本自己共分散には複数の規約がある。たとえばラグ $k$ で分母を $n-k$ とする定義も使われる。その場合、$\widehat\gamma(k)/\widehat\gamma(0)$ は上の「偏差積和÷偏差平方和」と同じ数値にはならない。問題文やソフトウェアの定義を先に確認し、分母規約を途中で混ぜない。また標本ACFは有限標本では理論ACFと一致しない。
+        固有ベクトル全体の符号は任意で、$\boldsymbol u$ と $-\boldsymbol u$ は同じ主成分軸を表す。「主成分負荷量」を固有ベクトル成分と呼ぶ文献と、元変数と主成分の相関と呼ぶ文献があるため定義を確認する。
+
+  - id: mv-hierarchical-linkage
+    note: 階層クラスタリングの連結法・Ward法と、得られたクラスタリングをsilhouette係数で評価する操作を一つの正本へ統合する。理工学側のsilhouette単純代入カードを不要にする。
+    metadata:
+      title: 階層クラスタリングを連結法・Ward法からsilhouette評価まで通す
+      topic: hierarchical-clustering-evaluation-canonical
+      type: strategy
+      difficulty: 3
+      priority: A
+      hashtags: [クラスター分析, 階層法, 単連結法, 完全連結法, 群平均法, Ward法, silhouette係数]
+    sections:
+      問題: |
+        凝集型階層クラスタリングについて次を解け。
+
+        1. 単連結法・完全連結法・群平均法で、2クラスタ $A,B$ 間の距離をどう定義するか述べよ。
+        2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として併合による群内平方和増加を書け。
+        3. $n_A=2,n_B=3$、重心間Euclid距離が5のときWard法の平方和増加を求めよ。
+        4. 単連結法が鎖状化しやすい理由を説明せよ。
+        5. ある点について、同一クラスタ内の他点への平均距離が $a=2$、最も近い別クラスタへの平均距離が $b=5$ のときsilhouette係数を求め、値を解釈せよ。
+      記号・用語: |
+        凝集型階層法は、各点を別クラスタとして始め、クラスタ間距離の規則に従って逐次併合する方法である。silhouette係数は、作ったクラスタへの凝集度と他クラスタからの分離度を同時に評価する指標である。
+      使用公式・定理: |
+        点間距離を $d(\boldsymbol x,\boldsymbol y)$ とすると
+        $$
+        d_{\min}(A,B)=\min_{x\in A,y\in B}d(x,y),
+        $$
+        $$
+        d_{\max}(A,B)=\max_{x\in A,y\in B}d(x,y),
+        $$
+        $$
+        d_{\mathrm{avg}}(A,B)
+        =\frac1{n_An_B}\sum_{x\in A}\sum_{y\in B}d(x,y).
+        $$
+
+        Ward法では通常、平方Euclid距離に基づく群内平方和の増加
+        $$
+        \Delta WSS(A,B)
+        =\frac{n_An_B}{n_A+n_B}
+        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2
+        $$
+        が最小の対を併合する。
+
+        silhouette係数は
+        $$
+        s=\frac{b-a}{\max(a,b)},\qquad -1\le s\le1,
+        $$
+        ここで $a$ は同一クラスタ内平均距離、$b$ は最も近い別クラスタへの平均距離である。
+      一手／方針: |
+        **まず「何をクラスタ間距離とするか」で併合規則を決め、作った分割は別に凝集度・分離度で評価する。**
+
+        Ward法は単なる点間距離の最小化ではなく、併合で増える群内平方和を見る。silhouetteでは $a$ が小さく $b$ が大きいほど良い分割と読む。
+      答え: |
+        1. 単連結は点対距離の最小値、完全連結は最大値、群平均は全点対距離の平均をクラスタ間距離とする。
+
+        2.
+        $$
+        \boxed{\Delta WSS
+        =\frac{n_An_B}{n_A+n_B}
+        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2}.
+        $$
+
+        3.
+        $$
+        \Delta WSS
+        =\frac{2\cdot3}{5}\,5^2
+        =\boxed{30}.
+        $$
+
+        4. 単連結法は1組でも近い点対があればクラスタ全体を結合するため、細長い点列を橋渡しして鎖状化しやすい。
+
+        5.
+        $$
+        s=\frac{5-2}{5}=\boxed{0.6}.
+        $$
+        0に比べて1に近い正の値なので、この点は自クラスタ内で比較的まとまり、近隣クラスタともある程度分離している。
+      計算例: |
+        同じ重心間距離5でも $n_A=n_B=1$ なら
+        $$
+        \Delta WSS=\frac12\cdot25=12.5,
+        $$
+        $n_A=n_B=10$ なら
+        $$
+        \Delta WSS=\frac{100}{20}\cdot25=125.
+        $$
+        したがってWard法は重心間距離だけでなくクラスタサイズも反映する。
+
+        silhouette係数は $s\approx1$ なら良好な凝集・分離、$s\approx0$ なら境界付近、$s<0$ なら他クラスタの方が近い可能性を示す。
+      注意: |
+        単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与える。Ward法は通常、平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なるなら標準化の要否を検討する。
+
+        silhouetteの単独点クラスタの扱いは実装規約による。silhouette値が高いことだけでクラスタ数や方法を機械的に決めず、解釈可能性や目的も合わせて確認する。

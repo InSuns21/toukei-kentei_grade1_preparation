@@ -1,126 +1,6 @@
 ---
-id: engdesign-objective-response-factor
-title: 実験目的から応答・因子・実験単位を特定する
-category: applied-engineering
-subcategory: engineering-design
-topic: experiment-planning
-type: recognition
-difficulty: 1
-priority: B
-hashtags: [実験の計画と実施, 応答, 実験単位]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-焼成温度が製品強度へ与える影響を調べ、同じ炉で一度に焼く5個へ同じ温度を与える。応答、因子、実験単位を答えよ。
-## 記号・用語
-応答は測定する結果、因子は操作する条件、実験単位は処置を独立に割り付けられる最小単位である。
-## 使用公式・定理
-独立な反復数は測定個数ではなく、処置を独立に無作為化できる実験単位数で数える。
-## 一手／方針
-何を測るか、何を変えるか、どこまで別々に温度を割り付けられるかを分ける。
-## 答え
-応答は製品強度、因子は焼成温度、実験単位は炉の1回の運転である。
-## 計算例
-4回の炉運転を各温度へ割り付ければ各温度4反復であり、各運転内5個は測定の反復である。
-## 注意
-炉内の5個を独立反復として扱うと疑似反復になる。
-
-<!-- CARD -->
-
----
-id: engdesign-weighted-contrast-covariance
-title: 不等反復で2コントラストの共分散を判定する
-category: applied-engineering
-subcategory: engineering-design
-topic: unequal-replication-contrasts
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 不等反復, コントラスト]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 直交表 }]
----
-## 問題
-3処置の独立標本数が $(2,4,4)$、コントラスト係数が $\boldsymbol c=(1,-1,0)$、$\boldsymbol d=(1/2,1/2,-1)$ である。誤差分散を $\sigma^2$ として両推定量の共分散を求めよ。
-## 記号・用語
-各係数ベクトルは成分和0を満たし、$\widehat C=\sum_i c_i\overline Y_i$、$\widehat D=\sum_i d_i\overline Y_i$ とする。
-## 使用公式・定理
-独立・等分散誤差では $\operatorname{Cov}(\widehat C,\widehat D)=\sigma^2\sum_i c_id_i/n_i$。
-## 一手／方針
-反復数を分母に入れた重み付き内積を計算する。
-## 答え
-$$\operatorname{Cov}(\widehat C,\widehat D)=\sigma^2\left(\frac{1/2}{2}-\frac{1/2}{4}\right)=\frac{\sigma^2}{8}.$$
-## 計算例
-共分散が0でないため、この不等反復計画では両コントラストは直交しない。
-## 注意
-係数の通常内積だけを0にしても、不等反復では無相関にならない。
-
-<!-- CARD -->
-
----
-id: engdesign-missing-run-nonorthogonality
-title: 欠測実施により要因列の直交性が崩れることを確認する
-category: applied-engineering
-subcategory: engineering-design
-topic: missing-run-orthogonality
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 欠測, 直交性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 直交表 }]
----
-## 問題
-$2^2$ 計画のA列 $(-1,+1,-1,+1)$、B列 $(-1,-1,+1,+1)$ から最後の実施が欠測した。残る3行で列内積を求めよ。
-## 記号・用語
-$-1,+1$ は低・高水準で、欠測後の列はA=$(-1,+1,-1)$、B=$(-1,-1,+1)$ である。
-## 使用公式・定理
-列内積 $\boldsymbol x_A^{\mathsf T}\boldsymbol x_B$ が0なら直交する。
-## 一手／方針
-残った3行だけで符号積を足す。
-## 答え
-$(-1)(-1)+(+1)(-1)+(-1)(+1)=1-1-1=-1$ なので直交しない。
-## 計算例
-完全な4行なら最後の積$+1$が加わって0へ戻る。
-## 注意
-欠測後は効果平方和を元の直交公式で独立に分解せず、残った計画行列で回帰する。
-
-<!-- CARD -->
-
----
-id: engdesign-factorial-pure-error
-title: 反復要因計画から純粋誤差平方和を求める
-category: applied-engineering
-subcategory: engineering-design
-topic: factorial-pure-error
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 純粋誤差, 反復]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-$2^2$ 計画の各セルで2反復し、観測が $(10,12),(14,14),(11,13),(19,21)$ である。純粋誤差平方和と自由度を求めよ。
-## 記号・用語
-純粋誤差は同じ因子水準組合せ内の反復変動である。
-## 使用公式・定理
-$$SS_{PE}=\sum_j\sum_{l=1}^{r}(y_{jl}-\overline y_j)^2,\qquad df_{PE}=2^k(r-1).$$
-## 一手／方針
-各セル平均からの偏差平方をセルごとに足す。
-## 答え
-各セルの平方和は2、0、2、2なので $SS_{PE}=6$、自由度は $4(2-1)=4$。
-## 計算例
-$MS_{PE}=6/4=1.5$ を反復に基づく誤差分散推定値として使える。
-## 注意
-各セル1観測だけでは純粋誤差を直接推定できない。
-
-<!-- CARD -->
-
----
 id: engdesign-lack-of-fit-decomposition
-title: 反復点から純粋誤差・適合不足・中心点曲率を診断する
+title: 反復点から純粋誤差・適合不足・中心点曲率を一続きで診断する
 category: applied-engineering
 subcategory: engineering-design
 topic: lack-of-fit-curvature-canonical
@@ -131,6 +11,7 @@ hashtags:
   - 実験計画法
   - 適合不足
   - 純粋誤差
+  - 反復
   - 中心点
   - 曲率
 frequency:
@@ -143,10 +24,12 @@ sources:
     topic: 実験の計画と実施
 ---
 ## 問題
-回帰モデルの適合性を反復観測から診断する。
-1. 異なる設計点が $m=4$、総観測数 $N=12$、切片を含む回帰母数数 $p=2$ とする。残差平方和が $SS_E=30$、同一設計点内の反復から得た純粋誤差平方和が $SS_{PE}=18$ のとき、適合不足平方和、各自由度、適合不足検定の $F$ 値を求めよ。
-2. 2水準要因計画の隅点観測数が $n_F=8$ で平均 $\overline Y_F=10$、中心点観測数が $n_C=3$ で平均 $\overline Y_C=13$ のとき、中心点による曲率平方和を求めよ。
-3. 中心点反復が何のために必要か、また曲率が有意だったとき何が分かり、何までは分からないか説明せよ。
+回帰モデルと反復要因計画の適合性を診断する。
+
+1. $2^2$ 計画の各セルで2回独立反復し、観測が $(10,12),(14,14),(11,13),(19,21)$ である。純粋誤差平方和 $SS_{PE}$、自由度、平均平方を求めよ。
+2. 異なる設計点が $m=4$、総観測数 $N=12$、切片を含む回帰母数数 $p=2$ とする。残差平方和が $SS_E=30$、同一設計点内の反復から得た純粋誤差平方和が $SS_{PE}=18$ のとき、適合不足平方和、各自由度、適合不足検定の $F$ 値を求めよ。
+3. 2水準要因計画の隅点観測数が $n_F=8$ で平均 $\overline Y_F=10$、中心点観測数が $n_C=3$ で平均 $\overline Y_C=13$ のとき、中心点による曲率平方和を求めよ。
+4. 中心点反復が何のために必要か、また曲率が有意だったとき何が分かり、何までは分からないか説明せよ。
 
 ## 記号・用語
 **純粋誤差**は、同じ設計点で独立に反復した観測のばらつきから得る誤差である。**適合不足**は、当てはめたモデルでは説明できない設計点間の系統的なずれである。
@@ -158,6 +41,19 @@ $$
 と考えて分解できる。中心点は全因子を符号0にした設計点で、2水準要因計画の隅点だけでは見えにくい一次モデルからの曲がりを検出するために追加する。
 
 ## 使用公式・定理
+設計点 $j$ に $r_j$ 回の独立反復があるとき、純粋誤差平方和は
+$$
+SS_{PE}=\sum_j\sum_{l=1}^{r_j}(y_{jl}-\overline y_j)^2,
+$$
+自由度は
+$$
+df_{PE}=\sum_j(r_j-1)=N-m.
+$$
+$2^k$ 計画の全セルで同じ反復数 $r$ なら
+$$
+df_{PE}=2^k(r-1).
+$$
+
 同一設計点で反復があるとき
 $$
 SS_E=SS_{LOF}+SS_{PE}.
@@ -182,10 +78,37 @@ SS_{\mathrm{curv}}
 $$
 
 ## 一手／方針
-**同じ条件で反復された観測があるかを最初に探す。** あればその内部ばらつきを純粋誤差とし、残差との差を適合不足へ割り当てる。2水準要因計画に中心点があれば、さらに「隅点平均と中心点平均の差」を1自由度の曲率として見る。公式を別々に暗記せず、反復点がモデル診断の基準になると捉える。
+**同じ条件で独立反復された観測があるかを最初に探す。** あればまず各設計点平均からの偏差平方を足して純粋誤差を作る。その後、残差平方和との差を適合不足へ割り当てる。2水準要因計画に中心点があれば、さらに「隅点平均と中心点平均の差」を1自由度の曲率として見る。
+
+公式を別々に暗記せず、**反復点がモデル診断の基準になる**と捉える。
 
 ## 答え
-1. 適合不足平方和は
+1. 各セル平均は順に $11,14,12,20$ である。したがってセル内平方和は
+$$
+(10-11)^2+(12-11)^2=2,
+$$
+$$
+(14-14)^2+(14-14)^2=0,
+$$
+$$
+(11-12)^2+(13-12)^2=2,
+$$
+$$
+(19-20)^2+(21-20)^2=2.
+$$
+よって
+$$
+\boxed{SS_{PE}=2+0+2+2=6}.
+$$
+4セル、各2反復なので
+$$
+\boxed{df_{PE}=4(2-1)=4},
+$$
+$$
+\boxed{MS_{PE}=6/4=1.5}.
+$$
+
+2. 適合不足平方和は
 $$
 SS_{LOF}=30-18=12.
 $$
@@ -203,24 +126,28 @@ $$
 $$
 F=\frac{12/2}{18/8}
 =\frac{6}{2.25}
-\approx2.667.
+\approx\boxed{2.667}.
 $$
 
-2. 曲率平方和は
+3. 曲率平方和は
 $$
 SS_{\mathrm{curv}}
 =\frac{8\cdot3}{8+3}(10-13)^2
 =\frac{216}{11}
-\approx19.64.
+\approx\boxed{19.64}.
 $$
 
-3. 中心点を**反復**することで同じ条件でのばらつき、すなわち純粋誤差を推定できる。その純粋誤差を基準に隅点平均と中心点平均の差が偶然のばらつきより大きいかを調べれば、一次モデルに曲率が不足しているかを診断できる。ただし有意な曲率から、どの $x_j^2$ や二次項が原因かまでは特定できない。
+4. 中心点を**反復**することで同じ条件でのばらつき、すなわち純粋誤差を推定できる。その純粋誤差を基準に隅点平均と中心点平均の差が偶然のばらつきより大きいかを調べれば、一次モデルに曲率が不足しているかを診断できる。ただし有意な曲率から、どの $x_j^2$ や二次項が原因かまでは特定できない。
 
 ## 計算例
-例えば中心点を1回しか置かなければ中心点平均は得られても、その中心点だけから純粋誤差を推定できない。中心点を複数回独立反復すれば、中心点内平方和を純粋誤差の一部として使える。曲率が有意なら、次段階として軸点を追加した中心複合計画などで二次応答面を識別する。
+各セル1観測の $2^2$ 計画では4観測すべてが異なる設計点なので、セル内反復から純粋誤差を直接推定できない。各セルを2回独立反復すれば、上のように4自由度の純粋誤差が得られる。
+
+また中心点を1回しか置かなければ中心点平均は得られても、その中心点だけから純粋誤差を推定できない。中心点を複数回独立反復すれば、中心点内平方和を純粋誤差の一部として使える。曲率が有意なら、次段階として軸点を追加した中心複合計画などで二次応答面を識別する。
 
 ## 注意
-同一設計点の**独立反復**が一つもなければ、残差平方和を純粋誤差と適合不足へ分離できない。単なる繰返し測定を独立反復として数えてはいけない。また中心点曲率検定は一次モデルからの総合的な曲がりを検出するもので、個々の二次係数を識別する検定ではない。
+同一設計点の**独立反復**が一つもなければ、残差平方和を純粋誤差と適合不足へ分離できない。単なる繰返し測定を独立反復として数えてはいけない。
+
+純粋誤差はモデルが正しいと仮定して作る残差とは違い、同じ設計点での実際の反復変動から得る。中心点曲率検定は一次モデルからの総合的な曲がりを検出するもので、個々の二次係数を識別する検定ではない。
 
 <!-- CARD -->
 
@@ -256,17 +183,19 @@ foldoverは元の一部実施と符号を反転した実施を組み合わせる
 
 ---
 id: engdesign-block-generator-protect-effects
-title: ブロック生成子からブロック数を決め重要効果を守る
+title: ブロック生成子で完全交絡を設計し部分交絡で情報を回復する
 category: applied-engineering
 subcategory: engineering-design
-topic: block-generator-workflow-canonical
+topic: block-confounding-workflow-canonical
 type: strategy
-difficulty: 3
+difficulty: 4
 priority: A
 hashtags:
   - 交絡法
   - ブロック化
   - ブロック生成子
+  - 完全交絡
+  - 部分交絡
   - 2水準要因計画
 frequency:
   past_exam: 0
@@ -278,449 +207,253 @@ sources:
     topic: 交絡法
 ---
 ## 問題
-2水準要因計画をブロック化する。
-1. $2^4$ 計画で独立なブロック生成子を $p=2$ 個使うとき、ブロック数と各ブロックの実施数を求めよ。
-2. 生成子をABとCDとしたとき、ブロック定義群に含まれる効果を答えよ。
-3. 別の $2^4$ 計画を2ブロックへ分ける。AB交互作用が重要なとき、ブロック生成子としてABとABCDのどちらを選ぶべきか。その理由も述べよ。
+2水準要因計画を小さいブロックへ分ける交絡法について次を解け。
+
+1. $2^3$ 計画を4実施ずつの2ブロックへ分け、ABC列の符号でブロックを定めた。どの処置効果がブロック効果と完全に交絡するか。
+2. $2^4$ 計画で独立なブロック生成子を $p=2$ 個使う。ブロック数と1ブロック当たりの実施数を求めよ。
+3. 2で生成子を $G_1=AB,G_2=CD$ とした。ブロック定義群を求め、どの処置効果がブロックと交絡するか答えよ。
+4. 別の $2^4$ 計画を2ブロックへ分ける。AB交互作用が重要なら、生成子としてABとABCDのどちらを選ぶべきか。理由も述べよ。
+5. 同じ要因計画を2反復し、反復1ではABC、反復2ではABDをブロックと交絡させる。この操作を何と呼ぶか。ABCとABDの情報をどこから得られるか説明せよ。
 
 ## 記号・用語
-ブロック生成子は、実施をブロックへ分けるためにブロック効果と完全に交絡させる要因効果である。$p$ 個の**独立な**ブロック生成子を使うと、それらの符号組合せで $2^p$ ブロックに分かれる。生成子自身だけでなく、それらの積からなるブロック定義群に含まれる効果もブロックと交絡する。
+**ブロック生成子**は、実施をブロックへ分けるためにブロック効果と一致させる処置効果列である。同じ列を持つため、その処置効果とブロック効果はその反復内では分離できない。
+
+- **完全交絡**：同じ処置効果を全反復でブロックと交絡させる。
+- **部分交絡**：反復ごとにブロックと交絡させる処置効果を変え、各効果について交絡していない反復の情報を残す。
+
+一般には、重要な主効果や低次交互作用を守るため、無視できると判断した高次交互作用をブロック生成子へ選ぶ。
 
 ## 使用公式・定理
-$2^k$ 完全要因計画に $p$ 個の独立ブロック生成子を使うと
+$2^k$ 完全要因計画で $p$ 個の**独立な**ブロック生成子を使うと
 $$
-\text{ブロック数}=2^p,\qquad
+\text{ブロック数}=2^p,
+\qquad
 \text{1ブロックの実施数}=2^{k-p}.
 $$
-2個の生成子を $G_1,G_2$ とすればブロック定義群は
+
+2個の生成子を $G_1,G_2$ とすると、ブロック定義群は
 $$
 I=G_1=G_2=G_1G_2
 $$
-の形になる。ブロック定義群に入る処置効果はブロック効果と分離できない。
+となる。恒等語を除き、この群に入る処置効果はブロック効果と交絡する。
+
+1個の生成子 $G$ で2ブロックに分ける場合は、$G=+1$ の実施と $G=-1$ の実施を別ブロックへ置く。したがってブロック指標と $G$ の効果列が同一になり、$G$ はブロック差から分離できない。
 
 ## 一手／方針
-**まず必要なブロック数から独立生成子数 $p$ を決め、次に候補生成子とその積を全部書き、重要な主効果・低次交互作用がブロック定義群へ入っていないか確認する。** ブロック数の計算と生成子選択を別々に考えない。
+**交絡法では「必要ブロック数 → 独立生成子数 → 生成子と全ての積 → 失われる効果 → 重要効果が守られているか」の順に確認する。**
+
+さらに反復が複数あるなら、ある重要な交互作用を全反復で失う必要があるかを考える。各反復で異なる高次交互作用をブロックと交絡させれば、部分交絡によって交絡していない反復から情報を回復できる。
 
 ## 答え
-1. $k=4,p=2$ なので
+1. ブロック指標をABC列そのもので作っているので
 $$
-2^p=4
+\boxed{ABC\text{ とブロック効果が完全交絡する}}.
 $$
-ブロック、各ブロックは
-$$
-2^{4-2}=4
-$$
-実施である。
+ABC=+1の4実施とABC=-1の4実施を別ブロックへ置くため、ブロック差とABC効果を同じデータから分離できない。
 
-2. $G_1=AB,G_2=CD$ なら
+2. $k=4,p=2$ だから
 $$
-G_1G_2=ABCD
+2^p=\boxed{4}\text{ブロック},
 $$
-なのでブロック定義群は
+各ブロックは
+$$
+2^{4-2}=\boxed{4}\text{実施}
+$$
+である。
+
+3.
+$$
+G_1G_2=(AB)(CD)=ABCD
+$$
+より
 $$
 I=AB=CD=ABCD.
 $$
-AB、CD、ABCDはブロック差と交絡する。
+したがって
+$$
+\boxed{AB,CD,ABCD}
+$$
+がブロック効果と交絡する。生成子ABとCDだけでなく、その積ABCDも確認する必要がある。
 
-3. ABを生成子にすると重要なAB交互作用をブロック差から分離できない。ABCDを生成子にすれば失うのは4因子交互作用でありABは保護される。したがってABCDを選ぶ。
+4. ABを生成子にすると、重要としたAB交互作用をブロック差から分離できなくなる。一方ABCDを生成子にすれば、失うのは4因子交互作用でありABは保護される。したがって
+$$
+\boxed{ABCD\text{ を選ぶ}}
+$$
+のが適切である。ただしこれは高次交互作用ABCDを小さいとみなす仮定に依存する。
+
+5. これは**部分交絡**である。反復1ではABCがブロックと交絡するがABDは交絡していないのでABDの情報を得られる。反復2ではABDが交絡するがABCは交絡していないのでABCの情報を得られる。したがって
+$$
+\boxed{ABC\text{ は反復2、}ABD\text{ は反復1から情報を得られる}}.
+$$
+全反復で同じ効果を完全に失う代わりに、反復間で情報損失を分散させる設計である。
 
 ## 計算例
-$2^5$ 計画を8ブロックへ分けたいなら $2^p=8$ より $p=3$。各ブロックは $2^{5-3}=4$ 実施である。ただし3個の生成子を選んだ後は、生成子3個だけでなく全ての積から生じる $2^3-1=7$ 個の非恒等ブロック語を確認する必要がある。
+$2^5$ 計画を8ブロックへ分けるなら
+$$
+2^p=8\Rightarrow p=3,
+$$
+1ブロック当たり
+$$
+2^{5-3}=4
+$$
+実施である。3個の独立生成子を決めた後は、生成子自身だけでなく全ての積から生じる
+$$
+2^3-1=7
+$$
+個の非恒等ブロック語を列挙し、重要効果が含まれないか確認する。
+
+また$2^3$ の2ブロック化でABCを生成子にするのは、「3因子交互作用は主効果や2因子交互作用より小さい」という効果の疎性を利用した典型例である。
 
 ## 注意
-生成子が互いに独立でなければ、個数を増やしてもブロック数は期待どおり倍増しない。高次交互作用を生成子へ選ぶのは効果の疎性を仮定した設計判断であり、重要と考える効果を先に明示してから決める。反復ごとに交絡対象を変えて情報を回復する部分交絡は別の設計操作である。
+生成子は互いに独立でなければならない。従属な生成子を追加してもブロック数は期待どおり倍増しない。
 
-<!-- CARD -->
+「高次交互作用をブロックと交絡させればよい」は絶対則ではない。科学的に重要な効果を先に決め、ブロック定義群にそれらが入らないことを確認する。部分交絡では各効果の情報量が完全に交絡のない計画より少なくなることがある。
 
----
-id: engdesign-partial-confounding
-title: 部分交絡で情報を回復する仕組みを説明する
-category: applied-engineering
-subcategory: engineering-design
-topic: partial-confounding
-type: recognition
-difficulty: 3
-priority: B
-hashtags: [交絡法, 部分交絡, 反復]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 交絡法 }]
----
-## 問題
-同じ要因計画を複数反復するとき、各反復で異なる交互作用をブロックと交絡させる部分交絡の利点を答えよ。
-## 記号・用語
-完全交絡は全反復で同じ効果をブロックと一致させ、部分交絡は反復ごとに一致させる効果を変える。
-## 使用公式・定理
-ある効果が交絡していない反復の情報を用いれば、その効果を推定できる。
-## 一手／方針
-各効果について少なくとも一部の反復でブロック列と異なるかを見る。
-## 答え
-ブロックサイズを保ちながら、交絡対象を反復間で分散させて主要な交互作用の情報を部分的に回復できる。
-## 計算例
-反復1でABC、反復2でABDを交絡させれば、ABCは反復2、ABDは反復1から推定できる。
-## 注意
-効果ごとの情報量は完全直交計画より少なくなり得る。
-
-<!-- CARD -->
-
----
-id: engdesign-subsampling-variance
-title: 実験単位内の複数測定が平均分散をどれだけ減らすか計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: subsampling-variance
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 反復, 疑似反復]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-独立な装置効果 $U_i$ と測定誤差 $\varepsilon_{ij}$ による変量切片模型 $Y_{ij}=\mu+U_i+\varepsilon_{ij}$ を考える。各処置に装置を $n=4$ 台割り付け、各装置で $m=5$ 回測定する。$E[U_i]=E[\varepsilon_{ij}]=0$、$\operatorname{Var}(U_i)=\tau^2=9$、$\operatorname{Var}(\varepsilon_{ij})=\sigma^2=16$ のとき、処置平均の分散を求めよ。
-## 記号・用語
-装置平均は共通装置効果と$m$回の測定誤差平均からなる。
-## 使用公式・定理
-装置平均の分散は $\tau^2+\sigma^2/m$、n台の処置平均は $(\tau^2+\sigma^2/m)/n$。
-## 一手／方針
-まず装置内平均で測定誤差だけを$m$分の1にし、装置数nで全体を割る。
-## 答え
-$$\operatorname{Var}(\overline Y)=\frac{9+16/5}{4}=\frac{12.2}{4}=3.05.$$
-## 計算例
-$m$ を無限に増やしても分散下限は $\tau^2/n=9/4=2.25$ である。
-## 注意
-装置間変動が大きい場合、装置内測定数より独立装置数を増やす方が有効である。
-
-<!-- CARD -->
-
----
-id: engdesign-randomization-permutation
-title: 完全無作為化の割付表を作る
-category: applied-engineering
-subcategory: engineering-design
-topic: randomization
-type: calc_step
-difficulty: 1
-priority: B
-hashtags: [実験の計画と実施, 無作為化, 割付]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-実験単位1〜6へ処置A、Bを各3単位割り付ける。乱数順が $(4,1,6,2,5,3)$ のとき、先頭3単位をAとする割付を答えよ。
-## 記号・用語
-完全無作為化は制約した処置数を保ちながら全実験単位へ無作為に割り付ける。
-## 使用公式・定理
-乱数による置換の先頭から必要数を各処置へ割り当てる。
-## 一手／方針
-並びの先頭3個と残り3個を分ける。
-## 答え
-Aは単位4、1、6、Bは単位2、5、3である。
-## 計算例
-割付後は実施順も無作為化し、時間トレンドとの交絡を避ける。
-## 注意
-都合のよい順序へ事後変更すると無作為化の根拠を失う。
-
-<!-- CARD -->
-
----
-id: engdesign-rerandomization-balance
-title: 共変量釣合いを使う再無作為化候補を選ぶ
-category: applied-engineering
-subcategory: engineering-design
-topic: rerandomization
-type: recognition
-difficulty: 1
-priority: B
-hashtags: [実験の計画と実施, 完全無作為化, 処置効果]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-処置前共変量の群平均差が、無作為割付候補1で2.4、候補2で0.3である。許容基準を絶対差1以下とした再無作為化で採用する候補を答えよ。
-## 記号・用語
-再無作為化は事前に定めた釣合い基準を満たすまで無作為割付を引き直す方法である。
-## 使用公式・定理
-採択規則は応答を見ず、処置前共変量だけで全候補へ同じように適用する。
-## 一手／方針
-各候補の絶対平均差を基準1と比較する。
-## 答え
-候補1は2.4で棄却、候補2は0.3で採用する。
-## 計算例
-採用後の割付確率を反映する無作為化推測または設計に対応した解析を行う。
-## 注意
-結果を見て釣合い基準を変えると選択バイアスを生む。
-
-<!-- CARD -->
-
----
-id: engdesign-precision-weighted-block-difference
-title: 精度が異なるブロック内処置差を重み付き統合する
-category: applied-engineering
-subcategory: engineering-design
-topic: weighted-block-contrast
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ブロック化, 局所管理, 誤差分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-3ブロックの処置差B−Aが $(2,4,8)$、その分散が $(1,2,4)$ である。独立なブロック差を逆分散重みで統合せよ。
-## 記号・用語
-逆分散重みは精度の高いブロック差へ大きい重みを与える。
-## 使用公式・定理
-$$\widehat\Delta=\frac{\sum_jw_jD_j}{\sum_jw_j},\qquad w_j=1/\operatorname{Var}(D_j).$$
-## 一手／方針
-分散の逆数 $(1,1/2,1/4)$ を作り、加重平均を取る。
-## 答え
-$$\widehat\Delta=\frac{1(2)+(1/2)4+(1/4)8}{1+1/2+1/4}=\frac6{1.75}=\frac{24}{7}\approx3.43.$$
-## 計算例
-推定分散は $1/\sum_jw_j=4/7\approx0.571$。
-## 注意
-分散が同じデータから推定される場合は重み推定の不確実性も考慮する。
-
-<!-- CARD -->
-
----
-id: engdesign-rcbd-adjusted-difference
-title: 乱塊法の処置差をブロック内差から求める
-category: applied-engineering
-subcategory: engineering-design
-topic: randomized-complete-block
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ブロック化, 乱塊法, 処置差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-3ブロックで処置A、Bの観測が $(10,14),(9,12),(13,15)$ である。B−Aの処置差を求めよ。
-## 記号・用語
-各組は同一ブロック内の $(A,B)$ 観測である。
-## 使用公式・定理
-完全ブロックで2処置なら処置差推定量はブロック内差 $D_j=Y_{Bj}-Y_{Aj}$ の平均である。
-## 一手／方針
-ブロックごとの差を作り、その平均を取る。
-## 答え
-差は $(4,3,2)$ なので $\overline D=(4+3+2)/3=3$。
-## 計算例
-ブロック水準がそれぞれ大きく違っても、加法モデルなら差で除ける。
-## 注意
-欠測がある不完備ブロックでは単純な差平均をそのまま使えない。
-
-<!-- CARD -->
-
----
-id: engdesign-cyclic-incomplete-blocks
-title: 基本ブロックを巡回して不完備ブロック計画を作る
-category: applied-engineering
-subcategory: engineering-design
-topic: cyclic-incomplete-block
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, 不完備ブロック, 巡回計画]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置を $0,1,2,3,4$ とし、基本ブロック $\{0,1\}$ を法5で巡回して5ブロックを作れ。
-## 記号・用語
-巡回計画は基本ブロックの各処置番号へ同じ整数を法vで加える。
-## 使用公式・定理
-$B_s=\{(x+s)\bmod5:x\in\{0,1\}\}$、$s=0,\ldots,4$。
-## 一手／方針
-$s$ を0から4まで動かす。
-## 答え
-$\{0,1\},\{1,2\},\{2,3\},\{3,4\},\{4,0\}$。
-## 計算例
-各処置は2回現れ、接続グラフは5角形なので全処置対比が推定可能である。
-## 注意
-隣接処置対だけが共出現するためBIBDではない。
-
-<!-- CARD -->
-
----
-id: engdesign-graeco-latin-df
-title: グレコ・ラテン方格法の自由度を配分する
-category: applied-engineering
-subcategory: engineering-design
-topic: graeco-latin-square
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ブロック化, ラテン方格法, 自由度]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-$p=5$ のグレコ・ラテン方格で、行、列、ラテン処置、ギリシャ処置、誤差、全体の自由度を求めよ。
-## 記号・用語
-直交する2つのラテン方格を重ね、2種類の処置効果を行・列と分離する。
-## 使用公式・定理
-4つの主効果は各 $p-1$、誤差は $(p-1)(p-3)$、全体は $p^2-1$。
-## 一手／方針
-$p=5$ を代入し、5区分の自由度和を確かめる。
-## 答え
-行4、列4、ラテン処置4、ギリシャ処置4、誤差8、全体24で、$4+4+4+4+8=24$。
-## 計算例
-$p=5$ では2処置因子を各5水準で25実施により評価できる。
-## 注意
-2つの処置因子間の交互作用は通常この計画から分離できない。
-
-<!-- CARD -->
-
----
-id: engdesign-latin-square-treatment-mean
-title: ラテン方格の処置平均を配置から集計する
-category: applied-engineering
-subcategory: engineering-design
-topic: latin-square-calculation
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ブロック化, ラテン方格法, 処置平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-3×3ラテン方格で処置Aがセル $(1,1),(2,2),(3,3)$ に配置され、応答が8、11、14であった。Aの処置平均を求めよ。
-## 記号・用語
-処置平均は行や列の位置ではなく、同じ処置記号が置かれたセルを集計する。
-## 使用公式・定理
-$k(i,j)$ をセル $(i,j)$ に割り付けた処置記号とすると、$\overline Y_A=p^{-1}\sum_{(i,j):k(i,j)=A}Y_{ij}$。
-## 一手／方針
-Aが現れる3セルだけを足して3で割る。
-## 答え
-$\overline Y_A=(8+11+14)/3=11$。
-## 計算例
-行平均や対角平均と一致するのはこの配置例だけで、一般には処置記号を追って集計する。
-## 注意
-ラテン方格の処置割付は標準方格を無作為に行・列・処置ラベル置換して作る。
-
-<!-- CARD -->
-
----
-id: engdesign-random-slope-covariance
-title: 変量切片・変量傾きモデルの群内共分散を計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: random-slope-covariance
-type: calc_step
-difficulty: 1
-priority: B
-hashtags: [固定効果, 変量効果, 因子]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 固定効果・変量効果 }]
----
-## 問題
-同一群の応答が $Y(x)=\beta_0+\beta_1x+U_0+U_1x+\varepsilon(x)$ に従う。$\operatorname{Var}(U_0)=4$、$\operatorname{Var}(U_1)=1$、$\operatorname{Cov}(U_0,U_1)=0.5$ のとき、$x=0$ と $x'=2$ の応答の共分散を求めよ。
-## 記号・用語
-$U_0,U_1$ は群共有のゼロ平均変量切片・変量傾き、異なる時点の誤差は互いに独立で両変量効果とも独立とする。
-## 使用公式・定理
-$$\operatorname{Cov}\{Y(x),Y(x')\}=\operatorname{Var}(U_0)+(x+x')\operatorname{Cov}(U_0,U_1)+xx'\operatorname{Var}(U_1).$$
-## 一手／方針
-$x=0,x'=2$ を3項へ代入する。
-## 答え
-$4+(0+2)(0.5)+0(2)(1)=5$。
-## 計算例
-両時点が0から離れると変量傾きが共分散へ寄与する。
-## 注意
-同一時点の分散には測定誤差分散も加わるが、異時点共分散には独立誤差は寄与しない。
+一部実施要因計画の別名構造と、完全要因計画をブロック化したときのブロック交絡は、どちらも列の一致を使うが設計目的が異なる。前者は実験点を減らすため、後者は同時に実施できる大きさへ分けるためである。
 
 <!-- CARD -->
 
 ---
 id: engdesign-fixed-effect-hypothesis
-title: 固定効果因子の帰無仮説を書く
+title: 固定効果と変量効果を推測対象から判別し分散成分まで読む
 category: applied-engineering
 subcategory: engineering-design
-topic: fixed-effect-test
-type: recognition
-difficulty: 1
-priority: B
-hashtags: [固定効果, 分散分析, 帰無仮説]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 固定効果 }]
----
-## 問題
-$a$ 水準の固定効果因子について、主効果なしの帰無仮説を平均と効果の2通りで書け。
-## 記号・用語
-$\mu_i$ は第 $i$ 水準の母平均、$\alpha_i$ は総平均からの固定効果で、$\sum_i\alpha_i=0$ とする。
-## 使用公式・定理
-主効果なしは全水準平均が等しいことと全効果が0であることが同値である。
-## 一手／方針
-平均の等式を効果パラメータへ書き換える。
-## 答え
-$$H_0:\mu_1=\cdots=\mu_a,$$
-または $H_0:\alpha_1=\cdots=\alpha_a=0$。
-## 計算例
-対立仮説は「少なくとも1つの平均が異なる」であり、全平均が互いに異なるとは限らない。
-## 注意
-棄却後にどの水準が違うかは多重比較や事前コントラストで調べる。
-
-<!-- CARD -->
-
----
-id: engdesign-random-effect-blup
-title: 変量効果のBLUP縮小量を計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: random-effect-blup
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [変量効果, 分散成分, 群内相関]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変量効果 }]
----
-## 問題
-既知の $\mu,\tau^2,\sigma^2$ を持つ独立同分散の変量切片模型 $Y_{ij}=\mu+U_i+\varepsilon_{ij}$ で、$E[U_i]=E[\varepsilon_{ij}]=0$ とする。群平均 $\overline Y_i=12$、$\mu=10$、$\tau^2=4$、$\sigma^2=9$、群サイズ $n=3$ のとき群平均のBLUPを求めよ。
-## 記号・用語
-BLUPはbest linear unbiased prediction（最良線形不偏予測）で、群平均を全体平均へ縮小する。
-## 使用公式・定理
-$B=\tau^2/(\tau^2+\sigma^2/n)$、予測群平均は $\widehat\mu_i=\mu+B(\overline Y_i-\mu)$。
-## 一手／方針
-群平均の誤差分散 $\sigma^2/n$ と縮小係数Bを求める。
-## 答え
-$B=4/(4+9/3)=4/7$ より
-$$\widehat\mu_i=10+\frac47(12-10)=\frac{78}{7}\approx11.14.$$
-## 計算例
-生の群平均12より全体平均10へ縮小される。
-## 注意
-分散成分を推定して使う経験BLUPでは追加の推定不確実性がある。
-
-<!-- CARD -->
-
----
-id: engdesign-gage-rr-variance
-title: Gage R&Rの分散成分から測定変動割合を求める
-category: applied-engineering
-subcategory: engineering-design
-topic: gage-rr
-type: calc_step
+topic: fixed-random-effects-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [変量効果, Gage R&R, 分散成分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変量効果 }]
+priority: A
+hashtags:
+  - 固定効果
+  - 変量効果
+  - 分散分析
+  - 分散成分
+  - 級内相関
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 固定効果
 ---
 ## 問題
-部品間分散9、測定者間分散4、繰返し誤差分散16と推定された交差型Gage R&Rで、総分散と測定システム分散の割合を求めよ。
+実験計画における固定効果と変量効果について次を解け。
+
+1. 3種類の触媒A,B,Cそのものの性能差を比較したい。触媒因子は固定効果・変量効果のどちらとして扱うのが自然か。推測対象も述べよ。
+2. 多数ある製造ロットから無作為に4ロットを選び、ロット間ばらつきを母集団へ一般化したい。ロット因子はどちらとして扱うのが自然か。
+3. $a$ 水準の固定効果一元配置で「主効果なし」の帰無仮説を、平均と効果パラメータの2通りで書け。
+4. 変量切片模型
+$$
+Y_{ij}=\mu+U_i+\varepsilon_{ij},
+$$
+で $\operatorname{Var}(U_i)=\tau^2=4$、$\operatorname{Var}(\varepsilon_{ij})=\sigma^2=6$ とする。同一群内の2観測の共分散、各観測の分散、級内相関係数を求めよ。
+5. 「機械」という同じ因子名でも、固定効果にも変量効果にもなり得る理由を説明せよ。
+
 ## 記号・用語
-測定システム分散は再現性成分（測定者）と繰返し性成分の和とする。
+**固定効果**では、実験で採用した水準そのものの平均差・効果が推測対象である。水準効果 $\alpha_i$ は未知だが固定された定数として扱う。
+
+**変量効果**では、観測した水準をより大きな水準母集団からの標本と考え、水準ごとの値そのものより、水準間変動を表す分散成分などが推測対象になる。典型的には
+$$
+U_i\overset{\mathrm{iid}}{\sim}(0,\tau^2)
+$$
+と置く。
+
+分類は因子の名前だけで決まらず、**どこまで一般化したいかという推測目的**で決まる。
+
 ## 使用公式・定理
-$\sigma^2_{\mathrm{GRR}}=\sigma^2_{\mathrm{operator}}+\sigma^2_{\mathrm{repeat}}$、総分散は部品間分散との和。
+固定効果一元配置
+$$
+Y_{ij}=\mu+\alpha_i+\varepsilon_{ij},
+\qquad \sum_{i=1}^a\alpha_i=0
+$$
+では主効果なしは
+$$
+H_0:\mu_1=\cdots=\mu_a
+$$
+と同値に
+$$
+H_0:\alpha_1=\cdots=\alpha_a=0
+$$
+と書ける。
+
+変量切片模型
+$$
+Y_{ij}=\mu+U_i+\varepsilon_{ij},
+$$
+で $U_i$ と $\varepsilon_{ij}$ が独立、
+$$
+\operatorname{Var}(U_i)=\tau^2,\qquad
+\operatorname{Var}(\varepsilon_{ij})=\sigma^2
+$$
+なら、同一群内の異なる2観測について
+$$
+\operatorname{Cov}(Y_{ij},Y_{ik})=\tau^2,
+$$
+各観測の分散は
+$$
+\operatorname{Var}(Y_{ij})=\tau^2+\sigma^2.
+$$
+よって級内相関係数は
+$$
+\rho=\frac{\tau^2}{\tau^2+\sigma^2}.
+$$
+
 ## 一手／方針
-測定者4と繰返し16を足し、全体29で割る。
+**固定か変量かは「観測した水準そのものを比べたいのか、それらを母集団からの標本として水準間ばらつきを知りたいのか」で判定する。**
+
+固定効果なら平均差やコントラストを推測し、変量効果ならまず分散成分を読む。変量切片模型が出たら「共通の群効果 $U_i$ が同一群内の共分散を作る」と考える。
+
 ## 答え
-$\sigma^2_{\mathrm{GRR}}=4+16=20$、総分散は $9+20=29$、割合は $20/29\approx0.690$。
+1. A,B,Cそのものを比較したいので**固定効果**が自然である。推測対象は各触媒水準の母平均や、それらの差・コントラストである。
+
+2. 選んだ4ロット自体の順位より、将来のロットも含むロット間ばらつきを一般化したいので**変量効果**が自然である。推測対象は主としてロット間分散 $\tau^2$ である。
+
+3.
+$$
+\boxed{H_0:\mu_1=\cdots=\mu_a}
+$$
+または
+$$
+\boxed{H_0:\alpha_1=\cdots=\alpha_a=0}.
+$$
+対立仮説は「少なくとも1つの水準平均が異なる」である。
+
+4. 同じ群の2観測は $U_i$ を共有するので
+$$
+\operatorname{Cov}(Y_{ij},Y_{ik})=\tau^2=\boxed{4}.
+$$
+各観測の分散は
+$$
+4+6=\boxed{10}.
+$$
+したがって
+$$
+\rho=\frac4{10}=\boxed{0.4}.
+$$
+全変動の40%が群共有の変動に由来すると読める。
+
+5. 例えば「この3台の機械そのものを比較したい」なら機械は固定効果になりやすい。一方「多数ある同型機から3台を抽出し、機械間ばらつきを推定したい」なら変量効果になりやすい。同じ因子名でも、推測対象と水準の選び方が違えば扱いは変わる。
+
 ## 計算例
-標準偏差割合は $\sqrt{20}/\sqrt{29}\approx0.830$ で、分散割合とは異なる。
+変量切片模型で $\tau^2=1,\sigma^2=9$ なら
+$$
+\rho=\frac1{10}=0.1,
+$$
+なので同一群内相関は弱い。逆に $\tau^2=9,\sigma^2=1$ なら
+$$
+\rho=0.9,
+$$
+で、同一群の観測は強く似る。
+
+固定効果では、例えば触媒A,B,Cの平均が $(10,12,15)$ なら、主効果なしの仮説は「10,12,15という標本値が等しいか」ではなく、対応する母平均が等しいかを検定する。
+
 ## 注意
-部品×測定者交互作用を含む設計では、その分散成分も再現性側へ加える規約がある。
+固定効果・変量効果は「水準数が少ないから固定、多いから変量」と機械的に決めない。水準の選び方と推測対象が本質である。
+
+変量効果の分散成分に対する $H_0:\tau^2=0$ は母数空間の境界にあるため、通常の内部点の検定と同じ漸近論をそのまま使えない場合がある。統計検定1級の理工学対策では、まず固定効果は水準差、変量効果は水準間分散を推測するという役割の違いを優先して押さえる。
+
+BLUPによる個別群効果の予測や変量傾きモデルは、この基本判別より発展的な論点なので別途必要なときに扱う。
 
 <!-- CARD -->
 
@@ -935,66 +668,6 @@ Bの測定数が多くても、Aの実質的な反復数は一次実験単位数
 <!-- CARD -->
 
 ---
-id: engdesign-incomplete-incidence-matrix
-title: 不完備ブロック計画の接続行列を作る
-category: applied-engineering
-subcategory: engineering-design
-topic: incomplete-block-incidence
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, 不完備ブロック, 接続行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置A、B、Cとブロック1=$(A,B)$、2=$(A,C)$、3=$(B,C)$ から、行を処置、列をブロックとする接続行列 $N$ を作れ。
-## 記号・用語
-$N_{ij}=1$ は処置$i$がブロック$j$に入ること、0は入らないことを表す。
-## 使用公式・定理
-各ブロックの処置集合を列ごとの0–1指示ベクトルへする。
-## 一手／方針
-ブロック1、2、3についてA、B、Cの有無を順に記入する。
-## 答え
-$$N=\begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix}.$$
-## 計算例
-各行和は反復数2、各列和はブロックサイズ2である。
-## 注意
-不完備ブロックでは全処置が同一ブロックにそろわないため、ブロック調整した比較を使う。
-
-<!-- CARD -->
-
----
-id: engdesign-bibd-parameter-check
-title: BIBDのパラメータ関係を確認する
-category: applied-engineering
-subcategory: engineering-design
-topic: bibd-parameters
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, BIBD, 不完備ブロック]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置数 $v=4$、ブロックサイズ $k=3$、各処置の反復数 $r=3$、ブロック数 $b=4$ の計画がBIBDの基本関係を満たすか確認し、処置対の共出現数 $\lambda$ を求めよ。
-## 記号・用語
-BIBDはbalanced incomplete block design（釣合い型不完備ブロック計画）である。
-## 使用公式・定理
-$vr=bk$、$\lambda(v-1)=r(k-1)$。
-## 一手／方針
-総処置出現数を両側で確認し、第2式から$\lambda$を解く。
-## 答え
-$4(3)=4(3)=12$、$\lambda=3(2)/3=2$ なので基本関係を満たす。
-## 計算例
-各処置対がちょうど2ブロックで一緒に現れる必要がある。
-## 注意
-パラメータ関係は必要条件であり、整数解があっても実際の配置が存在するとは限らない。
-
-<!-- CARD -->
-
----
 id: engdesign-bibd-contrast-variance
 title: BIBDの処置差推定量の分散を計算する
 category: applied-engineering
@@ -1111,36 +784,6 @@ sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
 処置×時点交互作用は処置効果の時間変化を表す。
 ## 注意
 30観測を独立として通常の二元配置法を使うと誤差構造を誤る。
-
-<!-- CARD -->
-
----
-id: engdesign-replication-power-ratio
-title: 反復数と標準誤差の関係を計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: replication-precision
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [実験の計画と実施, 反復, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-等分散で2処置を各 $n$ 回独立反復する。平均差の標準誤差を現在の半分にするには反復数を何倍にすべきか。
-## 記号・用語
-$\sigma^2$ は1実験単位の誤差分散である。
-## 使用公式・定理
-$\operatorname{SE}(\overline Y_1-\overline Y_2)=\sigma\sqrt{2/n}$。
-## 一手／方針
-標準誤差が $n^{-1/2}$ に比例することを使う。
-## 答え
-$1/\sqrt c=1/2$ より $c=4$。反復数を4倍にする。
-## 計算例
-各処置5反復から20反復へ増やすと標準誤差は半分になる。
-## 注意
-測定を同じ実験単位内で増やすだけでは独立反復数は増えない。
 
 <!-- CARD -->
 

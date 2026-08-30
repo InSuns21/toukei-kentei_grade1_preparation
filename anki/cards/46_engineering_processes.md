@@ -244,37 +244,6 @@ $$80.0\pm1.96(2.5)=80.0\pm4.9,$$
 <!-- CARD -->
 
 ---
-id: engproc-biased-walk-hit-upper
-title: 偏りのあるランダムウォークの上側到達確率を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: gambler-ruin-biased
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [ランダムウォーク, 到達確率, 差分方程式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ランダムウォーク }]
----
-## 問題
-状態 $0,1,\ldots,5$ 上で、確率 $p=0.6$ で $+1$、$q=0.4$ で $-1$ 進む。状態2から出発し、0より先に5へ到達する確率を求めよ。
-## 記号・用語
-$h_i=P_i(T_5<T_0)$、$T_j$ は状態 $j$ への初到達時刻である。
-## 使用公式・定理
-$p\ne q$ の吸収ランダムウォークでは
-$$h_i=\frac{1-(q/p)^i}{1-(q/p)^N},\qquad h_0=0, h_N=1.$$
-## 一手／方針
-$q/p=2/3$、$i=2$、$N=5$ を公式へ代入する。
-## 答え
-$$h_2=\frac{1-(2/3)^2}{1-(2/3)^5}=\frac{5/9}{211/243}=\frac{135}{211}\approx0.640.$$
-## 計算例
-公平な場合の $i/N=2/5$ より、上向きドリフトにより到達確率が大きい。
-## 注意
-$p=q$ のときは比の公式でなく $h_i=i/N$ を使う。
-
-<!-- CARD -->
-
----
 id: engproc-random-walk-expected-absorption
 title: 公平なランダムウォークの平均吸収時間を計算する
 category: applied-engineering
@@ -306,62 +275,110 @@ $$m_2=2(6-2)=8.$$
 
 ---
 id: engproc-ctmc-generator-check
-title: 連続時間マルコフ連鎖の生成行列を判定する
+title: CTMCの生成行列を判定し保持時間とジャンプ確率まで読む
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: ctmc-generator
-type: recognition
-difficulty: 2
-priority: B
-hashtags: [マルコフ過程, 連続時間マルコフ連鎖, 生成行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
----
-## 問題
-$Q=\begin{pmatrix}-3&2&1\\1&-1&0\\0&4&-4\end{pmatrix}$ は連続時間マルコフ連鎖の生成行列になり得るか。
-## 記号・用語
-$q_{ij}$ は状態 $i$ から $j$ への遷移率、$q_{ii}$ は状態 $i$ から出る総率の負値である。
-## 使用公式・定理
-生成行列は $i\ne j$ で $q_{ij}\ge0$、各行和が0を満たす。
-## 一手／方針
-非対角成分の符号と各行和を確認する。
-## 答え
-非対角成分はすべて非負で、行和は $-3+2+1=0$、$1-1=0$、$4-4=0$。よって生成行列になり得る。
-## 計算例
-状態1の保持時間は率3の指数分布に従う。
-## 注意
-離散時間の遷移行列と異なり、対角成分は負で行和は1でなく0である。
-
-<!-- CARD -->
-
----
-id: engproc-ctmc-holding-jump-probability
-title: 生成行列から保持時間と遷移先確率を求める
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: ctmc-holding-time
-type: calc_step
+topic: ctmc-generator-holding-jump-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [マルコフ過程, 保持時間, ジャンプ連鎖]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+priority: A
+hashtags:
+  - マルコフ過程
+  - 連続時間マルコフ連鎖
+  - 生成行列
+  - 保持時間
+  - ジャンプ連鎖
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ過程
 ---
 ## 問題
-生成行列の状態1の行が $(-3,2,1)$ である。状態1の平均保持時間と、離脱時に状態2へ移る確率を求めよ。
+連続時間マルコフ連鎖の候補として
+$$
+Q=\begin{pmatrix}
+-3&2&1\\
+1&-1&0\\
+0&4&-4
+\end{pmatrix}
+$$
+が与えられた。
+1. $Q$ が生成行列になり得るか判定せよ。
+2. 状態1にいるときの離脱率、保持時間の分布と平均を求めよ。
+3. 状態1を離脱するとき、状態2および状態3へジャンプする確率を求めよ。
+
 ## 記号・用語
-離脱率は $\nu_i=-q_{ii}$、ジャンプ先確率は $q_{ij}/\nu_i$ である。$H_1$ は状態1の保持時間を表す。
+$q_{ij}$ は状態 $i$ から状態 $j$ への遷移率である。生成行列では非対角成分が遷移率を表し、対角成分はその状態から出る総率の負値である。状態 $i$ からの離脱率を
+$$
+\nu_i=-q_{ii}
+$$
+と書く。
+
 ## 使用公式・定理
-保持時間は率 $\nu_i$ の指数分布に従い、平均は $1/\nu_i$。
+有限状態の連続時間マルコフ連鎖の生成行列 $Q=(q_{ij})$ は
+$$
+q_{ij}\ge0\quad(i\ne j),
+$$
+$$
+q_{ii}=-\sum_{j\ne i}q_{ij},
+$$
+すなわち各行和が0である。
+
+状態 $i$ の保持時間 $H_i$ は離脱率 $\nu_i=-q_{ii}$ の指数分布に従い、
+$$
+P(H_i>t)=e^{-\nu_i t},
+\qquad
+E[H_i]=\frac1{\nu_i}.
+$$
+離脱したという条件のもとで、次に状態 $j$ へ移る確率は
+$$
+p_{ij}=\frac{q_{ij}}{\nu_i}
+=\frac{q_{ij}}{-q_{ii}}
+\qquad(j\ne i).
+$$
+
 ## 一手／方針
-対角成分から総離脱率を読み、非対角率を総率で割る。
+**Qを見たら「非対角非負→行和0→対角の絶対値を離脱率として読む→非対角成分を離脱率で割る」の順に処理する。** 離散時間の遷移確率行列と違って、生成行列そのものの行和は1ではない。
+
 ## 答え
-$$\nu_1=3,\qquad E[H_1]=\frac13,$$
-$$P(1\to2\mid\text{離脱})=\frac{q_{12}}{\nu_1}=\frac23.$$
+1. 非対角成分はすべて非負であり、各行和は
+$$
+-3+2+1=0,
+\qquad
+1-1+0=0,
+\qquad
+0+4-4=0.
+$$
+よって $Q$ は生成行列になり得る。
+
+2. 状態1の離脱率は
+$$
+\nu_1=-q_{11}=3.
+$$
+したがって
+$$
+H_1\sim\operatorname{Exp}(3),
+\qquad
+E[H_1]=\frac13.
+$$
+
+3. 離脱時のジャンプ確率は
+$$
+p_{12}=\frac{2}{3},
+\qquad
+p_{13}=\frac{1}{3}.
+$$
+実際 $p_{12}+p_{13}=1$ である。
+
 ## 計算例
-状態3へ移る確率は $1/3$ で、合計1になる。
+状態3の行は $(0,4,-4)$ なので離脱率は4、平均保持時間は $1/4$ である。また離脱時には状態2へ確率1で移る。
+
 ## 注意
-遷移率2は確率ではないため、そのまま確率として読まない。
+生成行列 $Q$ と、ジャンプ時点だけを見た埋込離散時間連鎖の遷移行列 $P=(p_{ij})$ を混同しない。$Q$ の非対角成分は確率ではなく単位時間当たりの率なので1を超えてもよい。一方、$p_{ij}=q_{ij}/(-q_{ii})$ は離脱した後の行先確率であり各行で1に和する。
 
 <!-- CARD -->
 
@@ -552,37 +569,6 @@ $$p_{02}^{(2)}=0.8(0)+0.2(0.4)+0(1)=0.08.$$
 <!-- CARD -->
 
 ---
-id: engproc-repair-chain-stationary-availability
-title: 故障修復連鎖の定常可用率を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: stationary-availability
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [マルコフ連鎖, 定常分布, 可用率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
----
-## 問題
-稼働0・故障1の遷移行列が $P=\begin{pmatrix}0.9&0.1\\0.4&0.6\end{pmatrix}$ である。長期可用率を求めよ。
-## 記号・用語
-定常分布 $\boldsymbol\pi=(\pi_0,\pi_1)$ の $\pi_0$ が長期可用率である。
-## 使用公式・定理
-$\boldsymbol\pi^\top P=\boldsymbol\pi^\top$、$\pi_0+\pi_1=1$。
-## 一手／方針
-稼働から故障への定常流量と故障から修復への流量を等置する。
-## 答え
-$$0.1\pi_0=0.4\pi_1,\qquad \pi_0+\pi_1=1,$$
-より $\pi_0=0.8,\pi_1=0.2$。長期可用率は0.8。
-## 計算例
-長期的には観測時点の20%で故障状態にいる。
-## 注意
-初期状態によらず収束するには既約性・非周期性を確認する。
-
-<!-- CARD -->
-
----
 id: engproc-stationary-mean-recurrence
 title: 定常確率から平均再帰時間を計算する
 category: applied-engineering
@@ -614,62 +600,127 @@ $$E_A[T_A^+]=\frac1{0.2}=5.$$
 
 ---
 id: engproc-birth-death-detailed-balance
-title: 出生死亡過程の定常比を詳細釣合いから求める
+title: 出生死亡過程の詳細釣合いから定常分布を作りM/M/1へ適用する
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: birth-death-process
-type: calc_step
+topic: birth-death-mm1-stationary-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [マルコフ過程, 出生死亡過程, 詳細釣合い]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+priority: A
+hashtags:
+  - マルコフ過程
+  - 出生死亡過程
+  - 詳細釣合い
+  - M/M/1
+  - 定常分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ過程
 ---
 ## 問題
-出生率が全状態で $\lambda$、死亡率が正の状態で $\mu$ の出生死亡過程について、定常確率の比 $\pi_{n+1}/\pi_n$ を求めよ。
-## 記号・用語
-$\pi_n$ は定常状態で系内個数が $n$ である確率である。
-## 使用公式・定理
-詳細釣合い式は $\pi_n\lambda=\pi_{n+1}\mu$。
-## 一手／方針
-隣接状態間の流入率と流出率を等置して比を解く。
-## 答え
-$$\frac{\pi_{n+1}}{\pi_n}=\frac\lambda\mu=\rho.$$
-## 計算例
-$\rho<1$ なら $\pi_n=(1-\rho)\rho^n$ と正規化できる。
-## 注意
-$\rho\ge1$ では無限状態空間上の定常確率分布を正規化できない。
+状態空間 $\{0,1,2,\ldots\}$ の出生死亡過程を考える。状態 $n$ から $n+1$ への出生率を $\lambda_n$、状態 $n\ge1$ から $n-1$ への死亡率を $\mu_n$ とする。
+1. 定常確率 $\pi_n$ が詳細釣合いを満たすとき、$\pi_n$ を $\pi_0$ と各率から表せ。
+2. 定常分布が存在するための正規化条件を述べよ。
+3. M/M/1待ち行列で到着率 $\lambda=2$/時、サービス率 $\mu=3$/時のとき、定常時に系内人数が3人である確率と空系確率を求めよ。
 
-<!-- CARD -->
-
----
-id: engproc-mm1-stationary-probability
-title: M/M/1待ち行列の定常確率を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: mm1-stationary
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [マルコフ過程, M-M-1待ち行列, 定常分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
----
-## 問題
-到着率 $\lambda=2$/時、サービス率 $\mu=3$/時のM/M/1待ち行列で、定常時に系内人数が3人である確率を求めよ。
 ## 記号・用語
-$\rho=\lambda/\mu$ は利用率で、定常分布には $\rho<1$ が必要である。
+$\pi_n$ は定常状態で系が状態 $n$ にある確率である。出生死亡過程では隣接状態間だけ遷移する。M/M/1待ち行列では状態 $n$ を系内人数とみなし、到着が $n\to n+1$、サービス完了が $n\to n-1$ に対応する。
+
 ## 使用公式・定理
-M/M/1の定常確率は $\pi_n=(1-\rho)\rho^n$。
+隣接状態間の詳細釣合いは
+$$
+\pi_n\lambda_n=\pi_{n+1}\mu_{n+1}
+\qquad(n\ge0).
+$$
+よって
+$$
+\frac{\pi_{n+1}}{\pi_n}
+=\frac{\lambda_n}{\mu_{n+1}},
+$$
+再帰的に
+$$
+\pi_n
+=\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
+\qquad(n\ge1).
+$$
+確率の総和が1になるように
+$$
+\pi_0^{-1}
+=1+\sum_{n=1}^{\infty}
+\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
+$$
+と正規化する。この級数が有限であることが必要である。
+
+M/M/1では
+$$
+\lambda_n=\lambda\quad(n\ge0),
+\qquad
+\mu_n=\mu\quad(n\ge1),
+$$
+なので
+$$
+\rho=\frac{\lambda}{\mu},
+\qquad
+\pi_n=\pi_0\rho^n.
+$$
+
 ## 一手／方針
-利用率を計算し、幾何分布型の定常確率へ代入する。
+**隣接状態の流れを等置して比を作り、その比を掛け上げて最後に正規化する。** M/M/1の幾何型定常分布を独立公式として暗記せず、「出生率が一定 $\lambda$、死亡率が一定 $\mu$ の出生死亡過程」と見て一般式から導く。
+
 ## 答え
-$$\rho=\frac23,$$
-$$\pi_3=\left(1-\frac23\right)\left(\frac23\right)^3=\frac8{81}\approx0.0988.$$
+1. 詳細釣合いから
+$$
+\pi_n
+=\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}.
+$$
+
+2. 
+$$
+1+\sum_{n=1}^{\infty}
+\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}<\infty
+$$
+なら正規化でき、$\pi_0$ をその逆数として定められる。
+
+3. M/M/1では
+$$
+\rho=\frac{2}{3}<1.
+$$
+幾何級数
+$$
+1+\rho+\rho^2+\cdots=\frac1{1-\rho}
+$$
+から
+$$
+\pi_0=1-\rho=\frac13,
+$$
+$$
+\pi_n=(1-\rho)\rho^n.
+$$
+よって
+$$
+\pi_3
+=\left(1-\frac23\right)\left(\frac23\right)^3
+=\frac8{81}
+\approx0.0988.
+$$
+
 ## 計算例
-空系確率は $\pi_0=1/3$。
+同じM/M/1で系内人数が2人以上である確率は
+$$
+P(N\ge2)
+=\sum_{n=2}^{\infty}(1-\rho)\rho^n
+=\rho^2
+=\frac49.
+$$
+幾何型定常分布を得た後は、尾確率も幾何級数として処理できる。
+
 ## 注意
-系内人数にはサービス中の1人も含む。
+M/M/1の定常分布には $\rho=\lambda/\mu<1$ が必要である。$\rho\ge1$ では上の級数を確率1に正規化できない。また「系内人数」は待ち行列で待っている人数だけでなくサービス中の1人も含む。平均系内人数や平均滞在時間を求めるLittleの法則は、この定常確率の導出とは別の計算技能として扱う。
 
 <!-- CARD -->
 
@@ -706,62 +757,106 @@ $W$ は待ち時間だけでなくサービス時間も含む。
 
 ---
 id: engproc-absorbing-fundamental-matrix
-title: 吸収連鎖の基本行列を計算する
+title: 吸収連鎖をQ,Rから基本行列・吸収時間・吸収確率まで解く
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: absorbing-fundamental-matrix
-type: calc_step
+topic: absorbing-chain-fundamental-probability-canonical
+type: strategy
 difficulty: 4
-priority: B
-hashtags: [マルコフ連鎖, 吸収連鎖, 基本行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
+priority: A
+hashtags:
+  - マルコフ連鎖
+  - 吸収連鎖
+  - 基本行列
+  - 吸収確率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ連鎖
 ---
 ## 問題
-2つの一時状態の部分行列が $Q=\begin{pmatrix}0.5&0.2\\0.1&0.6\end{pmatrix}$ である。基本行列 $N$ を求めよ。
-## 記号・用語
-$N_{ij}$ は状態 $i$ から出発して吸収前に一時状態 $j$ を訪れる期待回数である。
-## 使用公式・定理
-吸収連鎖の基本行列は $N=(I-Q)^{-1}$。
-## 一手／方針
-$I-Q$ を作り、2次逆行列公式を使う。
-## 答え
-$$I-Q=\begin{pmatrix}0.5&-0.2\\-0.1&0.4\end{pmatrix},\qquad |I-Q|=0.18,$$
-$$N=\frac1{0.18}\begin{pmatrix}0.4&0.2\\0.1&0.5\end{pmatrix}=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}.$$
-## 計算例
-第1行和 $10/3$ は状態1から吸収まで一時状態にいる平均時点数。
-## 注意
-ここでの $N$ は計数過程でなく基本行列の記号である。
+吸収状態を後ろに並べた吸収マルコフ連鎖の遷移行列を
+$$
+P=\begin{pmatrix}Q&R\\0&I\end{pmatrix}
+$$
+とする。一時状態が2つで
+$$
+Q=\begin{pmatrix}0.5&0.2\\0.1&0.6\end{pmatrix},
+\qquad
+R=\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}
+$$
+とする。
+1. 基本行列 $N$ を求め、その意味を説明せよ。
+2. 各一時状態から吸収までの平均ステップ数を求めよ。
+3. 各一時状態から各吸収状態へ最終的に吸収される確率行列 $B$ を求めよ。
 
-<!-- CARD -->
-
----
-id: engproc-absorbing-probability-matrix
-title: 基本行列から吸収先確率を計算する
-category: applied-engineering
-subcategory: engineering-stochastic-processes
-topic: absorbing-probability
-type: calc_step
-difficulty: 4
-priority: B
-hashtags: [マルコフ連鎖, 吸収確率, 基本行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ連鎖 }]
----
-## 問題
-一時状態から2つの吸収状態への遷移部分を $R=\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}$、基本行列を $N=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}$ とする。吸収確率行列を求めよ。
 ## 記号・用語
-$B_{ij}$ は一時状態 $i$ から最終的に吸収状態 $j$ へ入る確率である。
+$Q$ は一時状態間の遷移部分、$R$ は一時状態から吸収状態への1ステップ遷移部分である。基本行列
+$$
+N=(I-Q)^{-1}
+$$
+の成分 $N_{ij}$ は、一時状態 $i$ から出発したとき、吸収される前に一時状態 $j$ を訪れる期待回数を表す。
+
 ## 使用公式・定理
-吸収確率行列は $B=NR$。
+吸収されるまで一時状態内にとどまる確率を足し上げると
+$$
+I+Q+Q^2+\cdots=(I-Q)^{-1}=N.
+$$
+したがって、一時状態 $i$ から吸収までの平均ステップ数を並べたベクトルは
+$$
+\mathbf t=N\mathbf 1.
+$$
+また最終吸収先の確率行列は
+$$
+B=NR.
+$$
+これは「一時状態 $k$ を訪れる期待回数」と「そこから吸収状態へ1ステップで移る確率」を全ての $k$ について足し合わせたものと解釈できる。
+
 ## 一手／方針
-基本行列と吸収遷移部分を行列乗算する。
+**標準形を見たら $Q$ と $R$ を切り出し、まず $N=(I-Q)^{-1}$ を作る。** その同じ $N$ から、行和で平均吸収時間、$NR$ で吸収先確率を続けて求める。$N$ を計算して終わりにしない。
+
 ## 答え
-$$B=\begin{pmatrix}5/9&4/9\\7/18&11/18\end{pmatrix}.$$
+1. 
+$$
+I-Q=\begin{pmatrix}0.5&-0.2\\-0.1&0.4\end{pmatrix}.
+$$
+行列式は
+$$
+0.5(0.4)-(-0.2)(-0.1)=0.18
+$$
+なので
+$$
+N=(I-Q)^{-1}
+=\frac1{0.18}\begin{pmatrix}0.4&0.2\\0.1&0.5\end{pmatrix}
+=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}.
+$$
+
+2. 
+$$
+\mathbf t=N\mathbf1
+=\begin{pmatrix}20/9+10/9\\5/9+25/9\end{pmatrix}
+=\begin{pmatrix}10/3\\10/3\end{pmatrix}.
+$$
+よってどちらの一時状態から出発しても、吸収までの平均ステップ数は $10/3$ である。
+
+3. 
+$$
+B=NR
+=\begin{pmatrix}20/9&10/9\\5/9&25/9\end{pmatrix}
+\begin{pmatrix}0.2&0.1\\0.1&0.2\end{pmatrix}
+=\begin{pmatrix}5/9&4/9\\7/18&11/18\end{pmatrix}.
+$$
+各行和は1であり、最終的にいずれかの吸収状態へ入ることと整合する。
+
 ## 計算例
-各行和は1で、いずれかの吸収状態へ最終的に入る。
+状態1から出発した場合、吸収前の一時状態1の期待訪問回数は $20/9$、一時状態2は $10/9$ で、その合計 $10/3$ が平均吸収ステップ数になる。また第1吸収状態へ入る最終確率は $5/9$、第2吸収状態へ入る確率は $4/9$ である。
+
 ## 注意
-行が出発する一時状態、列が吸収先に対応する。
+基本行列の $Q$ は「一時状態間の遷移確率部分」であり、連続時間マルコフ連鎖の生成行列を表す $Q$ とは別物である。文脈を確認する。また $N_{ij}$ は確率ではなく期待訪問回数なので1を超えてよい。$B$ の各成分は確率なので0から1の範囲にあり、各行和は1になる。
 
 <!-- CARD -->
 

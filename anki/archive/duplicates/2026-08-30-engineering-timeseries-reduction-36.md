@@ -192,7 +192,7 @@ sources:
   - type: official_syllabus
     topic: ARIMA過程
 archive_reason: duplicate
-canonical_card: ts-seasonal-difference
+canonical_card: ts-arima-definition
 archive_note: 月次12期差分は一般の季節差分 X_t-X_{t-s} の s=12 数値例にすぎず操作が同一。
 ---
 ## 問題
