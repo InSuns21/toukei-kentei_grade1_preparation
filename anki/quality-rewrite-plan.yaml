@@ -1,102 +1,84 @@
 schema_version: 1
-batch_id: 2026-08-30-anova-contrast-merge-prep-51
+batch_id: 2026-08-30-anova-tukey-merge-prep-52
 items:
-  - id: anova-contrast-definition
-    note: 対比の定義、推定量の分散・標準誤差、t検定と信頼区間の数値計算を一枚へ統合する。
+  - id: anova-tukey-hsd-formula
+    note: テューキーHSDの棄却幅、全群対の判定、数値計算、不等群サイズのTukey-Kramer拡張を一枚へ統合する。
     metadata:
-      title: 一元配置の対比を定義し標準誤差・t検定まで計算する
-      topic: anova-contrast-canonical
-      hashtags: [一元配置分散分析, 対比, 標準誤差, t検定, 計画比較]
+      title: テューキー法で同時比較幅を作り有意な群対を判定する
+      topic: tukey-hsd-canonical
+      hashtags: [テューキー法, 多重比較, Student化範囲分布, Tukey-Kramer]
     sections:
       問題: |
-        一元配置分散分析で母平均を $\mu_1,\ldots,\mu_a$ とする。
+        各観測が独立な正規分布に従い、全群で分散が共通である一元配置を考える。$a$ 群の各標本サイズが共通に $n$、誤差平均平方が $MS_E$、Student化範囲分布の上側臨界値が $q_{a,N-a,\alpha}$ である。
 
-        1. 線形結合 $L=\sum_{i=1}^a c_i\mu_i$ が対比である条件と、その意味を説明せよ。
-        2. 独立な群平均から作る推定量 $\widehat L=\sum_i c_i\bar Y_{i\cdot}$ の分散と標準誤差を書け。
-        3. 3群に各5個の観測があり、群平均が $(10,13,15)$、誤差平均平方が $MS_E=4$ だった。対比
-        $$
-        L=\mu_1-\frac{\mu_2+\mu_3}{2}
-        $$
-        について $H_0:L=0$ を両側5%で検定し、95%信頼区間も求めよ。誤差自由度12のt分布の両側5%臨界値を2.179とする。
+        1. テューキーHSD法で群 $i,j$ の平均差を有意とする条件を書け。
+        2. 3群の標本平均が $(10,13,16)$、$MS_E=4$、各群 $n=4$、臨界値 $q=3.5$ のとき、有意な群対を全て求めよ。
+        3. 群サイズが等しくない場合のTukey-Kramer法の比較幅も書け。
       使用公式・定理: |
-        対比の係数は
-        $$
-        \sum_{i=1}^a c_i=0
-        $$
-        を満たす。これは全ての母平均へ同じ定数 $d$ を加えても
-        $$
-        \sum_i c_i(\mu_i+d)=\sum_i c_i\mu_i+d\sum_i c_i=L
-        $$
-        となり、共通水準ではなく群間差だけを測ることを意味する。
+        テューキー法は、全ての群対比較を同時に行うときの家族内第一種過誤率を $\alpha$ 以下に制御する方法である。
 
-        独立な群平均について
+        等群サイズ $n$ では比較幅
         $$
-        \operatorname{Var}(\bar Y_{i\cdot})=\frac{\sigma^2}{n_i}
+        \mathrm{HSD}=q_{a,N-a,\alpha}\sqrt{\frac{MS_E}{n}}
         $$
-        なので
+        を作り、
         $$
-        \operatorname{Var}(\widehat L)=\sigma^2\sum_i\frac{c_i^2}{n_i}.
+        |\bar Y_{i\cdot}-\bar Y_{j\cdot}|>\mathrm{HSD}
         $$
-        $\sigma^2$ を分散分析の誤差平均平方 $MS_E$ で推定すれば
+        なら群 $i,j$ の母平均差を有意とする。
+
+        不等群サイズ $n_i,n_j$ ではTukey-Kramer法として
         $$
-        \operatorname{SE}(\widehat L)=\sqrt{MS_E\sum_i\frac{c_i^2}{n_i}}.
+        |\bar Y_{i\cdot}-\bar Y_{j\cdot}|
+        >q_{a,N-a,\alpha}
+        \sqrt{\frac{MS_E}{2}\left(\frac1{n_i}+\frac1{n_j}\right)}
         $$
-        帰無仮説 $H_0:L=L_0$ に対して
-        $$
-        t=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
-        $$
-        を使い、自由度は分散分析の誤差自由度 $N-a$ である。
+        を用いる。$n_i=n_j=n$ と置けば右辺はHSDへ戻る。
       一手: |
-        **係数和0を確認→群平均から対比値を計算→係数二乗を各群サイズで割って標準誤差→t標準化。** 定義・標準誤差・検定を別々に暗記せず、この順で一続きに処理する。
+        **まずStudent化範囲分布の臨界値から「共通の比較幅」を1個作り、その幅と全ての標本平均差を比較する。** 群対ごとに別々の無補正t検定を繰り返さない。
       答え: |
-        数値例の係数は
+        等群サイズでは
         $$
-        (c_1,c_2,c_3)=\left(1,-\frac12,-\frac12\right)
+        \mathrm{HSD}=q\sqrt{\frac{MS_E}{n}}
         $$
-        であり
+        である。数値を代入すると
         $$
-        1-\frac12-\frac12=0
+        \mathrm{HSD}
+        =3.5\sqrt{\frac44}
+        =3.5.
         $$
-        だから対比である。
 
-        推定値は
+        3つの群対の絶対平均差は
         $$
-        \widehat L=10-\frac{13+15}{2}=10-14=-4.
+        |10-13|=3,
         $$
-        標準誤差は
         $$
-        \begin{aligned}
-        \operatorname{SE}(\widehat L)
-        &=\sqrt{4\left(\frac{1^2}{5}+\frac{(1/2)^2}{5}+\frac{(1/2)^2}{5}\right)}\\
-        &=\sqrt{4(0.20+0.05+0.05)}\\
-        &=\sqrt{1.2}\\
-        &\approx1.095.
-        \end{aligned}
+        |10-16|=6,
         $$
-        よって
         $$
-        t=\frac{-4}{1.095}\approx-3.65.
-        $$
-        $|t|=3.65>2.179$ なので5%水準で $H_0:L=0$ を棄却する。
-      計算例: |
-        95%信頼区間は
-        $$
-        \widehat L\pm2.179\operatorname{SE}(\widehat L)
-        $$
-        だから
-        $$
-        -4\pm2.179\times1.095\approx-4\pm2.386.
+        |13-16|=3.
         $$
         したがって
         $$
-        (-6.386,\,-1.614).
+        6>3.5
         $$
-        0を含まないため、同じ両側5%検定の棄却結果と一致する。
+        となる群1–群3だけが有意で、他の2群対は有意でない。
+      計算例: |
+        比較幅そのものの意味も数値で確認する。例えば $q=4,MS_E=9,n=9$ なら
+        $$
+        \mathrm{HSD}=4\sqrt{\frac99}=4.
+        $$
+        よって平均差5は有意、平均差3は有意でない。
 
-        例えば単純な2群差 $L=\mu_1-\mu_2$ なら係数は $(1,-1)$ で、
+        また不等群サイズの例として $MS_E=4,q=3.5,n_i=4,n_j=9$ ならTukey-Kramerの比較幅は
         $$
-        \operatorname{SE}(\widehat L)=\sqrt{MS_E\left(\frac1{n_1}+\frac1{n_2}\right)}
+        \begin{aligned}
+        3.5\sqrt{\frac42\left(\frac14+\frac19\right)}
+        &=3.5\sqrt{2\cdot\frac{13}{36}}\\
+        &=3.5\sqrt{\frac{13}{18}}\\
+        &\approx2.974.
+        \end{aligned}
         $$
-        となり、共通分散の2群比較の形がそのまま出る。
+        この群対では標本平均差が3なら $3>2.974$ なので有意となる。
       注意: |
-        係数和が0でない単なる線形結合は対比ではない。複数の対比をデータを見てから大量に検定すると第1種過誤率が膨らむため、事前に定めた計画対比か、必要に応じて多重比較の補正を用いる。ここでのt分布による正確な有限標本推測は、独立・正規・等分散の一元配置モデルを前提とする。
+        テューキー法が直接対象とするのは全ての群対比較であり、任意の対比全体を同時に扱うシェッフェ法とは目的が異なる。正確な有限標本手順では、一元配置モデルの独立性・正規性・等分散性を前提とする。境界と等しい場合は採用している棄却域の不等号規約に従う。
