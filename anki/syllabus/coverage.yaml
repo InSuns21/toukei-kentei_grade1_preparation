@@ -2324,10 +2324,8 @@ items:
       - engmv-normal-uncorrelated-independent
       - engmv-normal-mean-cov-independence
       - engmv-hotelling-two-sample
-      - engmv-confidence-ellipsoid-known-cov
       - engmv-spectral-reconstruction
       - engmv-silhouette-coefficient
-      - engmv-canonical-correlation-diagonal
       - engmv-canonical-eigenvalue
       - engmv-classical-mds-three-points
       - engmv-mds-stress
@@ -2340,13 +2338,12 @@ items:
           - engmv-normal-uncorrelated-independent
           - engmv-normal-mean-cov-independence
           - engmv-hotelling-two-sample
-          - engmv-confidence-ellipsoid-known-cov
       - name: 平均ベクトル
         status: card
         cards:
           - engmv-normal-mean-cov-independence
           - engmv-hotelling-two-sample
-          - engmv-confidence-ellipsoid-known-cov
+          - engmv-mahalanobis-control-limit
       - name: 分散共分散行列
         status: card
         cards:
@@ -2362,7 +2359,6 @@ items:
         cards:
           - multi-pca-eigen
           - engmv-spectral-reconstruction
-          - engmv-canonical-correlation-diagonal
           - engmv-canonical-eigenvalue
   - id: engineering-stochastic-processes
     status: complete
