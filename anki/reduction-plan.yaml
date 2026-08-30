@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-poisson-regression-reduction-64
+batch_id: 2026-08-30-glm-deviance-output-reduction-65
 items:
-  - id: glm-poisson-offset
+  - id: glm-software-deviance-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-poisson-mean-ratio
-    note: 曝露量・発生率・offsetの定義と数値計算をポアソン回帰正本へ統合済み。
+    canonical_card: glm-deviance-definition
+    note: ソフト出力の逸脱度差・自由度差から尤度比検定を行う手順は、逸脱度・Pearson統計量・尤度比・過分散のGLM診断正本に包含済み。
