@@ -1,26 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-oneway-anova-reduction-46
+batch_id: 2026-08-30-twoway-anova-reduction-47
 items:
-  - id: anova-oneway-model-assumptions
+  - id: anova-twoway-model
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-oneway-f-statistic
-    note: 固定効果モデル、識別制約、独立・正規・等分散の仮定を一元配置の正本へ統合済み。
+    canonical_card: anova-twoway-f-tests
+    note: 交互作用を含む固定効果モデル、識別制約、独立・正規・等分散の誤差仮定を正本へ統合済み。
 
-  - id: anova-oneway-ss-numeric
+  - id: anova-twoway-ss-balanced
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-oneway-f-statistic
-    note: 全平方和・群間平方和・誤差平方和の定義と数値計算、加法分解を正本へ統合済み。
+    canonical_card: anova-twoway-f-tests
+    note: 釣合い二元配置のA・B・交互作用・誤差平方和と平方和分解を数値例付き正本へ統合済み。
 
-  - id: anova-oneway-degrees-freedom
+  - id: anova-twoway-degrees-freedom
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-oneway-f-statistic
-    note: 全体・群間・誤差の自由度と加法分解を正本へ統合済み。
-
-  - id: anova-oneway-table-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: anova-oneway-f-statistic
-    note: 平均平方、F統計量、分散分析表、臨界値による判定を同じ正本の実数例へ統合済み。
+    canonical_card: anova-twoway-f-tests
+    note: A・B・交互作用・誤差・全体の自由度と加法分解を正本へ統合済み。
