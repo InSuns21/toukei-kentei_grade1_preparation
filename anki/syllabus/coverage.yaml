@@ -1303,24 +1303,11 @@ items:
       - data-ols-slope
       - reg-simple-model-assumptions
       - reg-ols-normal-equations-simple
-      - reg-fitted-residual-numeric
-      - reg-residual-orthogonality
       - reg-sst-decomposition
-      - reg-r-squared
-      - reg-simple-r2-correlation
-      - reg-adjusted-r-squared
-      - reg-slope-variance
-      - reg-intercept-variance
-      - reg-error-variance-estimator
       - reg-slope-t-test
-      - reg-slope-t-numeric
-      - reg-slope-confidence-interval
+      - reg-error-variance-estimator
       - reg-mean-response-ci
-      - reg-prediction-interval
-      - reg-ci-versus-pi-numeric
       - reg-multiple-model-matrix
-      - reg-matrix-ols-derivation
-      - reg-beta-unbiased-covariance
       - reg-hat-matrix-properties
       - reg-leverage-meaning
       - reg-residual-variance-leverage
@@ -1352,20 +1339,12 @@ items:
           - reg-simple-model-assumptions
           - reg-ols-normal-equations-simple
           - reg-slope-geometric-projection
-          - reg-slope-variance
-          - reg-intercept-variance
           - reg-slope-t-test
-          - reg-slope-t-numeric
-          - reg-slope-confidence-interval
           - reg-mean-response-ci
-          - reg-prediction-interval
-          - reg-ci-versus-pi-numeric
       - name: 線形重回帰
         status: card
         cards:
           - reg-multiple-model-matrix
-          - reg-matrix-ols-derivation
-          - reg-beta-unbiased-covariance
           - reg-coefficient-t-multiple
           - reg-overall-f-test
           - reg-overall-f-r2
@@ -1382,9 +1361,7 @@ items:
           - data-ols-slope
           - reg-ols-normal-equations-simple
           - reg-slope-geometric-projection
-          - reg-residual-orthogonality
-          - reg-matrix-ols-derivation
-          - reg-beta-unbiased-covariance
+          - reg-multiple-model-matrix
           - reg-hat-matrix-properties
           - reg-gauss-markov-theorem
       - name: 回帰の分散分析
@@ -1400,21 +1377,17 @@ items:
       - name: 重相関係数
         status: card
         cards:
-          - reg-simple-r2-correlation
+          - reg-sst-decomposition
           - reg-multiple-correlation
       - name: 決定係数
         status: card
         cards:
           - reg-sst-decomposition
-          - reg-r-squared
-          - reg-simple-r2-correlation
-          - reg-adjusted-r-squared
           - reg-overall-f-r2
       - name: 残差
         status: card
         cards:
-          - reg-fitted-residual-numeric
-          - reg-residual-orthogonality
+          - reg-ols-normal-equations-simple
           - reg-hat-matrix-properties
           - reg-leverage-meaning
           - reg-residual-variance-leverage

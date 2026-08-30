@@ -63,7 +63,7 @@ sources:
   - type: official_syllabus
     topic: 線形モデル
 archive_reason: duplicate
-canonical_card: reg-matrix-ols-derivation
+canonical_card: reg-multiple-model-matrix
 archive_note: (X^T X)^{-1}X^T Y を2次行列で計算するだけ。数理側の導出カードにも同型の2x2数値例がある。
 ---
 ## 問題
@@ -108,7 +108,7 @@ sources:
   - type: official_syllabus
     topic: 線形モデル
 archive_reason: duplicate
-canonical_card: reg-slope-confidence-interval
+canonical_card: reg-slope-t-test
 archive_note: 推定係数±t臨界値×SEという同じ区間構成。一般の係数でも傾きでも解法moveは同一。
 ---
 ## 問題
