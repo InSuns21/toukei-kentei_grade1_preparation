@@ -2425,7 +2425,6 @@ items:
       - engrel-series-component-requirement
       - engrel-exponential-mtbf
       - engqc-control-chart-selection
-      - engqc-r-chart-limits
       - engqc-s-chart-limits
       - engqc-imr-moving-range
       - engqc-control-vs-specification
@@ -2433,11 +2432,9 @@ items:
       - engqc-rational-subgrouping
       - engqc-phase1-phase2
       - engqc-three-sigma-false-alarm
-      - engqc-arl0-three-sigma
       - engqc-arl1-mean-shift
       - engqc-run-rule-eight-one-side
       - engqc-ewma-update
-      - engqc-ewma-steady-variance
       - engqc-cusum-one-step
       - engqc-control-chart-sample-size
       - engqc-process-adjustment-overcontrol
@@ -2452,7 +2449,6 @@ items:
       - engrel-weibull-reliability
       - engmaint-steady-availability
       - engmaint-maintainability-exponential
-      - engmaint-two-state-availability
       - engrel-failure-rate-exact-ci
       - engrel-competing-risks-exponential
       - engrel-bathtub-curve
@@ -2465,16 +2461,13 @@ items:
         cards:
           - engqc-control-chart-selection
           - engqc-xbar-r-chart-limits
-          - engqc-r-chart-limits
           - engqc-s-chart-limits
           - engqc-imr-moving-range
           - engqc-phase1-phase2
           - engqc-three-sigma-false-alarm
-          - engqc-arl0-three-sigma
           - engqc-arl1-mean-shift
           - engqc-run-rule-eight-one-side
           - engqc-ewma-update
-          - engqc-ewma-steady-variance
           - engqc-cusum-one-step
           - engqc-control-chart-sample-size
       - name: 信頼性
@@ -2494,7 +2487,6 @@ items:
         cards:
           - engmaint-steady-availability
           - engmaint-maintainability-exponential
-          - engmaint-two-state-availability
           - engmaint-preventive-replacement-rate
           - engmaint-series-availability
           - engmaint-reliability-vs-availability
