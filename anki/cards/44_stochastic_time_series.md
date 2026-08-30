@@ -1088,18 +1088,19 @@ ACFはラグ0だけ1で、他は0。
 
 ---
 id: ts-ar1-acf
-title: AR(1)の定常平均・分散・自己相関を導く
+title: AR(1)の定常モーメントとACFを導き減衰速度を読む
 category: applied-common
 subcategory: applied-time-series
-topic: ar1-moments-acf
-type: proof_step
+topic: ar1-moments-acf-decay-canonical
+type: strategy
 difficulty: 3
 priority: A
 hashtags:
-  - ARIMAモデル
-  - AR1
-  - 定常平均
+  - 時系列解析
+  - ARモデル
+  - 自己共分散
   - 自己相関関数
+  - 半減ラグ
 frequency:
   past_exam: 0
   textbook: 0
@@ -1110,97 +1111,105 @@ sources:
     topic: ARIMAモデル
 ---
 ## 問題
-切片付き定常AR(1)
+AR$(1)$過程
 $$
 X_t=c+\phi X_{t-1}+\varepsilon_t,
 \qquad |\phi|<1,
-$$
-$$
-E[\varepsilon_t]=0,
+\qquad E[\varepsilon_t]=0,
 \qquad \operatorname{Var}(\varepsilon_t)=\sigma_\varepsilon^2
 $$
-について、定常平均 $\mu$、定常分散 $\gamma(0)$、自己相関関数 $\rho(h)$ を導け。
+を考える。
+1. 定常平均 $\mu$、定常分散 $\gamma(0)$、自己相関 $\rho(h)$ を導け。
+2. $c=0,\phi=0.8,\sigma_\varepsilon^2=4$ のとき、$\gamma(0)$ と $\rho(2)$ を求めよ。
+3. 同じ $\phi=0.8$ で、自己相関が0.5以下になる最小の非負整数ラグ $h$ を求めよ。
 
 ## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
+$\mu=E[X_t]$ は定常平均、$\gamma(h)=\operatorname{Cov}(X_t,X_{t-h})$ は自己共分散、$\rho(h)=\gamma(h)/\gamma(0)$ は自己相関である。定常AR$(1)$では現在の偏差が前期の偏差を係数 $\phi$ だけ引き継ぐ。
+
 ## 使用公式・定理
-定常なら $E[X_t]=E[X_{t-1}]=\mu$ なので
+定常平均を取ると
 $$
-\mu=c+\phi\mu.
-$$
-中心化した $Y_t=X_t-\mu$ は
-$$
-Y_t=\phi Y_{t-1}+\varepsilon_t
-$$
-を満たす。
-
-革新は過去と無相関なので
-$$
-\gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2,
-$$
-また $h\ge1$ では
-$$
-\gamma(h)=\phi\gamma(h-1).
-$$
-
-## 一手／方針
-まず期待値を取って平均を求め、その平均を引いて中心化する。中心化後は同じAR(1)再帰から、ラグ0では分散、ラグ $h\ge1$ では共分散の再帰を作る。
-
-## 答え
-$$
-\mu=\frac{c}{1-\phi},
-$$
-$$
-\gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2},
-$$
-$$
-\rho(h)=\phi^{|h|}.
-$$
-
-## 計算例
-$c=1,\phi=0.8,\sigma_\varepsilon^2=4$ とする。まず
-$$
-\begin{aligned}
-\mu
-&=\frac{1}{1-0.8}\\
-&=5.
-\end{aligned}
-$$
-分散は
-$$
-\begin{aligned}
-\gamma(0)
-&=\frac{4}{1-0.8^2}\\
-&=\frac{4}{0.36}\\
-&=\frac{100}{9}\approx11.11.
-\end{aligned}
-$$
-ラグ2の自己相関は
-$$
-\rho(2)=0.8^2=0.64.
-$$
-$\phi<0$ ならACFは符号を交互に変えながら幾何級数的に減衰する。
-
-## 注意
-切片 $c$ と定常平均 $\mu$ を混同しない。$|\phi|<1$ は通常の因果的定常AR(1)で必要である。
-
-同じ期待値操作はARMAにも使える。例えば
-$$
-X_t=c+\phi X_{t-1}+\varepsilon_t+\theta\varepsilon_{t-1}
-$$
-で定常平均を $\mu$ とすると、革新の平均が0なので
-$$
-\begin{aligned}
-\mu
-&=c+\phi\mu+E[\varepsilon_t]+\theta E[\varepsilon_{t-1}]\\
-&=c+\phi\mu,
-\end{aligned}
+\mu=c+\phi\mu,
 $$
 よって
 $$
 \mu=\frac{c}{1-\phi}.
 $$
-MA係数 $\theta$ は平均には現れないが、自己共分散や予測には影響する。
+中心化した $Y_t=X_t-\mu$ は
+$$
+Y_t=\phi Y_{t-1}+\varepsilon_t
+$$
+を満たす。革新は過去と無相関なので
+$$
+\gamma(0)=\phi^2\gamma(0)+\sigma_\varepsilon^2,
+$$
+したがって
+$$
+\gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2}.
+$$
+また $h\ge1$ では
+$$
+\gamma(h)=\phi\gamma(h-1),
+$$
+よって
+$$
+\gamma(h)=\phi^h\gamma(0),
+\qquad
+\rho(h)=\phi^h
+\quad(h\ge0).
+$$
+共分散の対称性から一般には $\rho(h)=\phi^{|h|}$ と書ける。
+
+## 一手／方針
+**平均を引いてAR(1)を中心化し、分散は1本の分散方程式、自己共分散は1期ずつの再帰で導く。** 半減ラグは別公式として暗記せず、得られた $|\rho(h)|=|\phi|^h$ が所定の閾値以下になる最小整数を求める。
+
+## 答え
+1. 
+$$
+\mu=\frac{c}{1-\phi},
+\qquad
+\gamma(0)=\frac{\sigma_\varepsilon^2}{1-\phi^2},
+\qquad
+\rho(h)=\phi^{|h|}.
+$$
+
+2. $c=0,\phi=0.8,\sigma_\varepsilon^2=4$ なので
+$$
+\gamma(0)=\frac{4}{1-0.8^2}
+=\frac{4}{0.36}
+=\frac{100}{9}\approx11.11,
+$$
+$$
+\rho(2)=0.8^2=0.64.
+$$
+
+3. $0<\phi<1$ なので
+$$
+0.8^h\le0.5
+$$
+を解く。対数を取ると
+$$
+h\ge\frac{\log0.5}{\log0.8}\approx3.106.
+$$
+よって最小整数は
+$$
+h=4.
+$$
+実際、$0.8^3=0.512>0.5$、$0.8^4=0.4096\le0.5$ である。
+
+## 計算例
+$\phi=-0.8$ なら
+$$
+\rho(h)=(-0.8)^h
+$$
+なので符号はラグごとに交互に変わる。一方、相関の大きさは
+$$
+|\rho(h)|=0.8^h
+$$
+だから、絶対値が0.5以下になる最小ラグは同じく4である。
+
+## 注意
+$|\phi|<1$ は定常AR$(1)$の条件である。$\phi<0$ のとき「自己相関が0.5以下」を符号付きの不等式として読むとラグ1ですでに満たし得るので、減衰速度を測る半減ラグでは通常 $|\rho(h)|$ を使う。また標本自己相関は有限標本変動を含むため、理論値 $\phi^h$ と厳密には一致しない。
 
 <!-- CARD -->
 
