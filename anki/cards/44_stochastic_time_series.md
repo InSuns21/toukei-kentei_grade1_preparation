@@ -1298,31 +1298,115 @@ $$\phi_1=0.5625,\qquad\phi_2=0.0625.$$
 
 ---
 id: ts-ma1-invertibility
-title: MA(1)の可逆条件を判定する
+title: MA(1)の可逆条件を導き革新を観測から復元する
 category: applied-common
 subcategory: applied-time-series
-topic: ma1-invertibility
-type: recognition
+topic: ma1-invertibility-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [ARIMAモデル, MA1, 可逆性]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ARIMAモデル }]
+priority: A
+hashtags:
+  - 時系列解析
+  - MAモデル
+  - 可逆性
+  - 革新
+  - バックシフト演算子
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ARIMAモデル
 ---
 ## 問題
-$X_t=\varepsilon_t+\theta\varepsilon_{t-1}$ の可逆条件を述べ、$\theta=1.2$ を判定せよ。
+MA(1)
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+を考える。
+1. 観測系列から革新 $\varepsilon_t$ を一意に安定復元できるための可逆条件を、再帰代入とMA多項式の根の両方から導け。
+2. $\theta=1.2$ のモデルが可逆か判定せよ。
+3. $\theta=0.4$、$X_t=3.0$、$\varepsilon_{t-1}=-0.5$ のとき $\varepsilon_t$ を求めよ。さらに $X_{t+1}=1.8$ なら $\varepsilon_{t+1}$ も求めよ。
+
 ## 記号・用語
-$X_t$ は時刻 $t$ の観測、$\varepsilon_t$ は平均0で一定分散のホワイトノイズ、$B$ は $BX_t=X_{t-1}$ を満たすバックシフト演算子である。$\gamma(h)$ と $\rho(h)$ はラグ $h$ の自己共分散と自己相関である。
+$\varepsilon_t$ は時点 $t$ の革新である。**可逆性**とは、現在の革新を現在・過去の観測 $X_t,X_{t-1},\ldots$ の収束する線形和として表せる性質をいう。モデル式の符号規約を
+$$
+X_t=(1+\theta B)\varepsilon_t
+$$
+とする。
+
 ## 使用公式・定理
-MA多項式 $1+\theta z$ の根が単位円外なら可逆。
+モデル式を革新について解くと
+$$
+\varepsilon_t=X_t-\theta\varepsilon_{t-1}.
+$$
+さらに
+$$
+\varepsilon_{t-1}=X_{t-1}-\theta\varepsilon_{t-2}
+$$
+を代入すれば
+$$
+\varepsilon_t
+=X_t-\theta X_{t-1}+\theta^2\varepsilon_{t-2}.
+$$
+再帰を続けると形式的に
+$$
+\varepsilon_t
+=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\theta^3X_{t-3}+\cdots.
+$$
+係数が減衰してこの表現が安定するには
+$$
+|\theta|<1
+$$
+が必要である。
+
+同じ条件はMA多項式
+$$
+1+\theta z=0
+$$
+の根
+$$
+z=-\frac1\theta
+$$
+が単位円の外側、すなわち $|z|>1$ であることと同値である。
+
 ## 一手／方針
-モデル式を革新について解き、過去の革新へ再帰代入して係数が減衰する条件を調べる。
+**可逆条件を根の公式だけで暗記しない。** まず $\varepsilon_t=X_t-\theta\varepsilon_{t-1}$ と解いて再帰代入し、過去観測の係数 $1,-\theta,\theta^2,\ldots$ が減衰する条件を見る。その後でMA多項式の根条件と一致することを確認する。
+
 ## 答え
-根は $z=-1/\theta$ なので可逆条件は $|\theta|<1$。$\theta=1.2$ は可逆でない。
+1. 再帰表示の係数が幾何級数的に減衰する条件は
+$$
+|\theta|<1.
+$$
+また $1+\theta z=0$ の根は $z=-1/\theta$ なので、根が単位円外という条件 $|z|>1$ も同じく $|\theta|<1$ を与える。
+
+2. $|1.2|>1$ なので可逆でない。
+
+3. 
+$$
+\varepsilon_t
+=3.0-0.4(-0.5)
+=3.2.
+$$
+次時点は
+$$
+\varepsilon_{t+1}
+=1.8-0.4(3.2)
+=0.52.
+$$
+
 ## 計算例
-可逆なら現在の革新を過去の観測の収束級数で表せる。
+$\theta=-0.5$ なら
+$$
+\varepsilon_t
+=X_t+0.5X_{t-1}+0.25X_{t-2}+\cdots
+$$
+となり、係数は減衰する。一方 $\theta=1.2$ では $1,-1.2,1.2^2,\ldots$ と係数が減衰せず、過去観測から安定に革新を復元できない。
+
 ## 注意
-MA過程は有限次数なら常に定常だが、可逆とは別条件。
+有限次数MA過程はホワイトノイズの有限線形結合なので定常性自体は満たせるが、可逆性は別条件である。また $X_t=\varepsilon_t-\theta\varepsilon_{t-1}$ のような別の符号規約では多項式の符号も変わるため、係数の符号を丸暗記せずモデル式から導く。
 
 <!-- CARD -->
 
