@@ -16,58 +16,69 @@ const phraseCategories = [
   {
     name: '強い省略表現',
     weight: 5,
+    scoreCap: 10,
     pattern: /定数を除いて|定数項を除いて|比例定数を(?:無視|除いて)|簡単な計算(?:で|により)|計算すると|計算すれば|整理すると|整理すれば|直ちに(?:分かる|わかる|得られる|従う)/g,
   },
   {
     name: '微分の省略候補',
     weight: 1,
+    scoreCap: 2,
     pattern: /(?:偏|全)?微分すると|(?:偏|全)?微分すれば|行列微分(?:すると|により|より)|勾配を取ると/g,
   },
   {
     name: '積分の省略候補',
     weight: 1,
+    scoreCap: 2,
     pattern: /積分すると|積分すれば|部分積分すると|部分積分すれば|置換積分すると|置換すると/g,
   },
   {
     name: '線形代数・最小二乗の省略候補',
     weight: 5,
+    scoreCap: 10,
     pattern: /正規方程式(?:より|から|は)|固有方程式(?:より|から)|特性方程式(?:より|から)|逆行列(?:は|を求めると)|固有値(?:は|を求めると)/g,
   },
   {
     name: '変数変換・平方完成の省略候補',
     weight: 5,
+    scoreCap: 10,
     pattern: /ヤコビアン(?:は|より|から)|Jacobian(?:は|より|から)|平方完成すると|平方完成すれば|変数変換すると/g,
   },
   {
     name: '尤度・情報量の省略候補',
     weight: 1,
+    scoreCap: 2,
     pattern: /対数尤度(?:は|を取ると)|尤度(?:は|を作ると)|スコア(?:は|を求めると)|フィッシャー情報量(?:は|を求めると)/g,
   },
   {
     name: '分布・期待値の省略候補',
     weight: 1,
+    scoreCap: 2,
     pattern: /分布(?:より|から)|独立性より|正規性より|期待値を取ると|分散を取ると/g,
   },
   {
     name: '漸近展開の省略候補',
     weight: 4,
+    scoreCap: 8,
     pattern: /テイラー展開すると|Taylor展開すると|デルタ法より|中心極限定理より|大数の法則より|Slutsky(?:の定理)?より|スルツキー(?:の定理)?より/g,
   },
   {
     name: '式変形の省略候補',
     weight: 1,
+    scoreCap: 2,
     pattern: /展開すると|変形すると|代入すると|両辺を整理すると|これを解くと|連立すると/g,
   },
 ];
 
 const structuralCategories = [
-  { name: '小問対応見出し不足', weight: 6 },
-  { name: '詳細解答量の要確認', weight: 4 },
+  { name: '小問対応見出し不足', weight: 6, scoreCap: 10 },
+  { name: '詳細解答量の要確認', weight: 4, scoreCap: 4 },
 ];
 
-const categoryCounts = new Map(
-  [...phraseCategories, ...structuralCategories].map(({ name }) => [name, 0]),
+const allCategories = [...phraseCategories, ...structuralCategories];
+const scoreCapByCategory = new Map(
+  allCategories.map(({ name, scoreCap }) => [name, scoreCap]),
 );
+const categoryCounts = new Map(allCategories.map(({ name }) => [name, 0]));
 
 const tierNames = new Set(['core', 'standard', 'advanced']);
 const files = exerciseRoots
@@ -152,17 +163,19 @@ for (const file of files) {
 const byFile = new Map();
 for (const finding of findings) {
   const current = byFile.get(finding.file) ?? {
-    score: 0,
     findings: [],
     exerciseValue: finding.exerciseValue,
   };
-  current.score += finding.weight;
   current.findings.push(finding);
   byFile.set(finding.file, current);
 }
 
 const ranked = [...byFile.entries()]
-  .map(([file, data]) => ({ file, ...data }))
+  .map(([file, data]) => ({
+    file,
+    ...data,
+    score: cappedScore(data.findings),
+  }))
   .sort((a, b) => b.score - a.score || b.findings.length - a.findings.length || a.file.localeCompare(b.file));
 
 const valueOrder = ['S', 'A', 'B', 'C', '?'];
@@ -189,10 +202,11 @@ if (benchmarkLength !== null) {
   lines.push('注意: 参照例との文字数一致は要求しない。採点対象の出発点・条件・途中計算・結論が再現可能かを優先する。');
 }
 lines.push('優先度: 強い省略表現・線形代数/変数変換のブラックボックス化・漸近定理の丸投げ・小問構造不足を重く、通常の「微分すると」「代入すると」等は低く評価する。');
+lines.push('長い良質解答ほど接続語が多い問題を避けるため、カテゴリごとに1ファイル当たりの加点上限を設ける。');
 if (missingDetailedAnswer) lines.push(`詳細解答セクションなし: ${missingDetailedAnswer} ファイル`);
 lines.push('');
 lines.push('カテゴリ別件数:');
-for (const category of [...phraseCategories, ...structuralCategories]) {
+for (const category of allCategories) {
   lines.push(`- ${category.name}: ${categoryCounts.get(category.name)} 件`);
 }
 lines.push('');
@@ -246,7 +260,7 @@ if (summaryPath) {
     markdown.push(`代表的な粒度参照は \`statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md\`（詳細解答の非空白文字数 ${benchmarkLength}）。文字数一致ではなく、出発点・条件・途中計算・結論の再現可能性を基準にする。`);
   }
   markdown.push('');
-  markdown.push('通常の「微分すると」「代入すると」等は低ウェイト、強い省略・線形代数/変数変換・漸近定理・小問構造不足を高ウェイトとして順位付けする。');
+  markdown.push('通常の「微分すると」「代入すると」等は低ウェイトかつカテゴリ別上限付き、強い省略・線形代数/変数変換・漸近定理・小問構造不足を高ウェイトとして順位付けする。');
   markdown.push('');
   markdown.push('### 演習価値別候補');
   markdown.push('');
@@ -273,7 +287,7 @@ if (summaryPath) {
   markdown.push('');
   markdown.push('| カテゴリ | 件数 |');
   markdown.push('| --- | ---: |');
-  for (const category of [...phraseCategories, ...structuralCategories]) {
+  for (const category of allCategories) {
     markdown.push(`| ${category.name} | ${categoryCounts.get(category.name)} |`);
   }
   markdown.push('');
@@ -293,6 +307,23 @@ function addFinding(finding) {
     finding.category,
     (categoryCounts.get(finding.category) ?? 0) + 1,
   );
+}
+
+function cappedScore(fileFindings) {
+  const rawByCategory = new Map();
+  for (const finding of fileFindings) {
+    rawByCategory.set(
+      finding.category,
+      (rawByCategory.get(finding.category) ?? 0) + finding.weight,
+    );
+  }
+
+  let score = 0;
+  for (const [category, raw] of rawByCategory) {
+    const cap = scoreCapByCategory.get(category) ?? raw;
+    score += Math.min(raw, cap);
+  }
+  return score;
 }
 
 function extractProblem(source) {
@@ -331,9 +362,13 @@ function countProblemTasks(text) {
 }
 
 function countDetailedTaskHeadings(text) {
-  // 詳細解答側は `### 1.` だけでなく `## 1.` を使う既存ファイルもある。
-  // 見出しレベルの違いだけで「小問対応見出し不足」にしない。
-  return (text.match(/^#{2,4}\s+\d+\./gm) ?? []).length;
+  // `### 1.` だけでなく `## 1.` や `### 1・2.` も小問対応として数える。
+  // 1・2 のような結合見出しは2小問をまとめて扱っているので、数字の個数を数える。
+  let count = 0;
+  for (const match of text.matchAll(/^#{2,4}\s+(\d+(?:[・,，/／&＋+-]\d+)*)[.．]/gm)) {
+    count += match[1].match(/\d+/g)?.length ?? 0;
+  }
+  return count;
 }
 
 function compactLength(text) {
