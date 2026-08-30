@@ -1535,47 +1535,6 @@ $$\operatorname{Avar}(\overline X_n)
 <!-- CARD -->
 
 ---
-id: asym-slutsky-example
-title: Slutskyの定理で確率収束する分母を置き換える
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: slutsky-ratio-example
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [Slutskyの定理, 分布収束, 確率収束]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 収束の概念 }]
----
-
-## 問題
-$X_n$ は正規分布 $N(0,4)$ へ分布収束し、$Y_n\xrightarrow{p}2$ とする。$X_n/Y_n$ の極限分布を求めよ。
-
-## 記号・用語
-- $\xrightarrow{d}$：分布収束
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-Slutskyの定理：$X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ で $c\ne0$ なら
-$$\frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.$$
-
-## 答え
-$X\sim N(0,4)$ を定数2で割るので、極限分布は $N(0,1)$ である。
-
-## 計算例
-$X\sim N(0,4)$ なら $X/2$ の分散は
-$$\operatorname{Var}\left(\frac X2\right)
-=\frac1{2^2}\operatorname{Var}(X)=\frac44=1.$$
-したがって
-$$\frac{X_n}{Y_n}\xrightarrow{d}\frac X2\sim N(0,1).$$
-
-## 注意
-$Y_n$ の極限が0なら、除算にこの形のSlutskyの定理は使えない。
-
-<!-- CARD -->
-
----
 id: asym-are-median-mean
 title: 漸近相対効率（標本中央値／平均）を計算する
 category: math-estimation

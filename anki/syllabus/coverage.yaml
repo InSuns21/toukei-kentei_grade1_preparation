@@ -834,7 +834,6 @@ items:
       - asym-delta-method-sqrt
       - asym-mle-av-binomial
       - asym-mle-av-normal
-      - asym-slutsky-example
       - asym-are-median-mean
       - asym-exponential-mean-tail
       - asym-exponential-rate-mle
@@ -2265,8 +2264,8 @@ items:
     cards:
       - dist-clt-standardize
       - est-delta-log
-      - engasym-slutsky-studentization
-      - engasym-continuous-mapping-plugin
+      - asym-slutsky
+      - asym-continuous-mapping
       - engasym-empirical-cdf-point
       - engasym-sample-quantile-variance
       - engasym-sample-variance-normal
@@ -2276,7 +2275,7 @@ items:
       - engasym-estimating-equation-linearization
       - engasym-sandwich-m-estimator
       - engasym-multivariate-linear-combination
-      - engasym-score-wald-lr-equivalence
+      - test-lr-wald-score-comparison
       - engasym-sample-size-mean-precision
       - engasym-proportion-standardization
       - engasym-local-alternative-power
@@ -2304,7 +2303,7 @@ items:
           - engasym-sample-variance-normal
           - engasym-sample-size-mean-precision
           - engasym-proportion-standardization
-          - engasym-slutsky-studentization
+          - asym-slutsky
       - name: 最尤推定量の漸近正規性
         status: card
         cards:
@@ -2312,7 +2311,7 @@ items:
           - engasym-poisson-mle-variance
           - engasym-bernoulli-fisher-information
           - engasym-wald-ci-generic
-          - engasym-score-wald-lr-equivalence
+          - test-lr-wald-score-comparison
           - engasym-local-alternative-power
       - name: 漸近分散
         status: card
@@ -2330,7 +2329,7 @@ items:
         cards:
           - engasym-lln-sensor-average
           - engasym-consistency-from-mse
-          - engasym-continuous-mapping-plugin
+          - asym-continuous-mapping
           - engasym-method-moments-consistency
       - name: デルタ法
         status: card
