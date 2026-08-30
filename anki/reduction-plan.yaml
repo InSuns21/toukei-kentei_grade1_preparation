@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-umvu-construction-canonical-reduction-75
+batch_id: 2026-08-30-reg-leverage-canonical-reduction-76
 items:
-  - id: umvu-construction
+  - id: reg-leverage-threshold
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-rao-blackwell
-    note: UMVU構成の手順「不偏推定量→十分統計量で条件付け→完備性で一意なUMVU」は est-rao-blackwell 正本の一手・Bernoulli例に統合済み。単独の構成カードは復習上の重複になるため隔離する。
+    canonical_card: reg-dffits-numeric
+    note: 平均レバレッジ k/n と 2k/n・3k/n の目安、高レバレッジだけでは影響点と断定しない注意まで reg-dffits-numeric 正本に統合済み。単独の閾値計算カードは重複のため隔離する。
