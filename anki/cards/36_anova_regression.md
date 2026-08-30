@@ -1258,46 +1258,133 @@ $$Y\mid x=4\sim N(14,4).$$
 
 ---
 id: reg-ols-normal-equations-simple
-title: 単回帰の正規方程式を導く
+title: 単回帰を最小二乗推定から当てはめ・残差直交まで通す
 category: math-data-analysis
 subcategory: math-regression
-topic: simple-normal-equations
+topic: simple-regression-ols-canonical
 type: calc_step
 difficulty: 3
 priority: S
-hashtags: [最小二乗法, 正規方程式, 単回帰]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 最小二乗推定 }, { type: past_exam, id: MATH-2024-Q1, topic: 回帰係数の推定・検定・検出力 }]
+hashtags:
+  - 単回帰
+  - 最小二乗法
+  - 正規方程式
+  - 残差
+  - 直交条件
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 最小二乗推定
+  - type: past_exam
+    id: MATH-2024-Q1
+    topic: 回帰係数の推定・検定・検出力
 ---
 
 ## 問題
-観測 $(x_i,Y_i)$ に切片あり単回帰 $Y_i=\beta_0+\beta_1x_i+\varepsilon_i$ を当てはめる。残差平方和 $Q(\beta_0,\beta_1)=\sum_i(Y_i-\beta_0-\beta_1x_i)^2$ を最小化するための正規方程式を導け。
+切片を含む単回帰
+$$
+y_i=\beta_0+\beta_1x_i+\varepsilon_i
+$$
+について、残差平方和を最小にして $\widehat\beta_0,\widehat\beta_1$ を導け。さらに当てはめ値 $\widehat y_i$ と残差 $e_i$ を定義し、正規方程式から残差の2つの直交条件を示せ。
+
+数値例として $(x_i,y_i)=(1,2),(2,3),(3,5)$ を最後まで計算せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+残差平方和を
+$$
+Q(\beta_0,\beta_1)
+=\sum_{i=1}^n(y_i-\beta_0-\beta_1x_i)^2
+$$
+とする。偏微分して
+$$
+\frac{\partial Q}{\partial\beta_0}
+=-2\sum_i(y_i-\beta_0-\beta_1x_i)=0,
+$$
+$$
+\frac{\partial Q}{\partial\beta_1}
+=-2\sum_i x_i(y_i-\beta_0-\beta_1x_i)=0.
+$$
+ここから
+$$
+S_{xx}=\sum_i(x_i-\bar x)^2,
+\qquad
+S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)
+$$
+とおけば
+$$
+\widehat\beta_1=\frac{S_{xy}}{S_{xx}},
+\qquad
+\widehat\beta_0=\bar y-\widehat\beta_1\bar x.
+$$
+当てはめ値と残差は
+$$
+\widehat y_i=\widehat\beta_0+\widehat\beta_1x_i,
+\qquad
+e_i=y_i-\widehat y_i.
+$$
 
-凸二次関数の停留点は最小点である。
+## 一手
+**残差平方和を微分して正規方程式を作る。** その同じ方程式を推定後に読み直すと $\sum e_i=0$ と $\sum x_ie_i=0$ が直ちに出る。
 
 ## 答え
-偏微分を0と置くと
-$$\frac{\partial Q}{\partial\beta_0}=-2\sum_i(Y_i-\beta_0-\beta_1x_i)=0,$$
-$$\frac{\partial Q}{\partial\beta_1}=-2\sum_ix_i(Y_i-\beta_0-\beta_1x_i)=0.$$
-すなわち
-$$\sum_i e_i=0,\qquad \sum_i x_ie_i=0.$$
+正規方程式から
+$$
+\sum_i e_i=0,
+\qquad
+\sum_i x_ie_i=0.
+$$
+すなわち切片を含む最小二乗法では、残差は定数ベクトルと説明変数ベクトルの双方に直交する。
+
+数値例では
+$$
+\bar x=2,
+\qquad
+\bar y=\frac{10}{3},
+$$
+$$
+S_{xx}=(-1)^2+0^2+1^2=2,
+$$
+$$
+S_{xy}=(-1)\left(-\frac43\right)+0+1\left(\frac53\right)=3.
+$$
+よって
+$$
+\widehat\beta_1=\frac32,
+\qquad
+\widehat\beta_0=\frac13.
+$$
 
 ## 計算例
-$Q$ を偏微分すると
-$$\frac{\partial Q}{\partial\beta_0}
-=-2\sum_i(Y_i-\beta_0-\beta_1x_i),$$
-$$\frac{\partial Q}{\partial\beta_1}
-=-2\sum_i x_i(Y_i-\beta_0-\beta_1x_i).$$
-両方を0とおけば
-$$\sum_iY_i=n\widehat\beta_0+\widehat\beta_1\sum_i x_i,$$
-$$\sum_i x_iY_i=\widehat\beta_0\sum_i x_i+\widehat\beta_1\sum_i x_i^2.$$
-第1式を $n$ で割ると $\widehat\beta_0=\overline Y-\widehat\beta_1\overline x$ を得る。
+回帰直線は
+$$
+\widehat y=\frac13+\frac32x.
+$$
+したがって
+$$
+(\widehat y_1,\widehat y_2,\widehat y_3)
+=\left(\frac{11}{6},\frac{10}{3},\frac{29}{6}\right),
+$$
+$$
+(e_1,e_2,e_3)
+=\left(\frac16,-\frac13,\frac16\right).
+$$
+実際
+$$
+\sum_i e_i
+=\frac16-\frac13+\frac16=0,
+$$
+$$
+\sum_i x_ie_i
+=\frac16-\frac23+\frac12=0.
+$$
+「係数を求める計算」と「残差の直交性」は別公式ではなく、同じ正規方程式の表裏である。
 
 ## 注意
-$S_{xx}>0$、すなわち全ての $x_i$ が同一でないことが必要。
+$S_{xx}>0$、すなわち全ての $x_i$ が同一でないことが必要。$\sum e_i=0$ は切片を含む回帰の性質であり、切片なし回帰では一般に成立しない。誤差 $\varepsilon_i$ は観測不能な確率変数、残差 $e_i$ は推定後に得る実現値である。
 
 <!-- CARD -->
 
@@ -1380,20 +1467,35 @@ $$\sum_i x_ie_i=0\cdot1+1\cdot(-2)+2\cdot1=0.$$
 
 ---
 id: reg-sst-decomposition
-title: 回帰の平方和分解を導く
+title: 回帰の平方和分解から決定係数・相関・自由度調整までつなぐ
 category: math-data-analysis
 subcategory: math-regression
-topic: regression-ss
+topic: regression-goodness-of-fit-canonical
 type: calc_step
 difficulty: 3
 priority: S
-hashtags: [回帰平方和, 残差平方和, 決定係数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
+hashtags:
+  - 回帰分析
+  - 平方和分解
+  - 決定係数
+  - 相関係数
+  - 自由度調整済み決定係数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 回帰の分散分析
 ---
 
 ## 問題
-切片を含む最小二乗法で、観測値を $Y_i$、当てはめ値を $\widehat Y_i$、残差を $e_i=Y_i-\widehat Y_i$ とする。全平方和 $SST$ を回帰平方和 $SSR$ と残差平方和 $SSE$ へ分解せよ。
+切片を含む線形回帰で、全平方和・回帰平方和・残差平方和の分解を示し、決定係数を定義せよ。さらに
+
+1. 単回帰では $R^2=r_{xy}^2$ となることを示せ。
+2. 説明変数が $p$ 個の自由度調整済み決定係数を書け。
+3. $(x,y)=(1,2),(2,3),(3,5)$ で各量を計算せよ。
 
 ## 記号・用語
 - SSE：残差平方和（sum of squared errors）
@@ -1401,26 +1503,92 @@ sources: [{ type: official_syllabus, topic: 回帰の分散分析 }]
 - SST：全平方和（total sum of squares）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+SST=\sum_i(y_i-\bar y)^2,
+\qquad
+SSR=\sum_i(\widehat y_i-\bar y)^2,
+\qquad
+SSE=\sum_i e_i^2.
+$$
+切片を含む最小二乗法では残差と当てはめ成分が直交するので
+$$
+SST=SSR+SSE.
+$$
+よって
+$$
+R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}.
+$$
+単回帰では
+$$
+\widehat\beta_1=\frac{S_{xy}}{S_{xx}},
+\qquad
+SSR=\widehat\beta_1^2S_{xx}=\frac{S_{xy}^2}{S_{xx}},
+$$
+したがって
+$$
+R^2=\frac{S_{xy}^2}{S_{xx}S_{yy}}=r_{xy}^2.
+$$
+説明変数が $p$ 個なら
+$$
+\bar R^2
+=1-\frac{SSE/(n-p-1)}{SST/(n-1)}
+=1-(1-R^2)\frac{n-1}{n-p-1}.
+$$
 
-最小二乗法残差は当てはめ値と切片ベクトルに直交する。
+## 一手
+**まず $y_i-\bar y=(\widehat y_i-\bar y)+e_i$ と分け、交差項が残差直交で0になることを使う。** $R^2$ の各公式はこの平方和分解から出す。
 
 ## 答え
-$$Y_i-\overline Y=(\widehat Y_i-\overline Y)+e_i.$$
-二乗和の交差項は
-$$2\sum_i(\widehat Y_i-\overline Y)e_i=0$$
-だから
-$$SST=SSR+SSE,$$
-$$SST=\sum_i(Y_i-\overline Y)^2,\quad SSR=\sum_i(\widehat Y_i-\overline Y)^2,\quad SSE=\sum_i e_i^2.$$
+数値例では $\bar y=10/3$ なので
+$$
+SST
+=\left(-\frac43\right)^2+\left(-\frac13\right)^2+\left(\frac53\right)^2
+=\frac{14}{3}.
+$$
+前問の残差 $(1/6,-1/3,1/6)$ から
+$$
+SSE=\frac1{36}+\frac19+\frac1{36}=\frac16.
+$$
+よって
+$$
+SSR=SST-SSE
+=\frac{14}{3}-\frac16
+=\frac92,
+$$
+$$
+R^2=1-\frac{1/6}{14/3}=1-\frac1{28}=\frac{27}{28}\approx0.9643.
+$$
 
 ## 計算例
-平方和分解 $SST=SSR+SSE$ に $SST=50,SSE=20$ を代入すると
-$$50=SSR+20,$$
-したがって
-$$SSR=50-20=30.$$
+この例では
+$$
+S_{xx}=2,
+\qquad
+S_{xy}=3,
+\qquad
+S_{yy}=\frac{14}{3}.
+$$
+したがって標本相関係数は正で
+$$
+r_{xy}
+=\frac{3}{\sqrt{2(14/3)}},
+$$
+$$
+r_{xy}^2
+=\frac9{28/3}
+=\frac{27}{28}
+=R^2.
+$$
+また $n=3,p=1$ なので
+$$
+\bar R^2
+=1-\left(1-\frac{27}{28}\right)\frac{2}{1}
+=\frac{13}{14}\approx0.9286.
+$$
+説明変数を増やすと通常の $R^2$ は低下しないが、自由度調整済み決定係数は改善が小さければ低下しうる。
 
 ## 注意
-切片なし回帰ではこの中心化平方和分解をそのまま使えない。
+$R^2$ が高いことは因果関係やモデル妥当性を保証しない。単回帰では $R^2=r^2$ だが、$R^2$ だけから相関係数の符号は分からない。中心化平方和の分解は切片を含む通常の回帰を前提とする。
 
 <!-- CARD -->
 
@@ -1670,41 +1838,117 @@ $SSE/n$ は正規最尤推定量だが一般に不偏ではない。
 
 ---
 id: reg-slope-t-test
-title: 回帰係数のt検定統計量を書く
+title: 単回帰係数の分散から傾きのt検定・信頼区間まで通す
 category: math-data-analysis
 subcategory: math-regression
-topic: slope-t-test
+topic: simple-regression-inference-canonical
 type: formula
 difficulty: 2
 priority: S
-hashtags: [回帰係数, t検定, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形単回帰 }]
+hashtags:
+  - 単回帰
+  - 回帰係数
+  - 分散
+  - t検定
+  - 信頼区間
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形単回帰
 ---
 
 ## 問題
-固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である単回帰を考える。傾き推定量を $\widehat\beta_1$、その標準誤差を $\operatorname{SE}(\widehat\beta_1)$ として、帰無仮説 $H_0:\beta_1=\beta_{1,0}$ を検定するt統計量と自由度を書け。
+単回帰
+$$
+Y_i=\beta_0+\beta_1x_i+\varepsilon_i,
+\qquad
+\varepsilon_i\overset{\mathrm{iid}}\sim N(0,\sigma^2)
+$$
+を考え、誤差は正規分布 $N(0,\sigma^2)$ に独立同分布で従うとする。$\widehat\beta_1,\widehat\beta_0$ の分散を書き、$\sigma^2$ 未知のときの傾きのt検定と信頼区間を構成せよ。
+
+数値例として $\widehat\beta_1=2.0$、標準誤差0.5、$n=20$ とする。$H_0:\beta_1=0$ を両側5%で検定し、自由度18のt分布の両側5%臨界値を2.101として95%信頼区間も求めよ。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+S_{xx}=\sum_i(x_i-\bar x)^2.
+$$
+固定された説明変数の下で
+$$
+\operatorname{Var}(\widehat\beta_1)=\frac{\sigma^2}{S_{xx}},
+$$
+$$
+\operatorname{Var}(\widehat\beta_0)
+=\sigma^2\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right).
+$$
+また
+$$
+s^2=\frac{SSE}{n-2}
+$$
+として
+$$
+\operatorname{SE}(\widehat\beta_1)=\frac{s}{\sqrt{S_{xx}}}.
+$$
+$H_0:\beta_1=\beta_{1,0}$ の下で
+$$
+t=\frac{\widehat\beta_1-\beta_{1,0}}
+{\operatorname{SE}(\widehat\beta_1)}
+\sim t_{n-2}.
+$$
+$100(1-\alpha)\%$ 信頼区間は
+$$
+\widehat\beta_1
+\pm t_{n-2,1-\alpha/2}\operatorname{SE}(\widehat\beta_1).
+$$
 
-$\operatorname{SE}(\widehat\beta_1)=\sqrt{MS_E/S_{xx}}$。
+## 一手
+**係数の分散→$\sigma^2$ を残差平均平方で推定→標準誤差→t標準化、の順に進める。** 検定と信頼区間は同じ標準誤差を使う。
 
 ## 答え
-$$T=\frac{\widehat\beta_1-\beta_{1,0}}
-{\sqrt{MS_E/S_{xx}}}\sim t_{n-2}$$
-が帰無仮説下で成り立つ。
+数値例では
+$$
+t=\frac{2.0-0}{0.5}=4.0.
+$$
+$|4.0|>2.101$ なので5%水準で $H_0$ を棄却する。
+
+95%信頼区間は
+$$
+2.0\pm2.101\times0.5
+=2.0\pm1.0505,
+$$
+したがって
+$$
+(0.9495,\ 3.0505).
+$$
+0を含まないので、同じ両側5%検定の棄却結果と一致する。
 
 ## 計算例
-$n=12,\widehat\beta_1=1.5,\operatorname{SE}(\widehat\beta_1)=0.4$ とする。「傾きなし」すなわち $\beta_{1,0}=0$ に対して
-$$t=\frac{1.5-0}{0.4}=3.75,$$
-自由度は $n-2=10$ である。
+係数分散の大きさも数値で確認する。例えば
+$$
+n=10,\quad \bar x=2,\quad S_{xx}=20,\quad s^2=4
+$$
+なら
+$$
+\operatorname{SE}(\widehat\beta_1)
+=\sqrt{\frac4{20}}
+\approx0.447,
+$$
+$$
+\operatorname{SE}(\widehat\beta_0)
+=\sqrt{4\left(\frac1{10}+\frac4{20}\right)}
+=\sqrt{1.2}
+\approx1.095.
+$$
+$S_{xx}$ が大きいほど傾き推定の標準誤差は小さくなる。
 
 ## 注意
-正確なt分布には独立な正規等分散誤差を仮定する。
+正確なt分布には独立な正規・等分散誤差を仮定する。統計的有意性と傾きの実質的大きさは別問題である。観測範囲を無理に広げて $S_{xx}$ を大きくすることが常に妥当とは限らない。
 
 <!-- CARD -->
 
@@ -1798,41 +2042,100 @@ $$1.5\pm0.8912=(0.6088,2.3912).$$
 
 ---
 id: reg-mean-response-ci
-title: 平均応答の信頼区間を作る
+title: 平均応答の信頼区間と新規観測の予測区間を同じ式から比較する
 category: math-data-analysis
 subcategory: math-regression
-topic: mean-response-ci
+topic: simple-regression-intervals-canonical
 type: formula
 difficulty: 3
 priority: A
-hashtags: [平均応答, 信頼区間, 単回帰]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形単回帰 }]
+hashtags:
+  - 単回帰
+  - 平均応答
+  - 信頼区間
+  - 予測区間
+  - レバレッジ
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形単回帰
 ---
 
 ## 問題
-固定された説明変数の下で誤差が独立な正規分布に従い、分散が共通である切片あり単回帰を考える。標本サイズを $n$、残差標準偏差を $s$、$S_{xx}=\sum_i(x_i-\overline x)^2$ として、説明変数の値 $x_0$ における平均応答 $E[Y\mid x_0]$ の $1-\alpha$ 信頼区間を書け。
+単回帰で $x=x_0$ における
+
+1. 平均応答 $E[Y\mid x_0]$ の信頼区間
+2. 新しい1観測 $Y_{\mathrm{new}}\mid x_0$ の予測区間
+
+を書き、なぜ後者が広いか説明せよ。
+
+$n=10$、$x_0=\bar x$、$\widehat y_0=20$、残差標準偏差 $s=2$、自由度8のt分布の両側5%臨界値を2.306として95%の両区間を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$$
+h_0=\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}.
+$$
+平均応答の推定標準誤差は
+$$
+s\sqrt{h_0},
+$$
+したがって信頼区間は
+$$
+\widehat y_0\pm t_{n-2,1-\alpha/2}s\sqrt{h_0}.
+$$
+新しい1観測では新たな誤差分散 $\sigma^2$ が加わるため、予測標準誤差は
+$$
+s\sqrt{1+h_0},
+$$
+予測区間は
+$$
+\widehat y_0\pm t_{n-2,1-\alpha/2}s\sqrt{1+h_0}.
+$$
 
-$\operatorname{Var}(\widehat y_0)=\sigma^2\{1/n+(x_0-\overline x)^2/S_{xx}\}$。
+## 一手
+**平均そのものを推定するなら $h_0$、新しい個体を予測するなら $1+h_0$。** この「+1」が個体固有の新しい誤差分散である。
 
 ## 答え
-$$\widehat y_0\pm t_{n-2,\alpha/2}s
-\sqrt{\frac1n+\frac{(x_0-\overline x)^2}{S_{xx}}},$$
-ここで $\widehat y_0=\widehat\beta_0+\widehat\beta_1x_0$、$s=\sqrt{MS_E}$。
+$x_0=\bar x$ なので
+$$
+h_0=\frac1{10}=0.1.
+$$
+平均応答区間の半幅は
+$$
+2.306\times2\sqrt{0.1}\approx1.459,
+$$
+よって
+$$
+(18.541,\ 21.459).
+$$
+
+予測区間の半幅は
+$$
+2.306\times2\sqrt{1.1}\approx4.837,
+$$
+よって
+$$
+(15.163,\ 24.837).
+$$
 
 ## 計算例
-$n=25,s=2,x_0=\overline x$ なら
-$$\operatorname{SE}\{\widehat E(Y\mid x_0)\}
-=2\sqrt{\frac1{25}+0}=0.4.$$
-当てはめ値が10、自由度23の95%臨界値が2.069なら
-$$10\pm2.069(0.4)=10\pm0.828,$$
-すなわち $(9.172,10.828)$ である。
+両者の標準誤差の比は
+$$
+\frac{\sqrt{1+h_0}}{\sqrt{h_0}}
+=\sqrt{\frac{1.1}{0.1}}
+=\sqrt{11}
+\approx3.317.
+$$
+同じ $x_0$、同じt臨界値でも、新しい1観測の予測区間は個体差の分だけ大幅に広い。
+
+また $|x_0-\bar x|$ が大きいほど $h_0$ が増え、平均応答区間も予測区間も広がる。
 
 ## 注意
-新しい1観測の予測区間とは異なる。
+平均応答の信頼区間と新規1観測の予測区間を混同しない。観測された説明変数範囲から大きく外れた外挿では、数式上区間を作れても線形モデル自体の妥当性が弱い。
 
 <!-- CARD -->
 
@@ -1919,41 +2222,122 @@ $$2\sqrt{1+\frac1{25}}=2\sqrt{1.04}\approx2.040.$$
 
 ---
 id: reg-multiple-model-matrix
-title: 重回帰を行列で表す
+title: 重回帰を行列で表し最小二乗推定量・不偏性・共分散まで導く
 category: math-data-analysis
 subcategory: math-regression
-topic: multiple-model
+topic: multiple-regression-matrix-canonical
 type: formula
 difficulty: 2
 priority: S
-hashtags: [重回帰, 行列表記, デザイン行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形重回帰 }]
+hashtags:
+  - 重回帰
+  - 行列表現
+  - 最小二乗法
+  - 不偏性
+  - 共分散行列
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形重回帰
 ---
 
 ## 問題
-標本サイズを $n$、切片以外の説明変数数を $p$ とする。切片を含む重回帰モデルを行列で書き、応答ベクトル、計画行列、係数ベクトル、誤差ベクトルの各次元を示せ。
+重回帰モデルを行列で
+$$
+\mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon
+$$
+と表す。$E[\boldsymbol\varepsilon]=\mathbf0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I$ とする。
+
+1. 残差平方和を最小化して最小二乗推定量を導け。
+2. 不偏性と共分散行列を導け。
+3. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+残差平方和は
+$$
+S(\boldsymbol\beta)
+=(\mathbf y-X\boldsymbol\beta)^\mathsf T
+(\mathbf y-X\boldsymbol\beta).
+$$
+勾配を0とすると
+$$
+-2X^\mathsf T(\mathbf y-X\boldsymbol\beta)=\mathbf0,
+$$
+すなわち正規方程式
+$$
+X^\mathsf TX\widehat{\boldsymbol\beta}=X^\mathsf T\mathbf y
+$$
+を得る。$X$ が列フルランクなら
+$$
+\widehat{\boldsymbol\beta}
+=(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y.
+$$
+また
+$$
+\widehat{\boldsymbol\beta}
+=\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
+$$
 
-切片列は全要素1の列。
+## 一手
+**残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。** その形から期待値と共分散が一度に出る。
 
 ## 答え
-$$\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,$$
-$$\boldsymbol Y\in\mathbb R^n,\quad \boldsymbol X\in\mathbb R^{n\times(p+1)},\quad
-\boldsymbol\beta\in\mathbb R^{p+1},$$
-$$\boldsymbol\varepsilon\sim N_n(\boldsymbol0,\sigma^2\boldsymbol I_n).$$
+$E[\boldsymbol\varepsilon]=\mathbf0$ より
+$$
+E[\widehat{\boldsymbol\beta}]=\boldsymbol\beta.
+$$
+また
+$$
+\begin{aligned}
+\operatorname{Var}(\widehat{\boldsymbol\beta})
+&=(X^\mathsf TX)^{-1}X^\mathsf T
+(\sigma^2I)X(X^\mathsf TX)^{-1}\\
+&=\sigma^2(X^\mathsf TX)^{-1}.
+\end{aligned}
+$$
+
+数値例では
+$$
+X^\mathsf TX=\begin{pmatrix}3&3\\3&5\end{pmatrix},
+\qquad
+X^\mathsf T\mathbf y=\begin{pmatrix}9\\13\end{pmatrix}.
+$$
+逆行列は
+$$
+(X^\mathsf TX)^{-1}
+=\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix}.
+$$
+よって
+$$
+\widehat{\boldsymbol\beta}
+=\frac16
+\begin{pmatrix}5&-3\\-3&3\end{pmatrix}
+\begin{pmatrix}9\\13\end{pmatrix}
+=\begin{pmatrix}1\\2\end{pmatrix}.
+$$
 
 ## 計算例
-$n=3,p=1$ で説明変数値が $(0,1,2)$ なら
-$$\boldsymbol X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},
-\quad\boldsymbol Y=\begin{pmatrix}Y_1\\Y_2\\Y_3\end{pmatrix},
-\quad\boldsymbol\beta=\begin{pmatrix}\beta_0\\\beta_1\end{pmatrix}.$$
-したがって $\boldsymbol X$ は $3\times2$、$\boldsymbol Y$ と $\boldsymbol\varepsilon$ は $3\times1$、$\boldsymbol\beta$ は $2\times1$ である。
+この設計では
+$$
+\widehat y=1+2x
+$$
+で3点を完全に通る。また係数共分散行列は
+$$
+\operatorname{Var}(\widehat{\boldsymbol\beta})
+=\frac{\sigma^2}{6}
+\begin{pmatrix}
+5&-3\\
+-3&3
+\end{pmatrix}.
+$$
+対角要素が各係数推定量の分散、非対角要素が係数推定量間の共分散である。
 
 ## 注意
-係数を一意に推定するには $\operatorname{rank}(X)=p+1$ が必要。
+一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくない。実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。
 
 <!-- CARD -->
 
