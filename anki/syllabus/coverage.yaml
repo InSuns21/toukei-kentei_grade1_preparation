@@ -2427,11 +2427,6 @@ items:
       - engqc-control-chart-selection
       - engqc-r-chart-limits
       - engqc-s-chart-limits
-      - engqc-p-chart-constant-n
-      - engqc-p-chart-varying-n
-      - engqc-np-chart
-      - engqc-c-chart
-      - engqc-u-chart
       - engqc-imr-moving-range
       - engqc-control-vs-specification
       - engqc-common-special-causes
@@ -2446,7 +2441,6 @@ items:
       - engqc-cusum-one-step
       - engqc-control-chart-sample-size
       - engqc-process-adjustment-overcontrol
-      - engqc-p-chart-baseline-estimation
       - engqc-cpm-target
       - engqc-capability-defect-rate
       - engqc-capability-stability-first
@@ -2470,15 +2464,9 @@ items:
         status: card
         cards:
           - engqc-control-chart-selection
-          - engqc-p-chart-baseline-estimation
           - engqc-xbar-r-chart-limits
           - engqc-r-chart-limits
           - engqc-s-chart-limits
-          - engqc-p-chart-constant-n
-          - engqc-p-chart-varying-n
-          - engqc-np-chart
-          - engqc-c-chart
-          - engqc-u-chart
           - engqc-imr-moving-range
           - engqc-phase1-phase2
           - engqc-three-sigma-false-alarm
@@ -2514,7 +2502,6 @@ items:
         status: card
         cards:
           - engqc-control-chart-selection
-          - engqc-p-chart-baseline-estimation
           - engqc-control-vs-specification
           - engqc-common-special-causes
           - engqc-rational-subgrouping
