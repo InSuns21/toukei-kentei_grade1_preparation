@@ -1,58 +1,20 @@
 schema_version: 1
-batch_id: 2026-08-30-estimation-theory-reduction-41b
+batch_id: 2026-08-30-rao-blackwell-umvu-reduction-43
 items:
-  - id: est-score-mean-zero
+  - id: est-rao-blackwell-bernoulli
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-fisher-information-def
-    note: スコア平均0は正規化条件の微分からフィッシャー情報量（1次元）の2表式まで同じ正本で導出済み。
+    canonical_card: est-rao-blackwell
+    note: Bernoulli標本でE[X1|T=t]=t/nから標本平均を得る具体計算と分散改善をRao-Blackwell正本へ統合済み。
 
-  - id: est-fisher-two-forms
+  - id: est-lehmann-scheffe
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-fisher-information-def
-    note: E[U^2]と-E[ell'']の等価性を正則条件とともに正本で導出済み。
+    canonical_card: est-rao-blackwell
+    note: 完備十分統計量の関数で不偏なら一意なUMVUとなるLehmann-Scheffe定理をRao-Blackwellからの構成手順へ統合済み。
 
-  - id: est-fisher-additivity
+  - id: est-umvu-idea
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-fisher-information-def
-    note: 独立同分布標本でスコアを和にし情報量がn倍になる点を同じ正本へ統合済み。
-
-  - id: est-fisher-bernoulli-example
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-fisher-information-def
-    note: ベルヌーイ分布でI1(p)=1/[p(1-p)]を二階微分から求める数値例まで正本へ吸収済み。
-
-  - id: est-normal-information-matrix
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-information-matrix
-    note: 正規分布の母数(mu,v)に対するフィッシャー情報行列をHessianから導く例を一般情報行列正本へ統合済み。
-
-  - id: est-crlb-poisson-mean-efficiency
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-cramer-rao-lower-bound
-    coverage_card: asym-asymptotic-relative-efficiency
-    note: ポアソン平均の有限標本下界と達成例は一般CR正本へ統合し、math-asymptotic-estimationの公式coverageは有限標本下界から漸近効率へつなぐ正本で維持する。
-
-  - id: est-crlb-bernoulli-square
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-cramer-rao-lower-bound
-    coverage_card: asym-asymptotic-relative-efficiency
-    note: g(p)=p^2の具体例は一般CR正本へ統合し、math-asymptotic-estimationのクラーメル・ラオ公式coverageは同一subcategoryの漸近効率正本で維持する。
-
-  - id: est-mse-definition
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-bias-variance-tradeoff
-    note: 平均二乗誤差の定義からMSE=分散+バイアス二乗を展開して導く正本へ統合済み。
-
-  - id: est-relative-efficiency
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-estimator-comparison
-    note: 不偏推定量同士の相対効率と、有偏推定量を含む場合のMSE比較を同じ推定量比較正本へ統合済み。
+    canonical_card: est-rao-blackwell
+    note: UMVUの概念と、十分統計量での条件付け・完備性による一意性を同じ正本で説明済み。
