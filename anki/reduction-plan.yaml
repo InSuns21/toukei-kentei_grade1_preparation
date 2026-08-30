@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-reg-leverage-canonical-reduction-76
+batch_id: 2026-08-30-mle-likelihood-construction-reduction-78
 items:
-  - id: reg-leverage-threshold
+  - id: mle-likelihood-construction
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-dffits-numeric
-    note: 平均レバレッジ k/n と 2k/n・3k/n の目安、高レバレッジだけでは影響点と断定しない注意まで reg-dffits-numeric 正本に統合済み。単独の閾値計算カードは重複のため隔離する。
+    canonical_card: mle-score-equation
+    note: 独立標本から尤度を積で立てる操作と、台が母数に依存するとき指示条件・境界を確認する注意は mle-score-equation 正本の「尤度→対数尤度→スコア方程式→最大性・境界確認」に統合済み。途中工程だけを単独で反復するカードは重複のため隔離する。
