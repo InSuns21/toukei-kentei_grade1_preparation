@@ -103,38 +103,105 @@ $\theta$ に依存しない項 $\sum_i\log x_i!$ は最大化から落とせる�
 
 ---
 id: mle-score-equation
-title: スコア方程式から最尤推定値を求める
+title: 尤度からスコア方程式まで最尤推定を一気に解く
 category: math-estimation
 subcategory: math-likelihood-mle
-topic: score-equation
+topic: mle-standard-workflow-canonical
 type: strategy
-difficulty: 2
+difficulty: 3
 priority: S
-hashtags: [最尤推定, スコア方程式, 微分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定 }]
+hashtags:
+  - 最尤推定
+  - 尤度関数
+  - 対数尤度
+  - スコア方程式
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 最尤推定
 ---
 ## 問題
-最尤推定で用いるスコア方程式の一般手順を述べよ。密度 $f(x;\theta)$ からの独立同分布ではどう書けるか。
+$X_1,\ldots,X_n$ が独立同分布で密度または確率関数 $f(x;\theta)$ に従うとする。内点に最尤推定値がある通常の1母数問題について、観測値から尤度を立て、対数尤度、スコア方程式を経て最尤推定値を求める標準手順を述べよ。あわせて Poisson 標本 $(2,5,3,0)$ から $\lambda$ を推定せよ。
+
 ## 答え
-対数尤度 $\ell(\theta;x)=\sum_{i=1}^n\log f(x_i;\theta)$ を $\theta$ で微分して0とおく。
-$\frac{\partial}{\partial\theta}\ell(\theta;x)=0\;(\text{スコア方程式}),\qquad U(\theta)=\sum_{i=1}^n\frac{\partial}{\partial\theta}\log f(X_i;\theta).$
-この解が内部の最尤推定値の候補。最大性は二階導関数が負であることなどで確認する。
+通常の正則な1母数問題では、
+$$
+L(\theta;x)=\prod_i f(x_i;\theta),\qquad
+\ell(\theta;x)=\sum_i\log f(x_i;\theta)
+$$
+を作り、$U(\theta)=\ell'(\theta)=0$ を解いて候補 $\widehat\theta$ を得る。その後、二階微分や端点比較で最大点を確認する。
+
+Poisson 標本 $(2,5,3,0)$ では
+$$
+\widehat\lambda=\overline x=\frac{10}{4}=2.5.
+$$
+
 ## 使用公式・定理
-スコア関数 $U(\theta)=\partial\ell(\theta;x)/\partial\theta$。$\theta$ が $k$ 次元なら連立方程式 $\partial\ell/\partial\theta_j=0\;(j=1,\ldots,k)$。
+独立性より尤度は
+$$
+L(\theta;x)=\prod_{i=1}^n f(x_i;\theta).
+$$
+対数は単調増加なので最大点を変えず、
+$$
+\ell(\theta;x)=\log L(\theta;x)
+=\sum_{i=1}^n\log f(x_i;\theta)
+$$
+と積を和へ変えられる。内点の候補はスコア関数
+$$
+U(\theta)=\frac{\partial\ell(\theta;x)}{\partial\theta}
+$$
+に対する方程式 $U(\theta)=0$ から求める。
+
+ただし、$U(\theta)=0$ の解はあくまで候補である。二階微分、尤度の形、端点との比較などで最大点であることを確認する。台が $\theta$ に依存する場合や境界解では、微分して0という手順だけでは解けないことがある。
+
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、$n=4$、観測値 $(2,5,3,0)$ とする。標本和は $10$ なので
-$$\ell(\lambda)=10\log\lambda-4\lambda-C,$$
-$$U(\lambda)=\ell'(\lambda)=\frac{10}{\lambda}-4.$$
-スコア方程式を解くと
-$$\frac{10}{\widehat\lambda}-4=0
+$X_i\overset{iid}{\sim}\operatorname{Poisson}(\lambda)$、観測値 $(2,5,3,0)$ とする。各観測の確率関数を掛けると
+$$
+L(\lambda)
+=\prod_{i=1}^4\frac{e^{-\lambda}\lambda^{x_i}}{x_i!}
+=\frac{e^{-4\lambda}\lambda^{10}}{2!5!3!0!}.
+$$
+対数を取れば
+$$
+\ell(\lambda)
+=-4\lambda+10\log\lambda-C,
+$$
+ただし $C=\sum_i\log(x_i!)$ は $\lambda$ に依存しない定数である。したがって
+$$
+U(\lambda)=\ell'(\lambda)
+=-4+\frac{10}{\lambda}.
+$$
+$U(\widehat\lambda)=0$ より
+$$
+-4+\frac{10}{\widehat\lambda}=0
 \quad\Longrightarrow\quad
-\widehat\lambda=\frac{10}{4}=2.5.$$
+\widehat\lambda=2.5.
+$$
 さらに
-$$\ell''(\lambda)=-\frac{10}{\lambda^2}<0$$
-だから、この解は最大点である。
+$$
+\ell''(\lambda)=-\frac{10}{\lambda^2}<0
+$$
+なので、この臨界点は最大点である。
+
 ## 一手
-積を対数で和にしてから $\theta$ で微分し、0とおいて解く。境界解の有無に注意。
+最尤推定の標準手順は
+$$
+\text{標本の同時分布}
+\to L(\theta)
+\to \ell(\theta)
+\to U(\theta)=0
+\to \text{最大性・境界確認}
+$$
+である。公式として推定量を暗記するのではなく、まず各観測の密度・確率を掛けて尤度を自分で立てる。
+
+## 注意
+「尤度を立てる」「対数を取る」「スコア方程式を解く」は別々の暗記事項ではなく、通常の最尤推定で一続きに行う操作である。$\log$ は最大点を変えないが、$\theta$ に依存しない定数項を捨ててよいのは最大化だけが目的だからである。
+
+一方、例えば $\operatorname{Uniform}(0,\theta)$ のように台が母数に依存する問題では、尤度中の指示条件が本質になる。スコア方程式だけを機械的に使わず、母数空間と境界を必ず確認する。
 
 <!-- CARD -->
 
