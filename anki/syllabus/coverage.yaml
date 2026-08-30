@@ -2107,11 +2107,10 @@ items:
       - engproc-chapman-kolmogorov-maintenance
       - engproc-stationarity-window-judgment
       - engproc-residual-white-noise-bounds
-      - engproc-yule-walker-estimate-ar1
+      - ts-acf-pacf-identification
       - engproc-ma1-moment-identification
       - engproc-arma11-one-step-forecast
       - engproc-arima110-difference-forecast
-      - ts-acf-pacf-identification
       - engproc-periodogram-period-identification
     terms:
       - name: ランダムウォーク
@@ -2152,7 +2151,7 @@ items:
       - name: 自己回帰過程
         status: card
         cards:
-          - engproc-yule-walker-estimate-ar1
+          - ts-acf-pacf-identification
           - engproc-arma11-one-step-forecast
       - name: 移動平均過程
         status: card
