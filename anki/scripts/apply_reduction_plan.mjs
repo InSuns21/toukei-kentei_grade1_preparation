@@ -81,11 +81,6 @@ for (const [id, canonical] of canonicalMap) {
 for (const [id, replacement] of coverageMap) {
   if (archiveIds.has(replacement)) throw new Error(`${id}: coverage_card=${replacement} も同じplanでarchive対象です`);
   if (!cardIndex.has(replacement)) throw new Error(`${id}: coverage_card=${replacement} がcards/に存在しません`);
-  const sourceSubcategory = cardIndex.get(id).chunk.meta.subcategory;
-  const replacementSubcategory = cardIndex.get(replacement).chunk.meta.subcategory;
-  if (sourceSubcategory !== replacementSubcategory) {
-    throw new Error(`${id}: coverage_card=${replacement} は同一subcategory ${sourceSubcategory} から選んでください`);
-  }
 }
 
 const archiveByBucket = new Map();
@@ -169,12 +164,12 @@ function remapIds(ids = [], coverageItemId) {
       continue;
     }
 
-    // Conceptual canonical cards may live in another syllabus subcategory.
-    // coverage.yaml, however, must only reference cards whose primary
-    // subcategory is the coverage item itself. Prefer an explicit
-    // coverage_card; otherwise reuse canonical_card only when it belongs to
-    // this same subcategory. If neither applies, simply remove the archived
-    // ID and let the remaining same-subcategory cards carry coverage.
+    // Global canonical cards may intentionally live in another syllabus
+    // subcategory. An explicit coverage_card is a reviewed override and may
+    // therefore cross subcategory boundaries. Without that explicit override,
+    // canonical_card is reused automatically only when it belongs to the same
+    // coverage item; otherwise the archived ID is simply removed and remaining
+    // same-item cards must carry the term.
     let replacement = coverageMap.get(id) || null;
     if (!replacement) {
       const canonical = canonicalMap.get(id);
@@ -182,7 +177,7 @@ function remapIds(ids = [], coverageItemId) {
         replacement = canonical;
       }
     }
-    if (replacement && cardIndex.get(replacement)?.chunk.meta.subcategory === coverageItemId && !out.includes(replacement)) {
+    if (replacement && !out.includes(replacement)) {
       out.push(replacement);
     }
   }
@@ -194,7 +189,7 @@ for (const coverageItem of coverage.items || []) {
   for (const term of coverageItem.terms || []) {
     term.cards = remapIds(term.cards || [], coverageItem.id);
     if (term.status === "card" && !term.cards.some((id) => remainingIds.has(id))) {
-      throw new Error(`coverage喪失: ${coverageItem.id}/${term.name} に同一subcategoryのcanonical cardが残りません。coverage_cardを指定するか、このカードを残してください`);
+      throw new Error(`coverage喪失: ${coverageItem.id}/${term.name} にactive canonical cardが残りません。coverage_cardを指定するか、このカードを残してください`);
     }
   }
 }
