@@ -177,7 +177,7 @@ sources:
   - type: official_syllabus
     topic: MA過程
 archive_reason: duplicate
-canonical_card: engproc-ma1-autocovariance-numeric
+canonical_card: ts-maq-acf-cutoff
 archive_note: MA(1)の自己共分散 gamma(0), gamma(1), gamma(h>=2)
   を求める同一例。後発canonicalは同じ計算に加えて自己相関まで接続している。
 ---

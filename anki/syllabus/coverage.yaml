@@ -2127,7 +2127,6 @@ items:
   - id: engineering-stochastic-processes
     status: complete
     cards:
-      - engproc-ma1-autocovariance-numeric
       - engproc-biased-walk-hit-upper
       - engproc-random-walk-expected-absorption
       - engproc-ctmc-generator-check
@@ -2212,7 +2211,6 @@ items:
       - name: 移動平均過程
         status: card
         cards:
-          - engproc-ma1-autocovariance-numeric
           - engproc-ma1-moment-identification
           - engproc-arma11-one-step-forecast
       - name: ARIMA過程
