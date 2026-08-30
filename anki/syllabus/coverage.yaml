@@ -1244,9 +1244,6 @@ items:
       - anova-bonferroni-comparisons
       - anova-scheffe-bound
       - anova-multiple-comparison-choice
-      - anova-twoway-model
-      - anova-twoway-ss-balanced
-      - anova-twoway-degrees-freedom
       - anova-twoway-f-tests
       - anova-interaction-definition
       - anova-interaction-contrast-test
@@ -1275,9 +1272,6 @@ items:
       - name: 二元配置分散分析
         status: card
         cards:
-          - anova-twoway-model
-          - anova-twoway-ss-balanced
-          - anova-twoway-degrees-freedom
           - anova-twoway-f-tests
           - anova-no-replication-limitation
           - anova-randomized-block-model
@@ -1285,7 +1279,7 @@ items:
       - name: 交互作用
         status: card
         cards:
-          - anova-twoway-model
+          - anova-twoway-f-tests
           - anova-interaction-definition
           - anova-interaction-contrast-test
           - anova-interaction-interpretation
