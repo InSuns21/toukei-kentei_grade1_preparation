@@ -1,106 +1,107 @@
 schema_version: 1
-batch_id: 2026-08-30-birth-death-mm1-canonical-131
+batch_id: 2026-08-30-stationary-distribution-canonical-133
 items:
-  - id: engproc-birth-death-detailed-balance
-    note: 出生死亡過程の詳細釣合いから定常分布を構成する一般形と、M/M/1の定常確率は一般形の代表的特殊例なので1枚へ統合する。Littleの法則による性能指標計算は別技能として残す。
+  - id: stoch-three-state-stationary
+    note: 定常分布を連立方程式で解く一般手順と、故障修復2状態連鎖から長期可用率を読む工学数値例は同一workflowなので一般正本へ統合する。
     metadata:
-      title: 出生死亡過程の詳細釣合いから定常分布を作りM/M/1へ適用する
-      topic: birth-death-mm1-stationary-canonical
+      title: 定常分布を連立方程式で解き長期割合を読む
+      topic: stationary-distribution-canonical
       type: strategy
       difficulty: 3
       priority: A
-      hashtags: [マルコフ過程, 出生死亡過程, 詳細釣合い, M/M/1, 定常分布]
+      hashtags: [マルコフ連鎖, 定常分布, 連立方程式, 可用率]
     sections:
       問題: |
-        状態空間 $\{0,1,2,\ldots\}$ の出生死亡過程を考える。状態 $n$ から $n+1$ への出生率を $\lambda_n$、状態 $n\ge1$ から $n-1$ への死亡率を $\mu_n$ とする。
-        1. 定常確率 $\pi_n$ が詳細釣合いを満たすとき、$\pi_n$ を $\pi_0$ と各率から表せ。
-        2. 定常分布が存在するための正規化条件を述べよ。
-        3. M/M/1待ち行列で到着率 $\lambda=2$/時、サービス率 $\mu=3$/時のとき、定常時に系内人数が3人である確率と空系確率を求めよ。
+        離散時間マルコフ連鎖について次を解け。
+        1. 遷移行列
+        $$
+        P=\begin{pmatrix}
+        0&1&0\\
+        0&0&1\\
+        1/2&0&1/2
+        \end{pmatrix}
+        $$
+        の定常分布 $\boldsymbol\pi=(\pi_1,\pi_2,\pi_3)$ を求めよ。
+        2. 稼働状態0・故障状態1の遷移行列
+        $$
+        P=\begin{pmatrix}
+        0.9&0.1\\
+        0.4&0.6
+        \end{pmatrix}
+        $$
+        について定常分布を求め、長期可用率を答えよ。
       記号・用語: |
-        $\pi_n$ は定常状態で系が状態 $n$ にある確率である。出生死亡過程では隣接状態間だけ遷移する。M/M/1待ち行列では状態 $n$ を系内人数とみなし、到着が $n\to n+1$、サービス完了が $n\to n-1$ に対応する。
+        定常分布 $\boldsymbol\pi$ は、1期進めても分布が変わらない確率ベクトルである。行ベクトル表記なら
+        $$
+        \boldsymbol\pi P=\boldsymbol\pi,
+        \qquad
+        \sum_i\pi_i=1,
+        \qquad
+        \pi_i\ge0.
+        $$
+        長期可用率とは、十分長い時間で見たときに系が稼働状態にいる割合である。有限既約連鎖では各状態の長期滞在割合を対応する定常確率として読める。
       使用公式・定理: |
-        隣接状態間の詳細釣合いは
+        定常分布は
         $$
-        \pi_n\lambda_n=\pi_{n+1}\mu_{n+1}
-        \qquad(n\ge0).
+        \boldsymbol\pi P=\boldsymbol\pi
         $$
-        よって
+        と正規化条件
         $$
-        \frac{\pi_{n+1}}{\pi_n}
-        =\frac{\lambda_n}{\mu_{n+1}},
+        \sum_i\pi_i=1
         $$
-        再帰的に
-        $$
-        \pi_n
-        =\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
-        \qquad(n\ge1).
-        $$
-        確率の総和が1になるように
-        $$
-        \pi_0^{-1}
-        =1+\sum_{n=1}^{\infty}
-        \prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
-        $$
-        と正規化する。この級数が有限であることが必要である。
+        を連立して求める。
 
-        M/M/1では
+        2状態連鎖
         $$
-        \lambda_n=\lambda\quad(n\ge0),
-        \qquad
-        \mu_n=\mu\quad(n\ge1),
+        P=\begin{pmatrix}
+        1-a&a\\
+        b&1-b
+        \end{pmatrix}
         $$
-        なので
+        では定常状態で状態間の流量が釣り合うため
         $$
-        \rho=\frac{\lambda}{\mu},
-        \qquad
-        \pi_n=\pi_0\rho^n.
+        \pi_0a=\pi_1b
         $$
+        と $\pi_0+\pi_1=1$ から解ける。
       一手／方針: |
-        **隣接状態の流れを等置して比を作り、その比を掛け上げて最後に正規化する。** M/M/1の幾何型定常分布を独立公式として暗記せず、「出生率が一定 $\lambda$、死亡率が一定 $\mu$ の出生死亡過程」と見て一般式から導く。
+        **まず $\boldsymbol\pi P=\boldsymbol\pi$ を成分ごとに書き、独立な式だけ残して最後に確率の総和1で正規化する。** 2状態なら往復流量の釣合いを使うと速い。求めた定常確率を、問題文の「長期割合」「長期可用率」などの意味へ戻して答える。
       答え: |
-        1. 詳細釣合いから
+        1. 定常方程式から
         $$
-        \pi_n
-        =\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}.
+        \pi_1=\frac12\pi_3,
+        \qquad
+        \pi_2=\pi_1.
         $$
-
-        2. 
+        したがって $\pi_3=2\pi_1$ であり、
         $$
-        1+\sum_{n=1}^{\infty}
-        \prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}<\infty
-        $$
-        なら正規化でき、$\pi_0$ をその逆数として定められる。
-
-        3. M/M/1では
-        $$
-        \rho=\frac{2}{3}<1.
-        $$
-        幾何級数
-        $$
-        1+\rho+\rho^2+\cdots=\frac1{1-\rho}
-        $$
-        から
-        $$
-        \pi_0=1-\rho=\frac13,
-        $$
-        $$
-        \pi_n=(1-\rho)\rho^n.
+        \pi_1+\pi_2+\pi_3
+        =\pi_1+\pi_1+2\pi_1=1.
         $$
         よって
         $$
-        \pi_3
-        =\left(1-\frac23\right)\left(\frac23\right)^3
-        =\frac8{81}
-        \approx0.0988.
+        \boldsymbol\pi=\left(\frac14,\frac14,\frac12\right).
         $$
+
+        2. 稼働から故障への定常流量と故障から修復への定常流量を等置すると
+        $$
+        0.1\pi_0=0.4\pi_1.
+        $$
+        よって $\pi_0=4\pi_1$。さらに $\pi_0+\pi_1=1$ なので
+        $$
+        (\pi_0,\pi_1)=(0.8,0.2).
+        $$
+        したがって長期可用率は
+        $$
+        \boxed{0.8}
+        $$
+        である。
       計算例: |
-        同じM/M/1で系内人数が2人以上である確率は
+        一般の2状態故障修復連鎖で、1期当たり故障確率を $a$、修復確率を $b$ とすると
         $$
-        P(N\ge2)
-        =\sum_{n=2}^{\infty}(1-\rho)\rho^n
-        =\rho^2
-        =\frac49.
+        \pi_0=\frac{b}{a+b},
+        \qquad
+        \pi_1=\frac{a}{a+b}.
         $$
-        幾何型定常分布を得た後は、尾確率も幾何級数として処理できる。
+        したがって $a$ が小さくなる、または $b$ が大きくなるほど長期可用率 $\pi_0$ は高くなる。
       注意: |
-        M/M/1の定常分布には $\rho=\lambda/\mu<1$ が必要である。$\rho\ge1$ では上の級数を確率1に正規化できない。また「系内人数」は待ち行列で待っている人数だけでなくサービス中の1人も含む。平均系内人数や平均滞在時間を求めるLittleの法則は、この定常確率の導出とは別の計算技能として扱う。
+        $\boldsymbol\pi P=\boldsymbol\pi$ の各成分方程式はすべて独立とは限らないため、最後に $\sum_i\pi_i=1$ を必ず使う。定常分布が存在しても、任意の初期分布から $\boldsymbol\pi$ へ収束するとは限らない。有限既約かつ非周期的な連鎖なら分布は定常分布へ収束する。また詳細釣合い $\pi_ip_{ij}=\pi_jp_{ji}$ は定常性を示す十分条件として便利だが、一般の定常分布が必ず詳細釣合いを満たすわけではない。
