@@ -1377,36 +1377,172 @@ $$\boldsymbol\Sigma_{XX}^{-1}\boldsymbol\Sigma_{XY}
 
 ---
 id: mv-mds-double-centering
-title: 古典的MDSで距離から内積行列を作る
+title: 古典的MDSを二重中心化から座標復元・stress評価まで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: multidimensional-scaling
+topic: multidimensional-scaling-canonical
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [多次元尺度構成法, 二重中心化, 距離行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多次元尺度構成法 }]
+hashtags:
+  - 多次元尺度構成法
+  - MDS
+  - 二重中心化
+  - 距離行列
+  - Gram行列
+  - stress
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多次元尺度構成法
 ---
 
 ## 問題
-平方距離行列 $\boldsymbol D^{(2)}=(d_{ij}^2)$ から、古典的多次元尺度構成法（MDS）の中心化Gram行列を作る公式を書け。
+$n$ 個の対象間距離 $d_{ij}$ だけが与えられているとする。
+
+1. 古典的多次元尺度構成法（MDS）で平方距離行列から中心化Gram行列を作り、$m$ 次元座標を復元する手順を書け。
+2. 3点の距離が
+$$
+d_{12}=1,\qquad d_{23}=1,\qquad d_{13}=2
+$$
+のとき、中心を0とする1次元配置を求め、二重中心化で確認せよ。
+3. 元距離 $(1,2,3)$ に対し配置上の距離が $(1,2,2)$ だったとき、正規化stress
+$$
+\sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}{\sum_{i<j}d_{ij}^2}}
+$$
+を計算せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+中心化行列を
+$$
+\boldsymbol J
+=\boldsymbol I-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T}
+$$
+とし、平方距離行列を
+$$
+\boldsymbol D^{(2)}=(d_{ij}^2)
+$$
+とする。中心化された座標行列を $\boldsymbol X$、Gram行列を
+$$
+\boldsymbol B=\boldsymbol X\boldsymbol X^{\mathsf T}
+$$
+とすると
+$$
+d_{ij}^2=b_{ii}+b_{jj}-2b_{ij}.
+$$
+この関係を行・列方向に中心化すると
+$$
+\boxed{\boldsymbol B=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J}
+$$
+を得る。
 
-$d_{ij}^2=b_{ii}+b_{jj}-2b_{ij}$ を行・列中心化して逆算する。
+$\boldsymbol B$ を
+$$
+\boldsymbol B
+=\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+$$
+と固有分解し、正の上位 $m$ 固有値を
+$$
+\boldsymbol\Lambda_m
+=\operatorname{diag}(\lambda_1,\ldots,\lambda_m)
+$$
+とすれば、座標の一つは
+$$
+\boxed{\boldsymbol X_m=\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}}
+$$
+である。
+
+低次元近似の距離再現誤差を見る代表的指標として
+$$
+\operatorname{Stress}
+=\sqrt{\frac{\sum_{i<j}(d_{ij}-\widehat d_{ij})^2}
+{\sum_{i<j}d_{ij}^2}}
+$$
+があり、0に近いほど元距離をよく再現する。
+
+## 一手
+**MDSは「距離→平方→二重中心化して内積→固有分解して座標→復元距離をstressで確認」の一続きで処理する。** 距離を直接PCAへ入れない。
 
 ## 答え
-$$\boldsymbol J=\boldsymbol I-\frac1n\boldsymbol1\boldsymbol1^{\mathsf T},\qquad
-\boldsymbol B=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J.$$
-Bを固有分解し、正の上位固有値と固有ベクトルから座標を得る。
+3点例では
+$$
+\boldsymbol D^{(2)}
+=\begin{pmatrix}
+0&1&4\\
+1&0&1\\
+4&1&0
+\end{pmatrix}.
+$$
+二重中心化すると
+$$
+\boldsymbol B
+=-\frac12\boldsymbol J\boldsymbol D^{(2)}\boldsymbol J
+=\begin{pmatrix}
+1&0&-1\\
+0&0&0\\
+-1&0&1
+\end{pmatrix}.
+$$
+これは
+$$
+\boldsymbol x
+=\begin{pmatrix}-1\\0\\1\end{pmatrix}
+$$
+に対して
+$$
+\boldsymbol B=\boldsymbol x\boldsymbol x^{\mathsf T}
+$$
+と書けるので、中心を0とする1次元配置の一つは
+$$
+x_1=-1,\qquad x_2=0,\qquad x_3=1.
+$$
+実際
+$$
+|x_1-x_2|=1,\quad |x_2-x_3|=1,\quad |x_1-x_3|=2
+$$
+で元距離を完全に再現する。
+
+stress例では分子が
+$$
+(1-1)^2+(2-2)^2+(3-2)^2=1,
+$$
+分母が
+$$
+1^2+2^2+3^2=14
+$$
+なので
+$$
+\operatorname{Stress}
+=\sqrt{\frac1{14}}
+=\frac1{\sqrt{14}}
+\approx0.267.
+$$
 
 ## 計算例
-m次元座標は $\boldsymbol U_m\boldsymbol\Lambda_m^{1/2}$。
+3点例の $\boldsymbol B$ はランク1で、非零固有値は
+$$
+\lambda_1=\operatorname{tr}(\boldsymbol B)=2.
+$$
+対応する単位固有ベクトルを
+$$
+\boldsymbol u_1
+=\frac1{\sqrt2}(-1,0,1)^{\mathsf T}
+$$
+と取れば
+$$
+\boldsymbol U_1\boldsymbol\Lambda_1^{1/2}
+=\frac1{\sqrt2}
+\begin{pmatrix}-1\\0\\1\end{pmatrix}\sqrt2
+=\begin{pmatrix}-1\\0\\1\end{pmatrix}.
+$$
+したがって固有分解からも同じ1次元配置が得られる。
 
 ## 注意
-負の固有値が大きいとEuclid距離としての再現が悪い。
+距離から得る配置は平行移動・回転・鏡映までは一意でない。古典的MDSで $\boldsymbol B$ に大きな負の固有値が出る場合、与えられた距離は低次元Euclid空間では正確に再現しにくい。stressには複数の正規化規約があるので、試験では問題文の定義に従う。
 
 <!-- CARD -->
 
