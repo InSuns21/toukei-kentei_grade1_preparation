@@ -276,7 +276,7 @@ $$
 
 $$
 \hat E_j
-=\frac14\sum_{+}y_i-rac14\sum_{-}y_i
+=\frac14\sum_{+}y_i-\frac14\sum_{-}y_i
 =\frac14\sum_i s_{ij}y_i
 =\frac{C_j}{4}.
 $$
