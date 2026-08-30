@@ -1243,7 +1243,6 @@ items:
       - anova-multiple-comparison-choice
       - anova-twoway-f-tests
       - anova-interaction-definition
-      - anova-no-replication-limitation
       - anova-randomized-block-model
       - anova-ancova-model
       - anova-fixed-random-effects
@@ -1264,7 +1263,6 @@ items:
         status: card
         cards:
           - anova-twoway-f-tests
-          - anova-no-replication-limitation
           - anova-randomized-block-model
           - anova-fixed-random-effects
       - name: 交互作用
