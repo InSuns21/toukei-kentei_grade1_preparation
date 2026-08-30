@@ -302,27 +302,147 @@ $$
 
 ---
 id: est-method-of-moments
-title: モーメント法の手順
+title: モーメント法を一般式から1母数・2母数の一様分布まで解く
 category: math-estimation
 subcategory: math-estimation-methods
-topic: method-of-moments
+topic: method-of-moments-canonical
 type: strategy
 difficulty: 2
 priority: A
-hashtags: [モーメント法, 母モーメント, 標本モーメント]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: モーメント法 }]
+hashtags:
+  - モーメント法
+  - 母モーメント
+  - 標本モーメント
+  - 一様分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: モーメント法
 ---
 ## 問題
-モーメント法の一般手順を述べよ。母数が $k$ 個のときはどうするか。
+母数が $k$ 個あるときのモーメント法の一般手順を述べよ。
+
+さらに次をモーメント法で推定せよ。
+
+1. 一様分布 $U(0,\theta)$ に従う $X_1,\ldots,X_n$ から $\theta$ を推定する。
+2. 一様分布 $U(a,b)$ に従う $X_1,\ldots,X_n$ から $a,b$ を推定する。
+
 ## 答え
-母モーメント $E[X^j]$（$j=1,\ldots,k$）を母数の関数として表し、対応する標本モーメント $\frac1n\sum_i X_i^j$ に等置して連立方程式を解く。
+一般には
+$$
+E[X^j]=\frac1n\sum_{i=1}^nX_i^j,
+\qquad j=1,\ldots,k
+$$
+を解く。
+
+一様分布 $U(0,\theta)$ では
+$$
+\bar X=\frac\theta2
+$$
+より
+$$
+\widehat\theta_{\mathrm{MM}}=2\bar X.
+$$
+
+一様分布 $U(a,b)$ では
+$$
+\bar X=\frac{a+b}{2},
+$$
+かつ
+$$
+m'_2-\bar X^2=\frac{(b-a)^2}{12},
+\qquad
+m'_2=\frac1n\sum_{i=1}^nX_i^2.
+$$
+したがって
+$$
+b-a=\sqrt{12\left(m'_2-\bar X^2\right)}
+$$
+であり、
+$$
+\widehat a
+=\bar X-\sqrt{3\left(m'_2-\bar X^2\right)},
+$$
+$$
+\widehat b
+=\bar X+\sqrt{3\left(m'_2-\bar X^2\right)}.
+$$
+
 ## 使用公式・定理
-$$E[X^j]=\frac1n\sum_{i=1}^n X_i^j,\qquad j=1,\ldots,k.$$
+母数を $\theta_1,\ldots,\theta_k$ とする。母モーメント
+$$
+\mu'_j(\theta_1,\ldots,\theta_k)=E[X^j]
+$$
+と標本モーメント
+$$
+m'_j=\frac1n\sum_{i=1}^nX_i^j
+$$
+を $j=1,\ldots,k$ について等置し、
+$$
+\mu'_j(\theta_1,\ldots,\theta_k)=m'_j
+$$
+の連立方程式を解く。
+
+一様分布 $U(0,\theta)$ では
+$$
+E[X]=\frac\theta2.
+$$
+
+一様分布 $U(a,b)$ では
+$$
+E[X]=\frac{a+b}{2},
+\qquad
+\operatorname{Var}(X)=\frac{(b-a)^2}{12}.
+$$
+また
+$$
+\operatorname{Var}(X)=E[X^2]-E[X]^2
+$$
+を使えば、第1・第2標本モーメントから解ける。
+
 ## 計算例
-$X_i\overset{iid}{\sim}N(\mu,\sigma^2)$ なら $\overline X=\mu$、$\frac1n\sum X_i^2=\mu^2+\sigma^2$ から $\widehat\mu=\overline X$、$\widehat\sigma^2=\frac1n\sum(X_i-\overline X)^2$。
+観測値が $1,2,3$ のとき
+$$
+\bar X=2.
+$$
+
+一様分布 $U(0,\theta)$ なら
+$$
+\widehat\theta_{\mathrm{MM}}=2\bar X=4.
+$$
+一方、このモデルの最尤推定量は標本最大値なので $3$ であり、モーメント法と最尤推定法は一般に一致しない。
+
+次に一様分布 $U(a,b)$ とすると
+$$
+m'_2=\frac{1^2+2^2+3^2}{3}=\frac{14}{3},
+$$
+よって
+$$
+m'_2-\bar X^2
+=\frac{14}{3}-4
+=\frac23.
+$$
+したがって
+$$
+\sqrt{3\left(m'_2-\bar X^2\right)}
+=\sqrt2,
+$$
+なので
+$$
+\widehat a=2-\sqrt2\approx0.586,
+\qquad
+\widehat b=2+\sqrt2\approx3.414.
+$$
+
 ## 一手
-母モーメントを標本モーメントで置き換えて解く。最尤推定とは一般に異なる。
+**未知母数の個数だけ母モーメント方程式を作り、標本モーメントへ置換して連立で解く。** 分布ごとの公式を暗記するのではなく、この手順から毎回導く。
+
+## 注意
+モーメント法は「母モーメントを標本モーメントで置き換える」一般原理であり、分布別の推定公式を別々に暗記する必要はない。有限標本では推定値が母数空間の境界条件を自動的に満たすとは限らず、最尤推定法とも一般に異なる。
 
 <!-- CARD -->
 
