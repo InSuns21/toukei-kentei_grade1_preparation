@@ -852,7 +852,7 @@ $$
 
 ---
 id: mv-factor-model-covariance
-title: 因子分析の共分散分解・共通性・因子回転をまとめる
+title: 因子分析を共分散分解・回転・因子得点まで通す
 category: applied-common
 subcategory: applied-multivariate
 topic: factor-analysis-canonical
@@ -866,6 +866,7 @@ hashtags:
   - 独自性
   - 因子回転
   - Varimax回転
+  - 因子得点
 frequency:
   past_exam: 0
   textbook: 0
@@ -884,8 +885,8 @@ $$
 を考える。$\operatorname{Var}(\boldsymbol F)=\boldsymbol I$、$\operatorname{Var}(\boldsymbol\varepsilon)=\boldsymbol\Psi$、$\boldsymbol F$ と $\boldsymbol\varepsilon$ は独立とする。
 
 1. $\boldsymbol X$ の分散共分散行列を求め、標準化変数の共通性と独自性を書け。
-2. 直交行列 $\boldsymbol T$ により負荷量を $\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T$ と回転しても、モデルが再現する共通共分散部分が変わらないことを示せ。
-3. 因子回転を行う目的と、Varimax回転の狙いを説明せよ。
+2. 直交行列 $\boldsymbol T$ による回転 $\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T$ が共通共分散部分を変えないことを示し、Varimax回転の目的を述べよ。
+3. $\operatorname{Var}(\boldsymbol X)=\boldsymbol\Sigma$ とするとき、回帰法による因子得点予測式を導け。
 
 ## 記号・用語
 - PCA：主成分分析（principal component analysis）
@@ -893,7 +894,8 @@ $$
 ## 使用公式・定理
 独立性から
 $$
-\operatorname{Var}(\boldsymbol X)
+\boldsymbol\Sigma
+=\operatorname{Var}(\boldsymbol X)
 =\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}+\boldsymbol\Psi.
 $$
 通常 $\boldsymbol\Psi$ は対角行列で、第 $i$ 変数の共通性は
@@ -902,11 +904,7 @@ h_i^2
 =(\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T})_{ii}
 =\sum_{j=1}^m\lambda_{ij}^2,
 $$
-独自性は
-$$
-\psi_i=\Psi_{ii}.
-$$
-標準化変数なら
+独自性は $\psi_i=\Psi_{ii}$。標準化変数なら
 $$
 1=h_i^2+\psi_i.
 $$
@@ -915,21 +913,40 @@ $$
 $$
 \boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I,
 \qquad
-\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T.
+\boldsymbol\Lambda^*=\boldsymbol\Lambda\boldsymbol T,
 $$
-したがって
+なので
+$$
+\boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
+=\boldsymbol\Lambda\boldsymbol T\boldsymbol T^{\mathsf T}\boldsymbol\Lambda^{\mathsf T}
+=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
+$$
+したがって直交回転は再現する共通共分散を変えず、負荷量の見え方だけを変える。
+
+因子得点は観測ごとの潜在因子 $\boldsymbol F$ を予測する量である。最良線形予測の係数は
+$$
+\operatorname{Cov}(\boldsymbol F,\boldsymbol X)
+\operatorname{Var}(\boldsymbol X)^{-1}.
+$$
+モデルより
 $$
 \begin{aligned}
-\boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
-&=\boldsymbol\Lambda\boldsymbol T
-\boldsymbol T^{\mathsf T}\boldsymbol\Lambda^{\mathsf T}\\
-&=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
+\operatorname{Cov}(\boldsymbol F,\boldsymbol X)
+&=\operatorname{Cov}\left(\boldsymbol F,
+\boldsymbol\Lambda\boldsymbol F+\boldsymbol\varepsilon\right)\\
+&=\operatorname{Var}(\boldsymbol F)\boldsymbol\Lambda^{\mathsf T}\\
+&=\boldsymbol\Lambda^{\mathsf T},
 \end{aligned}
 $$
-よって共通共分散の再現は変えずに、負荷量の見え方だけを変えられる。
+だから回帰法による予測は
+$$
+\widehat{\boldsymbol F}
+=\boldsymbol\Lambda^{\mathsf T}\boldsymbol\Sigma^{-1}
+(\boldsymbol X-\boldsymbol\mu).
+$$
 
 ## 一手
-**因子分析ではまず $\Sigma=\Lambda\Lambda^T+\Psi$ を基準に考える。** 共通性はその対角、独自性は $\Psi$ の対角。直交回転は $\Lambda\Lambda^T$ を不変に保ったまま、解釈しやすい単純構造へ負荷量を並べ替える操作である。
+**因子分析は $\Sigma=\Lambda\Lambda^T+\Psi$ を中心に整理する。** 変数側では共通性・独自性、因子軸側では回転、観測個体側では $\Lambda^T\Sigma^{-1}(X-\mu)$ による因子得点予測へつながる。
 
 ## 答え
 1因子で
@@ -943,45 +960,58 @@ $$
 \boldsymbol\lambda\boldsymbol\lambda^{\mathsf T}
 =\begin{pmatrix}0.64&0.48\\0.48&0.36\end{pmatrix},
 $$
-したがって
 $$
 \boldsymbol\Sigma
 =\begin{pmatrix}1&0.48\\0.48&1\end{pmatrix}.
 $$
-各変数で共通性と独自性の和が1になっている。
+共通性は $(0.64,0.36)$、独自性は $(0.36,0.64)$ である。
 
 2因子への負荷量が $(0.6,0.5)$ の標準化変数なら
 $$
 h_i^2=0.6^2+0.5^2=0.61,
 \qquad
-\psi_i=1-0.61=0.39.
+\psi_i=0.39.
 $$
 
 ## 計算例
-2因子の負荷量行列を
-$$
-\boldsymbol\Lambda=
-\begin{pmatrix}
-0.8&0.2\\
-0.6&0.5
-\end{pmatrix}
-$$
-とし、90度回転
+直交回転の例として
 $$
 \boldsymbol T=
 \begin{pmatrix}0&-1\\1&0\end{pmatrix}
 $$
-を考える。$\boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I$ なので
+なら $\boldsymbol T\boldsymbol T^{\mathsf T}=\boldsymbol I$ なので、回転前後で
 $$
-\boldsymbol\Lambda^*\boldsymbol\Lambda^{*\mathsf T}
-=\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}.
+\boldsymbol\Lambda\boldsymbol\Lambda^{\mathsf T}
 $$
-つまり因子軸の向きや因子の符号・順序を変えても、直交回転なら共通共分散の再現は変わらない。
+は同じである。Varimax回転は負荷量平方のばらつきを大きくし、各変数が少数の因子に強く負荷する単純構造を狙う。
 
-Varimax回転は、各因子について負荷量平方のばらつきを大きくし、多くの変数が「少数の因子には大きく、その他には小さく」負荷する単純構造を得て解釈しやすくする代表的な直交回転である。
+因子得点の具体例として1因子、
+$$
+\boldsymbol\Lambda=\begin{pmatrix}0.8\\0.6\end{pmatrix},
+\qquad
+\boldsymbol\Sigma=
+\begin{pmatrix}1&0.48\\0.48&1\end{pmatrix},
+\qquad
+\boldsymbol X-\boldsymbol\mu=\begin{pmatrix}1\\0\end{pmatrix}
+$$
+とする。逆行列は
+$$
+\boldsymbol\Sigma^{-1}
+=\frac1{1-0.48^2}
+\begin{pmatrix}1&-0.48\\-0.48&1\end{pmatrix}.
+$$
+したがって
+$$
+\widehat F
+=\begin{pmatrix}0.8&0.6\end{pmatrix}
+\boldsymbol\Sigma^{-1}
+\begin{pmatrix}1\\0\end{pmatrix}
+=\frac{0.8-0.288}{0.7696}
+\approx0.665.
+$$
 
 ## 注意
-PCAは観測分散を直交方向へ分解する方法で、因子分析は潜在因子と独自誤差を仮定する確率モデルである。直交回転では因子間無相関を保つが、斜交回転では因子同士の相関を許すため、共通性を単純な負荷量平方和として読む際の扱いが変わる。回転後の因子順序や符号は一意でない。
+PCAは観測分散を直交方向へ分解する方法で、因子分析は潜在因子と独自誤差を仮定する確率モデルである。直交回転では因子間無相関を保つが、斜交回転では因子間相関を許す。因子得点は観測された真の因子値ではなく推定値で、回帰法以外の推定法もあるため一意ではない。回転後の因子の符号や順序も一意ではない。
 
 <!-- CARD -->
 
