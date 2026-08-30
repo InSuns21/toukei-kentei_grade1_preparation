@@ -2388,7 +2388,6 @@ items:
       - engqc-control-chart-selection
       - engqc-s-chart-limits
       - engqc-imr-moving-range
-      - engqc-control-vs-specification
       - engqc-phase1-phase2
       - engqc-three-sigma-false-alarm
       - engqc-arl1-mean-shift
@@ -2408,8 +2407,6 @@ items:
       - engrel-failure-rate-exact-ci
       - engrel-competing-risks-exponential
       - engmaint-preventive-replacement-rate
-      - engmaint-series-availability
-      - engmaint-reliability-vs-availability
     terms:
       - name: 管理図
         status: card
@@ -2441,13 +2438,10 @@ items:
           - engmaint-steady-availability
           - engmaint-maintainability-exponential
           - engmaint-preventive-replacement-rate
-          - engmaint-series-availability
-          - engmaint-reliability-vs-availability
       - name: プロセス管理
         status: card
         cards:
           - engqc-control-chart-selection
-          - engqc-control-vs-specification
           - engqc-phase1-phase2
           - engqc-process-adjustment-overcontrol
           - engqc-cpk-offcenter
