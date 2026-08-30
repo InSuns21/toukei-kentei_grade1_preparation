@@ -1236,8 +1236,6 @@ items:
       - anova-oneway-f-statistic
       - anova-expected-mean-squares
       - anova-contrast-definition
-      - anova-contrast-se
-      - anova-contrast-numeric
       - anova-orthogonal-contrasts
       - anova-tukey-hsd-formula
       - anova-tukey-numeric
@@ -1264,8 +1262,6 @@ items:
           - anova-oneway-f-statistic
           - anova-expected-mean-squares
           - anova-contrast-definition
-          - anova-contrast-se
-          - anova-contrast-numeric
           - anova-orthogonal-contrasts
           - anova-regression-equivalence
           - anova-residual-diagnostics
