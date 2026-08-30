@@ -2155,7 +2155,6 @@ items:
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
       - engproc-arma11-one-step-forecast
-      - engproc-arima010-drift-forecast
       - engproc-arima110-difference-forecast
       - engproc-pacf-significance-output
       - engproc-ar1-spectral-ratio
@@ -2219,7 +2218,6 @@ items:
       - name: ARIMA過程
         status: card
         cards:
-          - engproc-arima010-drift-forecast
           - engproc-arima110-difference-forecast
           - engproc-arima-forecast-output
   - id: engineering-linear-inference
