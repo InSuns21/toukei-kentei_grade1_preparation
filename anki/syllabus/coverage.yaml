@@ -1124,17 +1124,11 @@ items:
       - test-one-proportion-score
       - test-one-proportion-continuity
       - test-two-proportion-pooled
-      - test-two-proportion-numeric
       - test-poisson-one-rate-exact
       - test-poisson-rate-score
       - test-two-poisson-unequal-exposure
       - test-goodness-fit-statistic
-      - test-goodness-fit-numeric
-      - test-goodness-fit-estimated-parameters
-      - test-goodness-fit-expected-counts
       - test-independence-chisquare
-      - test-independence-2x2-numeric
-      - test-yates-correction
       - test-fisher-exact-2x2
       - test-sign-test-numeric
       - test-wilcoxon-signed-rank
@@ -1157,7 +1151,6 @@ items:
           - test-one-proportion-score
           - test-one-proportion-continuity
           - test-two-proportion-pooled
-          - test-two-proportion-numeric
           - test-poisson-one-rate-exact
           - test-poisson-rate-score
           - test-two-poisson-unequal-exposure
@@ -1168,12 +1161,7 @@ items:
         cards:
           - test-chi-square-fit
           - test-goodness-fit-statistic
-          - test-goodness-fit-numeric
-          - test-goodness-fit-estimated-parameters
-          - test-goodness-fit-expected-counts
           - test-independence-chisquare
-          - test-independence-2x2-numeric
-          - test-yates-correction
           - test-fisher-exact-2x2
       - name: ノンパラメトリック検定
         status: card
