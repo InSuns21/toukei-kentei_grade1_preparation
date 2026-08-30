@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-31-asymptotic-core-canonical-173
+batch_id: 2026-08-31-asymptotic-core-canonical-173b
 items:
   - id: asym-slutsky
-    note: Slutskyの定理の正本へ、定数へ確率収束する分母の置換と未知分散によるstudentizationを同じ解法単位として統合する。一般側の例題カードと理工学側のstudentizationカードを吸収する。
+    note: Slutskyの定理へ比の例と未知分散のstudentizationを統合する。
     metadata:
       title: Slutskyの定理で未知量を一致推定量へ置き換え標準化する
       topic: slutsky-canonical
@@ -13,72 +13,31 @@ items:
     sections:
       問題: |
         Slutsky（スルツキー）の定理について次を答えよ。
-
-        1. $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ のとき、和・積・商の極限を述べよ。商について必要な条件も述べよ。
-        2. $X_n\xrightarrow{d}N(0,4)$、$Y_n\xrightarrow{p}2$ のとき $X_n/Y_n$ の極限分布を求めよ。
-        3. 独立同分布標本について
-        $$
-        \frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1),
-        \qquad S_n^2\xrightarrow{p}\sigma^2,
-        $$
-        $\sigma>0$ とする。未知の $\sigma$ を $S_n$ で置き換えた
-        $$
-        \frac{\overline X_n-\mu}{S_n/\sqrt n}
-        $$
-        の極限分布を示せ。
+        1. $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ のとき、和・積・商の極限を述べよ。
+        2. $X_n$ が正規分布 $N(0,4)$ へ分布収束し、$Y_n\xrightarrow{p}2$ のとき $X_n/Y_n$ の極限分布を求めよ。
+        3. 独立同分布標本で、$\sqrt n(\overline X_n-\mu)/\sigma$ が標準正規分布 $N(0,1)$ へ分布収束し、$S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ とする。$(\overline X_n-\mu)/(S_n/\sqrt n)$ の極限分布を示せ。
       記号・用語: |
-        $\xrightarrow{d}$ は分布収束、$\xrightarrow{p}$ は確率収束を表す。Slutskyの定理は、分布収束する主要項に対して、定数へ確率収束する補助項を漸近的にその定数へ置き換えてよいことを保証する。
+        $\xrightarrow{d}$ は分布収束、$\xrightarrow{p}$ は確率収束。Slutskyの定理は、主要な確率変数に掛かる・足される量が定数へ確率収束するとき、その量を漸近的に定数へ置き換えられることをいう。
       使用公式・定理: |
         $X_n\xrightarrow{d}X$、$Y_n\xrightarrow{p}c$ なら
-        $$
-        X_n+Y_n\xrightarrow{d}X+c,
-        $$
-        $$
-        X_nY_n\xrightarrow{d}cX.
-        $$
-        さらに $c\ne0$ なら
-        $$
-        \frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.
-        $$
-
-        $S_n^2\xrightarrow{p}\sigma^2$ かつ $\sigma>0$ なら、平方根の連続性から
-        $$
-        \frac{S_n}{\sigma}\xrightarrow{p}1.
-        $$
+        $$X_n+Y_n\xrightarrow{d}X+c,\qquad X_nY_n\xrightarrow{d}cX.$$
+        $c\ne0$ なら
+        $$\frac{X_n}{Y_n}\xrightarrow{d}\frac Xc.$$
+        また $S_n^2\xrightarrow{p}\sigma^2$、$\sigma>0$ なら連続写像定理により $S_n/\sigma\xrightarrow{p}1$。
       一手／方針: |
-        **「極限分布を持つ主役」と「定数へ収束する置換量」に分ける。** 未知分散を推定分散へ置き換えるstudentizationでは、分母を真の標準偏差で割って1へ確率収束する形にする。
+        分布収束する「主役」と、定数へ確率収束する「置換量」に分ける。未知標準偏差の置換では $S_n/\sigma\to_p1$ を作る。
       答え: |
-        1. 上記の和・積が成り立ち、商は $c\ne0$ のとき
-        $$
-        X_n/Y_n\xrightarrow{d}X/c
-        $$
-        となる。
-
-        2. $X\sim N(0,4)$ を2で割るので
-        $$
-        \frac{X_n}{Y_n}\xrightarrow{d}\frac X2\sim\boxed{N(0,1)}.
-        $$
-
-        3.
-        $$
-        Z_n=\frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1),
-        $$
-        $$
-        \frac{S_n}{\sigma}\xrightarrow{p}1.
-        $$
-        したがって
-        $$
-        \frac{\overline X_n-\mu}{S_n/\sqrt n}
-        =\frac{Z_n}{S_n/\sigma}
-        \xrightarrow{d}\boxed{N(0,1)}.
-        $$
+        1. 和・積は上式、商は $c\ne0$ のとき $X/c$ へ分布収束する。
+        2. $X\sim N(0,4)$ を2で割るので $X/2\sim N(0,1)$、したがって標準正規分布へ収束する。
+        3. $Z_n=\sqrt n(\overline X_n-\mu)/\sigma\to_dN(0,1)$、$S_n/\sigma\to_p1$ だから
+        $$\frac{\overline X_n-\mu}{S_n/\sqrt n}=\frac{Z_n}{S_n/\sigma}\xrightarrow{d}N(0,1).$$
       計算例: |
-        真の標準偏差が $\sigma=2$ で $S_n\xrightarrow{p}2$ なら、$S_n/2\xrightarrow{p}1$ である。有限標本では $S_n$ は2と一致しなくても、漸近分布では真の2を使った標準化と同じ標準正規極限を持つ。
+        $X_n\to_dN(0,4)$、$Y_n\to_p2$ なら、分散は $4/2^2=1$ となり $X_n/Y_n\to_dN(0,1)$。
       注意: |
-        分母の極限が0なら商にこの形のSlutskyの定理を使えない。有限標本で分母を推定量に置換しても分布が厳密に同じになるとは限らず、ここで保証するのは漸近分布である。
+        商では分母の極限が0でないことが必要。有限標本で推定標準偏差へ置換した統計量が厳密に同じ分布になることを主張する定理ではない。
 
   - id: asym-continuous-mapping
-    note: 連続写像定理の正本へ、確率収束版とプラグイン推定量の一致性を数値例付きで統合する。理工学側のプラグイン専用カードを吸収する。
+    note: 連続写像定理へ確率収束版とプラグイン推定量の一致性を統合する。
     metadata:
       title: 連続写像定理で変換後の収束とプラグイン推定量の一致性を示す
       topic: continuous-mapping-canonical
@@ -88,64 +47,29 @@ items:
       hashtags: [連続写像定理, 分布収束, 確率収束, 一致性, プラグイン法]
     sections:
       問題: |
-        連続写像定理について次を答えよ。
-
-        1. $X_n\xrightarrow{d}X$ と $X_n\xrightarrow{p}\theta$ のそれぞれについて、連続関数 $g$ を作用させたときの結論を述べよ。
-        2. $Z_n\xrightarrow{d}N(0,1)$ のとき $Z_n^2$ の極限分布を求めよ。
-        3. $\widehat p\xrightarrow{p}p$、$0<p<1$ とする。$\widehat p(1-\widehat p)$ が $p(1-p)$ の一致推定量であることを示せ。
-        4. $\widehat\theta\xrightarrow{p}\theta$ でも、$g$ が $\theta$ で不連続な場合に結論を機械的に使えない理由を述べよ。
+        1. $X_n\to_dX$ と $X_n\to_p\theta$ のそれぞれについて、連続関数 $g$ を作用させた結論を述べよ。
+        2. $Z_n$ が標準正規分布 $N(0,1)$ へ分布収束するとき $Z_n^2$ の極限分布を求めよ。
+        3. $\widehat p\to_pp$、$0<p<1$ のとき、$\widehat p(1-\widehat p)$ が $p(1-p)$ の一致推定量であることを示せ。
       記号・用語: |
-        **プラグイン法**は未知母数の関数 $g(\theta)$ を、推定量を代入した $g(\widehat\theta)$ で推定する考え方である。連続写像定理は、この代入が一致性を保つ基本的な理由を与える。
+        プラグイン法は、未知母数の関数 $g(\theta)$ を $g(\widehat\theta)$ で推定する考え方である。
       使用公式・定理: |
         $g$ が極限値で連続なら
-        $$
-        X_n\xrightarrow{d}X
-        \quad\Longrightarrow\quad
-        g(X_n)\xrightarrow{d}g(X),
-        $$
-        また
-        $$
-        X_n\xrightarrow{p}\theta
-        \quad\Longrightarrow\quad
-        g(X_n)\xrightarrow{p}g(\theta).
-        $$
+        $$X_n\xrightarrow{d}X\Rightarrow g(X_n)\xrightarrow{d}g(X),$$
+        $$X_n\xrightarrow{p}\theta\Rightarrow g(X_n)\xrightarrow{p}g(\theta).$$
       一手／方針: |
-        **元の推定量の収束を確認してから、変換が極限値で連続かを見る。** 一致推定量へ連続関数を作用させた量は、その母数関数の一致推定量になる。
+        元の推定量の収束を確認し、次に変換 $g$ が極限値で連続か確認する。
       答え: |
-        1. 分布収束なら $g(X_n)\xrightarrow{d}g(X)$、確率収束なら $g(X_n)\xrightarrow{p}g(\theta)$ である。
-
-        2. $g(z)=z^2$ は連続なので
-        $$
-        Z_n^2\xrightarrow{d}Z^2,
-        \qquad Z\sim N(0,1).
-        $$
-        よって
-        $$
-        \boxed{Z_n^2\xrightarrow{d}\chi_1^2}.
-        $$
-
-        3. $g(x)=x(1-x)$ は連続なので
-        $$
-        \widehat p(1-\widehat p)\xrightarrow{p}\boxed{p(1-p)}.
-        $$
-        したがってベルヌーイ分散 $p(1-p)$ のプラグイン推定量として一致する。
-
-        4. 不連続点では $X_n$ が $\theta$ に近くても $g(X_n)$ が $g(\theta)$ に近いとは限らないため、連続写像定理の仮定を満たさない。
+        1. 分布収束・確率収束とも連続関数を通して保存される。
+        2. $g(z)=z^2$ は連続なので $Z_n^2\to_d\chi_1^2$。
+        3. $g(x)=x(1-x)$ は連続なので $\widehat p(1-\widehat p)\to_pp(1-p)$。
       計算例: |
-        $\widehat p=0.36$、$n=400$ なら
-        $$
-        \widehat p(1-\widehat p)=0.36\cdot0.64=0.2304.
-        $$
-        標本比率の分散推定へ使えば
-        $$
-        \widehat{\operatorname{SE}}(\widehat p)
-        =\sqrt{\frac{0.2304}{400}}=0.024.
-        $$
+        $\widehat p=0.36,n=400$ なら $\widehat p(1-\widehat p)=0.2304$、標本比率の推定標準誤差は
+        $$\sqrt{0.2304/400}=0.024.$$
       注意: |
-        連続写像定理だけでは収束速度や漸近分散は与えない。$\sqrt n$ 尺度で変換後の漸近分布を求めるには、通常はデルタ法などが必要である。
+        連続写像定理だけでは収束速度や漸近分散は与えない。変換後の $\sqrt n$ 尺度の極限にはデルタ法などを使う。
 
   - id: test-lr-wald-score-comparison
-    note: 尤度比・ワルド型・スコア型検定の正本へ、共通カイ二乗極限と差がop(1)になる意味、評価点の違い、境界母数では通常極限が崩れ得る注意まで統合し、理工学側の漸近同値カードを吸収する。
+    note: 尤度比・ワルド型・スコア型検定へ評価点の違い、共通カイ二乗極限、境界母数の注意を統合する。
     metadata:
       title: 尤度比・ワルド型・スコア型検定を評価点と漸近同値性から比較する
       topic: asymptotic-test-equivalence
@@ -155,49 +79,26 @@ items:
       hashtags: [尤度比検定, ワルド型検定, スコア型検定, 漸近同値, カイ二乗分布]
     sections:
       問題: |
-        1次元母数 $\theta$ について $H_0:\theta=\theta_0$ を検定する。尤度比・ワルド型・スコア型検定について次を答えよ。
-
-        1. 3検定がそれぞれ尤度のどの情報を、どの母数値付近で評価するか説明せよ。
-        2. 正則条件の下で、帰無仮説下の3統計量の漸近分布と相互関係を述べよ。
-        3. 「漸近同値」とは有限標本で3つのP値が必ず一致するという意味ではないことを説明せよ。
-        4. 母数が許容領域の境界にある場合、通常の結論をそのまま使えないことがある理由を述べよ。
+        1次元母数で $H_0:\theta=\theta_0$ を検定する。
+        1. 尤度比・ワルド型・スコア型検定が尤度の何をどこで評価するか説明せよ。
+        2. 正則条件の下で帰無仮説下の3統計量の漸近分布と相互関係を述べよ。
+        3. 漸近同値が有限標本での完全一致を意味しないこと、境界母数では通常の結論が崩れ得ることを説明せよ。
       記号・用語: |
-        $\widehat\theta$ は制約なし最尤推定量、$U_n(\theta)$ はスコア、$I_n(\theta)$ はフィッシャー情報量とする。
-
-        - 尤度比検定：制約あり・なしの最大尤度を比較する。
-        - ワルド型検定：制約なし推定値 $\widehat\theta$ が帰無値から何標準誤差離れたかを見る。
-        - スコア型検定：帰無値 $\theta_0$ における尤度の傾きを見る。
+        $\widehat\theta$ は制約なし最尤推定量、$U_n(\theta)$ はスコア、$I_n(\theta)$ はフィッシャー情報量（1次元）とする。
+        尤度比検定は制約あり・なしの最大尤度差、ワルド型検定は $\widehat\theta$ と帰無値の距離、スコア型検定は帰無値での尤度の傾きを使う。
       使用公式・定理: |
-        代表的な統計量は
-        $$
-        W_n=(\widehat\theta-\theta_0)^2I_n(\widehat\theta),
-        $$
-        $$
-        S_n=\frac{U_n(\theta_0)^2}{I_n(\theta_0)},
-        $$
-        $$
-        LR_n=2\{\ell_n(\widehat\theta)-\ell_n(\theta_0)\}.
-        $$
-        正則条件の下、$H_0$ で
-        $$
-        W_n\xrightarrow{d}\chi_1^2,
-        \qquad S_n\xrightarrow{d}\chi_1^2,
-        \qquad LR_n\xrightarrow{d}\chi_1^2,
-        $$
-        さらに3統計量の差は $o_p(1)$ である。
+        代表的には
+        $$W_n=(\widehat\theta-\theta_0)^2I_n(\widehat\theta),$$
+        $$S_n=\frac{U_n(\theta_0)^2}{I_n(\theta_0)},$$
+        $$LR_n=2\{\ell_n(\widehat\theta)-\ell_n(\theta_0)\}.$$
+        正則条件の下で $H_0$ では3者とも $\chi_1^2$ へ分布収束し、互いの差は $o_p(1)$。
       一手／方針: |
-        **「どこで尤度を測るか」を区別してから、局所的には同じ二次近似へ帰着すると理解する。**
-
-        ワルド型は $\widehat\theta$ 周辺、スコア型は $\theta_0$ 周辺、尤度比は両点の最大対数尤度差を使う。帰無値近傍では対数尤度を二次近似すると3者が同じ主要項を持つ。
+        ワルド型は推定値付近、スコア型は帰無値、尤度比は両者の最大対数尤度を使うが、帰無値近傍の二次近似では同じ主要項へ帰着する。
       答え: |
-        1. ワルド型は制約なし最尤推定量の帰無値からの距離、スコア型は帰無値での傾き、尤度比は制約あり・なしの最大尤度差を見る。
-
-        2. 正則条件の下で3者はいずれも帰無仮説下で自由度1のカイ二乗分布へ収束し、互いの差は $o_p(1)$ になる。
-
-        3. $o_p(1)$ は標本数を増やすと統計量の差が確率的に0へ近づくという意味で、有限標本で値やP値が完全一致することは要求しない。
-
-        4. 境界では帰無値の周囲に通常の両側Taylor展開を行える内部点という正則条件が崩れる。そのため極限分布が単純な $\chi_1^2$ でなく、混合分布などになる場合がある。
+        1. 評価点は上記のとおり異なる。
+        2. 3統計量はいずれも自由度1のカイ二乗分布へ収束し、差は確率的に0へ近づく。
+        3. 有限標本では統計量やP値は一致しなくてよい。母数が許容領域の境界にあると通常の内部点での二次近似条件が崩れ、非標準な極限分布になることがある。
       計算例: |
-        ある大標本で $W_n=4.10,S_n=3.95,LR_n=4.02$ のように値が少し違っていても不自然ではない。3者とも $\chi_1^2$ の5%臨界値約3.84を上回るため、この例では同じ棄却判断になる。
+        $W_n=4.10,S_n=3.95,LR_n=4.02$ は少し異なるが、いずれも $\chi_1^2$ の5%臨界値約3.84を上回るので同じ棄却判断になる。
       注意: |
-        小標本、弱識別、境界母数、強い非線形性などでは3検定の差が無視できないことがある。漸近同値性だけを理由に有限標本で常に交換可能とは考えない。
+        小標本、弱識別、境界母数、強い非線形性では3検定の差が無視できないことがある。
