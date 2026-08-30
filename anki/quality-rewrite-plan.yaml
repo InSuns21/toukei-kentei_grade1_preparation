@@ -1,320 +1,316 @@
 schema_version: 1
-batch_id: 2026-08-31-time-series-consolidation-canonical-161
+batch_id: 2026-08-31-multivariate-cross-category-canonical-163
 items:
-  - id: ts-arima-definition
-    note: ARIMA差分カードに線形トレンド除去を統合し、決定論的トレンドを回帰で除く場合と確率的トレンドを差分する場合を比較できる正本へ強化する。単純な線形回帰代入だけの独立カードを不要にする。
+  - id: mv-covariance-linear-transform
+    note: 線形変換後の分散共分散行列と、分散共分散行列から相関行列への標準化・単位変更不変性は同じ行列変換の検索単位として統合する。理工学側の相関行列単純計算カードを不要にする。
     metadata:
-      title: ARIMAを差分から構成しトレンド除去・季節差分まで選択する
-      topic: arima-differencing-detrending-canonical
+      title: 線形変換した共分散から相関行列・単位変更不変性まで扱う
+      topic: covariance-correlation-transform-canonical
       type: strategy
       difficulty: 3
       priority: A
-      hashtags: [時系列解析, ARIMAモデル, 差分, ランダムウォーク, トレンド, 季節差分, バックシフト]
+      hashtags: [多変量解析, 分散共分散行列, 相関行列, 線形変換, 標準化]
     sections:
       問題: |
-        非定常時系列の定常化とARIMAモデルについて次を解け。
+        確率ベクトル $\boldsymbol X$ の分散共分散行列を
+        $$
+        \boldsymbol\Sigma=
+        \begin{pmatrix}4&3\\3&9\end{pmatrix}
+        $$
+        とする。
 
-        1. ARIMA$(p,d,q)$ をバックシフト演算子で定義し、$d$ の意味を説明せよ。
-        2. ランダムウォーク
-        $$
-        X_t=X_{t-1}+\varepsilon_t,\qquad X_0=0
-        $$
-        で $E[\varepsilon_t]=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2$、革新は互いに無相関とする。水準系列が弱定常でないことを示し、一階差分後の系列を答えよ。
-        3. このランダムウォークをARIMA$(p,d,q)$で分類せよ。
-        4. $(X_1,X_2,X_3)=(3,5,7)$ に決定論的線形トレンド $a+bt$ を最小二乗で当てはめ、トレンド除去後の系列を求めよ。
-        5. 周期12の系列で $X_{25}=130,X_{13}=118$ のとき季節差分を求めよ。
-        6. 「線形トレンド除去」「通常差分」「季節差分」を、どの型の非定常性に使うか比較せよ。
+        1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
+        2. $Y_1=X_1+X_2$ の分散を求めよ。
+        3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
+        4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
+        5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
       記号・用語: |
-        バックシフト演算子を $BX_t=X_{t-1}$ とする。通常差分と季節差分は
-        $$
-        \Delta X_t=(1-B)X_t=X_t-X_{t-1},
-        $$
-        $$
-        \Delta_sX_t=(1-B^s)X_t=X_t-X_{t-s}
-        $$
-        である。
-
-        **決定論的トレンド**は $a+bt$ のように時点の関数として表せる平均構造であり、回帰で推定して引く方法がある。一方、ランダムウォークのような**確率的トレンド**ではショックが累積するため、通常差分による定常化が基本になる。
+        分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
       使用公式・定理: |
+        定数ベクトルの共分散は0なので
         $$
-        \phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t
+        \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
         $$
-        がARIMA$(p,d,q)$であり、$d$回通常差分した系列がARMA$(p,q)$になる。
 
-        ランダムウォークでは
+        線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
         $$
-        X_t=\sum_{j=1}^t\varepsilon_j,
-        \qquad
-        \operatorname{Var}(X_t)=t\sigma^2,
+        \operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
         $$
-        したがって水準系列は弱定常でない。一方
-        $$
-        (1-B)X_t=\varepsilon_t
-        $$
-        である。
 
-        線形トレンド $a+bt$ の最小二乗推定は
+        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
         $$
-        \widehat b=\frac{\sum_t(t-\bar t)(X_t-\bar X)}{\sum_t(t-\bar t)^2},
-        \qquad
-        \widehat a=\bar X-\widehat b\bar t.
+        \boldsymbol R
+        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
+        $$
+        成分では
+        $$
+        \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
         $$
       一手／方針: |
-        **最初に非定常性の型を判定する。**
+        **「線形変換なら $A\Sigma A^{\mathsf T}$、尺度を消したいなら左右から標準偏差の逆数を掛ける」と整理する。**
 
-        - 平均が時点に沿ってほぼ直線的に動く決定論的トレンドなら、時点に回帰してトレンドを引く。
-        - ショックが累積し水準が漂う確率的トレンドなら、通常差分を考える。
-        - 同じ季節の値が周期的にずれるなら、季節差分を考える。
-
-        差分回数 $d$ は暗記する番号ではなく、「何回通常差分すれば定常なARMA系列になるか」と読む。
+        相関の単位変更不変性は別公式として暗記せず、分子の共分散と分母の標準偏差積が同じ倍率で変わって相殺されることから確認する。
       答え: |
         1.
         $$
-        \boxed{\phi(B)(1-B)^dX_t=\theta(B)\varepsilon_t}.
+        \boxed{\operatorname{Cov}(\boldsymbol Y)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
         $$
-        $d$ は通常差分の次数である。
+        $\boldsymbol b$ は確率変動を持たないので共分散へ寄与しない。
 
-        2. ランダムウォークでは
+        2. $\boldsymbol a=(1,1)^{\mathsf T}$ として
         $$
-        \operatorname{Var}(X_t)=t\sigma^2
-        $$
-        が時点に依存するので弱定常でない。しかし
-        $$
-        \Delta X_t=X_t-X_{t-1}=\varepsilon_t
-        $$
-        なので一階差分はホワイトノイズとなる。
-
-        3. 一階差分後がARMA$(0,0)$なので
-        $$
-        \boxed{\operatorname{ARIMA}(0,1,0)}
-        $$
-        であり、代表的な $I(1)$ 過程である。
-
-        4. $t=(1,2,3)$、$X=(3,5,7)$ では
-        $$
-        \bar t=2,\qquad \bar X=5,
-        $$
-        $$
-        \widehat b=2,\qquad \widehat a=1.
-        $$
-        よって推定トレンドは
-        $$
-        \widehat X_t=1+2t
-        $$
-        で、トレンド除去後は
-        $$
-        \boxed{(0,0,0)}.
+        \operatorname{Var}(X_1+X_2)
+        =4+9+2\cdot3
+        =\boxed{19}.
         $$
 
-        5.
+        3. 標準偏差は $2,3$ なので
         $$
-        \Delta_{12}X_{25}=130-118=\boxed{12}.
+        \rho_{12}=\frac3{2\cdot3}=\frac12,
         $$
-
-        6. 線形トレンド除去は決定論的な平均構造、通常差分は確率的トレンド、季節差分は周期的な非定常性を主に狙う。
-      計算例: |
-        ARIMA$(1,1,0)$ は
         $$
-        (1-\phi B)(1-B)X_t=\varepsilon_t
-        $$
-        だから、$Y_t=\Delta X_t$ とおけば
-        $$
-        Y_t=\phi Y_{t-1}+\varepsilon_t.
-        $$
-        水準系列へ直接AR$(1)$を当てるのではなく、差分系列がAR$(1)$になるモデルと読む。
-
-        また $\sigma^2=2$ のランダムウォークなら
-        $$
-        \operatorname{Var}(X_1)=2,\quad
-        \operatorname{Var}(X_5)=10,\quad
-        \operatorname{Var}(X_{20})=40,
-        $$
-        だが $\operatorname{Var}(\Delta X_t)=2$ は一定である。
-      注意: |
-        「トレンドがあるから必ず差分」とは限らない。決定論的トレンドを持つ系列を差分すると別の依存構造を作ることがあるし、ランダムウォークに単純な線形回帰を当てて残差を定常とみなすのも危険である。
-
-        差分は多ければよいわけではなく、過差分は不要なMA型依存を作る場合がある。通常差分 $(1-B)$ と季節差分 $(1-B^s)$ も目的が異なる。
-
-  - id: ts-software-residual-diagnostics
-    note: ARIMA係数表の解釈とLjung--Box残差診断は、どちらも推定後のソフトウェア出力を読む同じ検索単位なので一枚へ統合する。係数の有意性、定常域、近似区間、残差白色性を順に判断できる正本にする。
-    metadata:
-      title: ARIMAの係数表とLjung–Box残差診断を一続きで解釈する
-      topic: arima-software-output-diagnostics-canonical
-      type: strategy
-      difficulty: 3
-      priority: A
-      hashtags: [時系列解析, ARIMAモデル, ソフトウェア出力, 係数検定, Ljung-Box検定, 残差診断]
-    sections:
-      問題: |
-        ARIMAモデルの推定後出力について次を解け。
-
-        1. ARIMA$(1,0,0)$ の出力が「AR(1)係数 $\widehat\phi=0.72$、標準誤差 $0.15$」であった。$H_0:\phi=0$ を両側5%で検定し、近似95%信頼区間を求めよ。また推定係数がAR$(1)$の定常域内か判定せよ。
-        2. 標本数 $n=50$、残差自己相関が $r_1=0.20,r_2=-0.10$ のとき、ラグ $m=2$ までのLjung--Box統計量 $Q$ を求めよ。ここでは自由度2の5%上側点を5.991とする。
-        3. 別の出力で $Q(12)=24.8,\ p=0.016$ と表示された。5%水準で残差の白色性を判定し、モデル改善の必要性を述べよ。
-        4. 推定済みARMA$(p,q)$の残差へLjung--Box検定を使うときの自由度上の注意を述べよ。
-      記号・用語: |
-        係数表は「推定された動学係数が0と区別できるか」を見る。一方、残差診断は「モデルを当てた後にも時系列依存が残っていないか」を見る。**係数が有意でも残差に自己相関が残れば、モデルとして十分とはいえない。**
-      使用公式・定理: |
-        係数0の大標本Wald統計量は
-        $$
-        z=\frac{\widehat\phi}{\operatorname{SE}(\widehat\phi)}.
-        $$
-        近似95%信頼区間は
-        $$
-        \widehat\phi\pm1.96\operatorname{SE}(\widehat\phi).
-        $$
-        AR$(1)$の因果的定常域は $|\phi|<1$ である。
-
-        Ljung--Box統計量は
-        $$
-        Q=n(n+2)\sum_{h=1}^{m}\frac{r_h^2}{n-h}.
-        $$
-        大標本ではカイ二乗分布で近似する。推定前の白色性検定なら基本的に自由度 $m$、推定済みARMA$(p,q)$の残差では教科書的には $m-p-q$ 程度へ補正することが多い。
-      一手／方針: |
-        **推定後出力は「係数 → モデル条件 → 残差」の順で読む。**
-
-        1. 係数を標準誤差で割り、有意性を見る。
-        2. AR係数なら根条件・定常域を確認する。
-        3. 最後に残差が白色化しているかをLjung--Boxや残差ACFで確認する。
-
-        出力済みP値があるときは、そのソフトウェアの自由度規約に従って判定する。
-      答え: |
-        1.
-        $$
-        z=0.72/0.15=\boxed{4.8}>1.96
-        $$
-        なので $H_0:\phi=0$ を棄却する。近似95%信頼区間は
-        $$
-        0.72\pm1.96(0.15)=(\boxed{0.426},\boxed{1.014}).
-        $$
-        推定値自体は $|0.72|<1$ なので定常域内である。
-
-        2.
-        $$
-        Q=50(52)\left(\frac{0.20^2}{49}+\frac{(-0.10)^2}{48}\right)
-        \approx\boxed{2.66}.
-        $$
-        $2.66<5.991$ なので、この比較では残差無相関の帰無仮説を棄却しない。
-
-        3. $0.016<0.05$ なので帰無仮説を棄却する。残差に自己相関が残っており、AR・MA次数、差分、季節構造などの見直し候補がある。
-
-        4. 推定済みモデルの残差では、単純に自由度 $m$ とせず推定した動的係数数を考慮する。ソフトウェアがP値を直接出している場合は、その実装の補正规約を確認する。
-      計算例: |
-        ARMA$(1,1)$の残差を $m=10$ まで調べ、$m-p-q$ の教科書的補正を使うなら自由度は
-        $$
-        10-1-1=8
-        $$
-        が目安になる。
-
-        また係数の近似95%区間 $(0.426,1.014)$ は1を含む。これは「推定値が0.72だから定常で確定」とは言い切れないことを示す一つの注意材料であり、単位根の有無を正式に検定するなら専用の単位根検定を使う。
-      注意: |
-        $H_0:\phi=0$ のWald検定と $H_0:\phi=1$ の単位根検定は別物である。係数が0から有意に離れていることは、単位根がないことを意味しない。
-
-        Ljung--Box検定で棄却しないことも、残差の独立性・正規性・等分散性まで保証しない。残差ACF、外れ値、分散変動などは別に確認する。
-
-  - id: ts-acf-pacf-identification
-    note: ACF/PACFモデル同定正本へAR(2)のYule-Walker係数推定を統合する。ラグ2PACFとAR(2)係数推定は同じ2×2自己相関行列を使うため、別々の公式カードにしない。
-    metadata:
-      title: ACF・PACFからAR/MA候補を絞りYule–WalkerでAR係数まで求める
-      topic: acf-pacf-yule-walker-canonical
-      type: strategy
-      difficulty: 3
-      priority: A
-      hashtags: [時系列解析, 自己相関関数, 偏自己相関関数, モデル同定, Yule-Walker方程式, ARモデル, MAモデル]
-    sections:
-      問題: |
-        ACF・PACFとYule--Walker方程式について次を解け。
-
-        1. AR$(p)$、MA$(q)$、ARMA$(p,q)$ の理論ACF・PACFの典型的な形を述べよ。
-        2. 標本ACFが $(0.70,0.49,0.34,\ldots)$ と減衰し、標本PACFが $(0.70,0.02,-0.01,\ldots)$ なら第一候補を答えよ。
-        3. 標本ACFが $(0.45,0.01,-0.02,\ldots)$ とラグ1でほぼ打ち切られ、PACFが徐々に減衰するなら第一候補を答えよ。
-        4. $\rho_1=0.6,\rho_2=0.2$ のときラグ2偏自己相関 $\alpha_{22}$ を求めよ。
-        5. AR$(2)$で $\rho(1)=0.6,\rho(2)=0.4$ とする。Yule--Walker方程式から $\phi_1,\phi_2$ を求めよ。
-      記号・用語: |
-        ラグ $k$ のPACFは、$X_t$ を $X_{t-1},\ldots,X_{t-k}$ で最良線形予測したときの最遠ラグ $X_{t-k}$ の係数とみなせる。
-
-        Yule--Walker方程式は、ARモデルの係数と理論自己共分散・自己相関を結ぶ方程式である。標本ACFを代入すればAR係数の推定にも使える。
-      使用公式・定理: |
-        理論的な目安は
-        - AR$(p)$：ACFは減衰、PACFはラグ $p$ で打ち切り。
-        - MA$(q)$：ACFはラグ $q$ で打ち切り、PACFは減衰。
-        - ARMA$(p,q)$：ACF・PACFとも一般に減衰。
-
-        ラグ2の最良線形予測係数は
-        $$
-        \begin{pmatrix}1&\rho_1\\\rho_1&1\end{pmatrix}
-        \begin{pmatrix}a_1\\a_2\end{pmatrix}
-        =
-        \begin{pmatrix}\rho_1\\\rho_2\end{pmatrix}.
-        $$
-        したがって
-        $$
-        \alpha_{22}=a_2
-        =\frac{\rho_2-\rho_1^2}{1-\rho_1^2}.
+        \boxed{\boldsymbol R=
+        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
         $$
 
-        AR$(2)$
+        4. 単位変更後の分散共分散行列は
         $$
-        X_t=\phi_1X_{t-1}+\phi_2X_{t-2}+\varepsilon_t
-        $$
-        のYule--Walker方程式は
-        $$
-        \rho(1)=\phi_1+\phi_2\rho(1),
-        $$
-        $$
-        \rho(2)=\phi_1\rho(1)+\phi_2.
-        $$
-      一手／方針: |
-        **モデル同定では「どちらが打ち切られるか」を先に見る。係数計算へ進むときは、PACFもAR係数も同じ自己相関行列から出ると理解する。**
-
-        標本ACF/PACFは有限標本では厳密に0にならないため、スパイクの有意性・情報量規準・残差診断も併用する。
-      答え: |
-        1. AR$(p)$ はACFが減衰しPACFが $p$ で打ち切られる。MA$(q)$ はACFが $q$ で打ち切られPACFが減衰する。ARMA$(p,q)$ は両方とも一般に減衰する。
-
-        2. PACFがラグ1だけ大きくACFが減衰しているので
-        $$
-        \boxed{\operatorname{AR}(1)}
-        $$
-        が第一候補である。
-
-        3. ACFがラグ1で打ち切られPACFが減衰するので
-        $$
-        \boxed{\operatorname{MA}(1)}
-        $$
-        が第一候補である。
-
-        4.
-        $$
-        \alpha_{22}=\frac{0.2-0.6^2}{1-0.6^2}
-        =\frac{-0.16}{0.64}=\boxed{-0.25}.
-        $$
-
-        5.
-        $$
-        0.6=\phi_1+0.6\phi_2,
-        \qquad
-        0.4=0.6\phi_1+\phi_2.
-        $$
-        第1式から $\phi_1=0.6-0.6\phi_2$。第2式へ代入すると
-        $$
-        0.4=0.36+0.64\phi_2,
+        \boldsymbol\Sigma_Z
+        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
         $$
         よって
         $$
-        \boxed{\phi_2=0.0625},
+        \rho_{Z_1Z_2}
+        =\frac{3000}{\sqrt{400\cdot90000}}
+        =\boxed{0.5}.
+        $$
+
+        5. 片方だけを負の定数倍すると、共分散の符号だけが反転し標準偏差は正なので、相関係数の符号が反転する。
+      計算例: |
+        一般に $Z_1=c_1X_1,Z_2=c_2X_2$ なら
+        $$
+        \operatorname{Cov}(Z_1,Z_2)=c_1c_2\operatorname{Cov}(X_1,X_2),
+        $$
+        $$
+        \operatorname{sd}(Z_i)=|c_i|\operatorname{sd}(X_i).
+        $$
+        したがって
+        $$
+        \operatorname{Corr}(Z_1,Z_2)
+        =\operatorname{sgn}(c_1c_2)\operatorname{Corr}(X_1,X_2).
+        $$
+        正の単位換算なら相関は不変である。
+      注意: |
+        $\operatorname{Var}(a_1X_1+a_2X_2)$ では、相関があると交差項
+        $$
+        2a_1a_2\operatorname{Cov}(X_1,X_2)
+        $$
+        を落とせない。相関行列と分散共分散行列のどちらをPCAなどへ使うかは、変数の単位・尺度を残したいかどうかで意味が変わる。
+
+  - id: mv-pca-variance-max
+    note: PCA正本へ固有値分解から分散共分散行列を再構成する操作を統合する。分散最大化、寄与率、得点、負荷量、再構成を同じ固有値・固有ベクトルの一連の読み方として扱う。
+    metadata:
+      title: 主成分分析を分散最大化から得点・負荷量・再構成まで通す
+      topic: pca-spectral-canonical
+      type: strategy
+      difficulty: 4
+      priority: A
+      hashtags: [主成分分析, 固有値, 固有ベクトル, 寄与率, 主成分得点, 主成分負荷量, スペクトル分解]
+    sections:
+      問題: |
+        中心化した $p$ 次元データの主成分分析について次を解け。
+
+        1. 第1主成分 $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散を最大にする問題から、$\boldsymbol a$ が分散共分散行列の最大固有値に対応する固有ベクトルになることを導け。ただし $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ とする。
+        2. 共分散行列PCAと相関行列PCAをどう使い分けるか。
+        3. 標準化PCAで固有値が $2.4,0.5,0.1$、第1固有ベクトルが $(0.70,0.68,0.22)^{\mathsf T}$、観測が $\boldsymbol z=(1,-1,0.5)^{\mathsf T}$ のとき、第1主成分の寄与率と主成分得点を求めよ。
+        4. 共分散PCAで固有値 $\lambda_j$、単位固有ベクトルの第 $k$ 成分 $a_{kj}$、$X_k$ の標準偏差 $s_k$ が与えられたとき、$X_k$ と第 $j$ 主成分の相関を求めよ。
+        5. 固有値 $3,1$、対応する単位固有ベクトル
+        $$
+        \boldsymbol u_1=\frac1{\sqrt2}(1,1)^{\mathsf T},\qquad
+        \boldsymbol u_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
+        $$
+        から分散共分散行列を再構成せよ。
+      記号・用語: |
+        主成分分析は、データの分散を大きく保つ互いに直交した方向を固有値問題で求める次元圧縮法である。固有値は各主成分の分散、固有ベクトルは主成分軸を表す。
+      使用公式・定理: |
+        射影 $Y=\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散は
+        $$
+        \operatorname{Var}(Y)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+        $$
+        制約 $\boldsymbol a^{\mathsf T}\boldsymbol a=1$ のもとでラグランジュ関数を微分すると
+        $$
+        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+        $$
+        最大値は最大固有値 $\lambda_1$ である。
+
+        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると
+        $$
+        \text{寄与率}_j=\frac{\lambda_j}{\sum_r\lambda_r},
         \qquad
-        \boxed{\phi_1=0.5625}.
+        \text{累積寄与率}_m=\frac{\sum_{j=1}^m\lambda_j}{\sum_r\lambda_r}.
+        $$
+
+        共分散PCAで第 $j$ 主成分 $Y_j=\boldsymbol a_j^{\mathsf T}\boldsymbol X$ と元変数 $X_k$ の相関は
+        $$
+        \operatorname{Corr}(X_k,Y_j)
+        =\frac{\sqrt{\lambda_j}\,a_{kj}}{s_k}.
+        $$
+
+        対称な分散共分散行列は直交固有値分解により
+        $$
+        \boldsymbol\Sigma
+        =\boldsymbol U\boldsymbol\Lambda\boldsymbol U^{\mathsf T}
+        =\sum_{j=1}^p\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
+        $$
+        と再構成できる。
+      一手／方針: |
+        **PCAは「使う行列を決める → 固有値問題 → 固有値から分散・寄与率 → 固有ベクトルから得点軸 → 必要なら固有対から元の共分散を再構成」の順で処理する。**
+
+        固有値分解とPCAを別々の公式として覚えず、同じ固有対を「方向」「分散」「再構成」の3通りに読んでいると捉える。
+      答え: |
+        1. ラグランジュ関数
+        $$
+        L=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        -\lambda(\boldsymbol a^{\mathsf T}\boldsymbol a-1)
+        $$
+        の一階条件から
+        $$
+        \boldsymbol\Sigma\boldsymbol a=\lambda\boldsymbol a.
+        $$
+        よって第1主成分軸は最大固有値に対応する単位固有ベクトルである。
+
+        2. 元の単位や分散の大きさ自体に意味があるなら共分散行列、単位が異なり尺度差を消して各変数を同等に扱いたいなら相関行列を使うのが基本である。
+
+        3. 固有値総和は3なので
+        $$
+        \text{寄与率}_1=2.4/3=\boxed{0.80}.
+        $$
+        得点は
+        $$
+        0.70(1)+0.68(-1)+0.22(0.5)
+        =\boxed{0.13}.
+        $$
+
+        4.
+        $$
+        \boxed{\operatorname{Corr}(X_k,Y_j)
+        =\frac{\sqrt{\lambda_j}a_{kj}}{s_k}}.
+        $$
+
+        5.
+        $$
+        \boldsymbol\Sigma
+        =3\boldsymbol u_1\boldsymbol u_1^{\mathsf T}
+        +\boldsymbol u_2\boldsymbol u_2^{\mathsf T}
+        $$
+        $$
+        =\frac32\begin{pmatrix}1&1\\1&1\end{pmatrix}
+        +\frac12\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
+        =\boxed{\begin{pmatrix}2&1\\1&2\end{pmatrix}}.
         $$
       計算例: |
-        AR$(1)$では $\rho_2=\rho_1^2$ なので
+        上位 $m$ 成分だけで近似すると
         $$
-        \alpha_{22}
-        =\frac{\rho_1^2-\rho_1^2}{1-\rho_1^2}=0.
+        \boldsymbol\Sigma_m
+        =\sum_{j=1}^m\lambda_j\boldsymbol u_j\boldsymbol u_j^{\mathsf T}
         $$
-        したがって理論PACFがラグ1で打ち切られることを、ラグ2について直接確認できる。
-
-        一方、標本自己相関 $\widehat\rho_1,\widehat\rho_2$ をYule--Walker方程式へ入れた場合、得られる $\widehat\phi_1,\widehat\phi_2$ は推定値である。
+        となる。捨てた方向の分散総和は
+        $$
+        \sum_{j=m+1}^p\lambda_j
+        $$
+        であり、PCAの低次元近似で失う分散量として解釈できる。
       注意: |
-        ACF/PACFによる識別は初期候補を絞る方法であり、有限標本の標本ACF/PACFは理論値のように厳密に打ち切られない。最終的には情報量規準、係数推定、残差診断まで確認する。
+        固有ベクトル全体の符号は任意で、$\boldsymbol u$ と $-\boldsymbol u$ は同じ主成分軸を表す。「主成分負荷量」を固有ベクトル成分と呼ぶ文献と、元変数と主成分の相関と呼ぶ文献があるため定義を確認する。
 
-        PACFは単なる $\rho_k$ ではなく、中間ラグの線形効果を調整した偏相関・最良線形予測の最遠ラグ係数である。
+  - id: mv-hierarchical-linkage
+    note: 階層クラスタリングの連結法・Ward法と、得られたクラスタリングをsilhouette係数で評価する操作を一つの正本へ統合する。理工学側のsilhouette単純代入カードを不要にする。
+    metadata:
+      title: 階層クラスタリングを連結法・Ward法からsilhouette評価まで通す
+      topic: hierarchical-clustering-evaluation-canonical
+      type: strategy
+      difficulty: 3
+      priority: A
+      hashtags: [クラスター分析, 階層法, 単連結法, 完全連結法, 群平均法, Ward法, silhouette係数]
+    sections:
+      問題: |
+        凝集型階層クラスタリングについて次を解け。
+
+        1. 単連結法・完全連結法・群平均法で、2クラスタ $A,B$ 間の距離をどう定義するか述べよ。
+        2. Ward法では何を最小にしてクラスタ対を併合するか。$A,B$ のサイズを $n_A,n_B$、重心を $\bar{\boldsymbol x}_A,\bar{\boldsymbol x}_B$ として併合による群内平方和増加を書け。
+        3. $n_A=2,n_B=3$、重心間Euclid距離が5のときWard法の平方和増加を求めよ。
+        4. 単連結法が鎖状化しやすい理由を説明せよ。
+        5. ある点について、同一クラスタ内の他点への平均距離が $a=2$、最も近い別クラスタへの平均距離が $b=5$ のときsilhouette係数を求め、値を解釈せよ。
+      記号・用語: |
+        凝集型階層法は、各点を別クラスタとして始め、クラスタ間距離の規則に従って逐次併合する方法である。silhouette係数は、作ったクラスタへの凝集度と他クラスタからの分離度を同時に評価する指標である。
+      使用公式・定理: |
+        点間距離を $d(\boldsymbol x,\boldsymbol y)$ とすると
+        $$
+        d_{\min}(A,B)=\min_{x\in A,y\in B}d(x,y),
+        $$
+        $$
+        d_{\max}(A,B)=\max_{x\in A,y\in B}d(x,y),
+        $$
+        $$
+        d_{\mathrm{avg}}(A,B)
+        =\frac1{n_An_B}\sum_{x\in A}\sum_{y\in B}d(x,y).
+        $$
+
+        Ward法では通常、平方Euclid距離に基づく群内平方和の増加
+        $$
+        \Delta WSS(A,B)
+        =\frac{n_An_B}{n_A+n_B}
+        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2
+        $$
+        が最小の対を併合する。
+
+        silhouette係数は
+        $$
+        s=\frac{b-a}{\max(a,b)},\qquad -1\le s\le1,
+        $$
+        ここで $a$ は同一クラスタ内平均距離、$b$ は最も近い別クラスタへの平均距離である。
+      一手／方針: |
+        **まず「何をクラスタ間距離とするか」で併合規則を決め、作った分割は別に凝集度・分離度で評価する。**
+
+        Ward法は単なる点間距離の最小化ではなく、併合で増える群内平方和を見る。silhouetteでは $a$ が小さく $b$ が大きいほど良い分割と読む。
+      答え: |
+        1. 単連結は点対距離の最小値、完全連結は最大値、群平均は全点対距離の平均をクラスタ間距離とする。
+
+        2.
+        $$
+        \boxed{\Delta WSS
+        =\frac{n_An_B}{n_A+n_B}
+        \|\bar{\boldsymbol x}_A-\bar{\boldsymbol x}_B\|^2}.
+        $$
+
+        3.
+        $$
+        \Delta WSS
+        =\frac{2\cdot3}{5}\,5^2
+        =\boxed{30}.
+        $$
+
+        4. 単連結法は1組でも近い点対があればクラスタ全体を結合するため、細長い点列を橋渡しして鎖状化しやすい。
+
+        5.
+        $$
+        s=\frac{5-2}{5}=\boxed{0.6}.
+        $$
+        0に比べて1に近い正の値なので、この点は自クラスタ内で比較的まとまり、近隣クラスタともある程度分離している。
+      計算例: |
+        同じ重心間距離5でも $n_A=n_B=1$ なら
+        $$
+        \Delta WSS=\frac12\cdot25=12.5,
+        $$
+        $n_A=n_B=10$ なら
+        $$
+        \Delta WSS=\frac{100}{20}\cdot25=125.
+        $$
+        したがってWard法は重心間距離だけでなくクラスタサイズも反映する。
+
+        silhouette係数は $s\approx1$ なら良好な凝集・分離、$s\approx0$ なら境界付近、$s<0$ なら他クラスタの方が近い可能性を示す。
+      注意: |
+        単連結・完全連結・群平均は同じ距離行列でも異なるデンドログラムを与える。Ward法は通常、平方Euclid距離と群内平方和の関係を前提にする。変数尺度が大きく異なるなら標準化の要否を検討する。
+
+        silhouetteの単独点クラスタの扱いは実装規約による。silhouette値が高いことだけでクラスタ数や方法を機械的に決めず、解釈可能性や目的も合わせて確認する。
