@@ -1,45 +1,36 @@
 schema_version: 1
-batch_id: 2026-08-30-doe-over-specific-reduction-153
+batch_id: 2026-08-30-block-design-reduction-155
 items:
-  - id: engdesign-random-slope-covariance
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: engdesign-fixed-effect-hypothesis
-    note: 理工学シラバスの固定効果・変量効果に対して、変量傾きまで独立カード化するのは発展的。固定/変量の判別、変量切片の分散・共分散・級内相関をcanonical cardへ統合済み。
-  - id: engdesign-random-effect-blup
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: engdesign-fixed-effect-hypothesis
-    note: BLUPによる個別群効果予測は固定効果・変量効果の基本判別より発展的で、1級理工学の正本セットでは独立カードにしない。分散成分と級内相関はcanonical cardで保持する。
-  - id: engdesign-randomization-permutation
+  - id: design-rcbd-sums-squares
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-fisher-three-principles
-    note: 乱数順の先頭3単位をAへ割り付けるだけの操作は、無作為化の目的と実施を扱うフィッシャー3原則正本に対して独立検索単位にならない。
-  - id: engdesign-rerandomization-balance
-    bucket: too_specific
-    reason: low_priority
-    note: 共変量釣合い基準による再無作為化は、公式理工学シラバスの実験計画項目より発展的。基本の無作為化・ブロック化を優先するため隔離する。
-  - id: engdesign-latin-square-treatment-mean
-    bucket: low_priority
-    reason: low_priority
-    note: ラテン方格配置から3観測を拾って平均するだけの計算は、ブロック化の理解に追加する独立技能が乏しいため隔離する。
-  - id: engdesign-graeco-latin-df
-    bucket: too_specific
-    reason: low_priority
-    note: グレコ・ラテン方格の自由度公式は、公式理工学シラバスに明記されたブロック化・直交表・交絡法に比べ優先度が低く、600枚正本では発展扱いとする。
-  - id: engdesign-precision-weighted-block-difference
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: engdesign-confounder-randomization
-    note: 精度の異なるブロック差の逆分散重み統合は一般的なメタ解析的計算へ寄り、実験計画のブロック化正本から外れる。ブロック化の目的と加法モデルはcanonical cardで保持する。
-  - id: engdesign-gage-rr-variance
-    bucket: too_specific
-    reason: low_priority
-    canonical_card: engdesign-fixed-effect-hypothesis
-    note: Gage R&R固有の分散割合計算は、理工学シラバスの変量効果そのものより応用先が限定される。分散成分の基本は固定/変量効果正本へ残す。
-  - id: engdesign-subsampling-variance
+    canonical_card: design-rcbd-anova-numeric
+    note: 乱塊法の処置・ブロック・誤差平方和の定義と分解を、加法モデルからF検定まで解くcanonical cardへ統合済み。
+  - id: design-rcbd-degrees-freedom
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-fisher-three-principles
-    note: 実験単位内の複数測定を独立反復と数えない点、技術的反復は独立な誤差自由度を増やさない点はフィッシャー3原則正本へ統合済み。専用の分散数値例は独立カードにしない。
+    canonical_card: design-rcbd-anova-numeric
+    note: df_T=ab-1、df_A=a-1、df_B=b-1、df_E=(a-1)(b-1) と自由度和の検算をcanonical cardへ統合済み。
+  - id: engdesign-rcbd-adjusted-difference
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-rcbd-anova-numeric
+    note: 2処置3ブロックの数値例(4,3,2)から処置差3を求め、加法モデルでブロック共通項が差により消える導出までcanonical cardへ統合済み。
+  - id: engdesign-weighted-contrast-covariance
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: design-orthogonal-array-basic
+    note: 不等反復では通常の係数内積ではなく反復数で重み付けされた共分散を見るという注意は直交表canonical cardに保持済み。専用の共分散数値代入は600枚正本では独立カードにしない。
+  - id: engdesign-cyclic-incomplete-blocks
+    bucket: too_specific
+    reason: low_priority
+    note: 基本ブロックを法vで巡回して計画を機械的に生成する操作は、ブロック化の中心概念より特殊。過去問対応の不完備ブロック推定可能性カードを優先し、発展隔離する。
+  - id: engdesign-incomplete-incidence-matrix
+    bucket: too_specific
+    reason: low_priority
+    canonical_card: engdesign-incomplete-block-connectivity
+    note: 与えられたブロックから0-1接続行列を転記するだけのカードは、過去問対応の接続グラフによる処置対比の推定可能性判定に比べ独立演習価値が低い。
+  - id: engdesign-bibd-parameter-check
+    bucket: too_specific
+    reason: low_priority
+    note: BIBDのvr=bk、lambda(v-1)=r(k-1)への単純代入は、公式シラバスの一般的なブロック化より特殊で、現在の頻度情報も0。過去問対応の不完備ブロック推定可能性を残して発展隔離する。
