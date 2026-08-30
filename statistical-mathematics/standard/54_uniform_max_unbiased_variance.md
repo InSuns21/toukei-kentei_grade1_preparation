@@ -255,8 +255,7 @@ $$
 実際、$0<t<1$ に対して
 
 $$
-P\left(\frac M\theta\le t\right)
-=t^n.
+P\left(\frac M\theta\le t\right)=t^n.
 $$
 
 従って任意の $\varepsilon\in(0,1)$ について
@@ -325,7 +324,7 @@ $$
 \operatorname{Var}(T_2)
 =\left(\frac{n+1}{n}\right)^2
 \left\{
-\frac n{n+2}\theta^2-rac{n^2}{(n+1)^2}\theta^2
+\frac n{n+2}\theta^2-\frac{n^2}{(n+1)^2}\theta^2
 \right\}
 =\frac{\theta^2}{n(n+2)}.
 $$
