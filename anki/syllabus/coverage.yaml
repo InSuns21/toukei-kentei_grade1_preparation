@@ -2158,7 +2158,6 @@ items:
       - engproc-arima010-drift-forecast
       - engproc-arima110-difference-forecast
       - engproc-pacf-significance-output
-      - engproc-ljung-box-numeric
       - engproc-ar1-spectral-ratio
       - engproc-periodogram-period-identification
       - engproc-arima-forecast-output
@@ -2203,7 +2202,6 @@ items:
           - engproc-sample-autocovariance-numeric
           - engproc-residual-white-noise-bounds
           - engproc-pacf-significance-output
-          - engproc-ljung-box-numeric
           - engproc-ar1-spectral-ratio
           - engproc-periodogram-period-identification
       - name: 自己回帰過程
