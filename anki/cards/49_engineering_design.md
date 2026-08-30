@@ -119,36 +119,6 @@ $MS_{PE}=6/4=1.5$ を反復に基づく誤差分散推定値として使える�
 <!-- CARD -->
 
 ---
-id: engdesign-centerpoint-curvature
-title: 中心点反復から曲率平方和を計算する
-category: applied-engineering
-subcategory: engineering-design
-topic: centerpoint-curvature
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 中心点, 曲率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 実験の計画と実施 }]
----
-## 問題
-2水準要因計画の隅点観測数が $n_F=8$ で平均10、中心点観測数が $n_C=3$ で平均13である。曲率平方和を求めよ。
-## 記号・用語
-中心点は全因子を符号0にした条件で、隅点平均との差が一次モデルの曲率を捉える。
-## 使用公式・定理
-$$SS_{\mathrm{curv}}=\frac{n_Fn_C}{n_F+n_C}(\overline Y_F-\overline Y_C)^2.$$
-## 一手／方針
-観測数の調和的な係数へ平均差の二乗を掛ける。
-## 答え
-$$SS_{\mathrm{curv}}=\frac{8\cdot3}{11}(10-13)^2=\frac{216}{11}\approx19.64.$$
-## 計算例
-中心点反復の純粋誤差と比較して一次応答面の不足を検定する。
-## 注意
-曲率が有意でも、どの二次項が原因かは追加の軸点などなしには識別できない。
-
-<!-- CARD -->
-
----
 id: engdesign-lack-of-fit-decomposition
 title: 反復点から純粋誤差・適合不足・中心点曲率を診断する
 category: applied-engineering

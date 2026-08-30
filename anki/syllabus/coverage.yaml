@@ -2500,7 +2500,6 @@ items:
       - engdesign-weighted-contrast-covariance
       - engdesign-missing-run-nonorthogonality
       - engdesign-factorial-pure-error
-      - engdesign-centerpoint-curvature
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
@@ -2537,7 +2536,6 @@ items:
           - engdesign-randomization-permutation
           - engdesign-rerandomization-balance
           - engdesign-factorial-pure-error
-          - engdesign-centerpoint-curvature
           - engdesign-lack-of-fit-decomposition
           - engdesign-split-plot-randomization
           - engdesign-nested-df
