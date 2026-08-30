@@ -1,8 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-robust-covariance-reduction-66
+batch_id: 2026-08-30-gls-reduction-67
 items:
-  - id: reg-hc3-sandwich
+  - id: reg-feasible-gls-steps
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-robust-sandwich
-    note: HC3のレバレッジ補正、HC0との比較、適用上の注意を異分散頑健分散正本へ統合済み。
+    canonical_card: reg-gls-estimator
+    note: 未知の誤差共分散を推定してGLSへ代入するFGLS手順をGLS正本へ統合済み。
+
+  - id: reg-wls-two-points
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-gls-estimator
+    note: 対角誤差共分散で逆分散重みを用いるWLSと数値例をGLS正本へ統合済み。
