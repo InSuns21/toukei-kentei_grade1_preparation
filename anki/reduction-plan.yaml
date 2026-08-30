@@ -1,8 +1,38 @@
 schema_version: 1
-batch_id: 2026-08-30-weibull-reduction-100
+batch_id: 2026-08-30-fractional-factorial-reduction-102
 items:
-  - id: engrel-weibull-hazard-shape
+  - id: design-defining-relation
     bucket: duplicates
     reason: duplicate
-    canonical_card: engrel-weibull-reliability
-    note: ワイブル信頼度から故障率を導出し、形状母数による減少・一定・増加故障率まで判定するcanonical cardへ統合済み。浴槽曲線カードは別概念として残す。
+    canonical_card: design-fraction-generator
+    note: 生成式からI=の定義関係へ直す操作は、一部実施計画を生成子から構成するcanonical cardへ統合済み。
+  - id: design-fraction-run-saving
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fraction-generator
+    note: p個の独立生成子に対する実験点数2^(k-p)と削減率はcanonical cardへ統合済み。
+  - id: engdesign-fractional-run-table
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fraction-generator
+    note: C=ABから半実施の符号列と4実施を作る計算はcanonical cardと完全に重複するため統合済み。
+  - id: engdesign-two-generator-defining-group
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-fraction-generator
+    note: D=AB,E=ACからI=ABD=ACE=BCDEを作る複数生成子の定義対比群はcanonical cardへ統合済み。
+  - id: design-resolution-levels
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-alias-structure
+    note: 解像度III・IV・Vと低次効果の別名関係は、別名構造から解像度と推定可能性を判定するcanonical cardへ統合済み。
+  - id: engdesign-alias-estimability-choice
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-alias-structure
+    note: 高次交互作用を無視する仮定の下での推定可能性判定はcanonical cardへ統合済み。
+  - id: engdesign-wordlength-aberration
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: design-alias-structure
+    note: 定義語長から解像度を比較し、同解像度では最小アベレーションを考える判断までcanonical cardへ統合済み。
