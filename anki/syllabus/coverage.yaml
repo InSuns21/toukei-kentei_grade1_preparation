@@ -1911,7 +1911,6 @@ items:
       - data-ols-slope
       - reg-robust-sandwich
       - reg-aic-variable-selection
-      - reg-stepwise-selection-warning
       - reg-frisch-waugh-lovell
       - reg-condition-number
       - reg-breusch-pagan-idea
@@ -1935,7 +1934,6 @@ items:
         status: card
         cards:
           - reg-aic-variable-selection
-          - reg-stepwise-selection-warning
           - reg-lasso-soft-threshold
           - reg-nested-cross-validation
       - name: 残差分析
