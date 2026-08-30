@@ -1729,34 +1729,185 @@ n=100、補助回帰 $R^2=0.08$ ならLM=8。
 
 ---
 id: glm-three-components
-title: 一般化線形モデルの3要素を答える
+title: 一般化線形モデルを指数型分布族・3要素・正準リンクまで通す
 category: applied-common
 subcategory: applied-multivariate
-topic: glm-components
+topic: glm-foundations-canonical
 type: recognition
 difficulty: 2
 priority: A
-hashtags: [一般化線形モデル, リンク関数, 線形予測子]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一般化線形モデルの3要素 }]
+hashtags:
+  - 一般化線形モデル
+  - 指数型分布族
+  - 自然母数
+  - リンク関数
+  - 正準リンク
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 一般化線形モデルの3要素
 ---
 
 ## 問題
-一般化線形モデル（一般化線形モデル）の3要素を述べよ。
+一般化線形モデルについて次を答えよ。
+
+1. 一般化線形モデルを構成する3要素を述べよ。
+2. 応答分布の指数型分布族の標準形を書き、平均と分散を $b(\theta)$ から表せ。
+3. 正準リンクの意味を説明し、正規・二項・ポアソン分布の正準リンクを答えよ。
+4. ポアソン分布とベルヌーイ分布を指数型分布族の形へ直し、自然母数を確認せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+一般化線形モデルの3要素は次の3つである。
 
-$g$ は平均空間を実数直線上の線形予測子へ写す。
+1. **確率成分**：条件付き応答 $Y_i\mid\boldsymbol x_i$ が指数型分布族に従う。
+2. **系統成分**：説明変数を線形予測子
+$$
+\eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta
+$$
+にまとめる。
+3. **リンク関数**：条件付き平均
+$$
+\mu_i=E[Y_i\mid\boldsymbol x_i]
+$$
+と線形予測子を
+$$
+g(\mu_i)=\eta_i
+$$
+で結ぶ。
+
+指数型分布族を
+$$
+f(y;\theta,\phi)
+=\exp\left\{
+\frac{y\theta-b(\theta)}{a(\phi)}
++c(y,\phi)
+\right\}
+$$
+と書く。$\theta$ は自然母数、$\phi$ は分散母数である。正規化条件を $\theta$ で微分すると
+$$
+E[Y]=b'(\theta),
+$$
+さらにもう一度微分すると
+$$
+\operatorname{Var}(Y)=a(\phi)b''(\theta)
+$$
+を得る。
+
+**正準リンク**とは、リンクを自然母数へ一致させ
+$$
+\boxed{g(\mu)=\theta}
+$$
+とする選択である。代表例は
+
+- 正規分布：恒等リンク $g(\mu)=\mu$
+- 二項分布：ロジットリンク $g(p)=\log\{p/(1-p)\}$
+- ポアソン分布：対数リンク $g(\mu)=\log\mu$
+
+である。
+
+## 一手
+**一般化線形モデルは「分布を指数型分布族で書く → 自然母数 $\theta$ を読む → 平均 $\mu$ と線形予測子 $\eta=X\beta$ をリンクで結ぶ」と追う。** 正準リンクは、その最後のリンクを $g(\mu)=\theta$ と選ぶだけである。
 
 ## 答え
-応答の指数型分布族、線形予測子 $\eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta$、平均 $\mu_i=E[Y_i\mid\boldsymbol x_i]$ と線形予測子を結ぶリンク関数 $g(\mu_i)=\eta_i$。
+ポアソン分布では
+$$
+P(Y=y)
+=\frac{e^{-\mu}\mu^y}{y!}
+=\exp\{y\log\mu-\mu-\log(y!)\}.
+$$
+よって
+$$
+\theta=\log\mu,
+\qquad
+b(\theta)=e^\theta,
+\qquad
+a(\phi)=1.
+$$
+したがって
+$$
+b'(\theta)=e^\theta=\mu,
+\qquad
+b''(\theta)=e^\theta=\mu,
+$$
+なので $E[Y]=\operatorname{Var}(Y)=\mu$ であり、正準リンクは
+$$
+g(\mu)=\log\mu.
+$$
+
+ベルヌーイ分布では
+$$
+P(Y=y)=p^y(1-p)^{1-y}.
+$$
+対数を整理すると
+$$
+\begin{aligned}
+\log P(Y=y)
+&=y\log p+(1-y)\log(1-p)\\
+&=y\log\frac{p}{1-p}+\log(1-p).
+\end{aligned}
+$$
+ここで
+$$
+\theta=\log\frac{p}{1-p}
+$$
+と置けば
+$$
+p=\frac{e^\theta}{1+e^\theta},
+\qquad
+\log(1-p)=-\log(1+e^\theta),
+$$
+だから
+$$
+P(Y=y)
+=\exp\{y\theta-\log(1+e^\theta)\}.
+$$
+よって
+$$
+b(\theta)=\log(1+e^\theta),
+$$
+自然母数そのものがロジットなので正準リンクは
+$$
+g(p)=\log\frac{p}{1-p}.
+$$
 
 ## 計算例
-二項分布＋logitリンクでロジスティック回帰。
+ポアソン回帰で平均が $\mu=3$ なら、正準リンクによる線形予測子は
+$$
+\eta=\log3\approx1.099.
+$$
+逆に $\eta=\log5$ なら
+$$
+\mu=e^\eta=5.
+$$
+
+ベルヌーイ応答で成功確率が $p=0.8$ なら
+$$
+\eta
+=\log\frac{0.8}{0.2}
+=\log4
+\approx1.386.
+$$
+逆に $\eta=0$ ならオッズが1なので
+$$
+p=\frac12.
+$$
+
+この2例では、分布ごとに異なる平均の範囲
+$$
+\mu>0\quad\text{または}\quad0<p<1
+$$
+を、リンク関数が実数全体を取る線形予測子へ写している。
 
 ## 注意
-誤差を応答へ加える通常の線形回帰とは表現が異なる。
+「一般化線形モデルでは必ず正準リンクを使う」わけではない。正準リンクは計算や理論が簡潔になる代表的選択だが、目的に応じて非正準リンクも使える。
+
+指数型分布族として扱う際は、台が未知母数に依存しないなど通常の正則性にも注意する。また $a(\phi)$ の具体形や分散母数の有無は分布ごとに異なる。
+
+通常の正規線形回帰は、正規分布＋恒等リンクを用いる一般化線形モデルの特殊例として含まれる。
 
 <!-- CARD -->
 
