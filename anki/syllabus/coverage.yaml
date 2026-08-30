@@ -634,9 +634,8 @@ items:
     cards:
       - est-bernoulli-mle
       - mle-likelihood-vs-probability
-      - mle-likelihood-construction
-      - mle-log-likelihood
       - mle-score-equation
+      - mle-log-likelihood
       - mle-normal-variance
       - mle-bernoulli-binomial
       - mle-exponential
@@ -659,7 +658,7 @@ items:
         status: card
         cards:
           - mle-likelihood-vs-probability
-          - mle-likelihood-construction
+          - mle-score-equation
       - name: 対数尤度関数
         status: card
         cards:
