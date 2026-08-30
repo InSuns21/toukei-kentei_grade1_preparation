@@ -2411,11 +2411,9 @@ items:
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
       - engdesign-fixed-effect-hypothesis
-      - engdesign-block-vs-covariate
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
       - engdesign-incomplete-block-connectivity
-      - engdesign-bibd-contrast-variance
       - engdesign-nested-df
       - engdesign-repeated-measures-unit
       - engdesign-choice-integrated
@@ -2440,7 +2438,6 @@ items:
         status: card
         cards:
           - engdesign-confounder-randomization
-          - engdesign-block-vs-covariate
       - name: ブロック化
         status: card
         cards:
@@ -2448,7 +2445,6 @@ items:
           - engdesign-block-generator-protect-effects
           - engdesign-split-plot-randomization
           - engdesign-incomplete-block-connectivity
-          - engdesign-bibd-contrast-variance
       - name: 直交表
         status: card
         cards:
