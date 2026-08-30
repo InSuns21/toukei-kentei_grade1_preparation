@@ -306,31 +306,110 @@ $$m_2=2(6-2)=8.$$
 
 ---
 id: engproc-ctmc-generator-check
-title: 連続時間マルコフ連鎖の生成行列を判定する
+title: CTMCの生成行列を判定し保持時間とジャンプ確率まで読む
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: ctmc-generator
-type: recognition
-difficulty: 2
-priority: B
-hashtags: [マルコフ過程, 連続時間マルコフ連鎖, 生成行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+topic: ctmc-generator-holding-jump-canonical
+type: strategy
+difficulty: 3
+priority: A
+hashtags:
+  - マルコフ過程
+  - 連続時間マルコフ連鎖
+  - 生成行列
+  - 保持時間
+  - ジャンプ連鎖
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ過程
 ---
 ## 問題
-$Q=\begin{pmatrix}-3&2&1\\1&-1&0\\0&4&-4\end{pmatrix}$ は連続時間マルコフ連鎖の生成行列になり得るか。
+連続時間マルコフ連鎖の候補として
+$$
+Q=\begin{pmatrix}
+-3&2&1\\
+1&-1&0\\
+0&4&-4
+\end{pmatrix}
+$$
+が与えられた。
+1. $Q$ が生成行列になり得るか判定せよ。
+2. 状態1にいるときの離脱率、保持時間の分布と平均を求めよ。
+3. 状態1を離脱するとき、状態2および状態3へジャンプする確率を求めよ。
+
 ## 記号・用語
-$q_{ij}$ は状態 $i$ から $j$ への遷移率、$q_{ii}$ は状態 $i$ から出る総率の負値である。
+$q_{ij}$ は状態 $i$ から状態 $j$ への遷移率である。生成行列では非対角成分が遷移率を表し、対角成分はその状態から出る総率の負値である。状態 $i$ からの離脱率を
+$$
+\nu_i=-q_{ii}
+$$
+と書く。
+
 ## 使用公式・定理
-生成行列は $i\ne j$ で $q_{ij}\ge0$、各行和が0を満たす。
+有限状態の連続時間マルコフ連鎖の生成行列 $Q=(q_{ij})$ は
+$$
+q_{ij}\ge0\quad(i\ne j),
+$$
+$$
+q_{ii}=-\sum_{j\ne i}q_{ij},
+$$
+すなわち各行和が0である。
+
+状態 $i$ の保持時間 $H_i$ は離脱率 $\nu_i=-q_{ii}$ の指数分布に従い、
+$$
+P(H_i>t)=e^{-\nu_i t},
+\qquad
+E[H_i]=\frac1{\nu_i}.
+$$
+離脱したという条件のもとで、次に状態 $j$ へ移る確率は
+$$
+p_{ij}=\frac{q_{ij}}{\nu_i}
+=\frac{q_{ij}}{-q_{ii}}
+\qquad(j\ne i).
+$$
+
 ## 一手／方針
-非対角成分の符号と各行和を確認する。
+**Qを見たら「非対角非負→行和0→対角の絶対値を離脱率として読む→非対角成分を離脱率で割る」の順に処理する。** 離散時間の遷移確率行列と違って、生成行列そのものの行和は1ではない。
+
 ## 答え
-非対角成分はすべて非負で、行和は $-3+2+1=0$、$1-1=0$、$4-4=0$。よって生成行列になり得る。
+1. 非対角成分はすべて非負であり、各行和は
+$$
+-3+2+1=0,
+\qquad
+1-1+0=0,
+\qquad
+0+4-4=0.
+$$
+よって $Q$ は生成行列になり得る。
+
+2. 状態1の離脱率は
+$$
+\nu_1=-q_{11}=3.
+$$
+したがって
+$$
+H_1\sim\operatorname{Exp}(3),
+\qquad
+E[H_1]=\frac13.
+$$
+
+3. 離脱時のジャンプ確率は
+$$
+p_{12}=\frac{2}{3},
+\qquad
+p_{13}=\frac{1}{3}.
+$$
+実際 $p_{12}+p_{13}=1$ である。
+
 ## 計算例
-状態1の保持時間は率3の指数分布に従う。
+状態3の行は $(0,4,-4)$ なので離脱率は4、平均保持時間は $1/4$ である。また離脱時には状態2へ確率1で移る。
+
 ## 注意
-離散時間の遷移行列と異なり、対角成分は負で行和は1でなく0である。
+生成行列 $Q$ と、ジャンプ時点だけを見た埋込離散時間連鎖の遷移行列 $P=(p_{ij})$ を混同しない。$Q$ の非対角成分は確率ではなく単位時間当たりの率なので1を超えてもよい。一方、$p_{ij}=q_{ij}/(-q_{ii})$ は離脱した後の行先確率であり各行で1に和する。
 
 <!-- CARD -->
 
