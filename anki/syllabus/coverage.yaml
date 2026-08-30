@@ -1093,14 +1093,8 @@ items:
     status: complete
     cards:
       - test-normal-z-known-formula
-      - test-normal-z-one-sided-numeric
-      - test-normal-z-left-sided
-      - test-normal-z-two-sided-pvalue
       - test-normal-t-pivot
-      - test-normal-t-numeric
-      - test-normal-t-assumptions
       - test-paired-t-construction
-      - test-paired-t-numeric
       - test-paired-versus-independent
       - test-pooled-two-sample-t
       - test-pooled-two-sample-t-numeric
@@ -1119,12 +1113,7 @@ items:
         status: card
         cards:
           - test-normal-z-known-formula
-          - test-normal-z-one-sided-numeric
-          - test-normal-z-left-sided
-          - test-normal-z-two-sided-pvalue
           - test-normal-t-pivot
-          - test-normal-t-numeric
-          - test-normal-t-assumptions
           - test-normal-variance-chisquare
           - test-normal-variance-chisquare-numeric
           - test-normal-variance-one-sided
@@ -1136,7 +1125,6 @@ items:
         status: card
         cards:
           - test-paired-t-construction
-          - test-paired-t-numeric
           - test-paired-versus-independent
           - test-pooled-two-sample-t
           - test-pooled-two-sample-t-numeric
