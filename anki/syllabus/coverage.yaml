@@ -1735,8 +1735,6 @@ items:
       - design-crd-difference-means
       - design-blocking-paired-variance
       - design-rcbd-relative-efficiency
-      - design-rcbd-sums-squares
-      - design-rcbd-degrees-freedom
       - design-rcbd-anova-numeric
       - design-latin-square-definition
       - design-latin-square-model
@@ -1787,8 +1785,6 @@ items:
           - design-fisher-three-principles
           - design-blocking-paired-variance
           - design-rcbd-relative-efficiency
-          - design-rcbd-sums-squares
-          - design-rcbd-degrees-freedom
           - design-rcbd-anova-numeric
           - design-rcbd-missing-value
           - design-split-plot-error-strata
@@ -1796,8 +1792,6 @@ items:
         status: card
         cards:
           - design-rcbd-relative-efficiency
-          - design-rcbd-sums-squares
-          - design-rcbd-degrees-freedom
           - design-rcbd-anova-numeric
           - design-rcbd-missing-value
           - design-oneway-vs-block
@@ -2443,20 +2437,15 @@ items:
     status: complete
     cards:
       - engdesign-confounder-randomization
-      - engdesign-weighted-contrast-covariance
       - engdesign-lack-of-fit-decomposition
       - engdesign-foldover-dealias
       - engdesign-block-generator-protect-effects
-      - engdesign-rcbd-adjusted-difference
-      - engdesign-cyclic-incomplete-blocks
       - engdesign-fixed-effect-hypothesis
       - engdesign-block-vs-covariate
       - engdesign-snr-smaller-better
       - engdesign-split-plot-randomization
-      - engdesign-incomplete-incidence-matrix
-      - engdesign-bibd-parameter-check
-      - engdesign-bibd-contrast-variance
       - engdesign-incomplete-block-connectivity
+      - engdesign-bibd-contrast-variance
       - engdesign-nested-df
       - engdesign-repeated-measures-unit
       - engdesign-choice-integrated
@@ -2486,18 +2475,13 @@ items:
         status: card
         cards:
           - engdesign-confounder-randomization
-          - engdesign-rcbd-adjusted-difference
-          - engdesign-cyclic-incomplete-blocks
           - engdesign-block-generator-protect-effects
           - engdesign-split-plot-randomization
-          - engdesign-incomplete-incidence-matrix
-          - engdesign-bibd-parameter-check
-          - engdesign-bibd-contrast-variance
           - engdesign-incomplete-block-connectivity
+          - engdesign-bibd-contrast-variance
       - name: 直交表
         status: card
         cards:
-          - engdesign-weighted-contrast-covariance
           - engdesign-snr-smaller-better
       - name: 交絡法
         status: card

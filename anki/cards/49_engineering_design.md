@@ -1,34 +1,4 @@
 ---
-id: engdesign-weighted-contrast-covariance
-title: 不等反復で2コントラストの共分散を判定する
-category: applied-engineering
-subcategory: engineering-design
-topic: unequal-replication-contrasts
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [実験の計画と実施, 不等反復, コントラスト]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 直交表 }]
----
-## 問題
-3処置の独立標本数が $(2,4,4)$、コントラスト係数が $\boldsymbol c=(1,-1,0)$、$\boldsymbol d=(1/2,1/2,-1)$ である。誤差分散を $\sigma^2$ として両推定量の共分散を求めよ。
-## 記号・用語
-各係数ベクトルは成分和0を満たし、$\widehat C=\sum_i c_i\overline Y_i$、$\widehat D=\sum_i d_i\overline Y_i$ とする。
-## 使用公式・定理
-独立・等分散誤差では $\operatorname{Cov}(\widehat C,\widehat D)=\sigma^2\sum_i c_id_i/n_i$。
-## 一手／方針
-反復数を分母に入れた重み付き内積を計算する。
-## 答え
-$$\operatorname{Cov}(\widehat C,\widehat D)=\sigma^2\left(\frac{1/2}{2}-\frac{1/2}{4}\right)=\frac{\sigma^2}{8}.$$
-## 計算例
-共分散が0でないため、この不等反復計画では両コントラストは直交しない。
-## 注意
-係数の通常内積だけを0にしても、不等反復では無相関にならない。
-
-<!-- CARD -->
-
----
 id: engdesign-lack-of-fit-decomposition
 title: 反復点から純粋誤差・適合不足・中心点曲率を一続きで診断する
 category: applied-engineering
@@ -340,66 +310,6 @@ $$
 「高次交互作用をブロックと交絡させればよい」は絶対則ではない。科学的に重要な効果を先に決め、ブロック定義群にそれらが入らないことを確認する。部分交絡では各効果の情報量が完全に交絡のない計画より少なくなることがある。
 
 一部実施要因計画の別名構造と、完全要因計画をブロック化したときのブロック交絡は、どちらも列の一致を使うが設計目的が異なる。前者は実験点を減らすため、後者は同時に実施できる大きさへ分けるためである。
-
-<!-- CARD -->
-
----
-id: engdesign-rcbd-adjusted-difference
-title: 乱塊法の処置差をブロック内差から求める
-category: applied-engineering
-subcategory: engineering-design
-topic: randomized-complete-block
-type: calc_step
-difficulty: 2
-priority: B
-hashtags: [ブロック化, 乱塊法, 処置差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-3ブロックで処置A、Bの観測が $(10,14),(9,12),(13,15)$ である。B−Aの処置差を求めよ。
-## 記号・用語
-各組は同一ブロック内の $(A,B)$ 観測である。
-## 使用公式・定理
-完全ブロックで2処置なら処置差推定量はブロック内差 $D_j=Y_{Bj}-Y_{Aj}$ の平均である。
-## 一手／方針
-ブロックごとの差を作り、その平均を取る。
-## 答え
-差は $(4,3,2)$ なので $\overline D=(4+3+2)/3=3$。
-## 計算例
-ブロック水準がそれぞれ大きく違っても、加法モデルなら差で除ける。
-## 注意
-欠測がある不完備ブロックでは単純な差平均をそのまま使えない。
-
-<!-- CARD -->
-
----
-id: engdesign-cyclic-incomplete-blocks
-title: 基本ブロックを巡回して不完備ブロック計画を作る
-category: applied-engineering
-subcategory: engineering-design
-topic: cyclic-incomplete-block
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, 不完備ブロック, 巡回計画]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置を $0,1,2,3,4$ とし、基本ブロック $\{0,1\}$ を法5で巡回して5ブロックを作れ。
-## 記号・用語
-巡回計画は基本ブロックの各処置番号へ同じ整数を法vで加える。
-## 使用公式・定理
-$B_s=\{(x+s)\bmod5:x\in\{0,1\}\}$、$s=0,\ldots,4$。
-## 一手／方針
-$s$ を0から4まで動かす。
-## 答え
-$\{0,1\},\{1,2\},\{2,3\},\{3,4\},\{4,0\}$。
-## 計算例
-各処置は2回現れ、接続グラフは5角形なので全処置対比が推定可能である。
-## 注意
-隣接処置対だけが共出現するためBIBDではない。
 
 <!-- CARD -->
 
@@ -754,66 +664,6 @@ Bの測定数が多くても、Aの実質的な反復数は一次実験単位数
 
 ## 注意
 分割法で最重要なのは「試験片が多いからAの標本サイズも大きい」と誤認しないこと。Aの独立な反復は炉運転などの一次実験単位である。欠測・不釣合い・より複雑な無作為化では単純な自由度分解が崩れるため、混合モデルとして扱うのが自然である。
-
-<!-- CARD -->
-
----
-id: engdesign-incomplete-incidence-matrix
-title: 不完備ブロック計画の接続行列を作る
-category: applied-engineering
-subcategory: engineering-design
-topic: incomplete-block-incidence
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, 不完備ブロック, 接続行列]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置A、B、Cとブロック1=$(A,B)$、2=$(A,C)$、3=$(B,C)$ から、行を処置、列をブロックとする接続行列 $N$ を作れ。
-## 記号・用語
-$N_{ij}=1$ は処置$i$がブロック$j$に入ること、0は入らないことを表す。
-## 使用公式・定理
-各ブロックの処置集合を列ごとの0–1指示ベクトルへする。
-## 一手／方針
-ブロック1、2、3についてA、B、Cの有無を順に記入する。
-## 答え
-$$N=\begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix}.$$
-## 計算例
-各行和は反復数2、各列和はブロックサイズ2である。
-## 注意
-不完備ブロックでは全処置が同一ブロックにそろわないため、ブロック調整した比較を使う。
-
-<!-- CARD -->
-
----
-id: engdesign-bibd-parameter-check
-title: BIBDのパラメータ関係を確認する
-category: applied-engineering
-subcategory: engineering-design
-topic: bibd-parameters
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [ブロック化, BIBD, 不完備ブロック]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ブロック化 }]
----
-## 問題
-処置数 $v=4$、ブロックサイズ $k=3$、各処置の反復数 $r=3$、ブロック数 $b=4$ の計画がBIBDの基本関係を満たすか確認し、処置対の共出現数 $\lambda$ を求めよ。
-## 記号・用語
-BIBDはbalanced incomplete block design（釣合い型不完備ブロック計画）である。
-## 使用公式・定理
-$vr=bk$、$\lambda(v-1)=r(k-1)$。
-## 一手／方針
-総処置出現数を両側で確認し、第2式から$\lambda$を解く。
-## 答え
-$4(3)=4(3)=12$、$\lambda=3(2)/3=2$ なので基本関係を満たす。
-## 計算例
-各処置対がちょうど2ブロックで一緒に現れる必要がある。
-## 注意
-パラメータ関係は必要条件であり、整数解があっても実際の配置が存在するとは限らない。
 
 <!-- CARD -->
 
