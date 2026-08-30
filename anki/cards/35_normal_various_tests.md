@@ -1,37 +1,81 @@
 ---
 id: test-normal-z-known-formula
-title: 分散既知の正規平均Z検定を構成する
+title: 分散既知の正規平均Z検定を方向判定からP値まで解く
 category: math-testing
 subcategory: math-normal-tests
-topic: normal-z-test
-type: formula
+topic: normal-z-test-canonical
+type: strategy
 difficulty: 2
-priority: A
-hashtags: [正規分布, Z検定, 平均値と分散に関する検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定 }]
+priority: S
+hashtags:
+  - 正規分布
+  - Z検定
+  - 片側検定
+  - P値
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 平均値と分散に関する検定
 ---
 
 ## 問題
-正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本で、$\sigma^2$ は既知とする。$H_0:\mu=\mu_0$ の検定統計量と両側棄却域を書け。
+正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本 $X_1,\ldots,X_n$ を考え、$\sigma^2$ は既知とする。$H_0:\mu=\mu_0$ のZ検定について、対立仮説が右片側・左片側・両側の場合の棄却方向とP値を書け。
+
+さらに次を計算せよ。
+1. $\sigma=3,n=36,\bar x=11.2$、$H_0:\mu=10$ 対 $H_1:\mu>10$ を5%で検定する。
+2. 両側検定で $z_{\rm obs}=-2.30$ を得たときP値を求める。
 
 ## 記号・用語
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+帰無仮説の下で
+$$
+Z=\frac{\bar X-\mu_0}{\sigma/\sqrt n}\sim N(0,1).
+$$
+$\Phi$ を標準正規分布の累積分布関数、$z_\alpha$ を上側 $\alpha$ 点とすると、
+$$
+\begin{array}{c|c|c}
+H_1 & \text{棄却域} & \text{P値}\\ \hline
+\mu>\mu_0 & Z>z_\alpha & 1-\Phi(z_{\rm obs})\\
+\mu<\mu_0 & Z<-z_\alpha & \Phi(z_{\rm obs})\\
+\mu\ne\mu_0 & |Z|>z_{\alpha/2} & 2\{1-\Phi(|z_{\rm obs}|)\}
+\end{array}
+$$
 
-$z_\gamma$ は標準正規分布の上側 $\gamma$ 点：$P(Z>z_\gamma)=\gamma$。
+## 一手
+まず対立仮説の向きから「右・左・両側」を決め、その後にZ統計量を計算する。左片側で絶対値を取ったり、両側なのに片側P値を使ったりしない。
 
 ## 答え
-$$Z=\frac{\overline X-\mu_0}{\sigma/\sqrt n},\qquad H_0\text{の下で }Z\sim N(0,1).$$
-有意水準 $\alpha$ の両側棄却域は $|Z|>z_{\alpha/2}$。
+1. 標準誤差は $3/\sqrt{36}=0.5$ なので
+$$
+z=\frac{11.2-10}{0.5}=2.4.
+$$
+$2.4>z_{0.05}=1.645$ より5%で $H_0$ を棄却する。
+
+2. 両側P値は
+$$
+2\{1-\Phi(2.30)\}\approx0.0214
+$$
+なので5%で棄却する。
 
 ## 計算例
-$\alpha=0.05$ なら $z_{0.025}=1.96$ なので $|Z|>1.96$ で棄却する。
+左片側の符号確認として、$\sigma=2,n=25,\bar x=4.4$、$H_0:\mu=5$ 対 $H_1:\mu<5$ なら
+$$
+z=\frac{4.4-5}{2/5}=-1.5.
+$$
+左側5%臨界値は $-1.645$ であり、$-1.5>-1.645$ だから棄却しない。P値も
+$$
+\Phi(-1.5)\approx0.0668>0.05
+$$
+で同じ結論になる。
 
 ## 注意
-母分散未知なら標本分散に置き換えるだけでなく、t分布を使う。
+母分散未知の正規小標本では、$\sigma$ を単に $S$ に置き換えて標準正規分布を使うのではなく、t統計量を使う。両側P値は対称な帰無分布で片側尾確率を2倍する。
 <!-- CARD -->
 
 ---
@@ -145,37 +189,70 @@ $$p=2P(Z\ge2.30)=2\{1-\Phi(2.30)\}\approx2(0.0107)=0.0214.$$
 
 ---
 id: test-normal-t-pivot
-title: 正規平均の1標本t統計量を導く
+title: 1標本t検定を導出から数値判定まで解く
 category: math-testing
 subcategory: math-normal-tests
-topic: one-sample-t
-type: formula
+topic: one-sample-t-canonical
+type: strategy
 difficulty: 3
-priority: A
-hashtags: [正規分布, t検定, 平均値と分散に関する検定]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定 }]
+priority: S
+hashtags:
+  - 正規分布
+  - t検定
+  - 1標本
+  - P値
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 平均値と分散に関する検定
 ---
 
 ## 問題
-正規分布 $N(\mu,\sigma^2)$ からの標本で $\sigma^2$ は未知とする。$H_0:\mu=\mu_0$ の検定統計量と帰無分布を示せ。
+正規分布 $N(\mu,\sigma^2)$ からの独立同分布標本 $X_1,\ldots,X_n$ を考え、$\sigma^2$ は未知とする。$H_0:\mu=\mu_0$ の1標本t検定について、統計量と帰無分布を導き、有限標本で正確となる条件を述べよ。
+
+さらに $n=16,\bar x=52,s=4$、$H_0:\mu=50$ 対 $H_1:\mu\ne50$ を5%で検定せよ。ただし $t_{15,0.025}=2.131$ とする。
 
 ## 記号・用語
 - 棄却域：帰無仮説を棄却する統計量・標本結果の集合
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+正規標本では
+$$
+Z=\frac{\bar X-\mu_0}{\sigma/\sqrt n}\sim N(0,1),
+\qquad
+V=\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+$$
+で、$Z$ と $V$ は独立である。したがって
+$$
+T=\frac{Z}{\sqrt{V/(n-1)}}
+=\frac{\bar X-\mu_0}{S/\sqrt n}
+\sim t_{n-1}.
+$$
 
-$Z=(\overline X-\mu_0)/(\sigma/\sqrt n)\sim N(0,1)$、$V=(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$、かつ $Z$ と $V$ は独立なので $Z/\sqrt{V/(n-1)}\sim t_{n-1}$。
+## 一手
+母分散未知の正規平均なら、標準誤差を $S/\sqrt n$ とし、自由度 $n-1$ のt分布へ落とす。対立仮説の向きに応じて片側または両側の臨界値と比較する。
 
 ## 答え
-$$T=\frac{\overline X-\mu_0}{S/\sqrt n}\sim t_{n-1}.$$
+数値例では
+$$
+T=\frac{52-50}{4/\sqrt{16}}=2,
+\qquad \mathrm{df}=15.
+$$
+両側5%では $|2|<2.131$ なので $H_0$ を棄却しない。P値は約0.064である。
 
 ## 計算例
-$n=16$ なら自由度は $15$ で、両側5%棄却域は $|T|>t_{15,0.025}$。
+標準誤差は
+$$
+\frac{s}{\sqrt n}=\frac4{4}=1
+$$
+なので統計量は直ちに $T=2$。有限標本で上のt分布が正確なのは、観測が独立同分布で母集団が正規分布に従うためである。
 
 ## 注意
-母集団の正規性が有限標本での正確なt分布を保証する。
+正確な有限標本t分布には正規性が使われる。大標本ではある程度の非正規性に頑健でも、小標本で強い歪みや外れ値があると平均と標準偏差の双方が強く影響される。「母分散未知だから常にt検定」ではなく、標本設計と分布条件も確認する。
 <!-- CARD -->
 
 ---
@@ -248,35 +325,63 @@ $n=8$ で1点だけ極端に大きい場合、平均と標準偏差の双方が�
 
 ---
 id: test-paired-t-construction
-title: 対応のあるt検定を差の1標本t検定へ帰着する
+title: 対応のあるt検定を差の1標本t検定として完遂する
 category: math-testing
 subcategory: math-normal-tests
-topic: paired-t
-type: formula
+topic: paired-t-canonical
+type: strategy
 difficulty: 2
-priority: A
-hashtags: [対応のあるt検定, 正規分布, 複数の平均に関する検定]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 平均値と分散に関する検定 }, { type: past_exam, id: MATH-2014-Q4, topic: F分布・二標本比較 }]
+priority: S
+hashtags:
+  - 対応のあるt検定
+  - t検定
+  - 差
+  - P値
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 平均値と分散に関する検定
+  - type: past_exam
+    id: MATH-2014-Q4
+    topic: F分布・二標本比較
 ---
 
 ## 問題
-同じ対象の前後測定 $(X_i,Y_i)$ から平均差0を検定する統計量を書け。
+同じ対象の前後測定または1対1に対応付けられた標本 $(X_i,Y_i)$ について、平均差0を検定する方法を述べよ。
+
+差を $D_i=Y_i-X_i$ と定義し、$n=12,\bar d=3,s_D=4$ を得た。$H_0:\mu_D=0$ 対 $H_1:\mu_D>0$ の検定統計量を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+ペアごとの差
+$$
+D_i=Y_i-X_i
+$$
+を1つの標本とみなす。差 $D_i$ が独立に $N(\mu_D,\sigma_D^2)$ に従うなら、帰無仮説 $H_0:\mu_D=0$ の下で
+$$
+T=\frac{\bar D}{S_D/\sqrt n}\sim t_{n-1}.
+$$
 
-対応のある検定はペア内相関を差の分散に取り込む。
+## 一手
+元の2群を別々に比較せず、まず各ペアを差1個へ圧縮する。その後は通常の1標本t検定として処理する。
 
 ## 答え
-$D_i=X_i-Y_i$ と置き、差が独立に正規分布 $N(\mu_D,\sigma_D^2)$ に従うなら
-$$T=\frac{\overline D}{S_D/\sqrt n}\sim t_{n-1}\quad(H_0:\mu_D=0).$$
+$$
+T=\frac{3}{4/\sqrt{12}}
+=\frac{3\sqrt{12}}4
+\approx2.598,
+\qquad \mathrm{df}=11.
+$$
+右片側P値は $P(t_{11}\ge2.598)$ である。
 
 ## 計算例
-$n=10$ なら自由度は9であり、元データ20個ではなく差10個を標本とみなす。
+$t_{11,0.025}\approx2.201$ なので $2.598>2.201$。したがって少なくとも片側2.5%水準では棄却でき、片側5%でも棄却する。
 
 ## 注意
-正規性の条件は各群別ではなく差 $D_i$ の分布に置く。
+正規性の条件は各群 $X,Y$ それぞれではなく差 $D$ の分布に置く。差の向きを逆にすれば統計量の符号と対立仮説の向きも同時に逆になる。ペア内相関を無視して独立2標本検定へ変えてはいけない。
 <!-- CARD -->
 
 ---
