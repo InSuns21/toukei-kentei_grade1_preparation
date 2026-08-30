@@ -1,0 +1,44 @@
+id: "E1-02"
+title: "主成分分析・固有値問題"
+volume: "engineering"
+status: self_review
+prerequisites:
+  - E1-01
+  - F0-00
+official_scope:
+  - 主成分分析
+  - 固有値
+  - 固有ベクトル
+  - 分散共分散行列
+  - 相関行列
+learning_objectives:
+  - 最大分散問題から主成分の固有値問題を導出できる
+  - 固有値と単位固有ベクトルから主成分得点を構成できる
+  - 主成分分散と主成分間共分散を導出できる
+  - 寄与率と累積寄与率を固有値から計算できる
+  - 上位主成分による再構成を直交射影として表せる
+  - 再構成誤差が捨てた固有値の和になることを導出できる
+  - 分散共分散行列主成分分析と相関行列主成分分析を使い分けられる
+definitions:
+  - { id: E102-DEF-01, name: 第1主成分 }
+  - { id: E102-DEF-02, name: 主成分得点 }
+  - { id: E102-DEF-03, name: 寄与率と累積寄与率 }
+  - { id: E102-DEF-04, name: 主成分再構成 }
+theorems:
+  - { id: E102-THM-01, name: 最大分散方向と最大固有値 }
+  - { id: E102-THM-02, name: 主成分間の無相関性 }
+  - { id: E102-THM-03, name: 全分散と固有値和 }
+  - { id: E102-THM-04, name: 主成分再構成誤差 }
+canonical_examples: [二変量主成分分析, 寄与率, 相関行列主成分分析, 低次元再構成]
+problem_patterns: [PCA-START-1, PCA-EIGEN-1, PCA-VAR-1, PCA-RATIO-1, PCA-RECON-1, PCA-SCALE-1]
+past_exam_alignment:
+  - { id: RIKOU-68, current_skills: [主成分分析, 固有値, 固有ベクトル, 寄与率], later_skills: [] }
+  - { id: RIKOU-67, current_skills: [相関行列, 標準化], later_skills: [主成分分析] }
+  - { id: RIKOU-70, current_skills: [共分散固有構造, 白色化], later_skills: [] }
+integrated_exam_problems: [E1-02-C01, E1-02-C02, E1-02-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 7, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
