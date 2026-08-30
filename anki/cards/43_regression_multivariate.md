@@ -233,16 +233,27 @@ $$e_{(i)}=y_i-\widehat y_{(i)}=\frac{e_i}{1-h_{ii}}
 
 ---
 id: reg-dffits-numeric
-title: DFFITSで予測への影響を測る
+title: レバレッジからDFFITS・DFBETAまで影響診断する
 category: applied-common
 subcategory: applied-multiple-regression
-topic: dffits
+topic: regression-influence-diagnostics-canonical
 type: calc_step
 difficulty: 4
 priority: B
-hashtags: [回帰診断法, DFFITS, 影響点]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 回帰診断法 }]
+hashtags:
+  - 回帰診断法
+  - レバレッジ
+  - DFFITS
+  - DFBETA
+  - 影響点
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 回帰診断法
 ---
 
 ## 問題
@@ -253,6 +264,19 @@ sources: [{ type: official_syllabus, topic: 回帰診断法 }]
 - レバレッジ：説明変数空間での観測の位置を表すハット行列の対角要素
 
 ## 使用公式・定理
+ハット行列を
+$$
+\boldsymbol H
+=\boldsymbol X(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol X^{\mathsf T}
+$$
+とすると、レバレッジは $h_{ii}=H_{ii}$ である。切片を含む係数総数を $k$ とすれば
+$$
+\sum_{i=1}^{n}h_{ii}=\operatorname{tr}(H)=k,
+\qquad
+\overline h=\frac{k}{n}.
+$$
+したがって $2k/n$ や $3k/n$ は「高レバレッジ候補」を拾う経験的目安として使われる。
+
 DFFITSは観測 $i$ を除いたときの $i$ 自身の当てはめ値変化を尺度化し、外的スチューデント化残差 $t_i$ を用いて
 $$
 \operatorname{DFFITS}_i
@@ -268,11 +292,7 @@ $$
 で測る。標準誤差で尺度化したものをDFBETASと呼ぶ。
 
 ## 一手
-DFFITSは、外的スチューデント化残差の大きさに
-$$
-\sqrt{\frac{h_{ii}}{1-h_{ii}}}
-$$
-というレバレッジの増幅係数を掛ける。
+回帰診断では、まず $h_{ii}$ で**説明変数空間での位置の異常さ**を見て、その観測の残差も大きいかを確認し、最後にDFFITSやDFBETAで**実際に当てはめをどれだけ動かすか**を見る。高レバレッジだけでは影響点とは限らない。
 
 ## 答え
 与えられた $t_i=2,h_{ii}=0.2$ では
@@ -282,19 +302,18 @@ $$
 DFFITSは予測値への影響、DFBETAは特定の回帰係数への影響を測る。
 
 ## 計算例
-まず
+まず元のDFFITS例では
+$$
+t_i=2,\qquad h_{ii}=0.2
+$$
+なので
 $$
 \frac{h_{ii}}{1-h_{ii}}
 =\frac{0.2}{0.8}=\frac14,
 $$
-したがって
-$$
-\sqrt{\frac{h_{ii}}{1-h_{ii}}}=\frac12.
-$$
-よって
 $$
 \operatorname{DFFITS}_i
-=2\times\frac12=1.
+=2\sqrt{\frac14}=1.
 $$
 
 同じ観測について、ある係数が
@@ -307,10 +326,21 @@ $$
 $$
 \operatorname{DFBETA}_{ij}=1.2-0.8=0.4.
 $$
-正の値は、その観測を含めることで係数 $j$ が正方向へ0.4動いたことを表す。
+
+次に $n=50$、切片を含む係数総数 $k=5$ の回帰では平均レバレッジは
+$$
+\overline h=\frac{k}{n}=\frac5{50}=0.10.
+$$
+2倍基準は
+$$
+\frac{2k}{n}=0.20.
+$$
+$h_{ii}=0.30$ の観測は $0.30>0.20$ なので高レバレッジ候補として詳しく診断する。ただし、これだけを理由に削除しない。
 
 ## 注意
-DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジの観測は大きな影響を持ち得るが、閾値超過だけで機械的にデータを削除しない。
+$0\le h_{ii}\le1$ である。$2k/n$ や $3k/n$ は機械的な棄却基準ではなく、精査対象を拾う診断上の目安にすぎない。
+
+DFFITS・DFBETAはいずれも「削除前後の変化」を見る影響診断である。大残差や高レバレッジのどちらか一方だけで影響点とは決まらず、両者が組み合わさると影響が大きくなりやすい。異常値を機械的に除外せず、入力誤り・別集団・モデル不適合などの原因を確認する。
 
 <!-- CARD -->
 
