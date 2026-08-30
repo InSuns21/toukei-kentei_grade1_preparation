@@ -1043,14 +1043,15 @@ $Q$ と $H$ はそれぞれ状態雑音と観測雑音の分散共分散行列�
 
 ---
 id: ts-kalman-update
-title: カルマンフィルタの予測→更新を1サイクル計算する
+title: 状態空間モデルを書きカルマンフィルタの予測→更新を1サイクル解く
 category: applied-common
 subcategory: applied-time-series
-topic: kalman-filter-cycle
-type: calc_step
+topic: state-space-kalman-cycle-canonical
+type: strategy
 difficulty: 3
 priority: A
 hashtags:
+  - 時系列解析
   - 状態空間モデル
   - カルマンフィルタ
   - 予測
@@ -1065,32 +1066,47 @@ sources:
     topic: 状態空間モデル
 ---
 ## 問題
-1次元状態空間モデルで
+線形ガウス状態空間モデルとカルマンフィルタについて次を解け。
+
+1. 潜在状態 $\boldsymbol\alpha_t$ と観測 $\boldsymbol y_t$ を用いる状態方程式・観測方程式を書き、$Q,H$ の意味を述べよ。
+2. 1次元モデルで
 $$
-a_{t-1\mid t-1}=2,
-\quad P_{t-1\mid t-1}=3,
-\quad T=0.5,
-\quad Q=1,
+a_{t-1\mid t-1}=2,\quad P_{t-1\mid t-1}=3,
+\quad T=0.5,\quad Q=1,
 $$
 $$
-Z=1,
-\quad H=0.25,
-\quad y_t=2
+Z=1,\quad H=0.25,\quad y_t=2
 $$
-とする。カルマンフィルタの予測平均・予測分散を求め、その後に観測 $y_t$ で更新平均・更新分散を求めよ。
+とする。予測平均・予測分散、予測誤差、その分散、カルマンゲイン、更新平均・更新分散を順に求めよ。
+3. 観測雑音分散 $H$ が非常に小さいときと非常に大きいとき、カルマンゲインがどう変化し、更新値が予測と観測のどちらを強く信頼するか説明せよ。
 
 ## 記号・用語
-$v_t=y_t-Za_{t\mid t-1}$ は予測誤差、$F_t=Z^2P_{t\mid t-1}+H$ はその分散、$K_t=P_{t\mid t-1}Z/F_t$ はカルマンゲインである。
+線形ガウス状態空間モデルは、直接観測できない**潜在状態**の時間発展と、その状態から観測値が生成される仕組みを2本の式で分けて表す。
+
+状態雑音 $\boldsymbol\eta_t$ は状態自身の予測できない変化、観測雑音 $\boldsymbol\varepsilon_t$ は状態を測る際の誤差を表す。カルマンフィルタは、前時点までの情報から状態を**予測**し、新しい観測でその予測を**更新**する逐次推定法である。
+
 ## 使用公式・定理
-**予測**：
+線形ガウス状態空間モデルを
+$$
+\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t,
+\qquad
+\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t,
+$$
+$$
+\boldsymbol\eta_t\sim N(\boldsymbol0,Q),
+\qquad
+\boldsymbol\varepsilon_t\sim N(\boldsymbol0,H)
+$$
+とする。初期状態と各雑音は標準的には互いに独立と仮定する。
+
+1次元で前時点のフィルタ済み状態平均・分散を $a_{t-1\mid t-1},P_{t-1\mid t-1}$ とすると、予測は
 $$
 a_{t\mid t-1}=Ta_{t-1\mid t-1},
 $$
 $$
 P_{t\mid t-1}=T^2P_{t-1\mid t-1}+Q.
 $$
-
-**更新**：
+観測が来たら
 $$
 v_t=y_t-Za_{t\mid t-1},
 \qquad
@@ -1103,73 +1119,79 @@ $$
 a_{t\mid t}=a_{t\mid t-1}+K_tv_t,
 $$
 $$
-P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}.
+P_{t\mid t}=P_{t\mid t-1}-K_tZP_{t\mid t-1}
 $$
+と更新する。
 
-多次元では分散の予測を
+多次元の予測分散は
 $$
 P_{t\mid t-1}=TP_{t-1\mid t-1}T^{\mathsf T}+Q
 $$
-とする。
+である。
 
 ## 一手／方針
-Kalmanフィルタは「前時点の事後分布を状態方程式で**予測**し、新しい観測でその予測を**更新**する」という2段階を毎時点で繰り返す。式を別カードとして暗記しない。
+**「状態方程式で予測 → 観測方程式で予測誤差を作る → 誤差の不確実性からカルマンゲインを決める → 予測を観測方向へ修正」の順に解く。**
+
+状態空間モデルの2本の定義式を独立暗記せず、カルマンフィルタのどの段階で使われるかと対応させる。数値問題では更新後分散が予測分散より小さくなることを検算に使う。
 
 ## 答え
-予測は
+1. 状態方程式と観測方程式は
 $$
-a_{t\mid t-1}=1,
-\qquad P_{t\mid t-1}=1.75.
-$$
-更新では
-$$
-v_t=1,
-\qquad F_t=2,
-\qquad K_t=0.875,
+\boxed{\boldsymbol\alpha_t=T\boldsymbol\alpha_{t-1}+\boldsymbol\eta_t},
 $$
 $$
-a_{t\mid t}=1.875,
-\qquad P_{t\mid t}=0.21875.
+\boxed{\boldsymbol y_t=Z\boldsymbol\alpha_t+\boldsymbol\varepsilon_t}.
 $$
+$Q$ は状態雑音の分散共分散行列、$H$ は観測雑音の分散共分散行列である。
+
+2. まず予測は
+$$
+a_{t\mid t-1}=0.5\cdot2=\boxed{1},
+$$
+$$
+P_{t\mid t-1}=0.5^2\cdot3+1=\boxed{1.75}.
+$$
+観測との差は
+$$
+v_t=2-1=\boxed{1},
+$$
+その分散は
+$$
+F_t=1.75+0.25=\boxed{2}.
+$$
+よって
+$$
+K_t=1.75/2=\boxed{0.875}.
+$$
+更新後は
+$$
+a_{t\mid t}=1+0.875(1)=\boxed{1.875},
+$$
+$$
+P_{t\mid t}=1.75-0.875(1.75)=\boxed{0.21875}.
+$$
+
+3. $H$ が小さいほど観測は高精度なので $K_t$ は大きくなり、更新平均は観測側へ大きく動く。$H$ が大きいほど観測を信用しにくいため $K_t$ は小さくなり、更新平均は予測値に近く残る。
 
 ## 計算例
-まず予測平均は
+局所水準モデル
 $$
-a_{t\mid t-1}=0.5\cdot2=1.
+\alpha_t=\alpha_{t-1}+\eta_t,
+\qquad
+y_t=\alpha_t+\varepsilon_t
 $$
-予測分散は
+は $T=Z=1$ の状態空間モデルである。
+
+1次元で $Z=1$ の場合
 $$
-\begin{aligned}
-P_{t\mid t-1}
-&=0.5^2\cdot3+1\\
-&=0.75+1\\
-&=1.75.
-\end{aligned}
+K_t=\frac{P^-}{P^-+H}
 $$
-次に
-$$
-v_t=2-1\cdot1=1,
-$$
-$$
-F_t=1^2\cdot1.75+0.25=2,
-$$
-$$
-K_t=\frac{1.75}{2}=0.875.
-$$
-したがって
-$$
-a_{t\mid t}=1+0.875\cdot1=1.875,
-$$
-$$
-\begin{aligned}
-P_{t\mid t}
-&=1.75-0.875\cdot1\cdot1.75\\
-&=0.21875.
-\end{aligned}
-$$
+と書ける。例えば予測分散 $P^-=1$ に対し $H=0.01$ なら $K\approx0.990$、$H=100$ なら $K\approx0.0099$ となり、「不確実性の小さい方を強く信頼する」重みとして読める。
 
 ## 注意
-分散の予測では状態係数を左右から掛ける。更新後分散が予測分散より小さくなることも検算に使える。数値安定性が必要な実装ではJoseph形式を使う場合がある。
+状態 $\boldsymbol\alpha_t$ は観測そのものではなく潜在変数である。状態雑音 $Q$ と観測雑音 $H$ を取り違えない。
+
+多次元では分散予測で $T$ を左右から掛け、観測分散やカルマンゲインも行列になる。実装上は数値安定性のためJoseph形式などを使うことがあるが、1級対策ではまず「予測→更新」の意味と基本式を優先する。
 
 <!-- CARD -->
 
