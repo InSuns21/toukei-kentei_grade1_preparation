@@ -1,20 +1,14 @@
 schema_version: 1
-batch_id: 2026-08-30-rao-blackwell-umvu-reduction-43
+batch_id: 2026-08-30-estimator-properties-reduction-44
 items:
-  - id: est-rao-blackwell-bernoulli
+  - id: est-unbiased-construction
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-rao-blackwell
-    note: Bernoulli標本でE[X1|T=t]=t/nから標本平均を得る具体計算と分散改善をRao-Blackwell正本へ統合済み。
+    canonical_card: est-unbiasedness
+    note: 期待値のずれを確認し倍率補正で不偏化する構成手順を、不偏性の定義と標本分散の数値例を含む正本へ統合済み。
 
-  - id: est-lehmann-scheffe
+  - id: est-consistency-bias
     bucket: duplicates
     reason: duplicate
-    canonical_card: est-rao-blackwell
-    note: 完備十分統計量の関数で不偏なら一意なUMVUとなるLehmann-Scheffe定理をRao-Blackwellからの構成手順へ統合済み。
-
-  - id: est-umvu-idea
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: est-rao-blackwell
-    note: UMVUの概念と、十分統計量での条件付け・完備性による一意性を同じ正本で説明済み。
+    canonical_card: est-consistency
+    note: 有偏でもバイアスとばらつきが消えれば一致しうる点を、分母nの標本分散を使って一致性の定義と同じ正本へ統合済み。
