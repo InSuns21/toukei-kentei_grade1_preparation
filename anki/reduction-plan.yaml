@@ -1,23 +1,13 @@
 schema_version: 1
-batch_id: 2026-08-30-time-series-foundations-differencing-reduction-157
+batch_id: 2026-08-30-arma-roots-acf-pacf-reduction-159
 items:
-  - id: ts-autocovariance-properties
+  - id: ts-ma1-invertibility
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-weak-vs-strong-stationarity
-    note: 自己共分散のgamma(0)>=0、対称性、|gamma(h)|<=gamma(0)、自己相関定義、非負定値性を弱定常性canonical cardへ統合済み。
-  - id: ts-white-noise-identification
+    canonical_card: ts-ar-causality-check
+    note: MA(1)の可逆性条件、再帰代入による|theta|<1の導出、根条件、非可逆例theta=1.2、革新復元の数値例をAR/MA根条件canonical cardへ統合済み。
+  - id: ts-pacf-lag2-calculation
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-weak-vs-strong-stationarity
-    note: 弱ホワイトノイズの平均0・分散一定・異時点無相関、ACF、独立性を意味しない注意までcanonical cardへ統合済み。
-  - id: ts-difference-random-walk
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ts-arima-definition
-    note: ランダムウォークを展開してVar(X_t)=t sigma^2から非定常性を示し、差分がホワイトノイズとなる導出、ARIMA(0,1,0)・I(1)の位置付けまでcanonical cardへ統合済み。
-  - id: ts-seasonal-difference
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ts-arima-definition
-    note: 周期12の季節差分数値例と通常差分との目的の違いをARIMA差分canonical cardへ統合済み。
+    canonical_card: ts-acf-pacf-identification
+    note: ラグ2PACFをYule-Walker方程式から導出し、rho1=0.6,rho2=0.2からalpha22=-0.25を計算する小問とAR(1)で0になる確認をACF/PACFモデル同定canonical cardへ統合済み。
