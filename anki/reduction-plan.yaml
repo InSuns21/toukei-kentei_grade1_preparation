@@ -1,14 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-anova-contrast-reduction-51
+batch_id: 2026-08-30-anova-tukey-reduction-52
 items:
-  - id: anova-contrast-se
+  - id: anova-tukey-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-contrast-definition
-    note: 対比推定量の分散・標準誤差を、対比の定義からt検定まで通す正本へ統合済み。
-
-  - id: anova-contrast-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: anova-contrast-definition
-    note: 計画対比の数値t検定と信頼区間を、係数和0・標準誤差の導出を含む正本へ統合済み。
+    canonical_card: anova-tukey-hsd-formula
+    note: テューキーHSDの比較幅を作って全群対を判定する数値計算を、等群サイズ公式とTukey-Kramer拡張を含む正本へ統合済み。
