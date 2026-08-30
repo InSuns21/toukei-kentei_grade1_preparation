@@ -2148,7 +2148,6 @@ items:
       - engproc-ctmc-uniformization
       - engproc-chapman-kolmogorov-maintenance
       - engproc-stationarity-window-judgment
-      - engproc-sample-autocovariance-numeric
       - engproc-residual-white-noise-bounds
       - engproc-yule-walker-estimate-ar1
       - engproc-ma1-moment-identification
@@ -2195,7 +2194,6 @@ items:
         status: card
         cards:
           - engproc-stationarity-window-judgment
-          - engproc-sample-autocovariance-numeric
           - engproc-residual-white-noise-bounds
           - engproc-pacf-significance-output
           - engproc-periodogram-period-identification
