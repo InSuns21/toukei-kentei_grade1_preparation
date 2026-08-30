@@ -1,13 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-arma-roots-acf-pacf-reduction-159
+batch_id: 2026-08-31-state-space-definition-reduction-160
 items:
-  - id: ts-ma1-invertibility
+  - id: ts-state-space-definition
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-ar-causality-check
-    note: MA(1)の可逆性条件、再帰代入による|theta|<1の導出、根条件、非可逆例theta=1.2、革新復元の数値例をAR/MA根条件canonical cardへ統合済み。
-  - id: ts-pacf-lag2-calculation
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ts-acf-pacf-identification
-    note: ラグ2PACFをYule-Walker方程式から導出し、rho1=0.6,rho2=0.2からalpha22=-0.25を計算する小問とAR(1)で0になる確認をACF/PACFモデル同定canonical cardへ統合済み。
+    canonical_card: ts-kalman-update
+    note: 線形ガウス状態空間モデルの状態方程式・観測方程式、状態雑音Qと観測雑音Hの役割、局所水準モデルの位置付けを、予測→観測更新まで一続きで解くKalman canonical cardへ統合済み。定義だけの独立カードは残さない。
