@@ -1238,7 +1238,6 @@ items:
       - anova-contrast-definition
       - anova-orthogonal-contrasts
       - anova-tukey-hsd-formula
-      - anova-tukey-numeric
       - anova-bonferroni-comparisons
       - anova-scheffe-bound
       - anova-multiple-comparison-choice
@@ -1289,7 +1288,6 @@ items:
         status: card
         cards:
           - anova-tukey-hsd-formula
-          - anova-tukey-numeric
           - anova-bonferroni-comparisons
           - anova-scheffe-bound
           - anova-multiple-comparison-choice
