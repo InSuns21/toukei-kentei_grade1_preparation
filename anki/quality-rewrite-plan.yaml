@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-simulation-canonical-94
+batch_id: 2026-08-30-simulation-canonical-94b
 items:
   - id: sim-inverse-transform-continuous
     note: 逆関数法の原理証明と指数分布への具体的適用は同じ操作なので、導出・数値例・実装上の端点注意まで1枚へ統合する。
@@ -12,7 +12,7 @@ items:
       hashtags: [乱数, 逆関数法, 分布関数, 指数分布]
     sections:
       問題: |
-        $U\sim U(0,1)$ とする。
+        一様分布に従う $U\sim U(0,1)$ とする。
         1. 連続で狭義単調増加な分布関数 $F$ に対して $X=F^{-1}(U)$ が $F$ を分布関数にもつことを示せ。
         2. 率 $\lambda>0$ の指数分布
         $$
