@@ -829,10 +829,8 @@ items:
       - asym-order-notation
       - asym-prob-conv-chebyshev
       - asym-as-conv-prob
-      - asym-ms-conv-prob
       - asym-clt-binomial-normal
       - asym-delta-method-sqrt
-      - asym-mle-av-binomial
       - asym-mle-av-normal
       - asym-are-median-mean
       - asym-exponential-mean-tail
@@ -862,7 +860,6 @@ items:
         cards:
           - asym-mle-consistency
           - asym-mle-asymptotic-normality
-          - asym-mle-av-binomial
           - asym-mle-av-normal
           - asym-mle-poisson-tail-probability
           - asym-exponential-rate-mle
@@ -2279,8 +2276,8 @@ items:
       - engasym-sample-size-mean-precision
       - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
-      - engasym-lln-sensor-average
-      - engasym-consistency-from-mse
+      - asym-wlln
+      - asym-convergence-ms
       - engasym-clt-sum-probability
       - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
@@ -2291,7 +2288,7 @@ items:
       - name: 大数の法則
         status: card
         cards:
-          - engasym-lln-sensor-average
+          - asym-wlln
           - engasym-method-moments-consistency
       - name: 中心極限定理
         status: card
@@ -2324,8 +2321,8 @@ items:
       - name: 一致性
         status: card
         cards:
-          - engasym-lln-sensor-average
-          - engasym-consistency-from-mse
+          - asym-wlln
+          - asym-convergence-ms
           - asym-continuous-mapping
           - engasym-method-moments-consistency
       - name: デルタ法

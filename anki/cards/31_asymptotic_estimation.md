@@ -1487,43 +1487,6 @@ $A=\{\lim_{k\to\infty}X_k=\theta\}$ とおくと $P(A)=1$。$B_n=\bigcup_{k\ge n
 <!-- CARD -->
 
 ---
-id: asym-ms-conv-prob
-title: 平均二乗収束が確率収束を含意することを確認する
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: qm-implies-p
-type: proof_step
-difficulty: 2
-priority: A
-hashtags: [平均二乗収束, 確率収束, チェビシェフの不等式]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 収束の概念 }]
----
-
-## 問題
-$X_n\xrightarrow{qm}\theta$ なら $X_n\xrightarrow{p}\theta$ となることを示せ。
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$$P(|X_n-\theta|>\varepsilon)\le\frac{E[(X_n-\theta)^2]}{\varepsilon^2}.$$
-
-## 答え
-Markov（Chebyshev）不等式を二乗平均に適用する。
-
-## 計算例
-$E[(X_n-\theta)^2]=1/n$ とする。$\varepsilon=0.1,n=400$ では
-$$P(|X_n-\theta|>0.1)
-\le\frac{E[(X_n-\theta)^2]}{0.1^2}
-=\frac{1/400}{0.01}=0.25.$$
-一般の $n$ では上界が $100/n\to0$ なので $X_n\xrightarrow{p}\theta$ である。
-
-## 注意
-平均二乗収束の直接な含意である。
-
-<!-- CARD -->
-
----
 id: asym-clt-binomial-normal
 title: 二項分布を正規分布で近似する計算
 category: math-estimation
@@ -1599,54 +1562,6 @@ $$\{g'(9)\}^2\sigma^2
 
 ## 注意
 $\mu>0$ が必要（平方根の定義域）。
-
-<!-- CARD -->
-
----
-id: asym-mle-av-binomial
-title: 最尤推定量の漸近分散を情報量から出す（ベルヌーイ）
-category: math-estimation
-subcategory: math-asymptotic-estimation
-topic: mle-av-binomial
-type: calc_step
-difficulty: 3
-priority: S
-hashtags: [最尤推定, フィッシャー情報量（1次元）, 漸近分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
----
-
-## 問題
-ベルヌーイ標本の最尤推定量 $\widehat p$ の漸近分散をフィッシャー情報量（1次元）から求めよ。
-
-## 記号・用語
-- フィッシャー情報量（1次元）：スコアの分散。正則条件下では対数尤度の負の2階微分の期待値に等しい
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$$I_1(p)=\frac1{p(1-p)},\qquad \operatorname{AVar}(\sqrt n\,\widehat p)=p(1-p),\qquad \operatorname{AVar}(\widehat p)=\frac{p(1-p)}{n}.$$
-
-## 答え
-漸近分散は1観測当たりの情報量の逆数を標本サイズで割ったもの。
-
-## 計算例
-1観測 $X\sim\operatorname{Bernoulli}(p)$ の対数尤度は
-$$\ell_1(p;X)=X\log p+(1-X)\log(1-p).$$
-2回微分して
-$$\ell_1''(p)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
-$E_p[X]=p$ を代入すると
-$$I_1(p)=-E_p[\ell_1''(p)]
-=\frac p{p^2}+\frac{1-p}{(1-p)^2}
-=\frac1p+\frac1{1-p}
-=\frac1{p(1-p)}.$$
-したがって $p=0.5$ では
-$$\operatorname{Avar}(\widehat p)
-=\frac1{nI_1(0.5)}=\frac{0.25}{n},$$
-漸近標準誤差は $0.5/\sqrt n$ である。
-
-## 注意
-標本比率の中心極限定理の分散と一致する。
 
 <!-- CARD -->
 
