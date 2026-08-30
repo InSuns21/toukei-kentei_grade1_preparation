@@ -2445,7 +2445,6 @@ items:
       - engqc-nonnormal-capability
       - engrel-parallel-common-cause
       - engrel-k-out-of-n
-      - engrel-weibull-hazard-shape
       - engrel-weibull-reliability
       - engmaint-steady-availability
       - engmaint-maintainability-exponential
@@ -2477,7 +2476,6 @@ items:
           - engrel-series-component-requirement
           - engrel-k-out-of-n
           - engrel-exponential-mtbf
-          - engrel-weibull-hazard-shape
           - engrel-weibull-reliability
           - engrel-failure-rate-exact-ci
           - engrel-competing-risks-exponential
