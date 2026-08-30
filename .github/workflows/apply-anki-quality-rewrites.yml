@@ -65,4 +65,28 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add anki/cards
           git commit -m 'apply reviewed Anki quality rewrite plan'
-          git push
+
+          # Validation regenerates audit/build artifacts that are intentionally
+          # outside this commit. Drop only those remaining worktree changes
+          # before rebasing the already-validated card commit.
+          git reset --hard HEAD
+
+          # main can advance while the validation suite runs. Rebase the
+          # validated bot commit and retry a raced push instead of failing a
+          # correct quality rewrite with a non-fast-forward error.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+              echo 'Rebase conflict while publishing validated Anki quality rewrite.' >&2
+              exit 1
+            fi
+            echo "Push raced with another main update; retrying (${attempt}/3)." >&2
+          done
+
+          echo 'Failed to publish validated Anki quality rewrite after 3 retries.' >&2
+          exit 1
