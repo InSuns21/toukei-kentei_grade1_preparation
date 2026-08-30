@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-reduction-39
+batch_id: 2026-08-30-engineering-multivariate-reduction-39b
 items:
   - id: engmv-sample-mean-distribution
     bucket: duplicates
@@ -36,45 +36,3 @@ items:
     reason: duplicate
     canonical_card: engmv-hotelling-two-sample
     note: T二乗計算からF変換・自由度・臨界値比較まで一続きの検定手順としてcanonicalへ統合済み。
-
-  - id: engmv-conditional-normal-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: dist-multivariate-normal-conditional
-    note: 平均(1,2)、共分散行列[[4,3],[3,9]]、Y=5でN(2,3)を得る同一数値例を共通canonicalが既に扱う。
-
-  - id: engmv-pca-rayleigh-process-variance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-pca-variance-max
-    note: Rayleigh商最大化から固有方程式を出し最大固有値・単位固有ベクトルを求める操作は共通PCA canonicalと同一。
-
-  - id: engmv-standardized-pca-2x2
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-pca-covariance-vs-correlation
-    note: 相関行列[[1,0.8],[0.8,1]]の固有値1.8,0.2、第一主成分(1,1)/sqrt2、寄与率0.9の数値例を共通canonicalへ吸収済み。
-
-  - id: engmv-lda-one-dimensional-boundary
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-lda-classification-rule
-    note: 共通分散・等事前確率の1変量LDA境界が平均の中点になる特殊例をcanonicalへ統合済み。
-
-  - id: engmv-fisher-discriminant-direction
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-lda-direction
-    note: Fisher方向w proportional Sigma^{-1}(mu1-mu0)の数値計算を共通canonicalが既に扱う。
-
-  - id: engmv-lda-prior-probability
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-lda-classification-rule
-    note: log事前確率を含む判別得点の数値比較を共通LDA canonicalへ吸収済み。
-
-  - id: engmv-lda-pooled-covariance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: mv-lda-classification-rule
-    note: 未知の共通共分散を自由度加重したプール共分散で推定する手順と数値例を共通LDA canonicalへ統合済み。
