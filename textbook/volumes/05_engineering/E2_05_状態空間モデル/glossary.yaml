@@ -1,0 +1,29 @@
+terms:
+  - term: 状態空間モデル
+    definition: 直接観測されない状態の時間発展と、その状態から観測が生成される仕組みを状態方程式と観測方程式に分けて表すモデル。
+  - term: 状態
+    definition: 過去の情報を未来予測に必要な形へ要約した潜在変数。通常は x_t またはベクトル x_t で表す。
+  - term: 状態方程式
+    definition: 前時点の状態から次時点の状態がどう変化するかを記述する式。線形モデルでは x_t=F x_{t-1}+w_t の形。
+  - term: 観測方程式
+    definition: 潜在状態から実際の観測がどのように生成されるかを記述する式。線形モデルでは y_t=H x_t+v_t の形。
+  - term: システムノイズ
+    definition: 状態そのものの時間発展へ加わる外乱。共分散行列を Q とすることが多い。
+  - term: 観測ノイズ
+    definition: 測定時だけに加わる誤差。共分散行列を R とすることが多い。
+  - term: filtering
+    definition: 時点 t までの観測を使って同じ時点 t の状態を推定すること。
+  - term: prediction
+    definition: 時点 t までの観測を使って t より未来の状態または観測を予測すること。
+  - term: smoothing
+    definition: t より後の観測も利用して過去時点 t の状態を推定し直すこと。
+  - term: イノベーション
+    definition: 実観測と1期先観測予測との差。e_t=y_t-Hm_t^- と書く。
+  - term: イノベーション分散
+    definition: イノベーションの条件付き分散。S_t=H P_t^- H^T+R。
+  - term: Kalman gain
+    definition: 観測予測誤差を状態推定へどれだけ反映するかを決める係数または行列。K_t=P_t^- H^T S_t^{-1}。
+  - term: 局所レベルモデル
+    definition: x_t=x_{t-1}+w_t, y_t=x_t+v_t で表される基本的な状態空間モデル。
+  - term: イノベーション尤度
+    definition: 各時点の条件付き観測分布 p(y_t|F_{t-1}) を Kalman filter で計算し、その積として観測系列の尤度を構成する方法。
