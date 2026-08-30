@@ -1,379 +1,375 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-merge-prep-38b
+batch_id: 2026-08-30-engineering-multivariate-merge-prep-39
 items:
-  - id: dist-multivariate-normal-density
-    note: 工学版の2変量正規密度の数値代入を正本へ吸収する。
+  - id: engmv-normal-mean-cov-independence
+    note: 標本平均分布、Wishart定義・期待値、標本平均と標本共分散の独立性を1枚の標本分布canonicalへ統合する。
     metadata:
-      title: 多変量正規分布の密度を行列式・逆行列・二次形式から計算する
-      topic: multivariate-normal-density
-      hashtags: [多変量正規分布, 確率密度関数, 分散共分散行列, 二次形式]
+      title: 多変量正規標本の平均・共分散・Wishart分布を一続きで扱う
+      topic: multivariate-normal-sampling-canonical
+      hashtags: [多変量正規分布, 標本平均ベクトル, Wishart分布, 標本分散共分散行列, 独立性]
     sections:
       問題: |
-        多変量正規分布に従う確率ベクトルを
+        多変量正規分布から独立に
         $$
-        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
+        \boldsymbol X_1,\ldots,\boldsymbol X_n
+        \sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
         $$
-        とする。通常の密度が存在する条件と密度式を書け。
+        を得たとする。不偏標本分散共分散行列を
+        $$
+        \boldsymbol S
+        =\frac1{n-1}\sum_{i=1}^n
+        (\boldsymbol X_i-\bar{\boldsymbol X})
+        (\boldsymbol X_i-\bar{\boldsymbol X})^{\mathsf T}
+        $$
+        とする。
 
-        さらに
+        1. $\bar{\boldsymbol X}$ の分布を求めよ。
+        2. $(n-1)\boldsymbol S$ の分布と、$\bar{\boldsymbol X}$ との関係を述べよ。
+        3. Wishart分布 $W_p(\boldsymbol\Sigma,\nu)$ の外積和による定義と期待値を述べよ。
+
+        数値例として $n=4$、
         $$
-        \boldsymbol\mu=\boldsymbol0,
-        \qquad
-        \boldsymbol\Sigma=
-        \begin{pmatrix}1&0\\0&4\end{pmatrix},
-        \qquad
-        \boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
+        \boldsymbol\Sigma=\operatorname{diag}(8,2)
         $$
-        のときの密度を数値計算せよ。
+        のとき $\operatorname{Cov}(\bar{\boldsymbol X})$ を求めよ。
       使用公式・定理: |
-        $\boldsymbol\Sigma$ が対称正定値なら
+        独立な正規ベクトルの平均も多変量正規分布に従い、
         $$
-        f_{\boldsymbol X}(\boldsymbol x)
-        =\frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
-        \exp\left\{-\frac12
-        (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
-        \boldsymbol\Sigma^{-1}
-        (\boldsymbol x-\boldsymbol\mu)
-        \right\}.
+        \bar{\boldsymbol X}
+        \sim N_p\left(\boldsymbol\mu,\frac1n\boldsymbol\Sigma\right).
         $$
-        正定値なら $|\boldsymbol\Sigma|>0$ かつ逆行列が存在する。
+
+        また多変量正規標本では
+        $$
+        (n-1)\boldsymbol S\sim W_p(\boldsymbol\Sigma,n-1),
+        \qquad
+        \bar{\boldsymbol X}\perp\boldsymbol S.
+        $$
+
+        Wishart分布は、独立な
+        $$
+        \boldsymbol Z_1,\ldots,\boldsymbol Z_\nu
+        \sim N_p(\boldsymbol0,\boldsymbol\Sigma)
+        $$
+        に対し
+        $$
+        \boldsymbol W
+        =\sum_{i=1}^{\nu}\boldsymbol Z_i\boldsymbol Z_i^{\mathsf T}
+        \sim W_p(\boldsymbol\Sigma,\nu)
+        $$
+        と定義でき、
+        $$
+        E[\boldsymbol W]=\nu\boldsymbol\Sigma.
+        $$
       一手: |
-        数値代入では、**行列式 → 逆行列 → Mahalanobis二次形式 → 正規化定数**の順で計算する。
+        **平均側と残差側に分解する。** 平均は独立正規ベクトルの線形結合なので共分散が $\Sigma/n$、中心化残差の外積和はWishart分布になり、正規標本ではこの2部分が独立になる。
       答え: |
+        $$
+        \bar{\boldsymbol X}
+        \sim N_p\left(\boldsymbol\mu,\frac1n\boldsymbol\Sigma\right),
+        $$
+        $$
+        (n-1)\boldsymbol S\sim W_p(\boldsymbol\Sigma,n-1),
+        \qquad
+        \bar{\boldsymbol X}\perp\boldsymbol S.
+        $$
+        Wishart分布について
+        $$
+        E[\boldsymbol W]=\nu\boldsymbol\Sigma.
+        $$
         数値例では
         $$
-        |\boldsymbol\Sigma|=4,
+        \operatorname{Cov}(\bar{\boldsymbol X})
+        =\frac14\operatorname{diag}(8,2)
+        =\operatorname{diag}(2,0.5).
+        $$
+      計算例: |
+        標本平均について
+        $$
+        \bar{\boldsymbol X}=\frac1n\sum_{i=1}^n\boldsymbol X_i
+        $$
+        だから、独立性より
+        $$
+        \begin{aligned}
+        \operatorname{Cov}(\bar{\boldsymbol X})
+        &=\frac1{n^2}\sum_{i=1}^n\operatorname{Cov}(\boldsymbol X_i)\\
+        &=\frac1{n^2}\,n\boldsymbol\Sigma\\
+        &=\frac1n\boldsymbol\Sigma.
+        \end{aligned}
+        $$
+        $n=4$、$\boldsymbol\Sigma=\operatorname{diag}(8,2)$ なら
+        $$
+        \operatorname{Cov}(\bar{\boldsymbol X})
+        =\operatorname{diag}(2,0.5).
+        $$
+
+        Wishart期待値は外積和の定義から
+        $$
+        \begin{aligned}
+        E[\boldsymbol W]
+        &=\sum_{i=1}^{\nu}E[\boldsymbol Z_i\boldsymbol Z_i^{\mathsf T}]\\
+        &=\sum_{i=1}^{\nu}\boldsymbol\Sigma\\
+        &=\nu\boldsymbol\Sigma.
+        \end{aligned}
+        $$
+        したがって
+        $$
+        E[(n-1)\boldsymbol S]=(n-1)\boldsymbol\Sigma,
+        $$
+        よって $E[\boldsymbol S]=\boldsymbol\Sigma$ となり、不偏性とも整合する。
+
+        $p=1$ なら
+        $$
+        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}
+        $$
+        に戻るので、Wishart分布はカイ二乗分布の多変量版とみなせる。
+      注意: |
+        $\bar{\boldsymbol X}$ と $\boldsymbol S$ の独立性は多変量正規性に依存する。一般の非正規母集団では成立しない。Wishart分布の第1引数 $\boldsymbol\Sigma$ は尺度行列で、期待値そのものではなく $E[W]=\nu\Sigma$ である。
+
+  - id: engmv-correlation-from-covariance
+    note: 共分散から相関への標準化と、正の単位変更に対する相関不変性を同じcanonicalへ統合する。
+    metadata:
+      title: 分散共分散行列を相関行列へ標準化し単位変更不変性を確認する
+      topic: covariance-to-correlation-canonical
+      hashtags: [相関行列, 分散共分散行列, 標準化, 単位変換]
+    sections:
+      問題: |
+        分散共分散行列
+        $$
+        \boldsymbol\Sigma=
+        \begin{pmatrix}4&3\\3&9\end{pmatrix}
+        $$
+        から相関行列を求めよ。
+
+        さらに正の単位変更
+        $$
+        Y_1=10X_1,\qquad Y_2=100X_2
+        $$
+        を行った後も相関係数が変わらないことを数値で示せ。
+      使用公式・定理: |
+        $\sigma_i^2=\Sigma_{ii}$ とすると
+        $$
+        \rho_{ij}
+        =\frac{\Sigma_{ij}}{\sigma_i\sigma_j}
+        =\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
+        $$
+        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすれば
+        $$
+        \boldsymbol R
+        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2}.
+        $$
+
+        線形変換 $\boldsymbol Y=\boldsymbol A\boldsymbol X$ では
+        $$
+        \operatorname{Cov}(\boldsymbol Y)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
+        $$
+      一手: |
+        **共分散を対応する2つの標準偏差で割る。** 単位変更では共分散も標準偏差の積も同じ倍率で変わるため、正の尺度変換なら比が相殺される。
+      答え: |
+        元の標準偏差は $\sigma_1=2$、$\sigma_2=3$ なので
+        $$
+        \rho_{12}=\frac3{2\cdot3}=0.5,
+        $$
+        $$
+        \boldsymbol R=
+        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}.
+        $$
+
+        単位変更後は
+        $$
+        \boldsymbol\Sigma_Y
+        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix},
+        $$
+        したがって
+        $$
+        \rho_Y
+        =\frac{3000}{\sqrt{400\cdot90000}}
+        =0.5.
+        $$
+      計算例: |
+        $\boldsymbol A=\operatorname{diag}(10,100)$ とすると
+        $$
+        \begin{aligned}
+        \boldsymbol\Sigma_Y
+        &=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}\\
+        &=
+        \begin{pmatrix}10&0\\0&100\end{pmatrix}
+        \begin{pmatrix}4&3\\3&9\end{pmatrix}
+        \begin{pmatrix}10&0\\0&100\end{pmatrix}\\
+        &=\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
+        \end{aligned}
+        $$
+        変換後の標準偏差は20と300なので
+        $$
+        \frac{3000}{20\cdot300}=\frac12.
+        $$
+        共分散は1000倍、標準偏差の積も1000倍になり相殺される。
+      注意: |
+        正の単位換算では相関は不変である。一方、一方の変数だけを負の定数倍すると相関の符号は反転する。相関行列の対角成分は常に1である。
+
+  - id: engmv-normal-uncorrelated-independent
+    note: 多変量正規分布における周辺独立と、精度行列による条件付き独立を一枚で区別する。
+    metadata:
+      title: 多変量正規分布で共分散行列と精度行列から独立性を読む
+      topic: gaussian-marginal-conditional-independence
+      hashtags: [多変量正規分布, 独立, 無相関, 精度行列, 条件付き独立]
+    sections:
+      問題: |
+        多変量正規分布に従う確率ベクトルについて、次の2種類の0が何を意味するか区別せよ。
+
+        1. 分散共分散行列で2つの部分ベクトル間の交差共分散が0。
+        2. 精度行列 $\boldsymbol\Omega=\boldsymbol\Sigma^{-1}$ の非対角成分 $\Omega_{ij}$ が0。
+
+        数値例として
+        $$
+        \boldsymbol\Sigma=
+        \begin{pmatrix}1&0&2\\0&4&0\\2&0&9\end{pmatrix}
+        $$
+        のとき $X_2$ と $(X_1,X_3)^{\mathsf T}$ の独立性を判定せよ。
+
+        また
+        $$
+        \boldsymbol\Omega=
+        \begin{pmatrix}2&0&1\\0&3&-1\\1&-1&2\end{pmatrix}
+        $$
+        のとき $X_1$ と $X_2$ が $X_3$ を条件として独立か判定せよ。
+      使用公式・定理: |
+        多変量正規分布では、部分ベクトル $\boldsymbol X_A,\boldsymbol X_B$ について
+        $$
+        \operatorname{Cov}(\boldsymbol X_A,\boldsymbol X_B)=\boldsymbol0
+        \quad\Longleftrightarrow\quad
+        \boldsymbol X_A\perp\boldsymbol X_B.
+        $$
+
+        一方、精度行列 $\boldsymbol\Omega=\boldsymbol\Sigma^{-1}$ について
+        $$
+        \Omega_{ij}=0
+        \quad\Longleftrightarrow\quad
+        X_i\perp X_j\mid\boldsymbol X_{-(i,j)}.
+        $$
+      一手: |
+        **共分散行列の0は周辺独立、精度行列の0は他成分を条件とした条件付き独立。** どちらの行列を見ているかを最初に確認する。
+      答え: |
+        第1例では
+        $$
+        \operatorname{Cov}(X_2,X_1)=0,
         \qquad
-        \boldsymbol\Sigma^{-1}=
-        \begin{pmatrix}1&0\\0&1/4\end{pmatrix},
+        \operatorname{Cov}(X_2,X_3)=0,
         $$
+        なので
         $$
-        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2.
+        X_2\perp(X_1,X_3)^{\mathsf T}.
         $$
-        よって
+
+        第2例では
         $$
-        f_{\boldsymbol X}(1,2)
-        =\frac{e^{-1}}{4\pi}
-        \approx0.0293.
+        \Omega_{12}=0
         $$
+        なので
+        $$
+        X_1\perp X_2\mid X_3.
+        $$
+      計算例: |
+        第1例では交差共分散ベクトルが
+        $$
+        \operatorname{Cov}\left(X_2,
+        \begin{pmatrix}X_1\\X_3\end{pmatrix}\right)
+        =\begin{pmatrix}0&0\end{pmatrix}
+        $$
+        なので独立である。ただし
+        $$
+        \operatorname{Cov}(X_1,X_3)=2\ne0
+        $$
+        なので $X_1$ と $X_3$ は独立ではない。
+
+        第2例では $\Omega_{12}=0$ だが $\Omega_{13}=1\ne0$ なので
+        $$
+        X_1\perp X_2\mid X_3,
+        \qquad
+        X_1\not\perp X_3\mid X_2.
+        $$
+      注意: |
+        一般の分布では無相関から独立は導けない。「共分散行列の0」と「精度行列の0」は意味が異なるため、周辺独立と条件付き独立を混同しない。
+
+  - id: engmv-hotelling-two-sample
+    note: 2標本HotellingのT二乗統計量計算とF変換による検定判定を一枚へ統合する。
+    metadata:
+      title: 2標本HotellingのT二乗統計量を計算してF検定まで行う
+      topic: hotelling-two-sample-canonical
+      hashtags: [HotellingのT二乗検定, F分布, 平均ベクトル, 2標本問題]
+    sections:
+      問題: |
+        独立な2群の多変量正規標本で、共通分散共分散行列を仮定する。$p=2$、$n_1=n_2=10$、標本平均差
+        $$
+        \boldsymbol d=(1,2)^{\mathsf T},
+        $$
+        プールした不偏標本分散共分散行列
+        $$
+        \boldsymbol S_p=\operatorname{diag}(2,4)
+        $$
+        とする。
+
+        1. 2標本Hotellingの $T^2$ を求めよ。
+        2. $H_0:\boldsymbol\mu_1=\boldsymbol\mu_2$ を5%水準で検定せよ。$F_{2,17;0.95}=3.59$ とする。
+      使用公式・定理: |
+        2標本Hotelling統計量は
+        $$
+        T^2
+        =\frac{n_1n_2}{n_1+n_2}
+        \boldsymbol d^{\mathsf T}\boldsymbol S_p^{-1}\boldsymbol d.
+        $$
+        帰無仮説の下で
+        $$
+        F
+        =\frac{n_1+n_2-p-1}{(n_1+n_2-2)p}T^2
+        \sim F_{p,n_1+n_2-p-1}.
+        $$
+      一手: |
+        **平均差のMahalanobis二乗距離 → 有効標本係数で $T^2$ → F変換 → 臨界値比較** の一続きで処理する。
+      答え: |
+        $$
+        T^2=7.5.
+        $$
+        さらに
+        $$
+        F=\frac{17}{36}\cdot7.5\approx3.542.
+        $$
+        $3.542<3.59$ なので、5%水準では $H_0$ を棄却しない。
       計算例: |
         まず
         $$
-        |\boldsymbol\Sigma|=1\cdot4=4,
-        \qquad |\boldsymbol\Sigma|^{1/2}=2.
+        \boldsymbol S_p^{-1}=\operatorname{diag}\left(\frac12,\frac14\right).
+        $$
+        よって
+        $$
+        \begin{aligned}
+        \boldsymbol d^{\mathsf T}\boldsymbol S_p^{-1}\boldsymbol d
+        &=(1,2)
+        \begin{pmatrix}1/2&0\\0&1/4\end{pmatrix}
+        \begin{pmatrix}1\\2\end{pmatrix}\\
+        &=\frac12+1\\
+        &=1.5.
+        \end{aligned}
+        $$
+        有効標本係数は
+        $$
+        \frac{n_1n_2}{n_1+n_2}
+        =\frac{100}{20}=5
+        $$
+        なので
+        $$
+        T^2=5\cdot1.5=7.5.
         $$
         次に
         $$
-        \boldsymbol\Sigma^{-1}
-        =\operatorname{diag}\left(1,\frac14\right).
-        $$
-        二次形式は
-        $$
         \begin{aligned}
-        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
-        &=1^2+\frac{2^2}{4}\\
-        &=1+1\\
-        &=2.
+        F
+        &=\frac{10+10-2-1}{(10+10-2)2}\,7.5\\
+        &=\frac{17}{36}\,7.5\\
+        &\approx3.542.
         \end{aligned}
         $$
-        $p=2$ なので正規化定数は
-        $$
-        \frac{1}{(2\pi)^{2/2}\sqrt4}
-        =\frac1{4\pi}.
-        $$
-        したがって
-        $$
-        f_{\boldsymbol X}(1,2)
-        =\frac1{4\pi}\exp(-2/2)
-        =\frac{e^{-1}}{4\pi}.
-        $$
+        自由度は $(2,17)$ で、臨界値3.59を超えないため棄却しない。
       注意: |
-        半正定値でも特異な $\boldsymbol\Sigma$ では、$p$ 次元Lebesgue測度に関する通常の密度式をそのまま使えない。正規化定数は $|\Sigma|$ ではなく $|\Sigma|^{1/2}$ を使う。
-
-  - id: dist-bivariate-normal-marginal
-    note: 二変量だけでなく任意の部分ベクトルの周辺化へ一般化し、3変量から1・3成分を抜く数値例を吸収する。
-    metadata:
-      title: 多変量正規分布の部分ベクトルの周辺分布を取り出す
-      topic: multivariate-normal-marginal
-      hashtags: [多変量正規分布, 周辺分布, 部分ベクトル]
-    sections:
-      問題: |
-        多変量正規分布に従う確率ベクトルを
-        $$
-        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
-        $$
-        とする。一部の成分だけを抜き出した部分ベクトルの周辺分布を述べよ。
-
-        数値例として
-        $$
-        \boldsymbol\mu=(1,2,3)^{\mathsf T},
-        \qquad
-        \Sigma_{11}=4,
-        \quad \Sigma_{33}=9,
-        \quad \Sigma_{13}=2
-        $$
-        のとき $(X_1,X_3)^{\mathsf T}$ の周辺分布を書け。
-      使用公式・定理: |
-        多変量正規ベクトルの任意の部分ベクトルも多変量正規分布に従う。
-
-        添字集合 $I$ に対応する部分ベクトルを $\boldsymbol X_I$ とすれば
-        $$
-        \boldsymbol X_I
-        \sim N_{|I|}(\boldsymbol\mu_I,\boldsymbol\Sigma_{II}),
-        $$
-        ここで $\boldsymbol\mu_I$ は対応する平均成分、$\boldsymbol\Sigma_{II}$ は対応する行・列を抜き出した部分行列である。
-      一手: |
-        周辺化では条件付き分布のような逆行列やSchur補を使わない。**残したい成分の平均と、同じ添字の行・列だけを抜く。**
-      答え: |
-        数値例では
-        $$
-        \begin{pmatrix}X_1\\X_3\end{pmatrix}
-        \sim
-        N_2\left(
-        \begin{pmatrix}1\\3\end{pmatrix},
-        \begin{pmatrix}4&2\\2&9\end{pmatrix}
-        \right).
-        $$
-      計算例: |
-        残す添字は $I=\{1,3\}$ なので
-        $$
-        \boldsymbol\mu_I=
-        \begin{pmatrix}\mu_1\\\mu_3\end{pmatrix}
-        =\begin{pmatrix}1\\3\end{pmatrix}.
-        $$
-        分散共分散行列も1行目・3行目と1列目・3列目を抜き出して
-        $$
-        \boldsymbol\Sigma_{II}
-        =\begin{pmatrix}
-        \Sigma_{11}&\Sigma_{13}\\
-        \Sigma_{31}&\Sigma_{33}
-        \end{pmatrix}
-        =\begin{pmatrix}4&2\\2&9\end{pmatrix}.
-        $$
-        さらに各1変量周辺は
-        $$
-        X_1\sim N(1,4),
-        \qquad
-        X_3\sim N(3,9)
-        $$
-        と直ちに得られる。
-      注意: |
-        周辺分布では不要成分との共分散を使わない。一方、条件付き分布ではブロック逆行列に由来する補正項が現れるので混同しない。
-
-  - id: prob-linear-combination-normal
-    note: 独立1変量の線形結合から、相関を含む正規ベクトルの一般線形結合へ正本を拡張する。
-    metadata:
-      title: 正規ベクトルの線形結合の分布を求める
-      topic: multivariate-normal-linear-combination
-      hashtags: [確率変数の線形結合, 多変量正規分布, 分散共分散行列]
-    sections:
-      問題: |
-        多変量正規分布に従う確率ベクトルを
-        $$
-        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
-        $$
-        とする。定数ベクトル $\boldsymbol a$ に対する
-        $$
-        Y=\boldsymbol a^{\mathsf T}\boldsymbol X
-        $$
-        の分布を求めよ。
-
-        数値例として
-        $$
-        \boldsymbol\mu=(1,2)^{\mathsf T},
-        \qquad
-        \boldsymbol\Sigma=
-        \begin{pmatrix}4&1\\1&9\end{pmatrix},
-        \qquad
-        Y=X_1-2X_2
-        $$
-        を計算せよ。
-      使用公式・定理: |
-        多変量正規分布は線形変換で閉じているので
-        $$
-        \boldsymbol a^{\mathsf T}\boldsymbol X
-        \sim
-        N\left(
-        \boldsymbol a^{\mathsf T}\boldsymbol\mu,
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        \right).
-        $$
-        2変量なら
-        $$
-        \operatorname{Var}(aX+bY)
-        =a^2\sigma_X^2+b^2\sigma_Y^2+2ab\sigma_{XY}.
-        $$
-        独立正規変数の線形結合は $\sigma_{XY}=0$ の特殊例である。
-      一手: |
-        **正規性は線形変換で保たれる。** あとは平均には係数を1回、分散には係数ベクトルを左右から掛ける。相関があれば共分散項を落とさない。
-      答え: |
-        数値例では
-        $$
-        E[Y]=1-2\cdot2=-3,
-        $$
-        $$
-        \operatorname{Var}(Y)=36,
-        $$
-        したがって
-        $$
-        Y\sim N(-3,36).
-        $$
-      計算例: |
-        $\boldsymbol a=(1,-2)^{\mathsf T}$ とする。平均は
-        $$
-        \begin{aligned}
-        \boldsymbol a^{\mathsf T}\boldsymbol\mu
-        &=1\cdot1+(-2)\cdot2\\
-        &=-3.
-        \end{aligned}
-        $$
-        分散は
-        $$
-        \begin{aligned}
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        &=1^2\cdot4+(-2)^2\cdot9
-          +2(1)(-2)(1)\\
-        &=4+36-4\\
-        &=36.
-        \end{aligned}
-        $$
-        よって $Y\sim N(-3,36)$。
-
-        独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z$ なら共分散項が0となり
-        $$
-        E[W]=-4,
-        \qquad
-        \operatorname{Var}(W)=16+81=97,
-        $$
-        したがって $W\sim N(-4,97)$。
-      注意: |
-        各成分が個別に正規分布だからといってベクトルが多変量正規とは限らない。多変量正規であることが線形結合の正規性を保証する。
-
-  - id: mv-lda-classification-rule
-    note: 1次元境界、事前確率、未知共分散のプール推定をLDAの一つの分類手順へ吸収する。
-    metadata:
-      title: LDAの共通共分散推定・判別得点・分類境界を計算する
-      topic: lda-classification-canonical
-      hashtags: [判別分析, LDA, 事前確率, プール分散共分散行列, 分類境界]
-    sections:
-      使用公式・定理: |
-        群 $k$ が
-        $$
-        \boldsymbol X\mid G=k\sim N_p(\boldsymbol\mu_k,\boldsymbol\Sigma)
-        $$
-        と**共通**分散共分散行列を持ち、事前確率が $\pi_k$ なら
-        $$
-        \delta_k(\boldsymbol x)
-        =\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
-        -\frac12\boldsymbol\mu_k^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol\mu_k
-        +\log\pi_k
-        $$
-        を最大にする群へ分類する。
-
-        共通 $\boldsymbol\Sigma$ が未知で2群の不偏標本分散共分散行列 $\boldsymbol S_1,\boldsymbol S_2$ を使うなら、通常
-        $$
-        \boldsymbol S_p
-        =\frac{(n_1-1)\boldsymbol S_1+(n_2-1)\boldsymbol S_2}
-        {n_1+n_2-2}
-        $$
-        でプールして $\boldsymbol\Sigma$ を推定する。
-
-        QDAでは群ごとに $\boldsymbol\Sigma_k$ を許すため
-        $$
-        -\frac12\log|\boldsymbol\Sigma_k|
-        -\frac12(\boldsymbol x-\boldsymbol\mu_k)^{\mathsf T}
-        \boldsymbol\Sigma_k^{-1}(\boldsymbol x-\boldsymbol\mu_k)
-        +\log\pi_k
-        $$
-        を比較し、二次項が群間で消えない。
-      一手: |
-        LDAは **共通共分散を作る → 各群の線形判別得点を計算 → 最大得点の群へ分類** の順で扱う。等事前確率なら $\log\pi_k$ は消えるが、不等なら境界を動かす。
-      答え: |
-        共通共分散ならLDAの境界は線形、群別共分散ならQDAの境界は一般に二次になる。1変量・共通分散・等事前確率の2群では境界は2平均の中点になる。
-      計算例: |
-        **1. 等事前確率の1変量境界**
-
-        共通分散1、$\mu_1=0,\mu_2=4$、$\pi_1=\pi_2$ なら境界は
-        $$
-        c=\frac{0+4}{2}=2.
-        $$
-        $x=3$ は群2側である。
-
-        **2. 事前確率が異なる例**
-
-        共通分散1、$\mu_1=0,\mu_2=2$、$\pi_1=0.8,\pi_2=0.2$、$x=1$ では
-        $$
-        \delta_1(1)=\log0.8\approx-0.223,
-        $$
-        $$
-        \delta_2(1)=2-2+\log0.2\approx-1.609.
-        $$
-        よって中点 $x=1$ でも事前確率の大きい群1へ分類される。
-
-        **3. 共通共分散のプール推定**
-
-        $n_1=6,n_2=4$、
-        $$
-        \boldsymbol S_1=\operatorname{diag}(2,4),
-        \qquad
-        \boldsymbol S_2=\operatorname{diag}(5,1)
-        $$
-        なら
-        $$
-        \begin{aligned}
-        \boldsymbol S_p
-        &=\frac{5\boldsymbol S_1+3\boldsymbol S_2}{8}\\
-        &=\operatorname{diag}\left(\frac{25}{8},\frac{23}{8}\right).
-        \end{aligned}
-        $$
-      注意: |
-        プール共分散は単純平均ではなく自由度加重平均である。事前確率や誤分類損失が異なれば境界は平均の中点から移動する。QDAは柔軟だが群ごとに共分散を推定するため小標本・高次元では不安定になりやすい。
-
-  - id: mv-pca-covariance-vs-correlation
-    note: 工学版の2変量相関PCA数値例を吸収し、標準化PCAの実計算まで同じcanonicalで扱う。
-    metadata:
-      title: 共分散PCAと相関PCAを選び、標準化PCAを計算する
-      topic: standardized-pca
-      hashtags: [主成分分析, 標準化PCA, 相関行列, 寄与率]
-    sections:
-      使用公式・定理: |
-        標準化変数
-        $$
-        Z_j=\frac{X_j-\bar X_j}{s_j}
-        $$
-        の分散共分散行列は相関行列 $\boldsymbol R$ である。したがって相関PCAでは $\boldsymbol R$ の固有値・固有ベクトルを使う。
-
-        固有値を $\lambda_1\ge\cdots\ge\lambda_p$ とすると第 $j$ 主成分の寄与率は
-        $$
-        \frac{\lambda_j}{\sum_{r=1}^{p}\lambda_r}.
-        $$
-      一手: |
-        単位・分散の大きさ自体を重視するなら共分散PCA、尺度差を消して相関構造を重視するなら相関PCAを選ぶ。相関PCAでも計算自体は「最大固有値と固有ベクトルを求める」同じ操作である。
-      答え: |
-        尺度差に科学的意味がなければ、標準化して相関行列PCAを使うのが基本である。ただし標準化が常に正しいわけではない。
-      計算例: |
-        $$
-        \boldsymbol R=
-        \begin{pmatrix}1&0.8\\0.8&1\end{pmatrix}
-        $$
-        とする。対角が等しいので和方向・差方向が固有ベクトルとなり、固有値は
-        $$
-        \lambda_1=1+0.8=1.8,
-        \qquad
-        \lambda_2=1-0.8=0.2.
-        $$
-        第1主成分方向は
-        $$
-        \boldsymbol a_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
-        $$
-        したがって
-        $$
-        Y_1=\frac{Z_1+Z_2}{\sqrt2}.
-        $$
-        寄与率は
-        $$
-        \frac{1.8}{1.8+0.2}=0.9.
-        $$
-        よって第1主成分だけで標準化後の全分散の90%を説明する。
-      注意: |
-        共分散PCAは測定単位の変更で結果が変わり得る。相関PCAは各変数を分散1へ標準化してから行うため、変数間の尺度差を除いて比較する。
+        「棄却しない」は平均ベクトルが等しいと証明した意味ではない。2群の独立性、多変量正規性、共通分散共分散行列、および $\boldsymbol S_p$ の可逆性が必要である。
