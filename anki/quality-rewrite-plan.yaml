@@ -1,224 +1,443 @@
 schema_version: 1
-batch_id: 2026-08-30-engineering-multivariate-merge-prep-40
+batch_id: 2026-08-30-estimation-theory-merge-prep-41
 items:
-  - id: engmv-mahalanobis-control-limit
-    note: 観測値のMahalanobis管理限界と、既知共分散での平均ベクトル信頼楕円を一般の正規二次形式として統合する。
+  - id: est-fisher-information-def
+    note: スコア期待値0、情報量の2表式、独立標本での加法性、Bernoulli数値例を一つのFisher情報canonicalへ統合する。
     metadata:
-      title: 正規ベクトルのMahalanobis二次形式で管理限界と信頼楕円を扱う
-      topic: mahalanobis-chi-square-canonical
-      hashtags: [多変量正規分布, Mahalanobis距離, 信頼楕円, カイ二乗分布, 二次形式]
+      title: スコアからフィッシャー情報量の2表式と加法性を導く
+      topic: fisher-information-canonical
+      hashtags: [フィッシャー情報量, スコア関数, 正則条件, 加法性, ベルヌーイ分布]
     sections:
       問題: |
-        多変量正規分布に従う確率ベクトル
+        1母数モデル $f(x;\theta)$ について、スコア
         $$
-        \boldsymbol Z\sim N_p(\boldsymbol m,\boldsymbol V)
+        U_1(\theta)=\frac{\partial}{\partial\theta}\log f(X;\theta)
         $$
-        に対して、Mahalanobis二次形式の分布を述べよ。
+        を用いて次を示せ。
 
-        さらに次の2例を計算せよ。
+        1. 正則条件の下で $E_\theta[U_1(\theta)]=0$。
+        2. 1観測のフィッシャー情報量が
+        $$
+        I_1(\theta)=E[U_1(\theta)^2]
+        =-E\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right]
+        $$
+        と2通りに書ける。
+        3. 独立同分布標本では $I_n(\theta)=nI_1(\theta)$。
 
-        **(1) 個体観測の管理限界**  
-        $\boldsymbol\mu=(0,0)^{\mathsf T}$、
-        $$
-        \boldsymbol\Sigma=\operatorname{diag}(4,1),
-        \qquad
-        \boldsymbol x=(4,2)^{\mathsf T}
-        $$
-        とする。Mahalanobis二乗距離を求め、1%管理限界 $\chi^2_{2,0.99}=9.21$ と比較せよ。
-
-        **(2) 平均ベクトルの95%信頼楕円**  
-        $n=25$、$\bar{\boldsymbol X}=(1,2)^{\mathsf T}$、既知 $\boldsymbol\Sigma=I_2$ とする。候補
-        $$
-        \boldsymbol\mu_0=(1.2,2.3)^{\mathsf T}
-        $$
-        が95%信頼楕円に入るか。$\chi^2_{2,0.95}=5.991$ とする。
+        さらにベルヌーイ分布に従う $X\sim\operatorname{Bernoulli}(p)$ について $I_1(p)$ を求め、$p=0.4,n=10$ の標本全体の情報量を計算せよ。
       使用公式・定理: |
-        正規ベクトル
+        密度・確率質量関数の台が母数に依存しないなど、微分と積分（または総和）の交換が許される正則条件の下で
         $$
-        \boldsymbol Z\sim N_p(\boldsymbol m,\boldsymbol V)
+        \frac{\partial f}{\partial\theta}
+        =f\frac{\partial\log f}{\partial\theta}
+        =fU_1.
         $$
-        で $\boldsymbol V$ が正定値なら
+        また
         $$
-        Q=(\boldsymbol Z-\boldsymbol m)^{\mathsf T}
-        \boldsymbol V^{-1}
-        (\boldsymbol Z-\boldsymbol m)
-        \sim\chi_p^2.
+        \int f(x;\theta)\,dx=1.
         $$
-
-        個体観測 $\boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)$ では
+        独立標本では対数尤度とスコアが和になり
         $$
-        Q=(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}
-        \boldsymbol\Sigma^{-1}
-        (\boldsymbol X-\boldsymbol\mu).
-        $$
-
-        一方
-        $$
-        \bar{\boldsymbol X}\sim
-        N_p\left(\boldsymbol\mu,\frac1n\boldsymbol\Sigma\right)
-        $$
-        なので平均ベクトルについては
-        $$
-        n(\bar{\boldsymbol X}-\boldsymbol\mu)^{\mathsf T}
-        \boldsymbol\Sigma^{-1}
-        (\bar{\boldsymbol X}-\boldsymbol\mu)
-        \sim\chi_p^2.
+        U_n(\theta)=\sum_{i=1}^nU_i(\theta).
         $$
       一手: |
-        **まず対象の共分散行列を確認する。** 個体なら $V=\Sigma$、標本平均なら $V=\Sigma/n$。その逆行列で標準化した二次形式を作り、カイ二乗分位点と比較する。
+        **$\int f=1$ を1回微分してスコア平均0、もう1回微分して情報量の2表式を得る。** 独立標本ではスコアの分散を足す。
       答え: |
-        (1) は
+        正則条件の下で
         $$
-        d_M^2=8<9.21
+        E[U_1]=0,
+        \qquad
+        I_1(\theta)=E[U_1^2]
+        =-E[\ell_1''(\theta)],
+        \qquad
+        I_n(\theta)=nI_1(\theta).
         $$
-        なので1%管理限界では異常と判定しない。
-
-        (2) は
+        ベルヌーイ分布では
         $$
-        25(0.2^2+0.3^2)=3.25<5.991
+        I_1(p)=\frac1{p(1-p)}.
         $$
-        なので $\boldsymbol\mu_0$ は95%信頼楕円に入る。
+        $p=0.4,n=10$ なら
+        $$
+        I_{10}(0.4)=\frac{10}{0.4\cdot0.6}
+        =\frac{125}{3}\approx41.67.
+        $$
       計算例: |
-        (1) では
-        $$
-        \boldsymbol\Sigma^{-1}
-        =\operatorname{diag}\left(\frac14,1\right)
-        $$
-        だから
+        まず正規化条件を微分すると
         $$
         \begin{aligned}
-        d_M^2
-        &=(4,2)
-        \begin{pmatrix}1/4&0\\0&1\end{pmatrix}
-        \begin{pmatrix}4\\2\end{pmatrix}\\
-        &=\frac{4^2}{4}+2^2\\
-        &=4+4\\
-        &=8.
+        0
+        &=\frac{\partial}{\partial\theta}\int f(x;\theta)\,dx\\
+        &=\int \frac{\partial f}{\partial\theta}\,dx\\
+        &=\int U_1(\theta)f(x;\theta)\,dx\\
+        &=E[U_1(\theta)].
         \end{aligned}
         $$
-
-        (2) では
+        さらに $U_1=f_\theta/f$ を微分して整理すると
         $$
-        \bar{\boldsymbol X}-\boldsymbol\mu_0
-        =(-0.2,-0.3)^{\mathsf T}
+        \frac{\partial U_1}{\partial\theta}f+U_1\frac{\partial f}{\partial\theta}
+        =\frac{\partial^2 f}{\partial\theta^2}.
+        $$
+        積分すれば右辺は $\partial^2_\theta\int f=0$ なので
+        $$
+        E\left[\frac{\partial U_1}{\partial\theta}\right]+E[U_1^2]=0,
+        $$
+        すなわち
+        $$
+        E[U_1^2]=-E[\ell_1''(\theta)].
+        $$
+
+        ベルヌーイ分布では
+        $$
+        \ell_1(p;X)=X\log p+(1-X)\log(1-p),
+        $$
+        $$
+        \ell_1''(p)
+        =-\frac{X}{p^2}-\frac{1-X}{(1-p)^2}.
+        $$
+        よって
+        $$
+        \begin{aligned}
+        I_1(p)
+        &=-E[\ell_1''(p)]\\
+        &=\frac{p}{p^2}+\frac{1-p}{(1-p)^2}\\
+        &=\frac1p+\frac1{1-p}\\
+        &=\frac1{p(1-p)}.
+        \end{aligned}
+        $$
+        独立な10観測なら10倍する。
+      注意: |
+        $-E[\ell'']=E[U^2]$ は正則条件なしに常に成立する式ではない。特に台が母数に依存するモデルでは、微分と積分の交換や境界項を確認する。独立でなければ単純に $n$ 倍とは限らない。
+
+  - id: est-information-matrix
+    note: 正規2母数の情報行列専用カードを一般情報行列canonicalの実計算例へ吸収する。
+    metadata:
+      title: フィッシャー情報行列を定義し正規2母数モデルで計算する
+      topic: fisher-information-matrix-canonical
+      hashtags: [フィッシャー情報行列, 多母数, スコアベクトル, 正規分布]
+    sections:
+      問題: |
+        多母数 $\boldsymbol\theta=(\theta_1,\ldots,\theta_k)^{\mathsf T}$ に対するフィッシャー情報行列を定義せよ。
+
+        さらに正規分布に従う
+        $$
+        X\sim N(\mu,v),\qquad v=\sigma^2>0,
+        $$
+        について $\boldsymbol\theta=(\mu,v)^{\mathsf T}$ とした1観測の情報行列を導け。$v=4$ の数値も求めよ。
+      使用公式・定理: |
+        スコアベクトル
+        $$
+        \boldsymbol U=\nabla_{\boldsymbol\theta}\ell(\boldsymbol\theta;X)
+        $$
+        に対し、正則条件の下で
+        $$
+        \boldsymbol I(\boldsymbol\theta)
+        =E[\boldsymbol U\boldsymbol U^{\mathsf T}]
+        =-E[\nabla^2_{\boldsymbol\theta}\ell].
+        $$
+        正規分布では
+        $$
+        E[(X-\mu)^2]=v.
+        $$
+      一手: |
+        多母数では **Hessianを作る → 各成分の負の期待値を取る**。非対角成分が0なら、そのパラメータ化では情報行列が対角になる。
+      答え: |
+        正規分布の $\boldsymbol\theta=(\mu,v)$ に対して
+        $$
+        \boldsymbol I(\mu,v)
+        =\begin{pmatrix}
+        1/v&0\\
+        0&1/(2v^2)
+        \end{pmatrix}.
+        $$
+        $v=4$ なら
+        $$
+        \boldsymbol I(\mu,4)
+        =\begin{pmatrix}1/4&0\\0&1/32\end{pmatrix}.
+        $$
+      計算例: |
+        対数密度は定数を除いて
+        $$
+        \ell(\mu,v)
+        =-\frac12\log v-\frac{(X-\mu)^2}{2v}.
+        $$
+        $\mu$ について
+        $$
+        \frac{\partial^2\ell}{\partial\mu^2}=-\frac1v
         $$
         なので
         $$
+        I_{\mu\mu}=\frac1v.
+        $$
+        交差微分は
+        $$
+        \frac{\partial^2\ell}{\partial v\partial\mu}
+        =-\frac{X-\mu}{v^2},
+        $$
+        その期待値は0だから $I_{\mu v}=0$。
+
+        $v$ について
+        $$
+        \frac{\partial\ell}{\partial v}
+        =-\frac1{2v}+\frac{(X-\mu)^2}{2v^2},
+        $$
+        $$
+        \frac{\partial^2\ell}{\partial v^2}
+        =\frac1{2v^2}-\frac{(X-\mu)^2}{v^3}.
+        $$
+        よって
+        $$
         \begin{aligned}
-        Q
-        &=25(-0.2,-0.3)I_2
-        \begin{pmatrix}-0.2\\-0.3\end{pmatrix}\\
-        &=25(0.04+0.09)\\
-        &=25(0.13)\\
-        &=3.25.
+        I_{vv}
+        &=-E\left[\frac1{2v^2}-\frac{(X-\mu)^2}{v^3}\right]\\
+        &=-\frac1{2v^2}+\frac{v}{v^3}\\
+        &=\frac1{2v^2}.
         \end{aligned}
         $$
-        個体観測と標本平均の違いは、後者の共分散が $\Sigma/n$ なので二次形式に $n$ が付く点だけである。
       注意: |
-        平均・共分散を同じ標本から推定する場合、平均ベクトルの推測は単純なカイ二乗ではなくHotellingの $T^2$ が基本になる。管理限界と信頼楕円は用途が違うが、背後の標準化二次形式は同じである。
+        $v=\sigma^2$ を母数にした結果である。$\sigma$ を母数に選べば情報行列の成分は変わる。多母数では漸近分散共分散行列やクラーメル・ラオ下界に $I^{-1}$ が現れる。
 
-  - id: engmv-canonical-eigenvalue
-    note: 正準相関の一般固有値問題へ、白色化済みの場合の特異値解釈と対角数値例を吸収する。
+  - id: est-cramer-rao-lower-bound
+    note: 一般CRLBへPoisson平均の効率性とBernoulliのg(p)=p^2例を吸収し、分布別専用カードを削減する。
     metadata:
-      title: 正準相関を一般固有値問題と白色化後の特異値から求める
-      topic: canonical-correlation-canonical
-      hashtags: [正準相関分析, 固有値, 特異値, 共分散行列, 白色化]
+      title: クラーメル・ラオの不等式を導き母数と母数関数の下界を計算する
+      topic: cramer-rao-canonical
+      hashtags: [クラーメル・ラオの不等式, フィッシャー情報量, 有効推定量, ポアソン分布, ベルヌーイ分布]
     sections:
       問題: |
-        2つの確率ベクトル $\boldsymbol X,\boldsymbol Y$ の共分散ブロックを
-        $$
-        \boldsymbol\Sigma_{XX},\quad
-        \boldsymbol\Sigma_{YY},\quad
-        \boldsymbol\Sigma_{XY}
-        $$
-        とする。正準相関を求める一般の固有値問題を書け。
+        正則な1母数モデルで $E_\theta[T]=g(\theta)$ とする。不偏推定量 $T$ に対するクラーメル・ラオの分散下界を導け。
 
         さらに次を計算せよ。
 
-        **(1) 白色化済み・対角交差共分散**
-        $$
-        \boldsymbol\Sigma_{XX}=I_2,\qquad
-        \boldsymbol\Sigma_{YY}=I_2,\qquad
-        \boldsymbol\Sigma_{XY}=\operatorname{diag}(0.8,0.3).
-        $$
-
-        **(2) 白色化済み・非対角交差共分散**
-        $$
-        \boldsymbol\Sigma_{XY}
-        =\begin{pmatrix}0.5&0.4\\0.4&0.5\end{pmatrix}.
-        $$
+        1. ポアソン分布に従う独立標本 $X_i\sim\operatorname{Poisson}(\lambda)$ で、$\lambda$ の不偏推定量の分散下界を求め、$\bar X$ が達成することを示せ。
+        2. ベルヌーイ分布に従う独立標本 $X_i\sim\operatorname{Bernoulli}(p)$ で、$p^2$ の不偏推定量 $T$ の分散下界を求めよ。$p=0.4,n=100$ の値も計算せよ。
       使用公式・定理: |
-        正準相関 $\rho_j$ の二乗は
+        標本全体のスコアを $U_n(\theta)$ とする。正則条件の下で
         $$
-        \boldsymbol M
-        =\boldsymbol\Sigma_{XX}^{-1}
-        \boldsymbol\Sigma_{XY}
-        \boldsymbol\Sigma_{YY}^{-1}
-        \boldsymbol\Sigma_{YX}
-        $$
-        の固有値である。
-
-        したがって
-        $$
-        \lambda_j(\boldsymbol M)=\rho_j^2.
-        $$
-
-        両群が白色化されて
-        $$
-        \boldsymbol\Sigma_{XX}=I,
+        E[U_n]=0,
         \qquad
-        \boldsymbol\Sigma_{YY}=I
+        \operatorname{Var}(U_n)=I_n(\theta).
         $$
-        なら
+        $E[T]=g(\theta)$ を微分すると
         $$
-        \boldsymbol M
-        =\boldsymbol\Sigma_{XY}\boldsymbol\Sigma_{YX},
+        g'(\theta)=E[TU_n]
+        =\operatorname{Cov}(T,U_n).
         $$
-        よって正準相関は $\boldsymbol\Sigma_{XY}$ の特異値に一致する。
+        Cauchy--Schwarzの不等式を使う。
       一手: |
-        **一般形では共分散で白色化してから交差構造を見る。** 固有値は正準相関の二乗、白色化済みなら交差共分散の特異値をそのまま読める。
+        **推定対象が $\theta$ か $g(\theta)$ かを最初に判定する。** $g'(\theta)$ を出し、スコアとの共分散にCauchy--Schwarzを適用する。
       答え: |
-        (1) の正準相関は
+        一般に
         $$
-        \rho_1=0.8,\qquad\rho_2=0.3.
+        \operatorname{Var}_\theta(T)
+        \ge\frac{\{g'(\theta)\}^2}{I_n(\theta)}.
         $$
 
-        (2) では
+        ポアソン分布では $I_n(\lambda)=n/\lambda$ なので
         $$
-        \boldsymbol\Sigma_{XY}\boldsymbol\Sigma_{YX}
-        =\begin{pmatrix}0.41&0.40\\0.40&0.41\end{pmatrix}
+        \operatorname{Var}(T)\ge\frac\lambda n.
         $$
-        の固有値が $0.81,0.01$ なので
+        $\operatorname{Var}(\bar X)=\lambda/n$ なので $\bar X$ は下界を達成する。
+
+        ベルヌーイ分布で $g(p)=p^2$ なら
         $$
-        \rho_1=0.9,\qquad\rho_2=0.1.
+        \operatorname{Var}(T)
+        \ge\frac{(2p)^2}{n/[p(1-p)]}
+        =\frac{4p^3(1-p)}n.
         $$
+        $p=0.4,n=100$ では $0.001536$。
       計算例: |
-        (1) では交差共分散が対角行列なので特異値は対角成分の絶対値であり、直ちに
-        $$
-        0.8,\ 0.3
-        $$
-        を得る。第1正準変量対は $X_1,Y_1$、第2は $X_2,Y_2$ に対応する。
-
-        (2) では対称行列なので
+        まず一般形は
         $$
         \begin{aligned}
-        \boldsymbol\Sigma_{XY}^2
-        &=
-        \begin{pmatrix}0.5&0.4\\0.4&0.5\end{pmatrix}^2\\
-        &=\begin{pmatrix}0.41&0.40\\0.40&0.41\end{pmatrix}.
+        \{g'(\theta)\}^2
+        &=\operatorname{Cov}(T,U_n)^2\\
+        &\le\operatorname{Var}(T)\operatorname{Var}(U_n)\\
+        &=\operatorname{Var}(T)I_n(\theta),
         \end{aligned}
         $$
-        行列
+        より得る。
+
+        ポアソン分布の1観測では
         $$
-        \begin{pmatrix}a&b\\b&a\end{pmatrix}
+        \ell_1(\lambda;X)=X\log\lambda-\lambda-\log(X!),
         $$
-        の固有値は $a+b,a-b$ だから
         $$
-        0.81,\ 0.01.
+        -E[\ell_1''(\lambda)]
+        =E\left[\frac X{\lambda^2}\right]
+        =\frac1\lambda.
         $$
-        その平方根を取り
+        よって $I_n=n/\lambda$。一方
         $$
-        \rho_1=0.9,\qquad\rho_2=0.1.
+        E[\bar X]=\lambda,
+        \qquad
+        \operatorname{Var}(\bar X)=\frac\lambda n,
+        $$
+        なので有限標本で下界に一致する。
+
+        ベルヌーイ分布では
+        $$
+        I_n(p)=\frac{n}{p(1-p)},
+        \qquad g'(p)=2p.
+        $$
+        $p=0.4,n=100$ なら
+        $$
+        \frac{4(0.4)^3(0.6)}{100}
+        =0.001536.
         $$
       注意: |
-        正準相関は係数ベクトルの符号を反転できるため非負で定義する。一般の場合は $\Sigma_{XX},\Sigma_{YY}$ を無視せず、両群内の分散共分散で標準化する。
+        CRLBは正則条件を要する。不偏性を確認せず「下界を達成する」と言ってはいけない。$g(\theta)$ の推定では $g'(\theta)^2$ を落とさない。
+
+  - id: est-bias-variance-tradeoff
+    note: MSEの定義をバイアス・バリアンス分解の導出カードへ吸収する。
+    metadata:
+      title: 平均二乗誤差を定義しバイアス・バリアンス分解を導く
+      topic: mse-bias-variance-canonical
+      hashtags: [平均二乗誤差, MSE, バイアス, 分散, 推定量比較]
+    sections:
+      問題: |
+        母数 $\theta$ の推定量 $T$ について平均二乗誤差
+        $$
+        \operatorname{MSE}_\theta(T)=E_\theta[(T-\theta)^2]
+        $$
+        を、分散とバイアスに分解せよ。
+
+        さらに $E[\bar X]=\mu$、$\operatorname{Var}(\bar X)=\sigma^2/n$ として、推定量 $T=c\bar X$ の $\mu$ に対するMSEを求めよ。
+      使用公式・定理: |
+        バイアスは
+        $$
+        \operatorname{Bias}_\theta(T)=E[T]-\theta.
+        $$
+        恒等式
+        $$
+        T-\theta=(T-E[T])+(E[T]-\theta)
+        $$
+        を二乗して期待値を取る。
+      一手: |
+        **誤差を「中心化された揺らぎ」と「系統的ずれ」に分ける。** 交差項は $E[T-E[T]]=0$ で消える。
+      答え: |
+        $$
+        \operatorname{MSE}_\theta(T)
+        =\operatorname{Var}_\theta(T)
+        +\operatorname{Bias}_\theta(T)^2.
+        $$
+        $T=c\bar X$ なら
+        $$
+        \operatorname{MSE}_\mu(c\bar X)
+        =\frac{c^2\sigma^2}{n}+(c-1)^2\mu^2.
+        $$
+      計算例: |
+        一般に
+        $$
+        \begin{aligned}
+        E[(T-\theta)^2]
+        &=E\left[(T-E[T]+E[T]-\theta)^2\right]\\
+        &=E[(T-E[T])^2]\\
+        &\quad+2(E[T]-\theta)E[T-E[T]]\\
+        &\quad+(E[T]-\theta)^2\\
+        &=\operatorname{Var}(T)+\operatorname{Bias}(T)^2.
+        \end{aligned}
+        $$
+
+        $T=c\bar X$ では
+        $$
+        E[T]=c\mu,
+        \qquad
+        \operatorname{Bias}(T)=(c-1)\mu,
+        $$
+        $$
+        \operatorname{Var}(T)=c^2\frac{\sigma^2}{n},
+        $$
+        したがって
+        $$
+        \operatorname{MSE}(T)
+        =c^2\frac{\sigma^2}{n}+(c-1)^2\mu^2.
+        $$
+        $c=1$ なら不偏な標本平均へ戻り、MSEは $\sigma^2/n$。
+      注意: |
+        不偏性だけで推定量の良さは決まらない。小さなバイアスを許すことで分散を大きく減らし、MSEを下げられる場合がある。
+
+  - id: est-estimator-comparison
+    note: 相対効率の定義を推定量比較のcanonicalへ吸収し、不偏・有偏で比較基準を切り替える一枚にする。
+    metadata:
+      title: 推定量をバイアス・分散・MSE・相対効率で比較する
+      topic: estimator-comparison-canonical
+      hashtags: [推定量比較, 相対効率, 平均二乗誤差, 不偏性, バイアス]
+    sections:
+      問題: |
+        同じ母数 $\theta$ を推定する $T_1,T_2$ を比較する手順を述べよ。不偏推定量同士の相対効率も定義せよ。
+
+        さらに正規分布からの独立標本で母分散 $\sigma^2$ を推定する
+        $$
+        \widehat\sigma^2_{\mathrm{MLE}}
+        =\frac1n\sum_{i=1}^n(X_i-\bar X)^2,
+        \qquad
+        S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2
+        $$
+        をMSEで比較せよ。$n=5$ の値も比較せよ。
+      使用公式・定理: |
+        一般には
+        $$
+        \operatorname{MSE}(T)
+        =\operatorname{Var}(T)+\operatorname{Bias}(T)^2.
+        $$
+        不偏推定量同士なら分散だけを比較できる。$T_1$ を基準とする相対効率を
+        $$
+        \operatorname{eff}(T_1,T_2)
+        =\frac{\operatorname{Var}(T_2)}{\operatorname{Var}(T_1)}
+        $$
+        と定義するなら、値が1より大きいほど $T_1$ の分散が小さい。
+
+        正規標本では
+        $$
+        \frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+        $$
+      一手: |
+        **まず期待値を見て不偏かを判定する。不偏同士なら分散・相対効率、有偏を含むならMSEで比較する。**
+      答え: |
+        正規標本の分散推定では
+        $$
+        \operatorname{MSE}(\widehat\sigma^2_{\mathrm{MLE}})
+        =\frac{2n-1}{n^2}\sigma^4,
+        $$
+        $$
+        \operatorname{MSE}(S^2)
+        =\frac2{n-1}\sigma^4.
+        $$
+        $n=5$ ならそれぞれ
+        $$
+        \frac9{25}\sigma^4=0.36\sigma^4,
+        \qquad
+        \frac12\sigma^4=0.50\sigma^4,
+        $$
+        なので、このMSE基準では有偏な最尤推定量の方が小さい。
+      計算例: |
+        $Q=\sum(X_i-\bar X)^2$ とすると
+        $$
+        E[Q]=(n-1)\sigma^2,
+        \qquad
+        \operatorname{Var}(Q)=2(n-1)\sigma^4.
+        $$
+        したがって
+        $$
+        E[\widehat\sigma^2_{\mathrm{MLE}}]
+        =\frac{n-1}{n}\sigma^2,
+        $$
+        バイアスは $-\sigma^2/n$、分散は
+        $$
+        \frac{2(n-1)}{n^2}\sigma^4.
+        $$
+        よって
+        $$
+        \begin{aligned}
+        \operatorname{MSE}(\widehat\sigma^2_{\mathrm{MLE}})
+        &=\frac{2(n-1)}{n^2}\sigma^4+rac1{n^2}\sigma^4\\
+        &=\frac{2n-1}{n^2}\sigma^4.
+        \end{aligned}
+        $$
+        $S^2$ は不偏で
+        $$
+        \operatorname{Var}(S^2)=\frac2{n-1}\sigma^4,
+        $$
+        したがってMSEも同じ値である。
+      注意: |
+        相対効率は文献により比の向きを逆に定義することがあるため、どちらを分母にしたか明記する。不偏性は望ましい性質だが、それだけでMSE最小を意味しない。
