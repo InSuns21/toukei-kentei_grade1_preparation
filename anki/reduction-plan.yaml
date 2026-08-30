@@ -1,20 +1,68 @@
 schema_version: 1
-batch_id: 2026-08-30-twoway-anova-reduction-47
+batch_id: 2026-08-30-regression-core-reduction-48
 items:
-  - id: anova-twoway-model
+  - id: reg-fitted-residual-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-twoway-f-tests
-    note: 交互作用を含む固定効果モデル、識別制約、独立・正規・等分散の誤差仮定を正本へ統合済み。
-
-  - id: anova-twoway-ss-balanced
+    canonical_card: reg-ols-normal-equations-simple
+    note: 当てはめ値・残差の数値計算を最小二乗導出と残差直交まで含む正本へ統合済み。
+  - id: reg-residual-orthogonality
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-twoway-f-tests
-    note: 釣合い二元配置のA・B・交互作用・誤差平方和と平方和分解を数値例付き正本へ統合済み。
-
-  - id: anova-twoway-degrees-freedom
+    canonical_card: reg-ols-normal-equations-simple
+    note: 残差の直交条件を正規方程式から導く正本へ統合済み。
+  - id: reg-r-squared
     bucket: duplicates
     reason: duplicate
-    canonical_card: anova-twoway-f-tests
-    note: A・B・交互作用・誤差・全体の自由度と加法分解を正本へ統合済み。
+    canonical_card: reg-sst-decomposition
+    note: 決定係数の定義を平方和分解から導く正本へ統合済み。
+  - id: reg-simple-r2-correlation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-sst-decomposition
+    note: 単回帰でR二乗が標本相関係数の二乗に一致する導出を正本へ統合済み。
+  - id: reg-adjusted-r-squared
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-sst-decomposition
+    note: 自由度調整済み決定係数を通常の決定係数・平方和分解と同じ正本へ統合済み。
+  - id: reg-slope-variance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-slope-t-test
+    note: 傾き推定量の分散・標準誤差をt検定・信頼区間の正本へ統合済み。
+  - id: reg-intercept-variance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-slope-t-test
+    note: 切片推定量の分散を傾き推定量の分散と同じ推測正本へ統合済み。
+  - id: reg-slope-t-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-slope-t-test
+    note: 傾きのt検定の数値判定を係数分散から通す正本へ統合済み。
+  - id: reg-slope-confidence-interval
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-slope-t-test
+    note: 傾きの信頼区間を同じ標準誤差を使うt検定の正本へ統合済み。
+  - id: reg-prediction-interval
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-mean-response-ci
+    note: 新規1観測の予測区間を平均応答信頼区間との比較正本へ統合済み。
+  - id: reg-ci-versus-pi-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-mean-response-ci
+    note: 平均応答区間と予測区間の幅の数値比較を同じ正本へ統合済み。
+  - id: reg-matrix-ols-derivation
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-multiple-model-matrix
+    note: 行列微分による最小二乗推定量の導出を重回帰行列正本へ統合済み。
+  - id: reg-beta-unbiased-covariance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-multiple-model-matrix
+    note: 最小二乗法係数の不偏性と共分散行列を行列表現・導出と同じ正本へ統合済み。
