@@ -1,14 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-30-gls-reduction-67-rebase-safe2
+batch_id: 2026-08-30-lasso-ridge-reduction-69
 items:
-  - id: reg-feasible-gls-steps
+  - id: reg-lasso-vs-ridge
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-gls-estimator
-    note: 未知の誤差共分散を推定してGLSへ代入するFGLS手順をGLS正本へ統合済み。
-
-  - id: reg-wls-two-points
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-gls-estimator
-    note: 対角誤差共分散で逆分散重みを用いるWLSと数値例をGLS正本へ統合済み。
+    canonical_card: reg-lasso-soft-threshold
+    note: L1/L2罰則、疎化と連続縮小、標準化、相関説明変数での挙動比較をLasso正本へ統合済み。
