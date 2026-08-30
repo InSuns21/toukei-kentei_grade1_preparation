@@ -662,31 +662,127 @@ $$E_A[T_A^+]=\frac1{0.2}=5.$$
 
 ---
 id: engproc-birth-death-detailed-balance
-title: 出生死亡過程の定常比を詳細釣合いから求める
+title: 出生死亡過程の詳細釣合いから定常分布を作りM/M/1へ適用する
 category: applied-engineering
 subcategory: engineering-stochastic-processes
-topic: birth-death-process
-type: calc_step
+topic: birth-death-mm1-stationary-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [マルコフ過程, 出生死亡過程, 詳細釣合い]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: マルコフ過程 }]
+priority: A
+hashtags:
+  - マルコフ過程
+  - 出生死亡過程
+  - 詳細釣合い
+  - M/M/1
+  - 定常分布
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: マルコフ過程
 ---
 ## 問題
-出生率が全状態で $\lambda$、死亡率が正の状態で $\mu$ の出生死亡過程について、定常確率の比 $\pi_{n+1}/\pi_n$ を求めよ。
+状態空間 $\{0,1,2,\ldots\}$ の出生死亡過程を考える。状態 $n$ から $n+1$ への出生率を $\lambda_n$、状態 $n\ge1$ から $n-1$ への死亡率を $\mu_n$ とする。
+1. 定常確率 $\pi_n$ が詳細釣合いを満たすとき、$\pi_n$ を $\pi_0$ と各率から表せ。
+2. 定常分布が存在するための正規化条件を述べよ。
+3. M/M/1待ち行列で到着率 $\lambda=2$/時、サービス率 $\mu=3$/時のとき、定常時に系内人数が3人である確率と空系確率を求めよ。
+
 ## 記号・用語
-$\pi_n$ は定常状態で系内個数が $n$ である確率である。
+$\pi_n$ は定常状態で系が状態 $n$ にある確率である。出生死亡過程では隣接状態間だけ遷移する。M/M/1待ち行列では状態 $n$ を系内人数とみなし、到着が $n\to n+1$、サービス完了が $n\to n-1$ に対応する。
+
 ## 使用公式・定理
-詳細釣合い式は $\pi_n\lambda=\pi_{n+1}\mu$。
+隣接状態間の詳細釣合いは
+$$
+\pi_n\lambda_n=\pi_{n+1}\mu_{n+1}
+\qquad(n\ge0).
+$$
+よって
+$$
+\frac{\pi_{n+1}}{\pi_n}
+=\frac{\lambda_n}{\mu_{n+1}},
+$$
+再帰的に
+$$
+\pi_n
+=\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
+\qquad(n\ge1).
+$$
+確率の総和が1になるように
+$$
+\pi_0^{-1}
+=1+\sum_{n=1}^{\infty}
+\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}
+$$
+と正規化する。この級数が有限であることが必要である。
+
+M/M/1では
+$$
+\lambda_n=\lambda\quad(n\ge0),
+\qquad
+\mu_n=\mu\quad(n\ge1),
+$$
+なので
+$$
+\rho=\frac{\lambda}{\mu},
+\qquad
+\pi_n=\pi_0\rho^n.
+$$
+
 ## 一手／方針
-隣接状態間の流入率と流出率を等置して比を解く。
+**隣接状態の流れを等置して比を作り、その比を掛け上げて最後に正規化する。** M/M/1の幾何型定常分布を独立公式として暗記せず、「出生率が一定 $\lambda$、死亡率が一定 $\mu$ の出生死亡過程」と見て一般式から導く。
+
 ## 答え
-$$\frac{\pi_{n+1}}{\pi_n}=\frac\lambda\mu=\rho.$$
+1. 詳細釣合いから
+$$
+\pi_n
+=\pi_0\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}.
+$$
+
+2. 
+$$
+1+\sum_{n=1}^{\infty}
+\prod_{k=0}^{n-1}\frac{\lambda_k}{\mu_{k+1}}<\infty
+$$
+なら正規化でき、$\pi_0$ をその逆数として定められる。
+
+3. M/M/1では
+$$
+\rho=\frac{2}{3}<1.
+$$
+幾何級数
+$$
+1+\rho+\rho^2+\cdots=\frac1{1-\rho}
+$$
+から
+$$
+\pi_0=1-\rho=\frac13,
+$$
+$$
+\pi_n=(1-\rho)\rho^n.
+$$
+よって
+$$
+\pi_3
+=\left(1-\frac23\right)\left(\frac23\right)^3
+=\frac8{81}
+\approx0.0988.
+$$
+
 ## 計算例
-$\rho<1$ なら $\pi_n=(1-\rho)\rho^n$ と正規化できる。
+同じM/M/1で系内人数が2人以上である確率は
+$$
+P(N\ge2)
+=\sum_{n=2}^{\infty}(1-\rho)\rho^n
+=\rho^2
+=\frac49.
+$$
+幾何型定常分布を得た後は、尾確率も幾何級数として処理できる。
+
 ## 注意
-$\rho\ge1$ では無限状態空間上の定常確率分布を正規化できない。
+M/M/1の定常分布には $\rho=\lambda/\mu<1$ が必要である。$\rho\ge1$ では上の級数を確率1に正規化できない。また「系内人数」は待ち行列で待っている人数だけでなくサービス中の1人も含む。平均系内人数や平均滞在時間を求めるLittleの法則は、この定常確率の導出とは別の計算技能として扱う。
 
 <!-- CARD -->
 
