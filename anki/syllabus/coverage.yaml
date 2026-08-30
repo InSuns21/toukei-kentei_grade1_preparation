@@ -1990,9 +1990,6 @@ items:
       - mv-mahalanobis-distance
       - mv-hotelling-one-sample
       - mv-pca-variance-max
-      - mv-pca-software-output
-      - mv-pca-loading
-      - mv-pca-covariance-vs-correlation
       - mv-factor-model-covariance
       - mv-factor-rotation
       - mv-factor-score-regression
@@ -2028,9 +2025,6 @@ items:
         status: card
         cards:
           - mv-pca-variance-max
-          - mv-pca-software-output
-          - mv-pca-loading
-          - mv-pca-covariance-vs-correlation
       - name: 因子分析
         status: card
         cards:

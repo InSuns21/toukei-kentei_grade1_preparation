@@ -243,7 +243,7 @@ sources:
   - type: official_syllabus
     topic: 固有値・固有ベクトル
 archive_reason: duplicate
-canonical_card: mv-pca-loading
+canonical_card: mv-pca-variance-max
 archive_note: 固有値・固有ベクトル成分・元変数標準偏差から主成分負荷量を求める専用canonicalが存在する。
 ---
 ## 問題
@@ -287,7 +287,7 @@ sources:
   - type: official_syllabus
     topic: 主成分分析
 archive_reason: duplicate
-canonical_card: mv-pca-software-output
+canonical_card: mv-pca-variance-max
 archive_note: 標準化観測と固有ベクトルの内積による主成分得点の数値計算をcanonicalが既に扱う。
 ---
 ## 問題

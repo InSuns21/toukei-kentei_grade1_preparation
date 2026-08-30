@@ -66,7 +66,7 @@ sources:
   - type: official_syllabus
     topic: 寄与率・累積寄与率
 archive_reason: duplicate
-canonical_card: mv-pca-software-output
+canonical_card: mv-pca-variance-max
 archive_note: 固有値総和から寄与率・累積寄与率を求める操作は、PCAソフトウェア出力canonicalで数値計算済み。
 ---
 ## 問題
@@ -110,7 +110,7 @@ sources:
   - type: official_syllabus
     topic: 主成分分析
 archive_reason: duplicate
-canonical_card: mv-pca-software-output
+canonical_card: mv-pca-variance-max
 archive_note: 主成分得点を固有ベクトルとの内積で求める数値計算は、PCAソフトウェア出力canonicalへ既に統合済み。
 ---
 ## 問題

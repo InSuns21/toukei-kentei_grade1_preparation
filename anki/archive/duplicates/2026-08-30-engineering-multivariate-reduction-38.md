@@ -242,7 +242,7 @@ sources:
   - type: official_syllabus
     topic: 標準化主成分分析と相関行列
 archive_reason: duplicate
-canonical_card: mv-pca-covariance-vs-correlation
+canonical_card: mv-pca-variance-max
 archive_note: 相関行列[[1,.8],[.8,1]]の固有値1.8,.2、PC1、寄与率0.9をcanonicalへ吸収済み。
 ---
 ## 問題
