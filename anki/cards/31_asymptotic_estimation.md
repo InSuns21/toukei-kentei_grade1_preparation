@@ -1168,61 +1168,155 @@ $$\frac1{4\cdot400\cdot0.1^2}=0.0625.$$
 
 ---
 id: asym-mle-asymptotic-normality
-title: 最尤推定量の漸近正規性を述べる
+title: 最尤推定量の漸近正規性をTaylor展開から導き情報量で分散を求める
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: mle-asymptotic-normality
-type: theorem
-difficulty: 3
+topic: mle-asymptotic-normality-canonical
+type: strategy
+difficulty: 4
 priority: S
-hashtags: [最尤推定, 漸近正規性, フィッシャー情報量（1次元）]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
+hashtags:
+  - 最尤推定量
+  - 漸近正規性
+  - スコア
+  - フィッシャー情報量（1次元）
+  - Taylor展開
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 最尤推定量の漸近正規性
 ---
 
 ## 問題
-正則条件の下での最尤推定量の漸近分布を述べよ。
+1次元の正則な独立同分布モデルで母数を $\theta$、最尤推定量を $\widehat\theta$ とする。次を答えよ。
+
+1. スコア方程式を真値 $\theta_0$ の周りでTaylor展開し、最尤推定量の漸近正規性がどのように出るか説明せよ。
+2. 1観測当たりのフィッシャー情報量（1次元） $I_1(\theta_0)$ を用いて極限分布を書け。
+3. ベルヌーイ分布 $P(X=1)=p$ について $I_1(p)$ を求め、標本比率 $\widehat p$ の漸近分散を求めよ。
+4. 分散 $\sigma^2$ が既知の正規分布 $N(\mu,\sigma^2)$ について $I_1(\mu)$ を求め、$\widehat\mu=\overline X$ の漸近分散を求めよ。$\sigma^2=9,n=100$ の標準誤差も計算せよ。
 
 ## 記号・用語
-- フィッシャー情報量（1次元）：スコアの分散。正則条件下では対数尤度の負の2階微分の期待値に等しい
-- $\xrightarrow{d}$：分布収束
+対数尤度を $\ell_n(\theta)$、スコアを
+$$
+U_n(\theta)=\frac{\partial\ell_n(\theta)}{\partial\theta}
+$$
+とする。1観測当たりのフィッシャー情報量（1次元）は、正則条件の下で
+$$
+I_1(\theta)
+=E_\theta\left[\left\{\frac{\partial}{\partial\theta}\log f(X;\theta)\right\}^2\right]
+=-E_\theta\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right].
+$$
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-スコア方程式 $U_n(\widehat\theta)=0$ を真値 $\theta_0$ の周りでTaylor展開すると
-$$0=U_n(\theta_0)+U_n'(\widetilde\theta)(\widehat\theta-\theta_0),$$
-したがって
-$$\sqrt n(\widehat\theta-\theta_0)
-=\left\{-\frac1nU_n'(\widetilde\theta)\right\}^{-1}
-\frac{U_n(\theta_0)}{\sqrt n}.$$
+最尤推定量は内部解なら $U_n(\widehat\theta)=0$ を満たす。真値 $\theta_0$ 周りのTaylor展開から
+$$
+0
+=U_n(\theta_0)
++U_n'(\theta_0)(\widehat\theta-\theta_0)
++\text{剰余項}.
+$$
+よって主要項は
+$$
+\sqrt n(\widehat\theta-\theta_0)
+\approx
+\left\{-\frac1nU_n'(\theta_0)\right\}^{-1}
+\frac{U_n(\theta_0)}{\sqrt n}.
+$$
 正則条件の下で
-$$-\frac1nU_n'(\widetilde\theta)\xrightarrow{p}I_1(\theta_0),\qquad
-\frac{U_n(\theta_0)}{\sqrt n}\xrightarrow{d}N(0,I_1(\theta_0)).$$
-よってSlutskyの定理から
-$$\sqrt n(\widehat\theta-\theta_0)\xrightarrow{d}N(0,I_1(\theta_0)^{-1}).$$
+$$
+-\frac1nU_n'(\theta_0)\xrightarrow{p}I_1(\theta_0),
+$$
+$$
+\frac{U_n(\theta_0)}{\sqrt n}
+\xrightarrow{d}
+\text{正規分布 }N(0,I_1(\theta_0)).
+$$
+Slutskyの定理より
+$$
+\sqrt n(\widehat\theta-\theta_0)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,I_1(\theta_0)^{-1}\right).
+$$
+
+## 一手／方針
+**「スコア方程式を一次展開 → 傾きは情報量へ、スコアは中心極限定理へ」の2本に分ける。** 個別分布では、1観測の対数尤度を微分して $I_1$ を出せば、近似分散 $1/[nI_1]$ が直ちに得られる。
 
 ## 答え
-標準化した最尤推定量は標準正規分布へ分布収束し、漸近分散は1観測当たりのフィッシャー情報量（1次元）の逆数になる。
+1. Taylor展開を $\widehat\theta-\theta_0$ について解くと、最尤推定量の誤差は「真値でのスコア÷尤度の曲率」の形になる。スコアは $\sqrt n$ 級、曲率は $n$ 級なので、推定誤差は $n^{-1/2}$ 級となる。
+
+2.
+$$
+\boxed{
+\sqrt n(\widehat\theta-\theta_0)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,I_1(\theta_0)^{-1}\right)}.
+$$
+したがって $\widehat\theta$ 自身の大標本での分散は
+$$
+\operatorname{Avar}(\widehat\theta)\approx\frac{1}{nI_1(\theta_0)}.
+$$
+
+3. ベルヌーイ分布では
+$$
+\ell_1(p;x)=x\log p+(1-x)\log(1-p).
+$$
+2回微分し期待値を取ると
+$$
+I_1(p)=\frac1{p(1-p)}.
+$$
+よって
+$$
+\boxed{
+\sqrt n(\widehat p-p)
+\xrightarrow{d}
+\text{正規分布 }N(0,p(1-p))},
+$$
+$$
+\operatorname{Avar}(\widehat p)\approx\frac{p(1-p)}n.
+$$
+
+4. 正規分布の1観測の対数尤度は
+$$
+\ell_1(\mu;x)
+=C-\frac{(x-\mu)^2}{2\sigma^2}.
+$$
+したがって
+$$
+-\frac{\partial^2\ell_1}{\partial\mu^2}
+=\frac1{\sigma^2},
+\qquad
+I_1(\mu)=\frac1{\sigma^2}.
+$$
+よって
+$$
+\boxed{
+\sqrt n(\overline X-\mu)
+\xrightarrow{d}
+\text{正規分布 }N(0,\sigma^2)},
+$$
+$$
+\operatorname{Avar}(\overline X)\approx\frac{\sigma^2}{n}.
+$$
+$\sigma^2=9,n=100$ なら
+$$
+\operatorname{ASE}(\overline X)=\frac3{10}=\boxed{0.3}.
+$$
 
 ## 計算例
-ベルヌーイ1観測の対数尤度は
-$$\ell_1(p;X)=X\log p+(1-X)\log(1-p).$$
-したがって
-$$\ell_1''(p)=-\frac X{p^2}-\frac{1-X}{(1-p)^2}.$$
-$E_p[X]=p$ を使うと
-$$I_1(p)=-E_p[\ell_1''(p)]
-=\frac1p+\frac1{1-p}
-=\frac1{p(1-p)}.$$
-よって正則条件の下で
-$$\sqrt n(\widehat p-p)
-\xrightarrow{d}N\left(0,I_1(p)^{-1}\right)
-=N(0,p(1-p)).$$
-$p=0.4,n=100$ なら $\widehat p$ の漸近標準誤差は
-$$\sqrt{\frac{0.4(0.6)}{100}}\approx0.0490.$$
+ベルヌーイ分布で $p=0.4,n=100$ なら
+$$
+\operatorname{ASE}(\widehat p)
+\approx\sqrt{\frac{0.4\cdot0.6}{100}}
+\approx0.0490.
+$$
+正規平均では情報量から得た $\sigma^2/n$ が、標本平均の厳密分散と一致する。これは正規モデルでは漸近近似より強い有限標本結果である。
 
 ## 注意
-偏差スコアの期待値0とフィッシャー情報量（1次元）の加法性を用いる。
+この結論には識別可能性、真値が母数空間の内部にあること、十分な滑らかさ、情報量が有限かつ正であることなどの正則条件が必要である。境界母数、支持が母数に依存するモデル、混合モデルなどでは通常の正規極限が崩れることがある。また $I_1^{-1}$ は $\sqrt n$ 尺度の極限分散であり、推定量自身の近似分散は $1/(nI_1)$ である。
 
 <!-- CARD -->
 
@@ -1268,18 +1362,19 @@ $$\widehat{\operatorname{ASE}}(\overline X_n)
 
 ---
 id: asym-asymptotic-relative-efficiency
-title: クラーメル・ラオの不等式から漸近効率と漸近相対効率を整理する
+title: クラーメル・ラオの不等式から漸近効率と漸近相対効率を数値比較する
 category: math-estimation
 subcategory: math-asymptotic-estimation
-topic: cramer-rao-asymptotic-efficiency
-type: formula
+topic: cramer-rao-asymptotic-efficiency-canonical
+type: strategy
 difficulty: 3
 priority: A
 hashtags:
   - クラーメル・ラオの不等式
-  - フィッシャー情報量（1次元）
   - 漸近効率
   - 漸近相対効率
+  - 標本中央値
+  - 標本平均
 frequency:
   past_exam: 0
   textbook: 0
@@ -1291,99 +1386,115 @@ sources:
 ---
 
 ## 問題
-正則な1母数モデルで1観測当たりのフィッシャー情報量（1次元）を $I_1(\theta)$ とする。
-
-1. $E_\theta[T_n]=\theta$ を満たす不偏推定量に対するクラーメル・ラオの不等式を書け。
-2. 正則な最尤推定量の漸近分布と、フィッシャー情報量（1次元）との関係を述べよ。
-3. 二つの漸近正規推定量 $T_n,U_n$ の漸近相対効率を定義せよ。
-
-数値例として
+同じ母数 $\theta$ を推定する2つの推定量 $T_n,U_n$ が
 $$
-\operatorname{AVar}(\sqrt n\,T_n)=4,
+\sqrt n(T_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v_T),
 \qquad
-\operatorname{AVar}(\sqrt n\,U_n)=9
+\sqrt n(U_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v_U)
 $$
-のとき $T_n$ の $U_n$ に対する漸近相対効率を求めよ。
+を満たすとする。次を答えよ。
 
-## 記号・用語
-- ARE：漸近相対効率（asymptotic relative efficiency）
-
-## 使用公式・定理
-独立同分布標本では標本全体の情報量は
-$$
-I_n(\theta)=nI_1(\theta).
-$$
-クラーメル・ラオの不等式より、正則条件の下で不偏推定量 $T_n$ は
-$$
-\operatorname{Var}_\theta(T_n)
-\ge \frac{1}{I_n(\theta)}
-=\frac{1}{nI_1(\theta)}.
-$$
-
-また正則な最尤推定量は通常
-$$
-\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
-\xrightarrow{d}
-N\left(0,I_1(\theta)^{-1}\right)
-$$
-を満たし、有限標本の不偏性とは別概念だが、漸近分散が情報下界に対応する。
-
-漸近正規推定量について
-$$
-\sqrt n(T_n-\theta)\xrightarrow{d}N(0,v_T),
-\qquad
-\sqrt n(U_n-\theta)\xrightarrow{d}N(0,v_U)
-$$
-なら、ここでは
+1. 1次元正則モデルにおけるクラーメル・ラオの不等式と、最尤推定量が漸近効率的であるという意味を述べよ。
+2. 規約
 $$
 \operatorname{ARE}(T,U)=\frac{v_U}{v_T}
 $$
-と定義する。
+の意味を説明し、$v_T=4,v_U=9$ の場合を計算せよ。
+3. 正規分布 $N(\mu,\sigma^2)$ からの標本について、標本平均 $\overline X$ と標本中央値 $\widetilde X$ の $\sqrt n$ 尺度の漸近分散を求め、$\operatorname{ARE}(\widetilde X,\overline X)$ を計算せよ。
+4. AREが1未満なら、その推定量が常に劣ると結論してよいか説明せよ。
 
-## 一手
-**有限標本では分散を $1/I_n$ と比較し、漸近理論では $\sqrt n$ 倍した推定誤差の極限分散を $I_1^{-1}$ と比較する。** その上で二つの極限分散の比を取れば漸近相対効率になる。
+## 記号・用語
+**漸近効率**は、$\sqrt n$ 尺度で見た推定量の極限分散が、正則推定で達成可能な情報量下界に一致する性質をいう。
+
+**漸近相対効率（ARE）**は2推定量の大標本での分散定数を比較する量である。このカードでは
+$$
+\operatorname{ARE}(T,U)=\frac{v_U}{v_T}
+$$
+と定義するので、1より大きいほど $T_n$ の方が漸近的に効率的である。
+
+## 使用公式・定理
+1観測当たりのフィッシャー情報量（1次元）を $I_1(\theta)$ とすると、正則条件の下で不偏推定量の分散にはクラーメル・ラオ型の下界
+$$
+\operatorname{Var}(T_n)\ge\frac{1}{nI_1(\theta)}
+$$
+が現れる。正則な最尤推定量は典型的に
+$$
+\sqrt n(\widehat\theta-\theta)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,I_1(\theta)^{-1}\right)
+$$
+となり、この下界を漸近的に達成する。
+
+連続分布の標本中央値 $\widetilde X$ は、母中央値 $m$ で $f(m)>0$ なら
+$$
+\sqrt n(\widetilde X-m)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,\frac{1}{4f(m)^2}\right).
+$$
+正規分布では $m=\mu$、
+$$
+f(\mu)=\frac{1}{\sqrt{2\pi}\sigma}.
+$$
+
+## 一手／方針
+**AREでは「どちらの分散を分子に置く規約か」を最初に固定する。** その後、各推定量の $\sqrt n$ 尺度の極限分散 $v_T,v_U$ を並べ、逆向きの比 $v_U/v_T$ を取る。
 
 ## 答え
-不偏推定量には
+1. 正則モデルでは情報量が推定精度の下界を与え、最尤推定量が
 $$
-\operatorname{Var}(T_n)\ge\frac{1}{nI_1(\theta)}.
+I_1(\theta)^{-1}
 $$
-正則な最尤推定量は
-$$
-\sqrt n(\widehat\theta_{\mathrm{ML}}-\theta)
-\xrightarrow{d}N(0,I_1(\theta)^{-1})
-$$
-となるのが基本である。
+を極限分散として持つとき漸近効率的という。
 
-数値例では
+2.
 $$
-\operatorname{ARE}(T,U)=\frac94=2.25.
+\operatorname{ARE}(T,U)=\frac94=\boxed{2.25}.
 $$
-したがって同じ標本サイズなら $T_n$ の方が小さい極限分散を持つ。
+これは同じ大標本精度なら、$T_n$ の分散定数が $U_n$ の $4/9$ であることを表す。
 
-## 計算例
-例えば $I_1(\theta)=1/4$ なら、$n=100$ に対するクラーメル・ラオの分散下界は
+3. 正規分布では中心極限定理より
 $$
-\frac{1}{100(1/4)}=0.04.
+\sqrt n(\overline X-\mu)
+\xrightarrow{d}
+\text{正規分布 }N(0,\sigma^2).
 $$
-一方、漸近分布の尺度では
+一方、中央値は
 $$
-I_1(\theta)^{-1}=4
+\frac{1}{4f(\mu)^2}
+=\frac{1}{4}\cdot2\pi\sigma^2
+=\frac{\pi\sigma^2}{2}
 $$
 なので
 $$
-\sqrt n(\widehat\theta-\theta)
+\sqrt n(\widetilde X-\mu)
+\xrightarrow{d}
+\text{正規分布 }N\left(0,\frac{\pi\sigma^2}{2}\right).
 $$
-の極限分散4と、$\widehat\theta$ 自身の漸近分散 $4/n$ を混同しない。
+よってこのカードの規約では
+$$
+\operatorname{ARE}(\widetilde X,\overline X)
+=\frac{\sigma^2}{\pi\sigma^2/2}
+=\boxed{\frac2\pi\approx0.637}.
+$$
+正規母集団では標本平均の方が漸近的に効率的である。
 
-また $v_T=4,v_U=9$ なら
+4. いえない。AREは指定したモデル下の大標本分散比較であり、ロバスト性・バイアス・有限標本性能まで一つの数値で保証するものではない。
+
+## 計算例
+正規分布で $\sigma=2,n=100$ とする。標本平均の近似標準誤差は
 $$
-\operatorname{ARE}(T,U)=\frac{9}{4}=2.25.
+\frac2{10}=0.2.
 $$
-これは $T_n$ の極限分散が $U_n$ の $4/9$ であることを表す。
+標本中央値は
+$$
+\sqrt{\frac{\pi\sigma^2}{2n}}
+=\sqrt{\frac{2\pi}{100}}
+\approx0.251.
+$$
+分散比は $0.2^2/0.251^2\approx0.637$ となる。
 
 ## 注意
-クラーメル・ラオの不等式は有限標本の不偏推定量に対する正則条件付き下界であり、最尤推定量の漸近効率とは同一の主張ではない。漸近相対効率は文献によって比の向きが逆の場合があるため定義を確認する。
+AREの比の向きは文献によって逆の規約もあるため、必ず定義を確認する。ここで比較している $v_T,v_U$ は $\sqrt n(T_n-\theta)$ の極限分散であり、推定量自身の近似分散はそれぞれ $v_T/n,v_U/n$。正規分布では平均が有利だが、裾の重い分布や外れ値汚染では中央値のロバスト性が有利になることがある。
 
 <!-- CARD -->
 
