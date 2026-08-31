@@ -1,73 +1,204 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-inference-canonicalization-246
+batch_id: 2026-08-31-linear-contrast-canonicalization-249
 items:
-  - id: reg-mean-response-ci
-    note: 工学側の平均応答CI・新規1観測PIは、単回帰正本と同じ推定量不確実性と新規誤差の区別を重回帰の行列表記で計算するカード。一般の x0^T(X^TX)^(-1)x0 表記を正本へ吸収する。
-    sections:
-      使用公式・定理: |
-        切片を含む単回帰で $x=x_0$ とすると
-        $$
-        h_0=\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}.
-        $$
-        平均応答 $E[Y\mid x_0]$ の推定標準誤差は
-        $$
-        s\sqrt{h_0},
-        $$
-        新しい1観測の予測標準誤差は
-        $$
-        s\sqrt{1+h_0}.
-        $$
-        したがって、両側 $100(1-\alpha)\%$ 区間はそれぞれ
-        $$
-        \widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{h_0},
-        $$
-        $$
-        \widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{1+h_0}.
-        $$
-
-        同じ結果は重回帰でも行列表記でそのまま成り立つ。切片成分を含む新しい説明変数ベクトルを $\boldsymbol x_0$、計画行列を $X$ とすると
-        $$
-        h_0=\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0.
-        $$
-        よって平均応答の標準誤差は
-        $$
-        s\sqrt{\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0},
-        $$
-        新規1観測の予測標準誤差は
-        $$
-        s\sqrt{1+\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0}.
-        $$
-        予測区間だけ先頭に1が付くのは、新しい観測自身の誤差分散 $\sigma^2$ が追加されるためである。
-      注意: |
-        平均応答の信頼区間と新規1観測の予測区間を混同しない。前者は同じ条件での平均を推測し、後者は新しい個体のばらつきまで含むため広い。
-
-        単回帰の $h_0=1/n+(x_0-\bar x)^2/S_{xx}$ は、重回帰の $\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0$ の特殊形である。観測された説明変数範囲から大きく外れた外挿では、数式上区間を作れても線形モデル自体の妥当性が弱い。
-  - id: reg-hat-matrix-properties
-    note: 工学側 enginf-leverage-numeric の実務的な高レバレッジ目安 2k/n を正本へ吸収する。ハット行列・平均レバレッジ・標準化残差の導出は既に正本側がより一般的。
-    sections:
-      注意: |
-        高レバレッジとは説明変数空間で特殊な位置にあることを意味し、それだけで影響点とは限らない。影響度は残差の大きさも合わせてCookの距離などで確認する。
-
-        切片を含み係数総数を $k$、標本数を $n$ とすると平均レバレッジは $k/n$ である。探索的な目安として
-        $$
-        h_{ii}>\frac{2k}{n}
-        $$
-        を高レバレッジ候補とすることがある。例えば $n=20,k=4$ なら目安は $0.40$ なので、$h_{ii}=0.55$ は要確認となる。ただしこれは絶対的な検定基準ではない。
-
-        ここでの $r_i=e_i/(s\sqrt{1-h_{ii}})$ は通常の内部標準化残差であり、観測 $i$ を除いて分散を再推定する外部スチューデント化残差とは区別する。
-  - id: reg-cooks-distance
-    note: 工学側 enginf-cooks-distance の数値例と 4/n の探索的目安を正本へ吸収する。Cookの距離の式自体は既に同一。
+  - id: mv-covariance-linear-transform
+    note: 工学側 enginf-linear-combination-normal の正規ベクトルの線形結合分布を common 正本へ吸収する。既存の共分散変換・漸近正規ベクトルの線形結合と同じ a^T Sigma a を使うため、一つの正本で exact / asymptotic を区別して扱う。
     sections:
       計算例: |
-        まず $r_i=2,k=4,h_{ii}=0.5$ なら
+        2変量ベクトルの差と和では、共分散項の符号に注意する。例えば
         $$
-        D_i=\frac{2^2}{4}\frac{0.5}{1-0.5}=1.
+        \operatorname{Var}(X_1-X_2)
+        =\Sigma_{11}+\Sigma_{22}-2\Sigma_{12},
+        $$
+        $$
+        \operatorname{Var}(X_1+X_2)
+        =\Sigma_{11}+\Sigma_{22}+2\Sigma_{12}.
         $$
 
-        別の観測で $r_i=2,k=4,h_{ii}=0.20$ なら
+        さらに、正規ベクトル
         $$
-        D_i=\frac{2^2}{4}\frac{0.20}{0.80}=0.25.
+        \boldsymbol Z\sim N_p(\boldsymbol m,\boldsymbol V)
         $$
-        探索的な目安として $4/n$ と比較することがあり、$n=40$ なら $4/n=0.10$ なので $D_i=0.25$ は詳しく確認する候補となる。
+        の任意の定数ベクトル $\boldsymbol a$ に対しては、線形結合も正規分布となり
+        $$
+        \boxed{\boldsymbol a^{\mathsf T}\boldsymbol Z
+        \sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol m,
+        \boldsymbol a^{\mathsf T}\boldsymbol V\boldsymbol a\right)}.
+        $$
+        したがって
+        $$
+        \widehat{\boldsymbol\beta}\sim
+        N_k(\boldsymbol\beta,\sigma^2\boldsymbol C)
+        $$
+        なら
+        $$
+        \boxed{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\beta}
+        \sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol\beta,
+        \sigma^2\boldsymbol a^{\mathsf T}\boldsymbol C\boldsymbol a\right)}.
+        $$
+        例えば $\boldsymbol a=(1,-1)^{\mathsf T}$ なら係数差の分散は
+        $$
+        \sigma^2(C_{11}+C_{22}-2C_{12})
+        $$
+        であり、共分散項を落としてはいけない。
       注意: |
-        $4/n$ などの閾値は絶対的な検定基準ではない。Cookの距離が大きい観測を機械的に削除せず、入力誤り、測定過程、説明変数空間での位置、観測を除いたときの再推定結果を確認する。
+        線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
+
+        正規ベクトルの線形結合が正規分布になる結論は有限標本での正確な分布である。一方、
+        $$
+        \sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
+        \xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
+        $$
+        から得る線形結合の正規性は漸近的な結論である。両者で分散計算 $\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$ は同じでも、exact と asymptotic を区別する。
+
+        正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
+  - id: reg-general-linear-hypothesis
+    note: 工学側 enginf-contrast-estimate-se / enginf-contrast-t-test の1本の線形制約を一般線形仮説の正本へ吸収し、一般の回帰係数に対して係数和0を要求しないことを明確化する。
+    sections:
+      問題: |
+        正規線形モデル
+        $$
+        \boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
+        \qquad
+        \boldsymbol\varepsilon\sim N(\boldsymbol0,\sigma^2\boldsymbol I)
+        $$
+        で、$\boldsymbol X$ は列フルランクとする。
+
+        1. 一般線形仮説
+        $$
+        H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r
+        $$
+        の制約数を $q=2$ とする。$\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r=(2,1)^{\mathsf T}$、
+        $$
+        \boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}=\boldsymbol I_2,
+        \qquad s^2=5
+        $$
+        のときF統計量を求めよ。
+
+        2. 1本の線形制約
+        $$
+        H_0:\boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
+        $$
+        に対する推定値、標準誤差、t統計量、信頼区間を書け。さらに
+        $$
+        \widehat{\boldsymbol\beta}=(10,3,5)^{\mathsf T},
+        \qquad
+        \widehat{\boldsymbol V}=\operatorname{diag}(1,0.25,0.36),
+        $$
+        $$
+        \boldsymbol c=(0,1,-1)^{\mathsf T},
+        \qquad L_0=0
+        $$
+        とし、残差自由度20、両側5%臨界値 $t_{20,0.025}=2.086$ として検定と95%信頼区間を求めよ。
+      使用公式・定理: |
+        $\widehat{\boldsymbol\beta}$ の分散共分散行列は
+        $$
+        \operatorname{Var}(\widehat{\boldsymbol\beta}\mid X)
+        =\sigma^2(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
+        $$
+        一般線形仮説で
+        $$
+        \boldsymbol d
+        =\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r,
+        \qquad
+        \boldsymbol A
+        =\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
+        $$
+        とおくと、帰無仮説の下で
+        $$
+        \boxed{
+        F=\frac{\boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d}{q s^2}
+        \sim F_{q,\nu}},
+        $$
+        ここで $\nu$ は残差自由度である。
+
+        1本の制約では
+        $$
+        \widehat L=\boldsymbol c^{\mathsf T}\widehat{\boldsymbol\beta},
+        $$
+        $$
+        \operatorname{SE}(\widehat L)
+        =s\sqrt{\boldsymbol c^{\mathsf T}(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol c}
+        =\sqrt{\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c}.
+        $$
+        正規線形モデルでは
+        $$
+        \boxed{
+        T=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
+        \sim t_\nu}.
+        $$
+        両側 $100(1-\alpha)\%$ 信頼区間は
+        $$
+        \boxed{
+        \widehat L\pm t_{\nu,\alpha/2}\operatorname{SE}(\widehat L)}.
+        $$
+        $q=1$ の一般線形仮説では、同じ制約に対して
+        $$
+        \boxed{F=T^2}
+        $$
+        が成り立つ。
+      一手: |
+        **複数制約なら制約からのずれを二次形式で測り、1本の制約なら線形結合を標準誤差で割る。**
+
+        $q=1$ は一般線形仮説の特殊形なので、推定値 $\widehat L$、分散の二次形式 $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$、t標準化を一続きで処理する。
+      答え: |
+        1. ここでは
+        $$
+        \boldsymbol d=(2,1)^{\mathsf T},
+        \qquad \boldsymbol A=\boldsymbol I_2
+        $$
+        なので
+        $$
+        \boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d=2^2+1^2=5.
+        $$
+        よって
+        $$
+        \boxed{F=\frac5{2\cdot5}=0.5}.
+        $$
+
+        2. 推定する線形結合は
+        $$
+        \widehat L
+        =(0,1,-1)
+        \begin{pmatrix}10\\3\\5\end{pmatrix}
+        =-2.
+        $$
+        標準誤差は
+        $$
+        \operatorname{SE}(\widehat L)
+        =\sqrt{0.25+0.36}
+        =\sqrt{0.61}
+        \approx0.781.
+        $$
+        したがって
+        $$
+        T=\frac{-2}{0.781}\approx-2.56.
+        $$
+        $|T|=2.56>2.086$ なので5%水準で $H_0:L=0$ を棄却する。
+
+        95%信頼区間は
+        $$
+        -2\pm2.086(0.781)
+        \approx\boxed{(-3.63,-0.37)}.
+        $$
+      計算例: |
+        推定分散共分散行列の非対角要素も一般には効く。例えば $\widehat\beta_1-\widehat\beta_2$ を考え、対応する2係数の推定分散が0.25と0.36、推定共分散が0.10なら
+        $$
+        \operatorname{Var}(\widehat\beta_1-\widehat\beta_2)
+        =0.25+0.36-2(0.10)=0.41.
+        $$
+        よって標準誤差は $\sqrt{0.41}$ であり、成分分散の単純和ではない。
+      注意: |
+        一般線形仮説
+        $$
+        \boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
+        $$
+        では、$\boldsymbol c$ の成分和が0である必要はない。例えば単一係数の検定 $H_0:\beta_j=0$ では $\boldsymbol c$ は単位ベクトルで、成分和は1である。
+
+        一方、一元配置分散分析などで**群平均の対比（contrast）**と呼ぶときは、共通水準を打ち消して群間差だけを測るため、通常
+        $$
+        \sum_i c_i=0
+        $$
+        を要求する。一般の線形制約と群平均の対比を混同しない。
+
+        $\widehat{\boldsymbol V}$ を使うときは、共分散項を含めて $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$ を計算する。片側検定では臨界値と棄却方向が変わる。
