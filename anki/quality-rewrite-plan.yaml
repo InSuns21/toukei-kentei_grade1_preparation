@@ -1,22 +1,73 @@
 schema_version: 1
-batch_id: 2026-08-31-vif-canonicalization-244
+batch_id: 2026-08-31-regression-inference-canonicalization-246
 items:
-  - id: reg-multicollinearity-vif
-    note: 工学側 enginf-vif-numeric は R_j^2=0.80 から VIF=5 を計算する同一操作。工学側にだけあった「係数分散が5倍なら標準誤差は sqrt(5) 倍」という解釈を common 正本へ吸収する。
+  - id: reg-mean-response-ci
+    note: 工学側の平均応答CI・新規1観測PIは、単回帰正本と同じ推定量不確実性と新規誤差の区別を重回帰の行列表記で計算するカード。一般の x0^T(X^TX)^(-1)x0 表記を正本へ吸収する。
+    sections:
+      使用公式・定理: |
+        切片を含む単回帰で $x=x_0$ とすると
+        $$
+        h_0=\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}.
+        $$
+        平均応答 $E[Y\mid x_0]$ の推定標準誤差は
+        $$
+        s\sqrt{h_0},
+        $$
+        新しい1観測の予測標準誤差は
+        $$
+        s\sqrt{1+h_0}.
+        $$
+        したがって、両側 $100(1-\alpha)\%$ 区間はそれぞれ
+        $$
+        \widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{h_0},
+        $$
+        $$
+        \widehat y_0\pm t_{n-2,\alpha/2}s\sqrt{1+h_0}.
+        $$
+
+        同じ結果は重回帰でも行列表記でそのまま成り立つ。切片成分を含む新しい説明変数ベクトルを $\boldsymbol x_0$、計画行列を $X$ とすると
+        $$
+        h_0=\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0.
+        $$
+        よって平均応答の標準誤差は
+        $$
+        s\sqrt{\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0},
+        $$
+        新規1観測の予測標準誤差は
+        $$
+        s\sqrt{1+\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0}.
+        $$
+        予測区間だけ先頭に1が付くのは、新しい観測自身の誤差分散 $\sigma^2$ が追加されるためである。
+      注意: |
+        平均応答の信頼区間と新規1観測の予測区間を混同しない。前者は同じ条件での平均を推測し、後者は新しい個体のばらつきまで含むため広い。
+
+        単回帰の $h_0=1/n+(x_0-\bar x)^2/S_{xx}$ は、重回帰の $\boldsymbol x_0^{\mathsf T}(X^{\mathsf T}X)^{-1}\boldsymbol x_0$ の特殊形である。観測された説明変数範囲から大きく外れた外挿では、数式上区間を作れても線形モデル自体の妥当性が弱い。
+  - id: reg-hat-matrix-properties
+    note: 工学側 enginf-leverage-numeric の実務的な高レバレッジ目安 2k/n を正本へ吸収する。ハット行列・平均レバレッジ・標準化残差の導出は既に正本側がより一般的。
+    sections:
+      注意: |
+        高レバレッジとは説明変数空間で特殊な位置にあることを意味し、それだけで影響点とは限らない。影響度は残差の大きさも合わせてCookの距離などで確認する。
+
+        切片を含み係数総数を $k$、標本数を $n$ とすると平均レバレッジは $k/n$ である。探索的な目安として
+        $$
+        h_{ii}>\frac{2k}{n}
+        $$
+        を高レバレッジ候補とすることがある。例えば $n=20,k=4$ なら目安は $0.40$ なので、$h_{ii}=0.55$ は要確認となる。ただしこれは絶対的な検定基準ではない。
+
+        ここでの $r_i=e_i/(s\sqrt{1-h_{ii}})$ は通常の内部標準化残差であり、観測 $i$ を除いて分散を再推定する外部スチューデント化残差とは区別する。
+  - id: reg-cooks-distance
+    note: 工学側 enginf-cooks-distance の数値例と 4/n の探索的目安を正本へ吸収する。Cookの距離の式自体は既に同一。
     sections:
       計算例: |
-        $R_j^2=0.80$ なら
+        まず $r_i=2,k=4,h_{ii}=0.5$ なら
         $$
-        \operatorname{VIF}_j
-        =\frac1{1-0.80}
-        =5.
+        D_i=\frac{2^2}{4}\frac{0.5}{1-0.5}=1.
         $$
-        したがって、他の条件を同じとみなした基準と比べて $\widehat\beta_j$ の分散は5倍に拡大する。
 
-        標準誤差は分散の平方根なので、対応する増幅率は
+        別の観測で $r_i=2,k=4,h_{ii}=0.20$ なら
         $$
-        \sqrt{\operatorname{VIF}_j}
-        =\sqrt5
-        \approx2.24
+        D_i=\frac{2^2}{4}\frac{0.20}{0.80}=0.25.
         $$
-        倍である。
+        探索的な目安として $4/n$ と比較することがあり、$n=40$ なら $4/n=0.10$ なので $D_i=0.25$ は詳しく確認する候補となる。
+      注意: |
+        $4/n$ などの閾値は絶対的な検定基準ではない。Cookの距離が大きい観測を機械的に削除せず、入力誤り、測定過程、説明変数空間での位置、観測を除いたときの再推定結果を確認する。
