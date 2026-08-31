@@ -1,248 +1,151 @@
 schema_version: 1
-batch_id: 2026-08-31-are-mle-canonical-184b
+batch_id: 2026-08-31-mse-order-canonical-186
 items:
-  - id: asym-asymptotic-relative-efficiency
-    note: 漸近相対効率の正本へ、正規母集団における標本平均と標本中央値の比較を統合し、中央値専用AREカードを吸収する。
+  - id: asym-convergence-ms
+    note: 平均二乗収束・一致性の正本へ、MSE=分散+バイアス平方に加えて、バイアスと分散の漸近次数比較を統合し、engineering側の漸近MSE単独カードを吸収する。
     metadata:
-      title: クラーメル・ラオの不等式から漸近効率と漸近相対効率を数値比較する
-      topic: cramer-rao-asymptotic-efficiency-canonical
+      title: 平均二乗収束から一致性を示しMSEの漸近次数を比較する
+      topic: mean-square-convergence-consistency-canonical
       type: strategy
       difficulty: 3
       priority: A
-      hashtags: [クラーメル・ラオの不等式, 漸近効率, 漸近相対効率, 標本中央値, 標本平均]
+      hashtags: [平均二乗収束, 一致性, 平均二乗誤差, バイアス, 漸近次数]
     sections:
       問題: |
-        同じ母数 $\theta$ を推定する2つの推定量 $T_n,U_n$ が
-        $$
-        \sqrt n(T_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v_T),
-        \qquad
-        \sqrt n(U_n-\theta)\xrightarrow{d}\text{正規分布 }N(0,v_U)
-        $$
-        を満たすとする。次を答えよ。
+        推定量 $T_n$ と母数 $\theta$ について次を答えよ。
 
-        1. 1次元正則モデルにおけるクラーメル・ラオの不等式と、最尤推定量が漸近効率的であるという意味を述べよ。
-        2. 規約
-        $$
-        \operatorname{ARE}(T,U)=\frac{v_U}{v_T}
-        $$
-        の意味を説明し、$v_T=4,v_U=9$ の場合を計算せよ。
-        3. 正規分布 $N(\mu,\sigma^2)$ からの標本について、標本平均 $\overline X$ と標本中央値 $\widetilde X$ の $\sqrt n$ 尺度の漸近分散を求め、$\operatorname{ARE}(\widetilde X,\overline X)$ を計算せよ。
-        4. AREが1未満なら、その推定量が常に劣ると結論してよいか説明せよ。
+        1. $T_n\xrightarrow{qm}\theta$（平均二乗収束）の定義を書け。
+        2. $E[(T_n-\theta)^2]\to0$ なら $T_n\xrightarrow{p}\theta$ であることを、Markovの不等式を使って示せ。
+        3. 平均二乗誤差をバイアスと分散に分解せよ。
+        4. $\operatorname{Var}(T_n)\approx V/n$ とする。バイアスが (i) $b/n$ 級、(ii) $c/\sqrt n$ 級のとき、それぞれバイアス平方と分散の次数を比較し、MSEの主要項を述べよ。
+        5. $E[T_n]-\theta=1/n$、$\operatorname{Var}(T_n)=4/n$ のとき、MSEが0へ収束することを確認せよ。
       記号・用語: |
-        **漸近効率**は、$\sqrt n$ 尺度で見た推定量の極限分散が、正則推定で達成可能な情報量下界に一致する性質をいう。
+        $T_n\xrightarrow{qm}\theta$ は平均二乗収束、$T_n\xrightarrow{p}\theta$ は確率収束を表す。一致推定量とは $T_n\xrightarrow{p}\theta$ を満たす推定量である。
 
-        **漸近相対効率（ARE）**は2推定量の大標本での分散定数を比較する量である。このカードでは
+        平均二乗誤差（MSE）は
         $$
-        \operatorname{ARE}(T,U)=\frac{v_U}{v_T}
+        \operatorname{MSE}(T_n)=E[(T_n-\theta)^2]
         $$
-        と定義するので、1より大きいほど $T_n$ の方が漸近的に効率的である。
+        である。バイアスは
+        $$
+        \operatorname{Bias}(T_n)=E[T_n]-\theta
+        $$
+        と定義する。
       使用公式・定理: |
-        1観測当たりのフィッシャー情報量（1次元）を $I_1(\theta)$ とすると、正則条件の下で不偏推定量の分散にはクラーメル・ラオ型の下界
+        平均二乗収束の定義は
         $$
-        \operatorname{Var}(T_n)\ge\frac{1}{nI_1(\theta)}
+        E[(T_n-\theta)^2]\longrightarrow0.
         $$
-        が現れる。正則な最尤推定量は典型的に
-        $$
-        \sqrt n(\widehat\theta-\theta)
-        \xrightarrow{d}
-        \text{正規分布 }N\left(0,I_1(\theta)^{-1}\right)
-        $$
-        となり、この下界を漸近的に達成する。
 
-        連続分布の標本中央値 $\widetilde X$ は、母中央値 $m$ で $f(m)>0$ なら
+        Markovの不等式を非負確率変数 $(T_n-\theta)^2$ に適用すると、任意の $\varepsilon>0$ について
         $$
-        \sqrt n(\widetilde X-m)
-        \xrightarrow{d}
-        \text{正規分布 }N\left(0,\frac{1}{4f(m)^2}\right).
+        P(|T_n-\theta|>\varepsilon)
+        =P((T_n-\theta)^2>\varepsilon^2)
+        \le
+        \frac{E[(T_n-\theta)^2]}{\varepsilon^2}.
         $$
-        正規分布では $m=\mu$、
+
+        また
         $$
-        f(\mu)=\frac{1}{\sqrt{2\pi}\sigma}.
+        \operatorname{MSE}(T_n)
+        =\operatorname{Var}(T_n)
+        +\operatorname{Bias}(T_n)^2.
+        $$
+
+        漸近次数は二乗すると指数も2倍になる。例えば
+        $$
+        \operatorname{Bias}(T_n)=O(n^{-1})
+        \Rightarrow
+        \operatorname{Bias}(T_n)^2=O(n^{-2}),
+        $$
+        $$
+        \operatorname{Bias}(T_n)=O(n^{-1/2})
+        \Rightarrow
+        \operatorname{Bias}(T_n)^2=O(n^{-1}).
         $$
       一手／方針: |
-        **AREでは「どちらの分散を分子に置く規約か」を最初に固定する。** その後、各推定量の $\sqrt n$ 尺度の極限分散 $v_T,v_U$ を並べ、逆向きの比 $v_U/v_T$ を取る。
+        **MSEではまず「分散」と「バイアス平方」を分け、それぞれの $n$ の次数を比較する。** バイアスそのものを分散と比べてはいけない。平均二乗収束から一致性を示すときは、ずれの二乗をMarkovの不等式へ入れる。
       答え: |
-        1. 正則モデルでは情報量が推定精度の下界を与え、最尤推定量が
+        1.
         $$
-        I_1(\theta)^{-1}
-        $$
-        を極限分散として持つとき漸近効率的という。
-
-        2.
-        $$
-        \operatorname{ARE}(T,U)=\frac94=\boxed{2.25}.
-        $$
-        これは同じ大標本精度なら、$T_n$ の分散定数が $U_n$ の $4/9$ であることを表す。
-
-        3. 正規分布では中心極限定理より
-        $$
-        \sqrt n(\overline X-\mu)
-        \xrightarrow{d}
-        \text{正規分布 }N(0,\sigma^2).
-        $$
-        一方、中央値は
-        $$
-        \frac{1}{4f(\mu)^2}
-        =\frac{1}{4}\cdot2\pi\sigma^2
-        =\frac{\pi\sigma^2}{2}
-        $$
-        なので
-        $$
-        \sqrt n(\widetilde X-\mu)
-        \xrightarrow{d}
-        \text{正規分布 }N\left(0,\frac{\pi\sigma^2}{2}\right).
-        $$
-        よってこのカードの規約では
-        $$
-        \operatorname{ARE}(\widetilde X,\overline X)
-        =\frac{\sigma^2}{\pi\sigma^2/2}
-        =\boxed{\frac2\pi\approx0.637}.
-        $$
-        正規母集団では標本平均の方が漸近的に効率的である。
-
-        4. いえない。AREは指定したモデル下の大標本分散比較であり、ロバスト性・バイアス・有限標本性能まで一つの数値で保証するものではない。
-      計算例: |
-        正規分布で $\sigma=2,n=100$ とする。標本平均の近似標準誤差は
-        $$
-        \frac2{10}=0.2.
-        $$
-        標本中央値は
-        $$
-        \sqrt{\frac{\pi\sigma^2}{2n}}
-        =\sqrt{\frac{2\pi}{100}}
-        \approx0.251.
-        $$
-        分散比は $0.2^2/0.251^2\approx0.637$ となる。
-      注意: |
-        AREの比の向きは文献によって逆の規約もあるため、必ず定義を確認する。ここで比較している $v_T,v_U$ は $\sqrt n(T_n-\theta)$ の極限分散であり、推定量自身の近似分散はそれぞれ $v_T/n,v_U/n$。正規分布では平均が有利だが、裾の重い分布や外れ値汚染では中央値のロバスト性が有利になることがある。
-
-  - id: asym-mle-asymptotic-normality
-    note: 最尤推定量の漸近正規性正本へ、スコア方程式のTaylor展開による導出に加え、ベルヌーイ母数と既知分散の正規平均の情報量計算・数値例を統合し、正規平均専用の漸近分散カードを吸収する。
-    metadata:
-      title: 最尤推定量の漸近正規性をTaylor展開から導き情報量で分散を求める
-      topic: mle-asymptotic-normality-canonical
-      type: strategy
-      difficulty: 4
-      priority: S
-      hashtags: [最尤推定量, 漸近正規性, スコア, フィッシャー情報量（1次元）, Taylor展開]
-    sections:
-      問題: |
-        1次元の正則な独立同分布モデルで母数を $\theta$、最尤推定量を $\widehat\theta$ とする。次を答えよ。
-
-        1. スコア方程式を真値 $\theta_0$ の周りでTaylor展開し、最尤推定量の漸近正規性がどのように出るか説明せよ。
-        2. 1観測当たりのフィッシャー情報量（1次元） $I_1(\theta_0)$ を用いて極限分布を書け。
-        3. ベルヌーイ分布 $P(X=1)=p$ について $I_1(p)$ を求め、標本比率 $\widehat p$ の漸近分散を求めよ。
-        4. 分散 $\sigma^2$ が既知の正規分布 $N(\mu,\sigma^2)$ について $I_1(\mu)$ を求め、$\widehat\mu=\overline X$ の漸近分散を求めよ。$\sigma^2=9,n=100$ の標準誤差も計算せよ。
-      記号・用語: |
-        対数尤度を $\ell_n(\theta)$、スコアを
-        $$
-        U_n(\theta)=\frac{\partial\ell_n(\theta)}{\partial\theta}
-        $$
-        とする。1観測当たりのフィッシャー情報量（1次元）は、正則条件の下で
-        $$
-        I_1(\theta)
-        =E_\theta\left[\left\{\frac{\partial}{\partial\theta}\log f(X;\theta)\right\}^2\right]
-        =-E_\theta\left[\frac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right].
-        $$
-      使用公式・定理: |
-        最尤推定量は内部解なら $U_n(\widehat\theta)=0$ を満たす。真値 $\theta_0$ 周りのTaylor展開から
-        $$
-        0
-        =U_n(\theta_0)
-        +U_n'(\theta_0)(\widehat\theta-\theta_0)
-        +\text{剰余項}.
-        $$
-        よって主要項は
-        $$
-        \sqrt n(\widehat\theta-\theta_0)
-        \approx
-        \left\{-\frac1nU_n'(\theta_0)\right\}^{-1}
-        \frac{U_n(\theta_0)}{\sqrt n}.
-        $$
-        正則条件の下で
-        $$
-        -\frac1nU_n'(\theta_0)\xrightarrow{p}I_1(\theta_0),
-        $$
-        $$
-        \frac{U_n(\theta_0)}{\sqrt n}
-        \xrightarrow{d}
-        \text{正規分布 }N(0,I_1(\theta_0)).
-        $$
-        Slutskyの定理より
-        $$
-        \sqrt n(\widehat\theta-\theta_0)
-        \xrightarrow{d}
-        \text{正規分布 }N\left(0,I_1(\theta_0)^{-1}\right).
-        $$
-      一手／方針: |
-        **「スコア方程式を一次展開 → 傾きは情報量へ、スコアは中心極限定理へ」の2本に分ける。** 個別分布では、1観測の対数尤度を微分して $I_1$ を出せば、近似分散 $1/[nI_1]$ が直ちに得られる。
-      答え: |
-        1. Taylor展開を $\widehat\theta-\theta_0$ について解くと、最尤推定量の誤差は「真値でのスコア÷尤度の曲率」の形になる。スコアは $\sqrt n$ 級、曲率は $n$ 級なので、推定誤差は $n^{-1/2}$ 級となる。
-
-        2.
-        $$
-        \boxed{
-        \sqrt n(\widehat\theta-\theta_0)
-        \xrightarrow{d}
-        \text{正規分布 }N\left(0,I_1(\theta_0)^{-1}\right)}.
-        $$
-        したがって $\widehat\theta$ 自身の大標本での分散は
-        $$
-        \operatorname{Avar}(\widehat\theta)\approx\frac{1}{nI_1(\theta_0)}.
+        T_n\xrightarrow{qm}\theta
+        \iff
+        E[(T_n-\theta)^2]\to0.
         $$
 
-        3. ベルヌーイ分布では
+        2. 任意の $\varepsilon>0$ に対して
         $$
-        \ell_1(p;x)=x\log p+(1-x)\log(1-p).
-        $$
-        2回微分し期待値を取ると
-        $$
-        I_1(p)=\frac1{p(1-p)}.
+        P(|T_n-\theta|>\varepsilon)
+        \le
+        \frac{E[(T_n-\theta)^2]}{\varepsilon^2}
+        \longrightarrow0.
         $$
         よって
         $$
+        \boxed{T_n\xrightarrow{p}\theta}.
+        $$
+        したがって平均二乗収束は確率収束を含意する。
+
+        3.
+        $$
         \boxed{
-        \sqrt n(\widehat p-p)
-        \xrightarrow{d}
-        \text{正規分布 }N(0,p(1-p))},
-        $$
-        $$
-        \operatorname{Avar}(\widehat p)\approx\frac{p(1-p)}n.
+        E[(T_n-\theta)^2]
+        =\operatorname{Var}(T_n)
+        +\operatorname{Bias}(T_n)^2}.
         $$
 
-        4. 正規分布の1観測の対数尤度は
+        4. 分散が $V/n=O(n^{-1})$ のとき、
+
+        (i) バイアスが $b/n=O(n^{-1})$ なら
         $$
-        \ell_1(\mu;x)
-        =C-\frac{(x-\mu)^2}{2\sigma^2}.
+        \operatorname{Bias}(T_n)^2
+        =\frac{b^2}{n^2}
+        =O(n^{-2}).
         $$
         したがって
         $$
-        -\frac{\partial^2\ell_1}{\partial\mu^2}
-        =\frac1{\sigma^2},
-        \qquad
-        I_1(\mu)=\frac1{\sigma^2}.
+        \operatorname{MSE}(T_n)
+        \approx \frac Vn+\frac{b^2}{n^2},
         $$
-        よって
+        主要項は $V/n$ であり、バイアス平方は1次の $n^{-1}$ 精度では無視できる。
+
+        (ii) バイアスが $c/\sqrt n=O(n^{-1/2})$ なら
         $$
-        \boxed{
-        \sqrt n(\overline X-\mu)
-        \xrightarrow{d}
-        \text{正規分布 }N(0,\sigma^2)},
+        \operatorname{Bias}(T_n)^2
+        =\frac{c^2}{n}
+        =O(n^{-1}),
         $$
+        なので分散と同じ次数である。したがって
         $$
-        \operatorname{Avar}(\overline X)\approx\frac{\sigma^2}{n}.
+        \operatorname{MSE}(T_n)
+        \approx\frac{V+c^2}{n},
         $$
-        $\sigma^2=9,n=100$ なら
+        となり、バイアス平方を主要項から落としてはいけない。
+
+        5.
         $$
-        \operatorname{ASE}(\overline X)=\frac3{10}=\boxed{0.3}.
+        \operatorname{MSE}(T_n)
+        =\frac4n+\frac1{n^2}
+        \longrightarrow0.
         $$
+        したがって $T_n$ は平均二乗収束し、特に一致推定量である。
       計算例: |
-        ベルヌーイ分布で $p=0.4,n=100$ なら
+        $n=100$、$V=4$ とする。
+
+        バイアスが $1/n$ なら
         $$
-        \operatorname{ASE}(\widehat p)
-        \approx\sqrt{\frac{0.4\cdot0.6}{100}}
-        \approx0.0490.
+        \operatorname{MSE}(T_{100})
+        =\frac4{100}+\frac1{10000}
+        =0.0401.
         $$
-        正規平均では情報量から得た $\sigma^2/n$ が、標本平均の厳密分散と一致する。これは正規モデルでは漸近近似より強い有限標本結果である。
+        バイアス平方 $0.0001$ は分散 $0.04$ より2桁小さい。
+
+        一方、バイアスが $1/\sqrt n$ なら
+        $$
+        \operatorname{MSE}(T_{100})
+        =\frac4{100}+\frac1{100}
+        =0.05.
+        $$
+        この場合、バイアス平方は分散の25%に相当し、同じ $n^{-1}$ 級なので主要項に残る。
       注意: |
-        この結論には識別可能性、真値が母数空間の内部にあること、十分な滑らかさ、情報量が有限かつ正であることなどの正則条件が必要である。境界母数、支持が母数に依存するモデル、混合モデルなどでは通常の正規極限が崩れることがある。また $I_1^{-1}$ は $\sqrt n$ 尺度の極限分散であり、推定量自身の近似分散は $1/(nI_1)$ である。
+        平均二乗収束は確率収束より強い。逆に $T_n\xrightarrow{p}\theta$ だけから平均二乗収束は一般には従わない。また、MSEの次数比較では「バイアス」ではなく必ず「バイアスの二乗」と分散を比較する。より一般に、バイアスが $o(n^{-1/2})$ ならその二乗は $o(n^{-1})$ なので、分散が $O(n^{-1})$ の通常の設定では1次のMSEに影響しない。
