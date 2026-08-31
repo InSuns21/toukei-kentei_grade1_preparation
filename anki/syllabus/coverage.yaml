@@ -1784,7 +1784,7 @@ items:
   - id: applied-multiple-regression
     status: complete
     cards:
-      - model-gauss-markov
+      - reg-multiple-model-matrix
       - data-ols-slope
       - reg-robust-sandwich
       - reg-aic-variable-selection
@@ -1826,7 +1826,7 @@ items:
       - name: ガウス・マルコフの定理
         status: card
         cards:
-          - model-gauss-markov
+          - reg-multiple-model-matrix
           - reg-gls-estimator
       - name: 多重共線性
         status: card
@@ -2144,14 +2144,13 @@ items:
   - id: engineering-linear-inference
     status: complete
     cards:
-      - model-gauss-markov
+      - reg-multiple-model-matrix
       - model-contrast
       - enginf-vif-numeric
       - enginf-wls-two-weights
       - enginf-gls-whitening
       - enginf-robust-sandwich-se
       - reg-dummy-variable
-      - reg-multiple-model-matrix
       - reg-interaction-dummy-continuous
       - enginf-logistic-wald-output
       - glm-three-components
