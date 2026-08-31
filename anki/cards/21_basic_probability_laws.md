@@ -82,40 +82,121 @@ $$
 
 ---
 id: prob-basic-conditional-independence
-title: 条件付き独立
+title: 条件付き確率を定義から計算し条件付き独立まで判定する
 category: math-probability
 subcategory: math-events
-topic: conditional-independence
-type: condition
+topic: conditional-probability-independence-canonical
+type: strategy
 difficulty: 2
 priority: S
-hashtags: [条件付き独立, 条件付き確率, 統計的独立]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 統計的独立 }, { type: official_syllabus, topic: 条件付き確率 }]
+hashtags:
+  - 条件付き確率
+  - 条件付き独立
+  - 統計的独立
+  - 共通部分
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 統計的独立
+  - type: official_syllabus
+    topic: 条件付き確率
 ---
 ## 問題
-$P(C)=0.5$、$P(A\cap C)=0.2$、$P(B\cap C)=0.3$、$P(A\cap B\cap C)=0.12$ とする。$C$ の条件下で $A,B$ が独立か判定せよ。
+条件付き確率と条件付き独立について次を解け。
+
+1. $P(A\cap B)=0.18$、$P(B)=0.30$ とする。$P(A\mid B)$ を求めよ。また $P(B)=0.4$、$P(A\mid B)=0.75$ なら $P(A\cap B)$ を求めよ。
+2. $P(C)=0.5$、$P(A\cap C)=0.2$、$P(B\cap C)=0.3$、$P(A\cap B\cap C)=0.12$ とする。$C$ の条件下で $A,B$ が独立か判定せよ。
 
 ## 答え
-$C$ の条件下で $A,B$ は独立である。
+1. 定義より
+$$
+P(A\mid B)
+=\frac{0.18}{0.30}
+=\boxed{0.60}.
+$$
+逆向きには
+$$
+P(A\cap B)
+=P(A\mid B)P(B)
+=0.75\cdot0.4
+=\boxed{0.30}.
+$$
+
+2. まず
+$$
+P(A\mid C)=\frac{0.2}{0.5}=0.4,
+$$
+$$
+P(B\mid C)=\frac{0.3}{0.5}=0.6,
+$$
+$$
+P(A\cap B\mid C)=\frac{0.12}{0.5}=0.24.
+$$
+一方
+$$
+P(A\mid C)P(B\mid C)=0.4\cdot0.6=0.24.
+$$
+したがって
+$$
+\boxed{A,B\text{ は }C\text{ の条件下で独立}}
+$$
+である。
 
 ## 使用公式・定理
-$P(C)>0$ のとき
-$$P(A\cap B\mid C)=P(A\mid C)P(B\mid C)$$
-で判定する。
+$P(B)>0$ のとき、条件付き確率の定義は
+$$
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+$$
+同じ式を共通部分について解けば乗法公式
+$$
+P(A\cap B)=P(A\mid B)P(B)
+$$
+を得る。これは別の公式ではなく、条件付き確率の定義を書き換えただけである。
+
+$P(C)>0$ のとき、$C$ の条件下で $A,B$ が独立であるための条件は
+$$
+P(A\cap B\mid C)=P(A\mid C)P(B\mid C).
+$$
+条件付き確率は全て
+$$
+P(E\mid C)=\frac{P(E\cap C)}{P(C)}
+$$
+の形へ戻して計算できる。
 
 ## 計算例
-$$P(A\cap B\mid C)=\frac{0.12}{0.5}=0.24.$$
-$$P(A\mid C)=\frac{0.2}{0.5}=0.4,$$
-$$P(B\mid C)=\frac{0.3}{0.5}=0.6.$$
-$$P(A\mid C)P(B\mid C)=0.4\cdot0.6=0.24.$$
-よって条件付き独立である。
+$P(B)=0.25$、$P(A\cap B)=0.10$ なら
+$$
+P(A\mid B)=\frac{0.10}{0.25}=0.40.
+$$
+逆に $P(A\mid B)=0.40$ と $P(B)=0.25$ が与えられれば
+$$
+P(A\cap B)=0.40\cdot0.25=0.10
+$$
+と同じ関係を往復できる。
 
-## 一手
-すべてを条件 $C$ の下の確率へ直して積を比較する。
+条件付き独立の判定では、例えば
+$$
+P(A\mid C)=0.4,\qquad P(B\mid C)=0.6
+$$
+でも
+$$
+P(A\cap B\mid C)=0.20
+$$
+なら $0.20\ne0.24$ なので条件付き独立ではない。
+
+## 一手／方針
+**条件記号の右側を新しい標本空間とみなす。** まず右側の事象の確率で割って条件付き確率へ直し、共通部分が欲しいときは逆に掛け算へ戻す。
+
+条件付き独立では、元の無条件確率をそのまま比較せず、$P(A\mid C)$、$P(B\mid C)$、$P(A\cap B\mid C)$ の3つを同じ条件 $C$ の下へそろえてから積条件を確認する。
 
 ## 注意
-条件付き独立は無条件の独立とは別概念である。
+$P(A\mid B)$ と $P(B\mid A)$ は一般に異なる。条件記号の右側を取り違えない。ベイズの定理は、この向きの違う条件付き確率を周辺確率と尤度で結び直す。
+
+条件付き独立と無条件の独立は別概念である。無条件で独立でも条件付けにより依存が生じることがあり、逆に無条件では依存していても条件付きで独立になることがある。条件付け後は必ず条件付き積条件を改めて確認する。
 
 <!-- CARD -->
 
