@@ -944,36 +944,89 @@ sources: [{ type: official_syllabus, topic: 2×2表のオッズ比 }]
 
 ---
 id: np-sign-median-ci
-title: 符号検定を中央値の信頼区間へ反転する
+title: 符号検定を二項分布へ帰着し中央値の信頼区間まで解く
 category: math-data-analysis
 subcategory: math-nonparametric
-topic: sign-median-ci
-type: formula
+topic: sign-test-median-canonical
+type: strategy
 difficulty: 3
-priority: B
-hashtags: [符号検定, 中央値, 信頼区間]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 符号検定 }]
+priority: A
+hashtags:
+  - 符号検定
+  - 中央値
+  - 二項分布
+  - 信頼区間
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 符号検定
 ---
 
 ## 問題
-連続分布からの順序統計量 $X_{(1)}\le\cdots\le X_{(n)}$ を使う中央値の分布によらない信頼区間を書け。
+連続な共通分布からの独立同分布標本 $X_1,\ldots,X_n$ を考える。
+
+1. 帰無仮説 $H_0:\operatorname{median}(X)=m_0$ の下で、$m_0$ より大きい観測数
+$$
+S=\sum_{i=1}^n\boldsymbol1_{\{X_i>m_0\}}
+$$
+の帰無分布を求めよ。$n=10$ で $S=10$ となる確率も求めよ。
+2. 順序統計量 $X_{(1)}\le\cdots\le X_{(n)}$ を用いて、符号検定を反転した中央値の分布によらない $100(1-\alpha)$% 信頼区間を書け。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+連続分布で $m_0$ が中央値なら
+$$
+P(X_i>m_0)=P(X_i<m_0)=\frac12.
+$$
+独立標本では各符号が独立なベルヌーイ試行となるため
+$$
+S\sim\operatorname{Binomial}(n,1/2).
+$$
 
-真の中央値より小さい観測数は帰無仮説下で二項分布に従う。
+同値 $X_i=m_0$ が起こり得る場合は通常その観測を除き、有効標本数 $n_{\mathrm{eff}}$ で二項分布を作る。
+
+信頼区間はこの二項帰無分布を反転する。$B\sim\operatorname{Binomial}(n,1/2)$ とし
+$$
+P(B\le k-1)\le\frac\alpha2
+$$
+を満たす最大の $k$ を選べば
+$$
+[X_{(k)},X_{(n-k+1)}]
+$$
+は被覆確率が少なくとも $1-\alpha$ の中央値信頼区間となる。
 
 ## 答え
-$B\sim\operatorname{Binomial}(n,1/2)$ とし、$P(B\le k-1)\le\alpha/2$ を満たす最大のkを選ぶと
-$$[X_{(k)},X_{(n-k+1)}]$$
-は被覆確率が少なくとも $1-\alpha$ の区間になる。
+1.
+$$
+\boxed{S\sim\operatorname{Binomial}(n,1/2)}.
+$$
+$n=10$ では
+$$
+P(S=10)=\left(\frac12\right)^{10}=\boxed{2^{-10}}.
+$$
+
+2. $B\sim\operatorname{Binomial}(n,1/2)$ に対して
+$$
+P(B\le k-1)\le\alpha/2
+$$
+を満たす最大の $k$ を選ぶと
+$$
+\boxed{[X_{(k)},X_{(n-k+1)}]}
+$$
+が分布によらない中央値の信頼区間となる。
 
 ## 計算例
-kが大きいほど区間は狭いが被覆確率は下がる。
+符号検定では観測値の大きさ自体を使わず、$m_0$ の上か下かだけを数える。したがって外れ値の大きさに直接は影響されない一方、順位や距離の情報は捨てる。
+
+信頼区間では $k$ を大きくするほど区間は狭くなるが、二項尾確率が増えて被覆確率は下がる。離散性のため名目被覆率より保守的になることがある。
 
 ## 注意
-離散性のため名目被覆率より保守的になり得る。
+$X_i=m_0$ の同値をそのまま成功・失敗へ割り当てない。通常は除外して有効標本数を数え直す。
+
+符号検定が仮定するのは中央値の位置であり、ウィルコクソン符号付き順位和検定が使う0対称性とは別である。
 <!-- CARD -->
 
 ---

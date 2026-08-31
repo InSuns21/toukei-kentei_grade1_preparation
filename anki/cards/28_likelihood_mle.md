@@ -655,17 +655,73 @@ frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirma
 sources: [{ type: official_syllabus, topic: ネイマンの分解定理 }]
 ---
 ## 問題
-ネイマンの分解定理を述べよ。
+1. ネイマンの分解定理を述べよ。
+2. $X_1,\ldots,X_n$ は独立同分布で、一様分布 $U(0,\theta)$ に従うとする。$\theta>0$ とする。ネイマンの分解定理を用いて $\theta$ の十分統計量を求めよ。
+
 ## 答え
-$T$ が $\theta$ の十分統計量であることと、同時密度が
-$f(x;\theta)=g_\theta(T(x))\,h(x)$
-と分解できることは同値。$h(x)$ は $\theta$ に依存しない。
+1. 統計量 $T$ が $\theta$ の十分統計量であることと、同時密度・確率関数が
+$$
+f(x;\theta)=g_\theta(T(x))h(x)
+$$
+と分解できることは同値である。ここで $h(x)$ は $\theta$ に依存しない。
+
+2. 一様分布では
+$$
+T=X_{(n)}=\max_iX_i
+$$
+が $\theta$ の十分統計量である。
+
 ## 使用公式・定理
-十分統計量の判定を条件付き分布でなく密度の分解に帰着させる（十分性 $\iff$ 因子分解）。
+ネイマンの分解定理は、十分性の判定を条件付き分布の直接計算ではなく
+$$
+f(x;\theta)=g_\theta(T(x))h(x)
+$$
+という因子分解へ帰着させる。
+
+重要なのは、$h(x)$ が $\theta$ に依存してはいけないことである。台が母数に依存する場合、その指示関数も母数依存部分として $g_\theta(T(x))$ 側へ残す必要がある。
+
 ## 計算例
-$\operatorname{Bernoulli}(p)$ の $T=\sum_i x_i$：$p^T(1-p)^{n-T}\cdot1$ と書け、$h(x)=1$、$g_p(T)=p^T(1-p)^{n-T}$。
-## 一手
-「$\theta$ と $x$ が分離可能な因子 $g_\theta(T(x))$ と $h(x)$ に分解できる」ことを確認する。台が母数に依存しない指示関数だけを $h(x)$ に入れられる。$U(0,\theta)$ の $\boldsymbol{1}_{\{X_{(n)}\le\theta\}}$ のような母数依存の指示関数は $g_\theta(T(x))$ 側へ入れる。
+ベルヌーイ標本では
+$$
+L(p;x)=p^{\sum_i x_i}(1-p)^{n-\sum_i x_i}
+$$
+と書けるので、$T=\sum_iX_i$ が十分統計量である。
+
+一方、一様分布 $U(0,\theta)$ の密度は
+$$
+f_\theta(x)=\frac1\theta\boldsymbol1_{\{0\le x\le\theta\}}.
+$$
+独立標本の尤度は
+$$
+\begin{aligned}
+L(\theta;x)
+&=\prod_{i=1}^n\frac1\theta
+  \boldsymbol1_{\{0\le x_i\le\theta\}}\\
+&=\theta^{-n}
+  \boldsymbol1_{\{x_{(n)}\le\theta\}}
+  \boldsymbol1_{\{x_{(1)}\ge0\}}.
+\end{aligned}
+$$
+したがって
+$$
+g_\theta(T)=\theta^{-n}\boldsymbol1_{\{T\le\theta\}},
+\qquad
+h(x)=\boldsymbol1_{\{x_{(1)}\ge0\}}
+$$
+と分解できる。よって
+$$
+\boxed{T=X_{(n)}}
+$$
+は十分統計量である。
+
+## 一手／方針
+まず標本の同時密度・確率関数を書き、母数に依存する部分が標本をどの要約量を通じて見ているかを探す。
+
+台が母数に依存するときは特に指示関数を見る。一様分布 $U(0,\theta)$ の
+$$
+\boldsymbol1_{\{X_{(n)}\le\theta\}}
+$$
+は $\theta$ に依存するため $h(x)$ 側へ移せない。この指示関数自体が最大値 $X_{(n)}$ を十分統計量として抽出する。
 
 <!-- CARD -->
 
