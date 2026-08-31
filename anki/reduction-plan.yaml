@@ -1,21 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-robust-glm-nonlinear-reduction-255
+batch_id: 2026-08-31-wald-reduction-257
 items:
-  - id: enginf-robust-sandwich-se
+  - id: enginf-logistic-wald-output
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-heteroskedasticity-pattern
-    coverage_card: reg-heteroskedasticity-pattern
-    note: HC0不均一分散頑健分散のサンドイッチ形、通常の等分散分散推定との対応、OLS係数自体は変えず主に標準誤差を頑健化することを reg-heteroskedasticity-pattern へ吸収済み。不均一分散と系列・クラスタ相関を区別する注意も正本に保持した。
-  - id: enginf-glm-deviance-residual-output
+    canonical_card: test-wald-general
+    coverage_card: test-wald-general
+    note: ロジスティック回帰の係数0.80・標準誤差0.25から Z_W=3.2 を計算する5%両側Wald検定、近似95%信頼区間 (0.31,1.29)、完全分離・小標本での不安定性を test-wald-general へ吸収済み。1次元Waldの一般形と同じ技能である。
+  - id: enginf-glm-wald-joint
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-deviance-definition
-    coverage_card: glm-deviance-definition
-    note: 残差逸脱度42・残差自由度40から比1.05を粗い大標本診断として読む数値例を glm-deviance-definition へ吸収済み。deviance/dfを機械的合否基準にせず、Pearson X_P^2/df による分散診断と区別する注意も正本に統合した。
-  - id: enginf-nonlinear-gradient-se
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-nonlinear-regression-gradient
-    coverage_card: glm-nonlinear-regression-gradient
-    note: 非線形関数 g(theta_hat) のデルタ法分散 grad(g)^T V_hat grad(g)、g=beta1 exp(-beta2 x) の数値例、共分散交差項の注意を Gauss--Newton の局所線形化を扱う glm-nonlinear-regression-gradient へ統合済み。同じ一次線形化を更新と推測に使う技能として正本化した。
+    canonical_card: test-wald-general
+    coverage_card: test-wald-general
+    note: 複数制約 R theta=r のWald二次形式、制約差 (1,2)^T・推定分散 diag(0.25,1) から W=8 を計算する数値例、自由度2のカイ二乗近似、有限標本の線形正規モデルF検定との違いを test-wald-general へ統合済み。
