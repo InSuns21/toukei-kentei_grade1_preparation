@@ -604,7 +604,7 @@ items:
       - mle-uniform-endpoint
       - mle-constrained
       - mle-invariance
-      - mle-consistency
+      - asym-mle-consistency
       - asym-mle-asymptotic-normality
       - mle-boundary-nonregular
       - score-function-definition
@@ -635,7 +635,7 @@ items:
           - mle-score-equation
           - mle-exponential
           - mle-boundary-nonregular
-          - mle-consistency
+          - asym-mle-consistency
           - mle-normal-both
           - mle-information-inequality
   - id: math-estimation-methods
@@ -2123,7 +2123,7 @@ items:
       - model-contrast
       - enginf-vif-numeric
       - enginf-wls-two-weights
-      - enginf-gls-whitening
+      - reg-gls-estimator
       - enginf-robust-sandwich-se
       - reg-dummy-variable
       - reg-interaction-dummy-continuous
@@ -2171,7 +2171,7 @@ items:
           - enginf-cooks-distance
           - enginf-vif-numeric
           - enginf-wls-two-weights
-          - enginf-gls-whitening
+          - reg-gls-estimator
           - enginf-robust-sandwich-se
           - reg-dummy-variable
           - reg-multiple-model-matrix

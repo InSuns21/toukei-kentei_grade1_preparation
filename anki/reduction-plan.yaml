@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-mle-asymptotic-normality-reduction-237
+batch_id: 2026-08-31-gls-whitening-reduction-241
 items:
-  - id: mle-asymptotic-normality
+  - id: enginf-gls-whitening
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-mle-asymptotic-normality
-    coverage_card: asym-mle-asymptotic-normality
-    note: 漸近正規性の一般式、スコア方程式の真値周りTaylor展開、スコアのCLTと観測曲率の情報量収束から sqrt(n)(hat(theta)-theta_0) -> N(0,I_1(theta_0)^(-1)) を得る技能は asym-mle-asymptotic-normality がより詳細に正本化済み。旧カードのPoisson例で使う I_1(lambda)=1/lambda と近似分散 lambda/n は asym-mle-poisson-tail-probability が情報量導出から数値確率近似まで保持しているため、旧カード固有の技能は残らない。
+    canonical_card: reg-gls-estimator
+    coverage_card: reg-gls-estimator
+    note: 一般化最小二乗法を白色化して通常の最小二乗法へ帰着する技能は reg-gls-estimator に吸収済み。正本では C=Omega^(-1/2) と明示して変換後誤差の分散共分散行列が sigma^2 I になることからGLS式を再導出し、さらに二次形式最小化、逆分散WLS、FGLS、数値例まで同時に保持しているため、工学側カード固有の技能は残らない。
