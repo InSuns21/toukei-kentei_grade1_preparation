@@ -1941,22 +1941,23 @@ $$
 $$
 \bar h=0.15,
 \qquad
-r_i=\frac3{2\sqrt{0.3}}\approx2.74,
+r_i=\frac3{2\sqrt{0.3}}\approx2.74.
 $$
 
 より高レバレッジかつ大残差。
 
 $$
-VIF_2=25,
-\qquad SE倍率=5.
+\operatorname{VIF}_2=25.
 $$
+
+標準誤差倍率は5。
 
 $\Omega=LL^{\mathsf T}$ として
 
 $$
 y^*=L^{-1}y,
 \quad X^*=L^{-1}X,
-\quad Var(L^{-1}\varepsilon)=\sigma^2I.
+\quad \operatorname{Var}(L^{-1}\varepsilon)=\sigma^2I.
 $$
 
 LASSO は
@@ -2064,9 +2065,10 @@ r_i=\frac{2.4}{1.5\sqrt{0.5}}\approx2.263.
 $$
 
 $$
-VIF_3=5,
-\qquad SE倍率=\sqrt5\approx2.236.
+\operatorname{VIF}_3=5.
 $$
+
+標準誤差倍率は $\sqrt5\approx2.236$。
 
 $$
 F=\frac{20/2}{100/35}=3.5.
