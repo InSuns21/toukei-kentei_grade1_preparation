@@ -43,8 +43,8 @@ Level A 4題 / B 4題 / C 4題 / D 1題 / 30分ドリルを配置した。因子
 
 ### 自動検証
 
-PR の最終コミットで `Validate textbook` と `Validate terminology` がともに success であることを確認する。
+最新 main を親に載せ直した PR #24 で `Validate textbook` と `Validate terminology` がともに success であることを確認した。
 
 ## 結論
 
-**PASS**。読者粒度は既存 reviewed 章と整合する。最終自動検証の成功をもって reviewed とする。
+**PASS**。読者粒度は既存 reviewed 章と整合し、自動検証とも整合した。
