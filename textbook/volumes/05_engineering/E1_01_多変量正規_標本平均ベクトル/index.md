@@ -295,64 +295,201 @@ $$
 
 各成分を標準偏差で割ってからユークリッド距離を測っています。
 
-### 4.2 共分散があると斜め方向も補正する
+### 4.2 共分散があると「斜めの標準化」が必要になる
 
-非対角成分が0でないと、楕円の長軸・短軸は座標軸から傾きます。Mahalanobis距離は $\Sigma^{-1}$ を使うことで、この傾きを含めて補正します。
+共分散が0でないとき、単に各成分を標準偏差で割るだけでは十分ではありません。分布の等密度線は一般に座標軸に平行な楕円ではなく、**傾いた楕円**になるからです。
 
-多変量正規分布
-
-$$
-\boldsymbol X\sim N_p(\boldsymbol\mu,\Sigma)
-$$
-
-で $\Sigma$ が正定値なら
+具体例として
 
 $$
-\Sigma^{-1/2}(\boldsymbol X-\boldsymbol\mu)
-\sim N_p(\boldsymbol 0,I_p)
+\Sigma=
+\begin{pmatrix}
+3&1\\
+1&3
+\end{pmatrix}
 $$
 
-と標準化できます。したがって
+を考えます。この行列の固有値は $4,2$、対応する単位固有ベクトルは
 
 $$
-D^2
-=\left\|\Sigma^{-1/2}(\boldsymbol X-\boldsymbol\mu)\right\|^2
+\boldsymbol q_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
+\qquad
+\boldsymbol q_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
 $$
 
-は独立な標準正規変数の二乗和になり
+です。したがって
 
 $$
-\boxed{D^2\sim\chi_p^2}
+\Sigma=Q\Lambda Q^{\mathsf T},
 $$
 
-です。これは多変量正規分布の確率楕円を作る基礎になります。
-
----
-
-## 5. 白色化：共分散を単位行列にする
-
-平均 $\boldsymbol\mu$ の確率ベクトル $\boldsymbol X$ の分散共分散行列を正定値な $\Sigma$ とし、スペクトル分解を
-
 $$
-\Sigma=Q\Lambda Q^{\mathsf T}
+Q=\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix},
+\qquad
+\Lambda=
+\begin{pmatrix}
+4&0\\
+0&2
+\end{pmatrix}.
 $$
 
-とします。$Q$ は直交行列、$\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_p)$ は正の固有値を並べた対角行列です。
-
-まず中心化して
+ここで中心化したベクトルを
 
 $$
 \boldsymbol X_c=\boldsymbol X-\boldsymbol\mu
 $$
 
-とします。次に
+とし、まず
+
+$$
+\boldsymbol Y=Q^{\mathsf T}\boldsymbol X_c
+$$
+
+と座標を回転します。2節の線形変換則から
+
+$$
+\begin{aligned}
+\operatorname{Cov}(\boldsymbol Y)
+&=Q^{\mathsf T}\Sigma Q\\
+&=Q^{\mathsf T}(Q\Lambda Q^{\mathsf T})Q\\
+&=\Lambda.
+\end{aligned}
+$$
+
+つまり、元の座標では非対角成分として見えていた共分散が、固有ベクトル方向へ座標を取り直すと消えます。楕円の長軸・短軸を新しい座標軸に選んだ、と考えればよいです。
+
+この段階では
+
+$$
+\operatorname{Var}(Y_1)=4,
+\qquad
+\operatorname{Var}(Y_2)=2
+$$
+
+なので、次に各方向をその標準偏差で割ります。
 
 $$
 \boldsymbol Z
-=\Lambda^{-1/2}Q^{\mathsf T}\boldsymbol X_c
+=\Lambda^{-1/2}\boldsymbol Y
+=\Lambda^{-1/2}Q^{\mathsf T}(\boldsymbol X-\boldsymbol\mu).
 $$
 
-と置きます。このとき
+すると
+
+$$
+\operatorname{Cov}(\boldsymbol Z)=I_p.
+$$
+
+したがって、共分散がある場合の標準化は「中心化 → 固有方向へ回転 → 各方向を標準偏差で割る」という操作になります。
+
+この変換を使うとMahalanobis距離は
+
+$$
+\begin{aligned}
+D^2
+&=(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}
+\Sigma^{-1}
+(\boldsymbol X-\boldsymbol\mu)\\
+&=(\boldsymbol X-\boldsymbol\mu)^{\mathsf T}
+Q\Lambda^{-1}Q^{\mathsf T}
+(\boldsymbol X-\boldsymbol\mu)\\
+&=\boldsymbol Y^{\mathsf T}\Lambda^{-1}\boldsymbol Y\\
+&=\boldsymbol Z^{\mathsf T}\boldsymbol Z\\
+&=\|\boldsymbol Z\|^2.
+\end{aligned}
+$$
+
+つまり**Mahalanobis距離は、白色化した座標での普通のユークリッド距離**です。
+
+さらに $\boldsymbol X\sim N_p(\boldsymbol\mu,\Sigma)$ なら、後述の白色化により
+
+$$
+\boldsymbol Z\sim N_p(\boldsymbol0,I_p)
+$$
+
+となります。したがって成分 $Z_1,\ldots,Z_p$ は独立な標準正規変数であり、
+
+$$
+D^2=Z_1^2+\cdots+Z_p^2
+$$
+
+だから
+
+$$
+\boxed{D^2\sim\chi_p^2}
+$$
+
+です。
+
+この「標準正規ベクトルへ変換してから、直交方向の平方和を見る」という考え方は、Cochranの定理で平方和を直交分解するときにも現れる共通の土台です。Cochranの定理では白色化後の球対称な正規ベクトルを射影して平方和を分けますが、ここではその前段階として、一般の共分散 $\Sigma$ をもつ楕円を球へ戻しています。
+
+---
+
+## 5. 白色化：楕円を球へ戻す
+
+前節で使った、共分散を単位行列へ変換する操作を**白色化**といいます。
+
+平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ をもつ確率ベクトル $\boldsymbol X$ を考え、
+
+$$
+\Sigma=Q\Lambda Q^{\mathsf T}
+$$
+
+と固有分解します。ここで $Q$ は直交行列、
+
+$$
+\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_p),
+\qquad \lambda_j>0
+$$
+
+です。
+
+### 5.1 まず回転する
+
+中心化した
+
+$$
+\boldsymbol X_c=\boldsymbol X-\boldsymbol\mu
+$$
+
+に対し
+
+$$
+\boldsymbol Y=Q^{\mathsf T}\boldsymbol X_c
+$$
+
+とすると
+
+$$
+\operatorname{Cov}(\boldsymbol Y)=\Lambda.
+$$
+
+ここではまだ分散は $\lambda_1,\ldots,\lambda_p$ のままですが、異なる成分間の共分散は0になっています。
+
+### 5.2 次に各固有方向を標準化する
+
+$$
+\Lambda^{-1/2}
+=\operatorname{diag}
+\left(
+\lambda_1^{-1/2},\ldots,\lambda_p^{-1/2}
+\right)
+$$
+
+として
+
+$$
+\boldsymbol Z
+=\Lambda^{-1/2}\boldsymbol Y
+=\Lambda^{-1/2}Q^{\mathsf T}
+(\boldsymbol X-\boldsymbol\mu)
+$$
+
+とします。このとき
 
 $$
 \begin{aligned}
@@ -368,13 +505,202 @@ Q\Lambda^{-1/2}\\
 \end{aligned}
 $$
 
-したがって白色化とは、**回転して共分散を対角化し、その後各軸を固有値の平方根で割って分散1にそろえる操作**だと理解できます。
+したがって白色化行列の1つは
 
-多変量正規の場合、$\boldsymbol Z\sim N_p(\boldsymbol0,I_p)$ となるため、成分は無相関であるだけでなく独立です。正規性がなければ、共分散が単位行列になっても独立とは限りません。
+$$
+\boxed{
+W=\Lambda^{-1/2}Q^{\mathsf T}
+}
+$$
+
+であり、
+
+$$
+W\Sigma W^{\mathsf T}=I_p
+$$
+
+を満たします。
+
+ここで操作の意味を分けて覚えると式を再構成しやすくなります。
+
+- $Q^{\mathsf T}$：楕円の主軸が座標軸に重なるように**回転**する。
+- $\Lambda^{-1/2}$：各主軸方向を標準偏差で割って**拡大・縮小**する。
+- 結果：傾いた楕円が半径方向に同じ尺度をもつ球へ変わる。
+
+### 5.3 $\Sigma^{-1/2}$ との関係
+
+4節では簡潔に
+
+$$
+\Sigma^{-1/2}(\boldsymbol X-\boldsymbol\mu)
+$$
+
+という書き方も使います。対称な平方根を採用すると
+
+$$
+\boxed{
+\Sigma^{-1/2}
+=Q\Lambda^{-1/2}Q^{\mathsf T}
+}
+$$
+
+です。この行列でも
+
+$$
+\Sigma^{-1/2}\Sigma\Sigma^{-1/2}=I_p
+$$
+
+なので白色化できます。
+
+一方、先ほどの
+
+$$
+W=\Lambda^{-1/2}Q^{\mathsf T}
+$$
+
+も
+
+$$
+W\Sigma W^{\mathsf T}=I_p
+$$
+
+を満たします。両者は同じ行列ではありません。
+
+これは矛盾ではなく、**白色化は一意ではない**ためです。共分散が $I_p$ になった後にさらに直交回転しても、共分散は $I_p$ のままです。この点はLevel Dの演習で改めて確認します。
+
+### 5.4 正規分布なら「無相関」が「独立」に強化される
+
+$\boldsymbol X$ が多変量正規分布なら、線形変換後も多変量正規なので
+
+$$
+\boldsymbol Z\sim N_p(\boldsymbol0,I_p).
+$$
+
+したがって各成分は無相関であるだけでなく独立です。
+
+ただし正規性を仮定しない一般の確率ベクトルでは、
+
+$$
+\operatorname{Cov}(\boldsymbol Z)=I_p
+$$
+
+から成分独立までは結論できません。白色化が保証するのはあくまで平均0・分散1・共分散0です。
 
 ---
 
-## 6. 条件付き正規分布を「線形予測」として読む
+## 6. 条件付き正規分布を「予測できる部分＋残差」として読む
+
+条件付き正規分布の公式は、いきなりブロック行列で暗記するより、「観測される量 = 他の変数から線形に予測できる部分 + 残差」と分解して作る方が理解しやすくなります。
+
+### 6.1 まず2変量で考える
+
+$(X,Y)$ が二変量正規分布に従い、
+
+$$
+E[X]=\mu_X,
+\qquad
+E[Y]=\mu_Y,
+$$
+
+$$
+\operatorname{Var}(X)=\sigma_X^2,
+\qquad
+\operatorname{Var}(Y)=\sigma_Y^2,
+\qquad
+\operatorname{Cov}(X,Y)=\sigma_{XY}
+$$
+
+とします。
+
+$X$ から $Y$ を線形予測する形として
+
+$$
+Y
+=\mu_Y+b(X-\mu_X)+R
+$$
+
+を考えます。ここで $R$ は予測しきれなかった残差です。
+
+係数 $b$ は、残差と説明に使った $X$ が無相関になるように決めます。
+
+$$
+\begin{aligned}
+\operatorname{Cov}(R,X)
+&=\operatorname{Cov}
+\{Y-\mu_Y-b(X-\mu_X),X\}\\
+&=\sigma_{XY}-b\sigma_X^2.
+\end{aligned}
+$$
+
+これを0とすると
+
+$$
+\boxed{
+b=\frac{\sigma_{XY}}{\sigma_X^2}
+}
+$$
+
+です。したがって
+
+$$
+Y
+=\mu_Y
++\frac{\sigma_{XY}}{\sigma_X^2}(X-\mu_X)
++R.
+$$
+
+残差分散も直接計算できます。
+
+$$
+\begin{aligned}
+\operatorname{Var}(R)
+&=\operatorname{Var}
+\left\{(Y-\mu_Y)-b(X-\mu_X)\right\}\\
+&=\sigma_Y^2
+-2b\sigma_{XY}
++b^2\sigma_X^2\\
+&=\sigma_Y^2
+-2\frac{\sigma_{XY}^2}{\sigma_X^2}
++\frac{\sigma_{XY}^2}{\sigma_X^2}\\
+&=\boxed{
+\sigma_Y^2-\frac{\sigma_{XY}^2}{\sigma_X^2}
+}.
+\end{aligned}
+$$
+
+つまり、$Y$ の周辺分散から、$X$ を知ることで説明できる分だけ減っています。
+
+例えば
+
+$$
+\begin{pmatrix}X\\Y\end{pmatrix}
+\sim N_2\left(
+\begin{pmatrix}10\\20\end{pmatrix},
+\begin{pmatrix}4&3\\3&9\end{pmatrix}
+\right)
+$$
+
+なら
+
+$$
+b=\frac34
+$$
+
+で、
+
+$$
+Y=20+\frac34(X-10)+R,
+$$
+
+$$
+\operatorname{Var}(R)
+=9-\frac{3^2}{4}
+=\frac{27}{4}.
+$$
+
+この時点で、後に出てくる条件付き平均と条件付き分散の形がほぼ見えています。
+
+### 6.2 ブロック行列へ一般化する
 
 確率ベクトルを2つのブロックへ分け、
 
@@ -389,33 +715,143 @@ $$
 \right)
 $$
 
-とします。$\Sigma_{11}$ が正則とします。
+とします。$\Sigma_{11}$ は正則とします。
 
-$\boldsymbol X_2$ から $\boldsymbol X_1$ と線形に一緒に動く部分を引いた残差を
+2変量での係数 $\sigma_{XY}/\sigma_X^2$ に対応する行列を
 
 $$
+B=\Sigma_{21}\Sigma_{11}^{-1}
+$$
+
+と置きます。そして
+
+$$
+\boldsymbol X_2
+=\boldsymbol\mu_2
++B(\boldsymbol X_1-\boldsymbol\mu_1)
++\boldsymbol R
+$$
+
+となるように残差を
+
+$$
+\boxed{
 \boldsymbol R
 =\boldsymbol X_2-\boldsymbol\mu_2
--\Sigma_{21}\Sigma_{11}^{-1}
-(\boldsymbol X_1-\boldsymbol\mu_1)
+-B(\boldsymbol X_1-\boldsymbol\mu_1)
+}
 $$
 
-と置きます。
+と定義します。
 
-$\boldsymbol R$ と $\boldsymbol X_1$ の共分散は
+まず $\boldsymbol R$ と $\boldsymbol X_1$ の共分散を計算します。
 
 $$
 \begin{aligned}
 \operatorname{Cov}(\boldsymbol R,\boldsymbol X_1)
+&=\Sigma_{21}-B\Sigma_{11}\\
 &=\Sigma_{21}
 -\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{11}\\
 &=0.
 \end{aligned}
 $$
 
-しかも同時正規なので、無相関から独立が従います。したがって $\boldsymbol X_1=\boldsymbol x_1$ と条件付けても残差 $\boldsymbol R$ の分布は変わりません。
+したがって、$B=\Sigma_{21}\Sigma_{11}^{-1}$ は「$\boldsymbol X_1$ で説明できる線形成分をすべて取り除き、残差を $\boldsymbol X_1$ と無相関にする係数」です。
 
-よって条件付き平均は
+### 6.3 残差の共分散を省略せずに導く
+
+ここが条件付き共分散の式の本体です。
+
+$$
+\boldsymbol R
+=(\boldsymbol X_2-\boldsymbol\mu_2)
+-B(\boldsymbol X_1-\boldsymbol\mu_1)
+$$
+
+なので、分散共分散行列の公式をそのまま使うと
+
+$$
+\begin{aligned}
+\operatorname{Cov}(\boldsymbol R)
+={}&\Sigma_{22}
+-B\Sigma_{12}
+-\Sigma_{21}B^{\mathsf T}
++B\Sigma_{11}B^{\mathsf T}.
+\end{aligned}
+$$
+
+ここで $\Sigma_{11}$ は対称なので
+
+$$
+B^{\mathsf T}
+=(\Sigma_{21}\Sigma_{11}^{-1})^{\mathsf T}
+=\Sigma_{11}^{-1}\Sigma_{12}.
+$$
+
+したがって
+
+$$
+B\Sigma_{12}
+=\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12},
+$$
+
+$$
+\Sigma_{21}B^{\mathsf T}
+=\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12},
+$$
+
+また
+
+$$
+\begin{aligned}
+B\Sigma_{11}B^{\mathsf T}
+&=\Sigma_{21}\Sigma_{11}^{-1}
+\Sigma_{11}
+\Sigma_{11}^{-1}\Sigma_{12}\\
+&=\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}.
+\end{aligned}
+$$
+
+よって3つの同じ項の係数が $-1-1+1=-1$ となり、
+
+$$
+\boxed{
+\operatorname{Cov}(\boldsymbol R)
+=\Sigma_{22}
+-\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}
+}.
+$$
+
+この行列は $\Sigma$ のSchur補行列と呼ばれることもありますが、名称より「残った分散 = 元の分散 - $\boldsymbol X_1$ で説明できた分散」と読むことが重要です。
+
+### 6.4 なぜこれが条件付き分布になるのか
+
+$\boldsymbol R$ と $\boldsymbol X_1$ は、元の多変量正規ベクトルの線形変換なので同時正規です。さらに
+
+$$
+\operatorname{Cov}(\boldsymbol R,\boldsymbol X_1)=0
+$$
+
+なので、多変量正規分布では
+
+$$
+\boldsymbol R\perp\boldsymbol X_1
+$$
+
+が従います。
+
+したがって $\boldsymbol X_1=\boldsymbol x_1$ と条件付けても $\boldsymbol R$ の分布は変わりません。
+
+分解式
+
+$$
+\boldsymbol X_2
+=\boldsymbol\mu_2
++B(\boldsymbol X_1-\boldsymbol\mu_1)
++\boldsymbol R
+$$
+
+で $\boldsymbol X_1=\boldsymbol x_1$ を固定すれば、条件付き平均は
 
 $$
 \boxed{
@@ -426,65 +862,250 @@ E[\boldsymbol X_2\mid\boldsymbol X_1=\boldsymbol x_1]
 }
 $$
 
-で、条件付き分散共分散行列は
+となります。
+
+また条件付け後にランダムに残るのは $\boldsymbol R$ だけなので、条件付き分散共分散行列は
 
 $$
 \boxed{
-\Sigma_{22\cdot1}
+\operatorname{Cov}(\boldsymbol X_2\mid\boldsymbol X_1)
 =\Sigma_{22}
 -\Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}
 }.
 $$
 
-条件付き平均は、観測された $\boldsymbol X_1$ の平均からのずれを、共分散構造に応じて $\boldsymbol X_2$ の予測へ変換したものです。
+多変量正規分布では、この条件付き共分散は観測値 $\boldsymbol x_1$ 自体には依存しません。$\boldsymbol x_1$ が変わると予測中心は動きますが、残差のばらつきは同じです。
+
+条件付き正規分布は、後の状態空間モデルやKalman filterでも、**予測値に観測からの修正を加え、残差を分ける**というほぼ同じ構造で現れます。
 
 ---
 
-## 7. 線形判別分析への接続
+## 7. 線形判別分析：白色化した空間で「どちらの中心に近いか」
 
-2群 $g=1,2$ について
+線形判別分析（LDA）は、最初から一般の $p$ 次元公式を見ると目的が見えにくくなります。まず1変量で考え、そのあと4〜5節のMahalanobis距離と白色化へ接続します。
+
+### 7.1 まず1次元なら「近い平均へ分類する」
+
+2群について
+
+$$
+X\mid(G=1)\sim N(\mu_1,\sigma^2),
+\qquad
+X\mid(G=2)\sim N(\mu_2,\sigma^2)
+$$
+
+とし、事前確率も等しいとします。
+
+両群の分散が同じなら、観測値 $x$ は平均に近い方の群へ分類するのが自然です。境界は
+
+$$
+(x-\mu_1)^2=(x-\mu_2)^2
+$$
+
+を満たす点なので、$\mu_1\ne\mu_2$ なら
+
+$$
+\boxed{
+x=\frac{\mu_1+\mu_2}{2}
+}
+$$
+
+です。
+
+つまり1次元のLDAは、共通の尺度で標準化した後に「どちらの中心へ近いか」を比べているだけです。
+
+### 7.2 多次元ではEuclid距離をMahalanobis距離へ置き換える
+
+次に
 
 $$
 \boldsymbol X\mid(G=g)
-\sim N_p(\boldsymbol\mu_g,\Sigma)
+\sim N_p(\boldsymbol\mu_g,\Sigma),
+\qquad g=1,2
 $$
 
-とし、2群で共通の正定値な分散共分散行列 $\Sigma$ を仮定します。群 $g$ の事前確率を $\pi_g$ とします。
+とし、2群で**共通の**正定値な分散共分散行列 $\Sigma$ を仮定します。
 
-Bayes則より、観測 $\boldsymbol x$ を群 $g$ に分類するには
-
-$$
-\pi_g f_g(\boldsymbol x)
-$$
-
-を比較すればよいので、対数を取って正規密度を代入します。群間で共通な項を除くと判別関数は
+事前確率が等しい場合、群 $g$ へのMahalanobis距離
 
 $$
-\delta_g(\boldsymbol x)
-=\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol x
--\frac12\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_g
-+\log\pi_g.
-$$
-
-ここで $\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x$ は両群で共通なので差を取ると消えます。したがって判別境界
-
-$$
-\delta_1(\boldsymbol x)=\delta_2(\boldsymbol x)
-$$
-
-は $\boldsymbol x$ に関する一次式です。これが「線形」判別分析と呼ばれる理由です。
-
-事前確率が等しい場合は、Mahalanobis距離
-
-$$
-(\boldsymbol x-\boldsymbol\mu_g)^{\mathsf T}
+D_g^2(\boldsymbol x)
+=(\boldsymbol x-\boldsymbol\mu_g)^{\mathsf T}
 \Sigma^{-1}
 (\boldsymbol x-\boldsymbol\mu_g)
 $$
 
-が小さい群を選ぶことと同値です。
+が小さい方へ分類します。
 
-群ごとに分散共分散行列が異なると、$\boldsymbol x^{\mathsf T}\Sigma_g^{-1}\boldsymbol x$ が群間で相殺されず、境界に二次項が残ります。
+ここで5節の白色化行列 $W$ を使い
+
+$$
+W\Sigma W^{\mathsf T}=I_p
+$$
+
+とします。白色化座標を
+
+$$
+\boldsymbol z=W\boldsymbol x,
+\qquad
+\boldsymbol m_g=W\boldsymbol\mu_g
+$$
+
+とすれば
+
+$$
+D_g^2(\boldsymbol x)
+=\|\boldsymbol z-\boldsymbol m_g\|^2.
+$$
+
+したがってLDAは、**元の楕円形の空間を白色化して、球形の空間で群中心への普通の距離を比較する**方法と読めます。
+
+### 7.3 なぜ境界が直線・超平面になるのか
+
+等事前確率なら境界は
+
+$$
+D_1^2(\boldsymbol x)=D_2^2(\boldsymbol x)
+$$
+
+です。両辺を展開すると
+
+$$
+\begin{aligned}
+D_g^2(\boldsymbol x)
+={}&\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+-2\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol x
++\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_g.
+\end{aligned}
+$$
+
+2群で $\Sigma$ が共通なので、
+
+$$
+\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+$$
+
+は両辺でまったく同じです。したがって差を取ると二次項が消え、
+
+$$
+(\boldsymbol\mu_2-\boldsymbol\mu_1)^{\mathsf T}
+\Sigma^{-1}\boldsymbol x
+=\frac12
+\left(
+\boldsymbol\mu_2^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_2
+-\boldsymbol\mu_1^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_1
+\right)
+$$
+
+となります。
+
+ここで
+
+$$
+\boxed{
+\boldsymbol w
+=\Sigma^{-1}(\boldsymbol\mu_2-\boldsymbol\mu_1)
+}
+$$
+
+と置けば、境界は
+
+$$
+\boldsymbol w^{\mathsf T}\boldsymbol x=c
+$$
+
+という超平面です。
+
+つまりLDAでは、多次元の観測 $\boldsymbol x$ を実質的に
+
+$$
+\boxed{
+\boldsymbol w^{\mathsf T}\boldsymbol x
+}
+$$
+
+という1本の判別スコアへ射影して比較しています。
+
+$\Sigma^{-1}$ が入るのは、平均差 $\boldsymbol\mu_2-\boldsymbol\mu_1$ をそのまま見るのではなく、**ばらつきの大きい方向は割り引き、ばらつきの小さい方向の平均差を重く見るため**です。
+
+### 7.4 Bayes則から同じ判別関数を導く
+
+群 $g$ の事前確率を $\pi_g$、正規密度を $f_g(\boldsymbol x)$ とします。Bayes則より
+
+$$
+P(G=g\mid\boldsymbol X=\boldsymbol x)
+=\frac{\pi_gf_g(\boldsymbol x)}
+{\sum_h\pi_hf_h(\boldsymbol x)}.
+$$
+
+分母は群に依存しないので、事後確率最大化は
+
+$$
+\pi_gf_g(\boldsymbol x)
+$$
+
+を最大化することと同値です。
+
+対数を取り、正規密度の二次形式を展開すると
+
+$$
+\log\pi_g
+-\frac12
+\left[
+\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+-2\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol x
++\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_g
+\right]
+$$
+
+に、群に依存しない定数項が加わった形になります。
+
+群共通の
+
+$$
+\boldsymbol x^{\mathsf T}\Sigma^{-1}\boldsymbol x
+$$
+
+を除けば、判別関数は
+
+$$
+\boxed{
+\delta_g(\boldsymbol x)
+=\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol x
+-\frac12\boldsymbol\mu_g^{\mathsf T}\Sigma^{-1}\boldsymbol\mu_g
++\log\pi_g
+}
+$$
+
+です。
+
+ここまで来ると、なぜ「線形」なのかは式変形上の偶然ではありません。**2群が同じ共分散、つまり同じ形・同じ向きの楕円をもつため、共通の二次部分が分類時に消える**からです。
+
+### 7.5 共分散が群ごとに違うとQDAになる
+
+もし
+
+$$
+\boldsymbol X\mid(G=g)
+\sim N_p(\boldsymbol\mu_g,\Sigma_g)
+$$
+
+のように群ごとに分散共分散行列が違うと、
+
+$$
+\boldsymbol x^{\mathsf T}\Sigma_g^{-1}\boldsymbol x
+$$
+
+は群共通ではありません。そのため二次項が相殺されず、判別境界は一般に二次曲面になります。これが二次判別分析（QDA）です。
+
+なお、2群のFisher型線形判別でも最適な判別方向は、群内共分散を $\Sigma$ とみなせば
+
+$$
+\boldsymbol w\propto
+\Sigma^{-1}(\boldsymbol\mu_2-\boldsymbol\mu_1)
+$$
+
+となります。正規モデルからのBayes LDAとFisherの判別方向が同じ形になるのは、この共通の「平均差を共分散で補正する」という構造によります。
 
 ---
 
@@ -498,21 +1119,29 @@ $$
 
 独立同分布標本なら、標本平均ベクトルの分散共分散行列は $\Sigma/n$ です。ただし「独立」を確認せずに使わないことが重要です。
 
-### MV-DIST-1：距離は尺度と相関を確認
+### MV-DIST-1：Mahalanobis距離は「白色化後の普通の距離」
 
-単位・分散・相関が異なる変数を同時に測るとき、ユークリッド距離ではなくMahalanobis距離が自然かを検討します。
+尺度差だけなら各成分を標準偏差で割ります。共分散まであるなら、固有方向へ回転してから各方向を標準化します。Mahalanobis距離は、その白色化座標でのユークリッド距離です。
 
-### MV-WHITE-1：回転→尺度調整
+### MV-WHITE-1：中心化 → 回転 → 尺度調整
 
-白色化の式を暗記せず、$\Sigma=Q\Lambda Q^{\mathsf T}$ として、まず $Q^{\mathsf T}$ で対角化し、次に $\Lambda^{-1/2}$ で各分散を1へそろえます。
+白色化の式を暗記せず、$\Sigma=Q\Lambda Q^{\mathsf T}$ として、まず $Q^{\mathsf T}$ で固有方向へ回転し、次に $\Lambda^{-1/2}$ で各分散を1へそろえます。最後に $W\Sigma W^{\mathsf T}=I$ を確認します。
 
-### MV-COND-1：条件付き平均は残差化
+### MV-COND-1：「予測部分＋残差」に分ける
 
-条件付き正規分布では、$\Sigma_{21}\Sigma_{11}^{-1}$ が「$\boldsymbol X_1$ のずれを $\boldsymbol X_2$ の予測へ移す係数」と読むと式を再構成しやすくなります。
+$$
+\boldsymbol X_2
+=\boldsymbol\mu_2
++\Sigma_{21}\Sigma_{11}^{-1}
+(\boldsymbol X_1-\boldsymbol\mu_1)
++\boldsymbol R
+$$
 
-### MV-LDA-1：密度比の二次項が消えるかを見る
+と分解し、$\operatorname{Cov}(\boldsymbol R,\boldsymbol X_1)=0$ を作ります。条件付き共分散は残差共分散そのものです。
 
-共通共分散なら正規密度の二次項が相殺されて線形境界になります。群ごとに共分散が違えば二次項が残ります。
+### MV-LDA-1：まず距離、次に密度
+
+共通共分散・等事前確率なら、まず各群へのMahalanobis距離を比較します。白色化すれば「どちらの中心に近いか」です。Bayes判別関数が必要なときは、その後で正規密度を展開し、共通の二次項が消えることを確認します。
 
 ---
 
@@ -1541,9 +2170,11 @@ $\Sigma^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。$(1,1)$ では $D_
 
 - $A\Sigma A^{\mathsf T}$ を成分暗記ではなく共分散の定義から説明できる。
 - $\bar{\boldsymbol X}$ の共分散が $\Sigma/n$ になる理由を独立性から説明できる。
-- Mahalanobis距離が尺度と相関を補正する距離だと説明できる。
+- Mahalanobis距離が「白色化後のユークリッド距離」だと説明できる。
 - 多変量正規ならMahalanobis距離の二乗がカイ二乗分布になる理由を白色化から示せる。
-- 白色化を固有分解から構成できる。
-- 条件付き正規分布の平均・分散を計算できる。
+- 白色化を「中心化 → 固有方向へ回転 → 尺度調整」の順に構成できる。
+- $\Sigma^{-1/2}$ と $\Lambda^{-1/2}Q^{\mathsf T}$ が異なる白色化を与えうる理由を説明できる。
+- 条件付き正規分布を「線形予測＋残差」に分解し、残差共分散を導出できる。
 - 同時正規のときに限って無相関から独立を結論できる。
-- 共通共分散の正規2群から線形判別関数を導ける。
+- LDAを白色化空間での群中心への距離比較として説明できる。
+- 共通共分散の正規2群から線形判別関数と判別方向 $\Sigma^{-1}(\boldsymbol\mu_2-\boldsymbol\mu_1)$ を導ける。
