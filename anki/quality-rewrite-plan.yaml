@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-linear-transform-canonical-193
+batch_id: 2026-08-31-multivariate-linear-transform-canonical-195
 items:
   - id: mv-covariance-linear-transform
     note: 共分散の線形変換正本へ、漸近正規ベクトルの線形結合にも同じ a^T Sigma a を適用する小問を統合し、engineering側の多変量漸近線形結合専用カードを吸収する。
@@ -24,7 +24,7 @@ items:
         3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
         4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
         5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
-        6. 推定量 $\widehat{\boldsymbol\beta}=(\widehat\beta_1,\widehat\beta_2)^{\mathsf T}$ が
+        6. 2次元正規分布を $N_2$ で表す。推定量 $\widehat{\boldsymbol\beta}=(\widehat\beta_1,\widehat\beta_2)^{\mathsf T}$ が
         $$
         \sqrt n(\widehat{\boldsymbol\beta}-\boldsymbol\beta)
         \xrightarrow{d}
