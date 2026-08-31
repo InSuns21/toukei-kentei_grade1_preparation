@@ -2097,11 +2097,11 @@ items:
       - engproc-absorbing-fundamental-matrix
       - engproc-markov-reward-long-run
       - engproc-ctmc-uniformization
-      - engproc-chapman-kolmogorov-maintenance
-      - engproc-stationarity-window-judgment
-      - engproc-residual-white-noise-bounds
+      - stoch-three-state-two-step
+      - ts-weak-vs-strong-stationarity
+      - ts-software-residual-diagnostics
       - ts-acf-pacf-identification
-      - engproc-ma1-moment-identification
+      - ts-maq-acf-cutoff
       - engproc-arma11-one-step-forecast
       - engproc-arima110-difference-forecast
       - engproc-periodogram-period-identification
@@ -2133,12 +2133,12 @@ items:
           - engproc-birth-death-detailed-balance
           - engproc-absorbing-fundamental-matrix
           - engproc-markov-reward-long-run
-          - engproc-chapman-kolmogorov-maintenance
+          - stoch-three-state-two-step
       - name: 時系列解析
         status: card
         cards:
-          - engproc-stationarity-window-judgment
-          - engproc-residual-white-noise-bounds
+          - ts-weak-vs-strong-stationarity
+          - ts-software-residual-diagnostics
           - ts-acf-pacf-identification
           - engproc-periodogram-period-identification
       - name: 自己回帰過程
@@ -2149,7 +2149,7 @@ items:
       - name: 移動平均過程
         status: card
         cards:
-          - engproc-ma1-moment-identification
+          - ts-maq-acf-cutoff
           - engproc-arma11-one-step-forecast
       - name: ARIMA過程
         status: card
