@@ -1,0 +1,34 @@
+name: Validate Pages assembly
+
+on:
+  pull_request:
+    paths:
+      - 'pages/**'
+      - 'textbook/**'
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
+      - 'anki/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-pages.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Assemble and validate Pages site
+        run: npm run validate:pages
