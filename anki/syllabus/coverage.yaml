@@ -2277,7 +2277,7 @@ items:
       - dist-clt-sample-mean
       - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
-      - engasym-delta-odds-ratio
+      - cat-log-odds-ratio-ci
       - asym-mle-poisson-tail-probability
       - ci-asymptotic-mle
     terms:
@@ -2326,7 +2326,7 @@ items:
         cards:
           - asym-ratio-two-means-delta
           - engasym-delta-risk-ratio
-          - engasym-delta-odds-ratio
+          - cat-log-odds-ratio-ci
   - id: engineering-quality
     status: complete
     cards:
