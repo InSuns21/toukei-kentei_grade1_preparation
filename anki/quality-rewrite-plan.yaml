@@ -1,92 +1,161 @@
 schema_version: 1
-batch_id: 2026-08-31-empirical-cdf-central-limit-canonical-191
+batch_id: 2026-08-31-multivariate-linear-transform-canonical-193
 items:
-  - id: dist-clt-bernoulli-proportion
-    note: ベルヌーイ標本比率の中心極限定理正本へ、固定点xでの経験分布関数を指示変数の標本平均として導く応用を統合し、engineering側の経験分布関数一点専用カードを吸収する。
+  - id: mv-covariance-linear-transform
+    note: 共分散の線形変換正本へ、漸近正規ベクトルの線形結合にも同じ a^T Sigma a を適用する小問を統合し、engineering側の多変量漸近線形結合専用カードを吸収する。
     metadata:
-      title: ベルヌーイ標本比率と経験分布関数に中心極限定理を適用する
-      topic: central-limit-bernoulli
-      type: calc_step
-      difficulty: 2
-      priority: S
-      hashtags: [中心極限定理, ベルヌーイ分布, 標本比率, 経験分布関数]
+      title: 線形変換した共分散から相関行列・漸近線形結合まで扱う
+      topic: covariance-correlation-transform-canonical
+      type: strategy
+      difficulty: 3
+      priority: A
+      hashtags: [多変量解析, 分散共分散行列, 相関行列, 線形変換, 漸近分散]
     sections:
       問題: |
-        1. $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$\widehat p=\overline X_n$ とする。$\sqrt n(\widehat p-p)$ の極限分布を求めよ。
-        2. 一般の独立同分布標本 $Y_1,\ldots,Y_n$ の経験分布関数
+        確率ベクトル $\boldsymbol X$ の分散共分散行列を
         $$
-        F_n(x)=\frac1n\sum_{i=1}^n\boldsymbol1_{\{Y_i\le x\}}
+        \boldsymbol\Sigma=
+        \begin{pmatrix}4&3\\3&9\end{pmatrix}
         $$
-        を考える。固定した $x$ について $\sqrt n\{F_n(x)-F(x)\}$ の極限分布を、1の結果から導け。ただし $F(x)=P(Y_i\le x)$ とする。
-        3. $F(x)=0.5$、$n=100$ のとき $F_n(x)$ の近似標準誤差を求めよ。
+        とする。
+
+        1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
+        2. $Y_1=X_1+X_2$ の分散を求めよ。
+        3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
+        4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
+        5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
+        6. 推定量 $\widehat{\boldsymbol\beta}=(\widehat\beta_1,\widehat\beta_2)^{\mathsf T}$ が
+        $$
+        \sqrt n(\widehat{\boldsymbol\beta}-\boldsymbol\beta)
+        \xrightarrow{d}
+        N_2\left(\boldsymbol0,
+        \begin{pmatrix}4&1\\1&9\end{pmatrix}\right)
+        $$
+        を満たすとき、$\widehat\beta_1-\widehat\beta_2$ の漸近分散定数と、推定量自身の近似分散を求めよ。
       記号・用語: |
-        $\widehat p$ はベルヌーイ標本の成功割合である。$F_n(x)$ は経験分布関数で、固定した $x$ では「観測値が $x$ 以下だった割合」と読める。
+        分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
 
-        $\boldsymbol1_{\{Y_i\le x\}}$ は、事象 $Y_i\le x$ が起きれば1、そうでなければ0を取る指示変数である。
+        漸近分散定数とは
+        $$
+        \sqrt n(T_n-\theta)\xrightarrow{d}N(0,V)
+        $$
+        に現れる $V$ であり、$T_n$ 自身の大標本での分散はおよそ $V/n$ である。
       使用公式・定理: |
-        ベルヌーイ変数 $B_i\sim\operatorname{Bernoulli}(q)$ は
-        $$
-        E[B_i]=q,\qquad \operatorname{Var}(B_i)=q(1-q)
-        $$
-        を満たす。中心極限定理より
-        $$
-        \sqrt n(\overline B_n-q)\xrightarrow{d}N\{0,q(1-q)\}.
-        $$
-
-        固定した $x$ に対して
-        $$
-        B_i=\boldsymbol1_{\{Y_i\le x\}}
-        $$
-        と置けば
-        $$
-        P(B_i=1)=P(Y_i\le x)=F(x),
-        $$
-        したがって $B_i\sim\operatorname{Bernoulli}\{F(x)\}$ であり、$F_n(x)=\overline B_n$ である。
-      一手／方針: |
-        **0/1の割合を見たらベルヌーイ標本平均へ戻す。** 経験分布関数の一点での漸近分布も新しい定理ではなく、指示変数をベルヌーイ変数と認識すれば通常の標本比率に対する中心極限定理になる。
-      答え: |
-        1. ベルヌーイ分布の平均と分散は $p$、$p(1-p)$ なので、中心極限定理より
-        $$
-        \boxed{\sqrt n(\widehat p-p)\xrightarrow{d}N\{0,p(1-p)\}}.
-        $$
-        同値に大標本では
-        $$
-        \widehat p\ \dot\sim\ N\left(p,\frac{p(1-p)}n\right).
-        $$
-
-        2. 固定した $x$ について
-        $$
-        B_i=\boldsymbol1_{\{Y_i\le x\}}\sim\operatorname{Bernoulli}\{F(x)\},
-        \qquad F_n(x)=\overline B_n.
-        $$
-        よって1で $p$ を $F(x)$ に置き換えれば
+        定数ベクトルの共分散は0なので
         $$
         \boxed{
-        \sqrt n\{F_n(x)-F(x)\}
-        \xrightarrow{d}
-        N\left(0,F(x)\{1-F(x)\}\right)}.
+        \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
         $$
 
-        3. $F(x)=0.5$、$n=100$ では
+        線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
         $$
-        \operatorname{ASE}\{F_n(x)\}
-        =\sqrt{\frac{0.5(1-0.5)}{100}}
-        =\sqrt{0.0025}
-        =\boxed{0.05}.
+        \boxed{\operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a}.
+        $$
+
+        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
+        $$
+        \boldsymbol R
+        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
+        $$
+        成分では
+        $$
+        \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
+        $$
+
+        同じ線形変換則は漸近正規ベクトルにも使える。すなわち
+        $$
+        \sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
+        \xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
+        $$
+        なら、定数ベクトル $\boldsymbol a$ に対して
+        $$
+        \sqrt n\{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\theta}
+        -\boldsymbol a^{\mathsf T}\boldsymbol\theta\}
+        \xrightarrow{d}
+        N\left(0,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a\right).
+        $$
+      一手／方針: |
+        **線形変換なら $A\Sigma A^{\mathsf T}$、1本の線形結合なら $a^{\mathsf T}\Sigma a$、尺度を消したいなら標準偏差で割る。**
+
+        漸近正規分布でも新しい分散公式を覚える必要はない。$\sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)$ を1つの確率ベクトルと見て、通常の線形結合の分散公式をそのまま適用する。
+      答え: |
+        1. 平均を $\boldsymbol\mu=E[\boldsymbol X]$ とすると
+        $$
+        \boldsymbol Y-E[\boldsymbol Y]
+        =\boldsymbol A(\boldsymbol X-\boldsymbol\mu)
+        $$
+        だから
+        $$
+        \boxed{\operatorname{Cov}(\boldsymbol Y)
+        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
+        $$
+        $\boldsymbol b$ は中心化すると消えるので共分散へ影響しない。
+
+        2. $\boldsymbol a=(1,1)^{\mathsf T}$ とすれば
+        $$
+        \operatorname{Var}(X_1+X_2)
+        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        =4+9+2\cdot3
+        =\boxed{19}.
+        $$
+
+        3. 標準偏差は $2,3$ なので
+        $$
+        \rho_{12}=\frac3{2\cdot3}=\frac12,
+        $$
+        $$
+        \boxed{\boldsymbol R=
+        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
+        $$
+
+        4. 単位変更後は
+        $$
+        \boldsymbol\Sigma_Z
+        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
+        $$
+        よって
+        $$
+        \rho_{Z_1Z_2}
+        =\frac{3000}{\sqrt{400\cdot90000}}
+        =\boxed{0.5},
+        $$
+        で元と同じである。
+
+        5. 一方だけを負の定数倍すると、共分散の符号は反転する一方、標準偏差は正のままなので、相関係数の符号が反転する。
+
+        6. 差なので
+        $$
+        \boldsymbol a=(1,-1)^{\mathsf T}.
+        $$
+        したがって漸近分散定数は
+        $$
+        \boldsymbol a^{\mathsf T}
+        \begin{pmatrix}4&1\\1&9\end{pmatrix}
+        \boldsymbol a
+        =4+9-2\cdot1
+        =\boxed{11}.
+        $$
+        よって
+        $$
+        \sqrt n\{(\widehat\beta_1-\widehat\beta_2)-(\beta_1-\beta_2)\}
+        \xrightarrow{d}N(0,11),
+        $$
+        推定量自身の近似分散は
+        $$
+        \boxed{\operatorname{Var}(\widehat\beta_1-\widehat\beta_2)\approx\frac{11}{n}}.
         $$
       計算例: |
-        $p=0.3$、$n=100$ のベルヌーイ標本比率なら
+        同じ漸近分散共分散行列
         $$
-        \operatorname{ASE}(\widehat p)
-        =\sqrt{\frac{0.3\cdot0.7}{100}}
-        \approx0.0458.
+        \begin{pmatrix}4&1\\1&9\end{pmatrix}
         $$
-
-        経験分布関数も全く同じ計算で、例えば $F(x)=0.3$ なら
+        で和 $\widehat\beta_1+\widehat\beta_2$ を考えると、$\boldsymbol a=(1,1)^{\mathsf T}$ なので漸近分散定数は
         $$
-        \operatorname{ASE}\{F_n(x)\}
-        \approx0.0458
+        4+9+2\cdot1=15.
         $$
-        となる。違うのは成功事象を「1が出た」ではなく「$Y_i\le x$」と定義した点だけである。
+        差では共分散項が $-2\Sigma_{12}$、和では $+2\Sigma_{12}$ になる。
       注意: |
-        経験分布関数についてここで示したのは**固定した1点 $x$** での中心極限定理である。$\sup_x|F_n(x)-F(x)|$ のような関数全体の一様収束や、経験過程の極限は別の主張である。また $F(x)=0$ または1では極限分散が0となり、非退化な正規極限にはならない。
+        線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
+
+        正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
