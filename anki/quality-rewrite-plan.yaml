@@ -1,122 +1,119 @@
 schema_version: 1
-batch_id: 2026-08-31-gamma-moments-canonicalization-229
+batch_id: 2026-08-31-normal-affine-canonicalization-231
 items:
-  - id: dist-gamma-moments-by-definition
-    note: 旧dist-gamma-momentsとdist-exponential-momentsを吸収するため、密度積分からの一般導出にshape-rateの数値例と指数分布alpha=1の特殊形を追加する。
+  - id: prob-linear-combination-normal
+    note: 旧dist-normal-linear-transformを吸収するため、多変量正規の線形結合をアフィン変換a^T X+bへ拡張し、1変量Y=aX+bの特殊形とa=0の退化ケースを明示する。
     metadata:
-      title: ガンマ分布の平均・分散を密度積分から導き指数分布へ特殊化する
-      topic: gamma-moments-canonical
+      title: 正規ベクトルのアフィン結合の分布を求める
+      topic: multivariate-normal-affine-combination
       type: strategy
       priority: S
-      hashtags: [ガンマ分布, 指数分布, 平均, 分散, ガンマ積分]
+      hashtags: [確率変数の線形結合, 多変量正規分布, アフィン変換, 分散共分散行列]
     sections:
       問題: |
-        $X\sim\operatorname{Gamma}(\alpha,\beta)$ がshape-rate表示で
+        多変量正規分布に従う確率ベクトルを
         $$
-        f_X(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},
-        \qquad x>0
+        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
         $$
-        に従うとする。
+        とする。定数ベクトル $\boldsymbol a$ と定数 $b$ に対する
+        $$
+        Y=\boldsymbol a^{\mathsf T}\boldsymbol X+b
+        $$
+        の分布を求めよ。
 
-        1. 期待値の定義から $E[X]$ と $E[X^2]$ を求め、$\operatorname{Var}(X)$ を導出せよ。
-        2. $\alpha=3,\beta=2$ の平均と分散を求めよ。
-        3. $\alpha=1,\beta=\lambda$ と置いて指数分布の平均と分散を求めよ。
+        また次を計算せよ。
+
+        1. $\boldsymbol\mu=(1,2)^{\mathsf T}$、$\boldsymbol\Sigma=\begin{pmatrix}4&1\\1&9\end{pmatrix}$、$Y=X_1-2X_2+5$。
+        2. 1変量で $X\sim N(2,9)$、$Y=-X+4$。
+        3. $\boldsymbol a=\boldsymbol0$ のときの分布。
       答え: |
-        一般に
+        多変量正規分布はアフィン変換で閉じているので
         $$
-        E[X]=\frac{\alpha}{\beta},
-        \qquad
-        E[X^2]=\frac{\alpha(\alpha+1)}{\beta^2},
-        \qquad
-        \operatorname{Var}(X)=\frac{\alpha}{\beta^2}.
-        $$
-
-        $\alpha=3,\beta=2$ では
-        $$
-        E[X]=\frac32,
-        \qquad
-        \operatorname{Var}(X)=\frac34.
+        \boxed{
+        Y\sim N\left(
+        \boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        \right)}.
         $$
 
-        $\alpha=1,\beta=\lambda$ では率 $\lambda$ の指数分布となり
+        1. $\boldsymbol a=(1,-2)^{\mathsf T}$ だから
         $$
-        E[X]=\frac1\lambda,
+        E[Y]=1-2\cdot2+5=2,
         \qquad
-        \operatorname{Var}(X)=\frac1{\lambda^2}.
-        $$
-      使用公式・定理: |
-        ガンマ関数は
-        $$
-        \Gamma(c)=\int_0^\infty u^{c-1}e^{-u}\,du,
-        $$
-        漸化式
-        $$
-        \Gamma(c+1)=c\Gamma(c)
-        $$
-        を満たす。
-
-        $u=\beta x$ と置けば
-        $$
-        \int_0^\infty x^{c-1}e^{-\beta x}\,dx
-        =\frac{\Gamma(c)}{\beta^c}.
-        $$
-        したがって一般の正整数 $r$ について
-        $$
-        E[X^r]
-        =\frac{\Gamma(\alpha+r)}{\Gamma(\alpha)\beta^r}.
-        $$
-        特に $r=1,2$ を入れれば平均と二次モーメントが得られる。
-
-        shape-rate表示の $\operatorname{Gamma}(1,\lambda)$ は
-        $$
-        f(x)=\lambda e^{-\lambda x},
-        \qquad x>0
-        $$
-        なので率 $\lambda$ の指数分布そのものである。
-      計算例: |
-        まず
-        $$
-        \begin{aligned}
-        E[X]
-        &=\frac{\beta^\alpha}{\Gamma(\alpha)}
-          \int_0^\infty x^\alpha e^{-\beta x}\,dx\\
-        &=\frac{\beta^\alpha}{\Gamma(\alpha)}
-          \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}\\
-        &=\frac\alpha\beta.
-        \end{aligned}
-        $$
-        同様に
-        $$
-        E[X^2]
-        =\frac{\beta^\alpha}{\Gamma(\alpha)}
-         \frac{\Gamma(\alpha+2)}{\beta^{\alpha+2}}
-        =\frac{\alpha(\alpha+1)}{\beta^2}.
+        \operatorname{Var}(Y)=36,
         $$
         よって
         $$
-        \operatorname{Var}(X)
-        =E[X^2]-E[X]^2
-        =\frac{\alpha}{\beta^2}.
+        Y\sim N(2,36).
         $$
 
-        数値例 $\alpha=3,\beta=2$ なら
+        2. 1変量の特殊形では
         $$
-        E[X]=\frac32,
-        \qquad
-        \operatorname{Var}(X)=\frac3{2^2}=\frac34.
+        Y=aX+b\sim N(a\mu+b,a^2\sigma^2).
+        $$
+        ここでは $a=-1,b=4$ なので
+        $$
+        Y\sim N(2,9).
         $$
 
-        指数分布は $\alpha=1$ の特殊形なので
+        3. $\boldsymbol a=\boldsymbol0$ なら $Y=b$ が確率1で成り立つ退化分布である。
+      使用公式・定理: |
+        多変量正規分布に対する線形変換は再び正規分布になる。定数項は平均だけを平行移動するため
         $$
-        E[X]=\frac1\lambda,
-        \qquad
-        E[X^2]=\frac2{\lambda^2},
-        \qquad
-        \operatorname{Var}(X)=\frac1{\lambda^2}.
+        E[\boldsymbol a^{\mathsf T}\boldsymbol X+b]
+        =\boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
+        $$
+        $$
+        \operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X+b)
+        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+        $$
+
+        2変量なら
+        $$
+        \operatorname{Var}(aX_1+cX_2)
+        =a^2\sigma_1^2+c^2\sigma_2^2+2ac\sigma_{12}.
+        $$
+        独立正規変数では共分散項が0になる。
+
+        1変量 $p=1$ へ特殊化すると
+        $$
+        X\sim N(\mu,\sigma^2)
+        \quad\Longrightarrow\quad
+        aX+b\sim N(a\mu+b,a^2\sigma^2)
+        $$
+        となる。したがって1変量の正規分布の線形変換は、多変量正規のアフィン結合の特殊ケースである。
+      計算例: |
+        $\boldsymbol a=(1,-2)^{\mathsf T}$ とする。定数項を除いた平均は
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol\mu
+        =1\cdot1+(-2)\cdot2=-3.
+        $$
+        $b=5$ を加えると $E[Y]=2$ になる。
+
+        分散は定数項 $b$ の影響を受けず
+        $$
+        \begin{aligned}
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        &=1^2\cdot4+(-2)^2\cdot9+2(1)(-2)(1)\\
+        &=4+36-4\\
+        &=36.
+        \end{aligned}
+        $$
+
+        独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z+7$ なら
+        $$
+        E[W]=2-6+7=3,
+        $$
+        $$
+        \operatorname{Var}(W)=2^2\cdot4+(-3)^2\cdot9=97,
+        $$
+        よって
+        $$
+        W\sim N(3,97).
         $$
       一手: |
-        **$x^r$ が付いたらガンマ積分のshapeを $\alpha+r$ へずらす。** 平均・分散の公式を別々に暗記せず、$E[X^r]=\Gamma(\alpha+r)/(\Gamma(\alpha)\beta^r)$ から復元する。
+        **正規性はアフィン変換で保たれる。** 平均には係数を1回掛けて最後に定数項を足し、分散には係数を二次形式として掛ける。定数項は分散に入らない。
       注意: |
-        この教材では第2引数 $\beta$ はrateである。scale表示では尺度が $1/\beta$ となるため、文献のパラメータ化を確認する。
+        各成分が個別に正規分布だからといって、確率ベクトル全体が多変量正規分布とは限らない。一般の線形結合が正規分布になるという結論には、多変量正規性が必要である。
 
-        指数分布の平均・分散は別公式ではなく、ガンマ分布の $\alpha=1$ の特殊形として得られる。
+        $\boldsymbol a=\boldsymbol0$ の場合は分散0の退化分布になる。1変量で $a<0$ でも分散は $a^2\sigma^2$ なので正であり、定数項 $b$ は平均だけを動かす。
