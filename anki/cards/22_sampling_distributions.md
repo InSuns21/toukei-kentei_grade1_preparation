@@ -257,73 +257,147 @@ $$
 
 ---
 id: samp-f-distribution-definition
-title: F分布の定義
+title: F分布をカイ二乗比から作り分散比へ適用する
 category: math-distributions
 subcategory: math-sampling-distributions
-topic: f-distribution-definition
-type: recognition
+topic: f-distribution-canonical
+type: strategy
 difficulty: 2
 priority: S
-hashtags: [F分布, 自由度, 分散比]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: F分布 }]
+hashtags:
+  - F分布
+  - カイ二乗分布
+  - 分散比
+  - t分布
+  - 自由度
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: F分布
 ---
 ## 問題
-独立な $U\sim\chi^2_{\nu_1}$ と $W\sim\chi^2_{\nu_2}$ が与えられたとき、自由度 $(\nu_1,\nu_2)$ の F分布に従う確率変数 $F$ を定義せよ。また台と平均を述べよ。
+次を答えよ。
+
+1. 独立な $U\sim\chi^2_{\nu_1}$、$V\sim\chi^2_{\nu_2}$ から $F_{\nu_1,\nu_2}$ を定義せよ。
+2. $F\sim F_{\nu_1,\nu_2}$ のとき $1/F$ の分布と、$T\sim t_\nu$ のとき $T^2$ の分布を述べよ。
+3. 独立な正規標本から得た不偏標本分散 $S_1^2,S_2^2$ について
+$$
+\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+$$
+の分布を求めよ。
+4. $n_1=6,n_2=9$ で、帰無仮説 $\sigma_1^2=\sigma_2^2$ の下で $S_1^2/S_2^2$ の分布を答えよ。
 
 ## 答え
-$$
-\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2},
-\qquad
-\frac1F\sim F_{\nu_2,\nu_1},
-\qquad
-t_\nu^2\sim F_{1,\nu}.
-$$
-
-## 使用公式・定理
 独立な
 $$
 U\sim\chi^2_{\nu_1},\qquad V\sim\chi^2_{\nu_2}
 $$
 に対して
 $$
-F=\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}.
+\boxed{\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}}.
 $$
-台は $f>0$ である。分子と分母を入れ替えれば
-$$
-\frac1F\sim F_{\nu_2,\nu_1}.
-$$
-したがって分位点にも逆数関係がある。
 
-また $T\sim t_\nu$ なら
+また
+$$
+\boxed{\frac1F\sim F_{\nu_2,\nu_1}},
+\qquad
+\boxed{T^2\sim F_{1,\nu}}.
+$$
+
+正規2標本では
+$$
+\boxed{
+\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+\sim F_{n_1-1,n_2-1}
+}.
+$$
+特に $\sigma_1^2=\sigma_2^2$ なら
+$$
+\frac{S_1^2}{S_2^2}\sim F_{n_1-1,n_2-1}.
+$$
+$n_1=6,n_2=9$ では $F_{5,8}$ である。
+
+## 使用公式・定理
+F分布は、独立なカイ二乗変数をそれぞれ自由度で割った比として定義される。
+$$
+F=\frac{U/\nu_1}{V/\nu_2}.
+$$
+台は $F>0$ である。
+
+分子・分母を入れ替えると
+$$
+\frac1F
+=\frac{V/\nu_2}{U/\nu_1}
+\sim F_{\nu_2,\nu_1}.
+$$
+
+$T=Z/\sqrt{V/\nu}\sim t_\nu$ なら $Z^2\sim\chi^2_1$ なので
 $$
 T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
 $$
-逆に $F\sim F_{1,\nu}$ なら
+逆に $F\sim F_{1,\nu}$ なら $\sqrt F$ は $|T|$ と同じ分布であり、符号情報は失われる。
+
+正規標本では
 $$
-\sqrt F\overset{d}=|T|.
+\frac{(n_i-1)S_i^2}{\sigma_i^2}\sim\chi^2_{n_i-1}.
 $$
-したがって両側t検定は自由度 $(1,\nu)$ のF統計量へ書き換えられるが、平方化すると符号の情報は失われる。
+2標本が独立なら、この2つのカイ二乗変数も独立である。そこで各々を自由度 $n_i-1$ で割ると
+$$
+\frac{\{(n_1-1)S_1^2/\sigma_1^2\}/(n_1-1)}
+     {\{(n_2-1)S_2^2/\sigma_2^2\}/(n_2-1)}
+=\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2},
+$$
+したがって $F_{n_1-1,n_2-1}$ に従う。
 
 ## 計算例
-$F\sim F_{3,8}$ なら
+独立な
 $$
-\frac1F\sim F_{8,3}.
+U\sim\chi^2_5,\qquad V\sim\chi^2_{10}
 $$
-また $T\sim t_{20}$ なら
-$$
-T^2\sim F_{1,20}.
-$$
-独立な $U\sim\chi^2_5$, $V\sim\chi^2_{10}$ に対して
+なら
 $$
 \frac{U/5}{V/10}\sim F_{5,10}.
 $$
 
-## 一手
-「独立なカイ二乗をそれぞれ自由度で割って比を取る」がF分布。逆数では自由度を交換し、分子自由度1ならtの2乗まで連想する。
+$F\sim F_{3,8}$ なら
+$$
+\frac1F\sim F_{8,3}.
+$$
+$T\sim t_{20}$ なら
+$$
+T^2\sim F_{1,20}.
+$$
+
+分散比では、独立な正規標本のサイズが $n_1=6,n_2=9$ のとき
+$$
+U=\frac{5S_1^2}{\sigma_1^2}\sim\chi^2_5,
+\qquad
+V=\frac{8S_2^2}{\sigma_2^2}\sim\chi^2_8.
+$$
+よって
+$$
+\frac{U/5}{V/8}
+=\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+\sim F_{5,8}.
+$$
+帰無仮説 $\sigma_1^2=\sigma_2^2$ なら母分散が約分され
+$$
+\frac{S_1^2}{S_2^2}\sim F_{5,8}.
+$$
+
+## 一手／方針
+**F分布を見たら「独立なカイ二乗を自由度で割って比にする」形を作る。** 標本分散なら、まず $(n_i-1)S_i^2/\sigma_i^2$ をカイ二乗へ直し、その後に自由度で割ると分散比がそのまま残る。
 
 ## 注意
-分子・分母の順序と自由度の順序を一致させる。$\sqrt{F_{1,\nu}}$ はt分布そのものではなく絶対値tの分布である。
+分子・分母の順序と自由度の順序を一致させる。逆数を取れば自由度も交換する。
+
+分散比のF分布は正規母集団と2標本の独立性を使う。一般の非正規母集団の標本分散比が厳密にF分布になるわけではない。
+
+$\sqrt{F_{1,\nu}}$ は符号を持たないため、t分布そのものではなく $|t_\nu|$ と同じ分布である。
 
 <!-- CARD -->
 
