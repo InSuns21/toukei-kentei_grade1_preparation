@@ -605,7 +605,7 @@ items:
       - mle-constrained
       - mle-invariance
       - mle-consistency
-      - mle-asymptotic-normality
+      - asym-mle-asymptotic-normality
       - mle-boundary-nonregular
       - score-function-definition
       - mle-multiparameter
