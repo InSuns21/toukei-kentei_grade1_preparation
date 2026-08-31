@@ -2128,13 +2128,11 @@ items:
       - reg-interaction-dummy-continuous
       - enginf-logistic-wald-output
       - glm-three-components
-      - enginf-logistic-irls-one-step
-      - enginf-poisson-mean
-      - enginf-poisson-offset-rate
+      - glm-logistic-score
+      - glm-poisson-mean-ratio
       - enginf-glm-deviance-residual-output
       - enginf-glm-link-selection
       - enginf-glm-wald-joint
-      - glm-logistic-score
       - enginf-nonlinear-gradient-se
       - enginf-coefficient-output-engineering
       - reg-sst-decomposition
@@ -2171,13 +2169,11 @@ items:
         cards:
           - enginf-logistic-wald-output
           - glm-three-components
-          - enginf-logistic-irls-one-step
-          - enginf-poisson-mean
-          - enginf-poisson-offset-rate
+          - glm-logistic-score
+          - glm-poisson-mean-ratio
           - enginf-glm-deviance-residual-output
           - enginf-glm-link-selection
           - enginf-glm-wald-joint
-          - glm-logistic-score
       - name: 線形結合の分布
         status: card
         cards:
