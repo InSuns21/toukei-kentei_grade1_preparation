@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="690" viewBox="0 0 1080 690" role="img" aria-labelledby="title desc">
+  <title id="title">残差診断で現れる代表的なパターン</title>
+  <desc id="desc">理想的な残差、U字型、扇形、系列相関、正規Q-Qプロットの5例を並べた概念図。</desc>
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;fill:#222}
+    .panel{fill:#fff;stroke:#c9ced6;stroke-width:1.5;rx:10}
+    .axis{stroke:#667085;stroke-width:1.3}
+    .zero{stroke:#98a2b3;stroke-width:1.2;stroke-dasharray:5 5}
+    .pt{fill:#2563eb;opacity:.88}
+    .line{fill:none;stroke:#2563eb;stroke-width:2.2}
+    .ref{fill:none;stroke:#667085;stroke-width:1.5;stroke-dasharray:5 5}
+    .bad{fill:#dc2626;opacity:.85}
+    .label{font-size:18px;font-weight:700}
+    .small{font-size:14px;fill:#475467}
+  </style>
+  <rect width="1080" height="690" fill="#fafafa"/>
+  <text x="540" y="34" text-anchor="middle" font-size="24" font-weight="700">残差診断：形を見て「どの仮定が怪しいか」を切り分ける</text>
+
+  <!-- panel 1 -->
+  <rect class="panel" x="30" y="60" width="330" height="270"/>
+  <text class="label" x="50" y="90">A. 理想：ランダム</text>
+  <line class="axis" x1="65" y1="280" x2="335" y2="280"/><line class="axis" x1="65" y1="115" x2="65" y2="300"/>
+  <line class="zero" x1="65" y1="205" x2="335" y2="205"/>
+  <g class="pt">
+    <circle cx="82" cy="196" r="4"/><circle cx="102" cy="218" r="4"/><circle cx="123" cy="190" r="4"/><circle cx="144" cy="211" r="4"/><circle cx="166" cy="201" r="4"/><circle cx="187" cy="224" r="4"/><circle cx="208" cy="187" r="4"/><circle cx="230" cy="212" r="4"/><circle cx="252" cy="194" r="4"/><circle cx="274" cy="216" r="4"/><circle cx="296" cy="203" r="4"/><circle cx="319" cy="188" r="4"/>
+  </g>
+  <text class="small" x="170" y="316">当てはめ値</text><text class="small" transform="translate(48 235) rotate(-90)">残差</text>
+
+  <!-- panel 2 -->
+  <rect class="panel" x="375" y="60" width="330" height="270"/>
+  <text class="label" x="395" y="90">B. U字：平均構造の不足</text>
+  <line class="axis" x1="410" y1="280" x2="680" y2="280"/><line class="axis" x1="410" y1="115" x2="410" y2="300"/>
+  <line class="zero" x1="410" y1="205" x2="680" y2="205"/>
+  <g class="pt">
+    <circle cx="425" cy="155" r="4"/><circle cx="447" cy="174" r="4"/><circle cx="468" cy="194" r="4"/><circle cx="490" cy="214" r="4"/><circle cx="512" cy="226" r="4"/><circle cx="535" cy="235" r="4"/><circle cx="558" cy="229" r="4"/><circle cx="580" cy="216" r="4"/><circle cx="603" cy="198" r="4"/><circle cx="626" cy="176" r="4"/><circle cx="650" cy="153" r="4"/><circle cx="670" cy="142" r="4"/>
+  </g>
+  <path class="line" d="M422 153 Q545 305 675 140"/>
+  <text class="small" x="510" y="316">当てはめ値</text><text class="small" transform="translate(393 235) rotate(-90)">残差</text>
+
+  <!-- panel 3 -->
+  <rect class="panel" x="720" y="60" width="330" height="270"/>
+  <text class="label" x="740" y="90">C. 扇形：不均一分散</text>
+  <line class="axis" x1="755" y1="280" x2="1025" y2="280"/><line class="axis" x1="755" y1="115" x2="755" y2="300"/>
+  <line class="zero" x1="755" y1="205" x2="1025" y2="205"/>
+  <g class="pt">
+    <circle cx="772" cy="200" r="4"/><circle cx="792" cy="210" r="4"/><circle cx="814" cy="194" r="4"/><circle cx="836" cy="218" r="4"/><circle cx="858" cy="186" r="4"/><circle cx="881" cy="226" r="4"/><circle cx="904" cy="174" r="4"/><circle cx="926" cy="238" r="4"/><circle cx="949" cy="160" r="4"/><circle cx="972" cy="251" r="4"/><circle cx="997" cy="145" r="4"/><circle cx="1017" cy="263" r="4"/>
+  </g>
+  <path class="ref" d="M765 198 L1020 135 M765 212 L1020 270"/>
+  <text class="small" x="855" y="316">当てはめ値</text><text class="small" transform="translate(738 235) rotate(-90)">残差</text>
+
+  <!-- panel 4 -->
+  <rect class="panel" x="110" y="365" width="400" height="280"/>
+  <text class="label" x="130" y="395">D. 観測順で連続：系列相関</text>
+  <line class="axis" x1="145" y1="590" x2="485" y2="590"/><line class="axis" x1="145" y1="420" x2="145" y2="610"/>
+  <line class="zero" x1="145" y1="510" x2="485" y2="510"/>
+  <polyline class="line" points="160,458 188,449 216,462 244,478 272,497 300,525 328,549 356,560 384,547 412,526 440,493 468,466"/>
+  <g class="pt">
+    <circle cx="160" cy="458" r="4"/><circle cx="188" cy="449" r="4"/><circle cx="216" cy="462" r="4"/><circle cx="244" cy="478" r="4"/><circle cx="272" cy="497" r="4"/><circle cx="300" cy="525" r="4"/><circle cx="328" cy="549" r="4"/><circle cx="356" cy="560" r="4"/><circle cx="384" cy="547" r="4"/><circle cx="412" cy="526" r="4"/><circle cx="440" cy="493" r="4"/><circle cx="468" cy="466" r="4"/>
+  </g>
+  <text class="small" x="285" y="626">観測順序 t</text><text class="small" transform="translate(128 545) rotate(-90)">残差</text>
+  <text class="small" x="165" y="438">正が続く</text><text class="small" x="330" y="583">負が続く</text>
+
+  <!-- panel 5 -->
+  <rect class="panel" x="540" y="365" width="430" height="280"/>
+  <text class="label" x="560" y="395">E. 正規Q-Q：基準直線からの系統的ずれ</text>
+  <line class="axis" x1="585" y1="590" x2="940" y2="590"/><line class="axis" x1="585" y1="420" x2="585" y2="610"/>
+  <line class="ref" x1="610" y1="570" x2="920" y2="435"/>
+  <g class="pt">
+    <circle cx="615" cy="582" r="4" class="bad"/><circle cx="650" cy="552" r="4"/><circle cx="684" cy="535" r="4"/><circle cx="720" cy="518" r="4"/><circle cx="756" cy="501" r="4"/><circle cx="792" cy="486" r="4"/><circle cx="828" cy="468" r="4"/><circle cx="864" cy="447" r="4"/><circle cx="905" cy="420" r="4" class="bad"/>
+  </g>
+  <text class="small" x="700" y="626">理論正規分位点</text><text class="small" transform="translate(568 557) rotate(-90)">標本分位点</text>
+  <text class="small" x="690" y="665">端のずれ → 重い裾・歪みなどを疑う</text>
+</svg>
