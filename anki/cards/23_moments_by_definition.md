@@ -39,49 +39,143 @@ $k=0$ の項は0なので和を $k=1$ や $k=2$ から始めてよい。ポア�
 
 ---
 id: dist-gamma-moments-by-definition
-title: ガンマ分布の平均・分散を密度の積分から求める
+title: ガンマ分布の平均・分散を密度積分から導き指数分布へ特殊化する
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: gamma-moments-definition
-type: calc_step
+topic: gamma-moments-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [ガンマ分布, 平均, 分散, 積分]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ガンマ分布 }]
+hashtags:
+  - ガンマ分布
+  - 指数分布
+  - 平均
+  - 分散
+  - ガンマ積分
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: ガンマ分布
 ---
 ## 問題
-$X\sim\operatorname{Gamma}(\alpha,\beta)$ が密度 $f_X(x)=\dfrac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$（$x>0$）を持つ。期待値の定義 $E[X^r]=\int_0^\infty x^r f_X(x)dx$ から $E[X]$ と $E[X^2]$ を求め、分散を導出せよ。
+$X\sim\operatorname{Gamma}(\alpha,\beta)$ がshape-rate表示で
+$$
+f_X(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},
+\qquad x>0
+$$
+に従うとする。
+
+1. 期待値の定義から $E[X]$ と $E[X^2]$ を求め、$\operatorname{Var}(X)$ を導出せよ。
+2. $\alpha=3,\beta=2$ の平均と分散を求めよ。
+3. $\alpha=1,\beta=\lambda$ と置いて指数分布の平均と分散を求めよ。
 
 ## 答え
-$$E[X]=\frac{\alpha}{\beta},\qquad E[X^2]=\frac{\alpha(\alpha+1)}{\beta^2},\qquad \operatorname{Var}(X)=\frac{\alpha}{\beta^2}.$$
+一般に
+$$
+E[X]=\frac{\alpha}{\beta},
+\qquad
+E[X^2]=\frac{\alpha(\alpha+1)}{\beta^2},
+\qquad
+\operatorname{Var}(X)=\frac{\alpha}{\beta^2}.
+$$
+
+$\alpha=3,\beta=2$ では
+$$
+E[X]=\frac32,
+\qquad
+\operatorname{Var}(X)=\frac34.
+$$
+
+$\alpha=1,\beta=\lambda$ では率 $\lambda$ の指数分布となり
+$$
+E[X]=\frac1\lambda,
+\qquad
+\operatorname{Var}(X)=\frac1{\lambda^2}.
+$$
 
 ## 使用公式・定理
-$\Gamma(\alpha)$ の定義
-$$\Gamma(\alpha)=\int_0^\infty u^{\alpha-1}e^{-u}du$$
-と漸化式 $\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ を使う。$u=\beta x$ と置くと
-$$x=\frac{u}{\beta},\qquad dx=\frac{du}{\beta}.$$ 
-このため、一般に
-$$\int_0^\infty x^{c-1}e^{-\beta x}dx
-=\frac1{\beta^c}\int_0^\infty u^{c-1}e^{-u}du
-=\frac{\Gamma(c)}{\beta^c}.$$ 
+ガンマ関数は
+$$
+\Gamma(c)=\int_0^\infty u^{c-1}e^{-u}\,du,
+$$
+漸化式
+$$
+\Gamma(c+1)=c\Gamma(c)
+$$
+を満たす。
+
+$u=\beta x$ と置けば
+$$
+\int_0^\infty x^{c-1}e^{-\beta x}\,dx
+=\frac{\Gamma(c)}{\beta^c}.
+$$
+したがって一般の正整数 $r$ について
+$$
+E[X^r]
+=\frac{\Gamma(\alpha+r)}{\Gamma(\alpha)\beta^r}.
+$$
+特に $r=1,2$ を入れれば平均と二次モーメントが得られる。
+
+shape-rate表示の $\operatorname{Gamma}(1,\lambda)$ は
+$$
+f(x)=\lambda e^{-\lambda x},
+\qquad x>0
+$$
+なので率 $\lambda$ の指数分布そのものである。
 
 ## 計算例
-$$E[X]=\frac{\beta^\alpha}{\Gamma(\alpha)}
-\int_0^\infty x^\alpha e^{-\beta x}\,dx$$
-$$=\frac{\beta^\alpha}{\Gamma(\alpha)}
-\frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}
-=\frac{\alpha\Gamma(\alpha)}{\beta\Gamma(\alpha)}=\frac{\alpha}{\beta}.$$ 
-$E[X^2]$ も $u=\beta x$ と置いて同様に
-$E[X^2]=\frac{\beta^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha+1}e^{-\beta x}dx=\frac{\beta^\alpha}{\Gamma(\alpha)}\frac{\Gamma(\alpha+2)}{\beta^{\alpha+2}}=\frac{\alpha(\alpha+1)}{\beta^2}.$
+まず
+$$
+\begin{aligned}
+E[X]
+&=\frac{\beta^\alpha}{\Gamma(\alpha)}
+  \int_0^\infty x^\alpha e^{-\beta x}\,dx\\
+&=\frac{\beta^\alpha}{\Gamma(\alpha)}
+  \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}\\
+&=\frac\alpha\beta.
+\end{aligned}
+$$
+同様に
+$$
+E[X^2]
+=\frac{\beta^\alpha}{\Gamma(\alpha)}
+ \frac{\Gamma(\alpha+2)}{\beta^{\alpha+2}}
+=\frac{\alpha(\alpha+1)}{\beta^2}.
+$$
 よって
-$$\operatorname{Var}(X)=\frac{\alpha(\alpha+1)}{\beta^2}-\frac{\alpha^2}{\beta^2}=\frac{\alpha}{\beta^2}.$$
+$$
+\operatorname{Var}(X)
+=E[X^2]-E[X]^2
+=\frac{\alpha}{\beta^2}.
+$$
 
-## 一手
-$\int_0^\infty x^{\alpha-1}e^{-\beta x}dx=\Gamma(\alpha)/\beta^\alpha$（ガンマ積分）を基準に、$x^r$ が付くと形状パラメータが $\alpha+r$ に変わる。
+数値例 $\alpha=3,\beta=2$ なら
+$$
+E[X]=\frac32,
+\qquad
+\operatorname{Var}(X)=\frac3{2^2}=\frac34.
+$$
+
+指数分布は $\alpha=1$ の特殊形なので
+$$
+E[X]=\frac1\lambda,
+\qquad
+E[X^2]=\frac2{\lambda^2},
+\qquad
+\operatorname{Var}(X)=\frac1{\lambda^2}.
+$$
+
+## 一手／方針
+**$x^r$ が付いたらガンマ積分のshapeを $\alpha+r$ へずらす。** 平均・分散の公式を別々に暗記せず、$E[X^r]=\Gamma(\alpha+r)/(\Gamma(\alpha)\beta^r)$ から復元する。
 
 ## 注意
-平均は shape/rate、分散は shape/rate²。$\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$ を繰り返し使う。本カードは密度の積分からの導出であり、公式提示の既存カード `dist-gamma-moments` とは異なる。
+この教材では第2引数 $\beta$ はrateである。scale表示では尺度が $1/\beta$ となるため、文献のパラメータ化を確認する。
+
+指数分布の平均・分散は別公式ではなく、ガンマ分布の $\alpha=1$ の特殊形として得られる。
 
 <!-- CARD -->
 
