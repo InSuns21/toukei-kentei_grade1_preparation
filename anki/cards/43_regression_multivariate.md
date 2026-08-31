@@ -1,85 +1,164 @@
 ---
 id: mv-mean-covariance-numeric
-title: 多変量標本の平均ベクトルと分散共分散行列を計算する
+title: 平均ベクトル・分散共分散行列を計算し半正定値性まで示す
 category: applied-common
 subcategory: applied-multivariate
-topic: multivariate-mean-covariance
-type: calc_step
+topic: multivariate-mean-covariance-canonical
+type: strategy
 difficulty: 3
 priority: A
-hashtags: [平均ベクトル, 分散共分散行列, 多変量解析]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量平均ベクトルと分散共分散行列 }]
+hashtags:
+  - 平均ベクトル
+  - 分散共分散行列
+  - 多変量解析
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多変量平均ベクトルと分散共分散行列
 ---
 
 ## 問題
-2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本分散共分散行列を求めよ。
+多変量の平均と分散共分散行列について次を解け。
+
+1. 2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本分散共分散行列を求めよ。
+2. 確率ベクトル $\boldsymbol X$ の母分散共分散行列
+$$
+\boldsymbol\Sigma=\operatorname{Cov}(\boldsymbol X)
+$$
+が半正定値であることを示せ。
+3. 不偏標本分散共分散行列 $\boldsymbol S$ も半正定値であることを、外積表示から示せ。1の数値例が正定値でない理由も述べよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+標本平均ベクトルは
+$$
+\overline{\boldsymbol x}=\frac1n\sum_{i=1}^n\boldsymbol x_i,
+$$
+不偏標本分散共分散行列は
+$$
+\boldsymbol S
+=\frac1{n-1}\sum_{i=1}^n
+(\boldsymbol x_i-\overline{\boldsymbol x})
+(\boldsymbol x_i-\overline{\boldsymbol x})^{\mathsf T}
+$$
+である。
 
-$\boldsymbol S=(n-1)^{-1}\sum_i(\boldsymbol x_i-\bar{\boldsymbol x})(\boldsymbol x_i-\bar{\boldsymbol x})^{\mathsf T}$。
+母分散共分散行列について、任意の定数ベクトル $\boldsymbol a$ に対し
+$$
+\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
+=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+$$
+分散は非負なので
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a\ge0
+$$
+が全ての $\boldsymbol a$ で成り立ち、$\boldsymbol\Sigma$ は半正定値である。
 
-## 一手
-多変量の分散共分散行列は、まず平均ベクトルを引いて偏差ベクトルを作り、その**外積を足して $n-1$ で割る**。
+標本分散共分散行列でも
+$$
+\begin{aligned}
+\boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+&=\frac1{n-1}\sum_{i=1}^n
+\boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})
+(\boldsymbol x_i-\overline{\boldsymbol x})^{\mathsf T}\boldsymbol a\\
+&=\frac1{n-1}\sum_{i=1}^n
+\left\{\boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})\right\}^2
+\ge0.
+\end{aligned}
+$$
+よって $\boldsymbol S$ も半正定値である。
+
+## 一手／方針
+**共分散行列の二次形式を1次元の分散として読む。** 母分散共分散行列なら
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X),
+$$
+標本分散共分散行列なら
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+$$
+を射影後の偏差平方和として読む。
+
+数値計算では、まず平均ベクトルを引いて偏差ベクトルを作り、その外積を足して $n-1$ で割る。
 
 ## 答え
+1. 標本平均ベクトルは
 $$
 \overline{\boldsymbol x}
-=\begin{pmatrix}2\\3\end{pmatrix},
-\qquad
-\boldsymbol S
-=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
-$$
-
-## 計算例
-まず平均ベクトルは
-$$
-\begin{aligned}
-\overline{\boldsymbol x}
-&=\frac12\left\{
+=\frac12\left\{
 \begin{pmatrix}1\\2\end{pmatrix}
 +\begin{pmatrix}3\\4\end{pmatrix}
-\right\}\\
-&=\begin{pmatrix}2\\3\end{pmatrix}.
-\end{aligned}
+\right\}
+=\boxed{\begin{pmatrix}2\\3\end{pmatrix}}.
 $$
-したがって2本の偏差ベクトルは
+偏差ベクトルは
 $$
-\boldsymbol d_1
-=\begin{pmatrix}-1\\-1\end{pmatrix},
+\boldsymbol d_1=\begin{pmatrix}-1\\-1\end{pmatrix},
 \qquad
-\boldsymbol d_2
-=\begin{pmatrix}1\\1\end{pmatrix}.
+\boldsymbol d_2=\begin{pmatrix}1\\1\end{pmatrix}.
 $$
-それぞれの外積は
-$$
-\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
-=\begin{pmatrix}1&1\\1&1\end{pmatrix},
-\qquad
-\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
-=\begin{pmatrix}1&1\\1&1\end{pmatrix}.
-$$
-$n=2$ なので不偏標本分散共分散行列は
+$n=2$ なので
 $$
 \begin{aligned}
 \boldsymbol S
-&=\frac1{n-1}
-\left(
-\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
-+\boldsymbol d_2\boldsymbol d_2^{\mathsf T}
-\right)\\
-&=\begin{pmatrix}2&2\\2&2\end{pmatrix}.
+&=\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
++\boldsymbol d_2\boldsymbol d_2^{\mathsf T}\\
+&=\boxed{\begin{pmatrix}2&2\\2&2\end{pmatrix}}.
 \end{aligned}
 $$
-最後に
+
+2. 任意の $\boldsymbol a$ に対して
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+=\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\ge0.
+$$
+したがって
+$$
+\boxed{\boldsymbol\Sigma\succeq0}.
+$$
+
+3.
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+=\frac1{n-1}\sum_i
+\left\{\boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})\right\}^2
+\ge0
+$$
+なので
+$$
+\boxed{\boldsymbol S\succeq0}.
+$$
+ただし1の例では
 $$
 \det(\boldsymbol S)=2\cdot2-2\cdot2=0
 $$
-なので、この例では2変数が完全な直線関係にあり $\boldsymbol S$ は特異である。
+であるため正定値ではなく、半正定値かつ特異である。
+
+## 計算例
+1の例で $\boldsymbol a=(1,-1)^{\mathsf T}$ とすると
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a=0.
+$$
+実際、2観測では第2成分が常に第1成分より1だけ大きく、偏差は
+$$
+(-1,-1)^{\mathsf T},\qquad(1,1)^{\mathsf T}
+$$
+と直線 $x_1=x_2$ 上にしかない。したがって方向 $(1,-1)$ には標本変動がなく、この方向の分散が0になる。
+
+一般に、ある非零ベクトル $\boldsymbol a$ で
+$$
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=0
+$$
+なら $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散が0で、その線形結合はほとんど確実に定数である。正定値性には全ての非零方向で正の分散が必要である。
 
 ## 注意
-対角は分散、非対角は共分散。
+分散共分散行列は常に対称かつ半正定値であるが、常に正定値とは限らない。完全な線形関係がある場合や、標本数に比べて変数数が多い場合には特異になり得る。
+
+対角要素は各変数の分散、非対角要素は共分散である。半正定値性は「各成分の分散が非負」だけではなく、全ての線形結合の分散が非負であることを表す。
 
 <!-- CARD -->
 
