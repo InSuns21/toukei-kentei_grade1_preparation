@@ -1535,7 +1535,7 @@ f_\mu(x)
 =\frac1{\sqrt{2\pi\sigma^2}}
 \exp\left(-\frac{x^2}{2\sigma^2}\right)
 \exp\left\{
-\frac{\mu}{\sigma^2}x-rac{\mu^2}{2\sigma^2}
+\frac{\mu}{\sigma^2}x-\frac{\mu^2}{2\sigma^2}
 \right\}.
 $$
 
