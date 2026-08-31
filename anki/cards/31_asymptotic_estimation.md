@@ -1192,7 +1192,12 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 ---
 
 ## 問題
-最尤推定量が一致性（確率収束）を持つ条件を述べよ。
+最尤推定量が一致性（確率収束）を持つ代表的な条件を述べよ。
+
+また次の2例で一致性を確認せよ。
+
+1. $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の最尤推定量 $\widehat p=\overline X$。
+2. $X_i$ が一様分布 $U(0,\theta_0)$ に独立同分布に従うときの最尤推定量 $\widehat\theta=X_{(n)}=\max_iX_i$。
 
 ## 使用公式・定理
 **この欄の役割：解答で使う定義・公式・定理と、その適用条件**
@@ -1200,19 +1205,44 @@ sources: [{ type: official_syllabus, topic: 最尤推定 }]
 代表的なargmax条件は、(1) 識別可能性により期待対数尤度が真値 $\theta_0$ で一意に最大、(2) $n^{-1}\ell_n(\theta)$ が期待対数尤度へ母数について一様収束、(3) 母数空間がコンパクト、または遠方での最大化を防ぐ外側制御があること、である。通常は $\theta_0$ が内部点であることも仮定する。
 
 ## 答え
-期待対数尤度の一意最大性と標本対数尤度の一様収束により、標本対数尤度の最大点が真値へ近づく。点ごとの大数の法則だけでは、移動する最大点の収束は保証できない。
+一般論では、期待対数尤度が識別可能性により真値 $\theta_0$ で一意に最大となり、標本対数尤度が期待対数尤度へ母数について一様収束すれば、標本対数尤度の最大点も真値へ近づく。点ごとの大数の法則だけでは、動く最大点の収束は一般には保証できない。
+
+Bernoulliでは
+$$
+E[\widehat p]=p,
+\qquad
+\operatorname{Var}(\widehat p)=\frac{p(1-p)}n
+$$
+なのでChebyshevの不等式から $\widehat p\xrightarrow{p}p$。
+
+一方、一様分布 $U(0,\theta_0)$ では $\widehat\theta=X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対して
+$$
+P\left(|X_{(n)}-\theta_0|>\varepsilon\right)
+=P\left(X_{(n)}<\theta_0-\varepsilon\right)
+=\left(1-\frac{\varepsilon}{\theta_0}\right)^n
+\to0.
+$$
+よって $X_{(n)}\xrightarrow{p}\theta_0$ である。
 
 ## 計算例
-$X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ では最尤推定量は $\widehat p=\overline X$ である。$E[\widehat p]=p$、$\operatorname{Var}(\widehat p)=p(1-p)/n$ だから、任意の $\varepsilon>0$ に対して
-$$P_p(|\widehat p-p|>\varepsilon)
-\le\frac{p(1-p)}{n\varepsilon^2}
-\le\frac1{4n\varepsilon^2}\longrightarrow0.$$
-例えば $n=400,\varepsilon=0.1$ なら上界は
-$$\frac1{4\cdot400\cdot0.1^2}=0.0625.$$
-よって $\widehat p\xrightarrow{p}p$ である。
+Bernoulliで $p=0.4,n=100,\varepsilon=0.1$ とすると
+$$
+P(|\widehat p-0.4|>0.1)
+\le\frac{0.4\cdot0.6}{100\cdot0.1^2}
+=0.24.
+$$
+$n=1000$ なら同じ上界は $0.024$ になる。
+
+一様分布で $\theta_0=10,\varepsilon=1$ なら
+$$
+P(X_{(n)}<9)=0.9^n.
+$$
+$n=20$ では $0.9^{20}\approx0.1216$、$n=100$ では $0.9^{100}\approx2.66\times10^{-5}$ となり、最大値が右端10へ近づくことを直接確認できる。
 
 ## 注意
-境界解などの非正則な場合は一致性が崩れることがある。
+一致性は $n\to\infty$ の性質であり、不偏性とは別である。
+
+一様分布 $U(0,\theta)$ は台が母数に依存する非正則モデルなので、通常の正則条件を機械的に当てはめるのではなく、最尤推定量の具体形から上のように直接確率を評価するとよい。
 
 <!-- CARD -->
 
