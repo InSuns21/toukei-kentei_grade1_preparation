@@ -604,7 +604,7 @@ items:
       - mle-uniform-endpoint
       - mle-constrained
       - mle-invariance
-      - mle-consistency
+      - asym-mle-consistency
       - asym-mle-asymptotic-normality
       - mle-boundary-nonregular
       - score-function-definition
@@ -635,7 +635,7 @@ items:
           - mle-score-equation
           - mle-exponential
           - mle-boundary-nonregular
-          - mle-consistency
+          - asym-mle-consistency
           - mle-normal-both
           - mle-information-inequality
   - id: math-estimation-methods
