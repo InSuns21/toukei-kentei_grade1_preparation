@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 実験の計画と実施
 archive_reason: duplicate
-canonical_card: engdesign-split-plot-randomization
+canonical_card: design-split-plot-error-strata
 archive_note: 一次・二次実験単位、2段階無作為化、AとB・ABに対応する誤差項、一次・二次誤差自由度の計算をcanonical cardへ統合済み。
 ---
 ## 問題

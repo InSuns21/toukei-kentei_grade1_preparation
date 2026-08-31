@@ -2396,9 +2396,9 @@ items:
       - engdesign-block-generator-protect-effects
       - engdesign-fixed-effect-hypothesis
       - engdesign-snr-smaller-better
-      - engdesign-split-plot-randomization
+      - design-split-plot-error-strata
       - engdesign-incomplete-block-connectivity
-      - engdesign-nested-df
+      - design-twoway-crossed-nested
       - engdesign-repeated-measures-unit
       - engdesign-choice-integrated
     terms:
@@ -2406,8 +2406,8 @@ items:
         status: card
         cards:
           - engdesign-lack-of-fit-decomposition
-          - engdesign-split-plot-randomization
-          - engdesign-nested-df
+          - design-split-plot-error-strata
+          - design-twoway-crossed-nested
           - engdesign-repeated-measures-unit
           - engdesign-choice-integrated
       - name: 固定効果
@@ -2427,7 +2427,7 @@ items:
         cards:
           - engdesign-confounder-randomization
           - engdesign-block-generator-protect-effects
-          - engdesign-split-plot-randomization
+          - design-split-plot-error-strata
           - engdesign-incomplete-block-connectivity
       - name: 直交表
         status: card
