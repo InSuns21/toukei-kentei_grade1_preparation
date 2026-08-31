@@ -1,134 +1,134 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-interaction-reference-canonical-203
+batch_id: 2026-08-31-regression-design-matrix-canonical-204
 items:
-  - id: reg-interaction-dummy-continuous
-    note: engineering側の交互作用係数カードを吸収するため、群別直線の解釈に加えて傾き差 beta_3 の係数検定まで正本化する。正規線形モデルではt検定を本流とし、大標本Wald正規近似との関係も明記する。
+  - id: reg-multiple-model-matrix
+    note: engineering側の交互作用つき計画行列カードを吸収するため、一般の重回帰行列表現・OLS導出の正本へ「モデル式から各観測の計画行列行を作る」小問を追加する。
     metadata:
-      title: 群と連続変数の交互作用を解釈し傾き差を検定する
-      topic: regression-interaction-canonical
+      title: 重回帰を計画行列で表し最小二乗推定量・共分散まで導く
+      topic: multiple-regression-design-matrix-canonical
       type: calc_step
       difficulty: 3
       priority: S
-      hashtags: [交互作用, ダミー変数, 傾き, t検定]
+      hashtags: [重回帰, 計画行列, 最小二乗法, 交互作用, 共分散行列]
     sections:
       問題: |
+        重回帰モデルを行列で
         $$
-        Y=\beta_0+\beta_1X+\beta_2D+\beta_3XD+\varepsilon,
-        \qquad D\in\{0,1\}
+        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon
         $$
-        を考える。
+        と表す。$E[\boldsymbol\varepsilon]=\mathbf0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I$ とする。
 
-        1. $D=0,1$ の回帰直線を書き、$\beta_2,\beta_3$ の意味を説明せよ。
-        2. $\widehat\beta_1=1.2$、$\widehat\beta_3=-0.5$ のとき両群の傾きを求めよ。
-        3. $\operatorname{SE}(\widehat\beta_3)=0.2$、誤差自由度20のt分布の両側5%臨界値を2.086とする。$H_0:\beta_3=0$ を検定せよ。
+        1. 残差平方和を最小化して最小二乗推定量を導け。
+        2. 不偏性と共分散行列を導け。
+        3. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
+        4. 平均構造
+        $$
+        E[Y]=\beta_0+\beta_1x+\beta_2D+\beta_3xD
+        $$
+        に対し、観測 $(x,D)=(2,0),(3,1)$ の2件から計画行列を作れ。係数ベクトルの列順は $(\beta_0,\beta_1,\beta_2,\beta_3)$ とする。
       使用公式・定理: |
-        $D$ を0または1に固定して回帰式を読み分ける。交互作用項 $XD$ の係数 $\beta_3$ は2群の傾き差である。
-
-        正規線形モデルで誤差分散を推定する通常の係数検定では
+        残差平方和は
         $$
-        t=\frac{\widehat\beta_3-\beta_{3,0}}
-        {\operatorname{SE}(\widehat\beta_3)}
+        S(\boldsymbol\beta)
+        =(\mathbf y-X\boldsymbol\beta)^\mathsf T
+        (\mathbf y-X\boldsymbol\beta).
         $$
-        を残差自由度のt分布と比較する。標本が大きければt分布は標準正規分布へ近づくので、Wald型の正規近似判定とほぼ一致する。
-      一手／方針: |
-        **まず $D=0,1$ を代入して2本の直線を作る。** すると切片差と傾き差が見えるので、交互作用の検定はその傾き差 $\beta_3$ が0かを標準誤差で割って調べればよい。
-      答え: |
-        $D=0$ では
+        勾配を0とすると
         $$
-        E[Y\mid X,D=0]=\beta_0+\beta_1X.
+        -2X^\mathsf T(\mathbf y-X\boldsymbol\beta)=\mathbf0,
         $$
-        $D=1$ では
+        すなわち正規方程式
         $$
-        E[Y\mid X,D=1]
-        =(\beta_0+\beta_2)+(\beta_1+\beta_3)X.
+        X^\mathsf TX\widehat{\boldsymbol\beta}=X^\mathsf T\mathbf y
         $$
-        したがって $\beta_2$ は $X=0$ における切片差、$\beta_3$ は $D=1$ 群と $D=0$ 群の傾き差である。
-
-        数値例では
+        を得る。$X$ が列フルランクなら
         $$
-        \text{$D=0$ の傾き}=1.2,
-        $$
-        $$
-        \text{$D=1$ の傾き}=1.2-0.5=0.7.
+        \widehat{\boldsymbol\beta}
+        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y.
         $$
         また
         $$
-        t=\frac{-0.5}{0.2}=-2.5.
+        \widehat{\boldsymbol\beta}
+        =\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
         $$
-        $|t|=2.5>2.086$ なので、5%水準で $H_0:\beta_3=0$ を棄却する。すなわち2群の傾きが等しいとはみなしにくい。
-      計算例: |
-        大標本で標準正規分布の両側5%臨界値1.96を使っても
-        $$
-        |-2.5|>1.96
-        $$
-        なので同じ棄却判断になる。これは大標本Wald近似であり、正規線形モデルの有限標本では残差自由度を使うt検定が本流である。
-      注意: |
-        $\beta_2$ は一般には「群全体の平均差」ではなく $X=0$ における群差である。$X=0$ が観測範囲から遠い場合は $X$ を中心化すると解釈しやすい。
 
-        交互作用があると、一方の変数の効果は他方の変数の値に依存する。主効果だけを単独で一律解釈しない。
-  - id: reg-dummy-variable
-    note: engineering側の3カテゴリ基準変更カードを吸収するため、2群の基本解釈に加えて3群の基準カテゴリ変更を群平均へ戻して再符号化する手順を正本へ統合する。
-    metadata:
-      title: ダミー変数で群差を表し基準カテゴリを変更する
-      topic: dummy-variable-reference-canonical
-      type: calc_step
-      difficulty: 2
-      priority: A
-      hashtags: [ダミー変数, 群比較, 回帰係数, 基準カテゴリ]
-    sections:
-      問題: |
-        1. 群Aを $D=0$、群Bを $D=1$ として
-        $$
-        Y=\beta_0+\beta_1D+\varepsilon
-        $$
-        とする。各群平均を係数で表せ。
-        2. 3群A・B・CについてAを基準とした回帰係数が、切片10、B係数2、C係数$-1$ だった。Cを基準に取り直したときの切片、A係数、B係数を求めよ。
-      使用公式・定理: |
-        0–1ダミー変数では、切片が基準カテゴリの平均、各ダミー係数が「そのカテゴリ平均－基準カテゴリ平均」を表す。
-
-        基準カテゴリを変更するときは、**いったん各群平均へ戻し、新しい基準平均との差を取り直す**。基準を変えても各群の当てはめ平均そのものは変わらない。
+        計画行列は、各観測についてモデル式で各係数に掛かる値を係数ベクトルと同じ順に並べて1行ずつ作る。交互作用項があれば、その観測で積も実際に計算する。
       一手／方針: |
-        **係数を直接変換しようとせず、まず群平均を復元する。** その後、新しい基準群の平均を切片にし、他群平均との差を新しいダミー係数にする。
+        **まずモデル式から「1観測分の行」を作る。** 係数ベクトルが $(\beta_0,\beta_1,\beta_2,\beta_3)$ なら、その観測で係数に掛かる $(1,x,D,xD)$ が計画行列の1行になる。
+
+        OLSの導出では、残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。その形から期待値と共分散が一度に出る。
       答え: |
-        2群の場合
+        $E[\boldsymbol\varepsilon]=\mathbf0$ より
         $$
-        E[Y\mid D=0]=\beta_0,
+        E[\widehat{\boldsymbol\beta}]=\boldsymbol\beta.
         $$
+        また
         $$
-        E[Y\mid D=1]=\beta_0+\beta_1,
-        $$
-        したがって
-        $$
-        \beta_1=\mu_B-\mu_A.
+        \begin{aligned}
+        \operatorname{Var}(\widehat{\boldsymbol\beta})
+        &=(X^\mathsf TX)^{-1}X^\mathsf T
+        (\sigma^2I)X(X^\mathsf TX)^{-1}\\
+        &=\sigma^2(X^\mathsf TX)^{-1}.
+        \end{aligned}
         $$
 
-        3群の例ではA基準の係数から
+        数値例では
         $$
-        \mu_A=10,
+        X^\mathsf TX=\begin{pmatrix}3&3\\3&5\end{pmatrix},
         \qquad
-        \mu_B=10+2=12,
-        \qquad
-        \mu_C=10-1=9.
+        X^\mathsf T\mathbf y=\begin{pmatrix}9\\13\end{pmatrix}.
         $$
-        Cを基準にすると切片は9で、
+        逆行列は
         $$
-        \text{A係数}=10-9=1,
-        \qquad
-        \text{B係数}=12-9=3.
+        (X^\mathsf TX)^{-1}
+        =\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix}.
         $$
         よって
         $$
-        \boxed{\text{切片}=9,\quad \text{A係数}=1,\quad \text{B係数}=3}.
+        \widehat{\boldsymbol\beta}
+        =\begin{pmatrix}1\\2\end{pmatrix}.
+        $$
+
+        交互作用モデルでは1行は $(1,x,D,xD)$ なので、
+        $$
+        (x,D)=(2,0)\Rightarrow(1,2,0,0),
+        $$
+        $$
+        (x,D)=(3,1)\Rightarrow(1,3,1,3).
+        $$
+        したがって
+        $$
+        \boxed{
+        X=\begin{pmatrix}
+        1&2&0&0\\
+        1&3&1&3
+        \end{pmatrix}}.
         $$
       計算例: |
-        A基準では群平均が $(10,12,9)$、C基準でも
+        最初の数値例では
         $$
-        C:9,
-        \qquad A:9+1=10,
-        \qquad B:9+3=12
+        \widehat y=1+2x
         $$
-        と同じ群平均を再現する。変わるのは係数の表示であって、当てはめ値ではない。
-      注意: |
-        切片と全カテゴリ分のダミー変数を同時に入れると完全共線性になるため、通常は1カテゴリを基準として落とす。
+        で3点を完全に通る。また係数共分散行列は
+        $$
+        \operatorname{Var}(\widehat{\boldsymbol\beta})
+        =\frac{\sigma^2}{6}
+        \begin{pmatrix}
+        5&-3\\
+        -3&3
+        \end{pmatrix}.
+        $$
 
-        係数の数値や符号は基準カテゴリに依存するが、群平均や推定可能な群間差は基準の取り方に依存しない。
+        交互作用モデルの行を確認すると、$D=0$ では $xD=0$ なので
+        $$
+        E[Y]=\beta_0+\beta_1x,
+        $$
+        $D=1$ では
+        $$
+        E[Y]=(\beta_0+\beta_2)+(\beta_1+\beta_3)x
+        $$
+        となる。計画行列を作る操作と群別回帰直線の解釈は同じモデル式を別方向から読んでいる。
+      注意: |
+        一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくない。実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。
+
+        計画行列では列順を係数ベクトルの順序と必ず対応させる。交互作用を入れる場合は通常、対応する主効果も残す。
