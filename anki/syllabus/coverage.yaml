@@ -2270,7 +2270,7 @@ items:
       - engasym-sandwich-m-estimator
       - mv-covariance-linear-transform
       - test-lr-wald-score-comparison
-      - engasym-sample-size-mean-precision
+      - ci-sample-size-for-width
       - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
       - asym-wlln
@@ -2292,7 +2292,7 @@ items:
           - dist-clt-sample-mean
           - dist-clt-bernoulli-proportion
           - asym-sample-variance-fourth-moment
-          - engasym-sample-size-mean-precision
+          - ci-sample-size-for-width
           - asym-mle-asymptotic-normality
           - asym-slutsky
       - name: 最尤推定量の漸近正規性
