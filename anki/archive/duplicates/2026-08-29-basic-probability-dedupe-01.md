@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 条件付き確率
 archive_reason: duplicate
-canonical_card: prob-conditional-definition-direct
+canonical_card: prob-basic-conditional-independence
 archive_note: どちらも P(A|B)=P(A∩B)/P(B) へ数値を代入する同一操作。後者は過去問根拠があり、分母は条件記号右側という一手も明示する。
 ---
 ## 問題

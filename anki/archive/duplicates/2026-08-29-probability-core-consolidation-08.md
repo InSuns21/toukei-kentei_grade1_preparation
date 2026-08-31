@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 条件付き確率
 archive_reason: duplicate
-canonical_card: prob-conditional-definition-direct
+canonical_card: prob-basic-conditional-independence
 archive_note: 条件付き確率の定義をP(A∩B)について解いただけの同一move。canonical側で割り算と掛け算の両方向を数値で扱うよう補強済み。
 ---
 ## 問題

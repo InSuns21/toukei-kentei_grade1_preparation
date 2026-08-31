@@ -12,13 +12,12 @@ items:
     cards:
       - prob-inclusion-exclusion-three
       - bayes-density-formula
-      - prob-conditional-definition-direct
+      - prob-basic-conditional-independence
       - prob-total-probability
       - prob-independent-events
       - prob-complement-at-least-one
       - prob-chain-rule-three
       - prob-basic-sample-space
-      - prob-basic-conditional-independence
       - prob-basic-event-limsup-liminf
       - prob-basic-boole-inequality
       - prob-basic-borel-cantelli
@@ -36,7 +35,7 @@ items:
       - name: 条件付き確率
         status: card
         cards:
-          - prob-conditional-definition-direct
+          - prob-basic-conditional-independence
           - prob-chain-rule-three
           - prob-independent-events
       - name: ベイズの定理

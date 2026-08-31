@@ -7,9 +7,25 @@ topic: conditional-probability-definition
 type: formula
 difficulty: 2
 priority: S
-hashtags: [条件付き確率, 共通部分, 定義]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 条件付き確率 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }]
+hashtags:
+  - 条件付き確率
+  - 共通部分
+  - 定義
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 条件付き確率
+  - type: past_exam
+    id: MATH-2022-Q2
+    topic: 一様分布・条件付き分布
+archive_reason: duplicate
+canonical_card: prob-basic-conditional-independence
+coverage_card: prob-basic-conditional-independence
+archive_note: 条件付き確率・条件付き独立の正本へ旧カードと同じP(A∩B)=0.18,P(B)=0.30からP(A|B)=0.60を求める問題と、逆向きのP(A∩B)=P(A|B)P(B)を統合済み。さらに同じ定義を使ってC条件下の確率をそろえ、P(A∩B|C)=P(A|C)P(B|C)で条件付き独立を判定する流れまで一本化したため旧単発カードは不要。
 ---
 ## 問題
 $P(A\cap B)=0.18$、$P(B)=0.30$ である。$P(A\mid B)$ を求めよ。
