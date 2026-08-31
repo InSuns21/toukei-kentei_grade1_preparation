@@ -2,7 +2,7 @@ schema_version: 1
 batch_id: 2026-08-31-regression-design-matrix-canonical-204
 items:
   - id: reg-multiple-model-matrix
-    note: engineering側の交互作用つき計画行列カードを吸収するため、一般の重回帰行列表現・OLS導出の正本へ「モデル式から各観測の計画行列行を作る」小問を追加する。
+    note: engineering側の交互作用つき計画行列カードを吸収するため、一般の重回帰行列表現・最小二乗法導出の正本へ「モデル式から各観測の計画行列行を作る」小問を追加する。
     metadata:
       title: 重回帰を計画行列で表し最小二乗推定量・共分散まで導く
       topic: multiple-regression-design-matrix-canonical
@@ -56,7 +56,7 @@ items:
       一手／方針: |
         **まずモデル式から「1観測分の行」を作る。** 係数ベクトルが $(\beta_0,\beta_1,\beta_2,\beta_3)$ なら、その観測で係数に掛かる $(1,x,D,xD)$ が計画行列の1行になる。
 
-        OLSの導出では、残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。その形から期待値と共分散が一度に出る。
+        最小二乗法の導出では、残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。その形から期待値と共分散が一度に出る。
       答え: |
         $E[\boldsymbol\varepsilon]=\mathbf0$ より
         $$
