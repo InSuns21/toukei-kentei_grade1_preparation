@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-31-mle-consistency-canonicalization-238b
+batch_id: 2026-08-31-mle-consistency-canonicalization-238c
 items:
   - id: asym-mle-consistency
-    note: 既存のargmax条件・Bernoulli例を保ち、旧mle-consistency固有のU(0,theta)端点MLEの直接一致性証明だけを吸収する。前回の全面rewriteはvalidationで停止したため、metadataと既存公式欄を変更しない最小差分で再投入する。
+    note: 既存のargmax条件・Bernoulli例を保ち、旧mle-consistency固有のU(0,theta)端点最尤推定量の直接一致性証明だけを吸収する。前回は表記規約でvalidation停止したため、日本語名先行と正規表示へ修正して再投入する。
     sections:
       問題: |
         最尤推定量が一致性（確率収束）を持つ代表的な条件を述べよ。
@@ -10,7 +10,7 @@ items:
         また次の2例で一致性を確認せよ。
 
         1. $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の最尤推定量 $\widehat p=\overline X$。
-        2. $X_i\overset{iid}{\sim}U(0,\theta_0)$ の最尤推定量 $\widehat\theta=X_{(n)}=\max_iX_i$。
+        2. $X_i$ が一様分布 $U(0,\theta_0)$ に独立同分布に従うときの最尤推定量 $\widehat\theta=X_{(n)}=\max_iX_i$。
       答え: |
         一般論では、期待対数尤度が識別可能性により真値 $\theta_0$ で一意に最大となり、標本対数尤度が期待対数尤度へ母数について一様収束すれば、標本対数尤度の最大点も真値へ近づく。点ごとの大数の法則だけでは、動く最大点の収束は一般には保証できない。
 
@@ -22,7 +22,7 @@ items:
         $$
         なのでChebyshevの不等式から $\widehat p\xrightarrow{p}p$。
 
-        一方、$U(0,\theta_0)$ では $\widehat\theta=X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対して
+        一方、一様分布 $U(0,\theta_0)$ では $\widehat\theta=X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対して
         $$
         P\left(|X_{(n)}-\theta_0|>\varepsilon\right)
         =P\left(X_{(n)}<\theta_0-\varepsilon\right)
@@ -47,4 +47,4 @@ items:
       注意: |
         一致性は $n\to\infty$ の性質であり、不偏性とは別である。
 
-        $U(0,\theta)$ は台が母数に依存する非正則モデルなので、通常の正則条件を機械的に当てはめるのではなく、MLEの具体形から上のように直接確率を評価するとよい。
+        一様分布 $U(0,\theta)$ は台が母数に依存する非正則モデルなので、通常の正則条件を機械的に当てはめるのではなく、最尤推定量の具体形から上のように直接確率を評価するとよい。
