@@ -2274,7 +2274,7 @@ items:
       - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
       - asym-wlln
-      - engasym-clt-sum-probability
+      - dist-clt-sample-mean
       - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
@@ -2289,7 +2289,7 @@ items:
       - name: 中心極限定理
         status: card
         cards:
-          - engasym-clt-sum-probability
+          - dist-clt-sample-mean
           - engasym-empirical-cdf-point
           - asym-sample-variance-fourth-moment
           - engasym-sample-size-mean-precision
