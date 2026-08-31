@@ -1,9 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-glm-link-reduction-253
+batch_id: 2026-08-31-robust-glm-nonlinear-reduction-255
 items:
-  - id: enginf-glm-link-selection
+  - id: enginf-robust-sandwich-se
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-three-components
-    coverage_card: glm-three-components
-    note: 正規・二項・ポアソン応答の代表的な正準リンク（恒等・ロジット・対数）を対応させ、標準リンク以外も選択可能であることは glm-three-components が指数型分布族・自然母数・正準リンクの導出とともに既に扱っている。工学側カードは同対応表だけを切り出した特殊版である。
+    canonical_card: reg-heteroskedasticity-pattern
+    coverage_card: reg-heteroskedasticity-pattern
+    note: HC0不均一分散頑健分散のサンドイッチ形、通常の等分散分散推定との対応、OLS係数自体は変えず主に標準誤差を頑健化することを reg-heteroskedasticity-pattern へ吸収済み。不均一分散と系列・クラスタ相関を区別する注意も正本に保持した。
+  - id: enginf-glm-deviance-residual-output
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-deviance-definition
+    coverage_card: glm-deviance-definition
+    note: 残差逸脱度42・残差自由度40から比1.05を粗い大標本診断として読む数値例を glm-deviance-definition へ吸収済み。deviance/dfを機械的合否基準にせず、Pearson X_P^2/df による分散診断と区別する注意も正本に統合した。
+  - id: enginf-nonlinear-gradient-se
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-nonlinear-regression-gradient
+    coverage_card: glm-nonlinear-regression-gradient
+    note: 非線形関数 g(theta_hat) のデルタ法分散 grad(g)^T V_hat grad(g)、g=beta1 exp(-beta2 x) の数値例、共分散交差項の注意を Gauss--Newton の局所線形化を扱う glm-nonlinear-regression-gradient へ統合済み。同じ一次線形化を更新と推測に使う技能として正本化した。
