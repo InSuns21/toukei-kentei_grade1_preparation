@@ -1,126 +1,94 @@
 schema_version: 1
-batch_id: 2026-08-31-f-variance-ratio-canonicalization-235
+batch_id: 2026-08-31-mle-consistency-canonicalization-238
 items:
-  - id: samp-f-distribution-definition
-    note: F分布の定義・逆数関係・t^2との関係に、正規2標本の分散比を同じ「独立なchi-squareを自由度で割って比を取る」moveとして統合する。
+  - id: asym-mle-consistency
+    note: likelihood側とasymptotic側に重複していたMLE一致性を、argmax条件を正本にし、BernoulliのChebyshev確認と非正則なUniform端点MLEの直接証明を同じ論点の代表例として統合する。
     metadata:
-      title: F分布をカイ二乗比から作り分散比へ適用する
-      topic: f-distribution-canonical
-      type: strategy
+      title: 最尤推定量の一致性をargmax条件と具体例で確認する
+      topic: mle-consistency-canonical
+      type: theorem
       priority: S
-      hashtags: [F分布, カイ二乗分布, 分散比, t分布, 自由度]
+      hashtags: [最尤推定量, 一致性, 確率収束, argmax, 識別可能性]
     sections:
       問題: |
-        次を答えよ。
+        最尤推定量 $\widehat\theta_n$ が真値 $\theta_0$ へ確率収束するための基本的な考え方と代表的な条件を述べよ。
 
-        1. 独立な $U\sim\chi^2_{\nu_1}$、$V\sim\chi^2_{\nu_2}$ から $F_{\nu_1,\nu_2}$ を定義せよ。
-        2. $F\sim F_{\nu_1,\nu_2}$ のとき $1/F$ の分布と、$T\sim t_\nu$ のとき $T^2$ の分布を述べよ。
-        3. 独立な正規標本から得た不偏標本分散 $S_1^2,S_2^2$ について
-        $$
-        \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
-        $$
-        の分布を求めよ。
-        4. $n_1=6,n_2=9$ で、帰無仮説 $\sigma_1^2=\sigma_2^2$ の下で $S_1^2/S_2^2$ の分布を答えよ。
+        あわせて次の2例で一致性を確認せよ。
+
+        1. $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の $\widehat p=\overline X$。
+        2. $X_i\overset{iid}{\sim}U(0,\theta_0)$ の $\widehat\theta=X_{(n)}=\max_iX_i$。
       答え: |
-        独立な
+        MLE一致性の基本は、1観測当たりの標本対数尤度が期待対数尤度へ一様に近づき、その期待対数尤度が識別可能性により真値 $\theta_0$ で一意に最大になることから、最大点 $\widehat\theta_n$ も真値へ近づくという argmax の議論である。
         $$
-        U\sim\chi^2_{\nu_1},\qquad V\sim\chi^2_{\nu_2}
-        $$
-        に対して
-        $$
-        \boxed{\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}}.
+        \boxed{\widehat\theta_n\xrightarrow{p}\theta_0}.
         $$
 
-        また
+        Bernoulliでは $\widehat p=\overline X$ で
         $$
-        \boxed{\frac1F\sim F_{\nu_2,\nu_1}},
+        E[\widehat p]=p,
         \qquad
-        \boxed{T^2\sim F_{1,\nu}}.
+        \operatorname{Var}(\widehat p)=\frac{p(1-p)}n.
         $$
+        Chebyshevの不等式より
+        $$
+        P(|\widehat p-p|>\varepsilon)
+        \le\frac{p(1-p)}{n\varepsilon^2}\to0,
+        $$
+        したがって $\widehat p\xrightarrow{p}p$。
 
-        正規2標本では
+        $U(0,\theta_0)$ ではMLEは $X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対し
         $$
-        \boxed{
-        \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
-        \sim F_{n_1-1,n_2-1}
-        }.
-        $$
-        特に $\sigma_1^2=\sigma_2^2$ なら
-        $$
-        \frac{S_1^2}{S_2^2}\sim F_{n_1-1,n_2-1}.
-        $$
-        $n_1=6,n_2=9$ では $F_{5,8}$ である。
-      使用公式・定理: |
-        F分布は、独立なカイ二乗変数をそれぞれ自由度で割った比として定義される。
-        $$
-        F=\frac{U/\nu_1}{V/\nu_2}.
-        $$
-        台は $F>0$ である。
-
-        分子・分母を入れ替えると
-        $$
-        \frac1F
-        =\frac{V/\nu_2}{U/\nu_1}
-        \sim F_{\nu_2,\nu_1}.
-        $$
-
-        $T=Z/\sqrt{V/\nu}\sim t_\nu$ なら $Z^2\sim\chi^2_1$ なので
-        $$
-        T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
-        $$
-        逆に $F\sim F_{1,\nu}$ なら $\sqrt F$ は $|T|$ と同じ分布であり、符号情報は失われる。
-
-        正規標本では
-        $$
-        \frac{(n_i-1)S_i^2}{\sigma_i^2}\sim\chi^2_{n_i-1}.
-        $$
-        2標本が独立なら、この2つのカイ二乗変数も独立である。そこで各々を自由度 $n_i-1$ で割ると
-        $$
-        \frac{\{(n_1-1)S_1^2/\sigma_1^2\}/(n_1-1)}
-             {\{(n_2-1)S_2^2/\sigma_2^2\}/(n_2-1)}
-        =\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2},
-        $$
-        したがって $F_{n_1-1,n_2-1}$ に従う。
-      計算例: |
-        独立な
-        $$
-        U\sim\chi^2_5,\qquad V\sim\chi^2_{10}
-        $$
-        なら
-        $$
-        \frac{U/5}{V/10}\sim F_{5,10}.
-        $$
-
-        $F\sim F_{3,8}$ なら
-        $$
-        \frac1F\sim F_{8,3}.
-        $$
-        $T\sim t_{20}$ なら
-        $$
-        T^2\sim F_{1,20}.
-        $$
-
-        分散比では、独立な正規標本のサイズが $n_1=6,n_2=9$ のとき
-        $$
-        U=\frac{5S_1^2}{\sigma_1^2}\sim\chi^2_5,
-        \qquad
-        V=\frac{8S_2^2}{\sigma_2^2}\sim\chi^2_8.
+        P(|X_{(n)}-\theta_0|>\varepsilon)
+        =P(X_{(n)}<\theta_0-\varepsilon)
+        =\left(1-\frac{\varepsilon}{\theta_0}\right)^n\to0,
         $$
         よって
         $$
-        \frac{U/5}{V/8}
-        =\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
-        \sim F_{5,8}.
+        \boxed{X_{(n)}\xrightarrow{p}\theta_0}.
         $$
-        帰無仮説 $\sigma_1^2=\sigma_2^2$ なら母分散が約分され
+      使用公式・定理: |
+        代表的なMLE一致性のargmax条件は次である。
+
+        1. **識別可能性**：期待対数尤度
         $$
-        \frac{S_1^2}{S_2^2}\sim F_{5,8}.
+        Q(\theta)=E_{\theta_0}[\log f(X;\theta)]
         $$
+        が真値 $\theta_0$ で一意に最大になる。
+        2. **一様収束**：
+        $$
+        \sup_{\theta\in\Theta}
+        \left|\frac1n\ell_n(\theta)-Q(\theta)\right|
+        \xrightarrow{p}0.
+        $$
+        3. 母数空間がコンパクト、または遠方で最大化を防ぐ外側制御がある。
+        4. 通常の正則モデルでは真値が母数空間の内部にあることなども仮定する。
+
+        点ごとの大数の法則
+        $$
+        n^{-1}\ell_n(\theta)\to Q(\theta)
+        $$
+        だけでは、$n$ とともに動く最大点の収束を一般には保証できない。そのため一様収束または同等のargmax条件が重要になる。
+
+        一方、$U(0,\theta)$ のように台が母数に依存する非正則モデルでは、上の正則条件をそのまま適用するのではなく、MLEの具体形から確率を直接評価して一致性を示せる。
+      計算例: |
+        Bernoulliで $p=0.4,n=100,\varepsilon=0.1$ とすると
+        $$
+        P(|\widehat p-0.4|>0.1)
+        \le\frac{0.4\cdot0.6}{100\cdot0.1^2}
+        =0.24.
+        $$
+        $n=1000$ なら同じ上界は $0.024$ まで下がる。
+
+        一様分布で $\theta_0=10,\varepsilon=1$ なら
+        $$
+        P(X_{(n)}<9)=0.9^n.
+        $$
+        $n=20$ では $0.9^{20}\approx0.1216$、$n=100$ では $0.9^{100}\approx2.66\times10^{-5}$ であり、最大値は急速に右端10へ近づく。
       一手: |
-        **F分布を見たら「独立なカイ二乗を自由度で割って比にする」形を作る。** 標本分散なら、まず $(n_i-1)S_i^2/\sigma_i^2$ をカイ二乗へ直し、その後に自由度で割ると分散比がそのまま残る。
+        **一般論では「期待対数尤度の一意最大性 + 標本対数尤度の一様収束 → argmaxも真値へ」。具体モデルではMLEの形が簡単なら確率を直接評価する。**
       注意: |
-        分子・分母の順序と自由度の順序を一致させる。逆数を取れば自由度も交換する。
+        一致性は $n\to\infty$ の性質であり、不偏性とは別である。
 
-        分散比のF分布は正規母集団と2標本の独立性を使う。一般の非正規母集団の標本分散比が厳密にF分布になるわけではない。
+        正則条件は便利な十分条件であって、すべての一致するMLEがそれを満たすわけではない。$U(0,\theta)$ の端点MLEは台が母数に依存する非正則例だが、それでも直接計算により一致性を示せる。
 
-        $\sqrt{F_{1,\nu}}$ は符号を持たないため、t分布そのものではなく $|t_\nu|$ と同じ分布である。
+        「各固定 $\theta$ で対数尤度が期待値へ収束する」だけから最大点の一致性を即断しない。最大点が動くため、argmaxを制御する一様性が必要である。
