@@ -2027,7 +2027,7 @@ items:
     status: complete
     cards:
       - multi-linear-combination
-      - multi-covariance-psd
+      - mv-mean-covariance-numeric
       - mv-covariance-linear-transform
       - engmv-mahalanobis-control-limit
       - engmv-normal-uncorrelated-independent
@@ -2054,7 +2054,7 @@ items:
       - name: 分散共分散行列
         status: card
         cards:
-          - multi-covariance-psd
+          - mv-mean-covariance-numeric
           - mv-covariance-linear-transform
           - engmv-normal-mean-cov-independence
       - name: 相関行列

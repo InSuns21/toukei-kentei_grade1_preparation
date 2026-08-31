@@ -109,7 +109,7 @@ sources:
   - type: official_syllabus
     topic: 分散共分散行列
 archive_reason: duplicate
-canonical_card: multi-covariance-psd
+canonical_card: mv-mean-covariance-numeric
 archive_note: 分散共分散行列の必要条件を二次形式=分散として説明する同一subcategoryのcanonicalへ統合する。
 ---
 ## 問題
