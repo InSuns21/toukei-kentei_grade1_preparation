@@ -2264,7 +2264,7 @@ items:
       - asym-exponential-sample-median
       - asym-sample-variance-fourth-moment
       - engasym-method-moments-consistency
-      - engasym-asymptotic-bias-mse
+      - asym-convergence-ms
       - asym-asymptotic-relative-efficiency
       - engasym-estimating-equation-linearization
       - engasym-sandwich-m-estimator
@@ -2274,7 +2274,6 @@ items:
       - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
       - asym-wlln
-      - asym-convergence-ms
       - engasym-clt-sum-probability
       - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
@@ -2310,7 +2309,7 @@ items:
           - asym-mle-poisson-tail-probability
           - asym-exponential-sample-median
           - asym-sample-variance-fourth-moment
-          - engasym-asymptotic-bias-mse
+          - asym-convergence-ms
           - asym-asymptotic-relative-efficiency
           - engasym-estimating-equation-linearization
           - engasym-sandwich-m-estimator
