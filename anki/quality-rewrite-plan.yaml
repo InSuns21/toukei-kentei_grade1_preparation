@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-linear-contrast-canonicalization-249
+batch_id: 2026-08-31-linear-contrast-canonicalization-250
 items:
   - id: mv-covariance-linear-transform
     note: 工学側 enginf-linear-combination-normal の正規ベクトルの線形結合分布を common 正本へ吸収する。既存の共分散変換・漸近正規ベクトルの線形結合と同じ a^T Sigma a を使うため、一つの正本で exact / asymptotic を区別して扱う。
@@ -56,13 +56,13 @@ items:
     note: 工学側 enginf-contrast-estimate-se / enginf-contrast-t-test の1本の線形制約を一般線形仮説の正本へ吸収し、一般の回帰係数に対して係数和0を要求しないことを明確化する。
     sections:
       問題: |
-        正規線形モデル
+        誤差が正規分布に従う線形モデル
         $$
         \boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
         \qquad
         \boldsymbol\varepsilon\sim N(\boldsymbol0,\sigma^2\boldsymbol I)
         $$
-        で、$\boldsymbol X$ は列フルランクとする。
+        を考え、$\boldsymbol X$ は列フルランクとする。
 
         1. 一般線形仮説
         $$
