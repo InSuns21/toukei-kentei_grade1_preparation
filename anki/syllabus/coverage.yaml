@@ -2268,7 +2268,7 @@ items:
       - asym-asymptotic-relative-efficiency
       - engasym-estimating-equation-linearization
       - engasym-sandwich-m-estimator
-      - engasym-multivariate-linear-combination
+      - mv-covariance-linear-transform
       - test-lr-wald-score-comparison
       - engasym-sample-size-mean-precision
       - asym-mle-asymptotic-normality
@@ -2313,7 +2313,7 @@ items:
           - asym-asymptotic-relative-efficiency
           - engasym-estimating-equation-linearization
           - engasym-sandwich-m-estimator
-          - engasym-multivariate-linear-combination
+          - mv-covariance-linear-transform
       - name: 一致性
         status: card
         cards:
