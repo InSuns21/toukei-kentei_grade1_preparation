@@ -25,8 +25,8 @@
 - B04 の更新後中心は $(0,1),(4,1)$、WSS は4である。
 - ドリルの Ward コストは $\Delta(A,B)=16$、$\Delta(B,C)=24.5/3\approx8.17$ で $B,C$ 結合となる。
 - PCAと因子分析について、PCAが全分散の最大化・圧縮、因子分析が共通因子モデルによる共分散説明であるという区別は数理的に整合している。
-- PR の最終コミットで `Validate textbook` と `Validate terminology` がともに success であることを確認する。
+- 最新 main を親に載せ直した PR #24 で `Validate textbook` と `Validate terminology` がともに success であることを確認した。
 
 ## 結論
 
-**PASS**。数理上の重大な問題は見当たらない。最終自動検証の成功をもって reviewed とする。
+**PASS**。数理上の重大な問題は見当たらず、自動検証とも整合した。
