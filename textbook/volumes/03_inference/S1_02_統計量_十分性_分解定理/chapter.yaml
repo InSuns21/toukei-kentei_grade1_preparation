@@ -12,8 +12,8 @@ official_scope:
 learning_objectives:
   - 統計量を「未知母数を含まない標本の関数」として定義し、推定量・標本そのものとの違いを説明できる
   - 十分統計量を「統計量を条件づけた後の標本分布が母数に依存しない」という定義から説明できる
-  - Neyman--Fisherの分解定理を使って十分性を判定できる
-  - Bernoulli・Poisson・指数分布で和が十分統計量になることを示せる
+  - ネイマンの分解定理を使って十分性を判定できる
+  - ベルヌーイ分布・ポアソン分布・指数分布で和が十分統計量になることを示せる
   - 一様分布 U(0,theta) で標本最大値が十分統計量になることを支持領域込みで示せる
   - 正規分布で既知分散なら標本和、平均・分散とも未知なら標本和と平方和が十分になることを導ける
   - 同値な一対一変換をした統計量も同じ情報を保持することを説明できる
@@ -26,10 +26,10 @@ definitions:
   - { id: S102-DEF-03, name: 最小十分統計量 }
   - { id: S102-DEF-04, name: 指数型分布族 }
 theorems:
-  - { id: S102-THM-01, name: Neyman--Fisherの分解定理 }
+  - { id: S102-THM-01, name: ネイマンの分解定理 }
   - { id: S102-THM-02, name: 一対一変換による十分性の保存 }
   - { id: S102-THM-03, name: 尤度比による最小十分性の判定基準 }
-canonical_examples: [Bernoulli標本の成功回数, Poisson標本の標本和, 指数分布の標本和, 一様分布の標本最大値, 正規分布の十分統計量, 指数型分布族]
+canonical_examples: [ベルヌーイ標本の成功回数, ポアソン標本の標本和, 指数分布の標本和, 一様分布の標本最大値, 正規分布の十分統計量, 指数型分布族]
 problem_patterns: [STATISTIC-DEF-1, FACTORIZATION-BERNOULLI-1, FACTORIZATION-POISSON-1, FACTORIZATION-UNIFORM-1, NORMAL-SUFFICIENT-1, MINIMAL-SUFFICIENT-1, EXP-FAMILY-1]
 past_exam_alignment: []
 integrated_exam_problems: [S1-02-C01, S1-02-C02, S1-02-C03, S1-02-C04, S1-02-D01, S1-02-DRILL-01]
