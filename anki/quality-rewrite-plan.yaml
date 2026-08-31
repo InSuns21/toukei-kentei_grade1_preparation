@@ -1,81 +1,92 @@
 schema_version: 1
-batch_id: 2026-08-31-clt-sum-canonical-188
+batch_id: 2026-08-31-empirical-cdf-clt-canonical-190
 items:
-  - id: dist-clt-sample-mean
-    note: 中心極限定理による確率近似の正本へ、標本平均の区間確率に加えて、合計 S_n=n Xbar_n の片側超過確率を同じ標準化手順として統合し、engineering側の合計専用カードを吸収する。
+  - id: dist-clt-bernoulli-proportion
+    note: ベルヌーイ標本比率のCLT正本へ、固定点xでの経験分布関数を指示変数の標本平均として導く応用を統合し、engineering側の経験CDF一点専用カードを吸収する。
     metadata:
-      title: 中心極限定理で標本平均と合計の確率を近似する
-      topic: central-limit-sample-mean
+      title: ベルヌーイ標本比率と経験分布関数に中心極限定理を適用する
+      topic: central-limit-bernoulli
       type: calc_step
       difficulty: 2
       priority: S
-      hashtags: [中心極限定理, 標本平均, 合計, 確率近似]
+      hashtags: [中心極限定理, ベルヌーイ分布, 標本比率, 経験分布関数]
     sections:
       問題: |
-        $X_1,\ldots,X_n$ は独立同分布で $E[X_i]=10$、$\operatorname{Var}(X_i)=4$ とし、$n=100$ とする。標準正規分布の累積分布関数を $\Phi$ とする。
-
-        1. $P(9.6\le\overline X_{100}\le10.4)$ を中心極限定理で近似せよ。
-        2. $S_{100}=\sum_{i=1}^{100}X_i$ とするとき、$P(S_{100}>1030)$ を中心極限定理で近似せよ。
+        1. $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$\widehat p=\overline X_n$ とする。$\sqrt n(\widehat p-p)$ の極限分布を求めよ。
+        2. 一般の独立同分布標本 $Y_1,\ldots,Y_n$ の経験分布関数
+        $$
+        F_n(x)=\frac1n\sum_{i=1}^n\boldsymbol1_{\{Y_i\le x\}}
+        $$
+        を考える。固定した $x$ について $\sqrt n\{F_n(x)-F(x)\}$ の極限分布を、1の結果から導け。ただし $F(x)=P(Y_i\le x)$ とする。
+        3. $F(x)=0.5$、$n=100$ のとき $F_n(x)$ の近似標準誤差を求めよ。
       記号・用語: |
-        $\overline X_n=n^{-1}\sum_{i=1}^nX_i$ は標本平均、$S_n=\sum_{i=1}^nX_i=n\overline X_n$ は合計である。$\Phi(z)=P(Z\le z)$（$Z\sim N(0,1)$）とする。
+        $\widehat p$ はベルヌーイ標本の成功割合である。$F_n(x)$ は経験分布関数で、固定した $x$ では「観測値が $x$ 以下だった割合」と読める。
+
+        $\boldsymbol1_{\{Y_i\le x\}}$ は、事象 $Y_i\le x$ が起きれば1、そうでなければ0を取る指示変数である。
       使用公式・定理: |
-        中心極限定理より
+        ベルヌーイ変数 $B_i\sim\operatorname{Bernoulli}(q)$ は
         $$
-        \frac{\overline X_n-\mu}{\sigma/\sqrt n}\xrightarrow{d}N(0,1),
+        E[B_i]=q,\qquad \operatorname{Var}(B_i)=q(1-q)
         $$
-        また同値に
+        を満たす。中心極限定理より
         $$
-        \frac{S_n-n\mu}{\sigma\sqrt n}\xrightarrow{d}N(0,1).
+        \sqrt n(\overline B_n-q)\xrightarrow{d}N\{0,q(1-q)\}.
         $$
-        したがって大標本では、標本平均なら平均 $\mu$・標準偏差 $\sigma/\sqrt n$、合計なら平均 $n\mu$・標準偏差 $\sigma\sqrt n$ で標準化する。
+
+        固定した $x$ に対して
+        $$
+        B_i=\boldsymbol1_{\{Y_i\le x\}}
+        $$
+        と置けば
+        $$
+        P(B_i=1)=P(Y_i\le x)=F(x),
+        $$
+        したがって $B_i\sim\operatorname{Bernoulli}\{F(x)\}$ であり、$F_n(x)=\overline B_n$ である。
       一手／方針: |
-        **平均か合計かを先に確認し、その量自身の平均と標準偏差で標準化する。** 合計は別の定理ではなく $S_n=n\overline X_n$ なので、中心極限定理の同じ内容を尺度だけ変えて使う。
+        **0/1の割合を見たらベルヌーイ標本平均へ戻す。** 経験分布関数の一点での漸近分布も新しい定理ではなく、指示変数をベルヌーイ変数と認識すれば通常の標本比率CLTになる。
       答え: |
-        $\mu=10$、$\sigma=2$、$n=100$ である。
-
-        1. 標本平均の標準誤差は
+        1. ベルヌーイ分布の平均と分散は $p$、$p(1-p)$ なので、中心極限定理より
         $$
-        \frac{\sigma}{\sqrt n}=\frac2{10}=0.2.
+        \boxed{\sqrt n(\widehat p-p)\xrightarrow{d}N\{0,p(1-p)\}}.
         $$
-        両端を標準化すると
+        同値に大標本では
         $$
-        \frac{9.6-10}{0.2}=-2,
-        \qquad
-        \frac{10.4-10}{0.2}=2.
-        $$
-        よって
-        $$
-        P(9.6\le\overline X_{100}\le10.4)
-        \approx\Phi(2)-\Phi(-2)
-        \approx\boxed{0.9545}.
+        \widehat p\ \dot\sim\ N\left(p,\frac{p(1-p)}n\right).
         $$
 
-        2. 合計の平均と標準偏差は
+        2. 固定した $x$ について
         $$
-        E[S_{100}]=100\cdot10=1000,
-        \qquad
-        \operatorname{SD}(S_{100})=2\sqrt{100}=20.
+        B_i=\boldsymbol1_{\{Y_i\le x\}}\sim\operatorname{Bernoulli}\{F(x)\},
+        \qquad F_n(x)=\overline B_n.
         $$
-        したがって
+        よって1で $p$ を $F(x)$ に置き換えれば
         $$
-        z=\frac{1030-1000}{20}=1.5,
+        \boxed{
+        \sqrt n\{F_n(x)-F(x)\}
+        \xrightarrow{d}
+        N\left(0,F(x)\{1-F(x)\}\right)}.
         $$
+
+        3. $F(x)=0.5$、$n=100$ では
         $$
-        P(S_{100}>1030)
-        \approx1-\Phi(1.5)
-        \approx\boxed{0.0668}.
+        \operatorname{ASE}\{F_n(x)\}
+        =\sqrt{\frac{0.5(1-0.5)}{100}}
+        =\sqrt{0.0025}
+        =\boxed{0.05}.
         $$
       計算例: |
-        合計の問題を標本平均へ直しても同じ結果になる。
+        $p=0.3$、$n=100$ のベルヌーイ標本比率なら
         $$
-        S_{100}>1030
-        \iff
-        \overline X_{100}>10.3.
+        \operatorname{ASE}(\widehat p)
+        =\sqrt{\frac{0.3\cdot0.7}{100}}
+        \approx0.0458.
         $$
-        標本平均の標準誤差は0.2なので
+
+        経験分布関数も全く同じ計算で、例えば $F(x)=0.3$ なら
         $$
-        \frac{10.3-10}{0.2}=1.5.
+        \operatorname{ASE}\{F_n(x)\}
+        \approx0.0458
         $$
-        これは合計を直接標準化した値と一致する。つまり「合計用の公式」を別暗記する必要はない。
+        となる。違うのは成功事象を「1が出た」ではなく「$Y_i\le x$」と定義した点だけである。
       注意: |
-        元分布が正規分布でない場合、有限標本での値は中心極限定理による近似である。また元分布が離散型でも支持や刻み幅が指定されていない問題では、機械的に連続性補正を入れない。二項分布など刻み幅が明確な場合の連続性補正は別途判断する。
+        経験分布関数についてここで示したのは**固定した1点 $x$** での中心極限定理である。$\sup_x|F_n(x)-F(x)|$ のような関数全体の一様収束や、経験過程の極限は別の主張である。また $F(x)=0$ または1では極限分散が0となり、非退化な正規極限にはならない。
