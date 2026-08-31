@@ -1,119 +1,112 @@
 schema_version: 1
-batch_id: 2026-08-31-normal-affine-canonicalization-231
+batch_id: 2026-08-31-continuity-correction-canonicalization-233
 items:
-  - id: prob-linear-combination-normal
-    note: 旧dist-normal-linear-transformを吸収するため、多変量正規の線形結合をアフィン変換a^T X+bへ拡張し、1変量Y=aX+bの特殊形とa=0の退化ケースを明示する。
+  - id: dist-continuity-correction-interval
+    note: tail・single・sampling・engineering名前空間に分散していた連続修正を、整数点jを幅1のセル[j-0.5,j+0.5]へ対応させる1つのcanonical moveへ統合する。
     metadata:
-      title: 正規ベクトルのアフィン結合の分布を求める
-      topic: multivariate-normal-affine-combination
-      type: strategy
-      priority: S
-      hashtags: [確率変数の線形結合, 多変量正規分布, アフィン変換, 分散共分散行列]
+      title: 整数事象を連続修正して連続近似する
+      topic: continuity-correction-canonical
+      type: calc_step
+      priority: A
+      hashtags: [連続修正, 二項分布, 区間確率, 上側確率, 下側確率]
     sections:
       問題: |
-        多変量正規分布に従う確率ベクトルを
-        $$
-        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
-        $$
-        とする。定数ベクトル $\boldsymbol a$ と定数 $b$ に対する
-        $$
-        Y=\boldsymbol a^{\mathsf T}\boldsymbol X+b
-        $$
-        の分布を求めよ。
+        整数値確率変数 $X$ を連続確率変数 $Y$ で近似する。$a,b,k\in\mathbb Z$、$a\le b$ とする。次の事象を連続修正後の事象へ直せ。
 
-        また次を計算せよ。
-
-        1. $\boldsymbol\mu=(1,2)^{\mathsf T}$、$\boldsymbol\Sigma=\begin{pmatrix}4&1\\1&9\end{pmatrix}$、$Y=X_1-2X_2+5$。
-        2. 1変量で $X\sim N(2,9)$、$Y=-X+4$。
-        3. $\boldsymbol a=\boldsymbol0$ のときの分布。
+        1. $a\le X\le b$
+        2. $X\ge k$、$X>k$、$X\le k$、$X<k$
+        3. $X=k$
+        4. $X\sim\operatorname{Binomial}(100,0.1)$ のとき、$P(X\le15)$ を連続修正付き正規近似で表し、標準化点を求めよ。
       答え: |
-        多変量正規分布はアフィン変換で閉じているので
+        整数点を隣接整数との中点まで広げるので
         $$
-        \boxed{
-        Y\sim N\left(
-        \boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        \right)}.
+        \boxed{P(a\le X\le b)\approx P(a-0.5\le Y\le b+0.5)}.
         $$
 
-        1. $\boldsymbol a=(1,-2)^{\mathsf T}$ だから
+        片側事象は
         $$
-        E[Y]=1-2\cdot2+5=2,
+        X\ge k\ \rightsquigarrow\ Y\ge k-0.5,
         \qquad
-        \operatorname{Var}(Y)=36,
+        X>k\ \rightsquigarrow\ Y\ge k+0.5,
+        $$
+        $$
+        X\le k\ \rightsquigarrow\ Y\le k+0.5,
+        \qquad
+        X<k\ \rightsquigarrow\ Y\le k-0.5.
+        $$
+
+        一点事象は区間の特殊例 $a=b=k$ だから
+        $$
+        \boxed{P(X=k)\approx P(k-0.5\le Y\le k+0.5)}.
+        $$
+
+        4では
+        $$
+        \mu=np=10,
+        \qquad
+        \sigma=\sqrt{np(1-p)}=3.
+        $$
+        $X\le15$ を $Y\le15.5$ に直すので
+        $$
+        z=\frac{15.5-10}{3}=\frac{11}{6}\approx1.833.
         $$
         よって
         $$
-        Y\sim N(2,36).
+        P(X\le15)\approx\Phi(1.833)\approx0.9666.
         $$
-
-        2. 1変量の特殊形では
-        $$
-        Y=aX+b\sim N(a\mu+b,a^2\sigma^2).
-        $$
-        ここでは $a=-1,b=4$ なので
-        $$
-        Y\sim N(2,9).
-        $$
-
-        3. $\boldsymbol a=\boldsymbol0$ なら $Y=b$ が確率1で成り立つ退化分布である。
       使用公式・定理: |
-        多変量正規分布に対する線形変換は再び正規分布になる。定数項は平均だけを平行移動するため
+        連続修正の原理は、整数値 $j$ が担当する確率質量を、連続軸上の幅1のセル
         $$
-        E[\boldsymbol a^{\mathsf T}\boldsymbol X+b]
-        =\boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
+        [j-0.5,j+0.5]
         $$
-        $$
-        \operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X+b)
-        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
-        $$
+        に対応させることである。
 
-        2変量なら
+        したがって整数区間 $a,a+1,\ldots,b$ のセルをつなげれば
         $$
-        \operatorname{Var}(aX_1+cX_2)
-        =a^2\sigma_1^2+c^2\sigma_2^2+2ac\sigma_{12}.
+        [a-0.5,b+0.5]
         $$
-        独立正規変数では共分散項が0になる。
+        となる。片側事象もこのセルの端を読めばよい。
 
-        1変量 $p=1$ へ特殊化すると
+        また整数値では
         $$
-        X\sim N(\mu,\sigma^2)
-        \quad\Longrightarrow\quad
-        aX+b\sim N(a\mu+b,a^2\sigma^2)
+        X>k\iff X\ge k+1,
+        \qquad
+        X<k\iff X\le k-1,
         $$
-        となる。したがって1変量の正規分布の線形変換は、多変量正規のアフィン結合の特殊ケースである。
+        なので、厳密不等号を先に $\ge,\le$ へ直せば符号を暗記する必要がない。
+
+        二項分布 $X\sim\operatorname{Binomial}(n,p)$ を正規近似するときは
+        $$
+        Y\sim N\bigl(np,np(1-p)\bigr)
+        $$
+        とし、事象の境界を連続修正してから標準化する。
       計算例: |
-        $\boldsymbol a=(1,-2)^{\mathsf T}$ とする。定数項を除いた平均は
+        例えば
         $$
-        \boldsymbol a^{\mathsf T}\boldsymbol\mu
-        =1\cdot1+(-2)\cdot2=-3.
+        P(10\le X\le20)
         $$
-        $b=5$ を加えると $E[Y]=2$ になる。
-
-        分散は定数項 $b$ の影響を受けず
+        なら、整数10から20が担当するセルをつなげて
         $$
-        \begin{aligned}
-        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        &=1^2\cdot4+(-2)^2\cdot9+2(1)(-2)(1)\\
-        &=4+36-4\\
-        &=36.
-        \end{aligned}
+        P(10\le X\le20)
+        \approx
+        P(9.5\le Y\le20.5).
         $$
 
-        独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z+7$ なら
+        $P(X=20)$ は $20\le X\le20$ の特殊例なので
         $$
-        E[W]=2-6+7=3,
+        P(X=20)\approx P(19.5\le Y\le20.5).
         $$
+
+        また $P(X>20)$ なら、整数値では $X\ge21$ と同じだから
         $$
-        \operatorname{Var}(W)=2^2\cdot4+(-3)^2\cdot9=97,
+        P(X>20)\approx P(Y\ge20.5).
         $$
-        よって
-        $$
-        W\sim N(3,97).
-        $$
+        このように「$>$ なら右へ0.5」のように個別暗記するより、整数点のセルを描く方が一貫している。
       一手: |
-        **正規性はアフィン変換で保たれる。** 平均には係数を1回掛けて最後に定数項を足し、分散には係数を二次形式として掛ける。定数項は分散に入らない。
+        **整数点 $j$ を幅1のセル $[j-0.5,j+0.5]$ に置き換える。** $>,<$ があれば先に整数値性を使って $\ge,\le$ へ直し、必要なセル全体の外側の境界を読む。
       注意: |
-        各成分が個別に正規分布だからといって、確率ベクトル全体が多変量正規分布とは限らない。一般の線形結合が正規分布になるという結論には、多変量正規性が必要である。
+        連続分布では一点の確率が0なので、修正後の $<,\le$ や $>,\ge$ の違いは確率値を変えない。
 
-        $\boldsymbol a=\boldsymbol0$ の場合は分散0の退化分布になる。1変量で $a<0$ でも分散は $a^2\sigma^2$ なので正であり、定数項 $b$ は平均だけを動かす。
+        $\pm0.5$ は整数格子の刻み幅が1だから現れる。刻み幅が $h$ の離散量なら基本的な境界補正は $h/2$ であり、任意の離散分布へ機械的に $0.5$ を足し引きしない。
+
+        連続修正は事象の境界を直す操作であり、その後に正規近似の平均・分散を使って標準化する。補正前の整数境界をそのまま標準化しない。
