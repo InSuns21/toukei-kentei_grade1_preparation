@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-08-31
   current_chapter: null
-  next_chapter: S1-03
+  next_chapter: S1-02
   next_work:
     type: chapter
-    id: S1-03
-  last_completed_chapter: E1-04
+    id: S1-02
+  last_completed_chapter: S1-03
   summary:
     total: 43
-    planned: 12
+    planned: 11
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 31
+    reviewed: 32
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -50,7 +50,7 @@ progress:
     P4-03: { status: reviewed, started_at: 2026-08-11, completed_at: 2026-08-11, review_result: { fatal: 0, major: 0, minor: 0 } }
     S1-01: { status: reviewed, started_at: 2026-08-13, completed_at: 2026-08-13, review_result: { fatal: 0, major: 0, minor: 0 } }
     S1-02: { status: planned }
-    S1-03: { status: planned }
+    S1-03: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     I1-01: { status: planned }
     I1-02: { status: planned }
     I2-01: { status: planned }
