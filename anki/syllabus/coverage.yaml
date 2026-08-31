@@ -2164,9 +2164,9 @@ items:
       - enginf-wls-two-weights
       - enginf-gls-whitening
       - enginf-robust-sandwich-se
-      - enginf-dummy-reference-contrast
-      - enginf-interaction-design-matrix
-      - enginf-interaction-slope-test
+      - reg-dummy-variable
+      - reg-multiple-model-matrix
+      - reg-interaction-dummy-continuous
       - enginf-logistic-wald-output
       - glm-three-components
       - enginf-logistic-irls-one-step
@@ -2213,9 +2213,9 @@ items:
           - enginf-wls-two-weights
           - enginf-gls-whitening
           - enginf-robust-sandwich-se
-          - enginf-dummy-reference-contrast
-          - enginf-interaction-design-matrix
-          - enginf-interaction-slope-test
+          - reg-dummy-variable
+          - reg-multiple-model-matrix
+          - reg-interaction-dummy-continuous
           - enginf-coefficient-output-engineering
           - enginf-adjusted-r2-output
       - name: 一般化線形モデル
@@ -2244,7 +2244,7 @@ items:
           - model-contrast
           - enginf-contrast-estimate-se
           - enginf-contrast-t-test
-          - enginf-dummy-reference-contrast
+          - reg-dummy-variable
       - name: 線形制約
         status: card
         cards:
