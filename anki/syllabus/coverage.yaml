@@ -2147,13 +2147,11 @@ items:
       - enginf-linear-combination-normal
       - enginf-contrast-estimate-se
       - enginf-contrast-t-test
-      - enginf-extra-sum-squares
-      - enginf-overall-regression-f
-      - enginf-mean-response-ci
-      - enginf-new-observation-pi
-      - enginf-leverage-numeric
-      - enginf-studentized-residual
-      - enginf-cooks-distance
+      - reg-partial-f-test
+      - reg-overall-f-test
+      - reg-mean-response-ci
+      - reg-hat-matrix-properties
+      - reg-cooks-distance
     terms:
       - name: 線形モデル
         status: card
@@ -2162,12 +2160,10 @@ items:
           - enginf-ols-unbiased-condition
           - enginf-ols-covariance-matrix
           - enginf-gauss-markov-comparison
-          - enginf-overall-regression-f
-          - enginf-mean-response-ci
-          - enginf-new-observation-pi
-          - enginf-leverage-numeric
-          - enginf-studentized-residual
-          - enginf-cooks-distance
+          - reg-overall-f-test
+          - reg-mean-response-ci
+          - reg-hat-matrix-properties
+          - reg-cooks-distance
           - reg-multicollinearity-vif
           - reg-gls-estimator
           - enginf-robust-sandwich-se
@@ -2192,8 +2188,7 @@ items:
         status: card
         cards:
           - enginf-linear-combination-normal
-          - enginf-mean-response-ci
-          - enginf-new-observation-pi
+          - reg-mean-response-ci
           - enginf-nonlinear-gradient-se
           - enginf-estimability-linear-function
       - name: 線形対比
@@ -2206,7 +2201,7 @@ items:
       - name: 線形制約
         status: card
         cards:
-          - enginf-extra-sum-squares
+          - reg-partial-f-test
           - enginf-glm-wald-joint
           - enginf-restricted-least-squares
   - id: engineering-asymptotics
