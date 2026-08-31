@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-legacy-canonicalization-210
+batch_id: 2026-08-31-legacy-canonicalization-210b
 items:
   - id: bayes-density-formula
     note: 旧prob-bayes-diagnosticを吸収するため、一般のBayes公式に診断検査の逆確率計算を追加する。
@@ -94,11 +94,11 @@ items:
         「尤度に比例する」段階と「正規化済みの事後分布」を区別する。二項尤度の組合せ係数のように母数へ依存しない因子は事後分布の核を求めるときには落とせるが、モデル間の周辺尤度を比較するベイズファクターではモデルごとの定数を保存する。
 
   - id: neyman-factorization
-    note: 旧est-factorizationを吸収するため、定理の一般形に加えてU(0,theta)の端点依存の台を含む完全な因子分解を追加する。
+    note: 旧est-factorizationを吸収するため、定理の一般形に加えて一様分布U(0,theta)の端点依存の台を含む完全な因子分解を追加する。
     sections:
       問題: |
         1. ネイマンの分解定理を述べよ。
-        2. $X_1,\ldots,X_n\overset{iid}{\sim}U(0,\theta)$、$\theta>0$ とする。ネイマンの分解定理を用いて $\theta$ の十分統計量を求めよ。
+        2. $X_1,\ldots,X_n$ は独立同分布で、一様分布 $U(0,\theta)$ に従うとする。$\theta>0$ とする。ネイマンの分解定理を用いて $\theta$ の十分統計量を求めよ。
       答え: |
         1. 統計量 $T$ が $\theta$ の十分統計量であることと、同時密度・確率関数が
         $$
@@ -126,7 +126,7 @@ items:
         $$
         と書けるので、$T=\sum_iX_i$ が十分統計量である。
 
-        一方、$U(0,\theta)$ の密度は
+        一方、一様分布 $U(0,\theta)$ の密度は
         $$
         f_\theta(x)=\frac1\theta\boldsymbol1_{\{0\le x\le\theta\}}.
         $$
@@ -155,7 +155,7 @@ items:
       一手: |
         まず標本の同時密度・確率関数を書き、母数に依存する部分が標本をどの要約量を通じて見ているかを探す。
 
-        台が母数に依存するときは特に指示関数を見る。$U(0,\theta)$ の
+        台が母数に依存するときは特に指示関数を見る。一様分布 $U(0,\theta)$ の
         $$
         \boldsymbol1_{\{X_{(n)}\le\theta\}}
         $$
