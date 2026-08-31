@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-mle-consistency-reduction-239
+batch_id: 2026-08-31-gls-whitening-reduction-241
 items:
-  - id: mle-consistency
+  - id: enginf-gls-whitening
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-mle-consistency
-    coverage_card: asym-mle-consistency
-    note: 最尤推定量の一致性について、期待対数尤度の一意最大性と標本対数尤度の一様収束によるargmax条件は asym-mle-consistency が正本。旧カード固有だった一様分布 U(0,theta) の端点最尤推定量 X_(n) の直接一致性証明も正本へ吸収済みで、Bernoulli例も正本側に保持されるため旧カード固有の技能は残らない。
+    canonical_card: reg-gls-estimator
+    coverage_card: reg-gls-estimator
+    note: 一般化最小二乗法を白色化して通常の最小二乗法へ帰着する技能は reg-gls-estimator に吸収済み。正本では C=Omega^(-1/2) と明示して変換後誤差の分散共分散行列が sigma^2 I になることからGLS式を再導出し、さらに二次形式最小化、逆分散WLS、FGLS、数値例まで同時に保持しているため、工学側カード固有の技能は残らない。
