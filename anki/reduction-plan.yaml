@@ -1,21 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-glm-computation-reduction-252
+batch_id: 2026-08-31-glm-link-reduction-253
 items:
-  - id: enginf-logistic-irls-one-step
+  - id: enginf-glm-link-selection
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-logistic-score
-    coverage_card: glm-logistic-score
-    note: 二項ロジットの IRLS 作業応答 z=eta+(y-p)/(p(1-p)) と重み w=p(1-p)、eta=0・y=1 で p=1/2, z=2, w=1/4 となる数値例は glm-logistic-score がフィッシャー・スコアリングから IRLS への導出とともに既に保持している。一般の二項試行数では重みに m_i が入る注意も正本にある。
-  - id: enginf-poisson-mean
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-poisson-mean-ratio
-    coverage_card: glm-poisson-mean-ratio
-    note: 対数リンク log(mu)=eta から mu=exp(eta) を戻して期待件数を計算し、説明変数1単位増加を exp(beta) 倍として読む操作は glm-poisson-mean-ratio の中心技能そのもの。正本は期待件数・平均比・発生率を一続きで扱い、ポアソン分布の平均=分散と過分散への注意も保持する。
-  - id: enginf-poisson-offset-rate
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: glm-poisson-mean-ratio
-    coverage_card: glm-poisson-mean-ratio
-    note: log E[Y]=log t+X beta とし log t を係数1固定の offset と読むこと、E[Y]=t exp(X beta) から単位曝露量当たりの発生率と期待件数を計算することは glm-poisson-mean-ratio が定義・導出・数値例まで包含している。工学側の故障件数例は文脈を変えた同一操作である。
+    canonical_card: glm-three-components
+    coverage_card: glm-three-components
+    note: 正規・二項・ポアソン応答の代表的な正準リンク（恒等・ロジット・対数）を対応させ、標準リンク以外も選択可能であることは glm-three-components が指数型分布族・自然母数・正準リンクの導出とともに既に扱っている。工学側カードは同対応表だけを切り出した特殊版である。
