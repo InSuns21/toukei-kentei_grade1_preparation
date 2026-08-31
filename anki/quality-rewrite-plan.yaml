@@ -1,208 +1,247 @@
 schema_version: 1
-batch_id: 2026-08-31-probability-limit-canonicalization-223
+batch_id: 2026-08-31-canonicalize-fit-mvn-225
 items:
-  - id: prob-cdf-from-density
-    note: 旧prob-mixed-cdfを吸収するため、累積分布関数の正本を離散・連続・混合の3形態と逆向きの密度・点質量回収まで一続きに拡張する。
+  - id: samp-multinomial-cell-counts
+    note: 旧test-chi-square-fitのk-1-r記法とk=5,r=1の数値例を吸収し、多項標本からPearson適合度統計量・自由度補正までを1枚で完結させる。
     metadata:
-      title: 確率質量・密度・混合分布から累積分布関数を作る
-      topic: cdf-canonical
+      title: 多項標本からPearson適合度統計量と自由度を導く
+      topic: multinomial-cell-counts-goodness-fit
       type: strategy
       priority: S
-      hashtags: [累積分布関数, 確率密度関数, 点質量, 混合分布]
+      hashtags: [多項分布, 適合度の検定, カイ二乗分布, 自由度]
     sections:
       問題: |
-        累積分布関数について次を解け。
+        $n$ 個の独立試行が $k$ 個のカテゴリーへ分類され、帰無仮説のカテゴリー確率を $p_1,\ldots,p_k$、観測度数を $O_j$、期待度数を $E_j=np_j$ とする。
 
-        1. $X$ の確率密度関数が $f_X(x)=2x$（$0<x<1$）、それ以外で0である。累積分布関数 $F_X(x)$ を求めよ。
-        2. $P(Y=0)=1/2$ で、残りの確率 $1/2$ は区間 $(0,1)$ 上に一定の密度で分布する。$F_Y(y)$ を求めよ。
-        3. 一般に、累積分布関数から連続部分の密度と点 $a$ の確率質量をどう回収するか述べよ。
+        1. Pearsonの適合度統計量を書き、帰無仮説のカテゴリー確率が既知のときの漸近自由度を答えよ。
+        2. 帰無モデルの内部母数をデータから独立に $r$ 個推定したとき、自由度はどう変わるか。
+        3. $k=5$ 区分で内部母数を1個推定した場合の自由度を求めよ。
       答え: |
-        1. $0\le x<1$ では
+        Pearsonの適合度統計量は
         $$
-        F_X(x)=\int_0^x2u\,du=x^2
+        X^2=\sum_{j=1}^k\frac{(O_j-E_j)^2}{E_j}.
+        $$
+        帰無仮説のカテゴリー確率が既知なら、通常の正則条件の下で
+        $$
+        X^2\xrightarrow{d}\chi^2_{k-1}.
+        $$
+
+        帰無モデルの内部母数をデータから $r$ 個推定したなら
+        $$
+        \boxed{\mathrm{df}=k-1-r}.
+        $$
+        したがって $k=5,r=1$ では
+        $$
+        \boxed{\mathrm{df}=5-1-1=3}.
+        $$
+      使用公式・定理: |
+        度数ベクトル
+        $$
+        (O_1,\ldots,O_k)
+        $$
+        は多項分布に従い、平均と分散共分散行列は
+        $$
+        E[\boldsymbol O]=n\boldsymbol p,
+        \qquad
+        \operatorname{Cov}(\boldsymbol O)
+        =n\{\operatorname{diag}(\boldsymbol p)-\boldsymbol p\boldsymbol p^{\mathsf T}\}.
+        $$
+
+        度数には必ず
+        $$
+        \sum_{j=1}^k O_j=n
+        $$
+        という1本の線形制約がある。このため、カテゴリー確率が既知なら独立に動ける方向は $k-1$ 個であり、Pearson統計量は漸近的に自由度 $k-1$ のカイ二乗分布へ従う。
+
+        さらに帰無モデルの内部母数を $r$ 個、同じデータから正則な方法で推定すると、その推定に使った独立な方向をさらに $r$ 個失うため
+        $$
+        \mathrm{df}=k-1-r
+        $$
+        となる。
+
+        記号を $d$ カテゴリー、推定母数数を $q$ と書く流儀では同じ式は
+        $$
+        \mathrm{df}=d-1-q
+        $$
+        である。
+      計算例: |
+        まず母数推定のない例として、$n=200$、$k=3$、帰無仮説
+        $$
+        \boldsymbol p=(0.5,0.3,0.2)
+        $$
+        に対して観測度数が
+        $$
+        (O_1,O_2,O_3)=(94,63,43)
+        $$
+        だったとする。期待度数は
+        $$
+        (E_1,E_2,E_3)=(100,60,40)
         $$
         なので
         $$
-        F_X(x)=
-        \begin{cases}
-        0,&x<0,\\
-        x^2,&0\le x<1,\\
-        1,&x\ge1.
-        \end{cases}
+        \begin{aligned}
+        X^2
+        &=\frac{(94-100)^2}{100}
+          +\frac{(63-60)^2}{60}
+          +\frac{(43-40)^2}{40}\\
+        &=0.36+0.15+0.225\\
+        &=0.735.
+        \end{aligned}
+        $$
+        この場合は確率が既知なので自由度は
+        $$
+        3-1=2.
         $$
 
-        2. 連続部分の密度は $(0,1)$ で $1/2$ だから
+        一方、$k=5$ 区分の正則で識別可能な帰無モデルで内部母数を1個推定したなら
         $$
-        F_Y(y)=
-        \begin{cases}
-        0,&y<0,\\
-        1/2,&y=0,\\
-        1/2+y/2,&0<y<1,\\
-        1,&y\ge1.
-        \end{cases}
-        $$
-        $y=0$ で大きさ $1/2$ の跳びを持つ。
-
-        3. 絶対連続な部分では、微分可能な点で
-        $$
-        f_X(x)=F_X'(x).
-        $$
-        点 $a$ の確率質量は
-        $$
-        P(X=a)=F_X(a)-F_X(a-)
-        $$
-        である。
-      使用公式・定理: |
-        累積分布関数の定義は常に
-        $$
-        F_X(x)=P(X\le x).
-        $$
-
-        離散型では、$x$ 以下の確率質量を足して
-        $$
-        F_X(x)=\sum_{u\le x}p_X(u).
-        $$
-        絶対連続型では、$x$ まで密度を積分して
-        $$
-        F_X(x)=\int_{-\infty}^{x}f_X(u)\,du.
-        $$
-
-        点質量と連続部分が共存する混合分布では、両方を足して
-        $$
-        F_X(x)
-        =\sum_{u\le x}P(X=u)
-        +\int_{-\infty}^{x}f_{\mathrm{cont}}(u)\,du
-        $$
-        と考える。したがって累積分布関数は、点質量の位置では跳び、連続密度がある区間では連続的に増加する。
-
-        逆向きには、絶対連続な部分で累積分布関数が微分可能なら
-        $$
-        f_X(x)=F_X'(x),
-        $$
-        点 $a$ の確率質量は左極限との差
-        $$
-        P(X=a)=F_X(a)-F_X(a-)
-        $$
-        で回収する。
-      計算例: |
-        離散型で
-        $$
-        P(X=0)=\frac14,\qquad P(X=1)=\frac34
-        $$
-        なら
-        $$
-        F_X(x)=
-        \begin{cases}
-        0,&x<0,\\
-        1/4,&0\le x<1,\\
-        1,&x\ge1.
-        \end{cases}
-        $$
-
-        連続型で $f_X(x)=2x$（$0<x<1$）なら
-        $$
-        F_X(x)=\int_0^x2u\,du=x^2,
-        \qquad0\le x<1.
-        $$
-
-        混合分布では、$P(Y=0)=1/2$ により $F_Y$ は0で $1/2$ だけ跳び、その後 $(0,1)$ 上で傾き $1/2$ で増える。したがって $0<y<1$ では
-        $$
-        F_Y(y)=\frac12+\frac y2.
-        $$
-
-        逆向きに
-        $$
-        F_X(1-)=0.2,\qquad F_X(1)=0.5
-        $$
-        なら
-        $$
-        P(X=1)=0.5-0.2=0.3.
+        \mathrm{df}=k-1-r=5-1-1=3.
         $$
       一手: |
-        **累積分布関数は「左側にある確率を全部集めた量」と考える。** 離散なら質量を足し、連続なら密度を積分し、混合なら跳びと積分を両方足す。逆向きでは連続部分を微分し、跳びは左極限との差で読む。
+        **まず「度数の総和が固定」で1自由度を引き、次に「データから推定した帰無モデルの独立母数数」を引く。** したがって適合度検定の自由度は機械的に $k-1$ とせず、推定母数の有無を確認する。
       注意: |
-        混合分布で累積分布関数を微分しただけでは点質量を回収できない。密度が存在する部分と跳びを分けて扱う。
+        $k-1-r$ は、正則で識別可能な帰無モデル、各カテゴリー確率が正で、期待度数が十分大きいという通常の漸近条件の下で使う。期待度数が極端に小さいカテゴリーがある場合は、カイ二乗近似の妥当性を確認し、必要ならカテゴリー統合や別手法を検討する。
 
-        累積分布関数は台の外も含めて0から1まで書く。常に右連続であり、点質量は右連続な関数の跳びとして現れる。
+        推定母数数を引くのは、その母数を同じ標本から推定した場合である。既知の外部パラメータまで機械的に引かない。
 
-  - id: dist-weak-law-chebyshev
-    note: 旧dist-weak-law-sample-meanを吸収するため、Chebyshevによる導出正本に確率収束の定義・弱法則の読み方・誤解しやすい点を統合する。
+  - id: dist-multivariate-normal-density
+    note: 旧dist-bivariate-normal-definitionを吸収するため、一般p次元密度の正本に二変量のsigma1,sigma2,rho表示・行列式・逆行列・退化条件を特殊例として追加する。
     metadata:
-      title: 大数の弱法則を確率収束として読みChebyshevから導く
-      topic: weak-law-canonical
+      title: 多変量正規分布の密度を行列式・逆行列・二次形式から計算する
+      topic: multivariate-normal-density-canonical
       type: strategy
       priority: S
-      hashtags: [大数の弱法則, チェビシェフの不等式, 確率収束, 標本平均]
+      hashtags: [多変量正規分布, 二変量正規分布, 分散共分散行列, 二次形式]
     sections:
       問題: |
-        $X_1,X_2,\ldots$ は独立同分布で
+        多変量正規分布
         $$
-        E[X_i]=\mu,\qquad \operatorname{Var}(X_i)=\sigma^2<\infty
+        \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
         $$
-        とする。
+        について次を答えよ。
 
-        1. $\overline X_n\xrightarrow{p}\mu$ の意味を、任意の $\varepsilon>0$ を使って書け。
-        2. チェビシェフの不等式から $\overline X_n\xrightarrow{p}\mu$ を示せ。
-      答え: |
-        1. 確率収束の定義より
+        1. 通常の $p$ 次元密度が存在する条件と密度式を書け。
+        2. 二変量の場合、分散を $\sigma_1^2,\sigma_2^2$、相関係数を $\rho$ として分散共分散行列・行列式・逆行列・密度を明示せよ。
+        3. 数値例として
         $$
-        \overline X_n\xrightarrow{p}\mu
-        \quad\Longleftrightarrow\quad
-        P(|\overline X_n-\mu|\ge\varepsilon)\to0
-        $$
-        が任意の $\varepsilon>0$ で成り立つことである。
-
-        2. 独立同分布性より
-        $$
-        E[\overline X_n]=\mu,
+        \boldsymbol\mu=\boldsymbol0,
         \qquad
-        \operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n}.
+        \boldsymbol\Sigma=
+        \begin{pmatrix}1&0\\0&4\end{pmatrix},
+        \qquad
+        \boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
         $$
-        チェビシェフの不等式を適用すると
+        で密度を計算せよ。
+      答え: |
+        $\boldsymbol\Sigma$ が対称正定値なら通常の $p$ 次元密度が存在し、
         $$
-        P(|\overline X_n-\mu|\ge\varepsilon)
-        \le
-        \frac{\sigma^2}{n\varepsilon^2}
-        \to0.
+        f_{\boldsymbol X}(\boldsymbol x)
+        =\frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
+        \exp\left\{-\frac12
+        (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+        \boldsymbol\Sigma^{-1}
+        (\boldsymbol x-\boldsymbol\mu)
+        \right\}.
         $$
-        よって
+
+        二変量では
         $$
-        \boxed{\overline X_n\xrightarrow{p}\mu}.
+        \boldsymbol\Sigma=
+        \begin{pmatrix}
+        \sigma_1^2&\rho\sigma_1\sigma_2\\
+        \rho\sigma_1\sigma_2&\sigma_2^2
+        \end{pmatrix},
+        \qquad \sigma_1,\sigma_2>0,
+        $$
+        であり、通常の非退化密度には $|\rho|<1$ が必要である。
+
+        数値例では
+        $$
+        |\boldsymbol\Sigma|=4,
+        \qquad
+        \boldsymbol\Sigma^{-1}
+        =\begin{pmatrix}1&0\\0&1/4\end{pmatrix},
+        $$
+        $$
+        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2
+        $$
+        だから
+        $$
+        \boxed{f_{\boldsymbol X}(1,2)=\frac{e^{-1}}{4\pi}}.
         $$
       使用公式・定理: |
-        確率変数列 $Y_n$ が $Y$ に確率収束するとは、任意の $\varepsilon>0$ に対して
+        多変量正規分布の密度では
         $$
-        P(|Y_n-Y|\ge\varepsilon)\longrightarrow0
+        |\boldsymbol\Sigma|^{1/2}
         $$
-        が成り立つことである。
+        が体積の尺度を調整し、
+        $$
+        (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+        \boldsymbol\Sigma^{-1}
+        (\boldsymbol x-\boldsymbol\mu)
+        $$
+        が平均からのMahalanobis距離の二乗を表す。
 
-        有限分散の確率変数 $Y$ に対するチェビシェフの不等式は
+        二変量では
         $$
-        P(|Y-E[Y]|\ge\varepsilon)
-        \le
-        \frac{\operatorname{Var}(Y)}{\varepsilon^2},
-        \qquad \varepsilon>0.
+        |\boldsymbol\Sigma|
+        =\sigma_1^2\sigma_2^2(1-\rho^2),
+        $$
+        $$
+        \boldsymbol\Sigma^{-1}
+        =\frac1{1-\rho^2}
+        \begin{pmatrix}
+        1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
+        -\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
+        \end{pmatrix}.
+        $$
+        これを一般式へ代入すると
+        $$
+        \begin{aligned}
+        f_{X_1,X_2}(x_1,x_2)
+        &=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\\
+        &\quad\times
+        \exp\left[-\frac{1}{2(1-\rho^2)}
+        \left\{
+        \frac{(x_1-\mu_1)^2}{\sigma_1^2}
+        -2\rho\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
+        +\frac{(x_2-\mu_2)^2}{\sigma_2^2}
+        \right\}\right].
+        \end{aligned}
         $$
 
-        独立同分布標本では
-        $$
-        E[\overline X_n]=\mu,
-        \qquad
-        \operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n}.
-        $$
-        したがって標本平均のばらつきが $1/n$ の速さで縮むことが、Chebyshevによる弱法則の直接の理由である。
+        $|\rho|=1$ では行列式が0となって分散共分散行列が特異になり、確率質量は平面全体ではなく1本の直線上に退化する。そのため2次元Lebesgue測度に関する上の通常密度は存在しない。
       計算例: |
-        例えば $\mu=5$、$\sigma^2=4$ とする。$\varepsilon=0.2$ なら
+        数値例では順に
         $$
-        P(|\overline X_n-5|\ge0.2)
-        \le
-        \frac{4}{n(0.2)^2}
-        =\frac{100}{n}.
+        |\boldsymbol\Sigma|=1\cdot4=4,
+        \qquad |\boldsymbol\Sigma|^{1/2}=2,
         $$
-        この上界自体は小さい $n$ では1を超え得るが、$n\to\infty$ では0へ収束する。したがって任意に固定した幅から外れる確率は最終的に0へ近づく。
-      一手: |
-        **弱法則は「標本平均の分散が0へ縮む」ことから読む。** まず $E[\overline X_n]=\mu$ と $\operatorname{Var}(\overline X_n)=\sigma^2/n$ を出し、Chebyshevの右辺を0へ送る。
-      注意: |
-        $\overline X_n\xrightarrow{p}\mu$ は「十分大きい $n$ なら標本平均が必ず $\mu$ と等しくなる」という意味ではない。固定した $\varepsilon>0$ について、$\mu$ から $\varepsilon$ 以上離れる確率が0へ近づくという意味である。
+        $$
+        \boldsymbol\Sigma^{-1}
+        =\operatorname{diag}\left(1,\frac14\right),
+        $$
+        $$
+        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
+        =1^2+\frac{2^2}{4}=2.
+        $$
+        $p=2$ より正規化定数は
+        $$
+        \frac{1}{(2\pi)^{2/2}\sqrt4}=\frac1{4\pi}
+        $$
+        なので
+        $$
+        f_{\boldsymbol X}(1,2)=\frac1{4\pi}e^{-2/2}=\frac{e^{-1}}{4\pi}\approx0.0293.
+        $$
 
-        このカードの証明は独立同分布と有限分散を使う標準形である。より一般の大数の法則には別の仮定もあるので、「有限分散がなければ大数則は絶対に成り立たない」とは結論しない。
+        また $\mu_1=\mu_2=0$、$\sigma_1=\sigma_2=1$、$\rho=0$ なら
+        $$
+        f(x_1,x_2)=\frac1{2\pi}\exp\left\{-\frac{x_1^2+x_2^2}{2}\right\},
+        $$
+        すなわち独立な標準正規分布の直積になる。
+      一手: |
+        **一般形では「行列式 → 逆行列 → Mahalanobis二次形式」の順に処理する。** 二変量の相関係数表示も別公式として暗記せず、分散共分散行列を一般式へ代入して作る。
+      注意: |
+        分散共分散行列が半正定値でも特異なら、$p$ 次元Lebesgue測度に関する通常の密度式はそのまま使えない。二変量では $|\rho|=1$ がこの退化に対応する。
+
+        $\rho=0$ なら二変量正規分布では独立になるが、一般の分布では無相関から独立は従わない。
