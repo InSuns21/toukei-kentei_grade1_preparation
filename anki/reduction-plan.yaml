@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-linear-combination-reduction-196
+batch_id: 2026-08-31-sample-size-width-reduction-197
 items:
-  - id: engasym-multivariate-linear-combination
+  - id: engasym-sample-size-mean-precision
     bucket: duplicates
     reason: duplicate
-    canonical_card: mv-covariance-linear-transform
-    coverage_card: mv-covariance-linear-transform
-    note: 多変量漸近正規ベクトルの線形結合は通常の線形変換則 Var(a^T X)=a^T Sigma a と同一の判断単位。正本に sqrt(n)(beta_hat-beta)=>N_2(0,[[4,1],[1,9]])、a=(1,-1)^T、漸近分散定数11、推定量自身の近似分散11/nまで統合済み。
+    canonical_card: ci-sample-size-for-width
+    coverage_card: ci-sample-size-for-width
+    note: 漸近信頼区間の目標半幅から必要標本数を逆算する判断単位は区間推定側の正本と同一。正本は n=ceil((z_{alpha/2} sigma/d)^2)、切り上げ、sigma未知時の事前推定、許容誤差を半分にすると標本数約4倍まで既に扱う。engineering側の sigma=12,d=3,n=62 は数値代入例なので吸収可能。
