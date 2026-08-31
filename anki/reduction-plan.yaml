@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-clt-sum-reduction-189
+batch_id: 2026-08-31-empirical-cdf-reduction-192
 items:
-  - id: engasym-clt-sum-probability
+  - id: engasym-empirical-cdf-point
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-clt-sample-mean
-    coverage_card: dist-clt-sample-mean
-    note: 中心極限定理による標準化は標本平均と合計で同一の学習単位。正本に S_n=n Xbar_n、E[S_n]=n mu、SD(S_n)=sigma sqrt(n)、n=100・mu=10・sigma=2 で P(S_n>1030)≈1-Phi(1.5)=0.0668 を統合済み。
+    canonical_card: dist-clt-bernoulli-proportion
+    coverage_card: dist-clt-bernoulli-proportion
+    note: 固定点xの経験分布関数は指示変数 B_i=1_{Y_i<=x} の標本平均であり、B_iは成功確率F(x)のベルヌーイ変数。正本に sqrt(n){F_n(x)-F(x)} => N(0,F(x){1-F(x)}) と F(x)=0.5,n=100 の標準誤差0.05まで統合済み。
