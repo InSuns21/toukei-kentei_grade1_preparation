@@ -1,75 +1,77 @@
 schema_version: 1
-batch_id: 2026-08-31-gls-whitening-canonicalization-240
+batch_id: 2026-08-31-random-walk-absorption-canonicalization-242
 items:
-  - id: reg-gls-estimator
-    note: 工学側 enginf-gls-whitening の白色化による説明を、二次形式・WLS・FGLSまで扱う common 正本へ吸収する。白色化行列は曖昧さを避けて C=Omega^{-1/2} と置き、C Omega C^T=I を明示する。
+  - id: stoch-expected-hitting-time
+    note: 工学側 engproc-random-walk-expected-absorption の対称吸収ランダムウォーク公式 m_i=i(N-i) を、平均到達時間の1歩条件付き再帰を扱う common 正本へ導出ごと吸収する。
     sections:
-      一手: |
-        **一般化最小二乗法（GLS）・重み付き最小二乗法（WLS）・実行可能一般化最小二乗法（FGLS）を別公式として暗記しない。** 基本は「残差を誤差分散共分散行列の逆行列 $\boldsymbol\Omega^{-1}$ で測る」ことである。$\boldsymbol\Omega$ が対角なら逆分散重みのWLS、$\boldsymbol\Omega$ が未知なら推定した $\widehat{\boldsymbol\Omega}$ を代入するFGLSになる。
+      問題: |
+        平均到達時間は「最初の1歩」で条件付けて再帰式を作る。
 
-        同じGLSを**白色化**として見ることもできる。$\boldsymbol\Omega$ が正定値なら
+        1. 状態0は吸収状態で、状態1から確率 $1/2$ で0、確率 $1/2$ で1へ移る。0までの平均到達時間 $m_1$ を求めよ。
+        2. 状態 $0,1,\ldots,N$ 上の対称単純ランダムウォークで0と $N$ を吸収状態とする。状態 $i$ からいずれかの境界へ吸収されるまでの平均時間 $m_i$ を再帰式から導け。さらに $N=6,i=2$ の値を求めよ。
+      使用公式・定理: |
+        目標集合への平均到達時間を $m_i$ とすると、目標状態では
         $$
-        \boldsymbol C=\boldsymbol\Omega^{-1/2}
+        m_i=0,
         $$
-        と置き、モデルを左から $\boldsymbol C$ 倍する。すると変換後誤差の分散共分散行列は単位行列の定数倍になり、変換後モデルへの通常の最小二乗法が元のGLSに一致する。
+        目標状態でない状態では、最初の1歩で条件付けて
+        $$
+        m_i=1+\sum_jp_{ij}m_j
+        $$
+        と書ける。
+
+        対称単純ランダムウォークでは $1\le i\le N-1$ に対し
+        $$
+        m_i=1+\frac12m_{i-1}+\frac12m_{i+1},
+        $$
+        境界条件は
+        $$
+        m_0=m_N=0
+        $$
+        である。
+      一手: |
+        **平均到達時間では、現在の1ステップ分の時間をまず1だけ足し、その次の状態ごとの残り時間を遷移確率で平均する。**
+
+        対称ランダムウォークでは再帰式を
+        $$
+        m_{i+1}-2m_i+m_{i-1}=-2
+        $$
+        という2階差分方程式へ直す。右辺が定数なので $m_i$ を $i$ の2次式と見て境界条件を入れると速い。
+      答え: |
+        1. 再帰式は
+        $$
+        m_1=1+\frac12m_0+\frac12m_1.
+        $$
+        $m_0=0$ より
+        $$
+        \boxed{m_1=2}.
+        $$
+
+        2. 再帰式を整理すると
+        $$
+        m_{i+1}-2m_i+m_{i-1}=-2.
+        $$
+        $m_i=-i^2+Ai+B$ と置けばこの差分方程式を満たす。境界条件 $m_0=0$ から $B=0$、$m_N=0$ から $A=N$ なので
+        $$
+        \boxed{m_i=i(N-i)}.
+        $$
+        したがって $N=6,i=2$ では
+        $$
+        \boxed{m_2=2(6-2)=8}.
+        $$
       計算例: |
-        切片のみのモデルで
+        対称単純ランダムウォークで $N=6$ とすると
         $$
-        \boldsymbol X=\begin{pmatrix}1\\1\end{pmatrix},
-        \qquad
-        \boldsymbol y=\begin{pmatrix}1\\3\end{pmatrix},
-        \qquad
-        \boldsymbol\Omega=\begin{pmatrix}1&0\\0&4\end{pmatrix}
-        $$
-        とする。すると
-        $$
-        \boldsymbol\Omega^{-1}
-        =\begin{pmatrix}1&0\\0&1/4\end{pmatrix}.
+        m_i=i(6-i).
         $$
         よって
         $$
-        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
-        =1+\frac14=\frac54,
+        m_1=5,\quad m_2=8,\quad m_3=9,\quad m_4=8,\quad m_5=5.
         $$
-        $$
-        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
-        =1+\frac34=\frac74,
-        $$
-        したがって
-        $$
-        \widehat\beta_0
-        =\left(\frac54\right)^{-1}\frac74
-        =\frac75=1.4.
-        $$
-        分散の小さい第1観測へ4倍の相対重みを置くため、単純平均2より第1観測1へ近い。
+        中央の状態3で平均吸収時間が最大になる。
 
-        同じ問題を白色化で確認する。ここでは
-        $$
-        \boldsymbol C=\boldsymbol\Omega^{-1/2}
-        =\begin{pmatrix}1&0\\0&1/2\end{pmatrix}
-        $$
-        と取れる。誤差を $\boldsymbol\varepsilon$ とすると
-        $$
-        \begin{aligned}
-        \operatorname{Var}(\boldsymbol C\boldsymbol\varepsilon)
-        &=\sigma^2\boldsymbol C\boldsymbol\Omega\boldsymbol C^{\mathsf T}\\
-        &=\sigma^2\boldsymbol I.
-        \end{aligned}
-        $$
-        したがって
-        $$
-        \boldsymbol C\boldsymbol y
-        =\boldsymbol C\boldsymbol X\boldsymbol\beta
-        +\boldsymbol C\boldsymbol\varepsilon
-        $$
-        に通常の最小二乗法を適用すればよい。その推定量は
-        $$
-        \begin{aligned}
-        \widehat{\boldsymbol\beta}
-        &=\{(\boldsymbol C\boldsymbol X)^{\mathsf T}(\boldsymbol C\boldsymbol X)\}^{-1}
-        (\boldsymbol C\boldsymbol X)^{\mathsf T}(\boldsymbol C\boldsymbol y)\\
-        &=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
-        \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y,
-        \end{aligned}
-        $$
-        となり、二次形式から導いたGLSと同じ式に戻る。
+        1の例では各時点で確率 $1/2$ で0へ到達するため、到達時間は成功確率 $1/2$ の幾何分布として見ても平均2となり、再帰式の答えと一致する。
+      注意: |
+        右辺の1は「現在から次の状態へ進む1ステップ」の時間である。
+
+        $m_i=i(N-i)$ は対称な $\pm1$ ランダムウォークかつ両端吸収という特殊形である。一般のマルコフ連鎖や偏りのあるランダムウォークでは、公式を丸暗記して代入せず $m_i=1+\sum_jp_{ij}m_j$ から組み立てる。
