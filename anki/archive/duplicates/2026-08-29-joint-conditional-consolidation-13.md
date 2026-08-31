@@ -167,7 +167,7 @@ sources:
   - type: official_syllabus
     topic: 条件付き分布
 archive_reason: duplicate
-canonical_card: prob-mixture-marginal
+canonical_card: prob-marginal-density
 archive_note: 潜在クラスcanonicalへ周辺化とベイズの定理による逆向き更新を統合し、連続観測の事前確率×条件付き密度の計算まで吸収済み。
 ---
 ## 問題

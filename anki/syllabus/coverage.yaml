@@ -17,7 +17,6 @@ items:
       - prob-independent-events
       - prob-complement-at-least-one
       - prob-chain-rule-three
-      - prob-counting-sample-space
       - prob-basic-sample-space
       - prob-basic-conditional-independence
       - prob-basic-event-limsup-liminf
@@ -29,7 +28,7 @@ items:
         cards:
           - prob-total-probability
           - prob-complement-at-least-one
-          - prob-counting-sample-space
+          - prob-basic-sample-space
       - name: 統計的独立
         status: card
         cards:
@@ -64,7 +63,6 @@ items:
       - prob-cdf-endpoint-choice
       - prob-mixed-cdf
       - prob-joint-cdf-from-density
-      - prob-mixture-marginal
       - prob-conditional-cdf-from-density
       - prob-pgf-independent-sum
       - prob-pgf-thinning
@@ -115,14 +113,13 @@ items:
         status: card
         cards:
           - prob-marginal-density
-          - prob-mixture-marginal
       - name: 条件付き分布
         status: card
         cards:
           - prob-conditional-density
           - prob-conditional-equals-marginal
           - prob-conditional-cdf-from-density
-          - prob-mixture-marginal
+          - prob-marginal-density
       - name: 確率母関数
         status: card
         cards:

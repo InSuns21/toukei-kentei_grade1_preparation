@@ -158,7 +158,7 @@ sources:
   - type: official_syllabus
     topic: 確率の計算
 archive_reason: duplicate
-canonical_card: prob-counting-sample-space
+canonical_card: prob-basic-sample-space
 archive_note: 等確率有限標本空間のcanonicalへ、順序ありの硬貨列と順序なしの組合せ抽出を両方追加したため、組合せだけの単独カードは重複。
 ---
 ## 問題
