@@ -1,8 +1,8 @@
 schema_version: 1
-batch_id: 2026-08-31-empirical-cdf-clt-canonical-190
+batch_id: 2026-08-31-empirical-cdf-central-limit-canonical-191
 items:
   - id: dist-clt-bernoulli-proportion
-    note: ベルヌーイ標本比率のCLT正本へ、固定点xでの経験分布関数を指示変数の標本平均として導く応用を統合し、engineering側の経験CDF一点専用カードを吸収する。
+    note: ベルヌーイ標本比率の中心極限定理正本へ、固定点xでの経験分布関数を指示変数の標本平均として導く応用を統合し、engineering側の経験分布関数一点専用カードを吸収する。
     metadata:
       title: ベルヌーイ標本比率と経験分布関数に中心極限定理を適用する
       topic: central-limit-bernoulli
@@ -43,7 +43,7 @@ items:
         $$
         したがって $B_i\sim\operatorname{Bernoulli}\{F(x)\}$ であり、$F_n(x)=\overline B_n$ である。
       一手／方針: |
-        **0/1の割合を見たらベルヌーイ標本平均へ戻す。** 経験分布関数の一点での漸近分布も新しい定理ではなく、指示変数をベルヌーイ変数と認識すれば通常の標本比率CLTになる。
+        **0/1の割合を見たらベルヌーイ標本平均へ戻す。** 経験分布関数の一点での漸近分布も新しい定理ではなく、指示変数をベルヌーイ変数と認識すれば通常の標本比率に対する中心極限定理になる。
       答え: |
         1. ベルヌーイ分布の平均と分散は $p$、$p(1-p)$ なので、中心極限定理より
         $$
