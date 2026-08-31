@@ -60,7 +60,6 @@ items:
       - prob-conditional-equals-marginal
       - prob-cdf-validity
       - prob-cdf-endpoint-choice
-      - prob-mixed-cdf
       - prob-joint-cdf-from-density
       - prob-conditional-cdf-from-density
       - prob-pgf-independent-sum
@@ -92,7 +91,6 @@ items:
           - prob-cdf-from-density
           - prob-cdf-validity
           - prob-cdf-endpoint-choice
-          - prob-mixed-cdf
       - name: 生存関数
         status: card
         cards:
@@ -234,8 +232,8 @@ items:
       - prob-transform-jacobian-2d
       - prob-transform-ratio
       - prob-linear-combination-normal
-      - prob-linear-combination-moments
-      - prob-transform-log
+      - prob-variance-independent-sum
+      - dist-lognormal-transformation
       - prob-transform-uniform-product
       - prob-transform-normal-polar
       - prob-transform-bivariate-normal-decorrelation
@@ -253,22 +251,19 @@ items:
           - prob-transform-inverse-cdf
           - prob-transform-jacobian-2d
           - prob-transform-ratio
-          - prob-transform-log
+          - dist-lognormal-transformation
       - name: 確率変数の線形結合
         status: card
         cards:
           - prob-transform-sum-density
           - prob-linear-combination-normal
-          - prob-linear-combination-moments
+          - prob-variance-independent-sum
   - id: math-limit-approximations
     status: complete
     cards:
       - dist-clt-sample-mean
       - dist-weak-law-chebyshev
-      - dist-weak-law-sample-mean
-      - dist-clt-statement
       - dist-clt-bernoulli-proportion
-      - dist-clt-sum-variance
       - dist-binomial-normal-conditions
       - dist-binomial-normal-probability
       - dist-binomial-normal-tail
@@ -280,7 +275,6 @@ items:
       - dist-law-small-numbers
       - dist-approximation-choice
       - dist-approximation-error
-      - dist-clt-standard-error
       - dist-poisson-tail-approximation
       - dist-normal-approximation-continuity-full
       - dist-weak-law-mean-identification
@@ -293,17 +287,13 @@ items:
         status: card
         cards:
           - dist-weak-law-chebyshev
-          - dist-weak-law-sample-mean
           - dist-weak-law-mean-identification
           - dist-weak-law-bernoulli-frequency
       - name: 中心極限定理
         status: card
         cards:
           - dist-clt-sample-mean
-          - dist-clt-statement
           - dist-clt-bernoulli-proportion
-          - dist-clt-sum-variance
-          - dist-clt-standard-error
           - dist-clt-bernoulli-count
           - dist-clt-finite-variance
       - name: 二項分布の正規近似とポアソン近似
@@ -535,10 +525,8 @@ items:
       - samp-chisq-definition
       - samp-cochran-theorem
       - samp-t-distribution-definition
-      - samp-t-statistic-mean-test
       - samp-f-distribution-definition
       - samp-f-ratio-of-variances
-      - samp-z-statistic-known-variance
       - samp-sample-proportion
       - samp-sample-variance-expectation
       - samp-two-sample-pooled-variance
@@ -561,7 +549,6 @@ items:
         status: card
         cards:
           - samp-t-distribution-definition
-          - samp-t-statistic-mean-test
           - samp-f-distribution-definition
           - samp-welch-t
           - samp-noncentral-t

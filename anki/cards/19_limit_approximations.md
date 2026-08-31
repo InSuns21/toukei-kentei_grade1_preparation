@@ -102,45 +102,6 @@ $\overline X_n\xrightarrow{p}\mu$ は「十分大きい $n$ なら標本平均�
 <!-- CARD -->
 
 ---
-id: dist-weak-law-sample-mean
-title: 大数の弱法則を標本平均の確率収束として読む
-category: math-probability
-subcategory: math-limit-approximations
-topic: weak-law-sample-mean
-type: recognition
-difficulty: 1
-priority: S
-hashtags: [大数の弱法則, 標本平均, 確率収束]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
----
-## 問題
-独立同分布な確率変数列が平均 $\mu$、有限分散を持つとする。大数の弱法則の結論を、確率収束の定義を用いて書け。
-
-## 答え
-標本平均は母平均から任意に離れる確率が0へ近づく。
-
-## 使用公式・定理
-確率変数列 $Y_n$ が $Y$ に確率収束するとは、任意の $\varepsilon>0$ に対し
-$$P(|Y_n-Y|\ge\varepsilon)\longrightarrow0$$
-が成り立つことである。大数の弱法則は、適切な独立性・同分布性と有限な平均・分散の下で
-$$\overline X_n\xrightarrow{p}\mu$$
-を主張する。
-
-## 計算例
-例えば $\mu=5$ のとき、固定した $\varepsilon=0.1$ に対して
-$$P(|\overline X_n-5|\ge0.1)\longrightarrow0.$$
-これは「十分大きい $n$ では標本平均が必ず5になる」という意味ではなく、5から0.1以上離れる確率が小さくなるという意味である。
-
-## 一手
-記号 $\xrightarrow{p}$ を見たら、まず「任意の $\varepsilon>0$ に対する確率が0へ行く」と言い換える。
-
-## 注意
-確率収束は各標本列が最終的に必ず固定値になることを意味しない。収束の種類を a.s. 収束や分布収束と混同しない。
-
-<!-- CARD -->
-
----
 id: dist-weak-law-conditions
 published: false
 title: 大数の弱法則を適用できる条件を判定する
@@ -179,45 +140,6 @@ $$\operatorname{Var}(\overline X_n)=\operatorname{Var}(X_1)=\sigma^2.$$
 
 ## 注意
 より一般的な大数の法則には別の仮定もある。このカードでは、有限分散を仮定した標準形だけを扱う。
-
-<!-- CARD -->
-
----
-id: dist-clt-statement
-title: 中心極限定理の標準形を記述する
-category: math-probability
-subcategory: math-limit-approximations
-topic: central-limit-theorem
-type: formula
-difficulty: 2
-priority: S
-hashtags: [中心極限定理, 標準化, 正規分布（ガウス分布）]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-## 問題
-$X_1,X_2,\ldots$ が独立同分布で、$E[X_i]=\mu$、$0<\operatorname{Var}(X_i)=\sigma^2<\infty$ とする。中心極限定理の標準形を書け。
-
-## 答え
-標本平均を平均0・分散1になるよう標準化すると、標準正規分布へ分布収束する。
-
-## 使用公式・定理
-標準正規分布を $N(0,1)$ と書く。中心極限定理は
-$$\frac{\sqrt n(\overline X_n-\mu)}{\sigma}\xrightarrow{d}N(0,1)$$
-または同値に
-$$\frac{\sum_{i=1}^nX_i-n\mu}{\sigma\sqrt n}\xrightarrow{d}N(0,1)$$
-と述べられる。
-
-## 計算例
-標本平均の平均と分散は $\mu$、$\sigma^2/n$ なので、標準偏差は $\sigma/\sqrt n$ である。したがって
-$$\frac{\overline X_n-\mu}{\sigma/\sqrt n}=\frac{\sqrt n(\overline X_n-\mu)}{\sigma}.$$
-これが $n$ の増加とともに標準正規分布で近似できる量である。
-
-## 一手
-「平均を引く→標準偏差 $\sigma/\sqrt n$ で割る」の順で標準化する。
-
-## 注意
-中心極限定理は有限の $n$ で標本平均が厳密に正規分布になるという主張ではなく、分布収束の主張である。
 
 <!-- CARD -->
 
@@ -468,44 +390,6 @@ $$P(\overline X_{36}>4.5)\approx P(Z>1)=1-\Phi(1)\approx0.1587.$$
 
 ## 注意
 $\Phi(1)$ と上側確率 $P(Z>1)$ を取り違えない。正規分布は連続なので、$>$ と $\ge$ の違いはない。
-
-<!-- CARD -->
-
----
-id: dist-clt-sum-variance
-title: 和の中心極限定理で標準偏差の次数を確認する
-category: math-probability
-subcategory: math-limit-approximations
-topic: central-limit-sum
-type: formula
-difficulty: 2
-priority: S
-hashtags: [中心極限定理, 和, 標準偏差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-## 問題
-独立同分布な $X_i$ の平均が $\mu$、$0<\operatorname{Var}(X_i)=\sigma^2<\infty$ のとき、和 $S_n=\sum_{i=1}^nX_i$ の中心極限定理による標準化を記せ。なぜ分母が $\sigma n$ ではないか説明せよ。
-
-## 答え
-標準化は $(S_n-n\mu)/(\sigma\sqrt n)$ である。独立な分散は加法的なので、和の分散が $n\sigma^2$ になるからである。
-
-## 使用公式・定理
-独立性から
-$$E[S_n]=n\mu,\qquad \operatorname{Var}(S_n)=n\sigma^2.$$
-よって $S_n$ の標準偏差は $\sqrt{n\sigma^2}=\sigma\sqrt n$ である。中心極限定理は
-$$\frac{S_n-n\mu}{\sigma\sqrt n}\xrightarrow{d}N(0,1).$$
-
-## 計算例
-分散を標準偏差へ変換すると
-$$\operatorname{SD}(S_n)=\sqrt{\operatorname{Var}(S_n)}=\sqrt{n\sigma^2}=\sigma\sqrt n.$$
-したがって分母は $\sigma\sqrt n$ であり、$\sigma n$ ではない。
-
-## 一手
-和ではまず分散を足し、その後に平方根を取る。
-
-## 注意
-分散の増加は $n$ 倍、標準偏差の増加は $\sqrt n$ 倍である。
 
 <!-- CARD -->
 
@@ -970,44 +854,6 @@ $$P(|\overline X_n-\mu|\ge\varepsilon)\to0$$
 
 ## 注意
 確率収束と分布収束は異なる概念である。近似確率を計算するときは、中心極限定理の標準化された量を使う。
-
-<!-- CARD -->
-
----
-id: dist-clt-standard-error
-title: 中心極限定理で標本平均の標準誤差を作る
-category: math-probability
-subcategory: math-limit-approximations
-topic: central-limit-standard-error
-type: calc_step
-difficulty: 1
-priority: S
-hashtags: [中心極限定理, 標本平均, 標準誤差]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
----
-## 問題
-母分散が $\sigma^2=16$、標本サイズが $n=64$ のとき、標本平均の標準誤差を求めよ。
-
-## 答え
-標準誤差は $\sigma/\sqrt n=4/8=0.5$ である。
-
-## 使用公式・定理
-独立同分布標本では
-$$\operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n},$$
-したがって標本平均の標準誤差は
-$$\operatorname{SE}(\overline X_n)=\sqrt{\operatorname{Var}(\overline X_n)}=\frac{\sigma}{\sqrt n}.$$
-
-## 計算例
-$$\sigma=\sqrt{16}=4,\qquad \sqrt n=\sqrt{64}=8.$$
-よって
-$$\operatorname{SE}(\overline X_{64})=\frac48=0.5.$$
-
-## 一手
-分散をそのまま使わず、平方根を取ってから $\sqrt n$ で割る。
-
-## 注意
-$\sigma^2/n=16/64=0.25$ は標本平均の分散であり、標準誤差はその平方根の0.5である。
 
 <!-- CARD -->
 

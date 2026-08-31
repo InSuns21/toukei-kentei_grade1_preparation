@@ -256,40 +256,6 @@ $$
 <!-- CARD -->
 
 ---
-id: samp-t-statistic-mean-test
-title: 母分散未知の正規平均のt統計量
-category: math-distributions
-subcategory: math-sampling-distributions
-topic: t-statistic-mean
-type: theorem
-difficulty: 2
-priority: S
-hashtags: [t統計量, 不偏標本分散, 正規平均]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: t分布 }]
----
-## 問題
-$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}$ 正規分布 $N(\mu,\sigma^2)$、$\sigma^2$ 未知とする。$\overline X$ と不偏標本分散 $S^2$ から $\mu$ に関するt統計量を構成し、その分布を答えよ。
-
-## 答え
-$$T=\frac{\overline X-\mu}{S/\sqrt n}\sim t_{n-1}.$$
-
-## 使用公式・定理
-$\overline X\sim N(\mu,\sigma^2/n)$、$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$、かつ $\overline X$ と $S^2$ は独立。よって
-$$T=\frac{(\overline X-\mu)/(\sigma/\sqrt n)}{\sqrt{\dfrac{(n-1)S^2}{\sigma^2}\Big/(n-1)}}\sim t_{n-1}.$$
-
-## 計算例
-$n=16$ では $T=(\overline X-\mu)/(S/\sqrt{16})\sim t_{15}$。
-
-## 一手
-分散未知なら $\sigma$ を $S$ に置き換え、分布は $N(0,1)$ から $t_{n-1}$ へ変わる。
-
-## 注意
-$\sigma$ 既知なら $t$ ではなく $N(0,1)$。自由度は $n-1$。
-
-<!-- CARD -->
-
----
 id: samp-f-distribution-definition
 title: F分布の定義
 category: math-distributions
@@ -391,39 +357,6 @@ $n_1=6,n_2=9$ では不偏分散の母分散比は2つの $\chi^2$ を自由度�
 
 ## 注意
 $\sigma_1=\sigma_2$ の帰無仮説下では $S_1^2/S_2^2\sim F_{n_1-1,n_2-1}$。分散比検定に使える。
-
-<!-- CARD -->
-
----
-id: samp-z-statistic-known-variance
-title: 母分散既知の正規平均の$z$統計量
-category: math-distributions
-subcategory: math-sampling-distributions
-topic: z-statistic-known-variance
-type: theorem
-difficulty: 2
-priority: A
-hashtags: [正規平均, z統計量, 母分散既知]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 標本分布 }]
----
-## 問題
-$X_1,\ldots,X_n\overset{\mathrm{i.i.d.}}{\sim}$ 正規分布 $N(\mu,\sigma^2)$、$\sigma^2$ 既知とする。$\mu$ の標準化統計量とその分布を答えよ。
-
-## 答え
-$$\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1).$$
-
-## 使用公式・定理
-$\overline X\sim N(\mu,\sigma^2/n)$ を標準化する。
-
-## 計算例
-$n=36,\sigma=12$ なら $\sigma/\sqrt n=2$ で $(\overline X-\mu)/2\sim N(0,1)$。
-
-## 一手
-分散既知なら $\sigma/\sqrt n$ で割って標準正規を直接用いる。
-
-## 注意
-$\sigma$ 未知のときは t 分布へ移行する。
 
 <!-- CARD -->
 

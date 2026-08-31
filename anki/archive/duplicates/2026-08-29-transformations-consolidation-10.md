@@ -20,7 +20,7 @@ sources:
   - type: official_syllabus
     topic: 変数変換
 archive_reason: duplicate
-canonical_card: prob-transform-log
+canonical_card: dist-lognormal-transformation
 archive_note: 単調変換canonicalへ逆変換・Jacobian絶対値・台の変換を一般化し、係数が負の一次変換Y=3-2Xも数値例として吸収済み。
 ---
 ## 問題
@@ -63,7 +63,7 @@ sources:
   - type: official_syllabus
     topic: 変数変換
 archive_reason: duplicate
-canonical_card: prob-transform-log
+canonical_card: dist-lognormal-transformation
 archive_note: 単調減少の非線形例Y=1/Xをcanonicalへ吸収し、逆変換x=1/y、Jacobian 1/y^2、台y>1まで扱うため独立カードにしない。
 ---
 ## 問題

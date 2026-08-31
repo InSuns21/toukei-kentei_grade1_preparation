@@ -107,41 +107,6 @@ $$
 <!-- CARD -->
 
 ---
-id: prob-mixed-cdf
-title: 点質量と連続部分を持つ累積分布関数を作る
-category: math-probability
-subcategory: math-distribution-functions
-topic: mixed-distribution-cdf
-type: calc_step
-difficulty: 2
-priority: S
-hashtags: [混合分布, 累積分布関数, 点質量]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 確率分布 }, { type: past_exam, id: MATH-2024-Q4, topic: 経験分布・混合分布 }]
----
-## 問題
-$P(X=0)=1/2$ で、残りの確率 $1/2$ は区間 $(0,1)$ 上に一定の密度で分布する。$F_X(x)$ を求めよ。
-
-## 答え
-$x=0$ の跳びと、$(0,1)$ 上の連続な増加を分けて足す。
-
-## 使用公式・定理
-点質量と密度が共存するとき
-$$F_X(x)=\sum_{u\le x}P(X=u)+\int_{-\infty}^x f_{\mathrm{cont}}(u)\,du.$$
-
-## 計算例
-連続部分の密度は $(0,1)$ で $1/2$ だから
-$$F_X(x)=\begin{cases}0&(x<0),\\1/2&(x=0),\\1/2+x/2&(0<x<1),\\1&(x\ge1).\end{cases}$$
-
-## 一手
-混合分布では、跳びと密度の積分を別々に数える。
-
-## 注意
-累積分布関数を微分するだけでは点 $0$ の確率質量を回収できない。
-
-<!-- CARD -->
-
----
 id: prob-joint-cdf-from-density
 title: 同時密度を二重積分して同時累積分布関数を求める
 category: math-probability

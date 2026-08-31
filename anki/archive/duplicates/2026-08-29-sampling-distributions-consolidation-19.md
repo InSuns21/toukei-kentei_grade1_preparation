@@ -318,7 +318,7 @@ sources:
   - type: official_syllabus
     topic: t分布
 archive_reason: duplicate
-canonical_card: samp-t-statistic-mean-test
+canonical_card: samp-t-distribution-definition
 archive_note: 母分散未知でsigmaをSへ置き換えるとt_{n-1}になる理由はt統計量canonicalに既に導出され、t分布canonicalにも構成法を統合済み。
 ---
 ## 問題
