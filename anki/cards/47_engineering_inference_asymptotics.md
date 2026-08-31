@@ -154,37 +154,6 @@ $RR=2$、$\log RR\approx0.693$。
 <!-- CARD -->
 
 ---
-id: enginf-robust-sandwich-se
-title: 不均一分散頑健分散のサンドイッチ形を読む
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: robust-covariance
-type: recognition
-difficulty: 3
-priority: A
-hashtags: [線形モデル, 不均一分散, サンドイッチ分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-最小二乗法のHC0分散推定量を書き、どの仮定を緩和するか答えよ。
-## 記号・用語
-$x_i^{\mathsf T}$ は計画行列の第 $i$ 行、$e_i$ は最小二乗法残差である。
-## 使用公式・定理
-$$\widehat V_{\mathrm{HC0}}=(X^{\mathsf T}X)^{-1}
-\left(\sum_{i=1}^ne_i^2x_ix_i^{\mathsf T}\right)(X^{\mathsf T}X)^{-1}.$$
-## 一手／方針
-外側のパンと中央の肉に分けて、通常の最小二乗法分散との違いを見る。
-## 答え
-誤差の独立性と条件付き平均0を保ちながら、$\operatorname{Var}(\varepsilon_i\mid X)=\sigma_i^2$ の不均一分散を許す。
-## 計算例
-全 $e_i^2$ を共通 $s^2$ で置けば通常の $s^2(X^{\mathsf T}X)^{-1}$ に対応する。
-## 注意
-係数推定値自体は最小二乗法のままで、主に標準誤差が変わる。
-
-<!-- CARD -->
-
----
 id: enginf-logistic-wald-output
 title: ロジスティック回帰出力をWald検定する
 category: applied-engineering
@@ -216,37 +185,6 @@ $3.2>1.96$ なので5%水準で棄却する。
 <!-- CARD -->
 
 ---
-id: enginf-glm-deviance-residual-output
-title: 一般化線形モデル適合度出力から残差逸脱度を判定する
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: glm-goodness-of-fit
-type: recognition
-difficulty: 2
-priority: A
-hashtags: [一般化線形モデル, 残差逸脱度, ソフトウェア出力]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 一般化線形モデル }]
----
-## 問題
-残差逸脱度42.0、残差自由度40の一般化線形モデル出力をどう読むか。
-## 記号・用語
-残差逸脱度は当てはめモデルと飽和モデルの対数尤度差の2倍である。
-## 使用公式・定理
-モデルが適切で大標本なら、残差逸脱度は目安として残差自由度と同程度になる。
-## 一手／方針
-逸脱度と自由度の比を計算し、著しい乖離がないかを見る。
-## 答え
-$$42/40=1.05.$$
-1に近く、この出力だけから著しい不適合や過分散は示されない。
-## 計算例
-同じ自由度で逸脱度120なら比3で、モデル不足を疑う。
-## 注意
-この比だけで適合を保証せず、残差パターンも確認する。
-
-<!-- CARD -->
-
----
 id: enginf-glm-wald-joint
 title: 一般化線形モデルの複数係数をWald検定する
 category: applied-engineering
@@ -273,38 +211,6 @@ $$W=1^2/0.25+2^2/1=4+4=8.$$
 $\chi^2_{2,0.05}=5.991$ より大きく、5%水準で同時制約を棄却する。
 ## 注意
 線形正規モデルの有限標本F検定と異なり、一般化線形モデルでは通常大標本カイ二乗近似を使う。
-
-<!-- CARD -->
-
----
-id: enginf-nonlinear-gradient-se
-title: 非線形回帰の勾配から近似標準誤差を求める
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: nonlinear-regression
-type: calc_step
-difficulty: 3
-priority: B
-hashtags: [線形化, デルタ法, 非線形回帰]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形結合の分布 }]
----
-## 問題
-$g(\beta_1,\beta_2)=\beta_1e^{-\beta_2x}$、$x=2$、$\widehat\beta=(10,0.5)$、$\widehat V=\operatorname{diag}(1,0.01)$ とする。$g(\widehat\beta)$ の近似標準誤差を求めよ。
-## 記号・用語
-$\nabla g$ は係数に関する勾配ベクトルである。
-## 使用公式・定理
-デルタ法により $\operatorname{Var}\{g(\widehat\beta)\}\approx\nabla g^{\mathsf T}\widehat V\nabla g$。
-## 一手／方針
-予測関数を各係数で偏微分し、推定値を代入する。
-## 答え
-$$\nabla g=(e^{-1},-2\cdot10e^{-1})^{\mathsf T},$$
-$$\widehat{\operatorname{Var}}(g)=e^{-2}+0.01(20e^{-1})^2=5e^{-2},$$
-よって $SE=\sqrt5/e\approx0.823$。
-## 計算例
-点予測は $10e^{-1}\approx3.679$。
-## 注意
-共分散が非零なら交差項も二次形式に含める。
 
 <!-- CARD -->
 

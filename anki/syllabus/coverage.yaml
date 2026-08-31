@@ -2123,16 +2123,16 @@ items:
       - model-contrast
       - reg-multicollinearity-vif
       - reg-gls-estimator
-      - enginf-robust-sandwich-se
+      - reg-heteroskedasticity-pattern
       - reg-dummy-variable
       - reg-interaction-dummy-continuous
       - enginf-logistic-wald-output
       - glm-three-components
       - glm-logistic-score
       - glm-poisson-mean-ratio
-      - enginf-glm-deviance-residual-output
+      - glm-deviance-definition
       - enginf-glm-wald-joint
-      - enginf-nonlinear-gradient-se
+      - glm-nonlinear-regression-gradient
       - enginf-coefficient-output-engineering
       - reg-sst-decomposition
       - enginf-estimability-linear-function
@@ -2158,7 +2158,7 @@ items:
           - reg-cooks-distance
           - reg-multicollinearity-vif
           - reg-gls-estimator
-          - enginf-robust-sandwich-se
+          - reg-heteroskedasticity-pattern
           - reg-dummy-variable
           - reg-interaction-dummy-continuous
           - enginf-coefficient-output-engineering
@@ -2170,14 +2170,14 @@ items:
           - glm-three-components
           - glm-logistic-score
           - glm-poisson-mean-ratio
-          - enginf-glm-deviance-residual-output
+          - glm-deviance-definition
           - enginf-glm-wald-joint
       - name: 線形結合の分布
         status: card
         cards:
           - mv-covariance-linear-transform
           - reg-mean-response-ci
-          - enginf-nonlinear-gradient-se
+          - glm-nonlinear-regression-gradient
           - enginf-estimability-linear-function
       - name: 線形対比
         status: card
