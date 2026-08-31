@@ -1,0 +1,35 @@
+terms:
+  - term: プロビット回帰
+    definition: 2値応答の成功確率を標準正規分布の累積分布関数で p=Phi(eta) と表す回帰モデル。
+  - term: プロビットリンク
+    definition: 成功確率 p を線形予測子へ写す g(p)=Phi^{-1}(p) というリンク関数。
+  - term: 潜在変数表現
+    definition: 観測されない連続変数 Y*=eta+epsilon が閾値を超えたかどうかで2値応答を表す考え方。
+  - term: 限界効果
+    definition: 説明変数を微小に変化させたときの条件付き平均や成功確率の変化率。
+  - term: 非線形回帰モデル
+    definition: 条件付き平均 f(x;theta) が未知母数 theta に対して非線形な回帰モデル。本章では母数に非線形かどうかを基準にする。
+  - term: 非線形最小二乗法
+    definition: RSS(theta)=sum_i{y_i-f(x_i;theta)}^2 を最小化して未知母数を推定する方法。
+  - term: Jacobian
+    definition: 非線形回帰関数を各未知母数で偏微分して並べた行列。Gauss--Newton法の局所線形化に用いる。
+  - term: Gauss--Newton法
+    definition: 非線形回帰関数を現在の母数の近くで一次近似し、その線形最小二乗問題を反復して解く方法。
+  - term: 局所識別
+    definition: 現在の母数近傍で異なる母数値が異なる平均構造を作り、Jacobianが必要な階数を持つ性質。
+  - term: サポートベクターマシン
+    definition: 分類境界から最近傍データまでのマージンを大きくすることを中心に構成される2値分類法。
+  - term: マージン
+    definition: 分類境界と訓練点の間の余裕。正規化されたSVMでは境界両側の支持超平面間距離は 2/||w|| になる。
+  - term: サポートベクトル
+    definition: 最適分類境界を決める訓練点。ハードマージンでは通常 y_i(w^T x_i+b)=1 を満たし、双対変数が正になる点。
+  - term: ハードマージンSVM
+    definition: 全訓練点を誤分類なくマージン外へ置けることを仮定し、1/2||w||^2 を制約付きで最小化するSVM。
+  - term: ソフトマージンSVM
+    definition: スラック変数を導入してマージン違反を許し、マージンの広さと違反量を同時に最適化するSVM。
+  - term: hinge損失
+    definition: max(0,1-y f(x)) で定義される損失。正しく十分なマージンで分類された点では0となる。
+  - term: KKT条件
+    definition: 制約付き凸最適化で最適解を特徴付ける条件群。SVMでは双対変数とサポートベクトルの関係を与える。
+  - term: カーネル法
+    definition: 特徴写像後の内積をカーネル関数 K(x,z) で直接計算し、高次元特徴を明示的に構成せず非線形境界を扱う方法。
