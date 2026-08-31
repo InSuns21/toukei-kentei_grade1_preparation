@@ -1,204 +1,230 @@
 schema_version: 1
-batch_id: 2026-08-31-linear-contrast-canonicalization-250
+batch_id: 2026-08-31-robust-glm-nonlinear-canonicalization-254
 items:
-  - id: mv-covariance-linear-transform
-    note: 工学側 enginf-linear-combination-normal の正規ベクトルの線形結合分布を common 正本へ吸収する。既存の共分散変換・漸近正規ベクトルの線形結合と同じ a^T Sigma a を使うため、一つの正本で exact / asymptotic を区別して扱う。
+  - id: reg-heteroskedasticity-pattern
+    note: 工学側 enginf-robust-sandwich-se のHC0不均一分散頑健分散を、不均一分散診断の common 正本へ吸収する。係数の不偏性と通常標準誤差の妥当性を分離し、OLS係数はそのままでも分散推定をサンドイッチ形へ替えられることを明示する。
     sections:
-      計算例: |
-        2変量ベクトルの差と和では、共分散項の符号に注意する。例えば
-        $$
-        \operatorname{Var}(X_1-X_2)
-        =\Sigma_{11}+\Sigma_{22}-2\Sigma_{12},
-        $$
-        $$
-        \operatorname{Var}(X_1+X_2)
-        =\Sigma_{11}+\Sigma_{22}+2\Sigma_{12}.
-        $$
-
-        さらに、正規ベクトル
-        $$
-        \boldsymbol Z\sim N_p(\boldsymbol m,\boldsymbol V)
-        $$
-        の任意の定数ベクトル $\boldsymbol a$ に対しては、線形結合も正規分布となり
-        $$
-        \boxed{\boldsymbol a^{\mathsf T}\boldsymbol Z
-        \sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol m,
-        \boldsymbol a^{\mathsf T}\boldsymbol V\boldsymbol a\right)}.
-        $$
-        したがって
-        $$
-        \widehat{\boldsymbol\beta}\sim
-        N_k(\boldsymbol\beta,\sigma^2\boldsymbol C)
-        $$
-        なら
-        $$
-        \boxed{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\beta}
-        \sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol\beta,
-        \sigma^2\boldsymbol a^{\mathsf T}\boldsymbol C\boldsymbol a\right)}.
-        $$
-        例えば $\boldsymbol a=(1,-1)^{\mathsf T}$ なら係数差の分散は
-        $$
-        \sigma^2(C_{11}+C_{22}-2C_{12})
-        $$
-        であり、共分散項を落としてはいけない。
-      注意: |
-        線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
-
-        正規ベクトルの線形結合が正規分布になる結論は有限標本での正確な分布である。一方、
-        $$
-        \sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
-        \xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
-        $$
-        から得る線形結合の正規性は漸近的な結論である。両者で分散計算 $\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$ は同じでも、exact と asymptotic を区別する。
-
-        正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
-  - id: reg-general-linear-hypothesis
-    note: 工学側 enginf-contrast-estimate-se / enginf-contrast-t-test の1本の線形制約を一般線形仮説の正本へ吸収し、一般の回帰係数に対して係数和0を要求しないことを明確化する。
-    sections:
-      問題: |
-        誤差が正規分布に従う線形モデル
-        $$
-        \boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
-        \qquad
-        \boldsymbol\varepsilon\sim N(\boldsymbol0,\sigma^2\boldsymbol I)
-        $$
-        を考え、$\boldsymbol X$ は列フルランクとする。
-
-        1. 一般線形仮説
-        $$
-        H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r
-        $$
-        の制約数を $q=2$ とする。$\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r=(2,1)^{\mathsf T}$、
-        $$
-        \boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}=\boldsymbol I_2,
-        \qquad s^2=5
-        $$
-        のときF統計量を求めよ。
-
-        2. 1本の線形制約
-        $$
-        H_0:\boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
-        $$
-        に対する推定値、標準誤差、t統計量、信頼区間を書け。さらに
-        $$
-        \widehat{\boldsymbol\beta}=(10,3,5)^{\mathsf T},
-        \qquad
-        \widehat{\boldsymbol V}=\operatorname{diag}(1,0.25,0.36),
-        $$
-        $$
-        \boldsymbol c=(0,1,-1)^{\mathsf T},
-        \qquad L_0=0
-        $$
-        とし、残差自由度20、両側5%臨界値 $t_{20,0.025}=2.086$ として検定と95%信頼区間を求めよ。
       使用公式・定理: |
-        $\widehat{\boldsymbol\beta}$ の分散共分散行列は
+        ガウス・マルコフの定理の等分散条件では
         $$
-        \operatorname{Var}(\widehat{\boldsymbol\beta}\mid X)
-        =\sigma^2(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
+        \operatorname{Var}(\boldsymbol\varepsilon\mid X)=\sigma^2I
         $$
-        一般線形仮説で
-        $$
-        \boldsymbol d
-        =\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r,
-        \qquad
-        \boldsymbol A
-        =\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
-        $$
-        とおくと、帰無仮説の下で
-        $$
-        \boxed{
-        F=\frac{\boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d}{q s^2}
-        \sim F_{q,\nu}},
-        $$
-        ここで $\nu$ は残差自由度である。
+        を仮定する。
 
-        1本の制約では
+        不均一分散の下でも $E[\boldsymbol\varepsilon\mid X]=\boldsymbol0$ なら最小二乗推定量は不偏であり得るが、通常の
         $$
-        \widehat L=\boldsymbol c^{\mathsf T}\widehat{\boldsymbol\beta},
+        \widehat{\operatorname{Var}}(\widehat{\boldsymbol\beta})
+        =MS_E(X^{\mathsf T}X)^{-1}
         $$
-        $$
-        \operatorname{SE}(\widehat L)
-        =s\sqrt{\boldsymbol c^{\mathsf T}(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol c}
-        =\sqrt{\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c}.
-        $$
-        正規線形モデルでは
-        $$
-        \boxed{
-        T=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
-        \sim t_\nu}.
-        $$
-        両側 $100(1-\alpha)\%$ 信頼区間は
-        $$
-        \boxed{
-        \widehat L\pm t_{\nu,\alpha/2}\operatorname{SE}(\widehat L)}.
-        $$
-        $q=1$ の一般線形仮説では、同じ制約に対して
-        $$
-        \boxed{F=T^2}
-        $$
-        が成り立つ。
-      一手: |
-        **複数制約なら制約からのずれを二次形式で測り、1本の制約なら線形結合を標準誤差で割る。**
+        は一般に正しくない。
 
-        $q=1$ は一般線形仮説の特殊形なので、推定値 $\widehat L$、分散の二次形式 $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$、t標準化を一続きで処理する。
+        観測 $i$ の説明変数ベクトルを $x_i$、最小二乗残差を $e_i$ とすると、HC0型の不均一分散頑健分散推定量は
+        $$
+        \boxed{
+        \widehat V_{\mathrm{HC0}}
+        =(X^{\mathsf T}X)^{-1}
+        \left(\sum_{i=1}^n e_i^2x_ix_i^{\mathsf T}\right)
+        (X^{\mathsf T}X)^{-1}}
+        $$
+        である。
       答え: |
-        1. ここでは
+        残差対当てはめ値図が右へ行くほど扇状に広がるなら、
         $$
-        \boldsymbol d=(2,1)^{\mathsf T},
-        \qquad \boldsymbol A=\boldsymbol I_2
+        \operatorname{Var}(\varepsilon_i\mid X_i)
         $$
-        なので
+        が一定でない不均一分散を疑う。
+
+        条件付き平均0が保たれていれば最小二乗法の係数推定値は不偏であり得るが、等分散を前提とする通常の標準誤差・t検定・F検定は不適切になり得る。
+
+        対応は目的によって異なる。平均構造や分散構造に意味があるなら変数変換や重み付き最小二乗を検討し、係数推定は最小二乗法のまま推測だけ頑健化したいならHC型のロバスト標準誤差を使う方法がある。
+      計算例: |
+        HC0の式は「外側のパン」
         $$
-        \boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d=2^2+1^2=5.
+        (X^{\mathsf T}X)^{-1}
+        $$
+        の間に、観測ごとの残差二乗で重み付けした
+        $$
+        \sum_i e_i^2x_ix_i^{\mathsf T}
+        $$
+        を挟むサンドイッチ形である。
+
+        形式的に全ての $e_i^2$ を共通の $s^2$ へ置き換えると中央は
+        $$
+        s^2\sum_i x_ix_i^{\mathsf T}=s^2X^{\mathsf T}X
+        $$
+        となるため
+        $$
+        (X^{\mathsf T}X)^{-1}
+        (s^2X^{\mathsf T}X)
+        (X^{\mathsf T}X)^{-1}
+        =s^2(X^{\mathsf T}X)^{-1},
+        $$
+        となり通常の等分散型分散推定と対応する。
+      注意: |
+        係数の不偏性と通常標準誤差の正しさを分けて考える。HC0は最小二乗係数そのものを変更する手法ではなく、主にその分散共分散行列・標準誤差の推定を変更する。
+
+        HC0は不均一分散には頑健だが、系列相関やクラスタ内相関まで自動的に解決するわけではない。その場合は相関構造に対応した別の頑健分散推定が必要になる。
+  - id: glm-deviance-definition
+    note: 工学側 enginf-glm-deviance-residual-output の残差逸脱度/残差自由度の読み方を common 正本へ吸収する。比が1付近というのは大標本での粗い診断目安に限定し、Pearson統計量/自由度による分散診断とは区別する。
+    sections:
+      一手: |
+        **診断は「単一モデルの当てはまり → 入れ子モデル比較 → 分散仮定」の順に見る。**
+
+        - 飽和モデルとの差：逸脱度 $D$
+        - 観測残差の標準化二乗和：Pearson統計量 $X_P^2$
+        - 2モデルの比較：逸脱度差 $D_R-D_F$
+        - $X_P^2/df_E$ が1から大きく外れる：分散仮定を再点検
+
+        さらに、二項・ポアソン型の一般化線形モデルなどで大標本近似が妥当な場面では、残差逸脱度を残差自由度で割った
+        $$
+        D/df_E
+        $$
+        が1前後かを見ることが粗い適合度診断として使われることがある。ただしこれは機械的な合否基準ではない。
+
+        逸脱度と尤度比統計量を別公式として覚えず、**飽和モデル項が差を取ると消える**ことを確認する。
+      計算例: |
+        入れ子モデル比較で「なぜ逸脱度差が尤度比になるか」を実数でも確認する。飽和モデルの最大対数尤度を $-40$、縮小モデルを $-55$、完全モデルを $-51$ とする。
+
+        まず各逸脱度は
+        $$
+        D_R=2\{-40-(-55)\}=30,
+        $$
+        $$
+        D_F=2\{-40-(-51)\}=22.
         $$
         よって
         $$
-        \boxed{F=\frac5{2\cdot5}=0.5}.
+        D_R-D_F=30-22=8.
+        $$
+        一方、直接尤度比から計算しても
+        $$
+        2(\ell_F-\ell_R)
+        =2\{-51-(-55)\}
+        =8
+        $$
+        と一致する。
+
+        単一モデルの出力で残差逸脱度42.0、残差自由度40なら
+        $$
+        \frac{42}{40}=1.05.
+        $$
+        1に近いため、この数値だけから著しい不適合を示すとは言いにくい。ただし適合が保証されたわけではなく、残差パターンや分散仮定も確認する。
+      注意: |
+        残差逸脱度/自由度が1に近いことだけでモデル適合を保証しない。逆に大きな値も、平均構造の不足・外れ値・過分散など複数の原因で生じ得る。
+
+        過分散の尺度として
+        $$
+        \widehat\phi=\frac{X_P^2}{df_E}
+        $$
+        を使う議論と、残差逸脱度/自由度を見る粗い適合度診断は同一ではない。二項・ポアソンモデルで分散仮定を評価するときはPearson統計量・逸脱度・残差構造を合わせて判断する。
+  - id: glm-nonlinear-regression-gradient
+    note: 工学側 enginf-nonlinear-gradient-se の非線形関数の勾配によるデルタ法標準誤差を、Gauss--Newtonの一次線形化を扱う common 正本へ統合する。同じ局所線形化が更新式と推測の両方に使われることを示す。
+    sections:
+      問題: |
+        非線形回帰
+        $$
+        y_i=f(x_i,\boldsymbol\theta)+\varepsilon_i
+        $$
+        を考える。
+
+        1. 非線形最小二乗法のGauss--Newton更新を書け。
+        2. 推定量 $\widehat{\boldsymbol\theta}$ の推定分散共分散行列を $\widehat V$ とする。滑らかな関数 $g(\boldsymbol\theta)$ の近似分散を勾配で書け。
+        3. 
+        $$
+        g(\beta_1,\beta_2)=\beta_1e^{-\beta_2x},
+        \qquad x=2,
+        $$
+        $$
+        \widehat\beta=(10,0.5)^{\mathsf T},
+        \qquad
+        \widehat V=\operatorname{diag}(1,0.01)
+        $$
+        のとき、$g(\widehat\beta)$ の近似標準誤差を求めよ。
+      使用公式・定理: |
+        Gauss--Newton法では現在値の周りで
+        $$
+        \boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)
+        \approx
+        \boldsymbol f(\boldsymbol\theta)+J\boldsymbol\delta
+        $$
+        と一次近似する。ここで
+        $$
+        J_{ij}=\frac{\partial f_i}{\partial\theta_j}
+        $$
+        はヤコビ行列である。
+
+        同じ一次線形化から、デルタ法により滑らかなスカラー関数 $g$ について
+        $$
+        \boxed{
+        \widehat{\operatorname{Var}}\{g(\widehat{\boldsymbol\theta})\}
+        \approx
+        \nabla g(\widehat{\boldsymbol\theta})^{\mathsf T}
+        \widehat V
+        \nabla g(\widehat{\boldsymbol\theta})}
+        $$
+        となる。近似標準誤差はこの平方根である。
+      一手: |
+        **非線形回帰では局所的に線形化する。**
+
+        パラメータ更新では関数ベクトルをヤコビ行列 $J$ で線形化し、推測では予測・応答関数 $g$ を勾配 $\nabla g$ で線形化する。どちらも「現在の推定値の近くで1次式にする」という同じ発想である。
+      答え: |
+        現在値で残差を
+        $$
+        \boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)
+        $$
+        とすると、Gauss--Newton更新は
+        $$
+        \boxed{
+        \boldsymbol\theta^{\mathrm{new}}
+        =\boldsymbol\theta
+        +(J^{\mathsf T}J)^{-1}J^{\mathsf T}\boldsymbol r}.
         $$
 
-        2. 推定する線形結合は
+        数値例では
         $$
-        \widehat L
-        =(0,1,-1)
-        \begin{pmatrix}10\\3\\5\end{pmatrix}
-        =-2.
+        g(\widehat\beta)=10e^{-1}\approx3.679.
         $$
-        標準誤差は
+        勾配は
         $$
-        \operatorname{SE}(\widehat L)
-        =\sqrt{0.25+0.36}
-        =\sqrt{0.61}
-        \approx0.781.
+        \nabla g
+        =\begin{pmatrix}
+        e^{-\beta_2x}\\
+        -x\beta_1e^{-\beta_2x}
+        \end{pmatrix}_{(\beta_1,\beta_2)=(10,0.5),\,x=2}
+        =\begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}.
         $$
         したがって
         $$
-        T=\frac{-2}{0.781}\approx-2.56.
+        \begin{aligned}
+        \widehat{\operatorname{Var}}(g)
+        &\approx
+        (e^{-1},-20e^{-1})
+        \begin{pmatrix}1&0\\0&0.01\end{pmatrix}
+        \begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}\\
+        &=e^{-2}+0.01(20e^{-1})^2\\
+        &=5e^{-2}.
+        \end{aligned}
         $$
-        $|T|=2.56>2.086$ なので5%水準で $H_0:L=0$ を棄却する。
-
-        95%信頼区間は
+        よって
         $$
-        -2\pm2.086(0.781)
-        \approx\boxed{(-3.63,-0.37)}.
+        \boxed{\operatorname{SE}\{g(\widehat\beta)\}\approx\frac{\sqrt5}{e}\approx0.823}.
         $$
       計算例: |
-        推定分散共分散行列の非対角要素も一般には効く。例えば $\widehat\beta_1-\widehat\beta_2$ を考え、対応する2係数の推定分散が0.25と0.36、推定共分散が0.10なら
+        分散共分散行列が対角でない場合は交差項も効く。2母数なら
         $$
-        \operatorname{Var}(\widehat\beta_1-\widehat\beta_2)
-        =0.25+0.36-2(0.10)=0.41.
+        \nabla g=(g_1,g_2)^{\mathsf T},
+        \qquad
+        \widehat V=
+        \begin{pmatrix}v_{11}&v_{12}\\v_{12}&v_{22}\end{pmatrix}
         $$
-        よって標準誤差は $\sqrt{0.41}$ であり、成分分散の単純和ではない。
+        に対して
+        $$
+        \widehat{\operatorname{Var}}(g)
+        \approx
+        g_1^2v_{11}+2g_1g_2v_{12}+g_2^2v_{22}.
+        $$
+        成分分散だけを足して共分散項を落としてはいけない。
       注意: |
-        一般線形仮説
-        $$
-        \boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
-        $$
-        では、$\boldsymbol c$ の成分和が0である必要はない。例えば単一係数の検定 $H_0:\beta_j=0$ では $\boldsymbol c$ は単位ベクトルで、成分和は1である。
+        Gauss--Newton更新の $(J^{\mathsf T}J)^{-1}$ には局所的な列フルランク性が必要である。初期値が悪い場合や強い非線形性がある場合は収束しないこともある。
 
-        一方、一元配置分散分析などで**群平均の対比（contrast）**と呼ぶときは、共通水準を打ち消して群間差だけを測るため、通常
-        $$
-        \sum_i c_i=0
-        $$
-        を要求する。一般の線形制約と群平均の対比を混同しない。
-
-        $\widehat{\boldsymbol V}$ を使うときは、共分散項を含めて $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$ を計算する。片側検定では臨界値と棄却方向が変わる。
+        デルタ法の標準誤差は一次近似に基づく近似である。強い非線形性、小標本、境界付近では近似精度が悪くなり得る。
