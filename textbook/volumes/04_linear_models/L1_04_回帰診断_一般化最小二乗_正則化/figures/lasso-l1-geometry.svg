@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1040" height="540" viewBox="0 0 1040 540" role="img" aria-labelledby="title desc">
   <title id="title">LASSOのL1制約と係数が0になる幾何</title>
-  <desc id="desc">二乗誤差の等高線がL1制約領域のひし形の角に接すると、一方の係数が厳密に0になることを示す概念図。右側には軟閾値関数を示す。</desc>
+  <desc id="desc">二乗誤差の等高線がL1制約領域のひし形の角に接すると、一方の係数が厳密に0になることを示す概念図。右側には連続な軟閾値関数を示す。</desc>
   <style>
     text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;fill:#222}.axis{stroke:#667085;stroke-width:1.4}.diamond{fill:#ede9fe;stroke:#7c3aed;stroke-width:2.4}.contour{fill:none;stroke:#2563eb;stroke-width:1.8}.touch{fill:#dc2626}.soft{fill:none;stroke:#16a34a;stroke-width:2.6}.guide{stroke:#98a2b3;stroke-width:1.1;stroke-dasharray:5 5}.label{font-size:20px;font-weight:700}.small{font-size:15px;fill:#475467}.box{fill:#fff;stroke:#d0d5dd;rx:10}
   </style>
@@ -18,14 +18,14 @@
   <text class="small" x="295" y="145">接点が角 → β₁ = 0</text>
   <text class="small" x="355" y="330">|β₁| + |β₂| ≤ t</text>
   <text class="small" x="365" y="160">RSS等高線</text>
-  <text class="small" x="355" y="326">β₁</text><text class="small" transform="translate(260 190) rotate(-90)">β₂</text>
+  <text class="small" x="455" y="326">β₁</text><text class="small" transform="translate(260 190) rotate(-90)">β₂</text>
   <text class="small" x="80" y="492">罰則形と制約形は、適切な λ と t の対応の下で同じ解を与える。</text>
 
   <rect class="box" x="550" y="70" width="445" height="400"/>
   <text class="label" x="575" y="105">直交設計の軟閾値</text>
   <line class="axis" x1="600" y1="300" x2="955" y2="300"/><line class="axis" x1="775" y1="135" x2="775" y2="430"/>
   <line class="guide" x1="690" y1="145" x2="690" y2="420"/><line class="guide" x1="860" y1="145" x2="860" y2="420"/>
-  <polyline class="soft" points="610,415 690,335 690,300 860,300 860,265 940,185"/>
+  <polyline class="soft" points="610,380 690,300 860,300 940,220"/>
   <text class="small" x="677" y="442">−λ</text><text class="small" x="852" y="442">λ</text>
   <text class="small" x="928" y="326">z</text><text class="small" transform="translate(755 185) rotate(-90)">β̂</text>
   <text class="small" x="700" y="280">|z| ≤ λ なら β̂ = 0</text>
