@@ -1,15 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-are-mle-reduction-185
+batch_id: 2026-08-31-mse-order-reduction-187
 items:
-  - id: asym-are-median-mean
+  - id: engasym-asymptotic-bias-mse
     bucket: duplicates
     reason: duplicate
-    canonical_card: asym-asymptotic-relative-efficiency
-    coverage_card: asym-asymptotic-relative-efficiency
-    note: ARE正本へ、正規母集団で標本平均の極限分散sigma^2、標本中央値の極限分散pi sigma^2/2、ARE(median,mean)=2/pi≈0.637、n=100・sigma=2の数値比較、ロバスト性注意まで統合済み。
-  - id: asym-mle-av-normal
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: asym-mle-asymptotic-normality
-    coverage_card: asym-mle-asymptotic-normality
-    note: 最尤推定量の漸近正規性正本へ、既知分散の正規平均で I_1(mu)=1/sigma^2 を対数尤度から導出し、Avar(Xbar)=sigma^2/n、sigma^2=9,n=100でASE=0.3まで統合済み。
+    canonical_card: asym-convergence-ms
+    coverage_card: asym-convergence-ms
+    note: 平均二乗収束・一致性の正本へ、MSE=分散+バイアス平方、Bias=O(n^-1)なら平方はO(n^-2)でVar=O(n^-1)より低次、Bias=O(n^-1/2)なら平方もO(n^-1)で主要項に残ること、n=100の数値比較まで統合済み。
