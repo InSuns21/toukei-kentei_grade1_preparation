@@ -2279,7 +2279,7 @@ items:
       - engasym-delta-risk-ratio
       - engasym-delta-odds-ratio
       - asym-mle-poisson-tail-probability
-      - engasym-wald-ci-generic
+      - ci-asymptotic-mle
     terms:
       - name: 大数の法則
         status: card
@@ -2300,7 +2300,7 @@ items:
         cards:
           - asym-mle-asymptotic-normality
           - asym-mle-poisson-tail-probability
-          - engasym-wald-ci-generic
+          - ci-asymptotic-mle
           - test-lr-wald-score-comparison
           - engasym-local-alternative-power
       - name: 漸近分散
