@@ -1,15 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-probability-reduction-213
+batch_id: 2026-08-31-probability-reduction-215
 items:
-  - id: prob-counting-sample-space
+  - id: dist-variance-moment
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-basic-sample-space
-    coverage_card: prob-basic-sample-space
-    note: 有限一様標本空間の正本へ、硬貨3回で表ちょうど2回を binom(3,2)/2^3=3/8 と数える同一問題を統合済み。さらに赤5・青3から非復元で2個選ぶ組合せ例も保持し、分子分母で順序・復元条件をそろえる注意まで吸収した。
-  - id: prob-mixture-marginal
+    canonical_card: prob-variance-independent-sum
+    coverage_card: prob-variance-independent-sum
+    note: 分散正本へ旧カードと同じE[X]=2,E[X^2]=6からVar(X)=6-4=2を求める問題を統合済み。さらにVar(X)=E[X^2]-E[X]^2を起点に、線形結合の一般式、独立和、標準化まで一続きに扱うため旧単発カードは不要。
+  - id: dist-jacobian-scale
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-marginal-density
-    coverage_card: prob-marginal-density
-    note: 周辺化正本を、連続変数の積分だけでなく離散潜在クラスの総和 p_X(x)=sum_z p(x|z)P(z) まで拡張済み。旧カードと同じ0.3/0.7、0.8/0.2の例でP(X=1)=0.38、さらにBayes逆更新P(Z=1|X=1)=12/19≈0.632と連続混合密度例まで統合したため独立カード不要。
+    canonical_card: prob-transform-nonmonotonic
+    coverage_card: prob-transform-nonmonotonic
+    note: 1変数変換正本へ旧カードと同じf_X(x)=e^{-x}, Y=2Xの例を統合済み。逆変換x=y/2、|dx/dy|=1/2、変換後の台y>0からf_Y(y)=1/2 e^{-y/2}を導き、さらに多対1変換を各逆像枝の和として統一しているため旧カードは不要。
