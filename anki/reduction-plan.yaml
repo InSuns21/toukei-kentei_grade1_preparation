@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-reduction-217
+batch_id: 2026-08-31-multivariate-reduction-219
 items:
-  - id: model-gauss-markov
+  - id: multi-covariance-psd
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multiple-model-matrix
-    coverage_card: reg-multiple-model-matrix
-    note: 行列回帰正本へGauss--Markov定理の条件を統合済み。固定された列フルランクX、E[epsilon]=0、Var(epsilon)=sigma^2 Iの下で最小二乗推定量の不偏性・共分散を導くだけでなく、任意の線形不偏推定量CyについてD=C-Bと置きVar(Cy)-Var(By)=sigma^2 DD^T≽0を示してBLUE性まで証明し、正規性不要も明記したため旧単発カードは不要。
+    canonical_card: mv-mean-covariance-numeric
+    coverage_card: mv-mean-covariance-numeric
+    note: 多変量平均・分散共分散行列の正本へ、任意のaについてa^T Sigma a=Var(a^T X)>=0から母分散共分散行列が半正定値である証明を統合済み。さらに標本共分散でもa^T S a=(n-1)^(-1) sum_i {a^T(x_i-xbar)}^2>=0を示し、数値例S=[[2,2],[2,2]]が半正定値だがdet(S)=0で特異となる理由まで扱うため旧単発カードは不要。
