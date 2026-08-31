@@ -1786,18 +1786,18 @@ $$
 
 ---
 id: reg-multiple-model-matrix
-title: 重回帰を行列で表し最小二乗推定量・不偏性・共分散まで導く
+title: 重回帰を計画行列で表し最小二乗推定量・共分散まで導く
 category: math-data-analysis
 subcategory: math-regression
-topic: multiple-regression-matrix-canonical
-type: formula
-difficulty: 2
+topic: multiple-regression-design-matrix-canonical
+type: calc_step
+difficulty: 3
 priority: S
 hashtags:
   - 重回帰
-  - 行列表現
+  - 計画行列
   - 最小二乗法
-  - 不偏性
+  - 交互作用
   - 共分散行列
 frequency:
   past_exam: 0
@@ -1819,6 +1819,11 @@ $$
 1. 残差平方和を最小化して最小二乗推定量を導け。
 2. 不偏性と共分散行列を導け。
 3. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
+4. 平均構造
+$$
+E[Y]=\beta_0+\beta_1x+\beta_2D+\beta_3xD
+$$
+に対し、観測 $(x,D)=(2,0),(3,1)$ の2件から計画行列を作れ。係数ベクトルの列順は $(\beta_0,\beta_1,\beta_2,\beta_3)$ とする。
 
 ## 使用公式・定理
 残差平方和は
@@ -1846,8 +1851,12 @@ $$
 =\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
 $$
 
-## 一手
-**残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。** その形から期待値と共分散が一度に出る。
+計画行列は、各観測についてモデル式で各係数に掛かる値を係数ベクトルと同じ順に並べて1行ずつ作る。交互作用項があれば、その観測で積も実際に計算する。
+
+## 一手／方針
+**まずモデル式から「1観測分の行」を作る。** 係数ベクトルが $(\beta_0,\beta_1,\beta_2,\beta_3)$ なら、その観測で係数に掛かる $(1,x,D,xD)$ が計画行列の1行になる。
+
+最小二乗法の導出では、残差平方和を行列で微分して正規方程式を出し、推定量から真値を引いて誤差の線形変換として読む。その形から期待値と共分散が一度に出る。
 
 ## 答え
 $E[\boldsymbol\varepsilon]=\mathbf0$ より
@@ -1878,14 +1887,27 @@ $$
 よって
 $$
 \widehat{\boldsymbol\beta}
-=\frac16
-\begin{pmatrix}5&-3\\-3&3\end{pmatrix}
-\begin{pmatrix}9\\13\end{pmatrix}
 =\begin{pmatrix}1\\2\end{pmatrix}.
 $$
 
+交互作用モデルでは1行は $(1,x,D,xD)$ なので、
+$$
+(x,D)=(2,0)\Rightarrow(1,2,0,0),
+$$
+$$
+(x,D)=(3,1)\Rightarrow(1,3,1,3).
+$$
+したがって
+$$
+\boxed{
+X=\begin{pmatrix}
+1&2&0&0\\
+1&3&1&3
+\end{pmatrix}}.
+$$
+
 ## 計算例
-この設計では
+最初の数値例では
 $$
 \widehat y=1+2x
 $$
@@ -1898,10 +1920,21 @@ $$
 -3&3
 \end{pmatrix}.
 $$
-対角要素が各係数推定量の分散、非対角要素が係数推定量間の共分散である。
+
+交互作用モデルの行を確認すると、$D=0$ では $xD=0$ なので
+$$
+E[Y]=\beta_0+\beta_1x,
+$$
+$D=1$ では
+$$
+E[Y]=(\beta_0+\beta_2)+(\beta_1+\beta_3)x
+$$
+となる。計画行列を作る操作と群別回帰直線の解釈は同じモデル式を別方向から読んでいる。
 
 ## 注意
 一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくない。実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。
+
+計画行列では列順を係数ベクトルの順序と必ず対応させる。交互作用を入れる場合は通常、対応する主効果も残す。
 
 <!-- CARD -->
 
