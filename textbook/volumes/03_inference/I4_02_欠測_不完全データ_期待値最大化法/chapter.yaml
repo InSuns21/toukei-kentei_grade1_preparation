@@ -1,0 +1,55 @@
+id: "I4-02"
+title: "欠測・不完全データ・期待値最大化法"
+volume: "inference"
+status: drafting
+prerequisites:
+  - I1-01
+  - P1-02
+  - P3-04
+  - P3-03
+official_scope:
+  - 欠測
+  - 不完全データ
+  - 観測データ尤度
+  - 期待値最大化法
+  - 打ち切り
+  - 切断
+learning_objectives:
+  - 欠測・打ち切り・切断の情報構造の違いを説明できる
+  - 欠測指示変数を用いて完全無作為欠測・無作為欠測・非無作為欠測を区別できる
+  - 潜在変数を周辺化して観測データ尤度を構成できる
+  - 混合分布で観測データ対数尤度に対数の中の和が現れる理由を説明できる
+  - 完全データ対数尤度から期待値最大化法のE-stepとM-stepを導出できる
+  - 2成分正規混合モデルの所属確率と母数更新式を導出できる
+  - 2成分正規混合モデルで期待値最大化法を1反復手計算できる
+  - 期待値最大化法が観測データ尤度を減少させない理由をKLダイバージェンスを用いて説明できる
+  - 局所最大・初期値依存・ラベル交換・標準誤差が直接得られない点を説明できる
+  - 単一代入が欠測値の不確実性を無視する危険を説明できる
+definitions:
+  - { id: I402-DEF-01, name: 欠測指示変数 }
+  - { id: I402-DEF-02, name: 完全無作為欠測 }
+  - { id: I402-DEF-03, name: 無作為欠測 }
+  - { id: I402-DEF-04, name: 非無作為欠測 }
+  - { id: I402-DEF-05, name: 観測データ尤度 }
+  - { id: I402-DEF-06, name: 完全データ尤度 }
+  - { id: I402-DEF-07, name: 期待値最大化法 }
+  - { id: I402-DEF-08, name: E-step }
+  - { id: I402-DEF-09, name: M-step }
+  - { id: I402-DEF-10, name: 責任度 }
+  - { id: I402-DEF-11, name: 打ち切り }
+  - { id: I402-DEF-12, name: 切断 }
+theorems:
+  - { id: I402-THM-01, name: 観測データ尤度の周辺化 }
+  - { id: I402-THM-02, name: 2成分正規混合のE-step }
+  - { id: I402-THM-03, name: 2成分正規混合のM-step }
+  - { id: I402-THM-04, name: 期待値最大化法の尤度単調性 }
+canonical_examples: [欠測機構の判定, 右打ち切りと切断の比較, 2成分正規混合の所属確率, 期待値最大化法の1反復, 単一代入の分散過小評価]
+problem_patterns: [MISSING-MECH-1, CENSOR-TRUNC-1, OBS-LIK-1, MIX-E-STEP-1, MIX-M-STEP-1, EM-ITER-1, EM-MONOTONE-1, IMPUTE-UNCERTAINTY-1]
+past_exam_alignment: []
+integrated_exam_problems: [I4-02-C01, I4-02-C02, I4-02-C03, I4-02-C04, I4-02-D01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
