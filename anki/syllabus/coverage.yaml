@@ -2141,9 +2141,6 @@ items:
       - enginf-estimability-linear-function
       - enginf-restricted-least-squares
       - enginf-normal-equations-orthogonality
-      - enginf-ols-unbiased-condition
-      - enginf-ols-covariance-matrix
-      - enginf-gauss-markov-comparison
       - enginf-linear-combination-normal
       - enginf-contrast-estimate-se
       - enginf-contrast-t-test
@@ -2157,9 +2154,7 @@ items:
         status: card
         cards:
           - enginf-normal-equations-orthogonality
-          - enginf-ols-unbiased-condition
-          - enginf-ols-covariance-matrix
-          - enginf-gauss-markov-comparison
+          - reg-multiple-model-matrix
           - reg-overall-f-test
           - reg-mean-response-ci
           - reg-hat-matrix-properties
@@ -2168,7 +2163,6 @@ items:
           - reg-gls-estimator
           - enginf-robust-sandwich-se
           - reg-dummy-variable
-          - reg-multiple-model-matrix
           - reg-interaction-dummy-continuous
           - enginf-coefficient-output-engineering
           - reg-sst-decomposition
