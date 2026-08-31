@@ -1,0 +1,47 @@
+id: "E1-03"
+title: "因子分析・クラスター分析"
+volume: "engineering"
+status: reviewed
+prerequisites:
+  - E1-01
+  - E1-02
+  - F0-00
+official_scope:
+  - 因子分析
+  - クラスター分析
+learning_objectives:
+  - 因子分析と主成分分析の目的・モデル化の違いを説明できる
+  - 共通因子モデルから分散共分散行列 Sigma=Lambda Lambda^T+Psi を導出できる
+  - 因子負荷量・共通性・独自性を計算し、標準化変数での意味を説明できる
+  - 直交回転による因子負荷量の回転不定性を示し、回転の目的を説明できる
+  - 因子数の判断と因子得点の位置付けを説明できる
+  - 距離・標準化がクラスタリング結果へ与える影響を説明できる
+  - 単連結法・完全連結法・群平均法・Ward法の結合規則を計算できる
+  - Ward法の結合コストを群内平方和の増分として導出できる
+  - k-meansの目的関数を記述し、固定クラスタに対する最適中心が標本平均であることを導出できる
+  - 因子分析・PCA・階層型クラスタリング・k-meansを目的に応じて使い分けられる
+definitions:
+  - { id: E103-DEF-01, name: 共通因子モデル }
+  - { id: E103-DEF-02, name: 因子負荷量 }
+  - { id: E103-DEF-03, name: 共通性 }
+  - { id: E103-DEF-04, name: 独自性 }
+  - { id: E103-DEF-05, name: 因子回転 }
+  - { id: E103-DEF-06, name: クラスター分析 }
+  - { id: E103-DEF-07, name: 階層型クラスタリング }
+  - { id: E103-DEF-08, name: Ward法 }
+  - { id: E103-DEF-09, name: k-means法 }
+theorems:
+  - { id: E103-THM-01, name: 共通因子モデルの共分散分解 }
+  - { id: E103-THM-02, name: 直交回転による共分散の不変性 }
+  - { id: E103-THM-03, name: Ward法の結合コスト }
+  - { id: E103-THM-04, name: k-means中心の最適性 }
+canonical_examples: [二因子モデル, 共通性と独自性, 因子回転, 階層型クラスタリング, Ward法, k-means]
+problem_patterns: [FA-MODEL-1, FA-COMMUNALITY-1, FA-ROTATION-1, CLUSTER-LINKAGE-1, WARD-1, KMEANS-1]
+past_exam_alignment: []
+integrated_exam_problems: [E1-03-C01, E1-03-C02, E1-03-C03, E1-03-D01, E1-03-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
