@@ -57,7 +57,7 @@ sources:
   - type: official_syllabus
     topic: 線形対比と制約
 archive_reason: duplicate
-canonical_card: enginf-contrast-estimate-se
+canonical_card: reg-general-linear-hypothesis
 ---
 ## 問題
 3群平均の式 $\mu_1-(\mu_2+\mu_3)/2$ は線形対比か。

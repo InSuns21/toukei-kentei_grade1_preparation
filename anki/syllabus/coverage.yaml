@@ -2141,9 +2141,9 @@ items:
       - enginf-estimability-linear-function
       - enginf-restricted-least-squares
       - enginf-normal-equations-orthogonality
-      - enginf-linear-combination-normal
-      - enginf-contrast-estimate-se
-      - enginf-contrast-t-test
+      - mv-covariance-linear-transform
+      - anova-contrast-definition
+      - reg-general-linear-hypothesis
       - reg-partial-f-test
       - reg-overall-f-test
       - reg-mean-response-ci
@@ -2181,7 +2181,7 @@ items:
       - name: 線形結合の分布
         status: card
         cards:
-          - enginf-linear-combination-normal
+          - mv-covariance-linear-transform
           - reg-mean-response-ci
           - enginf-nonlinear-gradient-se
           - enginf-estimability-linear-function
@@ -2189,8 +2189,8 @@ items:
         status: card
         cards:
           - model-contrast
-          - enginf-contrast-estimate-se
-          - enginf-contrast-t-test
+          - anova-contrast-definition
+          - reg-general-linear-hypothesis
           - reg-dummy-variable
       - name: 線形制約
         status: card
