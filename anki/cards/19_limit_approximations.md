@@ -259,38 +259,112 @@ $$
 
 ---
 id: dist-clt-bernoulli-proportion
-title: ベルヌーイ標本比率を中心極限定理で近似する
+title: ベルヌーイ標本比率と経験分布関数に中心極限定理を適用する
 category: math-probability
 subcategory: math-limit-approximations
 topic: central-limit-bernoulli
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [中心極限定理, ベルヌーイ分布, 標本比率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
+hashtags:
+  - 中心極限定理
+  - ベルヌーイ分布
+  - 標本比率
+  - 経験分布関数
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 中心極限定理
 ---
 ## 問題
-$X_1,\ldots,X_n$ は成功確率 $p=0.3$ のベルヌーイ分布に従う独立標本とし、$\widehat p=\overline X_n$ とする。$\sqrt n(\widehat p-p)$ の極限分布を求めよ。
+1. $X_1,\ldots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p)$、$\widehat p=\overline X_n$ とする。$\sqrt n(\widehat p-p)$ の極限分布を求めよ。
+2. 一般の独立同分布標本 $Y_1,\ldots,Y_n$ の経験分布関数
+$$
+F_n(x)=\frac1n\sum_{i=1}^n\boldsymbol1_{\{Y_i\le x\}}
+$$
+を考える。固定した $x$ について $\sqrt n\{F_n(x)-F(x)\}$ の極限分布を、1の結果から導け。ただし $F(x)=P(Y_i\le x)$ とする。
+3. $F(x)=0.5$、$n=100$ のとき $F_n(x)$ の近似標準誤差を求めよ。
+
+## 記号・用語
+$\widehat p$ はベルヌーイ標本の成功割合である。$F_n(x)$ は経験分布関数で、固定した $x$ では「観測値が $x$ 以下だった割合」と読める。
+
+$\boldsymbol1_{\{Y_i\le x\}}$ は、事象 $Y_i\le x$ が起きれば1、そうでなければ0を取る指示変数である。
 
 ## 答え
-平均0、分散 $p(1-p)=0.21$ の正規分布へ分布収束する。
+1. ベルヌーイ分布の平均と分散は $p$、$p(1-p)$ なので、中心極限定理より
+$$
+\boxed{\sqrt n(\widehat p-p)\xrightarrow{d}N\{0,p(1-p)\}}.
+$$
+同値に大標本では
+$$
+\widehat p\ \dot\sim\ N\left(p,\frac{p(1-p)}n\right).
+$$
+
+2. 固定した $x$ について
+$$
+B_i=\boldsymbol1_{\{Y_i\le x\}}\sim\operatorname{Bernoulli}\{F(x)\},
+\qquad F_n(x)=\overline B_n.
+$$
+よって1で $p$ を $F(x)$ に置き換えれば
+$$
+\boxed{
+\sqrt n\{F_n(x)-F(x)\}
+\xrightarrow{d}
+N\left(0,F(x)\{1-F(x)\}\right)}.
+$$
+
+3. $F(x)=0.5$、$n=100$ では
+$$
+\operatorname{ASE}\{F_n(x)\}
+=\sqrt{\frac{0.5(1-0.5)}{100}}
+=\sqrt{0.0025}
+=\boxed{0.05}.
+$$
 
 ## 使用公式・定理
-ベルヌーイ分布 $\operatorname{Bernoulli}(p)$ は台 $\{0,1\}$、$P(X=1)=p$、$P(X=0)=1-p$ で、平均 $p$、分散 $p(1-p)$ を持つ。中心極限定理より
-$$\frac{\sqrt n(\widehat p-p)}{\sqrt{p(1-p)}}\xrightarrow{d}N(0,1).$$
+ベルヌーイ変数 $B_i\sim\operatorname{Bernoulli}(q)$ は
+$$
+E[B_i]=q,\qquad \operatorname{Var}(B_i)=q(1-q)
+$$
+を満たす。中心極限定理より
+$$
+\sqrt n(\overline B_n-q)\xrightarrow{d}N\{0,q(1-q)\}.
+$$
+
+固定した $x$ に対して
+$$
+B_i=\boldsymbol1_{\{Y_i\le x\}}
+$$
+と置けば
+$$
+P(B_i=1)=P(Y_i\le x)=F(x),
+$$
+したがって $B_i\sim\operatorname{Bernoulli}\{F(x)\}$ であり、$F_n(x)=\overline B_n$ である。
 
 ## 計算例
-両辺の分母を移項すると
-$$\sqrt n(\widehat p-p)\xrightarrow{d}N(0,p(1-p)).$$
-$p=0.3$ を代入して
-$$\sqrt n(\widehat p-0.3)\xrightarrow{d}N(0,0.3\cdot0.7)=N(0,0.21).$$
+$p=0.3$、$n=100$ のベルヌーイ標本比率なら
+$$
+\operatorname{ASE}(\widehat p)
+=\sqrt{\frac{0.3\cdot0.7}{100}}
+\approx0.0458.
+$$
 
-## 一手
-ベルヌーイ標本では、一般の分散 $\sigma^2$ を $p(1-p)$ に置き換える。
+経験分布関数も全く同じ計算で、例えば $F(x)=0.3$ なら
+$$
+\operatorname{ASE}\{F_n(x)\}
+\approx0.0458
+$$
+となる。違うのは成功事象を「1が出た」ではなく「$Y_i\le x$」と定義した点だけである。
+
+## 一手／方針
+**0/1の割合を見たらベルヌーイ標本平均へ戻す。** 経験分布関数の一点での漸近分布も新しい定理ではなく、指示変数をベルヌーイ変数と認識すれば通常の標本比率に対する中心極限定理になる。
 
 ## 注意
-標準化した量の極限分布は $N(0,1)$、標準化していない量の極限分布は $N(0,p(1-p))$ である。
+経験分布関数についてここで示したのは**固定した1点 $x$** での中心極限定理である。$\sup_x|F_n(x)-F(x)|$ のような関数全体の一様収束や、経験過程の極限は別の主張である。また $F(x)=0$ または1では極限分散が0となり、非退化な正規極限にはならない。
 
 <!-- CARD -->
 
