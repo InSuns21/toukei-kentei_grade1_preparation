@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-normal-affine-reduction-232
+batch_id: 2026-08-31-continuity-correction-reduction-234
 items:
-  - id: dist-normal-linear-transform
+  - id: dist-continuity-correction-tail
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-linear-combination-normal
-    coverage_card: prob-linear-combination-normal
-    note: 多変量正規の正本をY=a^T X+bへ拡張し、1変量X~N(mu,sigma^2)ならaX+b~N(a mu+b,a^2 sigma^2)、旧カードと同じX~N(2,9),Y=-X+4の例、a=0の退化分布まで統合済み。1変量だけの旧カードは一般アフィン変換の特殊ケース。
+    canonical_card: dist-continuity-correction-interval
+    coverage_card: dist-continuity-correction-interval
+    note: 片側事象の ±0.5 は、整数点 j を幅1のセル [j-0.5,j+0.5] に対応させる正本から直接導ける。正本には >=, >, <=, < の4方向と一点確率、二項分布の数値例まで統合済みで、旧 tail カードに独立した判断技能は残らない。
