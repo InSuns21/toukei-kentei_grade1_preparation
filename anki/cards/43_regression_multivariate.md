@@ -213,61 +213,157 @@ sources: [{ type: official_syllabus, topic: 重回帰モデル }]
 ---
 
 ## 問題
-$H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ の制約数をqとする。$\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r=(2,1)^{\mathsf T}$、$\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}=\boldsymbol I_2$、$s^2=5$ のときF統計量を求めよ。
+誤差が正規分布に従う線形モデル
+$$
+\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon,
+\qquad
+\boldsymbol\varepsilon\sim N(\boldsymbol0,\sigma^2\boldsymbol I)
+$$
+を考え、$\boldsymbol X$ は列フルランクとする。
+
+1. 一般線形仮説
+$$
+H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r
+$$
+の制約数を $q=2$ とする。$\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r=(2,1)^{\mathsf T}$、
+$$
+\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}=\boldsymbol I_2,
+\qquad s^2=5
+$$
+のときF統計量を求めよ。
+
+2. 1本の線形制約
+$$
+H_0:\boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
+$$
+に対する推定値、標準誤差、t統計量、信頼区間を書け。さらに
+$$
+\widehat{\boldsymbol\beta}=(10,3,5)^{\mathsf T},
+\qquad
+\widehat{\boldsymbol V}=\operatorname{diag}(1,0.25,0.36),
+$$
+$$
+\boldsymbol c=(0,1,-1)^{\mathsf T},
+\qquad L_0=0
+$$
+とし、残差自由度20、両側5%臨界値 $t_{20,0.025}=2.086$ として検定と95%信頼区間を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-正規線形モデルの帰無仮説下で $F\sim F_{q,n-p}$。
-
-## 一手
-$H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ では、まず制約からのずれ
+$\widehat{\boldsymbol\beta}$ の分散共分散行列は
 $$
-\boldsymbol d=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
+\operatorname{Var}(\widehat{\boldsymbol\beta}\mid X)
+=\sigma^2(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}.
 $$
-を作り、$\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d$ という二次形式を $q s^2$ で割る。
-
-## 答え
-$$
-F=0.5.
-$$
-帰無仮説の下では $F_{2,n-p}$ 分布と比較する。
-
-## 計算例
-ここでは
+一般線形仮説で
 $$
 \boldsymbol d
-=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r
-=\begin{pmatrix}2\\1\end{pmatrix},
-$$
-$$
-A
+=\boldsymbol R\widehat{\boldsymbol\beta}-\boldsymbol r,
+\qquad
+\boldsymbol A
 =\boldsymbol R(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol R^{\mathsf T}
-=\boldsymbol I_2
 $$
-なので $A^{-1}=\boldsymbol I_2$ である。まず分子の二次形式は
+とおくと、帰無仮説の下で
 $$
-\begin{aligned}
-\boldsymbol d^{\mathsf T}A^{-1}\boldsymbol d
-&=\begin{pmatrix}2&1\end{pmatrix}
-  \begin{pmatrix}1&0\\0&1\end{pmatrix}
-  \begin{pmatrix}2\\1\end{pmatrix}\\
-&=2^2+1^2\\
-&=5.
-\end{aligned}
+\boxed{
+F=\frac{\boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d}{q s^2}
+\sim F_{q,\nu}},
 $$
-制約数は $q=2$、$s^2=5$ だから分母は
+ここで $\nu$ は残差自由度である。
+
+1本の制約では
 $$
-qs^2=2\cdot5=10.
+\widehat L=\boldsymbol c^{\mathsf T}\widehat{\boldsymbol\beta},
+$$
+$$
+\operatorname{SE}(\widehat L)
+=s\sqrt{\boldsymbol c^{\mathsf T}(\boldsymbol X^{\mathsf T}\boldsymbol X)^{-1}\boldsymbol c}
+=\sqrt{\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c}.
+$$
+正規線形モデルでは
+$$
+\boxed{
+T=\frac{\widehat L-L_0}{\operatorname{SE}(\widehat L)}
+\sim t_\nu}.
+$$
+両側 $100(1-\alpha)\%$ 信頼区間は
+$$
+\boxed{
+\widehat L\pm t_{\nu,\alpha/2}\operatorname{SE}(\widehat L)}.
+$$
+$q=1$ の一般線形仮説では、同じ制約に対して
+$$
+\boxed{F=T^2}
+$$
+が成り立つ。
+
+## 一手／方針
+**複数制約なら制約からのずれを二次形式で測り、1本の制約なら線形結合を標準誤差で割る。**
+
+$q=1$ は一般線形仮説の特殊形なので、推定値 $\widehat L$、分散の二次形式 $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$、t標準化を一続きで処理する。
+
+## 答え
+1. ここでは
+$$
+\boldsymbol d=(2,1)^{\mathsf T},
+\qquad \boldsymbol A=\boldsymbol I_2
+$$
+なので
+$$
+\boldsymbol d^{\mathsf T}\boldsymbol A^{-1}\boldsymbol d=2^2+1^2=5.
 $$
 よって
 $$
-F=\frac5{10}=0.5.
+\boxed{F=\frac5{2\cdot5}=0.5}.
 $$
-$q=1$ の1本の線形制約なら、このF統計量は対応するt統計量の二乗と一致する。
+
+2. 推定する線形結合は
+$$
+\widehat L
+=(0,1,-1)
+\begin{pmatrix}10\\3\\5\end{pmatrix}
+=-2.
+$$
+標準誤差は
+$$
+\operatorname{SE}(\widehat L)
+=\sqrt{0.25+0.36}
+=\sqrt{0.61}
+\approx0.781.
+$$
+したがって
+$$
+T=\frac{-2}{0.781}\approx-2.56.
+$$
+$|T|=2.56>2.086$ なので5%水準で $H_0:L=0$ を棄却する。
+
+95%信頼区間は
+$$
+-2\pm2.086(0.781)
+\approx\boxed{(-3.63,-0.37)}.
+$$
+
+## 計算例
+推定分散共分散行列の非対角要素も一般には効く。例えば $\widehat\beta_1-\widehat\beta_2$ を考え、対応する2係数の推定分散が0.25と0.36、推定共分散が0.10なら
+$$
+\operatorname{Var}(\widehat\beta_1-\widehat\beta_2)
+=0.25+0.36-2(0.10)=0.41.
+$$
+よって標準誤差は $\sqrt{0.41}$ であり、成分分散の単純和ではない。
 
 ## 注意
-Rは行フルランクとする。
+一般線形仮説
+$$
+\boldsymbol c^{\mathsf T}\boldsymbol\beta=L_0
+$$
+では、$\boldsymbol c$ の成分和が0である必要はない。例えば単一係数の検定 $H_0:\beta_j=0$ では $\boldsymbol c$ は単位ベクトルで、成分和は1である。
+
+一方、一元配置分散分析などで**群平均の対比（contrast）**と呼ぶときは、共通水準を打ち消して群間差だけを測るため、通常
+$$
+\sum_i c_i=0
+$$
+を要求する。一般の線形制約と群平均の対比を混同しない。
+
+$\widehat{\boldsymbol V}$ を使うときは、共分散項を含めて $\boldsymbol c^{\mathsf T}\widehat{\boldsymbol V}\boldsymbol c$ を計算する。片側検定では臨界値と棄却方向が変わる。
 
 <!-- CARD -->
 
@@ -621,18 +717,52 @@ $$
 $$
 
 ## 計算例
-同じ漸近分散共分散行列
+2変量ベクトルの差と和では、共分散項の符号に注意する。例えば
 $$
-\begin{pmatrix}4&1\\1&9\end{pmatrix}
+\operatorname{Var}(X_1-X_2)
+=\Sigma_{11}+\Sigma_{22}-2\Sigma_{12},
 $$
-で和 $\widehat\beta_1+\widehat\beta_2$ を考えると、$\boldsymbol a=(1,1)^{\mathsf T}$ なので漸近分散定数は
 $$
-4+9+2\cdot1=15.
+\operatorname{Var}(X_1+X_2)
+=\Sigma_{11}+\Sigma_{22}+2\Sigma_{12}.
 $$
-差では共分散項が $-2\Sigma_{12}$、和では $+2\Sigma_{12}$ になる。
+
+さらに、正規ベクトル
+$$
+\boldsymbol Z\sim N_p(\boldsymbol m,\boldsymbol V)
+$$
+の任意の定数ベクトル $\boldsymbol a$ に対しては、線形結合も正規分布となり
+$$
+\boxed{\boldsymbol a^{\mathsf T}\boldsymbol Z
+\sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol m,
+\boldsymbol a^{\mathsf T}\boldsymbol V\boldsymbol a\right)}.
+$$
+したがって
+$$
+\widehat{\boldsymbol\beta}\sim
+N_k(\boldsymbol\beta,\sigma^2\boldsymbol C)
+$$
+なら
+$$
+\boxed{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\beta}
+\sim N\left(\boldsymbol a^{\mathsf T}\boldsymbol\beta,
+\sigma^2\boldsymbol a^{\mathsf T}\boldsymbol C\boldsymbol a\right)}.
+$$
+例えば $\boldsymbol a=(1,-1)^{\mathsf T}$ なら係数差の分散は
+$$
+\sigma^2(C_{11}+C_{22}-2C_{12})
+$$
+であり、共分散項を落としてはいけない。
 
 ## 注意
 線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
+
+正規ベクトルの線形結合が正規分布になる結論は有限標本での正確な分布である。一方、
+$$
+\sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
+\xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
+$$
+から得る線形結合の正規性は漸近的な結論である。両者で分散計算 $\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a$ は同じでも、exact と asymptotic を区別する。
 
 正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
 
