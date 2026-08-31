@@ -1,151 +1,81 @@
 schema_version: 1
-batch_id: 2026-08-31-mse-order-canonical-186
+batch_id: 2026-08-31-clt-sum-canonical-188
 items:
-  - id: asym-convergence-ms
-    note: 平均二乗収束・一致性の正本へ、MSE=分散+バイアス平方に加えて、バイアスと分散の漸近次数比較を統合し、engineering側の漸近MSE単独カードを吸収する。
+  - id: dist-clt-sample-mean
+    note: 中心極限定理による確率近似の正本へ、標本平均の区間確率に加えて、合計 S_n=n Xbar_n の片側超過確率を同じ標準化手順として統合し、engineering側の合計専用カードを吸収する。
     metadata:
-      title: 平均二乗収束から一致性を示しMSEの漸近次数を比較する
-      topic: mean-square-convergence-consistency-canonical
-      type: strategy
-      difficulty: 3
-      priority: A
-      hashtags: [平均二乗収束, 一致性, 平均二乗誤差, バイアス, 漸近次数]
+      title: 中心極限定理で標本平均と合計の確率を近似する
+      topic: central-limit-sample-mean
+      type: calc_step
+      difficulty: 2
+      priority: S
+      hashtags: [中心極限定理, 標本平均, 合計, 確率近似]
     sections:
       問題: |
-        推定量 $T_n$ と母数 $\theta$ について次を答えよ。
+        $X_1,\ldots,X_n$ は独立同分布で $E[X_i]=10$、$\operatorname{Var}(X_i)=4$ とし、$n=100$ とする。標準正規分布の累積分布関数を $\Phi$ とする。
 
-        1. $T_n\xrightarrow{qm}\theta$（平均二乗収束）の定義を書け。
-        2. $E[(T_n-\theta)^2]\to0$ なら $T_n\xrightarrow{p}\theta$ であることを、Markovの不等式を使って示せ。
-        3. 平均二乗誤差をバイアスと分散に分解せよ。
-        4. $\operatorname{Var}(T_n)\approx V/n$ とする。バイアスが (i) $b/n$ 級、(ii) $c/\sqrt n$ 級のとき、それぞれバイアス平方と分散の次数を比較し、MSEの主要項を述べよ。
-        5. $E[T_n]-\theta=1/n$、$\operatorname{Var}(T_n)=4/n$ のとき、MSEが0へ収束することを確認せよ。
+        1. $P(9.6\le\overline X_{100}\le10.4)$ を中心極限定理で近似せよ。
+        2. $S_{100}=\sum_{i=1}^{100}X_i$ とするとき、$P(S_{100}>1030)$ を中心極限定理で近似せよ。
       記号・用語: |
-        $T_n\xrightarrow{qm}\theta$ は平均二乗収束、$T_n\xrightarrow{p}\theta$ は確率収束を表す。一致推定量とは $T_n\xrightarrow{p}\theta$ を満たす推定量である。
-
-        平均二乗誤差（MSE）は
-        $$
-        \operatorname{MSE}(T_n)=E[(T_n-\theta)^2]
-        $$
-        である。バイアスは
-        $$
-        \operatorname{Bias}(T_n)=E[T_n]-\theta
-        $$
-        と定義する。
+        $\overline X_n=n^{-1}\sum_{i=1}^nX_i$ は標本平均、$S_n=\sum_{i=1}^nX_i=n\overline X_n$ は合計である。$\Phi(z)=P(Z\le z)$（$Z\sim N(0,1)$）とする。
       使用公式・定理: |
-        平均二乗収束の定義は
+        中心極限定理より
         $$
-        E[(T_n-\theta)^2]\longrightarrow0.
+        \frac{\overline X_n-\mu}{\sigma/\sqrt n}\xrightarrow{d}N(0,1),
         $$
-
-        Markovの不等式を非負確率変数 $(T_n-\theta)^2$ に適用すると、任意の $\varepsilon>0$ について
+        また同値に
         $$
-        P(|T_n-\theta|>\varepsilon)
-        =P((T_n-\theta)^2>\varepsilon^2)
-        \le
-        \frac{E[(T_n-\theta)^2]}{\varepsilon^2}.
+        \frac{S_n-n\mu}{\sigma\sqrt n}\xrightarrow{d}N(0,1).
         $$
-
-        また
-        $$
-        \operatorname{MSE}(T_n)
-        =\operatorname{Var}(T_n)
-        +\operatorname{Bias}(T_n)^2.
-        $$
-
-        漸近次数は二乗すると指数も2倍になる。例えば
-        $$
-        \operatorname{Bias}(T_n)=O(n^{-1})
-        \Rightarrow
-        \operatorname{Bias}(T_n)^2=O(n^{-2}),
-        $$
-        $$
-        \operatorname{Bias}(T_n)=O(n^{-1/2})
-        \Rightarrow
-        \operatorname{Bias}(T_n)^2=O(n^{-1}).
-        $$
+        したがって大標本では、標本平均なら平均 $\mu$・標準偏差 $\sigma/\sqrt n$、合計なら平均 $n\mu$・標準偏差 $\sigma\sqrt n$ で標準化する。
       一手／方針: |
-        **MSEではまず「分散」と「バイアス平方」を分け、それぞれの $n$ の次数を比較する。** バイアスそのものを分散と比べてはいけない。平均二乗収束から一致性を示すときは、ずれの二乗をMarkovの不等式へ入れる。
+        **平均か合計かを先に確認し、その量自身の平均と標準偏差で標準化する。** 合計は別の定理ではなく $S_n=n\overline X_n$ なので、中心極限定理の同じ内容を尺度だけ変えて使う。
       答え: |
-        1.
-        $$
-        T_n\xrightarrow{qm}\theta
-        \iff
-        E[(T_n-\theta)^2]\to0.
-        $$
+        $\mu=10$、$\sigma=2$、$n=100$ である。
 
-        2. 任意の $\varepsilon>0$ に対して
+        1. 標本平均の標準誤差は
         $$
-        P(|T_n-\theta|>\varepsilon)
-        \le
-        \frac{E[(T_n-\theta)^2]}{\varepsilon^2}
-        \longrightarrow0.
+        \frac{\sigma}{\sqrt n}=\frac2{10}=0.2.
+        $$
+        両端を標準化すると
+        $$
+        \frac{9.6-10}{0.2}=-2,
+        \qquad
+        \frac{10.4-10}{0.2}=2.
         $$
         よって
         $$
-        \boxed{T_n\xrightarrow{p}\theta}.
-        $$
-        したがって平均二乗収束は確率収束を含意する。
-
-        3.
-        $$
-        \boxed{
-        E[(T_n-\theta)^2]
-        =\operatorname{Var}(T_n)
-        +\operatorname{Bias}(T_n)^2}.
+        P(9.6\le\overline X_{100}\le10.4)
+        \approx\Phi(2)-\Phi(-2)
+        \approx\boxed{0.9545}.
         $$
 
-        4. 分散が $V/n=O(n^{-1})$ のとき、
-
-        (i) バイアスが $b/n=O(n^{-1})$ なら
+        2. 合計の平均と標準偏差は
         $$
-        \operatorname{Bias}(T_n)^2
-        =\frac{b^2}{n^2}
-        =O(n^{-2}).
+        E[S_{100}]=100\cdot10=1000,
+        \qquad
+        \operatorname{SD}(S_{100})=2\sqrt{100}=20.
         $$
         したがって
         $$
-        \operatorname{MSE}(T_n)
-        \approx \frac Vn+\frac{b^2}{n^2},
+        z=\frac{1030-1000}{20}=1.5,
         $$
-        主要項は $V/n$ であり、バイアス平方は1次の $n^{-1}$ 精度では無視できる。
-
-        (ii) バイアスが $c/\sqrt n=O(n^{-1/2})$ なら
         $$
-        \operatorname{Bias}(T_n)^2
-        =\frac{c^2}{n}
-        =O(n^{-1}),
+        P(S_{100}>1030)
+        \approx1-\Phi(1.5)
+        \approx\boxed{0.0668}.
         $$
-        なので分散と同じ次数である。したがって
-        $$
-        \operatorname{MSE}(T_n)
-        \approx\frac{V+c^2}{n},
-        $$
-        となり、バイアス平方を主要項から落としてはいけない。
-
-        5.
-        $$
-        \operatorname{MSE}(T_n)
-        =\frac4n+\frac1{n^2}
-        \longrightarrow0.
-        $$
-        したがって $T_n$ は平均二乗収束し、特に一致推定量である。
       計算例: |
-        $n=100$、$V=4$ とする。
-
-        バイアスが $1/n$ なら
+        合計の問題を標本平均へ直しても同じ結果になる。
         $$
-        \operatorname{MSE}(T_{100})
-        =\frac4{100}+\frac1{10000}
-        =0.0401.
+        S_{100}>1030
+        \iff
+        \overline X_{100}>10.3.
         $$
-        バイアス平方 $0.0001$ は分散 $0.04$ より2桁小さい。
-
-        一方、バイアスが $1/\sqrt n$ なら
+        標本平均の標準誤差は0.2なので
         $$
-        \operatorname{MSE}(T_{100})
-        =\frac4{100}+\frac1{100}
-        =0.05.
+        \frac{10.3-10}{0.2}=1.5.
         $$
-        この場合、バイアス平方は分散の25%に相当し、同じ $n^{-1}$ 級なので主要項に残る。
+        これは合計を直接標準化した値と一致する。つまり「合計用の公式」を別暗記する必要はない。
       注意: |
-        平均二乗収束は確率収束より強い。逆に $T_n\xrightarrow{p}\theta$ だけから平均二乗収束は一般には従わない。また、MSEの次数比較では「バイアス」ではなく必ず「バイアスの二乗」と分散を比較する。より一般に、バイアスが $o(n^{-1/2})$ ならその二乗は $o(n^{-1})$ なので、分散が $O(n^{-1})$ の通常の設定では1次のMSEに影響しない。
+        元分布が正規分布でない場合、有限標本での値は中心極限定理による近似である。また元分布が離散型でも支持や刻み幅が指定されていない問題では、機械的に連続性補正を入れない。二項分布など刻み幅が明確な場合の連続性補正は別途判断する。
