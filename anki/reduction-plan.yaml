@@ -1,27 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-time-series-reduction-207
+batch_id: 2026-08-31-engineering-design-reduction-209
 items:
-  - id: engproc-chapman-kolmogorov-maintenance
+  - id: engdesign-split-plot-randomization
     bucket: duplicates
     reason: duplicate
-    canonical_card: stoch-three-state-two-step
-    coverage_card: stoch-three-state-two-step
-    note: 一般側の3状態連鎖カードはChapman–Kolmogorov関係で2段階遷移確率を中間状態について和を取って計算する同一判断単位を扱う。engineering側は正常・要保全・停止という文脈を付けた数値例にすぎないため吸収可能。
-  - id: engproc-stationarity-window-judgment
+    canonical_card: design-split-plot-error-strata
+    coverage_card: design-split-plot-error-strata
+    note: 一般側の分割法正本を2段階無作為化・一次/二次実験単位・AとB/ABの誤差層・平衡計画の自由度分解まで拡張済み。r=4,a=3,b=2で自由度3,2,6,1,2,9、合計23を確認する同一数値例まで統合したため独立カード不要。
+  - id: engdesign-nested-df
     bucket: duplicates
     reason: duplicate
-    canonical_card: ts-weak-vs-strong-stationarity
-    coverage_card: ts-weak-vs-strong-stationarity
-    note: 弱定常性の正本へ前半・後半の標本平均(10.1,14.8)、標本分散(2.0,2.1)を比較し、分散はほぼ一定だが平均水準変化を疑う同一診断例を統合済み。有限標本だけで非定常を確定しない注意も保持している。
-  - id: engproc-residual-white-noise-bounds
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ts-software-residual-diagnostics
-    coverage_card: ts-software-residual-diagnostics
-    note: 残差診断正本へ点ごとの近似95%限界 ±1.96/sqrt(n) と n=100,r1=0.28 の同一例を追加済み。0.196を超えるため残存自己相関を疑い、複数ラグはLjung–Boxで確認する流れまで正本化した。
-  - id: engproc-ma1-moment-identification
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: ts-maq-acf-cutoff
-    coverage_card: ts-maq-acf-cutoff
-    note: MA(q)正本にMA(1)の rho(1)=theta/(1+theta^2) を既に導出しており、さらに rho(1)=0.4 から theta=0.5,2 を求め、可逆性 |theta|<1 で theta=0.5 を選ぶ同一逆算問題まで統合済み。自己相関だけでは可逆・非可逆表現を区別できない注意も保持する。
+    canonical_card: design-twoway-crossed-nested
+    coverage_card: design-twoway-crossed-nested
+    note: 一般側の交差/入れ子判別正本へ df_A=a-1、df_B(A)=a(b-1) を統合済み。3工場×各4台の工場固有機械でA自由度2、B(A)自由度9、合計11=12-1となる同一例まで含むため完全重複。
