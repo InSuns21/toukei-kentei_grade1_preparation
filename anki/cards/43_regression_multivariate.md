@@ -2948,8 +2948,14 @@ Q(\boldsymbol\beta)
 $$
 となりWLSに一致する。
 
-## 一手
-**GLS・WLS・FGLSを別公式として暗記しない。** 基本は「残差を誤差共分散の逆行列 $\Omega^{-1}$ で測る」GLSである。$\Omega$ が対角なら逆分散重みのWLS、$\Omega$ が未知なら推定した $\widehat\Omega$ を代入するFGLSになる。
+## 一手／方針
+**一般化最小二乗法（GLS）・重み付き最小二乗法（WLS）・実行可能一般化最小二乗法（FGLS）を別公式として暗記しない。** 基本は「残差を誤差分散共分散行列の逆行列 $\boldsymbol\Omega^{-1}$ で測る」ことである。$\boldsymbol\Omega$ が対角なら逆分散重みのWLS、$\boldsymbol\Omega$ が未知なら推定した $\widehat{\boldsymbol\Omega}$ を代入するFGLSになる。
+
+同じGLSを**白色化**として見ることもできる。$\boldsymbol\Omega$ が正定値なら
+$$
+\boldsymbol C=\boldsymbol\Omega^{-1/2}
+$$
+と置き、モデルを左から $\boldsymbol C$ 倍する。すると変換後誤差の分散共分散行列は単位行列の定数倍になり、変換後モデルへの通常の最小二乗法が元のGLSに一致する。
 
 ## 答え
 既知 $\Omega$ では
@@ -2989,43 +2995,66 @@ $$
 $$
 
 ## 計算例
-同じ数値例を行列で確認する。
+切片のみのモデルで
 $$
-\boldsymbol X=
-\begin{pmatrix}1\\1\end{pmatrix},
+\boldsymbol X=\begin{pmatrix}1\\1\end{pmatrix},
 \qquad
-\boldsymbol y=
-\begin{pmatrix}1\\3\end{pmatrix},
+\boldsymbol y=\begin{pmatrix}1\\3\end{pmatrix},
 \qquad
-\boldsymbol\Omega=
-\begin{pmatrix}1&0\\0&4\end{pmatrix}.
+\boldsymbol\Omega=\begin{pmatrix}1&0\\0&4\end{pmatrix}
 $$
-したがって
+とする。すると
 $$
 \boldsymbol\Omega^{-1}
 =\begin{pmatrix}1&0\\0&1/4\end{pmatrix}.
 $$
-分母は
+よって
 $$
 \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X
-=1+\frac14
-=\frac54,
+=1+\frac14=\frac54,
 $$
-分子は
 $$
 \boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y
-=1+\frac34
-=\frac74.
+=1+\frac34=\frac74,
 $$
-よって
+したがって
 $$
 \widehat\beta_0
 =\left(\frac54\right)^{-1}\frac74
-=\frac45\frac74
-=\frac75
-=1.4.
+=\frac75=1.4.
 $$
-分散の小さい第1観測へ4倍の相対重みを置くため、単純平均2より第1観測1へ近い推定値になる。
+分散の小さい第1観測へ4倍の相対重みを置くため、単純平均2より第1観測1へ近い。
+
+同じ問題を白色化で確認する。ここでは
+$$
+\boldsymbol C=\boldsymbol\Omega^{-1/2}
+=\begin{pmatrix}1&0\\0&1/2\end{pmatrix}
+$$
+と取れる。誤差を $\boldsymbol\varepsilon$ とすると
+$$
+\begin{aligned}
+\operatorname{Var}(\boldsymbol C\boldsymbol\varepsilon)
+&=\sigma^2\boldsymbol C\boldsymbol\Omega\boldsymbol C^{\mathsf T}\\
+&=\sigma^2\boldsymbol I.
+\end{aligned}
+$$
+したがって
+$$
+\boldsymbol C\boldsymbol y
+=\boldsymbol C\boldsymbol X\boldsymbol\beta
++\boldsymbol C\boldsymbol\varepsilon
+$$
+に通常の最小二乗法を適用すればよい。その推定量は
+$$
+\begin{aligned}
+\widehat{\boldsymbol\beta}
+&=\{(\boldsymbol C\boldsymbol X)^{\mathsf T}(\boldsymbol C\boldsymbol X)\}^{-1}
+(\boldsymbol C\boldsymbol X)^{\mathsf T}(\boldsymbol C\boldsymbol y)\\
+&=(\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol X)^{-1}
+\boldsymbol X^{\mathsf T}\boldsymbol\Omega^{-1}\boldsymbol y,
+\end{aligned}
+$$
+となり、二次形式から導いたGLSと同じ式に戻る。
 
 ## 注意
 GLSには $\Omega$ の正定値性と
