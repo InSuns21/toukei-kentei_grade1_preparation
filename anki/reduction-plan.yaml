@@ -1,21 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-glm-reduction-202
+batch_id: 2026-08-31-engineering-linear-inference-reduction-205
 items:
-  - id: enginf-glm-three-components
+  - id: enginf-interaction-design-matrix
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-three-components
-    coverage_card: glm-three-components
-    note: 一般側の正本はGLMの確率成分・系統成分・リンク関数を識別するだけでなく、指数型分布族、自然母数、正準リンク、ポアソン・二項の具体例まで一続きで扱う。engineering側のポアソン対数リンク例は同じ判断単位の一例なので吸収可能。
-  - id: enginf-exponential-family-mean-variance
+    canonical_card: reg-multiple-model-matrix
+    coverage_card: reg-multiple-model-matrix
+    note: 重回帰の正本へモデル式から1観測分の計画行列行を作る手順を統合済み。E[Y]=beta0+beta1 x+beta2 D+beta3 xD について行 (1,x,D,xD) を作り、観測 (2,0),(3,1) から [[1,2,0,0],[1,3,1,3]] を構成する同一数値例まで含むため独立カード不要。
+  - id: enginf-interaction-slope-test
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-three-components
-    coverage_card: glm-three-components
-    note: 一般側のGLM正本に指数型分布族 f(y;theta,phi)=exp[{y theta-b(theta)}/a(phi)+c(y,phi)] と E[Y]=b'(theta), Var(Y)=a(phi)b''(theta) が既に統合され、ポアソンでの具体確認も含むため完全重複。
-  - id: enginf-binomial-glm-loglikelihood
+    canonical_card: reg-interaction-dummy-continuous
+    coverage_card: reg-interaction-dummy-continuous
+    note: 交互作用正本にD=0の傾きbeta1、D=1の傾きbeta1+beta3、beta3が傾き差であることを統合済み。さらに betahat1=1.2, betahat3=-0.5, SE=0.2 の同一例を有限標本ではt=-2.5で検定し、大標本Wald正規近似でも同じ判定になることまで整理したため吸収可能。
+  - id: enginf-dummy-reference-contrast
     bucket: duplicates
     reason: duplicate
-    canonical_card: glm-logistic-score
-    coverage_card: glm-logistic-score
-    note: 一般側のロジスティック回帰正本はベルヌーイ対数尤度からスコア・情報行列・IRLSまで扱い、さらに二項応答 Y_i~Bin(m_i,p_i) の対数尤度 y_i log p_i+(m_i-y_i)log(1-p_i)+const と m_i を含む重みまで明記している。engineering側の y_i eta_i-m_i log(1+e^{eta_i}) は同一式の変形なので独立カード不要。
+    canonical_card: reg-dummy-variable
+    coverage_card: reg-dummy-variable
+    note: ダミー変数正本に3群A・B・Cの基準カテゴリ変更を統合済み。A基準の切片10、B係数2、C係数-1から群平均(10,12,9)を復元し、C基準で切片9、A係数1、B係数3へ再符号化する同一例を含むため完全重複。
