@@ -2131,7 +2131,6 @@ items:
       - glm-logistic-score
       - glm-poisson-mean-ratio
       - enginf-glm-deviance-residual-output
-      - enginf-glm-link-selection
       - enginf-glm-wald-joint
       - enginf-nonlinear-gradient-se
       - enginf-coefficient-output-engineering
@@ -2172,7 +2171,6 @@ items:
           - glm-logistic-score
           - glm-poisson-mean-ratio
           - enginf-glm-deviance-residual-output
-          - enginf-glm-link-selection
           - enginf-glm-wald-joint
       - name: 線形結合の分布
         status: card
