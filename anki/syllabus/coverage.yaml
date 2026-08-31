@@ -11,7 +11,7 @@ items:
     status: complete
     cards:
       - prob-inclusion-exclusion-three
-      - prob-bayes-diagnostic
+      - bayes-density-formula
       - prob-conditional-definition-direct
       - prob-total-probability
       - prob-independent-events
@@ -43,7 +43,7 @@ items:
       - name: ベイズの定理
         status: card
         cards:
-          - prob-bayes-diagnostic
+          - bayes-density-formula
       - name: 包除原理
         status: card
         cards:
@@ -271,11 +271,10 @@ items:
   - id: math-limit-approximations
     status: complete
     cards:
-      - dist-clt-standardize
+      - dist-clt-sample-mean
       - dist-weak-law-chebyshev
       - dist-weak-law-sample-mean
       - dist-clt-statement
-      - dist-clt-sample-mean
       - dist-clt-bernoulli-proportion
       - dist-clt-sum-variance
       - dist-binomial-normal-conditions
@@ -308,9 +307,8 @@ items:
       - name: 中心極限定理
         status: card
         cards:
-          - dist-clt-standardize
-          - dist-clt-statement
           - dist-clt-sample-mean
+          - dist-clt-statement
           - dist-clt-bernoulli-proportion
           - dist-clt-sum-variance
           - dist-clt-standard-error
@@ -430,7 +428,7 @@ items:
   - id: math-continuous-distributions
     status: complete
     cards:
-      - dist-gamma-recognition
+      - dist-gamma-moments-by-definition
       - dist-continuous-uniform-definition
       - dist-continuous-uniform-cdf
       - dist-continuous-uniform-moments
@@ -461,7 +459,6 @@ items:
       - dist-logistic-quantile
       - dist-multivariate-normal-density
       - dist-multivariate-normal-conditional
-      - dist-gamma-moments-by-definition
       - dist-bivariate-normal-definition
       - dist-bivariate-normal-marginal
       - multi-exchangeability
@@ -501,11 +498,10 @@ items:
       - name: ガンマ分布
         status: card
         cards:
-          - dist-gamma-recognition
+          - dist-gamma-moments-by-definition
           - dist-gamma-definition
           - dist-gamma-moments
           - dist-gamma-sum-exponential
-          - dist-gamma-moments-by-definition
           - dist-gamma-beta-relation
       - name: ベータ分布
         status: card
@@ -593,14 +589,13 @@ items:
   - id: math-population-sample-statistic
     status: complete
     cards:
-      - est-factorization
+      - neyman-factorization
       - population-sample-definition
       - random-sample-iid-definition
       - statistic-definition-basic
       - estimator-estimate-distinction
       - order-statistic-definition-basic
       - suff-statistic-definition
-      - neyman-factorization
       - suff-bernoulli
       - suff-poisson
       - suff-normal
@@ -1013,7 +1008,7 @@ items:
   - id: math-test-derivation
     status: complete
     cards:
-      - test-np-bernoulli
+      - test-ump-binomial-one-sided
       - test-lr-deviance-statistic
       - test-np-lemma-statement
       - test-np-normal-mean
@@ -1021,7 +1016,6 @@ items:
       - test-most-powerful-definition
       - test-monotone-likelihood-ratio
       - test-karlin-rubin-principle
-      - test-ump-binomial-one-sided
       - test-ump-normal-one-sided
       - test-no-ump-two-sided
       - test-likelihood-ratio-ordering
@@ -1046,7 +1040,7 @@ items:
       - name: ネイマン・ピアソンの基本定理
         status: card
         cards:
-          - test-np-bernoulli
+          - test-ump-binomial-one-sided
           - test-np-lemma-statement
           - test-np-normal-mean
           - test-np-exponential-rate
@@ -1110,7 +1104,7 @@ items:
     status: complete
     cards:
       - test-chi-square-fit
-      - test-sign-test
+      - np-sign-median-ci
       - mathstat-exact-poisson-rate-test
       - mathstat-mcnemar-exact-test
       - test-one-proportion-score
@@ -1153,7 +1147,7 @@ items:
       - name: ノンパラメトリック検定
         status: card
         cards:
-          - test-sign-test
+          - np-sign-median-ci
           - test-sign-test-numeric
           - test-wilcoxon-signed-rank
           - test-wilcoxon-signed-rank-numeric
@@ -1366,7 +1360,6 @@ items:
   - id: math-nonparametric
     status: complete
     cards:
-      - test-sign-test
       - np-sign-median-ci
       - np-wilcoxon-null-moments
       - np-wilcoxon-normal-approx
@@ -2254,7 +2247,7 @@ items:
   - id: engineering-asymptotics
     status: complete
     cards:
-      - dist-clt-standardize
+      - dist-clt-sample-mean
       - est-delta-log
       - asym-slutsky
       - asym-continuous-mapping
@@ -2272,7 +2265,6 @@ items:
       - asym-mle-asymptotic-normality
       - engasym-local-alternative-power
       - asym-wlln
-      - dist-clt-sample-mean
       - asym-ratio-two-means-delta
       - engasym-delta-risk-ratio
       - cat-log-odds-ratio-ci

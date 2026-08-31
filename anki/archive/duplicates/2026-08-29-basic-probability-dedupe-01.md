@@ -113,7 +113,7 @@ sources:
   - type: official_syllabus
     topic: ベイズの定理
 archive_reason: duplicate
-canonical_card: prob-bayes-diagnostic
+canonical_card: bayes-density-formula
 archive_note: 事後確率を全確率で割る同一move。canonical側は過去問根拠があり、与えられた条件付き確率と求める向きが逆という理由まで扱う。
 ---
 ## 問題
