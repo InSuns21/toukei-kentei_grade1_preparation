@@ -1,15 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-probability-reduction-215
+batch_id: 2026-08-31-regression-reduction-217
 items:
-  - id: dist-variance-moment
+  - id: model-gauss-markov
     bucket: duplicates
     reason: duplicate
-    canonical_card: prob-variance-independent-sum
-    coverage_card: prob-variance-independent-sum
-    note: 分散正本へ旧カードと同じE[X]=2,E[X^2]=6からVar(X)=6-4=2を求める問題を統合済み。さらにVar(X)=E[X^2]-E[X]^2を起点に、線形結合の一般式、独立和、標準化まで一続きに扱うため旧単発カードは不要。
-  - id: dist-jacobian-scale
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-transform-nonmonotonic
-    coverage_card: prob-transform-nonmonotonic
-    note: 1変数変換正本へ旧カードと同じf_X(x)=e^{-x}, Y=2Xの例を統合済み。逆変換x=y/2、|dx/dy|=1/2、変換後の台y>0からf_Y(y)=1/2 e^{-y/2}を導き、さらに多対1変換を各逆像枝の和として統一しているため旧カードは不要。
+    canonical_card: reg-multiple-model-matrix
+    coverage_card: reg-multiple-model-matrix
+    note: 行列回帰正本へGauss--Markov定理の条件を統合済み。固定された列フルランクX、E[epsilon]=0、Var(epsilon)=sigma^2 Iの下で最小二乗推定量の不偏性・共分散を導くだけでなく、任意の線形不偏推定量CyについてD=C-Bと置きVar(Cy)-Var(By)=sigma^2 DD^T≽0を示してBLUE性まで証明し、正規性不要も明記したため旧単発カードは不要。
