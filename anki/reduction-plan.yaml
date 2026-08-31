@@ -1,9 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-random-walk-absorption-reduction-243
+batch_id: 2026-08-31-regression-utilities-reduction-245
 items:
-  - id: engproc-random-walk-expected-absorption
+  - id: enginf-vif-numeric
     bucket: duplicates
     reason: duplicate
-    canonical_card: stoch-expected-hitting-time
-    coverage_card: stoch-expected-hitting-time
-    note: 対称吸収ランダムウォークの平均吸収時間 m_i=i(N-i) は、平均到達時間の一般再帰 m_i=1+sum_j p_ij m_j の特殊形。common正本へ2階差分方程式からの導出、境界条件、N=6,i=2で8となる数値例まで吸収済みで、工学側カード固有の技能は残らない。
+    canonical_card: reg-multicollinearity-vif
+    coverage_card: reg-multicollinearity-vif
+    note: 補助回帰の R_j^2=0.80 から VIF=1/(1-R_j^2)=5 を求める操作は common 正本と数値例まで同一。工学側にあった標準誤差の増幅率 sqrt(VIF)=sqrt(5) も正本へ吸収済み。
+  - id: enginf-wls-two-weights
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-gls-estimator
+    coverage_card: reg-gls-estimator
+    note: 分散の逆数を重みとするWLSは、GLS正本で Omega が対角の特殊形として導出済み。正本には逆分散重みの数値例もあり、2観測の数値だけを変えた工学側カードに独自の操作は残らない。
+  - id: enginf-adjusted-r2-output
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-sst-decomposition
+    coverage_card: reg-sst-decomposition
+    note: 自由度調整済み決定係数 1-(1-R^2)(n-1)/(n-p-1) の計算は reg-sst-decomposition が決定係数・平方和分解と一続きで既に扱い、数値計算と説明変数追加時の解釈も保持している。工学側は同公式への数値代入のみ。
