@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-sample-size-width-reduction-197
+batch_id: 2026-08-31-wald-ci-reduction-200
 items:
-  - id: engasym-sample-size-mean-precision
+  - id: engasym-wald-ci-generic
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-sample-size-for-width
-    coverage_card: ci-sample-size-for-width
-    note: 漸近信頼区間の目標半幅から必要標本数を逆算する判断単位は区間推定側の正本と同一。正本は n=ceil((z_{alpha/2} sigma/d)^2)、切り上げ、sigma未知時の事前推定、許容誤差を半分にすると標本数約4倍まで既に扱う。engineering側の sigma=12,d=3,n=62 は数値代入例なので吸収可能。
+    canonical_card: ci-asymptotic-mle
+    coverage_card: ci-asymptotic-mle
+    note: 区間推定側の正本を任意の漸近正規推定量に対するWald信頼区間へ一般化済み。正本に theta_hat ± z_{alpha/2} SE_hat、theta_hat=2.5・SE=0.4 の95%区間 (1.716,3.284)、漸近分散定数Vと推定量自身のV/nの区別、MLEのフィッシャー情報量（1次元）による特殊化まで統合済み。
