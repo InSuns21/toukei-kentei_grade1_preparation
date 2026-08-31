@@ -1,168 +1,169 @@
 schema_version: 1
-batch_id: 2026-08-31-probability-canonicalization-212
+batch_id: 2026-08-31-probability-canonicalization-214
 items:
-  - id: prob-basic-sample-space
-    note: prob-counting-sample-spaceを吸収するため、有限一様標本空間の基本に場合の数・組合せで数える例を統合する。
-    sections:
-      問題: |
-        有限一様標本空間について次を解け。
-
-        1. 公平なサイコロ1回の標本空間を $\Omega$、事象全体を $\mathcal F$ とする。$A=\{1,3,5\}$ の確率を、確率空間の公理を確認して求めよ。
-        2. 公平な硬貨を3回投げるとき、表がちょうど2回出る確率を場合の数から求めよ。
-      使用公式・定理: |
-        確率空間は $(\Omega,\mathcal F,P)$ で表す。確率測度 $P$ は
-        $$
-        P(\Omega)=1,\qquad P(E)\ge0
-        $$
-        および互いに排反な事象列 $(E_n)$ に対する可算加法性
-        $$
-        P\left(\bigcup_{n=1}^{\infty}E_n\right)
-        =\sum_{n=1}^{\infty}P(E_n)
-        $$
-        を満たす。
-
-        有限標本空間で全ての基本結果が等確率なら
-        $$
-        P(E)=\frac{|E|}{|\Omega|}.
-        $$
-        場合の数で計算するときは、分子と分母を同じ数え方で数える。順序を区別するなら両方で区別し、順序を無視するなら両方で組合せを使う。
-      答え: |
-        1.
-        $$
-        \Omega=\{1,2,3,4,5,6\},\qquad \mathcal F=2^\Omega.
-        $$
-        公平なので6個の基本結果は等確率であり
-        $$
-        P(A)=\frac{|A|}{|\Omega|}=\frac36=\boxed{\frac12}.
-        $$
-
-        2. 3回の硬貨投げでは順序付きの結果が $2^3=8$ 通りあり、表が2回の列は
-        $$
-        \binom32=3
-        $$
-        通りである。したがって
-        $$
-        P(\text{表が2回})=\frac{\binom32}{2^3}=\boxed{\frac38}.
-        $$
-      計算例: |
-        サイコロでは $A^c=\{2,4,6\}$ なので
-        $$
-        P(A)+P(A^c)=\frac12+\frac12=1
-        $$
-        となる。
-
-        組合せを使う別例として、赤5個・青3個から同時に2個を非復元抽出し、赤1個・青1個となる確率は
-        $$
-        \frac{\binom51\binom31}{\binom82}
-        =\frac{15}{28}.
-        $$
-        分子も分母も「順序を無視した2個の組合せ」で数えている。
-      一手: |
-        まず「何を1つの基本結果と数えるか」を決め、それらが等確率かを確認する。等確率なら有利な結果数を全結果数で割る。
-
-        場合の数が必要なら、分子と分母で順序あり・なし、復元・非復元の条件をそろえる。
-      注意: |
-        基本結果が等確率でない場合は $|E|/|\Omega|$ を使わず、各基本結果の確率を足す。
-
-        非復元で同時に2個選ぶ問題の分母を、復元・順序ありの $8^2$ のように数えない。
-
-  - id: prob-marginal-density
-    note: prob-mixture-marginalを吸収するため、連続変数の積分による周辺化に加えて離散潜在クラスを和で消す混合分布と逆向きのBayes更新を統合する。
+  - id: prob-variance-independent-sum
+    note: 旧dist-variance-momentを吸収するため、分散の正本へ二次モーメントからの基本恒等式を追加し、線形結合・独立和まで一続きにする。
     metadata:
-      title: 同時分布・潜在クラスを周辺化して周辺分布を求める
-      topic: marginalization-canonical
+      title: 二次モーメント・共分散から分散と線形結合の分散を求める
+      topic: variance-canonical
       type: strategy
     sections:
       問題: |
-        周辺化について次を解け。
+        分散について次を解け。
 
-        1. $(X,Y)$ の同時確率密度関数が $f_{X,Y}(x,y)=2$（$0<y<x<1$）、それ以外で0である。$X$ の周辺密度 $f_X(x)$ を求めよ。
-        2. 潜在クラス $Z$ が $P(Z=1)=0.3$, $P(Z=2)=0.7$ を満たし、$P(X=1\mid Z=1)=0.8$, $P(X=1\mid Z=2)=0.2$ とする。$P(X=1)$ を求めよ。さらに観測 $X=1$ の後の $P(Z=1\mid X=1)$ を求めよ。
+        1. $E[X]=2$, $E[X^2]=6$ から $\operatorname{Var}(X)$ を求めよ。
+        2. 独立な $X,Y$ について $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$ とする。$\operatorname{Var}(X+Y)$ と $\operatorname{Var}(X-Y)$ を求めよ。
+        3. $E[X]=10$, $\operatorname{Var}(X)=25$ のとき $Z=(X-10)/5$ の期待値と分散を求めよ。
       使用公式・定理: |
-        同時分布から不要な変数を消す操作が周辺化である。離散型では
+        分散は定義から
         $$
-        p_X(x)=\sum_y p_{X,Y}(x,y),
+        \operatorname{Var}(X)=E[(X-E[X])^2]
+        =E[X^2]-E[X]^2.
         $$
-        連続型では
-        $$
-        f_X(x)=\int_{-\infty}^{\infty}f_{X,Y}(x,y)\,dy.
-        $$
-        実際の和・積分の範囲は同時分布の台から決める。
+        したがって二次モーメント $E[X^2]$ は分散そのものではなく、平均の二乗を引いて初めて分散になる。
 
-        離散潜在クラス $Z$ を消す場合も同じ原理で
+        分散が有限な $X,Y$ と定数 $a,b,c$ について
         $$
-        p_X(x)=\sum_z p_{X\mid Z}(x\mid z)P(Z=z).
+        \operatorname{Var}(aX+bY+c)
+        =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y)
+        +2ab\operatorname{Cov}(X,Y).
         $$
-        連続観測なら
+        特に独立なら $\operatorname{Cov}(X,Y)=0$ なので
         $$
-        f_X(x)=\sum_z f_{X\mid Z}(x\mid z)P(Z=z).
+        \operatorname{Var}(aX+bY)
+        =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y).
         $$
-        これは全確率の公式を分布に適用した形である。
-
-        観測後に潜在クラスへ逆向きに戻るときは
+        また
         $$
-        P(Z=k\mid X=x)
-        =\frac{P(Z=k)p_{X\mid Z}(x\mid k)}{p_X(x)}
+        \operatorname{Var}(aX+c)=a^2\operatorname{Var}(X).
         $$
-        を使う。連続観測では確率質量を密度へ読み替える。
       答え: |
-        1. $0<x<1$ を固定すると $0<y<x$ なので
+        1.
         $$
-        \begin{aligned}
-        f_X(x)
-        &=\int_0^x2\,dy\\
-        &=\boxed{2x},\qquad0<x<1.
-        \end{aligned}
+        \operatorname{Var}(X)=6-2^2=\boxed{2}.
         $$
 
-        2. 潜在クラスを和で消すと
+        2. 独立性から共分散は0なので
         $$
-        \begin{aligned}
-        P(X=1)
-        &=0.8\cdot0.3+0.2\cdot0.7\\
-        &=0.24+0.14\\
-        &=\boxed{0.38}.
-        \end{aligned}
+        \operatorname{Var}(X+Y)=4+9=\boxed{13},
         $$
-        したがってベイズの定理より
         $$
-        P(Z=1\mid X=1)
-        =\frac{0.3\cdot0.8}{0.38}
-        =\frac{12}{19}
-        \approx\boxed{0.632}.
+        \operatorname{Var}(X-Y)=4+(-1)^2\,9=\boxed{13}.
+        $$
+
+        3. 期待値の線形性と分散のスケール則より
+        $$
+        E[Z]=\frac{10-10}{5}=\boxed0,
+        $$
+        $$
+        \operatorname{Var}(Z)=\frac1{25}\operatorname{Var}(X)
+        =\boxed1.
         $$
       計算例: |
-        離散型の同時表で
+        $E[X]=3,E[X^2]=14$ なら
         $$
-        p(0,0)=0.1,\quad p(0,1)=0.2,\quad
-        p(1,0)=0.3,\quad p(1,1)=0.4
-        $$
-        なら、$Y$ を足し消して
-        $$
-        p_X(0)=0.3,\qquad p_X(1)=0.7.
-        $$
-
-        連続観測の混合例として
-        $$
-        P(Z=1)=P(Z=2)=\frac12,
-        $$
-        $$
-        f_{X\mid Z}(x\mid1)=0.6,\qquad
-        f_{X\mid Z}(x\mid2)=0.2
-        $$
-        なら
-        $$
-        f_X(x)=0.5\cdot0.6+0.5\cdot0.2=0.4,
+        \operatorname{Var}(X)=14-3^2=5.
         $$
         さらに
         $$
-        P(Z=1\mid X=x)=\frac{0.5\cdot0.6}{0.4}=0.75.
+        \operatorname{Var}(3X-2)=3^2\operatorname{Var}(X)=45.
+        $$
+        定数シフト $-2$ は分散へ影響しない。
+
+        独立でない場合に $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$, $\operatorname{Cov}(X,Y)=2$ なら
+        $$
+        \operatorname{Var}(X-Y)=4+9-2\cdot2=9.
         $$
       一手: |
-        **残したい変数を固定し、消したい変数を全部足すか積分する。** 連続変数なら台を読んで積分し、離散潜在クラスなら各クラスの「条件付き分布×混合比」を足す。
-
-        観測後にクラスへ戻る場合は、同じ各項を作り、その総和で割って正規化する。
+        **分散を求める入口を見分ける。** 二次モーメントが与えられたら $E[X^2]-E[X]^2$、線形結合ならまず共分散項まで含む一般式を書く。独立性が与えられたときだけ共分散を0にする。
       注意: |
-        三角形など変数依存の台を長方形として積分しない。離散表では行と列のどちらがどの変数かを確認する。
+        $E[X^2]$ と $E[X]^2$ は異なる。$E[X^2]$ をそのまま分散としない。
 
-        連続観測では一般に $P(X=x)=0$ なので点確率の比ではなく、条件付き密度と周辺密度を使ってベイズ更新する。
+        引き算でも係数は二乗されるため、独立なら $\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ である。独立でない場合は共分散項を落とさない。標準化では分散ではなく標準偏差で割る。
+
+  - id: prob-transform-nonmonotonic
+    note: 旧dist-jacobian-scaleを吸収するため、変数変換正本へ1対1の単調変換を特殊ケースとして追加し、多対1変換との使い分けを一本化する。
+    metadata:
+      title: 1変数変換を単調・多対1で使い分けて密度を求める
+      topic: one-dimensional-transform-canonical
+      type: strategy
+    sections:
+      問題: |
+        1変数の変数変換について次を解け。
+
+        1. $X$ の確率密度関数が $f_X(x)=e^{-x}$（$x>0$）、それ以外で0である。$Y=2X$ の確率密度関数を求めよ。
+        2. $X$ が一様分布 $U(-1,1)$ に従い、$Y=X^2$ とする。$Y$ の確率密度関数を求めよ。
+      使用公式・定理: |
+        $Y=g(X)$ が1対1で単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
+        $$
+        f_Y(y)=f_X(g^{-1}(y))
+        \left|\frac{d}{dy}g^{-1}(y)\right|.
+        $$
+        **逆変換→変換後の台→Jacobianの絶対値**の順に処理する。
+
+        一方、$g$ が1対1でなく、ある $y$ に対する逆像が
+        $$
+        x_1(y),\ldots,x_m(y)
+        $$
+        で各枝が局所的に単調なら
+        $$
+        f_Y(y)=\sum_{j=1}^m
+        f_X(x_j(y))\left|\frac{dx_j}{dy}\right|.
+        $$
+        同じ $y$ を生む全ての枝を足す。
+
+        多対1変換では累積分布関数
+        $$
+        F_Y(y)=P\{g(X)\le y\}
+        $$
+        を領域確率として求めてから微分する方法も安全である。
+      答え: |
+        1. $Y=2X$ では逆変換は
+        $$
+        x=\frac y2,
+        \qquad
+        \left|\frac{dx}{dy}\right|=\frac12.
+        $$
+        $X>0$ から $Y>0$ なので
+        $$
+        f_Y(y)=e^{-y/2}\frac12
+        =\boxed{\frac12e^{-y/2}},\qquad y>0.
+        $$
+
+        2. $0<y<1$ では逆像が $\pm\sqrt y$ の2本ある。累積分布関数を使うと
+        $$
+        \begin{aligned}
+        F_Y(y)
+        &=P(-\sqrt y\le X\le\sqrt y)\\
+        &=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx\\
+        &=\sqrt y.
+        \end{aligned}
+        $$
+        よって
+        $$
+        f_Y(y)=F_Y'(y)
+        =\boxed{\frac1{2\sqrt y}},\qquad0<y<1.
+        $$
+      計算例: |
+        単調変換の例では
+        $$
+        \int_0^\infty\frac12e^{-y/2}\,dy=1
+        $$
+        となり、Jacobianを掛けることで正規化が保たれる。
+
+        多対1変換で標準正規分布に従う $X$ と $Y=X^2$ を考えると、逆像は $\pm\sqrt y$ なので
+        $$
+        \begin{aligned}
+        f_Y(y)
+        &=\phi(\sqrt y)\frac1{2\sqrt y}
+        +\phi(-\sqrt y)\frac1{2\sqrt y}\\
+        &=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0.
+        \end{aligned}
+        $$
+        これは自由度1のカイ二乗分布の密度である。
+      一手: |
+        **最初に「この $y$ を生む元の $x$ は何個あるか」を数える。** 1個なら逆変換とJacobian、複数なら各逆像枝の寄与を足す。多対1で迷ったら累積分布関数法へ戻る。
+      注意: |
+        変換後の台を書き忘れない。Jacobianは絶対値を取る。
+
+        二乗・絶対値のような多対1変換で1本の逆関数だけを使うと確率質量を落とす。単調変換の公式は多対1変換の各枝へ適用して足し合わせる特殊ケースだと捉える。
