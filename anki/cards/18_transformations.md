@@ -366,16 +366,17 @@ $$f_R(r)=\frac1{(1+r)^2},\qquad r>0.$$
 
 ---
 id: prob-linear-combination-normal
-title: 正規ベクトルの線形結合の分布を求める
+title: 正規ベクトルのアフィン結合の分布を求める
 category: math-probability
 subcategory: math-transformations
-topic: multivariate-normal-linear-combination
-type: calc_step
+topic: multivariate-normal-affine-combination
+type: strategy
 difficulty: 2
 priority: S
 hashtags:
   - 確率変数の線形結合
   - 多変量正規分布
+  - アフィン変換
   - 分散共分散行列
 frequency:
   past_exam: 1
@@ -394,87 +395,113 @@ sources:
 $$
 \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
 $$
-とする。定数ベクトル $\boldsymbol a$ に対する
+とする。定数ベクトル $\boldsymbol a$ と定数 $b$ に対する
 $$
-Y=\boldsymbol a^{\mathsf T}\boldsymbol X
+Y=\boldsymbol a^{\mathsf T}\boldsymbol X+b
 $$
 の分布を求めよ。
 
-数値例として
-$$
-\boldsymbol\mu=(1,2)^{\mathsf T},
-\qquad
-\boldsymbol\Sigma=
-\begin{pmatrix}4&1\\1&9\end{pmatrix},
-\qquad
-Y=X_1-2X_2
-$$
-を計算せよ。
+また次を計算せよ。
+
+1. $\boldsymbol\mu=(1,2)^{\mathsf T}$、$\boldsymbol\Sigma=\begin{pmatrix}4&1\\1&9\end{pmatrix}$、$Y=X_1-2X_2+5$。
+2. 1変量で $X\sim N(2,9)$、$Y=-X+4$。
+3. $\boldsymbol a=\boldsymbol0$ のときの分布。
 
 ## 答え
-数値例では
+多変量正規分布はアフィン変換で閉じているので
 $$
-E[Y]=1-2\cdot2=-3,
+\boxed{
+Y\sim N\left(
+\boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
+\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+\right)}.
 $$
+
+1. $\boldsymbol a=(1,-2)^{\mathsf T}$ だから
 $$
+E[Y]=1-2\cdot2+5=2,
+\qquad
 \operatorname{Var}(Y)=36,
 $$
-したがって
+よって
 $$
-Y\sim N(-3,36).
+Y\sim N(2,36).
 $$
+
+2. 1変量の特殊形では
+$$
+Y=aX+b\sim N(a\mu+b,a^2\sigma^2).
+$$
+ここでは $a=-1,b=4$ なので
+$$
+Y\sim N(2,9).
+$$
+
+3. $\boldsymbol a=\boldsymbol0$ なら $Y=b$ が確率1で成り立つ退化分布である。
 
 ## 使用公式・定理
-多変量正規分布は線形変換で閉じているので
+多変量正規分布に対する線形変換は再び正規分布になる。定数項は平均だけを平行移動するため
 $$
-\boldsymbol a^{\mathsf T}\boldsymbol X
-\sim
-N\left(
-\boldsymbol a^{\mathsf T}\boldsymbol\mu,
-\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-\right).
+E[\boldsymbol a^{\mathsf T}\boldsymbol X+b]
+=\boldsymbol a^{\mathsf T}\boldsymbol\mu+b,
 $$
+$$
+\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X+b)
+=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+$$
+
 2変量なら
 $$
-\operatorname{Var}(aX+bY)
-=a^2\sigma_X^2+b^2\sigma_Y^2+2ab\sigma_{XY}.
+\operatorname{Var}(aX_1+cX_2)
+=a^2\sigma_1^2+c^2\sigma_2^2+2ac\sigma_{12}.
 $$
-独立正規変数の線形結合は $\sigma_{XY}=0$ の特殊例である。
+独立正規変数では共分散項が0になる。
+
+1変量 $p=1$ へ特殊化すると
+$$
+X\sim N(\mu,\sigma^2)
+\quad\Longrightarrow\quad
+aX+b\sim N(a\mu+b,a^2\sigma^2)
+$$
+となる。したがって1変量の正規分布の線形変換は、多変量正規のアフィン結合の特殊ケースである。
 
 ## 計算例
-$\boldsymbol a=(1,-2)^{\mathsf T}$ とする。平均は
+$\boldsymbol a=(1,-2)^{\mathsf T}$ とする。定数項を除いた平均は
 $$
-\begin{aligned}
 \boldsymbol a^{\mathsf T}\boldsymbol\mu
-&=1\cdot1+(-2)\cdot2\\
-&=-3.
-\end{aligned}
+=1\cdot1+(-2)\cdot2=-3.
 $$
-分散は
+$b=5$ を加えると $E[Y]=2$ になる。
+
+分散は定数項 $b$ の影響を受けず
 $$
 \begin{aligned}
 \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-&=1^2\cdot4+(-2)^2\cdot9
-  +2(1)(-2)(1)\\
+&=1^2\cdot4+(-2)^2\cdot9+2(1)(-2)(1)\\
 &=4+36-4\\
 &=36.
 \end{aligned}
 $$
-よって $Y\sim N(-3,36)$。
 
-独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z$ なら共分散項が0となり
+独立な $X\sim N(1,4)$、$Z\sim N(2,9)$ で $W=2X-3Z+7$ なら
 $$
-E[W]=-4,
-\qquad
-\operatorname{Var}(W)=16+81=97,
+E[W]=2-6+7=3,
 $$
-したがって $W\sim N(-4,97)$。
+$$
+\operatorname{Var}(W)=2^2\cdot4+(-3)^2\cdot9=97,
+$$
+よって
+$$
+W\sim N(3,97).
+$$
 
-## 一手
-**正規性は線形変換で保たれる。** あとは平均には係数を1回、分散には係数ベクトルを左右から掛ける。相関があれば共分散項を落とさない。
+## 一手／方針
+**正規性はアフィン変換で保たれる。** 平均には係数を1回掛けて最後に定数項を足し、分散には係数を二次形式として掛ける。定数項は分散に入らない。
 
 ## 注意
-各成分が個別に正規分布だからといってベクトルが多変量正規とは限らない。多変量正規であることが線形結合の正規性を保証する。
+各成分が個別に正規分布だからといって、確率ベクトル全体が多変量正規分布とは限らない。一般の線形結合が正規分布になるという結論には、多変量正規性が必要である。
+
+$\boldsymbol a=\boldsymbol0$ の場合は分散0の退化分布になる。1変量で $a<0$ でも分散は $a^2\sigma^2$ なので正であり、定数項 $b$ は平均だけを動かす。
 
 <!-- CARD -->
 
