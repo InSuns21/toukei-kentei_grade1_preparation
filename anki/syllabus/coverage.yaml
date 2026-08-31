@@ -137,9 +137,8 @@ items:
   - id: math-distribution-characteristics
     status: complete
     cards:
-      - dist-variance-moment
-      - prob-expected-value-function
       - prob-variance-independent-sum
+      - prob-expected-value-function
       - prob-skewness-definition
       - prob-kurtosis-definition
       - prob-coefficient-of-variation
@@ -170,7 +169,6 @@ items:
       - name: 分散
         status: card
         cards:
-          - dist-variance-moment
           - prob-variance-independent-sum
           - prob-conditional-covariance
           - prob-chebyshev-inequality
@@ -231,10 +229,9 @@ items:
   - id: math-transformations
     status: complete
     cards:
-      - dist-jacobian-scale
+      - prob-transform-nonmonotonic
       - prob-transform-sum-density
       - prob-transform-inverse-cdf
-      - prob-transform-nonmonotonic
       - prob-transform-jacobian-2d
       - prob-transform-ratio
       - prob-linear-combination-normal
@@ -253,9 +250,8 @@ items:
       - name: 変数変換
         status: card
         cards:
-          - dist-jacobian-scale
-          - prob-transform-inverse-cdf
           - prob-transform-nonmonotonic
+          - prob-transform-inverse-cdf
           - prob-transform-jacobian-2d
           - prob-transform-ratio
           - prob-transform-log

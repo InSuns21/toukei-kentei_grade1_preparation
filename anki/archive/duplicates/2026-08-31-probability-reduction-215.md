@@ -7,9 +7,22 @@ topic: variance
 type: reverse
 difficulty: 1
 priority: A
-hashtags: [分散, 期待値, 頻出]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 期待値と分散 }]
+hashtags:
+  - 分散
+  - 期待値
+  - 頻出
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 期待値と分散
+archive_reason: duplicate
+canonical_card: prob-variance-independent-sum
+coverage_card: prob-variance-independent-sum
+archive_note: 分散正本へ旧カードと同じE[X]=2,E[X^2]=6からVar(X)=6-4=2を求める問題を統合済み。さらにVar(X)=E[X^2]-E[X]^2を起点に、線形結合の一般式、独立和、標準化まで一続きに扱うため旧単発カードは不要。
 ---
 ## 問題
 $E[X]=2$, $E[X^2]=6$ から $\operatorname{Var}(X)$ を求めよ。
@@ -35,9 +48,23 @@ topic: jacobian
 type: strategy
 difficulty: 2
 priority: A
-hashtags: [変数変換, 台]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
+hashtags:
+  - 変数変換
+  - 台
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 変数変換
+archive_reason: duplicate
+canonical_card: prob-transform-nonmonotonic
+coverage_card: prob-transform-nonmonotonic
+archive_note: 1変数変換正本へ旧カードと同じf_X(x)=e^{-x},
+  Y=2Xの例を統合済み。逆変換x=y/2、|dx/dy|=1/2、変換後の台y>0からf_Y(y)=1/2
+  e^{-y/2}を導き、さらに多対1変換を各逆像枝の和として統一しているため旧カードは不要。
 ---
 ## 問題
 $X$ の確率密度関数が $f_X(x)=e^{-x}$（$x>0$）で、$Y=2X$ である。$f_Y$ を求めよ。
