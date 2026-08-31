@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-canonicalize-fit-mvn-226
+batch_id: 2026-08-31-canonicalize-fit-mvn-227
 items:
   - id: samp-multinomial-cell-counts
     note: 旧test-chi-square-fitのk-1-r記法とk=5,r=1の数値例を吸収し、多項標本からPearson適合度統計量・自由度補正までを1枚で完結させる。
@@ -137,13 +137,13 @@ items:
         二変量の相関係数表示を一般式へ代入すると、次の式群を得る。
         $$
         \begin{gathered}
-        |\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),\\[4pt]
+        |\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),\\
         \boldsymbol\Sigma^{-1}
         =\frac1{1-\rho^2}
         \begin{pmatrix}
         1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
         -\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
-        \end{pmatrix},\\[6pt]
+        \end{pmatrix},\\
         f_{X_1,X_2}(x_1,x_2)
         =\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}
         \exp\left[-\frac{1}{2(1-\rho^2)}
