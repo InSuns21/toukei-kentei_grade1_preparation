@@ -1,7 +1,7 @@
 id: "I4-02"
 title: "欠測・不完全データ・期待値最大化法"
 volume: "inference"
-status: drafting
+status: reviewed
 prerequisites:
   - I1-01
   - P1-02
