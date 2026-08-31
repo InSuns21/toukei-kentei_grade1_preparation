@@ -2044,7 +2044,7 @@ items:
   - id: engineering-stochastic-processes
     status: complete
     cards:
-      - engproc-random-walk-expected-absorption
+      - stoch-expected-hitting-time
       - engproc-ctmc-generator-check
       - engproc-two-state-ctmc-transition
       - engproc-nhpp-cumulative-intensity
@@ -2070,7 +2070,7 @@ items:
       - name: ランダムウォーク
         status: card
         cards:
-          - engproc-random-walk-expected-absorption
+          - stoch-expected-hitting-time
       - name: マルコフ過程
         status: card
         cards:
