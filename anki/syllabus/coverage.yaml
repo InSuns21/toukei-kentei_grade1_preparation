@@ -419,7 +419,6 @@ items:
       - dist-normal-moments
       - dist-normal-standardize
       - dist-normal-symmetry
-      - dist-normal-linear-transform
       - prob-linear-combination-normal
       - dist-exponential-definition
       - dist-exponential-cdf-survival
@@ -464,7 +463,6 @@ items:
           - dist-normal-moments
           - dist-normal-standardize
           - dist-normal-symmetry
-          - dist-normal-linear-transform
           - prob-linear-combination-normal
       - name: 指数分布
         status: card
