@@ -2126,12 +2126,11 @@ items:
       - reg-heteroskedasticity-pattern
       - reg-dummy-variable
       - reg-interaction-dummy-continuous
-      - enginf-logistic-wald-output
+      - test-wald-general
       - glm-three-components
       - glm-logistic-score
       - glm-poisson-mean-ratio
       - glm-deviance-definition
-      - enginf-glm-wald-joint
       - glm-nonlinear-regression-gradient
       - enginf-coefficient-output-engineering
       - reg-sst-decomposition
@@ -2166,12 +2165,11 @@ items:
       - name: 一般化線形モデル
         status: card
         cards:
-          - enginf-logistic-wald-output
+          - test-wald-general
           - glm-three-components
           - glm-logistic-score
           - glm-poisson-mean-ratio
           - glm-deviance-definition
-          - enginf-glm-wald-joint
       - name: 線形結合の分布
         status: card
         cards:
@@ -2190,7 +2188,7 @@ items:
         status: card
         cards:
           - reg-partial-f-test
-          - enginf-glm-wald-joint
+          - test-wald-general
           - enginf-restricted-least-squares
   - id: engineering-asymptotics
     status: complete
