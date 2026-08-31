@@ -1,0 +1,48 @@
+id: "L1-04"
+title: "回帰診断・一般化最小二乗・正則化"
+volume: "linear_models"
+status: reviewed
+prerequisites:
+  - L1-02
+official_scope:
+  - 変数選択
+  - 残差分析
+  - 一般化最小二乗推定
+  - 多重共線性
+  - L1正則化法
+  - 回帰診断法
+learning_objectives:
+  - ハット行列からレバレッジと残差分散を導出し、高レバレッジ点・大残差点・影響点を区別できる
+  - 残差プロットの形から線形性・等分散性・独立性の破れを診断できる
+  - Cook距離をレバレッジとStudent化残差から計算し、影響の大きい観測を説明できる
+  - 誤差分散共分散行列が一般の形をもつとき、一般化最小二乗推定量とその分散を導出できる
+  - 白色化によって一般化最小二乗法が通常最小二乗法へ帰着することを説明できる
+  - 多重共線性が不偏性ではなく推定分散を悪化させることを説明し、VIFを導出・計算できる
+  - 部分F検定・自由度調整済み決定係数・AIC・BICを用いて変数選択を比較できる
+  - L1正則化の目的関数を説明し、直交設計で軟閾値解を導出・計算できる
+definitions:
+  - { id: L104-DEF-01, name: レバレッジ }
+  - { id: L104-DEF-02, name: Student化残差 }
+  - { id: L104-DEF-03, name: Cook距離 }
+  - { id: L104-DEF-04, name: 一般化最小二乗法 }
+  - { id: L104-DEF-05, name: 多重共線性 }
+  - { id: L104-DEF-06, name: 分散拡大係数 }
+  - { id: L104-DEF-07, name: L1正則化法 }
+  - { id: L104-DEF-08, name: 軟閾値関数 }
+theorems:
+  - { id: L104-THM-01, name: 残差の分散共分散行列 }
+  - { id: L104-THM-02, name: 一般化最小二乗推定量 }
+  - { id: L104-THM-03, name: VIFと回帰係数分散の関係 }
+  - { id: L104-THM-04, name: 直交設計におけるLASSOの軟閾値解 }
+canonical_examples: [レバレッジとCook距離, 不均一分散の重み付き最小二乗, GLSの白色化, VIF, AICとBICによる変数選択, LASSOの軟閾値]
+problem_patterns: [REG-DIAG-1, GLS-1, VIF-1, MODEL-SELECT-1, LASSO-1]
+past_exam_alignment:
+  - { id: RIKOU-STANDARD-38, current_skills: [多重共線性, 分散拡大係数, 回帰診断, 残差分析], later_skills: [] }
+  - { id: RIKOU-STANDARD-39, current_skills: [一般化最小二乗, 白色化, 不均一分散], later_skills: [] }
+integrated_exam_problems: [L1-04-C01, L1-04-C03, L1-04-D01, L1-04-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30

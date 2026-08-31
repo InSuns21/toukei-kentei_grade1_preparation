@@ -1,0 +1,39 @@
+# L1-04 数理レビュー
+
+## 対象
+
+- `index.md`
+- `chapter.yaml`
+- `glossary.yaml`
+- `applied-rikou-80/standard/38_multicollinearity_diagnostics.md` との接続
+- `applied-rikou-80/standard/39_gls.md` との接続
+
+## 確認事項
+
+- $e=(I-H)\varepsilon$ と $\operatorname{Var}(e\mid X)=\sigma^2(I-H)$ を、$HX=X$ とハット行列の対称冪等性から導出している。
+- $\operatorname{Var}(e_i\mid X)=\sigma^2(1-h_{ii})$ と内部Student化残差の分母が整合している。
+- Cook距離 $D_i=(r_i^2/p)h_{ii}/(1-h_{ii})$ は、内部Student化残差を用いる通常の線形回帰の式と一致する。
+- 数値例 $x=(-2,-1,0,1,2)$、$y=(0,2,2,4,9)$ を再計算し、$\hat\beta=(3.4,2)$、RSS $=7.2$、$s^2=2.4$、$h=(0.6,0.3,0.2,0.3,0.6)$ を確認した。
+- 同数値例の内部Student化残差は約 $(0.612,0.463,-1.010,-1.080,1.633)$、Cook距離は約 $(0.281,0.0459,0.1276,0.250,2.000)$ であることを再計算した。
+- GLS の正規方程式と $\hat\beta_G=(X^{\mathsf T}\Omega^{-1}X)^{-1}X^{\mathsf T}\Omega^{-1}y$ を重み付き二次形式から導出している。
+- GLS 分散 $\sigma^2(X^{\mathsf T}\Omega^{-1}X)^{-1}$ と、$\Omega=LL^{\mathsf T}$ による白色化を確認した。
+- C02 の WLS を再計算し、$X^{\mathsf T}WX=[[2.5,2.5],[2.5,4.5]]$、$\hat\beta_G=(0.8,2.0)^{\mathsf T}$、分散共分散行列の $\sigma^2$ を除く部分が $[[0.9,-0.5],[-0.5,0.5]]$ となることを確認した。
+- VIF $=1/(1-R_j^2)$ と、2説明変数の相関 $\rho$ に対する分散倍率 $1/(1-\rho^2)$ が一致することを確認した。
+- $\rho=0.95$ では分散倍率約10.26、標準誤差倍率約3.20となる。
+- C03 の部分Fは約2.294、比較用AICは縮小40.119・完全39.244、BICは縮小42.922・完全44.848となることを再計算した。
+- 正規線形回帰の AIC/BIC は、全候補に共通する $\sigma^2$ 1母数分と尤度定数を除いた比較用の形であることを本文に明示している。
+- 直交設計 $X^{\mathsf T}X/n=I$ で LASSO の目的関数が座標ごとに分離し、劣微分条件から軟閾値解を得る導出を確認した。
+- $z=(2.4,0.7,-0.3)$、$\lambda=0.8$ で解が $(1.6,0,0)$ となることを確認した。
+
+## 自動検証
+
+PR #23 で以下を確認した。
+
+- `Validate textbook`: success
+- `Validate terminology`: success
+
+初回の `Validate textbook` では数式モード内の日本語ラベル2箇所を KaTeX strict が検出したため修正し、再実行で成功した。
+
+## 結論
+
+**PASS**。数理レビュー・自動検証ともに重大な問題は残っていない。
