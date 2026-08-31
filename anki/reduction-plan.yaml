@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-wald-ci-reduction-200
+batch_id: 2026-08-31-odds-ratio-reduction-201
 items:
-  - id: engasym-wald-ci-generic
+  - id: engasym-delta-odds-ratio
     bucket: duplicates
     reason: duplicate
-    canonical_card: ci-asymptotic-mle
-    coverage_card: ci-asymptotic-mle
-    note: 区間推定側の正本を任意の漸近正規推定量に対するWald信頼区間へ一般化済み。正本に theta_hat ± z_{alpha/2} SE_hat、theta_hat=2.5・SE=0.4 の95%区間 (1.716,3.284)、漸近分散定数Vと推定量自身のV/nの区別、MLEのフィッシャー情報量（1次元）による特殊化まで統合済み。
+    canonical_card: cat-log-odds-ratio-ci
+    coverage_card: cat-log-odds-ratio-ci
+    note: 2×2表のオッズ比を対数尺度へ移し、SE(log OR)=sqrt(1/a+1/b+1/c+1/d) を使って正規近似区間を作り指数変換で戻す判断単位は分割表側の正本と同一。正本はデルタ法として明示し、OR=1を基準とする解釈まで扱うためengineering側専用カードは重複。
