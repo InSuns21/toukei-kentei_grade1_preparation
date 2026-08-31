@@ -2260,7 +2260,7 @@ items:
       - est-delta-log
       - asym-slutsky
       - asym-continuous-mapping
-      - engasym-empirical-cdf-point
+      - dist-clt-bernoulli-proportion
       - asym-exponential-sample-median
       - asym-sample-variance-fourth-moment
       - engasym-method-moments-consistency
@@ -2290,7 +2290,7 @@ items:
         status: card
         cards:
           - dist-clt-sample-mean
-          - engasym-empirical-cdf-point
+          - dist-clt-bernoulli-proportion
           - asym-sample-variance-fourth-moment
           - engasym-sample-size-mean-precision
           - asym-mle-asymptotic-normality
