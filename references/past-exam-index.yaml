@@ -1,5 +1,5 @@
 schema_version: 2
-checked_at: "2026-08-25"
+checked_at: "2026-09-01"
 policy:
   official_problem_source: "統計検定公式公開問題または日本統計学会公式認定問題集"
   third_party_role: "年度別テーマ索引と別解確認のみ"
@@ -34,6 +34,11 @@ evidence_profiles:
     confirmed_by: [starpentagon]
     confidence: medium
     problem_source: official_books
+  science_official_2025: &science_official_2025
+    source_type: official_problem
+    confirmed_by: [official_past]
+    confidence: high
+    problem_source: official_past
 entries:
   - { id: MATH-2024-Q1, year: 2024, exam: 統計数理, question: 1, theme: 回帰係数の推定・検定・検出力, chapters: [F0-01, I1-01, I1-02, I3-01, L1-01], evidence: *math_topic }
   - { id: MATH-2024-Q2, year: 2024, exam: 統計数理, question: 2, theme: 半径の分布・順序統計量・推定量, chapters: [F0-01, P2-01, P2-02, P4-01, I1-01], evidence: *math_topic }
@@ -60,6 +65,11 @@ entries:
   - { id: MATH-2014-Q3, year: 2014, exam: 統計数理, question: 3, theme: t分布・信頼区間端点, chapters: [S1-01, I2-02], evidence: *math_topic }
   - { id: MATH-2014-Q4, year: 2014, exam: 統計数理, question: 4, theme: F分布・二標本比較, chapters: [S1-01, I3-03], evidence: *math_topic }
   - { id: MATH-2012-Q1, year: 2012, exam: 統計数理, question: 1, theme: 一様分布・確率積分変換, chapters: [P2-01, P4-01], evidence: *math_topic }
+  - { id: SCI-2025-Q1, year: 2025, exam: 統計応用理工学, question: 1, theme: 管理図・工程能力指数・区間推定, chapters: [E4-01, I2-02], evidence: *science_official_2025 }
+  - { id: SCI-2025-Q2, year: 2025, exam: 統計応用理工学, question: 2, theme: Markov連鎖・推移確率の最尤推定・尤度比検定, chapters: [E2-01, I1-01, I3-01], evidence: *science_official_2025 }
+  - { id: SCI-2025-Q3, year: 2025, exam: 統計応用理工学, question: 3, theme: 重回帰・偏回帰・残差化・係数推定, chapters: [L1-01, L1-04], evidence: *science_official_2025 }
+  - { id: SCI-2025-Q4, year: 2025, exam: 統計応用理工学, question: 4, theme: 制約線形モデル・モデル比較・バイアス分散, chapters: [L1-01, L1-02], evidence: *science_official_2025 }
+  - { id: SCI-2025-Q5, year: 2025, exam: 統計応用理工学, question: 5, theme: 確率化回答法・調査・推定, chapters: [S1-03], evidence: *science_official_2025 }
   - { id: SCI-2019-Q1, year: 2019, exam: 統計応用理工学, question: 1, theme: 生存関数・平均残存寿命・Weibull変換, chapters: [P3-02, P3-05, E4-02], evidence: *science_topic }
   - { id: SCI-2019-Q2, year: 2019, exam: 統計応用理工学, question: 2, theme: 管理図・分散成分・工程判断, chapters: [L1-03, E4-01], evidence: *science_topic }
   - { id: SCI-2019-Q4, year: 2019, exam: 統計応用理工学, question: 4, theme: AR1・自己相関行列・行列式, chapters: [F0-01, E2-03], evidence: *science_topic }
