@@ -1,169 +1,217 @@
 schema_version: 1
-batch_id: 2026-08-31-probability-canonicalization-214
+batch_id: 2026-08-31-regression-canonicalization-216
 items:
-  - id: prob-variance-independent-sum
-    note: 旧dist-variance-momentを吸収するため、分散の正本へ二次モーメントからの基本恒等式を追加し、線形結合・独立和まで一続きにする。
+  - id: reg-multiple-model-matrix
+    note: 旧model-gauss-markovを吸収するため、行列回帰の正本にGauss--Markov定理の条件・BLUE性・共分散差の半正定値証明を統合する。
     metadata:
-      title: 二次モーメント・共分散から分散と線形結合の分散を求める
-      topic: variance-canonical
+      title: 重回帰を計画行列で表し最小二乗推定量・共分散・BLUE性まで導く
+      topic: multiple-regression-design-matrix-canonical
       type: strategy
     sections:
       問題: |
-        分散について次を解け。
+        重回帰モデルを行列で
+        $$
+        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon
+        $$
+        と表す。$X$ は固定された計画行列とする。
 
-        1. $E[X]=2$, $E[X^2]=6$ から $\operatorname{Var}(X)$ を求めよ。
-        2. 独立な $X,Y$ について $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$ とする。$\operatorname{Var}(X+Y)$ と $\operatorname{Var}(X-Y)$ を求めよ。
-        3. $E[X]=10$, $\operatorname{Var}(X)=25$ のとき $Z=(X-10)/5$ の期待値と分散を求めよ。
+        1. $X$ が列フルランクのとき、残差平方和を最小化して最小二乗推定量を導け。
+        2. $E[\boldsymbol\varepsilon]=\mathbf0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I$ の下で、不偏性と共分散行列を導け。
+        3. Gauss--Markov定理の主要条件を列挙し、最小二乗推定量が最良線形不偏推定量（BLUE）であることを示せ。誤差の正規性が必要かも答えよ。
+        4. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
+        5. 平均構造
+        $$
+        E[Y]=\beta_0+\beta_1x+\beta_2D+\beta_3xD
+        $$
+        に対し、観測 $(x,D)=(2,0),(3,1)$ の2件から計画行列を作れ。係数ベクトルの列順は $(\beta_0,\beta_1,\beta_2,\beta_3)$ とする。
       使用公式・定理: |
-        分散は定義から
+        残差平方和は
         $$
-        \operatorname{Var}(X)=E[(X-E[X])^2]
-        =E[X^2]-E[X]^2.
+        S(\boldsymbol\beta)
+        =(\mathbf y-X\boldsymbol\beta)^\mathsf T
+        (\mathbf y-X\boldsymbol\beta).
         $$
-        したがって二次モーメント $E[X^2]$ は分散そのものではなく、平均の二乗を引いて初めて分散になる。
-
-        分散が有限な $X,Y$ と定数 $a,b,c$ について
+        勾配を0とすると
         $$
-        \operatorname{Var}(aX+bY+c)
-        =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y)
-        +2ab\operatorname{Cov}(X,Y).
+        -2X^\mathsf T(\mathbf y-X\boldsymbol\beta)=\mathbf0,
         $$
-        特に独立なら $\operatorname{Cov}(X,Y)=0$ なので
+        すなわち正規方程式
         $$
-        \operatorname{Var}(aX+bY)
-        =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y).
+        X^\mathsf TX\widehat{\boldsymbol\beta}=X^\mathsf T\mathbf y
+        $$
+        を得る。$X$ が列フルランクなら
+        $$
+        \widehat{\boldsymbol\beta}
+        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y.
         $$
         また
         $$
-        \operatorname{Var}(aX+c)=a^2\operatorname{Var}(X).
-        $$
-      答え: |
-        1.
-        $$
-        \operatorname{Var}(X)=6-2^2=\boxed{2}.
+        \widehat{\boldsymbol\beta}
+        =\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
         $$
 
-        2. 独立性から共分散は0なので
+        Gauss--Markov定理の基本条件は、固定された $X\in\mathbb R^{n\times p}$ について
         $$
-        \operatorname{Var}(X+Y)=4+9=\boxed{13},
+        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon,
+        \qquad E[\boldsymbol\varepsilon]=\mathbf0,
         $$
         $$
-        \operatorname{Var}(X-Y)=4+(-1)^2\,9=\boxed{13}.
+        \operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I_n,
+        \qquad \sigma^2>0,
         $$
+        かつ $X$ が列フルランクであること。この条件の下で最小二乗推定量は、$\boldsymbol\beta$ の全ての線形不偏推定量の中で共分散行列が最小、すなわちBLUEである。
 
-        3. 期待値の線形性と分散のスケール則より
-        $$
-        E[Z]=\frac{10-10}{5}=\boxed0,
-        $$
-        $$
-        \operatorname{Var}(Z)=\frac1{25}\operatorname{Var}(X)
-        =\boxed1.
-        $$
-      計算例: |
-        $E[X]=3,E[X^2]=14$ なら
-        $$
-        \operatorname{Var}(X)=14-3^2=5.
-        $$
-        さらに
-        $$
-        \operatorname{Var}(3X-2)=3^2\operatorname{Var}(X)=45.
-        $$
-        定数シフト $-2$ は分散へ影響しない。
+        BLUE性そのものには誤差の正規性は不要である。正規性は有限標本での正確なt検定・F検定などを導くときに追加して使う。
 
-        独立でない場合に $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$, $\operatorname{Cov}(X,Y)=2$ なら
+        BLUE性を示すには
         $$
-        \operatorname{Var}(X-Y)=4+9-2\cdot2=9.
+        B=(X^\mathsf TX)^{-1}X^\mathsf T
         $$
-      一手: |
-        **分散を求める入口を見分ける。** 二次モーメントが与えられたら $E[X^2]-E[X]^2$、線形結合ならまず共分散項まで含む一般式を書く。独立性が与えられたときだけ共分散を0にする。
-      注意: |
-        $E[X^2]$ と $E[X]^2$ は異なる。$E[X^2]$ をそのまま分散としない。
+        とおき、任意の線形不偏推定量を $C\mathbf y$ と書く。線形不偏性から
+        $$
+        CX=I_p.
+        $$
+        一方 $BX=I_p$ なので $D=C-B$ とおけば
+        $$
+        DX=0.
+        $$
+        このとき交差項が消え
+        $$
+        \operatorname{Var}(C\mathbf y)
+        -\operatorname{Var}(B\mathbf y)
+        =\sigma^2DD^\mathsf T
+        $$
+        となる。$DD^\mathsf T$ は半正定値だから、最小二乗推定量の共分散行列はLoewner順序で最小である。
 
-        引き算でも係数は二乗されるため、独立なら $\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ である。独立でない場合は共分散項を落とさない。標準化では分散ではなく標準偏差で割る。
+        計画行列は、各観測についてモデル式で各係数に掛かる値を係数ベクトルと同じ順に並べて1行ずつ作る。交互作用項があれば、その観測で積も実際に計算する。
+      一手／方針: |
+        **モデル式 → 正規方程式 → 誤差の線形変換 → 不偏性・共分散 → 他の線形不偏推定量との差、の順で読む。**
 
-  - id: prob-transform-nonmonotonic
-    note: 旧dist-jacobian-scaleを吸収するため、変数変換正本へ1対1の単調変換を特殊ケースとして追加し、多対1変換との使い分けを一本化する。
-    metadata:
-      title: 1変数変換を単調・多対1で使い分けて密度を求める
-      topic: one-dimensional-transform-canonical
-      type: strategy
-    sections:
-      問題: |
-        1変数の変数変換について次を解け。
-
-        1. $X$ の確率密度関数が $f_X(x)=e^{-x}$（$x>0$）、それ以外で0である。$Y=2X$ の確率密度関数を求めよ。
-        2. $X$ が一様分布 $U(-1,1)$ に従い、$Y=X^2$ とする。$Y$ の確率密度関数を求めよ。
-      使用公式・定理: |
-        $Y=g(X)$ が1対1で単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
+        最小二乗推定量を
         $$
-        f_Y(y)=f_X(g^{-1}(y))
-        \left|\frac{d}{dy}g^{-1}(y)\right|.
-        $$
-        **逆変換→変換後の台→Jacobianの絶対値**の順に処理する。
-
-        一方、$g$ が1対1でなく、ある $y$ に対する逆像が
-        $$
-        x_1(y),\ldots,x_m(y)
-        $$
-        で各枝が局所的に単調なら
-        $$
-        f_Y(y)=\sum_{j=1}^m
-        f_X(x_j(y))\left|\frac{dx_j}{dy}\right|.
-        $$
-        同じ $y$ を生む全ての枝を足す。
-
-        多対1変換では累積分布関数
-        $$
-        F_Y(y)=P\{g(X)\le y\}
-        $$
-        を領域確率として求めてから微分する方法も安全である。
-      答え: |
-        1. $Y=2X$ では逆変換は
-        $$
-        x=\frac y2,
+        \widehat{\boldsymbol\beta}=B\mathbf y,
         \qquad
-        \left|\frac{dx}{dy}\right|=\frac12.
+        B=(X^\mathsf TX)^{-1}X^\mathsf T
         $$
-        $X>0$ から $Y>0$ なので
-        $$
-        f_Y(y)=e^{-y/2}\frac12
-        =\boxed{\frac12e^{-y/2}},\qquad y>0.
-        $$
+        と置くと、不偏性は $BX=I$、BLUE性は任意の競合推定量 $C\mathbf y$ に対して $D=C-B$ と置き $DX=0$ を使うだけで整理できる。
 
-        2. $0<y<1$ では逆像が $\pm\sqrt y$ の2本ある。累積分布関数を使うと
+        計画行列を作る問題では、まずモデル式から「1観測分の行」を作る。係数ベクトルが $(\beta_0,\beta_1,\beta_2,\beta_3)$ なら、その観測で係数に掛かる $(1,x,D,xD)$ が計画行列の1行になる。
+      答え: |
+        最小二乗推定量は
+        $$
+        \boxed{
+        \widehat{\boldsymbol\beta}
+        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y}.
+        $$
+        $E[\boldsymbol\varepsilon]=\mathbf0$ より
+        $$
+        E[\widehat{\boldsymbol\beta}]=\boldsymbol\beta.
+        $$
+        また
         $$
         \begin{aligned}
-        F_Y(y)
-        &=P(-\sqrt y\le X\le\sqrt y)\\
-        &=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx\\
-        &=\sqrt y.
+        \operatorname{Var}(\widehat{\boldsymbol\beta})
+        &=(X^\mathsf TX)^{-1}X^\mathsf T
+        (\sigma^2I)X(X^\mathsf TX)^{-1}\\
+        &=\boxed{\sigma^2(X^\mathsf TX)^{-1}}.
         \end{aligned}
+        $$
+
+        Gauss--Markov定理では、任意の線形不偏推定量 $\widetilde{\boldsymbol\beta}=C\mathbf y$ に対し $CX=I$ である。$B=(X^\mathsf TX)^{-1}X^\mathsf T$、$D=C-B$ と置くと
+        $$
+        DX=CX-BX=I-I=0.
         $$
         よって
         $$
-        f_Y(y)=F_Y'(y)
-        =\boxed{\frac1{2\sqrt y}},\qquad0<y<1.
+        BD^\mathsf T
+        =(X^\mathsf TX)^{-1}X^\mathsf TD^\mathsf T
+        =0
         $$
-      計算例: |
-        単調変換の例では
-        $$
-        \int_0^\infty\frac12e^{-y/2}\,dy=1
-        $$
-        となり、Jacobianを掛けることで正規化が保たれる。
-
-        多対1変換で標準正規分布に従う $X$ と $Y=X^2$ を考えると、逆像は $\pm\sqrt y$ なので
+        であり、同様に $DB^\mathsf T=0$ である。したがって
         $$
         \begin{aligned}
-        f_Y(y)
-        &=\phi(\sqrt y)\frac1{2\sqrt y}
-        +\phi(-\sqrt y)\frac1{2\sqrt y}\\
-        &=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0.
+        \operatorname{Var}(\widetilde{\boldsymbol\beta})
+        &=\sigma^2CC^\mathsf T\\
+        &=\sigma^2(B+D)(B+D)^\mathsf T\\
+        &=\sigma^2BB^\mathsf T+\sigma^2DD^\mathsf T.
         \end{aligned}
         $$
-        これは自由度1のカイ二乗分布の密度である。
-      一手: |
-        **最初に「この $y$ を生む元の $x$ は何個あるか」を数える。** 1個なら逆変換とJacobian、複数なら各逆像枝の寄与を足す。多対1で迷ったら累積分布関数法へ戻る。
-      注意: |
-        変換後の台を書き忘れない。Jacobianは絶対値を取る。
+        つまり
+        $$
+        \operatorname{Var}(\widetilde{\boldsymbol\beta})
+        -\operatorname{Var}(\widehat{\boldsymbol\beta})
+        =\sigma^2DD^\mathsf T\succeq0.
+        $$
+        よって最小二乗推定量はBLUEである。ここまでに正規性は使っていない。
 
-        二乗・絶対値のような多対1変換で1本の逆関数だけを使うと確率質量を落とす。単調変換の公式は多対1変換の各枝へ適用して足し合わせる特殊ケースだと捉える。
+        数値例では
+        $$
+        X^\mathsf TX=\begin{pmatrix}3&3\\3&5\end{pmatrix},
+        \qquad
+        X^\mathsf T\mathbf y=\begin{pmatrix}9\\13\end{pmatrix},
+        $$
+        $$
+        (X^\mathsf TX)^{-1}
+        =\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix},
+        $$
+        したがって
+        $$
+        \boxed{
+        \widehat{\boldsymbol\beta}
+        =\begin{pmatrix}1\\2\end{pmatrix}}.
+        $$
+
+        交互作用モデルでは1行は $(1,x,D,xD)$ なので
+        $$
+        (x,D)=(2,0)\Rightarrow(1,2,0,0),
+        $$
+        $$
+        (x,D)=(3,1)\Rightarrow(1,3,1,3).
+        $$
+        よって
+        $$
+        \boxed{
+        X=\begin{pmatrix}
+        1&2&0&0\\
+        1&3&1&3
+        \end{pmatrix}}.
+        $$
+      計算例: |
+        最初の数値例では
+        $$
+        \widehat y=1+2x
+        $$
+        で3点を完全に通る。また係数共分散行列は
+        $$
+        \operatorname{Var}(\widehat{\boldsymbol\beta})
+        =\frac{\sigma^2}{6}
+        \begin{pmatrix}
+        5&-3\\
+        -3&3
+        \end{pmatrix}.
+        $$
+
+        BLUE性の意味を1方向の線形結合で見ると、任意のベクトル $a$ に対して
+        $$
+        \operatorname{Var}(a^\mathsf T\widetilde{\boldsymbol\beta})
+        -\operatorname{Var}(a^\mathsf T\widehat{\boldsymbol\beta})
+        =\sigma^2a^\mathsf TDD^\mathsf Ta
+        =\sigma^2\|D^\mathsf Ta\|^2\ge0.
+        $$
+        したがって「共分散行列が最小」とは、全ての線形対比方向で最小二乗推定量の分散が他の線形不偏推定量以下という意味である。
+
+        交互作用モデルでは $D=0$ なら
+        $$
+        E[Y]=\beta_0+\beta_1x,
+        $$
+        $D=1$ なら
+        $$
+        E[Y]=(\beta_0+\beta_2)+(\beta_1+\beta_3)x.
+        $$
+        計画行列を作る操作と群別回帰直線の解釈は同じモデル式を別方向から読んでいる。
+      注意: |
+        Gauss--Markov定理で必要なのは線形平均構造、平均0の誤差、共分散 $\sigma^2I$、計画行列の列フルランクであり、誤差の正規性ではない。「正規でないと最小二乗法はBLUEでない」は誤り。
+
+        一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくなく、通常のGauss--Markov条件も崩れる。その場合は一般化最小二乗法や頑健な共分散推定などを検討する。
+
+        実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。計画行列では列順を係数ベクトルの順序と必ず対応させ、交互作用を入れる場合は通常、対応する主効果も残す。
