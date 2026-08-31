@@ -1045,38 +1045,6 @@ $\int_0^\infty\lambda e^{-\lambda x}dx=1.$
 <!-- CARD -->
 
 ---
-id: dist-exponential-moments
-published: true
-title: 指数分布の平均と分散を計算する
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: exponential-moments
-type: calc_step
-difficulty: 1
-priority: A
-hashtags: [指数分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 指数分布 }]
----
-## 問題
-指数分布 $X\sim\operatorname{Exponential}(\lambda)$ の平均と分散を求めよ。
-## 答え
-$$E[X]=\frac1\lambda,\qquad \operatorname{Var}(X)=\frac1{\lambda^2}.$$
-## 使用公式・定理
-$$\int_0^\infty xe^{-\lambda x}dx=\frac1{\lambda^2},\qquad
-\int_0^\infty x^2e^{-\lambda x}dx=\frac2{\lambda^3}.$$
-## 計算例
-$$E[X]=\int_0^\infty x\lambda e^{-\lambda x}dx=\frac1\lambda,$$
-$$E[X^2]=\lambda\frac2{\lambda^3}=\frac2{\lambda^2},$$
-ゆえに分散は $2/\lambda^2-1/\lambda^2=1/\lambda^2$。
-## 一手
-率の逆数が平均、率の二乗の逆数が分散。
-## 注意
-標準偏差も $1/\lambda$ だが、分散は $1/\lambda^2$。
-
-<!-- CARD -->
-
----
 id: dist-exponential-memoryless
 published: true
 title: 指数分布の無記憶性を確率計算に使う
@@ -1161,35 +1129,6 @@ $\alpha=1$ なら $f_X(x)=\beta e^{-\beta x}$ となり、率 $\beta$ の指数�
 この教材では第2引数をrate $\beta$ と固定する。
 ## 注意
 scale表示では第2引数が $1/\beta$ になるため、文献の表示を確認する。
-
-<!-- CARD -->
-
----
-id: dist-gamma-moments
-published: true
-title: ガンマ分布の平均と分散からshape-rateを読み取る
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: gamma-moments
-type: calc_step
-difficulty: 2
-priority: A
-hashtags: [ガンマ分布, 期待値, 分散]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: ガンマ分布 }]
----
-## 問題
-$X\sim\operatorname{Gamma}(\alpha,\beta)$ について $E[X]$ と $\operatorname{Var}(X)$ を使い、$\alpha=3,\beta=2$ の値を求めよ。
-## 答え
-$$E[X]=\frac32,\qquad \operatorname{Var}(X)=\frac34.$$
-## 使用公式・定理
-$$E[X]=\frac\alpha\beta,\qquad \operatorname{Var}(X)=\frac\alpha{\beta^2}.$$
-## 計算例
-$$E[X]=3/2,\qquad \operatorname{Var}(X)=3/2^2=3/4.$$
-## 一手
-平均はrateで1回割り、分散はrateで2回割る。
-## 注意
-第2引数をscaleと誤読すると平均が6になってしまう。
 
 <!-- CARD -->
 

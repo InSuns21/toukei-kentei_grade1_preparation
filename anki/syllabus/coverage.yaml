@@ -423,11 +423,9 @@ items:
       - prob-linear-combination-normal
       - dist-exponential-definition
       - dist-exponential-cdf-survival
-      - dist-exponential-moments
       - dist-exponential-memoryless
       - dist-exponential-hazard
       - dist-gamma-definition
-      - dist-gamma-moments
       - dist-gamma-sum-exponential
       - dist-beta-definition
       - dist-beta-moments-by-definition
@@ -473,7 +471,7 @@ items:
         cards:
           - dist-exponential-definition
           - dist-exponential-cdf-survival
-          - dist-exponential-moments
+          - dist-gamma-moments-by-definition
           - dist-exponential-memoryless
           - dist-exponential-hazard
       - name: ガンマ分布
@@ -481,7 +479,6 @@ items:
         cards:
           - dist-gamma-moments-by-definition
           - dist-gamma-definition
-          - dist-gamma-moments
           - dist-gamma-sum-exponential
           - dist-gamma-beta-relation
       - name: ベータ分布
