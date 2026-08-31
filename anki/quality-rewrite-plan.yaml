@@ -1,15 +1,15 @@
 schema_version: 1
-batch_id: 2026-08-31-wald-ci-canonical-198
+batch_id: 2026-08-31-wald-ci-canonical-199
 items:
   - id: ci-asymptotic-mle
-    note: 最尤推定量専用だった漸近信頼区間カードを、任意の漸近正規推定量に対するWald区間を正本とし、最尤推定量をフィッシャー情報量による重要な特殊例として扱う構成へ一般化する。engineering側のgeneric Wald専用カードを吸収する。
+    note: 最尤推定量専用だった漸近信頼区間カードを、任意の漸近正規推定量に対するWald区間を正本とし、最尤推定量をフィッシャー情報量（1次元）による重要な特殊例として扱う構成へ一般化する。engineering側のgeneric Wald専用カードを吸収する。
     metadata:
       title: 漸近正規推定量からWald信頼区間を作り最尤推定量へ適用する
       topic: asymptotic-wald-confidence-interval-canonical
       type: calc_step
       difficulty: 3
       priority: S
-      hashtags: [漸近正規性, Wald信頼区間, 最尤推定量, フィッシャー情報量]
+      hashtags: [漸近正規性, Wald信頼区間, 最尤推定量, フィッシャー情報量（1次元）]
     sections:
       問題: |
         推定量 $\widehat\theta$ が漸近正規であるとする。
@@ -22,12 +22,12 @@ items:
         \xrightarrow{d}
         N\left(0,I_1(\theta)^{-1}\right)
         $$
-        を満たすとき、フィッシャー情報量から推定標準誤差とWald区間を書け。
+        を満たすとき、フィッシャー情報量（1次元）から推定標準誤差とWald区間を書け。
         4. $X_i\sim\operatorname{Poisson}(\lambda)$、$n=100$、$\widehat\lambda=\overline X=4$ のとき95% Wald信頼区間を求めよ。
       記号・用語: |
         Wald区間は、推定量の漸近正規性を利用し「推定値 $\pm$ 正規分布の分位点 $\times$ 推定標準誤差」で作る近似信頼区間である。
 
-        $I_1(\theta)$ は1観測あたりのフィッシャー情報量とする。標準正規分布を $N(0,1)$ で表し、$z_{\alpha/2}$ は上側確率が $\alpha/2$ となる点とする。
+        $I_1(\theta)$ は1観測あたりのフィッシャー情報量（1次元）とする。標準正規分布を $N(0,1)$ で表し、$z_{\alpha/2}$ は上側確率が $\alpha/2$ となる点とする。
       使用公式・定理: |
         一般に
         $$
