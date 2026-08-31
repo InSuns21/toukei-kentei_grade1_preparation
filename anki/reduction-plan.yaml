@@ -1,21 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-ols-theory-reduction-248
+batch_id: 2026-08-31-linear-contrast-reduction-251
 items:
-  - id: enginf-ols-unbiased-condition
+  - id: enginf-linear-combination-normal
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multiple-model-matrix
-    coverage_card: reg-multiple-model-matrix
-    note: 固定された列フルランク計画の下で OLS を y=Xbeta+epsilon へ代入し、平均0誤差から E(beta_hat)=beta を導く議論は reg-multiple-model-matrix が正規方程式から不偏性・共分散・BLUE性まで一続きで導出済み。工学側の条件付き期待値表現は固定Xの同じ内容で、等分散性が不偏性には不要という区別も正本の議論から保持される。
-  - id: enginf-ols-covariance-matrix
+    canonical_card: mv-covariance-linear-transform
+    coverage_card: mv-covariance-linear-transform
+    note: 正規ベクトルの線形結合 a^T beta_hat の平均・分散・正規分布は mv-covariance-linear-transform へ有限標本の exact な結論として吸収済み。分散 a^T C a と係数差での共分散項も保持し、漸近正規性との違いも正本で明示したため工学側カード固有の技能は残らない。
+  - id: enginf-contrast-estimate-se
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multiple-model-matrix
-    coverage_card: reg-multiple-model-matrix
-    note: Var(beta_hat)=sigma^2(X^T X)^(-1) の導出は reg-multiple-model-matrix が beta_hat=(X^T X)^(-1)X^T y と線形変換の分散公式から明示的に導出している。工学側は同じ導出を独立カード化しただけで、独自技能は残らない。
-  - id: enginf-gauss-markov-comparison
+    canonical_card: reg-general-linear-hypothesis
+    coverage_card: anova-contrast-definition
+    note: 一般の線形制約 c^T beta=L0 に対する推定値 c^T beta_hat と標準誤差 sqrt(c^T V_hat c)、共分散を含む数値例を reg-general-linear-hypothesis へ吸収済み。工学側にあった「一般の回帰係数対比でも係数和0」という過剰条件は正本化時に修正し、係数和0は群平均の対比で用いる条件として anova-contrast-definition と役割分担した。
+  - id: enginf-contrast-t-test
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-gauss-markov-theorem
-    coverage_card: reg-multiple-model-matrix
-    note: Gauss--Markov定理の条件、BLUEの意味、任意の線形不偏推定量との差の共分散行列が半正定値になることは reg-gauss-markov-theorem が専用正本として扱い、reg-multiple-model-matrix では D=C-B を用いた証明まで導出している。工学側の比較カードは同結論の要約である。
+    canonical_card: reg-general-linear-hypothesis
+    coverage_card: reg-general-linear-hypothesis
+    note: 1本の一般線形制約に対する t=(c^T beta_hat-L0)/SE、自由度、両側判定、95%信頼区間、q=1 で F=t^2 となる関係まで reg-general-linear-hypothesis へ統合済み。工学側の -2/0.781=-2.56 の数値例も正本に保持されている。
