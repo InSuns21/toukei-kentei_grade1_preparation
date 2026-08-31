@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">サポートベクターマシンの最大マージン概念図</title>
+  <desc id="desc">二次元の二クラスデータと、中央の実線および左右の破線を示す。受験者が決定境界、マージン境界、support vectorを判定するための概念図。</desc>
+  <rect x="0" y="0" width="760" height="430" fill="white"/>
+  <line x1="70" y1="365" x2="710" y2="365" stroke="#222" stroke-width="2"/>
+  <line x1="70" y1="365" x2="70" y2="45" stroke="#222" stroke-width="2"/>
+  <text x="690" y="398" font-size="16">x1</text>
+  <text x="42" y="58" font-size="16">x2</text>
+
+  <line x1="380" y1="55" x2="380" y2="350" stroke="#222" stroke-width="3"/>
+  <line x1="300" y1="55" x2="300" y2="350" stroke="#555" stroke-width="2" stroke-dasharray="8 6"/>
+  <line x1="460" y1="55" x2="460" y2="350" stroke="#555" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <g stroke="#222" stroke-width="2.5">
+    <line x1="155" y1="135" x2="185" y2="165"/><line x1="185" y1="135" x2="155" y2="165"/>
+    <line x1="190" y1="220" x2="220" y2="250"/><line x1="220" y1="220" x2="190" y2="250"/>
+    <line x1="285" y1="175" x2="315" y2="205"/><line x1="315" y1="175" x2="285" y2="205"/>
+    <line x1="285" y1="275" x2="315" y2="305"/><line x1="315" y1="275" x2="285" y2="305"/>
+  </g>
+
+  <g fill="#222">
+    <circle cx="460" cy="155" r="8"/><circle cx="460" cy="285" r="8"/>
+    <circle cx="545" cy="215" r="8"/><circle cx="610" cy="300" r="8"/>
+  </g>
+
+  <text x="100" y="28" font-size="18" font-weight="bold">最大マージン：境界に最も近い観測が解を決める</text>
+  <text x="122" y="115" font-size="15">class -1</text>
+  <text x="570" y="115" font-size="15">class +1</text>
+</svg>

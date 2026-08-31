@@ -1,37 +1,56 @@
-# Standard 73 ロジスティック回帰・オッズ比・デルタ法
+# Standard 73 ロジスティック回帰・プロビット・2値応答モデル
 
 - 安定ID: `RIKOU-STANDARD-73`
 - 80大問 No.: 73
 - 演習価値: A
 - 難度: A
 - 目安時間: 25〜30分
-- 電卓: $e^x$ の数値化不要
+- 電卓: $e^x$ と標準正規分布関数の数値化は不要
 
 ## 問題
 
-独立な2値応答 $Y_i\in\{0,1\}$ について
+独立な2値応答 $Y_i\in\{0,1\}$ を考える。説明変数を $x_i$ とし
 
 $$
 P(Y_i=1\mid x_i)=p_i,
 \qquad
-P(Y_i=0\mid x_i)=1-p_i,
+\eta_i=\beta_0+\beta_1x_i
+$$
+
+と置く。
+
+まずロジスティック回帰
+
+$$
+\log\frac{p_i}{1-p_i}=\eta_i
+$$
+
+を考える。
+
+1. $p_i$ を $\eta_i$ で表し、$x$ が1増えたときのオッズ比を求めよ。
+2. 2値応答の確率質量関数から尤度、対数尤度、$\beta_0,\beta_1$ に関するスコア方程式を導け。
+3. $\widehat\beta_1$ の漸近分散を $v$ とすると、オッズ比推定量 $e^{\widehat\beta_1}$ の漸近分散を Delta 法で求めよ。
+4. 次にプロビットモデルを、潜在変数
+
+$$
+Z_i=\eta_i+\varepsilon_i,
+\qquad
+\varepsilon_i\sim N(0,1),
 $$
 
 $$
-\log\frac{p_i}{1-p_i}=\beta_0+\beta_1x_i
+Y_i=\begin{cases}
+1,&Z_i>0,\\
+0,&Z_i\le0
+\end{cases}
 $$
 
-とする。
-
-1. $\eta_i=\beta_0+\beta_1x_i$ と置き、$p_i$ を $\eta_i$ で表せ。
-2. $x$ が1増えたときのオッズ比を求めよ。
-3. 2値応答の確率質量関数から尤度、対数尤度、$\beta_0,\beta_1$ に関するスコア方程式を導け。
-4. $\widehat\beta_1$ の漸近分散を $v$ とすると、オッズ比推定量 $e^{\widehat\beta_1}$ の漸近分散をデルタ法で求めよ。
-5. 確率差とオッズ比の違いを説明せよ。
+で定義する。標準正規累積分布関数を $\Phi$、その密度を $\varphi$ とする。$p_i=P(Y_i=1\mid x_i)$ を求め、連続な $x$ に対する限界効果 $dp_i/dx_i$ を導け。
+5. ロジスティック回帰とプロビット回帰について、共通点と係数解釈の違いを説明せよ。また、ロジスティック回帰でオッズ比が一定でも確率差 $p(x+1)-p(x)$ が一定ではない理由を述べよ。
 
 ## 詳細解答
 
-### 1. ロジットから成功確率を解く
+### 1. ロジットの逆変換とオッズ比
 
 $$
 \log\frac{p_i}{1-p_i}=\eta_i
@@ -47,25 +66,22 @@ $$
 
 $$
 p_i=e^{\eta_i}(1-p_i)
-=e^{\eta_i}-e^{\eta_i}p_i.
 $$
 
-$p_i$ を左辺に集めると
+より
 
 $$
-p_i(1+e^{\eta_i})=e^{\eta_i},
+p_i(1+e^{\eta_i})=e^{\eta_i}.
 $$
 
-よって
+従って
 
 $$
 \boxed{
 p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}}
-=\frac{1}{1+e^{-\eta_i}}
+=\frac1{1+e^{-\eta_i}}
 }.
 $$
-
-### 2. オッズ比
 
 $x$ におけるオッズは
 
@@ -74,33 +90,31 @@ $$
 =\exp(\beta_0+\beta_1x).
 $$
 
-$x$ を1増やしたときのオッズとの比は
+$x$ を1増やすと
 
 $$
-\begin{aligned}
 \frac{\exp\{\beta_0+\beta_1(x+1)\}}
 {\exp(\beta_0+\beta_1x)}
-&=\exp(\beta_1).
-\end{aligned}
+=e^{\beta_1}.
 $$
 
-したがって
+よって
 
 $$
 \boxed{\text{オッズ比}=e^{\beta_1}}.
 $$
 
-### 3. 確率質量関数から尤度とスコアを導く
+### 2. 尤度・対数尤度・スコア方程式
 
-$Y_i$ は0または1なので、その条件付き確率質量関数は1つの式で
+$Y_i$ は0または1なので、条件付き確率質量関数は
 
 $$
 P(Y_i=y_i\mid x_i)
 =p_i^{y_i}(1-p_i)^{1-y_i},
-\qquad y_i\in\{0,1\}
+\qquad y_i\in\{0,1\}.
 $$
 
-と書ける。観測値 $y_1,\ldots,y_n$ を固定し、これを未知母数 $\beta_0,\beta_1$ の関数として見ると、独立性から尤度は
+独立性から尤度は
 
 $$
 L(\beta_0,\beta_1)
@@ -108,23 +122,23 @@ L(\beta_0,\beta_1)
 p_i^{y_i}(1-p_i)^{1-y_i}.
 $$
 
-対数を取ると
+対数尤度は
 
 $$
-\ell(\beta_0,\beta_1)
+\ell
 =\sum_{i=1}^n
 \{y_i\log p_i+(1-y_i)\log(1-p_i)\}.
 $$
 
-ここで
+ロジスティック回帰では
 
 $$
 p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}},
 \qquad
-1-p_i=\frac{1}{1+e^{\eta_i}}
+1-p_i=\frac1{1+e^{\eta_i}}.
 $$
 
-なので
+従って
 
 $$
 \log p_i
@@ -136,18 +150,7 @@ $$
 =-\log(1+e^{\eta_i}).
 $$
 
-したがって各項は
-
-$$
-\begin{aligned}
-y_i\log p_i+(1-y_i)\log(1-p_i)
-&=y_i\eta_i-y_i\log(1+e^{\eta_i})\\
-&\quad-(1-y_i)\log(1+e^{\eta_i})\\
-&=y_i\eta_i-\log(1+e^{\eta_i}).
-\end{aligned}
-$$
-
-よって対数尤度は
+代入すると
 
 $$
 \boxed{
@@ -157,15 +160,15 @@ $$
 }.
 $$
 
-次に微分する。まず
+ここで
 
 $$
 \frac{d}{d\eta_i}\log(1+e^{\eta_i})
 =\frac{e^{\eta_i}}{1+e^{\eta_i}}
-=p_i.
+=p_i
 $$
 
-また
+であり
 
 $$
 \frac{\partial\eta_i}{\partial\beta_0}=1,
@@ -173,44 +176,43 @@ $$
 \frac{\partial\eta_i}{\partial\beta_1}=x_i.
 $$
 
-したがって連鎖律から
-
-$$
-\begin{aligned}
-\frac{\partial\ell}{\partial\beta_0}
-&=\sum_{i=1}^n(y_i-p_i),\\
-\frac{\partial\ell}{\partial\beta_1}
-&=\sum_{i=1}^nx_i(y_i-p_i).
-\end{aligned}
-$$
-
-最尤推定量はこれらを0とする連立方程式、すなわち
+よって
 
 $$
 \boxed{
-\sum_{i=1}^n(y_i-p_i)=0,
-\qquad
-\sum_{i=1}^nx_i(y_i-p_i)=0
-}
+\frac{\partial\ell}{\partial\beta_0}
+=\sum_{i=1}^n(y_i-p_i)
+},
 $$
 
-を満たす。設計行列の第 $i$ 行を $(1,x_i)$ とすれば、まとめて
+$$
+\boxed{
+\frac{\partial\ell}{\partial\beta_1}
+=\sum_{i=1}^nx_i(y_i-p_i)
+}.
+$$
+
+最尤推定量はこれらを0とするスコア方程式を満たす。設計行列の第 $i$ 行を $(1,x_i)$ と書けば
 
 $$
-\boxed{X^\top(y-p)=0}
+X^\top(y-p)=0
 $$
 
-と書ける。一般にはこの方程式を $\beta_0,\beta_1$ について初等的な閉形式では解けないため、数値反復を使う。
+とまとめられる。
 
-### 4. オッズ比推定量へのデルタ法
+### 3. オッズ比への Delta 法
 
-$g(b)=e^b$ と置くと
+$$
+g(b)=e^b
+$$
+
+と置くと
 
 $$
 g'(b)=e^b.
 $$
 
-$\widehat\beta_1$ の漸近分散が $v$ なら、デルタ法により
+$\widehat\beta_1$ の漸近分散が $v$ なら Delta 法から
 
 $$
 \operatorname{Avar}\{g(\widehat\beta_1)\}
@@ -218,7 +220,7 @@ $$
 \{g'(\beta_1)\}^2v.
 $$
 
-したがって
+従って
 
 $$
 \boxed{
@@ -227,27 +229,125 @@ $$
 }.
 $$
 
-実際に標準誤差を推定するときは未知の $\beta_1$ を $\widehat\beta_1$ で置き換え、$e^{2\widehat\beta_1}v$ を用いる。
+実際の推定では未知の $\beta_1$ を $\widehat\beta_1$ で置き換える。
 
-### 5. 確率差との違い
+### 4. プロビットモデルの潜在変数表現
 
-オッズ比 $e^{\beta_1}$ は、説明変数が1増えたときに**オッズが何倍になるか**を表す。一方、成功確率の差
+プロビットモデルでは
+
+$$
+Y_i=1
+$$
+
+となるのは
+
+$$
+Z_i=\eta_i+\varepsilon_i>0
+$$
+
+のときである。従って
+
+$$
+\begin{aligned}
+p_i
+&=P(Y_i=1\mid x_i)\\
+&=P(\eta_i+\varepsilon_i>0)\\
+&=P(\varepsilon_i>-\eta_i).
+\end{aligned}
+$$
+
+標準正規分布は0について対称なので
+
+$$
+P(\varepsilon_i>-\eta_i)
+=P(\varepsilon_i\le\eta_i)
+=\Phi(\eta_i).
+$$
+
+したがって
+
+$$
+\boxed{
+p_i=\Phi(\beta_0+\beta_1x_i)
+}.
+$$
+
+連続な説明変数 $x_i$ に対する限界効果は連鎖律から
+
+$$
+\begin{aligned}
+\frac{dp_i}{dx_i}
+&=\Phi'(\eta_i)\frac{d\eta_i}{dx_i}\\
+&=\varphi(\eta_i)\beta_1.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{
+\frac{dp_i}{dx_i}
+=\beta_1\varphi(\beta_0+\beta_1x_i)
+}.
+$$
+
+プロビット係数 $\beta_1$ 自体が確率の一定増分を表すわけではなく、確率への影響は現在の $x_i$、したがって $\eta_i$ に依存する。
+
+### 5. ロジットとプロビットの比較
+
+両者はどちらも
+
+$$
+\eta_i=\beta_0+\beta_1x_i
+$$
+
+という線形予測子を、0から1の成功確率へ単調に写す2値応答モデルである。
+
+ロジスティック回帰では
+
+$$
+p_i=\frac1{1+e^{-\eta_i}}
+$$
+
+であり、$\beta_1$ は説明変数が1増えたときの**対数オッズの増分**、$e^{\beta_1}$ はオッズ比として直接解釈できる。
+
+プロビット回帰では
+
+$$
+p_i=\Phi(\eta_i)
+$$
+
+であり、潜在正規変数の位置をどれだけ動かすかという尺度で係数を解釈する。確率への限界効果は
+
+$$
+\beta_1\varphi(\eta_i)
+$$
+
+なので、説明変数の位置によって変化する。
+
+ロジスティック回帰でも同様に、$x$ が1増えたときのオッズ比
+
+$$
+e^{\beta_1}
+$$
+
+は一定だが、成功確率の差
 
 $$
 p(x+1)-p(x)
 $$
 
-は $x$、$\beta_0$、$\beta_1$ に依存する。したがって同じオッズ比でも、もとの成功確率が異なれば確率の増減幅は異なる。
+は非線形な逆リンクを通るため $x$ に依存する。したがって「オッズが何倍」と「確率が何ポイント増える」は同じ意味ではない。
 
 ## 本番答案
 
-$\eta_i=\beta_0+\beta_1x_i$ とすると
+ロジットでは
 
 $$
-p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}}.
+p_i=\frac{e^{\eta_i}}{1+e^{\eta_i}},
 $$
 
-オッズは $e^{\eta_i}$ なので、$x$ が1増えたときのオッズ比は $e^{\beta_1}$。
+$x$ が1増えたときのオッズ比は $e^{\beta_1}$。
 
 独立性から
 
@@ -255,38 +355,44 @@ $$
 L=\prod_i p_i^{y_i}(1-p_i)^{1-y_i},
 $$
 
-よって
-
 $$
 \ell
-=\sum_i\{y_i\eta_i-\log(1+e^{\eta_i})\}.
+=\sum_i\{y_i\eta_i-\log(1+e^{\eta_i})\},
 $$
 
-$\partial\log(1+e^{\eta_i})/\partial\eta_i=p_i$ だから
+したがって
 
 $$
 \frac{\partial\ell}{\partial\beta_0}=\sum_i(y_i-p_i),
 \qquad
-\frac{\partial\ell}{\partial\beta_1}=\sum_ix_i(y_i-p_i),
+\frac{\partial\ell}{\partial\beta_1}=\sum_ix_i(y_i-p_i).
 $$
 
-すなわちスコア方程式は $X^\top(y-p)=0$。
-
-$g(b)=e^b$, $g'(b)=e^b$ なのでデルタ法から
+$g(b)=e^b$ なので Delta 法より
 
 $$
 \operatorname{Avar}(e^{\widehat\beta_1})
 \approx e^{2\beta_1}v.
 $$
 
-オッズ比はオッズの乗法効果、確率差はベース確率にも依存する加法的な確率変化である。
+プロビットでは潜在変数 $Z_i=\eta_i+\varepsilon_i$、$\varepsilon_i\sim N(0,1)$ から
+
+$$
+p_i=P(Z_i>0)=\Phi(\eta_i),
+$$
+
+$$
+\frac{dp_i}{dx_i}=\beta_1\varphi(\eta_i).
+$$
+
+ロジットは係数を対数オッズ・オッズ比で直接解釈でき、プロビットは潜在正規尺度上の効果として解釈する。どちらも確率への限界効果は説明変数の位置に依存する。
 
 ## 採点基準
 
-- 逆リンクの導出: 4点
-- オッズ比の導出: 4点
-- 確率質量関数から尤度・対数尤度・スコア方程式: 6点
-- デルタ法: 4点
-- 確率差との解釈比較: 2点
+- ロジット逆変換・オッズ比: 4点
+- 尤度・対数尤度・スコア方程式: 6点
+- Delta 法: 3点
+- 潜在変数からプロビット確率・限界効果を導出: 5点
+- 2つのリンクと確率差の解釈: 2点
 
-25分経過時は指数の数値化をせず記号式で完答する。
+25分経過時は、ロジットのスコア導出と、プロビットの $P(Z>0)=\Phi(\eta)$ を優先して残す。
