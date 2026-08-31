@@ -1,75 +1,35 @@
 schema_version: 1
-batch_id: 2026-08-31-mle-consistency-canonicalization-238
+batch_id: 2026-08-31-mle-consistency-canonicalization-238b
 items:
   - id: asym-mle-consistency
-    note: likelihood側とasymptotic側に重複していたMLE一致性を、argmax条件を正本にし、BernoulliのChebyshev確認と非正則なUniform端点MLEの直接証明を同じ論点の代表例として統合する。
-    metadata:
-      title: 最尤推定量の一致性をargmax条件と具体例で確認する
-      topic: mle-consistency-canonical
-      type: theorem
-      priority: S
-      hashtags: [最尤推定量, 一致性, 確率収束, argmax, 識別可能性]
+    note: 既存のargmax条件・Bernoulli例を保ち、旧mle-consistency固有のU(0,theta)端点MLEの直接一致性証明だけを吸収する。前回の全面rewriteはvalidationで停止したため、metadataと既存公式欄を変更しない最小差分で再投入する。
     sections:
       問題: |
-        最尤推定量 $\widehat\theta_n$ が真値 $\theta_0$ へ確率収束するための基本的な考え方と代表的な条件を述べよ。
+        最尤推定量が一致性（確率収束）を持つ代表的な条件を述べよ。
 
-        あわせて次の2例で一致性を確認せよ。
+        また次の2例で一致性を確認せよ。
 
-        1. $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の $\widehat p=\overline X$。
-        2. $X_i\overset{iid}{\sim}U(0,\theta_0)$ の $\widehat\theta=X_{(n)}=\max_iX_i$。
+        1. $X_i\overset{iid}{\sim}\operatorname{Bernoulli}(p)$ の最尤推定量 $\widehat p=\overline X$。
+        2. $X_i\overset{iid}{\sim}U(0,\theta_0)$ の最尤推定量 $\widehat\theta=X_{(n)}=\max_iX_i$。
       答え: |
-        MLE一致性の基本は、1観測当たりの標本対数尤度が期待対数尤度へ一様に近づき、その期待対数尤度が識別可能性により真値 $\theta_0$ で一意に最大になることから、最大点 $\widehat\theta_n$ も真値へ近づくという argmax の議論である。
-        $$
-        \boxed{\widehat\theta_n\xrightarrow{p}\theta_0}.
-        $$
+        一般論では、期待対数尤度が識別可能性により真値 $\theta_0$ で一意に最大となり、標本対数尤度が期待対数尤度へ母数について一様収束すれば、標本対数尤度の最大点も真値へ近づく。点ごとの大数の法則だけでは、動く最大点の収束は一般には保証できない。
 
-        Bernoulliでは $\widehat p=\overline X$ で
+        Bernoulliでは
         $$
         E[\widehat p]=p,
         \qquad
-        \operatorname{Var}(\widehat p)=\frac{p(1-p)}n.
+        \operatorname{Var}(\widehat p)=\frac{p(1-p)}n
         $$
-        Chebyshevの不等式より
-        $$
-        P(|\widehat p-p|>\varepsilon)
-        \le\frac{p(1-p)}{n\varepsilon^2}\to0,
-        $$
-        したがって $\widehat p\xrightarrow{p}p$。
+        なのでChebyshevの不等式から $\widehat p\xrightarrow{p}p$。
 
-        $U(0,\theta_0)$ ではMLEは $X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対し
+        一方、$U(0,\theta_0)$ では $\widehat\theta=X_{(n)}$ である。$0<\varepsilon<\theta_0$ に対して
         $$
-        P(|X_{(n)}-\theta_0|>\varepsilon)
-        =P(X_{(n)}<\theta_0-\varepsilon)
-        =\left(1-\frac{\varepsilon}{\theta_0}\right)^n\to0,
+        P\left(|X_{(n)}-\theta_0|>\varepsilon\right)
+        =P\left(X_{(n)}<\theta_0-\varepsilon\right)
+        =\left(1-\frac{\varepsilon}{\theta_0}\right)^n
+        \to0.
         $$
-        よって
-        $$
-        \boxed{X_{(n)}\xrightarrow{p}\theta_0}.
-        $$
-      使用公式・定理: |
-        代表的なMLE一致性のargmax条件は次である。
-
-        1. **識別可能性**：期待対数尤度
-        $$
-        Q(\theta)=E_{\theta_0}[\log f(X;\theta)]
-        $$
-        が真値 $\theta_0$ で一意に最大になる。
-        2. **一様収束**：
-        $$
-        \sup_{\theta\in\Theta}
-        \left|\frac1n\ell_n(\theta)-Q(\theta)\right|
-        \xrightarrow{p}0.
-        $$
-        3. 母数空間がコンパクト、または遠方で最大化を防ぐ外側制御がある。
-        4. 通常の正則モデルでは真値が母数空間の内部にあることなども仮定する。
-
-        点ごとの大数の法則
-        $$
-        n^{-1}\ell_n(\theta)\to Q(\theta)
-        $$
-        だけでは、$n$ とともに動く最大点の収束を一般には保証できない。そのため一様収束または同等のargmax条件が重要になる。
-
-        一方、$U(0,\theta)$ のように台が母数に依存する非正則モデルでは、上の正則条件をそのまま適用するのではなく、MLEの具体形から確率を直接評価して一致性を示せる。
+        よって $X_{(n)}\xrightarrow{p}\theta_0$ である。
       計算例: |
         Bernoulliで $p=0.4,n=100,\varepsilon=0.1$ とすると
         $$
@@ -77,18 +37,14 @@ items:
         \le\frac{0.4\cdot0.6}{100\cdot0.1^2}
         =0.24.
         $$
-        $n=1000$ なら同じ上界は $0.024$ まで下がる。
+        $n=1000$ なら同じ上界は $0.024$ になる。
 
         一様分布で $\theta_0=10,\varepsilon=1$ なら
         $$
         P(X_{(n)}<9)=0.9^n.
         $$
-        $n=20$ では $0.9^{20}\approx0.1216$、$n=100$ では $0.9^{100}\approx2.66\times10^{-5}$ であり、最大値は急速に右端10へ近づく。
-      一手: |
-        **一般論では「期待対数尤度の一意最大性 + 標本対数尤度の一様収束 → argmaxも真値へ」。具体モデルではMLEの形が簡単なら確率を直接評価する。**
+        $n=20$ では $0.9^{20}\approx0.1216$、$n=100$ では $0.9^{100}\approx2.66\times10^{-5}$ となり、最大値が右端10へ近づくことを直接確認できる。
       注意: |
         一致性は $n\to\infty$ の性質であり、不偏性とは別である。
 
-        正則条件は便利な十分条件であって、すべての一致するMLEがそれを満たすわけではない。$U(0,\theta)$ の端点MLEは台が母数に依存する非正則例だが、それでも直接計算により一致性を示せる。
-
-        「各固定 $\theta$ で対数尤度が期待値へ収束する」だけから最大点の一致性を即断しない。最大点が動くため、argmaxを制御する一様性が必要である。
+        $U(0,\theta)$ は台が母数に依存する非正則モデルなので、通常の正則条件を機械的に当てはめるのではなく、MLEの具体形から上のように直接確率を評価するとよい。
