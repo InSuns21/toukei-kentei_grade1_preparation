@@ -1,230 +1,114 @@
 schema_version: 1
-batch_id: 2026-08-31-robust-glm-nonlinear-canonicalization-254
+batch_id: 2026-08-31-wald-canonicalization-256
 items:
-  - id: reg-heteroskedasticity-pattern
-    note: 工学側 enginf-robust-sandwich-se のHC0不均一分散頑健分散を、不均一分散診断の common 正本へ吸収する。係数の不偏性と通常標準誤差の妥当性を分離し、OLS係数はそのままでも分散推定をサンドイッチ形へ替えられることを明示する。
-    sections:
-      使用公式・定理: |
-        ガウス・マルコフの定理の等分散条件では
-        $$
-        \operatorname{Var}(\boldsymbol\varepsilon\mid X)=\sigma^2I
-        $$
-        を仮定する。
-
-        不均一分散の下でも $E[\boldsymbol\varepsilon\mid X]=\boldsymbol0$ なら最小二乗推定量は不偏であり得るが、通常の
-        $$
-        \widehat{\operatorname{Var}}(\widehat{\boldsymbol\beta})
-        =MS_E(X^{\mathsf T}X)^{-1}
-        $$
-        は一般に正しくない。
-
-        観測 $i$ の説明変数ベクトルを $x_i$、最小二乗残差を $e_i$ とすると、HC0型の不均一分散頑健分散推定量は
-        $$
-        \boxed{
-        \widehat V_{\mathrm{HC0}}
-        =(X^{\mathsf T}X)^{-1}
-        \left(\sum_{i=1}^n e_i^2x_ix_i^{\mathsf T}\right)
-        (X^{\mathsf T}X)^{-1}}
-        $$
-        である。
-      答え: |
-        残差対当てはめ値図が右へ行くほど扇状に広がるなら、
-        $$
-        \operatorname{Var}(\varepsilon_i\mid X_i)
-        $$
-        が一定でない不均一分散を疑う。
-
-        条件付き平均0が保たれていれば最小二乗法の係数推定値は不偏であり得るが、等分散を前提とする通常の標準誤差・t検定・F検定は不適切になり得る。
-
-        対応は目的によって異なる。平均構造や分散構造に意味があるなら変数変換や重み付き最小二乗を検討し、係数推定は最小二乗法のまま推測だけ頑健化したいならHC型のロバスト標準誤差を使う方法がある。
-      計算例: |
-        HC0の式は「外側のパン」
-        $$
-        (X^{\mathsf T}X)^{-1}
-        $$
-        の間に、観測ごとの残差二乗で重み付けした
-        $$
-        \sum_i e_i^2x_ix_i^{\mathsf T}
-        $$
-        を挟むサンドイッチ形である。
-
-        形式的に全ての $e_i^2$ を共通の $s^2$ へ置き換えると中央は
-        $$
-        s^2\sum_i x_ix_i^{\mathsf T}=s^2X^{\mathsf T}X
-        $$
-        となるため
-        $$
-        (X^{\mathsf T}X)^{-1}
-        (s^2X^{\mathsf T}X)
-        (X^{\mathsf T}X)^{-1}
-        =s^2(X^{\mathsf T}X)^{-1},
-        $$
-        となり通常の等分散型分散推定と対応する。
-      注意: |
-        係数の不偏性と通常標準誤差の正しさを分けて考える。HC0は最小二乗係数そのものを変更する手法ではなく、主にその分散共分散行列・標準誤差の推定を変更する。
-
-        HC0は不均一分散には頑健だが、系列相関やクラスタ内相関まで自動的に解決するわけではない。その場合は相関構造に対応した別の頑健分散推定が必要になる。
-  - id: glm-deviance-definition
-    note: 工学側 enginf-glm-deviance-residual-output の残差逸脱度/残差自由度の読み方を common 正本へ吸収する。比が1付近というのは大標本での粗い診断目安に限定し、Pearson統計量/自由度による分散診断とは区別する。
-    sections:
-      一手: |
-        **診断は「単一モデルの当てはまり → 入れ子モデル比較 → 分散仮定」の順に見る。**
-
-        - 飽和モデルとの差：逸脱度 $D$
-        - 観測残差の標準化二乗和：Pearson統計量 $X_P^2$
-        - 2モデルの比較：逸脱度差 $D_R-D_F$
-        - $X_P^2/df_E$ が1から大きく外れる：分散仮定を再点検
-
-        さらに、二項・ポアソン型の一般化線形モデルなどで大標本近似が妥当な場面では、残差逸脱度を残差自由度で割った
-        $$
-        D/df_E
-        $$
-        が1前後かを見ることが粗い適合度診断として使われることがある。ただしこれは機械的な合否基準ではない。
-
-        逸脱度と尤度比統計量を別公式として覚えず、**飽和モデル項が差を取ると消える**ことを確認する。
-      計算例: |
-        入れ子モデル比較で「なぜ逸脱度差が尤度比になるか」を実数でも確認する。飽和モデルの最大対数尤度を $-40$、縮小モデルを $-55$、完全モデルを $-51$ とする。
-
-        まず各逸脱度は
-        $$
-        D_R=2\{-40-(-55)\}=30,
-        $$
-        $$
-        D_F=2\{-40-(-51)\}=22.
-        $$
-        よって
-        $$
-        D_R-D_F=30-22=8.
-        $$
-        一方、直接尤度比から計算しても
-        $$
-        2(\ell_F-\ell_R)
-        =2\{-51-(-55)\}
-        =8
-        $$
-        と一致する。
-
-        単一モデルの出力で残差逸脱度42.0、残差自由度40なら
-        $$
-        \frac{42}{40}=1.05.
-        $$
-        1に近いため、この数値だけから著しい不適合を示すとは言いにくい。ただし適合が保証されたわけではなく、残差パターンや分散仮定も確認する。
-      注意: |
-        残差逸脱度/自由度が1に近いことだけでモデル適合を保証しない。逆に大きな値も、平均構造の不足・外れ値・過分散など複数の原因で生じ得る。
-
-        過分散の尺度として
-        $$
-        \widehat\phi=\frac{X_P^2}{df_E}
-        $$
-        を使う議論と、残差逸脱度/自由度を見る粗い適合度診断は同一ではない。二項・ポアソンモデルで分散仮定を評価するときはPearson統計量・逸脱度・残差構造を合わせて判断する。
-  - id: glm-nonlinear-regression-gradient
-    note: 工学側 enginf-nonlinear-gradient-se の非線形関数の勾配によるデルタ法標準誤差を、Gauss--Newtonの一次線形化を扱う common 正本へ統合する。同じ局所線形化が更新式と推測の両方に使われることを示す。
+  - id: test-wald-general
+    note: 工学側 enginf-logistic-wald-output と enginf-glm-wald-joint を、1次元・複数制約を統一したWald検定の common 正本へ吸収する。ロジスティック回帰の分離問題と、一般化線形モデルでは通常大標本近似である点も保持する。
     sections:
       問題: |
-        非線形回帰
-        $$
-        y_i=f(x_i,\boldsymbol\theta)+\varepsilon_i
-        $$
-        を考える。
+        漸近正規な推定量に基づくWald検定を考える。
 
-        1. 非線形最小二乗法のGauss--Newton更新を書け。
-        2. 推定量 $\widehat{\boldsymbol\theta}$ の推定分散共分散行列を $\widehat V$ とする。滑らかな関数 $g(\boldsymbol\theta)$ の近似分散を勾配で書け。
-        3. 
+        1. 1次元で
         $$
-        g(\beta_1,\beta_2)=\beta_1e^{-\beta_2x},
-        \qquad x=2,
+        H_0:\theta=\theta_0
         $$
+        を検定するWaldの標準化統計量と、その二乗形を書け。
+
+        2. ロジスティック回帰で係数推定値 $\widehat\beta=0.80$、標準誤差0.25とする。$H_0:\beta=0$ の5%両側Wald検定と近似95%信頼区間を求めよ。
+
+        3. $q$ 本の線形制約
         $$
-        \widehat\beta=(10,0.5)^{\mathsf T},
+        H_0:R\theta=r
+        $$
+        に対する多次元Wald統計量を書け。さらに
+        $$
+        R\widehat\theta-r=(1,2)^{\mathsf T},
         \qquad
-        \widehat V=\operatorname{diag}(1,0.01)
+        R\widehat V R^{\mathsf T}=\operatorname{diag}(0.25,1)
         $$
-        のとき、$g(\widehat\beta)$ の近似標準誤差を求めよ。
+        で $q=2$ のとき統計量を計算し、5%水準で判定せよ。自由度2のカイ二乗分布の95%点を5.991とする。
       使用公式・定理: |
-        Gauss--Newton法では現在値の周りで
-        $$
-        \boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)
-        \approx
-        \boldsymbol f(\boldsymbol\theta)+J\boldsymbol\delta
-        $$
-        と一次近似する。ここで
-        $$
-        J_{ij}=\frac{\partial f_i}{\partial\theta_j}
-        $$
-        はヤコビ行列である。
-
-        同じ一次線形化から、デルタ法により滑らかなスカラー関数 $g$ について
+        1次元では、帰無仮説の下で標準正規分布へ近づく
         $$
         \boxed{
-        \widehat{\operatorname{Var}}\{g(\widehat{\boldsymbol\theta})\}
-        \approx
-        \nabla g(\widehat{\boldsymbol\theta})^{\mathsf T}
-        \widehat V
-        \nabla g(\widehat{\boldsymbol\theta})}
+        Z_W=\frac{\widehat\theta-\theta_0}
+        {\widehat{\operatorname{SE}}(\widehat\theta)}}
         $$
-        となる。近似標準誤差はこの平方根である。
+        を用い、その二乗
+        $$
+        \boxed{W=Z_W^2}
+        $$
+        は自由度1のカイ二乗分布へ近づく。
+
+        $q$ 本の制約では、$\widehat V$ を $\widehat\theta$ の推定分散共分散行列として
+        $$
+        \boxed{
+        W=(R\widehat\theta-r)^{\mathsf T}
+        [R\widehat V R^{\mathsf T}]^{-1}
+        (R\widehat\theta-r)}
+        $$
+        を用い、帰無仮説の下で自由度 $q$ のカイ二乗分布へ漸近する。
       一手: |
-        **非線形回帰では局所的に線形化する。**
+        **Wald検定は「推定値が帰無仮説から何標準誤差ずれているか」を測る。**
 
-        パラメータ更新では関数ベクトルをヤコビ行列 $J$ で線形化し、推測では予測・応答関数 $g$ を勾配 $\nabla g$ で線形化する。どちらも「現在の推定値の近くで1次式にする」という同じ発想である。
+        1次元なら差を標準誤差で割る。複数制約なら、制約差ベクトルをその推定分散共分散行列でMahalanobis型に標準化した二次形式へ拡張する。
       答え: |
-        現在値で残差を
+        1. 1次元では
         $$
-        \boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)
-        $$
-        とすると、Gauss--Newton更新は
-        $$
-        \boxed{
-        \boldsymbol\theta^{\mathrm{new}}
-        =\boldsymbol\theta
-        +(J^{\mathsf T}J)^{-1}J^{\mathsf T}\boldsymbol r}.
+        Z_W=\frac{\widehat\theta-\theta_0}
+        {\widehat{\operatorname{SE}}(\widehat\theta)},
+        \qquad
+        W=Z_W^2.
         $$
 
-        数値例では
+        2. ロジスティック回帰では
         $$
-        g(\widehat\beta)=10e^{-1}\approx3.679.
+        Z_W=\frac{0.80}{0.25}=3.2.
         $$
-        勾配は
+        $|3.2|>1.96$ なので5%両側検定で $H_0:\beta=0$ を棄却する。
+
+        近似95%信頼区間は
         $$
-        \nabla g
-        =\begin{pmatrix}
-        e^{-\beta_2x}\\
-        -x\beta_1e^{-\beta_2x}
-        \end{pmatrix}_{(\beta_1,\beta_2)=(10,0.5),\,x=2}
-        =\begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}.
+        0.80\pm1.96(0.25)
+        =\boxed{(0.31,1.29)}.
         $$
-        したがって
+
+        3. 制約差の推定分散共分散行列の逆行列は
         $$
-        \begin{aligned}
-        \widehat{\operatorname{Var}}(g)
-        &\approx
-        (e^{-1},-20e^{-1})
-        \begin{pmatrix}1&0\\0&0.01\end{pmatrix}
-        \begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}\\
-        &=e^{-2}+0.01(20e^{-1})^2\\
-        &=5e^{-2}.
-        \end{aligned}
+        [R\widehat V R^{\mathsf T}]^{-1}
+        =\operatorname{diag}(4,1).
         $$
         よって
         $$
-        \boxed{\operatorname{SE}\{g(\widehat\beta)\}\approx\frac{\sqrt5}{e}\approx0.823}.
+        W=(1,2)
+        \begin{pmatrix}4&0\\0&1\end{pmatrix}
+        \begin{pmatrix}1\\2\end{pmatrix}
+        =4+4
+        =\boxed{8}.
         $$
+        $8>5.991$ なので、自由度2のカイ二乗近似を用いる5%検定で同時制約を棄却する。
       計算例: |
-        分散共分散行列が対角でない場合は交差項も効く。2母数なら
+        既存の1次元例として
         $$
-        \nabla g=(g_1,g_2)^{\mathsf T},
+        \widehat\theta=1.4,
         \qquad
-        \widehat V=
-        \begin{pmatrix}v_{11}&v_{12}\\v_{12}&v_{22}\end{pmatrix}
+        \theta_0=1,
+        \qquad
+        \widehat{\operatorname{SE}}=0.2
         $$
-        に対して
+        なら
         $$
-        \widehat{\operatorname{Var}}(g)
-        \approx
-        g_1^2v_{11}+2g_1g_2v_{12}+g_2^2v_{22}.
+        Z_W=2,
+        \qquad W=4.
         $$
-        成分分散だけを足して共分散項を落としてはいけない。
-      注意: |
-        Gauss--Newton更新の $(J^{\mathsf T}J)^{-1}$ には局所的な列フルランク性が必要である。初期値が悪い場合や強い非線形性がある場合は収束しないこともある。
 
-        デルタ法の標準誤差は一次近似に基づく近似である。強い非線形性、小標本、境界付近では近似精度が悪くなり得る。
+        複数制約で分散共分散行列が対角でない場合は、各成分の標準化平方を単純に足すのではなく、必ず
+        $$
+        [R\widehat V R^{\mathsf T}]^{-1}
+        $$
+        を含む二次形式を計算する。
+      注意: |
+        Wald検定は推定値の位置で分散を評価するため、境界付近、強い非線形変換、小標本では不安定になり得る。
+
+        ロジスティック回帰では完全分離・準完全分離があると係数推定値が非常に大きくなったり標準誤差が不安定になったりし、Wald検定が特に信頼しにくくなることがある。
+
+        誤差が正規分布に従う線形モデルでは、有限標本で正確なt検定・F検定を構成できる場合がある。一方、一般化線形モデルのWald検定は通常、標準正規分布やカイ二乗分布への大標本近似として使う。
