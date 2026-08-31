@@ -1,16 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-gamma-moments-reduction-230
+batch_id: 2026-08-31-normal-affine-reduction-232
 items:
-  - id: dist-gamma-moments
+  - id: dist-normal-linear-transform
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-gamma-moments-by-definition
-    coverage_card: dist-gamma-moments-by-definition
-    note: 正本はshape-rateのガンマ分布について密度積分からE[X]=alpha/beta、E[X^2]=alpha(alpha+1)/beta^2、Var(X)=alpha/beta^2を導出し、旧カードと同じalpha=3,beta=2の数値例E[X]=3/2、Var(X)=3/4まで統合済み。公式代入だけの旧カードは不要。
-
-  - id: dist-exponential-moments
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: dist-gamma-moments-by-definition
-    coverage_card: dist-gamma-moments-by-definition
-    note: 正本にGamma(1,lambda)=Exponential(lambda)を明示し、一般ガンマ分布の導出式へalpha=1,beta=lambdaを代入してE[X]=1/lambda、E[X^2]=2/lambda^2、Var(X)=1/lambda^2まで求めている。指数分布だけの旧モーメントカードは一般導出の特殊ケース。
+    canonical_card: prob-linear-combination-normal
+    coverage_card: prob-linear-combination-normal
+    note: 多変量正規の正本をY=a^T X+bへ拡張し、1変量X~N(mu,sigma^2)ならaX+b~N(a mu+b,a^2 sigma^2)、旧カードと同じX~N(2,9),Y=-X+4の例、a=0の退化分布まで統合済み。1変量だけの旧カードは一般アフィン変換の特殊ケース。
