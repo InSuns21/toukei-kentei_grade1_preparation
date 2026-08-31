@@ -1011,36 +1011,6 @@ $$Y\sim N(2,9).$$
 <!-- CARD -->
 
 ---
-id: dist-normal-sum
-published: true
-title: 独立な正規分布の和の分布を求める
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: normal-sum
-type: theorem
-difficulty: 2
-priority: S
-hashtags: [正規分布（ガウス分布）, 和, 統計的独立]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 正規分布（ガウス分布） }]
----
-## 問題
-独立な正規分布 $X_i\sim N(\mu_i,\sigma_i^2)$ $(i=1,\ldots,n)$ について $\sum_i a_iX_i$ の分布を答えよ。
-## 答え
-$$\sum_{i=1}^na_iX_i\sim N\left(\sum_{i=1}^na_i\mu_i,\sum_{i=1}^na_i^2\sigma_i^2\right).$$
-## 使用公式・定理
-独立なら和の分散は分散の和であり、正規分布は線形結合で閉じている。
-## 計算例
-正規分布 $X\sim N(1,4),Y\sim N(3,9)$ 独立なら $X-2Y$ は
-$$N(1-6,4+4\times9)=N(-5,40).$$
-## 一手
-係数を平均には1乗、分散には2乗で入れる。
-## 注意
-独立性がないと分散に $2a_ia_j\operatorname{Cov}(X_i,X_j)$ が加わる。
-
-<!-- CARD -->
-
----
 id: dist-exponential-definition
 published: true
 title: 指数分布の密度と台を記述する

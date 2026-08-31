@@ -420,7 +420,7 @@ items:
       - dist-normal-standardize
       - dist-normal-symmetry
       - dist-normal-linear-transform
-      - dist-normal-sum
+      - prob-linear-combination-normal
       - dist-exponential-definition
       - dist-exponential-cdf-survival
       - dist-exponential-moments
@@ -441,7 +441,6 @@ items:
       - dist-logistic-quantile
       - dist-multivariate-normal-density
       - dist-multivariate-normal-conditional
-      - dist-bivariate-normal-definition
       - dist-bivariate-normal-marginal
       - multi-exchangeability
       - prob-conditional-expectation
@@ -468,7 +467,7 @@ items:
           - dist-normal-standardize
           - dist-normal-symmetry
           - dist-normal-linear-transform
-          - dist-normal-sum
+          - prob-linear-combination-normal
       - name: 指数分布
         status: card
         cards:
@@ -516,7 +515,6 @@ items:
         cards:
           - dist-multivariate-normal-density
           - dist-multivariate-normal-conditional
-          - dist-bivariate-normal-definition
           - dist-bivariate-normal-marginal
   - id: math-sampling-distributions
     status: complete
@@ -1082,7 +1080,7 @@ items:
   - id: math-various-tests
     status: complete
     cards:
-      - test-chi-square-fit
+      - samp-multinomial-cell-counts
       - np-sign-median-ci
       - mathstat-exact-poisson-rate-test
       - mathstat-mcnemar-exact-test
@@ -1119,7 +1117,7 @@ items:
       - name: 適合度の検定
         status: card
         cards:
-          - test-chi-square-fit
+          - samp-multinomial-cell-counts
           - test-goodness-fit-statistic
           - test-independence-chisquare
           - test-fisher-exact-2x2

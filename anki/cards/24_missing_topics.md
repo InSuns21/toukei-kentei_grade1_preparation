@@ -1,51 +1,3 @@
-﻿---
-id: dist-bivariate-normal-definition
-title: 二変量正規分布の定義とパラメータ
-category: math-distributions
-subcategory: math-continuous-distributions
-topic: bivariate-normal-definition
-type: recognition
-difficulty: 2
-priority: S
-hashtags: [二変量正規分布, 同時密度, 相関係数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多変量正規分布 }]
----
-## 問題
-$(X,Y)$ を平均 $\boldsymbol\mu=(\mu_1,\mu_2)$、分散 $\sigma_1^2,\sigma_2^2$、相関係数 $\rho$ の二変量正規分布に従うとする。密度関数とパラメータ条件を書け。
-
-## 答え
-$\sigma_1,\sigma_2>0,\ -1<\rho<1$ のとき
-$$f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2}\right)\right\}.$$
-
-## 使用公式・定理
-5個のパラメータ $(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ で指定される。分散共分散行列は
-$$\boldsymbol\Sigma=
-\begin{pmatrix}\sigma_1^2&\rho\sigma_1\sigma_2\\
-\rho\sigma_1\sigma_2&\sigma_2^2\end{pmatrix},$$
-$$|\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),$$
-$$\boldsymbol\Sigma^{-1}=\frac1{1-\rho^2}
-\begin{pmatrix}
-1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
--\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
-\end{pmatrix}.$$ 
-多変量正規密度
-$$f(\boldsymbol x)=\frac{
-\exp\{-\tfrac12(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
-\boldsymbol\Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)\}}
-{2\pi|\boldsymbol\Sigma|^{1/2}}$$
-へ代入すると答えの式になる。
-
-## 計算例
-$\mu_1=\mu_2=0,\sigma_1=\sigma_2=1,\rho=0$ なら標準二変量正規になり、密度は $f=\frac1{2\pi}\exp\{-\frac{x^2+y^2}{2}\}$。
-
-## 一手
-相関係数 $\rho$ は分散共分散行列の非対角項を $\sigma_1\sigma_2$ で正規化したもの。$\rho=0$ と独立が一致するのはこの場合だけ。
-
-## 注意
-正定値性のため $\lvert\rho\rvert<1$ が要る。$\lvert\rho\rvert=1$ では退化（超平面上に分布）する。
-
-<!-- CARD -->
 ---
 id: dist-bivariate-normal-marginal
 title: 多変量正規分布の部分ベクトルの周辺分布を取り出す
@@ -137,6 +89,7 @@ $$
 周辺分布では不要成分との共分散を使わない。一方、条件付き分布ではブロック逆行列に由来する補正項が現れるので混同しない。
 
 <!-- CARD -->
+
 ---
 id: multi-exchangeability
 title: 交換可能性と同分布
@@ -164,7 +117,9 @@ $P(X_1=1,X_2=0)=P(X_1=0,X_2=1)=0.5$ の混合分布は交換可能だが、$X_1,
 同時分布の対称性から一方の周辺確率を他方の周辺で書き直し、分布の等しさを示す。
 ## 注意
 交換可能 $\Rightarrow$ 同分布は真。一方で同分布は交換可能を意味しない（同分布だが独立でない例は交換可能でないことがある）。交換可能だが独立でない例も存在する。
+
 <!-- CARD -->
+
 ---
 id: prob-conditional-expectation
 title: 条件付き期待値を条件付き分布から求める
@@ -201,8 +156,8 @@ $$E[Y\mid X=x]=x\int_0^\infty ue^{-u}du
 ## 注意
 $E[Y\mid X]$ は $X$ の関数であり、$E[Y]=\int E[Y\mid X=x]f_X(x)\,dx$ と求まり、全体の期待値と一致する。
 
-
 <!-- CARD -->
+
 ---
 id: prob-transform-difference
 title: 独立な差の分布
@@ -245,8 +200,8 @@ $X$ を固定して $Y=x-z$ を代入し、$x$ で積分する。
 ## 注意
 畳み込みの符号に注意。$X+Y$ は $f_X(x)f_Y(z-x)$ を積分する通常の畳み込み、$X-Y$ は $Y$ を $-Y$ と見た符号反転を使う。
 
-
 <!-- CARD -->
+
 ---
 id: prob-transform-product
 title: 独立な積の分布
@@ -285,8 +240,8 @@ $W=X$、$Z=XY$ と置くと $Y=Z/W$。$Y$ を $Z/W$ へ代入し、Jacobian の�
 ## 注意
 積は対数変換で和になるので、独立な対数正規分布の積が再び対数正規分布になることを導くのに使える。一方、独立なガンマ分布の積は一般にはガンマ分布にならない。
 
-
 <!-- CARD -->
+
 ---
 id: prob-transform-box-muller
 title: Box–Muller変換の考え方
@@ -319,9 +274,8 @@ $U_1=0.1,U_2=0.25$ なら $R=\sqrt{-2\ln0.1}\approx2.146$、$Z_1=2.146\cos(\pi/2
 ## 注意
 標準正規の性質（$Z_1,Z_2$ 独立・半径は指数）が核。乱数生成の基礎。
 
-
 <!-- CARD -->
-﻿
+
 ---
 id: dist-poisson-reproductivity
 title: 独立なポアソン分布の再生性
@@ -348,7 +302,9 @@ $$G_{X+Y}(s)=e^{\lambda_1(s-1)}e^{\lambda_2(s-1)}=e^{(\lambda_1+\lambda_2)(s-1)}
 母関数の指数部を足す。$\lambda$ は加算される。
 ## 注意
 再生性は独立な場合のみ。ポアソン過程の到着数を時間区間で足す連結にも使う。
+
 <!-- CARD -->
+
 ---
 id: dist-gamma-beta-relation
 title: ガンマ分布とベータ分布の関係
@@ -387,7 +343,9 @@ v^{\alpha+\beta-1}e^{-\lambda v}$$
 分母を和にして Beta へ帰着。rate が共通であることが条件。
 ## 注意
 rate が異なると Beta にならない。
+
 <!-- CARD -->
+
 ---
 id: process-poisson-orderstat
 title: ポアソン過程の条件付き到着時刻と順序統計量
@@ -421,7 +379,9 @@ f_{S_{(1)}}(s)=2(1-s),$$
 到着件数 $\mathcal N$ を条件付けると「$n$ 個の独立一様標本の順序統計量」へ帰着させる。
 ## 注意
 条件付けで到着数の情報は落ち、時刻の相対順序が残る。これはポアソン過程の核心的性質である。
+
 <!-- CARD -->
+
 ---
 id: dist-limit-map
 title: 極限定理でつながる代表分布マップ
@@ -450,4 +410,3 @@ $n=50,p=0.02$ なら $np=1$ で $\operatorname{Binomial}(50,0.02)\approx\operato
 「レアな成功数→ポアソン」「多数の和→正規」を軸に、二項・ポアソン・正規・標本平均の関係を整理する。
 ## 注意
 本カードは近似の全体マップであり、条件ごとの個別判定は異なるカード（近似選択・二項ポアソン条件）を参照する。各近似にはパラメータ条件（$np$ 有限、$np(1-p)$ 十分大）が必要で、その有効域を押さえるのが要点。
-<!-- CARD -->
