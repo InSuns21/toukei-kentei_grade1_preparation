@@ -1,21 +1,27 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-linear-inference-reduction-205
+batch_id: 2026-08-31-engineering-time-series-reduction-207
 items:
-  - id: enginf-interaction-design-matrix
+  - id: engproc-chapman-kolmogorov-maintenance
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multiple-model-matrix
-    coverage_card: reg-multiple-model-matrix
-    note: 重回帰の正本へモデル式から1観測分の計画行列行を作る手順を統合済み。E[Y]=beta0+beta1 x+beta2 D+beta3 xD について行 (1,x,D,xD) を作り、観測 (2,0),(3,1) から [[1,2,0,0],[1,3,1,3]] を構成する同一数値例まで含むため独立カード不要。
-  - id: enginf-interaction-slope-test
+    canonical_card: stoch-three-state-two-step
+    coverage_card: stoch-three-state-two-step
+    note: 一般側の3状態連鎖カードはChapman–Kolmogorov関係で2段階遷移確率を中間状態について和を取って計算する同一判断単位を扱う。engineering側は正常・要保全・停止という文脈を付けた数値例にすぎないため吸収可能。
+  - id: engproc-stationarity-window-judgment
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-interaction-dummy-continuous
-    coverage_card: reg-interaction-dummy-continuous
-    note: 交互作用正本にD=0の傾きbeta1、D=1の傾きbeta1+beta3、beta3が傾き差であることを統合済み。さらに betahat1=1.2, betahat3=-0.5, SE=0.2 の同一例を有限標本ではt=-2.5で検定し、大標本Wald正規近似でも同じ判定になることまで整理したため吸収可能。
-  - id: enginf-dummy-reference-contrast
+    canonical_card: ts-weak-vs-strong-stationarity
+    coverage_card: ts-weak-vs-strong-stationarity
+    note: 弱定常性の正本へ前半・後半の標本平均(10.1,14.8)、標本分散(2.0,2.1)を比較し、分散はほぼ一定だが平均水準変化を疑う同一診断例を統合済み。有限標本だけで非定常を確定しない注意も保持している。
+  - id: engproc-residual-white-noise-bounds
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-dummy-variable
-    coverage_card: reg-dummy-variable
-    note: ダミー変数正本に3群A・B・Cの基準カテゴリ変更を統合済み。A基準の切片10、B係数2、C係数-1から群平均(10,12,9)を復元し、C基準で切片9、A係数1、B係数3へ再符号化する同一例を含むため完全重複。
+    canonical_card: ts-software-residual-diagnostics
+    coverage_card: ts-software-residual-diagnostics
+    note: 残差診断正本へ点ごとの近似95%限界 ±1.96/sqrt(n) と n=100,r1=0.28 の同一例を追加済み。0.196を超えるため残存自己相関を疑い、複数ラグはLjung–Boxで確認する流れまで正本化した。
+  - id: engproc-ma1-moment-identification
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: ts-maq-acf-cutoff
+    coverage_card: ts-maq-acf-cutoff
+    note: MA(q)正本にMA(1)の rho(1)=theta/(1+theta^2) を既に導出しており、さらに rho(1)=0.4 から theta=0.5,2 を求め、可逆性 |theta|<1 で theta=0.5 を選ぶ同一逆算問題まで統合済み。自己相関だけでは可逆・非可逆表現を区別できない注意も保持する。
