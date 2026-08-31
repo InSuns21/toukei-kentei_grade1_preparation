@@ -70,32 +70,101 @@ $$\overline X-\overline Y\sim N\left(\mu_1-\mu_2,\ \frac{4}{25}+\frac{9}{25}=\fr
 <!-- CARD -->
 ---
 id: samp-multinomial-cell-counts
-title: 多項標本の度数分布をカイ二乗適合度検定へ接続する
+title: 多項標本からPearson適合度統計量と自由度を導く
 category: math-distributions
 subcategory: math-sampling-distributions
-topic: multinomial-cell-counts
-type: theorem
+topic: multinomial-cell-counts-goodness-fit
+type: strategy
 difficulty: 3
-priority: A
-hashtags: [多項分布, 適合度検定, カイ二乗分布, 度数分布]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 多項分布 }]
+priority: S
+hashtags:
+  - 多項分布
+  - 適合度の検定
+  - カイ二乗分布
+  - 自由度
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 多項分布
 ---
 ## 問題
-$n$ 個の独立試行が確率 $p_j$（$\sum_jp_j=1$）で $d$ カテゴリーへ分類され、観測度数を $O_j$、期待度数を $E_j=np_j$ とする。多項標本の観測度数 $O_j$ は多項分布 $\operatorname{Multinomial}(n;p_1,\ldots,p_d)$ に従うことを踏まえ、Pearsonの適合度統計量 $X^2=\sum_j\frac{(O_j-E_j)^2}{E_j}$ の帰無仮説下での漸近分布を答えよ。
+$n$ 個の独立試行が $k$ 個のカテゴリーへ分類され、帰無仮説のカテゴリー確率を $p_1,\ldots,p_k$、観測度数を $O_j$、期待度数を $E_j=np_j$ とする。
+
+1. Pearsonの適合度統計量を書き、帰無仮説のカテゴリー確率が既知のときの漸近自由度を答えよ。
+2. 帰無モデルの内部母数をデータから独立に $r$ 個推定したとき、自由度はどう変わるか。
+3. $k=5$ 区分で内部母数を1個推定した場合の自由度を求めよ。
+
 ## 答え
-$$X^2=\sum_{j=1}^d\frac{(O_j-E_j)^2}{E_j}\ \overset{d}{\longrightarrow}\ \chi^2_{d-1}.$$
-自由度は $d-1$ である。これは多項標本の度数分布 $O_j$ と期待度数 $E_j=np_j$ の隔たりを測り、適合度検定として使う。
+Pearsonの適合度統計量は
+$$
+X^2=\sum_{j=1}^k\frac{(O_j-E_j)^2}{E_j}.
+$$
+帰無仮説のカテゴリー確率が既知なら、通常の正則条件の下で
+$$
+X^2\xrightarrow{d}\chi^2_{k-1}.
+$$
+帰無モデルの内部母数をデータから $r$ 個推定したなら
+$$
+\boxed{\mathrm{df}=k-1-r}.
+$$
+したがって $k=5,r=1$ では
+$$
+\boxed{\mathrm{df}=5-1-1=3}.
+$$
+
 ## 使用公式・定理
-度数ベクトルの平均は $np$、分散共分散行列は $n\{\operatorname{diag}(p)-pp^{\mathsf T}\}$ である。標準化残差は互いに相関し、$\sum_j(O_j-np_j)=0$ という1本の線形制約があるため、二次形式 $X^2$ の自由度は $d-1$ となる。既存の多項分布の確率質量関数（$\operatorname{Multinomial}(n;p_1,\ldots,p_d)$、周辺は二項、共分散は負）は `dist-multinomial-definition` を参照。
+度数ベクトル $(O_1,\ldots,O_k)$ は多項分布に従い、平均と分散共分散行列は
+$$
+E[\boldsymbol O]=n\boldsymbol p,
+\qquad
+\operatorname{Cov}(\boldsymbol O)
+=n\{\operatorname{diag}(\boldsymbol p)-\boldsymbol p\boldsymbol p^{\mathsf T}\}.
+$$
+度数には必ず
+$$
+\sum_{j=1}^k O_j=n
+$$
+という1本の線形制約があるため、カテゴリー確率が既知なら自由度は $k-1$ になる。
+
+さらに帰無モデルの内部母数を $r$ 個、同じデータから正則な方法で推定すると
+$$
+\mathrm{df}=k-1-r.
+$$
+記号を $d$ カテゴリー、推定母数数を $q$ と書く流儀では同じ式は
+$$
+\mathrm{df}=d-1-q
+$$
+である。
+
 ## 計算例
-$n=200$、$d=3$、帰無仮説 $p=(0.5,0.3,0.2)$、観測 $(94,63,43)$ なら $E=(100,60,40)$ で
-$$X^2=\frac{(94-100)^2}{100}+\frac{(63-60)^2}{60}+\frac{(43-40)^2}{40}=0.36+0.15+0.225=0.735,$$
-自由度 $d-1=2$ の $\chi^2_2$ と比較する。
-## 一手
-「多項標本の度数分布」を扱うときは期待度数 $E_j=np_j$ を先に計算し、$(O_j-E_j)^2/E_j$ の和を取り、自由度 $d-1$ のカイ二乗分布と比較する。
+$n=200$、$k=3$、帰無仮説 $\boldsymbol p=(0.5,0.3,0.2)$、観測度数 $(94,63,43)$ なら期待度数は $(100,60,40)$ である。したがって
+$$
+\begin{aligned}
+X^2
+&=\frac{(94-100)^2}{100}
+  +\frac{(63-60)^2}{60}
+  +\frac{(43-40)^2}{40}\\
+&=0.735.
+\end{aligned}
+$$
+確率が既知なので自由度は $3-1=2$ である。
+
+一方、$k=5$ 区分の正則で識別可能な帰無モデルで内部母数を1個推定したなら
+$$
+\mathrm{df}=k-1-r=5-1-1=3.
+$$
+
+## 一手／方針
+**まず「度数の総和が固定」で1自由度を引き、次に「同じデータから推定した帰無モデルの独立母数数」を引く。** 適合度検定の自由度を機械的に $k-1$ としない。
+
 ## 注意
-各セルの期待度数 $E_j=np_j$ が十分大きい必要がある。$p_j$ をデータから $q$ 個の独立な母数で推定した場合、自由度は $d-1-q$ になる。多項分布の確率質量関数そのものは既存 `dist-multinomial-definition`・`dist-multinomial-moments` と重複するため、本カードは標本分布としての漸近・検定への接続に限定する。
+$k-1-r$ は、正則で識別可能な帰無モデル、各カテゴリー確率が正で、期待度数が十分大きいという通常の漸近条件の下で使う。期待度数が極端に小さい場合はカイ二乗近似の妥当性を確認する。
+
+推定母数数を引くのは、その母数を同じ標本から推定した場合である。既知の外部パラメータまで機械的に引かない。
 <!-- CARD -->
 ---
 id: samp-sample-correlation-basic

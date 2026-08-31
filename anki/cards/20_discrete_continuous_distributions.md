@@ -1457,13 +1457,13 @@ published: true
 title: 多変量正規分布の密度を行列式・逆行列・二次形式から計算する
 category: math-distributions
 subcategory: math-continuous-distributions
-topic: multivariate-normal-density
-type: recognition
+topic: multivariate-normal-density-canonical
+type: strategy
 difficulty: 2
 priority: S
 hashtags:
   - 多変量正規分布
-  - 確率密度関数
+  - 二変量正規分布
   - 分散共分散行列
   - 二次形式
 frequency:
@@ -1476,43 +1476,18 @@ sources:
     topic: 多変量正規分布
 ---
 ## 問題
-多変量正規分布に従う確率ベクトルを
+多変量正規分布
 $$
 \boldsymbol X\sim N_p(\boldsymbol\mu,\boldsymbol\Sigma)
 $$
-とする。通常の密度が存在する条件と密度式を書け。
+について次を答えよ。
 
-さらに
-$$
-\boldsymbol\mu=\boldsymbol0,
-\qquad
-\boldsymbol\Sigma=
-\begin{pmatrix}1&0\\0&4\end{pmatrix},
-\qquad
-\boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
-$$
-のときの密度を数値計算せよ。
+1. 通常の $p$ 次元密度が存在する条件と密度式を書け。
+2. 二変量の場合、分散を $\sigma_1^2,\sigma_2^2$、相関係数を $\rho$ として分散共分散行列・行列式・逆行列・密度を明示せよ。
+3. 数値例として $\boldsymbol\mu=\boldsymbol0$、$\boldsymbol\Sigma=\operatorname{diag}(1,4)$、$\boldsymbol x=(1,2)^{\mathsf T}$ の密度を計算せよ。
 
 ## 答え
-数値例では
-$$
-|\boldsymbol\Sigma|=4,
-\qquad
-\boldsymbol\Sigma^{-1}=
-\begin{pmatrix}1&0\\0&1/4\end{pmatrix},
-$$
-$$
-\boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2.
-$$
-よって
-$$
-f_{\boldsymbol X}(1,2)
-=\frac{e^{-1}}{4\pi}
-\approx0.0293.
-$$
-
-## 使用公式・定理
-$\boldsymbol\Sigma$ が対称正定値なら
+$\boldsymbol\Sigma$ が対称正定値なら通常の $p$ 次元密度が存在し、
 $$
 f_{\boldsymbol X}(\boldsymbol x)
 =\frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
@@ -1522,45 +1497,82 @@ f_{\boldsymbol X}(\boldsymbol x)
 (\boldsymbol x-\boldsymbol\mu)
 \right\}.
 $$
-正定値なら $|\boldsymbol\Sigma|>0$ かつ逆行列が存在する。
+二変量では
+$$
+\boldsymbol\Sigma=
+\begin{pmatrix}
+\sigma_1^2&\rho\sigma_1\sigma_2\\
+\rho\sigma_1\sigma_2&\sigma_2^2
+\end{pmatrix},
+\qquad \sigma_1,\sigma_2>0,
+$$
+で、通常の非退化密度には $|\rho|<1$ が必要である。
+
+数値例では $|\boldsymbol\Sigma|=4$、$\boldsymbol\Sigma^{-1}=\operatorname{diag}(1,1/4)$、Mahalanobis二次形式は2なので
+$$
+\boxed{f_{\boldsymbol X}(1,2)=\frac{e^{-1}}{4\pi}}.
+$$
+
+## 使用公式・定理
+多変量正規分布の密度では、$|\boldsymbol\Sigma|^{1/2}$ が体積の尺度を調整し、二次形式
+$$
+(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
+\boldsymbol\Sigma^{-1}
+(\boldsymbol x-\boldsymbol\mu)
+$$
+が平均からのMahalanobis距離の二乗を表す。
+
+二変量の相関係数表示を一般式へ代入すると、次の式群を得る。
+$$
+\begin{gathered}
+|\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),\\
+\boldsymbol\Sigma^{-1}
+=\frac1{1-\rho^2}
+\begin{pmatrix}
+1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
+-\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
+\end{pmatrix},\\
+f_{X_1,X_2}(x_1,x_2)
+=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}
+\exp\left[-\frac{1}{2(1-\rho^2)}
+\left\{
+\frac{(x_1-\mu_1)^2}{\sigma_1^2}
+-2\rho\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
++\frac{(x_2-\mu_2)^2}{\sigma_2^2}
+\right\}\right].
+\end{gathered}
+$$
+$|\rho|=1$ では行列式が0となり、確率質量は1本の直線上に退化する。そのため2次元Lebesgue測度に関する上の通常密度は存在しない。
 
 ## 計算例
-まず
+数値例では
 $$
-|\boldsymbol\Sigma|=1\cdot4=4,
-\qquad |\boldsymbol\Sigma|^{1/2}=2.
+|\boldsymbol\Sigma|=4,
+\qquad
+\boldsymbol\Sigma^{-1}=\operatorname{diag}\left(1,\frac14\right).
 $$
 次に
 $$
-\boldsymbol\Sigma^{-1}
-=\operatorname{diag}\left(1,\frac14\right).
-$$
-二次形式は
-$$
-\begin{aligned}
 \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
-&=1^2+\frac{2^2}{4}\\
-&=1+1\\
-&=2.
-\end{aligned}
+=1^2+\frac{2^2}{4}=2.
 $$
-$p=2$ なので正規化定数は
+よって
 $$
-\frac{1}{(2\pi)^{2/2}\sqrt4}
-=\frac1{4\pi}.
+f_{\boldsymbol X}(1,2)=\frac1{4\pi}e^{-1}=\frac{e^{-1}}{4\pi}\approx0.0293.
 $$
-したがって
+また $\mu_1=\mu_2=0$、$\sigma_1=\sigma_2=1$、$\rho=0$ なら
 $$
-f_{\boldsymbol X}(1,2)
-=\frac1{4\pi}\exp(-2/2)
-=\frac{e^{-1}}{4\pi}.
+f(x_1,x_2)=\frac1{2\pi}\exp\left\{-\frac{x_1^2+x_2^2}{2}\right\},
 $$
+すなわち独立な標準正規分布の直積になる。
 
-## 一手
-数値代入では、**行列式 → 逆行列 → Mahalanobis二次形式 → 正規化定数**の順で計算する。
+## 一手／方針
+**一般形では「行列式 → 逆行列 → Mahalanobis二次形式」の順に処理する。** 二変量の相関係数表示も別公式として暗記せず、分散共分散行列を一般式へ代入して作る。
 
 ## 注意
-半正定値でも特異な $\boldsymbol\Sigma$ では、$p$ 次元Lebesgue測度に関する通常の密度式をそのまま使えない。正規化定数は $|\Sigma|$ ではなく $|\Sigma|^{1/2}$ を使う。
+分散共分散行列が半正定値でも特異なら、$p$ 次元Lebesgue測度に関する通常の密度式はそのまま使えない。二変量では $|\rho|=1$ がこの退化に対応する。
+
+$\rho=0$ なら二変量正規分布では独立になるが、一般の分布では無相関から独立は従わない。
 
 <!-- CARD -->
 
