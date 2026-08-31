@@ -1,9 +1,9 @@
 schema_version: 1
-batch_id: 2026-08-31-gls-whitening-reduction-241
+batch_id: 2026-08-31-random-walk-absorption-reduction-243
 items:
-  - id: enginf-gls-whitening
+  - id: engproc-random-walk-expected-absorption
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-gls-estimator
-    coverage_card: reg-gls-estimator
-    note: 一般化最小二乗法を白色化して通常の最小二乗法へ帰着する技能は reg-gls-estimator に吸収済み。正本では C=Omega^(-1/2) と明示して変換後誤差の分散共分散行列が sigma^2 I になることからGLS式を再導出し、さらに二次形式最小化、逆分散WLS、FGLS、数値例まで同時に保持しているため、工学側カード固有の技能は残らない。
+    canonical_card: stoch-expected-hitting-time
+    coverage_card: stoch-expected-hitting-time
+    note: 対称吸収ランダムウォークの平均吸収時間 m_i=i(N-i) は、平均到達時間の一般再帰 m_i=1+sum_j p_ij m_j の特殊形。common正本へ2階差分方程式からの導出、境界条件、N=6,i=2で8となる数値例まで吸収済みで、工学側カード固有の技能は残らない。
