@@ -1,217 +1,143 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-canonicalization-216
+batch_id: 2026-08-31-multivariate-canonicalization-218
 items:
-  - id: reg-multiple-model-matrix
-    note: 旧model-gauss-markovを吸収するため、行列回帰の正本にGauss--Markov定理の条件・BLUE性・共分散差の半正定値証明を統合する。
+  - id: mv-mean-covariance-numeric
+    note: 旧multi-covariance-psdを吸収するため、平均ベクトル・標本分散共分散行列の計算に母分散共分散行列と標本分散共分散行列の半正定値性の証明を統合する。
     metadata:
-      title: 重回帰を計画行列で表し最小二乗推定量・共分散・BLUE性まで導く
-      topic: multiple-regression-design-matrix-canonical
+      title: 平均ベクトル・分散共分散行列を計算し半正定値性まで示す
+      topic: multivariate-mean-covariance-canonical
       type: strategy
     sections:
       問題: |
-        重回帰モデルを行列で
-        $$
-        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon
-        $$
-        と表す。$X$ は固定された計画行列とする。
+        多変量の平均と分散共分散行列について次を解け。
 
-        1. $X$ が列フルランクのとき、残差平方和を最小化して最小二乗推定量を導け。
-        2. $E[\boldsymbol\varepsilon]=\mathbf0$、$\operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I$ の下で、不偏性と共分散行列を導け。
-        3. Gauss--Markov定理の主要条件を列挙し、最小二乗推定量が最良線形不偏推定量（BLUE）であることを示せ。誤差の正規性が必要かも答えよ。
-        4. $X=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix}$、$\mathbf y=(1,3,5)^\mathsf T$ で係数を計算せよ。
-        5. 平均構造
+        1. 2次元観測 $(1,2),(3,4)$ の標本平均ベクトルと、不偏標本分散共分散行列を求めよ。
+        2. 確率ベクトル $\boldsymbol X$ の母分散共分散行列
         $$
-        E[Y]=\beta_0+\beta_1x+\beta_2D+\beta_3xD
+        \boldsymbol\Sigma=\operatorname{Cov}(\boldsymbol X)
         $$
-        に対し、観測 $(x,D)=(2,0),(3,1)$ の2件から計画行列を作れ。係数ベクトルの列順は $(\beta_0,\beta_1,\beta_2,\beta_3)$ とする。
+        が半正定値であることを示せ。
+        3. 不偏標本分散共分散行列 $\boldsymbol S$ も半正定値であることを、外積表示から示せ。1の数値例が正定値でない理由も述べよ。
       使用公式・定理: |
-        残差平方和は
+        標本平均ベクトルは
         $$
-        S(\boldsymbol\beta)
-        =(\mathbf y-X\boldsymbol\beta)^\mathsf T
-        (\mathbf y-X\boldsymbol\beta).
+        \overline{\boldsymbol x}=\frac1n\sum_{i=1}^n\boldsymbol x_i,
         $$
-        勾配を0とすると
+        不偏標本分散共分散行列は
         $$
-        -2X^\mathsf T(\mathbf y-X\boldsymbol\beta)=\mathbf0,
+        \boldsymbol S
+        =\frac1{n-1}\sum_{i=1}^n
+        (\boldsymbol x_i-\overline{\boldsymbol x})
+        (\boldsymbol x_i-\overline{\boldsymbol x})^{\mathsf T}
         $$
-        すなわち正規方程式
-        $$
-        X^\mathsf TX\widehat{\boldsymbol\beta}=X^\mathsf T\mathbf y
-        $$
-        を得る。$X$ が列フルランクなら
-        $$
-        \widehat{\boldsymbol\beta}
-        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y.
-        $$
-        また
-        $$
-        \widehat{\boldsymbol\beta}
-        =\boldsymbol\beta+(X^\mathsf TX)^{-1}X^\mathsf T\boldsymbol\varepsilon.
-        $$
+        である。
 
-        Gauss--Markov定理の基本条件は、固定された $X\in\mathbb R^{n\times p}$ について
+        母分散共分散行列について、任意の定数ベクトル $\boldsymbol a$ に対し
         $$
-        \mathbf y=X\boldsymbol\beta+\boldsymbol\varepsilon,
-        \qquad E[\boldsymbol\varepsilon]=\mathbf0,
+        \operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)
+        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
         $$
+        分散は非負なので
         $$
-        \operatorname{Var}(\boldsymbol\varepsilon)=\sigma^2I_n,
-        \qquad \sigma^2>0,
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a\ge0
         $$
-        かつ $X$ が列フルランクであること。この条件の下で最小二乗推定量は、$\boldsymbol\beta$ の全ての線形不偏推定量の中で共分散行列が最小、すなわちBLUEである。
+        が全ての $\boldsymbol a$ で成り立ち、$\boldsymbol\Sigma$ は半正定値である。
 
-        BLUE性そのものには誤差の正規性は不要である。正規性は有限標本での正確なt検定・F検定などを導くときに追加して使う。
+        標本分散共分散行列でも
+        $$
+        \begin{aligned}
+        \boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+        &=\frac1{n-1}\sum_{i=1}^n
+        \boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})
+        (\boldsymbol x_i-\overline{\boldsymbol x})^{\mathsf T}\boldsymbol a\\
+        &=\frac1{n-1}\sum_{i=1}^n
+        \left\{\boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})\right\}^2
+        \ge0.
+        \end{aligned}
+        $$
+        よって $\boldsymbol S$ も半正定値である。
+      一手: |
+        **共分散行列の二次形式を1次元の分散として読む。** 母分散共分散行列なら
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        =\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X),
+        $$
+        標本分散共分散行列なら
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+        $$
+        を射影後の偏差平方和として読む。
 
-        BLUE性を示すには
-        $$
-        B=(X^\mathsf TX)^{-1}X^\mathsf T
-        $$
-        とおき、任意の線形不偏推定量を $C\mathbf y$ と書く。線形不偏性から
-        $$
-        CX=I_p.
-        $$
-        一方 $BX=I_p$ なので $D=C-B$ とおけば
-        $$
-        DX=0.
-        $$
-        このとき交差項が消え
-        $$
-        \operatorname{Var}(C\mathbf y)
-        -\operatorname{Var}(B\mathbf y)
-        =\sigma^2DD^\mathsf T
-        $$
-        となる。$DD^\mathsf T$ は半正定値だから、最小二乗推定量の共分散行列はLoewner順序で最小である。
-
-        計画行列は、各観測についてモデル式で各係数に掛かる値を係数ベクトルと同じ順に並べて1行ずつ作る。交互作用項があれば、その観測で積も実際に計算する。
-      一手／方針: |
-        **モデル式 → 正規方程式 → 誤差の線形変換 → 不偏性・共分散 → 他の線形不偏推定量との差、の順で読む。**
-
-        最小二乗推定量を
-        $$
-        \widehat{\boldsymbol\beta}=B\mathbf y,
-        \qquad
-        B=(X^\mathsf TX)^{-1}X^\mathsf T
-        $$
-        と置くと、不偏性は $BX=I$、BLUE性は任意の競合推定量 $C\mathbf y$ に対して $D=C-B$ と置き $DX=0$ を使うだけで整理できる。
-
-        計画行列を作る問題では、まずモデル式から「1観測分の行」を作る。係数ベクトルが $(\beta_0,\beta_1,\beta_2,\beta_3)$ なら、その観測で係数に掛かる $(1,x,D,xD)$ が計画行列の1行になる。
+        数値計算では、まず平均ベクトルを引いて偏差ベクトルを作り、その外積を足して $n-1$ で割る。
       答え: |
-        最小二乗推定量は
+        1. 標本平均ベクトルは
         $$
-        \boxed{
-        \widehat{\boldsymbol\beta}
-        =(X^\mathsf TX)^{-1}X^\mathsf T\mathbf y}.
+        \overline{\boldsymbol x}
+        =\frac12\left\{
+        \begin{pmatrix}1\\2\end{pmatrix}
+        +\begin{pmatrix}3\\4\end{pmatrix}
+        \right\}
+        =\boxed{\begin{pmatrix}2\\3\end{pmatrix}}.
         $$
-        $E[\boldsymbol\varepsilon]=\mathbf0$ より
+        偏差ベクトルは
         $$
-        E[\widehat{\boldsymbol\beta}]=\boldsymbol\beta.
-        $$
-        また
-        $$
-        \begin{aligned}
-        \operatorname{Var}(\widehat{\boldsymbol\beta})
-        &=(X^\mathsf TX)^{-1}X^\mathsf T
-        (\sigma^2I)X(X^\mathsf TX)^{-1}\\
-        &=\boxed{\sigma^2(X^\mathsf TX)^{-1}}.
-        \end{aligned}
-        $$
-
-        Gauss--Markov定理では、任意の線形不偏推定量 $\widetilde{\boldsymbol\beta}=C\mathbf y$ に対し $CX=I$ である。$B=(X^\mathsf TX)^{-1}X^\mathsf T$、$D=C-B$ と置くと
-        $$
-        DX=CX-BX=I-I=0.
-        $$
-        よって
-        $$
-        BD^\mathsf T
-        =(X^\mathsf TX)^{-1}X^\mathsf TD^\mathsf T
-        =0
-        $$
-        であり、同様に $DB^\mathsf T=0$ である。したがって
-        $$
-        \begin{aligned}
-        \operatorname{Var}(\widetilde{\boldsymbol\beta})
-        &=\sigma^2CC^\mathsf T\\
-        &=\sigma^2(B+D)(B+D)^\mathsf T\\
-        &=\sigma^2BB^\mathsf T+\sigma^2DD^\mathsf T.
-        \end{aligned}
-        $$
-        つまり
-        $$
-        \operatorname{Var}(\widetilde{\boldsymbol\beta})
-        -\operatorname{Var}(\widehat{\boldsymbol\beta})
-        =\sigma^2DD^\mathsf T\succeq0.
-        $$
-        よって最小二乗推定量はBLUEである。ここまでに正規性は使っていない。
-
-        数値例では
-        $$
-        X^\mathsf TX=\begin{pmatrix}3&3\\3&5\end{pmatrix},
+        \boldsymbol d_1=\begin{pmatrix}-1\\-1\end{pmatrix},
         \qquad
-        X^\mathsf T\mathbf y=\begin{pmatrix}9\\13\end{pmatrix},
+        \boldsymbol d_2=\begin{pmatrix}1\\1\end{pmatrix}.
         $$
+        $n=2$ なので
         $$
-        (X^\mathsf TX)^{-1}
-        =\frac16\begin{pmatrix}5&-3\\-3&3\end{pmatrix},
+        \begin{aligned}
+        \boldsymbol S
+        &=\boldsymbol d_1\boldsymbol d_1^{\mathsf T}
+        +\boldsymbol d_2\boldsymbol d_2^{\mathsf T}\\
+        &=\boxed{\begin{pmatrix}2&2\\2&2\end{pmatrix}}.
+        \end{aligned}
+        $$
+
+        2. 任意の $\boldsymbol a$ に対して
+        $$
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
+        =\operatorname{Var}(\boldsymbol a^{\mathsf T}\boldsymbol X)\ge0.
         $$
         したがって
         $$
-        \boxed{
-        \widehat{\boldsymbol\beta}
-        =\begin{pmatrix}1\\2\end{pmatrix}}.
+        \boxed{\boldsymbol\Sigma\succeq0}.
         $$
 
-        交互作用モデルでは1行は $(1,x,D,xD)$ なので
+        3.
         $$
-        (x,D)=(2,0)\Rightarrow(1,2,0,0),
+        \boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a
+        =\frac1{n-1}\sum_i
+        \left\{\boldsymbol a^{\mathsf T}(\boldsymbol x_i-\overline{\boldsymbol x})\right\}^2
+        \ge0
         $$
+        なので
         $$
-        (x,D)=(3,1)\Rightarrow(1,3,1,3).
+        \boxed{\boldsymbol S\succeq0}.
         $$
-        よって
+        ただし1の例では
         $$
-        \boxed{
-        X=\begin{pmatrix}
-        1&2&0&0\\
-        1&3&1&3
-        \end{pmatrix}}.
+        \det(\boldsymbol S)=2\cdot2-2\cdot2=0
         $$
+        であるため正定値ではなく、半正定値かつ特異である。
       計算例: |
-        最初の数値例では
+        1の例で $\boldsymbol a=(1,-1)^{\mathsf T}$ とすると
         $$
-        \widehat y=1+2x
+        \boldsymbol a^{\mathsf T}\boldsymbol S\boldsymbol a=0.
         $$
-        で3点を完全に通る。また係数共分散行列は
+        実際、2観測では第2成分が常に第1成分より1だけ大きく、偏差は
         $$
-        \operatorname{Var}(\widehat{\boldsymbol\beta})
-        =\frac{\sigma^2}{6}
-        \begin{pmatrix}
-        5&-3\\
-        -3&3
-        \end{pmatrix}.
+        (-1,-1)^{\mathsf T},\qquad(1,1)^{\mathsf T}
         $$
+        と直線 $x_1=x_2$ 上にしかない。したがって方向 $(1,-1)$ には標本変動がなく、この方向の分散が0になる。
 
-        BLUE性の意味を1方向の線形結合で見ると、任意のベクトル $a$ に対して
+        一般に、ある非零ベクトル $\boldsymbol a$ で
         $$
-        \operatorname{Var}(a^\mathsf T\widetilde{\boldsymbol\beta})
-        -\operatorname{Var}(a^\mathsf T\widehat{\boldsymbol\beta})
-        =\sigma^2a^\mathsf TDD^\mathsf Ta
-        =\sigma^2\|D^\mathsf Ta\|^2\ge0.
+        \boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a=0
         $$
-        したがって「共分散行列が最小」とは、全ての線形対比方向で最小二乗推定量の分散が他の線形不偏推定量以下という意味である。
-
-        交互作用モデルでは $D=0$ なら
-        $$
-        E[Y]=\beta_0+\beta_1x,
-        $$
-        $D=1$ なら
-        $$
-        E[Y]=(\beta_0+\beta_2)+(\beta_1+\beta_3)x.
-        $$
-        計画行列を作る操作と群別回帰直線の解釈は同じモデル式を別方向から読んでいる。
+        なら $\boldsymbol a^{\mathsf T}\boldsymbol X$ の分散が0で、その線形結合はほとんど確実に定数である。正定値性には全ての非零方向で正の分散が必要である。
       注意: |
-        Gauss--Markov定理で必要なのは線形平均構造、平均0の誤差、共分散 $\sigma^2I$、計画行列の列フルランクであり、誤差の正規性ではない。「正規でないと最小二乗法はBLUEでない」は誤り。
+        分散共分散行列は常に対称かつ半正定値であるが、常に正定値とは限らない。完全な線形関係がある場合や、標本数に比べて変数数が多い場合には特異になり得る。
 
-        一意な係数推定には $\operatorname{rank}(X)$ が列数に等しいことが必要。不均一分散や相関誤差では $\sigma^2(X^\mathsf TX)^{-1}$ は一般に正しくなく、通常のGauss--Markov条件も崩れる。その場合は一般化最小二乗法や頑健な共分散推定などを検討する。
-
-        実際の大規模数値計算では逆行列を明示的に作るよりQR分解などを用いる。計画行列では列順を係数ベクトルの順序と必ず対応させ、交互作用を入れる場合は通常、対応する主効果も残す。
+        対角要素は各変数の分散、非対角要素は共分散である。半正定値性は「各成分の分散が非負」だけではなく、全ての線形結合の分散が非負であることを表す。
