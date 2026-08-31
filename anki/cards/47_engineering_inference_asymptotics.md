@@ -216,38 +216,6 @@ $$\widehat\mu=\frac{10+(1/4)14}{1+1/4}=\frac{13.5}{1.25}=10.8.$$
 <!-- CARD -->
 
 ---
-id: enginf-gls-whitening
-title: 一般化最小二乗法を白色化変換として説明する
-category: applied-engineering
-subcategory: engineering-linear-inference
-topic: generalized-least-squares
-type: calc_step
-difficulty: 3
-priority: A
-hashtags: [線形モデル, 一般化最小二乗法, 白色化]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形モデル }]
----
-## 問題
-$\operatorname{Var}(\varepsilon)=\sigma^2\Omega$ で、$C^{\mathsf T}C=\Omega^{-1}$ とする。一般化最小二乗法（generalized least squares; GLS）が変換後最小二乗法になることを示せ。
-## 記号・用語
-$\Omega$ は既知の正定値な誤差分散共分散構造（尺度行列）、$C$ は白色化行列である。
-## 使用公式・定理
-モデル左から $C$ を掛けると $CY=CX\beta+C\varepsilon$。
-## 一手／方針
-変換後誤差の分散を計算し、最小二乗法公式を戻す。
-## 答え
-$$\operatorname{Var}(C\varepsilon)=\sigma^2C\Omega C^{\mathsf T}=\sigma^2I,$$
-したがって
-$$\widehat\beta_{\mathrm{GLS}}=(X^{\mathsf T}\Omega^{-1}X)^{-1}X^{\mathsf T}\Omega^{-1}Y.$$
-## 計算例
-$\Omega$ が対角なら一般化最小二乗法は逆分散重みのWLSになる。
-## 注意
-$\Omega$ の推定誤差がある場合は有限標本分布が変わり得る。
-
-<!-- CARD -->
-
----
 id: enginf-robust-sandwich-se
 title: 不均一分散頑健分散のサンドイッチ形を読む
 category: applied-engineering

@@ -2123,7 +2123,7 @@ items:
       - model-contrast
       - enginf-vif-numeric
       - enginf-wls-two-weights
-      - enginf-gls-whitening
+      - reg-gls-estimator
       - enginf-robust-sandwich-se
       - reg-dummy-variable
       - reg-interaction-dummy-continuous
@@ -2171,7 +2171,7 @@ items:
           - enginf-cooks-distance
           - enginf-vif-numeric
           - enginf-wls-two-weights
-          - enginf-gls-whitening
+          - reg-gls-estimator
           - enginf-robust-sandwich-se
           - reg-dummy-variable
           - reg-multiple-model-matrix
