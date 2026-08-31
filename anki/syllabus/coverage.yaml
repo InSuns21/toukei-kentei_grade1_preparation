@@ -2121,8 +2121,7 @@ items:
     cards:
       - reg-multiple-model-matrix
       - model-contrast
-      - enginf-vif-numeric
-      - enginf-wls-two-weights
+      - reg-multicollinearity-vif
       - reg-gls-estimator
       - enginf-robust-sandwich-se
       - reg-dummy-variable
@@ -2138,7 +2137,7 @@ items:
       - glm-logistic-score
       - enginf-nonlinear-gradient-se
       - enginf-coefficient-output-engineering
-      - enginf-adjusted-r2-output
+      - reg-sst-decomposition
       - enginf-estimability-linear-function
       - enginf-restricted-least-squares
       - enginf-normal-equations-orthogonality
@@ -2169,15 +2168,14 @@ items:
           - enginf-leverage-numeric
           - enginf-studentized-residual
           - enginf-cooks-distance
-          - enginf-vif-numeric
-          - enginf-wls-two-weights
+          - reg-multicollinearity-vif
           - reg-gls-estimator
           - enginf-robust-sandwich-se
           - reg-dummy-variable
           - reg-multiple-model-matrix
           - reg-interaction-dummy-continuous
           - enginf-coefficient-output-engineering
-          - enginf-adjusted-r2-output
+          - reg-sst-decomposition
       - name: 一般化線形モデル
         status: card
         cards:
