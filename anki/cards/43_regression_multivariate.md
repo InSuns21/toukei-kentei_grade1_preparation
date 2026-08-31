@@ -379,7 +379,7 @@ sources: [{ type: official_syllabus, topic: 変数選択 }]
 
 ---
 id: mv-covariance-linear-transform
-title: 線形変換した共分散から相関行列・単位変更不変性まで扱う
+title: 線形変換した共分散から相関行列・漸近線形結合まで扱う
 category: applied-common
 subcategory: applied-multivariate
 topic: covariance-correlation-transform-canonical
@@ -391,7 +391,7 @@ hashtags:
   - 分散共分散行列
   - 相関行列
   - 線形変換
-  - 標準化
+  - 漸近分散
 frequency:
   past_exam: 0
   textbook: 0
@@ -415,20 +415,35 @@ $$
 3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
 4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
 5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
+6. 2次元正規分布を $N_2$ で表す。推定量 $\widehat{\boldsymbol\beta}=(\widehat\beta_1,\widehat\beta_2)^{\mathsf T}$ が
+$$
+\sqrt n(\widehat{\boldsymbol\beta}-\boldsymbol\beta)
+\xrightarrow{d}
+N_2\left(\boldsymbol0,
+\begin{pmatrix}4&1\\1&9\end{pmatrix}\right)
+$$
+を満たすとき、$\widehat\beta_1-\widehat\beta_2$ の漸近分散定数と、推定量自身の近似分散を求めよ。
 
 ## 記号・用語
 分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
 
+漸近分散定数とは
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N(0,V)
+$$
+に現れる $V$ であり、$T_n$ 自身の大標本での分散はおよそ $V/n$ である。
+
 ## 使用公式・定理
 定数ベクトルの共分散は0なので
 $$
+\boxed{
 \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
-=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}.
+=\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
 $$
 
 線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
 $$
-\operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a.
+\boxed{\operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a}.
 $$
 
 $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
@@ -441,22 +456,41 @@ $$
 \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
 $$
 
-## 一手／方針
-**「線形変換なら $A\Sigma A^{\mathsf T}$、尺度を消したいなら左右から標準偏差の逆数を掛ける」と整理する。**
+同じ線形変換則は漸近正規ベクトルにも使える。すなわち
+$$
+\sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
+\xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
+$$
+なら、定数ベクトル $\boldsymbol a$ に対して
+$$
+\sqrt n\{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\theta}
+-\boldsymbol a^{\mathsf T}\boldsymbol\theta\}
+\xrightarrow{d}
+N\left(0,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a\right).
+$$
 
-相関の単位変更不変性は別公式として暗記せず、分子の共分散と分母の標準偏差積が同じ倍率で変わって相殺されることから確認する。
+## 一手／方針
+**線形変換なら $A\Sigma A^{\mathsf T}$、1本の線形結合なら $a^{\mathsf T}\Sigma a$、尺度を消したいなら標準偏差で割る。**
+
+漸近正規分布でも新しい分散公式を覚える必要はない。$\sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)$ を1つの確率ベクトルと見て、通常の線形結合の分散公式をそのまま適用する。
 
 ## 答え
-1.
+1. 平均を $\boldsymbol\mu=E[\boldsymbol X]$ とすると
+$$
+\boldsymbol Y-E[\boldsymbol Y]
+=\boldsymbol A(\boldsymbol X-\boldsymbol\mu)
+$$
+だから
 $$
 \boxed{\operatorname{Cov}(\boldsymbol Y)
 =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
 $$
-$\boldsymbol b$ は確率変動を持たないので共分散へ寄与しない。
+$\boldsymbol b$ は中心化すると消えるので共分散へ影響しない。
 
-2. $\boldsymbol a=(1,1)^{\mathsf T}$ として
+2. $\boldsymbol a=(1,1)^{\mathsf T}$ とすれば
 $$
 \operatorname{Var}(X_1+X_2)
+=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
 =4+9+2\cdot3
 =\boxed{19}.
 $$
@@ -470,7 +504,7 @@ $$
 \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
 $$
 
-4. 単位変更後の分散共分散行列は
+4. 単位変更後は
 $$
 \boldsymbol\Sigma_Z
 =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
@@ -479,32 +513,49 @@ $$
 $$
 \rho_{Z_1Z_2}
 =\frac{3000}{\sqrt{400\cdot90000}}
-=\boxed{0.5}.
+=\boxed{0.5},
 $$
+で元と同じである。
 
-5. 片方だけを負の定数倍すると、共分散の符号だけが反転し標準偏差は正なので、相関係数の符号が反転する。
+5. 一方だけを負の定数倍すると、共分散の符号は反転する一方、標準偏差は正のままなので、相関係数の符号が反転する。
+
+6. 差なので
+$$
+\boldsymbol a=(1,-1)^{\mathsf T}.
+$$
+したがって漸近分散定数は
+$$
+\boldsymbol a^{\mathsf T}
+\begin{pmatrix}4&1\\1&9\end{pmatrix}
+\boldsymbol a
+=4+9-2\cdot1
+=\boxed{11}.
+$$
+よって
+$$
+\sqrt n\{(\widehat\beta_1-\widehat\beta_2)-(\beta_1-\beta_2)\}
+\xrightarrow{d}N(0,11),
+$$
+推定量自身の近似分散は
+$$
+\boxed{\operatorname{Var}(\widehat\beta_1-\widehat\beta_2)\approx\frac{11}{n}}.
+$$
 
 ## 計算例
-一般に $Z_1=c_1X_1,Z_2=c_2X_2$ なら
+同じ漸近分散共分散行列
 $$
-\operatorname{Cov}(Z_1,Z_2)=c_1c_2\operatorname{Cov}(X_1,X_2),
+\begin{pmatrix}4&1\\1&9\end{pmatrix}
 $$
+で和 $\widehat\beta_1+\widehat\beta_2$ を考えると、$\boldsymbol a=(1,1)^{\mathsf T}$ なので漸近分散定数は
 $$
-\operatorname{sd}(Z_i)=|c_i|\operatorname{sd}(X_i).
+4+9+2\cdot1=15.
 $$
-したがって
-$$
-\operatorname{Corr}(Z_1,Z_2)
-=\operatorname{sgn}(c_1c_2)\operatorname{Corr}(X_1,X_2).
-$$
-正の単位換算なら相関は不変である。
+差では共分散項が $-2\Sigma_{12}$、和では $+2\Sigma_{12}$ になる。
 
 ## 注意
-$\operatorname{Var}(a_1X_1+a_2X_2)$ では、相関があると交差項
-$$
-2a_1a_2\operatorname{Cov}(X_1,X_2)
-$$
-を落とせない。相関行列と分散共分散行列のどちらをPCAなどへ使うかは、変数の単位・尺度を残したいかどうかで意味が変わる。
+線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
+
+正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
 
 <!-- CARD -->
 
