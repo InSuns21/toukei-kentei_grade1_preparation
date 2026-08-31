@@ -517,7 +517,6 @@ items:
       - samp-cochran-theorem
       - samp-t-distribution-definition
       - samp-f-distribution-definition
-      - samp-f-ratio-of-variances
       - samp-sample-proportion
       - samp-sample-variance-expectation
       - samp-two-sample-pooled-variance
@@ -554,7 +553,6 @@ items:
         status: card
         cards:
           - samp-f-distribution-definition
-          - samp-f-ratio-of-variances
           - samp-f-anova-ratio
   - id: math-population-sample-statistic
     status: complete
