@@ -2168,15 +2168,14 @@ items:
       - enginf-interaction-design-matrix
       - enginf-interaction-slope-test
       - enginf-logistic-wald-output
-      - enginf-glm-three-components
+      - glm-three-components
       - enginf-logistic-irls-one-step
       - enginf-poisson-mean
       - enginf-poisson-offset-rate
-      - enginf-exponential-family-mean-variance
       - enginf-glm-deviance-residual-output
       - enginf-glm-link-selection
       - enginf-glm-wald-joint
-      - enginf-binomial-glm-loglikelihood
+      - glm-logistic-score
       - enginf-nonlinear-gradient-se
       - enginf-coefficient-output-engineering
       - enginf-adjusted-r2-output
@@ -2223,15 +2222,14 @@ items:
         status: card
         cards:
           - enginf-logistic-wald-output
-          - enginf-glm-three-components
+          - glm-three-components
           - enginf-logistic-irls-one-step
           - enginf-poisson-mean
           - enginf-poisson-offset-rate
-          - enginf-exponential-family-mean-variance
           - enginf-glm-deviance-residual-output
           - enginf-glm-link-selection
           - enginf-glm-wald-joint
-          - enginf-binomial-glm-loglikelihood
+          - glm-logistic-score
       - name: 線形結合の分布
         status: card
         cards:
