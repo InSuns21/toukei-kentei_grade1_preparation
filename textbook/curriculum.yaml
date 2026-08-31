@@ -10,21 +10,21 @@ exam:
 
 progress:
   schema_version: 1
-  updated_at: 2026-08-31
+  updated_at: 2026-09-01
   current_chapter: null
   next_chapter: I1-01
   next_work:
     type: chapter
     id: I1-01
-  last_completed_chapter: S1-02
+  last_completed_chapter: I4-02
   summary:
     total: 43
-    planned: 10
+    planned: 9
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 33
+    reviewed: 34
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -59,7 +59,7 @@ progress:
     I3-02: { status: planned }
     I3-03: { status: planned }
     I4-01: { status: planned }
-    I4-02: { status: planned }
+    I4-02: { status: reviewed, started_at: 2026-09-01, completed_at: 2026-09-01, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
@@ -87,7 +87,7 @@ volumes:
   - { id: linear_models, directory: volumes/04_linear_models, title: 線形モデルとデータ解析 }
   - { id: engineering, directory: volumes/05_engineering, title: 統計応用・理工学 }
 
-# 配列順が執筆優先順。2026-08-31は理工学シラバス監査で判明した共通項目の穴を先に閉じる。
+# 配列順が執筆優先順。2026-09-01は理工80の準1級包含監査で残った通常教材側の穴も先に閉じる。
 chapters:
   - id: F0-00
     title: 統計検定1級のための数学速習
@@ -137,5 +137,5 @@ chapters:
   - { id: I3-02, title: 尤度比・Wald・Score検定, volume: inference, prerequisites: [ I2-01, I3-01 ], official_scope: [ 尤度比検定, ワルド型検定, スコア型検定 ] }
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
   - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
-  - { id: I4-02, title: 欠測・不完全データ・EM法, volume: inference, prerequisites: [ I4-01, P3-04, L1-02 ], official_scope: [ MCAR, MAR, MNAR, 観測データ尤度, EM法, 打切り, 切断, 欠測を含むモデル診断 ] }
+  - { id: I4-02, title: 欠測・不完全データ・期待値最大化法, volume: inference, prerequisites: [ I1-01, P1-02, P3-04, P3-03 ], official_scope: [ 欠測, 不完全データ, 観測データ尤度, 期待値最大化法, 打ち切り, 切断 ] }
   - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01 ], official_scope: [ カルバック・ライブラー情報量, AIC, クロスバリデーション, 変数選択 ] }
