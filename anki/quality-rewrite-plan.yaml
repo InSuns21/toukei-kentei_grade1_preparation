@@ -1,112 +1,126 @@
 schema_version: 1
-batch_id: 2026-08-31-continuity-correction-canonicalization-233
+batch_id: 2026-08-31-f-variance-ratio-canonicalization-235
 items:
-  - id: dist-continuity-correction-interval
-    note: tail・single・sampling・engineering名前空間に分散していた連続修正を、整数点jを幅1のセル[j-0.5,j+0.5]へ対応させる1つのcanonical moveへ統合する。
+  - id: samp-f-distribution-definition
+    note: F分布の定義・逆数関係・t^2との関係に、正規2標本の分散比を同じ「独立なchi-squareを自由度で割って比を取る」moveとして統合する。
     metadata:
-      title: 整数事象を連続修正して連続近似する
-      topic: continuity-correction-canonical
-      type: calc_step
-      priority: A
-      hashtags: [連続修正, 二項分布, 区間確率, 上側確率, 下側確率]
+      title: F分布をカイ二乗比から作り分散比へ適用する
+      topic: f-distribution-canonical
+      type: strategy
+      priority: S
+      hashtags: [F分布, カイ二乗分布, 分散比, t分布, 自由度]
     sections:
       問題: |
-        整数値確率変数 $X$ を連続確率変数 $Y$ で近似する。$a,b,k\in\mathbb Z$、$a\le b$ とする。次の事象を連続修正後の事象へ直せ。
+        次を答えよ。
 
-        1. $a\le X\le b$
-        2. $X\ge k$、$X>k$、$X\le k$、$X<k$
-        3. $X=k$
-        4. $X\sim\operatorname{Binomial}(100,0.1)$ のとき、$P(X\le15)$ を連続修正付き正規近似で表し、標準化点を求めよ。
+        1. 独立な $U\sim\chi^2_{\nu_1}$、$V\sim\chi^2_{\nu_2}$ から $F_{\nu_1,\nu_2}$ を定義せよ。
+        2. $F\sim F_{\nu_1,\nu_2}$ のとき $1/F$ の分布と、$T\sim t_\nu$ のとき $T^2$ の分布を述べよ。
+        3. 独立な正規標本から得た不偏標本分散 $S_1^2,S_2^2$ について
+        $$
+        \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+        $$
+        の分布を求めよ。
+        4. $n_1=6,n_2=9$ で、帰無仮説 $\sigma_1^2=\sigma_2^2$ の下で $S_1^2/S_2^2$ の分布を答えよ。
       答え: |
-        整数点を隣接整数との中点まで広げるので
+        独立な
         $$
-        \boxed{P(a\le X\le b)\approx P(a-0.5\le Y\le b+0.5)}.
+        U\sim\chi^2_{\nu_1},\qquad V\sim\chi^2_{\nu_2}
         $$
-
-        片側事象は
+        に対して
         $$
-        X\ge k\ \rightsquigarrow\ Y\ge k-0.5,
-        \qquad
-        X>k\ \rightsquigarrow\ Y\ge k+0.5,
-        $$
-        $$
-        X\le k\ \rightsquigarrow\ Y\le k+0.5,
-        \qquad
-        X<k\ \rightsquigarrow\ Y\le k-0.5.
+        \boxed{\frac{U/\nu_1}{V/\nu_2}\sim F_{\nu_1,\nu_2}}.
         $$
 
-        一点事象は区間の特殊例 $a=b=k$ だから
+        また
         $$
-        \boxed{P(X=k)\approx P(k-0.5\le Y\le k+0.5)}.
+        \boxed{\frac1F\sim F_{\nu_2,\nu_1}},
+        \qquad
+        \boxed{T^2\sim F_{1,\nu}}.
         $$
 
-        4では
+        正規2標本では
         $$
-        \mu=np=10,
+        \boxed{
+        \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+        \sim F_{n_1-1,n_2-1}
+        }.
+        $$
+        特に $\sigma_1^2=\sigma_2^2$ なら
+        $$
+        \frac{S_1^2}{S_2^2}\sim F_{n_1-1,n_2-1}.
+        $$
+        $n_1=6,n_2=9$ では $F_{5,8}$ である。
+      使用公式・定理: |
+        F分布は、独立なカイ二乗変数をそれぞれ自由度で割った比として定義される。
+        $$
+        F=\frac{U/\nu_1}{V/\nu_2}.
+        $$
+        台は $F>0$ である。
+
+        分子・分母を入れ替えると
+        $$
+        \frac1F
+        =\frac{V/\nu_2}{U/\nu_1}
+        \sim F_{\nu_2,\nu_1}.
+        $$
+
+        $T=Z/\sqrt{V/\nu}\sim t_\nu$ なら $Z^2\sim\chi^2_1$ なので
+        $$
+        T^2=\frac{Z^2/1}{V/\nu}\sim F_{1,\nu}.
+        $$
+        逆に $F\sim F_{1,\nu}$ なら $\sqrt F$ は $|T|$ と同じ分布であり、符号情報は失われる。
+
+        正規標本では
+        $$
+        \frac{(n_i-1)S_i^2}{\sigma_i^2}\sim\chi^2_{n_i-1}.
+        $$
+        2標本が独立なら、この2つのカイ二乗変数も独立である。そこで各々を自由度 $n_i-1$ で割ると
+        $$
+        \frac{\{(n_1-1)S_1^2/\sigma_1^2\}/(n_1-1)}
+             {\{(n_2-1)S_2^2/\sigma_2^2\}/(n_2-1)}
+        =\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2},
+        $$
+        したがって $F_{n_1-1,n_2-1}$ に従う。
+      計算例: |
+        独立な
+        $$
+        U\sim\chi^2_5,\qquad V\sim\chi^2_{10}
+        $$
+        なら
+        $$
+        \frac{U/5}{V/10}\sim F_{5,10}.
+        $$
+
+        $F\sim F_{3,8}$ なら
+        $$
+        \frac1F\sim F_{8,3}.
+        $$
+        $T\sim t_{20}$ なら
+        $$
+        T^2\sim F_{1,20}.
+        $$
+
+        分散比では、独立な正規標本のサイズが $n_1=6,n_2=9$ のとき
+        $$
+        U=\frac{5S_1^2}{\sigma_1^2}\sim\chi^2_5,
         \qquad
-        \sigma=\sqrt{np(1-p)}=3.
-        $$
-        $X\le15$ を $Y\le15.5$ に直すので
-        $$
-        z=\frac{15.5-10}{3}=\frac{11}{6}\approx1.833.
+        V=\frac{8S_2^2}{\sigma_2^2}\sim\chi^2_8.
         $$
         よって
         $$
-        P(X\le15)\approx\Phi(1.833)\approx0.9666.
+        \frac{U/5}{V/8}
+        =\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+        \sim F_{5,8}.
         $$
-      使用公式・定理: |
-        連続修正の原理は、整数値 $j$ が担当する確率質量を、連続軸上の幅1のセル
+        帰無仮説 $\sigma_1^2=\sigma_2^2$ なら母分散が約分され
         $$
-        [j-0.5,j+0.5]
+        \frac{S_1^2}{S_2^2}\sim F_{5,8}.
         $$
-        に対応させることである。
-
-        したがって整数区間 $a,a+1,\ldots,b$ のセルをつなげれば
-        $$
-        [a-0.5,b+0.5]
-        $$
-        となる。片側事象もこのセルの端を読めばよい。
-
-        また整数値では
-        $$
-        X>k\iff X\ge k+1,
-        \qquad
-        X<k\iff X\le k-1,
-        $$
-        なので、厳密不等号を先に $\ge,\le$ へ直せば符号を暗記する必要がない。
-
-        二項分布 $X\sim\operatorname{Binomial}(n,p)$ を正規近似するときは
-        $$
-        Y\sim N\bigl(np,np(1-p)\bigr)
-        $$
-        とし、事象の境界を連続修正してから標準化する。
-      計算例: |
-        例えば
-        $$
-        P(10\le X\le20)
-        $$
-        なら、整数10から20が担当するセルをつなげて
-        $$
-        P(10\le X\le20)
-        \approx
-        P(9.5\le Y\le20.5).
-        $$
-
-        $P(X=20)$ は $20\le X\le20$ の特殊例なので
-        $$
-        P(X=20)\approx P(19.5\le Y\le20.5).
-        $$
-
-        また $P(X>20)$ なら、整数値では $X\ge21$ と同じだから
-        $$
-        P(X>20)\approx P(Y\ge20.5).
-        $$
-        このように「$>$ なら右へ0.5」のように個別暗記するより、整数点のセルを描く方が一貫している。
       一手: |
-        **整数点 $j$ を幅1のセル $[j-0.5,j+0.5]$ に置き換える。** $>,<$ があれば先に整数値性を使って $\ge,\le$ へ直し、必要なセル全体の外側の境界を読む。
+        **F分布を見たら「独立なカイ二乗を自由度で割って比にする」形を作る。** 標本分散なら、まず $(n_i-1)S_i^2/\sigma_i^2$ をカイ二乗へ直し、その後に自由度で割ると分散比がそのまま残る。
       注意: |
-        連続分布では一点の確率が0なので、修正後の $<,\le$ や $>,\ge$ の違いは確率値を変えない。
+        分子・分母の順序と自由度の順序を一致させる。逆数を取れば自由度も交換する。
 
-        $\pm0.5$ は整数格子の刻み幅が1だから現れる。刻み幅が $h$ の離散量なら基本的な境界補正は $h/2$ であり、任意の離散分布へ機械的に $0.5$ を足し引きしない。
+        分散比のF分布は正規母集団と2標本の独立性を使う。一般の非正規母集団の標本分散比が厳密にF分布になるわけではない。
 
-        連続修正は事象の境界を直す操作であり、その後に正規近似の平均・分散を使って標準化する。補正前の整数境界をそのまま標準化しない。
+        $\sqrt{F_{1,\nu}}$ は符号を持たないため、t分布そのものではなく $|t_\nu|$ と同じ分布である。
