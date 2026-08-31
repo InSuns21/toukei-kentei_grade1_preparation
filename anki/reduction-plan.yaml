@@ -1,15 +1,39 @@
 schema_version: 1
-batch_id: 2026-08-31-engineering-design-reduction-209
+batch_id: 2026-08-31-legacy-duplicate-reduction-211
 items:
-  - id: engdesign-split-plot-randomization
+  - id: prob-bayes-diagnostic
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-split-plot-error-strata
-    coverage_card: design-split-plot-error-strata
-    note: 一般側の分割法正本を2段階無作為化・一次/二次実験単位・AとB/ABの誤差層・平衡計画の自由度分解まで拡張済み。r=4,a=3,b=2で自由度3,2,6,1,2,9、合計23を確認する同一数値例まで統合したため独立カード不要。
-  - id: engdesign-nested-df
+    canonical_card: bayes-density-formula
+    coverage_card: bayes-density-formula
+    note: Bayes正本へ罹患率0.01、感度0.9、偽陽性率0.05の診断検査例を統合済み。P(+)=0.0585、P(D|+)=2/13≈0.154を全確率から導き、感度と陽性後確率の条件の向きも区別しているため旧単発カードは不要。
+  - id: dist-gamma-recognition
     bucket: duplicates
     reason: duplicate
-    canonical_card: design-twoway-crossed-nested
-    coverage_card: design-twoway-crossed-nested
-    note: 一般側の交差/入れ子判別正本へ df_A=a-1、df_B(A)=a(b-1) を統合済み。3工場×各4台の工場固有機械でA自由度2、B(A)自由度9、合計11=12-1となる同一例まで含むため完全重複。
+    canonical_card: dist-gamma-moments-by-definition
+    coverage_card: dist-gamma-moments-by-definition
+    note: Gamma分布の定義積分正本が一般に ∫_0^∞ x^(c-1)e^(-βx)dx=Γ(c)/β^c をu=βxで導出し、その先の1次・2次モーメントまで扱う。旧カードのa,b表記のGamma型積分は完全に包含される。
+  - id: dist-clt-standardize
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: dist-clt-sample-mean
+    coverage_card: dist-clt-sample-mean
+    note: 中心極限定理正本が旧カードと同じE[X_i]=10、Var(X_i)=4、n=100を使い、標準誤差2/√100=0.2と標準化を明示したうえで標本平均の区間確率と標本和まで扱う。P(Xbar>10.4)のz=2は正本の同一計算に含まれる。
+  - id: est-factorization
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: neyman-factorization
+    coverage_card: neyman-factorization
+    note: ネイマン分解定理正本へU(0,θ)の完全な因子分解を統合済み。L(θ;x)=θ^(-n)1{x_(n)≤θ}1{x_(1)≥0} と分解し、θ依存の台をh(x)側へ移せない理由からT=X_(n)が十分統計量と導くため、旧カードの論点を完全に回収した。
+  - id: test-np-bernoulli
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: test-ump-binomial-one-sided
+    coverage_card: test-ump-binomial-one-sided
+    note: 二項片側検定正本へ単純仮説p0対p1>p0の尤度比R(x)と R(x+1)/R(x)=p1(1-p0)/[p0(1-p1)]>1 を追加済み。大きいXで棄却するNeyman–Pearsonの方向から複合片側の一様最強力検定まで一続きに扱うため旧単発カードは不要。
+  - id: test-sign-test
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: np-sign-median-ci
+    coverage_card: np-sign-median-ci
+    note: 符号検定正本を拡張し、連続分布の中央値m0の下でS=#{X_i>m0}~Binomial(n,1/2)、n=10でP(S=10)=2^-10を明示した。さらに同値除外と検定反転による中央値信頼区間まで扱うため旧カードを完全に包含する。
