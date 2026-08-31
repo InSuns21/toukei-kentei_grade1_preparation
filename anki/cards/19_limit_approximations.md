@@ -1,39 +1,103 @@
 ---
 id: dist-weak-law-chebyshev
-title: チェビシェフの不等式から大数の弱法則を導く
+title: 大数の弱法則を確率収束として読みChebyshevから導く
 category: math-probability
 subcategory: math-limit-approximations
-topic: weak-law-chebyshev
-type: expansion
+topic: weak-law-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [大数の弱法則, チェビシェフの不等式, 確率収束]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 大数の弱法則 }]
+hashtags:
+  - 大数の弱法則
+  - チェビシェフの不等式
+  - 確率収束
+  - 標本平均
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 大数の弱法則
 ---
 ## 問題
-$X_1,X_2,\ldots$ は独立同分布で $E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2<\infty$ とする。標本平均 $\overline X_n$ が $\mu$ に確率収束することを、チェビシェフの不等式から示せ。
+$X_1,X_2,\ldots$ は独立同分布で
+$$
+E[X_i]=\mu,\qquad \operatorname{Var}(X_i)=\sigma^2<\infty
+$$
+とする。
+
+1. $\overline X_n\xrightarrow{p}\mu$ の意味を、任意の $\varepsilon>0$ を使って書け。
+2. チェビシェフの不等式から $\overline X_n\xrightarrow{p}\mu$ を示せ。
 
 ## 答え
-任意の $\varepsilon>0$ に対して $P(|\overline X_n-\mu|\ge\varepsilon)\to0$ を示す。
+1. 確率収束の定義より
+$$
+\overline X_n\xrightarrow{p}\mu
+\quad\Longleftrightarrow\quad
+P(|\overline X_n-\mu|\ge\varepsilon)\to0
+$$
+が任意の $\varepsilon>0$ で成り立つことである。
+
+2. 独立同分布性より
+$$
+E[\overline X_n]=\mu,
+\qquad
+\operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n}.
+$$
+チェビシェフの不等式を適用すると
+$$
+P(|\overline X_n-\mu|\ge\varepsilon)
+\le
+\frac{\sigma^2}{n\varepsilon^2}
+\to0.
+$$
+よって
+$$
+\boxed{\overline X_n\xrightarrow{p}\mu}.
+$$
 
 ## 使用公式・定理
+確率変数列 $Y_n$ が $Y$ に確率収束するとは、任意の $\varepsilon>0$ に対して
+$$
+P(|Y_n-Y|\ge\varepsilon)\longrightarrow0
+$$
+が成り立つことである。
+
 有限分散の確率変数 $Y$ に対するチェビシェフの不等式は
-$$P(|Y-E[Y]|\ge\varepsilon)\le\frac{\operatorname{Var}(Y)}{\varepsilon^2}\qquad(\varepsilon>0).$$
-独立性から
-$$E[\overline X_n]=\mu,\qquad \operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n}.$$
+$$
+P(|Y-E[Y]|\ge\varepsilon)
+\le
+\frac{\operatorname{Var}(Y)}{\varepsilon^2},
+\qquad \varepsilon>0.
+$$
+
+独立同分布標本では
+$$
+E[\overline X_n]=\mu,
+\qquad
+\operatorname{Var}(\overline X_n)=\frac{\sigma^2}{n}.
+$$
+したがって標本平均のばらつきが $1/n$ の速さで縮むことが、Chebyshevによる弱法則の直接の理由である。
 
 ## 計算例
-チェビシェフの不等式を $Y=\overline X_n$ に適用すると
-$$P(|\overline X_n-\mu|\ge\varepsilon)\le\frac{\sigma^2}{n\varepsilon^2}.$$
-$\sigma^2$ と $\varepsilon$ は固定なので、右辺は $n\to\infty$ で0へ収束する。したがって
-$$\overline X_n\xrightarrow{p}\mu.$$
+例えば $\mu=5$、$\sigma^2=4$ とする。$\varepsilon=0.2$ なら
+$$
+P(|\overline X_n-5|\ge0.2)
+\le
+\frac{4}{n(0.2)^2}
+=\frac{100}{n}.
+$$
+この上界自体は小さい $n$ では1を超え得るが、$n\to\infty$ では0へ収束する。したがって任意に固定した幅から外れる確率は最終的に0へ近づく。
 
-## 一手
-まず標本平均の分散を $\sigma^2/n$ と書き、チェビシェフの不等式の右辺が0へ行くことを確認する。
+## 一手／方針
+**弱法則は「標本平均の分散が0へ縮む」ことから読む。** まず $E[\overline X_n]=\mu$ と $\operatorname{Var}(\overline X_n)=\sigma^2/n$ を出し、Chebyshevの右辺を0へ送る。
 
 ## 注意
-この証明で必要なのは独立同分布と有限分散である。平均だけが有限で分散が無限の場合、このチェビシェフ型の証明は使えない。
+$\overline X_n\xrightarrow{p}\mu$ は「十分大きい $n$ なら標本平均が必ず $\mu$ と等しくなる」という意味ではない。固定した $\varepsilon>0$ について、$\mu$ から $\varepsilon$ 以上離れる確率が0へ近づくという意味である。
+
+このカードの証明は独立同分布と有限分散を使う標準形である。より一般の大数の法則には別の仮定もあるので、「有限分散がなければ大数則は絶対に成り立たない」とは結論しない。
 
 <!-- CARD -->
 

@@ -157,98 +157,152 @@ $$
 
 ---
 id: prob-cdf-from-density
-title: 確率密度関数を積分して累積分布関数を求める
+title: 確率質量・密度・混合分布から累積分布関数を作る
 category: math-probability
 subcategory: math-distribution-functions
-topic: cdf-density
-type: calc_step
+topic: cdf-canonical
+type: strategy
 difficulty: 1
 priority: S
-hashtags: [累積分布関数, 確率密度関数, 積分]
-frequency: { past_exam: 2, textbook: 0, independent_problems: 0, source_confirmations: 2 }
-sources: [{ type: official_syllabus, topic: 累積分布関数 }, { type: past_exam, id: MATH-2024-Q2, topic: 半径の分布 }, { type: past_exam, id: MATH-2018-Q5, topic: 順序統計量の確率密度 }]
+hashtags:
+  - 累積分布関数
+  - 確率密度関数
+  - 点質量
+  - 混合分布
+frequency:
+  past_exam: 2
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 2
+sources:
+  - type: official_syllabus
+    topic: 累積分布関数
+  - type: past_exam
+    id: MATH-2024-Q2
+    topic: 半径の分布
+  - type: past_exam
+    id: MATH-2018-Q5
+    topic: 順序統計量の確率密度
 ---
 ## 問題
-$X$ の確率密度関数が $f_X(x)=2x$（$0<x<1$）、それ以外で $0$ である。累積分布関数 $F_X(x)$ を求めよ。
+累積分布関数について次を解け。
+
+1. $X$ の確率密度関数が $f_X(x)=2x$（$0<x<1$）、それ以外で0である。累積分布関数 $F_X(x)$ を求めよ。
+2. $P(Y=0)=1/2$ で、残りの確率 $1/2$ は区間 $(0,1)$ 上に一定の密度で分布する。$F_Y(y)$ を求めよ。
+3. 一般に、累積分布関数から連続部分の密度と点 $a$ の確率質量をどう回収するか述べよ。
 
 ## 答え
-$f_X(x)=2x$（$0<x<1$）なら
+1. $0\le x<1$ では
 $$
-F_X(x)=\begin{cases}
+F_X(x)=\int_0^x2u\,du=x^2
+$$
+なので
+$$
+F_X(x)=
+\begin{cases}
 0,&x<0,\\
 x^2,&0\le x<1,\\
 1,&x\ge1.
 \end{cases}
 $$
 
-## 使用公式・定理
-累積分布関数は常に
+2. 連続部分の密度は $(0,1)$ で $1/2$ だから
 $$
-F_X(x)=P(X\le x)
+F_Y(y)=
+\begin{cases}
+0,&y<0,\\
+1/2,&y=0,\\
+1/2+y/2,&0<y<1,\\
+1,&y\ge1.
+\end{cases}
 $$
-である。
+$y=0$ で大きさ $1/2$ の跳びを持つ。
 
-離散型では確率質量を足して
-$$
-F_X(x)=\sum_{u\le x}p_X(u),
-$$
-絶対連続型では確率密度関数を積分して
-$$
-F_X(x)=\int_{-\infty}^x f_X(u)\,du
-$$
-と得る。
-
-逆向きには、絶対連続な部分で累積分布関数が微分可能なら
+3. 絶対連続な部分では、微分可能な点で
 $$
 f_X(x)=F_X'(x).
 $$
-一方、点 $a$ の確率質量は微分ではなく跳び幅
+点 $a$ の確率質量は
+$$
+P(X=a)=F_X(a)-F_X(a-)
+$$
+である。
+
+## 使用公式・定理
+累積分布関数の定義は常に
+$$
+F_X(x)=P(X\le x).
+$$
+
+離散型では、$x$ 以下の確率質量を足して
+$$
+F_X(x)=\sum_{u\le x}p_X(u).
+$$
+絶対連続型では、$x$ まで密度を積分して
+$$
+F_X(x)=\int_{-\infty}^{x}f_X(u)\,du.
+$$
+
+点質量と連続部分が共存する混合分布では、両方を足して
+$$
+F_X(x)
+=\sum_{u\le x}P(X=u)
++\int_{-\infty}^{x}f_{\mathrm{cont}}(u)\,du
+$$
+と考える。したがって累積分布関数は、点質量の位置では跳び、連続密度がある区間では連続的に増加する。
+
+逆向きには、絶対連続な部分で累積分布関数が微分可能なら
+$$
+f_X(x)=F_X'(x),
+$$
+点 $a$ の確率質量は左極限との差
 $$
 P(X=a)=F_X(a)-F_X(a-)
 $$
 で回収する。
 
 ## 計算例
-連続型では $0\le x<1$ で
+離散型で
 $$
-F_X(x)=\int_0^x2u\,du=x^2.
+P(X=0)=\frac14,\qquad P(X=1)=\frac34
 $$
-台の外も補って上の区分表示を得る。
-
-離散型の例として
-$$P(X=0)=\frac14,\qquad P(X=1)=\frac34$$
 なら
 $$
-F_X(x)=\begin{cases}
+F_X(x)=
+\begin{cases}
 0,&x<0,\\
 1/4,&0\le x<1,\\
 1,&x\ge1.
 \end{cases}
 $$
 
+連続型で $f_X(x)=2x$（$0<x<1$）なら
+$$
+F_X(x)=\int_0^x2u\,du=x^2,
+\qquad0\le x<1.
+$$
+
+混合分布では、$P(Y=0)=1/2$ により $F_Y$ は0で $1/2$ だけ跳び、その後 $(0,1)$ 上で傾き $1/2$ で増える。したがって $0<y<1$ では
+$$
+F_Y(y)=\frac12+\frac y2.
+$$
+
 逆向きに
 $$
-F_X(x)=\begin{cases}
-0,&x\le0,\\
-x^2,&0<x<1,\\
-1,&x\ge1
-\end{cases}
+F_X(1-)=0.2,\qquad F_X(1)=0.5
 $$
-なら、$0<x<1$ で
-$$f_X(x)=F_X'(x)=2x.$$
-
-また
-$$F_X(1-)=0.2,\qquad F_X(1)=0.5$$
 なら
 $$
 P(X=1)=0.5-0.2=0.3.
 $$
 
-## 一手
-累積分布関数を中心に考える。確率質量・確率密度関数からは左側の確率を集め、逆向きでは連続部分は微分、点質量は跳び幅を見る。
+## 一手／方針
+**累積分布関数は「左側にある確率を全部集めた量」と考える。** 離散なら質量を足し、連続なら密度を積分し、混合なら跳びと積分を両方足す。逆向きでは連続部分を微分し、跳びは左極限との差で読む。
 
 ## 注意
-混合分布では微分だけでは点質量を回収できない。累積分布関数は台の外も含めて0から1まで書き、右連続性を忘れない。
+混合分布で累積分布関数を微分しただけでは点質量を回収できない。密度が存在する部分と跳びを分けて扱う。
+
+累積分布関数は台の外も含めて0から1まで書く。常に右連続であり、点質量は右連続な関数の跳びとして現れる。
 
 <!-- CARD -->
 
