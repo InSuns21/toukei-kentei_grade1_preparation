@@ -677,19 +677,19 @@ $$F_{X_n}(x)\longrightarrow\Phi(x)=F_X(x).$$
 
 ---
 id: asym-convergence-ms
-title: 平均二乗収束からMarkovの不等式で一致性を示す
+title: 平均二乗収束から一致性を示しMSEの漸近次数を比較する
 category: math-estimation
 subcategory: math-asymptotic-estimation
 topic: mean-square-convergence-consistency-canonical
 type: strategy
-difficulty: 2
+difficulty: 3
 priority: A
 hashtags:
   - 平均二乗収束
   - 一致性
   - 平均二乗誤差
-  - Markovの不等式
-  - 確率収束
+  - バイアス
+  - 漸近次数
 frequency:
   past_exam: 0
   textbook: 0
@@ -706,7 +706,8 @@ sources:
 1. $T_n\xrightarrow{qm}\theta$（平均二乗収束）の定義を書け。
 2. $E[(T_n-\theta)^2]\to0$ なら $T_n\xrightarrow{p}\theta$ であることを、Markovの不等式を使って示せ。
 3. 平均二乗誤差をバイアスと分散に分解せよ。
-4. $E[T_n]-\theta=1/n$、$\operatorname{Var}(T_n)=4/n$ のとき、平均二乗誤差が0へ収束することを確認せよ。
+4. $\operatorname{Var}(T_n)\approx V/n$ とする。バイアスが (i) $b/n$ 級、(ii) $c/\sqrt n$ 級のとき、それぞれバイアス平方と分散の次数を比較し、MSEの主要項を述べよ。
+5. $E[T_n]-\theta=1/n$、$\operatorname{Var}(T_n)=4/n$ のとき、MSEが0へ収束することを確認せよ。
 
 ## 記号・用語
 $T_n\xrightarrow{qm}\theta$ は平均二乗収束、$T_n\xrightarrow{p}\theta$ は確率収束を表す。一致推定量とは $T_n\xrightarrow{p}\theta$ を満たす推定量である。
@@ -715,7 +716,11 @@ $T_n\xrightarrow{qm}\theta$ は平均二乗収束、$T_n\xrightarrow{p}\theta$ �
 $$
 \operatorname{MSE}(T_n)=E[(T_n-\theta)^2]
 $$
-である。
+である。バイアスは
+$$
+\operatorname{Bias}(T_n)=E[T_n]-\theta
+$$
+と定義する。
 
 ## 使用公式・定理
 平均二乗収束の定義は
@@ -735,11 +740,23 @@ $$
 $$
 \operatorname{MSE}(T_n)
 =\operatorname{Var}(T_n)
-+\{E[T_n]-\theta\}^2.
++\operatorname{Bias}(T_n)^2.
+$$
+
+漸近次数は二乗すると指数も2倍になる。例えば
+$$
+\operatorname{Bias}(T_n)=O(n^{-1})
+\Rightarrow
+\operatorname{Bias}(T_n)^2=O(n^{-2}),
+$$
+$$
+\operatorname{Bias}(T_n)=O(n^{-1/2})
+\Rightarrow
+\operatorname{Bias}(T_n)^2=O(n^{-1}).
 $$
 
 ## 一手／方針
-**平均二乗誤差が与えられたら、ずれの二乗を非負確率変数としてMarkovの不等式へ入れる。** これで確率収束の定義に現れる外側確率を直接0へ押さえられる。
+**MSEではまず「分散」と「バイアス平方」を分け、それぞれの $n$ の次数を比較する。** バイアスそのものを分散と比べてはいけない。平均二乗収束から一致性を示すときは、ずれの二乗をMarkovの不等式へ入れる。
 
 ## 答え
 1.
@@ -770,7 +787,35 @@ E[(T_n-\theta)^2]
 +\operatorname{Bias}(T_n)^2}.
 $$
 
-4.
+4. 分散が $V/n=O(n^{-1})$ のとき、
+
+(i) バイアスが $b/n=O(n^{-1})$ なら
+$$
+\operatorname{Bias}(T_n)^2
+=\frac{b^2}{n^2}
+=O(n^{-2}).
+$$
+したがって
+$$
+\operatorname{MSE}(T_n)
+\approx \frac Vn+\frac{b^2}{n^2},
+$$
+主要項は $V/n$ であり、バイアス平方は1次の $n^{-1}$ 精度では無視できる。
+
+(ii) バイアスが $c/\sqrt n=O(n^{-1/2})$ なら
+$$
+\operatorname{Bias}(T_n)^2
+=\frac{c^2}{n}
+=O(n^{-1}),
+$$
+なので分散と同じ次数である。したがって
+$$
+\operatorname{MSE}(T_n)
+\approx\frac{V+c^2}{n},
+$$
+となり、バイアス平方を主要項から落としてはいけない。
+
+5.
 $$
 \operatorname{MSE}(T_n)
 =\frac4n+\frac1{n^2}
@@ -779,21 +824,26 @@ $$
 したがって $T_n$ は平均二乗収束し、特に一致推定量である。
 
 ## 計算例
-$n=100$ なら
+$n=100$、$V=4$ とする。
+
+バイアスが $1/n$ なら
 $$
 \operatorname{MSE}(T_{100})
 =\frac4{100}+\frac1{10000}
 =0.0401.
 $$
-例えば $\varepsilon=0.5$ に対してMarkovの不等式から
+バイアス平方 $0.0001$ は分散 $0.04$ より2桁小さい。
+
+一方、バイアスが $1/\sqrt n$ なら
 $$
-P(|T_{100}-\theta|>0.5)
-\le\frac{0.0401}{0.25}=0.1604.
+\operatorname{MSE}(T_{100})
+=\frac4{100}+\frac1{100}
+=0.05.
 $$
-この上界自体は有限標本では粗くても、$n\to\infty$ で0へ収束することが一致性の証明には十分である。
+この場合、バイアス平方は分散の25%に相当し、同じ $n^{-1}$ 級なので主要項に残る。
 
 ## 注意
-平均二乗収束は確率収束より強い。逆に $T_n\xrightarrow{p}\theta$ だけから平均二乗収束は一般には従わない。MSEが小さいことはバイアスと分散の両方を同時に制御している。
+平均二乗収束は確率収束より強い。逆に $T_n\xrightarrow{p}\theta$ だけから平均二乗収束は一般には従わない。また、MSEの次数比較では「バイアス」ではなく必ず「バイアスの二乗」と分散を比較する。より一般に、バイアスが $o(n^{-1/2})$ ならその二乗は $o(n^{-1})$ なので、分散が $O(n^{-1})$ の通常の設定では1次のMSEに影響しない。
 
 <!-- CARD -->
 
