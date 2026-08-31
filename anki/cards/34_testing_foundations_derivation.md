@@ -1564,27 +1564,122 @@ sources: [{ type: official_syllabus, topic: ワルド型検定 }]
 ---
 
 ## 問題
-$\widehat\theta$ が漸近正規であるとき、$H_0:\theta=\theta_0$ の1次元Wald統計量を書け。
+漸近正規な推定量に基づくWald検定を考える。
+
+1. 1次元で
+$$
+H_0:\theta=\theta_0
+$$
+を検定するWaldの標準化統計量と、その二乗形を書け。
+
+2. ロジスティック回帰で係数推定値 $\widehat\beta=0.80$、標準誤差0.25とする。$H_0:\beta=0$ の5%両側Wald検定と近似95%信頼区間を求めよ。
+
+3. $q$ 本の線形制約
+$$
+H_0:R\theta=r
+$$
+に対する多次元Wald統計量を書け。さらに
+$$
+R\widehat\theta-r=(1,2)^{\mathsf T},
+\qquad
+R\widehat V R^{\mathsf T}=\operatorname{diag}(0.25,1)
+$$
+で $q=2$ のとき統計量を計算し、5%水準で判定せよ。自由度2のカイ二乗分布の95%点を5.991とする。
 
 ## 記号・用語
 - SE：標準誤差（standard error）
 - $\xrightarrow{d}$：分布収束
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+1次元では、帰無仮説の下で標準正規分布へ近づく
+$$
+\boxed{
+Z_W=\frac{\widehat\theta-\theta_0}
+{\widehat{\operatorname{SE}}(\widehat\theta)}}
+$$
+を用い、その二乗
+$$
+\boxed{W=Z_W^2}
+$$
+は自由度1のカイ二乗分布へ近づく。
 
-最尤推定量なら標準誤差は観測情報量または期待情報量の逆数から推定する。
+$q$ 本の制約では、$\widehat V$ を $\widehat\theta$ の推定分散共分散行列として
+$$
+\boxed{
+W=(R\widehat\theta-r)^{\mathsf T}
+[R\widehat V R^{\mathsf T}]^{-1}
+(R\widehat\theta-r)}
+$$
+を用い、帰無仮説の下で自由度 $q$ のカイ二乗分布へ漸近する。
+
+## 一手／方針
+**Wald検定は「推定値が帰無仮説から何標準誤差ずれているか」を測る。**
+
+1次元なら差を標準誤差で割る。複数制約なら、制約差ベクトルをその推定分散共分散行列でMahalanobis型に標準化した二次形式へ拡張する。
 
 ## 答え
-$$Z_W=\frac{\widehat\theta-\theta_0}{\widehat{\operatorname{SE}}(\widehat\theta)},qquad
-W=Z_W^2.$$
-帰無仮説下で $Z_W\xrightarrow{d}N(0,1)$、$W\xrightarrow{d}\chi^2_1$。
+1. 1次元では
+$$
+Z_W=\frac{\widehat\theta-\theta_0}
+{\widehat{\operatorname{SE}}(\widehat\theta)},
+\qquad
+W=Z_W^2.
+$$
+
+2. ロジスティック回帰では
+$$
+Z_W=\frac{0.80}{0.25}=3.2.
+$$
+$|3.2|>1.96$ なので5%両側検定で $H_0:\beta=0$ を棄却する。
+
+近似95%信頼区間は
+$$
+0.80\pm1.96(0.25)
+=\boxed{(0.31,1.29)}.
+$$
+
+3. 制約差の推定分散共分散行列の逆行列は
+$$
+[R\widehat V R^{\mathsf T}]^{-1}
+=\operatorname{diag}(4,1).
+$$
+よって
+$$
+W=(1,2)
+\begin{pmatrix}4&0\\0&1\end{pmatrix}
+\begin{pmatrix}1\\2\end{pmatrix}
+=4+4
+=\boxed{8}.
+$$
+$8>5.991$ なので、自由度2のカイ二乗近似を用いる5%検定で同時制約を棄却する。
 
 ## 計算例
-$\widehat\theta=1.4,\theta_0=1,\widehat{\operatorname{SE}}=0.2$ なら $Z_W=2$、$W=4$。
+既存の1次元例として
+$$
+\widehat\theta=1.4,
+\qquad
+\theta_0=1,
+\qquad
+\widehat{\operatorname{SE}}=0.2
+$$
+なら
+$$
+Z_W=2,
+\qquad W=4.
+$$
+
+複数制約で分散共分散行列が対角でない場合は、各成分の標準化平方を単純に足すのではなく、必ず
+$$
+[R\widehat V R^{\mathsf T}]^{-1}
+$$
+を含む二次形式を計算する。
 
 ## 注意
-Wald検定は推定値で分散を評価するため、境界近くや強い非線形変換で不安定になりうる。
+Wald検定は推定値の位置で分散を評価するため、境界付近、強い非線形変換、小標本では不安定になり得る。
+
+ロジスティック回帰では完全分離・準完全分離があると係数推定値が非常に大きくなったり標準誤差が不安定になったりし、Wald検定が特に信頼しにくくなることがある。
+
+誤差が正規分布に従う線形モデルでは、有限標本で正確なt検定・F検定を構成できる場合がある。一方、一般化線形モデルのWald検定は通常、標準正規分布やカイ二乗分布への大標本近似として使う。
 <!-- CARD -->
 
 ---
