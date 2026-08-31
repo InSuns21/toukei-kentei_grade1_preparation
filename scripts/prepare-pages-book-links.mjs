@@ -36,6 +36,10 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
   const sourceDir = path.posix.dirname(siteRelativeFile);
 
   return markdown.replace(/(!?\[[^\]]*\]\()([^)]+)(\))/g, (match, open, rawHref, close) => {
+    // Docsify resolves image sources relative to the Markdown page. Keep image
+    // paths page-relative instead of rewriting them like navigation links.
+    if (open.startsWith('![')) return match;
+
     const trimmed = rawHref.trim();
     if (
       !trimmed ||
@@ -94,7 +98,9 @@ function canonicalizeRemovedTextbookLinks(markdown) {
 }
 
 function extractLinks(markdown) {
-  return [...markdown.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map((match) => match[1].trim());
+  return [...markdown.matchAll(/(!?)\[[^\]]*\]\(([^)]+)\)/g)]
+    .filter((match) => match[1] !== '!')
+    .map((match) => match[2].trim());
 }
 
 function localTarget(href) {
