@@ -1,10 +1,22 @@
-# Core 35 MA(1)・自己共分散・可逆性
+# Core 35 移動平均過程 MA(1)・自己共分散・可逆性
 
 - 安定ID: `RIKOU-CORE-35`
 - 80大問 No.: 24
 - 演習価値: A
 - 難度: B
 - 目安時間: 25分
+
+## 前提・記号
+
+移動平均過程・自己共分散・可逆性の一般事項は [E2-03 自己回帰過程・移動平均過程・ARIMA過程](../../textbook/volumes/05_engineering/E2_03_ar_ma_arima時系列/index.md) を前提とする。
+
+本問では textbook と同じ **プラス符号の規約**
+
+$$
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}
+$$
+
+を用いる。
 
 ## 問題
 
@@ -53,9 +65,6 @@ $$
 \begin{aligned}
 \gamma(1)
 &=\operatorname{Cov}(X_t,X_{t-1})\\
-&=\operatorname{Cov}(
-\varepsilon_t+0.5\varepsilon_{t-1},
-\varepsilon_{t-1}+0.5\varepsilon_{t-2})\\
 &=0.5\operatorname{Var}(\varepsilon_{t-1})\\
 &=\boxed{2}.
 \end{aligned}
@@ -67,8 +76,6 @@ $$
 \boxed{\gamma(h)=0\qquad(|h|\ge2)}.
 $$
 
----
-
 ### 2. 自己相関関数
 
 $$
@@ -79,13 +86,9 @@ $$
 
 $$
 \boxed{\rho(1)=\frac25=0.4},
+\qquad
+\boxed{\rho(h)=0\quad(|h|\ge2)}.
 $$
-
-$$
-\boxed{\rho(h)=0\qquad(|h|\ge2)}.
-$$
-
----
 
 ### 3. 可逆性の意味と条件を導く
 
@@ -97,7 +100,7 @@ $$
 
 を考える。
 
-**可逆**とは、観測系列 $X_t,X_{t-1},\ldots$ から現在のイノベーション $\varepsilon_t$ を一意に、かつ収束する無限線形結合として復元できることをいう。
+可逆とは、観測系列 $X_t,X_{t-1},\ldots$ から現在のイノベーション $\varepsilon_t$ を一意に、かつ収束する無限線形結合として復元できることをいう。
 
 モデル式を $\varepsilon_t$ について解くと
 
@@ -105,28 +108,12 @@ $$
 \varepsilon_t=X_t-\theta\varepsilon_{t-1}.
 $$
 
-さらに1期前について
-
-$$
-\varepsilon_{t-1}=X_{t-1}-\theta\varepsilon_{t-2}
-$$
-
-だから
-
-$$
-\begin{aligned}
-\varepsilon_t
-&=X_t-\theta(X_{t-1}-\theta\varepsilon_{t-2})\\
-&=X_t-\theta X_{t-1}+\theta^2\varepsilon_{t-2}.
-\end{aligned}
-$$
-
-同じ代入を繰り返すと
+再帰的に代入すると
 
 $$
 \varepsilon_t
 =X_t-\theta X_{t-1}+\theta^2X_{t-2}
--\theta^3X_{t-3}+\cdots.
+-\theta^3X_{t-3}+\cdots,
 $$
 
 すなわち
@@ -135,30 +122,20 @@ $$
 \boxed{
 \varepsilon_t
 =\sum_{j=0}^{\infty}(-\theta)^jX_{t-j}
-}
+}.
 $$
 
-と表したい。
-
-この級数で古い観測の係数 $(-\theta)^j$ が0へ減衰するためには
-
-$$
-|\theta|<1
-$$
-
-が必要である。したがって MA(1) の可逆条件は
+古い観測の係数 $(-\theta)^j$ が0へ減衰する条件は
 
 $$
 \boxed{|\theta|<1}.
 $$
 
-同じことを後退作用素 $B$ を使えば、
+後退作用素 $B$ を使えば
 
 $$
-X_t=(1+\theta B)\varepsilon_t
+X_t=(1+\theta B)\varepsilon_t,
 $$
-
-に対して
 
 $$
 \varepsilon_t
@@ -166,24 +143,7 @@ $$
 =(1-\theta B+\theta^2B^2-\cdots)X_t
 $$
 
-という幾何級数展開が収束する条件が $|\theta|<1$、と見ることもできる。
-
-したがって「移動平均多項式 $1+\theta z$ の根 $z=-1/\theta$ が単位円外」という教科書的条件
-
-$$
-|z|>1
-$$
-
-も
-
-$$
-\left|-\frac1\theta\right|>1
-\iff |\theta|<1
-$$
-
-と同じ内容である。
-
----
+であり、移動平均多項式 $1+\theta z$ の根 $z=-1/\theta$ が単位円外にある条件と同値である。
 
 ### 4. なぜ可逆性が識別に必要か
 
@@ -204,9 +164,9 @@ $$
 なので
 
 $$
-\gamma(0)=4(1+0.5^2)=5,
+\gamma(0)=5,
 \qquad
-\gamma(1)=0.5\cdot4=2.
+\gamma(1)=2.
 $$
 
 一方
@@ -215,17 +175,17 @@ $$
 (\theta',\sigma'^2)=(2,1)
 $$
 
-とすると
+としても
 
 $$
-\gamma'(0)=1(1+2^2)=5,
+\gamma'(0)=5,
 \qquad
-\gamma'(1)=2\cdot1=2.
+\gamma'(1)=2.
 $$
 
 したがって両モデルは同じ自己共分散関数を持つ。
 
-実際、一般に
+一般に
 
 $$
 (\theta,\sigma^2)
@@ -233,15 +193,7 @@ $$
 \left(\frac1\theta,\theta^2\sigma^2\right)
 $$
 
-は $\theta\ne0$ のとき同じ $\gamma(0),\gamma(1)$ を与える。
-
-このままでは2次モーメントから MA 係数を一意に決められない。そこで
-
-$$
-|\theta|<1
-$$
-
-という可逆性を課し、同じ観測上の2次構造を与える複数の表現から一意な代表を選ぶ。
+は $\theta\ne0$ のとき同じ $\gamma(0),\gamma(1)$ を与える。そこで $|\theta|<1$ という可逆性を課し、同じ2次構造を与える複数の表現から一意な代表を選ぶ。
 
 本問では
 
@@ -258,22 +210,6 @@ $$
 $$
 
 である。
-
-## 何を覚えるか
-
-可逆条件 $|\theta|<1$ を単なる公式として覚えるより、
-
-$$
-\varepsilon_t=X_t-\theta\varepsilon_{t-1}
-$$
-
-を再帰的に代入して
-
-$$
-\varepsilon_t=X_t-\theta X_{t-1}+\theta^2X_{t-2}-\cdots
-$$
-
-を作ると、なぜ係数が減衰しなければならないかが分かる。
 
 ## 本番答案
 
