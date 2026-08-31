@@ -83,82 +83,103 @@ $$
 
 ---
 id: prob-variance-independent-sum
-title: 独立な確率変数の和の分散を求める
+title: 二次モーメント・共分散から分散と線形結合の分散を求める
 category: math-probability
 subcategory: math-distribution-characteristics
-topic: variance-sum
-type: calc_step
+topic: variance-canonical
+type: strategy
 difficulty: 2
 priority: A
-hashtags: [分散, 統計的独立, 和]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 分散 }]
+hashtags:
+  - 分散
+  - 統計的独立
+  - 和
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 分散
 ---
 ## 問題
-独立な $X,Y$ について $\operatorname{Var}(X)=4$、$\operatorname{Var}(Y)=9$ とする。$\operatorname{Var}(X+Y)$ と $\operatorname{Var}(X-Y)$ を求めよ。
+分散について次を解け。
+
+1. $E[X]=2$, $E[X^2]=6$ から $\operatorname{Var}(X)$ を求めよ。
+2. 独立な $X,Y$ について $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$ とする。$\operatorname{Var}(X+Y)$ と $\operatorname{Var}(X-Y)$ を求めよ。
+3. $E[X]=10$, $\operatorname{Var}(X)=25$ のとき $Z=(X-10)/5$ の期待値と分散を求めよ。
 
 ## 答え
-独立な $X,Y$ に対し $\operatorname{Var}(X)=4,\operatorname{Var}(Y)=9$ なら
+1.
 $$
-\operatorname{Var}(X+Y)=\operatorname{Var}(X-Y)=13.
+\operatorname{Var}(X)=6-2^2=\boxed{2}.
+$$
+
+2. 独立性から共分散は0なので
+$$
+\operatorname{Var}(X+Y)=4+9=\boxed{13},
+$$
+$$
+\operatorname{Var}(X-Y)=4+(-1)^2\,9=\boxed{13}.
+$$
+
+3. 期待値の線形性と分散のスケール則より
+$$
+E[Z]=\frac{10-10}{5}=\boxed0,
+$$
+$$
+\operatorname{Var}(Z)=\frac1{25}\operatorname{Var}(X)
+=\boxed1.
 $$
 
 ## 使用公式・定理
+分散は定義から
+$$
+\operatorname{Var}(X)=E[(X-E[X])^2]
+=E[X^2]-E[X]^2.
+$$
+したがって二次モーメント $E[X^2]$ は分散そのものではなく、平均の二乗を引いて初めて分散になる。
+
 分散が有限な $X,Y$ と定数 $a,b,c$ について
 $$
 \operatorname{Var}(aX+bY+c)
 =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y)
 +2ab\operatorname{Cov}(X,Y).
 $$
-定数 $c$ は分散へ影響しない。
-
-$Y$ を使わない特殊形では
-$$
-\operatorname{Var}(aX+c)=a^2\operatorname{Var}(X).
-$$
-$X,Y$ が独立なら $\operatorname{Cov}(X,Y)=0$ なので
+特に独立なら $\operatorname{Cov}(X,Y)=0$ なので
 $$
 \operatorname{Var}(aX+bY)
 =a^2\operatorname{Var}(X)+b^2\operatorname{Var}(Y).
 $$
-
-さらに $\mu=E[X]$, $\sigma^2=\operatorname{Var}(X)>0$ として
+また
 $$
-Z=\frac{X-\mu}{\sigma}
+\operatorname{Var}(aX+c)=a^2\operatorname{Var}(X).
 $$
-と標準化すれば
-$$E[Z]=0,\qquad \operatorname{Var}(Z)=1.$$
 
 ## 計算例
-一般式へ $a=1,b=\pm1$ を入れ、独立性から共分散を0にすると
+$E[X]=3,E[X^2]=14$ なら
 $$
-\operatorname{Var}(X+Y)=4+9=13,
+\operatorname{Var}(X)=14-3^2=5.
 $$
+さらに
 $$
-\operatorname{Var}(X-Y)=4+(-1)^2\cdot9=13.
+\operatorname{Var}(3X-2)=3^2\operatorname{Var}(X)=45.
 $$
-引き算でも係数は二乗される。
+定数シフト $-2$ は分散へ影響しない。
 
-1変数の例として $\operatorname{Var}(X)=5$ なら
+独立でない場合に $\operatorname{Var}(X)=4$, $\operatorname{Var}(Y)=9$, $\operatorname{Cov}(X,Y)=2$ なら
 $$
-\operatorname{Var}(3X-2)=3^2\cdot5=45.
-$$
-シフト $-2$ は消える。
-
-また $E[X]=10,\operatorname{Var}(X)=25$ では $\sigma=5$ だから
-$$Z=\frac{X-10}{5}.$$
-期待値の線形性より
-$$E[Z]=\frac{10-10}{5}=0,$$
-分散のスケール則より
-$$
-\operatorname{Var}(Z)=\frac1{25}\operatorname{Var}(X)=1.
+\operatorname{Var}(X-Y)=4+9-2\cdot2=9.
 $$
 
-## 一手
-まず一般式の共分散項まで書く。独立性が与えられたときだけ共分散項を0にし、1変数なら不要な項を落とす。
+## 一手／方針
+**分散を求める入口を見分ける。** 二次モーメントが与えられたら $E[X^2]-E[X]^2$、線形結合ならまず共分散項まで含む一般式を書く。独立性が与えられたときだけ共分散を0にする。
 
 ## 注意
-独立でない和の分散で共分散項を落とさない。標準化では分散ではなく標準偏差 $\sigma$ で割る。
+$E[X^2]$ と $E[X]^2$ は異なる。$E[X^2]$ をそのまま分散としない。
+
+引き算でも係数は二乗されるため、独立なら $\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ である。独立でない場合は共分散項を落とさない。標準化では分散ではなく標準偏差で割る。
 
 <!-- CARD -->
 

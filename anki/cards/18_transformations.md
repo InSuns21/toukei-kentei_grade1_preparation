@@ -37,64 +37,110 @@ $1-U$ も $U(0,1)$ に従うので、$-\log U$ も同じ指数分布になる。
 
 ---
 id: prob-transform-nonmonotonic
-title: 非単調変換で台を分割して密度を求める
+title: 1変数変換を単調・多対1で使い分けて密度を求める
 category: math-probability
 subcategory: math-transformations
-topic: nonmonotonic-transform
-type: calc_step
+topic: one-dimensional-transform-canonical
+type: strategy
 difficulty: 3
 priority: S
-hashtags: [変数変換, 非単調, 二乗変換]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 変数変換 }]
+hashtags:
+  - 変数変換
+  - 非単調
+  - 二乗変換
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 変数変換
 ---
 ## 問題
-$X$ の確率密度関数を $f_X(x)=1/2$（$-1<x<1$）、それ以外で0とする。$Y=X^2$ の確率密度関数を求めよ。
+1変数の変数変換について次を解け。
+
+1. $X$ の確率密度関数が $f_X(x)=e^{-x}$（$x>0$）、それ以外で0である。$Y=2X$ の確率密度関数を求めよ。
+2. $X$ が一様分布 $U(-1,1)$ に従い、$Y=X^2$ とする。$Y$ の確率密度関数を求めよ。
 
 ## 答え
-$X\sim U(-1,1)$、$Y=X^2$ なら
-$$f_Y(y)=\frac{1}{2\sqrt y},\qquad 0<y<1.$$
-
-## 使用公式・定理
-$Y=g(X)$ が1対1でない場合、まず
-$$F_Y(y)=P\{g(X)\le y\}$$
-を領域確率として求めて微分する方法が安全である。
-
-ある $y$ に対する逆像が $x_1(y),\ldots,x_m(y)$ で、各枝が局所的に単調なら
+1. $Y=2X$ では逆変換は
 $$
-f_Y(y)=\sum_{j=1}^m f_X\{x_j(y)\}\left|\frac{dx_j}{dy}\right|.
+x=\frac y2,
+\qquad
+\left|\frac{dx}{dy}\right|=\frac12.
 $$
-同じ $y$ へ写る枝を全て足すことが本質である。
+$X>0$ から $Y>0$ なので
+$$
+f_Y(y)=e^{-y/2}\frac12
+=\boxed{\frac12e^{-y/2}},\qquad y>0.
+$$
 
-## 計算例
-$0<y<1$ で
-$$X^2\le y\Longleftrightarrow -\sqrt y\le X\le\sqrt y$$
-だから
+2. $0<y<1$ では逆像が $\pm\sqrt y$ の2本ある。累積分布関数を使うと
 $$
-F_Y(y)=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx=\sqrt y,
+\begin{aligned}
+F_Y(y)
+&=P(-\sqrt y\le X\le\sqrt y)\\
+&=\int_{-\sqrt y}^{\sqrt y}\frac12\,dx\\
+&=\sqrt y.
+\end{aligned}
 $$
 よって
-$$f_Y(y)=F_Y'(y)=\frac1{2\sqrt y}.$$
+$$
+f_Y(y)=F_Y'(y)
+=\boxed{\frac1{2\sqrt y}},\qquad0<y<1.
+$$
 
-同じ操作を標準正規分布 $X\sim N(0,1)$ に対して行うと、$Y=X^2$ の逆像は $\pm\sqrt y$ なので
+## 使用公式・定理
+$Y=g(X)$ が1対1で単調で、逆変換 $x=g^{-1}(y)$ が微分可能なら
+$$
+f_Y(y)=f_X(g^{-1}(y))
+\left|\frac{d}{dy}g^{-1}(y)\right|.
+$$
+**逆変換→変換後の台→Jacobianの絶対値**の順に処理する。
+
+一方、$g$ が1対1でなく、ある $y$ に対する逆像が
+$$
+x_1(y),\ldots,x_m(y)
+$$
+で各枝が局所的に単調なら
+$$
+f_Y(y)=\sum_{j=1}^m
+f_X(x_j(y))\left|\frac{dx_j}{dy}\right|.
+$$
+同じ $y$ を生む全ての枝を足す。
+
+多対1変換では累積分布関数
+$$
+F_Y(y)=P\{g(X)\le y\}
+$$
+を領域確率として求めてから微分する方法も安全である。
+
+## 計算例
+単調変換の例では
+$$
+\int_0^\infty\frac12e^{-y/2}\,dy=1
+$$
+となり、Jacobianを掛けることで正規化が保たれる。
+
+多対1変換で標準正規分布に従う $X$ と $Y=X^2$ を考えると、逆像は $\pm\sqrt y$ なので
 $$
 \begin{aligned}
 f_Y(y)
 &=\phi(\sqrt y)\frac1{2\sqrt y}
-  +\phi(-\sqrt y)\frac1{2\sqrt y}\\
-&=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0,
++\phi(-\sqrt y)\frac1{2\sqrt y}\\
+&=\frac{e^{-y/2}}{\sqrt{2\pi y}},\qquad y>0.
 \end{aligned}
 $$
-これは $\chi_1^2$ の密度である。
+これは自由度1のカイ二乗分布の密度である。
 
-また $Y=|X|$ なら $y>0$ の逆像は $y,-y$ なので、対称性から
-$$f_Y(y)=\phi(y)+\phi(-y)=2\phi(y).$$
-
-## 一手
-非単調変換では「この $y$ を生む元の $x$ は何個あるか」を先に数える。迷ったら累積分布関数法へ戻る。
+## 一手／方針
+**最初に「この $y$ を生む元の $x$ は何個あるか」を数える。** 1個なら逆変換とJacobian、複数なら各逆像枝の寄与を足す。多対1で迷ったら累積分布関数法へ戻る。
 
 ## 注意
-1本の逆関数だけを使うと確率質量を落とす。二乗・絶対値では通常、正負2枝を足す。
+変換後の台を書き忘れない。Jacobianは絶対値を取る。
+
+二乗・絶対値のような多対1変換で1本の逆関数だけを使うと確率質量を落とす。単調変換の公式は多対1変換の各枝へ適用して足し合わせる特殊ケースだと捉える。
 
 <!-- CARD -->
 
