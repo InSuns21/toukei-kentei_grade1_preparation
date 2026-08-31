@@ -1,5 +1,5 @@
 schema_version: 1
-batch_id: 2026-08-31-canonicalize-fit-mvn-225
+batch_id: 2026-08-31-canonicalize-fit-mvn-226
 items:
   - id: samp-multinomial-cell-counts
     note: 旧test-chi-square-fitのk-1-r記法とk=5,r=1の数値例を吸収し、多項標本からPearson適合度統計量・自由度補正までを1枚で完結させる。
@@ -25,7 +25,6 @@ items:
         $$
         X^2\xrightarrow{d}\chi^2_{k-1}.
         $$
-
         帰無モデルの内部母数をデータから $r$ 個推定したなら
         $$
         \boxed{\mathrm{df}=k-1-r}.
@@ -35,72 +34,49 @@ items:
         \boxed{\mathrm{df}=5-1-1=3}.
         $$
       使用公式・定理: |
-        度数ベクトル
-        $$
-        (O_1,\ldots,O_k)
-        $$
-        は多項分布に従い、平均と分散共分散行列は
+        度数ベクトル $(O_1,\ldots,O_k)$ は多項分布に従い、平均と分散共分散行列は
         $$
         E[\boldsymbol O]=n\boldsymbol p,
         \qquad
         \operatorname{Cov}(\boldsymbol O)
         =n\{\operatorname{diag}(\boldsymbol p)-\boldsymbol p\boldsymbol p^{\mathsf T}\}.
         $$
-
         度数には必ず
         $$
         \sum_{j=1}^k O_j=n
         $$
-        という1本の線形制約がある。このため、カテゴリー確率が既知なら独立に動ける方向は $k-1$ 個であり、Pearson統計量は漸近的に自由度 $k-1$ のカイ二乗分布へ従う。
+        という1本の線形制約があるため、カテゴリー確率が既知なら自由度は $k-1$ になる。
 
-        さらに帰無モデルの内部母数を $r$ 個、同じデータから正則な方法で推定すると、その推定に使った独立な方向をさらに $r$ 個失うため
+        さらに帰無モデルの内部母数を $r$ 個、同じデータから正則な方法で推定すると
         $$
-        \mathrm{df}=k-1-r
+        \mathrm{df}=k-1-r.
         $$
-        となる。
-
         記号を $d$ カテゴリー、推定母数数を $q$ と書く流儀では同じ式は
         $$
         \mathrm{df}=d-1-q
         $$
         である。
       計算例: |
-        まず母数推定のない例として、$n=200$、$k=3$、帰無仮説
-        $$
-        \boldsymbol p=(0.5,0.3,0.2)
-        $$
-        に対して観測度数が
-        $$
-        (O_1,O_2,O_3)=(94,63,43)
-        $$
-        だったとする。期待度数は
-        $$
-        (E_1,E_2,E_3)=(100,60,40)
-        $$
-        なので
+        $n=200$、$k=3$、帰無仮説 $\boldsymbol p=(0.5,0.3,0.2)$、観測度数 $(94,63,43)$ なら期待度数は $(100,60,40)$ である。したがって
         $$
         \begin{aligned}
         X^2
         &=\frac{(94-100)^2}{100}
           +\frac{(63-60)^2}{60}
           +\frac{(43-40)^2}{40}\\
-        &=0.36+0.15+0.225\\
         &=0.735.
         \end{aligned}
         $$
-        この場合は確率が既知なので自由度は
-        $$
-        3-1=2.
-        $$
+        確率が既知なので自由度は $3-1=2$ である。
 
         一方、$k=5$ 区分の正則で識別可能な帰無モデルで内部母数を1個推定したなら
         $$
         \mathrm{df}=k-1-r=5-1-1=3.
         $$
       一手: |
-        **まず「度数の総和が固定」で1自由度を引き、次に「データから推定した帰無モデルの独立母数数」を引く。** したがって適合度検定の自由度は機械的に $k-1$ とせず、推定母数の有無を確認する。
+        **まず「度数の総和が固定」で1自由度を引き、次に「同じデータから推定した帰無モデルの独立母数数」を引く。** 適合度検定の自由度を機械的に $k-1$ としない。
       注意: |
-        $k-1-r$ は、正則で識別可能な帰無モデル、各カテゴリー確率が正で、期待度数が十分大きいという通常の漸近条件の下で使う。期待度数が極端に小さいカテゴリーがある場合は、カイ二乗近似の妥当性を確認し、必要ならカテゴリー統合や別手法を検討する。
+        $k-1-r$ は、正則で識別可能な帰無モデル、各カテゴリー確率が正で、期待度数が十分大きいという通常の漸近条件の下で使う。期待度数が極端に小さい場合はカイ二乗近似の妥当性を確認する。
 
         推定母数数を引くのは、その母数を同じ標本から推定した場合である。既知の外部パラメータまで機械的に引かない。
 
@@ -122,16 +98,7 @@ items:
 
         1. 通常の $p$ 次元密度が存在する条件と密度式を書け。
         2. 二変量の場合、分散を $\sigma_1^2,\sigma_2^2$、相関係数を $\rho$ として分散共分散行列・行列式・逆行列・密度を明示せよ。
-        3. 数値例として
-        $$
-        \boldsymbol\mu=\boldsymbol0,
-        \qquad
-        \boldsymbol\Sigma=
-        \begin{pmatrix}1&0\\0&4\end{pmatrix},
-        \qquad
-        \boldsymbol x=\begin{pmatrix}1\\2\end{pmatrix}
-        $$
-        で密度を計算せよ。
+        3. 数値例として $\boldsymbol\mu=\boldsymbol0$、$\boldsymbol\Sigma=\operatorname{diag}(1,4)$、$\boldsymbol x=(1,2)^{\mathsf T}$ の密度を計算せよ。
       答え: |
         $\boldsymbol\Sigma$ が対称正定値なら通常の $p$ 次元密度が存在し、
         $$
@@ -143,7 +110,6 @@ items:
         (\boldsymbol x-\boldsymbol\mu)
         \right\}.
         $$
-
         二変量では
         $$
         \boldsymbol\Sigma=
@@ -153,28 +119,14 @@ items:
         \end{pmatrix},
         \qquad \sigma_1,\sigma_2>0,
         $$
-        であり、通常の非退化密度には $|\rho|<1$ が必要である。
+        で、通常の非退化密度には $|\rho|<1$ が必要である。
 
-        数値例では
-        $$
-        |\boldsymbol\Sigma|=4,
-        \qquad
-        \boldsymbol\Sigma^{-1}
-        =\begin{pmatrix}1&0\\0&1/4\end{pmatrix},
-        $$
-        $$
-        \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x=2
-        $$
-        だから
+        数値例では $|\boldsymbol\Sigma|=4$、$\boldsymbol\Sigma^{-1}=\operatorname{diag}(1,1/4)$、Mahalanobis二次形式は2なので
         $$
         \boxed{f_{\boldsymbol X}(1,2)=\frac{e^{-1}}{4\pi}}.
         $$
       使用公式・定理: |
-        多変量正規分布の密度では
-        $$
-        |\boldsymbol\Sigma|^{1/2}
-        $$
-        が体積の尺度を調整し、
+        多変量正規分布の密度では、$|\boldsymbol\Sigma|^{1/2}$ が体積の尺度を調整し、二次形式
         $$
         (\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
         \boldsymbol\Sigma^{-1}
@@ -182,58 +134,43 @@ items:
         $$
         が平均からのMahalanobis距離の二乗を表す。
 
-        二変量では
+        二変量の相関係数表示を一般式へ代入すると、次の式群を得る。
         $$
-        |\boldsymbol\Sigma|
-        =\sigma_1^2\sigma_2^2(1-\rho^2),
-        $$
-        $$
+        \begin{gathered}
+        |\boldsymbol\Sigma|=\sigma_1^2\sigma_2^2(1-\rho^2),\\[4pt]
         \boldsymbol\Sigma^{-1}
         =\frac1{1-\rho^2}
         \begin{pmatrix}
         1/\sigma_1^2&-\rho/(\sigma_1\sigma_2)\\
         -\rho/(\sigma_1\sigma_2)&1/\sigma_2^2
-        \end{pmatrix}.
-        $$
-        これを一般式へ代入すると
-        $$
-        \begin{aligned}
+        \end{pmatrix},\\[6pt]
         f_{X_1,X_2}(x_1,x_2)
-        &=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\\
-        &\quad\times
+        =\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}
         \exp\left[-\frac{1}{2(1-\rho^2)}
         \left\{
         \frac{(x_1-\mu_1)^2}{\sigma_1^2}
         -2\rho\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
         +\frac{(x_2-\mu_2)^2}{\sigma_2^2}
         \right\}\right].
-        \end{aligned}
+        \end{gathered}
         $$
-
-        $|\rho|=1$ では行列式が0となって分散共分散行列が特異になり、確率質量は平面全体ではなく1本の直線上に退化する。そのため2次元Lebesgue測度に関する上の通常密度は存在しない。
+        $|\rho|=1$ では行列式が0となり、確率質量は1本の直線上に退化する。そのため2次元Lebesgue測度に関する上の通常密度は存在しない。
       計算例: |
-        数値例では順に
+        数値例では
         $$
-        |\boldsymbol\Sigma|=1\cdot4=4,
-        \qquad |\boldsymbol\Sigma|^{1/2}=2,
+        |\boldsymbol\Sigma|=4,
+        \qquad
+        \boldsymbol\Sigma^{-1}=\operatorname{diag}\left(1,\frac14\right).
         $$
-        $$
-        \boldsymbol\Sigma^{-1}
-        =\operatorname{diag}\left(1,\frac14\right),
-        $$
+        次に
         $$
         \boldsymbol x^{\mathsf T}\boldsymbol\Sigma^{-1}\boldsymbol x
         =1^2+\frac{2^2}{4}=2.
         $$
-        $p=2$ より正規化定数は
+        よって
         $$
-        \frac{1}{(2\pi)^{2/2}\sqrt4}=\frac1{4\pi}
+        f_{\boldsymbol X}(1,2)=\frac1{4\pi}e^{-1}=\frac{e^{-1}}{4\pi}\approx0.0293.
         $$
-        なので
-        $$
-        f_{\boldsymbol X}(1,2)=\frac1{4\pi}e^{-2/2}=\frac{e^{-1}}{4\pi}\approx0.0293.
-        $$
-
         また $\mu_1=\mu_2=0$、$\sigma_1=\sigma_2=1$、$\rho=0$ なら
         $$
         f(x_1,x_2)=\frac1{2\pi}\exp\left\{-\frac{x_1^2+x_2^2}{2}\right\},
