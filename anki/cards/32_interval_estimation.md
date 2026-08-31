@@ -728,77 +728,141 @@ $|z|=|\overline x-\mu|/(\sigma/\sqrt n)\le z_{\alpha/2}$ を $\mu$ について�
 
 ---
 id: ci-asymptotic-mle
-title: 最尤推定量に基づく漸近信頼区間
+title: 漸近正規推定量からWald信頼区間を作り最尤推定量へ適用する
 category: math-estimation
 subcategory: math-interval-estimation
-topic: asymptotic-mle-ci
-type: formula
+topic: asymptotic-wald-confidence-interval-canonical
+type: calc_step
 difficulty: 3
 priority: S
-hashtags: [最尤推定, 漸近正規性, 信頼区間]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 最尤推定量の漸近正規性 }]
+hashtags:
+  - 漸近正規性
+  - Wald信頼区間
+  - 最尤推定量
+  - フィッシャー情報量（1次元）
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 最尤推定量の漸近正規性
 ---
 
 ## 問題
-正則条件の下で、最尤推定量 $\widehat\theta$ から $\theta$ の漸近信頼区間を書け。
+推定量 $\widehat\theta$ が漸近正規であるとする。
 
-## 記号・用語
-- $\xrightarrow{d}$：分布収束
-
-## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
-
-$$\widehat\theta\pm z_{\alpha/2}\,\frac{1}{\sqrt{n\,I_1(\widehat\theta)}},$$
-または対数尤度のヘッセ行列から標準誤差を推定する。
-
-## 答え
-正則条件の下で
+1. $\widehat\theta$ の推定標準誤差を $\widehat{\operatorname{SE}}(\widehat\theta)$ とするとき、信頼係数 $1-\alpha$ のWald型漸近信頼区間を書け。
+2. $\widehat\theta=2.5$、$\widehat{\operatorname{SE}}(\widehat\theta)=0.4$ のとき95% Wald信頼区間を求めよ。
+3. 正則条件の下で最尤推定量が
 $$
 \sqrt n(\widehat\theta-\theta)
 \xrightarrow{d}
-N\left(0,I_1(\theta)^{-1}\right).
+N\left(0,I_1(\theta)^{-1}\right)
 $$
-よってPlug-inしたWald型漸近区間は
-$$
-\widehat\theta
-\pm z_{\alpha/2}
-\frac1{\sqrt{nI_1(\widehat\theta)}}.
-$$
-この区間は $n\to\infty$ で被覆確率が $1-\alpha$ へ収束する。
+を満たすとき、フィッシャー情報量（1次元）から推定標準誤差とWald区間を書け。
+4. $X_i\sim\operatorname{Poisson}(\lambda)$、$n=100$、$\widehat\lambda=\overline X=4$ のとき95% Wald信頼区間を求めよ。
 
-## 計算例
-$X_i\sim\operatorname{Poisson}(\lambda)$ では
+## 記号・用語
+Wald区間は、推定量の漸近正規性を利用し「推定値 $\pm$ 正規分布の分位点 $\times$ 推定標準誤差」で作る近似信頼区間である。
+
+$I_1(\theta)$ は1観測あたりのフィッシャー情報量（1次元）とする。標準正規分布を $N(0,1)$ で表し、$z_{\alpha/2}$ は上側確率が $\alpha/2$ となる点とする。
+
+## 使用公式・定理
+一般に
 $$
-\widehat\lambda=\overline X,
-\qquad
-I_1(\lambda)=\frac1\lambda.
+\frac{\widehat\theta-\theta}
+{\widehat{\operatorname{SE}}(\widehat\theta)}
+\xrightarrow{d}N(0,1)
 $$
-$n=100$, $\widehat\lambda=4$ とすると
+なら、Wald型漸近信頼区間は
 $$
-I_1(\widehat\lambda)=\frac14.
+\boxed{
+\widehat\theta
+\pm z_{\alpha/2}\widehat{\operatorname{SE}}(\widehat\theta)}.
 $$
-推定標準誤差は
+
+正則な1次元最尤推定量では
 $$
-\begin{aligned}
-\widehat{SE}(\widehat\lambda)
-&=\frac1{\sqrt{100\cdot(1/4)}}\\
-&=\frac1{5}\\
-&=0.2.
-\end{aligned}
-$$
-95%区間では
-$$
-4\pm1.96(0.2)
-=4\pm0.392,
+\sqrt n(\widehat\theta-\theta)
+\xrightarrow{d}
+N\left(0,I_1(\theta)^{-1}\right),
 $$
 したがって
 $$
-\lambda\in[3.608,4.392].
+\widehat{\operatorname{SE}}(\widehat\theta)
+\approx
+\frac1{\sqrt{nI_1(\widehat\theta)}}
+$$
+とplug-inできる。
+
+## 一手／方針
+**まず推定量そのものの標準誤差を確認し、その後に $z_{\alpha/2}$ を掛ける。** 漸近分散定数 $V$ が $\sqrt n(\widehat\theta-\theta)\Rightarrow N(0,V)$ に現れる場合、推定量自身の分散は約 $V/n$、標準誤差は約 $\sqrt{V/n}$ である。
+
+最尤推定量では、この $V$ が $I_1(\theta)^{-1}$ になる。
+
+## 答え
+1. 信頼係数 $1-\alpha$ のWald型漸近信頼区間は
+$$
+\boxed{
+\widehat\theta
+\pm z_{\alpha/2}\widehat{\operatorname{SE}}(\widehat\theta)}.
 $$
 
+2. 95%区間では $z_{0.025}=1.96$ なので
+$$
+2.5\pm1.96(0.4)
+=2.5\pm0.784.
+$$
+よって
+$$
+\boxed{(1.716,3.284)}.
+$$
+
+3. 正則な最尤推定量では
+$$
+\widehat{\operatorname{SE}}(\widehat\theta)
+\approx\frac1{\sqrt{nI_1(\widehat\theta)}},
+$$
+したがって
+$$
+\boxed{
+\widehat\theta
+\pm z_{\alpha/2}
+\frac1{\sqrt{nI_1(\widehat\theta)}}}.
+$$
+
+4. ポアソン分布では1観測あたり
+$$
+I_1(\lambda)=\frac1\lambda.
+$$
+したがって
+$$
+\widehat{\operatorname{SE}}(\widehat\lambda)
+=\frac1{\sqrt{100(1/4)}}
+=0.2.
+$$
+よって95%区間は
+$$
+4\pm1.96(0.2)
+=4\pm0.392
+=\boxed{[3.608,4.392]}.
+$$
+
+## 計算例
+2の区間 $(1.716,3.284)$ は0を含まないので、同じ標準誤差を使う両側5% Wald検定では $H_0:\theta=0$ を棄却する。この「区間が帰無値を含むか」と「両側Wald検定」の対応も、同じ標準化統計量から生じる。
+
+また、もし
+$$
+\sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,9)
+$$
+なら、漸近分散定数は9だが、$\widehat\theta$ 自身の標準誤差は約 $3/\sqrt n$ である。9をそのまま区間半幅へ入れない。
+
 ## 注意
-これは有限標本で正確な区間とは限らない。情報量を真値 $\theta$ で評価できないため、通常は $I_1(\widehat\theta)$ や観測情報量を使う。
+Wald区間は有限標本で正確な区間とは限らず、標本が小さい場合や母数空間の境界付近では被覆確率が悪化することがある。確率・率などで区間が許されない範囲へ出る場合は、対数・ロジットなどの変換区間、尤度に基づく区間、正確区間などを検討する。
+
+最尤推定量の場合も真の $I_1(\theta)$ は通常未知なので、$I_1(\widehat\theta)$ や観測情報量で置き換える。漸近分散定数と推定量自身の分散を混同しない。
 
 <!-- CARD -->
 
