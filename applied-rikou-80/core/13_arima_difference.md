@@ -6,59 +6,72 @@
 - 難度: A
 - 目安時間: 30分
 
-## 問題
+## 前提知識チェック
+
+時系列 $\{X_t\}$ の**1階差分**を
 
 $$
-(1-B)X_t=(1+0.4B)\varepsilon_t,
-\qquad \varepsilon_t\overset{\mathrm{iid}}\sim(0,\sigma^2)
+\Delta X_t=X_t-X_{t-1}
 $$
 
-とする。後退作用素 $B$ は
+と定義する。
+
+水準系列 $X_t$ 自体は非定常でも、差分 $\Delta X_t$ が定常になることがある。この考え方をARIMAモデルで用いる。
+
+ARIMA$(p,d,q)$ は、系列を $d$ 回差分した後にARMA$(p,q)$ になるモデルである。
+
+後退作用素 $B$ は
 
 $$
 BX_t=X_{t-1}
 $$
 
-で定義する。
+と定義される**短縮記法**であり、本問の概念的前提ではない。まず通常の添字式で考え、最後に作用素表現との対応を確認する。
 
-1. このモデルを ARIMA$(p,d,q)$ で表せ。
-2. $X_t$ 自体が弱定常でない理由を、差分の累積表示から説明せよ。
-3. $Y_t=\Delta X_t$ の自己共分散 $\gamma_Y(0),\gamma_Y(1)$ と自己相関 $\rho_Y(1)$ を求めよ。
-4. 時点 $t$ までの情報に $\varepsilon_t$ が含まれるとし、$h$ 期先予測値を求めよ。
-5. $h$ 期先予測誤差を将来イノベーションで展開し、その分散を求めよ。
+## 問題
 
-## 詳細解答
-
-### 1. 後退作用素を展開してモデル次数を読む
-
-後退作用素の定義から
-
-$$
-(1-B)X_t=X_t-X_{t-1}=\Delta X_t.
-$$
-
-また
-
-$$
-(1+0.4B)\varepsilon_t
-=\varepsilon_t+0.4\varepsilon_{t-1}.
-$$
-
-したがって元の式は
+ある工程指標の水準 $X_t$ について、1階差分が
 
 $$
 \boxed{
-\Delta X_t
+X_t-X_{t-1}
 =\varepsilon_t+0.4\varepsilon_{t-1}
 }
 $$
 
-である。
+を満たすとする。ここで $\{\varepsilon_t\}$ は平均0、分散 $\sigma^2$ の独立同一分布な白色雑音である。
 
-1回差分した系列が MA(1) なので
+この式は後退作用素を使えば
 
-- AR次数 $p=0$,
-- 差分次数 $d=1$,
+$$
+(1-B)X_t=(1+0.4B)\varepsilon_t
+$$
+
+と短く書ける。
+
+1. このモデルを ARIMA$(p,d,q)$ で表せ。
+2. $Y_t=\Delta X_t$ と置く。$X_t$ を $X_0$ と $Y_1,\ldots,Y_t$ の和で表し、$X_t$ 自体が弱定常でない理由を分散から説明せよ。さらに「単位根」という言葉と $1-B$ の関係を説明せよ。
+3. 差分系列 $Y_t$ の自己共分散 $\gamma_Y(0),\gamma_Y(1)$ と自己相関 $\rho_Y(1)$ を求めよ。$|h|\ge2$ の自己共分散も答えよ。
+4. 時点 $t$ までの情報に $X_t$ と $\varepsilon_t$ が含まれるとする。1期先、2期先を実際に展開してから、一般の $h$ 期先予測値を求めよ。
+5. $h$ 期先予測誤差を将来の $\varepsilon$ で表し、その分散を求めよ。予測期間が長くなると分散がどう変化するか説明せよ。
+
+## 詳細解答
+
+### 1. ARIMA次数
+
+問題文の式は
+
+$$
+\Delta X_t
+=\varepsilon_t+0.4\varepsilon_{t-1}.
+$$
+
+右辺は現在と1期前の白色雑音の線形結合なので、差分系列 $\Delta X_t$ は MA(1) である。
+
+したがって
+
+- AR次数 $p=0$
+- 差分次数 $d=1$
 - MA次数 $q=1$
 
 であり
@@ -67,23 +80,27 @@ $$
 \boxed{\operatorname{ARIMA}(0,1,1)}.
 $$
 
----
-
-### 2. なぜ $X_t$ は弱定常でないのか
-
-差分式を
+作用素表現は、この事実を
 
 $$
-X_t-X_{t-1}=Y_t
+(1-B)X_t=(1+0.4B)\varepsilon_t
 $$
 
-と書くと
+と1行で書いたものにすぎない。
+
+### 2. 水準系列が非定常である理由
+
+$$
+Y_t=\Delta X_t=X_t-X_{t-1}
+$$
+
+だから
 
 $$
 X_t=X_{t-1}+Y_t.
 $$
 
-これを繰り返し代入すれば
+これを繰り返すと
 
 $$
 \boxed{
@@ -91,88 +108,124 @@ X_t=X_0+\sum_{j=1}^tY_j
 }.
 $$
 
-つまり $X_t$ は定常な差分 $Y_j$ を累積した水準系列である。
-
 本問では
 
 $$
 Y_j=\varepsilon_j+0.4\varepsilon_{j-1}.
 $$
 
-よって
+したがって
 
 $$
 \begin{aligned}
 X_t-X_0
-&=\sum_{j=1}^t(\varepsilon_j+0.4\varepsilon_{j-1})\\
-&=0.4\varepsilon_0
-+1.4\sum_{j=1}^{t-1}\varepsilon_j
-+\varepsilon_t.
+&=\sum_{j=1}^t
+(\varepsilon_j+0.4\varepsilon_{j-1})\\
+&=\sum_{j=1}^t\varepsilon_j
++0.4\sum_{j=1}^t\varepsilon_{j-1}.
 \end{aligned}
 $$
 
-したがって、$X_0$ を固定値とみなせば
+添字を揃えると
+
+$$
+\sum_{j=1}^t\varepsilon_{j-1}
+=\varepsilon_0+\sum_{j=1}^{t-1}\varepsilon_j,
+$$
+
+よって
+
+$$
+\boxed{
+X_t-X_0
+=0.4\varepsilon_0
++1.4\sum_{j=1}^{t-1}\varepsilon_j
++\varepsilon_t
+}.
+$$
+
+$X_0$ を固定値とみなすと、異なる時刻の $\varepsilon$ は独立なので
 
 $$
 \begin{aligned}
 \operatorname{Var}(X_t)
-&=\sigma^2\{0.4^2+1.4^2(t-1)+1\}.
+&=0.4^2\sigma^2
++1.4^2(t-1)\sigma^2
++\sigma^2\\
+&=\sigma^2\{0.16+1.96(t-1)+1\}.
 \end{aligned}
 $$
 
-これは $t$ に依存し、$t$ とともに線形に増加する。
-
-弱定常過程なら分散は時点によらず一定でなければならないので
+この分散は $t$ に依存して増加する。弱定常系列なら分散は時刻によらず一定でなければならないため
 
 $$
 \boxed{X_t\text{ は弱定常ではない}}.
 $$
 
-作用素で言えば、AR側の因子
+作用素で書いた左辺は
 
 $$
-1-B
+(1-B)X_t.
 $$
 
-が $B=1$ に根を持つ。この根を **単位根** と呼ぶ。単位根があるとショックの影響が水準へ累積されて消えず、通常の定常AR過程とはならない。
+多項式 $1-z$ は $z=1$ を根に持つ。このようにAR側に絶対値1の根があることを**単位根を持つ**という。
 
----
+単位根があるとショックが水準へ累積され、$X_t$ の分散が時間とともに増え得る。本問では1回差分して $1-B$ を取り除くと定常なMA(1)になる。
 
-### 3. 差分系列 $Y_t$
+### 3. 差分系列の自己共分散
 
 $$
-Y_t=\varepsilon_t+0.4\varepsilon_{t-1}
+Y_t=\varepsilon_t+0.4\varepsilon_{t-1}.
 $$
 
-だから
+まず分散は
 
 $$
 \begin{aligned}
 \gamma_Y(0)
 &=\operatorname{Var}(Y_t)\\
-&=\sigma^2+0.4^2\sigma^2\\
-&=\boxed{1.16\sigma^2}.
+&=\operatorname{Var}(\varepsilon_t)
++0.4^2\operatorname{Var}(\varepsilon_{t-1})\\
+&\quad+2(0.4)\operatorname{Cov}(\varepsilon_t,\varepsilon_{t-1}).
 \end{aligned}
 $$
 
-ラグ1では
+独立性から共分散は0なので
 
 $$
-Y_{t-1}=\varepsilon_{t-1}+0.4\varepsilon_{t-2}
+\boxed{
+\gamma_Y(0)=1.16\sigma^2
+}.
 $$
 
-であり、$Y_t$ と共有するイノベーションは $\varepsilon_{t-1}$ だけなので
+次に
+
+$$
+Y_{t-1}=\varepsilon_{t-1}+0.4\varepsilon_{t-2}.
+$$
+
+したがって
 
 $$
 \begin{aligned}
 \gamma_Y(1)
 &=\operatorname{Cov}(Y_t,Y_{t-1})\\
-&=0.4\operatorname{Var}(\varepsilon_{t-1})\\
-&=\boxed{0.4\sigma^2}.
+&=\operatorname{Cov}(
+\varepsilon_t+0.4\varepsilon_{t-1},
+\varepsilon_{t-1}+0.4\varepsilon_{t-2}
+).
 \end{aligned}
 $$
 
-したがって
+異なる時刻の白色雑音どうしの共分散は0で、両式が共有するのは $\varepsilon_{t-1}$ だけだから
+
+$$
+\boxed{
+\gamma_Y(1)=0.4\sigma^2
+}.
+$$
+
+よって
 
 $$
 \boxed{
@@ -183,144 +236,128 @@ $$
 }.
 $$
 
-$|h|\ge2$ では共有イノベーションがないので
-
-$$
-\gamma_Y(h)=0.
-$$
-
----
-
-### 4. $h$ 期先予測
-
-1期先は
-
-$$
-X_{t+1}=X_t+\varepsilon_{t+1}+0.4\varepsilon_t.
-$$
-
-時点 $t$ までの情報で $X_t,\varepsilon_t$ は既知、将来イノベーションは平均0だから
+$|h|\ge2$ では $Y_t$ と $Y_{t-h}$ が共通の白色雑音を含まないため
 
 $$
 \boxed{
-\hat X_{t+1|t}
+\gamma_Y(h)=0,
+\qquad |h|\ge2
+}.
+$$
+
+これはMA(1)の自己相関がラグ1で打ち切られることに対応する。
+
+### 4. $h$ 期先予測
+
+元の差分式から
+
+$$
+X_{t+1}
+=X_t+\varepsilon_{t+1}+0.4\varepsilon_t.
+$$
+
+時点 $t$ で $X_t,\varepsilon_t$ は既知、将来ショックは平均0なので
+
+$$
+\boxed{
+\widehat X_{t+1|t}
 =E[X_{t+1}\mid\mathcal F_t]
 =X_t+0.4\varepsilon_t
 }.
 $$
 
-2期先を実際に展開すると
+2期先は
+
+$$
+X_{t+2}=X_{t+1}+\varepsilon_{t+2}+0.4\varepsilon_{t+1}.
+$$
+
+1期先の式を代入すると
 
 $$
 \begin{aligned}
 X_{t+2}
-&=X_{t+1}+\varepsilon_{t+2}+0.4\varepsilon_{t+1}\\
+&=X_t+0.4\varepsilon_t
++\varepsilon_{t+1}+0.4\varepsilon_{t+1}
++\varepsilon_{t+2}\\
 &=X_t+0.4\varepsilon_t
 +1.4\varepsilon_{t+1}
 +\varepsilon_{t+2}.
 \end{aligned}
 $$
 
-条件付き期待値を取れば将来イノベーション項は消えるので
+したがって
 
 $$
-\hat X_{t+2|t}=X_t+0.4\varepsilon_t.
+\widehat X_{t+2|t}=X_t+0.4\varepsilon_t.
 $$
 
-同様に、$h\ge1$ について
+さらに先でも、既知なのは $X_t$ と最後の $\varepsilon_t$ だけで、それ以後の白色雑音は条件付き平均0なので
 
 $$
 \boxed{
-\hat X_{t+h|t}=X_t+0.4\varepsilon_t
+\widehat X_{t+h|t}
+=X_t+0.4\varepsilon_t,
+\qquad h\ge1
 }.
 $$
 
-差分系列の将来平均が0なので、水準予測は現在の水準に最後の既知MA項だけを加えた値に固定される。
-
----
-
 ### 5. 予測誤差分散
 
-$h=1$ では
+1期先では
 
 $$
-X_{t+1}-\hat X_{t+1|t}
+X_{t+1}-\widehat X_{t+1|t}
 =\varepsilon_{t+1},
 $$
 
 したがって
 
 $$
-\boxed{V_1=\sigma^2}.
+V_1=\sigma^2.
 $$
 
-$h=2$ では上の展開から
-
-$$
-X_{t+2}-\hat X_{t+2|t}
-=1.4\varepsilon_{t+1}+\varepsilon_{t+2}.
-$$
-
-さらに1期進めると、新しい差分
-
-$$
-\varepsilon_{t+j}+0.4\varepsilon_{t+j-1}
-$$
-
-が加わるため、中間の将来イノベーション $\varepsilon_{t+1},\ldots,\varepsilon_{t+h-1}$ は係数 $1+0.4=1.4$ で現れ、最後の $\varepsilon_{t+h}$ だけ係数1で現れる。
-
-したがって $h\ge2$ では
+$h\ge2$ では、展開すると
 
 $$
 \boxed{
-X_{t+h}-\hat X_{t+h|t}
+X_{t+h}-\widehat X_{t+h|t}
 =1.4\sum_{j=1}^{h-1}\varepsilon_{t+j}
 +\varepsilon_{t+h}
 }.
 $$
 
-将来イノベーションは互いに独立で分散 $\sigma^2$ なので
+実際、各中間ショック $\varepsilon_{t+j}$ は「その時点の差分」で係数1、その次の差分で係数0.4を持つため、合計係数が1.4になる。
+
+独立性から分散は足し算できるので
 
 $$
 \begin{aligned}
 V_h
 &=1.4^2(h-1)\sigma^2+\sigma^2\\
-&=\boxed{\{1+1.4^2(h-1)\}\sigma^2},
-\qquad h\ge2.
+&=\boxed{
+\{1+1.96(h-1)\}\sigma^2
+},
+\qquad h\ge1.
 \end{aligned}
 $$
 
-予測期間 $h$ が長いほど分散が線形に増えるのも、単位根過程では将来ショックが水準に累積されるためである。
+$h=1$ を代入しても $V_1=\sigma^2$ となる。
 
-## 何を覚えるか
-
-ARIMA では記号だけで次数を読むのではなく、まず
-
-$$
-BX_t=X_{t-1}
-$$
-
-を使って作用素式を通常の時系列式へ展開する。その後
-
-- 差分後に何型の定常系列になるか、
-- 水準系列はショックをどう累積するか、
-- 予測誤差にどの将来イノベーションが残るか
-
-を追えばよい。
+予測期間 $h$ が長くなるほど未知の将来ショックが水準へ累積するため、予測誤差分散は $h$ に対して線形に増える。これは非定常な水準系列を予測するときの重要な特徴である。
 
 ## 本番答案
 
 $$
-(1-B)X_t=X_t-X_{t-1}=\Delta X_t,
+\Delta X_t
+=\varepsilon_t+0.4\varepsilon_{t-1}
 $$
 
-したがって
+なので、1回差分後がMA(1)。従って
 
 $$
-\Delta X_t=\varepsilon_t+0.4\varepsilon_{t-1}
+\boxed{ARIMA(0,1,1)}.
 $$
-
-より ARIMA$(0,1,1)$。
 
 また
 
@@ -328,53 +365,58 @@ $$
 X_t=X_0+\sum_{j=1}^t\Delta X_j
 $$
 
-であり、本問では
-
-$$
-\operatorname{Var}(X_t-X_0)
-=\sigma^2\{0.4^2+1.4^2(t-1)+1\}
-$$
-
-と時点依存になるので $X_t$ は非定常。
-
-$$
-\gamma_Y(0)=1.16\sigma^2,
-\quad
-\gamma_Y(1)=0.4\sigma^2,
-\quad
-\rho_Y(1)=10/29.
-$$
-
-予測は
-
-$$
-\hat X_{t+h|t}=X_t+0.4\varepsilon_t.
-$$
-
-予測誤差は
-
-$$
-V_1=\sigma^2,
-$$
-
-$$
-X_{t+h}-\hat X_{t+h|t}
-=1.4\sum_{j=1}^{h-1}\varepsilon_{t+j}+\varepsilon_{t+h}
-$$
-
 より
 
 $$
+X_t-X_0
+=0.4\varepsilon_0
++1.4\sum_{j=1}^{t-1}\varepsilon_j
++\varepsilon_t.
+$$
+
+従って
+
+$$
+\operatorname{Var}(X_t)
+=\sigma^2\{0.16+1.96(t-1)+1\}
+$$
+
+は $t$ に依存し、$X_t$ は弱定常でない。作用素表示の $1-B$ は $B=1$ に単位根を持つ。
+
+差分系列 $Y_t$ について
+
+$$
+\gamma_Y(0)=1.16\sigma^2,
+\qquad
+\gamma_Y(1)=0.4\sigma^2,
+$$
+
+$$
+\rho_Y(1)=10/29,
+\qquad
+\gamma_Y(h)=0\ (|h|\ge2).
+$$
+
+予測値は
+
+$$
+\widehat X_{t+h|t}=X_t+0.4\varepsilon_t.
+$$
+
+予測誤差分散は
+
+$$
+\boxed{
 V_h=\{1+1.96(h-1)\}\sigma^2
-\quad(h\ge2).
+}.
 $$
 
 ## 採点基準
 
-- 後退作用素を展開し ARIMA 次数を同定: 4点
-- 累積表示と分散計算から非定常性を説明: 5点
-- 差分系列自己相関関数: 4点
-- 条件付き期待値から予測値: 3点
-- 将来イノベーション展開から予測誤差分散: 4点
+- ARIMA次数: 3点
+- 非定常性・単位根の説明: 5点
+- 差分系列の自己共分散・自己相関: 4点
+- 予測値: 4点
+- 予測誤差分散と解釈: 4点
 
-25分経過時は「$B$ の定義→差分式→予測誤差のイノベーション展開」を優先する。
+30分経過時は後退作用素による記法説明を短くしてよい。通常の差分式から非定常性・自己共分散・予測を出す計算を優先する。
