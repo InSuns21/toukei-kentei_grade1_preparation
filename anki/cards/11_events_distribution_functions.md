@@ -254,28 +254,64 @@ $$
 
 ---
 id: prob-marginal-density
-title: 同時確率密度関数を積分して周辺密度を求める
+title: 同時分布・潜在クラスを周辺化して周辺分布を求める
 category: math-probability
 subcategory: math-distribution-functions
-topic: marginal-density
-type: calc_step
+topic: marginalization-canonical
+type: strategy
 difficulty: 2
 priority: S
-hashtags: [同時分布, 周辺分布, 積分範囲]
-frequency: { past_exam: 1, textbook: 0, independent_problems: 0, source_confirmations: 1 }
-sources: [{ type: official_syllabus, topic: 同時分布と周辺分布 }, { type: past_exam, id: MATH-2022-Q2, topic: 一様分布・条件付き分布 }]
+hashtags:
+  - 同時分布
+  - 周辺分布
+  - 積分範囲
+frequency:
+  past_exam: 1
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 1
+sources:
+  - type: official_syllabus
+    topic: 同時分布と周辺分布
+  - type: past_exam
+    id: MATH-2022-Q2
+    topic: 一様分布・条件付き分布
 ---
 ## 問題
-$(X,Y)$ の同時確率密度関数が $f_{X,Y}(x,y)=2$（$0<y<x<1$）、それ以外で $0$ である。$X$ の周辺密度 $f_X(x)$ を求めよ。
+周辺化について次を解け。
+
+1. $(X,Y)$ の同時確率密度関数が $f_{X,Y}(x,y)=2$（$0<y<x<1$）、それ以外で0である。$X$ の周辺密度 $f_X(x)$ を求めよ。
+2. 潜在クラス $Z$ が $P(Z=1)=0.3$, $P(Z=2)=0.7$ を満たし、$P(X=1\mid Z=1)=0.8$, $P(X=1\mid Z=2)=0.2$ とする。$P(X=1)$ を求めよ。さらに観測 $X=1$ の後の $P(Z=1\mid X=1)$ を求めよ。
 
 ## 答え
-$f_{X,Y}(x,y)=2$（$0<y<x<1$）では
+1. $0<x<1$ を固定すると $0<y<x$ なので
 $$
-f_X(x)=2x,\qquad0<x<1.
+\begin{aligned}
+f_X(x)
+&=\int_0^x2\,dy\\
+&=\boxed{2x},\qquad0<x<1.
+\end{aligned}
+$$
+
+2. 潜在クラスを和で消すと
+$$
+\begin{aligned}
+P(X=1)
+&=0.8\cdot0.3+0.2\cdot0.7\\
+&=0.24+0.14\\
+&=\boxed{0.38}.
+\end{aligned}
+$$
+したがってベイズの定理より
+$$
+P(Z=1\mid X=1)
+=\frac{0.3\cdot0.8}{0.38}
+=\frac{12}{19}
+\approx\boxed{0.632}.
 $$
 
 ## 使用公式・定理
-同時分布から一方の変数を消す操作が周辺化である。離散型では
+同時分布から不要な変数を消す操作が周辺化である。離散型では
 $$
 p_X(x)=\sum_y p_{X,Y}(x,y),
 $$
@@ -283,38 +319,62 @@ $$
 $$
 f_X(x)=\int_{-\infty}^{\infty}f_{X,Y}(x,y)\,dy.
 $$
-実際の総和範囲・積分範囲は同時分布の台から決める。
+実際の和・積分の範囲は同時分布の台から決める。
+
+離散潜在クラス $Z$ を消す場合も同じ原理で
+$$
+p_X(x)=\sum_z p_{X\mid Z}(x\mid z)P(Z=z).
+$$
+連続観測なら
+$$
+f_X(x)=\sum_z f_{X\mid Z}(x\mid z)P(Z=z).
+$$
+これは全確率の公式を分布に適用した形である。
+
+観測後に潜在クラスへ逆向きに戻るときは
+$$
+P(Z=k\mid X=x)
+=\frac{P(Z=k)p_{X\mid Z}(x\mid k)}{p_X(x)}
+$$
+を使う。連続観測では確率質量を密度へ読み替える。
 
 ## 計算例
-連続型では $0<x<1$ を固定すると $0<y<x$ なので
-$$
-\begin{aligned}
-f_X(x)
-&=\int_0^x2\,dy\\
-&=2x.
-\end{aligned}
-$$
-検算すると
-$$\int_0^12x\,dx=1.$$
-
-離散型で
+離散型の同時表で
 $$
 p(0,0)=0.1,\quad p(0,1)=0.2,\quad
 p(1,0)=0.3,\quad p(1,1)=0.4
 $$
 なら、$Y$ を足し消して
 $$
-p_X(0)=0.1+0.2=0.3,
-$$
-$$
-p_X(1)=0.3+0.4=0.7.
+p_X(0)=0.3,\qquad p_X(1)=0.7.
 $$
 
-## 一手
-残したい変数を固定し、消したい変数について全て足すか積分する。範囲は式ではなく台から読む。
+連続観測の混合例として
+$$
+P(Z=1)=P(Z=2)=\frac12,
+$$
+$$
+f_{X\mid Z}(x\mid1)=0.6,\qquad
+f_{X\mid Z}(x\mid2)=0.2
+$$
+なら
+$$
+f_X(x)=0.5\cdot0.6+0.5\cdot0.2=0.4,
+$$
+さらに
+$$
+P(Z=1\mid X=x)=\frac{0.5\cdot0.6}{0.4}=0.75.
+$$
+
+## 一手／方針
+**残したい変数を固定し、消したい変数を全部足すか積分する。** 連続変数なら台を読んで積分し、離散潜在クラスなら各クラスの「条件付き分布×混合比」を足す。
+
+観測後にクラスへ戻る場合は、同じ各項を作り、その総和で割って正規化する。
 
 ## 注意
-三角形など変数依存の台を長方形として積分しない。離散表では行と列のどちらがどの変数かを先に確認する。
+三角形など変数依存の台を長方形として積分しない。離散表では行と列のどちらがどの変数かを確認する。
+
+連続観測では一般に $P(X=x)=0$ なので点確率の比ではなく、条件付き密度と周辺密度を使ってベイズ更新する。
 
 <!-- CARD -->
 
