@@ -2373,74 +2373,176 @@ $R^2=0.64$ なら重相関係数は $R=0.8$。
 
 ---
 id: reg-dummy-variable
-title: 2群差をダミー変数回帰で表す
+title: ダミー変数で群差を表し基準カテゴリを変更する
 category: math-data-analysis
 subcategory: math-regression
-topic: dummy-variable
+topic: dummy-variable-reference-canonical
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [ダミー変数, 群比較, 回帰係数]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形重回帰 }]
+hashtags:
+  - ダミー変数
+  - 群比較
+  - 回帰係数
+  - 基準カテゴリ
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形重回帰
 ---
 
 ## 問題
-群Aを $D=0$、群Bを $D=1$ として $Y=\beta_0+\beta_1D+\varepsilon$ とする。各群平均を係数で表せ。
+1. 群Aを $D=0$、群Bを $D=1$ として
+$$
+Y=\beta_0+\beta_1D+\varepsilon
+$$
+とする。各群平均を係数で表せ。
+2. 3群A・B・CについてAを基準とした回帰係数が、切片10、B係数2、C係数$-1$ だった。Cを基準に取り直したときの切片、A係数、B係数を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+0–1ダミー変数では、切片が基準カテゴリの平均、各ダミー係数が「そのカテゴリ平均－基準カテゴリ平均」を表す。
 
-0–1ダミー変数の係数は基準群との差。
+基準カテゴリを変更するときは、**いったん各群平均へ戻し、新しい基準平均との差を取り直す**。基準を変えても各群の当てはめ平均そのものは変わらない。
+
+## 一手／方針
+**係数を直接変換しようとせず、まず群平均を復元する。** その後、新しい基準群の平均を切片にし、他群平均との差を新しいダミー係数にする。
 
 ## 答え
-$$E[Y\mid D=0]=\beta_0,$$
-$$E[Y\mid D=1]=\beta_0+\beta_1.$$
+2群の場合
+$$
+E[Y\mid D=0]=\beta_0,
+$$
+$$
+E[Y\mid D=1]=\beta_0+\beta_1,
+$$
 したがって
-$$\beta_1=\mu_B-\mu_A.$$
+$$
+\beta_1=\mu_B-\mu_A.
+$$
+
+3群の例ではA基準の係数から
+$$
+\mu_A=10,
+\qquad
+\mu_B=10+2=12,
+\qquad
+\mu_C=10-1=9.
+$$
+Cを基準にすると切片は9で、
+$$
+\text{A係数}=10-9=1,
+\qquad
+\text{B係数}=12-9=3.
+$$
+よって
+$$
+\boxed{\text{切片}=9,\quad \text{A係数}=1,\quad \text{B係数}=3}.
+$$
 
 ## 計算例
-$\widehat\beta_0=10,\widehat\beta_1=3$ なら群平均はA:10、B:13。
+A基準では群平均が $(10,12,9)$、C基準でも
+$$
+C:9,
+\qquad A:9+1=10,
+\qquad B:9+3=12
+$$
+と同じ群平均を再現する。変わるのは係数の表示であって、当てはめ値ではない。
 
 ## 注意
-基準群を変えると係数表示は変わるが当てはめ値は変わらない。
+切片と全カテゴリ分のダミー変数を同時に入れると完全共線性になるため、通常は1カテゴリを基準として落とす。
+
+係数の数値や符号は基準カテゴリに依存するが、群平均や推定可能な群間差は基準の取り方に依存しない。
 
 <!-- CARD -->
 
 ---
 id: reg-interaction-dummy-continuous
-title: 群と連続変数の交互作用を解釈する
+title: 群と連続変数の交互作用を解釈し傾き差を検定する
 category: math-data-analysis
 subcategory: math-regression
-topic: regression-interaction
-type: formula
+topic: regression-interaction-canonical
+type: calc_step
 difficulty: 3
 priority: S
-hashtags: [交互作用, ダミー変数, 傾き]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 線形重回帰 }]
+hashtags:
+  - 交互作用
+  - ダミー変数
+  - 傾き
+  - t検定
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 線形重回帰
 ---
 
 ## 問題
-$Y=\beta_0+\beta_1X+\beta_2D+\beta_3XD+\varepsilon$ で、$D=0,1$ の回帰直線を書け。
+$$
+Y=\beta_0+\beta_1X+\beta_2D+\beta_3XD+\varepsilon,
+\qquad D\in\{0,1\}
+$$
+を考える。
+
+1. $D=0,1$ の回帰直線を書き、$\beta_2,\beta_3$ の意味を説明せよ。
+2. $\widehat\beta_1=1.2$、$\widehat\beta_3=-0.5$ のとき両群の傾きを求めよ。
+3. $\operatorname{SE}(\widehat\beta_3)=0.2$、誤差自由度20のt分布の両側5%臨界値を2.086とする。$H_0:\beta_3=0$ を検定せよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+$D$ を0または1に固定して回帰式を読み分ける。交互作用項 $XD$ の係数 $\beta_3$ は2群の傾き差である。
 
-積項の係数が効果修飾を表す。
+正規線形モデルで誤差分散を推定する通常の係数検定では
+$$
+t=\frac{\widehat\beta_3-\beta_{3,0}}
+{\operatorname{SE}(\widehat\beta_3)}
+$$
+を残差自由度のt分布と比較する。標本が大きければt分布は標準正規分布へ近づくので、Wald型の正規近似判定とほぼ一致する。
+
+## 一手／方針
+**まず $D=0,1$ を代入して2本の直線を作る。** すると切片差と傾き差が見えるので、交互作用の検定はその傾き差 $\beta_3$ が0かを標準誤差で割って調べればよい。
 
 ## 答え
 $D=0$ では
-$$E[Y\mid X,D=0]=\beta_0+\beta_1X.$$
+$$
+E[Y\mid X,D=0]=\beta_0+\beta_1X.
+$$
 $D=1$ では
-$$E[Y\mid X,D=1]=(\beta_0+\beta_2)+(\beta_1+\beta_3)X.$$
-したがって $\beta_2$ は $X=0$ での切片差、$\beta_3$ は傾き差。
+$$
+E[Y\mid X,D=1]
+=(\beta_0+\beta_2)+(\beta_1+\beta_3)X.
+$$
+したがって $\beta_2$ は $X=0$ における切片差、$\beta_3$ は $D=1$ 群と $D=0$ 群の傾き差である。
+
+数値例では
+$$
+\text{$D=0$ の傾き}=1.2,
+$$
+$$
+\text{$D=1$ の傾き}=1.2-0.5=0.7.
+$$
+また
+$$
+t=\frac{-0.5}{0.2}=-2.5.
+$$
+$|t|=2.5>2.086$ なので、5%水準で $H_0:\beta_3=0$ を棄却する。すなわち2群の傾きが等しいとはみなしにくい。
 
 ## 計算例
-$\beta_1=2,\beta_3=-0.5$ ならD=1群の傾きは1.5。
+大標本で標準正規分布の両側5%臨界値1.96を使っても
+$$
+|-2.5|>1.96
+$$
+なので同じ棄却判断になる。これは大標本Wald近似であり、正規線形モデルの有限標本では残差自由度を使うt検定が本流である。
 
 ## 注意
-$X$ を中心化すると $\beta_2$ を代表的なXでの群差として解釈しやすい。
+$\beta_2$ は一般には「群全体の平均差」ではなく $X=0$ における群差である。$X=0$ が観測範囲から遠い場合は $X$ を中心化すると解釈しやすい。
+
+交互作用があると、一方の変数の効果は他方の変数の値に依存する。主効果だけを単独で一律解釈しない。
 
 <!-- CARD -->
 
