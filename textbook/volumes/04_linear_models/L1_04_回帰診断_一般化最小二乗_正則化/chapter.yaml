@@ -1,7 +1,7 @@
 id: "L1-04"
 title: "回帰診断・一般化最小二乗・正則化"
 volume: "linear_models"
-status: revision
+status: reviewed
 prerequisites:
   - L1-02
 official_scope:
