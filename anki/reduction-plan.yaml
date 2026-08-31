@@ -1,23 +1,16 @@
 schema_version: 1
-batch_id: 2026-08-31-fit-normal-reduction-228
+batch_id: 2026-08-31-gamma-moments-reduction-230
 items:
-  - id: test-chi-square-fit
+  - id: dist-gamma-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: samp-multinomial-cell-counts
-    coverage_card: samp-multinomial-cell-counts
-    note: 多項標本の正本にPearson適合度統計量、既知確率なら自由度k-1、同じデータから帰無モデルの内部母数をr個推定した場合はk-1-r、旧カードと同じk=5,r=1ならdf=3の数値例まで統合済み。旧単発カードは不要。
+    canonical_card: dist-gamma-moments-by-definition
+    coverage_card: dist-gamma-moments-by-definition
+    note: 正本はshape-rateのガンマ分布について密度積分からE[X]=alpha/beta、E[X^2]=alpha(alpha+1)/beta^2、Var(X)=alpha/beta^2を導出し、旧カードと同じalpha=3,beta=2の数値例E[X]=3/2、Var(X)=3/4まで統合済み。公式代入だけの旧カードは不要。
 
-  - id: dist-bivariate-normal-definition
+  - id: dist-exponential-moments
     bucket: duplicates
     reason: duplicate
-    canonical_card: dist-multivariate-normal-density
-    coverage_card: dist-multivariate-normal-density
-    note: 一般p次元多変量正規密度の正本に、二変量の分散共分散行列、sigma1・sigma2・rho表示、行列式、逆行列、展開した密度、|rho|<1の非退化条件、|rho|=1の退化まで統合済み。二変量だけの旧定義カードは完全な特殊ケース。
-
-  - id: dist-normal-sum
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: prob-linear-combination-normal
-    coverage_card: prob-linear-combination-normal
-    note: 多変量正規分布の一般線形結合a^T XがN(a^T mu,a^T Sigma a)に従う正本が、独立正規変数の和を共分散0の特殊ケースとして完全包含している。旧カードのsum a_i X_iの平均・分散公式は正本から直接得られる。
+    canonical_card: dist-gamma-moments-by-definition
+    coverage_card: dist-gamma-moments-by-definition
+    note: 正本にGamma(1,lambda)=Exponential(lambda)を明示し、一般ガンマ分布の導出式へalpha=1,beta=lambdaを代入してE[X]=1/lambda、E[X^2]=2/lambda^2、Var(X)=1/lambda^2まで求めている。指数分布だけの旧モーメントカードは一般導出の特殊ケース。
