@@ -1,9 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-odds-ratio-reduction-201
+batch_id: 2026-08-31-engineering-glm-reduction-202
 items:
-  - id: engasym-delta-odds-ratio
+  - id: enginf-glm-three-components
     bucket: duplicates
     reason: duplicate
-    canonical_card: cat-log-odds-ratio-ci
-    coverage_card: cat-log-odds-ratio-ci
-    note: 2×2表のオッズ比を対数尺度へ移し、SE(log OR)=sqrt(1/a+1/b+1/c+1/d) を使って正規近似区間を作り指数変換で戻す判断単位は分割表側の正本と同一。正本はデルタ法として明示し、OR=1を基準とする解釈まで扱うためengineering側専用カードは重複。
+    canonical_card: glm-three-components
+    coverage_card: glm-three-components
+    note: 一般側の正本はGLMの確率成分・系統成分・リンク関数を識別するだけでなく、指数型分布族、自然母数、正準リンク、ポアソン・二項の具体例まで一続きで扱う。engineering側のポアソン対数リンク例は同じ判断単位の一例なので吸収可能。
+  - id: enginf-exponential-family-mean-variance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-three-components
+    coverage_card: glm-three-components
+    note: 一般側のGLM正本に指数型分布族 f(y;theta,phi)=exp[{y theta-b(theta)}/a(phi)+c(y,phi)] と E[Y]=b'(theta), Var(Y)=a(phi)b''(theta) が既に統合され、ポアソンでの具体確認も含むため完全重複。
+  - id: enginf-binomial-glm-loglikelihood
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: glm-logistic-score
+    coverage_card: glm-logistic-score
+    note: 一般側のロジスティック回帰正本はベルヌーイ対数尤度からスコア・情報行列・IRLSまで扱い、さらに二項応答 Y_i~Bin(m_i,p_i) の対数尤度 y_i log p_i+(m_i-y_i)log(1-p_i)+const と m_i を含む重みまで明記している。engineering側の y_i eta_i-m_i log(1+e^{eta_i}) は同一式の変形なので独立カード不要。
