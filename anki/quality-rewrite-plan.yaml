@@ -1,161 +1,120 @@
 schema_version: 1
-batch_id: 2026-08-31-multivariate-linear-transform-canonical-195
+batch_id: 2026-08-31-wald-ci-canonical-198
 items:
-  - id: mv-covariance-linear-transform
-    note: 共分散の線形変換正本へ、漸近正規ベクトルの線形結合にも同じ a^T Sigma a を適用する小問を統合し、engineering側の多変量漸近線形結合専用カードを吸収する。
+  - id: ci-asymptotic-mle
+    note: 最尤推定量専用だった漸近信頼区間カードを、任意の漸近正規推定量に対するWald区間を正本とし、最尤推定量をフィッシャー情報量による重要な特殊例として扱う構成へ一般化する。engineering側のgeneric Wald専用カードを吸収する。
     metadata:
-      title: 線形変換した共分散から相関行列・漸近線形結合まで扱う
-      topic: covariance-correlation-transform-canonical
-      type: strategy
+      title: 漸近正規推定量からWald信頼区間を作り最尤推定量へ適用する
+      topic: asymptotic-wald-confidence-interval-canonical
+      type: calc_step
       difficulty: 3
-      priority: A
-      hashtags: [多変量解析, 分散共分散行列, 相関行列, 線形変換, 漸近分散]
+      priority: S
+      hashtags: [漸近正規性, Wald信頼区間, 最尤推定量, フィッシャー情報量]
     sections:
       問題: |
-        確率ベクトル $\boldsymbol X$ の分散共分散行列を
-        $$
-        \boldsymbol\Sigma=
-        \begin{pmatrix}4&3\\3&9\end{pmatrix}
-        $$
-        とする。
+        推定量 $\widehat\theta$ が漸近正規であるとする。
 
-        1. $\boldsymbol Y=\boldsymbol A\boldsymbol X+\boldsymbol b$ としたとき、$\operatorname{Cov}(\boldsymbol Y)$ を $\boldsymbol A,\boldsymbol\Sigma$ で表せ。定数ベクトル $\boldsymbol b$ が共分散へ影響しない理由も述べよ。
-        2. $Y_1=X_1+X_2$ の分散を求めよ。
-        3. $\boldsymbol\Sigma$ から相関行列 $\boldsymbol R$ を求めよ。
-        4. $Z_1=10X_1,\ Z_2=100X_2$ と単位変更したとき、相関係数が変わらないことを数値で確かめよ。
-        5. 一方の変数だけを負の定数倍した場合、相関係数はどうなるか。
-        6. 2次元正規分布を $N_2$ で表す。推定量 $\widehat{\boldsymbol\beta}=(\widehat\beta_1,\widehat\beta_2)^{\mathsf T}$ が
+        1. $\widehat\theta$ の推定標準誤差を $\widehat{\operatorname{SE}}(\widehat\theta)$ とするとき、信頼係数 $1-\alpha$ のWald型漸近信頼区間を書け。
+        2. $\widehat\theta=2.5$、$\widehat{\operatorname{SE}}(\widehat\theta)=0.4$ のとき95% Wald信頼区間を求めよ。
+        3. 正則条件の下で最尤推定量が
         $$
-        \sqrt n(\widehat{\boldsymbol\beta}-\boldsymbol\beta)
+        \sqrt n(\widehat\theta-\theta)
         \xrightarrow{d}
-        N_2\left(\boldsymbol0,
-        \begin{pmatrix}4&1\\1&9\end{pmatrix}\right)
+        N\left(0,I_1(\theta)^{-1}\right)
         $$
-        を満たすとき、$\widehat\beta_1-\widehat\beta_2$ の漸近分散定数と、推定量自身の近似分散を求めよ。
+        を満たすとき、フィッシャー情報量から推定標準誤差とWald区間を書け。
+        4. $X_i\sim\operatorname{Poisson}(\lambda)$、$n=100$、$\widehat\lambda=\overline X=4$ のとき95% Wald信頼区間を求めよ。
       記号・用語: |
-        分散共分散行列の対角成分は各変数の分散、非対角成分は共分散である。相関行列は各変数を標準偏差1に標準化した後の分散共分散行列とみなせる。
+        Wald区間は、推定量の漸近正規性を利用し「推定値 $\pm$ 正規分布の分位点 $\times$ 推定標準誤差」で作る近似信頼区間である。
 
-        漸近分散定数とは
-        $$
-        \sqrt n(T_n-\theta)\xrightarrow{d}N(0,V)
-        $$
-        に現れる $V$ であり、$T_n$ 自身の大標本での分散はおよそ $V/n$ である。
+        $I_1(\theta)$ は1観測あたりのフィッシャー情報量とする。標準正規分布を $N(0,1)$ で表し、$z_{\alpha/2}$ は上側確率が $\alpha/2$ となる点とする。
       使用公式・定理: |
-        定数ベクトルの共分散は0なので
+        一般に
+        $$
+        \frac{\widehat\theta-\theta}
+        {\widehat{\operatorname{SE}}(\widehat\theta)}
+        \xrightarrow{d}N(0,1)
+        $$
+        なら、Wald型漸近信頼区間は
         $$
         \boxed{
-        \operatorname{Cov}(\boldsymbol A\boldsymbol X+\boldsymbol b)
-        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
+        \widehat\theta
+        \pm z_{\alpha/2}\widehat{\operatorname{SE}}(\widehat\theta)}.
         $$
 
-        線形結合 $L=\boldsymbol a^{\mathsf T}\boldsymbol X$ なら
+        正則な1次元最尤推定量では
         $$
-        \boxed{\operatorname{Var}(L)=\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a}.
-        $$
-
-        $\boldsymbol D=\operatorname{diag}(\Sigma_{11},\ldots,\Sigma_{pp})$ とすると相関行列は
-        $$
-        \boldsymbol R
-        =\boldsymbol D^{-1/2}\boldsymbol\Sigma\boldsymbol D^{-1/2},
-        $$
-        成分では
-        $$
-        \rho_{ij}=\frac{\Sigma_{ij}}{\sqrt{\Sigma_{ii}\Sigma_{jj}}}.
-        $$
-
-        同じ線形変換則は漸近正規ベクトルにも使える。すなわち
-        $$
-        \sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)
-        \xrightarrow{d}N_p(\boldsymbol0,\boldsymbol\Sigma)
-        $$
-        なら、定数ベクトル $\boldsymbol a$ に対して
-        $$
-        \sqrt n\{\boldsymbol a^{\mathsf T}\widehat{\boldsymbol\theta}
-        -\boldsymbol a^{\mathsf T}\boldsymbol\theta\}
+        \sqrt n(\widehat\theta-\theta)
         \xrightarrow{d}
-        N\left(0,\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a\right).
+        N\left(0,I_1(\theta)^{-1}\right),
         $$
+        したがって
+        $$
+        \widehat{\operatorname{SE}}(\widehat\theta)
+        \approx
+        \frac1{\sqrt{nI_1(\widehat\theta)}}
+        $$
+        とplug-inできる。
       一手／方針: |
-        **線形変換なら $A\Sigma A^{\mathsf T}$、1本の線形結合なら $a^{\mathsf T}\Sigma a$、尺度を消したいなら標準偏差で割る。**
+        **まず推定量そのものの標準誤差を確認し、その後に $z_{\alpha/2}$ を掛ける。** 漸近分散定数 $V$ が $\sqrt n(\widehat\theta-\theta)\Rightarrow N(0,V)$ に現れる場合、推定量自身の分散は約 $V/n$、標準誤差は約 $\sqrt{V/n}$ である。
 
-        漸近正規分布でも新しい分散公式を覚える必要はない。$\sqrt n(\widehat{\boldsymbol\theta}-\boldsymbol\theta)$ を1つの確率ベクトルと見て、通常の線形結合の分散公式をそのまま適用する。
+        最尤推定量では、この $V$ が $I_1(\theta)^{-1}$ になる。
       答え: |
-        1. 平均を $\boldsymbol\mu=E[\boldsymbol X]$ とすると
+        1. 信頼係数 $1-\alpha$ のWald型漸近信頼区間は
         $$
-        \boldsymbol Y-E[\boldsymbol Y]
-        =\boldsymbol A(\boldsymbol X-\boldsymbol\mu)
-        $$
-        だから
-        $$
-        \boxed{\operatorname{Cov}(\boldsymbol Y)
-        =\boldsymbol A\boldsymbol\Sigma\boldsymbol A^{\mathsf T}}.
-        $$
-        $\boldsymbol b$ は中心化すると消えるので共分散へ影響しない。
-
-        2. $\boldsymbol a=(1,1)^{\mathsf T}$ とすれば
-        $$
-        \operatorname{Var}(X_1+X_2)
-        =\boldsymbol a^{\mathsf T}\boldsymbol\Sigma\boldsymbol a
-        =4+9+2\cdot3
-        =\boxed{19}.
+        \boxed{
+        \widehat\theta
+        \pm z_{\alpha/2}\widehat{\operatorname{SE}}(\widehat\theta)}.
         $$
 
-        3. 標準偏差は $2,3$ なので
+        2. 95%区間では $z_{0.025}=1.96$ なので
         $$
-        \rho_{12}=\frac3{2\cdot3}=\frac12,
-        $$
-        $$
-        \boxed{\boldsymbol R=
-        \begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}}.
-        $$
-
-        4. 単位変更後は
-        $$
-        \boldsymbol\Sigma_Z
-        =\begin{pmatrix}400&3000\\3000&90000\end{pmatrix}.
+        2.5\pm1.96(0.4)
+        =2.5\pm0.784.
         $$
         よって
         $$
-        \rho_{Z_1Z_2}
-        =\frac{3000}{\sqrt{400\cdot90000}}
-        =\boxed{0.5},
+        \boxed{(1.716,3.284)}.
         $$
-        で元と同じである。
 
-        5. 一方だけを負の定数倍すると、共分散の符号は反転する一方、標準偏差は正のままなので、相関係数の符号が反転する。
+        3. 正則な最尤推定量では
+        $$
+        \widehat{\operatorname{SE}}(\widehat\theta)
+        \approx\frac1{\sqrt{nI_1(\widehat\theta)}},
+        $$
+        したがって
+        $$
+        \boxed{
+        \widehat\theta
+        \pm z_{\alpha/2}
+        \frac1{\sqrt{nI_1(\widehat\theta)}}}.
+        $$
 
-        6. 差なので
+        4. ポアソン分布では1観測あたり
         $$
-        \boldsymbol a=(1,-1)^{\mathsf T}.
+        I_1(\lambda)=\frac1\lambda.
         $$
-        したがって漸近分散定数は
+        したがって
         $$
-        \boldsymbol a^{\mathsf T}
-        \begin{pmatrix}4&1\\1&9\end{pmatrix}
-        \boldsymbol a
-        =4+9-2\cdot1
-        =\boxed{11}.
+        \widehat{\operatorname{SE}}(\widehat\lambda)
+        =\frac1{\sqrt{100(1/4)}}
+        =0.2.
         $$
-        よって
+        よって95%区間は
         $$
-        \sqrt n\{(\widehat\beta_1-\widehat\beta_2)-(\beta_1-\beta_2)\}
-        \xrightarrow{d}N(0,11),
-        $$
-        推定量自身の近似分散は
-        $$
-        \boxed{\operatorname{Var}(\widehat\beta_1-\widehat\beta_2)\approx\frac{11}{n}}.
+        4\pm1.96(0.2)
+        =4\pm0.392
+        =\boxed{[3.608,4.392]}.
         $$
       計算例: |
-        同じ漸近分散共分散行列
-        $$
-        \begin{pmatrix}4&1\\1&9\end{pmatrix}
-        $$
-        で和 $\widehat\beta_1+\widehat\beta_2$ を考えると、$\boldsymbol a=(1,1)^{\mathsf T}$ なので漸近分散定数は
-        $$
-        4+9+2\cdot1=15.
-        $$
-        差では共分散項が $-2\Sigma_{12}$、和では $+2\Sigma_{12}$ になる。
-      注意: |
-        線形結合の分散で共分散項を落とさない。独立なら共分散は0だが、無相関でない2成分では差の分散は単なる分散の和ではない。
+        2の区間 $(1.716,3.284)$ は0を含まないので、同じ標準誤差を使う両側5% Wald検定では $H_0:\theta=0$ を棄却する。この「区間が帰無値を含むか」と「両側Wald検定」の対応も、同じ標準化統計量から生じる。
 
-        正の定数倍による単位変更では相関係数は不変だが、片方だけを負の定数倍すると符号は反転する。また漸近分散定数 $V$ と推定量自身の分散 $V/n$ を混同しない。
+        また、もし
+        $$
+        \sqrt n(\widehat\theta-\theta)\xrightarrow{d}N(0,9)
+        $$
+        なら、漸近分散定数は9だが、$\widehat\theta$ 自身の標準誤差は約 $3/\sqrt n$ である。9をそのまま区間半幅へ入れない。
+      注意: |
+        Wald区間は有限標本で正確な区間とは限らず、標本が小さい場合や母数空間の境界付近では被覆確率が悪化することがある。確率・率などで区間が許されない範囲へ出る場合は、対数・ロジットなどの変換区間、尤度に基づく区間、正確区間などを検討する。
+
+        最尤推定量の場合も真の $I_1(\theta)$ は通常未知なので、$I_1(\widehat\theta)$ や観測情報量で置き換える。漸近分散定数と推定量自身の分散を混同しない。
