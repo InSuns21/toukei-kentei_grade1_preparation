@@ -1,45 +1,21 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-inference-reduction-247
+batch_id: 2026-08-31-ols-theory-reduction-248
 items:
-  - id: enginf-extra-sum-squares
+  - id: enginf-ols-unbiased-condition
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-partial-f-test
-    coverage_card: reg-partial-f-test
-    note: 縮小モデルと完全モデルの残差平方和差を q 自由度で割り、完全モデルのMSEで標準化する部分F検定は reg-partial-f-test が一般形・数値例・q=1でF=t^2まで扱う。工学側は同じ式への別数値代入のみ。
-  - id: enginf-overall-regression-f
+    canonical_card: reg-multiple-model-matrix
+    coverage_card: reg-multiple-model-matrix
+    note: 固定された列フルランク計画の下で OLS を y=Xbeta+epsilon へ代入し、平均0誤差から E(beta_hat)=beta を導く議論は reg-multiple-model-matrix が正規方程式から不偏性・共分散・BLUE性まで一続きで導出済み。工学側の条件付き期待値表現は固定Xの同じ内容で、等分散性が不偏性には不要という区別も正本の議論から保持される。
+  - id: enginf-ols-covariance-matrix
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-overall-f-test
-    coverage_card: reg-overall-f-test
-    note: R^2 から全傾き0を検定する F={R^2/p}/{(1-R^2)/(n-p-1)} は reg-overall-f-test が平方和表示とR^2表示の両方から導出・計算する正本。工学側は数値代入のみ。
-  - id: enginf-mean-response-ci
+    canonical_card: reg-multiple-model-matrix
+    coverage_card: reg-multiple-model-matrix
+    note: Var(beta_hat)=sigma^2(X^T X)^(-1) の導出は reg-multiple-model-matrix が beta_hat=(X^T X)^(-1)X^T y と線形変換の分散公式から明示的に導出している。工学側は同じ導出を独立カード化しただけで、独自技能は残らない。
+  - id: enginf-gauss-markov-comparison
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-mean-response-ci
-    coverage_card: reg-mean-response-ci
-    note: 平均応答の信頼区間は reg-mean-response-ci の正本へ重回帰の一般行列表記 x0^T(X^TX)^(-1)x0 まで吸収済み。工学側は h0=0.09 の数値代入だけで独自技能は残らない。
-  - id: enginf-new-observation-pi
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-mean-response-ci
-    coverage_card: reg-mean-response-ci
-    note: 新規1観測の予測区間 s sqrt(1+x0^T(X^TX)^(-1)x0) と平均応答CIとの違いは reg-mean-response-ci が単回帰・重回帰の両表記で一体的に扱う。工学側は同公式への数値代入のみ。
-  - id: enginf-leverage-numeric
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-hat-matrix-properties
-    coverage_card: reg-hat-matrix-properties
-    note: ハット行列対角要素、sum h_ii=k、平均 k/n は reg-hat-matrix-properties が導出済み。工学側固有だった探索的目安 h_ii>2k/n と n=20,k=4,h=0.55 の判定も正本の注意へ吸収済み。
-  - id: enginf-studentized-residual
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-hat-matrix-properties
-    coverage_card: reg-hat-matrix-properties
-    note: 内部標準化残差 r_i=e_i/{s sqrt(1-h_ii)} は reg-hat-matrix-properties が残差分散 Var(e_i)=sigma^2(1-h_ii) から導出し、数値計算と外部スチューデント化残差との区別まで保持する。工学側は単純数値例のみ。
-  - id: enginf-cooks-distance
-    bucket: duplicates
-    reason: duplicate
-    canonical_card: reg-cooks-distance
-    coverage_card: reg-cooks-distance
-    note: Cookの距離 D_i=(r_i^2/k) h_ii/(1-h_ii) は reg-cooks-distance と完全に同一。工学側の r=2,k=4,h=0.20 -> D=0.25 と探索的目安 4/n も正本へ吸収済み。
+    canonical_card: reg-gauss-markov-theorem
+    coverage_card: reg-multiple-model-matrix
+    note: Gauss--Markov定理の条件、BLUEの意味、任意の線形不偏推定量との差の共分散行列が半正定値になることは reg-gauss-markov-theorem が専用正本として扱い、reg-multiple-model-matrix では D=C-B を用いた証明まで導出している。工学側の比較カードは同結論の要約である。
