@@ -2646,13 +2646,19 @@ $$
 $$
 $\widehat\phi\gg1$ なら過分散を疑い、分散のみを $\phi$ 倍する近似では標準誤差が概ね $\sqrt{\widehat\phi}$ 倍になる。
 
-## 一手
+## 一手／方針
 **診断は「単一モデルの当てはまり → 入れ子モデル比較 → 分散仮定」の順に見る。**
 
 - 飽和モデルとの差：逸脱度 $D$
-- 観測残差の標準化二乗和：$X_P^2$
+- 観測残差の標準化二乗和：Pearson統計量 $X_P^2$
 - 2モデルの比較：逸脱度差 $D_R-D_F$
 - $X_P^2/df_E$ が1から大きく外れる：分散仮定を再点検
+
+さらに、二項・ポアソン型の一般化線形モデルなどで大標本近似が妥当な場面では、残差逸脱度を残差自由度で割った
+$$
+D/df_E
+$$
+が1前後かを見ることが粗い適合度診断として使われることがある。ただしこれは機械的な合否基準ではない。
 
 逸脱度と尤度比統計量を別公式として覚えず、**飽和モデル項が差を取ると消える**ことを確認する。
 
@@ -2717,18 +2723,10 @@ $$
 
 まず各逸脱度は
 $$
-\begin{aligned}
-D_R
-&=2\{-40-(-55)\}\\
-&=30,
-\end{aligned}
+D_R=2\{-40-(-55)\}=30,
 $$
 $$
-\begin{aligned}
-D_F
-&=2\{-40-(-51)\}\\
-&=22.
-\end{aligned}
+D_F=2\{-40-(-51)\}=22.
 $$
 よって
 $$
@@ -2736,21 +2734,26 @@ D_R-D_F=30-22=8.
 $$
 一方、直接尤度比から計算しても
 $$
-\begin{aligned}
 2(\ell_F-\ell_R)
-&=2\{-51-(-55)\}\\
-&=2\cdot4\\
-&=8.
-\end{aligned}
+=2\{-51-(-55)\}
+=8
 $$
-と一致する。飽和モデルはモデル比較の差では消えるため、同じ応答分布の入れ子モデル比較では逸脱度差だけを見ればよい。
+と一致する。
+
+単一モデルの出力で残差逸脱度42.0、残差自由度40なら
+$$
+\frac{42}{40}=1.05.
+$$
+1に近いため、この数値だけから著しい不適合を示すとは言いにくい。ただし適合が保証されたわけではなく、残差パターンや分散仮定も確認する。
 
 ## 注意
-逸脱度やPearsonカイ二乗統計量のカイ二乗近似は大標本近似であり、疎な二項データや小標本では精度に注意する。
+残差逸脱度/自由度が1に近いことだけでモデル適合を保証しない。逆に大きな値も、平均構造の不足・外れ値・過分散など複数の原因で生じ得る。
 
-尤度比検定にはモデルが入れ子であることと通常の正則性条件が必要である。境界上の母数を検定する場合などは単純な $\chi_q^2$ 近似にならないことがある。
-
-$X_P^2/df_E>1$ だけで過分散の原因までは特定できない。欠落変数、群内相関、ゼロ過剰、外れ値、平均構造の誤指定などを確認する。逆に $\widehat\phi<1$ なら過小分散の可能性がある。
+過分散の尺度として
+$$
+\widehat\phi=\frac{X_P^2}{df_E}
+$$
+を使う議論と、残差逸脱度/自由度を見る粗い適合度診断は同一ではない。二項・ポアソンモデルで分散仮定を評価するときはPearson統計量・逸脱度・残差構造を合わせて判断する。
 
 <!-- CARD -->
 
@@ -2914,23 +2917,118 @@ sources: [{ type: official_syllabus, topic: 非線形回帰モデル }]
 ---
 
 ## 問題
-$y_i=f(x_i,\boldsymbol\theta)+\varepsilon_i$ の非線形最小二乗でGauss–Newton更新を書け。
+非線形回帰
+$$
+y_i=f(x_i,\boldsymbol\theta)+\varepsilon_i
+$$
+を考える。
+
+1. 非線形最小二乗法のGauss--Newton更新を書け。
+2. 推定量 $\widehat{\boldsymbol\theta}$ の推定分散共分散行列を $\widehat V$ とする。滑らかな関数 $g(\boldsymbol\theta)$ の近似分散を勾配で書け。
+3. 
+$$
+g(\beta_1,\beta_2)=\beta_1e^{-\beta_2x},
+\qquad x=2,
+$$
+$$
+\widehat\beta=(10,0.5)^{\mathsf T},
+\qquad
+\widehat V=\operatorname{diag}(1,0.01)
+$$
+のとき、$g(\widehat\beta)$ の近似標準誤差を求めよ。
 
 ## 使用公式・定理
-**この欄の役割：解答で使う定義・公式・定理と、その適用条件**
+Gauss--Newton法では現在値の周りで
+$$
+\boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)
+\approx
+\boldsymbol f(\boldsymbol\theta)+J\boldsymbol\delta
+$$
+と一次近似する。ここで
+$$
+J_{ij}=\frac{\partial f_i}{\partial\theta_j}
+$$
+はヤコビ行列である。
 
-一次近似 $\boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)\approx\boldsymbol f(\boldsymbol\theta)+\boldsymbol J\boldsymbol\delta$。
+同じ一次線形化から、デルタ法により滑らかなスカラー関数 $g$ について
+$$
+\boxed{
+\widehat{\operatorname{Var}}\{g(\widehat{\boldsymbol\theta})\}
+\approx
+\nabla g(\widehat{\boldsymbol\theta})^{\mathsf T}
+\widehat V
+\nabla g(\widehat{\boldsymbol\theta})}
+$$
+となる。近似標準誤差はこの平方根である。
+
+## 一手／方針
+**非線形回帰では局所的に線形化する。**
+
+パラメータ更新では関数ベクトルをヤコビ行列 $J$ で線形化し、推測では予測・応答関数 $g$ を勾配 $\nabla g$ で線形化する。どちらも「現在の推定値の近くで1次式にする」という同じ発想である。
 
 ## 答え
-現在値で残差 $\boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)$、ヤコビ行列 $J_{ij}=\partial f_i/\partial\theta_j$ を作り、
-$$\boldsymbol\theta^{\mathrm{new}}
-=\boldsymbol\theta+(\boldsymbol J^{\mathsf T}\boldsymbol J)^{-1}\boldsymbol J^{\mathsf T}\boldsymbol r.$$
+現在値で残差を
+$$
+\boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)
+$$
+とすると、Gauss--Newton更新は
+$$
+\boxed{
+\boldsymbol\theta^{\mathrm{new}}
+=\boldsymbol\theta
++(J^{\mathsf T}J)^{-1}J^{\mathsf T}\boldsymbol r}.
+$$
+
+数値例では
+$$
+g(\widehat\beta)=10e^{-1}\approx3.679.
+$$
+勾配は
+$$
+\nabla g
+=\begin{pmatrix}
+e^{-\beta_2x}\\
+-x\beta_1e^{-\beta_2x}
+\end{pmatrix}_{(\beta_1,\beta_2)=(10,0.5),\,x=2}
+=\begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}.
+$$
+したがって
+$$
+\begin{aligned}
+\widehat{\operatorname{Var}}(g)
+&\approx
+(e^{-1},-20e^{-1})
+\begin{pmatrix}1&0\\0&0.01\end{pmatrix}
+\begin{pmatrix}e^{-1}\\-20e^{-1}\end{pmatrix}\\
+&=e^{-2}+0.01(20e^{-1})^2\\
+&=5e^{-2}.
+\end{aligned}
+$$
+よって
+$$
+\boxed{\operatorname{SE}\{g(\widehat\beta)\}\approx\frac{\sqrt5}{e}\approx0.823}.
+$$
 
 ## 計算例
-線形モデルでは1回で最小二乗法解へ達する。
+分散共分散行列が対角でない場合は交差項も効く。2母数なら
+$$
+\nabla g=(g_1,g_2)^{\mathsf T},
+\qquad
+\widehat V=
+\begin{pmatrix}v_{11}&v_{12}\\v_{12}&v_{22}\end{pmatrix}
+$$
+に対して
+$$
+\widehat{\operatorname{Var}}(g)
+\approx
+g_1^2v_{11}+2g_1g_2v_{12}+g_2^2v_{22}.
+$$
+成分分散だけを足して共分散項を落としてはいけない。
 
 ## 注意
-初期値や局所解に依存し得る。更新式には現在値でヤコビ行列Jが列フルランクであることが必要。
+Gauss--Newton更新の $(J^{\mathsf T}J)^{-1}$ には局所的な列フルランク性が必要である。初期値が悪い場合や強い非線形性がある場合は収束しないこともある。
+
+デルタ法の標準誤差は一次近似に基づく近似である。強い非線形性、小標本、境界付近では近似精度が悪くなり得る。
 
 <!-- CARD -->
 
