@@ -1,21 +1,45 @@
 schema_version: 1
-batch_id: 2026-08-31-regression-utilities-reduction-245
+batch_id: 2026-08-31-regression-inference-reduction-247
 items:
-  - id: enginf-vif-numeric
+  - id: enginf-extra-sum-squares
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-multicollinearity-vif
-    coverage_card: reg-multicollinearity-vif
-    note: 補助回帰の R_j^2=0.80 から VIF=1/(1-R_j^2)=5 を求める操作は common 正本と数値例まで同一。工学側にあった標準誤差の増幅率 sqrt(VIF)=sqrt(5) も正本へ吸収済み。
-  - id: enginf-wls-two-weights
+    canonical_card: reg-partial-f-test
+    coverage_card: reg-partial-f-test
+    note: 縮小モデルと完全モデルの残差平方和差を q 自由度で割り、完全モデルのMSEで標準化する部分F検定は reg-partial-f-test が一般形・数値例・q=1でF=t^2まで扱う。工学側は同じ式への別数値代入のみ。
+  - id: enginf-overall-regression-f
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-gls-estimator
-    coverage_card: reg-gls-estimator
-    note: 分散の逆数を重みとするWLSは、GLS正本で Omega が対角の特殊形として導出済み。正本には逆分散重みの数値例もあり、2観測の数値だけを変えた工学側カードに独自の操作は残らない。
-  - id: enginf-adjusted-r2-output
+    canonical_card: reg-overall-f-test
+    coverage_card: reg-overall-f-test
+    note: R^2 から全傾き0を検定する F={R^2/p}/{(1-R^2)/(n-p-1)} は reg-overall-f-test が平方和表示とR^2表示の両方から導出・計算する正本。工学側は数値代入のみ。
+  - id: enginf-mean-response-ci
     bucket: duplicates
     reason: duplicate
-    canonical_card: reg-sst-decomposition
-    coverage_card: reg-sst-decomposition
-    note: 自由度調整済み決定係数 1-(1-R^2)(n-1)/(n-p-1) の計算は reg-sst-decomposition が決定係数・平方和分解と一続きで既に扱い、数値計算と説明変数追加時の解釈も保持している。工学側は同公式への数値代入のみ。
+    canonical_card: reg-mean-response-ci
+    coverage_card: reg-mean-response-ci
+    note: 平均応答の信頼区間は reg-mean-response-ci の正本へ重回帰の一般行列表記 x0^T(X^TX)^(-1)x0 まで吸収済み。工学側は h0=0.09 の数値代入だけで独自技能は残らない。
+  - id: enginf-new-observation-pi
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-mean-response-ci
+    coverage_card: reg-mean-response-ci
+    note: 新規1観測の予測区間 s sqrt(1+x0^T(X^TX)^(-1)x0) と平均応答CIとの違いは reg-mean-response-ci が単回帰・重回帰の両表記で一体的に扱う。工学側は同公式への数値代入のみ。
+  - id: enginf-leverage-numeric
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-hat-matrix-properties
+    coverage_card: reg-hat-matrix-properties
+    note: ハット行列対角要素、sum h_ii=k、平均 k/n は reg-hat-matrix-properties が導出済み。工学側固有だった探索的目安 h_ii>2k/n と n=20,k=4,h=0.55 の判定も正本の注意へ吸収済み。
+  - id: enginf-studentized-residual
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-hat-matrix-properties
+    coverage_card: reg-hat-matrix-properties
+    note: 内部標準化残差 r_i=e_i/{s sqrt(1-h_ii)} は reg-hat-matrix-properties が残差分散 Var(e_i)=sigma^2(1-h_ii) から導出し、数値計算と外部スチューデント化残差との区別まで保持する。工学側は単純数値例のみ。
+  - id: enginf-cooks-distance
+    bucket: duplicates
+    reason: duplicate
+    canonical_card: reg-cooks-distance
+    coverage_card: reg-cooks-distance
+    note: Cookの距離 D_i=(r_i^2/k) h_ii/(1-h_ii) は reg-cooks-distance と完全に同一。工学側の r=2,k=4,h=0.20 -> D=0.25 と探索的目安 4/n も正本へ吸収済み。
