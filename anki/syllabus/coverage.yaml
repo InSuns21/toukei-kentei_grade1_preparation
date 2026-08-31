@@ -268,7 +268,6 @@ items:
       - dist-binomial-normal-probability
       - dist-binomial-normal-tail
       - dist-continuity-correction-interval
-      - dist-continuity-correction-tail
       - dist-binomial-poisson-conditions
       - dist-binomial-poisson-probability
       - dist-poisson-limit-derivation
@@ -321,7 +320,6 @@ items:
         status: card
         cards:
           - dist-continuity-correction-interval
-          - dist-continuity-correction-tail
           - dist-normal-approximation-continuity-full
   - id: math-discrete-distributions
     status: complete
