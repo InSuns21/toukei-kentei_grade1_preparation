@@ -159,40 +159,101 @@ $$\frac{\overline X_n-\mu}{\sigma/\sqrt n}=\frac{\sqrt n(\overline X_n-\mu)}{\si
 
 ---
 id: dist-clt-sample-mean
-title: 中心極限定理で標本平均の確率を近似する
+title: 中心極限定理で標本平均と合計の確率を近似する
 category: math-probability
 subcategory: math-limit-approximations
 topic: central-limit-sample-mean
 type: calc_step
 difficulty: 2
 priority: S
-hashtags: [中心極限定理, 標本平均, 確率近似]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 中心極限定理 }]
+hashtags:
+  - 中心極限定理
+  - 標本平均
+  - 合計
+  - 確率近似
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 中心極限定理
 ---
 ## 問題
-$E[X_i]=10$、$\operatorname{Var}(X_i)=4$ の独立同分布標本を $n=100$ 個取る。$P(9.6\le\overline X_{100}\le10.4)$ を中心極限定理で近似せよ。標準正規分布の累積分布関数を $\Phi$ とする。
+$X_1,\ldots,X_n$ は独立同分布で $E[X_i]=10$、$\operatorname{Var}(X_i)=4$ とし、$n=100$ とする。標準正規分布の累積分布関数を $\Phi$ とする。
+
+1. $P(9.6\le\overline X_{100}\le10.4)$ を中心極限定理で近似せよ。
+2. $S_{100}=\sum_{i=1}^{100}X_i$ とするとき、$P(S_{100}>1030)$ を中心極限定理で近似せよ。
+
+## 記号・用語
+$\overline X_n=n^{-1}\sum_{i=1}^nX_i$ は標本平均、$S_n=\sum_{i=1}^nX_i=n\overline X_n$ は合計である。$\Phi(z)=P(Z\le z)$（$Z\sim N(0,1)$）とする。
 
 ## 答え
-標本平均の標準誤差は $2/\sqrt{100}=0.2$ なので、近似値は $\Phi(2)-\Phi(-2)$ である。
+$\mu=10$、$\sigma=2$、$n=100$ である。
+
+1. 標本平均の標準誤差は
+$$
+\frac{\sigma}{\sqrt n}=\frac2{10}=0.2.
+$$
+両端を標準化すると
+$$
+\frac{9.6-10}{0.2}=-2,
+\qquad
+\frac{10.4-10}{0.2}=2.
+$$
+よって
+$$
+P(9.6\le\overline X_{100}\le10.4)
+\approx\Phi(2)-\Phi(-2)
+\approx\boxed{0.9545}.
+$$
+
+2. 合計の平均と標準偏差は
+$$
+E[S_{100}]=100\cdot10=1000,
+\qquad
+\operatorname{SD}(S_{100})=2\sqrt{100}=20.
+$$
+したがって
+$$
+z=\frac{1030-1000}{20}=1.5,
+$$
+$$
+P(S_{100}>1030)
+\approx1-\Phi(1.5)
+\approx\boxed{0.0668}.
+$$
 
 ## 使用公式・定理
-中心極限定理から
-$$\frac{\overline X_n-\mu}{\sigma/\sqrt n}\approx N(0,1).$$
-標準正規分布の累積分布関数を $\Phi(z)=P(Z\le z)$（$Z\sim N(0,1)$）とする。
+中心極限定理より
+$$
+\frac{\overline X_n-\mu}{\sigma/\sqrt n}\xrightarrow{d}N(0,1),
+$$
+また同値に
+$$
+\frac{S_n-n\mu}{\sigma\sqrt n}\xrightarrow{d}N(0,1).
+$$
+したがって大標本では、標本平均なら平均 $\mu$・標準偏差 $\sigma/\sqrt n$、合計なら平均 $n\mu$・標準偏差 $\sigma\sqrt n$ で標準化する。
 
 ## 計算例
-ここでは $\mu=10$、$\sigma=2$ である。上下端点を標準化すると
-$$\frac{9.6-10}{2/\sqrt{100}}=\frac{-0.4}{0.2}=-2,$$
-$$\frac{10.4-10}{2/\sqrt{100}}=\frac{0.4}{0.2}=2.$$
-したがって
-$$P(9.6\le\overline X_{100}\le10.4)\approx\Phi(2)-\Phi(-2)\approx0.9545.$$
+合計の問題を標本平均へ直しても同じ結果になる。
+$$
+S_{100}>1030
+\iff
+\overline X_{100}>10.3.
+$$
+標本平均の標準誤差は0.2なので
+$$
+\frac{10.3-10}{0.2}=1.5.
+$$
+これは合計を直接標準化した値と一致する。つまり「合計用の公式」を別暗記する必要はない。
 
-## 一手
-標本平均の標準誤差を先に計算し、区間の両端を同じ標準誤差で割る。
+## 一手／方針
+**平均か合計かを先に確認し、その量自身の平均と標準偏差で標準化する。** 合計は別の定理ではなく $S_n=n\overline X_n$ なので、中心極限定理の同じ内容を尺度だけ変えて使う。
 
 ## 注意
-元の分布が正規分布でない場合、この値は有限標本での厳密値ではなく、中心極限定理による近似値である。
+元分布が正規分布でない場合、有限標本での値は中心極限定理による近似である。また元分布が離散型でも支持や刻み幅が指定されていない問題では、機械的に連続性補正を入れない。二項分布など刻み幅が明確な場合の連続性補正は別途判断する。
 
 <!-- CARD -->
 
