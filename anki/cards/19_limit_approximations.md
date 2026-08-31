@@ -514,37 +514,133 @@ $$P(Y\ge219.5)=P\left(Z\ge\frac{219.5-200}{10}\right)=P(Z\ge1.95)=\overline\Phi(
 
 ---
 id: dist-continuity-correction-interval
-title: 区間確率に連続修正を施す
+title: 整数事象を連続修正して連続近似する
 category: math-probability
 subcategory: math-limit-approximations
-topic: continuity-correction-interval
+topic: continuity-correction-canonical
 type: calc_step
 difficulty: 2
 priority: A
-hashtags: [連続修正, 二項分布, 区間確率]
-frequency: { past_exam: 0, textbook: 0, independent_problems: 0, source_confirmations: 0 }
-sources: [{ type: official_syllabus, topic: 連続修正 }]
+hashtags:
+  - 連続修正
+  - 二項分布
+  - 区間確率
+  - 上側確率
+  - 下側確率
+frequency:
+  past_exam: 0
+  textbook: 0
+  independent_problems: 0
+  source_confirmations: 0
+sources:
+  - type: official_syllabus
+    topic: 連続修正
 ---
 ## 問題
-整数値確率変数 $X$ の $P(10\le X\le20)$ を、連続確率変数 $Y$ で近似する。連続修正後の区間を答えよ。
+整数値確率変数 $X$ を連続確率変数 $Y$ で近似する。$a,b,k\in\mathbb Z$、$a\le b$ とする。次の事象を連続修正後の事象へ直せ。
+
+1. $a\le X\le b$
+2. $X\ge k$、$X>k$、$X\le k$、$X<k$
+3. $X=k$
+4. $X\sim\operatorname{Binomial}(100,0.1)$ のとき、$P(X\le15)$ を連続修正付き正規近似で表し、標準化点を求めよ。
 
 ## 答え
-修正後は $P(9.5\le Y\le20.5)$ とする。
+整数点を隣接整数との中点まで広げるので
+$$
+\boxed{P(a\le X\le b)\approx P(a-0.5\le Y\le b+0.5)}.
+$$
+
+片側事象は
+$$
+X\ge k\ \rightsquigarrow\ Y\ge k-0.5,
+\qquad
+X>k\ \rightsquigarrow\ Y\ge k+0.5,
+$$
+$$
+X\le k\ \rightsquigarrow\ Y\le k+0.5,
+\qquad
+X<k\ \rightsquigarrow\ Y\le k-0.5.
+$$
+
+一点事象は区間の特殊例 $a=b=k$ だから
+$$
+\boxed{P(X=k)\approx P(k-0.5\le Y\le k+0.5)}.
+$$
+
+4では
+$$
+\mu=np=10,
+\qquad
+\sigma=\sqrt{np(1-p)}=3.
+$$
+$X\le15$ を $Y\le15.5$ に直すので
+$$
+z=\frac{15.5-10}{3}=\frac{11}{6}\approx1.833.
+$$
+よって
+$$
+P(X\le15)\approx\Phi(1.833)\approx0.9666.
+$$
 
 ## 使用公式・定理
-整数 $k$ に対応する連続区間を、隣り合う整数の中点で区切る。したがって
-$$P(a\le X\le b)\approx P(a-0.5\le Y\le b+0.5).$$
+連続修正の原理は、整数値 $j$ が担当する確率質量を、連続軸上の幅1のセル
+$$
+[j-0.5,j+0.5]
+$$
+に対応させることである。
+
+したがって整数区間 $a,a+1,\ldots,b$ のセルをつなげれば
+$$
+[a-0.5,b+0.5]
+$$
+となる。片側事象もこのセルの端を読めばよい。
+
+また整数値では
+$$
+X>k\iff X\ge k+1,
+\qquad
+X<k\iff X\le k-1,
+$$
+なので、厳密不等号を先に $\ge,\le$ へ直せば符号を暗記する必要がない。
+
+二項分布 $X\sim\operatorname{Binomial}(n,p)$ を正規近似するときは
+$$
+Y\sim N\bigl(np,np(1-p)\bigr)
+$$
+とし、事象の境界を連続修正してから標準化する。
 
 ## 計算例
-整数10の領域を $9.5$ から $10.5$、整数20の領域を $19.5$ から $20.5$ と対応させる。10から20までをつなぐと
-$$[9.5,10.5]\cup\cdots\cup[19.5,20.5]=[9.5,20.5].$$
-よって求める近似は $P(9.5\le Y\le20.5)$ である。
+例えば
+$$
+P(10\le X\le20)
+$$
+なら、整数10から20が担当するセルをつなげて
+$$
+P(10\le X\le20)
+\approx
+P(9.5\le Y\le20.5).
+$$
 
-## 一手
-両端の整数をそれぞれ左へ $0.5$、右へ $0.5$ 広げる。
+$P(X=20)$ は $20\le X\le20$ の特殊例なので
+$$
+P(X=20)\approx P(19.5\le Y\le20.5).
+$$
+
+また $P(X>20)$ なら、整数値では $X\ge21$ と同じだから
+$$
+P(X>20)\approx P(Y\ge20.5).
+$$
+このように「$>$ なら右へ0.5」のように個別暗記するより、整数点のセルを描く方が一貫している。
+
+## 一手／方針
+**整数点 $j$ を幅1のセル $[j-0.5,j+0.5]$ に置き換える。** $>,<$ があれば先に整数値性を使って $\ge,\le$ へ直し、必要なセル全体の外側の境界を読む。
 
 ## 注意
-連続分布では一点の確率が0なので、開区間・閉区間の違いは値を変えない。
+連続分布では一点の確率が0なので、修正後の $<,\le$ や $>,\ge$ の違いは確率値を変えない。
+
+$\pm0.5$ は整数格子の刻み幅が1だから現れる。刻み幅が $h$ の離散量なら基本的な境界補正は $h/2$ であり、任意の離散分布へ機械的に $0.5$ を足し引きしない。
+
+連続修正は事象の境界を直す操作であり、その後に正規近似の平均・分散を使って標準化する。補正前の整数境界をそのまま標準化しない。
 
 <!-- CARD -->
 
