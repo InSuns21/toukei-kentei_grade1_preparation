@@ -152,7 +152,10 @@ function validateCurriculum(data) {
         continue;
       }
 
-      if (!ids.has(manifest.id)) errors.push(`${relative(chapterDir)}: curriculum にない章ID ${manifest.id}`);
+      const isSupplementary = manifest.status === 'supplementary';
+      if (!ids.has(manifest.id) && !isSupplementary) {
+        errors.push(`${relative(chapterDir)}: curriculum にない章ID ${manifest.id}`);
+      }
       if (!fs.existsSync(path.join(chapterDir, 'glossary.yaml'))) errors.push(`${relative(chapterDir)}: glossary.yaml がありません`);
 
       const singlePage = fs.existsSync(path.join(chapterDir, 'index.md'));
