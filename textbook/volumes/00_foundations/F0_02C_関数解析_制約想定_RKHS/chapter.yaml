@@ -3,19 +3,20 @@ title: "関数解析補講ロードマップ：制約想定・RKHS・kernel SVM"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00D
-  - F0-02B
+  - F0-00
 official_scope: []
 learning_objectives:
+  - F0-00修了者が関数解析補講を通読するための順序を説明できる
+  - 集合・位相側と線形代数側の前提補講の役割を説明できる
   - 関数解析補講の各講義の役割と依存関係を説明できる
   - 目的に応じてBanach/Hilbert・KKT・RKHSの学習経路を選べる
   - 有限次元で暗黙に使っていた構造が無限次元で分離されることを説明できる
   - kernel SVMまでの理論の全体像を説明できる
 definitions: []
 theorems: []
-canonical_examples: [関数解析補講ロードマップ]
+canonical_examples: [F0-00からRKHSまでの完全通読ルート]
 problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
+estimated_hours: { reading: 0.75, exercises: 0, review: 0 }
