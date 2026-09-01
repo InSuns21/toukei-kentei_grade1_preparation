@@ -9,108 +9,90 @@ F0-00（統計検定1級のための数学速習）
   -> P4（変数変換・極限定理・経験分布・乱数生成） -> S1（標本分布・有限母集団）
   -> I1（点推定） -> I2（漸近推測・区間推定） -> I3（検定）
   -> I4（Bayes推定・欠測・不完全データ）
-  -> L1（回帰・線形モデル） -> L2（分散分析・一般化線形モデル（GLM））
+  -> L1（回帰・線形モデル） -> L2（分散分析・一般化線形モデル）
   -> E1（多変量） / E2（確率過程・時系列） / E3（実験計画） / E4（品質・信頼性）
 ```
 
-F0-01は2026-08-27に通常教材章として廃止した。試験対策の前提数学はF0-00へ集約し、F0-00修了後はP1-01へ直接進む。
+F0-01は通常教材章として廃止済み。試験対策の前提数学はF0-00へ集約し、F0-00修了後はP1-01へ直接進む。
+
+`status: supplementary` の補講は通常カリキュラムの進捗集計に含めない。各補講の機械可読な局所前提は各 `chapter.yaml` の `prerequisites` を正本とする。
+
+---
 
 ## 発展補講：F0-00から関数解析・RKHSまで
 
-`status: supplementary` の補講は通常カリキュラム43章の進捗集計には含めない。各補講の局所的な機械可読前提は、それぞれの `chapter.yaml` の `prerequisites` を正本とする。
-
-F0-00を理解できる読者が、外部の数学書を必須前提にせず関数解析系列を完全通読する場合の標準推奨順は次である。
-
 ```text
-F0-00  統計検定1級のための数学速習
+F0-00
   ↓
-F0-00A 集合・写像・上限下限
+F0-00A  集合・写像・上限下限
   ↓
-F0-00A2 選択公理・Zornの補題・極大原理
+F0-00A2 選択公理・Zorn・極大原理
   ↓
-F0-00B 距離空間・開集合・閉集合・収束
+F0-00B  距離・開閉集合・収束
   ↓
-F0-00C 連続写像・コンパクト性・最大最小
+F0-00C  連続・コンパクト・最大最小
   ↓
-F0-00D Cauchy列・完備性・無限次元
+F0-00D  Cauchy列・完備性・無限次元
   ↓
-F0-00D2 測度・可測関数・Lebesgue積分・Lp空間
+F0-00D2 測度・可測関数・Lebesgue積分・Lp
   ↓
-F0-00E ベクトル空間・基底・Gram--Schmidt・直交射影
+F0-00E  ベクトル空間・基底・Gram--Schmidt・射影
   ↓
 F0-00E2 Cauchy--Schwarz・Bessel・Parseval
   ↓
-F0-00F 線形写像・固有空間・スペクトル定理・SVD
+F0-00F  線形写像・スペクトル定理・SVD
   ↓
-F0-00G 凸集合・凸関数・凸最適化
+F0-00G  凸集合・凸関数・凸最適化
   ↓
-F0-02  制約付き最適化・双対・KKT
+F0-02 → F0-02A → F0-02B
   ↓
-F0-02A KKT導出：接錐・polar cone・Farkas
+F0-02C1 Banach / Hilbert
   ↓
-F0-02B 分離超平面・Farkas・SVM凸幾何
+F0-02C2 双対空間・Riesz
   ↓
-F0-02C1 ノルム空間・Banach・Hilbert
+F0-02C3 Frechet微分・作用素・随伴
   ↓
-F0-02C2 線形汎関数・双対空間・Riesz
+F0-02C4 凸解析・normal cone
   ↓
-F0-02C3 Fréchet微分・線形作用素・随伴
+F0-02C5 一般化KKT・制約想定
   ↓
-F0-02C4 凸解析・劣勾配・normal cone・双対錐
+F0-02C6 Hahn--Banach・分離
   ↓
-F0-02C5 一般化KKT・制約写像・制約想定
-  ↓
-F0-02C6 Hahn--Banach・分離定理
-  ↓
-F0-02C7 RKHS・再生核・representer theorem・kernel SVM
+F0-02C7 RKHS・representer theorem・kernel SVM
 ```
 
-この順序では、集合・位相・極限側の基礎をA〜D、測度・積分側の基礎をD2、線形代数側の理論をE〜F、凸性の最低限をGで補った後、有限次元最適化を完成させて無限次元へ進む。
+A2はC6のHahn--Banach標準証明で使うZornの補題を先に導入する。D2はC1で使う $L^2$・a.e.同値類・可測関数を未定義語にしないための橋である。C7はSVMの必要事項を再掲するためE1-04を完全通読の必須前提にはしない。
 
-F0-00A2は、一般のHamel基底やF0-02C6のHahn--Banach標準証明で使う選択公理・Zornの補題を先に導入する。C6では延長候補を半順序化し、chainの合併で上界を作り、Zornで極大延長を取り、その定義域が全空間であることまで証明する。
+読者向けの全体分岐は `F0_00R_基礎論ロードマップ/index.md`、関数解析系列の入口は `F0_02C_関数解析_制約想定_RKHS/index.md` とする。
 
-F0-00D2は、C1で使う $L^2$・a.e.同値類・可測関数を未定義語にしないための橋である。確率空間 $(\Omega,\mathcal F,P)$ と期待値 $E[X]=\int X\,dP$ も同じ測度積分の言葉で接続する。
+---
 
-F0-02C7はSVMの主問題とLagrangianを必要な範囲で再掲するため、E1-04を完全通読の必須前提にはしない。E1-04は統計検定1級向けのSVM本編へ戻る参照先とする。
+## 完全基礎論（DREAM THEATER）ルート
 
-読者向けの補講分岐は `F0_00R_基礎論ロードマップ/index.md`、関数解析系列の入口は `F0_02C_関数解析_制約想定_RKHS/index.md` とする。
-
-## 発展補講：完全基礎論（DREAM THEATER）ルート
-
-標準通読ルートではD2でLebesgue測度の存在を一度受け入れ、Lebesgue積分・Lp空間へ進む。
-
-「そのLebesgue測度自体をどこから作ったか」まで追う場合は、D2の直後に次を挿入する。
+Lebesgue測度そのものの建設まで追う場合だけ、D2の直後に挿入する。
 
 ```text
-F0-00A2 選択公理・Zornの補題・極大原理
+F0-00A2
    │
-   └──────────────────────────────┐
-                                  ↓
-F0-00D2 測度・Lebesgue積分・Lp空間
+F0-00D2
   ↓
-F0-00D3 外測度・Carathéodory可測性
+F0-00D3 外測度・Caratheodory可測性
   ↓
-F0-00D4 Lebesgue測度・Borel集合・Carathéodory拡張定理
+F0-00D4 Lebesgue測度・Borel集合・Caratheodory拡張定理
   ↓
 F0-00D5 Vitali集合・非可測集合・選択公理
   ↓
-F0-00E  線形代数理論へ復帰
+F0-00Eへ復帰
 ```
 
-D3では区間の可算被覆からLebesgue外測度を定義し、Carathéodory可測集合全体がsigma代数をなし、外測度の制限が完全な測度になることを追う。
+D3〜D5は関数解析・RKHSの必須前提にはしない。標準通読ルートへ不要な深掘りを逆流させない。
 
-D4では区間の外測度が通常の長さに一致すること、開集合・Borel集合が可測であることを示し、一般のalgebra上のpremeasureを生成sigma代数へ拡張するCarathéodory拡張定理まで扱う。
+---
 
-D5では $x-y\in\mathbb Q$ による同値類から選択公理で代表元を選びVitali集合を構成する。平行移動不変性と可算加法性からVitali集合がLebesgue非可測であることを示し、「なぜ全ての部分集合を事象にできないのか」を回収する。
-
-D3〜D5は関数解析・RKHSの必須前提にはしない。標準ルートの通読可能性を守りつつ、完全基礎論ルートを選んだ読者には `D2 -> D3 -> D4 -> D5` の順序で未定義の主要概念を残さない。
-
-## 発展補講：確率論「それどこから来た？」系列
-
-F0-00D2の測度・Lebesgue積分を出発点として、通常教材P1〜P4およびI1〜I2で使用する確率論・漸近統計の理論的な由来を追う補講系列を次の順で読む。
+## 確率論「それどこから来た？」系列
 
 ```text
-F0-00D2  測度・可測関数・Lebesgue積分・Lp空間
+F0-00D2
   ↓
 F0-00P1  確率空間・確率変数・分布
   ↓
@@ -127,29 +109,15 @@ F0-00P6  特性関数・Levy連続性定理・中心極限定理
 F0-00P7  統計モデル・尤度・正則性条件
 ```
 
-この系列では、通常教材で公式として先に使う内容を次の理論へ戻す。
+この系列では、確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、期待値をLebesgue積分、条件付き期待値を部分sigma代数へのRadon--Nikodym構成として戻す。有限分散版強大数則は最大不等式から証明し、CLTは特性関数で導く。
 
-- 確率変数：可測写像
-- 分布：押し出し測度
-- pmf / pdf：支配測度に対するRadon--Nikodym密度
-- 期待値：確率測度に関するLebesgue積分
-- 独立：同時分布の積測度への因数分解
-- 条件付き期待値：部分sigma代数に関するRadon--Nikodym微分、L2では直交射影
-- 概収束：誤差事象のlimsup
-- 強大数則：最大不等式・Borel--Cantelli
-- 中心極限定理：特性関数・Levy連続性定理
-- 尤度：統計モデルの支配測度に対する密度
-- 正則性条件：微分積分交換・LLN・CLT・Hessian安定性を成立させる条件群
+D3〜D5はこの系列にも必須ではない。
 
-完全証明を必須にしない高度定理として、Radon--Nikodym定理、Kolmogorov拡張定理、Levy連続性定理、一般の有限平均版強大数則、quadratic mean differentiability / LANを位置づける。一方、有限分散版強大数則はKolmogorov最大不等式から証明まで通す。
-
-完全基礎論ルートを先に読んだ場合、P1へ進む時点で「Lebesgue測度の建設」「sigma代数が必要な理由」「測度拡張の仕組み」まで既知になる。ただしP1〜P7の必須前提はD2までとし、D3〜D5は任意の深掘りに留める。
-
-読者向け入口は `F0_00P_確率論_測度論から統計理論へ/index.md` とする。
+---
 
 ## Encore II：Fourier Analysis & Differential Equations
 
-Fourier解析・微分方程式は通常カリキュラム、RKHS系列、確率論系列の必須前提にはしない。既存の線形代数・Lebesgue積分・Hilbert空間を再利用する任意の発展ルートとして次を読む。
+Fourier解析・微分方程式は通常カリキュラム、RKHS系列、確率論系列の必須前提にはしない。
 
 ```text
 F0-00F / F0-00D2 / F0-00E2 / F0-02C1
@@ -169,13 +137,51 @@ F0-00PDE2 波動方程式・Laplace方程式・変数分離
 F0-00PDE3 Sturm--Liouville・自己共役性・スペクトル展開
 ```
 
-H1ではPDEをFourier変換した後に残る時間ODEを先に学び、行列指数と固有値による時間発展を整理する。FA1〜FA3ではFourier級数をHilbert空間の直交展開として導入し、Fourier変換・畳み込み・微分作用素・Plancherelへ進む。特性関数は確率測度のFourier変換としてP6へ接続する。
-
-PDE1では熱方程式をFourier変換してGaussian heat kernelを導き、平滑化・質量保存・Brown運動との対応を扱う。PDE2では波動方程式とLaplace方程式をFourier法・変数分離で扱う。PDE3ではSturm--Liouville問題によりFourier級数を自己共役微分作用素の固有関数展開へ一般化する。
-
-Encore IIは古典解・Fourier法・Sturm--Liouvilleまでで閉じる。distribution、弱微分、Sobolev空間、弱解、Lax--Milgramは必須にせず、将来のEncore III候補とする。
+H1ではPDEをFourier変換した後に残る時間ODEを準備する。FA1〜FA3ではFourier級数をHilbert空間の直交展開として導入し、Fourier変換・畳み込み・微分作用素・Plancherelへ進む。PDE1〜PDE3では古典解・Fourier法・固有関数展開まで扱う。
 
 読者向け入口は `F0_00R2_EncoreII_Fourier解析_微分方程式/index.md` とする。
+
+---
+
+## Encore III：Distributions, Sobolev Spaces & Weak Solutions
+
+Encore IIの古典PDEから、低正則性の解と変分法へ進む任意の発展系列。通常カリキュラムへ必須依存を追加しない。
+
+```text
+F0-00D2 / F0-02C1 / F0-02C2 / F0-00PDE3
+  ↓
+F0-00DS1  Schwartz超関数・テスト関数・Dirac delta
+  ↓
+F0-00DS2  超関数微分・弱微分
+  ↓
+F0-00SOB1 Sobolev空間 W^{k,p}・H^k
+  ↓
+F0-00SOB2 H_0^1・Poincare不等式・trace
+  ↓
+F0-00WK1  弱形式・変分形式・Poisson方程式
+  ↓
+F0-00WK2  Lax--Milgram・弱解の存在一意性
+  ↓
+F0-00WK3  楕円型PDE・Galerkin法・有限要素法への橋
+```
+
+DS1では確率分布との混同を避けてSchwartz超関数と呼び、テスト関数上の連続線形汎関数として定義する。DS2では部分積分を双対化して超関数微分と弱微分を導入する。
+
+SOB1では弱微分のLp可積分性からSobolev空間を作り、$H^k=W^{k,2}$ をHilbert空間として扱う。SOB2では零Dirichlet境界条件を $H_0^1$ とtraceで表し、Poincare不等式からcoercivityの準備をする。
+
+WK1ではPoisson方程式を
+
+$$
+a(u,v)=F(v)
+$$
+
+というHilbert空間上の弱形式へ落とす。WK2ではLax--MilgramをRiesz表現から作用素へ移し、単射・閉range・稠密range・全射まで証明する。WK3ではGalerkin直交性とCeaの補題から有限要素法へ接続する。
+
+Encore IIIは線形二階楕円型PDEとGalerkin/FEMへの橋までで閉じる。一般Sobolev embedding・Rellichの完全証明、楕円型正則性、非線形PDE、Navier--Stokes等は必須にしない。
+
+読者向け入口は `F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md` とする。
+
+---
 
 ## 構造変更時の確認
 
@@ -183,4 +189,4 @@ Encore IIは古典解・Fourier法・Sturm--Liouvilleまでで閉じる。distri
 
 補講を追加・分割するときは、各 `chapter.yaml` の `prerequisites`、読者向けロードマップ、相互リンクを同じ変更単位で更新する。
 
-補講の深掘りを追加するときは、標準通読ルートへ不要な必須依存を追加しない。必要十分な標準ルートと、任意の深掘りルートを明示的に分離する。
+補講の深掘りを追加するときは、標準通読ルートへ不要な必須依存を追加しない。必要十分な標準ルートと任意の深掘りルートを明示的に分離する。
