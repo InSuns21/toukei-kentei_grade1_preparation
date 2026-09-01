@@ -1,0 +1,11 @@
+chapter: "F0-00R"
+terms:
+  - term: 標準通読ルート
+    english: standard reading path
+    meaning: 関数解析・RKHSまで進むために必要な前提だけを順に積み上げる補講ルート。
+  - term: 完全基礎論ルート
+    english: foundational deep-dive path
+    meaning: 測度や存在定理の由来まで掘り下げ、外測度・Carathéodory構成・選択公理・Vitali集合まで通読する発展ルート。
+  - term: DREAM THEATERルート
+    english: DREAM THEATER route
+    meaning: 本教材内で完全基礎論ルートを指す非公式な愛称。物量は増えるが未定義語を残さず順に読むことを目的とする。
