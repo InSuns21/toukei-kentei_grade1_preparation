@@ -23,6 +23,7 @@
 - [L2-01 一般化線形モデル](../../04_linear_models/L2_01_一般化線形モデル/index.md): Bernoulli尤度、リンク関数、ロジスティック回帰。
 - [L1-01 単回帰と最小二乗法](../../04_linear_models/L1_01_単回帰と最小二乗法/index.md): 最小二乗法、残差平方和。
 - [E1-03 因子分析・クラスター分析](../E1_03_因子分析_クラスター分析/index.md): 教師なし学習との対比。
+- [制約付き最適化・双対問題・KKT条件 補講](../../00_foundations/F0_00_統計検定1級のための数学速習/constrained_optimization_duality_kkt.md): 不等式制約、双対関数、弱双対性、KKT条件。
 
 ## この章で解けるようになる問題
 
@@ -33,7 +34,9 @@
 - 「説明変数に非線形」と「未知母数に非線形」を区別し、非線形最小二乗法を立てる。
 - Jacobianによる一次近似からGauss--Newton法を導く。
 - 「確率を推定する2値回帰」と「境界を直接最適化するSVM」を区別する。
-- SVMのマージン、主問題、双対問題、KKT条件、ソフトマージン、カーネル法を説明する。
+- ハードマージンSVMの主問題から、双対関数を経て双対問題を途中式付きで導く。
+- KKT条件の4群をSVMに適用し、サポートベクトルの意味を説明する。
+- ソフトマージン・hinge損失・カーネル法の位置付けを説明する。
 
 ## 公式出題範囲との対応
 
@@ -48,6 +51,7 @@
 1. L2-01: Bernoulli分布、2値回帰、尤度、ロジットリンク。
 2. L1-01: 最小二乗法、残差平方和。
 3. F0-00: 内積、偏微分、Lagrange未定乗数法、Taylorの一次近似。
+4. SVMの双対・KKTで詰まった場合は [制約付き最適化・双対問題・KKT条件 補講](../../00_foundations/F0_00_統計検定1級のための数学速習/constrained_optimization_duality_kkt.md) を先に読む。
 
 ---
 
@@ -680,43 +684,177 @@ $$
 
 を解きます。
 
-### 7.2 双対問題
+### 7.2 双対問題：何を最小化して、なぜ最大化問題になるのか
 
-Lagrangianを
+ここは式変形だけ追うと飛躍しやすいところです。まず制約を
 
 $$
-L
+1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\le0
+$$
+
+と書きます。各制約に $\alpha_i\ge0$ を付けて
+
+$$
+L(\boldsymbol w,b,\boldsymbol\alpha)
 =
 \frac12\|\boldsymbol w\|^2
 +
 \sum_i\alpha_i
-\{1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\},
-\qquad
-\alpha_i\ge0
+\{1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\}
 $$
 
 とします。
 
-$\boldsymbol w,b$ に関する停留条件から
+双対問題では、$\boldsymbol\alpha$ を固定したときに $\boldsymbol w,b$ を最も都合よく選んだ値
 
 $$
+\boxed{
+q(\boldsymbol\alpha)
+=
+\inf_{\boldsymbol w,b}
+L(\boldsymbol w,b,\boldsymbol\alpha)
+}
+$$
+
+をまず求めます。
+
+Lagrangianを展開すると
+
+$$
+\begin{aligned}
+L
+&=
+\frac12\|\boldsymbol w\|^2
++
+\sum_i\alpha_i
+-
+\boldsymbol w^{\mathsf T}
+\sum_i\alpha_i y_i\boldsymbol x_i
+-
+b\sum_i\alpha_i y_i.
+\end{aligned}
+$$
+
+#### $b$ について最小化する
+
+最後の項は
+
+$$
+-b\sum_i\alpha_i y_i
+$$
+
+です。もし
+
+$$
+\sum_i\alpha_i y_i\ne0
+$$
+
+なら、$b$ を正または負の無限大へ動かして $L\to-\infty$ にできます。したがって双対関数が有限になるには
+
+$$
+\boxed{
+\sum_i\alpha_i y_i=0
+}
+$$
+
+が必要です。
+
+#### $\boldsymbol w$ について最小化する
+
+$$
+\boldsymbol s
+=
+\sum_i\alpha_i y_i\boldsymbol x_i
+$$
+
+と置くと、$\boldsymbol w$ に関する部分は
+
+$$
+\frac12\|\boldsymbol w\|^2
+-
+\boldsymbol w^{\mathsf T}\boldsymbol s.
+$$
+
+平方完成して
+
+$$
+\frac12\|\boldsymbol w-\boldsymbol s\|^2
+-
+\frac12\|\boldsymbol s\|^2
+$$
+
+となるので、最小値は
+
+$$
+\boxed{
 \boldsymbol w
 =
-\sum_i\alpha_i y_i\boldsymbol x_i,
+\boldsymbol s
+=
+\sum_i\alpha_i y_i\boldsymbol x_i
+}
 $$
 
+で達成されます。
+
+したがって
+
 $$
-\sum_i\alpha_i y_i=0.
+q(\boldsymbol\alpha)
+=
+\sum_i\alpha_i
+-
+\frac12
+\left\|
+\sum_i\alpha_i y_i\boldsymbol x_i
+\right\|^2.
 $$
 
-これを代入すると
+ノルム平方を内積で展開すると
+
+$$
+\begin{aligned}
+\left\|
+\sum_i\alpha_i y_i\boldsymbol x_i
+\right\|^2
+&=
+\left(
+\sum_i\alpha_i y_i\boldsymbol x_i
+\right)^{\mathsf T}
+\left(
+\sum_j\alpha_j y_j\boldsymbol x_j
+\right)\\
+&=
+\sum_i\sum_j
+\alpha_i\alpha_j y_i y_j
+\boldsymbol x_i^{\mathsf T}\boldsymbol x_j.
+\end{aligned}
+$$
+
+よって
+
+$$
+\boxed{
+q(\boldsymbol\alpha)
+=
+\sum_i\alpha_i
+-
+\frac12
+\sum_i\sum_j
+\alpha_i\alpha_j y_i y_j
+\boldsymbol x_i^{\mathsf T}\boldsymbol x_j
+}.
+$$
+
+$q(\boldsymbol\alpha)$ は主問題の最適値に対する下界です。そこで下界をできるだけ大きくするため、双対問題は
 
 $$
 \boxed{
 \max_{\boldsymbol\alpha}
 \left[
 \sum_i\alpha_i
--\frac12
+-
+\frac12
 \sum_i\sum_j
 \alpha_i\alpha_j y_i y_j
 \boldsymbol x_i^{\mathsf T}\boldsymbol x_j
@@ -727,30 +865,111 @@ $$
 ただし
 
 $$
+\boxed{
 \alpha_i\ge0,
 \qquad
-\sum_i\alpha_i y_i=0.
+\sum_i\alpha_i y_i=0
+}
 $$
 
-### 7.3 KKT条件とサポートベクトル
+となります。
 
-相補性条件は
+この導出を1行ずつ追いたい場合は [SVM双対問題・KKT条件の詳細導出](svm_dual_kkt_derivation.md) を参照してください。双対関数がなぜ主問題の下界になるかを含む一般論は [制約付き最適化・双対問題・KKT条件 補講](../../00_foundations/F0_00_統計検定1級のための数学速習/constrained_optimization_duality_kkt.md) で扱います。
+
+### 7.3 KKT条件：相補性だけではない
+
+KKT条件は相補性条件1本の名前ではありません。ハードマージンSVMでは、最適解で次の4群を同時に満たします。
+
+#### 1. 主実行可能性
+
+元のSVM制約
+
+$$
+\boxed{
+y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\ge1
+}
+$$
+
+を満たします。
+
+#### 2. 双対実行可能性
+
+各不等式制約の乗数について
+
+$$
+\boxed{\alpha_i\ge0}
+$$
+
+です。
+
+#### 3. 停留条件
+
+Lagrangianを $\boldsymbol w,b$ について最小化する条件から
+
+$$
+\boxed{
+\boldsymbol w
+=
+\sum_i\alpha_i y_i\boldsymbol x_i
+}
+$$
+
+$$
+\boxed{
+\sum_i\alpha_i y_i=0
+}
+$$
+
+を得ます。
+
+#### 4. 相補性条件
+
+標準形
+
+$$
+1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\le0
+$$
+
+に対して
+
+$$
+\alpha_i
+\{1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\}
+=0.
+$$
+
+符号を変えて
 
 $$
 \boxed{
 \alpha_i
 \{y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)-1\}
 =0
-}.
+}
 $$
 
-したがって $\alpha_i>0$ なら
+と書いても同じです。
+
+この積が0であることから、
+
+- $y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)>1$ でマージンより外側に余裕がある点では $\alpha_i=0$
+- $\alpha_i>0$ となる点では $y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)=1$
+
+となります。
+
+後者は支持超平面上の点です。したがって
 
 $$
-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)=1
+\boldsymbol w
+=
+\sum_i\alpha_i y_i\boldsymbol x_i
 $$
 
-となり、その点が境界を決めます。これが **サポートベクトル** です。
+に実際に寄与するのは、主としてこの **サポートベクトル** です。
+
+つまり「サポートベクトルだけが境界を支える」という性質は、KKT相補性から出てきます。
+
+一般のKKT条件、activeな制約、弱双対性・強双対性まで含めた説明は [制約付き最適化・双対問題・KKT条件 補講](../../00_foundations/F0_00_統計検定1級のための数学速習/constrained_optimization_duality_kkt.md) を参照してください。
 
 ### 7.4 ソフトマージンとhinge損失
 
@@ -1231,9 +1450,9 @@ Taylor一次近似から残差を $\boldsymbol r_t-J_t\boldsymbol\delta$ と近�
 ### E1-04-B04 ハードマージンSVMの双対
 
 - Level: B
-- 目安時間: 18分
+- 目安時間: 20分
 - 主題: SVM双対
-- 使用技術: Lagrange未定乗数法
+- 使用技術: Lagrangian、双対関数、平方完成
 
 主問題
 
@@ -1256,7 +1475,13 @@ $$
 
 ##### 詳細解答
 
-Lagrangianは
+制約を
+
+$$
+1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\le0
+$$
+
+と書く。Lagrangianは
 
 $$
 L
@@ -1269,25 +1494,89 @@ L
 \alpha_i\ge0.
 $$
 
-停留条件より
+双対関数は
+
+$$
+q(\boldsymbol\alpha)
+=
+\inf_{\boldsymbol w,b}L.
+$$
+
+展開すると
+
+$$
+L
+=
+\frac12\|\boldsymbol w\|^2
++
+\sum_i\alpha_i
+-
+\boldsymbol w^{\mathsf T}\sum_i\alpha_i y_i\boldsymbol x_i
+-
+b\sum_i\alpha_i y_i.
+$$
+
+$b$ について下に有界であるためには
+
+$$
+\sum_i\alpha_i y_i=0
+$$
+
+が必要である。
+
+また
+
+$$
+\boldsymbol s=\sum_i\alpha_i y_i\boldsymbol x_i
+$$
+
+と置けば
+
+$$
+\frac12\|\boldsymbol w\|^2-\boldsymbol w^{\mathsf T}\boldsymbol s
+=
+\frac12\|\boldsymbol w-\boldsymbol s\|^2
+-
+\frac12\|\boldsymbol s\|^2.
+$$
+
+よって
 
 $$
 \boldsymbol w
 =
-\sum_i\alpha_i y_i\boldsymbol x_i,
-\qquad
-\sum_i\alpha_i y_i=0.
+\sum_i\alpha_i y_i\boldsymbol x_i
 $$
 
-これを代入して
+で最小となり、
+
+$$
+q(\boldsymbol\alpha)
+=
+\sum_i\alpha_i
+-
+\frac12
+\left\|\sum_i\alpha_i y_i\boldsymbol x_i\right\|^2.
+$$
+
+さらに
+
+$$
+\left\|\sum_i\alpha_i y_i\boldsymbol x_i\right\|^2
+=
+\sum_{i,j}
+\alpha_i\alpha_jy_iy_j
+\boldsymbol x_i^{\mathsf T}\boldsymbol x_j.
+$$
+
+したがって双対問題は
 
 $$
 \boxed{
 \max_{\boldsymbol\alpha}
 \left(
 \sum_i\alpha_i
--\frac12
-\sum_{i,j}
+-\frac12\sum_{i,j}
 \alpha_i\alpha_jy_iy_j
 \boldsymbol x_i^{\mathsf T}\boldsymbol x_j
 \right)
@@ -1297,21 +1586,24 @@ $$
 ただし
 
 $$
+\boxed{
 \alpha_i\ge0,
 \qquad
-\sum_i\alpha_i y_i=0.
+\sum_i\alpha_i y_i=0
+}.
 $$
 
 ##### 本番答案
 
-上式。
+Lagrangianを置き、$b$ から $\sum_i\alpha_i y_i=0$、$\boldsymbol w$ の平方完成から $\boldsymbol w=\sum_i\alpha_i y_i\boldsymbol x_i$ を得る。これを用いて上の双対問題を得る。
 
 ##### 採点基準
 
-- Lagrangian: 5点
-- $\boldsymbol w$ の停留条件: 5点
-- $b$ の停留条件: 4点
-- 双対問題: 6点
+- 制約の標準形とLagrangian: 4点
+- $b$ に関する条件: 4点
+- $\boldsymbol w$ の最小化・平方完成: 5点
+- 双対関数: 3点
+- 二重和への展開と最終双対問題: 4点
 
 <!-- solution-end -->
 
@@ -1846,5 +2138,7 @@ $$
 - 曲線であっても母数に線形なら線形回帰であることを判定できる。
 - 非線形回帰では、現象を表す母数を推定するという目的を説明できる。
 - Gauss--Newton法を「局所的に線形最小二乗へ直して反復する方法」と説明し、更新式を導ける。
-- SVMのマージン幅 $2/\|\boldsymbol w\|$ を距離から導き、主問題・双対問題・KKT条件へつなげられる。
+- SVMのマージン幅 $2/\|\boldsymbol w\|$ を距離から導ける。
+- SVMの双対関数を $q(\boldsymbol\alpha)=\inf_{\boldsymbol w,b}L$ から構成し、$b$ の条件・$\boldsymbol w$ の平方完成・二重和展開を経て双対問題を導ける。
+- KKT条件を主実行可能性・双対実行可能性・停留条件・相補性の4群で書き、サポートベクトルとの関係を説明できる。
 - ロジット / プロビット、非線形回帰、SVMについて「何を直接推定しているか」を比較できる。
