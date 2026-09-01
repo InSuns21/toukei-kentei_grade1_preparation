@@ -1,0 +1,13 @@
+terms:
+  - term: Lagrange補間
+    aliases: [Lagrange interpolation]
+    definition: 与えられた節点値を一致させる補間多項式の表現。
+  - term: quadrature
+    aliases: [数値積分]
+    definition: 積分を有限個の関数値の重み付き和で近似する方法。
+  - term: Runge現象
+    aliases: [Runge phenomenon]
+    definition: 等間隔節点の高次多項式補間が端点付近で大きく振動し得る現象。
+  - term: Gaussian quadrature
+    aliases: [Gauss求積]
+    definition: 節点と重みを選び少数点で高次数多項式を厳密積分する求積法。
