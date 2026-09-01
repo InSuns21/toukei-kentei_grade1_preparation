@@ -1,0 +1,20 @@
+chapter: "F0-00FA2"
+terms:
+  - term: Fourier変換
+    english: Fourier transform
+    meaning: 関数を連続な周波数成分へ分解する積分変換。
+  - term: 畳み込み
+    english: convolution
+    meaning: (f*g)(x)=int f(x-y)g(y)dy で定義される演算。Fourier変換で積へ変わる。
+  - term: Fourier反転
+    english: Fourier inversion
+    meaning: 周波数側のFourier変換から元の関数を復元する公式。
+  - term: Riemann--Lebesgueの補題
+    english: Riemann-Lebesgue lemma
+    meaning: L1関数のFourier変換が無限遠で0へ消えることを述べる定理。
+  - term: 変調
+    english: modulation
+    meaning: 元の関数へ複素指数関数を掛けることで周波数を平行移動する操作。
+  - term: Gaussian
+    english: Gaussian
+    meaning: exp(-ax^2) 型の関数。Fourier変換後もGaussian型を保つ。
