@@ -25,7 +25,7 @@ Encore III                         P5/P6 + Encore IV SP4
 WK3 Galerkin/FEM bridge             │
    ↓                                ↓
 F0-00FEM1                        F0-00MC1
-mesh・basis・assembly              Monte Carlo・LLN/CLT
+mesh・basis・assembly              Monte Carlo・大数の法則/中心極限定理
    │                                ↓
    │                             F0-00MC2
    │                             variance reduction
@@ -170,7 +170,7 @@ $$
 
 で推定します。
 
-P5のLLNがconsistency、P6のCLTが
+P5の大数の法則がconsistency、P6の中心極限定理が
 
 $$
 O(N^{-1/2})
@@ -356,7 +356,7 @@ $$
                                   ↓
                             random PDE
                                   ↓
-確率論 ─→ LLN/CLT ─→ Monte Carlo ─┤
+確率論 ─→ 大数の法則/中心極限定理 ─→ Monte Carlo ─┤
                                   ↓
 Brown運動 ─→ SDE ─→ EM/Milstein ──┤
                                   ↓
