@@ -1,0 +1,24 @@
+id: "F0-00FEM1"
+title: "Encore V：メッシュ・基底関数・assembly・Poisson FEM"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00WK3
+  - F0-00NA2
+  - F0-00NA3
+learning_objectives:
+  - 弱形式から有限要素線形系を構成できる
+  - 局所要素行列とglobal assemblyを説明できる
+  - 疎性と局所基底の関係を説明できる
+  - Cea評価からh収束を説明できる
+definitions:
+  - { id: F000FEM1-DEF-01, name: finite element mesh }
+  - { id: F000FEM1-DEF-02, name: nodal basis }
+  - { id: F000FEM1-DEF-03, name: stiffness matrix }
+  - { id: F000FEM1-DEF-04, name: assembly }
+theorems:
+  - { id: F000FEM1-THM-01, name: 一次要素の典型的H1誤差評価 }
+canonical_examples: [1D Poisson FEM, 三角形一次要素, reference element]
+problem_patterns: [FEM-ASSEMBLY-1, FEM-ERROR-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 2, review: 0.5 }
