@@ -351,13 +351,9 @@ $$
 一方
 
 $$
-\begin{aligned}
 a^{\mathsf T}z
-&=a^{\mathsf T}p
-+a^{\mathsf T}(z-p)\\
-&=a^{\mathsf T}p+\|z-p\|^2\\
-&>a^{\mathsf T}p.
-\end{aligned}
+=a^{\mathsf T}p+\|z-p\|^2
+>a^{\mathsf T}p.
 $$
 
 したがって
@@ -443,7 +439,6 @@ $$
 
 $$
 d^{\mathsf T}v
-=d^{\mathsf T}(p+d)
 =\|d\|^2>0.
 $$
 
@@ -534,7 +529,7 @@ $$
 列ベクトルを並べた行列を
 
 $$
-M=egin{pmatrix}a_{j_1}&\cdots&a_{j_s}\end{pmatrix}
+M=(a_{j_1}\ \cdots\ a_{j_s})
 $$
 
 とすると
@@ -753,22 +748,10 @@ $$
 Bd=0.
 $$
 
-したがって
+したがって、次の二つのどちらか一方が成立します。
 
-$$
-\boxed{
-\begin{array}{l}
-v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu,
-\quad\lambda\ge0
-\\[1mm]
-\text{または}
-\\[1mm]
-Ad\le0,\quad Bd=0,\quad v^{\mathsf T}d>0
-\end{array}
-}
-$$
-
-のどちらか一方が成立します。
+1. $v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu$ を満たす $\lambda\ge0,\nu$ が存在する。
+2. $Ad\le0$, $Bd=0$, $v^{\mathsf T}d>0$ を満たす $d$ が存在する。
 
 これがF0-02Aで使ったFarkas型alternativeです。
 
@@ -793,12 +776,10 @@ $$
 なら、任意の $d\in L$ に対し
 
 $$
-\begin{aligned}
 v^{\mathsf T}d
-&=\lambda^{\mathsf T}Ad
-+\nu^{\mathsf T}Bd\\
-&\le0.
-\end{aligned}
+=\lambda^{\mathsf T}Ad
++\nu^{\mathsf T}Bd
+\le0.
 $$
 
 よって $v\in L^\circ$ です。
@@ -1143,11 +1124,9 @@ $$
 さらに
 
 $$
-\begin{aligned}
 w
-&=\sum_i\alpha_i y_i x_i\\
-&=\rho(p-q).
-\end{aligned}
+=\sum_i\alpha_i y_i x_i
+=\rho(p-q).
 $$
 
 つまりSVMの法線は、二つの凸包上の点を結ぶ方向です。
