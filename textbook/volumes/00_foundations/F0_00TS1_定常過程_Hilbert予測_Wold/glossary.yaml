@@ -1,0 +1,17 @@
+chapter: "F0-00TS1"
+terms:
+  - term: 二次定常過程
+    english: weakly stationary process
+    meaning: 平均が時刻によらず、自己共分散が時刻差だけに依存する二乗可積分確率過程。
+  - term: 線形予測空間
+    english: linear prediction space
+    meaning: 過去の確率変数の有限線形結合をL2で閉包して得るHilbert部分空間。
+  - term: innovation
+    english: innovation
+    meaning: 現在値から過去による最良線形予測を引いた予測誤差。過去の線形予測空間に直交する。
+  - term: Wold decomposition
+    english: Wold decomposition
+    meaning: 二次定常過程をpurely nondeterministicなinnovationの移動平均部分とdeterministic部分へ直交分解する定理。
+  - term: purely nondeterministic process
+    english: purely nondeterministic process
+    meaning: 無限過去から完全には予測できる非自明成分を持たない定常過程。
