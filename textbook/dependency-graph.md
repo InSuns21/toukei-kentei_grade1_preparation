@@ -147,6 +147,36 @@ F0-00P7  統計モデル・尤度・正則性条件
 
 読者向け入口は `F0_00P_確率論_測度論から統計理論へ/index.md` とする。
 
+## Encore II：Fourier Analysis & Differential Equations
+
+Fourier解析・微分方程式は通常カリキュラム、RKHS系列、確率論系列の必須前提にはしない。既存の線形代数・Lebesgue積分・Hilbert空間を再利用する任意の発展ルートとして次を読む。
+
+```text
+F0-00F / F0-00D2 / F0-00E2 / F0-02C1
+  ↓
+F0-00H1   常微分方程式・線形系・行列指数
+  ↓
+F0-00FA1  Fourier級数・直交展開
+  ↓
+F0-00FA2  Fourier変換・畳み込み・反転
+  ↓
+F0-00FA3  Plancherel・L2 Fourier変換・特性関数
+  ↓
+F0-00PDE1 熱方程式・Gaussian heat kernel
+  ↓
+F0-00PDE2 波動方程式・Laplace方程式・変数分離
+  ↓
+F0-00PDE3 Sturm--Liouville・自己共役性・スペクトル展開
+```
+
+H1ではPDEをFourier変換した後に残る時間ODEを先に学び、行列指数と固有値による時間発展を整理する。FA1〜FA3ではFourier級数をHilbert空間の直交展開として導入し、Fourier変換・畳み込み・微分作用素・Plancherelへ進む。特性関数は確率測度のFourier変換としてP6へ接続する。
+
+PDE1では熱方程式をFourier変換してGaussian heat kernelを導き、平滑化・質量保存・Brown運動との対応を扱う。PDE2では波動方程式とLaplace方程式をFourier法・変数分離で扱う。PDE3ではSturm--Liouville問題によりFourier級数を自己共役微分作用素の固有関数展開へ一般化する。
+
+Encore IIは古典解・Fourier法・Sturm--Liouvilleまでで閉じる。distribution、弱微分、Sobolev空間、弱解、Lax--Milgramは必須にせず、将来のEncore III候補とする。
+
+読者向け入口は `F0_00R2_EncoreII_Fourier解析_微分方程式/index.md` とする。
+
 ## 構造変更時の確認
 
 通常カリキュラム章を追加・分割するときは、先に `curriculum.yaml` を更新し、循環依存がないことを `npm run validate:structure` で確認する。
