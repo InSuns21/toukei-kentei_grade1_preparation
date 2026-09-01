@@ -4,7 +4,6 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C6
-  - E1-04
 official_scope: []
 learning_objectives:
   - RKHSを点評価汎関数の連続性から定義できる
