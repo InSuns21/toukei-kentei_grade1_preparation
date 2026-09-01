@@ -1,0 +1,33 @@
+id: "F0-00SP5"
+title: "Encore IV：生成作用素・Kolmogorov方程式・Fokker--Planck"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SP4
+  - F0-00PDE1
+official_scope: []
+learning_objectives:
+  - Markov semigroupと生成作用素を定義できる
+  - Ito公式からSDEのgeneratorを導ける
+  - backward Kolmogorov equationを期待値表現から説明できる
+  - forward Kolmogorov equationとFokker--Planck方程式を説明できる
+  - generatorとその形式随伴L*の役割を区別できる
+  - Brown運動から熱方程式を回収できる
+  - OU過程のFokker--Planck方程式と定常Gaussian分布を結び付けられる
+  - Feynman--Kac公式を確率表現とPDEの橋として位置付けられる
+definitions:
+  - { id: F000SP5-DEF-01, name: Markov semigroup }
+  - { id: F000SP5-DEF-02, name: 生成作用素 }
+  - { id: F000SP5-DEF-03, name: Fokker--Planck方程式 }
+theorems:
+  - { id: F000SP5-THM-01, name: backward Kolmogorov equation }
+  - { id: F000SP5-THM-02, name: forward Kolmogorov equation }
+  - { id: F000SP5-THM-03, name: Feynman--Kac公式の入口 }
+canonical_examples:
+  - Brown運動と熱方程式
+  - OU過程と定常Gaussian分布
+problem_patterns: [GENERATOR-1, FOKKER-PLANCK-1, KOLMOGOROV-PDE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
