@@ -1,0 +1,17 @@
+chapter: "F0-00P4"
+terms:
+  - term: limsup事象
+    english: limsup event
+    meaning: 事象列のうち無限回起こる事象を表す集合。infinitely oftenと読む。
+  - term: Borel--Cantelli第1補題
+    english: first Borel--Cantelli lemma
+    meaning: 事象確率の級数が収束すれば、その事象が無限回起こる確率は0になるという補題。
+  - term: Borel--Cantelli第2補題
+    english: second Borel--Cantelli lemma
+    meaning: 独立な事象列で確率の級数が発散すれば、その事象が無限回起こる確率は1になるという補題。
+  - term: 一様可積分性
+    english: uniform integrability
+    meaning: 確率変数族の大きな値の部分が期待値へ寄与する量を一様に小さくできる性質。
+  - term: Vitali型収束定理
+    english: Vitali convergence theorem
+    meaning: 確率収束と一様可積分性からL1収束を導く収束定理。
