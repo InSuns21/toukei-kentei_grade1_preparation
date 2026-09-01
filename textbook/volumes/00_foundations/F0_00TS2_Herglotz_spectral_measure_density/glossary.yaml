@@ -1,0 +1,20 @@
+chapter: "F0-00TS2"
+terms:
+  - term: spectral measure
+    english: spectral measure
+    meaning: 定常過程の自己共分散列をFourier係数として表す有限非負測度。
+  - term: spectral density
+    english: spectral density
+    meaning: spectral measureがLebesgue測度に絶対連続なときのRadon--Nikodym密度。周波数ごとの分散の分布を表す。
+  - term: Herglotz定理
+    english: Herglotz theorem
+    meaning: 正定値列が円周上の有限非負測度のFourier係数として一意に表されることを保証する定理。
+  - term: orthogonal increment process
+    english: orthogonal increment process
+    meaning: 互いに素な周波数区間に対応する増分がL2で直交する確率過程。spectral representationで使う。
+  - term: periodogram
+    english: periodogram
+    meaning: 有限標本の離散Fourier変換の絶対値二乗から作るスペクトルの生の推定量。
+  - term: line spectrum
+    english: line spectrum
+    meaning: spectral measureが特定周波数に点質量を持つ離散的スペクトル。決定論的周期成分で現れる。
