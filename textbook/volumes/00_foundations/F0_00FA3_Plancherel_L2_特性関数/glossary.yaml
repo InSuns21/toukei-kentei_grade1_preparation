@@ -1,0 +1,17 @@
+chapter: "F0-00FA3"
+terms:
+  - term: Plancherel定理
+    english: Plancherel theorem
+    meaning: Fourier変換をL2へ拡張すると、定数因子を除いてL2ノルムと内積を保存することを述べる定理。
+  - term: unitary operator
+    english: unitary operator
+    meaning: Hilbert空間の内積を保存する全単射な線形作用素。
+  - term: L2 Fourier変換
+    english: L2 Fourier transform
+    meaning: L1かつL2な関数上のFourier変換をL2ノルムについて完備化して得る拡張。
+  - term: Parseval--Plancherel等式
+    english: Parseval-Plancherel identity
+    meaning: 空間側のL2内積と周波数側のL2内積が定数因子を除いて一致する等式。
+  - term: 特性関数
+    english: characteristic function
+    meaning: 確率分布のFourier変換として定義される関数 phi_X(t)=E[exp(itX)]。
