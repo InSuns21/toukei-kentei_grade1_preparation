@@ -1,0 +1,33 @@
+id: "F0-00SP1"
+title: "Encore IV：確率過程・filtration・adapted process・stopping time"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P3
+  - F0-00P4
+official_scope: []
+learning_objectives:
+  - 確率過程を確率変数族として定義できる
+  - filtrationを時間とともに増える情報として説明できる
+  - adapted processとprogressively measurableの役割を区別できる
+  - natural filtrationを構成できる
+  - stopping timeを情報制約付きのランダム時刻として定義できる
+  - stopped processを定義できる
+  - Markov性とfiltrationによる条件付き期待値の関係を説明できる
+definitions:
+  - { id: F000SP1-DEF-01, name: 確率過程 }
+  - { id: F000SP1-DEF-02, name: filtration }
+  - { id: F000SP1-DEF-03, name: adapted process }
+  - { id: F000SP1-DEF-04, name: natural filtration }
+  - { id: F000SP1-DEF-05, name: stopping time }
+  - { id: F000SP1-DEF-06, name: stopped process }
+theorems: []
+canonical_examples:
+  - ランダムウォークのnatural filtration
+  - 初回到達時刻
+  - 未来を見て決める時刻がstopping timeでない例
+problem_patterns: [FILTRATION-1, STOPPING-TIME-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
