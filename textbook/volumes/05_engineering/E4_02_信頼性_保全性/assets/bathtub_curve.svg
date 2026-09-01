@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420" role="img" aria-labelledby="title desc">
+  <title id="title">バスタブ曲線</title>
+  <desc id="desc">時間に対する危険率の典型的なバスタブ型を示す。初期故障期では低下、偶発故障期ではほぼ一定、摩耗故障期では上昇する。</desc>
+  <rect width="840" height="420" fill="white"/>
+  <text x="48" y="34" font-size="20" font-weight="bold">バスタブ曲線：ライフサイクル全体の危険率</text>
+  <line x1="95" y1="345" x2="770" y2="345" stroke="#222" stroke-width="2"/>
+  <line x1="95" y1="345" x2="95" y2="72" stroke="#222" stroke-width="2"/>
+  <text x="742" y="380" font-size="16">時間</text>
+  <text x="30" y="88" font-size="16">危険率</text>
+  <path d="M120 112 C145 175 165 255 230 275 C315 300 500 300 590 274 C655 255 690 180 735 110" fill="none" stroke="#222" stroke-width="4"/>
+  <line x1="260" y1="92" x2="260" y2="330" stroke="#777" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="575" y1="92" x2="575" y2="330" stroke="#777" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="125" y="315" font-size="16" font-weight="bold">初期故障期</text>
+  <text x="135" y="338" font-size="14">危険率低下</text>
+  <text x="350" y="315" font-size="16" font-weight="bold">偶発故障期</text>
+  <text x="365" y="338" font-size="14">ほぼ一定</text>
+  <text x="615" y="315" font-size="16" font-weight="bold">摩耗故障期</text>
+  <text x="630" y="338" font-size="14">危険率上昇</text>
+  <text x="185" y="80" font-size="14">単一のWeibull分布は通常、この3区間全部を1本で表すモデルではない</text>
+</svg>
