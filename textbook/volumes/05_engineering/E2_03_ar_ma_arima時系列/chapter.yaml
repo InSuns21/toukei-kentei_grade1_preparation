@@ -14,10 +14,11 @@ learning_objectives:
   - 弱定常性と自己相関関数を定義できる
   - 観測系列から標本自己相関を計算できる
   - AR(1)の平均・分散・自己相関を導ける
-  - AR(2)のYule--Walker方程式を解ける
-  - MA(1)の自己共分散と反転可能性を説明できる
+  - AR(1)の共分散漸化式からAR(p)のYule--Walker方程式を導ける
+  - Yule--Walker方程式からAR係数と偏自己相関を求められる
+  - MA(1)の自己共分散を導き反転可能性をinnovationの復元として説明できる
+  - ACF・PACFのコレログラムからAR・MA・ARMAの候補を識別できる
   - ARIMAの差分次数を判定できる
-  - 自己相関と偏自己相関からAR・MAの候補を識別できる
   - 多段階予測と予測誤差分散を計算できる
 definitions:
   - { id: E203-DEF-01, name: 弱定常性 }
@@ -25,14 +26,16 @@ definitions:
   - { id: E203-DEF-03, name: 標本自己相関 }
   - { id: E203-DEF-04, name: ARMAとARIMA }
   - { id: E203-DEF-05, name: 反転可能性 }
+  - { id: E203-DEF-06, name: 偏自己相関 }
+  - { id: E203-DEF-07, name: コレログラム }
 theorems:
   - { id: E203-THM-01, name: AR(1)の自己共分散 }
   - { id: E203-THM-02, name: Yule--Walker方程式 }
   - { id: E203-THM-03, name: AR(1)の予測誤差分散 }
-canonical_examples: [標本自己相関, AR1, AR2, MA1, 反転可能性, ARIMA, 多段階予測]
+canonical_examples: [標本自己相関, AR1, AR2, MA1, 反転可能性, コレログラム, ARIMA, 多段階予測]
 problem_patterns: [AR-1, AR-2, MA-1, ARIMA-1, TIME-SERIES-FORECAST-1]
 past_exam_alignment: []
-integrated_exam_problems: [E2-03-C01, E2-03-C03, E2-03-DRILL-01]
+integrated_exam_problems: [E2-03-C01, E2-03-C02, E2-03-C03, E2-03-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 5, exercises: 10, review: 3 }
 completion_criteria:
