@@ -1,0 +1,25 @@
+id: "F0-00P3"
+title: "補講：独立・積測度・条件付き期待値"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P2
+official_scope: []
+learning_objectives:
+  - 独立性をsigma代数と積測度で説明できる
+  - 条件付き期待値を部分sigma代数に対する可測な平均として説明できる
+  - tower propertyと独立な場合の条件付き期待値を説明できる
+  - L2で条件付き期待値が直交射影になることを説明できる
+definitions:
+  - { id: F000P3-DEF-01, name: 独立なsigma代数 }
+  - { id: F000P3-DEF-02, name: 条件付き期待値 }
+theorems:
+  - { id: F000P3-THM-01, name: 条件付き期待値の存在 }
+  - { id: F000P3-THM-02, name: tower property }
+  - { id: F000P3-THM-03, name: 条件付き期待値のL2射影表示 }
+canonical_examples: [有限分割による条件付き期待値, 独立変数, 条件付き平均]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 0, review: 0.5 }
