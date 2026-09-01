@@ -1,0 +1,14 @@
+chapter: "F0-00DS2"
+terms:
+  - term: 超関数微分
+    english: distributional derivative
+    meaning: テスト関数側へ微分を移し、符号を付けて定義するSchwartz超関数の微分。
+  - term: 弱微分
+    english: weak derivative
+    meaning: 局所可積分関数gが全てのテスト関数に対する部分積分恒等式を満たすとき、gをfの弱微分と呼ぶ。
+  - term: Heaviside関数
+    english: Heaviside step function
+    meaning: 0を境に0から1へ跳ぶ階段関数。超関数微分はDirac deltaになる。
+  - term: jump term
+    english: jump term
+    meaning: 不連続な関数を超関数微分したとき、跳びの大きさに比例して現れるDirac delta項。
