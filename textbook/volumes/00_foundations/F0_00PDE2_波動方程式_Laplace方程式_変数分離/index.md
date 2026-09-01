@@ -126,8 +126,7 @@ $$
 を考え、固定端条件
 
 $$
-\boxed{
-u(t,0)=u(t,L)=0}
+\boxed{u(t,0)=u(t,L)=0}
 $$
 
 を課します。
@@ -250,8 +249,7 @@ $$
 最終的に
 
 $$
-\boxed{
-u(t,x)
+\boxed{u(t,x)
 =
 \sum_{n=1}^{\infty}
 \{A_n\cos(\omega_nt)+B_n\sin(\omega_nt)\}
@@ -302,8 +300,7 @@ $$
 実数全体上の一次元波動方程式には
 
 $$
-\boxed{
-u(t,x)=F(x-ct)+G(x+ct)}
+\boxed{u(t,x)=F(x-ct)+G(x+ct)}
 $$
 
 という形の解があります。
@@ -341,8 +338,7 @@ $$
 二次元なら
 
 $$
-\boxed{
-u_{xx}+u_{yy}=0}
+\boxed{u_{xx}+u_{yy}=0}
 $$
 
 です。
