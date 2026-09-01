@@ -2,9 +2,7 @@
 
 このページは、F0系列からさらにFourier解析・微分方程式へ進む任意の発展補講ルートです。
 
-通常カリキュラム、確率論「それどこから来た？」系列、関数解析・RKHS系列のどれにも **必須ではありません**。
-
-ただし一度入場した場合は、未定義の主要概念を外部教科書へ取りに行かず、次の順で最後まで進めることを設計基準にします。
+通常カリキュラム、確率論「それどこから来た？」系列、関数解析・RKHS系列のどれにも **必須ではありません**。ただし一度入場した場合は、未定義の主要概念を外部教科書へ取りに行かず、次の順で最後まで進むことを設計基準にします。
 
 ---
 
@@ -35,68 +33,29 @@ F0-00PDE3 Sturm--Liouville・自己共役性・スペクトル展開
 
 ---
 
-## 2. なぜODEを先に置くのか
+## 2. ODEを先に置く理由
 
-Fourier変換でPDEを解くと
-
-$$
-\text{空間微分}
-\longrightarrow
-\text{周波数の掛け算}
-$$
-
-となり、時間だけのODEが残ります。
+Fourier変換でPDEを解くと、空間微分が周波数の掛け算へ変わり、時間だけのODEが残ります。
 
 熱方程式なら
 
 $$
-\partial_t\widehat u
-=-\kappa\xi^2\widehat u,
+\partial_t\widehat u=-\kappa\xi^2\widehat u,
 $$
 
 波動方程式なら
 
 $$
-\partial_{tt}\widehat u
-+c^2\xi^2\widehat u=0.
+\partial_{tt}\widehat u+c^2\xi^2\widehat u=0.
 $$
 
-そこでH1で
-
-- 指数成長・減衰
-- 調和振動子
-- 行列指数
-- 固有値と安定性
-
-を先に準備します。
+そこでH1で指数成長・減衰、調和振動子、行列指数、固有値と安定性を先に準備します。
 
 ---
 
 ## 3. Fourier級数はHilbert空間の具体例
 
-FA1では
-
-$$
-\frac1{\sqrt{2\pi}},
-\quad
-\frac{\cos nx}{\sqrt\pi},
-\quad
-\frac{\sin nx}{\sqrt\pi}
-$$
-
-を $L^2(-\pi,\pi)$ の正規直交系として扱います。
-
-Fourier係数は
-
-$$
-\boxed{
-\text{正規直交方向への内積係数}
-}
-$$
-
-です。
-
-Bessel・ParsevalはF0-00E2の抽象論をそのまま使います。
+FA1では三角関数系を $L^2(-\pi,\pi)$ の正規直交系として扱います。Fourier係数は正規直交方向への内積係数であり、Bessel・ParsevalはF0-00E2の抽象論をそのまま使います。
 
 ---
 
@@ -105,33 +64,18 @@ Bessel・ParsevalはF0-00E2の抽象論をそのまま使います。
 FA2では
 
 $$
-\widehat f(\xi)
-=
-\int_{\mathbb R}f(x)e^{-i\xi x}\,dx
+\widehat f(\xi)=\int_{\mathbb R}f(x)e^{-i\xi x}\,dx
 $$
 
-を導入します。
-
-重要な対応は
+を導入し、
 
 $$
-\boxed{
-\widehat{f*g}
-=
-\widehat f\,\widehat g
-}
+\boxed{\widehat{f*g}=\widehat f\,\widehat g},
+\qquad
+\boxed{\widehat{f'}=i\xi\widehat f}
 $$
 
-と
-
-$$
-\boxed{
-\widehat{f'}
-=i\xi\widehat f
-}
-$$
-
-です。
+を扱います。
 
 一方は確率論の独立和、もう一方は微分方程式へつながります。
 
@@ -142,24 +86,10 @@ $$
 FA3ではFourier変換を $L^2(\mathbb R)$ へ拡張し、正規化すれば
 
 $$
-\boxed{
 \|\mathcal Ff\|_2=\|f\|_2
-}
 $$
 
-となることを扱います。
-
-つまりFourier変換はHilbert空間上のunitary operatorです。
-
-ここで
-
-$$
-\text{有限次元の直交座標変換}
-\longrightarrow
-\text{無限次元のFourier変換}
-$$
-
-という対応が完成します。
+となることを扱います。Fourier変換はHilbert空間上のunitary operatorとして読めます。
 
 ---
 
@@ -171,19 +101,9 @@ $$
 \varphi_X(t)=E[e^{itX}]
 $$
 
-は、確率測度のFourier変換です。
+は確率測度のFourier変換です。
 
-したがって
-
-$$
-\varphi_{X+Y}
-=
-\varphi_X\varphi_Y
-$$
-
-は畳み込み定理そのものです。
-
-CLTは大量の畳み込みと再尺度化をFourier空間で解析する定理として読めます。
+したがって独立和で特性関数が積になることは畳み込み定理そのものです。CLTは大量の畳み込みと再尺度化をFourier空間で解析する定理として読めます。
 
 ---
 
@@ -198,160 +118,74 @@ $$
 をFourier変換して
 
 $$
-\widehat u(t,\xi)
-=e^{-\kappa t\xi^2}\widehat u_0(\xi)
+\widehat u(t,\xi)=e^{-\kappa t\xi^2}\widehat u_0(\xi)
 $$
 
-を得ます。
-
-逆変換すると
+を得ます。逆変換するとGaussian heat kernel
 
 $$
-G_t(x)
-=
-\frac1{\sqrt{4\pi\kappa t}}
-\exp\left(-\frac{x^2}{4\kappa t}\right)
+G_t(x)=\frac1{\sqrt{4\pi\kappa t}}\exp\left(-\frac{x^2}{4\kappa t}\right)
 $$
 
-が現れます。
-
-したがって
-
-$$
-\boxed{
-\text{Gaussian}
-\begin{cases}
-\text{正規分布}\\
-\text{特性関数}\\
-\text{CLT}\\
-\text{heat kernel}\\
-\text{Brown運動}
-\end{cases}
-}
-$$
-
-が同じFourier構造に集まります。
+が現れ、正規分布・特性関数・CLT・Brown運動が同じFourier構造へ集まります。
 
 ---
 
 ## 8. 波動・Laplaceで変数分離を学ぶ
 
-PDE2では
-
-$$
-u(t,x)=T(t)X(x)
-$$
-
-と置き、PDEをODEへ分解します。
-
-固定端境界条件から
+PDE2では $u(t,x)=T(t)X(x)$ と置き、固定端境界条件から
 
 $$
 -X''=\lambda X
 $$
 
-という固有値問題が生まれ、
-
-$$
-X_n(x)=\sin\left(\frac{n\pi x}{L}\right)
-$$
-
-が出ます。
-
-つまりFourier級数がPDEの固有モード展開として再登場します。
+という固有値問題を導きます。Fourier正弦級数がPDEの固有モード展開として再登場します。
 
 ---
 
-## 9. Sturm--Liouvilleで全部まとめる
+## 9. Sturm--Liouvilleでまとめる
 
 PDE3では
 
 $$
--\frac d{dx}(py')+qy
-=\lambda wy
+-\frac d{dx}(py')+qy=\lambda wy
 $$
 
-を扱います。
-
-ここで
-
-- 重み付きL2内積
-- 自己共役性
-- 固有関数の直交性
-- 固有関数展開
-
-を整理します。
-
-Fourier正弦・余弦級数は、その特殊例になります。
+を扱い、重み付きL2内積、自己共役性、固有関数の直交性、固有関数展開を整理します。Fourier正弦・余弦級数はその特殊例です。
 
 ---
 
-## 10. Encore IIで再利用する既存補講
+## 10. Encore IIの停止線
 
-この系列は新しい数学をゼロから別建てするのではなく、既存F0補講を再利用します。
+Encore IIは古典的Fourier法・古典解・Sturm--Liouvilleまでで閉じます。
 
-- F0-00D2：Lebesgue積分、Fubini、L2
-- F0-00E2：Cauchy--Schwarz、Bessel、Parseval
-- F0-00F：固有値、スペクトル定理、作用素ノルム
-- F0-02C1：Hilbert空間、完備性
-- F0-00P6：特性関数とCLT
+従来ここで将来候補としていた
 
-したがってEncore IIを読むと、既存の抽象概念が具体例として再出現します。
-
----
-
-## 11. ここで止める境界
-
-Encore IIは古典的Fourier法・古典解・スペクトル展開までで閉じます。
-
-以下は **必須にしません**。
-
-- distribution
+- Schwartz超関数
 - 弱微分
 - Sobolev空間
 - 弱解
 - Lax--Milgram
-- 一般楕円型作用素
 
-これらを入れると自然にEncore IIIになります。
+は、現在 **Encore III** として独立系列化しました。Encore IIの必須前提には逆流させません。
 
-つまりEncore IIの通読保証は
-
-$$
-\boxed{
-\text{ODE}
-\to
-\text{Fourier解析}
-\to
-\text{古典的PDE}
-\to
-\text{Sturm--Liouville}
-}
-$$
-
-までです。
+Encore IIIへ進む場合は [F0-00R3 Encore III：Distributions, Sobolev Spaces & Weak Solutions](../F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md) を入口にしてください。
 
 ---
 
-## 12. 所要時間
+## 11. 所要時間
 
-各章の目安を合計すると、読解・小演習・復習込みで概ね
+Encore II本編は読解・小演習・復習込みで概ね
 
 $$
 \boxed{30\text{ 時間前後}}
 $$
 
-です。
-
-統計検定1級の必須学習時間には一切含めません。
-
-これは完全にアンコールです。
+です。統計検定1級の必須学習時間には含めません。
 
 ---
 
-## 13. 最終的な景色
-
-このルートを最後まで読むと
+## 12. 最終的な景色
 
 ```text
 線形代数
@@ -365,10 +199,8 @@ Fourier解析 ───→ 特性関数 ───→ CLT
 熱・波動・Laplace方程式
    ↓
 Sturm--Liouville
-   ↓
-固有関数展開
+   │
+   └──→ Encore III：超関数・Sobolev・弱解
 ```
-
-が一つの構造として見えるようになります。
 
 **Encore II: Fourier Analysis & Differential Equations** はここまでです。
