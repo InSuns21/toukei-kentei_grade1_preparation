@@ -1,0 +1,16 @@
+id: "F0-00R5"
+title: "Encore V：Numerical Analysis, FEM & Monte Carlo"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00F
+learning_objectives:
+  - Encore Vの数値解析・FEM・Monte Carloの依存関係を説明できる
+  - FEM branchとMonte Carlo/SDE branchの合流点を説明できる
+  - 数値誤差を離散化・solver・roundoff・samplingへ分解できる
+definitions: []
+theorems: []
+canonical_examples: [Poisson FEM, Monte Carlo integration, random PDE, MLMC]
+problem_patterns: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
