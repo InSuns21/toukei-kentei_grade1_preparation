@@ -1,21 +1,18 @@
-# F0-00R 基礎論ロードマップ：標準ルートと完全基礎論ルート
+# F0-00R 基礎論ロードマップ：標準ルートと発展Encore
 
 このページは、F0-00の先に増えた発展補講を **どこまで読めばよいか** 整理するための入口です。
 
 出発点は [F0-00 統計検定1級のための数学速習](../F0_00_統計検定1級のための数学速習/index.md) です。
 
-設計基準は次の二つです。
+設計基準は一貫して次です。
 
-1. **標準通読ルート**：関数解析・RKHSまで進むために必要な前提を、未定義語なしで順に積む。
-2. **完全基礎論ルート**：さらに「その定理や測度はどこから来た？」まで掘り、外測度・選択公理・非可測集合まで自前で回収する。
+> **物量に負ける可能性はあるが、未定義語に殴られて脱落する構成にはしない。**
 
-後者は通称 **DREAM THEATERルート** とします。
+通常カリキュラムへ不要な必須依存は追加せず、深掘りは明示的な分岐として隔離します。
 
 ---
 
-## 1. 標準通読ルート
-
-関数解析・RKHSへ進むための正本は次です。
+## 1. 標準通読ルート：F0-00からRKHSまで
 
 ```text
 F0-00   数学速習
@@ -45,99 +42,27 @@ F0-02 → F0-02A → F0-02B
 F0-02C1 → C2 → C3 → C4 → C5 → C6 → C7
 ```
 
-A2を標準ルートへ入れた理由は、C6のHahn--Banachを証明まで読むとZornの補題が必要になるからです。
-
-一方、D2ではLebesgue測度の存在を一度受け入れて、積分論を先に進めます。
-
-この時点で
-
-- $L^2$
-- a.e.
-- 可測関数
-- 条件付き期待値への入口
-- Hahn--BanachのZorn証明
-
-まで通読できます。
+A2はC6のHahn--Banach標準証明で使うZornの補題を先に導入します。D2は $L^2$・a.e.・可測関数を関数解析で突然出さないための橋です。
 
 ---
 
 ## 2. 完全基礎論ルート：DREAM THEATER
 
-「Lebesgue測度をあるものとして使うのも気になる」という場合は、D2の直後に次の3講を挿入します。
+Lebesgue測度そのものの建設まで追う場合だけ、D2の直後に挿入します。
 
 ```text
-F0-00D2  測度・Lebesgue積分
+F0-00D2
   ↓
-F0-00D3  外測度・Carathéodory可測性
+F0-00D3 外測度・Carathéodory可測性
   ↓
-F0-00D4  Lebesgue測度・Borel集合・拡張定理
+F0-00D4 Lebesgue測度・Borel集合・拡張定理
   ↓
-F0-00D5  Vitali集合・非可測集合・選択公理
+F0-00D5 Vitali集合・非可測集合・選択公理
   ↓
-F0-00E   線形代数理論へ戻る
+F0-00Eへ復帰
 ```
 
-この寄り道を入れると
-
-$$
-\boxed{
-\text{区間の長さ}
-\to
-\text{外測度}
-\to
-\text{Carathéodory可測性}
-\to
-\text{Lebesgue測度}
-\to
-\text{Lebesgue積分}
-}
-$$
-
-を全部自前で辿れます。
-
-さらにA2とD5を合わせると
-
-$$
-\boxed{
-\text{選択公理}
-\begin{cases}
-\to\text{Zorn}\to\text{Hahn--Banach}\\
-\to\text{Vitali集合}\to\text{非可測集合}
-\end{cases}
-}
-$$
-
-まで一本につながります。
-
----
-
-## 3. なぜD3〜D5を標準ルート必須にしないのか
-
-D2で必要なのは
-
-- sigma代数とは何か
-- 測度とは何か
-- Lebesgue測度が存在すること
-- Lebesgue積分をどう定義するか
-
-です。
-
-D3〜D5はさらに一段下へ降りて
-
-- そのLebesgue測度をどう作ったか
-- なぜ全ての部分集合を可測にできないか
-
-を説明します。
-
-したがって関数解析を学ぶだけなら必須ではありません。
-
-しかし完全基礎論ルートを選んだ場合は、D2→D3→D4→D5の順に読めば、前提語彙を外部へ取りに行く必要はありません。
-
----
-
-## 4. D3で何を作るか
-
-[F0-00D3 外測度・Carathéodory可測性](../F0_00D3_外測度_Caratheodory可測性/index.md)
+D3では
 
 $$
 \lambda^*(A)
@@ -148,73 +73,17 @@ A\subset\bigcup_nI_n
 \right\}
 $$
 
-からLebesgue外測度を作ります。
+から外測度を作り、Carathéodory可測性で測れる集合を選別します。
 
-次に
+D4では区間の長さ・Borel集合・Carathéodory拡張定理まで進み、D5ではVitali集合から「全ての部分集合を可測にはできない」ことを回収します。
 
-$$
-\mu^*(T)
-=
-\mu^*(T\cap E)+\mu^*(T\setminus E)
-$$
-
-を満たす集合 $E$ をCarathéodory可測と定義し、可測集合全体がsigma代数になることを追います。
+この分岐は標準RKHSルートの必須にはしません。
 
 ---
 
-## 5. D4でLebesgue測度を完成する
+## 3. 確率論「それどこから来た？」ルート
 
-[F0-00D4 Lebesgue測度・Borel集合・拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
-
-区間について
-
-$$
-\lambda^*([a,b])=b-a
-$$
-
-を示し、開集合・Borel集合が可測であることを確認します。
-
-さらに
-
-$$
-\text{premeasure}
-\to
-\text{outer measure}
-\to
-\text{measure on generated sigma-algebra}
-$$
-
-というCarathéodory拡張定理へ一般化します。
-
-確率測度の構成にも同じ思想が使われます。
-
----
-
-## 6. D5で「全部測ればよくない？」を破壊する
-
-[F0-00D5 Vitali集合・非可測集合・選択公理](../F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-
-$$
-x\sim y
-\Longleftrightarrow
-x-y\in\mathbb Q
-$$
-
-で $[0,1]$ を同値類に分け、各同値類から一つずつ代表元を選んでVitali集合を作ります。
-
-その有理数平行移動に可算加法性を適用すると、Vitali集合が可測だという仮定は矛盾します。
-
-これで
-
-> 事象は全ての部分集合ではなく、sigma代数に属する集合だけ
-
-という確率論の形式が必要な理由まで回収します。
-
----
-
-## 7. 確率論「それどこから来た？」ルート
-
-D2まで読んだら、関数解析ではなく確率論を掘ることもできます。
+D2から確率論・漸近統計の理論側へ進む分岐です。
 
 ```text
 F0-00D2
@@ -234,21 +103,11 @@ F0-00P6  特性関数・中心極限定理
 F0-00P7  統計モデル・尤度・正則性
 ```
 
-D3〜D5はこの確率論系列にも必須ではありません。
-
-ただし完全基礎論ルートを先に通ると、
-
-- なぜsigma代数が必要か
-- 測度の拡張はどう行われるか
-- pdfの基準になるLebesgue測度はどこから来たか
-
-まで既知の状態でP1へ進めます。
+確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、条件付き期待値を部分sigma代数上の構成として読み直します。
 
 ---
 
-## 8. Encore II：Fourier Analysis & Differential Equations
-
-線形代数・Lebesgue積分・Hilbert空間まで読んだ後、さらにFourier解析と古典的PDEへ進む任意ルートを用意します。
+## 4. Encore II：Fourier Analysis & Differential Equations
 
 [Encore II ロードマップを読む](../F0_00R2_EncoreII_Fourier解析_微分方程式/index.md)
 
@@ -268,17 +127,165 @@ F0-00PDE2 波動方程式・Laplace方程式・変数分離
 F0-00PDE3 Sturm--Liouville・自己共役性・スペクトル展開
 ```
 
-このルートは通常カリキュラム、RKHS通読、確率論P1〜P7の必須前提ではありません。
+特性関数が確率測度のFourier変換であることから始まり、微分作用素の周波数対角化、熱・波動・Laplace方程式、Sturm--Liouvilleまで進みます。
 
-ただし入場した後は、ODE→Fourier級数→Fourier変換→Plancherel→PDE→Sturm--Liouvilleの順に、主要概念を未定義のまま飛ばさず進みます。
+目安は約30時間です。
 
 ---
 
-## 9. 読み方の推奨
+## 5. Encore III：Distributions, Sobolev Spaces & Weak Solutions
 
-### 試験対策が目的
+[Encore III ロードマップを読む](../F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
 
-F0-00から通常教材へ戻ってください。ここから先は明確に発展補講です。
+Encore IIの古典的PDEから、低正則性の解と変分法へ進みます。
+
+```text
+F0-00DS1  Schwartz超関数・テスト関数・Dirac delta
+  ↓
+F0-00DS2  超関数微分・弱微分
+  ↓
+F0-00SOB1 Sobolev空間 W^{k,p}・H^k
+  ↓
+F0-00SOB2 H_0^1・Poincare・trace
+  ↓
+F0-00WK1  弱形式・Poisson方程式
+  ↓
+F0-00WK2  Lax--Milgram・存在一意性
+  ↓
+F0-00WK3  楕円型PDE・Galerkin・FEM
+```
+
+中心線は
+
+$$
+\boxed{
+\text{超関数}
+\to
+\text{弱微分}
+\to
+\text{Sobolev空間}
+\to
+\text{弱形式}
+\to
+\text{Lax--Milgram}
+\to
+\text{Galerkin/FEM}
+}
+$$
+
+です。
+
+Lax--MilgramはRiesz表現から作用素を作り、coercivityで単射・閉range・稠密range・全射まで証明します。Encore IIIは線形二階楕円型PDEとFEMへの橋までで閉じます。
+
+目安は約30時間です。
+
+---
+
+## 6. Encore IV：Stochastic Processes & Spectral Time Series
+
+[Encore IV ロードマップを読む](../F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
+
+確率論・Hilbert空間・Fourier解析を、確率過程と時系列解析へ延長します。
+
+```text
+F0-00SP1 filtration・adapted process・stopping time
+  ↓
+F0-00SP2 martingale・optional stopping
+  ↓
+F0-00SP3 Brown運動・Gaussian過程・二次変分
+  ↓
+F0-00SP4 Ito積分・Ito公式・SDE
+  ↓
+F0-00SP5 generator・Kolmogorov・Fokker--Planck
+  ↓
+F0-00TS1 定常過程・Hilbert予測・innovation・Wold
+  ↓
+F0-00TS2 Herglotz・spectral measure・spectral density
+  ↓
+E2-03    AR・MA・ARIMA本編
+  ↓
+F0-00TS3 線形filter・ARMA transfer function・周波数領域
+```
+
+前半では
+
+$$
+\boxed{
+\text{条件付き期待値}
+\to
+\text{martingale}
+\to
+\text{Brown運動}
+\to
+\text{Ito/SDE}
+\to
+\text{generator/PDE}
+}
+$$
+
+を作ります。
+
+後半では
+
+$$
+\boxed{
+\text{定常過程}
+\to
+\text{Hilbert空間予測}
+\to
+\text{innovation/Wold}
+\to
+\text{spectral measure}
+\to
+\text{ARMA filter}
+}
+$$
+
+を作り、E2-03へ帰還します。
+
+Encore IVは通常教材E2の代替ではありません。E2は試験向け、Encore IVはその理論地下です。
+
+目安は約40時間です。
+
+---
+
+## 7. Encore IIIとIVが交差する場所
+
+Brown運動の形式的時間微分であるwhite noiseは通常の関数ではありません。
+
+$$
+\text{Brown運動}
+\to
+\text{white noise}
+\to
+\text{Schwartz超関数}
+$$
+
+としてEncore IIIへ接続します。
+
+またSDEのgeneratorから出るKolmogorov/Fokker--Planck PDEが低正則性しか持たない場合、Sobolev空間・弱解が受け皿になります。
+
+$$
+\boxed{
+\text{SDE}
+\to
+\text{generator}
+\to
+\text{PDE}
+\to
+\text{Sobolev弱解}
+}
+$$
+
+です。
+
+---
+
+## 8. 目的別の読み方
+
+### 統計検定1級の試験対策
+
+F0-00から通常教材へ戻ってください。Encoreは不要です。
 
 ### RKHS・関数解析まで理解したい
 
@@ -286,49 +293,63 @@ F0-00から通常教材へ戻ってください。ここから先は明確に発
 
 ### 漸近統計の理論まで理解したい
 
-D2からP1〜P7へ分岐してください。
+D2からP1〜P7へ進んでください。
 
-### 「存在するって誰が言った？」が気になる
+### 「Lebesgue測度って誰が作った？」
 
 DREAM THEATERルートへ進んでください。
 
-### 「特性関数ってFourier変換ですよね？」が気になった
+### 「特性関数ってFourier変換ですよね？」
 
 Encore IIへ進んでください。
 
-DREAM THEATER追加分はA2を含め約19時間、Encore IIは約30時間を目安とします。
+### 「古典解がないとPDEは終わり？」
+
+Encore IIIへ進んでください。
+
+### 「Brown運動を微分したら？ ARMAをFourier変換したら？」
+
+Encore IVへ進んでください。
 
 ---
 
-## 10. 通読可能性の確認基準
+## 9. 通読可能性の確認基準
 
-完全基礎論ルートとEncore IIでは、次を満たすように章順を設計します。
+全発展ルートで次を守ります。
 
 1. 定義語は原則として使う前に導入する。
 2. 高度定理を証明しない場合は「定理として使う」と明記する。
-3. 一つ前の章で導入した概念が次章で何に使われるか明記する。
-4. 有限次元と無限次元で成立条件が変わる定理は、その差を明記する。
-5. 選択公理・コンパクト性・完備性・可測性を互いに代用しない。
-6. 古典的PDEから弱解理論へ無断で飛ばない。
-
-つまり
-
-> 物量に負ける可能性はあるが、未定義語に殴られて脱落する構成にはしない
-
-ことを保証目標にします。
+3. 前章の概念が次章で何に使われるかを明記する。
+4. 有限次元と無限次元、古典解と弱解、確率分布とSchwartz超関数など、同名・類似概念を区別する。
+5. 標準カリキュラムへ不要な発展前提を逆流させない。
+6. 深掘り系列ごとに停止線を明示する。
 
 ---
 
-## 11. 現在の全体像
+## 10. 現在の全体像
 
 ```text
-                             ┌→ D3 → D4 → D5 ─┐
-F0-00 → A → A2 → B → C → D → D2               ├→ E → E2 → F → G → 02 → 02A → 02B → C1 ... C7
-                             └→ P1 → P2 → P3 → P4 → P5 → P6 → P7
-                                                        │
-                                   C1 / F / D2 / E2 ───┴→ H1 → FA1 → FA2 → FA3 → PDE1 → PDE2 → PDE3
+                                  ┌→ D3 → D4 → D5
+                                  │
+F0-00 → A → A2 → B → C → D → D2 ├→ P1 → P2 → P3 → P4 → P5 → P6 → P7
+                                  │
+                                  └→ E → E2 → F → G → 02 → 02A → 02B → C1 ... C7
+                                                   │
+                                                   └→ H1 → FA1 → FA2 → FA3
+                                                                  ↓
+                                                          PDE1 → PDE2 → PDE3
+                                                                  ↓
+                                                  DS1 → DS2 → SOB1 → SOB2
+                                                                  ↓
+                                                        WK1 → WK2 → WK3
+
+P3/P4/P6 + C1 + FA2
+          ↓
+ SP1 → SP2 → SP3 → SP4 → SP5
+                           │
+                           └→ PDE / Encore III
+          ↓
+ TS1 → TS2 → E2-03 → TS3
 ```
 
-D3〜D5は測度論の深掘り、P1〜P7は確率・漸近統計の深掘り、H1〜PDE3がEncore IIです。
-
-A2は後でC6のHahn--Banachにも再利用されます。
+もはや一本の道ではなく、**前提関係を壊さず乗り換えられる地下鉄網**として管理します。
