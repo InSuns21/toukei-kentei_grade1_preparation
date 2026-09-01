@@ -6,6 +6,7 @@ prerequisites:
   - F0-00
   - F0-00C
   - F0-00E
+  - F0-00E2
 official_scope: []
 learning_objectives:
   - 線形写像とその行列表現を基底との関係から説明できる
