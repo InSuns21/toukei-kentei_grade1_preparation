@@ -1,6 +1,6 @@
 # F0-02B 分離超平面定理・Farkasの補題・SVM
 
-この補講では、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) で使った **Farkasの補題そのものがどこから来るのか** を、有限次元の分離超平面定理まで戻って導きます。
+この補講では、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) で使ったFarkasの補題を、有限次元の凸幾何まで戻って導きます。
 
 さらに、SVMに分離超平面定理が二重の意味で現れることを整理します。
 
@@ -30,19 +30,38 @@ $$
 }
 $$
 
-という形で分離超平面定理が直接現れます。
+という形で分離定理が直接現れます。
 
 この内容は統計検定1級の必須暗記事項を増やすためのものではありません。SVM・双対問題・KKTを **凸幾何の一つの流れ** として理解するための発展補講です。
 
-このページは有限次元 $\mathbb R^p$ の議論です。ここで使う「凸集合」「凸包」「凸錐」「閉集合」「コンパクト」「infimum」は次の道具箱で定義してから使います。無限次元へ一般化すると何が変わるかは [F0-02C 関数解析から見る制約想定・KKT・kernel SVM](../F0_02C_関数解析_制約想定_RKHS/index.md) で扱います。
+---
+
+## 0. この章の前提を分離した
+
+以前はこの章の冒頭で
+
+- 閉集合
+- infimum / minimum
+- コンパクト性
+- Heine--Borel
+
+まで一気に定義していました。
+
+これらは分離定理だけの道具ではなく、今後の関数解析全体で使うため、独立した補講へ移しました。
+
+未習なら次を先に参照してください。
+
+- [F0-00A 集合・写像・上限と下限](../F0_00A_集合_写像_上限下限/index.md)：infimum / minimum
+- [F0-00B 距離空間・開集合・閉集合・収束](../F0_00B_距離空間_開集合_閉集合_収束/index.md)：閉集合・収束
+- [F0-00C 連続写像・コンパクト性・最大最小](../F0_00C_連続写像_コンパクト性_最大最小/index.md)：コンパクト性・Heine--Borel・最小値達成
+
+この章では、これらを使って **凸幾何そのもの** に集中します。
 
 ---
 
-## 0. この章で使う数学の道具箱
+## 1. 凸結合・凸集合・凸包
 
-### 0.1 凸結合・凸集合・凸包
-
-点 $\boldsymbol x_1,\dots,\boldsymbol x_n$ に対し
+点 $x_1,\dots,x_n\in\mathbb R^p$ に対し
 
 $$
 \theta_i\ge0,
@@ -53,194 +72,122 @@ $$
 を満たす係数で作る
 
 $$
-\sum_{i=1}^n\theta_i\boldsymbol x_i
+\sum_{i=1}^n\theta_i x_i
 $$
 
 を **凸結合** といいます。
 
-集合 $C$ が **凸集合** であるとは、任意の $\boldsymbol x,\boldsymbol y\in C$ と $0\le t\le1$ について
+集合 $C\subset\mathbb R^p$ が **凸集合** であるとは、任意の $x,y\in C$ と $0\le t\le1$ について
 
 $$
-(1-t)\boldsymbol x+t\boldsymbol y\in C
-$$
-
-となることです。つまり、集合内の2点を結ぶ線分がすべて集合内に残ります。
-
-集合 $S$ のすべての凸結合を集めた最小の凸集合を **凸包** といい、
-
-$$
-\boxed{
-\operatorname{conv}(S)
-}
-$$
-
-と書きます。
-
-### 0.2 錐・凸錐・有限生成凸錐
-
-集合 $K$ が **錐** であるとは
-
-$$
-\boldsymbol x\in K,\ a\ge0
-\Longrightarrow
-a\boldsymbol x\in K
+(1-t)x+ty\in C
 $$
 
 となることです。
 
-さらに $K$ が凸集合なら **凸錐** といいます。
+つまり、集合内の2点を結ぶ線分が全て集合内に残ります。
 
-有限個のベクトル $\boldsymbol a_1,\dots,\boldsymbol a_n$ から
-
-$$
-K
-=
-\left\{
-\sum_{j=1}^n\lambda_j\boldsymbol a_j:
-\lambda_j\ge0
-\right\}
-$$
-
-と作られる凸錐を **有限生成凸錐** と呼びます。
-
-### 0.3 閉集合
-
-この章では、集合 $C$ が **閉集合** であることを
-
-> $C$ 内の収束列 $\boldsymbol x_n\to\boldsymbol x$ の極限 $\boldsymbol x$ も必ず $C$ に入る
-
-という性質で使います。
-
-したがって、閉集合の中で点列の極限を取っても集合の外へ落ちません。
-
-### 0.4 infimum と minimum
-
-集合 $C$ 上の距離の集合
+集合 $S$ の全ての有限凸結合からなる集合を **凸包** といい
 
 $$
-D
-=
-\{\|\boldsymbol z-\boldsymbol x\|:\boldsymbol x\in C\}
-$$
-
-を考えます。
-
-$D$ の **下限（infimum）**
-
-$$
-\inf D
-$$
-
-とは、すべての要素以下にある数の中で最大のものです。下限は必ずしも $D$ の要素とは限りません。
-
-一方 **minimum** は実際に達成される最小値です。
-
-この章ではまず
-
-$$
-\delta
-=
-\inf_{\boldsymbol x\in C}
-\|\boldsymbol z-\boldsymbol x\|
-$$
-
-と置き、その後で「このinfimumを達成する点が存在する」ことを証明します。
-
-### 0.5 コンパクト性とHeine--Borel
-
-この章で必要なコンパクト性は、有限次元では次の形だけ使います。
-
-> **Heine--Borelの定理**：$\mathbb R^p$ では、閉かつ有界な集合はコンパクトである。
-
-ここでコンパクトとは、この章では「任意の点列から、その集合内の点へ収束する部分列を取り出せる」と考えて構いません。
-
-したがって閉有界集合内の点列から
-
-$$
-\boldsymbol x_{n_k}\to\boldsymbol p
-$$
-
-となる部分列を取れます。
-
-これは有限次元で重要な性質です。[F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で見るように、一般の無限次元ノルム空間では
-
-$$
-\text{閉有界}\not\Rightarrow\text{コンパクト}
-$$
-
-です。
-
-### 0.6 射影
-
-集合 $C$ と点 $\boldsymbol z$ に対し、距離
-
-$$
-\|\boldsymbol z-\boldsymbol x\|
-$$
-
-を最小にする点 $\boldsymbol p\in C$ が存在するとき、その点を $\boldsymbol z$ の $C$ への **射影** と呼び
-
-$$
-P_C(\boldsymbol z)=\boldsymbol p
+\boxed{\operatorname{conv}(S)}
 $$
 
 と書きます。
 
-この射影の存在・一意性は、次節で閉凸集合について証明します。したがってここではまだ「射影はいつでも存在する」と仮定していません。
+有限点集合では
+
+$$
+\operatorname{conv}\{x_1,\dots,x_n\}
+=
+\left\{
+\sum_{i=1}^n\theta_i x_i:
+\theta_i\ge0,\ \sum_i\theta_i=1
+\right\}.
+$$
 
 ---
 
-## 1. 超平面で分離するとは何か
+## 2. 錐・凸錐・有限生成凸錐
 
-$\boldsymbol a\ne\boldsymbol0$ と $b\in\mathbb R$ に対し
+集合 $K\subset\mathbb R^p$ が **錐** であるとは
+
+$$
+x\in K,\ a\ge0
+\Longrightarrow
+ax\in K
+$$
+
+となることです。
+
+さらに凸集合でもあれば **凸錐** といいます。
+
+有限個のベクトル $a_1,\dots,a_n$ から
+
+$$
+\boxed{
+K
+=
+\left\{
+\sum_{j=1}^n\lambda_j a_j:
+\lambda_j\ge0
+\right\}
+}
+$$
+
+と作られるものを **有限生成凸錐** といいます。
+
+凸結合では係数和が1でしたが、錐では係数和に制約がありません。
+
+---
+
+## 3. 超平面で分離するとは何か
+
+$a\ne0$ と $b\in\mathbb R$ に対し
 
 $$
 H
-=
-\{\boldsymbol x:\boldsymbol a^{\mathsf T}\boldsymbol x=b\}
+=\{x:a^{\mathsf T}x=b\}
 $$
 
 を超平面といいます。
 
-集合 $C$ と点 $\boldsymbol z\notin C$ に対して
+集合 $C$ と点 $z\notin C$ に対して
 
 $$
-\boldsymbol a^{\mathsf T}\boldsymbol x
+\boxed{
+a^{\mathsf T}x
 \le b
-<
-\boldsymbol a^{\mathsf T}\boldsymbol z
-\qquad
-(\forall\boldsymbol x\in C)
+<a^{\mathsf T}z
+\qquad(\forall x\in C)
+}
 $$
 
-となれば、$H$ は $C$ と $\boldsymbol z$ を分離しています。
+となれば、$H$ は $C$ と $z$ を厳密に分離しています。
 
-以下では、この $\boldsymbol a$ を **最近点への射影** から作ります。
+以下では、この法線 $a$ を最近点への射影から作ります。
 
 ---
 
-## 2. 閉凸集合への最近点射影
+## 4. 閉凸集合への最近点射影
 
-$C\subset\mathbb R^p$ を空でない閉凸集合、$\boldsymbol z\in\mathbb R^p$ とします。
+$C\subset\mathbb R^p$ を空でない閉凸集合、$z\in\mathbb R^p$ とします。
 
-距離
+距離の下限
 
 $$
 \delta
-=
-\inf_{\boldsymbol x\in C}
-\|\boldsymbol z-\boldsymbol x\|
+=\inf_{x\in C}\|z-x\|
 $$
 
 を考えます。
 
-### 2.1 最近点の存在
+### 4.1 最近点の存在
 
-infimumの定義から、$C$ 内に点列 $\boldsymbol x_n$ を取り
+infimumの定義から、$C$ 内に点列 $x_n$ を取り
 
 $$
-\|\boldsymbol z-\boldsymbol x_n\|
-\to\delta
+\|z-x_n\|\to\delta
 $$
 
 とできます。
@@ -248,262 +195,208 @@ $$
 十分大きな $n$ では
 
 $$
-\|\boldsymbol z-\boldsymbol x_n\|
-\le\delta+1
+\|z-x_n\|\le\delta+1
 $$
 
-なので、$\boldsymbol x_n$ は閉球
+なので、点列の後半は閉球
 
 $$
-\overline B(\boldsymbol z,\delta+1)
+\overline B(z,\delta+1)
 $$
 
 内にあります。
 
-この閉球は閉かつ有界なので、Heine--Borelの定理によりコンパクトです。したがって部分列を取り
+したがって
 
 $$
-\boldsymbol x_{n_k}\to\boldsymbol p
+C\cap\overline B(z,\delta+1)
 $$
 
-とできます。
+という閉有界集合の中で考えればよく、有限次元のHeine--Borelによりコンパクトです。
 
-$C$ は閉なので $\boldsymbol p\in C$ であり、距離の連続性から
-
-$$
-\|\boldsymbol z-\boldsymbol p\|
-=
-\delta.
-$$
-
-したがってinfimumは実際に達成され、最近点は存在します。
-
-### 2.2 最近点の一意性
-
-最近点が二つ $\boldsymbol p,\boldsymbol q\in C$ あると仮定します。
+よって部分列
 
 $$
-\|\boldsymbol z-\boldsymbol p\|
-=
-\|\boldsymbol z-\boldsymbol q\|
-=
-\delta.
+x_{n_k}\to p
 $$
 
-$C$ は凸なので
+を取れます。
+
+$C$ は閉なので $p\in C$、距離関数は連続なので
 
 $$
-\boldsymbol m
-=
-\frac{\boldsymbol p+\boldsymbol q}{2}
+\|z-p\|=\delta.
 $$
 
-も $C$ に属します。
+したがって最近点は存在します。
 
-ノルム平方を内積で展開すると
+この証明で使った一般論は [F0-00C](../F0_00C_連続写像_コンパクト性_最大最小/index.md) で分解してあります。
+
+### 4.2 最近点の一意性
+
+最近点が二つ $p,q\in C$ あると仮定します。
+
+$$
+\|z-p\|=\|z-q\|=\delta.
+$$
+
+凸性より
+
+$$
+m=\frac{p+q}{2}\in C.
+$$
+
+内積でノルム平方を展開すると
 
 $$
 \left\|
-\boldsymbol z-
-\frac{\boldsymbol p+\boldsymbol q}{2}
+z-\frac{p+q}{2}
 \right\|^2
 =
-\frac12\|\boldsymbol z-\boldsymbol p\|^2
-+
-\frac12\|\boldsymbol z-\boldsymbol q\|^2
--
-\frac14\|\boldsymbol p-\boldsymbol q\|^2.
+\frac12\|z-p\|^2
++\frac12\|z-q\|^2
+-\frac14\|p-q\|^2.
 $$
 
-もし $\boldsymbol p\ne\boldsymbol q$ なら右辺は $\delta^2$ より小さくなり、最小距離の定義に反します。
+$p\ne q$ なら右辺は $\delta^2$ より小さくなり、最小距離に反します。
 
 したがって最近点は一意です。
 
 $$
-\boxed{
-P_C(\boldsymbol z)=\boldsymbol p
-}
+\boxed{P_C(z)=p}
 $$
 
 と書きます。
 
 ---
 
-## 3. 射影点では外向き法線が得られる
+## 5. 射影点では外向き法線が得られる
 
-$\boldsymbol p=P_C(\boldsymbol z)$ とし、任意の $\boldsymbol x\in C$ を取ります。
+$p=P_C(z)$ とし、任意の $x\in C$ を取ります。
 
 凸性より
 
 $$
-\boldsymbol p_t
-=
-\boldsymbol p+t(\boldsymbol x-\boldsymbol p)
+p_t=p+t(x-p)
 \qquad(0\le t\le1)
 $$
 
 も $C$ に属します。
 
-$\boldsymbol p$ が最近点なので
+$p$ が最近点なので
 
 $$
-\phi(t)
-=
-\|\boldsymbol z-\boldsymbol p_t\|^2
+\phi(t)=\|z-p_t\|^2
 $$
 
 は $t=0$ で右側最小です。
 
-よって
+したがって
 
 $$
-\phi'(0+)
-\ge0.
+\phi'(0+)\ge0.
 $$
 
 計算すると
 
 $$
 \phi'(0+)
-=
--2(\boldsymbol z-\boldsymbol p)^{\mathsf T}
-(\boldsymbol x-\boldsymbol p).
+=-2(z-p)^{\mathsf T}(x-p).
 $$
 
-したがって
+よって
 
 $$
 \boxed{
-(\boldsymbol z-\boldsymbol p)^{\mathsf T}
-(\boldsymbol x-\boldsymbol p)
+(z-p)^{\mathsf T}(x-p)
 \le0
-\qquad
-(\forall\boldsymbol x\in C)
+\qquad(\forall x\in C)
 }
 $$
 
 です。
 
-つまり $\boldsymbol z-\boldsymbol p$ は $C$ の外向き法線になっています。
+つまり $z-p$ は $C$ の外向き法線になっています。
 
 ---
 
-## 4. 分離超平面定理を射影から導く
+## 6. 分離超平面定理を射影から導く
 
-### 定理：点と閉凸集合の厳密分離
+$C\subset\mathbb R^p$ を空でない閉凸集合、$z\notin C$ とします。
 
-$C\subset\mathbb R^p$ を空でない閉凸集合とし
-
-$$
-\boldsymbol z\notin C
-$$
-
-とします。
-
-このとき、ある $\boldsymbol a\ne\boldsymbol0$ が存在して
+$p=P_C(z)$ とし
 
 $$
-\boxed{
-\boldsymbol a^{\mathsf T}\boldsymbol x
-\le
-\boldsymbol a^{\mathsf T}\boldsymbol p
-<
-\boldsymbol a^{\mathsf T}\boldsymbol z
-\qquad
-(\forall\boldsymbol x\in C)
-}
-$$
-
-となります。ただし $\boldsymbol p=P_C(\boldsymbol z)$ です。
-
-### 証明
-
-$$
-\boldsymbol a
-=
-\boldsymbol z-\boldsymbol p
+a=z-p
 $$
 
 と置きます。
 
-前節の射影条件から
+$z\notin C$ なので $a\ne0$ です。
+
+前節から
 
 $$
-\boldsymbol a^{\mathsf T}
-(\boldsymbol x-\boldsymbol p)
-\le0
+a^{\mathsf T}(x-p)\le0
 $$
 
 なので
 
 $$
-\boldsymbol a^{\mathsf T}\boldsymbol x
-\le
-\boldsymbol a^{\mathsf T}\boldsymbol p.
+a^{\mathsf T}x
+\le a^{\mathsf T}p
+\qquad(\forall x\in C).
 $$
 
 一方
 
 $$
 \begin{aligned}
-\boldsymbol a^{\mathsf T}\boldsymbol z
-&=
-\boldsymbol a^{\mathsf T}\boldsymbol p
-+
-\boldsymbol a^{\mathsf T}(\boldsymbol z-\boldsymbol p)\\
-&=
-\boldsymbol a^{\mathsf T}\boldsymbol p
-+
-\|\boldsymbol z-\boldsymbol p\|^2.
+a^{\mathsf T}z
+&=a^{\mathsf T}p
++a^{\mathsf T}(z-p)\\
+&=a^{\mathsf T}p+\|z-p\|^2\\
+&>a^{\mathsf T}p.
 \end{aligned}
 $$
 
-$\boldsymbol z\notin C$ だから $\boldsymbol z\ne\boldsymbol p$ であり
+したがって
 
 $$
-\|\boldsymbol z-\boldsymbol p\|^2>0.
+\boxed{
+a^{\mathsf T}x
+\le a^{\mathsf T}p
+<a^{\mathsf T}z
+\qquad(\forall x\in C)
+}
 $$
 
-よって
+です。
 
-$$
-\boldsymbol a^{\mathsf T}\boldsymbol p
-<
-\boldsymbol a^{\mathsf T}\boldsymbol z.
-$$
-
-したがって点と閉凸集合を超平面で厳密に分離できます。
+構造は
 
 $$
 \boxed{
 \text{最近点への射影}
 \to
-\text{法線}
+\text{外向き法線}
 \to
 \text{分離超平面}
 }
 $$
 
-という構造です。
+です。
 
 ---
 
-## 5. 閉凸錐の分離
+## 7. 閉凸錐を外の点から分離する
 
-$K$ を閉凸錐とし
+$K$ を閉凸錐、$v\notin K$ とします。
 
-$$
-\boldsymbol v\notin K
-$$
-
-とします。
-
-$\boldsymbol p=P_K(\boldsymbol v)$、
+$p=P_K(v)$、
 
 $$
-\boldsymbol d
-=
-\boldsymbol v-\boldsymbol p
+d=v-p
 $$
 
 と置きます。
@@ -511,118 +404,104 @@ $$
 射影条件より
 
 $$
-\boldsymbol d^{\mathsf T}
-(\boldsymbol k-\boldsymbol p)
-\le0
-\qquad
-(\forall\boldsymbol k\in K).
+d^{\mathsf T}(k-p)\le0
+\qquad(\forall k\in K).
 $$
 
 錐なので
 
 $$
-\boldsymbol0\in K,
+0\in K,
 \qquad
-2\boldsymbol p\in K.
+2p\in K.
 $$
 
 それぞれ代入すると
 
 $$
-\boldsymbol d^{\mathsf T}\boldsymbol p
-\ge0,
+d^{\mathsf T}p\ge0,
 \qquad
-\boldsymbol d^{\mathsf T}\boldsymbol p
-\le0.
+d^{\mathsf T}p\le0.
 $$
 
 したがって
 
 $$
-\boldsymbol d^{\mathsf T}\boldsymbol p=0.
+d^{\mathsf T}p=0.
 $$
 
-よって任意の $\boldsymbol k\in K$ に対して
+よって
 
 $$
 \boxed{
-\boldsymbol d^{\mathsf T}\boldsymbol k\le0
+d^{\mathsf T}k\le0
+\qquad(\forall k\in K)
 }
 $$
 
-であり、一方
+であり、
 
 $$
-\begin{aligned}
-\boldsymbol d^{\mathsf T}\boldsymbol v
-&=
-\boldsymbol d^{\mathsf T}(\boldsymbol p+\boldsymbol d)\\
-&=
-\|\boldsymbol d\|^2
->0.
-\end{aligned}
+d^{\mathsf T}v
+=d^{\mathsf T}(p+d)
+=\|d\|^2>0.
 $$
 
 したがって
 
 $$
 \boxed{
-\boldsymbol d^{\mathsf T}\boldsymbol k\le0
-\quad(\forall\boldsymbol k\in K),
+d^{\mathsf T}k\le0
+\quad(\forall k\in K),
 \qquad
-\boldsymbol d^{\mathsf T}\boldsymbol v>0
+d^{\mathsf T}v>0
 }
 $$
 
-という分離方向が存在します。
+という分離証明書が存在します。
 
 ---
 
-## 6. 有限生成凸錐は閉である
+## 8. 有限生成凸錐は閉である
 
 Farkasでは
 
 $$
 K
-=
-\left\{
-\sum_{j=1}^n\lambda_j\boldsymbol a_j:
+=\left\{
+\sum_{j=1}^n\lambda_j a_j:
 \lambda_j\ge0
 \right\}
 $$
 
-という有限生成凸錐を使います。
+を使います。
 
 この $K$ は閉です。
 
-### 6.1 まず使う生成ベクトルを一次独立に減らせる
+### 8.1 表現に使う生成ベクトルを一次独立に減らせる
 
-ある点が
+ある点
 
 $$
-\boldsymbol k
-=
-\sum_j\lambda_j\boldsymbol a_j,
-\qquad
-\lambda_j>0
+k=\sum_j\lambda_j a_j,
+\qquad\lambda_j>0
 $$
 
-と表され、使用中の生成ベクトルが一次従属だとします。
+の表現で、使用中の生成ベクトルが一次従属だとします。
 
 すると
 
 $$
-\sum_jc_j\boldsymbol a_j=\boldsymbol0
+\sum_jc_ja_j=0
 $$
 
-となる $\boldsymbol c\ne\boldsymbol0$ があります。
+となる $c\ne0$ があります。
 
 必要なら符号を反転し、$c_j>0$ の成分があるようにします。
 
 $$
 t
-=
-\min_{c_j>0}
+=\min_{c_j>0}
 \frac{\lambda_j}{c_j}
 $$
 
@@ -635,27 +514,19 @@ $$
 で、少なくとも一つの係数が0になり、しかも
 
 $$
-\sum_j(\lambda_j-tc_j)\boldsymbol a_j
-=
-\boldsymbol k.
+\sum_j(\lambda_j-tc_j)a_j=k.
 $$
 
 これを繰り返すと、$\mathbb R^m$ では高々 $m$ 本の一次独立な生成ベクトルだけで表せます。
 
-### 6.2 閉性：「座標が連続」を式で確認する
+### 8.2 極限を取っても錐から出ない
 
-$\boldsymbol k_n\in K$ かつ
+$k_n\in K$ かつ $k_n\to k$ とします。
 
-$$
-\boldsymbol k_n\to\boldsymbol k
-$$
-
-とします。
-
-各 $\boldsymbol k_n$ は一次独立な高々 $m$ 本の生成ベクトルで表せます。生成ベクトルの部分集合は有限個なので、部分列を取れば同じ一次独立集合
+各 $k_n$ は一次独立な生成ベクトルの部分集合で表せます。元の生成ベクトルは有限個なので、部分列を取れば同じ一次独立集合
 
 $$
-\boldsymbol a_{j_1},\dots,\boldsymbol a_{j_s}
+a_{j_1},\dots,a_{j_s}
 $$
 
 だけを使えます。
@@ -663,19 +534,14 @@ $$
 列ベクトルを並べた行列を
 
 $$
-M
-=
-\begin{pmatrix}
-\boldsymbol a_{j_1}&\cdots&\boldsymbol a_{j_s}
-\end{pmatrix}
+M=egin{pmatrix}a_{j_1}&\cdots&a_{j_s}\end{pmatrix}
 $$
 
 とすると
 
 $$
-\boldsymbol k_n=M\boldsymbol\lambda_n,
-\qquad
-\boldsymbol\lambda_n\ge\boldsymbol0.
+k_n=M\lambda_n,
+\qquad\lambda_n\ge0.
 $$
 
 列が一次独立なので
@@ -684,158 +550,140 @@ $$
 M^{\mathsf T}M
 $$
 
-は正則です。両辺へ $M^{\mathsf T}$ を掛けると
+は正則で
 
 $$
 \boxed{
-\boldsymbol\lambda_n
-=
-(M^{\mathsf T}M)^{-1}M^{\mathsf T}\boldsymbol k_n
-}
+\lambda_n
+=(M^{\mathsf T}M)^{-1}M^{\mathsf T}k_n
+}.
 $$
 
-です。
-
-右辺は $\boldsymbol k_n$ の固定行列による線形変換なので、$\boldsymbol k_n\to\boldsymbol k$ から
+したがって
 
 $$
-\boldsymbol\lambda_n
-\to
-\boldsymbol\lambda
-=
-(M^{\mathsf T}M)^{-1}M^{\mathsf T}\boldsymbol k.
+\lambda_n\to
+\lambda=(M^{\mathsf T}M)^{-1}M^{\mathsf T}k.
 $$
 
-各 $\boldsymbol\lambda_n\ge\boldsymbol0$ なので、成分ごとに極限を取って
+各 $\lambda_n\ge0$ なので $\lambda\ge0$ です。
+
+極限を取れば
 
 $$
-\boldsymbol\lambda\ge\boldsymbol0.
-$$
-
-さらに極限を取れば
-
-$$
-\boldsymbol k=M\boldsymbol\lambda\in K.
+k=M\lambda\in K.
 $$
 
 よって $K$ は閉です。
 
 ---
 
-## 7. Farkasの補題を分離超平面定理から導く
+## 9. Farkasの補題
 
-$A\in\mathbb R^{m\times n}$、$\boldsymbol b\in\mathbb R^m$ とします。
-
-### Farkasの補題
+$A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ とします。
 
 次の二つのうち **ちょうど一方** が成立します。
 
-**(A)**
+### (A) 非負解が存在する
 
 $$
 \boxed{
-A\boldsymbol x=\boldsymbol b,
+Ax=b,
 \qquad
-\boldsymbol x\ge\boldsymbol0
+x\ge0
 }
 $$
 
-を満たす $\boldsymbol x$ が存在する。
-
-**(B)**
+### (B) 不可能性の証明書が存在する
 
 $$
 \boxed{
-A^{\mathsf T}\boldsymbol y\le\boldsymbol0,
+A^{\mathsf T}y\le0,
 \qquad
-\boldsymbol b^{\mathsf T}\boldsymbol y>0
+b^{\mathsf T}y>0
 }
 $$
 
-を満たす $\boldsymbol y$ が存在する。
+---
 
-### 7.1 両方同時には成立しない
+## 10. 両方同時には成立しない
 
 もし両方成立すれば
 
 $$
-\boldsymbol b^{\mathsf T}\boldsymbol y
-=
-\boldsymbol x^{\mathsf T}A^{\mathsf T}\boldsymbol y.
+b^{\mathsf T}y
+=x^{\mathsf T}A^{\mathsf T}y.
 $$
 
-$\boldsymbol x\ge0$、$A^{\mathsf T}\boldsymbol y\le0$ だから
+$x\ge0$、$A^{\mathsf T}y\le0$ なので
 
 $$
-\boldsymbol b^{\mathsf T}\boldsymbol y\le0,
+b^{\mathsf T}y\le0,
 $$
 
-となり (B) に反します。
+となり(B)に反します。
 
-### 7.2 どちらか一方は必ず成立する
+---
 
-$A$ の列を $\boldsymbol a_1,\dots,\boldsymbol a_n$ とし
+## 11. どちらか一方は必ず成立する
+
+$A$ の列を $a_1,\dots,a_n$ とし
 
 $$
 K
-=
-\{A\boldsymbol x:\boldsymbol x\ge\boldsymbol0\}
+=\{Ax:x\ge0\}
 $$
 
 と置きます。
 
-§0で定義した有限生成凸錐であり、§6で閉であることも示しました。
+$K$ は前節の有限生成閉凸錐です。
 
-もし $\boldsymbol b\in K$ なら、定義から (A) が成立します。
+$b\in K$ なら定義から(A)が成立します。
 
-もし $\boldsymbol b\notin K$ なら、前節の凸錐分離により、ある $\boldsymbol y$ が存在して
+$b\notin K$ なら、閉凸錐の分離により、ある $y$ が存在して
 
 $$
-\boldsymbol y^{\mathsf T}\boldsymbol k\le0
-\quad(\forall\boldsymbol k\in K),
+y^{\mathsf T}k\le0
+\quad(\forall k\in K),
 \qquad
-\boldsymbol y^{\mathsf T}\boldsymbol b>0.
+y^{\mathsf T}b>0.
 $$
 
-各列 $\boldsymbol a_j\in K$ なので
+各列 $a_j\in K$ なので
 
 $$
-\boldsymbol y^{\mathsf T}\boldsymbol a_j\le0.
+y^{\mathsf T}a_j\le0.
 $$
 
 したがって
 
 $$
-A^{\mathsf T}\boldsymbol y\le\boldsymbol0.
+A^{\mathsf T}y\le0.
 $$
 
-よって (B) が成立します。
-
-これで
+よって(B)が成立します。
 
 $$
 \boxed{
 \text{分離超平面定理}
-\Rightarrow
+\Longrightarrow
 \text{Farkasの補題}
 }
 $$
 
-が示されました。
+です。
 
-Farkasの補題は、**有限生成凸錐に対する分離超平面定理の代数版** と見ることができます。
+Farkasの補題は **有限生成凸錐に対する分離定理の代数版** と考えられます。
 
 ---
 
-## 8. KKTで使うFarkas型 alternative
+## 12. KKTで使うFarkas型alternative
 
-[F0-02A](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) では
+F0-02Aでは
 
 $$
 L
-=
-\{\boldsymbol d:A\boldsymbol d\le\boldsymbol0,
-\ B\boldsymbol d=\boldsymbol0\}
+=\{d:Ad\le0,\ Bd=0\}
 $$
 
 に対し
@@ -844,67 +692,65 @@ $$
 L^\circ
 =
 \left\{
-A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu:
-\boldsymbol\lambda\ge\boldsymbol0
+A^{\mathsf T}\lambda
++B^{\mathsf T}\nu:
+\lambda\ge0
 \right\}
 $$
 
 を使いました。
 
-ここで
+右辺の集合を
 
 $$
 K
 =
 \left\{
-A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu:
-\boldsymbol\lambda\ge\boldsymbol0
+A^{\mathsf T}\lambda
++B^{\mathsf T}\nu:
+\lambda\ge0
 \right\}
 $$
 
 と置きます。
 
-$\boldsymbol\nu$ は符号自由なので
+$\nu$ は符号自由なので
 
 $$
-\nu_j
-=
-\nu_j^+-\nu_j^-.
+\nu_j=\nu_j^+-\nu_j^-.
 $$
 
 したがって $K$ は
 
 $$
-A^{\mathsf T}\boldsymbol e_i,
+A^{\mathsf T}e_i,
 \qquad
-B^{\mathsf T}\boldsymbol e_j,
+B^{\mathsf T}e_j,
 \qquad
--B^{\mathsf T}\boldsymbol e_j
+-B^{\mathsf T}e_j
 $$
 
 という有限個のベクトルで生成される閉凸錐です。
 
-もし $\boldsymbol v\notin K$ なら、凸錐分離により $\boldsymbol d$ が存在して
+$v\notin K$ なら凸錐分離により $d$ が存在して
 
 $$
-\boldsymbol d^{\mathsf T}\boldsymbol k\le0
-\quad(\forall\boldsymbol k\in K),
+d^{\mathsf T}k\le0
+\quad(\forall k\in K),
 \qquad
-\boldsymbol d^{\mathsf T}\boldsymbol v>0.
+d^{\mathsf T}v>0.
 $$
 
-$A^{\mathsf T}\boldsymbol e_i\in K$ から
+$A^{\mathsf T}e_i\in K$ から
 
 $$
-A\boldsymbol d\le\boldsymbol0.
+Ad\le0.
 $$
 
-また $\pm B^{\mathsf T}\boldsymbol e_j\in K$ だから
+また $\pm B^{\mathsf T}e_j\in K$ だから
 
 $$
-B\boldsymbol d=\boldsymbol0.
+Bd=0.
 $$
 
 したがって
@@ -912,33 +758,27 @@ $$
 $$
 \boxed{
 \begin{array}{l}
-\boldsymbol v
-=A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu,
-\quad\boldsymbol\lambda\ge\boldsymbol0
+v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu,
+\quad\lambda\ge0
 \\[1mm]
 \text{または}
 \\[1mm]
-A\boldsymbol d\le\boldsymbol0,
-\quad B\boldsymbol d=\boldsymbol0,
-\quad\boldsymbol v^{\mathsf T}\boldsymbol d>0
+Ad\le0,\quad Bd=0,\quad v^{\mathsf T}d>0
 \end{array}
 }
 $$
 
 のどちらか一方が成立します。
 
-これがF0-02Aで使ったFarkas型 alternative です。
+これがF0-02Aで使ったFarkas型alternativeです。
 
 ---
 
-## 9. polar cone の公式
+## 13. polar coneの公式
 
 $$
 L
-=
-\{\boldsymbol d:A\boldsymbol d\le\boldsymbol0,
-B\boldsymbol d=\boldsymbol0\}
+=\{d:Ad\le0,\ Bd=0\}
 $$
 
 とします。
@@ -946,115 +786,83 @@ $$
 まず
 
 $$
-\boldsymbol v
-=A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu,
-\qquad
-\boldsymbol\lambda\ge\boldsymbol0
+v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu,
+\qquad\lambda\ge0
 $$
 
-なら、任意の $\boldsymbol d\in L$ に対し
+なら、任意の $d\in L$ に対し
 
 $$
 \begin{aligned}
-\boldsymbol v^{\mathsf T}\boldsymbol d
-&=
-\boldsymbol\lambda^{\mathsf T}A\boldsymbol d
-+
-\boldsymbol\nu^{\mathsf T}B\boldsymbol d\\
+v^{\mathsf T}d
+&=\lambda^{\mathsf T}Ad
++\nu^{\mathsf T}Bd\\
 &\le0.
 \end{aligned}
 $$
 
-よって $\boldsymbol v\in L^\circ$ です。
+よって $v\in L^\circ$ です。
 
-逆に $\boldsymbol v\in L^\circ$ なら
-
-$$
-A\boldsymbol d\le0,
-\quad B\boldsymbol d=0,
-\quad\boldsymbol v^{\mathsf T}\boldsymbol d>0
-$$
-
-となる $\boldsymbol d$ は存在できません。
-
-したがってFarkas型 alternative より
+逆に $v\in L^\circ$ なら
 
 $$
-\boldsymbol v
-=A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu,
-\qquad
-\boldsymbol\lambda\ge\boldsymbol0.
+Ad\le0,
+\quad Bd=0,
+\quad v^{\mathsf T}d>0
 $$
 
-ゆえに
+となる $d$ は存在できません。
+
+Farkas型alternativeより
+
+$$
+v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu,
+\qquad\lambda\ge0.
+$$
+
+したがって
 
 $$
 \boxed{
 L^\circ
 =
 \left\{
-A^{\mathsf T}\boldsymbol\lambda
-+B^{\mathsf T}\boldsymbol\nu:
-\boldsymbol\lambda\ge\boldsymbol0
+A^{\mathsf T}\lambda
++B^{\mathsf T}\nu:
+\lambda\ge0
 \right\}
 }
 $$
 
 です。
 
-ここまでで
-
-$$
-\boxed{
-\text{分離超平面定理}
-\to
-\text{Farkas}
-\to
-\text{polar coneの表現}
-}
-$$
-
-がつながりました。
-
 ---
 
-## 10. KKT条件への接続
+## 14. KKT条件への接続
 
-局所最適点 $\boldsymbol x^*$ では
-
-$$
--\nabla f(\boldsymbol x^*)
-\in
-T_C(\boldsymbol x^*)^\circ.
-$$
-
-適切な制約想定の下で
+局所最適点 $x^*$ では
 
 $$
-T_C(\boldsymbol x^*)
-=
-L_C(\boldsymbol x^*)
+-\nabla f(x^*)
+\in T_C(x^*)^\circ.
 $$
 
-なら
+適切な制約想定の下で、真の接錐を線形化された制約方向で正しく表せるなら
 
 $$
--\nabla f(\boldsymbol x^*)
-\in
-L_C(\boldsymbol x^*)^\circ.
+-\nabla f(x^*)
+\in L_C(x^*)^\circ.
 $$
 
 前節の公式から
 
 $$
--\nabla f(\boldsymbol x^*)
+-\nabla f(x^*)
 =
-\sum_{i\in I(\boldsymbol x^*)}
-\lambda_i\nabla g_i(\boldsymbol x^*)
+\sum_{i\in I(x^*)}
+\lambda_i\nabla g_i(x^*)
 +
-\sum_j\nu_j\nabla h_j(\boldsymbol x^*),
+\sum_j\nu_j\nabla h_j(x^*),
 \qquad
 \lambda_i\ge0.
 $$
@@ -1063,51 +871,29 @@ $$
 
 $$
 \boxed{
-\nabla f(\boldsymbol x^*)
+\nabla f(x^*)
 +
-\sum_i\lambda_i\nabla g_i(\boldsymbol x^*)
+\sum_i\lambda_i\nabla g_i(x^*)
 +
-\sum_j\nu_j\nabla h_j(\boldsymbol x^*)
-=\boldsymbol0
+\sum_j\nu_j\nabla h_j(x^*)
+=0
 }
 $$
 
 というKKT停留条件が出ます。
 
-つまり理論の依存関係は
-
-$$
-\boxed{
-\text{射影}
-\to
-\text{分離超平面定理}
-\to
-\text{Farkas}
-\to
-\text{polar cone}
-\to
-\text{KKT}
-}
-$$
-
-です。
-
-制約想定がなぜ必要で、無限次元ではどう一般化されるかは [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で扱います。
+制約想定そのものを丁寧に追う場合は [F0-02C5](../F0_02C5_一般化KKT_制約写像_制約想定/index.md) を参照してください。
 
 ---
 
-## 11. SVMの表側：線形分離と凸包
+## 15. SVMの表側：線形分離と凸包
 
 正例と負例の訓練点を
 
 $$
-X_+
-=
-\{\boldsymbol x_i:y_i=+1\},
+X_+=\{x_i:y_i=+1\},
 \qquad
-X_-
-=
-\{\boldsymbol x_i:y_i=-1\}
+X_-=\{x_i:y_i=-1\}
 $$
 
 とします。
@@ -1115,45 +901,42 @@ $$
 それぞれの凸包を
 
 $$
-C_+
-=
-\operatorname{conv}(X_+),
+C_+=\operatorname{conv}(X_+),
 \qquad
-C_-
-=
-\operatorname{conv}(X_-)
+C_-=\operatorname{conv}(X_-)
 $$
 
 とします。
 
-ここで凸包は§0.1で定義した「全ての凸結合の集合」です。
+有限点集合の凸包はコンパクトです。
 
-有限点集合 $\{\boldsymbol x_1,\dots,\boldsymbol x_n\}$ の凸包がコンパクトであることも確認しておきます。係数集合
+実際、係数単体
 
 $$
 \Delta
-=
-\left\{
-\boldsymbol\theta:\theta_i\ge0,
-\ \sum_i\theta_i=1
+=\left\{
+\theta:\theta_i\ge0,\ \sum_i\theta_i=1
 \right\}
 $$
 
-は閉かつ有界なのでHeine--Borelによりコンパクトです。写像
+は閉有界なのでコンパクトであり、連続写像
 
 $$
-\boldsymbol\theta
-\mapsto
-\sum_i\theta_i\boldsymbol x_i
+\theta\mapsto\sum_i\theta_i x_i
 $$
 
-は連続なので、その像である凸包もコンパクトです。
+の像が凸包です。
 
-### 定理
+したがって [F0-00C](../F0_00C_連続写像_コンパクト性_最大最小/index.md) の「連続像はコンパクト」が使えます。
+
+---
+
+## 16. 線形分離可能性と凸包の非交差
 
 $$
 \boxed{
-X_+,X_-\text{ が厳密に線形分離可能}
+X_+,X_-
+\text{ が厳密に線形分離可能}
 \Longleftrightarrow
 C_+\cap C_-=\varnothing
 }
@@ -1161,50 +944,40 @@ $$
 
 です。
 
-### 11.1 線形分離可能なら凸包も交わらない
+### 16.1 線形分離可能なら凸包も交わらない
 
-ある $\boldsymbol w,b$ が存在して
+ある $w,b$ が存在して
 
 $$
-\boldsymbol w^{\mathsf T}\boldsymbol x_i+b>0
+w^{\mathsf T}x_i+b>0
 \qquad(y_i=+1),
 $$
 
 $$
-\boldsymbol w^{\mathsf T}\boldsymbol x_i+b<0
+w^{\mathsf T}x_i+b<0
 \qquad(y_i=-1)
 $$
 
 とします。
 
-正例の任意の凸結合
+正例凸包の任意の点
 
 $$
-\boldsymbol p
-=
-\sum_{i:y_i=+1}
-\theta_i\boldsymbol x_i,
-\qquad
-\theta_i\ge0,
-\quad
-\sum_i\theta_i=1
+p=\sum_{i:y_i=+1}\theta_i x_i
 $$
 
 について
 
 $$
-\boldsymbol w^{\mathsf T}\boldsymbol p+b
-=
-\sum_i\theta_i
-(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)
->0.
+w^{\mathsf T}p+b
+=\sum_i\theta_i(w^{\mathsf T}x_i+b)>0.
 $$
 
-負例の凸包では同様に値が負です。
+負例凸包では同様に負です。
 
 したがって二つの凸包は交わりません。
 
-### 11.2 凸包が交わらないなら分離可能
+### 16.2 凸包が交わらないなら分離可能
 
 逆に
 
@@ -1217,26 +990,15 @@ $$
 $C_+\times C_-$ はコンパクトで、距離関数
 
 $$
-(\boldsymbol p,\boldsymbol q)
-\mapsto
-\|\boldsymbol p-\boldsymbol q\|
+(p,q)\mapsto\|p-q\|
 $$
 
-は連続なので
+は連続なので、最近点対
 
 $$
-\delta
-=
-\min_{\boldsymbol p\in C_+,\boldsymbol q\in C_-}
-\|\boldsymbol p-\boldsymbol q\|
-$$
-
-を達成する最近点対
-
-$$
-\boldsymbol p^*\in C_+,
+p^*\in C_+,
 \qquad
-\boldsymbol q^*\in C_-
+q^*\in C_-
 $$
 
 が存在します。
@@ -1244,120 +1006,80 @@ $$
 二集合は交わらないので
 
 $$
-\delta>0.
+\delta=\|p^*-q^*\|>0.
 $$
 
 次節で、この最近点対の中間超平面が二集合を分離することを示します。
 
 ---
 
-## 12. 最大マージンは二つの凸包の最短距離
+## 17. 最大マージンは二つの凸包の最短距離
 
 $$
-\boldsymbol r
-=
-\boldsymbol p^*-\boldsymbol q^*,
+r=p^*-q^*,
 \qquad
-\delta=\|\boldsymbol r\|>0
+\delta=\|r\|>0
 $$
 
 とします。
 
-$\boldsymbol q^*$ を固定すると $\boldsymbol p^*$ は $C_+$ 上で $\boldsymbol q^*$ に最も近い点なので、射影条件から任意の $\boldsymbol p\in C_+$ について
+$q^*$ を固定すると $p^*$ は $C_+$ 上で $q^*$ に最も近い点なので、射影条件から任意の $p\in C_+$ について
 
 $$
-(\boldsymbol q^*-\boldsymbol p^*)^{\mathsf T}
-(\boldsymbol p-\boldsymbol p^*)
-\le0.
+(q^*-p^*)^{\mathsf T}(p-p^*)\le0.
 $$
 
 したがって
 
 $$
-\boxed{
-\boldsymbol r^{\mathsf T}\boldsymbol p
-\ge
-\boldsymbol r^{\mathsf T}\boldsymbol p^*
-}
+\boxed{r^{\mathsf T}p\ge r^{\mathsf T}p^*}.
 $$
 
-です。
-
-同様に任意の $\boldsymbol q\in C_-$ について
+同様に任意の $q\in C_-$ について
 
 $$
-\boxed{
-\boldsymbol r^{\mathsf T}\boldsymbol q
-\le
-\boldsymbol r^{\mathsf T}\boldsymbol q^*
-}
+\boxed{r^{\mathsf T}q\le r^{\mathsf T}q^*}.
 $$
-
-です。
 
 しかも
 
 $$
-\boldsymbol r^{\mathsf T}\boldsymbol p^*
--
-\boldsymbol r^{\mathsf T}\boldsymbol q^*
-=
-\|\boldsymbol r\|^2
-=
-\delta^2
->0.
+r^{\mathsf T}p^*
+-r^{\mathsf T}q^*
+=\|r\|^2
+=\delta^2>0.
 $$
 
-よって
+よって中間超平面
 
 $$
-\boldsymbol r^{\mathsf T}\boldsymbol x
+r^{\mathsf T}x
 =
-\frac{
-\boldsymbol r^{\mathsf T}\boldsymbol p^*
-+
-\boldsymbol r^{\mathsf T}\boldsymbol q^*
-}{2}
+\frac{r^{\mathsf T}p^*+r^{\mathsf T}q^*}{2}
 $$
 
-という中間超平面が $C_+$ と $C_-$ を厳密に分離します。
+が二つの凸包を厳密に分離します。
 
 単位法線
 
 $$
-\boldsymbol u
-=
-\frac{\boldsymbol r}{\delta}
+u=\frac r\delta
 $$
 
-を使えば、二つの支持超平面間の距離は
+を使えば、二つの支持超平面間距離は $\delta$、中央境界から各支持超平面までの距離は $\delta/2$ です。
+
+ハードマージンSVMでは支持超平面間距離が
 
 $$
-\boldsymbol u^{\mathsf T}
-(\boldsymbol p^*-\boldsymbol q^*)
-=
-\delta.
+\frac{2}{\|w\|}
 $$
 
-中央の分類境界から各支持超平面までの距離は
-
-$$
-\frac\delta2.
-$$
-
-一方、ハードマージンSVMでは支持超平面間の距離が
-
-$$
-\frac{2}{\|\boldsymbol w\|}
-$$
-
-なので、最適解では
+なので最適解で
 
 $$
 \boxed{
-\frac{2}{\|\boldsymbol w^*\|}
-=
-\delta
+\frac{2}{\|w^*\|}
+=\delta
 }
 $$
 
@@ -1367,7 +1089,7 @@ $$
 
 $$
 \boxed{
-\text{正例の凸包と負例の凸包の最近点対を見つけ、
+\text{正例凸包と負例凸包の最近点対を見つけ、
 その中間超平面を取る}
 }
 $$
@@ -1376,7 +1098,7 @@ $$
 
 ---
 
-## 13. 双対変数 $\alpha_i$ は凸包上の点を作る
+## 18. 双対変数 $\alpha_i$ は凸包上の点を作る
 
 ハードマージンSVMの双対制約は
 
@@ -1390,10 +1112,8 @@ $$
 
 $$
 \rho
-=
-\sum_{i:y_i=+1}\alpha_i
-=
-\sum_{i:y_i=-1}\alpha_i
+=\sum_{i:y_i=+1}\alpha_i
+=\sum_{i:y_i=-1}\alpha_i
 $$
 
 と置きます。
@@ -1401,91 +1121,85 @@ $$
 $\rho>0$ のとき
 
 $$
-\boldsymbol p
-=
-\sum_{i:y_i=+1}
-\frac{\alpha_i}{\rho}\boldsymbol x_i,
+p
+=\sum_{i:y_i=+1}
+\frac{\alpha_i}{\rho}x_i,
 $$
 
 $$
-\boldsymbol q
-=
-\sum_{i:y_i=-1}
-\frac{\alpha_i}{\rho}\boldsymbol x_i
+q
+=\sum_{i:y_i=-1}
+\frac{\alpha_i}{\rho}x_i
 $$
 
 とすれば
 
 $$
-\boldsymbol p\in C_+,
+p\in C_+,
 \qquad
-\boldsymbol q\in C_-.
+q\in C_-.
 $$
 
 さらに
 
 $$
 \begin{aligned}
-\boldsymbol w
-&=
-\sum_i\alpha_i y_i\boldsymbol x_i\\
-&=
-\rho(\boldsymbol p-\boldsymbol q).
+w
+&=\sum_i\alpha_i y_i x_i\\
+&=\rho(p-q).
 \end{aligned}
 $$
 
 つまりSVMの法線は、二つの凸包上の点を結ぶ方向です。
 
-### 13.1 双対目的関数も凸包間距離になる
+---
+
+## 19. 双対目的関数も凸包間距離になる
 
 双対目的関数
 
 $$
 \sum_i\alpha_i
--
-\frac12\|\boldsymbol w\|^2
+-\frac12\|w\|^2
 $$
 
 は
 
 $$
 2\rho
--
-\frac12\rho^2
-\|\boldsymbol p-\boldsymbol q\|^2
+-\frac12\rho^2\|p-q\|^2
 $$
 
 と書けます。
 
-$\boldsymbol p,\boldsymbol q$ を固定して $\rho$ について最大化すると
+$p,q$ を固定して $\rho$ について最大化すると
 
 $$
 \rho^*
-=
-\frac{2}{\|\boldsymbol p-\boldsymbol q\|^2}
+=\frac{2}{\|p-q\|^2},
 $$
 
-で、最大値は
+最大値は
 
 $$
-\frac{2}{\|\boldsymbol p-\boldsymbol q\|^2}.
+\frac{2}{\|p-q\|^2}.
 $$
 
 したがって双対問題全体を最大化するには
 
 $$
-\|\boldsymbol p-\boldsymbol q\|
+\|p-q\|
 $$
 
 を最小にすればよいことになります。
 
-つまり双対側からも **二つの凸包の最近点対** が現れます。
+双対側からも **二つの凸包の最近点対** が現れます。
 
-非零の $\alpha_i$ を持つ訓練点だけが、これらの凸結合と法線ベクトルに寄与します。これがサポートベクトルの幾何学的な意味の一つです。
+非零の $\alpha_i$ を持つ訓練点だけが、これらの凸結合と法線ベクトルに寄与します。これがsupport vectorの幾何学的な意味の一つです。
 
 ---
 
-## 14. SVMには二種類の分離超平面がある
+## 20. SVMには二種類の「分離」がある
 
 ### 表側：分類境界
 
@@ -1502,10 +1216,10 @@ $$
 KKT条件の背後では
 
 $$
-\boldsymbol v\notin K
+v\notin K
 $$
 
-なら $K$ と $\boldsymbol v$ を分離する方向が存在する、という凸錐分離からFarkasを導きます。
+なら $K$ と $v$ を分離する方向が存在する、という凸錐分離からFarkasを導きます。
 
 したがってSVMは
 
@@ -1520,7 +1234,7 @@ $$
 
 ---
 
-## 15. soft margin と kernel も同じ地図で見られる
+## 21. soft marginとkernelへ
 
 もし
 
@@ -1528,54 +1242,25 @@ $$
 C_+\cap C_-\ne\varnothing
 $$
 
-なら、二つの凸包を厳密分離する超平面は存在せず、hard margin は不可能です。
+なら、二つの凸包を厳密分離するhard marginは不可能です。
 
-そこで [E1-04](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) で扱うスラック変数を導入し、違反を許す soft margin へ進みます。
-
-$$
-\boxed{
-\text{凸包が離れている}
-\to
-\text{hard margin},
-\qquad
-\text{凸包が重なる}
-\to
-\text{soft margin}
-}
-$$
-
-と見ることができます。
+そこで [E1-04](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) で扱うスラック変数を導入し、違反を許すsoft marginへ進みます。
 
 kernel SVMでは
 
 $$
-\boldsymbol x
-\mapsto
-\varphi(\boldsymbol x)
+x\mapsto\varphi(x)
 $$
 
-と特徴空間へ移し、そこで正負クラスの凸包を分離します。
+と特徴空間へ移し、そこで同じ凸幾何を考えます。
 
-有限個の訓練標本については、全ての $\varphi(\boldsymbol x_i)$ は高々 $n$ 次元の線形部分空間を張るので、特徴空間自体が無限次元でも、訓練標本の分離幾何はこの有限次元部分空間内で理解できます。
+有限個の訓練標本については、$\varphi(x_i)$ は高々 $n$ 次元の部分空間を張ります。このため特徴空間全体が無限次元でも、訓練標本の分離幾何は有限次元部分空間に落ちます。
 
-カーネルトリックは、その空間で必要になる内積を
-
-$$
-K(\boldsymbol x_i,\boldsymbol x_j)
-=
-\langle
-\varphi(\boldsymbol x_i),
-\varphi(\boldsymbol x_j)
-\rangle
-$$
-
-として直接計算する方法です。
-
-ここで「無限次元の特徴空間」「Hilbert空間」「RKHS」を数学的にどう定義するかは [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で順に導入します。
+ただし「Hilbert空間」「RKHS」「なぜkernelが内積になるのか」を数学的に理解するには、[F0-02C 関数解析補講ロードマップ](../F0_02C_関数解析_制約想定_RKHS/index.md) からC1〜C7へ進んでください。
 
 ---
 
-## 16. 全体像
+## 22. 全体像
 
 最適化理論側は
 
@@ -1603,13 +1288,13 @@ $$
 \to
 \text{非交差}
 \to
-\text{分離超平面}
-\to
 \text{最近点対}
+\to
+\text{分離超平面}
 \to
 \text{最大マージン}
 \to
-\text{双対変数とサポートベクトル}
+\text{双対変数・support vector}
 }
 $$
 
@@ -1617,4 +1302,16 @@ $$
 
 この二つは別の理論ではなく、どちらも **凸集合と超平面の幾何** に根を持っています。
 
-KKTそのものの導出へ戻る場合は [F0-02A](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)、関数解析・制約想定・RKHSまで進む場合は [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md)、SVMの主問題・双対問題・soft margin・kernelへ戻る場合は [E1-04](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) を参照してください。
+---
+
+## 章末チェック
+
+- 凸結合・凸集合・凸包・凸錐を定義できる。
+- 閉凸集合への最近点の存在でHeine--Borelがどこに使われるか説明できる。
+- 射影条件から分離超平面を構成できる。
+- 有限生成凸錐が閉である理由を説明できる。
+- Farkasの補題を凸錐の分離から導ける。
+- polar coneの公式がKKTの乗数表示へつながることを説明できる。
+- 線形分離可能性と正負クラスの凸包の非交差を結び付けられる。
+- ハードマージンと凸包間最短距離の関係を説明できる。
+- 双対変数 $\alpha_i$ を凸包上の点を作る係数として解釈できる。

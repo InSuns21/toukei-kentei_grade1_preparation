@@ -8,38 +8,32 @@ prerequisites:
   - F0-02A
 official_scope: []
 learning_objectives:
-  - 凸結合・凸集合・凸包・凸錐・閉集合・コンパクト・infimumを本文の定義から説明できる
-  - Heine--Borelの定理を使って閉凸集合への最近点の存在を説明できる
-  - 閉凸集合への射影定理から点と閉凸集合の分離超平面定理を導出できる
+  - 凸結合・凸集合・凸包・凸錐を定義できる
+  - 閉凸集合への最近点射影から点と閉凸集合の分離超平面定理を導出できる
   - 有限生成凸錐の閉性を一次独立な生成系と座標表示から説明できる
   - 分離超平面定理から古典的なFarkasの補題を導出できる
   - KKTで使うFarkas型alternativeとpolar cone表現の出所を説明できる
   - 線形分離可能性と正負クラスの凸包が交わらないことの同値性を説明できる
   - ハードマージンSVMを二つの凸包の最近点対と最大マージンの幾何として解釈できる
   - SVM双対変数を正負クラスの凸包上の凸結合として解釈できる
-  - 分離超平面定理がSVMの分類境界とKKT理論の双方に現れることを説明できる
 definitions:
   - { id: F002B-DEF-01, name: 凸結合 }
   - { id: F002B-DEF-02, name: 凸集合 }
   - { id: F002B-DEF-03, name: 凸包 }
   - { id: F002B-DEF-04, name: 凸錐 }
-  - { id: F002B-DEF-05, name: 閉集合 }
-  - { id: F002B-DEF-06, name: コンパクト集合 }
-  - { id: F002B-DEF-07, name: infimum }
-  - { id: F002B-DEF-08, name: 分離超平面 }
-  - { id: F002B-DEF-09, name: 有限生成凸錐 }
-  - { id: F002B-DEF-10, name: 最近点射影 }
+  - { id: F002B-DEF-05, name: 分離超平面 }
+  - { id: F002B-DEF-06, name: 有限生成凸錐 }
+  - { id: F002B-DEF-07, name: 最近点射影 }
 theorems:
-  - { id: F002B-THM-01, name: Heine--Borelの定理 }
-  - { id: F002B-THM-02, name: 閉凸集合への射影定理 }
-  - { id: F002B-THM-03, name: 点と閉凸集合の厳密分離定理 }
-  - { id: F002B-THM-04, name: 凸錐の分離 }
-  - { id: F002B-THM-05, name: Farkasの補題 }
-  - { id: F002B-THM-06, name: 線形分離可能性と凸包の非交差の同値性 }
-  - { id: F002B-THM-07, name: ハードマージンと凸包間最短距離の対応 }
+  - { id: F002B-THM-01, name: 閉凸集合への射影定理（有限次元） }
+  - { id: F002B-THM-02, name: 点と閉凸集合の厳密分離定理 }
+  - { id: F002B-THM-03, name: 閉凸錐の分離 }
+  - { id: F002B-THM-04, name: Farkasの補題 }
+  - { id: F002B-THM-05, name: 線形分離可能性と凸包の非交差の同値性 }
+  - { id: F002B-THM-06, name: ハードマージンと凸包間最短距離の対応 }
 canonical_examples: [点と閉凸集合の分離, 凸錐からFarkas, 正負クラスの凸包, SVM双対変数の凸結合解釈]
 problem_patterns: [SEP-HYPERPLANE-1, FARKAS-SEPARATION-1, SVM-CONVEX-HULL-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0, review: 1 }
+estimated_hours: { reading: 3.5, exercises: 0, review: 1 }
