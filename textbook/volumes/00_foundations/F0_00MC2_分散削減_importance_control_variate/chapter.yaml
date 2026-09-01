@@ -1,0 +1,21 @@
+id: "F0-00MC2"
+title: "Encore V：分散削減・importance sampling・control variate"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00MC1
+learning_objectives:
+  - control variateの最適係数を導ける
+  - importance samplingの重みを導ける
+  - stratificationとantithetic variatesを説明できる
+  - 分散削減法の失敗条件を説明できる
+definitions:
+  - { id: F000MC2-DEF-01, name: control variate }
+  - { id: F000MC2-DEF-02, name: importance sampling }
+  - { id: F000MC2-DEF-03, name: antithetic variates }
+theorems:
+  - { id: F000MC2-THM-01, name: control variate最適係数 }
+canonical_examples: [rare event importance sampling, control variate, stratified Monte Carlo]
+problem_patterns: [MC-CONTROL-1, MC-IS-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
