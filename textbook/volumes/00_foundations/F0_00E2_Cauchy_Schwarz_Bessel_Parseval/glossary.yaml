@@ -1,0 +1,14 @@
+chapter: "F0-00E2"
+terms:
+  - term: Cauchy--Schwarz不等式
+    english: Cauchy--Schwarz inequality
+    meaning: 内積空間で |<x,y>| <= ||x|| ||y|| が成り立つという基本不等式。
+  - term: Fourier係数
+    english: Fourier coefficient
+    meaning: 正規直交系q_iに対するベクトルxの係数 <x,q_i>。
+  - term: Bessel不等式
+    english: Bessel inequality
+    meaning: 正規直交系への係数平方和が元のベクトルのノルム平方を超えないという不等式。
+  - term: Parseval等式
+    english: Parseval identity
+    meaning: 完全な正規直交基底ではノルム平方が係数平方和に等しくなるという等式。
