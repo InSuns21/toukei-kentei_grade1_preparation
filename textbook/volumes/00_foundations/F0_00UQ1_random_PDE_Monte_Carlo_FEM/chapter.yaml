@@ -1,0 +1,23 @@
+id: "F0-00UQ1"
+title: "Encore V：random PDE・Monte Carlo FEM・不確実性定量化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00FEM1
+  - F0-00MC1
+  - F0-00F
+learning_objectives:
+  - random coefficient PDEを定義できる
+  - sample-wise弱形式とLax--Milgramを接続できる
+  - Karhunen--Loeve展開の役割を説明できる
+  - Monte Carlo FEMの誤差分解を説明できる
+definitions:
+  - { id: F000UQ1-DEF-01, name: random field }
+  - { id: F000UQ1-DEF-02, name: Karhunen--Loeve展開 }
+  - { id: F000UQ1-DEF-03, name: Monte Carlo FEM }
+theorems:
+  - { id: F000UQ1-THM-01, name: sample-wise楕円型弱解の存在一意性 }
+canonical_examples: [random permeability, lognormal coefficient, groundwater flow]
+problem_patterns: [UQ-MCFEM-1, UQ-ERROR-BALANCE-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
