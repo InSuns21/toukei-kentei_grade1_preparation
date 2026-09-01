@@ -1,0 +1,23 @@
+chapter: "F0-00D4"
+terms:
+  - term: Borel sigma代数
+    english: Borel sigma-algebra
+    meaning: 位相空間の開集合から生成される最小のsigma代数。実数上では開区間・閉区間など標準的な集合を含む。
+  - term: Lebesgue sigma代数
+    english: Lebesgue sigma-algebra
+    meaning: Lebesgue測度に関するCarathéodory可測集合全体。Borel sigma代数の完備化とみなせる。
+  - term: 完備化
+    english: completion
+    meaning: 測度0集合の任意の部分集合を可測集合として加えて測度空間を完全にする操作。
+  - term: algebra
+    english: algebra of sets
+    meaning: 全体集合を含み、補集合と有限和について閉じた集合族。
+  - term: premeasure
+    english: premeasure
+    meaning: algebra上で定義され、適用可能な可算分割について可算加法性を満たす集合関数。
+  - term: Carathéodory拡張定理
+    english: Caratheodory extension theorem
+    meaning: algebra上のpremeasureを、そのalgebraが生成するsigma代数上の測度へ拡張できることを述べる定理。
+  - term: sigma有限
+    english: sigma-finite
+    meaning: 全体空間を有限測度の可測集合の可算和で覆える性質。
