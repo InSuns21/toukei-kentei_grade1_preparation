@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" role="img" aria-labelledby="title desc">
+  <title id="title">管理図の基本構造</title>
+  <desc id="desc">時間順の群統計量、中心線CL、上方管理限界UCL、下方管理限界LCLを示す。通常の点は限界内にあり、最後の点だけUCLを超えて特殊原因を疑う信号になっている。</desc>
+  <rect width="820" height="420" fill="white"/>
+  <text x="48" y="32" font-size="20" font-weight="bold">管理図：時間順の変化を管理限界と比較する</text>
+  <line x1="90" y1="350" x2="760" y2="350" stroke="#222" stroke-width="2"/>
+  <line x1="90" y1="350" x2="90" y2="70" stroke="#222" stroke-width="2"/>
+  <text x="730" y="382" font-size="16">時間</text>
+  <text x="26" y="82" font-size="16">統計量</text>
+  <line x1="90" y1="115" x2="760" y2="115" stroke="#555" stroke-width="2" stroke-dasharray="8 6"/>
+  <line x1="90" y1="215" x2="760" y2="215" stroke="#222" stroke-width="2"/>
+  <line x1="90" y1="315" x2="760" y2="315" stroke="#555" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="770" y="120" font-size="16">UCL</text>
+  <text x="770" y="220" font-size="16">CL</text>
+  <text x="770" y="320" font-size="16">LCL</text>
+  <polyline points="120,226 175,204 230,238 285,192 340,218 395,246 450,205 505,230 560,196 615,222 670,176 725,88" fill="none" stroke="#222" stroke-width="2.5"/>
+  <g fill="white" stroke="#222" stroke-width="2.5">
+    <circle cx="120" cy="226" r="6"/><circle cx="175" cy="204" r="6"/><circle cx="230" cy="238" r="6"/><circle cx="285" cy="192" r="6"/><circle cx="340" cy="218" r="6"/><circle cx="395" cy="246" r="6"/><circle cx="450" cy="205" r="6"/><circle cx="505" cy="230" r="6"/><circle cx="560" cy="196" r="6"/><circle cx="615" cy="222" r="6"/><circle cx="670" cy="176" r="6"/>
+  </g>
+  <circle cx="725" cy="88" r="8" fill="#222"/>
+  <path d="M690 70 L716 84" stroke="#222" stroke-width="2"/>
+  <text x="540" y="58" font-size="15">限界外の点 → 特殊原因を疑う</text>
+</svg>
