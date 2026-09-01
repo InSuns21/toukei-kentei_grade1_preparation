@@ -1,0 +1,19 @@
+terms:
+  - term: 接錐
+    english: tangent cone
+    meaning: 実行可能集合の点から一次のスケールで実際に進める方向を集めた錐。
+  - term: polar cone
+    english: polar cone
+    meaning: 本補講では K^circ={v:v^T d<=0 for all d in K} と定義する錐。
+  - term: 線形化錐
+    english: linearized cone
+    meaning: active制約と等式制約を勾配で一次近似して得られる方向集合。
+  - term: active制約
+    english: active constraint
+    meaning: 最適点で不等式制約が等号成立している制約。
+  - term: Farkasの補題
+    english: Farkas' lemma
+    meaning: 線形不等式系と非負係数による法線の表現を結ぶalternative定理。
+  - term: 制約想定
+    english: constraint qualification
+    meaning: 接錐と線形化錐の関係などを保証し、KKT乗数の存在を導くための正則条件。
