@@ -1,0 +1,14 @@
+chapter: "F0-00SOB1"
+terms:
+  - term: Sobolev空間
+    english: Sobolev space
+    meaning: 関数と指定次数までの弱微分がLpに属することを要求して作る関数空間。
+  - term: Wkp
+    english: W^{k,p}
+    meaning: k階までの全ての弱微分がLpに属する関数の空間。
+  - term: Sobolevノルム
+    english: Sobolev norm
+    meaning: 関数自身と指定次数までの弱微分のLpノルムをまとめて測るノルム。
+  - term: Hk
+    english: H^k
+    meaning: W^{k,2}の別名。p=2なので内積を持つHilbert空間になる。
