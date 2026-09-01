@@ -3,6 +3,7 @@ title: "補講：外測度・Carathéodory可測性"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-00A2
   - F0-00D2
 official_scope: []
 learning_objectives:
