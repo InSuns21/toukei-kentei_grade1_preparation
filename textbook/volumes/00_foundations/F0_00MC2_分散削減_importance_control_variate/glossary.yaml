@@ -1,0 +1,13 @@
+terms:
+  - term: control variate
+    aliases: [制御変量法]
+    definition: 期待値既知で対象と相関する変数を使って推定量の分散を下げる方法。
+  - term: importance sampling
+    aliases: [重点サンプリング]
+    definition: 別のproposal分布から標本を取り尤度比で補正して期待値を推定する方法。
+  - term: antithetic variates
+    aliases: [対照変量法]
+    definition: 負の相関を持つ対の標本を構成して平均の分散を下げる方法。
+  - term: common random numbers
+    aliases: [共通乱数]
+    definition: 複数手法の差を比較するとき同じ基礎乱数を共有して差の分散低減を狙う方法。
