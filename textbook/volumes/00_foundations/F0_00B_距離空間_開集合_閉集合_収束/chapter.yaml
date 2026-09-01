@@ -1,0 +1,30 @@
+id: "F0-00B"
+title: "補講：距離空間・開集合・閉集合・収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 距離空間と開球を定義できる
+  - 開集合・閉集合を定義し、具体例を判定できる
+  - 点列の収束をepsilonを用いて説明できる
+  - 距離空間で閉集合が極限を含むことを説明できる
+  - 内部・閉包・境界を区別できる
+definitions:
+  - { id: F000B-DEF-01, name: 距離空間 }
+  - { id: F000B-DEF-02, name: 開球 }
+  - { id: F000B-DEF-03, name: 開集合 }
+  - { id: F000B-DEF-04, name: 閉集合 }
+  - { id: F000B-DEF-05, name: 収束 }
+  - { id: F000B-DEF-06, name: interior }
+  - { id: F000B-DEF-07, name: closure }
+  - { id: F000B-DEF-08, name: boundary }
+theorems:
+  - { id: F000B-THM-01, name: 距離空間における閉集合の点列特徴付け }
+canonical_examples: [実数直線の開区間と閉区間, 半開区間, 内部と閉包]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0, review: 0.5 }
