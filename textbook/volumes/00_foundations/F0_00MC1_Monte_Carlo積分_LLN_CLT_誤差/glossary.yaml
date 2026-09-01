@@ -1,0 +1,13 @@
+terms:
+  - term: Monte Carlo estimator
+    aliases: [モンテカルロ推定量]
+    definition: 期待値を独立標本の標本平均で近似する推定量。
+  - term: Monte Carlo standard error
+    aliases: [Monte Carlo SE]
+    definition: Monte Carlo標本平均のsampling標準偏差の推定値。
+  - term: sampling error
+    aliases: [標本誤差]
+    definition: 有限個の乱数標本を使うことによって生じる確率的誤差。
+  - term: discretization bias
+    aliases: [離散化バイアス]
+    definition: 連続対象を離散近似へ置換することによる期待値の系統誤差。
