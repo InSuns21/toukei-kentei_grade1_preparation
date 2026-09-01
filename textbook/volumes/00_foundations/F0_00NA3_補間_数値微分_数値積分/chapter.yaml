@@ -1,0 +1,21 @@
+id: "F0-00NA3"
+title: "Encore V：補間・数値微分・数値積分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00NA1
+learning_objectives:
+  - 多項式補間と誤差を説明できる
+  - 差分公式をTaylor展開から導ける
+  - Newton--Cotes型公式とGaussian quadratureを説明できる
+  - FEMの要素積分とquadratureを接続できる
+definitions:
+  - { id: F000NA3-DEF-01, name: Lagrange補間 }
+  - { id: F000NA3-DEF-02, name: 中心差分 }
+  - { id: F000NA3-DEF-03, name: quadrature }
+theorems:
+  - { id: F000NA3-THM-01, name: 多項式補間誤差公式 }
+canonical_examples: [Runge現象, 中心差分, Simpson則, Gauss--Legendre積分]
+problem_patterns: [NUM-INTERP-1, NUM-QUAD-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
