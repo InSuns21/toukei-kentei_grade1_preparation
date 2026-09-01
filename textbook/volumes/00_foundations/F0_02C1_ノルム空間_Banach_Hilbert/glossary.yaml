@@ -1,0 +1,17 @@
+chapter: "F0-02C1"
+terms:
+  - term: ノルム空間
+    english: normed space
+    meaning: 長さを表すノルムが定義されたベクトル空間。
+  - term: Banach空間
+    english: Banach space
+    meaning: ノルムから定まる距離について完備なノルム空間。
+  - term: Hilbert空間
+    english: Hilbert space
+    meaning: 内積から定まるノルムについて完備な内積空間。
+  - term: 直交
+    english: orthogonal
+    meaning: 内積が0になる二つのベクトルの関係。
+  - term: 射影
+    english: metric projection
+    meaning: 点から集合までの距離を最小にする集合上の点。Hilbert空間の空でない閉凸集合では一意に存在する。
