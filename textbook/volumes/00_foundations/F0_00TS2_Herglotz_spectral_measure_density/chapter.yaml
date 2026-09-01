@@ -1,0 +1,34 @@
+id: "F0-00TS2"
+title: "Encore IV：Herglotz定理・spectral measure・spectral density"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00TS1
+  - F0-00FA2
+official_scope: []
+learning_objectives:
+  - 自己共分散列の正定値性を示せる
+  - Herglotz定理の主張を説明できる
+  - spectral measureを自己共分散のFourier表現として定義できる
+  - spectral densityが存在する条件とFourier pairを説明できる
+  - white noiseのflat spectrumを導ける
+  - deterministic sinusoidのline spectrumを説明できる
+  - spectral representationを直交増分過程による周波数分解として説明できる
+  - periodogramと真のspectral densityを区別できる
+definitions:
+  - { id: F000TS2-DEF-01, name: spectral measure }
+  - { id: F000TS2-DEF-02, name: spectral density }
+  - { id: F000TS2-DEF-03, name: orthogonal increment process }
+  - { id: F000TS2-DEF-04, name: periodogram }
+theorems:
+  - { id: F000TS2-THM-01, name: Herglotz定理 }
+  - { id: F000TS2-THM-02, name: spectral representation theoremの入口 }
+canonical_examples:
+  - white noiseのflat spectrum
+  - AR1へ進む前の指数型自己共分散
+  - random phase sinusoidのline spectrum
+problem_patterns: [SPECTRAL-MEASURE-1, SPECTRAL-DENSITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
