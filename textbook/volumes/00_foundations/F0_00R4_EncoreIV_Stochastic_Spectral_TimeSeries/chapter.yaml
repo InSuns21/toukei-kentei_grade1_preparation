@@ -1,0 +1,23 @@
+id: "F0-00R4"
+title: "Encore IV：Stochastic Processes & Spectral Time Series"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P3
+  - F0-00P4
+  - F0-02C1
+  - F0-00FA2
+official_scope: []
+learning_objectives:
+  - Encore IVの確率過程側とスペクトル時系列側の通読順を説明できる
+  - 条件付き期待値からmartingale・Brown運動・Ito・SDEへ進む依存関係を説明できる
+  - Hilbert空間予測からWold・spectral measure・ARMA spectrumへ進む依存関係を説明できる
+  - Encore III・E2本編との接続と停止線を説明できる
+definitions: []
+theorems: []
+canonical_examples: [Encore IV通読ロードマップ]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
