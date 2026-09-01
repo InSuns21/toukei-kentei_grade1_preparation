@@ -1,0 +1,30 @@
+id: "F0-02C3"
+title: "関数解析III：Fréchet微分・線形作用素・随伴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - 方向微分・Gateaux微分・Frechet微分の違いを説明できる
+  - Frechet微分が双対空間または有界線形作用素として現れることを説明できる
+  - 有界線形作用素と作用素ノルムを定義できる
+  - 連鎖律を作用素の合成として読める
+  - Banach空間での随伴作用素を定義し、有限次元の転置行列と対応付けられる
+  - Hilbert空間でRiesz表現を介して随伴をベクトル間作用素として表せる
+definitions:
+  - { id: F002C3-DEF-01, name: 方向微分 }
+  - { id: F002C3-DEF-02, name: Gateaux微分 }
+  - { id: F002C3-DEF-03, name: Frechet微分 }
+  - { id: F002C3-DEF-04, name: 有界線形作用素 }
+  - { id: F002C3-DEF-05, name: 作用素ノルム }
+  - { id: F002C3-DEF-06, name: 随伴作用素 }
+theorems:
+  - { id: F002C3-THM-01, name: 有界線形作用素の連続性との同値 }
+  - { id: F002C3-THM-02, name: Frechet微分の連鎖律 }
+canonical_examples: [ノルム二乗の微分, 積分汎関数, 行列写像の随伴, 積分作用素]
+problem_patterns: [FA-DERIVATIVE-1, FA-ADJOINT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 0, review: 1 }
