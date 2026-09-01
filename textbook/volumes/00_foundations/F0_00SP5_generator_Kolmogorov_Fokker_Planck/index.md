@@ -24,8 +24,7 @@ $$
 
 $$
 \boxed{
-P_tf(x)
-=E_x[f(X_t)]
+P_tf(x)=E_x[f(X_t)]
 }
 $$
 
@@ -49,8 +48,7 @@ semigroupの時刻0での微分を
 
 $$
 \boxed{
-Lf
-=
+Lf=
 \lim_{t\downarrow0}
 \frac{P_tf-f}{t}
 }
@@ -58,7 +56,7 @@ $$
 
 と定義します。
 
-もちろん全ての関数で極限が存在するわけではなく、generatorには適切なdomainがあります。
+generatorには適切なdomainが必要です。
 
 ---
 
@@ -145,8 +143,6 @@ $$
 
 これがbackward Kolmogorov equationの初期値形式です。
 
-初期状態 $x$ を変数として、将来の期待値がどう変化するかを記述します。
-
 ---
 
 ## 6. terminal value形式
@@ -154,8 +150,7 @@ $$
 固定された終端時刻 $T$ に対し
 
 $$
-u(t,x)
-=E[g(X_T)\mid X_t=x]
+u(t,x)=E[g(X_T)\mid X_t=x]
 $$
 
 と置くと
@@ -170,13 +165,9 @@ $$
 
 という後ろ向きのPDEになります。
 
-金融数学などで頻繁に使われる形です。
-
 ---
 
 ## 7. forward equationは分布を動かす
-
-今度は初期状態を固定し、$X_t$ の分布そのものがどう動くかを考えます。
 
 密度 $p(t,x)$ が存在する場合、形式的には
 
@@ -222,7 +213,7 @@ $$
 \boxed{
 \partial_t p
 =-\partial_x(bp)
-+rac12\partial_{xx}(\sigma^2p)
++\frac12\partial_{xx}(\sigma^2p)
 }
 $$
 
@@ -246,7 +237,7 @@ $$
 
 $$
 \partial_t p
-=rac12\partial_{xx}p.
+=\frac12\partial_{xx}p.
 $$
 
 これは熱方程式です。
@@ -306,11 +297,7 @@ $$
 
 ## 11. OUの定常分布
 
-定常状態では
-
-$$
-\partial_t p=0.
-$$
+定常状態では $\partial_t p=0$ です。
 
 適切な正規化の下で解くと
 
@@ -367,8 +354,7 @@ $$
 \boxed{
 \nu(t,x)
 =E_{t,x}\left[
-\exp\left(-\int_t^T V(X_s)ds\right)
-g(X_T)
+\exp\left(-\int_t^T V(X_s)ds\right)g(X_T)
 \right]
 }
 $$
@@ -415,15 +401,7 @@ $$
 
 ここまでが連続時間確率過程側です。
 
-次章から離散時間の弱定常過程へ移り、
-
-- Hilbert空間としての線形予測
-- innovation
-- Wold decomposition
-- spectral measure
-- ARMAの周波数応答
-
-を扱います。
+次章から離散時間の弱定常過程へ移り、Hilbert空間としての線形予測、innovation、Wold decomposition、spectral measure、ARMAの周波数応答を扱います。
 
 ---
 
