@@ -1,4 +1,28 @@
 terms:
+  - term: 凸結合
+    english: convex combination
+    meaning: 非負係数で係数和が1となる線形結合。
+  - term: 凸集合
+    english: convex set
+    meaning: 集合内の任意の2点を結ぶ線分をすべて含む集合。
+  - term: 凸包
+    english: convex hull
+    meaning: 与えられた点集合を含む最小の凸集合。有限点集合では全ての凸結合の集合。
+  - term: 凸錐
+    english: convex cone
+    meaning: 非負実数倍について閉じ、かつ凸である集合。
+  - term: 閉集合
+    english: closed set
+    meaning: 集合内の収束列の極限も集合内に残る集合。
+  - term: コンパクト集合
+    english: compact set
+    meaning: 本補講の有限次元では、任意の点列から集合内へ収束する部分列を取れる集合として扱う。
+  - term: infimum
+    english: infimum
+    meaning: 集合の全要素以下にある下界のうち最大のもの。実際に値が達成されるminimumとは区別する。
+  - term: Heine--Borelの定理
+    english: Heine--Borel theorem
+    meaning: 有限次元Euclid空間では閉かつ有界な集合がコンパクトになるという定理。
   - term: 分離超平面
     english: separating hyperplane
     meaning: 二つの集合または集合と点を異なる半空間へ分ける超平面。
@@ -7,10 +31,7 @@ terms:
     meaning: 分離する二つの側の間に正のギャップがある分離。
   - term: 最近点射影
     english: metric projection
-    meaning: 点から閉凸集合までの距離を最小にする集合上の点。有限次元Euclid空間では一意に存在する。
-  - term: 凸包
-    english: convex hull
-    meaning: 与えられた点集合を含む最小の凸集合。有限点集合では全ての凸結合の集合。
+    meaning: 点から閉凸集合までの距離を最小にする集合上の点。有限次元Euclid空間の閉凸集合では一意に存在する。
   - term: 有限生成凸錐
     english: finitely generated convex cone
     meaning: 有限個の生成ベクトルの非負線形結合で表される凸錐。

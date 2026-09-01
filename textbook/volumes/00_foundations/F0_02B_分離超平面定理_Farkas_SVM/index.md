@@ -34,6 +34,160 @@ $$
 
 この内容は統計検定1級の必須暗記事項を増やすためのものではありません。SVM・双対問題・KKTを **凸幾何の一つの流れ** として理解するための発展補講です。
 
+このページは有限次元 $\mathbb R^p$ の議論です。ここで使う「凸集合」「凸包」「凸錐」「閉集合」「コンパクト」「infimum」は次の道具箱で定義してから使います。無限次元へ一般化すると何が変わるかは [F0-02C 関数解析から見る制約想定・KKT・kernel SVM](../F0_02C_関数解析_制約想定_RKHS/index.md) で扱います。
+
+---
+
+## 0. この章で使う数学の道具箱
+
+### 0.1 凸結合・凸集合・凸包
+
+点 $\boldsymbol x_1,\dots,\boldsymbol x_n$ に対し
+
+$$
+\theta_i\ge0,
+\qquad
+\sum_{i=1}^n\theta_i=1
+$$
+
+を満たす係数で作る
+
+$$
+\sum_{i=1}^n\theta_i\boldsymbol x_i
+$$
+
+を **凸結合** といいます。
+
+集合 $C$ が **凸集合** であるとは、任意の $\boldsymbol x,\boldsymbol y\in C$ と $0\le t\le1$ について
+
+$$
+(1-t)\boldsymbol x+t\boldsymbol y\in C
+$$
+
+となることです。つまり、集合内の2点を結ぶ線分がすべて集合内に残ります。
+
+集合 $S$ のすべての凸結合を集めた最小の凸集合を **凸包** といい、
+
+$$
+\boxed{
+\operatorname{conv}(S)
+}
+$$
+
+と書きます。
+
+### 0.2 錐・凸錐・有限生成凸錐
+
+集合 $K$ が **錐** であるとは
+
+$$
+\boldsymbol x\in K,\ a\ge0
+\Longrightarrow
+a\boldsymbol x\in K
+$$
+
+となることです。
+
+さらに $K$ が凸集合なら **凸錐** といいます。
+
+有限個のベクトル $\boldsymbol a_1,\dots,\boldsymbol a_n$ から
+
+$$
+K
+=
+\left\{
+\sum_{j=1}^n\lambda_j\boldsymbol a_j:
+\lambda_j\ge0
+\right\}
+$$
+
+と作られる凸錐を **有限生成凸錐** と呼びます。
+
+### 0.3 閉集合
+
+この章では、集合 $C$ が **閉集合** であることを
+
+> $C$ 内の収束列 $\boldsymbol x_n\to\boldsymbol x$ の極限 $\boldsymbol x$ も必ず $C$ に入る
+
+という性質で使います。
+
+したがって、閉集合の中で点列の極限を取っても集合の外へ落ちません。
+
+### 0.4 infimum と minimum
+
+集合 $C$ 上の距離の集合
+
+$$
+D
+=
+\{\|\boldsymbol z-\boldsymbol x\|:\boldsymbol x\in C\}
+$$
+
+を考えます。
+
+$D$ の **下限（infimum）**
+
+$$
+\inf D
+$$
+
+とは、すべての要素以下にある数の中で最大のものです。下限は必ずしも $D$ の要素とは限りません。
+
+一方 **minimum** は実際に達成される最小値です。
+
+この章ではまず
+
+$$
+\delta
+=
+\inf_{\boldsymbol x\in C}
+\|\boldsymbol z-\boldsymbol x\|
+$$
+
+と置き、その後で「このinfimumを達成する点が存在する」ことを証明します。
+
+### 0.5 コンパクト性とHeine--Borel
+
+この章で必要なコンパクト性は、有限次元では次の形だけ使います。
+
+> **Heine--Borelの定理**：$\mathbb R^p$ では、閉かつ有界な集合はコンパクトである。
+
+ここでコンパクトとは、この章では「任意の点列から、その集合内の点へ収束する部分列を取り出せる」と考えて構いません。
+
+したがって閉有界集合内の点列から
+
+$$
+\boldsymbol x_{n_k}\to\boldsymbol p
+$$
+
+となる部分列を取れます。
+
+これは有限次元で重要な性質です。[F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で見るように、一般の無限次元ノルム空間では
+
+$$
+\text{閉有界}\not\Rightarrow\text{コンパクト}
+$$
+
+です。
+
+### 0.6 射影
+
+集合 $C$ と点 $\boldsymbol z$ に対し、距離
+
+$$
+\|\boldsymbol z-\boldsymbol x\|
+$$
+
+を最小にする点 $\boldsymbol p\in C$ が存在するとき、その点を $\boldsymbol z$ の $C$ への **射影** と呼び
+
+$$
+P_C(\boldsymbol z)=\boldsymbol p
+$$
+
+と書きます。
+
+この射影の存在・一意性は、次節で閉凸集合について証明します。したがってここではまだ「射影はいつでも存在する」と仮定していません。
+
 ---
 
 ## 1. 超平面で分離するとは何か
@@ -82,14 +236,14 @@ $$
 
 ### 2.1 最近点の存在
 
-$C$ 内に点列 $\boldsymbol x_n$ を取り
+infimumの定義から、$C$ 内に点列 $\boldsymbol x_n$ を取り
 
 $$
 \|\boldsymbol z-\boldsymbol x_n\|
 \to\delta
 $$
 
-とします。
+とできます。
 
 十分大きな $n$ では
 
@@ -106,7 +260,7 @@ $$
 
 内にあります。
 
-有限次元Euclid空間では閉有界集合はコンパクトなので、部分列を取り
+この閉球は閉かつ有界なので、Heine--Borelの定理によりコンパクトです。したがって部分列を取り
 
 $$
 \boldsymbol x_{n_k}\to\boldsymbol p
@@ -122,7 +276,7 @@ $$
 \delta.
 $$
 
-したがって最近点は存在します。
+したがってinfimumは実際に達成され、最近点は存在します。
 
 ### 2.2 最近点の一意性
 
@@ -146,7 +300,7 @@ $$
 
 も $C$ に属します。
 
-中点公式より
+ノルム平方を内積で展開すると
 
 $$
 \left\|
@@ -488,7 +642,7 @@ $$
 
 これを繰り返すと、$\mathbb R^m$ では高々 $m$ 本の一次独立な生成ベクトルだけで表せます。
 
-### 6.2 閉性
+### 6.2 閉性：「座標が連続」を式で確認する
 
 $\boldsymbol k_n\in K$ かつ
 
@@ -506,29 +660,62 @@ $$
 
 だけを使えます。
 
+列ベクトルを並べた行列を
+
 $$
-\boldsymbol k_n
+M
 =
-\sum_{\ell=1}^s
-\lambda_{n\ell}\boldsymbol a_{j_\ell},
+\begin{pmatrix}
+\boldsymbol a_{j_1}&\cdots&\boldsymbol a_{j_s}
+\end{pmatrix}
+$$
+
+とすると
+
+$$
+\boldsymbol k_n=M\boldsymbol\lambda_n,
 \qquad
-\lambda_{n\ell}\ge0.
+\boldsymbol\lambda_n\ge\boldsymbol0.
 $$
 
-一次独立な基底上の座標は点に連続に依存するので
+列が一次独立なので
 
 $$
-\lambda_{n\ell}\to\lambda_\ell\ge0
+M^{\mathsf T}M
 $$
 
-となり
+は正則です。両辺へ $M^{\mathsf T}$ を掛けると
 
 $$
-\boldsymbol k
+\boxed{
+\boldsymbol\lambda_n
 =
-\sum_{\ell=1}^s
-\lambda_\ell\boldsymbol a_{j_\ell}
-\in K.
+(M^{\mathsf T}M)^{-1}M^{\mathsf T}\boldsymbol k_n
+}
+$$
+
+です。
+
+右辺は $\boldsymbol k_n$ の固定行列による線形変換なので、$\boldsymbol k_n\to\boldsymbol k$ から
+
+$$
+\boldsymbol\lambda_n
+\to
+\boldsymbol\lambda
+=
+(M^{\mathsf T}M)^{-1}M^{\mathsf T}\boldsymbol k.
+$$
+
+各 $\boldsymbol\lambda_n\ge\boldsymbol0$ なので、成分ごとに極限を取って
+
+$$
+\boldsymbol\lambda\ge\boldsymbol0.
+$$
+
+さらに極限を取れば
+
+$$
+\boldsymbol k=M\boldsymbol\lambda\in K.
 $$
 
 よって $K$ は閉です。
@@ -597,7 +784,7 @@ $$
 
 と置きます。
 
-$K$ は有限生成閉凸錐です。
+§0で定義した有限生成凸錐であり、§6で閉であることも示しました。
 
 もし $\boldsymbol b\in K$ なら、定義から (A) が成立します。
 
@@ -798,7 +985,7 @@ $$
 =A^{\mathsf T}\boldsymbol\lambda
 +B^{\mathsf T}\boldsymbol\nu,
 \qquad
-\boldsymbol\lambda\ge0.
+\boldsymbol\lambda\ge\boldsymbol0.
 $$
 
 ゆえに
@@ -905,6 +1092,8 @@ $$
 
 です。
 
+制約想定がなぜ必要で、無限次元ではどう一般化されるかは [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で扱います。
+
 ---
 
 ## 11. SVMの表側：線形分離と凸包
@@ -937,7 +1126,28 @@ $$
 
 とします。
 
-有限点集合の凸包なので、$C_+,C_-$ はコンパクトな凸集合です。
+ここで凸包は§0.1で定義した「全ての凸結合の集合」です。
+
+有限点集合 $\{\boldsymbol x_1,\dots,\boldsymbol x_n\}$ の凸包がコンパクトであることも確認しておきます。係数集合
+
+$$
+\Delta
+=
+\left\{
+\boldsymbol\theta:\theta_i\ge0,
+\ \sum_i\theta_i=1
+\right\}
+$$
+
+は閉かつ有界なのでHeine--Borelによりコンパクトです。写像
+
+$$
+\boldsymbol\theta
+\mapsto
+\sum_i\theta_i\boldsymbol x_i
+$$
+
+は連続なので、その像である凸包もコンパクトです。
 
 ### 定理
 
@@ -1004,7 +1214,15 @@ $$
 
 とします。
 
-コンパクト性から
+$C_+\times C_-$ はコンパクトで、距離関数
+
+$$
+(\boldsymbol p,\boldsymbol q)
+\mapsto
+\|\boldsymbol p-\boldsymbol q\|
+$$
+
+は連続なので
 
 $$
 \delta
@@ -1353,6 +1571,8 @@ $$
 
 として直接計算する方法です。
 
+ここで「無限次元の特徴空間」「Hilbert空間」「RKHS」を数学的にどう定義するかは [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md) で順に導入します。
+
 ---
 
 ## 16. 全体像
@@ -1397,4 +1617,4 @@ $$
 
 この二つは別の理論ではなく、どちらも **凸集合と超平面の幾何** に根を持っています。
 
-KKTそのものの導出へ戻る場合は [F0-02A](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)、SVMの主問題・双対問題・soft margin・kernelへ戻る場合は [E1-04](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) を参照してください。
+KKTそのものの導出へ戻る場合は [F0-02A](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)、関数解析・制約想定・RKHSまで進む場合は [F0-02C](../F0_02C_関数解析_制約想定_RKHS/index.md)、SVMの主問題・双対問題・soft margin・kernelへ戻る場合は [E1-04](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) を参照してください。
