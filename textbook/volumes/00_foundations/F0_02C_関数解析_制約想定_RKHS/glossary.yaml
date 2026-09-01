@@ -20,18 +20,27 @@ terms:
   - term: 随伴作用素
     english: adjoint operator
     meaning: T:X->Y に対して T^*:Y^*->X^* を T^*y^*=y^*∘T で定める作用素。
+  - term: 凸関数
+    english: convex function
+    meaning: f((1-t)x+ty)<=(1-t)f(x)+tf(y) を満たす関数。
   - term: normal cone
     english: normal cone
     meaning: 凸集合の点で、集合内の全方向に非正の作用をする双対空間の元を集めた錐。
   - term: 双対錐
     english: dual cone
     meaning: K^*={lambda:lambda(k)>=0 for all k in K} で定義される錐。
+  - term: interior
+    english: interior
+    meaning: 点の周囲に十分小さい開球を置いても集合内に完全に含まれる点全体。
   - term: Robinson制約想定
     english: Robinson constraint qualification
     meaning: 線形化制約写像と錐が制約空間の近傍を十分に生成することを要求する一般的な制約想定。
   - term: Hahn--Banachの定理
     english: Hahn--Banach theorem
     meaning: 線形汎関数を支配条件を保って拡張できることを述べ、無限次元の分離定理の基礎となる定理。
+  - term: 評価汎関数
+    english: evaluation functional
+    meaning: 関数 f から一点 x での値 f(x) を取り出す線形汎関数。
   - term: RKHS
     english: reproducing kernel Hilbert space
     meaning: 各点での評価汎関数が連続な関数Hilbert空間。Riesz表現から再生核が得られる。
