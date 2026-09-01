@@ -1,0 +1,29 @@
+id: "F0-00WK3"
+title: "Encore III：楕円型PDE・Galerkin法・有限要素法への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00WK2
+official_scope: []
+learning_objectives:
+  - 一般の二階楕円型方程式を弱形式へ落とす骨格を説明できる
+  - lower-order項を含む双線形形式の連続性とcoercivityを確認できる
+  - Galerkin近似を有限次元部分空間上の弱形式として定義できる
+  - Galerkin直交性を導ける
+  - Ceaの補題の意味を説明し、近似誤差と離散化誤差を結び付けられる
+  - 区分線形有限要素がH0^1の部分空間になる理由を説明できる
+  - Encore IIIの範囲と、より高度な正則性・非線形PDEの範囲を区別できる
+definitions:
+  - { id: F000WK3-DEF-01, name: Galerkin近似 }
+  - { id: F000WK3-DEF-02, name: Galerkin直交性 }
+  - { id: F000WK3-DEF-03, name: 有限要素空間 }
+theorems:
+  - { id: F000WK3-THM-01, name: Ceaの補題 }
+canonical_examples:
+  - Poisson方程式のGalerkin近似
+  - 一次元区分線形有限要素
+problem_patterns: [GALERKIN-1, CEA-LEMMA-1, FEM-WEAK-FORM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
