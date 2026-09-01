@@ -478,6 +478,36 @@ $$
 
 ---
 
+## 17. Fourier解析へ進む場合
+
+ここまででは特性関数を確率論の道具として使いました。
+
+Fourier解析そのものを掘る場合は [Encore II：Fourier Analysis & Differential Equations](../F0_00R2_EncoreII_Fourier解析_微分方程式/index.md) へ進んでください。
+
+そこでは
+
+$$
+\varphi_X(t)
+=
+\int e^{itx}\,dP_X(x)
+$$
+
+を確率測度のFourier変換として読み直し、
+
+$$
+\text{畳み込み}
+\to
+\text{Fourier空間で積}
+\to
+\text{CLT}
+$$
+
+をFourier解析の一般論へ戻します。
+
+さらにPlancherel、熱方程式、Gaussian heat kernel、Sturm--Liouvilleまで接続します。
+
+---
+
 ## 章末チェック
 
 - 特性関数が常に存在する理由を説明できる。
