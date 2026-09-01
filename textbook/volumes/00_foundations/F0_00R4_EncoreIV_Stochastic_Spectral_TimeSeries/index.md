@@ -4,101 +4,71 @@
 
 通常カリキュラムE2の必須前提にはしません。E2-01〜E2-03は試験向け本編として独立に読めます。
 
-ただしEncore IVへ入った場合は、未定義の主要概念を飛ばさず次の順で進みます。
-
 ---
 
 ## 1. 推奨通読ルート
 
 ```text
-既存前提
 F0-00P3  条件付き期待値
 F0-00P4  確率収束・一様可積分性
-F0-00P6  特性関数・CLT
+F0-00P6  特性関数・中心極限定理
 F0-02C1  Hilbert空間
 F0-00FA2 Fourier変換
-   │
-   └── Encore IV START
-          ↓
+   ↓
 F0-00SP1 filtration・adapted process・stopping time
-          ↓
+   ↓
 F0-00SP2 martingale・optional stopping
-          ↓
+   ↓
 F0-00SP3 Brown運動・Gaussian過程・二次変分
-          ↓
+   ↓
 F0-00SP4 Ito積分・Ito公式・SDE
-          ↓
+   ↓
 F0-00SP5 generator・Kolmogorov・Fokker--Planck
-          ↓
+   ↓
 F0-00TS1 定常過程・Hilbert予測・innovation・Wold
-          ↓
+   ↓
 F0-00TS2 Herglotz・spectral measure・spectral density
-          ↓
-E2-03     AR・MA・ARIMA本編（既読なら復習不要）
-          ↓
+   ↓
+E2-03 AR・MA・ARIMA本編
+   ↓
 F0-00TS3 線形filter・ARMA transfer function・周波数領域
 ```
 
 ---
 
-## 2. SP1：時間と情報を同時に持つ
+## 2. filtrationとmartingale
 
-確率過程だけでなく
+filtration
 
 $$
-\mathcal F_s\subset\mathcal F_t
-\qquad(s\le t)
+\mathcal F_s\subset\mathcal F_t\qquad(s\le t)
 $$
 
-というfiltrationを導入します。
+を時刻ごとの情報として導入し、adapted process・stopping timeを定義します。
 
-adapted process、natural filtration、stopping timeを通して、「未来を見ずに時間発展を扱う」条件を固定します。
-
----
-
-## 3. SP2：martingale
+martingaleは
 
 $$
 E[M_t\mid\mathcal F_s]=M_s
 $$
 
-という条件付き期待値の時間整合性からmartingaleを定義します。
-
-離散ランダムウォーク、$S_n^2-n\sigma^2$、条件付き期待値martingaleを扱い、optional stoppingでは一様可積分性などの条件がなぜ必要かまで戻ります。
+という条件付き期待値の時間整合性として扱い、optional stoppingでは一様可積分性などの条件がなぜ必要かを確認します。
 
 ---
 
-## 4. SP3：Brown運動
+## 3. Brown運動からItoへ
 
-Brown運動を連続path・独立定常Gaussian増分・$B_t-B_s\sim N(0,t-s)$ で定義し、
+Brown運動を連続path・独立定常Gaussian増分で定義し
 
 $$
-\operatorname{Cov}(B_s,B_t)=\min(s,t)
+\operatorname{Cov}(B_s,B_t)=\min(s,t),
+\qquad
+[B]_t=t
 $$
 
 を導きます。
 
-さらに
-
-$$
-[B]_t=t
-$$
-
-という二次変分を計算し、通常の微積分では二階微小量を捨てられないことを確認します。
-
----
-
-## 5. SP4：Ito積分とSDE
-
-simple predictable processから
-
-$$
-\int H_t\,dB_t
-$$
-
-を定義し、Ito isometryで $L^2$ 極限へ拡張します。
-
-二次変分から
+二次変分が0でないため通常のchain ruleでは足りず、Ito積分・Ito公式が必要になります。
 
 $$
 \begin{aligned}
@@ -107,15 +77,13 @@ df(t,X_t)
 \left(
 \partial_tf+b\partial_xf+\frac12\sigma^2\partial_{xx}f
 \right)dt\\
-&+\sigma\partial_xf\,dB_t
+&+\sigma\partial_xf\,dB_t.
 \end{aligned}
 $$
 
-を導き、幾何Brown運動・OU過程を解きます。
-
 ---
 
-## 6. SP5：確率過程とPDEを合流する
+## 4. SDEからPDEへ
 
 SDEのgenerator
 
@@ -123,88 +91,57 @@ $$
 Lf=bf'+\frac12\sigma^2f''
 $$
 
-からbackward Kolmogorov equation、forward Kolmogorov equation、Fokker--Planck equationへ進みます。
+からbackward/forward Kolmogorov equation、Fokker--Planck equationへ進みます。
 
-Brown運動なら
+Brown運動では
 
 $$
 L=\frac12\Delta
 $$
 
-なので熱方程式を回収します。
+となり熱方程式を回収します。
 
-この時点でEncore II・IIIのPDE側と確率過程側が合流します。
-
----
-
-## 7. TS1：予測をHilbert空間の射影にする
-
-二次定常過程を $L^2(\Omega)$ のベクトル列として扱います。
-
-過去が張る閉部分空間
-
-$$
-\mathcal H_{t-1}
-=
-\overline{\operatorname{span}}
-\{X_{t-1},X_{t-2},\dots\}
-$$
-
-への射影
-
-$$
-\widehat X_t
-=P_{\mathcal H_{t-1}}X_t
-$$
-
-が最良線形予測です。
-
-予測誤差innovationは過去に直交し、Wold分解
-
-$$
-X_t
-=X_t^{(d)}+
-\sum_{j=0}^\infty\psi_j\varepsilon_{t-j}
-$$
-
-へ進みます。
+低正則性PDEはEncore IIIのSobolev弱解へ接続します。
 
 ---
 
-## 8. TS2：自己共分散をFourier変換する
+## 5. 時系列をHilbert空間で読む
+
+二次定常過程を $L^2(\Omega)$ のベクトル列として扱い、過去が張る閉部分空間への射影を最良線形予測とします。
+
+$$
+\widehat X_t=P_{\mathcal H_{t-1}}X_t.
+$$
+
+innovationからWold decompositionへ進みます。
+
+---
+
+## 6. spectral representation
 
 Herglotz定理から
 
 $$
 \gamma(h)
 =
-\int_{-\pi}^{\pi}
-e^{ih\lambda}\,dF(\lambda)
+\int_{-\pi}^{\pi}e^{ih\lambda}\,dF(\lambda)
 $$
 
 というspectral measureを導入します。
 
-絶対連続なら
+絶対連続な場合だけ
 
 $$
 dF(\lambda)=f(\lambda)d\lambda
 $$
 
-で、
+としてspectral densityを持ちます。
 
-$$
-\gamma(h)
-=
-\int e^{ih\lambda}f(\lambda)d\lambda
-$$
-
-です。
-
-white noiseはflat spectrum、deterministic sinusoidはline spectrumを持ちます。
+white noiseのflat spectrumとdeterministic sinusoidのline spectrumを比較します。
 
 ---
 
-## 9. TS3：ARMAをfilterとして読む
+## 7. ARMAをfilterとして読む
 
 E2-03の
 
@@ -217,11 +154,10 @@ $$
 $$
 H(\lambda)
 =
-\frac{\theta(e^{-i\lambda})}
-{\phi(e^{-i\lambda})}
+\frac{\theta(e^{-i\lambda})}{\phi(e^{-i\lambda})}
 $$
 
-で、
+で
 
 $$
 \boxed{
@@ -232,40 +168,33 @@ f_X(\lambda)
 {|\phi(e^{-i\lambda})|^2}}
 $$
 
-です。
+となります。
 
-一階差分は
+一階差分のfrequency responseは
 
 $$
-|1-e^{-i\lambda}|^2
-=4\sin^2(\lambda/2)
+|1-e^{-i\lambda}|^2=4\sin^2(\lambda/2)
 $$
 
 なので、0周波数を除くhigh-pass filterとして読めます。
 
 ---
 
-## 10. Encore IIIとの交点
-
-連続時間white noiseはBrown運動の通常の微分ではなく、Schwartz超関数的な微分として扱います。
-
-またKolmogorov/Fokker--Planck PDEが低正則性しか持たない場合は、Encore IIIのSobolev空間・弱解が必要です。
+## 8. Encore IIIとの交点
 
 ```text
-Brown運動 ─→ white noise ─→ Schwartz超関数
+Brown運動 → white noise → Schwartz超関数
     │
-    └→ SDE ─→ generator ─→ PDE ─→ Sobolev弱解
+    └→ SDE → generator → PDE → Sobolev弱解
 ```
 
-Encore IIIはIVの必須前提ではありませんが、交点を掘る場合の受け皿になります。
+Encore IIIはIVの必須前提ではありませんが、低正則性を掘る場合の受け皿です。
 
 ---
 
-## 11. E2本編との関係
+## 9. E2本編との役割分担
 
 E2-01〜E2-03は試験対策本編としてMarkov連鎖、Poisson過程・ランダムウォーク、AR・MA・ARIMAを直接扱います。
-
-Encore IVはそれらを置き換えません。
 
 - E2：解けるようにする
 - Encore IV：なぜその構造が自然なのかを地下から理解する
@@ -274,61 +203,42 @@ Encore IVはそれらを置き換えません。
 
 ---
 
-## 12. Encore IVの停止線
+## 10. 停止線
 
-本系列はfiltration / stopping time、martingale / optional stopping、Brown運動・二次変分、Ito積分・Ito公式、基本SDE、generator・Kolmogorov・Fokker--Planck、定常過程のHilbert空間予測、Wold decomposition、Herglotz / spectral measure、ARMA spectral density・linear filterまでで閉じます。
+Encore IVはfiltration、martingale、Brown運動、Ito積分・SDE、generator・Kolmogorov/Fokker--Planck、Hilbert空間予測、Wold、spectral measure、ARMA frequency-domain analysisまでで閉じます。
 
-以下は必須にしません。
+semimartingale一般論、Girsanov、local time、stochastic PDE、一般ergodic theorem、fractional Brownian motion等は必須にしません。
 
-- semimartingale一般論
-- Girsanov定理
-- local time
-- stochastic PDE
-- mixing・ergodic theoremの一般論
-- multivariate spectral analysis
-- long memory / fractional Brownian motion
-- Wiener--Hopf・一般Wiener filter
+目安は約40時間です。
 
 ---
 
-## 13. 所要時間
+## 11. 次のEncore：SDEを実際に計算する
 
-本編8講とロードマップを合計して、読解・小演習・復習込みで概ね
+SP4でSDEまで到達した後、sample path・期待値を計算機上で近似したい場合は
 
-$$
-\boxed{40\text{ 時間前後}}
-$$
+[Encore V：Numerical Analysis, FEM & Monte Carlo](../F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
 
-を想定します。
+へ進みます。
+
+Encore VではBrown増分からEuler--Maruyamaを構成し、strong/weak convergenceを区別してMonte Carloへ接続します。
+
+Encore IVのスペクトル時系列枝だけが目的なら、Encore Vは読む必要はありません。
 
 ---
 
-## 14. 最終的な景色
+## 12. 最終的な景色
 
 ```text
 条件付き期待値
       ↓
- filtration
-      ↓
- martingale
-      ↓
- Brown運動 → Ito → SDE → generator → PDE
-                                   ↓
-                              Encore III
+ filtration → martingale → Brown運動 → Ito → SDE → generator → PDE
+                                          │
+                                          └→ Encore V 数値SDE / Monte Carlo
 
 L2 Hilbert空間
       ↓
-定常過程の予測
-      ↓
-innovation → Wold
-      ↓
-spectral measure
-      ↓
-Fourier解析
-      ↓
-ARMA / ARIMA filter
-      ↓
-E2-03へ帰還
+定常過程の予測 → innovation → Wold → spectral measure → ARMA filter
 ```
 
 **Encore IV: Stochastic Processes & Spectral Time Series** はここまでです。
