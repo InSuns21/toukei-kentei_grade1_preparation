@@ -97,7 +97,7 @@ E\left[
 H_k^2(B_{t_{k+1}}-B_{t_k})^2
 \right]
 =
-E[H_k^2](t_{k+1}-t_k).
+E[H_k^2]\,\left(t_{k+1}-t_k\right).
 $$
 
 したがって
