@@ -1,0 +1,28 @@
+id: "F0-00SOB2"
+title: "Encore III：H0^1・Poincare不等式・trace・境界条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SOB1
+official_scope: []
+learning_objectives:
+  - H0^1をコンパクト台滑らか関数のH1閉包として定義できる
+  - Sobolev空間で境界値を扱うためtraceが必要な理由を説明できる
+  - Poincare不等式の役割を説明し、一次元で導出できる
+  - H0^1では勾配ノルムがH1ノルムと同値になることを説明できる
+  - Dirichlet境界条件を弱形式で組み込む考え方を説明できる
+  - Sobolev embeddingとRellich compactnessの役割を発展として位置付けられる
+definitions:
+  - { id: F000SOB2-DEF-01, name: H0^1 }
+  - { id: F000SOB2-DEF-02, name: trace }
+theorems:
+  - { id: F000SOB2-THM-01, name: Poincare不等式 }
+  - { id: F000SOB2-THM-02, name: trace定理の入口 }
+canonical_examples:
+  - 区間上のPoincare不等式
+  - 零Dirichlet境界条件とH0^1
+problem_patterns: [POINCARE-1, H01-BOUNDARY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
