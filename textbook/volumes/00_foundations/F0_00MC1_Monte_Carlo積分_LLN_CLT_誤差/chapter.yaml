@@ -1,0 +1,22 @@
+id: "F0-00MC1"
+title: "Encore V：Monte Carlo積分・LLN・CLT・誤差評価"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P5
+  - F0-00P6
+learning_objectives:
+  - 積分を期待値へ変換できる
+  - Monte Carlo estimatorの分散を導ける
+  - LLNとCLTから一致性と標準誤差を説明できる
+  - sampling errorとdiscretization biasを区別できる
+definitions:
+  - { id: F000MC1-DEF-01, name: Monte Carlo estimator }
+  - { id: F000MC1-DEF-02, name: Monte Carlo standard error }
+theorems:
+  - { id: F000MC1-THM-01, name: Monte Carlo estimatorの強一致性 }
+  - { id: F000MC1-THM-02, name: Monte Carlo CLT }
+canonical_examples: [高次元積分, 円周率推定, Monte Carlo confidence interval]
+problem_patterns: [MC-ERROR-1, MC-CLT-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 1, review: 0.5 }
