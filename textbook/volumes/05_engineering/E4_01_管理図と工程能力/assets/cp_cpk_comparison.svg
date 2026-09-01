@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" role="img" aria-labelledby="title desc">
+  <title id="title">CpとCpkの違い</title>
+  <desc id="desc">同じ標準偏差の正規型工程分布を二つ並べる。左は規格中央にありCpとCpkが等しい。右は平均が上側規格へずれ、Cpは同じでもCpkが小さくなる。</desc>
+  <rect width="860" height="430" fill="white"/>
+  <text x="42" y="32" font-size="20" font-weight="bold">同じばらつきでも、中心がずれると Cpk は低下する</text>
+  <g transform="translate(30,55)">
+    <text x="135" y="28" font-size="17" font-weight="bold">中心が規格中央</text>
+    <line x1="40" y1="260" x2="375" y2="260" stroke="#222" stroke-width="2"/>
+    <line x1="90" y1="70" x2="90" y2="285" stroke="#555" stroke-width="2" stroke-dasharray="7 5"/>
+    <line x1="325" y1="70" x2="325" y2="285" stroke="#555" stroke-width="2" stroke-dasharray="7 5"/>
+    <path d="M95 260 C135 260 150 120 207 120 C264 120 279 260 320 260" fill="none" stroke="#222" stroke-width="3"/>
+    <line x1="207" y1="105" x2="207" y2="280" stroke="#777" stroke-width="1.5"/>
+    <text x="68" y="310" font-size="14">LSL</text><text x="303" y="310" font-size="14">USL</text><text x="198" y="310" font-size="14">μ</text>
+    <text x="115" y="350" font-size="16">Cp = Cpk</text>
+  </g>
+  <g transform="translate(445,55)">
+    <text x="105" y="28" font-size="17" font-weight="bold">平均が上側へシフト</text>
+    <line x1="40" y1="260" x2="375" y2="260" stroke="#222" stroke-width="2"/>
+    <line x1="90" y1="70" x2="90" y2="285" stroke="#555" stroke-width="2" stroke-dasharray="7 5"/>
+    <line x1="325" y1="70" x2="325" y2="285" stroke="#555" stroke-width="2" stroke-dasharray="7 5"/>
+    <path d="M160 260 C200 260 215 120 272 120 C329 120 344 260 372 260" fill="none" stroke="#222" stroke-width="3"/>
+    <line x1="272" y1="105" x2="272" y2="280" stroke="#777" stroke-width="1.5"/>
+    <text x="68" y="310" font-size="14">LSL</text><text x="303" y="310" font-size="14">USL</text><text x="263" y="310" font-size="14">μ</text>
+    <line x1="272" y1="85" x2="325" y2="85" stroke="#222" stroke-width="2"/>
+    <path d="M272 85 l10 -5 v10 z M325 85 l-10 -5 v10 z" fill="#222"/>
+    <text x="252" y="66" font-size="14">近い側の余裕</text>
+    <text x="100" y="350" font-size="16">Cp は同じ、Cpk は低下</text>
+  </g>
+</svg>
