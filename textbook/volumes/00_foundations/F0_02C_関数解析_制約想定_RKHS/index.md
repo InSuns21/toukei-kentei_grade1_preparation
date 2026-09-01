@@ -18,48 +18,45 @@
 
 正本ルートは次です。
 
-$$
-\boxed{
-\begin{array}{c}
-\text{F0-00 数学速習}\\
-\Downarrow\\
-\text{F0-00A 集合・写像・sup/inf}\\
-\Downarrow\\
-\text{F0-00B 距離・開閉集合・収束}\\
-\Downarrow\\
-\text{F0-00C 連続・コンパクト・最大最小}\\
-\Downarrow\\
-\text{F0-00D Cauchy列・完備性}\\
-\Downarrow\\
-\text{F0-00E ベクトル空間・基底・Gram--Schmidt・射影}\\
-\Downarrow\\
-\text{F0-00E2 Cauchy--Schwarz・Bessel・Parseval}\\
-\Downarrow\\
-\text{F0-00F 線形写像・スペクトル定理・SVD}\\
-\Downarrow\\
-\text{F0-00G 凸集合・凸関数・凸最適化}\\
-\Downarrow\\
-\text{F0-02 制約付き最適化・双対・KKT}\\
-\Downarrow\\
-\text{F0-02A 接錐・polar cone・KKT導出}\\
-\Downarrow\\
-\text{F0-02B 分離超平面・Farkas・SVM凸幾何}\\
-\Downarrow\\
-\text{F0-02C1 Banach / Hilbert}\\
-\Downarrow\\
-\text{F0-02C2 双対空間・Riesz}\\
-\Downarrow\\
-\text{F0-02C3 Fr\acute{e}chet微分・作用素・随伴}\\
-\Downarrow\\
-\text{F0-02C4 凸解析・normal cone}\\
-\Downarrow\\
-\text{F0-02C5 一般化KKT・制約想定}\\
-\Downarrow\\
-\text{F0-02C6 Hahn--Banach・分離}\\
-\Downarrow\\
-\text{F0-02C7 RKHS・representer theorem・kernel SVM}
-\end{array}}
-$$
+```text
+F0-00   数学速習
+  ↓
+F0-00A  集合・写像・sup/inf
+  ↓
+F0-00B  距離・開閉集合・収束
+  ↓
+F0-00C  連続・コンパクト・最大最小
+  ↓
+F0-00D  Cauchy列・完備性
+  ↓
+F0-00E  ベクトル空間・基底・Gram--Schmidt・射影
+  ↓
+F0-00E2 Cauchy--Schwarz・Bessel・Parseval
+  ↓
+F0-00F  線形写像・スペクトル定理・SVD
+  ↓
+F0-00G  凸集合・凸関数・凸最適化
+  ↓
+F0-02   制約付き最適化・双対・KKT
+  ↓
+F0-02A  接錐・polar cone・KKT導出
+  ↓
+F0-02B  分離超平面・Farkas・SVM凸幾何
+  ↓
+F0-02C1 Banach / Hilbert
+  ↓
+F0-02C2 双対空間・Riesz
+  ↓
+F0-02C3 Frechet微分・作用素・随伴
+  ↓
+F0-02C4 凸解析・normal cone
+  ↓
+F0-02C5 一般化KKT・制約想定
+  ↓
+F0-02C6 Hahn--Banach・分離
+  ↓
+F0-02C7 RKHS・representer theorem・kernel SVM
+```
 
 かなり長いですが、段差は意図的に小さくしています。
 
