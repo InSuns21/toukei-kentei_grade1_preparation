@@ -62,8 +62,7 @@ $x$ についてFourier変換し
 $$
 \widehat u(t,\xi)
 =
-\int_{\mathbb R}
-u(t,x)e^{-i\xi x}\,dx
+\int_{\mathbb R}u(t,x)e^{-i\xi x}\,dx
 $$
 
 と書きます。
@@ -156,8 +155,7 @@ $$
 畳み込み定理を逆に使えば
 
 $$
-\boxed{
-u(t,\cdot)=G_t*u_0}
+\boxed{u(t,\cdot)=G_t*u_0}
 $$
 
 と書けます。
@@ -190,8 +188,7 @@ $$
 したがって解は
 
 $$
-\boxed{
-u(t,x)
+\boxed{u(t,x)
 =
 \int_{\mathbb R}
 G_t(x-y)u_0(y)\,dy
