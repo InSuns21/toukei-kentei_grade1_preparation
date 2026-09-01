@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330" role="img" aria-labelledby="title desc">
+  <title id="title">修理可能系の2状態遷移図</title>
+  <desc id="desc">稼働状態Uから故障状態Dへ故障率lambdaで遷移し、DからUへ修理率muで戻る2状態連続時間マルコフ系。</desc>
+  <rect width="760" height="330" fill="white"/>
+  <text x="50" y="36" font-size="20" font-weight="bold">修理可能系：稼働 U と故障・修理中 D を往復する</text>
+  <circle cx="220" cy="180" r="70" fill="white" stroke="#222" stroke-width="3"/>
+  <circle cx="540" cy="180" r="70" fill="white" stroke="#222" stroke-width="3"/>
+  <text x="185" y="176" font-size="21" font-weight="bold">U</text>
+  <text x="166" y="204" font-size="16">稼働</text>
+  <text x="505" y="176" font-size="21" font-weight="bold">D</text>
+  <text x="474" y="204" font-size="16">故障・修理中</text>
+  <path d="M288 155 C365 105 445 105 512 155" fill="none" stroke="#222" stroke-width="3"/>
+  <path d="M502 143 l14 12 -17 5 z" fill="#222"/>
+  <text x="365" y="105" font-size="18">故障率 λ</text>
+  <path d="M512 210 C440 260 360 260 288 210" fill="none" stroke="#222" stroke-width="3"/>
+  <path d="M300 222 l-14 -12 17 -5 z" fill="#222"/>
+  <text x="365" y="282" font-size="18">修理率 μ</text>
+</svg>
