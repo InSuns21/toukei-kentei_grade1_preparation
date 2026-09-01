@@ -1,0 +1,25 @@
+terms:
+  - term: 分離超平面
+    english: separating hyperplane
+    meaning: 二つの集合または集合と点を異なる半空間へ分ける超平面。
+  - term: 厳密分離
+    english: strict separation
+    meaning: 分離する二つの側の間に正のギャップがある分離。
+  - term: 最近点射影
+    english: metric projection
+    meaning: 点から閉凸集合までの距離を最小にする集合上の点。有限次元Euclid空間では一意に存在する。
+  - term: 凸包
+    english: convex hull
+    meaning: 与えられた点集合を含む最小の凸集合。有限点集合では全ての凸結合の集合。
+  - term: 有限生成凸錐
+    english: finitely generated convex cone
+    meaning: 有限個の生成ベクトルの非負線形結合で表される凸錐。
+  - term: Farkasの補題
+    english: Farkas' lemma
+    meaning: 非負係数による線形方程式の可解性と、それが不可能であることを証明する分離ベクトルの存在を結ぶalternative定理。
+  - term: conic Caratheodory
+    english: conic Caratheodory theorem
+    meaning: R^mの有限生成錐の点を高々m本の一次独立な生成ベクトルの非負結合で表せるという事実。
+  - term: クラス凸包
+    english: class convex hull
+    meaning: 同じクラスに属する訓練点の凸包。ハードマージンSVMでは正負クラスの凸包の非交差が線形分離可能性と対応する。

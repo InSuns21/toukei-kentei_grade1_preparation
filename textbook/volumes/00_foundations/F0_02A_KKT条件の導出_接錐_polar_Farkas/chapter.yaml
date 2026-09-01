@@ -11,6 +11,7 @@ learning_objectives:
   - 接錐と線形化錐を区別し、T_C subseteq L_C をTaylor展開から示せる
   - 制約想定がKKT導出で必要になる位置を説明できる
   - Farkas型のalternativeから線形化錐のpolar coneを表現できる
+  - Farkasの補題が分離超平面定理から導かれることをF0-02Bへ接続して説明できる
   - KKTの停留条件・双対実行可能性・相補性がどこから出るか説明できる
   - SVMのサポートベクトルをactive制約として解釈できる
 definitions:
@@ -24,7 +25,7 @@ theorems:
   - { id: F002A-THM-02, name: 接錐と線形化錐の包含 }
   - { id: F002A-THM-03, name: Farkas型alternative }
   - { id: F002A-THM-04, name: KKT停留条件の導出 }
-canonical_examples: [半平面の接錐, polar cone, FarkasからKKT, SVMのactive制約]
+canonical_examples: [半平面の接錐, polar cone, FarkasからKKT, 分離超平面定理への接続, SVMのactive制約]
 problem_patterns: [KKT-TANGENT-1, KKT-POLAR-1, KKT-FARKAS-1]
 past_exam_alignment: []
 integrated_exam_problems: []

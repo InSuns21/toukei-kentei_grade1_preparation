@@ -13,7 +13,7 @@ terms:
     meaning: 最適点で不等式制約が等号成立している制約。
   - term: Farkasの補題
     english: Farkas' lemma
-    meaning: 線形不等式系と非負係数による法線の表現を結ぶalternative定理。
+    meaning: 線形不等式系と非負係数による法線の表現を結ぶalternative定理。有限次元では凸錐に対する分離超平面定理から導ける。
   - term: 制約想定
     english: constraint qualification
     meaning: 接錐と線形化錐の関係などを保証し、KKT乗数の存在を導くための正則条件。
