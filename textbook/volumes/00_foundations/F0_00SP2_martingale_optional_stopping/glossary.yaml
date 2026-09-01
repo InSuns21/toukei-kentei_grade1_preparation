@@ -1,0 +1,20 @@
+chapter: "F0-00SP2"
+terms:
+  - term: martingale
+    english: martingale
+    meaning: 現在までの情報で条件付けた将来値の期待値が現在値に等しい公平ゲーム型の確率過程。
+  - term: submartingale
+    english: submartingale
+    meaning: 条件付き将来期待値が現在値以上となる過程。
+  - term: supermartingale
+    english: supermartingale
+    meaning: 条件付き将来期待値が現在値以下となる過程。
+  - term: predictable process
+    english: predictable process
+    meaning: 各時刻の値が直前までの情報で決まる過程。離散時間ではH_nがF_{n-1}可測である形が基本。
+  - term: optional stopping theorem
+    english: optional stopping theorem
+    meaning: 適切な可積分性・有界性条件の下でmartingaleをstopping timeで止めても期待値が保存されることを保証する定理。
+  - term: Doob decomposition
+    english: Doob decomposition
+    meaning: 離散時間submartingaleをmartingale部分と増加するpredictable部分へ分解する定理。
