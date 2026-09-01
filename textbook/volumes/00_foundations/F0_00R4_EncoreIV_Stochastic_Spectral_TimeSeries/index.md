@@ -52,11 +52,7 @@ $$
 
 というfiltrationを導入します。
 
-- adapted process
-- natural filtration
-- stopping time
-
-を通して、「未来を見ずに時間発展を扱う」条件を固定します。
+adapted process、natural filtration、stopping timeを通して、「未来を見ずに時間発展を扱う」条件を固定します。
 
 ---
 
@@ -74,13 +70,7 @@ $$
 
 ## 4. SP3：Brown運動
 
-Brown運動を
-
-- 連続path
-- 独立定常Gaussian増分
-- $B_t-B_s\sim N(0,t-s)$
-
-で定義し、
+Brown運動を連続path・独立定常Gaussian増分・$B_t-B_s\sim N(0,t-s)$ で定義し、
 
 $$
 \operatorname{Cov}(B_s,B_t)=\min(s,t)
@@ -111,13 +101,14 @@ $$
 二次変分から
 
 $$
-df(X_t)
-=
+\begin{aligned}
+df(t,X_t)
+={}&
 \left(
-\partial_tf+b\partial_xf+rac12\sigma^2\partial_{xx}f
-\right)dt
-+
-\sigma\partial_xf\,dB_t
+\partial_tf+b\partial_xf+\frac12\sigma^2\partial_{xx}f
+\right)dt\\
+&+\sigma\partial_xf\,dB_t
+\end{aligned}
 $$
 
 を導き、幾何Brown運動・OU過程を解きます。
@@ -132,13 +123,7 @@ $$
 Lf=bf'+\frac12\sigma^2f''
 $$
 
-から
-
-- backward Kolmogorov equation
-- forward Kolmogorov equation
-- Fokker--Planck equation
-
-へ進みます。
+からbackward Kolmogorov equation、forward Kolmogorov equation、Fokker--Planck equationへ進みます。
 
 Brown運動なら
 
@@ -278,13 +263,7 @@ Encore IIIはIVの必須前提ではありませんが、交点を掘る場合�
 
 ## 11. E2本編との関係
 
-E2-01〜E2-03は試験対策本編として
-
-- Markov連鎖
-- Poisson過程・ランダムウォーク
-- AR・MA・ARIMA
-
-を直接扱います。
+E2-01〜E2-03は試験対策本編としてMarkov連鎖、Poisson過程・ランダムウォーク、AR・MA・ARIMAを直接扱います。
 
 Encore IVはそれらを置き換えません。
 
@@ -297,18 +276,7 @@ Encore IVはそれらを置き換えません。
 
 ## 12. Encore IVの停止線
 
-本系列は次までで閉じます。
-
-- filtration / stopping time
-- martingale / optional stopping
-- Brown運動・二次変分
-- Ito積分・Ito公式
-- 基本SDE
-- generator・Kolmogorov・Fokker--Planck
-- 定常過程のHilbert空間予測
-- Wold decomposition
-- Herglotz / spectral measure
-- ARMA spectral density・linear filter
+本系列はfiltration / stopping time、martingale / optional stopping、Brown運動・二次変分、Ito積分・Ito公式、基本SDE、generator・Kolmogorov・Fokker--Planck、定常過程のHilbert空間予測、Wold decomposition、Herglotz / spectral measure、ARMA spectral density・linear filterまでで閉じます。
 
 以下は必須にしません。
 
