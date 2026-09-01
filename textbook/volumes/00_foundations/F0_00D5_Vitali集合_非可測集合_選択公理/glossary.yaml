@@ -1,0 +1,14 @@
+chapter: "F0-00D5"
+terms:
+  - term: Vitali集合
+    english: Vitali set
+    meaning: 実数を有理数差で同値類に分け、各同値類から代表元を一つずつ選んで作る代表集合。
+  - term: 非可測集合
+    english: non-measurable set
+    meaning: 指定したsigma代数に属さず、その測度を定義できない集合。
+  - term: 平行移動不変性
+    english: translation invariance
+    meaning: 集合を実数だけ平行移動しても測度が変わらない性質。
+  - term: Vitali同値関係
+    english: Vitali equivalence relation
+    meaning: 実数x,yについてx-yが有理数であるとき同値とする関係。
