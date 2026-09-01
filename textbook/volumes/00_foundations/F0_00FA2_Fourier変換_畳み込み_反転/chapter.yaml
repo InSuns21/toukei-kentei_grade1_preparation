@@ -1,0 +1,33 @@
+id: "F0-00FA2"
+title: "Encore II：Fourier変換・畳み込み・反転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00FA1
+  - F0-00D2
+official_scope: []
+learning_objectives:
+  - L1関数のFourier変換を定義できる
+  - 平行移動・変調・尺度変換のFourier変換を計算できる
+  - 畳み込みを定義し、Fourier変換が畳み込みを積へ変えることを説明できる
+  - 十分滑らかで減衰する関数について微分が周波数側の掛け算になることを導ける
+  - Fourier反転公式の意味と成立条件の役割を説明できる
+  - GaussianがFourier変換でGaussianへ移ることを説明できる
+  - 特性関数が確率測度のFourier変換であることを理解できる
+definitions:
+  - { id: F000FA2-DEF-01, name: Fourier変換 }
+  - { id: F000FA2-DEF-02, name: 畳み込み }
+  - { id: F000FA2-DEF-03, name: 逆Fourier変換 }
+theorems:
+  - { id: F000FA2-THM-01, name: Riemann--Lebesgueの補題 }
+  - { id: F000FA2-THM-02, name: 畳み込み定理 }
+  - { id: F000FA2-THM-03, name: Fourier反転公式 }
+canonical_examples:
+  - GaussianのFourier変換
+  - 矩形関数とsinc型関数
+  - 畳み込みによる平滑化
+problem_patterns: [FOURIER-TRANSFORM-1, CONVOLUTION-1, FOURIER-DERIVATIVE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
