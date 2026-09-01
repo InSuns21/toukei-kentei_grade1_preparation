@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="420" viewBox="0 0 860 420" role="img" aria-labelledby="title desc">
+  <title id="title">信頼性・保全性・アベイラビリティの時間軸</title>
+  <desc id="desc">設備が稼働し、故障して停止し、修理完了後に再び稼働するサイクルを時間軸で示す。稼働区間が信頼性やMTBF、停止区間が保全性やMTTR、全体に占める稼働割合がアベイラビリティに対応する。</desc>
+  <rect width="860" height="420" fill="white"/>
+  <text x="45" y="34" font-size="20" font-weight="bold">「故障するまで」と「直るまで」を分けて見る</text>
+  <line x1="90" y1="235" x2="780" y2="235" stroke="#222" stroke-width="2"/>
+  <text x="755" y="268" font-size="16">時間</text>
+  <rect x="110" y="170" width="255" height="70" fill="#f3f3f3" stroke="#222" stroke-width="2"/>
+  <rect x="365" y="170" width="120" height="70" fill="white" stroke="#222" stroke-width="2" stroke-dasharray="7 5"/>
+  <rect x="485" y="170" width="245" height="70" fill="#f3f3f3" stroke="#222" stroke-width="2"/>
+  <text x="210" y="212" font-size="18" font-weight="bold">稼働 U</text>
+  <text x="392" y="212" font-size="18" font-weight="bold">停止 D</text>
+  <text x="575" y="212" font-size="18" font-weight="bold">稼働 U</text>
+  <line x1="365" y1="130" x2="365" y2="265" stroke="#222" stroke-width="2"/>
+  <line x1="485" y1="130" x2="485" y2="265" stroke="#222" stroke-width="2"/>
+  <text x="338" y="112" font-size="16">故障</text>
+  <text x="452" y="112" font-size="16">修理完了</text>
+  <line x1="120" y1="305" x2="355" y2="305" stroke="#222" stroke-width="2"/>
+  <path d="M120 305 l12 -6 v12 z M355 305 l-12 -6 v12 z" fill="#222"/>
+  <text x="166" y="333" font-size="15">稼働時間：MTBF / MTTF の側</text>
+  <line x1="375" y1="305" x2="475" y2="305" stroke="#222" stroke-width="2"/>
+  <path d="M375 305 l12 -6 v12 z M475 305 l-12 -6 v12 z" fill="#222"/>
+  <text x="355" y="333" font-size="15">修理時間：MTTR</text>
+  <text x="115" y="382" font-size="16">Reliability：故障せず使えるか　　Maintainability：故障後に直せるか　　Availability：必要時に使える割合</text>
+</svg>
