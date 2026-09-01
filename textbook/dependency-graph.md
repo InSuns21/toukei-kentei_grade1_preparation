@@ -169,17 +169,57 @@ DS1では確率分布との混同を避けてSchwartz超関数と呼び、テス
 
 SOB1では弱微分のLp可積分性からSobolev空間を作り、$H^k=W^{k,2}$ をHilbert空間として扱う。SOB2では零Dirichlet境界条件を $H_0^1$ とtraceで表し、Poincare不等式からcoercivityの準備をする。
 
-WK1ではPoisson方程式を
-
-$$
-a(u,v)=F(v)
-$$
-
-というHilbert空間上の弱形式へ落とす。WK2ではLax--MilgramをRiesz表現から作用素へ移し、単射・閉range・稠密range・全射まで証明する。WK3ではGalerkin直交性とCeaの補題から有限要素法へ接続する。
+WK1ではPoisson方程式を $a(u,v)=F(v)$ というHilbert空間上の弱形式へ落とす。WK2ではLax--MilgramをRiesz表現から作用素へ移し、単射・閉range・稠密range・全射まで証明する。WK3ではGalerkin直交性とCeaの補題から有限要素法へ接続する。
 
 Encore IIIは線形二階楕円型PDEとGalerkin/FEMへの橋までで閉じる。一般Sobolev embedding・Rellichの完全証明、楕円型正則性、非線形PDE、Navier--Stokes等は必須にしない。
 
 読者向け入口は `F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md` とする。
+
+---
+
+## Encore IV：Stochastic Processes & Spectral Time Series
+
+確率論P3/P4/P6、Hilbert空間、Fourier解析を確率過程・時系列へ延長する任意の発展系列。通常教材E2の必須前提にはしない。
+
+```text
+F0-00P3 / F0-00P4 / F0-00P6 / F0-02C1 / F0-00FA2
+  ↓
+F0-00SP1 filtration・adapted process・stopping time
+  ↓
+F0-00SP2 martingale・optional stopping
+  ↓
+F0-00SP3 Brown運動・Gaussian過程・二次変分
+  ↓
+F0-00SP4 Ito積分・Ito公式・SDE
+  ↓
+F0-00SP5 generator・Kolmogorov方程式・Fokker--Planck
+  ↓
+F0-00TS1 定常過程・Hilbert空間予測・innovation・Wold
+  ↓
+F0-00TS2 Herglotz・spectral measure・spectral density
+  ↓
+E2-03    AR・MA・ARIMA本編
+  ↓
+F0-00TS3 線形filter・ARMA transfer function・周波数領域
+```
+
+SP1ではfiltrationを時刻ごとの情報として導入し、adapted processとstopping timeを定義する。SP2では条件付き期待値の時間整合性からmartingaleを作り、optional stopping・Doob decompositionまで進む。
+
+SP3ではBrown運動を独立定常Gaussian増分と連続pathで定義し、共分散 $\min(s,t)$、scaling、martingale性、二次変分 $[B]_t=t$ を扱う。continuous white noiseはBrown運動の通常微分ではなくSchwartz超関数的な微分としてEncore IIIへ接続する。
+
+SP4ではsimple predictable processからIto積分を定義し、Ito isometryで $L^2$ 極限へ拡張する。Ito公式、幾何Brown運動、Ornstein--Uhlenbeck過程、基本SDEへ進む。
+
+SP5ではgenerator $Lf=bf'+\sigma^2f''/2$ をIto公式から導き、backward/forward Kolmogorov equationとFokker--Planck方程式へ接続する。Brown運動から熱方程式を回収し、低正則性PDEではEncore IIIの弱解理論へ合流する。
+
+TS1では二次定常過程を $L^2(\Omega)$ のベクトル列として扱い、過去が張る閉部分空間への直交射影を最良線形予測とする。innovationとWold decompositionへ進む。
+
+TS2では自己共分散列の正定値性からHerglotz定理を使い、spectral measureを導入する。絶対連続な場合のみspectral densityを持つことを明示し、white noiseのflat spectrumとsinusoidのline spectrumを比較する。
+
+TS3ではbackshift $B$ を周波数領域の $e^{-i\lambda}$ へ写し、線形filterの変換則 $f_Y=|A|^2f_X$ とARMA spectral densityを導く。一階差分・seasonal differencingをfrequency responseとして読み直し、E2-03へ帰還する。
+
+Encore IVはsemimartingale一般論、Girsanov、local time、stochastic PDE、一般ergodic theorem、multivariate spectral analysis、fractional Brownian motion等を必須にしない。
+
+読者向け入口は `F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md` とする。
 
 ---
 
