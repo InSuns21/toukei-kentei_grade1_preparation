@@ -1,0 +1,20 @@
+chapter: "F0-00D3"
+terms:
+  - term: 外測度
+    english: outer measure
+    meaning: すべての部分集合に定義され、空集合で0、単調性、可算劣加法性を満たす集合関数。
+  - term: Lebesgue外測度
+    english: Lebesgue outer measure
+    meaning: 実数集合を可算個の開区間で覆った総延長のinfimumとして定義される外測度。
+  - term: 可算劣加法性
+    english: countable subadditivity
+    meaning: 可算和の外測度が各集合の外測度の和以下になる性質。
+  - term: Carathéodory可測性
+    english: Caratheodory measurability
+    meaning: 任意の集合をその集合との共通部分と外側に分けたとき、外測度が加法的に分解する性質。
+  - term: Carathéodoryの定理
+    english: Caratheodory theorem
+    meaning: 外測度に対するCarathéodory可測集合全体がsigma代数をなし、外測度の制限が完全な測度になるという定理。
+  - term: 完全測度
+    english: complete measure
+    meaning: 測度0集合の任意の部分集合も可測になる測度。
