@@ -1,55 +1,111 @@
 # E1-04 プロビット・非線形回帰・SVM
 
-本章では、統計検定1級の共通応用範囲に含まれる **プロビット分析・非線形回帰モデル・サポートベクターマシン** を扱います。
+この章では、公式出題範囲に並んでいる **プロビット分析・非線形回帰モデル・サポートベクターマシン（SVM）** を扱います。ただし、これらは同じモデルの派生形ではありません。最初に「何を知りたいのか」を分けると位置付けが見えます。
 
-- プロビット回帰: 2値応答の確率を標準正規分布の累積分布関数で線形予測子へ結ぶ。
-- 非線形回帰: 条件付き平均を未知母数の非線形関数として表す。
-- SVM: 確率モデルを直接置かず、分類境界とデータの幾何学的な余裕を最大化する。
+| データ上の問い | 欲しいもの | 主な方法 |
+|---|---|---|
+| 合格/不合格、故障/正常などの **1になる確率** を説明したい | $P(Y=1\mid x)$ | ロジット、プロビット |
+| 時間とともに減衰する量などの **平均曲線とその母数** を推定したい | $E(Y\mid x)$ と物理・工学的母数 | 非線形回帰 |
+| 2群を分ける **分類境界そのもの** が欲しい | 符号による分類規則 | SVM |
 
-本章では **潜在変数 → プロビット、一次近似 → Gauss--Newton、距離 → マージン → SVM** の順で式を導きます。
+したがって本章では、公式名を順に暗記するのではなく、
+
+1. 2値データで「確率」をモデル化するロジットとプロビットを比較する。
+2. 連続応答で、現象を表す式の母数を推定する非線形回帰を見る。
+3. 再び2値分類へ戻り、「確率ではなく境界を直接決める」SVMを見る。
+
+という順に進みます。
 
 本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md) に従います。
 
 関連章:
 
-- [L2-01 一般化線形モデル](../../04_linear_models/L2_01_一般化線形モデル/index.md): ロジスティック回帰、Bernoulli尤度、リンク関数。
+- [L2-01 一般化線形モデル](../../04_linear_models/L2_01_一般化線形モデル/index.md): Bernoulli尤度、リンク関数、ロジスティック回帰。
 - [L1-01 単回帰と最小二乗法](../../04_linear_models/L1_01_単回帰と最小二乗法/index.md): 最小二乗法、残差平方和。
 - [E1-03 因子分析・クラスター分析](../E1_03_因子分析_クラスター分析/index.md): 教師なし学習との対比。
 
 ## この章で解けるようになる問題
 
-- 潜在正規変数からプロビット回帰を導く。
-- プロビットリンクとロジットリンクを区別する。
+- 問題設定を見て、ロジット・プロビット・非線形回帰・SVMのどれを考えるべきか判定する。
+- 潜在正規変数の閾値モデルからプロビット回帰を導く。
+- ロジットとプロビットが「何を仮定し、何を解釈しやすいか」を比較する。
 - プロビット回帰の尤度・スコア・限界効果を導く。
-- 「説明変数に非線形」と「未知母数に非線形」を区別する。
-- 正規誤差の非線形回帰で最小二乗法と最尤法が一致することを示す。
+- 「説明変数に非線形」と「未知母数に非線形」を区別し、非線形最小二乗法を立てる。
 - Jacobianによる一次近似からGauss--Newton法を導く。
-- 分離超平面からSVMのマージン幅を導く。
-- ハードマージンSVMの双対問題を導く。
-- KKT条件からサポートベクトルの意味を説明する。
-- ソフトマージン・hinge損失・カーネル法の位置付けを説明する。
+- 「確率を推定する2値回帰」と「境界を直接最適化するSVM」を区別する。
+- SVMのマージン、主問題、双対問題、KKT条件、ソフトマージン、カーネル法を説明する。
 
 ## 公式出題範囲との対応
 
 | 範囲 | 本章の内容 |
 |---|---|
-| プロビット分析 | 潜在変数、プロビットリンク、尤度、スコア、限界効果 |
-| 非線形回帰モデル | 非線形最小二乗、Jacobian、Gauss--Newton、局所識別 |
-| サポートベクターマシン | マージン、主問題、双対問題、KKT、ソフトマージン、カーネル |
+| プロビット分析 | 潜在変数、ロジットとの比較、尤度、スコア、限界効果 |
+| 非線形回帰モデル | 現象モデル、非線形最小二乗、Jacobian、Gauss--Newton、局所識別 |
+| サポートベクターマシン | 確率モデルとの目的の違い、マージン、主問題、双対問題、KKT、ソフトマージン、カーネル |
 
 ## 前提知識チェック
 
-1. L2-01: Bernoulli分布、2値回帰、尤度、リンク関数。
+1. L2-01: Bernoulli分布、2値回帰、尤度、ロジットリンク。
 2. L1-01: 最小二乗法、残差平方和。
-3. F0-00: 内積、偏微分、Lagrange未定乗数法、一次近似。
+3. F0-00: 内積、偏微分、Lagrange未定乗数法、Taylorの一次近似。
 
 ---
 
-# Part I プロビット分析
+## 1. 導入：まず「何を出力したいか」を決める
 
-## 1. 2値回帰とプロビットリンク
+### 1.1 同じ0/1データでも、目的は二つある
 
-応答を $Y_i\in\{0,1\}$ とし、
+製品について説明変数 $\boldsymbol x$ から「故障するか」を予測したいとします。応答は
+
+$$
+Y=
+\begin{cases}
+1,&\text{故障},\\
+0,&\text{正常}
+\end{cases}
+$$
+
+です。
+
+ここで欲しいものが
+
+$$
+P(Y=1\mid \boldsymbol x)=0.73
+$$
+
+のような **故障確率** なら、ロジットやプロビットのような2値回帰が自然です。
+
+一方、欲しいものが
+
+$$
+\boldsymbol w^{\mathsf T}\boldsymbol x+b>0
+\quad\Longrightarrow\quad
+\text{故障側}
+$$
+
+という **分類境界** なら、SVMという別の考え方があります。
+
+どちらも最終的に0/1を予測できますが、途中で求めているものが違います。
+
+### 1.2 連続応答なら別の問題である
+
+今度は、部品の性能 $y$ が時間 $t$ とともに
+
+$$
+y\approx \alpha e^{-\beta t}
+$$
+
+のように減衰するとします。このとき知りたいのは分類境界ではなく、初期量 $\alpha$ や減衰速度 $\beta$ です。
+
+このように **現象を表す平均曲線の母数をデータから推定する** のが、本章でいう非線形回帰です。
+
+---
+
+## 2. プロビット：ロジットがあるのになぜ別のモデルがあるのか
+
+### 2.1 まずロジットを思い出す
+
+ロジスティック回帰では
 
 $$
 p_i=P(Y_i=1\mid\boldsymbol x_i),
@@ -57,29 +113,32 @@ p_i=P(Y_i=1\mid\boldsymbol x_i),
 \eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta
 $$
 
-とします。$p_i=\eta_i$ と直接置くと0未満や1超になり得るため、プロビット回帰では
+に対して
 
 $$
-\boxed{p_i=\Phi(\eta_i)}
+p_i=\frac{1}{1+e^{-\eta_i}}
 $$
 
-とします。したがってリンク関数は
+と置きます。したがって
 
 $$
-\boxed{\Phi^{-1}(p_i)=\eta_i}.
+\log\frac{p_i}{1-p_i}=\eta_i.
 $$
 
-## 2. 潜在変数から導く
+ロジットが便利なのは、係数が **対数オッズ** と直接結び付く点です。
 
-観測されない連続変数
+### 2.2 「観測できない連続量が閾値を超えた」と考える
+
+プロビットが自然に現れる代表的な考え方は **潜在変数モデル** です。
+
+たとえば実際には「故障しやすさ」$Y_i^*$ という連続量があり、
 
 $$
-Y_i^*=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta+\varepsilon_i,
-\qquad
-\varepsilon_i\sim N(0,1)
+Y_i^*
+=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta+\varepsilon_i
 $$
 
-を考え、
+だが、観測できるのは
 
 $$
 Y_i=
@@ -89,49 +148,107 @@ Y_i=
 \end{cases}
 $$
 
-とします。すると
+だけだと考えます。
+
+ここで
+
+$$
+\varepsilon_i\sim N(0,1)
+$$
+
+なら
 
 $$
 \begin{aligned}
 P(Y_i=1\mid\boldsymbol x_i)
-&=P(\eta_i+\varepsilon_i>0)\\
-&=P(\varepsilon_i>-\eta_i)\\
-&=\Phi(\eta_i).
+&=P(Y_i^*>0\mid\boldsymbol x_i)\\
+&=P(\varepsilon_i>-\boldsymbol x_i^{\mathsf T}\boldsymbol\beta)\\
+&=\Phi(\boldsymbol x_i^{\mathsf T}\boldsymbol\beta).
 \end{aligned}
 $$
 
-これがプロビット回帰です。
-
-### 2.1 なぜ誤差分散を1に固定するのか
-
-もし $\varepsilon_i\sim N(0,\sigma^2)$ なら
+したがって
 
 $$
-P(Y_i=1)=
+\boxed{
+p_i=\Phi(\eta_i)
+}
+$$
+
+となります。これがプロビット回帰です。
+
+つまり、プロビットは「標準正規CDFを何となく選ぶ」のではなく、
+
+> 潜在的な連続量の誤差を正規分布とみなし、閾値を超えたかだけ観測する
+
+というモデルから導けます。
+
+### 2.3 ロジットとの関係
+
+ロジットとプロビットはいずれも
+
+$$
+p_i=F(\eta_i)
+$$
+
+という形です。
+
+- プロビット: $F=\Phi$（標準正規CDF）
+- ロジット: $F$ はロジスティック分布のCDF
+
+したがって、潜在変数の誤差を標準ロジスティック分布と置けばロジット型の閾値モデルも作れます。
+
+両者のS字曲線はかなり似ているため、同じデータに当てはめると予測確率が近くなる場合が多い一方、係数の尺度そのものは同じではありません。
+
+使い分けの見方は次の通りです。
+
+| 観点 | ロジット | プロビット |
+|---|---|---|
+| 確率の作り方 | logistic CDF | normal CDF |
+| 係数の代表的解釈 | オッズ比と結び付けやすい | 潜在正規変数の尺度で解釈 |
+| 潜在変数表現 | logistic誤差 | normal誤差 |
+| 計算上の特徴 | $dp/d\eta=p(1-p)$ | $dp/d\eta=\phi(\eta)$ |
+
+「どちらが常に上」ではなく、モデル化したい仕組みと解釈が違います。
+
+### 2.4 なぜ潜在誤差の分散を1に固定するのか
+
+もし
+
+$$
+\varepsilon_i\sim N(0,\sigma^2)
+$$
+
+なら
+
+$$
+P(Y_i=1\mid\boldsymbol x_i)
+=
 \Phi\left(
 \frac{\boldsymbol x_i^{\mathsf T}\boldsymbol\beta}{\sigma}
 \right).
 $$
 
-観測確率から分かるのは $\boldsymbol\beta/\sigma$ だけで、$\boldsymbol\beta$ と $\sigma$ を別々には識別できません。そこで尺度を固定するため $\sigma=1$ とします。
-
-## 3. ロジットとの違い
-
-ロジスティック回帰では
+観測確率から分かるのは $\boldsymbol\beta/\sigma$ だけです。$\boldsymbol\beta$ と $\sigma$ を別々には識別できないため、尺度を決める目的で通常
 
 $$
-p_i=\frac{1}{1+e^{-\eta_i}}
+\sigma=1
 $$
 
-を使います。両者ともS字型ですが、プロビットは標準正規CDF、ロジットはロジスティックCDFを使います。ロジット係数はオッズ比へ直接つながりますが、プロビット係数の確率への効果は位置に依存します。
+と固定します。
 
-## 4. 尤度とスコア
+---
+
+## 3. プロビットの推定と解釈
+
+### 3.1 尤度
 
 Bernoulli尤度より
 
 $$
 L(\boldsymbol\beta)
-=\prod_{i=1}^n
+=
+\prod_{i=1}^n
 \Phi(\eta_i)^{y_i}
 \{1-\Phi(\eta_i)\}^{1-y_i}.
 $$
@@ -140,53 +257,70 @@ $$
 
 $$
 \ell(\boldsymbol\beta)
-=\sum_i
+=
+\sum_i
 \left[
 y_i\log\Phi(\eta_i)
 +(1-y_i)\log\{1-\Phi(\eta_i)\}
 \right].
 $$
 
-$p_i=\Phi(\eta_i)$ とおけば
+### 3.2 スコア
+
+$p_i=\Phi(\eta_i)$ とおくと
 
 $$
 \frac{\partial\ell_i}{\partial p_i}
-=\frac{y_i-p_i}{p_i(1-p_i)},
+=
+\frac{y_i-p_i}{p_i(1-p_i)},
 $$
 
 $$
-\frac{dp_i}{d\eta_i}=\phi(\eta_i),
+\frac{dp_i}{d\eta_i}
+=
+\phi(\eta_i),
 \qquad
-\frac{\partial\eta_i}{\partial\boldsymbol\beta}=\boldsymbol x_i.
+\frac{\partial\eta_i}{\partial\boldsymbol\beta}
+=
+\boldsymbol x_i.
 $$
 
-したがって
+連鎖律から
 
 $$
 \boxed{
 \frac{\partial\ell}{\partial\boldsymbol\beta}
-=\sum_i
+=
+\sum_i
 \boldsymbol x_i
-\frac{\phi(\eta_i)(y_i-p_i)}{p_i(1-p_i)}
+\frac{\phi(\eta_i)(y_i-p_i)}
+{p_i(1-p_i)}
 }.
 $$
 
 ロジスティック回帰では $dp/d\eta=p(1-p)$ が分母と相殺しますが、プロビットでは相殺しません。
 
-## 5. 限界効果
+### 3.3 限界効果
 
-連続説明変数 $x_j$ に対して
+連続説明変数 $x_j$ について
 
 $$
 \boxed{
 \frac{\partial p}{\partial x_j}
-=\phi(\eta)\beta_j
+=
+\phi(\eta)\beta_j
 }.
 $$
 
-したがって $\beta_j$ 自体は確率の一定増分ではありません。
+したがって、$\beta_j$ は「$x_j$ が1増えれば成功確率が常に $\beta_j$ 増える」という意味ではありません。
 
-例えば $\beta_j=0.8$、$\eta=0$、$\phi(0)\approx0.3989$ なら
+たとえば $\beta_j=0.8$、$\eta=0$ なら
+
+$$
+\phi(0)\approx0.3989
+$$
+
+なので
 
 $$
 \frac{\partial p}{\partial x_j}
@@ -194,27 +328,57 @@ $$
 \approx0.319.
 $$
 
+同じ $\beta_j$ でも $\eta$ が変われば $\phi(\eta)$ が変わるため、確率への効果も変わります。
+
 ---
 
-# Part II 非線形回帰
+## 4. 非線形回帰：曲線を描きたいのではなく、現象の母数を知りたい
 
-## 6. 「非線形」の意味
+### 4.1 「曲線だから非線形回帰」ではない
+
+たとえば
 
 $$
 y=\beta_0+\beta_1x+\beta_2x^2+\varepsilon
 $$
 
-は曲線ですが、未知母数 $\beta_0,\beta_1,\beta_2$ について線形なので通常の線形回帰です。
+は $x$ に対して曲線ですが、未知母数 $\beta_0,\beta_1,\beta_2$ の線形結合なので **線形回帰** です。
 
-一方
+一方、
 
 $$
 y=\alpha e^{-\beta x}+\varepsilon
 $$
 
-は未知母数 $\beta$ が指数関数の内部に入るため、未知母数に対して非線形です。本章ではこの意味での非線形回帰を扱います。
+では未知母数 $\beta$ が指数関数の内部に入っています。このため未知母数に対して非線形です。
 
-## 7. 非線形最小二乗法
+本章でいう非線形回帰は、この **母数に対する非線形性** を指します。
+
+### 4.2 なぜ多項式回帰で済ませないのか
+
+データ点だけを滑らかに結ぶことが目的なら、多項式などで近似できる場合もあります。
+
+しかし工学では、
+
+$$
+f(t;\alpha,\beta)=\alpha e^{-\beta t}
+$$
+
+の $\alpha$ が初期量、$\beta$ が減衰速度を表すように、平均関数そのものに現象上の意味がある場合があります。
+
+このとき欲しいのは「それらしい曲線」だけではなく、
+
+$$
+\boxed{\alpha,\beta\text{ の推定値}}
+$$
+
+です。そこで現象モデル $f(x;\boldsymbol\theta)$ を直接データへ当てはめます。
+
+---
+
+## 5. 非線形最小二乗とGauss--Newton法
+
+### 5.1 非線形最小二乗法
 
 一般に
 
@@ -225,45 +389,79 @@ $$
 とし、
 
 $$
-r_i(\boldsymbol\theta)=y_i-f(\boldsymbol x_i;\boldsymbol\theta)
+r_i(\boldsymbol\theta)
+=
+y_i-f(\boldsymbol x_i;\boldsymbol\theta)
 $$
 
-とします。非線形最小二乗推定量は
+とします。
+
+非線形最小二乗推定量は
 
 $$
 \boxed{
 \widehat{\boldsymbol\theta}
-=\arg\min_{\boldsymbol\theta}
+=
+\arg\min_{\boldsymbol\theta}
 \sum_i r_i(\boldsymbol\theta)^2
 }.
 $$
 
-## 8. 正規誤差なら最尤法と一致
+### 5.2 正規誤差なら最尤法と一致する
+
+独立に
 
 $$
 \varepsilon_i\sim N(0,\sigma^2)
 $$
 
-を独立に仮定すると
+と仮定すると
 
 $$
 \ell(\boldsymbol\theta,\sigma^2)
-=-\frac n2\log(2\pi\sigma^2)
+=
+-\frac n2\log(2\pi\sigma^2)
 -\frac{1}{2\sigma^2}
 RSS(\boldsymbol\theta).
 $$
 
-したがって $\boldsymbol\theta$ について対数尤度を最大化することは $RSS$ を最小化することと同値です。
+したがって、$\boldsymbol\theta$ について尤度を最大化することと
 
-## 9. Jacobianと停留条件
+$$
+RSS(\boldsymbol\theta)
+$$
+
+を最小化することは同値です。
+
+### 5.3 なぜ普通の最小二乗の公式が使えないのか
+
+線形回帰なら、残差平方和は係数について二次関数になり、正規方程式を一度解けば済みます。
+
+非線形回帰では一般に
+
+$$
+f(\boldsymbol x;\boldsymbol\theta)
+$$
+
+が $\boldsymbol\theta$ に対して非線形なので、同じ閉形式は得られません。
+
+そこで
+
+> 現在の母数の近くでは、曲がった関数も直線的に見える
+
+という一次近似を使います。
+
+### 5.4 JacobianとGauss--Newton更新
 
 平均ベクトルを $\boldsymbol f(\boldsymbol\theta)$、残差を
 
 $$
-\boldsymbol r=\boldsymbol y-\boldsymbol f(\boldsymbol\theta)
+\boldsymbol r
+=
+\boldsymbol y-\boldsymbol f(\boldsymbol\theta)
 $$
 
-とします。Jacobianを
+とし、Jacobianを
 
 $$
 J(\boldsymbol\theta)
@@ -273,73 +471,53 @@ J(\boldsymbol\theta)
 \right]
 $$
 
-とすると
-
-$$
-RSS=\boldsymbol r^{\mathsf T}\boldsymbol r
-$$
-
-より
-
-$$
-\nabla_{\boldsymbol\theta}RSS
-=-2J^{\mathsf T}\boldsymbol r.
-$$
-
-したがって停留条件は
-
-$$
-\boxed{J^{\mathsf T}\boldsymbol r=\boldsymbol0}.
-$$
-
-## 10. Gauss--Newton法
+とします。
 
 現在値 $\boldsymbol\theta^{(t)}$ の近くで
 
 $$
 \boldsymbol f(\boldsymbol\theta^{(t)}+\boldsymbol\delta)
 \approx
-\boldsymbol f(\boldsymbol\theta^{(t)})+J_t\boldsymbol\delta
+\boldsymbol f(\boldsymbol\theta^{(t)})
++J_t\boldsymbol\delta.
 $$
 
-と一次近似します。新しい残差は
+したがって新しい残差は
 
 $$
-\boldsymbol r_{new}
+\boldsymbol r_{\mathrm{new}}
 \approx
 \boldsymbol r_t-J_t\boldsymbol\delta.
 $$
 
-したがって
+ここで
 
 $$
 \|\boldsymbol r_t-J_t\boldsymbol\delta\|^2
 $$
 
-を最小化すればよく、正規方程式は
+を最小化すれば、これは $\boldsymbol\delta$ に関する通常の線形最小二乗問題です。正規方程式は
 
 $$
 J_t^{\mathsf T}J_t\boldsymbol\delta
-=J_t^{\mathsf T}\boldsymbol r_t.
+=
+J_t^{\mathsf T}\boldsymbol r_t.
 $$
 
 よって
 
 $$
 \boxed{
-\boldsymbol\delta
-=(J_t^{\mathsf T}J_t)^{-1}J_t^{\mathsf T}\boldsymbol r_t
-}
-$$
-
-および
-
-$$
-\boxed{
 \boldsymbol\theta^{(t+1)}
-=\boldsymbol\theta^{(t)}+\boldsymbol\delta
+=
+\boldsymbol\theta^{(t)}
++
+(J_t^{\mathsf T}J_t)^{-1}
+J_t^{\mathsf T}\boldsymbol r_t
 }.
 $$
+
+これがGauss--Newton法です。
 
 指数減衰
 
@@ -347,7 +525,7 @@ $$
 f(x;\alpha,\beta)=\alpha e^{-\beta x}
 $$
 
-では
+なら
 
 $$
 \frac{\partial f}{\partial\alpha}=e^{-\beta x},
@@ -356,9 +534,11 @@ $$
 =-\alpha x e^{-\beta x}.
 $$
 
-## 11. 初期値・識別・変換
+### 5.5 初期値・識別・変換
 
-非線形 $RSS$ は単純な二次関数とは限らず、初期値によって局所解や数値不安定性が生じ得ます。また $J^{\mathsf T}J$ がほぼ特異なら、異なる母数変化がほぼ同じ平均曲線を作り、局所的に母数を区別しにくくなります。
+非線形 $RSS$ は単純な二次関数とは限らないため、初期値によって収束先や数値安定性が変わることがあります。
+
+また $J^{\mathsf T}J$ がほぼ特異なら、母数を少し違う方向へ動かしてもほぼ同じ平均曲線になるため、母数を区別しにくくなります。
 
 局所線形化が妥当なら
 
@@ -370,52 +550,76 @@ $$
 
 と近似できます。
 
-また加法誤差モデル
+なお、
 
 $$
 y=f(x)+\varepsilon
 $$
 
-で対数を取っても
+という加法誤差モデルに単純に対数を取っても
 
 $$
 \log y=\log\{f(x)+\varepsilon\}
 $$
 
-なので、単純な加法誤差の線形回帰にはなりません。対数変換は誤差モデルも変える操作です。
+であり、元と同じ誤差モデルの線形回帰にはなりません。変換するときは平均関数だけでなく誤差構造も変わる点に注意します。
 
 ---
 
-# Part III サポートベクターマシン
+## 6. SVM：確率ではなく分類境界を直接決める
 
-## 12. 超平面と距離
+### 6.1 ロジット・プロビットとの違い
 
-2値ラベルを $y_i\in\{-1,+1\}$ とし、分類関数を
+再び2値分類を考えます。
+
+ロジットやプロビットでは
+
+$$
+P(Y=1\mid\boldsymbol x)
+$$
+
+を確率モデルとして推定しました。
+
+SVMでは基本的に、その確率分布を先に置きません。欲しいのは
 
 $$
 f(\boldsymbol x)
-=\boldsymbol w^{\mathsf T}\boldsymbol x+b
+=
+\boldsymbol w^{\mathsf T}\boldsymbol x+b
 $$
 
-とします。分類境界は
+の符号で分類するための **よい境界** です。
+
+したがって、
+
+- 故障確率を0.73のように出したい → ロジット / プロビット
+- 故障側と正常側を頑健に分ける境界が欲しい → SVM
+
+という違いがあります。
+
+### 6.2 分けられる境界が何本もあるならどう選ぶか
+
+2群が直線で完全に分離できる場合、正しく分ける境界は普通1本ではありません。
+
+SVMはその中から、訓練点までの最小距離が最も大きい境界を選びます。この「余裕」が **マージン** です。
+
+2値ラベルを $y_i\in\{-1,+1\}$ とすると、点 $\boldsymbol x_i$ の符号付き幾何学的マージンは
 
 $$
-\boldsymbol w^{\mathsf T}\boldsymbol x+b=0.
+\frac{
+y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)
+}{
+\|\boldsymbol w\|
+}.
 $$
 
-点 $\boldsymbol x_i$ の符号付き幾何学的マージンは
-
-$$
-\frac{y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)}{\|\boldsymbol w\|}.
-$$
-
-$f$ を正の定数倍しても境界は変わらないため、最近傍点で
+$f$ を正の定数倍しても分類境界は変わらないため、最近傍点で
 
 $$
 y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)=1
 $$
 
-となるよう尺度を正規化できます。
+となるよう尺度を決めます。
 
 すると支持超平面
 
@@ -423,15 +627,41 @@ $$
 \boldsymbol w^{\mathsf T}\boldsymbol x+b=\pm1
 $$
 
-は境界から各 $1/\|\boldsymbol w\|$ の距離にあるため、マージン幅は
+は分類境界からそれぞれ
 
 $$
-\boxed{\frac{2}{\|\boldsymbol w\|}}.
+\frac{1}{\|\boldsymbol w\|}
 $$
 
-## 13. ハードマージン主問題
+だけ離れるので、両者の間隔は
 
-マージン最大化は $\|\boldsymbol w\|$ の最小化と同値なので
+$$
+\boxed{
+\frac{2}{\|\boldsymbol w\|}
+}.
+$$
+
+### 6.3 完全分離とロジスティック回帰
+
+完全分離されたデータでは、通常のロジスティック回帰で係数を分離方向へ大きくしていくと尤度が改善し続け、有限の最尤推定値が存在しない場合があります。
+
+これは「ロジスティック回帰が分類できない」という意味ではなく、**確率モデルの母数推定** として問題が起こるということです。
+
+SVMは最初から別の目的、
+
+$$
+\text{正しく分けつつマージンを最大化する}
+$$
+
+を採用します。この対比を見ると、2値データに対して同じ「分類」という言葉を使っていても、最適化しているものが違うことが分かります。
+
+---
+
+## 7. SVMの最適化
+
+### 7.1 ハードマージン主問題
+
+マージン最大化は $\|\boldsymbol w\|$ の最小化と同値なので、
 
 $$
 \boxed{
@@ -450,24 +680,29 @@ $$
 
 を解きます。
 
-## 14. 双対問題
+### 7.2 双対問題
 
 Lagrangianを
 
 $$
 L
-=\frac12\|\boldsymbol w\|^2
-+\sum_i\alpha_i
+=
+\frac12\|\boldsymbol w\|^2
++
+\sum_i\alpha_i
 \{1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\},
 \qquad
 \alpha_i\ge0
 $$
 
-とします。停留条件は
+とします。
+
+$\boldsymbol w,b$ に関する停留条件から
 
 $$
 \boldsymbol w
-=\sum_i\alpha_i y_i\boldsymbol x_i,
+=
+\sum_i\alpha_i y_i\boldsymbol x_i,
 $$
 
 $$
@@ -497,119 +732,141 @@ $$
 \sum_i\alpha_i y_i=0.
 $$
 
-## 15. KKT条件とサポートベクトル
+### 7.3 KKT条件とサポートベクトル
 
-相補性より
+相補性条件は
 
 $$
 \boxed{
 \alpha_i
-\{y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)-1\}=0
+\{y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)-1\}
+=0
 }.
 $$
 
-したがって $\alpha_i>0$ の点は通常
+したがって $\alpha_i>0$ なら
 
 $$
 y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)=1
 $$
 
-を満たす境界近傍の点で、これがサポートベクトルです。
+となり、その点が境界を決めます。これが **サポートベクトル** です。
 
-### 15.1 1次元2点例
+### 7.4 ソフトマージンとhinge損失
 
-$$
-(x_1,y_1)=(-1,-1),
-\qquad
-(x_2,y_2)=(1,+1)
-$$
-
-では対称性から $b=0$。制約は $w\ge1$ なので
-
-$$
-\boxed{w=1,b=0}.
-$$
-
-マージン幅は2です。双対では $\alpha_1=\alpha_2=\alpha$ となり、目的関数
-
-$$
-2\alpha-2\alpha^2
-$$
-
-は $\alpha=1/2$ で最大になります。
-
-## 16. ソフトマージンとhinge損失
-
-線形分離できない場合は
+現実のデータは完全分離できないことが多いため、
 
 $$
 \xi_i\ge0
 $$
 
-を導入して
+を導入し、
 
 $$
 y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)
 \ge1-\xi_i
 $$
 
-とします。目的関数は
+とします。
+
+目的関数は
 
 $$
 \boxed{
 \min
 \frac12\|\boldsymbol w\|^2
-+C\sum_i\xi_i
++
+C\sum_i\xi_i
 }.
 $$
 
-各点の最小スラックは
+各点について必要な最小スラックは
 
 $$
 \xi_i
-=\max\{0,1-y_if(\boldsymbol x_i)\}
+=
+\max\{0,1-y_if(\boldsymbol x_i)\}
 $$
 
-なので
+なので、
 
 $$
+\boxed{
 \max\{0,1-yf(\boldsymbol x)\}
+}
 $$
 
 がhinge損失です。
 
-## 17. カーネル法
+### 7.5 カーネル法
 
-SVMの双対問題ではデータは内積
+双対問題ではデータは内積
 
 $$
 \boldsymbol x_i^{\mathsf T}\boldsymbol x_j
 $$
 
-だけを通じて現れます。特徴写像 $\varphi$ の高次元空間での内積を
+を通じて現れます。
+
+特徴写像 $\varphi$ に対して
 
 $$
 K(\boldsymbol x_i,\boldsymbol x_j)
-=\varphi(\boldsymbol x_i)^{\mathsf T}
+=
+\varphi(\boldsymbol x_i)^{\mathsf T}
 \varphi(\boldsymbol x_j)
 $$
 
-として直接計算できれば、特徴写像を明示せず非線形境界を扱えます。
+を直接計算できれば、高次元の特徴量を明示的に作らずに非線形な分類境界を扱えます。
 
 ---
 
-# 演習
+## 8. 典型例題：同じ「非線形」「分類」に惑わされない
 
-## Level A
+### 例1：合否確率
 
-### E1-04-A01 プロビット確率
+試験得点 $x$ から合格確率を推定し、「1点増えると合格確率がどれくらい変わるか」を知りたい。
+
+→ **ロジットまたはプロビット**。欲しいものが確率だからです。
+
+さらに「観測されない合格力 $Y^*$ が正規誤差を伴い、閾値を超えると合格」と考えるならプロビットが自然です。
+
+### 例2：反応量の飽和曲線
+
+濃度 $x$ と反応量 $y$ に
+
+$$
+E(Y\mid x)
+=
+\frac{V_{\max}x}{K+x}
+$$
+
+という理論式があり、$V_{\max}$ と $K$ を推定したい。
+
+→ **非線形回帰**。未知母数が分母にも入り、母数に対して非線形です。
+
+### 例3：良品・不良品の境界
+
+多数の測定値から良品・不良品を分けたい。確率の校正より、境界付近の点に対して余裕のある分類面が欲しい。
+
+→ **SVM**。分類境界とマージンを直接最適化します。
+
+---
+
+## 9. 演習
+
+### E1-04-A01 どの方法を使うか
 
 - Level: A
-- 目安時間: 6分
-- 主題: プロビットリンク
-- 使用技術: 標準正規分布表
+- 目安時間: 8分
+- 主題: モデル選択
+- 使用技術: 問題設定の読解
 
-$\Phi(0)=0.5000$、$\Phi(1)=0.8413$ とする。$\eta=0,1$ のときの成功確率を求めよ。
+次の各状況で、最も直接的な候補を「プロビット回帰・非線形回帰・SVM」から選び、理由を1行で述べよ。
+
+1. 潜在的な耐久度が正規分布的にばらつき、耐久度が閾値を下回ると故障すると考え、故障確率を推定したい。
+2. 温度 $t$ に対する反応量が $\alpha e^{-\beta t}$ に従うと考え、$\alpha,\beta$ を推定したい。
+3. 2群を分ける確率より、分類境界から最も近い訓練点までの距離を大きくしたい。
 
 <!-- solution-start -->
 
@@ -617,28 +874,22 @@ $\Phi(0)=0.5000$、$\Phi(1)=0.8413$ とする。$\eta=0,1$ のときの成功確
 
 ##### 詳細解答
 
-$$
-p=\Phi(\eta)
-$$
-
-なので
-
-$$
-\boxed{p(0)=0.5000},
-\qquad
-\boxed{p(1)=0.8413}.
-$$
+1. **プロビット回帰**。潜在正規変数の閾値モデルから成功・故障確率を表す設定だからである。
+2. **非線形回帰**。未知母数 $\beta$ が指数関数内部に入り、理論曲線の母数そのものを推定したいからである。
+3. **SVM**。成功確率ではなく分類境界のマージン最大化が目的だからである。
 
 ##### 本番答案
 
-$$
-0.5000,\quad0.8413.
-$$
+1. プロビット。
+2. 非線形回帰。
+3. SVM。
+
+各理由を「潜在正規閾値」「母数に非線形」「マージン最大化」と書けばよい。
 
 ##### 採点基準
 
-- $p=\Phi(\eta)$: 8点
-- 各数値: 各6点
+- 各方法の選択: 各4点
+- 各理由: 合計8点
 
 <!-- solution-end -->
 
@@ -649,7 +900,11 @@ $$
 - 主題: 限界効果
 - 使用技術: 連鎖律
 
-$\beta_1=0.8$、$\eta=0$、$\phi(0)=0.3989$ とする。$x$ に関する限界効果を求めよ。
+$$
+P(Y=1\mid x)=\Phi(\beta_0+\beta_1x)
+$$
+
+とする。$\beta_1=0.8$、$\eta=\beta_0+\beta_1x=0$、$\phi(0)=0.3989$ のとき、$x$ に関する限界効果を求めよ。
 
 <!-- solution-start -->
 
@@ -659,10 +914,15 @@ $\beta_1=0.8$、$\eta=0$、$\phi(0)=0.3989$ とする。$x$ に関する限界�
 
 $$
 \frac{\partial p}{\partial x}
-=\phi(\eta)\beta_1
-=0.3989\times0.8
-=0.31912.
+=
+\phi(\eta)\beta_1
+=
+0.3989\times0.8
+=
+0.31912.
 $$
+
+したがって、この点における $x$ の1単位増加に対する確率の局所的な変化率は約0.319である。
 
 ##### 本番答案
 
@@ -672,7 +932,7 @@ $$
 
 ##### 採点基準
 
-- 式: 10点
+- 限界効果の式: 10点
 - 代入: 6点
 - 結論: 4点
 
@@ -685,7 +945,7 @@ $$
 - 主題: 非線形回帰
 - 使用技術: 母数に関する線形性
 
-次のうち未知母数に対して非線形なものを選べ。
+次のうち、未知母数に対して非線形なものを選べ。
 
 1. $y=\beta_0+\beta_1x+\beta_2x^2+\varepsilon$
 2. $y=\alpha e^{-\beta x}+\varepsilon$
@@ -697,7 +957,7 @@ $$
 
 ##### 詳細解答
 
-1と3は変換した説明変数を使った未知母数の線形結合である。2は未知母数 $\beta$ が指数関数の中に入り、母数に対して非線形である。
+1と3は、変換された説明変数を使っていても未知母数の線形結合である。2は未知母数 $\beta$ が指数関数の内部に入るため、母数に対して非線形である。
 
 ##### 本番答案
 
@@ -717,9 +977,9 @@ $$
 - Level: A
 - 目安時間: 7分
 - 主題: SVM
-- 使用技術: 距離
+- 使用技術: 超平面からの距離
 
-1次元SVMで $w=2,b=0$ とする。支持超平面間のマージン幅を求めよ。
+1次元SVMで $f(x)=2x$ とし、支持超平面を $2x=\pm1$ とする。支持超平面間のマージン幅を求めよ。
 
 <!-- solution-start -->
 
@@ -727,9 +987,14 @@ $$
 
 ##### 詳細解答
 
+$w=2$ なので
+
 $$
 \frac{2}{\|w\|}
-=\frac22=1.
+=
+\frac22
+=
+1.
 $$
 
 ##### 本番答案
@@ -740,30 +1005,31 @@ $$
 
 ##### 採点基準
 
-- 式: 10点
+- マージン幅の式: 10点
 - 計算: 10点
 
 <!-- solution-end -->
 
-## Level B
+## 10. Level B
 
 ### E1-04-B01 潜在変数からプロビット
 
 - Level: B
 - 目安時間: 12分
 - 主題: 潜在変数
-- 使用技術: 正規分布の対称性
+- 使用技術: 正規分布の対称性、識別
 
 $$
 Y^*=\boldsymbol x^{\mathsf T}\boldsymbol\beta+\varepsilon,
 \qquad
-\varepsilon\sim N(0,1)
+Y=1\Longleftrightarrow Y^*>0
 $$
 
-とし、$Y=1\Leftrightarrow Y^*>0$ とする。
+とする。
 
-1. $P(Y=1\mid\boldsymbol x)=\Phi(\boldsymbol x^{\mathsf T}\boldsymbol\beta)$ を示せ。
-2. 誤差標準偏差を未知の $\sigma$ とすると識別上何が起こるか説明せよ。
+1. $\varepsilon\sim N(0,1)$ のとき $P(Y=1\mid\boldsymbol x)=\Phi(\boldsymbol x^{\mathsf T}\boldsymbol\beta)$ を示せ。
+2. $\varepsilon\sim N(0,\sigma^2)$ として $\sigma$ も未知にすると、なぜ $\boldsymbol\beta$ と $\sigma$ を別々に推定できないか説明せよ。
+3. 潜在誤差を正規分布ではなくロジスティック分布と置くと、どの2値回帰と対応するか答えよ。
 
 <!-- solution-start -->
 
@@ -774,34 +1040,38 @@ $$
 $\eta=\boldsymbol x^{\mathsf T}\boldsymbol\beta$ とすると
 
 $$
-P(Y=1\mid x)
-=P(\varepsilon>-\eta)
-=\Phi(\eta).
+P(Y=1\mid\boldsymbol x)
+=
+P(\varepsilon>-\eta)
+=
+\Phi(\eta).
 $$
 
 一般の $\sigma$ では
 
 $$
-P(Y=1\mid x)
-=\Phi\left(\frac{x^{\mathsf T}\beta}{\sigma}\right)
+P(Y=1\mid\boldsymbol x)
+=
+\Phi\left(\frac{\boldsymbol x^{\mathsf T}\boldsymbol\beta}{\sigma}\right)
 $$
 
-となり、$\beta$ と $\sigma$ は比でしか識別されない。そこで通常 $\sigma=1$ と固定する。
+なので、観測確率は $\boldsymbol\beta/\sigma$ にしか依存しない。したがって尺度を固定する必要がある。
+
+潜在誤差にロジスティック分布を用いる閾値モデルはロジットと対応する。
 
 ##### 本番答案
 
 $$
-P(Y=1\mid x)=\Phi(x^{\mathsf T}\beta).
+P(Y=1\mid\boldsymbol x)=\Phi(\boldsymbol x^{\mathsf T}\boldsymbol\beta).
 $$
 
-一般の $\sigma$ では $\Phi(x^{\mathsf T}\beta/\sigma)$ となるため、尺度を固定する必要がある。
+一般の $\sigma$ では $\Phi(\boldsymbol x^{\mathsf T}\boldsymbol\beta/\sigma)$ となるため、$\boldsymbol\beta$ と $\sigma$ は比でしか識別されない。ロジスティック誤差ならロジットに対応する。
 
 ##### 採点基準
 
-- 確率の変形: 8点
-- 対称性: 4点
-- 一般の $\sigma$: 4点
-- 識別の説明: 4点
+- 第1問: 8点
+- 第2問: 8点
+- 第3問: 4点
 
 <!-- solution-end -->
 
@@ -810,7 +1080,7 @@ $$
 - Level: B
 - 目安時間: 15分
 - 主題: 最尤推定
-- 使用技術: 連鎖律
+- 使用技術: Bernoulli尤度、連鎖律
 
 $$
 p_i=\Phi(\eta_i),
@@ -818,7 +1088,7 @@ p_i=\Phi(\eta_i),
 \eta_i=\boldsymbol x_i^{\mathsf T}\boldsymbol\beta
 $$
 
-についてスコアを導け。
+についてスコアを導け。また、ロジットでは途中のどの因子が相殺するか述べよ。
 
 <!-- solution-start -->
 
@@ -830,40 +1100,58 @@ $$
 
 $$
 \ell_i
-=y_i\log p_i+(1-y_i)\log(1-p_i).
+=
+y_i\log p_i+(1-y_i)\log(1-p_i).
 $$
+
+よって
 
 $$
 \frac{\partial\ell_i}{\partial p_i}
-=\frac{y_i-p_i}{p_i(1-p_i)},
+=
+\frac{y_i-p_i}{p_i(1-p_i)}.
 $$
+
+さらに
 
 $$
 \frac{dp_i}{d\eta_i}=\phi(\eta_i),
 \qquad
-\frac{\partial\eta_i}{\partial\beta}=x_i.
+\frac{\partial\eta_i}{\partial\boldsymbol\beta}
+=\boldsymbol x_i.
 $$
 
 したがって
 
 $$
 \boxed{
-\frac{\partial\ell}{\partial\beta}
-=\sum_i x_i
-\frac{\phi(\eta_i)(y_i-p_i)}{p_i(1-p_i)}
+\frac{\partial\ell}{\partial\boldsymbol\beta}
+=
+\sum_i
+\boldsymbol x_i
+\frac{\phi(\eta_i)(y_i-p_i)}
+{p_i(1-p_i)}
 }.
 $$
 
+ロジットでは
+
+$$
+\frac{dp_i}{d\eta_i}=p_i(1-p_i)
+$$
+
+なので、分母 $p_i(1-p_i)$ と相殺する。
+
 ##### 本番答案
 
-上式。
+上式。ロジットでは $dp/d\eta=p(1-p)$ がBernoulli尤度の微分に現れる分母と相殺する。
 
 ##### 採点基準
 
-- Bernoulli対数尤度: 4点
-- $p$ 微分: 6点
-- $\Phi'=\phi$: 4点
-- 最終式: 6点
+- 対数尤度: 4点
+- $p$ に関する微分: 4点
+- 連鎖律: 6点
+- ロジットとの比較: 6点
 
 <!-- solution-end -->
 
@@ -872,9 +1160,15 @@ $$
 - Level: B
 - 目安時間: 15分
 - 主題: 非線形最小二乗
-- 使用技術: Taylor一次近似
+- 使用技術: Taylor一次近似、最小二乗
 
-Gauss--Newton更新式を一次近似から導け。
+$$
+\boldsymbol y
+=
+\boldsymbol f(\boldsymbol\theta)+\boldsymbol\varepsilon
+$$
+
+について、Gauss--Newton更新式を一次近似から導け。
 
 <!-- solution-start -->
 
@@ -882,35 +1176,48 @@ Gauss--Newton更新式を一次近似から導け。
 
 ##### 詳細解答
 
-$$
-f(\theta+\delta)
-\approx f(\theta)+J\delta
-$$
-
-より
+現在値 $\boldsymbol\theta^{(t)}$ のまわりで
 
 $$
-r_{new}\approx r-J\delta.
+\boldsymbol f(\boldsymbol\theta^{(t)}+\boldsymbol\delta)
+\approx
+\boldsymbol f(\boldsymbol\theta^{(t)})
++
+J_t\boldsymbol\delta.
 $$
 
-したがって $\|r-J\delta\|^2$ を最小化し
+したがって
 
 $$
-J^{\mathsf T}J\delta=J^{\mathsf T}r.
+\boldsymbol r_{\mathrm{new}}
+\approx
+\boldsymbol r_t-J_t\boldsymbol\delta.
+$$
+
+これの平方和を最小化すると
+
+$$
+J_t^{\mathsf T}J_t\boldsymbol\delta
+=
+J_t^{\mathsf T}\boldsymbol r_t.
 $$
 
 よって
 
 $$
 \boxed{
-\theta^{(t+1)}
-=\theta^{(t)}+(J^{\mathsf T}J)^{-1}J^{\mathsf T}r
+\boldsymbol\theta^{(t+1)}
+=
+\boldsymbol\theta^{(t)}
++
+(J_t^{\mathsf T}J_t)^{-1}
+J_t^{\mathsf T}\boldsymbol r_t
 }.
 $$
 
 ##### 本番答案
 
-上式。
+Taylor一次近似から残差を $\boldsymbol r_t-J_t\boldsymbol\delta$ と近似し、その最小二乗問題を解けば上式を得る。
 
 ##### 採点基準
 
@@ -931,13 +1238,14 @@ $$
 主問題
 
 $$
-\min_{w,b}\frac12\|w\|^2
+\min_{\boldsymbol w,b}
+\frac12\|\boldsymbol w\|^2
 $$
 
 subject to
 
 $$
-y_i(w^{\mathsf T}x_i+b)\ge1
+y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\ge1
 $$
 
 から双対問題を導け。
@@ -948,34 +1256,51 @@ $$
 
 ##### 詳細解答
 
+Lagrangianは
+
 $$
 L
-=\frac12\|w\|^2
-+\sum_i\alpha_i\{1-y_i(w^{\mathsf T}x_i+b)\}.
+=
+\frac12\|\boldsymbol w\|^2
++
+\sum_i\alpha_i
+\{1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\},
+\qquad
+\alpha_i\ge0.
 $$
 
-停留条件から
+停留条件より
 
 $$
-w=\sum_i\alpha_i y_i x_i,
+\boldsymbol w
+=
+\sum_i\alpha_i y_i\boldsymbol x_i,
 \qquad
 \sum_i\alpha_i y_i=0.
 $$
 
-したがって
+これを代入して
 
 $$
 \boxed{
-\max_{\alpha}
+\max_{\boldsymbol\alpha}
 \left(
 \sum_i\alpha_i
--\frac12\sum_{i,j}
-\alpha_i\alpha_jy_iy_jx_i^{\mathsf T}x_j
+-\frac12
+\sum_{i,j}
+\alpha_i\alpha_jy_iy_j
+\boldsymbol x_i^{\mathsf T}\boldsymbol x_j
 \right)
 }
 $$
 
-ただし $\alpha_i\ge0$、$\sum_i\alpha_i y_i=0$。
+ただし
+
+$$
+\alpha_i\ge0,
+\qquad
+\sum_i\alpha_i y_i=0.
+$$
 
 ##### 本番答案
 
@@ -984,28 +1309,38 @@ $$
 ##### 採点基準
 
 - Lagrangian: 5点
-- $w$ の停留条件: 5点
+- $\boldsymbol w$ の停留条件: 5点
 - $b$ の停留条件: 4点
 - 双対問題: 6点
 
 <!-- solution-end -->
 
-## Level C
+## 11. Level C
 
-### E1-04-C01 プロビット尤度の数値計算
+### E1-04-C01 ロジットとプロビットの比較
 
 - Level: C
-- 目安時間: 15分
-- 主題: 尤度
-- 使用技術: Bernoulli尤度
+- 目安時間: 20分
+- 主題: 2値回帰のモデル選択
+- 使用技術: 潜在変数、リンク関数、限界効果
+
+ある部品について $Y=1$ を故障とし、説明変数を $x$ とする。次の2モデルを考える。
 
 $$
-(\eta_1,y_1)=(0,0),
-\qquad
-(\eta_2,y_2)=(1,1)
+\text{Model L}:\quad
+P(Y=1\mid x)=\frac{1}{1+e^{-(a+bx)}},
 $$
 
-とし、$\Phi(0)=0.5000$、$\Phi(1)=0.8413$ とする。尤度と対数尤度を求めよ。
+$$
+\text{Model P}:\quad
+P(Y=1\mid x)=\Phi(c+dx).
+$$
+
+1. Model L, P のリンク関数を書け。
+2. Model P を潜在変数の閾値モデルとして表せ。
+3. Model L で $b$ が直接結び付く解釈を述べよ。
+4. Model P の $x$ に関する限界効果を書け。
+5. 「潜在的な耐久度のばらつきを正規分布と考えたい」という情報があるとき、どちらのモデルが自然か述べよ。
 
 <!-- solution-start -->
 
@@ -1013,28 +1348,43 @@ $$
 
 ##### 詳細解答
 
-$$
-L=(1-0.5)\times0.8413
-=0.42065.
-$$
-
-$$
-\ell=\log(0.42065)\approx-0.866.
-$$
+1. Model L は
+   $$
+   \log\frac{p}{1-p}=a+bx.
+   $$
+   Model P は
+   $$
+   \Phi^{-1}(p)=c+dx.
+   $$
+2.
+   $$
+   Y^*=c+dx+\varepsilon,\qquad \varepsilon\sim N(0,1),
+   $$
+   とし、
+   $$
+   Y=1\Longleftrightarrow Y^*>0
+   $$
+   とすればよい。
+3. $x$ が1増えたとき対数オッズが $b$ 増え、オッズは $e^b$ 倍になる。
+4.
+   $$
+   \frac{\partial p}{\partial x}
+   =
+   \phi(c+dx)d.
+   $$
+5. 潜在正規変数の閾値モデルに直接対応するためModel Pが自然である。
 
 ##### 本番答案
 
-$$
-\boxed{L=0.42065},
-\qquad
-\boxed{\ell\approx-0.866}.
-$$
+各リンク、潜在正規表現、オッズ比 $e^b$、限界効果 $\phi(c+dx)d$、Model Pを記す。
 
 ##### 採点基準
 
-- 各観測の寄与: 8点
-- 尤度: 6点
-- 対数尤度: 6点
+- 第1問: 4点
+- 第2問: 5点
+- 第3問: 4点
+- 第4問: 4点
+- 第5問: 3点
 
 <!-- solution-end -->
 
@@ -1043,19 +1393,19 @@ $$
 - Level: C
 - 目安時間: 22分
 - 主題: 非線形最小二乗
-- 使用技術: 2元連立方程式
+- 使用技術: Jacobian、2元連立方程式
 
 $$
 f(x;\alpha,\beta)=\alpha e^{-\beta x}
 $$
 
-をデータ $(0,2.0),(1,1.2),(2,0.7)$ に当てはめ、初期値を
+をデータ $(0,2.0),(1,1.2),(2,0.7)$ に当てはめる。初期値を
 
 $$
 (\alpha^{(0)},\beta^{(0)})=(1.5,0.4)
 $$
 
-とする。以下を用いてよい。
+とし、次を用いてよい。
 
 $$
 J^{\mathsf T}J
@@ -1075,7 +1425,10 @@ J^{\mathsf T}r
 \end{pmatrix}.
 $$
 
-更新量と更新後の $(\alpha,\beta)$ を求めよ。
+1. このモデルが母数に対して非線形である理由を述べよ。
+2. Jacobianの1行分を書け。
+3. 更新量 $\boldsymbol\delta$ を求めよ。
+4. 更新後の $(\alpha,\beta)$ を求めよ。
 
 <!-- solution-start -->
 
@@ -1083,63 +1436,76 @@ $$
 
 ##### 詳細解答
 
-$$
-(J^{\mathsf T}J)\delta=J^{\mathsf T}r
-$$
-
-を解くと
-
-$$
-\delta
-\approx
-\begin{pmatrix}
-0.5015\\
-0.1454
-\end{pmatrix}.
-$$
-
-したがって
-
-$$
-\boxed{
-(\alpha^{(1)},\beta^{(1)})
-\approx(2.0015,0.5454)
-}.
-$$
+1. $\beta$ が指数関数の内部に入っているためである。
+2.
+   $$
+   \left(
+   e^{-\beta x},
+   -\alpha xe^{-\beta x}
+   \right).
+   $$
+3.
+   $$
+   (J^{\mathsf T}J)\boldsymbol\delta
+   =
+   J^{\mathsf T}r
+   $$
+   を解くと
+   $$
+   \boldsymbol\delta
+   \approx
+   \begin{pmatrix}
+   0.5015\\
+   0.1454
+   \end{pmatrix}.
+   $$
+4.
+   $$
+   \boxed{
+   (\alpha^{(1)},\beta^{(1)})
+   \approx(2.0015,0.5454)
+   }.
+   $$
 
 ##### 本番答案
 
-$$
-\delta\approx(0.5015,0.1454)^{\mathsf T},
-$$
-
-$$
-(\alpha^{(1)},\beta^{(1)})
-\approx(2.0015,0.5454).
-$$
+非線形性、Jacobian、上の更新量と更新後母数を記す。
 
 ##### 採点基準
 
-- 正規方程式: 6点
-- 更新量: 8点
-- 更新後母数: 6点
+- 第1問: 3点
+- 第2問: 5点
+- 第3問: 7点
+- 第4問: 5点
 
 <!-- solution-end -->
 
-### E1-04-C03 hinge損失
+### E1-04-C03 hinge損失と確率モデルとの違い
 
 - Level: C
-- 目安時間: 15分
+- 目安時間: 20分
 - 主題: ソフトマージンSVM
-- 使用技術: hinge損失
+- 使用技術: hinge損失、目的関数の解釈
 
 $f(x)=x$ とし、訓練点を
 
 $$
-(-2,-1),\quad(-0.2,-1),\quad(0.4,+1),\quad(2,+1)
+(-2,-1),\quad
+(-0.2,-1),\quad
+(0.4,+1),\quad
+(2,+1)
 $$
 
-とする。各hinge損失と、$C=1,w=1$ の目的関数値を求めよ。
+とする。
+
+1. 各点の $y_if(x_i)$ を求めよ。
+2. 各hinge損失 $\max\{0,1-y_if(x_i)\}$ を求めよ。
+3. $C=1,w=1$ のとき
+   $$
+   \frac12w^2+C\sum_i\max\{0,1-y_if(x_i)\}
+   $$
+   を求めよ。
+4. この目的関数がBernoulli対数尤度の最大化ではないことから、SVMとロジット・プロビットの目的の違いを説明せよ。
 
 <!-- solution-start -->
 
@@ -1147,49 +1513,41 @@ $$
 
 ##### 詳細解答
 
-$y_if(x_i)$ は
-
-$$
-2,\quad0.2,\quad0.4,\quad2.
-$$
-
-したがってhinge損失は
-
-$$
-0,\quad0.8,\quad0.6,\quad0.
-$$
-
-和は1.4。よって
-
-$$
-\frac12w^2+1.4
-=0.5+1.4
-=1.9.
-$$
+1.
+   $$
+   2,\quad0.2,\quad0.4,\quad2.
+   $$
+2.
+   $$
+   0,\quad0.8,\quad0.6,\quad0.
+   $$
+3. 損失和は1.4なので
+   $$
+   \frac12+1.4
+   =
+   \boxed{1.9}.
+   $$
+4. ロジット・プロビットは $P(Y=1\mid x)$ を確率モデルとして尤度で推定する。SVMは確率を直接モデル化せず、分類マージンと違反に対するhinge損失を最適化する。
 
 ##### 本番答案
 
-$$
-\boxed{(0,0.8,0.6,0)},
-\qquad
-\boxed{1.9}.
-$$
+$yf=(2,0.2,0.4,2)$、hinge損失 $(0,0.8,0.6,0)$、目的関数値1.9。SVMは確率尤度ではなくマージンとhinge損失を最適化する。
 
 ##### 採点基準
 
-- $yf$ の計算: 5点
-- hinge損失: 7点
-- 和: 3点
-- 目的関数: 5点
+- 第1問: 4点
+- 第2問: 5点
+- 第3問: 5点
+- 第4問: 6点
 
 <!-- solution-end -->
 
 ### E1-04-C04 2点SVMを双対から解く
 
 - Level: C
-- 目安時間: 18分
+- 目安時間: 20分
 - 主題: SVM双対
-- 使用技術: 二次関数
+- 使用技術: 二次関数、KKT条件
 
 $$
 (x_1,y_1)=(-1,-1),
@@ -1197,7 +1555,13 @@ $$
 (x_2,y_2)=(1,+1)
 $$
 
-について最適な $\alpha_1,\alpha_2,w,b$ を求め、両点がサポートベクトルであることを確認せよ。
+について、
+
+1. 双対制約から $\alpha_1,\alpha_2$ の関係を求めよ。
+2. 双対目的関数を1変数で表して最大化せよ。
+3. $w,b$ を求めよ。
+4. 両点がサポートベクトルであることを確認せよ。
+5. マージン幅を求めよ。
 
 <!-- solution-start -->
 
@@ -1205,7 +1569,13 @@ $$
 
 ##### 詳細解答
 
-等式制約より
+制約
+
+$$
+\sum_i\alpha_i y_i=0
+$$
+
+から
 
 $$
 \alpha_1=\alpha_2=\alpha.
@@ -1233,45 +1603,71 @@ $$
 
 $$
 w
-=\sum_i\alpha_i y_i x_i
-=1,
+=
+\sum_i\alpha_i y_ix_i
+=
+1,
 \qquad
 b=0.
 $$
 
-両点で $y_i(wx_i+b)=1$ かつ $\alpha_i>0$ なので両点ともサポートベクトルである。
+両点で
+
+$$
+y_i(wx_i+b)=1
+$$
+
+かつ $\alpha_i>0$ なので、両点ともサポートベクトルである。
+
+マージン幅は
+
+$$
+\frac2{|w|}=2.
+$$
 
 ##### 本番答案
 
 $$
-\boxed{\alpha_1=\alpha_2=1/2},
-\qquad
-\boxed{w=1,b=0}.
+\boxed{
+\alpha_1=\alpha_2=\frac12,\quad
+w=1,\quad
+b=0,\quad
+\text{margin}=2
+}.
 $$
+
+両点でKKTの境界条件が等号成立するため、両点ともサポートベクトル。
 
 ##### 採点基準
 
-- 等式制約: 4点
-- 双対目的関数: 5点
-- $\alpha$: 4点
-- $w,b$: 4点
-- サポートベクトル確認: 3点
+- 第1問: 3点
+- 第2問: 5点
+- 第3問: 4点
+- 第4問: 4点
+- 第5問: 4点
 
 <!-- solution-end -->
 
-## Level D
+## 12. Level D
 
-### E1-04-D01 三手法の理論統合
+### E1-04-D01 三手法を「何を推定するか」から統合する
 
 - Level: D
-- 目安時間: 30分
+- 目安時間: 35分
 - 主題: 本章総合
-- 使用技術: 導出・比較
+- 使用技術: モデル選択、導出、比較
 
-1. 潜在変数からプロビット回帰を導き、限界効果を示せ。
-2. 正規誤差の非線形回帰で最尤法がRSS最小化に一致することを示し、Gauss--Newton更新式を書け。
-3. SVMのマージン幅 $2/\|w\|$ を説明し、ハードマージン主問題を書け。
-4. プロビット回帰とSVMの目的の違いを説明せよ。
+ある製造工程で、説明変数 $\boldsymbol x$ から不良品かどうかを判定したい。また別の実験では、時間 $t$ と連続的な性能値 $Z$ を測定している。
+
+1. 不良の **確率** $P(Y=1\mid\boldsymbol x)$ を推定したいとき、ロジットまたはプロビットを使う理由を述べよ。
+2. 「潜在的な不良傾向が正規誤差を伴い、閾値を超えると不良になる」と仮定して、プロビット回帰を導け。
+3. 不良確率ではなく、2群を分ける境界の余裕を最大化したいとき、SVMのハードマージン主問題を導け。
+4. 連続性能値について
+   $$
+   E(Z\mid t)=\alpha e^{-\beta t}
+   $$
+   と考える。これが線形回帰ではなく非線形回帰である理由を述べ、Gauss--Newton更新式を導け。
+5. 以上の3手法について、「観測される応答」「直接求める対象」「代表的な最適化基準」を表にして比較せよ。
 
 <!-- solution-start -->
 
@@ -1279,59 +1675,82 @@ $$
 
 ##### 詳細解答
 
-1. $Y^*=x^{\mathsf T}\beta+\varepsilon$、$\varepsilon\sim N(0,1)$、$Y=1\Leftrightarrow Y^*>0$ とすれば
+1. 応答が0/1でも欲しいのが条件付き確率なので、$[0,1]$ に値を持つCDFを通して線形予測子を確率へ写す2値回帰が自然である。
+2.
    $$
-   P(Y=1\mid x)=\Phi(x^{\mathsf T}\beta).
+   Y^*=\boldsymbol x^{\mathsf T}\boldsymbol\beta+\varepsilon,
+   \qquad
+   \varepsilon\sim N(0,1),
    $$
-   連続変数 $x_j$ の限界効果は
+   $Y=1\Longleftrightarrow Y^*>0$ とすれば
    $$
-   \phi(\eta)\beta_j.
+   P(Y=1\mid\boldsymbol x)
+   =
+   \Phi(\boldsymbol x^{\mathsf T}\boldsymbol\beta).
    $$
-2. 正規対数尤度は定数を除き
+3. 支持超平面を $\boldsymbol w^{\mathsf T}\boldsymbol x+b=\pm1$ と規格化するとマージン幅は $2/\|\boldsymbol w\|$。したがって
    $$
-   -\frac{RSS(\theta)}{2\sigma^2}
+   \min_{\boldsymbol w,b}\frac12\|\boldsymbol w\|^2
    $$
-   なのでMLEはRSS最小化に一致する。更新式は
+   subject to
    $$
-   \theta^{(t+1)}
-   =\theta^{(t)}+(J^{\mathsf T}J)^{-1}J^{\mathsf T}r.
+   y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\ge1.
    $$
-3. 支持超平面 $w^{\mathsf T}x+b=\pm1$ は境界から各 $1/\|w\|$ にあるため幅は $2/\|w\|$。したがって
+4. 未知母数 $\beta$ が指数関数内部にあるため母数に非線形。一次近似
    $$
-   \min\frac12\|w\|^2
+   \boldsymbol f(\boldsymbol\theta+\boldsymbol\delta)
+   \approx
+   \boldsymbol f(\boldsymbol\theta)+J\boldsymbol\delta
    $$
-   subject to $y_i(w^{\mathsf T}x_i+b)\ge1$。
-4. プロビットは $P(Y=1\mid x)$ を尤度で推定する確率モデル。SVMは分類境界のマージンを最適化する手法で、基本出力は成功確率そのものではない。
+   から
+   $$
+   \boxed{
+   \boldsymbol\theta^{(t+1)}
+   =
+   \boldsymbol\theta^{(t)}
+   +(J^{\mathsf T}J)^{-1}J^{\mathsf T}\boldsymbol r
+   }.
+   $$
+5.
+
+| 手法 | 応答 | 直接求める対象 | 代表的基準 |
+|---|---|---|---|
+| ロジット / プロビット | 0/1 | $P(Y=1\mid x)$ | Bernoulli尤度 |
+| 非線形回帰 | 連続量 | 平均曲線の母数 $\theta$ | 残差平方和（正規誤差なら尤度と同値） |
+| SVM | $\{-1,+1\}$ | 分類境界 | マージン最大化 / hinge損失 |
 
 ##### 本番答案
 
-上の4点を簡潔に記せばよい。
+各小問で、確率モデル・現象曲線・分類境界の違いが明示されていればよい。
 
 ##### 採点基準
 
-- 第1問: 5点
-- 第2問: 6点
-- 第3問: 5点
-- 第4問: 4点
+- 第1問: 3点
+- 第2問: 4点
+- 第3問: 4点
+- 第4問: 5点
+- 第5問: 4点
 
 <!-- solution-end -->
 
-## 30分ドリル
+---
 
-### E1-04-DRILL-01 プロビット・Gauss--Newton・SVM
+## 13. 30分ドリル
+
+### E1-04-DRILL-01 モデル選択から導出まで
 
 - Level: C
 - 目安時間: 30分
 - 主題: 本章総合
-- 使用技術: 確率・一次近似・最適化
+- 使用技術: モデル選択、確率、一次近似、最適化
 
 #### 問1
 
-$$
-p(x)=\Phi(-0.5+x)
-$$
+ある検査で「潜在的な品質スコアが正規分布的にばらつき、0を下回ると不良になる」と考える。
 
-とする。$\Phi(0.5)=0.6915$、$\phi(0.5)=0.3521$ とする。$x=1$ の成功確率と限界効果を求めよ。
+1. 適切な2値回帰を答えよ。
+2. 線形予測子が $\eta=0.5$ のとき、$\Phi(0.5)=0.6915$ として成功確率を求めよ。
+3. 係数 $\beta_1=1$、$\phi(0.5)=0.3521$ のとき限界効果を求めよ。
 
 #### 問2
 
@@ -1339,7 +1758,11 @@ $$
 f(x;\alpha,\beta)=\alpha e^{-\beta x}
 $$
 
-のJacobianの1行分を求め、$J^{\mathsf T}J$ がほぼ特異なとき何が起こるか説明せよ。
+について、
+
+1. Jacobianの1行分を求めよ。
+2. Gauss--Newton法が何を毎回「線形問題として解き直している」のか説明せよ。
+3. $J^{\mathsf T}J$ がほぼ特異なとき何が起こるか説明せよ。
 
 #### 問3
 
@@ -1349,7 +1772,11 @@ $$
 (x_2,y_2)=(1,+1)
 $$
 
-のハードマージンSVMについて $w,b$ とマージン幅を求め、サポートベクトルを示せ。
+のハードマージンSVMについて、
+
+1. $w,b$ とマージン幅を求めよ。
+2. サポートベクトルを示せ。
+3. 「この問題でSVMが求めたものは成功確率ではない」とはどういう意味か説明せよ。
 
 <!-- solution-start -->
 
@@ -1357,40 +1784,49 @@ $$
 
 ##### 詳細解答
 
-問1では $\eta=0.5$ なので
+問1:
 
-$$
-p=0.6915,
-\qquad
-\frac{\partial p}{\partial x}=0.3521.
-$$
+1. 潜在正規閾値モデルなのでプロビット。
+2.
+   $$
+   p=\Phi(0.5)=0.6915.
+   $$
+3.
+   $$
+   \frac{\partial p}{\partial x}
+   =
+   \phi(0.5)\beta_1
+   =
+   0.3521.
+   $$
 
-問2では
+問2:
 
-$$
-\frac{\partial f}{\partial\alpha}=e^{-\beta x},
-\qquad
-\frac{\partial f}{\partial\beta}
-=-\alpha x e^{-\beta x}.
-$$
+1.
+   $$
+   \left(
+   e^{-\beta x},
+   -\alpha xe^{-\beta x}
+   \right).
+   $$
+2. 現在値のまわりで平均関数を一次近似し、
+   $$
+   \|\boldsymbol r-J\boldsymbol\delta\|^2
+   $$
+   を最小にする線形最小二乗問題として更新量 $\boldsymbol\delta$ を求め直している。
+3. 更新が数値的に不安定になり、異なる母数方向が似た平均曲線を作るため局所的に母数を識別しにくい。
 
-したがってJacobian行は
+問3:
 
-$$
-\begin{pmatrix}
-e^{-\beta x}&-\alpha x e^{-\beta x}
-\end{pmatrix}.
-$$
-
-$J^{\mathsf T}J$ がほぼ特異ならGauss--Newton更新が不安定になり、母数が局所的に識別しにくい。
-
-問3では $w=1,b=0$、マージン幅2。両点で $y_i(wx_i+b)=1$ なので両点ともサポートベクトルである。
+1. 対称性から $b=0$、制約から $w=1$。マージン幅は2。
+2. 両点で $y_i(wx_i+b)=1$ なので両方がサポートベクトル。
+3. SVMは $P(Y=1\mid x)$ を推定したのではなく、符号で分類する境界 $wx+b=0$ とそのマージンを決めたという意味である。
 
 ##### 本番答案
 
-1. $0.6915$、$0.3521$。
-2. $(e^{-\beta x},-\alpha xe^{-\beta x})$。ほぼ特異なら更新と推定値が不安定。
-3. $w=1,b=0$、幅2、両点がサポートベクトル。
+1. プロビット、$p=0.6915$、限界効果0.3521。
+2. Jacobianは $(e^{-\beta x},-\alpha xe^{-\beta x})$。各反復で局所線形最小二乗を解く。$J^{\mathsf T}J$ がほぼ特異なら推定が不安定。
+3. $w=1,b=0$、幅2、両点がサポートベクトル。SVMの出力は確率ではなく分類境界。
 
 ##### 採点基準
 
@@ -1402,8 +1838,13 @@ $J^{\mathsf T}J$ がほぼ特異ならGauss--Newton更新が不安定になり�
 
 ---
 
-## まとめ
+## 14. 章末チェック
 
-1. プロビット回帰は潜在正規変数の閾値モデルから $p=\Phi(\eta)$ を導ける。
-2. 非線形回帰では未知母数に対する非線形性が本質で、Gauss--Newton法は局所一次近似を反復する。
-3. SVMは距離からマージン幅を導き、双対問題・KKT条件を通じてサポートベクトルとカーネル法へつながる。
+- 0/1データを見たとき、「確率が欲しいのか、分類境界が欲しいのか」を最初に区別できる。
+- プロビットを「正規CDFを使うモデル」とだけ覚えず、潜在正規変数の閾値モデルから導ける。
+- ロジットとプロビットの違いを、CDF・潜在誤差・係数解釈の観点から説明できる。
+- 曲線であっても母数に線形なら線形回帰であることを判定できる。
+- 非線形回帰では、現象を表す母数を推定するという目的を説明できる。
+- Gauss--Newton法を「局所的に線形最小二乗へ直して反復する方法」と説明し、更新式を導ける。
+- SVMのマージン幅 $2/\|\boldsymbol w\|$ を距離から導き、主問題・双対問題・KKT条件へつなげられる。
+- ロジット / プロビット、非線形回帰、SVMについて「何を直接推定しているか」を比較できる。

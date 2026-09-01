@@ -12,14 +12,16 @@ official_scope:
   - 非線形回帰モデル
   - サポートベクターマシン
 learning_objectives:
+  - 問題設定から「2値確率・連続平均曲線・分類境界」のどれを求める問題か判定し、ロジット・プロビット・非線形回帰・SVMを使い分けられる
   - 潜在変数モデルからプロビット回帰の成功確率 p=Phi(eta) を導出できる
-  - プロビットリンクとロジットリンクの共通点・相違点を説明できる
+  - プロビットリンクとロジットリンクをCDF・潜在誤差・係数解釈の観点から比較できる
   - ベルヌーイ尤度からプロビット回帰のスコアを導出できる
   - プロビット回帰の限界効果が説明変数の値に依存することを計算できる
-  - 非線形回帰を「説明変数に非線形」と「母数に非線形」に区別できる
+  - 非線形回帰を「説明変数に非線形」と「母数に非線形」に区別し、現象モデルの母数推定という目的を説明できる
   - 正規誤差の下で非線形最小二乗法が最尤法に一致することを示せる
-  - Jacobianによる一次近似からGauss--Newton更新式を導出できる
+  - Jacobianによる一次近似からGauss--Newton更新式を導出し、局所線形最小二乗として説明できる
   - 非線形回帰の初期値依存・局所識別・変換による誤差モデル変更を説明できる
+  - 確率を推定する2値回帰と分類境界を直接最適化するSVMの目的の違いを説明できる
   - SVMの幾何学的マージンからハードマージン最適化問題を構成できる
   - Lagrange双対問題を導出し、サポートベクトルとKKT条件の関係を説明できる
   - ソフトマージンSVMとhinge損失の関係を説明できる
@@ -43,8 +45,8 @@ theorems:
   - { id: E104-THM-04, name: Gauss--Newton更新式 }
   - { id: E104-THM-05, name: SVMのマージン幅 }
   - { id: E104-THM-06, name: ハードマージンSVMの双対問題 }
-canonical_examples: [潜在変数プロビット, プロビット限界効果, 指数減衰非線形回帰, Gauss--Newton更新, 1次元ハードマージンSVM, hinge損失]
-problem_patterns: [PROBIT-LATENT-1, PROBIT-SCORE-1, PROBIT-MARGINAL-1, NLS-GN-1, NLS-IDENTIFY-1, SVM-MARGIN-1, SVM-DUAL-1, SVM-SOFT-1]
+canonical_examples: [モデル選択, 潜在変数プロビット, ロジットとプロビットの比較, プロビット限界効果, 指数減衰非線形回帰, Gauss--Newton更新, 1次元ハードマージンSVM, hinge損失]
+problem_patterns: [MODEL-CHOICE-1, PROBIT-LATENT-1, PROBIT-LOGIT-COMPARE-1, PROBIT-SCORE-1, PROBIT-MARGINAL-1, NLS-GN-1, NLS-IDENTIFY-1, SVM-MARGIN-1, SVM-DUAL-1, SVM-SOFT-1]
 past_exam_alignment: []
 integrated_exam_problems: [E1-04-C01, E1-04-C02, E1-04-C03, E1-04-D01, E1-04-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
