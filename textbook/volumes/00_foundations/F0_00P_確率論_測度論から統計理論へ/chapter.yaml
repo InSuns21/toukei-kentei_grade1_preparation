@@ -1,0 +1,19 @@
+id: "F0-00P"
+title: "補講：確率論、その理論はどこから来たか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2
+official_scope: []
+learning_objectives:
+  - 確率論の測度論的な構造を通常教材の公式と対応付けられる
+  - 確率変数・分布・密度・期待値・条件付き期待値の由来を説明できる
+  - 大数則・中心極限定理・尤度正則性の理論的な前提を説明できる
+definitions: []
+theorems: []
+canonical_examples: []
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
