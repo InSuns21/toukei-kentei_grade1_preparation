@@ -147,8 +147,7 @@ $a$ が連続かつcoerciveなら
 
 $$
 \boxed{
-\exists!u\in V:
-a(u,v)=F(v)
+\exists!u\in V:a(u,v)=F(v)
 \quad(\forall v\in V)
 }
 $$
@@ -192,23 +191,9 @@ $$
 
 ## 8. Encore IIとの関係
 
-Encore IIでは
+Encore IIではFourier基底・固有関数を使って、滑らかで構造のよいPDEを明示的に解きました。
 
-$$
-\text{Fourier基底・固有関数}
-$$
-
-を使って、滑らかで構造のよいPDEを明示的に解きました。
-
-Encore IIIでは
-
-$$
-\text{Sobolev空間・変分形式}
-$$
-
-へ移り、より複雑な領域・係数・低正則性を扱います。
-
-したがって
+Encore IIIではSobolev空間・変分形式へ移り、より複雑な領域・係数・低正則性を扱います。
 
 $$
 \boxed{
@@ -218,44 +203,19 @@ $$
 }
 $$
 
-です。
-
 ---
 
 ## 9. Encore IIIの停止線
 
-Encore IIIは次までです。
+Encore IIIはSchwartz超関数、弱微分、Sobolev空間、Poincare・trace、弱形式、Lax--Milgram、線形二階楕円型PDE、Galerkin/FEMの理論橋までです。
 
-- Schwartz超関数
-- 弱微分
-- Sobolev空間
-- Poincare・traceの入口
-- 弱形式
-- Lax--Milgram
-- 線形二階楕円型PDE
-- Galerkin / FEMの理論橋
-
-以下は必須にしません。
-
-- 一般Sobolev embeddingの完全証明
-- Rellich--Kondrachovの完全証明
-- 楕円型正則性の詳細
-- 非線形PDE
-- monotone operator
-- Navier--Stokes
-- conservation law / entropy solution
+一般Sobolev embeddingの完全証明、Rellich--Kondrachov、非線形PDE、Navier--Stokes等は必須にしません。
 
 ---
 
 ## 10. 所要時間
 
-本編7講とロードマップを合計して、読解・小演習・復習込みで概ね
-
-$$
-\boxed{30\text{ 時間前後}}
-$$
-
-を想定します。
+本編7講とロードマップを合計して約30時間を想定します。
 
 ---
 
@@ -278,5 +238,17 @@ H0^1・Poincare         Riesz表現
                 ↓
           Galerkin / FEM
 ```
+
+---
+
+## 12. 次のEncore：FEMを実際に計算する
+
+WK3でGalerkin/FEMの理論橋まで到達した後、mesh・基底関数・element matrix・assembly・疎solver・誤差評価まで実装寄りに進みたい場合は
+
+[Encore V：Numerical Analysis, FEM & Monte Carlo](../F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
+
+へ進みます。
+
+Encore VはEncore IIIの必須続編ではありません。**弱解理論で止まる読者はここで終了でき、数値計算まで進む読者だけ乗り換える**設計です。
 
 **Encore III: Distributions, Sobolev Spaces & Weak Solutions** はここまでです。
