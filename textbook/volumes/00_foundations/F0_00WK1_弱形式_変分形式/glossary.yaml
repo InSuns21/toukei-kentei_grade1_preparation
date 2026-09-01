@@ -1,0 +1,14 @@
+chapter: "F0-00WK1"
+terms:
+  - term: 弱解
+    english: weak solution
+    meaning: PDEを点ごとに満たす代わりに、全ての試験関数に対する積分恒等式を満たすSobolev空間の元。
+  - term: 弱形式
+    english: weak formulation
+    meaning: PDEへテスト関数を掛けて積分し、部分積分で高階微分を移して得る変分的な方程式。
+  - term: 双線形形式
+    english: bilinear form
+    meaning: 二つの引数それぞれについて線形な写像a(u,v)。弱形式では微分作用素を積分の形へ写す。
+  - term: エネルギー汎関数
+    english: energy functional
+    meaning: 対称な変分問題で、その停留点または最小点が弱解に対応する実数値汎関数。
