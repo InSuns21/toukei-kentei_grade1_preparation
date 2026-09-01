@@ -11,7 +11,7 @@ const validationRoots = ['textbook', 'references', 'agents']
 const files = validationRoots.flatMap(walk).filter((file) => file.endsWith('.md'));
 const forbidden = [
   [/\\\(/g, String.raw`\(`], [/\\\)/g, String.raw`\)`],
-  [/\\\[/g, String.raw`\[`], [/\\\]/g, String.raw`\]`],
+  [/(?<!\\)\\\[/g, String.raw`\[`], [/(?<!\\)\\\]/g, String.raw`\]`],
   [/\\begin\{(?:equation|align\*?)\}/g, 'equation/align environment'],
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
 ];
@@ -86,4 +86,3 @@ function walk(directory) {
 }
 function lineAt(source, index) { return source.slice(0, index).split('\n').length; }
 function relative(file) { return path.relative(root, file).replaceAll('\\', '/'); }
-
