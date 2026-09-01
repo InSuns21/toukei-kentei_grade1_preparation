@@ -1,0 +1,13 @@
+terms:
+  - term: Multilevel Monte Carlo
+    aliases: [MLMC]
+    definition: 複数resolutionの差の期待値をtelescoping sumで組み合わせるMonte Carlo法。
+  - term: level coupling
+    aliases: [レベル結合]
+    definition: fine近似とcoarse近似で同じ基礎乱数・入力realizationを共有して差の分散を下げる構成。
+  - term: level difference
+    aliases: [レベル差]
+    definition: 隣接resolutionのquantity of interestの差Q_l-Q_{l-1}。
+  - term: complexity exponent
+    aliases: [MLMC complexity]
+    definition: bias収束・level差分散・sample costのresolution依存を表す指数群。
