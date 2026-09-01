@@ -1,0 +1,20 @@
+id: "F0-00R2"
+title: "Encore II：Fourier Analysis & Differential Equations ロードマップ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00R
+official_scope: []
+learning_objectives:
+  - Encore IIの標準通読順と各講義の役割を説明できる
+  - 統計・確率・関数解析からFourier解析・PDEへ分岐する位置を説明できる
+  - Fourier解析・ODE・PDE・Sturm--Liouvilleの依存関係を把握できる
+  - Encore IIが通常カリキュラムやRKHS通読の必須前提ではないことを確認できる
+definitions: []
+theorems: []
+canonical_examples: [Encore II通読ルート]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
