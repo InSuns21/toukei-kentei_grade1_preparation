@@ -1,0 +1,20 @@
+chapter: "F0-00PDE3"
+terms:
+  - term: Sturm--Liouville問題
+    english: Sturm-Liouville problem
+    meaning: -(p y')'+q y=lambda w y と境界条件からなる自己共役型の二階線形境界値問題。
+  - term: 重み付きL2内積
+    english: weighted L2 inner product
+    meaning: <f,g>_w=int f(x)g(x)w(x)dx で定義される内積。
+  - term: 自己共役
+    english: self-adjoint
+    meaning: 適切な定義域と境界条件の下で <Lf,g>=<f,Lg> を満たす作用素の性質。
+  - term: 固有関数展開
+    english: eigenfunction expansion
+    meaning: 関数を微分作用素の固有関数の無限線形結合として表す展開。
+  - term: Dirichlet境界条件
+    english: Dirichlet boundary condition
+    meaning: 境界上で関数値そのものを指定する条件。
+  - term: Neumann境界条件
+    english: Neumann boundary condition
+    meaning: 境界上で法線方向微分を指定する条件。
