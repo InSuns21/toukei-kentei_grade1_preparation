@@ -1,0 +1,29 @@
+id: "F0-00C"
+title: "補講：連続写像・コンパクト性・最大最小"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00B
+official_scope: []
+learning_objectives:
+  - 距離空間の連続性をepsilon-deltaと点列の両方で説明できる
+  - 開集合の逆像による連続性を説明できる
+  - コンパクト性を開被覆と点列コンパクト性の両面から説明できる
+  - Heine--Borelが有限次元の定理であることを説明できる
+  - コンパクト集合上の連続関数が最大値・最小値を達成することを使える
+definitions:
+  - { id: F000C-DEF-01, name: 連続写像 }
+  - { id: F000C-DEF-02, name: 開被覆 }
+  - { id: F000C-DEF-03, name: コンパクト集合 }
+  - { id: F000C-DEF-04, name: 点列コンパクト性 }
+theorems:
+  - { id: F000C-THM-01, name: 連続性の点列特徴付け }
+  - { id: F000C-THM-02, name: Heine--Borelの定理 }
+  - { id: F000C-THM-03, name: 連続像のコンパクト性 }
+  - { id: F000C-THM-04, name: Weierstrassの最大最小定理 }
+canonical_examples: [有限点集合の凸包のコンパクト性, 閉凸集合への最近点の存在]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0, review: 0.5 }
