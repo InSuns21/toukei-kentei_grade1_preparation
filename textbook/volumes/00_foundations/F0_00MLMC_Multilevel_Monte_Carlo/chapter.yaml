@@ -1,0 +1,24 @@
+id: "F0-00MLMC"
+title: "Encore V：Multilevel Monte Carlo"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00UQ1
+  - F0-00SDE1
+  - F0-00MC2
+learning_objectives:
+  - MLMCのtelescoping identityを導ける
+  - fine/coarse couplingの役割を説明できる
+  - levelごとの最適sample配分を説明できる
+  - MLMC complexityをbias・variance・cost指数から説明できる
+definitions:
+  - { id: F000MLMC-DEF-01, name: Multilevel Monte Carlo }
+  - { id: F000MLMC-DEF-02, name: level coupling }
+  - { id: F000MLMC-DEF-03, name: level difference estimator }
+theorems:
+  - { id: F000MLMC-THM-01, name: MLMC sample allocation }
+  - { id: F000MLMC-THM-02, name: MLMC complexity theorem }
+canonical_examples: [Euler--Maruyama MLMC, Monte Carlo FEM MLMC]
+problem_patterns: [MLMC-ALLOCATION-1, MLMC-COMPLEXITY-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
