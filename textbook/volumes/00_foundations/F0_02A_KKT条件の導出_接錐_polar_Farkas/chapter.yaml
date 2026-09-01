@@ -1,0 +1,32 @@
+id: "F0-02A"
+title: "KKT条件の導出：接錐・polar cone・Farkasの補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00
+  - F0-02
+official_scope: []
+learning_objectives:
+  - 局所最適性から -grad f が接錐のpolar coneに属することを示せる
+  - 接錐と線形化錐を区別し、T_C subseteq L_C をTaylor展開から示せる
+  - 制約想定がKKT導出で必要になる位置を説明できる
+  - Farkas型のalternativeから線形化錐のpolar coneを表現できる
+  - KKTの停留条件・双対実行可能性・相補性がどこから出るか説明できる
+  - SVMのサポートベクトルをactive制約として解釈できる
+definitions:
+  - { id: F002A-DEF-01, name: 接錐 }
+  - { id: F002A-DEF-02, name: polar cone }
+  - { id: F002A-DEF-03, name: 線形化錐 }
+  - { id: F002A-DEF-04, name: active set }
+  - { id: F002A-DEF-05, name: constraint qualification }
+theorems:
+  - { id: F002A-THM-01, name: 局所最適性の接錐による一次必要条件 }
+  - { id: F002A-THM-02, name: 接錐と線形化錐の包含 }
+  - { id: F002A-THM-03, name: Farkas型alternative }
+  - { id: F002A-THM-04, name: KKT停留条件の導出 }
+canonical_examples: [半平面の接錐, polar cone, FarkasからKKT, SVMのactive制約]
+problem_patterns: [KKT-TANGENT-1, KKT-POLAR-1, KKT-FARKAS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0, review: 1 }
