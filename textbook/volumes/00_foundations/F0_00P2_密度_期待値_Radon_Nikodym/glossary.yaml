@@ -1,0 +1,17 @@
+chapter: "F0-00P2"
+terms:
+  - term: 絶対連続
+    english: absolute continuity
+    meaning: 基準測度で0の集合には対象の測度も0しか割り当てないという測度間の関係。
+  - term: Radon--Nikodym微分
+    english: Radon--Nikodym derivative
+    meaning: 絶対連続な測度を基準測度に対する積分密度として表す関数。dnu/dmuと書く。
+  - term: 支配測度
+    english: dominating measure
+    meaning: 統計モデルの全ての確率測度が絶対連続となる共通の基準測度。
+  - term: LOTUS
+    english: law of the unconscious statistician
+    meaning: E[g(X)]をg(X)の分布を求めずXの分布に対する積分として計算する公式。
+  - term: 密度
+    english: density
+    meaning: 測度を基準測度に対するRadon--Nikodym微分として表した関数。pmfとpdfを統一する概念。
