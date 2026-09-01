@@ -1,0 +1,13 @@
+terms:
+  - term: random field
+    aliases: [確率場]
+    definition: 空間位置ごとの値を持つランダムな関数・過程。
+  - term: Karhunen--Loeve展開
+    aliases: [KL展開, Karhunen-Loeve expansion]
+    definition: random fieldを共分散作用素の固有関数と無相関係数で表す展開。
+  - term: Monte Carlo FEM
+    aliases: [Monte Carlo finite element method]
+    definition: random PDEのsampleごとに有限要素法を解きquantity of interestをMonte Carlo平均する方法。
+  - term: uncertainty quantification
+    aliases: [UQ, 不確実性定量化]
+    definition: 入力・モデルの不確実性が出力へどう伝播するかを定量化する分野。
