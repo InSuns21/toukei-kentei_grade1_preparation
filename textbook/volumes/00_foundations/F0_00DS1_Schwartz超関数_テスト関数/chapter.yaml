@@ -1,0 +1,33 @@
+id: "F0-00DS1"
+title: "Encore III：Schwartz超関数・テスト関数・Dirac delta"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - 確率分布とSchwartz超関数を区別できる
+  - テスト関数空間を導入する理由を説明できる
+  - 局所可積分関数から正則超関数を構成できる
+  - Dirac deltaを点評価汎関数として定義できる
+  - 超関数の収束をテスト関数への作用の収束として説明できる
+  - Heaviside関数とdeltaの関係を弱い微分への入口として説明できる
+definitions:
+  - { id: F000DS1-DEF-01, name: テスト関数 }
+  - { id: F000DS1-DEF-02, name: Schwartz超関数 }
+  - { id: F000DS1-DEF-03, name: 正則超関数 }
+  - { id: F000DS1-DEF-04, name: Dirac delta }
+  - { id: F000DS1-DEF-05, name: 超関数収束 }
+theorems:
+  - { id: F000DS1-THM-01, name: 局所可積分関数による正則超関数の埋め込み }
+canonical_examples:
+  - 局所可積分関数fからTfを作る
+  - Dirac deltaの作用
+  - Gaussian近似単位元からdeltaへの超関数収束
+  - Heaviside関数の形式微分
+problem_patterns: [DISTRIBUTION-TEST-FUNCTION-1, DIRAC-DELTA-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
