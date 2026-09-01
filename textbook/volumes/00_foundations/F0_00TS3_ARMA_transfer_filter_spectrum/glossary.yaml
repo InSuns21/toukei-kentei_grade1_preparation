@@ -1,0 +1,14 @@
+chapter: "F0-00TS3"
+terms:
+  - term: 線形filter
+    english: linear filter
+    meaning: 入力時系列の現在・過去値の線形結合で出力系列を作る作用。backshift operatorの級数として表せる。
+  - term: transfer function
+    english: transfer function
+    meaning: 線形filterのbackshift多項式へe^{-i lambda}を代入して得る周波数領域の倍率。
+  - term: frequency response
+    english: frequency response
+    meaning: 周波数ごとにfilterが振幅と位相をどう変えるかを表す複素関数。
+  - term: differencing filter
+    english: differencing filter
+    meaning: 1-Bなどで低周波・トレンド成分を抑える線形filter。
