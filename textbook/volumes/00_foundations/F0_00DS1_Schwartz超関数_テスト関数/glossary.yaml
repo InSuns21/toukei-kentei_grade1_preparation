@@ -1,0 +1,17 @@
+chapter: "F0-00DS1"
+terms:
+  - term: テスト関数
+    english: test function
+    meaning: 無限回微分可能でコンパクトな台を持つ関数。Schwartz超関数はテスト関数へ作用する連続線形汎関数として定義する。
+  - term: Schwartz超関数
+    english: distribution
+    meaning: テスト関数空間上の連続線形汎関数。確率論のprobability distributionとは別概念なので本教材ではSchwartz超関数と呼ぶ。
+  - term: 正則超関数
+    english: regular distribution
+    meaning: 局所可積分関数fに対し、テスト関数phiへ積分∫f phiを対応させて得る超関数。
+  - term: Dirac delta
+    english: Dirac delta distribution
+    meaning: テスト関数phiに対しphi(0)を返す超関数。通常の関数ではないが点質量を表現できる。
+  - term: 超関数収束
+    english: distributional convergence
+    meaning: 全てのテスト関数phiについてT_n(phi)がT(phi)へ収束すること。
