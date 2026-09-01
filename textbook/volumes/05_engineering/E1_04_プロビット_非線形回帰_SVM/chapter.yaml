@@ -24,8 +24,10 @@ learning_objectives:
   - 確率を推定する2値回帰と分類境界を直接最適化するSVMの目的の違いを説明できる
   - SVMの幾何学的マージンからハードマージン最適化問題を構成できる
   - Lagrange双対問題を導出し、サポートベクトルとKKT条件の関係を説明できる
-  - ソフトマージンSVMとhinge損失の関係を説明できる
-  - カーネル法が内積を置換する操作であることを説明できる
+  - ハードマージンが現実データで厳しすぎる理由を説明し、スラック制約から xi_i=max(0,1-y_i f_i) とhinge損失を導出できる
+  - Cが「広いマージン」と「違反を減らすこと」の交換比率であることを説明できる
+  - 特徴写像によって元空間の非線形境界を特徴空間の線形境界として表す具体例を説明できる
+  - 双対問題に特徴ベクトルの内積しか現れないことからkernel trickを導き、カーネルSVMの判別関数を書ける
 definitions:
   - { id: E104-DEF-01, name: プロビット回帰 }
   - { id: E104-DEF-02, name: プロビットリンク }
@@ -45,12 +47,12 @@ theorems:
   - { id: E104-THM-04, name: Gauss--Newton更新式 }
   - { id: E104-THM-05, name: SVMのマージン幅 }
   - { id: E104-THM-06, name: ハードマージンSVMの双対問題 }
-canonical_examples: [モデル選択, 潜在変数プロビット, ロジットとプロビットの比較, プロビット限界効果, 指数減衰非線形回帰, Gauss--Newton更新, 1次元ハードマージンSVM, hinge損失]
-problem_patterns: [MODEL-CHOICE-1, PROBIT-LATENT-1, PROBIT-LOGIT-COMPARE-1, PROBIT-SCORE-1, PROBIT-MARGINAL-1, NLS-GN-1, NLS-IDENTIFY-1, SVM-MARGIN-1, SVM-DUAL-1, SVM-SOFT-1]
+canonical_examples: [モデル選択, 潜在変数プロビット, ロジットとプロビットの比較, プロビット限界効果, 指数減衰非線形回帰, Gauss--Newton更新, 1次元ハードマージンSVM, hinge損失, スラック三領域, x二乗特徴写像, 多項式カーネル]
+problem_patterns: [MODEL-CHOICE-1, PROBIT-LATENT-1, PROBIT-LOGIT-COMPARE-1, PROBIT-SCORE-1, PROBIT-MARGINAL-1, NLS-GN-1, NLS-IDENTIFY-1, SVM-MARGIN-1, SVM-DUAL-1, SVM-SOFT-1, SVM-KERNEL-1]
 past_exam_alignment: []
 integrated_exam_problems: [E1-04-C01, E1-04-C02, E1-04-C03, E1-04-D01, E1-04-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
-estimated_hours: { reading: 9, exercises: 12, review: 3 }
+estimated_hours: { reading: 10, exercises: 12, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
