@@ -1,0 +1,32 @@
+id: "F0-02C7"
+title: "関数解析VII：RKHS・再生核・representer theorem・kernel SVM"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C6
+  - E1-04
+official_scope: []
+learning_objectives:
+  - RKHSを点評価汎関数の連続性から定義できる
+  - Riesz表現から再生核Kと再生性を導ける
+  - 再生核が対称半正定値kernelになることを示せる
+  - Moore--Aronszajn定理の構成の流れを説明できる
+  - representer theoremを直交分解から説明できる
+  - kernel SVMの解が有限個のkernel sectionの線形結合になる理由を説明できる
+  - SVM双対目的関数にGram行列K(x_i,x_j)だけが現れることを導ける
+definitions:
+  - { id: F002C7-DEF-01, name: 評価汎関数 }
+  - { id: F002C7-DEF-02, name: RKHS }
+  - { id: F002C7-DEF-03, name: 再生核 }
+  - { id: F002C7-DEF-04, name: positive semidefinite kernel }
+  - { id: F002C7-DEF-05, name: canonical feature map }
+theorems:
+  - { id: F002C7-THM-01, name: RKHSの再生性 }
+  - { id: F002C7-THM-02, name: Moore--Aronszajnの定理 }
+  - { id: F002C7-THM-03, name: representer theorem }
+canonical_examples: [線形kernel, 多項式kernel, Gaussian kernel, kernel SVM]
+problem_patterns: [RKHS-KERNEL-1, RKHS-REPRESENTER-1, RKHS-SVM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 0, review: 1 }
