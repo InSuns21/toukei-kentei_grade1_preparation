@@ -1,0 +1,17 @@
+chapter: "F0-02C2"
+terms:
+  - term: 線形汎関数
+    english: linear functional
+    meaning: ベクトル空間から実数への線形写像。
+  - term: 連続線形汎関数
+    english: continuous linear functional
+    meaning: ノルムについて連続な線形汎関数。線形写像では有界性と連続性が同値。
+  - term: 双対空間
+    english: dual space
+    meaning: ノルム空間X上の連続線形汎関数全体からなる空間X*。
+  - term: 双対ノルム
+    english: dual norm
+    meaning: ||l||=sup_{||x||<=1}|l(x)| で定まる連続線形汎関数のノルム。
+  - term: Riesz表現定理
+    english: Riesz representation theorem
+    meaning: Hilbert空間上の任意の連続線形汎関数を一意な内積ベクトルで表せる定理。
