@@ -1,0 +1,22 @@
+id: "F0-00NA4"
+title: "Encore V：ODE数値解法・Runge--Kutta・安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00NA1
+  - F0-00H1
+learning_objectives:
+  - Euler法とRunge--Kutta法を導ける
+  - consistency・stability・convergenceを区別できる
+  - absolute stability regionを説明できる
+  - stiffnessとimplicit法の関係を説明できる
+definitions:
+  - { id: F000NA4-DEF-01, name: 局所打切り誤差 }
+  - { id: F000NA4-DEF-02, name: absolute stability region }
+  - { id: F000NA4-DEF-03, name: stiff equation }
+theorems:
+  - { id: F000NA4-THM-01, name: consistencyとstabilityによるconvergence原理 }
+canonical_examples: [forward Euler, backward Euler, RK4, method of lines]
+problem_patterns: [NUM-ODE-1, NUM-STABILITY-ODE-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
