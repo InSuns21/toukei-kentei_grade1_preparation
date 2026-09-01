@@ -1,0 +1,31 @@
+id: "F0-00WK1"
+title: "Encore III：弱形式・変分形式・Poisson方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SOB2
+  - F0-00PDE3
+official_scope: []
+learning_objectives:
+  - Poisson方程式の古典解と弱解を区別できる
+  - テスト関数を掛けて部分積分することで弱形式を導ける
+  - Dirichlet境界条件をH0^1へ組み込める
+  - 双線形形式a(u,v)と線形汎関数F(v)を定義できる
+  - 弱形式をHilbert空間上の方程式a(u,v)=F(v)として読める
+  - 対称問題では弱解とエネルギー汎関数の最小化が対応することを説明できる
+definitions:
+  - { id: F000WK1-DEF-01, name: 弱解 }
+  - { id: F000WK1-DEF-02, name: 弱形式 }
+  - { id: F000WK1-DEF-03, name: 双線形形式 }
+  - { id: F000WK1-DEF-04, name: エネルギー汎関数 }
+theorems:
+  - { id: F000WK1-THM-01, name: 古典解は弱解である }
+  - { id: F000WK1-THM-02, name: 対称coercive問題の変分原理 }
+canonical_examples:
+  - Poisson方程式の弱形式
+  - 一次元Dirichlet問題
+problem_patterns: [WEAK-FORM-POISSON-1, VARIATIONAL-FORM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
