@@ -1,0 +1,35 @@
+id: "F0-00TS3"
+title: "Encore IV：線形filter・ARMA transfer function・周波数領域"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00TS2
+  - E2-03
+official_scope: []
+learning_objectives:
+  - 線形filterをbackshift operatorで表現できる
+  - 周波数応答A(e^{-i lambda})を導ける
+  - filter後のspectral densityが|A|^2倍になることを示せる
+  - ARMAのtransfer functionとspectral densityを導ける
+  - AR1のスペクトル形状をphiの符号と絶対値から説明できる
+  - differencing operatorの周波数応答を説明できる
+  - seasonal differencingの除去周波数を説明できる
+  - causality・invertibilityをfilterの安定性とinnovation復元の観点で説明できる
+  - 時間領域のACF/PACFと周波数領域のspectral densityを使い分けられる
+definitions:
+  - { id: F000TS3-DEF-01, name: 線形filter }
+  - { id: F000TS3-DEF-02, name: transfer function }
+  - { id: F000TS3-DEF-03, name: frequency response }
+theorems:
+  - { id: F000TS3-THM-01, name: 線形filterのスペクトル変換則 }
+  - { id: F000TS3-THM-02, name: ARMA spectral density }
+canonical_examples:
+  - AR1スペクトル
+  - MA1スペクトル
+  - 一階差分filter
+  - seasonal differencing
+problem_patterns: [ARMA-SPECTRUM-1, FILTER-FREQUENCY-RESPONSE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
