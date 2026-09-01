@@ -4,6 +4,10 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00
+  - F0-00A
+  - F0-00B
+  - F0-00C
+  - F0-00E
   - F0-02
   - F0-02A
 official_scope: []
