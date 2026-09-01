@@ -1,0 +1,20 @@
+chapter: "F0-00PDE2"
+terms:
+  - term: 波動方程式
+    english: wave equation
+    meaning: u_tt=c^2 u_xx で表される振動・伝播型の偏微分方程式。
+  - term: Laplace方程式
+    english: Laplace equation
+    meaning: Delta u=0 を満たす調和関数を求める楕円型偏微分方程式。
+  - term: 変数分離法
+    english: separation of variables
+    meaning: u(t,x)=T(t)X(x) のような積形を仮定し、PDEを複数のODEへ分解する方法。
+  - term: 固有モード
+    english: eigenmode
+    meaning: 境界条件を満たす空間固有関数に対応した独立な振動・減衰成分。
+  - term: 固有振動数
+    english: natural frequency
+    meaning: 境界条件と空間固有値から決まる各モード固有の振動数。
+  - term: 調和関数
+    english: harmonic function
+    meaning: Laplace方程式 Delta u=0 を満たす関数。

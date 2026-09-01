@@ -1,0 +1,22 @@
+id: "F0-00R"
+title: "基礎論ロードマップ：標準ルートと完全基礎論ルート"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00
+official_scope: []
+learning_objectives:
+  - 関数解析・確率論・完全基礎論の各補講ルートを区別して選択できる
+  - 選択公理・測度構成・確率論補講の依存関係を説明できる
+  - 標準通読ルートとDREAM THEATERルートの違いを説明できる
+definitions: []
+theorems: []
+canonical_examples:
+  - F0-00からRKHSまでの標準通読ルート
+  - D2からD3-D5へ進む測度論深掘りルート
+  - D2からP1-P7へ進む確率論深掘りルート
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }

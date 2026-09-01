@@ -1,0 +1,17 @@
+chapter: "F0-02C3"
+terms:
+  - term: Fréchet微分
+    english: Frechet derivative
+    meaning: 増分を一つの連続線形写像で一様に一次近似する微分。
+  - term: Gâteaux微分
+    english: Gateaux derivative
+    meaning: 各方向ごとの方向微分を線形写像としてまとめた微分概念。
+  - term: 有界線形作用素
+    english: bounded linear operator
+    meaning: ||Tx||<=M||x|| を満たす線形写像。ノルム空間間では連続性と同値。
+  - term: 作用素ノルム
+    english: operator norm
+    meaning: ||T||=sup_{||x||<=1}||Tx|| で定まる線形作用素のノルム。
+  - term: 随伴作用素
+    english: adjoint operator
+    meaning: T:X->Y に対し T*:Y*->X* を (T*y*)(x)=y*(Tx) で定める作用素。

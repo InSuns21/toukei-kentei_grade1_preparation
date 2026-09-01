@@ -1,0 +1,17 @@
+chapter: "F0-00SP3"
+terms:
+  - term: Brown運動
+    english: Brownian motion
+    meaning: B_0=0、連続path、独立定常増分、B_t-B_sが平均0分散t-sの正規分布に従う確率過程。
+  - term: Gaussian過程
+    english: Gaussian process
+    meaning: 任意の有限個の時点で取り出した確率変数ベクトルが多変量正規分布に従う確率過程。
+  - term: 二次変分
+    english: quadratic variation
+    meaning: 分割上の増分二乗和の極限。Brown運動では区間[0,t]の二次変分がtになる。
+  - term: scaling property
+    english: Brownian scaling
+    meaning: c>0に対しc^{-1/2}B_{ct}が再び標準Brown運動と同じ分布を持つ性質。
+  - term: white noise
+    english: white noise
+    meaning: 連続時間ではBrown運動の形式的な時間微分として現れる一般化確率過程。通常の関数ではなくSchwartz超関数として扱う。

@@ -1,0 +1,17 @@
+chapter: "F0-00C"
+terms:
+  - term: 連続写像
+    english: continuous map
+    meaning: 入力の十分小さい変化を出力の任意に小さい変化へ抑えられる写像。
+  - term: 開被覆
+    english: open cover
+    meaning: 対象集合を和集合で覆う開集合の族。
+  - term: コンパクト集合
+    english: compact set
+    meaning: 任意の開被覆から有限部分被覆を選べる集合。距離空間では点列コンパクト性と同値。
+  - term: Heine--Borelの定理
+    english: Heine--Borel theorem
+    meaning: R^pではコンパクトであることと閉かつ有界であることが同値であるという定理。
+  - term: Weierstrassの最大最小定理
+    english: extreme value theorem
+    meaning: 空でないコンパクト集合上の実数値連続関数は最大値と最小値を達成する。

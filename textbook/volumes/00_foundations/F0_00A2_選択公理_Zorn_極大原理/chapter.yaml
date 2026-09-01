@@ -1,0 +1,32 @@
+id: "F0-00A2"
+title: "補講：選択公理・Zornの補題・極大原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 選択関数と選択公理を定義し、有限選択・可算選択との違いを説明できる
+  - 半順序集合・chain・上界・極大元を定義し、最大元と区別できる
+  - Zornの補題を正確に述べ、典型的な適用手順を説明できる
+  - 一般のベクトル空間にHamel基底が存在する標準証明と選択公理の関係を説明できる
+  - Hahn--Banachの極大延長でZornの補題が使われる理由を説明できる
+definitions:
+  - { id: F000A2-DEF-01, name: 選択関数 }
+  - { id: F000A2-DEF-02, name: 選択公理 }
+  - { id: F000A2-DEF-03, name: 半順序集合 }
+  - { id: F000A2-DEF-04, name: chain }
+  - { id: F000A2-DEF-05, name: 極大元 }
+theorems:
+  - { id: F000A2-THM-01, name: Zornの補題 }
+  - { id: F000A2-THM-02, name: 選択公理・Zornの補題・整列可能定理の同値性 }
+canonical_examples:
+  - 包含関係で順序付けた部分集合族
+  - 極大元はあるが最大元がない有限半順序集合
+  - 一次独立集合のchainの合併
+  - Hahn--Banachの延長候補族
+problem_patterns: [CHOICE-FUNCTION-1, ZORN-TEMPLATE-1, MAXIMAL-VS-MAXIMUM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.5, review: 0.5 }

@@ -1,0 +1,13 @@
+terms:
+  - term: 条件数
+    aliases: [condition number]
+    definition: 入力の相対摂動に対する出力の相対変化の増幅度を表す量。
+  - term: backward error
+    aliases: [後退誤差]
+    definition: 計算結果を厳密解とみなせる最小の入力摂動の大きさ。
+  - term: backward stability
+    aliases: [後退安定性]
+    definition: 計算結果が元の入力から小さく摂動した問題の厳密解になる性質。
+  - term: 桁落ち
+    aliases: [catastrophic cancellation]
+    definition: 近い数の減算などで有効桁が大きく失われる現象。

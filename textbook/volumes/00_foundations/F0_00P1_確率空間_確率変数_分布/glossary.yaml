@@ -1,0 +1,17 @@
+chapter: "F0-00P1"
+terms:
+  - term: 確率空間
+    english: probability space
+    meaning: 標本空間、事象のsigma代数、全体の測度が1である確率測度からなる三つ組。
+  - term: 確率変数
+    english: random variable
+    meaning: 確率空間から実数などの可測空間への可測写像。値に関する逆像事象へ確率を付けられる。
+  - term: 押し出し測度
+    english: pushforward measure
+    meaning: 可測写像を通して元の測度を値域へ移した測度。確率変数の分布は確率測度の押し出しである。
+  - term: 分布
+    english: law / distribution
+    meaning: 確率変数Xに対してP_X(B)=P(X in B)で定まる値域上の確率測度。
+  - term: cylinder set
+    english: cylinder set
+    meaning: 無限直積空間で有限個の座標だけを指定して作る基本的な事象。

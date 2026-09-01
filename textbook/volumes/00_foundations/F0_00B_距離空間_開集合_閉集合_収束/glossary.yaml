@@ -1,0 +1,23 @@
+chapter: "F0-00B"
+terms:
+  - term: 距離空間
+    english: metric space
+    meaning: 距離関数が定義された集合。
+  - term: 開球
+    english: open ball
+    meaning: 中心から距離が半径未満の点全体。
+  - term: 開集合
+    english: open set
+    meaning: 各点の周囲に、その集合内に完全に含まれる小さな開球を置ける集合。
+  - term: 閉集合
+    english: closed set
+    meaning: 補集合が開である集合。距離空間では集合内の収束列の極限をすべて含むことと同値。
+  - term: interior
+    english: interior
+    meaning: 集合の内点全体。
+  - term: closure
+    english: closure
+    meaning: 集合を含む最小の閉集合。
+  - term: boundary
+    english: boundary
+    meaning: 閉包から内部を除いた集合。

@@ -1,0 +1,17 @@
+chapter: "F0-02C5"
+terms:
+  - term: 錐制約
+    english: cone constraint
+    meaning: 不等式制約をG(x)∈-Kの形でまとめた制約。
+  - term: constraint qualification
+    english: constraint qualification
+    meaning: 制約の一次近似が真の局所幾何を十分に表し、KKT乗数などを保証するための正則性条件。
+  - term: LICQ
+    english: linear independence constraint qualification
+    meaning: 有限次元でactive不等式制約勾配と等式制約勾配が一次独立である条件。
+  - term: MFCQ
+    english: Mangasarian-Fromovitz constraint qualification
+    meaning: 等式制約の十分なランクと、active不等式をすべて厳密に内側へ動かす方向の存在を要求する条件。
+  - term: Robinson制約想定
+    english: Robinson constraint qualification
+    meaning: 線形化制約写像と制約錐を合わせて制約空間の原点近傍を生成できることを要求する一般的な正則性条件。

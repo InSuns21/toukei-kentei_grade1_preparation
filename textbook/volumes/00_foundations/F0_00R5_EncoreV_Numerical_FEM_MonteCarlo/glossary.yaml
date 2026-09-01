@@ -1,0 +1,10 @@
+terms:
+  - term: numerical analysis
+    aliases: [数値解析]
+    definition: 連続的・無限次元の数学問題を有限精度計算で近似し誤差・安定性・計算量を解析する分野。
+  - term: finite element method
+    aliases: [FEM, 有限要素法]
+    definition: 弱形式を局所有限次元基底へ制限して疎線形系として解くGalerkin型数値法。
+  - term: Monte Carlo method
+    aliases: [モンテカルロ法]
+    definition: 期待値・積分などを乱数標本の統計量で近似する数値法の総称。

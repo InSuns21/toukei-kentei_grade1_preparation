@@ -1,0 +1,17 @@
+chapter: "F0-00A"
+terms:
+  - term: 逆像
+    english: preimage
+    meaning: B⊂Y に対する {x∈X:f(x)∈B}。逆関数の存在は必要ない。
+  - term: 単射
+    english: injective map
+    meaning: 同じ値へ写る二点が必ず同じ点である写像。
+  - term: 全射
+    english: surjective map
+    meaning: 終域の各点が少なくとも一つの定義域の点の像になっている写像。
+  - term: supremum
+    english: supremum
+    meaning: 上界全体の中で最小のもの。集合の要素とは限らない。
+  - term: infimum
+    english: infimum
+    meaning: 下界全体の中で最大のもの。集合の要素とは限らない。

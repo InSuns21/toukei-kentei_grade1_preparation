@@ -1,0 +1,31 @@
+id: "F0-00FA3"
+title: "Encore II：Plancherel・L2 Fourier変換・特性関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00FA2
+  - F0-02C1
+official_scope: []
+learning_objectives:
+  - Plancherel等式をFourier変換のL2ノルム保存として説明できる
+  - Fourier変換をL2上のユニタリ作用素として位置付けられる
+  - L1とL2でFourier変換の定義の仕方が異なる理由を説明できる
+  - Parseval等式とPlancherel定理の関係を説明できる
+  - 特性関数を確率測度のFourier変換として再解釈できる
+  - 畳み込み・独立和・中心極限定理のFourier解析的構造を説明できる
+  - GaussianがFourier解析・確率論・熱方程式を結ぶ理由を説明できる
+definitions:
+  - { id: F000FA3-DEF-01, name: L2 Fourier変換 }
+  - { id: F000FA3-DEF-02, name: unitary operator }
+theorems:
+  - { id: F000FA3-THM-01, name: Plancherel定理 }
+  - { id: F000FA3-THM-02, name: Parseval--Plancherel等式 }
+canonical_examples:
+  - GaussianのL2ノルム保存
+  - 特性関数と独立和
+  - CLTの特性関数証明のFourier解析的再解釈
+problem_patterns: [PLANCHEREL-1, CHARACTERISTIC-FOURIER-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 0.5, review: 0.5 }

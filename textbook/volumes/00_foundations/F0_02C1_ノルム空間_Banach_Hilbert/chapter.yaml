@@ -1,0 +1,33 @@
+id: "F0-02C1"
+title: "関数解析I：ノルム空間・Banach空間・Hilbert空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D
+  - F0-00D2
+  - F0-00E
+  - F0-00F
+  - F0-02B
+official_scope: []
+learning_objectives:
+  - 関数空間をベクトル空間として扱う意味を説明できる
+  - ノルム空間・Banach空間・内積空間・Hilbert空間を区別できる
+  - supノルム・L2ノルム・l2ノルムの代表例を扱える
+  - 内積がノルムを誘導することと、全てのノルムが内積由来ではないことを説明できる
+  - Hilbert空間の閉凸集合への射影定理を有限次元との違いを意識して説明できる
+definitions:
+  - { id: F002C1-DEF-01, name: ノルム空間 }
+  - { id: F002C1-DEF-02, name: Banach空間 }
+  - { id: F002C1-DEF-03, name: 内積空間 }
+  - { id: F002C1-DEF-04, name: Hilbert空間 }
+  - { id: F002C1-DEF-05, name: 直交 }
+theorems:
+  - { id: F002C1-THM-01, name: Cauchy--Schwarz不等式 }
+  - { id: F002C1-THM-02, name: 平行四辺形恒等式 }
+  - { id: F002C1-THM-03, name: Hilbert空間の射影定理 }
+canonical_examples: [C区間のsupノルム, L2空間, l2空間, 閉凸集合への射影]
+problem_patterns: [FA-NORM-1, FA-PROJECTION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0, review: 1 }

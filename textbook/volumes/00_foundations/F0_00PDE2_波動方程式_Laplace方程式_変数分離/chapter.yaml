@@ -1,0 +1,33 @@
+id: "F0-00PDE2"
+title: "Encore II：波動方程式・Laplace方程式・変数分離"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00PDE1
+  - F0-00FA1
+official_scope: []
+learning_objectives:
+  - 波動方程式と熱方程式の時間発展の違いを説明できる
+  - 実数全体上の波動方程式をFourier変換して周波数ごとの調和振動子へ落とせる
+  - 有限区間で変数分離法を使い空間固有値問題を導ける
+  - 固定端境界条件から正弦関数の固有モードを導ける
+  - Laplace方程式を定常的な楕円型方程式として位置付けられる
+  - 長方形領域のLaplace方程式を変数分離で解く骨格を説明できる
+  - 熱・波動・Laplaceの三つを拡散・振動・平衡として比較できる
+definitions:
+  - { id: F000PDE2-DEF-01, name: 波動方程式 }
+  - { id: F000PDE2-DEF-02, name: Laplace方程式 }
+  - { id: F000PDE2-DEF-03, name: 変数分離法 }
+  - { id: F000PDE2-DEF-04, name: 固有モード }
+theorems:
+  - { id: F000PDE2-THM-01, name: 波動方程式のFourierモード表示 }
+  - { id: F000PDE2-THM-02, name: 固定端波動方程式の正弦級数表示 }
+canonical_examples:
+  - 弦の固定端振動
+  - d'Alembert解の位置付け
+  - 長方形領域のLaplace方程式
+problem_patterns: [WAVE-FOURIER-1, SEPARATION-OF-VARIABLES-1, LAPLACE-RECTANGLE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }

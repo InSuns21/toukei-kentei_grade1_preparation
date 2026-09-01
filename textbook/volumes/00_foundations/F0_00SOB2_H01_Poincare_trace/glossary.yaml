@@ -1,0 +1,17 @@
+chapter: "F0-00SOB2"
+terms:
+  - term: H0^1
+    english: H_0^1
+    meaning: コンパクト台を持つ滑らかな関数をH1ノルムで閉包して得る空間。零Dirichlet境界条件を弱い意味で表す。
+  - term: Poincare不等式
+    english: Poincare inequality
+    meaning: 適切な境界条件や平均0条件の下で関数のLpノルムを勾配のLpノルムで評価する不等式。
+  - term: trace
+    english: trace operator
+    meaning: Sobolev関数の境界値を適切な関数空間の元として定義する作用素。
+  - term: Sobolev embedding
+    english: Sobolev embedding theorem
+    meaning: 弱微分の可積分性から関数自身のLp可積分性や連続性を導く定理群。
+  - term: Rellich compactness
+    english: Rellich-Kondrachov compactness
+    meaning: Sobolev空間から低い正則性の空間への埋め込みが適切な条件下でコンパクトになる定理。

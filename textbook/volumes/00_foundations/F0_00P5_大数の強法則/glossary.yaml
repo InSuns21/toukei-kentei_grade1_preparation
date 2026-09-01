@@ -1,0 +1,14 @@
+chapter: "F0-00P5"
+terms:
+  - term: Kolmogorov最大不等式
+    english: Kolmogorov maximal inequality
+    meaning: 独立な平均0確率変数の部分和が途中で大きく逸脱する確率を最終時点の分散で抑える不等式。
+  - term: 強大数則
+    english: strong law of large numbers
+    meaning: 独立同分布標本の標本平均が母平均へほとんど確実に収束する定理。
+  - term: truncation
+    english: truncation
+    meaning: 大きすぎる観測値を切り落として有限分散型の議論へ近づける証明技法。
+  - term: Kroneckerの補題
+    english: Kronecker lemma
+    meaning: ある重み付き級数の収束から対応するCesaro型平均の収束を導く補題。

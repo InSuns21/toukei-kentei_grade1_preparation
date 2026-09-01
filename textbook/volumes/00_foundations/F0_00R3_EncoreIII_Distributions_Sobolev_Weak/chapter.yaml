@@ -1,0 +1,20 @@
+id: "F0-00R3"
+title: "Encore III：Distributions, Sobolev Spaces & Weak Solutions"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00PDE3
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - Encore IIIの標準通読順を説明できる
+  - Schwartz超関数から弱解・Lax--Milgramまでの依存関係を説明できる
+  - Encore IIとの接続とEncore IIIの停止線を説明できる
+definitions: []
+theorems: []
+canonical_examples: [Encore III通読ロードマップ]
+problem_patterns: []
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.5, exercises: 0, review: 0 }

@@ -1,0 +1,32 @@
+id: "F0-00H1"
+title: "補講：常微分方程式・線形系・行列指数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 常微分方程式・初期値問題・境界値問題を区別できる
+  - 変数分離形と一階線形常微分方程式を解ける
+  - 二階定係数線形常微分方程式を特性方程式から解ける
+  - 線形常微分方程式の重ね合わせ原理を説明できる
+  - 連立線形系 x'=Ax の解を行列指数 exp(tA) で表せる
+  - 対角化可能な場合の exp(tA) と固有値による安定性を説明できる
+  - Fourier変換後の偏微分方程式が常微分方程式へ落ちる理由を理解できる
+definitions:
+  - { id: F000H1-DEF-01, name: 常微分方程式 }
+  - { id: F000H1-DEF-02, name: 初期値問題 }
+  - { id: F000H1-DEF-03, name: 行列指数 }
+theorems:
+  - { id: F000H1-THM-01, name: 一階線形常微分方程式の積分因子法 }
+  - { id: F000H1-THM-02, name: 定係数二階線形常微分方程式の特性方程式法 }
+  - { id: F000H1-THM-03, name: 線形系 x'=Ax の行列指数解 }
+canonical_examples:
+  - 指数成長減衰 y'=ay
+  - 調和振動子 y''+omega^2 y=0
+  - 2次元線形系 x'=Ax
+problem_patterns: [ODE-FIRST-ORDER-1, ODE-SECOND-ORDER-1, MATRIX-EXP-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }

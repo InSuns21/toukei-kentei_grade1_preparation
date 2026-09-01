@@ -1,46 +1,14 @@
+chapter: "F0-02C"
 terms:
+  - term: 関数解析
+    english: functional analysis
+    meaning: ノルム・内積・位相などを備えた関数空間や無限次元ベクトル空間を扱う解析学。
   - term: Banach空間
     english: Banach space
-    meaning: ノルムについて完備なベクトル空間。
+    meaning: 完備なノルム空間。詳細はF0-02C1で扱う。
   - term: Hilbert空間
     english: Hilbert space
-    meaning: 内積から定まるノルムについて完備なベクトル空間。
-  - term: 線形汎関数
-    english: linear functional
-    meaning: ベクトル空間から実数への線形写像。
-  - term: 双対空間
-    english: dual space
-    meaning: 連続線形汎関数全体からなる空間 X^*。
-  - term: Frechet微分
-    english: Frechet derivative
-    meaning: f(x+h)=f(x)+Df(x)[h]+o(||h||) を満たす連続線形写像による微分。
-  - term: Riesz表現定理
-    english: Riesz representation theorem
-    meaning: Hilbert空間上の連続線形汎関数を内積で一意に表現できるという定理。
-  - term: 随伴作用素
-    english: adjoint operator
-    meaning: T:X->Y に対して T^*:Y^*->X^* を T^*y^*=y^*∘T で定める作用素。
-  - term: 凸関数
-    english: convex function
-    meaning: f((1-t)x+ty)<=(1-t)f(x)+tf(y) を満たす関数。
-  - term: normal cone
-    english: normal cone
-    meaning: 凸集合の点で、集合内の全方向に非正の作用をする双対空間の元を集めた錐。
-  - term: 双対錐
-    english: dual cone
-    meaning: K^*={lambda:lambda(k)>=0 for all k in K} で定義される錐。
-  - term: interior
-    english: interior
-    meaning: 点の周囲に十分小さい開球を置いても集合内に完全に含まれる点全体。
-  - term: Robinson制約想定
-    english: Robinson constraint qualification
-    meaning: 線形化制約写像と錐が制約空間の近傍を十分に生成することを要求する一般的な制約想定。
-  - term: Hahn--Banachの定理
-    english: Hahn--Banach theorem
-    meaning: 線形汎関数を支配条件を保って拡張できることを述べ、無限次元の分離定理の基礎となる定理。
-  - term: 評価汎関数
-    english: evaluation functional
-    meaning: 関数 f から一点 x での値 f(x) を取り出す線形汎関数。
+    meaning: 内積から定まるノルムについて完備な空間。詳細はF0-02C1で扱う。
   - term: RKHS
     english: reproducing kernel Hilbert space
-    meaning: 各点での評価汎関数が連続な関数Hilbert空間。Riesz表現から再生核が得られる。
+    meaning: 点評価が連続な関数Hilbert空間。詳細はF0-02C7で扱う。

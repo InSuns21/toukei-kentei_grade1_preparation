@@ -1,46 +1,22 @@
 id: "F0-02C"
-title: "関数解析から見る制約想定・KKT・kernel SVM"
+title: "関数解析補講ロードマップ：制約想定・RKHS・kernel SVM"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00
-  - F0-02
-  - F0-02A
-  - F0-02B
 official_scope: []
 learning_objectives:
-  - ノルム空間・Banach空間・Hilbert空間を区別できる
-  - 線形汎関数と双対空間を定義できる
-  - Frechet微分を有限次元の勾配と対応付けられる
-  - 随伴作用素が有限次元の転置行列を一般化することを説明できる
-  - 凸集合・凸関数・normal coneと双対錐を定義できる
-  - 制約想定を一次近似の正則性として説明できる
-  - Robinson CQの内部条件を幾何学的に説明できる
-  - Hahn--Banachと分離定理の関係を説明できる
-  - RKHS・Riesz表現・再生核・kernel SVMのつながりを説明できる
-definitions:
-  - { id: F002C-DEF-01, name: ノルム空間 }
-  - { id: F002C-DEF-02, name: Banach空間 }
-  - { id: F002C-DEF-03, name: Hilbert空間 }
-  - { id: F002C-DEF-04, name: 線形汎関数 }
-  - { id: F002C-DEF-05, name: 双対空間 }
-  - { id: F002C-DEF-06, name: Frechet微分 }
-  - { id: F002C-DEF-07, name: 随伴作用素 }
-  - { id: F002C-DEF-08, name: 凸関数 }
-  - { id: F002C-DEF-09, name: normal cone }
-  - { id: F002C-DEF-10, name: 双対錐 }
-  - { id: F002C-DEF-11, name: interior }
-  - { id: F002C-DEF-12, name: Robinson constraint qualification }
-  - { id: F002C-DEF-13, name: 評価汎関数 }
-  - { id: F002C-DEF-14, name: RKHS }
-theorems:
-  - { id: F002C-THM-01, name: Riesz表現定理 }
-  - { id: F002C-THM-02, name: 一般化KKT条件 }
-  - { id: F002C-THM-03, name: Hahn--Banachと分離定理 }
-  - { id: F002C-THM-04, name: Hilbert空間の射影定理 }
-canonical_examples: [Jacobian転置と随伴, 正の直交錐と双対錐, Robinson CQ, RKHSでのkernel SVM]
-problem_patterns: [FA-DUAL-1, FA-ADJOINT-1, FA-KKT-1, RKHS-SVM-1]
+  - F0-00修了者が関数解析補講を通読するための順序を説明できる
+  - 集合・位相側と線形代数側の前提補講の役割を説明できる
+  - 関数解析補講の各講義の役割と依存関係を説明できる
+  - 目的に応じてBanach/Hilbert・KKT・RKHSの学習経路を選べる
+  - 有限次元で暗黙に使っていた構造が無限次元で分離されることを説明できる
+  - kernel SVMまでの理論の全体像を説明できる
+definitions: []
+theorems: []
+canonical_examples: [F0-00からRKHSまでの完全通読ルート]
+problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0, review: 1 }
+estimated_hours: { reading: 0.75, exercises: 0, review: 0 }

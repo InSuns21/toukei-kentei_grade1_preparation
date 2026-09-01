@@ -1,0 +1,17 @@
+chapter: "F0-00P3"
+terms:
+  - term: 独立なsigma代数
+    english: independent sigma-algebras
+    meaning: それぞれのsigma代数から選んだ事象の共通部分の確率が積に分解するsigma代数の組。
+  - term: 積測度
+    english: product measure
+    meaning: 直積空間上で長方形集合の測度を各空間の測度の積として拡張した測度。
+  - term: 条件付き期待値
+    english: conditional expectation
+    meaning: 部分sigma代数に関して可測で、そのsigma代数の任意の事象上で元の確率変数と積分を一致させる確率変数。
+  - term: tower property
+    english: tower property
+    meaning: 情報を段階的に粗くして条件付き期待値を取ると、最初から粗い情報で条件付けた期待値と一致する性質。
+  - term: Doob--Dynkin補題
+    english: Doob--Dynkin lemma
+    meaning: Yで生成されるsigma代数に関して可測な確率変数は、Yの可測関数として表せることを述べる補題。

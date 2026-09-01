@@ -1,0 +1,14 @@
+chapter: "F0-00D"
+terms:
+  - term: Cauchy列
+    english: Cauchy sequence
+    meaning: 列の十分後ろの二項同士の距離を任意に小さくできる点列。
+  - term: 完備
+    english: complete
+    meaning: すべてのCauchy列がその空間内で収束する性質。
+  - term: 完備距離空間
+    english: complete metric space
+    meaning: 距離について完備な距離空間。
+  - term: Banach空間
+    english: Banach space
+    meaning: ノルムから定まる距離について完備なノルム空間。

@@ -1,0 +1,13 @@
+terms:
+  - term: stiffness matrix
+    aliases: [剛性行列]
+    definition: 弱形式の双線形形式を有限要素基底で表した行列。
+  - term: assembly
+    aliases: [アセンブリ]
+    definition: 各要素の局所行列・局所vectorをglobal自由度へ加算して全体系を構成する操作。
+  - term: nodal basis
+    aliases: [節点基底]
+    definition: 各節点でKronecker delta型の値を取る有限要素基底。
+  - term: reference element
+    aliases: [参照要素]
+    definition: 実要素の計算を標準化するため写像元として用いる標準要素。

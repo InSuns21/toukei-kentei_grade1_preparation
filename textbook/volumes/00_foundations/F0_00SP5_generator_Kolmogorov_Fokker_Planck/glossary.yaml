@@ -1,0 +1,17 @@
+chapter: "F0-00SP5"
+terms:
+  - term: Markov semigroup
+    english: Markov semigroup
+    meaning: P_t f(x)=E_x[f(X_t)]で定義され、P_{s+t}=P_sP_tを満たす時間発展作用素族。
+  - term: 生成作用素
+    english: infinitesimal generator
+    meaning: Markov semigroupの時刻0における微分として定義され、SDEではb f'+(1/2)sigma^2 f''の形になる作用素。
+  - term: backward Kolmogorov equation
+    english: backward Kolmogorov equation
+    meaning: 初期状態xに依存する期待値の時間発展をgenerator Lで記述するPDE。
+  - term: Fokker--Planck方程式
+    english: Fokker-Planck equation
+    meaning: SDEの確率密度の時間発展をgeneratorの形式随伴L*で記述するforward Kolmogorov equation。
+  - term: Feynman--Kac公式
+    english: Feynman-Kac formula
+    meaning: potential項を含む放物型PDEの解を拡散過程に沿った期待値として表す公式。

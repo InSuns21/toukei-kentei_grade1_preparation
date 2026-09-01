@@ -1,0 +1,44 @@
+chapter: "F0-00D2"
+terms:
+  - term: sigma代数
+    english: sigma-algebra
+    meaning: 全体集合を含み、補集合と可算和について閉じた集合族。何を「測れる集合」と認めるかを指定する。
+  - term: 測度
+    english: measure
+    meaning: 可測集合へ非負の大きさを割り当て、空集合を0とし、互いに素な可算和に対して可算加法性を満たす写像。
+  - term: Lebesgue測度
+    english: Lebesgue measure
+    meaning: 実数直線上で区間の長さを一般の可測集合へ拡張した標準的な測度。
+  - term: 測度0集合
+    english: null set
+    meaning: 測度が0である可測集合。Lebesgue測度では有限集合や可算集合は測度0になる。
+  - term: ほとんど至るところ
+    english: almost everywhere
+    meaning: 例外が測度0集合にしか存在しないという意味。a.e.と略記する。
+  - term: 可測関数
+    english: measurable function
+    meaning: 値域の基本的な可測集合の逆像が定義域で可測になる関数。Lebesgue積分を定義する対象になる。
+  - term: 単関数
+    english: simple function
+    meaning: 有限個の値しか取らない可測関数。指示関数の有限線形結合として表せ、Lebesgue積分の構成の出発点になる。
+  - term: Lebesgue積分
+    english: Lebesgue integral
+    meaning: 単関数の積分から非負可測関数、正負を持つ可積分関数へ拡張して定義する積分。
+  - term: 単調収束定理
+    english: monotone convergence theorem
+    meaning: 非負可測関数列が単調増加して極限へ収束するとき、積分と極限を交換できる定理。
+  - term: Fatouの補題
+    english: Fatou's lemma
+    meaning: 非負可測関数列について、極限下限の積分を積分の極限下限で上から評価する不等式。
+  - term: 優収束定理
+    english: dominated convergence theorem
+    meaning: a.e.収束する関数列が一つの可積分関数で絶対値を支配されるとき、積分と極限を交換できる定理。
+  - term: Tonelliの定理
+    english: Tonelli's theorem
+    meaning: 非負可測関数について積分順序を交換できる定理。積分値が無限大でも使える。
+  - term: Fubiniの定理
+    english: Fubini's theorem
+    meaning: 絶対可積分な関数について反復積分と重積分が一致し、積分順序を交換できる定理。
+  - term: Lp空間
+    english: Lp space
+    meaning: p乗可積分な可測関数をa.e.一致で同一視した空間。1以上のpでノルム空間となる。

@@ -1,0 +1,13 @@
+terms:
+  - term: Krylov部分空間
+    aliases: [Krylov subspace]
+    definition: 初期residualに行列を繰り返し作用させて張られる部分空間。
+  - term: 共役勾配法
+    aliases: [Conjugate Gradient, CG]
+    definition: 対称正定値線形系をKrylov部分空間上で解く反復法。
+  - term: 前処理
+    aliases: [preconditioning]
+    definition: 元の線形系を同値でより条件の良い線形系へ変換して反復収束を改善する操作。
+  - term: residual
+    aliases: [残差]
+    definition: 近似解xに対するb-Ax。

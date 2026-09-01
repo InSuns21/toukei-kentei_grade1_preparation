@@ -1,0 +1,29 @@
+id: "F0-00WK2"
+title: "Encore III：Lax--Milgram定理・弱解の存在一意性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00WK1
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - 連続双線形形式とcoercivityを定義できる
+  - Lax--Milgram定理の主張を説明できる
+  - Riesz表現定理から有界作用素Aを構成できる
+  - coercivityからAの下からの評価・単射性・rangeの閉性を導ける
+  - 直交補空間を使ってrangeが稠密であることを示し全射性を導ける
+  - 解の安定性評価を導ける
+  - Poisson方程式の弱解へ適用できる
+definitions:
+  - { id: F000WK2-DEF-01, name: coercive双線形形式 }
+theorems:
+  - { id: F000WK2-THM-01, name: Lax--Milgram定理 }
+  - { id: F000WK2-THM-02, name: Lax--Milgramの安定性評価 }
+canonical_examples:
+  - H0^1上のPoisson双線形形式
+  - 反応拡散型双線形形式
+problem_patterns: [LAX-MILGRAM-1, COERCIVITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 1, review: 0.5 }

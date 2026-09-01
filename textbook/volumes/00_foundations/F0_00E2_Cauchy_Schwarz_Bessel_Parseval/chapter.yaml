@@ -1,0 +1,28 @@
+id: "F0-00E2"
+title: "Cauchy--Schwarz・Bessel不等式・Parseval等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E
+official_scope: []
+learning_objectives:
+  - Cauchy--Schwarz不等式をノルム平方の非負性から証明できる
+  - Cauchy--Schwarzから三角不等式を導ける
+  - 正規直交系に対するFourier係数を内積として計算できる
+  - Bessel不等式を直交射影の残差平方から導ける
+  - 有限次元の正規直交基底に対するParseval等式を説明できる
+  - Bessel不等式とParseval等式が無限次元の正規直交展開へどうつながるか説明できる
+definitions:
+  - { id: F000E2-DEF-01, name: Fourier係数 }
+  - { id: F000E2-DEF-02, name: 正規直交展開 }
+theorems:
+  - { id: F000E2-THM-01, name: Cauchy--Schwarz不等式 }
+  - { id: F000E2-THM-02, name: 三角不等式 }
+  - { id: F000E2-THM-03, name: Bessel不等式 }
+  - { id: F000E2-THM-04, name: 有限次元Parseval等式 }
+canonical_examples: [R3でのCauchy--Schwarz, 正規直交系への射影, Parsevalによるノルム計算]
+problem_patterns: [LA-CS-1, LA-BESSEL-1, LA-PARSEVAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0.5, review: 0.5 }

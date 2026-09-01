@@ -1,0 +1,23 @@
+id: "F0-00NA2"
+title: "Encore V：数値線形代数・疎行列・CG・前処理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00NA1
+  - F0-00F
+learning_objectives:
+  - 疎線形系に直接法と反復法を使い分けられる
+  - CG法をSPD二次最小化として説明できる
+  - 条件数とCG収束率を結び付けられる
+  - 前処理の目的を説明できる
+definitions:
+  - { id: F000NA2-DEF-01, name: 疎行列 }
+  - { id: F000NA2-DEF-02, name: residual }
+  - { id: F000NA2-DEF-03, name: Krylov部分空間 }
+  - { id: F000NA2-DEF-04, name: 前処理 }
+theorems:
+  - { id: F000NA2-THM-01, name: CG法の条件数による誤差評価 }
+canonical_examples: [Cholesky分解, Jacobi法, CG法, preconditioned CG]
+problem_patterns: [NUM-CG-1, NUM-PRECOND-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }

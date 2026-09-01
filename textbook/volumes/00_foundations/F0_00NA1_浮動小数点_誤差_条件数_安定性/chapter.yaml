@@ -1,0 +1,21 @@
+id: "F0-00NA1"
+title: "Encore V：浮動小数点・誤差・条件数・安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00F
+learning_objectives:
+  - 浮動小数点誤差と離散化誤差を区別できる
+  - 条件数を問題の感度として説明できる
+  - backward errorとforward errorを区別できる
+  - 数値安定性と問題の悪条件性を区別できる
+definitions:
+  - { id: F000NA1-DEF-01, name: 相対誤差 }
+  - { id: F000NA1-DEF-02, name: 条件数 }
+  - { id: F000NA1-DEF-03, name: backward error }
+  - { id: F000NA1-DEF-04, name: backward stability }
+theorems: []
+canonical_examples: [桁落ち, 行列条件数, backward stable algorithm]
+problem_patterns: [NUM-COND-1, NUM-STABILITY-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 1, review: 0.5 }

@@ -1,0 +1,28 @@
+id: "F0-02C2"
+title: "関数解析II：線形汎関数・双対空間・Riesz表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C1
+official_scope: []
+learning_objectives:
+  - 線形汎関数と連続線形汎関数を区別できる
+  - 線形汎関数の連続性と有界性の同値を説明できる
+  - 双対空間X*と双対ノルムを定義できる
+  - C区間上の評価汎関数とL2上の点評価の違いを説明できる
+  - Riesz表現定理を有限次元の内積表示と対応付け、Hilbert空間で証明の流れを説明できる
+definitions:
+  - { id: F002C2-DEF-01, name: 線形汎関数 }
+  - { id: F002C2-DEF-02, name: 連続線形汎関数 }
+  - { id: F002C2-DEF-03, name: 双対空間 }
+  - { id: F002C2-DEF-04, name: 双対ノルム }
+  - { id: F002C2-DEF-05, name: 評価汎関数 }
+theorems:
+  - { id: F002C2-THM-01, name: 線形汎関数の連続性と有界性の同値 }
+  - { id: F002C2-THM-02, name: Riesz表現定理 }
+canonical_examples: [有限次元の内積汎関数, 積分汎関数, C区間の点評価, L2での点評価の失敗]
+problem_patterns: [FA-DUAL-1, FA-RIESZ-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0, review: 1 }

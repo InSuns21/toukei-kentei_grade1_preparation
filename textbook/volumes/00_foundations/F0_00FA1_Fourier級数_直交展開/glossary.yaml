@@ -1,0 +1,20 @@
+chapter: "F0-00FA1"
+terms:
+  - term: Fourier級数
+    english: Fourier series
+    meaning: 周期関数を三角関数または複素指数関数の無限線形結合で表す展開。
+  - term: Fourier係数
+    english: Fourier coefficient
+    meaning: 対応する正規直交関数との内積から得られる展開係数。
+  - term: 基本周波数
+    english: fundamental frequency
+    meaning: 周期から決まる最小の基本的な振動数。整数倍が高調波を作る。
+  - term: 高調波
+    english: harmonic
+    meaning: 基本周波数の整数倍の周波数成分。
+  - term: L2収束
+    english: L2 convergence
+    meaning: 関数列と極限関数のL2ノルム差が0へ収束すること。各点収束とは別概念。
+  - term: Parseval等式
+    english: Parseval identity
+    meaning: 完全な正規直交系について、関数のL2ノルム二乗がFourier係数の絶対値二乗和に等しいこと。

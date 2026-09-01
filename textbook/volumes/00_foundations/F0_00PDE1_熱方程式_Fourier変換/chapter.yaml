@@ -1,0 +1,32 @@
+id: "F0-00PDE1"
+title: "Encore II：熱方程式・Fourier変換・Gaussian heat kernel"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00H1
+  - F0-00FA3
+official_scope: []
+learning_objectives:
+  - 偏微分方程式・初期条件・境界条件の役割を区別できる
+  - 実数全体上の熱方程式を空間変数についてFourier変換できる
+  - 周波数ごとの一階常微分方程式を解いてFourier空間の解を得られる
+  - 逆Fourier変換からGaussian heat kernelを導ける
+  - heat kernelとの畳み込みとして解を書ける
+  - 熱方程式の平滑化・質量保存・分散増大を説明できる
+  - Brown運動のGaussian遷移密度との接続を説明できる
+definitions:
+  - { id: F000PDE1-DEF-01, name: 偏微分方程式 }
+  - { id: F000PDE1-DEF-02, name: 熱方程式 }
+  - { id: F000PDE1-DEF-03, name: heat kernel }
+theorems:
+  - { id: F000PDE1-THM-01, name: 実数全体上の熱方程式のFourier表示 }
+  - { id: F000PDE1-THM-02, name: Gaussian heat kernelによる表現 }
+canonical_examples:
+  - delta状初期データから広がるGaussian
+  - Gaussian初期データの時間発展
+  - heat kernelの質量保存
+problem_patterns: [HEAT-FOURIER-1, HEAT-KERNEL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }

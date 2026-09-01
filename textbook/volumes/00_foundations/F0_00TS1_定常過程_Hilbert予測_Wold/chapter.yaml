@@ -1,0 +1,35 @@
+id: "F0-00TS1"
+title: "Encore IV：定常過程・Hilbert空間予測・innovation・Wold分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P3
+  - F0-02C1
+  - F0-00SP2
+official_scope: []
+learning_objectives:
+  - 二次定常過程を平均と自己共分散で定義できる
+  - 二乗可積分確率変数をL2 Hilbert空間の元として扱える
+  - 過去の確率変数が張る閉部分空間を定義できる
+  - 最良線形予測を直交射影として特徴付けられる
+  - innovationを予測誤差として定義し過去との直交性を示せる
+  - Wold decompositionの主張を説明できる
+  - deterministic成分とpurely nondeterministic成分を区別できる
+  - ARMAのinnovation表現への橋を説明できる
+definitions:
+  - { id: F000TS1-DEF-01, name: 二次定常過程 }
+  - { id: F000TS1-DEF-02, name: 線形予測空間 }
+  - { id: F000TS1-DEF-03, name: innovation }
+  - { id: F000TS1-DEF-04, name: purely nondeterministic process }
+theorems:
+  - { id: F000TS1-THM-01, name: 最良線形予測の射影定理 }
+  - { id: F000TS1-THM-02, name: Wold decomposition }
+canonical_examples:
+  - AR1の一段予測
+  - MA過程のinnovation
+  - 完全に予測可能な正弦波過程
+problem_patterns: [LINEAR-PREDICTION-PROJECTION-1, WOLD-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }

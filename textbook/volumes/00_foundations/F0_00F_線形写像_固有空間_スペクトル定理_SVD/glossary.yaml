@@ -1,0 +1,29 @@
+chapter: "F0-00F"
+terms:
+  - term: 線形写像
+    english: linear map
+    meaning: 加法と実数倍を保つ写像。
+  - term: 核
+    english: kernel
+    meaning: 線形写像Tで0へ写るベクトル全体。
+  - term: 像
+    english: image
+    meaning: 線形写像Tで到達できるベクトル全体。
+  - term: 固有空間
+    english: eigenspace
+    meaning: 固有値lambdaについて T v=lambda v を満たすベクトルと0からなる部分空間。
+  - term: 不変部分空間
+    english: invariant subspace
+    meaning: Vの各ベクトルをTで写しても再びVに入る部分空間。
+  - term: Rayleigh商
+    english: Rayleigh quotient
+    meaning: 非零ベクトルxに対する x^T A x / x^T x。
+  - term: 特異値
+    english: singular value
+    meaning: A^T A の固有値の非負平方根。
+  - term: 特異値分解
+    english: singular value decomposition
+    meaning: 行列Aを直交行列U,Vと非負対角成分を持つSigmaを用いて A=U Sigma V^T と表す分解。
+  - term: 作用素ノルム
+    english: operator norm
+    meaning: 単位ベクトルを写したときの長さの最大値として定義される線形写像の大きさ。

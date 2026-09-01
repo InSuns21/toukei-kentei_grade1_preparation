@@ -1,0 +1,23 @@
+id: "F0-00SDE1"
+title: "Encore V：Euler--Maruyama・strong/weak convergence"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SP4
+  - F0-00MC1
+  - F0-00NA4
+learning_objectives:
+  - Euler--Maruyama法を導ける
+  - strong convergenceとweak convergenceを区別できる
+  - SDE Monte Carloのsampling errorとbiasを分離できる
+  - Milstein法への補正項を説明できる
+definitions:
+  - { id: F000SDE1-DEF-01, name: Euler--Maruyama法 }
+  - { id: F000SDE1-DEF-02, name: strong convergence }
+  - { id: F000SDE1-DEF-03, name: weak convergence }
+theorems:
+  - { id: F000SDE1-THM-01, name: Euler--Maruyamaの典型的収束次数 }
+canonical_examples: [OU過程, geometric Brownian motion, Milstein法]
+problem_patterns: [SDE-EM-1, SDE-WEAK-STRONG-1]
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1, review: 0.5 }

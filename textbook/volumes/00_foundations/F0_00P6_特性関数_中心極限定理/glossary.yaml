@@ -1,0 +1,14 @@
+chapter: "F0-00P6"
+terms:
+  - term: 特性関数
+    english: characteristic function
+    meaning: 確率変数Xに対するE[exp(itX)]。常に存在し、分布を一意に決めるFourier型の変換。
+  - term: Levy連続性定理
+    english: Levy continuity theorem
+    meaning: 特性関数の各点収束と分布収束を結び付ける定理。
+  - term: 中心極限定理
+    english: central limit theorem
+    meaning: 独立同分布で有限分散を持つ確率変数の標準化和が正規分布へ分布収束する定理。
+  - term: Lindeberg条件
+    english: Lindeberg condition
+    meaning: 三角配列で個々の大きな項が全体の分散を支配しないことを保証する中心極限定理の条件。

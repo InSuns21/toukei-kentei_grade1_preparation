@@ -1,0 +1,14 @@
+chapter: "F0-00WK3"
+terms:
+  - term: Galerkin法
+    english: Galerkin method
+    meaning: 無限次元の弱形式を有限次元部分空間へ制限し、その部分空間内で同じ変分方程式を解く近似法。
+  - term: Galerkin直交性
+    english: Galerkin orthogonality
+    meaning: 真の解uとGalerkin解u_hの誤差が全ての離散試験関数v_hに対してa(u-u_h,v_h)=0を満たす性質。
+  - term: Ceaの補題
+    english: Cea's lemma
+    meaning: coerciveかつ連続な変分問題で、Galerkin誤差が離散空間における最良近似誤差の定数倍以下になることを示す補題。
+  - term: 有限要素空間
+    english: finite element space
+    meaning: メッシュ上の区分多項式などで構成する有限次元Sobolev部分空間。

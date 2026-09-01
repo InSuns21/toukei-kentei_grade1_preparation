@@ -1,0 +1,23 @@
+chapter: "F0-00G"
+terms:
+  - term: 凸結合
+    english: convex combination
+    meaning: 非負係数で係数和が1となる線形結合。
+  - term: 凸集合
+    english: convex set
+    meaning: 集合内の任意の2点を結ぶ線分をすべて含む集合。
+  - term: 凸包
+    english: convex hull
+    meaning: 与えられた集合を含む最小の凸集合。
+  - term: 凸関数
+    english: convex function
+    meaning: 2点間の関数値が弦より下にある関数。
+  - term: 狭義凸関数
+    english: strictly convex function
+    meaning: 異なる2点の間で凸不等式が狭義になる関数。
+  - term: 凸最適化
+    english: convex optimization
+    meaning: 凸目的関数を凸な実行可能集合上で最小化する問題。
+  - term: Slater条件
+    english: Slater condition
+    meaning: 凸不等式制約をすべて厳密に満たし等式制約を満たす点が存在するという代表的な制約想定。

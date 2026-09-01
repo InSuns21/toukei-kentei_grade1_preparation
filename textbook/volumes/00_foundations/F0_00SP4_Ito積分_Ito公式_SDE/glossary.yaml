@@ -1,0 +1,20 @@
+chapter: "F0-00SP4"
+terms:
+  - term: Ito積分
+    english: Ito integral
+    meaning: predictableな被積分過程をBrown運動に対して積分する確率積分。simple processからL2極限で構成する。
+  - term: Ito isometry
+    english: Ito isometry
+    meaning: Ito積分の二乗期待値が被積分過程のL2時間積分に等しいことを示す等長性。
+  - term: Ito公式
+    english: Ito formula
+    meaning: Brown運動の二次変分を反映し、通常のchain ruleに二階微分項が加わる確率微積分の連鎖律。
+  - term: 確率微分方程式
+    english: stochastic differential equation
+    meaning: drift項dtと拡散項dB_tを持つ時間発展方程式。厳密にはIto積分を含む積分方程式として解釈する。
+  - term: strong solution
+    english: strong solution
+    meaning: 与えられた確率空間とBrown運動にadaptedな過程としてSDEを満たす解。
+  - term: Ornstein--Uhlenbeck過程
+    english: Ornstein-Uhlenbeck process
+    meaning: 平均回帰する線形SDE dX_t=-theta X_t dt+sigma dB_tの解。

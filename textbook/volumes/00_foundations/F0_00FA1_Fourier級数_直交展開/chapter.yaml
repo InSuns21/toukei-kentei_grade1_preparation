@@ -1,0 +1,35 @@
+id: "F0-00FA1"
+title: "Encore II：Fourier級数・直交展開"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E2
+  - F0-00D2
+  - F0-02C1
+  - F0-00H1
+official_scope: []
+learning_objectives:
+  - 周期関数を三角関数系で展開するFourier級数を定義できる
+  - 三角関数系の直交性からFourier係数を導ける
+  - 複素指数関数によるFourier級数へ書き換えられる
+  - Bessel不等式とParseval等式をFourier係数へ適用できる
+  - L2収束と各点収束を区別できる
+  - Fourier級数をHilbert空間の正規直交展開として説明できる
+  - 正弦・余弦が微分作用素の固有関数として現れることを説明できる
+definitions:
+  - { id: F000FA1-DEF-01, name: Fourier級数 }
+  - { id: F000FA1-DEF-02, name: Fourier係数 }
+  - { id: F000FA1-DEF-03, name: 複素Fourier係数 }
+theorems:
+  - { id: F000FA1-THM-01, name: 三角関数系の直交性 }
+  - { id: F000FA1-THM-02, name: Fourier級数のBessel不等式 }
+  - { id: F000FA1-THM-03, name: L2におけるParseval等式 }
+canonical_examples:
+  - のこぎり波のFourier級数
+  - 矩形波のFourier級数
+  - 正弦・余弦の直交性
+problem_patterns: [FOURIER-SERIES-COEFF-1, FOURIER-PARSEVAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }

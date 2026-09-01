@@ -1,0 +1,13 @@
+terms:
+  - term: Euler--Maruyama法
+    aliases: [Euler-Maruyama method]
+    definition: SDEのdriftとdiffusionをstep左端で固定してBrown増分で進める基本離散化法。
+  - term: strong convergence
+    aliases: [強収束次数]
+    definition: 同じ確率駆動を共有する真のpathと数値pathの距離で測るSDE数値法の収束。
+  - term: weak convergence
+    aliases: [弱収束次数]
+    definition: 数値解と真の解の関数期待値の差で測るSDE数値法の収束。
+  - term: Milstein法
+    aliases: [Milstein method]
+    definition: Itô--Taylor展開の二次変分補正を加えてstrong精度を高めるSDE数値法。

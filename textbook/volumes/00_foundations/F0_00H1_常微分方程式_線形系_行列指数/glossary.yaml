@@ -1,0 +1,23 @@
+chapter: "F0-00H1"
+terms:
+  - term: 常微分方程式
+    english: ordinary differential equation
+    meaning: 一つの独立変数に関する未知関数とその導関数の関係を与える方程式。
+  - term: 初期値問題
+    english: initial value problem
+    meaning: 微分方程式に加えて、ある時点での関数値や導関数値を指定する問題。
+  - term: 境界値問題
+    english: boundary value problem
+    meaning: 区間や領域の境界で条件を指定する微分方程式問題。偏微分方程式やSturm--Liouville問題で重要になる。
+  - term: 積分因子
+    english: integrating factor
+    meaning: 一階線形常微分方程式を積の微分の形へ変形するために掛ける関数。
+  - term: 特性方程式
+    english: characteristic equation
+    meaning: 定係数線形常微分方程式へ指数関数型の解を代入して得る代数方程式。
+  - term: 行列指数
+    english: matrix exponential
+    meaning: exp(tA)=sum_{k>=0}(tA)^k/k! で定義される行列関数。線形系 x'=Ax の基本解を与える。
+  - term: 安定性
+    english: stability
+    meaning: 時間発展した解が増大するか減衰するかを表す性質。線形系では固有値の実部が重要になる。

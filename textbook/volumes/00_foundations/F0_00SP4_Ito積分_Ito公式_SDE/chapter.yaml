@@ -1,0 +1,35 @@
+id: "F0-00SP4"
+title: "Encore IV：Ito積分・Ito公式・確率微分方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SP3
+  - F0-00SP2
+official_scope: []
+learning_objectives:
+  - simple predictable processに対するIto積分を定義できる
+  - Ito isometryを導ける
+  - L2極限による一般のIto積分の構成を説明できる
+  - Ito積分がmartingaleになる条件を説明できる
+  - Ito公式を二次変分から説明できる
+  - SDEを積分方程式として読める
+  - 幾何Brown運動とOrnstein--Uhlenbeck過程を解ける
+  - Lipschitz条件によるSDE解の存在一意性を位置付けられる
+definitions:
+  - { id: F000SP4-DEF-01, name: Ito積分 }
+  - { id: F000SP4-DEF-02, name: 確率微分方程式 }
+  - { id: F000SP4-DEF-03, name: strong solution }
+theorems:
+  - { id: F000SP4-THM-01, name: Ito isometry }
+  - { id: F000SP4-THM-02, name: Ito公式 }
+  - { id: F000SP4-THM-03, name: Lipschitz SDEの存在一意性 }
+canonical_examples:
+  - 定数被積分過程のIto積分
+  - B_t^2へのIto公式
+  - 幾何Brown運動
+  - Ornstein--Uhlenbeck過程
+problem_patterns: [ITO-ISOMETRY-1, ITO-FORMULA-1, SDE-LINEAR-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 1.5, review: 0.5 }

@@ -1,0 +1,31 @@
+id: "F0-02C6"
+title: "関数解析VI：Hahn--Banach・分離定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A2
+  - F0-02C5
+official_scope: []
+learning_objectives:
+  - Hahn--Banachの支配付き拡張定理を説明できる
+  - 一次元延長からZornの補題で極大延長を得る証明を説明できる
+  - ノルム保存拡張をHahn--Banachの系として説明できる
+  - 非零ベクトルを検出する連続線形汎関数を構成できる
+  - 点と閉凸集合の強分離定理を説明できる
+  - Hilbert空間では射影とRieszにより分離汎関数を具体的に表せることを説明できる
+  - Farkasの補題を有限次元の分離定理の代数的帰結として位置付けられる
+definitions:
+  - { id: F002C6-DEF-01, name: sublinear functional }
+  - { id: F002C6-DEF-02, name: separating functional }
+theorems:
+  - { id: F002C6-THM-01, name: Hahn--Banachの定理 }
+  - { id: F002C6-THM-02, name: Zornの補題による極大延長 }
+  - { id: F002C6-THM-03, name: ノルム保存拡張 }
+  - { id: F002C6-THM-04, name: 双対空間による点分離 }
+  - { id: F002C6-THM-05, name: 点と閉凸集合の強分離 }
+canonical_examples: [一次元部分空間からの汎関数拡張, Zornによる極大延長, 非零点の分離, Hilbert空間での射影によるseparator]
+problem_patterns: [FA-HB-1, FA-SEPARATION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 0, review: 1 }

@@ -1,0 +1,17 @@
+chapter: "F0-00PDE1"
+terms:
+  - term: 偏微分方程式
+    english: partial differential equation
+    meaning: 複数の独立変数を持つ未知関数と、その偏導関数の関係を与える方程式。
+  - term: 熱方程式
+    english: heat equation
+    meaning: u_t=kappa u_xx で表される拡散型偏微分方程式。
+  - term: heat kernel
+    english: heat kernel
+    meaning: 熱方程式の基本解として現れるGaussian核。初期データとの畳み込みで解を与える。
+  - term: 平滑化
+    english: smoothing
+    meaning: 時間が進むと初期データの細かな高周波成分が急速に減衰し、解が滑らかになる性質。
+  - term: 質量保存
+    english: mass conservation
+    meaning: 適切な条件の下で熱方程式の解の空間積分が時間に依存せず一定に保たれる性質。

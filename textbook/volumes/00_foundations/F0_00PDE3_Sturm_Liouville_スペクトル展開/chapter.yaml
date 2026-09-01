@@ -1,0 +1,33 @@
+id: "F0-00PDE3"
+title: "Encore II：Sturm--Liouville問題・自己共役性・スペクトル展開"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00PDE2
+  - F0-00FA3
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - Sturm--Liouville型境界値問題を定義できる
+  - 重み付きL2内積を使って固有関数の直交性を導ける
+  - 境界条件が自己共役性に果たす役割を説明できる
+  - 異なる固有値に属する固有関数の直交性を積分 by parts から示せる
+  - Fourier正弦・余弦級数をSturm--Liouville展開の特殊例として説明できる
+  - PDEの変数分離がSturm--Liouville固有値問題を生む理由を説明できる
+  - 有限次元スペクトル定理と微分作用素のスペクトル展開の対応を説明できる
+definitions:
+  - { id: F000PDE3-DEF-01, name: Sturm--Liouville問題 }
+  - { id: F000PDE3-DEF-02, name: 重み付きL2内積 }
+  - { id: F000PDE3-DEF-03, name: 自己共役境界条件 }
+theorems:
+  - { id: F000PDE3-THM-01, name: 異なる固有値に属する固有関数の直交性 }
+  - { id: F000PDE3-THM-02, name: 正則Sturm--Liouville問題のスペクトル構造 }
+canonical_examples:
+  - Dirichlet境界条件とFourier正弦級数
+  - Neumann境界条件とFourier余弦級数
+  - Legendre型問題への入口
+problem_patterns: [STURM-LIOUVILLE-ORTHOGONALITY-1, EIGENFUNCTION-EXPANSION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 1, review: 0.5 }

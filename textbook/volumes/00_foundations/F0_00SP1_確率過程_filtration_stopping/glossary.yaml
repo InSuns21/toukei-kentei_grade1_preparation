@@ -1,0 +1,20 @@
+chapter: "F0-00SP1"
+terms:
+  - term: 確率過程
+    english: stochastic process
+    meaning: 共通の確率空間上で定義された確率変数の族。添字を時間とみなしてランダムな時間発展を表す。
+  - term: filtration
+    english: filtration
+    meaning: 時間とともに増えるsigma代数の族。時刻tまでに利用可能な情報を表す。
+  - term: adapted process
+    english: adapted process
+    meaning: 各時刻tの値X_tがその時刻までの情報F_tで可測な確率過程。
+  - term: natural filtration
+    english: natural filtration
+    meaning: 過程自身の過去X_s, s<=tが生成する最小のfiltration。
+  - term: stopping time
+    english: stopping time
+    meaning: {tau <= t}がF_tに属し、時刻tまでの情報だけで停止したか判定できるランダム時刻。
+  - term: stopped process
+    english: stopped process
+    meaning: X_{t∧tau}として停止時刻以後の値を固定した過程。

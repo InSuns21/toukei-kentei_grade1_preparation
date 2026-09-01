@@ -1,0 +1,11 @@
+chapter: "F0-00WK2"
+terms:
+  - term: coercivity
+    english: coercivity
+    meaning: 双線形形式aがa(u,u) >= alpha ||u||^2を満たし、対角方向でノルムを下から制御する性質。
+  - term: Lax--Milgram定理
+    english: Lax-Milgram theorem
+    meaning: Hilbert空間上の連続かつcoerciveな双線形形式と連続線形汎関数に対し、弱形式a(u,v)=F(v)の解が一意に存在することを保証する定理。
+  - term: 安定性評価
+    english: stability estimate
+    meaning: 解のノルムを右辺データの双対ノルムで上から評価し、データの小さな変化が解を暴走させないことを示す評価。

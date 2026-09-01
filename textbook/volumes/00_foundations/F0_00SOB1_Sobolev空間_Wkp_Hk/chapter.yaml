@@ -1,0 +1,31 @@
+id: "F0-00SOB1"
+title: "Encore III：Sobolev空間・Wkp・Hk・弱微分による滑らかさ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00DS2
+  - F0-02C1
+official_scope: []
+learning_objectives:
+  - W^{k,p}を弱微分のLp可積分性で定義できる
+  - H^k=W^{k,2}がHilbert空間になる理由を説明できる
+  - Sobolevノルムを定義し、関数と弱微分を同時に測る意味を説明できる
+  - 一次元でH1関数が通常の関数より多くの構造を持つことを説明できる
+  - 古典的Ck空間とSobolev空間の違いを説明できる
+  - 完備性が弱解の極限操作に必要な理由を説明できる
+definitions:
+  - { id: F000SOB1-DEF-01, name: Sobolev空間Wkp }
+  - { id: F000SOB1-DEF-02, name: Sobolevノルム }
+  - { id: F000SOB1-DEF-03, name: Hk空間 }
+theorems:
+  - { id: F000SOB1-THM-01, name: Wkpの完備性 }
+  - { id: F000SOB1-THM-02, name: HkのHilbert空間構造 }
+canonical_examples:
+  - 絶対値関数のW11所属
+  - 区分線形関数のH1所属
+  - jumpを持つ関数がH1に入らない例
+problem_patterns: [SOBOLEV-MEMBERSHIP-1, SOBOLEV-NORM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 1, review: 0.5 }
