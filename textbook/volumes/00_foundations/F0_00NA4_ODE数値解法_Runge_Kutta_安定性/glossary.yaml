@@ -1,0 +1,13 @@
+terms:
+  - term: absolute stability region
+    aliases: [絶対安定領域]
+    definition: test equationに適用した数値法の増幅率が1以下になる複素平面上の領域。
+  - term: stiffness
+    aliases: [硬い方程式, stiff equation]
+    definition: 安定性のためexplicit法に非常に小さいstepを要求する異なる時間尺度を持つ問題の性質。
+  - term: Runge--Kutta法
+    aliases: [Runge-Kutta method]
+    definition: 一step内で複数の傾きを評価して高次精度を得る一段法。
+  - term: method of lines
+    aliases: [線の方法]
+    definition: PDEを空間だけ離散化してODE系へ変換し時間積分する方法。
