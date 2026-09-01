@@ -1,0 +1,32 @@
+chapter: "F0-00A2"
+terms:
+  - term: 選択関数
+    english: choice function
+    meaning: 非空集合族の各集合から一つずつ元を選ぶ写像。
+  - term: 選択公理
+    english: axiom of choice
+    meaning: 非空集合からなる任意の族に選択関数が存在するとする公理。
+  - term: 可算選択公理
+    english: axiom of countable choice
+    meaning: 可算個の非空集合から一つずつ元を選べるとする、完全な選択公理より弱い選択原理。
+  - term: 半順序集合
+    english: partially ordered set
+    meaning: 反射律・反対称律・推移律を満たす順序関係を備えた集合。
+  - term: chain
+    english: chain
+    meaning: 半順序集合の部分集合で、任意の二要素が比較可能なもの。
+  - term: 上界
+    english: upper bound
+    meaning: 部分集合のすべての要素以上に位置する半順序集合の要素。
+  - term: 極大元
+    english: maximal element
+    meaning: 自分より真に大きい要素が存在しない要素。すべての要素以上である最大元とは異なる。
+  - term: Zornの補題
+    english: Zorn's lemma
+    meaning: すべてのchainが上界を持つ半順序集合には極大元が存在するという定理。ZF上で選択公理と同値。
+  - term: 整列可能定理
+    english: well-ordering theorem
+    meaning: 任意の集合は、すべての非空部分集合が最小元を持つ全順序で整列できるという定理。ZF上で選択公理と同値。
+  - term: Hamel基底
+    english: Hamel basis
+    meaning: ベクトル空間の各ベクトルを有限線形結合で一意に表す基底。一般の無限次元空間での存在証明には標準的にZornの補題を使う。
