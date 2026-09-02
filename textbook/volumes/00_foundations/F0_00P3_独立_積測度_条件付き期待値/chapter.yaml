@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P2
+  - F0-00D2C
+  - F0-00D2E
 official_scope: []
 learning_objectives:
   - 独立性をsigma代数と積測度で説明できる
