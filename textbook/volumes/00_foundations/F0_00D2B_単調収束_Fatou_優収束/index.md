@@ -110,7 +110,7 @@ $$
 D2の測度の下からの連続性より、$E_n\uparrow\{\phi>0\}$ 上で
 
 $$
-\mu(A_k\cap E_n)cap E_n)\uparrow\mu(A_k),
+\mu(A_k\cap E_n)\uparrow\mu(A_k),
 $$
 
 したがって
