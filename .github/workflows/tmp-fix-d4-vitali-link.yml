@@ -1,0 +1,33 @@
+name: Temporary D4 Vitali exact-link fix
+
+on:
+  push:
+    branches:
+      - fix/formal-anchors-and-definition-audit
+    paths:
+      - 'scripts/tmp-fix-d4-vitali-link.mjs'
+      - '.github/workflows/tmp-fix-d4-vitali-link.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/formal-anchors-and-definition-audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-fix-d4-vitali-link.mjs
+      - run: npm ci
+      - run: npm run validate:formal-references
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md
+          git commit -m 'link D4 Vitali reference to exact theorem'
+          git push
