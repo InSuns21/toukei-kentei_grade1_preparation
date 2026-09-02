@@ -15,16 +15,18 @@
 ## 1. 標準通読ルート：F0-00からRKHSまで
 
 ```text
-F0-00 → A → A2 → B → C → C1 → C2 → D → D1
+F0-00 → A → A2 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1
   ↓
 D2 → D2A → D2B → D2C → D2D → D2E
   ↓
 E → E2 → F → G → F0-02 → 02A → 02B
   ↓
-C1 → C2 → C3 → C4 → C5 → C6 → C7
+F0-02C1 → C2 → C3 → C4 → C5 → C6 → C7
 ```
 
-C〜C2は連続性・コンパクト性・存在定理、D〜D1は完備性・ノルム空間・有限/無限次元を一講義ずつ閉じます。A2はHahn--BanachのZorn証明、D2〜D2Eは測度・Lebesgue積分・収束定理・積測度・$L^p$・$L^2$完備性を一講義ずつ閉じる橋です。
+F0-00C〜C2は連続性・コンパクト性・存在定理、D〜D1は完備性・ノルム空間・有限/無限次元を一講義ずつ閉じます。A2はHahn--BanachのZorn証明、D2〜D2Eは測度・Lebesgue積分・収束定理・積測度・$L^p$・$L^2$完備性を一講義ずつ閉じる橋です。
+
+**標準の読み順と機械可読な必須前提は同一ではありません。** たとえば標準通読ではD1まで読んでからD2へ進みますが、D2の測度論自体はD1のノルム論を必要としないため、`chapter.yaml` では不要な前提を強制しません。
 
 ---
 
@@ -239,23 +241,13 @@ Brown運動 → white noise → Schwartz超関数
 ```text
                          ┌→ DREAM THEATER D3-D5
                          │
-F0-00 → foundations → D2 ├→ Probability P1-P7
-                         │
-                         └→ Functional analysis / RKHS
-                                      │
-                                      └→ Encore II Fourier / PDE
-                                                    │
-                                                    └→ Encore III weak PDE / FEM
-
-Probability + Fourier ─→ Encore IV stochastic process / spectral TS
-          │                            │
-          └──────────────┬─────────────┘
-                         ↓
-               Encore V numerical analysis
-                 ├→ FEM
-                 ├→ Monte Carlo
-                 ├→ SDE simulation
-                 └→ UQ / MLMC
+F0-00 → A → A2 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1
+                                                       │
+                                                       └──── standard reading ────┐
+                                                                               ↓
+D2 → D2A → D2B → D2C → D2D → D2E → E → E2 → F → G
+ │
+ └→ Probability P1 → ... → P7
 ```
 
-もはや一本の道ではなく、**前提関係を壊さず乗り換えられる地下鉄網**として管理します。
+D3〜D5はD2の直後から入りD2Aへ戻る深掘り分岐です。D1→D2は標準通読上の並びであり、D2の機械可読前提としてD1を強制するものではありません。
