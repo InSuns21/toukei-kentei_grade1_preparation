@@ -43,5 +43,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate textbook
-        run: npm run validate
+      - name: Validate textbook structure
+        run: npm run validate:structure
+
+      - name: Validate textbook math
+        run: npm run validate:math
+
+      - name: Validate exercise style
+        run: npm run validate:exercise-style
+
+      - name: Validate textbook text
+        run: npm run validate:text
+
+      - name: Validate prose outside math
+        run: npm run validate:prose-math
