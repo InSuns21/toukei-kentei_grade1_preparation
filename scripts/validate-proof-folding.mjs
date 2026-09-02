@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve('textbook/volumes');
 const PAGES_INDEX = path.resolve('pages/index.html');
+const MATH_RENDERER = path.resolve('pages/math-renderer.js');
 
 function walk(dir) {
   const out = [];
@@ -112,16 +113,28 @@ if (!fs.existsSync(PAGES_INDEX)) {
   errors.push('pages/index.html: missing Pages runtime; proof folding cannot be verified');
 } else {
   const html = fs.readFileSync(PAGES_INDEX, 'utf8');
+  if (!html.includes('window.ToukeiMathRenderer.docsifyPlugin')) {
+    errors.push('pages/index.html: ToukeiMathRenderer.docsifyPlugin is not registered in Docsify');
+  }
+  if (!html.includes('.solution-details')) {
+    errors.push('pages/index.html: shared details styling (.solution-details) is missing');
+  }
+}
+
+if (!fs.existsSync(MATH_RENDERER)) {
+  errors.push('pages/math-renderer.js: missing proof folding runtime');
+} else {
+  const js = fs.readFileSync(MATH_RENDERER, 'utf8');
   const required = [
-    ['proofDetailsPlugin', 'proof folding Docsify plugin'],
+    ['foldProofBlocks', 'proof folding transform'],
     ['<!-- proof-start -->', 'proof-start replacement marker'],
     ['<!-- proof-end -->', 'proof-end replacement marker'],
-    ['class="proof-details"', 'proof details class'],
+    ['proof-details', 'proof details class'],
     ['証明を表示', 'proof summary label'],
-    ['.proof-details', 'proof details CSS']
+    ['hook.afterEach', 'post-Markdown proof folding hook']
   ];
   for (const [needle, label] of required) {
-    if (!html.includes(needle)) errors.push(`pages/index.html: missing ${label} (${needle})`);
+    if (!js.includes(needle)) errors.push(`pages/math-renderer.js: missing ${label} (${needle})`);
   }
 }
 
