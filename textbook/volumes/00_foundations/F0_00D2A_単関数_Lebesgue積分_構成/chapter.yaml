@@ -1,0 +1,34 @@
+id: "F0-00D2A"
+title: "補講：単関数からLebesgue積分を構成する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2
+official_scope: []
+learning_objectives:
+  - 非負単関数とその積分を定義できる
+  - 単関数の積分が表現に依存しないことを証明できる
+  - 非負可測関数を単関数で下から近似できる
+  - 非負可測関数のLebesgue積分をsupremumで定義できる
+  - 正部分・負部分から一般の可積分関数の積分を定義できる
+  - a.e.で等しい可積分関数の積分が一致することを証明できる
+definitions:
+  - { id: F000D2A-DEF-01, name: 非負単関数 }
+  - { id: F000D2A-DEF-02, name: 非負単関数の積分 }
+  - { id: F000D2A-DEF-03, name: 非負可測関数のLebesgue積分 }
+  - { id: F000D2A-DEF-04, name: 正部分・負部分 }
+  - { id: F000D2A-DEF-05, name: Lebesgue可積分関数 }
+theorems:
+  - { id: F000D2A-THM-01, name: 単関数積分の表現不変性 }
+  - { id: F000D2A-THM-02, name: 単関数近似定理 }
+  - { id: F000D2A-THM-03, name: Lebesgue積分の単調性 }
+  - { id: F000D2A-THM-04, name: a.e.変更による積分不変性 }
+canonical_examples:
+  - 三段の単関数
+  - Dirichlet関数のLebesgue積分
+  - 二進刻みによる単関数近似
+problem_patterns: [SIMPLE-INTEGRAL-1, LEBESGUE-CONSTRUCTION-1, AE-INTEGRAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 1.5, review: 0.5 }
