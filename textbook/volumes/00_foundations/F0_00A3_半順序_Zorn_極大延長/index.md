@@ -6,13 +6,16 @@ F0-00A2で選択公理を導入しました。この講義では、その同値�
 
 ## 1. 半順序集合
 
-集合 $P$ 上の関係 $\preceq$ が
+<a id="def-partial-order"></a>
 
-1. 反射律：$x\preceq x$
-2. 反対称律：$x\preceq y$ かつ $y\preceq x$ なら $x=y$
-3. 推移律：$x\preceq y$ かつ $y\preceq z$ なら $x\preceq z$
-
-を満たすとき、$(P,\preceq)$ を **半順序集合** といいます。
+<!-- formal-statement-start -->
+> **定義（半順序集合）**  
+> 集合 $P$ 上の関係 $\preceq$ が、任意の $x,y,z\in P$ に対して次を満たすとする。
+> 1. 反射律：$x\preceq x$。
+> 2. 反対称律：$x\preceq y$ かつ $y\preceq x$ なら $x=y$。
+> 3. 推移律：$x\preceq y$ かつ $y\preceq z$ なら $x\preceq z$。
+> このとき $(P,\preceq)$ を **半順序集合** という。
+<!-- formal-statement-end -->
 
 典型例は集合の包含関係です。
 
@@ -26,22 +29,17 @@ $$
 
 ## 2. 最大元と極大元を区別する
 
-$x\in P$ が **最大元** であるとは
+<a id="def-maximum-maximal"></a>
 
+<!-- formal-statement-start -->
+> **定義（最大元・極大元）**  
+> 半順序集合 $(P,\preceq)$ と $x\in P$ を考える。$x$ が **最大元** であるとは
 $$
 y\preceq x
 \qquad(\forall y\in P)
 $$
-
-です。
-
-一方 $x$ が **極大元** であるとは、
-
-$$
-x\preceq y
-$$
-
-を満たす $y\in P$ があれば必ず $y=x$ となることです。
+> が成り立つことをいう。一方、$x$ が **極大元** であるとは、$y\in P$ が $x\preceq y$ を満たすなら必ず $y=x$ となることをいう。
+<!-- formal-statement-end -->
 
 つまり極大元は
 
@@ -63,15 +61,18 @@ $$
 
 ## 3. chain
 
-半順序集合 $P$ の部分集合 $C\subset P$ が **chain** であるとは、任意の $x,y\in C$ が比較可能、つまり
+<a id="def-chain"></a>
 
+<!-- formal-statement-start -->
+> **定義（chain）**  
+> 半順序集合 $(P,\preceq)$ の部分集合 $C\subset P$ が **chain（鎖）** であるとは、任意の $x,y\in C$ が比較可能、すなわち
 $$
 x\preceq y
 \quad\text{または}\quad
 y\preceq x
 $$
-
-となることです。
+> が成り立つことをいう。
+<!-- formal-statement-end -->
 
 包含関係なら
 
@@ -85,14 +86,17 @@ $$
 
 ## 4. 上界
 
-$C\subset P$ に対し $u\in P$ が上界であるとは
+<a id="def-upper-bound-poset"></a>
 
+<!-- formal-statement-start -->
+> **定義（半順序集合における上界）**  
+> 半順序集合 $(P,\preceq)$、部分集合 $C\subset P$、点 $u\in P$ に対して
 $$
 x\preceq u
 \qquad(\forall x\in C)
 $$
-
-です。
+> が成り立つとき、$u$ を $C$ の **上界** という。
+<!-- formal-statement-end -->
 
 ここで $u$ 自身が $C$ に属する必要はありません。
 
@@ -112,9 +116,10 @@ Hahn--Banachの証明でも、chainになった延長たちを合併して上界
 
 ## 5. Zornの補題
 
-Zornの補題は次の定理です。
-
-> 半順序集合 $P$ のすべてのchainが $P$ 内に上界を持つなら、$P$ は少なくとも一つ極大元を持つ。
+<!-- formal-statement-start -->
+> **補題（Zornの補題）**  
+> 半順序集合 $(P,\preceq)$ のすべてのchainが $P$ 内に上界を持つなら、$P$ は少なくとも一つ極大元を持つ。
+<!-- formal-statement-end -->
 
 記号的には
 
