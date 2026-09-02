@@ -1,0 +1,34 @@
+name: Sync F0 D2 series
+
+on:
+  push:
+    branches:
+      - feat/f0-batch2-lebesgue-integration-foundations
+    paths:
+      - 'scripts/sync-f0-d2-series.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch2-lebesgue-integration-foundations
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-f0-d2-series.mjs
+      - name: Commit synced docs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/dream-theater.md
+          git add textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md
+          git add textbook/f0-dream-theater-proof-audit.md
+          git add textbook/f0-dream-theater-content-exercise-audit.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs: sync D2 series across facade roadmaps and audits'
+          git push
