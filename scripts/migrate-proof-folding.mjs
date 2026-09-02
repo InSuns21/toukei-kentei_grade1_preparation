@@ -32,6 +32,16 @@ function headingLevel(line) {
   return m ? m[1].length : null;
 }
 
+function proofLabel(line) {
+  const plain = line.replace(/^\s*>\s?/, '').trim();
+  return /^\*\*(?:完全)?証明\*\*$/u.test(plain)
+    || /^\*\*proof\*\*$/iu.test(plain)
+    || /^\*\*(?:完全)?証明[:：]\*\*$/u.test(plain)
+    || /^\*\*proof[:：]\*\*$/iu.test(plain)
+    || /^(?:完全)?証明[:：]$/u.test(plain)
+    || /^proof[:：]$/iu.test(plain);
+}
+
 let changedFiles = 0;
 let insertedBlocks = 0;
 const unresolvedLabels = [];
@@ -103,14 +113,8 @@ for (const file of walk(ROOT)) {
       continue;
     }
 
-    if (solutionDepth === 0 && proofDepth === 0) {
-      const plain = line.replace(/^\s*>\s?/, '').trim();
-      if (/^\*\*(?:完全)?証明(?:[:：].*)?\*\*$/u.test(plain)
-        || /^\*\*proof(?:[:：].*)?\*\*$/iu.test(plain)
-        || /^(?:完全)?証明[:：]$/u.test(plain)
-        || /^proof[:：]$/iu.test(plain)) {
-        unresolvedLabels.push(`${path.relative(process.cwd(), file).replaceAll(path.sep, '/')}:${i + 1}: ${line.trim()}`);
-      }
+    if (solutionDepth === 0 && proofDepth === 0 && proofLabel(line)) {
+      unresolvedLabels.push(`${path.relative(process.cwd(), file).replaceAll(path.sep, '/')}:${i + 1}: ${line.trim()}`);
     }
 
     out.push(line);
