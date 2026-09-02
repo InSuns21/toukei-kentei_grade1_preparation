@@ -1,0 +1,43 @@
+name: Apply F0 Batch 0 reader blockers
+
+on:
+  push:
+    branches:
+      - fix/f0-batch0-reader-blockers
+    paths:
+      - 'scripts/apply-f0-batch0.mjs'
+      - '.github/workflows/apply-f0-batch0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+        with:
+          ref: fix/f0-batch0-reader-blockers
+          fetch-depth: 0
+
+      - name: Apply Batch 0 fixes
+        run: node scripts/apply-f0-batch0.mjs
+
+      - name: Commit fixes
+        run: |
+          if git diff --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md \
+            textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md \
+            textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md \
+            textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md \
+            textbook/f0-dream-theater-proof-audit.md
+          git commit -m 'fix: remove F0 Batch 0 reader blockers'
+          git push origin HEAD:fix/f0-batch0-reader-blockers
