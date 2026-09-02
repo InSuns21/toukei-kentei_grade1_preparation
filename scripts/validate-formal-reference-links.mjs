@@ -18,11 +18,49 @@ const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
 const anchorRe = /<a\s+id=["']((?:thm|ref)-[a-z0-9][a-z0-9-]*)["']\s*><\/a>/giu;
 const formalWord = /(定理|命題|補題|不等式|法則|公式|Farkas|KKT|Riesz|Hahn--Banach|Lax--Milgram|Borel--Cantelli|中心極限定理|theorem|lemma|proposition|corollary)/iu;
 const dependencyCue = /(証明|導出|出所|由来|遡|参照|詳しく|使(?:う|って|い)|用い|から従|から|より|により|示した|示しました|証明した|導いた)/u;
+const applicationCue = /(から|より|により|を使|を用)/u;
 const formalSource = '(?:定理|命題|補題|不等式|法則|公式|Farkas(?:の補題)?|KKT(?:条件)?|Borel--Cantelli(?:第[12]補題)?|中心極限定理|Riesz(?:表現定理)?|Hahn--Banach(?:定理)?|Lax--Milgram(?:定理)?)';
 const chapterSource = '(?:F0-[0-9A-Z]+(?:-[0-9A-Z]+)?|P\\d+[A-Z]?|D\\d+[A-Z]?|C\\d+[A-Z]?|E\\d+[A-Z]?|F\\d+[A-Z]?|G\\d+[A-Z]?)';
-const priorDependencyRe = new RegExp(`(?:前章|前節|前講義)の.{0,45}${formalSource}.{0,24}(?:から|より|により|を使|を用)`, 'u');
-const chapterDependencyRe = new RegExp(`${chapterSource}(?:の|で).{0,45}${formalSource}.{0,24}(?:から|より|により|を使|を用|を証明|で証明|を導出|で導出)`, 'u');
-const proofLocationRe = new RegExp(`(?:証明|導出|出所|由来).{0,55}${chapterSource}(?:(?:の|で).{0,35}${formalSource})?`, 'u');
+const priorDependencyRe = new RegExp(`(?:前章|前節|前講義)の.{0,28}${formalSource}.{0,20}(?:から|より|により|を使|を用)`, 'u');
+const chapterDependencyRe = new RegExp(`${chapterSource}(?:の|で).{0,18}${formalSource}.{0,20}(?:から|より|により|を使|を用|を証明|で証明|を導出|で導出)`, 'u');
+const proofLocationRe = new RegExp(`(?:証明|導出|出所|由来).{0,45}${chapterSource}(?:(?:の|で).{0,24}${formalSource})?`, 'u');
+
+// High-confidence named results with one canonical treatment. These catch prose
+// such as "Tonelliの定理により" even when the author forgot both chapter code
+// and Markdown link. Broad names such as "中心極限定理" are intentionally not
+// registered because the textbook has multiple legitimate treatments.
+const canonicalResults = [
+  {
+    name: 'Tonelliの定理',
+    pattern: /(?:Tonelli|トネリ)の定理/u,
+    target: 'textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md',
+    fragment: 'thm-tonelli',
+  },
+  {
+    name: 'Borel--Cantelli第1補題',
+    pattern: /Borel[-–—]{1,2}Cantelli第1補題/u,
+    target: 'textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md',
+    fragment: 'thm-borel-cantelli-1',
+  },
+  {
+    name: 'Zornの補題',
+    pattern: /Zornの補題/u,
+    target: 'textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md',
+    fragment: 'thm-zorn',
+  },
+  {
+    name: '基底延長定理',
+    pattern: /基底延長定理/u,
+    target: 'textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md',
+    fragment: 'thm-basis-extension',
+  },
+  {
+    name: 'Kolmogorov最大不等式',
+    pattern: /(?:Kolmogorov|コルモゴロフ)最大不等式/u,
+    target: 'textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md',
+    fragment: 'thm-kolmogorov-maximal',
+  },
+];
 
 function splitHref(href) {
   const [beforeHash, rawFragment = ''] = href.split('#', 2);
@@ -65,12 +103,17 @@ function stripLinksAndCode(line) {
     .replace(/<[^>]+>/g, '');
 }
 
+function stableLinksOnLine(line) {
+  return [...line.matchAll(linkRe)].filter((m) => /#(?:thm|ref)-[a-z0-9][a-z0-9-]*/.test(m[2]));
+}
+
 const files = walk(ROOT);
 const contents = new Map(files.map((file) => [file, fs.readFileSync(file, 'utf8')]));
 const anchors = new Map([...contents].map(([file, text]) => [file, explicitAnchors(text)]));
 const errors = [];
 let checkedPreciseLinks = 0;
 let checkedAnchors = 0;
+let checkedCanonicalUses = 0;
 
 for (const [file, markdown] of contents) {
   const rel = path.relative(REPO, file).replaceAll(path.sep, '/');
@@ -126,19 +169,33 @@ for (const [file, markdown] of contents) {
       }
     }
 
-    const stripped = stripLinksAndCode(line);
-    if (!formalWord.test(stripped) || !dependencyCue.test(stripped)) continue;
+    const unlinked = stripLinksAndCode(line);
 
-    if (priorDependencyRe.test(stripped)) {
-      errors.push(`${rel}:${i + 1}: prior formal result is referenced in prose but is not linked to a stable anchor: ${stripped.trim()}`);
+    // Named canonical results must be clickable when they are actually invoked.
+    for (const result of canonicalResults) {
+      if (rel === result.target) continue;
+      if (!result.pattern.test(unlinked) || !applicationCue.test(unlinked)) continue;
+      checkedCanonicalUses += 1;
+      errors.push(
+        `${rel}:${i + 1}: ${result.name} is invoked in prose but is not linked; use ${result.target}#${result.fragment}`,
+      );
+    }
+
+    // Once the line already contains a stable formal reference, do not re-flag
+    // the same sentence merely because stripping Markdown exposes "P5A" etc.
+    if (stableLinksOnLine(line).length > 0) continue;
+    if (!formalWord.test(unlinked) || !dependencyCue.test(unlinked)) continue;
+
+    if (priorDependencyRe.test(unlinked)) {
+      errors.push(`${rel}:${i + 1}: prior formal result is referenced in prose but is not linked to a stable anchor: ${unlinked.trim()}`);
       continue;
     }
-    if (chapterDependencyRe.test(stripped)) {
-      errors.push(`${rel}:${i + 1}: chapter-qualified formal result is referenced without a link: ${stripped.trim()}`);
+    if (chapterDependencyRe.test(unlinked)) {
+      errors.push(`${rel}:${i + 1}: chapter-qualified formal result is referenced without a link: ${unlinked.trim()}`);
       continue;
     }
-    if (proofLocationRe.test(stripped)) {
-      errors.push(`${rel}:${i + 1}: proof/derivation location names another chapter but is not linked: ${stripped.trim()}`);
+    if (proofLocationRe.test(unlinked)) {
+      errors.push(`${rel}:${i + 1}: proof/derivation location names another chapter but is not linked: ${unlinked.trim()}`);
     }
   }
 }
@@ -149,4 +206,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable anchor(s), ${files.length} user-facing textbook page(s).`);
+console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable anchor(s), ${checkedCanonicalUses} bare canonical use(s), ${files.length} user-facing textbook page(s).`);
