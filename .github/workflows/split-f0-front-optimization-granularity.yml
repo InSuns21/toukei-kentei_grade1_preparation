@@ -18,6 +18,18 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: feat/f0-batch2-lebesgue-integration-foundations
+      - name: Allow exercise append on pages without chapter-check heading
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/split-f0-front-optimization-granularity.py')
+          s = p.read_text()
+          old = """    if marker not in s:\n        raise SystemExit(f'missing chapter check: {path}')\n    s = s.replace(marker, '\\n---\\n\\n' + exercise.strip() + marker, 1)\n    write(path, s)\n"""
+          new = """    if marker not in s:\n        s = s.rstrip() + '\\n\\n---\\n\\n' + exercise.strip() + '\\n'\n    else:\n        s = s.replace(marker, '\\n---\\n\\n' + exercise.strip() + marker, 1)\n    write(path, s)\n"""
+          if old not in s:
+              raise SystemExit('exercise helper patch target missing')
+          p.write_text(s.replace(old, new))
+          PY
       - name: Split front optimization lectures and synchronize routes
         run: python3 scripts/split-f0-front-optimization-granularity.py
       - name: Commit split
