@@ -291,6 +291,8 @@ $$
 
 ---
 
+<a id="ref-farkas-from-separation"></a>
+
 ## 6. 分離超平面定理を射影から導く
 
 $C\subset\mathbb R^p$ を空でない閉凸集合、$z\notin C$ とします。
@@ -544,6 +546,8 @@ $$
 
 ---
 
+<a id="thm-farkas"></a>
+
 ## 9. Farkasの補題
 
 $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ とします。
@@ -728,6 +732,8 @@ $$
 
 ---
 
+<a id="ref-polar-cone-formula"></a>
+
 ## 13. polar coneの公式
 
 $$
@@ -806,7 +812,7 @@ $$
 \in L_C(x^*)^\circ.
 $$
 
-前節の公式から
+[前節のpolar coneの公式](#ref-polar-cone-formula)から
 
 $$
 -\nabla f(x^*)

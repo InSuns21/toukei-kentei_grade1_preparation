@@ -12,6 +12,8 @@ $$\boxed{\frac1n\sum_{k=1}^nX_k\to E[X_1]\quad\text{a.s.}}$$
 
 ---
 
+<a id="ref-general-slln-proof"></a>
+
 ## 1. まず大きすぎる観測を切る
 
 $$X_n'=X_n\mathbf1_{\{|X_n|\le n\}}$$
@@ -51,6 +53,8 @@ $$\boxed{\sum_n\frac{\operatorname{Var}(Y_n)}{n^2}<\infty}.$$
 
 ---
 
+<a id="thm-kolmogorov-convergence"></a>
+
 ## 3. Kolmogorov収束定理
 
 独立・中心化された $Z_n$ が
@@ -63,7 +67,7 @@ $$\boxed{\sum_nZ_n\text{ はa.s.収束する}}$$
 
 というのがここで使うKolmogorov収束定理です。
 
-証明の核はP5の最大不等式です。tail部分和に対して
+証明の核は[P5のKolmogorov最大不等式](../F0_00P5_大数の強法則/index.md#thm-kolmogorov-maximal)です。tail部分和に対して
 
 $$
 P\left(\max_{m\le k\le n}\left|\sum_{j=m}^kZ_j\right|>\varepsilon\right)
@@ -100,6 +104,8 @@ $$\boxed{\sum_n\frac{Y_n}{n}\text{ converges a.s.}}$$
 です。
 
 ---
+
+<a id="thm-kronecker"></a>
 
 ## 4. Kronecker補題
 

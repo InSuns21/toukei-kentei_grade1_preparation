@@ -108,6 +108,8 @@ Hahn--Banachの証明でも、chainになった延長たちを合併して上界
 
 ---
 
+<a id="thm-zorn"></a>
+
 ## 5. Zornの補題
 
 Zornの補題は次の定理です。

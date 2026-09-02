@@ -60,6 +60,8 @@ $$
 
 ---
 
+<a id="ref-limit-integral-exchange"></a>
+
 ## 1. 単調収束定理
 
 ### 定理（単調収束定理）

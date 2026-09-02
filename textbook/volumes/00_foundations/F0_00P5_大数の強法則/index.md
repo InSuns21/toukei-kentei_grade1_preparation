@@ -93,6 +93,8 @@ $$
 
 ---
 
+<a id="thm-kolmogorov-maximal"></a>
+
 ## 3. Kolmogorov最大不等式
 
 $Y_1,\dots,Y_n$ を独立、平均0、有限分散とし
@@ -246,7 +248,7 @@ $$
 
 ## 6. Borel--Cantelliを使う
 
-前章のBorel--Cantelli第1補題から
+[前章のBorel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-borel-cantelli-1)から
 
 $$
 \max_{k\le2^m}|S_k|
@@ -400,4 +402,4 @@ Kolmogorov最大不等式を用いて、$2^k<n\le2^{k+1}$ の区間内変動を 
 
 ## 次に進む
 
-有限分散を外し、独立同分布かつ $E|X|<\infty$ だけで強大数則を証明するなら [F0-00P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md) へ進みます。中心極限定理へ先に進むだけならP5Aは必須ではありません。
+有限分散を外し、独立同分布かつ $E|X|<\infty$ だけで強大数則を証明するなら [F0-00P5Aの一般独立同分布強大数則の証明](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) へ進みます。中心極限定理へ先に進むだけならP5Aは必須ではありません。
