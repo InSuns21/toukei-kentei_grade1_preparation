@@ -148,7 +148,10 @@ for (const file of walk(ROOT)) {
   const exercises = hs.filter((h) => /(演習|問題|ドリル)/u.test(h.title)).length;
   const proofBlocks = lines.filter((line) => line.trim() === '<!-- proof-start -->').length;
   const proofRoadmaps = outsideHs.filter((h) => /証明.*(?:見取り図|骨格|流れ|アイデア|考え方|概略|スケッチ)/u.test(h.title)).length;
-  const proofDetailHeadings = outsideHs.filter((h) => /(?:完全証明|証明の核心|証明詳細|証明を完成|Zornの補題で極大|極大延長)/u.test(h.title)).length;
+  const proofDetailHeadings = outsideHs.filter((h) => {
+    if (/証明.*(?:見取り図|骨格|流れ|アイデア|考え方|概略|スケッチ)/u.test(h.title)) return false;
+    return /証明(?:[:：]|$)|完全証明|証明の核心|証明詳細|証明を完成|Zornの補題で極大|極大延長/u.test(h.title);
+  }).length;
   const unfoldedProofEnds = outside.filter((line) => /(?:これで|以上で|よって).{0,30}(?:証明されました|証明が完成|証明できました|証明した|示されました)|\\square|□/u.test(line)).length;
   const reasoningHits = outside.filter((line) => /(したがって|従って|よって|背理法|仮定し|任意の.+に対して|示します|示せます|示すため|極大性に反|上界です|矛盾します)/u.test(line)).length;
   const nonblank = lines.filter((line) => line.trim()).length || 1;
@@ -174,7 +177,6 @@ for (const file of walk(ROOT)) {
     proofRatio
   };
 
-  // Broad pass: include theorem-heavy, derivation-heavy, or proof-like pages even if no explicit proof marker exists.
   if (formalStatements === 0 && proofDetailHeadings === 0 && unfoldedProofEnds === 0 && reasoningHits < 8) continue;
   Object.assign(row, classify(row));
   rows.push(row);
@@ -197,6 +199,7 @@ report.push('## 監査基準');
 report.push('');
 report.push('- 数えるもの：定理・命題・補題・系、証明語、数式密度、例・反例、直感/意味/見取り図、演習。');
 report.push('- `証明の見取り図 / 骨格 / アイデア / 概略` は本文に残すべきなので、それ自体は折りたたみ違反とみなさない。');
+report.push('- `3. 証明：...` のような節番号付き見出しも完全証明候補として数える。');
 report.push('- 一方、`これで…証明されました` などが proof block 外にある場合は、実質的な完全証明が通常本文へ露出している強い候補とみなす。');
 report.push('- P0/P1/P2 は機械スクリーニング。本文を人手で読んで FIX-FOLD / FIX-NARRATIVE / FIX-EXAMPLE / OK を確定する。');
 report.push('');
