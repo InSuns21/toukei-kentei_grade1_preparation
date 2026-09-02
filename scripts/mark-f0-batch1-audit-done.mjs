@@ -28,3 +28,5 @@ text = text.replace(
 );
 
 fs.writeFileSync(path, text);
+
+// trigger
