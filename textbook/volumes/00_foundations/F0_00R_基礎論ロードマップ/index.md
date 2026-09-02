@@ -15,14 +15,16 @@
 ## 1. 標準通読ルート：F0-00からRKHSまで
 
 ```text
-F0-00 → A → A2 → B → C → D → D2
+F0-00 → A → A2 → B → C → D
+  ↓
+D2 → D2A → D2B → D2C → D2D → D2E
   ↓
 E → E2 → F → G → F0-02 → 02A → 02B
   ↓
 C1 → C2 → C3 → C4 → C5 → C6 → C7
 ```
 
-A2はHahn--BanachのZorn証明、D2は $L^2$・a.e.・可測関数を関数解析で突然出さないための橋です。
+A2はHahn--BanachのZorn証明、D2〜D2Eは測度・Lebesgue積分・収束定理・積測度・$L^p$・$L^2$完備性を一講義ずつ閉じる橋です。
 
 ---
 
@@ -34,7 +36,7 @@ Lebesgue測度そのものの建設まで追う場合だけD2の直後に挿入�
 D2 → D3 外測度・Caratheodory可測性
    → D4 Lebesgue測度・Borel集合・拡張定理
    → D5 Vitali集合・非可測集合・選択公理
-   → Eへ復帰
+   → D2Aへ復帰 → D2B → D2C → D2D → D2E
 ```
 
 この分岐は標準RKHSルートの必須にはしません。
@@ -45,12 +47,11 @@ D2 → D3 外測度・Caratheodory可測性
 
 ```text
 D2 → P1 確率空間・確率変数・分布
-   → P2 Radon--Nikodym・密度・期待値
-   → P3 独立・積測度・条件付き期待値
-   → P4 収束・Borel--Cantelli・一様可積分性
-   → P5 強大数則
-   → P6 特性関数・CLT
-   → P7 統計モデル・尤度・正則性
+D2A ─→ P2 Radon--Nikodym・密度・期待値
+D2C / D2E ─→ P3 独立・積測度・条件付き期待値
+D2B ─────────→ P4 収束・Borel--Cantelli・一様可積分性
+                 ↓
+                P5 強大数則 → P6 特性関数・CLT → P7 統計モデル・尤度・正則性
 ```
 
 確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、期待値をLebesgue積分として読み直します。
