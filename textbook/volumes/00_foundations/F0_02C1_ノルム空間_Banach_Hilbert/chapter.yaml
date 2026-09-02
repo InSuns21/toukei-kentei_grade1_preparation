@@ -3,11 +3,11 @@ title: "関数解析I：ノルム空間・Banach空間・Hilbert空間"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00D
+  - F0-00D1
   - F0-00D2E
-  - F0-00E
-  - F0-00F
-  - F0-02B
+  - F0-00E1
+  - F0-00E2
+  - F0-00G
 official_scope: []
 learning_objectives:
   - 関数空間をベクトル空間として扱う意味を説明できる
