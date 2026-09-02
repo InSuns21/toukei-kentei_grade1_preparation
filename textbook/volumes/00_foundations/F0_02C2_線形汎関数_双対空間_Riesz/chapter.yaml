@@ -25,4 +25,4 @@ problem_patterns: [FA-DUAL-1, FA-RIESZ-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0, review: 1 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 1 }
