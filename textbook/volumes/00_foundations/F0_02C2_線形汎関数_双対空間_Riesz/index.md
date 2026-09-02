@@ -395,7 +395,7 @@ $$
 
 となるように取れます。
 
-F0-02C1の射影定理から
+F0-02C1Aの射影定理から
 
 $$
 y=P_My+u,
@@ -577,6 +577,58 @@ $$
 
 へどう変わるかを追います。
 
+---
+
+## 演習
+
+### F0-02C2-A01 積分汎関数の双対ノルム
+
+- Level: A
+- 目安時間: 10分
+
+$X=C([0,1])$ にsupノルムを入れ、
+
+$$
+\ell(f)=\int_0^1 f(t)\,dt
+$$
+
+とする。$\|\ell\|_{X^*}$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$|\ell(f)|\le\int_0^1|f|\le\|f\|_\infty$ より $\|\ell\|\le1$。定数関数 $f\equiv1$ は $\|f\|_\infty=1$ で $\ell(f)=1$ なので等号達成。従って $\|\ell\|=1$。
+#### 本番答案
+$|\ell(f)|\le\|f\|_\infty$ から上界1、$f\equiv1$ で達成するので $\|\ell\|=1$。
+#### 採点基準（20点）
+- 上界: 8点
+- 達成例: 7点
+- 結論: 5点
+<!-- solution-end -->
+
+### F0-02C2-B01 Riesz表現でkernelへの射影を使う
+
+- Level: B
+- 目安時間: 15分
+
+$0\ne\ell\in H^*$ とし $M=\ker\ell$ とする。$y\notin M$ を取り、$u=y-P_My$ と置く。任意の $x\in H$ に対し
+
+$$
+\ell(x)=\left\langle \frac{\ell(u)}{\|u\|^2}u,x\right\rangle
+$$
+
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$u\in M^\perp$ かつ $\ell(u)=\ell(y)\ne0$。$\alpha=\ell(x)/\ell(u)$ と置けば $x-\alpha u\in M$。従って $0=\langle u,x-\alpha u\rangle=\langle u,x\rangle-\alpha\|u\|^2$。これを整理して所望の式を得る。
+#### 本番答案
+$\alpha=\ell(x)/\ell(u)$ とすると $x-\alpha u\in M$。$u\perp M$ より $\langle u,x\rangle=\alpha\|u\|^2$。従って表示式が得られる。
+#### 採点基準（20点）
+- $u\in M^\perp$: 4点
+- $x-\alpha u\in M$: 6点
+- 直交性の利用: 6点
+- 表示式: 4点
+<!-- solution-end -->
 ---
 
 ## 章末チェック

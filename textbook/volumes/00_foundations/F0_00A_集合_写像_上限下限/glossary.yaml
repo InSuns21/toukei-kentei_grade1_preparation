@@ -9,9 +9,3 @@ terms:
   - term: 全射
     english: surjective map
     meaning: 終域の各点が少なくとも一つの定義域の点の像になっている写像。
-  - term: supremum
-    english: supremum
-    meaning: 上界全体の中で最小のもの。集合の要素とは限らない。
-  - term: infimum
-    english: infimum
-    meaning: 下界全体の中で最大のもの。集合の要素とは限らない。

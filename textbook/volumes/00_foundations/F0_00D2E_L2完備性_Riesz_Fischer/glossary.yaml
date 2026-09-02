@@ -1,0 +1,20 @@
+chapter: "F0-00D2E"
+terms:
+  - term: Banach空間
+    english: Banach space
+    meaning: ノルムに関して完備なノルム空間。
+  - term: L2内積
+    english: L2 inner product
+    meaning: L2関数f,gに対して< f,g >=∫fg dμと定める内積。
+  - term: Hilbert空間
+    english: Hilbert space
+    meaning: 内積が誘導するノルムについて完備な内積空間。
+  - term: Riesz--Fischer定理
+    english: Riesz--Fischer theorem
+    meaning: Lp、とくにL2の完備性を保証する定理。本講ではL2の場合を部分列法で証明する。
+  - term: 速い部分列
+    english: rapidly convergent subsequence
+    meaning: Cauchy列から差分ノルムが2^{-k}など可算和可能な速度で小さくなるよう選んだ部分列。
+  - term: 差分級数
+    english: telescoping difference series
+    meaning: Σ|f_{n_{k+1}}-f_{n_k}|。a.e.有限性から部分列の点wise Cauchy性を得る。

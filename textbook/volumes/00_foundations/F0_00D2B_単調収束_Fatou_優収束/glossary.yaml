@@ -1,0 +1,20 @@
+chapter: "F0-00D2B"
+terms:
+  - term: 単調収束定理
+    english: monotone convergence theorem
+    meaning: 非負可測関数列が単調増加して極限に収束するとき、積分と極限を交換できる定理。MCTと略す。
+  - term: Fatouの補題
+    english: Fatou's lemma
+    meaning: 非負可測関数列について、liminfの積分が積分のliminf以下になることを保証する補題。
+  - term: 優収束定理
+    english: dominated convergence theorem
+    meaning: a.e.収束する関数列が一つの可積分関数で支配されるとき、L1収束と積分極限の交換を保証する定理。DCTと略す。
+  - term: liminf
+    english: limit inferior
+    meaning: tail infimumの極限。liminf a_n = lim_n inf_{k>=n} a_k。
+  - term: 支配関数
+    english: dominating function
+    meaning: 全てのnについて|f_n|<=gを満たす一つの関数g。DCTではgの可積分性が必要。
+  - term: L1収束
+    english: L1 convergence
+    meaning: ∫|f_n-f|dμ→0となる収束。DCTは仮定の下でこの収束まで与える。

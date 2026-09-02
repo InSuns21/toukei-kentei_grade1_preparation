@@ -4,8 +4,6 @@
 
 このページを **DREAM THEATER系列のオリエンテーション兼目次** として使えます。
 
----
-
 ## 目次
 
 ### 0. 入口
@@ -20,33 +18,53 @@
 
 #### 基礎論
 
-1. [F0-00A 集合・写像・上限下限](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
-2. [F0-00A2 選択公理・Zornの補題・極大原理](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
-3. [F0-00B 距離空間・開集合・閉集合・収束](textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md)
-4. [F0-00C 連続写像・コンパクト性・最大最小](textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md)
-5. [F0-00D Cauchy列・完備性・無限次元](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
-6. [F0-00D2 測度・可測関数・Lebesgue積分・Lp](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
-7. [F0-00D3 外測度・Carathéodory可測性](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
-8. [F0-00D4 Lebesgue測度・Borel集合・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
-9. [F0-00D5 Vitali集合・非可測集合・選択公理](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-10. [F0-00E ベクトル空間・基底・Gram–Schmidt・直交射影](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
-11. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-12. [F0-00F 線形写像・固有空間・スペクトル定理・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
-13. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
+1. [F0-00A 集合・写像・量化記号](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
+2. [F0-00A1 上界・下界・supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
+3. [F0-00A2 選択関数・選択公理・可算選択](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
+4. [F0-00A3 半順序・Zornの補題・極大延長](textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md)
+5. [F0-00B 距離空間・開集合・閉集合・収束](textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md)
+6. [F0-00C 連続写像・連続性の同値条件](textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md)
+7. [F0-00C1 コンパクト性・点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
+8. [F0-00C2 コンパクト性の応用・最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
+9. [F0-00D コーシー列・完備距離空間](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+10. [F0-00D1 ノルム空間・Banach・有限次元と無限次元](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
+11. [F0-00D2 測度空間・測度0・a.e.・可測関数](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
+12. [F0-00D2A 単関数からLebesgue積分を構成](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
+13. [F0-00D2B 単調収束・Fatou・優収束](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
+14. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+15. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+16. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+17. [F0-00D3 外測度・Carathéodory可測性](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
+18. [F0-00D4 Lebesgue測度・Borel集合・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
+19. [F0-00D5 Vitali集合・非可測集合・選択公理](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
+20. [F0-00E ベクトル空間・span・一次独立・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
+21. [F0-00E1 内積・Gram–Schmidt・直交射影・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
+22. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
+23. [F0-00F 線形写像・kernel・image・rank-nullity](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
+24. [F0-00F1 固有空間・スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
+25. [F0-00F2 SVD・特異値・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+26. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
 
 #### 制約付き最適化・関数解析・RKHS・SVM
 
 1. [F0-02 制約付き最適化・双対・KKT](textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md)
 2. [F0-02A KKT条件の導出・接錐・polar・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
-3. [F0-02B 分離超平面定理・Farkas・SVM](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
-4. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
-5. [F0-02C1 ノルム空間・Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
-6. [F0-02C2 線形汎関数・双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
-7. [F0-02C3 Fréchet微分・線形作用素・随伴](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
-8. [F0-02C4 凸解析・劣勾配・normal cone・双対錐](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
-9. [F0-02C5 一般化KKT・制約写像・制約想定](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
-10. [F0-02C6 Hahn–Banach・分離定理](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [F0-02C7 RKHS・再生核・representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
+3. [F0-02B 分離超平面定理・Farkas](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
+4. [F0-02B1 SVM・凸包・最大マージン](textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md)
+5. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
+6. [F0-02C1 ノルム空間・Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
+7. [F0-02C1A Hilbert射影定理・直交分解](textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md)
+8. [F0-02C2 線形汎関数・双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
+9. [F0-02C3 Fréchet微分・有界作用素・連鎖律](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+10. [F0-02C3A 随伴作用素・Banach双対・Hilbert随伴](textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md)
+11. [F0-02C4 凸解析・劣勾配・normal cone](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
+12. [F0-02C4A tangent cone・polar cone・dual cone](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
+13. [F0-02C5 一般化KKT・錐制約・双対乗数](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
+14. [F0-02C5A 制約想定・LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
+15. [F0-02C6 Hahn–Banach・汎関数拡張](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
+16. [F0-02C6A 分離定理・Minkowski functional・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+17. [F0-02C7 RKHS・再生核・Moore–Aronszajn](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
+18. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
 
 ---
 
@@ -228,7 +246,7 @@ PDEの弱形式を有限次元へ落とすのがGalerkin法・有限要素法で
 
 **分からない言葉が出た地点から地下へ潜り、納得したら地上へ戻る。** それで十分です。
 
-必要なところだけ、上の目次から直接飛んでください。
+以下が各教材への直接リンク付き目次です。
 
 ---
 
@@ -240,9 +258,11 @@ PDEの弱形式を有限次元へ落とすのがGalerkin法・有限要素法で
         ├─→ 関数解析・RKHS・SVM
         │
         ├─→ DREAM THEATER本編
+        │      距離 → 連続 → compactness → existence → completeness
         │      選択公理 / Zorn
-        │      外測度 / Carathéodory
-        │      Lebesgue測度 / Vitali集合
+        │      測度基礎 → Lebesgue積分 → 収束定理
+        │      → 積測度 → Lp → L2完備性
+        │      └─ 深掘り: 外測度 / Carathéodory / Lebesgue測度 / Vitali集合
         │
         ├─→ 確率論「それどこから来た？」
         │      測度論的確率

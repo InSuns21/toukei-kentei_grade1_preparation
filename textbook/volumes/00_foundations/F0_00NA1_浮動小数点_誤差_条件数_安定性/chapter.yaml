@@ -3,7 +3,7 @@ title: "Encore V：浮動小数点・誤差・条件数・安定性"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00F
+  - F0-00F2
 learning_objectives:
   - 浮動小数点誤差と離散化誤差を区別できる
   - 条件数を問題の感度として説明できる

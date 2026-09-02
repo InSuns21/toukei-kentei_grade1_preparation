@@ -19,36 +19,22 @@ F0-01は通常教材章として廃止済み。`status: supplementary` の補講
 ```text
 F0-00
   ↓
-F0-00A  集合・写像・sup/inf
+A → A1 → A2 → A3 → B
   ↓
-F0-00A2 選択公理・Zorn
+C → C1 → C2 → D → D1
   ↓
-F0-00B  距離・開閉集合・収束
+D2 → D2A → D2B → D2C → D2D → D2E
   ↓
-F0-00C  連続・コンパクト
+E → E1 → E2 → F → F1 → F2 → G
   ↓
-F0-00D  Cauchy列・完備性
+F0-02 → 02A → 02B → 02B1
   ↓
-F0-00D2 測度・Lebesgue積分・Lp
+F0-02C1 → C1A → C2
   ↓
-F0-00E  基底・Gram--Schmidt・射影
-  ↓
-F0-00E2 Cauchy--Schwarz・Bessel・Parseval
-  ↓
-F0-00F  スペクトル定理・SVD
-  ↓
-F0-00G  凸解析の入口
-  ↓
-F0-02 -> F0-02A -> F0-02B
-  ↓
-F0-02C1 Banach / Hilbert
-  ↓
-C2 双対・Riesz -> C3 作用素・随伴 -> C4 凸解析
-  ↓
-C5 一般化KKT -> C6 Hahn--Banach -> C7 RKHS / kernel SVM
+C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A
 ```
 
-A2はC6のHahn--Banach標準証明で使うZornの補題を先に導入する。D2はC1で使う $L^2$・a.e.同値類・可測関数を未定義語にしないための橋である。標準通読ルートへ不要な深掘りを逆流させない。
+標準通読は細かく刻む一方、局所的な必須前提は各 `chapter.yaml` を正本とする。例としてHahn--Banach本体C6はA3+C2から、RKHS本体C7はC2から読める。02AはFarkasの証明を02Bへ参照するが、02Bは02Aを必須前提としないため循環しない。C2のRiesz標準証明はC1AのHilbert射影定理を使用する。
 
 ---
 
@@ -65,7 +51,7 @@ F0-00D4 Lebesgue測度・Borel集合・拡張定理
   ↓
 F0-00D5 Vitali集合・非可測集合・選択公理
   ↓
-F0-00Eへ復帰
+F0-00D2Aへ復帰
 ```
 
 D3〜D5は関数解析・RKHSにも確率論補講にも必須前提としない。
@@ -99,7 +85,7 @@ P7 統計モデル・尤度・正則性
 ## Encore II：Fourier Analysis & Differential Equations
 
 ```text
-F0-00F / F0-00D2 / F0-00E2 / F0-02C1
+F0-00F1 / F0-00D2 / F0-00E2 / F0-02C1
   ↓
 F0-00H1 ODE・線形系・行列指数
   ↓
@@ -179,7 +165,7 @@ Brown運動からSDE・generator・PDEへ進む連続時間枝と、定常過程
 ### 共通数値基礎
 
 ```text
-F0-00F
+F0-00F2
   ↓
 F0-00NA1 浮動小数点・誤差・条件数・安定性
   ↓

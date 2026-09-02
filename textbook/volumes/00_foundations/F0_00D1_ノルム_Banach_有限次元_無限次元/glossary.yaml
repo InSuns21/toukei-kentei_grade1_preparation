@@ -1,0 +1,11 @@
+chapter: "F0-00D1"
+terms:
+  - term: ノルム
+    english: norm
+    meaning: ベクトルの大きさを測り、正定値性・斉次性・三角不等式を満たす関数。
+  - term: Banach空間
+    english: Banach space
+    meaning: ノルムから定まる距離について完備なノルム空間。
+  - term: 同値なノルム
+    english: equivalent norms
+    meaning: 正の定数倍を介して互いを上下から評価できる二つのノルム。

@@ -3,7 +3,7 @@ title: "補講：常微分方程式・線形系・行列指数"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00F
+  - F0-00F1
 official_scope: []
 learning_objectives:
   - 常微分方程式・初期値問題・境界値問題を区別できる

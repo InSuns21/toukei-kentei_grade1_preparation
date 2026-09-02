@@ -5,7 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00PDE2
   - F0-00FA3
-  - F0-00F
+  - F0-00F1
 official_scope: []
 learning_objectives:
   - Sturm--Liouville型境界値問題を定義できる

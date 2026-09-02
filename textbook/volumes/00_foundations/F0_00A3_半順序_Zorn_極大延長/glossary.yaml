@@ -1,0 +1,17 @@
+chapter: "F0-00A3"
+terms:
+  - term: 半順序集合
+    english: partially ordered set
+    meaning: 反射律・反対称律・推移律を満たす順序関係を備えた集合。
+  - term: chain
+    english: chain
+    meaning: 半順序集合の部分集合で、任意の二要素が比較可能なもの。
+  - term: 極大元
+    english: maximal element
+    meaning: 自分より真に大きい要素が存在しない要素。最大元とは異なる。
+  - term: Zornの補題
+    english: Zorn's lemma
+    meaning: すべてのchainが上界を持つ半順序集合には極大元が存在するという定理。
+  - term: Hamel基底
+    english: Hamel basis
+    meaning: 各ベクトルを有限線形結合で一意に表す基底。一般の存在証明には標準的にZornを使う。

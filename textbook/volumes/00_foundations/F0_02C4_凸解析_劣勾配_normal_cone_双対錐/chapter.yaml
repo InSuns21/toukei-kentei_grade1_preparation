@@ -1,35 +1,24 @@
 id: "F0-02C4"
-title: "関数解析IV：凸解析・劣勾配・normal cone・双対錐"
+title: "関数解析IV：凸解析・劣勾配・normal cone"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C3
-  - F0-02B
 official_scope: []
 learning_objectives:
-  - 凸集合と凸関数をノルム空間上で定義できる
-  - 劣勾配と劣微分を微分可能な場合の勾配と対応付けられる
-  - 凸集合のindicator関数とnormal coneの関係を説明できる
-  - 制約付き凸最適化の最適性条件を0∈∂f+N_Cで表せる
-  - tangent cone・polar cone・normal coneの関係を説明できる
-  - dual coneとpolar coneの符号規約を区別できる
+  - 劣勾配と劣微分を定義できる
+  - indicator関数とnormal coneの関係を説明できる
+  - 制約付き凸最適化を0∈∂f+N_Cで表せる
 definitions:
-  - { id: F002C4-DEF-01, name: 凸集合 }
-  - { id: F002C4-DEF-02, name: 凸関数 }
-  - { id: F002C4-DEF-03, name: 劣勾配 }
-  - { id: F002C4-DEF-04, name: 劣微分 }
-  - { id: F002C4-DEF-05, name: indicator関数 }
-  - { id: F002C4-DEF-06, name: normal cone }
-  - { id: F002C4-DEF-07, name: tangent cone }
-  - { id: F002C4-DEF-08, name: polar cone }
-  - { id: F002C4-DEF-09, name: dual cone }
+  - { id: F002C4-DEF-01, name: 劣勾配 }
+  - { id: F002C4-DEF-02, name: 劣微分 }
+  - { id: F002C4-DEF-03, name: indicator関数 }
+  - { id: F002C4-DEF-04, name: normal cone }
 theorems:
   - { id: F002C4-THM-01, name: 凸微分可能関数の一次条件 }
   - { id: F002C4-THM-02, name: 劣勾配による最小条件 }
   - { id: F002C4-THM-03, name: indicator関数の劣微分とnormal cone }
-canonical_examples: [絶対値の劣微分, 区間端点のnormal cone, 半空間のnormal cone, 非負直交錐]
+canonical_examples: [絶対値の劣微分, 区間のnormal cone]
 problem_patterns: [FA-SUBGRADIENT-1, FA-NORMAL-CONE-1]
-past_exam_alignment: []
-integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.5, exercises: 0, review: 1 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }

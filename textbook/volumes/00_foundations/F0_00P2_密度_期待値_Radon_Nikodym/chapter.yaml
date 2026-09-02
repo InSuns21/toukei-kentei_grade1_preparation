@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P1
+  - F0-00D2A
 official_scope: []
 learning_objectives:
   - pdfとpmfを支配測度に対する密度として統一できる

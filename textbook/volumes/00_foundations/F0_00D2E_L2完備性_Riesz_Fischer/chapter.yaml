@@ -1,0 +1,32 @@
+id: "F0-00D2E"
+title: "補講：L2完備性・Riesz--Fischer・Hilbert空間への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2D
+official_scope: []
+learning_objectives:
+  - L2内積とL2ノルムの関係を説明できる
+  - Hilbert空間を自己完結した定義として述べられる
+  - L2のCauchy列から速く近づく部分列を選べる
+  - 差分級数とMCTを使ってa.e.収束先を構成できる
+  - 部分列のL2収束から元のCauchy列全体の収束を示せる
+  - L2がHilbert空間であることを証明できる
+  - 確率変数のL2内積を期待値として読める
+definitions:
+  - { id: F000D2E-DEF-01, name: ノルム空間のCauchy列 }
+  - { id: F000D2E-DEF-02, name: Banach空間 }
+  - { id: F000D2E-DEF-03, name: L2内積 }
+  - { id: F000D2E-DEF-04, name: Hilbert空間 }
+theorems:
+  - { id: F000D2E-THM-01, name: L2の完備性 }
+  - { id: F000D2E-THM-02, name: L2のHilbert性 }
+canonical_examples:
+  - L2内積とノルムの計算
+  - 速い部分列による完備性証明
+  - 確率変数の内積E[XY]
+problem_patterns: [L2-COMPLETENESS-1, HILBERT-BRIDGE-1, L2-PROBABILITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1.5, review: 0.5 }

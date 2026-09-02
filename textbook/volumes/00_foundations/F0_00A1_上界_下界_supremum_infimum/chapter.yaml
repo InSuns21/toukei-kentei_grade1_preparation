@@ -1,0 +1,23 @@
+id: "F0-00A1"
+title: "補講：上界・下界・supremum・infimum"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 上界・下界・supremum・infimumを定義できる
+  - supremum/infimumとmaximum/minimumを区別できる
+  - 最適化でinfimumから始める理由を説明できる
+definitions:
+  - { id: F000A1-DEF-01, name: 上界 }
+  - { id: F000A1-DEF-02, name: 下界 }
+  - { id: F000A1-DEF-03, name: supremum }
+  - { id: F000A1-DEF-04, name: infimum }
+theorems: []
+canonical_examples: [開区間のsupremumとinfimum, infimumが達成されない最適化]
+problem_patterns: [SUP-INF-1, ATTAINMENT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.0, exercises: 0.6, review: 0.25 }

@@ -1,0 +1,6 @@
+chapter: "F0-00F1"
+terms:
+  - { term: 固有空間, english: eigenspace, meaning: 固有値lambdaに対するker(T-lambda I)。 }
+  - { term: 不変部分空間, english: invariant subspace, meaning: 作用させてもその部分空間内に残る部分空間。 }
+  - { term: Rayleigh商, english: Rayleigh quotient, meaning: xTAx/xTxで表される方向別の二次形式の倍率。 }
+  - { term: スペクトル定理, english: spectral theorem, meaning: 実対称行列が正規直交固有基底を持つことを述べる定理。 }

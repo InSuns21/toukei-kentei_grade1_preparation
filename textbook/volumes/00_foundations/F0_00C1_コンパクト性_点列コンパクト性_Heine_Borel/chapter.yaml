@@ -1,0 +1,28 @@
+id: "F0-00C1"
+title: "補講：コンパクト性・点列コンパクト性・Heine--Borel"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00C
+official_scope: []
+learning_objectives:
+  - 開被覆によるコンパクト性と点列コンパクト性を定義できる
+  - 距離空間で両者が同値であることを証明できる
+  - Bolzano--Weierstrassを実数からR^pへ拡張できる
+  - Heine--Borelを両方向に証明できる
+  - 連続像がコンパクトであることを証明できる
+definitions:
+  - { id: F000C1-DEF-01, name: 開被覆 }
+  - { id: F000C1-DEF-02, name: コンパクト集合 }
+  - { id: F000C1-DEF-03, name: 点列コンパクト性 }
+theorems:
+  - { id: F000C1-THM-01, name: コンパクト性と点列コンパクト性の同値性 }
+  - { id: F000C1-THM-02, name: Bolzano--Weierstrassの定理 }
+  - { id: F000C1-THM-03, name: Heine--Borelの定理 }
+  - { id: F000C1-THM-04, name: 連続像のコンパクト性 }
+canonical_examples: [有限点集合の凸包のコンパクト性]
+problem_patterns: [Heine--Borelによる判定, 連続像]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.35 }

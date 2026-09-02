@@ -1,20 +1,5 @@
 chapter: "F0-02C4"
 terms:
-  - term: 劣勾配
-    english: subgradient
-    meaning: 凸関数を一点で下から支えるアフィン関数の傾きを表す双対空間の元。
-  - term: 劣微分
-    english: subdifferential
-    meaning: 一点における劣勾配全体の集合。
-  - term: indicator関数
-    english: indicator function of a convex set
-    meaning: 集合内で0、集合外で+∞を取る拡張実数値関数。確率論の指示関数とは別物。
-  - term: normal cone
-    english: normal cone
-    meaning: 集合内の全実行方向に非正に作用する双対ベクトルの集合。
-  - term: polar cone
-    english: polar cone
-    meaning: K°={x*:x*(k)<=0 for all k∈K} で定める錐。
-  - term: dual cone
-    english: dual cone
-    meaning: K*={x*:x*(k)>=0 for all k∈K} で定める錐。本教材の符号規約ではK°=-K*。
+  - { term: 劣勾配, english: subgradient, meaning: 凸関数を一点で下から支える連続線形汎関数。 }
+  - { term: 劣微分, english: subdifferential, meaning: 一点における劣勾配全体の集合。 }
+  - { term: normal cone, english: normal cone, meaning: 集合内部への方向すべてに非正に作用する外向き法線汎関数の錐。 }

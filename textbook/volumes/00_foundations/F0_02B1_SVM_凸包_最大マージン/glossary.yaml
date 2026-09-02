@@ -1,0 +1,7 @@
+terms:
+  - term: class convex hull
+    ja: クラス凸包
+    definition: 同じクラスの訓練点の全凸結合からなる集合。
+  - term: maximum margin
+    ja: 最大マージン
+    definition: 二クラスを分離する支持超平面間距離を最大化する幾何。

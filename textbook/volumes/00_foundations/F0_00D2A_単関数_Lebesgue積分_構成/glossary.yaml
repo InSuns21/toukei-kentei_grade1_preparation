@@ -1,0 +1,23 @@
+chapter: "F0-00D2A"
+terms:
+  - term: 単関数
+    english: simple function
+    meaning: 有限個の値しか取らない可測関数。可測集合の指示関数の有限線形結合として表せる。
+  - term: 単関数の積分
+    english: integral of a simple function
+    meaning: 各値と、その値を取る可測集合の測度の積を足して定義する積分。
+  - term: 単関数近似
+    english: simple-function approximation
+    meaning: 非負可測関数を下から単調増加する非負単関数列で近似すること。
+  - term: 非負可測関数のLebesgue積分
+    english: Lebesgue integral of a nonnegative measurable function
+    meaning: 関数以下の非負単関数の積分値のsupremumとして定義する。
+  - term: 正部分
+    english: positive part
+    meaning: f^+=max(f,0)。
+  - term: 負部分
+    english: negative part
+    meaning: f^-=max(-f,0)。
+  - term: Lebesgue可積分
+    english: Lebesgue integrable
+    meaning: 可測関数fが∫|f|dμ<∞を満たすこと。

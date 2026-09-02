@@ -1,0 +1,8 @@
+chapter: "F0-00C2"
+terms:
+  - term: Weierstrassの最大最小定理
+    english: extreme value theorem
+    meaning: 空でないコンパクト集合上の実数値連続関数は最大値と最小値を達成する。
+  - term: 最近点
+    english: nearest point
+    meaning: 与えた点から集合までの距離の下限を実際に達成する集合内の点。

@@ -1,0 +1,23 @@
+chapter: "F0-00D2C"
+terms:
+  - term: 積σ代数
+    english: product sigma-algebra
+    meaning: 可測長方形A×Bが生成するX×Y上のσ代数A⊗B。
+  - term: 積測度
+    english: product measure
+    meaning: 長方形A×Bにμ(A)ν(B)を与える積空間上の測度。σ有限性の下で一意に定まる。
+  - term: σ有限
+    english: sigma-finite
+    meaning: 空間全体を有限測度の可測集合の可算和で覆える性質。
+  - term: section
+    english: section
+    meaning: 積集合や二変数関数について一方の変数を固定して得られる集合・関数。
+  - term: Tonelliの定理
+    english: Tonelli's theorem
+    meaning: 非負可測関数について、積空間積分と2通りの反復積分が一致する定理。値∞を許す。
+  - term: Fubiniの定理
+    english: Fubini's theorem
+    meaning: 絶対可積分な可測関数について、積分順序交換と反復積分の一致を保証する定理。
+  - term: Carathéodory拡張
+    english: Carathéodory extension
+    meaning: 前測度を生成σ代数上の測度へ拡張する定理。積測度の存在証明の床になる。

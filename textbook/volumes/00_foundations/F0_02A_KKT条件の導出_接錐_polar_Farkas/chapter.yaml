@@ -29,5 +29,5 @@ canonical_examples: [半平面の接錐, polar cone, FarkasからKKT, 分離超�
 problem_patterns: [KKT-TANGENT-1, KKT-POLAR-1, KKT-FARKAS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2, exercises: 0, review: 1 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0.75, review: 1 }

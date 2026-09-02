@@ -1,0 +1,7 @@
+terms:
+  - term: projection theorem
+    ja: 射影定理
+    definition: Hilbert空間の空でない閉凸集合に各点から一意な最近点が存在する定理。
+  - term: orthogonal complement
+    ja: 直交補空間
+    definition: 部分空間の全ての元と直交する元からなる部分空間。

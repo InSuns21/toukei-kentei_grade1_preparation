@@ -15,14 +15,18 @@
 ## 1. 標準通読ルート：F0-00からRKHSまで
 
 ```text
-F0-00 → A → A2 → B → C → D → D2
+F0-00 → A → A1 → A2 → A3 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1
   ↓
-E → E2 → F → G → F0-02 → 02A → 02B
+D2 → D2A → D2B → D2C → D2D → D2E
   ↓
-C1 → C2 → C3 → C4 → C5 → C6 → C7
+E → E1 → E2 → F → F1 → F2 → G → F0-02 → 02A → 02B → 02B1
+  ↓
+F0-02C1 → C1A → C2 → C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A
 ```
 
-A2はHahn--BanachのZorn証明、D2は $L^2$・a.e.・可測関数を関数解析で突然出さないための橋です。
+F0-00C〜C2は連続性・コンパクト性・存在定理、D〜D1は完備性・ノルム空間・有限/無限次元、E〜E2は基底・直交幾何・内積不等式、F〜F2は線形写像・スペクトル理論・SVDを一講義ずつ閉じます。A3はHahn--BanachのZorn証明、D2〜D2Eは測度・Lebesgue積分・収束定理・積測度・$L^p$・$L^2$完備性を一講義ずつ閉じる橋です。
+
+**標準の読み順と機械可読な必須前提は同一ではありません。** たとえば標準通読ではD1まで読んでからD2へ進みますが、D2の測度論自体はD1のノルム論を必要としないため、`chapter.yaml` では不要な前提を強制しません。
 
 ---
 
@@ -34,7 +38,7 @@ Lebesgue測度そのものの建設まで追う場合だけD2の直後に挿入�
 D2 → D3 外測度・Caratheodory可測性
    → D4 Lebesgue測度・Borel集合・拡張定理
    → D5 Vitali集合・非可測集合・選択公理
-   → Eへ復帰
+   → D2Aへ復帰 → D2B → D2C → D2D → D2E
 ```
 
 この分岐は標準RKHSルートの必須にはしません。
@@ -45,12 +49,11 @@ D2 → D3 外測度・Caratheodory可測性
 
 ```text
 D2 → P1 確率空間・確率変数・分布
-   → P2 Radon--Nikodym・密度・期待値
-   → P3 独立・積測度・条件付き期待値
-   → P4 収束・Borel--Cantelli・一様可積分性
-   → P5 強大数則
-   → P6 特性関数・CLT
-   → P7 統計モデル・尤度・正則性
+D2A ─→ P2 Radon--Nikodym・密度・期待値
+D2C / D2E ─→ P3 独立・積測度・条件付き期待値
+D2B ─────────→ P4 収束・Borel--Cantelli・一様可積分性
+                 ↓
+                P5 強大数則 → P6 特性関数・CLT → P7 統計モデル・尤度・正則性
 ```
 
 確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、期待値をLebesgue積分として読み直します。
@@ -238,23 +241,13 @@ Brown運動 → white noise → Schwartz超関数
 ```text
                          ┌→ DREAM THEATER D3-D5
                          │
-F0-00 → foundations → D2 ├→ Probability P1-P7
-                         │
-                         └→ Functional analysis / RKHS
-                                      │
-                                      └→ Encore II Fourier / PDE
-                                                    │
-                                                    └→ Encore III weak PDE / FEM
-
-Probability + Fourier ─→ Encore IV stochastic process / spectral TS
-          │                            │
-          └──────────────┬─────────────┘
-                         ↓
-               Encore V numerical analysis
-                 ├→ FEM
-                 ├→ Monte Carlo
-                 ├→ SDE simulation
-                 └→ UQ / MLMC
+F0-00 → A → A2 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1
+                                                       │
+                                                       └──── standard reading ────┐
+                                                                               ↓
+D2 → D2A → D2B → D2C → D2D → D2E → E → E2 → F → G
+ │
+ └→ Probability P1 → ... → P7
 ```
 
-もはや一本の道ではなく、**前提関係を壊さず乗り換えられる地下鉄網**として管理します。
+D3〜D5はD2の直後から入りD2Aへ戻る深掘り分岐です。D1→D2は標準通読上の並びであり、D2の機械可読前提としてD1を強制するものではありません。

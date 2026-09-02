@@ -1,0 +1,4 @@
+chapter: "F0-02C7A"
+terms:
+  - { term: representer theorem, english: representer theorem, meaning: 有限標本値とHilbertノルムに依存する最適化で有限個のkernel sectionの張る空間に解を取れる定理。 }
+  - { term: kernel trick, english: kernel trick, meaning: 特徴座標を明示せずkernel内積だけで学習・予測を表す方法。 }

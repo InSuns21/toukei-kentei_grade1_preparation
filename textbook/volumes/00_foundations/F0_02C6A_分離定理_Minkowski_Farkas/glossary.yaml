@@ -1,0 +1,5 @@
+chapter: "F0-02C6A"
+terms:
+  - { term: absorbing set, english: absorbing set, meaning: 任意のベクトルが十分大きな正の倍率を掛けた集合に入る性質を持つ集合。 }
+  - { term: Minkowski functional, english: Minkowski functional, meaning: xがtUに入る最小倍率の下限で定義されるgauge。 }
+  - { term: 強分離, english: strong separation, meaning: 連続線形汎関数の値に正のgapを持たせて集合と点を分けること。 }

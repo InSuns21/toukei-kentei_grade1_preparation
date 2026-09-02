@@ -5,7 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00FEM1
   - F0-00MC1
-  - F0-00F
+  - F0-00F1
 learning_objectives:
   - random coefficient PDEを定義できる
   - sample-wise弱形式とLax--Milgramを接続できる

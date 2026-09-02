@@ -1,0 +1,5 @@
+chapter: "F0-02C4A"
+terms:
+  - { term: tangent cone, english: tangent cone, meaning: 集合内から一次スケールで近づける実行可能方向の錐。 }
+  - { term: polar cone, english: polar cone, meaning: 元の錐の全方向に非正に作用する双対側の錐。 }
+  - { term: dual cone, english: dual cone, meaning: 元の錐の全方向に非負に作用する双対側の錐。 }

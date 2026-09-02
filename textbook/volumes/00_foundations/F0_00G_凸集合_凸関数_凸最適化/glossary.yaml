@@ -18,6 +18,3 @@ terms:
   - term: 凸最適化
     english: convex optimization
     meaning: 凸目的関数を凸な実行可能集合上で最小化する問題。
-  - term: Slater条件
-    english: Slater condition
-    meaning: 凸不等式制約をすべて厳密に満たし等式制約を満たす点が存在するという代表的な制約想定。
