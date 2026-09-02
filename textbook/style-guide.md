@@ -100,3 +100,15 @@ npm run audit:terminology
 ```
 
 validationは壊れた数式・リンク・構造など機械的に判定できる問題を扱い、auditは人間の判断を要する改善候補を非ブロッキングで扱う。共通の判定方針は `CONTENT_GUIDELINES.md` に従う。
+
+### 7.1 定理・証明・導出への参照リンク
+
+「前章の○○定理から」「この証明はF0-02Bへ分離した」のように、**別の場所にある特定の定理・補題・証明・導出を論理的依存先として参照する場合、章トップへのリンクだけでは不十分**とする。読者がクリック1回で該当箇所へ着地できるよう、参照先に明示的な安定anchorを置く。
+
+- 定理・補題など単一のformal result：`<a id="thm-..."></a>`
+- 複数節にまたがる証明・導出：`<a id="ref-..."></a>`
+- 参照側：`[Borel--Cantelli第1補題](../.../index.md#thm-borel-cantelli-1)` のようにfragmentまで書く。
+
+`#` のない章トップリンクは「次章」「関連章」「章全体を読む」のような通常ナビゲーションには使用してよい。一方、「この定理を使う」「証明はここ」「導出はここ」という依存参照には使用しない。
+
+CIでは `npm run validate:formal-references` がsource Markdown上で、formal dependencyの章トップ止まり、存在しないanchor、安定anchorなしの高確度な定理参照を検出する。さらに `npm run validate:pages` では生成後の教材に対して `thm-` / `ref-` fragmentが実在することを確認し、**sourceでは正しく見えてもPages上では飛べない**状態を防ぐ。
