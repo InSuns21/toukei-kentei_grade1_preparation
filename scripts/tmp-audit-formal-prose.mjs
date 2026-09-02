@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Temporary migration audit: rerun after each formalization batch.
 const ROOT = path.resolve('textbook/volumes');
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
