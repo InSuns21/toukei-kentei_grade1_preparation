@@ -1,0 +1,85 @@
+name: Temporary proof pedagogy round2
+
+on:
+  push:
+    branches:
+      - revise/f0-proof-pedagogy-round2
+    paths:
+      - 'scripts/tmp-proof-pedagogy-round2.py'
+      - '.github/workflows/tmp-proof-pedagogy-round2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  revise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: revise/f0-proof-pedagogy-round2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply narrative revisions
+        run: python3 scripts/tmp-proof-pedagogy-round2.py
+
+      - name: Refresh proof pedagogy audit
+        run: |
+          node scripts/audit-proof-pedagogy.mjs --write textbook/f0-dream-theater-proof-pedagogy-audit.md > /tmp/proof-audit.txt
+          sed -n '1,90p' /tmp/proof-audit.txt
+          cat >> textbook/f0-dream-theater-proof-pedagogy-audit.md <<'EOF'
+
+## 2026-09-02 人手再監査 round 2：残存する説明不足ページ
+
+前ラウンドでP0/P1を解消した後、機械監査で残ったP2/WATCHのうち、証明本数そのものより「具体例・直感・見取り図が不足している」ページを優先して再教材化した。
+
+対象は F0-00B / C / D2 / D2A / D2B / D2C / D2E / P4。
+
+- B: 同じ集合でも距離で近さ・開球・収束が変わることを先に具体化し、極限一意性・収束列の有界性・閉集合・閉包の各証明に見取り図を追加。
+- C: `x^2` と段差関数から、epsilon-delta / 点列 / 開集合逆像の三表現を先に比較し、同値定理の一周を見取り図化。
+- D2: サイコロの有限確率空間から sigma algebra / measure / measurable function / a.e. を導入し、測度の基本性質と可測性証明に見取り図を追加。
+- D2A: `f(x)=x` の下側階段近似からLebesgue積分の構成を開始し、単関数表現・単関数近似・単調性・a.e.同値の証明前に見取り図を追加。
+- D2B: `n 1_(0,1/n)` を冒頭に置き、点wise収束だけでは積分交換できないことを先に確認。MCT / Fatou / DCTそれぞれの仮定の役割と証明依存を本文化。
+- D2C: 普通の二重積分から「いつ順序交換してよいか」を問いにし、section / Tonelli / Fubiniを具体例・役割・証明見取り図で接続。
+- D2E: `1_[0,1/n]` のL2収束を最小例にし、Riesz--Fischer型完備性証明を5段階の見取り図へ整理。
+- P4: コイン投げで limsup/i.o. を具体化し、第一Borel--Cantelliの級数尾部という証明像、summableな確率評価からa.s.へ上げる使い方、収束概念の地図を追加。
+
+完全証明は削除していない。証明を閉じた状態でも「なぜその概念が必要か / 最小例 / 何が定理の仮定を支えているか / 何に使うか」を追えることを人手で確認する。
+EOF
+
+      - name: Validate textbook and proof folding
+        run: npm run validate
+
+      - name: Validate Pages assembly
+        run: npm run validate:pages
+
+      - name: Commit revisions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md \
+            textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md \
+            textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md \
+            textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md \
+            textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md \
+            textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md \
+            textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md \
+            textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md \
+            textbook/f0-dream-theater-proof-pedagogy-audit.md
+          if git diff --cached --quiet; then
+            echo 'No narrative changes to commit.'
+          else
+            git commit -m 'restore narrative around remaining proof-heavy foundations'
+            git push
+          fi
