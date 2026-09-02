@@ -4,8 +4,8 @@ import path from 'node:path';
 const ROOT = path.resolve('textbook/volumes');
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
-const phraseRe = /(?:といいます|と呼びます|と定義します|という。|と呼ぶ。|と定義する。)/u;
-const formalNameRe = /(選択関数|選択公理|可算選択|整列|半順序|全順序|chain|鎖|上界|極大元|コーシー|コンパクト|連続|開集合|閉集合|内点|閉包|境界|ノルム|Banach|可測|測度|単関数|Lebesgue|Hölder|Minkowski|線形写像|核|像|固有|基底|次元|直交|射影|共役|双対|劣微分|接錐|polar|確率|確率変数|独立|分布|期待値|分散|共分散|十分|完備|統計量|推定量|一致|漸近|Brown|martingale|停止時刻|Fourier|Herglotz|Wold)/iu;
+const boldDefinitionRe = /\*\*([^*]{1,60})\*\*\s*と(?:いいます|呼びます|定義します)/u;
+const plainDefinitionRe = /(?:を|これを|場合を|ものを)\s*([^。]{1,36}?)\s*と(?:いいます|呼びます|定義します)/u;
 
 function walk(dir) {
   const out=[];
@@ -17,23 +17,49 @@ function walk(dir) {
   return out;
 }
 
-const rows=[];
+const strong=[];
+const quotes=[];
+const perFile=new Map();
 for (const file of walk(ROOT)) {
   const rel=path.relative(process.cwd(),file).replaceAll(path.sep,'/');
   const lines=fs.readFileSync(file,'utf8').split(/\r?\n/);
   let depth=0, fence=false;
+  let currentHeading='';
   for (let i=0;i<lines.length;i++) {
-    const t=lines[i].trim();
+    const line=lines[i];
+    const t=line.trim();
     if (/^```/.test(t)) { fence=!fence; continue; }
     if (fence) continue;
+    if (/^#{2,6}\s+/.test(line)) currentHeading=t;
     if (t===START) { depth++; continue; }
     if (t===END) { depth=Math.max(0,depth-1); continue; }
     if (depth>0) continue;
-    const window=lines.slice(Math.max(0,i-2),Math.min(lines.length,i+3)).join(' ');
-    const proseCandidate=phraseRe.test(lines[i]) && formalNameRe.test(window);
-    const unlabeledQuote=/^>\s+/.test(lines[i]) && !/^>\s+\*\*(?:定義|定理|命題|補題|系|公理|原理)/u.test(lines[i]) && /(?:公理|定理|命題|補題|定義|存在する|同値)/u.test(window);
-    if (proseCandidate || unlabeledQuote) rows.push(`${rel}:${i+1}: ${lines[i].trim()}`);
+
+    const b=boldDefinitionRe.exec(line);
+    const p=plainDefinitionRe.exec(line);
+    if (b || p) {
+      const term=(b?.[1] || p?.[1] || '').trim();
+      // Ignore obvious house-style naming sentences rather than mathematical definitions.
+      if (!/^(?:ZFC|Schwartz超関数|distribution)$/iu.test(term)) {
+        strong.push(`${rel}:${i+1}: [${currentHeading}] ${line.trim()}`);
+        perFile.set(rel,(perFile.get(rel)||0)+1);
+      }
+    }
+
+    if (/^>\s+/.test(line) && !/^>\s+\*\*(?:定義|定理|命題|補題|系|公理|原理)/u.test(line)) {
+      const headingFormal=/(?:公理|定理|補題|命題|原理)(?:\s|$|[（(])/u.test(currentHeading);
+      const assertion=/(?:存在する|同値である|成り立つ|拡張できる|持つ。|である。)/u.test(line);
+      if (headingFormal && assertion) {
+        quotes.push(`${rel}:${i+1}: [${currentHeading}] ${line.trim()}`);
+        perFile.set(rel,(perFile.get(rel)||0)+1);
+      }
+    }
   }
 }
-console.log(`CANDIDATES=${rows.length}`);
-for (const r of rows) console.log(r);
+
+console.log(`STRONG_DEFINITION_CANDIDATES=${strong.length}`);
+for (const r of strong) console.log(r);
+console.log(`\nUNLABELED_FORMAL_QUOTES=${quotes.length}`);
+for (const r of quotes) console.log(r);
+console.log('\nCOUNTS_BY_FILE');
+for (const [file,n] of [...perFile].sort((a,b)=>b[1]-a[1] || a[0].localeCompare(b[0]))) console.log(`${n}\t${file}`);
