@@ -1,0 +1,110 @@
+{
+  "sections": [
+    {
+      "name": "入口",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md",
+        "textbook/volumes/00_foundations/F0_01_統計のための微積分_線形代数_答案記法/index.md",
+        "textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md"
+      ]
+    },
+    {
+      "name": "DREAM THEATER 本編",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md",
+        "textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md",
+        "textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md",
+        "textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md",
+        "textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md",
+        "textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md",
+        "textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md",
+        "textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md",
+        "textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md",
+        "textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md",
+        "textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md",
+        "textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md",
+        "textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md",
+        "textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md",
+        "textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md",
+        "textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md",
+        "textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md",
+        "textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md",
+        "textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md",
+        "textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md",
+        "textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md",
+        "textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md",
+        "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",
+        "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md"
+      ]
+    },
+    {
+      "name": "確率論",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00P_確率論_測度論から統計理論へ/index.md",
+        "textbook/volumes/00_foundations/F0_00P1_確率空間_確率変数_分布/index.md",
+        "textbook/volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md",
+        "textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md",
+        "textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md",
+        "textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md",
+        "textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md",
+        "textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md"
+      ]
+    },
+    {
+      "name": "Encore II",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/index.md",
+        "textbook/volumes/00_foundations/F0_00H1_常微分方程式_線形系_行列指数/index.md",
+        "textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md",
+        "textbook/volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md",
+        "textbook/volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md",
+        "textbook/volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md",
+        "textbook/volumes/00_foundations/F0_00PDE2_波動方程式_Laplace方程式_変数分離/index.md",
+        "textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md"
+      ]
+    },
+    {
+      "name": "Encore III",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md",
+        "textbook/volumes/00_foundations/F0_00DS1_Schwartz超関数_テスト関数/index.md",
+        "textbook/volumes/00_foundations/F0_00DS2_超関数微分_弱微分/index.md",
+        "textbook/volumes/00_foundations/F0_00SOB1_Sobolev空間_Wkp_Hk/index.md",
+        "textbook/volumes/00_foundations/F0_00SOB2_H01_Poincare_trace/index.md",
+        "textbook/volumes/00_foundations/F0_00WK1_弱形式_変分形式/index.md",
+        "textbook/volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/index.md",
+        "textbook/volumes/00_foundations/F0_00WK3_楕円型PDE_Galerkin_FEM/index.md"
+      ]
+    },
+    {
+      "name": "Encore IV",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md",
+        "textbook/volumes/00_foundations/F0_00SP1_確率過程_filtration_stopping/index.md",
+        "textbook/volumes/00_foundations/F0_00SP2_martingale_optional_stopping/index.md",
+        "textbook/volumes/00_foundations/F0_00SP3_Brown運動_Gaussian過程_二次変分/index.md",
+        "textbook/volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md",
+        "textbook/volumes/00_foundations/F0_00SP5_generator_Kolmogorov_Fokker_Planck/index.md",
+        "textbook/volumes/00_foundations/F0_00TS1_定常過程_Hilbert予測_Wold/index.md",
+        "textbook/volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md",
+        "textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/index.md"
+      ]
+    },
+    {
+      "name": "Encore V",
+      "paths": [
+        "textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md",
+        "textbook/volumes/00_foundations/F0_00NA1_浮動小数点_誤差_条件数_安定性/index.md",
+        "textbook/volumes/00_foundations/F0_00NA2_数値線形代数_疎行列_CG_前処理/index.md",
+        "textbook/volumes/00_foundations/F0_00NA3_補間_数値微分_数値積分/index.md",
+        "textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Runge_Kutta_安定性/index.md",
+        "textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/index.md",
+        "textbook/volumes/00_foundations/F0_00MC1_Monte_Carlo積分_LLN_CLT_誤差/index.md",
+        "textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md",
+        "textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md",
+        "textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md",
+        "textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md"
+      ]
+    }
+  ]
+}
