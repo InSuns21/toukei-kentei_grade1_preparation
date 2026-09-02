@@ -177,13 +177,13 @@ $$
 - Level: A
 - 目安時間: 10分
 
-$K=\\mathbb R_+^m$ について $K^*=K$ を示せ。
+$K=\mathbb R_+^m$ について $K^*=K$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\\lambda\\in K^*$ なら標準基底 $e_i\\in K$ により $\\lambda_i\\ge0$。逆に $\\lambda,k\\ge0$ なら $\\lambda^Tk\\ge0$。
+$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
 #### 本番答案
-$\\lambda\\in K^*$ なら標準基底 $e_i\\in K$ により $\\lambda_i\\ge0$。逆に $\\lambda,k\\ge0$ なら $\\lambda^Tk\\ge0$。
+$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -195,13 +195,13 @@ $\\lambda\\in K^*$ なら標準基底 $e_i\\in K$ により $\\lambda_i\\ge0$。
 - Level: B
 - 目安時間: 15分
 
-$C=\\{x:a^Tx\\le b\\}$ の境界点 $x$ で $T_C(x)=\\{d:a^Td\\le0\\}$ とそのpolarを求めよ。
+$C=\{x:a^Tx\le b\}$ の境界点 $x$ で $T_C(x)=\{d:a^Td\le0\}$ とそのpolarを求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-一次的に実行可能なのは $a^Td\\le0$。この半空間錐のpolarは $\\{\\lambda a:\\lambda\\ge0\\}$ で、これは $N_C(x)$ に一致する。
+一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
 #### 本番答案
-一次的に実行可能なのは $a^Td\\le0$。この半空間錐のpolarは $\\{\\lambda a:\\lambda\\ge0\\}$ で、これは $N_C(x)$ に一致する。
+一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点

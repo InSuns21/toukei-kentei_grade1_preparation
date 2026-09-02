@@ -390,13 +390,13 @@ $$
 - Level: A
 - 目安時間: 10分
 
-Hilbert空間 $H$ 上の $f(x)=\\frac12\\|x\\|^2$ について $Df(x)[h]$ を求めよ。
+Hilbert空間 $H$ 上の $f(x)=\frac12\|x\|^2$ について $Df(x)[h]$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-展開 $f(x+h)-f(x)=\\langle x,h\\rangle+\\frac12\\|h\\|^2$ より $Df(x)[h]=\\langle x,h\\rangle$。残差は $O(\\|h\\|^2)=o(\\|h\\|)$。
+展開 $f(x+h)-f(x)=\langle x,h\rangle+\frac12\|h\|^2$ より $Df(x)[h]=\langle x,h\rangle$。残差は $O(\|h\|^2)=o(\|h\|)$。
 #### 本番答案
-展開 $f(x+h)-f(x)=\\langle x,h\\rangle+\\frac12\\|h\\|^2$ より $Df(x)[h]=\\langle x,h\\rangle$。残差は $O(\\|h\\|^2)=o(\\|h\\|)$。
+展開 $f(x+h)-f(x)=\langle x,h\rangle+\frac12\|h\|^2$ より $Df(x)[h]=\langle x,h\rangle$。残差は $O(\|h\|^2)=o(\|h\|)$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -408,13 +408,13 @@ Hilbert空間 $H$ 上の $f(x)=\\frac12\\|x\\|^2$ について $Df(x)[h]$ を求
 - Level: B
 - 目安時間: 15分
 
-有界線形作用素 $T:X\\to Y$ に対し $\\|Tx-Ty\\|\\le\\|T\\|\\|x-y\\|$ を示し、連続性を結論せよ。
+有界線形作用素 $T:X\to Y$ に対し $\|Tx-Ty\|\le\|T\|\|x-y\|$ を示し、連続性を結論せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-線形性より $Tx-Ty=T(x-y)$。作用素ノルムの定義から $\\|T(x-y)\\|\\le\\|T\\|\\|x-y\\|$。従ってTはLipschitz連続。
+線形性より $Tx-Ty=T(x-y)$。作用素ノルムの定義から $\|T(x-y)\|\le\|T\|\|x-y\|$。従ってTはLipschitz連続。
 #### 本番答案
-線形性より $Tx-Ty=T(x-y)$。作用素ノルムの定義から $\\|T(x-y)\\|\\le\\|T\\|\\|x-y\\|$。従ってTはLipschitz連続。
+線形性より $Tx-Ty=T(x-y)$。作用素ノルムの定義から $\|T(x-y)\|\le\|T\|\|x-y\|$。従ってTはLipschitz連続。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点

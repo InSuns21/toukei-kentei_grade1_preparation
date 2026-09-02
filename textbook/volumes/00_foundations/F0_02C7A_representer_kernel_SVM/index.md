@@ -496,13 +496,13 @@ SVMのkernelは最後に突然追加された計算テクニックではあり�
 - Level: A
 - 目安時間: 10分
 
-$S=\\operatorname{span}\\{K_{x_i}\\}$、$f_\\perp\\in S^\\perp$ とする。$f_\\perp(x_i)=0$ を示せ。
+$S=\operatorname{span}\{K_{x_i}\}$、$f_\perp\in S^\perp$ とする。$f_\perp(x_i)=0$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-再生性より $f_\\perp(x_i)=\\langle f_\\perp,K_{x_i}\\rangle=0$。
+再生性より $f_\perp(x_i)=\langle f_\perp,K_{x_i}\rangle=0$。
 #### 本番答案
-再生性より $f_\\perp(x_i)=\\langle f_\\perp,K_{x_i}\\rangle=0$。
+再生性より $f_\perp(x_i)=\langle f_\perp,K_{x_i}\rangle=0$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -514,13 +514,13 @@ $S=\\operatorname{span}\\{K_{x_i}\\}$、$f_\\perp\\in S^\\perp$ とする。$f_\
 - Level: B
 - 目安時間: 15分
 
-Hilbert空間SVMのstationarityから $w=\\sum_i\\alpha_i y_i\\varphi(x_i)$ が出る理由を説明せよ。
+Hilbert空間SVMのstationarityから $w=\sum_i\alpha_i y_i\varphi(x_i)$ が出る理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-$w$ 方向の微分を0とすると $\\langle w-\\sum_i\\alpha_i y_i\\varphi(x_i),h\\rangle=0$ が全hで成立。内積の非退化性より括弧内が0。
+$w$ 方向の微分を0とすると $\langle w-\sum_i\alpha_i y_i\varphi(x_i),h\rangle=0$ が全hで成立。内積の非退化性より括弧内が0。
 #### 本番答案
-$w$ 方向の微分を0とすると $\\langle w-\\sum_i\\alpha_i y_i\\varphi(x_i),h\\rangle=0$ が全hで成立。内積の非退化性より括弧内が0。
+$w$ 方向の微分を0とすると $\langle w-\sum_i\alpha_i y_i\varphi(x_i),h\rangle=0$ が全hで成立。内積の非退化性より括弧内が0。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点

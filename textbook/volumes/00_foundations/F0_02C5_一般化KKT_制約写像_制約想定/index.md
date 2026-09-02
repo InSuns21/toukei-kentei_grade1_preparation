@@ -298,13 +298,13 @@ $$
 - Level: A
 - 目安時間: 10分
 
-$g_i(x)\\le0$ $(i=1,\\dots,m)$ を一つの錐制約として書け。
+$g_i(x)\le0$ $(i=1,\dots,m)$ を一つの錐制約として書け。
 
 <!-- solution-start -->
 #### 詳細解答
-$G(x)=(g_1(x),\\dots,g_m(x))$、$K=\\mathbb R_+^m$ と置けば $G(x)\\in-K$。双対乗数は $\\lambda\\in K^*=\\mathbb R_+^m$。
+$G(x)=(g_1(x),\dots,g_m(x))$、$K=\mathbb R_+^m$ と置けば $G(x)\in-K$。双対乗数は $\lambda\in K^*=\mathbb R_+^m$。
 #### 本番答案
-$G(x)=(g_1(x),\\dots,g_m(x))$、$K=\\mathbb R_+^m$ と置けば $G(x)\\in-K$。双対乗数は $\\lambda\\in K^*=\\mathbb R_+^m$。
+$G(x)=(g_1(x),\dots,g_m(x))$、$K=\mathbb R_+^m$ と置けば $G(x)\in-K$。双対乗数は $\lambda\in K^*=\mathbb R_+^m$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -316,13 +316,13 @@ $G(x)=(g_1(x),\\dots,g_m(x))$、$K=\\mathbb R_+^m$ と置けば $G(x)\\in-K$。�
 - Level: B
 - 目安時間: 15分
 
-$X=\\mathbb R^p,Y=\\mathbb R^m,K=\\mathbb R_+^m$ として一般化stationarityを通常のJacobian表記へ戻せ。
+$X=\mathbb R^p,Y=\mathbb R^m,K=\mathbb R_+^m$ として一般化stationarityを通常のJacobian表記へ戻せ。
 
 <!-- solution-start -->
 #### 詳細解答
-Riesz同一視と随伴=転置から $Df+DG^*\\lambda=0$ は $\\nabla f+J_G^T\\lambda=0$ になる。$K^*=K$ から $\\lambda_i\\ge0$、相補性から $\\lambda_i g_i=0$。
+Riesz同一視と随伴=転置から $Df+DG^*\lambda=0$ は $\nabla f+J_G^T\lambda=0$ になる。$K^*=K$ から $\lambda_i\ge0$、相補性から $\lambda_i g_i=0$。
 #### 本番答案
-Riesz同一視と随伴=転置から $Df+DG^*\\lambda=0$ は $\\nabla f+J_G^T\\lambda=0$ になる。$K^*=K$ から $\\lambda_i\\ge0$、相補性から $\\lambda_i g_i=0$。
+Riesz同一視と随伴=転置から $Df+DG^*\lambda=0$ は $\nabla f+J_G^T\lambda=0$ になる。$K^*=K$ から $\lambda_i\ge0$、相補性から $\lambda_i g_i=0$。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点

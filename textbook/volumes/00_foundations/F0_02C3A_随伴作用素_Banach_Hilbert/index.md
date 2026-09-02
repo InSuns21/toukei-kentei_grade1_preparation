@@ -276,13 +276,13 @@ $$
 - Level: A
 - 目安時間: 10分
 
-$T(x)=Ax$ をEuclid空間間の線形写像とする。随伴が $A^{\\mathsf T}$ で表されることを示せ。
+$T(x)=Ax$ をEuclid空間間の線形写像とする。随伴が $A^{\mathsf T}$ で表されることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\\langle Ax,y\\rangle=x^{\\mathsf T}A^{\\mathsf T}y=\\langle x,A^{\\mathsf T}y\\rangle$ なのでHilbert随伴は $A^{\\mathsf T}$。
+$\langle Ax,y\rangle=x^{\mathsf T}A^{\mathsf T}y=\langle x,A^{\mathsf T}y\rangle$ なのでHilbert随伴は $A^{\mathsf T}$。
 #### 本番答案
-$\\langle Ax,y\\rangle=x^{\\mathsf T}A^{\\mathsf T}y=\\langle x,A^{\\mathsf T}y\\rangle$ なのでHilbert随伴は $A^{\\mathsf T}$。
+$\langle Ax,y\rangle=x^{\mathsf T}A^{\mathsf T}y=\langle x,A^{\mathsf T}y\rangle$ なのでHilbert随伴は $A^{\mathsf T}$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -294,13 +294,13 @@ $\\langle Ax,y\\rangle=x^{\\mathsf T}A^{\\mathsf T}y=\\langle x,A^{\\mathsf T}y\
 - Level: B
 - 目安時間: 15分
 
-$(Tf)(s)=\\int K(s,t)f(t)dt$ のHilbert随伴を、積分順序を交換できると仮定して求めよ。
+$(Tf)(s)=\int K(s,t)f(t)dt$ のHilbert随伴を、積分順序を交換できると仮定して求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\\langle Tf,g\\rangle=\\int f(t)[\\int K(s,t)g(s)ds]dt$ より $(T^\\dagger g)(t)=\\int K(s,t)g(s)ds$。
+$\langle Tf,g\rangle=\int f(t)[\int K(s,t)g(s)ds]dt$ より $(T^\dagger g)(t)=\int K(s,t)g(s)ds$。
 #### 本番答案
-$\\langle Tf,g\\rangle=\\int f(t)[\\int K(s,t)g(s)ds]dt$ より $(T^\\dagger g)(t)=\\int K(s,t)g(s)ds$。
+$\langle Tf,g\rangle=\int f(t)[\int K(s,t)g(s)ds]dt$ より $(T^\dagger g)(t)=\int K(s,t)g(s)ds$。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点

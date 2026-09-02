@@ -487,9 +487,9 @@ $K(x,z)=x^Tz$ がPSD kernelであることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-任意の係数$c_i$について $\\sum_{ij}c_ic_jx_i^Tx_j=\\|\\sum_i c_ix_i\\|^2\\ge0$。
+任意の係数$c_i$について $\sum_{ij}c_ic_jx_i^Tx_j=\|\sum_i c_ix_i\|^2\ge0$。
 #### 本番答案
-任意の係数$c_i$について $\\sum_{ij}c_ic_jx_i^Tx_j=\\|\\sum_i c_ix_i\\|^2\\ge0$。
+任意の係数$c_i$について $\sum_{ij}c_ic_jx_i^Tx_j=\|\sum_i c_ix_i\|^2\ge0$。
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
@@ -501,13 +501,13 @@ $K(x,z)=x^Tz$ がPSD kernelであることを示せ。
 - Level: B
 - 目安時間: 15分
 
-RKHSで $\\|\\delta_x\\|=\\sqrt{K(x,x)}$ を示せ。
+RKHSで $\|\delta_x\|=\sqrt{K(x,x)}$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-Riesz表現で $\\delta_x(f)=\\langle f,K_x\\rangle$ なので $\\|\\delta_x\\|=\\|K_x\\|$。さらに $\\|K_x\\|^2=K(x,x)$。
+Riesz表現で $\delta_x(f)=\langle f,K_x\rangle$ なので $\|\delta_x\|=\|K_x\|$。さらに $\|K_x\|^2=K(x,x)$。
 #### 本番答案
-Riesz表現で $\\delta_x(f)=\\langle f,K_x\\rangle$ なので $\\|\\delta_x\\|=\\|K_x\\|$。さらに $\\|K_x\\|^2=K(x,x)$。
+Riesz表現で $\delta_x(f)=\langle f,K_x\rangle$ なので $\|\delta_x\|=\|K_x\|$。さらに $\|K_x\|^2=K(x,x)$。
 #### 採点基準（20点）
 - 方針: 5点
 - 中心となる導出: 11点
