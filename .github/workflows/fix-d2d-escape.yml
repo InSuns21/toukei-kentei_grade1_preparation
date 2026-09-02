@@ -1,0 +1,37 @@
+name: Fix D2D escapes
+
+on:
+  push:
+    branches:
+      - feat/f0-batch2-lebesgue-integration-foundations
+    paths:
+      - '.github/workflows/fix-d2d-escape.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch2-lebesgue-integration-foundations
+      - name: Fix escaped frac and terminology
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = 'textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md';
+          let text = fs.readFileSync(path, 'utf8');
+          text = text.replace(/\frac/g, '\\frac');
+          text = text.replace('しかしCauchy列が必ず', 'しかしコーシー列が必ず');
+          fs.writeFileSync(path, text);
+          NODE
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: repair D2D math escapes and terminology'
+          git push
