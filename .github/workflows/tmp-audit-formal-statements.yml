@@ -1,0 +1,19 @@
+name: Temporary formal statement markup audit
+
+on:
+  push:
+    branches:
+      - refactor/formal-statement-panels
+    paths:
+      - 'scripts/tmp-audit-formal-statements.mjs'
+      - '.github/workflows/tmp-audit-formal-statements.yml'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-audit-formal-statements.mjs
