@@ -12,6 +12,7 @@
     "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "audit:textbook-granularity": "node scripts/audit_textbook_granularity.mjs",
     "audit:proof-pedagogy": "node scripts/audit-proof-pedagogy.mjs",
+    "audit:formalism-pedagogy": "node scripts/audit-formalism-pedagogy.mjs",
     "audit:terminology": "node scripts/audit_terminology.mjs",
     "validate:terminology": "node scripts/audit_terminology.mjs --strict",
     "validate:terminology:changed": "node scripts/audit_terminology.mjs --strict --changed-only",
