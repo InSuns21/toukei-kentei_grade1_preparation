@@ -341,3 +341,5 @@ $$
 }.
 $$`);
 replaceOnce(d, `- Cauchy–Schwarz: 6点\n- 2と$\\infty$の上側評価: 4点`, `- $\\|x\\|_1\\le p\\|x\\|_\\infty$ の評価: 6点\n- 最後の比較: 4点`);
+
+// trigger
