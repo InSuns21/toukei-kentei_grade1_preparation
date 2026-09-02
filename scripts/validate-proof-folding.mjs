@@ -26,8 +26,16 @@ function isProofHeading(line) {
   const m = /^(#{2,6})\s+(.+?)\s*$/.exec(line);
   if (!m) return false;
   const title = normalizeTitle(m[2]);
-  return /^(?:完全)?証明(?:\s*(?:[（(].*[）)]|[:：].*))?$/u.test(title)
-    || /^proof(?:\s*(?:[（(].*[）)]|[:：].*))?$/iu.test(title);
+  const unnumbered = title.replace(/^\d+(?:\.\d+)*(?:[.)．])?\s*/u, '');
+  return /^(?:完全)?証明(?:\s*(?:[（(].*[）)]|[:：].*))?$/u.test(unnumbered)
+    || /^proof(?:\s*(?:[（(].*[）)]|[:：].*))?$/iu.test(unnumbered)
+    || /(?:^|.+)(?:完全)?証明(?:\s*[:：].*)?$/u.test(unnumbered);
+}
+
+function isProofCompletionLine(line) {
+  const plain = line.replace(/^\s*>\s?/, '').trim();
+  return /(?:これで|以上で|よって).{0,40}(?:証明されました|証明が完成|証明できました|証明した|示されました)/u.test(plain)
+    || /(?:\\square|□)\s*$/u.test(plain);
 }
 
 function isProofLabel(line) {
@@ -117,6 +125,10 @@ for (const file of walk(ROOT)) {
 
     if (proofLike && proofDepth === 0 && solutionDepth === 0) {
       errors.push(`${rel}:${lineNo}: visible proof section found outside a collapsible proof block`);
+    }
+
+    if (isProofCompletionLine(line) && proofDepth === 0 && solutionDepth === 0) {
+      errors.push(`${rel}:${lineNo}: proof-completion prose found outside a collapsible proof block`);
     }
   }
 
