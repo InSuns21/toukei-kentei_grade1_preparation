@@ -70,7 +70,24 @@ P\left(\max_{m\le k\le n}\left|\sum_{j=m}^kZ_j\right|>\varepsilon\right)
 \le\frac1{\varepsilon^2}\sum_{j=m}^n\operatorname{Var}(Z_j).
 $$
 
-分散tailは0へ行くので、$m_r$ を十分速く取って右辺を可算和可能にできます。Borel--Cantelliを適用すると部分和列はa.s. Cauchyとなり、実数の完備性から収束します。
+ここで $\varepsilon_r=2^{-r}$ と置き、分散tailが0へ行くことから $m_r$ を
+
+$$
+\sum_{j=m_r}^{\infty}\operatorname{Var}(Z_j)\le 2^{-3r}
+$$
+
+となるように選びます。最大不等式を $\varepsilon_r$ に適用すると
+
+$$
+P\left(
+\sup_{k\ge m_r}
+\left|\sum_{j=m_r}^k Z_j\right|>2^{-r}
+\right)
+\le
+2^{2r}2^{-3r}=2^{-r}.
+$$
+
+右辺は $r$ について総和可能なのでBorel--Cantelliより、a.s.ある $r_0$ 以降はtail部分和の振幅が $2^{-r}$ 以下です。従って部分和列はa.s. Cauchyとなり、実数の完備性から収束します。
 
 ここで
 

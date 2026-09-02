@@ -61,9 +61,43 @@ $$\Delta_n=\frac1{\sqrt n}\sum_{i=1}^ns_{\theta_0}(X_i)$$
 
 ---
 
-## 5. central sequenceのCLT
+## 5. central sequenceのCLTとCramér--Wold
 
-QMDからscoreは平均0、共分散 $I(\theta_0)$ を持つので、P6Aの多変量版CLTにより
+scoreがベクトルなので、P6Aの1変量CLTをそのまま一言で「多変量版」と呼ばず、**Cramér--Wold device** で橋を架けます。
+
+### Cramér--Wold device
+
+$Y_n,Y$ が $\mathbb R^d$ 値確率ベクトルのとき
+
+$$
+Y_n\Rightarrow Y
+\quad\Longleftrightarrow\quad
+ a^TY_n\Rightarrow a^TY
+\qquad(\forall a\in\mathbb R^d)
+$$
+
+です。直感的には、すべての1次元射影の分布が分かれば多変量分布が決まるという定理です。特性関数で見れば
+
+$$
+\varphi_{Y_n}(t)=E[e^{it^TY_n}]
+$$
+
+は $t^TY_n$ の1変量特性関数を点 $1$ で評価したものなので、P6のLévy連続性定理の多変量版と対応します。
+
+任意の $a\in\mathbb R^d$ について
+
+$$
+a^T\Delta_n
+=\frac1{\sqrt n}\sum_{i=1}^n a^Ts_{\theta_0}(X_i).
+$$
+
+これは平均0、分散 $a^TI(\theta_0)a$ のiidスカラー和なのでP6AのCLTから
+
+$$
+a^T\Delta_n\Rightarrow N(0,a^TI(\theta_0)a).
+$$
+
+Cramér--Woldにより
 
 $$\boxed{\Delta_n\Rightarrow N(0,I(\theta_0))}.$$
 

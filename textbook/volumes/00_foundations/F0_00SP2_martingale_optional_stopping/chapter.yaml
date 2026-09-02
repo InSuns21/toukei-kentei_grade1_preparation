@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00SP1
-  - F0-00P3
+  - F0-00P3A
 official_scope: []
 learning_objectives:
   - martingaleを条件付き期待値で定義できる
