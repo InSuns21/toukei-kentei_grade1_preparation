@@ -155,6 +155,8 @@ $$
 
 ---
 
+<a id="thm-borel-cantelli-1"></a>
+
 ## 4. Borel--Cantelli第1補題
 
 事象列 $A_n$ が

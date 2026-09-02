@@ -43,7 +43,7 @@ P7B QMD・LAN
 上は通読しやすい順番です。machine-readable prerequisiteは必要な数学だけに絞ります。
 
 - P6「特性関数・Lévy」は強大数則を必要としない。標準通読ではP5の後だが、必須前提にはしない。
-- P6Aの独立同分布 中心極限定理も強大数則を証明に使わない。
+- [P6Aの独立同分布 中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)も強大数則を証明に使わない。
 - P5Aの一般強大数則はheavy-tailまで追う読者向けで、中心極限定理へ進むための必須駅ではない。
 - P7B QMD/LANはP7Aの最尤推定量論を必須にせず、P7 + P6A + L2基礎から読める。
 - P3BはEncore IVの時系列予測に重要だが、確率過程のfiltrationへ進むだけならP3Aまででよい。
@@ -72,4 +72,4 @@ P7B QMD・LAN
 - empirical processによる一般M-estimator理論
 - Le Cam第三補題・convolution theorem・local asymptotic minimax theorem
 
-一方、旧P5で名前だけ登場していた **Kolmogorov収束定理とKronecker補題はP5Aで証明を閉じました**。
+一方、旧P5で名前だけ登場していた **[Kolmogorov収束定理](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#thm-kolmogorov-convergence)と[Kronecker補題](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#thm-kronecker)はP5Aで証明を閉じました**。

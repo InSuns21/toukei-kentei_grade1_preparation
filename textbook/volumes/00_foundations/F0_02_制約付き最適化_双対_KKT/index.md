@@ -12,9 +12,9 @@
 
 まで進みます。
 
-KKTの4条件を「なぜこの形になるのか」まで導出したい場合は、発展補講 [F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) を参照してください。局所最適性から接錐・polar cone・Farkasの補題を経て、停留条件・双対実行可能性・相補性が現れるところまで示しています。
+KKTの4条件を「なぜこの形になるのか」まで導出したい場合は、発展補講 [F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md#ref-kkt-derivation) を参照してください。局所最適性から接錐・polar cone・Farkasの補題を経て、停留条件・双対実行可能性・相補性が現れるところまで示しています。
 
-さらに **Farkasの補題自体の出所**、分離超平面定理の証明、SVMの線形分離・凸包・最大マージンとのつながりまで追う場合は、[F0-02B 分離超平面定理・Farkasの補題・SVM](../F0_02B_分離超平面定理_Farkas_SVM/index.md) を参照してください。
+さらに **Farkasの補題自体の出所**、分離超平面定理の証明、SVMの線形分離・凸包・最大マージンとのつながりまで追う場合は、[F0-02B 分離超平面定理・Farkasの補題・SVM](../F0_02B_分離超平面定理_Farkas_SVM/index.md#ref-farkas-from-separation) を参照してください。
 
 ---
 
@@ -66,6 +66,8 @@ $$
 ここでは不等式を $g_i\le0$ の向きへ統一します。
 
 ---
+
+<a id="ref-duality-construction"></a>
 
 ## 2. 不等式制約のLagrangian
 
@@ -199,11 +201,13 @@ $$
 
 ---
 
+<a id="ref-kkt-overview"></a>
+
 ## 5. KKT条件は何をまとめたものか
 
 最適解 $\boldsymbol x^*$ と対応する乗数 $\boldsymbol\alpha^*,\boldsymbol\nu^*$ では、次の4種類の条件を同時に満たすことを考えます。
 
-ここではまずKKT条件を「使える形」として整理します。この4条件そのものを局所最適性から導く流れは、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) で詳しく扱います。
+ここではまずKKT条件を「使える形」として整理します。この4条件そのものを局所最適性から導く流れは、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md#ref-kkt-derivation) で詳しく扱います。
 
 ### 5.1 主実行可能性
 
@@ -506,9 +510,9 @@ $$
 
 SVMでの具体的な式展開は [E1-04 プロビット・非線形回帰・SVM](../../05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md) の「SVMの最適化」で扱います。
 
-KKT条件自体の理論的な出所を追う場合は、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) へ進んでください。
+KKT条件自体の理論的な出所を追う場合は、[F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md#ref-kkt-derivation) へ進んでください。
 
-Farkasの補題をさらに分離超平面定理から導き、SVMの「線形分離可能 ⇔ 正負クラスの凸包が非交差」「最大マージン = 凸包間最短距離」という幾何までつなげる場合は、[F0-02B 分離超平面定理・Farkasの補題・SVM](../F0_02B_分離超平面定理_Farkas_SVM/index.md) へ進んでください。
+Farkasの補題をさらに分離超平面定理から導き、SVMの「線形分離可能 ⇔ 正負クラスの凸包が非交差」「最大マージン = 凸包間最短距離」という幾何までつなげる場合は、[F0-02B 分離超平面定理・Farkasの補題・SVM](../F0_02B_分離超平面定理_Farkas_SVM/index.md#ref-farkas-from-separation) へ進んでください。
 
 ---
 
@@ -572,5 +576,5 @@ $q=\inf_zL(z,\alpha,\nu)\le L(x,\alpha,\nu)\le f(x)$。従って双対側でsup�
 - KKT条件の4要素を、主実行可能性・双対実行可能性・停留条件・相補性として書ける。
 - $g_i<0$ なら $\alpha_i=0$ となる意味を説明できる。
 - SVMで $\alpha_i>0$ の点がサポートベクトルになる理由を相補性から説明できる。
-- 4条件の導出そのものを追う必要があるとき、F0-02Aの接錐・polar cone・Farkasの補講へ辿れる。
-- Farkasの補題の証明や分離超平面定理・SVMの凸包幾何まで必要なとき、F0-02Bへ辿れる。
+- 4条件の導出そのものを追う必要があるとき、[F0-02Aの接錐・polar cone・Farkasの補講](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md#ref-kkt-derivation)へ辿れる。
+- Farkasの補題の証明や分離超平面定理・SVMの凸包幾何まで必要なとき、[F0-02B](../F0_02B_分離超平面定理_Farkas_SVM/index.md#ref-farkas-from-separation)へ辿れる。

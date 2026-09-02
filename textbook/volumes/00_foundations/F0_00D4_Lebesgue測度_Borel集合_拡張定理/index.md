@@ -468,6 +468,8 @@ $$
 
 ---
 
+<a id="thm-caratheodory-extension"></a>
+
 ## 14. Carathéodory拡張定理
 
 Carathéodory拡張定理は、大まかに次を述べます。

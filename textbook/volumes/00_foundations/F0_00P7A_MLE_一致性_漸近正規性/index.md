@@ -72,7 +72,7 @@ $$
 =I(\theta_0).
 $$
 
-したがって [P6Aの中心極限定理](../F0_00P6A_iid_中心極限定理/index.md) から
+したがって [P6Aの中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) から
 
 $$
 \boxed{

@@ -116,6 +116,8 @@ $$
 
 ---
 
+<a id="thm-convergent-implies-cauchy"></a>
+
 ## 2. 収束列は必ずコーシー列
 
 > **命題（収束列はコーシー列）**  
@@ -257,7 +259,7 @@ $$
 q_n\to\sqrt2.
 $$
 
-前節の命題より $(q_n)$ はコーシー列です。しかし $\sqrt2\notin\mathbb Q$ なので、$\mathbb Q$ の中にはこの列の極限がありません。
+[前節の「収束列はコーシー列」](#thm-convergent-implies-cauchy)より $(q_n)$ はコーシー列です。しかし $\sqrt2\notin\mathbb Q$ なので、$\mathbb Q$ の中にはこの列の極限がありません。
 
 したがって
 

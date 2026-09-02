@@ -102,7 +102,7 @@ $$
 
 $H$ をHilbert空間、$C\subset H$ を空でない閉凸集合、$z\notin C$ とします。
 
-F0-02C1の射影定理から最近点
+[F0-02C1AのHilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から最近点
 
 $$
 p=P_C(z)

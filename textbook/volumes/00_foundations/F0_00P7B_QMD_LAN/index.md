@@ -91,7 +91,7 @@ a^T\Delta_n
 =\frac1{\sqrt n}\sum_{i=1}^n a^Ts_{\theta_0}(X_i).
 $$
 
-これは平均0、分散 $a^TI(\theta_0)a$ の独立同分布スカラー和なのでP6Aの中心極限定理から
+これは平均0、分散 $a^TI(\theta_0)a$ の独立同分布スカラー和なので[P6Aの中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から
 
 $$
 a^T\Delta_n\Rightarrow N(0,a^TI(\theta_0)a).

@@ -260,7 +260,7 @@ $$
 
 と取ります。
 
-F0-00Eの基底延長定理により、これを $V$ の基底
+[F0-00Eの基底延長定理](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md#thm-basis-extension)により、これを $V$ の基底
 
 $$
 u_1,\dots,u_r,v_1,\dots,v_{n-r}

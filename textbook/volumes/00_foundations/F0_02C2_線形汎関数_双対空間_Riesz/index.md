@@ -415,7 +415,7 @@ $$
 
 となるように取れます。
 
-F0-02C1Aの射影定理から
+[F0-02C1AのHilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から
 
 $$
 y=P_My+u,
