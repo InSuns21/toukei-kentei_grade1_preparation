@@ -1,0 +1,35 @@
+name: Temporary formal anchor migration
+
+on:
+  push:
+    branches:
+      - fix/formal-anchors-and-definition-audit
+    paths:
+      - 'scripts/tmp-add-formal-anchors.mjs'
+      - '.github/workflows/tmp-add-formal-anchors.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/formal-anchors-and-definition-audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-add-formal-anchors.mjs
+      - name: Commit anchor migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook applied-rikou-80 statistical-mathematics
+          if git diff --cached --quiet; then
+            echo 'No anchor changes.'
+          else
+            git commit -m 'add stable anchors to formal statements'
+            git push
+          fi
