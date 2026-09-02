@@ -49,6 +49,22 @@ function resolveGeneratedTarget(sourceFile, href) {
   return { target: path.resolve(SITE, ...normalized.split('/')), fragment };
 }
 
+function visibleMarkdownLines(markdown) {
+  const out = [];
+  let inFence = false;
+  for (const line of markdown.split(/\r?\n/)) {
+    if (/^\s*```/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    // Style guides and explanatory prose can show literal Markdown links in
+    // inline code. Those are examples, not navigable links in the generated site.
+    out.push(line.replace(/`[^`]*`/g, ''));
+  }
+  return out;
+}
+
 if (!fs.existsSync(TEXTBOOK)) {
   console.error('Formal Pages reference validation failed: _site/textbook does not exist. Run after Pages assembly.');
   process.exit(1);
@@ -62,36 +78,38 @@ const siteRoot = SITE + path.sep;
 for (const file of files) {
   const rel = path.relative(SITE, file).replaceAll(path.sep, '/');
   const markdown = fs.readFileSync(file, 'utf8');
-  for (const match of markdown.matchAll(linkRe)) {
-    const href = match[2].trim();
-    if (!/#(?:thm|ref)-[a-z0-9][a-z0-9-]*/.test(href)) continue;
+  for (const line of visibleMarkdownLines(markdown)) {
+    for (const match of line.matchAll(linkRe)) {
+      const href = match[2].trim();
+      if (!/#(?:thm|ref)-[a-z0-9][a-z0-9-]*/.test(href)) continue;
 
-    let resolved;
-    try {
-      resolved = resolveGeneratedTarget(file, href);
-    } catch (error) {
-      errors.push(`${rel}: ${error.message}`);
-      continue;
-    }
-    if (!resolved) continue;
-    checked += 1;
+      let resolved;
+      try {
+        resolved = resolveGeneratedTarget(file, href);
+      } catch (error) {
+        errors.push(`${rel}: ${error.message}`);
+        continue;
+      }
+      if (!resolved) continue;
+      checked += 1;
 
-    const { target, fragment } = resolved;
-    if (target !== SITE && !target.startsWith(siteRoot)) {
-      errors.push(`${rel}: formal reference escapes generated site: ${href}`);
-      continue;
-    }
-    if (!fs.existsSync(target)) {
-      errors.push(`${rel}: formal reference target file is missing after Pages assembly: ${href}`);
-      continue;
-    }
+      const { target, fragment } = resolved;
+      if (target !== SITE && !target.startsWith(siteRoot)) {
+        errors.push(`${rel}: formal reference escapes generated site: ${href}`);
+        continue;
+      }
+      if (!fs.existsSync(target)) {
+        errors.push(`${rel}: formal reference target file is missing after Pages assembly: ${href}`);
+        continue;
+      }
 
-    const targetMarkdown = fs.readFileSync(target, 'utf8');
-    const doubleQuoted = `<a id="${fragment}"></a>`;
-    const singleQuoted = `<a id='${fragment}'></a>`;
-    if (!targetMarkdown.includes(doubleQuoted) && !targetMarkdown.includes(singleQuoted)) {
-      const targetRel = path.relative(SITE, target).replaceAll(path.sep, '/');
-      errors.push(`${rel}: #${fragment} is missing from generated target ${targetRel}`);
+      const targetMarkdown = fs.readFileSync(target, 'utf8');
+      const doubleQuoted = `<a id="${fragment}"></a>`;
+      const singleQuoted = `<a id='${fragment}'></a>`;
+      if (!targetMarkdown.includes(doubleQuoted) && !targetMarkdown.includes(singleQuoted)) {
+        const targetRel = path.relative(SITE, target).replaceAll(path.sep, '/');
+        errors.push(`${rel}: #${fragment} is missing from generated target ${targetRel}`);
+      }
     }
   }
 }
