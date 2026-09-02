@@ -153,15 +153,15 @@ D2Aへ復帰 → D2B → D2C → D2D → D2E
 ## 4. 確率論「それどこから来た？」
 
 ```text
-D2 → P1 確率空間・確率変数・分布
-D2A ─→ P2 Radon--Nikodym・密度・期待値
-D2C / D2E ─→ P3 独立・積測度・条件付き期待値
-D2B ─────────→ P4 収束・Borel--Cantelli・一様可積分性
-                 ↓
-                P5 強大数則 → P6 特性関数・CLT → P7 統計モデル・尤度・正則性
+D2 → P1 → P2 → P2A → P3 → P3A → P3B
+                           ↓
+P4 → P4A → P5 → P5A
+              │
+              └────→ P6 → P6A → P7 → P7A
+                                      └────→ P7B QMD/LAN
 ```
 
-確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、期待値をLebesgue積分として読み直します。
+密度/期待値、独立/条件付き期待値、収束/UI、有限分散/一般強大数則、特性関数/中心極限定理、正則モデル/最尤推定量/LANを独立講義へ分けました。標準通読では上の順に読めますが、P5Aは中心極限定理の必須前提ではなく、P7BもP7Aを必須前提にしません。
 
 ---
 
@@ -272,7 +272,7 @@ NA4 ODE数値解法・Runge--Kutta
 
 Encore III WK3 ─→ FEM1 mesh・basis・assembly ─┐
                                              │
-P5/P6 ─→ MC1 Monte Carlo ─→ MC2 分散削減 ───┼→ UQ1 random PDE / Monte Carlo FEM
+P5/P6A ─→ MC1 Monte Carlo ─→ MC2 分散削減 ───┼→ UQ1 random PDE / Monte Carlo FEM
                                              │                 ↓
 Encore IV SP4 ─→ SDE1 Euler--Maruyama ───────┘               MLMC
 ```
@@ -282,7 +282,7 @@ Encore IV SP4 ─→ SDE1 Euler--Maruyama ───────┘              
 - coercivity → SPD stiffness matrix → CG
 - Sturm--Liouville / 直交多項式 → Gaussian quadrature
 - weak formulation → finite element assembly
-- LLN / CLT → Monte Carlo consistency / standard error
+- 大数の法則 / 中心極限定理 → Monte Carlo consistency / standard error
 - 回帰・射影 → control variate
 - 標本抽出論 → stratified Monte Carlo
 - Itô / Brown運動 → Euler--Maruyama
@@ -312,7 +312,7 @@ Brown運動 → white noise → Schwartz超関数
 - **統計検定1級の試験対策だけ**：F0-00から通常教材へ戻る。発展補講は不要。
 - **線形代数を計算ではなく理論から復習**：E → F → E1 → E2 → F1 → F2。
 - **RKHS・関数解析**：標準通読ルートをD1以降まで進む。
-- **漸近統計の理論**：D2からP1〜P7。
+- **漸近統計の理論**：D2からP1〜P7B。
 - **Lebesgue測度って誰が作った？**：DREAM THEATER。
 - **特性関数ってFourier変換ですよね？**：Encore II。
 - **古典解がないPDEは？**：Encore III。
@@ -351,7 +351,7 @@ E → F → E1 → E2 → F1 → F2
 D1 ノルム・Banach
   ↓
 D2 → D2A → D2B → D2C → D2D → D2E
-  ├→ Probability P1 → ... → P7
+  ├→ Probability P1 → P2 → P2A → P3 → P3A → P3B → P4 → P4A → P5 → P5A → P6 → P6A → P7 → P7A → P7B
   ├→ DREAM THEATER D3 → D4 → D5 → D2Aへ復帰
   └→ G → Optimization / Functional Analysis / RKHS
 ```
