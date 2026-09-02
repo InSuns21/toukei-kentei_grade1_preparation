@@ -6,6 +6,7 @@ on:
       - fix/theorem-reference-anchor-ci
     paths:
       - 'scripts/tmp-audit-theorem-reference-links.mjs'
+      - 'scripts/validate-formal-reference-links.mjs'
       - '.github/workflows/tmp-audit-theorem-reference-links.yml'
   workflow_dispatch:
 
@@ -19,4 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node scripts/tmp-audit-theorem-reference-links.mjs
+      - name: Audit candidate references
+        run: node scripts/tmp-audit-theorem-reference-links.mjs
+      - name: Validate formal references
+        run: node scripts/validate-formal-reference-links.mjs
