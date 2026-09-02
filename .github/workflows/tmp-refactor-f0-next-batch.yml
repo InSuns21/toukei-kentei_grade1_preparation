@@ -1,0 +1,47 @@
+name: Temporary F0 pedagogy next batch
+
+on:
+  push:
+    branches:
+      - refactor/f0-proof-pedagogy-next-batch
+    paths:
+      - 'scripts/tmp-refactor-f0-next-batch.py'
+      - '.github/workflows/tmp-refactor-f0-next-batch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refactor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/f0-proof-pedagogy-next-batch
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Apply pedagogy rewrites
+        run: python3 scripts/tmp-refactor-f0-next-batch.py
+      - name: Validate textbook and Pages
+        run: |
+          npm run validate
+          npm run validate:pages
+      - name: Run pedagogy audits
+        run: |
+          npm run audit:proof-pedagogy
+          npm run audit:formalism-pedagogy
+      - name: Commit rewritten textbook pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations
+          if git diff --cached --quiet; then
+            echo 'No textbook changes.'
+          else
+            git commit -m 'rebalance next proof-heavy F0 batch and add exercises'
+            git push
+          fi
