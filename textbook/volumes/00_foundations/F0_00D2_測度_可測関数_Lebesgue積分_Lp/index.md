@@ -21,6 +21,9 @@ $$
 
 を、未定義語のまま使わないための橋です。
 
+> **標準ルートと完全基礎論ルート**  
+> この章では、標準ルートの読者のために **Lebesgue測度の存在と基本性質を既知の定理として受け入れます**。一方、「区間の長さからLebesgue測度が本当に作れることまで証明したい」場合は、D3「外測度・Carathéodory可測性」→ D4「Lebesgue測度・Borel集合・拡張定理」へ進んでください。つまりD2は積分論を使える形にする章、D3/D4はその測度を構成する章です。
+
 ---
 
 ## 1. Riemann積分では足りない場面
@@ -79,6 +82,29 @@ sigma代数は、
 を指定します。
 
 補集合と可算和で閉じているため、可算共通部分や集合差も扱えます。
+
+### 2.1 Borel σ代数
+
+実数直線 $\mathbb R$ で最も基本的なσ代数が **Borel σ代数** です。
+
+$$
+\boxed{
+\mathcal B(\mathbb R)
+:=
+\sigma(\{G\subset\mathbb R:G\text{ は開集合}\})
+}
+$$
+
+ここで $\sigma(\mathcal C)$ は、集合族 $\mathcal C$ を含む最小のσ代数を表します。したがって $\mathcal B(\mathbb R)$ は、開集合から補集合・可算和などを繰り返して作られる集合をすべて含みます。
+
+連続関数 $f:\mathbb R\to\mathbb R$ が **Borel可測** である、とは
+
+$$
+f^{-1}(B)\in\mathcal B(\mathbb R)
+\qquad(\forall B\in\mathcal B(\mathbb R))
+$$
+
+という意味です。後のD4で、Borel σ代数とLebesgue可測集合族の関係を詳しく扱います。
 
 ---
 
@@ -430,6 +456,32 @@ $$
 ---
 
 ## 14. TonelliとFubini
+
+Tonelli/Fubiniでは二つの測度空間を同時に扱うため、先に積空間の記法を定義します。
+
+### 14.0 積σ代数と積測度
+
+可測空間 $(X,\mathcal A)$ と $(Y,\mathcal B)$ に対して、長方形 $A\times B$ から生成されるσ代数
+
+$$
+\boxed{
+\mathcal A\otimes\mathcal B
+=
+\sigma\{A\times B:A\in\mathcal A,\ B\in\mathcal B\}
+}
+$$
+
+を **積σ代数** といいます。
+
+測度空間 $(X,\mathcal A,\mu)$、$(Y,\mathcal B,\nu)$ がσ有限なら、積σ代数上に積測度 $\mu\times\nu$ が一意に存在し、可測長方形について
+
+$$
+\boxed{
+(\mu\times\nu)(A\times B)=\mu(A)\nu(B)
+}
+$$
+
+を満たします。積測度の存在一意性そのものの証明は後続の証明補完対象ですが、**ここから先の $\mu\times\nu$ はこの測度を指す**と固定します。
 
 二変数関数 $f(x,y)$ を考えます。
 
