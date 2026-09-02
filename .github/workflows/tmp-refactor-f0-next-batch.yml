@@ -32,6 +32,8 @@ jobs:
           s = p.read_text()
           s = s.replace('## 10. 二つが同時には成立しない', '## 10. 両方同時には成立しない')
           s = s.replace('## 11. 少なくとも一方は成立する', '## 11. どちらか一方は必ず成立する')
+          s = s.replace("old = re.sub(r'^## 9\\. .*$', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', old, count=1, flags=re.M)", "old = old.replace('## 9. $\\\\lambda(V)=0$ なら矛盾', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', 1)")
+          s = s.replace("old = re.sub(r'^## 10\\. .*$', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', old, count=1, flags=re.M)", "old = old.replace('## 10. $\\\\lambda(V)>0$ でも矛盾', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', 1)")
           p.write_text(s)
           PY
           python3 scripts/tmp-refactor-f0-next-batch.py
