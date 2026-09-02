@@ -1,0 +1,22 @@
+name: Temporary theorem reference link audit
+
+on:
+  push:
+    branches:
+      - fix/theorem-reference-anchor-ci
+    paths:
+      - 'scripts/tmp-audit-theorem-reference-links.mjs'
+      - '.github/workflows/tmp-audit-theorem-reference-links.yml'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/theorem-reference-anchor-ci
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-audit-theorem-reference-links.mjs
