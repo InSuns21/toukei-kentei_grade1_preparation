@@ -4,7 +4,7 @@
 
 TODO: この章の役割を1〜2段落で説明する。何を扱い、後続単元へどうつながるかを、用語の列挙ではなく読者が意味をつかめる文章で書く。
 
-本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[証明の見せ方と教材導線](../../../proof-presentation-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md)、[分布・記号ガイド](../../../../references/distribution-notation-guide.md) に従います。
+本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[formal statement表示ガイド](../../../formal-statement-presentation-guide.md)、[証明の見せ方と教材導線](../../../proof-presentation-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md)、[分布・記号ガイド](../../../../references/distribution-notation-guide.md) に従います。
 
 ## この章で解けるようになる問題
 
