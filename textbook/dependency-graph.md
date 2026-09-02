@@ -21,11 +21,13 @@ F0-00
   ↓
 A → A1 → A2 → A3 → B
   ↓
-C → C1 → C2 → D → D1
+C → C1 → C2 → D
   ↓
-D2 → D2A → D2B → D2C → D2D → D2E
+E → F → E1 → E2 → F1 → F2
   ↓
-E → E1 → E2 → F → F1 → F2 → G
+D1 → D2 → D2A → D2B → D2C → D2D → D2E
+  ↓
+G
   ↓
 F0-02 → 02A → 02B → 02B1
   ↓
@@ -34,7 +36,7 @@ F0-02C1 → C1A → C2
 C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A
 ```
 
-標準通読は細かく刻む一方、局所的な必須前提は各 `chapter.yaml` を正本とする。例としてHahn--Banach本体C6はA3+C2から、RKHS本体C7はC2から読める。02AはFarkasの証明を02Bへ参照するが、02Bは02Aを必須前提としないため循環しない。C2のRiesz標準証明はC1AのHilbert射影定理を使用する。
+標準通読は細かく刻む一方、局所的な必須前提は各 `chapter.yaml` を正本とする。EはBを前提とし、D1はD+C2+Eを前提とするため、線形代数を測度論より前へ置く。例としてHahn--Banach本体C6はA3+C2から、RKHS本体C7はC2から読める。02AはFarkasの証明を02Bへ参照するが、02Bは02Aを必須前提としないため循環しない。C2のRiesz標準証明はC1AのHilbert射影定理を使用する。
 
 ---
 
