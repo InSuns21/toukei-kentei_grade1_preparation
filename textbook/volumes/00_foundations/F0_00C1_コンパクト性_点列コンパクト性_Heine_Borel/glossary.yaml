@@ -1,0 +1,14 @@
+chapter: "F0-00C1"
+terms:
+  - term: 開被覆
+    english: open cover
+    meaning: 対象集合を和集合で覆う開集合の族。
+  - term: コンパクト集合
+    english: compact set
+    meaning: 任意の開被覆から有限部分被覆を選べる集合。距離空間では点列コンパクト性と同値。
+  - term: 点列コンパクト性
+    english: sequential compactness
+    meaning: 任意の点列が集合内に極限を持つ収束部分列を持つ性質。
+  - term: Heine--Borelの定理
+    english: Heine--Borel theorem
+    meaning: R^pではコンパクトであることと閉かつ有界であることが同値であるという定理。

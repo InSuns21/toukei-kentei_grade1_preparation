@@ -233,7 +233,8 @@ D2E  L2完備性 → Hilbert空間への橋
 ```text
 Batch 0  未定義語・読者ブロッカー
 Batch 1  距離空間・compactness・completeness
-         + B/C/D の定義・例・A/B演習監査
+         + Bは一講義維持、C→C/C1/C2、D→D/D1へ粒度分割済み
+         + 各分割講義にA/B中心の演習を再配置
 Batch 2  Lebesgue積分
          + D2〜D2Eへ粒度分割し、各講義を定義・定理・例・A/B/C演習まで閉じる
 Batch 3  Lebesgue測度構成

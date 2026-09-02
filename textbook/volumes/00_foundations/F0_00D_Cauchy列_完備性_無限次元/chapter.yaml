@@ -1,36 +1,28 @@
 id: "F0-00D"
-title: "補講：Cauchy列・完備性・無限次元で何が壊れるか"
+title: "補講：コーシー列・完備距離空間"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00C
+  - F0-00C1
 official_scope: []
 learning_objectives:
-  - Cauchy列を定義し、収束列との関係を証明できる
-  - 完備距離空間とBanach空間を定義できる
+  - コーシー列を定義し、収束列との関係を証明できる
+  - 完備距離空間を定義できる
   - 実数と有理数を完備性の観点から比較できる
   - 完備空間の閉部分集合が完備であることを証明できる
-  - 有限次元で全てのノルムが同値であることを証明できる
-  - 有限次元ノルム空間の完備性を証明できる
+  - 完備な部分空間が閉集合であることを証明できる
   - コンパクト距離空間が完備であることを証明できる
-  - 無限次元で閉有界集合がコンパクトとは限らない例を説明できる
 definitions:
-  - { id: F000D-DEF-01, name: Cauchy列 }
+  - { id: F000D-DEF-01, name: コーシー列 }
   - { id: F000D-DEF-02, name: 完備距離空間 }
-  - { id: F000D-DEF-03, name: ノルム }
-  - { id: F000D-DEF-04, name: Banach空間 }
-  - { id: F000D-DEF-05, name: 同値なノルム }
-  - { id: F000D-DEF-06, name: l2空間 }
 theorems:
-  - { id: F000D-THM-01, name: 収束列はCauchy列 }
+  - { id: F000D-THM-01, name: 収束列はコーシー列 }
   - { id: F000D-THM-02, name: 完備空間の閉部分集合は完備 }
   - { id: F000D-THM-03, name: 完備な部分空間は閉集合 }
-  - { id: F000D-THM-04, name: 有限次元ノルム空間では全てのノルムが同値 }
-  - { id: F000D-THM-05, name: 有限次元ノルム空間の完備性 }
-  - { id: F000D-THM-06, name: コンパクト距離空間は完備 }
-canonical_examples: [有理数の非完備性, l2標準基底による非コンパクト性, 有限次元ノルムの比較]
-problem_patterns: [非完備性の反例, compactとcompleteの判定, 閉部分集合の完備性, ノルム比較, 無限次元非コンパクト性]
+  - { id: F000D-THM-04, name: コンパクト距離空間は完備 }
+canonical_examples: [有理数の非完備性]
+problem_patterns: [非完備性の反例, compactとcompleteの判定, 閉部分集合の完備性]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4.5, exercises: 1.75, review: 0.75 }
+exercise_counts: { level_a: 2, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.25, exercises: 1.0, review: 0.35 }
