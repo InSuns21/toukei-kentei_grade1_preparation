@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Apply pedagogy rewrites
+      - name: Apply remaining pedagogy rewrites
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -34,9 +34,28 @@ jobs:
           s = s.replace('## 11. 少なくとも一方は成立する', '## 11. どちらか一方は必ず成立する')
           s = s.replace("old = re.sub(r'^## 9\\. .*$', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', old, count=1, flags=re.M)", "old = old.replace('## 9. $\\\\lambda(V)=0$ なら矛盾', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', 1)")
           s = s.replace("old = re.sub(r'^## 10\\. .*$', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', old, count=1, flags=re.M)", "old = old.replace('## 10. $\\\\lambda(V)>0$ でも矛盾', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', 1)")
+          s = s.replace("if block.splitlines()[0].strip() not in s:", "if '## 演習' not in s:")
           p.write_text(s)
           PY
           python3 scripts/tmp-refactor-f0-next-batch.py
+          python3 - <<'PY'
+          from pathlib import Path
+          edits = {
+            'textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md': [
+              ('## 0. まず2次元で「分離」を一周する', '## 0. 例：単位円板と外の点で「分離」を一周する'),
+              ('### 9.1 まずcertificateを数値で見る', '### 9.1 例：Farkas certificateを数値で見る'),
+            ],
+            'textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md': [
+              ('## 0. 先にBernoulliモデルで全工程を見る', '## 0. 具体例：Bernoulliモデルで全工程を見る'),
+            ],
+          }
+          for name, replacements in edits.items():
+              p = Path(name)
+              s = p.read_text()
+              for old, new in replacements:
+                  s = s.replace(old, new, 1)
+              p.write_text(s)
+          PY
       - name: Validate textbook and Pages
         run: |
           npm run validate
@@ -53,6 +72,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No textbook changes.'
           else
-            git commit -m 'rebalance next proof-heavy F0 batch and add exercises'
+            git commit -m 'add concrete exercises to the next F0 audit batch'
             git push
           fi
