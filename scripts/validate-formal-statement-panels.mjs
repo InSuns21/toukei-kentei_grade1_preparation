@@ -52,7 +52,12 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         continue;
       }
 
-      if (t === '<!-- proof-start -->') proofDepth += 1;
+      if (t === '<!-- proof-start -->') {
+        if (depth > 0) {
+          errors.push(`${rel}:${lineNo}: folded proof must not start inside a formal statement panel; close formal-statement-end first`);
+        }
+        proofDepth += 1;
+      }
       if (t === '<!-- proof-end -->') proofDepth = Math.max(0, proofDepth - 1);
 
       if (t === START) {
@@ -93,6 +98,10 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
   }
 }
 
+if (panelCount !== labelCount) {
+  errors.push(`formal statement count mismatch: ${panelCount} panel(s) for ${labelCount} detected declaration(s)`);
+}
+
 const runtimeRoot = pagesMode ? path.resolve('_site') : path.resolve('pages');
 const indexPath = path.join(runtimeRoot, 'index.html');
 const rendererPath = path.join(runtimeRoot, 'math-renderer.js');
@@ -101,8 +110,13 @@ if (!fs.existsSync(indexPath)) {
   errors.push(`${path.relative(process.cwd(), indexPath)}: missing Pages index; formal statement styling cannot be verified`);
 } else {
   const html = fs.readFileSync(indexPath, 'utf8');
-  for (const needle of ['.formal-statement', 'border-left:', '--formal-statement-rule']) {
-    if (!html.includes(needle)) errors.push(`${path.relative(process.cwd(), indexPath)}: missing formal statement style token ${needle}`);
+  const styleChecks = [
+    [/--formal-statement-rule:\s*#2f6f9f\b/i, 'standard blue rule token (--formal-statement-rule: #2f6f9f)'],
+    [/\.formal-statement\s*\{[^}]*border-left:\s*[4-6]px\s+solid\s+var\(--formal-statement-rule\)/is, '4–6px formal statement left rule'],
+    [/\.formal-statement\s*>\s*blockquote\s*\{[^}]*border-left:\s*0/is, 'blockquote double-rule suppression'],
+  ];
+  for (const [pattern, label] of styleChecks) {
+    if (!pattern.test(html)) errors.push(`${path.relative(process.cwd(), indexPath)}: missing ${label}`);
   }
 }
 
@@ -110,8 +124,15 @@ if (!fs.existsSync(rendererPath)) {
   errors.push(`${path.relative(process.cwd(), rendererPath)}: missing Pages renderer; formal statement wrapping cannot be verified`);
 } else {
   const js = fs.readFileSync(rendererPath, 'utf8');
-  for (const needle of ['wrapFormalStatementBlocks', START, END, 'class="formal-statement"', 'hook.afterEach']) {
-    if (!js.includes(needle)) errors.push(`${path.relative(process.cwd(), rendererPath)}: missing formal statement runtime token ${needle}`);
+  const required = [
+    ['wrapFormalStatementBlocks', 'formal statement wrapper transform'],
+    [START, 'formal-statement-start marker'],
+    [END, 'formal-statement-end marker'],
+    ['<div class="formal-statement">$1</div>', 'formal statement wrapper output'],
+    ['hook.afterEach', 'post-Markdown wrapping hook'],
+  ];
+  for (const [needle, label] of required) {
+    if (!js.includes(needle)) errors.push(`${path.relative(process.cwd(), rendererPath)}: missing ${label} (${needle})`);
   }
 }
 
@@ -121,4 +142,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${labelCount} declaration(s), ${pageCount} page(s).`);
+console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified.`);
