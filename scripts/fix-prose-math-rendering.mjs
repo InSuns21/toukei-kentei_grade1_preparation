@@ -58,6 +58,10 @@ function moveVsComparisonToProse(source) {
   );
 }
 
+function normalizeVsInMath(source) {
+  return source.replace(/\\text\s*\{\s*vs\s*\}/gi, '\\mathrm{vs}');
+}
+
 for (const dir of scanRoots) await walk(dir);
 
 let changed = 0;
@@ -65,6 +69,7 @@ for (const file of markdownFiles) {
   const original = await readFile(file, 'utf8');
   let updated = unquoteDisplayMath(original);
   updated = moveVsComparisonToProse(updated);
+  updated = normalizeVsInMath(updated);
 
   if (file.endsWith(path.join('F0_00E2_Cauchy_Schwarz_Bessel_Parseval', 'index.md'))) {
     updated = updated.replace('この係数表示はPCA、Fourier展開、正規直交展開の原型です。', 'この係数表示は主成分分析、Fourier展開、正規直交展開の原型です。');
