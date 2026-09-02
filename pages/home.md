@@ -9,6 +9,10 @@
 - [通常教材（テキストブック）](textbook/index.md)
 - <a href="./anki/index.html" data-no-router>Ankiカード</a>
 
+> **発展：DREAM THEATER 数学講座**  
+> 測度論・Fourier解析・PDE・Sobolev空間・確率過程・FEM・Monte Carloまで、通常教材の地下に伸びた発展ルートをまとめて眺めるFacadeです。  
+> [DREAM THEATER 数学講座へ](textbook/dream-theater.md)
+
 <div class="offline-cache-card">
   <strong>オフライン学習</strong>
   <p>教材一式をこの端末に保存します。通常閲覧はオンラインの最新版を優先し、保存版が古くなっていないかもここで確認できます。</p>
