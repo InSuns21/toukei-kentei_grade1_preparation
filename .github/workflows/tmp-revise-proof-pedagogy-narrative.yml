@@ -37,6 +37,7 @@ jobs:
           p = Path('scripts/tmp-revise-proof-pedagogy-narrative.mjs')
           s = p.read_text()
           s = s.replace('\u200b', '')
+          s = s.replace('```text', '<pre>').replace('```', '</pre>')
           old = "  if (src.includes(replacement.trim().split('\\n')[0]) && src.includes(replacement.trim().split('\\n')[1] ?? '')) {\n"
           new = "  const signature = replacement.trim().split('\\n').slice(0, 4).join('\\n');\n  if (src.includes(signature)) {\n"
           if old not in s:
