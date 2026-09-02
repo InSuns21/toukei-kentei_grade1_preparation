@@ -1,0 +1,30 @@
+name: Split Probability granularity
+
+on:
+  push:
+    branches:
+      - refactor/probability-granularity
+    paths:
+      - 'scripts/split-probability-granularity.py'
+      - '.github/workflows/split-probability-granularity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/probability-granularity
+      - name: Split Probability lectures and synchronize routes
+        run: python3 scripts/split-probability-granularity.py
+      - name: Commit Probability split
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --quiet && exit 0
+          git commit -m 'refactor: split Probability lectures by learning cycle'
+          git push
