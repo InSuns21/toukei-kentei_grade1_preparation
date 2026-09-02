@@ -1,0 +1,29 @@
+name: Link DREAM THEATER quality audit
+
+on:
+  push:
+    branches:
+      - fix/f0-batch0-reader-blockers
+    paths:
+      - 'scripts/link-dream-theater-quality-audit.mjs'
+      - '.github/workflows/link-dream-theater-quality-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: fix/f0-batch0-reader-blockers
+          fetch-depth: 0
+      - run: node scripts/link-dream-theater-quality-audit.mjs
+      - run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/f0-dream-theater-proof-audit.md
+          git commit -m 'docs: integrate content and exercise audit into DREAM THEATER plan'
+          git push origin HEAD:fix/f0-batch0-reader-blockers
