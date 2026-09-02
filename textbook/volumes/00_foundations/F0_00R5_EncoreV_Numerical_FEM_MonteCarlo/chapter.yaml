@@ -3,7 +3,7 @@ title: "Encore V：Numerical Analysis, FEM & Monte Carlo"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00F
+  - F0-00F2
 learning_objectives:
   - Encore Vの数値解析・FEM・Monte Carloの依存関係を説明できる
   - FEM branchとMonte Carlo/SDE branchの合流点を説明できる
