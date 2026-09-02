@@ -6,3 +6,4 @@ text = text.replace(/^> \$$/gm, '> $$$$');
 const after = (text.match(/^> \$$/gm) || []).length;
 fs.writeFileSync(path, text);
 console.log(`blockquote single-dollar delimiters ${before} -> ${after}`);
+// trigger
