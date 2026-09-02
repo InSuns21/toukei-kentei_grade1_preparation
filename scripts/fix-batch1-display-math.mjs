@@ -14,3 +14,5 @@ for (const path of paths) {
   fs.writeFileSync(path, text);
   console.log(`${path}: standalone single-dollar delimiters ${before} -> ${after}`);
 }
+
+// trigger
