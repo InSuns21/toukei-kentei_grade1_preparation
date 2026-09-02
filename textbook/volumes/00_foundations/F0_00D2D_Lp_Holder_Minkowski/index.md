@@ -146,7 +146,7 @@ $$
 固定した $b\ge0$ に対して
 
 $$
-\varphi(a)=\frac{a^p}{p}-ab+rac{b^q}{q}
+\varphi(a)=\frac{a^p}{p}-ab+\frac{b^q}{q}
 $$
 
 と置きます。
@@ -225,7 +225,7 @@ Youngの不等式から各点で
 $$
 FG
 \le
-\frac{F^p}{p}+rac{G^q}{q}.
+\frac{F^p}{p}+\frac{G^q}{q}.
 $$
 
 積分して
@@ -233,7 +233,7 @@ $$
 $$
 \int FG\,d\mu
 \le
-\frac1p\int F^p\,d\mu+rac1q\int G^q\,d\mu
+\frac1p\int F^p\,d\mu+\frac1q\int G^q\,d\mu
 =
 \frac1p+\frac1q=1.
 $$
@@ -646,7 +646,7 @@ Cauchy--Schwarzより $\|f\|_1=\int|f|\cdot1\le\|f\|_2\|1\|_2=\|f\|_2$。
 
 ## 10. 次に進む
 
-$L^2$ はノルム空間になりました。しかしCauchy列が必ず $L^2$ 内で収束するかはまだ分かりません。
+$L^2$ はノルム空間になりました。しかしコーシー列が必ず $L^2$ 内で収束するかはまだ分かりません。
 
 次講で
 
