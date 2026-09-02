@@ -439,6 +439,88 @@ $$
 
 ---
 
+## 演習
+
+### F0-00FA1-A01 直交性から係数を読む
+
+- Level: A
+- 目安時間: 10分
+
+$$
+f(x)=2+3\cos(2x)-4\sin(3x)
+$$
+
+を $(-\pi,\pi)$ 上の $2\pi$ 周期関数とする。実Fourier係数 $a_0,a_n,b_n$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+Fourier表示 $f=a_0/2+\sum_{n\ge1}(a_n\cos nx+b_n\sin nx)$ と係数の一意性・直交性から
+
+$$
+a_0=4,\qquad a_2=3,\qquad b_3=-4,
+$$
+
+その他の $a_n,b_n$ は0。
+
+#### 本番答案
+
+$a_0=4,a_2=3,b_3=-4$、その他は0。
+
+#### 採点基準（20点）
+- 定数項: 6点
+- cosine係数: 7点
+- sine係数: 7点
+<!-- solution-end -->
+
+### F0-00FA1-B01 ParsevalからBasel和を出す
+
+- Level: B
+- 目安時間: 18分
+
+本文の
+
+$$
+x\sim2\sum_{n=1}^\infty\frac{(-1)^{n+1}}n\sin(nx)
+$$
+
+を使い、Parseval等式から
+
+$$
+\sum_{n=1}^\infty\frac1{n^2}
+$$
+
+を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$f(x)=x$ では $a_0=a_n=0$, $b_n=2(-1)^{n+1}/n$。Parsevalより
+
+$$
+\frac1\pi\int_{-\pi}^{\pi}x^2dx
+=\sum_{n=1}^\infty b_n^2.
+$$
+
+左辺は $2\pi^2/3$、右辺は $4\sum n^{-2}$。したがって
+
+$$
+\sum_{n=1}^\infty\frac1{n^2}=\frac{\pi^2}{6}.
+$$
+
+#### 本番答案
+
+$2\pi^2/3=4\sum_{n\ge1}n^{-2}$ より $\sum_{n\ge1}n^{-2}=\pi^2/6$。
+
+#### 採点基準（20点）
+- Parseval設定: 7点
+- 左辺積分: 5点
+- 係数二乗和: 5点
+- 結論: 3点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - 三角関数系の直交性を積分で確認できる。

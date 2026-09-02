@@ -437,6 +437,87 @@ $$
 
 ---
 
+## 演習
+
+### F0-00FA2-A01 $e^{-|x|}$ のFourier変換
+
+- Level: A
+- 目安時間: 12分
+
+$$
+f(x)=e^{-|x|}
+$$
+
+について、本章の規約で $\widehat f(\xi)$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+偶関数なので
+
+$$
+\widehat f(\xi)
+=2\int_0^\infty e^{-x}\cos(\xi x)dx.
+$$
+
+$\int_0^\infty e^{-(1-i\xi)x}dx=(1-i\xi)^{-1}$ の実部を取ると
+
+$$
+\int_0^\infty e^{-x}\cos(\xi x)dx=\frac1{1+\xi^2}.
+$$
+
+従って
+
+$$
+\boxed{\widehat f(\xi)=\frac{2}{1+\xi^2}}.
+$$
+
+#### 本番答案
+
+偶性より $\widehat f=2\int_0^\infty e^{-x}\cos(\xi x)dx=2/(1+\xi^2)$。
+
+#### 採点基準（20点）
+- 偶性: 5点
+- 積分計算: 10点
+- 結論: 5点
+<!-- solution-end -->
+
+### F0-00FA2-B01 Gaussianの尺度変換
+
+- Level: B
+- 目安時間: 15分
+
+$\widehat{e^{-x^2}}(\xi)=\sqrt\pi e^{-\xi^2/4}$ を既知として、尺度変換則だけを使い
+
+$$
+f_a(x)=e^{-ax^2},\qquad a>0
+$$
+
+のFourier変換を導け。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$g(x)=e^{-x^2}$ とすると $f_a(x)=g(\sqrt a\,x)$。尺度変換則から
+
+$$
+\widehat f_a(\xi)
+=\frac1{\sqrt a}\widehat g\left(\frac\xi{\sqrt a}\right)
+=\sqrt{\frac\pi a}\exp\left(-\frac{\xi^2}{4a}\right).
+$$
+
+#### 本番答案
+
+$f_a(x)=g(\sqrt a x)$ より $\widehat f_a(\xi)=a^{-1/2}\widehat g(\xi/\sqrt a)=\sqrt{\pi/a}e^{-\xi^2/(4a)}$。
+
+#### 採点基準（20点）
+- 尺度の同定: 6点
+- 変換則: 8点
+- 整理: 6点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - Fourier変換と逆変換の規約を書ける。
