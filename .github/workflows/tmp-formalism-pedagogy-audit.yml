@@ -1,0 +1,45 @@
+name: Temporary formalism pedagogy audit
+
+on:
+  push:
+    branches:
+      - audit/f0-formalism-pedagogy-round3
+    paths:
+      - 'scripts/audit-formalism-pedagogy.mjs'
+      - '.github/workflows/tmp-formalism-pedagogy-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/f0-formalism-pedagogy-round3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Generate broad pedagogy audit
+        run: |
+          node scripts/audit-formalism-pedagogy.mjs --write textbook/f0-dream-theater-formalism-pedagogy-audit.md > /tmp/formalism-audit.txt
+          sed -n '1,120p' /tmp/formalism-audit.txt
+      - name: Validate existing textbook invariants
+        run: |
+          npm run validate
+          npm run validate:pages
+      - name: Commit audit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/f0-dream-theater-formalism-pedagogy-audit.md
+          if git diff --cached --quiet; then
+            echo 'No audit changes.'
+          else
+            git commit -m 'audit hidden proofs and formalism-heavy chapters'
+            git push
+          fi
