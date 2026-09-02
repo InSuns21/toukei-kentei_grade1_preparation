@@ -21,6 +21,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Fix one-shot script quoting
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/split-f0-efg-granularity.mjs')
+          s = p.read_text()
+          s = s.replace('再編後の標準線は `E → E1 → E2 → F → F1 → F2 → G → F0-02`。', '再編後の標準線は E → E1 → E2 → F → F1 → F2 → G → F0-02。')
+          p.write_text(s)
+          PY
       - name: Split E F G lectures and synchronize routes
         run: node scripts/split-f0-efg-granularity.mjs
       - name: Commit split
