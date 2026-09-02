@@ -512,6 +512,58 @@ Farkasの補題をさらに分離超平面定理から導き、SVMの「線形�
 
 ---
 
+## 演習
+
+### F0-02-A01 KKTで境界解を求める
+
+- Level: A
+- 目安時間: 12分
+
+$$
+\min_x (x+1)^2
+\qquad\text{subject to}\qquad x\ge0
+$$
+
+を $g(x)=-x\le0$ と書き、KKT条件から最適解と乗数を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+Lagrangianは $L=(x+1)^2-\alpha x$。KKTは $x\ge0$, $\alpha\ge0$, $2(x+1)-\alpha=0$, $\alpha x=0$。制約なし解 $x=-1$ は実行不能なので境界 $x=0$。停留条件から $\alpha=2$。
+#### 本番答案
+$L=(x+1)^2-\alpha x$。KKTより $x^*=0$、$2-\alpha=0$ なので $\alpha^*=2$。
+#### 採点基準（20点）
+- 標準形とLagrangian: 5点
+- KKT 4条件: 7点
+- 境界解の決定: 4点
+- 乗数: 4点
+<!-- solution-end -->
+
+### F0-02-B01 弱双対性を導く
+
+- Level: B
+- 目安時間: 15分
+
+最小化問題の実行可能点 $x$ と双対実行可能な $(\alpha,\nu)$ に対して
+
+$$
+q(\alpha,\nu)\le f(x)
+$$
+
+を示し、$d^*\le p^*$ を導け。
+
+<!-- solution-start -->
+#### 詳細解答
+双対関数の定義から $q(\alpha,\nu)=\inf_z L(z,\alpha,\nu)\le L(x,\alpha,\nu)$。実行可能点では $g_i(x)\le0$, $h_j(x)=0$、かつ $\alpha_i\ge0$ なので $L(x,\alpha,\nu)\le f(x)$。従って任意の実行可能 $x$ に対し $q\le f(x)$。主問題でinf、双対問題でsupを取れば $d^*\le p^*$。
+#### 本番答案
+$q=\inf_zL(z,\alpha,\nu)\le L(x,\alpha,\nu)\le f(x)$。従って双対側でsup、主問題側でinfを取って $d^*\le p^*$。
+#### 採点基準（20点）
+- $q\le L$: 5点
+- 実行可能性から $L\le f$: 7点
+- 任意性の利用: 4点
+- $d^*\le p^*$: 4点
+<!-- solution-end -->
+---
+
 ## 章末チェック
 
 - 不等式制約を $g_i(\boldsymbol x)\le0$ の形へ直せる。

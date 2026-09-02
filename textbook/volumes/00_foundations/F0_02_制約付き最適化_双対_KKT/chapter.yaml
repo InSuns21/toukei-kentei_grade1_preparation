@@ -1,0 +1,26 @@
+id: "F0-02"
+title: "制約付き最適化・双対問題・KKT条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00
+  - F0-00G
+learning_objectives:
+  - 不等式制約を含むLagrangianを構成できる
+  - 双対関数と弱双対性を導ける
+  - 強双対性とSlater条件の役割を説明できる
+  - KKTの4条件と相補性を使える
+  - SVMの制約をKKTの標準形へ直せる
+definitions:
+  - { id: F002-DEF-01, name: 主問題 }
+  - { id: F002-DEF-02, name: 双対関数 }
+  - { id: F002-DEF-03, name: 双対問題 }
+  - { id: F002-DEF-04, name: active制約 }
+theorems:
+  - { id: F002-THM-01, name: 弱双対性 }
+  - { id: F002-THM-02, name: Slater条件下の強双対性 }
+  - { id: F002-THM-03, name: KKT条件 }
+canonical_examples: [1変数境界最適化, hard-margin SVM]
+problem_patterns: [KKT-BASIC-1, DUALITY-WEAK-1]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }

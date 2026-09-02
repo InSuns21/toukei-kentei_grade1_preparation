@@ -11,8 +11,9 @@ A → A1 → A2 → A3 → B
 → C → C1 → C2 → D → D1
 → D2 → D2A → D2B → D2C → D2D → D2E
 → E → E1 → E2 → F → F1 → F2 → G
-→ F0-02 → 02A → 02B
+→ F0-02 → 02A → 02B → 02B1 SVM凸包幾何
 → C1  Banach / Hilbert
+→ C1A Hilbert射影定理 / 直交分解
 → C2  双対空間 / Riesz
 → C3  Fréchet微分 / 有界作用素 / 連鎖律
 → C3A 随伴作用素
@@ -58,8 +59,10 @@ representer theorem = 無限次元問題の有限和解
 
 ## どこまで読むか
 
-- **有限次元KKT/SVMだけ**：F0-02Bまで。
-- **Banach/HilbertとRiesz**：F0-02C2まで。
+- **有限次元KKT/Farkasまで**：F0-02Bまで。
+- **SVMの凸包・最大マージン幾何**：F0-02B1まで。
+- **Banach/Hilbertの基礎**：F0-02C1まで。
+- **Hilbert射影定理とRiesz**：F0-02C2まで（C1Aを経由）。
 - **無限次元のKKTの型**：F0-02C5まで。
 - **KKT乗数の存在条件**：F0-02C5Aまで。
 - **Hahn--Banachと分離**：F0-02C6Aまで。
@@ -72,6 +75,6 @@ representer theorem = 無限次元問題の有限和解
 
 - Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
 - RKHS本体は `F0-02C2` から読める。
-- kernel SVM応用は `F0-02C7 + F0-02C3 + F0-02B` を使う。
+- kernel SVM応用は `F0-02C7 + F0-02C3 + F0-02B1` を使う。
 
 「前のページだから」という理由だけで機械可読prerequisiteを追加しません。

@@ -1,0 +1,10 @@
+terms:
+  - term: dual function
+    ja: 双対関数
+    definition: Lagrangianを主変数についてinfimumした、主問題最適値の下界を与える関数。
+  - term: weak duality
+    ja: 弱双対性
+    definition: 双対問題の値が主問題の最適値を超えない性質。
+  - term: complementary slackness
+    ja: 相補性条件
+    definition: 不等式制約の乗数とslackの積が0になるKKT条件。

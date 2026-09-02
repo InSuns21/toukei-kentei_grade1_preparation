@@ -1,0 +1,21 @@
+id: "F0-02C1A"
+title: "関数解析I-A：Hilbert射影定理・直交分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C1
+  - F0-00G
+learning_objectives:
+  - Hilbert空間の閉凸集合への射影定理を説明できる
+  - 最小化列がCauchyになる導出を追える
+  - 射影の一意性を示せる
+  - 閉線形部分空間への射影を直交分解として表せる
+definitions:
+  - { id: F002C1A-DEF-01, name: 直交補空間 }
+theorems:
+  - { id: F002C1A-THM-01, name: Hilbert空間の射影定理 }
+  - { id: F002C1A-THM-02, name: 閉線形部分空間の直交分解 }
+canonical_examples: [l2の座標部分空間への射影, 閉凸集合への最近点]
+problem_patterns: [FA-PROJECTION-1]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }

@@ -19,54 +19,22 @@ F0-01は通常教材章として廃止済み。`status: supplementary` の補講
 ```text
 F0-00
   ↓
-F0-00A  集合・写像・量化記号
+A → A1 → A2 → A3 → B
   ↓
-F0-00A1 sup/inf・最適化の入口
+C → C1 → C2 → D → D1
   ↓
-F0-00A2 選択公理・可算選択
+D2 → D2A → D2B → D2C → D2D → D2E
   ↓
-F0-00A3 半順序・Zorn・極大延長
+E → E1 → E2 → F → F1 → F2 → G
   ↓
-F0-00B  距離・開閉集合・収束
+F0-02 → 02A → 02B → 02B1
   ↓
-F0-00C  連続写像
+F0-02C1 → C1A → C2
   ↓
-F0-00C1 コンパクト性・Heine--Borel
-  ↓
-F0-00C2 最大最小・最近点
-  ↓
-F0-00D  コーシー列・完備性
-  ↓
-F0-00D1 ノルム・Banach・有限/無限次元
-  ↓
-F0-00D2 測度・Lebesgue積分・Lp
-  ↓
-F0-00E  ベクトル空間・基底
-  ↓
-F0-00E1 内積・Gram--Schmidt・射影・QR
-  ↓
-F0-00E2 Cauchy--Schwarz・Bessel・Parseval
-  ↓
-F0-00F  線形写像・kernel・image・rank-nullity
-  ↓
-F0-00F1 固有空間・スペクトル定理・PSD
-  ↓
-F0-00F2 SVD・作用素ノルム
-  ↓
-F0-00G  凸解析の入口
-  ↓
-F0-02 -> F0-02A -> F0-02B
-  ↓
-F0-02C1 Banach / Hilbert
-  ↓
-F0-02C2 双対・Riesz -> F0-02C3 作用素・随伴 -> F0-02C4 凸解析
-  ↓
-F0-02C5 一般化KKT -> F0-02C6 Hahn--Banach -> F0-02C7 RKHS / kernel SVM
+C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A
 ```
 
-A3はF0-02C6のHahn--Banach標準証明で使うZornの補題を先に導入する。D2はF0-02C1で使う $L^2$・a.e.同値類・可測関数を未定義語にしないための橋である。標準通読ルートへ不要な深掘りを逆流させない。
-
-この図は推奨通読順を示す。局所的な必須前提は各 `chapter.yaml` を正本とし、標準通読上の並びを理由に不要な前提を追加しない。
+標準通読は細かく刻む一方、局所的な必須前提は各 `chapter.yaml` を正本とする。例としてHahn--Banach本体C6はA3+C2から、RKHS本体C7はC2から読める。02AはFarkasの証明を02Bへ参照するが、02Bは02Aを必須前提としないため循環しない。C2のRiesz標準証明はC1AのHilbert射影定理を使用する。
 
 ---
 
