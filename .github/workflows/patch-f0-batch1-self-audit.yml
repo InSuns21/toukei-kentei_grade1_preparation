@@ -1,0 +1,33 @@
+name: Patch F0 Batch 1 self audit
+
+on:
+  push:
+    branches:
+      - feat/f0-batch1-metric-compact-complete
+    paths:
+      - 'scripts/patch-f0-batch1-self-audit.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch1-metric-compact-complete
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/patch-f0-batch1-self-audit.mjs
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md
+          git add textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md
+          git add textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'docs: close Batch 1 self-audit gaps'
+          git push
