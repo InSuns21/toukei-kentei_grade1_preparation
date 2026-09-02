@@ -29,7 +29,8 @@ function isProofHeading(line) {
   const unnumbered = title.replace(/^\d+(?:\.\d+)*(?:[.)．])?\s*/u, '');
   return /^(?:完全)?証明(?:\s*(?:[（(].*[）)]|[:：].*))?$/u.test(unnumbered)
     || /^proof(?:\s*(?:[（(].*[）)]|[:：].*))?$/iu.test(unnumbered)
-    || /の(?:完全)?証明(?:\s*[:：].*)?$/u.test(unnumbered);
+    || /の(?:完全)?証明(?:\s*[:：].*)?$/u.test(unnumbered)
+    || /定理の(?:存在|一意性|存在一意性)証明(?:\s*[:：].*)?$/u.test(unnumbered);
 }
 
 function isProofCompletionLine(line) {
