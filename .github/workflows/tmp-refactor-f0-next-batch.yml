@@ -25,7 +25,16 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Apply pedagogy rewrites
-        run: python3 scripts/tmp-refactor-f0-next-batch.py
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/tmp-refactor-f0-next-batch.py')
+          s = p.read_text()
+          s = s.replace('## 10. 二つが同時には成立しない', '## 10. 両方同時には成立しない')
+          s = s.replace('## 11. 少なくとも一方は成立する', '## 11. どちらか一方は必ず成立する')
+          p.write_text(s)
+          PY
+          python3 scripts/tmp-refactor-f0-next-batch.py
       - name: Validate textbook and Pages
         run: |
           npm run validate
