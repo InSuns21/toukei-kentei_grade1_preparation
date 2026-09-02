@@ -1,20 +1,14 @@
 chapter: "F0-00P7"
 terms:
-  - term: dominated model
-    english: dominated statistical model
-    meaning: 全てのモデル分布が一つの共通測度に対して絶対連続となる統計モデル。
-  - term: 尤度
-    english: likelihood
-    meaning: 支配測度に対するモデル分布の密度を観測値で評価し、パラメータの関数として見たもの。
-  - term: スコア
-    english: score
-    meaning: 対数尤度をパラメータで微分した量。正則モデルでは平均0となる。
-  - term: Fisher情報量
+  - term: 統計モデル
+    english: statistical model
+    meaning: parameterで添字付けされた確率測度の族。
+  - term: score
+    english: score function
+    meaning: log densityをparameterで微分した確率変数。
+  - term: Fisher情報
     english: Fisher information
-    meaning: 正則モデルでスコアの二乗期待値として表され、対数尤度曲率の期待値とも一致する情報量。
-  - term: quadratic mean differentiability
-    english: quadratic mean differentiability
-    meaning: 密度の平方根がL2の意味でパラメータについて一次近似できるという正則性条件。
-  - term: LAN
-    english: local asymptotic normality
-    meaning: 局所パラメータ変化に対する対数尤度比が漸近的に正規型の二次式へ近づく性質。
+    meaning: scoreの共分散、または正則条件下で負の期待Hessian。
+  - term: 正則性
+    english: regularity
+    meaning: 微分と積分の交換や共通supportなど漸近展開を正当化する条件群。

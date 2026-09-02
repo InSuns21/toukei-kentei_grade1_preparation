@@ -1,5 +1,5 @@
 id: "F0-00P4"
-title: "補講：確率変数列の収束・Borel--Cantelli・一様可積分性"
+title: "limsup・Borel–Cantelli・確率収束"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,20 +7,22 @@ prerequisites:
   - F0-00D2B
 official_scope: []
 learning_objectives:
-  - limsup事象を無限回起こる事象として説明できる
-  - a.s.収束を誤差事象のlimsupで表現できる
-  - Borel--Cantelli補題を使ってa.s.収束を示せる
-  - 確率収束と期待値収束の間に一様可積分性が必要になる理由を説明できる
+  - limsup eventを無限回発生として説明できる
+  - Borel--Cantelliの2補題を使える
+  - a.s.収束をlimsupで表せる
+  - a.s./probability/Lp収束の含意を説明できる
+  - 確率収束列からa.s.収束部分列を取れる
 definitions:
-  - { id: F000P4-DEF-01, name: limsup事象 }
-  - { id: F000P4-DEF-02, name: 一様可積分性 }
+  - { id: F0P4-DEF-01, name: limsup event }
+  - { id: F0P4-DEF-02, name: almost sure convergence }
+  - { id: F0P4-DEF-03, name: convergence in probability }
 theorems:
-  - { id: F000P4-THM-01, name: Borel--Cantelli第1補題 }
-  - { id: F000P4-THM-02, name: Borel--Cantelli第2補題 }
-  - { id: F000P4-THM-03, name: Vitali型収束定理 }
-canonical_examples: [まれだが巨大な確率変数, 誤差事象のlimsup]
-problem_patterns: []
+  - { id: F0P4-THM-01, name: 第一Borel--Cantelli }
+  - { id: F0P4-THM-02, name: 第二Borel--Cantelli }
+  - { id: F0P4-THM-03, name: 確率収束からa.s.部分列 }
+canonical_examples: [rare events, dyadic subsequence]
+problem_patterns: [BOREL-CANTELLI-1, PROB-CONV-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.5, exercises: 0, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }

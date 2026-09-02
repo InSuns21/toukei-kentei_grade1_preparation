@@ -1,0 +1,14 @@
+chapter: "F0-00P7B"
+terms:
+  - term: QMD
+    english: quadratic mean differentiability
+    meaning: 平方根密度がL2ノルムで一次微分可能であるという正則性。
+  - term: central sequence
+    english: central sequence
+    meaning: 局所尤度比の一次項となるn^{-1/2} score和。
+  - term: LAN
+    english: local asymptotic normality
+    meaning: 局所log likelihood ratioがGaussian shift型二次式へ近づく性質。
+  - term: Hellinger距離
+    english: Hellinger distance
+    meaning: 平方根密度のL2距離から定まる確率測度間距離。

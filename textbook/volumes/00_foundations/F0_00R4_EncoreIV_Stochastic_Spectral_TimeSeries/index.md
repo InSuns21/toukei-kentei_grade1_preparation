@@ -242,3 +242,11 @@ L2 Hilbert空間
 ```
 
 **Encore IV: Stochastic Processes & Spectral Time Series** はここまでです。
+
+
+### Probabilityからの二つの入口
+
+- martingale・stopping time枝は **P3A 条件付き期待値** から入る。
+- Hilbert予測・Wold枝は **P3B L2射影・最良予測** から入る。
+
+標準通読では両方読めるが、machine-readable prerequisiteは各枝で必要な方だけにする。

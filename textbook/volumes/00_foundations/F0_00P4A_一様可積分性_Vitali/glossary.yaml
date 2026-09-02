@@ -1,0 +1,8 @@
+chapter: "F0-00P4A"
+terms:
+  - term: 一様可積分性
+    english: uniform integrability
+    meaning: 大きな値の期待値寄与を族全体で一様に小さくできる性質。
+  - term: Vitali収束定理
+    english: Vitali convergence theorem
+    meaning: 確率収束とUIからL1収束を得る定理。

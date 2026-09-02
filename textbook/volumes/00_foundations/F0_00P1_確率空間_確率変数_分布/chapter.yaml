@@ -1,25 +1,25 @@
 id: "F0-00P1"
-title: "補講：確率空間・確率変数・分布"
+title: "確率空間・確率変数・分布"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00D2
 official_scope: []
 learning_objectives:
-  - 確率空間を測度空間の特別な場合として説明できる
-  - 確率変数の可測性が必要な理由を逆像で説明できる
-  - 分布を押し出し測度として説明できる
-  - CDF・pmf・多変量分布を測度の言葉で統一できる
+  - 確率空間を三つ組として定義できる
+  - 確率変数を可測写像として説明できる
+  - 分布を押し出し測度として構成できる
+  - CDFと分布測度を対応付けられる
 definitions:
-  - { id: F000P1-DEF-01, name: 確率空間 }
-  - { id: F000P1-DEF-02, name: 確率変数 }
-  - { id: F000P1-DEF-03, name: 押し出し測度 }
-  - { id: F000P1-DEF-04, name: 分布 }
+  - { id: F0P1-DEF-01, name: 確率空間 }
+  - { id: F0P1-DEF-02, name: 確率変数 }
+  - { id: F0P1-DEF-03, name: 押し出し測度 }
+  - { id: F0P1-DEF-04, name: 分布 }
 theorems:
-  - { id: F000P1-THM-01, name: CDFによる実数上の分布の特徴付け }
-canonical_examples: [無限コイン投げ, 離散分布のDirac測度表示, 混合分布]
-problem_patterns: []
+  - { id: F0P1-THM-01, name: 押し出しによる分布の構成 }
+canonical_examples: [サイコロ, Bernoulli変換, 連続変数]
+problem_patterns: [PROB-SPACE-1, PUSHFORWARD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }

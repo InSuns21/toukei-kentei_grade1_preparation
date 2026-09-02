@@ -21,7 +21,7 @@ F0-00NA3 補間・数値微分・数値積分
 F0-00NA4 ODE数値解法・Runge--Kutta・安定性
 
 FEM branch                         Monte Carlo / SDE branch
-Encore III                         P5/P6 + Encore IV SP4
+Encore III                         P5/P6A + Encore IV SP4
 WK3 Galerkin/FEM bridge             │
    ↓                                ↓
 F0-00FEM1                        F0-00MC1

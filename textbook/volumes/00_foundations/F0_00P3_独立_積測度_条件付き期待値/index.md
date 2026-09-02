@@ -1,13 +1,10 @@
-# F0-00P3 独立・積測度・条件付き期待値：条件付き平均は何者？
+# F0-00P3 独立・積測度：同時分布が積になるとは何か
 
-この章では、通常教材で別々に見える
+独立性を「相関が0」ではなく、sigma代数と同時分布の積構造として定義します。
 
-- 独立
-- 同時分布
-- 条件付き確率
-- 条件付き期待値
+$$\boxed{X\perp Y\quad\Longleftrightarrow\quad P_{(X,Y)}=P_X\otimes P_Y}$$
 
-を、測度と sigma代数の言葉で統一します。
+この式から積の期待値の因数分解までを一つの学習サイクルとして閉じます。条件付き期待値はP3Aへ分離します。
 
 ---
 
@@ -163,346 +160,51 @@ $$
 
 ---
 
-## 6. 条件付き期待値の最初の例：有限分割
+## 演習
 
-標本空間を事象
+### F0-00P3-A01 独立なら積の期待値が分解する
 
-$$
-A_1,\dots,A_m
-$$
+- Level: A
+- 目安時間: 10分
 
-で分割し、それぞれ $P(A_j)>0$ とします。
+独立な可積分確率変数 $X,Y$ について、積分可能性が保証されるとき $E[XY]=E[X]E[Y]$ を積測度から示せ。
 
-「どの $A_j$ が起きたか」だけ分かる情報を
+<!-- solution-start -->
+#### 詳細解答
+独立性より $(X,Y)$ の同時分布は $P_X\otimes P_Y$。従ってTonelli/Fubiniにより $E[XY]=\iint xy\,dP_X(x)dP_Y(y)=(\int x\,dP_X)(\int y\,dP_Y)$。
 
-$$
-\mathcal G=\sigma(A_1,\dots,A_m)
-$$
+#### 本番答案
+$P_{(X,Y)}=P_X\otimes P_Y$ より、Fubiniを用いて $E[XY]=\iint xy\,dP_XdP_Y=E[X]E[Y]$。
 
-とします。
+#### 採点基準（20点）
+- 同時分布の積表示: 7点
+- Fubini: 7点
+- 因数分解: 6点
+<!-- solution-end -->
 
-可積分な $X$ に対して
+### F0-00P3-B01 pairwise independentとmutual independent
 
-$$
-Y(\omega)
-=E[X\mid A_j]
-\qquad(\omega\in A_j)
-$$
+- Level: B
+- 目安時間: 15分
 
-と置きます。
+$U,V$ を独立なBernoulli$(1/2)$、$W=U\oplus V$（排他的論理和）とする。$U,V,W$ がpairwise independentだがmutually independentでないことを示せ。
 
-すると $Y$ は各 $A_j$ 上で一定です。
+<!-- solution-start -->
+#### 詳細解答
+各変数はBernoulli$(1/2)$。例えば $P(U=1,W=1)=P(U=1,V=0)=1/4=P(U=1)P(W=1)$ で他の組も同様。一方 $W=U\oplus V$ なので三つの値には決定関係があり、例えば $P(U=0,V=0,W=0)=1/4\ne1/8$。
 
-つまり、得られた情報 $\mathcal G$ だけを使って作れる確率変数になっています。
+#### 本番答案
+任意の2変数の同時確率は積に分解するが、$P(U=V=W=0)=1/4\ne(1/2)^3$。従ってpairwise independentだがmutualではない。
 
-これが条件付き期待値の原型です。
-
----
-
-## 7. 条件付き期待値の一般定義
-
-$X\in L^1(P)$、$\mathcal G\subset\mathcal F$ を部分 sigma代数とします。
-
-条件付き期待値
-
-$$
-E[X\mid\mathcal G]
-$$
-
-とは、次の二条件を満たす確率変数 $Y$ です。
-
-1. $Y$ は $\mathcal G$-可測。
-2. 任意の $A\in\mathcal G$ に対して
-
-$$
-\boxed{
-\int_A Y\,dP
-=
-\int_A X\,dP
-}
-$$
-
-が成り立つ。
-
-この二条件が本質です。
-
-第一条件は
-
-> $Y$ は今持っている情報 $\mathcal G$ だけから決まる
-
-ことを意味します。
-
-第二条件は
-
-> $\mathcal G$ で区別できるどの事象の上でも、平均量を保存する
-
-ことを意味します。
+#### 採点基準（20点）
+- 各周辺分布: 4点
+- pairwise確認: 8点
+- 3変数での反例: 6点
+- 結論: 2点
+<!-- solution-end -->
 
 ---
 
-## 8. なぜ存在するのか
+## 次に進む
 
-符号付き測度
-
-$$
-\nu(A)=\int_A X\,dP,
-\qquad A\in\mathcal G
-$$
-
-を考えます。
-
-$P(A)=0$ なら $\nu(A)=0$ なので
-
-$$
-\nu\ll P|_{\mathcal G}
-$$
-
-です。
-
-Radon--Nikodym定理から、ある $\mathcal G$-可測関数 $Y$ が存在して
-
-$$
-\nu(A)=\int_A Y\,dP
-$$
-
-と書けます。
-
-この $Y$ が
-
-$$
-\boxed{E[X\mid\mathcal G]}
-$$
-
-です。
-
-つまり条件付き期待値の存在はRadon--Nikodym定理で保証されます。
-
----
-
-## 9. 条件付き期待値はa.s.一意
-
-条件を満たす $Y,Z$ が二つあったとしても、
-
-$$
-Y=Z\qquad\text{a.s.}
-$$
-
-です。
-
-したがって条件付き期待値も一点ごとの値ではなく、a.s.同値類として一意です。
-
-これは $L^p$ と同じ構造です。
-
----
-
-## 10. 条件付き期待値の基本性質
-
-可積分な $X,Y$ と定数 $a,b$ に対して
-
-$$
-E[aX+bY\mid\mathcal G]
-=aE[X\mid\mathcal G]+bE[Y\mid\mathcal G].
-$$
-
-$X\ge0$ なら
-
-$$
-E[X\mid\mathcal G]\ge0
-\qquad\text{a.s.}
-$$
-
-です。
-
-さらに $Z$ が $\mathcal G$-可測で積が可積分なら
-
-$$
-\boxed{
-E[ZX\mid\mathcal G]
-=Z E[X\mid\mathcal G]
-}
-$$
-
-です。
-
-「既に分かっている量は条件付き期待値の外へ出せる」と読めます。
-
----
-
-## 11. 全期待値の法則はtower property
-
-自明な sigma代数
-
-$$
-\{\varnothing,\Omega\}
-$$
-
-への条件付き期待値は定数 $E[X]$ です。
-
-したがって
-
-$$
-\boxed{
-E[E[X\mid\mathcal G]]
-=E[X]
-}
-$$
-
-です。
-
-さらに
-
-$$
-\mathcal H\subset\mathcal G\subset\mathcal F
-$$
-
-なら
-
-$$
-\boxed{
-E[E[X\mid\mathcal G]\mid\mathcal H]
-=E[X\mid\mathcal H]
-}
-$$
-
-です。
-
-これがtower propertyです。
-
-通常教材の「全期待値の法則」はこの特殊形です。
-
----
-
-## 12. $E[X\mid Y]$ の意味
-
-記号
-
-$$
-E[X\mid Y]
-$$
-
-は
-
-$$
-\boxed{
-E[X\mid\sigma(Y)]
-}
-$$
-
-の略記です。
-
-つまり「$Y$ の値から得られる情報だけを使った $X$ の条件付き平均」です。
-
-Doob--Dynkin補題により、これはある可測関数 $m$ を用いて
-
-$$
-E[X\mid Y]=m(Y)
-$$
-
-と書けます。
-
-この $m(y)$ を通常
-
-$$
-E[X\mid Y=y]
-$$
-
-と書きます。
-
-ただし連続分布では $P(Y=y)=0$ なので、単純な
-
-$$
-\frac{E[X1_{\{Y=y\}}]}{P(Y=y)}
-$$
-
-では定義できません。
-
-ここが「条件付き期待値をsigma代数で定義する」理由です。
-
----
-
-## 13. 独立なら条件付けしても平均は変わらない
-
-$X$ が $\mathcal G$ と独立で $X\in L^1$ なら
-
-$$
-\boxed{
-E[X\mid\mathcal G]=E[X]
-\qquad\text{a.s.}
-}
-$$
-
-です。
-
-情報 $\mathcal G$ を知っても $X$ について新しい情報が得られない、という直感そのものです。
-
----
-
-## 14. $L^2$では直交射影になる
-
-$X\in L^2$ の場合、$\mathcal G$-可測な $L^2$ 確率変数全体を
-
-$$
-L^2(\mathcal G)
-$$
-
-と書くと、これは $L^2(\mathcal F)$ の閉部分空間です。
-
-このとき
-
-$$
-\boxed{
-E[X\mid\mathcal G]
-=P_{L^2(\mathcal G)}X
-}
-$$
-
-となります。
-
-つまり条件付き期待値は直交射影です。
-
-任意の $Z\in L^2(\mathcal G)$ に対して
-
-$$
-E[(X-E[X\mid\mathcal G])Z]=0
-$$
-
-が成り立ちます。
-
-回帰・最小二乗・Hilbert空間の射影と同じ幾何がここにも現れます。
-
----
-
-## 15. 全体像
-
-独立性は
-
-$$
-\boxed{
-P_{X,Y}=P_X\otimes P_Y
-}
-$$
-
-であり、条件付き期待値は
-
-$$
-\boxed{
-\text{部分sigma代数に対して平均を保存する可測関数}
-}
-$$
-
-です。
-
-次章では、確率変数列の極限を「事象が無限回起こるか」という形で読み直し、Borel--Cantelliへ進みます。
-
----
-
-## 章末チェック
-
-- 確率変数の独立性をsigma代数の独立性として説明できる。
-- 独立性を同時分布の積測度への因数分解として説明できる。
-- 独立なら積の期待値が分解する理由をFubiniから説明できる。
-- 条件付き期待値の二つの定義条件を説明できる。
-- Radon--Nikodym定理が条件付き期待値の存在を保証する流れを説明できる。
-- tower propertyを説明できる。
-- $E[X\mid Y]$ が $E[X\mid\sigma(Y)]$ の略記であることを説明できる。
-- $L^2$ では条件付き期待値が直交射影になることを説明できる。
+独立性を積測度として理解したら [F0-00P3A 条件付き期待値](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md) へ進みます。

@@ -1,27 +1,10 @@
-# F0-00P7 統計モデル・尤度・正則性条件：その「正則性の下で」は何をしている？
+# F0-00P7 正則統計モデル・score・Fisher情報
 
-この章では確率論補講を統計推測へ戻します。
+統計モデルを確率測度族 $\{P_\theta\}$ として定義し、共通の支配測度 $\mu$ に対する密度
 
-最尤推定の教科書ではしばしば
+$$p_\theta=\frac{dP_\theta}{d\mu}$$
 
-> 正則性条件の下で、スコアの期待値は0である。
-
-> 正則性条件の下で、最尤推定量は漸近正規である。
-
-と書かれます。
-
-この「正則性条件」は一つの呪文ではありません。
-
-実際には
-
-- 共通の基準測度で密度を書けるか
-- 台がパラメータで動かないか
-- 微分を積分の中へ入れてよいか
-- 大数則を使えるか
-- 中心極限定理を使えるか
-- Hessianが安定して非退化な極限へ行くか
-
-など、証明の各段階を成立させる条件の集合です。
+から尤度・score・Fisher情報を構成します。ここでは**微分と積分の交換がいつ正当化されるか**までを正則性の中心として扱います。最尤推定量の漸近論はP7A、QMD/LANはP7Bへ分離します。
 
 ---
 
@@ -102,7 +85,7 @@ $$
 
 ものです。
 
-支配測度を変えると密度は変わりますが、$\theta$ に依存しない正の因子を掛けただけなら尤度比やMLEは変わりません。
+支配測度を変えると密度は変わりますが、$\theta$ に依存しない正の因子を掛けただけなら尤度比や最尤推定量は変わりません。
 
 この意味で尤度は「観測点の確率」ではありません。
 
@@ -253,7 +236,7 @@ $$
 
 ---
 
-## 8. Fisher情報量の二つの表現
+## 8. フィッシャー情報量の二つの表現
 
 スコアの分散を
 
@@ -310,7 +293,7 @@ $$
 
 です。
 
-二つのFisher情報量公式が一致するにも正則性条件が必要です。
+二つのフィッシャー情報量公式が一致するにも正則性条件が必要です。
 
 ---
 
@@ -376,7 +359,7 @@ $$
 - 支持集合が局所的に固定される
 - $\log p_\theta(x)$ が十分滑らか
 - 微分と積分・期待値を交換できる支配条件がある
-- Fisher情報量が有限で正
+- フィッシャー情報量が有限で正
 - 対数尤度の平均が一意な極大を真値で持つ
 - Hessianの標本平均に大数則を適用できる
 - スコアに中心極限定理を適用できる
@@ -387,277 +370,50 @@ $$
 
 ---
 
-## 11. MLEの漸近正規性はLLNとCLTの合体
+## 演習
 
-真値を $\theta_0$、MLEを $\widehat\theta_n$ とします。
+### F0-00P7-A01 BernoulliモデルのscoreとFisher情報
 
-内部解なら
+- Level: A
+- 目安時間: 12分
 
-$$
-U_n(\widehat\theta_n)=0.
-$$
+$X\sim\mathrm{Bernoulli}(p)$, $0<p<1$。1観測のscoreとFisher情報を求めよ。
 
-Taylor展開すると、$\theta_0$ と $\widehat\theta_n$ の間の $\theta_n^*$ を用いて
+<!-- solution-start -->
+#### 詳細解答
+$\ell=p$ の対数尤度は $x\log p+(1-x)\log(1-p)$。scoreは $x/p-(1-x)/(1-p)=(x-p)/(p(1-p))$。分散を取れば $I(p)=1/[p(1-p)]$。
 
-$$
-0
-=U_n(\theta_0)
-+(\widehat\theta_n-\theta_0)
-U_n'(\theta_n^*).
-$$
+#### 本番答案
+$s_p(X)=(X-p)/(p(1-p))$, $I(p)=1/(p(1-p))$。
 
-したがって
+#### 採点基準（20点）
+- log likelihood: 5点
+- score: 8点
+- Fisher情報: 7点
+<!-- solution-end -->
 
-$$
-\sqrt n(\widehat\theta_n-\theta_0)
-=
-\left\{
--\frac1nU_n'(\theta_n^*)
-\right\}^{-1}
-\frac{U_n(\theta_0)}{\sqrt n}.
-$$
+### F0-00P7-B01 Uniformモデルが正則でない理由
 
-ここで二つの確率極限定理を使います。
+- Level: B
+- 目安時間: 15分
 
----
+$X\sim\mathrm{Unif}(0,\theta)$ が通常のscore恒等式 $E_\theta[s_\theta(X)]=0$ の議論から外れる理由を説明せよ。
 
-## 12. スコア側にはCLT
+<!-- solution-start -->
+#### 詳細解答
+密度のsupport $(0,\theta)$ 自体がθで変わるため、$\partial_\theta\int p_\theta d\mu$ を単純に積分内微分できない。境界移動の寄与を無視すると誤る。従って共通supportやdomination/微分交換を含む正則性条件が破れる。
 
-正則性条件から
+#### 本番答案
+supportがθ依存なので微分と積分の交換に境界項が生じ、通常のscore平均0の正則導出が使えない。
 
-$$
-E_{\theta_0}[s_{\theta_0}(X)]=0,
-$$
-
-$$
-\operatorname{Var}_{\theta_0}
-(s_{\theta_0}(X))
-=I(\theta_0).
-$$
-
-したがってP6のCLTから
-
-$$
-\boxed{
-\frac{U_n(\theta_0)}{\sqrt n}
-\xrightarrow{d}
-N(0,I(\theta_0))
-}
-$$
-
-です。
+#### 採点基準（20点）
+- support依存: 8点
+- 微分積分交換: 7点
+- 正則性への結論: 5点
+<!-- solution-end -->
 
 ---
 
-## 13. Hessian側には大数則
+## 次に進む
 
-$$
--\frac1nU_n'(\theta)
-=-\frac1n
-\sum_{i=1}^n
-\frac{\partial^2}{\partial\theta^2}
-\log p_\theta(X_i).
-$$
-
-真値付近で一様な大数則を使えるなら
-
-$$
--\frac1nU_n'(\theta_n^*)
-\xrightarrow{p}
-I(\theta_0).
-$$
-
-したがってSlutskyの定理から
-
-$$
-\boxed{
-\sqrt n(\widehat\theta_n-\theta_0)
-\xrightarrow{d}
-N\left(0,I(\theta_0)^{-1}\right)
-}
-$$
-
-です。
-
-MLEの漸近正規性は
-
-$$
-\boxed{
-\text{scoreのCLT}
-+\text{HessianのLLN}
-+\text{Taylor展開}
-}
-$$
-
-として読めます。
-
----
-
-## 14. 一致性も別に必要
-
-前節では $\theta_n^*$ が真値へ近づくことを暗黙に使っています。
-
-そのためにはまず
-
-$$
-\widehat\theta_n\xrightarrow{p}\theta_0
-$$
-
-という一致性が必要です。
-
-典型的には
-
-$$
-\frac1n\ell_n(\theta)
-\to
-E_{\theta_0}[\log p_\theta(X)]
-$$
-
-を大数則で示し、極限関数が $\theta_0$ で一意に最大になることを使います。
-
-ここでは点ごとの大数則だけでなく、パラメータ全体にわたる一様大数則が重要になることがあります。
-
----
-
-## 15. Kullback--Leibler divergenceが現れる
-
-真値 $\theta_0$ の下で
-
-$$
-E_{\theta_0}[\log p_\theta(X)]
--
-E_{\theta_0}[\log p_{\theta_0}(X)]
-$$
-
-を計算すると
-
-$$
-=-D_{\mathrm{KL}}(P_{\theta_0}\|P_\theta)
-\le0.
-$$
-
-したがって識別可能なら真値が期待対数尤度を最大化します。
-
-MLE一致性の背後には
-
-$$
-\boxed{
-\text{大数則}
-+\text{KL divergenceの非負性}
-}
-$$
-
-という構造があります。
-
----
-
-## 16. より現代的な正則性：quadratic mean differentiability
-
-古典的な「密度を二回微分できる」という条件より、統計実験そのものに近い条件としてquadratic mean differentiabilityがあります。
-
-概略的には、あるスコア $\dot\ell_\theta$ が存在して
-
-$$
-\int
-\left[
-\sqrt{p_{\theta+h}}
--
-\sqrt{p_\theta}
--
-\frac h2
-\dot\ell_\theta\sqrt{p_\theta}
-\right]^2d\mu
-=o(h^2)
-$$
-
-となる条件です。
-
-このときFisher情報量は
-
-$$
-I(\theta)
-=E_\theta[\dot\ell_\theta^2]
-$$
-
-という $L^2(P_\theta)$ ノルムとして現れます。
-
-ここでまた関数解析の $L^2$ が戻ってきます。
-
----
-
-## 17. LANへの入口
-
-quadratic mean differentiabilityなどの正則性の下では、局所パラメータ
-
-$$
-\theta_n
-=\theta_0+\frac h{\sqrt n}
-$$
-
-に対する対数尤度比が
-
-$$
-\log
-\frac{dP_{\theta_n}^{\otimes n}}
-{dP_{\theta_0}^{\otimes n}}
-=
-h\Delta_n
--
-\frac12h^2I(\theta_0)
-+o_p(1)
-$$
-
-のように二次近似され、
-
-$$
-\Delta_n\xrightarrow{d}N(0,I(\theta_0))
-$$
-
-となります。
-
-これをlocal asymptotic normality、LANと呼びます。
-
-漸近統計で正規モデルが普遍的に現れる、より深い理由の一つです。
-
----
-
-## 18. この補講系列の回収
-
-ここまでの7講は最終的に
-
-$$
-\boxed{
-\begin{array}{c}
-\text{測度}\\
-\downarrow\\
-\text{確率測度・可測写像}\\
-\downarrow\\
-\text{分布・密度・期待値}\\
-\downarrow\\
-\text{条件付き期待値}\\
-\downarrow\\
-\text{Borel--Cantelli・大数則}\\
-\downarrow\\
-\text{特性関数・CLT}\\
-\downarrow\\
-\text{尤度・Fisher情報量・MLE漸近正規性}
-\end{array}
-}
-$$
-
-という一本の流れです。
-
-通常教材で個別公式として使っていた道具が、測度・積分・極限の上に並び直しました。
-
----
-
-## 章末チェック
-
-- 統計モデルを確率測度族として説明できる。
-- 尤度を支配測度に対するRadon--Nikodym密度から説明できる。
-- スコア期待値0に微分積分交換が必要な理由を説明できる。
-- Fisher情報量の二表現が一致する条件を説明できる。
-- 一様分布で通常の正則性が壊れる理由を説明できる。
-- MLE漸近正規性をscoreのCLT・HessianのLLN・Taylor展開へ分解できる。
-- MLE一致性とKL divergenceの関係を説明できる。
-- quadratic mean differentiabilityとLANが何を一般化しているか概説できる。
+正則性を仮定して最尤推定量の一致性・漸近正規性を組み立てる [F0-00P7A](../F0_00P7A_MLE_一致性_漸近正規性/index.md) へ進みます。局所実験の幾何へ直接進むならP7Bへ分岐できます。

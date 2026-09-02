@@ -1,0 +1,24 @@
+id: "F0-00P4A"
+title: "一様可積分性・Vitali"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P4
+  - F0-00D2B
+official_scope: []
+learning_objectives:
+  - 確率収束だけでは期待値収束しない反例を説明できる
+  - 一様可積分性をtail controlとして定義できる
+  - Lp有界性からUIを示せる
+  - Vitali収束定理で確率収束をL1収束へ引き上げられる
+definitions:
+  - { id: F0P4A-DEF-01, name: 一様可積分性 }
+  - { id: F0P4A-DEF-02, name: uniform absolute continuity of integrals }
+theorems:
+  - { id: F0P4A-THM-01, name: Vitali収束定理 }
+canonical_examples: [rare large values, Lp bounded family]
+problem_patterns: [UI-1, VITALI-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
