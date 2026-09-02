@@ -6,6 +6,8 @@ on:
       - audit/f0-formalism-pedagogy-round3
     paths:
       - 'scripts/audit-formalism-pedagogy.mjs'
+      - 'scripts/tmp-fix-hidden-proofs-round3.py'
+      - 'scripts/tmp-harden-proof-ci-round3.py'
       - '.github/workflows/tmp-formalism-pedagogy-audit.yml'
   workflow_dispatch:
 
@@ -24,22 +26,37 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
+      - name: Fold confirmed hidden proofs
+        run: python3 scripts/tmp-fix-hidden-proofs-round3.py
+      - name: Harden proof-folding CI and persist audit policy
+        run: python3 scripts/tmp-harden-proof-ci-round3.py
       - name: Generate broad pedagogy audit
         run: |
           node scripts/audit-formalism-pedagogy.mjs --write textbook/f0-dream-theater-formalism-pedagogy-audit.md > /tmp/formalism-audit.txt
-          sed -n '1,120p' /tmp/formalism-audit.txt
-      - name: Validate existing textbook invariants
+          sed -n '1,150p' /tmp/formalism-audit.txt
+      - name: Validate textbook and Pages
         run: |
           npm run validate
           npm run validate:pages
-      - name: Commit audit report
+      - name: Commit round3 audit and fixes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add textbook/f0-dream-theater-formalism-pedagogy-audit.md
+          git add \
+            package.json \
+            scripts/audit-formalism-pedagogy.mjs \
+            scripts/validate-proof-folding.mjs \
+            textbook/f0-dream-theater-formalism-pedagogy-audit.md \
+            textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md \
+            textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md \
+            textbook/volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/index.md \
+            textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md \
+            textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md \
+            textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md \
+            textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md
           if git diff --cached --quiet; then
-            echo 'No audit changes.'
+            echo 'No round3 changes.'
           else
-            git commit -m 'audit hidden proofs and formalism-heavy chapters'
+            git commit -m 'audit and fold hidden proof narratives'
             git push
           fi
