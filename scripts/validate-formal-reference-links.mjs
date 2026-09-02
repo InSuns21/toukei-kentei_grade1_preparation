@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve('textbook/volumes');
 const REPO = process.cwd();
+const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
 
 function walk(dir) {
   const out = [];
@@ -15,10 +16,12 @@ function walk(dir) {
 }
 
 const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
-const anchorRe = /<a\s+id=["']((?:thm|ref)-[a-z0-9][a-z0-9-]*)["']\s*><\/a>/giu;
-const formalWord = /(定理|命題|補題|不等式|法則|公式|Farkas|KKT|Riesz|Hahn--Banach|Lax--Milgram|Borel--Cantelli|中心極限定理|theorem|lemma|proposition|corollary)/iu;
+const anchorRe = new RegExp(`<a\\s+id=["']((${STABLE_PREFIX})-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>`, 'giu');
+const stableFragmentRe = new RegExp(`^${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*$`);
+const stableFragmentInHrefRe = new RegExp(`#${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*`);
+const formalWord = /(定義|定理|命題|補題|系|公理|原理|不等式|法則|公式|Farkas|KKT|Riesz|Hahn--Banach|Lax--Milgram|Borel--Cantelli|中心極限定理|theorem|lemma|proposition|corollary)/iu;
 const dependencyCue = /(証明|導出|出所|由来|遡|参照|詳しく|使(?:う|って|い)|用い|から従|から|より|により|示した|示しました|証明した|導いた)/u;
-const formalSource = '(?:定理|命題|補題|不等式|法則|公式|Farkas(?:の補題)?|KKT(?:条件)?|Borel--Cantelli(?:第[12]補題)?|中心極限定理|Riesz(?:表現定理)?|Hahn--Banach(?:定理)?|Lax--Milgram(?:定理)?)';
+const formalSource = '(?:定義|定理|命題|補題|系|公理|原理|不等式|法則|公式|Farkas(?:の補題)?|KKT(?:条件)?|Borel--Cantelli(?:第[12]補題)?|中心極限定理|Riesz(?:表現定理)?|Hahn--Banach(?:定理)?|Lax--Milgram(?:定理)?)';
 const chapterSource = '(?:F0-[0-9A-Z]+(?:-[0-9A-Z]+)?|P\\d+[A-Z]?|D\\d+[A-Z]?|C\\d+[A-Z]?|E\\d+[A-Z]?|F\\d+[A-Z]?|G\\d+[A-Z]?)';
 const priorDependencyRe = new RegExp(`(?:前章|前節|前講義)の.{0,28}${formalSource}.{0,20}(?:から|より|により|を使|を用)`, 'u');
 const chapterDependencyRe = new RegExp(`${chapterSource}(?:の|で).{0,18}${formalSource}.{0,20}(?:から|より|により|を使|を用|を証明|で証明|を導出|で導出)`, 'u');
@@ -87,7 +90,7 @@ function preciseDependency(line, label, index, fullMatch) {
   const before = line.slice(Math.max(0, index - 55), index);
   const after = line.slice(index + fullMatch.length, Math.min(line.length, index + fullMatch.length + 70));
   if (/(?:この部分|その部分|ここ|以下|上記).{0,12}(?:の)?(?:証明|導出)(?:は|を)?\s*$/u.test(before)) return true;
-  if (/^.{0,30}の「[^」]*(?:定理|補題|証明|導出|Farkas|KKT)[^」]*」を参照/u.test(after)) return true;
+  if (/^.{0,30}の「[^」]*(?:定義|定理|補題|証明|導出|Farkas|KKT)[^」]*」を参照/u.test(after)) return true;
   return false;
 }
 
@@ -99,7 +102,7 @@ function stripLinksAndCode(line) {
 }
 
 function stableLinksOnLine(line) {
-  return [...line.matchAll(linkRe)].filter((m) => /#(?:thm|ref)-[a-z0-9][a-z0-9-]*/.test(m[2]));
+  return [...line.matchAll(linkRe)].filter((m) => stableFragmentInHrefRe.test(m[2]));
 }
 
 function canonicalResultIsInvoked(unlinked, result) {
@@ -130,9 +133,9 @@ for (const [file, markdown] of contents) {
       checkedAnchors += 1;
       if (seen.has(id)) errors.push(`${rel}:${i + 1}: duplicate formal reference anchor #${id}`);
       seen.add(id);
-      const nearby = lines.slice(i, i + 9).join(' ');
-      if (id.startsWith('thm-') && !formalWord.test(nearby)) {
-        errors.push(`${rel}:${i + 1}: theorem anchor #${id} is not adjacent to a theorem/lemma/formal result`);
+      const nearby = lines.slice(i, i + 10).join(' ');
+      if (!id.startsWith('ref-') && !formalWord.test(nearby)) {
+        errors.push(`${rel}:${i + 1}: formal anchor #${id} is not adjacent to a definition/theorem/lemma/formal result`);
       }
       if (id.startsWith('ref-') && !/^\s*#{2,6}\s+/m.test(lines.slice(i, i + 9).join('\n'))) {
         errors.push(`${rel}:${i + 1}: reference anchor #${id} is not adjacent to a Markdown section heading`);
@@ -154,11 +157,11 @@ for (const [file, markdown] of contents) {
       checkedPreciseLinks += 1;
       const { target, fragment } = resolveTarget(file, href);
       if (!fragment) {
-        errors.push(`${rel}:${i + 1}: formal dependency link must jump to the exact theorem/derivation, not only the chapter: [${label}](${href})`);
+        errors.push(`${rel}:${i + 1}: formal dependency link must jump to the exact definition/theorem/derivation, not only the chapter: [${label}](${href})`);
         continue;
       }
-      if (!/^(?:thm|ref)-[a-z0-9][a-z0-9-]*$/.test(fragment)) {
-        errors.push(`${rel}:${i + 1}: formal dependency fragment must use a stable thm-/ref- anchor: #${fragment}`);
+      if (!stableFragmentRe.test(fragment)) {
+        errors.push(`${rel}:${i + 1}: formal dependency fragment must use a stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor: #${fragment}`);
         continue;
       }
       if (!contents.has(target)) {
@@ -205,4 +208,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable anchor(s), ${checkedCanonicalUses} bare canonical use(s), ${files.length} user-facing textbook page(s).`);
+console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable formal anchor(s), ${checkedCanonicalUses} bare canonical use(s), ${files.length} user-facing textbook page(s).`);
