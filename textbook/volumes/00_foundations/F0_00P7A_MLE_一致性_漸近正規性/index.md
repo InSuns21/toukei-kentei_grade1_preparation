@@ -1,4 +1,4 @@
-# F0-00P7A MLE一致性・漸近正規性：KL・LLN・CLT・Taylor
+# F0-00P7A MLE一致性・漸近正規性：KL・大数の法則・中心極限定理・Taylor
 
 MLEの漸近正規性は一発の公式ではなく、
 
@@ -190,7 +190,7 @@ $$
 
 ## 演習
 
-### F0-00P7A-A01 MLE Taylor展開の骨格
+### F0-00P7A-A01 最尤推定量 Taylor展開の骨格
 
 - Level: A
 - 目安時間: 15分

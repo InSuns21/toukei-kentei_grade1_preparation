@@ -27,7 +27,7 @@ $$
 =\frac1n\sum_{i=1}^nX_i
 $$
 
-についてChebyshev不等式から
+についてチェビシェフの不等式から
 
 $$
 P(|\overline X_n-\mu|>\varepsilon)
@@ -117,7 +117,7 @@ $$
 
 です。
 
-Chebyshev不等式が最後の時点 $S_n$ だけを見るのに対し、この不等式は途中の部分和すべてを一度に制御します。
+チェビシェフの不等式が最後の時点 $S_n$ だけを見るのに対し、この不等式は途中の部分和すべてを一度に制御します。
 
 ---
 
@@ -344,7 +344,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-iid、$E[X_i]=0$, $\operatorname{Var}(X_i)=\sigma^2<\infty$ とする。Chebyshevで $P(|S_{2^k}|>\varepsilon2^k)$ を評価し、その和が有限であることを示せ。
+独立同分布、$E[X_i]=0$, $\operatorname{Var}(X_i)=\sigma^2<\infty$ とする。Chebyshevで $P(|S_{2^k}|>\varepsilon2^k)$ を評価し、その和が有限であることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答

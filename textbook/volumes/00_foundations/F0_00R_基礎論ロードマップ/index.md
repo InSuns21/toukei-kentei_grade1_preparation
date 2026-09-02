@@ -56,7 +56,7 @@ P4 → P4A → P5 → P5A
                                       └────→ P7B QMD/LAN
 ```
 
-密度/期待値、独立/条件付き期待値、収束/UI、有限分散/一般SLLN、特性関数/CLT、正則モデル/MLE/LANを独立講義へ分けました。標準通読では上の順に読めますが、P5AはCLTの必須前提ではなく、P7BもP7Aを必須前提にしません。
+密度/期待値、独立/条件付き期待値、収束/UI、有限分散/一般SLLN、特性関数/中心極限定理、正則モデル/最尤推定量/LANを独立講義へ分けました。標準通読では上の順に読めますが、P5AはCLTの必須前提ではなく、P7BもP7Aを必須前提にしません。
 
 ---
 
@@ -174,7 +174,7 @@ Encore IV SP4 ─→ SDE1 Euler--Maruyama ───────┘              
 - coercivity → SPD stiffness matrix → CG
 - Sturm--Liouville / 直交多項式 → Gaussian quadrature
 - weak formulation → finite element assembly
-- LLN / CLT → Monte Carlo consistency / standard error
+- 大数の法則 / 中心極限定理 → Monte Carlo consistency / standard error
 - 回帰・射影 → control variate
 - 標本抽出論 → stratified Monte Carlo
 - Itô / Brown運動 → Euler--Maruyama

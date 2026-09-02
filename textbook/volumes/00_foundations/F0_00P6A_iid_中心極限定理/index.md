@@ -1,6 +1,6 @@
 # F0-00P6A iid中心極限定理：特性関数の局所Taylor展開
 
-P6で準備した特性関数とLévy連続性定理を使い、iid・有限分散版CLTを
+P6で準備した特性関数とLévy連続性定理を使い、独立同分布・有限分散版CLTを
 
 $$\boxed{\frac{S_n-n\mu}{\sigma\sqrt n}\Rightarrow N(0,1)}$$
 
@@ -229,7 +229,7 @@ $$
 
 は独立同分布標本では独立な確率変数の和です。
 
-正則性条件の下で平均0・分散Fisher情報量を持つため、CLTからスコアの漸近正規性が得られます。
+正則性条件の下で平均0・分散フィッシャー情報量を持つため、CLTからスコアの漸近正規性が得られます。
 
 次章では、この「正則性条件の下で」が具体的に何を意味するかを扱います。
 
@@ -284,7 +284,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-iid $E[X_i]=\mu$, $\operatorname{Var}(X_i)=\sigma^2$ とし $Z_n=(S_n-n\mu)/(\sigma\sqrt n)$。$Y=(X_1-\mu)/\sigma$ の特性関数を $\psi$ とするとき $\varphi_{Z_n}$ を書け。
+独立同分布 $E[X_i]=\mu$, $\operatorname{Var}(X_i)=\sigma^2$ とし $Z_n=(S_n-n\mu)/(\sigma\sqrt n)$。$Y=(X_1-\mu)/\sigma$ の特性関数を $\psi$ とするとき $\varphi_{Z_n}$ を書け。
 
 <!-- solution-start -->
 #### 詳細解答

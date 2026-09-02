@@ -107,7 +107,7 @@ $$\boxed{\Delta_n\Rightarrow N(0,I(\theta_0))}.$$
 
 ## 6. LAN展開
 
-iid QMDモデルでは標準条件の下で
+独立同分布 QMDモデルでは標準条件の下で
 
 $$
 \boxed{
@@ -173,7 +173,7 @@ QMD展開 $\sqrt{p_{\theta+h}}=\sqrt{p_\theta}+\frac12h^Ts_\theta\sqrt{p_\theta}
 - Level: B
 - 目安時間: 18分
 
-iid QMDモデルで $\theta_n=\theta_0+h/\sqrt n$ とする。LAN展開に現れるcentral sequence $\Delta_n$ とその極限分布を書き、二次項の意味を説明せよ。
+独立同分布 QMDモデルで $\theta_n=\theta_0+h/\sqrt n$ とする。LAN展開に現れるcentral sequence $\Delta_n$ とその極限分布を書き、二次項の意味を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
