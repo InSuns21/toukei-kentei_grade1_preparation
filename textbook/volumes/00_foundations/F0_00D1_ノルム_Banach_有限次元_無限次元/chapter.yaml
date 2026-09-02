@@ -5,10 +5,11 @@ status: supplementary
 prerequisites:
   - F0-00D
   - F0-00C2
+  - F0-00E
 official_scope: []
 learning_objectives:
   - ノルムとBanach空間を定義できる
-  - 有限次元で全てのノルムが同値であることを証明できる
+  - 有限次元で全てのノルムが同値であることを基底・次元を使って証明できる
   - 有限次元ノルム空間の完備性を証明できる
   - l2の標準基底を使って無限次元では閉有界集合がコンパクトとは限らないことを示せる
 definitions:
@@ -24,4 +25,4 @@ problem_patterns: [ノルム比較, 無限次元非コンパクト性]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 2, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 1.0, review: 0.35 }
+estimated_hours: { reading: 2.75, exercises: 1.0, review: 0.4 }
