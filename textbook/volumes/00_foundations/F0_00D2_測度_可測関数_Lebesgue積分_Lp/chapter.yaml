@@ -1,5 +1,5 @@
 id: "F0-00D2"
-title: "補講：測度・可測関数・Lebesgue積分・Lp空間"
+title: "補講：測度空間・測度0・a.e.・可測関数"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -9,38 +9,35 @@ prerequisites:
   - F0-00D
 official_scope: []
 learning_objectives:
-  - sigma代数と測度を定義し、長さ・確率を共通の枠組みで説明できる
-  - 測度0集合と「ほとんど至るところ」の意味を説明できる
-  - 可測関数を逆像によって定義し、指示関数・連続関数の例を扱える
-  - 単関数から非負可測関数、一般の可積分関数へLebesgue積分を拡張する流れを説明できる
-  - Riemann積分とLebesgue積分の違いをDirichlet関数で説明できる
-  - 単調収束定理・Fatouの補題・優収束定理の役割を区別できる
-  - Tonelli・Fubiniの定理が重積分と期待値計算を正当化する条件を説明できる
-  - Lp空間をa.e.同値類として定義し、L2が内積空間になる理由を説明できる
-  - 確率空間上の期待値をLebesgue積分として読める
+  - σ代数・可測空間・測度・測度空間を自己完結した定義として説明できる
+  - Borel σ代数を生成σ代数として定義できる
+  - 測度0集合とa.e.の意味を説明できる
+  - 可測関数を逆像条件で定義できる
+  - 連続関数と指示関数の可測性を証明できる
+  - 測度の単調性と下からの連続性を証明できる
 definitions:
-  - { id: F000D2-DEF-01, name: sigma代数 }
-  - { id: F000D2-DEF-02, name: 測度 }
-  - { id: F000D2-DEF-03, name: 測度0集合 }
-  - { id: F000D2-DEF-04, name: ほとんど至るところ }
-  - { id: F000D2-DEF-05, name: 可測関数 }
-  - { id: F000D2-DEF-06, name: 単関数 }
-  - { id: F000D2-DEF-07, name: Lebesgue積分 }
-  - { id: F000D2-DEF-08, name: Lp空間 }
+  - { id: F000D2-DEF-01, name: σ代数 }
+  - { id: F000D2-DEF-02, name: 可測空間 }
+  - { id: F000D2-DEF-03, name: 生成σ代数 }
+  - { id: F000D2-DEF-04, name: Borel σ代数 }
+  - { id: F000D2-DEF-05, name: 測度 }
+  - { id: F000D2-DEF-06, name: 測度空間 }
+  - { id: F000D2-DEF-07, name: 測度0集合 }
+  - { id: F000D2-DEF-08, name: ほとんど至るところ }
+  - { id: F000D2-DEF-09, name: 可測関数 }
 theorems:
-  - { id: F000D2-THM-01, name: 単調収束定理 }
-  - { id: F000D2-THM-02, name: Fatouの補題 }
-  - { id: F000D2-THM-03, name: 優収束定理 }
-  - { id: F000D2-THM-04, name: Tonelliの定理 }
-  - { id: F000D2-THM-05, name: Fubiniの定理 }
+  - { id: F000D2-THM-01, name: 測度の単調性 }
+  - { id: F000D2-THM-02, name: 測度の下からの連続性 }
+  - { id: F000D2-THM-03, name: 連続関数のBorel可測性 }
+  - { id: F000D2-THM-04, name: 指示関数の可測性 }
 canonical_examples:
-  - 区間のLebesgue測度
-  - 有限集合と可算集合が測度0であること
-  - Dirichlet関数のLebesgue積分
-  - a.e.で等しい関数のL2距離が0になる例
-  - 確率変数の期待値を測度積分として読む例
-problem_patterns: [MEASURE-AE-1, LEBESGUE-INTEGRAL-1, CONVERGENCE-THEOREMS-1, LP-SPACE-1]
+  - 有限集合上のσ代数
+  - 数え上げ測度
+  - Dirac測度
+  - 確率測度
+  - 有理数指示関数のa.e.同値
+problem_patterns: [SIGMA-ALGEBRA-1, MEASURE-1, AE-1, MEASURABLE-FUNCTION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 5, exercises: 1, review: 1 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 1.5, review: 0.5 }
