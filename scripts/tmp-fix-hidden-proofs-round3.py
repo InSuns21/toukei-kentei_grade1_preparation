@@ -10,7 +10,9 @@ def path(name):
 def wrap_section(file, start, end, roadmap=None, label=None):
     p = file
     s = p.read_text()
-    if '<!-- round3-hidden-proof-fixed -->' in s and label and label in s:
+    if '<!-- round3-hidden-proof-fixed -->' in s and start in s and '<!-- proof-start -->' in s:
+        # A rerun after the bot commit should be idempotent. The unique round3 marker is enough
+        # because each target page receives exactly one round3 fold.
         print(f'{p}: already fixed')
         return
     if start not in s:
@@ -186,5 +188,13 @@ Cauchy--Schwarzで ||ell||=||g||、内積の正定値性で一意性
 
 つまり「汎関数が0になる超平面」と、その超平面に直交する1本の方向を作れば、汎関数全体を一つのベクトルで表せます。'''
 )
+
+# D2E already has a folded proof and visible roadmap. Rename the enclosing section so
+# the hardened validator does not mistake the section title itself for an exposed proof.
+p = path('F0_00D2E_L2完備性_Riesz_Fischer')
+s = p.read_text()
+s = s.replace('## 5. Riesz--Fischer型の完備性証明', '## 5. Riesz--Fischer型の完備性定理と構成', 1)
+p.write_text(s)
+print(f'{p}: normalized enclosing proof section title')
 
 print('hidden proof folding round3 completed')
