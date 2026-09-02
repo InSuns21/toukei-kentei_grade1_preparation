@@ -24,6 +24,82 @@ $$\sup_\theta\left|\frac1n\ell_n(\theta)-M(\theta)\right|\to0$$
 
 ---
 
+## 0. 先にBernoulliモデルで全工程を見る
+
+一般論へ入る前に、$X_1,\dots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p_0)$、$0<p_0<1$ を考えます。対数尤度は、$S_n=\sum_iX_i$ として
+
+$$
+\ell_n(p)
+=S_n\log p+(n-S_n)\log(1-p)
+$$
+
+です。score方程式は
+
+$$
+U_n(p)
+=\frac{S_n}{p}-\frac{n-S_n}{1-p}=0
+$$
+
+なので
+
+$$
+\boxed{\widehat p_n=\frac{S_n}{n}=\overline X_n}.
+$$
+
+ここでは一致性がすぐ見えます。大数の法則から
+
+$$
+\widehat p_n=\overline X_n\xrightarrow{p}p_0.
+$$
+
+さらに
+
+$$
+I(p)
+=E_p\!\left[\left\{\frac{X-p}{p(1-p)}\right\}^2\right]
+=\frac1{p(1-p)}.
+$$
+
+一方、中心極限定理から直接
+
+$$
+\sqrt n(\widehat p_n-p_0)
+\xrightarrow{d}
+N\left(0,p_0(1-p_0)\right).
+$$
+
+そして
+
+$$
+I(p_0)^{-1}=p_0(1-p_0).
+$$
+
+したがってこの具体例だけで
+
+$$
+\boxed{
+\sqrt n(\widehat p_n-p_0)
+\Rightarrow
+N\left(0,I(p_0)^{-1}\right)
+}
+$$
+
+という一般形が見えています。
+
+### 0.1 一般論の各部品はBernoulliでは何だったか
+
+| 一般論 | Bernoulliモデル |
+|---|---|
+| consistency | $\bar X_n\to p_0$ |
+| score CLT | $\sum_i(X_i-p_0)/\{p_0(1-p_0)\}$ のCLT |
+| Hessian LLN | $-n^{-1}\ell_n''(p)$ が $I(p_0)$ へ近づく |
+| Taylor | $U_n(\hat p_n)=0$ を $p_0$ 周りで展開 |
+| Slutsky | score側の分布収束とHessian側の確率収束を合成 |
+
+一般モデルでは $\widehat\theta_n$ が標本平均のように明示できないため、この五つを別々に証明して最後に組み立てます。
+
+---
+
 ## 1. 最尤推定量の漸近正規性は大数の法則と中心極限定理の合体
 
 真値を $\theta_0$、最尤推定量を $\widehat\theta_n$ とします。
@@ -230,6 +306,63 @@ $M(\theta_0)-M(\theta)=D_{KL}(P_{\theta_0}\|P_\theta)\ge0$。identifiabilityで�
 - 非負性: 4点
 - identifiability: 5点
 - 一致性への橋: 3点
+<!-- solution-end -->
+
+
+### F0-00P7A-B02 Poissonモデルで漸近分散まで確認する
+
+- Level: B
+- 目安時間: 20分
+
+$X_1,\dots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda_0)$、$\lambda_0>0$ とする。
+
+1. 最尤推定量が $\widehat\lambda_n=\overline X_n$ であることを示せ。
+2. 1観測あたりのFisher情報量 $I(\lambda)$ を求めよ。
+3. 中心極限定理から $\sqrt n(\widehat\lambda_n-\lambda_0)$ の極限分布を求め、分散が $I(\lambda_0)^{-1}$ と一致することを確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+対数尤度は定数項を除いて
+
+$$
+\ell_n(\lambda)
+=\left(\sum_iX_i\right)\log\lambda-n\lambda.
+$$
+
+したがって
+
+$$
+\ell_n'(\lambda)
+=\frac{\sum_iX_i}{\lambda}-n,
+$$
+
+より $\widehat\lambda_n=\bar X_n$。1観測のscoreは $s_\lambda(X)=X/\lambda-1=(X-\lambda)/\lambda$ なので
+
+$$
+I(\lambda)
+=\operatorname{Var}(X)/\lambda^2
+=\frac1\lambda.
+$$
+
+また $\operatorname{Var}(X)=\lambda_0$ だからCLTより
+
+$$
+\sqrt n(\widehat\lambda_n-\lambda_0)
+\Rightarrow N(0,\lambda_0).
+$$
+
+確かに $I(\lambda_0)^{-1}=\lambda_0$ で一致する。
+
+#### 本番答案
+
+$\ell_n'(\lambda)=\sum_iX_i/\lambda-n$ より $\hat\lambda=\bar X$。$I(\lambda)=\operatorname{Var}(X)/\lambda^2=1/\lambda$。従ってCLTから $\sqrt n(\hat\lambda-\lambda_0)\Rightarrow N(0,\lambda_0)=N(0,I(\lambda_0)^{-1})$。
+
+#### 採点基準（20点）
+- MLE: 6点
+- scoreとFisher情報量: 7点
+- CLT: 5点
+- 逆情報量との一致: 2点
 <!-- solution-end -->
 
 ---
