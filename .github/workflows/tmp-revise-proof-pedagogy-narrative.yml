@@ -82,20 +82,6 @@ jobs:
       - name: Refresh proof pedagogy audit
         run: |
           node scripts/audit-proof-pedagogy.mjs --write textbook/f0-dream-theater-proof-pedagogy-audit.md > /tmp/proof-audit.txt
-          cat >> textbook/f0-dream-theater-proof-pedagogy-audit.md <<'EOF'
-
-## 2026-09-02 人手再監査：C1 → C2 → D1 → D2D → F
-
-機械スクリーニングの高優先5ページを本文まで再読し、完全証明を削らずに「証明を閉じたまま意味・具体例・使い道を追える」構成へ改稿した。
-
-- **C1**: `[0,1] / (0,1) / [0,∞)` から開始し、境界逃避・無限遠逃避 → 開被覆と点列の二言語 → 証明の見取り図 → Heine--Borel判定へ組み替えた。
-- **C2**: `inf` と `min` の違いを入口にし、コンパクト性を「最適値の達成装置」として位置付けた。閉集合だけでは集合間距離が0になり得る反例も追加した。
-- **D1**: `R^2` の三ノルム比較から入り、有限次元性が効く場所を「単位球面のコンパクト性」と証明前に明示した。
-- **D2D**: 二点空間の `L^p` から始め、Young → Hölder → Minkowski を「積の分離 → 積の積分制御 → 三角不等式」という役割の連鎖として再構成した。
-- **F**: `T(x,y)=(2x+y,x+2y)` を通し例として冒頭へ移し、表現行列 → 基底変換 → 相似 → 固有ベクトル基底 → 対角化を一度具体的に見てから一般論へ進むようにした。rank-nullity の実質証明も正式な折りたたみ証明へ移した。
-
-判定は、見出し数だけではなく本文を読み、**証明をすべて閉じても「何を言う定理か / なぜ必要か / どこで使うか」が残ること**を基準にした。今後も機械スコアは一次スクリーニングとして使い、文章品質の最終判定は人手レビューとする。
-EOF
           sed -n '1,90p' /tmp/proof-audit.txt
 
       - name: Validate textbook and proof folding
