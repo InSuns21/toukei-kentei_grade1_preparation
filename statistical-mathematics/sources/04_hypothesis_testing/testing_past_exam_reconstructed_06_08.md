@@ -737,7 +737,7 @@ Neyman–Pearson補題によれば、単純仮説
 
 $$
 H_0:\theta=0
-\quad\text{vs}\quad
+\quad\mathrm{vs}\quad
 H_1:\theta=1
 $$
 

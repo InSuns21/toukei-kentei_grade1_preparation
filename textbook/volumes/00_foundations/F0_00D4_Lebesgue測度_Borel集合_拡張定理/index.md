@@ -416,15 +416,7 @@ $$
 
 とき **algebra** といいます。
 
-sigma代数との違いは
-
-$$
-\text{finite unions}
-\quad\text{vs}\quad
-\text{countable unions}
-$$
-
-です。
+sigma代数との違いは、**algebraは有限和で閉じ、sigma代数は可算和で閉じる**ことです。
 
 区間の有限和のような「単純な集合」には、まずalgebra上で長さや確率を定義するのが自然です。
 

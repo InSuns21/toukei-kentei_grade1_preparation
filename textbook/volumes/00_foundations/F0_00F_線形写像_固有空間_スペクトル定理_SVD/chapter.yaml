@@ -1,24 +1,33 @@
 id: "F0-00F"
-title: "線形写像・kernel・image・rank-nullity"
+title: "線形写像・表現行列・基底変換・相似・対角化"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00E
 official_scope: []
 learning_objectives:
-  - 線形写像と行列表現を基底との関係から説明できる
-  - 基底変換と相似変換の意味を説明できる
-  - 核・像・階数・退化次数を定義できる
-  - rank-nullity theoremを基底から証明できる
+  - 線形写像・核・像を定義しrank-nullity theoremを証明できる
+  - 任意の入力基底・出力基底に関する表現行列を構成できる
+  - 写像の合成と表現行列の積の対応を説明できる
+  - 基底変換行列と相似変換の意味を説明できる
+  - 固有空間と対角化を基底選択の問題として説明できる
+  - 代数的重複度と幾何学的重複度から対角化可能性を判定できる
 definitions:
   - { id: F000F-DEF-01, name: 線形写像 }
   - { id: F000F-DEF-02, name: 核 }
   - { id: F000F-DEF-03, name: 像 }
+  - { id: F000F-DEF-04, name: 表現行列 }
+  - { id: F000F-DEF-05, name: 基底変換行列 }
+  - { id: F000F-DEF-06, name: 相似 }
+  - { id: F000F-DEF-07, name: 固有空間 }
+  - { id: F000F-DEF-08, name: 対角化可能性 }
 theorems:
   - { id: F000F-THM-01, name: 階数・退化次数の定理 }
-canonical_examples: [線形写像の行列表現, kernelとimage]
-problem_patterns: [LA-MAP-1]
+  - { id: F000F-THM-02, name: 異なる固有値の固有ベクトルは一次独立 }
+  - { id: F000F-THM-03, name: 対角化可能性と固有空間直和の同値 }
+canonical_examples: [線形写像の表現行列, 基底変換と相似, 微分作用素の表現行列, Jordan型2次行列の非対角化]
+problem_patterns: [LA-MAP-1, LA-REP-1, LA-DIAG-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2, exercises: 0.5, review: 0.5 }
+estimated_hours: { reading: 4.0, exercises: 1.0, review: 0.75 }

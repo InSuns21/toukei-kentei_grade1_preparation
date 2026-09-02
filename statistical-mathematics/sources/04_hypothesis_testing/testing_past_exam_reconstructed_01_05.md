@@ -653,7 +653,7 @@ $$
 $$
 \boxed{
 \bar X>\frac{z_\alpha}{\sqrt n}
-\text{ は }H_0:\mu\le0\text{ vs }H_1:\mu>0
+\text{ は }H_0:\mu\le0\mathrm{vs}H_1:\mu>0
 \text{ のUMP検定}
 }.
 $$

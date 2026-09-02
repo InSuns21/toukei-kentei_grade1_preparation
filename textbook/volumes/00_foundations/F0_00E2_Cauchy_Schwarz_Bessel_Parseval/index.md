@@ -1,24 +1,22 @@
-# F0-00E2 Cauchy--Schwarz・Bessel不等式・Parseval等式
+# F0-00E2 Cauchy--Schwarz・三角不等式・Bessel・Parseval
 
-[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では、Gram--Schmidt直交化によって正規直交基底を作り、直交射影と最小二乗法を導きました。
+[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では、内積から正規直交基底・Gram--Schmidt・射影・QRまでを構成しました。
 
-この補講では、その議論で何度も使う内積の基本不等式を証明します。
+この講義では、その幾何を支える基本不等式と正規直交展開を証明します。
 
-$$
-\boxed{
-\text{Cauchy--Schwarz}
-\to
-\text{三角不等式}
-\to
-\text{Bessel}
-\to
-\text{Parseval}
-}
-$$
+```text
+Cauchy--Schwarz
+      ↓
+三角不等式
+      ↓
+直交射影
+      ↓
+Bessel不等式
+      ↓
+Parseval等式
+```
 
-という流れです。
-
-後のHilbert空間では同じ式がそのまま使われるので、有限次元で一度証明を済ませておきます。
+後のHilbert空間でもほぼ同じ式を使うため、有限次元で一度証明を閉じます。
 
 ---
 
@@ -42,9 +40,9 @@ $$
 
 ---
 
-## 2. 証明：ある方向を引いて残差平方を最小にする
+## 2. 証明：残差のノルム平方は負にならない
 
-$y=0$ なら自明なので、$y\ne0$ とします。
+$y=0$ なら自明なので $y\ne0$ とします。
 
 任意の $t\in\mathbb R$ に対して
 
@@ -55,141 +53,109 @@ $$
 展開すると
 
 $$
-\begin{aligned}
 \|x-ty\|^2
-&=\langle x-ty,x-ty\rangle\\
-&=\|x\|^2-2t\langle x,y\rangle+t^2\|y\|^2.
-\end{aligned}
+=
+\|x\|^2
+-2t\langle x,y\rangle
++t^2\|y\|^2.
 $$
 
-右辺は $t$ の二次関数です。
-
-最小点は
+右辺を $t$ の二次式として最小化すると
 
 $$
-\boxed{
-t^*=\frac{\langle x,y\rangle}{\|y\|^2}}
+t_*
+=
+\frac{\langle x,y\rangle}{\|y\|^2}.
 $$
 
-なので、代入すると
+この値を代入して
 
 $$
 0
 \le
 \|x\|^2
 -
-\frac{\langle x,y\rangle^2}{\|y\|^2}.
+\frac{|\langle x,y\rangle|^2}{\|y\|^2}.
 $$
 
 したがって
 
 $$
-\langle x,y\rangle^2
+|\langle x,y\rangle|^2
 \le
 \|x\|^2\|y\|^2.
 $$
 
-平方根を取って
+平方根を取れば
 
 $$
 \boxed{
 |\langle x,y\rangle|
 \le
 \|x\|\|y\|
-}.
-$$
-
-この証明は実は
-
-> $x$ から $y$ の張る1次元部分空間への射影を引いた残差は、負の長さを持てない
-
-と言っているだけです。
-
-F0-00Eの射影幾何と同じ構造です。
-
----
-
-## 3. 数値例
-
-$$
-x=(1,2,2)^{\mathsf T},
-\qquad
-y=(2,-1,2)^{\mathsf T}
-$$
-
-とします。
-
-$$
-\langle x,y\rangle
-=2-2+4=4.
-$$
-
-また
-
-$$
-\|x\|=3,
-\qquad
-\|y\|=3.
-$$
-
-したがって
-
-$$
-|\langle x,y\rangle|=4
-\le9
-=\|x\|\|y\|.
-$$
-
-一方 $y=2x$ なら
-
-$$
-|\langle x,2x\rangle|
-=2\|x\|^2
-=\|x\|\|2x\|
-$$
-
-となり等号です。
-
----
-
-## 4. 内積から角度を定義できる理由
-
-非零ベクトル $x,y$ に対して
-
-$$
-\frac{\langle x,y\rangle}{\|x\|\|y\|}
-$$
-
-を考えます。
-
-Cauchy--Schwarzにより
-
-$$
--1
-\le
-\frac{\langle x,y\rangle}{\|x\|\|y\|}
-\le1.
-$$
-
-したがって
-
-$$
-\boxed{
-\cos\theta
-=
-\frac{\langle x,y\rangle}{\|x\|\|y\|}
 }
 $$
 
-と角度を定義できます。
-
-つまりCauchy--Schwarzは「内積から角度を作ってよい」ことを保証しています。
+です。
 
 ---
 
-## 5. 三角不等式を導く
+## 3. 等号条件
 
-内積から定まるノルムについて
+上の証明で等号が成り立つのは
+
+$$
+\|x-t_*y\|=0
+$$
+
+のときです。
+
+ノルムの正定値性から
+
+$$
+x=t_*y.
+$$
+
+したがって $x,y$ は一次従属です。
+
+逆に $x=cy$ なら
+
+$$
+|\langle x,y\rangle|
+=|c|\|y\|^2
+=
+\|x\|\|y\|
+$$
+
+なので等号が成り立ちます。
+
+---
+
+## 4. Cauchy--Schwarzから三角不等式を導く
+
+$$
+\begin{aligned}
+\|x+y\|^2
+&=
+\langle x+y,x+y\rangle\\
+&=
+\|x\|^2
++2\langle x,y\rangle
++\|y\|^2\\
+&\le
+\|x\|^2
++2|\langle x,y\rangle|
++\|y\|^2\\
+&\le
+\|x\|^2
++2\|x\|\|y\|
++\|y\|^2\\
+&=
+(\|x\|+\|y\|)^2.
+\end{aligned}
+$$
+
+したがって
 
 $$
 \boxed{
@@ -199,126 +165,152 @@ $$
 }
 $$
 
-を示します。
+です。
 
-平方すると
+つまり内積から作ったノルムが本当にノルムの三角不等式を満たすことは、Cauchy--Schwarzから従います。
+
+---
+
+## 5. 逆三角不等式
+
+三角不等式から
 
 $$
-\begin{aligned}
-\|x+y\|^2
-&=\|x\|^2+2\langle x,y\rangle+\|y\|^2\\
-&\le
-\|x\|^2+2\|x\|\|y\|+\|y\|^2\\
-&=(\|x\|+\|y\|)^2.
-\end{aligned}
+x=(x-y)+y
+$$
+
+と書けば
+
+$$
+\|x\|
+\le
+\|x-y\|+\|y\|.
+$$
+
+したがって
+
+$$
+\|x\|-\|y\|
+\le
+\|x-y\|.
+$$
+
+$x,y$ を入れ替えると
+
+$$
+\|y\|-\|x\|
+\le
+\|x-y\|.
 $$
 
 よって
 
 $$
 \boxed{
-\|x+y\|
+|\|x\|-\|y\||
 \le
-\|x\|+\|y\|
-}.
+\|x-y\|
+}
 $$
 
-したがって内積
+です。
+
+この式によりノルム関数
 
 $$
-\langle\cdot,\cdot\rangle
+x\mapsto\|x\|
 $$
 
-から
-
-$$
-\|x\|=\sqrt{\langle x,x\rangle}
-$$
-
-と作ったものは、本当にノルムの三角不等式を満たします。
+は1-Lipschitz連続です。
 
 ---
 
-## 6. 正規直交系への係数
+## 6. 正規直交系への射影係数
 
 $q_1,\dots,q_k$ を正規直交系とします。
 
-$x$ の $q_i$ 方向の係数を
+$$
+p
+=
+\sum_{i=1}^k c_iq_i
+$$
+
+が $x$ の $\operatorname{span}(q_1,\dots,q_k)$ への直交射影なら
+
+$$
+x-p
+\perp
+q_j
+$$
+
+なので
+
+$$
+0
+=
+\langle x-p,q_j\rangle
+=
+\langle x,q_j\rangle-c_j.
+$$
+
+従って
 
 $$
 \boxed{
-c_i=\langle x,q_i\rangle}
+c_j=\langle x,q_j\rangle}
 $$
 
-とします。
+です。
 
-この係数は、有限次元では基底座標です。
+したがって射影は
 
-Fourier解析やHilbert空間では、一般の正規直交系に対しても同じ形の係数を **Fourier係数** と呼びます。
+$$
+\boxed{
+p
+=
+\sum_{i=1}^k
+\langle x,q_i\rangle q_i
+}
+$$
+
+となります。
 
 ---
 
-## 7. 正規直交系への射影
+## 7. Bessel不等式
+
+$x$ を
+
+$$
+x=p+r,
+$$
 
 $$
 p
 =
 \sum_{i=1}^k
-\langle x,q_i\rangle q_i
+\langle x,q_i\rangle q_i,
 $$
 
-と置きます。
-
-各 $j$ について
-
 $$
-\begin{aligned}
-\langle x-p,q_j\rangle
-&=\langle x,q_j\rangle
--
-\sum_i
-\langle x,q_i\rangle
-\langle q_i,q_j\rangle\\
-&=\langle x,q_j\rangle
--
-\langle x,q_j\rangle\\
-&=0.
-\end{aligned}
+r=x-p
 $$
 
-したがって
+と分解します。
+
+$r$ は $p$ が属する部分空間に直交するので
 
 $$
-x-p
+p\perp r.
 $$
 
-は各 $q_j$ に直交します。
-
-つまり $p$ は
-
-$$
-\operatorname{span}(q_1,\dots,q_k)
-$$
-
-への直交射影です。
-
----
-
-## 8. Bessel不等式
-
-$x=p+(x-p)$ で
-
-$$
-p\perp(x-p)
-$$
-
-なのでPythagorasより
+Pythagorasより
 
 $$
 \|x\|^2
 =
 \|p\|^2+
-\|x-p\|^2
+\|r\|^2
 \ge
 \|p\|^2.
 $$
@@ -326,19 +318,13 @@ $$
 正規直交性から
 
 $$
-\begin{aligned}
 \|p\|^2
-&=
-\left\|
-\sum_i\langle x,q_i\rangle q_i
-\right\|^2\\
-&=
-\sum_i
+=
+\sum_{i=1}^k
 |\langle x,q_i\rangle|^2.
-\end{aligned}
 $$
 
-したがって
+よって
 
 $$
 \boxed{
@@ -353,11 +339,9 @@ $$
 
 これが **Bessel不等式** です。
 
-係数平方和は、元のベクトルが持つ「エネルギー」を超えません。
-
 ---
 
-## 9. 差は何を表しているか
+## 8. Bessel不等式の不足分は何か
 
 上の証明から
 
@@ -365,36 +349,39 @@ $$
 \boxed{
 \|x\|^2
 -
-\sum_{i=1}^k|\langle x,q_i\rangle|^2
+\sum_{i=1}^k
+|\langle x,q_i\rangle|^2
 =
-\|x-p\|^2
+\left\|
+x-
+\sum_{i=1}^k
+\langle x,q_i\rangle q_i
+\right\|^2
 }
 $$
 
 です。
 
-したがってBessel不等式の不足分は、
+つまり不足分は、正規直交系が張る部分空間で表現できなかった **射影残差のノルム平方** です。
 
-> 正規直交系が張る部分空間では表現できなかった残差のノルム平方
-
-そのものです。
-
-この見方は主成分分析や最小二乗でも非常に重要です。
+この形は回帰・主成分分析・Fourier展開でもそのまま現れます。
 
 ---
 
-## 10. Parseval等式
+## 9. Parseval等式
 
-もし $q_1,\dots,q_n$ が $\mathbb R^n$ 全体の正規直交基底なら、残差はありません。
+$q_1,\dots,q_n$ が有限次元内積空間 $V$ の正規直交基底なら、任意の $x\in V$ は
 
 $$
 x
 =
 \sum_{i=1}^n
-\langle x,q_i\rangle q_i.
+\langle x,q_i\rangle q_i
 $$
 
-したがって
+と完全に展開できます。
+
+残差が0なのでBessel不等式は等号になり
 
 $$
 \boxed{
@@ -405,73 +392,63 @@ $$
 }
 $$
 
-です。
+となります。
 
 これが有限次元の **Parseval等式** です。
 
-正規直交基底への座標変換は、長さを保存します。
+---
 
-行列で $Q=(q_1,\dots,q_n)$ と書けば
+## 10. 行列で見るParseval
+
+正規直交基底を列に並べて
+
+$$
+Q
+=
+\begin{pmatrix}
+q_1&\cdots&q_n
+\end{pmatrix}
+$$
+
+とします。
+
+正規直交性は
 
 $$
 Q^{\mathsf T}Q=I
 $$
 
-なので
+です。
+
+正方行列なので
+
+$$
+QQ^{\mathsf T}=I
+$$
+
+も成り立ちます。
+
+座標は
+
+$$
+Q^{\mathsf T}x
+$$
+
+で、そのノルムは
 
 $$
 \|Q^{\mathsf T}x\|^2
 =x^{\mathsf T}QQ^{\mathsf T}x
-=\|x\|^2
+=\|x\|^2.
 $$
 
-と同じ事実を表しています。
+つまり正規直交基底への座標変換は長さを保存します。
 
 ---
 
-## 11. 具体例
+## 11. 無限次元で何が変わるか
 
-標準基底
-
-$$
-e_1=(1,0,0),\quad
-e_2=(0,1,0),\quad
-e_3=(0,0,1)
-$$
-
-と
-
-$$
-x=(2,-1,3)
-$$
-
-を考えます。
-
-係数は
-
-$$
-\langle x,e_1\rangle=2,
-\quad
-\langle x,e_2\rangle=-1,
-\quad
-\langle x,e_3\rangle=3.
-$$
-
-Parsevalより
-
-$$
-\|x\|^2
-=2^2+(-1)^2+3^2
-=14.
-$$
-
-これは単なる座標計算ですが、一般の正規直交基底でも全く同じ式になります。
-
----
-
-## 12. 無限次元では何が新しくなるか
-
-有限次元では正規直交基底を有限本並べれば終わります。
+有限次元では、基底を有限本並べれば終わります。
 
 無限次元Hilbert空間では、正規直交系
 
@@ -490,7 +467,7 @@ $$
 
 というBessel不等式が現れます。
 
-しかし等号
+しかし
 
 $$
 \|x\|^2
@@ -499,18 +476,15 @@ $$
 |\langle x,q_i\rangle|^2
 $$
 
-が成り立つには、その正規直交系が空間を十分に張っている、つまり **完全** である必要があります。
+となるには、その正規直交系が空間を十分に張っている必要があります。
 
-ここで「無限個の線形結合」は有限和ではなく極限を伴うため、完備性が本気で効いてきます。
+無限個の「線形結合」は有限和ではなく極限を伴うため、ここで完備性が本気で効いてきます。
 
-この点を [F0-02C1](../F0_02C1_ノルム空間_Banach_Hilbert/index.md) 以降で扱います。
-
----
-
+この有限次元と無限次元の差を、後のBanach/Hilbert空間で整理します。
 
 ---
 
-## 13. 演習
+## 12. 演習
 
 ### F0-00E2-A01 Cauchy--Schwarz
 
@@ -521,7 +495,10 @@ $x=(1,2)^T$, $y=(2,-1)^T$ についてCauchy--Schwarz不等式を数値で確認
 
 <!-- solution-start -->
 #### 詳細解答
-$\langle x,y\rangle=0$、$\|x\|=\|y\|=\sqrt5$ なので $0\le5$。
+$\langle x,y\rangle=0$、$\|x\|=\|y\|=\sqrt5$ なので
+$$
+|\langle x,y\rangle|=0\le5=\|x\|\|y\|.
+$$
 #### 本番答案
 $|\langle x,y\rangle|=0\le\sqrt5\sqrt5=5$。
 #### 採点基準（20点）
@@ -535,11 +512,37 @@ $|\langle x,y\rangle|=0\le\sqrt5\sqrt5=5$。
 - Level: B
 - 目安時間: 12分
 
-正規直交系 $q_1,\dots,q_k$ と $p=\sum_i\langle x,q_i\rangle q_i$ に対し、$\|x\|^2-\sum_i|\langle x,q_i\rangle|^2=\|x-p\|^2$ を示せ。
+正規直交系 $q_1,\dots,q_k$ と
+
+$$
+p
+=
+\sum_i\langle x,q_i\rangle q_i
+$$
+
+に対し
+
+$$
+\|x\|^2
+-
+\sum_i|\langle x,q_i\rangle|^2
+=
+\|x-p\|^2
+$$
+
+を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$p\perp(x-p)$ なので $\|x\|^2=\|p\|^2+\|x-p\|^2$。正規直交性より $\|p\|^2=\sum_i|\langle x,q_i\rangle|^2$。
+$p\perp(x-p)$ なので
+$$
+\|x\|^2=\|p\|^2+\|x-p\|^2.
+$$
+正規直交性より
+$$
+\|p\|^2=\sum_i|\langle x,q_i\rangle|^2.
+$$
+両式を合わせればよい。
 #### 本番答案
 Pythagorasと正規直交性を組み合わせれば直ちに従う。
 #### 採点基準（20点）
@@ -551,37 +554,16 @@ Pythagorasと正規直交性を組み合わせれば直ちに従う。
 
 ---
 
-## 14. F0-00Fへの接続
+## 13. 次に進む
 
-次の [F0-00F](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) では、
+ここまでで正規直交座標の理論が揃いました。
 
-$$
-\ell_a(x)=a^{\mathsf T}x
-$$
+次は F0-00F で準備した一般の固有空間・対角化と、ここで準備した内積・直交性を合流させます。
 
-という線形汎関数に対して
+実対称行列について
 
-$$
-|\ell_a(x)|
-\le
-\|a\|\|x\|
-$$
+> なぜ必ず正規直交固有基底を選べるのか
 
-を使います。
+をスペクトル定理として証明します。
 
-これはまさにCauchy--Schwarzです。
-
-また実対称行列の正規直交固有基底や特異値分解では、Bessel・Parsevalと同じ「正規直交座標へ移すと内積とノルムが簡単になる」という構造を使います。
-
----
-
-## 章末チェック
-
-- Cauchy--Schwarzを $\|x-ty\|^2\ge0$ から証明できる。
-- 等号条件が一次従属であることを説明できる。
-- Cauchy--Schwarzから三角不等式を導ける。
-- 正規直交系への射影係数が $\langle x,q_i\rangle$ になることを示せる。
-- Bessel不等式をPythagorasから導ける。
-- Bessel不等式の不足分が射影残差平方であることを説明できる。
-- 正規直交基底に対するParseval等式を説明できる。
-- 無限次元では「完全性」が新たに必要になる理由を説明できる。
+**次：[F0-00F1 固有空間・実対称行列・スペクトル定理・PSD](../F0_00F1_固有空間_スペクトル定理_PSD/index.md)**

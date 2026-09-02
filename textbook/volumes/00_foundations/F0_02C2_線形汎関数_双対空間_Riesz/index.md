@@ -97,10 +97,10 @@ $$
 
 > ある $M<\infty$ が存在して
 >
-> $$
-> |\ell(x)|\le M\|x\|
-> \qquad(\forall x\in X)
-> $$
+$$
+|\ell(x)|\le M\|x\|
+\qquad(\forall x\in X)
+$$
 >
 > となる。
 
@@ -337,10 +337,10 @@ Hilbert空間 $H$ では、驚くほど有限次元に近い状況が戻って�
 
 > 任意の $\ell\in H^*$ に対し、一意な $g\in H$ が存在して
 >
-> $$
-> \boxed{\ell(x)=\langle g,x\rangle_H}
-> \qquad(\forall x\in H)
-> $$
+$$
+\boxed{\ell(x)=\langle g,x\rangle_H}
+\qquad(\forall x\in H)
+$$
 >
 > と書ける。
 

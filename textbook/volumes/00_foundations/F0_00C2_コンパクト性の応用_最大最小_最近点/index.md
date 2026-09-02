@@ -20,15 +20,15 @@ $$
 
 > **定理（Weierstrassの最大最小定理）**  
 > 位相空間 $X$ の空でないコンパクト集合 $K\subset X$ と連続関数 $f:K\to\mathbb R$ に対して、ある $x_{\min},x_{\max}\in K$ が存在し
-> $$
-> f(x_{\min})
-> =
-> \min_{x\in K}f(x),
-> \qquad
-> f(x_{\max})
-> =
-> \max_{x\in K}f(x)
-> $$
+$$
+f(x_{\min})
+=
+\min_{x\in K}f(x),
+\qquad
+f(x_{\max})
+=
+\max_{x\in K}f(x)
+$$
 > が成り立つ。
 
 ### 証明
@@ -81,15 +81,15 @@ $$
 
 > **定理（有限個のコンパクト距離空間の直積）**  
 > $m\ge1$ とし、各 $j=1,\ldots,m$ について $(K_j,d_j)$ をコンパクト距離空間とする。直積
-> $$
-> K=K_1\times\cdots\times K_m
-> $$
+$$
+K=K_1\times\cdots\times K_m
+$$
 > に距離
-> $$
-> d(x,y)
-> =
-> \max_{1\le j\le m}d_j(x_j,y_j)
-> $$
+$$
+d(x,y)
+=
+\max_{1\le j\le m}d_j(x_j,y_j)
+$$
 > を入れると、$(K,d)$ はコンパクトである。
 
 ### 証明
@@ -130,19 +130,19 @@ $$
 
 > **定理（互いに素なコンパクト集合間の正距離）**  
 > 距離空間 $(X,d)$ の空でないコンパクト集合 $A,B\subset X$ が
-> $$
-> A\cap B=\varnothing
-> $$
+$$
+A\cap B=\varnothing
+$$
 > を満たすとする。このとき
-> $$
-> d(A,B)
-> :=
-> \inf\{d(a,b):a\in A,\ b\in B\}
-> $$
+$$
+d(A,B)
+:=
+\inf\{d(a,b):a\in A,\ b\in B\}
+$$
 > は実際にある $(a_*,b_*)\in A\times B$ で達成され、さらに
-> $$
-> d(A,B)>0
-> $$
+$$
+d(A,B)>0
+$$
 > である。
 
 ### 証明
