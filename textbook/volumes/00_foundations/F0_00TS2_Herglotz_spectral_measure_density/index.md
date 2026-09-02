@@ -403,6 +403,96 @@ $$
 
 ---
 
+## 演習
+
+### F0-00TS2-A01 white noiseの全spectral mass
+
+- Level: A
+- 目安時間: 10分
+
+分散 $\sigma^2$ のwhite noiseのspectral densityが $f(\lambda)=\sigma^2/(2\pi)$ であることを自己共分散列から導き、
+
+$$
+\int_{-\pi}^{\pi}f(\lambda)\,d\lambda=\gamma(0)
+$$
+
+を確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\gamma(0)=\sigma^2$, $\gamma(h)=0\ (h\ne0)$ なので逆Fourier級数から $f(\lambda)=\sigma^2/(2\pi)$。従って
+
+$$
+\int_{-\pi}^{\pi}f(\lambda)d\lambda
+=\frac{\sigma^2}{2\pi}(2\pi)=\sigma^2=\gamma(0).
+$$
+
+#### 本番答案
+
+$f(\lambda)=\sigma^2/(2\pi)$、全質量は $\sigma^2=\gamma(0)$。
+
+#### 採点基準（20点）
+- 自己共分散列: 5点
+- density導出: 8点
+- 全質量確認: 7点
+<!-- solution-end -->
+
+### F0-00TS2-B01 random phase sinusoidのline spectrum
+
+- Level: B
+- 目安時間: 18分
+
+$\Phi\sim\operatorname{Unif}(0,2\pi)$ とし
+
+$$
+X_t=A\cos(\omega_0t+\Phi)
+$$
+
+とする。$\gamma(h)$ を求め、Herglotz表示
+
+$$
+\gamma(h)=\int e^{ih\lambda}\,dF(\lambda)
+$$
+
+を満たすspectral measure $F$ を、$\pm\omega_0$ の点質量として書け。
+
+<!-- solution-start -->
+#### 詳細解答
+
+積和公式と位相の一様性から
+
+$$
+\gamma(h)=\frac{A^2}{2}\cos(\omega_0h).
+$$
+
+一方
+
+$$
+\frac{A^2}{4}\{e^{ih\omega_0}+e^{-ih\omega_0}\}
+=\frac{A^2}{2}\cos(\omega_0h),
+$$
+
+だから
+
+$$
+dF=\frac{A^2}{4}\delta_{\omega_0}+\frac{A^2}{4}\delta_{-\omega_0}.
+$$
+
+全質量は $A^2/2=\gamma(0)$。点質量なのでLebesgue密度を持たない。
+
+#### 本番答案
+
+$\gamma(h)=A^2\cos(\omega_0h)/2$、$F=(A^2/4)(\delta_{\omega_0}+\delta_{-\omega_0})$。
+
+#### 採点基準（20点）
+- 共分散: 8点
+- 点質量の係数: 8点
+- densityを持たない説明: 4点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - 自己共分散列の正定値性を示せる。

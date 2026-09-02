@@ -407,6 +407,103 @@ Levy連続性定理の完全証明にはさらに測度論的Fourier解析とtig
 
 ---
 
+## 演習
+
+### F0-00FA3-A01 Plancherelの $2\pi$ を具体例で確認する
+
+- Level: A
+- 目安時間: 15分
+
+FA2で得た
+
+$$
+f(x)=e^{-|x|},
+\qquad
+\widehat f(\xi)=\frac{2}{1+\xi^2}
+$$
+
+を使い、本章の規約のPlancherel等式
+
+$$
+\int|f|^2
+=\frac1{2\pi}\int|\widehat f|^2
+$$
+
+を確認せよ。ただし
+
+$$
+\int_{-\infty}^{\infty}\frac{d\xi}{(1+\xi^2)^2}=\frac\pi2
+$$
+
+を使ってよい。
+
+<!-- solution-start -->
+#### 詳細解答
+
+空間側は
+
+$$
+\int_{\mathbb R}e^{-2|x|}dx
+=2\int_0^\infty e^{-2x}dx=1.
+$$
+
+周波数側は
+
+$$
+\frac1{2\pi}\int_{\mathbb R}\frac4{(1+\xi^2)^2}d\xi
+=\frac1{2\pi}\cdot4\cdot\frac\pi2
+=1.
+$$
+
+両辺が一致する。
+
+#### 本番答案
+
+$\|f\|_2^2=1$、$(2\pi)^{-1}\|\hat f\|_2^2=(2\pi)^{-1}4(\pi/2)=1$。
+
+#### 採点基準（20点）
+- 空間側: 7点
+- 周波数側: 9点
+- 規約の確認: 4点
+<!-- solution-end -->
+
+### F0-00FA3-B01 Fourier変換が距離を保存する
+
+- Level: B
+- 目安時間: 12分
+
+正規化Fourier変換 $\mathcal F_u=(2\pi)^{-1/2}\mathcal F$ について、Plancherel等式から任意の $f,g\in L^2(\mathbb R)$ に対し
+
+$$
+\|\mathcal F_u f-\mathcal F_u g\|_2=\|f-g\|_2
+$$
+
+を示し、「Fourier変換が無限次元の直交座標変換」と呼べる理由を説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+線形性より $\mathcal F_u f-\mathcal F_u g=\mathcal F_u(f-g)$。Plancherelによるノルム保存を $f-g$ に適用すれば
+
+$$
+\|\mathcal F_u(f-g)\|_2=\|f-g\|_2.
+$$
+
+従って二点間の距離を保存する。有限次元の直交行列がEuclid距離を保存するのと同じ役割である。
+
+#### 本番答案
+
+$\|\mathcal F_u f-\mathcal F_u g\|_2=\|\mathcal F_u(f-g)\|_2=\|f-g\|_2$。よってHilbert空間の距離を保存するunitaryな座標変換である。
+
+#### 採点基準（20点）
+- 線形性: 5点
+- Plancherel適用: 8点
+- 距離保存: 4点
+- 解釈: 3点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - Plancherel等式を書ける。

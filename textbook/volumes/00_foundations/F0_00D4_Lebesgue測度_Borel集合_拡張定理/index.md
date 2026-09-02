@@ -612,6 +612,60 @@ $$
 
 ---
 
+## 演習
+
+### F0-00D4-A01 有理数集合はBorelだが測度0
+
+- Level: A
+- 目安時間: 10分
+
+$A=\mathbb Q\cap[0,1]$ がBorel集合であることを示し、Lebesgue測度 $\lambda(A)$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+一点集合 $\{q\}$ は閉集合なのでBorel集合。有理数は可算だから
+
+$$
+A=\bigcup_{q\in\mathbb Q\cap[0,1]}\{q\}
+$$
+
+は可算和としてBorel集合。各一点の測度は0なので可算加法性から $\lambda(A)=0$。
+
+#### 本番答案
+
+$A$ は一点Borel集合の可算和なのでBorel。各一点の測度が0だから $\lambda(A)=0$。
+
+#### 採点基準（20点）
+- 一点集合がBorel: 5点
+- 可算和: 7点
+- 測度0: 8点
+<!-- solution-end -->
+
+### F0-00D4-B01 完備化が何を追加するか
+
+- Level: B
+- 目安時間: 15分
+
+$N$ をLebesgue測度0のBorel集合とし、$A\subset N$ とする。$A$ がLebesgue可測で $\lambda(A)=0$ である理由を説明せよ。また、この事実だけから $A$ がBorel集合とは結論できない理由を述べよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+Lebesgue測度はBorel測度の完備化なので、零測度Borel集合 $N$ の任意の部分集合 $A$ もLebesgue可測として追加され、$\lambda(A)=0$ と定められる。一方、完備化はもとのBorel sigma代数に新しい集合を追加する操作なので、$A$ がもともとBorel集合であることまでは保証しない。
+
+#### 本番答案
+
+Lebesgue測度の完全性より $A\subset N$, $\lambda(N)=0$ なら $A$ はLebesgue可測かつ $\lambda(A)=0$。完備化はBorel sigma代数より大きいので、$A$ がBorelとは限らない。
+
+#### 採点基準（20点）
+- 完全性の適用: 8点
+- $\lambda(A)=0$: 5点
+- Borelとの区別: 7点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - 区間のLebesgue外測度が長さに一致することを説明できる。

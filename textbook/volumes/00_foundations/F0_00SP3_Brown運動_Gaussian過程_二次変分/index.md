@@ -440,6 +440,81 @@ $$
 
 ---
 
+## 演習
+
+### F0-00SP3-A01 共分散と増分分布
+
+- Level: A
+- 目安時間: 12分
+
+標準Brown運動について $s=1,t=3$ とする。
+
+1. $\operatorname{Cov}(B_1,B_3)$ を求めよ。
+2. $B_3-B_1$ の分布を求めよ。
+3. $\operatorname{Corr}(B_1,B_3)$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\operatorname{Cov}(B_s,B_t)=\min(s,t)$ より共分散は1。増分は $N(0,3-1)=N(0,2)$。また $\operatorname{Var}(B_1)=1$, $\operatorname{Var}(B_3)=3$ なので
+
+$$
+\operatorname{Corr}(B_1,B_3)=\frac1{\sqrt{1\cdot3}}=\frac1{\sqrt3}.
+$$
+
+#### 本番答案
+
+$\operatorname{Cov}(B_1,B_3)=1$、$B_3-B_1\sim N(0,2)$、$\operatorname{Corr}(B_1,B_3)=1/\sqrt3$。
+
+#### 採点基準（20点）
+- 共分散: 6点
+- 増分分布: 7点
+- 相関係数: 7点
+<!-- solution-end -->
+
+### F0-00SP3-B01 二次変分を $L^2$ で確認する
+
+- Level: B
+- 目安時間: 18分
+
+$[0,t]$ を $n$ 等分し
+
+$$
+Q_n=\sum_{k=1}^n(B_{kt/n}-B_{(k-1)t/n})^2
+$$
+
+とする。$E[Q_n]$ と $\operatorname{Var}(Q_n)$ を求め、$Q_n\to t$ in $L^2$ を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+各増分 $\Delta B_k\sim N(0,t/n)$ は独立。よって $E[(\Delta B_k)^2]=t/n$ から $E[Q_n]=t$。正規分布の四次モーメントより
+
+$$
+\operatorname{Var}((\Delta B_k)^2)=2(t/n)^2.
+$$
+
+独立性から
+
+$$
+\operatorname{Var}(Q_n)=n\,2(t/n)^2=\frac{2t^2}{n}.
+$$
+
+したがって $E[(Q_n-t)^2]=2t^2/n\to0$。
+
+#### 本番答案
+
+$E[Q_n]=t$, $\operatorname{Var}(Q_n)=2t^2/n$。従って $E[(Q_n-t)^2]\to0$ なので $Q_n\to t$ in $L^2$。
+
+#### 採点基準（20点）
+- 増分の分布・独立性: 4点
+- 期待値: 5点
+- 四次モーメントから分散: 7点
+- $L^2$収束: 4点
+<!-- solution-end -->
+
+---
+
 ## 章末チェック
 
 - Brown運動の定義を説明できる。
