@@ -22,11 +22,11 @@ $$
 
 > **定義（点における連続性）**  
 > 距離空間 $(X,d_X)$、$(Y,d_Y)$、写像 $f:X\to Y$、点 $x\in X$ に対して、$f$ が $x$ で **連続** であるとは、任意の $\varepsilon>0$ に対し、ある $\delta>0$ が存在して
-> $$
-> d_X(x,y)<\delta
-> \Longrightarrow
-> d_Y(f(x),f(y))<\varepsilon
-> $$
+$$
+d_X(x,y)<\delta
+\Longrightarrow
+d_Y(f(x),f(y))<\varepsilon
+$$
 > が全ての $y\in X$ について成り立つことをいう。
 
 > **定義（連続写像）**  
@@ -44,16 +44,16 @@ $$
 > 距離空間 $(X,d_X)$、$(Y,d_Y)$ と写像 $f:X\to Y$ に対して、次の三条件は同値である。
 > 1. $f$ は $X$ 上で連続である。
 > 2. 任意の点列 $(x_n)$ と点 $x\in X$ について
->    $$
->    x_n\to x
->    \Longrightarrow
->    f(x_n)\to f(x)
->    $$
+   $$
+   x_n\to x
+   \Longrightarrow
+   f(x_n)\to f(x)
+   $$
 >    が成り立つ。
 > 3. 任意の開集合 $U\subset Y$ に対して、逆像
->    $$
->    f^{-1}(U)=\{x\in X:f(x)\in U\}
->    $$
+   $$
+   f^{-1}(U)=\{x\in X:f(x)\in U\}
+   $$
 >    は $X$ の開集合である。
 
 ### 証明

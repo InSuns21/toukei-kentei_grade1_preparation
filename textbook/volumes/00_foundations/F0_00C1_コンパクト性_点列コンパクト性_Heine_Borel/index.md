@@ -12,16 +12,16 @@
 
 > **定義（開被覆）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ に対し、開集合族 $\{U_\alpha\}_{\alpha\in A}$ が
-> $$
-> K\subset\bigcup_{\alpha\in A}U_\alpha
-> $$
+$$
+K\subset\bigcup_{\alpha\in A}U_\alpha
+$$
 > を満たすとき、この族を $K$ の **開被覆** という。
 
 > **定義（コンパクト集合）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ が **コンパクト** であるとは、$K$ の任意の開被覆 $\{U_\alpha\}_{\alpha\in A}$ に対し、有限個の添字 $\alpha_1,\ldots,\alpha_m$ が存在して
-> $$
-> K\subset\bigcup_{j=1}^mU_{\alpha_j}
-> $$
+$$
+K\subset\bigcup_{j=1}^mU_{\alpha_j}
+$$
 > となることをいう。
 
 直感は
@@ -339,9 +339,9 @@ $$
 
 > **定理（コンパクト集合の連続像）**  
 > 位相空間 $X,Y$、コンパクト集合 $K\subset X$、連続写像 $f:X\to Y$ に対して、像
-> $$
-> f(K)=\{f(x):x\in K\}
-> $$
+$$
+f(K)=\{f(x):x\in K\}
+$$
 > は $Y$ のコンパクト集合である。
 
 ### 証明

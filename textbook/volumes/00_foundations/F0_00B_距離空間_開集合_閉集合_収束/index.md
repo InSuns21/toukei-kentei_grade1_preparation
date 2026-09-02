@@ -34,17 +34,17 @@ $$
 
 > **定義（距離・距離空間）**  
 > 集合 $X$ 上の関数
-> $$
-> d:X\times X\to[0,\infty)
-> $$
+$$
+d:X\times X\to[0,\infty)
+$$
 > が、任意の $x,y,z\in X$ に対して
-> $$
-> \begin{aligned}
-> &d(x,y)=0\iff x=y,\\
-> &d(x,y)=d(y,x),\\
-> &d(x,z)\le d(x,y)+d(y,z)
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+&d(x,y)=0\iff x=y,\\
+&d(x,y)=d(y,x),\\
+&d(x,z)\le d(x,y)+d(y,z)
+\end{aligned}
+$$
 > を満たすとき、$d$ を $X$ 上の **距離** といい、組 $(X,d)$ を **距離空間** という。
 
 ### 1.1 Euclid距離
@@ -89,11 +89,11 @@ $$
 
 > **定義（開球）**  
 > 距離空間 $(X,d)$、点 $x\in X$、半径 $r>0$ に対して
-> $$
-> B(x,r)
-> :=
-> \{y\in X:d(x,y)<r\}
-> $$
+$$
+B(x,r)
+:=
+\{y\in X:d(x,y)<r\}
+$$
 > を、中心 $x$、半径 $r$ の **開球** という。
 
 $\mathbb R$ の通常の距離なら
@@ -116,18 +116,18 @@ $$
 
 > **定義（開集合）**  
 > 距離空間 $(X,d)$ の部分集合 $U\subset X$ が **開集合** であるとは、任意の $x\in U$ に対して、ある $r>0$ が存在し
-> $$
-> B(x,r)\subset U
-> $$
+$$
+B(x,r)\subset U
+$$
 > となることをいう。
 
 日本語では「集合のどの点に立っても、その点の周囲に少しだけ動ける余白がある」という意味です。
 
 > **定義（閉集合）**  
 > 距離空間 $(X,d)$ の部分集合 $F\subset X$ が **閉集合** であるとは、補集合
-> $$
-> X\setminus F
-> $$
+$$
+X\setminus F
+$$
 > が開集合であることをいう。
 
 $\mathbb R$ では $(0,1)$ は開集合、$[0,1]$ は閉集合です。
@@ -160,15 +160,15 @@ $$
 
 > **定義（距離空間における点列の収束）**  
 > 距離空間 $(X,d)$ の点列 $(x_n)_{n\ge1}$ と点 $x\in X$ に対して、任意の $\varepsilon>0$ に対し、ある自然数 $N$ が存在して
-> $$
-> n\ge N
-> \Longrightarrow
-> d(x_n,x)<\varepsilon
-> $$
+$$
+n\ge N
+\Longrightarrow
+d(x_n,x)<\varepsilon
+$$
 > となるとき、$(x_n)$ は $x$ に **収束する** といい
-> $$
-> x_n\to x
-> $$
+$$
+x_n\to x
+$$
 > と書く。
 
 これは「どんなに小さい許容半径を指定されても、十分後ろの項は全部その球の中へ入る」という意味です。
@@ -199,9 +199,9 @@ $$
 
 > **命題（距離空間における極限の一意性）**  
 > 距離空間 $(X,d)$ の点列 $(x_n)$ が $x,y\in X$ の両方に収束するなら
-> $$
-> x=y
-> $$
+$$
+x=y
+$$
 > である。
 
 #### 証明
@@ -228,16 +228,16 @@ $$
 
 > **定義（有界集合）**  
 > 距離空間 $(X,d)$ の部分集合 $A\subset X$ が **有界** であるとは、ある点 $x_0\in X$ とある $R>0$ が存在して
-> $$
-> A\subset B(x_0,R)
-> $$
+$$
+A\subset B(x_0,R)
+$$
 > となることをいう。
 
 > **命題（収束列は有界）**  
 > 距離空間 $(X,d)$ の収束列 $(x_n)$ に対して、集合
-> $$
-> \{x_n:n\ge1\}
-> $$
+$$
+\{x_n:n\ge1\}
+$$
 > は有界である。
 
 #### 証明
@@ -266,13 +266,13 @@ $$
 > 距離空間 $(X,d)$ と部分集合 $F\subset X$ に対して、次の二条件は同値である。
 > 1. $F$ は閉集合である。
 > 2. $F$ の任意の点列 $(x_n)$ と任意の $x\in X$ について
->    $$
->    x_n\in F\ \text{for all }n,
->    \qquad
->    x_n\to x
->    \Longrightarrow
->    x\in F
->    $$
+   $$
+   x_n\in F\ \text{for all }n,
+   \qquad
+   x_n\to x
+   \Longrightarrow
+   x\in F
+   $$
 >    が成り立つ。
 
 ### 証明
@@ -341,33 +341,33 @@ $$
 
 > **定義（内部）**  
 > 距離空間 $(X,d)$ の部分集合 $A\subset X$ に対し、点 $x\in A$ が **内点** であるとは、ある $r>0$ が存在して
-> $$
-> B(x,r)\subset A
-> $$
+$$
+B(x,r)\subset A
+$$
 > となることをいう。$A$ の内点全体を **内部** といい
-> $$
-> \operatorname{int}(A)
-> $$
+$$
+\operatorname{int}(A)
+$$
 > と書く。
 
 > **定義（閉包）**  
 > 距離空間 $(X,d)$ の部分集合 $A\subset X$ に対し、$A$ を含む全ての閉集合の共通部分
-> $$
-> \overline A
-> :=
-> \bigcap\{F\subset X:A\subset F,\ F\text{ は閉集合}\}
-> $$
+$$
+\overline A
+:=
+\bigcap\{F\subset X:A\subset F,\ F\text{ は閉集合}\}
+$$
 > を $A$ の **閉包** という。
 
 この定義から $\overline A$ は $A$ を含む最小の閉集合です。
 
 > **定義（境界）**  
 > 距離空間 $(X,d)$ の部分集合 $A\subset X$ に対して
-> $$
-> \partial A
-> :=
-> \overline A\setminus\operatorname{int}(A)
-> $$
+$$
+\partial A
+:=
+\overline A\setminus\operatorname{int}(A)
+$$
 > を $A$ の **境界** という。
 
 例えば $A=[0,1)$ なら
@@ -390,11 +390,11 @@ $$
 > 距離空間 $(X,d)$、部分集合 $A\subset X$、点 $x\in X$ に対して、次の二条件は同値である。
 > 1. $x\in\overline A$。
 > 2. $A$ の点からなる点列 $(x_n)$ が存在して
->    $$
->    x_n\in A\ \text{for all }n,
->    \qquad
->    x_n\to x
->    $$
+   $$
+   x_n\in A\ \text{for all }n,
+   \qquad
+   x_n\to x
+   $$
 >    となる。
 
 ### 証明
