@@ -3,8 +3,7 @@ title: "Encore IV：確率過程・filtration・adapted process・stopping time"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00P3
-  - F0-00P4
+  - F0-00P3A
 official_scope: []
 learning_objectives:
   - 確率過程を確率変数族として定義できる

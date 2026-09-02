@@ -1,0 +1,11 @@
+chapter: "F0-00P2A"
+terms:
+  - term: 期待値
+    english: expectation
+    meaning: 確率変数を確率測度で積分した値。
+  - term: LOTUS
+    english: law of the unconscious statistician
+    meaning: g(X)の期待値をXの分布上の積分へ移す公式。
+  - term: モーメント
+    english: moment
+    meaning: E[X^k]など分布の積分で定まる量。

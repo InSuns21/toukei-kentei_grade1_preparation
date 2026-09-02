@@ -1,0 +1,11 @@
+chapter: "F0-00P5A"
+terms:
+  - term: truncation
+    english: truncation
+    meaning: 大きすぎる観測を閾値で切って二次モーメントを制御する操作。
+  - term: Kolmogorov収束定理
+    english: Kolmogorov convergence theorem
+    meaning: 独立中心化項の分散和が有限なら級数がa.s.収束するという定理。
+  - term: Kronecker補題
+    english: Kronecker lemma
+    meaning: 重み付き級数の収束からCesaro型平均の0収束を導く補題。

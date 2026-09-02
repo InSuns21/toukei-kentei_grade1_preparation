@@ -338,3 +338,24 @@ F0-02C1 → C2 → C3 → C4 → C5 → C6 → C7
 | F0-02C2 | **OK** | 連続線形汎関数→双対空間→Riesz表現が一つの表現定理サイクル。C1Aを前提化しA/B演習を追加。 |
 
 再編後は `F0-02 → 02A → 02B → 02B1 → C1 → C1A → C2`。特に `02A → 02B参照` と `02B → 02A必須` の循環を解消した。
+
+
+---
+
+## Probability P1〜P7 遡及監査（2026-09-02）
+
+Probability補講も同じ「一講義一学習サイクル」で再監査した。
+
+| 旧講義 | 判定 | 再編後 |
+|---|---|---|
+| P1 | **OK** | 確率空間→確率変数→押し出し分布で一サイクル。 |
+| P2 | **SPLIT済み** | P2 RN密度 / P2A 期待値・LOTUS。 |
+| P3 | **SPLIT済み** | P3 独立・積測度 / P3A 条件付き期待値 / P3B L2射影・最良予測。 |
+| P4 | **SPLIT済み** | P4 limsup・Borel--Cantelli・収束関係 / P4A UI・Vitali。 |
+| P5 | **SPLIT済み** | P5 有限分散SLLN / P5A truncation・Kolmogorov収束・Kronecker・一般iid SLLN。 |
+| P6 | **SPLIT済み** | P6 特性関数・Lévy / P6A iid CLT。 |
+| P7 | **SPLIT済み** | P7 正則model / P7A MLE漸近論 / P7B QMD・LAN。 |
+
+特にP5Aでは旧ページが名称だけ使っていたKolmogorov収束定理・Kronecker補題を講義内で定義・証明し、「未定義語に殴られる」箇所を解消した。P7BはQMDを平方根密度のL2微分として導入し、central sequenceとLANまで独立した学習サイクルにした。
+
+標準読み順とmachine-readable prerequisiteは分離し、P6/P6AへP5Aを強制せず、P7BへP7Aを強制しない。

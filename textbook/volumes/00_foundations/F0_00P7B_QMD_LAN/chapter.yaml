@@ -1,0 +1,29 @@
+id: "F0-00P7B"
+title: "QMD・LAN"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P7
+  - F0-00P6A
+  - F0-00D2E
+official_scope: []
+learning_objectives:
+  - 平方根密度をL2幾何として解釈できる
+  - QMDをL2微分として定義できる
+  - Fisher情報を接ベクトルのGram行列として説明できる
+  - 1/sqrt(n)局所parameter化の理由を説明できる
+  - LAN展開とcentral sequenceを記述できる
+definitions:
+  - { id: F0P7B-DEF-01, name: QMD }
+  - { id: F0P7B-DEF-02, name: central sequence }
+  - { id: F0P7B-DEF-03, name: LAN }
+  - { id: F0P7B-DEF-04, name: Hellinger距離 }
+theorems:
+  - { id: F0P7B-THM-01, name: QMDからLAN }
+  - { id: F0P7B-THM-02, name: central sequence CLT }
+canonical_examples: [iid local alternatives]
+problem_patterns: [QMD-1, LAN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 0.75, review: 0.5 }

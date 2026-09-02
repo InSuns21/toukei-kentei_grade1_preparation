@@ -1,0 +1,11 @@
+chapter: "F0-00P7A"
+terms:
+  - term: 最尤推定量
+    english: maximum likelihood estimator
+    meaning: 尤度または対数尤度を最大化するparameter推定量。
+  - term: 一様大数則
+    english: uniform law of large numbers
+    meaning: parameter全体で経験平均と期待値の差が一様に0へ行く性質。
+  - term: Slutskyの定理
+    english: Slutsky theorem
+    meaning: 分布収束と確率収束を連続演算で合成する定理。

@@ -1,0 +1,8 @@
+chapter: "F0-00P6A"
+terms:
+  - term: 中心極限定理
+    english: central limit theorem
+    meaning: iid有限分散変数の標準化和が正規分布へ分布収束する定理。
+  - term: 標準化
+    english: standardization
+    meaning: 中心化して標準偏差スケールへ直す操作。

@@ -4,7 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P5
-  - F0-00P6
+  - F0-00P6A
 learning_objectives:
   - 積分を期待値へ変換できる
   - Monte Carlo estimatorの分散を導ける
