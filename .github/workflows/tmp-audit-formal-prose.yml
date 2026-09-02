@@ -1,0 +1,32 @@
+name: Temporary formal prose audit
+
+on:
+  push:
+    branches:
+      - fix/formal-anchors-and-definition-audit
+    paths:
+      - 'scripts/tmp-audit-formal-prose.mjs'
+      - '.github/workflows/tmp-audit-formal-prose.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/formal-anchors-and-definition-audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Audit prose definitions and unlabeled formal statements
+        run: node scripts/tmp-audit-formal-prose.mjs > tmp-formal-prose-audit.txt
+      - name: Commit audit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tmp-formal-prose-audit.txt
+          git commit -m 'record temporary formal prose audit'
+          git push
