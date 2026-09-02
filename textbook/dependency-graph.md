@@ -63,22 +63,23 @@ D3〜D5は関数解析・RKHSにも確率論補講にも必須前提としない
 ```text
 F0-00D2
   ↓
-F0-00P1 確率空間・確率変数・分布
+P1 確率空間・確率変数・分布
   ↓
-P2 Radon--Nikodym・密度・期待値
+P2 RN密度・pmf/pdf → P2A 期待値・LOTUS
   ↓
-P3 独立・積測度・条件付き期待値
+P3 独立・積測度 → P3A 条件付き期待値 → P3B L2射影・最良予測
   ↓
-P4 収束・Borel--Cantelli・一様可積分性
+P4 limsup・Borel--Cantelli → P4A UI・Vitali
   ↓
-P5 強大数則
-  ↓
-P6 特性関数・Levy・CLT
-  ↓
-P7 統計モデル・尤度・正則性
+P5 有限分散SLLN → P5A 一般iid SLLN
+  │
+  └────────────→ P6 特性関数・Lévy → P6A iid CLT
+                                      ↓
+P7 正則model・score・Fisher → P7A MLE漸近論
+                         └──→ P7B QMD・LAN
 ```
 
-確率変数を可測写像、分布を押し出し測度、pdfをRadon--Nikodym密度、期待値をLebesgue積分、条件付き期待値を部分sigma代数上のRadon--Nikodym構成へ戻す。有限分散版強大数則は最大不等式から証明し、CLTは特性関数で導く。
+標準通読と必須前提は分離する。P6/P6AはSLLNを証明に使わず、P5Aはheavy-tailまでSLLNを証明したい読者向け。P3BはHilbert予測への橋、P7BはP7Aを経由せずQMD/LANへ入れる。
 
 ---
 
@@ -133,7 +134,7 @@ WK2ではRiesz表現からLax--Milgramの存在一意性を証明し、WK3では
 ## Encore IV：Stochastic Processes & Spectral Time Series
 
 ```text
-F0-00P3 / P4 / P6 / F0-02C1 / F0-00FA2
+F0-00P3A / P4 / P6 / F0-02C1 / F0-00FA2
   ↓
 F0-00SP1 filtration・adapted process・stopping time
   ↓
@@ -191,7 +192,7 @@ FEM1では弱形式を有限次元化し、局所要素行列からglobal sparse
 ### Monte Carlo / SDE branch
 
 ```text
-F0-00P5 / P6
+F0-00P5 / P6A
   ↓
 F0-00MC1 Monte Carlo積分・LLN/CLT・標準誤差
   ↓

@@ -1,24 +1,24 @@
 id: "F0-00P6"
-title: "補講：特性関数・Levy連続性定理・中心極限定理"
+title: "特性関数・Lévy連続性定理"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00P5
+  - F0-00P3
+  - F0-00D2B
 official_scope: []
 learning_objectives:
-  - 特性関数の基本性質と独立な和での積分解を説明できる
-  - 有限二次モーメントから0近傍展開を導ける
-  - Levy連続性定理を用いて独立同分布CLTを導ける
-  - 正規分布が有限分散領域の極限として現れる理由を説明できる
+  - 特性関数を定義し常に存在する理由を説明できる
+  - 独立和を特性関数の積へ変換できる
+  - 特性関数が分布を一意に定めることを使える
+  - Lévy連続性定理で分布収束を判定できる
 definitions:
-  - { id: F000P6-DEF-01, name: 特性関数 }
+  - { id: F0P6-DEF-01, name: 特性関数 }
 theorems:
-  - { id: F000P6-THM-01, name: 特性関数の一意性 }
-  - { id: F000P6-THM-02, name: Levy連続性定理 }
-  - { id: F000P6-THM-03, name: 独立同分布中心極限定理 }
-canonical_examples: [標準正規分布の特性関数, 標準化和, Lindeberg条件の予告]
-problem_patterns: []
+  - { id: F0P6-THM-01, name: 特性関数の一意性 }
+  - { id: F0P6-THM-02, name: Lévy連続性定理 }
+canonical_examples: [Gaussian characteristic function, independent sum]
+problem_patterns: [CHARFUNC-1, LEVY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }

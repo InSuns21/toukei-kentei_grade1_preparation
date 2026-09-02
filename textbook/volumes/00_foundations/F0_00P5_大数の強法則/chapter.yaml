@@ -1,22 +1,24 @@
 id: "F0-00P5"
-title: "補講：大数の強法則"
+title: "Kolmogorov最大不等式・有限分散版強大数則"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P4
 official_scope: []
 learning_objectives:
-  - 有限分散版の強大数則をKolmogorov最大不等式とBorel--Cantelliから証明できる
-  - dyadic列を使う理由を説明できる
-  - 一般の有限平均版強大数則の証明地図を説明できる
-definitions: []
+  - Kolmogorov最大不等式を使える
+  - dyadic subsequenceにBorel--Cantelliを適用できる
+  - 区間最大増分でgapを埋められる
+  - 有限分散iid強大数則を証明できる
+definitions:
+  - { id: F0P5-DEF-01, name: 部分和 }
+  - { id: F0P5-DEF-02, name: dyadic subsequence }
 theorems:
-  - { id: F000P5-THM-01, name: Kolmogorov最大不等式 }
-  - { id: F000P5-THM-02, name: 有限分散版強大数則 }
-  - { id: F000P5-THM-03, name: Kolmogorov強大数則 }
-canonical_examples: [独立同分布標本平均, dyadic部分和制御, truncation]
-problem_patterns: []
+  - { id: F0P5-THM-01, name: Kolmogorov最大不等式 }
+  - { id: F0P5-THM-02, name: 有限分散版強大数則 }
+canonical_examples: [iid finite variance]
+problem_patterns: [KOLMOGOROV-MAX-1, SLLN-FINITE-VAR-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }

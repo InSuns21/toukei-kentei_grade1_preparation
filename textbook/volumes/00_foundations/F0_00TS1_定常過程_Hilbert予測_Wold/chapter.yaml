@@ -3,9 +3,8 @@ title: "Encore IV：定常過程・Hilbert空間予測・innovation・Wold分解
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00P3
+  - F0-00P3B
   - F0-02C1
-  - F0-00SP2
 official_scope: []
 learning_objectives:
   - 二次定常過程を平均と自己共分散で定義できる

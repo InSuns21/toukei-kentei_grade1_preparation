@@ -1,0 +1,8 @@
+chapter: "F0-00P3B"
+terms:
+  - term: 最良予測
+    english: best predictor
+    meaning: 指定した情報で可測な予測の中で平均二乗誤差を最小化するもの。
+  - term: 直交射影
+    english: orthogonal projection
+    meaning: Hilbert空間の閉部分空間へ残差が直交するよう写す操作。
