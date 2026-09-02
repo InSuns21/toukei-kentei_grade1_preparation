@@ -46,6 +46,7 @@ $$
 
 が成り立つ。積分値は $\infty$ でもよい。
 
+<!-- proof-start -->
 ### 証明
 
 $f_n\le f$ なのでLebesgue積分の単調性より
@@ -109,7 +110,7 @@ $$
 D2の測度の下からの連続性より、$E_n\uparrow\{\phi>0\}$ 上で
 
 $$
-\mu(A_k\cap E_n)cap E_n)\uparrow\mu(A_k),
+\mu(A_k\cap E_n)\uparrow\mu(A_k),
 $$
 
 したがって
@@ -139,6 +140,7 @@ L\ge\int f\,d\mu.
 $$
 
 すでに逆向き $L\le\int f$ を得ているので等号です。$\square$
+<!-- proof-end -->
 
 ### 例1：$x^n$ の積分
 
@@ -191,6 +193,7 @@ $$
 
 が成り立つ。
 
+<!-- proof-start -->
 ### 証明
 
 $$
@@ -234,6 +237,7 @@ $$
 $$
 
 $\square$
+<!-- proof-end -->
 
 ### 例2：等号にならないFatou
 
@@ -298,6 +302,7 @@ $$
 
 が成り立つ。
 
+<!-- proof-start -->
 ### 証明
 
 $f_n\to f$ a.e. かつ $|f_n|\le g$ a.e. なので、極限を取って
@@ -367,6 +372,7 @@ $$
 $$
 
 $\square$
+<!-- proof-end -->
 
 ### 例3：$x^n$ にDCTを使う
 

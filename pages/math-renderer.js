@@ -160,6 +160,13 @@
     return output;
   }
 
+  function foldProofBlocks(html) {
+    return html.replace(
+      /<!-- proof-start -->([\s\S]*?)<!-- proof-end -->/g,
+      '<details class="solution-details proof-details"><summary>証明を表示</summary><div class="proof-body">$1</div></details>'
+    );
+  }
+
   function katexStylesheetLoaded() {
     if (typeof document === 'undefined') return true;
     return [...document.querySelectorAll('link[rel="stylesheet"]')]
@@ -247,6 +254,10 @@
       return protectMath(markdown);
     });
 
+    hook.afterEach(function (html) {
+      return foldProofBlocks(html);
+    });
+
     hook.doneEach(function () {
       renderMath(document.querySelector('.markdown-section'));
     });
@@ -254,6 +265,7 @@
 
   root.ToukeiMathRenderer = {
     protectMath,
+    foldProofBlocks,
     docsifyPlugin,
   };
 })(typeof window !== 'undefined' ? window : globalThis);
