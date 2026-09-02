@@ -53,19 +53,21 @@ $$
 
 ## 2. 選択関数
 
-非空集合の族
+<a id="def-choice-function"></a>
 
+<!-- formal-statement-start -->
+> **定義（選択関数）**  
+> 添字集合 $I$ と非空集合族 $\mathcal A=\{A_i\}_{i\in I}$ に対し、写像
 $$
-\mathcal A=\{A_i\}_{i\in I}
+f:I\to\bigcup_{i\in I}A_i
 $$
-
-に対し、写像 $f$ が
-
+> が
 $$
 f(i)\in A_i
+\qquad(i\in I)
 $$
-
-をすべての $i\in I$ について満たすとき、$f$ を **選択関数** といいます。
+> を満たすとき、$f$ を $\mathcal A$ の **選択関数** という。
+<!-- formal-statement-end -->
 
 注意したいのは、各 $A_i$ に「最小の元」など自然な選び方があるなら、選択公理は要らないことです。
 
@@ -89,21 +91,20 @@ $$
 
 ## 3. 選択公理
 
-選択公理は次のように述べられます。
+<a id="axiom-choice"></a>
 
-> 非空集合からなる任意の族 $\{A_i\}_{i\in I}$ に対して、選択関数が存在する。
-
-記号で書けば
-
+<!-- formal-statement-start -->
+> **公理（選択公理）**  
+> 添字集合 $I$ と非空集合族 $\{A_i\}_{i\in I}$ に対して、選択関数 $f$ が存在する。すなわち
 $$
-\boxed{
 \forall i\in I,\ A_i\ne\varnothing
 \quad\Longrightarrow\quad
-\exists f\ \text{s.t.}\ f(i)\in A_i
-}
+\exists f:I\to\bigcup_{i\in I}A_i
+\ \text{s.t.}\ 
+f(i)\in A_i\quad(i\in I)
 $$
-
-です。
+> が成り立つ。
+<!-- formal-statement-end -->
 
 この主張は有限の場合には特別な公理を必要としません。しかし「任意の添字集合」に広げると、ZFだけからは証明できません。
 
@@ -113,15 +114,18 @@ $$
 
 ## 4. 可算選択と完全な選択公理は違う
 
-添字集合が
+<a id="axiom-countable-choice"></a>
 
+<!-- formal-statement-start -->
+> **公理（可算選択公理）**  
+> 非空集合列 $(A_n)_{n\in\mathbb N}$ に対して、各 $n\in\mathbb N$ で
 $$
-I=\mathbb N
+f(n)\in A_n
 $$
+> を満たす写像 $f:\mathbb N\to\bigcup_{n\in\mathbb N}A_n$ が存在する。
+<!-- formal-statement-end -->
 
-の場合だけ選択できる、という主張を **可算選択公理** といいます。
-
-完全な選択公理はこれより強い主張です。
+完全な選択公理は添字集合を任意の集合 $I$ まで許すので、可算選択公理より強い主張です。
 
 したがって
 
@@ -137,13 +141,22 @@ $$
 
 ## 5. 選択公理・Zorn・整列可能定理
 
-ZFの上では、次の三つは同値です。
+<a id="thm-choice-equivalences"></a>
 
-1. 選択公理
-2. Zornの補題
-3. 任意の集合は整列可能であるという整列可能定理
+<!-- formal-statement-start -->
+> **定理（選択公理の代表的同値形）**  
+> ZFの上では、次の三つは同値である。
+> 1. 選択公理。
+> 2. Zornの補題。
+> 3. 任意の集合は整列可能である、という整列可能定理。
+<!-- formal-statement-end -->
 
-ここで整列とは、任意の非空部分集合が最小元をもつ全順序です。
+<a id="def-well-order"></a>
+
+<!-- formal-statement-start -->
+> **定義（整列）**  
+> 集合 $X$ 上の全順序 $\preceq$ が、$X$ の任意の非空部分集合 $A\subset X$ に最小元を持たせるとき、$\preceq$ を $X$ の **整列** という。
+<!-- formal-statement-end -->
 
 この同値性の完全な証明は集合論の一講義になります。本補講では次の意味を押さえます。
 
@@ -224,4 +237,4 @@ $f(n)=n$ とすればよい。選び方を具体的に構成できるため、�
 
 選択公理と同値な形のうち、関数解析で最も使いやすいのがZornの補題です。次講では半順序・chain・極大元から極大延長テンプレートを作ります。
 
-**次：[F0-00A3 半順序・Zornの補題・極大延長](../F0_00A3_半順序_Zorn_極大延長/index.md)**
+**次：[F0-00A3 半順序・Zornの補題・極大延長](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn)**

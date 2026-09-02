@@ -206,23 +206,18 @@ $$
 
 ## 5. Borel sigma代数
 
-実数上の開集合全体から生成される最小のsigma代数を
+<a id="def-borel-sigma-algebra"></a>
 
-$$
-\mathcal B(\mathbb R)
-$$
-
-と書き、**Borel sigma代数** といいます。
-
-生成を記号で
-
+<!-- formal-statement-start -->
+> **定義（Borel sigma代数）**  
+> 実数上の開集合全体から生成される最小のsigma代数を **Borel sigma代数** といい、
 $$
 \mathcal B(\mathbb R)
 =
 \sigma(\text{open sets})
 $$
-
-と書きます。
+> と書く。
+<!-- formal-statement-end -->
 
 開集合がすべてCarathéodory可測なので、可測集合族 $\mathcal L$ はそれらを含むsigma代数です。
 
@@ -307,15 +302,12 @@ Lebesgue sigma代数は、Borel sigma代数を測度0集合について**完備�
 
 ## 8. 完備化
 
-一般の測度空間
+<a id="def-measure-completion"></a>
 
-$$
-(X,\mathcal F,\mu)
-$$
-
-が完全でないとします。
-
-測度0集合 $N\in\mathcal F$ の全ての部分集合を新たに可測集合として加えた最小の拡張を、測度空間の **完備化** といいます。
+<!-- formal-statement-start -->
+> **定義（測度空間の完備化）**  
+> 測度空間 $(X,\mathcal F,\mu)$ に対し、$\mu(N)=0$ を満たす $N\in\mathcal F$ のすべての部分集合を可測集合として加えて得られる最小の完全な拡張測度空間を、$(X,\mathcal F,\mu)$ の **完備化** という。
+<!-- formal-statement-end -->
 
 Lebesgue測度は
 
@@ -408,13 +400,12 @@ $$
 
 ## 11. algebraとsigma代数
 
-集合族 $\mathcal A$ が
+<a id="def-set-algebra"></a>
 
-- 全体集合を含む
-- 補集合で閉じる
-- 有限和で閉じる
-
-とき **algebra** といいます。
+<!-- formal-statement-start -->
+> **定義（集合のalgebra）**  
+> 集合 $X$ の部分集合族 $\mathcal A$ が、$X\in\mathcal A$、$A\in\mathcal A\Rightarrow A^c\in\mathcal A$、および $A,B\in\mathcal A\Rightarrow A\cup B\in\mathcal A$ を満たすとき、$\mathcal A$ を $X$ 上の **algebra** という。
+<!-- formal-statement-end -->
 
 sigma代数との違いは、**algebraは有限和で閉じ、sigma代数は可算和で閉じる**ことです。
 
@@ -424,21 +415,18 @@ sigma代数との違いは、**algebraは有限和で閉じ、sigma代数は可�
 
 ## 12. premeasure
 
-algebra $\mathcal A$ 上の集合関数
+<a id="def-premeasure"></a>
 
-$$
-\mu_0:\mathcal A\to[0,\infty]
-$$
-
-が **premeasure** であるとは、互いに素な $A_n\in\mathcal A$ について、その可算和が再び $\mathcal A$ に属するとき
-
+<!-- formal-statement-start -->
+> **定義（premeasure）**  
+> algebra $\mathcal A$ 上の集合関数 $\mu_0:\mathcal A\to[0,\infty]$ が **premeasure** であるとは、互いに素な $A_n\in\mathcal A$ について $\bigcup_n A_n\in\mathcal A$ なら
 $$
 \mu_0\left(\bigcup_nA_n\right)
 =
 \sum_n\mu_0(A_n)
 $$
-
-を満たすことです。
+> が成り立つことをいう。
+<!-- formal-statement-end -->
 
 つまり、まだ小さな集合族上にしか定義されていませんが、そこで可算加法性を持っています。
 
@@ -472,9 +460,10 @@ $$
 
 ## 14. Carathéodory拡張定理
 
-Carathéodory拡張定理は、大まかに次を述べます。
-
-> algebra上のpremeasureは、そのalgebraが生成するsigma代数上の測度へ拡張できる。
+<!-- formal-statement-start -->
+> **定理（Carathéodory拡張定理）**  
+> 集合 $X$ 上のalgebra $\mathcal A$ と、その上のpremeasure $\mu_0$ に対して、$\mu_0$ と $\mathcal A$ 上で一致する測度 $\mu$ が生成sigma代数 $\sigma(\mathcal A)$ 上に存在する。さらに $\mu_0$ がsigma有限なら、この拡張は一意である。
+<!-- formal-statement-end -->
 
 $$
 \boxed{
@@ -486,25 +475,22 @@ $$
 
 です。
 
-さらに適切なsigma有限性の下では、この拡張は一意です。
-
 ---
 
 ## 15. sigma有限性
 
-測度空間が **sigma有限** であるとは
+<a id="def-sigma-finite"></a>
 
+<!-- formal-statement-start -->
+> **定義（sigma有限）**  
+> 測度空間 $(X,\mathcal F,\mu)$ が **sigma有限** であるとは、可測集合列 $(E_n)$ が存在して
 $$
-X=\bigcup_{n=1}^{\infty}E_n
+X=\bigcup_{n=1}^{\infty}E_n,
+\qquad
+\mu(E_n)<\infty\quad(n\ge1)
 $$
-
-かつ
-
-$$
-\mu(E_n)<\infty
-$$
-
-となる可測集合列が存在することです。
+> を満たすことをいう。
+<!-- formal-statement-end -->
 
 Lebesgue測度なら
 
@@ -600,7 +586,7 @@ P2で学んだRadon--Nikodym密度としてのpdfへつながります。
 
 答えは **いいえ** です。
 
-D5では、選択公理を使ってVitali集合を作り、
+[D5のVitali集合の非可測性](../F0_00D5_Vitali集合_非可測集合_選択公理/index.md#thm-vitali-nonmeasurable)では、選択公理を使ってVitali集合を作り、
 
 $$
 \boxed{

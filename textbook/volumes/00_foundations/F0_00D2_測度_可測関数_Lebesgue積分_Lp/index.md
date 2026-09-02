@@ -63,6 +63,8 @@ $$
 
 そこでまず、**大きさを割り当てる対象となる集合族**を決めます。
 
+<a id="def-f0-00d2-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（σ代数）
 
@@ -81,6 +83,8 @@ $$
 この定義はステートメントの中だけで対象・記号・条件が完結しています。
 <!-- formal-statement-end -->
 
+<a id="prop-f0-00d2-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（σ代数の基本閉性）
 
@@ -148,6 +152,8 @@ $$
 
 実数上では、開集合を少なくとも測れるようにしたいので、開集合から生成される最小のσ代数を使います。
 
+<a id="def-f0-00d2-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（生成σ代数）
 
@@ -160,6 +166,8 @@ $$
 と書き、$\mathcal C$ が生成するσ代数という。
 <!-- formal-statement-end -->
 
+<a id="def-f0-00d2-03"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（Borel σ代数）
 
@@ -191,6 +199,8 @@ $$
 
 ## 3. 測度
 
+<a id="def-f0-00d2-04"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（測度・測度空間）
 
@@ -267,6 +277,8 @@ $$
 
 後者は、集合を少しずつ増やして近似したときに、その大きさも極限で回収できるという性質です。Lebesgue積分のMCTへそのまま持ち上がります。
 
+<a id="prop-f0-00d2-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（単調性）
 
@@ -299,6 +311,8 @@ $$
 $\square$
 <!-- proof-end -->
 
+<a id="thm-f0-00d2-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（下からの連続性）
 
@@ -357,6 +371,8 @@ $\square$
 
 ## 5. 測度0と「ほとんど至るところ」
 
+<a id="def-f0-00d2-05"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（測度0集合）
 
@@ -369,6 +385,8 @@ $$
 を満たすとき、$N$ を **測度0集合** または **零集合** という。
 <!-- formal-statement-end -->
 
+<a id="def-f0-00d2-06"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（ほとんど至るところ）
 
@@ -431,6 +449,8 @@ $$
 
 可測関数の定義はまさに、**出力側のしきい値条件を入力側の可測集合へ引き戻せる**ことを要求しています。連続写像の「開集合の逆像が開」と同じ構図です。
 
+<a id="def-f0-00d2-07"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（実数値可測関数）
 
@@ -451,6 +471,8 @@ $$
 という逆像条件です。
 <!-- formal-statement-end -->
 
+<a id="thm-f0-00d2-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（連続関数はBorel可測）
 
@@ -485,6 +507,8 @@ $$
 よって任意のBorel集合 $B$ に対して $f^{-1}(B)$ はBorel集合です。$\square$
 <!-- proof-end -->
 
+<a id="prop-f0-00d2-03"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（指示関数の可測性）
 

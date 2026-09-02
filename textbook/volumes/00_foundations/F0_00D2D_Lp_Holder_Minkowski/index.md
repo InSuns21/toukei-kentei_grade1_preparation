@@ -89,6 +89,8 @@ $$
 
 なら $f=g$ a.e. です。したがって、積分で関数の距離を測るなら、測度0集合上だけ違う関数を別物として扱う理由がありません。
 
+<a id="def-f0-00d2d-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（a.e.同値関係）
 
@@ -109,6 +111,8 @@ $$
 
 ## 2. $L^p$空間
 
+<a id="def-f0-00d2d-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（$L^p$空間、$1\le p<\infty$）
 
@@ -137,6 +141,8 @@ $$
 と置く。
 <!-- formal-statement-end -->
 
+<a id="def-f0-00d2d-03"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（$L^\infty$と本質的上限）
 
@@ -205,6 +211,8 @@ $$
 
 Hölderの証明に使うスカラー不等式を先に証明します。
 
+<a id="lem-f0-00d2d-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 補題（Youngの不等式）
 
@@ -271,6 +279,8 @@ $$
 
 ## 4. Hölderの不等式
 
+<a id="thm-f0-00d2d-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（Hölderの不等式）
 
@@ -373,6 +383,8 @@ $$
 
 重要なのは数値評価そのものより、$f\in L^2$ と $g\in L^2$ から **積 $fg$ が $L^1$ に入る**ことまで保証される点です。
 
+<a id="cor-f0-00d2d-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 系（Cauchy--Schwarz）
 
@@ -397,6 +409,8 @@ $$
 
 これで$\|\cdot\|_p$の三角不等式を証明できます。
 
+<a id="thm-f0-00d2d-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（Minkowskiの不等式）
 
@@ -527,6 +541,8 @@ Minkowskiが成り立つから、$\|\cdot\|_p$ は三角不等式を満たしま
 
 ## 6. $L^p$はノルム空間になる
 
+<a id="thm-f0-00d2d-03"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（$L^p$ノルム）
 
@@ -597,6 +613,8 @@ $$
 
 ## 8. 有限測度空間では高い$p$ほど強い
 
+<a id="prop-f0-00d2d-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（有限測度空間上の包含）
 

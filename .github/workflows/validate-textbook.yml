@@ -65,8 +65,11 @@ jobs:
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
 
-      - name: Validate formal statement panels
+      - name: Validate formal statement panels and anchors
         run: npm run validate:formal-statements
 
-      - name: Validate formal theorem references
+      - name: Block new prose-style formal definitions
+        run: npm run validate:implicit-formals
+
+      - name: Validate formal theorem and definition references
         run: npm run validate:formal-references

@@ -189,6 +189,8 @@ $$
 
 有限次元の線形写像では、「入力の自由度」がどこへ行ったかを次の式で数えられます。
 
+<a id="thm-f0-00f-01"></a>
+ 
 <!-- formal-statement-start -->
 > **定理（rank-nullity theorem）**  
 > 有限次元ベクトル空間 $V$ と線形写像 $T:V\to W$ に対して

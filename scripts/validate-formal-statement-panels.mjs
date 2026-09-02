@@ -8,8 +8,10 @@ const ROOTS = pagesMode
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
 const LABEL = '(?:定義|定理|命題|補題|系|公理|原理)';
+const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
 const labelRe = new RegExp(`^\\s*(?:>\\s*)?\\*\\*${LABEL}(?:[（(：:].*)?\\*\\*`, 'u');
 const formalHeadingRe = new RegExp(`^#{2,6}\\s+(?:\\d+(?:\\.\\d+)*(?:[.)．])?\\s*)?${LABEL}(?:[（(：:]|$)`, 'u');
+const stableAnchorRe = new RegExp(`^\\s*<a\\s+id=["'](${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*)["']\\s*><\\/a>\\s*$`, 'iu');
 
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -26,6 +28,8 @@ const errors = [];
 let panelCount = 0;
 let pageCount = 0;
 let labelCount = 0;
+let anchoredPanelCount = 0;
+let stableAnchorCount = 0;
 
 for (const root of ROOTS.map((p) => path.resolve(p))) {
   for (const file of walk(root)) {
@@ -36,6 +40,7 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
     let fence = null;
     let declarationsInPanel = 0;
     let filePanels = 0;
+    const seenAnchors = new Set();
 
     for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
@@ -52,6 +57,14 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
         continue;
       }
 
+      const anchorMatch = stableAnchorRe.exec(line);
+      if (anchorMatch) {
+        const id = anchorMatch[1];
+        stableAnchorCount += 1;
+        if (seenAnchors.has(id)) errors.push(`${rel}:${lineNo}: duplicate stable formal anchor #${id}`);
+        seenAnchors.add(id);
+      }
+
       if (t === '<!-- proof-start -->') {
         if (depth > 0) {
           errors.push(`${rel}:${lineNo}: folded proof must not start inside a formal statement panel; close formal-statement-end first`);
@@ -63,6 +76,18 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
       if (t === START) {
         if (depth > 0) errors.push(`${rel}:${lineNo}: nested formal statement panel is not allowed`);
         if (proofDepth > 0) errors.push(`${rel}:${lineNo}: formal statement panel must not start inside a folded proof`);
+
+        const nearbyAnchors = [];
+        for (let j = Math.max(0, i - 8); j < i; j += 1) {
+          const m = stableAnchorRe.exec(lines[j]);
+          if (m) nearbyAnchors.push({ id: m[1], line: j + 1 });
+        }
+        if (nearbyAnchors.length === 0) {
+          errors.push(`${rel}:${lineNo}: formal statement must have an explicit stable def-/thm-/prop-/lem-/cor-/axiom-/principle-/ref- anchor immediately before it`);
+        } else {
+          anchoredPanelCount += 1;
+        }
+
         depth += 1;
         declarationsInPanel = 0;
         panelCount += 1;
@@ -100,6 +125,9 @@ for (const root of ROOTS.map((p) => path.resolve(p))) {
 
 if (panelCount !== labelCount) {
   errors.push(`formal statement count mismatch: ${panelCount} panel(s) for ${labelCount} detected declaration(s)`);
+}
+if (panelCount !== anchoredPanelCount) {
+  errors.push(`formal statement anchor mismatch: ${anchoredPanelCount}/${panelCount} panel(s) have a nearby stable anchor`);
 }
 
 const runtimeRoot = pagesMode ? path.resolve('_site') : path.resolve('pages');
@@ -142,4 +170,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified.`);
+console.log(`Formal statement panel validation passed${pagesMode ? ' for generated Pages' : ''}: ${panelCount} panel(s), ${anchoredPanelCount} anchored panel(s), ${stableAnchorCount} stable anchor(s), ${labelCount} declaration(s), ${pageCount} page(s), standard blue rule verified.`);

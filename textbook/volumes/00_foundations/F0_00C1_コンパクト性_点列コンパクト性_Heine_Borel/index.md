@@ -58,6 +58,8 @@
 
 ## 1. コンパクト性
 
+<a id="def-f0-00c1-01"></a>
+ 
 <!-- formal-statement-start -->
 > **定義（開被覆）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ に対し、開集合族 $\{U_\alpha\}_{\alpha\in A}$ が
@@ -67,6 +69,8 @@ $$
 > を満たすとき、この族を $K$ の **開被覆** という。
 <!-- formal-statement-end -->
 
+<a id="def-f0-00c1-02"></a>
+ 
 <!-- formal-statement-start -->
 > **定義（コンパクト集合）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ が **コンパクト** であるとは、$K$ の任意の開被覆 $\{U_\alpha\}_{\alpha\in A}$ に対し、有限個の添字 $\alpha_1,\ldots,\alpha_m$ が存在して
@@ -82,6 +86,8 @@ $$
 
 です。
 
+<a id="def-f0-00c1-03"></a>
+ 
 <!-- formal-statement-start -->
 > **定義（点列コンパクト性）**  
 > 距離空間 $(X,d)$ の部分集合 $K\subset X$ が **点列コンパクト** であるとは、$K$ 内の任意の点列 $(x_n)$ が、ある $x\in K$ に収束する部分列 $(x_{n_k})$ を持つことをいう。
@@ -91,6 +97,8 @@ $$
 
 ## 2. 距離空間では compact ⇔ sequentially compact
 
+<a id="thm-f0-00c1-01"></a>
+ 
 <!-- formal-statement-start -->
 > **定理（距離空間におけるコンパクト性と点列コンパクト性）**  
 > 距離空間 $(X,d)$ の部分集合 $K\subset X$ に対して、次の二条件は同値である。
@@ -291,6 +299,8 @@ $$
 
 Bolzano--Weierstrassが保証するのは、**有界列そのものの収束ではなく、収束部分列の存在**です。この違いを押さえると、Heine--Borelの証明で何を取り出しているのかが見えやすくなります。
 
+<a id="lem-f0-00c1-01"></a>
+ 
 <!-- formal-statement-start -->
 > **補題（実数列のBolzano–Weierstrass）**  
 > 有界な実数列 $(x_n)$ は収束部分列を持つ。
@@ -345,6 +355,8 @@ $$
 よって $x_{n_k}\to x$ です。$\square$
 <!-- proof-end -->
 
+<a id="lem-f0-00c1-02"></a>
+ 
 <!-- formal-statement-start -->
 > **補題（$\mathbb R^p$ のBolzano–Weierstrass）**  
 > Euclid距離を入れた $\mathbb R^p$ の任意の有界点列 $(x_n)$ は収束部分列を持つ。
@@ -384,6 +396,8 @@ Heine--Borelは、抽象的なコンパクト性を有限次元で非常に使�
 
 後続で $\mathbb R^p$ の集合について「コンパクト」と言いたくなったら、まず **閉性と有界性** を確認するのが第一手です。
 
+<a id="thm-f0-00c1-02"></a>
+ 
 <!-- formal-statement-start -->
 > **定理（Heine–Borel）**  
 > Euclid距離を入れた $\mathbb R^p$ の部分集合 $K\subset\mathbb R^p$ に対して、次の二条件は同値である。
@@ -457,6 +471,8 @@ $$
 
 ## 5. 連続像はコンパクト
 
+<a id="thm-f0-00c1-03"></a>
+ 
 <!-- formal-statement-start -->
 > **定理（コンパクト集合の連続像）**  
 > 位相空間 $X,Y$、コンパクト集合 $K\subset X$、連続写像 $f:X\to Y$ に対して、像
