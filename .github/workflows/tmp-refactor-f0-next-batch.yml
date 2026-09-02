@@ -5,7 +5,6 @@ on:
     branches:
       - refactor/f0-proof-pedagogy-next-batch
     paths:
-      - 'scripts/tmp-refactor-f0-next-batch.py'
       - '.github/workflows/tmp-refactor-f0-next-batch.yml'
   workflow_dispatch:
 
@@ -24,36 +23,24 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Apply remaining pedagogy rewrites
+      - name: Polish rewritten sections
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('scripts/tmp-refactor-f0-next-batch.py')
-          s = p.read_text()
-          s = s.replace('## 10. 二つが同時には成立しない', '## 10. 両方同時には成立しない')
-          s = s.replace('## 11. 少なくとも一方は成立する', '## 11. どちらか一方は必ず成立する')
-          s = s.replace("old = re.sub(r'^## 9\\. .*$', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', old, count=1, flags=re.M)", "old = old.replace('## 9. $\\\\lambda(V)=0$ なら矛盾', '#### Step 5：$\\\\lambda(V)=0$ なら矛盾', 1)")
-          s = s.replace("old = re.sub(r'^## 10\\. .*$', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', old, count=1, flags=re.M)", "old = old.replace('## 10. $\\\\lambda(V)>0$ でも矛盾', '#### Step 6：$\\\\lambda(V)>0$ でも矛盾', 1)")
-          s = s.replace("if block.splitlines()[0].strip() not in s:", "if '## 演習' not in s:")
-          s = s.replace("if start < 0 or end < 0:\n    raise RuntimeError('D5 proof range not found')", "if '<a id=\\\"thm-vitali-nonmeasurable\\\"></a>' not in s and (start < 0 or end < 0):\n    raise RuntimeError('D5 proof range not found')")
-          p.write_text(s)
-          PY
-          python3 scripts/tmp-refactor-f0-next-batch.py
           python3 - <<'PY'
           from pathlib import Path
           edits = {
             'textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md': [
-              ('## 0. まず2次元で「分離」を一周する', '## 0. 例：単位円板と外の点で「分離」を一周する'),
-              ('### 9.1 まずcertificateを数値で見る', '### 9.1 例：Farkas certificateを数値で見る'),
+              ('## 0. 例：単位円板と外の点で「分離」を一周する', '## 0.1 例：単位円板と外の点で「分離」を一周する'),
             ],
-            'textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md': [
-              ('## 0. 先にBernoulliモデルで全工程を見る', '## 0. 具体例：Bernoulliモデルで全工程を見る'),
+            'textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md': [
+              ('## 6. これらの平行移動は $[0,1]$ を覆う', '#### Step 2：平行移動族は $[0,1]$ を覆う'),
             ],
           }
           for name, replacements in edits.items():
               p = Path(name)
               s = p.read_text()
               for old, new in replacements:
+                  if old not in s:
+                      raise SystemExit(f'missing expected text in {name}: {old}')
                   s = s.replace(old, new, 1)
               p.write_text(s)
           PY
@@ -65,7 +52,7 @@ jobs:
         run: |
           npm run audit:proof-pedagogy
           npm run audit:formalism-pedagogy
-      - name: Commit rewritten textbook pages
+      - name: Commit polish
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -73,6 +60,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No textbook changes.'
           else
-            git commit -m 'add concrete exercises to the next F0 audit batch'
+            git commit -m 'polish folded proof section structure'
             git push
           fi
