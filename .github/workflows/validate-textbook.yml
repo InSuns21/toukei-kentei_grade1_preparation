@@ -7,6 +7,8 @@ on:
     paths:
       - 'textbook/**'
       - 'scripts/**'
+      - 'pages/index.html'
+      - 'pages/math-renderer.js'
       - 'references/**'
       - 'agents/**'
       - 'AGENTS.md'
@@ -18,6 +20,8 @@ on:
     paths:
       - 'textbook/**'
       - 'scripts/**'
+      - 'pages/index.html'
+      - 'pages/math-renderer.js'
       - 'references/**'
       - 'agents/**'
       - 'AGENTS.md'
@@ -57,3 +61,6 @@ jobs:
 
       - name: Validate prose outside math
         run: npm run validate:prose-math
+
+      - name: Validate collapsible proof sections
+        run: npm run validate:proof-folding
