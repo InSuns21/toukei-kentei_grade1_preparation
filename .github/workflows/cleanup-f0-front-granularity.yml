@@ -1,4 +1,5 @@
 name: Cleanup F0 front granularity
+# one-shot trigger
 
 on:
   push:
@@ -28,7 +29,6 @@ jobs:
           def renumber(path, mapping):
               p = Path(path)
               s = p.read_text()
-              # Remap both top-level headings (## 15.) and nested headings (### 16.1 etc.).
               for old, new in sorted(mapping.items(), reverse=True):
                   s = re.sub(rf'(?m)^(#+) {old}\.(?=\s)', rf'\1 {new}.', s)
                   s = re.sub(rf'(?m)^(#+) {old}\.(\d+)(?=\s)', rf'\1 {new}.\2', s)
@@ -39,17 +39,14 @@ jobs:
           renumber(b1, {15:1,16:2,17:3,18:4,19:5,20:6,21:7,22:8})
           renumber(c1a, {11:1,12:2,13:3,14:4,15:5})
 
-          # Compact-image theorem moved from old C to current C1.
           s = b1.read_text()
           s = s.replace(
               '[F0-00C](../F0_00C_連続写像_コンパクト性_最大最小/index.md) の「連続像はコンパクト」',
               '[F0-00C1](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md) の「連続像はコンパクト」'
           )
-          # Update the old C1--C7 route wording inside the moved SVM application, if present.
           s = s.replace('C1〜C7', 'C1→C1A→C2→C3→C3A→C4→C4A→C5→C5A→C6→C6A→C7→C7A')
           b1.write_text(s)
 
-          # 02A: Farkas proof stays in 02B; SVM convex-hull geometry moved to 02B1.
           p = root / 'F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md'
           s = p.read_text()
           old = 'さらに [F0-02B](../F0_02B_分離超平面定理_Farkas_SVM/index.md) では、SVMを別の幾何からも見ます。'
@@ -63,7 +60,6 @@ jobs:
               raise SystemExit('02A final route target missing')
           p.write_text(s.replace(old, new))
 
-          # Facade: replace the entire finite optimization / functional analysis list numbering.
           p = Path('textbook/dream-theater.md')
           s = p.read_text()
           start = s.index('1. [F0-02 制約付き最適化・双対・KKT]')
