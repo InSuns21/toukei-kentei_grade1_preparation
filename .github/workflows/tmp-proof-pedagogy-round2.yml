@@ -30,6 +30,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Normalize temporary transformer
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/tmp-proof-pedagogy-round2.py')
+          s = p.read_text()
+          s = s.replace("summary = r'''## 7. この講義で作った土台", "summary = r'''### 7.1 この講義で作った土台", 1)
+          s = s.replace("s = insert_before(s, '## 7. 演習', summary, 'D2 takeaway')", "s = insert_before(s, '# 8. 演習', summary, 'D2 takeaway')", 1)
+          s = s.replace("s = s.replace('## 7. 演習', '## 8. 演習', 1)\n", "", 1)
+          s = s.replace("s = s.replace('## 8. 次に進む', '## 9. 次に進む', 1)\n", "", 1)
+          p.write_text(s)
+          PY
+
       - name: Apply narrative revisions
         run: python3 scripts/tmp-proof-pedagogy-round2.py
 
