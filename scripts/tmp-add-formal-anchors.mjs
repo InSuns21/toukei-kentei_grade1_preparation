@@ -7,7 +7,7 @@ const typeMap = new Map([
   ['定義','def'],['定理','thm'],['命題','prop'],['補題','lem'],['系','cor'],['公理','axiom'],['原理','principle'],
 ]);
 const anchorRe = /^\s*<a\s+id=["']((?:def|thm|prop|lem|cor|axiom|principle|ref)-[a-z0-9][a-z0-9-]*)["']\s*><\/a>\s*$/iu;
-const declarationRe = /(?:\*\*|^#{2,6}\s+(?:\d+(?:\.\d+)*(?:[.)．])?\s*)?(定義|定理|命題|補題|系|公理|原理)(?:[（(：]|\*\*|$)/u;
+const declarationRe = /(定義|定理|命題|補題|系|公理|原理)/u;
 
 function walk(dir){
   if(!fs.existsSync(dir)) return [];
