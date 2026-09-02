@@ -32,8 +32,10 @@ function isProofHeading(line) {
 
 function isProofLabel(line) {
   const plain = line.replace(/^\s*>\s?/, '').trim();
-  return /^\*\*(?:完全)?証明(?:[:：].*)?\*\*$/u.test(plain)
-    || /^\*\*proof(?:[:：].*)?\*\*$/iu.test(plain)
+  return /^\*\*(?:完全)?証明\*\*$/u.test(plain)
+    || /^\*\*proof\*\*$/iu.test(plain)
+    || /^\*\*(?:完全)?証明[:：]\*\*$/u.test(plain)
+    || /^\*\*proof[:：]\*\*$/iu.test(plain)
     || /^(?:完全)?証明[:：]$/u.test(plain)
     || /^proof[:：]$/iu.test(plain);
 }
