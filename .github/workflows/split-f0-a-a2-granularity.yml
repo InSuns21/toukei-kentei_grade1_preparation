@@ -1,0 +1,32 @@
+name: Split F0 A A2 granularity
+
+on:
+  push:
+    branches:
+      - feat/f0-batch2-lebesgue-integration-foundations
+    paths:
+      - 'scripts/split-f0-a-a2-granularity.mjs'
+      - '.github/workflows/split-f0-a-a2-granularity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch2-lebesgue-integration-foundations
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/split-f0-a-a2-granularity.mjs
+      - name: Commit split
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --quiet && exit 0
+          git commit -m 'refactor: split set order choice and Zorn lectures'
+          git push
