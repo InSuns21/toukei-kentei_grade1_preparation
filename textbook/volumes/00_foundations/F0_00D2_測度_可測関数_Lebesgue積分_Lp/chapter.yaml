@@ -6,7 +6,10 @@ prerequisites:
   - F0-00A
   - F0-00B
   - F0-00C
+  - F0-00C1
+  - F0-00C2
   - F0-00D
+  - F0-00D1
 official_scope: []
 learning_objectives:
   - σ代数・可測空間・測度・測度空間を自己完結した定義として説明できる
