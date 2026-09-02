@@ -1,0 +1,57 @@
+name: Fix F0 BCD split
+
+on:
+  push:
+    branches:
+      - feat/f0-batch2-lebesgue-integration-foundations
+    paths:
+      - '.github/workflows/fix-f0-bcd-split.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch2-lebesgue-integration-foundations
+      - name: Normalize terminology and exercise IDs
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const files = {
+            c: 'textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md',
+            c1: 'textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md',
+            c2: 'textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md',
+            d: 'textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md',
+            d1: 'textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md',
+          };
+          let t = fs.readFileSync(files.c, 'utf8');
+          t = t.replace('F0-00C-B04', 'F0-00C-B01');
+          fs.writeFileSync(files.c, t);
+          t = fs.readFileSync(files.c1, 'utf8');
+          t = t.replace('F0-00C-A02', 'F0-00C1-A01').replace('F0-00C-B01', 'F0-00C1-B01');
+          fs.writeFileSync(files.c1, t);
+          t = fs.readFileSync(files.c2, 'utf8');
+          t = t.replace('F0-00C-B02', 'F0-00C2-B01').replace('F0-00C-B03', 'F0-00C2-B02').replace('F0-00C-C01', 'F0-00C2-C01');
+          fs.writeFileSync(files.c2, t);
+          for (const key of ['d','d1']) {
+            t = fs.readFileSync(files[key], 'utf8').replaceAll('Cauchy', 'コーシー');
+            if (key === 'd1') t = t.replace('F0-00D-B02', 'F0-00D1-B01').replace('F0-00D-B03', 'F0-00D1-B02');
+            fs.writeFileSync(files[key], t);
+          }
+          NODE
+      - name: Commit cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md \
+                  textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md \
+                  textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md \
+                  textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md \
+                  textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: normalize split lecture terminology and exercise ids'
+          git push
