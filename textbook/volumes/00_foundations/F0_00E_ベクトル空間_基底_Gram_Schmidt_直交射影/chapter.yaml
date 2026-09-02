@@ -1,5 +1,5 @@
 id: "F0-00E"
-title: "ベクトル空間・span・一次独立・基底"
+title: "ベクトル空間・部分空間・span・一次独立・基底・次元"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,19 +8,26 @@ prerequisites:
   - F0-00B
 official_scope: []
 learning_objectives:
-  - ベクトル空間・部分空間・線形包を説明できる
-  - 一次独立・基底・次元を相互に結び付けて説明できる
-  - 基底に対する座標表示の一意性を説明できる
+  - ベクトル空間と線形部分空間を定義から説明できる
+  - 線形包・一次独立・基底を相互に結び付けて説明できる
+  - Steinitzの交換補題から有限次元で基底の本数が一定であることを説明できる
+  - 基底延長定理を説明しrank-nullity theoremの準備ができる
+  - 部分空間の和・直和と次元公式を説明できる
+  - 基底に対する座標写像が線形同型であることを説明できる
 definitions:
   - { id: F000E-DEF-01, name: ベクトル空間 }
   - { id: F000E-DEF-02, name: 線形部分空間 }
   - { id: F000E-DEF-03, name: 線形包 }
   - { id: F000E-DEF-04, name: 一次独立 }
   - { id: F000E-DEF-05, name: 基底と次元 }
-theorems: []
-canonical_examples: [R3の部分空間, spanの具体計算, 基底座標]
-problem_patterns: [LA-BASIS-1]
+  - { id: F000E-DEF-06, name: 部分空間の直和 }
+theorems:
+  - { id: F000E-THM-01, name: Steinitzの交換補題 }
+  - { id: F000E-THM-02, name: 有限次元で基底の本数は一定 }
+  - { id: F000E-THM-03, name: 基底延長定理 }
+canonical_examples: [R3の部分空間, spanの具体計算, 基底座標, 基底延長]
+problem_patterns: [LA-BASIS-1, LA-DIM-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2, exercises: 0.5, review: 0.5 }
+estimated_hours: { reading: 3.5, exercises: 1.0, review: 0.75 }
