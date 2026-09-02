@@ -4,7 +4,6 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00NA1
-  - F0-00F
 learning_objectives:
   - 疎線形系に直接法と反復法を使い分けられる
   - CG法をSPD二次最小化として説明できる
