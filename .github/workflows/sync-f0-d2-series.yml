@@ -6,6 +6,7 @@ on:
       - feat/f0-batch2-lebesgue-integration-foundations
     paths:
       - 'scripts/sync-f0-d2-series.mjs'
+      - '.github/workflows/sync-f0-d2-series.yml'
 
 permissions:
   contents: write
