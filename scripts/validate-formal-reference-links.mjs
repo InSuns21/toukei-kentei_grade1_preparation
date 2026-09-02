@@ -105,8 +105,8 @@ function stableLinksOnLine(line) {
 function canonicalResultIsInvoked(unlinked, result) {
   const match = result.pattern.exec(unlinked);
   if (!match) return false;
-  const after = unlinked.slice(match.index + match[0].length, match.index + match[0].length + 32);
-  return /(?:から|より|により|を使(?:う|って|い)|を用(?:いる|いて)?)/u.test(after);
+  const after = unlinked.slice(match.index + match[0].length, match.index + match[0].length + 24);
+  return /^[^。！？\n]{0,10}(?:から|より|により|を使(?:う|って|い)|を用(?:いる|いて)?)/u.test(after);
 }
 
 const files = walk(ROOT);
