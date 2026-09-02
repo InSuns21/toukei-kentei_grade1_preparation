@@ -58,6 +58,7 @@ $$
 
 また $A,B\in\mathcal F$ なら $A\setminus B\in\mathcal F$ である。
 
+<!-- proof-start -->
 #### 証明
 
 De Morgan則より
@@ -76,6 +77,7 @@ $$
 
 なので集合差も可測です。$\square$
 
+<!-- proof-end -->
 ### 例1：有限集合上のσ代数
 
 $\Omega=\{1,2,3,4\}$ とし、
@@ -212,6 +214,7 @@ $$
 \mu(A)\le\mu(B).
 $$
 
+<!-- proof-start -->
 #### 証明
 
 $B=A\sqcup(B\setminus A)$ と互いに素な和に分けられるため、可算加法性から
@@ -222,6 +225,7 @@ $$
 
 $\square$
 
+<!-- proof-end -->
 ### 定理（下からの連続性）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ の可測集合列 $(A_n)$ が
@@ -236,6 +240,7 @@ $$
 \mu(A_n)\uparrow\mu(A).
 $$
 
+<!-- proof-start -->
 #### 証明
 
 $B_1=A_1$、$B_n=A_n\setminus A_{n-1}$ $(n\ge2)$ と置くと、$B_n$ は互いに素で
@@ -262,6 +267,7 @@ $\square$
 
 ---
 
+<!-- proof-end -->
 ## 5. 測度0と「ほとんど至るところ」
 
 ### 定義（測度0集合）
@@ -320,6 +326,7 @@ $$
 
 連続関数 $f:\mathbb R\to\mathbb R$ は、可測空間 $(\mathbb R,\mathcal B(\mathbb R))$ から $(\mathbb R,\mathcal B(\mathbb R))$ への可測関数である。
 
+<!-- proof-start -->
 #### 証明
 
 連続性より任意の開集合 $G\subset\mathbb R$ に対して $f^{-1}(G)$ は開集合です。したがって $f^{-1}(G)\in\mathcal B(\mathbb R)$。
@@ -340,6 +347,7 @@ $$
 
 よって任意のBorel集合 $B$ に対して $f^{-1}(B)$ はBorel集合です。$\square$
 
+<!-- proof-end -->
 ### 命題（指示関数の可測性）
 
 可測空間 $(\Omega,\mathcal F)$ の部分集合 $A\subset\Omega$ に対して、指示関数
@@ -355,6 +363,7 @@ $$
 
 が可測であることと $A\in\mathcal F$ は同値である。
 
+<!-- proof-start -->
 #### 証明
 
 $A\in\mathcal F$ なら、任意の $a$ に対して $\{1_A\le a\}$ は $\varnothing,A^c,\Omega$ のいずれかなので可測です。
@@ -371,6 +380,7 @@ $$
 
 ---
 
+<!-- proof-end -->
 ## 7. 「同じ関数」をa.e.で考える準備
 
 関数 $f,g$ が

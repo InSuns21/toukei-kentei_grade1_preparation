@@ -138,6 +138,7 @@ E_x\in\mathcal B,
 E^y\in\mathcal A.
 $$
 
+<!-- proof-start -->
 #### 証明
 
 固定した $x\in X$ に対して
@@ -171,6 +172,7 @@ $$
 
 ---
 
+<!-- proof-end -->
 ## 4. Tonelliの定理
 
 ### 定理（Tonelli）
@@ -210,6 +212,7 @@ $$
 
 が成り立つ。値は $\infty$ でもよい。
 
+<!-- proof-start -->
 ### 証明
 
 証明は「指示関数 → 単関数 → 一般非負関数」の順に行います。
@@ -299,6 +302,7 @@ $$
 
 ---
 
+<!-- proof-end -->
 ## 5. Fubiniの定理
 
 ### 定理（Fubini）
@@ -332,6 +336,7 @@ $$
 
 が成り立つ。
 
+<!-- proof-start -->
 ### 証明
 
 Tonelliを非負関数 $|f|$ に適用すると
@@ -372,6 +377,7 @@ $$
 
 ---
 
+<!-- proof-end -->
 ## 6. TonelliとFubiniの違い
 
 | | Tonelli | Fubini |
