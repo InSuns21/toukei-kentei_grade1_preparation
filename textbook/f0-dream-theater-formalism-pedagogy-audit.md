@@ -8,33 +8,35 @@
 
 - 数えるもの：定理・命題・補題・系、証明語、数式密度、例・反例、直感/意味/見取り図、演習。
 - `証明の見取り図 / 骨格 / アイデア / 概略` は本文に残すべきなので、それ自体は折りたたみ違反とみなさない。
+- `3. 証明：...` のような節番号付き見出しも完全証明候補として数える。
 - 一方、`これで…証明されました` などが proof block 外にある場合は、実質的な完全証明が通常本文へ露出している強い候補とみなす。
 - P0/P1/P2 は機械スクリーニング。本文を人手で読んで FIX-FOLD / FIX-NARRATIVE / FIX-EXAMPLE / OK を確定する。
 
 ## 機械スクリーニング結果
 
-- 対象ページ: **51**
+- 対象ページ: **52**
 - P0候補: **3**
-- P1候補: **8**
+- P1候補: **10**
 - P2候補: **23**
-- WATCH: **17**
+- WATCH: **16**
 
 | 優先 | 講義 | 定理等 | 例 | 直感 | 演習 | proof | 証明完了語 | 証明語 | 数式比 | 警告 |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | P0 | [F0-02C6 関数解析VI：Hahn--Banach・汎関数拡張](volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md) | 3 | 0 | 1 | 1 | 0 | 1 | 18 | 28% | 折りたたみ外の証明完了表現1件、詳細証明らしい見出し3件・proof block 0、定理・命題等3件、証明語密度高(18)、例見出し0 |
+| P0 | [F0-02C1A 関数解析I-A：Hilbert射影定理・直交分解](volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md) | 3 | 0 | 0 | 1 | 0 | 1 | 3 | 31% | 折りたたみ外の証明完了表現1件、詳細証明らしい見出し1件・proof block 0、定理・命題等3件、例見出し0、直感・意味・見取り図見出し0 |
 | P0 | [F0-00WK2 Encore III：Lax--Milgram定理・弱解の存在一意性](volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/index.md) | 2 | 0 | 0 | 0 | 0 | 1 | 11 | 31% | 折りたたみ外の証明完了表現1件、例見出し0、直感・意味・見取り図見出し0、演習見出し0 |
-| P0 | [F0-02C1A 関数解析I-A：Hilbert射影定理・直交分解](volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md) | 3 | 0 | 0 | 1 | 0 | 1 | 3 | 31% | 折りたたみ外の証明完了表現1件、定理・命題等3件、例見出し0、直感・意味・見取り図見出し0 |
 | P1 | [F0-02B 分離超平面定理・Farkasの補題](volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md) | 3 | 0 | 0 | 1 | 0 | 0 | 20 | 39% | 定理・命題等3件、証明語密度高(20)、例見出し0、直感・意味・見取り図見出し0 |
+| P1 | [F0-02C7A 関数解析VII-A：representer theorem・kernel SVM](volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md) | 5 | 0 | 0 | 2 | 0 | 0 | 7 | 44% | 詳細証明らしい見出し1件・proof block 0、定理・命題等5件、例見出し0、直感・意味・見取り図見出し0 |
+| P1 | [F0-00E2 Cauchy--Schwarz・三角不等式・Bessel・Parseval](volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md) | 0 | 0 | 0 | 1 | 0 | 0 | 10 | 44% | 詳細証明らしい見出し1件・proof block 0、例見出し0、直感・意味・見取り図見出し0 |
 | P1 | [F0-00D5 補講：Vitali集合・非可測集合・選択公理](volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md) | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 29% | 証明語密度高(14)、例見出し0、直感・意味・見取り図見出し0、演習見出し0 |
 | P1 | [F0-00SP3 Encore IV：Brown運動・Gaussian過程・二次変分](volumes/00_foundations/F0_00SP3_Brown運動_Gaussian過程_二次変分/index.md) | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 26% | 証明語密度高(14)、例見出し0、直感・意味・見取り図見出し0、演習見出し0 |
 | P1 | [F0-00D4 補講：Lebesgue測度・Borel集合・Carathéodory拡張定理](volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md) | 2 | 0 | 2 | 0 | 0 | 0 | 13 | 32% | 例見出し0、演習見出し0 |
-| P1 | [F0-02C7A 関数解析VII-A：representer theorem・kernel SVM](volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md) | 5 | 0 | 0 | 2 | 0 | 0 | 7 | 44% | 定理・命題等5件、例見出し0、直感・意味・見取り図見出し0 |
+| P1 | [F0-00P5 Kolmogorov最大不等式・有限分散版強大数則](volumes/00_foundations/F0_00P5_大数の強法則/index.md) | 0 | 0 | 0 | 1 | 0 | 0 | 7 | 43% | 詳細証明らしい見出し1件・proof block 0、例見出し0、直感・意味・見取り図見出し0 |
 | P1 | [F0-00TS2 Encore IV：Herglotz定理・spectral measure・spectral density](volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md) | 2 | 0 | 0 | 0 | 0 | 0 | 6 | 38% | 例見出し0、直感・意味・見取り図見出し0、演習見出し0 |
 | P1 | [F0-00FA2 Encore II：Fourier変換・畳み込み・反転](volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md) | 2 | 0 | 0 | 0 | 0 | 0 | 5 | 41% | 例見出し0、直感・意味・見取り図見出し0、演習見出し0 |
 | P1 | [F0-00P7A 最尤推定量一致性・漸近正規性：KL・大数の法則・中心極限定理・Taylor](volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md) | 4 | 0 | 0 | 1 | 0 | 0 | 5 | 39% | 定理・命題等4件、例見出し0、直感・意味・見取り図見出し0 |
 | P2 | [F0-02A KKT条件の導出：接錐・polar cone・Farkasの補題](volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md) | 2 | 1 | 3 | 2 | 0 | 0 | 19 | 51% | 証明語密度高(19)、数式行約51% |
 | P2 | [F0-00D3 補講：外測度・Carathéodory可測性](volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md) | 0 | 0 | 2 | 0 | 0 | 0 | 11 | 32% | 例見出し0、演習見出し0 |
-| P2 | [F0-00E2 Cauchy--Schwarz・三角不等式・Bessel・Parseval](volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md) | 0 | 0 | 0 | 1 | 0 | 0 | 10 | 44% | 例見出し0、直感・意味・見取り図見出し0 |
 | P2 | [F0-02C7 関数解析VII：RKHS・再生核・Moore--Aronszajn](volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md) | 1 | 0 | 1 | 1 | 0 | 0 | 10 | 34% | 例見出し0 |
 | P2 | [F0-00FA3 Encore II：Plancherel・L2 Fourier変換・特性関数](volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md) | 0 | 0 | 1 | 0 | 0 | 0 | 9 | 38% | 例見出し0、演習見出し0 |
 | P2 | [F0-00PDE1 Encore II：熱方程式・Fourier変換・Gaussian heat kernel](volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md) | 0 | 0 | 1 | 0 | 0 | 0 | 8 | 33% | 例見出し0、演習見出し0 |
@@ -45,6 +47,7 @@
 | P2 | [F0-00 統計検定1級のための数学速習](volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md) | 1 | 1 | 1 | 3 | 0 | 0 | 22 | 36% | 証明語密度高(22) |
 | P2 | [F0-00F 線形写像・表現行列・基底変換・相似・対角化](volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) | 2 | 5 | 6 | 1 | 2 | 0 | 15 | 34% | 証明語密度高(15) |
 | P2 | [F0-00E1 内積・Gram--Schmidt・直交射影・QR](volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) | 0 | 1 | 0 | 2 | 0 | 0 | 14 | 39% | 証明語密度高(14)、直感・意味・見取り図見出し0 |
+| P2 | [F0-02C2 関数解析II：線形汎関数・双対空間・Riesz表現](volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md) | 1 | 1 | 2 | 1 | 0 | 0 | 11 | 28% | 詳細証明らしい見出し1件・proof block 0 |
 | P2 | [F0-00D2E 補講：$L^2$完備性・Riesz--Fischer・Hilbert空間への橋](volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md) | 4 | 1 | 5 | 1 | 2 | 0 | 9 | 28% | 定理・命題等4件、例1件 |
 | P2 | [F0-00D2D 補講：$L^p$空間・Hölderの不等式・Minkowskiの不等式](volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md) | 6 | 4 | 8 | 1 | 5 | 0 | 5 | 31% | 定理・命題等6件 |
 | P2 | [F0-02C6A 関数解析VI-A：分離定理・Minkowski functional・Farkas](volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md) | 2 | 0 | 1 | 1 | 0 | 0 | 5 | 30% | 例見出し0 |
@@ -65,7 +68,6 @@
 | WATCH | [F0-00P2 密度・Radon–Nikodym：pmfとpdfを同じ式で読む](volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md) | 1 | 0 | 2 | 1 | 0 | 0 | 1 | 29% | 例見出し0 |
 | WATCH | [F0-00P7B QMD・LAN：統計モデルの局所Hilbert幾何](volumes/00_foundations/F0_00P7B_QMD_LAN/index.md) | 1 | 0 | 1 | 1 | 0 | 0 | 1 | 23% | 例見出し0 |
 | WATCH | [F0-00E ベクトル空間・部分空間・span・一次独立・基底・次元](volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md) | 2 | 3 | 3 | 1 | 0 | 0 | 11 | 24% | 大きな機械警告なし |
-| WATCH | [F0-02C2 関数解析II：線形汎関数・双対空間・Riesz表現](volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md) | 1 | 1 | 2 | 1 | 0 | 0 | 11 | 28% | 大きな機械警告なし |
 | WATCH | [F0-00G 凸集合・凸関数・凸最適化の基礎](volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md) | 0 | 4 | 1 | 2 | 0 | 0 | 8 | 34% | 大きな機械警告なし |
 | WATCH | [F0-00D2 補講：測度空間・測度0・a.e.・可測関数](volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md) | 5 | 6 | 9 | 1 | 5 | 0 | 7 | 20% | 定理・命題等5件 |
 | WATCH | [F0-00P4 limsup・Borel–Cantelli・確率収束：無限回起こる事象を制御する](volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md) | 3 | 2 | 2 | 1 | 1 | 0 | 6 | 29% | 定理・命題等3件 |
