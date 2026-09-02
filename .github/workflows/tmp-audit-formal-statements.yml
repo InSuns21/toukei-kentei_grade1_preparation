@@ -1,0 +1,38 @@
+name: Temporary formal statement markup audit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit formal statement forms
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, collections
+          roots=[Path('textbook/volumes')]
+          md=[]
+          for root in roots:
+              md.extend(root.rglob('*.md'))
+          quoted=[]; bare=[]; headings=[]
+          label_re=re.compile(r'^\s*(>\s*)?\*\*(定義|定理|命題|補題|系|公理|原理)(?:[（(：:].*)?\*\*')
+          heading_re=re.compile(r'^#{2,6}\s+(.+)$')
+          for p in md:
+              for i,line in enumerate(p.read_text(encoding='utf-8').splitlines(),1):
+                  m=label_re.match(line)
+                  if m:
+                      (quoted if m.group(1) else bare).append((str(p),i,line.strip()))
+                  hm=heading_re.match(line)
+                  if hm and re.search(r'(定義|定理|命題|補題|系|公理|原理)(?:[：:（(]|$|を|の)', hm.group(1)):
+                      headings.append((str(p),i,line.strip()))
+          print(f'QUOTED_LABELS={len(quoted)}')
+          print(f'BARE_LABELS={len(bare)}')
+          print(f'FORMALISH_HEADINGS={len(headings)}')
+          print('\nBARE LABELS:')
+          for x in bare[:300]: print(':'.join(map(str,x)))
+          print('\nFORMALISH HEADINGS:')
+          for x in headings[:400]: print(':'.join(map(str,x)))
+          PY
