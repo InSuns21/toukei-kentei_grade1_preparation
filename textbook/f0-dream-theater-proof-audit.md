@@ -170,7 +170,7 @@ $$
 
 ## B / C / D：位相・コンパクト性・完備性
 
-### TODO-P1-B-01
+### DONE-P1-B-01 ✅
 
 距離空間で
 
@@ -182,7 +182,7 @@ $$
 
 を証明する。
 
-### TODO-P1-B-02
+### DONE-P1-B-02 ✅
 
 閉包の列による特徴付け
 
@@ -194,7 +194,7 @@ $$
 
 を証明する。
 
-### TODO-P1-C-01
+### DONE-P1-C-01 ✅
 
 連続性について、距離空間で
 
@@ -204,11 +204,11 @@ $$
 
 の同値性を証明する。
 
-### TODO-P1-C-02
+### DONE-P1-C-02 ✅
 
 距離空間で compact ⇔ sequentially compact を証明する。
 
-### TODO-P1-C-03
+### DONE-P1-C-03 ✅
 
 Heine--Borel
 
@@ -222,19 +222,19 @@ $$
 
 を証明する。
 
-### TODO-P1-C-04
+### DONE-P1-C-04 ✅
 
 連続像はcompact、Weierstrass最大最小定理を証明する。
 
-### TODO-P1-C-05
+### DONE-P1-C-05 ✅
 
 非空compact集合の有限直積のcompact性、および互いに素な非空compact集合間の距離が正になることを証明する。
 
-### TODO-P1-D-01
+### DONE-P1-D-01 ✅
 
 有限次元ノルム空間では全てのノルムが同値であり、したがって有限次元ノルム空間が完備になることを証明する。
 
-### TODO-P1-D-02
+### DONE-P1-D-02 ✅
 
 compact metric space は complete であることを証明する。
 
@@ -522,11 +522,15 @@ P3は「証明しない」こと自体を問題とはしない。ただし、**�
 4. D2標準ルートとD3/D4構成ルートの境界
 5. C1の一様極限定理参照
 
-## Batch 1：距離・compact・complete
+## Batch 1：距離・compact・complete ✅
 
-B → C → D を先に閉じる。
+B → C → D の主要命題を証明し、定義・具体例・A/B中心の演習まで補強済み。Cのみ統合問題としてLevel Cを1問置いた。
 
-これにより後続のWeierstrass、射影、スペクトル定理の床を固める。
+- B: Level A 2問 / B 3問 / C 0問
+- C: Level A 2問 / B 3問 / C 1問
+- D: Level A 2問 / B 3問 / C 0問
+
+これにより後続のWeierstrass、射影、スペクトル定理の床を固めた。
 
 ## Batch 2：Lebesgue積分
 
