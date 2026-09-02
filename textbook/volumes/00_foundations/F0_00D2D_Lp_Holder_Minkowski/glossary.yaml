@@ -1,0 +1,23 @@
+chapter: "F0-00D2D"
+terms:
+  - term: a.e.同値類
+    english: equivalence class modulo almost-everywhere equality
+    meaning: 測度0集合上だけ異なる関数を同じものとみなした同値類。
+  - term: Lp空間
+    english: Lp space
+    meaning: p乗可積分な可測関数をa.e.一致で同一視した空間。
+  - term: 本質的上限
+    english: essential supremum
+    meaning: 測度0集合を無視した上限。L∞ノルムを定義する。
+  - term: 共役指数
+    english: conjugate exponents
+    meaning: 1/p+1/q=1を満たすp,q>1。
+  - term: Youngの不等式
+    english: Young's inequality
+    meaning: 共役指数p,qに対してab<=a^p/p+b^q/qとなる不等式。
+  - term: Hölderの不等式
+    english: Hölder's inequality
+    meaning: f∈Lp, g∈Lqに対して∫|fg|<=||f||p||g||qを与える不等式。
+  - term: Minkowskiの不等式
+    english: Minkowski's inequality
+    meaning: ||f+g||p<=||f||p+||g||pというLpノルムの三角不等式。
