@@ -1,0 +1,27 @@
+id: "F0-00A3"
+title: "補講：半順序・Zornの補題・極大延長"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+  - F0-00A2
+official_scope: []
+learning_objectives:
+  - 半順序集合・chain・上界・極大元を定義できる
+  - 最大元と極大元を区別できる
+  - Zornの補題を正確に述べられる
+  - Zornを候補集合・順序・chain上界・極大元の4段階で適用できる
+  - Hamel基底とHahn--Banachの極大延長にZornが使われる理由を説明できる
+definitions:
+  - { id: F000A3-DEF-01, name: 半順序集合 }
+  - { id: F000A3-DEF-02, name: chain }
+  - { id: F000A3-DEF-03, name: 上界 }
+  - { id: F000A3-DEF-04, name: 極大元 }
+theorems:
+  - { id: F000A3-THM-01, name: Zornの補題 }
+canonical_examples: [極大元はあるが最大元がない有限半順序集合, 一次独立集合のchainの合併, Hahn--Banachの延長候補族]
+problem_patterns: [MAXIMAL-VS-MAXIMUM-1, ZORN-TEMPLATE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.0, exercises: 0.8, review: 0.35 }

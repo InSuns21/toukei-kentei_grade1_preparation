@@ -1,28 +1,26 @@
 id: "F0-00A"
-title: "補講：集合・写像・上限と下限"
+title: "補講：集合・写像・量化記号"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00
 official_scope: []
 learning_objectives:
-  - 集合・部分集合・和集合・共通部分・補集合を記号と日本語の両方で読める
+  - 集合・部分集合・集合演算を記号と日本語で読める
   - 像と逆像を区別し、逆像が逆関数を必要としないことを説明できる
   - 単射・全射・全単射を区別できる
-  - supremum・infimumとmaximum・minimumを区別できる
-  - 最適化でinfimumから出発する理由を説明できる
+  - 合成写像と逆像の関係を使える
+  - 量化記号を日本語へ戻して読める
 definitions:
   - { id: F000A-DEF-01, name: 部分集合 }
   - { id: F000A-DEF-02, name: 像 }
   - { id: F000A-DEF-03, name: 逆像 }
   - { id: F000A-DEF-04, name: 単射 }
   - { id: F000A-DEF-05, name: 全射 }
-  - { id: F000A-DEF-06, name: supremum }
-  - { id: F000A-DEF-07, name: infimum }
 theorems: []
-canonical_examples: [x平方の区間逆像, 開区間のsupremumとinfimum]
-problem_patterns: []
+canonical_examples: [x平方の区間逆像]
+problem_patterns: [SET-NOTATION-1, PREIMAGE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.5, exercises: 0, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 0.6, review: 0.25 }

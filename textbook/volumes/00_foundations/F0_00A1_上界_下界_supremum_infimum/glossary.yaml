@@ -1,0 +1,11 @@
+chapter: "F0-00A1"
+terms:
+  - term: supremum
+    english: supremum
+    meaning: 上界全体の中で最小のもの。集合の要素とは限らない。
+  - term: infimum
+    english: infimum
+    meaning: 下界全体の中で最大のもの。集合の要素とは限らない。
+  - term: maximum
+    english: maximum
+    meaning: 集合に実際に属する最大の要素。
