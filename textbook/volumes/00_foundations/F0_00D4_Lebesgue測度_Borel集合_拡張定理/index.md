@@ -211,11 +211,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Borel sigma代数）**  
 > 実数上の開集合全体から生成される最小のsigma代数を **Borel sigma代数** といい、
-$
+$$
 \mathcal B(\mathbb R)
 =
 \sigma(\text{open sets})
-$
+$$
 > と書く。
 <!-- formal-statement-end -->
 
@@ -420,11 +420,11 @@ sigma代数との違いは、**algebraは有限和で閉じ、sigma代数は可�
 <!-- formal-statement-start -->
 > **定義（premeasure）**  
 > algebra $\mathcal A$ 上の集合関数 $\mu_0:\mathcal A\to[0,\infty]$ が **premeasure** であるとは、互いに素な $A_n\in\mathcal A$ について $\bigcup_n A_n\in\mathcal A$ なら
-$
+$$
 \mu_0\left(\bigcup_nA_n\right)
 =
 \sum_n\mu_0(A_n)
-$
+$$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -484,11 +484,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（sigma有限）**  
 > 測度空間 $(X,\mathcal F,\mu)$ が **sigma有限** であるとは、可測集合列 $(E_n)$ が存在して
-$
+$$
 X=\bigcup_{n=1}^{\infty}E_n,
 \qquad
 \mu(E_n)<\infty\quad(n\ge1)
-$
+$$
 > を満たすことをいう。
 <!-- formal-statement-end -->
 

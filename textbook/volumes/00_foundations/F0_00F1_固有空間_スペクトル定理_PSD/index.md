@@ -13,13 +13,13 @@ $$\boxed{\text{固有空間}\to\text{対称性}\to\text{Rayleigh商}\to\text{ス
 <!-- formal-statement-start -->
 > **定義（固有値・固有ベクトル・固有空間）**  
 > 線形自己写像 $T:V\to V$ に対し、$v\ne0$ とスカラー $\lambda$ が
-$
+$$
 T(v)=\lambda v
-$
+$$
 > を満たすとき、$\lambda$ を $T$ の **固有値**、$v$ を $\lambda$ に属する **固有ベクトル** という。また
-$
+$$
 E_\lambda=\ker(T-\lambda I)
-$
+$$
 > を固有値 $\lambda$ に対応する **固有空間** という。
 <!-- formal-statement-end -->
 
@@ -50,9 +50,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（不変部分空間）**  
 > 線形自己写像 $T:V\to V$ と部分空間 $M\subset V$ に対して
-$
+$$
 T(M)\subset M
-$
+$$
 > が成り立つとき、$M$ を $T$ の **不変部分空間** という。
 <!-- formal-statement-end -->
 
@@ -154,9 +154,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（Rayleigh商）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ と非零ベクトル $x\in\mathbb R^n$ に対して
-$
+$$
 R_A(x)=\frac{x^{\mathsf T}Ax}{x^{\mathsf T}x}
-$
+$$
 > を $A$ の $x$ における **Rayleigh商** という。
 <!-- formal-statement-end -->
 
@@ -368,9 +368,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（実対称行列のスペクトル定理）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。したがって、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
-$
+$$
 A=Q\Lambda Q^{\mathsf T}
-$
+$$
 > と表せる。
 <!-- formal-statement-end -->
 
