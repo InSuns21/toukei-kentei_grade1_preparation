@@ -1,0 +1,30 @@
+name: Split F0 front optimization granularity
+
+on:
+  push:
+    branches:
+      - feat/f0-batch2-lebesgue-integration-foundations
+    paths:
+      - 'scripts/split-f0-front-optimization-granularity.py'
+      - '.github/workflows/split-f0-front-optimization-granularity.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/f0-batch2-lebesgue-integration-foundations
+      - name: Split front optimization lectures and synchronize routes
+        run: python3 scripts/split-f0-front-optimization-granularity.py
+      - name: Commit split
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --quiet && exit 0
+          git commit -m 'refactor: split F0-02B and C1 granularity'
+          git push
