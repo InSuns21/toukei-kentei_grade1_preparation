@@ -5,7 +5,6 @@ const ROOT = path.resolve('textbook/volumes');
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
 const boldDefinitionRe = /\*\*([^*]{1,60})\*\*\s*と(?:いいます|呼びます|定義します)/u;
-const plainDefinitionRe = /(?:を|これを|場合を|ものを)\s*([^。]{1,36}?)\s*と(?:いいます|呼びます|定義します)/u;
 
 function walk(dir) {
   const out=[];
@@ -17,7 +16,7 @@ function walk(dir) {
   return out;
 }
 
-const strong=[];
+const definitions=[];
 const quotes=[];
 const perFile=new Map();
 for (const file of walk(ROOT)) {
@@ -36,12 +35,10 @@ for (const file of walk(ROOT)) {
     if (depth>0) continue;
 
     const b=boldDefinitionRe.exec(line);
-    const p=plainDefinitionRe.exec(line);
-    if (b || p) {
-      const term=(b?.[1] || p?.[1] || '').trim();
-      // Ignore obvious house-style naming sentences rather than mathematical definitions.
+    if (b) {
+      const term=b[1].trim();
       if (!/^(?:ZFC|Schwartz超関数|distribution)$/iu.test(term)) {
-        strong.push(`${rel}:${i+1}: [${currentHeading}] ${line.trim()}`);
+        definitions.push(`${rel}:${i+1}: [${currentHeading}] TERM=${term} :: ${line.trim()}`);
         perFile.set(rel,(perFile.get(rel)||0)+1);
       }
     }
@@ -57,8 +54,8 @@ for (const file of walk(ROOT)) {
   }
 }
 
-console.log(`STRONG_DEFINITION_CANDIDATES=${strong.length}`);
-for (const r of strong) console.log(r);
+console.log(`BOLD_DEFINITION_CANDIDATES=${definitions.length}`);
+for (const r of definitions) console.log(r);
 console.log(`\nUNLABELED_FORMAL_QUOTES=${quotes.length}`);
 for (const r of quotes) console.log(r);
 console.log('\nCOUNTS_BY_FILE');
