@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P3
+  - F0-00D2B
 official_scope: []
 learning_objectives:
   - limsup事象を無限回起こる事象として説明できる
