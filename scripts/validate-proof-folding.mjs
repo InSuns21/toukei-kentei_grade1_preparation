@@ -40,6 +40,10 @@ function isProofLabel(line) {
     || /^proof[:：]$/iu.test(plain);
 }
 
+function isTheoremBlockStart(line) {
+  return /^\s*>\s*\*\*(?:定義|定理|命題|補題|系)(?:[（(：:].*)?\*\*/u.test(line);
+}
+
 const errors = [];
 let proofBlockCount = 0;
 let proofPageCount = 0;
@@ -51,6 +55,7 @@ for (const file of walk(ROOT)) {
   let solutionDepth = 0;
   let fileProofBlocks = 0;
   let blockHasProofLabel = false;
+  let proofLabelSeen = false;
 
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
@@ -84,6 +89,7 @@ for (const file of walk(ROOT)) {
       fileProofBlocks += 1;
       proofBlockCount += 1;
       blockHasProofLabel = false;
+      proofLabelSeen = false;
       continue;
     }
 
@@ -95,11 +101,19 @@ for (const file of walk(ROOT)) {
       }
       proofDepth = Math.max(0, proofDepth - 1);
       blockHasProofLabel = false;
+      proofLabelSeen = false;
       continue;
     }
 
     const proofLike = isProofHeading(line) || isProofLabel(line);
-    if (proofLike && proofDepth > 0) blockHasProofLabel = true;
+    if (proofLike && proofDepth > 0) {
+      blockHasProofLabel = true;
+      proofLabelSeen = true;
+    }
+
+    if (proofDepth > 0 && proofLabelSeen && isTheoremBlockStart(line)) {
+      errors.push(`${rel}:${lineNo}: theorem/definition statement is hidden inside a proof block; close proof-end before the next statement`);
+    }
 
     if (proofLike && proofDepth === 0 && solutionDepth === 0) {
       errors.push(`${rel}:${lineNo}: visible proof section found outside a collapsible proof block`);
