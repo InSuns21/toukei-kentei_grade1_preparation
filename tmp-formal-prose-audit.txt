@@ -1,14 +1,10 @@
-BOLD_DEFINITION_CANDIDATES=98
-textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md:15: [## 1. 半順序集合] TERM=半順序集合 :: を満たすとき、$(P,\preceq)$ を **半順序集合** といいます。
+BOLD_DEFINITION_CANDIDATES=91
 textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md:116: [### 1.2 同じ集合でも距離を変えられる] TERM=離散距離 :: と置くと距離になります。これを **離散距離** といいます。
 textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md:169: [### 証明：sequentially compact ⇒ compact] TERM=全有界性 :: となることを示します。この性質を **全有界性** と呼びます。
 textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md:205: [### 証明：sequentially compact ⇒ compact] TERM=Lebesgue数 :: が $\mathcal U$ のある1要素に含まれることを示します。この $\delta$ を **Lebesgue数** と呼びます。
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md:117: [## 3. Lebesgue外測度] TERM=Lebesgue外測度 :: これを **Lebesgue外測度** といいます。
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md:157: [## 5. 外測度の三条件] TERM=外測度 :: が定義され、次を満たすとき **外測度** といいます。
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md:508: [## 14. 完全性まで自動で得られる] TERM=完全性 :: これを測度の **完全性** といいます。
-textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md:215: [## 5. Borel sigma代数] TERM=Borel sigma代数 :: と書き、**Borel sigma代数** といいます。
-textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md:318: [## 8. 完備化] TERM=完備化 :: 測度0集合 $N\in\mathcal F$ の全ての部分集合を新たに可測集合として加えた最小の拡張を、測度空間の **完備化** といいます。
-textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md:417: [## 11. algebraとsigma代数] TERM=algebra :: とき **algebra** といいます。
 textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md:99: [## 3. 各同値類から一つずつ選ぶ] TERM=Vitali集合 :: これを **Vitali集合** といいます。
 textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md:68: [## 2. 正規直交系が便利な理由] TERM=正規直交系 :: を満たすとき、**正規直交系** といいます。
 textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md:285: [## 5. 直交補空間] TERM=直交補空間 :: を **直交補空間** といいます。
@@ -16,9 +12,6 @@ textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_�
 textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md:216: [## 5. 基底と座標] TERM=基底 :: という2条件を満たすとき、これを $V$ の **基底** といいます。
 textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md:240: [## 5. 基底と座標] TERM=座標ベクトル :: を、基底 $\mathcal B$ に関する $x$ の **座標ベクトル** といいます。
 textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md:411: [## 10. 部分空間の和と直和] TERM=直和 :: と書き、**直和** といいます。
-textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md:28: [## 1. 固有値と固有空間] TERM=固有空間 :: を **固有空間** といいます。
-textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md:58: [## 2. 不変部分空間] TERM=不変部分空間 :: を満たすとき、$M$ を **不変部分空間** といいます。
-textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md:163: [## 5. Rayleigh商] TERM=Rayleigh商 :: を **Rayleigh商** といいます。
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md:83: [## 2. 特異値と右特異ベクトル] TERM=特異値 :: を $A$ の **特異値** といいます。
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md:85: [## 2. 特異値と右特異ベクトル] TERM=右特異ベクトル :: $v_i$ を **右特異ベクトル** といいます。
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md:134: [## 3. 左特異ベクトル] TERM=左特異ベクトル :: これらを **左特異ベクトル** といいます。
@@ -98,18 +91,13 @@ textbook/volumes/05_engineering/E3_01_実験計画_直交表_交絡/index.md:280
 textbook/volumes/05_engineering/E3_01_実験計画_直交表_交絡/index.md:284: [### 1.2 因子と水準] TERM=因子 :: 実験者が変化させ、応答への影響を調べたい変数を**因子**と呼びます。この例では薬剤量が因子です。因子が取る具体的な設定値を**水準**と呼び、たとえば「0 mg、10 mg、20 mg」の3水準です。
 textbook/volumes/05_engineering/E3_01_実験計画_直交表_交絡/index.md:288: [### 1.3 処理] TERM=処理 :: 複数因子がある場合も含め、実験単位へ実際に与える条件の組合せを**処理**と呼びます。薬剤量だけなら3水準がそのまま3処理です。薬剤量3水準と温度2水準を同時に変えるなら、完全要因実験では $3\times2=6$ 通りの処理があります。
 
-UNLABELED_FORMAL_QUOTES=3
-textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md:117: [## 5. Zornの補題] > 半順序集合 $P$ のすべてのchainが $P$ 内に上界を持つなら、$P$ は少なくとも一つ極大元を持つ。
-textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md:477: [## 14. Carathéodory拡張定理] > algebra上のpremeasureは、そのalgebraが生成するsigma代数上の測度へ拡張できる。
-textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md:372: [## 8. 実対称行列のスペクトル定理] > 実対称行列には正規直交固有基底が存在する。
+UNLABELED_FORMAL_QUOTES=0
 
 COUNTS_BY_FILE
 11	textbook/volumes/05_engineering/E2_01_markov連鎖/index.md
 8	textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md
 5	textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md
-4	textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md
 4	textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md
-4	textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md
 4	textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md
 4	textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md
 3	textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md
@@ -120,7 +108,6 @@ COUNTS_BY_FILE
 3	textbook/volumes/01_probability/P1_01_事象と確率/index.md
 3	textbook/volumes/05_engineering/E1_03_因子分析_クラスター分析/index.md
 3	textbook/volumes/05_engineering/E3_01_実験計画_直交表_交絡/index.md
-2	textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md
 2	textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md
 2	textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md
 2	textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md
