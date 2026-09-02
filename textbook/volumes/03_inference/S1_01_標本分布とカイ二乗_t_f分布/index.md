@@ -56,7 +56,9 @@ $$
 
 ---
 
+<!-- formal-statement-start -->
 ## 定義
+<!-- formal-statement-end -->
 
 ### S1-DEF-01 統計量と標本分布
 

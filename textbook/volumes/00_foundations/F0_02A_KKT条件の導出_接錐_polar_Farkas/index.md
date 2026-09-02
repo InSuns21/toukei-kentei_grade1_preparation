@@ -78,6 +78,7 @@ $$
 
 ## 2. 接錐：実際に実行可能な方向を集める
 
+<!-- formal-statement-start -->
 ### 2.1 定義
 
 $\boldsymbol x^*\in C$ における **接錐（tangent cone）** を
@@ -108,6 +109,7 @@ $$
 $$
 
 という実行可能点列が存在する方向 $\boldsymbol d$ の集合です。
+<!-- formal-statement-end -->
 
 ### 2.2 半平面の例
 

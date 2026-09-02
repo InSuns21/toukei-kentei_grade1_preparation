@@ -58,19 +58,23 @@
 
 ## 1. コンパクト性
 
+<!-- formal-statement-start -->
 > **定義（開被覆）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ に対し、開集合族 $\{U_\alpha\}_{\alpha\in A}$ が
 $$
 K\subset\bigcup_{\alpha\in A}U_\alpha
 $$
 > を満たすとき、この族を $K$ の **開被覆** という。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 > **定義（コンパクト集合）**  
 > 位相空間 $X$ の部分集合 $K\subset X$ が **コンパクト** であるとは、$K$ の任意の開被覆 $\{U_\alpha\}_{\alpha\in A}$ に対し、有限個の添字 $\alpha_1,\ldots,\alpha_m$ が存在して
 $$
 K\subset\bigcup_{j=1}^mU_{\alpha_j}
 $$
 > となることをいう。
+<!-- formal-statement-end -->
 
 直感は
 
@@ -78,17 +82,21 @@ $$
 
 です。
 
+<!-- formal-statement-start -->
 > **定義（点列コンパクト性）**  
 > 距離空間 $(X,d)$ の部分集合 $K\subset X$ が **点列コンパクト** であるとは、$K$ 内の任意の点列 $(x_n)$ が、ある $x\in K$ に収束する部分列 $(x_{n_k})$ を持つことをいう。
+<!-- formal-statement-end -->
 
 ---
 
 ## 2. 距離空間では compact ⇔ sequentially compact
 
+<!-- formal-statement-start -->
 > **定理（距離空間におけるコンパクト性と点列コンパクト性）**  
 > 距離空間 $(X,d)$ の部分集合 $K\subset X$ に対して、次の二条件は同値である。
 > 1. $K$ はコンパクトである。
 > 2. $K$ は点列コンパクトである。
+<!-- formal-statement-end -->
 
 ### 2.1 証明の見取り図
 
@@ -283,8 +291,10 @@ $$
 
 Bolzano--Weierstrassが保証するのは、**有界列そのものの収束ではなく、収束部分列の存在**です。この違いを押さえると、Heine--Borelの証明で何を取り出しているのかが見えやすくなります。
 
+<!-- formal-statement-start -->
 > **補題（実数列のBolzano–Weierstrass）**  
 > 有界な実数列 $(x_n)$ は収束部分列を持つ。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
@@ -335,8 +345,10 @@ $$
 よって $x_{n_k}\to x$ です。$\square$
 <!-- proof-end -->
 
+<!-- formal-statement-start -->
 > **補題（$\mathbb R^p$ のBolzano–Weierstrass）**  
 > Euclid距離を入れた $\mathbb R^p$ の任意の有界点列 $(x_n)$ は収束部分列を持つ。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
@@ -372,10 +384,12 @@ Heine--Borelは、抽象的なコンパクト性を有限次元で非常に使�
 
 後続で $\mathbb R^p$ の集合について「コンパクト」と言いたくなったら、まず **閉性と有界性** を確認するのが第一手です。
 
+<!-- formal-statement-start -->
 > **定理（Heine–Borel）**  
 > Euclid距離を入れた $\mathbb R^p$ の部分集合 $K\subset\mathbb R^p$ に対して、次の二条件は同値である。
 > 1. $K$ はコンパクトである。
 > 2. $K$ は閉集合かつ有界である。
+<!-- formal-statement-end -->
 
 ### 4.2 証明の見取り図
 
@@ -443,12 +457,14 @@ $$
 
 ## 5. 連続像はコンパクト
 
+<!-- formal-statement-start -->
 > **定理（コンパクト集合の連続像）**  
 > 位相空間 $X,Y$、コンパクト集合 $K\subset X$、連続写像 $f:X\to Y$ に対して、像
 $$
 f(K)=\{f(x):x\in K\}
 $$
 > は $Y$ のコンパクト集合である。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明

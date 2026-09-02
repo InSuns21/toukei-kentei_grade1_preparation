@@ -4,7 +4,7 @@
 
 TODO: この章の役割を1〜2段落で説明する。何を扱い、後続単元へどうつながるかを、用語の列挙ではなく読者が意味をつかめる文章で書く。
 
-本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[証明の見せ方と教材導線](../../../proof-presentation-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md)、[分布・記号ガイド](../../../../references/distribution-notation-guide.md) に従います。
+本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[formal statement表示ガイド](../../../formal-statement-presentation-guide.md)、[証明の見せ方と教材導線](../../../proof-presentation-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md)、[分布・記号ガイド](../../../../references/distribution-notation-guide.md) に従います。
 
 ## この章で解けるようになる問題
 
@@ -35,6 +35,17 @@ TODO: 定義、記号、母数範囲、存在条件を明記する。
 ## 3. 定理・公式と導出
 
 TODO: 定理の仮定と結論を明記し、非自明な式は必要な途中式を示す。問題で導出させる公式を暗記前提で置かない。
+
+定義・定理・命題・補題・系・公理・原理のステートメント本体は、GitHub Pages上で共通の青い左罫線を付ける。次のmarkerで**一つのformal statementだけ**を囲み、証明・証明の見取り図・例・意味説明は外へ置く。
+
+```md
+<!-- formal-statement-start -->
+> **定理（TODO）**  
+> TODO: 対象・仮定・結論をこのblockだけで自己完結させる。
+<!-- formal-statement-end -->
+```
+
+表示数式を含むときは、数式の各行に `>` を付ける必要はない。marker全体がPages runtimeでformal statement panelへ変換される。
 
 完全証明を置く場合は、証明を閉じた状態でも意味・具体例・使い道を追える本文にする。証明の見取り図は表示したままにし、完全証明だけを次のマーカーで囲む。
 

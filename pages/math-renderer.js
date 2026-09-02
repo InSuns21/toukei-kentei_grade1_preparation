@@ -167,6 +167,13 @@
     );
   }
 
+  function wrapFormalStatementBlocks(html) {
+    return html.replace(
+      /<!-- formal-statement-start -->([\s\S]*?)<!-- formal-statement-end -->/g,
+      '<div class="formal-statement">$1</div>'
+    );
+  }
+
   function katexStylesheetLoaded() {
     if (typeof document === 'undefined') return true;
     return [...document.querySelectorAll('link[rel="stylesheet"]')]
@@ -255,7 +262,7 @@
     });
 
     hook.afterEach(function (html) {
-      return foldProofBlocks(html);
+      return wrapFormalStatementBlocks(foldProofBlocks(html));
     });
 
     hook.doneEach(function () {
@@ -266,6 +273,7 @@
   root.ToukeiMathRenderer = {
     protectMath,
     foldProofBlocks,
+    wrapFormalStatementBlocks,
     docsifyPlugin,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

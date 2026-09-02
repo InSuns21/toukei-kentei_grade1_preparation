@@ -63,6 +63,7 @@ $$
 
 そこでまず、**大きさを割り当てる対象となる集合族**を決めます。
 
+<!-- formal-statement-start -->
 ### 定義（σ代数）
 
 集合 $\Omega$ の部分集合族 $\mathcal F\subset 2^\Omega$ が **σ代数** であるとは、次の3条件を満たすことをいう。
@@ -78,7 +79,9 @@ $$
 組 $(\Omega,\mathcal F)$ を **可測空間** といい、$A\in\mathcal F$ を **可測集合** という。
 
 この定義はステートメントの中だけで対象・記号・条件が完結しています。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 命題（σ代数の基本閉性）
 
 可測空間 $(\Omega,\mathcal F)$ に対して、$A_1,A_2,\ldots\in\mathcal F$ なら
@@ -88,6 +91,7 @@ $$
 $$
 
 また $A,B\in\mathcal F$ なら $A\setminus B\in\mathcal F$ である。
+<!-- formal-statement-end -->
 
 ### 1.1 証明の見取り図：$\sigma$代数の三条件だけで他の集合演算を作る
 
@@ -144,6 +148,7 @@ $$
 
 実数上では、開集合を少なくとも測れるようにしたいので、開集合から生成される最小のσ代数を使います。
 
+<!-- formal-statement-start -->
 ### 定義（生成σ代数）
 
 集合 $\Omega$ の部分集合族 $\mathcal C\subset2^\Omega$ に対して、$\mathcal C$ を含む最小のσ代数を
@@ -153,7 +158,9 @@ $$
 $$
 
 と書き、$\mathcal C$ が生成するσ代数という。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（Borel σ代数）
 
 実数直線 $\mathbb R$ 上の **Borel σ代数** を
@@ -167,6 +174,7 @@ $$
 で定義する。
 
 Borel集合には開集合・閉集合・区間だけでなく、それらから可算回の和・共通部分・補集合で作れる集合がすべて含まれます。
+<!-- formal-statement-end -->
 
 ### 例2：区間はBorel集合
 
@@ -183,6 +191,7 @@ $$
 
 ## 3. 測度
 
+<!-- formal-statement-start -->
 ### 定義（測度・測度空間）
 
 可測空間 $(\Omega,\mathcal F)$ 上の写像
@@ -206,6 +215,7 @@ $$
 $$
 
 を満たすことをいう。三つ組 $(\Omega,\mathcal F,\mu)$ を **測度空間** という。
+<!-- formal-statement-end -->
 
 ### 例3：数え上げ測度
 
@@ -257,6 +267,7 @@ $$
 
 後者は、集合を少しずつ増やして近似したときに、その大きさも極限で回収できるという性質です。Lebesgue積分のMCTへそのまま持ち上がります。
 
+<!-- formal-statement-start -->
 ### 命題（単調性）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ の可測集合 $A,B\in\mathcal F$ が $A\subset B$ を満たすなら
@@ -264,6 +275,7 @@ $$
 $$
 \mu(A)\le\mu(B).
 $$
+<!-- formal-statement-end -->
 
 #### 証明の見取り図
 
@@ -287,6 +299,7 @@ $$
 $\square$
 <!-- proof-end -->
 
+<!-- formal-statement-start -->
 ### 定理（下からの連続性）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ の可測集合列 $(A_n)$ が
@@ -300,6 +313,7 @@ $$
 $$
 \mu(A_n)\uparrow\mu(A).
 $$
+<!-- formal-statement-end -->
 
 #### 証明の見取り図
 
@@ -343,6 +357,7 @@ $\square$
 
 ## 5. 測度0と「ほとんど至るところ」
 
+<!-- formal-statement-start -->
 ### 定義（測度0集合）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ の可測集合 $N\in\mathcal F$ が
@@ -352,7 +367,9 @@ $$
 $$
 
 を満たすとき、$N$ を **測度0集合** または **零集合** という。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（ほとんど至るところ）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の性質 $P(\omega)$ が **ほとんど至るところ成立する**（almost everywhere, a.e.）とは、
@@ -372,6 +389,7 @@ $$
 $$
 
 という点です。
+<!-- formal-statement-end -->
 
 ---
 
@@ -413,6 +431,7 @@ $$
 
 可測関数の定義はまさに、**出力側のしきい値条件を入力側の可測集合へ引き戻せる**ことを要求しています。連続写像の「開集合の逆像が開」と同じ構図です。
 
+<!-- formal-statement-start -->
 ### 定義（実数値可測関数）
 
 可測空間 $(\Omega,\mathcal F)$ 上の関数 $f:\Omega\to\mathbb R$ が **可測** であるとは、任意の $a\in\mathbb R$ に対して
@@ -430,10 +449,13 @@ f^{-1}(( -\infty,a])\in\mathcal F
 $$
 
 という逆像条件です。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定理（連続関数はBorel可測）
 
 連続関数 $f:\mathbb R\to\mathbb R$ は、可測空間 $(\mathbb R,\mathcal B(\mathbb R))$ から $(\mathbb R,\mathcal B(\mathbb R))$ への可測関数である。
+<!-- formal-statement-end -->
 
 #### 証明の見取り図：連続性の逆像条件をBorel集合全体へ広げる
 
@@ -463,6 +485,7 @@ $$
 よって任意のBorel集合 $B$ に対して $f^{-1}(B)$ はBorel集合です。$\square$
 <!-- proof-end -->
 
+<!-- formal-statement-start -->
 ### 命題（指示関数の可測性）
 
 可測空間 $(\Omega,\mathcal F)$ の部分集合 $A\subset\Omega$ に対して、指示関数
@@ -477,6 +500,7 @@ $$
 $$
 
 が可測であることと $A\in\mathcal F$ は同値である。
+<!-- formal-statement-end -->
 
 #### 証明の見取り図：指示関数は集合そのものを0/1へ符号化している
 

@@ -56,6 +56,7 @@ $$
 
 ## 1. 積σ代数
 
+<!-- formal-statement-start -->
 ### 定義（積σ代数）
 
 可測空間 $(X,\mathcal A)$ と $(Y,\mathcal B)$ に対して、可測長方形
@@ -84,6 +85,7 @@ $$
 $$
 
 を積可測空間という。
+<!-- formal-statement-end -->
 
 ### 例1：Borel σ代数の積
 
@@ -101,6 +103,7 @@ $$
 
 ## 2. 積測度
 
+<!-- formal-statement-start -->
 ### 定理（σ有限測度の積測度）
 
 σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$ に対して、積σ代数 $\mathcal A\otimes\mathcal B$ 上に測度 $\mu\times\nu$ が一意に存在し、任意の $A\in\mathcal A,B\in\mathcal B$ について
@@ -124,6 +127,7 @@ X=\bigcup_{n=1}^\infty X_n,
 $$
 
 となることです。
+<!-- formal-statement-end -->
 
 ### 証明の位置
 
@@ -143,6 +147,7 @@ $$
 
 二変数集合・関数を一方の変数だけ固定して見る操作を定義します。
 
+<!-- formal-statement-start -->
 ### 定義（集合のsection）
 
 $E\subset X\times Y$ と $x\in X,y\in Y$ に対して
@@ -160,6 +165,7 @@ E^y
 $$
 
 をそれぞれ $x$-section、$y$-sectionという。
+<!-- formal-statement-end -->
 
 ### 3.1 具体例：長方形を縦に切る
 
@@ -185,6 +191,7 @@ $$
 
 sectionは「二次元集合を一方向にスライスし、その断面の大きさをもう一方で積分する」ための道具です。
 
+<!-- formal-statement-start -->
 ### 命題（可測集合のsectionは可測）
 
 可測空間 $(X,\mathcal A)$、$(Y,\mathcal B)$ と $E\in\mathcal A\otimes\mathcal B$ に対して、任意の $x\in X,y\in Y$ について
@@ -194,6 +201,7 @@ E_x\in\mathcal B,
 \qquad
 E^y\in\mathcal A.
 $$
+<!-- formal-statement-end -->
 
 #### 証明の見取り図
 
@@ -263,6 +271,7 @@ $$
 
 <a id="thm-tonelli"></a>
 
+<!-- formal-statement-start -->
 ### 定理（Tonelli）
 
 σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$、積測度 $\mu\times\nu$ を考える。
@@ -299,6 +308,7 @@ $$
 $$
 
 が成り立つ。値は $\infty$ でもよい。
+<!-- formal-statement-end -->
 
 ### 4.2 証明の見取り図
 
@@ -420,6 +430,7 @@ $$
 
 を要求します。これは正部分・負部分の両方が有限であることを保証し、順序交換を安全にします。
 
+<!-- formal-statement-start -->
 ### 定理（Fubini）
 
 σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$、積測度 $\mu\times\nu$ を考える。
@@ -450,6 +461,7 @@ $$
 $$
 
 が成り立つ。
+<!-- formal-statement-end -->
 
 ### 5.2 証明の見取り図
 

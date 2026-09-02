@@ -8,13 +8,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <style>
-    :root { --theme-color: #2f6f9f; }
+    :root { --theme-color: #2f6f9f; --formal-statement-rule: #2f6f9f; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; }
     .markdown-section { max-width: 980px; }
     .markdown-section table { display: table; width: 100%; }
     .markdown-section pre { overflow-x: auto; }
     .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
     .toukei-math-display { display: block; }
+    .formal-statement { margin: 1rem 0 1.4rem; border-left: 5px solid var(--formal-statement-rule); padding: 0.12rem 0 0.12rem 1.3rem; }
+    .formal-statement > blockquote { margin: 0; padding: 0; border-left: 0; color: inherit; }
+    .formal-statement > h2, .formal-statement > h3, .formal-statement > h4, .formal-statement > h5, .formal-statement > h6 { margin: 0.1rem 0 0.55rem; font-size: 1rem; line-height: 1.55; font-weight: 700; }
+    .formal-statement > :first-child, .formal-statement > blockquote > :first-child { margin-top: 0; }
+    .formal-statement > :last-child, .formal-statement > blockquote > :last-child { margin-bottom: 0; }
     .sidebar-nav li { line-height: 1.45; }
     .solution-details { margin: 0.8rem 0 1.4rem; border: 1px solid #d8dee4; border-radius: 6px; padding: 0.15rem 0.8rem 0.7rem; }
     .solution-details summary { cursor: pointer; font-weight: 600; padding: 0.65rem 0; }
