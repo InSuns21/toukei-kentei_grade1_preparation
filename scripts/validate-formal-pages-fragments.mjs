@@ -4,7 +4,9 @@ import path from 'node:path';
 const SITE = path.resolve('_site');
 const TEXTBOOK = path.join(SITE, 'textbook');
 const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
-const stableFragmentRe = /^(?:thm|ref)-[a-z0-9][a-z0-9-]*$/;
+const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
+const stableFragmentRe = new RegExp(`^${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*$`);
+const stableFragmentInHrefRe = new RegExp(`#${STABLE_PREFIX}-[a-z0-9][a-z0-9-]*`);
 
 function walk(dir) {
   const out = [];
@@ -40,8 +42,6 @@ function resolveGeneratedTarget(sourceFile, href) {
     throw new Error(`malformed URL encoding in ${href}: ${error.message}`);
   }
 
-  // Generated textbook links are normalized to site-root-oriented paths before
-  // this validator runs. A remaining ../ is therefore a Pages routing bug.
   const normalized = path.posix.normalize(decoded.replace(/^\.\//, ''));
   if (normalized === '..' || normalized.startsWith('../')) {
     throw new Error(`formal reference is still directory-relative after Pages normalization: ${href}`);
@@ -58,8 +58,6 @@ function visibleMarkdownLines(markdown) {
       continue;
     }
     if (inFence) continue;
-    // Style guides and explanatory prose can show literal Markdown links in
-    // inline code. Those are examples, not navigable links in the generated site.
     out.push(line.replace(/`[^`]*`/g, ''));
   }
   return out;
@@ -81,7 +79,7 @@ for (const file of files) {
   for (const line of visibleMarkdownLines(markdown)) {
     for (const match of line.matchAll(linkRe)) {
       const href = match[2].trim();
-      if (!/#(?:thm|ref)-[a-z0-9][a-z0-9-]*/.test(href)) continue;
+      if (!stableFragmentInHrefRe.test(href)) continue;
 
       let resolved;
       try {
@@ -120,4 +118,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal Pages reference validation passed: ${checked} generated thm-/ref- link(s) across ${files.length} textbook Markdown file(s).`);
+console.log(`Formal Pages reference validation passed: ${checked} generated stable formal link(s) across ${files.length} textbook Markdown file(s).`);
