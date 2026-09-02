@@ -1,0 +1,31 @@
+name: Temporary implicit formal baseline
+
+on:
+  push:
+    branches:
+      - fix/formal-anchors-and-definition-audit
+    paths:
+      - 'scripts/validate-implicit-formal-statements.mjs'
+      - '.github/workflows/tmp-write-implicit-formal-baseline.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/formal-anchors-and-definition-audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/validate-implicit-formal-statements.mjs --write-baseline
+      - name: Commit baseline
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/implicit-formal-baseline.txt
+          git commit -m 'record implicit formal statement migration baseline'
+          git push
