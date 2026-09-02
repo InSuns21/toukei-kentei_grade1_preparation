@@ -294,21 +294,21 @@ $$
 M\sum_{j=1}^p|\xi_j|.
 $$
 
-Cauchy–Schwarzより
+各 $j$ について $|\xi_j|\le\|\xi\|_2$ なので
 
-$$
+$
 \sum_{j=1}^p|\xi_j|
 \le
-\sqrt p\,\|\xi\|_2.
-$$
+p\,\|\xi\|_2.
+$
 
 したがって
 
-$$
+$
 \|x\|
 \le
-M\sqrt p\,\|\xi\|_2.
-$$
+Mp\,\|\xi\|_2.
+$
 
 この評価から、写像
 
@@ -325,7 +325,7 @@ $$
 \le
 N(\xi-\eta)
 \le
-M\sqrt p\,\|\xi-\eta\|_2.
+Mp\,\|\xi-\eta\|_2.
 $$
 
 Euclid単位球面
@@ -826,21 +826,21 @@ $$
 - Level: B
 - 目安時間: 15分
 - 主題: ノルム同値性
-- 使用技術: Cauchy–Schwarz、最大値評価
+- 使用技術: 和と最大値の評価
 
 $x=(x_1,\ldots,x_p)\in\mathbb R^p$ に対して
 
-$$
+$
 \|x\|_1=\sum_{j=1}^p|x_j|,
 \qquad
 \|x\|_2=\left(\sum_{j=1}^p|x_j|^2\right)^{1/2},
 \qquad
 \|x\|_\infty=\max_j|x_j|
-$$
+$
 
 とする。次を示せ。
 
-$$
+$
 \boxed{
 \|x\|_\infty
 \le
@@ -848,11 +848,11 @@ $$
 \le
 \|x\|_1
 \le
-\sqrt p\,\|x\|_2
-\le
 p\,\|x\|_\infty
+\le
+p\,\|x\|_2
 }
-$$
+$
 
 <!-- solution-start -->
 
@@ -897,36 +897,23 @@ $$
 \|x\|_2\le\|x\|_1.
 $$
 
-Cauchy–Schwarzを $(|x_1|,\ldots,|x_p|)$ と $(1,\ldots,1)$ に使うと
+各 $j$ について $|x_j|\le\|x\|_\infty$ なので
 
-$$
+$
 \|x\|_1
 =
 \sum_j|x_j|
 \le
-\left(\sum_j|x_j|^2\right)^{1/2}
-\left(\sum_j1^2\right)^{1/2}
-=
-\sqrt p\,\|x\|_2.
-$$
+p\,\|x\|_\infty.
+$
 
-さらに
+また既に $\|x\|_\infty\le\|x\|_2$ を示したので
 
-$$
-\|x\|_2^2
-=
-\sum_j|x_j|^2
+$
+p\,\|x\|_\infty
 \le
-p\|x\|_\infty^2,
-$$
-
-なので
-
-$$
-\sqrt p\,\|x\|_2
-\le
-p\|x\|_\infty.
-$$
+p\,\|x\|_2.
+$
 
 以上をつなげれば所望の不等式です。
 
@@ -938,36 +925,36 @@ $$
 
 より $\|x\|_\infty\le\|x\|_2$。
 
-展開から $\|x\|_2\le\|x\|_1$。Cauchy–Schwarzより
+展開から $\|x\|_2\le\|x\|_1$。各成分が $\|x\|_\infty$ 以下なので
 
-$$
-\|x\|_1\le\sqrt p\,\|x\|_2.
-$$
+$
+\|x\|_1\le p\|x\|_\infty.
+$
 
-また
+さらに $\|x\|_\infty\le\|x\|_2$ より
 
-$$
-\|x\|_2^2\le p\|x\|_\infty^2.
-$$
+$
+p\|x\|_\infty\le p\|x\|_2.
+$
 
 したがって
 
-$$
+$
 \boxed{
 \|x\|_\infty
 \le\|x\|_2
 \le\|x\|_1
-\le\sqrt p\|x\|_2
 \le p\|x\|_\infty
+\le p\|x\|_2
 }.
-$$
+$
 
 ##### 採点基準
 
 - $\infty$ と2の比較: 4点
 - 2と1の比較: 4点
-- Cauchy–Schwarz: 6点
-- 2と$\infty$の上側評価: 4点
+- $\|x\|_1\le p\|x\|_\infty$ の評価: 6点
+- 最後の比較: 4点
 - 全体結論: 2点
 
 <!-- solution-end -->

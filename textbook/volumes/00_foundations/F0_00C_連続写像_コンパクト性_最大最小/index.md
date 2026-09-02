@@ -257,11 +257,25 @@ $$
 
 となる点列を構成できます。すると $m\ne n$ なら
 
-$$
+$
 d(x_m,x_n)\ge\varepsilon.
-$$
+$
 
-この列のどの部分列もCauchy列にならないので、収束部分列も持ちません。点列コンパクト性に矛盾します。したがって $K$ は全有界です。
+もしある部分列 $x_{n_k}$ が $x$ に収束するなら、十分大きい $k,\ell$ について
+
+$
+d(x_{n_k},x)<\varepsilon/3,
+\qquad
+d(x_{n_\ell},x)<\varepsilon/3
+$
+
+となるので、三角不等式から
+
+$
+d(x_{n_k},x_{n_\ell})<2\varepsilon/3,
+$
+
+となり $d(x_{n_k},x_{n_\ell})\ge\varepsilon$ に矛盾します。したがって収束部分列は存在せず、点列コンパクト性に矛盾します。よって $K$ は全有界です。
 
 次に、$K$ の任意の開被覆 $\mathcal U$ に対して、ある $\delta>0$ が存在し、任意の $x\in K$ について
 
@@ -315,7 +329,19 @@ $$
 K\subset\bigcup_{j=1}^mB(a_j,\delta/2)
 $$
 
-とできます。各球 $B(a_j,\delta/2)\cap K$ は直径が $\delta$ 未満なので、Lebesgue数の性質より、ある $U_j\in\mathcal U$ に含まれます。
+とできます。Lebesgue数の性質を中心 $a_j$ に適用すると、ある $U_j\in\mathcal U$ が存在して
+
+$
+B(a_j,\delta)\cap K\subset U_j.
+$
+
+したがって特に
+
+$
+B(a_j,\delta/2)\cap K\subset U_j
+$
+
+です。
 
 したがって
 
