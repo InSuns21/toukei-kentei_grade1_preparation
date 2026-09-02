@@ -586,7 +586,7 @@ P2で学んだRadon--Nikodym密度としてのpdfへつながります。
 
 答えは **いいえ** です。
 
-D5では、選択公理を使ってVitali集合を作り、
+[D5のVitali集合の非可測性](../F0_00D5_Vitali集合_非可測集合_選択公理/index.md#thm-vitali-nonmeasurable)では、選択公理を使ってVitali集合を作り、
 
 $$
 \boxed{
