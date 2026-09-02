@@ -89,6 +89,7 @@ $$
 
 ## 2. 単関数
 
+<!-- formal-statement-start -->
 ### 定義（非負単関数）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の可測関数 $\phi:\Omega\to[0,\infty)$ が有限個の値しか取らないとき、$\phi$ を **非負単関数** という。
@@ -102,7 +103,9 @@ $$
 $$
 
 と書ける。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（非負単関数の積分）
 
 非負単関数
@@ -124,10 +127,13 @@ $$
 $$
 
 と定義する。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 命題（表現に依存しない）
 
 同じ非負単関数 $\phi$ を異なる可測分割で表しても、上の積分値は同じである。
+<!-- formal-statement-end -->
 
 ### 証明の見取り図：異なる分割を共通の細分へ落とす
 
@@ -207,6 +213,7 @@ Lebesgue積分の核心は「一般の非負可測関数を、単関数で下か
 
 <a id="thm-simple-function-approximation"></a>
 
+<!-- formal-statement-start -->
 ### 定理（単関数近似）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の非負可測関数 $f:\Omega\to[0,\infty]$ に対して、非負単関数列 $(\phi_n)$ が存在し、
@@ -222,6 +229,7 @@ $$
 $$
 
 となる。
+<!-- formal-statement-end -->
 
 ### 証明の見取り図
 
@@ -284,6 +292,7 @@ $$
 
 この定義なら、特定の近似手順に依存せず、**全ての下側階段近似を使った最良の面積**として積分が決まります。
 
+<!-- formal-statement-start -->
 ### 定義（非負可測関数のLebesgue積分）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の非負可測関数 $f:\Omega\to[0,\infty]$ に対して
@@ -302,7 +311,9 @@ $$
 と定義する。
 
 積分値は $[0,\infty]$ を取り得ます。つまり非負関数については、積分が $\infty$ でも定義自体はされています。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 命題（単調性）
 
 非負可測関数 $f,g$ が $f\le g$ を満たすなら
@@ -310,6 +321,7 @@ $$
 $$
 \int f\,d\mu\le\int g\,d\mu.
 $$
+<!-- formal-statement-end -->
 
 #### 証明の見取り図
 
@@ -345,6 +357,7 @@ Riemann積分は存在しませんが、Lebesgue積分は0です。
 
 ## 5. 正負を持つ関数
 
+<!-- formal-statement-start -->
 ### 定義（正部分・負部分）
 
 実数値可測関数 $f:\Omega\to\mathbb R$ に対して
@@ -364,7 +377,9 @@ f=f^+-f^-,
 \qquad
 |f|=f^++f^-.
 $$
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（Lebesgue可積分関数）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の実数値可測関数 $f$ が **Lebesgue可積分** であるとは
@@ -390,11 +405,13 @@ $$
 と定義する。
 
 可積分なら $\int f^+$ と $\int f^-$ はともに有限なので、$\infty-\infty$ の不定形は起こりません。
+<!-- formal-statement-end -->
 
 ---
 
 ## 6. a.e.で等しい関数は同じ積分を持つ
 
+<!-- formal-statement-start -->
 ### 定理（零集合上の変更は積分を変えない）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の可積分関数 $f,g$ が
@@ -408,6 +425,7 @@ $$
 $$
 \int f\,d\mu=\int g\,d\mu.
 $$
+<!-- formal-statement-end -->
 
 ### 証明の見取り図：差がある場所の測度が0なら、その差の面積も0
 

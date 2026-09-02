@@ -52,6 +52,7 @@ $$
 
 ## 1. Cauchy列と完備性の復習
 
+<!-- formal-statement-start -->
 ### 定義（ノルム空間のCauchy列）
 
 ノルム空間 $(V,\|\cdot\|)$ の点列 $(x_n)$ が **Cauchy列** であるとは、任意の $\varepsilon>0$ に対してある $N$ が存在し、$m,n\ge N$ なら
@@ -61,17 +62,21 @@ $$
 $$
 
 となることをいう。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（Banach空間）
 
 ノルム空間 $(V,\|\cdot\|)$ が **Banach空間** であるとは、その任意のCauchy列が $V$ のある元へノルム収束することをいう。
 
 D2Eでは $V=L^2(\mu)$ についてこれを証明します。
+<!-- formal-statement-end -->
 
 ---
 
 ## 2. $L^2$の内積
 
+<!-- formal-statement-start -->
 ### 定義（$L^2$内積）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の実数値 $L^2$ 関数 $f,g$ に対して
@@ -95,7 +100,9 @@ $$
 $$
 
 なので、この積分は有限です。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 命題（内積が誘導するノルム）
 
 $L^2(\mu)$ 上で
@@ -113,11 +120,13 @@ $$
 $$
 \|f\|_2=\sqrt{\langle f,f\rangle}.
 $$
+<!-- formal-statement-end -->
 
 ---
 
 ## 3. Hilbert空間
 
+<!-- formal-statement-start -->
 ### 定義（Hilbert空間）
 
 内積空間 $(H,\langle\cdot,\cdot\rangle)$ が **Hilbert空間** であるとは、内積が誘導するノルム
@@ -135,6 +144,7 @@ $$
 $$
 
 が従います。
+<!-- formal-statement-end -->
 
 ---
 
@@ -158,9 +168,11 @@ $$
 
 ## 5. Riesz--Fischer型の完備性証明
 
+<!-- formal-statement-start -->
 ### 定理（$L^2$の完備性）
 
 任意の測度空間 $(\Omega,\mathcal F,\mu)$ に対して、$L^2(\mu)$ はノルム $\|\cdot\|_2$ について完備である。
+<!-- formal-statement-end -->
 
 ### 5.1 証明の見取り図
 
@@ -363,8 +375,11 @@ $$
 
 ---
 
+<!-- formal-statement-start -->
 ## 6. 系：$L^2$はHilbert空間
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 系（$L^2$のHilbert性）
 
 任意の測度空間 $(\Omega,\mathcal F,\mu)$ に対して、内積
@@ -374,6 +389,7 @@ $$
 $$
 
 を備えた $L^2(\mu)$ はHilbert空間である。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 #### 証明

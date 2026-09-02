@@ -130,8 +130,10 @@ $$
 
 ## 5. Vitali集合がLebesgue可測ではないことを示す
 
+<!-- formal-statement-start -->
 > **定理（Vitali集合の非可測性）**  
 > 各 $\sim$ 同値類から代表元を一つずつ選んで得た Vitali集合 $V\subset[0,1]$ はLebesgue可測ではない。
+<!-- formal-statement-end -->
 
 ### 5.1 証明の見取り図
 

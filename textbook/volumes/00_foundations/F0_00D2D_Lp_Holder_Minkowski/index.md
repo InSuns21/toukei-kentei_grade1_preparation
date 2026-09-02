@@ -89,6 +89,7 @@ $$
 
 なら $f=g$ a.e. です。したがって、積分で関数の距離を測るなら、測度0集合上だけ違う関数を別物として扱う理由がありません。
 
+<!-- formal-statement-start -->
 ### 定義（a.e.同値関係）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の可測関数 $f,g$ に対して
@@ -102,11 +103,13 @@ $$
 と定める。この同値関係による同値類を $[f]$ と書く。
 
 以後、通常は同値類 $[f]$ を単に $f$ と書きます。
+<!-- formal-statement-end -->
 
 ---
 
 ## 2. $L^p$空間
 
+<!-- formal-statement-start -->
 ### 定義（$L^p$空間、$1\le p<\infty$）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ と $1\le p<\infty$ に対して、
@@ -132,7 +135,9 @@ $$
 $$
 
 と置く。
+<!-- formal-statement-end -->
 
+<!-- formal-statement-start -->
 ### 定義（$L^\infty$と本質的上限）
 
 可測関数 $f$ に対して
@@ -146,6 +151,7 @@ $$
 を **本質的上限** といい、$\|f\|_\infty<\infty$ となるa.e.同値類全体を $L^\infty(\mu)$ という。
 
 通常のsupremumと違い、測度0集合上の巨大な値を無視します。
+<!-- formal-statement-end -->
 
 ### 例1：一点だけ変更しても$L^p$では同じ
 
@@ -199,6 +205,7 @@ $$
 
 Hölderの証明に使うスカラー不等式を先に証明します。
 
+<!-- formal-statement-start -->
 ### 補題（Youngの不等式）
 
 実数 $p,q>1$ が
@@ -219,6 +226,7 @@ ab
 $$
 
 が成り立つ。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
@@ -263,6 +271,7 @@ $$
 
 ## 4. Hölderの不等式
 
+<!-- formal-statement-start -->
 ### 定理（Hölderの不等式）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ と $p,q>1$ が
@@ -282,6 +291,7 @@ $$
 $$
 
 が成り立つ。
+<!-- formal-statement-end -->
 
 ### 4.1 証明の見取り図
 
@@ -363,6 +373,7 @@ $$
 
 重要なのは数値評価そのものより、$f\in L^2$ と $g\in L^2$ から **積 $fg$ が $L^1$ に入る**ことまで保証される点です。
 
+<!-- formal-statement-start -->
 ### 系（Cauchy--Schwarz）
 
 $p=q=2$ とすれば
@@ -378,6 +389,7 @@ $$
 を得ます。
 
 後続のHilbert空間では、これを内積に対するCauchy--Schwarzとして読み直します。
+<!-- formal-statement-end -->
 
 ---
 
@@ -385,6 +397,7 @@ $$
 
 これで$\|\cdot\|_p$の三角不等式を証明できます。
 
+<!-- formal-statement-start -->
 ### 定理（Minkowskiの不等式）
 
 測度空間 $(\Omega,\mathcal F,\mu)$、$1\le p<\infty$、$f,g\in L^p(\mu)$ に対して
@@ -398,6 +411,7 @@ $$
 $$
 
 が成り立つ。
+<!-- formal-statement-end -->
 
 ### 5.1 証明の見取り図
 
@@ -513,6 +527,7 @@ Minkowskiが成り立つから、$\|\cdot\|_p$ は三角不等式を満たしま
 
 ## 6. $L^p$はノルム空間になる
 
+<!-- formal-statement-start -->
 ### 定理（$L^p$ノルム）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ と $1\le p<\infty$ に対して、a.e.同値類上で
@@ -524,6 +539,7 @@ $$
 $$
 
 はノルムである。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
@@ -581,6 +597,7 @@ $$
 
 ## 8. 有限測度空間では高い$p$ほど強い
 
+<!-- formal-statement-start -->
 ### 命題（有限測度空間上の包含）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ が $\mu(\Omega)<\infty$ を満たし、$1\le p<q<\infty$ とする。このとき
@@ -601,6 +618,7 @@ $$
 $$
 
 が成り立つ。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明

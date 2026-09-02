@@ -68,6 +68,7 @@ inf / sup が min / max になる
 
 ## 1. Weierstrassの最大最小定理
 
+<!-- formal-statement-start -->
 > **定理（Weierstrassの最大最小定理）**  
 > 位相空間 $X$ の空でないコンパクト集合 $K\subset X$ と連続関数 $f:K\to\mathbb R$ に対して、ある $x_{\min},x_{\max}\in K$ が存在し
 $$
@@ -80,6 +81,7 @@ f(x_{\max})
 \max_{x\in K}f(x)
 $$
 > が成り立つ。
+<!-- formal-statement-end -->
 
 ### 1.1 証明の見取り図
 
@@ -174,6 +176,7 @@ $$
 
 この一節は次の「集合間距離の最小値が達成される」ための準備です。
 
+<!-- formal-statement-start -->
 > **定理（有限個のコンパクト距離空間の直積）**  
 > $m\ge1$ とし、各 $j=1,\ldots,m$ について $(K_j,d_j)$ をコンパクト距離空間とする。直積
 $$
@@ -186,6 +189,7 @@ d(x,y)
 \max_{1\le j\le m}d_j(x_j,y_j)
 $$
 > を入れると、$(K,d)$ はコンパクトである。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
@@ -247,6 +251,7 @@ $$
 
 コンパクト性はこの逃げ方を禁止するので、互いに素なら最小距離が実際に達成され、その値は正になります。
 
+<!-- formal-statement-start -->
 > **定理（互いに素なコンパクト集合間の正距離）**  
 > 距離空間 $(X,d)$ の空でないコンパクト集合 $A,B\subset X$ が
 $$
@@ -263,6 +268,7 @@ $$
 d(A,B)>0
 $$
 > である。
+<!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
