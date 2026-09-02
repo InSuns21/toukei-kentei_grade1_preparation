@@ -36,14 +36,20 @@ TODO: 定義、記号、母数範囲、存在条件を明記する。
 
 TODO: 定理の仮定と結論を明記し、非自明な式は必要な途中式を示す。問題で導出させる公式を暗記前提で置かない。
 
-定義・定理・命題・補題・系・公理・原理のステートメント本体は、GitHub Pages上で共通の青い左罫線を付ける。次のmarkerで**一つのformal statementだけ**を囲み、証明・証明の見取り図・例・意味説明は外へ置く。
+定義・定理・命題・補題・系・公理・原理のステートメント本体は、GitHub Pages上で共通の青い左罫線を付ける。**必ず安定anchorを直前に置き**、次のmarkerで一つのformal statementだけを囲む。証明・証明の見取り図・例・意味説明は外へ置く。
 
 ```md
+<a id="thm-{{chapter_id}}-example"></a>
+
 <!-- formal-statement-start -->
 > **定理（TODO）**  
 > TODO: 対象・仮定・結論をこのblockだけで自己完結させる。
 <!-- formal-statement-end -->
 ```
+
+anchor接頭辞は、定義 `def-`、定理 `thm-`、命題 `prop-`、補題 `lem-`、系 `cor-`、公理 `axiom-`、原理 `principle-`、その他の参照用節 `ref-` を使う。章内・章間でformal resultを参照するときは、見出し自動IDや章トップではなくこの安定anchorへ直接リンクする。
+
+本文で `**○○** といいます` / `**○○** と呼びます` / `**○○** と定義します` と数学的対象を導入して済ませず、正式な定義なら `**定義（○○）**` のpanelにする。
 
 表示数式を含むときは、数式の各行に `>` を付ける必要はない。marker全体がPages runtimeでformal statement panelへ変換される。
 
