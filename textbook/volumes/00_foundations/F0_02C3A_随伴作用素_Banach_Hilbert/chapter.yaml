@@ -1,0 +1,19 @@
+id: "F0-02C3A"
+title: "関数解析III-A：随伴作用素・Banach双対・Hilbert随伴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C3
+learning_objectives:
+  - Banach空間で随伴作用素T*:Y*→X*を定義できる
+  - 有限次元で随伴が転置行列になることを示せる
+  - Hilbert空間でRiesz表現を介した随伴を説明できる
+  - KKTのDG(x)*lambdaの型を説明できる
+definitions:
+  - { id: F002C3A-DEF-01, name: 随伴作用素 }
+  - { id: F002C3A-DEF-02, name: Hilbert随伴 }
+theorems: []
+canonical_examples: [転置行列, 積分作用素の随伴]
+problem_patterns: [FA-ADJOINT-1]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 0.75, review: 0.5 }

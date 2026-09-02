@@ -1,31 +1,21 @@
 id: "F0-02C5"
-title: "関数解析V：一般化KKT・制約写像・制約想定"
+title: "関数解析V：一般化KKT・錐制約・双対乗数"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-02C4
+  - F0-02C3A
+  - F0-02C4A
   - F0-02A
-official_scope: []
 learning_objectives:
-  - 成分ごとの不等式制約を錐制約G(x)∈-Kへまとめられる
-  - 一般化LagrangianとKKT条件を双対空間の型を確認しながら書ける
-  - 有限次元の通常KKTを一般化KKTの特殊例として復元できる
-  - 制約想定がないとKKT乗数が存在しない反例を説明できる
-  - 真のtangent coneと線形化coneのずれを説明できる
-  - LICQ・MFCQ・Robinson CQの役割と強さの違いを説明できる
-  - 等式制約における微分の全射性の意味を説明できる
+  - 不等式制約を錐制約G(x)∈-Kへまとめられる
+  - 一般化LagrangianとKKT条件を型付きで書ける
+  - 有限次元の通常KKTを特殊例として復元できる
 definitions:
   - { id: F002C5-DEF-01, name: 錐制約 }
   - { id: F002C5-DEF-02, name: 一般化Lagrangian }
-  - { id: F002C5-DEF-03, name: 線形化cone }
-  - { id: F002C5-DEF-04, name: LICQ }
-  - { id: F002C5-DEF-05, name: MFCQ }
-  - { id: F002C5-DEF-06, name: Robinson constraint qualification }
 theorems:
-  - { id: F002C5-THM-01, name: 一般化KKT必要条件 }
-canonical_examples: [x二乗制約の退化例, 非負直交錐による通常KKT復元, 等式制約の全射性]
-problem_patterns: [FA-KKT-1, FA-CQ-1]
-past_exam_alignment: []
-integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0, review: 1 }
+  - { id: F002C5-THM-01, name: 一般化KKT条件の形 }
+canonical_examples: [非負直交錐による通常KKT復元]
+problem_patterns: [FA-KKT-1]
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }

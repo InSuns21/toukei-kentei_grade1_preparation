@@ -1,0 +1,5 @@
+chapter: "F0-02C5A"
+terms:
+  - { term: LICQ, english: linear independence constraint qualification, meaning: active不等式と等式の勾配に一次独立性を要求する制約想定。 }
+  - { term: MFCQ, english: Mangasarian-Fromovitz constraint qualification, meaning: 等式を保ちつつactive不等式の内側へ入る方向の存在を要求する制約想定。 }
+  - { term: Robinson CQ, english: Robinson constraint qualification, meaning: 一般の錐制約で線形化写像と錐が制約空間を十分埋めることを要求する正則性条件。 }

@@ -1,36 +1,6 @@
-# F0-02C7 関数解析VII：RKHS・再生核・representer theorem・kernel SVM
+# F0-02C7 関数解析VII：RKHS・再生核・Moore--Aronszajn
 
-ここまでの関数解析をkernel法へ戻します。
-
-出発点は驚くほど単純です。
-
-> 関数 $f$ を扱うHilbert空間で、点 $x$ における値 $f(x)$ を安定に取り出したい。
-
-つまり評価汎関数
-
-$$
-\delta_x(f)=f(x)
-$$
-
-を連続にしたいのです。
-
-この一条件からRiesz表現定理を通じて
-
-$$
-\boxed{
-\text{評価汎関数}
-\to
-\text{kernel section}
-\to
-\text{再生核}
-\to
-\text{kernel内積}
-}
-$$
-
-が現れます。
-
----
+評価汎関数の連続性からRiesz表現を通じて再生核を得て、逆にPSD kernelからRKHSを構成するところまでを閉じます。学習アルゴリズムは次講C7Aです。
 
 ## 1. なぜ一般のHilbert関数空間では足りないのか
 
@@ -436,7 +406,9 @@ $$
 
 表現の仕方によって同じ関数が複数の係数表示を持つ場合や、ノルム0の形式的要素が生じる場合は、ノルム0のものを同一視して商空間を取ります。
 
-その後、完備化します。
+ここで **完備化（completion）** とは、もとの内積空間を稠密部分空間として含む完備な内積空間へ拡張する操作です。一般にはCauchy列の同値類を用いて構成でき、完備化は等長同型を除いて一意です。
+
+その後、この意味で完備化します。
 
 ---
 
@@ -471,7 +443,7 @@ $$
 
 よって $\mathcal H$ はRKHSです。
 
-ここでF0-00Dの「完備化」が実際に登場しました。
+ここで、上で定義した「完備化」が実際に登場しました。
 
 ---
 
@@ -504,500 +476,46 @@ $$
 
 ---
 
-## 16. representer theoremが必要になる理由
+## 演習
 
-RKHSが無限次元でも、学習データは有限個
+### F0-02C7-A01 線形kernelのPSD性
 
-$$
-(x_1,y_1),\dots,(x_n,y_n)
-$$
+- Level: A
+- 目安時間: 10分
 
-です。
+$K(x,z)=x^Tz$ がPSD kernelであることを示せ。
 
-多くの学習問題では目的関数が
+<!-- solution-start -->
+#### 詳細解答
+任意の係数$c_i$について $\\sum_{ij}c_ic_jx_i^Tx_j=\\|\\sum_i c_ix_i\\|^2\\ge0$。
+#### 本番答案
+任意の係数$c_i$について $\\sum_{ij}c_ic_jx_i^Tx_j=\\|\\sum_i c_ix_i\\|^2\\ge0$。
+#### 採点基準（20点）
+- 定義・設定: 6点
+- 推論・計算: 10点
+- 結論: 4点
+<!-- solution-end -->
 
-1. 訓練点での値 $f(x_i)$
-2. 関数の複雑さ $\|f\|_{\mathcal H}$
+### F0-02C7-B01 評価汎関数のノルム
 
-だけに依存します。
+- Level: B
+- 目安時間: 15分
 
-すると最適解は、無限次元空間全体を探さなくても
+RKHSで $\\|\\delta_x\\|=\\sqrt{K(x,x)}$ を示せ。
 
-$$
-\operatorname{span}
-\{K_{x_1},\dots,K_{x_n}\}
-$$
-
-の中に取れます。
-
-これがrepresenter theoremです。
-
----
-
-## 17. representer theoremの標準形
-
-例えば
-
-$$
-\min_{f\in\mathcal H}
-L(f(x_1),\dots,f(x_n))
-+\Omega(\|f\|_{\mathcal H})
-$$
-
-を考えます。
-
-$\Omega$ が単調増加で、最小解が存在するとします。
-
-このとき少なくとも一つの最小解を
-
-$$
-\boxed{
-f^*(\cdot)
-=\sum_{i=1}^n\alpha_iK(\cdot,x_i)
-}
-$$
-
-という有限和の形に取れます。
-
-$\Omega$ が厳密単調増加なら、最小解の不要な直交成分は必ず0になります。
+<!-- solution-start -->
+#### 詳細解答
+Riesz表現で $\\delta_x(f)=\\langle f,K_x\\rangle$ なので $\\|\\delta_x\\|=\\|K_x\\|$。さらに $\\|K_x\\|^2=K(x,x)$。
+#### 本番答案
+Riesz表現で $\\delta_x(f)=\\langle f,K_x\\rangle$ なので $\\|\\delta_x\\|=\\|K_x\\|$。さらに $\\|K_x\\|^2=K(x,x)$。
+#### 採点基準（20点）
+- 方針: 5点
+- 中心となる導出: 11点
+- 結論: 4点
+<!-- solution-end -->
 
 ---
 
-## 18. 証明：標本点が張る部分空間へ直交分解する
+## 次に進む
 
-$$
-S
-=\operatorname{span}
-\{K_{x_1},\dots,K_{x_n}\}
-$$
-
-とします。
-
-Hilbert空間なので任意の $f\in\mathcal H$ を
-
-$$
-\boxed{
-f=f_{\parallel}+f_{\perp}}
-$$
-
-と直交分解でき、
-
-$$
-f_{\parallel}\in S,
-\qquad
-f_{\perp}\in S^\perp.
-$$
-
----
-
-## 19. 直交成分は訓練点で見えない
-
-再生性より
-
-$$
-f_{\perp}(x_i)
-=\langle f_{\perp},K_{x_i}\rangle.
-$$
-
-しかし $K_{x_i}\in S$、$f_{\perp}\in S^\perp$ なので
-
-$$
-\boxed{f_{\perp}(x_i)=0}.
-$$
-
-したがって
-
-$$
-f(x_i)=f_{\parallel}(x_i)
-$$
-
-です。
-
-つまり損失 $L$ から見ると $f_{\perp}$ は完全に不可視です。
-
----
-
-## 20. しかし直交成分はノルムだけ増やす
-
-Pythagorasの定理から
-
-$$
-\|f\|^2
-=\|f_{\parallel}\|^2
-+\|f_{\perp}\|^2
-\ge\|f_{\parallel}\|^2.
-$$
-
-したがって $f_{\perp}$ を捨てても訓練点での予測値は変わらず、正則化項は悪化しません。
-
-よって最適解は $S$ の中に取れます。
-
-$$
-\boxed{
-\text{有限標本しか見ない損失}
-+\text{Hilbertノルム正則化}
-\Longrightarrow
-\text{有限次元解}
-}
-$$
-
-です。
-
----
-
-## 21. kernel SVMの主問題
-
-特徴写像
-
-$$
-\varphi(x)\in\mathcal H
-$$
-
-をHilbert空間に取ります。
-
-soft-margin SVMの主問題は
-
-$$
-\min_{w\in\mathcal H,b\in\mathbb R,\xi_i\ge0}
-\frac12\|w\|_{\mathcal H}^2
-+C\sum_{i=1}^n\xi_i
-$$
-
-subject to
-
-$$
-y_i
-\bigl(
-\langle w,\varphi(x_i)\rangle_{\mathcal H}+b
-\bigr)
-\ge1-\xi_i.
-$$
-
-これはまさに **Hilbert空間上の凸最適化** です。
-
----
-
-## 22. Lagrangian
-
-マージン制約に $\alpha_i\ge0$、$\xi_i\ge0$ に $\mu_i\ge0$ を入れると
-
-$$
-\begin{aligned}
-L
-&=\frac12\|w\|^2
-+C\sum_i\xi_i\\
-&\quad+
-\sum_i\alpha_i
-\left[
-1-\xi_i
--y_i(\langle w,\varphi(x_i)\rangle+b)
-\right]
--\sum_i\mu_i\xi_i.
-\end{aligned}
-$$
-
-$w$ に関するFréchet微分を取ります。
-
----
-
-## 23. stationarityから有限和が出る
-
-F0-02C3で見たように
-
-$$
-D_w\frac12\|w\|^2[h]
-=\langle w,h\rangle.
-$$
-
-また
-
-$$
-D_w\langle w,\varphi(x_i)\rangle[h]
-=\langle h,\varphi(x_i)\rangle.
-$$
-
-したがって $w$ に関するstationarityは
-
-$$
-\left\langle
-w-\sum_i\alpha_i y_i\varphi(x_i),
- h
-\right\rangle
-=0
-\qquad(\forall h\in\mathcal H).
-$$
-
-Riesz表現の一意性から
-
-$$
-\boxed{
-w
-=\sum_{i=1}^n
-\alpha_i y_i\varphi(x_i)
-}.
-$$
-
-無限次元かもしれない空間で、最適法線が有限個の訓練特徴の張る空間へ落ちました。
-
----
-
-## 24. $b$ と $\xi$ のstationarity
-
-$b$ について
-
-$$
-\boxed{
-\sum_i\alpha_i y_i=0
-}
-$$
-
-が得られます。
-
-$\xi_i$ について
-
-$$
-C-\alpha_i-\mu_i=0.
-$$
-
-$\mu_i\ge0$ なので
-
-$$
-\boxed{0\le\alpha_i\le C}.
-$$
-
----
-
-## 25. 双対目的関数
-
-$w$ の有限和表示をLagrangianへ戻すと
-
-$$
-\boxed{
-\max_{\alpha}
-\sum_{i=1}^n\alpha_i
--
-\frac12
-\sum_{i,j=1}^n
-\alpha_i\alpha_jy_iy_j
-\langle\varphi(x_i),\varphi(x_j)\rangle
-}
-$$
-
-subject to
-
-$$
-0\le\alpha_i\le C,
-\qquad
-\sum_i\alpha_i y_i=0.
-$$
-
-ここで
-
-$$
-\langle\varphi(x_i),\varphi(x_j)\rangle
-=K(x_i,x_j)
-$$
-
-なので
-
-$$
-\boxed{
-\max_{\alpha}
-\sum_i\alpha_i
--
-\frac12
-\sum_{i,j}
-\alpha_i\alpha_jy_iy_jK(x_i,x_j)
-}
-$$
-
-となります。
-
-特徴ベクトルそのものは消え、kernel値だけが残ります。
-
----
-
-## 26. 判別関数
-
-新しい入力 $x$ に対して
-
-$$
-\begin{aligned}
-f(x)
-&=\langle w,\varphi(x)\rangle+b\\
-&=
-\sum_i\alpha_i y_i
-\langle\varphi(x_i),\varphi(x)\rangle+b\\
-&=
-\boxed{
-\sum_i\alpha_i y_iK(x_i,x)+b
-}.
-\end{aligned}
-$$
-
-したがって予測時にも特徴空間の座標を明示する必要がありません。
-
----
-
-## 27. サポートベクトル
-
-$\alpha_i=0$ の訓練点は
-
-$$
-w
-=\sum_i\alpha_i y_i\varphi(x_i)
-$$
-
-にも判別関数にも寄与しません。
-
-したがって
-
-$$
-\boxed{\alpha_i>0}
-$$
-
-の点だけが解を直接支えます。
-
-これが **support vector** という名前の代数的な意味です。
-
-相補性条件と合わせると、どの点がmargin上・margin内・誤分類側にあるかをさらに整理できます。具体的なKKT分類はE1-04へ戻ります。
-
----
-
-## 28. representer theoremとSVM stationarityは同じ現象を見る
-
-representer theoremは
-
-$$
-f^*\in\operatorname{span}\{K_{x_i}\}
-$$
-
-と言います。
-
-SVMのstationarityは
-
-$$
-w^*\in\operatorname{span}\{\varphi(x_i)\}
-$$
-
-と言います。
-
-canonical feature map
-
-$$
-\varphi(x)=K_x
-$$
-
-を使えば同じ構造です。
-
-つまり
-
-$$
-\boxed{
-\text{無限次元の最適化}
-\quad\text{なのに}\quad
-\text{解は有限標本が張る部分空間へ落ちる}
-}
-$$
-
-ことがkernel法の核心です。
-
----
-
-## 29. 「kernel trick」の正体
-
-よくある説明は
-
-> 高次元へ写して内積だけkernelで計算する。
-
-です。
-
-関数解析まで遡ると、より正確には
-
-$$
-\boxed{
-\begin{array}{c}
-K\text{ がPSD}\\
-\Downarrow\\
-K\text{ を再生核とするRKHSが存在}\\
-\Downarrow\\
-\varphi(x)=K_x\\
-\Downarrow\\
-K(x,z)=\langle\varphi(x),\varphi(z)\rangle\\
-\Downarrow\\
-\text{representer theorem / KKTにより有限和解}\\
-\Downarrow\\
-\text{Gram行列だけで学習できる}
-\end{array}
-}
-$$
-
-です。
-
----
-
-## 30. Mercerの定理とは区別する
-
-kernelの説明で「Mercerの定理」が同義語のように使われることがありますが、区別した方が安全です。
-
-**Moore--Aronszajnの定理** は、抽象的なPSD kernelとRKHSの対応を与えます。
-
-一方 **Mercerの定理** は、コンパクトな領域上の連続kernelなど追加条件の下で、積分作用素の固有関数を用いた展開を与える定理です。
-
-したがって
-
-$$
-\boxed{
-\text{kernelからRKHSを得るだけなら
-Moore--Aronszajnが基本}
-}
-$$
-
-と整理します。
-
----
-
-## 31. 02C系列の全体回収
-
-ここまでの7講を一本にすると
-
-$$
-\boxed{
-\begin{array}{c}
-\text{ノルム・完備性}\\
-\Downarrow\\
-\text{Banach / Hilbert}\\
-\Downarrow\\
-\text{双対空間・Riesz}\\
-\Downarrow\\
-\text{Fr\'echet微分・随伴}\\
-\Downarrow\\
-\text{normal cone・双対錐}\\
-\Downarrow\\
-\text{一般化KKT・制約想定}\\
-\Downarrow\\
-\text{Hahn--Banach・分離}\\
-\Downarrow\\
-\text{RKHS・再生核・kernel SVM}
-\end{array}
-}
-$$
-
-です。
-
-SVMのkernelは最後に突然追加された計算テクニックではありません。
-
-**線形代数・最適化を関数空間まで一般化していくと、かなり自然な場所に現れる構造**です。
-
----
-
-## 章末チェック
-
-- RKHSを評価汎関数の連続性から定義できる。
-- Riesz表現から再生性 $f(x)=\langle f,K_x\rangle$ を導ける。
-- 再生核のGram行列が半正定値であることを示せる。
-- PSD kernelからRKHSを構成するMoore--Aronszajnの流れを説明できる。
-- representer theoremを直交分解から証明できる。
-- kernel SVMで $w=\sum_i\alpha_i y_i\varphi(x_i)$ を導ける。
-- SVM双対と判別関数をkernel値だけで書ける。
-- Moore--AronszajnとMercerの役割を区別できる。
+**次：[F0-02C7A representer theorem・kernel SVM](../F0_02C7A_representer_kernel_SVM/index.md)**

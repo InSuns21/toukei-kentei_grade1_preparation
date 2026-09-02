@@ -53,11 +53,16 @@
 4. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
 5. [F0-02C1 ノルム空間・Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
 6. [F0-02C2 線形汎関数・双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
-7. [F0-02C3 Fréchet微分・線形作用素・随伴](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
-8. [F0-02C4 凸解析・劣勾配・normal cone・双対錐](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
-9. [F0-02C5 一般化KKT・制約写像・制約想定](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
-10. [F0-02C6 Hahn–Banach・分離定理](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [F0-02C7 RKHS・再生核・representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
+7. [F0-02C3 Fréchet微分・有界作用素・連鎖律](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+8. [F0-02C3A 随伴作用素・Banach双対・Hilbert随伴](textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md)
+9. [F0-02C4 凸解析・劣勾配・normal cone](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
+10. [F0-02C4A tangent cone・polar cone・dual cone](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
+11. [F0-02C5 一般化KKT・錐制約・双対乗数](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
+12. [F0-02C5A 制約想定・LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
+13. [F0-02C6 Hahn–Banach・汎関数拡張](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
+14. [F0-02C6A 分離定理・Minkowski functional・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+15. [F0-02C7 RKHS・再生核・Moore–Aronszajn](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
+16. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
 
 ---
 

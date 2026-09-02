@@ -44,10 +44,15 @@
         "textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md",
         "textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md",
         "textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md",
+        "textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md",
         "textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md",
+        "textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md",
         "textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md",
+        "textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md",
         "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",
-        "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md"
+        "textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md",
+        "textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md",
+        "textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md"
       ]
     },
     {

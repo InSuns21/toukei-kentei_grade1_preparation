@@ -1,23 +1,4 @@
 chapter: "F0-02C6"
 terms:
-  - term: sublinear functional
-    english: sublinear functional
-    meaning: 正の斉次性と劣加法性を満たす実数値関数。
-  - term: Hahn--Banachの定理
-    english: Hahn-Banach theorem
-    meaning: 部分空間上の線形汎関数を、与えられたsublinearな上界を保ったまま全空間へ延長できる定理。
-  - term: 延長候補族
-    english: family of extensions
-    meaning: Hahn--Banachの証明で、元の汎関数を支配条件を保って延長した部分空間と汎関数の対を集めた半順序集合。
-  - term: 極大延長
-    english: maximal extension
-    meaning: 延長関係についてこれ以上真に広い定義域へ延長できない延長。標準証明ではZornの補題で存在を得る。
-  - term: Zornの補題
-    english: Zorn's lemma
-    meaning: すべてのchainが上界を持つ半順序集合には極大元が存在するという定理。Hahn--Banachの標準証明で極大延長を得るために使う。
-  - term: strong separation
-    english: strong separation
-    meaning: 二つの対象の汎関数値の間に正の隙間を持つ分離。
-  - term: separating functional
-    english: separating functional
-    meaning: 凸集合や点を異なるレベルへ写して分離する連続線形汎関数。
+  - { term: sublinear functional, english: sublinear functional, meaning: 劣加法性と正の斉次性を満たす汎関数。 }
+  - { term: Hahn--Banachの定理, english: Hahn-Banach theorem, meaning: 支配条件を保ちながら線形汎関数を部分空間から全空間へ延長できる定理。 }

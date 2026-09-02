@@ -1,34 +1,6 @@
-# F0-02C4 関数解析IV：凸解析・劣勾配・normal cone・双対錐
+# F0-02C4 関数解析IV：凸解析・劣勾配・normal cone
 
-この講義では、制約付き最適化を幾何の言葉へ翻訳します。
-
-有限次元のKKTでは
-
-$$
-\nabla f(x^*)
-+\sum_i\lambda_i\nabla g_i(x^*)
-=0
-$$
-
-という式を見ました。
-
-これを関数解析・凸解析の言葉で見ると、もっと短く
-
-$$
-\boxed{
--Df(x^*)\in N_C(x^*)
-}
-$$
-
-と書けます。
-
-意味は
-
-> 最適点では、目的関数が下がりたがる方向と、制約集合が押し返す法線方向が釣り合う。
-
-というものです。
-
----
+凸関数を微分不能点まで拡張し、制約をindicator関数へ埋め込むことで $0\in\partial f+N_C$ という最適性条件まで進みます。tangent/polar/dual coneは次講C4Aへ分離します。
 
 ## 1. 凸集合
 
@@ -526,180 +498,46 @@ $$
 
 ---
 
-## 15. tangent cone
+## 演習
 
-集合 $C$ と $x\in C$ に対し、「実際に集合内から近づける一次方向」を集めたものが tangent cone です。
+### F0-02C4-A01 絶対値の劣微分
 
-一つの標準的定義としてBouligand tangent coneを
+- Level: A
+- 目安時間: 10分
 
-$$
-T_C(x)
-=\left\{
-h:\exists t_n\downarrow0,\ \exists x_n\in C,
-\ \frac{x_n-x}{t_n}\to h
-\right\}
-$$
+$f(x)=|x|$ について $\\partial f(0)$ を求めよ。
 
-と定めます。
+<!-- solution-start -->
+#### 詳細解答
+劣勾配$a$は $|y|\\ge ay$ を全てのyで満たす必要がある。これは $-1\\le a\\le1$ と同値なので $\\partial f(0)=[-1,1]$。
+#### 本番答案
+劣勾配$a$は $|y|\\ge ay$ を全てのyで満たす必要がある。これは $-1\\le a\\le1$ と同値なので $\\partial f(0)=[-1,1]$。
+#### 採点基準（20点）
+- 定義・設定: 6点
+- 推論・計算: 10点
+- 結論: 4点
+<!-- solution-end -->
 
-凸集合なら、直感的には
+### F0-02C4-B01 normal coneで最適性を確認
 
-$$
-y-x
-\qquad(y\in C)
-$$
+- Level: B
+- 目安時間: 15分
 
-の非負倍を集めて閉じた錐と一致します。
+$C=[0,\\infty)$、$f(x)=\\frac12(x+1)^2$ とする。$x^*=0$ で $-f'(x^*)\\in N_C(x^*)$ を確認せよ。
 
----
-
-## 16. polar cone
-
-錐 $K\subset X$ に対して
-
-$$
-\boxed{
-K^\circ
-=\{x^*\in X^*:x^*(k)\le0
-\ \forall k\in K\}
-}
-$$
-
-を **polar cone** といいます。
-
-normal coneの定義と比べると、凸集合について
-
-$$
-\boxed{
-N_C(x)=T_C(x)^\circ
-}
-$$
-
-という関係が得られます。
-
-つまりnormal coneは「実行可能な接方向すべてに非正に作用する汎関数」の集合です。
+<!-- solution-start -->
+#### 詳細解答
+$f'(0)=1$、$N_C(0)=(-\\infty,0]$ なので $-f'(0)=-1\\in N_C(0)$。従って一次最適性条件を満たす。
+#### 本番答案
+$f'(0)=1$、$N_C(0)=(-\\infty,0]$ なので $-f'(0)=-1\\in N_C(0)$。従って一次最適性条件を満たす。
+#### 採点基準（20点）
+- 方針: 5点
+- 中心となる導出: 11点
+- 結論: 4点
+<!-- solution-end -->
 
 ---
 
-## 17. dual cone
+## 次に進む
 
-一方、錐 $K\subset Y$ に対して
-
-$$
-\boxed{
-K^*
-=\{\lambda\in Y^*:\lambda(k)\ge0
-\ \forall k\in K\}
-}
-$$
-
-を **dual cone** といいます。
-
-本教材では polar cone を $\le0$、dual cone を $\ge0$ で定義しているため
-
-$$
-\boxed{K^\circ=-K^*}.
-$$
-
-文献によって符号規約が異なるので、名前だけでなく不等号を確認することが重要です。
-
----
-
-## 18. 非負直交錐は自己双対
-
-有限次元で
-
-$$
-K=\mathbb R_+^m
-$$
-
-とします。
-
-$\lambda\in K^*$ である条件は
-
-$$
-\lambda^{\mathsf T}k\ge0
-\qquad(\forall k\ge0).
-$$
-
-各標準基底 $e_i\ge0$ を入れると
-
-$$
-\lambda_i\ge0.
-$$
-
-逆に $\lambda\ge0$ なら $k\ge0$ に対して内積は非負です。
-
-したがって
-
-$$
-\boxed{(\mathbb R_+^m)^*=\mathbb R_+^m}.
-$$
-
-有限次元KKTの
-
-$$
-\lambda_i\ge0
-$$
-
-は、一般には
-
-$$
-\boxed{\lambda\in K^*}
-$$
-
-という双対錐条件です。
-
----
-
-## 19. KKTへの橋
-
-ここまでで
-
-$$
-\boxed{
-\text{実行可能方向 }T_C(x)
-\xrightarrow{\text{polar}}
-\text{法線 }N_C(x)
-}
-$$
-
-と
-
-$$
-\boxed{
-\lambda_i\ge0
-\xrightarrow{\text{一般化}}
-\lambda\in K^*
-}
-$$
-
-を用意しました。
-
-次の [F0-02C5 一般化KKT・制約写像・制約想定](../F0_02C5_一般化KKT_制約写像_制約想定/index.md) では、制約を
-
-$$
-G(x)\in-K
-$$
-
-という一つの写像で書き、
-
-$$
-Df(x^*)+DG(x^*)^*\lambda=0
-$$
-
-を導入します。
-
-そこで初めて「なぜ制約想定が必要なのか」を、一次近似が壊れる反例から確認します。
-
----
-
-## 章末チェック
-
-- 凸関数の一次支持不等式を導ける。
-- $|x|$ の劣微分を求められる。
-- normal coneを定義し、区間や半空間で計算できる。
-- $\partial\delta_C=N_C$ を説明できる。
-- 制約付き最適化を $0\in\partial f+N_C$ と書ける。
-- tangent coneとnormal coneのpolar関係を説明できる。
-- dual coneとpolar coneの符号の違いを説明できる。
+**次：[F0-02C4A tangent cone・polar cone・dual cone](../F0_02C4A_tangent_polar_dual_cone/index.md)**

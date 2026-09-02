@@ -307,3 +307,19 @@ F0-02C1 → C2 → C3 → C4 → C5 → C6 → C7
 | F0-00G | **OK after trim** | 凸性の基礎に集中。Slater・強双対性はF0-02へ責務を一本化。 |
 
 再編後の標準線は E → E1 → E2 → F → F1 → F2 → G → F0-02。
+
+
+---
+
+## 10. F0-02C3〜C7 の遡及監査
+
+| 旧講義 | 判定 | 対応 |
+|---|---|---|
+| C2 | **OK** | 線形汎関数→双対空間→Rieszが一つの表現サイクル。 |
+| C3 | **SPLIT** | Fréchet微分・有界作用素と、随伴作用素をC3/C3Aへ分割。 |
+| C4 | **SPLIT** | 劣微分・normal coneと、tangent/polar/dual coneをC4/C4Aへ分割。 |
+| C5 | **SPLIT** | 一般化KKTの記法と、KKT乗数存在を支える制約想定をC5/C5Aへ分割。 |
+| C6 | **SPLIT** | Hahn--Banach拡張と凸集合分離をC6/C6Aへ分割。 |
+| C7 | **SPLIT** | RKHS・Moore--Aronszajnとrepresenter/kernel SVMをC7/C7Aへ分割。 |
+
+再編後は `C1 → C2 → C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A`。

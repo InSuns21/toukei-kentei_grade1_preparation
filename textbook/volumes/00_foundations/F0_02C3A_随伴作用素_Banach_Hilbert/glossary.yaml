@@ -1,0 +1,4 @@
+chapter: "F0-02C3A"
+terms:
+  - { term: 随伴作用素, english: adjoint operator, meaning: 出力側の連続線形汎関数を入力側へ合成で引き戻す作用素。 }
+  - { term: Hilbert随伴, english: Hilbert adjoint, meaning: Riesz表現で双対を元のHilbert空間へ同一視した随伴。 }

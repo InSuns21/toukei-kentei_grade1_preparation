@@ -1,17 +1,5 @@
 chapter: "F0-02C7"
 terms:
-  - term: RKHS
-    english: reproducing kernel Hilbert space
-    meaning: 各点での評価汎関数が連続である関数Hilbert空間。
-  - term: 再生核
-    english: reproducing kernel
-    meaning: f(x)=<f,K_x> を満たすkernel section K_x を与える二変数関数K(x,z)。
-  - term: positive semidefinite kernel
-    english: positive semidefinite kernel
-    meaning: 任意の有限点列に対するGram行列が半正定値となる対称kernel。
-  - term: canonical feature map
-    english: canonical feature map
-    meaning: xをRKHS内のkernel section K_xへ写す特徴写像。
-  - term: representer theorem
-    english: representer theorem
-    meaning: 有限標本での損失とRKHSノルム正則化からなる広い最適化問題の解を標本点kernel sectionの有限線形結合に取れることを述べる定理。
+  - { term: RKHS, english: reproducing kernel Hilbert space, meaning: 全ての点評価汎関数が連続であるHilbert関数空間。 }
+  - { term: 再生核, english: reproducing kernel, meaning: 点評価をHilbert内積として再現するkernel。 }
+  - { term: 完備化, english: completion, meaning: 元の空間を稠密部分空間として含む完備空間へ拡張する操作。 }
