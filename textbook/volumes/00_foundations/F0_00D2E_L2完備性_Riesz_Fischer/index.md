@@ -305,10 +305,10 @@ f_n\to f\quad\text{in }L^2.
 $$
 
 任意のCauchy列が $L^2$ 内で収束したので $L^2$ は完備です。$\square$
+<!-- proof-end -->
 
 ---
 
-<!-- proof-end -->
 ## 6. 系：$L^2$はHilbert空間
 
 ### 系（$L^2$のHilbert性）
@@ -325,10 +325,10 @@ $$
 #### 証明
 
 内積が誘導するノルムは $\|f\|_2$。上の定理でこのノルムについて完備であることを示したので、Hilbert空間の定義を満たします。$\square$
+<!-- proof-end -->
 
 ---
 
-<!-- proof-end -->
 ## 7. なぜ統計学で重要なのか
 
 確率空間 $(\Omega,\mathcal F,P)$ 上では

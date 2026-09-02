@@ -36,17 +36,17 @@
 
 | 優先 | 講義 | 証明 | 例 | 直感/意味 | 演習 | 証明比 | 機械警告 |
 |---|---|---:|---:|---:|---:|---:|---|
-| P0 | [F0-00C1 補講：コンパクト性・点列コンパクト性・Heine--Borel](volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md) | 6 | 1 | 0 | 1 | 52% | 証明6本、例1件、直感・意味見出し0、証明ブロック約52% |
-| P1 | [F0-00D 補講：コーシー列・完備距離空間](volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md) | 4 | 0 | 0 | 1 | 28% | 証明4本、例見出し0、直感・意味見出し0 |
-| P1 | [F0-00C2 補講：コンパクト性の応用・最大最小・最近点](volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md) | 3 | 0 | 0 | 1 | 21% | 証明3本、例見出し0、直感・意味見出し0 |
-| P2 | [F0-00D2D 補講：$L^p$空間・Hölderの不等式・Minkowskiの不等式](volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md) | 5 | 1 | 2 | 1 | 28% | 証明5本、例1件 |
-| P2 | [F0-00B 補講：距離空間・開集合・閉集合・収束](volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md) | 4 | 1 | 0 | 2 | 15% | 証明4本、例1件、直感・意味見出し0 |
+| P0 | [F0-00C1 補講：コンパクト性・点列コンパクト性・Heine--Borel](volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md) | 6 | 1 | 0 | 1 | 50% | 証明6本、例1件、直感・意味見出し0、証明ブロック約50% |
+| P1 | [F0-00D 補講：コーシー列・完備距離空間](volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md) | 4 | 0 | 0 | 1 | 24% | 証明4本、例見出し0、直感・意味見出し0 |
+| P1 | [F0-00C2 補講：コンパクト性の応用・最大最小・最近点](volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md) | 3 | 0 | 0 | 1 | 20% | 証明3本、例見出し0、直感・意味見出し0 |
+| P2 | [F0-00D2D 補講：$L^p$空間・Hölderの不等式・Minkowskiの不等式](volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md) | 5 | 1 | 2 | 1 | 27% | 証明5本、例1件 |
+| P2 | [F0-00B 補講：距離空間・開集合・閉集合・収束](volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md) | 4 | 1 | 0 | 2 | 13% | 証明4本、例1件、直感・意味見出し0 |
 | P2 | [F0-00D2B 補講：単調収束定理・Fatouの補題・優収束定理](volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md) | 3 | 3 | 0 | 1 | 34% | 証明3本、直感・意味見出し0、証明ブロック約34% |
-| P2 | [F0-00D1 補講：ノルム空間・Banach・有限次元と無限次元](volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md) | 2 | 0 | 2 | 1 | 33% | 例見出し0、証明ブロック約33% |
-| P2 | [F0-00D2E 補講：$L^2$完備性・Riesz--Fischer・Hilbert空間への橋](volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md) | 2 | 0 | 3 | 1 | 32% | 例見出し0、証明ブロック約32% |
-| P2 | [F0-00D2 補講：測度空間・測度0・a.e.・可測関数](volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md) | 5 | 5 | 1 | 1 | 16% | 証明5本 |
+| P2 | [F0-00D1 補講：ノルム空間・Banach・有限次元と無限次元](volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md) | 2 | 0 | 2 | 1 | 32% | 例見出し0、証明ブロック約32% |
+| P2 | [F0-00D2E 補講：$L^2$完備性・Riesz--Fischer・Hilbert空間への橋](volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md) | 2 | 0 | 3 | 1 | 31% | 例見出し0、証明ブロック約31% |
+| P2 | [F0-00D2 補講：測度空間・測度0・a.e.・可測関数](volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md) | 5 | 5 | 1 | 1 | 15% | 証明5本 |
 | P2 | [F0-00D2A 補講：単関数からLebesgue積分を構成する](volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md) | 4 | 2 | 0 | 1 | 16% | 証明4本、直感・意味見出し0 |
-| P2 | [F0-00D2C 補講：積測度・Tonelliの定理・Fubiniの定理](volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md) | 3 | 4 | 0 | 1 | 26% | 証明3本、直感・意味見出し0 |
+| P2 | [F0-00D2C 補講：積測度・Tonelliの定理・Fubiniの定理](volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md) | 3 | 4 | 0 | 1 | 25% | 証明3本、直感・意味見出し0 |
 | P2 | [F0-00P4 limsup・Borel–Cantelli・確率収束：無限回起こる事象を制御する](volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md) | 1 | 0 | 0 | 1 | 7% | 例見出し0、直感・意味見出し0 |
 | WATCH | [F0-00F 線形写像・表現行列・基底変換・相似・対角化](volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) | 1 | 0 | 1 | 1 | 4% | 例見出し0 |
 | WATCH | [F0-00C 補講：連続写像・連続性の同値条件](volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md) | 1 | 1 | 0 | 1 | 29% | 直感・意味見出し0 |

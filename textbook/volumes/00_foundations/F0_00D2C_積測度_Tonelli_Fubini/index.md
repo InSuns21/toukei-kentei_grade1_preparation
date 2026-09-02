@@ -169,10 +169,10 @@ $$
 $$
 
 したがって任意の $E\in\mathcal A\otimes\mathcal B$ の $E_x$ は可測。$E^y$ も同様です。$\square$
+<!-- proof-end -->
 
 ---
 
-<!-- proof-end -->
 ## 4. Tonelliの定理
 
 ### 定理（Tonelli）
@@ -297,12 +297,12 @@ $$
 $$
 
 変数を逆にした等式も同様です。$\square$
+<!-- proof-end -->
 
 > Tonelliの論理のうち、**積測度構成とsection測度補題だけがD4へ明示的に繰り延べ**られています。それ以外はD2A/D2Bからここで閉じています。
 
 ---
 
-<!-- proof-end -->
 ## 5. Fubiniの定理
 
 ### 定理（Fubini）
@@ -374,10 +374,10 @@ $$
 $$
 
 逆順も同様です。$\square$
+<!-- proof-end -->
 
 ---
 
-<!-- proof-end -->
 ## 6. TonelliとFubiniの違い
 
 | | Tonelli | Fubini |

@@ -196,12 +196,12 @@ K\subset\bigcup_{j=1}^mU_j.
 $$
 
 任意の開被覆から有限部分被覆を取れたので、$K$ はコンパクトです。$\square$
+<!-- proof-end -->
 
 この定理のおかげで、距離空間では開被覆を直接追わず、点列から収束部分列を取り出す方法を使えます。
 
 ---
 
-<!-- proof-end -->
 ## 3. Bolzano–Weierstrassの定理
 
 Heine–Borelを証明するため、まず有限次元で「有界列から収束部分列を取れる」ことを示します。
@@ -256,11 +256,11 @@ $$
 $$
 
 よって $x_{n_k}\to x$ です。$\square$
+<!-- proof-end -->
 
 > **補題（$\mathbb R^p$ のBolzano–Weierstrass）**  
 > Euclid距離を入れた $\mathbb R^p$ の任意の有界点列 $(x_n)$ は収束部分列を持つ。
 
-<!-- proof-end -->
 <!-- proof-start -->
 ### 証明
 
@@ -278,10 +278,10 @@ $$
 $$
 
 よって $x_{n_k}\to x$ です。$\square$
+<!-- proof-end -->
 
 ---
 
-<!-- proof-end -->
 ## 4. Heine–Borelの定理
 
 > **定理（Heine–Borel）**  
@@ -335,6 +335,7 @@ x\in K.
 $$
 
 したがって $K$ は点列コンパクトです。距離空間での同値定理より $K$ はコンパクトです。$\square$
+<!-- proof-end -->
 
 ここで非常に重要なのは
 
@@ -344,7 +345,6 @@ $$
 
 ---
 
-<!-- proof-end -->
 ## 5. 連続像はコンパクト
 
 > **定理（コンパクト集合の連続像）**  
@@ -380,8 +380,8 @@ f(K)\subset\bigcup_{j=1}^mU_{\alpha_j}.
 $$
 
 したがって $f(K)$ はコンパクトです。$\square$
-
 <!-- proof-end -->
+
 ### 7.1 例：有限個の点の凸包はコンパクト
 
 $x_1,\ldots,x_n\in\mathbb R^p$ とします。係数の単体
