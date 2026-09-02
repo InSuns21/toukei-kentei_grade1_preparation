@@ -199,6 +199,8 @@ $$
 
 # Part III ネイマンの分解定理
 
+<a id="thm-s1-02-01"></a>
+ 
 <!-- formal-statement-start -->
 ## 5. 定理
 

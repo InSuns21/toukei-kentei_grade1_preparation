@@ -56,6 +56,8 @@ $$
 
 ---
 
+<a id="def-s1-01-01"></a>
+ 
 <!-- formal-statement-start -->
 ## 定義
 <!-- formal-statement-end -->

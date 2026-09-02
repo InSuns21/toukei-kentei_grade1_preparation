@@ -89,6 +89,8 @@ $$
 
 ## 2. 単関数
 
+<a id="def-f0-00d2a-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（非負単関数）
 
@@ -105,6 +107,8 @@ $$
 と書ける。
 <!-- formal-statement-end -->
 
+<a id="def-f0-00d2a-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（非負単関数の積分）
 
@@ -129,6 +133,8 @@ $$
 と定義する。
 <!-- formal-statement-end -->
 
+<a id="prop-f0-00d2a-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（表現に依存しない）
 
@@ -292,6 +298,8 @@ $$
 
 この定義なら、特定の近似手順に依存せず、**全ての下側階段近似を使った最良の面積**として積分が決まります。
 
+<a id="def-f0-00d2a-03"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（非負可測関数のLebesgue積分）
 
@@ -313,6 +321,8 @@ $$
 積分値は $[0,\infty]$ を取り得ます。つまり非負関数については、積分が $\infty$ でも定義自体はされています。
 <!-- formal-statement-end -->
 
+<a id="prop-f0-00d2a-02"></a>
+ 
 <!-- formal-statement-start -->
 ### 命題（単調性）
 
@@ -357,6 +367,8 @@ Riemann積分は存在しませんが、Lebesgue積分は0です。
 
 ## 5. 正負を持つ関数
 
+<a id="def-f0-00d2a-04"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（正部分・負部分）
 
@@ -379,6 +391,8 @@ f=f^+-f^-,
 $$
 <!-- formal-statement-end -->
 
+<a id="def-f0-00d2a-05"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（Lebesgue可積分関数）
 
@@ -411,6 +425,8 @@ $$
 
 ## 6. a.e.で等しい関数は同じ積分を持つ
 
+<a id="thm-f0-00d2a-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（零集合上の変更は積分を変えない）
 

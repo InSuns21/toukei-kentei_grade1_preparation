@@ -232,6 +232,8 @@ $$
 
 単調でない非負関数列でも、下からの評価は残せます。
 
+<a id="def-f0-00d2b-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定義（点ごとのliminf）
 
@@ -270,6 +272,8 @@ $$
 
 したがってFatouは「振動する列を liminf という単調な下側近似へ変換し、MCTを使う定理」と読めます。
 
+<a id="lem-f0-00d2b-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 補題（Fatouの補題）
 
@@ -385,6 +389,8 @@ $$
 
 単調性がなくてもこの天井があれば、点ごとの収束を $L^1$ 収束まで強められます。
 
+<a id="thm-f0-00d2b-01"></a>
+ 
 <!-- formal-statement-start -->
 ### 定理（Lebesgueの優収束定理）
 
