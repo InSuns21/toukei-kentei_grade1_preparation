@@ -8,6 +8,7 @@ on:
       - 'scripts/tmp-audit-theorem-reference-links.mjs'
       - 'scripts/tmp-list-reference-target-headings.mjs'
       - 'scripts/tmp-fix-formal-reference-links.py'
+      - 'scripts/tmp-fix-formal-reference-links-extra.py'
       - 'scripts/validate-formal-reference-links.mjs'
       - '.github/workflows/tmp-audit-theorem-reference-links.yml'
   workflow_dispatch:
@@ -26,7 +27,9 @@ jobs:
         with:
           node-version: '20'
       - name: Apply formal reference fixes
-        run: python3 scripts/tmp-fix-formal-reference-links.py
+        run: |
+          python3 scripts/tmp-fix-formal-reference-links.py
+          python3 scripts/tmp-fix-formal-reference-links-extra.py
       - name: Validate formal references
         run: node scripts/validate-formal-reference-links.mjs
       - name: Commit formal reference fixes
