@@ -1,5 +1,5 @@
 id: "F0-00E"
-title: "ベクトル空間・基底・Gram--Schmidt・直交射影"
+title: "ベクトル空間・span・一次独立・基底"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -8,34 +8,19 @@ prerequisites:
   - F0-00B
 official_scope: []
 learning_objectives:
-  - ベクトル空間・部分空間・線形包・一次独立・基底・次元を相互に結び付けて説明できる
-  - 基底に対する座標表示と基底変換の意味を説明できる
-  - 内積・直交・正規直交系・直交補空間を定義できる
-  - Gram--Schmidt直交化法を導出し、具体的なベクトルから正規直交基底を構成できる
-  - 正規直交基底を用いた直交射影を導き、QQ^T と X(X^T X)^{-1}X^T の関係を説明できる
-  - 最小二乗法の正規方程式を残差の直交性から導ける
-  - QR分解をGram--Schmidtと結び付けて説明できる
+  - ベクトル空間・部分空間・線形包を説明できる
+  - 一次独立・基底・次元を相互に結び付けて説明できる
+  - 基底に対する座標表示の一意性を説明できる
 definitions:
   - { id: F000E-DEF-01, name: ベクトル空間 }
   - { id: F000E-DEF-02, name: 線形部分空間 }
-  - { id: F000E-DEF-03, name: 一次独立 }
-  - { id: F000E-DEF-04, name: 基底と次元 }
-  - { id: F000E-DEF-05, name: 正規直交系 }
-  - { id: F000E-DEF-06, name: 直交補空間 }
-  - { id: F000E-DEF-07, name: 直交射影 }
-  - { id: F000E-DEF-08, name: QR分解 }
-theorems:
-  - { id: F000E-THM-01, name: Gram--Schmidt直交化法 }
-  - { id: F000E-THM-02, name: 有限次元直交分解 }
-  - { id: F000E-THM-03, name: 直交射影の最短距離性 }
-  - { id: F000E-THM-04, name: 最小二乗の正規方程式 }
-canonical_examples:
-  - R3の2本のベクトルからGram--Schmidtで正規直交基底を構成
-  - 正規直交基底からQQ^Tで部分空間へ射影
-  - 一般基底Xから射影行列を導出
-  - QR分解から最小二乗解を計算
-problem_patterns: [LA-BASIS-1, LA-GS-1, LA-PROJ-1, LA-QR-1]
+  - { id: F000E-DEF-03, name: 線形包 }
+  - { id: F000E-DEF-04, name: 一次独立 }
+  - { id: F000E-DEF-05, name: 基底と次元 }
+theorems: []
+canonical_examples: [R3の部分空間, spanの具体計算, 基底座標]
+problem_patterns: [LA-BASIS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1, review: 1 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2, exercises: 0.5, review: 0.5 }

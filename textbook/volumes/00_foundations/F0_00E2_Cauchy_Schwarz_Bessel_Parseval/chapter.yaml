@@ -3,7 +3,7 @@ title: "Cauchy--Schwarz・Bessel不等式・Parseval等式"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00E
+  - F0-00E1
 official_scope: []
 learning_objectives:
   - Cauchy--Schwarz不等式をノルム平方の非負性から証明できる
@@ -24,5 +24,5 @@ canonical_examples: [R3でのCauchy--Schwarz, 正規直交系への射影, Parse
 problem_patterns: [LA-CS-1, LA-BESSEL-1, LA-PARSEVAL-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
 estimated_hours: { reading: 2, exercises: 0.5, review: 0.5 }

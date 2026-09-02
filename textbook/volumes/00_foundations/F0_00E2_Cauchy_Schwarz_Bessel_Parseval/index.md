@@ -1,6 +1,6 @@
 # F0-00E2 Cauchy--Schwarz・Bessel不等式・Parseval等式
 
-[F0-00E](../F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md) では、Gram--Schmidt直交化によって正規直交基底を作り、直交射影と最小二乗法を導きました。
+[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) では、Gram--Schmidt直交化によって正規直交基底を作り、直交射影と最小二乗法を導きました。
 
 この補講では、その議論で何度も使う内積の基本不等式を証明します。
 
@@ -507,7 +507,51 @@ $$
 
 ---
 
-## 13. F0-00Fへの接続
+
+---
+
+## 13. 演習
+
+### F0-00E2-A01 Cauchy--Schwarz
+
+- Level: A
+- 目安時間: 8分
+
+$x=(1,2)^T$, $y=(2,-1)^T$ についてCauchy--Schwarz不等式を数値で確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$\langle x,y\rangle=0$、$\|x\|=\|y\|=\sqrt5$ なので $0\le5$。
+#### 本番答案
+$|\langle x,y\rangle|=0\le\sqrt5\sqrt5=5$。
+#### 採点基準（20点）
+- 内積: 6点
+- 各ノルム: 8点
+- 比較: 6点
+<!-- solution-end -->
+
+### F0-00E2-B01 Besselの不足分
+
+- Level: B
+- 目安時間: 12分
+
+正規直交系 $q_1,\dots,q_k$ と $p=\sum_i\langle x,q_i\rangle q_i$ に対し、$\|x\|^2-\sum_i|\langle x,q_i\rangle|^2=\|x-p\|^2$ を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$p\perp(x-p)$ なので $\|x\|^2=\|p\|^2+\|x-p\|^2$。正規直交性より $\|p\|^2=\sum_i|\langle x,q_i\rangle|^2$。
+#### 本番答案
+Pythagorasと正規直交性を組み合わせれば直ちに従う。
+#### 採点基準（20点）
+- 直交性: 6点
+- Pythagoras: 6点
+- $\|p\|^2$ の計算: 6点
+- 結論: 2点
+<!-- solution-end -->
+
+---
+
+## 14. F0-00Fへの接続
 
 次の [F0-00F](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md) では、
 

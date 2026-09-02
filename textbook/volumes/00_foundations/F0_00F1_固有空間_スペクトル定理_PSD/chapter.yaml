@@ -1,0 +1,29 @@
+id: "F0-00F1"
+title: "固有空間・実対称行列・スペクトル定理・PSD"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00
+  - F0-00C2
+  - F0-00E1
+  - F0-00E2
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 固有値・固有空間・不変部分空間を説明できる
+  - 実対称行列の異なる固有空間が直交することを証明できる
+  - Rayleigh商とコンパクト性からスペクトル定理の流れを説明できる
+  - 正定値・半正定値を固有値で特徴付けられる
+  - PSD行列の平方根を構成できる
+definitions:
+  - { id: F000F1-DEF-01, name: 固有空間 }
+  - { id: F000F1-DEF-02, name: 不変部分空間 }
+  - { id: F000F1-DEF-03, name: Rayleigh商 }
+theorems:
+  - { id: F000F1-THM-01, name: 実対称行列のスペクトル定理 }
+canonical_examples: [対称行列の固有空間, PSD行列の平方根]
+problem_patterns: [LA-SPECTRAL-1, LA-PSD-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 1, review: 0.5 }

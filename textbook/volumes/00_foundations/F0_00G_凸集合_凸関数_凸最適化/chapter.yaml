@@ -3,19 +3,14 @@ title: "凸集合・凸関数・凸最適化の基礎"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00
-  - F0-00A
-  - F0-00C
-  - F0-00E
+  - F0-00F1
 official_scope: []
 learning_objectives:
   - 凸結合・凸集合・凸包を定義し具体例を判定できる
-  - 凸関数・狭義凸関数を定義しグラフの幾何で説明できる
-  - 微分可能凸関数の一次支持不等式を説明できる
+  - 凸関数・狭義凸関数を定義できる
+  - 微分可能凸関数の一次支持不等式を導ける
   - 凸関数では局所最小が大域最小になることを示せる
   - 凸制約から作られる実行可能集合が凸になる条件を説明できる
-  - Slater条件を厳密実行可能点の存在として説明できる
-  - 凸最適化で強双対性が成立する代表的条件としてSlater条件を位置付けられる
 definitions:
   - { id: F000G-DEF-01, name: 凸結合 }
   - { id: F000G-DEF-02, name: 凸集合 }
@@ -23,14 +18,12 @@ definitions:
   - { id: F000G-DEF-04, name: 凸関数 }
   - { id: F000G-DEF-05, name: 狭義凸関数 }
   - { id: F000G-DEF-06, name: 凸最適化問題 }
-  - { id: F000G-DEF-07, name: Slater条件 }
 theorems:
   - { id: F000G-THM-01, name: 微分可能凸関数の一次支持不等式 }
   - { id: F000G-THM-02, name: 凸関数の局所最小は大域最小 }
-  - { id: F000G-THM-03, name: Slater条件下の強双対性 }
-canonical_examples: [区間と半空間, 二次関数, log-sum-exp, 線形不等式制約, Slater条件]
-problem_patterns: [CVX-SET-1, CVX-FUNC-1, CVX-SLATER-1]
+canonical_examples: [区間と半空間, 二次関数, 線形不等式制約]
+problem_patterns: [CVX-SET-1, CVX-FUNC-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.5, review: 0.5 }
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }

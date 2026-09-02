@@ -1,29 +1,6 @@
 chapter: "F0-00E"
 terms:
-  - term: 線形部分空間
-    english: linear subspace
-    meaning: ベクトルの加法と実数倍について閉じたベクトル空間の部分集合。
-  - term: 一次独立
-    english: linear independence
-    meaning: 線形結合がゼロになるのが全係数ゼロの場合だけであること。
-  - term: 基底
-    english: basis
-    meaning: 空間を張り、かつ一次独立なベクトル族。
-  - term: 次元
-    english: dimension
-    meaning: 有限次元ベクトル空間の基底に含まれるベクトル数。
-  - term: 正規直交系
-    english: orthonormal system
-    meaning: 互いに直交し、各ベクトルのノルムが1であるベクトル族。
-  - term: Gram--Schmidt直交化
-    english: Gram--Schmidt orthogonalization
-    meaning: 一次独立なベクトル族から同じ部分空間を張る正規直交系を順次構成する方法。
-  - term: 直交補空間
-    english: orthogonal complement
-    meaning: 部分空間Vのすべてのベクトルと直交するベクトル全体。
-  - term: 直交射影
-    english: orthogonal projection
-    meaning: ベクトルを部分空間Vの成分とその直交補空間の成分へ分けたときのV側の成分。
-  - term: QR分解
-    english: QR decomposition
-    meaning: 列一次独立な行列Aを、正規直交列を持つQと上三角行列Rの積として表す分解。
+  - { term: ベクトル空間, english: vector space, meaning: ベクトルの加法とスカラー倍について閉じた線形構造。 }
+  - { term: 線形包, english: span, meaning: 与えたベクトルの有限線形結合全体。 }
+  - { term: 一次独立, english: linear independence, meaning: 自明でない線形結合で0を作れない性質。 }
+  - { term: 基底, english: basis, meaning: 空間を張る一次独立なベクトル族。 }

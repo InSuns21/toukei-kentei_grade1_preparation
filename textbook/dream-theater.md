@@ -37,10 +37,13 @@
 17. [F0-00D3 外測度・Carathéodory可測性](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
 18. [F0-00D4 Lebesgue測度・Borel集合・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
 19. [F0-00D5 Vitali集合・非可測集合・選択公理](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-20. [F0-00E ベクトル空間・基底・Gram–Schmidt・直交射影](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
-21. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-22. [F0-00F 線形写像・固有空間・スペクトル定理・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
-23. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
+20. [F0-00E ベクトル空間・span・一次独立・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
+21. [F0-00E1 内積・Gram–Schmidt・直交射影・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
+22. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
+23. [F0-00F 線形写像・kernel・image・rank-nullity](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
+24. [F0-00F1 固有空間・スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
+25. [F0-00F2 SVD・特異値・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+26. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
 
 #### 制約付き最適化・関数解析・RKHS・SVM
 

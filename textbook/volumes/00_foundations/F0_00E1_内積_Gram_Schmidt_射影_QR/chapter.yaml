@@ -1,0 +1,30 @@
+id: "F0-00E1"
+title: "内積・Gram--Schmidt・直交射影・QR"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E
+official_scope: []
+learning_objectives:
+  - 内積・直交・正規直交系・直交補空間を定義できる
+  - Gram--Schmidt直交化法で正規直交基底を構成できる
+  - 直交射影の公式と最短距離性を導ける
+  - 最小二乗の正規方程式を残差の直交性から導ける
+  - Gram--SchmidtとQR分解を結び付けられる
+definitions:
+  - { id: F000E1-DEF-01, name: 内積 }
+  - { id: F000E1-DEF-02, name: 正規直交系 }
+  - { id: F000E1-DEF-03, name: 直交補空間 }
+  - { id: F000E1-DEF-04, name: 直交射影 }
+  - { id: F000E1-DEF-05, name: QR分解 }
+theorems:
+  - { id: F000E1-THM-01, name: Gram--Schmidt直交化法 }
+  - { id: F000E1-THM-02, name: 有限次元直交分解 }
+  - { id: F000E1-THM-03, name: 直交射影の最短距離性 }
+  - { id: F000E1-THM-04, name: 最小二乗の正規方程式 }
+canonical_examples: [Gram--Schmidt, QQT射影, 最小二乗, QR分解]
+problem_patterns: [LA-GS-1, LA-PROJ-1, LA-QR-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 1, review: 0.5 }

@@ -41,11 +41,17 @@ F0-00D1 ノルム・Banach・有限/無限次元
   ↓
 F0-00D2 測度・Lebesgue積分・Lp
   ↓
-F0-00E  基底・Gram--Schmidt・射影
+F0-00E  ベクトル空間・基底
+  ↓
+F0-00E1 内積・Gram--Schmidt・射影・QR
   ↓
 F0-00E2 Cauchy--Schwarz・Bessel・Parseval
   ↓
-F0-00F  スペクトル定理・SVD
+F0-00F  線形写像・kernel・image・rank-nullity
+  ↓
+F0-00F1 固有空間・スペクトル定理・PSD
+  ↓
+F0-00F2 SVD・作用素ノルム
   ↓
 F0-00G  凸解析の入口
   ↓
@@ -111,7 +117,7 @@ P7 統計モデル・尤度・正則性
 ## Encore II：Fourier Analysis & Differential Equations
 
 ```text
-F0-00F / F0-00D2 / F0-00E2 / F0-02C1
+F0-00F1 / F0-00D2 / F0-00E2 / F0-02C1
   ↓
 F0-00H1 ODE・線形系・行列指数
   ↓
@@ -191,7 +197,7 @@ Brown運動からSDE・generator・PDEへ進む連続時間枝と、定常過程
 ### 共通数値基礎
 
 ```text
-F0-00F
+F0-00F2
   ↓
 F0-00NA1 浮動小数点・誤差・条件数・安定性
   ↓

@@ -1,0 +1,5 @@
+chapter: "F0-00F2"
+terms:
+  - { term: 特異値, english: singular value, meaning: ATAの固有値の非負平方根。 }
+  - { term: 特異値分解, english: singular value decomposition, meaning: 任意の行列をU Sigma VTへ分解する表現。 }
+  - { term: 作用素ノルム, english: operator norm, meaning: 単位ベクトルを作用させたときの最大伸長率。 }

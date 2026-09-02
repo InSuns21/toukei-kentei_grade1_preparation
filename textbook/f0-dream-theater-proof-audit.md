@@ -30,7 +30,7 @@
 ```text
 F0-00
   ↓
-A → A1 → A2 → A3 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1 → D2 → D2A → D2B → D2C → D2D → D2E → E → E2 → F → G
+A → A1 → A2 → A3 → B → F0-00C → F0-00C1 → F0-00C2 → D → D1 → D2 → D2A → D2B → D2C → D2D → D2E → E → E1 → E2 → F → F1 → F2 → G
   ↓
 F0-02 → 02A → 02B → F0-02C1 → C2 → C3 → C4 → C5 → C6 → C7
 ```

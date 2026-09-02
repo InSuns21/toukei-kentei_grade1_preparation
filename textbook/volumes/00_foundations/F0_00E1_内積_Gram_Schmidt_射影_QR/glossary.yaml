@@ -1,0 +1,6 @@
+chapter: "F0-00E1"
+terms:
+  - { term: 内積, english: inner product, meaning: 長さと角度を定める二変数の線形構造。 }
+  - { term: 正規直交系, english: orthonormal system, meaning: 互いに直交し各ベクトルのノルムが1の族。 }
+  - { term: 直交射影, english: orthogonal projection, meaning: 残差が対象部分空間に直交する射影。 }
+  - { term: QR分解, english: QR decomposition, meaning: 行列を正規直交列を持つQと上三角Rへ分解すること。 }
