@@ -24,7 +24,7 @@ $$\sup_\theta\left|\frac1n\ell_n(\theta)-M(\theta)\right|\to0$$
 
 ---
 
-## 0. 先にBernoulliモデルで全工程を見る
+## 0. 具体例：Bernoulliモデルで全工程を見る
 
 一般論へ入る前に、$X_1,\dots,X_n\overset{iid}{\sim}\operatorname{Bernoulli}(p_0)$、$0<p_0<1$ を考えます。対数尤度は、$S_n=\sum_iX_i$ として
 
