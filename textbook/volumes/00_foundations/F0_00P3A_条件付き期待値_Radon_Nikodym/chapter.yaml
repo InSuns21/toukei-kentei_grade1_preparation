@@ -19,7 +19,7 @@ definitions:
 theorems:
   - { id: F0P3A-THM-01, name: 条件付き期待値の存在 }
   - { id: F0P3A-THM-02, name: tower property }
-canonical_examples: [有限分割, 独立な場合, E[X|Y]]
+canonical_examples: [有限分割, 独立な場合, "E[X|Y]"]
 problem_patterns: [COND-EXP-1, TOWER-1]
 past_exam_alignment: []
 integrated_exam_problems: []
