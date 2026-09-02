@@ -18,6 +18,10 @@
 
 #### 基礎論
 
+以下は **推奨通読順** です。章IDの英字順ではなく、前提関係に沿って並べています。
+
+##### 集合・位相・完備性
+
 1. [F0-00A 集合・写像・量化記号](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
 2. [F0-00A1 上界・下界・supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
 3. [F0-00A2 選択関数・選択公理・可算選択](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
@@ -27,23 +31,32 @@
 7. [F0-00C1 コンパクト性・点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
 8. [F0-00C2 コンパクト性の応用・最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
 9. [F0-00D コーシー列・完備距離空間](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
-10. [F0-00D1 ノルム空間・Banach・有限次元と無限次元](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
-11. [F0-00D2 測度空間・測度0・a.e.・可測関数](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
-12. [F0-00D2A 単関数からLebesgue積分を構成](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
-13. [F0-00D2B 単調収束・Fatou・優収束](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
-14. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
-15. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
-16. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
-17. [F0-00D3 外測度・Carathéodory可測性](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
-18. [F0-00D4 Lebesgue測度・Borel集合・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
-19. [F0-00D5 Vitali集合・非可測集合・選択公理](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-20. [F0-00E ベクトル空間・span・一次独立・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
-21. [F0-00E1 内積・Gram–Schmidt・直交射影・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
-22. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-23. [F0-00F 線形写像・kernel・image・rank-nullity](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
-24. [F0-00F1 固有空間・スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
-25. [F0-00F2 SVD・特異値・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
-26. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
+
+##### 線形代数
+
+1. [F0-00E ベクトル空間・span・一次独立・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
+2. [F0-00F 線形写像・kernel・image・rank-nullity](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
+3. [F0-00E1 内積・Gram–Schmidt・直交射影・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
+4. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
+5. [F0-00F1 固有空間・スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
+6. [F0-00F2 SVD・特異値・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+
+##### ノルム空間・測度・Lebesgue積分
+
+1. [F0-00D1 ノルム空間・Banach・有限次元と無限次元](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
+2. [F0-00D2 測度空間・測度0・a.e.・可測関数](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
+3. [F0-00D3 外測度・Carathéodory可測性](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
+4. [F0-00D4 Lebesgue測度・Borel集合・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
+5. [F0-00D5 Vitali集合・非可測集合・選択公理](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
+6. [F0-00D2A 単関数からLebesgue積分を構成](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
+7. [F0-00D2B 単調収束・Fatou・優収束](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
+8. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+9. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+10. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+
+##### 凸最適化への入口
+
+1. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
 
 #### 制約付き最適化・関数解析・RKHS・SVM
 
@@ -161,7 +174,7 @@
 
 DREAM THEATER系列は、こうした **「その公式、地下で何につながっているの？」** を気にしてしまった人向けの補講です。
 
-### 1. まず床板を剥がす：集合・位相・測度・Hilbert空間
+### 1. まず床板を剥がす：集合・位相・線形代数・測度・Hilbert空間
 
 普通の統計では、確率密度を積分したり、極限と期待値を交換したり、二乗誤差を最小化したりします。これらを厳密に支えているのが、
 
@@ -170,9 +183,13 @@ DREAM THEATER系列は、こうした **「その公式、地下で何につな�
  ↓
 距離・収束・完備性
  ↓
-測度・Lebesgue積分
+ベクトル空間・線形写像・内積
  ↓
-Banach / Hilbert空間
+ノルム空間・Banach空間
+ ↓
+測度・Lebesgue積分・Lp
+ ↓
+Hilbert空間
 ```
 
 です。
@@ -266,11 +283,12 @@ PDEの弱形式を有限次元へ落とすのがGalerkin法・有限要素法で
         ├─→ 関数解析・RKHS・SVM
         │
         ├─→ DREAM THEATER本編
-        │      距離 → 連続 → compactness → existence → completeness
+        │      集合・写像 → 距離 → 連続 → compactness → completeness
         │      選択公理 / Zorn
-        │      測度基礎 → Lebesgue積分 → 収束定理
-        │      → 積測度 → Lp → L2完備性
-        │      └─ 深掘り: 外測度 / Carathéodory / Lebesgue測度 / Vitali集合
+        │      → ベクトル空間 → 線形写像 → 内積 → スペクトル / SVD
+        │      → ノルム / Banach
+        │      → 測度基礎 → 外測度 / Carathéodory / Lebesgue測度 / Vitali集合
+        │      → Lebesgue積分 → 収束定理 → 積測度 → Lp → L2完備性
         │
         ├─→ 確率論「それどこから来た？」
         │      測度論的確率
