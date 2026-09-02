@@ -8,24 +8,20 @@ $$\boxed{\text{固有空間}\to\text{対称性}\to\text{Rayleigh商}\to\text{ス
 
 ## 1. 固有値と固有空間
 
-$T:V\to V$ に対して、$v\ne0$ が
+<a id="def-eigenvalue-eigenvector-eigenspace"></a>
 
-$$
+<!-- formal-statement-start -->
+> **定義（固有値・固有ベクトル・固有空間）**  
+> 線形自己写像 $T:V\to V$ に対し、$v\ne0$ とスカラー $\lambda$ が
+$
 T(v)=\lambda v
-$$
-
-を満たすとき、$\lambda$ を固有値、$v$ を固有ベクトルといいます。
-
-固有値 $\lambda$ に対応する
-
-$$
-\boxed{
-E_\lambda
-=\ker(T-\lambda I)
-}
-$$
-
-を **固有空間** といいます。
+$
+> を満たすとき、$\lambda$ を $T$ の **固有値**、$v$ を $\lambda$ に属する **固有ベクトル** という。また
+$
+E_\lambda=\ker(T-\lambda I)
+$
+> を固有値 $\lambda$ に対応する **固有空間** という。
+<!-- formal-statement-end -->
 
 重要なのは、固有空間は1本のベクトルではなく部分空間だということです。
 
@@ -49,13 +45,16 @@ $$
 
 ## 2. 不変部分空間
 
-部分空間 $M\subset V$ が
+<a id="def-invariant-subspace"></a>
 
-$$
+<!-- formal-statement-start -->
+> **定義（不変部分空間）**  
+> 線形自己写像 $T:V\to V$ と部分空間 $M\subset V$ に対して
+$
 T(M)\subset M
-$$
-
-を満たすとき、$M$ を **不変部分空間** といいます。
+$
+> が成り立つとき、$M$ を $T$ の **不変部分空間** という。
+<!-- formal-statement-end -->
 
 固有空間 $E_\lambda$ は不変部分空間です。
 
@@ -150,17 +149,16 @@ $$
 
 ## 5. Rayleigh商
 
-対称行列 $A$ と非零ベクトル $x$ に対して
+<a id="def-rayleigh-quotient"></a>
 
-$$
-\boxed{
-R_A(x)
-=
-\frac{x^{\mathsf T}Ax}{x^{\mathsf T}x}
-}
-$$
-
-を **Rayleigh商** といいます。
+<!-- formal-statement-start -->
+> **定義（Rayleigh商）**  
+> 実対称行列 $A\in\mathbb R^{n\times n}$ と非零ベクトル $x\in\mathbb R^n$ に対して
+$
+R_A(x)=\frac{x^{\mathsf T}Ax}{x^{\mathsf T}x}
+$
+> を $A$ の $x$ における **Rayleigh商** という。
+<!-- formal-statement-end -->
 
 $x$ が固有ベクトルで
 
@@ -365,11 +363,16 @@ A=Q\Lambda Q^{\mathsf T}
 }.
 $$
 
-これが **実対称行列のスペクトル定理** です。
+<a id="thm-real-symmetric-spectral"></a>
 
-つまり
-
-> 実対称行列には正規直交固有基底が存在する。
+<!-- formal-statement-start -->
+> **定理（実対称行列のスペクトル定理）**  
+> 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。したがって、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
+$
+A=Q\Lambda Q^{\mathsf T}
+$
+> と表せる。
+<!-- formal-statement-end -->
 
 F0-00で使った「直交対角化できる」は、この定理の結論です。
 
