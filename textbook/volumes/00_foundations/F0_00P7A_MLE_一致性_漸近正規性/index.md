@@ -1,6 +1,6 @@
-# F0-00P7A MLE一致性・漸近正規性：KL・大数の法則・中心極限定理・Taylor
+# F0-00P7A 最尤推定量一致性・漸近正規性：KL・大数の法則・中心極限定理・Taylor
 
-MLEの漸近正規性は一発の公式ではなく、
+最尤推定量の漸近正規性は一発の公式ではなく、
 
 $$\boxed{\text{consistency}+\text{score CLT}+\text{Hessian LLN}+\text{Taylor}+\text{Slutsky}}$$
 
@@ -12,21 +12,21 @@ $Y_n\Rightarrow Y$、$Z_n\to c$ in probability なら、連続な四則演算が
 
 $$Y_n+Z_n\Rightarrow Y+c,\qquad Y_nZ_n\Rightarrow cY.$$
 
-MLEではscoreのCLTとobserved informationの確率収束を最後に合成するために使います。
+最尤推定量ではscoreの中心極限定理とobserved informationの確率収束を最後に合成するために使います。
 
 ### 一致性で必要なもの
 
-各固定θでのLLNだけではargmaxの交換には足りません。典型的には、compactなparameter空間・identifiability・対数密度の連続性・可積分envelopeなどから
+各固定θでの大数の法則だけではargmaxの交換には足りません。典型的には、compactなparameter空間・identifiability・対数密度の連続性・可積分envelopeなどから
 
 $$\sup_\theta\left|\frac1n\ell_n(\theta)-M(\theta)\right|\to0$$
 
-という**一様LLN**を確保し、$M(\theta)$ の一意最大点θ0へargmaxを押し込みます。この講義ではこの十分条件を漸近論の入口として使い、一般empirical-process版までは必須にしません。
+という**一様大数の法則**を確保し、$M(\theta)$ の一意最大点θ0へargmaxを押し込みます。この講義ではこの十分条件を漸近論の入口として使い、一般empirical-process版までは必須にしません。
 
 ---
 
-## 1. MLEの漸近正規性はLLNとCLTの合体
+## 1. 最尤推定量の漸近正規性は大数の法則と中心極限定理の合体
 
-真値を $\theta_0$、MLEを $\widehat\theta_n$ とします。
+真値を $\theta_0$、最尤推定量を $\widehat\theta_n$ とします。
 
 内部解なら
 
@@ -58,7 +58,7 @@ $$
 
 ---
 
-## 2. スコア側にはCLT
+## 2. スコア側には中心極限定理
 
 正則性条件から
 
@@ -72,7 +72,7 @@ $$
 =I(\theta_0).
 $$
 
-したがってP6のCLTから
+したがって [P6Aの中心極限定理](../F0_00P6A_iid_中心極限定理/index.md) から
 
 $$
 \boxed{
@@ -116,7 +116,7 @@ $$
 
 です。
 
-MLEの漸近正規性は
+最尤推定量の漸近正規性は
 
 $$
 \boxed{
@@ -175,7 +175,7 @@ $$
 
 したがって識別可能なら真値が期待対数尤度を最大化します。
 
-MLE一致性の背後には
+最尤推定量一致性の背後には
 
 $$
 \boxed{
@@ -211,7 +211,7 @@ $\sqrt n(\hat\theta_n-\theta_0)=-\{n^{-1}\ell_n''(\tilde\theta_n)\}^{-1}n^{-1/2}
 - 中間点: 2点
 <!-- solution-end -->
 
-### F0-00P7A-B01 KLとMLE一致性の向き
+### F0-00P7A-B01 KLと最尤推定量一致性の向き
 
 - Level: B
 - 目安時間: 18分

@@ -4,7 +4,7 @@
 
 $$\boxed{\text{最大不等式}\to\text{dyadic subsequence}\to\text{Borel--Cantelli}\to\text{gap filling}}$$
 
-という標準的な証明で閉じます。$E|X|<\infty$ だけを仮定する一般iid版はP5Aへ分離します。
+という標準的な証明で閉じます。$E|X|<\infty$ だけを仮定する一般独立同分布版はP5Aへ分離します。
 
 ---
 
@@ -385,4 +385,4 @@ Kolmogorov最大不等式を用いて、$2^k<n\le2^{k+1}$ の区間内変動を 
 
 ## 次に進む
 
-有限分散を外し、iidかつ $E|X|<\infty$ だけでSLLNを証明するなら [F0-00P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md) へ進みます。CLTへ先に進むだけならP5Aは必須ではありません。
+有限分散を外し、独立同分布かつ $E|X|<\infty$ だけで強大数則を証明するなら [F0-00P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md) へ進みます。中心極限定理へ先に進むだけならP5Aは必須ではありません。

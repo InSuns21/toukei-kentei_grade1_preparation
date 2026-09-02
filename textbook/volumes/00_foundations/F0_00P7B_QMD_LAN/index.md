@@ -49,7 +49,7 @@ $$\boxed{I(\theta)=E_\theta[s_\theta s_\theta^T]}$$
 
 ## 4. なぜ $1/\sqrt n$ スケールなのか
 
-n個のiid観測では情報がn倍になります。parameter差を固定すると2モデルは急速に識別可能になるため、非自明な局所比較には
+n個の独立同分布観測では情報がn倍になります。parameter差を固定すると2モデルは急速に識別可能になるため、非自明な局所比較には
 
 $$\theta_n=\theta_0+\frac{h}{\sqrt n}$$
 
@@ -61,9 +61,9 @@ $$\Delta_n=\frac1{\sqrt n}\sum_{i=1}^ns_{\theta_0}(X_i)$$
 
 ---
 
-## 5. central sequenceのCLTとCramér--Wold
+## 5. central sequenceの中心極限定理とCramér--Wold
 
-scoreがベクトルなので、P6Aの1変量CLTをそのまま一言で「多変量版」と呼ばず、**Cramér--Wold device** で橋を架けます。
+scoreがベクトルなので、P6Aの1変量中心極限定理をそのまま一言で「多変量版」と呼ばず、**Cramér--Wold device** で橋を架けます。
 
 ### Cramér--Wold device
 
@@ -91,7 +91,7 @@ a^T\Delta_n
 =\frac1{\sqrt n}\sum_{i=1}^n a^Ts_{\theta_0}(X_i).
 $$
 
-これは平均0、分散 $a^TI(\theta_0)a$ のiidスカラー和なのでP6AのCLTから
+これは平均0、分散 $a^TI(\theta_0)a$ の独立同分布スカラー和なのでP6Aの中心極限定理から
 
 $$
 a^T\Delta_n\Rightarrow N(0,a^TI(\theta_0)a).
@@ -101,7 +101,7 @@ Cramér--Woldにより
 
 $$\boxed{\Delta_n\Rightarrow N(0,I(\theta_0))}.$$
 
-ここでGaussianが出るのは「MLEだから」ではなく、局所log likelihoodの一次項がiid scoreの和だからです。
+ここでGaussianが出るのは「最尤推定量だから」ではなく、局所log likelihoodの一次項が独立同分布 scoreの和だからです。
 
 ---
 
@@ -136,7 +136,7 @@ $$\ell_{\theta+h}(x)-\ell_\theta(x)\approx h^Ts_\theta(x)-\frac12h^TI(\theta)h$$
 
 LANは
 
-- MLEや効率推定量の漸近正規性
+- 最尤推定量や効率推定量の漸近正規性
 - Cramér--Rao型下限の漸近版
 - Wald / score / likelihood-ratio検定の局所比較
 - Le Cam理論の局所実験
@@ -177,14 +177,14 @@ QMD展開 $\sqrt{p_{\theta+h}}=\sqrt{p_\theta}+\frac12h^Ts_\theta\sqrt{p_\theta}
 
 <!-- solution-start -->
 #### 詳細解答
-$\Delta_n=n^{-1/2}\sum_i s_{\theta_0}(X_i)$。score平均0・共分散$I(\theta_0)$なので多変量CLTから $\Delta_n\Rightarrow N(0,I)$。log likelihood ratioは $h^T\Delta_n-\frac12h^TIh+o_P(1)$。二次項は局所的なlog likelihood curvature/情報量を表す。
+$\Delta_n=n^{-1/2}\sum_i s_{\theta_0}(X_i)$。score平均0・共分散$I(\theta_0)$なので多変量中心極限定理から $\Delta_n\Rightarrow N(0,I)$。log likelihood ratioは $h^T\Delta_n-\frac12h^TIh+o_P(1)$。二次項は局所的なlog likelihood curvature/情報量を表す。
 
 #### 本番答案
 $\Delta_n=n^{-1/2}\sum s_{\theta_0}(X_i)\Rightarrow N(0,I)$、$\log(dP_{\theta_0+h/\sqrt n}^n/dP_{\theta_0}^n)=h^T\Delta_n-\frac12h^TIh+o_P(1)$。
 
 #### 採点基準（20点）
 - central sequence: 6点
-- CLT極限: 5点
+- 中心極限定理極限: 5点
 - LAN式: 6点
 - 二次項解釈: 3点
 <!-- solution-end -->

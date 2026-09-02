@@ -1,6 +1,6 @@
-# F0-00P5A truncation・Kolmogorov収束定理・Kronecker補題：一般iid強大数則
+# F0-00P5A truncation・Kolmogorov収束定理・Kronecker補題：一般独立同分布強大数則
 
-P5では有限分散版を証明しました。しかしiid強大数則の標準形は
+P5では有限分散版を証明しました。しかし独立同分布強大数則の標準形は
 
 $$E|X_1|<\infty$$
 
@@ -20,7 +20,7 @@ $$X_n'=X_n\mathbf1_{\{|X_n|\le n\}}$$
 
 $$\sum_{n=1}^\infty P(|X_1|>n)\le E|X_1|<\infty.$$
 
-iid性より $P(X_n\ne X_n')=P(|X_1|>n)$ なので第一Borel--Cantelliから
+独立同分布性より $P(X_n\ne X_n')=P(|X_1|>n)$ なので第一Borel--Cantelliから
 
 $$\boxed{X_n=X_n'\text{ eventually a.s.}}$$
 
@@ -87,7 +87,7 @@ P\left(
 2^{2r}2^{-3r}=2^{-r}.
 $$
 
-右辺は $r$ について総和可能なのでBorel--Cantelliより、a.s.ある $r_0$ 以降はtail部分和の振幅が $2^{-r}$ 以下です。従って部分和列はa.s. Cauchyとなり、実数の完備性から収束します。
+右辺は $r$ について総和可能なのでBorel--Cantelliより、a.s.ある $r_0$ 以降はtail部分和の振幅が $2^{-r}$ 以下です。従って部分和列はa.s. コーシーとなり、実数の完備性から収束します。
 
 ここで
 
@@ -216,4 +216,4 @@ $B_n=\sum_{k\le n}a_k/k$ と置く。部分和変換で $n^{-1}\sum_{k\le n}a_k=
 
 ## 次に進む
 
-一般iid強大数則まで証明が閉じました。分布収束へ進む [F0-00P6 特性関数・Lévy](../F0_00P6_特性関数_中心極限定理/index.md) へ進めます。
+一般独立同分布強大数則まで証明が閉じました。分布収束へ進む [F0-00P6 特性関数・Lévy](../F0_00P6_特性関数_中心極限定理/index.md) へ進めます。
