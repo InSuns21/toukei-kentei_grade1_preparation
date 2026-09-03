@@ -5,11 +5,13 @@ const ROOT = path.resolve('textbook/volumes');
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
 
-// We intentionally target headings that name a mathematical result itself.
-// Mention/usage headings such as "...定理を使う", "...不等式から導く", exercises,
-// and generic survey headings are excluded; those are not declarations.
+// A named-result heading is treated as a declaration candidate only when the
+// heading names the mathematical result itself. Usage/review headings such as
+// "中心極限定理を使う" are intentionally outside this validator.
 const RESULT_NAME_RE = /(?:定理|補題|命題|不等式|等式|原理)(?:\s*$|\s*[（(：:])/u;
-const COROLLARY_RE = /(?:^|\s|[.．]\s*)系(?:\s*$|\s*[（(：:])/u;
+// "系" is ambiguous in Japanese (corollary / system). Only a formal term at
+// the beginning of the heading, after an optional section number, is a corollary.
+const COROLLARY_RE = /^(?:\d+(?:\.\d+)*[.)．]?\s*)?系(?:\s*$|\s*[（(：:])/u;
 const GENERIC_RE = /(基本命題|主要定理|三定理|定理群|定理一覧|結果一覧)/u;
 const EXERCISE_RE = /(?:^|\s)[A-Z][A-Z0-9-]*-[ABCD]\d{2}\b/u;
 
