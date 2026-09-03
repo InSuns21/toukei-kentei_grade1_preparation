@@ -5,15 +5,6 @@ textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	3. Lebesgue外測度	Lebesgue外測度
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	5. 外測度の三条件	外測度
 textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md	3. 各同値類から一つずつ選ぶ	Vitali集合
-textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md	2. 正規直交系が便利な理由	正規直交系
-textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md	5. 直交補空間	直交補空間
-textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md	10. 部分空間の和と直和	直和
-textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md	3. 線形結合とspan	線形結合
-textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md	5. 基底と座標	基底
-textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md	5. 基底と座標	座標ベクトル
-textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	2. 特異値と右特異ベクトル	右特異ベクトル
-textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	2. 特異値と右特異ベクトル	特異値
-textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	3. 左特異ベクトル	左特異ベクトル
 textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	1. 凸結合	凸結合
 textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	7. 狭義凸関数	狭義凸
 textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md	2. Quadratic Mean Differentiability	QMD

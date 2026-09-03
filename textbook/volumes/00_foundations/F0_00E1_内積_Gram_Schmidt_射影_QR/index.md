@@ -29,11 +29,18 @@ $$
 
 が定まります。
 
+<a id="def-f0-00e1-orthogonal"></a>
+
+<!-- formal-statement-start -->
+> **定義（直交）**  
+> $x,y\in\mathbb R^n$ が
+
 $$
 \langle x,y\rangle=0
 $$
 
-なら $x$ と $y$ は **直交** するといいます。
+> を満たすとき、$x$ と $y$ は **直交** するといいます。
+<!-- formal-statement-end -->
 
 ### Pythagoras
 
@@ -54,18 +61,20 @@ $$
 
 ## 2. 正規直交系が便利な理由
 
-ベクトル $q_1,\dots,q_k$ が
+<a id="def-f0-00e1-orthonormal-system"></a>
+
+<!-- formal-statement-start -->
+> **定義（正規直交系）**  
+> ベクトル $q_1,\dots,q_k$ が
 
 $$
 \langle q_i,q_j\rangle
 =
-\begin{cases}
-1&i=j,\\
-0&i\ne j
-\end{cases}
+\begin{cases}1&i=j,\\0&i\ne j\end{cases}
 $$
 
-を満たすとき、**正規直交系** といいます。
+> を満たすとき、$q_1,\dots,q_k$ を **正規直交系** といいます。
+<!-- formal-statement-end -->
 
 $x$ が
 
@@ -272,17 +281,18 @@ $$
 
 ## 5. 直交補空間
 
-部分空間 $V\subset\mathbb R^n$ に対して
+<a id="def-f0-00e1-orthogonal-complement"></a>
+
+<!-- formal-statement-start -->
+> **定義（直交補空間）**  
+> 部分空間 $V\subset\mathbb R^n$ に対して
 
 $$
-\boxed{
-V^\perp
-=
-\{y\in\mathbb R^n:\langle y,v\rangle=0\ \forall v\in V\}
-}
+V^\perp=\{y\in\mathbb R^n:\langle y,v\rangle=0\ \forall v\in V\}
 $$
 
-を **直交補空間** といいます。
+> を $V$ の **直交補空間** といいます。
+<!-- formal-statement-end -->
 
 たとえば
 
