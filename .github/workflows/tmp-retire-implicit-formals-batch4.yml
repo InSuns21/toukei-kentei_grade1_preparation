@@ -1,0 +1,34 @@
+name: Temporary implicit formal retirement batch 4
+
+on:
+  push:
+    branches:
+      - refactor/retire-implicit-formals-batch4
+    paths:
+      - 'scripts/tmp-retire-implicit-formals-batch4.mjs'
+      - '.github/workflows/tmp-retire-implicit-formals-batch4.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/retire-implicit-formals-batch4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-retire-implicit-formals-batch4.mjs
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md scripts/implicit-formal-baseline.txt
+          git commit -m 'formalize convex-analysis and optimization definitions'
+          git push
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run validate:pages
