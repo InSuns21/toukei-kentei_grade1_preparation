@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = path.resolve('textbook/volumes');
+const ROOTS = [
+  path.resolve('textbook/volumes'),
+  path.resolve('statistical-mathematics'),
+  path.resolve('applied-rikou-80'),
+];
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
 
@@ -16,11 +20,16 @@ const GENERIC_RE = /(基本命題|主要定理|三定理|定理群|定理一覧|
 const EXERCISE_RE = /(?:^|\s)[A-Z][A-Z0-9-]*-[ABCD]\d{2}\b/u;
 
 function walk(dir) {
+  if (!fs.existsSync(dir)) return [];
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
-    else if (entry.isFile() && entry.name === 'index.md' && !full.includes(`${path.sep}review${path.sep}`)) out.push(full);
+    if (entry.isDirectory()) {
+      if (['review', 'archive', 'reports'].includes(entry.name)) continue;
+      out.push(...walk(full));
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      out.push(full);
+    }
   }
   return out;
 }
@@ -53,30 +62,32 @@ function classifySection(lines, start) {
 }
 
 const all = [];
-for (const file of walk(ROOT)) {
-  const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
-  const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-  let fence = null;
-  let panelDepth = 0;
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    const t = line.trim();
-    if (fence) {
-      if (new RegExp(`^ {0,3}${fence.char}{${fence.length},}\\s*$`).test(line)) fence = null;
-      continue;
+for (const root of ROOTS) {
+  for (const file of walk(root)) {
+    const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
+    const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
+    let fence = null;
+    let panelDepth = 0;
+    for (let i = 0; i < lines.length; i += 1) {
+      const line = lines[i];
+      const t = line.trim();
+      if (fence) {
+        if (new RegExp(`^ {0,3}${fence.char}{${fence.length},}\\s*$`).test(line)) fence = null;
+        continue;
+      }
+      const openFence = line.match(/^ {0,3}(`{3,}|~{3,})/u);
+      if (openFence) {
+        fence = { char: openFence[1][0], length: openFence[1].length };
+        continue;
+      }
+      if (t === START) { panelDepth += 1; continue; }
+      if (t === END) { panelDepth = Math.max(0, panelDepth - 1); continue; }
+      if (panelDepth > 0) continue;
+      if (!/^#{2,6}\s+/u.test(line)) continue;
+      const section = classifySection(lines, i);
+      if (!section || !isNamedResultHeading(section.heading)) continue;
+      all.push({ rel, line: i + 1, ...section });
     }
-    const openFence = line.match(/^ {0,3}(`{3,}|~{3,})/u);
-    if (openFence) {
-      fence = { char: openFence[1][0], length: openFence[1].length };
-      continue;
-    }
-    if (t === START) { panelDepth += 1; continue; }
-    if (t === END) { panelDepth = Math.max(0, panelDepth - 1); continue; }
-    if (panelDepth > 0) continue;
-    if (!/^#{2,6}\s+/u.test(line)) continue;
-    const section = classifySection(lines, i);
-    if (!section || !isNamedResultHeading(section.heading)) continue;
-    all.push({ rel, line: i + 1, ...section });
   }
 }
 
