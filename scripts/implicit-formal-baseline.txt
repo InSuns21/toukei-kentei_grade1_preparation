@@ -1,18 +1,3 @@
-textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md	1.2 同じ集合でも距離を変えられる	離散距離
-textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md	証明：sequentially compact ⇒ compact	Lebesgue数
-textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md	証明：sequentially compact ⇒ compact	全有界性
-textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	14. 完全性まで自動で得られる	完全性
-textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	3. Lebesgue外測度	Lebesgue外測度
-textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	5. 外測度の三条件	外測度
-textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md	3. 各同値類から一つずつ選ぶ	Vitali集合
-textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md	2. Quadratic Mean Differentiability	QMD
-textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md	3.4 上界・下界、$\sup$・$\inf$	上界
-textbook/volumes/01_probability/P1_01_事象と確率/index.md	1. まず有限標本空間で考える	標本空間
-textbook/volumes/01_probability/P1_01_事象と確率/index.md	7. 上極限事象と下極限事象	上極限事象
-textbook/volumes/01_probability/P1_01_事象と確率/index.md	7. 上極限事象と下極限事象	下極限事象
-textbook/volumes/01_probability/P1_02_条件付き確率_独立_bayesの定理/index.md	3.1 対独立と相互独立	対独立
-textbook/volumes/01_probability/P2_01_確率変数_pmf_pdf_cdf/index.md	2.2 台	台
-textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md	2.4 条件付き期待値	条件付き期待値
 textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/index.md	8. 2成分正規混合のE-step	責任度
 textbook/volumes/03_inference/S1_02_統計量_十分性_分解定理/index.md	16. 「十分」の中でも最も粗いもの	最小十分統計量
 textbook/volumes/03_inference/S1_03_標本抽出_研究設計/index.md	13. なぜ多段階で抽出するのか	一次抽出単位

@@ -161,17 +161,19 @@ $$
 
 ### 3.1 対独立と相互独立
 
-$A_1,\ldots,A_m$ について、全ての2事象の組が独立であることを**対独立**といいます。
+<a id="def-p1-02-pairwise-mutual-independence"></a>
 
-一方、**相互独立**では、任意の $r=2,\ldots,m$ と相異なる添字 $i_1,\ldots,i_r$ について
+<!-- formal-statement-start -->
+> **定義（対独立・相互独立）**  
+> 事象 $A_1,\ldots,A_m$ の全ての2事象の組が独立であるとき **対独立** といいます。さらに、任意の $r=2,\ldots,m$ と相異なる添字 $i_1,\ldots,i_r$ に対して
 
 $$
 P(A_{i_1}\cap\cdots\cap A_{i_r})
-=
-\prod_{j=1}^rP(A_{i_j})
+=\prod_{j=1}^rP(A_{i_j})
 $$
 
-が必要です。
+> が成り立つとき **相互独立** といいます。
+<!-- formal-statement-end -->
 
 三事象では、三つの二重積の式だけでなく
 

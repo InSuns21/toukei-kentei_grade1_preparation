@@ -115,6 +115,28 @@ $$
 
 この節の完全証明は折りたたんだままでも構いません。以後使うのは主に「**距離空間では、コンパクト性を点列で判定してよい**」という結論です。
 
+<a id="def-f0-00c1-totally-bounded"></a>
+
+<!-- formal-statement-start -->
+> **定義（全有界性）**  
+> 距離空間 $(X,d)$ の部分集合 $K$ が **全有界** であるとは、任意の $\varepsilon>0$ に対し有限個の点 $a_1,\dots,a_m\in K$ が存在して
+
+$$
+K\subset\bigcup_{j=1}^m B(a_j,\varepsilon)
+$$
+
+> とできることをいいます。
+<!-- formal-statement-end -->
+
+<a id="def-f0-00c1-lebesgue-number"></a>
+
+<!-- formal-statement-start -->
+> **定義（Lebesgue数）**  
+> $K$ の開被覆 $\mathcal U$ に対し、$\delta>0$ が、任意の $x\in K$ について $B(x,\delta)\cap K$ が $\mathcal U$ のある1要素に含まれるとき、$\delta$ をこの被覆の **Lebesgue数** といいます。
+<!-- formal-statement-end -->
+
+この二つは、以下の逆向き証明で「点列から有限被覆へ戻る」ための中継概念です。
+
 <!-- proof-start -->
 ### 証明：compact ⇒ sequentially compact
 
@@ -166,7 +188,7 @@ $$
 K\subset\bigcup_{j=1}^mB(a_j,\varepsilon)
 $$
 
-となることを示します。この性質を **全有界性** と呼びます。
+となることを示します。これは上で定義した **全有界性** そのものです。
 
 もしある $\varepsilon>0$ について有限個の $\varepsilon$ 球で覆えないなら、帰納的に
 
@@ -202,7 +224,7 @@ $$
 B(x,\delta)\cap K
 $$
 
-が $\mathcal U$ のある1要素に含まれることを示します。この $\delta$ を **Lebesgue数** と呼びます。
+が $\mathcal U$ のある1要素に含まれることを示します。つまり、上で定義した **Lebesgue数** が存在することを示します。
 
 そのような $\delta$ が存在しないと仮定すると、各 $n$ に対して点 $x_n\in K$ を選び、
 
