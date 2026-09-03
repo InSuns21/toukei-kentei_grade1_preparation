@@ -18,7 +18,11 @@ function strategyFor(kind) {
 }
 
 function isCacheable(response) {
-  return response && (response.ok || response.type === 'opaque');
+  return response && response.status !== 206 && (response.ok || response.type === 'opaque');
+}
+
+function shouldFallbackFromResponse(response) {
+  return response && (response.status === 404 || response.status >= 500);
 }
 
 function requestKind(request) {
@@ -41,13 +45,141 @@ function requestForNetwork(request) {
   return new Request(request, { cache: 'reload' });
 }
 
+function normalizedSameOriginUrl(rawUrl) {
+  const url = new URL(rawUrl);
+  if (url.origin !== self.location.origin) return url.href;
+  url.search = '';
+  url.hash = '';
+  return url.href;
+}
+
+function cacheKeyFor(request) {
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return request;
+  return normalizedSameOriginUrl(url.href);
+}
+
+function cacheCandidates(request) {
+  const url = new URL(request.url);
+  const candidates = [];
+  const seen = new Set();
+
+  function add(value) {
+    const href = typeof value === 'string' ? value : value.href;
+    if (!seen.has(href)) {
+      seen.add(href);
+      candidates.push(href);
+    }
+  }
+
+  add(request.url);
+  if (url.origin !== self.location.origin) return candidates;
+
+  const clean = new URL(normalizedSameOriginUrl(url.href));
+  add(clean);
+
+  const pathname = clean.pathname;
+  const finalSegment = pathname.slice(pathname.lastIndexOf('/') + 1);
+  const hasExtension = finalSegment.includes('.');
+
+  if (pathname.endsWith('/')) {
+    const indexUrl = new URL(clean.href);
+    indexUrl.pathname += 'index.md';
+    add(indexUrl);
+
+    const readmeUrl = new URL(clean.href);
+    readmeUrl.pathname += 'README.md';
+    add(readmeUrl);
+  } else if (!hasExtension) {
+    const markdownUrl = new URL(clean.href);
+    markdownUrl.pathname += '.md';
+    add(markdownUrl);
+
+    const indexUrl = new URL(clean.href);
+    indexUrl.pathname += '/index.md';
+    add(indexUrl);
+
+    const readmeUrl = new URL(clean.href);
+    readmeUrl.pathname += '/README.md';
+    add(readmeUrl);
+  }
+
+  return candidates;
+}
+
+function parseByteRange(header, size) {
+  const match = /^bytes=(\d*)-(\d*)$/i.exec(header || '');
+  if (!match || size <= 0) return null;
+
+  const startText = match[1];
+  const endText = match[2];
+  if (!startText && !endText) return null;
+
+  let start;
+  let end;
+
+  if (!startText) {
+    const suffixLength = Number(endText);
+    if (!Number.isInteger(suffixLength) || suffixLength <= 0) return null;
+    start = Math.max(size - suffixLength, 0);
+    end = size - 1;
+  } else {
+    start = Number(startText);
+    if (!Number.isInteger(start) || start < 0 || start >= size) return null;
+    end = endText ? Number(endText) : size - 1;
+    if (!Number.isInteger(end) || end < start) return null;
+    end = Math.min(end, size - 1);
+  }
+
+  return { start, end };
+}
+
+async function responseForRequest(request, cached) {
+  const rangeHeader = request.headers.get('range');
+  if (!rangeHeader || cached.status !== 200 || cached.type === 'opaque') {
+    return cached;
+  }
+
+  const body = await cached.arrayBuffer();
+  const range = parseByteRange(rangeHeader, body.byteLength);
+  if (!range) {
+    return new Response(null, {
+      status: 416,
+      headers: {
+        'Content-Range': `bytes */${body.byteLength}`,
+        'Accept-Ranges': 'bytes',
+      },
+    });
+  }
+
+  const headers = new Headers(cached.headers);
+  headers.delete('content-encoding');
+  headers.set('Accept-Ranges', 'bytes');
+  headers.set('Content-Range', `bytes ${range.start}-${range.end}/${body.byteLength}`);
+  headers.set('Content-Length', String(range.end - range.start + 1));
+
+  return new Response(body.slice(range.start, range.end + 1), {
+    status: 206,
+    statusText: 'Partial Content',
+    headers,
+  });
+}
+
+async function findCachedResponse(request, cache) {
+  for (const candidate of cacheCandidates(request)) {
+    const cached = await cache.match(candidate, { ignoreSearch: true });
+    if (cached) return responseForRequest(request, cached);
+  }
+  return null;
+}
+
 async function cachedFallback(request, cache) {
-  const cached = await cache.match(request);
+  const cached = await findCachedResponse(request, cache);
   if (cached) return cached;
 
   if (request.mode === 'navigate' && config.navigationFallback) {
     const fallbackUrl = new URL(config.navigationFallback, self.registration.scope).href;
-    const fallback = await cache.match(fallbackUrl);
+    const fallback = await cache.match(fallbackUrl, { ignoreSearch: true });
     if (fallback) return fallback;
   }
 
@@ -57,14 +189,19 @@ async function cachedFallback(request, cache) {
 async function updateCache(cache, request) {
   const response = await fetch(requestForNetwork(request));
   if (isCacheable(response)) {
-    await cache.put(request, response.clone());
+    await cache.put(cacheKeyFor(request), response.clone());
   }
   return response;
 }
 
 async function networkFirst(request, cache) {
   try {
-    return await updateCache(cache, request);
+    const response = await updateCache(cache, request);
+    if (shouldFallbackFromResponse(response)) {
+      const fallback = await findCachedResponse(request, cache);
+      if (fallback) return fallback;
+    }
+    return response;
   } catch {
     // A transient failure must not permanently switch this worker into a
     // cache-first mode. Each later request gets a new network attempt and only
@@ -74,18 +211,22 @@ async function networkFirst(request, cache) {
 }
 
 async function cacheFirst(request, cache) {
-  const cached = await cache.match(request);
+  const cached = await findCachedResponse(request, cache);
   if (cached) return cached;
 
   try {
-    return await updateCache(cache, request);
+    const response = await updateCache(cache, request);
+    if (shouldFallbackFromResponse(response)) {
+      return cachedFallback(request, cache);
+    }
+    return response;
   } catch {
     return cachedFallback(request, cache);
   }
 }
 
 async function staleWhileRevalidate(event, request, cache) {
-  const cached = await cache.match(request);
+  const cached = await findCachedResponse(request, cache);
   const refresh = updateCache(cache, request).catch(() => null);
 
   if (cached) {
@@ -94,7 +235,8 @@ async function staleWhileRevalidate(event, request, cache) {
   }
 
   const response = await refresh;
-  return response || cachedFallback(request, cache);
+  if (response && !shouldFallbackFromResponse(response)) return response;
+  return cachedFallback(request, cache);
 }
 
 async function applyStrategy(event, request, kind) {
@@ -126,7 +268,7 @@ async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   const response = await fetch(request);
   if (!isCacheable(response)) return false;
 
-  await cache.put(request, response.clone());
+  await cache.put(cacheKeyFor(request), response.clone());
 
   const contentType = response.headers.get('content-type') || '';
   if (!followCssDependencies || !contentType.includes('text/css') || response.type === 'opaque') {

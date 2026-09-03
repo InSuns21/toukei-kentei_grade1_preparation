@@ -49,9 +49,6 @@ jobs:
       - name: Assemble and validate Pages site
         run: npm run validate:pages
 
-      - name: Create published-file manifest
-        run: find _site -type f ! -name '.nojekyll' -printf '%P\n' | LC_ALL=C sort > _site/pages-manifest.txt
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 

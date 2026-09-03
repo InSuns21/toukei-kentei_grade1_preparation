@@ -1,4 +1,4 @@
-import { access, cp, readFile, writeFile } from 'node:fs/promises';
+import { access, cp, readFile, readdir, writeFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
@@ -16,6 +16,23 @@ await access(outDir);
 async function git(...args) {
   const { stdout } = await execFileAsync('git', args, { cwd: root });
   return stdout.trim();
+}
+
+async function recursivePublishedFiles(baseDir, relativeDir = '') {
+  const dir = path.join(baseDir, relativeDir);
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const relative = path.posix.join(relativeDir.replaceAll('\\', '/'), entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await recursivePublishedFiles(baseDir, relative));
+    } else if (entry.isFile()) {
+      files.push(relative);
+    }
+  }
+
+  return files;
 }
 
 let revision = process.env.GITHUB_SHA || '';
@@ -89,8 +106,22 @@ await writeFile(
   'utf8',
 );
 
+// Generate the offline snapshot manifest as part of the same validation command
+// that assembles _site. This keeps pull-request CI and the deployed artifact on
+// exactly the same file list instead of creating the manifest only during the
+// deploy workflow.
+const publishedFiles = (await recursivePublishedFiles(outDir))
+  .filter((relative) => relative !== '.nojekyll' && relative !== 'pages-manifest.txt')
+  .sort((a, b) => a.localeCompare(b, 'en'));
+await writeFile(
+  path.join(outDir, 'pages-manifest.txt'),
+  `${publishedFiles.join('\n')}\n`,
+  'utf8',
+);
+
 console.log(
   `Service Worker assets validated and published: ${[serviceWorkerFile, ...copiedFiles].join(', ')}`,
 );
 console.log(`Service Worker cache revision stamped: ${revision}`);
 console.log(`Site metadata published: ${revision.slice(0, 8)} @ ${updatedAt}`);
+console.log(`Offline manifest published: ${publishedFiles.length} files`);
