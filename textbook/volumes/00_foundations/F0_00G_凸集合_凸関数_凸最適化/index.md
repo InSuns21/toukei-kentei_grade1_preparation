@@ -8,23 +8,18 @@ $$\boxed{\text{凸集合}\to\text{凸関数}\to\text{一次支持}\to\text{局�
 
 ## 1. 凸結合
 
-点 $x_1,\dots,x_k$ と係数
+<a id="def-f0-00g-convex-combination"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸結合）**  
+> 点 $x_1,\dots,x_k$ と係数 $\theta_i\ge0$、$\sum_{i=1}^k\theta_i=1$ に対して
 
 $$
-\theta_i\ge0,
-\qquad
-\sum_{i=1}^k\theta_i=1
-$$
-
-に対して
-
-$$
-\boxed{
 \sum_{i=1}^k\theta_i x_i
-}
 $$
 
-を **凸結合** といいます。
+> を $x_1,\dots,x_k$ の **凸結合** といいます。
+<!-- formal-statement-end -->
 
 2点なら
 
@@ -41,15 +36,18 @@ $$
 
 ## 2. 凸集合
 
-集合 $C$ が **凸集合** であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
+<a id="def-f0-00g-convex-set"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸集合）**  
+> 集合 $C$ が **凸集合** であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
 
 $$
-\boxed{
 (1-t)x+ty\in C
-}
 $$
 
-となることです。
+> が成り立つことです。
+<!-- formal-statement-end -->
 
 つまり
 
@@ -99,15 +97,18 @@ $$
 
 ## 3. 凸包
 
-集合 $S$ を含む凸集合のうち最小のものを **凸包** といい
+<a id="def-f0-00g-convex-hull"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸包）**  
+> 集合 $S$ を含む凸集合のうち包含関係で最小のものを $S$ の **凸包** といい、
 
 $$
-\boxed{
 \operatorname{conv}(S)
-}
 $$
 
-と書きます。
+> と書きます。
+<!-- formal-statement-end -->
 
 有限集合
 
@@ -177,23 +178,18 @@ $$
 
 ## 5. 凸関数
 
-凸集合 $C$ 上の関数
+<a id="def-f0-00g-convex-function"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸関数）**  
+> 凸集合 $C$ 上の関数 $f:C\to\mathbb R$ が **凸関数** であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
 
 $$
-f:C\to\mathbb R
+f((1-t)x+ty)\le(1-t)f(x)+tf(y)
 $$
 
-が **凸関数** であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対して
-
-$$
-\boxed{
-f((1-t)x+ty)
-\le
-(1-t)f(x)+tf(y)
-}
-$$
-
-となることです。
+> が成り立つことです。
+<!-- formal-statement-end -->
 
 右辺はグラフ上の2点を結ぶ弦の高さです。
 
@@ -252,17 +248,18 @@ F0-00F1で扱った正定値・半正定値がここで最適化へ戻ってき�
 
 ## 7. 狭義凸関数
 
-$x\ne y$、$0<t<1$ について
+<a id="def-f0-00g-strictly-convex"></a>
+
+<!-- formal-statement-start -->
+> **定義（狭義凸関数）**  
+> 凸集合上の関数 $f$ が、任意の異なる $x,y$ と $0<t<1$ に対して
 
 $$
-\boxed{
-f((1-t)x+ty)
-<
-(1-t)f(x)+tf(y)
-}
+f((1-t)x+ty)<(1-t)f(x)+tf(y)
 $$
 
-となるとき **狭義凸** といいます。
+> を満たすとき、$f$ は **狭義凸** であるといいます。
+<!-- formal-statement-end -->
 
 狭義凸関数が最小値を持つ場合、その最小点は高々1つです。
 

@@ -280,17 +280,18 @@ $$
 
 実際にKKT条件を計算するには、制約関数 $g_i,h_j$ の勾配で表したいところです。
 
-そこで active set を
+<a id="def-f0-02a-active-set"></a>
+
+<!-- formal-statement-start -->
+> **定義（active set）**  
+> 不等式制約 $g_i(\boldsymbol x)\le0$ に対し、点 $\boldsymbol x^*$ で等号となる制約の添字集合
 
 $$
-\boxed{
-I(\boldsymbol x^*)
-=
-\{i:g_i(\boldsymbol x^*)=0\}
-}
+I(\boldsymbol x^*)=\{i:g_i(\boldsymbol x^*)=0\}
 $$
 
-とします。
+> を $\boldsymbol x^*$ における **active set** といいます。
+<!-- formal-statement-end -->
 
 $g_i(\boldsymbol x^*)<0$ の制約は最適点で余裕があるので、一次近似では局所的な進行方向を制限しません。
 
@@ -298,23 +299,22 @@ $g_i(\boldsymbol x^*)<0$ の制約は最適点で余裕があるので、一次�
 
 ## 6. 線形化錐を作る
 
-activeな不等式制約と等式制約を一次近似して
+<a id="def-f0-02a-linearized-cone"></a>
+
+<!-- formal-statement-start -->
+> **定義（線形化錐）**  
+> activeな不等式制約と等式制約を一次近似して得られる方向の集合
 
 $$
-\boxed{
 L_C(\boldsymbol x^*)
-=
-\left\{
-\boldsymbol d:
-\nabla g_i(\boldsymbol x^*)^{\mathsf T}\boldsymbol d\le0
-\ (i\in I(\boldsymbol x^*)),
-\quad
+=\left\{\boldsymbol d:
+\nabla g_i(\boldsymbol x^*)^{\mathsf T}\boldsymbol d\le0\ (i\in I(\boldsymbol x^*)),\quad
 \nabla h_j(\boldsymbol x^*)^{\mathsf T}\boldsymbol d=0
 \right\}
-}
 $$
 
-と定義します。これを **線形化錐（linearized cone）** と呼びます。
+> を $\boldsymbol x^*$ における **線形化錐（linearized cone）** といいます。
+<!-- formal-statement-end -->
 
 ### 6.1 なぜ active 制約では $\le0$ なのか
 

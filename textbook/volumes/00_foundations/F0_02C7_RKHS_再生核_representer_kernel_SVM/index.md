@@ -46,7 +46,12 @@ $$
 
 を考えます。
 
-すべての $x$ について $\delta_x$ が連続なら、$\mathcal H$ を **再生核Hilbert空間（RKHS）** といいます。
+<a id="def-f0-02c7-rkhs"></a>
+
+<!-- formal-statement-start -->
+> **定義（再生核Hilbert空間）**  
+> 集合 $\mathcal X$ 上の実数値関数からなるHilbert空間 $\mathcal H$ で、すべての $x\in\mathcal X$ について評価汎関数 $\delta_x(f)=f(x)$ が連続であるものを **再生核Hilbert空間（RKHS）** といいます。
+<!-- formal-statement-end -->
 
 $$
 \boxed{
@@ -73,17 +78,18 @@ $$
 
 が存在して
 
+<a id="def-f0-02c7-reproducing-property"></a>
+
+<!-- formal-statement-start -->
+> **定義（再生性）**  
+> RKHS $\mathcal H$ において、各 $x$ に対応する $K_x\in\mathcal H$ が
+
 $$
-\boxed{
-f(x)
-=\delta_x(f)
-=\langle f,K_x\rangle_{\mathcal H}
-}
+f(x)=\langle f,K_x\rangle_{\mathcal H}\qquad(\forall f\in\mathcal H)
 $$
 
-となります。
-
-この式を **再生性** といいます。
+> を満たす性質を **再生性** といいます。
+<!-- formal-statement-end -->
 
 「関数の一点の値」が、Hilbert空間内積として再現されています。
 
@@ -93,15 +99,18 @@ $$
 
 各 $x$ に対応する $K_x$ 自身も $\mathcal X$ 上の関数です。
 
-そこで
+<a id="def-f0-02c7-reproducing-kernel"></a>
+
+<!-- formal-statement-start -->
+> **定義（再生核）**  
+> RKHSで評価汎関数を表現する $K_x$ を用いて
 
 $$
-\boxed{
 K(x,z)=K_z(x)
-}
 $$
 
-と定めます。
+> と定めた二変数関数 $K$ を **再生核** といいます。
+<!-- formal-statement-end -->
 
 再生性を $f=K_z$ に適用すると
 
@@ -195,21 +204,18 @@ $$
 
 ## 7. positive semidefinite kernel
 
-逆向きの発想として、集合 $\mathcal X$ 上の対称関数
+<a id="def-f0-02c7-psd-kernel"></a>
+
+<!-- formal-statement-start -->
+> **定義（positive semidefinite kernel）**  
+> 集合 $\mathcal X$ 上の対称関数 $K:\mathcal X\times\mathcal X\to\mathbb R$ が、任意の有限点列 $x_1,\dots,x_n$ と実係数 $c_1,\dots,c_n$ に対して
 
 $$
-K:\mathcal X\times\mathcal X\to\mathbb R
-$$
-
-が、任意の有限点列 $x_1,\dots,x_n$ と係数 $c_1,\dots,c_n$ に対して
-
-$$
-\boxed{
 \sum_{i,j}c_ic_jK(x_i,x_j)\ge0
-}
 $$
 
-を満たすとき、**positive semidefinite kernel** と呼びます。
+> を満たすとき、$K$ を **positive semidefinite kernel** といいます。
+<!-- formal-statement-end -->
 
 重要なのは
 
@@ -223,17 +229,18 @@ $$
 
 ## 8. canonical feature map
 
-RKHS自身を特徴空間として
+<a id="def-f0-02c7-canonical-feature-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（canonical feature map）**  
+> RKHS $\mathcal H$ とその再生核 $K$ に対し、
 
 $$
-\boxed{
 \varphi(x)=K_x
-}
 $$
 
-と置けます。
-
-これを **canonical feature map** といいます。
+> と定める写像 $\varphi:\mathcal X\to\mathcal H$ を **canonical feature map** といいます。
+<!-- formal-statement-end -->
 
 すると
 

@@ -124,25 +124,18 @@ $$
 
 凸関数 $f:X\to(-\infty,+\infty]$ と点 $x$ を考えます。
 
-$x^*\in X^*$ が $x$ における **劣勾配** であるとは
+<a id="def-f0-02c4-subgradient-subdifferential"></a>
+
+<!-- formal-statement-start -->
+> **定義（劣勾配・劣微分）**  
+> 凸関数 $f:X\to(-\infty,+\infty]$ に対し、$x^*\in X^*$ が
 
 $$
-\boxed{
-f(y)
-\ge f(x)+x^*(y-x)
-\qquad(\forall y\in X)
-}
+f(y)\ge f(x)+x^*(y-x)\qquad(\forall y\in X)
 $$
 
-となることです。
-
-劣勾配全体を
-
-$$
-\boxed{\partial f(x)}
-$$
-
-と書き、**劣微分** といいます。
+> を満たすとき、$x^*$ を $x$ における **劣勾配** といいます。劣勾配全体の集合を **劣微分** といい $\partial f(x)$ と書きます。
+<!-- formal-statement-end -->
 
 ここで $\partial f(x)$ は一つのベクトルではなく集合です。
 
@@ -217,24 +210,18 @@ $$
 
 集合 $C\subset X$ の上だけで $f$ を最小化したいとします。
 
-制約
+<a id="def-f0-02c4-convex-indicator"></a>
+
+<!-- formal-statement-start -->
+> **定義（集合のindicator関数）**  
+> 集合 $C\subset X$ に対して
 
 $$
-x\in C
+\delta_C(x)=\begin{cases}0,&x\in C,\\+\infty,&x\notin C\end{cases}
 $$
 
-を関数へ埋め込むため、**indicator関数**
-
-$$
-\delta_C(x)
-=
-\begin{cases}
-0,&x\in C,\\
-+\infty,&x\notin C
-\end{cases}
-$$
-
-を導入します。
+> と定めた拡張実数値関数を $C$ の **indicator関数** といいます。
+<!-- formal-statement-end -->
 
 すると
 
@@ -259,18 +246,18 @@ $$
 
 ## 9. normal cone
 
-$C$ を凸集合、$x\in C$ とします。
+<a id="def-f0-02c4-normal-cone"></a>
+
+<!-- formal-statement-start -->
+> **定義（normal cone）**  
+> 凸集合 $C$ と $x\in C$ に対して
 
 $$
-\boxed{
-N_C(x)
-=
-\{x^*\in X^*:x^*(y-x)\le0
-\ \forall y\in C\}
-}
+N_C(x)=\{x^*\in X^*:x^*(y-x)\le0\ \forall y\in C\}
 $$
 
-を $C$ の $x$ における **normal cone** といいます。
+> を $C$ の $x$ における **normal cone** といいます。
+<!-- formal-statement-end -->
 
 $x\notin C$ のときは通常
 
