@@ -11,6 +11,7 @@ const supportedStrategies = new Set([
   'stale-while-revalidate',
 ]);
 let manualCacheJob = null;
+let networkDegradedUntil = 0;
 
 function strategyFor(kind) {
   const configured = config.strategyByKind?.[kind] || config.defaultStrategy || 'network-first';
@@ -21,8 +22,30 @@ function isCacheable(response) {
   return response && response.status !== 206 && (response.ok || response.type === 'opaque');
 }
 
-function shouldFallbackFromResponse(response) {
-  return response && (response.status === 404 || response.status >= 500);
+function isSameOriginRequest(request) {
+  return new URL(request.url).origin === self.location.origin;
+}
+
+function responseLooksUsable(request, response) {
+  if (!response) return false;
+  if (response.type === 'opaque') return true;
+  if (!response.ok) return false;
+
+  if (!isSameOriginRequest(request) || request.mode === 'navigate') {
+    return true;
+  }
+
+  // A nominally-online mobile/VPN path may return a branded/proxy HTML error
+  // page with HTTP 200. Never accept that as Markdown, JSON, an image, JS, CSS,
+  // or another static asset, because doing so would both render a 404-like page
+  // and poison the offline cache with the error document.
+  const contentType = (response.headers.get('content-type') || '').toLowerCase();
+  const pathname = new URL(request.url).pathname.toLowerCase();
+  if (contentType.includes('text/html') && !pathname.endsWith('.html')) {
+    return false;
+  }
+
+  return true;
 }
 
 function requestKind(request) {
@@ -186,9 +209,38 @@ async function cachedFallback(request, cache) {
   return Response.error();
 }
 
+function markNetworkDegraded() {
+  const cooldown = Math.max(Number(config.networkFailureCooldownMs) || 0, 0);
+  networkDegradedUntil = cooldown ? Date.now() + cooldown : 0;
+}
+
+function clearNetworkDegraded() {
+  networkDegradedUntil = 0;
+}
+
+function isNetworkDegraded() {
+  return networkDegradedUntil > Date.now();
+}
+
+async function fetchWithTimeout(request) {
+  const networkRequest = requestForNetwork(request);
+  const timeoutMs = Math.max(Number(config.networkTimeoutMs) || 0, 0);
+  if (!timeoutMs || typeof AbortController === 'undefined') {
+    return fetch(networkRequest);
+  }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(networkRequest, { signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function updateCache(cache, request) {
-  const response = await fetch(requestForNetwork(request));
-  if (isCacheable(response)) {
+  const response = await fetchWithTimeout(request);
+  if (isCacheable(response) && responseLooksUsable(request, response)) {
     await cache.put(cacheKeyFor(request), response.clone());
   }
   return response;
@@ -197,15 +249,17 @@ async function updateCache(cache, request) {
 async function networkFirst(request, cache) {
   try {
     const response = await updateCache(cache, request);
-    if (shouldFallbackFromResponse(response)) {
+    if (!responseLooksUsable(request, response)) {
+      if (isSameOriginRequest(request)) markNetworkDegraded();
       const fallback = await findCachedResponse(request, cache);
       if (fallback) return fallback;
+      return response;
     }
+
+    if (isSameOriginRequest(request)) clearNetworkDegraded();
     return response;
   } catch {
-    // A transient failure must not permanently switch this worker into a
-    // cache-first mode. Each later request gets a new network attempt and only
-    // falls back to Cache Storage for that individual failure.
+    if (isSameOriginRequest(request)) markNetworkDegraded();
     return cachedFallback(request, cache);
   }
 }
@@ -216,7 +270,7 @@ async function cacheFirst(request, cache) {
 
   try {
     const response = await updateCache(cache, request);
-    if (shouldFallbackFromResponse(response)) {
+    if (!responseLooksUsable(request, response)) {
       return cachedFallback(request, cache);
     }
     return response;
@@ -235,20 +289,25 @@ async function staleWhileRevalidate(event, request, cache) {
   }
 
   const response = await refresh;
-  if (response && !shouldFallbackFromResponse(response)) return response;
+  if (response && responseLooksUsable(request, response)) return response;
   return cachedFallback(request, cache);
 }
 
 async function applyStrategy(event, request, kind) {
   const cache = await caches.open(cacheName);
 
-  // WorkerNavigator.onLine=false is a strong signal that the browser has no
-  // network connection. In that state, never start a fetch just to discover
-  // what we already know: use the saved offline snapshot immediately.
-  // A true value is only a hint, so online requests still use the configured
-  // network strategy and therefore see the latest published content.
+  // onLine=false is a strong signal: do not start network work at all.
   if (self.navigator?.onLine === false) {
     return cachedFallback(request, cache);
+  }
+
+  // Android can stay "online" through mobile data or a VPN after Wi-Fi is
+  // disabled even when GitHub Pages itself is unreachable. After one failed,
+  // timed-out, or invalid same-origin response, serve already-saved content
+  // immediately for a short cooldown, then retry the network automatically.
+  if ((kind === 'navigation' || kind === 'sameOrigin') && isNetworkDegraded()) {
+    const fallback = await cachedFallback(request, cache);
+    if (fallback.type !== 'error') return fallback;
   }
 
   const strategy = strategyFor(kind);
@@ -276,7 +335,7 @@ async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   const url = new URL(rawUrl, self.registration.scope).href;
   const request = new Request(url, { cache: 'reload' });
   const response = await fetch(request);
-  if (!isCacheable(response)) return false;
+  if (!isCacheable(response) || !responseLooksUsable(request, response)) return false;
 
   await cache.put(cacheKeyFor(request), response.clone());
 
