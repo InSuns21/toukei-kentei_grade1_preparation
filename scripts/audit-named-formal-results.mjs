@@ -84,6 +84,8 @@ for (const root of ROOTS) {
       if (t === END) { panelDepth = Math.max(0, panelDepth - 1); continue; }
       if (panelDepth > 0) continue;
       if (!/^#{1,6}\s+/u.test(line)) continue;
+      // The first H1 is the document title, not a theorem declaration section.
+      if (i === 0 && /^#\s+/u.test(line)) continue;
       const section = classifySection(lines, i);
       if (!section || !isNamedResultHeading(section.heading)) continue;
       all.push({ rel, line: i + 1, ...section });
