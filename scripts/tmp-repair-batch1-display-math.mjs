@@ -12,7 +12,7 @@ for (const file of files) {
     if (lines[i].trim() === '<!-- formal-statement-start -->') formal = true;
     else if (lines[i].trim() === '<!-- formal-statement-end -->') formal = false;
     else if (formal && lines[i].trim() === '$') {
-      lines[i] = lines[i].replace('$', '$$');
+      lines[i] = '$$';
       fixed += 1;
     }
   }
