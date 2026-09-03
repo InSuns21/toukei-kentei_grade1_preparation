@@ -98,10 +98,13 @@ $$
 
 ## 3. Lebesgue外測度
 
-$A\subset\mathbb R$ に対して
+<a id="def-f0-00d3-lebesgue-outer-measure"></a>
+
+<!-- formal-statement-start -->
+> **定義（Lebesgue外測度）**  
+> $A\subset\mathbb R$ に対して
 
 $$
-\boxed{
 \lambda^*(A)
 =
 \inf\left\{
@@ -109,12 +112,10 @@ $$
 A\subset\bigcup_{n=1}^{\infty}I_n,
 \ I_n\text{ は開区間}
 \right\}
-}
 $$
 
-と定めます。
-
-これを **Lebesgue外測度** といいます。
+> と定めた量を **Lebesgue外測度** といいます。
+<!-- formal-statement-end -->
 
 ここで重要なのは、$A$ 自体には可測性を仮定していないことです。
 
@@ -148,39 +149,25 @@ $$
 
 ## 5. 外測度の三条件
 
-一般に集合 $X$ の全ての部分集合に対して
+<a id="def-f0-00d3-outer-measure"></a>
+
+<!-- formal-statement-start -->
+> **定義（外測度）**  
+> 集合 $X$ の全ての部分集合上の関数 $\mu^*:2^X\to[0,\infty]$ が、
+> 1. $\mu^*(\varnothing)=0$、
+> 2. $A\subset B\Rightarrow\mu^*(A)\le\mu^*(B)$、
+> 3. 任意の $A_1,A_2,\dots\subset X$ に対して
 
 $$
-\mu^*:2^X\to[0,\infty]
-$$
-
-が定義され、次を満たすとき **外測度** といいます。
-
-### 5.1 空集合
-
-$$
-\mu^*(\varnothing)=0.
-$$
-
-### 5.2 単調性
-
-$$
-A\subset B
-\quad\Longrightarrow\quad
-\mu^*(A)\le\mu^*(B).
-$$
-
-### 5.3 可算劣加法性
-
-$$
-\boxed{
 \mu^*\left(\bigcup_{n=1}^{\infty}A_n\right)
 \le
 \sum_{n=1}^{\infty}\mu^*(A_n)
-}
 $$
 
-です。
+> を満たすとき、$\mu^*$ を **外測度** といいます。
+<!-- formal-statement-end -->
+
+上の3条件を順に空集合・単調性・可算劣加法性と呼びます。
 
 注意してください。
 
@@ -495,17 +482,16 @@ $$
 
 外測度0の集合はCarathéodory可測であることが示せるので、$A$ も可測です。
 
-従って
+従って、零集合の部分集合まで可測集合として取り込めます。
 
-$$
-\boxed{
-N\text{ が測度0なら、その任意の部分集合も可測}
-}
-$$
+<a id="def-f0-00d3-complete-measure"></a>
 
-です。
+<!-- formal-statement-start -->
+> **定義（測度の完全性）**  
+> 測度空間 $(X,\mathcal M,\mu)$ が **完全** であるとは、$N\in\mathcal M$ かつ $\mu(N)=0$ なら、任意の部分集合 $A\subset N$ も $A\in\mathcal M$ となることをいいます。このとき単調性から $\mu(A)=0$ です。
+<!-- formal-statement-end -->
 
-これを測度の **完全性** といいます。
+Carathéodory構成で得られる測度はこの意味で完全です。
 
 ---
 

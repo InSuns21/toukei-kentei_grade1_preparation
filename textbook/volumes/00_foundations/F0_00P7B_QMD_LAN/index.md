@@ -16,14 +16,19 @@ $$\|\sqrt{p_\theta}\|_{L^2(\mu)}^2=\int p_\theta d\mu=1.$$
 
 ## 2. Quadratic Mean Differentiability
 
-$\theta\in\mathbb R^d$ で、あるscoreベクトル $s_\theta\in L^2(P_\theta)^d$ が存在し
+<a id="def-f0-00p7b-qmd"></a>
+
+<!-- formal-statement-start -->
+> **定義（Quadratic Mean Differentiability; QMD）**  
+> $\theta\in\mathbb R^d$ で、あるscoreベクトル $s_\theta\in L^2(P_\theta)^d$ が存在して
 
 $$
 \int\left(\sqrt{p_{\theta+h}}-\sqrt{p_\theta}-\frac12h^Ts_\theta\sqrt{p_\theta}\right)^2d\mu
 =o(\|h\|^2)
 $$
 
-なら、モデルはθで **QMD** といいます。
+> が成り立つとき、統計モデルは $\theta$ で **Quadratic Mean Differentiable（QMD）** であるといいます。
+<!-- formal-statement-end -->
 
 これは
 
