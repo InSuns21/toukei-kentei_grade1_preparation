@@ -125,6 +125,7 @@ const sandbox = {
     async delete() { return true; },
   },
   self: {
+    navigator: { onLine: false },
     location: { origin: 'https://example.test' },
     registration: { scope },
     clients: { async claim() {} },
@@ -139,18 +140,18 @@ const configSource = await readFile(path.join(root, 'pages', 'sw-config.js'), 'u
 vm.runInNewContext(configSource, sandbox, { filename: 'pages/sw-config.js' });
 assert.equal(
   sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.navigation,
-  'cache-first',
-  'offline navigation must prefer cached app shell without a network wait',
+  'network-first',
+  'online navigation must request the latest app shell',
 );
 assert.equal(
   sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.sameOrigin,
-  'stale-while-revalidate',
-  'cached same-origin content must be returned before network revalidation',
+  'network-first',
+  'online same-origin content must request the latest published file',
 );
 assert.equal(
   sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.externalAsset,
   'cache-first',
-  'pinned external runtime assets must prefer cache offline',
+  'version-pinned external runtime assets may prefer cache',
 );
 
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
@@ -181,28 +182,54 @@ fetchImplementation = async () => new Response('not found', { status: 404 });
 const dreamRouteResponse = await dispatch(
   new Request(new URL('textbook/dream-theater?docsify-cache-bust=1', scope)),
 );
-assert.equal(dreamRouteResponse.status, 200, 'Docsify extensionless route must resolve to cached .md');
+assert.equal(dreamRouteResponse.status, 200, 'offline Docsify extensionless route must resolve to cached .md');
 assert.equal(await dreamRouteResponse.text(), '# cached DREAM THEATER');
 
-// Regression guard for the user-visible latency bug: a cached Docsify route
-// must resolve even if the network request never settles. stale-while-revalidate
-// may keep that request alive in the background, but it must not block render.
+// Regression guard for the user-visible latency bug: when WorkerNavigator says
+// the browser is offline, the Service Worker must not even begin a network
+// request for an already-saved Docsify page.
 const instantCachedUrl = new URL('textbook/offline-speed.md', scope).href;
 await memoryCache.put(
   instantCachedUrl,
   new Response('# instant cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
 );
-fetchImplementation = () => new Promise(() => {});
+let offlineFetchCalls = 0;
+fetchImplementation = () => {
+  offlineFetchCalls += 1;
+  return new Promise(() => {});
+};
 const instantResponse = await Promise.race([
   dispatch(new Request(new URL('textbook/offline-speed', scope))),
   new Promise((_, reject) => setTimeout(
-    () => reject(new Error('cached same-origin page waited for the network')),
+    () => reject(new Error('offline cached page waited for the network')),
     250,
   )),
 ]);
-assert.equal(instantResponse.status, 200, 'cached same-origin page must return immediately');
+assert.equal(instantResponse.status, 200, 'offline cached same-origin page must return immediately');
 assert.equal(await instantResponse.text(), '# instant cached page');
+assert.equal(offlineFetchCalls, 0, 'known-offline cached page must not start a fetch');
 
+// The inverse guarantee matters just as much: while online, network-first must
+// return the current published response rather than rendering a stale snapshot.
+sandbox.self.navigator.onLine = true;
+const freshOnlineUrl = new URL('textbook/online-fresh.md', scope).href;
+await memoryCache.put(
+  freshOnlineUrl,
+  new Response('# stale cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+let onlineFetchCalls = 0;
+fetchImplementation = async () => {
+  onlineFetchCalls += 1;
+  return new Response('# latest online page', { status: 200, headers: { 'Content-Type': 'text/markdown' } });
+};
+const freshOnlineResponse = await dispatch(new Request(freshOnlineUrl));
+assert.equal(freshOnlineResponse.status, 200, 'online same-origin request must succeed');
+assert.equal(await freshOnlineResponse.text(), '# latest online page');
+assert.equal(onlineFetchCalls, 1, 'online same-origin request must hit the network');
+const refreshedCachedResponse = await memoryCache.match(freshOnlineUrl);
+assert.equal(await refreshedCachedResponse.text(), '# latest online page', 'online response must refresh offline cache');
+
+sandbox.self.navigator.onLine = false;
 const imageCachedUrl = new URL('textbook/assets/offline-test.png', scope).href;
 await memoryCache.put(
   imageCachedUrl,
@@ -231,4 +258,4 @@ assert.equal(await rangeResponse.text(), '2345');
 
 console.log(`Offline manifest validated: ${manifest.size} files (${imageFiles.length} images).`);
 console.log(`DREAM THEATER offline links validated: ${new Set(lectureLinks).size}.`);
-console.log('Service Worker cached-route latency, query-string asset, and range fallbacks passed.');
+console.log('Service Worker fresh-online, instant-offline, query-string asset, and range tests passed.');
