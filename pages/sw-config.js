@@ -7,8 +7,8 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
 
   // Online requests should see the latest published content. service-worker.js
   // short-circuits these strategies to Cache Storage when WorkerNavigator says
-  // the browser is offline, so Wi-Fi-off navigation does not wait for a failed
-  // request before rendering the saved教材.
+  // the browser is offline. It also falls back when a nominally-online mobile
+  // or VPN path cannot actually reach GitHub Pages cleanly.
   defaultStrategy: 'network-first',
   strategyByKind: Object.freeze({
     navigation: 'network-first',
@@ -17,6 +17,12 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     // traffic without risking stale runtime code.
     externalAsset: 'cache-first',
   }),
+
+  // A saved page should not wait forever on a half-connected mobile/VPN path.
+  // Valid online responses still win and refresh the offline snapshot; failed,
+  // timed-out, or HTML-error responses for Markdown/assets fall back to cache.
+  networkTimeoutMs: 2500,
+  networkFailureCooldownMs: 5000,
 
   // Keep the shell and a same-origin KaTeX fallback available after the first
   // online visit. The local KaTeX CSS pulls its font dependencies into the
