@@ -13,17 +13,6 @@ textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/in
 textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	1. 凸結合・凸集合・凸包	凸結合
 textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	2. 錐・凸錐・有限生成凸錐	凸錐
 textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	2. 錐・凸錐・有限生成凸錐	有限生成凸錐
-textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md	2. ノルム：長さを与える	ノルム空間
-textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md	5. Banach空間：極限で穴が開かないノルム空間	Banach空間
-textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md	8. Hilbert空間	Hilbert空間
-textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md	1. 線形汎関数	線形汎関数
-textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md	6. 双対空間	双対空間
-textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md	9. 評価汎関数	評価汎関数
-textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md	1. Banach空間での随伴作用素	随伴作用素
-textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md	10. 作用素ノルム	作用素ノルム
-textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md	2. 方向微分	方向微分
-textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md	3. Gâteaux微分	Gâteaux微分
-textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md	9. 有界線形作用素	有界線形作用素
 textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md	2. polar cone	polar cone
 textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md	3. dual cone	dual cone
 textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md	5. 劣勾配	劣微分

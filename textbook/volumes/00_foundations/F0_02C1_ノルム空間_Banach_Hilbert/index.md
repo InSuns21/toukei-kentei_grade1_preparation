@@ -60,19 +60,18 @@ $$
 
 ## 2. ノルム：長さを与える
 
-ベクトル空間 $X$ 上の関数
+<a id="def-f0-02c1-norm-normed-space"></a>
 
-$$
-\|\cdot\|:X\to[0,\infty)
-$$
-
-が次を満たすとき、ノルムといいます。
-
-1. $\|x\|\ge0$ で、$\|x\|=0\iff x=0$
-2. $\|ax\|=|a|\|x\|$
-3. $\|x+y\|\le\|x\|+\|y\|$
-
-ノルムを備えたベクトル空間を **ノルム空間** といいます。
+<!-- formal-statement-start -->
+> **定義（ノルム・ノルム空間）**  
+> ベクトル空間 $X$ 上の関数 $\|\cdot\|:X\to[0,\infty)$ が任意の $x,y\in X$ とスカラー $a$ に対して
+>
+> 1. $\|x\|\ge0$ かつ $\|x\|=0\iff x=0$
+> 2. $\|ax\|=|a|\|x\|$
+> 3. $\|x+y\|\le\|x\|+\|y\|$
+>
+> を満たすとき、$\|\cdot\|$ を **ノルム** といいます。ノルムを備えたベクトル空間を **ノルム空間** といいます。
+<!-- formal-statement-end -->
 
 ノルムから
 
@@ -162,7 +161,12 @@ supノルムでは一点でも大きく外れると強く効きますが、$L^2$
 
 ## 5. Banach空間：極限で穴が開かないノルム空間
 
-ノルム空間 $X$ のすべてのCauchy列が $X$ 内で収束するとき、$X$ を **Banach空間** といいます。
+<a id="def-f0-02c1-banach-space"></a>
+
+<!-- formal-statement-start -->
+> **定義（Banach空間）**  
+> ノルム空間 $X$ のすべてのCauchy列が $X$ 内で収束するとき、$X$ を **Banach空間** といいます。
+<!-- formal-statement-end -->
 
 $$
 \boxed{
@@ -251,13 +255,12 @@ $$
 
 ## 7. 内積：長さだけでなく角度を与える
 
-実ベクトル空間 $H$ 上の内積 $\langle x,y\rangle$ は、
+<a id="def-f0-02c1-inner-product"></a>
 
-1. $\langle x,x\rangle\ge0$ で、$\langle x,x\rangle=0\iff x=0$
-2. $\langle x,y\rangle=\langle y,x\rangle$
-3. 各引数について線形
-
-を満たします。
+<!-- formal-statement-start -->
+> **定義（実内積）**  
+> 実ベクトル空間 $H$ 上の二変数関数 $\langle\cdot,\cdot\rangle:H\times H\to\mathbb R$ が、任意の $x,y,z\in H$ と $a,b\in\mathbb R$ に対して、正定値性、対称性、線形性を満たすとき **内積** といいます。すなわち $\langle x,x\rangle\ge0$、$\langle x,x\rangle=0\iff x=0$、$\langle x,y\rangle=\langle y,x\rangle$、および $\langle ax+by,z\rangle=a\langle x,z\rangle+b\langle y,z\rangle$ が成り立ちます。
+<!-- formal-statement-end -->
 
 内積から
 
@@ -286,7 +289,12 @@ $$
 
 ## 8. Hilbert空間
 
-内積から定まるノルムについて完備な空間を **Hilbert空間** といいます。
+<a id="def-f0-02c1-hilbert-space"></a>
+
+<!-- formal-statement-start -->
+> **定義（Hilbert空間）**  
+> 内積から定まるノルムについて完備な内積空間を **Hilbert空間** といいます。
+<!-- formal-statement-end -->
 
 $$
 \boxed{
