@@ -1,18 +1,18 @@
-name: Repair named formal math
+name: Migrate remaining named formal results
 
 on:
   push:
     branches:
       - audit/named-formal-results
     paths:
-      - 'scripts/repair-named-formal-math.mjs'
+      - 'scripts/migrate-named-formal-results-pass2.mjs'
       - '.github/workflows/migrate-named-formals.yml'
 
 permissions:
   contents: write
 
 jobs:
-  repair:
+  migrate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -25,17 +25,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Repair display math delimiters
-        run: node scripts/repair-named-formal-math.mjs
+      - name: Apply remaining named-formal migration
+        run: node scripts/migrate-named-formal-results-pass2.mjs
 
-      - name: Commit repair result
+      - name: Commit migration result
         run: |
           if git diff --quiet; then
-            echo 'No repair changes.'
+            echo 'No migration changes.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook
-          git commit -m '修正: formal statementの別行数式を復元'
+          git add textbook statistical-mathematics applied-rikou-80
+          git commit -m '教材: 残りの名前付き定理系をformal化'
           git push origin HEAD:audit/named-formal-results
