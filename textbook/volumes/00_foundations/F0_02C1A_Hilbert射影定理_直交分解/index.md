@@ -22,11 +22,11 @@ $$
 > **定理（Hilbert空間の射影定理）**  
 > $H$ をHilbert空間、$C\subset H$ を空でない閉凸集合、$z\in H$ とします。このとき一意な $p\in C$ が存在して
 
-$
+$$
 \boxed{
 \|z-p\|=\inf_{x\in C}\|z-x\|
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

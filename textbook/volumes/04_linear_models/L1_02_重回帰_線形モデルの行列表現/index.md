@@ -274,18 +274,18 @@ $$
 > **定理（Gauss--Markovの定理）**  
 > 線形モデル $Y=X\beta+\varepsilon$ で、$X\in\mathbb R^{n\times p}$ は列フルランク、$E[\varepsilon]=0$、$\operatorname{Var}(\varepsilon)=\sigma^2I_n$ とします。このとき最小二乗推定量
 
-$
+$$
 \widehat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}Y
-$
+$$
 
 > は線形不偏推定量の中で最良です。すなわち任意の線形不偏推定量 $\widetilde\beta=AY$ に対して
 
-$
+$$
 \boxed{
 \operatorname{Var}(\widetilde\beta)-\operatorname{Var}(\widehat\beta)
 \succeq0
 }
-$
+$$
 
 > が成り立ちます。正規性は仮定しません。
 <!-- formal-statement-end -->

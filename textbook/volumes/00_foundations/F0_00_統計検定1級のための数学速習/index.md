@@ -805,13 +805,13 @@ $$
 > **定理（Fubiniの定理）**  
 > 可測関数 $f:\mathbb R^2\to\mathbb R$ が
 
-$
+$$
 \iint_{\mathbb R^2}|f(x,y)|\,dx\,dy<\infty
-$
+$$
 
 > を満たすとします。このとき反復積分はほとんど至る所で定義でき、
 
-$
+$$
 \boxed{
 \iint_{\mathbb R^2}f(x,y)\,dx\,dy
 =
@@ -819,7 +819,7 @@ $
 =
 \int_{\mathbb R}\left(\int_{\mathbb R}f(x,y)\,dx\right)dy
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->
@@ -830,7 +830,7 @@ $
 > **定理（Tonelliの定理）**  
 > 可測関数 $f:\mathbb R^2\to[0,\infty]$ に対して、積分値が $+\infty$ の場合も許せば
 
-$
+$$
 \boxed{
 \iint_{\mathbb R^2}f(x,y)\,dx\,dy
 =
@@ -838,7 +838,7 @@ $
 =
 \int_{\mathbb R}\left(\int_{\mathbb R}f(x,y)\,dx\right)dy
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

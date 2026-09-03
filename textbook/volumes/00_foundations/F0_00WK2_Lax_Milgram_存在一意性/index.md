@@ -55,18 +55,18 @@ $$
 > **定理（Lax--Milgram定理）**  
 > $V$ を実Hilbert空間、$a:V\times V\to\mathbb R$ を双線形形式とします。ある $M,\alpha>0$ が存在して、任意の $u,v\in V$ に対し $|a(u,v)|\le M\|u\|\|v\|$、$a(v,v)\ge\alpha\|v\|^2$ が成り立つとします。任意の $F\in V^*$ に対して一意な $u\in V$ が存在し、
 
-$
+$$
 a(u,v)=F(v)
 \qquad(\forall v\in V)
-$
+$$
 
 > を満たします。さらに
 
-$
+$$
 \boxed{
 \|u\|\le\frac1\alpha\|F\|_{V^*}
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

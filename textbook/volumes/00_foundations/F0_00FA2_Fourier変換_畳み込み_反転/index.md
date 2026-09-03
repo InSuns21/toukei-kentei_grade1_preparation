@@ -145,12 +145,12 @@ $$
 > **補題（Riemann--Lebesgueの補題）**  
 > $f\in L^1(\mathbb R)$ のFourier変換を $\widehat f(\xi)=\int_{\mathbb R}f(x)e^{-i\xi x}\,dx$ とします。このとき
 
-$
+$$
 \boxed{
 \widehat f(\xi)\to0
 \qquad(|\xi|\to\infty)
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->
@@ -206,13 +206,13 @@ $$
 > **定理（畳み込み定理）**  
 > $f,g\in L^1(\mathbb R)$ とし、$(f*g)(x)=\int_{\mathbb R}f(x-y)g(y)\,dy$ と定めます。Fourier変換を $\widehat h(\xi)=\int_{\mathbb R}h(x)e^{-i\xi x}\,dx$ とすると、任意の $\xi\in\mathbb R$ に対して
 
-$
+$$
 \boxed{
 \widehat{f*g}(\xi)
 =
 \widehat f(\xi)\widehat g(\xi)
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

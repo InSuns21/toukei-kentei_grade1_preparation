@@ -163,15 +163,15 @@ $$
 > **補題（Borel--Cantelli第1補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が
 
-$
+$$
 \sum_{n=1}^{\infty}P(A_n)<\infty
-$
+$$
 
 > を満たすなら
 
-$
+$$
 \boxed{P(A_n\ \mathrm{i.o.})=0}
-$
+$$
 
 > が成り立ちます。独立性は仮定しません。
 <!-- formal-statement-end -->
@@ -304,15 +304,15 @@ $$
 > **補題（Borel--Cantelli第2補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が互いに独立で
 
-$
+$$
 \sum_{n=1}^{\infty}P(A_n)=\infty
-$
+$$
 
 > を満たすなら
 
-$
+$$
 \boxed{P(A_n\ \mathrm{i.o.})=1}
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

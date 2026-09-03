@@ -49,18 +49,18 @@ $$
 > **定理（Herglotz定理）**  
 > $\gamma:\mathbb Z\to\mathbb C$ が正定値列、すなわち任意の整数 $t_1,\ldots,t_m$ と複素数 $c_1,\ldots,c_m$ に対して
 
-$
+$$
 \sum_{j,k=1}^m c_j\overline{c_k}\gamma(t_j-t_k)\ge0
-$
+$$
 
 > を満たすとします。このとき $[-\pi,\pi]$ 上の一意な有限非負測度 $F$ が存在して
 
-$
+$$
 \boxed{
 \gamma(h)=\int_{-\pi}^{\pi}e^{ih\lambda}\,dF(\lambda)
 \qquad(h\in\mathbb Z)
 }
-$
+$$
 
 > と表せます。逆に有限非負測度 $F$ からこの式で定めた列は正定値です。
 <!-- formal-statement-end -->

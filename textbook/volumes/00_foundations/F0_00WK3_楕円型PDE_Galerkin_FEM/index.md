@@ -195,14 +195,14 @@ $$
 > **補題（Ceaの補題）**  
 > $V$ を実Hilbert空間、$V_h\subset V$ を有限次元部分空間とし、双線形形式 $a:V\times V\to\mathbb R$ が $|a(u,v)|\le M\|u\|\|v\|$ と $a(v,v)\ge\alpha\|v\|^2$ を満たすとします。$F\in V^*$ に対し、$u\in V$ が $a(u,v)=F(v)$ をすべての $v\in V$ で満たし、$u_h\in V_h$ が $a(u_h,v_h)=F(v_h)$ をすべての $v_h\in V_h$ で満たすとします。このとき
 
-$
+$$
 \boxed{
 \|u-u_h\|
 \le
 \frac M\alpha
 \inf_{w_h\in V_h}\|u-w_h\|
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

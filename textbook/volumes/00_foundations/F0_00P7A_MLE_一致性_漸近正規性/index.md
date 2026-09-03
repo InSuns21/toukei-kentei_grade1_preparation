@@ -14,11 +14,11 @@ $$\boxed{\text{consistency}+\text{score CLT}+\text{Hessian LLN}+\text{Taylor}+\t
 > **定理（Slutskyの定理）**  
 > 確率変数列 $Y_n,Z_n$ が $Y_n\xrightarrow{d}Y$、$Z_n\xrightarrow{p}c$ を満たし、$c$ が定数であるとします。このとき
 
-$
+$$
 Y_n+Z_n\xrightarrow{d}Y+c,
 \qquad
 Y_nZ_n\xrightarrow{d}cY
-$
+$$
 
 > が成り立ちます。また $c\ne0$ なら $Y_n/Z_n\xrightarrow{d}Y/c$ です。
 <!-- formal-statement-end -->

@@ -48,13 +48,13 @@ $$
 > **定理（Plancherel等式）**  
 > $L^1(\mathbb R)\cap L^2(\mathbb R)$ 上で $\widehat f(\xi)=\int_{\mathbb R}f(x)e^{-i\xi x}\,dx$ と定義したFourier変換を $L^2(\mathbb R)$ へ連続拡張します。この拡張に対して、任意の $f\in L^2(\mathbb R)$ で
 
-$
+$$
 \boxed{
 \|f\|_2^2
 =
 \frac1{2\pi}\|\widehat f\|_2^2
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->

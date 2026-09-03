@@ -61,9 +61,9 @@ $$\boxed{\sum_n\frac{\operatorname{Var}(Y_n)}{n^2}<\infty}.$$
 > **定理（Kolmogorov収束定理）**  
 > 独立な確率変数列 $Z_1,Z_2,\ldots$ が $E[Z_n]=0$、$\operatorname{Var}(Z_n)<\infty$ を満たし、
 
-$
+$$
 \sum_{n=1}^{\infty}\operatorname{Var}(Z_n)<\infty
-$
+$$
 
 > であるとします。このとき級数 $\sum_{n=1}^{\infty}Z_n$ は概収束します。
 <!-- formal-statement-end -->
@@ -124,11 +124,11 @@ $$\boxed{\sum_n\frac{Y_n}{n}\text{ converges a.s.}}$$
 > **補題（Kronecker補題）**  
 > 実数列 $a_1,a_2,\ldots$ について級数 $\sum_{n=1}^{\infty}a_n/n$ が収束するなら
 
-$
+$$
 \boxed{
 \frac1n\sum_{k=1}^n a_k\to0
 }
-$
+$$
 
 > が成り立ちます。
 <!-- formal-statement-end -->
