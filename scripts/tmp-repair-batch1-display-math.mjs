@@ -16,6 +16,8 @@ for (const file of files) {
       fixed += 1;
     }
   }
-  fs.writeFileSync(file, lines.join('\n'));
+  let text = lines.join('\n');
+  text = text.replace('という確率変数があるとします。<a id="def-e2-01-stochastic-process"></a>', 'という確率変数があるとします。\n\n<a id="def-e2-01-stochastic-process"></a>');
+  fs.writeFileSync(file, text);
   console.log(`${file}: repaired ${fixed} display-math delimiter line(s)`);
 }
