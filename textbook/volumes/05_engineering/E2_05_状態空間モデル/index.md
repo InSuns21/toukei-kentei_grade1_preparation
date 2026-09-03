@@ -106,17 +106,24 @@ $$
 
 まずスカラー形から始めます。
 
+<a id="def-e2-05-state-observation-equations"></a>
+
+<!-- formal-statement-start -->
+> **定義（状態方程式・観測方程式）**  
+> スカラー線形状態空間モデルで
+
 $$
-\boxed{x_t=ax_{t-1}+w_t}
+x_t=ax_{t-1}+w_t
 $$
 
-を **状態方程式**、
+> を **状態方程式**、
 
 $$
-\boxed{y_t=cx_t+v_t}
+y_t=cx_t+v_t
 $$
 
-を **観測方程式** と呼びます。
+> を **観測方程式** といいます。$w_t$ はシステムノイズ、$v_t$ は観測ノイズです。
+<!-- formal-statement-end -->
 
 Gaussian モデルでは
 
@@ -384,13 +391,19 @@ m_t^+
 \end{aligned}
 $$
 
-ここで
+<a id="def-e2-05-kalman-gain"></a>
+
+<!-- formal-statement-start -->
+> **定義（Kalman gain）**  
+> スカラー線形Gaussian状態空間モデルの更新で、予測誤差分散 $S_t=c^2P_t^-+r$ に対して
 
 $$
-\boxed{K_t=\frac{cP_t^-}{c^2P_t^-+r}}
+K_t=\frac{cP_t^-}{S_t}
+=\frac{cP_t^-}{c^2P_t^-+r}
 $$
 
-を **Kalman gain** と呼びます。
+> と定める係数を **Kalman gain** といいます。
+<!-- formal-statement-end -->
 
 したがって
 
