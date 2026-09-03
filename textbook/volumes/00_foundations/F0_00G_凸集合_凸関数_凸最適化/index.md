@@ -277,6 +277,21 @@ $$
 
 ## 8. 微分可能な凸関数の一次支持不等式
 
+<a id="prop-f0-00g-first-order-convexity"></a>
+
+<!-- formal-statement-start -->
+> **命題（微分可能な凸関数の一次支持不等式）**  
+> $C\subset\mathbb R^d$ を凸な開集合、$f:C\to\mathbb R$ を微分可能な凸関数とします。このとき任意の $x,y\in C$ に対して
+
+$
+\boxed{
+f(y)\ge f(x)+\nabla f(x)^{\mathsf T}(y-x)
+}
+$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 $f$ が微分可能な凸関数なら
 
 $$

@@ -582,6 +582,15 @@ $$
 
 ## 10. Farkasの補題：必要な形
 
+<a id="lem-f0-02a-farkas-alternative"></a>
+
+<!-- formal-statement-start -->
+> **補題（Farkas型のalternative）**  
+> $A\in\mathbb R^{p\times n}$、$B\in\mathbb R^{q\times n}$、$v\in\mathbb R^n$ とします。次の二つのうち、ちょうど一方が成立します。  
+> (A) $v=A^{\mathsf T}\lambda+B^{\mathsf T}\nu$、$\lambda\ge0$ を満たす $\lambda\in\mathbb R^p,\nu\in\mathbb R^q$ が存在する。  
+> (B) $Ad\le0$、$Bd=0$、$v^{\mathsf T}d>0$ を満たす $d\in\mathbb R^n$ が存在する。
+<!-- formal-statement-end -->
+
 本補講で使う形を次のように書きます。
 
 ### Farkas型の alternative

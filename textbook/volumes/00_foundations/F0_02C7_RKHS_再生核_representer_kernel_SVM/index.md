@@ -332,6 +332,13 @@ $$
 
 ## 11. Moore--Aronszajnの定理
 
+<a id="thm-f0-02c7-moore-aronszajn"></a>
+
+<!-- formal-statement-start -->
+> **定理（Moore--Aronszajnの定理）**  
+> 集合 $\mathcal X$ 上の対称なpositive semidefinite kernel $K:\mathcal X\times\mathcal X\to\mathbb R$ を与えます。このとき $K$ を再生核とする再生核Hilbert空間が存在し、関数Hilbert空間として一意に定まります。
+<!-- formal-statement-end -->
+
 任意のpositive semidefinite kernel
 
 $$

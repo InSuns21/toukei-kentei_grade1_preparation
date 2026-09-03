@@ -97,6 +97,21 @@ $$
 
 ## 3. Kolmogorov最大不等式
 
+<!-- formal-statement-start -->
+> **定理（Kolmogorov最大不等式）**  
+> $Y_1,\ldots,Y_n$ を独立で $E[Y_j]=0$、$\operatorname{Var}(Y_j)<\infty$ を満たす確率変数とし、$S_k=\sum_{j=1}^kY_j$ とします。このとき任意の $\lambda>0$ に対して
+
+$
+\boxed{
+P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right)
+\le
+\frac{\operatorname{Var}(S_n)}{\lambda^2}
+}
+$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 $Y_1,\dots,Y_n$ を独立、平均0、有限分散とし
 
 $$

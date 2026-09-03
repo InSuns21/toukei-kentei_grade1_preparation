@@ -701,6 +701,13 @@ $$
 
 ## 9. Farkasの補題
 
+<!-- formal-statement-start -->
+> **補題（Farkasの補題）**  
+> $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ とします。次の二つのうち、ちょうど一方が成立します。  
+> (A) $Ax=b$、$x\ge0$ を満たす $x\in\mathbb R^n$ が存在する。  
+> (B) $A^{\mathsf T}y\le0$、$b^{\mathsf T}y>0$ を満たす $y\in\mathbb R^m$ が存在する。
+<!-- formal-statement-end -->
+
 $A\in\mathbb R^{m\times n}$、$b\in\mathbb R^m$ とします。
 
 次の二つのうち **ちょうど一方** が成立します。

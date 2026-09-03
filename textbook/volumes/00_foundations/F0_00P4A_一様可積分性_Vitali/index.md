@@ -77,6 +77,21 @@ $$
 
 ## 3. Vitali型の収束定理
 
+<a id="thm-f0-00p4a-vitali"></a>
+
+<!-- formal-statement-start -->
+> **定理（Vitali型の収束定理）**  
+> 同一の確率空間上の可積分確率変数列 $X_n$ が確率変数 $X$ へ確率収束し、族 $\{X_n:n\ge1\}$ が一様可積分であるとします。このとき $X$ も可積分で
+
+$
+\boxed{
+E|X_n-X|\to0
+}
+$
+
+> が成り立ちます。特に $E[X_n]\to E[X]$ です。
+<!-- formal-statement-end -->
+
 $X_n\to X$ in probability かつ $\{X_n\}$ が一様可積分なら
 
 $$
