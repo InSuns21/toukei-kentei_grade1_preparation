@@ -241,6 +241,16 @@ async function staleWhileRevalidate(event, request, cache) {
 
 async function applyStrategy(event, request, kind) {
   const cache = await caches.open(cacheName);
+
+  // WorkerNavigator.onLine=false is a strong signal that the browser has no
+  // network connection. In that state, never start a fetch just to discover
+  // what we already know: use the saved offline snapshot immediately.
+  // A true value is only a hint, so online requests still use the configured
+  // network strategy and therefore see the latest published content.
+  if (self.navigator?.onLine === false) {
+    return cachedFallback(request, cache);
+  }
+
   const strategy = strategyFor(kind);
 
   if (strategy === 'cache-first') {
