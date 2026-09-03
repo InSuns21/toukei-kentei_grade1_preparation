@@ -127,6 +127,21 @@ $$
 
 ## 4. 階数・退化次数の定理
 
+<a id="thm-f0-00-linear-rank-nullity"></a>
+
+<!-- formal-statement-start -->
+> **定理（階数・退化次数の定理）**  
+> $A\in\mathbb R^{m\times n}$ を線形写像 $A:\mathbb R^n\to\mathbb R^m$ とみなします。このとき
+
+$$
+\boxed{
+\operatorname{rank}(A)+\dim\operatorname{Null}(A)=n
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 $A\in\mathbb R^{m\times n}$ に対して
 
 $$

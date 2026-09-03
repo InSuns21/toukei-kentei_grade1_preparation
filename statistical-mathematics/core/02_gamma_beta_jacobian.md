@@ -213,6 +213,21 @@ $$
 
 ### 3. 周辺分布・独立性と Beta–Gamma 恒等式
 
+<a id="prop-statmath-core02-beta-gamma"></a>
+
+<!-- formal-statement-start -->
+> **命題（Beta--Gamma恒等式）**  
+> $a,b>0$ に対して
+
+$$
+\boxed{
+B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 まず
 
 $$

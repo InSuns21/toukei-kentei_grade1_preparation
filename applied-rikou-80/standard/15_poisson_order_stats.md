@@ -20,6 +20,28 @@
 
 ### 1. Poisson条件付き順序統計量定理
 
+<a id="thm-rikou-standard15-poisson-order-stats"></a>
+
+<!-- formal-statement-start -->
+> **定理（Poisson過程の条件付き順序統計量定理）**  
+> 率 $\lambda>0$ のhomogeneous Poisson過程を考え、$T>0$ を固定します。$N(T)=n$ に条件付けると、条件付き到着時刻
+
+$$
+0<S_1<\cdots<S_n<T
+$$
+
+> の同時密度は
+
+$$
+\boxed{
+\frac{n!}{T^n},
+\qquad 0<s_1<\cdots<s_n<T
+}
+$$
+
+> となります。したがって $(S_1,\ldots,S_n)$ の条件付き分布は、独立な $U(0,T)$ 標本 $n$ 個の順序統計量の分布と一致します。
+<!-- formal-statement-end -->
+
 使うのは **homogeneous Poisson過程の条件付き順序統計量定理**である。
 
 定理は、一定率 $\lambda$ のhomogeneous Poisson過程について、固定区間 $[0,T]$ の総到着数を $N(T)=n$ に固定すると、条件付き到着時刻
