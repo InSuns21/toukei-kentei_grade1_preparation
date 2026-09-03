@@ -336,18 +336,15 @@ $$
 
 ## 8. 2成分正規混合のE-step
 
-$Z_i=1$ の条件付き確率を
+<a id="def-i4-02-responsibility"></a>
+
+<!-- formal-statement-start -->
+> **定義（責任度）**  
+> 混合モデルのE-stepで、観測 $x_i$ が成分1に属する潜在指示変数を $Z_i$ とするとき、現在の母数 $\theta^{(t)}$ の下での事後確率
 
 $$
 r_i^{(t)}
 =P(Z_i=1\mid X_i=x_i,\theta^{(t)})
-$$
-
-とします。ベイズの定理より
-
-$$
-\boxed{
-r_i^{(t)}
 =
 \frac{
 \pi^{(t)}\phi(x_i;\mu_1^{(t)},\sigma^2)
@@ -355,10 +352,10 @@ r_i^{(t)}
 \pi^{(t)}\phi(x_i;\mu_1^{(t)},\sigma^2)
 +(1-\pi^{(t)})\phi(x_i;\mu_2^{(t)},\sigma^2)
 }
-}.
 $$
 
-これを **責任度**と呼びます。
+> を観測 $i$ に対する成分1の **責任度** といいます。
+<!-- formal-statement-end -->
 
 $Z_i$ は0または1なので
 

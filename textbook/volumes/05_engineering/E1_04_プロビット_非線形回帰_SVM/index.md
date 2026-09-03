@@ -1149,17 +1149,19 @@ $$
 
 となります。
 
-そこで
+<a id="def-e1-04-hinge-loss"></a>
+
+<!-- formal-statement-start -->
+> **定義（hinge損失）**  
+> 二値ラベル $y\in\{-1,+1\}$ と判別関数値 $f$ に対し
 
 $$
-\boxed{
 \ell_{\mathrm{hinge}}(y,f)
-=
-\max\{0,1-yf\}
-}
+=\max\{0,1-yf\}
 $$
 
-を **hinge損失** と呼びます。
+> を **hinge損失** といいます。
+<!-- formal-statement-end -->
 
 つまりhinge損失は突然選んだ損失関数ではありません。
 

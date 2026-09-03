@@ -431,9 +431,20 @@ $$
 
 ## 5. 白色化：楕円を球へ戻す
 
-前節で使った、共分散を単位行列へ変換する操作を**白色化**といいます。
+<a id="def-e1-01-whitening"></a>
 
-平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ をもつ確率ベクトル $\boldsymbol X$ を考え、
+<!-- formal-statement-start -->
+> **定義（白色化）**  
+> 平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ をもつ確率ベクトル $\boldsymbol X$ に対し、中心化後の線形変換 $\boldsymbol Z=W(\boldsymbol X-\boldsymbol\mu)$ が
+
+$$
+\operatorname{Cov}(\boldsymbol Z)=I_p
+$$
+
+> を満たすようにする操作を **白色化** といいます。
+<!-- formal-statement-end -->
+
+以下では具体的な白色化行列を固有分解から構成します。$\Sigma$ を
 
 $$
 \Sigma=Q\Lambda Q^{\mathsf T}

@@ -152,13 +152,18 @@ $$
 
 ### 3.1 レバレッジ
 
-ハット行列の対角成分
+<a id="def-l1-04-leverage"></a>
+
+<!-- formal-statement-start -->
+> **定義（レバレッジ）**  
+> ハット行列 $H=X(X^{\mathsf T}X)^{-1}X^{\mathsf T}$ の対角成分
 
 $$
-\boxed{h_{ii}}
+h_{ii}
 $$
 
-を観測 $i$ の **レバレッジ** と呼びます。
+> を観測 $i$ の **レバレッジ** といいます。
+<!-- formal-statement-end -->
 
 $X$ の列数を $p$ とすると、$H$ は階数 $p$ の射影行列なので
 
@@ -491,7 +496,18 @@ $$
 
 したがって変換後のモデルへ OLS を適用すればよく、その推定量は GLS と一致します。
 
-この変換を **白色化** と呼びます。
+<a id="def-l1-04-whitening"></a>
+
+<!-- formal-statement-start -->
+> **定義（白色化）**  
+> 誤差共分散が $\operatorname{Var}(\varepsilon\mid X)=\sigma^2\Omega$ のとき、$\Omega=LL^{\mathsf T}$ などを用いて $\varepsilon^*=L^{-1}\varepsilon$ と変換し、
+
+$$
+\operatorname{Var}(\varepsilon^*\mid X)=\sigma^2I
+$$
+
+> となるように誤差の相関と尺度差を取り除く変換を **白色化** といいます。
+<!-- formal-statement-end -->
 
 ![GLSの白色化](./figures/gls-whitening.svg)
 
