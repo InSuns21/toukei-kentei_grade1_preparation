@@ -71,8 +71,8 @@ jobs:
       - name: Block new prose-style formal definitions
         run: npm run validate:implicit-formals
 
-      - name: Audit named theorem-like results
-        run: node scripts/audit-named-formal-results.mjs
+      - name: Validate named theorem-like results
+        run: npm run validate:named-formals
 
       - name: Validate formal theorem and definition references
         run: npm run validate:formal-references
