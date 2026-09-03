@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: '20'
       - run: node scripts/tmp-retire-implicit-formals-batch1.mjs
-      - run: npm ci
-      - run: npm run validate
-      - run: npm run validate:pages
       - name: Commit migration
         run: |
           git config user.name "github-actions[bot]"
@@ -32,3 +29,6 @@ jobs:
           git add textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md textbook/volumes/05_engineering/E2_01_markov連鎖/index.md scripts/implicit-formal-baseline.txt
           git commit -m 'formalize linear-algebra and Markov definitions'
           git push
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run validate:pages
