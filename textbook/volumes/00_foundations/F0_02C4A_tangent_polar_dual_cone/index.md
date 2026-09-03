@@ -6,17 +6,18 @@
 
 集合 $C$ と $x\in C$ に対し、「実際に集合内から近づける一次方向」を集めたものが tangent cone です。
 
-一つの標準的定義としてBouligand tangent coneを
+<a id="def-f0-02c4a-tangent-cone"></a>
+
+<!-- formal-statement-start -->
+> **定義（Bouligand tangent cone）**  
+> 集合 $C$ と $x\in C$ に対し
 
 $$
-T_C(x)
-=\left\{
-h:\exists t_n\downarrow0,\ \exists x_n\in C,
-\ \frac{x_n-x}{t_n}\to h
-\right\}
+T_C(x)=\left\{h:\exists t_n\downarrow0,\ \exists x_n\in C,\ \frac{x_n-x}{t_n}\to h\right\}
 $$
 
-と定めます。
+> を $C$ の $x$ における **Bouligand tangent cone** といいます。
+<!-- formal-statement-end -->
 
 凸集合なら、直感的には
 
@@ -31,17 +32,18 @@ $$
 
 ## 2. polar cone
 
-錐 $K\subset X$ に対して
+<a id="def-f0-02c4a-polar-cone"></a>
+
+<!-- formal-statement-start -->
+> **定義（polar cone）**  
+> 錐 $K\subset X$ に対して
 
 $$
-\boxed{
-K^\circ
-=\{x^*\in X^*:x^*(k)\le0
-\ \forall k\in K\}
-}
+K^\circ=\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}
 $$
 
-を **polar cone** といいます。
+> を $K$ の **polar cone** といいます。
+<!-- formal-statement-end -->
 
 normal coneの定義と比べると、凸集合について
 
@@ -59,17 +61,18 @@ $$
 
 ## 3. dual cone
 
-一方、錐 $K\subset Y$ に対して
+<a id="def-f0-02c4a-dual-cone"></a>
+
+<!-- formal-statement-start -->
+> **定義（dual cone）**  
+> 錐 $K\subset Y$ に対して
 
 $$
-\boxed{
-K^*
-=\{\lambda\in Y^*:\lambda(k)\ge0
-\ \forall k\in K\}
-}
+K^*=\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}
 $$
 
-を **dual cone** といいます。
+> を $K$ の **dual cone** といいます。
+<!-- formal-statement-end -->
 
 本教材では polar cone を $\le0$、dual cone を $\ge0$ で定義しているため
 

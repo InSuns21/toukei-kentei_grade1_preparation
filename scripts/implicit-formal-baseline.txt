@@ -5,28 +5,8 @@ textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	3. Lebesgue外測度	Lebesgue外測度
 textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md	5. 外測度の三条件	外測度
 textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md	3. 各同値類から一つずつ選ぶ	Vitali集合
-textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	1. 凸結合	凸結合
-textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	7. 狭義凸関数	狭義凸
 textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md	2. Quadratic Mean Differentiability	QMD
 textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md	3.4 上界・下界、$\sup$・$\inf$	上界
-textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md	6. 線形化錐を作る	線形化錐（linearized cone）
-textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	1. 凸結合・凸集合・凸包	凸結合
-textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	2. 錐・凸錐・有限生成凸錐	凸錐
-textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md	2. 錐・凸錐・有限生成凸錐	有限生成凸錐
-textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md	2. polar cone	polar cone
-textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md	3. dual cone	dual cone
-textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md	5. 劣勾配	劣微分
-textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md	9. normal cone	normal cone
-textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md	2. sublinear functional	sublinear functional
-textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md	2. RKHSの定義	再生核Hilbert空間（RKHS）
-textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md	3. Riesz表現を評価汎関数へ使う	再生性
-textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md	7. positive semidefinite kernel	positive semidefinite kernel
-textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md	8. canonical feature map	canonical feature map
-textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md	3. 双対関数：元の最小値に対する下からの評価	双対問題（dual problem）
-textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md	3. 双対関数：元の最小値に対する下からの評価	双対関数
-textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md	4. 弱双対性と強双対性	弱双対性
-textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md	4. 弱双対性と強双対性	強双対性
-textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md	制約がぴったり効いている場合	activeな制約
 textbook/volumes/01_probability/P1_01_事象と確率/index.md	1. まず有限標本空間で考える	標本空間
 textbook/volumes/01_probability/P1_01_事象と確率/index.md	7. 上極限事象と下極限事象	上極限事象
 textbook/volumes/01_probability/P1_01_事象と確率/index.md	7. 上極限事象と下極限事象	下極限事象

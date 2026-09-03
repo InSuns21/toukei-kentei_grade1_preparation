@@ -71,19 +71,19 @@ $$
 
 ## 2. 不等式制約のLagrangian
 
-不等式制約には非負の乗数 $\alpha_i\ge0$、等式制約には符号制限のない乗数 $\nu_j$ を付けて
+<a id="def-f0-02-lagrangian"></a>
+
+<!-- formal-statement-start -->
+> **定義（Lagrangian）**  
+> 不等式制約 $g_i(\boldsymbol x)\le0$ と等式制約 $h_j(\boldsymbol x)=0$ を持つ最小化問題に対し、$\alpha_i\ge0$ と $\nu_j\in\mathbb R$ を用いて
 
 $$
-\boxed{
 L(\boldsymbol x,\boldsymbol\alpha,\boldsymbol\nu)
-=
-f(\boldsymbol x)
-+\sum_{i=1}^m\alpha_i g_i(\boldsymbol x)
-+\sum_{j=1}^r\nu_j h_j(\boldsymbol x)
-}
+=f(\boldsymbol x)+\sum_{i=1}^m\alpha_i g_i(\boldsymbol x)+\sum_{j=1}^r\nu_j h_j(\boldsymbol x)
 $$
 
-とします。
+> と定める関数を **Lagrangian** といいます。
+<!-- formal-statement-end -->
 
 なぜ不等式制約では $\alpha_i\ge0$ とするのでしょうか。
 
@@ -121,18 +121,18 @@ $$
 
 ## 3. 双対関数：元の最小値に対する下からの評価
 
-$\boldsymbol\alpha,\boldsymbol\nu$ を固定し、$\boldsymbol x$ についてLagrangianを最小化して
+<a id="def-f0-02-dual-function"></a>
+
+<!-- formal-statement-start -->
+> **定義（双対関数）**  
+> Lagrangianに対し
 
 $$
-\boxed{
-q(\boldsymbol\alpha,\boldsymbol\nu)
-=
-\inf_{\boldsymbol x}
-L(\boldsymbol x,\boldsymbol\alpha,\boldsymbol\nu)
-}
+q(\boldsymbol\alpha,\boldsymbol\nu)=\inf_{\boldsymbol x}L(\boldsymbol x,\boldsymbol\alpha,\boldsymbol\nu)
 $$
 
-と定義します。これを **双対関数** といいます。
+> と定める関数を **双対関数** といいます。
+<!-- formal-statement-end -->
 
 元の問題の最適値を $p^*$ とします。任意の実行可能な $\boldsymbol x$ に対して
 
@@ -173,27 +173,29 @@ $$
 
 という制約を保ちます。
 
-元の問題を **主問題（primal problem）**、この下界を最大化する問題を **双対問題（dual problem）** と呼びます。
+<a id="def-f0-02-primal-dual-problem"></a>
+
+<!-- formal-statement-start -->
+> **定義（主問題・双対問題）**  
+> 元の制約付き最小化問題を **主問題（primal problem）** といい、双対関数 $q$ を $\alpha_i\ge0$ の下で最大化する問題を **双対問題（dual problem）** といいます。
+<!-- formal-statement-end -->
 
 ---
 
 ## 4. 弱双対性と強双対性
 
-常に成り立つ
+<a id="def-f0-02-weak-strong-duality"></a>
+
+<!-- formal-statement-start -->
+> **定義（弱双対性・強双対性）**  
+> 主問題の最適値を $p^*$ とすると、任意の双対実行可能点で $q(\boldsymbol\alpha,\boldsymbol\nu)\le p^*$ が成り立つ性質を **弱双対性** といいます。双対問題の最適値を $d^*$ としたとき
 
 $$
-q(\boldsymbol\alpha,\boldsymbol\nu)\le p^*
+p^*=d^*
 $$
 
-を **弱双対性** といいます。
-
-一方、主問題の最適値 $p^*$ と双対問題の最適値 $d^*$ が
-
-$$
-\boxed{p^*=d^*}
-$$
-
-となることを **強双対性** といいます。
+> が成り立つことを **強双対性** といいます。
+<!-- formal-statement-end -->
 
 強双対性はどんな問題でも自動的に成立するわけではありません。ただし、目的関数が凸、制約も凸という **凸最適化問題** で、さらに実行可能領域の内部に制約を厳密に満たす点があるなどの条件（Slater条件）があれば、強双対性が成立します。
 
@@ -289,7 +291,12 @@ $$
 
 なら $\alpha_i^*$ は0とは限りません。
 
-このような制約を **activeな制約** といいます。
+<a id="def-f0-02-active-constraint"></a>
+
+<!-- formal-statement-start -->
+> **定義（activeな制約）**  
+> 不等式制約 $g_i(\boldsymbol x)\le0$ が点 $\boldsymbol x^*$ で $g_i(\boldsymbol x^*)=0$ を満たすとき、その制約を $\boldsymbol x^*$ で **activeな制約** といいます。
+<!-- formal-statement-end -->
 
 KKT条件の相補性は、
 

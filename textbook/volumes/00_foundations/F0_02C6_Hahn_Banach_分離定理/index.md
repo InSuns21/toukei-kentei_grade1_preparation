@@ -34,25 +34,18 @@ Hahn--Banachは、その延長を可能にします。
 
 ## 2. sublinear functional
 
-実ベクトル空間 $X$ 上の関数
+<a id="def-f0-02c6-sublinear-functional"></a>
+
+<!-- formal-statement-start -->
+> **定義（sublinear functional）**  
+> 実ベクトル空間 $X$ 上の関数 $p:X\to\mathbb R$ が
 
 $$
-p:X\to\mathbb R
+p(x+y)\le p(x)+p(y),\qquad p(ax)=ap(x)\quad(a\ge0)
 $$
 
-が
-
-$$
-p(x+y)\le p(x)+p(y)
-$$
-
-かつ $a\ge0$ に対して
-
-$$
-p(ax)=ap(x)
-$$
-
-を満たすとき、$p$ を **sublinear functional** といいます。
+> を満たすとき、$p$ を **sublinear functional** といいます。
+<!-- formal-statement-end -->
 
 ノルム
 
@@ -68,45 +61,18 @@ $$
 
 ## 3. Hahn--Banachの定理：実線形版
 
-$X$ を実ベクトル空間、$M\subset X$ を線形部分空間、$p:X\to\mathbb R$ をsublinear functionalとします。
+<a id="thm-f0-02c6-hahn-banach-real"></a>
 
-$M$ 上の線形汎関数
-
-$$
-f_0:M\to\mathbb R
-$$
-
-が
+<!-- formal-statement-start -->
+> **定理（Hahn--Banach：実線形版）**  
+> $X$ を実ベクトル空間、$M\subset X$ を線形部分空間、$p:X\to\mathbb R$ をsublinear functionalとします。$M$ 上の線形汎関数 $f_0:M\to\mathbb R$ が $f_0(x)\le p(x)$ をすべての $x\in M$ で満たすなら、$f|_M=f_0$ かつ
 
 $$
-f_0(x)\le p(x)
-\qquad(\forall x\in M)
+f(x)\le p(x)\qquad(\forall x\in X)
 $$
 
-を満たすとします。
-
-このとき、$X$ 全体の線形汎関数
-
-$$
-f:X\to\mathbb R
-$$
-
-で
-
-$$
-f|_M=f_0
-$$
-
-かつ
-
-$$
-\boxed{
-f(x)\le p(x)
-\qquad(\forall x\in X)
-}
-$$
-
-を満たすものが存在します。
+> を満たす線形汎関数 $f:X\to\mathbb R$ が存在します。
+<!-- formal-statement-end -->
 
 つまり **支配条件を壊さず延長できる** という定理です。
 

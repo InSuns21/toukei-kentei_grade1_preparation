@@ -88,39 +88,14 @@ $$
 
 ## 1. 凸結合・凸集合・凸包
 
-点 $x_1,\dots,x_n\in\mathbb R^p$ に対し
+<a id="def-f0-02b-convex-combination-set-hull"></a>
 
-$$
-\theta_i\ge0,
-\qquad
-\sum_{i=1}^n\theta_i=1
-$$
+<!-- formal-statement-start -->
+> **定義（凸結合・凸集合・凸包）**  
+> 点 $x_1,\dots,x_n\in\mathbb R^p$ と $\theta_i\ge0$、$\sum_i\theta_i=1$ に対する $\sum_i\theta_i x_i$ を **凸結合** といいます。集合 $C$ が任意の2点とその凸結合をすべて含むとき **凸集合** といいます。集合 $S$ のすべての有限凸結合からなる集合を **凸包** といい、$\operatorname{conv}(S)$ と書きます。
+<!-- formal-statement-end -->
 
-を満たす係数で作る
-
-$$
-\sum_{i=1}^n\theta_i x_i
-$$
-
-を **凸結合** といいます。
-
-集合 $C\subset\mathbb R^p$ が **凸集合** であるとは、任意の $x,y\in C$ と $0\le t\le1$ について
-
-$$
-(1-t)x+ty\in C
-$$
-
-となることです。
-
-つまり、集合内の2点を結ぶ線分が全て集合内に残ります。
-
-集合 $S$ の全ての有限凸結合からなる集合を **凸包** といい
-
-$$
-\boxed{\operatorname{conv}(S)}
-$$
-
-と書きます。
+つまり、凸集合では集合内の2点を結ぶ線分が全て集合内に残ります。
 
 有限点集合では
 
@@ -137,32 +112,18 @@ $$
 
 ## 2. 錐・凸錐・有限生成凸錐
 
-集合 $K\subset\mathbb R^p$ が **錐** であるとは
+<a id="def-f0-02b-cones"></a>
+
+<!-- formal-statement-start -->
+> **定義（錐・凸錐・有限生成凸錐）**  
+> 集合 $K\subset\mathbb R^p$ が $x\in K, a\ge0\Rightarrow ax\in K$ を満たすとき **錐** といいます。さらに凸集合でもある錐を **凸錐** といいます。有限個のベクトル $a_1,\dots,a_n$ により
 
 $$
-x\in K,\ a\ge0
-\Longrightarrow
-ax\in K
+K=\left\{\sum_{j=1}^n\lambda_j a_j:\lambda_j\ge0\right\}
 $$
 
-となることです。
-
-さらに凸集合でもあれば **凸錐** といいます。
-
-有限個のベクトル $a_1,\dots,a_n$ から
-
-$$
-\boxed{
-K
-=
-\left\{
-\sum_{j=1}^n\lambda_j a_j:
-\lambda_j\ge0
-\right\}
-}
-$$
-
-と作られるものを **有限生成凸錐** といいます。
+> と表される凸錐を **有限生成凸錐** といいます。
+<!-- formal-statement-end -->
 
 凸結合では係数和が1でしたが、錐では係数和に制約がありません。
 
@@ -170,14 +131,18 @@ $$
 
 ## 3. 超平面で分離するとは何か
 
-$a\ne0$ と $b\in\mathbb R$ に対し
+<a id="def-f0-02b-hyperplane"></a>
+
+<!-- formal-statement-start -->
+> **定義（超平面）**  
+> $a\ne0$ と $b\in\mathbb R$ に対し
 
 $$
-H
-=\{x:a^{\mathsf T}x=b\}
+H=\{x:a^{\mathsf T}x=b\}
 $$
 
-を超平面といいます。
+> と表される集合を **超平面** といいます。
+<!-- formal-statement-end -->
 
 集合 $C$ と点 $z\notin C$ に対して
 
