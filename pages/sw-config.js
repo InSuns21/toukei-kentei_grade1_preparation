@@ -5,15 +5,16 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
   cachePrefix: 'toukei-grade1-',
   cacheName: 'toukei-grade1-runtime',
 
-  // Published same-origin content is revision-scoped, so serving a cached copy
-  // immediately cannot leak content across deployments. Revalidate Markdown and
-  // images in the background while online; navigation and pinned CDN assets can
-  // stay cache-first. This avoids waiting for a failed network request on every
-  // Docsify page transition when Wi-Fi is disabled.
-  defaultStrategy: 'stale-while-revalidate',
+  // Online requests should see the latest published content. service-worker.js
+  // short-circuits these strategies to Cache Storage when WorkerNavigator says
+  // the browser is offline, so Wi-Fi-off navigation does not wait for a failed
+  // request before rendering the saved教材.
+  defaultStrategy: 'network-first',
   strategyByKind: Object.freeze({
-    navigation: 'cache-first',
-    sameOrigin: 'stale-while-revalidate',
+    navigation: 'network-first',
+    sameOrigin: 'network-first',
+    // These URLs are version-pinned, so cache-first avoids unnecessary CDN
+    // traffic without risking stale runtime code.
     externalAsset: 'cache-first',
   }),
 
