@@ -35,7 +35,7 @@ function walk(dir) {
 }
 
 function headingText(line) {
-  return line.replace(/^#{2,6}\s+/, '').replace(/<a\s+id="[^"]+"><\/a>/gu, '').trim();
+  return line.replace(/^#{1,6}\s+/, '').replace(/<a\s+id="[^"]+"><\/a>/gu, '').trim();
 }
 
 function isNamedResultHeading(heading) {
@@ -44,7 +44,7 @@ function isNamedResultHeading(heading) {
 }
 
 function classifySection(lines, start) {
-  const match = lines[start].match(/^(#{2,6})\s+/u);
+  const match = lines[start].match(/^(#{1,6})\s+/u);
   if (!match) return null;
   const level = match[1].length;
   const heading = headingText(lines[start]);
@@ -52,7 +52,7 @@ function classifySection(lines, start) {
   let hasAnchor = false;
   for (let i = start + 1; i < lines.length; i += 1) {
     const line = lines[i];
-    const hm = line.match(/^(#{2,6})\s+/u);
+    const hm = line.match(/^(#{1,6})\s+/u);
     if (hm && hm[1].length <= level) break;
     const t = line.trim();
     if (t === START) hasPanel = true;
@@ -83,7 +83,7 @@ for (const root of ROOTS) {
       if (t === START) { panelDepth += 1; continue; }
       if (t === END) { panelDepth = Math.max(0, panelDepth - 1); continue; }
       if (panelDepth > 0) continue;
-      if (!/^#{2,6}\s+/u.test(line)) continue;
+      if (!/^#{1,6}\s+/u.test(line)) continue;
       const section = classifySection(lines, i);
       if (!section || !isNamedResultHeading(section.heading)) continue;
       all.push({ rel, line: i + 1, ...section });
