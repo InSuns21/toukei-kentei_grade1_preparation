@@ -125,21 +125,6 @@ const sandbox = {
     async delete() { return true; },
   },
   self: {
-    TOUKEI_SW_CONFIG: {
-      cachePrefix: 'toukei-grade1-',
-      cacheName: 'toukei-grade1-runtime',
-      defaultStrategy: 'network-first',
-      strategyByKind: {
-        navigation: 'network-first',
-        sameOrigin: 'network-first',
-        externalAsset: 'network-first',
-      },
-      cacheExternalHosts: ['cdn.jsdelivr.net'],
-      navigationFallback: './index.html',
-      appShell: [],
-      externalAssets: [],
-      warmPublishedFiles: false,
-    },
     location: { origin: 'https://example.test' },
     registration: { scope },
     clients: { async claim() {} },
@@ -149,6 +134,24 @@ const sandbox = {
     },
   },
 };
+
+const configSource = await readFile(path.join(root, 'pages', 'sw-config.js'), 'utf8');
+vm.runInNewContext(configSource, sandbox, { filename: 'pages/sw-config.js' });
+assert.equal(
+  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.navigation,
+  'cache-first',
+  'offline navigation must prefer cached app shell without a network wait',
+);
+assert.equal(
+  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.sameOrigin,
+  'stale-while-revalidate',
+  'cached same-origin content must be returned before network revalidation',
+);
+assert.equal(
+  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.externalAsset,
+  'cache-first',
+  'pinned external runtime assets must prefer cache offline',
+);
 
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
 vm.runInNewContext(serviceWorkerSource, sandbox, { filename: 'pages/service-worker.js' });
@@ -178,8 +181,27 @@ fetchImplementation = async () => new Response('not found', { status: 404 });
 const dreamRouteResponse = await dispatch(
   new Request(new URL('textbook/dream-theater?docsify-cache-bust=1', scope)),
 );
-assert.equal(dreamRouteResponse.status, 200, 'Docsify extensionless 404 must fall back to cached .md');
+assert.equal(dreamRouteResponse.status, 200, 'Docsify extensionless route must resolve to cached .md');
 assert.equal(await dreamRouteResponse.text(), '# cached DREAM THEATER');
+
+// Regression guard for the user-visible latency bug: a cached Docsify route
+// must resolve even if the network request never settles. stale-while-revalidate
+// may keep that request alive in the background, but it must not block render.
+const instantCachedUrl = new URL('textbook/offline-speed.md', scope).href;
+await memoryCache.put(
+  instantCachedUrl,
+  new Response('# instant cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+fetchImplementation = () => new Promise(() => {});
+const instantResponse = await Promise.race([
+  dispatch(new Request(new URL('textbook/offline-speed', scope))),
+  new Promise((_, reject) => setTimeout(
+    () => reject(new Error('cached same-origin page waited for the network')),
+    250,
+  )),
+]);
+assert.equal(instantResponse.status, 200, 'cached same-origin page must return immediately');
+assert.equal(await instantResponse.text(), '# instant cached page');
 
 const imageCachedUrl = new URL('textbook/assets/offline-test.png', scope).href;
 await memoryCache.put(
@@ -209,4 +231,4 @@ assert.equal(await rangeResponse.text(), '2345');
 
 console.log(`Offline manifest validated: ${manifest.size} files (${imageFiles.length} images).`);
 console.log(`DREAM THEATER offline links validated: ${new Set(lectureLinks).size}.`);
-console.log('Service Worker offline route, query-string asset, and range fallbacks passed.');
+console.log('Service Worker cached-route latency, query-string asset, and range fallbacks passed.');
