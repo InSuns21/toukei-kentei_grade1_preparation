@@ -12,36 +12,21 @@ F0-00では「行列式や固有値を計算できる」ことを優先しまし
 
 ## 1. ベクトル空間とは何か
 
-実数上のベクトル空間 $V$ とは、元どうしの加法
+<a id="def-f0-00e-vector-space"></a>
 
-$$
-V\times V\to V,
-\qquad
-(x,y)\mapsto x+y
-$$
-
-と、実数によるスカラー倍
-
-$$
-\mathbb R\times V\to V,
-\qquad
-(a,x)\mapsto ax
-$$
-
-が定義され、通常のベクトル計算と同じ規則を満たす集合です。
-
-具体的には、任意の $x,y,z\in V$ と $a,b\in\mathbb R$ に対して
-
-1. $x+y=y+x$
-2. $(x+y)+z=x+(y+z)$
-3. $x+0=x$ となる零ベクトル $0\in V$ がある
-4. $x+(-x)=0$ となる逆元 $-x\in V$ がある
-5. $a(x+y)=ax+ay$
-6. $(a+b)x=ax+bx$
-7. $(ab)x=a(bx)$
-8. $1x=x$
-
-が成り立ちます。
+<!-- formal-statement-start -->
+> **定義（実ベクトル空間）**  
+> 集合 $V$ に加法 $V\times V\to V$ と実数によるスカラー倍 $\mathbb R\times V\to V$ が定義され、任意の $x,y,z\in V$ と $a,b\in\mathbb R$ に対して次を満たすとき、$V$ を **実ベクトル空間** といいます。
+>
+> 1. $x+y=y+x$
+> 2. $(x+y)+z=x+(y+z)$
+> 3. $x+0=x$ となる零ベクトル $0\in V$ がある
+> 4. $x+(-x)=0$ となる逆元 $-x\in V$ がある
+> 5. $a(x+y)=ax+ay$
+> 6. $(a+b)x=ax+bx$
+> 7. $(ab)x=a(bx)$
+> 8. $1x=x$
+<!-- formal-statement-end -->
 
 この定義で重要なのは、**ベクトルが数の縦並びである必要はない**ことです。
 
@@ -67,16 +52,27 @@ $$
 
 ## 2. 部分空間
 
-ベクトル空間 $V$ の部分集合 $W\subset V$ が **線形部分空間** であるとは、$W$ 自身が同じ加法とスカラー倍についてベクトル空間になることです。
+<a id="def-f0-00e-linear-subspace"></a>
+
+<!-- formal-statement-start -->
+> **定義（線形部分空間）**  
+> ベクトル空間 $V$ の部分集合 $W\subset V$ が、$V$ と同じ加法とスカラー倍についてベクトル空間になるとき、$W$ を $V$ の **線形部分空間** といいます。
+<!-- formal-statement-end -->
 
 実際の判定では、次の条件で十分です。
 
-> **部分空間判定法**  
+<a id="prop-f0-00e-subspace-test"></a>
+
+<!-- formal-statement-start -->
+> **命題（部分空間判定法）**  
 > 空でない集合 $W\subset V$ が部分空間であるための必要十分条件は、任意の $u,v\in W$ と $a,b\in\mathbb R$ に対して
+
 $$
 au+bv\in W
 $$
-> が成り立つこと。
+
+> が成り立つことです。
+<!-- formal-statement-end -->
 
 ### 例1：部分空間になる
 
@@ -116,25 +112,26 @@ $$
 
 ## 3. 線形結合とspan
 
-ベクトル $v_1,\dots,v_k\in V$ に対して
+<a id="def-f0-00e-linear-combination-span"></a>
+
+<!-- formal-statement-start -->
+> **定義（線形結合とspan）**  
+> ベクトル $v_1,\dots,v_k\in V$ と係数 $a_1,\dots,a_k\in\mathbb R$ に対する
 
 $$
 a_1v_1+\cdots+a_kv_k
 $$
 
-を $v_1,\dots,v_k$ の **線形結合** といいます。
-
-すべての線形結合を集めた集合を
+> を $v_1,\dots,v_k$ の **線形結合** といいます。すべての線形結合を集めた集合
 
 $$
 \operatorname{span}(v_1,\dots,v_k)
 =
-\left\{
-\sum_{i=1}^k a_iv_i:a_i\in\mathbb R
-\right\}
+\left\{\sum_{i=1}^k a_iv_i:a_i\in\mathbb R\right\}
 $$
 
-と書きます。
+> を $v_1,\dots,v_k$ の **span（線形包）** といいます。
+<!-- formal-statement-end -->
 
 これは $v_1,\dots,v_k$ を含む最小の線形部分空間です。
 
@@ -166,27 +163,18 @@ $$
 
 ## 4. 一次独立・一次従属
 
-$v_1,\dots,v_k$ が **一次独立** であるとは
+<a id="def-f0-00e-linear-independence"></a>
+
+<!-- formal-statement-start -->
+> **定義（一次独立・一次従属）**  
+> ベクトル族 $v_1,\dots,v_k$ が **一次独立** であるとは、
 
 $$
 a_1v_1+\cdots+a_kv_k=0
 $$
 
-から
-
-$$
-a_1=\cdots=a_k=0
-$$
-
-しか起こらないことです。
-
-逆に、ゼロでない係数を少なくとも一つ使って
-
-$$
-a_1v_1+\cdots+a_kv_k=0
-$$
-
-とできるなら **一次従属** です。
+> なら必ず $a_1=\cdots=a_k=0$ となることです。これ以外の場合、すなわちゼロでない係数を少なくとも一つ使って上式を満たせるとき、ベクトル族は **一次従属** であるといいます。
+<!-- formal-statement-end -->
 
 一次従属なら、少なくとも1本は他のベクトルの線形結合で表せます。
 
@@ -202,18 +190,12 @@ $$
 
 ## 5. 基底と座標
 
-ベクトル族
+<a id="def-f0-00e-basis"></a>
 
-$$
-v_1,\dots,v_n
-$$
-
-が
-
-1. $V$ を張る
-2. 一次独立である
-
-という2条件を満たすとき、これを $V$ の **基底** といいます。
+<!-- formal-statement-start -->
+> **定義（基底）**  
+> ベクトル族 $v_1,\dots,v_n$ が、(1) $V$ を張り、(2) 一次独立である、という2条件を満たすとき、$(v_1,\dots,v_n)$ を $V$ の **基底** といいます。
+<!-- formal-statement-end -->
 
 基底を固定すると、任意の $x\in V$ は一意に
 
@@ -223,21 +205,20 @@ $$
 
 と表せます。
 
-係数を並べた
+<a id="def-f0-00e-coordinate-vector"></a>
+
+<!-- formal-statement-start -->
+> **定義（座標ベクトル）**  
+> 基底 $\mathcal B=(v_1,\dots,v_n)$ に対して $x=c_1v_1+\cdots+c_nv_n$ と一意に表したとき、係数を並べた
 
 $$
 [x]_{\mathcal B}
 =
-\begin{pmatrix}
-c_1\\
-\vdots\\
-c_n
-\end{pmatrix},
-\qquad
-\mathcal B=(v_1,\dots,v_n)
+\begin{pmatrix}c_1\\\vdots\\c_n\end{pmatrix}
 $$
 
-を、基底 $\mathcal B$ に関する $x$ の **座標ベクトル** といいます。
+> を、基底 $\mathcal B$ に関する $x$ の **座標ベクトル** といいます。
+<!-- formal-statement-end -->
 
 ### なぜ座標表示は一意なのか
 
@@ -271,15 +252,16 @@ $$
 
 その核心が次の交換補題です。
 
-> **Steinitzの交換補題**  
-> $V$ が $n$ 本のベクトル
-$$
-v_1,\dots,v_n
-$$
-> で張られているとする。$u_1,\dots,u_m$ が一次独立なら
+<a id="lem-steinitz-exchange"></a>
+
+<!-- formal-statement-start -->
+> **補題（Steinitzの交換補題）**  
+> $V$ が $n$ 本のベクトル $v_1,\dots,v_n$ で張られているとします。$u_1,\dots,u_m$ が一次独立なら
+
 $$
 m\le n.
 $$
+<!-- formal-statement-end -->
 
 ### 証明の考え方
 
@@ -327,13 +309,18 @@ $$
 
 よって有限次元空間では、**どの基底も同じ本数を持ちます**。
 
-この本数を
+<a id="def-f0-00e-dimension"></a>
+
+<!-- formal-statement-start -->
+> **定義（次元）**  
+> 有限次元ベクトル空間 $V$ の基底に含まれるベクトルの本数を $V$ の **次元** といい、
 
 $$
 \dim V
 $$
 
-と書きます。
+> と書きます。
+<!-- formal-statement-end -->
 
 ---
 
@@ -355,8 +342,6 @@ $n$ 本の一次独立なベクトルが $V$ 全体を張らないと仮定す�
 
 ---
 
-<a id="thm-basis-extension"></a>
-
 ## 9. 基底延長定理
 
 有限次元空間では、一次独立なベクトル族
@@ -367,12 +352,18 @@ $$
 
 を必ず $V$ の基底へ延長できます。
 
-> **基底延長定理**  
+<a id="thm-basis-extension"></a>
+
+<!-- formal-statement-start -->
+> **定理（基底延長定理）**  
 > $u_1,\dots,u_r$ が有限次元ベクトル空間 $V$ で一次独立なら、ある $v_{r+1},\dots,v_n$ が存在して
+
 $$
 u_1,\dots,u_r,v_{r+1},\dots,v_n
 $$
-> が $V$ の基底になる。
+
+> が $V$ の基底になります。
+<!-- formal-statement-end -->
 
 ### 理由
 
@@ -386,29 +377,18 @@ $$
 
 ## 10. 部分空間の和と直和
 
-部分空間 $U,W\subset V$ に対して
+<a id="def-f0-00e-sum-direct-sum"></a>
+
+<!-- formal-statement-start -->
+> **定義（部分空間の和・直和）**  
+> 部分空間 $U,W\subset V$ に対して
 
 $$
-U+W
-=
-\{u+w:u\in U,\ w\in W\}
+U+W=\{u+w:u\in U,\ w\in W\}
 $$
 
-を部分空間の和といいます。
-
-特に
-
-$$
-U\cap W=\{0\}
-$$
-
-なら、$u+w$ という表し方は一意です。このとき
-
-$$
-U\oplus W
-$$
-
-と書き、**直和** といいます。
+> を **部分空間の和** といいます。さらに $U\cap W=\{0\}$ のとき、各元の表示 $u+w$ は一意になり、この和を **直和** といい $U\oplus W$ と書きます。
+<!-- formal-statement-end -->
 
 有限次元では
 

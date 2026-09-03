@@ -72,17 +72,18 @@ $$
 
 となる正規直交固有基底 $v_1,\dots,v_n$ を取れます。
 
+<a id="def-f0-00f2-singular-values-right-vectors"></a>
+
+<!-- formal-statement-start -->
+> **定義（特異値・右特異ベクトル）**  
+> $A^{\mathsf T}A$ の固有値 $\lambda_i\ge0$ と対応する単位固有ベクトル $v_i$ に対し、
+
 $$
-\boxed{
-\sigma_i
-=
-\sqrt{\lambda_i}
-}
+\sigma_i=\sqrt{\lambda_i}
 $$
 
-を $A$ の **特異値** といいます。
-
-$v_i$ を **右特異ベクトル** といいます。
+> を $A$ の **特異値**、$v_i$ を対応する **右特異ベクトル** といいます。
+<!-- formal-statement-end -->
 
 ---
 
@@ -131,7 +132,18 @@ $$
 
 したがって $u_i$ も正規直交系です。
 
-これらを **左特異ベクトル** といいます。
+<a id="def-f0-00f2-left-singular-vectors"></a>
+
+<!-- formal-statement-start -->
+> **定義（左特異ベクトル）**  
+> $\sigma_i>0$ に対して
+
+$$
+u_i=\frac{Av_i}{\sigma_i}
+$$
+
+> で定めた単位ベクトル $u_i$ を、$\sigma_i$ に対応する **左特異ベクトル** といいます。
+<!-- formal-statement-end -->
 
 ---
 
@@ -183,15 +195,18 @@ $$
 
 をまとめて
 
+<a id="thm-f0-00f2-svd"></a>
+
+<!-- formal-statement-start -->
+> **定理（特異値分解）**  
+> 任意の実行列 $A\in\mathbb R^{m\times n}$ は、正の特異値の個数を $r$ とすると
+
 $$
-\boxed{
-A
-=
-U_r\Sigma_rV_r^{\mathsf T}
-}
+A=U_r\Sigma_rV_r^{\mathsf T}
 $$
 
-と書けます。
+> と表せます。ここで $U_r,V_r$ の列はそれぞれ左・右特異ベクトルからなる正規直交系、$\Sigma_r$ は正の特異値を並べた対角行列です。
+<!-- formal-statement-end -->
 
 これが薄い **特異値分解（SVD）** です。
 
@@ -309,24 +324,22 @@ SVDはF0-00Fの kernel・image・rank を正規直交基底で可視化してい
 
 ## 8. 作用素ノルム
 
-線形写像
+<a id="def-f0-00f2-operator-norm"></a>
+
+<!-- formal-statement-start -->
+> **定義（作用素ノルム）**  
+> 線形写像 $A:\mathbb R^n\to\mathbb R^m$ のEuclidノルムに関する **作用素ノルム** を
 
 $$
-A:\mathbb R^n\to\mathbb R^m
-$$
-
-のEuclidノルムに関する **作用素ノルム** を
-
-$$
-\boxed{
 \|A\|_{\mathrm{op}}
 =
-\sup_{x\ne0}
-\frac{\|Ax\|}{\|x\|}
+\sup_{x\ne0}\frac{\|Ax\|}{\|x\|}
 =
 \sup_{\|x\|=1}\|Ax\|
-}
 $$
+
+> と定めます。
+<!-- formal-statement-end -->
 
 と定義します。
 
