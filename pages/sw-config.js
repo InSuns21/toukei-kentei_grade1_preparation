@@ -5,11 +5,16 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
   cachePrefix: 'toukei-grade1-',
   cacheName: 'toukei-grade1-runtime',
 
-  defaultStrategy: 'network-first',
+  // Published same-origin content is revision-scoped, so serving a cached copy
+  // immediately cannot leak content across deployments. Revalidate Markdown and
+  // images in the background while online; navigation and pinned CDN assets can
+  // stay cache-first. This avoids waiting for a failed network request on every
+  // Docsify page transition when Wi-Fi is disabled.
+  defaultStrategy: 'stale-while-revalidate',
   strategyByKind: Object.freeze({
-    navigation: 'network-first',
-    sameOrigin: 'network-first',
-    externalAsset: 'network-first',
+    navigation: 'cache-first',
+    sameOrigin: 'stale-while-revalidate',
+    externalAsset: 'cache-first',
   }),
 
   // Keep the shell and a same-origin KaTeX fallback available after the first
