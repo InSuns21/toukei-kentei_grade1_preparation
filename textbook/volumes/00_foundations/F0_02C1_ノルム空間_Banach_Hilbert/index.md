@@ -274,12 +274,12 @@ $$
 
 ### 7.1 内積の基本評価（Cauchy--Schwarzの復習）
 
-$
+$$
 \boxed{
 |\langle x,y\rangle|
 \le\|x\|\,\|y\|
 }
-$
+$$
 
 です。有限次元での証明と等号条件は [F0-00E2 のCauchy--Schwarz不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz) を正本とします。
 
