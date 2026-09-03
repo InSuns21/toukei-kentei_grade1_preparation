@@ -117,6 +117,10 @@ const sandbox = {
   Headers,
   Set,
   Promise,
+  Date,
+  AbortController,
+  setTimeout,
+  clearTimeout,
   importScripts() {},
   fetch: (...args) => fetchImplementation(...args),
   caches: {
@@ -153,6 +157,10 @@ assert.equal(
   'cache-first',
   'version-pinned external runtime assets may prefer cache',
 );
+assert(
+  sandbox.self.TOUKEI_SW_CONFIG.networkTimeoutMs > 0,
+  'nominally-online requests must have a bounded network wait',
+);
 
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
 vm.runInNewContext(serviceWorkerSource, sandbox, { filename: 'pages/service-worker.js' });
@@ -185,9 +193,7 @@ const dreamRouteResponse = await dispatch(
 assert.equal(dreamRouteResponse.status, 200, 'offline Docsify extensionless route must resolve to cached .md');
 assert.equal(await dreamRouteResponse.text(), '# cached DREAM THEATER');
 
-// Regression guard for the user-visible latency bug: when WorkerNavigator says
-// the browser is offline, the Service Worker must not even begin a network
-// request for an already-saved Docsify page.
+// Known-offline mode must never start a network request for a saved page.
 const instantCachedUrl = new URL('textbook/offline-speed.md', scope).href;
 await memoryCache.put(
   instantCachedUrl,
@@ -209,8 +215,7 @@ assert.equal(instantResponse.status, 200, 'offline cached same-origin page must 
 assert.equal(await instantResponse.text(), '# instant cached page');
 assert.equal(offlineFetchCalls, 0, 'known-offline cached page must not start a fetch');
 
-// The inverse guarantee matters just as much: while online, network-first must
-// return the current published response rather than rendering a stale snapshot.
+// While genuinely online, network-first must return and cache the latest copy.
 sandbox.self.navigator.onLine = true;
 const freshOnlineUrl = new URL('textbook/online-fresh.md', scope).href;
 await memoryCache.put(
@@ -228,6 +233,40 @@ assert.equal(await freshOnlineResponse.text(), '# latest online page');
 assert.equal(onlineFetchCalls, 1, 'online same-origin request must hit the network');
 const refreshedCachedResponse = await memoryCache.match(freshOnlineUrl);
 assert.equal(await refreshedCachedResponse.text(), '# latest online page', 'online response must refresh offline cache');
+
+// Android can report onLine=true after Wi-Fi is disabled because mobile data or
+// a VPN remains active. If that path returns a HTTP-200 HTML error document for
+// a Markdown URL, treat it as unreachable and keep the saved Markdown intact.
+const pseudoOnlineUrl = new URL('home.md', scope).href;
+await memoryCache.put(
+  pseudoOnlineUrl,
+  new Response('# saved home', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+let pseudoOnlineFetchCalls = 0;
+fetchImplementation = async () => {
+  pseudoOnlineFetchCalls += 1;
+  return new Response('<html><h1>404 - Not found</h1></html>', {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  });
+};
+const pseudoOnlineResponse = await dispatch(new Request(pseudoOnlineUrl));
+assert.equal(pseudoOnlineResponse.status, 200, 'nominally-online HTML error must fall back to saved Markdown');
+assert.equal(await pseudoOnlineResponse.text(), '# saved home');
+assert.equal(pseudoOnlineFetchCalls, 1, 'first nominally-online request should probe the network once');
+const pseudoOnlineCached = await memoryCache.match(pseudoOnlineUrl);
+assert.equal(await pseudoOnlineCached.text(), '# saved home', 'HTML error must not poison the offline cache');
+
+// The failure cooldown should make immediately-following saved-page transitions
+// cache-only even though WorkerNavigator still claims the browser is online.
+const cooldownUrl = new URL('textbook/cooldown.md', scope).href;
+await memoryCache.put(
+  cooldownUrl,
+  new Response('# cooldown cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+const cooldownResponse = await dispatch(new Request(cooldownUrl));
+assert.equal(await cooldownResponse.text(), '# cooldown cached page');
+assert.equal(pseudoOnlineFetchCalls, 1, 'degraded-path cooldown must avoid repeated failed fetches');
 
 sandbox.self.navigator.onLine = false;
 const imageCachedUrl = new URL('textbook/assets/offline-test.png', scope).href;
@@ -258,4 +297,4 @@ assert.equal(await rangeResponse.text(), '2345');
 
 console.log(`Offline manifest validated: ${manifest.size} files (${imageFiles.length} images).`);
 console.log(`DREAM THEATER offline links validated: ${new Set(lectureLinks).size}.`);
-console.log('Service Worker fresh-online, instant-offline, query-string asset, and range tests passed.');
+console.log('Service Worker fresh-online, Wi-Fi-off fallback, cooldown, instant-offline, query-string asset, and range tests passed.');
