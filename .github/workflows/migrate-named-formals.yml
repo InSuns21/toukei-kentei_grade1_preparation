@@ -1,0 +1,41 @@
+name: Migrate named formal results
+
+on:
+  push:
+    branches:
+      - audit/named-formal-results
+    paths:
+      - 'scripts/migrate-named-formal-results.mjs'
+      - '.github/workflows/migrate-named-formals.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/named-formal-results
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Apply migration
+        run: node scripts/migrate-named-formal-results.mjs
+
+      - name: Commit migration result
+        run: |
+          if git diff --quiet; then
+            echo 'No migration changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git commit -m '教材: 名前付き定理系をformal statementへ移行'
+          git push origin HEAD:audit/named-formal-results
