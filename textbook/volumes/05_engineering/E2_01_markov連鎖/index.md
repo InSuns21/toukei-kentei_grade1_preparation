@@ -56,7 +56,9 @@
 $$
 X_t:\Omega\to S
 $$
-という確率変数があるとします。<a id="def-e2-01-stochastic-process"></a>
+という確率変数があるとします。
+
+<a id="def-e2-01-stochastic-process"></a>
 
 <!-- formal-statement-start -->
 > **定義（確率過程・状態空間）**  
