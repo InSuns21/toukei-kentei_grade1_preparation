@@ -31,15 +31,18 @@ $$
 
 $X$ をノルム空間、$f:X\to\mathbb R$ とします。
 
-点 $x\in X$ と方向 $h\in X$ に対し
+<a id="def-f0-02c3-directional-derivative"></a>
+
+<!-- formal-statement-start -->
+> **定義（方向微分）**  
+> ノルム空間 $X$ 上の関数 $f:X\to\mathbb R$、点 $x\in X$、方向 $h\in X$ に対し
 
 $$
-D_hf(x)
-=\lim_{t\to0}
-\frac{f(x+th)-f(x)}{t}
+D_hf(x)=\lim_{t\to0}\frac{f(x+th)-f(x)}{t}
 $$
 
-が存在するとき、これを **方向微分** といいます。
+> が存在するとき、これを $f$ の $x$ における方向 $h$ の **方向微分** といいます。
+<!-- formal-statement-end -->
 
 これは「方向 $h$ に沿って一変数関数として微分する」だけです。
 
@@ -49,22 +52,18 @@ $$
 
 ## 3. Gâteaux微分
 
-すべての方向 $h$ について方向微分が存在し、さらに
+<a id="def-f0-02c3-gateaux-derivative"></a>
+
+<!-- formal-statement-start -->
+> **定義（Gâteaux微分）**  
+> すべての方向 $h$ について方向微分が存在し、写像 $h\mapsto D_hf(x)$ が線形であるとき、その線形写像を $f$ の $x$ における **Gâteaux微分** といい、
 
 $$
-h\mapsto D_hf(x)
+D_Gf(x)[h]=D_hf(x)
 $$
 
-が線形写像になるとき、その線形写像を **Gâteaux微分** と呼びます。
-
-記号的には
-
-$$
-D_Gf(x)[h]
-=D_hf(x)
-$$
-
-です。
+> と書きます。
+<!-- formal-statement-end -->
 
 ただしGâteaux微分は方向ごとの情報をまとめただけなので、$h$ の方向によらず誤差が一様に小さいことまでは要求していません。
 
@@ -76,33 +75,19 @@ $$
 
 $f:X\to Y$ をノルム空間間の写像とします。
 
-$f$ が $x$ で **Fréchet微分可能** であるとは、ある有界線形作用素
+<a id="def-f0-02c3-frechet-derivative"></a>
+
+<!-- formal-statement-start -->
+> **定義（Fréchet微分）**  
+> ノルム空間間の写像 $f:X\to Y$ が点 $x$ で **Fréchet微分可能** であるとは、ある有界線形作用素 $A:X\to Y$ が存在して
 
 $$
-A:X\to Y
-$$
-
-が存在して
-
-$$
-\boxed{
-\frac{
-\|f(x+h)-f(x)-Ah\|_Y
-}{\|h\|_X}
-\to0
+\frac{\|f(x+h)-f(x)-Ah\|_Y}{\|h\|_X}\to0
 \qquad(h\to0)
-}
 $$
 
-となることです。
-
-この $A$ を
-
-$$
-Df(x)
-$$
-
-と書きます。
+> となることです。この一意な $A$ を $Df(x)$ と書き、$f$ の $x$ における **Fréchet微分** といいます。
+<!-- formal-statement-end -->
 
 つまり
 
@@ -263,21 +248,19 @@ $$
 
 ## 9. 有界線形作用素
 
-ノルム空間 $X,Y$ の間の線形写像
+<a id="def-f0-02c3-bounded-linear-operator"></a>
+
+<!-- formal-statement-start -->
+> **定義（有界線形作用素）**  
+> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ が、ある $M<\infty$ に対して
 
 $$
-T:X\to Y
-$$
-
-が、ある $M<\infty$ に対して
-
-$$
-\|Tx\|_Y
-\le M\|x\|_X
+\|Tx\|_Y\le M\|x\|_X
 \qquad(\forall x\in X)
 $$
 
-を満たすとき、**有界線形作用素** といいます。
+> を満たすとき、$T$ を **有界線形作用素** といいます。
+<!-- formal-statement-end -->
 
 線形写像については
 
@@ -297,16 +280,18 @@ $$
 
 ## 10. 作用素ノルム
 
-有界線形作用素 $T:X\to Y$ に対し
+<a id="def-f0-02c3-operator-norm"></a>
+
+<!-- formal-statement-start -->
+> **定義（作用素ノルム）**  
+> 有界線形作用素 $T:X\to Y$ に対し
 
 $$
-\boxed{
-\|T\|
-=\sup_{\|x\|_X\le1}\|Tx\|_Y
-}
+\|T\|=\sup_{\|x\|_X\le1}\|Tx\|_Y
 $$
 
-を **作用素ノルム** といいます。
+> を $T$ の **作用素ノルム** といいます。
+<!-- formal-statement-end -->
 
 同値に
 

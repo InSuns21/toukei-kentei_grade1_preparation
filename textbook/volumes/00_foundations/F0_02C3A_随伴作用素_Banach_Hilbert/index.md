@@ -12,25 +12,18 @@ $$
 
 を考えます。
 
-$y^*\in Y^*$ に対し
+<a id="def-f0-02c3a-banach-adjoint"></a>
+
+<!-- formal-statement-start -->
+> **定義（Banach空間での随伴作用素）**  
+> 有界線形作用素 $T:X\to Y$ に対し、$T^*:Y^*\to X^*$ を
 
 $$
-T^*y^*
-\in X^*
+(T^*y^*)[x]=y^*[Tx]
 $$
 
-を
-
-$$
-\boxed{
-(T^*y^*)[x]
-=y^*[Tx]
-}
-$$
-
-で定めます。
-
-これを **随伴作用素** といいます。
+> で定めます。この $T^*$ を $T$ の **随伴作用素** といいます。
+<!-- formal-statement-end -->
 
 型を確認すると
 
@@ -148,22 +141,18 @@ $$
 
 ですが、Riesz表現により各双対空間を元のHilbert空間と対応付けられます。
 
-その結果、一意な作用素
+<a id="def-f0-02c3a-hilbert-adjoint"></a>
+
+<!-- formal-statement-start -->
+> **定義（Hilbert随伴）**  
+> Hilbert空間 $H_1,H_2$ の間の有界線形作用素 $T:H_1\to H_2$ に対し、Riesz表現を通じて一意に定まる作用素 $T^\dagger:H_2\to H_1$ で
 
 $$
-T^\dagger:H_2\to H_1
+\langle Tx,y\rangle_{H_2}=\langle x,T^\dagger y\rangle_{H_1}
 $$
 
-が存在して
-
-$$
-\boxed{
-\langle Tx,y\rangle_{H_2}
-=\langle x,T^\dagger y\rangle_{H_1}
-}
-$$
-
-となります。
+> を満たすものを $T$ の **Hilbert随伴** といいます。
+<!-- formal-statement-end -->
 
 文献によってはこのHilbert随伴も $T^*$ と書きます。本教材では型を明確にしたい場面では $T^\dagger$ と書き分けます。
 
