@@ -1,0 +1,34 @@
+name: Temporary implicit formal retirement batch 6
+
+on:
+  push:
+    branches:
+      - refactor/retire-implicit-formals-batch6
+    paths:
+      - 'scripts/tmp-retire-implicit-formals-batch6.mjs'
+      - '.github/workflows/tmp-retire-implicit-formals-batch6.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/retire-implicit-formals-batch6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/tmp-retire-implicit-formals-batch6.mjs
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/implicit-formal-baseline.txt textbook/volumes
+          git commit -m 'formalize all remaining implicit definitions'
+          git push
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run validate:pages
