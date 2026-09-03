@@ -4,8 +4,14 @@ import path from 'node:path';
 const ROOT = path.resolve('textbook/volumes');
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
-const KEYWORD_RE = /(定理|補題|命題|系|不等式|等式|公式|法則|原理)/u;
-const EXCLUDE_RE = /(証明|導出|使う|適用|例題|演習|練習|まとめ|復習|見方|意味|直感|なぜ|比較|関係|計算|手順|チェック|ポイント|注意|補足|役割|読み方|一般化|特殊例|解釈|一覧|ロードマップ|前提知識)/u;
+
+// We intentionally target headings that name a mathematical result itself.
+// Mention/usage headings such as "...定理を使う", "...不等式から導く", exercises,
+// and generic survey headings are excluded; those are not declarations.
+const RESULT_NAME_RE = /(?:定理|補題|命題|不等式|等式|原理)(?:\s*$|\s*[（(：:])/u;
+const COROLLARY_RE = /(?:^|\s|[.．]\s*)系(?:\s*$|\s*[（(：:])/u;
+const GENERIC_RE = /(基本命題|主要定理|三定理|定理群|定理一覧|結果一覧)/u;
+const EXERCISE_RE = /(?:^|\s)[A-Z][A-Z0-9-]*-[ABCD]\d{2}\b/u;
 
 function walk(dir) {
   const out = [];
@@ -21,6 +27,11 @@ function headingText(line) {
   return line.replace(/^#{2,6}\s+/, '').replace(/<a\s+id="[^"]+"><\/a>/gu, '').trim();
 }
 
+function isNamedResultHeading(heading) {
+  if (GENERIC_RE.test(heading) || EXERCISE_RE.test(heading)) return false;
+  return RESULT_NAME_RE.test(heading) || COROLLARY_RE.test(heading);
+}
+
 function classifySection(lines, start) {
   const match = lines[start].match(/^(#{2,6})\s+/u);
   if (!match) return null;
@@ -28,15 +39,13 @@ function classifySection(lines, start) {
   const heading = headingText(lines[start]);
   let hasPanel = false;
   let hasAnchor = false;
-  let panelDepth = 0;
   for (let i = start + 1; i < lines.length; i += 1) {
     const line = lines[i];
     const hm = line.match(/^(#{2,6})\s+/u);
     if (hm && hm[1].length <= level) break;
     const t = line.trim();
-    if (t === START) { hasPanel = true; panelDepth += 1; }
-    if (t === END) panelDepth = Math.max(0, panelDepth - 1);
-    if (/<a\s+id="(?:thm|prop|lem|cor)-[^"]+"><\/a>/u.test(line)) hasAnchor = true;
+    if (t === START) hasPanel = true;
+    if (/<a\s+id="(?:thm|prop|lem|cor|principle)-[^"]+"><\/a>/u.test(line)) hasAnchor = true;
   }
   return { heading, hasPanel, hasAnchor };
 }
@@ -64,13 +73,13 @@ for (const file of walk(ROOT)) {
     if (panelDepth > 0) continue;
     if (!/^#{2,6}\s+/u.test(line)) continue;
     const section = classifySection(lines, i);
-    if (!section || !KEYWORD_RE.test(section.heading)) continue;
+    if (!section || !isNamedResultHeading(section.heading)) continue;
     all.push({ rel, line: i + 1, ...section });
   }
 }
 
-const candidates = all.filter((x) => !x.hasPanel && !EXCLUDE_RE.test(x.heading));
-console.log(`Named-result heading audit: ${all.length} keyword heading(s), ${candidates.length} non-formal candidate(s).`);
+const candidates = all.filter((x) => !x.hasPanel);
+console.log(`Named-result heading audit: ${all.length} result-name heading(s), ${candidates.length} non-formal candidate(s).`);
 for (const item of candidates) {
   console.log(`CANDIDATE\t${item.rel}:${item.line}\t${item.heading}\tanchor=${item.hasAnchor ? 'yes' : 'no'}`);
 }
