@@ -130,19 +130,18 @@ D は対角なので作用が「方向ごとの倍率」に分解される
 
 ## 1. 線形写像
 
-ベクトル空間 $V,W$ の間の写像
+<a id="def-f0-00f-linear-map"></a>
 
-$$
-T:V\to W
-$$
-
-が、任意の $x,y\in V$ と $a,b\in\mathbb R$ に対して
+<!-- formal-statement-start -->
+> **定義（線形写像）**  
+> ベクトル空間 $V,W$ の間の写像 $T:V\to W$ が、任意の $x,y\in V$ と $a,b\in\mathbb R$ に対して
 
 $$
 T(ax+by)=aT(x)+bT(y)
 $$
 
-を満たすとき、$T$ を **線形写像** といいます。
+> を満たすとき、$T$ を **線形写像** といいます。
+<!-- formal-statement-end -->
 
 加法とスカラー倍を保存する写像です。
 
@@ -158,23 +157,24 @@ $$
 
 ## 2. kernel と image
 
-線形写像 $T:V\to W$ に対して
+<a id="def-f0-00f-kernel-image"></a>
+
+<!-- formal-statement-start -->
+> **定義（核と像）**  
+> 線形写像 $T:V\to W$ に対して
 
 $$
 \ker T
 =
-\{x\in V:T(x)=0\}
-$$
-
-を **核（kernel）**、
-
-$$
+\{x\in V:T(x)=0\},
+\qquad
 \operatorname{Im}T
 =
 \{T(x):x\in V\}
 $$
 
-を **像（image）** といいます。
+> をそれぞれ **核（kernel）**、**像（image）** といいます。
+<!-- formal-statement-end -->
 
 どちらも線形部分空間です。
 
@@ -367,7 +367,11 @@ $$
 
 と書けます。
 
-この係数を列に並べた行列
+<a id="def-f0-00f-representation-matrix"></a>
+
+<!-- formal-statement-start -->
+> **定義（表現行列）**  
+> $V$ の基底 $\mathcal B=(v_1,\dots,v_n)$、$W$ の基底 $\mathcal C=(w_1,\dots,w_m)$ を選び、各 $T(v_j)$ の $\mathcal C$ 座標を列に並べた行列
 
 $$
 [T]_{\mathcal C\leftarrow\mathcal B}
@@ -379,7 +383,8 @@ $$
 \end{pmatrix}
 $$
 
-を、基底 $\mathcal B,\mathcal C$ に関する $T$ の **表現行列** といいます。
+> を、基底 $\mathcal B,\mathcal C$ に関する $T$ の **表現行列** といいます。
+<!-- formal-statement-end -->
 
 重要な式は
 
@@ -612,15 +617,18 @@ $$
 
 したがって
 
+<a id="def-f0-00f-similarity"></a>
+
+<!-- formal-statement-start -->
+> **定義（相似）**  
+> 正方行列 $A,A'$ に対し、ある正則行列 $P$ が存在して
+
 $$
-\boxed{
 A'=P^{-1}AP
-}
 $$
 
-です。
-
-この関係を **相似** といいます。
+> と書けるとき、$A$ と $A'$ は **相似** であるといいます。
+<!-- formal-statement-end -->
 
 相似な行列は違う行列に見えても、同じ線形写像を別の基底で見ているだけです。
 
@@ -628,29 +636,24 @@ $$
 
 ## 9. 固有値・固有ベクトル・固有空間
 
-自己写像
+<a id="def-f0-00f-eigen-data"></a>
 
-$$
-T:V\to V
-$$
-
-に対して $v\ne0$ が
+<!-- formal-statement-start -->
+> **定義（固有値・固有ベクトル・固有空間）**  
+> 自己写像 $T:V\to V$ に対して、$v\ne0$ が
 
 $$
 T(v)=\lambda v
 $$
 
-を満たすとき、$\lambda$ を **固有値**、$v$ を **固有ベクトル** といいます。
-
-固有値 $\lambda$ に対応する
+> を満たすとき、$\lambda$ を **固有値**、$v$ を **固有ベクトル** といいます。また
 
 $$
-E_\lambda
-=
-\ker(T-\lambda I)
+E_\lambda=\ker(T-\lambda I)
 $$
 
-を **固有空間** といいます。
+> を固有値 $\lambda$ に対応する **固有空間** といいます。
+<!-- formal-statement-end -->
 
 固有ベクトルは「写像を掛けても向きが変わらず、倍率だけが $\lambda$ になる方向」です。
 
@@ -731,7 +734,11 @@ $$
 
 ## 11. 対角化とは何か
 
-自己写像 $T:V\to V$ が **対角化可能** であるとは、ある基底 $\mathcal B$ が存在して
+<a id="def-f0-00f-diagonalizable"></a>
+
+<!-- formal-statement-start -->
+> **定義（対角化可能）**  
+> 自己写像 $T:V\to V$ が **対角化可能** であるとは、ある基底 $\mathcal B$ が存在して
 
 $$
 [T]_{\mathcal B\leftarrow\mathcal B}
@@ -739,7 +746,8 @@ $$
 \operatorname{diag}(\lambda_1,\dots,\lambda_n)
 $$
 
-となることです。
+> となることです。
+<!-- formal-statement-end -->
 
 対角行列の第 $i$ 列は
 
@@ -798,21 +806,18 @@ $$
 
 ## 13. 代数的重複度と幾何学的重複度
 
-行列 $A$ の特性多項式
+<a id="def-f0-00f-multiplicities"></a>
 
-$$
-\chi_A(t)=\det(tI-A)
-$$
-
-で、固有値 $\lambda$ が根として何重に現れるかを **代数的重複度** といいます。
-
-一方
+<!-- formal-statement-start -->
+> **定義（代数的重複度・幾何学的重複度）**  
+> 行列 $A$ の特性多項式 $\chi_A(t)=\det(tI-A)$ において、固有値 $\lambda$ が根として現れる重複度を **代数的重複度** といいます。一方、固有空間 $E_\lambda$ の次元
 
 $$
 \dim E_\lambda
 $$
 
-を **幾何学的重複度** といいます。
+> を **幾何学的重複度** といいます。
+<!-- formal-statement-end -->
 
 一般に
 

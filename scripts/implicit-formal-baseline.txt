@@ -14,14 +14,6 @@ textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_�
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	2. 特異値と右特異ベクトル	右特異ベクトル
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	2. 特異値と右特異ベクトル	特異値
 textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md	3. 左特異ベクトル	左特異ベクトル
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	1. 線形写像	線形写像
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	13. 代数的重複度と幾何学的重複度	代数的重複度
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	13. 代数的重複度と幾何学的重複度	幾何学的重複度
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	2. kernel と image	像（image）
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	4. 表現行列：行列は基底を選んだ後に現れる	表現行列
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	8. 同じ線形写像の行列表現は相似になる	相似
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	9. 固有値・固有ベクトル・固有空間	固有ベクトル
-textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md	9. 固有値・固有ベクトル・固有空間	固有空間
 textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	1. 凸結合	凸結合
 textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md	7. 狭義凸関数	狭義凸
 textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md	2. Quadratic Mean Differentiability	QMD
@@ -72,17 +64,6 @@ textbook/volumes/05_engineering/E1_03_因子分析_クラスター分析/index.m
 textbook/volumes/05_engineering/E1_03_因子分析_クラスター分析/index.md	4. 共通性と独自性	独自性
 textbook/volumes/05_engineering/E1_03_因子分析_クラスター分析/index.md	6.2 因子得点	因子得点
 textbook/volumes/05_engineering/E1_04_プロビット_非線形回帰_SVM/index.md	7.4.6 hinge損失はスラックを消去すると現れる	hinge損失
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	1.1 1個の確率変数ではなく「時刻ごとの確率変数」	状態空間
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	2.1 マルコフ性	マルコフ連鎖
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	3.1 一段階遷移確率と遷移行列	遷移行列
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	4.1 定常分布は「最初から変わらない分布」	定常分布
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.1 到達可能と通信	到達可能
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.1 到達可能と通信	既約
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.1 到達可能と通信	通信する
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.2 閉じたクラスと吸収状態	吸収状態
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.2 閉じたクラスと吸収状態	閉じたクラス
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.3 再帰状態と過渡状態	過渡的
-textbook/volumes/05_engineering/E2_01_markov連鎖/index.md	5.4 周期	周期
 textbook/volumes/05_engineering/E2_03_ar_ma_arima時系列/index.md	5.3 コレログラムを実際に読む	コレログラム
 textbook/volumes/05_engineering/E2_05_状態空間モデル/index.md	2. 線形 Gaussian 状態空間モデル	観測方程式
 textbook/volumes/05_engineering/E2_05_状態空間モデル/index.md	6. Kalman 更新は条件付き正規分布そのもの	Kalman gain
