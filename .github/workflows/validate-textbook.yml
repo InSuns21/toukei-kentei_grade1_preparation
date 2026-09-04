@@ -80,3 +80,6 @@ jobs:
 
       - name: Validate formal theorem and definition references
         run: npm run validate:formal-references
+
+      - name: Validate definition examples against their definitions
+        run: npm run validate:definition-examples
