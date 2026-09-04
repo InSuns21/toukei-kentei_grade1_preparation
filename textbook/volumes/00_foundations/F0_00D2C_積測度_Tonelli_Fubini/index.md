@@ -149,7 +149,7 @@ $$
 
 #### Step 2：Carathéodory 拡張定理を適用する
 
-D4 の Carathéodory 拡張定理により $\pi$ は
+[D4 の Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により $\pi$ は
 
 $$
 \sigma(\mathcal R)=\mathcal A\otimes\mathcal B
@@ -157,7 +157,7 @@ $$
 
 上の測度へ拡張されます。これを $\mu\times\nu$ と書きます。
 
-$\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算に覆えるため $\pi$ もσ有限です。したがって拡張の一意性も D4 の一意性部分から従います。$\square$
+$\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算に覆えるため $\pi$ もσ有限です。したがって拡張の一意性も同じ定理の一意性部分から従います。$\square$
 <!-- proof-end -->
 
 > 積測度の存在・一意性は D4 の一般拡張定理を依存先として明示し、その上で証明済みです。
@@ -683,6 +683,18 @@ $$
 (m\times m)([0,2]\times[1,4])
 =m([0,2])m([1,4])=2\cdot3=6.
 $$
+
+### 本番答案
+
+$$
+(m\times m)([0,2]\times[1,4])=2\times3=6.
+$$
+
+### 採点基準（20点）
+
+- 積測度の長方形公式を用いる：8点
+- 各区間の測度を $2,3$ と評価：6点
+- 結論 $6$：6点
 <!-- solution-end -->
 
 ## F0-00D2C-A02 section を求める
@@ -699,11 +711,33 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$x\in[0,1]$ では $E_x=[0,x]$ だから $m(E_x)=x$。従って
+$x\in[0,1]$ では
+
+$$
+E_x=[0,x],
+\qquad m(E_x)=x.
+$$
+
+従って section 測度公式から
+
+$$
+m_2(E)=\int_0^1m(E_x)dx=\int_0^1x\,dx=\frac12.
+$$
+
+### 本番答案
+
+$x\in[0,1]$ で $E_x=[0,x]$ より $m(E_x)=x$。したがって
 
 $$
 m_2(E)=\int_0^1x\,dx=\frac12.
 $$
+
+### 採点基準（20点）
+
+- section $E_x=[0,x]$：7点
+- $m(E_x)=x$：5点
+- section 測度公式を使用：4点
+- 結論 $1/2$：4点
 <!-- solution-end -->
 
 ## F0-00D2C-A03 Tonelli か Fubini か
@@ -717,6 +751,16 @@ $$
 ### 詳細解答
 
 Tonelli。非負可測性だけで使え、積分値が $+\infty$ でもよい。Fubini は絶対可積分性を要求する。
+
+### 本番答案
+
+$f\ge0$ なので Tonelli の定理を用いる。Tonelli は積分値の有限性を仮定せず、$+\infty$ も許す。
+
+### 採点基準（20点）
+
+- Tonelli を選択：8点
+- 非負可測性が仮定であること：6点
+- $+\infty$ を許す点または Fubini との違い：6点
 <!-- solution-end -->
 
 ## F0-00D2C-B01 section 測度補題の有限測度版
@@ -729,17 +773,49 @@ Tonelli。非負可測性だけで使え、積分値が $+\infty$ でもよい�
 <!-- solution-start -->
 ### 詳細解答
 
-長方形では直接成立する。有限測度性により補集合では
+長方形 $A\times B$ では
+
+$$
+\nu((A\times B)_x)=1_A(x)\nu(B)
+$$
+
+なので公式が直接成立する。
+
+$E\in\mathcal D$ なら有限測度性により
 
 $$
 \nu((E^c)_x)=\nu(Y)-\nu(E_x)
 $$
 
-を使える。互いに素な可算和では section も互いに素で、測度の可算加法性と MCT から公式を保つ。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族なので
+を使え、補集合でも公式を保つ。互いに素な $E_n\in\mathcal D$ については section も互いに素なので、可算加法性と MCT により $\bigcup_nE_n\in\mathcal D$。よって $\mathcal D$ は Dynkin 族である。
+
+可測長方形全体は π-system で $\mathcal D$ に含まれるため、π–λ 定理から
 
 $$
 \mathcal A\otimes\mathcal B\subset\mathcal D.
 $$
+
+### 本番答案
+
+長方形では公式は直接成立する。有限測度性により補集合で
+
+$$
+\nu((E^c)_x)=\nu(Y)-\nu(E_x)
+$$
+
+が使え、互いに素な可算和では section の可算加法性と MCT で公式が保存される。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族。π–λ 定理より
+
+$$
+\mathcal D=\mathcal A\otimes\mathcal B.
+$$
+
+### 採点基準（20点）
+
+- 長方形で成立：4点
+- 補集合で閉じること：5点
+- 互いに素な可算和で閉じること：5点
+- Dynkin 族と判定：2点
+- π–λ 定理で積σ代数へ拡張：4点
 <!-- solution-end -->
 
 ## F0-00D2C-B02 Tonelli の証明を再構成する
@@ -758,7 +834,29 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$1_E$ では section 測度公式そのもの。非負単関数では有限線形性で拡張する。一般の $f\ge0$ には単関数列 $\phi_n\uparrow f$ を取り、内側積分・外側積分・積空間積分の三箇所で MCT を用いる。
+$f=1_E$ では section 測度公式により
+
+$$
+\int_{X\times Y}1_Ed(\mu\times\nu)
+=
+\int_X\int_Y1_Ed\nu d\mu.
+$$
+
+非負単関数では指示関数の有限非負線形結合なので有限線形性で拡張できる。
+
+一般の $f\ge0$ には非負単関数列 $\phi_n\uparrow f$ を取り、各 $x$ の $Y$ 積分、外側の $X$ 積分、積空間積分に MCT を順に適用して極限を通す。逆順も同様。
+
+### 本番答案
+
+指示関数では section 測度公式。非負単関数では有限線形性。一般の $f\ge0$ には $\phi_n\uparrow f$ となる非負単関数近似を取り、内側・外側・積空間の各積分に MCT を適用する。これで Tonelli の等式を得る。
+
+### 採点基準（20点）
+
+- 指示関数段階：5点
+- 単関数への有限線形拡張：4点
+- 単関数近似 $\phi_n\uparrow f$：4点
+- MCT を用いた極限操作：5点
+- 逆順も同様と結論：2点
 <!-- solution-end -->
 
 ## F0-00D2C-B03 Fubini の section 可積分性
@@ -793,7 +891,26 @@ $$
 \int_Xh(x)d\mu(x)=\int_{X\times Y}|f|d(\mu\times\nu)<\infty.
 $$
 
-非負可測関数の積分が有限なら $h=+\infty$ となる集合の測度は0なので $h<\infty$ a.e.
+もし $h=+\infty$ となる集合が正の測度を持てば $\int h=+\infty$ となるので矛盾する。従って $h(x)<\infty$ a.e.
+
+### 本番答案
+
+Tonelli より
+
+$$
+\int_X\left(\int_Y|f(x,y)|d\nu(y)\right)d\mu
+=
+\int_{X\times Y}|f|d(\mu\times\nu)<\infty.
+$$
+
+内側積分は非負可測関数なので、有限積分を持つ以上 a.e. で有限である。
+
+### 採点基準（20点）
+
+- $h(x)$ の定義：4点
+- Tonelli 適用：7点
+- $\int h<\infty$ の確認：4点
+- 非負関数の有限積分から $h<\infty$ a.e.：5点
 <!-- solution-end -->
 
 ## F0-00D2C-B04 なぜ絶対可積分性が必要か
@@ -806,7 +923,41 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-絶対可積分性がない場合、正部分と負部分が別々に無限大となり得て、反復積分の途中で $+\infty-\infty$ 型の不定形や条件収束級数の並べ替えと同じ現象が起こり得る。$\int|f|<\infty$ は $f^+,f^-$ をともに有限積分へ押さえ、Tonelli を両者へ安全に適用できる条件である。
+絶対可積分性がない場合、正部分と負部分が別々に無限大となり得て、反復積分の途中で
+
+$$
++\infty-\infty
+$$
+
+型の不定形が生じ得る。また級数の場合の条件収束と同様に、項を数える順序に依存する現象が起こり得る。
+
+一方
+
+$$
+\int|f|<\infty
+$$
+
+なら
+
+$$
+\int f^+<\infty,
+\qquad
+\int f^-<\infty
+$$
+
+で、正負両部分へ Tonelli を安全に適用して差を取れる。これが Fubini の順序交換を保証する仕組みである。
+
+### 本番答案
+
+$\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$ を排除する。したがって両者へ Tonelli を適用して差を取る操作が正当化され、反復積分の順序交換が安全になる。
+
+### 採点基準（20点）
+
+- 絶対可積分性なしの危険を指摘：5点
+- $+\infty-\infty$ または条件収束との対応：5点
+- $f=f^+-f^-$ の分解：4点
+- $f^+,f^-$ が有限積分になること：3点
+- Tonelli から Fubini へつながる説明：3点
 <!-- solution-end -->
 
 ---
