@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-09-05
   current_chapter: null
-  next_chapter: I1-02
+  next_chapter: I2-01
   next_work:
     type: chapter
-    id: I1-02
-  last_completed_chapter: I1-01
+    id: I2-01
+  last_completed_chapter: I1-02
   summary:
     total: 43
-    planned: 8
+    planned: 7
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 35
+    reviewed: 36
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -52,7 +52,7 @@ progress:
     S1-02: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     S1-03: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     I1-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
-    I1-02: { status: planned }
+    I1-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I2-01: { status: planned }
     I2-02: { status: planned }
     I3-01: { status: planned }
@@ -130,7 +130,7 @@ chapters:
   - { id: S1-02, title: 統計量・十分性・分解定理, volume: inference, prerequisites: [ S1-01, P4-01 ], official_scope: [ 十分統計量, ネイマンの分解定理 ] }
   - { id: S1-03, title: 標本抽出・研究設計, volume: inference, prerequisites: [ P3-01, P4-02 ], official_scope: [ 実験研究, 観察研究, 調査, 完全無作為抽出, 単純無作為抽出, 層化抽出, 二段階抽出, サンプルサイズの設計, Horvitz--Thompson推定量, 有限母集団補正, 比推定量, 標本設計 ] }
   - { id: I1-01, title: 尤度・最尤推定, volume: inference, prerequisites: [ S1-02 ], official_scope: [ 尤度関数, 対数尤度関数, 有効スコア関数, 最尤推定 ] }
-  - { id: I1-02, title: 推定法と推定量の評価, volume: inference, prerequisites: [ I1-01 ], official_scope: [ モーメント法, 最小二乗法, BLUE, 不偏性, 一致性, 有効性, フィッシャー情報量, クラーメル・ラオの不等式 ] }
+  - { id: I1-02, title: 推定法と推定量の評価, volume: inference, prerequisites: [ I1-01, P4-02, L1-02 ], official_scope: [ モーメント法, 最小二乗法, BLUE, 不偏性, 一致性, 有効性, フィッシャー情報量, クラーメル・ラオの不等式 ] }
   - { id: I2-01, title: 漸近推測・Delta法, volume: inference, prerequisites: [ I1-02, P4-02 ], official_scope: [ 最尤推定量の漸近正規性, デルタ法, 漸近分散 ] }
   - { id: I2-02, title: 区間推定, volume: inference, prerequisites: [ S1-01, I2-01 ], official_scope: [ 信頼係数, 信頼区間の構成, 被覆確率 ] }
   - { id: I3-01, title: 検定の基礎とNeyman--Pearson理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理 ] }
