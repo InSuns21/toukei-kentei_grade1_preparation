@@ -1,4 +1,4 @@
-# Standard 10 階層Bernoulli・全分散・級内相関
+# Standard 10 階層ベルヌーイ・全分散・級内相関
 
 - 旧No.: 22
 - 層: Standard

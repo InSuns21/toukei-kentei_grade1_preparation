@@ -33,14 +33,14 @@ Markov / ポアソン / AR / ARIMA は、各問題の冒頭で初出概念を定
 | ---: | ---: | :---: | :---: | --- |
 | 01 | 31 | S | B | [工程校正の重回帰・残差・leverage・予測](01_ols_projection.md) |
 | 02 | 34 | S | A | [線形制約・追加平方和・一般線形仮説のF検定](02_general_linear_hypothesis.md) |
-| 03 | 32 | S | A | [Gauss–Markov定理と最良線形不偏推定量](03_gauss_markov.md) |
+| 03 | 32 | S | A | [ガウス・マルコフ定理と最良線形不偏推定量](03_gauss_markov.md) |
 | 04 | 35 | S | B | [重回帰の分散分析・決定係数・部分F](04_regression_anova.md) |
 | 05 | 36 | S | B | [標準化重回帰・偏相関・分散拡大係数](05_standardized_regression.md) |
 | 06 | 40 | S | A | [制約モデルとバイアス・バリアンス](06_restricted_bias_variance.md) |
 | 07 | 74 | S | S | [最尤推定量の漸近正規性・ワルド/尤度比/スコア](07_wald_lr_score.md) |
 | 08 | 19 | S | A | [Markov推移度数の最尤推定量・尤度比検定](08_markov_mle_lrt.md) |
 | 09 | 17 | S | B | [Markov連鎖・定常分布・平均再帰時間](09_markov_stationary.md) |
-| 10 | 13 | S | B | [Poisson過程・指数待ち時間・条件付き二項](10_poisson_process.md) |
+| 10 | 13 | S | B | [ポアソン過程・指数待ち時間・条件付き二項](10_poisson_process.md) |
 | 11 | 22 | S | B | [AR(1)](11_ar1.md) |
 | 12 | 23 | S | A | [AR(2)・Yule–Walker](12_ar2_yule_walker.md) |
 | 13 | 27 | S | A | [ARIMA・差分・単位根](13_arima_difference.md) |
@@ -62,13 +62,13 @@ Markov / ポアソン / AR / ARIMA は、各問題の冒頭で初出概念を定
 | 29 | 65 | A | B | [多変量正規・線形変換・$\chi^2$](29_mvn_linear_transform.md) |
 | 30 | 33 | A | B | [線形結合・直交対比](30_linear_contrast.md) |
 | 31 | 41 | A | B | [一元配置分散分析](31_oneway_anova.md) |
-| 32 | 14 | A | A | [Poisson過程の重ね合わせ・間引き](32_poisson_superposition_thinning.md) |
+| 32 | 14 | A | A | [ポアソン過程の重ね合わせ・間引き](32_poisson_superposition_thinning.md) |
 | 33 | 18 | A | A | [吸収Markov連鎖](33_absorbing_markov.md) |
 | 34 | 28 | A | A | [時系列の多期予測・一般予測誤差分散](34_time_series_forecast.md) |
 | 35 | 24 | A | B | [MA(1)・自己共分散・可逆性](35_ma1_invertibility.md) |
 | 36 | 62 | A | A | [管理限界・検出確率・平均連長](36_control_chart_arl.md) |
 | 37 | 58 | A | B | [属性管理図 $p,np,c,u$](37_attribute_charts.md) |
-| 38 | 43 | A | C | [Fisherの3原則・実験単位](38_fisher_principles.md) |
+| 38 | 43 | A | C | [フィッシャーの3原則・実験単位](38_fisher_principles.md) |
 | 39 | 61 | S | A | [工程能力指数 $C_p$ の推定・カイ二乗信頼区間](39_cp_confidence_interval.md) |
 | 40 | 04 | A | B | [指数分布・無記憶性・直列系](40_exponential_reliability.md) |
 

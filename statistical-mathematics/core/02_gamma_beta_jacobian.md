@@ -8,9 +8,9 @@
 
 ## この問題で使う定義
 
-Gamma分布・Beta分布の名称だけを既知として計算を進めない。以下を出発点とする。
+ガンマ分布・Beta分布の名称だけを既知として計算を進めない。以下を出発点とする。
 
-Gamma関数を
+ガンマ関数を
 
 $$
 \Gamma(c)=\int_0^\infty t^{c-1}e^{-t}\,dt,
@@ -216,7 +216,7 @@ $$
 <a id="prop-statmath-core02-beta-gamma"></a>
 
 <!-- formal-statement-start -->
-> **命題（Beta--Gamma恒等式）**  
+> **命題（Beta--ガンマ恒等式）**  
 > $a,b>0$ に対して
 
 $$

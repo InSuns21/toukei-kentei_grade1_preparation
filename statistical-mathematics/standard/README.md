@@ -27,11 +27,11 @@ Standard は難度・演習価値の層を表すものであり、**解説を省
 | 07 | 19 | A | A | [経験分布・tail integral・混合重尾](19_empirical_distribution_tail_mixture.md) |
 | 08 | 20 | A | A | [最大順序統計量・極値極限](20_max_order_extreme_limit.md) |
 | 09 | 21 | A | A | [多項分布・分散共分散行列・多変量中心極限定理](21_multinomial_covariance_mvn_clt.md) |
-| 10 | 22 | A | A | [階層Bernoulli・全分散・級内相関](22_hierarchical_bernoulli_icc.md) |
+| 10 | 22 | A | A | [階層ベルヌーイ・全分散・級内相関](22_hierarchical_bernoulli_icc.md) |
 | 11 | 29 | A | A | [二値化正規・相関減衰](29_dichotomized_normal_correlation.md) |
 | 12 | 32 | A | A | [不均一分散Gaussian bridge](32_heteroscedastic_gaussian_bridge.md) |
 | 13 | 36 | A | A | [ノイズ付き線形観測の条件付き正規](36_noisy_linear_conditional_normal.md) |
-| 14 | 47 | A | A | [二項比率Wald区間・被覆確率](47_binomial_wald_coverage.md) |
+| 14 | 47 | A | A | [二項比率ワルド区間・被覆確率](47_binomial_wald_coverage.md) |
 | 15 | 50 | A | A | [二項2母数モーメント法・識別](50_two_parameter_binomial_moments.md) |
 | 16 | 52 | A | A | [パレート最尤推定量・有限標本バイアス・効率](52_pareto_mle_bias_efficiency.md) |
 | 17 | 54 | A | A | [一様分布最大値・不偏推定・分散比較](54_uniform_max_unbiased_variance.md) |

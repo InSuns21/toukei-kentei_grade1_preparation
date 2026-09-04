@@ -20,7 +20,7 @@
 
 - `core/03_gauss_markov.md`
   - 半正定値の意味を $c^\top Bc\ge0$ から定義。
-  - $\sigma^2DD^\top$ が半正定値であることを $\|D^\top c\|^2$ で確認し、Gauss–Markovの「最良」を任意の線形結合の分散比較へ接続。
+  - $\sigma^2DD^\top$ が半正定値であることを $\|D^\top c\|^2$ で確認し、ガウス・マルコフの「最良」を任意の線形結合の分散比較へ接続。
 - `core/09_markov_stationary.md`
   - 定常分布・収束条件・固有値の意味、平均再帰時間の導出を補強。
 - `core/12_ar2_yule_walker.md`

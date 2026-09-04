@@ -28,7 +28,7 @@ $$
 <a id="thm-statmath-core55-neyman-fisher"></a>
 
 <!-- formal-statement-start -->
-> **定理（Neyman--Fisher因子分解定理：十分性の向き）**  
+> **定理（Neyman--フィッシャー因子分解定理：十分性の向き）**  
 > 標本 $X$ の同時確率密度関数または同時確率質量関数を $f_\theta(x)$ とします。ある統計量 $T=T(X)$ と関数 $g_\theta,h$ が存在して
 
 $$
@@ -129,9 +129,9 @@ $$
 
 よって $Y$ は不偏。
 
-### 4. 条件付き期待値とLehmann–Scheffé
+### 4. 条件付き期待値とレーマン・シェッフェ
 
-指数分布は $\operatorname{Gamma}(1,\lambda)$ である。独立なGamma変数が**共通のrate**を持つとき、和 $T$ と比率ベクトル $(X_1/T,\ldots,X_n/T)$ は独立で、比率ベクトルはDirichlet分布になる。これは **ガンマ–Dirichlet 分解**で、必要条件は各 $X_i$ が独立Gammaでrateが共通であること。本問は $X_i\overset{iid}\sim\Gamma(1,\lambda)$ なので満たす。
+指数分布は $\operatorname{Gamma}(1,\lambda)$ である。独立なガンマ変数が**共通のrate**を持つとき、和 $T$ と比率ベクトル $(X_1/T,\ldots,X_n/T)$ は独立で、比率ベクトルはDirichlet分布になる。これは **ガンマ–Dirichlet 分解**で、必要条件は各 $X_i$ が独立ガンマでrateが共通であること。本問は $X_i\overset{iid}\sim\Gamma(1,\lambda)$ なので満たす。
 
 従って
 
@@ -186,7 +186,7 @@ $$
 
 問題文で与えた **Laplace変換の一意性**から $g(t)t^{n-1}=0$、従って $g(t)=0$ で $T$ は完備。
 
-また $Y=\boldsymbol{1}_{\{X_1>c\}}$ は不偏。独立Gammaで共通rateなので **ガンマ–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
+また $Y=\boldsymbol{1}_{\{X_1>c\}}$ は不偏。独立ガンマで共通rateなので **ガンマ–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
 
 $$
 E[Y\mid T]
@@ -201,4 +201,4 @@ $$
 - 完備性（Laplace変換の一意性）: 5点
 - 元の不偏推定量: 3点
 - 条件付き分布（ガンマ–Dirichlet条件）: 4点
-- 一様最小分散不偏推定量結論（Lehmann–Scheffé定理の条件確認）: 4点
+- 一様最小分散不偏推定量結論（レーマン・シェッフェ定理の条件確認）: 4点
