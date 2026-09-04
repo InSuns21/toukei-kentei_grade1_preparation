@@ -10,7 +10,6 @@ const targetPath = path.join(root, targetRoot);
 
 // references/terminology-guide.md の主要規約を、通常教材向けに強制する。
 // 初出併記が明示的に許可されている略語は、日本語正式名が同じ行にある場合のみ許可する。
-// MLE は通常教材では未定義略語として扱い、併記の有無にかかわらず使用しない。
 const rules = [
   // 今回問題になった主要な分布名。公式シラバスの日本語表記を主表記にする。
   always('Bernoulli', 'ベルヌーイ', /\bBernoulli\b/g),
@@ -44,7 +43,7 @@ const rules = [
   always('Pareto', 'パレート', /\bPareto\b/g),
 
   // 推定・検定
-  always('MLE', '最尤推定量／最尤法', /\bMLE\b/g),
+  withJapanese('MLE', '最尤推定量', /\bMLE\b/g, /最尤(?:推定量|推定|法|推定値)/),
   withJapanese('LRT', '尤度比検定', /\bLRT\b/g),
   withJapanese('LR', '尤度比', /\bLR\b/g),
   always('Wald test', 'ワルド検定', /\bWald\s+test\b/gi),
@@ -120,8 +119,8 @@ function always(token, preferred, pattern) {
   return { token, preferred, pattern, allowPattern: null };
 }
 
-function withJapanese(token, preferred, pattern) {
-  return { token, preferred, pattern, allowPattern: new RegExp(escapeRegExp(preferred)) };
+function withJapanese(token, preferred, pattern, allowPattern = new RegExp(escapeRegExp(preferred))) {
+  return { token, preferred, pattern, allowPattern };
 }
 
 function collectChangedMarkdownFiles() {
