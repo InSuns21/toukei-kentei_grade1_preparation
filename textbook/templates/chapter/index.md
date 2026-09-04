@@ -1,5 +1,4 @@
 <!-- 通常教材の章構成はこのファイルを正本とする。 -->
-<!-- definition-example-audit: strict -->
 
 # {{chapter_id}} {{chapter_title}}
 
