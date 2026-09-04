@@ -18,8 +18,7 @@ const targets = targetRoots.map((value) => path.join(root, value)).filter(fs.exi
 const distributionRules = [
   rule('Cauchy distribution', 'コーシー分布', /\bCauchy\s+distribution\b/g, /コーシー分布/),
   rule('Cauchy分布', 'コーシー分布', /\bCauchy\s*分布/g, /コーシー分布/),
-  rule('Cauchy', 'コーシー', /\bCauchy\b(?!\s+distribution)(?!\s*分布)(?!\s*(?:--|-|–|—)?\s*Schwarz)/g, /コーシー/),
-  rule('カウチー', 'コーシー', /カウチー/g),
+  rule('カウチー分布', 'コーシー分布', /カウチー\s*分布/g, /コーシー分布/),
   rule('Weibull distribution', 'ワイブル分布', /\bWeibull\s+distribution\b/g, /ワイブル分布/),
   rule('Weibull分布', 'ワイブル分布', /\bWeibull\s*分布/g, /ワイブル分布/),
   rule('Weibull', 'ワイブル', /\bWeibull\b(?!\s+distribution)(?!\s*分布)/g, /ワイブル/),
