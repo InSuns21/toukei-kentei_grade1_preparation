@@ -30,7 +30,7 @@
 6. [F0-00C 連続写像・連続性の同値条件](textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md)
 7. [F0-00C1 コンパクト性・点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
 8. [F0-00C2 コンパクト性の応用・最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
-9. [F0-00D コーシー列・完備距離空間](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+9. [F0-00D Cauchy列・完備距離空間](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
 
 ##### 線形代数
 

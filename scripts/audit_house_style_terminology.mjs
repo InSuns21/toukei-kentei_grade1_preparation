@@ -6,6 +6,7 @@ const root = process.cwd();
 // house style は用語ごとに段階移行する。
 // 既存の地下世界を一括置換せず、監査済みの章をここへ追加して再発を防ぐ。
 const migratedFiles = [
+  'textbook/dream-theater.md',
   'textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md',
 ];
 
