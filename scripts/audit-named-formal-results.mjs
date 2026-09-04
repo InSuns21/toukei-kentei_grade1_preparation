@@ -93,9 +93,10 @@ for (const root of ROOTS) {
   }
 }
 
-const candidates = all.filter((x) => !x.hasPanel);
-console.log(`Named-result heading audit: ${all.length} result-name heading(s), ${candidates.length} non-formal candidate(s).`);
+const candidates = all.filter((x) => !x.hasPanel || !x.hasAnchor);
+console.log(`Named-result heading audit: ${all.length} result-name heading(s), ${candidates.length} incomplete formal candidate(s).`);
 for (const item of candidates) {
-  console.log(`CANDIDATE\t${item.rel}:${item.line}\t${item.heading}\tanchor=${item.hasAnchor ? 'yes' : 'no'}`);
+  const missing = [!item.hasPanel ? 'panel' : null, !item.hasAnchor ? 'anchor' : null].filter(Boolean).join('+');
+  console.log(`CANDIDATE\t${item.rel}:${item.line}\t${item.heading}\tmissing=${missing}`);
 }
 if (candidates.length) process.exit(1);
