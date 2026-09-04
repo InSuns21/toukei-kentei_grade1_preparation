@@ -75,7 +75,9 @@ function stripNonProse(source) {
   return value;
 }
 
-function preserveShape(value) { return value.replace(/[^\n]/g, ' '); }
+// 数式やURLを空白にすると「用語 $x$ を」が「用語     を」に見えて誤検出する。
+// 位置と改行を保ちつつ、空白ではない文字でマスクする。
+function preserveShape(value) { return value.replace(/[^\n]/g, '§'); }
 function lineAt(source, index) { return source.slice(0, index).split('\n').length; }
 function relative(file) { return path.relative(root, file).replaceAll('\\', '/'); }
 function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
