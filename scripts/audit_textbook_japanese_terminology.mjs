@@ -5,13 +5,22 @@ import { execFileSync } from 'node:child_process';
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
-const targetRoot = 'textbook/volumes';
-const targetPath = path.join(root, targetRoot);
 
-// references/terminology-guide.md の主要規約を、通常教材向けに強制する。
-// 初出併記が明示的に許可されている略語は、日本語正式名が同じ行にある場合のみ許可する。
+// 統計検定1級の通常教材本編を対象にする。
+// 00_foundations は数学補講・DREAM THEATER を含み、英語固有名詞や専門用語の方針が別なので除外する。
+const targetRoots = [
+  'textbook/volumes/01_probability',
+  'textbook/volumes/02_distributions',
+  'textbook/volumes/03_inference',
+  'textbook/volumes/04_linear_models',
+  'textbook/volumes/05_engineering',
+];
+const targetPaths = targetRoots.map((value) => path.join(root, value));
+
+// references/terminology-guide.md の主要規約を、1級通常教材向けに強制する。
+// 初出併記が許可されている略語は、日本語正式名が同じ行にある場合のみ許可する。
 const rules = [
-  // 今回問題になった主要な分布名。公式シラバスの日本語表記を主表記にする。
+  // 公式シラバスの日本語分布名を主表記にする。
   always('Bernoulli', 'ベルヌーイ', /\bBernoulli\b/g),
   always('Poisson', 'ポアソン', /\bPoisson\b/g),
   always('Gamma', 'ガンマ', /\bGamma\b/g),
@@ -62,6 +71,7 @@ const rules = [
   withJapanese('CLT', '中心極限定理', /\bCLT\b/g),
   withJapanese('LLN', '大数の法則', /\bLLN\b/g),
   always('Delta method', 'デルタ法', /\bDelta\s+method\b/gi),
+  always('Delta法', 'デルタ法', /Delta法/g),
   withJapanese('OLS', '通常最小二乗法', /\bOLS\b/g),
   withJapanese('GLS', '一般化最小二乗法', /\bGLS\b/g),
   withJapanese('ANOVA', '分散分析', /\bANOVA\b/g),
@@ -71,6 +81,7 @@ const rules = [
   withJapanese('PCA', '主成分分析', /\bPCA\b/g),
 
   // 固有名詞・表記
+  always('Gauss--Markov', 'ガウス・マルコフ', /\bGauss\s*(?:--|–|—|-)\s*Markov\b/g),
   always('Neyman–Pearson', 'ネイマン・ピアソン', /\bNeyman\s*(?:--|–|—|-)\s*Pearson\b/g),
   always('Fisher', 'フィッシャー', /\bFisher\b/g),
   always('Bayes', 'ベイズ', /\bBayes\b/g),
@@ -83,7 +94,7 @@ const rules = [
   always('nuisance parameter', '局外母数', /\bnuisance\s+parameter\b/gi),
 ];
 
-const files = changedOnly ? collectChangedMarkdownFiles() : walk(targetPath).filter(isMarkdown);
+const files = changedOnly ? collectChangedMarkdownFiles() : targetPaths.flatMap((value) => walk(value).filter(isMarkdown));
 const findings = [];
 
 for (const file of files) {
@@ -102,16 +113,16 @@ for (const file of files) {
   }
 }
 
-console.log(strict ? '通常教材 日本語用語検証（strict）' : '通常教材 日本語用語監査');
+console.log(strict ? '統計検定1級通常教材 日本語用語検証（strict）' : '統計検定1級通常教材 日本語用語監査');
 console.log(`対象Markdown: ${files.length} ファイル`);
 console.log(`日本語主表記からの揺れ: ${findings.length} 件`);
-for (const item of findings.slice(0, 200)) {
+for (const item of findings.slice(0, 500)) {
   console.log(`  ${item.file}:${item.line} ${item.token} -> ${item.preferred}`);
 }
-if (findings.length > 200) console.log(`  ...ほか ${findings.length - 200} 件`);
+if (findings.length > 500) console.log(`  ...ほか ${findings.length - 500} 件`);
 
 if (strict && findings.length) {
-  console.error('通常教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。');
+  console.error('統計検定1級の通常教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。');
   process.exit(1);
 }
 
@@ -126,20 +137,20 @@ function withJapanese(token, preferred, pattern, allowPattern = new RegExp(escap
 function collectChangedMarkdownFiles() {
   const base = resolveDiffBase();
   if (!base) {
-    console.warn('差分基準コミットを取得できないため、通常教材全体を検査します。');
-    return walk(targetPath).filter(isMarkdown);
+    console.warn('差分基準コミットを取得できないため、1級通常教材全体を検査します。');
+    return targetPaths.flatMap((value) => walk(value).filter(isMarkdown));
   }
 
   let output;
   try {
-    output = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', targetRoot], {
+    output = execFileSync('git', ['diff', '--name-only', '--diff-filter=ACMR', base, 'HEAD', '--', ...targetRoots], {
       cwd: root,
       encoding: 'utf8',
       maxBuffer: 10 * 1024 * 1024,
     });
   } catch (error) {
-    console.warn(`git diff に失敗したため、通常教材全体を検査します: ${error.message}`);
-    return walk(targetPath).filter(isMarkdown);
+    console.warn(`git diff に失敗したため、1級通常教材全体を検査します: ${error.message}`);
+    return targetPaths.flatMap((value) => walk(value).filter(isMarkdown));
   }
 
   return output

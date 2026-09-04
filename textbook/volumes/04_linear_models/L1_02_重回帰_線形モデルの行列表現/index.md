@@ -271,7 +271,7 @@ $$
 <a id="thm-l1-02-gauss-markov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Gauss--Markovの定理）**  
+> **定理（ガウス・マルコフの定理）**  
 > 線形モデル $Y=X\beta+\varepsilon$ で、$X\in\mathbb R^{n\times p}$ は列フルランク、$E[\varepsilon]=0$、$\operatorname{Var}(\varepsilon)=\sigma^2I_n$ とします。このとき最小二乗推定量
 
 $$

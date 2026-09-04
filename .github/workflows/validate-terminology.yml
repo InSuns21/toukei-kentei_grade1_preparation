@@ -13,6 +13,7 @@ on:
       - 'references/house-style-terminology.md'
       - 'scripts/audit_terminology.mjs'
       - 'scripts/audit_textbook_japanese_terminology.mjs'
+      - 'scripts/audit_textbook_term_spacing.mjs'
       - 'scripts/audit_house_style_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
@@ -27,6 +28,7 @@ on:
       - 'references/house-style-terminology.md'
       - 'scripts/audit_terminology.mjs'
       - 'scripts/audit_textbook_japanese_terminology.mjs'
+      - 'scripts/audit_textbook_term_spacing.mjs'
       - 'scripts/audit_house_style_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
@@ -56,10 +58,11 @@ jobs:
           TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: npm run validate:terminology:changed
 
-      - name: Validate textbook Japanese terminology
-        env:
-          TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: node scripts/audit_textbook_japanese_terminology.mjs --strict --changed-only
+      - name: Validate all textbook Japanese terminology
+        run: node scripts/audit_textbook_japanese_terminology.mjs --strict
+
+      - name: Validate Japanese terminology spacing
+        run: node scripts/audit_textbook_term_spacing.mjs
 
       - name: Validate advanced-math house style
         run: node scripts/audit_house_style_terminology.mjs
