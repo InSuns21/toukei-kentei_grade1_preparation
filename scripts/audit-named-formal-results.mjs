@@ -8,6 +8,7 @@ const ROOTS = [
 ];
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
+const STABLE_ANCHOR_RE = /<a\s+id="(?:thm|prop|lem|cor|principle)-[^"]+"><\/a>/u;
 
 // A named-result heading is treated as a declaration candidate only when the
 // heading names the mathematical result itself. Usage/review headings such as
@@ -50,13 +51,26 @@ function classifySection(lines, start) {
   const heading = headingText(lines[start]);
   let hasPanel = false;
   let hasAnchor = false;
+
+  // Stable anchors are used in both supported layouts:
+  //   <a id="thm-..."></a>   then heading
+  //   heading               then <a id="thm-..."></a>
+  // Look immediately backward across blank lines so legacy canonical anchors
+  // placed just before the heading are not falsely reported as missing.
+  for (let i = start - 1; i >= 0; i -= 1) {
+    const t = lines[i].trim();
+    if (!t) continue;
+    if (STABLE_ANCHOR_RE.test(lines[i])) hasAnchor = true;
+    break;
+  }
+
   for (let i = start + 1; i < lines.length; i += 1) {
     const line = lines[i];
     const hm = line.match(/^(#{1,6})\s+/u);
     if (hm && hm[1].length <= level) break;
     const t = line.trim();
     if (t === START) hasPanel = true;
-    if (/<a\s+id="(?:thm|prop|lem|cor|principle)-[^"]+"><\/a>/u.test(line)) hasAnchor = true;
+    if (STABLE_ANCHOR_RE.test(line)) hasAnchor = true;
   }
   return { heading, hasPanel, hasAnchor };
 }
