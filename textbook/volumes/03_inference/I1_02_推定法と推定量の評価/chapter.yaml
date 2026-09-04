@@ -1,0 +1,59 @@
+id: "I1-02"
+title: "推定法と推定量の評価"
+volume: "inference"
+status: reviewed
+prerequisites:
+  - I1-01
+  - P4-02
+  - L1-02
+official_scope:
+  - モーメント法
+  - 最小二乗法
+  - BLUE
+  - 不偏性
+  - 一致性
+  - 有効性
+  - フィッシャー情報量
+  - クラーメル・ラオの不等式
+learning_objectives:
+  - 母集団モーメントと標本モーメントを対応させてモーメント推定量を構成できる
+  - 最小二乗法を残差平方和の最小化として導出し最尤法との違いを説明できる
+  - 推定量のバイアス・分散・平均二乗誤差を計算しMSE分解を使える
+  - 不偏性と一致性を区別しバイアスがあっても一致的な推定量を判定できる
+  - 線形不偏推定量の中で分散を最小にする重みを求められる
+  - Gauss--Markovの定理をBLUEの意味とともに説明し行列表現で証明できる
+  - スコアからFisher情報量を計算し独立標本での加法性を使える
+  - 正則条件の下でFisher情報量を対数尤度の二階微分から計算できる
+  - Cramér--Rao不等式をスコアとの共分散とCauchy--Schwarz不等式から導出できる
+  - Cramér--Rao下限を達成する推定量の有効性を判定できる
+  - 支持が母数に依存する非正則モデルではCramér--Rao不等式を機械的に使わないと判断できる
+definitions:
+  - { id: I102-DEF-01, name: モーメント法 }
+  - { id: I102-DEF-02, name: 最小二乗法 }
+  - { id: I102-DEF-03, name: バイアス }
+  - { id: I102-DEF-04, name: 不偏推定量 }
+  - { id: I102-DEF-05, name: 平均二乗誤差 }
+  - { id: I102-DEF-06, name: 一致推定量 }
+  - { id: I102-DEF-07, name: BLUE }
+  - { id: I102-DEF-08, name: Fisher情報量 }
+  - { id: I102-DEF-09, name: 有効推定量 }
+  - { id: I102-DEF-10, name: 相対効率 }
+theorems:
+  - { id: I102-PROP-01, name: MSE分解 }
+  - { id: I102-PROP-02, name: バイアスと分散からの一致性判定 }
+  - { id: I102-THM-01, name: Gauss--Markovの定理 }
+  - { id: I102-PROP-03, name: Fisher情報量の加法性 }
+  - { id: I102-PROP-04, name: Fisher情報量の二階微分表示 }
+  - { id: I102-THM-02, name: Cramér--Rao不等式 }
+canonical_examples: [一様分布のモーメント法, 正規平均の最小二乗法, 二つの不偏測定の逆分散重み, Gauss--Markov, BernoulliのFisher情報量, 正規平均のCramér--Rao下限, 一様分布の非正則推定]
+problem_patterns: [MOMENT-METHOD-1, LS-LOCATION-1, BIAS-MSE-1, CONSISTENCY-1, BLUE-WEIGHT-1, GAUSS-MARKOV-1, FISHER-INFO-1, CRLB-1, EFFICIENCY-1, NONREGULAR-CRLB-1]
+past_exam_alignment:
+  - { id: MATH-2024-Q1, theme: 回帰係数の推定・検定・検出力, skills: [最小二乗推定, 推定量の分散評価], source_type: third_party_topic_index }
+  - { id: MATH-2023-Q1, theme: Poisson分布の不偏推定量・一致推定量, skills: [不偏性, 一致性, 分散比較], source_type: third_party_topic_index }
+integrated_exam_problems: [I1-02-C01, I1-02-C02, I1-02-C03, I1-02-C04, I1-02-D01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
