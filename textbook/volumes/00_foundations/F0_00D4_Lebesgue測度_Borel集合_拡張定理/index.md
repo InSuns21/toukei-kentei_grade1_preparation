@@ -640,7 +640,7 @@ $$
 \sigma(\mathcal A)\subset\mathcal M.
 $$
 
-D3 の Carathéodory 定理から
+[D3 の Carathéodory 定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)から
 
 $$
 \mu:=\mu^*|_{\sigma(\mathcal A)}
@@ -757,7 +757,7 @@ $$
 
 と置き、有限互いに素和へ加法的に延長すると premeasure が得られます。D2C ではこの premeasure 性を一変数 MCT だけで確認しました。
 
-Carathéodory 拡張定理から
+[Carathéodory 拡張定理](#thm-caratheodory-extension)から
 
 $$
 \sigma\{A\times B:A\in\mathcal A,B\in\mathcal B\}
@@ -825,7 +825,22 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-区間端点と0,1を全て並べて有限分割する。各隣接小区間は少なくとも一つの被覆区間に含まれるので、元区間の長さ総和は全小区間長の総和1以上。
+0,1 と全区間の端点を小さい順に並べて有限分割する。各隣接小区間は少なくとも一つの被覆区間に完全に含まれる。従って、元の区間長を小区間長の和として数えると $[0,1]$ の全小区間が少なくとも一度は数えられるため
+
+$$
+\sum_j|I_j|\ge1.
+$$
+
+### 本番答案
+
+被覆区間の端点で $[0,1]$ を有限個の小区間に分割する。各小区間は少なくとも一つの $I_j$ に含まれるため、被覆区間の長さ総和は小区間長の総和 $1$ 以上である。
+
+### 採点基準（20点）
+
+- 端点による有限分割：6点
+- 各小区間が被覆区間に含まれること：6点
+- 長さを数え上げる議論：5点
+- 結論：3点
 <!-- solution-end -->
 
 ## F0-00D4-A02 Borel集合と測度0
@@ -838,7 +853,28 @@ $A=\mathbb Q\cap[0,1]$ が Borel 集合であることを示し、$\lambda(A)$ �
 <!-- solution-start -->
 ### 詳細解答
 
-一点集合は閉集合なので Borel。有理数は可算だから $A$ は一点集合の可算和で Borel。各一点の測度は0なので $\lambda(A)=0$。
+一点集合 $\{q\}$ は閉集合なので Borel 集合。有理数は可算だから
+
+$$
+A=\bigcup_{q\in\mathbb Q\cap[0,1]}\{q\}
+$$
+
+は Borel 集合の可算和であり Borel。各一点の Lebesgue 測度は0なので可算加法性から
+
+$$
+\lambda(A)=0.
+$$
+
+### 本番答案
+
+一点集合は閉集合なので Borel。$A$ は一点集合の可算和だから Borel 集合であり、各一点の測度が0なので $\lambda(A)=0$。
+
+### 採点基準（20点）
+
+- 一点集合が Borel：5点
+- $A$ を可算和で表す：6点
+- 各一点の測度0：4点
+- 可算加法性で $\lambda(A)=0$：5点
 <!-- solution-end -->
 
 ## F0-00D4-A03 premeasureと外測度
@@ -857,7 +893,36 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Lebesgue 外測度では「区間の長さ」をコストとして外側から覆った。一般の拡張では区間を algebra の集合 $A_n$、長さを premeasure $\mu_0(A_n)$ に置き換えた同じ構成である。
+Lebesgue 外測度では任意集合 $E$ を開区間 $I_n$ で外側から覆い、その被覆コスト
+
+$$
+\sum_n|I_n|
+$$
+
+の infimum を取った。一般の拡張では「開区間」を algebra の集合 $A_n$ に、「区間長」を premeasure $\mu_0(A_n)$ に置き換える。従って同じ外側近似の構造
+
+$$
+\text{covering objects} + \text{cost} + \inf
+$$
+
+を抽象化した式である。
+
+### 本番答案
+
+Lebesgue 外測度の
+
+$$
+\inf\sum_n|I_n|
+$$
+
+で、区間 $I_n$ を $A_n\in\mathcal A$、長さ $|I_n|$ を premeasure $\mu_0(A_n)$ に置き換えた一般化である。
+
+### 採点基準（20点）
+
+- Lebesgue 外測度の被覆構造を説明：6点
+- 区間 $I_n\leftrightarrow A_n$：5点
+- 長さ $|I_n|\leftrightarrow\mu_0(A_n)$：5点
+- infimum の役割：4点
 <!-- solution-end -->
 
 ## F0-00D4-B01 元の値を保つこと
@@ -870,13 +935,52 @@ $A\in\mathcal A$ について $\mu^*(A)=\mu_0(A)$ を証明せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-$A$ 自身で覆えば $\mu^*(A)\le\mu_0(A)$。任意の被覆 $A\subset\bigcup_nA_n$ を $A$ 内で disjoint 化して $B_n\subset A_n$、$A=\bigsqcup B_n$ とすれば
+$A$ 自身一つで $A$ を覆えるので
 
 $$
-\mu_0(A)=\sum_n\mu_0(B_n)\le\sum_n\mu_0(A_n).
+\mu^*(A)\le\mu_0(A).
 $$
 
-infimum を取り逆向きを得る。
+逆向きには、任意の被覆 $A\subset\bigcup_nA_n$ を
+
+$$
+B_1=A\cap A_1,
+\qquad
+B_n=A\cap\left(A_n\setminus\bigcup_{k<n}A_k\right)
+$$
+
+と $A$ 内で disjoint 化する。すると $B_n\in\mathcal A$、$B_n\subset A_n$、$A=\bigsqcup_nB_n$ なので
+
+$$
+\mu_0(A)=\sum_n\mu_0(B_n)
+\le\sum_n\mu_0(A_n).
+$$
+
+任意の被覆について成立するから infimum を取り
+
+$$
+\mu_0(A)\le\mu^*(A).
+$$
+
+両向きを合わせて等号。
+
+### 本番答案
+
+$A$ 自身で覆えば $\mu^*(A)\le\mu_0(A)$。任意の被覆 $A\subset\bigcup A_n$ を $A$ 内で disjoint 化して $A=\bigsqcup B_n$、$B_n\subset A_n$ とすれば
+
+$$
+\mu_0(A)=\sum\mu_0(B_n)\le\sum\mu_0(A_n).
+$$
+
+被覆について infimum を取り逆向きを得る。従って $\mu^*(A)=\mu_0(A)$。
+
+### 採点基準（20点）
+
+- 自明な向き $\mu^*\le\mu_0$：4点
+- 被覆の disjoint 化：6点
+- premeasure の可算加法性：5点
+- $B_n\subset A_n$ から不等式：2点
+- infimum と結論：3点
 <!-- solution-end -->
 
 ## F0-00D4-B02 algebra集合のCarathéodory可測性
@@ -889,13 +993,48 @@ $A\in\mathcal A$ が $\mu^*$-Carathéodory 可測であることを証明せよ�
 <!-- solution-start -->
 ### 詳細解答
 
-任意の $E$ の $\mathcal A$-被覆 $A_n$ を $A_n\cap A$ と $A_n\setminus A$ に分ける。premeasure の有限加法性によりコストは保存され、前者は $E\cap A$、後者は $E\setminus A$ を覆う。従って
+任意の $E\subset X$ とその $\mathcal A$-被覆 $E\subset\bigcup_nA_n$ を取る。各 $A_n$ を
 
 $$
-\mu^*(E\cap A)+\mu^*(E\setminus A)\le\mu^*(E).
+A_n\cap A,
+\qquad
+A_n\setminus A
 $$
 
-逆向きは外測度の劣加法性。
+へ分けると、前者は $E\cap A$、後者は $E\setminus A$ を覆う。有限加法性から
+
+$$
+\mu_0(A_n)=\mu_0(A_n\cap A)+\mu_0(A_n\setminus A).
+$$
+
+従って
+
+$$
+\mu^*(E\cap A)+\mu^*(E\setminus A)
+\le\sum_n\mu_0(A_n).
+$$
+
+全被覆について infimum を取って
+
+$$
+\mu^*(E\cap A)+\mu^*(E\setminus A)
+\le\mu^*(E).
+$$
+
+逆向きは外測度の劣加法性から自動なので Carathéodory 等式が成立する。
+
+### 本番答案
+
+$E$ の任意の $\mathcal A$-被覆 $A_n$ を $A_n\cap A$ と $A_n\setminus A$ に二分する。premeasure の有限加法性よりコストは保存され、二群はそれぞれ $E\cap A$、$E\setminus A$ を覆う。infimum を取れば Carathéodory 条件の逆向き不等式を得る。順向きは劣加法性より自動。
+
+### 採点基準（20点）
+
+- 任意の被覆を取る：3点
+- $A$ による二分：5点
+- premeasure の有限加法性：4点
+- 二部分の外測度評価：4点
+- infimum と逆向き不等式：2点
+- 劣加法性と結論：2点
 <!-- solution-end -->
 
 ## F0-00D4-B03 拡張の一意性
@@ -914,11 +1053,50 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-全空間の測度が共通かつ有限なので補集合で等しさを保つ。互いに素な可算和では可算加法性で保つ。従って $\mathcal D$ は Dynkin 族。$\mathcal A$ は π-system で $\mathcal A\subset\mathcal D$ だから
+$\mu(X)=\nu(X)=\mu_0(X)<\infty$。$E\in\mathcal D$ なら
+
+$$
+\mu(E^c)=\mu(X)-\mu(E)
+=
+\nu(X)-\nu(E)=\nu(E^c)
+$$
+
+なので補集合で閉じる。
+
+互いに素な $E_n\in\mathcal D$ なら
+
+$$
+\mu\left(\bigcup_nE_n\right)
+=
+\sum_n\mu(E_n)
+=
+\sum_n\nu(E_n)
+=
+\nu\left(\bigcup_nE_n\right),
+$$
+
+よって互いに素な可算和でも閉じ、$\mathcal D$ は Dynkin 族。
+
+$\mathcal A$ は π-system で、両拡張は $\mathcal A$ 上で $\mu_0$ と一致するため $\mathcal A\subset\mathcal D$。π–λ 定理から
 
 $$
 \sigma(\mathcal A)\subset\mathcal D.
 $$
+
+従って $\mu=\nu$。
+
+### 本番答案
+
+全空間の測度が共通かつ有限なので $\mathcal D$ は補集合で閉じ、可算加法性から互いに素な可算和でも閉じる。従って Dynkin 族。$\mathcal A$ は π-system かつ $\mathcal A\subset\mathcal D$ なので π–λ 定理より $\sigma(\mathcal A)\subset\mathcal D$。よって拡張は一意。
+
+### 採点基準（20点）
+
+- $\mu(X)=\nu(X)<\infty$：3点
+- 補集合で閉じる：5点
+- 互いに素な可算和で閉じる：5点
+- $\mathcal A$ が π-system、かつ含まれる：3点
+- π–λ 定理：3点
+- 一意性の結論：1点
 <!-- solution-end -->
 
 ## F0-00D4-B04 積測度への適用
@@ -937,7 +1115,33 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-長方形の有限互いに素和の algebra へ $\pi$ を延長する。D2C の一変数 MCT の議論で premeasure 性を確認する。Carathéodory 拡張定理で $\mathcal A\otimes\mathcal B$ 上へ拡張し、σ有限性により一意性を得る。
+可測長方形の有限互いに素和からなる algebra $\mathcal R$ を取り、長方形上の
+
+$$
+\pi(A\times B)=\mu(A)\nu(B)
+$$
+
+を有限加法的に延長する。D2C の一変数 MCT の議論で $\pi$ が premeasure であることを確認する。
+
+[Carathéodory 拡張定理](#thm-caratheodory-extension)により $\pi$ は
+
+$$
+\sigma(\mathcal R)=\mathcal A\otimes\mathcal B
+$$
+
+上の測度へ拡張される。$\mu,\nu$ がσ有限なら有限測度の長方形で $X\times Y$ を可算被覆できるので $\pi$ もσ有限。従って拡張は一意。
+
+### 本番答案
+
+長方形の有限和 algebra 上で $\pi(A\times B)=\mu(A)\nu(B)$ を premeasure として構成する。Carathéodory 拡張定理で $\mathcal A\otimes\mathcal B$ へ拡張し、σ有限性により一意性を得る。これが $\mu\times\nu$。
+
+### 採点基準（20点）
+
+- 長方形 algebra を設定：4点
+- $\pi$ の定義：4点
+- premeasure 性：4点
+- Carathéodory 拡張：4点
+- σ有限性から一意性：4点
 <!-- solution-end -->
 
 ---
