@@ -3,7 +3,9 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve('textbook/volumes');
-const LEGACY_CUTOFF = '5d4f81d81dd9140302738bdff79d8cbc500bb8f3';
+// main immediately before the default-strict policy was introduced.
+// Files identical to this snapshot are transitional legacy only; any edit makes them strict.
+const LEGACY_CUTOFF = 'a82f4d95d966c62853e37e932000178c93da12ed';
 const STRICT_MARKER = '<!-- definition-example-audit: strict -->';
 const LOOSE_MARKER = '<!-- definition-example-audit: loose -->';
 const FORMAL_START = '<!-- formal-statement-start -->';
@@ -76,7 +78,7 @@ for (const file of walk(ROOT)) {
     legacyLoosePages += 1;
   } else if (unchangedSinceCutoff(rel)) {
     // Transitional grandfathering only for files that have not changed at all since
-    // the rule was introduced. Any edit makes the page strict unless it opts out.
+    // the default-strict rule was introduced. Any edit makes the page strict unless it opts out.
     legacyLoosePages += 1;
   } else {
     strict = true;
