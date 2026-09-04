@@ -9,6 +9,8 @@ D2Bまでは一つの測度空間上の積分でした。この講義では2つ�
  ↓
 積測度
  ↓
+section測度公式
+ ↓
 Tonelli（非負）
  ↓
 Fubini（絶対可積分）
@@ -16,8 +18,10 @@ Fubini（絶対可積分）
 
 です。
 
-> **証明状態について**  
-> 積測度の存在一意性は、長方形上の前測度をCarathéodory拡張定理で延長する結果です。標準ルートではこの定理をここで明示的に受け入れます。一般の拡張原理は[D4のCarathéodory拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で確認できますが、積測度の存在一意性までの完全証明は監査ID `TODO-P1-D2-07` の未完タスクとして扱います。
+> **証明依存**  
+> 積測度の存在・一意性には Carathéodory 拡張定理を使います。標準ルートではこの定理を受け入れて先へ進んで構いません。DREAM THEATER ルートでは [D3](../F0_00D3_外測度_Caratheodory可測性/index.md) → [D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で拡張定理そのものを証明します。本章では、それ以外の section → Tonelli → Fubini の論理を黒箱なしで閉じます。
+
+---
 
 ## 0. まず普通の二重積分から「順序交換の条件」を考える
 
@@ -28,47 +32,32 @@ f(x,y)=xy,
 \qquad 0\le x\le1,\ 0\le y\le2
 $$
 
-なら、高校・大学初年級の計算では
+では
 
 $$
 \int_0^1\int_0^2xy\,dy\,dx
 =
 \int_0^2\int_0^1xy\,dx\,dy
-=1
+=1.
 $$
 
-と積分順序を自由に変えます。
+しかし測度論では、積分順序の交換は無条件ではありません。
 
-測度論で問うのは、
+- $f\ge0$ なら **Tonelli**：値が $+\infty$ でもよい。
+- 符号があるなら **Fubini**：$\int|f|<\infty$ を要求する。
 
-> **この順序交換は、どんな関数・どんな空間でも本当に安全なのか。**
-
-です。
-
-答えは「条件つき」です。
-
-- $f\ge0$ なら **Tonelli**：値が $\infty$ でもよく、反復積分を安全に作れる。
-- 符号があるなら **Fubini**：$\int|f|<\infty$ という絶対可積分性を要求する。
-
-この二つを区別するために、まず積空間とsectionを準備します。
+この違いを証明から理解するのが本章の目的です。
 
 ---
 
 ## 1. 積σ代数
 
 <a id="def-f0-00d2c-01"></a>
- 
+
 <!-- formal-statement-start -->
 ### 定義（積σ代数）
 
-可測空間 $(X,\mathcal A)$ と $(Y,\mathcal B)$ に対して、可測長方形
-
-$$
-A\times B,
-\qquad A\in\mathcal A,\ B\in\mathcal B
-$$
-
-全体が生成する $X\times Y$ 上のσ代数
+可測空間 $(X,\mathcal A)$ と $(Y,\mathcal B)$ に対して
 
 $$
 \boxed{
@@ -79,19 +68,11 @@ $$
 $$
 
 を **積σ代数** という。
-
-組
-
-$$
-(X\times Y,\mathcal A\otimes\mathcal B)
-$$
-
-を積可測空間という。
 <!-- formal-statement-end -->
 
-### 例1：Borel σ代数の積
+### 例1：Euclid空間
 
-$\mathbb R^m,\mathbb R^n$ の通常の位相に対して
+通常の Borel σ代数について
 
 $$
 \mathcal B(\mathbb R^m)\otimes\mathcal B(\mathbb R^n)
@@ -99,110 +80,130 @@ $$
 \mathcal B(\mathbb R^{m+n})
 $$
 
-が成り立ちます。
+が成り立ちます。したがって通常の二変数連続関数は積σ代数に関して可測です。
 
 ---
 
 ## 2. 積測度
 
 <a id="thm-f0-00d2c-01"></a>
- 
+
 <!-- formal-statement-start -->
 ### 定理（σ有限測度の積測度）
 
-σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$ に対して、積σ代数 $\mathcal A\otimes\mathcal B$ 上に測度 $\mu\times\nu$ が一意に存在し、任意の $A\in\mathcal A,B\in\mathcal B$ について
+σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$ に対して、積σ代数 $\mathcal A\otimes\mathcal B$ 上に一意な測度 $\mu\times\nu$ が存在し、
 
 $$
 \boxed{
-(\mu\times\nu)(A\times B)
-=
-\mu(A)\nu(B)
+(\mu\times\nu)(A\times B)=\mu(A)\nu(B)
 }
 $$
 
-を満たす。
-
-ここでσ有限とは、例えば $X$ が可測集合列 $X_n$ で覆われ
-
-$$
-X=\bigcup_{n=1}^\infty X_n,
-\qquad
-\mu(X_n)<\infty
-$$
-
-となることです。
+を全ての $A\in\mathcal A,B\in\mathcal B$ について満たす。
 <!-- formal-statement-end -->
 
-### 証明の位置
+### 2.1 なぜ長方形上の積が premeasure になるのか
 
-長方形の有限和からなる半環上に
+まず可測長方形の有限互いに素和からなる algebra を $\mathcal R$ とします。長方形について
 
 $$
-\pi(A\times B)=\mu(A)\nu(B)
+\pi(A\times B):=\mu(A)\nu(B)
 $$
 
-を定め、これを前測度へ拡張し、Carathéodory拡張定理を適用します。一意性にはσ有限性を使います。
+と置き、互いに素な有限和には加法的に延長します。
 
-**完全証明：D4で実施。**
+重要なのは、この定義が可算分割にも整合することです。例えば
+
+$$
+A\times B=\bigsqcup_{n=1}^\infty(A_n\times B_n)
+$$
+
+なら各 $(x,y)$ について
+
+$$
+1_A(x)1_B(y)
+=
+\sum_{n=1}^\infty1_{A_n}(x)1_{B_n}(y).
+$$
+
+固定した $x$ で $y$ について積分し、非負級数に MCT を使うと
+
+$$
+1_A(x)\nu(B)
+=
+\sum_{n=1}^\infty1_{A_n}(x)\nu(B_n).
+$$
+
+さらに $x$ について MCT を使えば
+
+$$
+\mu(A)\nu(B)
+=
+\sum_{n=1}^\infty\mu(A_n)\nu(B_n).
+$$
+
+有限互いに素和に分解した一般の $R\in\mathcal R$ でも同じ議論を各成分へ適用できるため、$\pi$ は $\mathcal R$ 上の premeasure になります。
+
+### 2.2 Carathéodory 拡張定理を適用する
+
+D4 の Carathéodory 拡張定理により $\pi$ は
+
+$$
+\sigma(\mathcal R)=\mathcal A\otimes\mathcal B
+$$
+
+上の測度へ拡張されます。これが $\mu\times\nu$ です。
+
+$\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算に覆えるため、premeasure $\pi$ もσ有限です。したがって拡張の一意性も D4 の一意性部分から従います。$\square$
+
+> ここで積測度の存在・一意性は **D4の拡張定理に依存することを明示した上で完全に閉じています**。以後は積測度を使います。
 
 ---
 
 ## 3. section
 
-二変数集合・関数を一方の変数だけ固定して見る操作を定義します。
-
 <a id="def-f0-00d2c-02"></a>
- 
+
 <!-- formal-statement-start -->
-### 定義（集合のsection）
+### 定義（集合の section）
 
 $E\subset X\times Y$ と $x\in X,y\in Y$ に対して
 
 $$
-E_x
-:=
-\{y\in Y:(x,y)\in E\},
-$$
-
-$$
-E^y
-:=
-\{x\in X:(x,y)\in E\}
+E_x:=\{y\in Y:(x,y)\in E\},
+\qquad
+E^y:=\{x\in X:(x,y)\in E\}
 $$
 
 をそれぞれ $x$-section、$y$-sectionという。
 <!-- formal-statement-end -->
 
-### 3.1 具体例：長方形を縦に切る
+### 例2：長方形を縦に切る
 
-$E=[0,1]\times[0,2]$ とすると、固定した $x$ に対するsectionは
+$E=[0,1]\times[0,2]$ なら
 
 $$
 E_x=
 \begin{cases}
-[0,2],&0\le x\le1,\\
-\varnothing,&\text{otherwise}.
+[0,2],&x\in[0,1],\\
+\varnothing,&x\notin[0,1].
 \end{cases}
 $$
-
-です。
 
 したがって
 
 $$
-\nu(E_x)=2\,1_{[0,1]}(x)
+\nu(E_x)=2\,1_{[0,1]}(x).
 $$
 
-をさらに $x$ で積分すると面積2が出ます。
-
-sectionは「二次元集合を一方向にスライスし、その断面の大きさをもう一方で積分する」ための道具です。
+section は「二次元集合を一方向に切り、その断面の大きさをもう一方で積分する」操作です。
 
 <a id="prop-f0-00d2c-01"></a>
- 
-<!-- formal-statement-start -->
-### 命題（可測集合のsectionは可測）
 
-可測空間 $(X,\mathcal A)$、$(Y,\mathcal B)$ と $E\in\mathcal A\otimes\mathcal B$ に対して、任意の $x\in X,y\in Y$ について
+<!-- formal-statement-start -->
+### 命題（可測集合の section は可測）
+
+$E\in\mathcal A\otimes\mathcal B$ なら、任意の $x,y$ について
 
 $$
 E_x\in\mathcal B,
@@ -211,91 +212,225 @@ E^y\in\mathcal A.
 $$
 <!-- formal-statement-end -->
 
-#### 証明の見取り図
-
-固定した $x$ について「sectionが可測になる集合 $E$ 全体」を $\mathcal C_x$ と置きます。
-
-- sectionは補集合・可算和と可換するので $\mathcal C_x$ は$\sigma$代数。
-- 長方形 $A\times B$ のsectionは $B$ または空集合なので可測。
-
-したがって長方形が生成する積$\sigma$代数全体が $\mathcal C_x$ に入ります。
-
 <!-- proof-start -->
 #### 証明
 
 固定した $x\in X$ に対して
 
 $$
-\mathcal C_x
-:=
-\{E\subset X\times Y:E_x\in\mathcal B\}
+\mathcal C_x:=\{E\subset X\times Y:E_x\in\mathcal B\}
 $$
 
-と置きます。sectionは補集合・可算和と可換するため $\mathcal C_x$ はσ代数です。
+と置きます。section は補集合と可算和に可換するので $\mathcal C_x$ はσ代数です。
 
-可測長方形 $A\times B$ のsectionは
+長方形について
 
 $$
-(A\times B)_x
-=
+(A\times B)_x=
 \begin{cases}
 B,&x\in A,\\
-\varnothing,&x\notin A,
+\varnothing,&x\notin A
 \end{cases}
 $$
 
-なので可測です。よって $\mathcal C_x$ は全ての可測長方形を含み、
+だから全ての可測長方形が $\mathcal C_x$ に入ります。従って
 
 $$
 \mathcal A\otimes\mathcal B\subset\mathcal C_x.
 $$
 
-したがって任意の $E\in\mathcal A\otimes\mathcal B$ の $E_x$ は可測。$E^y$ も同様です。$\square$
+$E^y$ も同様です。$\square$
 <!-- proof-end -->
 
 ---
 
-## 4. Tonelliの定理
+## 4. section 測度公式
 
-### 4.1 直感：Tonelliは「非負だから足し合わせる順序で相殺事故が起きない」
+Tonelli の証明で本当に必要なのは、単に section が可測集合になることだけではありません。
 
-非負関数では、どの方向から積分しても全ての寄与は足し算です。途中で $+\infty$ になっても矛盾は起きません。
+<a id="lem-section-measure"></a>
 
-そのためTonelliは
+<!-- formal-statement-start -->
+### 補題（section 測度公式）
+
+$(X,\mathcal A,\mu),(Y,\mathcal B,\nu)$ をσ有限測度空間とし、$E\in\mathcal A\otimes\mathcal B$ とする。このとき
 
 $$
-f\ge0
+x\longmapsto\nu(E_x)
 $$
 
-だけで二重積分と反復積分の一致を保証し、値 $\infty$ も許します。
+は $\mathcal A$-可測で、
 
-証明もLebesgue積分の構成と同じく
+$$
+\boxed{
+(\mu\times\nu)(E)=\int_X\nu(E_x)\,d\mu(x)
+}
+$$
 
-```text
-指示関数 → 単関数 → 一般の非負可測関数
-```
+が成り立つ。変数を逆にした
 
-と持ち上げます。
+$$
+(\mu\times\nu)(E)=\int_Y\mu(E^y)\,d\nu(y)
+$$
+
+も成り立つ。
+<!-- formal-statement-end -->
+
+### 4.1 まず有限測度の場合
+
+$\mu(X)<\infty,\nu(Y)<\infty$ とします。次の性質を満たす集合族を
+
+$$
+\mathcal D
+:=
+\left\{
+E\in\mathcal A\otimes\mathcal B:
+ x\mapsto\nu(E_x)\text{ が可測かつ }
+(\mu\times\nu)(E)=\int_X\nu(E_x)d\mu
+\right\}
+$$
+
+と置きます。
+
+#### 長方形は $\mathcal D$ に入る
+
+$E=A\times B$ なら
+
+$$
+\nu(E_x)=1_A(x)\nu(B)
+$$
+
+なので可測で、
+
+$$
+\int_X\nu(E_x)d\mu
+=
+\mu(A)\nu(B)
+=
+(\mu\times\nu)(A\times B).
+$$
+
+#### 補集合で閉じる
+
+$E\in\mathcal D$ なら有限測度性により
+
+$$
+\nu((E^c)_x)=\nu(Y)-\nu(E_x)
+$$
+
+で可測です。また
+
+$$
+\begin{aligned}
+\int_X\nu((E^c)_x)d\mu
+&=\mu(X)\nu(Y)-\int_X\nu(E_x)d\mu\\
+&=(\mu\times\nu)(X\times Y)-(\mu\times\nu)(E)\\
+&=(\mu\times\nu)(E^c).
+\end{aligned}
+$$
+
+#### 互いに素な可算和で閉じる
+
+$E_n\in\mathcal D$ が互いに素なら、各 $x$ で $(E_n)_x$ も互いに素だから
+
+$$
+\nu\left(\left(\bigcup_nE_n\right)_x\right)
+=
+\sum_n\nu((E_n)_x).
+$$
+
+右辺は非負可測関数の極限なので可測です。MCT と積測度の可算加法性から
+
+$$
+\begin{aligned}
+\int_X\nu\left(\left(\bigcup_nE_n\right)_x\right)d\mu
+&=\sum_n\int_X\nu((E_n)_x)d\mu\\
+&=\sum_n(\mu\times\nu)(E_n)\\
+&=(\mu\times\nu)\left(\bigcup_nE_n\right).
+\end{aligned}
+$$
+
+従って $\mathcal D$ は Dynkin 族です。可測長方形全体は交わりで閉じる π-system であり、それを含むので π–λ 定理から
+
+$$
+\mathcal D=\mathcal A\otimes\mathcal B.
+$$
+
+有限測度の場合が示されました。
+
+### 4.2 σ有限の場合へ局所化する
+
+σ有限性から
+
+$$
+X_n\uparrow X,
+\qquad Y_n\uparrow Y,
+\qquad
+\mu(X_n)<\infty,
+\quad
+\nu(Y_n)<\infty
+$$
+
+となる可測集合列を取れます。
+
+$$
+E_n:=E\cap(X_n\times Y_n)
+$$
+
+と置けば、有限測度の場合の結果より
+
+$$
+x\mapsto1_{X_n}(x)\nu(E_x\cap Y_n)
+$$
+
+は可測で、
+
+$$
+(\mu\times\nu)(E_n)
+=
+\int_X1_{X_n}(x)\nu(E_x\cap Y_n)d\mu(x).
+$$
+
+左辺では $E_n\uparrow E$。右辺の被積分関数も各点で
+
+$$
+1_{X_n}(x)\nu(E_x\cap Y_n)\uparrow\nu(E_x).
+$$
+
+したがって測度の下からの連続性と MCT により
+
+$$
+\begin{aligned}
+(\mu\times\nu)(E)
+&=\lim_n(\mu\times\nu)(E_n)\\
+&=\lim_n\int_X1_{X_n}\nu(E_x\cap Y_n)d\mu\\
+&=\int_X\nu(E_x)d\mu.
+\end{aligned}
+$$
+
+同時に $x\mapsto\nu(E_x)$ の可測性も、可測関数の単調極限として従います。$y$ 側も同様です。$\square$
+
+---
+
+## 5. Tonelli の定理
 
 <a id="thm-tonelli"></a>
 
 <!-- formal-statement-start -->
 ### 定理（Tonelli）
 
-σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$、積測度 $\mu\times\nu$ を考える。
-
-非負の $(\mathcal A\otimes\mathcal B)$-可測関数
+σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$ 上の非負可測関数
 
 $$
 f:X\times Y\to[0,\infty]
 $$
 
-に対して、
+に対して
 
 $$
-x\mapsto\int_Y f(x,y)\,d\nu(y),
+x\mapsto\int_Y f(x,y)d\nu(y),
 \qquad
-y\mapsto\int_X f(x,y)\,d\mu(x)
+y\mapsto\int_X f(x,y)d\mu(x)
 $$
 
 は可測であり、
@@ -304,92 +439,78 @@ $$
 \boxed{
 \int_{X\times Y}f\,d(\mu\times\nu)
 =
-\int_X\left(\int_Yf(x,y)\,d\nu(y)\right)d\mu(x)
+\int_X\left(\int_Yf(x,y)d\nu(y)\right)d\mu(x)
 }
 $$
 
 $$
 \boxed{
 =
-\int_Y\left(\int_Xf(x,y)\,d\mu(x)\right)d\nu(y)
+\int_Y\left(\int_Xf(x,y)d\mu(x)\right)d\nu(y)
 }
 $$
 
-が成り立つ。値は $\infty$ でもよい。
+が成り立つ。値は $+\infty$ でもよい。
 <!-- formal-statement-end -->
 
-### 4.2 証明の見取り図
+### 証明の見取り図
 
-1. 長方形の指示関数では「面積 = 横の測度 × 縦の測度」で直接確認。
-2. 一般の可測集合の指示関数へ拡張。
-3. 有限線形性で単関数へ。
-4. 単関数近似 $\phi_n\uparrow f$ とMCTで一般の非負関数へ。
-
-つまりTonelliは、積測度の構成を土台にして **D2Aの単関数近似 + D2BのMCT** を二変数へ適用した定理です。
+```text
+可測集合の指示関数
+ ↓ section測度公式
+非負単関数
+ ↓ 有限線形性
+一般の非負可測関数
+ ↓ 単関数近似 + MCT
+Tonelli
+```
 
 <!-- proof-start -->
 ### 証明
 
-証明は「指示関数 → 単関数 → 一般非負関数」の順に行います。
+#### Step 1：指示関数
 
-#### Step 1：長方形の指示関数
-
-$f=1_{A\times B}$ なら
+$f=1_E$、$E\in\mathcal A\otimes\mathcal B$ とします。section 測度公式から
 
 $$
-\int_Y1_{A\times B}(x,y)d\nu(y)
-=1_A(x)\nu(B).
+\int_Y1_E(x,y)d\nu(y)=\nu(E_x)
 $$
 
-したがって
+は $x$ の可測関数で、
 
 $$
-\int_X\int_Y1_{A\times B}d\nu d\mu
+\int_X\int_Y1_E(x,y)d\nu d\mu
+=(\mu\times\nu)(E)
 =
-\mu(A)\nu(B)
+\int_{X\times Y}1_Ed(\mu\times\nu).
+$$
+
+#### Step 2：非負単関数
+
+$$
+\phi=\sum_{k=1}^m a_k1_{E_k},
+\qquad a_k\ge0
+$$
+
+なら有限線形性により
+
+$$
+\int_X\int_Y\phi\,d\nu d\mu
 =
-(\mu\times\nu)(A\times B).
+\int_{X\times Y}\phi\,d(\mu\times\nu).
 $$
 
-#### Step 2：一般可測集合の指示関数
+内側積分の可測性も有限和から従います。
 
-可測長方形から生成される集合について上の等式を保つためには、集合列の単調極限に対する閉性が必要です。ここでは「section測度補題」を積測度構成と一緒に黒箱として受け入れます。この完全証明も `TODO-P1-D2-07` の未完タスクです。補題により、任意の $E\in\mathcal A\otimes\mathcal B$ について
+#### Step 3：一般の非負可測関数
 
-$$
-x\mapsto\nu(E_x)
-$$
-
-が可測で
+単関数近似定理により非負単関数 $\phi_n$ を
 
 $$
-(\mu\times\nu)(E)
-=
-\int_X\nu(E_x)d\mu(x)
+0\le\phi_n\uparrow f
 $$
 
-となることから従います。
-
-したがって、この段階ではsection測度補題だけが未証明の依存として残ります。
-
-#### Step 3：非負単関数
-
-$$
-\phi=\sum_{k=1}^m a_k1_{E_k}
-$$
-
-に対してStep 2と有限線形性を使えば
-
-$$
-\int_{X\times Y}\phi\,d(\mu\times\nu)
-=
-\int_X\left(\int_Y\phi(x,y)d\nu(y)\right)d\mu(x).
-$$
-
-#### Step 4：一般の非負可測関数
-
-[D2Aの単関数近似定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)から、非負単関数列 $\phi_n\uparrow f$ を取れます。
-
-各 $x$ についてMCTを $Y$ 側へ適用すると
+となるよう取れます。各 $x$ で MCT を使うと
 
 $$
 \int_Y\phi_n(x,y)d\nu(y)
@@ -397,74 +518,44 @@ $$
 \int_Yf(x,y)d\nu(y).
 $$
 
-さらに $X$ 側へMCTを適用し、同時に積空間側でもMCTを使えば
+よって内側積分は可測関数の単調極限なので可測です。さらに $X$ 側と積空間側へ MCT を使って
 
 $$
 \begin{aligned}
 \int_X\int_Yf\,d\nu d\mu
-&=
-\lim_n\int_X\int_Y\phi_n\,d\nu d\mu\\
-&=
-\lim_n\int_{X\times Y}\phi_n\,d(\mu\times\nu)\\
-&=
-\int_{X\times Y}f\,d(\mu\times\nu).
+&=\lim_n\int_X\int_Y\phi_n\,d\nu d\mu\\
+&=\lim_n\int_{X\times Y}\phi_n\,d(\mu\times\nu)\\
+&=\int_{X\times Y}f\,d(\mu\times\nu).
 \end{aligned}
 $$
 
-変数を逆にした等式も同様です。$\square$
+逆順も同じです。$\square$
 <!-- proof-end -->
-
-> Tonelliの論理のうち、**積測度構成とsection測度補題だけが `TODO-P1-D2-07` として明示的に繰り延べ**られています。それ以外はD2A/D2Bからここで閉じています。
 
 ---
 
-## 5. Fubiniの定理
-
-### 5.1 直感：符号があると「正と負の無限大の相殺」を禁止する必要がある
-
-符号付き関数では、正の部分と負の部分がそれぞれ無限大だと
-
-$$
-\infty-\infty
-$$
-
-のような不定形が入り込み、積分順序によって見かけの値が変わる危険があります。
-
-そこでFubiniは
-
-$$
-\int|f|<\infty
-$$
-
-を要求します。これは正部分・負部分の両方が有限であることを保証し、順序交換を安全にします。
+## 6. Fubini の定理
 
 <a id="thm-f0-00d2c-02"></a>
- 
+
 <!-- formal-statement-start -->
 ### 定理（Fubini）
-
-σ有限測度空間 $(X,\mathcal A,\mu)$ と $(Y,\mathcal B,\nu)$、積測度 $\mu\times\nu$ を考える。
 
 $(\mathcal A\otimes\mathcal B)$-可測関数 $f:X\times Y\to\mathbb R$ が
 
 $$
 \boxed{
-\int_{X\times Y}|f|\,d(\mu\times\nu)<\infty
+\int_{X\times Y}|f|d(\mu\times\nu)<\infty
 }
 $$
 
-を満たすとする。このとき、ほとんど全ての $x$ について $y\mapsto f(x,y)$ は $\nu$-可積分、ほとんど全ての $y$ について $x\mapsto f(x,y)$ は $\mu$-可積分であり、
+を満たすとする。このとき、ほとんど全ての $x$ で $f(x,\cdot)$ は $\nu$-可積分、ほとんど全ての $y$ で $f(\cdot,y)$ は $\mu$-可積分で、
 
 $$
 \boxed{
 \int_{X\times Y}f\,d(\mu\times\nu)
 =
 \int_X\int_Yf(x,y)d\nu(y)d\mu(x)
-}
-$$
-
-$$
-\boxed{
 =
 \int_Y\int_Xf(x,y)d\mu(x)d\nu(y)
 }
@@ -473,30 +564,10 @@ $$
 が成り立つ。
 <!-- formal-statement-end -->
 
-### 5.2 証明の見取り図
-
-まずTonelliを非負関数 $|f|$ に適用し、ほとんど全てのsectionで
-
-$$
-\int|f(x,y)|d\nu(y)<\infty
-$$
-
-を確保します。
-
-次に
-
-$$
-f=f^+-f^-
-$$
-
-と分解し、非負な $f^+,f^-$ それぞれにTonelliを適用して最後に差を取ります。
-
-つまりFubiniはTonelliの別証明ではなく、**絶対可積分性によってTonelliを正負二回使えるようにした系**です。
-
 <!-- proof-start -->
 ### 証明
 
-Tonelliを非負関数 $|f|$ に適用すると
+Tonelli を $|f|\ge0$ に適用すると
 
 $$
 \int_X\left(\int_Y|f(x,y)|d\nu(y)\right)d\mu(x)
@@ -504,30 +575,28 @@ $$
 \int_{X\times Y}|f|d(\mu\times\nu)<\infty.
 $$
 
-非負関数の積分が有限なので、
+従って
 
 $$
 \int_Y|f(x,y)|d\nu(y)<\infty
 $$
 
-がほとんど全ての $x$ で成り立ちます。したがってsectionはa.e.で可積分です。
+が a.e. $x$ で成り立ちます。$y$ 側も同様です。
 
-$f=f^+-f^-$ と分解します。$f^+,f^-$ は非負可測で
-
-$$
-f^++f^-=|f|,
-$$
-
-したがって両方とも積分有限。Tonelliを $f^+$ と $f^-$ に適用して差を取れば
+次に
 
 $$
-\int f
+f=f^+-f^-,
+\qquad
+|f|=f^++f^-.
+$$
+
+絶対可積分性から $f^+,f^-$ はともに積分有限です。Tonelli をそれぞれへ適用して差を取れば
+
+$$
+\int_{X\times Y}f
 =
-\int f^+-\int f^-
-=
-\int_X\left(\int_Yf^+d\nu-\int_Yf^-d\nu\right)d\mu
-=
-\int_X\int_Yf\,d\nu d\mu.
+\int_X\left(\int_Yf(x,y)d\nu(y)\right)d\mu(x).
 $$
 
 逆順も同様です。$\square$
@@ -535,72 +604,58 @@ $$
 
 ---
 
-## 6. TonelliとFubiniの違い
+## 7. Tonelli と Fubini の使い分け
 
 | | Tonelli | Fubini |
 |---|---|---|
 | 関数 | $f\ge0$ | 符号あり可 |
-| 条件 | 非負可測 | $\int|f|<\infty$ |
-| 無限大 | 許す | 絶対可積分なので有限 |
+| 仮定 | 非負可測 | $\int|f|<\infty$ |
+| 値 $+\infty$ | 許す | 許さない |
 | 主用途 | 非負級数・非負二重積分 | 積分順序交換 |
 
-「符号があるけれど条件を確認せず積分順序を交換」は危険です。
-
----
-
-### 6.1 実戦の判定順
-
-二重積分を見たら、いきなり積分順序を交換せず次の順で確認します。
+判定は
 
 ```text
 f >= 0 ?
- ├─ Yes → Tonelli。∞でもよい
+ ├─ Yes → Tonelli
  └─ No
       ↓
    ∫|f| < ∞ ?
-      ├─ Yes → Fubini。順序交換可
-      └─ No  → そのまま交換しない。個別検討
+      ├─ Yes → Fubini
+      └─ No  → 順序交換は自動ではない
 ```
 
-特に確率論では非負密度・非負期待値ならTonelli、一般の期待値交換ではFubiniという使い分けが頻出します。
+です。
 
-## 7. 具体例
-
-### 例2：長方形領域
+### 例3：非負なら先に Tonelli
 
 $$
-f(x,y)=xy,
-\qquad 0\le x\le1,\ 0\le y\le2
+f(x,y)=e^{-(2x+3y)},\qquad x,y\ge0
 $$
 
-なら $|f|$ は可積分なのでFubiniを使えます。
+は非負なので
 
 $$
-\int_0^1\int_0^2xy\,dy\,dx
+\int_0^\infty\int_0^\infty e^{-(2x+3y)}dy\,dx
 =
-\int_0^1 2x\,dx
-=1.
-$$
-
-逆順でも同じです。
-
-### 例3：非負なので先にTonelli
-
-$$
-f(x,y)=e^{-(x+y)},
-\qquad x,y\ge0
-$$
-
-は非負なので、積分可能性を先に知らなくてもTonelliで
-
-$$
-\int_0^\infty\int_0^\infty e^{-(x+y)}dy\,dx
+\left(\int_0^\infty e^{-2x}dx\right)
+\left(\int_0^\infty e^{-3y}dy\right)
 =
-\left(\int_0^\infty e^{-x}dx\right)^2
-=1.
+\frac16.
 $$
 
-結果として有限であることも分かります。
+### 例4：確率論での独立性
+
+独立な確率変数 $X,Y$ の結合分布が積測度 $P_X\times P_Y$ で、$g,h\ge0$ なら Tonelli により
+
+$$
+E[g(X)h(Y)]
+=
+\int g(x)h(y)d(P_X\times P_Y)
+=E[g(X)]E[h(Y)].
+$$
+
+絶対可積分なら Fubini で符号付き関数にも同じ分離が使えます。
 
 ---
 
@@ -622,144 +677,100 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-積測度の長方形上の定義より
+積測度の定義から
 
 $$
 (m\times m)([0,2]\times[1,4])
 =m([0,2])m([1,4])=2\cdot3=6.
 $$
-
-### 本番答案
-
-$$
-(m\times m)([0,2]\times[1,4])=2\times3=6.
-$$
-
-### 採点基準（20点）
-
-- 積測度公式: 10点
-- 各長さ: 6点
-- 結論: 4点
 <!-- solution-end -->
 
-## F0-00D2C-A02 TonelliかFubiniか
+## F0-00D2C-A02 section を求める
+
+- Level: A
+- 目安時間: 10分
+
+$$
+E=\{(x,y)\in[0,1]^2:y\le x\}
+$$
+
+について $E_x$ と $m(E_x)$ を求め、$m_2(E)$ を section 測度公式から計算せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$x\in[0,1]$ では $E_x=[0,x]$ だから $m(E_x)=x$。従って
+
+$$
+m_2(E)=\int_0^1x\,dx=\frac12.
+$$
+<!-- solution-end -->
+
+## F0-00D2C-A03 Tonelli か Fubini か
 
 - Level: A
 - 目安時間: 8分
 
-非負可測関数 $f$ について、$\int f$ が有限か不明な段階で反復積分を使いたい。TonelliとFubiniのどちらを先に使うべきか。
+非負可測関数 $f$ について $\int f$ が有限か分からない段階で反復積分を使いたい。どちらを使うべきか。
 
 <!-- solution-start -->
 ### 詳細解答
 
-Tonelli。非負可測性だけで使え、積分値が $\infty$ でもよい。Fubiniは絶対可積分性が必要。
-
-### 本番答案
-
-Tonelli。$f\ge0$ なら絶対可積分性を先に確認せず使用できる。
-
-### 採点基準（20点）
-
-- Tonelli選択: 8点
-- 非負条件: 6点
-- Fubiniとの違い: 6点
+Tonelli。非負可測性だけで使え、積分値が $+\infty$ でもよい。Fubini は絶対可積分性を要求する。
 <!-- solution-end -->
 
-## F0-00D2C-B01 二重積分
+## F0-00D2C-B01 section 測度補題の有限測度版
 
 - Level: B
-- 目安時間: 12分
+- 目安時間: 20分
 
-$$
-I=\int_0^1\int_0^2(x+y)dy\,dx
-$$
-
-を計算し、逆順でも一致することを確認せよ。
+有限測度空間で、section 測度公式を満たす集合族 $\mathcal D$ が Dynkin 族になることを示し、π–λ 定理で全ての積可測集合へ拡張せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-内側から
+長方形では直接成立する。有限測度性により補集合では
 
 $$
-\int_0^2(x+y)dy=2x+2.
+\nu((E^c)_x)=\nu(Y)-\nu(E_x)
 $$
 
-したがって
+を使える。互いに素な可算和では section も互いに素で、測度の可算加法性と MCT から公式を保つ。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族なので
 
 $$
-I=\int_0^1(2x+2)dx=3.
+\mathcal A\otimes\mathcal B\subset\mathcal D.
 $$
-
-逆順では
-
-$$
-\int_0^2\left(\int_0^1(x+y)dx\right)dy
-=
-\int_0^2(1/2+y)dy=3.
-$$
-
-### 本番答案
-
-両順序で計算すると3。連続関数を有界長方形上で積分しているので絶対可積分でFubini適用可。
-
-### 採点基準（20点）
-
-- 第1順序: 7点
-- 第2順序: 7点
-- Fubini条件: 4点
-- 結論: 2点
 <!-- solution-end -->
 
-## F0-00D2C-B02 非負無限領域
+## F0-00D2C-B02 Tonelli の証明を再構成する
 
 - Level: B
-- 目安時間: 12分
+- 目安時間: 20分
+
+section 測度公式を既知として、Tonelli を
 
 $$
-\int_0^\infty\int_0^\infty e^{-(2x+3y)}dy\,dx
+1_E\to\text{非負単関数}\to\text{一般非負可測関数}
 $$
 
-をTonelliで計算せよ。
+の順に証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-被積分関数は非負可測なのでTonelli。
-
-$$
-\int_0^\infty e^{-2x}dx
-\int_0^\infty e^{-3y}dy
-=
-\frac12\cdot\frac13
-=
-\frac16.
-$$
-
-### 本番答案
-
-Tonelliより積に分離して $1/2\times1/3=1/6$。
-
-### 採点基準（20点）
-
-- Tonelli適用: 6点
-- 分離: 6点
-- 各積分: 6点
-- 結論: 2点
+$1_E$ では section 測度公式そのもの。非負単関数では有限線形性で拡張する。一般の $f\ge0$ には単関数列 $\phi_n\uparrow f$ を取り、内側積分・外側積分・積空間積分の三箇所で MCT を用いる。
 <!-- solution-end -->
 
-## F0-00D2C-B03 絶対可積分性からsection可積分性
+## F0-00D2C-B03 Fubini の section 可積分性
 
 - Level: B
 - 目安時間: 15分
-
-Fubiniの仮定
 
 $$
 \int_{X\times Y}|f|d(\mu\times\nu)<\infty
 $$
 
-から、ほとんど全ての $x$ について
+から a.e. $x$ について
 
 $$
 \int_Y|f(x,y)|d\nu(y)<\infty
@@ -770,31 +781,47 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Tonelliを $|f|\ge0$ に適用すると
+Tonelli により
 
 $$
-\int_X h(x)d\mu(x)<\infty,
-\qquad
-h(x):=\int_Y|f(x,y)|d\nu(y)\ge0.
+h(x):=\int_Y|f(x,y)|d\nu(y)
 $$
 
-非負可測関数 $h$ の積分が有限なら $h=\infty$ となる集合は測度0でなければならない。したがって $h(x)<\infty$ a.e.
+は非負可測で
 
-### 本番答案
+$$
+\int_Xh(x)d\mu(x)=\int_{X\times Y}|f|d(\mu\times\nu)<\infty.
+$$
 
-Tonelliより $\int_Xh\,d\mu=\int|f|<\infty$。非負関数の積分が有限なので $h(x)<\infty$ a.e.
+非負可測関数の積分が有限なら $h=+\infty$ となる集合の測度は0なので $h<\infty$ a.e.
+<!-- solution-end -->
 
-### 採点基準（20点）
+## F0-00D2C-B04 なぜ絶対可積分性が必要か
 
-- $h$定義: 5点
-- Tonelli: 7点
-- 有限積分からa.e.有限: 6点
-- 結論: 2点
+- Level: B
+- 目安時間: 20分
+
+条件収束級数 $\sum_{n\ge1}a_n$ を正方形格子上の関数へ埋め込むと、積分順序の交換が級数の並べ替えに対応し得る。この事実を踏まえ、Fubini が $\int|f|<\infty$ を要求する意味を説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+絶対可積分性がない場合、正部分と負部分が別々に無限大となり得て、反復積分の途中で $+\infty-\infty$ 型の不定形や条件収束級数の並べ替えと同じ現象が起こり得る。$\int|f|<\infty$ は $f^+,f^-$ をともに有限積分へ押さえ、Tonelli を両者へ安全に適用できる条件である。
 <!-- solution-end -->
 
 ---
 
-## 9. 次に進む
+## 9. 章末チェック
+
+- 積σ代数と積測度を定義できる。
+- 積測度が Carathéodory 拡張から存在する論理を説明できる。
+- section の可測性を証明できる。
+- section 測度公式を有限測度→σ有限局所化で証明できる。
+- Tonelli を指示関数→単関数→MCTで証明できる。
+- Fubini を $|f|$ への Tonelli と正負分解から証明できる。
+- Tonelli と Fubini の仮定を使い分けられる。
+
+## 10. 次に進む
 
 次は積分可能性そのものをノルムとして扱います。
 
