@@ -1,0 +1,79 @@
+name: Apply final textbook terminology fixes
+
+on:
+  push:
+    branches:
+      - fix/textbook-terminology-full-audit
+    paths:
+      - '.github/workflows/apply-textbook-final-term-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/textbook-terminology-full-audit
+
+      - name: Apply exact terminology fixes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          roots = [
+              Path('textbook/volumes/01_probability'),
+              Path('textbook/volumes/02_distributions'),
+              Path('textbook/volumes/03_inference'),
+              Path('textbook/volumes/04_linear_models'),
+              Path('textbook/volumes/05_engineering'),
+          ]
+          replacements = {
+              'Gauss--Markov': 'ガウス・マルコフ',
+              'Gauss–Markov': 'ガウス・マルコフ',
+              'Gauss-Markov': 'ガウス・マルコフ',
+              'Delta法': 'デルタ法',
+              '通常の通常最小二乗法': '通常最小二乗法',
+          }
+
+          changed = 0
+          for root in roots:
+              for path in root.rglob('*.md'):
+                  if 'review' in path.parts or 'sources' in path.parts:
+                      continue
+                  text = path.read_text(encoding='utf-8')
+                  out = text
+                  for old, new in replacements.items():
+                      out = out.replace(old, new)
+                  if out != text:
+                      path.write_text(out, encoding='utf-8')
+                      changed += 1
+                      print(path)
+          print(f'changed textbook files: {changed}')
+
+          audit = Path('scripts/audit_textbook_japanese_terminology.mjs')
+          text = audit.read_text(encoding='utf-8')
+          needle = "  always('Delta method', 'デルタ法', /\\bDelta\\s+method\\b/gi),\n"
+          if "always('Delta法'" not in text:
+              text = text.replace(needle, needle + "  always('Delta法', 'デルタ法', /Delta法/g),\n")
+          needle2 = "  // 固有名詞・表記\n"
+          if "always('Gauss--Markov'" not in text:
+              text = text.replace(needle2, needle2 + "  always('Gauss--Markov', 'ガウス・マルコフ', /\\bGauss\\s*(?:--|–|—|-)\\s*Markov\\b/g),\n")
+          audit.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit fixes
+        run: |
+          if git diff --quiet; then
+            echo 'No final terminology fixes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/01_probability textbook/volumes/02_distributions textbook/volumes/03_inference textbook/volumes/04_linear_models textbook/volumes/05_engineering scripts/audit_textbook_japanese_terminology.mjs
+          git commit -m 'fix: finish Japanese terminology normalization'
+          git push origin HEAD:fix/textbook-terminology-full-audit
