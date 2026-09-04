@@ -15,7 +15,7 @@ Core層の大問を1題1ファイルで管理する。各題は「問題・詳�
 | 09 | 62 | S | S | [多項分布尤度比検定とPearson適合度](62_multinomial_lrt_pearson.md) |
 | 10 | 78 | S | A | [ガウス・マルコフ・最良線形不偏推定量](78_gauss_markov_blue.md) |
 | 11 | 80 | S | S | [一般線形仮説・partial F](80_general_linear_hypothesis_partial_f.md) |
-| 12 | 75 | S | A | [回帰係数の最尤推定量・フィッシャー情報・検定・検出力](75_regression_mle_fisher_power.md) |
+| 12 | 75 | S | A | [回帰係数の最尤推定量・フィッシャー情報量・検定・検出力](75_regression_mle_fisher_power.md) |
 | 13 | 48 | S | A | [Student化とt信頼区間](48_student_t_confidence_interval.md) |
 | 14 | 45 | S | A | [カイ二乗ピボットによる分散・標準偏差信頼区間](45_chisq_variance_confidence_interval.md) |
 | 15 | 72 | S | A | [正規2標本のF検定・pooled t](72_two_sample_f_pooled_t.md) |
@@ -25,7 +25,7 @@ Core層の大問を1題1ファイルで管理する。各題は「問題・詳�
 | 19 | 59 | S | A | [Beta–Binomial共役ベイズ・事後予測](59_beta_binomial_bayes.md) |
 | 20 | 98 | S | A | [ベイズ意思決定：二乗・絶対・0–1損失](98_bayes_decision_loss.md) |
 | 21 | 71 | S | A | [2標本ポアソン率を条件付き二項検定へ](71_poisson_conditional_binomial_test.md) |
-| 22 | 49 | S | A | [ポアソン最尤推定量・フィッシャー情報・信頼区間](49_poisson_mle_fisher_ci.md) |
+| 22 | 49 | S | A | [ポアソン最尤推定量・フィッシャー情報量・信頼区間](49_poisson_mle_fisher_ci.md) |
 | 23 | 65 | S | S | [F検定・非心度・検出力](65_noncentral_f_power.md) |
 | 24 | 1 | S | A | [順序統計量・十分性・Rao–Blackwell](01_order_statistics_rao_blackwell.md) |
 | 25 | 10 | S | A | [順序統計量の密度・同時密度・range](10_order_statistics_density_range.md) |

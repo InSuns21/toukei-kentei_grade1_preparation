@@ -36,7 +36,7 @@
 - `core/55_exponential_complete_sufficient_umvu.md`
   - 因子分解、Laplace変換一意性、ガンマ–Dirichlet、レーマン・シェッフェの各条件を確認。
 
-### フィッシャー情報・クラーメル・ラオ・漸近推定
+### フィッシャー情報量・クラーメル・ラオ・漸近推定
 
 - `core/40_fisher_information_delta_mle_efficiency.md`
   - 正則な最尤推定量の漸近正規性について、内部点・共通支持・滑らかさ・正の情報量を確認。
