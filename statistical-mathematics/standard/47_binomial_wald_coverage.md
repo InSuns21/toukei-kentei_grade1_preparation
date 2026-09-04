@@ -130,7 +130,7 @@ $$
 \sqrt{\frac{\hat p(1-\hat p)}n}=0
 $$
 
-なので ワルド 区間は
+なのでワルド区間は
 
 $$
 [0,0]
@@ -167,7 +167,7 @@ $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{\hat p(1-\hat p)}}\Rightarrow N(0,1).
 $$
 
-従って ワルド 区間は
+従ってワルド区間は
 
 $$
 \hat p\pm1.96\sqrt{\frac{\hat p(1-\hat p)}n}.
