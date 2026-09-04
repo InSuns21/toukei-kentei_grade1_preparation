@@ -577,7 +577,24 @@ $$
 \{x\}\subset(x-\varepsilon/2,x+\varepsilon/2)
 $$
 
-なので $\lambda^*(\{x\})\le\varepsilon$。非負性と $\varepsilon\downarrow0$ から0。
+なので
+
+$$
+0\le\lambda^*(\{x\})\le\varepsilon.
+$$
+
+$\varepsilon\downarrow0$ から $\lambda^*(\{x\})=0$。
+
+### 本番答案
+
+任意の $\varepsilon>0$ に対し $\{x\}$ は長さ $\varepsilon$ の開区間で覆えるから $\lambda^*(\{x\})\le\varepsilon$。よって $\lambda^*(\{x\})=0$。
+
+### 採点基準（20点）
+
+- 任意の $\varepsilon>0$ を取る：4点
+- 長さ $\varepsilon$ の開区間被覆：7点
+- 外測度の上界 $\le\varepsilon$：5点
+- $\varepsilon\downarrow0$ で結論：4点
 <!-- solution-end -->
 
 ## F0-00D3-A02 外測度0集合は可測
@@ -590,13 +607,39 @@ $\mu^*(N)=0$ なら $N$ が Carathéodory 可測であることを示せ。
 <!-- solution-start -->
 ### 詳細解答
 
-任意の $T$ について $\mu^*(T\cap N)=0$。また $T\setminus N\subset T$ より
+任意の $T\subset X$ について単調性より
 
 $$
-\mu^*(T\cap N)+\mu^*(T\setminus N)\le\mu^*(T).
+\mu^*(T\cap N)=0.
 $$
 
-逆向きは外測度の劣加法性から従うので等号。
+また $T\setminus N\subset T$ だから
+
+$$
+\mu^*(T\cap N)+\mu^*(T\setminus N)
+\le\mu^*(T).
+$$
+
+逆向き
+
+$$
+\mu^*(T)
+\le
+\mu^*(T\cap N)+\mu^*(T\setminus N)
+$$
+
+は外測度の劣加法性から従うので等号。従って $N$ は Carathéodory 可測。
+
+### 本番答案
+
+$\mu^*(N)=0$ より $\mu^*(T\cap N)=0$。また $T\setminus N\subset T$ だから右辺は $\mu^*(T)$ 以下。一方、逆向きは劣加法性より自動。従って Carathéodory 等式が成立する。
+
+### 採点基準（20点）
+
+- $\mu^*(T\cap N)=0$：5点
+- 単調性で $\mu^*(T\setminus N)\le\mu^*(T)$：5点
+- 逆向きが劣加法性から従う：5点
+- Carathéodory 可測性を結論：5点
 <!-- solution-end -->
 
 ## F0-00D3-A03 補集合で閉じる
@@ -617,7 +660,24 @@ T\cap E^c=T\setminus E,
 T\setminus E^c=T\cap E.
 $$
 
-従って $E$ の Carathéodory 等式の二項が入れ替わるだけ。
+従って $E$ の Carathéodory 等式
+
+$$
+\mu^*(T)=\mu^*(T\cap E)+\mu^*(T\setminus E)
+$$
+
+の右辺二項を入れ替えれば $E^c$ の Carathéodory 等式そのものになる。
+
+### 本番答案
+
+$T\cap E^c=T\setminus E$、$T\setminus E^c=T\cap E$ なので、$E$ の Carathéodory 等式の二項を交換するだけで $E^c$ の等式が得られる。
+
+### 採点基準（20点）
+
+- 二つの集合恒等式を記述：8点
+- $E$ の Carathéodory 等式を使用：6点
+- 二項の交換で同じ等式になること：4点
+- $E^c$ 可測の結論：2点
 <!-- solution-end -->
 
 ## F0-00D3-B01 有限和の可測性
@@ -630,19 +690,64 @@ $E,F$ が Carathéodory 可測なら $E\cup F$ も可測であることを示せ
 <!-- solution-start -->
 ### 詳細解答
 
-$T$ をまず $E$ で分け、$T\setminus E$ をさらに $F$ で分けると
+任意の $T$ について、まず $E$ で分けると
 
 $$
-\mu^*(T)
+\mu^*(T)=\mu^*(T\cap E)+\mu^*(T\setminus E).
+$$
+
+次に $F$ の可測性を $T\setminus E$ に適用して
+
+$$
+\mu^*(T\setminus E)
 =
-\mu^*(T\cap E)
-+
 \mu^*(T\cap(F\setminus E))
 +
 \mu^*(T\setminus(E\cup F)).
 $$
 
-前二項の和は劣加法性により $\mu^*(T\cap(E\cup F))$ 以上なので必要な逆向き不等式を得る。
+したがって
+
+$$
+\mu^*(T)
+=
+\mu^*(T\cap E)+\mu^*(T\cap(F\setminus E))
++
+\mu^*(T\setminus(E\cup F)).
+$$
+
+劣加法性より前二項の和は $\mu^*(T\cap(E\cup F))$ 以上なので
+
+$$
+\mu^*(T)
+\ge
+\mu^*(T\cap(E\cup F))+
+\mu^*(T\setminus(E\cup F)).
+$$
+
+逆向きは自動だから等号。
+
+### 本番答案
+
+$T$ を $E$ で分け、残りを $F$ で分けると
+
+$$
+\mu^*(T)
+=
+\mu^*(T\cap E)+\mu^*(T\cap(F\setminus E))
++
+\mu^*(T\setminus(E\cup F)).
+$$
+
+前二項に劣加法性を使えば Carathéodory 条件の逆向き不等式を得る。順向きは外測度の劣加法性より自動なので $E\cup F$ は可測。
+
+### 採点基準（20点）
+
+- $E$ での分割：4点
+- $F$ で再分割：5点
+- 三項表示：4点
+- 劣加法性から逆向き不等式：5点
+- 結論：2点
 <!-- solution-end -->
 
 ## F0-00D3-B02 可算加法性を導く
@@ -663,7 +768,49 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-有限個までの Carathéodory 分割から左辺は任意の有限部分和以上。$n\to\infty$ で「≥」。逆の「≤」は外測度の可算劣加法性そのもの。
+$E=\bigsqcup_nE_n$ と置く。有限段階まで Carathéodory 条件を繰り返し $T=E$ とすれば
+
+$$
+\mu^*(E)
+\ge
+\sum_{k=1}^n\mu^*(E_k)
+$$
+
+を全ての $n$ について得る。したがって
+
+$$
+\mu^*(E)
+\ge
+\sum_{k=1}^\infty\mu^*(E_k).
+$$
+
+逆向き
+
+$$
+\mu^*(E)
+\le
+\sum_{k=1}^\infty\mu^*(E_k)
+$$
+
+は外測度の可算劣加法性そのものなので等号。
+
+### 本番答案
+
+有限 Carathéodory 分割から
+
+$$
+\mu^*(E)\ge\sum_{k=1}^n\mu^*(E_k)
+$$
+
+を得る。$n\to\infty$ で「$\ge$」。逆の「$\le$」は外測度の可算劣加法性。従って等号。
+
+### 採点基準（20点）
+
+- $E=\bigsqcup E_n$ と置く：3点
+- 有限段階の Carathéodory 分割：7点
+- $n\to\infty$ で逆向き評価：4点
+- 可算劣加法性：4点
+- 等号の結論：2点
 <!-- solution-end -->
 
 ## F0-00D3-B03 完全性
@@ -676,7 +823,25 @@ Carathéodory 構成で得た測度が完全であることを説明せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-$A\subset N$、$\mu(N)=0$ なら外測度の単調性から $\mu^*(A)=0$。外測度0集合は全て Carathéodory 可測なので $A$ も可測、測度0。
+$N\in\mathcal M$、$\mu(N)=0$ とし $A\subset N$ を任意に取る。外測度の単調性から
+
+$$
+0\le\mu^*(A)\le\mu^*(N)=0
+$$
+
+なので $\mu^*(A)=0$。外測度0の集合は全て Carathéodory 可測だから $A\in\mathcal M$ で、さらに $\mu(A)=0$。従って零集合の全ての部分集合が可測であり、測度は完全。
+
+### 本番答案
+
+$A\subset N$、$\mu(N)=0$ なら単調性より $\mu^*(A)=0$。外測度0集合は Carathéodory 可測なので $A$ も可測で測度0。従って Carathéodory 構成の測度は完全である。
+
+### 採点基準（20点）
+
+- 零集合 $N$ と部分集合 $A$ を設定：4点
+- 単調性から $\mu^*(A)=0$：6点
+- 外測度0集合の可測性：5点
+- $\mu(A)=0$：2点
+- 完全性の結論：3点
 <!-- solution-end -->
 
 ---
