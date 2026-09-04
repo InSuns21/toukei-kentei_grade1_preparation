@@ -117,13 +117,9 @@ CIでは `npm run validate:formal-references` がsource Markdown上で、formal 
 
 定義の直後に具体例を置くとき、「$d_1$ も距離です」「$(0,1)$ は開集合です」のように結論だけを書いて例扱いにしない。**その対象が直前の定義の各条件を満たすことを、最低1回は式または論理で確認する。** とくに複数条件からなる定義では、非自明な条件だけを飛ばさない。
 
-DREAM THEATER の密度監査を通したページ、および新規テンプレートから作る章では、ページ先頭付近に
+`definition-example` 監査は **strict が既定値** である。新規ページや、監査ルール導入後に内容を変更したページは、formal definition ごとに具体例による確認か、定義単位の理由付きskipを持たなければCIを通さない。`<!-- definition-example-audit: strict -->` は後方互換のため認識するが、通常は書く必要がない。
 
-```md
-<!-- definition-example-audit: strict -->
-```
-
-を置く。formal definition の具体例は次のマーカーで囲み、対象となる `def-` anchor を列挙する。
+formal definition の具体例は次のマーカーで囲み、対象となる `def-` anchor を列挙する。
 
 ```md
 <!-- definition-example-start: def-example-01 -->
@@ -151,6 +147,16 @@ DREAM THEATER の密度監査を通したページ、および新規テンプレ
 <!-- definition-example-skip: def-example-01 | 具体例を置かない理由をここに書く -->
 ```
 
-で明示的に例外化してよい。単に執筆を省略する目的では使わない。
+で定義単位に例外化してよい。単に執筆を省略する目的では使わない。
+
+ページ全体をまだ definition-example 監査へ移せない場合だけ、ページ先頭付近に
+
+```md
+<!-- definition-example-audit: loose -->
+```
+
+を置いて一時的に緩和できる。**loose は例が不要という品質基準ではなく、未監査であることを明示する移行コメント**として扱う。DREAM THEATER の各Batchでは、対象ページを修正するなら原則 loose に逃がさず、そのBatch内で定義例を閉じる。
+
+移行期に限り、PR #88 の導入時点から一度も変更されていない既存ページは grandfather してCIを通す。これらは内容が1文字でも更新されれば既定のstrictへ移る。最終Batchではこの移行例外を撤去し、未監査ページは `loose` コメントがない限り一律にstrictとする。
 
 CIの `npm run validate:definition-examples` は、strict ページについて **全ての formal definition が検証ブロックか理由付きskipで明示的に処理されていること**、検証ブロックに `**定義の確認**` があること、参照anchorが実在することを確認する。これにより、文章の流れだけで具体例を置いて「例あり」と数えてしまう抜け道を防ぐ。数式そのものが正しいかは引き続き数理査読で確認する。
