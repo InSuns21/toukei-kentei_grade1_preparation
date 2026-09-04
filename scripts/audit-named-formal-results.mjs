@@ -8,7 +8,9 @@ const ROOTS = [
 ];
 const START = '<!-- formal-statement-start -->';
 const END = '<!-- formal-statement-end -->';
-const STABLE_ANCHOR_RE = /<a\s+id="(?:thm|prop|lem|cor|principle)-[^"]+"><\/a>/u;
+// Explicit ref-* anchors are also stable authored anchors. Keep accepting them
+// for legacy canonical links while new theorem-like results use typed prefixes.
+const STABLE_ANCHOR_RE = /<a\s+id="(?:thm|prop|lem|cor|principle|ref)-[^"]+"><\/a>/u;
 
 // A named-result heading is treated as a declaration candidate only when the
 // heading names the mathematical result itself. Usage/review headings such as
