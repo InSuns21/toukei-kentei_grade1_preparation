@@ -130,7 +130,7 @@ $$
 p=P(V\le U^2)=\frac13
 $$
 
-のBernoulli分布に従う。したがって
+のベルヌーイ分布に従う。したがって
 
 $$
 \operatorname{Var}(B)
@@ -190,7 +190,7 @@ P(V\le U^2)
 =\frac13
 $$
 
-よりBernoulli$(1/3)$。従って
+よりベルヌーイ$(1/3)$。従って
 
 $$
 \operatorname{Var}(\widehat I_B)

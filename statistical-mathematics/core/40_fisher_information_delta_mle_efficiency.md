@@ -1,4 +1,4 @@
-# Core 01 フィッシャー情報量・Delta法・最尤推定量の漸近効率
+# Core 01 フィッシャー情報量・デルタ法・最尤推定量の漸近効率
 
 - 旧No.: 40
 - 演習価値: S
@@ -19,7 +19,7 @@ $$
 1. $\lambda$ の最尤推定量 $\widehat\lambda$ を求めよ。
 2. 1標本および$n$標本のフィッシャー情報量を求めよ。
 3. $\sqrt n(\widehat\lambda-\lambda)$ の漸近分布を求めよ。
-4. $\eta=\log\lambda$ とし、$\widehat\eta=\log\widehat\lambda$ の漸近分布をDelta法で求めよ。
+4. $\eta=\log\lambda$ とし、$\widehat\eta=\log\widehat\lambda$ の漸近分布をデルタ法で求めよ。
 5. $\widehat\lambda$ が漸近効率的であることを情報量と比較して説明せよ。
 
 ## 詳細解答
@@ -89,9 +89,9 @@ N\left(0,I_1(\lambda)^{-1}\right)
 =N(0,\lambda^2).
 $$
 
-### 4. Delta法
+### 4. デルタ法
 
-**Delta法**は、
+**デルタ法**は、
 
 $$
 \sqrt n(\widehat\lambda-\lambda)\xrightarrow{d} N(0,V)
@@ -133,7 +133,7 @@ $$
 
 上の最尤推定量漸近正規性から $\widehat\lambda$ の漸近分散も $\lambda^2/n$ なので、この下限に一致し、最尤推定量は漸近効率的である。
 
-注意として、$\widehat\lambda=1/\bar X$ は有限標本では一般に不偏ではない。したがってここで比較しているのは「不偏推定量に対する有限標本Cramér–Rao不等式をそのまま最尤推定量へ適用した」という意味ではなく、**正則最尤推定量の漸近情報下限**との比較である。
+注意として、$\widehat\lambda=1/\bar X$ は有限標本では一般に不偏ではない。したがってここで比較しているのは「不偏推定量に対する有限標本クラーメル・ラオ不等式をそのまま最尤推定量へ適用した」という意味ではなく、**正則最尤推定量の漸近情報下限**との比較である。
 
 ## 本番答案
 
@@ -155,7 +155,7 @@ $$
 \sqrt n(\widehat\lambda-\lambda)\xrightarrow{d} N(0,\lambda^2).
 $$
 
-$g(\lambda)=\log\lambda$ は真値で微分可能なので **Delta法**より
+$g(\lambda)=\log\lambda$ は真値で微分可能なので **デルタ法**より
 
 $$
 \sqrt n(\log\widehat\lambda-\log\lambda)\xrightarrow{d} N(0,1).
@@ -168,5 +168,5 @@ $$
 - 最尤推定量: 4点
 - フィッシャー情報量と正則性: 4点
 - 最尤推定量漸近正規性（定理名・条件確認）: 5点
-- Delta法（条件確認）: 4点
+- デルタ法（条件確認）: 4点
 - 漸近効率性の意味: 3点

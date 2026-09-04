@@ -6,7 +6,7 @@ const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
 
-// 統計検定1級の通常教材本編を対象にする。
+// 統計検定1級の学習教材本編を対象にする。
 // 00_foundations は数学補講・DREAM THEATER を含み、英語固有名詞や専門用語の方針が別なので除外する。
 const targetRoots = [
   'textbook/volumes/01_probability',
@@ -14,6 +14,8 @@ const targetRoots = [
   'textbook/volumes/03_inference',
   'textbook/volumes/04_linear_models',
   'textbook/volumes/05_engineering',
+  'statistical-mathematics',
+  'applied-rikou-80',
 ];
 const targetPaths = targetRoots.map((value) => path.join(root, value));
 
@@ -44,6 +46,7 @@ const rules = [
   always('P 値', 'P値', /P\s+値/g),
   always('p-value', 'P値', /\bp-value\b/gi),
   always('Fisher情報量', 'フィッシャー情報量', /Fisher情報量/g),
+  always('フィッシャー情報', 'フィッシャー情報量', /フィッシャー情報(?!量|行列)/g),
   always('Cauchy', 'コーシー', /\bCauchy\b(?!\s*(?:--|–|—|-)\s*Schwarz)/g),
   always('カウチー', 'コーシー', /カウチー/g),
   always('Weibull', 'ワイブル', /\bWeibull\b/g),
@@ -113,7 +116,7 @@ for (const file of files) {
   }
 }
 
-console.log(strict ? '統計検定1級通常教材 日本語用語検証（strict）' : '統計検定1級通常教材 日本語用語監査');
+console.log(strict ? '統計検定1級教材 日本語用語検証（strict）' : '統計検定1級教材 日本語用語監査');
 console.log(`対象Markdown: ${files.length} ファイル`);
 console.log(`日本語主表記からの揺れ: ${findings.length} 件`);
 for (const item of findings.slice(0, 500)) {
@@ -122,7 +125,7 @@ for (const item of findings.slice(0, 500)) {
 if (findings.length > 500) console.log(`  ...ほか ${findings.length - 500} 件`);
 
 if (strict && findings.length) {
-  console.error('統計検定1級の通常教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。');
+  console.error('統計検定1級の教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。');
   process.exit(1);
 }
 

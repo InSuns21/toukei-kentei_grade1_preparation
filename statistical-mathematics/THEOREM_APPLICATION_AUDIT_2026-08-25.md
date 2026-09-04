@@ -24,32 +24,32 @@
 ### 十分性・完備性・一様最小分散不偏推定量
 
 - `core/01_order_statistics_rao_blackwell.md`
-  - Neyman–Fisher 因子分解定理の共通支配測度と因子分解を明示。
+  - Neyman–フィッシャー因子分解定理の共通支配測度と因子分解を明示。
   - 条件付き順序統計量の一様性の前提を確認。
   - Rao–Blackwell の有限分散・十分性条件を確認。
 - `core/41_uniform_complete_sufficient_umvu.md`
-  - 因子分解定理とLehmann–Schefféの条件を明示。
+  - 因子分解定理とレーマン・シェッフェの条件を明示。
 - `core/43_binomial_sufficiency_shrinkage.md`
-  - 「尤度が $T$ だけを通るから十分」を禁止し、Neyman–Fisher因子分解定理を明示。
+  - 「尤度が $T$ だけを通るから十分」を禁止し、Neyman–フィッシャー因子分解定理を明示。
   - 数え上げ測度、母数非依存の標本空間、因子分解を確認。
   - 最尤推定量の内部点・境界を区別。
 - `core/55_exponential_complete_sufficient_umvu.md`
-  - 因子分解、Laplace変換一意性、Gamma–Dirichlet、Lehmann–Schefféの各条件を確認。
+  - 因子分解、Laplace変換一意性、ガンマ–Dirichlet、レーマン・シェッフェの各条件を確認。
 
-### Fisher情報・Cramér–Rao・漸近推定
+### フィッシャー情報量・クラーメル・ラオ・漸近推定
 
 - `core/40_fisher_information_delta_mle_efficiency.md`
   - 正則な最尤推定量の漸近正規性について、内部点・共通支持・滑らかさ・正の情報量を確認。
-  - Delta法の微分可能性を確認。
+  - デルタ法の微分可能性を確認。
   - 有限標本CR不等式と漸近情報下限を区別。
 - `core/42_cramer_rao_efficiency.md`
-  - Cramér–Raoの正則条件を列挙し、正規モデルで確認。
+  - クラーメル・ラオの正則条件を列挙し、正規モデルで確認。
   - $\mu=0$ で $g'(\mu)=0$ となる退化も明示。
 - `core/44_uniform_nonregular_mle.md`
   - 最大値の `Beta(n,1)` を公式引用せず、累積分布関数→密度→積分からモーメントを導出。
-  - Cramér–Raoの共通支持条件が壊れ、スコア平均0の正則議論が成立しないことを明示。
+  - クラーメル・ラオの共通支持条件が壊れ、スコア平均0の正則議論が成立しないことを明示。
 - `core/46_moment_estimation_delta.md`
-  - 大数の法則、連続写像定理、中心極限定理、Delta法、正則な最尤推定量の漸近正規性を名前付きで分離。
+  - 大数の法則、連続写像定理、中心極限定理、デルタ法、正則な最尤推定量の漸近正規性を名前付きで分離。
   - 可積分性、有限分散、真値での連続・微分可能性、内部点・共通支持・有限正情報量を確認。
 - `core/49_poisson_mle_fisher_ci.md`
   - 最尤推定量の母数空間を $\lambda\ge0$ とし、全観測0の境界最尤推定量と、漸近論で真値 $\lambda>0$ を置く内部点条件を区別。
@@ -58,7 +58,7 @@
   - BLUEは分散最小化で直接証明。
   - クラーメル・ラオの不等式一致を述べる前に、共通支持、滑らかさ、内部点、有限正情報量、不偏性を確認。
 - `standard/47_binomial_wald_coverage.md`
-  - Wald区間を中心極限定理→大数の法則→Slutskyから導出。
+  - ワルド区間を中心極限定理→大数の法則→Slutskyから導出。
   - 固定内部点 $0<p<1$ の漸近論と、境界近傍での有限標本破綻を区別。
 
 ### 正確分布・Cochran・F・t
@@ -77,7 +77,7 @@
 - `core/80_general_linear_hypothesis_partial_f.md`
   - 正規誤差、$X$列フルランク、$R$の階数、nested・直交射影を確認してCochran→Fへ接続。
 
-### 尤度比検定・Wald・Score・適合度
+### 尤度比検定・ワルド・スコア・適合度
 
 - `core/62_multinomial_lrt_pearson.md`
   - Wilksの定理とPearsonのカイ二乗極限定理を分離。
@@ -91,16 +91,16 @@
   - 母数推定を伴うPearson適合度のカイ二乗極限定理とWilksを明示。
   - 真の $\theta$ の内部点、正セル確率、固定カテゴリ数、推定母数の局所ランクを確認して $df=4-1-1$ を導く。
 - `standard/73_correlation_fisher_z.md`
-  - Fisher zの $1/(n-3)$ を厳密分散ではなく、i.i.d.2変量正規・固定 $|\rho|<1$・大標本での近似と明示。
+  - フィッシャー zの $1/(n-3)$ を厳密分散ではなく、i.i.d.2変量正規・固定 $|\rho|<1$・大標本での近似と明示。
 
 ### 検定原理・多重比較・P値
 
 - `core/63_neyman_pearson_ump.md`
-  - Neyman–Pearson補題の単純対単純・共通支配条件を確認。
+  - ネイマン・ピアソン補題の単純対単純・共通支配条件を確認。
   - 一様最強力であることは、全単純対立で同じNP棄却域になることから示し、Karlin–Rubinとの関係も明記。
 - `core/71_poisson_conditional_binomial_test.md`
-  - $\lambda,\mu>0$ を明示し、Poisson加法性は独立条件を確認。
-  - 条件付き二項分布はpmfから直接導出し、nuisance parameter が消えるため正確検定になることを説明。
+  - $\lambda,\mu>0$ を明示し、ポアソン加法性は独立条件を確認。
+  - 条件付き二項分布はpmfから直接導出し、局外母数が消えるため正確検定になることを説明。
 - `standard/83_bonferroni_scheffe.md`
   - Bonferroniのunion boundを名前付きで示し、独立性不要を明記。
   - Scheffeは独立正規・共通分散の固定効果一元配置で全コントラストを同時保証する定理として条件を明示。
@@ -108,7 +108,7 @@
   - 1母数指数型分布族の両側一様最強力不偏検定定理を名前付きで使用。
   - 開いた自然母数空間、連続十分統計量、正則full exponential familyを確認。
 - `advanced/69_cauchy_np_test.md`
-  - Neyman–Pearson補題の単純対単純・共通Lebesgue支配・共通支持を確認。
+  - ネイマン・ピアソン補題の単純対単純・共通Lebesgue支配・共通支持を確認。
   - 連続分布なので境界ランダム化が通常不要であることも明示。
 - `advanced/99_composite_null_valid_pvalue.md`
   - 連続帰無分布では確率積分変換を使うことを明示。
@@ -117,7 +117,7 @@
 ## 変更不要と判定した代表例
 
 - `core/78_gauss_markov_blue.md`
-  - Gauss–Markov定理をブラックボックス引用せず、任意の線形不偏推定量との差を $\sigma^2DD^T$ と直接証明しているため、定理名の追加を不要とした。
+  - ガウス・マルコフ定理をブラックボックス引用せず、任意の線形不偏推定量との差を $\sigma^2DD^T$ と直接証明しているため、定理名の追加を不要とした。
 - 問題文で明示的に使用を許可した公式についても、適用条件が既に問題文に含まれ、そこからの計算が展開済みなら過剰に証明を追加しない。
 
 ## 監査上の区別

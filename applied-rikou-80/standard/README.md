@@ -11,7 +11,7 @@ Core 40の次に解く20大問。各題20〜30分、4〜6小問、問題・詳�
 | 07 | [平均余命関数](07_mean_residual_life.md) |
 | 09 | [Kaplan–Meier](09_kaplan_meier.md) |
 | 10 | [直列・並列信頼度](10_series_parallel_reliability.md) |
-| 15 | [Poisson条件付き到着時刻](15_poisson_order_stats.md) |
+| 15 | [ポアソン条件付き到着時刻](15_poisson_order_stats.md) |
 | 20 | [ランダムウォーク](20_random_walk_gambler_ruin.md) |
 | 25 | [自己相関・偏自己相関・ペリオドグラム](25_acf_pacf_identification.md) |
 | 26 | [ARMA(1,1)](26_arma11.md) |
@@ -24,7 +24,7 @@ Core 40の次に解く20大問。各題20〜30分、4〜6小問、問題・詳�
 | 52 | [応答曲面法・非線形回帰](52_response_surface.md) |
 | 57 | [$\bar X-S$・個別値管理図](57_xbar_s_individuals.md) |
 | 67 | [Mahalanobis距離](67_mahalanobis_geometry.md) |
-| 72 | [Poisson回帰](72_poisson_regression.md) |
+| 72 | [ポアソン回帰](72_poisson_regression.md) |
 | 73 | [ロジスティック回帰・プロビット](73_logistic_regression.md) |
 
 **Standard 20: 20 / 20 実装済み。**

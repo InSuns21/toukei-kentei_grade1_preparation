@@ -67,7 +67,7 @@ $$
 ## 電卓監査
 
 - Brown運動: $\Phi$ 表示までで完答。
-- Poisson/ロジスティック回帰: $e^x$, $\log$ の数値化不要。
+- ポアソン/ロジスティック回帰: $e^x$, $\log$ の数値化不要。
 - 乱数生成: 指数逆変換の $\log$ は式まで、$\sqrt U$ は一般電卓範囲。
 - サンプルサイズ: $z_{0.975}=1.96$ を問題文で与える。
 - 管理図: 必要定数を問題文で与える。
@@ -77,7 +77,7 @@ $$
 
 Coreとの近接テーマは意図的な変形演習として残した。
 
-- Core Poisson過程 ↔ Standard 条件付き順序統計量 ↔ Advanced NHPP
+- Core ポアソン過程 ↔ Standard 条件付き順序統計量 ↔ Advanced NHPP
 - Core AR/MA ↔ Standard モデル識別・ARMA ↔ Advanced 状態空間
 - Core 通常最小二乗法 ↔ Standard FWL/一般化最小二乗法
 - Core 実験計画 ↔ Standard 交絡/応答曲面 ↔ Advanced CCD/I最適

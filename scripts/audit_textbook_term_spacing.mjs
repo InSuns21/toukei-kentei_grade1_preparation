@@ -8,12 +8,15 @@ const targetRoots = [
   'textbook/volumes/03_inference',
   'textbook/volumes/04_linear_models',
   'textbook/volumes/05_engineering',
+  'statistical-mathematics',
+  'applied-rikou-80',
 ];
 
 // 用語統一で日本語化した語の前後に、英語表記時代の半角空白を残さない。
 // 例: 「ベルヌーイ 分布」「と 通常最小二乗法 の復習」。
 const terms = [
-  'ベルヌーイ', 'ポアソン', 'ガンマ', 'フィッシャー', 'コーシー', 'ワイブル', 'パレート',
+  'ベルヌーイ', 'ポアソン', 'ガンマ', 'フィッシャー', 'ベイズ', 'ワルド', 'スコア',
+  'コーシー', 'ワイブル', 'パレート',
   '確率質量関数', '確率密度関数', '累積分布関数', '確率母関数', 'モーメント母関数',
   '特性関数', 'キュムラント母関数', '独立同分布', '分散共分散行列', '平均二乗誤差',
   '最尤推定量', '尤度比検定', '尤度比', 'ワルド検定', 'スコア検定',
@@ -41,7 +44,7 @@ for (const targetRoot of targetRoots) {
   }
 }
 
-console.log(`統計検定1級通常教材 日本語用語の空白監査: ${findings.length} 件`);
+console.log(`統計検定1級教材 日本語用語の空白監査: ${findings.length} 件`);
 for (const item of findings.slice(0, 300)) {
   console.log(`  ${item.file}:${item.line} ${item.text}`);
 }
