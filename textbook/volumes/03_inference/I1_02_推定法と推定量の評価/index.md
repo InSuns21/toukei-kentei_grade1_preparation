@@ -15,8 +15,8 @@ $$
 関連章:
 
 - [I1-01 尤度・最尤推定](../I1_01_尤度_最尤推定/index.md): 尤度・スコア・最尤推定の基本。
-- [P4-02 確率変数の収束・大数則・中心極限定理](../../02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md): 一致性で使う確率収束と大数則。
-- [L1-02 重回帰・線形モデルの行列表現](../../04_linear_models/L1_02_重回帰_線形モデルの行列表現/index.md): 線形モデル、OLS、Gauss--Markovの回帰での使い方。
+- [P4-02](../../02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md): 収束概念の復習。
+- [L1-02 重回帰・線形モデルの行列表現](../../04_linear_models/L1_02_重回帰_線形モデルの行列表現/index.md): 線形モデルと OLS の復習。
 - I2-01 漸近推測・Delta法: 本章の一致性・Fisher情報量を、最尤推定量の漸近正規性へ進める。
 
 ## この章で解けるようになる問題
@@ -208,22 +208,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（平均二乗誤差）**  
-> 推定量 $T$ の平均二乗誤差を
-<!-- formal-statement-end -->
+> 推定量 $T$ の平均二乗誤差を次で定義する。
 
 $$
 \operatorname{MSE}_\theta(T)
-=E_\theta[(T-g(\theta))^2]
+=E_\theta[(T-g(\theta))^2].
 $$
-
-とします。
+<!-- formal-statement-end -->
 
 <a id="prop-i1-02-mse-decomposition"></a>
 
 <!-- formal-statement-start -->
 > **命題（MSE分解）**  
-> 二次モーメントが有限なら、
-<!-- formal-statement-end -->
+> 二次モーメントが有限なら、平均二乗誤差は分散とバイアスの二乗に分解できる。
 
 $$
 \boxed{
@@ -232,6 +229,7 @@ $$
 +\operatorname{Bias}_\theta(T)^2
 }.
 $$
+<!-- formal-statement-end -->
 
 ### 導出
 
@@ -260,14 +258,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一致性）**  
-> 推定量列 $T_n$ が推定対象 $g(\theta)$ に確率収束するとき、すなわち任意の $\varepsilon>0$ に対して
+> 推定量列 $T_n$ が推定対象 $g(\theta)$ に確率収束するとき、すなわち任意の $\varepsilon>0$ に対して次が成り立つとき、$T_n$ を一致推定量という。
+
+$$
+P_\theta(|T_n-g(\theta)|>\varepsilon)\to0.
+$$
 <!-- formal-statement-end -->
-
-$$
-P_\theta(|T_n-g(\theta)|>\varepsilon)\to0
-$$
-
-なら、$T_n$ を一致推定量という。
 
 <a id="prop-i1-02-mse-consistency"></a>
 
@@ -379,14 +375,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Gauss--Markov）**  
-> 線形モデル $Y=X\beta+\varepsilon$ で $X$ が列フルランク、$E[\varepsilon]=0$、$\operatorname{Var}(\varepsilon)=\sigma^2I$ とする。このとき OLS 推定量
-<!-- formal-statement-end -->
+> 線形モデル $Y=X\beta+\varepsilon$ で $X$ が列フルランク、$E[\varepsilon]=0$、$\operatorname{Var}(\varepsilon)=\sigma^2I$ とする。このとき次の OLS 推定量は $\beta$ の BLUE である。
 
 $$
+\boxed{
 \hat\beta=(X^\mathsf TX)^{-1}X^\mathsf TY
+}.
 $$
-
-は $\beta$ の BLUE です。
+<!-- formal-statement-end -->
 
 ### 証明の見取り図
 
@@ -454,16 +450,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Fisher情報量）**  
-> 正則条件の下で、1母数モデルの Fisher 情報量を
-<!-- formal-statement-end -->
+> 正則条件の下で、1母数モデルの Fisher 情報量をスコアの二乗平均で定義する。
 
 $$
 \boxed{
 I(\theta)=E_\theta[U(\theta)^2]
-}
+}.
 $$
-
-と定義します。
+<!-- formal-statement-end -->
 
 スコアの期待値が0なら
 
@@ -486,11 +480,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（Fisher情報量の加法性）**  
 > 独立観測では全標本の情報量は各観測の情報量の和になる。特に i.i.d. 標本なら
-<!-- formal-statement-end -->
 
 $$
 \boxed{I_n(\theta)=nI_1(\theta)}.
 $$
+<!-- formal-statement-end -->
 
 ### 7.2 二階微分表示
 
@@ -517,8 +511,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Fisher情報量の二階微分表示）**  
-> 微分と積分の交換が許される正則モデルでは
-<!-- formal-statement-end -->
+> 微分と積分の交換が許される正則モデルでは、Fisher情報量は対数尤度の二階微分の負の期待値に等しい。
 
 $$
 \boxed{
@@ -526,6 +519,7 @@ I(\theta)
 =-E_\theta\left[\frac{\partial^2}{\partial\theta^2}\ell(\theta)\right]
 }.
 $$
+<!-- formal-statement-end -->
 
 ### 7.3 例: Bernoulli 分布
 
@@ -606,7 +600,6 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cramér--Rao不等式）**  
 > 支持が母数に依存せず、必要な微分と積分の交換ができ、$0<I(\theta)<\infty$ などの正則条件を満たす1母数モデルを考える。$T$ が $g(\theta)$ の不偏推定量なら
-<!-- formal-statement-end -->
 
 $$
 \boxed{
@@ -615,6 +608,7 @@ $$
 \frac{\{g'(\theta)\}^2}{I(\theta)}
 }.
 $$
+<!-- formal-statement-end -->
 
 特に $g(\theta)=\theta$ なら
 
