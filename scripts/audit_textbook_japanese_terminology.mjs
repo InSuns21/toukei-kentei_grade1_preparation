@@ -71,6 +71,7 @@ const rules = [
   withJapanese('CLT', '中心極限定理', /\bCLT\b/g),
   withJapanese('LLN', '大数の法則', /\bLLN\b/g),
   always('Delta method', 'デルタ法', /\bDelta\s+method\b/gi),
+  always('Delta法', 'デルタ法', /Delta法/g),
   withJapanese('OLS', '通常最小二乗法', /\bOLS\b/g),
   withJapanese('GLS', '一般化最小二乗法', /\bGLS\b/g),
   withJapanese('ANOVA', '分散分析', /\bANOVA\b/g),
@@ -80,6 +81,7 @@ const rules = [
   withJapanese('PCA', '主成分分析', /\bPCA\b/g),
 
   // 固有名詞・表記
+  always('Gauss--Markov', 'ガウス・マルコフ', /\bGauss\s*(?:--|–|—|-)\s*Markov\b/g),
   always('Neyman–Pearson', 'ネイマン・ピアソン', /\bNeyman\s*(?:--|–|—|-)\s*Pearson\b/g),
   always('Fisher', 'フィッシャー', /\bFisher\b/g),
   always('Bayes', 'ベイズ', /\bBayes\b/g),
