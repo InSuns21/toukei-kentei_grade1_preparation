@@ -1,4 +1,5 @@
 <!-- 通常教材の章構成はこのファイルを正本とする。 -->
+<!-- definition-example-audit: strict -->
 
 # {{chapter_id}} {{chapter_title}}
 
@@ -31,6 +32,25 @@ TODO: 概念の意味を、最小の具体例から説明する。定義や一�
 ## 2. 定義と記号
 
 TODO: 定義、記号、母数範囲、存在条件を明記する。
+
+<a id="def-{{chapter_id}}-example"></a>
+
+<!-- formal-statement-start -->
+> **定義（TODO）**  
+> TODO: 定義する対象と条件をこのblockだけで自己完結させる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-{{chapter_id}}-example -->
+### 2.1 例：定義を具体例で確認する
+
+TODO: 定義した対象の最小の具体例を置く。
+
+**定義の確認**
+
+1. TODO: 定義の条件1を実際に確認する。
+2. TODO: 定義の条件2を実際に確認する。
+3. TODO: 非自明な条件は式または短い論証で確認する。
+<!-- definition-example-end -->
 
 ## 3. 定理・公式と導出
 
