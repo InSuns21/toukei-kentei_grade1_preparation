@@ -7,11 +7,12 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 積σ代数と積測度を自己完結した定義・定理として述べられる
+  - 積測度がCarathéodory拡張定理から存在・一意になる論理を説明できる
   - 可測集合のsectionが可測であることを証明できる
-  - Tonelliの定理を指示関数・単関数・MCTの順で説明できる
-  - Fubiniの定理をTonelliから導出できる
+  - section測度公式を有限測度版からσ有限版へ局所化して証明できる
+  - Tonelliの定理を指示関数・単関数・MCTの順で証明できる
+  - Fubiniの定理をTonelliと正負分解から証明できる
   - TonelliとFubiniの適用条件を区別できる
-  - 積測度存在定理の完全証明がD4のCarathéodory拡張に依存することを説明できる
 definitions:
   - { id: F000D2C-DEF-01, name: 積σ代数 }
   - { id: F000D2C-DEF-02, name: section }
@@ -19,14 +20,16 @@ definitions:
 theorems:
   - { id: F000D2C-THM-01, name: σ有限測度の積測度存在一意性 }
   - { id: F000D2C-THM-02, name: 可測集合のsection可測性 }
-  - { id: F000D2C-THM-03, name: Tonelliの定理 }
-  - { id: F000D2C-THM-04, name: Fubiniの定理 }
+  - { id: F000D2C-THM-03, name: section測度公式 }
+  - { id: F000D2C-THM-04, name: Tonelliの定理 }
+  - { id: F000D2C-THM-05, name: Fubiniの定理 }
 canonical_examples:
   - 長方形の積測度
-  - 有界長方形上の二重積分
+  - 三角領域のsection測度
   - 非負無限領域積分へのTonelli
-problem_patterns: [PRODUCT-MEASURE-1, TONELLI-1, FUBINI-1]
+  - 独立確率変数の期待値分離
+problem_patterns: [PRODUCT-MEASURE-1, SECTION-MEASURE-1, TONELLI-1, FUBINI-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1.5, review: 0.5 }
+exercise_counts: { level_a: 3, level_b: 4, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2, review: 0.5 }
