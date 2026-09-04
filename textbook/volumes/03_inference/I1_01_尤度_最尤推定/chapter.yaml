@@ -1,0 +1,45 @@
+id: "I1-01"
+title: "尤度・最尤推定"
+volume: "inference"
+status: reviewed
+prerequisites:
+  - S1-02
+official_scope:
+  - 尤度関数
+  - 対数尤度関数
+  - 有効スコア関数
+  - 最尤推定
+learning_objectives:
+  - 確率質量関数・確率密度関数から独立標本の尤度と対数尤度を構成できる
+  - 尤度と確率の読み方の違いを説明できる
+  - スコア方程式を解き二階微分・単調性・境界を確認して最尤推定量を決定できる
+  - Bernoulli・Poisson・指数・正規分布の標準的な最尤推定量を導出できる
+  - 支持が母数に依存する一様分布で指示関数を残して境界最尤解を求められる
+  - 開いた母数空間で上限はあるが最大値が達成されない例を判定できる
+  - 最尤推定量の再パラメータ化不変性を利用できる
+  - 多母数モデルのスコアベクトルを計算できる
+  - nuisance母数を調整した有効スコアの式と意味を説明できる
+  - 正則条件の下でスコアの期待値が0になる理由と母数依存支持での注意を説明できる
+definitions:
+  - { id: I101-DEF-01, name: 尤度関数 }
+  - { id: I101-DEF-02, name: 対数尤度関数 }
+  - { id: I101-DEF-03, name: スコア関数 }
+  - { id: I101-DEF-04, name: スコアベクトル }
+  - { id: I101-DEF-05, name: 最尤推定量 }
+  - { id: I101-DEF-06, name: nuisance母数 }
+  - { id: I101-DEF-07, name: 有効スコア }
+  - { id: I101-DEF-08, name: プロファイル尤度 }
+theorems:
+  - { id: I101-PROP-01, name: スコア方程式 }
+  - { id: I101-THM-01, name: 最尤推定量の不変性 }
+  - { id: I101-PROP-02, name: 正則モデルでのスコアの期待値0 }
+canonical_examples: [Bernoulli最尤推定, Poisson最尤推定, 指数率と平均寿命, 正規平均分散の同時最尤推定, 一様分布の端点推定, プロファイル尤度, 有効スコア]
+problem_patterns: [LIKELIHOOD-BUILD-1, SCORE-EQ-1, BOUNDARY-MLE-1, SUPPORT-MLE-1, MULTIPARAM-MLE-1, PROFILE-LIK-1, MLE-INVARIANCE-1, EFFICIENT-SCORE-1]
+past_exam_alignment: []
+integrated_exam_problems: [I1-01-C01, I1-01-C02, I1-01-C03, I1-01-C04, I1-01-D01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 7, exercises: 10, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
