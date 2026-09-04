@@ -91,7 +91,7 @@ $$
 $\varepsilon$ は任意なので
 
 $$
-\boxed{\lambda^*(\{x\})=0}.
+\lambda^*(\{x\})=0.
 $$
 
 同様に可算集合は可算劣加法性から外測度0になります。
@@ -133,8 +133,10 @@ $$
 
 ## 4. Lebesgue外測度が外測度であること
 
+<a id="prop-f0-00d3-lebesgue-outer"></a>
+
 <!-- formal-statement-start -->
-### 命題
+### 命題（Lebesgue外測度の外測度性）
 
 $\lambda^*$ は $\mathbb R$ 上の外測度である。
 <!-- formal-statement-end -->
@@ -160,7 +162,7 @@ A_n\subset\bigcup_{k=1}^\infty I_{n,k},
 \lambda^*(A_n)+\frac{\varepsilon}{2^n}
 $$
 
-となる被覆を選べます。ただし $\lambda^*(A_n)=\infty$ の項があれば右辺の主張は自明なので、有限の項だけ考えれば十分です。
+となる被覆を選べます。$\lambda^*(A_n)=\infty$ の項があれば主張は自明なので、有限の項だけ考えれば十分です。
 
 すると
 
@@ -239,16 +241,12 @@ $$
 $\mu^*(N)=0$ とします。任意の $T$ について
 
 $$
-\mu^*(T\cap N)=0
+\mu^*(T\cap N)=0,
+\qquad
+\mu^*(T\setminus N)\le\mu^*(T)
 $$
 
-であり、単調性から
-
-$$
-\mu^*(T\setminus N)\le\mu^*(T).
-$$
-
-従って
+なので
 
 $$
 \mu^*(T\cap N)+\mu^*(T\setminus N)
@@ -282,8 +280,6 @@ $$
 
 <!-- formal-statement-end -->
 
-これが
-
 ```text
 外測度 on 2^X
  ↓ 可測集合を選別
@@ -292,12 +288,10 @@ $$
 
 を正当化する主定理です。
 
----
-
-## 7. 証明I：Carathéodory可測集合はσ代数をなす
-
 <!-- proof-start -->
-### Step 1：空集合と補集合
+### 証明
+
+#### Step 1：空集合と補集合
 
 $\varnothing$ について
 
@@ -319,7 +313,7 @@ $$
 
 なので Carathéodory 条件の右辺が入れ替わるだけです。従って $E^c$ も可測です。
 
-### Step 2：有限和で閉じる
+#### Step 2：有限和で閉じる
 
 $E,F\in\mathcal M$ とします。任意の $T\subset X$ に対して、まず $E$ の可測性から
 
@@ -351,7 +345,7 @@ $$
 \mu^*(T\setminus(E\cup F)).
 $$
 
-外測度の劣加法性から
+劣加法性から
 
 $$
 \mu^*(T\cap(E\cup F))
@@ -371,11 +365,9 @@ $$
 \mu^*(T\setminus(E\cup F)).
 $$
 
-逆向きは劣加法性から自動なので $E\cup F$ は可測です。
+逆向きは自動なので $E\cup F$ は可測です。従って有限和・有限共通部分・差でも閉じます。
 
-従って有限和・有限共通部分・差でも閉じます。
-
-### Step 3：互いに素な可算和
+#### Step 3：互いに素な可算和
 
 互いに素な $E_1,E_2,\dots\in\mathcal M$ を取り
 
@@ -397,7 +389,7 @@ $$
 \mu^*(T\setminus F_n).
 $$
 
-$T\setminus F\subset T\setminus F_n$ なので単調性から
+$T\setminus F\subset T\setminus F_n$ なので
 
 $$
 \mu^*(T)
@@ -407,7 +399,7 @@ $$
 \mu^*(T\setminus F).
 $$
 
-$n\to\infty$ とすると
+$n\to\infty$ として
 
 $$
 \mu^*(T)
@@ -435,7 +427,7 @@ $$
 
 逆向きは自動なので $F\in\mathcal M$。
 
-### Step 4：一般の可算和
+#### Step 4：一般の可算和
 
 一般の $A_n\in\mathcal M$ に対して
 
@@ -445,18 +437,15 @@ E_1=A_1,
 E_n=A_n\setminus\bigcup_{k<n}A_k
 $$
 
-と disjoint 化します。有限演算で閉じるため各 $E_n\in\mathcal M$、しかも
+と disjoint 化します。各 $E_n\in\mathcal M$ で
 
 $$
 \bigcup_nA_n=\bigsqcup_nE_n.
 $$
 
-Step 3 より右辺は可測。したがって $\mathcal M$ はσ代数です。$\square$
-<!-- proof-end -->
+Step 3 より右辺は可測。したがって $\mathcal M$ はσ代数です。
 
----
-
-## 8. 証明II：外測度の制限は可算加法的
+#### Step 5：外測度の制限は可算加法的
 
 互いに素な $E_n\in\mathcal M$ を取り
 
@@ -464,7 +453,7 @@ $$
 E=\bigsqcup_{n=1}^\infty E_n
 $$
 
-とします。前節より $E\in\mathcal M$。
+とします。前段より $E\in\mathcal M$。
 
 有限段階で Carathéodory 条件を繰り返し、テスト集合に $T=E$ を入れると
 
@@ -474,7 +463,7 @@ $$
 \sum_{k=1}^n\mu^*(E_k)
 $$
 
-です。従って
+なので
 
 $$
 \mu^*(E)
@@ -482,33 +471,30 @@ $$
 \sum_{k=1}^\infty\mu^*(E_k).
 $$
 
-一方、外測度の可算劣加法性から
+逆向きは外測度の可算劣加法性です。従って
 
 $$
-\mu^*(E)
-\le
-\sum_{k=1}^\infty\mu^*(E_k).
+\mu^*(E)=\sum_{k=1}^\infty\mu^*(E_k).
 $$
 
-よって
+よって $\mu=\mu^*|_{\mathcal M}$ は測度です。
+
+#### Step 6：完全性
+
+$N\in\mathcal M$、$\mu(N)=0$、$A\subset N$ とします。単調性から
 
 $$
-\boxed{
-\mu^*(E)=\sum_{k=1}^\infty\mu^*(E_k)
-}.
+0\le\mu^*(A)\le\mu^*(N)=0
 $$
 
-したがって
+なので $\mu^*(A)=0$。例2より外測度0の集合は Carathéodory 可測なので $A\in\mathcal M$、かつ $\mu(A)=0$。
 
-$$
-\mu:=\mu^*|_{\mathcal M}
-$$
-
-は測度です。$\square$
+以上で三つの主張を全て示しました。$\square$
+<!-- proof-end -->
 
 ---
 
-## 9. 証明III：完全性
+## 7. 完全測度という言葉
 
 <a id="def-f0-00d3-complete-measure"></a>
 
@@ -518,19 +504,11 @@ $$
 測度空間 $(X,\mathcal M,\mu)$ が **完全** であるとは、$N\in\mathcal M$、$\mu(N)=0$ なら任意の $A\subset N$ も $A\in\mathcal M$ となることをいう。
 <!-- formal-statement-end -->
 
-$N\in\mathcal M$、$\mu(N)=0$、$A\subset N$ とします。単調性から
-
-$$
-0\le\mu^*(A)\le\mu^*(N)=0
-$$
-
-なので $\mu^*(A)=0$。例2で示した通り外測度0の集合は Carathéodory 可測です。従って $A\in\mathcal M$、かつ $\mu(A)=0$。
-
-よって Carathéodory 構成で得られる測度は完全です。$\square$
+Carathéodory 構成ではこの完全性まで自動的に得られます。
 
 ---
 
-## 10. Lebesgue測度へつながる
+## 8. Lebesgue測度へつながる
 
 Lebesgue 外測度 $\lambda^*$ に対する Carathéodory 可測集合族を
 
@@ -541,9 +519,7 @@ $$
 と書けば
 
 $$
-\boxed{
 \lambda:=\lambda^*|_{\mathcal L}
-}
 $$
 
 は完全測度です。
@@ -559,7 +535,7 @@ $$
 
 ---
 
-## 11. 証明で何が起きたか
+## 9. 証明で何が起きたか
 
 Carathéodory 条件は一見すると
 
@@ -568,8 +544,6 @@ $$
 $$
 
 を要求する強い定義ですが、その強さのおかげで可測集合 $E$ は「どんなテスト集合に対しても、内外へ切った測度が正確に足し戻せる切断面」になります。
-
-そして
 
 ```text
 1つの可測集合で二分できる
@@ -581,13 +555,11 @@ $$
 可算加法性
 ```
 
-という構造が生まれます。
-
-外測度が最初から持っていたのは「≤」だけですが、Carathéodory 可測性が逆向きの「≥」を供給して等号へ格上げしています。
+という構造です。外測度が最初から持つ「≤」に、Carathéodory 可測性が逆向きの「≥」を供給して等号へ格上げしています。
 
 ---
 
-# 12. 演習
+# 10. 演習
 
 ## F0-00D3-A01 一点集合の外測度
 
@@ -653,12 +625,12 @@ $$
 - Level: B
 - 目安時間: 18分
 
-$E,F$ が Carathéodory 可測なら $E\cup F$ も可測であることを、$T$ をまず $E$ で、次に $F$ で分割して示せ。
+$E,F$ が Carathéodory 可測なら $E\cup F$ も可測であることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-本文 Step 2 の通り
+$T$ をまず $E$ で分け、$T\setminus E$ をさらに $F$ で分けると
 
 $$
 \mu^*(T)
@@ -670,7 +642,7 @@ $$
 \mu^*(T\setminus(E\cup F)).
 $$
 
-前二項の和は劣加法性により $\mu^*(T\cap(E\cup F))$ 以上なので Carathéodory 条件の必要な逆向き不等式を得る。
+前二項の和は劣加法性により $\mu^*(T\cap(E\cup F))$ 以上なので必要な逆向き不等式を得る。
 <!-- solution-end -->
 
 ## F0-00D3-B02 可算加法性を導く
@@ -699,7 +671,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-Carathéodory 構成で得た測度が完全であることを証明せよ。
+Carathéodory 構成で得た測度が完全であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -709,7 +681,7 @@ $A\subset N$、$\mu(N)=0$ なら外測度の単調性から $\mu^*(A)=0$。外�
 
 ---
 
-## 13. 章末チェック
+## 11. 章末チェック
 
 - Lebesgue 外測度を開区間被覆の infimum で定義できる。
 - 外測度の三条件を述べ、Lebesgue 外測度について証明できる。
