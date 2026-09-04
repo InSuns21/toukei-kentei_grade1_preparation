@@ -23,7 +23,7 @@
 - 一様分布のように支持が母数へ依存するモデルで、指示関数を落とさず最尤推定量を求める。
 - 再パラメータ化した母数の最尤推定量を不変性から求める。
 - 多母数モデルのスコアベクトルを計算する。
-- nuisance 母数があるとき、有効スコアが「他の母数で説明できるスコア成分を差し引く」量であることを説明する。
+- 局外母数（nuisance parameter）があるとき、有効スコアが「他の母数で説明できるスコア成分を差し引く」量であることを説明する。
 
 ## 公式出題範囲との対応
 
@@ -31,7 +31,7 @@
 |---|---|
 | 尤度関数 | 独立標本の積、支持・母数空間を含む尤度 |
 | 対数尤度関数 | 積を和へ変換し最大化を簡単にする |
-| 有効スコア関数 | スコア、スコアベクトル、nuisance 母数を調整した有効スコア |
+| 有効スコア関数 | スコア、スコアベクトル、局外母数を調整した有効スコア |
 | 最尤推定 | 内点解、境界解、非正則例、再パラメータ化不変性 |
 
 ## 前提知識チェック
@@ -71,13 +71,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（尤度関数）**  
 > 観測値を $x=(x_1,\ldots,x_n)$、母数を $\theta\in\Theta$ とする。モデルの同時確率質量関数または同時密度を $f_\theta(x)$ とするとき、データ $x$ を固定して
-> $$
-> L(\theta;x)=f_\theta(x)
-> $$
+
+$$
+L(\theta;x)=f_\theta(x)
+$$
+
 > を $\theta$ の関数とみたものを**尤度関数**という。独立標本なら
-> $$
-> L(\theta;x)=\prod_{i=1}^n f_\theta(x_i).
-> $$
+
+$$
+L(\theta;x)=\prod_{i=1}^n f_\theta(x_i).
+$$
 <!-- formal-statement-end -->
 
 比例定数が $\theta$ に依存しなければ、最大化する場所は変わりません。このため
@@ -93,9 +96,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（対数尤度関数）**  
 > $L(\theta;x)>0$ の範囲で
-> $$
-> \ell(\theta;x)=\log L(\theta;x)
-> $$
+
+$$
+\ell(\theta;x)=\log L(\theta;x)
+$$
+
 > を**対数尤度関数**という。対数は単調増加なので、$L$ と $\ell$ は同じ点で最大になる。
 <!-- formal-statement-end -->
 
@@ -112,13 +117,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（スコア関数）**  
 > 1母数モデルで対数尤度が微分可能なとき
-> $$
-> U(\theta)=\frac{\partial}{\partial\theta}\ell(\theta)
-> $$
+
+$$
+U(\theta)=\frac{\partial}{\partial\theta}\ell(\theta)
+$$
+
 > を**スコア関数**という。多母数 $\theta=(\theta_1,\ldots,\theta_p)^\mathsf T$ では
-> $$
-> U(\theta)=\nabla_\theta\ell(\theta)
-> $$
+
+$$
+U(\theta)=\nabla_\theta\ell(\theta)
+$$
+
 > をスコアベクトルという。
 <!-- formal-statement-end -->
 
@@ -129,9 +138,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（最尤推定量）**  
 > 母数空間 $\Theta$ 上で尤度を最大にする値
-> $$
-> \hat\theta_{\mathrm{ML}}\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)
-> $$
+
+$$
+\hat\theta_{\mathrm{ML}}\in\operatorname*{arg\,max}_{\theta\in\Theta}L(\theta;x)
+$$
+
 > を**最尤推定値**という。データ $X$ の関数として見た $\hat\theta_{\mathrm{ML}}(X)$ を最尤推定量という。
 <!-- formal-statement-end -->
 
@@ -148,9 +159,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（スコア方程式）**  
 > $\hat\theta$ が母数空間の内点で、$\ell(\theta)$ が $\hat\theta$ の近傍で微分可能であり、$\hat\theta$ で局所最大をとるなら
-> $$
-> U(\hat\theta)=\ell'(\hat\theta)=0
-> $$
+
+$$
+U(\hat\theta)=\ell'(\hat\theta)=0
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -330,10 +343,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（最尤推定量の不変性）**  
 > $\hat\theta$ が $\theta$ の最尤推定量で、$\eta=g(\theta)$ とする。$g$ が1対1なら
-> $$
-> \hat\eta_{\mathrm{ML}}=g(\hat\theta).
-> $$
-> より一般に1対1でなくても、$\eta$ のプロファイル尤度を最大化する値は $g(\hat\theta)$ として得られる。
+
+$$
+\hat\eta_{\mathrm{ML}}=g(\hat\theta).
+$$
+
+> より一般に1対1でなくても、$\eta$ の誘導されたプロファイル尤度を最大化する値として $g(\hat\theta)$ が得られる。
 <!-- formal-statement-end -->
 
 1対1の場合は、$\eta$ を動かすことと $\theta=g^{-1}(\eta)$ を動かすことが同じだからです。
@@ -350,7 +365,7 @@ $$
 
 ### 3.8 多母数スコアと有効スコア
 
-母数を関心母数 $\psi$ と nuisance 母数 $\lambda$ に分け、
+母数を関心母数 $\psi$ と局外母数 $\lambda$ に分け、
 
 $$
 \theta=
@@ -385,19 +400,21 @@ $$
 <!-- formal-statement-start -->
 > **定義（有効スコア）**  
 > $I_{\lambda\lambda}$ が可逆であるとき、関心母数 $\psi$ に対する有効スコアを
-> $$
-> U_{\mathrm{eff},\psi}
-> =
-> U_\psi
-> -
-> I_{\psi\lambda}
-> I_{\lambda\lambda}^{-1}
-> U_\lambda
-> $$
+
+$$
+U_{\mathrm{eff},\psi}
+=
+U_\psi
+-
+I_{\psi\lambda}
+I_{\lambda\lambda}^{-1}
+U_\lambda
+$$
+
 > とする。
 <!-- formal-statement-end -->
 
-これは $U_\psi$ から、nuisance 母数のスコア $U_\lambda$ で線形に説明できる成分を差し引いたものです。$I_{\psi\lambda}=0$ なら両者は直交しており、
+これは $U_\psi$ から、局外母数のスコア $U_\lambda$ で線形に説明できる成分を差し引いたものです。$I_{\psi\lambda}=0$ なら両者は直交しており、
 
 $$
 U_{\mathrm{eff},\psi}=U_\psi
@@ -506,8 +523,7 @@ $$
 - 主題: 尤度・スコア
 - 使用技術: 対数尤度、微分、境界確認
 
-$X_1,\ldots,X_8$ は独立に Bernoulli$(p)$ に従う。観測値が
-$1,0,1,1,0,1,1,0$ であった。
+$X_1,\ldots,X_8$ は独立に Bernoulli$(p)$ に従う。観測値が $1,0,1,1,0,1,1,0$ であった。
 
 1. 尤度 $L(p)$ と対数尤度 $\ell(p)$ を書け。
 2. スコア方程式を解き、$p$ の最尤推定値を求めよ。
@@ -546,14 +562,11 @@ $$
 \ell''(p)=-\frac5{p^2}-\frac3{(1-p)^2}<0
 $$
 
-なので最大である。
-
-全て1なら $L(p)=p^8$ は $[0,1]$ 上で単調増加だから $\hat p=1$。
+なので最大である。全て1なら $L(p)=p^8$ は $[0,1]$ 上で単調増加だから $\hat p=1$。
 
 ##### 本番答案
 
-$S=5$ より $L(p)=p^5(1-p)^3$,
-$\ell(p)=5\log p+3\log(1-p)$。
+$S=5$ より $L(p)=p^5(1-p)^3$, $\ell(p)=5\log p+3\log(1-p)$。
 
 $$
 \ell'(p)=\frac5p-\frac3{1-p}=0
@@ -642,8 +655,7 @@ $s>0$ なら $\ell''(\lambda)=-s/\lambda^2<0$。
 - 主題: 再パラメータ化
 - 使用技術: MLE不変性
 
-$X_i\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ で
-$f(x\mid\lambda)=\lambda e^{-\lambda x}$ $(x\ge0)$ とする。
+$X_i\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ で $f(x\mid\lambda)=\lambda e^{-\lambda x}$ $(x\ge0)$ とする。
 
 1. $\lambda$ の最尤推定量を求めよ。
 2. 平均寿命 $\mu=1/\lambda$ の最尤推定量を求めよ。
@@ -1231,7 +1243,7 @@ $\theta$ は右端点を決めるため、最大値 $M$ が直接の情報を持
 
 - Level: C
 - 目安時間: 30分
-- 主題: nuisance 母数
+- 主題: 局外母数
 - 使用技術: 条件付き最大化、プロファイル尤度
 
 $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ とする。
@@ -1243,7 +1255,7 @@ $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ とする。
    $$
    と書けることを示せ。
 3. $\ell_p(\mu)$ を最大にする $\mu$ を求めよ。
-4. この操作が「nuisance 母数を固定値に決め打ちする」ことと異なる点を説明せよ。
+4. この操作が「局外母数を固定値に決め打ちする」ことと異なる点を説明せよ。
 
 <!-- solution-start -->
 
@@ -1291,7 +1303,7 @@ $$
 
 より最小は $\mu=\bar x$ である。
 
-プロファイル尤度は各 $\mu$ に対し nuisance 母数 $\sigma^2$ を**その $\mu$ のもとで最も有利な値に再最適化**する。固定値へ決め打ちする操作ではない。
+プロファイル尤度は各 $\mu$ に対し局外母数 $\sigma^2$ を**その $\mu$ のもとで最も有利な値に再最適化**する。固定値へ決め打ちする操作ではない。
 
 ##### 本番答案
 
@@ -1320,7 +1332,7 @@ $$
 - $\hat\sigma^2(\mu)$: 5点
 - プロファイル対数尤度: 5点
 - 平方和分解と $\hat\mu$: 6点
-- nuisance 母数の説明: 4点
+- 局外母数の説明: 4点
 
 <!-- solution-end -->
 
@@ -1331,7 +1343,7 @@ $$
 - 主題: 有効スコア
 - 使用技術: 情報行列のブロック計算
 
-関心母数を $\psi$、nuisance 母数を $\lambda$ とし、ある観測で
+関心母数を $\psi$、局外母数を $\lambda$ とし、ある観測で
 
 $$
 U_\psi=3,\qquad U_\lambda=2,
@@ -1346,7 +1358,7 @@ $$
 であった。
 
 1. $\psi$ の有効スコアを求めよ。
-2. nuisance 母数調整後の有効情報
+2. 局外母数調整後の有効情報
    $$
    I_{\mathrm{eff},\psi}
    =
@@ -1381,7 +1393,7 @@ I_{\mathrm{eff},\psi}
 =\boxed{\frac{19}{4}}.
 $$
 
-$I_{\psi\lambda}=0$ なら関心母数と nuisance 母数のスコアが情報行列の意味で直交し、
+$I_{\psi\lambda}=0$ なら関心母数と局外母数のスコアが情報行列の意味で直交し、
 
 $$
 U_{\mathrm{eff},\psi}=U_\psi,\qquad
@@ -1400,7 +1412,7 @@ $$
 I_{\rm eff,\psi}=5-(1)(1/4)(1)=\boxed{19/4}.
 $$
 
-交差情報が0なら nuisance 調整項が消え、通常のスコア・情報がそのまま有効スコア・有効情報となる。
+交差情報が0なら局外母数の調整項が消え、通常のスコア・情報がそのまま有効スコア・有効情報となる。
 
 ##### 採点基準
 
