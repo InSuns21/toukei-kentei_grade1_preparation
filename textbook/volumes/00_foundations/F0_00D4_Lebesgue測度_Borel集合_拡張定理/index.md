@@ -34,46 +34,12 @@ Carathéodory可測性
 
 # Part I：Lebesgue測度を完成する
 
-## 1. 区間の外測度は長さに一致する
-
-<a id="thm-f0-00d4-interval-length"></a>
-
-<!-- formal-statement-start -->
-### 定理
-
-任意の $a<b$ について
-
-$$
-\boxed{\lambda^*([a,b])=b-a}.
-$$
-<!-- formal-statement-end -->
-
-### 1.1 上からの評価
-
-任意の $\varepsilon>0$ に対して
-
-$$
-[a,b]\subset(a-\varepsilon/2,b+\varepsilon/2)
-$$
-
-だから
-
-$$
-\lambda^*([a,b])\le b-a+\varepsilon.
-$$
-
-$\varepsilon\downarrow0$ として
-
-$$
-\lambda^*([a,b])\le b-a.
-$$
-
-### 1.2 有限区間被覆の補題
+## 1. 有限区間被覆の長さ補題
 
 <a id="lem-finite-interval-cover"></a>
 
 <!-- formal-statement-start -->
-### 補題
+### 補題（有限区間被覆の長さ）
 
 有限個の開区間 $I_1,\dots,I_m$ が $[a,b]$ を覆うなら
 
@@ -95,9 +61,9 @@ $$
 a=t_0<t_1<\cdots<t_N=b
 $$
 
-と並べます。各小区間 $(t_{r-1},t_r)$ は元の有限被覆の少なくとも一つの区間に完全に含まれます。なぜなら、その内部の一点を覆う区間は端点集合の間では出入りできないからです。
+と並べます。各小区間 $(t_{r-1},t_r)$ は元の被覆区間の少なくとも一つに完全に含まれます。もし内部の一点がある $I_j$ に入れば、$t_{r-1},t_r$ の間にはどの区間の端点もないため、その小区間全体が同じ $I_j$ に含まれるからです。
 
-従って、各元区間 $I_j$ の長さを端点分割された小区間の長さの和として数えると、$[a,b]$ を構成する全ての小区間が少なくとも一回は数えられます。よって
+従って元区間の長さを端点分割された小区間の長さの和として数えると、$[a,b]$ を構成する全小区間が少なくとも一回は数えられます。よって
 
 $$
 \sum_{j=1}^m|I_j|
@@ -109,7 +75,46 @@ $$
 $\square$
 <!-- proof-end -->
 
-### 1.3 下からの評価
+---
+
+## 2. 区間の外測度は長さに一致する
+
+<a id="thm-f0-00d4-interval-length"></a>
+
+<!-- formal-statement-start -->
+### 定理（区間のLebesgue外測度）
+
+任意の $a<b$ について
+
+$$
+\boxed{\lambda^*([a,b])=b-a}.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+#### 上からの評価
+
+任意の $\varepsilon>0$ に対して
+
+$$
+[a,b]\subset(a-\varepsilon/2,b+\varepsilon/2)
+$$
+
+だから
+
+$$
+\lambda^*([a,b])\le b-a+\varepsilon.
+$$
+
+$\varepsilon\downarrow0$ として
+
+$$
+\lambda^*([a,b])\le b-a.
+$$
+
+#### 下からの評価
 
 $[a,b]$ の任意の可算開区間被覆 $(I_n)$ を取ります。$[a,b]$ は compact なので有限部分被覆
 
@@ -117,7 +122,7 @@ $$
 I_{n_1},\dots,I_{n_m}
 $$
 
-が存在します。補題から
+が存在します。前節の補題から
 
 $$
 \sum_{k=1}^m|I_{n_k}|\ge b-a.
@@ -129,22 +134,25 @@ $$
 \sum_{n=1}^\infty|I_n|\ge b-a.
 $$
 
-全被覆について infimum を取って
+全ての開区間被覆について infimum を取れば
 
 $$
 \lambda^*([a,b])\ge b-a.
 $$
 
-上からの評価と合わせて定理が従います。$\square$
+上下を合わせて等号です。$\square$
+<!-- proof-end -->
 
 > F0-00C の compact 性が、ここで「可算被覆から有限被覆を抜く」ために実際に働いています。
 
 ---
 
-## 2. 平行移動不変性
+## 3. 平行移動不変性
+
+<a id="prop-f0-00d4-translation-invariance"></a>
 
 <!-- formal-statement-start -->
-### 命題
+### 命題（Lebesgue外測度の平行移動不変性）
 
 任意の $A\subset\mathbb R,t\in\mathbb R$ に対して
 
@@ -167,12 +175,12 @@ $A+t$ に $-t$ を適用すれば逆向きも得るので等号です。$\square
 
 ---
 
-## 3. 半直線と開区間は Carathéodory 可測
+## 4. 半直線と開区間は Carathéodory 可測
 
 <a id="lem-halfline-measurable"></a>
 
 <!-- formal-statement-start -->
-### 補題
+### 補題（半直線の可測性）
 
 任意の $c\in\mathbb R$ について半直線 $(-\infty,c]$ は Lebesgue 外測度 $\lambda^*$ に関して Carathéodory 可測である。
 <!-- formal-statement-end -->
@@ -180,7 +188,7 @@ $A+t$ に $-t$ を適用すれば逆向きも得るので等号です。$\square
 <!-- proof-start -->
 ### 証明
 
-$H=(-\infty,c]$ とし、任意の $T\subset\mathbb R$ を取ります。劣加法性から
+$H=(-\infty,c]$ とし、任意の $T\subset\mathbb R$ を取ります。外測度の劣加法性から
 
 $$
 \lambda^*(T)
@@ -190,7 +198,7 @@ $$
 
 は自動なので逆向きを示します。
 
-$\lambda^*(T)<\infty$ とし、任意の $\varepsilon>0$ に対して
+まず $\lambda^*(T)<\infty$ とします。任意の $\varepsilon>0$ に対して
 
 $$
 T\subset\bigcup_n I_n,
@@ -198,7 +206,7 @@ T\subset\bigcup_n I_n,
 \sum_n|I_n|<\lambda^*(T)+\varepsilon
 $$
 
-となる開区間被覆を取ります。各 $I_n$ を $c$ の左側・右側で切ります。切った断片は半開区間になる場合がありますが、それぞれを総追加長が $\varepsilon2^{-n}$ 以下となる開区間で少しだけ膨らませられます。
+となる開区間被覆を取ります。各 $I_n$ を点 $c$ の左側と右側に切ります。切った断片が半開区間になった場合は、それぞれを総追加長が $\varepsilon2^{-n}$ 以下となる開区間で少しだけ膨らませます。
 
 すると $T\cap H$ と $T\setminus H$ の開区間被覆が得られ、その二つの総延長の和は
 
@@ -216,14 +224,13 @@ $$
 
 $\varepsilon\downarrow0$ として必要な逆向き不等式を得ます。
 
-$\lambda^*(T)=\infty$ の場合は
+次に $\lambda^*(T)=\infty$ とします。もし
 
 $$
-\infty\le
-\lambda^*(T\cap H)+\lambda^*(T\setminus H)
+\lambda^*(T\cap H)+\lambda^*(T\setminus H)<\infty
 $$
 
-を示す必要がありますが、もし右辺が有限なら上の被覆を両部分について合わせることで $T$ の有限長被覆が作れて矛盾します。従って等号はこの場合にも成立します。$\square$
+なら両部分を有限総延長で覆えるので、それらを合わせて $T$ の有限総延長被覆を作れて矛盾します。従って右辺も $\infty$ で等号です。$\square$
 <!-- proof-end -->
 
 Carathéodory 可測集合は補集合・有限共通部分で閉じます。従って
@@ -240,17 +247,17 @@ $$
 
 も可測です。
 
-<a id="thm-open-interval-measurable"></a>
+<a id="cor-open-interval-measurable"></a>
 
 <!-- formal-statement-start -->
-### 系
+### 系（区間のLebesgue可測性）
 
 全ての開区間・閉区間・半開区間は Lebesgue 可測である。
 <!-- formal-statement-end -->
 
 ---
 
-## 4. 開集合は高々可算個の互いに素な開区間の和
+## 5. 開集合は高々可算個の互いに素な開区間の和
 
 <a id="thm-open-set-decomposition"></a>
 
@@ -271,24 +278,22 @@ x\sim y
 [\min(x,y),\max(x,y)]\subset G
 $$
 
-と定めます。これは同値関係です。
+と定めます。反射律・対称律は明らかで、推移律も二つの線分区間の和が同じ開集合 $G$ に含まれることから従うので、これは同値関係です。
 
-$x$ の同値類 $C_x$ は区間です。さらに $G$ は開なので各 $z\in C_x$ の周りに $G$ に含まれる小開区間があり、その点は同じ同値類に入ります。従って $C_x$ 自身が開集合であり、したがって開区間（非有界区間も許す）です。
+$x$ の同値類 $C_x$ は区間です。さらに $G$ は開なので各 $z\in C_x$ の周りに $G$ に含まれる小開区間があり、その点は全て同じ同値類に入ります。従って $C_x$ 自身が開集合であり、したがって開区間です。端が無限大の区間も許します。
 
 異なる同値類は互いに素で、その和は $G$ 全体です。
 
-最後に各非空開区間 $C_x$ から有理数を一つ選びます。互いに素な異なる区間には異なる有理数が対応します。$\mathbb Q$ は可算なので同値類の個数も高々可算です。$\square$
+最後に各非空開区間 $C_x$ から有理数を一つ選びます。互いに素な異なる区間には異なる有理数が対応します。$\mathbb Q$ は可算なので同値類の個数も高々可算です。
+
+同値類は「$G$ の中で区間を通って到達できる点全体」として一意に決まるため、分解も一意です。$\square$
 <!-- proof-end -->
 
-各開区間は可測で、Carathéodory 可測集合族はσ代数なので
-
-$$
-\boxed{G\text{ は Lebesgue 可測}}.
-$$
+各開区間は可測で、Carathéodory 可測集合族はσ代数なので、全ての開集合 $G$ は Lebesgue 可測です。
 
 ---
 
-## 5. Borel σ代数
+## 6. Borel σ代数
 
 <a id="def-borel-sigma-algebra"></a>
 
@@ -330,7 +335,7 @@ $$
 
 ---
 
-## 6. Borel と Lebesgue 可測は同じではない
+## 7. Borel と Lebesgue 可測は同じではない
 
 <a id="def-measure-completion"></a>
 
@@ -350,7 +355,7 @@ $$
 
 ---
 
-## 7. 区間の種類によらず長さは同じ
+## 8. 区間の種類によらず長さは同じ
 
 一点集合の測度は0なので
 
@@ -385,7 +390,7 @@ $$
 
 # Part II：Carathéodory拡張定理
 
-## 8. algebra と premeasure
+## 9. algebra と premeasure
 
 <a id="def-set-algebra"></a>
 
@@ -433,11 +438,11 @@ $$
 \mu_0([a,b))=b-a
 $$
 
-と定めます。有限和には加法的に延長します。これが Lebesgue 測度を作る元の premeasure です。
+と定め、有限互いに素和には加法的に延長します。これが Lebesgue 測度を作る元の premeasure です。
 
 ---
 
-## 9. premeasure から外測度を作る
+## 10. premeasure から外測度を作る
 
 任意の $E\subset X$ に対して
 
@@ -455,10 +460,10 @@ $$
 
 と定めます。
 
-<a id="lem-premasure-outer"></a>
+<a id="lem-premeasure-outer"></a>
 
 <!-- formal-statement-start -->
-### 補題
+### 補題（premeasureから作る外測度）
 
 上で定めた $\mu^*$ は外測度である。
 <!-- formal-statement-end -->
@@ -483,12 +488,12 @@ $\varepsilon\downarrow0$ とすればよい。$\square$
 
 ---
 
-## 10. 元の algebra 上では値が変わらない
+## 11. 元の algebra 上では値が変わらない
 
 <a id="lem-extension-agrees"></a>
 
 <!-- formal-statement-start -->
-### 補題
+### 補題（外測度はpremeasureを拡張する）
 
 任意の $A\in\mathcal A$ に対して
 
@@ -542,12 +547,12 @@ $$
 
 ---
 
-## 11. algebra の集合は Carathéodory 可測
+## 12. algebra の集合は Carathéodory 可測
 
 <a id="lem-algebra-caratheodory"></a>
 
 <!-- formal-statement-start -->
-### 補題
+### 補題（algebra集合のCarathéodory可測性）
 
 任意の $A\in\mathcal A$ は、上で構成した外測度 $\mu^*$ に関して Carathéodory 可測である。
 <!-- formal-statement-end -->
@@ -608,11 +613,11 @@ $$
 \sigma(\mathcal A)\subset\mathcal M.
 $$
 
-また $\mu^*|_{\mathcal M}$ は測度です。
+また $\mu^*|_{\mathcal M}$ は完全測度です。
 
 ---
 
-## 12. Carathéodory 拡張定理：存在
+## 13. Carathéodory 拡張定理：存在
 
 <a id="thm-caratheodory-extension"></a>
 
@@ -627,9 +632,9 @@ $$
 <!-- proof-start -->
 ### 存在の証明
 
-9節の被覆 infimum で $\mu^*$ を構成すると外測度になる。
+10節の被覆 infimum で $\mu^*$ を構成すると外測度になります。
 
-11節により $\mathcal A$ の全ての集合は $\mu^*$-Carathéodory 可測。従って
+12節により $\mathcal A$ の全ての集合は $\mu^*$-Carathéodory 可測。従って
 
 $$
 \sigma(\mathcal A)\subset\mathcal M.
@@ -641,7 +646,7 @@ $$
 \mu:=\mu^*|_{\sigma(\mathcal A)}
 $$
 
-は測度です。10節から $A\in\mathcal A$ では
+は測度です。11節から $A\in\mathcal A$ では
 
 $$
 \mu(A)=\mu^*(A)=\mu_0(A).
@@ -654,12 +659,12 @@ $$
 
 ---
 
-## 13. σ有限性と一意性
+## 14. σ有限性と一意性
 
 <a id="def-sigma-finite"></a>
 
 <!-- formal-statement-start -->
-### 定義（σ有限 premeasure）
+### 定義（σ有限premeasure）
 
 premeasure $\mu_0$ が **σ有限** であるとは、$A_n\in\mathcal A$ が存在して
 
@@ -740,11 +745,11 @@ $$
 
 ---
 
-## 14. 積測度は拡張定理の直接の応用
+## 15. 積測度は拡張定理の直接の応用
 
 D2C の積測度をここで回収します。
 
-$\mathcal A\times\mathcal B$ の可測長方形上で
+可測長方形上で
 
 $$
 \pi(A\times B):=\mu(A)\nu(B)
@@ -774,7 +779,7 @@ $$
 
 ---
 
-## 15. 確率論との接続
+## 16. 確率論との接続
 
 確率測度は有限測度なのでσ有限です。そのため、簡単な事象の algebra 上で整合的に確率を定め、生成σ代数へ拡張するとき一意性が得やすいという利点があります。
 
@@ -802,7 +807,7 @@ P2 の Radon–Nikodym 定理では、この「密度で測度を表す」考え
 
 ---
 
-# 16. 演習
+# 17. 演習
 
 ## F0-00D4-A01 区間被覆
 
@@ -937,9 +942,10 @@ $$
 
 ---
 
-## 17. 章末チェック
+## 18. 章末チェック
 
-- $\lambda^*([a,b])=b-a$ を compact 性と有限区間被覆補題から証明できる。
+- 有限開区間被覆の長さ総和が $b-a$ 以上になることを証明できる。
+- $\lambda^*([a,b])=b-a$ を compact 性から証明できる。
 - 半直線・開区間が Carathéodory 可測であることを証明できる。
 - 実数上の開集合が高々可算個の互いに素な開区間へ分解されることを証明できる。
 - Borel σ代数と Lebesgue σ代数、完備化を区別できる。
