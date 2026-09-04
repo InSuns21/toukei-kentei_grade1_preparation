@@ -33,7 +33,7 @@ $$
 <a id="thm-statmath-advanced64-umpu-expfam"></a>
 
 <!-- formal-statement-start -->
-> **定理（1母数指数型分布族の両側UMPU検定）**  
+> **定理（1母数指数型分布族の両側一様最強力不偏検定）**  
 > 正則な1母数指数型分布族
 
 $$
