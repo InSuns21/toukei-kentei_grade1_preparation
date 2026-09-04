@@ -102,9 +102,12 @@ $$
 を全ての $A\in\mathcal A,B\in\mathcal B$ について満たす。
 <!-- formal-statement-end -->
 
-### 2.1 なぜ長方形上の積が premeasure になるのか
+<!-- proof-start -->
+### 証明
 
-まず可測長方形の有限互いに素和からなる algebra を $\mathcal R$ とします。長方形について
+#### Step 1：長方形上の積が premeasure になる
+
+可測長方形の有限互いに素和からなる algebra を $\mathcal R$ とします。長方形について
 
 $$
 \pi(A\times B):=\mu(A)\nu(B)
@@ -112,7 +115,7 @@ $$
 
 と置き、互いに素な有限和には加法的に延長します。
 
-重要なのは、この定義が可算分割にも整合することです。例えば
+例えば
 
 $$
 A\times B=\bigsqcup_{n=1}^\infty(A_n\times B_n)
@@ -142,9 +145,9 @@ $$
 \sum_{n=1}^\infty\mu(A_n)\nu(B_n).
 $$
 
-有限互いに素和に分解した一般の $R\in\mathcal R$ でも同じ議論を各成分へ適用できるため、$\pi$ は $\mathcal R$ 上の premeasure になります。
+有限互いに素和に分解した一般の $R\in\mathcal R$ でも同じ議論を各成分へ適用できるため、$\pi$ は $\mathcal R$ 上の premeasure です。
 
-### 2.2 Carathéodory 拡張定理を適用する
+#### Step 2：Carathéodory 拡張定理を適用する
 
 D4 の Carathéodory 拡張定理により $\pi$ は
 
@@ -152,11 +155,12 @@ $$
 \sigma(\mathcal R)=\mathcal A\otimes\mathcal B
 $$
 
-上の測度へ拡張されます。これが $\mu\times\nu$ です。
+上の測度へ拡張されます。これを $\mu\times\nu$ と書きます。
 
-$\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算に覆えるため、premeasure $\pi$ もσ有限です。したがって拡張の一意性も D4 の一意性部分から従います。$\square$
+$\mu,\nu$ がσ有限なら、有限測度の長方形で $X\times Y$ を可算に覆えるため $\pi$ もσ有限です。したがって拡張の一意性も D4 の一意性部分から従います。$\square$
+<!-- proof-end -->
 
-> ここで積測度の存在・一意性は **D4の拡張定理に依存することを明示した上で完全に閉じています**。以後は積測度を使います。
+> 積測度の存在・一意性は D4 の一般拡張定理を依存先として明示し、その上で証明済みです。
 
 ---
 
@@ -276,7 +280,10 @@ $$
 も成り立つ。
 <!-- formal-statement-end -->
 
-### 4.1 まず有限測度の場合
+<!-- proof-start -->
+### 証明
+
+#### Step 1：有限測度の場合
 
 $\mu(X)<\infty,\nu(Y)<\infty$ とします。次の性質を満たす集合族を
 
@@ -292,9 +299,7 @@ $$
 
 と置きます。
 
-#### 長方形は $\mathcal D$ に入る
-
-$E=A\times B$ なら
+長方形 $E=A\times B$ では
 
 $$
 \nu(E_x)=1_A(x)\nu(B)
@@ -309,8 +314,6 @@ $$
 =
 (\mu\times\nu)(A\times B).
 $$
-
-#### 補集合で閉じる
 
 $E\in\mathcal D$ なら有限測度性により
 
@@ -329,9 +332,7 @@ $$
 \end{aligned}
 $$
 
-#### 互いに素な可算和で閉じる
-
-$E_n\in\mathcal D$ が互いに素なら、各 $x$ で $(E_n)_x$ も互いに素だから
+さらに $E_n\in\mathcal D$ が互いに素なら、各 $x$ で $(E_n)_x$ も互いに素だから
 
 $$
 \nu\left(\left(\bigcup_nE_n\right)_x\right)
@@ -339,7 +340,7 @@ $$
 \sum_n\nu((E_n)_x).
 $$
 
-右辺は非負可測関数の極限なので可測です。MCT と積測度の可算加法性から
+MCT と積測度の可算加法性から
 
 $$
 \begin{aligned}
@@ -356,9 +357,7 @@ $$
 \mathcal D=\mathcal A\otimes\mathcal B.
 $$
 
-有限測度の場合が示されました。
-
-### 4.2 σ有限の場合へ局所化する
+#### Step 2：σ有限の場合へ局所化する
 
 σ有限性から
 
@@ -408,7 +407,8 @@ $$
 \end{aligned}
 $$
 
-同時に $x\mapsto\nu(E_x)$ の可測性も、可測関数の単調極限として従います。$y$ 側も同様です。$\square$
+同時に $x\mapsto\nu(E_x)$ の可測性も可測関数の単調極限として従います。$y$ 側も同様です。$\square$
+<!-- proof-end -->
 
 ---
 
