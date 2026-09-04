@@ -46,6 +46,7 @@ const rules = [
   always('P 値', 'P値', /P\s+値/g),
   always('p-value', 'P値', /\bp-value\b/gi),
   always('Fisher情報量', 'フィッシャー情報量', /Fisher情報量/g),
+  always('フィッシャー情報', 'フィッシャー情報量', /フィッシャー情報(?!量|行列)/g),
   always('Cauchy', 'コーシー', /\bCauchy\b(?!\s*(?:--|–|—|-)\s*Schwarz)/g),
   always('カウチー', 'コーシー', /カウチー/g),
   always('Weibull', 'ワイブル', /\bWeibull\b/g),
