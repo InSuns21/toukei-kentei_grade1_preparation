@@ -179,7 +179,7 @@ $$
 $$
 のような形を二次形式といいます。
 
-平均$\boldsymbol\mu$、分散共分散行列をもつデータ$\boldsymbol x$に対して
+平均$\boldsymbol\mu$、分散共分散行列$\Sigma$をもつデータ$\boldsymbol x$に対して
 $$
 Q=(\boldsymbol x-\boldsymbol\mu)^{\mathsf T}
 \Sigma^{-1}(\boldsymbol x-\boldsymbol\mu)
@@ -1565,7 +1565,7 @@ MATH-2021-Q5とMATH-2018-Q4の「線形変換、条件付き正規、独立性�
 
 ### P3M-DRILL-01 多変量正規・条件付け・二次形式
 
-$N_2(\boldsymbol\mu,\boldsymbol\Sigma)$は、平均$\boldsymbol\mu\in\mathbb R^2$、分散共分散行列をもつ二変量正規分布を表す。この問題では次の密度式を用いてよい。
+$N_2(\boldsymbol\mu,\boldsymbol\Sigma)$は、平均$\boldsymbol\mu\in\mathbb R^2$、分散共分散行列$\boldsymbol\Sigma$をもつ二変量正規分布を表す。この問題では次の密度式を用いてよい。
 $$
 f(\boldsymbol z)=\frac{1}{2\pi|\boldsymbol\Sigma|^{1/2}}
 \exp\left[-\frac12(\boldsymbol z-\boldsymbol\mu)^{\mathsf T}

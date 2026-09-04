@@ -160,7 +160,7 @@ $$
 
 ### 3.1 多変量正規分布
 
-$p$次元確率ベクトル $\boldsymbol X$ が平均 $\boldsymbol\mu$、正定値な分散共分散行列の多変量正規分布に従うとき
+$p$次元確率ベクトル $\boldsymbol X$ が平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ の多変量正規分布に従うとき
 
 $$
 \boldsymbol X\sim N_p(\boldsymbol\mu,\Sigma)
@@ -259,7 +259,7 @@ $$
 
 ## 4. Mahalanobis距離：相関と尺度を補正した距離
 
-平均 $\boldsymbol\mu$、正定値な分散共分散行列に対し、点 $\boldsymbol x$ のMahalanobis距離の二乗を
+平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ に対し、点 $\boldsymbol x$ のMahalanobis距離の二乗を
 
 $$
 D^2(\boldsymbol x)
@@ -435,7 +435,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（白色化）**  
-> 平均 $\boldsymbol\mu$、正定値な分散共分散行列をもつ確率ベクトル $\boldsymbol X$ に対し、中心化後の線形変換 $\boldsymbol Z=W(\boldsymbol X-\boldsymbol\mu)$ が
+> 平均 $\boldsymbol\mu$、正定値な分散共分散行列 $\Sigma$ をもつ確率ベクトル $\boldsymbol X$ に対し、中心化後の線形変換 $\boldsymbol Z=W(\boldsymbol X-\boldsymbol\mu)$ が
 
 $$
 \operatorname{Cov}(\boldsymbol Z)=I_p
@@ -935,7 +935,7 @@ $$
 \qquad g=1,2
 $$
 
-とし、2群で**共通の**正定値な分散共分散行列を仮定します。
+とし、2群で**共通の**正定値な分散共分散行列 $\Sigma$ を仮定します。
 
 事前確率が等しい場合、群 $g$ へのMahalanobis距離
 
@@ -1701,7 +1701,7 @@ $$
 
 1. $\bar{\boldsymbol X}$ の分布を求めよ。
 2. $T$ の平均と分散を求めよ。
-3. $n=25$, $(\mu_1,\mu_2)=(3,4)$ のとき $P(T>2)$ を標準正規分布の累積分布関数を用いて表せ。
+3. $n=25$, $(\mu_1,\mu_2)=(3,4)$ のとき $P(T>2)$ を標準正規分布の累積分布関数 $\Phi$ を用いて表せ。
 4. 共分散1を誤って0とすると、$T$ の分散を過大評価するか過小評価するか説明せよ。
 
 <!-- solution-start -->
@@ -1927,7 +1927,7 @@ $$
 1. ベイズ則から分類時に $\pi_gf_g(\boldsymbol x)$ を比較すればよい理由を述べよ。
 2. $\log\{\pi_gf_g(\boldsymbol x)\}$ を展開し、群に依存しない項を除いて判別関数 $\delta_g(\boldsymbol x)$ を導け。
 3. なぜ境界が線形になるか説明せよ。
-4. 群ごとに分散共分散行列が異なる場合、境界が一般に二次になる理由を述べよ。
+4. 群ごとに分散共分散行列 $\Sigma_g$ が異なる場合、境界が一般に二次になる理由を述べよ。
 
 <!-- solution-start -->
 
@@ -2003,7 +2003,7 @@ $$
 - 主題: 白色化
 - 使用技術: 直交変換
 
-正定値な分散共分散行列をもつ中心化済み確率ベクトル $\boldsymbol X$ を考える。ある行列 $A$ が
+正定値な分散共分散行列 $\Sigma$ をもつ中心化済み確率ベクトル $\boldsymbol X$ を考える。ある行列 $A$ が
 
 $$
 A\Sigma A^{\mathsf T}=I_p

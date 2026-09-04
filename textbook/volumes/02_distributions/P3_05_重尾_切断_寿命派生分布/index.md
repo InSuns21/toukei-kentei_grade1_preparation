@@ -605,7 +605,7 @@ $$
 
 とする。$t\ge0$ とする。
 
-1. 密度の全積分が1であることを示し、累積分布関数を導出せよ。
+1. 密度の全積分が1であることを示し、累積分布関数 $F(x)=P(X\le x)$ を導出せよ。
 2. $E[X]$ と $\operatorname{Var}(X)$ を求めよ。
 3. $P(|X-\mu|>t)$ を求めよ。
 
@@ -799,7 +799,7 @@ n\alpha x_m^{n\alpha}t^{-(n\alpha+1)},&t\ge x_m.
 \end{cases}
 $$
 
-よって $M$ はパレート型であり、$n\alpha>1$ のとき
+よって $M$ はパレート$(x_m,n\alpha)$ 型であり、$n\alpha>1$ のとき
 
 $$E[M]=\frac{n\alpha}{n\alpha-1}x_m.$$
 
