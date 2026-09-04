@@ -58,7 +58,7 @@ jobs:
           TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: npm run validate:terminology:changed
 
-      - name: Validate all textbook Japanese terminology
+      - name: Validate all Grade 1 Japanese terminology
         run: node scripts/audit_textbook_japanese_terminology.mjs --strict
 
       - name: Validate Japanese terminology spacing

@@ -23,7 +23,7 @@ $$
 
 ## 詳細解答
 
-### 1. 十分性：Neyman–Fisher 因子分解定理
+### 1. 十分性：Neyman–フィッシャー因子分解定理
 
 <a id="thm-statmath-core55-neyman-fisher"></a>
 
@@ -58,7 +58,7 @@ g_\lambda(t)=\lambda^n e^{-\lambda t},
 h(x)=\prod_i\boldsymbol{1}_{\{x_i>0\}}
 $$
 
-と分解でき、$h$ は $\lambda$ に依存しない。よって **Neyman–Fisher 因子分解定理**から
+と分解でき、$h$ は $\lambda$ に依存しない。よって **Neyman–フィッシャー因子分解定理**から
 
 $$
 \boxed{T\text{ は }\lambda\text{ の十分統計量}}.
@@ -131,7 +131,7 @@ $$
 
 ### 4. 条件付き期待値とLehmann–Scheffé
 
-指数分布は $\operatorname{Gamma}(1,\lambda)$ である。独立なGamma変数が**共通のrate**を持つとき、和 $T$ と比率ベクトル $(X_1/T,\ldots,X_n/T)$ は独立で、比率ベクトルはDirichlet分布になる。これは **Gamma–Dirichlet 分解**で、必要条件は各 $X_i$ が独立Gammaでrateが共通であること。本問は $X_i\overset{iid}\sim\Gamma(1,\lambda)$ なので満たす。
+指数分布は $\operatorname{Gamma}(1,\lambda)$ である。独立なGamma変数が**共通のrate**を持つとき、和 $T$ と比率ベクトル $(X_1/T,\ldots,X_n/T)$ は独立で、比率ベクトルはDirichlet分布になる。これは **ガンマ–Dirichlet 分解**で、必要条件は各 $X_i$ が独立Gammaでrateが共通であること。本問は $X_i\overset{iid}\sim\Gamma(1,\lambda)$ なので満たす。
 
 従って
 
@@ -161,7 +161,7 @@ E[Y\mid T]
 }.
 $$
 
-最後に **Lehmann–Scheffé の定理**を使う。条件は「$T$ が完備十分」「その統計量から作った推定量の期待値が有限で、推定対象に対して不偏」である。前者は1・2で確認済み。後者は反復期待値より
+最後に **レーマン・シェッフェの定理**を使う。条件は「$T$ が完備十分」「その統計量から作った推定量の期待値が有限で、推定対象に対して不偏」である。前者は1・2で確認済み。後者は反復期待値より
 
 $$
 E[E(Y\mid T)]=E[Y]=\tau(\lambda)
@@ -176,7 +176,7 @@ L(\lambda;x)=\lambda^ne^{-\lambda T}\prod_i\boldsymbol{1}_{\{x_i>0\}}
 =g_\lambda(T)h(x).
 $$
 
-母数依存部分が $T$ だけを通じて現れるので **Neyman–Fisher 因子分解定理**から $T$ は十分。
+母数依存部分が $T$ だけを通じて現れるので **Neyman–フィッシャー因子分解定理**から $T$ は十分。
 
 $T\sim\Gamma(n,\lambda)$ で、$E[g(T)]=0$ が全 $\lambda>0$ なら
 
@@ -186,19 +186,19 @@ $$
 
 問題文で与えた **Laplace変換の一意性**から $g(t)t^{n-1}=0$、従って $g(t)=0$ で $T$ は完備。
 
-また $Y=\boldsymbol{1}_{\{X_1>c\}}$ は不偏。独立Gammaで共通rateなので **Gamma–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
+また $Y=\boldsymbol{1}_{\{X_1>c\}}$ は不偏。独立Gammaで共通rateなので **ガンマ–Dirichlet分解**から $X_1/T\mid T\sim Beta(1,n-1)$、従って
 
 $$
 E[Y\mid T]
 =\boldsymbol{1}_{\{T>c\}}\left(1-\frac cT\right)^{n-1}.
 $$
 
-これは完備十分統計量から作られる有限期待値の不偏推定量なので **Lehmann–Scheffé 定理**から一様最小分散不偏推定量。
+これは完備十分統計量から作られる有限期待値の不偏推定量なので **レーマン・シェッフェ定理**から一様最小分散不偏推定量。
 
 ## 採点基準
 
 - 十分性（定理・条件）: 4点
 - 完備性（Laplace変換の一意性）: 5点
 - 元の不偏推定量: 3点
-- 条件付き分布（Gamma–Dirichlet条件）: 4点
+- 条件付き分布（ガンマ–Dirichlet条件）: 4点
 - 一様最小分散不偏推定量結論（Lehmann–Scheffé定理の条件確認）: 4点

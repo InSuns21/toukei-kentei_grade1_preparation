@@ -40,7 +40,7 @@ Standard は難度・演習価値の層を表すものであり、**解説を省
 | 20 | 60 | A | A | [右打切り指数寿命・観測尤度](60_right_censored_exponential.md) |
 | 21 | 67 | A | A | [順序統計量で棄却域を設計](67_order_statistic_rejection_region.md) |
 | 22 | 68 | A | A | [適合度尤度比検定・Pearson・自由度](68_gof_lrt_pearson.md) |
-| 23 | 73 | A | A | [母相関係数・Fisher z変換](73_correlation_fisher_z.md) |
+| 23 | 73 | A | A | [母相関係数・フィッシャー z変換](73_correlation_fisher_z.md) |
 | 24 | 74 | A | A | [Wilcoxon順位和・並べ替え検定](74_wilcoxon_permutation.md) |
 | 25 | 82 | A | A | [共分散分析・調整済み処置効果](82_ancova_adjusted_effect.md) |
 | 26 | 83 | A | A | [Bonferroni・Scheffe多重比較](83_bonferroni_scheffe.md) |

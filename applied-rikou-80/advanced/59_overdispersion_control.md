@@ -1,4 +1,4 @@
-# Advanced 59 過分散工程・Poisson–Gamma混合
+# Advanced 59 過分散工程・ポアソン–Gamma混合
 
 - 安定ID: `RIKOU-ADVANCED-59`
 - 80大問 No.: 59
@@ -38,7 +38,7 @@ $$
 
 ### 1. 周辺平均
 
-$\Lambda$ を固定すると Poisson 分布なので
+$\Lambda$ を固定するとポアソン分布なので
 
 $$
 E[Y\mid\Lambda]=\Lambda.

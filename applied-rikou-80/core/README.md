@@ -25,7 +25,7 @@ Core No. は既存URL・安定IDのため固定するが、**Core No. 順を初�
 7. **回帰・線形モデル**: Core 01〜06, 30, 31
 8. **多変量・漸近・横断論点**: 残り
 
-Markov / Poisson / AR / ARIMA は、各問題の冒頭で初出概念を定義する。後退作用素などの短縮記法を前提知識として要求しない。
+Markov / ポアソン / AR / ARIMA は、各問題の冒頭で初出概念を定義する。後退作用素などの短縮記法を前提知識として要求しない。
 
 ## Core 40 一覧
 
@@ -37,7 +37,7 @@ Markov / Poisson / AR / ARIMA は、各問題の冒頭で初出概念を定義�
 | 04 | 35 | S | B | [重回帰の分散分析・決定係数・部分F](04_regression_anova.md) |
 | 05 | 36 | S | B | [標準化重回帰・偏相関・分散拡大係数](05_standardized_regression.md) |
 | 06 | 40 | S | A | [制約モデルとバイアス・バリアンス](06_restricted_bias_variance.md) |
-| 07 | 74 | S | S | [最尤推定量の漸近正規性・Wald/尤度比/Score](07_wald_lr_score.md) |
+| 07 | 74 | S | S | [最尤推定量の漸近正規性・ワルド/尤度比/スコア](07_wald_lr_score.md) |
 | 08 | 19 | S | A | [Markov推移度数の最尤推定量・尤度比検定](08_markov_mle_lrt.md) |
 | 09 | 17 | S | B | [Markov連鎖・定常分布・平均再帰時間](09_markov_stationary.md) |
 | 10 | 13 | S | B | [Poisson過程・指数待ち時間・条件付き二項](10_poisson_process.md) |
@@ -58,7 +58,7 @@ Markov / Poisson / AR / ARIMA は、各問題の冒頭で初出概念を定義�
 | 25 | 03 | S | A | [ワイブル寿命モデルの最尤推定量・デルタ法](25_weibull_mle_delta.md) |
 | 26 | 06 | S | B | [生存関数・ハザード・条件付き生存](26_survival_hazard.md) |
 | 27 | 01 | S | B | [ワイブル分布・指数変換・分位点](27_weibull_basics.md) |
-| 28 | 71 | A | A | [指数型分布族・Score・フィッシャー情報量](28_exponential_family_information.md) |
+| 28 | 71 | A | A | [指数型分布族・スコア・フィッシャー情報量](28_exponential_family_information.md) |
 | 29 | 65 | A | B | [多変量正規・線形変換・$\chi^2$](29_mvn_linear_transform.md) |
 | 30 | 33 | A | B | [線形結合・直交対比](30_linear_contrast.md) |
 | 31 | 41 | A | B | [一元配置分散分析](31_oneway_anova.md) |

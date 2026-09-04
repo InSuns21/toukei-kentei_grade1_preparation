@@ -43,7 +43,7 @@ for (const targetRoot of targetRoots) {
   }
 }
 
-console.log(`統計検定1級通常教材 日本語用語の空白監査: ${findings.length} 件`);
+console.log(`統計検定1級教材 日本語用語の空白監査: ${findings.length} 件`);
 for (const item of findings.slice(0, 300)) {
   console.log(`  ${item.file}:${item.line} ${item.text}`);
 }

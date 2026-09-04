@@ -26,7 +26,7 @@ $\hat p=X/n$ とする。
 
 ### 1. 中心極限定理とSlutskyからWald区間を作る
 
-$X$ は独立な Bernoulli$(p)$ 変数 $B_1,\ldots,B_n$ の和
+$X$ は独立なベルヌーイ$(p)$ 変数 $B_1,\ldots,B_n$ の和
 
 $$
 X=\sum_{i=1}^nB_i
@@ -38,7 +38,7 @@ $$
 \hat p=\frac1n\sum_{i=1}^nB_i.
 $$
 
-Bernoulli 変数では
+ベルヌーイ変数では
 
 $$
 E[B_i]=p,
@@ -130,7 +130,7 @@ $$
 \sqrt{\frac{\hat p(1-\hat p)}n}=0
 $$
 
-なので Wald 区間は
+なので ワルド 区間は
 
 $$
 [0,0]
@@ -167,7 +167,7 @@ $$
 \frac{\sqrt n(\hat p-p)}{\sqrt{\hat p(1-\hat p)}}\Rightarrow N(0,1).
 $$
 
-従って Wald 区間は
+従って ワルド 区間は
 
 $$
 \hat p\pm1.96\sqrt{\frac{\hat p(1-\hat p)}n}.

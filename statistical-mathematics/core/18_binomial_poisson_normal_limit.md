@@ -104,11 +104,11 @@ $$
 \to\boxed{\lambda}.
 $$
 
-極限で平均と分散がともに $\lambda$ となり、Poisson$(\lambda)$ の平均・分散と一致する。
+極限で平均と分散がともに $\lambda$ となり、ポアソン$(\lambda)$ の平均・分散と一致する。
 
 ### 3. 独立Poisson変数の和
 
-まず Poisson$(\lambda)$ の確率母関数を定義から求める。
+まずポアソン$(\lambda)$ の確率母関数を定義から求める。
 
 $$
 \begin{aligned}
@@ -141,7 +141,7 @@ G_{X+Y}(s)
 \end{aligned}
 $$
 
-これは Poisson$(\lambda+\mu)$ の確率母関数だから
+これはポアソン$(\lambda+\mu)$ の確率母関数だから
 
 $$
 \boxed{X+Y\sim\operatorname{Poisson}(\lambda+\mu)}.
@@ -156,7 +156,7 @@ $$
 
 と置く。
 
-Poisson$(\lambda)$ のモーメント母関数を定義から求めると
+ポアソン$(\lambda)$ のモーメント母関数を定義から求めると
 
 $$
 \begin{aligned}
@@ -267,7 +267,7 @@ E[X_n]=\lambda,
 \operatorname{Var}(X_n)=\lambda(1-\lambda/n)\to\lambda.
 $$
 
-Poisson$(\lambda)$ の確率母関数は
+ポアソン$(\lambda)$ の確率母関数は
 
 $$
 G_X(s)=\exp\{\lambda(s-1)\}.

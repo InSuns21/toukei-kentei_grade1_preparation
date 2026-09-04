@@ -6,16 +6,16 @@
 
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 | 手計算監査 |
 | ---: | ---: | :---: | :---: | --- | --- |
-| 01 | 40 | S | A | [フィッシャー情報量・Delta法・最尤推定量の漸近効率](core/40_fisher_information_delta_mle_efficiency.md) | ◎ |
-| 02 | 70 | S | S | [Bernoulliモデルで尤度比検定・Wald・Scoreを比較する](core/70_bernoulli_lrt_wald_score.md) | ◎・修正済（対数の数値評価不要） |
-| 03 | 63 | S | A | [Neyman–Pearson・単調尤度比・一様最強力検定](core/63_neyman_pearson_ump.md) | 表 |
-| 04 | 41 | S | A | [一様分布の完備十分統計量・Lehmann–Scheffé](core/41_uniform_complete_sufficient_umvu.md) | ◎ |
+| 01 | 40 | S | A | [フィッシャー情報量・デルタ法・最尤推定量の漸近効率](core/40_fisher_information_delta_mle_efficiency.md) | ◎ |
+| 02 | 70 | S | S | [Bernoulliモデルで尤度比検定・ワルド・Scoreを比較する](core/70_bernoulli_lrt_wald_score.md) | ◎・修正済（対数の数値評価不要） |
+| 03 | 63 | S | A | [ネイマン・ピアソン・単調尤度比・一様最強力検定](core/63_neyman_pearson_ump.md) | 表 |
+| 04 | 41 | S | A | [一様分布の完備十分統計量・レーマン・シェッフェ](core/41_uniform_complete_sufficient_umvu.md) | ◎ |
 | 05 | 55 | S | A | [指数分布の十分性・完備性・一様最小分散不偏推定量](core/55_exponential_complete_sufficient_umvu.md) | ◎ |
 | 06 | 42 | S | A | [Cramér–Rao下限・効率性](core/42_cramer_rao_efficiency.md) | ◎ |
 | 07 | 25 | S | S | [多変量正規の線形変換・独立・残差化](core/25_mvn_linear_transform_residual.md) | ◎ |
 | 08 | 26 | S | S | [条件付き正規・偏相関・条件付き独立](core/26_conditional_normal_partial_correlation.md) | ◎ |
 | 09 | 62 | S | S | [多項分布尤度比検定とPearson適合度](core/62_multinomial_lrt_pearson.md) | ◎・修正済（対数は数値化不要） |
-| 10 | 78 | S | A | [Gauss–Markov・最良線形不偏推定量](core/78_gauss_markov_blue.md) | ◎ |
+| 10 | 78 | S | A | [ガウス・マルコフ・最良線形不偏推定量](core/78_gauss_markov_blue.md) | ◎ |
 | 11 | 80 | S | S | [一般線形仮説・partial F](core/80_general_linear_hypothesis_partial_f.md) | ○ |
 | 12 | 75 | S | A | [回帰係数の最尤推定量・Fisher情報・検定・検出力](core/75_regression_mle_fisher_power.md) | 表・修正済（累積分布関数の数値評価不要） |
 | 13 | 48 | S | A | [Student化とt信頼区間](core/48_student_t_confidence_interval.md) | 表・○ |
@@ -27,26 +27,26 @@
 | 19 | 59 | S | A | [Beta–Binomial共役Bayes・事後予測](core/59_beta_binomial_bayes.md) | ◎ |
 | 20 | 98 | S | A | [Bayes意思決定：二乗・絶対・0–1損失](core/98_bayes_decision_loss.md) | ◎ |
 | 21 | 71 | S | A | [2標本Poisson率を条件付き二項検定へ](core/71_poisson_conditional_binomial_test.md) | ◎・修正済（小さい尾確率） |
-| 22 | 49 | S | A | [Poisson 最尤推定量・Fisher情報・信頼区間](core/49_poisson_mle_fisher_ci.md) | 表・○ |
+| 22 | 49 | S | A | [ポアソン最尤推定量・Fisher情報・信頼区間](core/49_poisson_mle_fisher_ci.md) | 表・○ |
 | 23 | 65 | S | S | [F検定・非心度・検出力](core/65_noncentral_f_power.md) | 表・修正済（非心Fの数値評価不要） |
 | 24 | 1 | S | A | [順序統計量・十分性・Rao–Blackwell](core/01_order_statistics_rao_blackwell.md) | ◎ |
 | 25 | 10 | S | A | [順序統計量の密度・同時密度・range](core/10_order_statistics_density_range.md) | ◎ |
-| 26 | 2 | S | A | [Gamma–Beta関係・Jacobian・独立](core/02_gamma_beta_jacobian.md) | ◎ |
-| 27 | 3 | S | A | [Poisson–Gamma混合・負の二項](core/03_poisson_gamma_mixture.md) | ◎ |
+| 26 | 2 | S | A | [ガンマ–Beta関係・Jacobian・独立](core/02_gamma_beta_jacobian.md) | ◎ |
+| 27 | 3 | S | A | [ポアソン–Gamma混合・負の二項](core/03_poisson_gamma_mixture.md) | ◎ |
 | 28 | 7 | S | B | [ペア独立と相互独立](core/07_pairwise_mutual_independence.md) | ◎ |
 | 29 | 77 | S | A | [重回帰・分散拡大係数・欠落変数バイアス・平均二乗誤差](core/77_multiple_regression_vif_omitted_bias.md) | ◎ |
 | 30 | 81 | S | A | [二元配置分散分析・交互作用](core/81_twoway_anova_interaction.md) | ○ |
 | 31 | 87 | S | A | [Monte Carlo推定量の分散比較](core/87_monte_carlo_variance_comparison.md) | ○・修正済（必要な数値定数を供給） |
 | 32 | 66 | A | A | [制約付き最尤推定量・尤度比検定](core/66_constrained_mle_lrt.md) | ◎・修正済（対数の数値評価不要） |
-| 33 | 46 | A | A | [モーメント推定・一致性・Delta法・漸近分散比較](core/46_moment_estimation_delta.md) | ◎ |
+| 33 | 46 | A | A | [モーメント推定・一致性・デルタ法・漸近分散比較](core/46_moment_estimation_delta.md) | ◎ |
 | 34 | 27 | A | A | [2変量正規・条件付き分布・Markov構造](core/27_bivariate_normal_markov.md) | ◎ |
 | 35 | 28 | A | A | [正規部分和・条件付き分布・Gaussian bridge](core/28_gaussian_bridge.md) | ◎ |
-| 36 | 30 | A | B | [正規線形観測・Bayes・条件付き正規](core/30_normal_linear_bayes.md) | ◎ |
+| 36 | 30 | A | B | [正規線形観測・ベイズ・条件付き正規](core/30_normal_linear_bayes.md) | ◎ |
 | 37 | 18 | A | A | [二項からPoisson極限・再生性・正規近似](core/18_binomial_poisson_normal_limit.md) | ◎ |
 | 38 | 4 | A | B | [カイ二乗モーメント母関数・再生性・Beta接続](core/04_chisq_mgf_beta.md) | ◎ |
 | 39 | 5 | A | A | [カイ二乗・F・t・コーシーの比と変換](core/05_chisq_f_t_cauchy.md) | ◎ |
 | 40 | 6 | A | B | [確率積分変換・一様分布・順序統計量](core/06_probability_integral_transform.md) | ◎ |
-| 41 | 8 | A | B | [条件付き確率・全確率・Bayes](core/08_conditional_probability_bayes.md) | ○ |
+| 41 | 8 | A | B | [条件付き確率・全確率・ベイズ](core/08_conditional_probability_bayes.md) | ○ |
 | 42 | 9 | A | A | [指数分布＋一様分布：畳み込み・支持集合・依存](core/09_exponential_uniform_convolution.md) | ◎ |
 | 43 | 53 | A | B | [Poisson母数推定：不偏性・一致性・平均二乗誤差](core/53_poisson_unbiased_consistent_mse.md) | ◎ |
 | 44 | 79 | A | A | [分散分析・欠測後の不均衡データ](core/79_unbalanced_anova_missing.md) | ○ |
@@ -81,7 +81,7 @@
 | 20 | 60 | A | A | [右打切り指数寿命・観測尤度](standard/60_right_censored_exponential.md) | ◎ |
 | 21 | 67 | A | A | [順序統計量で棄却域を設計](standard/67_order_statistic_rejection_region.md) | ◎ |
 | 22 | 68 | A | A | [適合度尤度比検定・Pearson・自由度](standard/68_gof_lrt_pearson.md) | ◎・修正済（対数の数値評価不要） |
-| 23 | 73 | A | A | [母相関係数・Fisher z変換](standard/73_correlation_fisher_z.md) | 表・修正済（$\operatorname{atanh}$ の数値は与値使用） |
+| 23 | 73 | A | A | [母相関係数・フィッシャー z変換](standard/73_correlation_fisher_z.md) | 表・修正済（$\operatorname{atanh}$ の数値は与値使用） |
 | 24 | 74 | A | A | [Wilcoxon順位和・並べ替え検定](standard/74_wilcoxon_permutation.md) | ◎ |
 | 25 | 82 | A | A | [共分散分析・調整済み処置効果](standard/82_ancova_adjusted_effect.md) | ○ |
 | 26 | 83 | A | A | [Bonferroni・Scheffe多重比較](standard/83_bonferroni_scheffe.md) | 表 |

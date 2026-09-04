@@ -46,7 +46,7 @@ $$
 \boxed{N(2)\sim\operatorname{Poisson}(4)}.
 $$
 
-Poisson$(4)$ の確率質量関数
+ポアソン$(4)$ の確率質量関数
 
 $$
 P(N(2)=k)=e^{-4}\frac{4^k}{k!}

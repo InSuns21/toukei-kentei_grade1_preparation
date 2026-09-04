@@ -31,7 +31,7 @@
   - 全遷移確率正から既約・非周期、有限既約から正再帰を確認。
 - `core/10_poisson_process.md`
   - 第1・第3到着時間はPoisson回数事象から直接導出。
-  - 条件付き一様順序統計量は homogeneous Poisson process と総数条件付けを明示。
+  - 条件付き一様順序統計量は homogeneous ポアソン process と総数条件付けを明示。
 - `standard/15_poisson_order_stats.md`
   - Poisson条件付き順序統計量定理の homogeneous 条件を明記。
   - $S_k/T$ のBeta密度と平均を展開。
@@ -70,7 +70,7 @@
 
 ### Poisson過程
 
-総数条件付きで到着位置が一様になるのは homogeneous Poisson process の性質。NHPPでは累積強度による変換が必要で、そのまま一様とはならない。
+総数条件付きで到着位置が一様になるのは homogeneous ポアソン process の性質。NHPPでは累積強度による変換が必要で、そのまま一様とはならない。
 
 ### 時系列
 

@@ -8,7 +8,7 @@
 
 ## 問題
 
-$X_1,\ldots,X_n$ は独立同分布で Poisson 分布に従い、
+$X_1,\ldots,X_n$ は独立同分布でポアソン分布に従い、
 
 $$
 P_\lambda(X_i=x)

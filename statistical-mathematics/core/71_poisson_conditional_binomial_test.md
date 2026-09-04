@@ -29,7 +29,7 @@ $$
 
 ### 1. Poissonの再生性
 
-使うのは **独立Poisson変数の加法性**である。独立なPoisson$(\alpha_r)$ の和は Poisson$(\sum\alpha_r)$ に従う。この結果の条件は各変数がPoissonで相互に独立であること。本問は問題文で相互独立を仮定しているので
+使うのは **独立Poisson変数の加法性**である。独立なPoisson$(\alpha_r)$ の和はポアソン$(\sum\alpha_r)$ に従う。この結果の条件は各変数がPoissonで相互に独立であること。本問は問題文で相互独立を仮定しているので
 
 $$
 \boxed{S\sim\operatorname{Poisson}(n\lambda)},
@@ -82,7 +82,7 @@ $$
 
 ### 3. 正確検定になる理由
 
-条件付け後の帰無分布は共通Poisson率に依存しないため、未知の nuisance parameter を含まない。また
+条件付け後の帰無分布は共通Poisson率に依存しないため、未知の局外母数を含まない。また
 
 $$
 q(\lambda,\mu)=\frac{n\lambda}{n\lambda+m\mu}

@@ -1,4 +1,4 @@
-# Standard 05 指数寿命の和・Gamma/Erlang
+# Standard 05 指数寿命の和・ガンマ/Erlang
 
 - 安定ID: `RIKOU-STANDARD-05`
 - 80大問 No.: 05

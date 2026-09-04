@@ -1,4 +1,4 @@
-# Core 15 Poisson–Gamma混合・負の二項分布
+# Core 15 ポアソン–Gamma混合・負の二項分布
 
 - 旧No.: 3
 - 演習価値: S
@@ -147,7 +147,7 @@ $$
 E[X]=E[\Lambda].
 $$
 
-Gamma$(r,\text{rate }\beta)$ の平均を密度から確認すると
+ガンマ$(r,\text{rate }\beta)$ の平均を密度から確認すると
 
 $$
 \begin{aligned}
@@ -191,7 +191,7 @@ $$
 =E[\Lambda]+\operatorname{Var}(\Lambda).
 $$
 
-Gamma$(r,\text{rate }\beta)$ では
+ガンマ$(r,\text{rate }\beta)$ では
 
 $$
 E[\Lambda]=\frac r\beta,
