@@ -1,0 +1,100 @@
+name: Apply mathstat and rikou80 terminology fixes pass2
+
+on:
+  push:
+    branches:
+      - fix/mathstat-rikou80-terminology-full-audit
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/mathstat-rikou80-terminology-full-audit
+          fetch-depth: 0
+      - name: Fix ASCII-boundary terminology
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          roots = [Path('statistical-mathematics'), Path('applied-rikou-80')]
+          ignored = {'.git', 'node_modules', 'dist', 'build', 'sources', 'review'}
+
+          def ascii_token(word):
+              return re.compile(r'(?<![A-Za-z0-9_])' + re.escape(word) + r'(?![A-Za-z0-9_])')
+
+          rules = [
+              (ascii_token('Bernoulli'), 'ベルヌーイ'),
+              (ascii_token('Poisson'), 'ポアソン'),
+              (ascii_token('Gamma'), 'ガンマ'),
+              (ascii_token('Fisher'), 'フィッシャー'),
+              (ascii_token('Bayes'), 'ベイズ'),
+              (ascii_token('Wald'), 'ワルド'),
+              (ascii_token('Score'), 'スコア'),
+              (re.compile(r'(?<![A-Za-z0-9_])Gauss\s*(?:--|–|—|-)\s*Markov(?![A-Za-z0-9_])'), 'ガウス・マルコフ'),
+              (re.compile(r'(?<![A-Za-z0-9_])Neyman\s*(?:--|–|—|-)\s*Pearson(?![A-Za-z0-9_])'), 'ネイマン・ピアソン'),
+              (re.compile(r'(?<![A-Za-z0-9_])Lehmann\s*(?:--|–|—|-)\s*Scheff(?:é|e)(?![A-Za-z0-9_])'), 'レーマン・シェッフェ'),
+              (re.compile(r'(?<![A-Za-z0-9_])Cram(?:é|e)r\s*(?:--|–|—|-)\s*Rao(?![A-Za-z0-9_])'), 'クラーメル・ラオ'),
+              (re.compile(r'(?<![A-Za-z0-9_])nuisance\s+parameter(?![A-Za-z0-9_])', re.I), '局外母数'),
+              (re.compile(r'(?<![A-Za-z0-9_])Cauchy(?![A-Za-z0-9_])(?!\s*(?:--|–|—|-)\s*Schwarz)'), 'コーシー'),
+              (ascii_token('Weibull'), 'ワイブル'),
+              (ascii_token('Pareto'), 'パレート'),
+          ]
+
+          def protect(text):
+              saved = []
+              def hold(m):
+                  token = f'@@PROTECTED_{len(saved):06d}@@'
+                  saved.append(m.group(0))
+                  return token
+              for pat in [
+                  re.compile(r'```[\s\S]*?```'),
+                  re.compile(r'`[^`\n]*`'),
+                  re.compile(r'\$\$[\s\S]*?\$\$'),
+                  re.compile(r'\$(?:\\.|[^$\n])+\$'),
+                  re.compile(r'\]\([^\n)]*\)'),
+                  re.compile(r'https?://\S+'),
+                  re.compile(r'^\s*<a\s+id=[^\n]*$', re.M),
+                  re.compile(r'^\s*(?:id|topic):[^\n]*$', re.M),
+              ]:
+                  text = pat.sub(hold, text)
+              return text, saved
+
+          def restore(text, saved):
+              for i, value in enumerate(saved):
+                  text = text.replace(f'@@PROTECTED_{i:06d}@@', value)
+              return text
+
+          changed = 0
+          replacements = 0
+          for root in roots:
+              for p in root.rglob('*.md'):
+                  if any(part in ignored for part in p.parts):
+                      continue
+                  original = p.read_text()
+                  text, saved = protect(original)
+                  for pat, repl in rules:
+                      text, n = pat.subn(repl, text)
+                      replacements += n
+                  fixed = restore(text, saved)
+                  if fixed != original:
+                      p.write_text(fixed)
+                      changed += 1
+          print(f'changed_files={changed} replacements={replacements}')
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add statistical-mathematics applied-rikou-80
+          if git diff --cached --quiet; then
+            echo 'No fixes needed'
+          else
+            git commit -m 'fix: normalize Japanese-adjacent terminology'
+            git push
+          fi
