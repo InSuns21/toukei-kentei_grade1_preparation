@@ -1,0 +1,184 @@
+name: Apply mathstat and rikou80 terminology fixes
+
+on:
+  push:
+    branches:
+      - fix/mathstat-rikou80-terminology-full-audit
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/mathstat-rikou80-terminology-full-audit
+          fetch-depth: 0
+      - name: Apply terminology fixes safely
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          roots = [Path('statistical-mathematics'), Path('applied-rikou-80')]
+          ignored = {'.git', 'node_modules', 'dist', 'build', 'sources', 'review'}
+
+          def always(pattern, replacement):
+              return ('always', re.compile(pattern, re.I if pattern.startswith('(?i)') else 0), replacement, None)
+
+          # (mode, regex, replacement, Japanese formal-name regex allowed on the same prose line)
+          rules = [
+              ('always', re.compile(r'\bBernoulli\b'), 'ベルヌーイ', None),
+              ('always', re.compile(r'\bPoisson\b'), 'ポアソン', None),
+              ('always', re.compile(r'\bGamma\b'), 'ガンマ', None),
+              ('with', re.compile(r'\bPMF\b'), '確率質量関数', re.compile('確率質量関数')),
+              ('with', re.compile(r'\bPDF\b'), '確率密度関数', re.compile('確率密度関数')),
+              ('with', re.compile(r'\bCDF\b'), '累積分布関数', re.compile('累積分布関数')),
+              ('with', re.compile(r'\bPGF\b'), '確率母関数', re.compile('確率母関数')),
+              ('with', re.compile(r'\bMGF\b'), 'モーメント母関数', re.compile('モーメント母関数')),
+              ('with', re.compile(r'\bCF\b'), '特性関数', re.compile('特性関数')),
+              ('with', re.compile(r'\bCGF\b'), 'キュムラント母関数', re.compile('キュムラント母関数')),
+              ('with', re.compile(r'\biid\b', re.I), '独立同分布', re.compile('独立同分布')),
+              ('with', re.compile(r'(?<![A-Za-z0-9_])i\.i\.d\.(?![A-Za-z0-9_])', re.I), '独立同分布', re.compile('独立同分布')),
+              ('with', re.compile('積率母関数'), 'モーメント母関数', re.compile('モーメント母関数')),
+              ('always', re.compile('累積密度関数'), '累積分布関数', None),
+              ('always', re.compile(r'(?<!分散)共分散行列'), '分散共分散行列', None),
+              ('always', re.compile(r'\bcovariance\s+matrix\b', re.I), '分散共分散行列', None),
+              ('always', re.compile('p値'), 'P値', None),
+              ('always', re.compile(r'p\s+値'), 'P値', None),
+              ('always', re.compile(r'P\s+値'), 'P値', None),
+              ('always', re.compile(r'\bp-value\b', re.I), 'P値', None),
+              ('always', re.compile('Fisher情報量'), 'フィッシャー情報量', None),
+              ('always', re.compile(r'\bCauchy\b(?!\s*(?:--|–|—|-)\s*Schwarz)'), 'コーシー', None),
+              ('always', re.compile('カウチー'), 'コーシー', None),
+              ('always', re.compile(r'\bWeibull\b'), 'ワイブル', None),
+              ('always', re.compile('ウェイブル'), 'ワイブル', None),
+              ('always', re.compile('レイブル'), 'ワイブル', None),
+              ('always', re.compile(r'\bPareto\b'), 'パレート', None),
+              ('with', re.compile(r'\bMLE\b'), '最尤推定量', re.compile(r'最尤(?:推定量|推定|法|推定値)')),
+              ('with', re.compile(r'\bLRT\b'), '尤度比検定', re.compile('尤度比検定')),
+              ('with', re.compile(r'\bLR\b'), '尤度比', re.compile('尤度比')),
+              ('always', re.compile(r'\bWald\s+test\b', re.I), 'ワルド検定', None),
+              ('always', re.compile(r'\bScore\s+test\b', re.I), 'スコア検定', None),
+              ('with', re.compile(r'\bCRLB\b'), 'クラーメル・ラオの不等式', re.compile('クラーメル・ラオの不等式')),
+              ('with', re.compile(r'\bNP\s+lemma\b', re.I), 'ネイマン・ピアソンの基本定理', re.compile('ネイマン・ピアソンの基本定理')),
+              ('with', re.compile(r'\bMP\s+test\b', re.I), '最強力検定', re.compile('最強力検定')),
+              ('with', re.compile(r'\bUMP\b'), '一様最強力検定', re.compile('一様最強力検定')),
+              ('with', re.compile(r'\bUMPU\b'), '一様最強力不偏検定', re.compile('一様最強力不偏検定')),
+              ('with', re.compile(r'\bUMVU\b'), '一様最小分散不偏推定量', re.compile('一様最小分散不偏推定量')),
+              ('with', re.compile(r'\bCI\b'), '信頼区間', re.compile('信頼区間')),
+              ('with', re.compile(r'\bSE\b'), '標準誤差', re.compile('標準誤差')),
+              ('with', re.compile(r'\bMSE\b'), '平均二乗誤差', re.compile('平均二乗誤差')),
+              ('with', re.compile(r'\bCLT\b'), '中心極限定理', re.compile('中心極限定理')),
+              ('with', re.compile(r'\bLLN\b'), '大数の法則', re.compile('大数の法則')),
+              ('always', re.compile(r'\bDelta\s+method\b', re.I), 'デルタ法', None),
+              ('always', re.compile('Delta法'), 'デルタ法', None),
+              ('with', re.compile(r'\bOLS\b'), '通常最小二乗法', re.compile('通常最小二乗法')),
+              ('with', re.compile(r'\bGLS\b'), '一般化最小二乗法', re.compile('一般化最小二乗法')),
+              ('with', re.compile(r'\bANOVA\b'), '分散分析', re.compile('分散分析')),
+              ('with', re.compile(r'\bANCOVA\b'), '共分散分析', re.compile('共分散分析')),
+              ('with', re.compile(r'\bGLM\b'), '一般化線形モデル', re.compile('一般化線形モデル')),
+              ('with', re.compile(r'\bSVD\b'), '特異値分解', re.compile('特異値分解')),
+              ('with', re.compile(r'\bPCA\b'), '主成分分析', re.compile('主成分分析')),
+              ('always', re.compile(r'\bGauss\s*(?:--|–|—|-)\s*Markov\b'), 'ガウス・マルコフ', None),
+              ('always', re.compile(r'\bNeyman\s*(?:--|–|—|-)\s*Pearson\b'), 'ネイマン・ピアソン', None),
+              ('always', re.compile(r'\bFisher\b'), 'フィッシャー', None),
+              ('always', re.compile(r'\bBayes\b'), 'ベイズ', None),
+              ('always', re.compile(r'\bWald\b'), 'ワルド', None),
+              ('always', re.compile(r'\bScore\b'), 'スコア', None),
+              ('always', re.compile(r'\bLehmann\s*(?:--|–|—|-)\s*Scheff(?:é|e)\b'), 'レーマン・シェッフェ', None),
+              ('always', re.compile(r'\bCram(?:é|e)r\s*(?:--|–|—|-)\s*Rao\b'), 'クラーメル・ラオ', None),
+              ('always', re.compile(r'\bnuisance\s+parameter\b', re.I), '局外母数', None),
+          ]
+
+          spacing_terms = [
+              'ベルヌーイ','ポアソン','ガンマ','フィッシャー','コーシー','ワイブル','パレート',
+              '確率質量関数','確率密度関数','累積分布関数','確率母関数','モーメント母関数','特性関数','キュムラント母関数',
+              '独立同分布','分散共分散行列','平均二乗誤差','最尤推定量','尤度比検定','尤度比','ワルド検定','スコア検定',
+              'クラーメル・ラオ','ネイマン・ピアソン','最強力検定','一様最強力検定','一様最強力不偏検定','一様最小分散不偏推定量',
+              '信頼区間','標準誤差','中心極限定理','大数の法則','デルタ法','通常最小二乗法','一般化最小二乗法',
+              '分散分析','共分散分析','一般化線形モデル','特異値分解','主成分分析','レーマン・シェッフェ','局外母数','ガウス・マルコフ'
+          ]
+          jp = r'[ぁ-んァ-ヶ一-龯々]'
+
+          def protect(text):
+              saved = []
+              def hold(m):
+                  token = f'@@PROTECTED_{len(saved):06d}@@'
+                  saved.append(m.group(0))
+                  return token
+              patterns = [
+                  re.compile(r'```[\s\S]*?```'),
+                  re.compile(r'`[^`\n]*`'),
+                  re.compile(r'\$\$[\s\S]*?\$\$'),
+                  re.compile(r'\$(?:\\.|[^$\n])+\$'),
+                  re.compile(r'\]\([^\n)]*\)'),
+                  re.compile(r'https?://\S+'),
+                  re.compile(r'^\s*<a\s+id=[^\n]*$', re.M),
+                  re.compile(r'^\s*(?:id|topic):[^\n]*$', re.M),
+              ]
+              for pat in patterns:
+                  text = pat.sub(hold, text)
+              return text, saved
+
+          def restore(text, saved):
+              for i, value in enumerate(saved):
+                  text = text.replace(f'@@PROTECTED_{i:06d}@@', value)
+              return text
+
+          changed_files = 0
+          replacements = 0
+          for root in roots:
+              for p in root.rglob('*.md'):
+                  if any(part in ignored for part in p.parts):
+                      continue
+                  original = p.read_text()
+                  text, saved = protect(original)
+                  out_lines = []
+                  for line in text.splitlines(keepends=True):
+                      new = line
+                      for mode, pat, replacement, allowed in rules:
+                          if mode == 'with' and allowed and allowed.search(new):
+                              continue
+                          new, n = pat.subn(replacement, new)
+                          replacements += n
+                      # Remove only half-width spacing between a normalized Japanese term and Japanese prose.
+                      for term in spacing_terms:
+                          e = re.escape(term)
+                          new, n1 = re.subn(f'({jp})[ \\t]+({e})', r'\1\2', new)
+                          new, n2 = re.subn(f'({e})[ \\t]+({jp})', r'\1\2', new)
+                          replacements += n1 + n2
+                      out_lines.append(new)
+                  fixed = restore(''.join(out_lines), saved)
+                  if fixed != original:
+                      p.write_text(fixed)
+                      changed_files += 1
+          print(f'changed_files={changed_files} replacements={replacements}')
+          PY
+      - name: Update audit wording and remove one-time workflow
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/audit_textbook_japanese_terminology.mjs')
+          s = p.read_text()
+          s = s.replace('// 統計検定1級の通常教材本編を対象にする。', '// 統計検定1級の学習教材本編を対象にする。')
+          s = s.replace("console.log(strict ? '統計検定1級通常教材 日本語用語検証（strict）' : '統計検定1級通常教材 日本語用語監査');", "console.log(strict ? '統計検定1級教材 日本語用語検証（strict）' : '統計検定1級教材 日本語用語監査');")
+          s = s.replace('統計検定1級の通常教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。', '統計検定1級の教材では、公式シラバスと references/terminology-guide.md に合わせて日本語主表記へ統一してください。')
+          p.write_text(s)
+          p = Path('scripts/audit_textbook_term_spacing.mjs')
+          s = p.read_text().replace('統計検定1級通常教材 日本語用語の空白監査', '統計検定1級教材 日本語用語の空白監査')
+          p.write_text(s)
+          p = Path('.github/workflows/validate-terminology.yml')
+          s = p.read_text().replace('Validate all textbook Japanese terminology', 'Validate all Grade 1 Japanese terminology')
+          p.write_text(s)
+          PY
+          rm .github/workflows/apply-mathstat-rikou80-terminology-fix.yml
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add statistical-mathematics applied-rikou-80 scripts/audit_textbook_japanese_terminology.mjs scripts/audit_textbook_term_spacing.mjs .github/workflows/validate-terminology.yml .github/workflows/apply-mathstat-rikou80-terminology-fix.yml
+          git commit -m 'fix: unify mathstat and rikou80 Japanese terminology'
+          git push
