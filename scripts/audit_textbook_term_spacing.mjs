@@ -8,6 +8,8 @@ const targetRoots = [
   'textbook/volumes/03_inference',
   'textbook/volumes/04_linear_models',
   'textbook/volumes/05_engineering',
+  'statistical-mathematics',
+  'applied-rikou-80',
 ];
 
 // 用語統一で日本語化した語の前後に、英語表記時代の半角空白を残さない。

@@ -14,6 +14,8 @@ const targetRoots = [
   'textbook/volumes/03_inference',
   'textbook/volumes/04_linear_models',
   'textbook/volumes/05_engineering',
+  'statistical-mathematics',
+  'applied-rikou-80',
 ];
 const targetPaths = targetRoots.map((value) => path.join(root, value));
 
