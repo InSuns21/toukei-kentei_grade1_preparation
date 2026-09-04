@@ -1,0 +1,122 @@
+name: Apply safe textbook terminology spacing fix
+
+on:
+  push:
+    branches:
+      - fix/textbook-terminology-full-audit
+    paths:
+      - '.github/workflows/apply-textbook-term-spacing-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/textbook-terminology-full-audit
+
+      - name: Fix Japanese terminology spacing safely
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const roots = [
+            'textbook/volumes/01_probability',
+            'textbook/volumes/02_distributions',
+            'textbook/volumes/03_inference',
+            'textbook/volumes/04_linear_models',
+            'textbook/volumes/05_engineering',
+          ];
+          const terms = [
+            'ベルヌーイ', 'ポアソン', 'ガンマ', 'フィッシャー', 'コーシー', 'ワイブル', 'パレート',
+            '確率質量関数', '確率密度関数', '累積分布関数', '確率母関数', 'モーメント母関数',
+            '特性関数', 'キュムラント母関数', '独立同分布', '分散共分散行列', '平均二乗誤差',
+            '最尤推定量', '尤度比検定', '尤度比', 'ワルド検定', 'スコア検定',
+            'クラーメル・ラオの不等式', 'クラーメル・ラオ下限', 'クラーメル・ラオ',
+            'ネイマン・ピアソンの基本定理', 'ネイマン・ピアソン', '最強力検定',
+            '一様最強力検定', '一様最強力不偏検定', '一様最小分散不偏推定量',
+            '信頼区間', '標準誤差', '中心極限定理', '大数の法則', 'デルタ法',
+            '通常最小二乗法', '一般化最小二乗法', '分散分析', '共分散分析',
+            '一般化線形モデル', '特異値分解', '主成分分析', 'レーマン・シェッフェ', '局外母数',
+          ];
+          const jp = '[\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Han}]';
+          let filesChanged = 0;
+          let spacesRemoved = 0;
+
+          for (const root of roots) {
+            for (const file of walk(root).filter((f) => f.endsWith('.md'))) {
+              const source = fs.readFileSync(file, 'utf8');
+              const masked = mask(source);
+              const edits = [];
+              for (const term of terms) {
+                const e = escapeRegExp(term);
+                for (const pattern of [
+                  new RegExp(`(${jp})([ \\t]+)(${e})`, 'gu'),
+                  new RegExp(`(${e})([ \\t]+)(${jp})`, 'gu'),
+                ]) {
+                  for (const m of masked.matchAll(pattern)) {
+                    const ws = m[2];
+                    const local = m[0].indexOf(ws);
+                    const start = (m.index ?? 0) + local;
+                    const end = start + ws.length;
+                    // マスク部分は § なので、ここに来る空白は元ソースにも本当に存在する空白だけ。
+                    if (!edits.some((x) => start < x.end && end > x.start)) edits.push({ start, end });
+                  }
+                }
+              }
+              if (!edits.length) continue;
+              let out = source;
+              for (const edit of edits.sort((a, b) => b.start - a.start)) {
+                out = out.slice(0, edit.start) + out.slice(edit.end);
+              }
+              fs.writeFileSync(file, out);
+              filesChanged += 1;
+              spacesRemoved += edits.length;
+              console.log(`${file}: ${edits.length} 箇所`);
+            }
+          }
+          console.log(`安全な空白修正: ${filesChanged} ファイル / ${spacesRemoved} 箇所`);
+
+          function walk(dir) {
+            if (!fs.existsSync(dir)) return [];
+            const ignored = new Set(['review', 'sources']);
+            return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+              if (ignored.has(entry.name)) return [];
+              const full = path.join(dir, entry.name);
+              return entry.isDirectory() ? walk(full) : [full];
+            });
+          }
+          function mask(source) {
+            let v = source;
+            v = v.replace(/```[\s\S]*?```/g, opaque);
+            v = v.replace(/`[^`\n]*`/g, opaque);
+            v = v.replace(/\$\$[\s\S]*?\$\$/g, opaque);
+            v = v.replace(/\$(?:\\.|[^$\n])+\$/g, opaque);
+            v = v.replace(/\]\([^\n)]*\)/g, opaque);
+            v = v.replace(/https?:\/\/\S+/g, opaque);
+            v = v.replace(/^\s*<a\s+id=[^\n]*$/gm, opaque);
+            v = v.replace(/^\s*(?:id|topic):[^\n]*$/gm, opaque);
+            return v;
+          }
+          // 文字数と改行位置を保ちつつ、非本文を「空白ではない」文字で埋める。
+          function opaque(s) { return s.replace(/[^\n]/g, '§'); }
+          function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+          NODE
+
+      - name: Commit fixes
+        run: |
+          if git diff --quiet; then
+            echo 'No spacing fixes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/01_probability textbook/volumes/02_distributions textbook/volumes/03_inference textbook/volumes/04_linear_models textbook/volumes/05_engineering
+          git commit -m 'fix: safely normalize spacing around Japanese textbook terms'
+          git push origin HEAD:fix/textbook-terminology-full-audit
