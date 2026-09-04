@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'textbook/**'
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
       - 'scripts/**'
       - 'pages/index.html'
       - 'pages/math-renderer.js'
@@ -19,6 +21,8 @@ on:
   pull_request:
     paths:
       - 'textbook/**'
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
       - 'scripts/**'
       - 'pages/index.html'
       - 'pages/math-renderer.js'
