@@ -8,6 +8,21 @@ $$\boxed{\text{consistency}+\text{score CLT}+\text{Hessian LLN}+\text{Taylor}+\t
 
 ### Slutskyの定理
 
+<a id="thm-f0-00p7a-slutsky"></a>
+
+<!-- formal-statement-start -->
+> **定理（Slutskyの定理）**  
+> 確率変数列 $Y_n,Z_n$ が $Y_n\xrightarrow{d}Y$、$Z_n\xrightarrow{p}c$ を満たし、$c$ が定数であるとします。このとき
+
+$$
+Y_n+Z_n\xrightarrow{d}Y+c,
+\qquad
+Y_nZ_n\xrightarrow{d}cY
+$$
+
+> が成り立ちます。また $c\ne0$ なら $Y_n/Z_n\xrightarrow{d}Y/c$ です。
+<!-- formal-statement-end -->
+
 $Y_n\Rightarrow Y$、$Z_n\to c$ in probability なら、連続な四則演算が定義される範囲で
 
 $$Y_n+Z_n\Rightarrow Y+c,\qquad Y_nZ_n\Rightarrow cY.$$
@@ -134,7 +149,7 @@ $$
 
 ---
 
-## 2. スコア側には中心極限定理
+## 2. スコア側：中心極限定理を使う
 
 正則性条件から
 

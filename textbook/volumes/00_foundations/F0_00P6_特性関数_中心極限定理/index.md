@@ -218,6 +218,11 @@ $$
 
 ## 8. Levy連続性定理
 
+<!-- formal-statement-start -->
+> **定理（Levy連続性定理）**  
+> 確率変数列 $X_n$ の特性関数を $\varphi_n$、確率変数 $X$ の特性関数を $\varphi$ とします。すべての $t\in\mathbb R$ で $\varphi_n(t)\to\varphi(t)$ なら $X_n\xrightarrow{d}X$ です。逆に $X_n\xrightarrow{d}X$ なら、すべての $t\in\mathbb R$ で $\varphi_n(t)\to\varphi(t)$ が成り立ちます。
+<!-- formal-statement-end -->
+
 確率変数列 $X_n$ の特性関数を $\varphi_n$ とします。
 
 もし

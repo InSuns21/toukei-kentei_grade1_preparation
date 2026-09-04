@@ -219,6 +219,24 @@ $$
 
 # 3. Neyman–Pearson補題
 
+<a id="lem-statmath-core63a-neyman-pearson"></a>
+
+<!-- formal-statement-start -->
+> **補題（Neyman--Pearson補題）**  
+> 観測 $X$ の確率密度関数または確率質量関数を $f(x;\theta)$ とし、単純仮説 $H_0:\theta=\theta_0$ 対 $H_1:\theta=\theta_1$ を考えます。ある $k\ge0$ と、必要なら $0\le\gamma\le1$ を選び、
+
+$$
+\varphi^*(x)=
+\begin{cases}
+1,&f(x;\theta_1)>k f(x;\theta_0),\\
+\gamma,&f(x;\theta_1)=k f(x;\theta_0),\\
+0,&f(x;\theta_1)<k f(x;\theta_0)
+\end{cases}
+$$
+
+> が $E_{\theta_0}[\varphi^*(X)]=\alpha$ を満たすようにします。このとき $\varphi^*$ は、水準 $\alpha$ の検定の中で $H_1:\theta=\theta_1$ に対する最強力検定です。
+<!-- formal-statement-end -->
+
 ## 3.1 ステートメント
 
 観測 $X$ の確率密度関数または確率質量関数を $f(x;\theta)$ とする。

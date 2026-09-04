@@ -211,6 +211,22 @@ $$
 
 ## 4. 中心極限定理
 
+<a id="thm-p4-02-iid-clt"></a>
+
+<!-- formal-statement-start -->
+> **定理（独立同分布の場合の中心極限定理）**  
+> $X_1,X_2,\ldots$ を独立同分布とし、$E[X_1]=\mu$、$0<\operatorname{Var}(X_1)=\sigma^2<\infty$ とします。$\overline X_n=n^{-1}\sum_{i=1}^nX_i$ とすると
+
+$$
+\boxed{
+\frac{\sqrt n(\overline X_n-\mu)}{\sigma}
+\xrightarrow{d}N(0,1)
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 $X_1,X_2,\ldots$が独立同分布で
 $$
 E[X_i]=\mu,

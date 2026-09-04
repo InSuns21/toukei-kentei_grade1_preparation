@@ -159,6 +159,23 @@ $$
 
 ## 4. Borel--Cantelli第1補題
 
+<!-- formal-statement-start -->
+> **補題（Borel--Cantelli第1補題）**  
+> 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が
+
+$$
+\sum_{n=1}^{\infty}P(A_n)<\infty
+$$
+
+> を満たすなら
+
+$$
+\boxed{P(A_n\ \mathrm{i.o.})=0}
+$$
+
+> が成り立ちます。独立性は仮定しません。
+<!-- formal-statement-end -->
+
 事象列 $A_n$ が
 
 $$
@@ -280,6 +297,25 @@ $$
 だけでは確率収束ですが、**級数として足せるほど速く0へ行く**とBorel--Cantelliを通して経路ごとのa.s.収束へ強化できます。
 
 ## 6. Borel--Cantelli第2補題
+
+<a id="lem-borel-cantelli-2"></a>
+
+<!-- formal-statement-start -->
+> **補題（Borel--Cantelli第2補題）**  
+> 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が互いに独立で
+
+$$
+\sum_{n=1}^{\infty}P(A_n)=\infty
+$$
+
+> を満たすなら
+
+$$
+\boxed{P(A_n\ \mathrm{i.o.})=1}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
 
 $A_n$ が独立で
 

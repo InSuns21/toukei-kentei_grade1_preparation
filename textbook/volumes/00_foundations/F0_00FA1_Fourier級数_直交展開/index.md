@@ -180,6 +180,30 @@ $$
 
 ## 5. Bessel不等式
 
+<a id="thm-f0-00fa1-fourier-bessel"></a>
+
+<!-- formal-statement-start -->
+> **定理（Fourier係数に対するBessel不等式）**  
+> $f\in L^2(-\pi,\pi)$ とし、複素Fourier係数を
+
+$$
+c_n=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx
+\qquad(n\in\mathbb Z)
+$$
+
+> と定めます。このとき
+
+$$
+\boxed{
+2\pi\sum_{n\in\mathbb Z}|c_n|^2
+\le
+\int_{-\pi}^{\pi}|f(x)|^2\,dx
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 F0-00E2の一般論から、正規直交系に対して
 
 $$
@@ -207,6 +231,23 @@ $$
 ---
 
 ## 6. 完全性とParseval等式
+
+<a id="thm-f0-00fa1-parseval"></a>
+
+<!-- formal-statement-start -->
+> **定理（Fourier級数のParseval等式）**  
+> $f\in L^2(-\pi,\pi)$ とし、複素Fourier係数を $c_n=(2\pi)^{-1}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx$ とします。三角関数系の $L^2(-\pi,\pi)$ における完全性により
+
+$$
+\boxed{
+\int_{-\pi}^{\pi}|f(x)|^2\,dx
+=
+2\pi\sum_{n\in\mathbb Z}|c_n|^2
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
 
 三角関数系が $L^2(-\pi,\pi)$ で完全であることを使うとBessel不等式が等号になります。
 

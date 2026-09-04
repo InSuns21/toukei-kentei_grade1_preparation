@@ -181,6 +181,19 @@ $$
 
 ### 3. 十分性：Neyman–Fisher 因子分解定理
 
+<a id="thm-statmath-core01-neyman-fisher"></a>
+
+<!-- formal-statement-start -->
+> **定理（Neyman--Fisher因子分解定理：十分性の向き）**  
+> 標本 $X$ の同時確率密度関数または同時確率質量関数を $f_\theta(x)$ とします。ある統計量 $T=T(X)$ と関数 $g_\theta,h$ が存在して
+
+$$
+f_\theta(x)=g_\theta(T(x))h(x)
+$$
+
+> と書け、$h$ が母数 $\theta$ に依存しないなら、$T$ は $\theta$ の十分統計量です。
+<!-- formal-statement-end -->
+
 $Y_i\sim U(\theta-1/2,\theta+1/2)$ なので、同時確率密度関数は
 
 $$

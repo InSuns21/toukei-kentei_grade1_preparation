@@ -94,6 +94,22 @@ $$
 
 ## 5. Poincare不等式
 
+<a id="thm-f0-00sob2-poincare"></a>
+
+<!-- formal-statement-start -->
+> **定理（Poincare不等式）**  
+> $\Omega\subset\mathbb R^d$ を有界なLipschitz領域とします。このとき $\Omega$ のみに依存する定数 $C_P>0$ が存在し、任意の $u\in H_0^1(\Omega)$ に対して
+
+$$
+\boxed{
+\|u\|_{L^2(\Omega)}
+\le C_P\|\nabla u\|_{L^2(\Omega)}
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 有界で十分良い領域 $\Omega$ では、$u\in H_0^1(\Omega)$ に対して
 
 $$

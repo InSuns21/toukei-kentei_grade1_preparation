@@ -59,6 +59,25 @@ $$
 
 ### 使用してよい事実C：Lévyの連続性定理（本問で使う向き）
 
+<a id="thm-statmath-advanced24-levy"></a>
+
+<!-- formal-statement-start -->
+> **定理（Lévyの連続性定理：本問で使う向き）**  
+> 確率変数列 $W_n$ の特性関数を $\varphi_n$ とします。ある確率変数 $W$ の特性関数 $\varphi$ に対して、すべての $t\in\mathbb R$ で
+
+$$
+\varphi_n(t)\to\varphi(t)
+$$
+
+> が成り立つなら
+
+$$
+\boxed{W_n\xrightarrow{d}W}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 確率変数列 $W_n$ の特性関数を $\varphi_n$ とする。ある確率分布の特性関数 $\varphi$ に対して
 
 $$

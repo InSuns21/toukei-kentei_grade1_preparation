@@ -36,6 +36,21 @@ $$
 
 ## 2. Radon--Nikodym定理
 
+<a id="thm-f0-00p2-radon-nikodym"></a>
+
+<!-- formal-statement-start -->
+> **定理（Radon--Nikodym定理）**  
+> $(\Omega,\mathcal F)$ 上の sigma 有限な非負測度 $\mu,\nu$ が $\nu\ll\mu$ を満たすとします。このとき非負可測関数 $f$ が存在し、任意の $A\in\mathcal F$ に対して
+
+$$
+\boxed{
+\nu(A)=\int_A f\,d\mu
+}
+$$
+
+> が成り立ちます。この $f$ は $\mu$-a.e. の意味で一意です。
+<!-- formal-statement-end -->
+
 測度 $\nu$ が sigma有限測度 $\mu$ に対して絶対連続なら、ある非負可測関数 $f$ が存在して
 
 $$

@@ -368,6 +368,21 @@ $$
 
 ## 8. 反射原理
 
+<a id="principle-e2-04-reflection"></a>
+
+<!-- formal-statement-start -->
+> **原理（ブラウン運動の反射原理）**  
+> $B(t)$ を標準ブラウン運動、$T>0$、$a>0$ とし、$M_T=\max_{0\le t\le T}B(t)$ とします。このとき
+
+$$
+\boxed{
+P(M_T\ge a)=2P(B(T)\ge a)
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
 ここからブラウン運動特有の到達問題を扱います。
 
 $a>0$ とし、最大値
