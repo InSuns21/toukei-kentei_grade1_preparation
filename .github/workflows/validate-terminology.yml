@@ -10,7 +10,9 @@ on:
       - 'textbook/**'
       - 'anki/**'
       - 'references/terminology-guide.md'
+      - 'references/house-style-terminology.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_house_style_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-terminology.yml'
@@ -21,7 +23,9 @@ on:
       - 'textbook/**'
       - 'anki/**'
       - 'references/terminology-guide.md'
+      - 'references/house-style-terminology.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_house_style_terminology.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-terminology.yml'
@@ -49,3 +53,6 @@ jobs:
         env:
           TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: npm run validate:terminology:changed
+
+      - name: Validate advanced-math house style
+        run: node scripts/audit_house_style_terminology.mjs
