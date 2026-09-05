@@ -1,0 +1,48 @@
+id: "L2-02"
+title: "モデル評価・選択"
+volume: "linear_models"
+status: reviewed
+prerequisites:
+  - L1-02
+  - L2-01
+  - L1-04
+  - I1-01
+official_scope:
+  - カルバック・ライブラー情報量
+  - 情報量規準AIC
+  - クロスバリデーション
+  - 変数選択
+learning_objectives:
+  - 訓練誤差と汎化誤差を区別し、訓練誤差だけでモデルを選べない理由を説明できる
+  - カルバック・ライブラー情報量の非負性と対数損失との関係を導出できる
+  - AIC=-2ell(hat theta)+2k の意味を当てはまりと複雑度罰則の釣合いとして説明できる
+  - 正規線形回帰で訓練楽観バイアスが2pになることを計算できる
+  - K分割クロスバリデーションと1個抜きクロスバリデーションを構成できる
+  - 線形回帰の1個抜き残差 e_i/(1-h_ii) を導出し計算できる
+  - バイアス・分散分解からモデル複雑度のトレードオフを説明できる
+  - 全変数選択・前進選択・後退消去・逐次選択の違いと限界を説明できる
+  - AIC・クロスバリデーション・部分F検定・BICの目的の違いを説明できる
+  - 前処理・変数選択・ハイパーパラメータ調整を交差検証の訓練側だけで行う必要を説明できる
+definitions:
+  - { id: L202-DEF-01, name: カルバック・ライブラー情報量 }
+  - { id: L202-DEF-02, name: 訓練誤差 }
+  - { id: L202-DEF-03, name: 汎化誤差 }
+  - { id: L202-DEF-04, name: 情報量規準AIC }
+  - { id: L202-DEF-05, name: K分割クロスバリデーション }
+  - { id: L202-DEF-06, name: 変数選択 }
+theorems:
+  - { id: L202-THM-01, name: カルバック・ライブラー情報量の非負性 }
+  - { id: L202-THM-02, name: 期待対数損失とカルバック・ライブラー情報量 }
+  - { id: L202-THM-03, name: 正規線形回帰の訓練楽観バイアス }
+  - { id: L202-THM-04, name: 二乗誤差のバイアス・分散分解 }
+  - { id: L202-THM-05, name: 線形回帰の1個抜き残差公式 }
+canonical_examples: [ベルヌーイ分布のKL情報量, 正規線形回帰のAIC, 5分割クロスバリデーション, 1個抜き残差, 変数選択とデータリーク]
+problem_patterns: [KL-LOGLOSS-1, AIC-LIKELIHOOD-1, AIC-RSS-1, CV-KFOLD-1, CV-LOO-1, BIAS-VAR-1, VARIABLE-SELECTION-1, LEAKAGE-1]
+past_exam_alignment: [SCI-2025-Q4]
+integrated_exam_problems: [L2-02-C01, L2-02-C02, L2-02-C03, L2-02-C04, L2-02-D01, L2-02-DRILL-01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
