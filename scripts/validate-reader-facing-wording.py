@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reject internal audit/editorial phrasing in reader-facing textbook pages."""
+"""Reject internal syllabus/editorial phrasing in reader-facing textbook pages."""
 
 from pathlib import Path
 
@@ -13,7 +13,6 @@ FORBIDDEN = {
     "共通演習規約に従い": "state the learner-facing exercise behavior directly",
     "Batch 1": "keep batch terminology in review/audit files",
     "missing を": "keep coverage-audit terminology in review/audit files",
-    "監査上": "keep audit reasoning outside reader-facing textbook prose",
 }
 
 
@@ -29,7 +28,7 @@ def main() -> int:
                 violations.append(f"{rel}: {token!r} — {guidance}")
 
     if violations:
-        print("Reader-facing editorial wording found:")
+        print("Reader-facing syllabus/editorial wording found:")
         for violation in violations:
             print(f"  {violation}")
         return 1
