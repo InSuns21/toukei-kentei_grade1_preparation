@@ -55,6 +55,38 @@ $$
 
 切片を含む通常の最小二乗回帰では $0\\le R^2\\le1$ です。`,
 'L1-01 coefficient of determination definition'
+  ],
+  [
+`<!-- formal-statement-end -->
+
+正規方程式から
+$$
+\\sum_{i=1}^n e_i=0,`,
+`<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-01-residual -->
+**定義の確認**  
+ある観測で $y_i=12$、当てはめ値が $\\hat y_i=10.5$ なら残差は $e_i=12-10.5=1.5$ です。残差が正なら観測値が回帰直線より上、負なら下にあります。
+<!-- definition-example-end -->
+
+正規方程式から
+$$
+\\sum_{i=1}^n e_i=0,`,
+'L1-01 residual definition example'
+  ],
+  [
+`<!-- formal-statement-end -->
+
+切片を含む通常の最小二乗回帰では $0\\le R^2\\le1$ です。`,
+`<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-01-coefficient-of-determination -->
+**定義の確認**  
+例えば $SST=40$、$SSE=10$ なら $R^2=1-10/40=0.75$ です。標本内の全変動の75%が当てはめた回帰で説明されたことを表します。
+<!-- definition-example-end -->
+
+切片を含む通常の最小二乗回帰では $0\\le R^2\\le1$ です。`,
+'L1-01 coefficient of determination example'
   ]
 ]);
 
@@ -80,6 +112,20 @@ $$
 
 全ての群平均に同じ定数を加えても対比値が変わらないため、「水準そのもの」ではなく「差」を測る量になっています。`,
 'L1-02 linear contrast definition'
+  ],
+  [
+`<!-- formal-statement-end -->
+
+全ての群平均に同じ定数を加えても対比値が変わらないため、「水準そのもの」ではなく「差」を測る量になっています。`,
+`<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-02-linear-contrast -->
+**定義の確認**  
+$(1,-1,0)$ は係数和が0なので $\\mu_1-\\mu_2$ という線形対比です。一方 $(1,1,0)$ は係数和が2なので、一般の線形結合ではありますが線形対比ではありません。
+<!-- definition-example-end -->
+
+全ての群平均に同じ定数を加えても対比値が変わらないため、「水準そのもの」ではなく「差」を測る量になっています。`,
+'L1-02 linear contrast definition example'
   ]
 ]);
 
