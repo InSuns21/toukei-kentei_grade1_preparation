@@ -1,0 +1,24 @@
+id: "F0-02C4B"
+title: "tangent cone と normal cone の polar 双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C4
+  - F0-02C4A
+official_scope: []
+learning_objectives:
+  - 凸集合のBouligand tangent coneを closure cone(C-x) と同定できる
+  - normal cone の定義から N_C(x)=T_C(x)^circ を証明できる
+  - 半空間と非負直交錐で式を検算できる
+definitions:
+  - { id: F0C4B-DEF-01, name: cone(C-x) }
+  - { id: F0C4B-DEF-02, name: polar cone }
+theorems:
+  - { id: F0C4B-THM-01, name: 凸集合のtangent cone表示 }
+  - { id: F0C4B-THM-02, name: normal-tangent polar identity }
+canonical_examples: [半空間, 非負直交錐]
+problem_patterns: [TANGENT-CONE-CONVEX-1, NORMAL-POLAR-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.75, exercises: 0.75, review: 0.25 }

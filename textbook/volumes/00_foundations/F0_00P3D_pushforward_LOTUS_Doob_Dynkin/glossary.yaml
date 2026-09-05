@@ -1,0 +1,11 @@
+chapter: "F0-00P3D"
+terms:
+  - term: 押し出し測度
+    english: pushforward measure
+    meaning: 可測写像 X により P_X(B)=P(X^{-1}(B)) として像空間へ移した測度。
+  - term: LOTUS
+    english: law of the unconscious statistician
+    meaning: E[g(X)] を g(X) の分布を求めず X の分布 P_X に対する積分として計算する公式。
+  - term: Doob--Dynkin lemma
+    english: Doob--Dynkin lemma
+    meaning: W が sigma(Y)-可測なら、適切な可測関数 m を用いて W=m(Y) と因子化できるという補題。
