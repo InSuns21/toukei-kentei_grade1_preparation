@@ -1,7 +1,14 @@
 chapter: F0-00D2A
 scope: dream-theater
+coverage: complete
 prerequisites:
   - F0-00D2
+
+# 教材順としては次章 D2B の予告だけを許す。定理を使って証明する依存とは区別する。
+forward_references:
+  - measure.monotone-convergence-theorem
+  - measure.fatou-lemma
+  - measure.dominated-convergence-theorem
 
 concepts:
   - id: measure.measurable-function
@@ -10,10 +17,54 @@ concepts:
     aliases: [可測関数, measurable function]
     requires: []
 
+  - id: measure.nonnegative-simple-function
+    name: 非負単関数
+    kind: definition
+    aliases: [非負単関数, nonnegative simple function]
+    requires:
+      - measure.measurable-function
+
+  - id: measure.simple-function-integral
+    name: 非負単関数の積分
+    kind: definition
+    aliases: [非負単関数の積分, 単関数の積分]
+    requires:
+      - measure.nonnegative-simple-function
+
+  - id: measure.simple-function-integral-well-defined
+    name: 表現に依存しない
+    kind: proposition
+    aliases: [表現に依存しない]
+    requires:
+      - measure.simple-function-integral
+
+  - id: measure.simple-function-approximation
+    name: 単関数近似
+    kind: theorem
+    aliases: [単関数近似]
+    requires:
+      - measure.measurable-function
+      - measure.nonnegative-simple-function
+
   - id: measure.lebesgue-integral
     name: Lebesgue積分
     kind: definition
     aliases: [Lebesgue積分, ルベーグ積分, Lebesgue integral]
+    requires:
+      - measure.simple-function-integral
+      - measure.simple-function-approximation
+
+  - id: measure.lebesgue-integral-monotonicity
+    name: 単調性
+    kind: proposition
+    aliases: [単調性]
+    requires:
+      - measure.lebesgue-integral
+
+  - id: measure.positive-negative-parts
+    name: 正部分・負部分
+    kind: definition
+    aliases: [正部分・負部分, 正部分, 負部分]
     requires:
       - measure.measurable-function
 
@@ -21,6 +72,14 @@ concepts:
     name: 可積分関数
     kind: definition
     aliases: [可積分関数, integrable function]
+    requires:
+      - measure.lebesgue-integral
+      - measure.positive-negative-parts
+
+  - id: measure.null-set-integral-invariance
+    name: 零集合上の変更は積分を変えない
+    kind: theorem
+    aliases: [零集合上の変更は積分を変えない]
     requires:
       - measure.lebesgue-integral
 
