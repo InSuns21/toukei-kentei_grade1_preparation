@@ -11,6 +11,7 @@ official_scope:
   - プロビット分析
   - 非線形回帰モデル
   - サポートベクターマシン
+  - トービット分析
 learning_objectives:
   - 問題設定から「2値確率・連続平均曲線・分類境界」のどれを求める問題か判定し、ロジット・プロビット・非線形回帰・SVMを使い分けられる
   - 潜在変数モデルからプロビット回帰の成功確率 p=Phi(eta) を導出できる
@@ -40,6 +41,7 @@ definitions:
   - { id: E104-DEF-09, name: ソフトマージンSVM }
   - { id: E104-DEF-10, name: hinge損失 }
   - { id: E104-DEF-11, name: カーネル法 }
+  - {id: E104-DEF-12, name: トービット分析}
 theorems:
   - { id: E104-THM-01, name: 潜在正規変数によるプロビット表現 }
   - { id: E104-THM-02, name: プロビット回帰のスコア }
@@ -51,7 +53,7 @@ canonical_examples: [モデル選択, 潜在変数プロビット, ロジット�
 problem_patterns: [MODEL-CHOICE-1, PROBIT-LATENT-1, PROBIT-LOGIT-COMPARE-1, PROBIT-SCORE-1, PROBIT-MARGINAL-1, NLS-GN-1, NLS-IDENTIFY-1, SVM-MARGIN-1, SVM-DUAL-1, SVM-SOFT-1, SVM-KERNEL-1]
 past_exam_alignment: []
 integrated_exam_problems: [E1-04-C01, E1-04-C02, E1-04-C03, E1-04-D01, E1-04-DRILL-01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: {level_a: 4, level_b: 5, level_c: 4, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 10, exercises: 12, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

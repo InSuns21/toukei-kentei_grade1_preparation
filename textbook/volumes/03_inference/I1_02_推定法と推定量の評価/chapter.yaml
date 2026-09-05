@@ -15,6 +15,8 @@ official_scope:
   - 有効性
   - フィッシャー情報量
   - クラーメル・ラオの不等式
+  - 推定量の相対効率
+  - その他の手法
 learning_objectives:
   - 母集団モーメントと標本モーメントを対応させてモーメント推定量を構成できる
   - 最小二乗法を残差平方和の最小化として導出し最尤法との違いを説明できる
@@ -38,6 +40,7 @@ definitions:
   - { id: I102-DEF-08, name: Fisher情報量 }
   - { id: I102-DEF-09, name: 有効推定量 }
   - { id: I102-DEF-10, name: 相対効率 }
+  - {id: I102-DEF-REL-EFF, name: 推定量の相対効率}
 theorems:
   - { id: I102-PROP-01, name: MSE分解 }
   - { id: I102-PROP-02, name: バイアスと分散からの一致性判定 }
@@ -51,7 +54,7 @@ past_exam_alignment:
   - { id: MATH-2024-Q1, theme: 回帰係数の推定・検定・検出力, skills: [最小二乗推定, 推定量の分散評価], source_type: third_party_topic_index }
   - { id: MATH-2023-Q1, theme: Poisson分布の不偏推定量・一致推定量, skills: [不偏性, 一致性, 分散比較], source_type: third_party_topic_index }
 integrated_exam_problems: [I1-02-C01, I1-02-C02, I1-02-C03, I1-02-C04, I1-02-D01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: {level_a: 4, level_b: 5, level_c: 4, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 8, exercises: 11, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

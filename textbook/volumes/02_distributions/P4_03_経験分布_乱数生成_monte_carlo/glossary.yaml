@@ -6,3 +6,7 @@ terms:
   - {term: 棄却法, definition: 提案分布から生成した候補を密度比に応じて受理する乱数生成法}
   - {term: Monte Carlo法, definition: 期待値や積分を独立標本の平均で近似する方法}
   - {term: 標準誤差, definition: 推定量の標準偏差}
+  - term: ブートストラップ
+    definition: 経験分布から復元抽出した再標本で統計量の標本分布を近似する再標本化法。
+  - term: MCMC
+    definition: 目標分布を不変分布にもつマルコフ連鎖を用いて相関した標本を生成する方法。

@@ -3,7 +3,7 @@ title: "確率変数の収束・大数則・中心極限定理"
 volume: "distributions"
 status: reviewed
 prerequisites: [F0-00, P2-02, P3-01, P3-02]
-official_scope: [確率変数の収束, 大数の法則, 中心極限定理, 正規近似, ポアソン近似]
+official_scope: [確率変数の収束, 大数の法則, 中心極限定理, 正規近似, ポアソン近似, 少数法則]
 learning_objectives:
   - 確率収束・概収束・分布収束を量化記号を含めて定義し関係を説明できる
   - 大数の法則と中心極限定理を仮定付きで適用できる
@@ -31,7 +31,7 @@ past_exam_alignment:
     evidence: "標本平均の高次モーメントと標本平均の漸近評価"
     confidence: medium
 integrated_exam_problems: [P4T-DRILL-01]
-exercise_counts: {level_a: 4, level_b: 4, level_c: 5, level_d: 1}
+exercise_counts: {level_a: 5, level_b: 4, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: {reading: 6, exercises: 10, review: 3}
 completion_criteria:
   level_b_score_at_least: 0.85

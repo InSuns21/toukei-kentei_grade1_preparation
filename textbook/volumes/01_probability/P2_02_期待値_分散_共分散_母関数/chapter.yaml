@@ -4,7 +4,7 @@ volume: "probability"
 status: reviewed
 canonical_source: index.md
 prerequisites: [P2-01]
-official_scope: [期待値, 分散, 共分散, 条件付き期待値, 条件付き分散, 条件付き共分散, 確率母関数, モーメント母関数]
+official_scope: [期待値, 分散, 共分散, 条件付き期待値, 条件付き分散, 条件付き共分散, 確率母関数, モーメント母関数, 歪度, 尖度, 変動係数, パーセント点, 四分位数, 四分位範囲]
 learning_objectives:
   - 絶対可積分性を確認して期待値を計算できる
   - 元の分布を用いる期待値計算公式と線形性を離散・連続分布へ使える
@@ -22,6 +22,8 @@ definitions:
   - { id: P2-DEF-13, name: 条件付き共分散 }
   - { id: P2-DEF-09, name: 確率母関数 }
   - { id: P2-DEF-10, name: モーメント母関数 }
+  - {id: P202-DEF-06, name: 歪度・尖度・変動係数}
+  - {id: P202-DEF-07, name: パーセント点・四分位数・四分位範囲}
 theorems:
   - { id: P2-THM-05, name: 元の分布による期待値計算と線形性 }
   - { id: P2-THM-06, name: 分散・共分散の計算公式 }
@@ -35,7 +37,7 @@ past_exam_alignment:
   - { id: MATH-2023-Q1, current_skills: [期待値, 分散, 確率母関数], later_skills: [不偏推定, 一致性] }
   - { id: MATH-2023-Q3, current_skills: [指数分布, モーメント母関数, モーメント], later_skills: [重み付き分布, 推定] }
 integrated_exam_problems: [P2-DRILL-02]
-exercise_counts: { level_a: 3, level_b: 5, level_c: 5, level_d: 1 }
+exercise_counts: {level_a: 3, level_b: 6, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 6, exercises: 11, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

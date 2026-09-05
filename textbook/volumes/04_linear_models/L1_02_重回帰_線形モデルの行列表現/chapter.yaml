@@ -13,6 +13,7 @@ official_scope:
   - 線形対比
   - 線形制約
   - 線形結合の分布
+  - 重相関係数
 learning_objectives:
   - 線形モデルを行列表現し各量の次元を確認できる
   - 正規方程式から最小二乗推定量を導ける
@@ -25,6 +26,7 @@ definitions:
   - { id: L102-DEF-02, name: 線形対比 }
   - { id: L102-DEF-03, name: 線形制約 }
   - { id: L102-DEF-04, name: 射影行列 }
+  - {id: L102-DEF-MULT-CORR, name: 重相関係数}
 theorems:
   - { id: L102-THM-01, name: 最小二乗推定量 }
   - { id: L102-THM-02, name: ガウス・マルコフの定理 }
@@ -34,7 +36,7 @@ canonical_examples: [重回帰, 射影行列, 線形対比, 一般線形仮説, 
 problem_patterns: [OLS-MATRIX-1, CONTRAST-1, LINEAR-RESTRICTION-1, GENERAL-LINEAR-HYPOTHESIS-1]
 past_exam_alignment: []
 integrated_exam_problems: [L1-02-C01, L1-02-C04, L1-02-DRILL-01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+exercise_counts: {level_a: 5, level_b: 4, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 5, exercises: 9, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

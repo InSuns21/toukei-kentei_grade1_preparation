@@ -94,6 +94,11 @@ $$
 > 母数の個数と同じ数の母集団モーメントを標本モーメントに等置し、その連立方程式を母数について解いて得る推定量をモーメント推定量という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-moment-method -->
+**定義の確認**  
+$X_1,\ldots,X_n\sim U(0,\theta)$ では $E[X]=\theta/2$ と $\bar X$ を等置して $\hat\theta_{\mathrm{MM}}=2\bar X$ を得ます。母集団モーメントと標本モーメントを等置して母数を解く、という定義そのものの計算です。
+<!-- definition-example-end -->
+
 ### 2.1 一様分布 $U(0,\theta)$
 
 $$
@@ -169,6 +174,11 @@ $$
 > 残差平方和 $Q(\theta)$ を母数空間上で最小にする値を最小二乗推定値とする。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-least-squares -->
+**定義の確認**  
+位置母数モデル $m_i(\mu)=\mu$ では $Q(\mu)=\sum_i(X_i-\mu)^2$ です。$Q'(\mu)=0$ を解くと $\hat\mu=\bar X$ となり、残差平方和を最小にする値という定義を具体的に確認できます。
+<!-- definition-example-end -->
+
 ### 3.1 位置母数の最小二乗
 
 モデル値が全観測で共通の $\mu$ なら
@@ -193,6 +203,30 @@ $$
 
 ---
 
+## 3A. 公式シラバス補完：推定量の相対効率と「その他の手法」
+
+<a id="def-i1-02-relative-efficiency"></a>
+
+<!-- formal-statement-start -->
+> **定義（推定量の相対効率）**  
+> 同じ母数 $\theta$ を推定する不偏推定量 $T_1,T_2$ に対し、本章では
+>
+> $e(T_1,T_2)=\operatorname{Var}(T_2)/\operatorname{Var}(T_1)$
+>
+> を $T_1$ の $T_2$ に対する推定量の相対効率とする。$e(T_1,T_2)>1$ なら $T_1$ の方が分散が小さい。漸近比較では分散を漸近分散に置き換える。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-relative-efficiency -->
+**定義の確認**  
+$\operatorname{Var}(T_1)=\sigma^2/n$、$\operatorname{Var}(T_2)=2\sigma^2/n$ なら $e(T_1,T_2)=2$ で、同じ精度を得るのに $T_2$ は概ね2倍の標本数を要するという読み方ができます。文献によって比の向きを逆に定義することがあるので、式を必ず確認します。
+<!-- definition-example-end -->
+
+公式シラバスの **その他の手法** は、特定の固有名をもつ単一の推定法を指す項目ではありません。モーメント法、最小二乗法、最尤法だけに固定せず、推定量を構成したうえで不偏性・一致性・平均二乗誤差・相対効率などにより比較する問題を含む包括的な枠です。
+
+### 3A.1 例：不偏性だけでは選べない
+
+2つの不偏推定量があっても、分散が違えば有限標本での精度は違います。逆に少しバイアスを許して平均二乗誤差を下げる推定量もあり、推定法の評価は「不偏なら終わり」ではありません。
+
 ## 4. バイアス・不偏性・平均二乗誤差
 
 推定対象を $g(\theta)$、推定量を $T$ とします。
@@ -215,6 +249,11 @@ $$
 =E_\theta[(T-g(\theta))^2].
 $$
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-bias, def-i1-02-mse -->
+**定義の確認**  
+$E[T]=\theta+1/n$、$\operatorname{Var}(T)=2/n$ なら、バイアスは $1/n$、平均二乗誤差は $2/n+1/n^2$ です。不偏性は期待値のずれ、平均二乗誤差は分散とずれを合わせた尺度であることが分かります。
+<!-- definition-example-end -->
 
 <a id="prop-i1-02-mse-decomposition"></a>
 
@@ -265,6 +304,11 @@ P_\theta(|T_n-g(\theta)|>\varepsilon)\to0.
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-consistency -->
+**定義の確認**  
+$T_n=\frac{n}{n+1}\bar X$ とし $E[X]=\mu$、$\operatorname{Var}(X)=\sigma^2<\infty$ とします。$T_n-\mu=\frac{n}{n+1}(\bar X-\mu)-\frac{\mu}{n+1}$ で、第1項は大数則、第2項は通常の極限で0へ行くため $T_n\xrightarrow{p}\mu$、したがって一致的です。
+<!-- definition-example-end -->
+
 <a id="prop-i1-02-mse-consistency"></a>
 
 <!-- formal-statement-start -->
@@ -304,6 +348,41 @@ $$
 **不偏性は有限標本の期待値、一致性は標本サイズを増やした極限の性質**です。
 
 ---
+
+<a id="ex-i1-02-relative-efficiency"></a>
+### I102-B05 推定量の相対効率と推定法の選択
+
+- Level: B
+- 目安時間: 10分
+- 主題: 推定量の相対効率・その他の手法
+
+同じ母数 $\theta$ の不偏推定量 $T_1,T_2$ が
+$$
+\operatorname{Var}(T_1)=\frac{3}{n},\qquad
+\operatorname{Var}(T_2)=\frac{5}{n}
+$$
+を満たす。本章の定義で $T_1$ の $T_2$ に対する相対効率を求め、どちらが効率的か答えよ。また、公式シラバスの「その他の手法」を評価するとき分散以外に確認すべき性質を2つ挙げよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+$$
+e(T_1,T_2)=\frac{5/n}{3/n}=\frac53>1
+$$
+なので $T_1$ の方が効率的。ほかに不偏性、一致性、平均二乗誤差、十分性、計算可能性などを確認する。
+
+##### 本番答案
+
+相対効率は $5/3$ で $T_1$ が効率的。ほかに不偏性・一致性などを確認する。
+
+##### 採点基準
+
+相対効率10点、判定4点、他の評価軸2つで6点。
+
+<!-- solution-end -->
 
 ## 6. 線形不偏推定と BLUE
 
@@ -368,6 +447,11 @@ $$
 > **定義（BLUE）**  
 > 線形不偏推定量のクラスの中で分散、ベクトル母数では分散共分散行列、が最小となる推定量を最良線形不偏推定量という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-blue -->
+**定義の確認**  
+独立な不偏測定 $Y_1,Y_2$ の分散がそれぞれ $1,4$ なら、$wY_1+(1-w)Y_2$ の分散を最小にする重みは $w=4/5$ です。線形かつ不偏というクラスの中で分散を最小にする、という BLUE の「最良」を具体化しています。
+<!-- definition-example-end -->
 
 ### 6.1 ガウス・マルコフの定理
 
@@ -458,6 +542,11 @@ I(\theta)=E_\theta[U(\theta)^2]
 }.
 $$
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-fisher-information -->
+**定義の確認**  
+$X\sim N(\mu,\sigma^2)$ で $\sigma^2$ 既知なら、1観測のスコアは $U(\mu)=(X-\mu)/\sigma^2$ です。よって $E[U(\mu)^2]=\sigma^2/\sigma^4=1/\sigma^2$ となり、フィッシャー情報量の定義を直接計算できます。
+<!-- definition-example-end -->
 
 スコアの期待値が0なら
 
@@ -632,6 +721,11 @@ $$
 > **定義（有効推定量）**  
 > 正則モデルで不偏推定量がクラーメル・ラオ下限を達成するとき、その推定量を本章では有効推定量という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-efficient-estimator -->
+**定義の確認**  
+ベルヌーイ標本では $I_n(p)=n/[p(1-p)]$ なのでクラーメル・ラオ下限は $p(1-p)/n$ です。標本平均 $\bar X$ は不偏で、その分散も $p(1-p)/n$ だから下限を達成し、本章の意味で有効推定量です。
+<!-- definition-example-end -->
 
 ### 8.2 ベルヌーイ標本平均は下限を達成する
 

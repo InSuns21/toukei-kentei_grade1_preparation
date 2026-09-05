@@ -14,6 +14,7 @@ official_scope:
   - 決定係数
   - 残差
   - 線形モデル
+  - 平均への回帰（回帰効果）
 learning_objectives:
   - 単回帰モデルの各項の意味を説明できる
   - 残差平方和から最小二乗推定量を導ける
@@ -24,6 +25,7 @@ definitions:
   - { id: L101-DEF-01, name: 単回帰モデル }
   - { id: L101-DEF-02, name: 残差と残差平方和 }
   - { id: L101-DEF-03, name: 決定係数 }
+  - {id: L101-DEF-REG-MEAN, name: 平均への回帰（回帰効果）}
 theorems:
   - { id: L101-THM-01, name: 最小二乗推定量 }
   - { id: L101-THM-02, name: 平方和分解 }
@@ -32,7 +34,7 @@ canonical_examples: [最小二乗推定, 回帰係数の分散, 平方和分解,
 problem_patterns: [OLS-SIMPLE-1, REGRESSION-SS-1, REGRESSION-INFERENCE-1, REGRESSION-PREDICTION-1]
 past_exam_alignment: []
 integrated_exam_problems: [L1-01-C01, L1-01-C05, L1-01-DRILL-01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
+exercise_counts: {level_a: 4, level_b: 5, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 4, exercises: 8, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

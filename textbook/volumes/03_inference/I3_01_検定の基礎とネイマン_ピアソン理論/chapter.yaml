@@ -13,6 +13,7 @@ official_scope:
   - 第二種の過誤
   - 検出力
   - ネイマン・ピアソンの基本定理
+  - 検出力曲線
 learning_objectives:
   - 帰無仮説と対立仮説、単純仮説と複合仮説を区別できる
   - 検定関数と棄却域を相互に読み替えられる
@@ -38,6 +39,7 @@ definitions:
   - { id: I301-DEF-07, name: P値 }
   - { id: I301-DEF-08, name: 最強力検定 }
   - { id: I301-DEF-09, name: 一様最強力検定 }
+  - {id: I301-DEF-10, name: 検出力曲線}
 theorems:
   - { id: I301-LEM-01, name: ネイマン・ピアソン補題 }
   - { id: I301-THM-01, name: 既知分散正規平均の片側一様最強力検定 }
@@ -49,7 +51,7 @@ past_exam_alignment:
   - { id: MATH-2024-Q1, theme: 回帰係数の推定・検定・検出力, skills: [仮説検定, 有意水準, 検出力], source_type: third_party_topic_index }
   - { id: SCI-2025-Q2, theme: マルコフ連鎖・推移確率の最尤推定・尤度比検定, skills: [仮説設定, 尤度比, 棄却判断], source_type: official_problem }
 integrated_exam_problems: [I3-01-C01, I3-01-C02, I3-01-C03, I3-01-C04, I3-01-D01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: {level_a: 5, level_b: 4, level_c: 4, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 8, exercises: 11, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
