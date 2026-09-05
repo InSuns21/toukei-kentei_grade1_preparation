@@ -1,0 +1,26 @@
+chapter: "F0-00G2"
+terms:
+  - term: 凸共役
+    english: convex conjugate
+    meaning: 線形汎関数と元の関数との差の上限として定義される双対関数。
+  - term: Fenchel–Legendre共役
+    english: Fenchel–Legendre conjugate
+    meaning: 凸共役の別名。
+  - term: support function
+    english: support function
+    meaning: 集合上で線形汎関数が取る最大値を方向ごとに記録する関数。
+  - term: Fenchel–Young不等式
+    english: Fenchel–Young inequality
+    meaning: 元の関数と共役関数の和が内積以上になる基本不等式。
+  - term: 二重共役
+    english: biconjugate
+    meaning: 凸共役を二度取って得られる関数。
+  - term: Fenchel–Moreau定理
+    english: Fenchel–Moreau theorem
+    meaning: proper closed convex functionが二重共役と一致することを述べる定理。
+  - term: Fenchel双対
+    english: Fenchel duality
+    meaning: 共役関数を用いて主問題に対応する双対問題を構成する枠組み。
+  - term: 双対ギャップ
+    english: duality gap
+    meaning: 主問題の値と双対問題の値の差。

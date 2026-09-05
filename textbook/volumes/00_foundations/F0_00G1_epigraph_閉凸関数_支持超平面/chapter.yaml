@@ -1,0 +1,36 @@
+id: "F0-00G1"
+title: "epigraph・閉凸関数・支持超平面"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00G
+  - F0-02C6A
+official_scope: []
+learning_objectives:
+  - 拡張実数値関数のeffective domainとproper性を説明できる
+  - 凸関数とepigraphの凸性の同値を証明できる
+  - 下半連続性とepigraphの閉性の同値を証明できる
+  - proper closed convex functionをepigraphの幾何として理解できる
+  - sublevel setの凸性と閉性を判定できる
+  - 支持超平面と劣勾配の関係を説明できる
+  - coerciveなlsc関数が有限次元で最小値を達成する理由を示せる
+definitions:
+  - { id: F000G1-DEF-01, name: effective domain }
+  - { id: F000G1-DEF-02, name: proper function }
+  - { id: F000G1-DEF-03, name: epigraph }
+  - { id: F000G1-DEF-04, name: 下半連続 }
+  - { id: F000G1-DEF-05, name: proper closed convex function }
+  - { id: F000G1-DEF-06, name: sublevel set }
+  - { id: F000G1-DEF-07, name: 支持超平面 }
+theorems:
+  - { id: F000G1-THM-01, name: 凸関数とepigraph凸性の同値 }
+  - { id: F000G1-THM-02, name: 下半連続性と閉epigraphの同値 }
+  - { id: F000G1-THM-03, name: 支持超平面定理 }
+  - { id: F000G1-THM-04, name: relative interiorでの劣勾配存在 }
+  - { id: F000G1-THM-05, name: coercive lsc関数の最小値存在 }
+canonical_examples: [絶対値のepigraph, indicator関数, 閉でないepigraph, coercive関数]
+problem_patterns: [CVX-EPI-1, CVX-LSC-1, CVX-SUPPORT-1, CVX-EXIST-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 1.25, review: 0.5 }

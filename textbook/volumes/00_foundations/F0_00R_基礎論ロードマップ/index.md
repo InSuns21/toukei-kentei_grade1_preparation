@@ -43,12 +43,28 @@ D1 ノルム空間・Banach・有限次元と無限次元
  ↓
 D2 → D2A → D2B → D2C → D2D → D2E
  ↓
-G
+F0-02C1 → C1A → C2 → C3 → C3A → C3B → C6 → C6A
  ↓
-F0-02 → 02A → 02B → 02B1
+G → G1 → C4 → C4A → C4B → G2
  ↓
-F0-02C1 → C1A → C2 → C3 → C3A → C4 → C4A → C5 → C5A → C6 → C6A → C7 → C7A
+F0-02 → 02B → 02A → C5 → C5A
+ ↓
+C7 → 02B1 → C7A
 ```
+
+ここで後半は
+
+```text
+関数解析
+ ↓
+凸解析・凸最適化
+ ↓
+制約付き最適化・KKT
+ ↓
+RKHS・SVM
+```
+
+という一方向の通読順です。`G` 自体は有限次元の凸性入門なので数学的には F1 のあとから読めますが、標準ルートでは「凸最適化への入口」だけを前へ孤立させず、Hahn--Banach・分離定理のあとに凸解析系列としてまとめます。
 
 ### なぜD1より先にE〜F2を読むのか
 
@@ -311,7 +327,9 @@ Brown運動 → white noise → Schwartz超関数
 
 - **統計検定1級の試験対策だけ**：F0-00から通常教材へ戻る。発展補講は不要。
 - **線形代数を計算ではなく理論から復習**：E → F → E1 → E2 → F1 → F2。
-- **RKHS・関数解析**：標準通読ルートをD1以降まで進む。
+- **関数解析**：D1/D2Eまでの基礎を終えたあと、C1 → C1A → C2 → C3 → C3A → C3B → C6 → C6A。
+- **凸解析・最適化を理論から**：関数解析のあと G → G1 → C4 → C4A → C4B → G2 → F0-02 → 02B → 02A → C5 → C5A。
+- **RKHS・SVM**：上の関数解析・凸解析系列から C7 → 02B1 → C7A。
 - **漸近統計の理論**：D2からP1〜P7B。
 - **Lebesgue測度って誰が作った？**：DREAM THEATER。
 - **特性関数ってFourier変換ですよね？**：Encore II。
@@ -353,7 +371,13 @@ D1 ノルム・Banach
 D2 → D2A → D2B → D2C → D2D → D2E
   ├→ Probability P1 → P2 → P2A → P3 → P3A → P3B → P4 → P4A → P5 → P5A → P6 → P6A → P7 → P7A → P7B
   ├→ DREAM THEATER D3 → D4 → D5 → D2Aへ復帰
-  └→ G → Optimization / Functional Analysis / RKHS
+  └→ Functional Analysis C1 → C1A → C2 → C3 → C3A → C3B → C6 → C6A
+        ↓
+      Convex Analysis G → G1 → C4 → C4A → C4B → G2
+        ↓
+      KKT F0-02 → 02B → 02A → C5 → C5A
+        ↓
+      RKHS / SVM C7 → 02B1 → C7A
 ```
 
-標準ルートでは、**Banach空間へ入る前に有限次元線形代数を理論として一度閉じる**構成にします。
+標準ルートでは、**Banach空間へ入る前に有限次元線形代数を理論として一度閉じ、その後は関数解析 → 凸解析 → KKT → RKHSを一方向に読む**構成にします。

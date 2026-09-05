@@ -1,27 +1,26 @@
 id: "F0-02C4"
-title: "関数解析IV：凸解析・劣勾配・normal cone"
+title: "凸解析：劣勾配・劣微分・normal cone"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-00G
   - F0-02C3
   - F0-02C6
   - F0-02C6A
 official_scope: []
 learning_objectives:
-  - 凸集合・凸関数・劣勾配・劣微分を定義し具体例で条件を確認できる
+  - 劣勾配・劣微分を定義し具体例で条件を確認できる
+  - 凸関数のFermat条件を劣微分で表せる
   - 方向微分を劣微分の支持関数として表す理由を説明できる
   - 有限値凸関数の劣微分和則を分離定理から導ける
   - max関数の劣微分をactiveな劣勾配の凸包として導ける
   - indicator関数とnormal coneの関係を証明できる
   - 凸集合上の微分可能凸最適化をnormal cone条件で判定できる
 definitions:
-  - { id: F002C4-DEF-01, name: 凸集合 }
-  - { id: F002C4-DEF-02, name: 凸関数 }
   - { id: F002C4-DEF-03, name: 劣勾配・劣微分 }
   - { id: F002C4-DEF-04, name: indicator関数 }
   - { id: F002C4-DEF-05, name: normal cone }
 theorems:
-  - { id: F002C4-THM-01, name: 凸微分可能関数の一次条件 }
   - { id: F002C4-THM-02, name: 凸関数のFermat条件 }
   - { id: F002C4-THM-03, name: 方向微分の支持関数表示 }
   - { id: F002C4-THM-04, name: 有限値凸関数の劣微分和則 }
@@ -31,4 +30,4 @@ theorems:
 canonical_examples: [絶対値の劣微分, 区間のnormal cone, max関数のactive勾配]
 problem_patterns: [FA-SUBGRADIENT-1, FA-NORMAL-CONE-1, FA-SUBGRADIENT-SUM-1, FA-MAX-SUBGRADIENT-1]
 exercise_counts: { level_a: 3, level_b: 3, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4.0, exercises: 1.5, review: 0.75 }
+estimated_hours: { reading: 3.5, exercises: 1.5, review: 0.75 }

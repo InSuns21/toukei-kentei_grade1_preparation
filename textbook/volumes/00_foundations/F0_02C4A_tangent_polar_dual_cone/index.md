@@ -1,6 +1,10 @@
-# F0-02C4A 関数解析IV-A：tangent cone・polar cone・dual cone
+# F0-02C4A 凸解析：tangent cone・polar cone・dual cone
 
-実行可能な一次方向と、それを支える双対側の法線・錐を整理します。
+<!-- definition-example-audit: strict -->
+
+実行可能な一次方向と、それを支える双対側の法線・錐を整理します。C4 の normal cone を、接方向と双対錐の言葉で読み直す章です。
+
+---
 
 ## 1. tangent cone
 
@@ -10,23 +14,28 @@
 
 <!-- formal-statement-start -->
 > **定義（Bouligand tangent cone）**  
-> 集合 $C$ と $x\in C$ に対し
+> 集合 $C$ と $x\in C$ に対し、次の集合を $C$ の $x$ における **Bouligand tangent cone** といいます。
 
 $$
-T_C(x)=\left\{h:\exists t_n\downarrow0,\ \exists x_n\in C,\ \frac{x_n-x}{t_n}\to h\right\}
+T_C(x)
+=
+\left\{
+ h:
+ \exists t_n\downarrow0,
+ \ \exists x_n\in C,
+ \ \frac{x_n-x}{t_n}\to h
+\right\}.
 $$
-
-> を $C$ の $x$ における **Bouligand tangent cone** といいます。
 <!-- formal-statement-end -->
 
-凸集合なら、直感的には
+凸集合では、直感的には
 
 $$
 y-x
 \qquad(y\in C)
 $$
 
-の非負倍を集めて閉じた錐と一致します。
+の非負倍を集めて閉じた錐と一致します。この等式自体は次の C4B で証明します。
 
 ---
 
@@ -36,26 +45,24 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（polar cone）**  
-> 錐 $K\subset X$ に対して
+> 錐 $K\subset X$ に対し、次の集合を $K$ の **polar cone** といいます。
 
 $$
-K^\circ=\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}
+K^\circ
+=
+\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}.
 $$
-
-> を $K$ の **polar cone** といいます。
 <!-- formal-statement-end -->
 
-normal coneの定義と比べると、凸集合について
+normal cone の定義と比べると、凸集合について
 
 $$
-\boxed{
-N_C(x)=T_C(x)^\circ
-}
+\boxed{N_C(x)=T_C(x)^\circ}
 $$
 
-という関係が得られます。
+という関係が期待されます。
 
-つまりnormal coneは「実行可能な接方向すべてに非正に作用する汎関数」の集合です。
+つまり normal cone は「実行可能な接方向すべてに非正に作用する汎関数」の集合です。C4B ではこの等式を定義から証明します。
 
 ---
 
@@ -65,13 +72,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（dual cone）**  
-> 錐 $K\subset Y$ に対して
+> 錐 $K\subset Y$ に対し、次の集合を $K$ の **dual cone** といいます。
 
 $$
-K^*=\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}
+K^*
+=
+\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}.
 $$
-
-> を $K$ の **dual cone** といいます。
 <!-- formal-statement-end -->
 
 本教材では polar cone を $\le0$、dual cone を $\ge0$ で定義しているため
@@ -81,6 +88,44 @@ $$
 $$
 
 文献によって符号規約が異なるので、名前だけでなく不等号を確認することが重要です。
+
+<!-- definition-example-start: def-f0-02c4a-tangent-cone, def-f0-02c4a-polar-cone, def-f0-02c4a-dual-cone -->
+### 3.1 例：半直線で3つの定義を同時に検算
+
+**定義の確認**
+
+$C=[0,\infty)$、$x=0$ とします。$x_n=t_n h\in C$ を取れるのは $h\ge0$ のときなので、Bouligand の定義から
+
+$$
+T_C(0)=[0,\infty).
+$$
+
+この錐を $K=[0,\infty)$ と書くと、polar の定義は
+
+$$
+pk\le0\qquad(\forall k\ge0)
+$$
+
+なので
+
+$$
+K^\circ=(-\infty,0].
+$$
+
+一方 dual cone の定義は
+
+$$
+\lambda k\ge0\qquad(\forall k\ge0)
+$$
+
+なので
+
+$$
+K^*=[0,\infty).
+$$
+
+従ってこの具体例でも $K^\circ=-K^*$ が確認できます。
+<!-- definition-example-end -->
 
 ---
 
@@ -92,9 +137,7 @@ $$
 K=\mathbb R_+^m
 $$
 
-とします。
-
-$\lambda\in K^*$ である条件は
+とします。$\lambda\in K^*$ である条件は
 
 $$
 \lambda^{\mathsf T}k\ge0
@@ -107,15 +150,13 @@ $$
 \lambda_i\ge0.
 $$
 
-逆に $\lambda\ge0$ なら $k\ge0$ に対して内積は非負です。
-
-したがって
+逆に $\lambda\ge0$ なら $k\ge0$ に対して内積は非負です。したがって
 
 $$
 \boxed{(\mathbb R_+^m)^*=\mathbb R_+^m}.
 $$
 
-有限次元KKTの
+有限次元 KKT の
 
 $$
 \lambda_i\ge0
@@ -131,7 +172,7 @@ $$
 
 ---
 
-## 5. KKTへの橋
+## 5. KKTへの伏線
 
 ここまでで
 
@@ -155,21 +196,13 @@ $$
 
 を用意しました。
 
-次の [F0-02C5 一般化KKT・制約写像・制約想定](../F0_02C5_一般化KKT_制約写像_制約想定/index.md) では、制約を
+ただし標準通読では、ここからすぐ KKT へ飛びません。まず C4B で
 
 $$
-G(x)\in-K
+N_C(x)=T_C(x)^\circ
 $$
 
-という一つの写像で書き、
-
-$$
-Df(x^*)+DG(x^*)^*\lambda=0
-$$
-
-を導入します。
-
-そこで初めて「なぜ制約想定が必要なのか」を、一次近似が壊れる反例から確認します。
+を完全に証明し、その後 G2 で Fenchel 共役・双対を入れてから有限次元 KKT へ進みます。
 
 ---
 
@@ -184,30 +217,49 @@ $K=\mathbb R_+^m$ について $K^*=K$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
+$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^{\mathsf T}k\ge0$。したがって $K^*=K$ である。
+
 #### 本番答案
-$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
+$\lambda\in K^*$ なら $e_i\in K$ を代入して $\lambda_i\ge0$。逆向きは非負ベクトル同士の内積が非負であることから従う。
+
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
 - 結論: 4点
 <!-- solution-end -->
 
-### F0-02C4A-B01 半空間のtangentとpolar
+### F0-02C4A-B01 半空間の tangent と polar
 
 - Level: B
 - 目安時間: 15分
 
-$C=\{x:a^Tx\le b\}$ の境界点 $x$ で $T_C(x)=\{d:a^Td\le0\}$ とそのpolarを求めよ。
+$C=\{x:a^{\mathsf T}x\le b\}$ の境界点 $x$ で $T_C(x)$ とその polar を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
+境界では $a^{\mathsf T}x=b$ なので、一次的に実行可能な方向は
+
+$$
+T_C(x)=\{d:a^{\mathsf T}d\le0\}.
+$$
+
+この半空間錐の polar は
+
+$$
+T_C(x)^\circ
+=
+\{\lambda a:\lambda\ge0\},
+$$
+
+であり、これは $N_C(x)$ に一致する。
+
 #### 本番答案
-一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
+$T_C(x)=\{d:a^{\mathsf T}d\le0\}$、したがって $T_C(x)^\circ=\{\lambda a:\lambda\ge0\}=N_C(x)$。
+
 #### 採点基準（20点）
 - 方針: 5点
-- 中心となる導出: 11点
+- tangent cone: 7点
+- polar cone: 4点
 - 結論: 4点
 <!-- solution-end -->
 
@@ -215,4 +267,4 @@ $C=\{x:a^Tx\le b\}$ の境界点 $x$ で $T_C(x)=\{d:a^Td\le0\}$ とそのpolar�
 
 ## 次に進む
 
-**次：[F0-02C5 一般化KKT・錐制約・双対乗数](../F0_02C5_一般化KKT_制約写像_制約想定/index.md)**
+**次：[F0-02C4B tangent cone と normal cone の polar 双対](../F0_02C4B_tangent_normal_polar_proof/index.md)**
