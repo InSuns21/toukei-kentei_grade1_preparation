@@ -1,0 +1,57 @@
+chapter: F0-00PDE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00PDE2
+  - F0-00FA3
+  - F0-00F1
+
+# Encore II終盤で確率論側のFourier解析との接続を再掲する。
+forward_references:
+  - prob.characteristic-function
+
+concepts:
+  - id: pde.sturm-liouville-problem
+    name: Sturm--Liouville問題
+    kind: definition
+    aliases: [Sturm--Liouville問題]
+    introduction: inline
+    requires:
+      - pde.separation-of-variables
+
+  - id: pde.weighted-l2-inner-product
+    name: 重み付きL2内積
+    kind: definition
+    aliases: [重み付き $L^2$ 空間]
+    introduction: inline
+    requires:
+      - functional.l2-inner-product
+      - pde.sturm-liouville-problem
+
+  - id: pde.self-adjoint-boundary-condition
+    name: 自己共役境界条件
+    kind: definition
+    aliases: [境界条件が自己共役性を作る]
+    introduction: inline
+    requires:
+      - pde.sturm-liouville-problem
+      - pde.weighted-l2-inner-product
+
+  - id: pde.sturm-liouville-orthogonality
+    name: 異なる固有値に属する固有関数の直交性
+    kind: theorem
+    aliases: [異なる固有値の固有関数は直交する]
+    introduction: inline
+    requires:
+      - pde.self-adjoint-boundary-condition
+      - pde.weighted-l2-inner-product
+
+  - id: pde.sturm-liouville-spectral-structure
+    name: 正則Sturm--Liouville問題のスペクトル構造
+    kind: theorem
+    aliases: [正則Sturm--Liouville問題のスペクトル構造]
+    introduction: inline
+    requires:
+      - pde.sturm-liouville-problem
+      - pde.sturm-liouville-orthogonality
+      - fourier.trig-system-l2-completeness
