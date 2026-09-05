@@ -51,15 +51,19 @@
 
 ### 2.1 確率変数
 
-確率空間 $(\Omega,\mathcal F,P)$ 上の実確率変数 $X$ は、標本点 $\omega\in\Omega$ を実数 $X(\omega)\in\mathbb R$ へ写す写像です。
+<a id="def-p2-01-random-variable"></a>
 
-厳密には、全ての $x\in\mathbb R$ について
+<!-- formal-statement-start -->
+> **定義（確率変数）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ 上で、$X:\Omega\to\mathbb R$ が全ての $x\in\mathbb R$ について $\{\omega:X(\omega)\le x\}\in\mathcal F$ を満たすとき、$X$ を **実確率変数** という。すなわち、標本点を実数へ写し、$P(X\le x)$ のような確率が定義できる可測写像である。
+<!-- formal-statement-end -->
 
-$$
-\{\omega\in\Omega:X(\omega)\le x\}\in\mathcal F
-$$
+<!-- definition-example-start: def-p2-01-random-variable -->
+**定義の確認**  
+六面体さいころで $\Omega=\{1,2,3,4,5,6\}$、$\mathcal F=2^\Omega$ とし、$X(\omega)=\omega$ とします。例えば $\{X\le3\}=\{1,2,3\}\in\mathcal F$ であり、有限個の全ての部分集合が $\mathcal F$ に入るので $X$ は確率変数です。
+<!-- definition-example-end -->
 
-を満たす可測写像とします。本章では測度論の構成そのものには立ち入りませんが、$P(X\le x)$ が常に意味を持つことを使います。
+本章では測度論の構成そのものには立ち入りませんが、$P(X\le x)$ が常に意味を持つことを使います。
 
 ### 2.2 台
 
@@ -69,6 +73,11 @@ $$
 > **定義（台：本章での用法）**  
 > 確率変数が確率質量または確率密度を持つ値の範囲を、この章では **台** と呼びます。問題を解くときは $x\in S$ のように範囲を先に明示し、その外では確率質量または確率密度を0とします。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p2-01-support -->
+**定義の確認**  
+ベルヌーイ分布 $P(X=1)=p$, $P(X=0)=1-p$ の台は $\{0,1\}$ です。一方、$(0,1)$ 上で正の密度をもつ連続分布では、本章の用法で台を $0<x<1$ と書きます。
+<!-- definition-example-end -->
 
 1変量なら、たとえば $(0,1)$ 上の一様分布の台は $0<x<1$ です。2変量では、台は $(x,y)$ の組が取り得る平面上の領域になります。たとえば
 
@@ -82,13 +91,17 @@ $$
 
 ### 2.3 確率質量関数
 
-高々可算な台 $S\subset\mathbb R$ に対し
+<a id="def-p2-01-pmf"></a>
 
-$$
-p_X(x)=P(X=x),\qquad x\in S
-$$
+<!-- formal-statement-start -->
+> **定義（確率関数・確率質量関数）**  
+> 高々可算な台 $S$ をもつ離散型確率変数 $X$ に対し、$p_X(x)=P(X=x)$ を **確率関数（確率質量関数）** という。本教材では、連続型の確率密度関数との区別を明確にするため、本文では主に「確率質量関数」と呼ぶ。
+<!-- formal-statement-end -->
 
-を確率質量関数と呼びます。
+<!-- definition-example-start: def-p2-01-pmf -->
+**定義の確認**  
+ベルヌーイ分布なら $p_X(1)=p$, $p_X(0)=1-p$、それ以外では0です。2点の確率質量を足すと $p+(1-p)=1$ になります。
+<!-- definition-example-end -->
 
 必要条件は
 
@@ -101,19 +114,17 @@ $$
 
 ### 2.4 確率密度関数
 
-非負関数 $f_X$ が
+<a id="def-p2-01-pdf"></a>
 
-$$
-P(a<X\le b)=\int_a^b f_X(x)\,dx
-$$
+<!-- formal-statement-start -->
+> **定義（確率密度関数）**  
+> 非負関数 $f_X$ が全ての $a<b$ について $P(a<X\le b)=\int_a^b f_X(x)\,dx$ を満たし、かつ $\int_{-\infty}^{\infty}f_X(x)\,dx=1$ であるとき、$f_X$ を $X$ の **確率密度関数** という。確率は密度の値そのものではなく、区間上の積分で与えられる。
+<!-- formal-statement-end -->
 
-を全ての $a<b$ で満たし、
-
-$$
-\int_{-\infty}^{\infty}f_X(x)\,dx=1
-$$
-
-であるとき、$f_X$ を確率密度関数と呼びます。
+<!-- definition-example-start: def-p2-01-pdf -->
+**定義の確認**  
+$(0,1)$ 上の一様分布では $f_X(x)=1$ $(0<x<1)$、それ以外で0です。$P(0.2<X\le0.5)=\int_{0.2}^{0.5}1\,dx=0.3$ となり、区間確率が密度の積分で得られます。
+<!-- definition-example-end -->
 
 重要なのは、$f_X(x)$ 自体は確率ではないことです。したがって密度の値が1を超えることはあります。また一点だけなら
 
@@ -125,11 +136,17 @@ $$
 
 ### 2.5 累積分布関数
 
-$$
-F_X(x)=P(X\le x),\qquad x\in\mathbb R
-$$
+<a id="def-p2-01-cdf"></a>
 
-を累積分布関数と呼びます。
+<!-- formal-statement-start -->
+> **定義（累積分布関数）**  
+> 実確率変数 $X$ に対し、$F_X(x)=P(X\le x)$ $(x\in\mathbb R)$ を $X$ の **累積分布関数** という。離散型・連続型・混合型のいずれでも定義できる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p2-01-cdf -->
+**定義の確認**  
+$(0,1)$ 上の一様分布では $0<x<1$ に対して $F_X(x)=x$ です。したがって $F_X(0.3)=P(X\le0.3)=0.3$ となります。
+<!-- definition-example-end -->
 
 離散型なら
 
@@ -146,6 +163,18 @@ $$
 累積分布関数は離散型・連続型・混合分布の全てに対して定義できます。
 
 ### 2.6 同時分布と周辺分布
+
+<a id="def-p2-01-joint-distribution"></a>
+
+<!-- formal-statement-start -->
+> **定義（同時分布）**  
+> 複数の確率変数を確率ベクトル $(X,Y)$ としてまとめたとき、そのベクトルがどの値の組をどの確率で取るかを定める確率法則を **同時分布** という。離散型では同時確率質量関数、連続型では同時確率密度関数によって表現できる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p2-01-joint-distribution -->
+**定義の確認**  
+公平な硬貨を2回投げ、$X,Y$ を各回の表を1・裏を0で表す確率変数とすると、$(X,Y)$ は $(0,0),(0,1),(1,0),(1,1)$ をそれぞれ確率 $1/4$ で取ります。この4点への確率の割当て全体が同時分布です。
+<!-- definition-example-end -->
 
 離散型の $(X,Y)$ に対し
 
@@ -164,17 +193,33 @@ $$
 
 を満たす非負関数 $f_{X,Y}$ を同時確率密度関数とします。
 
-一方の変数だけを残した分布を周辺分布と呼びます。離散型では和、連続型では積分で他方を消去します。
+<a id="def-p2-01-marginal-distribution"></a>
+
+<!-- formal-statement-start -->
+> **定義（周辺分布）**  
+> 同時分布から一部の変数だけを残して得られる分布を **周辺分布** という。二変量の場合、離散型では $p_X(x)=\sum_y p_{X,Y}(x,y)$、連続型では $f_X(x)=\int f_{X,Y}(x,y)\,dy$ のように、不要な変数を和または積分で消去して得る。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p2-01-marginal-distribution -->
+**定義の確認**  
+上の2回の公平な硬貨の例では $p_{X,Y}(1,0)=p_{X,Y}(1,1)=1/4$ なので、$X$ の周辺確率は $p_X(1)=1/4+1/4=1/2$ です。$Y$ を足し消すことで $X$ だけの分布を得ています。
+<!-- definition-example-end -->
+
+離散型では和、連続型では積分で他方を消去します。
 
 ### 2.7 独立
 
-$X,Y$ が独立であるとは、任意の適切な集合 $A,B$ について
+<a id="def-p2-01-rv-independence"></a>
 
-$$
-P(X\in A,Y\in B)=P(X\in A)P(Y\in B)
-$$
+<!-- formal-statement-start -->
+> **定義（確率変数の独立）**  
+> 確率変数 $X,Y$ について、任意の適切な集合 $A,B$ に対し $P(X\in A,Y\in B)=P(X\in A)P(Y\in B)$ が成り立つとき、$X,Y$ は **独立** であるという。これは $X$ から作る事象と $Y$ から作る事象が独立であることを表す。
+<!-- formal-statement-end -->
 
-が成り立つことです。
+<!-- definition-example-start: def-p2-01-rv-independence -->
+**定義の確認**  
+独立な2回の公平な硬貨投げで、各回の表を1・裏を0とする $X,Y$ を考えると、例えば $P(X=1,Y=1)=1/4=(1/2)(1/2)=P(X=1)P(Y=1)$ です。4つの組全てで同様に積へ分解できるため $X,Y$ は独立です。
+<!-- definition-example-end -->
 
 離散型では、全ての台上の点で
 
