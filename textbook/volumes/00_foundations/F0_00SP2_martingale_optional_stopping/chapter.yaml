@@ -1,34 +1,40 @@
 id: "F0-00SP2"
-title: "Encore IV：martingale・submartingale・optional stopping"
+title: "Encore IV：martingale・optional sampling・Doob分解"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00SP1
   - F0-00P3A
+  - F0-00P4A
 official_scope: []
 learning_objectives:
-  - martingaleを条件付き期待値で定義できる
-  - submartingaleとsupermartingaleを区別できる
-  - ランダムウォークや二乗補正過程のmartingale性を示せる
-  - tower propertyからmartingaleの平均保存を導ける
-  - stopped martingaleを説明できる
-  - optional stopping theoremの条件が必要な理由を説明できる
-  - Doob decompositionの意味を予測可能部分とmartingale部分の分離として説明できる
+  - martingale・submartingale・supermartingaleを条件付き期待値で判定できる
+  - predictable processとmartingale transformを説明できる
+  - stopped martingale theoremを証明できる
+  - bounded optional samplingを条件付き等式まで証明できる
+  - UIとVitaliで非有界停止時刻版へ拡張できる
+  - optional stoppingに条件が必要な反例を説明できる
+  - 離散時間Doob decompositionを構成し一意性まで証明できる
 definitions:
   - { id: F000SP2-DEF-01, name: martingale }
   - { id: F000SP2-DEF-02, name: submartingale }
   - { id: F000SP2-DEF-03, name: supermartingale }
   - { id: F000SP2-DEF-04, name: predictable process }
 theorems:
-  - { id: F000SP2-THM-01, name: stopped martingale property }
-  - { id: F000SP2-THM-02, name: optional stopping theorem }
-  - { id: F000SP2-THM-03, name: Doob decomposition }
+  - { id: F000SP2-PROP-01, name: 有界predictable transform }
+  - { id: F000SP2-THM-01, name: stopped martingale theorem }
+  - { id: F000SP2-LEM-01, name: 停止時刻で評価した値の可測性 }
+  - { id: F000SP2-THM-02, name: bounded optional sampling theorem }
+  - { id: F000SP2-THM-03, name: UIによるoptional stopping }
+  - { id: F000SP2-THM-04, name: 離散時間Doob decomposition }
 canonical_examples:
   - 公平ランダムウォーク
   - S_n^2-nsigma^2
   - 条件付き期待値martingale
-problem_patterns: [MARTINGALE-1, OPTIONAL-STOPPING-1]
+  - 倍賭けによるoptional stopping反例
+  - gambler's ruin
+problem_patterns: [MARTINGALE-1, STOPPED-MARTINGALE-1, OPTIONAL-STOPPING-1, DOOB-DECOMPOSITION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4.5, exercises: 1, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 2, review: 0.75 }
