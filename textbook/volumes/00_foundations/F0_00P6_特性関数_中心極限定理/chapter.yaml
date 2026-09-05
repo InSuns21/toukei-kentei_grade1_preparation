@@ -37,4 +37,4 @@ problem_patterns: [CHARFUNC-1, CHARFUNC-UNIQUENESS-1, LEVY-1, CLT-CHARFUNC-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 6, exercises: 1.5, review: 0.75 }
+estimated_hours: { reading: 6.25, exercises: 1.5, review: 0.75 }
