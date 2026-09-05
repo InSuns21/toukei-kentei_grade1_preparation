@@ -1,55 +1,116 @@
 # F0-00SP3 Encore IV：Brown運動・Gaussian過程・二次変分
 
-Brown運動は連続時間確率過程の中心例です。
+Brown運動は、連続時間martingaleとItô解析の基準過程です。ここで重要なのは「正規分布の過程」であることだけではありません。
 
-熱方程式では既にGaussian heat kernelとして姿を見せました。ここでは確率過程として定義し、Itô積分が必要になる原因である二次変分まで進みます。
+> 時間幅 $\Delta t$ のBrown増分は典型的に大きさ $\sqrt{\Delta t}$ なので、その二乗は $\Delta t$ と同じ次数で残る。
 
----
-
-## 1. Brown運動の定義
-
-確率過程 $(B_t)_{t\ge0}$ が標準Brown運動であるとは、
-
-1. $B_0=0$ a.s.
-2. sample path $t\mapsto B_t$ はa.s.連続
-3. disjointな時間区間の増分は独立
-4. $0\le s<t$ に対し
-
-$$
-\boxed{
-B_t-B_s\sim N(0,t-s)
-}
-$$
-
-を満たすことです。
-
-つまり増分は時間差だけで分布が決まり、Gaussianです。
+この事実を二次変分として定理化し、次章のItô公式へ渡します。
 
 ---
 
-## 2. 各時刻の分布
+## 1. Brown運動
 
-$s=0$ とすれば
+<a id="def-f0-00sp3-brownian-motion"></a>
+
+<!-- formal-statement-start -->
+> **定義（標準Brown運動）**  
+> filtration $(\mathcal F_t)_{t\ge0}$ を持つ確率空間上の実数値過程 $(B_t)_{t\ge0}$ が標準Brown運動であるとは、次を満たすことです。
+>
+> 1. $B_0=0$ a.s.
+> 2. $t\mapsto B_t(\omega)$ はa.s.連続である。
+> 3. $0\le t_0<t_1<\cdots<t_m$ に対し増分 $B_{t_1}-B_{t_0},\dots,B_{t_m}-B_{t_{m-1}}$ は独立である。
+> 4. $0\le s<t$ に対し
 
 $$
-\boxed{B_t\sim N(0,t)}.
+B_t-B_s\sim N(0,t-s).
 $$
 
-したがって
+> 5. $B_t$ は $\mathcal F_t$-可測で、未来増分 $B_t-B_s$ は $\mathcal F_s$ と独立である。
+<!-- formal-statement-end -->
+
+最後の条件はnatural filtrationなら独立増分から従いますが、後でより大きいfiltrationを使うため明示しています。
+
+### 1.1 例：1時刻・2増分の分布
+
+<!-- definition-example-start: def-f0-00sp3-brownian-motion -->
+**定義の確認**  
+標準Brown運動なら
 
 $$
-E[B_t]=0,
-\qquad
-E[B_t^2]=t.
+B_1=B_1-B_0\sim N(0,1),
 $$
 
-時間とともに分散が線形に増えます。
+また
 
-これは熱方程式のheat kernelの分散が時間に比例したことと対応します。
+$$
+B_2-B_1\sim N(0,1)
+$$
+
+で、$B_1$ と $B_2-B_1$ は独立です。従って
+
+$$
+B_2=B_1+(B_2-B_1)\sim N(0,2).
+$$
+
+分散が時間差に比例し、互いに素な区間の増分が独立という定義条件を直接使っています。
+<!-- definition-example-end -->
 
 ---
 
-## 3. 共分散を導く
+## 2. Gaussian過程
+
+<a id="def-f0-00sp3-gaussian-process"></a>
+
+<!-- formal-statement-start -->
+> **定義（Gaussian過程）**  
+> 実数値確率過程 $(X_t)_{t\in T}$ がGaussian過程であるとは、任意の有限個の時刻 $t_1,\dots,t_m$ に対して確率ベクトル
+
+$$
+(X_{t_1},\dots,X_{t_m})
+$$
+
+> が多変量正規分布に従うことです。
+<!-- formal-statement-end -->
+
+### 2.1 例：Brown運動はGaussian過程
+
+時刻 $0<t_1<\cdots<t_m$ を固定し
+
+$$
+\Delta_j:=B_{t_j}-B_{t_{j-1}},
+\qquad t_0=0
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00sp3-gaussian-process -->
+**定義の確認**  
+$\Delta_1,\dots,\Delta_m$ は独立な正規確率変数です。また
+
+$$
+B_{t_j}=\Delta_1+\cdots+\Delta_j.
+$$
+
+従って $(B_{t_1},\dots,B_{t_m})$ は独立正規ベクトルの線形変換であり、多変量正規分布です。よってBrown運動はGaussian過程です。
+<!-- definition-example-end -->
+
+---
+
+## 3. 共分散核
+
+<a id="thm-f0-00sp3-covariance"></a>
+
+<!-- formal-statement-start -->
+> **定理（Brown運動の共分散）**  
+> 標準Brown運動に対し、任意の $s,t\ge0$ で
+
+$$
+\boxed{\operatorname{Cov}(B_s,B_t)=\min(s,t)}.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：過去値と未来増分を分ける
 
 $s\le t$ とします。
 
@@ -57,472 +118,424 @@ $$
 B_t=B_s+(B_t-B_s)
 $$
 
-で、増分 $B_t-B_s$ は $B_s$ と独立、平均0です。
-
-したがって
+で、$B_t-B_s$ は $B_s$ と独立、平均0です。従って
 
 $$
-\begin{aligned}
 E[B_sB_t]
-&=E[B_s^2]+E[B_s(B_t-B_s)]\\
-&=s.
-\end{aligned}
+=E[B_s^2]+E[B_s]E[B_t-B_s]
+=s.
 $$
 
-よって
+$E[B_s]=E[B_t]=0$ なので共分散も $s=\min(s,t)$ です。$t<s$ も対称性から同じです。
+<!-- proof-end -->
 
-$$
-\boxed{
-\operatorname{Cov}(B_s,B_t)=\min(s,t)
-}
-$$
-
-です。
-
----
-
-## 4. Brown運動はGaussian過程
-
-任意の
-
-$$
-0\le t_1<\cdots<t_n
-$$
-
-について
-
-$$
-(B_{t_1},\dots,B_{t_n})
-$$
-
-はGaussian増分の線形結合として表せるので、多変量正規分布に従います。
-
-したがってBrown運動はGaussian過程です。
-
-平均関数0と共分散核
+平均0のGaussian過程は共分散核で有限次元分布が決まるので、Brown運動の分布構造は
 
 $$
 K(s,t)=\min(s,t)
 $$
 
-が有限次元分布を決めます。
+に圧縮されています。
 
 ---
 
-## 5. 存在はどこから来るか
+## 4. Brown運動はmartingale
 
-有限個の時刻に対して、平均0・共分散 $\min(s,t)$ の多変量正規分布を指定できます。
+<a id="thm-f0-00sp3-brownian-martingale"></a>
 
-これらが整合的であることを確認し、Kolmogorov拡張定理を使えば確率過程自体を構成できます。
-
-さらにKolmogorov continuity theoremにより、適切な連続修正版が存在することを示せます。
-
-この二つの定理の完全証明はEncore IVの必須にはせず、
+<!-- formal-statement-start -->
+> **定理（Brown運動のmartingale性）**  
+> 標準Brown運動 $(B_t)$ は、そのfiltration $(\mathcal F_t)$ に関して平方可積分martingaleです。また
 
 $$
-\boxed{
-\text{有限次元Gaussian分布}
-\to
-\text{過程の存在}
-\to
-\text{連続path版}
-}
+B_t^2-t
 $$
 
-という構成経路を押さえます。
+> もmartingaleです。
+<!-- formal-statement-end -->
 
----
+<!-- proof-start -->
+### 証明：独立増分の一次・二次モーメントを使う
 
-## 6. martingale性
-
-Brown運動のnatural filtrationを $\mathcal F_t$ とします。
-
-$s<t$ なら
+$s<t$ とします。未来増分 $\Delta B:=B_t-B_s$ は $\mathcal F_s$ と独立で
 
 $$
-B_t=B_s+(B_t-B_s)
+E[\Delta B]=0,
+\qquad
+E[(\Delta B)^2]=t-s.
 $$
 
-で、未来増分は $\mathcal F_s$ と独立で平均0です。
-
-したがって
+従って
 
 $$
-\boxed{
-E[B_t\mid\mathcal F_s]=B_s
-}
+E[B_t\mid\mathcal F_s]
+=B_s+E[\Delta B\mid\mathcal F_s]
+=B_s.
 $$
 
-です。
-
-よってBrown運動は連続時間martingaleです。
-
----
-
-## 7. B_t^2-tもmartingale
-
-$s<t$ について
+また
 
 $$
-B_t=B_s+\Delta B
-$$
-
-と書くと
-
-$$
-B_t^2
-=B_s^2+2B_s\Delta B+(\Delta B)^2.
-$$
-
-条件付き期待値を取れば
-
-$$
-E[\Delta B\mid\mathcal F_s]=0,
-$$
-
-$$
-E[(\Delta B)^2\mid\mathcal F_s]=t-s.
-$$
-
-したがって
-
-$$
-E[B_t^2-t\mid\mathcal F_s]
-=B_s^2-s.
-$$
-
-よって
-
-$$
-\boxed{B_t^2-t\text{ はmartingale}}
-$$
-
-です。
-
----
-
-## 8. scaling property
-
-$c>0$ とし
-
-$$
-\widetilde B_t
-=\frac1{\sqrt c}B_{ct}
-$$
-
-と置きます。
-
-増分は
-
-$$
-\widetilde B_t-\widetilde B_s
-\sim
-N(0,t-s)
-$$
-
-となり、独立性・連続性も保たれます。
-
-したがって
-
-$$
-\boxed{
-\left\{\frac1{\sqrt c}B_{ct}\right\}_{t\ge0}
-\stackrel d=
-\{B_t\}_{t\ge0}
-}
-$$
-
-です。
-
-空間尺度が時間の平方根で伸びることを表します。
-
----
-
-## 9. 二次変分
-
-区間 $[0,t]$ の分割
-
-$$
-0=t_0<t_1<\cdots<t_n=t
-$$
-
-を取り
-
-$$
-Q_n
-=
-\sum_{k=1}^n
-(B_{t_k}-B_{t_{k-1}})^2
-$$
-
-を考えます。
-
-分割幅を0へ近づけると
-
-$$
-\boxed{Q_n\to t}
-$$
-
-が適切な意味で成り立ちます。
-
-これを
-
-$$
-\boxed{[B]_t=t}
-$$
-
-と書きます。
-
----
-
-## 10. 一様分割で平均と分散を見る
-
-$t_k=kt/n$ とします。
-
-各増分は
-
-$$
-\Delta B_k\sim N(0,t/n).
-$$
-
-したがって
-
-$$
-E[(\Delta B_k)^2]=t/n
+B_t^2=B_s^2+2B_s\Delta B+(\Delta B)^2
 $$
 
 なので
 
 $$
-E[Q_n]=t.
+E[B_t^2-t\mid\mathcal F_s]
+=B_s^2+(t-s)-t
+=B_s^2-s.
 $$
 
-Gaussianの四次モーメント
-
-$$
-E[(\Delta B_k)^4]=3(t/n)^2
-$$
-
-を使うと
-
-$$
-\operatorname{Var}((\Delta B_k)^2)
-=2(t/n)^2.
-$$
-
-独立性から
-
-$$
-\operatorname{Var}(Q_n)
-=\frac{2t^2}{n}
-\to0.
-$$
-
-したがって
-
-$$
-Q_n\to t
-$$
-
-が $L^2$、したがって確率収束で得られます。
+平方可積分性は $E[B_t^2]=t<\infty$ から従います。
+<!-- proof-end -->
 
 ---
 
-## 11. 滑らかなpathなら二次変分は0
+## 5. scaling property
 
-十分滑らかな関数 $x(t)$ では
+<a id="thm-f0-00sp3-scaling"></a>
 
-$$
-\Delta x_k
-\approx x'(t_k)\Delta t_k.
-$$
-
-したがって
+<!-- formal-statement-start -->
+> **定理（Brownian scaling）**  
+> 標準Brown運動 $(B_t)$ と定数 $c>0$ に対し
 
 $$
-\sum(\Delta x_k)^2
+\widetilde B_t:=c^{-1/2}B_{ct}
 $$
 
-は分割幅とともに0へ消えます。
-
-一方Brown運動では
+> と置くと、$(\widetilde B_t)_{t\ge0}$ も標準Brown運動です。従って過程として
 
 $$
-\sum(\Delta B_k)^2\to t.
+(c^{-1/2}B_{ct})_{t\ge0}\stackrel d=(B_t)_{t\ge0}.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：定義の条件を移す
+
+$\widetilde B_0=0$ で、pathの連続性は時間・空間の連続な尺度変換で保たれます。互いに素な時間区間は $t\mapsto ct$ で互いに素な区間へ移るため増分の独立性も保たれます。また
+
+$$
+\widetilde B_t-\widetilde B_s
+=c^{-1/2}(B_{ct}-B_{cs})
+\sim N(0,t-s).
 $$
 
-つまりBrown運動のpathは通常の滑らかな曲線とは根本的に違います。
+従って標準Brown運動の定義を満たします。
+<!-- proof-end -->
 
 ---
 
-## 12. 通常の微積分が壊れる
+## 6. 二次変分
 
-通常の微積分では二次の微小量
+<a id="def-f0-00sp3-quadratic-variation-sum"></a>
 
-$$
-(dx)^2
-$$
-
-は高次項として捨てます。
-
-しかしBrown運動では形式的に
+<!-- formal-statement-start -->
+> **定義（二次変分和）**  
+> 区間 $[0,T]$ の有限分割
 
 $$
-\boxed{(dB_t)^2=dt}
+\pi=\{0=t_0<t_1<\cdots<t_m=T\}
 $$
 
-に対応する二次変分が残ります。
-
-このためTaylor展開で二階項を捨てられません。
-
-これがItô公式に
+> に対し、過程 $X$ の二次変分和を
 
 $$
-\frac12 f''
+Q_\pi(X;T)
+:=\sum_{k=1}^m(X_{t_k}-X_{t_{k-1}})^2
 $$
 
-項が現れる理由です。
+> と定めます。分割幅を $|\pi|:=\max_k(t_k-t_{k-1})$ と書きます。
+<!-- formal-statement-end -->
+
+### 6.1 例：滑らかな関数では0へ消える
+
+$f\in C^1([0,T])$ を決定論的過程とみなします。
+
+<!-- definition-example-start: def-f0-00sp3-quadratic-variation-sum -->
+**定義の確認**  
+平均値の定理から
+
+$$
+|f(t_k)-f(t_{k-1})|
+\le \|f'\|_\infty(t_k-t_{k-1}).
+$$
+
+従って
+
+$$
+Q_\pi(f;T)
+\le\|f'\|_\infty^2
+\sum_k(t_k-t_{k-1})^2
+\le\|f'\|_\infty^2T|\pi|\to0.
+$$
+
+二次変分和という定義量を実際に計算すると、滑らかなpathでは0へ消えます。
+<!-- definition-example-end -->
 
 ---
 
-## 13. 非微分可能性
+## 7. Brown運動の二次変分は時間そのもの
 
-Brown運動のsample pathはa.s.至る所で通常の意味に微分可能、ではありません。実際、a.s.どの点でも微分可能でないという非常に粗いpathを持ちます。
+<a id="thm-f0-00sp3-quadratic-variation"></a>
 
-完全証明は発展としますが、scalingと二次変分からも「速度 $dB_t/dt$ を普通の関数として持つ」ことが不可能そうだと分かります。
+<!-- formal-statement-start -->
+> **定理（Brown運動の二次変分）**  
+> $B$ を標準Brown運動とし、$[0,T]$ の決定論的分割列 $\pi_n$ が $|\pi_n|\to0$ を満たすとします。このとき
+
+$$
+\boxed{
+Q_{\pi_n}(B;T)
+=\sum_k(B_{t_k^{(n)}}-B_{t_{k-1}^{(n)}})^2
+\longrightarrow T
+}
+$$
+
+> が $L^2$、従って確率収束で成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：平均は $T$、分散はmeshで消える
+
+一つの分割 $\pi$ を固定し
+
+$$
+\Delta_kB:=B_{t_k}-B_{t_{k-1}},
+\qquad
+\Delta_kt:=t_k-t_{k-1}
+$$
+
+と書きます。各増分は独立で $\Delta_kB\sim N(0,\Delta_kt)$ です。従って
+
+$$
+E[Q_\pi(B;T)]=\sum_k\Delta_kt=T.
+$$
+
+正規分布の四次モーメントから
+
+$$
+\operatorname{Var}((\Delta_kB)^2)=2(\Delta_kt)^2.
+$$
+
+独立性により
+
+$$
+\begin{aligned}
+\operatorname{Var}(Q_\pi(B;T))
+&=2\sum_k(\Delta_kt)^2\\
+&\le2|\pi|\sum_k\Delta_kt
+=2T|\pi|.
+\end{aligned}
+$$
+
+従って
+
+$$
+E|Q_\pi(B;T)-T|^2\le2T|\pi|\to0.
+$$
+<!-- proof-end -->
+
+この定理を $[B]_T=T$ と記号的に書きます。
 
 ---
 
-## 14. white noiseとの接続
+## 8. weighted quadratic variation
 
-形式的に
+Itô公式では単なる $\sum(\Delta B)^2$ ではなく、過去情報で決まる係数を掛けた和が現れます。
 
-$$
-\xi(t)=\frac{dB_t}{dt}
-$$
+<a id="lem-f0-00sp3-weighted-qv"></a>
 
-と書く対象をwhite noiseと呼びます。
-
-しかしBrown運動は通常微分できないので、$\xi(t)$ は普通の関数ではありません。
-
-Encore IIIの言葉では、white noiseをSchwartz超関数値のランダム対象として扱うのが自然です。
-
-形式的な共分散
+<!-- formal-statement-start -->
+> **補題（有界predictable係数付き二次変分）**  
+> 分割 $\pi=\{t_k\}$ に対し、$H_k$ を $\mathcal F_{t_{k-1}}$-可測で $|H_k|\le C$ a.s. とします。このとき $|\pi|\to0$ なら
 
 $$
-E[\xi(t)\xi(s)]
-=\delta(t-s)
+\boxed{
+\sum_kH_k\left\{(\Delta_kB)^2-\Delta_kt\right\}
+\longrightarrow0
+}
 $$
 
-にDirac deltaが現れます。
+> が $L^2$ で成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：中心化二乗増分もmartingale差分
+
+$$
+Y_k:=H_k\{(\Delta_kB)^2-\Delta_kt\}
+$$
+
+と置きます。$H_k$ は過去情報で決まり、$\Delta_kB$ はその過去と独立なので
+
+$$
+E[Y_k\mid\mathcal F_{t_{k-1}}]=0.
+$$
+
+異なる $k$ のcross termは条件付き期待値を順に取ると0です。さらに
+
+$$
+E[Y_k^2]
+\le C^2\operatorname{Var}((\Delta_kB)^2)
+=2C^2(\Delta_kt)^2.
+$$
+
+よって
+
+$$
+E\left|\sum_kY_k\right|^2
+\le2C^2T|\pi|\to0.
+$$
+<!-- proof-end -->
+
+これがTaylor二階項を
+
+$$
+\frac12\sum f''(B_{t_{k-1}})(\Delta_kB)^2
+\quad\leadsto\quad
+\frac12\int_0^Tf''(B_s)ds
+$$
+
+へ置き換える計算の核心です。
 
 ---
 
-## 15. Itô積分への入口
+## 9. なぜ通常のchain ruleが壊れるか
 
-次章では
+通常の滑らかなpathなら $\sum(\Delta x)^2\to0$ なのでTaylor二階項は消えます。しかしBrown運動では
 
 $$
-\int_0^t H_s\,dB_s
+\sum(\Delta B)^2\to T.
 $$
 
-を定義します。
+したがって形式的には
 
-通常のRiemann--Stieltjes積分ではBrown運動pathの粗さが問題になります。
+$$
+(dB_t)^2=dt
+$$
 
-そこで
-
-- predictableな被積分過程
-- $L^2$ 極限
-- Itô isometry
-
-を使って確率的積分を構成します。
+という次数勘定を持ち、二階項を捨てられません。
 
 ---
 
-## 演習
+## 10. pathの非微分可能性とwhite noise
 
-### F0-00SP3-A01 共分散と増分分布
+Brown運動pathはa.s.どの点でも通常の意味で微分可能でない、というさらに強い定理があります。この完全証明にはlaw of iterated logarithm等の別の道具が必要なので、ここでは **P3黒箱** とします。
+
+形式的な時間微分 $\xi(t)=dB_t/dt$ は通常関数ではなくwhite noiseと呼ばれ、Schwartz超関数として扱うのが自然です。この発展事項は次章のItô公式の証明には使いません。必要なのは前節までの二次変分です。
+
+---
+
+# 11. 演習
+
+## F0-00SP3-A01 共分散を導く
+
+- Level: A
+- 目安時間: 10分
+
+$0\le s\le t$ に対して $\operatorname{Cov}(B_s,B_t)=s$ を独立増分から示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$B_t=B_s+(B_t-B_s)$ と分解し、未来増分が $B_s$ と独立かつ平均0であることを使うと $E[B_sB_t]=E[B_s^2]=s$。平均はともに0なので共分散も $s$。
+
+### 本番答案
+
+$E[B_s(B_t-B_s)]=0$ と $E[B_s^2]=s$ を使う。
+
+### 採点基準（20点）
+- 増分分解：6点
+- 独立性：7点
+- 結論：7点
+<!-- solution-end -->
+
+## F0-00SP3-A02 $B_t^2-t$ のmartingale性
 
 - Level: A
 - 目安時間: 12分
 
-標準Brown運動について $s=1,t=3$ とする。
-
-1. $\operatorname{Cov}(B_1,B_3)$ を求めよ。
-2. $B_3-B_1$ の分布を求めよ。
-3. $\operatorname{Corr}(B_1,B_3)$ を求めよ。
+$0\le s<t$ に対して $E[B_t^2-t\mid\mathcal F_s]=B_s^2-s$ を示せ。
 
 <!-- solution-start -->
-#### 詳細解答
+### 詳細解答
 
-$\operatorname{Cov}(B_s,B_t)=\min(s,t)$ より共分散は1。増分は $N(0,3-1)=N(0,2)$。また $\operatorname{Var}(B_1)=1$, $\operatorname{Var}(B_3)=3$ なので
+$B_t=B_s+\Delta B$ とし、$E[\Delta B\mid\mathcal F_s]=0$, $E[(\Delta B)^2\mid\mathcal F_s]=t-s$ を使う。
 
-$$
-\operatorname{Corr}(B_1,B_3)=\frac1{\sqrt{1\cdot3}}=\frac1{\sqrt3}.
-$$
+### 本番答案
 
-#### 本番答案
+二乗展開に条件付き期待値を適用して交差項を0、二乗増分を $t-s$ にする。
 
-$\operatorname{Cov}(B_1,B_3)=1$、$B_3-B_1\sim N(0,2)$、$\operatorname{Corr}(B_1,B_3)=1/\sqrt3$。
-
-#### 採点基準（20点）
-- 共分散: 6点
-- 増分分布: 7点
-- 相関係数: 7点
+### 採点基準（20点）
+- 二乗展開：6点
+- 二つの条件付きモーメント：10点
+- 結論：4点
 <!-- solution-end -->
 
-### F0-00SP3-B01 二次変分を $L^2$ で確認する
+## F0-00SP3-B01 非一様分割でも二次変分を示す
 
 - Level: B
 - 目安時間: 18分
 
-$[0,t]$ を $n$ 等分し
-
-$$
-Q_n=\sum_{k=1}^n(B_{kt/n}-B_{(k-1)t/n})^2
-$$
-
-とする。$E[Q_n]$ と $\operatorname{Var}(Q_n)$ を求め、$Q_n\to t$ in $L^2$ を示せ。
+決定論的分割 $\pi$ に対し $Q_\pi=\sum_k(\Delta_kB)^2$ と置く。$E[Q_\pi]=T$ と $\operatorname{Var}(Q_\pi)\le2T|\pi|$ を示し、$|\pi|\to0$ なら $Q_\pi\to T$ in $L^2$ を導け。
 
 <!-- solution-start -->
-#### 詳細解答
+### 詳細解答
 
-各増分 $\Delta B_k\sim N(0,t/n)$ は独立。よって $E[(\Delta B_k)^2]=t/n$ から $E[Q_n]=t$。正規分布の四次モーメントより
-
-$$
-\operatorname{Var}((\Delta B_k)^2)=2(t/n)^2.
-$$
-
-独立性から
+各増分は独立な $N(0,\Delta_kt)$。二次・四次モーメントから期待値は $T$、分散は
 
 $$
-\operatorname{Var}(Q_n)=n\,2(t/n)^2=\frac{2t^2}{n}.
+2\sum_k(\Delta_kt)^2\le2|\pi|T.
 $$
 
-したがって $E[(Q_n-t)^2]=2t^2/n\to0$。
+### 本番答案
 
-#### 本番答案
+独立正規増分の二次・四次モーメントを足し合わせる。
 
-$E[Q_n]=t$, $\operatorname{Var}(Q_n)=2t^2/n$。従って $E[(Q_n-t)^2]\to0$ なので $Q_n\to t$ in $L^2$。
+### 採点基準（20点）
+- 増分分布：5点
+- 期待値：5点
+- 分散評価：7点
+- $L^2$収束：3点
+<!-- solution-end -->
 
-#### 採点基準（20点）
-- 増分の分布・独立性: 4点
-- 期待値: 5点
-- 四次モーメントから分散: 7点
-- $L^2$収束: 4点
+## F0-00SP3-B02 weighted quadratic variation
+
+- Level: B
+- 目安時間: 20分
+
+$H_k\in\mathcal F_{t_{k-1}}$, $|H_k|\le C$ とする。
+
+$$
+Z_\pi=\sum_kH_k\{(\Delta_kB)^2-\Delta_kt\}
+$$
+
+について $E|Z_\pi|^2\le2C^2T|\pi|$ を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+各項は過去に関する条件付き平均0を持つためcross termが消える。各二乗期待値は $2C^2(\Delta_kt)^2$ 以下なので和を取れば主張。
+
+### 本番答案
+
+中心化二乗増分をmartingale差分として直交させ、分散を加える。
+
+### 採点基準（20点）
+- 条件付き平均0：7点
+- cross term消失：6点
+- 分散評価：7点
 <!-- solution-end -->
 
 ---
 
 ## 章末チェック
 
-- Brown運動の定義を説明できる。
-- $B_t\sim N(0,t)$ を導ける。
-- 共分散 $\min(s,t)$ を導ける。
-- Brown運動がGaussian過程・martingaleであることを説明できる。
-- $B_t^2-t$ のmartingale性を示せる。
-- scaling propertyを説明できる。
-- 一様分割で二次変分が $t$ へ収束することを計算できる。
-- 二次変分がItô公式の二階項につながることを説明できる。
-- white noiseとSchwartz超関数の接続を説明できる。
+- Brown運動の定義条件を列挙できる。
+- Brown運動がGaussian過程であることを示せる。
+- 共分散 $\min(s,t)$ とmartingale性を導ける。
+- Brownian scalingを定義から証明できる。
+- 一般の決定論的細分割で $[B]_T=T$ を $L^2$ で証明できる。
+- predictable係数付き二次変分の中心化誤差が0へ行くことを示せる。
+- 二次変分がItô公式の二階項を生む理由を説明できる。
