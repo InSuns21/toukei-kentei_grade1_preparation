@@ -198,8 +198,7 @@ $$
 \sum_{j,k}c_j\overline{c_k}\gamma(t_j-t_k)
 &=
 \int_{\mathbb T}
-\sum_{j,k}c_j\overline{c_k}
-e^{i(t_j-t_k)\lambda}
+\sum_{j,k}c_j\overline{c_k}e^{i(t_j-t_k)\lambda}
 \,F(d\lambda)\\
 &=
 \int_{\mathbb T}
@@ -896,7 +895,7 @@ $$
 
 となります。
 
-ただしこれはHerglotzより一段深く、ランダム測度の $L^2$ 構成が必要です。この章では **Herglotzは完全証明済み、spectral representation theoremは高度な次段階** と明確に分離します。監査上も後者はP2の独立残件です。
+ただしこれはHerglotzより一段深く、ランダム測度の $L^2$ 構成が必要です。この章では **Herglotzを完全に証明し、spectral representation theoremはその先の発展事項として切り分けます。**
 
 ---
 
