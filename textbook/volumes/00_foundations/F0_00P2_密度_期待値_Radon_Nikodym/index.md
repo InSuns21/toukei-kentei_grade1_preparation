@@ -312,7 +312,7 @@ $$
 $$
 \int_{A_{m,n}}f\,d\mu
 \ge
-\int_{A_{m,n}}g\,d\mu+rac1n\mu(A_{m,n}),
+\int_{A_{m,n}}g\,d\mu+\frac1n\mu(A_{m,n}),
 $$
 
 となり、両積分が等しいことに矛盾します。従って $f\le g$ a.e. です。役割を交換すれば $g\le f$ a.e. なので
@@ -384,14 +384,56 @@ $$
 
 ## 6. 支配測度
 
-統計モデル $\{P_\theta:\theta\in\Theta\}$ に対し、すべての $P_\theta$ が同じ測度 $\mu$ に関して絶対連続なら
+<a id="def-f0-00p2-dominating-measure"></a>
+
+<!-- formal-statement-start -->
+> **定義（支配測度）**  
+> 同じ可測空間上の統計モデル $\{P_\theta:\theta\in\Theta\}$ に対し、測度 $\mu$ が
 
 $$
 P_\theta\ll\mu
-\qquad(\forall\theta\in\Theta),
+\qquad(\forall\theta\in\Theta)
 $$
 
-この $\mu$ を**支配測度**と呼びます。そのとき
+> を満たすとき、$\mu$ をこの統計モデルの**支配測度**と呼びます。
+<!-- formal-statement-end -->
+
+### 6.1 例：Bernoulliモデルの支配測度
+
+$\Omega=\{0,1\}$ 上のBernoulliモデル
+
+$$
+P_p(X=1)=p,
+\qquad 0\le p\le1
+$$
+
+を考え、$\#$ を $\{0,1\}$ 上の数え上げ測度とします。
+
+<!-- definition-example-start: def-f0-00p2-dominating-measure -->
+**定義の確認**  
+任意の $A\subseteq\{0,1\}$ について
+
+$$
+\#(A)=0\Longrightarrow A=\varnothing.
+$$
+
+従ってすべての $p\in[0,1]$ について
+
+$$
+P_p(A)=P_p(\varnothing)=0.
+$$
+
+よって
+
+$$
+P_p\ll\#
+\qquad(\forall p\in[0,1]),
+$$
+
+なので、$\#$ はBernoulliモデルの支配測度です。
+<!-- definition-example-end -->
+
+支配測度があれば
 
 $$
 p_\theta=\frac{dP_\theta}{d\mu}
