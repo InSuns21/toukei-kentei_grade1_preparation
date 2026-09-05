@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - F0-00P1
   - F0-00D2D
+  - F0-00D2E
   # L^2表現補題の証明で Hilbert射影定理を実使用する。
   # F0-02C1A 自体はまだknowledge未移行だが、ページDAG上の依存は先に明示する。
   - F0-02C1A
