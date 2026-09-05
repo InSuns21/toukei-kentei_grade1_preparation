@@ -25,10 +25,11 @@ concepts:
       - prob.independent-events
       - measure.sigma-algebra
 
+  # 冒頭の流れ図にも「独立な確率変数」が出るため、σ代数による定義を説明する本文句を初出マーカーにする。
   - id: prob.independent-random-variables
     name: 独立な確率変数
     kind: term
-    aliases: ["確率変数 X,Y の独立性", 独立な確率変数]
+    aliases: ["の独立性は、それぞれが生成する sigma代数"]
     requires:
       - prob.independent-sigma-algebras
       - prob.random-variable
