@@ -18,7 +18,7 @@ $$
 
 です。
 
-特に正則な最尤推定量については、単に
+特に正則な1母数モデルの最尤推定量については、単に
 
 $$
 \hat\theta_{\mathrm{ML}}
@@ -26,7 +26,7 @@ $$
 N\!\left(\theta,\frac1{I_n(\theta)}\right)
 $$
 
-と暗記するのではなく、なぜこの形になるかを**スコアの中心極限定理・対数尤度の曲率・Taylor展開・Slutskyの定理**から導きます。
+と暗記するのではなく、なぜこの形になるかを**スコアの中心極限定理・対数尤度の二階微分・Taylor展開・Slutskyの定理**から導きます。
 
 本章は [通常教材の執筆スタイルガイド](../../../style-guide.md)、[共通演習規約](../../../../EXERCISE_GUIDELINES.md)、[共通記号ガイド](../../../../references/notation-guide.md)、[共通用語ガイド](../../../../references/terminology-guide.md)、[分布・記号ガイド](../../../../references/distribution-notation-guide.md) に従います。
 
@@ -38,32 +38,45 @@ $$
 - [P4-02 の独立同分布中心極限定理](../../02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md#thm-p4-02-iid-clt)
 - P4-02 §5: Slutsky型の定理と連続写像
 
+## 本章の範囲の見取り図
+
+通常ルートと発展項目を分けます。
+
+| 区分 | 内容 |
+|---|---|
+| **通常ルート** | root-$n$ 漸近正規性、1母数最尤推定量の漸近正規性、漸近分散、観測情報量、**1変量デルタ法**、1母数再母数化、非正則例 |
+| **補足** | 一次導関数が0の場合の二次デルタ法 |
+| **発展** | 多変量デルタ法、フィッシャー情報行列、多母数最尤推定量の一般的な漸近正規性 |
+
+統計検定1級の通常ルートでは、フィッシャー情報量は**1次元**を中心に扱います。したがって、多変量デルタ法や情報行列は「知っていると見通しがよい一般化」ではありますが、本章の必須到達目標にはしません。
+
 ## この章で解けるようになる問題
 
 - $\sqrt n(T_n-\theta)$ の極限分布から、$T_n$ の大標本でのばらつきを読める。
-- 「漸近分散」と有限標本の分散を混同せず、$V(\theta)/n$ の形へ戻せる。
-- スコア方程式を真値のまわりでTaylor展開し、正則な最尤推定量の漸近正規性を導出できる。
+- 「root-$n$ 漸近分散」と有限標本の分散を混同せず、$V(\theta)/n$ の形へ戻せる。
+- スコア方程式を真値のまわりでTaylor展開し、正則な**1母数**最尤推定量の漸近正規性を導出できる。
 - 期待フィッシャー情報量と観測情報量を区別し、最尤推定量の標準誤差近似を作れる。
 - 1変量デルタ法で、率・オッズ・対数オッズ・標準偏差などの変換後の漸近分散を求められる。
-- 多変量デルタ法で勾配・ヤコビ行列から分散共分散行列を変換できる。
-- $g'(\theta)=0$ のとき一次デルタ法が退化することを見抜き、必要なら二次項まで展開できる。
-- 再母数化後のフィッシャー情報量とデルタ法の漸近分散が一致することを確認できる。
+- $g'(\theta)=0$ のとき一次デルタ法が退化することを見抜き、必要なら二次項を見るべきだと判断できる。
+- 1母数の再母数化後のフィッシャー情報量とデルタ法の漸近分散が一致することを確認できる。
 - 一様分布の最大値のような非正則モデルで $\sqrt n$ 正規近似が破れることを説明できる。
 
 ## 公式出題範囲との対応
 
-| 範囲 | 本章の内容 |
+| 範囲 | 本章の通常ルート |
 |---|---|
-| 最尤推定量の漸近正規性 | スコア方程式のTaylor展開、スコアの中心極限定理、二階微分の大数の法則、Slutskyの定理 |
-| デルタ法 | 1変量、多変量、一次導関数0の場合の二次展開 |
+| 最尤推定量の漸近正規性 | 1母数モデルでスコア方程式をTaylor展開し、中心極限定理・二階微分の確率収束・Slutskyの定理で導く |
+| デルタ法 | **1変量デルタ法**を中心に扱う |
 | 漸近分散 | root-$n$ 漸近分散、フィッシャー情報量逆数、変換後の漸近分散 |
+| フィッシャー情報量 | 1次元の情報量と観測情報量 |
 
 ## 前提知識チェック
 
 1. I1-01: 尤度、対数尤度、スコア方程式を扱える。
-2. I1-02: フィッシャー情報量、正則条件、クラーメル・ラオ下限を扱える。
+2. I1-02: 1母数のフィッシャー情報量、正則条件、クラーメル・ラオ下限を扱える。
 3. P4-02: 確率収束・分布収束・中心極限定理・Slutskyの定理を使える。
-4. 1変数・多変数のTaylor展開、勾配、ヤコビ行列を使える。
+4. 1変数のTaylor展開を使える。
+5. $O_p,o_p$ の意味を既習として使う。
 
 ---
 
@@ -128,7 +141,7 @@ $$
 <a id="def-i2-01-asymptotic-variance"></a>
 
 <!-- formal-statement-start -->
-> **定義（漸近分散）**  
+> **定義（root-$n$ 漸近分散）**  
 > 本章では
 
 $$
@@ -150,21 +163,31 @@ $$
 
 と読みます。
 
-### 2.1 漸近分散と有限標本分散は同じではない
+### 2.1 `AVar` の意味
+
+本章の演習では式を短くするため
+
+$$
+\boxed{
+\operatorname{AVar}(T_n):=V(\theta)
+}
+$$
+
+と書くことがあります。つまり、`AVar` は本章では**root-$n$ 漸近分散**の略記です。
 
 $$
 \sqrt n(T_n-\theta)\Rightarrow N(0,V)
 $$
 
-と書いたとき、$V$ は $T_n$ 自身の有限標本分散ではありません。近似的には
+なら
 
 $$
-\operatorname{Var}(T_n)\approx\frac Vn
+\operatorname{AVar}(T_n)=V,
+\qquad
+\operatorname{Var}(T_n)\approx\frac{V}{n}.
 $$
 
-です。
-
-文献によっては $V/n$ を「漸近分散」と呼ぶこともあります。本教材では式の曖昧さを避けるため、必ず中心化・尺度調整した極限式を先に書きます。
+したがって `AVar` と有限標本の $\operatorname{Var}(T_n)$ は同じものではありません。文献によって「漸近分散」の語法には揺れがあるため、本教材では必ず最初に尺度付きの極限式を確認します。
 
 ### 2.2 例: 標本平均
 
@@ -183,13 +206,21 @@ $$
 \xrightarrow{d}N(0,\sigma^2).
 $$
 
-したがって $\bar X$ の root-$n$ 漸近分散は $\sigma^2$、大標本近似での分散は $\sigma^2/n$ です。
+したがって
+
+$$
+\operatorname{AVar}(\bar X)=\sigma^2,
+\qquad
+\operatorname{Var}(\bar X)=\frac{\sigma^2}{n}.
+$$
 
 ---
 
 ## 3. 正則な最尤推定量はなぜ漸近正規になるか
 
-真の母数を $\theta_0$ とし、独立同分布標本の対数尤度を
+ここでは**1母数**の独立同分布モデルに絞ります。
+
+真の母数を $\theta_0$ とし、対数尤度を
 
 $$
 \ell_n(\theta)=\sum_{i=1}^n\log f(X_i;\theta)
@@ -201,15 +232,15 @@ $$
 U_n(\theta)=\ell_n'(\theta).
 $$
 
-最尤推定量 $\hat\theta_n$ が内点にあり、スコア方程式を満たすなら
+最尤推定量 $\hat\theta_n$ が母数空間の内点にあり、スコア方程式を満たすなら
 
 $$
 U_n(\hat\theta_n)=0.
 $$
 
-### 3.1 Taylor展開
+### 3.1 スコア方程式をTaylor展開する
 
-平均値の定理を用いると、$\theta_0$ と $\hat\theta_n$ の間の点 $\tilde\theta_n$ が存在して
+平均値の定理を使うと、$\theta_0$ と $\hat\theta_n$ の間の点 $\tilde\theta_n$ が存在して
 
 $$
 0
@@ -221,13 +252,22 @@ $$
 です。よって
 
 $$
+\boxed{
 \sqrt n(\hat\theta_n-\theta_0)
 =
 \left\{-\frac1n\ell_n''(\tilde\theta_n)\right\}^{-1}
-\frac{U_n(\theta_0)}{\sqrt n}.
+\frac{U_n(\theta_0)}{\sqrt n}
+}.
 $$
 
-右辺は「スコアの和の確率変動」と「対数尤度の平均曲率」の積に分かれました。
+右辺は、
+
+1. $U_n(\theta_0)/\sqrt n$: **スコアの確率変動**
+2. $-\ell_n''(\tilde\theta_n)/n$: **対数尤度の負の二階微分を1観測あたりに直した量**
+
+に分かれました。
+
+二階微分が大きいほど、対数尤度の山は真値付近で尖っています。「曲率」という言葉を使うこともありますが、本章では新しい数学的対象を導入しているわけではなく、単に $-\ell_n''$ の大きさを直観的にそう呼んでいるだけです。
 
 ### 3.2 スコア側の極限
 
@@ -256,21 +296,39 @@ $$
 N(0,I_1(\theta_0)).
 $$
 
-### 3.3 曲率側は大数の法則
+### 3.3 二階微分側はフィッシャー情報量へ近づく
 
 正則条件下では
 
 $$
--I_1(\theta_0)=E[\ell_1''(\theta_0)].
+I_1(\theta_0)
+=-E[\ell_1''(\theta_0)].
 $$
 
-さらに $\hat\theta_n\xrightarrow{p}\theta_0$ と、近傍で二階微分に対する一様な大数の法則が使える条件を仮定すると
+また、$\hat\theta_n\xrightarrow{p}\theta_0$ なら、その間にある $\tilde\theta_n$ も $\theta_0$ の近くへ入っていきます。さらに真値の近くで二階微分が十分安定しており、大数の法則を適用できる正則条件の下では
 
 $$
+\boxed{
 -\frac1n\ell_n''(\tilde\theta_n)
 \xrightarrow{p}
-I_1(\theta_0).
+I_1(\theta_0)
+}
 $$
+
+となります。
+
+試験対策として重要なのは、
+
+$$
+\text{スコア側は中心極限定理},
+\qquad
+\text{二階微分側は情報量へ確率収束}
+$$
+
+という役割分担です。
+
+> **発展メモ（厳密化）**  
+> $\tilde\theta_n$ は標本から決まるランダムな点なので、固定した $\theta_0$ だけに通常の大数の法則を適用すれば自動的に上式が出るわけではありません。厳密な証明では、真値近傍で二階微分を**一様に制御**できる条件を置きます。その代表的な道具が一様大数の法則です。ここは最尤推定量の漸近正規性を厳密化するための「地下数学」であり、本章の通常ルートでは定理そのものを使いこなすことを要求しません。
 
 ### 3.4 Slutskyの定理で結合する
 
@@ -286,7 +344,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正則な1母数最尤推定量の漸近正規性）**  
-> 真値 $\theta_0$ が母数空間の内点にあり、支持が局所的に母数へ依存せず、対数尤度が十分滑らかで、スコアの中心極限定理と対数尤度二階微分の大数の法則が成り立ち、$0<I_1(\theta_0)<\infty$ とする。さらに内点の最尤推定量 $\hat\theta_n$ が一致的でスコア方程式を満たすとする。このとき
+> 真値 $\theta_0$ が母数空間の内点にあり、支持が局所的に母数へ依存せず、対数尤度が十分滑らかで、スコアの中心極限定理と対数尤度二階微分の必要な確率収束が成り立ち、$0<I_1(\theta_0)<\infty$ とする。さらに内点の最尤推定量 $\hat\theta_n$ が一致的でスコア方程式を満たすとする。このとき
 
 $$
 \boxed{
@@ -299,7 +357,13 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-独立同分布標本では $I_n(\theta_0)=nI_1(\theta_0)$ なので、大標本では
+独立同分布標本では
+
+$$
+I_n(\theta_0)=nI_1(\theta_0)
+$$
+
+なので、大標本では
 
 $$
 \boxed{
@@ -311,7 +375,15 @@ $$
 
 ### 3.5 定理の仮定は飾りではない
 
-この定理は「最尤推定量なら何でも正規になる」とは言っていません。境界上の真値、支持が母数に依存するモデル、フィッシャー情報量が有限正でない場合、識別不能、一致性がない極大点を選んだ場合などでは、収束率や極限分布が変わることがあります。
+この定理は「最尤推定量なら何でも正規になる」とは言っていません。たとえば、
+
+- 真値が母数空間の境界にある
+- 支持が母数に依存する
+- フィッシャー情報量が有限正でない
+- モデルが識別不能
+- 一致的でない極大点を選ぶ
+
+といった場合には、収束率や極限分布が変わることがあります。
 
 ---
 
@@ -324,7 +396,7 @@ I_n(\theta)
 =-E_\theta[\ell_n''(\theta)]
 $$
 
-でした。一方、実際に観測したデータでの曲率そのものを使う量もあります。
+でした。一方、実際に観測したデータに対する負の二階微分そのものも使います。
 
 <a id="def-i2-01-observed-information"></a>
 
@@ -341,13 +413,21 @@ $$
 > を観測情報量という。
 <!-- formal-statement-end -->
 
+グラフでいえば、$j_n$ は対数尤度の山の「尖り具合」を測ります。これはあくまで $-\ell_n''$ の直観的説明です。
+
 たとえば指数分布の率母数 $\lambda$ では
 
 $$
 \ell_n''(\lambda)=-\frac n{\lambda^2}
 $$
 
-なので $j_n(\lambda)=n/\lambda^2$ です。この例では二階微分がデータに依存しないため、観測情報量と期待フィッシャー情報量が一致します。
+なので
+
+$$
+j_n(\lambda)=\frac n{\lambda^2}.
+$$
+
+この例では二階微分がデータに依存しないため、観測情報量と期待フィッシャー情報量が一致します。
 
 一般には有限標本で両者は一致しませんが、正則な大標本では同じ一次の尺度 $n$ を持ちます。そのため最尤推定量の標準誤差は
 
@@ -388,7 +468,7 @@ $$
 > を満たすとき、本章では $T_n$ がフィッシャー情報量に基づく漸近効率限界を達成するといい、漸近有効と呼ぶ。
 <!-- formal-statement-end -->
 
-[正則な1母数最尤推定量の漸近正規性](#thm-i2-01-mle-asymptotic-normality)により、正則な最尤推定量はこの形を持ちます。ただし、「漸近分布がこの分散を持つ」ことと「有限標本の分散が厳密に $I_n^{-1}$ である」ことは別です。
+[正則な1母数最尤推定量の漸近正規性](#thm-i2-01-mle-asymptotic-normality)により、正則な最尤推定量はこの形を持ちます。ただし、有限標本の分散が厳密に $I_n^{-1}$ であるという意味ではありません。
 
 ---
 
@@ -400,7 +480,14 @@ $$
 \eta=g(\theta)
 $$
 
-である場面は多くあります。たとえば、率 $\lambda$ から平均寿命 $1/\lambda$、成功確率 $p$ からオッズ $p/(1-p)$、成功確率 $p$ から対数オッズ $\log\{p/(1-p)\}$、分散 $v$ から標準偏差 $\sqrt v$ への変換です。
+である場面は多くあります。たとえば、
+
+- 率 $\lambda$ から平均寿命 $1/\lambda$
+- 成功確率 $p$ からオッズ $p/(1-p)$
+- 成功確率 $p$ から対数オッズ $\log\{p/(1-p)\}$
+- 分散 $v$ から標準偏差 $\sqrt v$
+
+への変換です。
 
 ### 6.1 Taylor展開から導く
 
@@ -411,7 +498,13 @@ g(T_n)
 =g(\theta)+g'(\theta)(T_n-\theta)+r_n,
 $$
 
-ここで $r_n=o_p(|T_n-\theta|)$ です。$T_n-\theta=O_p(n^{-1/2})$ なら
+ここで
+
+$$
+r_n=o_p(|T_n-\theta|).
+$$
+
+$T_n-\theta=O_p(n^{-1/2})$ なら
 
 $$
 \sqrt n\,r_n=o_p(1).
@@ -428,7 +521,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（1変量デルタ法）**  
-> 推定量 $T_n$ が $\sqrt n(T_n-\theta)\xrightarrow{d}N(0,V(\theta))$ を満たし、$g$ が $\theta$ で微分可能とする。このとき
+> 推定量 $T_n$ が
+
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N(0,V(\theta))
+$$
+
+> を満たし、$g$ が $\theta$ で微分可能とする。このとき
 
 $$
 \boxed{
@@ -441,7 +540,16 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-したがって大標本で
+したがって
+
+$$
+\boxed{
+\operatorname{AVar}\{g(T_n)\}
+=\{g'(\theta)\}^2\operatorname{AVar}(T_n)
+}
+$$
+
+であり、大標本では
 
 $$
 \operatorname{Var}\{g(T_n)\}
@@ -493,7 +601,19 @@ N(0,\lambda^2)
 }.
 $$
 
-1観測あたりのフィッシャー情報量は $I_1(\lambda)=1/\lambda^2$ なので、その逆数と一致します。
+したがって
+
+$$
+\operatorname{AVar}(\hat\lambda)=\lambda^2.
+$$
+
+1観測あたりのフィッシャー情報量は
+
+$$
+I_1(\lambda)=\frac1{\lambda^2}
+$$
+
+なので、その逆数と一致します。
 
 ### 7.2 ベルヌーイ分布: 対数オッズ
 
@@ -529,9 +649,22 @@ N\!\left(0,\frac1{p(1-p)}\right)
 }.
 $$
 
+したがって
+
+$$
+\operatorname{AVar}\{g(\hat p)\}
+=\frac1{p(1-p)}.
+$$
+
 ### 7.3 分散から標準偏差へ
 
-平均 $\mu$ が既知で $X_i\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ とし
+平均 $\mu$ が既知で
+
+$$
+X_i\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)
+$$
+
+とし
 
 $$
 T_n=\frac1n\sum_{i=1}^n(X_i-\mu)^2
@@ -552,7 +685,13 @@ $$
 \xrightarrow{d}N(0,2\sigma^4).
 $$
 
-$g(v)=\sqrt v$ なら $g'(\sigma^2)=1/(2\sigma)$ なので
+$g(v)=\sqrt v$ なら
+
+$$
+g'(\sigma^2)=\frac1{2\sigma}
+$$
+
+なので
 
 $$
 \boxed{
@@ -564,92 +703,16 @@ $$
 
 ---
 
-## 8. 多変量デルタ法
-
-複数の統計量を同時に変換するときは勾配・ヤコビ行列を使います。
-
-<a id="thm-i2-01-delta-multivariate"></a>
-
-<!-- formal-statement-start -->
-> **定理（多変量デルタ法）**  
-> $T_n\in\mathbb R^p$、$\theta\in\mathbb R^p$ とし、$\sqrt n(T_n-\theta)\xrightarrow{d}N_p(0,\Sigma)$ とする。$g:\mathbb R^p\to\mathbb R^q$ が $\theta$ で微分可能で、ヤコビ行列を $J_g(\theta)$ とすると
-
-$$
-\boxed{
-\sqrt n\{g(T_n)-g(\theta)\}
-\xrightarrow{d}
-N_q\!\left(0,J_g(\theta)\Sigma J_g(\theta)^\mathsf T\right)
-}
-$$
-
-> が成り立つ。
-<!-- formal-statement-end -->
-
-$q=1$ なら
-
-$$
-\operatorname{AVar}\{g(T_n)\}
-=
-\nabla g(\theta)^\mathsf T
-\Sigma
-\nabla g(\theta).
-$$
-
-### 8.1 標本第1・第2モーメントから分散へ
-
-$$
-M_{1n}=\frac1n\sum_iX_i,
-\qquad
-M_{2n}=\frac1n\sum_iX_i^2
-$$
-
-とし、$\mu=E[X]$、$m_2=E[X^2]$ とします。母分散は
-
-$$
-\sigma^2=g(\mu,m_2)=m_2-\mu^2,
-$$
-
-勾配は
-
-$$
-\nabla g(\mu,m_2)
-=
-\begin{pmatrix}
--2\mu\\
-1
-\end{pmatrix}.
-$$
-
-$(M_{1n},M_{2n})$ の漸近分散共分散行列を $\Sigma$ とすれば
-
-$$
-\operatorname{AVar}(M_{2n}-M_{1n}^2)
-=
-(-2\mu,1)\Sigma
-\begin{pmatrix}-2\mu\\1\end{pmatrix}.
-$$
-
-有限4次モーメントを仮定して整理すると、この値は
-
-$$
-\mu_4-\sigma^4,
-\qquad
-\mu_4=E[(X-\mu)^4]
-$$
-
-です。正規分布なら $\mu_4=3\sigma^4$ なので $2\sigma^4$ になります。
-
----
-
-## 9. 一次導関数が0ならどうするか
+## 8. 補足: 一次導関数が0ならどうするか
 
 1変量デルタ法で $g'(\theta)=0$ なら
 
 $$
-\sqrt n\{g(T_n)-g(\theta)\}\xrightarrow{p}0
+\sqrt n\{g(T_n)-g(\theta)\}
+\xrightarrow{p}0
 $$
 
-となり、一次近似は非退化な極限を与えません。この場合は二階Taylor展開を使います。
+となり、一次近似は非退化な極限を与えません。この場合は二階Taylor展開を確認します。
 
 <a id="prop-i2-01-second-order-delta"></a>
 
@@ -668,7 +731,7 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-### 9.1 例: 平均0で $\bar X^2$
+### 8.1 例: 平均0で $\bar X^2$
 
 $X_i\sim N(0,1)$ なら
 
@@ -676,7 +739,15 @@ $$
 \sqrt n\bar X\sim N(0,1)
 $$
 
-が有限標本でも厳密に成り立ちます。$g(x)=x^2$ は $g'(0)=0$、$g''(0)=2$ なので
+が有限標本でも厳密に成り立ちます。$g(x)=x^2$ は
+
+$$
+g'(0)=0,
+\qquad
+g''(0)=2
+$$
+
+なので
 
 $$
 \boxed{
@@ -686,13 +757,19 @@ n\bar X^2
 }.
 $$
 
-「デルタ法を使うといつでも正規極限」という理解は誤りです。
+「デルタ法を使えばいつでも正規極限になる」という理解は誤りです。
 
 ---
 
-## 10. 再母数化とフィッシャー情報量
+## 9. 1母数の再母数化とフィッシャー情報量
 
-$\eta=g(\theta)$ が1対1の滑らかな変換で、逆関数を $\theta=h(\eta)$ とします。連鎖律より
+$\eta=g(\theta)$ が1対1の滑らかな変換で、逆関数を
+
+$$
+\theta=h(\eta)
+$$
+
+とします。連鎖律より
 
 $$
 U_\eta
@@ -706,7 +783,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（フィッシャー情報量の再母数化則）**  
-> 1対1で微分可能な再母数化 $\eta=g(\theta)$ の下で
+> 1対1で微分可能な1母数再母数化 $\eta=g(\theta)$ の下で
 
 $$
 \boxed{
@@ -719,7 +796,13 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
-一方、最尤推定量の不変性により $\hat\eta=g(\hat\theta)$ です。デルタ法から
+一方、最尤推定量の不変性により
+
+$$
+\hat\eta=g(\hat\theta).
+$$
+
+デルタ法から
 
 $$
 \operatorname{AVar}(\hat\eta)
@@ -735,57 +818,40 @@ $$
 を使うと
 
 $$
-\{g'(\theta)\}^2I_\theta^{-1}=I_\eta^{-1}.
+\{g'(\theta)\}^2I_\theta^{-1}
+=I_\eta^{-1}.
 $$
 
-したがって「最尤推定量を変換してデルタ法を使う」方法と「再母数化後のフィッシャー情報量を直接計算する」方法は整合します。
+したがって、
+
+- 最尤推定量を変換してデルタ法を使う
+- 再母数化後のフィッシャー情報量を直接計算する
+
+の2経路は整合します。
 
 ---
 
-## 11. 多母数への拡張
+## 10. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない
 
-母数がベクトル $\theta\in\mathbb R^p$ の場合、スコアベクトルを
-
-$$
-U_n(\theta)=\nabla\ell_n(\theta)
-$$
-
-とし、1観測あたりのフィッシャー情報行列を
+$X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}U(0,\theta)$ とし、
 
 $$
-I_1(\theta)
-=E[U_1(\theta)U_1(\theta)^\mathsf T]
+M_n=X_{(n)}
 $$
 
-とします。1母数と同様に、スコア方程式をベクトルTaylor展開すると、正則条件下で
-
-$$
-\sqrt n(\hat\theta_n-\theta_0)
-\xrightarrow{d}
-N_p\!\left(0,I_1(\theta_0)^{-1}\right).
-$$
-
-ここで $I_1^{-1}$ は成分ごとの逆数ではなく**逆行列**です。多変量デルタ法を組み合わせれば、変換後の漸近分散共分散行列は
-
-$$
-J_g(\theta_0)
-I_1(\theta_0)^{-1}
-J_g(\theta_0)^\mathsf T
-$$
-
-で与えられます。
-
----
-
-## 12. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない
-
-$X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}U(0,\theta)$ とし、$M_n=X_{(n)}$ とします。尤度は
+とします。尤度は
 
 $$
 L(\theta)=\theta^{-n}\mathbf1(M_n\le\theta)
 $$
 
-なので、最尤推定量は $\hat\theta=M_n$ です。
+なので、最尤推定量は
+
+$$
+\hat\theta=M_n
+$$
+
+です。
 
 $t\ge0$ を固定すると
 
@@ -819,19 +885,151 @@ $$
 
 ---
 
+## 11. 発展: 多変量デルタ法
+
+> **発展項目**  
+> ここからの多変量デルタ法は、1変量デルタ法の自然な一般化です。ただし、統計検定1級の通常ルートでは必須項目として扱いません。行列版を使う問題や、後続分野との接続を見たい場合に読んでください。
+
+複数の統計量を同時に変換するときは勾配・ヤコビ行列を使います。
+
+<a id="thm-i2-01-delta-multivariate"></a>
+
+<!-- formal-statement-start -->
+> **定理（多変量デルタ法）**  
+> $T_n\in\mathbb R^p$、$\theta\in\mathbb R^p$ とし、
+
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N_p(0,\Sigma)
+$$
+
+> とする。$g:\mathbb R^p\to\mathbb R^q$ が $\theta$ で微分可能で、ヤコビ行列を $J_g(\theta)$ とすると
+
+$$
+\boxed{
+\sqrt n\{g(T_n)-g(\theta)\}
+\xrightarrow{d}
+N_q\!\left(0,J_g(\theta)\Sigma J_g(\theta)^\mathsf T\right)
+}
+$$
+
+> が成り立つ。
+<!-- formal-statement-end -->
+
+$q=1$ なら
+
+$$
+\operatorname{AVar}\{g(T_n)\}
+=
+\nabla g(\theta)^\mathsf T
+\Sigma
+\nabla g(\theta).
+$$
+
+### 11.1 発展例: 標本第1・第2モーメントから分散へ
+
+$$
+M_{1n}=\frac1n\sum_iX_i,
+\qquad
+M_{2n}=\frac1n\sum_iX_i^2
+$$
+
+とし、$\mu=E[X]$、$m_2=E[X^2]$ とします。母分散は
+
+$$
+\sigma^2=g(\mu,m_2)=m_2-\mu^2,
+$$
+
+勾配は
+
+$$
+\nabla g(\mu,m_2)
+=
+\begin{pmatrix}
+-2\mu\\
+1
+\end{pmatrix}.
+$$
+
+$(M_{1n},M_{2n})$ のroot-$n$漸近分散共分散行列を $\Sigma$ とすれば
+
+$$
+\operatorname{AVar}(M_{2n}-M_{1n}^2)
+=
+(-2\mu,1)\Sigma
+\begin{pmatrix}-2\mu\\1\end{pmatrix}.
+$$
+
+有限4次モーメントを仮定して整理すると
+
+$$
+\mu_4-\sigma^4,
+\qquad
+\mu_4=E[(X-\mu)^4]
+$$
+
+です。正規分布なら $\mu_4=3\sigma^4$ なので $2\sigma^4$ になります。
+
+---
+
+## 12. 発展: 多母数最尤推定量とフィッシャー情報行列
+
+> **発展項目**  
+> フィッシャー情報量を行列へ一般化する節です。1次元フィッシャー情報量の試験対策が目的なら省略して構いません。
+
+母数がベクトル
+
+$$
+\theta\in\mathbb R^p
+$$
+
+の場合、スコアベクトルを
+
+$$
+U_n(\theta)=\nabla\ell_n(\theta)
+$$
+
+とし、1観測あたりのフィッシャー情報行列を
+
+$$
+I_1(\theta)
+=E[U_1(\theta)U_1(\theta)^\mathsf T]
+$$
+
+とします。正則条件下で1母数と同様の議論を行うと
+
+$$
+\sqrt n(\hat\theta_n-\theta_0)
+\xrightarrow{d}
+N_p\!\left(0,I_1(\theta_0)^{-1}\right).
+$$
+
+ここで $I_1^{-1}$ は成分ごとの逆数ではなく**逆行列**です。多変量デルタ法を組み合わせれば、変換後の漸近分散共分散行列は
+
+$$
+J_g(\theta_0)
+I_1(\theta_0)^{-1}
+J_g(\theta_0)^\mathsf T
+$$
+
+となります。
+
+---
+
 ## 13. よくある誤り
 
-1. **漸近分散 $V$ をそのまま $\operatorname{Var}(T_n)$ と書く。**  
-   $\sqrt n(T_n-\theta)\Rightarrow N(0,V)$ なら、$T_n$ の近似分散は $V/n$ です。
+1. **`AVar` を有限標本分散と読む。**  
+   本章では $\operatorname{AVar}(T_n)$ は root-$n$ 漸近分散です。$T_n$ 自身の大標本分散は約 $\operatorname{AVar}(T_n)/n$ です。
 2. **最尤推定量なら正則条件を確認しない。**  
    一様分布、境界母数、識別不能なモデルなどでは通常の結論が破れることがあります。
 3. **デルタ法で導関数を二乗し忘れる。**  
    1変量では漸近分散が $\{g'(\theta)\}^2V$ になります。
 4. **$g'(\theta)=0$ なのに一次デルタ法で非退化な正規分布を出す。**  
    一次項が消えたら尺度を見直し、二次項を確認します。
-5. **多変量で $J\Sigma J^\mathsf T$ の順序を崩す。**  
-   行列の次元を確認します。
-6. **観測情報量と期待フィッシャー情報量を同一視する。**  
+5. **「一様大数の法則」を本章の必須前提だと思う。**  
+   厳密証明の地下では必要になりますが、通常ルートでは「二階微分側が情報量へ確率収束する正則条件」として使えば十分です。
+6. **発展の多変量公式を1級の必須項目と混同する。**  
+   $J\Sigma J^\mathsf T$ やフィッシャー情報行列は本章では発展です。
+7. **観測情報量と期待フィッシャー情報量を同一視する。**  
    有限標本では観測情報量は実データに依存します。
 
 ---
@@ -863,9 +1061,11 @@ $$
 
 #### 解答
 
-##### 詳細解答
+$$
+\boxed{\operatorname{AVar}(T_n)=9\theta^2}.
+$$
 
-root-$n$ 漸近分散は $\boxed{9\theta^2}$ です。したがって
+したがって
 
 $$
 \operatorname{Var}(T_n)\approx\frac{9\theta^2}{n},
@@ -882,22 +1082,6 @@ $$
 }.
 $$
 
-##### 本番答案
-
-$$
-\operatorname{AVar}=9\theta^2,
-\quad
-\operatorname{Var}(T_n)\approx9\theta^2/n,
-\quad
-\widehat{\operatorname{se}}=3|T_n|/\sqrt n.
-$$
-
-##### 採点基準
-
-- 漸近分散: 6点
-- 有限標本分散への読み替え: 7点
-- 標準誤差: 7点
-
 <!-- solution-end -->
 
 ### I2-01-A02 ベルヌーイ最尤推定量の漸近正規性
@@ -912,8 +1096,6 @@ $X_i\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$、$0<p<1$ とする。$\h
 <!-- solution-start -->
 
 #### 解答
-
-##### 詳細解答
 
 1観測あたり
 
@@ -936,24 +1118,6 @@ $$
 \hat p\approx N\!\left(p,\frac{p(1-p)}n\right).
 $$
 
-##### 本番答案
-
-$$
-I_1(p)^{-1}=p(1-p)
-$$
-
-より
-
-$$
-\boxed{\sqrt n(\hat p-p)\Rightarrow N(0,p(1-p))}.
-$$
-
-##### 採点基準
-
-- フィッシャー情報量: 7点
-- 逆数: 5点
-- 漸近分布: 8点
-
 <!-- solution-end -->
 
 ### I2-01-A03 指数分布の率母数にデルタ法
@@ -969,8 +1133,6 @@ $X_i\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ とする。$\hat\lambda=
 
 #### 解答
 
-##### 詳細解答
-
 $\mu=1/\lambda$ とおくと
 
 $$
@@ -978,28 +1140,26 @@ $$
 \Rightarrow N(0,1/\lambda^2).
 $$
 
-$g(x)=1/x$ だから $g'(\mu)=-\lambda^2$。よって
+$g(x)=1/x$ だから
+
+$$
+g'(\mu)=-\lambda^2.
+$$
+
+よって
 
 $$
 \boxed{
 \sqrt n(\hat\lambda-\lambda)
 \Rightarrow N(0,\lambda^2)
-}.
+}
 $$
 
-##### 本番答案
+であり
 
 $$
-g'(1/\lambda)=-\lambda^2
+\boxed{\operatorname{AVar}(\hat\lambda)=\lambda^2}.
 $$
-
-より漸近分散は $\boxed{\lambda^2}$。
-
-##### 採点基準
-
-- $\bar X$ の中心極限定理: 6点
-- 導関数: 6点
-- デルタ法: 8点
 
 <!-- solution-end -->
 
@@ -1023,13 +1183,10 @@ $$
 
 #### 解答
 
-##### 詳細解答
-
-$g(v)=\sqrt v$ とすると $g'(\sigma^2)=1/(2\sigma)$ なので
+$g(v)=\sqrt v$ とすると
 
 $$
-\{g'(\sigma^2)\}^2 2\sigma^4
-=\frac{\sigma^2}{2}.
+g'(\sigma^2)=\frac1{2\sigma}.
 $$
 
 したがって
@@ -1041,20 +1198,9 @@ $$
 }.
 $$
 
-##### 本番答案
-
-$$
-\boxed{\sqrt n(S_n-\sigma)\Rightarrow N(0,\sigma^2/2)}.
-$$
-
-##### 採点基準
-
-- 変換関数: 4点
-- 導関数: 6点
-- 分散計算: 5点
-- 結論: 5点
-
 <!-- solution-end -->
+
+---
 
 ## Level B
 
@@ -1063,7 +1209,7 @@ $$
 - Level: B
 - 目安時間: 20分
 - 主題: 最尤推定量の漸近正規性
-- 使用技術: Taylor展開、中心極限定理、大数の法則、Slutskyの定理
+- 使用技術: Taylor展開、中心極限定理、確率収束、Slutskyの定理
 
 正則な独立同分布1母数モデルで真値を $\theta_0$、最尤推定量を $\hat\theta_n$ とする。
 
@@ -1075,8 +1221,6 @@ $$
 <!-- solution-start -->
 
 #### 解答
-
-##### 詳細解答
 
 $$
 0=U_n(\theta_0)+(\hat\theta_n-\theta_0)\ell_n''(\tilde\theta_n)
@@ -1090,7 +1234,7 @@ $$
 U_n(\theta_0)/\sqrt n.
 $$
 
-中心極限定理と大数の法則から
+正則条件下で
 
 $$
 \frac{U_n(\theta_0)}{\sqrt n}
@@ -1111,26 +1255,11 @@ $$
 }.
 $$
 
-##### 本番答案
-
-Taylor展開で
-
-$$
-\sqrt n(\hat\theta_n-\theta_0)
-=\{-\ell_n''(\tilde\theta_n)/n\}^{-1}U_n(\theta_0)/\sqrt n.
-$$
-
-前者は $I_1(\theta_0)^{-1}$ へ確率収束し、後者は $N(0,I_1(\theta_0))$ へ分布収束する。よって
-
-$$
-\boxed{\sqrt n(\hat\theta_n-\theta_0)\Rightarrow N(0,I_1^{-1})}.
-$$
-
 ##### 採点基準
 
 - Taylor展開: 6点
 - スコアの中心極限定理: 5点
-- 曲率の大数の法則: 5点
+- 二階微分側の確率収束: 5点
 - Slutskyの定理と結論: 4点
 
 <!-- solution-end -->
@@ -1155,8 +1284,6 @@ $$
 <!-- solution-start -->
 
 #### 解答
-
-##### 詳細解答
 
 $$
 \sqrt n(\hat p-p)\Rightarrow N(0,p(1-p)).
@@ -1183,91 +1310,59 @@ $$
 }.
 $$
 
-##### 本番答案
-
-$$
-\boxed{\operatorname{AVar}(\hat\eta)=1/[p(1-p)]},
-\qquad
-\boxed{\widehat{\operatorname{se}}=\{n\hat p(1-\hat p)\}^{-1/2}}.
-$$
-
-##### 採点基準
-
-- 導関数: 6点
-- 漸近分散: 8点
-- 標準誤差: 6点
-
 <!-- solution-end -->
 
-### I2-01-B03 多変量デルタ法で分散を作る
+### I2-01-B03 再母数化して情報量を確認する
 
 - Level: B
-- 目安時間: 20分
-- 主題: 多変量デルタ法
-- 使用技術: 勾配、分散共分散行列
+- 目安時間: 15分
+- 主題: 1母数再母数化
+- 使用技術: フィッシャー情報量、連鎖律、デルタ法
 
-有限4次モーメントを持つ独立同分布標本について
-
-$$
-T_n=\begin{pmatrix}M_{1n}\\M_{2n}\end{pmatrix}
-=\begin{pmatrix}n^{-1}\sum X_i\\n^{-1}\sum X_i^2\end{pmatrix}
-$$
-
-とする。$\mu=E[X]$、$m_2=E[X^2]$ とし
+$X_i\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ とし、平均寿命を
 
 $$
-\sqrt n\left(T_n-\begin{pmatrix}\mu\\m_2\end{pmatrix}\right)
-\Rightarrow N_2(0,\Sigma)
+m=\frac1\lambda
 $$
 
-が成り立つとする。
+とする。$I_1(\lambda)=1/\lambda^2$ を用いてよい。
 
-1. $g(a,b)=b-a^2$ の勾配を求めよ。
-2. $S_n^2=M_{2n}-M_{1n}^2$ の漸近分散を $\Sigma$ を使って書け。
-3. $\Sigma=\begin{pmatrix}1&2\\2&8\end{pmatrix}$、$\mu=1$ のとき数値を求めよ。
+1. $d\lambda/dm$ を求めよ。
+2. 再母数化則から $I_1(m)$ を求めよ。
+3. $I_1(m)^{-1}$ と $\hat m=\bar X$ のroot-$n$漸近分散が一致することを確認せよ。
 
 <!-- solution-start -->
 
 #### 解答
 
-##### 詳細解答
-
 $$
-\nabla g(a,b)=\begin{pmatrix}-2a\\1\end{pmatrix}.
-$$
-
-従って
-
-$$
-\operatorname{AVar}(S_n^2)
-=(-2\mu,1)\Sigma
-\begin{pmatrix}-2\mu\\1\end{pmatrix}.
+\lambda=\frac1m,
+\qquad
+\frac{d\lambda}{dm}=-\frac1{m^2}.
 $$
 
-指定値では
+したがって
 
 $$
-\begin{pmatrix}1&2\\2&8\end{pmatrix}
-\begin{pmatrix}-2\\1\end{pmatrix}
-=
-\begin{pmatrix}0\\4\end{pmatrix},
+I_1(m)
+=I_1(\lambda)\left(\frac{d\lambda}{dm}\right)^2
+=m^2\frac1{m^4}
+=\frac1{m^2}.
 $$
 
-したがって $\boxed4$ です。
-
-##### 本番答案
+よって
 
 $$
-\boxed{\operatorname{AVar}=(-2\mu,1)\Sigma(-2\mu,1)^\mathsf T}.
+\boxed{I_1(m)^{-1}=m^2}.
 $$
 
-指定値では $\boxed4$。
+一方、指数分布では
 
-##### 採点基準
+$$
+\sqrt n(\bar X-m)\Rightarrow N(0,m^2),
+$$
 
-- 勾配: 5点
-- 多変量デルタ法: 8点
-- 行列計算: 7点
+なので一致します。
 
 <!-- solution-end -->
 
@@ -1287,8 +1382,6 @@ $X_i\overset{\mathrm{iid}}{\sim}N(0,1)$ とし、$T_n=\bar X^2$ とする。
 
 #### 解答
 
-##### 詳細解答
-
 $g'(0)=0$ なので一次デルタ法は
 
 $$
@@ -1307,25 +1400,13 @@ $$
 \boxed{n\bar X^2=(\sqrt n\bar X)^2\sim\chi_1^2}.
 $$
 
-##### 本番答案
-
-$g'(0)=0$ なので一次近似は退化する。尺度を $n$ に変えると
-
-$$
-\boxed{n\bar X^2\sim\chi_1^2}.
-$$
-
-##### 採点基準
-
-- $g'(0)=0$ の指摘: 6点
-- 尺度変更: 6点
-- 極限分布: 8点
-
 <!-- solution-end -->
+
+---
 
 ## Level C
 
-### I2-01-C01 指数分布: 最尤推定・フィッシャー情報量・デルタ法を閉じる
+### I2-01-C01 指数分布: 最尤推定・情報量・デルタ法を閉じる
 
 - Level: C
 - 目安時間: 25分
@@ -1344,8 +1425,6 @@ $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ を率母数�
 
 #### 解答
 
-##### 詳細解答
-
 対数尤度は
 
 $$
@@ -1358,7 +1437,13 @@ $$
 \hat\lambda=\frac1{\bar X}.
 $$
 
-二階微分は $\ell_n''(\lambda)=-n/\lambda^2$ なので
+二階微分は
+
+$$
+\ell_n''(\lambda)=-\frac n{\lambda^2}
+$$
+
+なので
 
 $$
 I_1(\lambda)=\frac1{\lambda^2}.
@@ -1373,29 +1458,9 @@ $$
 }.
 $$
 
-別に、$E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$ と $g(x)=1/x$ を使えば、中心極限定理とデルタ法から同じ結論を得ます。両者は同じ局所的な尤度曲率を異なる経路で表しているため整合します。
+また、$E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$ と $g(x)=1/x$ を使えば、中心極限定理とデルタ法から同じ結論を得ます。
 
-##### 本番答案
-
-$$
-\hat\lambda=1/\bar X,
-\qquad
-I_1(\lambda)=1/\lambda^2,
-$$
-
-$$
-\boxed{\sqrt n(\hat\lambda-\lambda)\Rightarrow N(0,\lambda^2)}.
-$$
-
-$\bar X$ に $g(x)=1/x$ のデルタ法を適用しても同じ漸近分散 $\lambda^2$ を得る。
-
-##### 採点基準
-
-- 最尤推定量: 4点
-- フィッシャー情報量: 4点
-- 漸近正規性: 4点
-- デルタ法による再導出: 6点
-- 一致理由: 2点
+両者が一致するのは、正則な1母数最尤推定量の漸近分散が $I_1(\lambda)^{-1}$ であり、1母数の再母数化とデルタ法が同じ局所一次近似を表しているからです。
 
 <!-- solution-end -->
 
@@ -1403,7 +1468,7 @@ $\bar X$ に $g(x)=1/x$ のデルタ法を適用しても同じ漸近分散 $\la
 
 - Level: C
 - 目安時間: 25分
-- 主題: 複数変換のデルタ法
+- 主題: 複数の1変量変換
 - 使用技術: ベルヌーイ分布、導関数、漸近分散比較
 
 $X_i\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$、$0<p<1$ とし $\hat p=\bar X$ とする。
@@ -1417,44 +1482,35 @@ $X_i\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$、$0<p<1$ とし $\hat p=
 
 #### 解答
 
-##### 詳細解答
-
 $$
 \operatorname{AVar}(\hat p)=p(1-p).
 $$
 
-オッズ $g(p)=p/(1-p)$ では $g'(p)=1/(1-p)^2$ なので
+オッズ $g(p)=p/(1-p)$ では
+
+$$
+g'(p)=\frac1{(1-p)^2}
+$$
+
+なので
 
 $$
 \boxed{\operatorname{AVar}(\hat r)=\frac{p}{(1-p)^3}}.
 $$
 
-対数オッズでは $h'(p)=1/[p(1-p)]$ なので
+対数オッズでは
+
+$$
+h'(p)=\frac1{p(1-p)}
+$$
+
+なので
 
 $$
 \boxed{\operatorname{AVar}(\hat\eta)=\frac1{p(1-p)}}.
 $$
 
 $p$ が0または1へ近づくと $p(1-p)\to0$ なので、その逆数が発散します。
-
-##### 本番答案
-
-$$
-\operatorname{AVar}(\hat p)=p(1-p),
-$$
-
-$$
-\boxed{\operatorname{AVar}(\hat r)=p/(1-p)^3},
-\qquad
-\boxed{\operatorname{AVar}(\hat\eta)=1/[p(1-p)]}.
-$$
-
-##### 採点基準
-
-- $\hat p$: 3点
-- オッズ: 6点
-- 対数オッズ: 7点
-- 端点解釈: 4点
 
 <!-- solution-end -->
 
@@ -1476,13 +1532,17 @@ $X_i\overset{\mathrm{iid}}{\sim}U(0,\theta)$、$M_n=X_{(n)}$ とする。
 
 #### 解答
 
-##### 詳細解答
-
 $$
 L(\theta)=\theta^{-n}\mathbf1(M_n\le\theta)
 $$
 
-より $\hat\theta=M_n$ です。また
+より
+
+$$
+\hat\theta=M_n.
+$$
+
+また
 
 $$
 \begin{aligned}
@@ -1501,39 +1561,18 @@ $$
 
 支持 $[0,\theta]$ が母数に依存するので、正則な最尤推定量の漸近正規性定理は適用できません。
 
-##### 本番答案
-
-$$
-\hat\theta=M_n,
-\qquad
-P\{n(\theta-M_n)>t\}
-=\left(1-\frac{t}{n\theta}\right)^n
-\to e^{-t/\theta}.
-$$
-
-よって
-
-$$
-\boxed{n(\theta-M_n)\Rightarrow\mathrm{Exp}(1/\theta)}.
-$$
-
-##### 採点基準
-
-- 最尤推定量: 4点
-- 生存関数: 7点
-- 極限分布: 5点
-- 正則条件: 4点
-
 <!-- solution-end -->
 
-### I2-01-C04 2母数正規モデルを $(\mu,\sigma)$ へ変換する
+### [発展] I2-01-C04 2母数正規モデルを $(\mu,\sigma)$ へ変換する
+
+> この問題は多変量デルタ法の発展演習です。通常ルートでは省略して構いません。
 
 - Level: C
 - 目安時間: 25分
-- 主題: 多母数最尤推定と多変量デルタ法
-- 使用技術: フィッシャー情報行列、ヤコビ行列
+- 主題: 多変量デルタ法
+- 使用技術: ヤコビ行列、分散共分散行列
 
-$X_i\overset{\mathrm{iid}}{\sim}N(\mu,v)$、$v=\sigma^2>0$ とする。正則な最尤推定量 $\hat\theta=(\hat\mu,\hat v)^\mathsf T$ について
+$X_i\overset{\mathrm{iid}}{\sim}N(\mu,v)$、$v=\sigma^2>0$ とする。正則な推定量 $\hat\theta=(\hat\mu,\hat v)^\mathsf T$ について
 
 $$
 \sqrt n
@@ -1554,14 +1593,11 @@ $$
 を用いてよい。
 
 1. $g(\mu,v)=(\mu,\sqrt v)^\mathsf T$ のヤコビ行列を求めよ。
-2. $(\hat\mu,\hat\sigma)$ の漸近分散共分散行列を求めよ。
-3. $\hat\mu$ と $\hat\sigma$ の漸近共分散を答えよ。
+2. $(\hat\mu,\hat\sigma)$ のroot-$n$漸近分散共分散行列を求めよ。
 
 <!-- solution-start -->
 
 #### 解答
-
-##### 詳細解答
 
 $$
 J_g(\mu,v)
@@ -1575,6 +1611,7 @@ $$
 多変量デルタ法より
 
 $$
+\boxed{
 J_g
 \begin{pmatrix}
 \sigma^2&0\\
@@ -1582,7 +1619,6 @@ J_g
 \end{pmatrix}
 J_g^\mathsf T
 =
-\boxed{
 \begin{pmatrix}
 \sigma^2&0\\
 0&\sigma^2/2
@@ -1590,42 +1626,20 @@ J_g^\mathsf T
 }.
 $$
 
-したがって漸近共分散は0です。
-
-##### 本番答案
-
-$$
-J_g=\operatorname{diag}(1,1/(2\sigma)),
-$$
-
-$$
-\boxed{
-\sqrt n
-\begin{pmatrix}\hat\mu-\mu\\\hat\sigma-\sigma\end{pmatrix}
-\Rightarrow
-N_2\left(0,
-\begin{pmatrix}\sigma^2&0\\0&\sigma^2/2\end{pmatrix}
-\right)
-}.
-$$
-
-##### 採点基準
-
-- ヤコビ行列: 6点
-- 行列積: 8点
-- 漸近分布: 4点
-- 共分散: 2点
-
 <!-- solution-end -->
+
+---
 
 ## Level D
 
-### I2-01-D01 指数寿命モデルを別尺度へ運ぶ
+### [発展] I2-01-D01 1母数から複数の量へ運ぶ
+
+> この問題の「複数の推定量を同時に扱う」部分は多変量デルタ法の発展です。各成分の漸近分散だけなら1変量デルタ法で解けます。
 
 - Level: D
 - 目安時間: 40分
-- 主題: 最尤推定・再母数化・デルタ法・漸近有効性
-- 使用技術: 指数分布、フィッシャー情報量、ヤコビ行列、共分散
+- 主題: 最尤推定・再母数化・デルタ法
+- 使用技術: 指数分布、フィッシャー情報量、1変量デルタ法、多変量デルタ法（発展）
 
 寿命 $X_1,\ldots,X_n$ が独立に率 $\lambda>0$ の指数分布に従うとする。平均寿命を
 
@@ -1642,30 +1656,22 @@ $$
 とする。
 
 1. $\lambda$ の最尤推定量 $\hat\lambda$ とそのroot-$n$漸近分散を求めよ。
-2. $\hat m=1/\hat\lambda$ のroot-$n$漸近分散をデルタ法で求め、$\hat m$ を標本から直接簡単化せよ。
+2. $\hat m=1/\hat\lambda$ のroot-$n$漸近分散を1変量デルタ法で求めよ。
 3. $\widehat R(t)=e^{-t\hat\lambda}$ のroot-$n$漸近分散を求めよ。
-4. ベクトル $g(\lambda)=(m,R(t))^\mathsf T$ にデルタ法を適用し、$(\hat m,\widehat R(t))$ のroot-$n$漸近分散共分散行列を求めよ。
+4. **発展:** $(\hat m,\widehat R(t))$ のroot-$n$漸近分散共分散行列を求めよ。
 5. $m$ を母数として直接フィッシャー情報量を計算し、2の結果と一致することを示せ。
 
 <!-- solution-start -->
 
 #### 解答
 
-##### 詳細解答
-
-対数尤度
-
 $$
-\ell_n=n\log\lambda-\lambda\sum_iX_i
+\hat\lambda=\frac1{\bar X},
+\qquad
+I_1(\lambda)=\frac1{\lambda^2}
 $$
 
-より
-
-$$
-\hat\lambda=\frac1{\bar X}.
-$$
-
-1観測フィッシャー情報量は $I_1(\lambda)=1/\lambda^2$ なので
+なので
 
 $$
 \boxed{\operatorname{AVar}(\hat\lambda)=\lambda^2}.
@@ -1674,24 +1680,22 @@ $$
 平均寿命 $m=1/\lambda$ では
 
 $$
-\frac{dm}{d\lambda}=-\frac1{\lambda^2}.
+\frac{dm}{d\lambda}=-\frac1{\lambda^2}
 $$
 
-よって
+より
 
 $$
-\boxed{\operatorname{AVar}(\hat m)=1/\lambda^2=m^2},
-\qquad
-\hat m=\bar X.
+\boxed{\operatorname{AVar}(\hat m)=\frac1{\lambda^2}=m^2}.
 $$
 
-また $R(t)=e^{-\lambda t}$ では
+また
 
 $$
-\frac{dR(t)}{d\lambda}=-tR(t),
+\frac{dR(t)}{d\lambda}=-tR(t)
 $$
 
-したがって
+なので
 
 $$
 \boxed{
@@ -1700,7 +1704,7 @@ $$
 }.
 $$
 
-ヤコビ行列は
+発展として
 
 $$
 J_g(\lambda)
@@ -1708,10 +1712,10 @@ J_g(\lambda)
 \begin{pmatrix}
 -1/\lambda^2\\
 -tR(t)
-\end{pmatrix}.
+\end{pmatrix}
 $$
 
-入力の漸近分散は $\lambda^2$ なので
+を使うと
 
 $$
 \boxed{
@@ -1724,7 +1728,7 @@ tR(t)/\lambda&t^2R(t)^2\lambda^2
 }.
 $$
 
-$m=1/\lambda$、すなわち $\lambda=1/m$ と再母数化すると
+さらに $\lambda=1/m$ だから
 
 $$
 \frac{d\lambda}{dm}=-\frac1{m^2}.
@@ -1735,53 +1739,20 @@ $$
 $$
 I_1(m)
 =I_1(\lambda)\left(\frac{d\lambda}{dm}\right)^2
-=m^2\frac1{m^4}
-=\frac1{m^2}.
+=\frac1{m^2},
 $$
 
-よって $I_1(m)^{-1}=m^2$ となり、デルタ法の結果と一致します。
-
-##### 本番答案
+したがって
 
 $$
-\hat\lambda=1/\bar X,
-\quad
-\operatorname{AVar}(\hat\lambda)=\lambda^2,
+I_1(m)^{-1}=m^2
 $$
 
-$$
-\operatorname{AVar}(\hat m)=m^2,
-\quad
-\hat m=\bar X,
-$$
-
-$$
-\operatorname{AVar}(\widehat R(t))=t^2R(t)^2\lambda^2.
-$$
-
-また
-
-$$
-\operatorname{ACov}
-\begin{pmatrix}\hat m\\\widehat R(t)\end{pmatrix}
-=
-\begin{pmatrix}
-1/\lambda^2&tR(t)/\lambda\\
-tR(t)/\lambda&t^2R(t)^2\lambda^2
-\end{pmatrix}.
-$$
-
-再母数化後は $I_1(m)=1/m^2$ なので、その逆数は $m^2$ で一致する。
-
-##### 採点基準
-
-- $\lambda$ の最尤推定量・漸近分散: 4点
-- $m$ のデルタ法と簡約: 5点
-- $R(t)$ のデルタ法: 4点
-- 多変量分散共分散行列: 5点
-- 再母数化フィッシャー情報量: 2点
+で2と一致します。
 
 <!-- solution-end -->
+
+---
 
 ## 14. 30分ドリル
 
@@ -1789,7 +1760,7 @@ $$
 
 - Level: C
 - 目安時間: 30分
-- 主題: 正則な最尤推定量とデルタ法の連結
+- 主題: 正則な最尤推定量と1変量デルタ法の連結
 - 使用技術: 尤度、フィッシャー情報量、デルタ法、標準誤差
 
 $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ とする。$t_0>0$ を固定し
@@ -1813,8 +1784,6 @@ $$
 
 #### 解答
 
-##### 詳細解答
-
 $$
 \hat\lambda=1/\bar X,
 \qquad
@@ -1837,7 +1806,13 @@ $$
 }.
 $$
 
-$q=e^{-\lambda t_0}$ では $dq/d\lambda=-t_0q$ なので
+$q=e^{-\lambda t_0}$ では
+
+$$
+\frac{dq}{d\lambda}=-t_0q
+$$
+
+なので
 
 $$
 \boxed{
@@ -1857,67 +1832,46 @@ $$
 
 指数分布では支持 $[0,\infty)$ が $\lambda$ に依存せず、真値が内部にあり、対数尤度も滑らかです。一方 $U(0,\theta)$ では支持上端が $\theta$ 自身で動くため、通常の正則な最尤推定量の理論が破れます。
 
-##### 本番答案
-
-$$
-\hat\lambda=1/\bar X,
-\quad
-I_1(\lambda)=1/\lambda^2,
-$$
-
-$$
-\sqrt n(\hat\lambda-\lambda)\Rightarrow N(0,\lambda^2),
-$$
-
-$$
-\sqrt n(\hat m-m)\Rightarrow N(0,1/\lambda^2),
-$$
-
-$$
-\sqrt n(\hat q-q)\Rightarrow N(0,t_0^2q^2\lambda^2).
-$$
-
-$$
-\widehat{\operatorname{se}}(\hat q)
-=t_0\hat q\hat\lambda/\sqrt n.
-$$
-
-##### 採点基準
-
-- 最尤推定量: 3点
-- フィッシャー情報量と漸近分布: 4点
-- 平均寿命のデルタ法: 4点
-- 生存確率のデルタ法: 4点
-- 標準誤差: 3点
-- 正則性の比較: 2点
-
 <!-- solution-end -->
+
+---
 
 ## 15. 過去問との対応
 
 本章では公式問題文を転載せず、過去問索引で確認できる技能構造を独自問題へ落としています。
 
 - `MATH-2012-Q3`: 指数分布の最尤推定・フィッシャー情報量・デルタ法。本章では C01 と DRILL01 が直接対応する。
-- `MATH-2018-Q1`: カイ二乗分布・母標準偏差。分散から標準偏差への非線形変換を A04 と C04 で練習する。
-- `MATH-2018-Q2`: 超幾何分布の推定量・デルタ法。逆数型などの非線形変換へデルタ法を適用する技能として接続する。
+- `MATH-2018-Q1`: カイ二乗分布・母標準偏差。分散から標準偏差への1変量変換を A04 で練習する。
+- `MATH-2018-Q2`: 超幾何分布の推定量・デルタ法。逆数型などの非線形変換へ1変量デルタ法を適用する技能として接続する。
 
 実過去問を解く際は、公式問題集または公式公開問題を正本とし、第三者解説はテーマ照合・別解確認に限って利用します。
 
+---
+
 ## 16. 章末チェック
+
+### 通常ルート
 
 - 漸近正規性を「有限標本で正規分布」と誤解していない。
 - root-$n$ 漸近分散 $V$ と $\operatorname{Var}(T_n)\approx V/n$ を区別できる。
+- 本章の `AVar` が root-$n$ 漸近分散を表すことを説明できる。
 - 最尤推定量のTaylor展開式を自力で作れる。
-- スコア側に中心極限定理、曲率側に大数の法則を使う理由を説明できる。
+- スコア側に中心極限定理、二階微分側に確率収束を使う理由を説明できる。
 - Slutskyの定理で2つを結合し $I_1^{-1}$ を導ける。
 - 観測情報量 $j_n$ と期待フィッシャー情報量 $I_n$ を区別できる。
 - 1変量デルタ法をTaylor展開から導ける。
-- 導関数を二乗して漸近分散を変換できる。
-- 多変量では $J\Sigma J^\mathsf T$ を使える。
-- $g'(\theta)=0$ なら一次デルタ法が退化することを確認できる。
-- 再母数化後のフィッシャー情報量とデルタ法が整合することを示せる。
+- 導関数を二乗してroot-$n$漸近分散を変換できる。
+- 1母数の再母数化後のフィッシャー情報量とデルタ法が整合することを示せる。
 - 一様分布の最尤推定量では $n$ 尺度と指数極限が現れることを説明できる。
 - 「最尤推定量なら必ず $\sqrt n$ 正規」という誤った一般化をしない。
+
+### 補足・発展
+
+- $g'(\theta)=0$ なら一次デルタ法が退化することを確認できる。
+- 多変量デルタ法では $J\Sigma J^\mathsf T$ が現れることを知っている。
+- フィッシャー情報行列は1次元フィッシャー情報量の発展的な一般化だと区別できる。
+
+---
 
 ## 17. 定義の具体例による確認
 
@@ -1930,7 +1884,14 @@ $$
 \sqrt n(\bar X-\mu)\xrightarrow{d}N(0,\sigma^2).
 $$
 
-したがって $a_n=\sqrt n$、$b_n=\mu$ とした漸近分布は $N(0,\sigma^2)$ であり、$\bar X$ は root-$n$ 漸近正規です。また root-$n$ 漸近分散は $V(\mu)=\sigma^2$ なので、$\bar X$ 自身の大標本分散は $\sigma^2/n$ と読み直せます。3つの定義が同じ標本平均の例で整合しています。
+したがって $a_n=\sqrt n$、$b_n=\mu$ とした漸近分布は $N(0,\sigma^2)$ であり、$\bar X$ は root-$n$ 漸近正規です。また
+
+$$
+\operatorname{AVar}(\bar X)=\sigma^2,
+\qquad
+\operatorname{Var}(\bar X)=\sigma^2/n.
+$$
+
 <!-- definition-example-end -->
 
 <!-- definition-example-start: def-i2-01-observed-information -->
@@ -1944,19 +1905,31 @@ $$
 \ell_n''(\lambda)=-\frac{n}{\lambda^2}.
 $$
 
-よって定義どおり
+よって
 
 $$
 j_n(\lambda)=-\ell_n''(\lambda)=\frac{n}{\lambda^2}.
 $$
 
-このモデルでは二階微分が標本値に依存しないため、期待値を取っても同じ $I_n(\lambda)=n/\lambda^2$ となります。観測情報量と期待フィッシャー情報量が一致する特殊例として定義を直接確認できます。
+このモデルでは二階微分が標本値に依存しないため、期待値を取っても同じ
+
+$$
+I_n(\lambda)=n/\lambda^2
+$$
+
+となります。
 <!-- definition-example-end -->
 
 <!-- definition-example-start: def-i2-01-asymptotic-efficiency -->
 **定義の確認**
 
-指数分布の率母数では $I_1(\lambda)=1/\lambda^2$ で、最尤推定量 $\hat\lambda=1/\bar X$ は
+指数分布の率母数では
+
+$$
+I_1(\lambda)=1/\lambda^2
+$$
+
+で、最尤推定量 $\hat\lambda=1/\bar X$ は
 
 $$
 \sqrt n(\hat\lambda-\lambda)

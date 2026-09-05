@@ -12,14 +12,16 @@ official_scope:
 learning_objectives:
   - 推定量の漸近分布と漸近正規性を有限標本分布と区別して説明できる
   - root-n漸近正規性における漸近分散と有限標本での近似分散の関係を説明できる
-  - 正則な独立同分布モデルでスコア方程式のTaylor展開から最尤推定量の漸近正規性を導出できる
-  - スコアの中心極限定理と対数尤度二階微分の大数の法則をSlutskyの定理で結合できる
+  - 正則な1母数独立同分布モデルでスコア方程式のTaylor展開から最尤推定量の漸近正規性を導出できる
+  - スコアの中心極限定理と対数尤度二階微分の確率収束をSlutskyの定理で結合できる
   - 期待フィッシャー情報量と観測情報量を区別し最尤推定量の標準誤差近似へつなげられる
   - 1変量デルタ法をTaylor展開から導出し変換後推定量の漸近分散を計算できる
-  - 多変量デルタ法を勾配またはヤコビ行列で適用できる
   - 一次導関数が0のとき一次デルタ法が退化し二次展開が必要になることを判定できる
-  - 再母数化した最尤推定量の漸近分散とフィッシャー情報量の変換則が整合することを示せる
+  - 1母数の再母数化でフィッシャー情報量とデルタ法の漸近分散が整合することを示せる
   - 支持が母数に依存する非正則モデルではroot-n正規近似が破れる場合を説明できる
+advanced_objectives:
+  - 多変量デルタ法を勾配またはヤコビ行列で適用できる
+  - フィッシャー情報行列を用いた多母数MLEの漸近正規性を説明できる
 definitions:
   - { id: I201-DEF-01, name: 漸近分布 }
   - { id: I201-DEF-02, name: 漸近正規性 }
@@ -29,19 +31,23 @@ definitions:
 theorems:
   - { id: I201-THM-01, name: 最尤推定量の漸近正規性 }
   - { id: I201-THM-02, name: 1変量デルタ法 }
-  - { id: I201-THM-03, name: 多変量デルタ法 }
   - { id: I201-PROP-01, name: 二次デルタ法の基本形 }
   - { id: I201-PROP-02, name: フィッシャー情報量の再母数化則 }
   - { id: I201-PROP-03, name: 一様分布最尤推定量の非正規極限 }
-canonical_examples: [正則な最尤推定量のTaylor展開, 指数分布の率母数, ベルヌーイ分布の対数オッズ変換, 正規母標準偏差のデルタ法, 多変量デルタ法による標本分散, 一様分布最大値のn率極限]
-problem_patterns: [ASYM-NORMAL-READ-1, MLE-TAYLOR-1, FISHER-SE-1, DELTA-SCALAR-1, DELTA-LOGIT-1, DELTA-MULTIVARIATE-1, DELTA-SECOND-ORDER-1, REPARAM-FISHER-1, NONREGULAR-NRATE-1]
+advanced_theorems:
+  - { id: I201-THM-03, name: 多変量デルタ法 }
+canonical_examples: [正則な1母数最尤推定量のTaylor展開, 指数分布の率母数, ベルヌーイ分布の対数オッズ変換, 正規母標準偏差のデルタ法, 一様分布最大値のn率極限]
+advanced_examples: [多変量デルタ法による標本分散, 2母数正規モデルの再変換]
+problem_patterns: [ASYM-NORMAL-READ-1, MLE-TAYLOR-1, FISHER-SE-1, DELTA-SCALAR-1, DELTA-LOGIT-1, DELTA-SECOND-ORDER-1, REPARAM-FISHER-1, NONREGULAR-NRATE-1]
+advanced_problem_patterns: [DELTA-MULTIVARIATE-1]
 past_exam_alignment:
   - { id: MATH-2012-Q3, theme: 指数分布の最尤推定・フィッシャー情報量・デルタ法, skills: [最尤推定, フィッシャー情報量, デルタ法, 漸近分散], source_type: third_party_topic_index }
   - { id: MATH-2018-Q1, theme: カイ二乗分布・母標準偏差, skills: [標準偏差の変換, Taylor展開, デルタ法], source_type: third_party_topic_index }
   - { id: MATH-2018-Q2, theme: 超幾何分布の推定量・デルタ法, skills: [非線形変換, デルタ法, 分散近似], source_type: third_party_topic_index }
-integrated_exam_problems: [I2-01-C01, I2-01-C02, I2-01-C03, I2-01-C04, I2-01-D01]
+integrated_exam_problems: [I2-01-C01, I2-01-C02, I2-01-C03]
+advanced_exam_problems: [I2-01-C04, I2-01-D01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
-estimated_hours: { reading: 8, exercises: 11, review: 3 }
+estimated_hours: { reading: 7, exercises: 10, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
