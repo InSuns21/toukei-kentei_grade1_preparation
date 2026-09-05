@@ -165,6 +165,11 @@ $$
 > を観測 $i$ の **レバレッジ** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-l1-04-leverage -->
+**定義の確認**  
+切片を含む単回帰で $n=10$ なら $p=2$ なので、$\sum_i h_{ii}=2$、平均レバレッジは $2/10=0.2$ です。例えば $h_{ii}=0.6$ の点は平均よりかなり大きく、説明変数空間で端にある候補と読めます。
+<!-- definition-example-end -->
+
 $X$ の列数を $p$ とすると、$H$ は階数 $p$ の射影行列なので
 
 $$
@@ -513,6 +518,11 @@ $$
 
 > となるように誤差の相関と尺度差を取り除く変換を **白色化** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-04-whitening -->
+**定義の確認**  
+$\Omega=\operatorname{diag}(4,1)$ なら $L=\operatorname{diag}(2,1)$ と取れます。$L^{-1}=\operatorname{diag}(1/2,1)$ を掛けると、分散が4だった第1成分も分散1へそろい、変換後の共分散は $\sigma^2 I$ になります。
+<!-- definition-example-end -->
 
 ![一般化最小二乗法の白色化](./figures/gls-whitening.svg)
 
