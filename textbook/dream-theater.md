@@ -14,7 +14,7 @@
 
 ## 1. DREAM THEATER 本編
 
-### 集合・位相・線形代数・測度
+### 集合・位相・完備性
 
 1. [F0-00A 集合・写像・上限下限](textbook/volumes/00_foundations/F0_00A_集合_写像_上限下限/index.md)
 2. [F0-00A1 supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
@@ -25,46 +25,70 @@
 7. [F0-00C1 点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
 8. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
 9. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
-10. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
-11. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
-12. [F0-00E1 内積・Gram–Schmidt・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
-13. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-14. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
-15. [F0-00F2 SVD・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
-16. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
-17. [F0-00D2 測度・可測関数・Lebesgue積分](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
-18. [F0-00D3 外測度・Carathéodory](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
-19. [F0-00D4 Lebesgue測度・Borel・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
-20. [F0-00D5 Vitali集合・非可測集合](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-21. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
-22. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
-23. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
-24. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
-25. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
-26. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
 
-### 制約付き最適化・関数解析・RKHS
+### 線形代数
+
+1. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
+2. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
+3. [F0-00E1 内積・Gram–Schmidt・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
+4. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
+5. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
+6. [F0-00F2 SVD・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+
+### ノルム空間・測度・Lebesgue積分
+
+1. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
+2. [F0-00D2 測度・可測関数・Lebesgue積分](textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)
+3. [F0-00D3 外測度・Carathéodory](textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md)
+4. [F0-00D4 Lebesgue測度・Borel・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
+5. [F0-00D5 Vitali集合・非可測集合](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
+6. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
+7. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
+8. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+9. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+10. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+
+### 凸最適化への入口
+
+1. [F0-00G 凸集合・凸関数・凸最適化](textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md)
+
+### 関数解析
+
+ここからは、関数空間を「無限次元の線形空間」として扱うための本体です。後ろの凸解析・KKT・RKHSが、ここで準備する完備性・双対・作用素の言葉を使います。
+
+1. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
+2. [F0-02C1 Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
+3. [F0-02C1A Hilbert射影定理](textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md)
+4. [F0-02C2 双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
+5. [F0-02C3 Fréchet微分・有界線形作用素](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+6. [F0-02C3A Banach双対・Hilbert随伴](textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md)
+7. [F0-02C3B Fréchet連鎖律・Hilbert随伴の証明](textbook/volumes/00_foundations/F0_02C3B_Frechet_chain_adjoint_proofs/index.md)
+8. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
+9. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+
+### 凸解析・錐
+
+1. [F0-02C4 凸解析・normal cone](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
+2. [F0-02C4A tangent・polar・dual cone](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
+3. [F0-02C4B tangent-normal polar identity の証明](textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md)
+
+### 制約付き最適化・KKT
+
+ここで有限次元の制約付き最適化へ戻り、FarkasからKKTを導出したあと、関数解析の言葉で一般化KKTへ進みます。
 
 1. [F0-02 制約付き最適化・双対・KKT](textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md)
-2. [F0-02A KKT導出・接錐・polar・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
-3. [F0-02B 分離超平面・Farkas・SVM](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
-4. [F0-02B1 SVM・凸包・最大マージン](textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md)
-5. [F0-02C 関数解析・制約想定・RKHS](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
-6. [F0-02C1 Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
-7. [F0-02C1A Hilbert射影定理](textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md)
-8. [F0-02C2 双対空間・Riesz](textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md)
-9. [F0-02C3 Fréchet微分・随伴](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
-10. [F0-02C3A Banach双対・Hilbert随伴](textbook/volumes/00_foundations/F0_02C3A_随伴作用素_Banach_Hilbert/index.md)
-11. [F0-02C3B Fréchet連鎖律・Hilbert随伴の証明](textbook/volumes/00_foundations/F0_02C3B_Frechet_chain_adjoint_proofs/index.md)
-12. [F0-02C4 凸解析・normal cone](textbook/volumes/00_foundations/F0_02C4_凸解析_劣勾配_normal_cone_双対錐/index.md)
-13. [F0-02C4A tangent・polar・dual cone](textbook/volumes/00_foundations/F0_02C4A_tangent_polar_dual_cone/index.md)
-14. [F0-02C4B tangent-normal polar identity の証明](textbook/volumes/00_foundations/F0_02C4B_tangent_normal_polar_proof/index.md)
-15. [F0-02C5 一般化KKT・制約写像](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
-16. [F0-02C5A LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
-17. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-18. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-19. [F0-02C7 RKHS・再生核](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
-20. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
+2. [F0-02B 分離超平面・Farkas](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
+3. [F0-02A KKT導出・接錐・polar・Farkas](textbook/volumes/00_foundations/F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md)
+4. [F0-02C5 一般化KKT・制約写像](textbook/volumes/00_foundations/F0_02C5_一般化KKT_制約写像_制約想定/index.md)
+5. [F0-02C5A LICQ・MFCQ・Robinson CQ](textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md)
+
+### RKHS・SVM
+
+最後に、Hilbert空間・Riesz・凸最適化・SVMが合流します。
+
+1. [F0-02C7 RKHS・再生核](textbook/volumes/00_foundations/F0_02C7_RKHS_再生核_representer_kernel_SVM/index.md)
+2. [F0-02B1 SVM・凸包・最大マージン](textbook/volumes/00_foundations/F0_02B1_SVM_凸包_最大マージン/index.md)
+3. [F0-02C7A representer theorem・kernel SVM](textbook/volumes/00_foundations/F0_02C7A_representer_kernel_SVM/index.md)
 
 ---
 
