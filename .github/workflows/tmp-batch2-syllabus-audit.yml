@@ -9,7 +9,7 @@ on:
       - '.github/workflows/tmp-batch2-syllabus-audit.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
@@ -17,6 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: audit/syllabus-definition-density-batch2
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -25,6 +26,17 @@ jobs:
       - run: npm ci
       - name: Generate corrected syllabus coverage report
         run: npm run audit:textbook-syllabus -- --write --strict
+      - name: Commit corrected report if changed
+        run: |
+          if git diff --quiet -- textbook/SYLLABUS_TERM_COVERAGE.md; then
+            echo 'report already current'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/SYLLABUS_TERM_COVERAGE.md
+          git commit -m 'Regenerate corrected syllabus coverage report'
+          git push origin HEAD:audit/syllabus-definition-density-batch2
       - uses: actions/upload-artifact@v4
         with:
           name: batch2-syllabus-audit
