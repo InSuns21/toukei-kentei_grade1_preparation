@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 91件
+- 明示的な定義ラベルヒット: 96件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -20,13 +20,13 @@
 |math-events|条件付き確率|exact|P1-02 / 1. 条件付き確率は「条件を固定して計り直す」#def-p1-02-conditional-probability|P1-02 / 1. 条件付き確率は「条件を固定して計り直す」#def-p1-02-conditional-probability|—|P1-02 / P1-A04|
 |math-events|ベイズの定理|exact|P1-02 / P1-02 条件付き確率・独立・|—|—|P1-02 / P1-A06 二原因のベイズ計算|
 |math-events|包除原理|exact|P1-01 / P1-01 事象と確率|—|—|P1-01 / P1-B01 ちょうど一つ|
-|math-distribution-functions|確率関数|exact|I1-01 / 前提知識チェック|—|—|S1-02 / S1-02-C04 指数型分布族から読む|
-|math-distribution-functions|確率密度関数|exact|F0-00 / 1. この章で扱う数学|—|—|P2-01 / P2-A02 連続密度の正規化|
-|math-distribution-functions|累積分布関数|exact|P2-01 / P2-01 確率変数・確率質量関数・確率密度関数・|—|P2-01 / 例1：離散分布から|P2-01 / P2-A03|
+|math-distribution-functions|確率関数|exact|P2-01 / 2.3 確率質量関数#def-p2-01-pmf|P2-01 / 2.3 確率質量関数#def-p2-01-pmf|—|S1-02 / S1-02-C04 指数型分布族から読む|
+|math-distribution-functions|確率密度関数|exact|P2-01 / 2.4 確率密度関数#def-p2-01-pdf|P2-01 / 2.4 確率密度関数#def-p2-01-pdf|—|P2-01 / P2-A02 連続密度の正規化|
+|math-distribution-functions|累積分布関数|exact|P2-01 / 2.5 累積分布関数#def-p2-01-cdf|P2-01 / 2.5 累積分布関数#def-p2-01-cdf|P2-01 / 例1：離散分布から|P2-01 / P2-A03|
 |math-distribution-functions|生存関数|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / 7. 演習：問題の直後に解答|
 |math-distribution-functions|危険率|exact|E4-02 / 2. 危険率#def-e4-02-hazard-rate|E4-02 / 2. 危険率#def-e4-02-hazard-rate|—|E4-02 / E4-02-A01|
-|math-distribution-functions|同時分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|E2-04 / E2-04-B01 3時点の|
-|math-distribution-functions|周辺分布|exact|P2-01 / P2-01 確率変数・確率質量関数・確率密度関数・累積分布関数|—|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
+|math-distribution-functions|同時分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|—|E2-04 / E2-04-B01 3時点の|
+|math-distribution-functions|周辺分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
 |math-distribution-functions|条件付き分布|exact|F0-00 / 15. 統計でどこに使うか|—|I4-01 / 3A.3 例：解析積分が閉じないところからMCMCが必要になる|P3-01 / P3-C03 ポアソン和と|
 |math-distribution-functions|確率母関数|exact|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例5：確率質量関数から|P2-02 / P2-B06|
 |math-distribution-functions|モーメント母関数（積率母関数）|alias|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例6：ベルヌーイ分布から|P2-02 / P2-B07 ベルヌーイ分布から|
@@ -54,7 +54,7 @@
 |math-limit-approximations|少数法則|exact|P4-02 / 3A.|—|P4-02 / 3A.1 例：希少故障件数|P4-02 / P402-A05|
 |math-limit-approximations|連続修正|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-yates-correction|—|—|—|
 |math-discrete-distributions|一様分布|exact|P2-01 / 2.2 台#def-p2-01-support|—|P4-01 / 例2 独立な|P2-01 / P2-C04 最大値と最小値|
-|math-discrete-distributions|ベルヌーイ分布|exact|P2-02 / 例6：|—|P2-02 / 例6：|P2-02 / P2-B07|
+|math-discrete-distributions|ベルヌーイ分布|exact|P2-01 / 2.2 台#def-p2-01-support|—|P2-02 / 例6：|P2-02 / P2-B07|
 |math-discrete-distributions|二項分布|exact|P2-02 / 例6：ベルヌーイ分布からモーメント母関数を作る|—|P2-02 / 例6：ベルヌーイ分布からモーメント母関数を作る|P3-01 / P3-A01 二項確率|
 |math-discrete-distributions|超幾何分布|exact|P3-01 / この章で解けるようになる問題|—|P3-01 / 例1：二項分布か|P3-01 / P3-B01 非復元抽出|
 |math-discrete-distributions|幾何分布|exact|P3-01 / この章で解けるようになる問題|—|P3-01 / 例1：二項分布か超|P3-01 / P3-A02 幾何待ち時間|
