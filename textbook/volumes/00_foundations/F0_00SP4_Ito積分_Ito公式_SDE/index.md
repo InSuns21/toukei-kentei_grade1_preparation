@@ -151,14 +151,14 @@ $$
 
 $$
 E[H_k^2(\Delta_kB)^2]
-=E[H_k^2](t_{k+1}-t_k).
+=E[H_k^2]\,(t_{k+1}-t_k).
 $$
 
 従って
 
 $$
 E|I_T(H)|^2
-=\sum_kE[H_k^2](t_{k+1}-t_k)
+=\sum_kE[H_k^2]\,(t_{k+1}-t_k)
 =E\int_0^TH_t^2dt.
 $$
 <!-- proof-end -->
