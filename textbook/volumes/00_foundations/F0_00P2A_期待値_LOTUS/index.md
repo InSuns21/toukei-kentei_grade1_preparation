@@ -176,13 +176,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Markovの不等式）**  
 > 非負確率変数 $Y\ge0$ が $E[Y]<\infty$ を満たすとします。このとき任意の $a>0$ に対して
->
-> $$
-> \boxed{
-> P(Y\ge a)\le\frac{E[Y]}{a}
-> }
-> $$
->
+
+$$
+\boxed{
+P(Y\ge a)\le\frac{E[Y]}{a}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
