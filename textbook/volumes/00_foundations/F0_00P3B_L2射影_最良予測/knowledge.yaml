@@ -6,11 +6,16 @@ prerequisites:
   - F0-00D2E
   - F0-00D2B
 
+# 末尾で次章の Lévy 上昇定理を予告する。
+forward_references:
+  - prob.levy-upward-theorem
+
 concepts:
   - id: prob.l2-information-space
     name: L^2(G)
     kind: definition
-    aliases: ["定義（$L^2(\\mathcal G)$）", "L^2(\\mathcal G)"]
+    # 旧reader-source監査ではインライン数式が空白化されるため、その表示も互換aliasに含める。
+    aliases: ["定義（$L^2(\\mathcal G)$）", "L^2(\\mathcal G)", "定義（ ）"]
     requires:
       - prob.probability-space
       - measure.lp-space
@@ -27,7 +32,8 @@ concepts:
   - id: prob.conditional-expectation-l2-contraction
     name: 条件付き期待値のL^2縮小性
     kind: lemma
-    aliases: ["条件付き期待値の$L^2$縮小性", 条件付き期待値のL2縮小性]
+    # 同様に旧reader-sourceでは L^2 が空白化される。
+    aliases: ["条件付き期待値の$L^2$縮小性", 条件付き期待値のL2縮小性, "補題（条件付き期待値の 縮小性）"]
     requires:
       - prob.conditional-expectation
       - measure.cauchy-schwarz-l2
