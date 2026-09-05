@@ -1,5 +1,5 @@
 schema_version: 2
-checked_at: "2026-09-01"
+checked_at: "2026-09-05"
 policy:
   official_problem_source: "統計検定公式公開問題または日本統計学会公式認定問題集"
   third_party_role: "年度別テーマ索引と別解確認のみ"
@@ -56,7 +56,8 @@ entries:
   - { id: MATH-2021-Q4, year: 2021, exam: 統計数理, question: 4, theme: 正規分布のモーメント, chapters: [P2-02, P3-02], evidence: *math_topic }
   - { id: MATH-2021-Q5, year: 2021, exam: 統計数理, question: 5, theme: 多変量正規分布の線形変換・独立性, chapters: [F0-01, P3-03], evidence: *math_topic }
   - { id: MATH-2018-Q4, year: 2018, exam: 統計数理, question: 4, theme: 条件付き2変量正規分布・Markov性, chapters: [P1-02, P3-03, E2-01], evidence: *math_crosschecked }
-  - { id: MATH-2018-Q1, year: 2018, exam: 統計数理, question: 1, theme: カイ二乗分布・母標準偏差, chapters: [S1-01, I2-02], evidence: *math_crosschecked }
+  - { id: MATH-2018-Q1, year: 2018, exam: 統計数理, question: 1, theme: カイ二乗分布・母標準偏差, chapters: [S1-01, I2-01, I2-02], evidence: *math_crosschecked }
+  - { id: MATH-2018-Q2, year: 2018, exam: 統計数理, question: 2, theme: 超幾何分布の推定量・Delta法, chapters: [P3-01, S1-03, I1-02, I2-01], evidence: *math_topic }
   - { id: MATH-2018-Q5, year: 2018, exam: 統計数理, question: 5, theme: 順序統計量の確率密度, chapters: [P2-01, P4-01], evidence: *math_crosschecked }
   - { id: MATH-2017-Q1, year: 2017, exam: 統計数理, question: 1, theme: 標本平均の歪度・尖度, chapters: [P2-02, P4-02], evidence: *math_topic }
   - { id: MATH-2017-Q4, year: 2017, exam: 統計数理, question: 4, theme: 正規分布の線形変換・条件付き分布, chapters: [F0-01, P3-03], evidence: *math_topic }
@@ -65,6 +66,7 @@ entries:
   - { id: MATH-2014-Q3, year: 2014, exam: 統計数理, question: 3, theme: t分布・信頼区間端点, chapters: [S1-01, I2-02], evidence: *math_topic }
   - { id: MATH-2014-Q4, year: 2014, exam: 統計数理, question: 4, theme: F分布・二標本比較, chapters: [S1-01, I3-03], evidence: *math_topic }
   - { id: MATH-2012-Q1, year: 2012, exam: 統計数理, question: 1, theme: 一様分布・確率積分変換, chapters: [P2-01, P4-01], evidence: *math_topic }
+  - { id: MATH-2012-Q3, year: 2012, exam: 統計数理, question: 3, theme: 指数分布の最尤推定・Fisher情報量・Delta法, chapters: [P3-02, I1-01, I1-02, I2-01], evidence: *math_topic }
   - { id: SCI-2025-Q1, year: 2025, exam: 統計応用理工学, question: 1, theme: 管理図・工程能力指数・区間推定, chapters: [E4-01, I2-02], evidence: *science_official_2025 }
   - { id: SCI-2025-Q2, year: 2025, exam: 統計応用理工学, question: 2, theme: Markov連鎖・推移確率の最尤推定・尤度比検定, chapters: [E2-01, I1-01, I3-01], evidence: *science_official_2025 }
   - { id: SCI-2025-Q3, year: 2025, exam: 統計応用理工学, question: 3, theme: 重回帰・偏回帰・残差化・係数推定, chapters: [L1-01, L1-04], evidence: *science_official_2025 }
