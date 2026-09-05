@@ -19,12 +19,12 @@ $2\pi$ 周期関数を $(-\pi,\pi)$ 上で考えます。有限区間なので $
 <!-- formal-statement-start -->
 > **定義（複素 Fourier 係数）**  
 > $f\in L^2(-\pi,\pi)$ に対し、$n\in\mathbb Z$ 番目の複素 Fourier 係数を
->
-> $$
-> c_n(f)
-> :=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx
-> $$
->
+
+$$
+c_n(f)
+:=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}\,dx
+$$
+
 > と定義します。
 <!-- formal-statement-end -->
 
@@ -79,11 +79,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Fourier 部分和）**  
 > $f\in L^2(-\pi,\pi)$ の複素 Fourier 係数を $c_n(f)$ とするとき、$N$ 次 Fourier 部分和を
->
-> $$
-> S_Nf(x):=\sum_{|n|\le N}c_n(f)e^{inx}
-> $$
->
+
+$$
+S_Nf(x):=\sum_{|n|\le N}c_n(f)e^{inx}
+$$
+
 > と定義します。
 <!-- formal-statement-end -->
 
@@ -119,14 +119,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fourier 係数に対する Bessel 不等式）**  
 > $f\in L^2(-\pi,\pi)$ に対して
->
-> $$
-> \boxed{
-> 2\pi\sum_{n\in\mathbb Z}|c_n(f)|^2
-> \le \|f\|_2^2
-> }
-> $$
->
+
+$$
+\boxed{
+2\pi\sum_{n\in\mathbb Z}|c_n(f)|^2
+\le \|f\|_2^2
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -172,12 +172,12 @@ $N\to\infty$ とすれば主張を得ます。
 <!-- formal-statement-start -->
 > **定義（Fejér kernel）**  
 > $N\ge0$ に対し
->
-> $$
-> K_N(t)
-> :=\frac1{N+1}\left|\sum_{k=0}^{N}e^{ikt}\right|^2
-> $$
->
+
+$$
+K_N(t)
+:=\frac1{N+1}\left|\sum_{k=0}^{N}e^{ikt}\right|^2
+$$
+
 > を Fejér kernel と呼びます。
 <!-- formal-statement-end -->
 
@@ -241,11 +241,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（$L^2$ の平行移動連続性）**  
 > 任意の $f\in L^2(-\pi,\pi)$ について
->
-> $$
-> \boxed{\|\tau_tf-f\|_2\to0\qquad(t\to0)}
-> $$
->
+
+$$
+\boxed{\|\tau_tf-f\|_2\to0\qquad(t\to0)}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -335,11 +335,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fejér 平均の $L^2$ 収束）**  
 > 任意の $f\in L^2(-\pi,\pi)$ について
->
-> $$
-> \boxed{\|\sigma_Nf-f\|_2\to0}
-> $$
->
+
+$$
+\boxed{\|\sigma_Nf-f\|_2\to0}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -362,7 +362,7 @@ $$
 \int_{-\pi}^{\pi}k_N(t)\|\tau_tf-f\|_2^2dt.
 $$
 
-任意の $\varepsilon>0$ に対し、前節の補題から $|t|<\delta$ なら
+任意の $\varepsilon>0$ に対し、[$L^2$ の平行移動連続性](#lem-f0-00fa1-translation-continuity)から $|t|<\delta$ なら
 
 $$
 \|\tau_tf-f\|_2^2<\varepsilon
@@ -412,7 +412,7 @@ $\varepsilon$ は任意なので極限は0です。
 <!-- proof-start -->
 ### 証明：Fejér 平均そのものが三角多項式近似
 
-任意の $f\in L^2(-\pi,\pi)$ に対し、$\sigma_Nf$ は有限個の $e^{inx}$ の線形結合です。しかも前節から
+任意の $f\in L^2(-\pi,\pi)$ に対し、$\sigma_Nf$ は有限個の $e^{inx}$ の線形結合です。しかも [Fejér平均の $L^2$ 収束](#thm-f0-00fa1-fejer-l2) から
 
 $$
 \|\sigma_Nf-f\|_2\to0.
@@ -432,21 +432,21 @@ $$
 <!-- formal-statement-start -->
 > **系（Parseval 等式）**  
 > 任意の $f\in L^2(-\pi,\pi)$ について
->
-> $$
-> \boxed{
-> \|f\|_2^2
-> =2\pi\sum_{n\in\mathbb Z}|c_n(f)|^2
-> }
-> $$
->
+
+$$
+\boxed{
+\|f\|_2^2
+=2\pi\sum_{n\in\mathbb Z}|c_n(f)|^2
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明：完全な正規直交系では Bessel の不足分が消える
 
-$S_Nf$ は $|n|\le N$ の指数関数が張る部分空間への直交射影です。完全性から、その部分空間の増大列の和集合は $L^2$ に稠密なので
+$S_Nf$ は $|n|\le N$ の指数関数が張る部分空間への直交射影です。[三角関数系の $L^2$ 完全性](#thm-f0-00fa1-completeness)から、その部分空間の増大列の和集合は $L^2$ に稠密なので
 
 $$
 \|f-S_Nf\|_2\to0.
@@ -467,11 +467,11 @@ $$
 <!-- formal-statement-start -->
 > **系（Fourier 部分和の $L^2$ 収束）**  
 > 任意の $f\in L^2(-\pi,\pi)$ について
->
-> $$
-> \boxed{\|S_Nf-f\|_2\to0}
-> $$
->
+
+$$
+\boxed{\|S_Nf-f\|_2\to0}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -602,11 +602,11 @@ $f\in L^2(-\pi,\pi)$ が $c_n(f)=0$ for all $n\in\mathbb Z$ を満たすとす�
 <!-- solution-start -->
 ### 詳細解答
 
-全係数が0なら全ての Fourier 部分和は $S_Nf=0$。一方、完全性から $\|S_Nf-f\|_2\to0$。従って $\|f\|_2=0$ であり $f=0$ a.e. です。
+全係数が0なら全ての Fourier 部分和は $S_Nf=0$。[Fourier部分和の $L^2$ 収束](#cor-f0-00fa1-l2-convergence)から $\|S_Nf-f\|_2\to0$。従って $\|f\|_2=0$ であり $f=0$ a.e. です。
 
 ### 本番答案
 
-完全性より $S_Nf\to f$ in $L^2$。しかし $c_n=0$ なので $S_Nf\equiv0$。よって $\|f\|_2=0$。
+$S_Nf\to f$ in $L^2$。しかし $c_n=0$ なので $S_Nf\equiv0$。よって $\|f\|_2=0$。
 
 ### 採点基準（20点）
 
@@ -625,7 +625,7 @@ $f(x)=x$ の Fourier 係数を使って $\sum_{n\ge1}n^{-2}=\pi^2/6$ を導け�
 <!-- solution-start -->
 ### 詳細解答
 
-$b_n=2(-1)^{n+1}/n$、$a_n=0$。Parseval より
+$b_n=2(-1)^{n+1}/n$、$a_n=0$。[Parseval等式](#cor-f0-00fa1-parseval)より
 
 $$
 \frac1\pi\int_{-\pi}^{\pi}x^2dx
@@ -666,7 +666,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Parseval から
+[Parseval等式](#cor-f0-00fa1-parseval)から
 
 $$
 \|f\|_2^2=2\pi\sum_{n\in\mathbb Z}|c_n|^2.
