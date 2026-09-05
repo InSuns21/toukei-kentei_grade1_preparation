@@ -43,10 +43,11 @@ concepts:
       - prob.random-variable
       - measure.pushforward-measure
 
+  # 冒頭ロードマップにも名称が出るため、実際の説明節見出しを初出マーカーにする。
   - id: prob.cdf
     name: 累積分布関数
     kind: term
-    aliases: [累積分布関数]
+    aliases: ["累積分布関数は分布を半直線で読む"]
     requires:
       - prob.distribution-law
 
