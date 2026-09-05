@@ -44,9 +44,9 @@ $$
 
 | 区分 | 内容 |
 |---|---|
-| **通常ルート** | root-$n$ 漸近正規性、1母数MLEの漸近正規性、漸近分散、観測情報量、**1変量デルタ法**、1母数再母数化、非正則例 |
+| **通常ルート** | root-$n$ 漸近正規性、1母数最尤推定量の漸近正規性、漸近分散、観測情報量、**1変量デルタ法**、1母数再母数化、非正則例 |
 | **補足** | 一次導関数が0の場合の二次デルタ法 |
-| **発展** | 多変量デルタ法、フィッシャー情報行列、多母数MLEの一般的な漸近正規性 |
+| **発展** | 多変量デルタ法、フィッシャー情報行列、多母数最尤推定量の一般的な漸近正規性 |
 
 統計検定1級の通常ルートでは、フィッシャー情報量は**1次元**を中心に扱います。したがって、多変量デルタ法や情報行列は「知っていると見通しがよい一般化」ではありますが、本章の必須到達目標にはしません。
 
@@ -65,7 +65,7 @@ $$
 
 | 範囲 | 本章の通常ルート |
 |---|---|
-| 最尤推定量の漸近正規性 | 1母数モデルでスコア方程式をTaylor展開し、CLT・二階微分の確率収束・Slutskyで導く |
+| 最尤推定量の漸近正規性 | 1母数モデルでスコア方程式をTaylor展開し、中心極限定理・二階微分の確率収束・Slutskyの定理で導く |
 | デルタ法 | **1変量デルタ法**を中心に扱う |
 | 漸近分散 | root-$n$ 漸近分散、フィッシャー情報量逆数、変換後の漸近分散 |
 | フィッシャー情報量 | 1次元の情報量と観測情報量 |
@@ -109,11 +109,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（漸近分布）**  
 > 推定量列 $T_n$ に対し、定数列 $a_n>0$、中心化項 $b_n$ を選んだとき
->
-> $$
-> a_n(T_n-b_n)\xrightarrow{d}Z
-> $$
->
+
+$$
+a_n(T_n-b_n)\xrightarrow{d}Z
+$$
+
 > となる非退化な確率変数 $Z$ の分布を、その中心化・尺度の下での漸近分布という。
 <!-- formal-statement-end -->
 
@@ -128,13 +128,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（root-$n$ 漸近正規性）**  
 > 推定量 $T_n$ が母数 $\theta$ に対して
->
-> $$
-> \sqrt n(T_n-\theta)
-> \xrightarrow{d}
-> N(0,V(\theta))
-> $$
->
+
+$$
+\sqrt n(T_n-\theta)
+\xrightarrow{d}
+N(0,V(\theta))
+$$
+
 > を満たすとき、$T_n$ は root-$n$ 漸近正規であるという。
 <!-- formal-statement-end -->
 
@@ -143,13 +143,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（root-$n$ 漸近分散）**  
 > 本章では
->
-> $$
-> \sqrt n(T_n-\theta)
-> \xrightarrow{d}
-> N(0,V(\theta))
-> $$
->
+
+$$
+\sqrt n(T_n-\theta)
+\xrightarrow{d}
+N(0,V(\theta))
+$$
+
 > に現れる $V(\theta)$ を **root-$n$ 漸近分散** と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -320,7 +320,7 @@ $$
 試験対策として重要なのは、
 
 $$
-\text{スコア側は CLT},
+\text{スコア側は中心極限定理},
 \qquad
 \text{二階微分側は情報量へ確率収束}
 $$
@@ -345,15 +345,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（正則な1母数最尤推定量の漸近正規性）**  
 > 真値 $\theta_0$ が母数空間の内点にあり、支持が局所的に母数へ依存せず、対数尤度が十分滑らかで、スコアの中心極限定理と対数尤度二階微分の必要な確率収束が成り立ち、$0<I_1(\theta_0)<\infty$ とする。さらに内点の最尤推定量 $\hat\theta_n$ が一致的でスコア方程式を満たすとする。このとき
->
-> $$
-> \boxed{
-> \sqrt n(\hat\theta_n-\theta_0)
-> \xrightarrow{d}
-> N\!\left(0,I_1(\theta_0)^{-1}\right)
-> }
-> $$
->
+
+$$
+\boxed{
+\sqrt n(\hat\theta_n-\theta_0)
+\xrightarrow{d}
+N\!\left(0,I_1(\theta_0)^{-1}\right)
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -403,13 +403,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（観測情報量）**  
 > 1母数モデルで、実現した標本に対する対数尤度の負の二階微分
->
-> $$
-> \boxed{
-> j_n(\theta)=-\ell_n''(\theta)
-> }
-> $$
->
+
+$$
+\boxed{
+j_n(\theta)=-\ell_n''(\theta)
+}
+$$
+
 > を観測情報量という。
 <!-- formal-statement-end -->
 
@@ -458,13 +458,13 @@ I1-02 では有限標本でクラーメル・ラオ下限を達成する有効�
 <!-- formal-statement-start -->
 > **定義（本章での漸近有効性）**  
 > 正則な1母数独立同分布モデルで、推定量 $T_n$ が
->
-> $$
-> \sqrt n(T_n-\theta)
-> \xrightarrow{d}
-> N\!\left(0,I_1(\theta)^{-1}\right)
-> $$
->
+
+$$
+\sqrt n(T_n-\theta)
+\xrightarrow{d}
+N\!\left(0,I_1(\theta)^{-1}\right)
+$$
+
 > を満たすとき、本章では $T_n$ がフィッシャー情報量に基づく漸近効率限界を達成するといい、漸近有効と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -522,21 +522,21 @@ $$
 <!-- formal-statement-start -->
 > **定理（1変量デルタ法）**  
 > 推定量 $T_n$ が
->
-> $$
-> \sqrt n(T_n-\theta)\xrightarrow{d}N(0,V(\theta))
-> $$
->
+
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N(0,V(\theta))
+$$
+
 > を満たし、$g$ が $\theta$ で微分可能とする。このとき
->
-> $$
-> \boxed{
-> \sqrt n\{g(T_n)-g(\theta)\}
-> \xrightarrow{d}
-> N\!\left(0,\{g'(\theta)\}^2V(\theta)\right)
-> }
-> $$
->
+
+$$
+\boxed{
+\sqrt n\{g(T_n)-g(\theta)\}
+\xrightarrow{d}
+N\!\left(0,\{g'(\theta)\}^2V(\theta)\right)
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -719,15 +719,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（二次デルタ法の基本形）**  
 > $\sqrt n(T_n-\theta)\xrightarrow{d}Z$、$g'(\theta)=0$ とし、$g$ が $\theta$ で二階微分可能とする。適切な剰余条件の下で
->
-> $$
-> \boxed{
-> n\{g(T_n)-g(\theta)\}
-> \xrightarrow{d}
-> \frac12g''(\theta)Z^2
-> }
-> $$
->
+
+$$
+\boxed{
+n\{g(T_n)-g(\theta)\}
+\xrightarrow{d}
+\frac12g''(\theta)Z^2
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -784,15 +784,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（フィッシャー情報量の再母数化則）**  
 > 1対1で微分可能な1母数再母数化 $\eta=g(\theta)$ の下で
->
-> $$
-> \boxed{
-> I_\eta(\eta)
-> =I_\theta(\theta)
-> \left(\frac{d\theta}{d\eta}\right)^2
-> }
-> $$
->
+
+$$
+\boxed{
+I_\eta(\eta)
+=I_\theta(\theta)
+\left(\frac{d\theta}{d\eta}\right)^2
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -869,15 +869,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（一様分布の最尤推定量の非正規極限）**  
 > $X_i\overset{\mathrm{iid}}{\sim}U(0,\theta)$、$M_n=X_{(n)}$ とすると
->
-> $$
-> \boxed{
-> n(\theta-M_n)
-> \xrightarrow{d}
-> \mathrm{Exp}(1/\theta)
-> }
-> $$
->
+
+$$
+\boxed{
+n(\theta-M_n)
+\xrightarrow{d}
+\mathrm{Exp}(1/\theta)
+}
+$$
+
 > が成り立つ。ここで $\mathrm{Exp}(1/\theta)$ は率 $1/\theta$ の指数分布を表す。
 <!-- formal-statement-end -->
 
@@ -895,23 +895,23 @@ $$
 <a id="thm-i2-01-delta-multivariate"></a>
 
 <!-- formal-statement-start -->
-> **発展定理（多変量デルタ法）**  
+> **定理（多変量デルタ法）**  
 > $T_n\in\mathbb R^p$、$\theta\in\mathbb R^p$ とし、
->
-> $$
-> \sqrt n(T_n-\theta)\xrightarrow{d}N_p(0,\Sigma)
-> $$
->
+
+$$
+\sqrt n(T_n-\theta)\xrightarrow{d}N_p(0,\Sigma)
+$$
+
 > とする。$g:\mathbb R^p\to\mathbb R^q$ が $\theta$ で微分可能で、ヤコビ行列を $J_g(\theta)$ とすると
->
-> $$
-> \boxed{
-> \sqrt n\{g(T_n)-g(\theta)\}
-> \xrightarrow{d}
-> N_q\!\left(0,J_g(\theta)\Sigma J_g(\theta)^\mathsf T\right)
-> }
-> $$
->
+
+$$
+\boxed{
+\sqrt n\{g(T_n)-g(\theta)\}
+\xrightarrow{d}
+N_q\!\left(0,J_g(\theta)\Sigma J_g(\theta)^\mathsf T\right)
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -971,7 +971,7 @@ $$
 
 ---
 
-## 12. 発展: 多母数MLEとフィッシャー情報行列
+## 12. 発展: 多母数最尤推定量とフィッシャー情報行列
 
 > **発展項目**  
 > フィッシャー情報量を行列へ一般化する節です。1次元フィッシャー情報量の試験対策が目的なら省略して構いません。
@@ -1061,8 +1061,6 @@ $$
 
 #### 解答
 
-##### 詳細解答
-
 $$
 \boxed{\operatorname{AVar}(T_n)=9\theta^2}.
 $$
@@ -1083,22 +1081,6 @@ $$
 =\frac{3|T_n|}{\sqrt n}
 }.
 $$
-
-##### 本番答案
-
-$$
-\operatorname{AVar}(T_n)=9\theta^2,
-\quad
-\operatorname{Var}(T_n)\approx9\theta^2/n,
-\quad
-\widehat{\operatorname{se}}=3|T_n|/\sqrt n.
-$$
-
-##### 採点基準
-
-- root-$n$ 漸近分散: 6点
-- 有限標本分散への読み替え: 7点
-- 標準誤差: 7点
 
 <!-- solution-end -->
 
@@ -1478,7 +1460,7 @@ $$
 
 また、$E[X]=1/\lambda$、$\operatorname{Var}(X)=1/\lambda^2$ と $g(x)=1/x$ を使えば、中心極限定理とデルタ法から同じ結論を得ます。
 
-両者が一致するのは、正則な1母数MLEの漸近分散が $I_1(\lambda)^{-1}$ であり、1母数の再母数化とデルタ法が同じ局所一次近似を表しているからです。
+両者が一致するのは、正則な1母数最尤推定量の漸近分散が $I_1(\lambda)^{-1}$ であり、1母数の再母数化とデルタ法が同じ局所一次近似を表しているからです。
 
 <!-- solution-end -->
 
