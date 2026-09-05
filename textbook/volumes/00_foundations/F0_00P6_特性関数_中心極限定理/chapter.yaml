@@ -7,18 +7,34 @@ prerequisites:
   - F0-00D2B
 official_scope: []
 learning_objectives:
-  - 特性関数を定義し常に存在する理由を説明できる
+  - 特性関数を定義し常に存在する理由を証明できる
   - 独立和を特性関数の積へ変換できる
-  - 特性関数が分布を一意に定めることを使える
-  - Lévy連続性定理で分布収束を判定できる
+  - 分布収束をCDFの連続点で定義できる
+  - bounded Lipschitz testによる分布収束の特徴付けを証明できる
+  - Gaussian Fourier identityとGaussian smoothing密度公式を証明できる
+  - 特性関数が分布を一意に定めることをGaussian smoothingから証明できる
+  - 有限二次モーメントから特性関数の二次展開を証明できる
+  - Scheffeの補題を証明できる
+  - Levy連続性定理のCLTに必要な版をGaussian smoothingから証明できる
 definitions:
   - { id: F0P6-DEF-01, name: 特性関数 }
+  - { id: F0P6-DEF-02, name: 分布収束 }
 theorems:
-  - { id: F0P6-THM-01, name: 特性関数の一意性 }
-  - { id: F0P6-THM-02, name: Lévy連続性定理 }
-canonical_examples: [Gaussian characteristic function, independent sum]
-problem_patterns: [CHARFUNC-1, LEVY-1]
+  - { id: F0P6-PROP-01, name: 特性関数の基本性質 }
+  - { id: F0P6-THM-01, name: bounded Lipschitz testによる分布収束の特徴付け }
+  - { id: F0P6-LEM-01, name: Gaussian Fourier identity }
+  - { id: F0P6-LEM-02, name: Gaussian smoothingの密度公式 }
+  - { id: F0P6-THM-02, name: 特性関数の一意性 }
+  - { id: F0P6-THM-03, name: 特性関数の二次展開 }
+  - { id: F0P6-LEM-03, name: Scheffeの補題 }
+  - { id: F0P6-THM-04, name: Levy連続性定理の極限分布既知版 }
+canonical_examples:
+  - Bernoulli characteristic function
+  - Gaussian characteristic function
+  - independent Gaussian sum
+  - Gaussian smoothing
+problem_patterns: [CHARFUNC-1, CHARFUNC-UNIQUENESS-1, LEVY-1, CLT-CHARFUNC-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 6.25, exercises: 1.5, review: 0.75 }

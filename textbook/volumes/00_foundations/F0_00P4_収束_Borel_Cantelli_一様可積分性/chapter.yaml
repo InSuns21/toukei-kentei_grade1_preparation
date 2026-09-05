@@ -1,5 +1,5 @@
 id: "F0-00P4"
-title: "limsup・Borel–Cantelli・確率収束"
+title: "limsup・Borel--Cantelli・確率収束"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,22 +7,28 @@ prerequisites:
   - F0-00D2B
 official_scope: []
 learning_objectives:
-  - limsup eventを無限回発生として説明できる
-  - Borel--Cantelliの2補題を使える
-  - a.s.収束をlimsupで表せる
-  - a.s./probability/Lp収束の含意を説明できる
-  - 確率収束列からa.s.収束部分列を取れる
+  - limsup eventを無限回発生として定義できる
+  - 概収束と確率収束を定義し区別できる
+  - Borel--Cantelli第1補題をunion boundから証明できる
+  - Borel--Cantelli第2補題を独立性と無限積評価から証明できる
+  - 概収束から確率収束を導ける
+  - 確率収束列から概収束部分列を取れる
+  - 確率収束が概収束を含意しない反例を説明できる
 definitions:
   - { id: F0P4-DEF-01, name: limsup event }
-  - { id: F0P4-DEF-02, name: almost sure convergence }
-  - { id: F0P4-DEF-03, name: convergence in probability }
+  - { id: F0P4-DEF-02, name: 概収束 }
+  - { id: F0P4-DEF-03, name: 確率収束 }
 theorems:
-  - { id: F0P4-THM-01, name: 第一Borel--Cantelli }
-  - { id: F0P4-THM-02, name: 第二Borel--Cantelli }
-  - { id: F0P4-THM-03, name: 確率収束からa.s.部分列 }
-canonical_examples: [rare events, dyadic subsequence]
-problem_patterns: [BOREL-CANTELLI-1, PROB-CONV-1]
+  - { id: F0P4-THM-01, name: Borel--Cantelli第1補題 }
+  - { id: F0P4-THM-02, name: Borel--Cantelli第2補題 }
+  - { id: F0P4-THM-03, name: 概収束は確率収束を含意する }
+  - { id: F0P4-THM-04, name: 確率収束から概収束部分列 }
+canonical_examples:
+  - summable rare events
+  - independent harmonic-probability events
+  - dyadic subsequence
+problem_patterns: [BOREL-CANTELLI-1, PROB-CONV-1, PROB-SUBSEQUENCE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1.25, review: 0.5 }
