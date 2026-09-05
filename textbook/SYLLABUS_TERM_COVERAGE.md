@@ -9,9 +9,9 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 109件
+- 明示的な定義ラベルヒット: 114件
 
-`alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
+`alias` は公式表記そのものではなく、日本語同義語・慣用表記で通常教材に存在します。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
 |公式区分|公式用語|判定|主対応（章 / 節・アンカー）|定義アンカー|例|演習|
 |---|---|---|---|---|---|---|
@@ -23,7 +23,7 @@
 |math-distribution-functions|確率関数|exact|P2-01 / 2.3 確率質量関数#def-p2-01-pmf|P2-01 / 2.3 確率質量関数#def-p2-01-pmf|—|S1-02 / S1-02-C04 指数型分布族から読む|
 |math-distribution-functions|確率密度関数|exact|P2-01 / 2.4 確率密度関数#def-p2-01-pdf|P2-01 / 2.4 確率密度関数#def-p2-01-pdf|—|P2-01 / P2-A02 連続密度の正規化|
 |math-distribution-functions|累積分布関数|exact|P2-01 / 2.5 累積分布関数#def-p2-01-cdf|P2-01 / 2.5 累積分布関数#def-p2-01-cdf|P2-01 / 例1：離散分布から|P2-01 / P2-A03|
-|math-distribution-functions|生存関数|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / 7. 演習：問題の直後に解答|
+|math-distribution-functions|生存関数|exact|P3-02 / 2.3 指数分布#def-p3-02-survival-function|P3-02 / 2.3 指数分布#def-p3-02-survival-function|—|P3-02 / 7. 演習：問題の直後に解答|
 |math-distribution-functions|危険率|exact|E4-02 / 2. 危険率#def-e4-02-hazard-rate|E4-02 / 2. 危険率#def-e4-02-hazard-rate|—|E4-02 / E4-02-A01|
 |math-distribution-functions|同時分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|—|E2-04 / E2-04-B01 3時点の|
 |math-distribution-functions|周辺分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
@@ -38,11 +38,11 @@
 |math-distribution-characteristics|尖度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05 歪度・|
 |math-distribution-characteristics|変動係数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A.1 例：同じ標準偏差でも|P2-02 / P202-B05 歪度・尖度・|
 |math-distribution-characteristics|パーセント点|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|—|
-|math-distribution-characteristics|中央値|exact|P2-01 / P2-C05 区分累積分布関数から分布を復元する|—|I3-03 / 正確順位分布で検定まで完走する例|P2-01 / P2-C05 区分累積分布関数から分布を復元する|
+|math-distribution-characteristics|中央値|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|I3-03 / 正確順位分布で検定まで完走する例|P2-01 / P2-C05 区分累積分布関数から分布を復元する|
 |math-distribution-characteristics|四分位数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
-|math-distribution-characteristics|範囲|exact|F0-00 / 公式出題|—|P4-01 / 例2 独立な一様分布の和|P2-02 / P202-B05 歪度・尖度・変動係数と四分位|
+|math-distribution-characteristics|範囲|exact|P4-01 / 4. 順序統計量#def-p4-01-range|P4-01 / 4. 順序統計量#def-p4-01-range|P4-01 / 例2 独立な一様分布の和|P2-02 / P202-B05 歪度・尖度・変動係数と四分位|
 |math-distribution-characteristics|四分位範囲|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と|
-|math-distribution-characteristics|最頻値|exact|P3-02 / P3C-C02 ベータ分布の形とモーメント|—|—|P3-02 / P3C-C02 ベータ分布の形とモーメント|
+|math-distribution-characteristics|最頻値|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-mode|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-mode|—|P3-02 / P3C-C02 ベータ分布の形とモーメント|
 |math-distribution-characteristics|共分散|exact|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 例3：全|P2-02 / P2-A06|
 |math-distribution-characteristics|相関係数|exact|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P3-03 / 例1：分散共分散行列を読む|P2-02 / P2-B05 二値変数の相関|
 |math-distribution-characteristics|偏相関係数|exact|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|—|P3-03 / P3M-A04 偏相関|
@@ -76,7 +76,7 @@
 |math-sampling-distributions|F分布|exact|F0-00 / 1. この章で扱う数学|—|—|S1-01 / S1-A04|
 |math-population-sample-statistic|十分統計量|exact|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|—|I4-02 / I4-02-C01 正規分布の欠測値に必要な条件付きモーメント|
 |math-population-sample-statistic|ネイマンの分解定理|exact|S1-02 / この章で解けるようになる問題|—|—|S1-02 / S1-02-A02 ベルヌーイ標本|
-|math-population-sample-statistic|順序統計量|exact|F0-00 / 15. 統計でどこに使うか|—|—|P4-01 / P4-A04 一様分布の第2|
+|math-population-sample-statistic|順序統計量|exact|P4-01 / 4. 順序統計量#def-p4-01-order-statistic|P4-01 / 4. 順序統計量#def-p4-01-order-statistic|—|P4-01 / P4-A04 一様分布の第2|
 |math-likelihood-mle|尤度関数|exact|I1-01 / 2. 定義と記号#def-i1-01-likelihood|I1-01 / 2. 定義と記号#def-i1-01-likelihood|—|—|
 |math-likelihood-mle|対数尤度関数|exact|I1-01 / 2. 定義と記号#def-i1-01-loglikelihood|I1-01 / 2. 定義と記号#def-i1-01-loglikelihood|—|—|
 |math-likelihood-mle|有効スコア関数|exact|I1-01 / 3.8 有効スコア関数: まず1個の局外母数で考える#def-i1-01-efficient-score|I1-01 / 3.8 有効スコア関数: まず1個の局外母数で考える#def-i1-01-efficient-score|—|—|
