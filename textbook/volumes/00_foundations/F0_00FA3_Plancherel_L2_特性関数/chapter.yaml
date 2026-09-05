@@ -4,28 +4,34 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00FA2
+  - F0-00D2C
+  - F0-00D2E
   - F0-02C1
 official_scope: []
 learning_objectives:
-  - Plancherel等式をFourier変換のL2ノルム保存として説明できる
-  - Fourier変換をL2上のユニタリ作用素として位置付けられる
-  - L1とL2でFourier変換の定義の仕方が異なる理由を説明できる
+  - L2(R)の平行移動連続性を証明できる
+  - Gaussian approximate identityのL2収束を証明できる
+  - L1∩L2上でPlancherel等式をGaussian cutoffから証明できる
+  - L1∩L2がL2に稠密であることを具体的な切断列で示せる
+  - L2 Fourier変換を稠密部分空間からの極限として定義できる
+  - Plancherel等式を全L2へ連続拡張できる
+  - 正規化Fourier変換の可逆性とユニタリ性を説明できる
   - Parseval等式とPlancherel定理の関係を説明できる
-  - 特性関数を確率測度のFourier変換として再解釈できる
-  - 畳み込み・独立和・中心極限定理のFourier解析的構造を説明できる
-  - GaussianがFourier解析・確率論・熱方程式を結ぶ理由を説明できる
 definitions:
   - { id: F000FA3-DEF-01, name: L2 Fourier変換 }
-  - { id: F000FA3-DEF-02, name: unitary operator }
 theorems:
-  - { id: F000FA3-THM-01, name: Plancherel定理 }
-  - { id: F000FA3-THM-02, name: Parseval--Plancherel等式 }
+  - { id: F000FA3-THM-01, name: L2の平行移動連続性 }
+  - { id: F000FA3-THM-02, name: Gaussian approximate identityのL2収束 }
+  - { id: F000FA3-THM-03, name: L1∩L2版Plancherel等式 }
+  - { id: F000FA3-THM-04, name: Plancherel定理 }
+  - { id: F000FA3-THM-05, name: Parseval--Plancherel内積等式 }
+  - { id: F000FA3-THM-06, name: 正規化Fourier変換のユニタリ性 }
 canonical_examples:
-  - GaussianのL2ノルム保存
-  - 特性関数と独立和
-  - CLTの特性関数証明のFourier解析的再解釈
-problem_patterns: [PLANCHEREL-1, CHARACTERISTIC-FOURIER-1]
+  - GaussianのL2 Fourier変換
+  - e^(-abs(x))でのPlancherel定数確認
+  - L2だがL1でない関数
+problem_patterns: [PLANCHEREL-1, L2-FOURIER-EXTENSION-1, FOURIER-UNITARY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0.5, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 1.5, review: 0.75 }
