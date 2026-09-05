@@ -1,0 +1,32 @@
+chapter: F0-02B1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02B
+
+concepts:
+  - id: svm.linear-separability-convex-hull
+    name: 線形分離可能性と凸包非交差の同値性
+    kind: theorem
+    introduction: inline
+    aliases: [線形分離可能性と凸包非交差]
+    requires:
+      - convex.convex-hull
+      - convex.separating-hyperplane
+
+  - id: svm.maximum-margin-convex-hull
+    name: 最大マージンと凸包間最短距離の対応
+    kind: theorem
+    introduction: inline
+    aliases: [最大マージン]
+    requires:
+      - svm.linear-separability-convex-hull
+      - optimization.nearest-point-projection
+      - optimization.kkt-conditions
+
+  - id: svm.support-vector
+    name: support vector
+    kind: term
+    aliases: [support vector]
+    requires:
+      - svm.maximum-margin-convex-hull

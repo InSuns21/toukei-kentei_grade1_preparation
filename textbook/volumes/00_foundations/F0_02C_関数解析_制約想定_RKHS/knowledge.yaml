@@ -1,0 +1,22 @@
+chapter: F0-02C
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00D1
+  - F0-00F
+  - F0-00D2E
+  - F0-00G
+
+forward_references:
+  - functional.banach-space
+  - functional.hilbert-space
+
+concepts:
+  - id: functional.analysis-roadmap
+    name: 関数解析補講
+    kind: term
+    aliases: [関数解析補講]
+    requires:
+      - functional.normed-space
+      - linear.linear-map
+      - functional.hilbert-space

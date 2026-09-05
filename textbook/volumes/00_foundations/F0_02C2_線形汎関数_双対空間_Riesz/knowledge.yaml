@@ -1,0 +1,52 @@
+chapter: F0-02C2
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C1A
+
+concepts:
+  - id: functional.linear-functional
+    name: 線形汎関数
+    kind: definition
+    aliases: [線形汎関数]
+    requires:
+      - linear.vector-space
+
+  - id: functional.continuous-linear-functional
+    name: 連続線形汎関数
+    kind: term
+    aliases: [連続線形汎関数]
+    requires:
+      - functional.linear-functional
+      - functional.normed-space
+
+  - id: functional.dual-space
+    name: 双対空間
+    kind: definition
+    aliases: [双対空間]
+    requires:
+      - functional.continuous-linear-functional
+
+  - id: functional.dual-norm
+    name: 双対ノルム
+    kind: term
+    aliases: [双対ノルム]
+    requires:
+      - functional.dual-space
+      - functional.norm
+
+  - id: functional.evaluation-functional
+    name: 評価汎関数
+    kind: definition
+    aliases: [評価汎関数]
+    requires:
+      - functional.linear-functional
+
+  - id: functional.riesz-representation-theorem
+    name: Riesz表現定理
+    kind: theorem
+    introduction: inline
+    aliases: [Riesz表現定理]
+    requires:
+      - functional.hilbert-space
+      - functional.continuous-linear-functional

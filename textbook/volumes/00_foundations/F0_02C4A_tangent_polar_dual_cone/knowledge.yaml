@@ -1,0 +1,8 @@
+chapter: F0-02C4A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C4
+  - F0-02A
+
+concepts: []

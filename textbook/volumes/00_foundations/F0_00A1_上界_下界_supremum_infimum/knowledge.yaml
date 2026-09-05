@@ -1,0 +1,38 @@
+chapter: F0-00A1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00A
+
+concepts:
+  - id: order.upper-bound
+    name: 上界
+    kind: definition
+    introduction: inline
+    aliases: [上界]
+    requires:
+      - set.set
+
+  - id: order.lower-bound
+    name: 下界
+    kind: definition
+    introduction: inline
+    aliases: [下界]
+    requires:
+      - set.set
+
+  - id: order.supremum
+    name: 上限
+    kind: definition
+    introduction: inline
+    aliases: [上限, supremum]
+    requires:
+      - order.upper-bound
+
+  - id: order.infimum
+    name: 下限
+    kind: definition
+    introduction: inline
+    aliases: [下限, infimum]
+    requires:
+      - order.lower-bound

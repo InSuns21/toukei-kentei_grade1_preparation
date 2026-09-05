@@ -1,0 +1,34 @@
+chapter: F0-02C5
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C4B
+  - F0-02C3
+  - F0-02A
+
+concepts:
+  - id: optimization.constraint-map
+    name: 制約写像
+    kind: definition
+    introduction: inline
+    aliases: [制約写像]
+    requires:
+      - functional.frechet-derivative
+
+  - id: optimization.constraint-qualification
+    name: 制約想定
+    kind: term
+    aliases: [制約想定]
+    requires:
+      - optimization.constraint-map
+
+  - id: optimization.generalized-kkt
+    name: 一般化KKT条件
+    kind: theorem
+    introduction: inline
+    aliases: [一般化KKT]
+    requires:
+      - optimization.kkt-conditions
+      - optimization.constraint-map
+      - optimization.constraint-qualification
+      - convex.normal-cone

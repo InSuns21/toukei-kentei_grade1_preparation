@@ -1,0 +1,23 @@
+chapter: F0-00D
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00B
+
+concepts:
+  - id: topology.cauchy-sequence
+    name: Cauchy列
+    kind: definition
+    introduction: inline
+    aliases: [Cauchy列]
+    requires:
+      - topology.metric-space
+      - topology.sequence-convergence
+
+  - id: topology.complete-metric-space
+    name: 完備距離空間
+    kind: definition
+    introduction: inline
+    aliases: [完備距離空間]
+    requires:
+      - topology.cauchy-sequence

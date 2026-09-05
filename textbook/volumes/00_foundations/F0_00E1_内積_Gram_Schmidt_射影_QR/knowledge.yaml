@@ -1,0 +1,50 @@
+chapter: F0-00E1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00E
+
+concepts:
+  - id: linear.inner-product
+    name: 内積
+    kind: definition
+    introduction: inline
+    aliases: [内積]
+    requires:
+      - linear.vector-space
+
+  - id: linear.inner-product-space
+    name: 内積空間
+    kind: term
+    aliases: [内積空間]
+    requires:
+      - linear.inner-product
+
+  - id: linear.orthogonality
+    name: 直交
+    kind: definition
+    aliases: [直交]
+    requires:
+      - linear.inner-product
+
+  - id: linear.gram-schmidt
+    name: Gram--Schmidtの直交化
+    kind: term
+    aliases: [Gram--Schmidt, Gram–Schmidt]
+    requires:
+      - linear.orthogonality
+
+  - id: linear.orthogonal-projection
+    name: 直交射影
+    kind: term
+    aliases: [直交射影]
+    requires:
+      - linear.orthogonality
+
+  - id: linear.qr-decomposition
+    name: QR分解
+    kind: term
+    aliases: [QR分解]
+    requires:
+      - linear.gram-schmidt
+      - linear.basis

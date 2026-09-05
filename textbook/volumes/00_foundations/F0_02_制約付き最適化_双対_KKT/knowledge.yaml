@@ -1,0 +1,81 @@
+chapter: F0-02
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00G
+
+concepts:
+  - id: optimization.primal-problem
+    name: 主問題
+    kind: definition
+    introduction: inline
+    aliases: [主問題]
+    requires:
+      - convex.convex-optimization
+
+  - id: optimization.lagrangian
+    name: Lagrangian
+    kind: term
+    aliases: [Lagrangian]
+    requires:
+      - optimization.primal-problem
+
+  - id: optimization.dual-function
+    name: 双対関数
+    kind: definition
+    introduction: inline
+    aliases: [双対関数]
+    requires:
+      - optimization.lagrangian
+
+  - id: optimization.dual-problem
+    name: 双対問題
+    kind: definition
+    introduction: inline
+    aliases: [双対問題]
+    requires:
+      - optimization.dual-function
+
+  - id: optimization.active-constraint
+    name: active制約
+    kind: definition
+    introduction: inline
+    aliases: [active制約]
+    requires:
+      - optimization.primal-problem
+
+  - id: optimization.weak-duality
+    name: 弱双対性
+    kind: theorem
+    introduction: inline
+    aliases: [弱双対性]
+    requires:
+      - optimization.primal-problem
+      - optimization.dual-problem
+
+  - id: optimization.slater-condition
+    name: Slater条件
+    kind: definition
+    introduction: inline
+    aliases: [Slater条件]
+    requires:
+      - convex.convex-optimization
+
+  - id: optimization.strong-duality-slater
+    name: Slater条件下の強双対性
+    kind: theorem
+    introduction: inline
+    aliases: [強双対性]
+    requires:
+      - optimization.weak-duality
+      - optimization.slater-condition
+
+  - id: optimization.kkt-conditions
+    name: KKT条件
+    kind: theorem
+    introduction: inline
+    aliases: [KKT条件]
+    requires:
+      - optimization.lagrangian
+      - optimization.active-constraint
+      - optimization.strong-duality-slater

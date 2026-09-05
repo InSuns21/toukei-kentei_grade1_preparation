@@ -1,0 +1,32 @@
+chapter: F0-00F2
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00F1
+  - F0-00D1
+
+concepts:
+  - id: linear.singular-value
+    name: 特異値
+    kind: definition
+    introduction_aliases: [特異値・右特異ベクトル]
+    aliases: [特異値, 特異値・右特異ベクトル]
+    requires:
+      - linear.linear-map
+
+  - id: linear.singular-value-decomposition
+    name: 特異値分解
+    kind: theorem
+    aliases: [特異値分解, SVD]
+    requires:
+      - linear.singular-value
+      - linear.orthogonality
+
+  - id: linear.spectral-norm
+    name: 行列のスペクトルノルム
+    kind: definition
+    introduction_aliases: [作用素ノルム]
+    aliases: [行列のスペクトルノルム]
+    requires:
+      - linear.singular-value
+      - functional.norm
