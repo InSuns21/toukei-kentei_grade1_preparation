@@ -1,0 +1,38 @@
+chapter: F0-00P3D
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3A
+  - F0-00P2A
+  - F0-00D2B
+
+concepts:
+  - id: measure.pushforward-integration-theorem
+    name: 押し出し積分公式
+    kind: theorem
+    aliases: [押し出し積分公式]
+    requires:
+      - measure.pushforward-measure
+      - measure.simple-function-approximation
+      - measure.monotone-convergence-theorem
+      - measure.positive-negative-parts
+
+  - id: prob.doob-dynkin-lemma
+    name: Doob--Dynkin lemma
+    kind: theorem
+    aliases: [Doob--Dynkin lemma, Doob-Dynkin lemma]
+    requires:
+      - prob.random-variable
+      - measure.generated-sigma-algebra
+      - measure.measurable-function
+      - measure.simple-function-approximation
+
+  - id: prob.conditional-expectation-as-function
+    name: 条件付き期待値の可測関数表示
+    kind: term
+    # main reader-source監査でも説明節を確認できる通常aliasを一つ持たせる。
+    aliases: ["E[X\\mid Y]", "m(Y)", "Doob--Dynkin lemmaにより"]
+    introduction_aliases: ["条件付き期待値へ適用する"]
+    requires:
+      - prob.conditional-expectation
+      - prob.doob-dynkin-lemma

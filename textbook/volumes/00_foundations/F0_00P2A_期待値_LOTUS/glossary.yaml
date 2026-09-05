@@ -9,3 +9,6 @@ terms:
   - term: モーメント
     english: moment
     meaning: E[X^k]など分布の積分で定まる量。
+  - term: Markovの不等式
+    english: Markov's inequality
+    meaning: 非負確率変数Yに対し、a>0ならP(Y>=a)<=E[Y]/aでtail確率を期待値から評価する不等式。

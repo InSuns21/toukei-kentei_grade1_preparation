@@ -9,6 +9,8 @@ forward_references:
   - prob.independent-events
   - prob.independent-random-variables
   - measure.product-measure
+  # P2AではLOTUSを先に使用し、完全証明はP3Dで与える。
+  - measure.pushforward-integration-theorem
 
 concepts:
   - id: prob.expectation
@@ -19,12 +21,11 @@ concepts:
       - prob.random-variable
       - measure.lebesgue-integral
 
-  # 冒頭で先に全体像としてLOTUSを予告してから期待値を説明する構成なので、
-  # same-page順序監査の偽陽性を避け、押し出し測度への依存だけを明示する。
+  # ここではLOTUSを計算原理として先に導入する。完全証明はP3Dの押し出し積分公式。
   - id: prob.lotus
     name: 押し出し積分公式（LOTUS）
     kind: term
-    aliases: [押し出し積分公式, LOTUS]
+    aliases: [LOTUS]
     requires:
       - measure.pushforward-measure
 
@@ -39,5 +40,12 @@ concepts:
     name: 分散
     kind: term
     aliases: ["Var(X)"]
+    requires:
+      - prob.expectation
+
+  - id: prob.markov-inequality
+    name: Markovの不等式
+    kind: theorem
+    aliases: [Markovの不等式, Markov不等式]
     requires:
       - prob.expectation

@@ -10,6 +10,7 @@ learning_objectives:
   - 期待値をLebesgue積分として定義できる
   - LOTUSを押し出し積分公式として説明できる
   - 離散和と連続積分を統一できる
+  - Markovの不等式を期待値の単調性から証明し、tail確率評価に使える
   - 積分と極限交換に収束定理を使える
 definitions:
   - { id: F0P2A-DEF-01, name: 期待値 }
@@ -17,8 +18,9 @@ definitions:
   - { id: F0P2A-DEF-03, name: モーメント }
 theorems:
   - { id: F0P2A-THM-01, name: 押し出し積分公式 }
+  - { id: F0P2A-THM-02, name: Markovの不等式 }
 canonical_examples: [離散期待値, 連続期待値, 変換後の期待値]
-problem_patterns: [EXPECTATION-1, LOTUS-1]
+problem_patterns: [EXPECTATION-1, LOTUS-1, MARKOV-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }

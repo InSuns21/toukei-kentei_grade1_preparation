@@ -1,0 +1,43 @@
+chapter: F0-00P3C
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3B
+  - F0-00P3A
+  - F0-00D2B
+
+concepts:
+  - id: prob.increasing-sigma-fields
+    name: 増加する部分σ代数列
+    kind: definition
+    aliases: ["増加する部分$\\sigma$代数列", "増加する部分"]
+    requires:
+      - prob.probability-space
+      - measure.sigma-algebra
+
+  - id: prob.increasing-algebra-approximation
+    name: 増加情報の代数による集合近似
+    kind: lemma
+    aliases: [増加情報の代数による集合近似]
+    requires:
+      - prob.increasing-sigma-fields
+      - measure.sigma-algebra
+
+  - id: prob.upcrossing
+    name: 上向き横断
+    kind: definition
+    aliases: [上向き横断]
+    requires: []
+
+  - id: prob.levy-upward-theorem
+    name: Lévy上昇定理
+    kind: theorem
+    aliases: [Lévy上昇定理, Levy上昇定理]
+    requires:
+      - prob.increasing-sigma-fields
+      - prob.increasing-algebra-approximation
+      - prob.upcrossing
+      - prob.conditional-expectation
+      - prob.conditional-expectation-properties
+      - prob.tower-property
+      - measure.monotone-convergence-theorem

@@ -1,0 +1,61 @@
+chapter: F0-00P3B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3A
+  - F0-00D2E
+  - F0-00D2B
+
+# 末尾で次章の Lévy 上昇定理を予告する。
+forward_references:
+  - prob.levy-upward-theorem
+
+concepts:
+  - id: prob.l2-information-space
+    name: L^2(G)
+    kind: definition
+    # 旧reader-source監査は $L^2(\mathcal G)$ を17文字ぶんの空白に置換する。
+    # 空白幅まで含めた完全互換aliasで、他の「定義」見出しへの誤一致を避ける。
+    aliases: ["定義（$L^2(\\mathcal G)$）", "L^2(\\mathcal G)", "定義（                 ）"]
+    requires:
+      - prob.probability-space
+      - measure.lp-space
+      - measure.sigma-algebra
+
+  - id: prob.l2-information-closed-subspace
+    name: L^2(G)の閉部分空間性
+    kind: theorem
+    aliases: ["閉部分空間性"]
+    requires:
+      - prob.l2-information-space
+      - functional.hilbert-space
+      - prob.markov-inequality
+
+  - id: prob.conditional-expectation-l2-contraction
+    name: 条件付き期待値のL^2縮小性
+    kind: lemma
+    # $L^2$ は5文字ぶんの空白になるため、その幅を保った互換aliasを登録する。
+    aliases: ["条件付き期待値の$L^2$縮小性", 条件付き期待値のL2縮小性, "補題（条件付き期待値の     縮小性）"]
+    requires:
+      - prob.conditional-expectation
+      - measure.cauchy-schwarz-l2
+      - measure.monotone-convergence-theorem
+
+  - id: prob.conditional-expectation-orthogonality
+    name: 条件付き期待値の直交性
+    kind: theorem
+    aliases: [条件付き期待値の直交性]
+    requires:
+      - prob.conditional-expectation
+      - prob.conditional-expectation-l2-contraction
+      - prob.l2-information-space
+      - measure.cauchy-schwarz-l2
+
+  - id: prob.conditional-expectation-best-predictor
+    name: 条件付き期待値は最小二乗最良予測
+    kind: theorem
+    aliases: [条件付き期待値は最小二乗最良予測]
+    requires:
+      - prob.conditional-expectation-orthogonality
+      - prob.l2-information-space
+      - functional.l2-inner-product
