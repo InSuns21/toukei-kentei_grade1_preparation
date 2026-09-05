@@ -19,8 +19,8 @@ theorems:
   - { id: F0TS2A-THM-01, name: 三角多項式の L2(F) 稠密性 }
   - { id: F0TS2A-THM-02, name: 定常過程のspectral representation theorem }
 canonical_examples: [white noise, line spectrum process]
-problem_patterns: [SPECTRAL-ISOMETRY-1, ORTHOGONAL-INCREMENT-MEASURE-1]
+problem_patterns: [SPECTRAL-ISOMETRY-1, ORTHOGONAL-INCREMENT-MEASURE-1, LINEAR-FILTER-SPECTRUM-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.25, exercises: 1.0, review: 0.25 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.25, exercises: 1.25, review: 0.25 }
