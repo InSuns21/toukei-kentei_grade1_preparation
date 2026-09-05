@@ -1,0 +1,11 @@
+chapter: "F0-00P3C"
+terms:
+  - term: Lévy上昇定理
+    english: Levy upward theorem
+    meaning: 増加する情報に関する条件付き期待値が極限情報への条件付き期待値へL1かつa.s.収束する定理。
+  - term: 上向き横断
+    english: upcrossing
+    meaning: 数列が下側の水準以下から上側の水準以上へ移る一往復。収束しない振動の回数を数えるために使う。
+  - term: 極限情報
+    english: limiting sigma-field
+    meaning: 増加する部分sigma代数列の和集合が生成するsigma代数。
