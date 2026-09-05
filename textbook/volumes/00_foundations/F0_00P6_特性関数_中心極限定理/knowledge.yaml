@@ -8,6 +8,7 @@ prerequisites:
 
 # 二次展開とLévyを組み合わせたiid CLTは次章で正式にまとめる。
 forward_references:
+  - prob.standardized-iid-sum
   - prob.iid-clt
 
 concepts:
