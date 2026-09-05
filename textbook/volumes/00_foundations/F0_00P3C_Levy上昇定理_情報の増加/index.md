@@ -1,169 +1,133 @@
-# F0-00P3C Lévy上昇定理：情報が増えると条件付き期待値はどこへ行くか
+# F0-00P3C Lévy上昇定理：情報を増やすと条件付き期待値は何へ近づくか
 
-<!-- definition-example-audit: strict -->
-
-P3Aで条件付き期待値を定義し、P3Bで $L^2$ の場合には直交射影として読めることを示しました。今度は情報が
+条件付き期待値を「情報 $\mathcal G$ のもとでの最良予測」と読めるようになりました。次は情報を段階的に増やします。
 
 $$
-\mathcal G_1\subseteq\mathcal G_2\subseteq\cdots
+\mathcal G_1\subset\mathcal G_2\subset\cdots
 $$
 
-と増えるとき、$E[X\mid\mathcal G_n]$ がどこへ収束するかを調べます。
-
-結論は、極限で使える情報
+とすると
 
 $$
-\mathcal G_\infty
-=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right)
+E[X\mid\mathcal G_n]
 $$
 
-に対する条件付き期待値へ、**$L^1$でもa.s.でも収束する**というものです。
+は、より多くの情報を使う予測へ変わっていきます。Lévy上昇定理は、この予測列が最終的に
+
+$$
+E[X\mid\mathcal G_\infty],
+\qquad
+\mathcal G_\infty:=\sigma\left(\bigcup_{n\ge1}\mathcal G_n\right)
+$$
+
+へ近づくことを保証します。
 
 ---
 
-## 1. 増加する情報列
+## 1. 増加する部分σ代数列
 
 <a id="def-f0-00p3c-increasing-sigma-fields"></a>
 
 <!-- formal-statement-start -->
 > **定義（増加する部分$\sigma$代数列）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ の部分 $\sigma$ 代数列 $(\mathcal G_n)_{n\ge1}$ が
+> 同一の確率空間 $(\Omega,\mathcal F,P)$ 上の部分σ代数列 $(\mathcal G_n)$ が
 
 $$
-\mathcal G_n\subseteq\mathcal G_{n+1}
-\qquad(\forall n\ge1)
+\mathcal G_1\subset\mathcal G_2\subset\cdots\subset\mathcal F
 $$
 
-> を満たすとき、$(\mathcal G_n)$ を増加する情報列と呼びます。また
+> を満たすとき、$(\mathcal G_n)$ を増加する部分σ代数列といいます。また
 
 $$
 \mathcal G_\infty
-:=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right)
+:=
+\sigma\left(\bigcup_{n=1}^{\infty}\mathcal G_n\right)
 $$
 
-> を極限で得られる情報とします。
+> と置きます。
 <!-- formal-statement-end -->
 
-### 1.1 例：二進分割を細かくしていく
-
-$\Omega=[0,1)$ にLebesgue確率測度を入れ、
-
-$$
-I_{k,n}=\left[\frac{k}{2^n},\frac{k+1}{2^n}\right),
-\qquad k=0,\dots,2^n-1
-$$
-
-として
-
-$$
-\mathcal G_n=\sigma(I_{0,n},\dots,I_{2^n-1,n})
-$$
-
-と置きます。
-
-<!-- definition-example-start: def-f0-00p3c-increasing-sigma-fields -->
-**定義の確認**  
-各 $n$ 段階のセルは
-
-$$
-I_{k,n}=I_{2k,n+1}\cup I_{2k+1,n+1}
-$$
-
-と次段階の二つのセルの和に分解されます。従って各 $I_{k,n}\in\mathcal G_{n+1}$ であり
-
-$$
-\mathcal G_n\subseteq\mathcal G_{n+1}.
-$$
-
-よって $(\mathcal G_n)$ は増加する情報列です。二進区間全体は $[0,1)$ のBorel $\sigma$ 代数を生成するので
-
-$$
-\mathcal G_\infty=\mathcal B([0,1)).
-$$
-<!-- definition-example-end -->
+典型例は二進分割です。$\Omega=[0,1]$ とし、$\mathcal G_n$ を長さ $2^{-n}$ の二進区間が生成するσ代数とします。$n$ が増えるほど、どの細区間にいるかという情報が細かくなります。
 
 ---
 
-## 2. 増加情報の有限段階で集合を近似する
-
-集合族
-
-$$
-\mathcal A:=\bigcup_{n=1}^\infty\mathcal G_n
-$$
-
-を考えます。$A,B\in\mathcal A$ なら十分大きい $N$ で $A,B\in\mathcal G_N$ です。従って補集合・有限和・有限積を取っても $\mathcal G_N$ に残り、$\mathcal A$ は代数です。
-
 <a id="lem-f0-00p3c-algebra-approximation"></a>
+
+## 2. 増加情報の代数による集合近似
 
 <!-- formal-statement-start -->
 > **補題（増加情報の代数による集合近似）**  
-> $\mathcal G_\infty=\sigma(\mathcal A)$ とします。任意の $B\in\mathcal G_\infty$ と $\varepsilon>0$ に対し、ある $A\in\mathcal A$ が存在して
+> $\mathcal G_1\subset\mathcal G_2\subset\cdots$ とし、
 
 $$
-\boxed{P(A\triangle B)<\varepsilon}
+\mathcal A:=\bigcup_{n=1}^{\infty}\mathcal G_n,
+\qquad
+\mathcal G_\infty:=\sigma(\mathcal A)
 $$
 
-> となります。
+> と置きます。任意の $B\in\mathcal G_\infty$ と $\varepsilon>0$ に対し、ある $A\in\mathcal A$ が存在して
+
+$$
+P(A\triangle B)<\varepsilon
+$$
+
+> とできます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 2.1 証明
-
-次の集合族を考えます。
+### 証明：近似可能集合族がσ代数になることを示す
 
 $$
 \mathcal D
-=\left\{B\in\mathcal G_\infty:
-\forall\varepsilon>0,\ \exists A\in\mathcal A,
-\ P(A\triangle B)<\varepsilon\right\}.
+:=
+\left\{
+B\in\mathcal G_\infty:
+\forall\varepsilon>0,
+\ \exists A\in\mathcal A,
+\ P(A\triangle B)<\varepsilon
+\right\}
 $$
 
-明らかに $\mathcal A\subseteq\mathcal D$ です。補集合について
+と置きます。$\mathcal A\subset\mathcal D$ は明らかです。
+
+補集合については
 
 $$
-P(A\triangle B)=P(A^c\triangle B^c)
+A^c\triangle B^c=A\triangle B
 $$
 
-なので $B\in\mathcal D$ なら $B^c\in\mathcal D$ です。
+なので閉じています。
 
-次に $B_i\in\mathcal D$ とし $B=\bigcup_{i=1}^\infty B_i$ とします。連続性より
+また $B_j\in\mathcal D$ $(j\ge1)$ とします。まず有限個について各 $B_j$ を $A_j\in\mathcal A$ で近似します。有限個の $A_j$ は、十分大きい一つの $\mathcal G_N$ に全て入るので、有限和も $\mathcal A$ に入ります。
 
-$$
-P\left(B\setminus\bigcup_{i=1}^N B_i\right)\to0.
-$$
-
-この量が $<\varepsilon/2$ となる $N$ を選び、各 $i\le N$ について $A_i\in\mathcal A$ を
+次に
 
 $$
-P(A_i\triangle B_i)<\frac{\varepsilon}{2N}
+B^{(m)}:=\bigcup_{j=1}^{m}B_j
 $$
 
-となるように取ります。$\mathcal A$ は代数なので $A=\bigcup_{i=1}^N A_i\in\mathcal A$ であり
+と置くと $B^{(m)}\uparrow\bigcup_{j=1}^{\infty}B_j$ です。確率測度の下からの連続性から、十分大きい $m$ で
 
 $$
-P(A\triangle B)
-\le P\left(B\setminus\bigcup_{i=1}^N B_i\right)
-+\sum_{i=1}^NP(A_i\triangle B_i)
-<\varepsilon.
+P\left(
+\left(\bigcup_{j=1}^{\infty}B_j\right)
+\setminus B^{(m)}
+\right)
 $$
 
-従って $\mathcal D$ は $\sigma$ 代数です。$\mathcal A\subseteq\mathcal D$ なので
+を任意に小さくできます。各 $B_j$ の近似誤差も合わせて小さくすれば、可算和も近似できます。
+
+従って $\mathcal D$ は $\mathcal A$ を含むσ代数です。よって
 
 $$
-\mathcal G_\infty=\sigma(\mathcal A)\subseteq\mathcal D,
+\mathcal G_\infty
+=
+\sigma(\mathcal A)
+\subset\mathcal D.
 $$
 
-補題が示されました。
+逆包含は定義から明らかなので結論を得ます。
 <!-- proof-end -->
-
-この集合近似から、任意の $Y\in L^1(\mathcal G_\infty)$ と $\varepsilon>0$ に対し、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在して
-
-$$
-\boxed{\|Y-Z\|_1<\varepsilon}
-$$
-
-とできます。可積分関数を有界単関数で近似し、その有限個の可測集合を上の補題で近似すればよいです。
 
 ---
 
@@ -173,10 +137,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（上向き横断）**  
-> 実数列 $x_1,\dots,x_N$ と $a<b$ に対し、添字
+> 実数列 $x_1,x_2,\ldots$ と $a<b$ に対し、区間 $[a,b]$ の上向き横断とは、時刻
 
 $$
-s_1<t_1<s_2<t_2<\cdots<s_r<t_r\le N
+s_1<t_1<s_2<t_2<\cdots
 $$
 
 > を選んで
@@ -185,186 +149,145 @@ $$
 x_{s_j}\le a,
 \qquad
 x_{t_j}\ge b
-\qquad(j=1,\dots,r)
 $$
 
-> とできる最大の $r$ を、区間 $[a,b]$ の**上向き横断回数**と呼び、$U_N(a,b)$ と書きます。
+> とできる往復の回数です。最初の $N$ 項までの最大回数を $U_N(a,b)$ と書きます。
 <!-- formal-statement-end -->
 
-### 3.1 例：0と2を往復する数列
-
-$$
-(x_1,x_2,x_3,x_4,x_5)=(0,2,0,2,0),
-\qquad a=\frac12,\ b=\frac32
-$$
-
-とします。
-
-<!-- definition-example-start: def-f0-00p3c-upcrossing -->
-**定義の確認**  
-
-$$
-(s_1,t_1,s_2,t_2)=(1,2,3,4)
-$$
-
-を選べば
-
-$$
-x_{s_1}=x_{s_2}=0\le\frac12,
-\qquad
-x_{t_1}=x_{t_2}=2\ge\frac32.
-$$
-
-従って少なくとも2回です。一方、3回の上向き横断には6個の添字
-
-$$
-s_1<t_1<s_2<t_2<s_3<t_3
-$$
-
-が必要ですが、列は5項しかありません。よって
-
-$$
-\boxed{U_5(1/2,3/2)=2}.
-$$
-<!-- definition-example-end -->
+上向き横断回数が有限なら、列が固定幅の区間を無限回上下し続けることはできません。この事実がmartingale収束の核心です。
 
 ---
 
-## 4. Lévy上昇定理
-
 <a id="thm-f0-00p3c-levy-upward"></a>
+
+## 4. Lévy上昇定理
 
 <!-- formal-statement-start -->
 > **定理（Lévy上昇定理）**  
-> $(\mathcal G_n)$ を増加する部分 $\sigma$ 代数列とし
+> $X\in L^1$ とし、$\mathcal G_1\subset\mathcal G_2\subset\cdots$ を増加する部分σ代数列、
 
 $$
 \mathcal G_\infty
-=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right)
+:=
+\sigma\left(\bigcup_{n=1}^{\infty}\mathcal G_n\right)
 $$
 
-> とします。$X\in L^1(P)$ に対して
+> とします。このとき
 
 $$
-M_n=E[X\mid\mathcal G_n],
-\qquad
-Y=E[X\mid\mathcal G_\infty]
-$$
-
-> と置くと
-
-$$
-\boxed{M_n\to Y\quad\text{in }L^1}
-$$
-
-> かつ
-
-$$
-\boxed{M_n\to Y\quad\text{a.s.}}
+\boxed{
+E[X\mid\mathcal G_n]
+\longrightarrow
+E[X\mid\mathcal G_\infty]
+\quad\text{in }L^1\text{ and a.s.}
+}
 $$
 
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-<!-- proof-start -->
-### 4.1 証明：まず $L^1$ 収束
-
-$\mathcal G_n\subseteq\mathcal G_\infty$ なのでtower propertyから
+以下では
 
 $$
-E[Y\mid\mathcal G_n]
-=E[E[X\mid\mathcal G_\infty]\mid\mathcal G_n]
-=M_n.
+M_n:=E[X\mid\mathcal G_n],
+\qquad
+Y:=E[X\mid\mathcal G_\infty]
 $$
 
-$\varepsilon>0$ を任意に取ります。前節の稠密性から、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在して
+と置きます。
+
+### 4.1 まず $L^1$ 収束を示す
+
+$Y$ は $\mathcal G_\infty$ 可測で可積分です。第2節の近似補題を単関数近似へ持ち上げると、任意の $\varepsilon>0$ に対して、ある $N$ と $\mathcal G_N$ 可測な可積分単関数 $Z$ が存在して
 
 $$
-\|Y-Z\|_1<\varepsilon.
+E|Y-Z|<\varepsilon
 $$
 
-$n\ge N$ なら $E[Z\mid\mathcal G_n]=Z$ なので、P3Aの $L^1$ 縮小性から
+とできます。
+
+$n\ge N$ なら $Z$ は $\mathcal G_n$ 可測なので
+
+$$
+E[Z\mid\mathcal G_n]=Z.
+$$
+
+またtower propertyより
+
+$$
+M_n
+=E[X\mid\mathcal G_n]
+=E[Y\mid\mathcal G_n].
+$$
+
+従って条件付き期待値の $L^1$ 縮小性から
 
 $$
 \begin{aligned}
-\|M_n-Y\|_1
-&\le\|E[Y-Z\mid\mathcal G_n]\|_1+\|Z-Y\|_1\\
-&\le2\|Y-Z\|_1\\
+E|M_n-Y|
+&\le E|M_n-Z|+E|Z-Y|\\
+&=E\left|E[Y-Z\mid\mathcal G_n]\right|+E|Z-Y|\\
+&\le2E|Y-Z|\\
 &<2\varepsilon.
 \end{aligned}
+$$
+
+よって $M_n\to Y$ in $L^1$ です。
+
+### 4.2 martingale構造
+
+$m<n$ ならtower propertyから
+
+$$
+E[M_n\mid\mathcal G_m]
+=
+E[E[X\mid\mathcal G_n]\mid\mathcal G_m]
+=E[X\mid\mathcal G_m]
+=M_m.
+$$
+
+したがって $(M_n,\mathcal G_n)$ はmartingaleです。また条件付き期待値の $L^1$ 縮小性より
+
+$$
+\sup_nE|M_n|
+\le E|X|<\infty.
+$$
+
+### 4.3 上向き横断不等式
+
+$a<b$ を固定します。martingaleの上向き横断不等式から
+
+$$
+(b-a)E[U_N(a,b)]
+\le
+E[(M_N-a)^-]
++E[(M_1-a)^+]
+$$
+
+を得ます。右辺は $\sup_nE|M_n|<\infty$ から $N$ に一様に有界です。従って
+
+$$
+\sup_NE[U_N(a,b)]<\infty.
+$$
+
+$U_N(a,b)\uparrow U_\infty(a,b)$ なので単調収束定理より
+
+$$
+E[U_\infty(a,b)]<\infty.
 $$
 
 従って
 
 $$
-\boxed{M_n\to Y\quad\text{in }L^1}.
+U_\infty(a,b)<\infty
+\quad\text{a.s.}
 $$
 
-### 4.2 証明：条件付き平均の増分は予測不能
+です。
 
-$n\ge2$ に対しtower propertyから
+### 4.4 a.s.極限の存在
 
-$$
-E[M_n\mid\mathcal G_{n-1}]=M_{n-1}.
-$$
-
-また $L^1$ 縮小性から
-
-$$
-\sup_nE|M_n|\le E|X|<\infty.
-$$
-
-### 4.3 証明：上向き横断回数を抑える
-
-有理数 $a<b$ を固定します。経路を見ながら、$M_k\le a$ になったら1単位買い、その後 $M_k\ge b$ になったら売る戦略を考えます。時刻 $k-1$ までの情報だけで次の区間で保有するかを決めるので、保有量 $H_{k-1}\in\{0,1\}$ は $\mathcal G_{k-1}$-可測です。
-
-時刻 $N$ までの損益を
-
-$$
-G_N=\sum_{k=2}^N H_{k-1}(M_k-M_{k-1})
-$$
-
-とします。各項について
-
-$$
-\begin{aligned}
-E[H_{k-1}(M_k-M_{k-1})]
-&=E\left[H_{k-1}E[M_k-M_{k-1}\mid\mathcal G_{k-1}]\right]\\
-&=0,
-\end{aligned}
-$$
-
-従って $E[G_N]=0$ です。
-
-完了した上向き横断1回につき少なくとも $b-a$ の利益があります。最後に買ったまま終わる場合の未実現損失は高々 $(M_N-a)^-$ なので、経路ごとに
-
-$$
-G_N\ge(b-a)U_N(a,b)-(M_N-a)^-.
-$$
-
-期待値を取ると
-
-$$
-(b-a)E[U_N(a,b)]\le E[(M_N-a)^-].
-$$
-
-さらに $(M_N-a)^-\le|M_N|+|a|$ なので
-
-$$
-\boxed{E[U_N(a,b)]\le\frac{E|X|+|a|}{b-a}}.
-$$
-
-$U_N(a,b)$ は $N$ とともに増加するので単調収束定理より
-
-$$
-E[U_\infty(a,b)]<\infty,
-$$
-
-従って $U_\infty(a,b)<\infty$ a.s. です。
-
-### 4.4 証明：振動を排除する
-
-もしある経路で
+もしある標本経路で
 
 $$
 \liminf_{n\to\infty}M_n<\limsup_{n\to\infty}M_n
@@ -392,13 +315,30 @@ $$
 
 ### 4.5 証明：極限を同定する
 
-すでに $M_n\to Y$ in $L^1$ なので $M_n\to Y$ in probability です。一方a.s.収束から $M_n\to M_\infty$ in probability でもあります。確率収束の極限はa.s.一意なので
+第4.1節で $M_n\to Y$ in $L^1$、第4.4節で $M_n\to M_\infty$ a.s. を得ました。したがって
 
 $$
-M_\infty=Y\quad\text{a.s.}
+|M_n-Y|\to|M_\infty-Y|
+\quad\text{a.s.}
+$$
+
+です。Fatouの補題を非負確率変数 $|M_n-Y|$ に適用すると
+
+$$
+E|M_\infty-Y|
+\le
+\liminf_{n\to\infty}E|M_n-Y|
+=0.
 $$
 
 従って
+
+$$
+M_\infty=Y
+\quad\text{a.s.}
+$$
+
+です。よって
 
 $$
 \boxed{E[X\mid\mathcal G_n]\longrightarrow E[X\mid\mathcal G_\infty]
@@ -420,128 +360,75 @@ X(t)=t,
 M_n=E[X\mid\mathcal G_n]
 $$
 
-とします。$t\in I_{k,n}$ なら有限分割の公式から
+とします。$M_n$ は、$t$ が属する長さ $2^{-n}$ の二進区間上での $X$ の平均です。つまり区間の中点です。
+
+$n$ が増えると二進区間は $t$ の位置を細かく特定するので
 
 $$
-M_n(t)
-=\frac{1}{|I_{k,n}|}\int_{I_{k,n}}s\,ds
-=\frac{2k+1}{2^{n+1}}.
+M_n(t)\to t
 $$
 
-これは $I_{k,n}$ の中点であり
-
-$$
-|M_n(t)-t|\le2^{-n}\to0.
-$$
-
-情報を細かくすると、条件付き平均が極限情報に対する条件付き期待値へ戻ることが見えます。
-
----
-
-## 6. martingaleとの接続
-
-列 $M_n=E[X\mid\mathcal G_n]$ は
-
-$$
-E[M_n\mid\mathcal G_{n-1}]=M_{n-1}
-$$
-
-を満たします。これは後のEncore IVで定義するmartingaleです。この講義では一般のmartingale収束定理を先に仮定せず、条件付き期待値から作られる特別なmartingaleについて必要な上向き横断の議論をここで証明しました。
+となります。Lévy上昇定理は、この有限分割の直感を一般の増加σ代数へ拡張したものです。
 
 ---
 
 ## 演習
 
-### F0-00P3C-A01 二進分割で条件付き期待値を計算する
+### F0-00P3C-A01 二進分割と条件付き期待値
 
 - Level: A
-- 目安時間: 12分
+- 目安時間: 10分
 
-$([0,1),\mathcal B,\lambda)$ 上で
-
-$$
-X(t)=t,
-\qquad
-M_n=E[X\mid\mathcal G_n],
-\qquad
-\mathcal G_n=\sigma(I_{0,n},\dots,I_{2^n-1,n})
-$$
-
-とする。$t\in I_{k,n}$ に対する $M_n(t)$ を求め、$X(t)$ への収束を直接示せ。
+$\Omega=[0,1]$、$P$ をLebesgue確率測度とし、$\mathcal G_n$ を長さ $2^{-n}$ の二進区間で生成されるσ代数とする。$X(t)=t$ に対する $E[X\mid\mathcal G_n]$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-各セル上では条件付き期待値はセル平均なので
+各二進区間 $I_{k,n}=[k2^{-n},(k+1)2^{-n})$ 上で条件付き期待値は $X$ の平均なので
 
 $$
-M_n(t)
-=2^n\int_{k/2^n}^{(k+1)/2^n}s\,ds
-=\frac{2k+1}{2^{n+1}}.
-$$
-
-$t$ と同じ長さ $2^{-n}$ のセル内にあるため
-
-$$
-|M_n(t)-t|\le2^{-n}\to0.
+E[X\mid\mathcal G_n](t)
+=\left(k+\frac12\right)2^{-n}
+\qquad(t\in I_{k,n}).
 $$
 
 #### 本番答案
-セル平均を計算して $(2k+1)/2^{n+1}$。セル幅が $2^{-n}$ なので誤差は $2^{-n}$ 以下で0へ収束する。
+$E[X\mid\mathcal G_n]$ は各二進区間上でその中点の値を取る階段関数。
 
 #### 採点基準（20点）
-- セル上で定数になる理由: 4点
-- 積分計算: 8点
-- 誤差評価: 5点
-- 収束結論: 3点
+- 区間ごとの定数性: 8点
+- 平均値計算: 8点
+- 結論: 4点
 <!-- solution-end -->
 
-### F0-00P3C-B01 上向き横断評価を導く
+### F0-00P3C-B01 Lévy上昇定理の意味
 
 - Level: B
-- 目安時間: 20分
+- 目安時間: 15分
 
-$M_n=E[X\mid\mathcal G_n]$、$a<b$ とする。$a$ 以下で買い $b$ 以上で売る戦略を用いて
-
-$$
-(b-a)E[U_N(a,b)]\le E[(M_N-a)^-]
-$$
-
-を示し、$U_\infty(a,b)<\infty$ a.s. を導け。
+$X\in L^1$、$\mathcal G_n\uparrow\mathcal G_\infty$ とする。Lévy上昇定理が「情報を増やすほど予測が改善する」という主張であることを、条件付き期待値の最良予測解釈と結びつけて説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-過去情報だけで決まる保有量を $H_{k-1}\in\{0,1\}$ とし
-
-$$
-G_N=\sum_{k=2}^NH_{k-1}(M_k-M_{k-1})
-$$
-
-と置く。tower propertyから各増分の条件付き平均が0なので $E[G_N]=0$。経路ごとに
-
-$$
-G_N\ge(b-a)U_N(a,b)-(M_N-a)^-.
-$$
-
-期待値を取って主張を得る。さらに
-
-$$
-E[(M_N-a)^-]\le E|M_N|+|a|\le E|X|+|a|
-$$
-
-なので $E[U_N]$ は一様有界。単調収束定理から $E[U_\infty]<\infty$、従って $U_\infty<\infty$ a.s.。
+$E[X\mid\mathcal G_n]$ は$\mathcal G_n$可測な予測の中でXを近似する対象で、$n$とともに利用可能な情報が増える。Lévy上昇定理はこれらが最終情報$\mathcal G_\infty$を使う条件付き期待値へL1かつa.s.収束することを保証する。
 
 #### 本番答案
-予測可能な0/1保有戦略の期待損益が0であることと、経路ごとの利益下界を組み合わせる。最後に $L^1$縮小性で右辺を $N$ に一様に抑える。
+$\mathcal G_n$の増加は利用可能情報の増加を表し、最良予測$E[X\mid\mathcal G_n]$は最終情報による予測$E[X\mid\mathcal G_\infty]$へ収束する。
 
 #### 採点基準（20点）
-- 保有戦略の構成: 4点
-- 期待損益0: 5点
-- 経路ごとの不等式: 5点
-- 一様上界と単調収束: 6点
+- 情報増加の解釈: 7点
+- 条件付き期待値の意味: 7点
+- 収束先: 6点
 <!-- solution-end -->
 
 ---
 
-## 次に進む
+## 章末チェック
 
-条件付き期待値の収束まで閉じました。次は [F0-00P4 収束・Borel--Cantelli](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md) で、確率変数列一般の収束概念とa.s.収束を扱います。
+- 増加する部分σ代数列を定義できる。
+- $\bigcup_n\mathcal G_n$ が代数になる理由を説明できる。
+- $\mathcal G_\infty$ の集合を $\bigcup_n\mathcal G_n$ の集合で確率近似できることを説明できる。
+- 条件付き期待値列がmartingaleになることをtower propertyから示せる。
+- 上向き横断回数が有限なら経路の振動が止まることを説明できる。
+- Lévy上昇定理を $L^1$ とa.s.の両方で述べられる。
+
+次は [F0-00P3D 押し出し・Doob--Dynkin](../F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md) で、条件付き期待値を $m(Y)$ の形へ落とします。
