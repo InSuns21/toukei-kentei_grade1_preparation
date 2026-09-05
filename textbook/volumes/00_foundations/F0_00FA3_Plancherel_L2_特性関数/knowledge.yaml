@@ -10,13 +10,14 @@ prerequisites:
 # 末尾で特性関数を確率測度の Fourier 変換として再接続する。
 forward_references:
   - prob.characteristic-function
+  - prob.random-variable
 
 concepts:
   - id: fourier.translation-continuity-l2-r
     name: L2(R) の平行移動連続性
     kind: lemma
-    # formal見出しの $L^2(\mathbb R)$ はreader-source化で16文字分の空白になる。
-    aliases: ["補題（                の平行移動連続性）"]
+    # $L^2(\mathbb R)$ の16文字を空白化した後にも直後の通常空白が残るため、合計17空白で照合する。
+    aliases: ["補題（                 の平行移動連続性）"]
     requires:
       - measure.outer-measure
       - functional.l2-inner-product
@@ -53,7 +54,7 @@ concepts:
   - id: fourier.plancherel-theorem
     name: Plancherel定理
     kind: theorem
-    aliases: ["定理（Plancherel）"]
+    aliases: ["定理（Plancherel）", "Plancherel 定理"]
     requires:
       - fourier.transform-l2
       - fourier.plancherel-core
