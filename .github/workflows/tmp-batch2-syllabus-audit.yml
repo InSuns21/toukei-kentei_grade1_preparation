@@ -1,0 +1,31 @@
+name: Temporary Batch 2 syllabus audit
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-textbook-syllabus-coverage.mjs'
+      - 'textbook/**'
+      - 'anki/syllabus/**'
+      - '.github/workflows/tmp-batch2-syllabus-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Generate corrected syllabus coverage report
+        run: npm run audit:textbook-syllabus -- --write --strict
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch2-syllabus-audit
+          path: textbook/SYLLABUS_TERM_COVERAGE.md
