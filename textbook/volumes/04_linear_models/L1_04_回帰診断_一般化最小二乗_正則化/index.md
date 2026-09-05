@@ -405,7 +405,7 @@ $$
 
 <!-- definition-example-start: def-l1-04-gls -->
 **定義の確認**  
-$\Omega=I_n$ なら $Q(\beta)=\|y-X\beta\|^2$ となるので、GLS は通常最小二乗法に戻ります。
+$\Omega=I_n$ なら $Q(\beta)=\|y-X\beta\|^2$ となるので、一般化最小二乗法は通常最小二乗法に戻ります。
 <!-- definition-example-end -->
 
 $\Omega^{-1}$ は対称なので
