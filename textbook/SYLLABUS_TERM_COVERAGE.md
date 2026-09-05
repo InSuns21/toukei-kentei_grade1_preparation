@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 70件
+- 明示的な定義ラベルヒット: 73件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -123,10 +123,10 @@
 |math-anova|交互作用|exact|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|—|L1-03 / L1-03-A03|
 |math-anova|共分散分析|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|—|L1-03 / L103-B05|
 |math-anova|多重比較|exact|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|—|L1-03 / L1-03-A04 Bonferroni法の有意水準|
-|math-regression|線形単回帰|exact|L1-01 / L1-01 単回帰と最小二乗法|—|—|L1-01 / L1-01-B04 傾きのt検定|
-|math-regression|線形重回帰|exact|L1-02 / chapter.yaml|—|—|—|
+|math-regression|線形単回帰|exact|L1-01 / 1. まず「直線＋ばらつき」として考える#def-l1-01-simple-linear-regression|L1-01 / 1. まず「直線＋ばらつき」として考える#def-l1-01-simple-linear-regression|—|L1-01 / L1-01-B04 傾きのt検定|
+|math-regression|線形重回帰|exact|L1-02 / 1. まず3本の回帰式を1本の行列式へまとめる#def-l1-02-multiple-linear-regression|L1-02 / 1. まず3本の回帰式を1本の行列式へまとめる#def-l1-02-multiple-linear-regression|—|—|
 |math-regression|最小二乗推定|exact|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|—|L1-01 / L1-01-A01|
-|math-regression|回帰の分散分析|exact|L1-01 / 公式出題範囲との対応|—|—|L1-01 / L1-01-B02 平方和分解を導く|
+|math-regression|回帰の分散分析|exact|L1-01 / 4A. 回帰の分散分析：平方和分解をF検定へつなぐ#def-l1-01-regression-anova|L1-01 / 4A. 回帰の分散分析：平方和分解をF検定へつなぐ#def-l1-01-regression-anova|—|L1-01 / L1-01-B02 平方和分解を導く|
 |math-regression|重相関係数|exact|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A.1 例：符号を付けない|L1-02 / L102-A05|
 |math-regression|決定係数|exact|L1-01 / 3. 平方和分解と決定係数#def-l1-01-coefficient-of-determination|L1-01 / 3. 平方和分解と決定係数#def-l1-01-coefficient-of-determination|—|L1-01 / L1-01-B03|
 |math-regression|残差|exact|L1-01 / 2.2 残差の直交性#def-l1-01-residual|L1-01 / 2.2 残差の直交性#def-l1-01-residual|S1-01 / 例4 平方和分解|P3-03 / P3M-C03|

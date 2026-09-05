@@ -36,6 +36,20 @@
 
 ## 1. まず3本の回帰式を1本の行列式へまとめる
 
+<a id="def-l1-02-multiple-linear-regression"></a>
+
+<!-- formal-statement-start -->
+> **定義（線形重回帰）**  
+> 複数の説明変数 $x_1,\ldots,x_{p-1}$ と応答 $Y$ について、条件付き平均が
+> $E[Y\mid x_1,\ldots,x_{p-1}]=\beta_0+\sum_{j=1}^{p-1}\beta_jx_j$
+> の形で表される回帰モデルを **線形重回帰** という。$n$ 個の観測をまとめると $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ と表せる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-02-multiple-linear-regression -->
+**定義の確認**  
+例えば $E[Y\mid x_1,x_2]=4+2x_1-0.5x_2$ は、二つの説明変数の線形結合で条件付き平均を表しているので線形重回帰です。係数 $(4,2,-0.5)$ を1本のベクトルにまとめることで行列表現へ移れます。
+<!-- definition-example-end -->
+
 応答 $Y_i$ を二つの説明変数 $x_{i1},x_{i2}$ で説明すると
 $$
 Y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+\varepsilon_i
@@ -494,7 +508,17 @@ $$
 
 ## 9. 一般線形仮説のF検定
 
-正規線形モデルを仮定します。制約なしモデルの残差平方和を $SSE_F$、制約付きモデルを $SSE_R$ とします。制約を課すと自由度が減るので
+<a id="prop-l1-02-general-linear-f"></a>
+
+<!-- formal-statement-start -->
+> **命題（一般線形仮説のF検定）**  
+> 正規線形モデル $\boldsymbol Y=\boldsymbol X\boldsymbol\beta+\boldsymbol\varepsilon$ で、$\boldsymbol X\in\mathbb R^{n\times p}$ は列フルランク、$\boldsymbol\varepsilon\sim N_n(\boldsymbol0,\sigma^2\boldsymbol I_n)$ とする。
+> $\boldsymbol R\in\mathbb R^{q\times p}$ は行フルランクで、帰無仮説を $H_0:\boldsymbol R\boldsymbol\beta=\boldsymbol r$ とする。制約なしモデルの残差平方和を $SSE_F$、この制約の下での残差平方和を $SSE_R$ とすると、
+> $F=\dfrac{(SSE_R-SSE_F)/q}{SSE_F/(n-p)}\sim F_{q,n-p}$
+> が $H_0$ のもとで成り立つ。
+<!-- formal-statement-end -->
+
+制約なしモデルの残差平方和を $SSE_F$、制約付きモデルを $SSE_R$ とします。制約を課すと自由度が減るので
 $$SSE_R\ge SSE_F.$$
 差は
 $$
