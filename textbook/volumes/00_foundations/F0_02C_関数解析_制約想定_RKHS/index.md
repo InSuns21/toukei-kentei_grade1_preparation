@@ -2,12 +2,15 @@
 
 このページはDREAM THEATERのうち、**関数解析そのものを順に積み上げ、そこから無限次元最適化・RKHSへ進む路線**の入口です。
 
-有限次元のKKT・Farkas・SVMは重要ですが、関数解析の基礎そのものではありません。したがって本ロードマップでは、
+有限次元のKKT・Farkas・SVMは、Banach/Hilbert・双対空間・Hahn--Banachといった関数解析コアの前提ではありません。ただし **一般化KKT（F0-02C5）へ進む地点では有限次元KKTの導出（F0-02A）が合流**します。
+
+したがって本ロードマップでは、
 
 - **短距離ルート**：有限次元の制約付き最適化・Farkas・SVMを先に見る
-- **関数解析本線**：Banach/Hilbert → 双対空間 → Hahn--Banach → 分離 → Fréchet微分 → 凸解析 → 一般化KKT → RKHS
+- **関数解析コア**：Banach/Hilbert → 双対空間 → Hahn--Banach → 分離 → Fréchet微分 → 凸解析
+- **合流後**：有限次元KKTの理解を使って一般化KKT・制約想定へ進み、RKHS・kernel SVMへ回収する
 
-を分けて示します。
+と分けて示します。
 
 設計原則は **一講義一学習サイクル** です。標準の読み順と、各 `chapter.yaml` に記す数学的な必須前提は区別しますが、**標準通読順が prerequisite に逆行しないこと**を優先します。
 
@@ -24,7 +27,7 @@ A → A1 → A2 → A3 → B
 
 ## 1. 有限次元の短距離ルート：KKT・Farkas・SVM
 
-関数解析へ進まず、まず有限次元で制約付き最適化とSVMの仕組みを理解したい場合のルートです。
+まず有限次元で制約付き最適化とSVMの仕組みを理解したい場合のルートです。関数解析コアだけを読む段階では後回しにできますが、`F0-02C5` 一般化KKTへ進む前には `F0-02A` まで読んでください。
 
 ```text
 F0-00G 凸最適化
@@ -65,6 +68,9 @@ F0-02C4  劣勾配 / normal cone
  ↓
 F0-02C4A tangent / polar / dual cone
  ↓
+[合流] F0-02 → F0-02B → F0-02A
+        （未読ならここで有限次元KKT導出を回収）
+ ↓
 F0-02C5  一般化KKT / 錐制約 / 双対乗数
  ↓
 F0-02C5A LICQ / MFCQ / Robinson CQ
@@ -74,7 +80,7 @@ F0-02C7  RKHS / 再生核 / Moore--Aronszajn
 F0-02C7A representer theorem / kernel SVM
 ```
 
-この順にすると、たとえば `F0-02C4` が prerequisite に持つ `F0-02C6`・`F0-02C6A` を読まずに凸解析へ入る逆転が起きません。
+この順にすると、たとえば `F0-02C4` が prerequisite に持つ `F0-02C6`・`F0-02C6A` を読まずに凸解析へ入る逆転や、`F0-02C5` が prerequisite に持つ `F0-02A` を飛ばす逆転が起きません。
 
 ## 3. 関数解析路線の中心線
 
@@ -96,6 +102,8 @@ Fréchet微分を有界線形作用素として扱う
 劣微分・normal cone
  ↓
 tangent / polar / dual cone
+ ↓
+有限次元KKTの導出が合流
  ↓
 一般化KKT
  ↓
@@ -129,10 +137,10 @@ kernel SVM
 - **Hahn--Banachと分離**：F0-02C6Aまで。
 - **無限次元の微分・随伴**：F0-02C3Aまで。
 - **凸解析・normal/tangent/polar cone**：F0-02C4Aまで。
-- **無限次元のKKTの型**：F0-02C5まで。
+- **無限次元のKKTの型**：F0-02Aを回収したうえで F0-02C5まで。
 - **KKT乗数の存在条件**：F0-02C5Aまで。
 - **RKHSそのもの**：F0-02C7まで。
-- **kernel SVMまで回収**：F0-02C7Aまで。
+- **kernel SVMまで回収**：F0-02B1も回収したうえで F0-02C7Aまで。
 
 ## 5. 依存関係を細く保つ
 
@@ -142,5 +150,6 @@ kernel SVM
 - RKHS本体は `F0-02C2` から読める。
 - kernel SVM応用は `F0-02C7 + F0-02C3 + F0-02B1` を使う。
 - 有限次元Farkasは `F0-02B`、一般の分離定理との接続は `F0-02C6A` で扱う。
+- 一般化KKT `F0-02C5` へ入る前に、有限次元KKT導出 `F0-02A` を回収する。
 
 「前のページだから」という理由だけで機械可読prerequisiteを追加しません。一方で、**目次の標準通読順は prerequisite の後ろ向き参照を作らない**ようにします。
