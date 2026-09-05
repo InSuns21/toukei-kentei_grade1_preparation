@@ -1,104 +1,133 @@
-# F0-00SOB2 Encore III：H0^1・Poincare不等式・trace・境界条件
+# F0-00SOB2 Encore III：$H_0^1$・Poincaré不等式・trace・境界条件
 
-Sobolev空間では元をa.e.一致で同一視します。
-
-そこでPDEの境界条件
+Sobolev空間では関数を a.e. 一致で同一視します。したがってPDEの境界条件
 
 $$
 u=0\quad\text{on }\partial\Omega
 $$
 
-を、古典解のように各境界点でそのまま読んでよいとは限りません。
+を、古典解のように境界点ごとの値だけで定義するのは危険です。
 
-この章では、弱解のための境界条件と、Lax--Milgramで必要になるPoincare不等式を準備します。
+この章では
+
+```text
+境界近くで0の滑らかな関数
+ ↓ H1閉包
+H0^1
+ ↓
+Poincaré不等式
+ ↓
+勾配だけでH0^1ノルムを制御
+ ↓
+Poisson弱形式のcoercivity
+ ↓
+Lax--Milgram
+```
+
+という依存鎖を証明します。
+
+重要なのは、ここで必要な Poincaré 不等式は **trace定理を先に仮定しなくても証明できる**ことです。
 
 ---
 
-## 1. まずコンパクト台滑らか関数を見る
+## 1. $H_0^1(\Omega)$
+
+<a id="def-f0-00sob2-h01"></a>
+
+<!-- formal-statement-start -->
+> **定義（$H_0^1(\Omega)$）**  
+> $\Omega\subset\mathbb R^d$ を開集合とします。$C_c^\infty(\Omega)$ の $H^1(\Omega)$ ノルムによる閉包を
 
 $$
-C_c^\infty(\Omega)
-$$
-
-の関数は境界近くで0です。
-
-したがって古典的な意味で零Dirichlet境界条件を満たします。
-
-しかしPDEの解をこの非常に狭い空間だけで探すと、極限に閉じていません。
-
-そこで $H^1$ ノルムで閉包します。
-
----
-
-## 2. H0^1の定義
-
-$$
-\boxed{
 H_0^1(\Omega)
-=
-\overline{C_c^\infty(\Omega)}^{\|\cdot\|_{H^1}}
-}
+:=\overline{C_c^\infty(\Omega)}^{\|\cdot\|_{H^1(\Omega)}}
 $$
 
-と定義します。
+> と定義します。
+<!-- formal-statement-end -->
 
-つまり $H_0^1$ の元は、境界近くで0になる滑らかな関数列で $H^1$ 的に近似できる関数です。
+つまり $u\in H_0^1(\Omega)$ とは、ある $u_n\in C_c^\infty(\Omega)$ が存在して
 
-これを「境界値0」を弱い意味で表す空間として使います。
+$$
+\|u_n-u\|_{H^1(\Omega)}\to0
+$$
+
+となることです。
+
+### 1.1 例：コンパクト台の滑らかな関数
+
+$\Omega=(0,1)$ とし
+
+$$
+u(x)=
+\begin{cases}
+\exp\!\left(-\dfrac1{1-16(x-1/2)^2}\right),&|x-1/2|<1/4,\\
+0,&|x-1/2|\ge1/4
+\end{cases}
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00sob2-h01 -->
+**定義の確認**  
+この $u$ は $(1/4,3/4)$ に台を持つ $C^\infty$ 関数なので
+
+$$
+u\in C_c^\infty(0,1).
+$$
+
+近似列を $u_n=u$ と一定に取れば
+
+$$
+\|u_n-u\|_{H^1}=0
+$$
+
+です。従って定義から確かに $u\in H_0^1(0,1)$ です。
+<!-- definition-example-end -->
+
+$H_0^1$ は「境界値0」を点ごとの値ではなく、**境界近くで0の滑らかな関数からの $H^1$ 近似可能性**として組み込みます。
 
 ---
 
-## 3. なぜ点ごとの境界値で定義しないのか
+## 2. traceは何をするのか
 
-$H^1$ の元はa.e.同値類なので、境界上の一点の値を勝手に取り替えても同じ元である可能性があります。
-
-したがって
-
-$$
-u|_{\partial\Omega}
-$$
-
-を定義するには、内部のSobolev関数から境界上の適切な関数空間へ写す作用素が必要です。
-
-これがtraceです。
-
----
-
-## 4. trace定理の役割
-
-十分良い領域では、滑らかな関数の境界制限
+一般の $u\in H^1(\Omega)$ は a.e. 同値類なので、境界上の一点の値を変更しても同じSobolev関数を表すことがあります。そのため
 
 $$
 u\mapsto u|_{\partial\Omega}
 $$
 
-をSobolev空間へ連続に拡張できます。
+をそのまま点wiseに定義することはできません。
 
-この拡張をtrace作用素と呼びます。
-
-概念的には
+十分良い領域、たとえば有界Lipschitz領域では、滑らかな関数の境界制限を連続作用素
 
 $$
-\boxed{
+\operatorname{Tr}:H^1(\Omega)\to L^2(\partial\Omega)
+$$
+
+などへ延長できます。これがtrace作用素です。
+
+この条件の下では
+
+$$
 H_0^1(\Omega)
 =
 \{u\in H^1(\Omega):\operatorname{Tr}u=0\}
-}
 $$
 
-と読めます。
+と同定できます。
 
-完全なtrace定理の証明はEncore IIIの必須にはせず、境界条件を正当化する定理として位置付けます。
+ただし **一般trace定理の証明はこの系列ではP3の黒箱**とします。以下のPoincaré不等式は、このtrace同定を使わず $H_0^1$ の閉包定義だけから証明します。
 
 ---
 
-## 5. Poincare不等式
+## 3. 有界領域版Poincaré不等式
 
 <a id="thm-f0-00sob2-poincare"></a>
 
 <!-- formal-statement-start -->
-> **定理（Poincare不等式）**  
-> $\Omega\subset\mathbb R^d$ を有界なLipschitz領域とします。このとき $\Omega$ のみに依存する定数 $C_P>0$ が存在し、任意の $u\in H_0^1(\Omega)$ に対して
+> **定理（$H_0^1$ のPoincaré不等式）**  
+> $\Omega\subset\mathbb R^d$ を有界開集合とします。このとき定数 $C_P>0$ が存在し、任意の $u\in H_0^1(\Omega)$ に対して
 
 $$
 \boxed{
@@ -107,130 +136,109 @@ $$
 }
 $$
 
-> が成り立ちます。
+> が成り立ちます。特に $\Omega\subset(a,b)\times\mathbb R^{d-1}$ なら $C_P=b-a$ と取れます。
 <!-- formal-statement-end -->
 
-有界で十分良い領域 $\Omega$ では、$u\in H_0^1(\Omega)$ に対して
+領域の滑らかさは仮定していません。**有界性と $H_0^1$ の閉包定義だけ**で十分です。
+
+<!-- proof-start -->
+### 証明：一方向へ積分してから全断面を足す
+
+まず $u\in C_c^\infty(\Omega)$ とします。$\Omega$ は有界なので、ある $a<b$ を取って
 
 $$
-\boxed{
-\|u\|_{L^2}
-\le C_P\|\nabla u\|_{L^2}
-}
+\Omega\subset(a,b)\times\mathbb R^{d-1}
 $$
 
-となる定数 $C_P$ が存在します。
+とできます。$u$ を $\Omega$ の外で0と延長します。$u$ は $\Omega$ の内部にコンパクト台を持つので、この零延長は依然として滑らかです。
 
-これはPoincare不等式です。
-
-境界値が0なら、関数自身の大きさを勾配だけで制御できます。
-
----
-
-## 6. 一次元では直接見える
-
-区間 $(0,L)$ で $u(0)=0$ とします。
-
-古典的に十分滑らかな場合
+$x=(x_1,x')$、$x'\in\mathbb R^{d-1}$ と書きます。固定した $x'$ に対して
 
 $$
-u(x)=\int_0^x u'(s)\,ds.
+u(x_1,x')
+=\int_a^{x_1}\partial_1u(s,x')\,ds.
 $$
 
 Cauchy--Schwarzから
 
 $$
-|u(x)|^2
-\le x\int_0^x|u'(s)|^2\,ds
-\le L\int_0^L|u'(s)|^2\,ds.
+|u(x_1,x')|^2
+\le(x_1-a)
+\int_a^{x_1}|\partial_1u(s,x')|^2ds
+\le(b-a)
+\int_a^b|\partial_1u(s,x')|^2ds.
 $$
 
-$x$ で積分すれば
+これを $x_1\in(a,b)$ で積分すると
 
 $$
-\|u\|_2^2
-\le L^2\|u'\|_2^2
+\int_a^b|u(x_1,x')|^2dx_1
+\le(b-a)^2
+\int_a^b|\partial_1u(s,x')|^2ds.
 $$
 
-なので
+さらに $x'\in\mathbb R^{d-1}$ で積分して
 
 $$
-\boxed{
-\|u\|_2\le L\|u'\|_2.
-}
+\|u\|_{L^2(\Omega)}^2
+\le(b-a)^2\|\partial_1u\|_{L^2(\Omega)}^2
+\le(b-a)^2\|\nabla u\|_{L^2(\Omega)}^2.
 $$
 
-一般の $H_0^1$ へは密度で拡張できます。
+従って
+
+$$
+\|u\|_2\le(b-a)\|\nabla u\|_2
+$$
+
+が $C_c^\infty(\Omega)$ 上で成り立ちます。
+
+次に $u\in H_0^1(\Omega)$ とします。定義から $u_n\in C_c^\infty(\Omega)$ を
+
+$$
+u_n\to u\quad\text{in }H^1(\Omega)
+$$
+
+となるよう取れます。各 $n$ について
+
+$$
+\|u_n\|_2\le(b-a)\|\nabla u_n\|_2.
+$$
+
+$H^1$ 収束から $u_n\to u$ in $L^2$ かつ $\nabla u_n\to\nabla u$ in $L^2$ なので、極限を取れば
+
+$$
+\boxed{\|u\|_2\le(b-a)\|\nabla u\|_2}.
+$$
+
+これで一般の $H_0^1$ まで証明できました。
+<!-- proof-end -->
+
+### 3.1 一次元版はこの証明の断面そのもの
+
+$\Omega=(0,L)$ なら $a=0,b=L$ として
+
+$$
+\boxed{\|u\|_{L^2(0,L)}\le L\|u'\|_{L^2(0,L)}}.
+$$
+
+一次元の議論を各 $x'$ 断面について実行して積分したものが、上の多次元証明です。
 
 ---
 
-## 7. H0^1では勾配だけでノルムを作れる
+## 4. なぜ境界条件が必要なのか
 
-通常
-
-$$
-\|u\|_{H^1}^2
-=
-\|u\|_2^2+\|\nabla u\|_2^2.
-$$
-
-Poincare不等式から
+Poincaré不等式を全 $H^1(\Omega)$ に対して期待することはできません。定数関数 $u\equiv1$ なら
 
 $$
-\|u\|_{H^1}^2
-\le
-(C_P^2+1)\|\nabla u\|_2^2.
+\|u\|_2>0,
+\qquad
+\|\nabla u\|_2=0
 $$
 
-逆向きは自明なので、$H_0^1$ では
+だからです。
 
-$$
-\boxed{
-\|u\|_{H_0^1}
-:=\|\nabla u\|_2
-}
-$$
-
-を同値なノルムとして使えます。
-
----
-
-## 8. なぜこれがLax--Milgramに効くのか
-
-Poisson方程式の弱形式では
-
-$$
-a(u,v)
-=
-\int_\Omega\nabla u\cdot\nabla v\,dx
-$$
-
-という双線形形式が現れます。
-
-すると
-
-$$
-a(u,u)
-=
-\|\nabla u\|_2^2.
-$$
-
-Poincare不等式のおかげでこれは $H_0^1$ ノルム全体を制御します。
-
-つまり
-
-$$
-\boxed{
-a(u,u)\ge\alpha\|u\|_{H_0^1}^2}
-$$
-
-というcoercivityを得られます。
-
-これがLax--Milgramの核心条件の一つです。
-
----
-
-## 9. 平均0版Poincare
+$H_0^1$ は定数方向を排除し、勾配だけで関数全体を制御できるようにしています。
 
 境界値0の代わりに平均0
 
@@ -238,69 +246,306 @@ $$
 \int_\Omega u=0
 $$
 
-を仮定しても、適切な領域では
-
-$$
-\|u\|_2\le C\|\nabla u\|_2
-$$
-
-が成り立ちます。
-
-定数関数は勾配が0なので、何らかの正規化条件がなければ勾配だけで関数を制御できません。
-
-Poincare不等式はこの「定数方向」を除く仕組みだと理解できます。
+を課す別版のPoincaré不等式もありますが、Poissonの零Dirichlet問題では $H_0^1$ 版が直接使えます。
 
 ---
 
-## 10. Sobolev embeddingの位置付け
+## 5. 勾配ノルムが $H_0^1$ の同値ノルムになる
 
-さらに一般には
+通常
 
 $$
-W^{k,p}
-\hookrightarrow
-L^q
+\|u\|_{H^1}^2
+=\|u\|_2^2+\|\nabla u\|_2^2.
 $$
 
-や、条件によっては連続関数空間への埋め込みが得られます。
+[Poincaré不等式](#thm-f0-00sob2-poincare)から
 
-これは
+$$
+\|u\|_{H^1}^2
+\le(C_P^2+1)\|\nabla u\|_2^2.
+$$
 
-> 弱微分を積分的に制御すると、関数自身にも追加の正則性が生まれる
+逆向き
 
-という定理です。
+$$
+\|\nabla u\|_2\le\|u\|_{H^1}
+$$
 
-Encore IIIではLax--Milgramへ直結するPoincareを必須にし、一般のembedding定理は発展として扱います。
-
----
-
-## 11. Rellich--Kondrachovへの入口
-
-存在証明では、単に有界な列から**収束部分列**を取りたいことがあります。
-
-Sobolev空間から低い正則性の空間への埋め込みがコンパクトになるというRellich--Kondrachov定理は、そのための重要な道具です。
-
-ただしLax--Milgram自体はコンパクト性を必要としません。
-
-ここでは
+は自明です。従って
 
 $$
 \boxed{
-\text{Poincare：ノルム制御}
-\qquad
-\text{Rellich：部分列の強収束}
+\|u\|_{H_0^1}:=\|\nabla u\|_2
 }
 $$
 
-と役割を区別します。
+は $H_0^1(\Omega)$ 上で $H^1$ ノルムと同値です。
+
+特に $H_0^1$ はこの勾配ノルムでも完備です。
+
+---
+
+## 6. Poisson弱形式のcoercivity
+
+Poisson方程式の零Dirichlet問題では
+
+$$
+a(u,v)
+:=\int_\Omega\nabla u\cdot\nabla v\,dx,
+\qquad
+u,v\in H_0^1(\Omega)
+$$
+
+を考えます。
+
+まず Cauchy--Schwarz から
+
+$$
+|a(u,v)|
+\le\|\nabla u\|_2\|\nabla v\|_2
+\le\|u\|_{H^1}\|v\|_{H^1},
+$$
+
+したがって $a$ は連続です。
+
+さらに
+
+$$
+a(u,u)=\|\nabla u\|_2^2.
+$$
+
+Poincaré不等式から
+
+$$
+\|u\|_{H^1}^2
+\le(1+C_P^2)\|\nabla u\|_2^2,
+$$
+
+よって
+
+$$
+\boxed{
+a(u,u)
+\ge\frac1{1+C_P^2}\|u\|_{H^1}^2.
+}
+$$
+
+これが [Lax--Milgram定理](../F0_00WK2_Lax_Milgram_存在一意性/index.md#thm-f0-00wk2-lax-milgram) の coercivity 条件です。
+
+つまり
+
+```text
+零Dirichlet境界条件
+ ↓ H0^1
+Poincaré
+ ↓
+勾配エネルギーがH1ノルム全体を制御
+ ↓
+coercivity
+ ↓
+Lax--Milgramで存在一意性
+```
+
+と一本につながります。
+
+---
+
+## 7. trace定理・Sobolev embedding・Rellichの位置付け
+
+この章で完全証明したのは、後続の線形楕円型PDEに直接必要な $H_0^1$ 版Poincaré不等式です。
+
+一方、次の一般定理はこの段階では黒箱にします。
+
+- **trace定理**：$H^1$ の内部情報から境界値を連続に取り出す。
+- **Sobolev embedding**：弱微分の積分制御から $L^q$ や連続性などを導く。
+- **Rellich--Kondrachov**：Sobolev有界列から強収束部分列を取り出す。
+
+Lax--Milgram自体には一般trace theoremもRellich compactnessも不要です。
+
+---
+
+# 演習
+
+## F0-00SOB2-A01 区間でPoincaréを示す
+
+- Level: A
+- 目安時間: 10分
+
+$u\in C_c^\infty(0,L)$ に対して
+
+$$
+\|u\|_{L^2(0,L)}\le L\|u'\|_{L^2(0,L)}
+$$
+
+を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+u(x)=\int_0^xu'(s)ds
+$$
+
+なので Cauchy--Schwarz から
+
+$$
+|u(x)|^2
+\le x\int_0^x|u'(s)|^2ds
+\le L\|u'\|_2^2.
+$$
+
+$x\in(0,L)$ で積分すれば
+
+$$
+\|u\|_2^2\le L^2\|u'\|_2^2.
+$$
+
+### 本番答案
+
+基本定理とCauchy--Schwarzで $|u(x)|^2\le L\|u'\|_2^2$。$x$ で積分して平方根を取る。
+
+### 採点基準（20点）
+
+- 積分表示: 6点
+- Cauchy--Schwarz: 7点
+- 積分と結論: 7点
+<!-- solution-end -->
+
+## F0-00SOB2-A02 なぜ定数関数が邪魔か
+
+- Level: A
+- 目安時間: 6分
+
+全 $H^1(\Omega)$ に対して $\|u\|_2\le C\|\nabla u\|_2$ が成り立たないことを反例で示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$u\equiv1$ とすれば $\nabla u=0$ ですが、有界領域で $\lambda(\Omega)>0$ なら
+
+$$
+\|u\|_2=\sqrt{\lambda(\Omega)}>0.
+$$
+
+従ってどんな有限 $C$ に対しても不等式は成立しません。
+
+### 本番答案
+
+定数関数 $u=1$ では左辺は正、右辺は0。
+
+### 採点基準（20点）
+
+- 反例選択: 8点
+- 両辺評価: 8点
+- 結論: 4点
+<!-- solution-end -->
+
+## F0-00SOB2-B01 多次元Poincaréを断面積分で証明する
+
+- Level: B
+- 目安時間: 18分
+
+$\Omega\subset(a,b)\times\mathbb R^{d-1}$、$u\in C_c^\infty(\Omega)$ とする。$x'\in\mathbb R^{d-1}$ を固定して一次元評価を行い
+
+$$
+\|u\|_2\le(b-a)\|\partial_1u\|_2
+$$
+
+を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+零延長した $u$ に対して
+
+$$
+u(x_1,x')=\int_a^{x_1}\partial_1u(s,x')ds.
+$$
+
+Cauchy--Schwarzから
+
+$$
+|u(x_1,x')|^2
+\le(b-a)\int_a^b|\partial_1u(s,x')|^2ds.
+$$
+
+$x_1$ で積分すると係数がもう一つ $b-a$ 出るので
+
+$$
+\int_a^b|u|^2dx_1
+\le(b-a)^2\int_a^b|\partial_1u|^2dx_1.
+$$
+
+最後に $x'$ で積分して平方根を取ります。
+
+### 本番答案
+
+各断面で基本定理+Cauchy--Schwarz、その後Fubiniで $x'$ まで積分する。
+
+### 採点基準（20点）
+
+- 断面積分表示: 6点
+- Cauchy--Schwarz: 6点
+- 二段階積分: 5点
+- 結論: 3点
+<!-- solution-end -->
+
+## F0-00SOB2-B02 Poisson形式のcoercivity定数
+
+- Level: B
+- 目安時間: 12分
+
+Poincaré定数を $C_P$ とし
+
+$$
+a(u,v)=\int_\Omega\nabla u\cdot\nabla v
+$$
+
+とする。$H^1$ ノルムを用いた coercivity 定数として
+
+$$
+\alpha=\frac1{1+C_P^2}
+$$
+
+が使えることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+Poincaréから
+
+$$
+\|u\|_{H^1}^2
+=\|u\|_2^2+\|\nabla u\|_2^2
+\le(C_P^2+1)\|\nabla u\|_2^2.
+$$
+
+従って
+
+$$
+a(u,u)=\|\nabla u\|_2^2
+\ge\frac1{1+C_P^2}\|u\|_{H^1}^2.
+$$
+
+### 本番答案
+
+Poincaréを $H^1$ ノルムへ代入し、$a(u,u)=\|\nabla u\|_2^2$ を使う。
+
+### 採点基準（20点）
+
+- Poincaré代入: 8点
+- $a(u,u)$ の評価: 6点
+- 定数整理: 6点
+<!-- solution-end -->
 
 ---
 
 ## 章末チェック
 
-- $H_0^1$ を閉包として定義できる。
-- Sobolev空間でtraceが必要な理由を説明できる。
-- Poincare不等式を説明し、一次元で導出できる。
-- $H_0^1$ で勾配ノルムが同値ノルムになることを示せる。
-- Poincareがcoercivityを与える理由を説明できる。
-- Sobolev embeddingとRellich compactnessをPoincareと区別できる。
+- $H_0^1$ を $C_c^\infty$ の $H^1$ 閉包として定義できる。
+- $H_0^1$ の具体例で定義条件を確認できる。
+- traceが必要になる理由と、Poincaré証明にはtrace定理が不要な理由を区別できる。
+- 任意の有界開集合について $H_0^1$ 版Poincaré不等式を断面積分で証明できる。
+- 勾配ノルムと $H^1$ ノルムの同値性を示せる。
+- Poisson弱形式のcoercivityをPoincaréから導ける。
