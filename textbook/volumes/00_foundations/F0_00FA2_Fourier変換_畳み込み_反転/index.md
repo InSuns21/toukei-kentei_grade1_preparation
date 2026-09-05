@@ -25,13 +25,13 @@ Fourier反転
 <!-- formal-statement-start -->
 > **定義（Fourier変換）**  
 > $f\in L^1(\mathbb R)$ に対し
->
-> $$
-> \widehat f(\xi)
-> :=\int_{\mathbb R}f(x)e^{-i\xi x}\,dx,
-> \qquad \xi\in\mathbb R
-> $$
->
+
+$$
+\widehat f(\xi)
+:=\int_{\mathbb R}f(x)e^{-i\xi x}\,dx,
+\qquad \xi\in\mathbb R
+$$
+
 > を $f$ の Fourier 変換と定義します。
 <!-- formal-statement-end -->
 
@@ -100,11 +100,11 @@ Riemann--Lebesgue の補題を短く証明するため、まず一つ床板を�
 <!-- formal-statement-start -->
 > **補題（$L^1$ の平行移動連続性）**  
 > $f\in L^1(\mathbb R)$ に対して $(\tau_hf)(x)=f(x-h)$ と置くと
->
-> $$
-> \boxed{\|\tau_hf-f\|_1\to0\qquad(h\to0)}
-> $$
->
+
+$$
+\boxed{\|\tau_hf-f\|_1\to0\qquad(h\to0)}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -147,11 +147,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（Riemann--Lebesgue）**  
 > $f\in L^1(\mathbb R)$ なら
->
-> $$
-> \boxed{\widehat f(\xi)\to0\qquad(|\xi|\to\infty)}
-> $$
->
+
+$$
+\boxed{\widehat f(\xi)\to0\qquad(|\xi|\to\infty)}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -186,7 +186,7 @@ $$
 \le\|f-\tau_{-h}f\|_1.
 $$
 
-$|\xi|\to\infty$ なら $h\to0$ なので、前節の平行移動連続性から右辺は0へ収束します。
+$|\xi|\to\infty$ なら $h\to0$ なので、[$L^1$ の平行移動連続性](#lem-f0-00fa2-l1-translation)から右辺は0へ収束します。
 <!-- proof-end -->
 
 ---
@@ -198,12 +198,12 @@ $|\xi|\to\infty$ なら $h\to0$ なので、前節の平行移動連続性から
 <!-- formal-statement-start -->
 > **定義（畳み込み）**  
 > $f,g\in L^1(\mathbb R)$ に対し
->
-> $$
-> (f*g)(x)
-> :=\int_{\mathbb R}f(x-y)g(y)dy
-> $$
->
+
+$$
+(f*g)(x)
+:=\int_{\mathbb R}f(x-y)g(y)dy
+$$
+
 > と定義します。これは a.e. $x$ で有限で、$f*g\in L^1(\mathbb R)$ です。
 <!-- formal-statement-end -->
 
@@ -250,11 +250,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（畳み込み定理）**  
 > $f,g\in L^1(\mathbb R)$ なら
->
-> $$
-> \boxed{\widehat{f*g}(\xi)=\widehat f(\xi)\widehat g(\xi)}
-> $$
->
+
+$$
+\boxed{\widehat{f*g}(\xi)=\widehat f(\xi)\widehat g(\xi)}
+$$
+
 > が任意の $\xi\in\mathbb R$ で成り立ちます。
 <!-- formal-statement-end -->
 
@@ -293,16 +293,16 @@ $$
 <!-- formal-statement-start -->
 > **命題（Fourier変換と微分）**  
 > $f\in C_c^1(\mathbb R)$ なら
->
-> $$
-> \boxed{\widehat{f'}(\xi)=i\xi\widehat f(\xi)}
-> $$
->
+
+$$
+\boxed{\widehat{f'}(\xi)=i\xi\widehat f(\xi)}
+$$
+
 > が成り立ちます。さらに $f\in C_c^2(\mathbb R)$ なら
->
-> $$
-> \boxed{\widehat{f''}(\xi)=-\xi^2\widehat f(\xi)}.
-> $$
+
+$$
+\boxed{\widehat{f''}(\xi)=-\xi^2\widehat f(\xi)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -334,13 +334,13 @@ $$
 <!-- formal-statement-start -->
 > **補題（Gaussian の Fourier 変換）**  
 > $a>0$ に対し $g_a(x)=e^{-ax^2}$ とすると
->
-> $$
-> \boxed{
-> \widehat g_a(\xi)
-> =\sqrt{\frac\pi a}\exp\left(-\frac{\xi^2}{4a}\right)
-> }.
-> $$
+
+$$
+\boxed{
+\widehat g_a(\xi)
+=\sqrt{\frac\pi a}\exp\left(-\frac{\xi^2}{4a}\right)
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -394,7 +394,7 @@ k_\varepsilon\ge0,
 \int_{\mathbb R}k_\varepsilon(x)dx=1,
 $$
 
-かつ前節から
+かつ [GaussianのFourier変換](#lem-f0-00fa2-gaussian-transform)から
 
 $$
 \widehat{k_\varepsilon}(\xi)=e^{-\varepsilon\xi^2}.
@@ -414,11 +414,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（Gaussian による点ごとの近似）**  
 > $f\in L^1(\mathbb R)$ が点 $x$ で連続なら
->
-> $$
-> \boxed{(f*k_\varepsilon)(x)\to f(x)
-> \qquad(\varepsilon\downarrow0)}.
-> $$
+
+$$
+\boxed{(f*k_\varepsilon)(x)\to f(x)
+\qquad(\varepsilon\downarrow0)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -463,13 +463,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fourier反転：$f,\widehat f\in L^1$ の連続版）**  
 > $f\in L^1(\mathbb R)$ が連続で、さらに $\widehat f\in L^1(\mathbb R)$ とします。このとき任意の $x\in\mathbb R$ について
->
-> $$
-> \boxed{
-> f(x)
-> =\frac1{2\pi}\int_{\mathbb R}\widehat f(\xi)e^{i\xi x}d\xi
-> }.
-> $$
+
+$$
+\boxed{
+f(x)
+=\frac1{2\pi}\int_{\mathbb R}\widehat f(\xi)e^{i\xi x}d\xi
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -514,7 +514,7 @@ I_\varepsilon(x)
 =(f*k_\varepsilon)(x).
 $$
 
-$f$ は $x$ で連続なので前節の補題から
+$f$ は $x$ で連続なので [Gaussianによる点ごとの近似](#lem-f0-00fa2-gaussian-approximation) から
 
 $$
 I_\varepsilon(x)\to f(x).
@@ -633,7 +633,7 @@ $f=g=1_{[-1/2,1/2]}$ とする。$f*f=(1-|x|)_+$ と $\widehat f(\xi)=2\sin(\xi/
 <!-- solution-start -->
 ### 詳細解答
 
-畳み込み定理から
+[畳み込み定理](#thm-f0-00fa2-convolution)から
 
 $$
 \widehat{f*f}(\xi)
@@ -715,7 +715,7 @@ $$
 
 ### 本番答案
 
-$L^1$：変換とFubini、連続性：空間側の近似恒等作用素、$\hat f\in L^1$：周波数側の dominated convergence。
+$L^1$：変換とFubini、連続性：空間側の近似恒等作用素、$\widehat f\in L^1$：周波数側の dominated convergence。
 
 ### 採点基準（20点）
 
