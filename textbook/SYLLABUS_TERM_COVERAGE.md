@@ -71,7 +71,7 @@
 |math-continuous-distributions|ワイブル分布|exact|P3-02 / この章で解けるようになる問題|—|P3-02 / 例5：|P3-02 / P3C-B03|
 |math-continuous-distributions|ロジスティック分布|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / P3C-B04 対数正規分布と|
 |math-continuous-distributions|多変量正規分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|P3-03 / P3M-A03 周辺と線形結合|
-|math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|I3-03 / 数値例：母分散未知なら何が変わるか|I2-02 / I2-02-C01 正規母平均と母分散を同時に処理する|
+|math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|I3-03 / 数値例：母分散未知なら何が変わるか|S1-01 / S1-C03|
 |math-sampling-distributions|カイ二乗分布|exact|F0-00 / 15. 統計でどこに使うか|—|S1-01 / 例1 標本分散の確率|P3-03 / P3M-B04 マハラノビス二次形式|
 |math-sampling-distributions|F分布|exact|F0-00 / 1. この章で扱う数学|—|—|S1-01 / S1-A04|
 |math-population-sample-statistic|十分統計量|exact|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|—|I4-02 / I4-02-C01 正規分布の欠測値に必要な条件付きモーメント|
@@ -97,27 +97,27 @@
 |math-asymptotic-estimation|フィッシャー情報量（1次元）|alias|I1-02 / 7. フィッシャー情報量#def-i1-02-fisher-information|I1-02 / 7. フィッシャー情報量#def-i1-02-fisher-information|—|I1-02 / I1-02-A03 ベルヌーイの|
 |math-asymptotic-estimation|最尤推定量の漸近正規性|exact|I1-02 / I1-02 推定法と推定量の評価|—|I2-01 / 10. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない#prop-i2-01-uniform-n-rate|I2-01 / I2-01-A02 ベルヌーイ|
 |math-asymptotic-estimation|デルタ法|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 8.1 例: 平均0で $\bar X^2$|I2-01 / I2-01-A03 指数分布の率母数に|
-|math-interval-estimation|信頼係数|exact|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-confidence-coefficient|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-confidence-coefficient|—|—|
-|math-interval-estimation|信頼区間の構成|exact|I2-02 / 公式出題範囲との対応|—|—|—|
-|math-interval-estimation|被覆確率|exact|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|—|I2-02 / I2-02-A01 95%信頼区間の意味|
-|math-testing-foundations|仮説|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A04 尤度比の向きを読む|
-|math-testing-foundations|検定統計量|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1.1 正規母平均の片側検定を例にする|—|
-|math-testing-foundations|P値|exact|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-03 / 数値例：第1群の分散の方が大きいか|I3-01 / I3-01-A03|
-|math-testing-foundations|有意水準|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
-|math-testing-foundations|棄却域|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A02 正規片側検定の検出力|
-|math-testing-foundations|第一種の過誤|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
-|math-testing-foundations|第二種の過誤|exact|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-type2-error|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-type2-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
-|math-testing-foundations|検出力（検定力）|alias|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A02 正規片側検定の|
-|math-testing-foundations|検出力曲線|exact|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I301-A05|
-|math-test-derivation|ネイマン・ピアソンの基本定理|exact|I3-01 / 公式出題範囲との対応|—|—|—|
-|math-test-derivation|尤度比検定|exact|I3-02 / 2. 尤度比検定: 山の高さを比べる#def-i3-02-likelihood-ratio|I3-02 / 2. 尤度比検定: 山の高さを比べる#def-i3-02-likelihood-ratio|I3-02 / 10. 例: 正規母平均を未知分散の下で|I3-02 / I3-02-A01 高さ・距離・傾き|
-|math-test-derivation|ワルド型検定|exact|I3-02 / 4. ワルド型検定: 推定値と帰無値の距離を見る#def-i3-02-wald|I3-02 / 4. ワルド型検定: 推定値と帰無値の距離を見る#def-i3-02-wald|—|I3-02 / I3-02-A01 高さ・距離・傾き|
-|math-test-derivation|スコア型検定|exact|I3-02 / 5. スコア型検定: 帰無仮説点での傾きを見る#def-i3-02-score|I3-02 / 5. スコア型検定: 帰無仮説点での傾きを見る#def-i3-02-score|—|I3-02 / I3-02-A01 高さ・距離・傾き|
+|math-interval-estimation|信頼係数|exact|I2-02 / 1. 95%は「観測後の母数の確率」ではない#def-i2-02-confidence-coefficient|I2-02 / 1. 95%は「観測後の母数の確率」ではない#def-i2-02-confidence-coefficient|—|—|
+|math-interval-estimation|信頼区間の構成|exact|I2-02 / chapter.yaml|—|—|—|
+|math-interval-estimation|被覆確率|exact|I2-02 / 1. 95%は「観測後の母数の確率」ではない#def-i2-02-coverage-probability|I2-02 / 1. 95%は「観測後の母数の確率」ではない#def-i2-02-coverage-probability|—|—|
+|math-testing-foundations|仮説|exact|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-hypothesis-classification|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-hypothesis-classification|I3-01 / 2.1 「5%」を工程例で読む|I3-02 / I3-02-A01 3つの直観|
+|math-testing-foundations|検定統計量|exact|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-test-statistic|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-test-statistic|—|—|
+|math-testing-foundations|P値|exact|I3-01 / 4. P値は「この観測値なら何%水準から棄却されるか」#def-i3-01-pvalue|I3-01 / 4. P値は「この観測値なら何%水準から棄却されるか」#def-i3-01-pvalue|I3-03 / 数値例：第1群の分散の方が大きいか|I3-01 / I3-01-A03|
+|math-testing-foundations|有意水準|exact|I3-01 / 2. 第一種の過誤と有意水準#def-i3-01-significance-level|I3-01 / 2. 第一種の過誤と有意水準#def-i3-01-significance-level|I3-03 / 数値例：第1群の分散の方が大きいか|L1-03 / L1-03-A04 Bonferroni法の|
+|math-testing-foundations|棄却域|exact|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-rejection-region|I3-01 / 1. 検定は「データから判断する規則」#def-i3-01-rejection-region|—|I3-01 / I3-01-A02 工程平均の検出力|
+|math-testing-foundations|第一種の過誤|exact|I3-01 / 2. 第一種の過誤と有意水準#def-i3-01-type1-error|I3-01 / 2. 第一種の過誤と有意水準#def-i3-01-type1-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
+|math-testing-foundations|第二種の過誤|exact|I3-01 / 3. 第二種の過誤と検出力#def-i3-01-type2-error|I3-01 / 3. 第二種の過誤と検出力#def-i3-01-type2-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
+|math-testing-foundations|検出力（検定力）|alias|I3-01 / 3. 第二種の過誤と検出力#def-i3-01-power-function|I3-01 / 3. 第二種の過誤と検出力#def-i3-01-power-function|—|I3-01 / I3-01-A02 工程平均の|
+|math-testing-foundations|検出力曲線|exact|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|—|I3-01 / I3-01-A04|
+|math-test-derivation|ネイマン・ピアソンの基本定理|exact|I3-01 / chapter.yaml|—|—|—|
+|math-test-derivation|尤度比検定|exact|I3-02 / 2. 尤度比検定：山の高さを比べる#def-i3-02-likelihood-ratio|I3-02 / 2. 尤度比検定：山の高さを比べる#def-i3-02-likelihood-ratio|—|L2-01 / L2-01-C04 入れ子モデルの逸脱度差|
+|math-test-derivation|ワルド型検定|exact|I3-02 / 4. ワルド型検定：推定値は帰無値から標準誤差何個分離れたか#def-i3-02-wald|I3-02 / 4. ワルド型検定：推定値は帰無値から標準誤差何個分離れたか#def-i3-02-wald|—|I3-02 / I3-02-C02 多母数の線形制約|
+|math-test-derivation|スコア型検定|exact|I3-02 / 5. スコア型検定：帰無仮説点に立ったまま傾きを見る#def-i3-02-score|I3-02 / 5. スコア型検定：帰無仮説点に立ったまま傾きを見る#def-i3-02-score|—|—|
 |math-normal-tests|平均値と分散に関する検定|exact|I3-03 / chapter.yaml|—|—|—|
 |math-normal-tests|複数の平均に関する検定|exact|I3-03 / 3A.2|—|—|—|
 |math-various-tests|二項分布・ポアソン分布など基本的な分布に関する検定|exact|I3-03 / 3A.1|—|—|I3-03 / I303-B05|
 |math-various-tests|適合度の検定|exact|I3-03 / chapter.yaml|—|—|—|
-|math-various-tests|ノンパラメトリック検定|exact|I3-01 / 11. 本章と次章以降の境界|—|—|—|
+|math-various-tests|ノンパラメトリック検定|exact|I3-03 / I3-03 正規母集団・適合度・|—|—|—|
 |math-anova|一元配置分散分析|exact|L1-03 / 1. 一元配置：複数の平均を一度に比べる#def-l1-03-one-way-anova|L1-03 / 1. 一元配置：複数の平均を一度に比べる#def-l1-03-one-way-anova|—|L1-03 / L1-03-A01 一元配置の自由度|
 |math-anova|二元配置分散分析|exact|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|—|L1-03 / L1-03-A03 交互作用を差の差で読む|
 |math-anova|交互作用|exact|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|—|L1-03 / L1-03-A03|
@@ -182,7 +182,7 @@
 |applied-multivariate|一般化線形モデル|exact|L2-01 / L2-01|—|—|L2-01 / L2-01-A01 三要素を分類する|
 |applied-multivariate|非線形回帰モデル|exact|E1-04 / E1-04 プロビット・非線形回帰・SVM|—|—|—|
 |applied-multivariate|サポートベクターマシン|exact|E1-04 / E1-04 プロビット・非線形回帰・SVM|—|—|—|
-|applied-stochastic-processes|マルコフ連鎖|exact|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|—|E2-01 / E2-01-A01 文章から遷移行列を作る|
+|applied-stochastic-processes|マルコフ連鎖|exact|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|—|I3-02 / I3-02-C04 2状態|
 |applied-stochastic-processes|ランダムウォーク|exact|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|—|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|E2-02 / E2-02-A01|
 |applied-stochastic-processes|ポアソン過程|exact|P3-01 / P3-C05 分布選択総合|—|—|P3-01 / P3-C05 分布選択総合|
 |applied-stochastic-processes|ブラウン運動|exact|E2-04 / E2-04|—|—|E2-04 / E2-04-A01 基本モーメント|
@@ -196,7 +196,7 @@
 |engineering-stochastic-processes|ランダムウォーク|exact|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|—|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|E2-02 / E2-02-A01|
 |engineering-stochastic-processes|マルコフ過程|exact|E2-01 / E2-01 マルコフ連鎖・|—|—|E4-02 / E4-02-D01 2状態連続時間|
 |engineering-stochastic-processes|ポアソン過程|exact|P3-01 / P3-C05 分布選択総合|—|—|P3-01 / P3-C05 分布選択総合|
-|engineering-stochastic-processes|マルコフ連鎖|exact|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|—|E2-01 / E2-01-A01 文章から遷移行列を作る|
+|engineering-stochastic-processes|マルコフ連鎖|exact|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|E2-01 / 2.1 マルコフ性#def-e2-01-markov-chain|—|I3-02 / I3-02-C04 2状態|
 |engineering-stochastic-processes|時系列解析|exact|E2-03 / 公式出題範囲との対応|—|—|—|
 |engineering-stochastic-processes|自己回帰過程|exact|E2-03 / E2-03 AR・MA・ARIMA時系列|—|—|—|
 |engineering-stochastic-processes|移動平均過程|exact|E2-03 / E2-03 AR・MA・ARIMA時系列|—|—|—|
@@ -205,7 +205,7 @@
 |engineering-linear-inference|一般化線形モデル|exact|L2-01 / L2-01|—|—|L2-01 / L2-01-A01 三要素を分類する|
 |engineering-linear-inference|線形結合の分布|exact|P3-03 / 9. 復習チェック|—|—|L1-02 / L1-02-B02|
 |engineering-linear-inference|線形対比|exact|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|—|L1-02 / L1-02-A04|
-|engineering-linear-inference|線形制約|exact|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|—|L1-02 / L1-02-B03 文章から|
+|engineering-linear-inference|線形制約|exact|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|—|I3-02 / I3-02-C02 多母数の|
 |engineering-asymptotics|大数の法則|exact|P4-02 / P4-02 確率変数の収束・|—|—|P4-02 / P4T-B02|
 |engineering-asymptotics|中心極限定理|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 2.2 例: 標本平均|P4-02 / P4T-B03 ポアソン標本平均の近似確率|
 |engineering-asymptotics|最尤推定量の漸近正規性|exact|I1-02 / I1-02 推定法と推定量の評価|—|I2-01 / 10. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない#prop-i2-01-uniform-n-rate|I2-01 / I2-01-A02 ベルヌーイ|
