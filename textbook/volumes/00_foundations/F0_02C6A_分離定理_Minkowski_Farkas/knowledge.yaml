@@ -1,0 +1,27 @@
+chapter: F0-02C6A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C6
+  - F0-00G1
+  - F0-02B
+
+concepts:
+  - id: functional.minkowski-functional
+    name: Minkowski汎関数
+    kind: definition
+    introduction: inline
+    aliases: [Minkowski汎関数]
+    requires:
+      - convex.convex-set
+      - functional.normed-space
+
+  - id: functional.hahn-banach-separation
+    name: Hahn--Banachによる分離定理
+    kind: theorem
+    introduction: inline
+    aliases: [Hahn--Banachによる分離]
+    requires:
+      - functional.hahn-banach-theorem
+      - functional.minkowski-functional
+      - convex.separating-hyperplane

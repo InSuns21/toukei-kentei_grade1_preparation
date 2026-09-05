@@ -1,0 +1,30 @@
+chapter: F0-02C5A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C5
+
+concepts:
+  - id: optimization.licq
+    name: LICQ
+    kind: definition
+    introduction: inline
+    aliases: [LICQ]
+    requires:
+      - optimization.constraint-qualification
+
+  - id: optimization.mfcq
+    name: MFCQ
+    kind: definition
+    introduction: inline
+    aliases: [MFCQ]
+    requires:
+      - optimization.constraint-qualification
+
+  - id: optimization.robinson-cq
+    name: Robinsonの制約想定
+    kind: definition
+    introduction: inline
+    aliases: [Robinson]
+    requires:
+      - optimization.constraint-qualification

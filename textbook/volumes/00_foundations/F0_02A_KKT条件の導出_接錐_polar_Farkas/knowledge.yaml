@@ -1,0 +1,34 @@
+chapter: F0-02A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02
+  - F0-02B
+
+concepts:
+  - id: optimization.tangent-cone
+    name: 接錐
+    kind: definition
+    introduction: inline
+    aliases: [接錐]
+    requires:
+      - convex.convex-set
+
+  - id: optimization.polar-cone
+    name: polar cone
+    kind: definition
+    introduction: inline
+    aliases: [polar cone]
+    requires:
+      - optimization.tangent-cone
+      - linear.inner-product
+
+  - id: optimization.kkt-multiplier-existence
+    name: KKT乗数表示
+    kind: theorem
+    introduction: inline
+    aliases: [KKT乗数]
+    requires:
+      - optimization.kkt-conditions
+      - convex.farkas-lemma
+      - optimization.polar-cone

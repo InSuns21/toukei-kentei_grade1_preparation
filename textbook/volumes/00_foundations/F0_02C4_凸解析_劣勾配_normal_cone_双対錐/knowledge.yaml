@@ -1,0 +1,41 @@
+chapter: F0-02C4
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00G2
+  - F0-02B
+
+concepts:
+  - id: convex.subgradient
+    name: 劣勾配
+    kind: definition
+    introduction: inline
+    aliases: [劣勾配]
+    requires:
+      - convex.convex-function
+
+  - id: convex.subdifferential
+    name: 劣微分
+    kind: definition
+    introduction: inline
+    aliases: [劣微分]
+    requires:
+      - convex.subgradient
+
+  - id: convex.normal-cone
+    name: normal cone
+    kind: definition
+    introduction: inline
+    aliases: [normal cone]
+    requires:
+      - convex.convex-set
+      - linear.inner-product
+
+  - id: convex.dual-cone
+    name: 双対錐
+    kind: definition
+    introduction: inline
+    aliases: [双対錐]
+    requires:
+      - convex.convex-cone
+      - linear.inner-product
