@@ -1,6 +1,6 @@
-# F0-02C4A 関数解析IV-A：tangent cone・polar cone・dual cone
+# F0-02C4A 凸解析：tangent cone・polar cone・dual cone
 
-実行可能な一次方向と、それを支える双対側の法線・錐を整理します。
+実行可能な一次方向と、それを支える双対側の法線・錐を整理します。C4 の normal cone を、接方向と双対錐の言葉で読み直す章です。
 
 ## 1. tangent cone
 
@@ -11,11 +11,9 @@
 <!-- formal-statement-start -->
 > **定義（Bouligand tangent cone）**  
 > 集合 $C$ と $x\in C$ に対し
-
-$$
-T_C(x)=\left\{h:\exists t_n\downarrow0,\ \exists x_n\in C,\ \frac{x_n-x}{t_n}\to h\right\}
-$$
-
+> $$
+> T_C(x)=\left\{h:\exists t_n\downarrow0,\ \exists x_n\in C,\ \frac{x_n-x}{t_n}\to h\right\}
+> $$
 > を $C$ の $x$ における **Bouligand tangent cone** といいます。
 <!-- formal-statement-end -->
 
@@ -26,7 +24,7 @@ y-x
 \qquad(y\in C)
 $$
 
-の非負倍を集めて閉じた錐と一致します。
+の非負倍を集めて閉じた錐と一致します。この等式自体は次の C4B で証明します。
 
 ---
 
@@ -37,25 +35,21 @@ $$
 <!-- formal-statement-start -->
 > **定義（polar cone）**  
 > 錐 $K\subset X$ に対して
-
-$$
-K^\circ=\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}
-$$
-
+> $$
+> K^\circ=\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}
+> $$
 > を $K$ の **polar cone** といいます。
 <!-- formal-statement-end -->
 
-normal coneの定義と比べると、凸集合について
+normal cone の定義と比べると、凸集合について
 
 $$
-\boxed{
-N_C(x)=T_C(x)^\circ
-}
+\boxed{N_C(x)=T_C(x)^\circ}
 $$
 
-という関係が得られます。
+という関係が期待されます。
 
-つまりnormal coneは「実行可能な接方向すべてに非正に作用する汎関数」の集合です。
+つまり normal cone は「実行可能な接方向すべてに非正に作用する汎関数」の集合です。C4B ではこの等式を定義から証明します。
 
 ---
 
@@ -66,11 +60,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（dual cone）**  
 > 錐 $K\subset Y$ に対して
-
-$$
-K^*=\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}
-$$
-
+> $$
+> K^*=\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}
+> $$
 > を $K$ の **dual cone** といいます。
 <!-- formal-statement-end -->
 
@@ -131,7 +123,7 @@ $$
 
 ---
 
-## 5. KKTへの橋
+## 5. KKTへの伏線
 
 ここまでで
 
@@ -155,21 +147,13 @@ $$
 
 を用意しました。
 
-次の [F0-02C5 一般化KKT・制約写像・制約想定](../F0_02C5_一般化KKT_制約写像_制約想定/index.md) では、制約を
+ただし標準通読では、ここからすぐ KKT へ飛びません。まず C4B で
 
 $$
-G(x)\in-K
+N_C(x)=T_C(x)^\circ
 $$
 
-という一つの写像で書き、
-
-$$
-Df(x^*)+DG(x^*)^*\lambda=0
-$$
-
-を導入します。
-
-そこで初めて「なぜ制約想定が必要なのか」を、一次近似が壊れる反例から確認します。
+を完全に証明し、その後 G2 で Fenchel 共役・双対を入れてから、有限次元KKTへ進みます。
 
 ---
 
@@ -215,4 +199,4 @@ $C=\{x:a^Tx\le b\}$ の境界点 $x$ で $T_C(x)=\{d:a^Td\le0\}$ とそのpolar�
 
 ## 次に進む
 
-**次：[F0-02C5 一般化KKT・錐制約・双対乗数](../F0_02C5_一般化KKT_制約写像_制約想定/index.md)**
+**次：[F0-02C4B tangent cone と normal cone の polar 双対](../F0_02C4B_tangent_normal_polar_proof/index.md)**
