@@ -138,13 +138,21 @@ $$
 
 ### 2.2 残差の直交性
 
-最小二乗推定量での残差を
-$$
-e_i=y_i-\hat y_i,
-\qquad
-\hat y_i=\hat\beta_0+\hat\beta_1x_i
-$$
-とします。正規方程式から
+<a id="def-l1-01-residual"></a>
+
+<!-- formal-statement-start -->
+> **定義（残差）**  
+> 観測値 $y_i$ と、その観測点での当てはめ値 $\hat y_i=\hat\beta_0+\hat\beta_1x_i$ の差
+> $e_i=y_i-\hat y_i$
+> を **残差** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-01-residual -->
+**定義の確認**  
+ある観測で $y_i=12$、当てはめ値が $\hat y_i=10.5$ なら残差は $e_i=12-10.5=1.5$ です。残差が正なら観測値が回帰直線より上、負なら下にあります。
+<!-- definition-example-end -->
+
+正規方程式から
 $$
 \sum_{i=1}^n e_i=0,
 \qquad
@@ -186,11 +194,23 @@ SSE=\sum(y_i-\hat y_i)^2
 $$
 です。
 
-決定係数を
-$$
-R^2=\frac{SSR}{SST}=1-\frac{SSE}{SST}
-$$
-と定めます。切片を含む通常の最小二乗回帰では $0\le R^2\le1$ です。これは観測された応答の変動のうち、当てはめた直線で説明された割合を表します。ただし、高い $R^2$ だけで因果関係や将来データでの高い予測精度が保証されるわけではありません。
+<a id="def-l1-01-coefficient-of-determination"></a>
+
+<!-- formal-statement-start -->
+> **定義（決定係数）**  
+> $SST>0$ のとき、全平方和に対して当てはめで説明された平方和が占める割合
+> $R^2=\dfrac{SSR}{SST}$
+> を **決定係数** という。切片を含む最小二乗回帰では $SST=SSR+SSE$ なので
+> $R^2=1-\dfrac{SSE}{SST}$
+> とも書ける。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-01-coefficient-of-determination -->
+**定義の確認**  
+例えば $SST=40$、$SSE=10$ なら $R^2=1-10/40=0.75$ です。標本内の全変動の75%が当てはめた回帰で説明されたことを表します。
+<!-- definition-example-end -->
+
+切片を含む通常の最小二乗回帰では $0\le R^2\le1$ です。これは観測された応答の変動のうち、当てはめた直線で説明された割合を表します。ただし、高い $R^2$ だけで因果関係や将来データでの高い予測精度が保証されるわけではありません。
 
 単回帰では
 $$
