@@ -1,0 +1,32 @@
+chapter: F0-00D2A
+scope: dream-theater
+prerequisites:
+  - F0-00D2
+
+concepts:
+  - id: measure.measurable-function
+    name: 可測関数
+    kind: term
+    aliases: [可測関数, measurable function]
+    requires: []
+
+  - id: measure.lebesgue-integral
+    name: Lebesgue積分
+    kind: definition
+    aliases: [Lebesgue積分, ルベーグ積分, Lebesgue integral]
+    requires:
+      - measure.measurable-function
+
+  - id: measure.integrable-function
+    name: 可積分関数
+    kind: definition
+    aliases: [可積分関数, integrable function]
+    requires:
+      - measure.lebesgue-integral
+
+  - id: measure.ae-convergence
+    name: a.e.収束
+    kind: term
+    aliases: [a.e.収束, ほとんど至る所の収束, almost everywhere convergence]
+    requires:
+      - measure.measurable-function
