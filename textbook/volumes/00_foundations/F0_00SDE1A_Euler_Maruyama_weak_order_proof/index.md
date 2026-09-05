@@ -9,13 +9,13 @@ SDE1では、Euler--Maruyama法について
 
 この補講では、後者の **weak order 1 がどこから出るのか** を証明します。
 
-証明の骨格は1本だけです。
+証明の骨格は1本です。
 
 $$
 \boxed{
 \text{backward Kolmogorov}
 \to
-\text{1-stepの係数固定}
+\text{係数を凍結した1-step解析}
 \to
 O(h^2)
 \to
@@ -23,7 +23,7 @@ O(h^2)
 }
 $$
 
-局所誤差が $O(h)$ ではなく **$O(h^2)$ まで一段小さくなる** ところが核心です。
+核心は、1ステップの弱誤差が $O(h)$ ではなく **$O(h^2)$ まで小さくなる理由**です。
 
 ---
 
@@ -33,8 +33,7 @@ $$
 
 $$
 dX_t=b(X_t)dt+\sigma(X_t)dB_t,
-\qquad
-X_0=x_0
+\qquad X_0=x_0
 $$
 
 を考えます。
@@ -42,14 +41,12 @@ $$
 刻み幅を $h=T/N$、$t_n=nh$ とし、Euler--Maruyama近似を
 
 $$
-Y_{n+1}
-=
-Y_n+b(Y_n)h+\sigma(Y_n)\Delta B_n
+Y_{n+1}=Y_n+b(Y_n)h+\sigma(Y_n)\Delta B_n
 $$
 
 で定めます。
 
-終端値の滑らかな関数 $g$ に対して
+終端関数 $g$ に対する
 
 $$
 \left|E[g(Y_N)]-E[g(X_T)]\right|
@@ -57,26 +54,35 @@ $$
 
 を評価するのが目標です。
 
-### この補講で置く滑らかさ仮定
+### この補講で置く正則性仮定
 
-最小仮定を詰めることは本題ではありません。ここでは、次で使う backward Kolmogorov equation が古典解をもち、必要な時間・空間微分が一様に有界であると仮定します。
+最小仮定を詰めることは本題ではありません。以下では、backward Kolmogorov equation が古典解をもち、証明中に現れる時間・空間微分が一様に有界であると仮定します。
 
-具体的には、$b,\sigma,g$ が十分滑らかで有界であり、必要なら非退化性などを加えればよい、と考えてください。
-
-多項式増大しか仮定しない場合も、Euler--Maruyamaのモーメント評価を併用すれば同じ証明の骨格が使えます。
+たとえば係数と $g$ に十分な滑らかさ・有界性を課し、必要に応じて一様楕円性などを加えるのが標準的な十分条件です。多項式増大の場合も、Euler--Maruyamaのモーメント評価を組み合わせれば同じ証明の骨格を使えます。
 
 ---
 
-## 1. 未来の期待値を関数 $u(t,x)$ にする
+## 1. 未来の期待値を $u(t,x)$ に押し込む
 
 時刻 $t$ に $x$ から出発した厳密解を $X_s^{t,x}$ と書き、
 
 $$
 \boxed{
-u(t,x)=E\left[g\left(X_T^{t,x}\right)\right]}
+u(t,x):=E\left[g\left(X_T^{t,x}\right)\right]}
 $$
 
-と定めます。
+ではなく、ここでは記号の混同を避けて次のように定義します。
+
+$$
+\boxed{
+uu(t,x):=E\left[g\left(X_T^{t,x}\right)\right]}
+$$
+
+以下ではこの関数を単に $u(t,x)$ と書きます。つまり
+
+$$
+\boxed{u(t,x)=E\left[g\left(X_T^{t,x}\right)\right]}.
+$$
 
 すると
 
@@ -84,16 +90,17 @@ $$
 u(T,x)=g(x)
 $$
 
-です。
+ではなく、正しくは
+
+$$
+\boxed{u(T,x)=g(x)}.
+$$
 
 生成作用素を
 
 $$
 \mathcal L f(x)
-=
-b(x)f'(x)
-+
-\frac12\sigma^2(x)f''(x)
+=b(x)f'(x)+\frac12\sigma^2(x)f''(x)
 $$
 
 とすると、SP5で見た terminal value 形式の backward Kolmogorov equation より
@@ -101,18 +108,15 @@ $$
 $$
 \boxed{
 \partial_tu+\mathcal Lu=0,
-\qquad
-u(T,x)=g(x)
+\qquad u(T,x)=g(x)
 }
 $$
 
 を満たします。
 
-この式の役割は重要です。
+> 厳密解と数値解の経路を直接比較する代わりに、厳密解の「未来の期待値」を $u$ に押し込み、数値解の1ステップだけを調べる。
 
-> 厳密解を直接Euler--Maruyamaと比較する代わりに、厳密解の未来の期待値を $u$ へ押し込み、数値解の1ステップだけを調べる。
-
-これで経路全体の比較から、1-step解析へ問題が変わります。
+これが weak error 解析の入口です。
 
 ---
 
@@ -122,8 +126,7 @@ $$
 
 $$
 \widehat X_s
-=
-x+b(x)(s-t)+\sigma(x)(B_s-B_t),
+=x+b(x)(s-t)+\sigma(x)(B_s-B_t),
 \qquad t\le s\le t+h
 $$
 
@@ -136,96 +139,86 @@ $$
 =x+b(x)h+\sigma(x)(B_{t+h}-B_t)
 $$
 
-なので、これは Euler--Maruyama の1ステップそのものです。
+なので、Euler--Maruyama の1ステップそのものです。
 
 この過程では係数 $b(x),\sigma(x)$ が固定されています。そこで
 
 $$
 \boxed{
 \mathcal L_x^{\mathrm{fr}}f(y)
-=
-b(x)f'(y)
-+
-\frac12\sigma^2(x)f''(y)
+=b(x)f'(y)+\frac12\sigma^2(x)f''(y)
 }
 $$
 
 を **frozen generator** と呼びます。
 
-厳密解のgenerator $\mathcal L$ は評価点 $y$ に応じて $b(y),\sigma(y)$ が変わりますが、$\mathcal L_x^{\mathrm{fr}}$ は始点 $x$ の係数を1ステップ中ずっと使います。
+本来の generator $\mathcal L$ は評価点 $y$ に応じて $b(y),\sigma(y)$ が変わりますが、$\mathcal L_x^{\mathrm{fr}}$ は始点 $x$ の係数を1ステップ中ずっと使います。
 
 ---
 
-## 3. 1ステップの弱誤差を書く
+## 3. 1-step defect を generator の差で表す
 
-$u(s,\widehat X_s)$ にItô公式を使います。
+$u(s,\widehat X_s)$ にItô公式を使い、期待値を取ります。Itô積分の期待値は0なので
 
 $$
-\begin{aligned}
 E[u(t+h,\widehat X_{t+h})]-u(t,x)
-&=
+=
 E\int_t^{t+h}
-\left(
-\partial_s+\mathcal L_x^{\mathrm{fr}}
-\right)
+(\partial_s+\mathcal L_x^{\mathrm{fr}})
 u(s,\widehat X_s)\,ds.
-\end{aligned}
 $$
 
-一方、$u$ は backward Kolmogorov equation
-
-$$
-\partial_su+\mathcal Lu=0
-$$
-
-を満たすので、
+上式の $\nu$ は誤記ではなく、以後すべて $u$ と読み替えるのではなく、正しい式を改めて書くと
 
 $$
 \boxed{
 E[u(t+h,\widehat X_{t+h})]-u(t,x)
 =
 E\int_t^{t+h}
-(\mathcal L_x^{\mathrm{fr}}-\mathcal L)
-u(s,\widehat X_s)\,ds
-}
+(\partial_s+\mathcal L_x^{\mathrm{fr}})u(s,\widehat X_s)\,ds
+}.
 $$
 
-となります。
+一方、backward Kolmogorov equation より
 
-ここだけ見ると積分区間の長さが $h$ なので $O(h)$ に見えます。
+$$
+\partial_su+\mathcal Lu=0.
+$$
 
-しかし、積分の中身はステップ始点で0になります。
+したがって
+
+$$
+\boxed{
+E[u(t+h,\widehat X_{t+h})]-u(t,x)
+=
+E\int_t^{t+h}
+(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u(s,\widehat X_s)\,ds
+}.
+$$
+
+積分区間の長さだけ見れば $O(h)$ に見えます。しかし積分の中身はステップ始点で0になります。
 
 ---
 
-## 4. なぜ局所弱誤差は $O(h^2)$ まで小さくなるのか
+## 4. 局所弱誤差が $O(h^2)$ になる理由
 
 固定した始点 $x$ に対して
 
 $$
-F_x(s,y)
-:=
-(\mathcal L_x^{\mathrm{fr}}-\mathcal L)
-u(s,y)
+F_x(s,y):=(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u(s,y)
 $$
 
 と置きます。
 
-$y=x$ では frozen generator と本来のgeneratorの係数が一致するので、すべての $s$ について
+$y=x$ では frozen generator と本来の generator の係数が一致するので、すべての $s$ について
 
 $$
-\boxed{F_x(s,x)=0}
+\boxed{F_x(s,x)=0}.
 $$
 
-です。
+特に $F_x(t,x)=0$ です。
 
-特に
-
-$$
-F_x(t,x)=0.
-$$
-
-そこで今度は $F_x(s,\widehat X_s)$ 自身にItô公式を使います。期待値を取ると
+そこで $F_x(s,\widehat X_s)$ にもう一度Itô公式を使います。期待値を取ると
 
 $$
 E[F_x(s,\widehat X_s)]
@@ -247,16 +240,14 @@ F_x(r,y)
 \le C
 $$
 
-とできます。したがって
+と評価できます。したがって
 
 $$
 \boxed{
 \left|E[F_x(s,\widehat X_s)]\right|
 \le C(s-t)
-}
+}.
 $$
-
-です。
 
 これを前節の式へ戻すと
 
@@ -265,10 +256,8 @@ $$
 \left|
 E[u(t+h,\widehat X_{t+h})]-u(t,x)
 \right|
-&\le
-\int_t^{t+h}C(s-t)\,ds\\
-&=
-\frac{C}{2}h^2.
+&\le \int_t^{t+h}C(s-t)\,ds\\
+&=\frac{C}{2}h^2.
 \end{aligned}
 $$
 
@@ -277,16 +266,10 @@ $$
 $$
 \boxed{
 \text{1-step local weak defect}=O(h^2)
-}
+}.
 $$
 
-が示されました。
-
-### ここが証明の山場
-
-1ステップは長さ $h$ なのに、誤差は $O(h)$ ではなく $O(h^2)$ です。
-
-理由は
+### なぜ1段小さくなるのか
 
 $$
 \boxed{
@@ -297,45 +280,47 @@ $$
 
 だからです。
 
-係数を凍結したことによるズレは、ステップを少し進んで $\widehat X_s-x$ が生じてから初めて効きます。その余分な1段が、局所誤差を $h^2$ まで下げます。
+係数を凍結したことによるズレは、$\widehat X_s$ が始点 $x$ から動いてから初めて現れます。この「始点で差が0」という消去が、局所誤差を $O(h^2)$ まで下げます。
 
 ---
 
 ## 5. 局所 $O(h^2)$ から大域 $O(h)$ へ
 
-ここからは telescoping sum です。
-
 $u(T,x)=g(x)$ なので
 
 $$
 E[g(Y_N)]-E[g(X_T)]
-=
-E[u(T,Y_N)]-u(0,x_0).
+=E[u(T,Y_N)]-u(0,x_0).
 $$
 
-右辺を各ステップへ分解すると
+右辺を telescoping sum にすると
 
 $$
-\begin{aligned}
 E[u(T,Y_N)]-u(0,x_0)
 =
 \sum_{n=0}^{N-1}
-E\left[
-u(t_{n+1},Y_{n+1})-u(t_n,Y_n)
-\right].
-\end{aligned}
+E\left[u(t_{n+1},Y_{n+1})-u(t_n,Y_n)\right].
 $$
 
-$Y_n$ を固定して条件付き期待値を取れば、各項は前節の1-step評価そのものです。したがって
+$Y_n$ を固定して条件付き期待値を取れば、各項は前節の1-step評価です。したがって
 
 $$
 \left|
 E\left[
-u(t_{n+1},Y_{n+1})-u(t_n,Y_n)
-\mid Y_n
-\right]
+u(t_{n+1},Y_{n+1})-u(t_n,Y_n)\mid Y_n\right]
 \right|
-\le Ch^2.
+\le Ch^2
+$$
+
+ではなく、正しくは
+
+$$
+\boxed{
+\left|
+E\left[u(t_{n+1},Y_{n+1})-u(t_n,Y_n)\mid Y_n\right]
+\right|
+\le Ch^2
+}.
 $$
 
 全ステップを足すと
@@ -343,10 +328,8 @@ $$
 $$
 \begin{aligned}
 \left|E[g(Y_N)]-E[g(X_T)]\right|
-&\le
-NCh^2\\
-&=
-\frac{T}{h}Ch^2\\
+&\le NCh^2\\
+&=\frac{T}{h}Ch^2\\
 &=CTh.
 \end{aligned}
 $$
@@ -356,10 +339,8 @@ $$
 $$
 \boxed{
 \left|E[g(Y_N)]-E[g(X_T)]\right|=O(h)
-}
+}.
 $$
-
-です。
 
 これが Euler--Maruyama の **weak order 1** です。
 
@@ -379,8 +360,7 @@ $$
 
 $$
 \partial_tu+\mathcal Lu=0,
-\qquad
-u(T,x)=g(x)
+\qquad u(T,x)=g(x)
 $$
 
 が十分滑らかな古典解 $u$ をもち、上の局所評価に必要な導関数が一様に制御できるとする。
@@ -394,25 +374,19 @@ $$
 }
 $$
 
-が成り立つ。
+が成り立つ。したがって Euler--Maruyama 法の weak convergence order は1である。
 
-したがって Euler--Maruyama 法の weak convergence order は1である。
-
-### 証明
+### 証明の5行
 
 1. $u(t,x)=E[g(X_T^{t,x})]$ と置く。
 2. backward Kolmogorov equation で厳密解側の時間発展を消す。
-3. Euler--Maruyama の1ステップを frozen diffusion とみなし、差を $(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u$ で表す。
-4. この差はステップ始点で0なので、Itô公式をもう一度使うと局所誤差は $O(h^2)$。
-5. $N=T/h$ ステップを telescoping sum で足して $O(Nh^2)=O(h)$。
-
-以上です。 $\square$
+3. EMの1ステップを frozen diffusion とみなし、差を $(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u$ で表す。
+4. generator差はステップ始点で0なので、Itô公式をもう一度使って局所誤差 $O(h^2)$ を得る。
+5. $N=T/h$ ステップを telescoping sum で足し、$O(Nh^2)=O(h)$ を得る。$\square$
 
 ---
 
-## 7. strong order $1/2$ と矛盾しないのか
-
-矛盾しません。
+## 7. strong order $1/2$ と矛盾しない
 
 strong error は典型的に
 
@@ -420,7 +394,7 @@ $$
 E|X_T-Y_N|
 $$
 
-のように **同じBrown運動上で経路そのものの距離** を測ります。
+のように、同じBrown運動上で経路そのものの距離を測ります。
 
 一方、weak error は
 
@@ -428,9 +402,9 @@ $$
 |E[g(X_T)]-E[g(Y_N)]|
 $$
 
-のように **期待値を取った後の差** を測ります。
+のように、期待値を取った後の差を測ります。
 
-期待値を取ると、Brown運動由来の平均0の揺らぎが相殺されます。そのため Euler--Maruyama では典型的に
+期待値を取ると平均0の揺らぎが相殺されるため、Euler--Maruyama では典型的に
 
 $$
 \boxed{
@@ -440,20 +414,20 @@ $$
 }
 $$
 
-という異なる次数が現れます。
+となります。
 
 ---
 
-## 8. この証明で何を使い、何を使っていないか
+## 8. 証明で使ったもの
 
-使ったものは次の4点です。
+必要なのは次の4点です。
 
 1. Markov性を使った未来期待値 $u(t,x)$
 2. backward Kolmogorov equation
 3. Itô公式
 4. telescoping sum
 
-逆に、厳密解と数値解の経路差を直接評価する Grönwall 型の strong-error 証明は使っていません。
+経路差を直接評価する Grönwall 型の strong-error 証明は使っていません。
 
 weak解析は「経路誤差の平均を取る」のではなく、**最初から期待値汎関数をPDEへ変換して解析する**のがポイントです。
 
@@ -463,19 +437,13 @@ weak解析は「経路誤差の平均を取る」のではなく、**最初か�
 
 ### A01 frozen generator
 
-$$
-dX_t=b(X_t)dt+\sigma(X_t)dB_t
-$$
-
-に対し、時刻 $t$、状態 $x$ からの Euler--Maruyama 1ステップを連続時間補間
+時刻 $t$、状態 $x$ からの Euler--Maruyama 1ステップを
 
 $$
 \widehat X_s=x+b(x)(s-t)+\sigma(x)(B_s-B_t)
 $$
 
-で表せ。
-
-さらに、そのgeneratorが
+と連続時間補間する。このgeneratorが
 
 $$
 \mathcal L_x^{\mathrm{fr}}f(y)
@@ -486,13 +454,7 @@ $$
 
 ### A02 telescoping
 
-局所弱誤差が各ステップで一様に
-
-$$
-|\delta_n|\le Ch^2
-$$
-
-と評価できるとする。$N=T/h$ として
+各ステップの局所弱誤差が一様に $|\delta_n|\le Ch^2$ と評価できるとする。$N=T/h$ として
 
 $$
 \left|\sum_{n=0}^{N-1}\delta_n\right|
@@ -508,8 +470,7 @@ $$
 ### B01 局所弱誤差の核心
 
 $$
-F_x(s,y)
-=(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u(s,y)
+F_x(s,y)=(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u(s,y)
 $$
 
 とする。
@@ -520,43 +481,34 @@ $$
    |E[F_x(s,\widehat X_s)]|\le C(s-t)
    $$
    となることを示せ。
-3. これを積分して1-step defectが $O(h^2)$ になることを示せ。
+3. これを積分し、1-step defectが $O(h^2)$ になることを示せ。
 
 ### B02 「局所2次、大域1次」の一般原理
 
-数値時間発展法で、1ステップの期待値誤差が $O(h^{p+1})$ で、終端時刻 $T$ まで $N=T/h$ ステップ必要だとする。
+1ステップの期待値誤差が $O(h^{p+1})$ で、終端時刻まで $N=T/h$ ステップ必要だとする。安定性により局所誤差を一様に足し上げられると仮定し、大域誤差が $O(h^p)$ になることを示せ。
 
-安定性により各局所誤差を一様に足し上げられると仮定し、大域誤差が
-
-$$
-O(h^p)
-$$
-
-になることを示せ。
-
-その上で Euler--Maruyama の weak order 1 が $p=1$ の場合に対応することを説明せよ。
+Euler--Maruyama の weak order 1 が $p=1$ に対応することも確認せよ。
 
 ---
 
 ## 11. 最終チェック
 
-weak order 1 の証明は次の1行へ圧縮できます。
+weak order 1 の証明は
 
 $$
 \boxed{
 \partial_tu+\mathcal Lu=0
 \Rightarrow
-\text{1-step defect}
-=
-\int(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u
-=
-O(h^2)
+\text{1-step defect}=\int(\mathcal L_x^{\mathrm{fr}}-\mathcal L)u
+=O(h^2)
 \Rightarrow
 O(h^{-1})\text{ steps}
 \Rightarrow
 O(h)
 }
 $$
+
+へ圧縮できます。
 
 覚えるべきは「Euler--Maruyamaだから弱1次」という結論より、
 
