@@ -302,35 +302,6 @@ $$
 
 ---
 
-<a id="ex-p4-02-law-small-numbers"></a>
-### P402-A05 少数法則によるポアソン近似
-
-- Level: A
-- 目安時間: 7分
-- 主題: 少数法則
-
-独立な2000個の部品が、それぞれ確率0.001で故障する。故障個数 $X$ を少数法則で近似し、$P(X=0)$ の近似値を式で示せ。
-
-<!-- solution-start -->
-
-#### 解答
-
-##### 詳細解答
-
-$X\sim\operatorname{Bin}(2000,0.001)$ で、$np=2$。よって $X$ を $\operatorname{Poi}(2)$ で近似し、
-$$
-P(X=0)\approx e^{-2}.
-$$
-
-##### 本番答案
-
-少数法則より $X\approx\operatorname{Poi}(2)$。したがって $P(X=0)\approx e^{-2}$。
-
-##### 採点基準
-
-ポアソン平均2が10点、確率 $e^{-2}$ が10点。
-
-<!-- solution-end -->
 
 ## 6. 二項分布の正規近似と連続補正
 
@@ -674,6 +645,38 @@ $E[B_n]=\lambda$、$\operatorname{Var}(B_n)=\lambda(1-\lambda/n)\to\lambda$。
 ###### 採点基準
 
 平均7点、分散8点、極限5点。合計20点。
+
+<!-- solution-end -->
+
+
+
+<a id="ex-p4-02-law-small-numbers"></a>
+#### P402-A05 少数法則によるポアソン近似
+
+- Level: A
+- 目安時間: 7分
+- 主題: 少数法則
+
+独立な2000個の部品が、それぞれ確率0.001で故障する。故障個数 $X$ を少数法則で近似し、$P(X=0)$ の近似値を式で示せ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+$X\sim\operatorname{Bin}(2000,0.001)$ で、$np=2$。よって $X$ を $\operatorname{Poi}(2)$ で近似し、
+$$
+P(X=0)\approx e^{-2}.
+$$
+
+##### 本番答案
+
+少数法則より $X\approx\operatorname{Poi}(2)$。したがって $P(X=0)\approx e^{-2}$。
+
+##### 採点基準
+
+ポアソン平均2が10点、確率 $e^{-2}$ が10点。
 
 <!-- solution-end -->
 
