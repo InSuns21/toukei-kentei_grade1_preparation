@@ -1,0 +1,34 @@
+name: Repair Batch 1 exercise placement
+
+on:
+  push:
+    branches:
+      - fix/batch1-exercise-placement
+    paths:
+      - 'scripts/repair-batch1-exercise-placement.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/batch1-exercise-placement
+          fetch-depth: 0
+      - name: Move Batch 1 exercises into exercise sections
+        run: node scripts/repair-batch1-exercise-placement.mjs
+      - name: Validate repaired textbook structure
+        run: node scripts/validate_textbook_structure.mjs
+      - name: Commit repair
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --quiet; then
+            git add textbook scripts/validate_textbook_structure.mjs
+            git commit -m 'Move Batch 1 exercises into exercise sections'
+            git push origin HEAD:fix/batch1-exercise-placement
+          fi
