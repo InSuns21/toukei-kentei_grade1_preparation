@@ -1,0 +1,46 @@
+name: Apply S17 formal definitions
+
+on:
+  push:
+    branches:
+      - audit/distribution-summary-definitions-s17
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Apply S17 edits
+        run: node scripts/tmp-formalize-distribution-summaries-s17.mjs
+      - name: Regenerate syllabus audit
+        run: node scripts/audit-textbook-syllabus-coverage.mjs --write
+      - name: Validate focused changes
+        run: |
+          npm run audit:textbook-syllabus -- --strict
+          npm run validate:formal-statements
+          npm run validate:definition-examples
+          npm run validate:math
+      - name: Commit generated source changes
+        run: |
+          if git diff --quiet -- textbook/volumes textbook/SYLLABUS_TERM_COVERAGE.md; then
+            echo "No source changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md \
+                  textbook/volumes/02_distributions/P3_02_主要な連続分布/index.md \
+                  textbook/volumes/02_distributions/P4_01_変数変換_順序統計量/index.md \
+                  textbook/SYLLABUS_TERM_COVERAGE.md
+          git commit -m "Formalize distribution summary definitions (S17)"
+          git push origin HEAD:audit/distribution-summary-definitions-s17
