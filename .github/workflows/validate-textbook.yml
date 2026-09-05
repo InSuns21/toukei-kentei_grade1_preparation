@@ -35,9 +35,6 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -56,27 +53,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Apply regression and ANOVA formal-density edits
-        run: node scripts/tmp-regression-anova-formal-s5.mjs
-
       - name: Audit official syllabus term coverage
-        run: npm run audit:textbook-syllabus -- --write --strict
-
-      - name: Commit generated S5 changes
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            textbook/volumes/04_linear_models/L1_01_単回帰と最小二乗法/index.md \
-            textbook/volumes/04_linear_models/L1_02_重回帰_線形モデルの行列表現/index.md \
-            textbook/volumes/04_linear_models/L1_03_分散分析/index.md \
-            textbook/SYLLABUS_TERM_COVERAGE.md
-          if git diff --cached --quiet; then
-            echo 'generated files already current'
-          else
-            git commit -m 'Formalize core regression and ANOVA terms'
-            git push origin HEAD:audit/regression-anova-formal-density-s5
-          fi
+        run: npm run audit:textbook-syllabus -- --strict
 
       - name: Validate reader-facing wording
         run: python3 scripts/validate-reader-facing-wording.py
