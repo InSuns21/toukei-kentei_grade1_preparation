@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 96件
+- 明示的な定義ラベルヒット: 103件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -27,7 +27,7 @@
 |math-distribution-functions|危険率|exact|E4-02 / 2. 危険率#def-e4-02-hazard-rate|E4-02 / 2. 危険率#def-e4-02-hazard-rate|—|E4-02 / E4-02-A01|
 |math-distribution-functions|同時分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|—|E2-04 / E2-04-B01 3時点の|
 |math-distribution-functions|周辺分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
-|math-distribution-functions|条件付き分布|exact|F0-00 / 15. 統計でどこに使うか|—|I4-01 / 3A.3 例：解析積分が閉じないところからMCMCが必要になる|P3-01 / P3-C03 ポアソン和と|
+|math-distribution-functions|条件付き分布|exact|P3-03 / 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」#def-p3-03-conditional-distribution|P3-03 / 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」#def-p3-03-conditional-distribution|I4-01 / 3A.3 例：解析積分が閉じないところからMCMCが必要になる|P3-01 / P3-C03 ポアソン和と|
 |math-distribution-functions|確率母関数|exact|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例5：確率質量関数から|P2-02 / P2-B06|
 |math-distribution-functions|モーメント母関数（積率母関数）|alias|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例6：ベルヌーイ分布から|P2-02 / P2-B07 ベルヌーイ分布から|
 |math-distribution-characteristics|モーメント|exact|I1-02 / 2. モーメント法#def-i1-02-moment-method|I1-02 / 2. モーメント法#def-i1-02-moment-method|P2-02 / 例1：離散分布の平均と分散|P2-02 / P2-A06 共分散公式|
@@ -45,7 +45,7 @@
 |math-distribution-characteristics|最頻値|exact|P3-02 / P3C-C02 ベータ分布の形とモーメント|—|—|P3-02 / P3C-C02 ベータ分布の形とモーメント|
 |math-distribution-characteristics|共分散|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|P2-02 / 例3：全|P2-02 / P2-A06|
 |math-distribution-characteristics|相関係数|exact|P2-02 / この章で解けるようになる問題|—|P3-03 / 例1：分散共分散行列を読む|P2-02 / P2-B05 二値変数の相関|
-|math-distribution-characteristics|偏相関係数|exact|P3-03 / P3M-A04 偏相関|—|—|P3-03 / P3M-A04 偏相関|
+|math-distribution-characteristics|偏相関係数|exact|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|—|P3-03 / P3M-A04 偏相関|
 |math-transformations|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
 |math-transformations|確率変数の線形結合|exact|P4-02 / 詳細解答|—|—|—|
 |math-limit-approximations|大数の弱法則|alias|P4-02 / P4-02 確率変数の収束・大数則・中心極限定理|—|—|P4-02 / P4T-B02|
@@ -70,7 +70,7 @@
 |math-continuous-distributions|対数正規分布|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / P3C-B04|
 |math-continuous-distributions|ワイブル分布|exact|P3-02 / この章で解けるようになる問題|—|P3-02 / 例5：|P3-02 / P3C-B03|
 |math-continuous-distributions|ロジスティック分布|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / P3C-B04 対数正規分布と|
-|math-continuous-distributions|多変量正規分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|P3-03 / P3M-A03 周辺と線形結合|
+|math-continuous-distributions|多変量正規分布|exact|P3-03 / 2.3 多変量正規分布は「正規分布をまとめたもの」#def-p3-03-multivariate-normal|P3-03 / 2.3 多変量正規分布は「正規分布をまとめたもの」#def-p3-03-multivariate-normal|—|P3-03 / P3M-A03 周辺と線形結合|
 |math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|I3-03 / 数値例：母分散未知なら何が変わるか|S1-01 / S1-C03|
 |math-sampling-distributions|カイ二乗分布|exact|F0-00 / 15. 統計でどこに使うか|—|S1-01 / 例1 標本分散の確率|P3-03 / P3M-B04 マハラノビス二次形式|
 |math-sampling-distributions|F分布|exact|F0-00 / 1. この章で扱う数学|—|—|S1-01 / S1-A04|
@@ -188,10 +188,10 @@
 |applied-stochastic-processes|ブラウン運動|exact|E2-04 / E2-04|—|—|E2-04 / E2-04-A01 基本モーメント|
 |applied-time-series|ARIMAモデル|alias|E2-03 / E2-03 AR・MA・|—|E2-05 / 10. AR(1) は状態空間モデルの特殊例|E2-03 / E2-03-A04 差分と|
 |applied-time-series|状態空間モデル|exact|L1-04 / 11. 診断から対処へ|—|E2-05 / 8. 数値例：局所レベルモデル|E2-05 / E2-05-B02 gain を条件付き正規から導く|
-|engineering-multivariate|多変量正規分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|P3-03 / P3M-A03 周辺と線形結合|
-|engineering-multivariate|平均ベクトル|exact|P3-01 / 詳細解答|—|—|P3-03 / P3M-C01 双方向の条件付き正規|
-|engineering-multivariate|分散共分散行列|exact|P3-03 / P3-03 多変量分布・条件付き分布|—|P3-03 / 例1：|P3-03 / P3M-A03 周辺と線形結合|
-|engineering-multivariate|相関行列|exact|P3-03 / 公式出題範囲との対応|—|—|P3-03 / P3M-C03 残差と偏相関|
+|engineering-multivariate|多変量正規分布|exact|P3-03 / 2.3 多変量正規分布は「正規分布をまとめたもの」#def-p3-03-multivariate-normal|P3-03 / 2.3 多変量正規分布は「正規分布をまとめたもの」#def-p3-03-multivariate-normal|—|P3-03 / P3M-A03 周辺と線形結合|
+|engineering-multivariate|平均ベクトル|exact|P3-03 / 2.1 確率ベクトルは「確率変数を縦に並べたもの」#def-p3-03-mean-vector|P3-03 / 2.1 確率ベクトルは「確率変数を縦に並べたもの」#def-p3-03-mean-vector|—|P3-03 / P3M-C01 双方向の条件付き正規|
+|engineering-multivariate|分散共分散行列|exact|P3-03 / 2.2 分散共分散行列は「分散と共分散の表」#def-p3-03-covariance-matrix|P3-03 / 2.2 分散共分散行列は「分散と共分散の表」#def-p3-03-covariance-matrix|P3-03 / 例1：|P3-03 / P3M-A03 周辺と線形結合|
+|engineering-multivariate|相関行列|exact|P3-03 / 2.2 分散共分散行列は「分散と共分散の表」#def-p3-03-correlation-matrix|P3-03 / 2.2 分散共分散行列は「分散と共分散の表」#def-p3-03-correlation-matrix|—|P3-03 / P3M-C03 残差と偏相関|
 |engineering-multivariate|固有値・固有ベクトル|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|F0-00 / F0M-B03|
 |engineering-stochastic-processes|ランダムウォーク|exact|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|—|P4-03 / 3A.3 例：正規化定数が分からなくても比は計算できる|E2-02 / E2-02-A01|
 |engineering-stochastic-processes|マルコフ過程|exact|E2-01 / E2-01 マルコフ連鎖・|—|—|E4-02 / E4-02-D01 2状態連続時間|
