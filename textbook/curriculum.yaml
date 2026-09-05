@@ -12,19 +12,17 @@ progress:
   schema_version: 1
   updated_at: 2026-09-05
   current_chapter: null
-  next_chapter: L2-02
-  next_work:
-    type: chapter
-    id: L2-02
-  last_completed_chapter: I4-01
+  next_chapter: null
+  next_work: null
+  last_completed_chapter: L2-02
   summary:
     total: 43
-    planned: 1
+    planned: 0
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 42
+    reviewed: 43
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -65,7 +63,7 @@ progress:
     L1-03: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-04: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     L2-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
-    L2-02: { status: planned }
+    L2-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     E1-01: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     E1-02: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
     E1-03: { status: reviewed, started_at: 2026-08-31, completed_at: 2026-08-31, review_result: { fatal: 0, major: 0, minor: 0 } }
@@ -138,4 +136,4 @@ chapters:
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
   - { id: I4-01, title: ベイズ推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, ベイズ推定量, 事後最頻値, 予測分布, 損失関数 ] }
   - { id: I4-02, title: 欠測・不完全データ・期待値最大化法, volume: inference, prerequisites: [ I1-01, P1-02, P3-04, P3-03 ], official_scope: [ 欠測, 不完全データ, 観測データ尤度, 期待値最大化法, 打ち切り, 切断 ] }
-  - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01 ], official_scope: [ カルバック・ライブラー情報量, AIC, クロスバリデーション, 変数選択 ] }
+  - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01, L1-04, I1-01 ], official_scope: [ カルバック・ライブラー情報量, 情報量規準AIC, クロスバリデーション, 変数選択 ] }
