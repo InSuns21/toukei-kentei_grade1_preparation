@@ -9,15 +9,15 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 89件
+- 明示的な定義ラベルヒット: 91件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
 |公式区分|公式用語|判定|主対応（章 / 節・アンカー）|定義アンカー|例|演習|
 |---|---|---|---|---|---|---|
 |math-events|確率の計算|exact|P1-01 / 公式出題範囲との対応|—|—|—|
-|math-events|統計的独立|exact|P1-02 / 公式出題範囲との対応|—|—|—|
-|math-events|条件付き確率|exact|P1-01 / 問題|—|—|P1-02 / P1-A04|
+|math-events|統計的独立|exact|P1-02 / 3. 独立と排反は別概念#def-p1-02-independence|P1-02 / 3. 独立と排反は別概念#def-p1-02-independence|—|—|
+|math-events|条件付き確率|exact|P1-02 / 1. 条件付き確率は「条件を固定して計り直す」#def-p1-02-conditional-probability|P1-02 / 1. 条件付き確率は「条件を固定して計り直す」#def-p1-02-conditional-probability|—|P1-02 / P1-A04|
 |math-events|ベイズの定理|exact|P1-02 / P1-02 条件付き確率・独立・|—|—|P1-02 / P1-A06 二原因のベイズ計算|
 |math-events|包除原理|exact|P1-01 / P1-01 事象と確率|—|—|P1-01 / P1-B01 ちょうど一つ|
 |math-distribution-functions|確率関数|exact|I1-01 / 前提知識チェック|—|—|S1-02 / S1-02-C04 指数型分布族から読む|
@@ -38,7 +38,7 @@
 |math-distribution-characteristics|尖度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05 歪度・|
 |math-distribution-characteristics|変動係数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A.1 例：同じ標準偏差でも|P2-02 / P202-B05 歪度・尖度・|
 |math-distribution-characteristics|パーセント点|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|—|
-|math-distribution-characteristics|中央値|exact|P2-01 / P2-C05 区分累積分布関数から分布を復元する|—|—|P2-01 / P2-C05 区分累積分布関数から分布を復元する|
+|math-distribution-characteristics|中央値|exact|P2-01 / P2-C05 区分累積分布関数から分布を復元する|—|I3-03 / 正確順位分布で検定まで完走する例|P2-01 / P2-C05 区分累積分布関数から分布を復元する|
 |math-distribution-characteristics|四分位数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
 |math-distribution-characteristics|範囲|exact|F0-00 / 公式出題|—|P4-01 / 例2 独立な一様分布の和|P2-02 / P202-B05 歪度・尖度・変動係数と四分位|
 |math-distribution-characteristics|四分位範囲|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と|
@@ -71,7 +71,7 @@
 |math-continuous-distributions|ワイブル分布|exact|P3-02 / この章で解けるようになる問題|—|P3-02 / 例5：|P3-02 / P3C-B03|
 |math-continuous-distributions|ロジスティック分布|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / P3C-B04 対数正規分布と|
 |math-continuous-distributions|多変量正規分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|P3-03 / P3M-A03 周辺と線形結合|
-|math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|I2-02 / I2-02-C01 正規母平均と母分散を同時に処理する|
+|math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|I3-03 / 数値例：母分散未知なら何が変わるか|I2-02 / I2-02-C01 正規母平均と母分散を同時に処理する|
 |math-sampling-distributions|カイ二乗分布|exact|F0-00 / 15. 統計でどこに使うか|—|S1-01 / 例1 標本分散の確率|P3-03 / P3M-B04 マハラノビス二次形式|
 |math-sampling-distributions|F分布|exact|F0-00 / 1. この章で扱う数学|—|—|S1-01 / S1-A04|
 |math-population-sample-statistic|十分統計量|exact|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|—|I4-02 / I4-02-C01 正規分布の欠測値に必要な条件付きモーメント|
@@ -102,7 +102,7 @@
 |math-interval-estimation|被覆確率|exact|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|—|I2-02 / I2-02-A01 95%信頼区間の意味|
 |math-testing-foundations|仮説|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A04 尤度比の向きを読む|
 |math-testing-foundations|検定統計量|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1.1 正規母平均の片側検定を例にする|—|
-|math-testing-foundations|P値|exact|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|—|I3-01 / I3-01-A03|
+|math-testing-foundations|P値|exact|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-03 / 数値例：第1群の分散の方が大きいか|I3-01 / I3-01-A03|
 |math-testing-foundations|有意水準|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
 |math-testing-foundations|棄却域|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A02 正規片側検定の検出力|
 |math-testing-foundations|第一種の過誤|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
@@ -132,11 +132,11 @@
 |math-regression|残差|exact|L1-01 / 2.2 残差の直交性#def-l1-01-residual|L1-01 / 2.2 残差の直交性#def-l1-01-residual|S1-01 / 例4 平方和分解|P3-03 / P3M-C03|
 |math-regression|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
 |math-regression|平均への回帰（回帰効果）|exact|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A.1 例：成績最下位群だけ補習する|L1-01 / L101-B05|
-|math-contingency-tables|カイ二乗検定|exact|I3-03 / 3A.3 例：フィッシャー検定と|—|I3-03 / 3A.3 例：フィッシャー検定と|—|
-|math-contingency-tables|フィッシャー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|I3-03 / 3A.3 例：|I3-03 / I303-B06|
-|math-contingency-tables|マクネマー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|I3-03 / 3A.4 例：|I3-03 / I303-C05|
+|math-contingency-tables|カイ二乗検定|exact|I3-03 / 0. まず「何を比較したいか」で検定を絞る|—|—|—|
+|math-contingency-tables|フィッシャー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|—|I3-03 / I303-B06|
+|math-contingency-tables|マクネマー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|—|I3-03 / I303-C05|
 |math-contingency-tables|イェーツの補正|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-yates-correction|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-yates-correction|—|I3-03 / I303-B06 フィッシャー検定と|
-|math-nonparametric|符号検定|exact|I3-03 / 6. 符号検定#def-i3-03-sign-test|I3-03 / 6. 符号検定#def-i3-03-sign-test|—|—|
+|math-nonparametric|符号検定|exact|I3-03 / 6. 符号検定#def-i3-03-sign-test|I3-03 / 6. 符号検定#def-i3-03-sign-test|I3-03 / 小標本で検定まで完走する例|—|
 |math-nonparametric|ウィルコクソン順位和検定（マン・ホイットニーU検定）|alias|I3-03 / この章で解けるようになる問題|—|—|—|
 |math-nonparametric|ウィルコクソン符号付き順位和検定|exact|I3-03 / この章で解けるようになる問題|—|—|—|
 |math-nonparametric|順位相関係数|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-rank-correlation|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-rank-correlation|—|I3-03 / I303-C05 マクネマー検定と|

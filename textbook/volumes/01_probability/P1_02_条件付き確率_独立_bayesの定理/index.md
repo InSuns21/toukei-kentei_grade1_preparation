@@ -34,15 +34,25 @@
 
 赤玉3個、白玉2個から1個を無作為に引くとき、赤を引く確率は $3/5$ です。ところが「白玉1個が既に取り除かれている」と分かれば、残り4個のうち赤3個なので赤の確率は $3/4$ になります。
 
-一般に、事象 $B$ が起きたと分かった後では、標本空間を $B$ の内部に絞って事象 $A$ の割合を計り直します。$P(B)>0$ のとき
+一般に、事象 $B$ が起きたと分かった後では、標本空間を $B$ の内部に絞って事象 $A$ の割合を計り直します。
 
-$$
-\boxed{
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-}
-$$
+<a id="def-p1-02-conditional-probability"></a>
 
-と定義します。縦線の右側が条件です。
+<!-- formal-statement-start -->
+> **定義（条件付き確率）**  
+> $P(B)>0$ のとき、事象 $B$ が起きたという条件のもとで事象 $A$ が起きる確率を
+> $$
+> P(A\mid B)=\frac{P(A\cap B)}{P(B)}
+> $$
+> と定め、$A$ の **$B$ のもとでの条件付き確率** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p1-02-conditional-probability -->
+**定義の確認**  
+公平な六面体さいころで $A=\{4,5,6\}$、$B=\{2,4,6\}$ とすると、$P(B)=1/2$、$P(A\cap B)=1/3$ なので $P(A\mid B)=(1/3)/(1/2)=2/3$ です。条件を $B$ に絞った3通り $\{2,4,6\}$ のうち2通りが $A$ に入ることとも一致します。
+<!-- definition-example-end -->
+
+縦線の右側が条件です。
 
 $P(B)=0$ のとき、この比による $P(A\mid B)$ は定義されません。条件付き確率を使うときは、まず条件事象の確率が正であることを確認します。
 
@@ -103,15 +113,21 @@ $$
 
 ## 3. 独立と排反は別概念
 
-二事象 $A,B$ が独立であるとは
+<a id="def-p1-02-independence"></a>
 
-$$
-\boxed{
-P(A\cap B)=P(A)P(B)
-}
-$$
+<!-- formal-statement-start -->
+> **定義（統計的独立）**  
+> 二事象 $A,B$ が
+> $$
+> P(A\cap B)=P(A)P(B)
+> $$
+> を満たすとき、$A,B$ は **独立（統計的独立）** であるという。
+<!-- formal-statement-end -->
 
-が成り立つことです。
+<!-- definition-example-start: def-p1-02-independence -->
+**定義の確認**  
+公平な硬貨を2回投げ、$A=$「1回目が表」、$B=$「2回目が表」とします。$P(A)=P(B)=1/2$、$P(A\cap B)=1/4=P(A)P(B)$ なので $A,B$ は独立です。
+<!-- definition-example-end -->
 
 本教材では、この独立関係を
 
@@ -121,19 +137,23 @@ $$
 
 と略記します。この節での $\perp$ は「確率論上の独立」を表します。後続章で確率変数を扱うときも、$X\perp Y$ を「確率変数 $X,Y$ が独立」の意味で使います。
 
-また $P(C)>0$ のとき、$C$ を条件とした下で
+また、条件を固定した後の独立性も区別します。
 
-$$
-P(A\cap B\mid C)=P(A\mid C)P(B\mid C)
-$$
+<a id="def-p1-02-conditional-independence"></a>
 
-が成り立つことを**条件付き独立**といい、
+<!-- formal-statement-start -->
+> **定義（条件付き独立）**  
+> $P(C)>0$ のとき
+> $$
+> P(A\cap B\mid C)=P(A\mid C)P(B\mid C)
+> $$
+> が成り立つとき、$A,B$ は **$C$ のもとで条件付き独立** であるといい、$A\perp B\mid C$ と書く。
+<!-- formal-statement-end -->
 
-$$
-\boxed{A\perp B\mid C}
-$$
-
-と書きます。確率変数についても同様に $X\perp Y\mid Z$ と書きます。
+<!-- definition-example-start: def-p1-02-conditional-independence -->
+**定義の確認**  
+$C$ のもとで4通りの結果 $(0,0),(0,1),(1,0),(1,1)$ が等確率で起こり、$A=$「第1成分が1」、$B=$「第2成分が1」とします。このとき $P(A\mid C)=P(B\mid C)=1/2$、$P(A\cap B\mid C)=1/4$ なので $A\perp B\mid C$ です。
+<!-- definition-example-end -->確率変数についても同様に $X\perp Y\mid Z$ と書きます。
 
 $P(B)>0$ なら
 
@@ -174,6 +194,11 @@ $$
 
 > が成り立つとき **相互独立** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p1-02-pairwise-mutual-independence -->
+**定義の確認**  
+公平な硬貨を2回投げ、$A=$「1回目が表」、$B=$「2回目が表」、$C=$「2回の結果が同じ」とします。各事象の確率は $1/2$ で、どの2事象の共通部分も確率 $1/4$ なので対独立です。しかし $A\cap B\cap C$ は「表・表」だけで確率 $1/4$ であり、$P(A)P(B)P(C)=1/8$ とは一致しません。したがって相互独立ではありません。
+<!-- definition-example-end -->
 
 三事象では、三つの二重積の式だけでなく
 
@@ -271,18 +296,21 @@ $$
 P(B)=\sum_{i=1}^mP(B\mid H_i)P(H_i).
 $$
 
-したがって
+したがって次を得ます。
 
-$$
-\boxed{
-P(H_j\mid B)
-=
-\frac{P(B\mid H_j)P(H_j)}
-{\sum_{i=1}^mP(B\mid H_i)P(H_i)}
-}
-$$
+<a id="thm-p1-02-bayes"></a>
 
-です。
+<!-- formal-statement-start -->
+> **定理（ベイズの定理）**  
+> $H_1,\ldots,H_m$ が標本空間の分割で各 $P(H_i)>0$、さらに $P(B)>0$ とする。このとき各 $j$ について
+> $$
+> P(H_j\mid B)
+> =
+> \frac{P(B\mid H_j)P(H_j)}
+> {\sum_{i=1}^mP(B\mid H_i)P(H_i)}.
+> $$
+> 分母は全確率公式で得られる $P(B)$ である。
+<!-- formal-statement-end -->
 
 - $P(H_j)$：観測前の原因の確率（事前確率）。
 - $P(B\mid H_j)$：その原因の下で観測 $B$ が出る確率。
