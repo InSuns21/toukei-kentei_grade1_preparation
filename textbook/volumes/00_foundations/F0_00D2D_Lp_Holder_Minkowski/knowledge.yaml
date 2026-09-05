@@ -56,3 +56,10 @@ concepts:
     requires:
       - measure.holder-inequality
       - measure.lebesgue-integral
+
+  - id: measure.lp-finite-measure-inclusion
+    name: 有限測度空間上の包含
+    kind: proposition
+    aliases: [有限測度空間上の包含]
+    requires:
+      - measure.holder-inequality
