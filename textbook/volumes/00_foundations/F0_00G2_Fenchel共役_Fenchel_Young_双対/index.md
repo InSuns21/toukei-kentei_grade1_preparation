@@ -463,17 +463,12 @@ $$
 
 従って双対問題は
 
-<a id="thm-f0-00g2-fenchel-dual"></a>
-
-<!-- formal-statement-start -->
-> **Fenchel 双対問題**  
-> $$
-> \boxed{
-> \sup_y
-> \{-f^*(-A^{\mathsf T}y)-g^*(y)\}
-> }
-> $$
-<!-- formal-statement-end -->
+$$
+\boxed{
+\sup_y
+\{-f^*(-A^{\mathsf T}y)-g^*(y)\}
+}
+$$
 
 です。
 
