@@ -58,7 +58,9 @@ jobs:
         run: npm ci
 
       - name: Apply S9 fixed-random effects formal-density edits
-        run: node scripts/tmp-design-effects-formal-s9.mjs
+        run: |
+          node scripts/tmp-design-effects-formal-s9.mjs
+          node scripts/tmp-design-entry-examples-s9.mjs
 
       - name: Audit official syllabus term coverage
         run: npm run audit:textbook-syllabus -- --write --strict
@@ -73,7 +75,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'generated files already current'
           else
-            git commit -m 'Formalize fixed random and mixed effects'
+            git commit -m 'Complete E3-01 definition verification examples'
             git push origin HEAD:audit/design-effects-formal-density-s9
           fi
 
