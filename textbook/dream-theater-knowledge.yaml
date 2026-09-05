@@ -1,0 +1,25 @@
+version: 1
+scope: dream-theater
+
+# DREAM THEATER 専用の概念依存台帳。
+# 通常教材の chapter.yaml / glossary.yaml とは共用しない。
+#
+# pages:
+#   <chapter-id>:
+#     path: textbook/.../index.md
+#     prerequisites: [<chapter-id>, ...]
+#
+# concepts:
+#   - id: <stable-id>
+#     name: <reader-facing name>
+#     kind: definition | theorem | lemma | proposition | corollary | term
+#     introduced_in: <chapter-id>
+#     aliases: [<surface form>, ...]
+#     requires: [<concept-id>, ...]
+#
+# CI はこのファイルを DREAM THEATER の知識依存についての唯一の正本として扱う。
+# 自由文の全名詞を型検査するのではなく、ここへ登録された概念と本文中の
+# formal statement（定義・定理・補題・命題・系）を高信頼領域として検査する。
+
+pages: {}
+concepts: []
