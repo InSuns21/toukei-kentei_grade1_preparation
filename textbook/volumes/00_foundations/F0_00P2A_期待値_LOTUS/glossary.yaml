@@ -9,6 +9,12 @@ terms:
   - term: モーメント
     english: moment
     meaning: E[X^k]など分布の積分で定まる量。
+  - term: 可算劣加法性
+    english: countable subadditivity / union bound
+    meaning: 事象列の和事象の確率を各事象の確率和で上から抑える性質。union boundとも呼ぶ。
+  - term: 上からの連続性
+    english: continuity from above
+    meaning: 減少事象列An↓Aに対してP(An)↓P(A)となる性質。確率測度では有限性条件が自動的に満たされる。
   - term: Markovの不等式
     english: Markov's inequality
     meaning: 非負確率変数Yに対し、a>0ならP(Y>=a)<=E[Y]/aでtail確率を期待値から評価する不等式。
