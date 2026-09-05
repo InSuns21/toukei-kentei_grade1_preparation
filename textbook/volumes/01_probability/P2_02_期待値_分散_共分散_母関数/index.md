@@ -175,6 +175,11 @@ $$
 > を **条件付き期待値** と呼びます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-p2-02-conditional-expectation -->
+**定義の確認**  
+例えば $P(Z=0)=P(Z=1)=1/2$ で、$X=2Z+1$ とします。このとき $E[X\mid Z=0]=1$、$E[X\mid Z=1]=3$ なので、条件付き期待値は確率変数として $E[X\mid Z]=2Z+1=X$ です。「$Z=z$ を固定した数値」と「$Z$ の関数としての確率変数」を区別できます。
+<!-- definition-example-end -->
+
 したがって、$E[X\mid Z=z]$ は $z$ を固定した数値ですが、$E[X\mid Z]$ は一般には $Z$ の値によって変わる確率変数です。
 
 連続型で条件付き確率密度関数 $f_{X\mid Z}(x\mid z)$ が存在する場合は

@@ -94,6 +94,11 @@ $$
 > 母数の個数と同じ数の母集団モーメントを標本モーメントに等置し、その連立方程式を母数について解いて得る推定量をモーメント推定量という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-moment-method -->
+**定義の確認**  
+$X_1,\ldots,X_n\sim U(0,\theta)$ では $E[X]=\theta/2$ と $\bar X$ を等置して $\hat\theta_{\mathrm{MM}}=2\bar X$ を得ます。母集団モーメントと標本モーメントを等置して母数を解く、という定義そのものの計算です。
+<!-- definition-example-end -->
+
 ### 2.1 一様分布 $U(0,\theta)$
 
 $$
@@ -169,6 +174,11 @@ $$
 > 残差平方和 $Q(\theta)$ を母数空間上で最小にする値を最小二乗推定値とする。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-least-squares -->
+**定義の確認**  
+位置母数モデル $m_i(\mu)=\mu$ では $Q(\mu)=\sum_i(X_i-\mu)^2$ です。$Q'(\mu)=0$ を解くと $\hat\mu=\bar X$ となり、残差平方和を最小にする値という定義を具体的に確認できます。
+<!-- definition-example-end -->
+
 ### 3.1 位置母数の最小二乗
 
 モデル値が全観測で共通の $\mu$ なら
@@ -240,6 +250,11 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-bias, def-i1-02-mse -->
+**定義の確認**  
+$E[T]=\theta+1/n$、$\operatorname{Var}(T)=2/n$ なら、バイアスは $1/n$、平均二乗誤差は $2/n+1/n^2$ です。不偏性は期待値のずれ、平均二乗誤差は分散とずれを合わせた尺度であることが分かります。
+<!-- definition-example-end -->
+
 <a id="prop-i1-02-mse-decomposition"></a>
 
 <!-- formal-statement-start -->
@@ -288,6 +303,11 @@ $$
 P_\theta(|T_n-g(\theta)|>\varepsilon)\to0.
 $$
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-consistency -->
+**定義の確認**  
+$T_n=\frac{n}{n+1}\bar X$ とし $E[X]=\mu$、$\operatorname{Var}(X)=\sigma^2<\infty$ とします。$T_n-\mu=\frac{n}{n+1}(\bar X-\mu)-\frac{\mu}{n+1}$ で、第1項は大数則、第2項は通常の極限で0へ行くため $T_n\xrightarrow{p}\mu$、したがって一致的です。
+<!-- definition-example-end -->
 
 <a id="prop-i1-02-mse-consistency"></a>
 
@@ -428,6 +448,11 @@ $$
 > 線形不偏推定量のクラスの中で分散、ベクトル母数では分散共分散行列、が最小となる推定量を最良線形不偏推定量という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i1-02-blue -->
+**定義の確認**  
+独立な不偏測定 $Y_1,Y_2$ の分散がそれぞれ $1,4$ なら、$wY_1+(1-w)Y_2$ の分散を最小にする重みは $w=4/5$ です。線形かつ不偏というクラスの中で分散を最小にする、という BLUE の「最良」を具体化しています。
+<!-- definition-example-end -->
+
 ### 6.1 ガウス・マルコフの定理
 
 <a id="thm-i1-02-gauss-markov"></a>
@@ -517,6 +542,11 @@ I(\theta)=E_\theta[U(\theta)^2]
 }.
 $$
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-fisher-information -->
+**定義の確認**  
+$X\sim N(\mu,\sigma^2)$ で $\sigma^2$ 既知なら、1観測のスコアは $U(\mu)=(X-\mu)/\sigma^2$ です。よって $E[U(\mu)^2]=\sigma^2/\sigma^4=1/\sigma^2$ となり、フィッシャー情報量の定義を直接計算できます。
+<!-- definition-example-end -->
 
 スコアの期待値が0なら
 
@@ -691,6 +721,11 @@ $$
 > **定義（有効推定量）**  
 > 正則モデルで不偏推定量がクラーメル・ラオ下限を達成するとき、その推定量を本章では有効推定量という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-02-efficient-estimator -->
+**定義の確認**  
+ベルヌーイ標本では $I_n(p)=n/[p(1-p)]$ なのでクラーメル・ラオ下限は $p(1-p)/n$ です。標本平均 $\bar X$ は不偏で、その分散も $p(1-p)/n$ だから下限を達成し、本章の意味で有効推定量です。
+<!-- definition-example-end -->
 
 ### 8.2 ベルヌーイ標本平均は下限を達成する
 
