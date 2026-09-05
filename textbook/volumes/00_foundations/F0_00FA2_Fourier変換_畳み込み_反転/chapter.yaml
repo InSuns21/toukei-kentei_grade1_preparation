@@ -4,30 +4,33 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00FA1
-  - F0-00D2
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - L1関数のFourier変換を定義できる
   - 平行移動・変調・尺度変換のFourier変換を計算できる
-  - 畳み込みを定義し、Fourier変換が畳み込みを積へ変えることを説明できる
-  - 十分滑らかで減衰する関数について微分が周波数側の掛け算になることを導ける
-  - Fourier反転公式の意味と成立条件の役割を説明できる
-  - GaussianがFourier変換でGaussianへ移ることを説明できる
-  - 特性関数が確率測度のFourier変換であることを理解できる
+  - L1の平行移動連続性からRiemann--Lebesgueの補題を証明できる
+  - 畳み込みを定義し畳み込み定理をFubiniから証明できる
+  - Cc1/Cc2という明示条件の下で微分則を証明できる
+  - GaussianのFourier変換を導ける
+  - Gaussian approximate identityからFourier反転定理を証明できる
 definitions:
   - { id: F000FA2-DEF-01, name: Fourier変換 }
   - { id: F000FA2-DEF-02, name: 畳み込み }
-  - { id: F000FA2-DEF-03, name: 逆Fourier変換 }
 theorems:
-  - { id: F000FA2-THM-01, name: Riemann--Lebesgueの補題 }
-  - { id: F000FA2-THM-02, name: 畳み込み定理 }
-  - { id: F000FA2-THM-03, name: Fourier反転公式 }
+  - { id: F000FA2-THM-01, name: L1の平行移動連続性 }
+  - { id: F000FA2-THM-02, name: Riemann--Lebesgueの補題 }
+  - { id: F000FA2-THM-03, name: 畳み込み定理 }
+  - { id: F000FA2-THM-04, name: Fourier変換と微分 }
+  - { id: F000FA2-THM-05, name: GaussianのFourier変換 }
+  - { id: F000FA2-THM-06, name: Gaussianによる点ごとの近似 }
+  - { id: F000FA2-THM-07, name: Fourier反転定理 }
 canonical_examples:
+  - 区間指示関数とsinc型Fourier変換
+  - 区間指示関数の畳み込みと三角形関数
   - GaussianのFourier変換
-  - 矩形関数とsinc型関数
-  - 畳み込みによる平滑化
-problem_patterns: [FOURIER-TRANSFORM-1, CONVOLUTION-1, FOURIER-DERIVATIVE-1]
+problem_patterns: [FOURIER-TRANSFORM-1, CONVOLUTION-1, FOURIER-INVERSION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 1.5, review: 0.75 }
