@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: partial
 prerequisites:
   - F0-00E
+  - F0-00E1
 
 forward_references:
   - linear.singular-value-decomposition

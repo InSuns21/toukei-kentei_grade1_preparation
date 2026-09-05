@@ -23,10 +23,10 @@ concepts:
       - linear.orthogonality
 
   - id: linear.spectral-norm
-    name: 行列の作用素ノルム
+    name: 行列のスペクトルノルム
     kind: definition
     introduction_aliases: [作用素ノルム]
-    aliases: [行列の作用素ノルム, 作用素ノルム]
+    aliases: [行列のスペクトルノルム]
     requires:
       - linear.singular-value
       - functional.norm

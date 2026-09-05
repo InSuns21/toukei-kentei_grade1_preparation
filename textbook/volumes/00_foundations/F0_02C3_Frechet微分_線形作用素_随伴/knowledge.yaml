@@ -4,6 +4,9 @@ coverage: partial
 prerequisites:
   - F0-02C2
 
+forward_references:
+  - functional.frechet-chain-rule
+
 concepts:
   - id: functional.directional-derivative
     name: 方向微分
@@ -41,11 +44,3 @@ concepts:
     requires:
       - functional.bounded-linear-operator
       - functional.norm
-
-  - id: functional.frechet-chain-rule
-    name: Fréchet微分の連鎖律
-    kind: term
-    aliases: [Fréchet微分の連鎖律, Fréchet連鎖律]
-    requires:
-      - functional.frechet-derivative
-      - functional.bounded-linear-operator

@@ -8,8 +8,8 @@ concepts:
   - id: linear.inner-product
     name: 内積
     kind: definition
-    introduction_aliases: [実内積]
-    aliases: [内積, 実内積]
+    introduction: inline
+    aliases: [内積]
     requires:
       - linear.vector-space
 

@@ -9,7 +9,6 @@ concepts:
   - id: functional.sublinear-functional
     name: sublinear functional
     kind: definition
-    introduction: inline
     aliases: [sublinear functional]
     requires:
       - functional.linear-functional
@@ -17,8 +16,8 @@ concepts:
   - id: functional.hahn-banach-theorem
     name: Hahn--Banachの定理
     kind: theorem
-    introduction: inline
-    aliases: [Hahn--Banach]
+    introduction_aliases: [Hahn--Banach：実線形版]
+    aliases: [Hahn--Banachの定理, Hahn--Banach]
     requires:
       - functional.sublinear-functional
       - functional.linear-functional
@@ -33,10 +32,10 @@ concepts:
       - functional.dual-norm
 
   - id: functional.dual-separates-points
-    name: 双対空間による点分離
-    kind: theorem
+    name: 双対空間は点を分離できる
+    kind: proposition
     introduction: inline
-    aliases: [双対空間による点分離]
+    aliases: [双対空間は点を分離できる]
     requires:
       - functional.hahn-banach-theorem
       - functional.dual-space

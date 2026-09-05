@@ -42,16 +42,10 @@ concepts:
     requires:
       - functional.linear-functional
 
-  - id: functional.linear-functional-continuity-boundedness
-    name: 線形汎関数の連続性と有界性の同値
-    kind: term
-    aliases: [線形汎関数の連続性と有界性の同値]
-    requires:
-      - functional.continuous-linear-functional
-
   - id: functional.riesz-representation-theorem
     name: Riesz表現定理
     kind: theorem
+    introduction: inline
     aliases: [Riesz表現定理]
     requires:
       - functional.hilbert-space

@@ -30,7 +30,7 @@ concepts:
   - id: functional.l2-inner-product
     name: L2内積
     kind: definition
-    aliases: [L2内積]
+    aliases: [L2内積, "内積）"]
     requires:
       - measure.holder-inequality
       - measure.lebesgue-integral
