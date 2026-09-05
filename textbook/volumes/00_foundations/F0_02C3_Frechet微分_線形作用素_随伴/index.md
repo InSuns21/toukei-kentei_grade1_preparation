@@ -1,5 +1,7 @@
 # F0-02C3 関数解析III：Fréchet微分・有界線形作用素・連鎖律
 
+<!-- definition-example-audit: strict -->
+
 この講義では「微分とはベクトルではなく一次近似作用素である」を主題にします。随伴作用素は次講C3Aへ分離します。
 
 ## 1. 一変数微分を「一次近似」として読み直す
@@ -7,18 +9,13 @@
 一変数関数 $f:\mathbb R\to\mathbb R$ が $x$ で微分可能なら
 
 $$
-f(x+h)
-=f(x)+f'(x)h+o(|h|).
+f(x+h)=f(x)+f'(x)h+o(|h|).
 $$
 
 重要なのは、微分係数 $f'(x)$ そのものより
 
 $$
-\boxed{
-f(x+h)-f(x)
-\approx
-f'(x)h
-}
+\boxed{f(x+h)-f(x)\approx f'(x)h}
 $$
 
 という **線形な一次近似** があることです。
@@ -44,7 +41,17 @@ $$
 > が存在するとき、これを $f$ の $x$ における方向 $h$ の **方向微分** といいます。
 <!-- formal-statement-end -->
 
-これは「方向 $h$ に沿って一変数関数として微分する」だけです。
+<!-- definition-example-start: def-f0-02c3-directional-derivative -->
+**定義の確認**  
+$f(u)=u^2$、$x\in\mathbb R$、方向 $h\in\mathbb R$ なら
+
+$$
+\frac{f(x+th)-f(x)}{t}
+=2xh+th^2\to2xh.
+$$
+
+したがって $D_hf(x)=2xh$ です。「方向 $h$ に沿って一変数関数として微分する」という定義そのものを確認できます。
+<!-- definition-example-end -->
 
 方向ごとに微分できること自体は、まだ一つの良い線形近似が存在することを保証しません。
 
@@ -64,6 +71,23 @@ $$
 
 > と書きます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-gateaux-derivative -->
+**定義の確認**  
+$f(x)=\|x\|_2^2$ を $\mathbb R^p$ 上で考えると
+
+$$
+D_hf(x)=2x^{\mathsf T}h.
+$$
+
+右辺は $h$ について線形なので、すべての方向微分が一つの線形写像
+
+$$
+D_Gf(x)[h]=2x^{\mathsf T}h
+$$
+
+にまとまっています。
+<!-- definition-example-end -->
 
 ただしGâteaux微分は方向ごとの情報をまとめただけなので、$h$ の方向によらず誤差が一様に小さいことまでは要求していません。
 
@@ -89,13 +113,27 @@ $$
 > となることです。この一意な $A$ を $Df(x)$ と書き、$f$ の $x$ における **Fréchet微分** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-02c3-frechet-derivative -->
+**定義の確認**  
+$f(x)=\|x\|_2^2$、$x,h\in\mathbb R^p$ とし、$Ah=2x^{\mathsf T}h$ と置きます。すると
+
+$$
+f(x+h)-f(x)-Ah=\|h\|_2^2,
+$$
+
+したがって
+
+$$
+\frac{|f(x+h)-f(x)-Ah|}{\|h\|_2}=\|h\|_2\to0.
+$$
+
+$A$ は線形かつ有限次元なので有界です。よって $Df(x)[h]=2x^{\mathsf T}h$ がFréchet微分です。
+<!-- definition-example-end -->
+
 つまり
 
 $$
-\boxed{
-f(x+h)
-=f(x)+Df(x)h+o(\|h\|)
-}
+\boxed{f(x+h)=f(x)+Df(x)h+o(\|h\|)}
 $$
 
 です。
@@ -112,9 +150,7 @@ $$
 Df(x):X\to\mathbb R
 $$
 
-は連続線形汎関数です。
-
-したがって
+は連続線形汎関数です。したがって
 
 $$
 \boxed{Df(x)\in X^*}.
@@ -125,8 +161,7 @@ $$
 Hilbert空間 $H$ ならRiesz表現定理により一意な $g\in H$ が存在して
 
 $$
-Df(x)[h]
-=\langle g,h\rangle_H.
+Df(x)[h]=\langle g,h\rangle_H.
 $$
 
 この $g$ をHilbert空間での勾配とみなし
@@ -147,19 +182,14 @@ $X=\mathbb R^p$、$f:\mathbb R^p\to\mathbb R$ とします。
 
 $$
 Df(x)[h]
-=\sum_{j=1}^p
-\frac{\partial f}{\partial x_j}(x)h_j
+=\sum_{j=1}^p\frac{\partial f}{\partial x_j}(x)h_j
 =\nabla f(x)^{\mathsf T}h.
 $$
 
 つまり
 
 $$
-\boxed{
-Df(x)
-\longleftrightarrow
-\nabla f(x)
-}
+\boxed{Df(x)\longleftrightarrow\nabla f(x)}
 $$
 
 という対応は、Euclid内積によるRiesz表現そのものです。
@@ -174,24 +204,20 @@ $$
 f(x)=\frac12\|x\|^2
 $$
 
-とします。
-
-$x+h$ で展開すると
+とします。$x+h$ で展開すると
 
 $$
 \begin{aligned}
 f(x+h)
 &=\frac12\langle x+h,x+h\rangle\\
-&=\frac12\|x\|^2
-+\langle x,h\rangle
-+\frac12\|h\|^2.
+&=\frac12\|x\|^2+\langle x,h\rangle+\frac12\|h\|^2.
 \end{aligned}
 $$
 
 したがって
 
 $$
-Df(x)[h]=\langle x,h\rangle.
+Df(x)[h]=\langle x,h\rangle,
 $$
 
 Riesz表現により
@@ -200,13 +226,7 @@ $$
 \boxed{\nabla_Hf(x)=x}.
 $$
 
-SVMの正則化項
-
-$$
-\frac12\|w\|_{\mathcal H}^2
-$$
-
-を $w$ で微分すると $w$ が出る背景です。
+SVMの正則化項 $\frac12\|w\|_{\mathcal H}^2$ を $w$ で微分すると $w$ が出る背景です。
 
 ---
 
@@ -218,22 +238,16 @@ $$
 J(f)=\frac12\|f-g\|_2^2
 $$
 
-とします。
-
-増分 $h$ に対し
+とします。増分 $h$ に対し
 
 $$
-J(f+h)
-=J(f)
-+\langle f-g,h\rangle
-+\frac12\|h\|^2.
+J(f+h)=J(f)+\langle f-g,h\rangle+\frac12\|h\|^2.
 $$
 
 よって
 
 $$
-DJ(f)[h]
-=\langle f-g,h\rangle,
+DJ(f)[h]=\langle f-g,h\rangle,
 $$
 
 したがって
@@ -262,19 +276,24 @@ $$
 > を満たすとき、$T$ を **有界線形作用素** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
+**定義の確認**  
+$T:\mathbb R^2\to\mathbb R$、$T(x_1,x_2)=x_1+2x_2$ とします。Cauchy--Schwarz不等式から
+
+$$
+|Tx|\le\sqrt{1^2+2^2}\,\|x\|_2=\sqrt5\,\|x\|_2.
+$$
+
+したがって $M=\sqrt5$ を取れ、$T$ は有界線形作用素です。
+<!-- definition-example-end -->
+
 線形写像については
 
 $$
-\boxed{
-\text{有界}
-\Longleftrightarrow
-\text{連続}
-}
+\boxed{\text{有界}\Longleftrightarrow\text{連続}}
 $$
 
 です。
-
-線形汎関数で見た議論と同じです。
 
 ---
 
@@ -293,22 +312,28 @@ $$
 > を $T$ の **作用素ノルム** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-02c3-operator-norm -->
+**定義の確認**  
+前節の $T(x_1,x_2)=x_1+2x_2$ では Cauchy--Schwarz から $\|T\|\le\sqrt5$ です。一方
+
+$$
+x=\frac1{\sqrt5}(1,2)
+$$
+
+は $\|x\|_2=1$ で $|Tx|=\sqrt5$ を与えるので
+
+$$
+\boxed{\|T\|=\sqrt5}.
+$$
+<!-- definition-example-end -->
+
 同値に
 
 $$
-\|T\|
-=\sup_{x\ne0}
-\frac{\|Tx\|_Y}{\|x\|_X}.
+\|T\|=\sup_{x\ne0}\frac{\|Tx\|_Y}{\|x\|_X},
 $$
 
-したがって
-
-$$
-\|Tx\|_Y
-\le\|T\|\|x\|_X.
-$$
-
-有限次元でEuclidノルムを使う行列 $A$ の作用素ノルムは最大特異値です。
+したがって $\|Tx\|_Y\le\|T\|\|x\|_X$ です。有限次元でEuclidノルムを使う行列 $A$ の作用素ノルムは最大特異値です。
 
 ---
 
@@ -320,51 +345,114 @@ $$
 Df(x)\in\mathcal L(X,Y),
 $$
 
-ここで
-
-$$
-\mathcal L(X,Y)
-$$
-
-は有界線形作用素全体です。
+ここで $\mathcal L(X,Y)$ は有界線形作用素全体です。
 
 有限次元では
 
 $$
-DF(x)
-\longleftrightarrow
-J_F(x)
+DF(x)\longleftrightarrow J_F(x)
 $$
 
-です。
-
-Jacobian行列は、微分という線形写像を座標で表したものにすぎません。
+です。Jacobian行列は、微分という線形写像を座標で表したものにすぎません。
 
 ---
 
-## 12. 連鎖律
+## 12. Fréchet微分の連鎖律
 
-$f:X\to Y$、$g:Y\to Z$ がそれぞれ適切にFréchet微分可能なら
+<a id="thm-f0-02c3-frechet-chain-rule"></a>
 
-$$
-\boxed{
-D(g\circ f)(x)
-=Dg(f(x))\circ Df(x)
-}
-$$
-
-です。
-
-有限次元では行列積
+<!-- formal-statement-start -->
+> **定理（Fréchet微分の連鎖律）**  
+> $X,Y,Z$ をノルム空間、$U\subset X$、$V\subset Y$ を開集合とします。$f:U\to V$ が $x\in U$ でFréchet微分可能、$g:V\to Z$ が $f(x)$ でFréchet微分可能なら、$g\circ f$ は $x$ でFréchet微分可能で
 
 $$
-J_{g\circ f}(x)
-=J_g(f(x))J_f(x)
+\boxed{D(g\circ f)(x)=Dg(f(x))\circ Df(x)}
 $$
 
-になります。
+> が成り立ちます。
+<!-- formal-statement-end -->
 
 関数解析では「Jacobianの積」ではなく、**一次近似作用素の合成** が本体です。
+
+<!-- proof-start -->
+### 証明：二つの $o(\|h\|)$ を合成後も制御する
+
+$$
+A=Df(x),\qquad B=Dg(f(x))
+$$
+
+と置きます。Fréchet微分の定義から
+
+$$
+f(x+h)=f(x)+Ah+r_f(h),
+\qquad
+\frac{\|r_f(h)\|_Y}{\|h\|_X}\to0.
+$$
+
+ここで
+
+$$
+k_h:=f(x+h)-f(x)=Ah+r_f(h)
+$$
+
+と置きます。$A$ は有界なので
+
+$$
+\frac{\|k_h\|_Y}{\|h\|_X}
+\le \|A\|+\frac{\|r_f(h)\|_Y}{\|h\|_X}
+$$
+
+であり、右辺は $h\to0$ で有界です。したがって $k_h=O(\|h\|_X)$、特に $k_h\to0$ です。
+
+一方、$g$ のFréchet微分可能性から
+
+$$
+g(f(x)+k)=g(f(x))+Bk+r_g(k),
+\qquad
+\frac{\|r_g(k)\|_Z}{\|k\|_Y}\to0
+$$
+
+です。$k=k_h$ を代入すると
+
+$$
+\begin{aligned}
+(g\circ f)(x+h)-(g\circ f)(x)-BAh
+&=B r_f(h)+r_g(k_h).
+\end{aligned}
+$$
+
+第1項は
+
+$$
+\frac{\|Br_f(h)\|_Z}{\|h\|_X}
+\le\|B\|\frac{\|r_f(h)\|_Y}{\|h\|_X}\to0.
+$$
+
+第2項は $k_h=0$ のとき0とみなせます。$k_h\ne0$ なら
+
+$$
+\frac{\|r_g(k_h)\|_Z}{\|h\|_X}
+=
+\frac{\|r_g(k_h)\|_Z}{\|k_h\|_Y}
+\frac{\|k_h\|_Y}{\|h\|_X}\to0,
+$$
+
+なぜなら第1因子は0へ収束し、第2因子は有界だからです。従って残差全体が $o(\|h\|_X)$ であり、$BA$ は有界線形作用素なので
+
+$$
+D(g\circ f)(x)=BA
+$$
+
+が従います。$\square$
+<!-- proof-end -->
+
+有限次元ではこの式が
+
+$$
+J_{g\circ f}(x)=J_g(f(x))J_f(x)
+$$
+
+という行列積になります。
 
 ---
 
