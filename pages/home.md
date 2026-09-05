@@ -7,6 +7,7 @@
 - [統計数理 100大問](statistical-mathematics/index.md)
 - [統計応用（理工学）80大問](applied-rikou-80/index.md)
 - [通常教材（テキストブック）](textbook/index.md)
+  - [計算基礎体力 — 統計検定1級のための微積・線形代数](textbook/volumes/00_foundations/F0_00CALC_計算基礎体力/index.md)
 - <a href="./anki/index.html" data-no-router>Ankiカード</a>
 
 > **発展：DREAM THEATER 数学講座**  

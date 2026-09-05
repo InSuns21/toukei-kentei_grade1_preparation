@@ -40,9 +40,12 @@ for (const section of manifest.sections) {
   }
 }
 
-// Every direct chapter directory under 00_foundations that has index.md belongs in the facade.
+// Direct foundation chapters normally belong in the DREAM THEATER facade.
+// F0_00CALC_* is reserved for calculation-only reader support: it lives beside
+// the foundations for navigation, but is intentionally outside the theory facade.
 const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
+  .filter((entry) => !entry.name.startsWith('F0_00CALC_'))
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
   .map((p) => toPosix(path.relative(repoRoot, p)))
