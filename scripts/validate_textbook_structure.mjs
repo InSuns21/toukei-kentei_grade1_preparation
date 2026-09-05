@@ -41,6 +41,7 @@ for (const file of requiredRoot) {
 }
 
 validateCanonicalTemplate();
+validateExercisePlacement();
 
 let data;
 try {
@@ -100,6 +101,67 @@ function validateCanonicalTemplate() {
   if (solutionStart === -1 || solutionEnd === -1 || solutionStart >= solutionEnd) {
     errors.push('章テンプレートの solution marker が不足しているか順序が不正です');
   }
+}
+
+function validateExercisePlacement() {
+  const volumesRoot = path.join(textbookRoot, 'volumes');
+  if (!fs.existsSync(volumesRoot)) return;
+
+  for (const volume of fs.readdirSync(volumesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
+    const volumeDir = path.join(volumesRoot, volume.name);
+    for (const chapter of fs.readdirSync(volumeDir, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
+      const indexPath = path.join(volumeDir, chapter.name, 'index.md');
+      if (!fs.existsSync(indexPath)) continue;
+
+      const content = fs.readFileSync(indexPath, 'utf8');
+      const headings = [...content.matchAll(/^(#{1,6})\s+(.+)$/gm)].map((match) => ({
+        pos: match.index,
+        depth: match[1].length,
+        text: match[2].trim(),
+      }));
+
+      const anchoredExercise = /<a id="ex-[^"]+"><\/a>\s*\n(#{1,6})\s+([^\n]+)\n(?:[^\n]*\n){0,8}?-\s*Level:\s*([A-D])\b/g;
+      for (const match of content.matchAll(anchoredExercise)) {
+        const problemPos = match.index;
+        const problemDepth = match[1].length;
+        const level = match[3].toUpperCase();
+        const parent = nearestParentHeading(headings, problemPos, problemDepth);
+
+        if (!parent || parent.depth !== problemDepth - 1) {
+          errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} 演習 ${match[2]} の見出し階層が不正です`);
+          continue;
+        }
+
+        const parentLevel = parent.text.match(/^Level\s+([A-D])(?:\b|[:：])/i)?.[1]?.toUpperCase();
+        const sectionLevel = parent.text.match(/演習\s+Level\s+([A-D])(?:\b|[:：])/i)?.[1]?.toUpperCase();
+
+        if (parent.text.includes('演習')) {
+          if (sectionLevel && sectionLevel !== level) {
+            errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} Level ${level} 演習が ${parent.text} に入っています`);
+          }
+          continue;
+        }
+
+        if (parentLevel) {
+          const grandparent = nearestParentHeading(headings, parent.pos, parent.depth);
+          if (parentLevel !== level || !grandparent?.text.includes('演習')) {
+            errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} Level ${level} 演習 ${match[2]} が正しい演習節に入っていません`);
+          }
+          continue;
+        }
+
+        errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} Level ${level} 演習 ${match[2]} が本文側に置かれています`);
+      }
+    }
+  }
+}
+
+function nearestParentHeading(headings, pos, depth) {
+  for (let i = headings.length - 1; i >= 0; i -= 1) {
+    const heading = headings[i];
+    if (heading.pos < pos && heading.depth < depth) return heading;
+  }
+  return null;
 }
 
 function validateCurriculum(data) {
@@ -188,6 +250,10 @@ function detectCycles(chapters) {
   }
 
   for (const id of graph.keys()) visit(id, []);
+}
+
+function lineAt(source, index) {
+  return source.slice(0, index).split('\n').length;
 }
 
 function relative(file) {
