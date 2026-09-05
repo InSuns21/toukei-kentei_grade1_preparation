@@ -1,72 +1,366 @@
 # F0-00P3B 条件付き期待値のL2射影・最良予測
 
-P3Aでは条件付き期待値をRadon--Nikodym構成として定義しました。$X\in L^2$ なら、同じ対象をHilbert空間の**直交射影**として読むことができます。
+<!-- definition-example-audit: strict -->
 
-$$\boxed{E[X\mid\mathcal G]=P_{L^2(\mathcal G)}X}$$
+P3Aでは条件付き期待値をRadon--Nikodym定理から構成しました。$X\in L^2$ なら、同じ対象をHilbert空間の**直交射影**として読むことができます。
 
-この見方がmartingale、時系列予測、control variateへそのまま伸びます。
+$$
+\boxed{E[X\mid\mathcal G]=P_{L^2(\mathcal G)}X}
+$$
 
----
-
-## 1. $L^2(\mathcal G)$ は閉部分空間
-
-$L^2(\mathcal F)$ のうち $\mathcal G$-可測な同値類だけを集めた部分空間を
-
-$$L^2(\mathcal G)=\{Z\in L^2(\mathcal F):Z\text{ is }\mathcal G\text{-measurable}\}$$
-
-とします。$L^2$ 極限からa.s.収束する部分列を取り、可測関数のa.s.極限が可測であることを使えば、この部分空間は閉です。従ってD2Eの$L^2$完備性によりHilbert空間の閉部分空間になります。
+ここでは「なぜ射影なのか」を、閉部分空間性と直交性から順に証明します。
 
 ---
 
-## 2. 残差は既知情報と直交する
+## 1. 情報 $\mathcal G$ だけで作れる $L^2$ 確率変数
 
-$M=E[X\mid\mathcal G]$ とします。まず有界な $\mathcal G$-可測 $Z$ について単関数近似を使うと
+<a id="def-f0-00p3b-l2g"></a>
 
-$$E[(X-M)Z]=0.$$
+<!-- formal-statement-start -->
+> **定義（$L^2(\mathcal G)$）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ と部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ に対して
 
-一般の $Z\in L^2(\mathcal G)$ へは切断 $Z_K=(-K)\vee Z\wedge K$ とCauchy--Schwarzで極限を取ればよいので、
+$$
+L^2(\mathcal G)
+=
+\{Z\in L^2(\mathcal F):Z\text{ は }\mathcal G\text{-可測な代表元を持つ}\}
+$$
 
-$$\boxed{X-M\perp L^2(\mathcal G)}$$
+> と定めます。
+<!-- formal-statement-end -->
 
-です。
+### 1.1 例：二つのセルしか区別できない情報
+
+$\Omega=\{1,2,3,4\}$ に一様分布を入れ、
+
+$$
+\mathcal G
+=
+\sigma(\{1,2\})
+=
+\{\varnothing,\{1,2\},\{3,4\},\Omega\}
+$$
+
+とします。確率変数
+
+$$
+Z(1)=Z(2)=1,
+\qquad
+Z(3)=Z(4)=-2
+$$
+
+を考えます。
+
+<!-- definition-example-start: def-f0-00p3b-l2g -->
+**定義の確認**
+
+$Z$ は $\{1,2\}$ 上と $\{3,4\}$ 上でそれぞれ一定なので $\mathcal G$-可測です。また
+
+$$
+E[Z^2]
+=\frac14(1+1+4+4)
+=\frac52<\infty.
+$$
+
+従って $Z\in L^2(\mathcal F)$ であり、かつ $\mathcal G$-可測な代表元を持つので
+
+$$
+\boxed{Z\in L^2(\mathcal G)}.
+$$
+<!-- definition-example-end -->
 
 ---
 
-## 3. Pythagoras分解
+## 2. $L^2(\mathcal G)$ は閉部分空間
 
-任意の $Z\in L^2(\mathcal G)$ に対し
+<a id="thm-f0-00p3b-l2g-closed"></a>
 
-$$X-Z=(X-M)+(M-Z).$$
+<!-- formal-statement-start -->
+> **定理（$L^2(\mathcal G)$ の閉部分空間性）**  
+> $L^2(\mathcal G)$ はHilbert空間 $L^2(\mathcal F)$ の閉線形部分空間です。
+<!-- formal-statement-end -->
 
-二項は直交するので
+線形部分空間であることは可測関数の線形結合が可測であることから直ちに分かります。閉性を確認します。
 
-$$\boxed{\|X-Z\|_2^2=\|X-M\|_2^2+\|M-Z\|_2^2}.$$
+<!-- proof-start -->
+$Z_n\in L^2(\mathcal G)$ が
 
-したがって
+$$
+\|Z_n-Z\|_2\to0
+$$
 
-$$\boxed{E[X\mid\mathcal G]=\arg\min_{Z\in L^2(\mathcal G)}E[(X-Z)^2]}$$
+を満たすとします。各 $Z_n$ は $\mathcal G$-可測な代表元を選んでおきます。
 
-であり、a.s.の意味で一意です。
+部分列 $Z_{n_k}$ を
+
+$$
+E|Z_{n_k}-Z|^2\le2^{-3k}
+$$
+
+となるように取れます。Markovの不等式から
+
+$$
+P\left(|Z_{n_k}-Z|>2^{-k}\right)
+\le
+2^{2k}E|Z_{n_k}-Z|^2
+\le2^{-k}.
+$$
+
+従って任意の $m$ に対して
+
+$$
+P\left(\bigcup_{k\ge m}\{|Z_{n_k}-Z|>2^{-k}\}\right)
+\le
+\sum_{k\ge m}2^{-k}\to0.
+$$
+
+よって確率1で、十分大きい $k$ について
+
+$$
+|Z_{n_k}-Z|\le2^{-k},
+$$
+
+すなわち $Z_{n_k}\to Z$ a.s. です。
+
+一方
+
+$$
+W=\limsup_{k\to\infty}Z_{n_k}
+$$
+
+は $\mathcal G$-可測です。しかも $W=Z$ a.s. なので、$Z$ の $L^2$ 同値類は $\mathcal G$-可測な代表元 $W$ を持ちます。従って
+
+$$
+Z\in L^2(\mathcal G).
+$$
+
+よって $L^2(\mathcal G)$ は閉です。
+<!-- proof-end -->
+
+[F0-00D2Eの$L^2$完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md)と合わせれば、$L^2(\mathcal G)$ 自身もHilbert空間です。
 
 ---
 
-## 4. 「情報が増える」と予測空間が広がる
+## 3. $X\in L^2$ なら条件付き期待値も $L^2$
+
+$X\in L^2(\mathcal F)$ とし
+
+$$
+M=E[X\mid\mathcal G]
+$$
+
+と置きます。P3Aの構成から最初に分かるのは $M\in L^1$ までなので、$L^2$ 性を一度確認する必要があります。
+
+<a id="lem-f0-00p3b-l2-contraction"></a>
+
+<!-- formal-statement-start -->
+> **補題（条件付き期待値の$L^2$縮小性）**  
+> $X\in L^2$ なら $E[X\mid\mathcal G]\in L^2$ であり、
+
+$$
+\boxed{\|E[X\mid\mathcal G]\|_2\le\|X\|_2}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+$K>0$ に対し
+
+$$
+M_K=M\mathbf1_{\{|M|\le K\}}
+$$
+
+と置きます。$M_K$ は有界かつ $\mathcal G$-可測なので、P3Aで証明した「既知の有界量を外へ出す」性質から
+
+$$
+E[XM_K]=E[MM_K].
+$$
+
+従って
+
+$$
+E[M^2\mathbf1_{\{|M|\le K\}}]
+=E[XM\mathbf1_{\{|M|\le K\}}].
+$$
+
+左辺を $A_K$ とするとCauchy--Schwarzより
+
+$$
+A_K
+\le
+\|X\|_2 A_K^{1/2}.
+$$
+
+$A_K=0$ でなければ両辺を $A_K^{1/2}$ で割って
+
+$$
+A_K^{1/2}\le\|X\|_2.
+$$
+
+$K\to\infty$ とし、単調収束定理を使えば
+
+$$
+E[M^2]\le E[X^2]<\infty.
+$$
+
+従って $M\in L^2$ で、主張のノルム不等式も得られます。
+<!-- proof-end -->
+
+---
+
+## 4. 残差は既知情報と直交する
+
+<a id="thm-f0-00p3b-orthogonality"></a>
+
+<!-- formal-statement-start -->
+> **定理（条件付き期待値の直交性）**  
+> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。このとき
+
+$$
+\boxed{E[(X-M)Z]=0\qquad(\forall Z\in L^2(\mathcal G))}
+$$
+
+> すなわち $X-M\perp L^2(\mathcal G)$ です。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+まず $Z$ が有界かつ $\mathcal G$-可測なら、P3Aの積分一致を指示関数から単関数、さらに有界可測関数へ拡張した結果から
+
+$$
+E[XZ]=E[MZ],
+$$
+
+従って $E[(X-M)Z]=0$ です。
+
+一般の $Z\in L^2(\mathcal G)$ に対し
+
+$$
+Z_K=(-K)\vee(Z\wedge K)
+$$
+
+と切断します。各 $Z_K$ は有界かつ $\mathcal G$-可測で
+
+$$
+E[(X-M)Z_K]=0.
+$$
+
+また $\|Z_K-Z\|_2\to0$ です。前節から $X-M\in L^2$ なのでCauchy--Schwarzより
+
+$$
+|E[(X-M)(Z_K-Z)]|
+\le
+\|X-M\|_2\|Z_K-Z\|_2
+\to0.
+$$
+
+従って極限を取って
+
+$$
+E[(X-M)Z]=0.
+$$
+<!-- proof-end -->
+
+---
+
+## 5. 直交射影・最良予測
+
+<a id="thm-f0-00p3b-best-predictor"></a>
+
+<!-- formal-statement-start -->
+> **定理（条件付き期待値は最小二乗最良予測）**  
+> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。任意の $Z\in L^2(\mathcal G)$ に対して
+
+$$
+\boxed{
+\|X-Z\|_2^2
+=
+\|X-M\|_2^2+
+\|M-Z\|_2^2
+}
+$$
+
+> が成り立ちます。従って
+
+$$
+\boxed{
+M
+=
+\operatorname*{arg\,min}_{Z\in L^2(\mathcal G)}E[(X-Z)^2]
+}
+$$
+
+> であり、最小化解はa.s.一意です。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+任意の $Z\in L^2(\mathcal G)$ に対して
+
+$$
+X-Z=(X-M)+(M-Z).
+$$
+
+ここで $M-Z\in L^2(\mathcal G)$ なので、前節の直交性から
+
+$$
+\langle X-M,M-Z\rangle
+=E[(X-M)(M-Z)]
+=0.
+$$
+
+よって平方ノルムを展開すると
+
+$$
+\|X-Z\|_2^2
+=
+\|X-M\|_2^2+
+\|M-Z\|_2^2.
+$$
+
+第2項は非負なので $Z=M$ で最小値を取ります。等号を達成する $Z$ では $\|M-Z\|_2=0$ だから $Z=M$ a.s. です。
+<!-- proof-end -->
+
+従ってHilbert空間の記法では
+
+$$
+\boxed{E[X\mid\mathcal G]=P_{L^2(\mathcal G)}X}
+$$
+
+と書けます。
+
+---
+
+## 6. 情報が増えると予測空間が広がる
 
 $\mathcal H\subseteq\mathcal G$ なら
 
-$$L^2(\mathcal H)\subseteq L^2(\mathcal G).$$
+$$
+L^2(\mathcal H)\subseteq L^2(\mathcal G).
+$$
 
-より多くの情報を許せば候補となる予測関数が増えるため、最小二乗誤差は悪化しません。tower propertyは射影の入れ子
+従って情報が増えるほど最小二乗予測の候補が増え、最小二乗誤差は悪化しません。またP3Aのtower propertyは
 
-$$P_{L^2(\mathcal H)}P_{L^2(\mathcal G)}=P_{L^2(\mathcal H)}$$
+$$
+P_{L^2(\mathcal H)}P_{L^2(\mathcal G)}
+=P_{L^2(\mathcal H)}
+$$
 
-としても読めます。
+という射影の入れ子として読めます。
+
+この「増える閉部分空間への射影がどこへ収束するか」が次のP3CのLévy上昇定理につながります。
 
 ---
 
-## 5. 線形回帰との違い
+## 7. 線形回帰との違い
 
-線形回帰は「説明変数の線形span」への射影です。一方 $E[X\mid Y]$ は、$Y$ の**任意の可測関数**からなる $L^2(\sigma(Y))$ への射影です。したがって一般には非線形です。
+線形回帰は説明変数の**線形span**への射影です。一方
+
+$$
+E[X\mid Y]
+=E[X\mid\sigma(Y)]
+$$
+
+は $Y$ の任意の二乗可積分な可測関数からなる $L^2(\sigma(Y))$ への射影です。従って一般には非線形です。
 
 Gaussianの場合には条件付き期待値が線形になるため、線形回帰と条件付き期待値が一致する特別な状況が現れます。
 
@@ -79,45 +373,81 @@ Gaussianの場合には条件付き期待値が線形になるため、線形回
 - Level: A
 - 目安時間: 12分
 
-$X\in L^2$、$M=E[X\mid\mathcal G]$ とする。任意の $Z\in L^2(\mathcal G)$ について $E[(X-Z)^2]=E[(X-M)^2]+E[(M-Z)^2]$ を示せ。
+$X\in L^2$、$M=E[X\mid\mathcal G]$ とする。任意の $Z\in L^2(\mathcal G)$ について
+
+$$
+E[(X-Z)^2]
+=E[(X-M)^2]+E[(M-Z)^2]
+$$
+
+を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$X-Z=(X-M)+(M-Z)$。交差項は $M-Z$ がG可測なので $E[(X-M)(M-Z)]=0$。従って平方展開がPythagoras型に分解する。
+
+$$
+X-Z=(X-M)+(M-Z)
+$$
+
+を平方展開する。$M-Z\in L^2(\mathcal G)$ なので直交性から
+
+$$
+E[(X-M)(M-Z)]=0.
+$$
+
+従って交差項が消え、主張の分解を得る。
 
 #### 本番答案
-平方展開し、$E[(X-M)(M-Z)]=0$ を条件付き期待値の直交性から用いる。
+平方展開し、$M-Z\in L^2(\mathcal G)$ と $X-M\perp L^2(\mathcal G)$ から交差項が0になることを用いる。
 
 #### 採点基準（20点）
 - 分解: 4点
-- 交差項: 8点
-- 直交性の理由: 5点
-- 結論: 3点
+- $M-Z\in L^2(\mathcal G)$: 4点
+- 直交性: 7点
+- 結論: 5点
 <!-- solution-end -->
 
-### F0-00P3B-B01 最良予測の一意性
+### F0-00P3B-B01 $L^2$縮小性をJensenなしで示す
 
 - Level: B
-- 目安時間: 15分
+- 目安時間: 18分
 
-上の分解から、$M=E[X\mid\mathcal G]$ が $L^2(\mathcal G)$ の中で平均二乗誤差を最小化する一意な予測であることを示せ。
+$X\in L^2$、$M=E[X\mid\mathcal G]$ とする。$M_K=M\mathbf1_{\{|M|\le K\}}$ を用いて
+
+$$
+\|M\|_2\le\|X\|_2
+$$
+
+を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-右辺第2項は非負なので $E[(X-Z)^2]\ge E[(X-M)^2]$。等号なら $E[(M-Z)^2]=0$、従って $Z=M$ a.s.。
+$M_K$ は有界 $\mathcal G$-可測なので $E[XM_K]=E[MM_K]$。従って
+
+$$
+A_K:=E[M^2\mathbf1_{\{|M|\le K\}}]
+=E[XM_K]
+\le\|X\|_2A_K^{1/2}.
+$$
+
+よって $A_K\le\|X\|_2^2$。$K\to\infty$ として単調収束定理を使えば
+
+$$
+E[M^2]\le E[X^2].
+$$
 
 #### 本番答案
-Pythagoras分解の第2項が非負。等号条件は $\|M-Z\|_2=0$ なので $Z=M$ a.s.。
+切断 $M_K$ をテスト関数として積分一致を使い、Cauchy--Schwarzで $A_K^{1/2}\le\|X\|_2$。最後に単調収束定理で $K\to\infty$。
 
 #### 採点基準（20点）
-- 非負性: 6点
-- 最小性: 6点
-- 等号条件: 5点
-- a.s.一意性: 3点
+- 切断の利用: 4点
+- 積分一致: 5点
+- Cauchy--Schwarz: 5点
+- 単調収束と結論: 6点
 <!-- solution-end -->
 
 ---
 
 ## 次に進む
 
-条件付き期待値の測度論とHilbert幾何が揃いました。収束事象を扱う [F0-00P4](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md) へ進めます。Encore IVのmartingale・時系列予測へ行く場合、このP3BがHilbert予測の直接の橋になります。
+情報が段階的に増えるときの条件付き期待値の極限を [F0-00P3C Lévy上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md) で証明します。
