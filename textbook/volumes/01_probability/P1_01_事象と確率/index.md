@@ -41,6 +41,11 @@
 > 確率的な試行で起こり得る結果全体の集合を **標本空間** といい、通常 $\Omega$ と書きます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-p1-01-sample-space -->
+**定義の確認**  
+公平な六面体さいころを1回投げる試行では、起こり得る結果全体は $\Omega=\{1,2,3,4,5,6\}$ です。偶数事象 $\{2,4,6\}$ は標本空間そのものではなく、その部分集合です。
+<!-- definition-example-end -->
+
 この例では
 
 $$
@@ -376,6 +381,28 @@ $$
 
 三重共通部分は最初に3回足され、二重共通部分を3個引く操作でさらに3回引かれるので、その時点で0回です。最後に1回足し戻して、最終的に1回数えます。
 
+<a id="thm-p1-01-inclusion-exclusion"></a>
+
+<!-- formal-statement-start -->
+> **定理（包除原理：二事象・三事象）**  
+> 任意の事象 $A,B,C$ に対して次が成り立つ。
+
+$$
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+$$
+
+$$
+\begin{aligned}
+P(A\cup B\cup C)
+&=P(A)+P(B)+P(C)\\
+&\quad-P(A\cap B)-P(B\cap C)-P(C\cap A)\\
+&\quad+P(A\cap B\cap C).
+\end{aligned}
+$$
+
+> すなわち、重複して数えた共通部分を交互に引き戻し・足し戻す。
+<!-- formal-statement-end -->
+
 ---
 
 ## 6. 確率の連続性
@@ -505,6 +532,11 @@ $$
 
 > をそれぞれ **上極限事象**、**下極限事象** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p1-01-event-limsup-liminf -->
+**定義の確認**  
+$\Omega=\{1,2\}$ とし、奇数 $n$ では $A_n=\{1\}$、偶数 $n$ では $A_n=\{1,2\}$ とします。1は十分後も常に属するので $1\in\liminf A_n$、2は偶数番目に無限回だけ属するので $2\in\limsup A_n$ ですが $2\notin\liminf A_n$ です。したがって $\liminf A_n=\{1\}$、$\limsup A_n=\{1,2\}$ です。
+<!-- definition-example-end -->
 
 上極限事象に標本点 $\omega$ が属するとは、どれだけ後ろから見始めても、その後に $A_n$ が少なくとも一度は起こることです。したがって
 
