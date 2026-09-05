@@ -1,0 +1,24 @@
+id: "F0-00SDE1A"
+title: "Euler--Maruyama weak order 1 の証明"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00SP5
+  - F0-00SDE1
+official_scope: []
+learning_objectives:
+  - backward Kolmogorov equation を期待値誤差の解析へ使える
+  - Euler--Maruyama の1ステップを frozen generator で表せる
+  - 局所弱誤差が O(h^2) になる理由を証明できる
+  - telescoping sum から大域 weak order 1 を導ける
+definitions:
+  - { id: F0SDE1A-DEF-01, name: frozen generator }
+  - { id: F0SDE1A-DEF-02, name: local weak defect }
+theorems:
+  - { id: F0SDE1A-THM-01, name: Euler--Maruyama の weak order 1 }
+canonical_examples: [one-step frozen diffusion, terminal payoff expectation]
+problem_patterns: [EM-WEAK-LOCAL-1, EM-WEAK-GLOBAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.0, exercises: 0.75, review: 0.25 }
