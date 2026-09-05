@@ -55,9 +55,8 @@ concepts:
 
   - id: distribution.regular-embedding
     name: 局所可積分関数による正則超関数の埋め込み
-    kind: theorem
+    kind: term
     aliases: [普通の局所可積分関数]
-    introduction: inline
     requires:
       - distribution.regular-distribution
       - distribution.schwartz-distribution
