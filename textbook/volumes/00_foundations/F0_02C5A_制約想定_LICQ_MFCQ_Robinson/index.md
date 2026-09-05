@@ -63,21 +63,21 @@ $$
 <!-- formal-statement-start -->
 > **定義（active set・線形化cone）**  
 > 実行可能点 $x^*$ における active set を
->
-> $$
-> I(x^*)=\{i:g_i(x^*)=0\}
-> $$
->
+
+$$
+I(x^*)=\{i:g_i(x^*)=0\}
+$$
+
 > とします。また
->
-> $$
-> L_C(x^*)=
-> \left\{d:
-> \nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),\ 
-> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
-> \right\}
-> $$
->
+
+$$
+L_C(x^*)=
+\left\{d:
+\nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),\ 
+\nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
+\right\}
+$$
+
 > を $x^*$ における線形化coneといいます。
 <!-- formal-statement-end -->
 
@@ -116,13 +116,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（LICQ）**  
 > 実行可能点 $x^*$ で
->
-> $$
-> \{\nabla g_i(x^*):i\in I(x^*)\}
-> \cup
-> \{\nabla h_j(x^*):j=1,\ldots,r\}
-> $$
->
+
+$$
+\{\nabla g_i(x^*):i\in I(x^*)\}
+\cup
+\{\nabla h_j(x^*):j=1,\ldots,r\}
+$$
+
 > が一次独立であるとき、LICQ が成立するといいます。
 <!-- formal-statement-end -->
 
@@ -156,20 +156,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（MFCQ）**  
-> 実行可能点 $x^*$ で次の二条件を満たすとき、MFCQ が成立するといいます。
->
-> 1. $\nabla h_1(x^*),\ldots,\nabla h_r(x^*)$ が一次独立である。
-> 2. ある $v\in\mathbb R^n$ が存在して
->
-> $$
-> \nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
-> $$
->
+> 実行可能点 $x^*$ で次の二条件を満たすとき、MFCQ が成立するといいます。第1に $\nabla h_1(x^*),\ldots,\nabla h_r(x^*)$ が一次独立であること。第2に、ある $v\in\mathbb R^n$ が存在して
+
+$$
+\nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
+$$
+
 > かつ
->
-> $$
-> \nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*)).
-> $$
+
+$$
+\nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*)).
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c5a-mfcq -->
@@ -252,11 +249,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（接錐は線形化coneに含まれる）**  
 > 全ての $g_i,h_j$ が $x^*$ で微分可能なら
->
-> $$
-> T_C(x^*)\subset L_C(x^*)
-> $$
->
+
+$$
+T_C(x^*)\subset L_C(x^*)
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -304,11 +301,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（MFCQ下の接錐一致）**  
 > $g_i,h_j$ が $C^1$ 級で、実行可能点 $x^*$ において MFCQ が成立するとします。このとき
->
-> $$
-> T_C(x^*)=L_C(x^*)
-> $$
->
+
+$$
+T_C(x^*)=L_C(x^*)
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -403,19 +400,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（有限次元の通常制約に対する Robinson CQ）**  
 > 集合
->
-> $$
-> \mathcal R
-> =
-> \{(Bd,\ Ad+s):d\in\mathbb R^n,\ s\in\mathbb R_+^q\}
-> $$
->
+
+$$
+\mathcal R
+=
+\{(Bd,\ Ad+s):d\in\mathbb R^n,\ s\in\mathbb R_+^q\}
+$$
+
 > が原点の近傍を含む、すなわち
->
-> $$
-> 0\in\operatorname{int}\mathcal R
-> $$
->
+
+$$
+0\in\operatorname{int}\mathcal R
+$$
+
 > であるとき Robinson CQ が成立するといいます。
 <!-- formal-statement-end -->
 
@@ -522,22 +519,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（線形化coneのpolar表示）**  
 > active不等式の勾配を行に並べた行列を $A$、等式勾配を行に並べた行列を $B$ とすると
->
-> $$
-> L_C(x^*)=\{d:Ad\le0,\ Bd=0\}
-> $$
->
+
+$$
+L_C(x^*)=\{d:Ad\le0,\ Bd=0\}
+$$
+
 > に対して
->
-> $$
-> \boxed{
-> L_C(x^*)^\circ
-> =
-> \{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
-> \lambda\ge0,\ \nu\in\mathbb R^r\}
-> }
-> $$
->
+
+$$
+\boxed{
+L_C(x^*)^\circ
+=
+\{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
+\lambda\ge0,\ \nu\in\mathbb R^r\}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -600,17 +597,17 @@ $A$ の各行ベクトル $a_i$ は $M$ に入るので $Ad\le0$、また $\pm b
 <!-- formal-statement-start -->
 > **定理（MFCQ下のKKT乗数存在）**  
 > $x^*$ が $C$ 上の局所最適点で、$f,g_i,h_j$ が $C^1$ 級、かつ $x^*$ で MFCQ が成立するとします。このとき、ある $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
->
-> $$
-> \nabla f(x^*)
-> +\sum_{i=1}^m\lambda_i\nabla g_i(x^*)
-> +\sum_{j=1}^r\nu_j\nabla h_j(x^*)=0,
-> $$
->
-> $$
-> \lambda_i g_i(x^*)=0
-> $$
->
+
+$$
+\nabla f(x^*)
++\sum_{i=1}^m\lambda_i\nabla g_i(x^*)
++\sum_{j=1}^r\nu_j\nabla h_j(x^*)=0,
+$$
+
+$$
+\lambda_i g_i(x^*)=0
+$$
+
 > を満たします。
 <!-- formal-statement-end -->
 
@@ -675,17 +672,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（滑らかな凸制約集合のnormal cone）**  
 > 各 $g_i$ が凸で $C^1$ 級、各 $h_j$ がアフィンで、$x^*$ で MFCQ が成立するとします。このとき
->
-> $$
-> N_C(x^*)
-> =
-> \left\{
-> \sum_i\lambda_i\nabla g_i(x^*)
-> +\sum_j\nu_j\nabla h_j(x^*):
-> \lambda_i\ge0,
-> \lambda_i g_i(x^*)=0
-> \right\}.
-> $$
+
+$$
+N_C(x^*)
+=
+\left\{
+\sum_i\lambda_i\nabla g_i(x^*)
++\sum_j\nu_j\nabla h_j(x^*):
+\lambda_i\ge0,
+\lambda_i g_i(x^*)=0
+\right\}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
