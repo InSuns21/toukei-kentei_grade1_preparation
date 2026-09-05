@@ -1,0 +1,32 @@
+chapter: F0-00G2
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00G1
+
+concepts:
+  - id: convex.fenchel-conjugate
+    name: Fenchel共役
+    kind: definition
+    introduction: inline
+    aliases: [Fenchel共役]
+    requires:
+      - convex.convex-function
+      - linear.inner-product
+
+  - id: convex.fenchel-young
+    name: Fenchel--Youngの不等式
+    kind: theorem
+    introduction: inline
+    aliases: [Fenchel--Young]
+    requires:
+      - convex.fenchel-conjugate
+
+  - id: convex.fenchel-duality
+    name: Fenchel双対
+    kind: theorem
+    introduction: inline
+    aliases: [Fenchel双対]
+    requires:
+      - convex.fenchel-conjugate
+      - convex.closed-convex-function

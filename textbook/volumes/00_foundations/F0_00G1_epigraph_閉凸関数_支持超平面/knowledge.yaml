@@ -1,0 +1,30 @@
+chapter: F0-00G1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00G
+
+concepts:
+  - id: convex.epigraph
+    name: epigraph
+    kind: definition
+    introduction: inline
+    aliases: [epigraph]
+    requires:
+      - convex.convex-function
+
+  - id: convex.closed-convex-function
+    name: 閉凸関数
+    kind: definition
+    introduction: inline
+    aliases: [閉凸関数]
+    requires:
+      - convex.epigraph
+
+  - id: convex.supporting-hyperplane
+    name: 支持超平面
+    kind: definition
+    introduction: inline
+    aliases: [支持超平面]
+    requires:
+      - convex.convex-set

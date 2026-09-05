@@ -1,0 +1,23 @@
+chapter: F0-00E1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00E
+
+concepts:
+  - id: linear.inner-product
+    name: 内積
+    kind: definition
+    introduction: inline
+    aliases: [内積]
+    requires:
+      - linear.vector-space
+
+  - id: linear.qr-decomposition
+    name: QR分解
+    kind: theorem
+    introduction: inline
+    aliases: [QR分解]
+    requires:
+      - linear.gram-schmidt
+      - linear.basis

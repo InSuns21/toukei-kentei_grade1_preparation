@@ -1,0 +1,23 @@
+chapter: F0-00F2
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00F1
+
+concepts:
+  - id: linear.singular-value
+    name: 特異値
+    kind: definition
+    introduction: inline
+    aliases: [特異値]
+    requires:
+      - linear.singular-value-decomposition
+
+  - id: linear.spectral-norm
+    name: 行列の作用素ノルム
+    kind: definition
+    introduction: inline
+    aliases: [行列の作用素ノルム]
+    requires:
+      - linear.singular-value
+      - functional.norm

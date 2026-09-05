@@ -1,0 +1,32 @@
+chapter: F0-00C1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00C
+
+concepts:
+  - id: topology.sequentially-compact
+    name: 点列コンパクト
+    kind: definition
+    introduction: inline
+    aliases: [点列コンパクト]
+    requires:
+      - topology.sequence-convergence
+
+  - id: topology.compact-sequential-equivalence-metric
+    name: 距離空間におけるコンパクト性と点列コンパクト性の同値
+    kind: theorem
+    introduction: inline
+    aliases: [コンパクト性と点列コンパクト性]
+    requires:
+      - topology.compact-set
+      - topology.sequentially-compact
+
+  - id: topology.heine-borel
+    name: Heine--Borelの定理
+    kind: theorem
+    introduction: inline
+    aliases: [Heine--Borel]
+    requires:
+      - topology.compact-set
+      - topology.closed-set
