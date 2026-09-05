@@ -3,7 +3,14 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D2
+  - F0-00D2A
   - F0-02C2
+
+# Fourier解析との接続と、次章の微分概念を明示的に予告する。
+forward_references:
+  - fourier.transform-l1
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
 
 concepts:
   - id: distribution.test-function
@@ -27,6 +34,7 @@ concepts:
     introduction: inline
     requires:
       - distribution.schwartz-distribution
+      - measure.integrable-function
 
   - id: distribution.dirac-delta
     name: Dirac delta
@@ -53,3 +61,4 @@ concepts:
     requires:
       - distribution.regular-distribution
       - distribution.schwartz-distribution
+      - measure.integrable-function
