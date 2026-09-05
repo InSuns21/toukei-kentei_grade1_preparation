@@ -372,7 +372,6 @@ $$
 > +DH(x^*)^{\mathsf T}\nu
 > =0
 > }
-> $$
 >
 > および
 >
@@ -380,7 +379,6 @@ $$
 > \boxed{
 > \lambda^{\mathsf T}G(x^*)=0
 > }
-> $$
 >
 > を満たします。
 <!-- formal-statement-end -->
@@ -392,7 +390,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前節の補題から
+[局所最適点の接方向条件](#lem-f0-02c5-local-min-tangent) から
 
 $$
 -\nabla f(x^*)
