@@ -38,11 +38,17 @@ jobs:
           git diff --check
           git diff --stat
 
-      - name: Validate pages
-        run: npm run validate:pages
+      - name: Audit official syllabus term coverage
+        run: npm run audit:textbook-syllabus -- --strict
+
+      - name: Validate reader-facing wording
+        run: python3 scripts/validate-reader-facing-wording.py
 
       - name: Validate textbook
-        run: npm run validate:textbook
+        run: npm run validate
+
+      - name: Validate pages
+        run: npm run validate:pages
 
       - name: Commit validated migration
         shell: bash
