@@ -1,0 +1,127 @@
+chapter: F0-00D4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D3
+  - F0-00C
+
+# 冒頭で積測度への応用を予告する。
+forward_references:
+  - measure.product-measure
+
+concepts:
+  - id: measure.finite-interval-cover-length
+    name: 有限区間被覆の長さ
+    kind: lemma
+    aliases: [有限区間被覆の長さ]
+    requires: []
+
+  - id: measure.interval-lebesgue-outer-measure
+    name: 区間のLebesgue外測度
+    kind: theorem
+    aliases: [区間のLebesgue外測度]
+    requires:
+      - measure.lebesgue-outer-measure
+      - measure.finite-interval-cover-length
+
+  - id: measure.lebesgue-outer-translation-invariance
+    name: Lebesgue外測度の平行移動不変性
+    kind: proposition
+    aliases: [Lebesgue外測度の平行移動不変性]
+    requires:
+      - measure.lebesgue-outer-measure
+
+  - id: measure.halfline-lebesgue-measurability
+    name: 半直線の可測性
+    kind: lemma
+    aliases: [半直線の可測性]
+    requires:
+      - measure.lebesgue-outer-measure
+      - measure.caratheodory-measurability
+
+  - id: measure.interval-lebesgue-measurability
+    name: 区間のLebesgue可測性
+    kind: corollary
+    aliases: [区間のLebesgue可測性]
+    requires:
+      - measure.halfline-lebesgue-measurability
+      - measure.caratheodory-theorem
+
+  - id: measure.open-set-decomposition
+    name: 実数上の開集合の分解
+    kind: theorem
+    aliases: [実数上の開集合の分解]
+    requires:
+      - measure.interval-lebesgue-measurability
+
+  - id: measure.borel-sigma-algebra-recap
+    name: Borel σ代数の再導入
+    kind: definition
+    aliases: ["### 定義（Borel σ代数）"]
+    requires:
+      - measure.borel-sigma-algebra
+      - measure.open-set-decomposition
+
+  - id: measure.measure-completion
+    name: 測度空間の完備化
+    kind: definition
+    aliases: [測度空間の完備化, 完備化]
+    requires:
+      - measure.complete-measure
+      - measure.null-set
+
+  - id: measure.set-algebra
+    name: 集合のalgebra
+    kind: definition
+    aliases: [集合のalgebra]
+    requires: []
+
+  - id: measure.premeasure
+    name: premeasure
+    kind: definition
+    aliases: [premeasure]
+    requires:
+      - measure.set-algebra
+
+  - id: measure.premeasure-induced-outer-measure
+    name: premeasureから作る外測度
+    kind: lemma
+    aliases: [premeasureから作る外測度]
+    requires:
+      - measure.premeasure
+      - measure.outer-measure
+
+  - id: measure.outer-measure-extends-premeasure
+    name: 外測度はpremeasureを拡張する
+    kind: lemma
+    aliases: [外測度はpremeasureを拡張する]
+    requires:
+      - measure.premeasure-induced-outer-measure
+      - measure.premeasure
+
+  - id: measure.algebra-caratheodory-measurable
+    name: algebra集合のCarathéodory可測性
+    kind: lemma
+    aliases: [algebra集合のCarathéodory可測性]
+    requires:
+      - measure.premeasure-induced-outer-measure
+      - measure.set-algebra
+      - measure.caratheodory-measurability
+
+  - id: measure.caratheodory-extension-theorem
+    name: Carathéodory拡張定理
+    kind: theorem
+    aliases: [Carathéodory拡張定理]
+    requires:
+      - measure.premeasure
+      - measure.premeasure-induced-outer-measure
+      - measure.outer-measure-extends-premeasure
+      - measure.algebra-caratheodory-measurable
+      - measure.caratheodory-theorem
+
+  - id: measure.sigma-finite-premeasure
+    name: σ有限premeasure
+    kind: definition
+    aliases: [σ有限premeasure]
+    requires:
+      - measure.premeasure
