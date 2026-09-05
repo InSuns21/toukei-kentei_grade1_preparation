@@ -443,7 +443,7 @@ h'(x;d)
 \max_{i\in I(x)} f_i'(x;d).
 $$
 
-前節の定理から右辺は
+[方向微分の支持関数表示](#thm-f0-02c4-directional-support)から、右辺は
 
 $$
 C
@@ -612,7 +612,7 @@ $$
 -\nabla f(x^*)\in N_C(x^*).
 $$
 
-逆にこの normal cone 条件を仮定します。G の一次支持不等式から
+逆にこの normal cone 条件を仮定します。[F0-00G の一次支持不等式](../F0_00G_凸集合_凸関数_凸最適化/index.md#thm-f0-00g-first-order-convexity)から
 
 $$
 f(y)
