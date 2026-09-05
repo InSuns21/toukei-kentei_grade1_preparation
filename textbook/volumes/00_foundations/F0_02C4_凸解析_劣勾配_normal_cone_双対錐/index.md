@@ -25,11 +25,11 @@ normal cone
 <!-- formal-statement-start -->
 > **定義（凸集合）**  
 > $C\subset\mathbb R^n$ が凸集合であるとは、任意の $x,y\in C$ と $t\in[0,1]$ に対して
->
-> $$
-> (1-t)x+ty\in C
-> $$
->
+
+$$
+(1-t)x+ty\in C
+$$
+
 > が成り立つことをいいます。
 <!-- formal-statement-end -->
 
@@ -52,11 +52,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（凸関数）**  
 > 凸集合 $C\subset\mathbb R^n$ 上の関数 $f:C\to\mathbb R$ が凸関数であるとは、任意の $x,y\in C$ と $t\in[0,1]$ に対して
->
-> $$
-> f((1-t)x+ty)\le(1-t)f(x)+tf(y)
-> $$
->
+
+$$
+f((1-t)x+ty)\le(1-t)f(x)+tf(y)
+$$
+
 > が成り立つことをいいます。
 <!-- formal-statement-end -->
 
@@ -85,11 +85,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（微分可能な凸関数の一次条件）**  
 > $f:\mathbb R^n\to\mathbb R$ が凸かつ微分可能なら、任意の $x,y\in\mathbb R^n$ に対して
->
-> $$
-> f(y)\ge f(x)+\nabla f(x)^{\mathsf T}(y-x)
-> $$
->
+
+$$
+f(y)\ge f(x)+\nabla f(x)^{\mathsf T}(y-x)
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -130,11 +130,11 @@ $\square$
 <!-- formal-statement-start -->
 > **定義（劣勾配・劣微分）**  
 > 凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$ と $f(x)<\infty$ を満たす点 $x$ を考えます。$p\in\mathbb R^n$ が
->
-> $$
-> f(y)\ge f(x)+p^{\mathsf T}(y-x)\qquad(\forall y\in\mathbb R^n)
-> $$
->
+
+$$
+f(y)\ge f(x)+p^{\mathsf T}(y-x)\qquad(\forall y\in\mathbb R^n)
+$$
+
 > を満たすとき、$p$ を $x$ における劣勾配といいます。劣勾配全体を $\partial f(x)$ と書き、$x$ における劣微分といいます。
 <!-- formal-statement-end -->
 
@@ -161,11 +161,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（凸関数のFermat条件）**  
 > 凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$ と $f(x^*)<\infty$ に対して
->
-> $$
-> x^*\text{ が大域的最小点}\iff0\in\partial f(x^*)
-> $$
->
+
+$$
+x^*\text{ が大域的最小点}\iff0\in\partial f(x^*)
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -202,11 +202,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（方向微分の支持関数表示）**  
 > 有限値凸関数 $f:\mathbb R^n\to\mathbb R$ について
->
-> $$
-> \boxed{f'(x;d)=\max_{p\in\partial f(x)}p^{\mathsf T}d}
-> $$
->
+
+$$
+\boxed{f'(x;d)=\max_{p\in\partial f(x)}p^{\mathsf T}d}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -282,11 +282,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限値凸関数の劣微分和則）**  
 > $f,g:\mathbb R^n\to\mathbb R$ を有限値凸関数とすると
->
-> $$
-> \boxed{\partial(f+g)(x)=\partial f(x)+\partial g(x)}
-> $$
->
+
+$$
+\boxed{\partial(f+g)(x)=\partial f(x)+\partial g(x)}
+$$
+
 > が任意の $x$ で成り立ちます。
 <!-- formal-statement-end -->
 
@@ -365,19 +365,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（max関数の劣微分公式）**  
 > 上の設定で
->
-> $$
-> \boxed{
-> \partial h(x)=
-> \operatorname{conv}\bigcup_{i\in I(x)}\partial f_i(x)
-> }
-> $$
->
+
+$$
+\boxed{
+\partial h(x)=
+\operatorname{conv}\bigcup_{i\in I(x)}\partial f_i(x)
+}
+$$
+
 > が成り立ちます。特に各 $f_i$ が $x$ で微分可能なら
->
-> $$
-> \partial h(x)=\operatorname{conv}\{\nabla f_i(x):i\in I(x)\}.
-> $$
+
+$$
+\partial h(x)=\operatorname{conv}\{\nabla f_i(x):i\in I(x)\}.
+$$
 <!-- formal-statement-end -->
 
 ### 6.1 証明の見取り図
@@ -470,15 +470,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（集合のindicator関数）**  
 > 集合 $C\subset\mathbb R^n$ に対して
->
-> $$
-> \delta_C(x)=
-> \begin{cases}
-> 0,&x\in C,\\
-> +\infty,&x\notin C
-> \end{cases}
-> $$
->
+
+$$
+\delta_C(x)=
+\begin{cases}
+0,&x\in C,\\
++\infty,&x\notin C
+\end{cases}
+$$
+
 > と定める拡張実数値関数を $C$ の indicator 関数といいます。
 <!-- formal-statement-end -->
 
@@ -501,11 +501,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（normal cone）**  
 > 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対して
->
-> $$
-> N_C(x)=\{v\in\mathbb R^n:v^{\mathsf T}(y-x)\le0\ \forall y\in C\}
-> $$
->
+
+$$
+N_C(x)=\{v\in\mathbb R^n:v^{\mathsf T}(y-x)\le0\ \forall y\in C\}
+$$
+
 > を $C$ の $x$ における normal cone といいます。$x\notin C$ では $N_C(x)=\varnothing$ とします。
 <!-- formal-statement-end -->
 
@@ -532,11 +532,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（indicator関数の劣微分はnormal cone）**  
 > 凸集合 $C$ と $x\in C$ に対して
->
-> $$
-> \boxed{\partial\delta_C(x)=N_C(x)}
-> $$
->
+
+$$
+\boxed{\partial\delta_C(x)=N_C(x)}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -571,13 +571,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（凸集合上の微分可能凸最適化）**  
 > $C\subset\mathbb R^n$ を非空凸集合、$f:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とします。$x^*\in C$ に対して
->
-> $$
-> x^*\in\arg\min_{x\in C}f(x)
-> \iff
-> -\nabla f(x^*)\in N_C(x^*)
-> $$
->
+
+$$
+x^*\in\arg\min_{x\in C}f(x)
+\iff
+-\nabla f(x^*)\in N_C(x^*)
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
