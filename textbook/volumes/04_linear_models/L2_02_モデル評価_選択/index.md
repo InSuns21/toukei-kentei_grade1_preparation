@@ -1026,7 +1026,7 @@ D_{\mathrm{KL}}(q\|p)
 +
 \frac12\log\frac{1/2}{3/4}\\
 &=
-\frac12\log2+rac12\log\frac23\\
+\frac12\log2+\frac12\log\frac23\\
 &=
 \frac12\log\frac43>0.
 \end{aligned}
