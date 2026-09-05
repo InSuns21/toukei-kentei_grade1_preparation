@@ -355,32 +355,17 @@ $$
 > G(x)\in-K,\ H(x)=0
 > $$
 >
-> の局所最適点とします。$f,G,H$ は $x^*$ で微分可能とし、上の normal-cone 表現が $x^*$ で成り立つとします。このとき、ある
+> の局所最適点とします。$f,G,H$ は $x^*$ で微分可能とし、上の normal-cone 表現が $x^*$ で成り立つとします。このとき、ある $\lambda\in K^*$、$\nu\in\mathbb R^r$ が存在して、次の二条件を満たします。
 >
 > $$
-> \lambda\in K^*,
-> \qquad
-> \nu\in\mathbb R^r
-> $$
->
-> が存在して
->
-> $$
-> \boxed{
+> \begin{aligned}
 > \nabla f(x^*)
 > +DG(x^*)^{\mathsf T}\lambda
 > +DH(x^*)^{\mathsf T}\nu
-> =0
-> }
->
-> および
->
+> &=0,\\
+> \lambda^{\mathsf T}G(x^*)&=0.
+> \end{aligned}
 > $$
-> \boxed{
-> \lambda^{\mathsf T}G(x^*)=0
-> }
->
-> を満たします。
 <!-- formal-statement-end -->
 
 ### 6.1 証明の見取り図
