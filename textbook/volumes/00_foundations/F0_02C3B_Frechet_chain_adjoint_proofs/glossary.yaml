@@ -1,0 +1,11 @@
+chapter: "F0-02C3B"
+terms:
+  - term: Fréchet chain rule
+    english: Frechet chain rule
+    meaning: 一次近似作用素の合成として D(g∘f)(x)=Dg(f(x))∘Df(x) を与える連鎖律。
+  - term: Hilbert随伴
+    english: Hilbert adjoint
+    meaning: <Tx,y>=<x,T†y> を満たす作用素。Riesz表現定理により有界線形作用素ごとに一意に存在する。
+  - term: 残差
+    english: remainder
+    meaning: Fréchet微分の一次近似から外れる o(||h||) の項。
