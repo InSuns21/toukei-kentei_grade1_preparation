@@ -5,6 +5,10 @@ prerequisites:
   - F0-00P6
 
 # stable極限やLindeberg--Fellerはこの章では入口の説明にとどめる。
+# 一様可積分性はLindeberg条件との類比としてのみ言及する。
+forward_references:
+  - prob.uniform-integrability
+
 concepts:
   - id: prob.standardized-iid-sum
     name: iid標準化和
