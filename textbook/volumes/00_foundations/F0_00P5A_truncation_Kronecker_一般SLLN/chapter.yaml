@@ -14,7 +14,6 @@ learning_objectives:
   - 一般iid強大数則を閉じた証明として再構成できる
 definitions:
   - { id: F0P5A-DEF-01, name: truncation }
-  - { id: F0P5A-DEF-02, name: Kronecker補題 }
 theorems:
   - { id: F0P5A-THM-01, name: Kolmogorov収束定理 }
   - { id: F0P5A-THM-02, name: Kronecker補題 }
