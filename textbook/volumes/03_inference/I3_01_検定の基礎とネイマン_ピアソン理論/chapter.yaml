@@ -28,6 +28,7 @@ learning_objectives:
   - 検定の反転から信頼集合を構成し区間推定との双対性を説明できる
   - 検出力条件から必要標本サイズを逆算できる
 definitions:
+  - { id: I301-DEF-00, name: 帰無仮説・対立仮説・単純仮説・複合仮説 }
   - { id: I301-DEF-01, name: 検定関数 }
   - { id: I301-DEF-02, name: 棄却域 }
   - { id: I301-DEF-03, name: 第一種の過誤 }
