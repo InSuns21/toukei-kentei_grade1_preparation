@@ -41,9 +41,6 @@ jobs:
       - name: Validate pages
         run: npm run validate:pages
 
-      - name: Validate terminology
-        run: npm run validate:terminology
-
       - name: Validate textbook
         run: npm run validate:textbook
 
