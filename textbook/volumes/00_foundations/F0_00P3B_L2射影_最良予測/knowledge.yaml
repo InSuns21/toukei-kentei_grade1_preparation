@@ -29,6 +29,7 @@ concepts:
     requires:
       - prob.l2-information-space
       - functional.hilbert-space
+      - prob.markov-inequality
 
   - id: prob.conditional-expectation-l2-contraction
     name: 条件付き期待値のL^2縮小性
