@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-09-05
   current_chapter: null
-  next_chapter: I3-01
+  next_chapter: I3-02
   next_work:
     type: chapter
-    id: I3-01
-  last_completed_chapter: I2-02
+    id: I3-02
+  last_completed_chapter: I3-01
   summary:
     total: 43
-    planned: 5
+    planned: 4
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 38
+    reviewed: 39
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -55,7 +55,7 @@ progress:
     I1-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I2-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I2-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
-    I3-01: { status: planned }
+    I3-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I3-02: { status: planned }
     I3-03: { status: planned }
     I4-01: { status: planned }
@@ -133,7 +133,7 @@ chapters:
   - { id: I1-02, title: 推定法と推定量の評価, volume: inference, prerequisites: [ I1-01, P4-02, L1-02 ], official_scope: [ モーメント法, 最小二乗法, BLUE, 不偏性, 一致性, 有効性, フィッシャー情報量, クラーメル・ラオの不等式 ] }
   - { id: I2-01, title: 漸近推測・デルタ法, volume: inference, prerequisites: [ I1-02, P4-02 ], official_scope: [ 最尤推定量の漸近正規性, デルタ法, 漸近分散 ] }
   - { id: I2-02, title: 区間推定, volume: inference, prerequisites: [ S1-01, I2-01 ], official_scope: [ 信頼係数, 信頼区間の構成, 被覆確率 ] }
-  - { id: I3-01, title: 検定の基礎とNeyman--Pearson理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理 ] }
+  - { id: I3-01, title: 検定の基礎とネイマン・ピアソン理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理 ] }
   - { id: I3-02, title: 尤度比・Wald・Score検定, volume: inference, prerequisites: [ I2-01, I3-01 ], official_scope: [ 尤度比検定, ワルド型検定, スコア型検定 ] }
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
   - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
