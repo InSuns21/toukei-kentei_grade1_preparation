@@ -122,7 +122,7 @@ $$
 I_{n_1},\dots,I_{n_m}
 $$
 
-が存在します。前節の補題から
+が存在します。[有限区間被覆の長さ補題](#lem-finite-interval-cover)から
 
 $$
 \sum_{k=1}^m|I_{n_k}|\ge b-a.
@@ -311,26 +311,30 @@ $$
 を **Borel σ代数** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-borel-sigma-algebra -->
+### 例1：有理数集合は Borel 集合
+
+**定義の確認**
+
+一点集合 $\{q\}$ は閉集合なので、その補集合が開集合です。Borel σ代数は開集合を含むσ代数なので閉集合も含みます。さらに $\mathbb Q$ は可算だから
+
+$$
+\mathbb Q=\bigcup_{q\in\mathbb Q}\{q\}
+$$
+
+も Borel σ代数に属します。これは「開集合から生成したσ代数で補集合・可算和を取る」という定義を実際に使った例です。また一点集合の測度は0なので
+
+$$
+\lambda(\mathbb Q)=0.
+$$
+<!-- definition-example-end -->
+
 開集合が全て Lebesgue 可測で、Lebesgue 可測集合族 $\mathcal L$ はσ代数なので
 
 $$
 \boxed{
 \mathcal B(\mathbb R)\subset\mathcal L
 }.
-$$
-
-### 例1：有理数集合
-
-一点集合は閉集合なので Borel 集合。従って
-
-$$
-\mathbb Q=\bigcup_{q\in\mathbb Q}\{q\}
-$$
-
-も Borel 集合です。また一点集合の測度は0なので
-
-$$
-\lambda(\mathbb Q)=0.
 $$
 
 ---
@@ -345,13 +349,21 @@ $$
 測度空間 $(X,\mathcal F,\mu)$ に、$\mu(N)=0$ となる $N\in\mathcal F$ の全ての部分集合を可測集合として追加し、測度0と定めて得る最小の完全な拡張を **完備化** という。
 <!-- formal-statement-end -->
 
-Lebesgue 測度は Borel 測度の完備化です。そのため
+<!-- definition-example-start: def-measure-completion -->
+### 7.1 例：Cantor 集合の部分集合を追加する
+
+**定義の確認**
+
+Cantor 集合 $C$ は Borel 集合で $\lambda(C)=0$ です。従って Borel 測度を完備化すると、定義により **全ての** $V\subset C$ が可測集合として追加され、$\lambda(V)=0$ と定められます。
+
+さらに $|C|=\mathfrak c$ なので $|2^C|=2^{\mathfrak c}$、一方 Borel 集合全体の濃度は $\mathfrak c$ です。従って $C$ の部分集合には Borel でないものも存在し、それらも完備化後には Lebesgue 可測になります。したがって
 
 $$
 \mathcal B(\mathbb R)\subsetneq\mathcal L.
 $$
+<!-- definition-example-end -->
 
-厳密な包含も確認できます。Cantor 集合 $C$ は Borel 集合で測度0、濃度は連続体濃度 $\mathfrak c$ です。従って部分集合族 $2^C$ の濃度は $2^{\mathfrak c}$。一方、Borel 集合全体の濃度は $\mathfrak c$ です。よって $C$ の部分集合の中には Borel でないものが存在します。しかし $C$ は零測度なので、そのような部分集合も Lebesgue 測度の完全性により Lebesgue 可測です。
+Lebesgue 測度は Borel 測度の完備化です。
 
 ---
 
@@ -406,6 +418,20 @@ $\mathcal A\subset2^X$ が
 を満たすとき $X$ 上の **algebra** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-set-algebra -->
+### 9.1 例：一つの集合から作る4集合のalgebra
+
+**定義の確認**
+
+固定した $A\subset X$ に対して
+
+$$
+\mathcal A=\{\varnothing,A,A^c,X\}
+$$
+
+とします。まず $X\in\mathcal A$。補集合は $\varnothing\leftrightarrow X$、$A\leftrightarrow A^c$ と同じ4集合内に残ります。二集合の和も、$A\cup A^c=X$ を含め必ずこの4集合のどれかです。従って定義の3条件を全て満たします。
+<!-- definition-example-end -->
+
 algebra は有限集合演算で閉じますが、可算和で閉じるとは限りません。
 
 <a id="def-premeasure"></a>
@@ -430,7 +456,10 @@ $$
 を満たすことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-premeasure -->
 ### 例2：半開区間の長さ
+
+**定義の確認**
 
 $\mathbb R$ 上で半開区間 $[a,b)$ の有限互いに素和からなる algebra を考え
 
@@ -438,7 +467,14 @@ $$
 \mu_0([a,b))=b-a
 $$
 
-と定め、有限互いに素和には加法的に延長します。これが Lebesgue 測度を作る元の premeasure です。
+と定め、有限互いに素和には加法的に延長します。互いに素な $A_n$ の可算和が再びこの algebra に属する場合、その和は有限個の半開区間へ整理でき、各区間の長さは互いに素な部分区間の長さの和になります。従って
+
+$$
+\mu_0\left(\bigsqcup_n A_n\right)=\sum_n\mu_0(A_n),
+$$
+
+となり premeasure の可算加法条件を満たします。これが Lebesgue 測度を作る元の premeasure です。
+<!-- definition-example-end -->
 
 ---
 
@@ -676,6 +712,28 @@ $$
 
 となることをいう。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sigma-finite -->
+### 14.1 例：区間長premeasureはσ有限
+
+**定義の確認**
+
+半開区間の有限互いに素和からなる algebra 上の長さ premeasure を考えます。
+
+$$
+A_n=[-n,n)
+$$
+
+と置けば $A_n\in\mathcal A$、
+
+$$
+\mathbb R=\bigcup_{n=1}^\infty A_n,
+\qquad
+\mu_0(A_n)=2n<\infty.
+$$
+
+従って定義の「全空間を可算個の有限premeasure集合で覆う」という条件を満たし、この premeasure はσ有限です。
+<!-- definition-example-end -->
 
 <!-- proof-start -->
 ### 一意性の証明
