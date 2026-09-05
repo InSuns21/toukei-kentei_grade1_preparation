@@ -1,0 +1,14 @@
+chapter: "F0-00TS2A"
+terms:
+  - term: 直交増分ランダム測度
+    english: orthogonal-increment random measure
+    meaning: 互いに素な周波数集合に対応するランダム変数が L2 で直交し、可算加法性を L2 の意味で満たすランダム測度。
+  - term: spectral stochastic integral
+    english: spectral stochastic integral
+    meaning: spectral measure F に対する L2(F) 関数 g を、等長写像 U により確率変数 Ug へ送る積分記法 integral g dZ。
+  - term: cyclic Hilbert space
+    english: cyclic Hilbert space
+    meaning: 定常過程 X_t の有限線形結合とその L2 極限からなる閉線形空間。
+  - term: spectral representation theorem
+    english: spectral representation theorem
+    meaning: 二次定常過程を X_t=integral exp(it lambda) Z(d lambda) と直交増分ランダム測度で表す定理。
