@@ -11,12 +11,6 @@ forward_references:
   - measure.dominated-convergence-theorem
 
 concepts:
-  - id: measure.measurable-function
-    name: 可測関数
-    kind: term
-    aliases: [可測関数, measurable function]
-    requires: []
-
   - id: measure.nonnegative-simple-function
     name: 非負単関数
     kind: definition
@@ -55,9 +49,9 @@ concepts:
       - measure.simple-function-approximation
 
   - id: measure.lebesgue-integral-monotonicity
-    name: 単調性
+    name: Lebesgue積分の単調性
     kind: proposition
-    aliases: [単調性]
+    aliases: ["### 命題（単調性）"]
     requires:
       - measure.lebesgue-integral
 
@@ -82,3 +76,5 @@ concepts:
     aliases: [零集合上の変更は積分を変えない]
     requires:
       - measure.lebesgue-integral
+      - measure.integrable-function
+      - measure.almost-everywhere

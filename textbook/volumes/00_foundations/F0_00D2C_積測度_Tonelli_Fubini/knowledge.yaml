@@ -1,0 +1,72 @@
+chapter: F0-00D2C
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2B
+  - F0-00D4
+
+# 末尾の次章案内で D2D の Hölder/Minkowski を予告する。
+forward_references:
+  - measure.holder-inequality
+  - measure.minkowski-inequality
+
+concepts:
+  - id: measure.product-sigma-algebra
+    name: 積σ代数
+    kind: definition
+    aliases: [積σ代数, product sigma-algebra]
+    requires:
+      - measure.sigma-algebra
+
+  - id: measure.product-measure
+    name: σ有限測度の積測度
+    kind: theorem
+    aliases: [σ有限測度の積測度, 積測度, product measure]
+    requires:
+      - measure.product-sigma-algebra
+      - measure.measure-space
+      - measure.monotone-convergence-theorem
+
+  - id: measure.section
+    name: 集合の section
+    kind: definition
+    aliases: [集合の section, section]
+    requires:
+      - measure.product-sigma-algebra
+
+  - id: measure.measurable-section
+    name: 可測集合の section は可測
+    kind: proposition
+    aliases: [可測集合の section は可測]
+    requires:
+      - measure.section
+      - measure.product-sigma-algebra
+
+  - id: measure.section-measure-formula
+    name: section 測度公式
+    kind: lemma
+    aliases: [section 測度公式]
+    requires:
+      - measure.product-measure
+      - measure.measurable-section
+      - measure.continuity-from-below
+      - measure.monotone-convergence-theorem
+
+  - id: measure.tonelli-theorem
+    name: Tonelli
+    kind: theorem
+    aliases: [Tonelli, Tonelliの定理]
+    requires:
+      - measure.section-measure-formula
+      - measure.simple-function-approximation
+      - measure.monotone-convergence-theorem
+
+  - id: measure.fubini-theorem
+    name: Fubini
+    kind: theorem
+    aliases: [Fubini, Fubiniの定理]
+    requires:
+      - measure.tonelli-theorem
+      - measure.positive-negative-parts
+      - measure.integrable-function
+      - measure.almost-everywhere

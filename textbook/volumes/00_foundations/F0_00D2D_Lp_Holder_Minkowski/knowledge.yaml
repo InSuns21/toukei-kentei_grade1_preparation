@@ -1,0 +1,65 @@
+chapter: F0-00D2D
+scope: dream-theater
+# 現行監査器は数式を含む formal 見出し（例: 「定義（$L^p$空間）」）の
+# 数式部分を reader-source から除くため、L^p 空間/L^pノルムの2宣言は audit-only。
+# Young/Hölder/Minkowski 等の平文見出しは strict に登録する。
+coverage: partial
+prerequisites:
+  - F0-00D2A
+
+forward_references:
+  - functional.hilbert-space
+  - functional.l2-inner-product
+  - functional.l2-completeness
+
+concepts:
+  - id: measure.ae-equivalence
+    name: a.e.同値関係
+    kind: definition
+    aliases: [a.e.同値関係, a.e.同値類]
+    requires:
+      - measure.almost-everywhere
+      - measure.measurable-function
+
+  - id: measure.essential-supremum
+    name: 本質的上限
+    kind: definition
+    aliases: [本質的上限, essential supremum]
+    requires:
+      - measure.ae-equivalence
+
+  - id: measure.young-inequality
+    name: Youngの不等式
+    kind: lemma
+    aliases: [Youngの不等式]
+    requires: []
+
+  - id: measure.holder-inequality
+    name: Hölderの不等式
+    kind: theorem
+    aliases: [Hölderの不等式, Hölder]
+    requires:
+      - measure.young-inequality
+      - measure.lebesgue-integral
+
+  - id: measure.cauchy-schwarz-l2
+    name: Cauchy--Schwarz
+    kind: corollary
+    aliases: [Cauchy--Schwarz, Cauchy-Schwarz]
+    requires:
+      - measure.holder-inequality
+
+  - id: measure.minkowski-inequality
+    name: Minkowskiの不等式
+    kind: theorem
+    aliases: [Minkowskiの不等式, Minkowski]
+    requires:
+      - measure.holder-inequality
+      - measure.lebesgue-integral
+
+  - id: measure.lp-finite-measure-inclusion
+    name: 有限測度空間上の包含
+    kind: proposition
+    aliases: [有限測度空間上の包含]
+    requires:
+      - measure.holder-inequality
