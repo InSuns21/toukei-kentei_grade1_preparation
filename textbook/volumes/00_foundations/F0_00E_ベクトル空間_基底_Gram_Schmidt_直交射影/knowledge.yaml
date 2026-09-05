@@ -1,0 +1,53 @@
+chapter: F0-00E
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00A
+
+concepts:
+  - id: linear.vector-space
+    name: ベクトル空間
+    kind: definition
+    introduction: inline
+    aliases: [ベクトル空間]
+    requires:
+      - set.set
+
+  - id: linear.basis
+    name: 基底
+    kind: definition
+    introduction: inline
+    aliases: [基底]
+    requires:
+      - linear.vector-space
+
+  - id: linear.inner-product-space
+    name: 内積空間
+    kind: definition
+    introduction: inline
+    aliases: [内積空間]
+    requires:
+      - linear.vector-space
+
+  - id: linear.orthogonality
+    name: 直交
+    kind: term
+    aliases: [直交]
+    requires:
+      - linear.inner-product-space
+
+  - id: linear.gram-schmidt
+    name: Gram--Schmidtの直交化
+    kind: theorem
+    introduction: inline
+    aliases: [Gram--Schmidt]
+    requires:
+      - linear.orthogonality
+
+  - id: linear.orthogonal-projection
+    name: 直交射影
+    kind: definition
+    introduction: inline
+    aliases: [直交射影]
+    requires:
+      - linear.orthogonality

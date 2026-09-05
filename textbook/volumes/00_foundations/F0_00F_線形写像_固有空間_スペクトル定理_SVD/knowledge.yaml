@@ -1,0 +1,48 @@
+chapter: F0-00F
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00E
+
+concepts:
+  - id: linear.linear-map
+    name: 線形写像
+    kind: definition
+    introduction: inline
+    aliases: [線形写像]
+    requires:
+      - linear.vector-space
+
+  - id: linear.eigenvalue
+    name: 固有値
+    kind: definition
+    introduction: inline
+    aliases: [固有値]
+    requires:
+      - linear.linear-map
+
+  - id: linear.eigenspace
+    name: 固有空間
+    kind: definition
+    introduction: inline
+    aliases: [固有空間]
+    requires:
+      - linear.eigenvalue
+
+  - id: linear.spectral-theorem
+    name: スペクトル定理
+    kind: theorem
+    introduction: inline
+    aliases: [スペクトル定理]
+    requires:
+      - linear.eigenvalue
+      - linear.orthogonality
+
+  - id: linear.singular-value-decomposition
+    name: 特異値分解
+    kind: theorem
+    introduction: inline
+    aliases: [特異値分解, SVD]
+    requires:
+      - linear.linear-map
+      - linear.orthogonality

@@ -1,0 +1,36 @@
+chapter: F0-00D1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00D
+  - F0-00E
+
+forward_references:
+  - functional.banach-space
+  - functional.hilbert-space
+
+concepts:
+  - id: functional.norm
+    name: ノルム
+    kind: definition
+    introduction: inline
+    aliases: [ノルム]
+    requires:
+      - linear.vector-space
+
+  - id: functional.normed-space
+    name: ノルム空間
+    kind: definition
+    introduction: inline
+    aliases: [ノルム空間]
+    requires:
+      - functional.norm
+
+  - id: functional.norm-induced-metric
+    name: ノルムが誘導する距離
+    kind: proposition
+    introduction: inline
+    aliases: [ノルムが誘導する距離]
+    requires:
+      - functional.normed-space
+      - topology.metric-space
