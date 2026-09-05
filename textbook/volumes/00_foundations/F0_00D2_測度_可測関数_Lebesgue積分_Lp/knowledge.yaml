@@ -3,6 +3,21 @@ scope: dream-theater
 coverage: complete
 prerequisites: []
 
+# 冒頭ロードマップと後続章への言及。ここでは使うのではなく「この先で扱う」と予告する。
+forward_references:
+  - measure.lebesgue-integral
+  - measure.lebesgue-integral-monotonicity
+  - measure.monotone-convergence-theorem
+  - measure.fatou-lemma
+  - measure.dominated-convergence-theorem
+  - measure.product-measure
+  - measure.tonelli-theorem
+  - measure.fubini-theorem
+  - measure.holder-inequality
+  - measure.minkowski-inequality
+  - functional.l2-completeness
+  - functional.hilbert-space
+
 concepts:
   - id: measure.sigma-algebra
     name: σ代数
