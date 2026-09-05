@@ -7,9 +7,10 @@ prerequisites:
 
 concepts:
   - id: prob.truncation
-    name: truncation
+    name: SLLNの切断法
     kind: term
-    aliases: [truncation, 切断]
+    aliases: [大きすぎる観測を切る, 切断平均]
+    introduction_aliases: [まず大きすぎる観測を切る]
     requires:
       - prob.random-variable
 
