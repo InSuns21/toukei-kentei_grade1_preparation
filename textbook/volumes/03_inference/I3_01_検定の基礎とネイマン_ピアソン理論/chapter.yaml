@@ -1,0 +1,57 @@
+id: "I3-01"
+title: "検定の基礎とネイマン・ピアソン理論"
+volume: "inference"
+status: reviewed
+prerequisites:
+  - I1-01
+  - I2-02
+official_scope:
+  - P値
+  - 有意水準
+  - 棄却域
+  - 第一種の過誤
+  - 第二種の過誤
+  - 検出力
+  - ネイマン・ピアソンの基本定理
+learning_objectives:
+  - 帰無仮説と対立仮説、単純仮説と複合仮説を区別できる
+  - 検定関数と棄却域を相互に読み替えられる
+  - 第一種の過誤と第二種の過誤を真の母数値ごとの確率として記述できる
+  - 複合帰無仮説に対する水準を帰無領域上の棄却確率の上限として説明できる
+  - 検出力関数を導出し第二種過誤確率との関係を説明できる
+  - P値を入れ子の棄却域に対する最小有意水準として定義し誤読を避けられる
+  - ネイマン・ピアソン補題を尤度比から適用し最強力検定を構成できる
+  - ネイマン・ピアソン補題を符号不等式の積分から証明できる
+  - 正規母平均の片側問題で最強力検定から一様最強力検定へ拡張できる
+  - 正規母平均の両側問題で一様最強力検定が通常存在しない理由を説明できる
+  - 離散分布でランダム化によりサイズを所定値へ合わせられる
+  - 検定の反転から信頼集合を構成し区間推定との双対性を説明できる
+  - 検出力条件から必要標本サイズを逆算できる
+definitions:
+  - { id: I301-DEF-00, name: 帰無仮説・対立仮説・単純仮説・複合仮説 }
+  - { id: I301-DEF-01, name: 検定関数 }
+  - { id: I301-DEF-02, name: 棄却域 }
+  - { id: I301-DEF-03, name: 第一種の過誤 }
+  - { id: I301-DEF-04, name: 有意水準 }
+  - { id: I301-DEF-05, name: 第二種の過誤 }
+  - { id: I301-DEF-06, name: 検出力関数 }
+  - { id: I301-DEF-07, name: P値 }
+  - { id: I301-DEF-08, name: 最強力検定 }
+  - { id: I301-DEF-09, name: 一様最強力検定 }
+theorems:
+  - { id: I301-LEM-01, name: ネイマン・ピアソン補題 }
+  - { id: I301-THM-01, name: 既知分散正規平均の片側一様最強力検定 }
+  - { id: I301-PROP-01, name: 既知分散正規平均の両側問題における一様最強力検定の非存在 }
+  - { id: I301-THM-02, name: 検定と信頼集合の双対性 }
+canonical_examples: [既知分散正規平均の片側検定, ベルヌーイ単純対単純のランダム化検定, 指数分布率母数の片側一様最強力検定, 正規平均両側問題の一様最強力非存在, 正規平均の検定反転による信頼区間]
+problem_patterns: [TEST-ERRORS-1, POWER-NORMAL-1, P-VALUE-1, NP-LIKELIHOOD-RATIO-1, NP-RANDOMIZED-DISCRETE-1, UMP-ONE-SIDED-1, UMP-NONEXISTENCE-1, TEST-CI-DUALITY-1, POWER-SAMPLE-SIZE-1]
+past_exam_alignment:
+  - { id: MATH-2024-Q1, theme: 回帰係数の推定・検定・検出力, skills: [仮説検定, 有意水準, 検出力], source_type: third_party_topic_index }
+  - { id: SCI-2025-Q2, theme: マルコフ連鎖・推移確率の最尤推定・尤度比検定, skills: [仮説設定, 尤度比, 棄却判断], source_type: official_problem }
+integrated_exam_problems: [I3-01-C01, I3-01-C02, I3-01-C03, I3-01-C04, I3-01-D01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 8, exercises: 11, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
