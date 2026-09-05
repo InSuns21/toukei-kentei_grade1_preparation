@@ -74,7 +74,10 @@ $$
 
 $A$ 自身には可測性を仮定していません。$\lambda^*$ は全ての部分集合に定義されます。
 
+<!-- definition-example-start: def-f0-00d3-lebesgue-outer-measure -->
 ### 例1：一点集合
+
+**定義の確認**
 
 任意の $x\in\mathbb R$ と $\varepsilon>0$ に対して
 
@@ -82,7 +85,7 @@ $$
 \{x\}\subset(x-\varepsilon/2,x+\varepsilon/2)
 $$
 
-だから
+です。この開区間一つは定義中の許される被覆なので、被覆コストは $\varepsilon$ です。したがって infimum の定義から
 
 $$
 0\le\lambda^*(\{x\})\le\varepsilon.
@@ -93,6 +96,9 @@ $\varepsilon$ は任意なので
 $$
 \lambda^*(\{x\})=0.
 $$
+
+この例では「開区間被覆を作り、その長さ総和の infimum を取る」という定義をそのまま使っています。
+<!-- definition-example-end -->
 
 同様に可算集合は可算劣加法性から外測度0になります。
 
@@ -129,6 +135,36 @@ $$
 
 3 は **可算劣加法性** です。測度の可算加法性とは違い、まだ等号は要求しません。
 
+<!-- definition-example-start: def-f0-00d3-outer-measure -->
+### 3.1 例：非空集合をすべて1と数える外測度
+
+空でない集合 $X$ 上で
+
+$$
+\mu^*(A)=
+\begin{cases}
+0,&A=\varnothing,\\
+1,&A\ne\varnothing
+\end{cases}
+$$
+
+と定めます。
+
+**定義の確認**
+
+1. 定義どおり $\mu^*(\varnothing)=0$ です。
+2. $A\subset B$ のとき、$A=\varnothing$ なら $0\le\mu^*(B)$、$A\ne\varnothing$ なら $B\ne\varnothing$ なので $\mu^*(A)=\mu^*(B)=1$ です。従って単調です。
+3. $\bigcup_nA_n=\varnothing$ なら両辺とも0です。和集合が非空なら少なくとも一つの $A_n$ が非空なので
+
+$$
+\mu^*\left(\bigcup_nA_n\right)=1
+\le
+\sum_n\mu^*(A_n).
+$$
+
+従って三条件を全て満たし、これは外測度です。
+<!-- definition-example-end -->
+
 ---
 
 ## 4. Lebesgue外測度が外測度であること
@@ -140,6 +176,10 @@ $$
 
 $\lambda^*$ は $\mathbb R$ 上の外測度である。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+空集合と単調性は被覆の包含関係から直ちに従います。可算劣加法性は各集合をほぼ最適な区間列で覆い、その全被覆をまとめます。各近似誤差を $\varepsilon/2^n$ に分配するのが核心です。
 
 <!-- proof-start -->
 ### 証明
@@ -236,24 +276,34 @@ $$
 
 を保証することです。
 
+<!-- definition-example-start: def-f0-00d3-caratheodory-measurable -->
 ### 例2：外測度0の集合
 
-$\mu^*(N)=0$ とします。任意の $T$ について
+**定義の確認**
+
+$\mu^*(N)=0$ とします。任意の $T\subset X$ について単調性から
 
 $$
 \mu^*(T\cap N)=0,
 \qquad
-\mu^*(T\setminus N)\le\mu^*(T)
+\mu^*(T\setminus N)\le\mu^*(T).
 $$
 
-なので
+したがって
 
 $$
 \mu^*(T\cap N)+\mu^*(T\setminus N)
 \le\mu^*(T).
 $$
 
-逆向きは劣加法性から自動なので等号です。したがって外測度0の集合は全て Carathéodory 可測です。
+逆向きは
+
+$$
+T=(T\cap N)\cup(T\setminus N)
+$$
+
+と外測度の劣加法性から自動です。よって全ての $T$ について Carathéodory 等式が成立し、外測度0の集合は Carathéodory 可測です。
+<!-- definition-example-end -->
 
 ---
 
@@ -287,6 +337,10 @@ $$
 ```
 
 を正当化する主定理です。
+
+### 証明の見取り図
+
+まず補集合と有限和を閉じ、互いに素な可算和へ進み、一般の可算和は disjoint 化します。その後、Carathéodory 等式を有限段階まで繰り返して外測度の「$\le$」を可算加法性の「$=$」へ引き上げます。最後に零集合の部分集合が再び外測度0になることから完全性を得ます。
 
 <!-- proof-start -->
 ### 証明
@@ -504,7 +558,21 @@ $$
 測度空間 $(X,\mathcal M,\mu)$ が **完全** であるとは、$N\in\mathcal M$、$\mu(N)=0$ なら任意の $A\subset N$ も $A\in\mathcal M$ となることをいう。
 <!-- formal-statement-end -->
 
-Carathéodory 構成ではこの完全性まで自動的に得られます。
+<!-- definition-example-start: def-f0-00d3-complete-measure -->
+### 7.1 例：Carathéodory構成で得た測度
+
+**定義の確認**
+
+Carathéodory 定理で得た $\mu=\mu^*|_{\mathcal M}$ を考えます。$N\in\mathcal M$、$\mu(N)=0$ とし、任意の $A\subset N$ を取ると
+
+$$
+0\le\mu^*(A)\le\mu^*(N)=0
+$$
+
+なので $\mu^*(A)=0$ です。外測度0集合は Carathéodory 可測だから $A\in\mathcal M$ で、さらに $\mu(A)=0$ です。
+
+したがって零集合 $N$ の **任意の部分集合** が同じ可測集合族へ入り、完全測度の定義を満たします。
+<!-- definition-example-end -->
 
 ---
 
