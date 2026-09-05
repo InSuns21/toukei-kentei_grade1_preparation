@@ -870,7 +870,7 @@ $$
 
 ---
 
-## 10. spectral representation theoremは次段階の定理
+## 10. spectral representationへの入口
 
 Herglotz定理は **自己共分散列** を測度へ移す定理です。さらに進むと、過程そのものを適切な直交増分ランダム測度 $Z$ によって
 
