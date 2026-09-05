@@ -8,6 +8,7 @@ prerequisites:
 forward_references:
   - prob.independent-events
   - prob.independent-random-variables
+  - prob.probability-convergence
   - measure.product-measure
   # P2AではLOTUSを先に使用し、完全証明はP3Dで与える。
   - measure.pushforward-integration-theorem
