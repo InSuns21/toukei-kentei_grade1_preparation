@@ -14,6 +14,14 @@ concepts:
       - distribution.schwartz-distribution
       - distribution.test-function
 
+  - id: distribution.multi-index-distributional-derivative
+    name: 多重指数による超関数微分
+    kind: definition
+    aliases: [多次元では多重指数]
+    introduction: inline
+    requires:
+      - distribution.distributional-derivative
+
   - id: distribution.weak-derivative
     name: 弱微分
     kind: definition
@@ -22,14 +30,6 @@ concepts:
     requires:
       - distribution.distributional-derivative
       - distribution.regular-distribution
-
-  - id: distribution.multi-index-weak-derivative
-    name: 多重指数による弱偏微分
-    kind: definition
-    aliases: [多重指数]
-    introduction: inline
-    requires:
-      - distribution.weak-derivative
 
   - id: distribution.classical-weak-derivative-agreement
     name: 古典微分と弱微分の一致
@@ -43,7 +43,7 @@ concepts:
 
   - id: distribution.heaviside-derivative
     name: Heaviside関数の超関数微分
-    kind: example
+    kind: term
     aliases: [Heaviside関数を微分する]
     requires:
       - distribution.distributional-derivative
