@@ -4,6 +4,7 @@ volume: "inference"
 status: reviewed
 prerequisites:
   - I1-01
+  - P3-05
   - P4-02
   - L1-02
 official_scope:
@@ -29,6 +30,7 @@ learning_objectives:
   - Cramér--Rao不等式をスコアとの共分散とCauchy--Schwarz不等式から導出できる
   - Cramér--Rao下限を達成する推定量の有効性を判定できる
   - 支持が母数に依存する非正則モデルではCramér--Rao不等式を機械的に使わないと判断できる
+  - パレート分布の下端最尤推定量についてバイアス・不偏補正・一致性を順序統計量から評価できる
 definitions:
   - { id: I102-DEF-01, name: モーメント法 }
   - { id: I102-DEF-02, name: 最小二乗法 }
@@ -48,13 +50,13 @@ theorems:
   - { id: I102-PROP-03, name: Fisher情報量の加法性 }
   - { id: I102-PROP-04, name: Fisher情報量の二階微分表示 }
   - { id: I102-THM-02, name: Cramér--Rao不等式 }
-canonical_examples: [一様分布のモーメント法, 正規平均の最小二乗法, 二つの不偏測定の逆分散重み, Gauss--Markov, BernoulliのFisher情報量, 正規平均のCramér--Rao下限, 一様分布の非正則推定]
-problem_patterns: [MOMENT-METHOD-1, LS-LOCATION-1, BIAS-MSE-1, CONSISTENCY-1, BLUE-WEIGHT-1, GAUSS-MARKOV-1, FISHER-INFO-1, CRLB-1, EFFICIENCY-1, NONREGULAR-CRLB-1]
+canonical_examples: [一様分布のモーメント法, 正規平均の最小二乗法, 二つの不偏測定の逆分散重み, Gauss--Markov, BernoulliのFisher情報量, 正規平均のCramér--Rao下限, 一様分布の非正則推定, パレート下端最尤推定量のバイアス補正]
+problem_patterns: [MOMENT-METHOD-1, LS-LOCATION-1, BIAS-MSE-1, CONSISTENCY-1, PARETO-MIN-BIAS-1, BLUE-WEIGHT-1, GAUSS-MARKOV-1, FISHER-INFO-1, CRLB-1, EFFICIENCY-1, NONREGULAR-CRLB-1]
 past_exam_alignment:
   - { id: MATH-2024-Q1, theme: 回帰係数の推定・検定・検出力, skills: [最小二乗推定, 推定量の分散評価], source_type: third_party_topic_index }
   - { id: MATH-2023-Q1, theme: Poisson分布の不偏推定量・一致推定量, skills: [不偏性, 一致性, 分散比較], source_type: third_party_topic_index }
 integrated_exam_problems: [I1-02-C01, I1-02-C02, I1-02-C03, I1-02-C04, I1-02-D01]
-exercise_counts: {level_a: 4, level_b: 5, level_c: 4, level_d: 1} # syllabus-batch1-counts
+exercise_counts: {level_a: 4, level_b: 6, level_c: 4, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 8, exercises: 11, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

@@ -7,6 +7,7 @@ prerequisites:
   - P1-02
   - P3-04
   - P3-03
+  - P3-05
 official_scope:
   - 欠測
   - 不完全データ
@@ -25,6 +26,7 @@ learning_objectives:
   - 期待値最大化法が観測データ尤度を減少させない更新であることと大域的最大値を保証しないことを説明できる
   - 局所最大・初期値依存・ラベル交換・標準誤差が直接得られない点を説明できる
   - 単一代入が欠測値の不確実性を無視する危険を説明できる
+  - 右打ち切りワイブル寿命で密度と生存関数から尤度を組み立て既知形状の尺度最尤推定量を導出できる
 advanced_objectives:
   - KLダイバージェンスと変分下界を用いて期待値最大化法の尤度単調性を証明できる
 definitions:
@@ -46,14 +48,14 @@ theorems:
   - { id: I402-THM-03, name: 2成分正規混合のM-step }
 advanced_theorems:
   - { id: I402-THM-04, name: 期待値最大化法の尤度単調性 }
-canonical_examples: [欠測機構の判定, 右打ち切りと切断の比較, 2成分正規混合の所属確率, 期待値最大化法の1反復, 単一代入の分散過小評価]
+canonical_examples: [欠測機構の判定, 右打ち切りと切断の比較, 右打ち切り指数寿命, 右打ち切りワイブル尺度最尤推定, 2成分正規混合の所属確率, 期待値最大化法の1反復, 単一代入の分散過小評価]
 advanced_examples: [KLダイバージェンスによる期待値最大化法の尤度単調性証明]
-problem_patterns: [MISSING-MECH-1, CENSOR-TRUNC-1, OBS-LIK-1, MIX-E-STEP-1, MIX-M-STEP-1, EM-ITER-1, IMPUTE-UNCERTAINTY-1]
+problem_patterns: [MISSING-MECH-1, CENSOR-TRUNC-1, OBS-LIK-1, CENSOR-WEIBULL-MLE-1, MIX-E-STEP-1, MIX-M-STEP-1, EM-ITER-1, IMPUTE-UNCERTAINTY-1]
 advanced_problem_patterns: [EM-MONOTONE-1]
 past_exam_alignment: []
 integrated_exam_problems: [I4-02-C01, I4-02-C03, I4-02-C04]
 advanced_exam_problems: [I4-02-C02, I4-02-D01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 4, level_d: 1 }
 estimated_hours: { reading: 8, exercises: 11, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
