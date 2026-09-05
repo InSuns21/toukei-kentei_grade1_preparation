@@ -1,0 +1,15 @@
+chapter: F0-00R2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F
+  - F0-00D2
+  - F0-00E2
+  - F0-02C1
+
+# ロードマップ本文で後続章と確率論側の接続を先取りする。
+forward_references:
+  - ode.matrix-exponential
+  - prob.characteristic-function
+
+concepts: []
