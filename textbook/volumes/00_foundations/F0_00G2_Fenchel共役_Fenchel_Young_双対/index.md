@@ -42,13 +42,15 @@ Lagrange双対・KKT
 
 <!-- formal-statement-start -->
 > **定義（Fenchel–Legendre 共役）**  
-> $f:\mathbb R^n\to(-\infty,+\infty]$ に対し
-> $$
-> \boxed{
-> f^*(y)=\sup_{x\in\mathbb R^n}
-> \{\langle y,x\rangle-f(x)\}
-> }
-> $$
+> $f:\mathbb R^n\to(-\infty,+\infty]$ に対し、
+
+$$
+\boxed{
+f^*(y)=\sup_{x\in\mathbb R^n}
+\{\langle y,x\rangle-f(x)\}
+}
+$$
+
 > を $f$ の **凸共役** といいます。
 <!-- formal-statement-end -->
 
@@ -60,20 +62,14 @@ $$
 
 を全ての $x$ で満たすような最大の切片 $c$ を探している、と読むことができます。
 
-実際
-
-$$
-f^*(y)=\sup_x\{\langle y,x\rangle-f(x)\}
-$$
-
-なので
+実際、共役の定義から
 
 $$
 \langle y,x\rangle-f^*(y)\le f(x)
-\qquad(\forall x).
+\qquad(\forall x)
 $$
 
-つまり $f^*(y)$ は「傾き $y$ の affine minorant をどこまで上へ押し上げられるか」を記録しています。
+です。つまり $f^*(y)$ は「傾き $y$ の affine minorant をどこまで上へ押し上げられるか」を記録しています。
 
 ---
 
@@ -100,14 +96,14 @@ $$
 \boxed{
 \left(\frac12\|\cdot\|^2\right)^*(y)
 =\frac12\|y\|^2
-}
+}.
 $$
 
-で、二次関数は共役を取っても同じ形です。
+二次関数は共役を取っても同じ形です。
 
 ---
 
-## 3. 例：絶対値と区間 indicator は共役
+## 3. 例：絶対値と区間 indicator
 
 $f(x)=|x|$ とします。
 
@@ -121,24 +117,21 @@ $$
 yx-|x|\le0
 $$
 
-で $x=0$ により上限0を達成します。
+で、$x=0$ により上限0を達成します。
 
-一方 $|y|>1$ なら $x$ の符号を $y$ に合わせて $|x|\to\infty$ とすると
+一方 $|y|>1$ なら、$x$ の符号を $y$ に合わせて $|x|\to\infty$ とすると
 
 $$
 yx-|x|\to+\infty.
 $$
 
-従って
+したがって
 
 $$
 \boxed{
-|\cdot|^*(y)=
-\delta_{[-1,1]}(y)
-}
+|\cdot|^*(y)=\delta_{[-1,1]}(y)
+}.
 $$
-
-です。
 
 逆に
 
@@ -160,23 +153,21 @@ $$
 <!-- formal-statement-start -->
 > **定義（support function）**  
 > 集合 $C\subset\mathbb R^n$ に対して
-> $$
-> \sigma_C(y)=\sup_{x\in C}\langle y,x\rangle
-> $$
+
+$$
+\sigma_C(y)=\sup_{x\in C}\langle y,x\rangle
+$$
+
 > を $C$ の **support function** といいます。
 <!-- formal-statement-end -->
 
-indicator 関数との関係は即座に
+indicator 関数との関係は
 
 $$
-\boxed{
-\delta_C^*=\sigma_C
-}
+\boxed{\delta_C^*=\sigma_C}
 $$
 
-です。
-
-集合の幾何を表す関数が、共役を通すと自然に現れます。
+です。集合の幾何を表す関数が、共役を通すと自然に現れます。
 
 ### 4.1 例：Euclid 単位球
 
@@ -188,7 +179,7 @@ $$
 
 $$
 \sigma_C(y)
-=\sup_{\|x\|\le1}y^{\mathsf T}x
+=\sup_{\|x\|_2\le1}y^{\mathsf T}x
 =\|y\|_2.
 $$
 
@@ -203,18 +194,20 @@ f^*(y)
 \ge\langle y,x\rangle-f(x).
 $$
 
-従って
+従って次を得ます。
 
 <a id="thm-f0-00g2-fenchel-young"></a>
 
 <!-- formal-statement-start -->
 > **定理（Fenchel–Young 不等式）**  
 > 任意の $x,y$ に対して
-> $$
-> \boxed{
-> f(x)+f^*(y)\ge\langle x,y\rangle
-> }
-> $$
+
+$$
+\boxed{
+f(x)+f^*(y)\ge\langle x,y\rangle
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -223,16 +216,16 @@ $$
 $f(x)=x^2/2$ を使えば
 
 $$
-\frac{x^2}{2}+\frac{y^2}{2}\ge xy.
+\frac{x^2}{2}+\frac{y^2}{2}\ge xy,
 $$
 
-つまりおなじみの
+すなわち
 
 $$
 2xy\le x^2+y^2
 $$
 
-は Fenchel–Young の特殊例です。
+です。
 
 ---
 
@@ -243,13 +236,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fenchel–Young の等号条件）**  
 > proper convex function $f$ と $x\in\operatorname{dom}f$ に対して
-> $$
-> \boxed{
-> y\in\partial f(x)
-> \iff
-> f(x)+f^*(y)=\langle x,y\rangle
-> }
-> $$
+
+$$
+\boxed{
+y\in\partial f(x)
+\iff
+f(x)+f^*(y)=\langle x,y\rangle
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -263,7 +258,7 @@ f(z)\ge f(x)+\langle y,z-x\rangle
 \qquad(\forall z).
 $$
 
-整理して
+整理すると
 
 $$
 \langle y,z\rangle-f(z)
@@ -271,19 +266,13 @@ $$
 \langle y,x\rangle-f(x).
 $$
 
-従って共役を定義する上限は $z=x$ で達成され
+したがって共役を定義する上限は $z=x$ で達成され、
 
 $$
 f^*(y)=\langle y,x\rangle-f(x).
 $$
 
-逆に等号が成立すると
-
-$$
-f^*(y)=\langle y,x\rangle-f(x).
-$$
-
-共役の定義から任意の $z$ について
+逆にこの等号が成立すると、共役の定義から任意の $z$ について
 
 $$
 \langle y,z\rangle-f(z)
@@ -300,23 +289,25 @@ $$
 すなわち $y\in\partial f(x)$ です。$\square$
 <!-- proof-end -->
 
-ここが凸解析の中心です。
-
+> **意味**  
 > **劣勾配であること**と、**主変数 $x$ と双対変数 $y$ の Fenchel–Young gap が0になること**は同じです。
 
 ---
 
-## 7. 共役側から元へ戻る
+## 7. 二重共役と Fenchel–Moreau
 
 <a id="def-f0-00g2-biconjugate"></a>
 
 <!-- formal-statement-start -->
 > **定義（二重共役）**  
-> $$
-> f^{**}(x)
-> =\sup_y\{\langle x,y\rangle-f^*(y)\}
-> $$
-> を $f$ の二重共役といいます。
+> $f$ の共役 $f^*$ にもう一度共役を取り、
+
+$$
+f^{**}(x)
+=\sup_y\{\langle x,y\rangle-f^*(y)\}
+$$
+
+> と定めたものを $f$ の **二重共役** といいます。
 <!-- formal-statement-end -->
 
 Fenchel–Young から常に
@@ -338,36 +329,38 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限次元 Fenchel–Moreau）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ が proper closed convex function なら
-> $$
-> \boxed{f^{**}=f}
-> $$
+
+$$
+\boxed{f^{**}=f}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-### 7.1 証明の幾何
+<!-- proof-start -->
+### 証明の幾何
 
-$f^{**}$ は
+すでに $f^{**}\le f$ は示しました。逆向きを示します。
 
-$$
-x\mapsto\langle x,y\rangle-f^*(y)
-$$
+$x_0\in\operatorname{dom}f$ と $r<f(x_0)$ を取ります。点 $(x_0,r)$ は閉凸集合 $\operatorname{epi}f$ の外側にあります。分離定理により、この点と epigraph を分離する非零線形汎関数が存在します。
 
-という affine minorant を全て重ねた上限です。
-
-一方、proper closed convex function の epigraph は閉凸集合です。epigraph の外側にある点
+分離不等式を epigraph の鉛直方向に対して調べると、高さ方向の係数は負に取れます。正規化すると、ある $y$ が存在して
 
 $$
-(x_0,r),
-\qquad r<f(x_0)
+r
+<
+\langle x_0,y\rangle-f^*(y)
+\le
+f(x_0)
 $$
 
-は分離定理により epigraph から分離できます。分離超平面を整理すると、ある $y$ が存在して
+となります。従って
 
 $$
-r<\langle x_0,y\rangle-f^*(y)\le f(x_0)
+f^{**}(x_0)
+=\sup_y\{\langle x_0,y\rangle-f^*(y)\}
+>r.
 $$
-
-となります。
 
 $r<f(x_0)$ は任意なので $r\uparrow f(x_0)$ とすれば
 
@@ -375,34 +368,59 @@ $$
 f^{**}(x_0)\ge f(x_0).
 $$
 
-すでに逆向き $f^{**}\le f$ は分かっているので等号です。
+逆向きと合わせて $f^{**}(x_0)=f(x_0)$ です。$x_0$ は任意なので $f^{**}=f$。$\square$
+<!-- proof-end -->
 
-> **意味**  
-> closed convex function は「自分を下から支える affine 関数を全部集めれば完全に復元できる」。
+つまり closed convex function は
 
-これが Fenchel–Moreau の中身です。
+> 自分を下から支える affine 関数を全部集めれば完全に復元できる。
+
+ということです。
 
 ---
 
-## 8. 逆劣微分
-
-$f$ が proper closed convex なら Fenchel–Moreau と等号条件から
+## 8. 劣微分の逆関係
 
 <a id="thm-f0-00g2-subgradient-inverse"></a>
 
 <!-- formal-statement-start -->
 > **定理（劣微分の逆関係）**  
-> $$
-> \boxed{
-> y\in\partial f(x)
-> \iff
-> x\in\partial f^*(y)
-> }
-> $$
+> $f$ を proper closed convex function とします。このとき
+
+$$
+\boxed{
+y\in\partial f(x)
+\iff
+x\in\partial f^*(y)
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-滑らかで狭義凸な場合には
+<!-- proof-start -->
+### 証明
+
+Fenchel–Young の等号条件から
+
+$$
+y\in\partial f(x)
+\iff
+f(x)+f^*(y)=\langle x,y\rangle.
+$$
+
+Fenchel–Moreau により $f^{**}=f$ なので、同じ等式を $f^*$ に対する Fenchel–Young の等号条件として読めば
+
+$$
+f^*(y)+f^{**}(x)=\langle y,x\rangle
+\iff
+x\in\partial f^*(y).
+$$
+
+従って両者は同値です。$\square$
+<!-- proof-end -->
+
+滑らかで十分な狭義凸性がある場合には
 
 $$
 y=\nabla f(x)
@@ -414,7 +432,7 @@ $$
 x=\nabla f^*(y)
 $$
 
-という関係になります。Legendre 変換の直感はここです。
+という関係になります。
 
 ---
 
@@ -433,35 +451,27 @@ $$
 共役の定義から
 
 $$
-g(Ax)=\sup_y\{\langle y,Ax\rangle-g^*(y)\}.
+g(Ax)
+=\sup_y\{\langle y,Ax\rangle-g^*(y)\}.
 $$
 
-したがって
+したがって主問題は
 
 $$
 \inf_x\sup_y
 \{f(x)+\langle A^{\mathsf T}y,x\rangle-g^*(y)\}
 $$
 
-です。
+と書けます。
 
-ここで $\inf$ と $\sup$ を入れ替えると必ず下側の値になるので
-
-$$
-\sup_y\inf_x
-\{f(x)+\langle A^{\mathsf T}y,x\rangle-g^*(y)\}
-$$
-
-は主問題の下界です。
-
-内側の $x$ に関する infimum は
+$\inf$ と $\sup$ を入れ替えると主問題の下界を与え、内側の $x$ に関する infimum は
 
 $$
 \inf_x\{f(x)+\langle A^{\mathsf T}y,x\rangle\}
 =-f^*(-A^{\mathsf T}y).
 $$
 
-従って双対問題は
+従って対応する Fenchel 双対問題は
 
 $$
 \boxed{
@@ -474,27 +484,50 @@ $$
 
 ### 9.1 弱双対性
 
-任意の $x,y$ について Fenchel–Young を $f$ と $g$ に適用すると
+<a id="thm-f0-00g2-fenchel-weak-duality"></a>
 
-$$
-f(x)+f^*(-A^{\mathsf T}y)
-\ge-\langle A^{\mathsf T}y,x\rangle,
-$$
-
-$$
-g(Ax)+g^*(y)
-\ge\langle y,Ax\rangle.
-$$
-
-加えると内積が消えて
+<!-- formal-statement-start -->
+> **定理（Fenchel 双対の弱双対性）**  
+> 任意の主変数 $x$ と双対変数 $y$ に対して
 
 $$
 f(x)+g(Ax)
 \ge
--f^*(-A^{\mathsf T}y)-g^*(y).
+-f^*(-A^{\mathsf T}y)-g^*(y)
 $$
 
-これが弱双対性です。
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+Fenchel–Young を $f$ に適用すると
+
+$$
+f(x)+f^*(-A^{\mathsf T}y)
+\ge
+-\langle A^{\mathsf T}y,x\rangle.
+$$
+
+同様に $g$ について
+
+$$
+g(Ax)+g^*(y)
+\ge
+\langle y,Ax\rangle.
+$$
+
+二つを加えると内積が打ち消し合い、
+
+$$
+f(x)+g(Ax)
++f^*(-A^{\mathsf T}y)+g^*(y)
+\ge0.
+$$
+
+整理すれば主張を得ます。$\square$
+<!-- proof-end -->
 
 ---
 
@@ -562,8 +595,6 @@ $$
 
 さらに $C=\mathbb R_-^m$ のような錐を使えば、dual cone と complementarity が KKT の形で現れます。
 
-したがって
-
 ```text
 Fenchel--Young 等号条件
   ↓
@@ -573,8 +604,6 @@ normal cone
   ↓ cone constraint
 KKT
 ```
-
-という一本の流れです。
 
 ---
 
@@ -686,7 +715,15 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-Hölder から $y^Tx\le\|y\|_q\|x\|_p\le\|y\|_q$ なので上限は高々 $\|y\|_q$。$1<p<\infty$ なら $x_i=\operatorname{sgn}(y_i)|y_i|^{q-1}/\|y\|_q^{q-1}$ を取ると $\|x\|_p=1$ で等号。端点 $p=1,\infty$ も最大成分・符号ベクトルを選べば等号を達成する。
+Hölder から $y^Tx\le\|y\|_q\|x\|_p\le\|y\|_q$ なので上限は高々 $\|y\|_q$。$1<p<\infty$ なら
+
+$$
+x_i=
+\frac{\operatorname{sgn}(y_i)|y_i|^{q-1}}
+{\|y\|_q^{q-1}}
+$$
+
+を取ると $\|x\|_p=1$ で等号。端点 $p=1,\infty$ も最大成分・符号ベクトルを選べば等号を達成する。
 #### 本番答案
 Hölder で上界 $\|y\|_q$。Hölder の等号条件を満たす $x$ を取れば達成するので $\boxed{\sigma_C(y)=\|y\|_q}$。
 #### 採点基準（20点）
