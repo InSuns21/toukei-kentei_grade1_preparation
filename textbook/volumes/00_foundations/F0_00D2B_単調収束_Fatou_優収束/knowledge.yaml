@@ -5,13 +5,6 @@ prerequisites:
   - F0-00D2A
 
 concepts:
-  - id: measure.ae-convergence
-    name: a.e.収束
-    kind: term
-    aliases: [a.e.収束, a.e., ほとんど至る所, almost everywhere]
-    requires:
-      - measure.measurable-function
-
   - id: measure.limit-inferior
     name: liminf
     kind: definition
@@ -55,7 +48,7 @@ concepts:
     kind: theorem
     aliases: [Lebesgueの優収束定理, 優収束定理, DCT, dominated convergence theorem]
     requires:
-      - measure.ae-convergence
+      - measure.almost-everywhere
       - measure.dominating-function
       - measure.integrable-function
       - measure.fatou-lemma
