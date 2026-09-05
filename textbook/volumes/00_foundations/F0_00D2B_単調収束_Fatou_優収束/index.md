@@ -2,17 +2,17 @@
 
 D2AでLebesgue積分を定義しました。次に必要なのは、関数列の極限と積分をどう交換するかです。
 
-この講義の論理線は
+この講義では、単調収束定理（Monotone Convergence Theorem; MCT）、Fatouの補題（Fatou's lemma）、Lebesgueの優収束定理（Dominated Convergence Theorem; DCT）を次の順に使います。
 
 ```text
-単調収束定理（Monotone Convergence Theorem; MCT）
+MCT
  ↓
-Fatouの補題（Fatou's lemma）
+Fatou
  ↓
-Lebesgueの優収束定理（Dominated Convergence Theorem; DCT）
+DCT
 ```
 
-です。以後、このページでは **MCT**、**DCT** という略称を使います。
+以後、このページでは **MCT**、**DCT** という略称を使います。
 
 「極限と積分を交換してよい」という結論だけ覚えるのではなく、**なぜ各定理の仮定が違うのか**まで理解します。
 
@@ -247,6 +247,24 @@ $$
 
 関数列では各 $\omega$ ごとにこの定義を適用します。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00d2b-01 -->
+**定義の確認**
+
+例えば $a_n=0$（$n$ が偶数）、$a_n=1$（$n$ が奇数）とします。どの $n$ から先を見ても 0 と 1 が現れるので、
+
+$$
+\inf_{k\ge n}a_k=0
+$$
+
+が全ての $n$ で成り立ちます。したがって定義どおり
+
+$$
+\liminf_{n\to\infty}a_n=0.
+$$
+
+つまり liminf は「十分先の尾部に残り続ける下側の値」を拾う量です。
+<!-- definition-example-end -->
 
 ### 2.1 直感：単調でない列から「単調な下側包絡」を作る
 
@@ -610,6 +628,8 @@ $$
 =
 \int_0^11_{[0,1)}dx=1.
 $$
+
+実際左辺は $1-1/(n+1)$ です。
 
 ### 本番答案
 
