@@ -51,7 +51,7 @@ concepts:
   - id: measure.lebesgue-integral-monotonicity
     name: Lebesgue積分の単調性
     kind: proposition
-    aliases: [命題（単調性）]
+    aliases: ["### 命題（単調性）"]
     requires:
       - measure.lebesgue-integral
 
