@@ -35,9 +35,6 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -55,21 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Apply S6 terminology correction
-        run: node scripts/tmp-s6-terminology-fix.mjs
-
-      - name: Commit terminology correction
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook/volumes/04_linear_models/L1_04_回帰診断_一般化最小二乗_正則化/index.md
-          if git diff --cached --quiet; then
-            echo 'terminology already current'
-          else
-            git commit -m 'Use Japanese primary term for GLS example'
-            git push origin HEAD:audit/regression-diagnostics-formal-density-s6
-          fi
 
       - name: Audit official syllabus term coverage
         run: npm run audit:textbook-syllabus -- --strict
