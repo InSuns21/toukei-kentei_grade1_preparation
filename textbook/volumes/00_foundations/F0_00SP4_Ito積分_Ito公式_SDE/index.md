@@ -949,7 +949,7 @@ $f(x)=\log x$ に対し
 
 $$
 d\log X_t
-=\frac1{X_t}dX_t-rac12\frac1{X_t^2}(dX_t)^2
+=\frac1{X_t}dX_t-\frac12\frac1{X_t^2}(dX_t)^2
 =\left(\mu-\frac12\sigma^2\right)dt+\sigma dB_t.
 $$
 
