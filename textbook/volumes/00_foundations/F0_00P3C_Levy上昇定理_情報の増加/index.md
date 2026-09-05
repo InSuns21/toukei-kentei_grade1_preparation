@@ -114,9 +114,9 @@ $$
 
 $$
 \mathcal D
-=\{B\in\mathcal G_\infty:
+=\left\{B\in\mathcal G_\infty:
 \forall\varepsilon>0,\ \exists A\in\mathcal A,
-\ P(A\triangle B)<\varepsilon\}.
+\ P(A\triangle B)<\varepsilon\right\}.
 $$
 
 明らかに $\mathcal A\subseteq\mathcal D$ です。補集合について
@@ -415,13 +415,15 @@ $$
 第1節の二進分割を使い
 
 $$
-X(t)=t
+X(t)=t,
+\qquad
+M_n=E[X\mid\mathcal G_n]
 $$
 
 とします。$t\in I_{k,n}$ なら有限分割の公式から
 
 $$
-E[X\mid\mathcal G_n](t)
+M_n(t)
 =\frac{1}{|I_{k,n}|}\int_{I_{k,n}}s\,ds
 =\frac{2k+1}{2^{n+1}}.
 $$
@@ -429,7 +431,7 @@ $$
 これは $I_{k,n}$ の中点であり
 
 $$
-|E[X\mid\mathcal G_n](t)-t|\le2^{-n}\to0.
+|M_n(t)-t|\le2^{-n}\to0.
 $$
 
 情報を細かくすると、条件付き平均が極限情報に対する条件付き期待値へ戻ることが見えます。
@@ -444,7 +446,7 @@ $$
 E[M_n\mid\mathcal G_{n-1}]=M_{n-1}
 $$
 
-を満たします。これは後のEncore IVで定義するmartingaleです。この講義では一般のmartingale収束定理を先に仮定せず、条件付き期待値から作られる特別なmartingaleについて必要なupcrossing議論をここで証明しました。
+を満たします。これは後のEncore IVで定義するmartingaleです。この講義では一般のmartingale収束定理を先に仮定せず、条件付き期待値から作られる特別なmartingaleについて必要な上向き横断の議論をここで証明しました。
 
 ---
 
@@ -455,19 +457,33 @@ $$
 - Level: A
 - 目安時間: 12分
 
-$([0,1),\mathcal B,\lambda)$ 上で $X(t)=t$、$\mathcal G_n=\sigma(I_{0,n},\dots,I_{2^n-1,n})$ とする。$t\in I_{k,n}$ に対する $E[X\mid\mathcal G_n](t)$ を求め、$X(t)$ への収束を直接示せ。
+$([0,1),\mathcal B,\lambda)$ 上で
+
+$$
+X(t)=t,
+\qquad
+M_n=E[X\mid\mathcal G_n],
+\qquad
+\mathcal G_n=\sigma(I_{0,n},\dots,I_{2^n-1,n})
+$$
+
+とする。$t\in I_{k,n}$ に対する $M_n(t)$ を求め、$X(t)$ への収束を直接示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 各セル上では条件付き期待値はセル平均なので
 
 $$
-E[X\mid\mathcal G_n](t)
+M_n(t)
 =2^n\int_{k/2^n}^{(k+1)/2^n}s\,ds
 =\frac{2k+1}{2^{n+1}}.
 $$
 
-$t$ と同じ長さ $2^{-n}$ のセル内にあるため $|E[X\mid\mathcal G_n](t)-t|\le2^{-n}\to0$。
+$t$ と同じ長さ $2^{-n}$ のセル内にあるため
+
+$$
+|M_n(t)-t|\le2^{-n}\to0.
+$$
 
 #### 本番答案
 セル平均を計算して $(2k+1)/2^{n+1}$。セル幅が $2^{-n}$ なので誤差は $2^{-n}$ 以下で0へ収束する。
@@ -479,7 +495,7 @@ $t$ と同じ長さ $2^{-n}$ のセル内にあるため $|E[X\mid\mathcal G_n](
 - 収束結論: 3点
 <!-- solution-end -->
 
-### F0-00P3C-B01 upcrossing評価を導く
+### F0-00P3C-B01 上向き横断評価を導く
 
 - Level: B
 - 目安時間: 20分
