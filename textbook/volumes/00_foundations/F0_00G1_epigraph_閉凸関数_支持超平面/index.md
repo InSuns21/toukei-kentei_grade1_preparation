@@ -233,7 +233,9 @@ $$
 \alpha=\liminf f(x_k)
 $$
 
-が有限の場合を考えます。部分列を取り直して $f(x_{k_j})\to\alpha$ とできます。このとき
+と置きます。
+
+$\alpha\in\mathbb R$ の場合は、部分列を取り直して $f(x_{k_j})\to\alpha$ とできます。このとき
 
 $$
 (x_{k_j},f(x_{k_j}))\in\operatorname{epi}f
@@ -245,7 +247,23 @@ $$
 f(x)\le\alpha.
 $$
 
-$\alpha=+\infty$ の場合は自明です。従って $f$ は下半連続です。$\square$
+$\alpha=+\infty$ の場合は $f(x)\le+\infty$ なので自明です。
+
+最後に $\alpha=-\infty$ は起こり得ないことを確認します。もし $\liminf f(x_k)=-\infty$ なら、任意の $M\in\mathbb R$ に対して部分列 $x_{k_j}$ を取り
+
+$$
+f(x_{k_j})\le M
+$$
+
+とできます。従って $(x_{k_j},M)\in\operatorname{epi}f$ であり、$(x_{k_j},M)\to(x,M)$ です。epigraph の閉性から $(x,M)\in\operatorname{epi}f$、すなわち $f(x)\le M$ が全ての実数 $M$ で成り立つことになり、$f$ が $-\infty$ を値に取らないという値域 $(-\infty,+\infty]$ に矛盾します。
+
+従って常に
+
+$$
+f(x)\le\liminf f(x_k)
+$$
+
+が成立し、$f$ は下半連続です。$\square$
 <!-- proof-end -->
 
 <a id="def-f0-00g1-closed-convex"></a>
