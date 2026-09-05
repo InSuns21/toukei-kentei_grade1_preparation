@@ -1,0 +1,11 @@
+chapter: "F0-00SDE1A"
+terms:
+  - term: frozen generator
+    english: frozen generator
+    meaning: Euler--Maruyama の1ステップ中だけ係数をステップ始点の値に固定して得る生成作用素。
+  - term: 局所弱誤差
+    english: local weak error
+    meaning: 1ステップだけ進めたときの期待値汎関数の誤差。Euler--Maruyama では滑らかさの下で O(h^2) になる。
+  - term: 大域弱誤差
+    english: global weak error
+    meaning: 終端時刻まで全ステップを積み上げた期待値誤差。局所 O(h^2) を O(1/h) 回足すことで O(h) になる。
