@@ -5,6 +5,13 @@ prerequisites:
   - F0-00D2A
 
 concepts:
+  - id: measure.ae-convergence
+    name: a.e.収束
+    kind: term
+    aliases: [a.e.収束, a.e., ほとんど至る所, almost everywhere]
+    requires:
+      - measure.measurable-function
+
   - id: measure.limit-inferior
     name: liminf
     kind: definition
@@ -29,8 +36,7 @@ concepts:
 
   - id: measure.dominating-function
     name: 支配関数
-    kind: definition
-    introduction: inline
+    kind: term
     aliases: [支配関数, dominating function]
     requires:
       - measure.measurable-function
@@ -38,8 +44,8 @@ concepts:
 
   - id: measure.l1-convergence
     name: L1収束
-    kind: definition
-    introduction: inline
+    kind: term
+    introduction: prose-math
     aliases: [L1収束, L^1収束, L1 convergence]
     requires:
       - measure.lebesgue-integral
