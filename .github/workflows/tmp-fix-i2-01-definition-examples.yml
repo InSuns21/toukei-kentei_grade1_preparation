@@ -1,0 +1,44 @@
+name: Temporary fix I2-01 definition examples
+
+on:
+  push:
+    branches:
+      - fix/i2-01-inline-definition-examples
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Remove duplicated chapter-end definition examples
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/03_inference/I2_01_漸近推測_Delta法/index.md')
+          text = path.read_text(encoding='utf-8')
+          marker = '\n---\n\n## 17. 定義の具体例による確認\n'
+          if text.count(marker) != 1:
+              raise SystemExit(f'expected exactly one section marker, found {text.count(marker)}')
+          text = text.split(marker, 1)[0].rstrip() + '\n'
+          if 'definition-example-start:' in text:
+              raise SystemExit('definition-example block unexpectedly remains before removed section')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/03_inference/I2_01_漸近推測_Delta法/index.md
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 1
+          fi
+          git commit -m "I2-01: inline definition examples into main flow"
+          git push
