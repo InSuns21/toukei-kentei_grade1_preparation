@@ -1,0 +1,78 @@
+chapter: F0-00P4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3
+  - F0-00P2A
+  - F0-00D2B
+
+forward_references:
+  - prob.uniform-integrability
+  - prob.vitali-convergence-theorem
+
+concepts:
+  - id: prob.event-limsup
+    name: 事象列の上極限
+    kind: definition
+    aliases: [事象列の上極限]
+    requires:
+      - prob.probability-space
+      - measure.sigma-algebra
+
+  - id: prob.almost-sure-convergence
+    name: 概収束
+    kind: definition
+    aliases: [概収束]
+    requires:
+      - prob.random-variable
+      - measure.almost-everywhere
+
+  - id: prob.probability-convergence
+    name: 確率収束
+    kind: definition
+    aliases: [確率収束]
+    requires:
+      - prob.random-variable
+
+  - id: prob.borel-cantelli-1
+    name: Borel--Cantelli第1補題
+    kind: lemma
+    aliases: [Borel--Cantelli第1補題, Borel-Cantelli第1補題]
+    requires:
+      - prob.event-limsup
+      - prob.probability-space
+
+  - id: prob.borel-cantelli-2
+    name: Borel--Cantelli第2補題
+    kind: lemma
+    aliases: [Borel--Cantelli第2補題, Borel-Cantelli第2補題]
+    requires:
+      - prob.event-limsup
+      - prob.independent-events
+      - prob.probability-space
+
+  - id: prob.as-implies-probability
+    name: 概収束は確率収束を含意する
+    kind: theorem
+    aliases: [概収束は確率収束を含意する]
+    requires:
+      - prob.almost-sure-convergence
+      - prob.probability-convergence
+      - measure.dominated-convergence-theorem
+
+  - id: prob.lp-implies-probability
+    name: L^p収束なら確率収束
+    kind: term
+    aliases: ["L^p 収束なら確率収束"]
+    requires:
+      - prob.probability-convergence
+      - prob.markov-inequality
+
+  - id: prob.probability-subsequence-as
+    name: 確率収束から概収束部分列
+    kind: theorem
+    aliases: [確率収束から概収束部分列]
+    requires:
+      - prob.probability-convergence
+      - prob.almost-sure-convergence
+      - prob.borel-cantelli-1
