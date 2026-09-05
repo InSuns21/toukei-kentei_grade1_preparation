@@ -7,29 +7,31 @@ prerequisites:
   - F0-00P6
 official_scope: []
 learning_objectives:
-  - Brown運動を連続path・独立定常Gaussian増分で定義できる
-  - 共分散Cov(B_s,B_t)=min(s,t)を導ける
-  - Brown運動をGaussian過程として特徴付けられる
-  - scaling propertyを説明できる
-  - Brown運動がmartingaleであることを示せる
-  - 二次変分がtへ収束する理由を説明できる
-  - 有限変分pathとの違いから通常の微積分が壊れる理由を説明できる
-  - white noiseをBrown運動の超関数的時間微分として位置付けられる
+  - Brown運動を連続path・独立Gaussian増分で定義できる
+  - Brown運動がGaussian過程であることを示せる
+  - 共分散Cov(B_s,B_t)=min(s,t)を証明できる
+  - Brown運動とB_t^2-tのmartingale性を証明できる
+  - Brownian scalingを定義から証明できる
+  - 一般の決定論的細分割で二次変分がtへL2収束することを証明できる
+  - predictable係数付き二次変分の誤差評価を証明できる
+  - 二次変分がIto公式の二階項を生む理由を説明できる
 definitions:
   - { id: F000SP3-DEF-01, name: Brown運動 }
   - { id: F000SP3-DEF-02, name: Gaussian過程 }
-  - { id: F000SP3-DEF-03, name: 二次変分 }
+  - { id: F000SP3-DEF-03, name: 二次変分和 }
 theorems:
   - { id: F000SP3-THM-01, name: Brown運動の共分散 }
-  - { id: F000SP3-THM-02, name: Brown運動のscaling property }
-  - { id: F000SP3-THM-03, name: Brown運動の二次変分 }
-  - { id: F000SP3-THM-04, name: Brown運動の非微分可能性 }
+  - { id: F000SP3-THM-02, name: Brown運動のmartingale性 }
+  - { id: F000SP3-THM-03, name: Brownian scaling }
+  - { id: F000SP3-THM-04, name: Brown運動の二次変分 }
+  - { id: F000SP3-LEM-01, name: predictable係数付き二次変分 }
 canonical_examples:
-  - Gaussian有限次元分布
+  - Brown運動の有限次元Gaussian分布
   - B_t^2-t martingale
-  - 一様分割上の二次変分
-problem_patterns: [BROWNIAN-COVARIANCE-1, QUADRATIC-VARIATION-1]
+  - 滑らかなpathの二次変分0
+  - 非一様分割上のBrown二次変分
+problem_patterns: [BROWNIAN-COVARIANCE-1, BROWNIAN-MARTINGALE-1, QUADRATIC-VARIATION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 5, exercises: 1, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 1.5, review: 0.5 }
