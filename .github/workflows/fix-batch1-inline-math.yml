@@ -1,0 +1,32 @@
+name: Fix Batch 1 inline math
+
+on:
+  push:
+    branches:
+      - audit/syllabus-term-coverage-batch1
+    paths:
+      - 'scripts/fix-batch1-inline-math.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/syllabus-term-coverage-batch1
+          fetch-depth: 0
+      - name: Fix four multiline inline formulas
+        run: node scripts/fix-batch1-inline-math.mjs
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --quiet; then
+            git add textbook
+            git commit -m 'Fix Batch 1 multiline inline formulas'
+            git push origin HEAD:audit/syllabus-term-coverage-batch1
+          fi
