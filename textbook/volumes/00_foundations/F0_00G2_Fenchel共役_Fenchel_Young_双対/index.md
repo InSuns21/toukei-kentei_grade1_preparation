@@ -18,7 +18,7 @@ f(x)+f^*(y)=\langle x,y\rangle
 }
 $$
 
-です。劣勾配・支持超平面・双対変数が同じ構造の別の見え方になります。
+です。劣勾配・支持超平面・双対変数が、同じ構造の別の見え方になります。
 
 ```text
 支持超平面
@@ -42,34 +42,36 @@ Lagrange双対・KKT
 
 <!-- formal-statement-start -->
 > **定義（Fenchel–Legendre 共役）**  
-> $f:\mathbb R^n\to(-\infty,+\infty]$ に対し、
+> 関数 $f:\mathbb R^n\to(-\infty,+\infty]$ に対し、次で定まる関数を $f$ の **凸共役** といいます。
 
 $$
 \boxed{
-f^*(y)=\sup_{x\in\mathbb R^n}
+f^*(y)
+=
+\sup_{x\in\mathbb R^n}
 \{\langle y,x\rangle-f(x)\}
-}
+}.
 $$
-
-> を $f$ の **凸共役** といいます。
 <!-- formal-statement-end -->
 
-固定した $y$ に対して
+固定した $y$ に対して、
 
 $$
 \langle y,x\rangle-c\le f(x)
 $$
 
-を全ての $x$ で満たすような最大の切片 $c$ を探している、と読むことができます。
-
-実際、共役の定義から
+を全ての $x$ で満たす affine 関数を考えると、共役はその切片をどこまで押し上げられるかを記録しています。実際、定義から
 
 $$
-\langle y,x\rangle-f^*(y)\le f(x)
+\langle y,x\rangle-f^*(y)
+\le
+f(x)
 \qquad(\forall x)
 $$
 
-です。つまり $f^*(y)$ は「傾き $y$ の affine minorant をどこまで上へ押し上げられるか」を記録しています。
+です。
+
+つまり $f^*(y)$ は、傾き $y$ の支持 affine 関数を作るための最適な切片情報です。
 
 ---
 
@@ -79,13 +81,17 @@ $$
 f(x)=\frac12\|x\|^2
 $$
 
-とします。
+とします。平方完成すると
 
 $$
 \begin{aligned}
 f^*(y)
-&=\sup_x\left\{y^{\mathsf T}x-\frac12\|x\|^2\right\}\\
-&=\sup_x\left\{-\frac12\|x-y\|^2+\frac12\|y\|^2\right\}\\
+&=\sup_x\left\{
+\langle y,x\rangle-\frac12\|x\|^2
+\right\}\\
+&=\sup_x\left\{
+-\frac12\|x-y\|^2+\frac12\|y\|^2
+\right\}\\
 &=\frac12\|y\|^2.
 \end{aligned}
 $$
@@ -95,11 +101,12 @@ $$
 $$
 \boxed{
 \left(\frac12\|\cdot\|^2\right)^*(y)
-=\frac12\|y\|^2
+=
+\frac12\|y\|^2
 }.
 $$
 
-二次関数は共役を取っても同じ形です。
+二次関数は共役を取っても同じ形になります。
 
 ---
 
@@ -108,7 +115,9 @@ $$
 $f(x)=|x|$ とします。
 
 $$
-f^*(y)=\sup_x\{yx-|x|\}.
+f^*(y)
+=
+\sup_x\{yx-|x|\}.
 $$
 
 $|y|\le1$ なら
@@ -129,7 +138,9 @@ $$
 
 $$
 \boxed{
-|\cdot|^*(y)=\delta_{[-1,1]}(y)
+|\cdot|^*(y)
+=
+\delta_{[-1,1]}(y)
 }.
 $$
 
@@ -139,7 +150,8 @@ $$
 \delta_{[-1,1]}^*(x)
 =
 \sup_{|y|\le1}xy
-=|x|.
+=
+|x|.
 $$
 
 これは「ノルムと双対単位球」の最小例です。
@@ -152,13 +164,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（support function）**  
-> 集合 $C\subset\mathbb R^n$ に対して
+> 集合 $C\subset\mathbb R^n$ に対して、方向 $y$ における線形汎関数の上限を **support function** といいます。
 
 $$
-\sigma_C(y)=\sup_{x\in C}\langle y,x\rangle
+\sigma_C(y)
+=
+\sup_{x\in C}\langle y,x\rangle.
 $$
-
-> を $C$ の **support function** といいます。
 <!-- formal-statement-end -->
 
 indicator 関数との関係は
@@ -175,13 +187,17 @@ $$
 C=\{x:\|x\|_2\le1\}
 $$
 
-なら Cauchy–Schwarz より
+なら Cauchy–Schwarz 不等式より
 
 $$
 \sigma_C(y)
-=\sup_{\|x\|_2\le1}y^{\mathsf T}x
-=\|y\|_2.
+=
+\sup_{\|x\|_2\le1}y^{\mathsf T}x
+=
+\|y\|_2.
 $$
+
+より一般に、$p$-ノルム単位球の support function は双対指数 $q$ に対する $q$-ノルムになります。
 
 ---
 
@@ -191,7 +207,8 @@ $$
 
 $$
 f^*(y)
-\ge\langle y,x\rangle-f(x).
+\ge
+\langle y,x\rangle-f(x).
 $$
 
 従って次を得ます。
@@ -200,23 +217,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Fenchel–Young 不等式）**  
-> 任意の $x,y$ に対して
+> 任意の $x,y$ に対して、元の関数と共役関数の和は内積以上です。
 
 $$
 \boxed{
-f(x)+f^*(y)\ge\langle x,y\rangle
-}
+f(x)+f^*(y)
+\ge
+\langle x,y\rangle
+}.
 $$
-
-> が成り立ちます。
 <!-- formal-statement-end -->
 
 ### 5.1 二次関数では Young の不等式になる
 
-$f(x)=x^2/2$ を使えば
+$f(x)=x^2/2$ では $f^*(y)=y^2/2$ なので
 
 $$
-\frac{x^2}{2}+\frac{y^2}{2}\ge xy,
+\frac{x^2}{2}+\frac{y^2}{2}
+\ge
+xy,
 $$
 
 すなわち
@@ -235,17 +254,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Fenchel–Young の等号条件）**  
-> proper convex function $f$ と $x\in\operatorname{dom}f$ に対して
+> proper convex function $f$ と $x\in\operatorname{dom}f$ に対して、Fenchel–Young 不等式で等号が成立することと、$y$ が $x$ における劣勾配であることは同値です。
 
 $$
 \boxed{
 y\in\partial f(x)
 \iff
 f(x)+f^*(y)=\langle x,y\rangle
-}
+}.
 $$
-
-> が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -254,7 +271,9 @@ $$
 $y\in\partial f(x)$ なら
 
 $$
-f(z)\ge f(x)+\langle y,z-x\rangle
+f(z)
+\ge
+f(x)+\langle y,z-x\rangle
 \qquad(\forall z).
 $$
 
@@ -266,31 +285,36 @@ $$
 \langle y,x\rangle-f(x).
 $$
 
-したがって共役を定義する上限は $z=x$ で達成され、
+従って共役を定義する上限は $z=x$ で達成され、
 
 $$
-f^*(y)=\langle y,x\rangle-f(x).
+f^*(y)
+=
+\langle y,x\rangle-f(x).
 $$
 
 逆にこの等号が成立すると、共役の定義から任意の $z$ について
 
 $$
 \langle y,z\rangle-f(z)
-\le f^*(y)
-=\langle y,x\rangle-f(x).
+\le
+f^*(y)
+=
+\langle y,x\rangle-f(x).
 $$
 
 整理すると
 
 $$
-f(z)\ge f(x)+\langle y,z-x\rangle,
+f(z)
+\ge
+f(x)+\langle y,z-x\rangle,
 $$
 
 すなわち $y\in\partial f(x)$ です。$\square$
 <!-- proof-end -->
 
-> **意味**  
-> **劣勾配であること**と、**主変数 $x$ と双対変数 $y$ の Fenchel–Young gap が0になること**は同じです。
+したがって、**劣勾配であること**と、**Fenchel–Young gap が0になること**は同じです。
 
 ---
 
@@ -300,20 +324,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（二重共役）**  
-> $f$ の共役 $f^*$ にもう一度共役を取り、
+> $f$ の共役にもう一度共役を取り、次で定まる関数を **二重共役** といいます。
 
 $$
 f^{**}(x)
-=\sup_y\{\langle x,y\rangle-f^*(y)\}
+=
+\sup_y\{\langle x,y\rangle-f^*(y)\}.
 $$
-
-> と定めたものを $f$ の **二重共役** といいます。
 <!-- formal-statement-end -->
 
 Fenchel–Young から常に
 
 $$
-\langle x,y\rangle-f^*(y)\le f(x)
+\langle x,y\rangle-f^*(y)
+\le
+f(x)
 $$
 
 なので
@@ -328,21 +353,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限次元 Fenchel–Moreau）**  
-> $f:\mathbb R^n\to(-\infty,+\infty]$ が proper closed convex function なら
+> $f:\mathbb R^n\to(-\infty,+\infty]$ が proper closed convex function なら、二重共役は元の関数に一致します。
 
 $$
-\boxed{f^{**}=f}
+\boxed{f^{**}=f}.
 $$
-
-> が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明の幾何
+### 証明
 
-すでに $f^{**}\le f$ は示しました。逆向きを示します。
+すでに $f^{**}\le f$ は示しました。逆向きを epigraph の分離から示します。
 
-$x_0\in\operatorname{dom}f$ と $r<f(x_0)$ を取ります。点 $(x_0,r)$ は閉凸集合 $\operatorname{epi}f$ の外側にあります。分離定理により、この点と epigraph を分離する非零線形汎関数が存在します。
+$x_0\in\operatorname{dom}f$ と $r<f(x_0)$ を取ります。点 $(x_0,r)$ は閉凸集合 $\operatorname{epi}f$ の外側にあります。有限次元の分離定理により、この点と epigraph を分離する非零線形汎関数が存在します。
 
 分離不等式を epigraph の鉛直方向に対して調べると、高さ方向の係数は負に取れます。正規化すると、ある $y$ が存在して
 
@@ -358,24 +381,23 @@ $$
 
 $$
 f^{**}(x_0)
-=\sup_y\{\langle x_0,y\rangle-f^*(y)\}
+=
+\sup_y\{\langle x_0,y\rangle-f^*(y)\}
 >r.
 $$
 
 $r<f(x_0)$ は任意なので $r\uparrow f(x_0)$ とすれば
 
 $$
-f^{**}(x_0)\ge f(x_0).
+f^{**}(x_0)
+\ge
+f(x_0).
 $$
 
 逆向きと合わせて $f^{**}(x_0)=f(x_0)$ です。$x_0$ は任意なので $f^{**}=f$。$\square$
 <!-- proof-end -->
 
-つまり closed convex function は
-
-> 自分を下から支える affine 関数を全部集めれば完全に復元できる。
-
-ということです。
+つまり proper closed convex function は、**自分を下から支える affine 関数を全部集めれば完全に復元できる**ということです。
 
 ---
 
@@ -385,17 +407,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（劣微分の逆関係）**  
-> $f$ を proper closed convex function とします。このとき
+> $f$ を proper closed convex function とします。このとき、$y$ が $f$ の $x$ における劣勾配であることと、$x$ が $f^*$ の $y$ における劣勾配であることは同値です。
 
 $$
 \boxed{
 y\in\partial f(x)
 \iff
 x\in\partial f^*(y)
-}
+}.
 $$
-
-> が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -412,7 +432,9 @@ $$
 Fenchel–Moreau により $f^{**}=f$ なので、同じ等式を $f^*$ に対する Fenchel–Young の等号条件として読めば
 
 $$
-f^*(y)+f^{**}(x)=\langle y,x\rangle
+f^*(y)+f^{**}(x)
+=
+\langle y,x\rangle
 \iff
 x\in\partial f^*(y).
 $$
@@ -420,7 +442,7 @@ $$
 従って両者は同値です。$\square$
 <!-- proof-end -->
 
-滑らかで十分な狭義凸性がある場合には
+滑らかで、勾配写像が1対1になる程度の狭義凸性がある場合には
 
 $$
 y=\nabla f(x)
@@ -452,7 +474,8 @@ $$
 
 $$
 g(Ax)
-=\sup_y\{\langle y,Ax\rangle-g^*(y)\}.
+=
+\sup_y\{\langle y,Ax\rangle-g^*(y)\}.
 $$
 
 したがって主問題は
@@ -468,35 +491,41 @@ $\inf$ と $\sup$ を入れ替えると主問題の下界を与え、内側の $
 
 $$
 \inf_x\{f(x)+\langle A^{\mathsf T}y,x\rangle\}
-=-f^*(-A^{\mathsf T}y).
+=
+-f^*(-A^{\mathsf T}y).
 $$
 
-従って対応する Fenchel 双対問題は
+従って対応する Fenchel 双対問題は次です。
+
+<a id="def-f0-00g2-fenchel-dual"></a>
+
+<!-- formal-statement-start -->
+> **定義（Fenchel 双対問題）**  
+> 主問題 $\inf_x\{f(x)+g(Ax)\}$ に対して、次の最大化問題を対応する Fenchel 双対問題と呼びます。
 
 $$
 \boxed{
 \sup_y
 \{-f^*(-A^{\mathsf T}y)-g^*(y)\}
-}
+}.
 $$
+<!-- formal-statement-end -->
 
-です。
+---
 
-### 9.1 弱双対性
+## 10. 弱双対性
 
 <a id="thm-f0-00g2-fenchel-weak-duality"></a>
 
 <!-- formal-statement-start -->
 > **定理（Fenchel 双対の弱双対性）**  
-> 任意の主変数 $x$ と双対変数 $y$ に対して
+> 任意の主変数 $x$ と双対変数 $y$ に対して、主問題の目的値は双対問題の目的値以上です。
 
 $$
 f(x)+g(Ax)
 \ge
--f^*(-A^{\mathsf T}y)-g^*(y)
+-f^*(-A^{\mathsf T}y)-g^*(y).
 $$
-
-> が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -529,9 +558,11 @@ $$
 整理すれば主張を得ます。$\square$
 <!-- proof-end -->
 
+この差が **双対ギャップ** です。弱双対性は双対ギャップが常に非負であることを意味します。
+
 ---
 
-## 10. 強双対性には条件がいる
+## 11. 強双対性には条件がいる
 
 $\inf\sup$ と $\sup\inf$ は一般には等しくありません。
 
@@ -547,7 +578,7 @@ $$
 
 制約付き最適化で現れる Slater 条件も、同じ「退化せず分離できる内部点がある」という系統の条件です。
 
-ここで初めて
+ここで
 
 > なぜ双対問題には constraint qualification が必要なのか
 
@@ -555,7 +586,7 @@ $$
 
 ---
 
-## 11. KKTとの接続
+## 12. KKT との接続
 
 主問題
 
@@ -568,18 +599,24 @@ $$
 従って
 
 $$
--A^{\mathsf T}y^*\in\partial f(x^*),
+-A^{\mathsf T}y^*
+\in
+\partial f(x^*),
 $$
 
 $$
-y^*\in\partial g(Ax^*).
+y^*
+\in
+\partial g(Ax^*).
 $$
 
 すなわち
 
 $$
 \boxed{
-0\in\partial f(x^*)+A^{\mathsf T}y^*
+0
+\in
+\partial f(x^*)+A^{\mathsf T}y^*
 }
 $$
 
@@ -607,7 +644,7 @@ KKT
 
 ---
 
-## 12. 演習 Level A
+## 13. 演習 Level A
 
 ### F0-00G2-A01 二次関数の共役
 
@@ -625,16 +662,22 @@ $$
 #### 詳細解答
 
 $$
-f^*(y)=\sup_x\left(yx-\frac a2x^2\right).
+f^*(y)
+=
+\sup_x\left(yx-\frac a2x^2\right).
 $$
 
-$x$ で微分すると $y-ax=0$ より $x=y/a$。代入して
+$x$ で微分すると $y-ax=0$ より最大化点は $x=y/a$。代入して
 
 $$
-f^*(y)=\frac{y^2}{2a}.
+\boxed{
+f^*(y)=\frac{y^2}{2a}
+}.
 $$
+
 #### 本番答案
 最大化点 $x=y/a$ より $\boxed{f^*(y)=y^2/(2a)}$。
+
 #### 採点基準（20点）
 - 共役の定義: 5点
 - 最大化点: 7点
@@ -655,12 +698,15 @@ $f^*(y)=y^2/2$ なので
 
 $$
 \frac{x^2}{2}+\frac{y^2}{2}-xy
-=\frac12(x-y)^2.
+=
+\frac12(x-y)^2.
 $$
 
-従って等号は $x=y$ のとき。これは $y=f'(x)=x$、すなわち $y\in\partial f(x)$ と一致する。
+従って等号は $x=y$ のときです。これは $y=f'(x)=x$、すなわち $y\in\partial f(x)$ と一致します。
+
 #### 本番答案
 Fenchel gap は $(x-y)^2/2$。従って $\boxed{x=y}$。
+
 #### 採点基準（20点）
 - 共役: 4点
 - gap計算: 8点
@@ -670,7 +716,7 @@ Fenchel gap は $(x-y)^2/2$。従って $\boxed{x=y}$。
 
 ---
 
-## 13. 演習 Level B
+## 14. 演習 Level B
 
 ### F0-00G2-B01 絶対値の共役
 
@@ -687,9 +733,17 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$|y|\le1$ なら $yx\le|x|$ なので上限は0で $x=0$ が達成。$|y|>1$ なら $y$ と同符号に $x\to\infty$ とすると $yx-|x|\to\infty$。従って主張を得る。
+$|y|\le1$ なら $yx\le|x|$ なので上限は0で、$x=0$ が達成します。$|y|>1$ なら $y$ と同符号に $x$ を取り、$|x|\to\infty$ とすると
+
+$$
+yx-|x|\to+\infty.
+$$
+
+従って主張を得ます。
+
 #### 本番答案
 $|y|\le1$ では $yx-|x|\le0$、$x=0$ で0。$|y|>1$ では適切な向きへ $|x|\to\infty$ として発散。
+
 #### 採点基準（20点）
 - $|y|\le1$: 8点
 - $|y|>1$: 8点
@@ -705,7 +759,7 @@ $$
 C=\{x\in\mathbb R^n:\|x\|_p\le1\}
 $$
 
-とし、$1/p+1/q=1$ とする。Hölder不等式を使って
+とし、$1/p+1/q=1$ とする。Hölder 不等式を使って
 
 $$
 \sigma_C(y)=\|y\|_q
@@ -715,17 +769,30 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-Hölder から $y^Tx\le\|y\|_q\|x\|_p\le\|y\|_q$ なので上限は高々 $\|y\|_q$。$1<p<\infty$ なら
+Hölder 不等式から
 
 $$
-x_i=
+y^{\mathsf T}x
+\le
+\|y\|_q\|x\|_p
+\le
+\|y\|_q
+$$
+
+なので上限は高々 $\|y\|_q$ です。$1<p<\infty$ なら
+
+$$
+x_i
+=
 \frac{\operatorname{sgn}(y_i)|y_i|^{q-1}}
 {\|y\|_q^{q-1}}
 $$
 
-を取ると $\|x\|_p=1$ で等号。端点 $p=1,\infty$ も最大成分・符号ベクトルを選べば等号を達成する。
+を取ると $\|x\|_p=1$ で等号を達成します。端点 $p=1,\infty$ も最大成分または符号ベクトルを選べば等号を達成します。
+
 #### 本番答案
 Hölder で上界 $\|y\|_q$。Hölder の等号条件を満たす $x$ を取れば達成するので $\boxed{\sigma_C(y)=\|y\|_q}$。
+
 #### 採点基準（20点）
 - Hölder上界: 8点
 - 達成点: 8点
@@ -734,7 +801,7 @@ Hölder で上界 $\|y\|_q$。Hölder の等号条件を満たす $x$ を取れ�
 
 ---
 
-## 14. 次に進む
+## 15. 次に進む
 
 次は [F0-02 制約付き最適化・双対問題・KKT条件](../F0_02_制約付き最適化_双対_KKT/index.md) です。
 
