@@ -4,6 +4,12 @@ coverage: complete
 prerequisites:
   - F0-00D2A
 
+# 末尾の次章案内で D2C の積測度・Tonelli・Fubini を予告する。
+forward_references:
+  - measure.product-measure
+  - measure.tonelli-theorem
+  - measure.fubini-theorem
+
 concepts:
   - id: measure.limit-inferior
     name: liminf
