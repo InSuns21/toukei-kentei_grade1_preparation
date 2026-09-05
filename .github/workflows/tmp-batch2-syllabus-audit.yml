@@ -24,18 +24,43 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Repair inherited SDE1A DREAM THEATER index omission
+        run: |
+          node --input-type=module <<'EOF'
+          import fs from 'node:fs';
+          const manifestPath = 'textbook/dream-theater-index.json';
+          const facadePath = 'textbook/dream-theater.md';
+          const sde = 'textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md';
+          const sdeA = 'textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/index.md';
+          const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          const encore = manifest.sections.find((s) => s.name === 'Encore V');
+          if (!encore.paths.includes(sdeA)) {
+            const i = encore.paths.indexOf(sde);
+            if (i < 0) throw new Error('SDE1 entry not found in Encore V manifest');
+            encore.paths.splice(i + 1, 0, sdeA);
+            fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+          }
+          let facade = fs.readFileSync(facadePath, 'utf8');
+          if (!facade.includes(`](${sdeA})`)) {
+            const oldBlock = `9. [F0-00SDE1 Euler–Maruyama・strong/weak convergence](${sde})\n10. [F0-00UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)\n11. [F0-00MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)`;
+            const newBlock = `9. [F0-00SDE1 Euler–Maruyama・strong/weak convergence](${sde})\n10. [F0-00SDE1A Euler–Maruyama weak order 1 の証明](${sdeA})\n11. [F0-00UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)\n12. [F0-00MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)`;
+            if (!facade.includes(oldBlock)) throw new Error('Encore V SDE1/UQ1/MLMC block not found');
+            facade = facade.replace(oldBlock, newBlock);
+            fs.writeFileSync(facadePath, facade);
+          }
+          EOF
       - name: Generate corrected syllabus coverage report
         run: npm run audit:textbook-syllabus -- --write --strict
-      - name: Commit corrected report if changed
+      - name: Commit generated and integration repairs if changed
         run: |
-          if git diff --quiet -- textbook/SYLLABUS_TERM_COVERAGE.md; then
-            echo 'report already current'
+          if git diff --quiet -- textbook/SYLLABUS_TERM_COVERAGE.md textbook/dream-theater-index.json textbook/dream-theater.md; then
+            echo 'generated files already current'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook/SYLLABUS_TERM_COVERAGE.md
-          git commit -m 'Regenerate corrected syllabus coverage report'
+          git add textbook/SYLLABUS_TERM_COVERAGE.md textbook/dream-theater-index.json textbook/dream-theater.md
+          git commit -m 'Repair SDE1A index and refresh syllabus audit'
           git push origin HEAD:audit/syllabus-definition-density-batch2
       - uses: actions/upload-artifact@v4
         with:
