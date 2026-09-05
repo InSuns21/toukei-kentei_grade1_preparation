@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 61件
+- 明示的な定義ラベルヒット: 66件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -120,16 +120,16 @@
 |math-various-tests|ノンパラメトリック検定|exact|I3-01 / 11. 本章と次章以降の境界|—|—|—|
 |math-anova|一元配置分散分析|exact|I3-03 / 3A.2 複数の平均に関する検定|—|—|L1-03 / L1-03-A01 一元配置の自由度|
 |math-anova|二元配置分散分析|exact|L1-03 / 公式出題範囲との対応|—|—|L1-03 / L1-03-A03 交互作用を差の差で読む|
-|math-anova|交互作用|exact|L1-03 / L1-03 分散分析|—|—|L1-03 / L1-03-A03|
+|math-anova|交互作用|exact|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|—|L1-03 / L1-03-A03|
 |math-anova|共分散分析|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|—|L1-03 / L103-B05|
-|math-anova|多重比較|exact|I3-03 / 3A.2 複数の平均に関する検定|—|—|L1-03 / L1-03-A04 Bonferroni法の有意水準|
+|math-anova|多重比較|exact|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|—|L1-03 / L1-03-A04 Bonferroni法の有意水準|
 |math-regression|線形単回帰|exact|L1-01 / L1-01 単回帰と最小二乗法|—|—|L1-01 / L1-01-B04 傾きのt検定|
 |math-regression|線形重回帰|exact|L1-02 / chapter.yaml|—|—|—|
 |math-regression|最小二乗推定|exact|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|—|L1-01 / L1-01-A01|
 |math-regression|回帰の分散分析|exact|L1-01 / 公式出題範囲との対応|—|—|L1-01 / L1-01-B02 平方和分解を導く|
 |math-regression|重相関係数|exact|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A.1 例：符号を付けない|L1-02 / L102-A05|
-|math-regression|決定係数|exact|L1-01 / L1-01 単回帰と最小二乗法|—|—|L1-01 / L1-01-B03|
-|math-regression|残差|exact|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」|—|S1-01 / 例4 平方和分解|P3-03 / P3M-C03|
+|math-regression|決定係数|exact|L1-01 / 3. 平方和分解と決定係数#def-l1-01-coefficient-of-determination|L1-01 / 3. 平方和分解と決定係数#def-l1-01-coefficient-of-determination|—|L1-01 / L1-01-B03|
+|math-regression|残差|exact|L1-01 / 2.2 残差の直交性#def-l1-01-residual|L1-01 / 2.2 残差の直交性#def-l1-01-residual|S1-01 / 例4 平方和分解|P3-03 / P3M-C03|
 |math-regression|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
 |math-regression|平均への回帰（回帰効果）|exact|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A.1 例：成績最下位群だけ補習する|L1-01 / L101-B05|
 |math-contingency-tables|カイ二乗検定|exact|I3-03 / 3A.3 例：フィッシャー検定と|—|I3-03 / 3A.3 例：フィッシャー検定と|—|
@@ -204,7 +204,7 @@
 |engineering-linear-inference|線形モデル|exact|I1-02 / I1-02 推定法と推定量の評価|—|—|I1-02 / I1-02-C03 ガウス・マルコフを行列で使う|
 |engineering-linear-inference|一般化線形モデル|exact|L2-01 / L2-01|—|—|L2-01 / L2-01-A01 三要素を分類する|
 |engineering-linear-inference|線形結合の分布|exact|P3-03 / 9. 復習チェック|—|—|L1-02 / L1-02-B02|
-|engineering-linear-inference|線形対比|exact|L1-02 / L1-02 重回帰・線形モデルの行列表現|—|—|L1-02 / L1-02-A04|
+|engineering-linear-inference|線形対比|exact|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|—|L1-02 / L1-02-A04|
 |engineering-linear-inference|線形制約|exact|I3-02 / 4.1 発展: 多母数・一般制約のワルド型統計量#def-i3-02-wald-general|—|—|L1-02 / L1-02-B03 文章から|
 |engineering-asymptotics|大数の法則|exact|P4-02 / P4-02 確率変数の収束・|—|—|P4-02 / P4T-B02|
 |engineering-asymptotics|中心極限定理|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 2.2 例: 標本平均|P4-02 / P4T-B03 ポアソン標本平均の近似確率|
