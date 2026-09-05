@@ -18,22 +18,25 @@ learning_objectives:
   - 開いた母数空間で上限はあるが最大値が達成されない例を判定できる
   - 最尤推定量の再パラメータ化不変性を利用できる
   - 多母数モデルのスコアベクトルを計算できる
-  - nuisance母数を調整した有効スコアの式と意味を説明できる
+  - 1個の関心母数と1個の局外母数についてスコアの共分散・分散から有効スコアを計算し意味を説明できる
   - 正則条件の下でスコアの期待値が0になる理由と母数依存支持での注意を説明できる
+advanced_objectives:
+  - 情報行列のブロック表示を用いて多次元の局外母数に対する有効スコアの一般形を説明できる
 definitions:
   - { id: I101-DEF-01, name: 尤度関数 }
   - { id: I101-DEF-02, name: 対数尤度関数 }
   - { id: I101-DEF-03, name: スコア関数 }
   - { id: I101-DEF-04, name: スコアベクトル }
   - { id: I101-DEF-05, name: 最尤推定量 }
-  - { id: I101-DEF-06, name: nuisance母数 }
+  - { id: I101-DEF-06, name: 局外母数 }
   - { id: I101-DEF-07, name: 有効スコア }
   - { id: I101-DEF-08, name: プロファイル尤度 }
 theorems:
   - { id: I101-PROP-01, name: スコア方程式 }
   - { id: I101-THM-01, name: 最尤推定量の不変性 }
   - { id: I101-PROP-02, name: 正則モデルでのスコアの期待値0 }
-canonical_examples: [Bernoulli最尤推定, Poisson最尤推定, 指数率と平均寿命, 正規平均分散の同時最尤推定, 一様分布の端点推定, プロファイル尤度, 有効スコア]
+canonical_examples: [Bernoulli最尤推定, Poisson最尤推定, 指数率と平均寿命, 正規平均分散の同時最尤推定, 一様分布の端点推定, プロファイル尤度, 1個の局外母数に対する有効スコア]
+advanced_examples: [情報行列ブロックによる有効スコア一般形]
 problem_patterns: [LIKELIHOOD-BUILD-1, SCORE-EQ-1, BOUNDARY-MLE-1, SUPPORT-MLE-1, MULTIPARAM-MLE-1, PROFILE-LIK-1, MLE-INVARIANCE-1, EFFICIENT-SCORE-1]
 past_exam_alignment: []
 integrated_exam_problems: [I1-01-C01, I1-01-C02, I1-01-C03, I1-01-C04, I1-01-D01]
