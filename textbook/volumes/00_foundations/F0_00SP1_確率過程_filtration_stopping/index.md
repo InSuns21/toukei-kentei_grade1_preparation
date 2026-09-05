@@ -1,277 +1,530 @@
-# F0-00SP1 Encore IV：確率過程・filtration・adapted process・stopping time
+# F0-00SP1 Encore IV：確率過程・filtration・stopping time
 
-確率論P1〜P7では、主に一つまたは有限個の確率変数を扱いました。
+確率過程では、時刻ごとの確率変数だけでなく **その時刻までに何を知ってよいか** を同時に管理します。
 
-確率過程では、時間 $t$ ごとに確率変数 $X_t$ がある状況を考えます。
+この章では離散時間
 
-しかし「時間発展」を扱うには値だけでは足りません。
+$$
+n=0,1,2,\dots
+$$
 
-> 時刻 $t$ までに何を知ってよいか
+を中心に、次章のmartingaleとoptional stoppingに必要な情報構造を閉じます。
 
-という情報構造も必要です。
-
-それをfiltrationで表します。
+```text
+確率変数列
+  ↓
+filtration = 時間とともに増える情報
+  ↓
+adapted = 現在値が現在情報で分かる
+  ↓
+stopping time = 「もう止まったか」が現在情報で分かる
+  ↓
+停止時刻までの情報 F_tau
+  ↓
+stopped process X_{n∧tau}
+```
 
 ---
 
 ## 1. 確率過程
 
-確率空間 $(\Omega,\mathcal F,P)$ 上で、添字集合 $T$ に対する確率変数族
+<a id="def-f0-00sp1-process"></a>
+
+<!-- formal-statement-start -->
+> **定義（確率過程）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ と添字集合 $T$ に対し、各 $t\in T$ について $X_t:\Omega\to\mathbb R$ が確率変数であるとき、族 $(X_t)_{t\in T}$ を確率過程と呼びます。固定した $\omega\in\Omega$ に対する写像 $t\mapsto X_t(\omega)$ をsample pathと呼びます。
+<!-- formal-statement-end -->
+
+### 1.1 例：コイン投げの累積和
+
+独立な $\xi_k\in\{-1,1\}$ を取り
 
 $$
-\boxed{\{X_t:t\in T\}}
+S_0=0,
+\qquad
+S_n=\sum_{k=1}^n\xi_k
 $$
 
-を確率過程と呼びます。
+とします。
 
-$T=\{0,1,2,\dots\}$ なら離散時間、$T=[0,\infty)$ なら連続時間です。
-
-各 $\omega$ を固定すると
+<!-- definition-example-start: def-f0-00sp1-process -->
+**定義の確認**  
+各 $n$ を固定すると $S_n$ は有限個の確率変数の和なので確率変数です。従って $(S_n)_{n\ge0}$ は離散時間確率過程です。一方 $\omega$ を固定すると
 
 $$
-t\mapsto X_t(\omega)
+0,S_1(\omega),S_2(\omega),\dots
 $$
 
-という関数が得られ、これをsample pathと呼びます。
+という一本のsample pathが得られます。
+<!-- definition-example-end -->
 
 ---
 
-## 2. 二つの見方
+## 2. filtration
 
-確率過程には二つの見方があります。
+<a id="def-f0-00sp1-filtration"></a>
 
-時刻 $t$ を固定すれば
-
-$$
-X_t:\Omega\to\mathbb R
-$$
-
-という確率変数です。
-
-一方、標本点 $\omega$ を固定すれば
+<!-- formal-statement-start -->
+> **定義（filtration）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ 上のσ代数列 $(\mathcal F_n)_{n\ge0}$ が
 
 $$
-t\mapsto X_t(\omega)
+\mathcal F_0\subset\mathcal F_1\subset\mathcal F_2\subset\cdots\subset\mathcal F
 $$
 
-という時間関数です。
+> を満たすとき、$(\mathcal F_n)$ をfiltrationと呼びます。
+<!-- formal-statement-end -->
 
-確率過程論では「分布」と「pathの性質」を両方扱います。
+$\mathcal F_n$ は「時刻 $n$ までに利用可能な情報」です。時間が進むと情報は増えてよい一方、過去に知っていた事実を忘れないことを包含関係で表します。
+
+### 2.1 例：コイン投げの情報
+
+$$
+\mathcal F_n:=\sigma(\xi_1,\dots,\xi_n),
+\qquad
+\mathcal F_0:=\{\varnothing,\Omega\}
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00sp1-filtration -->
+**定義の確認**  
+$\mathcal F_n$ はσ代数であり、生成元が一つ増えるだけなので
+
+$$
+\mathcal F_n\subset\mathcal F_{n+1}.
+$$
+
+したがって $(\mathcal F_n)$ はfiltrationです。時刻 $n$ では最初の $n$ 回のコイン結果だけを使えます。
+<!-- definition-example-end -->
 
 ---
 
-## 3. filtration
+## 3. natural filtration
 
-sigma代数族
+<a id="def-f0-00sp1-natural-filtration"></a>
 
-$$
-\{\mathcal F_t\}_{t\ge0}
-$$
-
-が
+<!-- formal-statement-start -->
+> **定義（natural filtration）**  
+> 確率過程 $(X_n)_{n\ge0}$ に対し
 
 $$
-\boxed{
-\mathcal F_s\subset\mathcal F_t
-\qquad(s\le t)
-}
+\mathcal F_n^X:=\sigma(X_0,X_1,\dots,X_n)
 $$
 
-を満たすとき、filtrationと呼びます。
+> と定めたfiltrationを、$X$ のnatural filtrationと呼びます。
+<!-- formal-statement-end -->
 
-$\mathcal F_t$ は
+### 3.1 例：ランダムウォーク
 
-> 時刻 $t$ までに利用できる情報
+公平ランダムウォーク $S_n=\xi_1+\cdots+\xi_n$ では
 
-を表します。
+$$
+\xi_n=S_n-S_{n-1}
+$$
 
-時間が進むと情報は増えてよいが、忘れないという構造です。
+なので
+
+<!-- definition-example-start: def-f0-00sp1-natural-filtration -->
+**定義の確認**  
+$S_0,\dots,S_n$ から $\xi_1,\dots,\xi_n$ を復元でき、逆に $\xi_1,\dots,\xi_n$ から $S_0,\dots,S_n$ を計算できます。従って
+
+$$
+\sigma(S_0,\dots,S_n)=\sigma(\xi_1,\dots,\xi_n).
+$$
+
+この場合、ランダムウォークのnatural filtrationは「これまでの全増分を知る情報」と一致します。
+<!-- definition-example-end -->
 
 ---
 
-## 4. natural filtration
+## 4. adapted process
 
-確率過程 $X$ 自身が作る情報を
+<a id="def-f0-00sp1-adapted"></a>
+
+<!-- formal-statement-start -->
+> **定義（adapted process）**  
+> filtration $(\mathcal F_n)$ に対し、確率過程 $(X_n)$ が各 $n$ で $\mathcal F_n$-可測であるとき、$X$ は $(\mathcal F_n)$ にadaptedであるといいます。
+<!-- formal-statement-end -->
+
+「現在値は現在までの情報で決まる」という条件です。
+
+### 4.1 例と反例
+
+公平ランダムウォーク $S_n$ とそのnatural filtrationを考えます。
+
+<!-- definition-example-start: def-f0-00sp1-adapted -->
+**定義の確認**  
+$S_n$ は $\mathcal F_n^S=\sigma(S_0,\dots,S_n)$ の生成元そのものなので $\mathcal F_n^S$-可測です。従って $S$ はnatural filtrationにadaptedです。
+
+一方、固定した $N>n$ に対し
 
 $$
-\boxed{
-\mathcal F_t^X
+Y_n:=1_{\{S_N>0\}}
+$$
+
+と置くと、一般に $Y_n$ は $\mathcal F_n^S$-可測ではありません。未来の $S_N$ を見ないと現在値を決められないためです。
+<!-- definition-example-end -->
+
+連続時間Itô積分ではadaptednessだけでなくpredictable / progressively measurableというより強い可測性を使います。ここでは離散時間の情報構造に集中します。
+
+---
+
+## 5. stopping time
+
+<a id="def-f0-00sp1-stopping-time"></a>
+
+<!-- formal-statement-start -->
+> **定義（stopping time）**  
+> filtration $(\mathcal F_n)$ に対し、$\tau:\Omega\to\{0,1,2,\dots\}\cup\{\infty\}$ が
+
+$$
+\{\tau\le n\}\in\mathcal F_n
+\qquad(n=0,1,2,\dots)
+$$
+
+> を満たすとき、$\tau$ をstopping timeと呼びます。
+<!-- formal-statement-end -->
+
+時刻 $n$ の時点で「すでに止まったか」を未来を見ずに判定できる、という定義です。
+
+離散時間では
+
+$$
+\{\tau=n\}=\{\tau\le n\}\setminus\{\tau\le n-1\}\in\mathcal F_n
+$$
+
+も従います。
+
+### 5.1 例：初回到達時刻
+
+adapted process $(X_n)$ と集合 $A\subset\mathbb R$ を考え
+
+$$
+\tau_A:=\inf\{n\ge0:X_n\in A\}
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00sp1-stopping-time -->
+**定義の確認**  
+離散時間では
+
+$$
+\{\tau_A\le n\}
 =
-\sigma(X_s:0\le s\le t)
-}
+\bigcup_{k=0}^n\{X_k\in A\}.
 $$
 
-と書きます。
+$X_k$ は $\mathcal F_k$-可測で $\mathcal F_k\subset\mathcal F_n$ だから、右辺は $\mathcal F_n$ に属します。従って初回到達時刻はstopping timeです。
+<!-- definition-example-end -->
 
-これがnatural filtrationです。
+<a id="prop-f0-00sp1-hitting-time"></a>
 
-過程の過去を全部観測したときに得られる最小の情報です。
+<!-- formal-statement-start -->
+> **命題（離散時間の初回到達時刻）**  
+> $(X_n)$ が $(\mathcal F_n)$ にadaptedで、$A$ がBorel集合なら、$\tau_A=\inf\{n\ge0:X_n\in A\}$ はstopping timeです。
+<!-- formal-statement-end -->
 
-離散時間なら
+上の定義確認がそのまま証明です。
+
+---
+
+## 6. stopping timeでない時刻
+
+有限期間 $0\le n\le N$ で
 
 $$
-\mathcal F_n^X
+\rho:=\max\{0\le k\le N:S_k=\max_{0\le j\le N}S_j\}
+$$
+
+を「最終最大時刻」とします。
+
+時刻 $n<N$ で $\rho\le n$ かどうかを判定するには、時刻 $n+1,\dots,N$ に新しい最大値が出ないことを知る必要があります。従って通常、$\rho$ はnatural filtrationに対するstopping timeではありません。
+
+> ランダムな時刻なら停止時刻、ではありません。**現在までの情報だけで停止判定できるか**が本質です。
+
+---
+
+## 7. 停止時刻までの情報
+
+optional samplingの条件付き版では「時刻 $\tau$ までに知っている事象」を明示する必要があります。
+
+<a id="def-f0-00sp1-stopped-sigma-field"></a>
+
+<!-- formal-statement-start -->
+> **定義（停止時刻までのσ代数）**  
+> stopping time $\tau$ に対して
+
+$$
+\mathcal F_\tau
+:=
+\left\{
+A\in\mathcal F:
+A\cap\{\tau\le n\}\in\mathcal F_n
+\text{ for every }n
+\right\}
+$$
+
+> と定めます。
+<!-- formal-statement-end -->
+
+### 7.1 例：決定論的時刻
+
+$\tau\equiv m$ とします。
+
+<!-- definition-example-start: def-f0-00sp1-stopped-sigma-field -->
+**定義の確認**  
+$n<m$ では $\{\tau\le n\}=\varnothing$、$n\ge m$ では $\{\tau\le n\}=\Omega$ です。従って $A\in\mathcal F_\tau$ である条件は
+
+$$
+A\in\mathcal F_n\quad(n\ge m)
+$$
+
+であり、filtrationの単調性からこれは $A\in\mathcal F_m$ と同値です。よって
+
+$$
+\mathcal F_\tau=\mathcal F_m.
+$$
+<!-- definition-example-end -->
+
+<a id="lem-f0-00sp1-stopped-information"></a>
+
+<!-- formal-statement-start -->
+> **補題（停止時刻情報の基本性質）**  
+> stopping times $\sigma,\tau$ が $\sigma\le\tau$ a.s. を満たすなら
+
+$$
+\mathcal F_\sigma\subset\mathcal F_\tau.
+$$
+
+> また $A\in\mathcal F_\sigma$ と $k\ge0$ に対し
+
+$$
+A\cap\{\sigma\le k\}\in\mathcal F_k.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：定義をそのまま使う
+
+後半は $\mathcal F_\sigma$ の定義そのものです。
+
+前半について $A\in\mathcal F_\sigma$ とします。$\sigma\le\tau$ なら
+
+$$
+A\cap\{\tau\le n\}
 =
-\sigma(X_0,\dots,X_n).
+A\cap\{\sigma\le n\}\cap\{\tau\le n\}.
 $$
+
+第1・第2因子はいずれも $\mathcal F_n$ に属するので右辺も $\mathcal F_n$ に属します。従って $A\in\mathcal F_\tau$ です。
+<!-- proof-end -->
 
 ---
 
-## 5. adapted process
+## 8. stopped process
 
-過程 $X_t$ がfiltration $(\mathcal F_t)$ にadaptedであるとは、各 $t$ について
+<a id="def-f0-00sp1-stopped-process"></a>
+
+<!-- formal-statement-start -->
+> **定義（stopped process）**  
+> 確率過程 $(X_n)$ とstopping time $\tau$ に対し
 
 $$
-\boxed{X_t\text{ が }\mathcal F_t\text{-可測}}
+X_n^\tau:=X_{n\wedge\tau}
 $$
 
-であることです。
+> と定めた過程をstopped processと呼びます。
+<!-- formal-statement-end -->
 
-つまり現在値 $X_t$ は、時刻 $t$ までの情報だけで決まります。
+### 8.1 例：ランダムウォークを境界で止める
 
-未来を見て現在値を定めるような過程はadaptedではありません。
+$$
+\tau:=\inf\{n\ge0:|S_n|=2\}
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00sp1-stopped-process -->
+**定義の確認**  
+例えばpathが
+
+$$
+S_0,S_1,S_2,S_3,S_4=(0,1,0,-1,-2)
+$$
+
+なら $\tau=4$ で、stopped processは
+
+$$
+0,1,0,-1,-2,-2,-2,\dots
+$$
+
+です。$n<\tau$ では $S_n^\tau=S_n$、$n\ge\tau$ では $S_n^\tau=S_\tau$ という定義を直接満たしています。
+<!-- definition-example-end -->
 
 ---
 
-## 6. なぜadaptednessが必要か
+## 9. optional stoppingへ必要な可測性
 
-後のItô積分
-
-$$
-\int_0^t H_s\,dB_s
-$$
-
-では、係数 $H_s$ が未来のBrown運動を見て決まることを許したくありません。
-
-取引戦略で例えるなら、時刻 $s$ のポジションを未来価格を見て決めてはいけない、という条件です。
-
-その最初の情報制約がadaptednessです。
-
-より厳密なItô積分ではpredictableやprogressively measurableといった条件を使いますが、この章ではまずadaptednessを軸に理解します。
-
----
-
-## 7. stopping time
-
-ランダム時刻
+次章では
 
 $$
-\tau:\Omega\to[0,\infty]
-$$
-
-がstopping timeであるとは、全ての $t$ について
-
-$$
-\boxed{
-\{\tau\le t\}\in\mathcal F_t
-}
-$$
-
-であることです。
-
-つまり時刻 $t$ の時点で
-
-> もう停止したか
-
-を、その時点までの情報だけで判定できます。
-
----
-
-## 8. 初回到達時刻
-
-例えば
-
-$$
-\tau_a
+M_\tau-M_\sigma
 =
-\inf\{t\ge0:X_t\ge a\}
+\sum_{k=0}^{N-1}
+1_{\{\sigma\le k<\tau\}}(M_{k+1}-M_k)
 $$
 
-を考えます。
+という分解を使います。
 
-連続pathなど適切な条件の下で、これは典型的なstopping timeです。
-
-時刻 $t$ までに $a$ へ到達したかどうかは、それまでのpathだけで判定できます。
-
----
-
-## 9. stopping timeでない例
-
-有限期間 $0\le t\le T$ で
+$\sigma,\tau$ がstopping timeなら
 
 $$
-\tau
+\{\sigma\le k<\tau\}
 =
-\text{最大値を達成する最後の時刻}
+\{\sigma\le k\}\cap\{\tau>k\}
+\in\mathcal F_k.
 $$
 
-のような量を考えると、通常は未来全体を見なければ判定できません。
-
-したがってこれは自然なfiltrationに対するstopping timeではありません。
-
-重要なのは「時刻がランダムか」ではなく、**未来を見ずに判定できるか**です。
+つまり「時刻 $k$ の次の増分を保有するか」は時刻 $k$ までの情報だけで決められます。この一行がoptional stoppingの情報論的な核心です。
 
 ---
 
-## 10. stopped process
+## 10. Markov性との違い
 
-stopping time $\tau$ に対して
+filtrationは「過去に何を知るか」を表す一般的な器です。Markov性はその上で、未来予測が現在状態だけに圧縮できるという追加構造です。
 
-$$
-\boxed{
-X_t^\tau
-=X_{t\wedge\tau}
-}
-$$
-
-をstopped processと呼びます。
-
-停止時刻までは元の過程を進み、その後は停止時の値に固定します。
-
-martingaleを停止したとき何が起こるかが次章のoptional stoppingにつながります。
-
----
-
-## 11. Markov性との関係
-
-Markov過程では概念的に
+概念的には
 
 $$
-E[f(X_{t+s})\mid\mathcal F_t]
+E[f(X_{n+m})\mid\mathcal F_n]
 =
-E[f(X_{t+s})\mid X_t]
+E[f(X_{n+m})\mid X_n]
 $$
 
-となります。
+です。
 
-過去全部 $\mathcal F_t$ を知っても、未来予測に必要なのは現在状態 $X_t$ だけ、という構造です。
-
-E2-01で扱うMarkov性を、ここではfiltrationと条件付き期待値の言葉で読めるようにします。
+martingaleは別方向の条件で、未来の条件付き平均が現在値と一致することを要求します。
 
 ---
 
-## 12. 確率過程と時系列の違い
+# 11. 演習
 
-数学的には離散時間時系列も確率過程です。
+## F0-00SP1-A01 stopping timeを判定する
 
-ただし実務的には
+- Level: A
+- 目安時間: 10分
 
-- 確率過程論：確率モデルの時間構造そのものを研究
-- 時系列解析：観測された一本の系列から構造を推定・予測
+adapted process $(X_n)$ に対して
 
-という重点の違いがあります。
+$$
+\tau=\inf\{n\ge0:X_n\ge a\}
+$$
 
-Encore IV後半では、この二つを定常過程とHilbert空間予測で接続します。
+がstopping timeであることを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+\{\tau\le n\}=\bigcup_{k=0}^n\{X_k\ge a\}.
+$$
+
+$X_k$ は $\mathcal F_k$-可測で $\mathcal F_k\subset\mathcal F_n$ だから各事象は $\mathcal F_n$ に属する。有限和集合も $\mathcal F_n$ に属するので、定義から $\tau$ はstopping time。
+
+### 本番答案
+
+$\{\tau\le n\}=\cup_{k\le n}\{X_k\ge a\}\in\mathcal F_n$ よりstopping time。
+
+### 採点基準（20点）
+- stopping timeの判定事象を書く：8点
+- adaptednessを使う：8点
+- 結論：4点
+<!-- solution-end -->
+
+## F0-00SP1-A02 決定論的時刻の停止時刻σ代数
+
+- Level: A
+- 目安時間: 10分
+
+$\tau\equiv m$ のとき $\mathcal F_\tau=\mathcal F_m$ を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$n<m$ では $\{\tau\le n\}=\varnothing$、$n\ge m$ では $\Omega$。従って $A\in\mathcal F_\tau$ は $A\in\mathcal F_n$ for all $n\ge m$ と同値であり、filtrationの単調性から $A\in\mathcal F_m$ と同値。
+
+### 本番答案
+
+$\{\tau\le n\}$ が $n<m$ で空集合、$n\ge m$ で全空間になることを定義へ代入すれば $\mathcal F_\tau=\mathcal F_m$。
+
+### 採点基準（20点）
+- 二場合分け：8点
+- 定義への代入：8点
+- 結論：4点
+<!-- solution-end -->
+
+## F0-00SP1-B01 最終最大時刻が停止時刻でない理由
+
+- Level: B
+- 目安時間: 15分
+
+公平ランダムウォークを時刻 $N$ まで観測し、$\rho$ を最大値を最後に達成する時刻とする。$\rho$ が通常natural filtrationに対するstopping timeでない理由を、$\{\rho\le n\}$ の判定に必要な情報から説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+時刻 $n<N$ まで同じpathを持つ二つの標本点でも、その後により高い値を更新するpathと更新しないpathを取れる。前者では最終最大時刻は $n$ より後、後者では $n$ 以下となり得る。従って $\{\rho\le n\}$ は時刻 $n$ までの情報だけでは判定できず、一般に $\mathcal F_n$ に属さない。
+
+### 本番答案
+
+未来に新最大値が出るかを知らないと $\rho\le n$ を判定できないため、$\{\rho\le n\}\notin\mathcal F_n$ が一般的でありstopping timeではない。
+
+### 採点基準（20点）
+- 同じ過去・異なる未来を指摘：8点
+- $\{\rho\le n\}$ に言及：8点
+- stopping time定義へ接続：4点
+<!-- solution-end -->
+
+## F0-00SP1-B02 $\mathcal F_\sigma\subset\mathcal F_\tau$
+
+- Level: B
+- 目安時間: 15分
+
+stopping times $\sigma\le\tau$ に対して $\mathcal F_\sigma\subset\mathcal F_\tau$ を示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$A\in\mathcal F_\sigma$ とする。各 $n$ で
+
+$$
+A\cap\{\tau\le n\}
+=A\cap\{\sigma\le n\}\cap\{\tau\le n\}.
+$$
+
+$A\cap\{\sigma\le n\}\in\mathcal F_n$ と $\{\tau\le n\}\in\mathcal F_n$ から右辺は $\mathcal F_n$。従って $A\in\mathcal F_\tau$。
+
+### 本番答案
+
+上の集合恒等式を使って $\mathcal F_\tau$ の定義を確認する。
+
+### 採点基準（20点）
+- 集合恒等式：8点
+- 二つの可測性：8点
+- 結論：4点
+<!-- solution-end -->
 
 ---
 
 ## 章末チェック
 
-- 確率過程を確率変数族として定義できる。
-- sample pathと固定時刻の確率変数を区別できる。
-- filtrationを時間とともに増える情報として説明できる。
-- natural filtrationを構成できる。
-- adapted processを説明できる。
-- stopping timeを情報制約から定義できる。
-- 初回到達時刻と未来を使う時刻を区別できる。
-- Markov性をfiltrationによる条件付き期待値で読める。
+- 確率過程とsample pathを区別できる。
+- filtrationをσ代数の増加列として定義できる。
+- natural filtrationとadaptednessを判定できる。
+- stopping timeを $\{\tau\le n\}\in\mathcal F_n$ で確認できる。
+- 初回到達時刻がstopping timeになる理由を証明できる。
+- 未来を見て決める時刻との違いを説明できる。
+- $\mathcal F_\tau$ を定義し、$\sigma\le\tau$ なら $\mathcal F_\sigma\subset\mathcal F_\tau$ を示せる。
+- stopped processを定義できる。
