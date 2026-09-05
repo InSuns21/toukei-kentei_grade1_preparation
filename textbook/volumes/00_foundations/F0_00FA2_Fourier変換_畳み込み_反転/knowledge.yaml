@@ -1,0 +1,80 @@
+chapter: F0-00FA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00FA1
+  - F0-00D2C
+  - F0-00D3
+
+# 末尾で確率測度の Fourier 変換として特性関数を先取りする。
+forward_references:
+  - prob.characteristic-function
+
+concepts:
+  - id: fourier.transform-l1
+    name: Fourier変換
+    kind: definition
+    aliases: [Fourier変換]
+
+  - id: fourier.translation-continuity-l1
+    name: L1 の平行移動連続性
+    kind: lemma
+    aliases: [平行移動連続性]
+    requires:
+      - fourier.transform-l1
+
+  - id: fourier.riemann-lebesgue
+    name: Riemann--Lebesgue
+    kind: lemma
+    aliases: [Riemann--Lebesgue]
+    requires:
+      - fourier.translation-continuity-l1
+      - fourier.transform-l1
+
+  - id: fourier.convolution-l1
+    name: 畳み込み
+    kind: definition
+    aliases: [畳み込み]
+
+  - id: fourier.convolution-theorem
+    name: 畳み込み定理
+    kind: theorem
+    aliases: [畳み込み定理]
+    requires:
+      - fourier.transform-l1
+      - fourier.convolution-l1
+      - measure.fubini-theorem
+
+  - id: fourier.derivative-rule
+    name: Fourier変換と微分
+    kind: proposition
+    aliases: [Fourier変換と微分]
+    requires:
+      - fourier.transform-l1
+
+  - id: fourier.gaussian-transform
+    name: Gaussian の Fourier 変換
+    kind: lemma
+    aliases: [Gaussian の Fourier 変換]
+    requires:
+      - fourier.transform-l1
+      - ode.ordinary-differential-equation
+
+  - id: fourier.gaussian-pointwise-approximation
+    name: Gaussian による点ごとの近似
+    kind: lemma
+    aliases: [Gaussian による点ごとの近似]
+    requires:
+      - fourier.convolution-l1
+      - fourier.gaussian-transform
+
+  - id: fourier.inversion-l1
+    name: Fourier反転定理
+    kind: theorem
+    aliases: [Fourier反転：]
+    requires:
+      - fourier.transform-l1
+      - fourier.gaussian-transform
+      - fourier.gaussian-pointwise-approximation
+      - measure.fubini-theorem
+      - measure.dominated-convergence-theorem
