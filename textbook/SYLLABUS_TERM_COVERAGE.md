@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 77件
+- 明示的な定義ラベルヒット: 84件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -161,9 +161,9 @@
 |applied-design|フィッシャーの3原則|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|E3-01 / E3-01-A02|
 |applied-design|一元配置法|exact|E3-01 / 公式出題範囲との対応|—|—|—|
 |applied-design|二元配置法|exact|E3-01 / 公式出題範囲との対応|—|—|—|
-|applied-design|ブロック化|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
-|applied-design|乱塊法|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-B01|
-|applied-design|一部実施要因計画|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-A04 解像度を読む|
+|applied-design|ブロック化|exact|E3-01 / 2.3 局所管理：既知の大きなばらつきを先に分ける#def-e3-01-blocking|E3-01 / 2.3 局所管理：既知の大きなばらつきを先に分ける#def-e3-01-blocking|—|—|
+|applied-design|乱塊法|exact|E3-01 / 5. 乱塊法：ブロック差を誤差から分ける#def-e3-01-randomized-block|E3-01 / 5. 乱塊法：ブロック差を誤差から分ける#def-e3-01-randomized-block|—|E3-01 / E3-01-B01|
+|applied-design|一部実施要因計画|exact|E3-01 / 9. 一部実施要因計画：実験回数と識別可能性を交換する#def-e3-01-fractional-factorial|E3-01 / 9. 一部実施要因計画：実験回数と識別可能性を交換する#def-e3-01-fractional-factorial|—|E3-01 / E3-01-A04 解像度を読む|
 |applied-multiple-regression|重回帰モデル|exact|L1-02 / この章で解けるようになる問題|—|—|L1-04 / L1-04-C04 診断結果から対処を選ぶ|
 |applied-multiple-regression|変数選択|exact|L2-02 / 7. 変数選択#def-l2-02-variable-selection|L2-02 / 7. 変数選択#def-l2-02-variable-selection|—|L1-04 / L1-04-C03 部分F・AIC・BICでモデル選択を比較する|
 |applied-multiple-regression|残差分析|exact|L1-04 / 公式出題範囲との対応|—|—|L1-04 / L1-04-B01 残差分散をハット行列から導く|
@@ -220,10 +220,10 @@
 |engineering-design|実験の計画と実施|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-C01 設計の欠陥を直し、乱塊法へつなぐ|
 |engineering-design|固定効果|exact|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|—|—|
 |engineering-design|変量効果|exact|E3-01 / 4.2 変量効果#def-e3-01-random-effect|E3-01 / 4.2 変量効果#def-e3-01-random-effect|—|E3-01 / E3-01-B02|
-|engineering-design|交絡因子|exact|E3-01 / 公式出題範囲との対応|—|—|—|
-|engineering-design|ブロック化|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
-|engineering-design|直交表|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
-|engineering-design|交絡法|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|—|
+|engineering-design|交絡因子|exact|E3-01 / 0.4 列3へCを入れると、なぜ交絡するのか#def-e3-01-confounding-factor|E3-01 / 0.4 列3へCを入れると、なぜ交絡するのか#def-e3-01-confounding-factor|—|—|
+|engineering-design|ブロック化|exact|E3-01 / 2.3 局所管理：既知の大きなばらつきを先に分ける#def-e3-01-blocking|E3-01 / 2.3 局所管理：既知の大きなばらつきを先に分ける#def-e3-01-blocking|—|—|
+|engineering-design|直交表|exact|E3-01 / 8. 直交表：少ない実験で独立な比較を作る#def-e3-01-orthogonal-array|E3-01 / 8. 直交表：少ない実験で独立な比較を作る#def-e3-01-orthogonal-array|—|—|
+|engineering-design|交絡法|exact|E3-01 / 10. 交絡法：ブロック効果と高次交互作用を意図的に重ねる#def-e3-01-confounding-method|E3-01 / 10. 交絡法：ブロック効果と高次交互作用を意図的に重ねる#def-e3-01-confounding-method|—|—|
 
 ## 定義密度監査の読み方
 
