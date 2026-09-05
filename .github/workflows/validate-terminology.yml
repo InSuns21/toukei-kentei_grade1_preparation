@@ -11,7 +11,9 @@ on:
       - 'anki/**'
       - 'references/terminology-guide.md'
       - 'references/house-style-terminology.md'
+      - 'references/acronym-first-use-policy.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_acronym_first_use.mjs'
       - 'scripts/audit_textbook_japanese_terminology.mjs'
       - 'scripts/audit_textbook_term_spacing.mjs'
       - 'scripts/audit_house_style_terminology.mjs'
@@ -26,7 +28,9 @@ on:
       - 'anki/**'
       - 'references/terminology-guide.md'
       - 'references/house-style-terminology.md'
+      - 'references/acronym-first-use-policy.md'
       - 'scripts/audit_terminology.mjs'
+      - 'scripts/audit_acronym_first_use.mjs'
       - 'scripts/audit_textbook_japanese_terminology.mjs'
       - 'scripts/audit_textbook_term_spacing.mjs'
       - 'scripts/audit_house_style_terminology.mjs'
@@ -57,6 +61,11 @@ jobs:
         env:
           TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: npm run validate:terminology:changed
+
+      - name: Validate acronym first use on changed pages
+        env:
+          TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run validate:acronym-first-use:changed
 
       - name: Validate all Grade 1 Japanese terminology
         run: node scripts/audit_textbook_japanese_terminology.mjs --strict
