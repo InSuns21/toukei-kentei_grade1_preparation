@@ -43,6 +43,22 @@ concepts:
     requires:
       - prob.expectation
 
+  - id: prob.union-bound
+    name: 可算劣加法性（union bound）
+    kind: theorem
+    aliases: [可算劣加法性, union bound]
+    requires:
+      - prob.probability-space
+      - measure.measure-monotonicity
+
+  - id: prob.probability-continuity-from-above
+    name: 確率測度の上からの連続性
+    kind: theorem
+    aliases: [確率測度の上からの連続性, 上からの連続性]
+    requires:
+      - prob.probability-space
+      - measure.continuity-from-below
+
   - id: prob.markov-inequality
     name: Markovの不等式
     kind: theorem
