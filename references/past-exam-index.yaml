@@ -68,7 +68,7 @@ entries:
   - { id: MATH-2012-Q1, year: 2012, exam: 統計数理, question: 1, theme: 一様分布・確率積分変換, chapters: [P2-01, P4-01], evidence: *math_topic }
   - { id: MATH-2012-Q3, year: 2012, exam: 統計数理, question: 3, theme: 指数分布の最尤推定・Fisher情報量・Delta法, chapters: [P3-02, I1-01, I1-02, I2-01], evidence: *math_topic }
   - { id: SCI-2025-Q1, year: 2025, exam: 統計応用理工学, question: 1, theme: 管理図・工程能力指数・区間推定, chapters: [E4-01, I2-02], evidence: *science_official_2025 }
-  - { id: SCI-2025-Q2, year: 2025, exam: 統計応用理工学, question: 2, theme: Markov連鎖・推移確率の最尤推定・尤度比検定, chapters: [E2-01, I1-01, I3-01], evidence: *science_official_2025 }
+  - { id: SCI-2025-Q2, year: 2025, exam: 統計応用理工学, question: 2, theme: Markov連鎖・推移確率の最尤推定・尤度比検定, chapters: [E2-01, I1-01, I3-01, I3-02], evidence: *science_official_2025 }
   - { id: SCI-2025-Q3, year: 2025, exam: 統計応用理工学, question: 3, theme: 重回帰・偏回帰・残差化・係数推定, chapters: [L1-01, L1-04], evidence: *science_official_2025 }
   - { id: SCI-2025-Q4, year: 2025, exam: 統計応用理工学, question: 4, theme: 制約線形モデル・モデル比較・バイアス分散, chapters: [L1-01, L1-02], evidence: *science_official_2025 }
   - { id: SCI-2025-Q5, year: 2025, exam: 統計応用理工学, question: 5, theme: 確率化回答法・調査・推定, chapters: [S1-03], evidence: *science_official_2025 }
