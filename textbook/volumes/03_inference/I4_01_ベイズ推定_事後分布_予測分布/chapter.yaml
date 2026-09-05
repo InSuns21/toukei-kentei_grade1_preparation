@@ -1,0 +1,54 @@
+id: "I4-01"
+title: "ベイズ推定・事後分布・予測分布"
+volume: "inference"
+status: reviewed
+prerequisites:
+  - I1-01
+  - P1-02
+  - P3-04
+official_scope:
+  - 事前分布
+  - 事後分布
+  - 共役事前分布
+  - ベイズ推定量
+  - 事後最頻値
+  - 予測分布
+  - 損失関数
+learning_objectives:
+  - 事前分布・尤度・事後分布の関係をベイズの定理から導出できる
+  - 周辺尤度を事後分布の正規化定数として説明できる
+  - 共役事前分布の意味を説明しベータ・ガンマ・正規の共役更新を計算できる
+  - 二項分布とベータ事前分布から事後分布・事後平均・事後最頻値・事後予測分布を導出できる
+  - ポアソン分布とガンマ事前分布から事後分布と負の二項型の予測分布を導出できる
+  - 既知分散正規平均と正規事前分布で事後平均を精度加重平均として導出できる
+  - 二乗損失のベイズ推定量が事後平均になることを平方完成で示せる
+  - 絶対損失のベイズ推定量が事後中央値になる理由を説明できる
+  - 離散母数の0-1損失では事後最頻値がベイズ推定量になることを示せる
+  - 連続母数で事後最頻値と通常の0-1損失を安易に同一視しない
+  - 事前予測分布と事後予測分布を区別できる
+  - 頻度論的信頼区間とベイズ的信用区間の確率解釈の違いを説明できる
+  - 事後最頻値を対数尤度と対数事前密度の和の最大化として捉えられる
+definitions:
+  - { id: I401-DEF-01, name: 事前分布 }
+  - { id: I401-DEF-02, name: 事後分布 }
+  - { id: I401-DEF-03, name: 周辺尤度 }
+  - { id: I401-DEF-04, name: 共役事前分布 }
+  - { id: I401-DEF-05, name: 事後期待損失とベイズ推定量 }
+  - { id: I401-DEF-06, name: 事後最頻値 }
+  - { id: I401-DEF-07, name: 事後予測分布 }
+theorems:
+  - { id: I401-THM-01, name: ベイズの定理による事後分布 }
+  - { id: I401-THM-02, name: 二乗損失下のベイズ推定量 }
+  - { id: I401-THM-03, name: ベータ・二項共役更新 }
+  - { id: I401-THM-04, name: ガンマ・ポアソン共役更新 }
+  - { id: I401-THM-05, name: 正規・正規共役更新 }
+canonical_examples: [ベータ・二項更新, ガンマ・ポアソン更新, 正規平均の精度加重更新, 二乗損失と事後平均, ベータ・二項事後予測]
+problem_patterns: [POSTERIOR-BAYES-1, BETA-BINOMIAL-1, GAMMA-POISSON-1, NORMAL-NORMAL-1, BAYES-LOSS-1, MAP-MLE-1, POSTERIOR-PREDICTIVE-1, CREDIBLE-VS-CONFIDENCE-1]
+past_exam_alignment: []
+integrated_exam_problems: [I4-01-C01, I4-01-C02, I4-01-C03, I4-01-C04, I4-01-D01]
+exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+estimated_hours: { reading: 9, exercises: 12, review: 3 }
+completion_criteria:
+  level_b_score_at_least: 0.85
+  level_c_score_at_least: 0.70
+  exam_problem_minutes_at_most: 30
