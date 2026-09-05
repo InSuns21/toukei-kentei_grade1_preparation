@@ -10,7 +10,8 @@ concepts:
     name: Vitali集合
     kind: definition
     aliases: [Vitali集合]
-    requires: []
+    requires:
+      - set.choice-axiom
 
   - id: measure.vitali-nonmeasurability
     name: Vitali集合の非可測性
