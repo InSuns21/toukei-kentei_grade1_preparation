@@ -1,0 +1,11 @@
+chapter: "F0-00A3A"
+terms:
+  - term: Hartogs補題
+    english: Hartogs lemma
+    meaning: 任意の集合 X に対し、X へ単射できない順序数が存在するというZFの定理。
+  - term: 超限再帰
+    english: transfinite recursion
+    meaning: 順序数に沿って、それ以前の段階で定まった値から次の値を定義する再帰原理。
+  - term: 極大chain
+    english: maximal chain
+    meaning: 包含関係でこれ以上chainとして拡張できないchain。
