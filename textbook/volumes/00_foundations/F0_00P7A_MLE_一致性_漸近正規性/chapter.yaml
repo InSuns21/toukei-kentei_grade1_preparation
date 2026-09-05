@@ -16,8 +16,8 @@ learning_objectives:
 definitions:
   - { id: F0P7A-DEF-01, name: MLE }
   - { id: F0P7A-DEF-02, name: 一様LLN }
-  - { id: F0P7A-DEF-03, name: Slutskyの定理 }
 theorems:
+  - { id: F0P7A-THM-00, name: Slutskyの定理 }
   - { id: F0P7A-THM-01, name: MLE consistency sufficient theorem }
   - { id: F0P7A-THM-02, name: MLE asymptotic normality }
 canonical_examples: [regular one-dimensional MLE]
