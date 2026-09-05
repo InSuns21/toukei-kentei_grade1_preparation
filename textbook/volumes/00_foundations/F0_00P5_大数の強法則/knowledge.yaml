@@ -1,0 +1,37 @@
+chapter: F0-00P5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P4
+
+# 冒頭と末尾で、有限平均まで一般化した次章のSLLNを予告する。
+forward_references:
+  - prob.iid-integrable-slln
+
+concepts:
+  - id: prob.dyadic-subsequence
+    name: dyadic subsequence
+    kind: term
+    aliases: [dyadic subsequence, dyadic]
+    requires: []
+
+  - id: prob.kolmogorov-maximal-inequality
+    name: Kolmogorov最大不等式
+    kind: theorem
+    aliases: [Kolmogorov最大不等式]
+    requires:
+      - prob.independent-random-variables
+      - prob.expectation
+      - prob.variance
+
+  # 現本文では完全証明されるが、独立した formal-statement パネルはまだない。
+  - id: prob.finite-variance-slln
+    name: 有限分散iid強大数則
+    kind: term
+    aliases: [有限分散版の強大数則]
+    introduction_aliases: ["これが有限分散版の強大数則です"]
+    requires:
+      - prob.kolmogorov-maximal-inequality
+      - prob.borel-cantelli-1
+      - prob.almost-sure-convergence
+      - prob.dyadic-subsequence

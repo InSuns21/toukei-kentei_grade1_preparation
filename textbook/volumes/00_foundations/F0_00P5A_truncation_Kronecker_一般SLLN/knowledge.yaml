@@ -1,0 +1,74 @@
+chapter: F0-00P5A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P5
+  - F0-00D2C
+
+concepts:
+  - id: prob.truncation
+    name: SLLNの切断法
+    kind: term
+    aliases: [大きすぎる観測を切る, 切断平均]
+    introduction_aliases: [まず大きすぎる観測を切る]
+    requires:
+      - prob.random-variable
+
+  - id: prob.tail-sum-bound
+    name: 可積分変数のtail-sum評価
+    kind: term
+    aliases: [tail-sum公式]
+    requires:
+      - prob.expectation
+
+  - id: prob.truncated-variance-summability
+    name: 切断後の分散級数の可算和可能性
+    kind: term
+    aliases: [切断後の分散級数が有限になる]
+    requires:
+      - prob.truncation
+      - prob.variance
+      - measure.tonelli-theorem
+
+  - id: prob.kolmogorov-convergence-theorem
+    name: Kolmogorov収束定理
+    kind: theorem
+    aliases: [Kolmogorov収束定理]
+    requires:
+      - prob.kolmogorov-maximal-inequality
+      - prob.borel-cantelli-1
+      - prob.almost-sure-convergence
+
+  - id: analysis.summation-by-parts
+    name: summation by parts
+    kind: term
+    aliases: [summation by parts]
+    requires: []
+
+  - id: analysis.cesaro-mean-convergence
+    name: Cesaro平均の収束保存
+    kind: term
+    aliases: [Cesaro平均]
+    requires: []
+
+  - id: prob.kronecker-lemma
+    name: Kronecker補題
+    kind: lemma
+    aliases: [Kronecker補題]
+    requires: []
+
+  # 現本文では証明の最終結論として現れるが、独立した formal-statement パネルはまだない。
+  - id: prob.iid-integrable-slln
+    name: iid有限平均強大数則
+    kind: term
+    aliases: [一般独立同分布強大数則まで証明が閉じました]
+    introduction_aliases: [一般独立同分布強大数則まで証明が閉じました]
+    requires:
+      - prob.truncation
+      - prob.tail-sum-bound
+      - prob.truncated-variance-summability
+      - prob.kolmogorov-convergence-theorem
+      - prob.kronecker-lemma
+      - measure.dominated-convergence-theorem
+      - measure.tonelli-theorem
+      - prob.borel-cantelli-1
