@@ -18,7 +18,7 @@ const fixes = [
 
 for (const { label, bad, good } of fixes) {
   if (text.includes(bad)) {
-    text = text.replace(bad, good);
+    text = text.replace(bad, () => good);
   } else if (!text.includes(good)) {
     throw new Error(`${label}: neither broken nor repaired form found`);
   }
