@@ -8,6 +8,7 @@ forward_references:
   - functional.hilbert-space
   - functional.l2-inner-product
   - functional.l2-completeness
+  - prob.variance
 
 concepts:
   - id: measure.ae-equivalence
