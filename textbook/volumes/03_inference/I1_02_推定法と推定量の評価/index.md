@@ -170,8 +170,8 @@ $$
 <a id="def-i1-02-least-squares"></a>
 
 <!-- formal-statement-start -->
-> **定義（最小二乗推定量）**  
-> 残差平方和 $Q(\theta)$ を母数空間上で最小にする値を最小二乗推定値とする。
+> **定義（最小二乗法・最小二乗推定量）**  
+> 残差平方和 $Q(\theta)$ を母数空間上で最小化する推定法を **最小二乗法** といい、その最小化点を最小二乗推定値、標本の関数として見たものを最小二乗推定量という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-i1-02-least-squares -->
@@ -234,8 +234,8 @@ $\operatorname{Var}(T_1)=\sigma^2/n$、$\operatorname{Var}(T_2)=2\sigma^2/n$ な
 <a id="def-i1-02-bias"></a>
 
 <!-- formal-statement-start -->
-> **定義（バイアスと不偏性）**  
-> $T$ のバイアスを $\operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta)$ とする。すべての $\theta$ でバイアスが0なら $T$ を $g(\theta)$ の不偏推定量という。
+> **定義（バイアス・不偏性）**  
+> $T$ のバイアスを $\operatorname{Bias}_\theta(T)=E_\theta[T]-g(\theta)$ とする。すべての $\theta$ でバイアスが0である性質を **不偏性** といい、そのとき $T$ を $g(\theta)$ の不偏推定量という。
 <!-- formal-statement-end -->
 
 <a id="def-i1-02-mse"></a>
@@ -684,8 +684,8 @@ $$
 <a id="def-i1-02-efficient-estimator"></a>
 
 <!-- formal-statement-start -->
-> **定義（有効推定量）**  
-> 正則モデルで不偏推定量がクラーメル・ラオ下限を達成するとき、その推定量を本章では有効推定量という。
+> **定義（有効性・有効推定量）**  
+> 正則モデルで不偏推定量がクラーメル・ラオ下限を達成する性質を **有効性** といい、その推定量を有効推定量という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-i1-02-efficient-estimator -->

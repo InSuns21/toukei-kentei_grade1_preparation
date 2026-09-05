@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 48件
+- 明示的な定義ラベルヒット: 53件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -34,16 +34,16 @@
 |math-distribution-characteristics|期待値|exact|F0-00 / 1. この章で扱う数学|—|—|P2-02 / P2-A04 離散平均・分散|
 |math-distribution-characteristics|分散|exact|F0-00 / 15. 統計でどこに使うか|—|P2-02 / 例1：離散分布の平均と|P2-02 / P2-A04 離散平均・|
 |math-distribution-characteristics|標準偏差|exact|P2-02 / 2.2 分散・|—|P2-02 / 3A.1 例：同じ|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
-|math-distribution-characteristics|歪度|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05|
-|math-distribution-characteristics|尖度|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05 歪度・|
-|math-distribution-characteristics|変動係数|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A.1 例：同じ標準偏差でも|P2-02 / P202-B05 歪度・尖度・|
-|math-distribution-characteristics|パーセント点|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|—|
+|math-distribution-characteristics|歪度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05|
+|math-distribution-characteristics|尖度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05 歪度・|
+|math-distribution-characteristics|変動係数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A.1 例：同じ標準偏差でも|P2-02 / P202-B05 歪度・尖度・|
+|math-distribution-characteristics|パーセント点|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|—|
 |math-distribution-characteristics|中央値|exact|P2-01 / P2-C05 区分累積分布関数から分布を復元する|—|—|P2-01 / P2-C05 区分累積分布関数から分布を復元する|
-|math-distribution-characteristics|四分位数|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
+|math-distribution-characteristics|四分位数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
 |math-distribution-characteristics|範囲|exact|F0-00 / 公式出題|—|P4-01 / 例2 独立な一様分布の和|P2-02 / P202-B05 歪度・尖度・変動係数と四分位|
-|math-distribution-characteristics|四分位範囲|exact|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 公式シラバス補完：分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と|
+|math-distribution-characteristics|四分位範囲|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と|
 |math-distribution-characteristics|最頻値|exact|P3-02 / P3C-C02 ベータ分布の形とモーメント|—|—|P3-02 / P3C-C02 ベータ分布の形とモーメント|
-|math-distribution-characteristics|共分散|exact|L1-03 / 3A. 公式シラバス補完：共分散分析#def-l1-03-ancova|L1-03 / 3A. 公式シラバス補完：共分散分析#def-l1-03-ancova|P2-02 / 例3：全|P2-02 / P2-A06|
+|math-distribution-characteristics|共分散|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|P2-02 / 例3：全|P2-02 / P2-A06|
 |math-distribution-characteristics|相関係数|exact|P2-02 / この章で解けるようになる問題|—|P3-03 / 例1：分散共分散行列を読む|P2-02 / P2-B05 二値変数の相関|
 |math-distribution-characteristics|偏相関係数|exact|P3-03 / P3M-A04 偏相関|—|—|P3-03 / P3M-A04 偏相関|
 |math-transformations|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
@@ -51,7 +51,7 @@
 |math-limit-approximations|大数の弱法則|alias|P4-02 / P4-02 確率変数の収束・大数則・中心極限定理|—|—|P4-02 / P4T-B02|
 |math-limit-approximations|中心極限定理|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 2.2 例: 標本平均|P4-02 / P4T-B03 ポアソン標本平均の近似確率|
 |math-limit-approximations|二項分布の正規近似とポアソン近似|alias|P4-02 / この章で解けるようになる問題|—|P4-02 / 例3：二項分布の|P4-02 / P4T-A04 希少二項の平均・分散|
-|math-limit-approximations|少数法則|exact|P4-02 / 3A. 公式シラバス補完：|—|P4-02 / 3A.1 例：希少故障件数|P4-02 / P402-A05|
+|math-limit-approximations|少数法則|exact|P4-02 / 3A.|—|P4-02 / 3A.1 例：希少故障件数|P4-02 / P402-A05|
 |math-limit-approximations|連続修正|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-yates-correction|—|—|—|
 |math-discrete-distributions|一様分布|exact|P2-01 / 2.2 台#def-p2-01-support|—|P4-01 / 例2 独立な|P2-01 / P2-C04 最大値と最小値|
 |math-discrete-distributions|ベルヌーイ分布|exact|P2-02 / 例6：|—|P2-02 / 例6：|P2-02 / P2-B07|
@@ -74,22 +74,22 @@
 |math-sampling-distributions|t分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|I2-02 / I2-02-C01 正規母平均と母分散を同時に処理する|
 |math-sampling-distributions|カイ二乗分布|exact|F0-00 / 15. 統計でどこに使うか|—|S1-01 / 例1 標本分散の確率|P3-03 / P3M-B04 マハラノビス二次形式|
 |math-sampling-distributions|F分布|exact|F0-00 / 1. この章で扱う数学|—|—|S1-01 / S1-A04|
-|math-population-sample-statistic|十分統計量|exact|I1-01 / 前提知識チェック|—|—|I4-02 / I4-02-C01 正規分布の欠測値に必要な条件付きモーメント|
+|math-population-sample-statistic|十分統計量|exact|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|S1-02 / 3. 「母数についての情報を失わない」を条件付き分布で定義する#def-s1-02-sufficient-statistic|—|I4-02 / I4-02-C01 正規分布の欠測値に必要な条件付きモーメント|
 |math-population-sample-statistic|ネイマンの分解定理|exact|S1-02 / この章で解けるようになる問題|—|—|S1-02 / S1-02-A02 ベルヌーイ標本|
 |math-population-sample-statistic|順序統計量|exact|F0-00 / 15. 統計でどこに使うか|—|—|P4-01 / P4-A04 一様分布の第2|
 |math-likelihood-mle|尤度関数|exact|I1-01 / 2. 定義と記号#def-i1-01-likelihood|I1-01 / 2. 定義と記号#def-i1-01-likelihood|—|—|
 |math-likelihood-mle|対数尤度関数|exact|I1-01 / 2. 定義と記号#def-i1-01-loglikelihood|I1-01 / 2. 定義と記号#def-i1-01-loglikelihood|—|—|
-|math-likelihood-mle|有効スコア関数|exact|I1-01 / 公式出題範囲との対応|—|—|—|
+|math-likelihood-mle|有効スコア関数|exact|I1-01 / 3.8 有効スコア関数: まず1個の局外母数で考える#def-i1-01-efficient-score|I1-01 / 3.8 有効スコア関数: まず1個の局外母数で考える#def-i1-01-efficient-score|—|—|
 |math-likelihood-mle|最尤推定|exact|I1-01 / 2. 定義と記号#def-i1-01-mle|I1-01 / 2. 定義と記号#def-i1-01-mle|I1-01 / 例1: 二項データは「組合せ係数を付けても付けなくても」|P3-04 / P3L-C04 潜在指標が観測される場合とされない場合|
 |math-estimation-methods|モーメント法|exact|I1-02 / 2. モーメント法#def-i1-02-moment-method|I1-02 / 2. モーメント法#def-i1-02-moment-method|I1-02 / 例1: 正規平均では最小二乗・最尤・|I1-02 / I1-02-A01 一様分布のモーメント推定|
-|math-estimation-methods|最小二乗法|exact|I1-02 / I1-02 推定法と推定量の評価|—|I1-02 / 例1: 正規平均では最小二乗・最尤・モーメント法が一致する|L1-01 / L1-01-A01 最小二乗推定量を導く|
+|math-estimation-methods|最小二乗法|exact|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|I1-02 / 例1: 正規平均では最小二乗・最尤・モーメント法が一致する|L1-01 / L1-01-A01 最小二乗推定量を導く|
 |math-estimation-methods|線形推定（BLUE）|alias|I1-02 / 6. 線形不偏推定と BLUE#def-i1-02-blue|I1-02 / 6. 線形不偏推定と BLUE#def-i1-02-blue|—|I1-02 / I1-02-B01 逆分散重みによる線形不偏推定|
-|math-estimation-methods|その他の手法|exact|I1-02 / 3A. 公式シラバス補完：推定量の相対効率と「|—|—|I1-02 / I102-B05 推定量の相対効率と推定法の選択|
-|math-point-estimator-properties|不偏性|exact|P2-01 / 採点基準|—|I1-02 / 3A.1 例：|P3-04 / P3L-C01 ポアソン–ガンマ混合から推定へ|
+|math-estimation-methods|その他の手法|exact|I1-02 / I102-B05 推定量の相対効率と推定法の選択|—|—|I1-02 / I102-B05 推定量の相対効率と推定法の選択|
+|math-point-estimator-properties|不偏性|exact|I1-02 / 4. バイアス・不偏性・平均二乗誤差#def-i1-02-bias|I1-02 / 4. バイアス・不偏性・平均二乗誤差#def-i1-02-bias|I1-02 / 3A.1 例：|P3-04 / P3L-C01 ポアソン–ガンマ混合から推定へ|
 |math-point-estimator-properties|一致性|exact|I1-02 / 5. 一致性#def-i1-02-consistency|I1-02 / 5. 一致性#def-i1-02-consistency|—|P3-04 / P3L-D01 ポアソン–ガンマ混合の総合問題|
 |math-point-estimator-properties|十分性|exact|P2-02 / 採点基準と選択判断|—|—|I1-02 / I1-02-D01 ポアソンで同じ量を推定する二つの不偏推定量|
-|math-point-estimator-properties|有効性|exact|I1-01 / I1-01 尤度・最尤推定|—|—|I1-02 / I1-02-B03 ポアソン平均の|
-|math-point-estimator-properties|推定量の相対効率|exact|I1-02 / 3A. 公式シラバス補完：推定量の相対効率と「その他の手法」#def-i1-02-relative-efficiency|I1-02 / 3A. 公式シラバス補完：推定量の相対効率と「その他の手法」#def-i1-02-relative-efficiency|—|I1-02 / I102-B05|
+|math-point-estimator-properties|有効性|exact|I1-02 / 8.1 等号条件#def-i1-02-efficient-estimator|I1-02 / 8.1 等号条件#def-i1-02-efficient-estimator|—|I1-02 / I1-02-B03 ポアソン平均の|
+|math-point-estimator-properties|推定量の相対効率|exact|I1-02 / 3A. 推定量の相対効率#def-i1-02-relative-efficiency|I1-02 / 3A. 推定量の相対効率#def-i1-02-relative-efficiency|—|I1-02 / I102-B05|
 |math-model-selection|カルバック・ライブラー情報量|exact|L2-02 / 2. カルバック・ライブラー情報量#def-l2-02-kl|L2-02 / 2. カルバック・ライブラー情報量#def-l2-02-kl|—|—|
 |math-model-selection|情報量規準AIC|exact|L2-02 / 3. 情報量規準AIC#def-l2-02-aic|L2-02 / 3. 情報量規準AIC#def-l2-02-aic|—|—|
 |math-model-selection|クロスバリデーション|exact|L1-04 / 14. 過去問・理工80との対応|—|—|—|
@@ -108,7 +108,7 @@
 |math-testing-foundations|第一種の過誤|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-type1-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
 |math-testing-foundations|第二種の過誤|exact|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-type2-error|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-type2-error|—|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
 |math-testing-foundations|検出力（検定力）|alias|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A02 正規片側検定の|
-|math-testing-foundations|検出力曲線|exact|I3-01 / 3A. 公式シラバス補完：検出力曲線#def-i3-01-power-curve|I3-01 / 3A. 公式シラバス補完：検出力曲線#def-i3-01-power-curve|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I301-A05|
+|math-testing-foundations|検出力曲線|exact|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I301-A05|
 |math-test-derivation|ネイマン・ピアソンの基本定理|exact|I3-01 / 公式出題範囲との対応|—|—|—|
 |math-test-derivation|尤度比検定|exact|I1-01 / I1-01 尤度・最尤推定|—|I3-02 / 10. 例: 正規母平均を未知分散の下で|I3-02 / I3-02-A01 高さ・距離・傾き|
 |math-test-derivation|ワルド型検定|exact|I2-01 / 4. 期待フィッシャー情報量と観測情報量#def-i2-01-observed-information|—|—|I3-02 / I3-02-A01 高さ・距離・傾き|
@@ -121,17 +121,17 @@
 |math-anova|一元配置分散分析|exact|I3-03 / 3A.2 複数の平均に関する検定|—|—|L1-03 / L1-03-A01 一元配置の自由度|
 |math-anova|二元配置分散分析|exact|L1-03 / 公式出題範囲との対応|—|—|L1-03 / L1-03-A03 交互作用を差の差で読む|
 |math-anova|交互作用|exact|L1-03 / L1-03 分散分析|—|—|L1-03 / L1-03-A03|
-|math-anova|共分散分析|exact|L1-03 / 3A. 公式シラバス補完：共分散分析#def-l1-03-ancova|L1-03 / 3A. 公式シラバス補完：共分散分析#def-l1-03-ancova|—|L1-03 / L103-B05|
+|math-anova|共分散分析|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|—|L1-03 / L103-B05|
 |math-anova|多重比較|exact|I3-03 / 3A.2 複数の平均に関する検定|—|—|L1-03 / L1-03-A04 Bonferroni法の有意水準|
 |math-regression|線形単回帰|exact|L1-01 / L1-01 単回帰と最小二乗法|—|—|L1-01 / L1-01-B04 傾きのt検定|
 |math-regression|線形重回帰|exact|L1-02 / chapter.yaml|—|—|—|
 |math-regression|最小二乗推定|exact|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|I1-02 / 3. 最小二乗法#def-i1-02-least-squares|—|L1-01 / L1-01-A01|
 |math-regression|回帰の分散分析|exact|L1-01 / 公式出題範囲との対応|—|—|L1-01 / L1-01-B02 平方和分解を導く|
-|math-regression|重相関係数|exact|L1-02 / 3A. 公式シラバス補完：重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A. 公式シラバス補完：重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A.1 例：符号を付けない|L1-02 / L102-A05|
+|math-regression|重相関係数|exact|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A. 重相関係数#def-l1-02-multiple-correlation|L1-02 / 3A.1 例：符号を付けない|L1-02 / L102-A05|
 |math-regression|決定係数|exact|L1-01 / L1-01 単回帰と最小二乗法|—|—|L1-01 / L1-01-B03|
 |math-regression|残差|exact|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」|—|S1-01 / 例4 平方和分解|P3-03 / P3M-C03|
 |math-regression|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
-|math-regression|平均への回帰（回帰効果）|exact|L1-01 / 3A. 公式シラバス補完：平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A. 公式シラバス補完：平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A.1 例：成績最下位群だけ補習する|L1-01 / L101-B05|
+|math-regression|平均への回帰（回帰効果）|exact|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A. 平均への回帰（回帰効果）#def-l1-01-regression-to-mean|L1-01 / 3A.1 例：成績最下位群だけ補習する|L1-01 / L101-B05|
 |math-contingency-tables|カイ二乗検定|exact|I3-03 / 3A.3 例：フィッシャー検定と|—|I3-03 / 3A.3 例：フィッシャー検定と|—|
 |math-contingency-tables|フィッシャー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-fisher-exact|I3-03 / 3A.3 例：|I3-03 / I303-B06|
 |math-contingency-tables|マクネマー検定|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-mcnemar|I3-03 / 3A.4 例：|I3-03 / I303-C05|
@@ -178,7 +178,7 @@
 |applied-multivariate|クラスター分析|exact|E1-03 / E1-03 因子分析・|—|—|—|
 |applied-multivariate|ロジスティック回帰分析|alias|L2-01 / この章で解けるようになる問題|—|—|L2-01 / L2-01-A02 ロジットを確率へ戻す|
 |applied-multivariate|プロビット分析|exact|E1-04 / E1-04 プロビット・非線形回帰・SVM|—|—|E1-04 / E104-B05 トービット分析の尤度|
-|applied-multivariate|トービット分析|exact|E1-04 / 3A. 公式シラバス補完：トービット分析#def-e1-04-tobit|E1-04 / 3A. 公式シラバス補完：トービット分析#def-e1-04-tobit|—|E1-04 / E104-B05|
+|applied-multivariate|トービット分析|exact|E1-04 / 3A. トービット分析#def-e1-04-tobit|E1-04 / 3A. トービット分析#def-e1-04-tobit|—|E1-04 / E104-B05|
 |applied-multivariate|一般化線形モデル|exact|L2-01 / L2-01|—|—|L2-01 / L2-01-A01 三要素を分類する|
 |applied-multivariate|非線形回帰モデル|exact|E1-04 / E1-04 プロビット・非線形回帰・SVM|—|—|—|
 |applied-multivariate|サポートベクターマシン|exact|E1-04 / E1-04 プロビット・非線形回帰・SVM|—|—|—|
@@ -209,7 +209,7 @@
 |engineering-asymptotics|大数の法則|exact|P4-02 / P4-02 確率変数の収束・|—|—|P4-02 / P4T-B02|
 |engineering-asymptotics|中心極限定理|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 2.2 例: 標本平均|P4-02 / P4T-B03 ポアソン標本平均の近似確率|
 |engineering-asymptotics|最尤推定量の漸近正規性|exact|I1-02 / I1-02 推定法と推定量の評価|—|I2-01 / 10. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない#prop-i2-01-uniform-n-rate|I2-01 / I2-01-A02 ベルヌーイ|
-|engineering-asymptotics|漸近分散|exact|I1-02 / 3A. 公式シラバス補完：推定量の相対効率と「その他の手法」#def-i1-02-relative-efficiency|—|I2-01 / 11.1 発展例: 標本第1・第2モーメントから分散へ|I2-01 / I2-01-A01|
+|engineering-asymptotics|漸近分散|exact|I1-02 / 3A. 推定量の相対効率#def-i1-02-relative-efficiency|—|I2-01 / 11.1 発展例: 標本第1・第2モーメントから分散へ|I2-01 / I2-01-A01|
 |engineering-asymptotics|一致性|exact|I1-02 / 5. 一致性#def-i1-02-consistency|I1-02 / 5. 一致性#def-i1-02-consistency|—|P3-04 / P3L-D01 ポアソン–ガンマ混合の総合問題|
 |engineering-asymptotics|デルタ法|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 8.1 例: 平均0で $\bar X^2$|I2-01 / I2-01-A03 指数分布の率母数に|
 |engineering-quality|管理図|exact|E4-01 / E4-01|—|—|E4-01 / E4-01-A01 $\bar X$ 管理限界|
