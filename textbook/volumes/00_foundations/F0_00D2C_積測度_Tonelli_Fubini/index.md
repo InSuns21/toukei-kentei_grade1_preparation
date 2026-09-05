@@ -70,9 +70,26 @@ $$
 を **積σ代数** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2c-01 -->
 ### 例1：Euclid空間
 
-通常の Borel σ代数について
+**定義の確認**
+
+$A=[0,1]\in\mathcal B(\mathbb R)$、$B=(0,2)\in\mathcal B(\mathbb R)$ とすると、$A\times B$ は定義で使う生成集合
+
+$$
+\{A'\times B':A',B'\in\mathcal B(\mathbb R)\}
+$$
+
+の一つです。したがって
+
+$$
+[0,1]\times(0,2)
+\in
+\mathcal B(\mathbb R)\otimes\mathcal B(\mathbb R).
+$$
+
+一般に通常の Borel σ代数について
 
 $$
 \mathcal B(\mathbb R^m)\otimes\mathcal B(\mathbb R^n)
@@ -81,6 +98,7 @@ $$
 $$
 
 が成り立ちます。したがって通常の二変数連続関数は積σ代数に関して可測です。
+<!-- definition-example-end -->
 
 ---
 
@@ -182,9 +200,20 @@ $$
 をそれぞれ $x$-section、$y$-sectionという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00d2c-02 -->
 ### 例2：長方形を縦に切る
 
-$E=[0,1]\times[0,2]$ なら
+**定義の確認**
+
+$E=[0,1]\times[0,2]$ とします。固定した $x$ に対して
+
+$$
+(x,y)\in E
+\iff
+x\in[0,1]\ \text{かつ}\ y\in[0,2].
+$$
+
+したがって定義へそのまま代入すると
 
 $$
 E_x=
@@ -194,13 +223,14 @@ E_x=
 \end{cases}
 $$
 
-したがって
+となり
 
 $$
 \nu(E_x)=2\,1_{[0,1]}(x).
 $$
 
 section は「二次元集合を一方向に切り、その断面の大きさをもう一方で積分する」操作です。
+<!-- definition-example-end -->
 
 <a id="prop-f0-00d2c-01"></a>
 
