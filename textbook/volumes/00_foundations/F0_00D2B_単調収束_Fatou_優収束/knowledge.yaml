@@ -1,5 +1,6 @@
 chapter: F0-00D2B
 scope: dream-theater
+coverage: complete
 prerequisites:
   - F0-00D2A
 
@@ -29,6 +30,7 @@ concepts:
   - id: measure.dominating-function
     name: 支配関数
     kind: definition
+    introduction: inline
     aliases: [支配関数, dominating function]
     requires:
       - measure.measurable-function
@@ -37,6 +39,7 @@ concepts:
   - id: measure.l1-convergence
     name: L1収束
     kind: definition
+    introduction: inline
     aliases: [L1収束, L^1収束, L1 convergence]
     requires:
       - measure.lebesgue-integral
