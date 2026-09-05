@@ -125,16 +125,23 @@ $$
 
 なので、Euler--Maruyama の1ステップそのものです。
 
-この過程では係数 $b(x),\sigma(x)$ が固定されています。そこで
+この過程では係数 $b(x),\sigma(x)$ が固定されています。
+
+<a id="def-f0-00sde1a-frozen-generator"></a>
+
+<!-- formal-statement-start -->
+### 定義（frozen generator）
+
+始点 $x$ の係数を1ステップ中固定した作用素
 
 $$
-\boxed{
 \mathcal L_x^{\mathrm{fr}}f(y)
 =b(x)f'(y)+\frac12\sigma^2(x)f''(y)
-}
 $$
 
 を **frozen generator** と呼びます。
+<!-- formal-statement-end -->
+<!-- definition-example-skip: def-f0-00sde1a-frozen-generator | 直前のEuler--Maruyama 1ステップがこの定義を具体化しており、重複する確認例を追加しない。 -->
 
 本来の generator $\mathcal L$ は評価点 $y$ に応じて $b(y),\sigma(y)$ が変わりますが、$\mathcal L_x^{\mathrm{fr}}$ は始点 $x$ の係数を1ステップ中ずっと使います。
 
