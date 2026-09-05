@@ -11,7 +11,7 @@
     "validate:exercise-style": "node scripts/validate_exercise_style.mjs",
     "audit:granularity": "node scripts/audit_solution_granularity.mjs",
     "audit:textbook-granularity": "node scripts/audit_textbook_granularity.mjs",
-    "audit:textbook-syllabus": "node scripts/tmp-tighten-syllabus-definition-labels-s16.mjs && node scripts/audit-textbook-syllabus-coverage.mjs --write && git diff -- textbook/SYLLABUS_TERM_COVERAGE.md && node scripts/audit-textbook-syllabus-coverage.mjs",
+    "audit:textbook-syllabus": "node scripts/audit-textbook-syllabus-coverage.mjs",
     "audit:proof-pedagogy": "node scripts/audit-proof-pedagogy.mjs",
     "audit:formalism-pedagogy": "node scripts/audit-formalism-pedagogy.mjs",
     "audit:terminology": "node scripts/audit_terminology.mjs",
