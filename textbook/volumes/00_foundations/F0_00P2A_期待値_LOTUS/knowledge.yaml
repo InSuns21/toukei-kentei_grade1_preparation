@@ -8,6 +8,7 @@ prerequisites:
 forward_references:
   - prob.independent-events
   - prob.independent-random-variables
+  - measure.product-measure
 
 concepts:
   - id: prob.expectation
