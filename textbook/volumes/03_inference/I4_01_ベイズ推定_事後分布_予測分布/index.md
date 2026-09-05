@@ -89,8 +89,7 @@ $$
 
 $$
 m(x)
-=
-\int f(x\mid\theta)\pi(\theta)\,d\theta
+=\int f(x\mid\theta)\pi(\theta)\,d\theta
 $$
 
 > を周辺尤度という。離散母数なら積分を和に置き換える。これは事前分布の下での観測データ $X=x$ の周辺確率または周辺密度である。
@@ -105,8 +104,7 @@ $$
 $$
 \boxed{
 \pi(\theta\mid x)
-=
-\frac{f(x\mid\theta)\pi(\theta)}{m(x)}
+=\frac{f(x\mid\theta)\pi(\theta)}{m(x)}
 }
 $$
 
@@ -131,8 +129,7 @@ $$
 
 $$
 \pi(\theta\mid x)
-=
-\frac{f(x,\theta)}{m(x)}.
+=\frac{f(x,\theta)}{m(x)}.
 $$
 
 同時密度は
@@ -161,8 +158,7 @@ $$
 
 $$
 P(\theta=0.8\mid X=1)
-=
-\frac{0.8\cdot(1/2)}{0.5}
+=\frac{0.8\cdot(1/2)}{0.5}
 =0.8.
 $$
 
@@ -211,6 +207,116 @@ $$
 <!-- definition-example-end -->
 
 共役性の利点は「事後分布の形が分かる」ことです。更新は分布族を変えず、母数だけを書き換える操作になります。
+
+### 2.1 先に1本、事前から予測まで通してみる
+
+抽象的な $a,b,n,x$ の式へ進む前に、コインの表確率 $p$ を1回だけ具体的な数字で更新します。
+
+事前分布を
+
+$$
+p\sim\operatorname{Beta}(2,2)
+$$
+
+とします。この事前分布の平均は
+
+$$
+E[p]=\frac{2}{2+2}=0.5
+$$
+
+なので、観測前には「極端に表へも裏へも偏っていない」という中心を置いています。
+
+ここで10回投げて7回表だったとします。
+
+$$
+n=10,
+\qquad
+x=7,
+\qquad
+\hat p_{\mathrm{MLE}}=\frac7{10}=0.7.
+$$
+
+二項尤度の $p$ に依存する部分は
+
+$$
+L(p;x)\propto p^7(1-p)^3,
+$$
+
+事前密度の核は
+
+$$
+\pi(p)\propto p^{2-1}(1-p)^{2-1}=p(1-p).
+$$
+
+したがって
+
+$$
+\begin{aligned}
+\pi(p\mid x)
+&\propto L(p;x)\pi(p)\\
+&\propto p^7(1-p)^3\,p(1-p)\\
+&=p^8(1-p)^4.
+\end{aligned}
+$$
+
+これは $\operatorname{Beta}(9,5)$ の密度の核なので
+
+$$
+\boxed{
+p\mid x\sim\operatorname{Beta}(9,5)
+}.
+$$
+
+事後平均は
+
+$$
+E[p\mid x]
+=\frac9{14}
+\approx0.643.
+$$
+
+内部の事後最頻値は
+
+$$
+\frac{9-1}{9+5-2}
+=\frac8{12}
+=\frac23
+\approx0.667.
+$$
+
+最尤推定値0.7より少し0.5側へ寄っています。これは、10回のデータだけでなく事前分布の情報も合わせているためです。
+
+さらに、次の1回が表になる事後予測確率は
+
+$$
+\begin{aligned}
+P(\widetilde X=1\mid x)
+&=\int_0^1 p\,\pi(p\mid x)\,dp\\
+&=E[p\mid x]\\
+&=\frac9{14}
+\approx0.643.
+\end{aligned}
+$$
+
+つまり、この1例だけで
+
+$$
+\boxed{
+\text{事前 }\operatorname{Beta}(2,2)
+\longrightarrow
+\text{10回中7成功}
+\longrightarrow
+\text{事後 }\operatorname{Beta}(9,5)
+\longrightarrow
+\begin{cases}
+\text{事後平均 }9/14,\\
+\text{事後最頻値 }2/3,\\
+\text{次回成功予測 }9/14
+\end{cases}
+}
+$$
+
+までつながります。以下の一般式は、この具体例の $2,2,10,7$ を $a,b,n,x$ に置き換えたものです。
 
 ---
 
@@ -296,8 +402,7 @@ $$
 
 $$
 E[p\mid x]
-=
-\frac{a+x}{a+b+n}.
+=\frac{a+x}{a+b+n}.
 $$
 
 これは
@@ -318,8 +423,7 @@ $a+x>1$ かつ $b+n-x>1$ なら、ベータ事後密度の内部の最頻値は
 
 $$
 \hat p_{\mathrm{post.mode}}
-=
-\frac{a+x-1}{a+b+n-2}.
+=\frac{a+x-1}{a+b+n-2}.
 $$
 
 一方、最尤推定量は
@@ -484,8 +588,7 @@ $$
 
 $$
 E[\lambda\mid x]
-=
-\frac{a+S}{b+n}.
+=\frac{a+S}{b+n}.
 $$
 
 これも
@@ -596,8 +699,7 @@ $\mu$ の一次係数から中心は
 
 $$
 \mu_n
-=
-\tau_n^2
+=\tau_n^2
 \left(
 \frac{n\bar X}{\sigma^2}
 +
@@ -790,8 +892,7 @@ $p\mid x\sim\operatorname{Beta}(7,5)$ なら、両母数が1より大きいの�
 
 $$
 \frac{7-1}{7+5-2}
-=
-0.6.
+=0.6.
 $$
 
 事後平均は $7/12$ なので、同じ事後分布でも点推定の基準により値は一致しません。
@@ -843,8 +944,7 @@ $$
 
 $$
 p(\widetilde x\mid x)
-=
-\int
+=\int
 p(\widetilde x\mid\theta)
 \pi(\theta\mid x)
 \,d\theta
@@ -866,12 +966,9 @@ $$
 
 $$
 P(\widetilde X=1\mid x)
-=
-\int_0^1 p\,\pi(p\mid x)\,dp
-=
-E[p\mid x]
-=
-\frac{a'}{a'+b'}.
+=\int_0^1 p\,\pi(p\mid x)\,dp
+=E[p\mid x]
+=\frac{a'}{a'+b'}.
 $$
 
 母数を1点推定して代入するのではなく、事後分布全体で平均しています。
@@ -882,8 +979,7 @@ $$
 
 $$
 p(\widetilde x)
-=
-\int p(\widetilde x\mid\theta)\pi(\theta)\,d\theta
+=\int p(\widetilde x\mid\theta)\pi(\theta)\,d\theta
 $$
 
 で、これは**事前予測分布**です。データを見た後なら事前分布を事後分布に置き換えます。
@@ -894,8 +990,7 @@ $$
 
 $$
 p\mid x
-\sim
-\operatorname{Beta}(a',b')
+\sim\operatorname{Beta}(a',b')
 $$
 
 で、未来に $m$ 回試行して成功回数を $Y$ とします。
@@ -909,8 +1004,7 @@ $$
 $$
 \begin{aligned}
 P(Y=y\mid x)
-&=
-\int_0^1
+&=\int_0^1
 {m\choose y}p^y(1-p)^{m-y}
 \frac{p^{a'-1}(1-p)^{b'-1}}{B(a',b')}
 \,dp\\
@@ -928,8 +1022,7 @@ $$
 
 $$
 \lambda\mid x
-\sim
-\operatorname{Gamma}(a',b')
+\sim\operatorname{Gamma}(a',b')
 $$
 
 で、次の1期間の件数を $Y\mid\lambda\sim\operatorname{Poisson}(\lambda)$ とします。このとき
@@ -1277,12 +1370,9 @@ $Y\mid\theta\sim N(\theta,4)$、$\theta\mid\mu\sim N(\mu,1)$ とし、$\mu=10$�
 精度は観測側 $1/4$、事前側1なので
 $$
 E[\theta\mid Y]
-=
-\frac{(1/4)14+1\cdot10}{1/4+1}
-=
-\frac{13.5}{1.25}
-=
-10.8.
+=\frac{(1/4)14+1\cdot10}{1/4+1}
+=\frac{13.5}{1.25}
+=10.8.
 $$
 群固有の観測情報と上位階層の中心10を精度で加重平均するため、全体中心へ縮約される。
 
@@ -1382,8 +1472,7 @@ $$
 
 $$
 P(Y=0\mid x)
-=
-\left(\frac5{6}\right)^8.
+=\left(\frac5{6}\right)^8.
 $$
 
 $\lambda=1.6$ と固定して $e^{-1.6}$ とする方法は、$\lambda$ 自体の事後不確実性を無視している。事後予測は $\lambda$ の全事後分布で平均する。
@@ -1470,8 +1559,7 @@ $$
 
 $$
 \hat p_{\mathrm{post.mode}}
-=
-\frac{a+x-1}{a+b+n-2}.
+=\frac{a+x-1}{a+b+n-2}.
 $$
 
 2.
@@ -1587,8 +1675,7 @@ $$
 
 $$
 \delta_B(x)
-=
-\frac{a+x}{a+b+n}.
+=\frac{a+x}{a+b+n}.
 $$
 
 これは
@@ -1596,10 +1683,8 @@ $$
 $$
 \boxed{
 \delta_B(x)
-=
-\frac{a+b}{a+b+n}\frac{a}{a+b}
-+
-\frac{n}{a+b+n}\frac{x}{n}
+=\frac{a+b}{a+b+n}\frac{a}{a+b}
++\frac{n}{a+b+n}\frac{x}{n}
 }
 $$
 
@@ -1610,8 +1695,7 @@ $$
 $$
 \boxed{
 \hat p_{\mathrm{post.mode}}
-=
-\frac{a+x-1}{a+b+n-2}
+=\frac{a+x-1}{a+b+n-2}
 }.
 $$
 
@@ -1620,13 +1704,11 @@ $$
 $$
 \begin{aligned}
 P(Y=y\mid x)
-&=
-\int_0^1
+&=\int_0^1
 {m\choose y}p^y(1-p)^{m-y}
 \frac{p^{a'-1}(1-p)^{b'-1}}{B(a',b')}
 \,dp\\
-&=
-{m\choose y}
+&={m\choose y}
 \frac{B(a'+y,b'+m-y)}{B(a',b')}.
 \end{aligned}
 $$
@@ -1635,12 +1717,9 @@ $$
 
 $$
 P(Y=1\mid x)
-=
-\frac{a'}{a'+b'}
-=
-\frac{a+x}{a+b+n}
-=
-\delta_B(x).
+=\frac{a'}{a'+b'}
+=\frac{a+x}{a+b+n}
+=\delta_B(x).
 $$
 
 これは、次のベルヌーイ成功確率が $E[p\mid x]$ だからである。
@@ -1685,8 +1764,7 @@ $$
 
 $$
 p\mid x
-\sim
-\operatorname{Beta}(9,11).
+\sim\operatorname{Beta}(9,11).
 $$
 
 2.
@@ -1702,8 +1780,7 @@ $$
 
 $$
 \lambda\mid x
-\sim
-\operatorname{Gamma}(13,5).
+\sim\operatorname{Gamma}(13,5).
 $$
 
 5. ポアソンの次期件数の条件付き平均は $\lambda$ なので、事後予測平均は

@@ -80,6 +80,105 @@ $$
 
 ---
 
+## 0. 先に数値で「漸近」と「デルタ法」を見る
+
+抽象式へ入る前に、最も単純な標本平均で $\sqrt n$ がどこから出るかを確認します。
+
+$E[X_i]=\mu$、$\operatorname{Var}(X_i)=9$ の独立同分布標本を考えます。中心極限定理から、大標本では
+
+$$
+\bar X
+\approx
+N\!\left(\mu,\frac9n\right)
+$$
+
+です。したがって標準誤差は
+
+$$
+\operatorname{se}(\bar X)\approx\frac3{\sqrt n}.
+$$
+
+たとえば
+
+$$
+n=100\quad\Rightarrow\quad \operatorname{se}(\bar X)\approx0.3,
+$$
+
+$$
+n=400\quad\Rightarrow\quad \operatorname{se}(\bar X)\approx0.15.
+$$
+
+標本数を4倍にすると標準誤差は半分になります。誤差 $\bar X-\mu$ がだいたい $1/\sqrt n$ の大きさで縮むので、逆に $\sqrt n$ 倍すると
+
+$$
+\sqrt n(\bar X-\mu)
+$$
+
+は0へ潰れず、一定の大きさの分布を保ちます。これが root-$n$ 漸近論を見る最初の感覚です。
+
+### 0.1 デルタ法も先に1回だけ数値で計算する
+
+$X_i\sim\operatorname{Bernoulli}(p)$、$p=0.4$ とし、$\hat p=\bar X$ を考えます。中心極限定理より
+
+$$
+\sqrt n(\hat p-p)
+\Rightarrow N(0,p(1-p))
+=N(0,0.24).
+$$
+
+確率 $p$ ではなくオッズ
+
+$$
+r=g(p)=\frac p{1-p}
+$$
+
+を推定したいとします。導関数は
+
+$$
+g'(p)=\frac1{(1-p)^2},
+$$
+
+したがって $p=0.4$ では
+
+$$
+g'(0.4)=\frac1{0.6^2}=\frac{25}{9}.
+$$
+
+デルタ法では root-$n$ 漸近分散を
+
+$$
+\{g'(p)\}^2p(1-p)
+$$
+
+へ変換するので、
+
+$$
+\operatorname{AVar}(\hat r)
+=\left(\frac{25}{9}\right)^2(0.24)
+=\frac{50}{27}
+\approx1.852.
+$$
+
+たとえば $n=100$ なら
+
+$$
+\operatorname{Var}(\hat r)
+\approx\frac{1.852}{100},
+\qquad
+\operatorname{se}(\hat r)
+\approx0.136.
+$$
+
+ここで行った操作は、後で一般式として
+
+$$
+V\quad\longmapsto\quad \{g'(\theta)\}^2V
+$$
+
+と書きます。まずは「元の推定誤差を、変換の傾き $g'(\theta)$ 倍して伝える」と捉えてください。
+
+---
+
 ## 1. 漸近推測では何を見ているのか
 
 一致性は
