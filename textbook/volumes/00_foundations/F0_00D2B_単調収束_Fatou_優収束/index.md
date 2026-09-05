@@ -5,14 +5,14 @@ D2AでLebesgue積分を定義しました。次に必要なのは、関数列の
 この講義の論理線は
 
 ```text
-単調収束定理（MCT）
+単調収束定理（Monotone Convergence Theorem; MCT）
  ↓
-Fatouの補題
+Fatouの補題（Fatou's lemma）
  ↓
-優収束定理（DCT）
+Lebesgueの優収束定理（Dominated Convergence Theorem; DCT）
 ```
 
-です。
+です。以後、このページでは **MCT**、**DCT** という略称を使います。
 
 「極限と積分を交換してよい」という結論だけ覚えるのではなく、**なぜ各定理の仮定が違うのか**まで理解します。
 
@@ -30,7 +30,7 @@ $$
 f_n\to0\quad\text{a.e.}
 $$
 
-です。
+です。ここで **a.e.** は *almost everywhere*（ほとんど至る所）の略で、「測度0の例外を除いて成り立つ」という意味です。
 
 しかし面積は高さ $n$ × 幅 $1/n$ なので
 
@@ -65,7 +65,7 @@ $$
 ## 1. 単調収束定理
 
 <!-- formal-statement-start -->
-### 定理（単調収束定理）
+### 定理（単調収束定理 / Monotone Convergence Theorem; MCT）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の非負可測関数列 $(f_n)_{n\ge1}$ が
 
@@ -275,7 +275,7 @@ $$
 <a id="lem-f0-00d2b-01"></a>
  
 <!-- formal-statement-start -->
-### 補題（Fatouの補題）
+### 補題（Fatouの補題 / Fatou's lemma）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の非負可測関数列 $(f_n)$ に対して
 
@@ -387,12 +387,12 @@ $$
 
 は、関数列の質量が無限に高いスパイクとして逃げるのを一つの積分可能な天井で抑えます。
 
-単調性がなくてもこの天井があれば、点ごとの収束を $L^1$ 収束まで強められます。
+単調性がなくてもこの天井があれば、点ごとの収束を $L^1$ 収束まで強められます。ここで **$L^1$ 収束**とは、$\int|f_n-f|\,d\mu\to0$ となる収束です。
 
 <a id="thm-f0-00d2b-01"></a>
  
 <!-- formal-statement-start -->
-### 定理（Lebesgueの優収束定理）
+### 定理（Lebesgueの優収束定理 / Dominated Convergence Theorem; DCT）
 
 測度空間 $(\Omega,\mathcal F,\mu)$ 上の可測関数列 $(f_n)$ と可測関数 $f$ が
 
@@ -798,17 +798,3 @@ $f_n=n1_{(0,1/n)}$ とすれば $f_n\to0$ a.e. だが $\int f_n=1$。DCTが成�
 - 積分1: 4点
 - DCT不適用理由: 5点
 <!-- solution-end -->
-
----
-
-## 7. 次に進む
-
-ここまでは一つの測度空間上の積分でした。次は2つの測度空間を組み合わせ、
-
-$$
-\int_X\int_Y f(x,y)\,d\nu(y)d\mu(x)
-$$
-
-を正当化します。
-
-**次：F0-00D2C 積測度・Tonelli・Fubini**
