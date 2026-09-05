@@ -32,7 +32,7 @@ concepts:
   - id: stat.mle-consistency
     name: MLE一致性
     kind: term
-    aliases: [一致性]
+    aliases: [MLE consistency, 最尤推定量一致性]
     introduction_aliases: [一致性も別に必要]
     requires:
       - stat.mle
@@ -50,7 +50,7 @@ concepts:
   - id: stat.argmax-consistency
     name: argmax consistency
     kind: term
-    aliases: [argmax consistency, argmax]
+    aliases: [argmax consistency]
     requires:
       - stat.uniform-lln
       - stat.kl-divergence
