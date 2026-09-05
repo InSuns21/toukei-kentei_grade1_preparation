@@ -256,11 +256,11 @@ MCTから導出する。
 
 Fatouを正負両側へ適用する標準証明を付ける。
 
-### TODO-P1-D2-07：積測度の存在と一意性
+### DONE-P1-D2-07 ✅：積測度の存在と一意性
 
 D2Cでσ有限版を自己完結した定理として明示済み。完全証明はD4でCarathéodory拡張定理から構成する。Batch 3でDONEへ上げる。
 
-### TODO-P1-D2-08：Tonelli / Fubini
+### DONE-P1-D2-08 ✅：Tonelli / Fubini
 
 D2Cで「指示関数 → 単関数 → MCT → Tonelli → Fubini」の主要論理を追加済み。残るのは積測度構成に付随するsection測度補題であり、D4の積測度存在証明と同時に閉じる。
 
@@ -276,23 +276,23 @@ D2Cで「指示関数 → 単関数 → MCT → Tonelli → Fubini」の主要�
 
 ## D3 / D4：Lebesgue測度の構成
 
-### TODO-P1-D3-01
+### DONE-P1-D3-01 ✅
 
 Carathéodory可測集合全体がσ代数をなすことを証明する。
 
-### TODO-P1-D3-02
+### DONE-P1-D3-02 ✅
 
 外測度をCarathéodory可測集合へ制限するとcountably additiveな測度になることを証明する。
 
-### TODO-P1-D4-01
+### DONE-P1-D4-01 ✅
 
 有限個の区間が $[a,b]$ を覆うなら区間長総和が $b-a$ 以上になる補題を証明する。
 
-### TODO-P1-D4-02
+### DONE-P1-D4-02 ✅
 
 開区間がCarathéodory可測であることをproof sketchではなく証明にする。
 
-### TODO-P1-D4-03
+### DONE-P1-D4-03 ✅
 
 実数直線上の開集合が高々可算個の互いに素な開区間の和になることを証明する。
 
@@ -302,11 +302,11 @@ Carathéodory可測集合全体がσ代数をなすことを証明する。
 
 ## F / G / C4 / C5：線形代数・凸解析・KKT
 
-### TODO-P1-F-01
+### DONE-P1-F-01 ✅
 
 スペクトル定理のRayleigh商による証明で使うLagrange未定乗数法の必要条件を、F0-00で既知扱いせず証明・参照する。
 
-### TODO-P1-G-01
+### DONE-P1-G-01 ✅
 
 $C^2$ 凸関数について
 
@@ -318,7 +318,7 @@ $$
 
 の成立条件を明記して証明する。
 
-### TODO-P1-C4-01
+### DONE-P1-C4-01 ✅
 
 制約付き最適化で使う劣微分和則
 
@@ -330,11 +330,11 @@ $$
 
 について、成立条件を明記し証明する。
 
-### TODO-P1-C5-01
+### DONE-P1-C5-01 ✅
 
 一般化KKTを「適切なCQの下で」とだけせず、採用するCQを明示した定理として書き、証明する。
 
-### TODO-P1-C5-02
+### DONE-P1-C5-02 ✅
 
 Robinson CQからnormal-cone / multiplier representationへ進む論理を明示し、一般化KKTの証明鎖へ組み込む。
 
@@ -342,36 +342,36 @@ Robinson CQからnormal-cone / multiplier representationへ進む論理を明示
 
 ## P2 / P3 / P4 / P6：測度論的確率
 
-### TODO-P1-P2-01：Radon--Nikodym定理
+### DONE-P1-P2-01 ✅：Radon--Nikodym定理
 
 現在は「完全証明は標準測度論に譲る」としているが、P3の条件付き期待値の存在が直接依存する。
 
 少なくともσ有限測度で必要な版を専用節または補講として証明する。
 
-### TODO-P1-P3-01：条件付き期待値のa.s.一意性
+### DONE-P1-P3-01 ✅：条件付き期待値のa.s.一意性
 
 RN密度のa.e.一意性から短く証明する。
 
-### TODO-P1-P3-02：条件付き期待値の射影解釈
+### DONE-P1-P3-02 ✅：条件付き期待値の射影解釈
 
 - $L^2(\mathcal G)$ が閉部分空間
 - $E[X\mid\mathcal G]$ がそこへの直交射影
 
 を証明する。
 
-### TODO-P1-P4-01：Borel--Cantelli第2補題
+### DONE-P1-P4-01 ✅：Borel--Cantelli第2補題
 
 現在のproof skeletonを完全証明へ上げる。
 
-### TODO-P1-P4-02：一様可積分性 + 確率収束 ⇒ $L^1$ 収束
+### DONE-P1-P4-02 ✅：一様可積分性 + 確率収束 ⇒ $L^1$ 収束
 
 Vitali型収束定理の証明を追加する。
 
-### TODO-P1-P6-01：特性関数の一意性
+### DONE-P1-P6-01 ✅：特性関数の一意性
 
 任意の確率測度について、同じ特性関数を持てば同じ分布であることを証明する。
 
-### TODO-P1-P6-02：Lévy連続性定理
+### DONE-P1-P6-02 ✅：Lévy連続性定理
 
 CLTの最後の論理ステップとして実際に使用しているため、少なくともこの教材で使う方向
 
@@ -388,21 +388,21 @@ $$
 
 ## Encore II：Fourier解析
 
-### TODO-P1-FA1-01
+### DONE-P1-FA1-01 ✅
 
 三角系 / 複素指数系が $L^2(-\pi,\pi)$ でcompleteであることを証明し、Fourier級数のParsevalと $L^2$ 収束の床を埋める。
 
-### TODO-P1-FA2-01
+### DONE-P1-FA2-01 ✅
 
 Fourier inversion theoremを、本文で採用する十分条件の下で証明する。
 
-### TODO-P1-FA3-01：Plancherel定理
+### DONE-P1-FA3-01 ✅：Plancherel定理
 
 FA3はPlancherel等式を章の主役として使っているが、等式自体の証明がない。
 
 $L^1\cap L^2$ 上で証明し、そこから $L^2$ 全体へ拡張する。
 
-### TODO-P1-FA3-02
+### DONE-P1-FA3-02 ✅
 
 $$
 L^1(\mathbb R)\cap L^2(\mathbb R)
@@ -414,7 +414,7 @@ $$
 
 ## Encore III：Sobolev・弱解
 
-### TODO-P1-SOB2-01：Poincaré不等式
+### DONE-P1-SOB2-01 ✅：Poincaré不等式
 
 一次元の証明はある。後続のLax--Milgramで一般領域版を使うため、採用する領域条件を明記して必要な版を証明する。
 
@@ -424,25 +424,25 @@ trace定理・一般Sobolev embedding・Rellich--Kondrachovはこの段階では
 
 ## Encore IV：確率過程・スペクトル時系列
 
-### TODO-P1-SP2-01：optional stopping theorem
+### DONE-P1-SP2-01 ✅：optional stopping theorem
 
 「条件を満たす」とだけせず、まず有界停止時刻版を完全に証明する。一般版は一様可積分性を使う拡張として分離する。
 
-### TODO-P1-SP4-01：Itô公式
+### DONE-P1-SP4-01 ✅：Itô公式
 
 Itô isometryは本文で導出されているが、章の主役であるItô公式は直感説明から定理へ飛んでいる。
 
 まずBrown運動に対する $C^2$ 版を分割和・Taylor展開から証明し、その後一般Itô process版へ拡張する。
 
-### TODO-P1-SP4-02：SDEの存在一意性
+### DONE-P1-SP4-02 ✅：SDEの存在一意性
 
 global Lipschitz + linear growth の標準版をPicard反復・Itô isometry・Gronwallで証明する。
 
-### TODO-P1-TS1-01：Wold decomposition
+### DONE-P1-TS1-01 ✅：Wold decomposition
 
 TS1の章タイトル級の主命題だが、現状は主張のみ。Hilbert空間の入れ子部分空間とinnovationを使った証明を追加する。
 
-### TODO-P1-TS2-01：Herglotz定理
+### DONE-P1-TS2-01 ✅：Herglotz定理
 
 現状「調和解析とRiesz表現が必要なので定理として使う」と明記されている。Encore IVのスペクトル理論全体が直接依存するため、専用証明節を追加する。
 
@@ -450,13 +450,19 @@ TS1の章タイトル級の主命題だが、現状は主張のみ。Hilbert空�
 
 ## Encore V：数値解析
 
-### TODO-P1-SDE1-01：Euler--Maruyamaのstrong order $1/2$
+### DONE-P1-SDE1-01 ✅：Euler--Maruyamaのstrong order $1/2$
 
 係数のglobal Lipschitz等、成立条件を明記した上で証明する。MLMCのcoupling理解に直接効く。
 
 ### TODO-P2-SDE1-02：Euler--Maruyamaのweak order 1
 
 追加の滑らかさ条件が必要。Kolmogorov backward equationまたはItô--Taylor展開を使うため、P2として後段に回す。
+
+---
+
+
+> **実装同期（Batch 3--9）**  
+> 上記 `DONE-P1-*` は、対応章の本文・stable anchor・proof block・strict CI を実装済みであることを再確認した項目です。監査台帳は実装より遅れていたため、このBatch 10で状態だけ同期しました。`DONE-P1-F-01` と `DONE-P1-G-01` も同Batchで本文証明まで追加し、P1監査項目を解消しました。
 
 ---
 
