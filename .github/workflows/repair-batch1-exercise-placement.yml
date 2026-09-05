@@ -20,6 +20,12 @@ jobs:
         with:
           ref: fix/batch1-exercise-placement
           fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
       - name: Move Batch 1 exercises into exercise sections
         run: node scripts/repair-batch1-exercise-placement.mjs
       - name: Validate repaired textbook structure
