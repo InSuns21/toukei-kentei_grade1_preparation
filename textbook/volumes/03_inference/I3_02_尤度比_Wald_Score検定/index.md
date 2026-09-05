@@ -24,7 +24,7 @@ $$
 
 - [I1-01](../I1_01_尤度_最尤推定/index.md): 尤度・対数尤度・スコア・最尤推定・迷惑母数
 - [I1-02](../I1_02_推定法と推定量の評価/index.md): 1次元フィッシャー情報量
-- [I2-01](../I2_01_漸近推測_Delta法/index.md): 1母数MLEの漸近正規性・観測情報量・1変量デルタ法
+- [I2-01](../I2_01_漸近推測_Delta法/index.md): 1母数最尤推定量の漸近正規性・観測情報量・1変量デルタ法
 - [I3-01](../I3_01_検定の基礎とネイマン_ピアソン理論/index.md): 有意水準・棄却域・P値・検出力
 
 ## 本章の範囲の見取り図
@@ -33,8 +33,8 @@ $$
 
 | 区分 | 内容 |
 |---|---|
-| **通常ルート** | 尤度比の構成、Wilksの定理の使い方、1母数Wald、1母数Score、1母数での3検定の漸近同値性、制約付きMLE、迷惑母数の再推定、再母数化不変性 |
-| **発展** | 情報行列を使う一般制約Wald、Schur補による有効情報量、局所漸近正規性を使うWilksの厳密証明、局所対立仮説と非心カイ二乗 |
+| **通常ルート** | 尤度比の構成、Wilksの定理の使い方、1母数ワルド型検定、1母数スコア型検定、1母数での3検定の漸近同値性、制約付き最尤推定、迷惑母数の再推定、再母数化不変性 |
+| **発展** | 情報行列を使う一般制約のワルド型検定、Schur補による有効情報量、局所漸近正規性を使うWilksの厳密証明、局所対立仮説と非心カイ二乗 |
 
 なお、**複数母数の尤度そのもの**は発展とは限りません。たとえば「$p,q$ を制約なしで推定し、$H_0:p=q$ の下で1母数へ制約して尤度比を作る」という問題は、情報行列を使わずに解けます。
 
@@ -54,7 +54,7 @@ $$
 
 ### 発展
 
-- 多母数の一般制約Wald統計量を情報行列で書ける。
+- 多母数の一般制約に対するワルド型統計量を情報行列で書ける。
 - Schur補による有効情報量を扱える。
 - Wilksの定理を局所二次近似・局所漸近正規性から説明できる。
 - 局所対立仮説下の非心カイ二乗極限を扱える。
@@ -114,25 +114,25 @@ $$
 <!-- formal-statement-start -->
 > **定義（尤度比と尤度比統計量）**  
 > 帰無仮説 $H_0:\theta\in\Theta_0$ に対し、尤度比を
->
-> $$
-> \Lambda
-> =
-> \frac{\sup_{\theta\in\Theta_0}L(\theta)}
-> {\sup_{\theta\in\Theta}L(\theta)}
-> =
-> \frac{L(\tilde\theta)}{L(\hat\theta)}
-> $$
->
+
+$$
+\Lambda
+=
+\frac{\sup_{\theta\in\Theta_0}L(\theta)}
+{\sup_{\theta\in\Theta}L(\theta)}
+=
+\frac{L(\tilde\theta)}{L(\hat\theta)}
+$$
+
 > と定める。$0\le\Lambda\le1$ であり、通常は
->
-> $$
-> \boxed{
-> G^2=-2\log\Lambda
-> =2\{\ell_n(\hat\theta)-\ell_n(\tilde\theta)\}
-> }
-> $$
->
+
+$$
+\boxed{
+G^2=-2\log\Lambda
+=2\{\ell_n(\hat\theta)-\ell_n(\tilde\theta)\}
+}
+$$
+
 > を尤度比統計量として用いる。$G^2$ が大きいほど帰無仮説に不利である。
 <!-- formal-statement-end -->
 
@@ -182,15 +182,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（Wilksの定理）**  
 > 真の母数が帰無仮説集合の正則な点にあり、モデルが識別可能で、対数尤度が十分滑らかであるなど通常の正則条件を満たすとする。帰無仮説によって独立な自由方向を $r$ 個失うとき、$H_0$ の下で
->
-> $$
-> \boxed{
-> -2\log\Lambda
-> \xrightarrow{d}
-> \chi_r^2
-> }
-> $$
->
+
+$$
+\boxed{
+-2\log\Lambda
+\xrightarrow{d}
+\chi_r^2
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -229,8 +229,7 @@ $$
 
 $$
 \ell_n\left(\theta_0+\frac{u}{\sqrt n}\right)-\ell_n(\theta_0)
-=
-u^{\mathsf T}\Delta_n
+=u^{\mathsf T}\Delta_n
 -\frac12u^{\mathsf T}I_1(\theta_0)u
 +o_p(1)
 $$
@@ -257,16 +256,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（1母数のワルド型統計量）**  
 > 1母数 $\theta$ に対し $H_0:\theta=\theta_0$ を検定する。$\hat\theta$ が漸近正規で、推定標準誤差を $\widehat{\operatorname{se}}(\hat\theta)$ とするとき
->
-> $$
-> \boxed{
-> W
-> =
-> \frac{(\hat\theta-\theta_0)^2}
-> {\widehat{\operatorname{se}}(\hat\theta)^2}
-> }
-> $$
->
+
+$$
+\boxed{
+W
+=
+\frac{(\hat\theta-\theta_0)^2}
+{\widehat{\operatorname{se}}(\hat\theta)^2}
+}
+$$
+
 > をワルド型統計量という。正則条件の下で $H_0$ のもと $W\xrightarrow{d}\chi_1^2$ である。
 <!-- formal-statement-end -->
 
@@ -300,7 +299,7 @@ H(\theta)
 =\frac{\partial h(\theta)}{\partial\theta^{\mathsf T}}
 $$
 
-とします。多母数MLEの漸近分散共分散行列を $I_1(\theta)^{-1}$ と書ける正則条件下では、多変量デルタ法から
+とします。多母数最尤推定量の漸近分散共分散行列を $I_1(\theta)^{-1}$ と書ける正則条件下では、多変量デルタ法から
 
 $$
 \sqrt n h(\hat\theta)
@@ -313,19 +312,19 @@ $$
 <a id="def-i3-02-wald-general"></a>
 
 <!-- formal-statement-start -->
-> **発展定義（一般制約のワルド型統計量）**  
+> **定義（一般制約のワルド型統計量）**  
 > $H_0:h(\theta)=0$ が $r$ 本の独立な滑らかな制約を表すとき、
->
-> $$
-> W
-> =
-> n\,h(\hat\theta)^{\mathsf T}
-> \left[
-> H(\hat\theta)I_1(\hat\theta)^{-1}H(\hat\theta)^{\mathsf T}
-> \right]^{-1}
-> h(\hat\theta)
-> $$
->
+
+$$
+W
+=
+n\,h(\hat\theta)^{\mathsf T}
+\left[
+H(\hat\theta)I_1(\hat\theta)^{-1}H(\hat\theta)^{\mathsf T}
+\right]^{-1}
+h(\hat\theta)
+$$
+
 > は正則条件の下で $\chi_r^2$ へ収束する。
 <!-- formal-statement-end -->
 
@@ -340,15 +339,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（1母数のスコア型統計量）**  
 > $H_0:\theta=\theta_0$ に対し、スコア $U_n(\theta)=\ell_n'(\theta)$ と1次元フィッシャー情報量 $I_n(\theta)$ を用いて
->
-> $$
-> \boxed{
-> S
-> =
-> \frac{U_n(\theta_0)^2}{I_n(\theta_0)}
-> }
-> $$
->
+
+$$
+\boxed{
+S
+=
+\frac{U_n(\theta_0)^2}{I_n(\theta_0)}
+}
+$$
+
 > をスコア型統計量という。正則条件の下で $H_0$ のもと $S\xrightarrow{d}\chi_1^2$ である。
 <!-- formal-statement-end -->
 
@@ -404,7 +403,7 @@ G^2
 J_n(\hat\theta)(\hat\theta-\theta_0)^2.
 $$
 
-一方、Wald統計量は
+一方、ワルド型統計量は
 
 $$
 W
@@ -436,23 +435,23 @@ I2-01 で扱った正則条件の下では、$J_n/n$ と $I_n/n$ は同じ極限
 <!-- formal-statement-start -->
 > **定理（1母数での尤度比・ワルド型・スコア型検定の漸近同値性）**  
 > 正則な1母数モデルで $H_0:\theta=\theta_0$ を考える。通常の最尤推定量の正則条件が成り立つとき、
->
-> $$
-> G^2-W=o_p(1),
-> \qquad
-> W-S=o_p(1),
-> $$
->
+
+$$
+G^2-W=o_p(1),
+\qquad
+W-S=o_p(1),
+$$
+
 > であり、$H_0$ の下で
->
-> $$
-> \boxed{
-> G^2,\ W,\ S
-> \xrightarrow{d}
-> \chi_1^2
-> }
-> $$
->
+
+$$
+\boxed{
+G^2,\ W,\ S
+\xrightarrow{d}
+\chi_1^2
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -625,18 +624,18 @@ $$
 <a id="def-i3-02-efficient-information"></a>
 
 <!-- formal-statement-start -->
-> **発展定義（迷惑母数を除いた有効情報量）**  
+> **定義（迷惑母数を除いた有効情報量）**  
 > $\psi$ に対する情報から迷惑母数 $\lambda$ の線形影響を除いたSchur補
->
-> $$
-> \boxed{
-> I_{\psi\cdot\lambda}
-> =
-> I_{\psi\psi}
-> -I_{\psi\lambda}I_{\lambda\lambda}^{-1}I_{\lambda\psi}
-> }
-> $$
->
+
+$$
+\boxed{
+I_{\psi\cdot\lambda}
+=
+I_{\psi\psi}
+-I_{\psi\lambda}I_{\lambda\lambda}^{-1}I_{\lambda\psi}
+}
+$$
+
 > を $\psi$ に対する有効情報量という。
 <!-- formal-statement-end -->
 
@@ -738,7 +737,7 @@ $$
 ## 13. 発展: 局所対立仮説と検出力
 
 > **発展項目**  
-> 以下は漸近検出力を精密比較するための理論です。通常の1級対策では、Wald・Score・尤度比の構成と帰無仮説下の極限を優先してください。
+> 以下は漸近検出力を精密比較するための理論です。通常の1級対策では、ワルド型・スコア型・尤度比の構成と帰無仮説下の極限を優先してください。
 
 固定された遠い対立仮説では、一致性を持つ検定の検出力は $n\to\infty$ で1へ近づきます。そこで
 
@@ -752,15 +751,15 @@ $$
 <a id="thm-i3-02-local-alternative"></a>
 
 <!-- formal-statement-start -->
-> **発展定理（1母数局所対立仮説下の極限）**  
+> **定理（1母数局所対立仮説下の極限）**  
 > 正則な1母数モデルで $\theta_n=\theta_0+h/\sqrt n$ とする。通常の局所漸近正規性が成り立つとき、尤度比・ワルド型・スコア型統計量はいずれも
->
-> $$
-> \chi_1^2(\delta),
-> \qquad
-> \delta=h^2I_1(\theta_0)
-> $$
->
+
+$$
+\chi_1^2(\delta),
+\qquad
+\delta=h^2I_1(\theta_0)
+$$
+
 > へ分布収束する。
 <!-- formal-statement-end -->
 
@@ -780,7 +779,7 @@ $$
    Wilksの定理は正則条件付きである。
 6. **3統計量は常に数値的に等しいと考える。**  
    一般には有限標本で異なり、正則大標本で漸近的に一致する。
-7. **一般制約WaldやSchur補を必須公式として暗記する。**  
+7. **一般制約のワルド型統計量やSchur補を必須公式として暗記する。**  
    情報行列を使うこれらは本章では発展項目である。
 
 ---
@@ -1008,9 +1007,9 @@ $$
 したがって $G^2,W,S$ は $\chi_1^2$ へ収束します。
 <!-- solution-end -->
 
-### [発展] I3-02-C02 多母数の線形制約Wald
+### [発展] I3-02-C02 多母数の線形制約ワルド型検定
 
-> 情報行列と一般制約Waldを使う発展演習です。通常ルートでは省略して構いません。
+> 情報行列と一般制約のワルド型検定を使う発展演習です。通常ルートでは省略して構いません。
 
 $\theta\in\mathbb R^p$ の最尤推定量が
 
@@ -1123,7 +1122,7 @@ $$
 \boxed{G^2\xrightarrow{d}\chi_1^2}.
 $$
 
-この問題は情報行列を使わず、**制約付きMLEと尤度比**だけで解けます。
+この問題は情報行列を使わず、**制約付き最尤推定と尤度比**だけで解けます。
 <!-- solution-end -->
 
 ---
@@ -1287,6 +1286,6 @@ $$
 
 ### 発展
 
-- [ ] 一般制約Waldが情報行列と多変量デルタ法を使う発展項目だと区別できる。
+- [ ] 一般制約のワルド型統計量が情報行列と多変量デルタ法を使う発展項目だと区別できる。
 - [ ] Schur補による有効情報量の意味を知っている。
 - [ ] 局所対立仮説と非心カイ二乗が漸近検出力の発展理論だと位置付けられる。
