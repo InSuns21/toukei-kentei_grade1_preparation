@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 73件
+- 明示的な定義ラベルヒット: 75件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -118,8 +118,8 @@
 |math-various-tests|二項分布・ポアソン分布など基本的な分布に関する検定|exact|I3-03 / 3A.1|—|—|I3-03 / I303-B05|
 |math-various-tests|適合度の検定|exact|I3-03 / chapter.yaml|—|—|—|
 |math-various-tests|ノンパラメトリック検定|exact|I3-01 / 11. 本章と次章以降の境界|—|—|—|
-|math-anova|一元配置分散分析|exact|I3-03 / 3A.2 複数の平均に関する検定|—|—|L1-03 / L1-03-A01 一元配置の自由度|
-|math-anova|二元配置分散分析|exact|L1-03 / 公式出題範囲との対応|—|—|L1-03 / L1-03-A03 交互作用を差の差で読む|
+|math-anova|一元配置分散分析|exact|L1-03 / 1. 一元配置：複数の平均を一度に比べる#def-l1-03-one-way-anova|L1-03 / 1. 一元配置：複数の平均を一度に比べる#def-l1-03-one-way-anova|—|L1-03 / L1-03-A01 一元配置の自由度|
+|math-anova|二元配置分散分析|exact|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|—|L1-03 / L1-03-A03 交互作用を差の差で読む|
 |math-anova|交互作用|exact|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|L1-03 / 5.2 交互作用は「差の差」#def-l1-03-interaction|—|L1-03 / L1-03-A03|
 |math-anova|共分散分析|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|—|L1-03 / L103-B05|
 |math-anova|多重比較|exact|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|L1-03 / 6. 多重比較：比較を増やすと偶然の有意差も増える#def-l1-03-multiple-comparisons|—|L1-03 / L1-03-A04 Bonferroni法の有意水準|
@@ -218,7 +218,7 @@
 |engineering-quality|プロセス管理|exact|E4-01 / 公式出題範囲との対応|—|—|—|
 |engineering-quality|工程能力指数|exact|E4-01 / E4-01 管理図と工程能力|—|—|E4-01 / E4-01-A04 $C_p$ と $C_{pk}$|
 |engineering-design|実験の計画と実施|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-C01 設計の欠陥を直し、乱塊法へつなぐ|
-|engineering-design|固定効果|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|—|
+|engineering-design|固定効果|exact|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|—|—|—|
 |engineering-design|変量効果|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-B02|
 |engineering-design|交絡因子|exact|E3-01 / 公式出題範囲との対応|—|—|—|
 |engineering-design|ブロック化|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
