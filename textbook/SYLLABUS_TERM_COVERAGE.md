@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 66件
+- 明示的な定義ラベルヒット: 70件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -167,10 +167,10 @@
 |applied-multiple-regression|重回帰モデル|exact|L1-02 / この章で解けるようになる問題|—|—|L1-04 / L1-04-C04 診断結果から対処を選ぶ|
 |applied-multiple-regression|変数選択|exact|L2-02 / 7. 変数選択#def-l2-02-variable-selection|L2-02 / 7. 変数選択#def-l2-02-variable-selection|—|L1-04 / L1-04-C03 部分F・AIC・BICでモデル選択を比較する|
 |applied-multiple-regression|残差分析|exact|L1-04 / 公式出題範囲との対応|—|—|L1-04 / L1-04-B01 残差分散をハット行列から導く|
-|applied-multiple-regression|一般化最小二乗推定|exact|L1-04 / 公式出題範囲との対応|—|—|—|
+|applied-multiple-regression|一般化最小二乗推定|exact|L1-04 / 6.1 重み付き二次形式を最小化する#def-l1-04-gls|L1-04 / 6.1 重み付き二次形式を最小化する#def-l1-04-gls|—|—|
 |applied-multiple-regression|ガウス・マルコフの定理|exact|I1-02 / この章で解けるようになる問題|—|—|L1-02 / L1-02-B04 ガウス・マルコフの分散差|
-|applied-multiple-regression|多重共線性|exact|L1-04 / L1-04 回帰診断・一般化最小二乗・正則化|—|—|L1-04 / L1-04-A03 VIF|
-|applied-multiple-regression|L1正則化法|exact|L1-04 / L1-04 回帰診断・一般化最小二乗・正則化|—|—|L1-04 / L1-04-A04 LASSOの軟閾値|
+|applied-multiple-regression|多重共線性|exact|L1-04 / 8. 多重共線性: 当てはまるのに係数が決まらない#def-l1-04-multicollinearity|L1-04 / 8. 多重共線性: 当てはまるのに係数が決まらない#def-l1-04-multicollinearity|—|L1-04 / L1-04-A03 VIF|
+|applied-multiple-regression|L1正則化法|exact|L1-04 / 10. L1正則化法とLASSO#def-l1-04-l1-regularization|L1-04 / 10. L1正則化法とLASSO#def-l1-04-l1-regularization|—|L1-04 / L1-04-A04 LASSOの軟閾値|
 |applied-multiple-regression|回帰診断法|exact|L1-04 / 公式出題範囲との対応|—|—|—|
 |applied-multivariate|主成分分析|exact|F0-00 / 1. この章で扱う数学|—|—|E1-02 / E1-02-A01 最大分散から固有値問題|
 |applied-multivariate|因子分析|exact|E1-03 / E1-03|—|—|E1-03 / E1-03-B01 主成分分析と|
@@ -205,7 +205,7 @@
 |engineering-linear-inference|一般化線形モデル|exact|L2-01 / L2-01|—|—|L2-01 / L2-01-A01 三要素を分類する|
 |engineering-linear-inference|線形結合の分布|exact|P3-03 / 9. 復習チェック|—|—|L1-02 / L1-02-B02|
 |engineering-linear-inference|線形対比|exact|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|L1-02 / 5. 線形対比は「平均の比較」のための特別な線形結合#def-l1-02-linear-contrast|—|L1-02 / L1-02-A04|
-|engineering-linear-inference|線形制約|exact|I3-02 / 4.1 発展: 多母数・一般制約のワルド型統計量#def-i3-02-wald-general|—|—|L1-02 / L1-02-B03 文章から|
+|engineering-linear-inference|線形制約|exact|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|L1-02 / 7. 線形制約を行列でまとめる#def-l1-02-linear-constraint|—|L1-02 / L1-02-B03 文章から|
 |engineering-asymptotics|大数の法則|exact|P4-02 / P4-02 確率変数の収束・|—|—|P4-02 / P4T-B02|
 |engineering-asymptotics|中心極限定理|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 2.2 例: 標本平均|P4-02 / P4T-B03 ポアソン標本平均の近似確率|
 |engineering-asymptotics|最尤推定量の漸近正規性|exact|I1-02 / I1-02 推定法と推定量の評価|—|I2-01 / 10. 非正則例: 一様分布の最尤推定量は $\sqrt n$ 正規ではない#prop-i2-01-uniform-n-rate|I2-01 / I2-01-A02 ベルヌーイ|
