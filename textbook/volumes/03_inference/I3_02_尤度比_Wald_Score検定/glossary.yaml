@@ -1,0 +1,37 @@
+terms:
+  - term: 制約なし最尤推定量
+    notation: "\\hat\\theta"
+    meaning: 母数空間全体で尤度を最大化する最尤推定量
+  - term: 制約付き最尤推定量
+    notation: "\\tilde\\theta"
+    meaning: 帰無仮説が課す制約の下で尤度を最大化する推定量
+  - term: 尤度比
+    notation: "\\Lambda"
+    meaning: 帰無仮説下の最大尤度を制約なし最大尤度で割った比
+  - term: 尤度比統計量
+    notation: "G^2=-2\\log\\Lambda"
+    meaning: 最大対数尤度の差を2倍した非負の検定統計量
+  - term: Wilksの定理
+    meaning: 正則条件下で尤度比統計量が独立制約数を自由度とするカイ二乗分布へ漸近する定理
+  - term: ワルド型統計量
+    notation: "W"
+    meaning: 制約なし推定量が帰無仮説集合からどれだけ離れたかを推定分散で標準化した二次形式
+  - term: スコア型統計量
+    notation: "S"
+    meaning: 帰無仮説点または制約付き推定点でのスコアを情報量で標準化した二次形式
+  - term: 観測情報量
+    notation: "J_n(\\theta)=-\\ell_n''(\\theta)"
+    meaning: 観測された対数尤度の局所曲率
+  - term: 有効情報量
+    notation: "I_{\\psi\\cdot\\lambda}"
+    meaning: 迷惑母数方向の影響をSchur補行列で除いた検定対象母数の情報量
+  - term: 迷惑母数
+    meaning: 検定対象ではないが尤度に含まれ、帰無仮説下でも通常は推定が必要な母数
+  - term: 再母数化不変性
+    meaning: 1対1の母数変換をしても検定統計量の値が変わらない性質
+  - term: 局所対立仮説
+    notation: "\\theta_n=\\theta_0+h/\\sqrt n"
+    meaning: 帰無値からroot-nの尺度で近づく対立仮説列
+  - term: 非心カイ二乗分布
+    notation: "\\chi_r^2(\\delta)"
+    meaning: 局所対立仮説下の二次形式に現れる非心度付きカイ二乗分布
