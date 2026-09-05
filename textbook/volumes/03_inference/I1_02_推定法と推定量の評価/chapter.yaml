@@ -4,6 +4,7 @@ volume: "inference"
 status: reviewed
 prerequisites:
   - I1-01
+  - P3-05
   - P4-02
   - L1-02
 official_scope:
