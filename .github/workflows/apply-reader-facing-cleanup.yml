@@ -75,3 +75,5 @@ jobs:
           git diff --cached --check
           git commit -m "Clean reader-facing syllabus meta wording"
           git push origin HEAD:cleanup/reader-facing-syllabus-wording
+
+# retry after narrowing the permanent guard to syllabus leakage
