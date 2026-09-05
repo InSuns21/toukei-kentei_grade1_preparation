@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-09-05
   current_chapter: null
-  next_chapter: I4-01
+  next_chapter: L2-02
   next_work:
     type: chapter
-    id: I4-01
-  last_completed_chapter: I3-03
+    id: L2-02
+  last_completed_chapter: I4-01
   summary:
     total: 43
-    planned: 2
+    planned: 1
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 41
+    reviewed: 42
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -58,7 +58,7 @@ progress:
     I3-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I3-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I3-03: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
-    I4-01: { status: planned }
+    I4-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I4-02: { status: reviewed, started_at: 2026-09-01, completed_at: 2026-09-01, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-01: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
     L1-02: { status: reviewed, started_at: 2026-08-30, completed_at: 2026-08-30, review_result: { fatal: 0, major: 0, minor: 0 } }
@@ -136,6 +136,6 @@ chapters:
   - { id: I3-01, title: 検定の基礎とネイマン・ピアソン理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理 ] }
   - { id: I3-02, title: 尤度比・Wald・Score検定, volume: inference, prerequisites: [ I2-01, I3-01 ], official_scope: [ 尤度比検定, ワルド型検定, スコア型検定 ] }
   - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定 ] }
-  - { id: I4-01, title: Bayes推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, Bayes推定量, 事後最頻値, 予測分布, 損失関数 ] }
+  - { id: I4-01, title: ベイズ推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, ベイズ推定量, 事後最頻値, 予測分布, 損失関数 ] }
   - { id: I4-02, title: 欠測・不完全データ・期待値最大化法, volume: inference, prerequisites: [ I1-01, P1-02, P3-04, P3-03 ], official_scope: [ 欠測, 不完全データ, 観測データ尤度, 期待値最大化法, 打ち切り, 切断 ] }
   - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01 ], official_scope: [ カルバック・ライブラー情報量, AIC, クロスバリデーション, 変数選択 ] }
