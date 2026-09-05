@@ -1,0 +1,58 @@
+chapter: F0-00P4A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P4
+  - F0-00P2A
+  - F0-00D2B
+
+concepts:
+  - id: prob.uniform-integrability
+    name: 一様可積分性
+    kind: definition
+    aliases: [一様可積分性]
+    requires:
+      - prob.expectation
+
+  - id: prob.uniform-absolute-continuity-integrals
+    name: 積分の一様絶対連続性
+    kind: definition
+    aliases: [積分の一様絶対連続性]
+    requires:
+      - prob.expectation
+      - prob.probability-space
+
+  - id: prob.ui-basic-consequences
+    name: UIの二つの基本帰結
+    kind: lemma
+    aliases: [UIの二つの基本帰結]
+    requires:
+      - prob.uniform-integrability
+      - prob.uniform-absolute-continuity-integrals
+
+  - id: prob.lp-bounded-implies-ui
+    name: L^p有界性から一様可積分性
+    kind: theorem
+    aliases: ["有界性から一様可積分性"]
+    requires:
+      - prob.uniform-integrability
+      - prob.expectation
+
+  - id: prob.dominated-family-implies-ui
+    name: 可積分な支配関数から一様可積分性
+    kind: theorem
+    aliases: [可積分な支配関数から一様可積分性]
+    requires:
+      - prob.uniform-integrability
+      - measure.dominated-convergence-theorem
+
+  - id: prob.vitali-convergence-theorem
+    name: Vitali型収束定理
+    kind: theorem
+    aliases: [Vitali型収束定理]
+    requires:
+      - prob.uniform-integrability
+      - prob.ui-basic-consequences
+      - prob.probability-convergence
+      - prob.probability-subsequence-as
+      - measure.fatou-lemma
