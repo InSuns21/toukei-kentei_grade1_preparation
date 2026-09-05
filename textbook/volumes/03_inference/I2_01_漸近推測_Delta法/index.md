@@ -1918,3 +1918,51 @@ $$
 - 再母数化後のフィッシャー情報量とデルタ法が整合することを示せる。
 - 一様分布の最尤推定量では $n$ 尺度と指数極限が現れることを説明できる。
 - 「最尤推定量なら必ず $\sqrt n$ 正規」という誤った一般化をしない。
+
+## 17. 定義の具体例による確認
+
+<!-- definition-example-start: def-i2-01-asymptotic-distribution, def-i2-01-asymptotic-normality, def-i2-01-asymptotic-variance -->
+**定義の確認**
+
+$X_i$ が独立同分布で $E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2<\infty$ なら
+
+$$
+\sqrt n(\bar X-\mu)\xrightarrow{d}N(0,\sigma^2).
+$$
+
+したがって $a_n=\sqrt n$、$b_n=\mu$ とした漸近分布は $N(0,\sigma^2)$ であり、$\bar X$ は root-$n$ 漸近正規です。また root-$n$ 漸近分散は $V(\mu)=\sigma^2$ なので、$\bar X$ 自身の大標本分散は $\sigma^2/n$ と読み直せます。3つの定義が同じ標本平均の例で整合しています。
+<!-- definition-example-end -->
+
+<!-- definition-example-start: def-i2-01-observed-information -->
+**定義の確認**
+
+$X_i\overset{\mathrm{iid}}{\sim}\mathrm{Exp}(\lambda)$ では
+
+$$
+\ell_n(\lambda)=n\log\lambda-\lambda\sum_iX_i,
+\qquad
+\ell_n''(\lambda)=-\frac{n}{\lambda^2}.
+$$
+
+よって定義どおり
+
+$$
+j_n(\lambda)=-\ell_n''(\lambda)=\frac{n}{\lambda^2}.
+$$
+
+このモデルでは二階微分が標本値に依存しないため、期待値を取っても同じ $I_n(\lambda)=n/\lambda^2$ となります。観測情報量と期待フィッシャー情報量が一致する特殊例として定義を直接確認できます。
+<!-- definition-example-end -->
+
+<!-- definition-example-start: def-i2-01-asymptotic-efficiency -->
+**定義の確認**
+
+指数分布の率母数では $I_1(\lambda)=1/\lambda^2$ で、最尤推定量 $\hat\lambda=1/\bar X$ は
+
+$$
+\sqrt n(\hat\lambda-\lambda)
+\xrightarrow{d}N(0,\lambda^2)
+=N\!\left(0,I_1(\lambda)^{-1}\right).
+$$
+
+したがって本章の定義に照らして $\hat\lambda$ は漸近有効です。ここで言っているのは root-$n$ 極限の分散が情報量逆数に一致することであり、有限標本での $\operatorname{Var}(\hat\lambda)$ が厳密に $\lambda^2/n$ であるという主張ではありません。
+<!-- definition-example-end -->
