@@ -1,5 +1,7 @@
 # F0-02C4A 凸解析：tangent cone・polar cone・dual cone
 
+<!-- definition-example-audit: strict -->
+
 実行可能な一次方向と、それを支える双対側の法線・錐を整理します。C4 の normal cone を、接方向と双対錐の言葉で読み直す章です。
 
 ---
@@ -12,7 +14,7 @@
 
 <!-- formal-statement-start -->
 > **定義（Bouligand tangent cone）**  
-> 集合 $C$ と $x\in C$ に対し、次で定まる集合を $C$ の $x$ における **Bouligand tangent cone** といいます。
+> 集合 $C$ と $x\in C$ に対し、次の集合を $C$ の $x$ における **Bouligand tangent cone** といいます。
 
 $$
 T_C(x)
@@ -86,6 +88,44 @@ $$
 $$
 
 文献によって符号規約が異なるので、名前だけでなく不等号を確認することが重要です。
+
+<!-- definition-example-start: def-f0-02c4a-tangent-cone, def-f0-02c4a-polar-cone, def-f0-02c4a-dual-cone -->
+### 3.1 例：半直線で3つの定義を同時に検算
+
+**定義の確認**
+
+$C=[0,\infty)$、$x=0$ とします。$x_n=t_n h\in C$ を取れるのは $h\ge0$ のときなので、Bouligand の定義から
+
+$$
+T_C(0)=[0,\infty).
+$$
+
+この錐を $K=[0,\infty)$ と書くと、polar の定義は
+
+$$
+pk\le0\qquad(\forall k\ge0)
+$$
+
+なので
+
+$$
+K^\circ=(-\infty,0].
+$$
+
+一方 dual cone の定義は
+
+$$
+\lambda k\ge0\qquad(\forall k\ge0)
+$$
+
+なので
+
+$$
+K^*=[0,\infty).
+$$
+
+従ってこの具体例でも $K^\circ=-K^*$ が確認できます。
+<!-- definition-example-end -->
 
 ---
 
