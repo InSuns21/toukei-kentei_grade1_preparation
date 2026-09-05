@@ -13,10 +13,10 @@ official_scope:
   - 平均残存寿命
   - 累積ハザード
 learning_objectives:
-  - Pareto・Laplace・Rayleighの密度、分布関数、モーメントを導出できる
-  - 切断・打切りで観測密度と尤度がどう変わるかを説明できる
+  - Pareto・Laplace・Rayleighの密度、分布関数、モーメントを導出し、それぞれの形と発生機構を説明できる
+  - 切断・打切りで観測から失われる情報の違いを説明できる
   - 生存関数、ハザード、累積ハザード、平均残存寿命を相互に計算できる
-  - 寿命データから尺度・形状母数を推定し、故障率の増減を解釈できる
+  - Weibullの形状母数から故障率の増減を判定し、寿命データの言葉で解釈できる
 definitions:
   - { id: P3T-DEF-01, name: Pareto分布と重尾性 }
   - { id: P3T-DEF-02, name: Laplace分布・Rayleigh分布 }
@@ -26,14 +26,14 @@ definitions:
 theorems:
   - { id: P3T-THM-01, name: Paretoのモーメントと重尾条件 }
   - { id: P3T-THM-02, name: Laplace・Rayleighの分布式 }
-  - { id: P3T-THM-03, name: 切断密度と打切り尤度 }
+  - { id: P3T-THM-03, name: 切断密度と打切り観測の情報寄与 }
   - { id: P3T-THM-04, name: ハザードと累積ハザード }
   - { id: P3T-THM-05, name: Weibullの平均残存寿命と故障率 }
 canonical_examples: [Paretoの平均存在条件, Laplaceの絶対値積分, Rayleigh変換, 右切断, 右打切り寿命データ]
 problem_patterns: [PARETO-1, LAPLACE-1, RAYLEIGH-1, TRUNC-1, CENSOR-1, HAZARD-1, ANSWER-1]
 past_exam_alignment:
   - { id: SCI-2019-Q1, current_skills: [生存関数, ハザード, Weibull変換, 平均残存寿命], later_skills: [信頼性推定, 工程判断] }
-  - { id: MATH-2022-Q4, current_skills: [Pareto分布, 最小値, 最尤推定], later_skills: [漸近推定, 信頼区間] }
+  - { id: MATH-2022-Q4, current_skills: [Pareto分布, 最小値], later_skills: [最尤推定, 漸近推定, 信頼区間] }
 integrated_exam_problems: [P3T-DRILL-01]
 exercise_counts: { level_a: 4, level_b: 4, level_c: 5, level_d: 1 }
 estimated_hours: { reading: 4, exercises: 8, review: 3 }
