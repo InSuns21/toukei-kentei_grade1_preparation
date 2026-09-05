@@ -47,7 +47,8 @@ concepts:
   - id: prob.union-bound
     name: 可算劣加法性（union bound）
     kind: theorem
-    aliases: [可算劣加法性, union bound]
+    aliases: ["可算劣加法性・union bound", union bound]
+    introduction_aliases: ["可算劣加法性・union bound"]
     requires:
       - prob.probability-space
       - measure.measure-monotonicity
