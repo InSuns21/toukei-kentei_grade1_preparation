@@ -12,3 +12,15 @@ terms:
   - { term: 確率母関数, symbol: "G_X(s)", definition: "非負整数値変数のE[s^X]" }
   - { term: モーメント母関数, symbol: "M_X(t)", definition: "E[e^{tX}]" }
   - { term: 階乗モーメント, definition: "E[X(X-1)…(X-r+1)]" }
+  - term: 歪度
+    definition: 分布の左右非対称性を表す標準化三次中心モーメント。
+  - term: 尖度
+    definition: 分布の裾や中心への集中の程度を表す標準化四次中心モーメント。正規分布では3。
+  - term: 変動係数
+    definition: 正の尺度で標準偏差を平均で割った相対的ばらつきの指標。
+  - term: パーセント点
+    definition: 累積確率が所定の割合に達する一般化分位点。
+  - term: 四分位数
+    definition: 25%、50%、75%の分位点。
+  - term: 四分位範囲
+    definition: 第3四分位数から第1四分位数を引いた頑健な散布度。

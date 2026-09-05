@@ -14,6 +14,8 @@ official_scope:
   - 事後最頻値
   - 予測分布
   - 損失関数
+  - 階層ベイズモデル
+  - ギブスサンプリング
 learning_objectives:
   - 事前分布・尤度・事後分布の関係をベイズの定理から導出できる
   - 周辺尤度を事後分布の正規化定数として説明できる
@@ -36,6 +38,8 @@ definitions:
   - { id: I401-DEF-05, name: 事後期待損失とベイズ推定量 }
   - { id: I401-DEF-06, name: 事後最頻値 }
   - { id: I401-DEF-07, name: 事後予測分布 }
+  - {id: I401-DEF-08, name: 階層ベイズモデル}
+  - {id: I401-DEF-09, name: ギブスサンプリング}
 theorems:
   - { id: I401-THM-01, name: ベイズの定理による事後分布 }
   - { id: I401-THM-02, name: 二乗損失下のベイズ推定量 }
@@ -46,7 +50,7 @@ canonical_examples: [ベータ・二項更新, ガンマ・ポアソン更新, �
 problem_patterns: [POSTERIOR-BAYES-1, BETA-BINOMIAL-1, GAMMA-POISSON-1, NORMAL-NORMAL-1, BAYES-LOSS-1, MAP-MLE-1, POSTERIOR-PREDICTIVE-1, CREDIBLE-VS-CONFIDENCE-1]
 past_exam_alignment: []
 integrated_exam_problems: [I4-01-C01, I4-01-C02, I4-01-C03, I4-01-C04, I4-01-D01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: {level_a: 4, level_b: 5, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 9, exercises: 12, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85

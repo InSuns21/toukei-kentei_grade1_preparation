@@ -9,6 +9,12 @@ official_scope:
   - 平均値と分散に関する検定
   - 適合度の検定
   - ノンパラメトリック検定
+  - 複数の平均に関する検定
+  - 二項分布・ポアソン分布など基本的な分布に関する検定
+  - フィッシャー検定
+  - マクネマー検定
+  - イェーツの補正
+  - 順位相関係数
 learning_objectives:
   - 正規母平均の検定で母分散既知なら正規分布、未知ならt分布を使い分けられる
   - 正規母分散の検定をカイ二乗分布から構成できる
@@ -29,6 +35,10 @@ definitions:
   - { id: I303-DEF-03, name: 符号検定 }
   - { id: I303-DEF-04, name: ウィルコクソン符号付き順位和統計量 }
   - { id: I303-DEF-05, name: ウィルコクソン順位和統計量とマン・ホイットニーU統計量 }
+  - {id: I303-DEF-06, name: フィッシャー検定}
+  - {id: I303-DEF-07, name: イェーツの補正}
+  - {id: I303-DEF-08, name: マクネマー検定}
+  - {id: I303-DEF-09, name: 順位相関係数}
 theorems:
   - { id: I303-THM-01, name: 正規母平均・母分散の正確な検定統計量 }
   - { id: I303-THM-02, name: ピアソン適合度統計量のカイ二乗極限 }
@@ -40,7 +50,7 @@ problem_patterns: [NORMAL-MEAN-TEST-1, NORMAL-VAR-TEST-1, TWO-VAR-F-TEST-1, TWO-
 past_exam_alignment:
   - { id: MATH-2014-Q4, theme: F分布・二標本比較, skills: [F分布, 二標本比較, 棄却判断], source_type: third_party_topic_index }
 integrated_exam_problems: [I3-03-C01, I3-03-C02, I3-03-C03, I3-03-C04, I3-03-D01]
-exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }
+exercise_counts: {level_a: 4, level_b: 6, level_c: 5, level_d: 1} # syllabus-batch1-counts
 estimated_hours: { reading: 9, exercises: 12, review: 3 }
 completion_criteria:
   level_b_score_at_least: 0.85
