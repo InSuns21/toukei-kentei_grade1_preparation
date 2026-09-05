@@ -42,3 +42,10 @@ concepts:
     aliases: ["Var(X)"]
     requires:
       - prob.expectation
+
+  - id: prob.markov-inequality
+    name: Markovの不等式
+    kind: theorem
+    aliases: [Markovの不等式, Markov不等式]
+    requires:
+      - prob.expectation
