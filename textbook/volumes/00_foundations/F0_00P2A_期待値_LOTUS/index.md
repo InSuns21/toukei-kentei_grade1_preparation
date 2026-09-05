@@ -169,7 +169,64 @@ $$
 
 ---
 
-## 6. 期待値の極限交換も積分論になる
+<a id="thm-f0-00p2a-markov"></a>
+
+## 6. Markovの不等式：期待値からtail確率を抑える
+
+<!-- formal-statement-start -->
+> **定理（Markovの不等式）**  
+> 非負確率変数 $Y\ge0$ が $E[Y]<\infty$ を満たすとします。このとき任意の $a>0$ に対して
+>
+> $$
+> \boxed{
+> P(Y\ge a)\le\frac{E[Y]}{a}
+> }
+> $$
+>
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+事象 $\{Y\ge a\}$ 上では $Y\ge a$、それ以外では左辺が0なので、点ごとに
+
+$$
+a\mathbf1_{\{Y\ge a\}}\le Y
+$$
+
+が成り立ちます。両辺の期待値を取ると
+
+$$
+aP(Y\ge a)
+=aE[\mathbf1_{\{Y\ge a\}}]
+\le E[Y].
+$$
+
+$a>0$ で割れば
+
+$$
+P(Y\ge a)\le\frac{E[Y]}{a}.
+$$
+
+$\square$
+<!-- proof-end -->
+
+特に $p>0$ とし、$Y=|X|^p$、$a=\varepsilon^p$ と置けば
+
+$$
+\boxed{
+P(|X|>\varepsilon)
+\le
+\frac{E|X|^p}{\varepsilon^p}
+}
+$$
+
+を得ます。この形は、後で $L^p$ 収束から確率収束を導くときや、$L^2$ 収束から確率の大きい部分列を抜き出すときに使います。
+
+---
+
+## 7. 期待値の極限交換も積分論になる
 
 $X_n\to X$ a.s. だけでは一般に
 
@@ -202,7 +259,7 @@ $$
 
 ---
 
-## 7. 密度はa.e.一意である
+## 8. 密度はa.e.一意である
 
 Radon--Nikodym微分は基準測度に関してa.e.一意です。
 
