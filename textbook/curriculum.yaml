@@ -12,19 +12,19 @@ progress:
   schema_version: 1
   updated_at: 2026-09-05
   current_chapter: null
-  next_chapter: I2-02
+  next_chapter: I3-01
   next_work:
     type: chapter
-    id: I2-02
-  last_completed_chapter: I2-01
+    id: I3-01
+  last_completed_chapter: I2-02
   summary:
     total: 43
-    planned: 6
+    planned: 5
     drafting: 0
     self_review: 0
     independent_review: 0
     revision: 0
-    reviewed: 37
+    reviewed: 38
     blocked: 0
   status_definitions:
     planned: 未着手
@@ -54,7 +54,7 @@ progress:
     I1-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I1-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I2-01: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
-    I2-02: { status: planned }
+    I2-02: { status: reviewed, started_at: 2026-09-05, completed_at: 2026-09-05, review_result: { fatal: 0, major: 0, minor: 0 } }
     I3-01: { status: planned }
     I3-02: { status: planned }
     I3-03: { status: planned }
@@ -120,7 +120,7 @@ chapters:
   - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ P3-01, L1-02 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }
   - { id: E4-01, title: 管理図と工程能力, volume: engineering, prerequisites: [ P3-02, P4-02 ], official_scope: [ 管理図, プロセス管理, 工程能力指数 ] }
   - { id: E4-02, title: 信頼性・保全性, volume: engineering, prerequisites: [ P3-02, P3-05, E4-01 ], official_scope: [ 信頼性, 保全性, ハザード, MTBF ] }
-  - { id: E3-01, title: 実験計画・直交表・交絡, volume: engineering, prerequisites: [ L1-03 ], official_scope: [ 実験の計画と実施, フィッシャーの3原則, 一元配置法, 二元配置法, 固定効果, 変量効果, 交絡因子, ブロック化, 乱塊法, 直交表, 一部実施要因計画, 交絡法 ] }
+  - { id: E3-01, title: 実験計画・直交表・交絡, volume: engineering, prerequisites: [ L1-03 ], official_scope: [ 実験の計画と実施, フィッシャーの3原則, 一元配置法, 二元配置分散分析, 交互作用, 多重比較, 固定効果, 変量効果, 交絡因子, ブロック化, 乱塊法, 直交表, 一部実施要因計画, 交絡法 ] }
 
   - { id: E2-05, title: 状態空間モデル, volume: engineering, prerequisites: [ E2-03, E1-01, F0-00 ], official_scope: [ 状態空間モデル, 状態方程式, 観測方程式, Kalmanフィルタ, 時系列解析 ] }
   - { id: L1-04, title: 回帰診断・一般化最小二乗・正則化, volume: linear_models, prerequisites: [ L1-02 ], official_scope: [ 変数選択, 残差分析, 一般化最小二乗推定, 多重共線性, L1正則化法, 回帰診断法 ] }
