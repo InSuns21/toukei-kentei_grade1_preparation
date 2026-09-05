@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 58件
+- 明示的な定義ラベルヒット: 61件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -140,9 +140,9 @@
 |math-nonparametric|ウィルコクソン順位和検定（マン・ホイットニーU検定）|alias|I3-03 / この章で解けるようになる問題|—|—|—|
 |math-nonparametric|ウィルコクソン符号付き順位和検定|exact|I3-03 / この章で解けるようになる問題|—|—|—|
 |math-nonparametric|順位相関係数|exact|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-rank-correlation|I3-03 / 3A.2 複数の平均に関する検定#def-i3-03-rank-correlation|—|I3-03 / I303-C05 マクネマー検定と|
-|math-incomplete-data|欠測（欠損）|alias|I1-01 / I1-01 尤度・最尤推定|—|I4-02 / 5. 正規分布の簡単な例|I4-02 / I4-02-A01|
-|math-incomplete-data|打ち切り|exact|P3-03 / 採点基準と選択判断|—|—|I4-02 / I4-02-A02 欠測・|
-|math-incomplete-data|トランケーション|alias|P3-05 / P3-05 重尾・|—|—|P3-05 / P3T-B04 指数分布の右|
+|math-incomplete-data|欠測（欠損）|alias|I4-02 / 1.1 欠測#def-i4-02-missing|I4-02 / 1.1 欠測#def-i4-02-missing|I4-02 / 5. 正規分布の簡単な例|I4-02 / I4-02-A01|
+|math-incomplete-data|打ち切り|exact|I4-02 / 1.2 右打ち切り#def-i4-02-censoring|I4-02 / 1.2 右打ち切り#def-i4-02-censoring|—|I4-02 / I4-02-A02 欠測・|
+|math-incomplete-data|トランケーション|alias|I4-02 / 1.3 切断#def-i4-02-truncation|I4-02 / 1.3 切断#def-i4-02-truncation|—|P3-05 / P3T-B04 指数分布の右|
 |math-simulation|乱数|exact|P4-03 / P4-03 経験分布・|—|P4-03 / 3A.4 例：ブートストラップとMCMCは目的が違う|P4-03 / P4R-A02 指数|
 |math-simulation|モンテカルロシミュレーション|alias|P4-03 / P4-03 経験分布・乱数生成・|—|—|P4-03 / P4R-A03|
 |math-simulation|MCMC|exact|P4-03 / 3A.2 MCMC：独立標本を直接引けない分布から連鎖で標本を作る#def-p4-03-mcmc|P4-03 / 3A.2 MCMC：独立標本を直接引けない分布から連鎖で標本を作る#def-p4-03-mcmc|P4-03 / 3A.4 例：ブートストラップと|P4-03 / P4R-C06|
