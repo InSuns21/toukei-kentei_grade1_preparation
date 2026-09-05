@@ -39,11 +39,11 @@ $X=\mathbb R^n$、$Y=\mathbb R^m$ とし、$K\subset Y$ を閉凸錐とします
 <!-- formal-statement-start -->
 > **定義（錐制約）**  
 > 写像 $G:X\to Y$ に対して
->
-> $$
-> G(x)\in-K
-> $$
->
+
+$$
+G(x)\in-K
+$$
+
 > という形の制約を錐制約と呼びます。
 <!-- formal-statement-end -->
 
@@ -116,13 +116,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（一般化Lagrangian）**  
 > 目的関数 $f:X\to\mathbb R$、錐制約 $G(x)\in-K$、等式制約 $H(x)=0$ に対し、$\lambda\in K^*$、$\nu\in\mathbb R^r$ を用いて
->
-> $$
-> L(x,\lambda,\nu)
-> =
-> f(x)+\lambda^{\mathsf T}G(x)+\nu^{\mathsf T}H(x)
-> $$
->
+
+$$
+L(x,\lambda,\nu)
+=
+f(x)+\lambda^{\mathsf T}G(x)+\nu^{\mathsf T}H(x)
+$$
+
 > と定めます。
 <!-- formal-statement-end -->
 
@@ -178,15 +178,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（閉凸錐 $-K$ のnormal cone）**  
 > $K\subset\mathbb R^m$ を閉凸錐、$y\in-K$ とすると
->
-> $$
-> \boxed{
-> N_{-K}(y)
-> =
-> \{\lambda\in K^*:\lambda^{\mathsf T}y=0\}
-> }
-> $$
->
+
+$$
+\boxed{
+N_{-K}(y)
+=
+\{\lambda\in K^*:\lambda^{\mathsf T}y=0\}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -271,17 +271,17 @@ $$
 <!-- formal-statement-start -->
 > **補題（局所最適点の接方向条件）**  
 > $f$ が $x^*$ で微分可能で、$x^*$ が $C$ 上の局所最適点なら
->
-> $$
-> \nabla f(x^*)^{\mathsf T}d\ge0
-> \qquad(\forall d\in T_C(x^*))
-> $$
->
+
+$$
+\nabla f(x^*)^{\mathsf T}d\ge0
+\qquad(\forall d\in T_C(x^*))
+$$
+
 > が成り立ちます。従って
->
-> $$
-> -\nabla f(x^*)\in T_C(x^*)^\circ.
-> $$
+
+$$
+-\nabla f(x^*)\in T_C(x^*)^\circ.
+$$
 <!-- formal-statement-end -->
 
 ### 5.1 証明の見取り図
@@ -347,25 +347,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（normal-cone表現からの一般化KKT）**  
-> $x^*$ を
->
-> $$
-> \min f(x)
-> \quad\text{subject to}\quad
-> G(x)\in-K,\ H(x)=0
-> $$
->
-> の局所最適点とします。$f,G,H$ は $x^*$ で微分可能とし、上の normal-cone 表現が $x^*$ で成り立つとします。このとき、ある $\lambda\in K^*$、$\nu\in\mathbb R^r$ が存在して、次の二条件を満たします。
->
-> $$
-> \begin{aligned}
-> \nabla f(x^*)
-> +DG(x^*)^{\mathsf T}\lambda
-> +DH(x^*)^{\mathsf T}\nu
-> &=0,\\
-> \lambda^{\mathsf T}G(x^*)&=0.
-> \end{aligned}
-> $$
+> $x^*$ を次の問題の局所最適点とします。
+
+$$
+\min f(x)
+\quad\text{subject to}\quad
+G(x)\in-K,\ H(x)=0.
+$$
+
+> $f,G,H$ は $x^*$ で微分可能とし、上の normal-cone 表現が $x^*$ で成り立つとします。このとき、ある $\lambda\in K^*$、$\nu\in\mathbb R^r$ が存在して、次の二条件を満たします。
+
+$$
+\begin{aligned}
+\nabla f(x^*)
++DG(x^*)^{\mathsf T}\lambda
++DH(x^*)^{\mathsf T}\nu
+&=0,\\
+\lambda^{\mathsf T}G(x^*)&=0.
+\end{aligned}
+$$
 <!-- formal-statement-end -->
 
 ### 6.1 証明の見取り図
