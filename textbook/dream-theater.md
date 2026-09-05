@@ -60,7 +60,7 @@
 
 #### 有限次元の制約付き最適化・SVM（短距離ルート）
 
-ここは **関数解析本線の前提ではなく、有限次元でKKT・Farkas・SVMを先に回収する応用ルート** です。
+ここは **関数解析コア（C1〜C4A）の前提ではありませんが、一般化KKT（C5）へ進む地点で合流する有限次元ルート** です。
 
 1. [F0-02 制約付き最適化・双対・KKT](textbook/volumes/00_foundations/F0_02_制約付き最適化_双対_KKT/index.md)
 2. [F0-02B 分離超平面定理・Farkas](textbook/volumes/00_foundations/F0_02B_分離超平面定理_Farkas_SVM/index.md)
@@ -71,7 +71,7 @@
 
 #### 関数解析・無限次元最適化・RKHS（本線）
 
-この節は **上から順に読むことを想定した関数解析の通読順** です。章番号順ではなく、各 `chapter.yaml` の prerequisite と数学的な依存関係に合わせています。
+この節は **上から順に読むことを想定した関数解析の通読順** です。章番号順ではなく、各 `chapter.yaml` の prerequisite と数学的な依存関係に合わせています。なお、C5「一般化KKT」へ入る時点では、上の有限次元ルートを F0-02A まで読了していることを前提にします。
 
 1. [F0-02C 関数解析・制約想定・RKHS ロードマップ](textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md)
 2. [F0-02C1 ノルム空間・Banach・Hilbert](textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md)
