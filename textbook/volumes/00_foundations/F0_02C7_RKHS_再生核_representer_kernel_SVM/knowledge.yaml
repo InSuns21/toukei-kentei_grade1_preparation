@@ -1,0 +1,50 @@
+chapter: F0-02C7
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C2
+  - F0-00F
+
+concepts:
+  - id: rkhs.rkhs
+    name: RKHS
+    kind: definition
+    introduction: inline
+    aliases: [RKHS]
+    requires:
+      - functional.hilbert-space
+      - functional.evaluation-functional
+
+  - id: rkhs.reproducing-kernel
+    name: 再生核
+    kind: definition
+    introduction: inline
+    aliases: [再生核]
+    requires:
+      - rkhs.rkhs
+      - functional.riesz-representation-theorem
+
+  - id: rkhs.psd-kernel
+    name: positive semidefinite kernel
+    kind: definition
+    introduction: inline
+    aliases: [positive semidefinite kernel, PSD kernel]
+    requires:
+      - rkhs.reproducing-kernel
+
+  - id: rkhs.canonical-feature-map
+    name: canonical feature map
+    kind: definition
+    introduction: inline
+    aliases: [canonical feature map]
+    requires:
+      - rkhs.reproducing-kernel
+
+  - id: rkhs.moore-aronszajn-theorem
+    name: Moore--Aronszajnの定理
+    kind: theorem
+    introduction: inline
+    aliases: [Moore--Aronszajn]
+    requires:
+      - rkhs.psd-kernel
+      - functional.hilbert-space

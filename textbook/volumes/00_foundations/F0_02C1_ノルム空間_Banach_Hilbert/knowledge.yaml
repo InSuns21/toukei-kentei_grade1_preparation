@@ -1,0 +1,12 @@
+chapter: F0-02C1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C
+  - F0-00D2E
+
+forward_references:
+  - functional.banach-space
+  - functional.hilbert-space
+
+concepts: []

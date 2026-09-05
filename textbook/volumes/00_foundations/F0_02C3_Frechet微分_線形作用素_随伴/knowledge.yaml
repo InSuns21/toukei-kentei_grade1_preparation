@@ -1,0 +1,57 @@
+chapter: F0-02C3
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C2
+
+concepts:
+  - id: functional.directional-derivative
+    name: 方向微分
+    kind: definition
+    introduction: inline
+    aliases: [方向微分]
+    requires:
+      - functional.normed-space
+
+  - id: functional.gateaux-derivative
+    name: Gateaux微分
+    kind: definition
+    introduction: inline
+    aliases: [Gateaux微分]
+    requires:
+      - functional.directional-derivative
+
+  - id: functional.frechet-derivative
+    name: Frechet微分
+    kind: definition
+    introduction: inline
+    aliases: [Frechet微分]
+    requires:
+      - functional.normed-space
+
+  - id: functional.bounded-linear-operator
+    name: 有界線形作用素
+    kind: definition
+    introduction: inline
+    aliases: [有界線形作用素]
+    requires:
+      - linear.linear-map
+      - functional.normed-space
+
+  - id: functional.operator-norm
+    name: 作用素ノルム
+    kind: definition
+    introduction: inline
+    aliases: [作用素ノルム]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.norm
+
+  - id: functional.frechet-chain-rule
+    name: Frechet微分の連鎖律
+    kind: theorem
+    introduction: inline
+    aliases: [Frechet微分の連鎖律]
+    requires:
+      - functional.frechet-derivative
+      - functional.bounded-linear-operator

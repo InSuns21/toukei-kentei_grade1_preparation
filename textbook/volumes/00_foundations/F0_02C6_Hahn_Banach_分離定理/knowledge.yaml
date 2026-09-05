@@ -1,0 +1,42 @@
+chapter: F0-02C6
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00A3
+  - F0-02C2
+
+concepts:
+  - id: functional.sublinear-functional
+    name: sublinear functional
+    kind: definition
+    introduction: inline
+    aliases: [sublinear functional]
+    requires:
+      - functional.linear-functional
+
+  - id: functional.hahn-banach-theorem
+    name: Hahn--Banachの定理
+    kind: theorem
+    introduction: inline
+    aliases: [Hahn--Banach]
+    requires:
+      - functional.sublinear-functional
+      - functional.linear-functional
+
+  - id: functional.norm-preserving-extension
+    name: ノルム保存拡張
+    kind: theorem
+    introduction: inline
+    aliases: [ノルム保存拡張]
+    requires:
+      - functional.hahn-banach-theorem
+      - functional.dual-norm
+
+  - id: functional.dual-separates-points
+    name: 双対空間による点分離
+    kind: theorem
+    introduction: inline
+    aliases: [双対空間による点分離]
+    requires:
+      - functional.hahn-banach-theorem
+      - functional.dual-space
