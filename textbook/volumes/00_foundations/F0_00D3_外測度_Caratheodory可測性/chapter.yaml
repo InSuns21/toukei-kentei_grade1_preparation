@@ -8,24 +8,27 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 区間被覆のinfimumからLebesgue外測度を定義できる
-  - 外測度の空集合・単調性・可算劣加法性を説明できる
+  - Lebesgue外測度が外測度であることを証明できる
   - Carathéodory可測性を定義し、その意味を分割加法性として説明できる
-  - Carathéodory可測集合族がsigma代数になる証明の骨格を説明できる
-  - 外測度を可測集合へ制限すると完全な測度になる理由を説明できる
+  - Carathéodory可測集合族がsigma代数になることを証明できる
+  - 外測度を可測集合へ制限すると可算加法的な測度になることを証明できる
+  - Carathéodory構成で得られる測度の完全性を証明できる
 definitions:
   - { id: F000D3-DEF-01, name: 外測度 }
   - { id: F000D3-DEF-02, name: Lebesgue外測度 }
   - { id: F000D3-DEF-03, name: Carathéodory可測集合 }
   - { id: F000D3-DEF-04, name: 完全測度 }
 theorems:
-  - { id: F000D3-THM-01, name: Lebesgue外測度の可算劣加法性 }
-  - { id: F000D3-THM-02, name: Carathéodoryの定理 }
+  - { id: F000D3-THM-01, name: Lebesgue外測度の外測度性 }
+  - { id: F000D3-THM-02, name: Carathéodory可測集合族のsigma代数性 }
+  - { id: F000D3-THM-03, name: 外測度制限の可算加法性 }
+  - { id: F000D3-THM-04, name: Carathéodory構成の完全性 }
 canonical_examples:
   - 開区間被覆から作るLebesgue外測度
-  - 外測度0集合の任意の部分集合
-  - Carathéodory条件による集合の分割
-problem_patterns: [OUTER-MEASURE-1, CARATHEODORY-MEASURABILITY-1]
+  - 一点集合と可算集合の外測度0
+  - 外測度0集合のCarathéodory可測性
+problem_patterns: [OUTER-MEASURE-1, CARATHEODORY-MEASURABILITY-1, CARATHEODORY-SIGMA-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
+exercise_counts: { level_a: 3, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2, review: 0.5 }
