@@ -1,0 +1,70 @@
+chapter: F0-00P7B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P7
+  - F0-00P6A
+  - F0-00D2E
+
+concepts:
+  - id: stat.hellinger-distance
+    name: Hellinger距離
+    kind: term
+    aliases: [Hellinger距離]
+    requires:
+      - measure.lp-space
+
+  - id: stat.qmd
+    name: Quadratic Mean Differentiability
+    kind: definition
+    aliases: [Quadratic Mean Differentiability, QMD]
+    introduction_aliases: ["定義（Quadratic Mean Differentiability; QMD）"]
+    requires:
+      - stat.dominated-model
+      - stat.score-function
+      - measure.lp-space
+
+  - id: stat.fisher-information-geometry
+    name: Fisher情報の局所Hilbert幾何
+    kind: term
+    aliases: [接ベクトルのGram行列]
+    requires:
+      - stat.qmd
+      - stat.fisher-information
+      - functional.l2-inner-product
+
+  - id: stat.central-sequence
+    name: central sequence
+    kind: term
+    aliases: [central sequence]
+    requires:
+      - stat.score-function
+      - prob.iid-clt
+
+  - id: stat.cramer-wold-device
+    name: Cramér--Wold device
+    kind: term
+    aliases: [Cramér--Wold device, Cramér--Wold]
+    requires:
+      - prob.distribution-convergence
+      - prob.levy-continuity-theorem
+
+  - id: stat.central-sequence-clt
+    name: central sequence CLT
+    kind: term
+    aliases: [central sequenceの中心極限定理]
+    requires:
+      - stat.central-sequence
+      - stat.cramer-wold-device
+      - prob.iid-clt
+      - stat.fisher-information
+
+  - id: stat.lan
+    name: local asymptotic normality
+    kind: term
+    aliases: [local asymptotic normality, LAN]
+    introduction_aliases: ["これが **local asymptotic normality (LAN)** です"]
+    requires:
+      - stat.qmd
+      - stat.central-sequence-clt
+      - stat.fisher-information
