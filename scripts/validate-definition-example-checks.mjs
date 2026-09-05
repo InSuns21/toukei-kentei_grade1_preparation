@@ -14,6 +14,9 @@ const EXAMPLE_START_RE = /^<!--\s*definition-example-start:\s*([^>]+?)\s*-->$/u;
 const EXAMPLE_END = '<!-- definition-example-end -->';
 const SKIP_RE = /^<!--\s*definition-example-skip:\s*([^|>]+?)\s*\|\s*(.+?)\s*-->$/u;
 const ANCHOR_RE = /<a\s+id="([^"]+)"\s*><\/a>/u;
+// Both supported formal-statement layouts count as definitions. Older audited
+// pages often use `### 定義（...）`, while newer pages use `> **定義（...）**`.
+const FORMAL_DEFINITION_RE = /(?:\*\*定義(?:[（(]|\*\*)|^(?:>\s*)?#{1,6}\s+定義(?:[（(]|\s|$))/mu;
 
 function walk(dir) {
   const out = [];
@@ -115,7 +118,7 @@ for (const file of walk(ROOT)) {
     }
     if (t === FORMAL_END && inFormal) {
       const body = formalLines.join('\n');
-      if (/\*\*定義(?:[（(]|\*\*)/u.test(body)) {
+      if (FORMAL_DEFINITION_RE.test(body)) {
         if (!formalAnchor?.id?.startsWith('def-')) {
           errors.push(`${rel}:${i + 1}: formal definition must have a preceding def- anchor.`);
         } else {
