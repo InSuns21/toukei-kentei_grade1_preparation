@@ -14,8 +14,9 @@ concepts:
   - id: prob.l2-information-space
     name: L^2(G)
     kind: definition
-    # 旧reader-source監査ではインライン数式が空白化されるため、その表示も互換aliasに含める。
-    aliases: ["定義（$L^2(\\mathcal G)$）", "L^2(\\mathcal G)", "定義（ ）"]
+    # 旧reader-source監査は $L^2(\mathcal G)$ を17文字ぶんの空白に置換する。
+    # 空白幅まで含めた完全互換aliasで、他の「定義」見出しへの誤一致を避ける。
+    aliases: ["定義（$L^2(\\mathcal G)$）", "L^2(\\mathcal G)", "定義（                 ）"]
     requires:
       - prob.probability-space
       - measure.lp-space
@@ -32,8 +33,8 @@ concepts:
   - id: prob.conditional-expectation-l2-contraction
     name: 条件付き期待値のL^2縮小性
     kind: lemma
-    # 同様に旧reader-sourceでは L^2 が空白化される。
-    aliases: ["条件付き期待値の$L^2$縮小性", 条件付き期待値のL2縮小性, "補題（条件付き期待値の 縮小性）"]
+    # $L^2$ は5文字ぶんの空白になるため、その幅を保った互換aliasを登録する。
+    aliases: ["条件付き期待値の$L^2$縮小性", 条件付き期待値のL2縮小性, "補題（条件付き期待値の     縮小性）"]
     requires:
       - prob.conditional-expectation
       - measure.cauchy-schwarz-l2
