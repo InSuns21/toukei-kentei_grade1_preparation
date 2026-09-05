@@ -209,7 +209,7 @@ $$
 \boxed{
 f\text{ が下半連続}
 \iff
-\operatorname{epi}f\text{{ が閉集合}
+\operatorname{epi}f\text{ が閉集合}
 }.
 $$
 <!-- formal-statement-end -->
@@ -382,7 +382,7 @@ a_k
 \frac{z_k-p_k}{\|z_k-p_k\|}
 $$
 
-と置きます。[Hilbert 射影定理の最近点条件](../F0_02C1A_Hilbert射影定理_直交分解/index.md)から、任意の $x\in C$ に対して
+と置きます。[C1A の射影の特徴付け](../F0_02C1A_Hilbert射影定理_直交分解/index.md)から、任意の $x\in C$ に対して
 
 $$
 a_k^{\mathsf T}(x-p_k)\le0.
