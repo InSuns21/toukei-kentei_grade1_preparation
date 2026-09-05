@@ -20,11 +20,12 @@
 2. [F0-00A1 supremum・infimum](textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md)
 3. [F0-00A2 選択公理・Zorn](textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md)
 4. [F0-00A3 半順序・Zorn・極大延長](textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md)
-5. [F0-00B 距離空間・収束](textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md)
-6. [F0-00C 連続写像・コンパクト性](textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md)
-7. [F0-00C1 点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
-8. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
-9. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+5. [F0-00A3A 選択公理とZornの補題の同値性](textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md)
+6. [F0-00B 距離空間・収束](textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md)
+7. [F0-00C 連続写像・コンパクト性](textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md)
+8. [F0-00C1 点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
+9. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
+10. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
 
 ### 線形代数
 
@@ -152,7 +153,8 @@
 6. [SP5 generator・Kolmogorov・Fokker–Planck](textbook/volumes/00_foundations/F0_00SP5_generator_Kolmogorov_Fokker_Planck/index.md)
 7. [TS1 定常過程・Hilbert予測・Wold](textbook/volumes/00_foundations/F0_00TS1_定常過程_Hilbert予測_Wold/index.md)
 8. [TS2 Herglotz・spectral measure](textbook/volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md)
-9. [TS3 ARMA・transfer filter・spectrum](textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/index.md)
+9. [TS2A spectral representation theorem](textbook/volumes/00_foundations/F0_00TS2A_spectral_representation_theorem/index.md)
+10. [TS3 ARMA・transfer filter・spectrum](textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/index.md)
 
 ---
 
