@@ -1,5 +1,7 @@
 # F0-00G 凸集合・凸関数・凸最適化の基礎
 
+<!-- definition-example-audit: strict -->
+
 この講義では「凸性がなぜ局所情報を大域最適化へ変えるのか」に集中します。DREAM THEATER の標準通読では関数解析・分離定理まで準備したあと、この章へ戻って凸解析系列をまとめて読みます。
 
 Slater 条件・強双対性・KKT はここではまだ使いません。まず
@@ -485,7 +487,51 @@ $$
 
 ---
 
-## 12. 演習 Level A
+## 12. 定義を具体例で検算する
+
+<!-- definition-example-start: def-f0-00g-convex-combination, def-f0-00g-convex-set, def-f0-00g-convex-hull, def-f0-00g-convex-function, def-f0-00g-strictly-convex -->
+### 12.1 区間と二次関数
+
+**定義の確認**
+
+$S=\{0,2\}$ とします。$0\le t\le1$ に対して
+
+$$
+(1-t)0+t2=2t\in[0,2]
+$$
+
+なので、2点の凸結合はちょうど線分 $[0,2]$ を埋めます。従って $[0,2]$ は凸集合であり、$S$ を含む最小の凸集合なので
+
+$$
+\operatorname{conv}(S)=[0,2].
+$$
+
+さらに $f(x)=x^2$ では
+
+$$
+(1-t)x^2+ty^2-f((1-t)x+ty)
+=t(1-t)(x-y)^2\ge0,
+$$
+
+よって凸関数の定義を満たします。$x\ne y$、$0<t<1$ なら右辺は正なので厳密不等式となり、狭義凸の定義も満たします。
+<!-- definition-example-end -->
+
+<!-- definition-example-start: def-f0-00g-convex-optimization -->
+### 12.2 一変数の凸最適化問題
+
+**定義の確認**
+
+$$
+\min_x x^2
+\quad\text{subject to}\quad -x\le0
+$$
+
+を考えます。目的関数 $x^2$ は凸、制約関数 $g(x)=-x$ は affine なので凸です。したがってこれは定義どおり凸最適化問題です。実行可能集合は $[0,\infty)$ で、実際に凸です。
+<!-- definition-example-end -->
+
+---
+
+## 13. 演習 Level A
 
 ### F0-00G-A01 半空間の凸性
 
@@ -556,7 +602,7 @@ $\nabla^2f\succ0$ より凸。
 
 ---
 
-## 13. 演習 Level B
+## 14. 演習 Level B
 
 ### F0-00G-B01 局所最小は大域最小
 
@@ -625,7 +671,7 @@ $f'$ は狭義増加だが $f''(0)=0$。よって反例。
 
 ---
 
-## 14. epigraph・閉凸関数への接続
+## 15. epigraph・閉凸関数への接続
 
 ここまでで凸性そのものと「局所情報が大域情報へ昇格する」理由を準備しました。次は関数を epigraph という凸集合として見直し、閉性・下半連続性・支持超平面へ進みます。その後、劣微分・錐・Fenchel 共役を経て制約付き最適化と KKT へ接続します。
 
