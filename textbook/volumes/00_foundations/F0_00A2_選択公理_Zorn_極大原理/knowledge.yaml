@@ -3,9 +3,11 @@ scope: dream-theater
 coverage: complete
 prerequisites: []
 
-# Zornそのものは次章A3で正式導入する。A2では同値形として先に名前だけ出す。
+# Zornとその半順序語彙は次章A3で正式導入する。A2では同値形の説明として先に名前だけ出す。
 forward_references:
   - set.zorn-lemma
+  - set.maximum-maximal-element
+  - set.chain
 
 concepts:
   - id: set.choice-function
@@ -14,20 +16,16 @@ concepts:
     aliases: [選択関数]
     requires: []
 
-  # 現行formal監査は「公理」をformal kindに含めないため、依存グラフ上は用語として登録する。
-  # 本文では formal-statement パネルで公理として明示されている。
   - id: set.choice-axiom
     name: 選択公理
-    kind: term
-    introduction: inline
+    kind: axiom
     aliases: [選択公理, axiom of choice, AC]
     requires:
       - set.choice-function
 
   - id: set.countable-choice
     name: 可算選択公理
-    kind: term
-    introduction: inline
+    kind: axiom
     aliases: [可算選択公理, countable choice]
     requires:
       - set.choice-function
