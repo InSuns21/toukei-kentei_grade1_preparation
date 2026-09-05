@@ -633,51 +633,6 @@ $$
 
 ---
 
-<a id="ex-e1-04-tobit"></a>
-### E104-B05 トービット分析の尤度
-
-- Level: B
-- 目安時間: 15分
-- 主題: トービット分析
-
-左検閲点 $c=0$ のトービットモデル
-$$
-Y_i^*=x_i^\mathsf T\beta+\varepsilon_i,\qquad
-\varepsilon_i\sim N(0,\sigma^2),\qquad
-Y_i=\max(0,Y_i^*)
-$$
-を考える。
-
-1. $Y_i=0$ の観測1個の尤度寄与を書け。
-2. $Y_i=y_i>0$ の観測1個の尤度寄与を書け。
-3. 応答を0/1だけに変換したプロビット分析で失われる情報を述べよ。
-
-<!-- solution-start -->
-
-#### 解答
-
-##### 詳細解答
-
-1.
-$$
-\Phi\!\left(-\frac{x_i^\mathsf T\beta}{\sigma}\right).
-$$
-2.
-$$
-\frac1\sigma
-\phi\!\left(\frac{y_i-x_i^\mathsf T\beta}{\sigma}\right).
-$$
-3. 非検閲観測で得られている正の連続値 $y_i$ の大きさの情報を捨てる。
-
-##### 本番答案
-
-検閲観測は $\Phi(-x_i^\mathsf T\beta/\sigma)$、非検閲観測は $\sigma^{-1}\phi((y_i-x_i^\mathsf T\beta)/\sigma)$。二値化すると正の観測値の大きさを失う。
-
-##### 採点基準
-
-各尤度寄与7点、情報の説明6点。
-
-<!-- solution-end -->
 
 ## 6. SVM：確率ではなく分類境界を直接決める
 
@@ -1731,6 +1686,54 @@ $$
 
 - マージン幅の式: 10点
 - 計算: 10点
+
+<!-- solution-end -->
+
+
+
+<a id="ex-e1-04-tobit"></a>
+### E104-B05 トービット分析の尤度
+
+- Level: B
+- 目安時間: 15分
+- 主題: トービット分析
+
+左検閲点 $c=0$ のトービットモデル
+$$
+Y_i^*=x_i^\mathsf T\beta+\varepsilon_i,\qquad
+\varepsilon_i\sim N(0,\sigma^2),\qquad
+Y_i=\max(0,Y_i^*)
+$$
+を考える。
+
+1. $Y_i=0$ の観測1個の尤度寄与を書け。
+2. $Y_i=y_i>0$ の観測1個の尤度寄与を書け。
+3. 応答を0/1だけに変換したプロビット分析で失われる情報を述べよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+1.
+$$
+\Phi\!\left(-\frac{x_i^\mathsf T\beta}{\sigma}\right).
+$$
+2.
+$$
+\frac1\sigma
+\phi\!\left(\frac{y_i-x_i^\mathsf T\beta}{\sigma}\right).
+$$
+3. 非検閲観測で得られている正の連続値 $y_i$ の大きさの情報を捨てる。
+
+##### 本番答案
+
+検閲観測は $\Phi(-x_i^\mathsf T\beta/\sigma)$、非検閲観測は $\sigma^{-1}\phi((y_i-x_i^\mathsf T\beta)/\sigma)$。二値化すると正の観測値の大きさを失う。
+
+##### 採点基準
+
+各尤度寄与7点、情報の説明6点。
 
 <!-- solution-end -->
 
