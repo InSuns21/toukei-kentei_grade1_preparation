@@ -328,6 +328,26 @@ $$
 > は正則条件の下で $\chi_r^2$ へ収束する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i3-02-wald-general -->
+**定義の確認**  
+線形制約
+
+$$
+h(\theta)=R\theta-r_0
+$$
+
+ではヤコビ行列は $H(\theta)=R$ です。したがって一般式は
+
+$$
+W
+=n(R\hat\theta-r_0)^\mathsf T
+\left[R I_1(\hat\theta)^{-1}R^\mathsf T\right]^{-1}
+(R\hat\theta-r_0)
+$$
+
+となります。$R$ の階数が $r$ なら、正則条件下で極限自由度も $r$ です。
+<!-- definition-example-end -->
+
 ---
 
 ## 5. スコア型検定: 帰無仮説点での傾きを見る
