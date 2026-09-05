@@ -60,13 +60,19 @@ $$
 
 とします。
 
-**統計量**とは、標本の関数
+<a id="def-s1-02-statistic"></a>
+
+<!-- formal-statement-start -->
+> **定義（統計量）**  
+> 標本の関数
 
 $$
 T=T(X_1,\ldots,X_n)
 $$
 
-で、式の中に未知母数を含まないものです。
+> で、式の中に未知母数を含まないものを **統計量** といいます。
+<!-- formal-statement-end -->
+<!-- definition-example-skip: def-s1-02-statistic | 直後の標本平均・標本分散・標本最大値と演習A01で定義判定を直接確認しているため。 -->
 
 例えば
 
@@ -131,15 +137,21 @@ $$
 
 とし、母数を $\theta$ とします。
 
-統計量 $T=T(X)$ が $\theta$ の **十分統計量** であるとは、$T=t$ を与えたときの標本 $X$ の条件付き分布が $\theta$ に依存しないことです。
+<a id="def-s1-02-sufficient-statistic"></a>
 
-離散型なら
+<!-- formal-statement-start -->
+> **定義（十分統計量）**  
+> 統計量 $T=T(X)$ が母数 $\theta$ の **十分統計量** であるとは、$T=t$ を与えたときの標本 $X$ の条件付き分布が $\theta$ に依存しないことをいいます。
+>
+> 離散型なら
 
 $$
 P_\theta(X=x\mid T=t)
 $$
 
-が $\theta$ に依存しない、と読めます。
+> が $\theta$ に依存しない、と読めます。
+<!-- formal-statement-end -->
+<!-- definition-example-skip: def-s1-02-sufficient-statistic | 直後のベルヌーイ標本で条件付き分布から十分性を具体的に確認しているため。 -->
 
 ### 3.1 なぜこれで「情報を失わない」のか
 
@@ -202,7 +214,7 @@ $$
 <a id="thm-s1-02-01"></a>
  
 <!-- formal-statement-start -->
-## 5. 定理
+## 5. 定理（ネイマンの分解定理）
 
 標本の同時確率関数または同時密度を $f_\theta(x)$ とします。
 
@@ -648,6 +660,7 @@ $$
 
 > と書けるとき、$T$ を **最小十分統計量** といいます。
 <!-- formal-statement-end -->
+<!-- definition-example-skip: def-s1-02-minimal-sufficient-statistic | 直後の尤度比による判定と演習C01・C02で最小十分性を具体的に確認するため、定義直後の重複例を追加しない。 -->
 
 つまり、十分統計量の中で本質的に最も粗い圧縮です。
 
