@@ -169,6 +169,109 @@ $$
 
 ---
 
+## 5A. 後で繰り返し使う確率測度の2つの基本性質
+
+Borel--Cantelli補題へ進む前に、確率測度の可算加法性から導かれる2つの道具を正本化しておきます。
+
+<a id="thm-f0-00p2a-union-bound"></a>
+
+<!-- formal-statement-start -->
+> **定理（可算劣加法性・union bound）**  
+> 同一の確率空間上の事象列 $A_1,A_2,\ldots$ に対して
+
+$$
+\boxed{
+P\left(\bigcup_{n=1}^{\infty}A_n\right)
+\le
+\sum_{n=1}^{\infty}P(A_n)
+}
+$$
+
+> が成り立ちます。有限個の場合も同じ不等式です。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：重なりを除いて互いに素な事象へ直す
+
+$$
+B_1:=A_1,
+\qquad
+B_n:=A_n\setminus\bigcup_{k<n}A_k
+\quad(n\ge2)
+$$
+
+と置きます。$B_n$ は互いに素で、$B_n\subset A_n$、かつ
+
+$$
+\bigcup_{n=1}^{\infty}B_n
+=
+\bigcup_{n=1}^{\infty}A_n
+$$
+
+です。したがって確率測度の可算加法性と単調性から
+
+$$
+P\left(\bigcup_{n=1}^{\infty}A_n\right)
+=
+\sum_{n=1}^{\infty}P(B_n)
+\le
+\sum_{n=1}^{\infty}P(A_n).
+$$
+
+$\square$
+<!-- proof-end -->
+
+<a id="thm-f0-00p2a-continuity-from-above"></a>
+
+<!-- formal-statement-start -->
+> **定理（確率測度の上からの連続性）**  
+> 事象列が
+
+$$
+A_1\supset A_2\supset\cdots
+$$
+
+> と単調減少し、$A:=\bigcap_{n=1}^{\infty}A_n$ とします。このとき
+
+$$
+\boxed{P(A_n)\downarrow P(A)}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：補集合側を増加列にして下からの連続性へ戻す
+
+$$
+B_n:=A_1\setminus A_n
+$$
+
+と置くと $B_n\uparrow A_1\setminus A$ です。測度の下からの連続性より
+
+$$
+P(B_n)\uparrow P(A_1\setminus A).
+$$
+
+ここで $P(A_1)\le1<\infty$ なので
+
+$$
+P(A_n)=P(A_1)-P(B_n)
+$$
+
+と引き算でき、極限を取れば
+
+$$
+P(A_n)\downarrow P(A_1)-P(A_1\setminus A)=P(A).
+$$
+
+$\square$
+<!-- proof-end -->
+
+上からの連続性で有限性が必要になる点は重要です。一般の測度では $\mu(A_1)=\infty$ のとき同じ引き算はできませんが、確率測度では常に $P(A_1)\le1$ なので自動的に条件を満たします。
+
+---
+
 <a id="thm-f0-00p2a-markov"></a>
 
 ## 6. Markovの不等式：期待値からtail確率を抑える
