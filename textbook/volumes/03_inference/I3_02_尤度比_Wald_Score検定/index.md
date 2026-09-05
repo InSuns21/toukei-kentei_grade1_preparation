@@ -111,25 +111,25 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（尤度比検定・尤度比・尤度比統計量）**  
-> 尤度比を
->
-> $$
-> \Lambda
-> =\frac{\sup_{\theta\in\Theta_0}L(\theta)}
-> {\sup_{\theta\in\Theta}L(\theta)}
-> =\frac{L(\tilde\theta)}{L(\hat\theta)}
-> $$
->
-> と定める。通常
->
-> $$
-> \boxed{
-> G^2=-2\log\Lambda
-> =2\{\ell(\hat\theta)-\ell(\tilde\theta)\}
-> }
-> $$
->
-> を尤度比統計量とし、$G^2$ が大きい側を棄却側とする。
+> 尤度比を、帰無仮説下の最大尤度と制約なし最大尤度の比として定める。
+
+$$
+\Lambda
+=\frac{\sup_{\theta\in\Theta_0}L(\theta)}
+{\sup_{\theta\in\Theta}L(\theta)}
+=\frac{L(\tilde\theta)}{L(\hat\theta)}.
+$$
+
+通常は
+
+$$
+\boxed{
+G^2=-2\log\Lambda
+=2\{\ell(\hat\theta)-\ell(\tilde\theta)\}
+}
+$$
+
+を尤度比統計量とし、$G^2$ が大きい側を棄却側とする。
 <!-- formal-statement-end -->
 
 ### 2.1 コイン100回・60表で実際に計算する
@@ -198,13 +198,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Wilksの定理）**  
-> 真の母数が帰無仮説集合の正則な点にあり、モデルが識別可能で、対数尤度が十分滑らかであるなど通常の正則条件を満たすとする。帰無仮説によって独立な自由方向を $r$ 個失うとき、$H_0$ の下で
->
-> $$
-> \boxed{-2\log\Lambda\xrightarrow{d}\chi_r^2}
-> $$
->
-> が成り立つ。
+> 真の母数が帰無仮説集合の正則な点にあり、モデルが識別可能で、対数尤度が十分滑らかであるなど通常の正則条件を満たすとする。帰無仮説によって独立な自由方向を $r$ 個失うとき、$H_0$ の下で次が成り立つ。
+
+$$
+\boxed{-2\log\Lambda\xrightarrow{d}\chi_r^2}.
+$$
 <!-- formal-statement-end -->
 
 コイン例では母数は $p$ の1個で、$H_0:p=0.5$ によってその1方向を固定するので $r=1$ です。したがって
@@ -234,17 +232,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ワルド型検定・1母数のワルド型統計量）**  
-> $H_0:\theta=\theta_0$ に対し、推定標準誤差を $\widehat{\operatorname{se}}(\hat\theta)$ とすると
->
-> $$
-> \boxed{
-> W
-> =\frac{(\hat\theta-\theta_0)^2}
-> {\widehat{\operatorname{se}}(\hat\theta)^2}
-> }
-> $$
->
-> をワルド型統計量とする。正則条件の下で $W\xrightarrow{d}\chi_1^2$ である。
+> $H_0:\theta=\theta_0$ に対し、推定標準誤差を $\widehat{\operatorname{se}}(\hat\theta)$ とすると、次をワルド型統計量とする。正則条件の下で $W\xrightarrow{d}\chi_1^2$ である。
+
+$$
+\boxed{
+W
+=\frac{(\hat\theta-\theta_0)^2}
+{\widehat{\operatorname{se}}(\hat\theta)^2}
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 4.1 同じコインで計算する
@@ -293,13 +289,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（スコア型検定・1母数のスコア型統計量）**  
-> $H_0:\theta=\theta_0$ に対し、スコア $U(\theta)=\ell'(\theta)$ とフィッシャー情報量 $I(\theta)$ を用いて
->
-> $$
-> \boxed{S=\frac{U(\theta_0)^2}{I(\theta_0)}}
-> $$
->
-> をスコア型統計量とする。正則条件の下で $S\xrightarrow{d}\chi_1^2$ である。
+> $H_0:\theta=\theta_0$ に対し、スコア $U(\theta)=\ell'(\theta)$ とフィッシャー情報量 $I(\theta)$ を用いて次をスコア型統計量とする。正則条件の下で $S\xrightarrow{d}\chi_1^2$ である。
+
+$$
+\boxed{S=\frac{U(\theta_0)^2}{I(\theta_0)}}.
+$$
 <!-- formal-statement-end -->
 
 ### 5.1 同じコインで計算する
@@ -357,21 +351,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（1母数での尤度比・ワルド型・スコア型検定の漸近同値性）**  
-> 正則な1母数モデルで $H_0:\theta=\theta_0$ を考える。通常の最尤推定量の正則条件の下で
->
-> $$
-> G^2-W=o_p(1),
-> \qquad
-> W-S=o_p(1),
-> $$
->
-> かつ
->
-> $$
-> \boxed{G^2,W,S\xrightarrow{d}\chi_1^2}
-> $$
->
-> が成り立つ。
+> 正則な1母数モデルで $H_0:\theta=\theta_0$ を考える。通常の最尤推定量の正則条件の下で次が成り立つ。
+
+$$
+G^2-W=o_p(1),
+\qquad
+W-S=o_p(1),
+$$
+
+かつ
+
+$$
+\boxed{G^2,W,S\xrightarrow{d}\chi_1^2}.
+$$
 <!-- formal-statement-end -->
 
 ### 6.1 正規母平均で完全一致する理由
@@ -673,18 +665,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一般制約のワルド型統計量）**  
-> $\theta\in\mathbb R^p$、$H_0:h(\theta)=0$ が $r$ 本の独立な滑らかな制約を表すとする。ヤコビ行列を $H(\theta)=\partial h(\theta)/\partial\theta^{\mathsf T}$ とすると、正則条件下で
->
-> $$
-> W
-> =n h(\hat\theta)^{\mathsf T}
-> \left[
-> H(\hat\theta)I_1(\hat\theta)^{-1}H(\hat\theta)^{\mathsf T}
-> \right]^{-1}
-> h(\hat\theta)
-> $$
->
-> は $\chi_r^2$ へ収束する。
+> $\theta\in\mathbb R^p$、$H_0:h(\theta)=0$ が $r$ 本の独立な滑らかな制約を表すとする。ヤコビ行列を $H(\theta)=\partial h(\theta)/\partial\theta^{\mathsf T}$ とすると、正則条件下で次の統計量は $\chi_r^2$ へ収束する。
+
+$$
+W
+=n h(\hat\theta)^{\mathsf T}
+\left[
+H(\hat\theta)I_1(\hat\theta)^{-1}H(\hat\theta)^{\mathsf T}
+\right]^{-1}
+h(\hat\theta).
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-i3-02-wald-general -->
@@ -696,27 +686,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（迷惑母数を除いた有効情報量）**  
-> 情報行列を
->
-> $$
-> I(\theta)
-> =\begin{pmatrix}
-> I_{\psi\psi}&I_{\psi\lambda}\\
-> I_{\lambda\psi}&I_{\lambda\lambda}
-> \end{pmatrix}
-> $$
->
-> と分割したとき
->
-> $$
-> \boxed{
-> I_{\psi\cdot\lambda}
-> =I_{\psi\psi}
-> -I_{\psi\lambda}I_{\lambda\lambda}^{-1}I_{\lambda\psi}
-> }
-> $$
->
-> を $\psi$ に対する有効情報量という。
+> 情報行列を次のように分割したとき、Schur補を $\psi$ に対する有効情報量という。
+
+$$
+I(\theta)
+=\begin{pmatrix}
+I_{\psi\psi}&I_{\psi\lambda}\\
+I_{\lambda\psi}&I_{\lambda\lambda}
+\end{pmatrix},
+$$
+
+$$
+\boxed{
+I_{\psi\cdot\lambda}
+=I_{\psi\psi}
+-I_{\psi\lambda}I_{\lambda\lambda}^{-1}I_{\lambda\psi}
+}.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-i3-02-efficient-information -->
@@ -775,21 +761,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（1母数局所対立仮説下の極限）**  
-> 正則な1母数モデルで
->
-> $$
-> \theta_n=\theta_0+\frac h{\sqrt n}
-> $$
->
-> とする。通常の局所漸近正規性が成り立つとき、尤度比・ワルド型・スコア型統計量はいずれも
->
-> $$
-> \chi_1^2(\delta),
-> \qquad
-> \delta=h^2I_1(\theta_0)
-> $$
->
-> へ分布収束する。
+> 正則な1母数モデルで $\theta_n=\theta_0+h/\sqrt n$ とする。通常の局所漸近正規性が成り立つとき、尤度比・ワルド型・スコア型統計量はいずれも次へ分布収束する。
+
+$$
+\chi_1^2(\delta),
+\qquad
+\delta=h^2I_1(\theta_0).
+$$
 <!-- formal-statement-end -->
 
 ---
