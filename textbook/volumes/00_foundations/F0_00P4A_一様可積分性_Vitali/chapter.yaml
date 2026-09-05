@@ -8,17 +8,26 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 確率収束だけでは期待値収束しない反例を説明できる
-  - 一様可積分性をtail controlとして定義できる
+  - 一様可積分性をtail expectationの一様制御として定義できる
+  - 積分の一様絶対連続性を定義できる
+  - UIから一様L1有界性と積分の一様絶対連続性を証明できる
   - Lp有界性からUIを示せる
-  - Vitali収束定理で確率収束をL1収束へ引き上げられる
+  - 可積分な支配関数からUIを示せる
+  - Vitali型収束定理を確率収束部分列とFatouから証明できる
 definitions:
   - { id: F0P4A-DEF-01, name: 一様可積分性 }
-  - { id: F0P4A-DEF-02, name: uniform absolute continuity of integrals }
+  - { id: F0P4A-DEF-02, name: 積分の一様絶対連続性 }
 theorems:
-  - { id: F0P4A-THM-01, name: Vitali収束定理 }
-canonical_examples: [rare large values, Lp bounded family]
-problem_patterns: [UI-1, VITALI-1]
+  - { id: F0P4A-LEM-01, name: UIの一様L1有界性と積分の一様絶対連続性 }
+  - { id: F0P4A-THM-01, name: Lp有界性から一様可積分性 }
+  - { id: F0P4A-THM-02, name: 可積分な支配関数から一様可積分性 }
+  - { id: F0P4A-THM-03, name: Vitali型収束定理 }
+canonical_examples:
+  - rare large values
+  - uniformly bounded family
+  - Lp bounded family
+problem_patterns: [UI-1, UI-UAC-1, VITALI-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 1.25, review: 0.5 }
