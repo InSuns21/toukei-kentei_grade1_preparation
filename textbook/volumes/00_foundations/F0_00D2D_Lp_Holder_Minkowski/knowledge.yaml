@@ -21,8 +21,9 @@ concepts:
   - id: measure.lp-space
     name: L^p空間
     kind: definition
-    # 2つ目のaliasは旧reader-source監査がインライン数式を空白化する間の互換用。
-    aliases: [L^p空間, "### 定義（ 空間、 ）"]
+    # 「空間、」は旧reader-source監査がインライン数式を空白化した後にも残る安定部分。
+    # raw formal監査では正本名 L^p空間 を使って実見出しを照合する。
+    aliases: [L^p空間, "空間、"]
     requires:
       - measure.ae-equivalence
       - measure.measurable-function
@@ -67,8 +68,8 @@ concepts:
   - id: measure.lp-norm
     name: L^pノルム
     kind: theorem
-    # 2つ目のaliasは旧reader-source監査がインライン数式を空白化する間の互換用。
-    aliases: [L^pノルム, "### 定理（ ノルム）"]
+    # 「ノルム）」は旧reader-source監査で数式部分を空白化しても残る安定部分。
+    aliases: [L^pノルム, "ノルム）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality
