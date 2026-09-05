@@ -8,6 +8,11 @@ const targetRoot = path.join(root, '_site', 'textbook', 'volumes');
 const inlineAppendixName = 'linear_algebra_singular_null_span.md';
 const determinantInverseAppendixName = 'linear_algebra_determinant_inverse.md';
 const calculationDrillAppendixName = 'calculation_drills.md';
+const differentiationUnderIntegralAppendixName = 'differentiate_under_integral.md';
+const integrationOrderAppendixName = 'integration_order_exchange.md';
+const eigenCalculationAppendixName = 'linear_algebra_eigen_calculation.md';
+const positiveDefiniteAppendixName = 'linear_algebra_positive_definite.md';
+const matrixDifferentiationAppendixName = 'matrix_differentiation_calculation.md';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
   console.error('先に scripts/build-pages.mjs を実行してください。');
@@ -34,6 +39,25 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
       const siteRelative = path.posix.join('textbook', 'volumes', volume.name, chapter.name, 'index.md');
       let text = orientMarkdownLinks(fs.readFileSync(canonicalPath, 'utf8'), siteRelative);
 
+      if (chapter.name.startsWith('F0_00_')) {
+        text = replaceF000SectionFromFile(
+          text,
+          sourceChapter,
+          differentiationUnderIntegralAppendixName,
+          /^### 4\.4 積分記号下の微分\s*$/m,
+          /^## 5\. ガウス積分：/m,
+          2,
+        );
+        text = replaceF000SectionFromFile(
+          text,
+          sourceChapter,
+          integrationOrderAppendixName,
+          /^### 6\.2 /m,
+          /^### 6\.3 /m,
+          2,
+        );
+      }
+
       const determinantInversePath = path.join(sourceChapter, determinantInverseAppendixName);
       if (chapter.name.startsWith('F0_00_') && fs.existsSync(determinantInversePath)) {
         text = inlineDeterminantInverseAppendix(text, fs.readFileSync(determinantInversePath, 'utf8'));
@@ -45,6 +69,35 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
         text = inlineLinearAlgebraAppendix(text, fs.readFileSync(appendixPath, 'utf8'));
         inlinedAppendices += 1;
       }
+
+      if (chapter.name.startsWith('F0_00_')) {
+        text = replaceF000SectionFromFile(
+          text,
+          sourceChapter,
+          eigenCalculationAppendixName,
+          /^### 9\.6 /m,
+          /^### 9\.7 /m,
+          2,
+        );
+        text = replaceF000SectionFromFile(
+          text,
+          sourceChapter,
+          positiveDefiniteAppendixName,
+          /^### 9\.9 /m,
+          /^### 9\.10 /m,
+          2,
+        );
+        text = replaceF000SectionFromFile(
+          text,
+          sourceChapter,
+          matrixDifferentiationAppendixName,
+          /^## 10\. /m,
+          /^## 11\. /m,
+          1,
+        );
+        text = sanitizeF000Vocabulary(text);
+      }
+
       const calculationDrillPath = path.join(sourceChapter, calculationDrillAppendixName);
       if (chapter.name.startsWith('F0_00_') && fs.existsSync(calculationDrillPath)) {
         text = inlineCalculationDrills(text, fs.readFileSync(calculationDrillPath, 'utf8'));
@@ -112,6 +165,31 @@ function composeLegacyChapter(files) {
   return out.filter((value, index, values) => value !== '' || values[index - 1] !== '').join('\n').trim() + '\n';
 }
 
+function replaceF000SectionFromFile(indexText, chapterDir, fileName, startPattern, endPattern, demotion) {
+  const filePath = path.join(chapterDir, fileName);
+  if (!fs.existsSync(filePath)) return indexText;
+
+  const startMatch = startPattern.exec(indexText);
+  const endMatch = endPattern.exec(indexText);
+  if (!startMatch || !endMatch || endMatch.index <= startMatch.index) {
+    throw new Error(`Could not replace F0-00 section from ${fileName}`);
+  }
+
+  const replacement = demoteHeadings(fs.readFileSync(filePath, 'utf8'), demotion).trim();
+  const output = `${indexText.slice(0, startMatch.index)}${replacement}\n\n${indexText.slice(endMatch.index)}`;
+  if (countOccurrences(output, '$$') % 2 !== 0) {
+    throw new Error(`Replacing section from ${fileName} left unbalanced display-math delimiters`);
+  }
+  inlinedAppendices += 1;
+  return output;
+}
+
+function sanitizeF000Vocabulary(text) {
+  return text
+    .replace('端点付近の積分可能性は、まずこの2本へ比較できないか考えます。', '端点付近の収束判定では、まずこの2本へ比較できないか考えます。')
+    .replace('右辺は実数全体で積分可能です。したがって積分記号下で微分でき、', '右辺の実数全体での積分は有限です。したがって積分記号下で微分でき、');
+}
+
 function inlineDeterminantInverseAppendix(indexText, appendixText) {
   const appendix = demoteHeadings(appendixText, 2).trim();
   const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
@@ -139,8 +217,6 @@ function inlineLinearAlgebraAppendix(indexText, appendixText) {
   const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
   const expectedDisplayDelimiters = countOccurrences(indexText, '$$') + countOccurrences(appendix, '$$');
 
-  // String.prototype.replace interprets `$$` in a replacement string as one literal `$`.
-  // Use a replacer callback so TeX display delimiters from the appendix are copied verbatim.
   const output = insertionPoint.test(indexText)
     ? indexText.replace(
         insertionPoint,
