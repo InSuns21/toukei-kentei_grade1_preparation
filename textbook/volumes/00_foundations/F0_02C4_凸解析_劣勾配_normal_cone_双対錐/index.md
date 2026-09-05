@@ -1,5 +1,7 @@
 # F0-02C4 凸解析：劣勾配・劣微分・normal cone
 
+<!-- definition-example-audit: strict -->
+
 [F0-00G](../F0_00G_凸集合_凸関数_凸最適化/index.md) で凸集合・凸関数・微分可能な凸関数の一次支持不等式を、[F0-00G1](../F0_00G1_epigraph_閉凸関数_支持超平面/index.md) で epigraph と支持超平面を準備しました。
 
 この講義ではそれらを再定義せず、**微分できない凸関数でも残る一次情報**として劣勾配を導入します。
@@ -67,7 +69,7 @@ G1 で見たように、これは epigraph の頂点を下から支える直線�
 
 ---
 
-## 2. Fermat条件：$0\in\partial f(x)$
+## 2. Fermat 条件
 
 <a id="thm-f0-02c4-fermat"></a>
 
@@ -110,13 +112,7 @@ $$
 なので $0\in\partial f(x^*)$ です。$\square$
 <!-- proof-end -->
 
-微分可能なら
-
-$$
-\partial f(x)=\{\nabla f(x)\}
-$$
-
-なので、これはおなじみの $\nabla f(x^*)=0$ を含む一般化です。
+微分可能なら $\partial f(x)=\{\nabla f(x)\}$ なので、これは $\nabla f(x^*)=0$ の一般化です。
 
 ---
 
@@ -151,7 +147,7 @@ $$
 
 ### 証明の見取り図
 
-$d\mapsto f'(x;d)$ は sublinear functional です。方向 $d_0$ で値を一致させる一次元の線形汎関数を Hahn--Banach で全方向へ延長すると、その延長が劣勾配になります。
+$d\mapsto f'(x;d)$ は sublinear functional です。方向 $d_0$ で値を一致させる一次元の線形汎関数を Hahn–Banach で全方向へ延長すると、その延長が劣勾配になります。
 
 <!-- proof-start -->
 ### 証明
@@ -185,10 +181,10 @@ $p\in\partial f(x)$ なら
 $$
 f(x+td)-f(x)
 \ge
- t p^{\mathsf T}d
+ t p^{\mathsf T}d,
 $$
 
-なので
+したがって
 
 $$
 p^{\mathsf T}d
@@ -196,7 +192,7 @@ p^{\mathsf T}d
 \phi(d).
 $$
 
-従って
+よって
 
 $$
 \sup_{p\in\partial f(x)}p^{\mathsf T}d
@@ -216,7 +212,7 @@ $$
 \ell(td_0)=t\phi(d_0)
 $$
 
-と置きます。sublinear 性から $\ell\le\phi$ が $M$ 上で成り立ちます。Hahn--Banach により、$\ell$ は全空間上の線形汎関数 $p^{\mathsf T}d$ へ
+と置きます。sublinear 性から $\ell\le\phi$ が $M$ 上で成り立ちます。Hahn–Banach により、$\ell$ は全空間上の線形汎関数 $p^{\mathsf T}d$ へ
 
 $$
 p^{\mathsf T}d
@@ -281,11 +277,10 @@ $$
 $$
 <!-- formal-statement-end -->
 
-`\supset` は劣勾配不等式を足すだけです。非自明なのは `\subset` です。
+一方向の包含は劣勾配不等式を足すだけです。非自明なのは逆向きです。
 
-### 4.1 なぜ一般の拡張実数値関数では条件が要るのか
-
-有限値凸関数は有限次元で連続なので、定義域の境界による退化がありません。一方、拡張実数値凸関数では例えば
+> **注意**  
+> 拡張実数値凸関数の和則では、定義域の境界で退化を防ぐ条件が必要です。代表例は
 
 $$
 \operatorname{ri}(\operatorname{dom}f)
@@ -294,32 +289,22 @@ $$
 \neq\varnothing
 $$
 
-のような qualification が必要になります。後の Fenchel 双対・constraint qualification と同じ系統の条件です。
+です。後の Fenchel 双対・constraint qualification と同じ系統の条件です。
 
 <!-- proof-start -->
 ### 証明
 
-平行移動して $x=0$ としてよいとします。
+平行移動して $x=0$、定数を引いて $f(0)=g(0)=0$ としてよいとします。
 
-まず $p_1\in\partial f(0)$、$p_2\in\partial g(0)$ なら
-
-$$
-f(u)\ge f(0)+p_1^{\mathsf T}u,
-$$
+$p_1\in\partial f(0)$、$p_2\in\partial g(0)$ なら、劣勾配不等式を足すことで
 
 $$
-g(u)\ge g(0)+p_2^{\mathsf T}u.
+p_1+p_2\in\partial(f+g)(0)
 $$
 
-加えれば $p_1+p_2\in\partial(f+g)(0)$ なので
+を得ます。
 
-$$
-\partial f(0)+\partial g(0)
-\subset
-\partial(f+g)(0).
-$$
-
-逆に $p\in\partial(f+g)(0)$ とします。定数 $f(0),g(0)$ を引いて両者の値を0に正規化し、$\mathbb R^{2n+2}$ で
+逆に $p\in\partial(f+g)(0)$ とします。$\mathbb R^{2n+2}$ で
 
 $$
 A
@@ -333,9 +318,9 @@ B
 \{(w,w,r,s):r+s\le p^{\mathsf T}w\}
 $$
 
-と置きます。有限値凸関数は連続なので $A$ は開凸集合、$B$ は凸集合です。また $p\in\partial(f+g)(0)$ より $A\cap B=\varnothing$ です。
+と置きます。有限値凸関数は有限次元で連続なので $A$ は開凸集合、$B$ は凸集合であり、劣勾配条件から $A\cap B=\varnothing$ です。
 
-分離定理により非零の $(a,b,\alpha,\beta)$ が両集合を分離します。$B$ で $r,s$ を負方向へ任意に動かせるので $\alpha,\beta\ge0$、さらに $(r,s)=(t,-t)$ を動かせるので
+分離定理により非零の $(a,b,\alpha,\beta)$ が両集合を分離します。$B$ で $r,s$ を負方向へ任意に動かせることから $\alpha,\beta\ge0$、さらに $(r,s)=(t,-t)$ を動かせるので
 
 $$
 \alpha=\beta=:\gamma.
@@ -347,15 +332,12 @@ $$
 a+b+\gamma p=0.
 $$
 
-$\gamma=0$ なら $a+b=0$ ですが、$A$ では $u,v$ を独立に動かせるため $a=b=0$ となり、分離ベクトルが非零であることに矛盾します。従って $\gamma>0$。全体を割って $\gamma=1$ とします。
+$\gamma=0$ なら $a+b=0$ ですが、$A$ では $u,v$ を独立に動かせるため $a=b=0$ となり矛盾します。従って $\gamma>0$。全体を割って $\gamma=1$ とします。
 
 $A$ 側で $r\downarrow f(u)$、$s\downarrow g(v)$ とすると
 
 $$
-a^{\mathsf T}u
-+b^{\mathsf T}v
-+f(u)+g(v)
-\ge0.
+a^{\mathsf T}u+b^{\mathsf T}v+f(u)+g(v)\ge0.
 $$
 
 $v=0$ とすれば $-a\in\partial f(0)$、$u=0$ とすれば $-b\in\partial g(0)$。さらに $a+b+p=0$ より
@@ -389,7 +371,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（max 関数の劣微分公式）**  
-> 上の設定で、$h$ の劣微分は active な各 $f_i$ の劣微分の凸包になります。
+> $h$ の劣微分は active な各 $f_i$ の劣微分の凸包になります。
 
 $$
 \boxed{
@@ -491,7 +473,7 @@ G1 で導入した indicator 関数を再び使います。
 
 <!-- formal-statement-start -->
 > **定義（集合の indicator 関数）**  
-> 集合 $C\subset\mathbb R^n$ に対して、次の拡張実数値関数を $C$ の indicator 関数といいます。
+> 集合 $C\subset\mathbb R^n$ に対して、次の拡張実数値関数を $C$ の **indicator 関数** といいます。
 
 $$
 \delta_C(x)
@@ -507,7 +489,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（normal cone）**  
-> 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対して、次の集合を $C$ の $x$ における **normal cone** といいます。$x\notin C$ では $N_C(x)=\varnothing$ とします。
+> 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対して、$C$ から外向きに支えるベクトル全体を $C$ の $x$ における **normal cone** といいます。$x\notin C$ では $N_C(x)=\varnothing$ とします。
 
 $$
 N_C(x)
@@ -633,7 +615,61 @@ $$
 
 ---
 
-## 8. 演習 Level A
+## 8. 定義を具体例で検算する
+
+<!-- definition-example-start: def-f0-02c4-subgradient-subdifferential -->
+### 8.1 $|x|$ の原点で劣微分を確認
+
+**定義の確認**
+
+$f(x)=|x|$、$x=0$ とします。劣勾配の定義は
+
+$$
+|y|\ge py
+\qquad(\forall y)
+$$
+
+です。$y>0$ から $p\le1$、$y<0$ から $p\ge-1$ を得ます。逆に $p\in[-1,1]$ なら両符号の $y$ で不等式が成立するため
+
+$$
+\partial |\cdot|(0)=[-1,1].
+$$
+
+これで「全ての $y$ に対してグラフを下から支える傾き」という定義を直接確認できます。
+<!-- definition-example-end -->
+
+<!-- definition-example-start: def-f0-02c4-convex-indicator, def-f0-02c4-normal-cone -->
+### 8.2 半直線で indicator と normal cone を確認
+
+**定義の確認**
+
+$C=[0,\infty)$ とします。indicator の定義から
+
+$$
+\delta_C(1)=0,
+\qquad
+\delta_C(-1)=+\infty.
+$$
+
+また境界点 $x=0$ で normal cone の定義は
+
+$$
+vy\le0
+\qquad(\forall y\ge0)
+$$
+
+なので
+
+$$
+N_C(0)=(-\infty,0].
+$$
+
+内点 $x>0$ では $y-x$ を正負両方向に取れるため $v=0$ しか許されず、$N_C(x)=\{0\}$ です。これで二つの定義を同じ集合で検算できます。
+<!-- definition-example-end -->
+
+---
+
+## 9. 演習 Level A
 
 ### F0-02C4-A01 絶対値の劣微分
 
@@ -725,7 +761,7 @@ active gradient の凸包より $\boxed{[-1,1]}$。
 
 ---
 
-## 9. 演習 Level B
+## 10. 演習 Level B
 
 ### F0-02C4-B01 和則を使う
 
@@ -827,7 +863,7 @@ $\partial h(0)=\operatorname{conv}\{-2,2\}=[-2,2]\ni0$。
 
 ---
 
-## 10. 次に進む
+## 11. 次に進む
 
 次の [F0-02C4A tangent cone・polar cone・dual cone](../F0_02C4A_tangent_polar_dual_cone/index.md) では、実行可能な一次方向と法線を錐の双対関係として整理します。その後 C4B で
 
@@ -835,4 +871,4 @@ $$
 N_C(x)=T_C(x)^\circ
 $$
 
-を証明し、G2 で Fenchel 共役・Fenchel--Young・Fenchel 双対へ進みます。
+を証明し、G2 で Fenchel 共役・Fenchel–Young・Fenchel 双対へ進みます。
