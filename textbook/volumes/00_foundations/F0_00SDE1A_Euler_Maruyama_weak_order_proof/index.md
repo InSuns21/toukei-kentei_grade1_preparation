@@ -67,34 +67,18 @@ $$
 時刻 $t$ に $x$ から出発した厳密解を $X_s^{t,x}$ と書き、
 
 $$
-\boxed{
-u(t,x):=E\left[g\left(X_T^{t,x}\right)\right]}
+\boxed{u(t,x):=E\left[g\left(X_T^{t,x}\right)\right]}
 $$
 
-ではなく、ここでは記号の混同を避けて次のように定義します。
-
-$$
-\boxed{
-uu(t,x):=E\left[g\left(X_T^{t,x}\right)\right]}
-$$
-
-以下ではこの関数を単に $u(t,x)$ と書きます。つまり
-
-$$
-\boxed{u(t,x)=E\left[g\left(X_T^{t,x}\right)\right]}.
-$$
+と定めます。
 
 すると
 
 $$
-u(T,x)=g(x)
+\boxed{u(T,x)=g(x)}
 $$
 
-ではなく、正しくは
-
-$$
-\boxed{u(T,x)=g(x)}.
-$$
+です。
 
 生成作用素を
 
@@ -159,16 +143,6 @@ $$
 ## 3. 1-step defect を generator の差で表す
 
 $u(s,\widehat X_s)$ にItô公式を使い、期待値を取ります。Itô積分の期待値は0なので
-
-$$
-E[u(t+h,\widehat X_{t+h})]-u(t,x)
-=
-E\int_t^{t+h}
-(\partial_s+\mathcal L_x^{\mathrm{fr}})
-u(s,\widehat X_s)\,ds.
-$$
-
-上式の $\nu$ は誤記ではなく、以後すべて $u$ と読み替えるのではなく、正しい式を改めて書くと
 
 $$
 \boxed{
@@ -303,16 +277,6 @@ E\left[u(t_{n+1},Y_{n+1})-u(t_n,Y_n)\right].
 $$
 
 $Y_n$ を固定して条件付き期待値を取れば、各項は前節の1-step評価です。したがって
-
-$$
-\left|
-E\left[
-u(t_{n+1},Y_{n+1})-u(t_n,Y_n)\mid Y_n\right]
-\right|
-\le Ch^2
-$$
-
-ではなく、正しくは
 
 $$
 \boxed{
