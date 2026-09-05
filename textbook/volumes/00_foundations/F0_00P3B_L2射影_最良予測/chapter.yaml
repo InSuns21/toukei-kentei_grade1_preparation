@@ -7,19 +7,22 @@ prerequisites:
   - F0-00D2E
 official_scope: []
 learning_objectives:
-  - L2(G)が閉部分空間であることを説明できる
+  - L2(G)を定義し具体例で確認できる
+  - L2(G)が閉部分空間であることを証明できる
+  - 条件付き期待値のL2縮小性を証明できる
   - 条件付き期待値残差の直交性を示せる
   - Pythagoras分解から最良二乗予測を導ける
   - tower propertyを射影の入れ子として読める
 definitions:
   - { id: F0P3B-DEF-01, name: L2(G) }
-  - { id: F0P3B-DEF-02, name: 最良平均二乗予測 }
 theorems:
-  - { id: F0P3B-THM-01, name: 条件付き期待値の射影性 }
-  - { id: F0P3B-THM-02, name: Pythagoras型誤差分解 }
-canonical_examples: [最良予測, 線形回帰との比較]
-problem_patterns: [COND-PROJECTION-1, BEST-PREDICTOR-1]
+  - { id: F0P3B-THM-01, name: L2(G)の閉部分空間性 }
+  - { id: F0P3B-THM-02, name: 条件付き期待値のL2縮小性 }
+  - { id: F0P3B-THM-03, name: 条件付き期待値の直交性 }
+  - { id: F0P3B-THM-04, name: 条件付き期待値は最小二乗最良予測 }
+canonical_examples: [有限標本空間のL2(G), 最良予測, 線形回帰との比較]
+problem_patterns: [COND-PROJECTION-1, L2-CONTRACTION-1, BEST-PREDICTOR-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+estimated_hours: { reading: 3.0, exercises: 0.75, review: 0.75 }
