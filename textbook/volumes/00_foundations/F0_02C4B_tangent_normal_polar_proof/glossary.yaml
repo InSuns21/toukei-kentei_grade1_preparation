@@ -1,0 +1,14 @@
+chapter: "F0-02C4B"
+terms:
+  - term: cone(C-x)
+    english: conic hull of C-x
+    meaning: C の点から x を引いた方向を非負倍して得る錐。
+  - term: tangent cone
+    english: Bouligand tangent cone
+    meaning: C 内の点列を x へ近づけて得られる一次方向の極限全体。
+  - term: normal cone
+    english: normal cone
+    meaning: 凸集合 C に対し y-x の全てへ非正に作用する連続線形汎関数の集合。
+  - term: polar cone
+    english: polar cone
+    meaning: 錐 K の全方向に非正に作用する連続線形汎関数の集合 K^circ。
