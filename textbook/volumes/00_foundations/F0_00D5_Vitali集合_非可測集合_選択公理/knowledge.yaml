@@ -1,0 +1,23 @@
+chapter: F0-00D5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D4
+  - F0-00A2
+
+concepts:
+  - id: measure.vitali-set
+    name: Vitali集合
+    kind: definition
+    aliases: [Vitali集合]
+    requires: []
+
+  - id: measure.vitali-nonmeasurability
+    name: Vitali集合の非可測性
+    kind: theorem
+    aliases: [Vitali集合の非可測性]
+    requires:
+      - measure.vitali-set
+      - measure.lebesgue-outer-translation-invariance
+      - measure.interval-lebesgue-outer-measure
+      - measure.measure-space

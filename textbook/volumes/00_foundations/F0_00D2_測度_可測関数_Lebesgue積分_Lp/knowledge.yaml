@@ -4,6 +4,8 @@ coverage: complete
 prerequisites: []
 
 # 冒頭ロードマップと後続章への言及。ここでは使うのではなく「この先で扱う」と予告する。
+# borel-sigma-algebra-recap は D4 が同じ「定義（Borel σ代数）」見出しを再掲するため、
+# 現行 alias scanner の二重一致を抑制する技術的登録。D2 自身の正本は measure.borel-sigma-algebra。
 forward_references:
   - measure.lebesgue-integral
   - measure.lebesgue-integral-monotonicity
@@ -17,6 +19,8 @@ forward_references:
   - measure.minkowski-inequality
   - functional.l2-completeness
   - functional.hilbert-space
+  - measure.vitali-set
+  - measure.borel-sigma-algebra-recap
 
 concepts:
   - id: measure.sigma-algebra

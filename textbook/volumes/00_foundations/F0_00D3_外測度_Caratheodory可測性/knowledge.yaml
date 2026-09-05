@@ -1,0 +1,59 @@
+chapter: F0-00D3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2
+
+# D3 は次章の拡張定理と D5 の非可測集合を動機・予告として先に言及する。
+forward_references:
+  - measure.premeasure
+  - measure.caratheodory-extension-theorem
+  - measure.vitali-set
+  - measure.vitali-nonmeasurability
+
+concepts:
+  - id: measure.lebesgue-outer-measure
+    name: Lebesgue外測度
+    kind: definition
+    aliases: [Lebesgue外測度]
+    requires: []
+
+  - id: measure.outer-measure
+    name: 外測度
+    kind: definition
+    aliases: [外測度, outer measure]
+    requires: []
+
+  - id: measure.lebesgue-outer-is-outer
+    name: Lebesgue外測度の外測度性
+    kind: proposition
+    aliases: [Lebesgue外測度の外測度性]
+    requires:
+      - measure.lebesgue-outer-measure
+      - measure.outer-measure
+
+  - id: measure.caratheodory-measurability
+    name: Carathéodory可測性
+    kind: definition
+    aliases: [Carathéodory可測性, Carathéodory可測]
+    requires:
+      - measure.outer-measure
+
+  - id: measure.caratheodory-theorem
+    name: Carathéodory
+    kind: theorem
+    aliases: [Carathéodory]
+    requires:
+      - measure.caratheodory-measurability
+      - measure.outer-measure
+      - measure.sigma-algebra
+      - measure.measure-space
+
+  - id: measure.complete-measure
+    name: 完全測度
+    kind: definition
+    aliases: [完全測度]
+    requires:
+      - measure.measure-space
+      - measure.null-set
+      - measure.caratheodory-theorem

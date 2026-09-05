@@ -26,6 +26,7 @@ concepts:
       - measure.product-sigma-algebra
       - measure.measure-space
       - measure.monotone-convergence-theorem
+      - measure.caratheodory-extension-theorem
 
   - id: measure.section
     name: 集合の section
