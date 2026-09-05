@@ -6,6 +6,10 @@ on:
       - fix/p3-05-mle-followup-placement
     paths:
       - '.github/workflows/apply-p3-05-mle-followup.yml'
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -41,35 +45,15 @@ jobs:
                   raise SystemExit(f'{label}: expected exactly one anchor, found {count}')
               return text.replace(old, new, 1)
 
-          # ------------------------------------------------------------------
-          # I1-01: Laplace MLE + Pareto support-dependent MLE
-          # ------------------------------------------------------------------
           p = Path('textbook/volumes/03_inference/I1_01_尤度_最尤推定/index.md')
           t = p.read_text(encoding='utf-8')
-
           p3_02_link = '- [P3-02 主要な連続分布](../../02_distributions/P3_02_主要な連続分布/index.md): 正規・指数・一様分布。\n'
-          t = replace_once(
-              t,
-              p3_02_link,
-              p3_02_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): ラプラス分布・パレート分布と、推定前に必要な分布の性質。\n',
-              'I1-01 related P3-05',
-          )
-
+          t = replace_once(t, p3_02_link, p3_02_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): ラプラス分布・パレート分布と、推定前に必要な分布の性質。\n', 'I1-01 related P3-05')
           support_bullet = '- 一様分布のように支持が母数へ依存するモデルで、指示関数を落とさず最尤推定量を求める。\n'
-          t = replace_once(
-              t,
-              support_bullet,
-              support_bullet
-              + '- ラプラス分布の位置母数では、尤度最大化が絶対偏差和の最小化になり、標本中央値が現れることを説明する。\n'
-              + '- パレート分布の下端母数では、支持条件から最小順序統計量が最尤推定量になることを導く。\n',
-              'I1-01 objectives bullets',
-          )
-
-          # Renumber the pre-existing subsections before inserting two new ones.
+          t = replace_once(t, support_bullet, support_bullet + '- ラプラス分布の位置母数では、尤度最大化が絶対偏差和の最小化になり、標本中央値が現れることを説明する。\n' + '- パレート分布の下端母数では、支持条件から最小順序統計量が最尤推定量になることを導く。\n', 'I1-01 objectives bullets')
           t = replace_once(t, '### 3.7 最尤推定量の再パラメータ化不変性', '### 3.9 最尤推定量の再パラメータ化不変性', 'I1-01 renumber 3.7')
           t = replace_once(t, '### 3.8 有効スコア関数: まず1個の局外母数で考える', '### 3.10 有効スコア関数: まず1個の局外母数で考える', 'I1-01 renumber 3.8')
           t = replace_once(t, '### 3.9 正則モデルでスコアの期待値が0になる理由', '### 3.11 正則モデルでスコアの期待値が0になる理由', 'I1-01 renumber 3.9')
-
           theory = r'''### 3.7 ラプラス分布: 最尤法から中央値が出る
 
 P3-05 では、ラプラス分布を「中心が鋭く、中心からの絶対距離に対して指数的に減衰する分布」として学びました。ここでは、その形が推定量をどう決めるかを見ます。
@@ -168,7 +152,6 @@ $$
 
 '''
           t = replace_once(t, '### 3.9 最尤推定量の再パラメータ化不変性', theory + '### 3.9 最尤推定量の再パラメータ化不変性', 'I1-01 insert deferred theory')
-
           b05 = r'''### I1-01-B05 ラプラス分布の位置・尺度最尤推定
 
 - Level: B
@@ -264,7 +247,6 @@ $$
 
 '''
           t = replace_once(t, '### I1-01-C01 二項尤度・境界・尤度比', b05 + '### I1-01-C01 二項尤度・境界・尤度比', 'I1-01 B05')
-
           c05 = r'''### I1-01-C05 パレート分布の下端母数と支持依存最尤推定
 
 - Level: C
@@ -343,7 +325,6 @@ $$
 
 '''
           t = replace_once(t, '### I1-01-D01 位置尺度一様分布の最尤推定', c05 + '### I1-01-D01 位置尺度一様分布の最尤推定', 'I1-01 C05')
-
           endcheck = '- ベルヌーイ、ポアソン、指数、正規、一様分布の最尤推定量を導出できる。\n'
           t = replace_once(t, endcheck, endcheck + '- ラプラス分布では絶対偏差和から中央値、パレート分布では支持条件から最小値が最尤推定量になることを導出できる。\n', 'I1-01 endcheck')
           p.write_text(t, encoding='utf-8')
@@ -359,16 +340,12 @@ $$
           t = replace_once(t, 'exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }', 'exercise_counts: { level_a: 4, level_b: 5, level_c: 5, level_d: 1 }', 'I1-01 yaml counts')
           p.write_text(t, encoding='utf-8')
 
-          # ------------------------------------------------------------------
-          # I1-02: bias, unbiased correction and consistency of Pareto endpoint MLE
-          # ------------------------------------------------------------------
           p = Path('textbook/volumes/03_inference/I1_02_推定法と推定量の評価/index.md')
           t = p.read_text(encoding='utf-8')
           i101_link = '- [I1-01 尤度・最尤推定](../I1_01_尤度_最尤推定/index.md): 尤度・スコア・最尤推定の基本。\n'
           t = replace_once(t, i101_link, i101_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): パレート分布と最小順序統計量の分布計算に使う生存関数。\n', 'I1-02 related P3-05')
           nonregular_bullet = '- 一様分布のような非正則モデルで、クラーメル・ラオ下限を無条件に使ってはいけない理由を説明する。\n'
           t = replace_once(t, nonregular_bullet, nonregular_bullet + '- パレート分布の下端最尤推定量について、バイアス・不偏補正・一致性を順序統計量から評価する。\n', 'I1-02 objective bullet')
-
           pareto_eval = r'''### 9.2 パレート下端の最尤推定量は「不偏ではないが一致的」
 
 I1-01 では、形状母数 $\alpha>0$ を既知とするパレート分布
@@ -440,7 +417,6 @@ $$
 
 '''
           t = replace_once(t, '---\n\n## 10. 典型例題', pareto_eval + '---\n\n## 10. 典型例題', 'I1-02 Pareto evaluation')
-
           b06 = r'''### I1-02-B06 パレート下端MLEのバイアス・不偏補正・一致性
 
 - Level: B
@@ -556,9 +532,6 @@ $$
           t = replace_once(t, 'exercise_counts: {level_a: 4, level_b: 5, level_c: 4, level_d: 1}', 'exercise_counts: {level_a: 4, level_b: 6, level_c: 4, level_d: 1}', 'I1-02 yaml counts')
           p.write_text(t, encoding='utf-8')
 
-          # ------------------------------------------------------------------
-          # I4-02: right-censored Weibull likelihood and MLE after I1-01
-          # ------------------------------------------------------------------
           p = Path('textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/index.md')
           t = p.read_text(encoding='utf-8')
           p304_link = '- [P3-04 混合分布・潜在変数](../../02_distributions/P3_04_混合分布_潜在変数/index.md): 混合分布、潜在クラス、事後所属確率。\n'
@@ -566,7 +539,6 @@ $$
           old_problem = '- 右打ち切り指数寿命の尤度を構成し、打ち切りを故障と誤認した場合との差を説明する。\n'
           t = replace_once(t, old_problem, '- 右打ち切り指数・ワイブル寿命の尤度を構成し、打ち切りを故障と誤認した場合との差を説明する。\n', 'I4-02 objectives')
           t = replace_once(t, '| 打ち切り | 右打ち切り寿命データの尤度 |', '| 打ち切り | 右打ち切り寿命データの尤度、指数・ワイブル寿命の最尤推定 |', 'I4-02 scope table')
-
           weibull = r'''### 13.1 右打ち切りワイブル寿命: $f(t)$ と $S(c)$ を最尤推定へつなぐ
 
 P3-05 では、故障時刻 $t$ を観測した個体は密度 $f(t)$、時刻 $c$ まで故障しなかった個体は生存関数 $S(c)$ の情報を持つところまで扱いました。I1-01 で最尤推定を学んだので、ここではその情報を一つの尤度へまとめます。
@@ -642,7 +614,6 @@ $$
 
 '''
           t = replace_once(t, '## 14. 左切断', weibull + '## 14. 左切断', 'I4-02 Weibull theory')
-
           b05 = r'''### I4-02-B05 右打ち切りワイブル寿命の尺度最尤推定
 
 - Level: B
