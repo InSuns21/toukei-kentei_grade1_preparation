@@ -1,0 +1,56 @@
+chapter: F0-00P2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P1
+  - F0-00D2D
+  # L^2表現補題の証明で Hilbert射影定理を実使用する。
+  # F0-02C1A 自体はまだknowledge未移行だが、ページDAG上の依存は先に明示する。
+  - F0-02C1A
+
+forward_references:
+  - prob.expectation
+  - prob.lotus
+
+concepts:
+  - id: measure.absolute-continuity
+    name: 測度の絶対連続性
+    kind: definition
+    aliases: [測度の絶対連続性]
+    requires:
+      - measure.measure-space
+
+  - id: measure.radon-nikodym-derivative
+    name: Radon--Nikodym微分
+    kind: definition
+    aliases: [Radon--Nikodym微分]
+    requires:
+      - measure.measure-space
+      - measure.measurable-function
+      - measure.lebesgue-integral
+
+  - id: measure.l2-representation-lemma
+    name: L^2表現補題
+    kind: lemma
+    # 旧reader-source監査ではインライン数式が落ちるため安定部分も登録する。
+    aliases: [L^2表現補題, "表現補題）"]
+    requires:
+      - measure.lp-space
+      - measure.cauchy-schwarz-l2
+
+  - id: measure.radon-nikodym-theorem
+    name: Radon--Nikodym定理
+    kind: theorem
+    aliases: [Radon--Nikodym定理]
+    requires:
+      - measure.absolute-continuity
+      - measure.radon-nikodym-derivative
+      - measure.l2-representation-lemma
+      - measure.almost-everywhere
+
+  - id: stat.dominating-measure
+    name: 支配測度
+    kind: definition
+    aliases: [支配測度]
+    requires:
+      - measure.absolute-continuity
