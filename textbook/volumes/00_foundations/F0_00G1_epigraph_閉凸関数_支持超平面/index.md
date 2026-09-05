@@ -26,14 +26,12 @@ F0-00G では凸集合・凸関数を「線分を保つ」という定義から�
 
 <!-- formal-statement-start -->
 > **定義（effective domain）**  
-> 関数
-> $$
-> f:\mathbb R^n\to(-\infty,+\infty]
-> $$
-> に対し
-> $$
-> \operatorname{dom}f=\{x:f(x)<+\infty\}
-> $$
+> 関数 $f:\mathbb R^n\to(-\infty,+\infty]$ に対し、
+
+$$
+\operatorname{dom}f=\{x:f(x)<+\infty\}
+$$
+
 > を $f$ の **effective domain（有効定義域）** といいます。
 <!-- formal-statement-end -->
 
@@ -42,9 +40,11 @@ F0-00G では凸集合・凸関数を「線分を保つ」という定義から�
 <!-- formal-statement-start -->
 > **定義（proper）**  
 > $f$ が **proper** であるとは、
-> $$
-> \operatorname{dom}f\neq\varnothing
-> $$
+
+$$
+\operatorname{dom}f\neq\varnothing
+$$
+
 > かつ $f$ が $-\infty$ を値に取らないことをいいます。
 <!-- formal-statement-end -->
 
@@ -72,7 +72,7 @@ $$
 \min_{x\in\mathbb R^n}\{f(x)+\delta_C(x)\}
 $$
 
-と一つの関数の最小化へ書き換えられます。
+と、一つの拡張実数値関数の最小化へ書き換えられます。
 
 ---
 
@@ -82,11 +82,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（epigraph）**  
-> $f:\mathbb R^n\to(-\infty,+\infty]$ に対し
-> $$
-> \operatorname{epi}f
-> =\{(x,t)\in\mathbb R^n\times\mathbb R:f(x)\le t\}
-> $$
+> $f:\mathbb R^n\to(-\infty,+\infty]$ に対し、
+
+$$
+\operatorname{epi}f
+=\{(x,t)\in\mathbb R^n\times\mathbb R:f(x)\le t\}
+$$
+
 > を $f$ の **epigraph** といいます。
 <!-- formal-statement-end -->
 
@@ -110,13 +112,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（epigraph による凸性判定）**  
 > proper な拡張実数値関数 $f:\mathbb R^n\to(-\infty,+\infty]$ について
-> $$
-> \boxed{
-> f\text{ が凸}
-> \iff
-> \operatorname{epi}f\text{ が凸集合}
-> }
-> $$
+
+$$
+\boxed{
+f\text{ が凸}
+\iff
+\operatorname{epi}f\text{ が凸集合}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -148,7 +152,7 @@ $$
 \in\operatorname{epi}f.
 $$
 
-従って epigraph は凸です。
+したがって epigraph は凸です。
 
 逆に $\operatorname{epi}f$ が凸とします。$x,y\in\operatorname{dom}f$ なら
 
@@ -163,7 +167,7 @@ $$
 \in\operatorname{epi}f,
 $$
 
-従って
+したがって
 
 $$
 f((1-\lambda)x+\lambda y)
@@ -187,9 +191,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（下半連続）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ が点 $x$ で **下半連続** であるとは、任意の $x_k\to x$ に対して
-> $$
-> f(x)\le\liminf_{k\to\infty}f(x_k)
-> $$
+
+$$
+f(x)\le\liminf_{k\to\infty}f(x_k)
+$$
+
 > が成り立つことです。
 <!-- formal-statement-end -->
 
@@ -198,13 +204,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（下半連続性と閉 epigraph）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ について
-> $$
-> \boxed{
-> f\text{ が下半連続}
-> \iff
-> \operatorname{epi}f\text{ が閉集合}
-> }
-> $$
+
+$$
+\boxed{
+f\text{ が下半連続}
+\iff
+\operatorname{epi}f\text{ が閉集合}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -247,7 +255,7 @@ $$
 f(x)\le\alpha.
 $$
 
-$\alpha=+\infty$ の場合は $f(x)\le+\infty$ なので自明です。
+$\alpha=+\infty$ の場合は自明です。
 
 最後に $\alpha=-\infty$ は起こり得ないことを確認します。もし $\liminf f(x_k)=-\infty$ なら、任意の $M\in\mathbb R$ に対して部分列 $x_{k_j}$ を取り
 
@@ -255,7 +263,7 @@ $$
 f(x_{k_j})\le M
 $$
 
-とできます。従って $(x_{k_j},M)\in\operatorname{epi}f$ であり、$(x_{k_j},M)\to(x,M)$ です。epigraph の閉性から $(x,M)\in\operatorname{epi}f$、すなわち $f(x)\le M$ が全ての実数 $M$ で成り立つことになり、$f$ が $-\infty$ を値に取らないという値域 $(-\infty,+\infty]$ に矛盾します。
+とできます。従って $(x_{k_j},M)\in\operatorname{epi}f$ であり、$(x_{k_j},M)\to(x,M)$ です。epigraph の閉性から $(x,M)\in\operatorname{epi}f$、すなわち $f(x)\le M$ が全ての実数 $M$ で成り立つことになり、値域 $(-\infty,+\infty]$ に矛盾します。
 
 従って常に
 
@@ -294,9 +302,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（sublevel set）**  
 > $\alpha\in\mathbb R$ に対して
-> $$
-> L_\alpha(f)=\{x:f(x)\le\alpha\}
-> $$
+
+$$
+L_\alpha(f)=\{x:f(x)\le\alpha\}
+$$
+
 > を $\alpha$-sublevel set といいます。
 <!-- formal-statement-end -->
 
@@ -332,17 +342,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（支持超平面）**  
 > 凸集合 $C\subset\mathbb R^n$ と境界点 $x_0\in\partial C$ に対し、$a\neq0$ と $b\in\mathbb R$ が
-> $$
-> a^{\mathsf T}x\le b\qquad(\forall x\in C),
-> $$
-> $$
-> a^{\mathsf T}x_0=b
-> $$
-> を満たすとき
-> $$
-> \{x:a^{\mathsf T}x=b\}
-> $$
-> を $C$ の $x_0$ における支持超平面といいます。
+
+$$
+a^{\mathsf T}x\le b\qquad(\forall x\in C),
+$$
+
+$$
+a^{\mathsf T}x_0=b
+$$
+
+> を満たすとき、$\{x:a^{\mathsf T}x=b\}$ を $C$ の $x_0$ における **支持超平面** といいます。
 <!-- formal-statement-end -->
 
 <a id="thm-f0-00g1-supporting-hyperplane"></a>
@@ -362,13 +371,7 @@ $x_0$ の外側から $x_0$ へ近づく点 $z_k\notin C$ を取り、各 $z_k$ 
 
 ## 7. epigraph の支持超平面が劣勾配になる
 
-$f$ の epigraph の境界点
-
-$$
-(x,f(x))
-$$
-
-を支持する超平面を考えます。
+$f$ の epigraph の境界点 $(x,f(x))$ を支持する超平面を考えます。
 
 劣勾配 $p\in\partial f(x)$ の条件は
 
@@ -399,27 +402,25 @@ $$
 <!-- formal-statement-start -->
 > **定理（relative interior での劣勾配の存在）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ を proper convex function とし、
-> $$
-> x\in\operatorname{ri}(\operatorname{dom}f)
-> $$
+
+$$
+x\in\operatorname{ri}(\operatorname{dom}f)
+$$
+
 > とします。このとき
-> $$
-> \boxed{\partial f(x)\neq\varnothing}
-> $$
+
+$$
+\boxed{\partial f(x)\neq\varnothing}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-ここで $\operatorname{ri}$ は affine hull の中で取った内部、relative interior です。定義域が低次元の affine subspace 上にある場合にも「内部点」を扱うために通常の interior ではなく relative interior を使います。
+ここで $\operatorname{ri}$ は affine hull の中で取った内部、relative interior です。定義域が低次元の affine subspace 上にある場合にも「内部点」を扱うため、通常の interior ではなく relative interior を使います。
 
 ### 7.1 例：$|x|$ の原点
 
-$f(x)=|x|$ では epigraph の頂点 $(0,0)$ に多数の支持直線が引けます。その傾きが
-
-$$
-[-1,1]
-$$
-
-を動き、ちょうど
+$f(x)=|x|$ では epigraph の頂点 $(0,0)$ に多数の支持直線が引けます。その傾きが $[-1,1]$ を動き、ちょうど
 
 $$
 \partial f(0)=[-1,1]
@@ -431,9 +432,7 @@ $$
 
 ## 8. 「閉」が最小値存在へどう効くか
 
-凸性だけでは最小値の**存在**までは保証しません。
-
-例えば
+凸性だけでは最小値の**存在**までは保証しません。例えば
 
 $$
 f(x)=e^x
@@ -459,22 +458,26 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限次元の直接法）**  
 > $f:\mathbb R^n\to(-\infty,+\infty]$ を proper・下半連続とし、
-> $$
-> \|x\|\to\infty\Rightarrow f(x)\to+\infty
-> $$
+
+$$
+\|x\|\to\infty
+\quad\Longrightarrow\quad
+f(x)\to+\infty
+$$
+
 > とします。このとき $f$ は最小値を達成します。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-適当な $x_0\in\operatorname{dom}f$ を一つ取ります。coercivity により sublevel set
+適当な $x_0\in\operatorname{dom}f$ を一つ取り、
 
 $$
 L=\{x:f(x)\le f(x_0)\}
 $$
 
-は有界です。下半連続性から $L$ は閉なので、有限次元では compact です。$f$ の下半連続性から compact 集合上で最小値を達成し、その最小値は全空間での最小値です。$\square$
+と置きます。coercivity により $L$ は有界です。下半連続性から $L$ は閉なので、有限次元では compact です。最小化列を $L$ 内に取り、収束部分列を選べば、その極限で下半連続性により下限を達成します。$\square$
 <!-- proof-end -->
 
 ここは後の「変分法の直接法」の有限次元版です。
@@ -494,7 +497,8 @@ $f(x)=|x|$ の epigraph を不等式で表し、凸集合であることを示�
 #### 詳細解答
 
 $$
-\operatorname{epi}f=\{(x,t):|x|\le t\}
+\operatorname{epi}f
+=\{(x,t):|x|\le t\}
 =\{(x,t):x\le t\}\cap\{(x,t):-x\le t\}.
 $$
 
@@ -566,7 +570,7 @@ proper lsc 関数 $f:\mathbb R^n\to(-\infty,+\infty]$ が coercive なら最小�
 
 <!-- solution-start -->
 #### 詳細解答
-$x_0\in\operatorname{dom}f$ を取り $L=\{x:f(x)\le f(x_0)\}$ とする。coercivity から $L$ は有界、lsc から閉。有限次元なので compact。最小化列は $L$ 内に取れ、収束部分列の極限で lsc により下限を達成する。
+$x_0\in\operatorname{dom}f$ を取り $L=\{x:f(x)\le f(x_0)\}$ とする。coercivity から $L$ は有界、lsc から閉。有限次元なので compact。最小化列の収束部分列と lsc から下限を達成する。
 #### 本番答案
 有限 sublevel set は coercivity で有界、lsc で閉、従って compact。最小化列の収束部分列と lsc から最小値を達成する。
 #### 採点基準（20点）
