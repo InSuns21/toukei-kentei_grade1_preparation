@@ -155,13 +155,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（棄却域）**  
-> 非ランダム検定で $\varphi(x)=1$ となる標本点の集合
->
-> $$
-> R=\{x:\varphi(x)=1\}
-> $$
->
-> を棄却域という。
+> 非ランダム検定で $\varphi(x)=1$ となる標本点の集合を棄却域という。
+
+$$
+R=\{x:\varphi(x)=1\}.
+$$
 <!-- formal-statement-end -->
 
 <a id="def-i3-01-test-statistic"></a>
@@ -233,13 +231,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有意水準・水準）**  
-> 帰無仮説 $H_0:\theta\in\Theta_0$ に対し
->
-> $$
-> \sup_{\theta\in\Theta_0}E_\theta[\varphi(X)]\le\alpha
-> $$
->
-> を満たす検定を水準 $\alpha$ の検定という。
+> 帰無仮説 $H_0:\theta\in\Theta_0$ に対し、次を満たす検定を水準 $\alpha$ の検定という。
+
+$$
+\sup_{\theta\in\Theta_0}E_\theta[\varphi(X)]\le\alpha.
+$$
 <!-- formal-statement-end -->
 
 ### 2.1 「5%」を工程例で読む
@@ -304,15 +300,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（検出力関数）**  
-> 検定関数 $\varphi$ に対し
->
-> $$
-> \beta_\varphi(\theta)
-> =E_\theta[\varphi(X)]
-> =P_\theta(H_0\text{ を棄却})
-> $$
->
-> を検出力関数という。対立点では大きいほど望ましい。
+> 検定関数 $\varphi$ に対し、次を検出力関数という。対立点では大きいほど望ましい。
+
+$$
+\beta_\varphi(\theta)
+=E_\theta[\varphi(X)]
+=P_\theta(H_0\text{ を棄却}).
+$$
 <!-- formal-statement-end -->
 
 ### 3.1 本当に平均が102 gなら、どれくらい見つけられるか
@@ -482,13 +476,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（P値）**  
-> 水準 $\alpha$ ごとの棄却域 $R_\alpha$ が入れ子になる検定族について、観測値 $x$ に対し
->
-> $$
-> p(x)=\inf\{\alpha:x\in R_\alpha\}
-> $$
->
-> をP値という。
+> 水準 $\alpha$ ごとの棄却域 $R_\alpha$ が入れ子になる検定族について、観測値 $x$ に対し次をP値という。
+
+$$
+p(x)=\inf\{\alpha:x\in R_\alpha\}.
+$$
 <!-- formal-statement-end -->
 
 片側の工程例では $\bar x=102$ なので
@@ -524,29 +516,24 @@ $p\approx0.0228$ は「$H_0$ が真である確率が2.28%」という意味で�
 
 <!-- formal-statement-start -->
 > **定義（最強力検定）**  
-> 単純仮説 $H_0:\theta=\theta_0$ 対 $H_1:\theta=\theta_1$ を考える。水準 $\alpha$ の検定 $\varphi^*$ が、任意の水準 $\alpha$ の検定 $\varphi$ に対して
->
-> $$
-> E_{\theta_1}[\varphi^*(X)]
-> \ge E_{\theta_1}[\varphi(X)]
-> $$
->
-> を満たすとき、$\varphi^*$ を $\theta_1$ に対する最強力検定という。
+> 単純仮説 $H_0:\theta=\theta_0$ 対 $H_1:\theta=\theta_1$ を考える。水準 $\alpha$ の検定 $\varphi^*$ が、任意の水準 $\alpha$ の検定 $\varphi$ に対して次を満たすとき、$\varphi^*$ を $\theta_1$ に対する最強力検定という。
+
+$$
+E_{\theta_1}[\varphi^*(X)]
+\ge E_{\theta_1}[\varphi(X)].
+$$
 <!-- formal-statement-end -->
 
 <a id="def-i3-01-ump"></a>
 
 <!-- formal-statement-start -->
 > **定義（一様最強力検定）**  
-> 複合対立仮説 $H_1:\theta\in\Theta_1$ に対し、水準 $\alpha$ の検定 $\varphi^*$ が任意の水準 $\alpha$ の検定 $\varphi$ に対して
->
-> $$
-> E_\theta[\varphi^*(X)]
-> \ge E_\theta[\varphi(X)]
-> \qquad(\forall\theta\in\Theta_1)
-> $$
->
-> を満たすとき、$\varphi^*$ を一様最強力検定という。
+> 複合対立仮説 $H_1:\theta\in\Theta_1$ に対し、水準 $\alpha$ の検定 $\varphi^*$ が任意の水準 $\alpha$ の検定 $\varphi$ に対して、全ての $\theta\in\Theta_1$ で次を満たすとき、$\varphi^*$ を一様最強力検定という。
+
+$$
+E_\theta[\varphi^*(X)]
+\ge E_\theta[\varphi(X)].
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-i3-01-most-powerful, def-i3-01-ump -->
@@ -599,26 +586,16 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（ネイマン・ピアソン補題）**  
-> 単純仮説 $H_0:\theta=\theta_0$ 対 $H_1:\theta=\theta_1$ を考える。確率密度関数または確率質量関数を
->
-> $$
-> f_0(x)=f(x;\theta_0),
-> \qquad
-> f_1(x)=f(x;\theta_1)
-> $$
->
-> とする。ある $k\ge0$ と必要なら $0\le\gamma\le1$ を選び、
->
-> $$
-> \varphi^*(x)=
-> \begin{cases}
-> 1,&f_1(x)>k f_0(x),\\
-> \gamma,&f_1(x)=k f_0(x),\\
-> 0,&f_1(x)<k f_0(x)
-> \end{cases}
-> $$
->
-> が $E_{\theta_0}[\varphi^*(X)]=\alpha$ を満たすように定める。このとき $\varphi^*$ は水準 $\alpha$ の検定の中で $H_1:\theta=\theta_1$ に対する最強力検定である。
+> 単純仮説 $H_0:\theta=\theta_0$ 対 $H_1:\theta=\theta_1$ を考え、確率密度関数または確率質量関数を $f_0(x)=f(x;\theta_0)$、$f_1(x)=f(x;\theta_1)$ とする。ある $k\ge0$ と必要なら $0\le\gamma\le1$ を選び、次の検定関数が $E_{\theta_0}[\varphi^*(X)]=\alpha$ を満たすように定める。このとき $\varphi^*$ は水準 $\alpha$ の検定の中で $H_1:\theta=\theta_1$ に対する最強力検定である。
+
+$$
+\varphi^*(x)=
+\begin{cases}
+1,&f_1(x)>k f_0(x),\\
+\gamma,&f_1(x)=k f_0(x),\\
+0,&f_1(x)<k f_0(x).
+\end{cases}
+$$
 <!-- formal-statement-end -->
 
 要点は
@@ -718,21 +695,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（既知分散正規平均の片側一様最強力検定）**  
-> $X_1,\ldots,X_n$ は独立同分布で $N(\mu,\sigma^2)$ に従い、$\sigma$ は既知とする。
->
-> $$
-> H_0:\mu\le\mu_0,
-> \qquad
-> H_1:\mu>\mu_0
-> $$
->
-> に対し
->
-> $$
-> \frac{\sqrt n(\bar X-\mu_0)}\sigma>z_{1-\alpha}
-> $$
->
-> で棄却する検定は水準 $\alpha$ の一様最強力検定である。
+> $X_1,\ldots,X_n$ は独立同分布で $N(\mu,\sigma^2)$ に従い、$\sigma$ は既知とする。$H_0:\mu\le\mu_0$ 対 $H_1:\mu>\mu_0$ に対し、次で棄却する検定は水準 $\alpha$ の一様最強力検定である。
+
+$$
+\frac{\sqrt n(\bar X-\mu_0)}\sigma>z_{1-\alpha}.
+$$
 <!-- formal-statement-end -->
 
 理由は、任意の固定対立点 $\mu_1>\mu_0$ に対して同じ上側棄却域が最強力であり、かつ複合帰無仮説 $\mu\le\mu_0$ での棄却確率の最大が境界 $\mu_0$ だからです。
@@ -862,13 +829,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（検定と信頼集合の双対性）**  
-> 各母数値 $\theta_0\in\Theta$ について点帰無仮説 $H_0:\theta=\theta_0$ の水準 $\alpha$ 検定を用意し、その受容域を $A(\theta_0)$ とする。観測値 $x$ に対し
->
-> $$
-> C(x)=\{\theta_0:x\in A(\theta_0)\}
-> $$
->
-> と定めると、$C(X)$ は被覆確率少なくとも $1-\alpha$ の信頼集合である。
+> 各母数値 $\theta_0\in\Theta$ について点帰無仮説 $H_0:\theta=\theta_0$ の水準 $\alpha$ 検定を用意し、その受容域を $A(\theta_0)$ とする。観測値 $x$ に対し次で定めた $C(x)$ は、被覆確率少なくとも $1-\alpha$ の信頼集合である。
+
+$$
+C(x)=\{\theta_0:x\in A(\theta_0)\}.
+$$
 <!-- formal-statement-end -->
 
 ### 10.1 最初の工程例で確認する
