@@ -142,8 +142,9 @@ function findIntroductionLine(declarations, readerLines, concept) {
     const match = declarations.find((decl) => concept.aliases.some((alias) => semanticIncludes(decl.text, alias)));
     return match?.line ?? null;
   }
+  const markers = concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
   for (let i = 0; i < readerLines.length; i += 1) {
-    if (concept.aliases.some((alias) => semanticIncludes(readerLines[i], alias))) return i + 1;
+    if (markers.some((alias) => semanticIncludes(readerLines[i], alias))) return i + 1;
   }
   return null;
 }
@@ -205,12 +206,17 @@ function resolveDiffBase() {
 
 function normalizeConcept(raw, pageId, order) {
   const kind = String(raw.kind ?? 'term');
+  const aliases = [...new Set([raw.name, ...(raw.aliases ?? [])].map((value) => String(value).trim()).filter(Boolean))];
+  const introductionAliases = raw.introduction_aliases == null
+    ? []
+    : [...new Set((raw.introduction_aliases ?? []).map((value) => String(value).trim()).filter(Boolean))];
   return {
     id: String(raw.id ?? ''),
     name: String(raw.name ?? ''),
     kind,
     introduction: raw.introduction ? String(raw.introduction) : (kind === 'term' ? 'inline' : 'formal'),
-    aliases: [...new Set([raw.name, ...(raw.aliases ?? [])].map((value) => String(value).trim()).filter(Boolean))],
+    aliases,
+    introductionAliases,
     requires: [...new Set((raw.requires ?? []).map(String))],
     pageId,
     order,
