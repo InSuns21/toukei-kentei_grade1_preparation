@@ -82,10 +82,3 @@ concepts:
     aliases: [零集合上の変更は積分を変えない]
     requires:
       - measure.lebesgue-integral
-
-  - id: measure.ae-convergence
-    name: a.e.収束
-    kind: term
-    aliases: [a.e.収束, ほとんど至る所の収束, almost everywhere convergence]
-    requires:
-      - measure.measurable-function
