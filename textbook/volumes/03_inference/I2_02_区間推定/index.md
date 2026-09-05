@@ -173,7 +173,7 @@ $$
 典型例は、正規母平均の
 
 $$
-Z=rac{\sqrt n(\bar X-\mu)}{\sigma}
+Z=\frac{\sqrt n(\bar X-\mu)}{\sigma}
 $$
 
 です。$\sigma$ が既知なら $Z\sim N(0,1)$ であり、その分布は未知の $\mu$ に依存しません。
@@ -755,7 +755,7 @@ $$
 
 ## 11. 非正則モデルでもピボット量は使える: 一様分布
 
-$I2$-01 で見た
+I2-01 で見た
 
 $$
 X_i\overset{\mathrm{iid}}{\sim}U(0,\theta),
