@@ -1,0 +1,77 @@
+chapter: F0-00FA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00FA2
+  - F0-00D2C
+  - F0-00D2E
+  - F0-02C1
+
+# 末尾で特性関数を確率測度の Fourier 変換として再接続する。
+forward_references:
+  - prob.characteristic-function
+
+concepts:
+  - id: fourier.translation-continuity-l2-r
+    name: L2(R) の平行移動連続性
+    kind: lemma
+    # formal見出しの $L^2(\mathbb R)$ はreader-source化で16文字分の空白になる。
+    aliases: ["補題（                の平行移動連続性）"]
+    requires:
+      - measure.outer-measure
+      - functional.l2-inner-product
+
+  - id: fourier.gaussian-approximate-identity-l2
+    name: Gaussian approximate identity の L2 収束
+    kind: lemma
+    aliases: [Gaussian approximate identity の]
+    requires:
+      - fourier.translation-continuity-l2-r
+      - fourier.convolution-l1
+      - measure.cauchy-schwarz-l2
+
+  - id: fourier.plancherel-core
+    name: L1∩L2版 Plancherel 等式
+    kind: theorem
+    aliases: [Plancherel 等式：]
+    requires:
+      - fourier.gaussian-approximate-identity-l2
+      - fourier.gaussian-transform
+      - measure.fubini-theorem
+      - measure.monotone-convergence-theorem
+      - measure.cauchy-schwarz-l2
+
+  - id: fourier.transform-l2
+    name: L2 Fourier変換
+    kind: definition
+    aliases: [Fourier変換）]
+    requires:
+      - fourier.transform-l1
+      - fourier.plancherel-core
+      - functional.l2-completeness
+
+  - id: fourier.plancherel-theorem
+    name: Plancherel定理
+    kind: theorem
+    aliases: ["定理（Plancherel）"]
+    requires:
+      - fourier.transform-l2
+      - fourier.plancherel-core
+
+  - id: fourier.parseval-plancherel-inner-product
+    name: Parseval--Plancherel の内積形
+    kind: corollary
+    aliases: [Parseval--Plancherel の内積形]
+    requires:
+      - fourier.plancherel-theorem
+      - functional.l2-inner-product
+
+  - id: fourier.normalized-transform-unitarity
+    name: 正規化 Fourier変換のユニタリ性
+    kind: theorem
+    aliases: [正規化 Fourier変換のユニタリ性]
+    requires:
+      - fourier.transform-l2
+      - fourier.plancherel-theorem
+      - fourier.inversion-l1
+      - fourier.gaussian-approximate-identity-l2
