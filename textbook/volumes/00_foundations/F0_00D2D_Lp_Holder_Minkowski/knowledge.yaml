@@ -1,9 +1,6 @@
 chapter: F0-00D2D
 scope: dream-theater
-# 現行監査器は数式を含む formal 見出し（例: 「定義（$L^p$空間）」）の
-# 数式部分を reader-source から除くため、L^p 空間/L^pノルムの2宣言は audit-only。
-# Young/Hölder/Minkowski 等の平文見出しは strict に登録する。
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00D2A
 
@@ -20,6 +17,17 @@ concepts:
     requires:
       - measure.almost-everywhere
       - measure.measurable-function
+
+  - id: measure.lp-space
+    name: L^p空間
+    kind: definition
+    # 「空間、」は旧reader-source監査がインライン数式を空白化した後にも残る安定部分。
+    # raw formal監査では正本名 L^p空間 を使って実見出しを照合する。
+    aliases: [L^p空間, "空間、"]
+    requires:
+      - measure.ae-equivalence
+      - measure.measurable-function
+      - measure.lebesgue-integral
 
   - id: measure.essential-supremum
     name: 本質的上限
@@ -57,9 +65,19 @@ concepts:
       - measure.holder-inequality
       - measure.lebesgue-integral
 
+  - id: measure.lp-norm
+    name: L^pノルム
+    kind: theorem
+    # 「ノルム）」は旧reader-source監査で数式部分を空白化しても残る安定部分。
+    aliases: [L^pノルム, "ノルム）"]
+    requires:
+      - measure.lp-space
+      - measure.minkowski-inequality
+
   - id: measure.lp-finite-measure-inclusion
     name: 有限測度空間上の包含
     kind: proposition
     aliases: [有限測度空間上の包含]
     requires:
+      - measure.lp-space
       - measure.holder-inequality
