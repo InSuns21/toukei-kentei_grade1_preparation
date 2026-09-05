@@ -111,6 +111,15 @@ concepts:
       - measure.set-algebra
       - measure.caratheodory-measurability
 
+  # metadata上は定理の依存を先に宣言する。raw-formal監査は本文中の実際の行番号を比較するため、
+  # 本文でこの定義が定理より後なら「knowledgeの並べ替え」では隠せない。
+  - id: measure.sigma-finite-premeasure
+    name: σ有限premeasure
+    kind: definition
+    aliases: [σ有限premeasure]
+    requires:
+      - measure.premeasure
+
   - id: measure.caratheodory-extension-theorem
     name: Carathéodory拡張定理
     kind: theorem
@@ -121,10 +130,4 @@ concepts:
       - measure.outer-measure-extends-premeasure
       - measure.algebra-caratheodory-measurable
       - measure.caratheodory-theorem
-
-  - id: measure.sigma-finite-premeasure
-    name: σ有限premeasure
-    kind: definition
-    aliases: [σ有限premeasure]
-    requires:
-      - measure.premeasure
+      - measure.sigma-finite-premeasure
