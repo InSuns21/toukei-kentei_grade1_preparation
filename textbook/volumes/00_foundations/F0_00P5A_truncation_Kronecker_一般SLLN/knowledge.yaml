@@ -5,6 +5,11 @@ prerequisites:
   - F0-00P5
   - F0-00D2C
 
+# 章末で次の確率論ルートとしてP6の分布収束・特性関数へ進む。
+forward_references:
+  - prob.characteristic-function
+  - prob.distribution-convergence
+
 concepts:
   - id: prob.truncation
     name: SLLNの切断法
