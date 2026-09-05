@@ -1,0 +1,99 @@
+chapter: F0-00P7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P2
+  - F0-00P2A
+  - F0-00P3
+
+# 冒頭・末尾で次章以降の推定量/QMD/LANを予告する。
+forward_references:
+  - stat.mle
+  - stat.qmd
+  - stat.lan
+
+concepts:
+  - id: stat.statistical-model
+    name: 統計モデル
+    kind: term
+    aliases: [統計モデルは確率測度の族]
+    requires:
+      - prob.probability-space
+
+  - id: stat.dominated-model
+    name: dominated model
+    kind: term
+    aliases: [dominated model]
+    requires:
+      - stat.statistical-model
+      - stat.dominating-measure
+      - measure.absolute-continuity
+      - measure.radon-nikodym-theorem
+
+  - id: stat.likelihood
+    name: 尤度
+    kind: term
+    aliases: [尤度の正体]
+    requires:
+      - stat.dominated-model
+      - measure.radon-nikodym-derivative
+
+  - id: stat.iid-likelihood-factorization
+    name: iid標本の尤度因数分解
+    kind: term
+    aliases: [独立標本の尤度が積になる理由]
+    requires:
+      - stat.likelihood
+      - prob.independent-random-variables
+      - measure.product-measure
+      - measure.radon-nikodym-derivative
+
+  - id: stat.log-likelihood
+    name: 対数尤度
+    kind: term
+    aliases: [対数尤度]
+    requires:
+      - stat.likelihood
+
+  - id: stat.score-function
+    name: score
+    kind: term
+    aliases: [スコア, score]
+    introduction_aliases: [1標本のスコア]
+    requires:
+      - stat.log-likelihood
+
+  - id: stat.score-identity
+    name: score identity
+    kind: term
+    aliases: [スコアの期待値は0]
+    requires:
+      - stat.score-function
+      - prob.expectation
+      - measure.dominated-convergence-theorem
+
+  - id: stat.regularity-conditions
+    name: 正則性条件
+    kind: term
+    aliases: [正則性条件]
+    requires:
+      - stat.dominated-model
+      - measure.dominated-convergence-theorem
+
+  - id: stat.fisher-information
+    name: Fisher情報
+    kind: term
+    aliases: [フィッシャー情報量, Fisher情報]
+    requires:
+      - stat.score-function
+      - prob.expectation
+      - prob.variance
+
+  - id: stat.information-identity
+    name: information identity
+    kind: term
+    aliases: [二つのフィッシャー情報量公式が一致]
+    requires:
+      - stat.fisher-information
+      - stat.score-identity
+      - stat.regularity-conditions
