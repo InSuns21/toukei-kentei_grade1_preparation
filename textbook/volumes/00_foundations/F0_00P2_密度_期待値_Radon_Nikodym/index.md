@@ -1,230 +1,435 @@
 # F0-00P2 密度・Radon–Nikodym：pmfとpdfを同じ式で読む
 
-P1で分布を確率測度として定義しました。この講義では「密度」をLebesgue密度だけに限定せず、**基準測度に対するRadon--Nikodym微分**として統一します。
+<!-- definition-example-audit: strict -->
 
-まず「基準測度が大きさ0とみなす集合には、分布も確率を置かない」という関係を定義し、その条件の下で分布を基準測度に対する密度で表します。
+P1で分布を確率測度として定義しました。この講義では「密度」をLebesgue密度だけに限定せず、**基準測度に対するRadon--Nikodym微分**として統一します。
 
 ```text
 絶対連続性
+ ↓
+Radon--Nikodym定理
  ↓
 Radon--Nikodym微分
  ↓
 pmf / pdf
 ```
 
-この「大きさ0の集合を保つ」関係を第1節で記号化し、密度を表す記号は第2節で導入します。離散分布のpmfも連続分布のpdfも、この共通構造の特殊例です。期待値そのものは次講P2Aへ分離します。
+ここでは定義だけでなく、具体例が定義条件を満たすことまで確認し、Radon--Nikodym定理の存在・一意性も証明します。
 
 ---
 
-## 1. まず「密度がある」とは何か
+## 1. 測度の絶対連続性
 
-実数上のLebesgue測度を $\lambda$ とします。
+<a id="def-f0-00p2-absolute-continuity"></a>
 
-確率分布 $P_X$ が $\lambda$ に対して絶対連続であるとは
-
-$$
-\lambda(A)=0
-\Longrightarrow
-P_X(A)=0
-$$
-
-が任意の可測集合 $A$ で成り立つことです。
-
-記号で
+<!-- formal-statement-start -->
+> **定義（測度の絶対連続性）**  
+> 同じ可測空間 $(\Omega,\mathcal F)$ 上の非負測度 $\mu,\nu$ について、任意の $A\in\mathcal F$ に対して
 
 $$
-P_X\ll\lambda
+\mu(A)=0\Longrightarrow\nu(A)=0
 $$
 
-と書きます。
+> が成り立つとき、$\nu$ は $\mu$ に関して**絶対連続**であるといい、$\nu\ll\mu$ と書きます。
+<!-- formal-statement-end -->
 
-つまり、Lebesgue測度から見て大きさ0の集合へ、分布が正の確率質量を置かないという条件です。
+「$\mu$ が見えない集合には $\nu$ も質量を置かない」という条件です。
+
+### 1.1 例：密度 $2x$ から作った測度
+
+$([0,1],\mathcal B([0,1]))$ 上でLebesgue測度を $\lambda$ とし、
+
+$$
+\nu(A)=\int_A2x\,d\lambda(x)
+$$
+
+とします。
+
+<!-- definition-example-start: def-f0-00p2-absolute-continuity -->
+**定義の確認**  
+$\lambda(A)=0$ とします。測度0の集合上のLebesgue積分は0なので
+
+$$
+\nu(A)=\int_A2x\,d\lambda(x)=0.
+$$
+
+従って、任意の可測集合 $A$ について
+
+$$
+\lambda(A)=0\Longrightarrow\nu(A)=0
+$$
+
+が成り立ち、確かに $\nu\ll\lambda$ です。
+<!-- definition-example-end -->
+
+一方、点質量 $\delta_0$ は $\lambda$ に関して絶対連続ではありません。実際
+
+$$
+\lambda(\{0\})=0,
+\qquad
+\delta_0(\{0\})=1
+$$
+
+だからです。
 
 ---
 
-## 2. Radon--Nikodym定理
+## 2. Radon--Nikodym微分
+
+<a id="def-f0-00p2-rn-derivative"></a>
+
+<!-- formal-statement-start -->
+> **定義（Radon--Nikodym微分）**  
+> 非負測度 $\mu,\nu$ に対して非負可測関数 $f$ が
+
+$$
+\nu(A)=\int_A f\,d\mu
+\qquad(\forall A\in\mathcal F)
+$$
+
+> を満たすとき、$f$ を $\nu$ の $\mu$ に関するRadon--Nikodym微分と呼び、$f=d\nu/d\mu$ と書きます。
+<!-- formal-statement-end -->
+
+### 2.1 例：先ほどの測度のRadon--Nikodym微分
+
+先ほどの
+
+$$
+\nu(A)=\int_A2x\,d\lambda(x)
+$$
+
+を使います。
+
+<!-- definition-example-start: def-f0-00p2-rn-derivative -->
+**定義の確認**  
+$f(x)=2x$ は $[0,1]$ 上で非負かつBorel可測です。また定義したすべての可測集合 $A$ に対して
+
+$$
+\int_A f\,d\lambda
+=
+\int_A2x\,d\lambda
+=
+\nu(A).
+$$
+
+従って
+
+$$
+\boxed{\frac{d\nu}{d\lambda}(x)=2x}
+$$
+
+です。
+<!-- definition-example-end -->
+
+ここで重要なのは、「そのような $f$ が存在するか」「存在したら一意か」は定義だけでは分からないことです。それを保証するのが次の定理です。
+
+---
+
+## 3. Radon--Nikodym定理
 
 <a id="thm-f0-00p2-radon-nikodym"></a>
 
 <!-- formal-statement-start -->
 > **定理（Radon--Nikodym定理）**  
-> $(\Omega,\mathcal F)$ 上の sigma 有限な非負測度 $\mu,\nu$ が $\nu\ll\mu$ を満たすとします。このとき非負可測関数 $f$ が存在し、任意の $A\in\mathcal F$ に対して
+> $(\Omega,\mathcal F)$ 上の $\sigma$ 有限な非負測度 $\mu,\nu$ が $\nu\ll\mu$ を満たすとします。このとき非負可測関数 $f$ が存在し、任意の $A\in\mathcal F$ に対して
 
 $$
-\boxed{
 \nu(A)=\int_A f\,d\mu
-}
 $$
 
-> が成り立ちます。この $f$ は $\mu$-a.e. の意味で一意です。
+> が成り立ちます。さらに $f$ は $\mu$-a.e. の意味で一意です。
 <!-- formal-statement-end -->
 
-測度 $\nu$ が sigma有限測度 $\mu$ に対して絶対連続なら、ある非負可測関数 $f$ が存在して
+以下では、[F0-02C2のRiesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md)を使って証明します。まず有限測度の場合を証明し、その後 $\sigma$ 有限の場合へ貼り合わせます。
+
+<!-- proof-start -->
+### 3.1 有限測度の場合：$\rho=\mu+\nu$ を作る
+
+まず
 
 $$
-\boxed{
-\nu(A)=\int_A f\,d\mu
-}
+\mu(\Omega)<\infty,
+\qquad
+\nu(\Omega)<\infty
 $$
 
-と書けます。
-
-$f$ は $\mu$-a.e. の意味で一意です。
-
-これがRadon--Nikodym定理です。
-
-記号で
+とします。有限測度
 
 $$
-\boxed{
-f=\frac{d\nu}{d\mu}}
+\rho=\mu+\nu
 $$
 
-と書き、Radon--Nikodym微分と呼びます。
-
-完全証明は測度論の標準講義に譲りますが、ここで重要なのは
-
-> 「測度を基準測度に対する密度関数で表す」ことを保証する定理
-
-だという点です。
-
----
-
-## 3. pdfの正体
-
-$P_X\ll\lambda$ ならRadon--Nikodym定理から
+を置き、Hilbert空間 $L^2(\rho)$ 上の線形汎関数
 
 $$
-\boxed{
-f_X=\frac{dP_X}{d\lambda}}
+T(g)=\int_\Omega g\,d\nu
 $$
 
-が存在します。
-
-そして任意の可測集合 $A$ について
+を考えます。Cauchy--Schwarzより
 
 $$
-\boxed{
-P(X\in A)
-=P_X(A)
-=\int_A f_X(x)\,dx
-}
+|T(g)|
+\le
+\nu(\Omega)^{1/2}
+\left(\int g^2\,d\nu\right)^{1/2}
+\le
+\nu(\Omega)^{1/2}\|g\|_{L^2(\rho)}.
+$$
+
+従って $T$ は連続線形汎関数です。Riesz表現定理から、ある $h\in L^2(\rho)$ が存在して
+
+$$
+T(g)=\int gh\,d\rho
+\qquad(\forall g\in L^2(\rho))
+$$
+
+と書けます。特に $g=\mathbf1_A$ とすれば
+
+$$
+\boxed{\nu(A)=\int_A h\,d\rho}
+\qquad(\forall A\in\mathcal F).
+$$
+
+### 3.2 $0\le h\le1$ を示す
+
+$B=\{h<0\}$ に正の $\rho$-測度があれば
+
+$$
+\nu(B)=\int_Bh\,d\rho<0
+$$
+
+となり、$\nu$ が非負測度であることに矛盾します。従って $h\ge0$ a.e. です。
+
+また
+
+$$
+\mu(A)=\rho(A)-\nu(A)=\int_A(1-h)\,d\rho.
+$$
+
+$C=\{h>1\}$ に正の $\rho$-測度があれば $\mu(C)<0$ となるので、$h\le1$ a.e. です。
+
+さらに $D=\{h=1\}$ について
+
+$$
+\mu(D)=\int_D(1-h)\,d\rho=0.
+$$
+
+$\nu\ll\mu$ だから $\nu(D)=0$ でもあり、従って
+
+$$
+\rho(D)=\mu(D)+\nu(D)=0.
+$$
+
+したがって $h<1$ が $\rho$-a.e. で成り立ちます。
+
+### 3.3 $f=h/(1-h)$ を作る
+
+$D^c=\{h<1\}$ 上で
+
+$$
+f=\frac{h}{1-h}
+$$
+
+とし、$D$ 上では $f=0$ と定めます。$f$ は非負可測です。
+
+先ほどの式から
+
+$$
+d\mu=(1-h)\,d\rho
+$$
+
+という積分表示が成り立つため、任意の $A\in\mathcal F$ について
+
+$$
+\begin{aligned}
+\int_A f\,d\mu
+&=\int_A f(1-h)\,d\rho\\
+&=\int_Ah\,d\rho\\
+&=\nu(A).
+\end{aligned}
+$$
+
+これで有限測度の場合の存在が示されました。
+
+### 3.4 $\sigma$ 有限の場合へ貼り合わせる
+
+$\mu,\nu$ が $\sigma$ 有限なので、$\Omega$ を可測集合 $D_1,D_2,\dots$ の互いに素な和に分けて
+
+$$
+\mu(D_k)<\infty,
+\qquad
+\nu(D_k)<\infty
+$$
+
+とできます。例えば $\mu$ の有限測度被覆と $\nu$ の有限測度被覆の全交差を列挙し、前に出た部分を順に除けばよいです。
+
+各 $D_k$ 上の制限測度に有限測度版を適用して
+
+$$
+\nu(A\cap D_k)=\int_{A\cap D_k}f_k\,d\mu
+$$
+
+となる非負可測関数 $f_k$ を取ります。そこで
+
+$$
+f=\sum_{k=1}^\infty f_k\mathbf1_{D_k}
+$$
+
+と置けば、非負関数の可算加法性から
+
+$$
+\begin{aligned}
+\int_Af\,d\mu
+&=\sum_{k=1}^\infty\int_{A\cap D_k}f_k\,d\mu\\
+&=\sum_{k=1}^\infty\nu(A\cap D_k)\\
+&=\nu(A).
+\end{aligned}
+$$
+
+従って一般の $\sigma$ 有限の場合にも存在が示されました。
+
+### 3.5 一意性
+
+$f,g$ がともにRadon--Nikodym微分だとします。上の $D_k$ ごとに
+
+$$
+\int_A f\,d\mu=\int_Ag\,d\mu<\infty
+\qquad(A\subseteq D_k)
 $$
 
 です。
 
-これが確率密度関数pdfです。
-
-つまり理論上は
+もし $\{f>g\}\cap D_k$ が正の測度を持てば、ある $m,n$ について
 
 $$
-\boxed{
-\text{分布}
-\to
-\text{絶対連続性}
-\to
-\text{Radon--Nikodym微分}
-\to
-\text{pdf}
-}
+A_{m,n}
+=
+D_k\cap\{g\le m\}\cap\{f\ge g+1/n\}
 $$
 
-という順です。
-
----
-
-## 4. 離散分布も基準測度を変えれば密度を持つ
-
-離散分布はLebesgue測度に対して絶対連続ではありません。
-
-例えば一点集合 $\{x_0\}$ は
+が正の測度を持ちます。この集合上では
 
 $$
-\lambda(\{x_0\})=0
+\int_{A_{m,n}}f\,d\mu
+\ge
+\int_{A_{m,n}}g\,d\mu+rac1n\mu(A_{m,n}),
 $$
 
-ですが、点質量があれば
+となり、両積分が等しいことに矛盾します。従って $f\le g$ a.e. です。役割を交換すれば $g\le f$ a.e. なので
 
 $$
-P_X(\{x_0\})>0
+\boxed{f=g\quad\mu\text{-a.e.}}
 $$
 
 です。
+<!-- proof-end -->
 
-しかし整数上の数え上げ測度 $\# $ を基準に取れば
-
-$$
-P_X\ll \#
-$$
-
-であり、Radon--Nikodym微分はpmfになります。
-
-したがってpmfとpdfは本質的に別々の概念ではありません。
-
-$$
-\boxed{
-\text{pmf/pdf}
-=\text{基準測度に対する分布の密度}
-}
-$$
-
-です。
+これで「絶対連続なら密度が存在し、a.e.一意」という部分まで閉じました。
 
 ---
 
-## 5. 支配測度という考え方
+## 4. pdfの正体
 
-統計モデルではパラメータ $\theta$ ごとに分布
+実数上のLebesgue測度を $\lambda$ とします。確率分布 $P_X$ が
 
 $$
-P_\theta
+P_X\ll\lambda
 $$
 
-があります。
+を満たせばRadon--Nikodym定理から
 
-全ての $P_\theta$ が同じ測度 $\mu$ に対して絶対連続なら
+$$
+f_X=\frac{dP_X}{d\lambda}
+$$
+
+が存在し、任意のBorel集合 $A$ について
+
+$$
+\boxed{P(X\in A)=\int_Af_X(x)\,dx}
+$$
+
+です。これが確率密度関数pdfです。
+
+---
+
+## 5. 離散分布では数え上げ測度を使う
+
+離散分布は一般にLebesgue測度に関して絶対連続ではありません。しかし台 $S$ 上の数え上げ測度 $\#$ を基準にすれば
+
+$$
+P_X\ll\#
+$$
+
+です。実際、$\#(A)=0$ なら $A=\varnothing$ なので $P_X(A)=0$ です。
+
+一点 $x\in S$ について
+
+$$
+P_X(\{x\})
+=
+\int_{\{x\}}\frac{dP_X}{d\#}\,d\#
+=
+\frac{dP_X}{d\#}(x),
+$$
+
+したがって
+
+$$
+\boxed{\frac{dP_X}{d\#}(x)=P(X=x)}
+$$
+
+であり、Radon--Nikodym微分がpmfになります。
+
+---
+
+## 6. 支配測度
+
+統計モデル $\{P_\theta:\theta\in\Theta\}$ に対し、すべての $P_\theta$ が同じ測度 $\mu$ に関して絶対連続なら
 
 $$
 P_\theta\ll\mu
+\qquad(\forall\theta\in\Theta),
 $$
 
-であり、
+この $\mu$ を**支配測度**と呼びます。そのとき
 
 $$
-p_\theta
-=\frac{dP_\theta}{d\mu}
+p_\theta=\frac{dP_\theta}{d\mu}
 $$
 
-と書けます。
-
-この $\mu$ を支配測度と呼びます。
-
-連続モデルならLebesgue測度、離散モデルなら数え上げ測度を使うことが多いです。
-
-後の尤度は、この $p_\theta$ を観測値で評価したものです。
+を共通の記法で扱えます。連続モデルのpdfも離散モデルのpmfも、この $p_\theta$ の特殊例です。
 
 ---
 
 ## 演習
 
-### F0-00P2-A01 Bernoulli分布をcounting measureで書く
+### F0-00P2-A01 Bernoulli分布を数え上げ測度で書く
 
 - Level: A
 - 目安時間: 10分
 
-$P(X=1)=p$, $P(X=0)=1-p$ とする。$\{0,1\}$ 上のcounting measure $\nu$ に対する $P_X$ のRadon--Nikodym密度を求めよ。
+$P(X=1)=p$, $P(X=0)=1-p$ とする。$\{0,1\}$ 上の数え上げ測度 $\#$ に対する $P_X$ のRadon--Nikodym微分を求め、定義式を確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-counting measureでは一点の測度が1なので、密度はそのままpmfである。$dP_X/d\nu(0)=1-p$, $dP_X/d\nu(1)=p$。
+$f(0)=1-p$, $f(1)=p$ と置く。任意の $A\subseteq\{0,1\}$ について
+
+$$
+\int_Af\,d\#=\sum_{x\in A}f(x)=P_X(A),
+$$
+
+だから $f=dP_X/d\#$ である。
 
 #### 本番答案
-$dP_X/d\nu(x)=p^x(1-p)^{1-x}\;(x=0,1)$。
+$$
+\frac{dP_X}{d\#}(x)=p^x(1-p)^{1-x},\qquad x=0,1.
+$$
+任意の $A$ で $\int_Af\,d\#=\sum_{x\in A}P(X=x)=P_X(A)$。
 
 #### 採点基準（20点）
-- counting measureの理解: 6点
-- 2点の密度: 10点
-- RN表示: 4点
+- 2点での密度: 8点
+- RN定義式の確認: 8点
+- 結論: 4点
 <!-- solution-end -->
 
 ### F0-00P2-B01 支配測度を変えても同じ分布
@@ -232,17 +437,34 @@ $dP_X/d\nu(x)=p^x(1-p)^{1-x}\;(x=0,1)$。
 - Level: B
 - 目安時間: 15分
 
-有限集合 $S$ 上で $\nu(\{x\})=w_x>0$ とする。確率質量 $p_x=P(X=x)$ を持つ分布の $\nu$ に対する密度 $f$ を求め、$\int_A f\,d\nu=P(X\in A)$ を確認せよ。
+有限集合 $S$ 上で $\nu(\{x\})=w_x>0$ とする。確率質量 $p_x=P(X=x)$ を持つ分布の $\nu$ に関するRadon--Nikodym微分 $f$ を求め、$\int_Af\,d\nu=P(X\in A)$ を確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-一点 $\{x\}$ で $p_x=f(x)w_x$ だから $f(x)=p_x/w_x$。従って $\int_Af\,d\nu=\sum_{x\in A}(p_x/w_x)w_x=\sum_{x\in A}p_x=P(X\in A)$。
+一点集合で
+
+$$
+p_x=P_X(\{x\})=f(x)\nu(\{x\})=f(x)w_x
+$$
+
+だから $f(x)=p_x/w_x$。従って
+
+$$
+\int_Af\,d\nu
+=\sum_{x\in A}\frac{p_x}{w_x}w_x
+=\sum_{x\in A}p_x
+=P(X\in A).
+$$
 
 #### 本番答案
-$f(x)=p_x/w_x$。ゆえに $\int_Af\,d\nu=\sum_{x\in A}p_x$。
+$$
+f(x)=\frac{p_x}{w_x},
+\qquad
+\int_Af\,d\nu=\sum_{x\in A}p_x=P(X\in A).
+$$
 
 #### 採点基準（20点）
-- RN密度: 8点
+- 一点集合から密度を導く: 8点
 - 積分計算: 8点
 - 分布との一致: 4点
 <!-- solution-end -->
