@@ -1,14 +1,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve('textbook/volumes');
+// main immediately before the default-strict policy was introduced.
+// Files identical to this snapshot are transitional legacy only; any edit makes them strict.
+const LEGACY_CUTOFF = 'a82f4d95d966c62853e37e932000178c93da12ed';
 const STRICT_MARKER = '<!-- definition-example-audit: strict -->';
+const LOOSE_MARKER = '<!-- definition-example-audit: loose -->';
 const FORMAL_START = '<!-- formal-statement-start -->';
 const FORMAL_END = '<!-- formal-statement-end -->';
 const EXAMPLE_START_RE = /^<!--\s*definition-example-start:\s*([^>]+?)\s*-->$/u;
 const EXAMPLE_END = '<!-- definition-example-end -->';
 const SKIP_RE = /^<!--\s*definition-example-skip:\s*([^|>]+?)\s*\|\s*(.+?)\s*-->$/u;
 const ANCHOR_RE = /<a\s+id="([^"]+)"\s*><\/a>/u;
+// Both supported formal-statement layouts count as definitions. Older audited
+// pages often use `### 定義（...）`, while newer pages use `> **定義（...）**`.
+const FORMAL_DEFINITION_RE = /(?:\*\*定義(?:[（(]|\*\*)|^(?:>\s*)?#{1,6}\s+定義(?:[（(]|\s|$))/mu;
 
 function walk(dir) {
   const out = [];
@@ -24,15 +32,61 @@ function parseIds(raw) {
   return raw.split(',').map((id) => id.trim()).filter(Boolean);
 }
 
+function git(args) {
+  return spawnSync('git', args, { cwd: process.cwd(), encoding: 'utf8', stdio: 'pipe' });
+}
+
+const cutoffCheck = git(['cat-file', '-e', `${LEGACY_CUTOFF}^{commit}`]);
+const cutoffAvailable = cutoffCheck.status === 0;
+
+function existedAtCutoff(rel) {
+  if (!cutoffAvailable) return false;
+  return git(['cat-file', '-e', `${LEGACY_CUTOFF}:${rel}`]).status === 0;
+}
+
+function unchangedSinceCutoff(rel) {
+  if (!cutoffAvailable || !existedAtCutoff(rel)) return false;
+  return git(['diff', '--quiet', LEGACY_CUTOFF, '--', rel]).status === 0;
+}
+
 const errors = [];
 let strictPages = 0;
+let explicitLoosePages = 0;
+let legacyLoosePages = 0;
 let checkedDefinitions = 0;
 let checkedExamples = 0;
+
+if (!cutoffAvailable) {
+  console.warn(`Definition-example audit: legacy cutoff ${LEGACY_CUTOFF} is not available in this checkout. Pages without an explicit marker are treated as legacy-loose locally; CI must checkout full history.`);
+}
 
 for (const file of walk(ROOT)) {
   const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
   const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-  const strict = lines.some((line) => line.trim() === STRICT_MARKER);
+  const explicitStrict = lines.some((line) => line.trim() === STRICT_MARKER);
+  const explicitLoose = lines.some((line) => line.trim() === LOOSE_MARKER);
+
+  if (explicitStrict && explicitLoose) {
+    errors.push(`${rel}: both strict and loose definition-example audit markers are present.`);
+  }
+
+  let strict = false;
+  if (explicitLoose) {
+    explicitLoosePages += 1;
+  } else if (explicitStrict) {
+    strict = true;
+  } else if (!cutoffAvailable) {
+    // Shallow/local checkout compatibility. CI always fetches full history and therefore
+    // exercises the default-strict rule below.
+    legacyLoosePages += 1;
+  } else if (unchangedSinceCutoff(rel)) {
+    // Transitional grandfathering only for files that have not changed at all since
+    // the default-strict rule was introduced. Any edit makes the page strict unless it opts out.
+    legacyLoosePages += 1;
+  } else {
+    strict = true;
+  }
+
   if (strict) strictPages += 1;
 
   const definitions = new Set();
@@ -64,7 +118,7 @@ for (const file of walk(ROOT)) {
     }
     if (t === FORMAL_END && inFormal) {
       const body = formalLines.join('\n');
-      if (/\*\*定義(?:[（(]|\*\*)/u.test(body)) {
+      if (FORMAL_DEFINITION_RE.test(body)) {
         if (!formalAnchor?.id?.startsWith('def-')) {
           errors.push(`${rel}:${i + 1}: formal definition must have a preceding def- anchor.`);
         } else {
@@ -147,7 +201,7 @@ for (const file of walk(ROOT)) {
     checkedDefinitions += definitions.size;
     for (const id of definitions) {
       if (!covered.has(id) && !skipped.has(id)) {
-        errors.push(`${rel}: strict definition-example audit: ${id} has no explicit verification block or documented skip.`);
+        errors.push(`${rel}: default-strict definition-example audit: ${id} has no explicit verification block or documented skip. Add a definition-example block, a per-definition skip, or opt the page out with ${LOOSE_MARKER}.`);
       }
     }
   }
@@ -159,4 +213,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Definition-example validation passed: ${strictPages} strict page(s), ${checkedDefinitions} definition(s), ${checkedExamples} verification block(s).`);
+console.log(`Definition-example validation passed: ${strictPages} strict page(s), ${explicitLoosePages} explicit-loose page(s), ${legacyLoosePages} unchanged legacy page(s), ${checkedDefinitions} checked definition(s), ${checkedExamples} verification block(s).`);

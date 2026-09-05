@@ -3,19 +3,26 @@ title: "関数解析V：一般化KKT・錐制約・双対乗数"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-02C3A
+  - F0-02C4
   - F0-02C4A
   - F0-02A
 learning_objectives:
-  - 不等式制約を錐制約G(x)∈-Kへまとめられる
-  - 一般化LagrangianとKKT条件を型付きで書ける
-  - 有限次元の通常KKTを特殊例として復元できる
+  - 通常の不等式制約を錐制約G(x)∈-Kへまとめ、定義を具体例で確認できる
+  - 一般化Lagrangianを定義し、随伴・Jacobian転置を用いてstationarityを書ける
+  - 閉凸錐のnormal coneから双対実行可能性と相補性を導ける
+  - 局所最適点の接方向条件を定義から証明できる
+  - normal-cone表現から一般化KKTを導ける
+  - Robinson CQが一般化KKTの正則性条件になる位置付けを説明できる
+  - 非負直交錐から通常の有限次元KKTを復元できる
 definitions:
   - { id: F002C5-DEF-01, name: 錐制約 }
   - { id: F002C5-DEF-02, name: 一般化Lagrangian }
 theorems:
-  - { id: F002C5-THM-01, name: 一般化KKT条件の形 }
-canonical_examples: [非負直交錐による通常KKT復元]
-problem_patterns: [FA-KKT-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2, exercises: 0.75, review: 0.5 }
+  - { id: F002C5-THM-01, name: 閉凸錐のnormal cone }
+  - { id: F002C5-THM-02, name: 局所最適点の接方向条件 }
+  - { id: F002C5-THM-03, name: normal-cone表現からの一般化KKT }
+  - { id: F002C5-THM-04, name: Robinson CQ下の一般化KKT }
+canonical_examples: [非負直交錐による通常KKT復元, 錐normal coneからの相補性]
+problem_patterns: [FA-KKT-1, FA-KKT-CONE-1, FA-KKT-TANGENT-1]
+exercise_counts: { level_a: 3, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 1.5, review: 0.75 }

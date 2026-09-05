@@ -3,19 +3,31 @@ title: "関数解析V-A：制約想定・LICQ・MFCQ・Robinson CQ"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-02C4A
   - F0-02C5
 learning_objectives:
-  - 制約想定がないとKKT乗数が存在しない反例を説明できる
-  - 真のtangent coneと線形化coneのずれを説明できる
-  - LICQ・MFCQ・Robinson CQの役割を比較できる
+  - active setと線形化coneを定義し具体例で計算できる
+  - 制約想定がないと真のtangent coneと線形化coneがずれる反例を説明できる
+  - LICQ・MFCQ・Robinson CQを定義から具体例で判定できる
+  - LICQからMFCQを線形代数で証明できる
+  - MFCQ下でtangent coneと線形化coneが一致することを証明できる
+  - 通常の滑らかな制約でRobinson CQとMFCQの同値を証明できる
+  - 線形化coneのpolarを制約勾配で表しKKT乗数存在を導ける
+  - smooth convex inequalityのnormal coneをactive勾配の非負結合で表せる
 definitions:
-  - { id: F002C5A-DEF-01, name: 線形化cone }
+  - { id: F002C5A-DEF-01, name: active set・線形化cone }
   - { id: F002C5A-DEF-02, name: LICQ }
   - { id: F002C5A-DEF-03, name: MFCQ }
   - { id: F002C5A-DEF-04, name: Robinson constraint qualification }
 theorems:
-  - { id: F002C5A-THM-01, name: 制約想定下のKKT乗数存在 }
-canonical_examples: [x二乗制約の退化例, MFCQとLICQの比較]
-problem_patterns: [FA-CQ-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+  - { id: F002C5A-THM-01, name: LICQならMFCQ }
+  - { id: F002C5A-THM-02, name: tangent coneは常に線形化coneに含まれる }
+  - { id: F002C5A-THM-03, name: MFCQ下の接錐一致 }
+  - { id: F002C5A-THM-04, name: 通常制約でRobinson CQとMFCQの同値 }
+  - { id: F002C5A-THM-05, name: 線形化coneのpolar表示 }
+  - { id: F002C5A-THM-06, name: MFCQ下のKKT乗数存在 }
+  - { id: F002C5A-THM-07, name: smooth convex inequalityのnormal cone }
+canonical_examples: [x二乗制約の退化例, MFCQとLICQの比較, 単位円板の接錐とnormal cone]
+problem_patterns: [FA-CQ-1, FA-CQ-TANGENT-1, FA-CQ-KKT-1, FA-CQ-NORMAL-1]
+exercise_counts: { level_a: 3, level_b: 4, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 2.0, review: 1.0 }

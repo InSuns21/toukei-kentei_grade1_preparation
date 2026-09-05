@@ -21,6 +21,9 @@ const RESULT_NAME_RE = /(?:定理|補題|命題|不等式|等式|原理)(?:\s*$|
 const COROLLARY_RE = /^(?:\d+(?:\.\d+)*[.)．]?\s*)?系(?:\s*$|\s*[（(：:])/u;
 const GENERIC_RE = /(基本命題|主要定理|三定理|定理群|定理一覧|結果一覧)/u;
 const EXERCISE_RE = /(?:^|\s)[A-Z][A-Z0-9-]*-[ABCD]\d{2}\b/u;
+// Example/example-problem headings may legitimately contain words such as
+// "等式" or "不等式" in the example title. They are pedagogy, not declarations.
+const EXAMPLE_HEADING_RE = /^(?:\d+(?:\.\d+)*[.)．]?\s*)?(?:例|例題)(?:\s*$|\s*[（(：:])/u;
 
 function walk(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -42,7 +45,7 @@ function headingText(line) {
 }
 
 function isNamedResultHeading(heading) {
-  if (GENERIC_RE.test(heading) || EXERCISE_RE.test(heading)) return false;
+  if (GENERIC_RE.test(heading) || EXERCISE_RE.test(heading) || EXAMPLE_HEADING_RE.test(heading)) return false;
   return RESULT_NAME_RE.test(heading) || COROLLARY_RE.test(heading);
 }
 

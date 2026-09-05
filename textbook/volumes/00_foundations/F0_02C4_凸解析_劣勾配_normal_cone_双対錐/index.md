@@ -1,530 +1,799 @@
 # F0-02C4 関数解析IV：凸解析・劣勾配・normal cone
 
-凸関数を微分不能点まで拡張し、制約をindicator関数へ埋め込むことで $0\in\partial f+N_C$ という最適性条件まで進みます。tangent/polar/dual coneは次講C4Aへ分離します。
+微分可能性を失っても、凸性があれば「接線が下から支える」という一次情報は残ります。この講義では、劣勾配・normal cone を定義して具体例で条件を検算し、さらに劣微分の和則と max 関数の劣微分公式まで証明します。
 
-## 1. 凸集合
+```text
+凸性
+  ↓
+劣勾配
+  ↓
+方向微分
+  ↓
+和則・max公式
+  ↓
+normal cone
+  ↓
+制約付き最適性
+```
 
-ベクトル空間 $X$ の集合 $C$ が **凸集合** であるとは、任意の $x,y\in C$ と $0\le t\le1$ に対し
+---
+
+## 1. 凸集合と凸関数
+
+<a id="def-f0-02c4-convex-set"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸集合）**  
+> $C\subset\mathbb R^n$ が凸集合であるとは、任意の $x,y\in C$ と $t\in[0,1]$ に対して
 
 $$
 (1-t)x+ty\in C
 $$
 
-となることです。
+> が成り立つことをいいます。
+<!-- formal-statement-end -->
 
-つまり集合内の二点を結ぶ線分が全部集合内に残ります。
+<!-- definition-example-start: def-f0-02c4-convex-set -->
+### 1.1 例：区間 $[0,1]$ は凸集合
 
-この定義は有限次元でも無限次元でも同じです。
+**定義の確認**
+
+$x,y\in[0,1]$、$t\in[0,1]$ とすると
+
+$$
+0\le(1-t)x+ty\le(1-t)\cdot1+t\cdot1=1.
+$$
+
+したがって $(1-t)x+ty\in[0,1]$ であり、定義を満たします。
+<!-- definition-example-end -->
+
+<a id="def-f0-02c4-convex-function"></a>
+
+<!-- formal-statement-start -->
+> **定義（凸関数）**  
+> 凸集合 $C\subset\mathbb R^n$ 上の関数 $f:C\to\mathbb R$ が凸関数であるとは、任意の $x,y\in C$ と $t\in[0,1]$ に対して
+
+$$
+f((1-t)x+ty)\le(1-t)f(x)+tf(y)
+$$
+
+> が成り立つことをいいます。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c4-convex-function -->
+### 1.2 例：$f(x)=|x|$ は凸関数
+
+**定義の確認**
+
+三角不等式と正の斉次性から
+
+$$
+|(1-t)x+ty|
+\le |(1-t)x|+|ty|
+=(1-t)|x|+t|y|.
+$$
+
+したがって凸関数の定義を満たします。
+<!-- definition-example-end -->
 
 ---
 
-## 2. 凸関数
+## 2. 微分可能な凸関数の一次条件
 
-凸集合 $C$ 上の関数
+<a id="thm-f0-02c4-first-order-convex"></a>
 
-$$
-f:C\to\mathbb R
-$$
-
-が **凸関数** であるとは
+<!-- formal-statement-start -->
+> **定理（微分可能な凸関数の一次条件）**  
+> $f:\mathbb R^n\to\mathbb R$ が凸かつ微分可能なら、任意の $x,y\in\mathbb R^n$ に対して
 
 $$
-\boxed{
-f((1-t)x+ty)
-\le(1-t)f(x)+tf(y)
-}
+f(y)\ge f(x)+\nabla f(x)^{\mathsf T}(y-x)
 $$
 
-が成り立つことです。
+> が成り立ちます。
+<!-- formal-statement-end -->
 
-グラフが二点を結ぶ弦より下側にある、と考えられます。
+### 2.1 証明の見取り図
+
+$x$ から $y$ へ向かう線分だけを見ます。凸性で得た割線の傾きの不等式を $t\downarrow0$ とすると、割線が接線へ移ります。
+
+<!-- proof-start -->
+### 証明
+
+$0<t\le1$ とします。凸性から
+
+$$
+f(x+t(y-x))\le(1-t)f(x)+tf(y).
+$$
+
+従って
+
+$$
+\frac{f(x+t(y-x))-f(x)}{t}\le f(y)-f(x).
+$$
+
+$t\downarrow0$ とすると左辺は $\nabla f(x)^{\mathsf T}(y-x)$ へ収束します。よって
+
+$$
+f(y)-f(x)\ge\nabla f(x)^{\mathsf T}(y-x).
+$$
+
+$\square$
+<!-- proof-end -->
 
 ---
 
-## 3. 微分可能な凸関数の一次条件
-
-$f:X\to\mathbb R$ が凸かつFréchet微分可能なら
-
-$$
-\boxed{
-f(y)
-\ge f(x)+Df(x)[y-x]
-}
-$$
-
-が成り立ちます。
-
-有限次元なら
-
-$$
-f(y)
-\ge f(x)+\nabla f(x)^{\mathsf T}(y-x).
-$$
-
-つまり接平面が関数のグラフを下から支えます。
-
-### 3.1 なぜ成り立つか
-
-$0<t\le1$ に対し凸性から
-
-$$
-f(x+t(y-x))
-\le(1-t)f(x)+tf(y).
-$$
-
-整理すると
-
-$$
-\frac{f(x+t(y-x))-f(x)}{t}
-\le f(y)-f(x).
-$$
-
-$t\downarrow0$ とすれば左辺は方向 $y-x$ の微分へ収束するので
-
-$$
-Df(x)[y-x]
-\le f(y)-f(x).
-$$
-
-です。
-
----
-
-## 4. 微分できなくても「支える傾き」は考えられる
-
-代表例は
-
-$$
-f(x)=|x|.
-$$
-
-$x=0$ では通常の微分は存在しません。
-
-しかし
-
-$$
-|y|\ge ay
-$$
-
-を全ての $y\in\mathbb R$ で満たす $a$ を考えると
-
-$$
--1\le a\le1
-$$
-
-なら成立します。
-
-つまり原点では一つの接線ではなく、たくさんの「下から支える直線」があります。
-
-この傾きを劣勾配として一般化します。
-
----
-
-## 5. 劣勾配
-
-凸関数 $f:X\to(-\infty,+\infty]$ と点 $x$ を考えます。
+## 3. 劣勾配と劣微分
 
 <a id="def-f0-02c4-subgradient-subdifferential"></a>
 
 <!-- formal-statement-start -->
 > **定義（劣勾配・劣微分）**  
-> 凸関数 $f:X\to(-\infty,+\infty]$ に対し、$x^*\in X^*$ が
+> 凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$ と $f(x)<\infty$ を満たす点 $x$ を考えます。$p\in\mathbb R^n$ が
 
 $$
-f(y)\ge f(x)+x^*(y-x)\qquad(\forall y\in X)
+f(y)\ge f(x)+p^{\mathsf T}(y-x)\qquad(\forall y\in\mathbb R^n)
 $$
 
-> を満たすとき、$x^*$ を $x$ における **劣勾配** といいます。劣勾配全体の集合を **劣微分** といい $\partial f(x)$ と書きます。
+> を満たすとき、$p$ を $x$ における劣勾配といいます。劣勾配全体を $\partial f(x)$ と書き、$x$ における劣微分といいます。
 <!-- formal-statement-end -->
 
-ここで $\partial f(x)$ は一つのベクトルではなく集合です。
+<!-- definition-example-start: def-f0-02c4-subgradient-subdifferential -->
+### 3.1 例：$f(x)=|x|$ の原点での劣微分
+
+**定義の確認**
+
+$p\in\partial f(0)$ である条件は
+
+$$
+|y|\ge py\qquad(\forall y\in\mathbb R)
+$$
+
+です。$y>0$ を入れると $p\le1$、$y<0$ を入れると $p\ge-1$ が必要です。逆に $-1\le p\le1$ なら、$y\ge0$ では $py\le y=|y|$、$y<0$ では $py\le-y=|y|$ です。従って
+
+$$
+\boxed{\partial |\cdot|(0)=[-1,1]}.
+$$
+<!-- definition-example-end -->
+
+<a id="thm-f0-02c4-fermat"></a>
+
+<!-- formal-statement-start -->
+> **定理（凸関数のFermat条件）**  
+> 凸関数 $f:\mathbb R^n\to(-\infty,+\infty]$ と $f(x^*)<\infty$ に対して
+
+$$
+x^*\text{ が大域的最小点}\iff0\in\partial f(x^*)
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+### 3.2 証明の見取り図
+
+劣勾配の定義へ $p=0$ を入れるだけです。
+
+<!-- proof-start -->
+### 証明
+
+$0\in\partial f(x^*)$ なら定義から $f(y)\ge f(x^*)$ が全ての $y$ で成り立つので $x^*$ は大域的最小点です。逆に $x^*$ が大域的最小点なら
+
+$$
+f(y)\ge f(x^*)=f(x^*)+0^{\mathsf T}(y-x^*)
+$$
+
+なので $0\in\partial f(x^*)$ です。$\square$
+<!-- proof-end -->
 
 ---
 
-## 6. 絶対値の劣微分
+## 4. 方向微分は劣勾配を全部まとめて持つ
+
+有限値凸関数 $f:\mathbb R^n\to\mathbb R$ に対して
 
 $$
-f(x)=|x|
+f'(x;d):=\lim_{t\downarrow0}\frac{f(x+td)-f(x)}{t}
 $$
 
-について
+を考えます。凸性によりこの右極限は存在します。
+
+<a id="lem-f0-02c4-directional-support"></a>
+
+<!-- formal-statement-start -->
+> **補題（方向微分の支持関数表示）**  
+> 有限値凸関数 $f:\mathbb R^n\to\mathbb R$ について
 
 $$
-\partial f(x)
-=
-\begin{cases}
-\{-1\},&x<0,\\
-[-1,1],&x=0,\\
-\{1\},&x>0.
-\end{cases}
+\boxed{f'(x;d)=\max_{p\in\partial f(x)}p^{\mathsf T}d}
 $$
 
-です。
+> が成り立ちます。
+<!-- formal-statement-end -->
 
-微分可能な点では劣微分は一点集合になり
+### 4.1 証明の見取り図
+
+$d\mapsto f'(x;d)$ は sublinear functional です。方向 $d_0$ を固定し、その方向で値を一致させる線形汎関数を [Hahn--Banachの定理](../F0_02C6_Hahn_Banach_分離定理/index.md#thm-f0-02c6-hahn-banach-real) で全方向へ延長すると、その線形汎関数が劣勾配になります。
+
+<!-- proof-start -->
+### 証明
+
+$\phi(d):=f'(x;d)$ と置きます。正の斉次性は定義から従います。また凸性から
 
 $$
-\boxed{\partial f(x)=\{Df(x)\}}
+f(x+t(d_1+d_2))
+\le\frac12f(x+2td_1)+\frac12f(x+2td_2)
 $$
 
-です。
+なので $f(x)$ を引いて $t$ で割り $t\downarrow0$ とすると
 
-有限次元なら $\{\nabla f(x)\}$ です。
+$$
+\phi(d_1+d_2)\le\phi(d_1)+\phi(d_2).
+$$
+
+従って $\phi$ は sublinear です。
+
+任意の $p\in\partial f(x)$ に対し
+
+$$
+f(x+td)-f(x)\ge tp^{\mathsf T}d
+$$
+
+なので $p^{\mathsf T}d\le\phi(d)$。従って
+
+$$
+\sup_{p\in\partial f(x)}p^{\mathsf T}d\le\phi(d).
+$$
+
+逆向きを示します。方向 $d_0$ を固定し、一次元空間 $M=\operatorname{span}\{d_0\}$ 上で
+
+$$
+\ell(td_0)=t\phi(d_0)
+$$
+
+と置きます。$t<0$ の場合も sublinear 性から $-\phi(d_0)\le\phi(-d_0)$ なので $\ell\le\phi$ です。
+
+Hahn--Banach により $\ell$ は $\mathbb R^n$ 全体の線形汎関数 $p^{\mathsf T}d$ へ、
+
+$$
+p^{\mathsf T}d\le\phi(d)\qquad(\forall d)
+$$
+
+を保って延長できます。凸関数の割線の傾きは右微分以上なので
+
+$$
+\phi(d)\le f(x+d)-f(x).
+$$
+
+従って $p^{\mathsf T}d\le f(x+d)-f(x)$。$y=x+d$ と置けば $p\in\partial f(x)$ です。しかも $d_0$ 上では
+
+$$
+p^{\mathsf T}d_0=\phi(d_0)=f'(x;d_0).
+$$
+
+よって上限は達成されます。$\square$
+<!-- proof-end -->
 
 ---
 
-## 7. 劣勾配による最小条件
+## 5. 劣微分の和則
 
-凸関数 $f$ について
+<a id="thm-f0-02c4-sum-rule"></a>
+
+<!-- formal-statement-start -->
+> **定理（有限値凸関数の劣微分和則）**  
+> $f,g:\mathbb R^n\to\mathbb R$ を有限値凸関数とすると
+
+$$
+\boxed{\partial(f+g)(x)=\partial f(x)+\partial g(x)}
+$$
+
+> が任意の $x$ で成り立ちます。
+<!-- formal-statement-end -->
+
+### 5.1 証明の見取り図
+
+`⊇` は定義を足すだけです。`⊆` では変数を二コピーに分け、二つのepigraphの上側と「二コピーを同じ点へ戻す集合」を分離します。
+
+<!-- proof-start -->
+### 証明
+
+平行移動と定数の減算により $x=0$、$f(0)=g(0)=0$ としてよいものとします。
+
+$p_1\in\partial f(0)$、$p_2\in\partial g(0)$ なら
+
+$$
+f(u)\ge p_1^{\mathsf T}u,
+\qquad g(u)\ge p_2^{\mathsf T}u
+$$
+
+なので $p_1+p_2\in\partial(f+g)(0)$。従って一方向の包含は成立します。
+
+逆に $p\in\partial(f+g)(0)$ とします。$\mathbb R^{2n+2}$ で
+
+$$
+A=\{(u,v,r,s):r>f(u),\ s>g(v)\},
+$$
+
+$$
+B=\{(w,w,r,s):r+s\le p^{\mathsf T}w\}
+$$
+
+と置きます。有限値凸関数は有限次元で連続なので $A$ は開凸集合、$B$ は凸集合で、劣勾配条件から $A\cap B=\varnothing$ です。
+
+有限次元の凸集合分離により非零の $(a,b,\alpha,\beta)$ で両者を分離できます。$B$ で $r,s$ を負へ任意に動かせることから $\alpha,\beta\ge0$、$(r,s)=(t,-t)$ を動かせることから $\alpha=\beta=: \gamma$ です。また $(w,w,p^{\mathsf T}w,0)\in B$ を全ての $w$ について使うと
+
+$$
+a+b+\gamma p=0.
+$$
+
+$\gamma=0$ なら $a+b=0$ ですが、$A$ では $u,v$ を独立に動かせるため $a=b=0$ となり矛盾します。従って $\gamma>0$。全体を割って $\gamma=1$ とします。
+
+$A$ 側で $r\downarrow f(u)$、$s\downarrow g(v)$ とすると
+
+$$
+a^{\mathsf T}u+b^{\mathsf T}v+f(u)+g(v)\ge0.
+$$
+
+$v=0$ として $-a\in\partial f(0)$、$u=0$ として $-b\in\partial g(0)$ が得られます。さらに $a+b+p=0$ なので
+
+$$
+p=(-a)+(-b).
+$$
+
+従って逆包含も成立します。$\square$
+<!-- proof-end -->
+
+> **補足**  
+> 拡張実数値凸関数では定義域の境界で分離が退化しないための条件が必要です。標準的には `ri(dom f)∩ri(dom g)≠∅`、または一方が共通定義域上の一点で連続、という条件を確認します。
+
+---
+
+## 6. max 関数の劣微分
+
+有限個の有限値凸関数 $f_1,\ldots,f_m$ に対し
+
+$$
+h(x)=\max_{1\le i\le m}f_i(x),
+\qquad
+I(x)=\{i:f_i(x)=h(x)\}
+$$
+
+と置きます。
+
+<a id="thm-f0-02c4-max-subdifferential"></a>
+
+<!-- formal-statement-start -->
+> **定理（max関数の劣微分公式）**  
+> 上の設定で
 
 $$
 \boxed{
-0\in\partial f(x^*)
+\partial h(x)=
+\operatorname{conv}\bigcup_{i\in I(x)}\partial f_i(x)
 }
 $$
 
-なら $x^*$ は大域的最小点です。
-
-実際、劣勾配の定義で $x^*=x$、$x^*=0$ に相当する汎関数を使えば
+> が成り立ちます。特に各 $f_i$ が $x$ で微分可能なら
 
 $$
-f(y)\ge f(x^*)
-\qquad(\forall y)
+\partial h(x)=\operatorname{conv}\{\nabla f_i(x):i\in I(x)\}.
+$$
+<!-- formal-statement-end -->
+
+### 6.1 証明の見取り図
+
+active な各 $f_i$ の劣勾配の凸結合は max を下から支えます。逆向きは方向微分の支持関数表示を使い、凸包の外にある劣勾配から最近点へのベクトルを分離方向として作ります。
+
+<!-- proof-start -->
+### 証明
+
+$p_i\in\partial f_i(x)$ $(i\in I(x))$ とし、$\alpha_i\ge0$、$\sum\alpha_i=1$ とします。任意の $y$ に対して
+
+$$
+\begin{aligned}
+h(y)
+&\ge\sum_{i\in I(x)}\alpha_i f_i(y)\\
+&\ge h(x)+\left(\sum_{i\in I(x)}\alpha_i p_i\right)^{\mathsf T}(y-x).
+\end{aligned}
 $$
 
-です。
-
-逆に、適切な条件の下で凸関数の最小点なら $0\in\partial f(x^*)$ です。
-
-微分可能ならおなじみの
+従って
 
 $$
-Df(x^*)=0
+\operatorname{conv}\bigcup_{i\in I(x)}\partial f_i(x)
+\subset\partial h(x).
 $$
 
-へ戻ります。
+逆に $p\in\partial h(x)$ とします。inactive index には正の値の差があり、各 $f_i$ は連続なので、固定した方向 $d$ に対して十分小さい $t>0$ では max は active index だけで決まります。従って
+
+$$
+h'(x;d)=\max_{i\in I(x)}f_i'(x;d).
+$$
+
+方向微分の支持関数表示から
+
+$$
+h'(x;d)
+=
+\max_{q\in C}q^{\mathsf T}d,
+\qquad
+C:=\operatorname{conv}\bigcup_{i\in I(x)}\partial f_i(x).
+$$
+
+ここで各 $f_i$ は有限値凸関数なので $x$ の近傍で局所Lipschitzです。劣勾配 $q\in\partial f_i(x)$ はその局所Lipschitz定数で一様に有界になり、劣微分は定義から閉集合です。従って各 $\partial f_i(x)$ は compact、有限個の和集合の凸包 $C$ も有限次元では compact です。
+
+また $p\in\partial h(x)$ なので全ての $d$ について
+
+$$
+p^{\mathsf T}d\le h'(x;d).
+$$
+
+もし $p\notin C$ なら、compact 凸集合 $C$ 上で $p$ に最も近い点 $q_0$ が存在します。$d=p-q_0$ と置くと、最近点の特徴付けから
+
+$$
+d^{\mathsf T}(q-q_0)\le0
+\qquad(\forall q\in C).
+$$
+
+従って
+
+$$
+\sup_{q\in C}q^{\mathsf T}d\le q_0^{\mathsf T}d,
+$$
+
+一方
+
+$$
+p^{\mathsf T}d
+=q_0^{\mathsf T}d+\|p-q_0\|^2
+>q_0^{\mathsf T}d.
+$$
+
+よって
+
+$$
+p^{\mathsf T}d
+>
+\sup_{q\in C}q^{\mathsf T}d
+=h'(x;d),
+$$
+
+となり矛盾します。従って $p\in C$ です。$\square$
+<!-- proof-end -->
 
 ---
 
-## 8. 制約を関数へ埋め込む
-
-集合 $C\subset X$ の上だけで $f$ を最小化したいとします。
+## 7. indicator関数とnormal cone
 
 <a id="def-f0-02c4-convex-indicator"></a>
 
 <!-- formal-statement-start -->
 > **定義（集合のindicator関数）**  
-> 集合 $C\subset X$ に対して
+> 集合 $C\subset\mathbb R^n$ に対して
 
 $$
-\delta_C(x)=\begin{cases}0,&x\in C,\\+\infty,&x\notin C\end{cases}
+\delta_C(x)=
+\begin{cases}
+0,&x\in C,\\
++\infty,&x\notin C
+\end{cases}
 $$
 
-> と定めた拡張実数値関数を $C$ の **indicator関数** といいます。
+> と定める拡張実数値関数を $C$ の indicator 関数といいます。
 <!-- formal-statement-end -->
 
-すると
+<!-- definition-example-start: def-f0-02c4-convex-indicator -->
+### 7.1 例：$C=[0,\infty)$ のindicator関数
+
+**定義の確認**
 
 $$
-\min_{x\in C}f(x)
+\delta_C(2)=0,
+\qquad\delta_C(0)=0,
+\qquad\delta_C(-1)=+\infty.
 $$
 
-は
-
-$$
-\boxed{
-\min_{x\in X}
-\{f(x)+\delta_C(x)\}
-}
-$$
-
-と書けます。
-
-なおこれは確率論で $1_A$ と書く0/1の指示関数とは別物です。
-
----
-
-## 9. normal cone
+従って $f+\delta_C$ を全空間で最小化すると、$x<0$ は自動的に候補から除外され、$x\ge0$ 上だけの最小化と一致します。
+<!-- definition-example-end -->
 
 <a id="def-f0-02c4-normal-cone"></a>
 
 <!-- formal-statement-start -->
 > **定義（normal cone）**  
-> 凸集合 $C$ と $x\in C$ に対して
+> 凸集合 $C\subset\mathbb R^n$ と $x\in C$ に対して
 
 $$
-N_C(x)=\{x^*\in X^*:x^*(y-x)\le0\ \forall y\in C\}
+N_C(x)=\{v\in\mathbb R^n:v^{\mathsf T}(y-x)\le0\ \forall y\in C\}
 $$
 
-> を $C$ の $x$ における **normal cone** といいます。
+> を $C$ の $x$ における normal cone といいます。$x\notin C$ では $N_C(x)=\varnothing$ とします。
 <!-- formal-statement-end -->
 
-$x\notin C$ のときは通常
+<!-- definition-example-start: def-f0-02c4-normal-cone -->
+### 7.2 例：$C=[0,\infty)$ のnormal cone
+
+**定義の確認**
+
+$x>0$ では左右に $C$ の点を取れるので $v=0$ だけが定義を満たし
 
 $$
-N_C(x)=\varnothing
+N_C(x)=\{0\}\qquad(x>0).
 $$
 
-とします。
-
-意味は
-
-> $x$ から集合内部へ向かうどの方向 $y-x$ に対しても、非正の内積・作用を持つ外向き法線。
-
-です。
-
----
-
-## 10. 1次元でnormal coneを見る
-
-$$
-C=[0,\infty)
-$$
-
-とします。
-
-### 10.1 内点 $x>0$
-
-$x$ から左右へ少し動けるため、$a(y-x)\le0$ を全ての $y\ge0$ で満たす実数 $a$ は
-
-$$
-a=0
-$$
-
-だけです。
-
-したがって
-
-$$
-N_C(x)=\{0\}
-\qquad(x>0).
-$$
-
-### 10.2 境界点 $x=0$
-
-条件は
-
-$$
-ay\le0
-\qquad(\forall y\ge0)
-$$
-
-なので
-
-$$
-a\le0.
-$$
-
-したがって
+境界 $x=0$ では $vy\le0$ が全ての $y\ge0$ で必要なので
 
 $$
 \boxed{N_C(0)=(-\infty,0]}.
 $$
+<!-- definition-example-end -->
 
-制約境界では非零の法線が現れます。
+<a id="thm-f0-02c4-indicator-normal"></a>
+
+<!-- formal-statement-start -->
+> **定理（indicator関数の劣微分はnormal cone）**  
+> 凸集合 $C$ と $x\in C$ に対して
+
+$$
+\boxed{\partial\delta_C(x)=N_C(x)}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+### 7.3 証明の見取り図
+
+$y\notin C$ では indicator の左辺が $+\infty$ なので自動的です。$y\in C$ だけを見ると劣勾配条件が normal cone の不等式そのものになります。
+
+<!-- proof-start -->
+### 証明
+
+$x\in C$ なので $\delta_C(x)=0$ です。$v\in\partial\delta_C(x)$ の条件は
+
+$$
+\delta_C(y)\ge v^{\mathsf T}(y-x)\qquad(\forall y).
+$$
+
+$y\notin C$ では自動的に成立し、$y\in C$ では
+
+$$
+v^{\mathsf T}(y-x)\le0
+$$
+
+となります。これは $v\in N_C(x)$ の定義そのものです。$\square$
+<!-- proof-end -->
 
 ---
 
-## 11. 半空間のnormal cone
+## 8. 制約付き最適化の一次条件
 
-Hilbert空間で
+<a id="thm-f0-02c4-smooth-constrained-fermat"></a>
 
-$$
-C=\{x:\langle a,x\rangle\le b\},
-\qquad a\ne0
-$$
-
-を考えます。
-
-内点では normal cone は $\{0\}$ です。
-
-境界
+<!-- formal-statement-start -->
+> **定理（凸集合上の微分可能凸最適化）**  
+> $C\subset\mathbb R^n$ を非空凸集合、$f:\mathbb R^n\to\mathbb R$ を微分可能な凸関数とします。$x^*\in C$ に対して
 
 $$
-\langle a,x\rangle=b
+x^*\in\arg\min_{x\in C}f(x)
+\iff
+-\nabla f(x^*)\in N_C(x^*)
 $$
 
-では、外向き法線は $a$ の非負倍なので
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+### 8.1 証明の見取り図
+
+必要性は $x^*$ から任意の $y\in C$ へ線分上で動かして右微分を見ます。十分性は凸関数の一次条件と normal cone の符号を合わせます。
+
+<!-- proof-start -->
+### 証明
+
+$x^*$ が $C$ 上の最小点とします。任意の $y\in C$ に対して
 
 $$
-\boxed{
-N_C(x)=\{\lambda a:\lambda\ge0\}
-}
+x^*+t(y-x^*)\in C\qquad(0\le t\le1)
 $$
 
-です。
-
-これがKKTで
+です。一変数関数 $\psi(t)=f(x^*+t(y-x^*))$ は $t=0$ で右側最小値を取るので
 
 $$
-\lambda\nabla g(x),
-\qquad\lambda\ge0
+\psi'(0+)=\nabla f(x^*)^{\mathsf T}(y-x^*)\ge0.
 $$
 
-が現れる最も単純な幾何です。
+従って $-\nabla f(x^*)\in N_C(x^*)$ です。
+
+逆に $-\nabla f(x^*)\in N_C(x^*)$ とします。凸関数の一次条件から
+
+$$
+f(y)\ge f(x^*)+\nabla f(x^*)^{\mathsf T}(y-x^*)
+$$
+
+であり、normal cone 条件から第2項は非負です。従って $f(y)\ge f(x^*)$ が全ての $y\in C$ で成り立ちます。$\square$
+<!-- proof-end -->
 
 ---
 
-## 12. indicator関数の劣微分はnormal cone
+## 9. 演習 Level A
 
-$x\in C$ とします。
+### F0-02C4-A01 絶対値の劣微分
 
-$x^*\in\partial\delta_C(x)$ である条件は
+- Level: A
+- 目安時間: 8分
+- 主題: 劣勾配の定義
+- 使用技術: 全ての $y$ に対する支持不等式
 
-$$
-\delta_C(y)
-\ge \delta_C(x)+x^*(y-x)
-$$
+$f(x)=|x|$ について $\partial f(0)$ を定義から求めよ。
 
-です。
-
-$x\in C$ なので $\delta_C(x)=0$ です。
-
-$y\notin C$ なら左辺は $+\infty$ なので条件は自動的です。
-
-$y\in C$ では
+<!-- solution-start -->
+#### 解答
+##### 詳細解答
+$p\in\partial f(0)$ なら $|y|\ge py$ が全ての $y$ で必要です。$y>0$ から $p\le1$、$y<0$ から $p\ge-1$。逆も成立するので
 
 $$
-0\ge x^*(y-x).
+\partial f(0)=[-1,1].
+$$
+##### 本番答案
+$|y|\ge py$ を $y>0,y<0$ に分けると $p\le1,p\ge-1$。逆も成立するため $\boxed{\partial|\cdot|(0)=[-1,1]}$。
+##### 採点基準（20点）
+- 劣勾配条件: 6点
+- 必要条件: 8点
+- 逆向き: 4点
+- 結論: 2点
+<!-- solution-end -->
+
+### F0-02C4-A02 区間のnormal cone
+
+- Level: A
+- 目安時間: 8分
+- 主題: normal cone
+- 使用技術: 定義の符号判定
+
+$C=[0,1]$ について $N_C(0)$、$N_C(1/2)$、$N_C(1)$ を求めよ。
+
+<!-- solution-start -->
+#### 解答
+##### 詳細解答
+$x=0$ では $v\le0$、内点 $1/2$ では左右へ動けるので $v=0$、$x=1$ では $v\ge0$ です。
+
+$$
+N_C(0)=(-\infty,0],\quad N_C(1/2)=\{0\},\quad N_C(1)=[0,\infty).
+$$
+##### 本番答案
+$\boxed{N_C(0)=(-\infty,0],\ N_C(1/2)=\{0\},\ N_C(1)=[0,\infty)}$。
+##### 採点基準（20点）
+- $x=0$: 6点
+- 内点: 5点
+- $x=1$: 6点
+- 結論: 3点
+<!-- solution-end -->
+
+### F0-02C4-A03 max関数の劣微分
+
+- Level: A
+- 目安時間: 10分
+- 主題: max関数
+- 使用技術: active index
+
+$$
+h(x)=\max\{x,-x\}
 $$
 
-したがって
+について $\partial h(0)$ を max 関数の劣微分公式から求めよ。
+
+<!-- solution-start -->
+#### 解答
+##### 詳細解答
+$f_1(x)=x$、$f_2(x)=-x$ とすると0では両方active、勾配は1と-1なので
 
 $$
-\boxed{
-\partial\delta_C(x)=N_C(x)
-}.
+\partial h(0)=\operatorname{conv}\{-1,1\}=[-1,1].
 $$
-
-normal cone は、制約集合のindicator関数の劣勾配だったのです。
+##### 本番答案
+$I(0)=\{1,2\}$、勾配は $1,-1$ より $\boxed{\partial h(0)=[-1,1]}$。
+##### 採点基準（20点）
+- active index: 6点
+- 勾配: 6点
+- 凸包: 6点
+- 結論: 2点
+<!-- solution-end -->
 
 ---
 
-## 13. 制約付き最適化の一次条件
+## 10. 演習 Level B
 
-問題
+### F0-02C4-B01 和則を実際に使う
 
-$$
-\min_{x\in C}f(x)
-$$
-
-を
-
-$$
-\min_x f(x)+\delta_C(x)
-$$
-
-と見ます。
-
-凸解析の和の劣微分公式が適用できる条件の下で
+- Level: B
+- 目安時間: 12分
+- 主題: 劣微分和則
+- 使用技術: 平滑項と絶対値
 
 $$
-\partial(f+\delta_C)(x)
-=
-\partial f(x)+N_C(x).
+f(x)=|x|+\frac12(x-2)^2
 $$
 
-したがって最適点 $x^*$ では
+について $\partial f(0)$ を求め、0が最小点か判定せよ。
+
+<!-- solution-start -->
+#### 解答
+##### 詳細解答
+和則より
 
 $$
-\boxed{
-0\in\partial f(x^*)+N_C(x^*)
-}
+\partial f(0)=\partial|\cdot|(0)+(0-2)=[-1,1]-2=[-3,-1].
 $$
 
-となります。
+0はこの集合に含まれないのでFermat条件から0は最小点ではありません。
+##### 本番答案
+$\partial f(0)=[-3,-1]$ で $0\notin\partial f(0)$。従って0は最小点でない。
+##### 採点基準（20点）
+- 和則: 6点
+- 各劣微分: 6点
+- 集合和: 4点
+- Fermat判定: 4点
+<!-- solution-end -->
 
-$f$ が微分可能なら
+### F0-02C4-B02 normal coneで制約付き最適性を確認
 
-$$
-\boxed{
--Df(x^*)\in N_C(x^*)
-}.
-$$
-
-これが制約付き最適化の幾何学的な一次条件です。
-
----
-
-## 14. 具体例：$x\ge0$ 上で二次関数を最小化
+- Level: B
+- 目安時間: 12分
+- 主題: 制約付きFermat条件
+- 使用技術: normal cone
 
 $$
 f(x)=\frac12(x+1)^2,
 \qquad C=[0,\infty)
 $$
 
-とします。
-
-制約がなければ最小点は $x=-1$ ですが、実行不能です。
-
-制約付き最小点は
-
-$$
-x^*=0.
-$$
-
-微分は
-
-$$
-f'(0)=1.
-$$
-
-一方
-
-$$
-N_C(0)=(-\infty,0].
-$$
-
-したがって
-
-$$
--f'(0)=-1\in N_C(0).
-$$
-
-目的関数は左へ進みたがっていますが、制約集合が左方向を禁止し、その反力としてnormal coneが現れると解釈できます。
-
----
-
-## 演習
-
-### F0-02C4-A01 絶対値の劣微分
-
-- Level: A
-- 目安時間: 10分
-
-$f(x)=|x|$ について $\partial f(0)$ を求めよ。
+とする。$x^*=0$ が制約付き最小点であることを normal cone 条件で確認せよ。
 
 <!-- solution-start -->
-#### 詳細解答
-劣勾配$a$は $|y|\ge ay$ を全てのyで満たす必要がある。これは $-1\le a\le1$ と同値なので $\partial f(0)=[-1,1]$。
-#### 本番答案
-劣勾配$a$は $|y|\ge ay$ を全てのyで満たす必要がある。これは $-1\le a\le1$ と同値なので $\partial f(0)=[-1,1]$。
-#### 採点基準（20点）
-- 定義・設定: 6点
-- 推論・計算: 10点
+#### 解答
+##### 詳細解答
+$f'(0)=1$、$N_C(0)=(-\infty,0]$ なので $-f'(0)=-1\in N_C(0)$。従って定理より $x^*=0$ は $C$ 上の大域的最小点です。
+##### 本番答案
+$f'(0)=1$、$N_C(0)=(-\infty,0]$ なので $-1\in N_C(0)$。よって $x^*=0$ は制約付き最小点。
+##### 採点基準（20点）
+- 微分: 4点
+- normal cone: 6点
+- 包含確認: 6点
 - 結論: 4点
 <!-- solution-end -->
 
-### F0-02C4-B01 normal coneで最適性を確認
+### F0-02C4-B03 二つの二次関数のmax
 
 - Level: B
 - 目安時間: 15分
+- 主題: max関数の劣微分
+- 使用技術: active gradientの凸包
 
-$C=[0,\infty)$、$f(x)=\frac12(x+1)^2$ とする。$x^*=0$ で $-f'(x^*)\in N_C(x^*)$ を確認せよ。
+$$
+h(x)=\max\{(x-1)^2,(x+1)^2\}
+$$
+
+について $\partial h(0)$ を求め、0が大域的最小点であることを示せ。
 
 <!-- solution-start -->
-#### 詳細解答
-$f'(0)=1$、$N_C(0)=(-\infty,0]$ なので $-f'(0)=-1\in N_C(0)$。従って一次最適性条件を満たす。
-#### 本番答案
-$f'(0)=1$、$N_C(0)=(-\infty,0]$ なので $-f'(0)=-1\in N_C(0)$。従って一次最適性条件を満たす。
-#### 採点基準（20点）
-- 方針: 5点
-- 中心となる導出: 11点
-- 結論: 4点
+#### 解答
+##### 詳細解答
+$x=0$ では両関数の値が1なので両方active。勾配は $-2,2$ です。従って
+
+$$
+\partial h(0)=\operatorname{conv}\{-2,2\}=[-2,2].
+$$
+
+$0\in\partial h(0)$ なのでFermat条件より0は大域的最小点です。
+##### 本番答案
+両項がactive、勾配は $-2,2$。従って $\partial h(0)=[-2,2]\ni0$。Fermat条件より $x=0$ は大域的最小点。
+##### 採点基準（20点）
+- active判定: 4点
+- 勾配計算: 6点
+- max公式: 6点
+- Fermat条件: 4点
 <!-- solution-end -->
 
 ---
 
-## 次に進む
+## 11. 次に進む
 
-**次：[F0-02C4A tangent cone・polar cone・dual cone](../F0_02C4A_tangent_polar_dual_cone/index.md)**
+次の [F0-02C4A tangent cone・polar cone・dual cone](../F0_02C4A_tangent_polar_dual_cone/index.md) では、実行可能な一次方向と法線を錐の双対関係として整理します。その後 C5/C5A で制約勾配から normal cone を生成し、KKT乗数へ接続します。
