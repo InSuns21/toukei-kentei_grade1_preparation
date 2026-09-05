@@ -20,7 +20,6 @@ learning_objectives:
   - 行列式・逆行列・階数・固有値・直交対角化・二次形式・正定値性を扱える
   - 線形包・零空間・特異行列を定義から説明し、階数・退化次数の定理と結び付けて使える
   - 射影行列・シュール補・基本的な行列微分を後続の統計問題で再利用できる
-  - 行列積・掃き出し・3次行列の逆行列・固有分解・正規方程式・Cholesky分解と、基本微分・偏微分・積分を紙上で安定して計算できる
 definitions:
   - { id: F0M-DEF-01, name: 広義積分 }
   - { id: F0M-DEF-02, name: ガンマ関数 }
@@ -53,13 +52,11 @@ canonical_examples:
   - Taylor 展開とランダウ記号による n^{-1/2} スケールの漸近展開
   - ガンマ積分の Laplace 法によるスターリング公式の概略導出
   - 多項分布の分散共分散行列に現れる零空間と特異性
-  - 正規方程式による最小二乗計算と残差の直交性
-  - Cholesky分解の手計算
 problem_patterns: [MATH-DIFF, MATH-INT, MATH-JAC, MATH-GAMMA-BETA, MATH-LA]
 past_exam_alignment: []
 integrated_exam_problems: [F0M-DRILL-01]
-exercise_counts: { level_a: 17, level_b: 11, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 6, exercises: 9, review: 2 }
+exercise_counts: { level_a: 9, level_b: 7, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
 completion_criteria:
   level_b_score_at_least: 0.85
   level_c_score_at_least: 0.70
