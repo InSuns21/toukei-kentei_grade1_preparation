@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 53件
+- 明示的な定義ラベルヒット: 58件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -100,8 +100,8 @@
 |math-interval-estimation|信頼係数|exact|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-confidence-coefficient|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-confidence-coefficient|—|—|
 |math-interval-estimation|信頼区間の構成|exact|I2-02 / 公式出題範囲との対応|—|—|—|
 |math-interval-estimation|被覆確率|exact|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|I2-02 / 1. 信頼区間は「母数がランダム」なのではない#def-i2-02-coverage-probability|—|I2-02 / I2-02-A01 95%信頼区間の意味|
-|math-testing-foundations|仮説|exact|F0-00 / 1. この章で扱う数学|—|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A04 尤度比の向きを読む|
-|math-testing-foundations|検定統計量|exact|I1-01 / I1-01 尤度・最尤推定|—|—|—|
+|math-testing-foundations|仮説|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-hypothesis-classification|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A04 尤度比の向きを読む|
+|math-testing-foundations|検定統計量|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-test-statistic|I3-01 / 1.1 正規母平均の片側検定を例にする|—|
 |math-testing-foundations|P値|exact|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|I3-01 / 4. P値は「どの水準なら棄却されるか」をデータから測る#def-i3-01-pvalue|—|I3-01 / I3-01-A03|
 |math-testing-foundations|有意水準|exact|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 2. 第一種の過誤を先に制御する#def-i3-01-significance-level|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A01 第一種・第二種過誤を言葉で区別する|
 |math-testing-foundations|棄却域|exact|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1. 検定は「データから二者択一をする規則」#def-i3-01-rejection-region|I3-01 / 1.1 正規母平均の片側検定を例にする|I3-01 / I3-01-A02 正規片側検定の検出力|
@@ -110,9 +110,9 @@
 |math-testing-foundations|検出力（検定力）|alias|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3. 第二種の過誤と検出力関数#def-i3-01-power-function|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I3-01-A02 正規片側検定の|
 |math-testing-foundations|検出力曲線|exact|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A. 検出力曲線#def-i3-01-power-curve|I3-01 / 3A.1 例：標本サイズを増やすと曲線が立つ|I3-01 / I301-A05|
 |math-test-derivation|ネイマン・ピアソンの基本定理|exact|I3-01 / 公式出題範囲との対応|—|—|—|
-|math-test-derivation|尤度比検定|exact|I1-01 / I1-01 尤度・最尤推定|—|I3-02 / 10. 例: 正規母平均を未知分散の下で|I3-02 / I3-02-A01 高さ・距離・傾き|
-|math-test-derivation|ワルド型検定|exact|I2-01 / 4. 期待フィッシャー情報量と観測情報量#def-i2-01-observed-information|—|—|I3-02 / I3-02-A01 高さ・距離・傾き|
-|math-test-derivation|スコア型検定|exact|I2-02 / 8. 二項比率のワルド型区間は境界で危ない|—|—|I3-02 / I3-02-A01 高さ・距離・傾き|
+|math-test-derivation|尤度比検定|exact|I3-02 / 2. 尤度比検定: 山の高さを比べる#def-i3-02-likelihood-ratio|I3-02 / 2. 尤度比検定: 山の高さを比べる#def-i3-02-likelihood-ratio|I3-02 / 10. 例: 正規母平均を未知分散の下で|I3-02 / I3-02-A01 高さ・距離・傾き|
+|math-test-derivation|ワルド型検定|exact|I3-02 / 4. ワルド型検定: 推定値と帰無値の距離を見る#def-i3-02-wald|I3-02 / 4. ワルド型検定: 推定値と帰無値の距離を見る#def-i3-02-wald|—|I3-02 / I3-02-A01 高さ・距離・傾き|
+|math-test-derivation|スコア型検定|exact|I3-02 / 5. スコア型検定: 帰無仮説点での傾きを見る#def-i3-02-score|I3-02 / 5. スコア型検定: 帰無仮説点での傾きを見る#def-i3-02-score|—|I3-02 / I3-02-A01 高さ・距離・傾き|
 |math-normal-tests|平均値と分散に関する検定|exact|I3-03 / chapter.yaml|—|—|—|
 |math-normal-tests|複数の平均に関する検定|exact|I3-03 / 3A.2|—|—|—|
 |math-various-tests|二項分布・ポアソン分布など基本的な分布に関する検定|exact|I3-03 / 3A.1|—|—|I3-03 / I303-B05|
