@@ -1,0 +1,26 @@
+id: "F0-00TS2A"
+title: "定常過程のspectral representation theorem"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00TS1
+  - F0-00TS2
+  - F0-00FA1
+official_scope: []
+learning_objectives:
+  - Herglotz測度から L2(F) と過程の閉線形包の等長写像を構成できる
+  - 三角多項式が L2(F) で稠密になる理由を説明できる
+  - 直交増分ランダム測度 Z(A)=U1_A を構成できる
+  - X_t=integral exp(it lambda) Z(d lambda) を L2 の意味で証明できる
+definitions:
+  - { id: F0TS2A-DEF-01, name: 直交増分ランダム測度 }
+  - { id: F0TS2A-DEF-02, name: spectral stochastic integral }
+theorems:
+  - { id: F0TS2A-THM-01, name: 三角多項式の L2(F) 稠密性 }
+  - { id: F0TS2A-THM-02, name: 定常過程のspectral representation theorem }
+canonical_examples: [white noise, line spectrum process]
+problem_patterns: [SPECTRAL-ISOMETRY-1, ORTHOGONAL-INCREMENT-MEASURE-1, LINEAR-FILTER-SPECTRUM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.25, exercises: 1.25, review: 0.25 }

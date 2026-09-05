@@ -15,6 +15,7 @@
         "textbook/volumes/00_foundations/F0_00A1_上界_下界_supremum_infimum/index.md",
         "textbook/volumes/00_foundations/F0_00A2_選択公理_Zorn_極大原理/index.md",
         "textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md",
+        "textbook/volumes/00_foundations/F0_00A3A_AC_Zorn_equivalence_proof/index.md",
         "textbook/volumes/00_foundations/F0_00B_距離空間_開集合_閉集合_収束/index.md",
         "textbook/volumes/00_foundations/F0_00C_連続写像_コンパクト性_最大最小/index.md",
         "textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md",
@@ -121,6 +122,7 @@
         "textbook/volumes/00_foundations/F0_00SP5_generator_Kolmogorov_Fokker_Planck/index.md",
         "textbook/volumes/00_foundations/F0_00TS1_定常過程_Hilbert予測_Wold/index.md",
         "textbook/volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md",
+        "textbook/volumes/00_foundations/F0_00TS2A_spectral_representation_theorem/index.md",
         "textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/index.md"
       ]
     },
