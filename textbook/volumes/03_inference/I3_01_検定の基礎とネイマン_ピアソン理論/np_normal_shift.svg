@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+<title id="title">ネイマン・ピアソン補題の正規平均例</title>
+<desc id="desc">標本平均が帰無仮説では平均100、対立仮説では平均103、標準偏差1に従う。棄却境界101.645より右を取ると帰無仮説下の面積は0.05、対立仮説下の面積は約0.912となる。</desc>
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#777" stroke-width="1"/></pattern></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="system-ui, sans-serif" fill="#111">
+<text x="360" y="25" text-anchor="middle" font-size="18" font-weight="600">NP補題：5%の棄却予算をどこに置くか</text>
+<line x1="70" y1="370" x2="690" y2="370" stroke="#111"/><line x1="70" y1="45" x2="70" y2="370" stroke="#111"/>
+<path d="M388.2 370 C407 180,431 61,464 61 C515 61,535 260,690 370 Z" fill="#e5e5e5"/>
+<path d="M388.2 370 C395 319,404 297,388.2 290 C420 345,470 369,690 370 Z" fill="url(#hatch)"/>
+<path d="M70 370 C170 370,230 250,296 61 C350 61,390 250,470 370" fill="none" stroke="#111" stroke-width="2.5"/>
+<path d="M230 370 C330 370,395 250,464 61 C520 61,565 250,645 370" fill="none" stroke="#555" stroke-width="2.5" stroke-dasharray="8 5"/>
+<line x1="388.2" y1="55" x2="388.2" y2="370" stroke="#333" stroke-dasharray="5 4"/>
+<text x="394" y="69" font-size="12">棄却境界 101.645</text>
+<text x="215" y="112" font-size="13">H₀: μ=100（実線）</text><text x="470" y="112" font-size="13">H₁: μ=103（破線）</text>
+<text x="412" y="315" font-size="13">H₀側の右尾 = 0.05</text><text x="465" y="343" font-size="13">H₁側では右尾 ≈ 0.912</text>
+<text x="360" y="420" text-anchor="middle" font-size="14">標本平均 x̄（n=25, σ=5 なので sd(x̄)=1）</text>
+</g></svg>
