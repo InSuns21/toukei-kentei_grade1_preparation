@@ -19,7 +19,7 @@ const targets = [
 ];
 
 for (const [file, anchor, level] of targets) moveExercise(file, anchor, level);
-console.log(`Moved ${targets.length} Batch 1 exercise blocks into their Level sections.`);
+console.log(`Moved ${targets.length} Batch 1 exercise blocks into their exercise sections.`);
 
 function moveExercise(file, anchor, level) {
   let source = fs.readFileSync(file, 'utf8');
@@ -37,35 +37,56 @@ function moveExercise(file, anchor, level) {
   source = source.slice(0, start) + source.slice(end);
   source = source.replace(/\n{4,}/g, '\n\n\n');
 
-  const slot = findLevelSlot(source, file, level);
+  const slot = findExerciseSlot(source, file, level);
   const lines = block.split('\n');
   const headingIndex = lines.findIndex((line) => /^#{1,6}\s+/.test(line));
   if (headingIndex < 0) throw new Error(`${file}: ${anchor} has no heading`);
-  lines[headingIndex] = lines[headingIndex].replace(/^#{1,6}/, '#'.repeat(slot.depth + 1));
+  lines[headingIndex] = lines[headingIndex].replace(/^#{1,6}/, '#'.repeat(slot.problemDepth));
   block = lines.join('\n');
 
   source = source.slice(0, slot.end) + `\n\n${block}\n\n` + source.slice(slot.end).replace(/^\n+/, '');
   fs.writeFileSync(file, source, 'utf8');
 }
 
-function findLevelSlot(source, file, wantedLevel) {
+function findExerciseSlot(source, file, wantedLevel) {
   const headings = collectHeadings(source);
   const exerciseHeadings = headings.filter((heading) => heading.text.includes('演習') && !heading.text.includes('実過去問演習'));
 
   for (const exercise of exerciseHeadings) {
     const exerciseEnd = headings.find((heading) => heading.pos > exercise.pos && heading.depth <= exercise.depth)?.pos ?? source.length;
-    const levelHeading = headings.find((heading) => {
-      if (heading.pos <= exercise.pos || heading.pos >= exerciseEnd) return false;
+    const inExercise = headings.filter((heading) => heading.pos > exercise.pos && heading.pos < exerciseEnd);
+
+    const grouped = inExercise.find((heading) => {
       const match = heading.text.match(/^Level\s+([A-D])(?:\b|[:：])/i);
       return match?.[1].toUpperCase() === wantedLevel;
     });
-    if (!levelHeading) continue;
+    if (grouped) {
+      const levelEnd = headings.find((heading) => heading.pos > grouped.pos && heading.depth <= grouped.depth)?.pos ?? exerciseEnd;
+      return { problemDepth: grouped.depth + 1, end: levelEnd };
+    }
 
-    const levelEnd = headings.find((heading) => heading.pos > levelHeading.pos && heading.depth <= levelHeading.depth)?.pos ?? exerciseEnd;
-    return { depth: levelHeading.depth, end: levelEnd };
+    const problems = inExercise.flatMap((heading, index) => {
+      if (heading.depth <= exercise.depth || /^Level\s+/i.test(heading.text)) return [];
+      const nextPos = inExercise[index + 1]?.pos ?? exerciseEnd;
+      const lead = source.slice(heading.pos, nextPos);
+      const meta = lead.match(/^-\s*level:\s*([A-D])\b/im);
+      return meta ? [{ ...heading, level: meta[1].toUpperCase() }] : [];
+    });
+    if (!problems.length) continue;
+
+    const sameLevel = problems.filter((problem) => problem.level === wantedLevel);
+    if (sameLevel.length) {
+      const last = sameLevel.at(-1);
+      const nextProblem = problems.find((problem) => problem.pos > last.pos);
+      return { problemDepth: last.depth, end: nextProblem?.pos ?? exerciseEnd };
+    }
+
+    const order = { A: 0, B: 1, C: 2, D: 3 };
+    const later = problems.find((problem) => order[problem.level] > order[wantedLevel]);
+    return { problemDepth: problems[0].depth, end: later?.pos ?? exerciseEnd };
   }
 
-  throw new Error(`${file}: cannot find exercise Level ${wantedLevel}`);
+  throw new Error(`${file}: cannot find exercise slot for Level ${wantedLevel}`);
 }
 
 function collectHeadings(source) {
