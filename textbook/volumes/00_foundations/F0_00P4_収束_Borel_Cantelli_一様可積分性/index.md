@@ -27,14 +27,14 @@ Borel--Cantelli II：独立 + 確率和が発散なら無限回起こる
 <!-- formal-statement-start -->
 > **定義（事象列の上極限）**  
 > 事象列 $A_1,A_2,\ldots$ に対し
->
-> $$
-> \boxed{
-> \limsup_{n\to\infty}A_n
-> :=\bigcap_{m=1}^{\infty}\bigcup_{n\ge m}A_n
-> }
-> $$
->
+
+$$
+\boxed{
+\limsup_{n\to\infty}A_n
+:=\bigcap_{m=1}^{\infty}\bigcup_{n\ge m}A_n
+}
+$$
+
 > と定義します。これは $A_n$ が**無限回起こる事象**であり、$\{A_n\ \mathrm{i.o.}\}$ とも書きます。
 <!-- formal-statement-end -->
 
@@ -86,13 +86,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（概収束）**  
 > 確率変数列 $X_n$ が $X$ へ概収束するとは
->
-> $$
-> \boxed{
-> P\{\omega:X_n(\omega)\to X(\omega)\}=1
-> }
-> $$
->
+
+$$
+\boxed{
+P\{\omega:X_n(\omega)\to X(\omega)\}=1
+}
+$$
+
 > が成り立つことです。$X_n\xrightarrow{a.s.}X$ と書きます。
 <!-- formal-statement-end -->
 
@@ -108,13 +108,13 @@ $X_n(\omega)=1/n$, $X(\omega)=0$ とすれば、全ての $\omega$ で $X_n(\ome
 <!-- formal-statement-start -->
 > **定義（確率収束）**  
 > 任意の $\varepsilon>0$ に対して
->
-> $$
-> \boxed{
-> P(|X_n-X|>\varepsilon)\to0
-> }
-> $$
->
+
+$$
+\boxed{
+P(|X_n-X|>\varepsilon)\to0
+}
+$$
+
 > が成り立つとき、$X_n$ は $X$ へ確率収束するといい、$X_n\xrightarrow{p}X$ と書きます。
 <!-- formal-statement-end -->
 
@@ -170,17 +170,17 @@ $$
 <!-- formal-statement-start -->
 > **補題（Borel--Cantelli第1補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が
->
-> $$
-> \sum_{n=1}^{\infty}P(A_n)<\infty
-> $$
->
+
+$$
+\sum_{n=1}^{\infty}P(A_n)<\infty
+$$
+
 > を満たすなら
->
-> $$
-> \boxed{P(A_n\ \mathrm{i.o.})=0}
-> $$
->
+
+$$
+\boxed{P(A_n\ \mathrm{i.o.})=0}
+$$
+
 > が成り立ちます。独立性は仮定しません。
 <!-- formal-statement-end -->
 
@@ -236,17 +236,17 @@ $$
 <!-- formal-statement-start -->
 > **補題（Borel--Cantelli第2補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が互いに独立で
->
-> $$
-> \sum_{n=1}^{\infty}P(A_n)=\infty
-> $$
->
+
+$$
+\sum_{n=1}^{\infty}P(A_n)=\infty
+$$
+
 > を満たすなら
->
-> $$
-> \boxed{P(A_n\ \mathrm{i.o.})=1}
-> $$
->
+
+$$
+\boxed{P(A_n\ \mathrm{i.o.})=1}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -315,11 +315,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（概収束は確率収束を含意する）**  
 > $X_n\xrightarrow{a.s.}X$ なら
->
-> $$
-> \boxed{X_n\xrightarrow{p}X}
-> $$
->
+
+$$
+\boxed{X_n\xrightarrow{p}X}
+$$
+
 > です。
 <!-- formal-statement-end -->
 
@@ -380,11 +380,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（確率収束から概収束部分列）**  
 > $X_n\xrightarrow{p}X$ なら、部分列 $X_{n_k}$ が存在して
->
-> $$
-> \boxed{X_{n_k}\xrightarrow{a.s.}X}
-> $$
->
+
+$$
+\boxed{X_{n_k}\xrightarrow{a.s.}X}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 

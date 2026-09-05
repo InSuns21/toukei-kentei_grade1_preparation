@@ -37,14 +37,14 @@ iid CLTの最後の一手
 <!-- formal-statement-start -->
 > **定義（特性関数）**  
 > 実確率変数 $X$ の特性関数を
->
-> $$
-> \boxed{
-> \varphi_X(t):=E[e^{itX}]
-> }
-> \qquad(t\in\mathbb R)
-> $$
->
+
+$$
+\boxed{
+\varphi_X(t):=E[e^{itX}]
+}
+\qquad(t\in\mathbb R)
+$$
+
 > と定義します。
 <!-- formal-statement-end -->
 
@@ -88,27 +88,27 @@ moment generating functionと違い、重いtailを持つ分布でも発散し�
 <!-- formal-statement-start -->
 > **命題（特性関数の基本性質）**  
 > 任意の実確率変数 $X$ について
->
-> $$
-> \varphi_X(0)=1,
-> \qquad
-> |\varphi_X(t)|\le1,
-> $$
->
+
+$$
+\varphi_X(0)=1,
+\qquad
+|\varphi_X(t)|\le1,
+$$
+
 > 特性関数 $\varphi_X$ は $\mathbb R$ 上で連続です。また定数 $a,b$ に対し
->
-> $$
-> \varphi_{aX+b}(t)=e^{itb}\varphi_X(at).
-> $$
->
+
+$$
+\varphi_{aX+b}(t)=e^{itb}\varphi_X(at).
+$$
+
 > さらに $X,Y$ が独立なら
->
-> $$
-> \boxed{
-> \varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)
-> }
-> $$
->
+
+$$
+\boxed{
+\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -162,19 +162,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（分布収束）**  
 > $X_n,X$ の分布関数をそれぞれ $F_n,F$ とします。$F$ の全ての連続点 $x$ で
->
-> $$
-> \boxed{F_n(x)\to F(x)}
-> $$
->
+
+$$
+\boxed{F_n(x)\to F(x)}
+$$
+
 > が成り立つとき、$X_n$ は $X$ へ分布収束するといい
->
-> $$
-> X_n\xrightarrow{d}X
-> \quad\text{または}\quad
-> X_n\Rightarrow X
-> $$
->
+
+$$
+X_n\xrightarrow{d}X
+\quad\text{または}\quad
+X_n\Rightarrow X
+$$
+
 > と書きます。
 <!-- formal-statement-end -->
 
@@ -196,14 +196,14 @@ $X$ の分布関数は $x<0$ で0、$x\ge0$ で1であり、唯一の不連続�
 <!-- formal-statement-start -->
 > **定理（bounded Lipschitz testによる分布収束の特徴付け）**  
 > 実確率変数列 $X_n$ と $X$ について、次は同値です。
->
+
 > 1. $X_n\Rightarrow X$。
 > 2. 任意の有界Lipschitz関数 $h:\mathbb R\to\mathbb R$ に対して
->
-> $$
-> \boxed{E[h(X_n)]\to E[h(X)]}
-> $$
->
+
+$$
+\boxed{E[h(X_n)]\to E[h(X)]}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -347,8 +347,6 @@ $$
 
 ---
 
-<a id="lem-f0-00p6-gaussian-fourier"></a>
-
 ## 5. Gaussian Fourier identity
 
 $\varepsilon>0$ に対して
@@ -361,19 +359,21 @@ $$
 
 とします。
 
+<a id="lem-f0-00p6-gaussian-fourier"></a>
+
 <!-- formal-statement-start -->
 > **補題（Gaussian Fourier identity）**  
 > 任意の $x\in\mathbb R$ と $\varepsilon>0$ について
->
-> $$
-> \boxed{
-> g_\varepsilon(x)
-> =\frac1{2\pi}
-> \int_{\mathbb R}
-> e^{-itx}e^{-\varepsilon^2t^2/2}\,dt
-> }
-> $$
->
+
+$$
+\boxed{
+g_\varepsilon(x)
+=\frac1{2\pi}
+\int_{\mathbb R}
+e^{-itx}e^{-\varepsilon^2t^2/2}\,dt
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -447,22 +447,22 @@ $$
 <!-- formal-statement-start -->
 > **補題（Gaussian smoothingの密度公式）**  
 > $X$ を任意の実確率変数、$Z\sim N(0,1)$ を $X$ と独立とします。$\varepsilon>0$ に対して
->
-> $$
-> X^{(\varepsilon)}:=X+\varepsilon Z
-> $$
->
+
+$$
+X^{(\varepsilon)}:=X+\varepsilon Z
+$$
+
 > と置くと、$X^{(\varepsilon)}$ は連続密度
->
-> $$
-> \boxed{
-> f_\varepsilon(x)
-> =\frac1{2\pi}
-> \int_{\mathbb R}
-> e^{-itx}\varphi_X(t)e^{-\varepsilon^2t^2/2}\,dt
-> }
-> $$
->
+
+$$
+\boxed{
+f_\varepsilon(x)
+=\frac1{2\pi}
+\int_{\mathbb R}
+e^{-itx}\varphi_X(t)e^{-\varepsilon^2t^2/2}\,dt
+}
+$$
+
 > を持ちます。
 <!-- formal-statement-end -->
 
@@ -511,18 +511,18 @@ Gaussian factorが可積分なので右辺は $x$ の連続関数です。
 <!-- formal-statement-start -->
 > **定理（特性関数の一意性）**  
 > 実確率変数 $X,Y$ が
->
-> $$
-> \varphi_X(t)=\varphi_Y(t)
-> \qquad(\forall t\in\mathbb R)
-> $$
->
+
+$$
+\varphi_X(t)=\varphi_Y(t)
+\qquad(\forall t\in\mathbb R)
+$$
+
 > を満たすなら
->
-> $$
-> \boxed{X\stackrel d=Y}
-> $$
->
+
+$$
+\boxed{X\stackrel d=Y}
+$$
+
 > です。すなわち特性関数は分布を一意に決めます。
 <!-- formal-statement-end -->
 
@@ -600,14 +600,14 @@ CDFの不連続点は高々可算個です。実際、jumpが $1/m$ 以上の点
 <!-- formal-statement-start -->
 > **定理（特性関数の二次展開）**  
 > $E[X^2]<\infty$ なら $t\to0$ で
->
-> $$
-> \boxed{
-> \varphi_X(t)
-> =1+itE[X]-\frac{t^2}{2}E[X^2]+o(t^2)
-> }
-> $$
->
+
+$$
+\boxed{
+\varphi_X(t)
+=1+itE[X]-\frac{t^2}{2}E[X^2]+o(t^2)
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -683,20 +683,20 @@ $$
 <!-- formal-statement-start -->
 > **補題（Scheffé）**  
 > $f_n,f$ が同じ測度に関する確率密度で
->
-> $$
-> f_n(x)\to f(x)
-> \quad\text{a.e.}
-> $$
->
+
+$$
+f_n(x)\to f(x)
+\quad\text{a.e.}
+$$
+
 > なら
->
-> $$
-> \boxed{
-> \int|f_n-f|\to0
-> }
-> $$
->
+
+$$
+\boxed{
+\int|f_n-f|\to0
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -735,16 +735,16 @@ $$
 <!-- formal-statement-start -->
 > **定理（Lévy連続性定理：極限分布が既知の版）**  
 > 実確率変数列 $X_n$ と実確率変数 $X$ の特性関数を $\varphi_n,\varphi$ とします。このとき
->
-> $$
-> \boxed{
-> X_n\Rightarrow X
-> \iff
-> \varphi_n(t)\to\varphi(t)
-> \quad(\forall t\in\mathbb R)
-> }
-> $$
->
+
+$$
+\boxed{
+X_n\Rightarrow X
+\iff
+\varphi_n(t)\to\varphi(t)
+\quad(\forall t\in\mathbb R)
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 

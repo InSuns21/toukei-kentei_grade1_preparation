@@ -39,16 +39,16 @@ Vitali：probability + UI ⇒ L1
 <!-- formal-statement-start -->
 > **定義（一様可積分性）**  
 > 可積分確率変数族 $\mathcal X$ が一様可積分であるとは
->
-> $$
-> \boxed{
-> \lim_{K\to\infty}
-> \sup_{Y\in\mathcal X}
-> E\left[|Y|1_{\{|Y|>K\}}\right]
-> =0
-> }
-> $$
->
+
+$$
+\boxed{
+\lim_{K\to\infty}
+\sup_{Y\in\mathcal X}
+E\left[|Y|1_{\{|Y|>K\}}\right]
+=0
+}
+$$
+
 > が成り立つことです。列 $\{X_n\}$ に対しては $\sup_{Y\in\mathcal X}$ を $\sup_n$ と書きます。
 <!-- formal-statement-end -->
 
@@ -117,15 +117,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（積分の一様絶対連続性）**  
 > 可積分確率変数族 $\mathcal X$ が積分の一様絶対連続性を持つとは、任意の $\varepsilon>0$ に対して $\delta>0$ が存在し、任意の事象 $A$ について
->
-> $$
-> P(A)<\delta
-> \quad\Longrightarrow\quad
-> \boxed{
-> \sup_{Y\in\mathcal X}E[|Y|1_A]<\varepsilon
-> }
-> $$
->
+
+$$
+P(A)<\delta
+\quad\Longrightarrow\quad
+\boxed{
+\sup_{Y\in\mathcal X}E[|Y|1_A]<\varepsilon
+}
+$$
+
 > が成り立つことです。
 <!-- formal-statement-end -->
 
@@ -151,13 +151,13 @@ $$
 <!-- formal-statement-start -->
 > **補題（UIの二つの基本帰結）**  
 > 可積分確率変数族 $\mathcal X$ が一様可積分なら
->
-> $$
-> \boxed{
-> \sup_{Y\in\mathcal X}E|Y|<\infty
-> }
-> $$
->
+
+$$
+\boxed{
+\sup_{Y\in\mathcal X}E|Y|<\infty
+}
+$$
+
 > であり、さらに $\mathcal X$ は積分の一様絶対連続性を持ちます。
 <!-- formal-statement-end -->
 
@@ -217,11 +217,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（$L^p$ 有界性から一様可積分性）**  
 > ある $p>1$ について
->
-> $$
-> \sup_nE|X_n|^p<\infty
-> $$
->
+
+$$
+\sup_nE|X_n|^p<\infty
+$$
+
 > なら $\{X_n\}$ は一様可積分です。
 <!-- formal-statement-end -->
 
@@ -256,12 +256,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（可積分な支配関数から一様可積分性）**  
 > $Y\in L^1$ が存在して
->
-> $$
-> |X_n|\le Y
-> \qquad\text{a.s. for all }n
-> $$
->
+
+$$
+|X_n|\le Y
+\qquad\text{a.s. for all }n
+$$
+
 > なら $\{X_n\}$ は一様可積分です。
 <!-- formal-statement-end -->
 
@@ -298,13 +298,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Vitali型収束定理）**  
 > 同一の確率空間上の可積分確率変数列 $X_n$ が $X$ へ確率収束し、族 $\{X_n:n\ge1\}$ が一様可積分であるとします。このとき $X$ も可積分で
->
-> $$
-> \boxed{
-> E|X_n-X|\to0
-> }
-> $$
->
+
+$$
+\boxed{
+E|X_n-X|\to0
+}
+$$
+
 > が成り立ちます。特に $E[X_n]\to E[X]$ です。
 <!-- formal-statement-end -->
 
