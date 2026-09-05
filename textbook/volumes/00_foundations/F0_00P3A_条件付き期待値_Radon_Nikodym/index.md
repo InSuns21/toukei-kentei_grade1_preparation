@@ -13,7 +13,9 @@ Radon--Nikodym定理で存在
  ↓
 a.s.一意性
  ↓
-線形性・正値性・tower・L1縮小性
+線形性・正値性・take-out・tower
+ ↓
+Doob--Dynkin：sigma(Y)-可測なら m(Y) と書ける
 ```
 
 ---
@@ -58,9 +60,7 @@ $$
 とし、
 
 $$
-Y
-=
-\sum_{j=1}^m
+Y=\sum_{j=1}^m
 \frac{E[X\mathbf1_{A_j}]}{P(A_j)}\mathbf1_{A_j}
 $$
 
@@ -124,7 +124,7 @@ $$
 > $X\in L^1(P)$、$\mathcal G\subseteq\mathcal F$ を部分 $\sigma$ 代数とします。このとき $E[X\mid\mathcal G]$ は存在し、$P$-a.s. の意味で一意です。
 <!-- formal-statement-end -->
 
-現行のRN定理は**非負測度**に対する定理です。$X$ が符号を持つと $A\mapsto\int_AX\,dP$ は符号付き測度なので、そのまま適用してはいけません。正負部分へ分けます。
+現行のRN定理は**非負測度**に対する定理です。$X$ が符号を持つと $A\mapsto\int_AX\,dP$ は符号付き測度なので、そのまま適用せず正負部分へ分けます。
 
 <!-- proof-start -->
 ### 3.1 証明：存在
@@ -143,7 +143,7 @@ $$
 \nu_-(A)=\int_AX^-\,dP
 $$
 
-と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度で、
+と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度で
 
 $$
 \nu_+\ll P|_{\mathcal G},
@@ -223,7 +223,7 @@ $$
 \boxed{\|E[X\mid\mathcal G]\|_1\le\|X\|_1}.
 $$
 
-> 5. 有界な $\mathcal G$-可測確率変数 $Z$ に対して
+> 5. **take-out-what-is-known**：有界な $\mathcal G$-可測確率変数 $Z$ に対して
 
 $$
 E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G].
@@ -261,8 +261,7 @@ $$
 に単調性を適用すると
 
 $$
-|E[X\mid\mathcal G]|
-\le E[|X|\mid\mathcal G].
+|E[X\mid\mathcal G]|\le E[|X|\mid\mathcal G].
 $$
 
 期待値を取れば
@@ -332,7 +331,7 @@ $$
 
 ---
 
-## 6. $E[X\mid Y]$ の意味
+## 6. Doob--Dynkin補題：$\sigma(Y)$-可測なら $Y$ の関数
 
 記号
 
@@ -346,12 +345,99 @@ $$
 \boxed{E[X\mid\sigma(Y)]}
 $$
 
-の略記です。つまり「$Y$ から読み取れる情報だけを使った $X$ の条件付き平均」です。
+の略記です。これを $m(Y)$ と書ける根拠が Doob--Dynkin 補題です。
 
-実数値確率変数については、$\sigma(Y)$-可測な実数値確率変数はあるBorel可測関数 $m$ を用いて $m(Y)$ の形に表せるため、
+<a id="thm-f0-00p3a-doob-dynkin"></a>
+
+<!-- formal-statement-start -->
+> **定理（Doob--Dynkin補題・実数値版）**  
+> $Y:\Omega\to\mathbb R$、$Z:\Omega\to\mathbb R$ を実数値関数とします。$Y$ は可測とし、$Z$ が $\sigma(Y)$-可測であるとします。このときBorel可測関数 $m:\mathbb R\to\mathbb R$ が存在して
 
 $$
-E[X\mid Y]=m(Y)
+\boxed{Z=m(Y)}
+$$
+
+> が点ごとに成り立ちます。逆に $m$ がBorel可測なら $m(Y)$ は $\sigma(Y)$-可測です。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：有限値単関数で近似して各レベル集合を $Y^{-1}(B)$ と書く
+
+逆向きは可測関数の合成から直ちに従います。非自明な向きを示します。
+
+$Z$ は実数値なので、例えば
+
+$$
+Z_n
+:=
+\max\left\{-n,
+\min\left(n,\ 2^{-n}\lfloor2^nZ\rfloor\right)
+\right\}
+$$
+
+と置くと、$Z_n$ は有限個の値しか取らない $\sigma(Y)$-可測単関数で
+
+$$
+Z_n(\omega)\to Z(\omega)
+\qquad(\forall\omega\in\Omega)
+$$
+
+です。
+
+$Z_n$ の有限個の値を $c_{n,1},\dots,c_{n,r_n}$ とし
+
+$$
+A_{n,j}=\{Z_n=c_{n,j}\}\in\sigma(Y)
+$$
+
+と置きます。ところで
+
+$$
+\sigma(Y)
+=\{Y^{-1}(B):B\in\mathcal B(\mathbb R)\}
+$$
+
+です。実際、右辺は $\sigma$ 代数であり、$Y$ を可測にする最小の $\sigma$ 代数そのものです。従って各 $A_{n,j}$ に対しBorel集合 $B_{n,j}$ を選んで
+
+$$
+A_{n,j}=Y^{-1}(B_{n,j})
+$$
+
+と書けます。
+
+そこで
+
+$$
+m_n(y)=\sum_{j=1}^{r_n}c_{n,j}\mathbf1_{B_{n,j}}(y)
+$$
+
+と置きます。$m_n$ はBorel可測で、各 $\omega$ に対して
+
+$$
+m_n(Y(\omega))=Z_n(\omega).
+$$
+
+最後に
+
+$$
+m(y)=\limsup_{n\to\infty}m_n(y)
+$$
+
+と置けば、可測関数列の $\limsup$ なので $m$ はBorel可測です。そして
+
+$$
+m(Y(\omega))
+=\lim_{n\to\infty}Z_n(\omega)
+=Z(\omega).
+$$
+
+よって $Z=m(Y)$ です。$\square$
+<!-- proof-end -->
+
+条件付き期待値 $E[X\mid\sigma(Y)]$ は定義により $\sigma(Y)$-可測です。従ってDoob--Dynkin補題から、あるBorel可測関数 $m$ が存在して
+
+$$
+\boxed{E[X\mid Y]=m(Y)}
 $$
 
 と書けます。通常の記号 $E[X\mid Y=y]$ は、この関数 $m(y)$ を表します。
