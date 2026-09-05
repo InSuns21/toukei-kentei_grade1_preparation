@@ -385,18 +385,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（包除原理：二事象・三事象）**  
-> 任意の事象 $A,B,C$ に対して
-> $$
-> P(A\cup B)=P(A)+P(B)-P(A\cap B),
-> $$
-> $$
-> \begin{aligned}
-> P(A\cup B\cup C)
-> &=P(A)+P(B)+P(C)\\
-> &\quad-P(A\cap B)-P(B\cap C)-P(C\cap A)\\
-> &\quad+P(A\cap B\cap C).
-> \end{aligned}
-> $$
+> 任意の事象 $A,B,C$ に対して次が成り立つ。
+
+$$
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+$$
+
+$$
+\begin{aligned}
+P(A\cup B\cup C)
+&=P(A)+P(B)+P(C)\\
+&\quad-P(A\cap B)-P(B\cap C)-P(C\cap A)\\
+&\quad+P(A\cap B\cap C).
+\end{aligned}
+$$
+
 > すなわち、重複して数えた共通部分を交互に引き戻し・足し戻す。
 <!-- formal-statement-end -->
 

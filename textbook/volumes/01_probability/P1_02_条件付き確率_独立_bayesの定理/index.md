@@ -40,11 +40,7 @@
 
 <!-- formal-statement-start -->
 > **定義（条件付き確率）**  
-> $P(B)>0$ のとき、事象 $B$ が起きたという条件のもとで事象 $A$ が起きる確率を
-> $$
-> P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-> $$
-> と定め、$A$ の **$B$ のもとでの条件付き確率** という。
+> $P(B)>0$ のとき、$P(A\mid B)=P(A\cap B)/P(B)$ と定め、これを事象 $A$ の **$B$ のもとでの条件付き確率** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p1-02-conditional-probability -->
@@ -117,11 +113,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（統計的独立）**  
-> 二事象 $A,B$ が
-> $$
-> P(A\cap B)=P(A)P(B)
-> $$
-> を満たすとき、$A,B$ は **独立（統計的独立）** であるという。
+> 二事象 $A,B$ が $P(A\cap B)=P(A)P(B)$ を満たすとき、$A,B$ は **独立（統計的独立）** であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p1-02-independence -->
@@ -143,17 +135,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（条件付き独立）**  
-> $P(C)>0$ のとき
-> $$
-> P(A\cap B\mid C)=P(A\mid C)P(B\mid C)
-> $$
-> が成り立つとき、$A,B$ は **$C$ のもとで条件付き独立** であるといい、$A\perp B\mid C$ と書く。
+> $P(C)>0$ のとき $P(A\cap B\mid C)=P(A\mid C)P(B\mid C)$ が成り立つとき、$A,B$ は **$C$ のもとで条件付き独立** であるといい、$A\perp B\mid C$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p1-02-conditional-independence -->
 **定義の確認**  
 $C$ のもとで4通りの結果 $(0,0),(0,1),(1,0),(1,1)$ が等確率で起こり、$A=$「第1成分が1」、$B=$「第2成分が1」とします。このとき $P(A\mid C)=P(B\mid C)=1/2$、$P(A\cap B\mid C)=1/4$ なので $A\perp B\mid C$ です。
-<!-- definition-example-end -->確率変数についても同様に $X\perp Y\mid Z$ と書きます。
+<!-- definition-example-end -->
+
+確率変数についても同様に $X\perp Y\mid Z$ と書きます。
 
 $P(B)>0$ なら
 
@@ -303,12 +293,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（ベイズの定理）**  
 > $H_1,\ldots,H_m$ が標本空間の分割で各 $P(H_i)>0$、さらに $P(B)>0$ とする。このとき各 $j$ について
-> $$
-> P(H_j\mid B)
-> =
-> \frac{P(B\mid H_j)P(H_j)}
-> {\sum_{i=1}^mP(B\mid H_i)P(H_i)}.
-> $$
+
+$$
+P(H_j\mid B)
+=
+\frac{P(B\mid H_j)P(H_j)}
+{\sum_{i=1}^mP(B\mid H_i)P(H_i)}.
+$$
+
 > 分母は全確率公式で得られる $P(B)$ である。
 <!-- formal-statement-end -->
 
