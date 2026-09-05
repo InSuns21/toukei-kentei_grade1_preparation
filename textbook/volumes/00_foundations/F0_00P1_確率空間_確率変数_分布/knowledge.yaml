@@ -7,6 +7,7 @@ prerequisites:
 # P1では密度・絶対連続性・Radon--Nikodymは次章への予告としてのみ言及する。
 forward_references:
   - measure.absolute-continuity
+  - measure.radon-nikodym-derivative
   - measure.radon-nikodym-theorem
 
 concepts:
@@ -33,11 +34,11 @@ concepts:
       - measure.measure-space
       - measure.measurable-function
 
-  # タイトル中の一般語「分布」を導入行と誤認しないよう、本文の定義文に固有な別名を使う。
+  # 本文では「Xの**分布**または law」と強調記法を挟むため、旧reader-source監査でも安定する末尾句を使う。
   - id: prob.distribution-law
     name: 確率変数の分布
     kind: term
-    aliases: ["分布または law"]
+    aliases: ["law といいます"]
     requires:
       - prob.random-variable
       - measure.pushforward-measure
