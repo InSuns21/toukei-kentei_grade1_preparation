@@ -60,6 +60,9 @@ jobs:
       - name: Apply S12 probability-events formal-density edits
         run: node scripts/tmp-probability-events-formal-s12.mjs
 
+      - name: Repair S12 formal-panel math formatting
+        run: node scripts/tmp-probability-events-formal-s12-repair.mjs
+
       - name: Audit official syllabus term coverage
         run: npm run audit:textbook-syllabus -- --write --strict
 
