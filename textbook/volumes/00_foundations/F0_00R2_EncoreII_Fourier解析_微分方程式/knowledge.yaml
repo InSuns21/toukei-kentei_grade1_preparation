@@ -7,9 +7,11 @@ prerequisites:
   - F0-00E2
   - F0-02C1
 
-# ロードマップ本文で後続章と確率論側の接続を先取りする。
+# ロードマップ本文で後続章と別系列の既登録概念を先取りする。
 forward_references:
   - ode.matrix-exponential
   - prob.characteristic-function
+  - functional.hilbert-space
+  - functional.l2-inner-product
 
 concepts: []
