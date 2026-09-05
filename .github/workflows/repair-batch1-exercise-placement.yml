@@ -6,6 +6,7 @@ on:
       - fix/batch1-exercise-placement
     paths:
       - 'scripts/repair-batch1-exercise-placement.mjs'
+      - '.github/workflows/repair-batch1-exercise-placement.yml'
   workflow_dispatch:
 
 permissions:
