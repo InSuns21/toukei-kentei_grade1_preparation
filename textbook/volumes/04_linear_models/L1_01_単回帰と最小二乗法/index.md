@@ -147,6 +147,11 @@ $$
 > を **残差** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-l1-01-residual -->
+**定義の確認**  
+ある観測で $y_i=12$、当てはめ値が $\hat y_i=10.5$ なら残差は $e_i=12-10.5=1.5$ です。残差が正なら観測値が回帰直線より上、負なら下にあります。
+<!-- definition-example-end -->
+
 正規方程式から
 $$
 \sum_{i=1}^n e_i=0,
@@ -199,6 +204,11 @@ $$
 > $R^2=1-\dfrac{SSE}{SST}$
 > とも書ける。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-01-coefficient-of-determination -->
+**定義の確認**  
+例えば $SST=40$、$SSE=10$ なら $R^2=1-10/40=0.75$ です。標本内の全変動の75%が当てはめた回帰で説明されたことを表します。
+<!-- definition-example-end -->
 
 切片を含む通常の最小二乗回帰では $0\le R^2\le1$ です。これは観測された応答の変動のうち、当てはめた直線で説明された割合を表します。ただし、高い $R^2$ だけで因果関係や将来データでの高い予測精度が保証されるわけではありません。
 
