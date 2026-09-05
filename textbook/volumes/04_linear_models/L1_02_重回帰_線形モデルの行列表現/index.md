@@ -383,6 +383,17 @@ $$
 
 ## 7. 線形制約を行列でまとめる
 
+<a id="def-l1-02-linear-constraint"></a>
+
+<!-- formal-statement-start -->
+> **定義（線形制約）**  
+> 線形モデルの係数ベクトル $\boldsymbol\beta$ に対して
+> $\boldsymbol R\boldsymbol\beta=\boldsymbol r$
+> の形で課す等式条件を **線形制約** という。独立な制約の本数は $\operatorname{rank}(\boldsymbol R)$ で数える。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-l1-02-linear-constraint -->
+**定義の確認**  
 例えば
 $$
 \boldsymbol\beta=(\beta_0,\beta_1,\beta_2)^{\mathsf T}
@@ -402,6 +413,7 @@ $$
 \boldsymbol R\boldsymbol\beta=\boldsymbol r
 $$
 と書けます。
+<!-- definition-example-end -->
 
 「両方の傾きが0」は
 $$
