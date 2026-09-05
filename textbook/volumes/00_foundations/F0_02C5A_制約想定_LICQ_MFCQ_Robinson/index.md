@@ -1,18 +1,16 @@
 # F0-02C5A 関数解析V-A：制約想定・LICQ・MFCQ・Robinson CQ
 
-KKT は「局所最適なら必ず成立する公式」ではありません。制約の一次近似が退化すると、真の実行可能集合と線形化された集合が全く違う形になり、乗数が存在しないことがあります。
+KKT は「局所最適なら自動的に成立する公式」ではありません。制約の一次近似が退化すると、真の実行可能集合と線形化された集合が食い違い、乗数が存在しないことがあります。
 
 この講義では有限次元の滑らかな制約
 
 $$
-g_i(x)\le0
-\quad(i=1,\ldots,m),
+g_i(x)\le0\quad(i=1,\ldots,m),
 \qquad
-h_j(x)=0
-\quad(j=1,\ldots,r)
+h_j(x)=0\quad(j=1,\ldots,r)
 $$
 
-について、次の鎖を証明します。
+について、次の鎖を閉じます。
 
 ```text
 LICQ
@@ -30,43 +28,23 @@ KKT乗数が存在
 
 ---
 
-## 1. まずKKTが失敗する最小の反例
+## 1. KKT が失敗する最小の反例
 
 $$
 \min_{x\in\mathbb R} f(x)=x
-$$
-
-subject to
-
-$$
-g(x)=x^2\le0
+\qquad\text{subject to}\qquad
+x^2\le0
 $$
 
 を考えます。実行可能点は $x=0$ だけなので $x^*=0$ は局所最適点です。
 
-しかし stationarity は
+ところが KKT の停留条件は
 
 $$
-f'(0)+\lambda g'(0)=0
+f'(0)+\lambda g'(0)=1+\lambda\cdot0=0
 $$
 
-であり
-
-$$
-f'(0)=1,
-\qquad
-g'(0)=0
-$$
-
-なので
-
-$$
-1+\lambda\cdot0=0
-$$
-
-を満たす $\lambda$ は存在しません。
-
-壊れているのは「最適性」ではなく、制約を一次微分で見る近似です。
+となり、どの $\lambda$ でも成立しません。壊れているのは最適性ではなく、$g'(0)=0$ のため一次近似が制約を見失っていることです。
 
 ---
 
@@ -75,9 +53,7 @@ $$
 実行可能集合を
 
 $$
-C
-=
-\{x:g_i(x)\le0,\ h_j(x)=0\}
+C=\{x:g_i(x)\le0,\ h_j(x)=0\}
 $$
 
 とします。
@@ -89,22 +65,16 @@ $$
 > 実行可能点 $x^*$ における active set を
 >
 > $$
-> I(x^*)
-> =
-> \{i:g_i(x^*)=0\}
+> I(x^*)=\{i:g_i(x^*)=0\}
 > $$
 >
 > とします。また
 >
 > $$
-> L_C(x^*)
-> =
-> \left\{
-> d:
-> \begin{array}{ll}
-> \nabla g_i(x^*)^{\mathsf T}d\le0,&i\in I(x^*),\\
-> \nabla h_j(x^*)^{\mathsf T}d=0,&j=1,\ldots,r
-> \end{array}
+> L_C(x^*)=
+> \left\{d:
+> \nabla g_i(x^*)^{\mathsf T}d\le0\ (i\in I(x^*)),\ 
+> \nabla h_j(x^*)^{\mathsf T}d=0\ (j=1,\ldots,r)
 > \right\}
 > $$
 >
@@ -112,47 +82,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c5a-active-linearized -->
-### 2.1 例：$x^2\le0$ では線形化が制約を消してしまう
+### 2.1 例：$x^2\le0$ では線形化が制約を消す
 
 **定義の確認**
 
-$x^*=0$ では
-
-$$
-g(0)=0
-$$
-
-なので active set は $I(0)=\{1\}$ です。一方
-
-$$
-g'(0)=0
-$$
-
-だから線形化条件は
+$x^*=0$ では $g(0)=0$ なので $I(0)=\{1\}$ です。しかし $g'(0)=0$ だから線形化条件は
 
 $$
 0\cdot d\le0,
 $$
 
-すなわち全ての $d\in\mathbb R$ が通ります。従って
+すなわち全ての $d\in\mathbb R$ を許します。従って
 
 $$
 L_C(0)=\mathbb R.
 $$
 
-しかし真の実行可能集合は $C=\{0\}$ なので [tangent cone](../F0_02C4A_tangent_polar_dual_cone/index.md#def-f0-02c4a-tangent-cone) は
+一方、真の実行可能集合は $C=\{0\}$ なので [Bouligand tangent cone](../F0_02C4A_tangent_polar_dual_cone/index.md#def-f0-02c4a-tangent-cone) は
 
 $$
 T_C(0)=\{0\}.
 $$
 
-定義を実際に計算すると
-
-$$
-\boxed{T_C(0)\ne L_C(0)}
-$$
-
-が露出します。
+したがって $T_C(0)\ne L_C(0)$ です。
 <!-- definition-example-end -->
 
 ---
@@ -185,7 +137,7 @@ g_1(x)=x_1\le0,
 g_2(x)=x_2\le0
 $$
 
-を $x^*=(0,0)$ で考えると両方 active で
+を $x^*=(0,0)$ で考えると、両方 active で
 
 $$
 \nabla g_1=(1,0)^{\mathsf T},
@@ -193,7 +145,7 @@ $$
 \nabla g_2=(0,1)^{\mathsf T}.
 $$
 
-二ベクトルは一次独立なので LICQ の定義を満たします。
+二つは一次独立なので LICQ を満たします。
 <!-- definition-example-end -->
 
 ---
@@ -206,31 +158,28 @@ $$
 > **定義（MFCQ）**  
 > 実行可能点 $x^*$ で次の二条件を満たすとき、MFCQ が成立するといいます。
 >
-> 1. 等式制約の勾配 $\nabla h_1(x^*),\ldots,\nabla h_r(x^*)$ が一次独立である。
-> 2. ある方向 $v\in\mathbb R^n$ が存在して
+> 1. $\nabla h_1(x^*),\ldots,\nabla h_r(x^*)$ が一次独立である。
+> 2. ある $v\in\mathbb R^n$ が存在して
 >
 > $$
-> \nabla h_j(x^*)^{\mathsf T}v=0
-> \quad(\forall j),
+> \nabla h_j(x^*)^{\mathsf T}v=0\quad(\forall j),
 > $$
 >
 > かつ
 >
 > $$
-> \nabla g_i(x^*)^{\mathsf T}v<0
-> \quad(\forall i\in I(x^*)).
+> \nabla g_i(x^*)^{\mathsf T}v<0\quad(\forall i\in I(x^*)).
 > $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c5a-mfcq -->
-### 4.1 例：MFCQは成立するがLICQは失敗する
+### 4.1 例：MFCQ は成立するが LICQ は失敗する
 
 **定義の確認**
 
 $$
 g_1(x)=x\le0,
-\qquad
-g_2(x)=2x\le0
+\qquad g_2(x)=2x\le0
 $$
 
 を $x^*=0$ で考えます。active勾配は1と2で一次従属なので LICQ は失敗します。
@@ -239,18 +188,17 @@ $$
 
 $$
 g_1'(0)v=-1<0,
-\qquad
-g_2'(0)v=-2<0.
+\qquad g_2'(0)v=-2<0.
 $$
 
-等式制約はないので第1条件は空条件です。従って MFCQ の二条件を満たします。
+等式制約はないので第1条件は空条件です。従って MFCQ は成立します。
 <!-- definition-example-end -->
 
-退化例 $g(x)=x^2$ では $g'(0)v=0$ が全ての $v$ で成り立つため、strict inequality を作れず MFCQ は失敗します。
+退化例 $g(x)=x^2$ では $g'(0)v=0$ が全ての $v$ で成り立つため MFCQ も失敗します。
 
 ---
 
-## 5. LICQならMFCQが成立する
+## 5. LICQ なら MFCQ
 
 <a id="thm-f0-02c5a-licq-mfcq"></a>
 
@@ -259,18 +207,17 @@ $$
 > 有限次元の滑らかな制約で、実行可能点 $x^*$ において LICQ が成立すれば MFCQ も成立します。
 <!-- formal-statement-end -->
 
-### 5.1 証明の見取り図
+### 証明の見取り図
 
-active 不等式勾配と等式勾配を行に並べた行列は行フルランクです。従って右辺を自由に指定でき、等式側を0、active不等式側を全て $-1$ にする方向を解けば、それが MFCQ 方向になります。
+active不等式勾配と等式勾配を行に並べた行列は行フルランクです。そこで等式側の方向微分を0、active不等式側をすべて $-1$ にする線形方程式を解きます。
 
 <!-- proof-start -->
 ### 証明
 
-active index の個数を $q$ とします。行列
+active index を $i_1,\ldots,i_q$ とし
 
 $$
-A
-=
+A=
 \begin{pmatrix}
 \nabla h_1(x^*)^{\mathsf T}\\
 \vdots\\
@@ -281,94 +228,65 @@ A
 \end{pmatrix}
 $$
 
-を考えます。LICQ により行ベクトルは一次独立なので $A$ は行フルランクです。従って線形写像
+とします。LICQ により $A$ は行フルランクなので
 
 $$
 A:\mathbb R^n\to\mathbb R^{r+q}
 $$
 
-は全射です。
-
-よって
+は全射です。従って
 
 $$
-Av
-=
-(0,\ldots,0,-1,\ldots,-1)^{\mathsf T}
+Av=(0,\ldots,0,-1,\ldots,-1)^{\mathsf T}
 $$
 
-を満たす $v$ が存在します。この $v$ は
-
-$$
-\nabla h_j(x^*)^{\mathsf T}v=0,
-$$
-
-$$
-\nabla g_i(x^*)^{\mathsf T}v=-1<0
-\qquad(i\in I(x^*))
-$$
-
-を満たします。従って MFCQ が成立します。$\square$
+を満たす $v$ が存在します。この $v$ は MFCQ の二条件を満たします。$\square$
 <!-- proof-end -->
 
 ---
 
-## 6. 真のtangent coneは必ず線形化coneに含まれる
+## 6. 常に $T_C(x^*)\subset L_C(x^*)$
 
 <a id="thm-f0-02c5a-tangent-subset-linearized"></a>
 
 <!-- formal-statement-start -->
-> **定理（常に $T_C(x^*)\subset L_C(x^*)$）**  
+> **定理（接錐は線形化coneに含まれる）**  
 > 全ての $g_i,h_j$ が $x^*$ で微分可能なら
 >
 > $$
-> \boxed{T_C(x^*)\subset L_C(x^*)}
+> T_C(x^*)\subset L_C(x^*)
 > $$
 >
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-### 6.1 証明の見取り図
+### 証明の見取り図
 
-実行可能点列 $x_k$ を $x^*$ へ近づけ、制約式を一次展開します。active不等式では $g_i(x^*)=0$、等式では両端が0なので、極限で線形化条件が残ります。
+接方向を与える実行可能点列へ各制約の一次展開を適用し、$t_k$ で割って極限を取ります。
 
 <!-- proof-start -->
 ### 証明
 
-$d\in T_C(x^*)$ とします。tangent cone の定義から、$t_k\downarrow0$ と $x_k\in C$ が存在して
+$d\in T_C(x^*)$ とします。定義から $t_k\downarrow0$ と $x_k\in C$ が存在して
 
 $$
 \frac{x_k-x^*}{t_k}\to d.
 $$
 
-active な $i\in I(x^*)$ について
-
-$$
-g_i(x_k)\le0=g_i(x^*).
-$$
-
-微分可能性から
+active な $i$ について $g_i(x_k)\le0=g_i(x^*)$ です。微分可能性から
 
 $$
 g_i(x_k)-g_i(x^*)
-=
-\nabla g_i(x^*)^{\mathsf T}(x_k-x^*)
-+o(\|x_k-x^*\|).
+=\nabla g_i(x^*)^{\mathsf T}(x_k-x^*)+o(\|x_k-x^*\|).
 $$
 
-$t_k$ で割って極限を取れば
+$t_k$ で割って極限を取ると
 
 $$
 \nabla g_i(x^*)^{\mathsf T}d\le0.
 $$
 
-同様に等式制約では
-
-$$
-h_j(x_k)-h_j(x^*)=0
-$$
-
-なので
+等式制約では $h_j(x_k)-h_j(x^*)=0$ なので同様に
 
 $$
 \nabla h_j(x^*)^{\mathsf T}d=0.
@@ -377,11 +295,9 @@ $$
 従って $d\in L_C(x^*)$ です。$\square$
 <!-- proof-end -->
 
-退化例 $x^2\le0$ では、この包含が strict になっていました。制約想定の仕事は逆包含を回復することです。
-
 ---
 
-## 7. MFCQなら線形化方向を実際の接方向へ戻せる
+## 7. MFCQ の下では $T_C(x^*)=L_C(x^*)$
 
 <a id="thm-f0-02c5a-mfcq-tangent-equality"></a>
 
@@ -390,315 +306,234 @@ $$
 > $g_i,h_j$ が $C^1$ 級で、実行可能点 $x^*$ において MFCQ が成立するとします。このとき
 >
 > $$
-> \boxed{T_C(x^*)=L_C(x^*)}
+> T_C(x^*)=L_C(x^*)
 > $$
 >
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-### 7.1 証明の見取り図
+### 証明の見取り図
 
-$T\subset L$ は前節で証明済みです。逆向きでは $d\in L$ に MFCQ 方向 $v$ を少量足して
-
-$$
-d_\varepsilon=d+\varepsilon v
-$$
-
-とすると、active不等式の一次項が全て strict に負になります。等式制約がある場合は、行フルランク性により陰関数定理で $o(t)$ の補正を加え、等式を正確に満たす曲線へ直します。
+$d\in L_C(x^*)$ に MFCQ 方向 $v$ を少量足して $d_\varepsilon=d+\varepsilon v$ とすると、active不等式の方向微分がすべて厳密に負になります。等式制約は陰関数定理で作る等式多様体上の曲線に沿わせます。
 
 <!-- proof-start -->
 ### 証明
 
-前節から $T_C(x^*)\subset L_C(x^*)$ は既に分かっています。逆包含を示します。
+前節から $T_C(x^*)\subset L_C(x^*)$ は分かっています。逆包含を示します。
 
-$d\in L_C(x^*)$ を任意に取ります。MFCQ方向を $v$ とし、$\varepsilon>0$ に対して
+$d\in L_C(x^*)$ を取り、MFCQ方向を $v$ とします。$\varepsilon>0$ に対して
 
 $$
 d_\varepsilon=d+\varepsilon v
 $$
 
-と置きます。等式制約について
+と置けば
 
 $$
-\nabla h_j(x^*)^{\mathsf T}d_\varepsilon=0,
+\nabla h_j(x^*)^{\mathsf T}d_\varepsilon=0
 $$
 
-active不等式について
+かつ active な全ての $i$ について
 
 $$
-\nabla g_i(x^*)^{\mathsf T}d_\varepsilon
-=
-\nabla g_i(x^*)^{\mathsf T}d
-+
-\varepsilon\nabla g_i(x^*)^{\mathsf T}v
-<0.
+\nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-まず等式制約を正確に満たす曲線を作ります。$B=DH(x^*)$ と置きます。MFCQより $B$ は行フルランクなので
+MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。陰関数定理により、$x^*$ の近くで等式集合 $h(x)=0$ は
 
 $$
-\mathbb R^n=\ker B\oplus V
+z=\varphi(u)
 $$
 
-となり、$B|_V:V\to\mathbb R^r$ が同型になる部分空間 $V$ を取れます。
+と表せます。
+
+$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と陰関数定理の微分公式から
 
 $$
-F(t,w)
-=
-H(x^*+td_\varepsilon+w)
-\qquad(w\in V)
-$$
-
-と置くと
-
-$$
-F(0,0)=0,
-\qquad
-D_wF(0,0)=B|_V
-$$
-
-は可逆です。有限次元の陰関数定理により、十分小さい $t$ に対して $w(t)\in V$ が存在し
-
-$$
-H(x^*+td_\varepsilon+w(t))=0,
-\qquad
-w(0)=0
-$$
-
-となります。さらに $d_\varepsilon\in\ker B$ なので微分すると
-
-$$
-B(d_\varepsilon+w'(0))=0
-$$
-
-であり、$B|_V$ の可逆性から $w'(0)=0$ です。従って
-
-$$
-w(t)=o(t).
+D\varphi(u^*)d_u=d_z.
 $$
 
 そこで
 
 $$
 x_\varepsilon(t)
-=x^*+td_\varepsilon+w(t)
+=\bigl(u^*+td_u,\ \varphi(u^*+td_u)\bigr)
 $$
 
-と置きます。等式制約は正確に満たしています。
-
-active不等式については
+と置けば
 
 $$
-\begin{aligned}
+h(x_\varepsilon(t))=0,
+\qquad
+\frac{x_\varepsilon(t)-x^*}{t}\to d_\varepsilon.
+$$
+
+active不等式について一次展開すると
+
+$$
 g_i(x_\varepsilon(t))
-&=g_i(x^*)
-+t\nabla g_i(x^*)^{\mathsf T}d_\varepsilon
-+o(t)\\
-&=t\nabla g_i(x^*)^{\mathsf T}d_\varepsilon+o(t)
-<0
-\end{aligned}
+=t\nabla g_i(x^*)^{\mathsf T}d_\varepsilon+o(t)<0
 $$
 
-が十分小さい $t>0$ で成り立ちます。inactive不等式は $g_i(x^*)<0$ なので連続性だけで小さい $t$ に対して負のままです。従って $x_\varepsilon(t)\in C$ です。
+が十分小さい $t>0$ で成り立ちます。inactive不等式は $g_i(x^*)<0$ なので連続性により小さい $t$ で負のままです。従って $x_\varepsilon(t)\in C$ であり、$d_\varepsilon\in T_C(x^*)$ です。
 
-また
+最後に $\varepsilon\downarrow0$ とすると $d_\varepsilon\to d$ です。Bouligand tangent cone は閉です。実際、$d_k\in T_C(x^*)$、$d_k\to d$ のとき、各 $k$ の定義列から $t<1/k$ かつ差商が $d_k$ から $1/k$ 未満となる点を一つ選べば、対角化により $d$ の定義列を作れます。よって $d\in T_C(x^*)$ です。
 
-$$
-\frac{x_\varepsilon(t)-x^*}{t}
-=
-d_\varepsilon+rac{w(t)}t
-\to d_\varepsilon.
-$$
-
-よって $d_\varepsilon\in T_C(x^*)$ です。
-
-最後に $\varepsilon\downarrow0$ で $d_\varepsilon\to d$ です。Bouligand tangent cone は閉集合です。実際、$d_k\in T_C(x^*)$、$d_k\to d$ なら、各 $k$ の定義列から $t<1/k$ かつ差商が $d_k$ から $1/k$ 未満の点を一つ選ぶ対角化で $d$ の定義列を作れます。従って $d\in T_C(x^*)$ です。
-
-以上から $L_C(x^*)\subset T_C(x^*)$ も成り立ち、両者は一致します。$\square$
+従って $L_C(x^*)\subset T_C(x^*)$ も成り立ち、両者は一致します。$\square$
 <!-- proof-end -->
 
 ---
 
 ## 8. Robinson CQ
 
-錐制約の一般形では MFCQ を成分ごとに書く代わりに、制約値空間の0の周囲を線形化で埋められるかを見ます。
+通常制約に対して Robinson CQ を一次近似の像として書きます。active不等式を $q$ 本とし
+
+$$
+A d
+=\bigl(\nabla g_i(x^*)^{\mathsf T}d\bigr)_{i\in I(x^*)},
+\qquad
+B d
+=\bigl(\nabla h_j(x^*)^{\mathsf T}d\bigr)_{j=1}^r
+$$
+
+とします。
 
 <a id="def-f0-02c5a-robinson"></a>
 
 <!-- formal-statement-start -->
-> **定義（通常制約に対するRobinson CQ）**  
-> $H=(h_1,\ldots,h_r)$、$G=(g_1,\ldots,g_m)$ とし、実行可能点 $x^*$ で
+> **定義（有限次元の通常制約に対する Robinson CQ）**  
+> 集合
 >
 > $$
-> 0
-> \in
-> \operatorname{int}
-> \left(
-> (H(x^*),G(x^*))
-> +D(H,G)(x^*)\mathbb R^n
-> +(\{0\}\times\mathbb R_+^m)
-> \right)
+> \mathcal R
+> =
+> \{(Bd,\ Ad+s):d\in\mathbb R^n,\ s\in\mathbb R_+^q\}
 > $$
 >
-> が成り立つとき、Robinson CQ が成立するといいます。内部は $\mathbb R^{r+m}$ で取ります。
+> が原点の近傍を含む、すなわち
+>
+> $$
+> 0\in\operatorname{int}\mathcal R
+> $$
+>
+> であるとき Robinson CQ が成立するといいます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-02c5a-robinson -->
-### 8.1 例：$g(x)=x\le0$ の境界ではRobinson CQが成立する
+### 8.1 例：$x\le0$ では Robinson CQ が成立する
 
 **定義の確認**
 
-等式制約はなく、$x^*=0$ では
+$x^*=0$、$g(x)=x$ とすると $A=1$、等式制約はありません。従って
 
 $$
-G(0)=0,
-\qquad
-DG(0)\mathbb R=\mathbb R,
-\qquad
-K=\mathbb R_+.
+\mathcal R=\{d+s:d\in\mathbb R,\ s\ge0\}=\mathbb R.
 $$
 
-従って
-
-$$
-G(0)+DG(0)\mathbb R+\mathbb R_+
-=
-\mathbb R+\mathbb R_+
-=
-\mathbb R.
-$$
-
-0は $\mathbb R$ の内部にあるので、Robinson CQ の定義を満たします。
+よって $0$ はその内部にあり Robinson CQ が成立します。
 <!-- definition-example-end -->
+
+### 8.2 退化例では失敗する
+
+$g(x)=x^2$、$x^*=0$ では $A=0$ なので
+
+$$
+\mathcal R=\mathbb R_+.
+$$
+
+原点は内部点ではないため Robinson CQ は失敗します。
 
 ---
 
-## 9. 通常の滑らかな制約ではRobinson CQとMFCQが同値
+## 9. 通常制約では Robinson CQ と MFCQ は同値
 
 <a id="thm-f0-02c5a-robinson-mfcq"></a>
 
 <!-- formal-statement-start -->
-> **定理（通常制約では Robinson CQ $\iff$ MFCQ）**  
-> 有限次元の $C^1$ 級不等式・等式制約について、実行可能点 $x^*$ における上の Robinson CQ と MFCQ は同値です。
+> **定理（Robinson CQ $\Longleftrightarrow$ MFCQ）**  
+> 有限次元の滑らかな通常制約では、上の Robinson CQ と MFCQ は同値です。
 <!-- formal-statement-end -->
 
-### 9.1 証明の見取り図
+### 証明の見取り図
 
-MFCQ方向は active 不等式を一斉に strict な内側へ押します。等式Jacobianの全射性で等式側の小さな変動も作れるため、制約値空間の0の周囲が埋まります。逆に Robinson CQ の内部条件から、等式側の全射性と「全active不等式を $-\varepsilon$ より小さくする方向」を直接取り出せます。
+Robinson CQ からは近傍内の $(0,-\mathbf1)$ を作ると MFCQ方向が出ます。逆向きは、等式側を解く方向と strict に内側へ向く MFCQ方向を組み合わせ、任意の小さな右辺を表します。
 
 <!-- proof-start -->
 ### 証明
 
-$B=DH(x^*)$、$A=DG(x^*)$、$G^*=G(x^*)$ と書きます。実行可能なので $H(x^*)=0$、$G^*\le0$ です。
-
-まず MFCQ を仮定します。$B$ は行フルランクなので右逆行列 $R$ を取り
+まず Robinson CQ を仮定します。$0$ の近傍を $\mathcal R$ が含むので、十分小さい $\delta>0$ に対して
 
 $$
-BR=I_r
+(0,-\delta\mathbf1)\in\mathcal R.
 $$
 
-とできます。また MFCQ方向 $v$ は
+従ってある $v$ と $s\ge0$ が存在して
 
 $$
 Bv=0,
 \qquad
-A_iv<0
-\quad(i\in I(x^*)).
+Av+s=-\delta\mathbf1.
 $$
 
-十分小さい固定の $t_0>0$ を取れば、active成分では $G_i^*+t_0A_iv<0$、inactive成分でも元々 $G_i^*<0$ なので
+よって $Av\le-\delta\mathbf1<0$ です。また $\mathcal R$ の第1成分への射影が $0$ の近傍を含むので $B$ は全射、すなわち等式勾配は一次独立です。従って MFCQ が成立します。
+
+逆に MFCQ を仮定します。$B$ は全射なので、右逆写像 $R:\mathbb R^r\to\mathbb R^n$ を一つ取れます。MFCQ方向 $v$ は
 
 $$
-q:=G^*+A(t_0v)<0
+Bv=0,
+\qquad Av<0
 $$
 
-を全成分で実現できます。
+を満たします。有限個の成分しかないので、ある $c>0$ が存在して $Av\le-c\mathbf1$ です。
 
-$(z,y)$ を $(0,0)$ に十分近い点とします。$d=t_0v+Rz$ と置けば
-
-$$
-Bd=z.
-$$
-
-また $z$ が十分小さければ $A Rz$ も小さいので
+小さい $(y,z)\in\mathbb R^r\times\mathbb R^q$ に対し、まず $d_0=Ry$ と置くと $Bd_0=y$ です。$A d_0$ は $(y,z)$ とともに小さいので、十分大きいが固定の $\tau>0$ を選び
 
 $$
-G^*+Ad<y
+d=d_0+\tau\|(y,z)\|v
 $$
 
-を成分ごとに保てます。従って
+とすれば
 
 $$
-k:=y-(G^*+Ad)\in\mathbb R_+^m
+Ad\le z
+$$
+
+が近傍内で成り立つようにできます。そこで
+
+$$
+s=z-Ad\ge0
 $$
 
 と置けば
 
 $$
-(z,y)
-=(0,G^*)+(Bd,Ad)+(0,k)
+(Bd,Ad+s)=(y,z).
 $$
 
-です。よって0の近傍全体が Robinson の集合に含まれ、0は内部点です。
-
-逆に Robinson CQ を仮定します。集合の等式側成分は $B\mathbb R^n$ だけなので、0の近傍を含むためには
-
-$$
-B\mathbb R^n=\mathbb R^r
-$$
-
-でなければなりません。従って等式勾配は一次独立です。
-
-さらに内部条件から、ある $\varepsilon>0$ に対して
-
-$$
-(0,-\varepsilon\mathbf1)
-$$
-
-も Robinson の集合に入ります。従ってある $d$ と $k\ge0$ が存在して
-
-$$
-Bd=0,
-$$
-
-$$
-G^*+Ad+k=-\varepsilon\mathbf1.
-$$
-
-active $i$ では $G_i^*=0$ なので
-
-$$
-A_i d
-=-\varepsilon-k_i
-<0.
-$$
-
-従ってこの $d$ が MFCQ方向です。以上で同値性が示されました。$\square$
+従って原点のある近傍が $\mathcal R$ に含まれ、Robinson CQ が成立します。$\square$
 <!-- proof-end -->
 
 ---
 
-## 10. 線形化coneのpolarを制約勾配で表す
+## 10. 線形化coneのpolar
 
-active勾配を行に並べた行列を $A_I$、等式勾配を行に並べた行列を $B$ とします。すると
-
-$$
-L_C(x^*)
-=
-\{d:A_Id\le0,\ Bd=0\}.
-$$
-
-<a id="lem-f0-02c5a-linearized-polar"></a>
+<a id="thm-f0-02c5a-linearized-polar"></a>
 
 <!-- formal-statement-start -->
-> **補題（線形化coneのpolar）**  
-> 上の $L_C(x^*)$ に対して
+> **定理（線形化coneのpolar表示）**  
+> active不等式の勾配を行に並べた行列を $A$、等式勾配を行に並べた行列を $B$ とすると
+>
+> $$
+> L_C(x^*)=\{d:Ad\le0,\ Bd=0\}
+> $$
+>
+> に対して
 >
 > $$
 > \boxed{
 > L_C(x^*)^\circ
 > =
-> \{A_I^{\mathsf T}\lambda+B^{\mathsf T}\nu:
+> \{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:
 > \lambda\ge0,\ \nu\in\mathbb R^r\}
 > }
 > $$
@@ -706,536 +541,317 @@ $$
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-### 10.1 証明の見取り図
+### 証明の見取り図
 
-右辺から左辺は内積を計算するだけです。逆向きは、もしある polar ベクトルが右辺の閉凸錐の外にあれば、その錐と点を分離します。分離方向は自動的に $A_Id\le0$、$Bd=0$ を満たすので $d\in L_C$ となり、polar条件と矛盾します。
+右辺から左辺は直接計算できます。逆向きは右辺を有限生成凸錐とみなし、そこに入らないベクトルを射影で分離すると、線形化coneの元が作れて矛盾します。
 
 <!-- proof-start -->
 ### 証明
 
-まず
+右辺の集合を
 
 $$
-w=A_I^{\mathsf T}\lambda+B^{\mathsf T}\nu,
-\qquad\lambda\ge0
+M=\{A^{\mathsf T}\lambda+B^{\mathsf T}\nu:\lambda\ge0\}
 $$
 
-とします。$d\in L_C(x^*)$ なら
+とします。$y\in M$、$d\in L_C(x^*)$ なら
 
 $$
-w^{\mathsf T}d
-=
-\lambda^{\mathsf T}A_Id
-+
-u^{\mathsf T}Bd
+y^{\mathsf T}d
+=\lambda^{\mathsf T}Ad+\nu^{\mathsf T}Bd
 \le0,
 $$
 
-よって $w\in L_C(x^*)^\circ$ です。
+なので $M\subset L_C(x^*)^\circ$ です。
 
-逆に $w\in L_C(x^*)^\circ$ とし、
-
-$$
-M
-=
-\{A_I^{\mathsf T}\lambda+B^{\mathsf T}\nu:
-\lambda\ge0,\ \nu\in\mathbb R^r\}
-$$
-
-と置きます。$M$ は有限生成錐と部分空間の和なので閉凸錐です。
-
-もし $w\notin M$ なら、有限次元の点と閉凸集合の分離により、ある $d$ が存在して
+逆に $y\in L_C(x^*)^\circ$ なのに $y\notin M$ と仮定します。$M$ は
 
 $$
-w^{\mathsf T}d>0,
-\qquad
-m^{\mathsf T}d\le0
-\quad(\forall m\in M)
+\operatorname{cone}\{a_1,\ldots,a_q,b_1,-b_1,\ldots,b_r,-b_r\}
 $$
 
-となります。
-
-$B^{\mathsf T}\nu$ は $\nu$ と $-\nu$ の両方について $M$ に現れるので
+という有限生成凸錐なので閉です。$y$ の $M$ への最近点を $p$ とし $d=y-p$ と置きます。閉凸集合への射影の特徴付けから
 
 $$
-\nu^{\mathsf T}Bd=0
-\qquad(\forall\nu),
+d^{\mathsf T}(z-p)\le0\qquad(\forall z\in M).
 $$
 
-従って $Bd=0$ です。また $A_I^{\mathsf T}\lambda$ について全ての $\lambda\ge0$ で
+$M$ は錐なので $z=0$ と $z=2p$ を代入すると $d^{\mathsf T}p=0$ が従います。従って
 
 $$
-\lambda^{\mathsf T}A_Id\le0
+d^{\mathsf T}z\le0\qquad(\forall z\in M),
 $$
 
-なので $A_Id\le0$ です。従って $d\in L_C(x^*)$ です。
+一方
 
-しかし $w\in L_C(x^*)^\circ$ なら $w^{\mathsf T}d\le0$ でなければならず、$w^{\mathsf T}d>0$ に矛盾します。従って $w\in M$ です。$\square$
+$$
+d^{\mathsf T}y=\|y-p\|^2>0.
+$$
+
+$A$ の各行ベクトル $a_i$ は $M$ に入るので $Ad\le0$、また $\pm b_j\in M$ なので $Bd=0$ です。従って $d\in L_C(x^*)$ です。しかし $y\in L_C(x^*)^\circ$ なら $y^{\mathsf T}d\le0$ でなければならず矛盾します。従って $y\in M$ です。$\square$
 <!-- proof-end -->
 
 ---
 
-## 11. MFCQからKKT乗数の存在を導く
+## 11. MFCQ から KKT 乗数が存在する
 
 <a id="thm-f0-02c5a-mfcq-kkt"></a>
 
 <!-- formal-statement-start -->
 > **定理（MFCQ下のKKT乗数存在）**  
-> $f,g_i,h_j$ を $C^1$ 級とし、$x^*$ を局所最適な実行可能点とします。$x^*$ で MFCQ が成立すれば、ある
+> $x^*$ が $C$ 上の局所最適点で、$f,g_i,h_j$ が $C^1$ 級、かつ $x^*$ で MFCQ が成立するとします。このとき、ある $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
 >
 > $$
-> \lambda_i\ge0,
-> \qquad
-> \nu_j\in\mathbb R
-> $$
->
-> が存在して
->
-> $$
-> \boxed{
 > \nabla f(x^*)
 > +\sum_{i=1}^m\lambda_i\nabla g_i(x^*)
-> +\sum_{j=1}^r\nu_j\nabla h_j(x^*)
-> =0
-> }
+> +\sum_{j=1}^r\nu_j\nabla h_j(x^*)=0,
 > $$
 >
-> および
->
 > $$
-> \boxed{
 > \lambda_i g_i(x^*)=0
-> \qquad(i=1,\ldots,m)
-> }
 > $$
 >
-> が成り立ちます。
+> を満たします。
 <!-- formal-statement-end -->
 
-### 11.1 証明の見取り図
+### 証明の見取り図
 
-局所最適性から $-\nabla f$ は真の tangent cone の polar に入ります。MFCQ が $T=L$ を保証し、前節の polar 表示が $-\nabla f$ を active 制約勾配の非負結合と等式勾配の線形結合へ分解します。これがそのまま KKT 乗数です。
+局所最適性で $-\nabla f(x^*)$ は接錐のpolarに入ります。MFCQで接錐を線形化coneへ置き換え、前節のpolar表示から乗数を読み取ります。
 
 <!-- proof-start -->
 ### 証明
 
-[局所最適点の接方向条件](../F0_02C5_一般化KKT_制約写像_制約想定/index.md#lem-f0-02c5-local-min-tangent)から
+[局所最適点の接方向条件](../F0_02C5_一般化KKT_制約写像_制約想定/index.md#lem-f0-02c5-local-min-tangent) から
+
+$$
+-\nabla f(x^*)\in T_C(x^*)^\circ.
+$$
+
+MFCQ下では [接錐一致](#thm-f0-02c5a-mfcq-tangent-equality) により
+
+$$
+T_C(x^*)=L_C(x^*).
+$$
+
+従って [線形化coneのpolar表示](#thm-f0-02c5a-linearized-polar) から
 
 $$
 -\nabla f(x^*)
-\in
-T_C(x^*)^\circ.
+=A^{\mathsf T}\lambda+B^{\mathsf T}\nu,
+\qquad\lambda\ge0
 $$
 
-MFCQ 下では [接錐一致](#thm-f0-02c5a-mfcq-tangent-equality)により
+と書けます。inactive な不等式には $\lambda_i=0$ を補えば停留条件が得られます。active な制約では $g_i(x^*)=0$、inactive な制約では $\lambda_i=0$ なので、全ての $i$ について
 
 $$
-T_C(x^*)^\circ
-=
-L_C(x^*)^\circ.
+\lambda_i g_i(x^*)=0
 $$
 
-さらに [線形化coneのpolar表示](#lem-f0-02c5a-linearized-polar)から、active index に対する $\lambda_i\ge0$ と $\nu_j\in\mathbb R$ が存在して
-
-$$
--\nabla f(x^*)
-=
-\sum_{i\in I(x^*)}\lambda_i\nabla g_i(x^*)
-+
-\sum_{j=1}^r\nu_j\nabla h_j(x^*)
-$$
-
-と書けます。inactive index では $\lambda_i=0$ と定めれば stationarity が得られます。
-
-active index では $g_i(x^*)=0$、inactive index では $\lambda_i=0$ なので全ての $i$ で
-
-$$
-\lambda_i g_i(x^*)=0.
-$$
-
-従って KKT 条件が成立します。$\square$
+です。$\square$
 <!-- proof-end -->
 
-[Robinson CQとMFCQの同値](#thm-f0-02c5a-robinson-mfcq)と合わせれば、通常の滑らかな有限次元制約では Robinson CQ からも同じ KKT 乗数存在が従います。
+したがってこのページの鎖は
+
+$$
+\boxed{
+\text{MFCQ}
+\Longleftrightarrow
+\text{Robinson CQ}
+\Longrightarrow
+T=L
+\Longrightarrow
+\text{KKT乗数存在}
+}
+$$
+
+まで閉じました。
 
 ---
 
-## 12. smooth convex inequality のnormal cone公式
+## 12. 凸制約では normal cone の公式になる
 
-等式制約なしで、各 $g_i$ が凸かつ微分可能とします。このとき
-
-$$
-C=\{x:g_i(x)\le0\}
-$$
-
-は凸集合です。
-
-<a id="cor-f0-02c5a-smooth-normal"></a>
+<a id="thm-f0-02c5a-convex-normal-cone"></a>
 
 <!-- formal-statement-start -->
-> **系（MFCQ下のsmooth convex inequalityのnormal cone）**  
-> $x^*\in C$ で MFCQ が成立すると
+> **定理（滑らかな凸制約集合のnormal cone）**  
+> 各 $g_i$ が凸で $C^1$ 級、各 $h_j$ がアフィンで、$x^*$ で MFCQ が成立するとします。このとき
 >
 > $$
-> \boxed{
 > N_C(x^*)
 > =
 > \left\{
-> \sum_{i=1}^m\lambda_i\nabla g_i(x^*):
+> \sum_i\lambda_i\nabla g_i(x^*)
+> +\sum_j\nu_j\nabla h_j(x^*):
 > \lambda_i\ge0,
-> \ \lambda_i g_i(x^*)=0
-> \right\}
-> }
+> \lambda_i g_i(x^*)=0
+> \right\}.
 > $$
->
-> が成り立ちます。
 <!-- formal-statement-end -->
 
-### 12.1 証明の見取り図
+### 証明の見取り図
 
-凸集合では $N_C=T_C^\circ$ です。MFCQ で $T_C=L_C$、線形化coneのpolarで active 勾配の非負結合へ変換すれば式が出ます。
+凸集合では normal cone は tangent cone のpolarです。MFCQで $T=L$ とし、線形化coneのpolar表示を代入します。
 
 <!-- proof-start -->
 ### 証明
 
-凸集合について
+凸制約の下で $C$ は凸集合なので
 
 $$
 N_C(x^*)=T_C(x^*)^\circ.
 $$
 
-MFCQ と前節までの結果から
-
-$$
-T_C(x^*)^\circ
-=
-\left\{
-\sum_{i\in I(x^*)}\lambda_i\nabla g_i(x^*):
-\lambda_i\ge0
-\right\}.
-$$
-
-inactive index の係数を0とすれば、これは相補性 $\lambda_i g_i(x^*)=0$ を含む表示と同じです。$\square$
+MFCQにより $T_C(x^*)=L_C(x^*)$ であり、[線形化coneのpolar表示](#thm-f0-02c5a-linearized-polar) を適用すれば active 制約の非負結合と等式勾配の線形結合になります。inactive 制約の係数を0で補えば表示式が得られます。$\square$
 <!-- proof-end -->
-
-これで C4 で抽象的に置いた normal cone が、滑らかな不等式制約の勾配から実際に生成されることまでつながりました。
 
 ---
 
-## 13. 演習 Level A
+## 演習
 
-### F0-02C5A-A01 退化制約でMFCQが壊れる
+### F0-02C5A-A01 退化制約で MFCQ が壊れる
 
 - Level: A
 - 目安時間: 8分
-- 主題: MFCQ
-- 使用技術: active勾配
 
-$g(x)=x^2\le0$ の実行可能点0で MFCQ が失敗する理由を定義から示せ。
+$g(x)=x^2\le0$ の実行可能点0で MFCQ が失敗する理由を述べよ。
 
 <!-- solution-start -->
-#### 解答
-##### 詳細解答
-$g(0)=0$ なので active です。しかし
-
-$$
-g'(0)=0
-$$
-
-なので任意の方向 $v$ で
-
-$$
-g'(0)v=0
-$$
-
-です。MFCQ が要求する strict inequality $g'(0)v<0$ を満たす方向は存在しません。
-##### 本番答案
-$g'(0)=0$ より全ての $v$ で $g'(0)v=0$。従って active 制約を strict に内側へ動かす方向がなく MFCQ は失敗。
-##### 採点基準（20点）
-- active判定: 5点
-- 微分: 5点
-- MFCQ条件: 6点
+#### 詳細解答
+active制約の微分は $g'(0)=0$ です。MFCQ はある $v$ について $g'(0)v<0$ を要求しますが、左辺は常に0なので不可能です。
+#### 本番答案
+$g'(0)=0$ なので任意の $v$ に対し $g'(0)v=0$。従って strict inequality を作れず MFCQ は失敗する。
+#### 採点基準（20点）
+- active制約の確認: 5点
+- 微分 $g'(0)=0$: 5点
+- MFCQ条件との比較: 6点
 - 結論: 4点
 <!-- solution-end -->
 
-### F0-02C5A-A02 MFCQは成立するがLICQは失敗
+### F0-02C5A-A02 LICQ の判定
+
+- Level: A
+- 目安時間: 8分
+
+$g_1(x)=x_1\le0$, $g_2(x)=x_2\le0$ を $x^*=(0,0)$ で考える。LICQ を判定せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+両制約がactiveで、勾配は $(1,0)^T,(0,1)^T$。一次独立なので LICQ は成立します。
+#### 本番答案
+$I(x^*)=\{1,2\}$、$\nabla g_1=(1,0)^T$, $\nabla g_2=(0,1)^T$ は一次独立。よって LICQ 成立。
+#### 採点基準（20点）
+- active set: 4点
+- 勾配計算: 6点
+- 一次独立性: 6点
+- 結論: 4点
+<!-- solution-end -->
+
+### F0-02C5A-A03 Robinson CQ の判定
 
 - Level: A
 - 目安時間: 10分
-- 主題: LICQとMFCQ
-- 使用技術: 一次従属・方向選択
 
-$g_1(x)=x\le0$、$g_2(x)=2x\le0$ を0で考え、LICQとMFCQを判定せよ。
+$g(x)=x\le0$ を $x^*=0$ で考える。定義から Robinson CQ を確認せよ。
 
 <!-- solution-start -->
-#### 解答
-##### 詳細解答
-active勾配は1と2で一次従属なので LICQ は失敗します。一方 $v=-1$ とすれば
+#### 詳細解答
+$A=1$ なので $\mathcal R=\{d+s:d\in\mathbb R,s\ge0\}=\mathbb R$。従って0は内部点です。
+#### 本番答案
+$\mathcal R=\mathbb R$ だから $0\in\operatorname{int}\mathcal R$。Robinson CQ は成立する。
+#### 採点基準（20点）
+- $A$ の計算: 4点
+- $\mathcal R$ の計算: 8点
+- 内部点判定: 4点
+- 結論: 4点
+<!-- solution-end -->
 
-$$
-1\cdot(-1)<0,
-\qquad
-2\cdot(-1)<0
-$$
+### F0-02C5A-B01 MFCQ は成立するが LICQ は失敗する例
 
-なので MFCQ は成立します。
-##### 本番答案
-勾配1,2は一次従属なので LICQ 不成立。$v=-1$ で両方向微分が負なので MFCQ 成立。
-##### 採点基準（20点）
-- active勾配: 4点
+- Level: B
+- 目安時間: 12分
+
+$g_1(x)=x\le0$, $g_2(x)=2x\le0$ を0で考え、LICQとMFCQを判定せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+active勾配1と2は一次従属なので LICQ は失敗します。一方 $v=-1$ なら両方向微分が負なので MFCQ は成立します。
+#### 本番答案
+$1,2$ は一次従属なので LICQ 不成立。$v=-1$ なら $g_1'v=-1<0$, $g_2'v=-2<0$ なので MFCQ 成立。
+#### 採点基準（20点）
+- active set: 3点
 - LICQ判定: 6点
-- MFCQ方向: 6点
+- MFCQ方向の提示: 7点
 - 結論: 4点
 <!-- solution-end -->
 
-### F0-02C5A-A03 Robinson CQを直接確認する
-
-- Level: A
-- 目安時間: 10分
-- 主題: Robinson CQ
-- 使用技術: 線形化像と錐の和
-
-$g(x)=x\le0$ を $x^*=0$ で考え、Robinson CQ を定義式から確認せよ。
-
-<!-- solution-start -->
-#### 解答
-##### 詳細解答
-
-$$
-G(0)=0,
-\qquad
-DG(0)\mathbb R=\mathbb R,
-\qquad
-K=\mathbb R_+.
-$$
-
-従って
-
-$$
-G(0)+DG(0)\mathbb R+K=\mathbb R.
-$$
-
-0はその内部点なので Robinson CQ が成立します。
-##### 本番答案
-$0+\mathbb R+\mathbb R_+=\mathbb R$ で $0\in\operatorname{int}\mathbb R$。従って Robinson CQ 成立。
-##### 採点基準（20点）
-- $G(0)$: 4点
-- 線形化像: 6点
-- 集合和: 6点
-- 内部判定: 4点
-<!-- solution-end -->
-
----
-
-## 14. 演習 Level B
-
-### F0-02C5A-B01 LICQからMFCQ方向を構成する
+### F0-02C5A-B02 接錐と線形化cone
 
 - Level: B
 - 目安時間: 15分
-- 主題: LICQ $\Rightarrow$ MFCQ
-- 使用技術: 線形方程式
 
-$\mathbb R^2$ で
-
-$$
-g_1(x)=x_1\le0,
-\qquad
-g_2(x)=x_2\le0
-$$
-
-を原点で考える。LICQを確認し、MFCQ方向を一つ構成せよ。
+$C=\{(x_1,x_2):x_2\ge x_1^2\}$ と $x^*=(0,0)$ を考える。$T_C(x^*)$ と線形化coneを求め、一致を確認せよ。
 
 <!-- solution-start -->
-#### 解答
-##### 詳細解答
-勾配は
-
-$$
-\nabla g_1=(1,0)^T,
-\qquad
-\nabla g_2=(0,1)^T
-$$
-
-で一次独立なので LICQ が成立します。
-
-$$
-v=(-1,-1)^T
-$$
-
-と取れば
-
-$$
-\nabla g_1^Tv=-1<0,
-\qquad
-\nabla g_2^Tv=-1<0.
-$$
-
-従って MFCQ も成立します。
-##### 本番答案
-勾配は標準基底で一次独立。$v=(-1,-1)^T$ なら両 active 制約の方向微分が $-1$ なので MFCQ 成立。
-##### 採点基準（20点）
-- 勾配: 4点
-- LICQ: 6点
-- 方向構成: 6点
-- MFCQ確認: 4点
-<!-- solution-end -->
-
-### F0-02C5A-B02 tangent coneと線形化coneを一致させる
-
-- Level: B
-- 目安時間: 15分
-- 主題: 接錐一致
-- 使用技術: MFCQ
-
-$$
-C=\{(x_1,x_2):x_1^2+x_2^2\le1\}
-$$
-
-の点 $x^*=(1,0)$ で $L_C(x^*)$ を求め、MFCQを確認して $T_C(x^*)=L_C(x^*)$ を結論せよ。
-
-<!-- solution-start -->
-#### 解答
-##### 詳細解答
-制約を
-
-$$
-g(x)=x_1^2+x_2^2-1\le0
-$$
-
-と置くと
-
-$$
-\nabla g(1,0)=(2,0)^T.
-$$
-
-従って
-
-$$
-L_C(1,0)
-=\{d:2d_1\le0\}
-=\{d:d_1\le0\}.
-$$
-
-$v=(-1,0)$ とすれば $\nabla g^Tv=-2<0$ なので MFCQ が成立します。定理より
-
-$$
-\boxed{T_C(1,0)=\{d:d_1\le0\}}.
-$$
-##### 本番答案
-$\nabla g(1,0)=(2,0)^T$ より $L_C=\{d:d_1\le0\}$。$v=(-1,0)$ で strict に負なので MFCQ 成立。従って $T_C=L_C$。
-##### 採点基準（20点）
-- 勾配: 4点
+#### 詳細解答
+制約を $g(x)=x_1^2-x_2\le0$ と書くと $\nabla g(0,0)=(0,-1)^T$。従って線形化coneは $d_2\ge0$。実際、$d_2>0$ なら $(td_1,td_2)$ は十分小さい $t$ で実行可能、$d_2=0$ は $d_2^{(k)}>0$ から極限を取れるので接錐も $\{d:d_2\ge0\}$ です。
+#### 本番答案
+$\nabla g(0,0)=(0,-1)^T$ より $L_C=\{d:d_2\ge0\}$。$d_2>0$ は直線で実現でき、境界 $d_2=0$ は極限で入るため $T_C=L_C$。
+#### 採点基準（20点）
+- 制約表現: 4点
 - 線形化cone: 6点
-- MFCQ: 5点
-- 接錐一致: 5点
+- 接方向の構成: 6点
+- 一致の結論: 4点
 <!-- solution-end -->
 
-### F0-02C5A-B03 MFCQからKKT乗数を求める
-
-- Level: B
-- 目安時間: 18分
-- 主題: KKT乗数存在
-- 使用技術: active勾配の非負結合
-
-$$
-\min_{x\in\mathbb R} (x-1)^2
-\quad\text{subject to}\quad
-x\le0
-$$
-
-を考える。最適点 $x^*=0$ で MFCQ を確認し、KKT乗数を求めよ。
-
-<!-- solution-start -->
-#### 解答
-##### 詳細解答
-$g(x)=x$ とすると $g'(0)=1$ です。$v=-1$ で $g'(0)v=-1<0$ なので MFCQ が成立します。
-
-目的関数の微分は
-
-$$
-f'(0)=2(0-1)=-2.
-$$
-
-stationarity
-
-$$
--2+\lambda\cdot1=0
-$$
-
-より
-
-$$
-\lambda=2\ge0.
-$$
-
-また $g(0)=0$ なので相補性も成立します。
-##### 本番答案
-$v=-1$ で MFCQ。$f'(0)=-2,g'(0)=1$ より stationarity は $-2+\lambda=0$、従って $\boxed{\lambda=2}$。相補性も $2\cdot0=0$。
-##### 採点基準（20点）
-- MFCQ: 5点
-- 微分: 5点
-- stationarity: 6点
-- 相補性: 4点
-<!-- solution-end -->
-
-### F0-02C5A-B04 smooth inequalityのnormal cone
+### F0-02C5A-B03 線形化coneのpolar
 
 - Level: B
 - 目安時間: 15分
-- 主題: normal cone公式
-- 使用技術: active勾配
-
-単位円板
 
 $$
-C=\{x\in\mathbb R^2:x_1^2+x_2^2\le1\}
+L=\{(d_1,d_2):d_1\le0,\ d_2=0\}
 $$
 
-について $N_C(1,0)$ を smooth inequality のnormal cone公式から求めよ。
+の polar cone を求め、定理の表示と照合せよ。
 
 <!-- solution-start -->
-#### 解答
-##### 詳細解答
+#### 詳細解答
+$A=(1,0)$、$B=(0,1)$ と置けます。従って $L^\circ=\{(\lambda,\nu):\lambda\ge0,\nu\in\mathbb R\}$。直接にも $y_1d_1\le0$ を全ての $d_1\le0$ で満たすには $y_1\ge0$、$d_2=0$ なので $y_2$ は自由です。
+#### 本番答案
+$L^\circ=\{(y_1,y_2):y_1\ge0,\ y_2\in\mathbb R\}$。これは $A^T\lambda+B^T\nu$ ($\lambda\ge0$) と一致する。
+#### 採点基準（20点）
+- polar条件: 5点
+- $y_1$ の符号: 5点
+- $y_2$ 自由の確認: 4点
+- 定理との照合: 6点
+<!-- solution-end -->
+
+### F0-02C5A-B04 KKT乗数の計算
+
+- Level: B
+- 目安時間: 15分
 
 $$
-g(x)=x_1^2+x_2^2-1,
-\qquad
-\nabla g(1,0)=(2,0)^T.
+\min_{x\in\mathbb R} \frac12(x+1)^2
+\qquad\text{subject to}\qquad x\ge0
 $$
 
-この制約は凸で、$v=(-1,0)$ により MFCQ も成立します。従って
+について、最適解とKKT乗数を求めよ。制約は $g(x)=-x\le0$ と書け。
 
-$$
-N_C(1,0)
-=\{\lambda(2,0)^T:\lambda\ge0\}
-=\{(t,0)^T:t\ge0\}.
-$$
-##### 本番答案
-$\nabla g(1,0)=(2,0)^T$、MFCQ成立。従って
-
-$$
-\boxed{N_C(1,0)=\{(t,0)^T:t\ge0\}}.
-$$
-##### 採点基準（20点）
-- 制約関数: 4点
-- 勾配: 5点
-- MFCQ: 4点
-- normal cone: 7点
+<!-- solution-start -->
+#### 詳細解答
+制約なし最小点は $x=-1$ で実行不能なので $x^*=0$。停留条件は $f'(0)+\lambda g'(0)=1-\lambda=0$ だから $\lambda=1$。主実行可能性、$\lambda\ge0$、相補性 $\lambda g(0)=0$ も満たします。
+#### 本番答案
+$x^*=0$。$1-\lambda=0$ より $\lambda=1$。$g(0)=0$, $\lambda\ge0$, $\lambda g(0)=0$ なのでKKT条件を満たす。
+#### 採点基準（20点）
+- 最適解: 5点
+- 停留条件: 6点
+- 乗数: 4点
+- 残りのKKT確認: 5点
 <!-- solution-end -->
 
 ---
 
-## 15. 章末チェック
+## 次に進む
 
-- active set と線形化coneを定義から計算できる。
-- 退化制約で $T_C\ne L_C$ となる理由を説明できる。
-- LICQ と MFCQ を具体例で判定できる。
-- LICQ $\Rightarrow$ MFCQ を線形代数から証明できる。
-- MFCQ 下で $T_C=L_C$ を証明できる。
-- 通常制約で Robinson CQ $\iff$ MFCQ を証明できる。
-- 線形化coneのpolarを制約勾配で表せる。
-- MFCQ / Robinson CQ から KKT 乗数の存在を導ける。
-- smooth convex inequality のnormal coneを active 勾配の非負結合で書ける。
-
-次は [F0-02C6 Hahn--Banach・汎関数拡張](../F0_02C6_Hahn_Banach_分離定理/index.md) へ進みます。
+**次：[F0-02C6 Hahn--Banach・汎関数拡張](../F0_02C6_Hahn_Banach_分離定理/index.md)**
