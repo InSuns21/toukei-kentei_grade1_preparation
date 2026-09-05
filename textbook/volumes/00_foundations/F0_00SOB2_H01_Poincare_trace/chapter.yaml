@@ -6,23 +6,22 @@ prerequisites:
   - F0-00SOB1
 official_scope: []
 learning_objectives:
-  - H0^1をコンパクト台滑らか関数のH1閉包として定義できる
+  - H0^1をコンパクト台滑らか関数のH1閉包として定義し具体例で確認できる
   - Sobolev空間で境界値を扱うためtraceが必要な理由を説明できる
-  - Poincare不等式の役割を説明し、一次元で導出できる
-  - H0^1では勾配ノルムがH1ノルムと同値になることを説明できる
-  - Dirichlet境界条件を弱形式で組み込む考え方を説明できる
-  - Sobolev embeddingとRellich compactnessの役割を発展として位置付けられる
+  - 任意の有界開集合でH0^1版Poincare不等式を証明できる
+  - H0^1では勾配ノルムがH1ノルムと同値になることを証明できる
+  - Poisson弱形式のcoercivityをPoincare不等式から導ける
+  - trace定理・Sobolev embedding・Rellich compactnessを黒箱範囲として区別できる
 definitions:
   - { id: F000SOB2-DEF-01, name: H0^1 }
-  - { id: F000SOB2-DEF-02, name: trace }
 theorems:
-  - { id: F000SOB2-THM-01, name: Poincare不等式 }
-  - { id: F000SOB2-THM-02, name: trace定理の入口 }
+  - { id: F000SOB2-THM-01, name: H0^1のPoincare不等式 }
 canonical_examples:
+  - コンパクト台bump関数とH0^1
   - 区間上のPoincare不等式
-  - 零Dirichlet境界条件とH0^1
-problem_patterns: [POINCARE-1, H01-BOUNDARY-1]
+  - Poisson弱形式のcoercivity
+problem_patterns: [POINCARE-1, H01-BOUNDARY-1, COERCIVITY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 1.25, review: 0.5 }
