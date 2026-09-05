@@ -1,0 +1,58 @@
+chapter: F0-00DS2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00DS1
+
+concepts:
+  - id: distribution.distributional-derivative
+    name: 超関数微分
+    kind: definition
+    aliases: [超関数微分]
+    introduction: inline
+    requires:
+      - distribution.schwartz-distribution
+      - distribution.test-function
+
+  - id: distribution.weak-derivative
+    name: 弱微分
+    kind: definition
+    aliases: [弱微分]
+    introduction: inline
+    requires:
+      - distribution.distributional-derivative
+      - distribution.regular-distribution
+
+  - id: distribution.multi-index-weak-derivative
+    name: 多重指数による弱偏微分
+    kind: definition
+    aliases: [多重指数]
+    introduction: inline
+    requires:
+      - distribution.weak-derivative
+
+  - id: distribution.classical-weak-derivative-agreement
+    name: 古典微分と弱微分の一致
+    kind: theorem
+    aliases: [普通に微分できる場合は一致する]
+    introduction: inline
+    requires:
+      - distribution.distributional-derivative
+      - distribution.weak-derivative
+      - distribution.regular-distribution
+
+  - id: distribution.heaviside-derivative
+    name: Heaviside関数の超関数微分
+    kind: example
+    aliases: [Heaviside関数を微分する]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.dirac-delta
+
+  - id: distribution.jump-derivative
+    name: jumpを持つ関数の超関数微分
+    kind: term
+    aliases: [jumpを持つ関数の一般形]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.dirac-delta
