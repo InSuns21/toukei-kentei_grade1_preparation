@@ -6,9 +6,11 @@ prerequisites:
   - F0-00D2C
   - F0-00D3
 
-# 末尾で確率測度の Fourier 変換として特性関数を先取りする。
+# 末尾で確率測度の Fourier 変換として特性関数を先取りし、冒頭では次章の L2 Fourier 変換を予告する。
 forward_references:
   - prob.characteristic-function
+  - prob.random-variable
+  - fourier.transform-l2
 
 concepts:
   - id: fourier.transform-l1
@@ -19,7 +21,8 @@ concepts:
   - id: fourier.translation-continuity-l1
     name: L1 の平行移動連続性
     kind: lemma
-    aliases: [平行移動連続性]
+    # reader-source 用の6空白版と raw Markdown 用の数式版を併記する。
+    aliases: ["補題（      の平行移動連続性）", '$L^1$ の平行移動連続性']
     requires:
       - fourier.transform-l1
 
