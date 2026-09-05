@@ -53,6 +53,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Audit official syllabus term coverage
+        run: npm run audit:textbook-syllabus
+
       - name: Validate textbook structure
         run: npm run validate:structure
 
