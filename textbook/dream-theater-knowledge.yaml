@@ -1,0 +1,29 @@
+version: 1
+scope: dream-theater
+metadata_file: knowledge.yaml
+
+# DREAM THEATER 専用の概念依存監査ポリシー。
+# 通常教材の chapter.yaml / glossary.yaml とは共用しない。
+# 各 DREAM THEATER ページの概念は、そのページ直下の knowledge.yaml を正本とする。
+# chapter.yaml / glossary.yaml は移行時の参考にはしてよいが、CIの入力にはしない。
+
+strict:
+  require_knowledge_for_changed_formal_page: true
+  require_registered_formal_declaration: true
+  reject_unreachable_registered_concept: true
+  reject_unresolved_concept_dependency: true
+
+rollout:
+  # 既存ページは段階移行する。未移行ページそのものは audit では報告するが、
+  # changed-only CI では変更ページだけを strict にする。
+  missing_existing_knowledge: audit
+
+formal_kinds:
+  - definition
+  - theorem
+  - lemma
+  - proposition
+  - corollary
+
+# v1 の blocking 対象は登録概念・formal statement・requires 依存関係。
+# 自由文の未知語候補は audit から始め、確認済みパターンを順次 blocking へ昇格する。
