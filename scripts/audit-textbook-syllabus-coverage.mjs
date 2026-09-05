@@ -10,6 +10,7 @@ const VOLUMES = path.join(ROOT, 'textbook', 'volumes');
 const readYaml = (p) => parse(fs.readFileSync(p, 'utf8'));
 const syllabus = readYaml(SYLLABUS);
 const curriculum = readYaml(CURRICULUM);
+const curriculumIds = new Set((curriculum.chapters ?? []).map((ch) => ch.id));
 
 const aliases = new Map([
   ['モーメント母関数（積率母関数）', ['モーメント母関数', '積率母関数']],
@@ -42,22 +43,43 @@ const aliases = new Map([
   ['デルタ法', ['デルタ法', 'Delta法']],
   ['Monte Carlo', ['Monte Carlo', 'モンテカルロ']],
   ['モンテカルロシミュレーション', ['モンテカルロ', 'Monte Carlo']],
+  ['ロジスティック回帰分析', ['ロジスティック回帰分析', 'ロジスティック回帰']],
+  ['トランケーション', ['トランケーション', '切断']],
 ]);
 
-function walk(dir, acc = []) {
+function walkDirectories(dir, acc = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, ent.name);
-    if (ent.isDirectory()) walk(p, acc);
-    else if (ent.name === 'index.md' || ent.name === 'chapter.yaml') acc.push(p);
+    if (ent.isDirectory()) {
+      const chapterFile = path.join(p, 'chapter.yaml');
+      if (fs.existsSync(chapterFile)) acc.push(p);
+      walkDirectories(p, acc);
+    }
   }
   return acc;
 }
 
-const files = walk(VOLUMES);
-const docs = files.map((p) => ({
-  path: path.relative(ROOT, p).replaceAll(path.sep, '/'),
-  text: fs.readFileSync(p, 'utf8'),
-}));
+const chapterDirs = walkDirectories(VOLUMES)
+  .filter((dir) => {
+    try {
+      const meta = readYaml(path.join(dir, 'chapter.yaml'));
+      return curriculumIds.has(meta.id);
+    } catch {
+      return false;
+    }
+  });
+
+const docs = [];
+for (const dir of chapterDirs) {
+  for (const name of ['chapter.yaml', 'index.md']) {
+    const p = path.join(dir, name);
+    if (!fs.existsSync(p)) continue;
+    docs.push({
+      path: path.relative(ROOT, p).replaceAll(path.sep, '/'),
+      text: fs.readFileSync(p, 'utf8'),
+    });
+  }
+}
 
 const chapterByScope = new Map();
 for (const ch of curriculum.chapters ?? []) {
@@ -86,9 +108,7 @@ function contentHits(term) {
 function scopeHits(term) {
   const cs = candidates(term);
   const ids = [];
-  for (const [scope, chapters] of chapterByScope.entries()) {
-    if (cs.some((c) => scope.includes(c) || c.includes(scope))) ids.push(...chapters);
-  }
+  for (const c of cs) ids.push(...(chapterByScope.get(c) ?? []));
   return [...new Set(ids)];
 }
 
@@ -108,6 +128,7 @@ for (const item of syllabus.items ?? []) {
 
 const counts = rows.reduce((m, r) => (m[r.status] = (m[r.status] ?? 0) + 1, m), {});
 console.log('=== textbook syllabus term audit ===');
+console.log(`curriculum chapters scanned: ${chapterDirs.length}`);
 console.log(`official term occurrences: ${rows.length}`);
 for (const k of ['exact', 'alias', 'scope-only', 'missing']) console.log(`${k}: ${counts[k] ?? 0}`);
 
