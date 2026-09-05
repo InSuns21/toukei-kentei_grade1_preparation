@@ -1,0 +1,54 @@
+chapter: F0-00H1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F1
+
+concepts:
+  - id: ode.ordinary-differential-equation
+    name: 常微分方程式
+    kind: definition
+    aliases: [常微分方程式]
+    introduction: inline
+
+  - id: ode.initial-value-problem
+    name: 初期値問題
+    kind: definition
+    aliases: [初期値問題]
+    introduction: inline
+    requires:
+      - ode.ordinary-differential-equation
+
+  - id: ode.matrix-exponential
+    name: 行列指数
+    kind: definition
+    aliases: [行列指数]
+    introduction: inline
+
+  - id: ode.integrating-factor-method
+    name: 一階線形常微分方程式の積分因子法
+    kind: theorem
+    aliases: [一階線形常微分方程式の積分因子法]
+    introduction_aliases: [一階線形ODEと積分因子]
+    introduction: inline
+    requires:
+      - ode.ordinary-differential-equation
+
+  - id: ode.constant-coefficient-second-order-method
+    name: 定係数二階線形常微分方程式の特性方程式法
+    kind: theorem
+    aliases: [定係数二階線形常微分方程式の特性方程式法]
+    introduction_aliases: [二階定係数線形ODE]
+    introduction: inline
+    requires:
+      - ode.ordinary-differential-equation
+
+  - id: ode.matrix-exponential-solution
+    name: 線形系の行列指数解
+    kind: theorem
+    aliases: [線形系の行列指数解]
+    introduction_aliases: [連立線形ODE]
+    introduction: inline
+    requires:
+      - ode.matrix-exponential
+      - ode.ordinary-differential-equation
