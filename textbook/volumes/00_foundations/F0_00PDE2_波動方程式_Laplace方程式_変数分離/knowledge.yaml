@@ -59,7 +59,7 @@ concepts:
       - pde.wave-equation
       - pde.separation-of-variables
       - pde.eigenmode
-      - fourier.partial-sum
+      - fourier.trig-system-l2-completeness
 
   - id: pde.harmonic-function
     name: 調和関数
