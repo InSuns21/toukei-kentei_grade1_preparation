@@ -123,6 +123,22 @@ $$
 
 ### 2.3 指数分布
 
+<a id="def-p3-02-survival-function"></a>
+
+<!-- formal-statement-start -->
+> **定義（生存関数）**  
+> 累積分布関数を $F(x)=P(X\le x)$ とするとき
+>
+> $S(x)=P(X>x)=1-F(x)$
+>
+> を **生存関数** という。寿命変数では「時点 $x$ を超えて生存する確率」を表す。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p3-02-survival-function -->
+**定義の確認**  
+ある寿命分布で $F(2)=0.7$ なら、時点2を超えて生存する確率は $S(2)=1-0.7=0.3$ です。
+<!-- definition-example-end -->
+
 $\lambda>0$ とします。$X\sim\operatorname{Exp}(\lambda)$ は率 $\lambda$ の指数分布で
 
 $$
