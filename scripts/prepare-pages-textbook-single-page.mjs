@@ -6,6 +6,7 @@ const root = process.cwd();
 const sourceRoot = path.join(root, 'textbook', 'volumes');
 const targetRoot = path.join(root, '_site', 'textbook', 'volumes');
 const inlineAppendixName = 'linear_algebra_singular_null_span.md';
+const calculationDrillAppendixName = 'calculation_drills.md';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
   console.error('先に scripts/build-pages.mjs を実行してください。');
@@ -34,6 +35,11 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
       const appendixPath = path.join(sourceChapter, inlineAppendixName);
       if (fs.existsSync(appendixPath)) {
         text = inlineLinearAlgebraAppendix(text, fs.readFileSync(appendixPath, 'utf8'));
+        inlinedAppendices += 1;
+      }
+      const calculationDrillPath = path.join(sourceChapter, calculationDrillAppendixName);
+      if (chapter.name.startsWith('F0_00_') && fs.existsSync(calculationDrillPath)) {
+        text = inlineCalculationDrills(text, fs.readFileSync(calculationDrillPath, 'utf8'));
         inlinedAppendices += 1;
       }
       fs.writeFileSync(path.join(targetChapter, 'index.md'), text, 'utf8');
@@ -116,6 +122,28 @@ function inlineLinearAlgebraAppendix(indexText, appendixText) {
   if (actualDisplayDelimiters !== expectedDisplayDelimiters) {
     throw new Error(
       `Inlining ${inlineAppendixName} changed display-math delimiters: expected ${expectedDisplayDelimiters}, got ${actualDisplayDelimiters}`,
+    );
+  }
+
+  return output;
+}
+
+function inlineCalculationDrills(indexText, appendixText) {
+  const appendix = demoteHeadings(appendixText, 1).trim();
+  const insertionPoint = /^## 14\. 本番ドリル\s*$/m;
+  const expectedDisplayDelimiters = countOccurrences(indexText, '$$') + countOccurrences(appendix, '$$');
+
+  const output = insertionPoint.test(indexText)
+    ? indexText.replace(
+        insertionPoint,
+        () => `${appendix}\n\n---\n\n## 14. 本番ドリル`,
+      )
+    : `${indexText.trimEnd()}\n\n---\n\n${appendix}\n`;
+
+  const actualDisplayDelimiters = countOccurrences(output, '$$');
+  if (actualDisplayDelimiters !== expectedDisplayDelimiters) {
+    throw new Error(
+      `Inlining ${calculationDrillAppendixName} changed display-math delimiters: expected ${expectedDisplayDelimiters}, got ${actualDisplayDelimiters}`,
     );
   }
 
