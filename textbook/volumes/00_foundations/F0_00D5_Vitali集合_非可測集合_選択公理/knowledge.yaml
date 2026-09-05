@@ -5,9 +5,10 @@ prerequisites:
   - F0-00D4
   - F0-00A2
 
-# 関数解析への接続節では、次に学ぶ Zorn/Hahn--Banach を名前だけ先に紹介する。
+# 関数解析・確率論への接続節では、後で扱う概念を名前だけ先に紹介する。
 forward_references:
   - set.zorn-lemma
+  - prob.probability-space
 
 concepts:
   - id: measure.vitali-set

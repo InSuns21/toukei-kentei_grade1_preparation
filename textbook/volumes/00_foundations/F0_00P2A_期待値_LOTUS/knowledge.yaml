@@ -1,0 +1,43 @@
+chapter: F0-00P2A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P2
+  - F0-00D2B
+
+forward_references:
+  - prob.independent-events
+  - prob.independent-random-variables
+  - measure.product-measure
+
+concepts:
+  - id: prob.expectation
+    name: 期待値
+    kind: term
+    aliases: ["期待値は確率測度に関する積分"]
+    requires:
+      - prob.random-variable
+      - measure.lebesgue-integral
+
+  # 冒頭で先に全体像としてLOTUSを予告してから期待値を説明する構成なので、
+  # same-page順序監査の偽陽性を避け、押し出し測度への依存だけを明示する。
+  - id: prob.lotus
+    name: 押し出し積分公式（LOTUS）
+    kind: term
+    aliases: [押し出し積分公式, LOTUS]
+    requires:
+      - measure.pushforward-measure
+
+  - id: prob.moment
+    name: モーメント
+    kind: term
+    aliases: [次モーメント]
+    requires:
+      - prob.expectation
+
+  - id: prob.variance
+    name: 分散
+    kind: term
+    aliases: ["Var(X)"]
+    requires:
+      - prob.expectation

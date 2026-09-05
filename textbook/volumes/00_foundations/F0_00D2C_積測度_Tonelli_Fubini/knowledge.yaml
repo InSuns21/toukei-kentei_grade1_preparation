@@ -5,10 +5,12 @@ prerequisites:
   - F0-00D2B
   - F0-00D4
 
-# 末尾の次章案内で D2D の Hölder/Minkowski を予告する。
+# 末尾・応用節で後続の Lp / 確率論概念を予告する。
 forward_references:
   - measure.holder-inequality
   - measure.minkowski-inequality
+  - prob.random-variable
+  - prob.independent-random-variables
 
 concepts:
   - id: measure.product-sigma-algebra

@@ -1,0 +1,44 @@
+chapter: F0-00P3A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3
+  - F0-00P2
+
+concepts:
+  - id: prob.conditional-expectation
+    name: 条件付き期待値
+    kind: definition
+    aliases: [条件付き期待値]
+    requires:
+      - prob.probability-space
+      - prob.expectation
+      - measure.measurable-function
+      - measure.lp-space
+
+  - id: prob.conditional-expectation-existence
+    name: 条件付き期待値の存在とa.s.一意性
+    kind: theorem
+    aliases: [条件付き期待値の存在とa.s.一意性]
+    requires:
+      - prob.conditional-expectation
+      - measure.radon-nikodym-theorem
+      - measure.absolute-continuity
+      - measure.almost-everywhere
+
+  - id: prob.conditional-expectation-properties
+    name: 条件付き期待値の基本性質
+    kind: theorem
+    aliases: [条件付き期待値の基本性質]
+    requires:
+      - prob.conditional-expectation
+      - prob.conditional-expectation-existence
+      - measure.dominated-convergence-theorem
+
+  - id: prob.tower-property
+    name: tower property
+    kind: theorem
+    aliases: [tower property]
+    requires:
+      - prob.conditional-expectation
+      - prob.conditional-expectation-existence

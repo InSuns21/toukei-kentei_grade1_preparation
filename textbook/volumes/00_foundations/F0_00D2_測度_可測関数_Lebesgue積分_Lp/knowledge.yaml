@@ -21,6 +21,8 @@ forward_references:
   - functional.hilbert-space
   - measure.vitali-set
   - measure.borel-sigma-algebra-recap
+  - prob.probability-space
+  - prob.random-variable
 
 concepts:
   - id: measure.sigma-algebra
