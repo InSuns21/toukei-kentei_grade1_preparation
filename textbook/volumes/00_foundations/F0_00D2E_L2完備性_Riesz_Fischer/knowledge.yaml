@@ -1,0 +1,61 @@
+chapter: F0-00D2E
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2D
+  - F0-00D2B
+
+concepts:
+  - id: functional.normed-cauchy-sequence
+    name: ノルム空間のCauchy列
+    kind: definition
+    aliases: [ノルム空間のCauchy列, Cauchy列]
+    requires: []
+
+  - id: functional.banach-space
+    name: Banach空間
+    kind: definition
+    aliases: [Banach空間]
+    requires:
+      - functional.normed-cauchy-sequence
+
+  - id: functional.l2-inner-product
+    name: L2内積
+    kind: definition
+    aliases: [内積]
+    requires:
+      - measure.holder-inequality
+      - measure.lebesgue-integral
+
+  - id: functional.inner-product-induced-norm
+    name: 内積が誘導するノルム
+    kind: proposition
+    aliases: [内積が誘導するノルム]
+    requires:
+      - functional.l2-inner-product
+
+  - id: functional.hilbert-space
+    name: Hilbert空間
+    kind: definition
+    aliases: [Hilbert空間]
+    requires:
+      - functional.inner-product-induced-norm
+      - functional.banach-space
+
+  - id: functional.l2-completeness
+    name: L2の完備性
+    kind: theorem
+    aliases: [完備性]
+    requires:
+      - measure.minkowski-inequality
+      - measure.monotone-convergence-theorem
+      - measure.almost-everywhere
+
+  - id: functional.l2-hilbert
+    name: L2のHilbert性
+    kind: corollary
+    aliases: [Hilbert性]
+    requires:
+      - functional.hilbert-space
+      - functional.l2-completeness
+      - functional.l2-inner-product
