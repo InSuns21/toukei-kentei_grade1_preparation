@@ -1,0 +1,89 @@
+chapter: F0-00D2
+scope: dream-theater
+coverage: complete
+prerequisites: []
+
+concepts:
+  - id: measure.sigma-algebra
+    name: σ代数
+    kind: definition
+    aliases: [σ代数, 可測空間, 可測集合, sigma-algebra]
+    requires: []
+
+  - id: measure.sigma-algebra-basic-closure
+    name: σ代数の基本閉性
+    kind: proposition
+    aliases: [σ代数の基本閉性]
+    requires:
+      - measure.sigma-algebra
+
+  - id: measure.generated-sigma-algebra
+    name: 生成σ代数
+    kind: definition
+    aliases: [生成σ代数]
+    requires:
+      - measure.sigma-algebra
+
+  - id: measure.borel-sigma-algebra
+    name: Borel σ代数
+    kind: definition
+    aliases: [Borel σ代数, Borel集合]
+    requires:
+      - measure.generated-sigma-algebra
+
+  - id: measure.measure-space
+    name: 測度・測度空間
+    kind: definition
+    aliases: [測度・測度空間, 測度空間, measure space]
+    requires:
+      - measure.sigma-algebra
+
+  - id: measure.measure-monotonicity
+    name: 測度の単調性
+    kind: proposition
+    aliases: [命題（単調性）]
+    requires:
+      - measure.measure-space
+
+  - id: measure.continuity-from-below
+    name: 下からの連続性
+    kind: theorem
+    aliases: [下からの連続性]
+    requires:
+      - measure.measure-space
+
+  - id: measure.null-set
+    name: 測度0集合
+    kind: definition
+    aliases: [測度0集合, 零集合, null set]
+    requires:
+      - measure.measure-space
+
+  - id: measure.almost-everywhere
+    name: ほとんど至るところ
+    kind: definition
+    aliases: [ほとんど至るところ, almost everywhere, a.e.]
+    requires:
+      - measure.null-set
+
+  - id: measure.measurable-function
+    name: 実数値可測関数
+    kind: definition
+    aliases: [実数値可測関数, 可測関数, measurable function]
+    requires:
+      - measure.sigma-algebra
+
+  - id: measure.continuous-borel-measurable
+    name: 連続関数はBorel可測
+    kind: theorem
+    aliases: [連続関数はBorel可測]
+    requires:
+      - measure.borel-sigma-algebra
+      - measure.measurable-function
+
+  - id: measure.indicator-measurability
+    name: 指示関数の可測性
+    kind: proposition
+    aliases: [指示関数の可測性]
+    requires:
+      - measure.measurable-function
