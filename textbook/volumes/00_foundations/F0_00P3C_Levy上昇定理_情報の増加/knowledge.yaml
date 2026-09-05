@@ -22,6 +22,7 @@ concepts:
     requires:
       - prob.increasing-sigma-fields
       - measure.sigma-algebra
+      - measure.continuity-from-below
 
   - id: prob.upcrossing
     name: 上向き横断
@@ -41,3 +42,4 @@ concepts:
       - prob.conditional-expectation-properties
       - prob.tower-property
       - measure.monotone-convergence-theorem
+      - measure.fatou-lemma
