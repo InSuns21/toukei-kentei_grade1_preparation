@@ -30,7 +30,8 @@ concepts:
   - id: prob.conditional-expectation-as-function
     name: 条件付き期待値の可測関数表示
     kind: term
-    aliases: ["E[X\\mid Y]", "m(Y)"]
+    # main reader-source監査でも説明節を確認できる通常aliasを一つ持たせる。
+    aliases: ["E[X\\mid Y]", "m(Y)", "Doob--Dynkin lemmaにより"]
     introduction_aliases: ["条件付き期待値へ適用する"]
     requires:
       - prob.conditional-expectation
