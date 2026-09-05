@@ -137,27 +137,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（被覆確率）**  
-> ランダム区間 $[L(X),U(X)]$ が真の母数 $\theta$ を含む確率
->
-> $$
-> C(\theta)
-> =P_\theta\{L(X)\le\theta\le U(X)\}
-> $$
->
-> を被覆確率という。
+> ランダム区間 $[L(X),U(X)]$ が真の母数 $\theta$ を含む確率を被覆確率という。
+
+$$
+C(\theta)
+=P_\theta\{L(X)\le\theta\le U(X)\}.
+$$
 <!-- formal-statement-end -->
 
 <a id="def-i2-02-confidence-coefficient"></a>
 
 <!-- formal-statement-start -->
 > **定義（信頼係数）**  
-> 区間推定法について
->
-> $$
-> \inf_{\theta\in\Theta}C(\theta)\ge1-\alpha
-> $$
->
-> が成り立つとき、$1-\alpha$ をその区間が保証する信頼係数と呼ぶ。
+> 区間推定法について次が成り立つとき、$1-\alpha$ をその区間が保証する信頼係数と呼ぶ。
+
+$$
+\inf_{\theta\in\Theta}C(\theta)\ge1-\alpha.
+$$
 <!-- formal-statement-end -->
 
 ### 1.1 最初の区間で読む
@@ -309,25 +305,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正規母平均のt信頼区間）**  
-> $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ とし、$\sigma^2$ は未知とする。不偏標本分散を $S^2$ とすると
->
-> $$
-> \frac{\sqrt n(\bar X-\mu)}S\sim t_{n-1}
-> $$
->
-> であり、$\mu$ の両側 $100(1-\alpha)\%$ 信頼区間は
->
-> $$
-> \boxed{
-> \left[
-> \bar X-t_{n-1,1-\alpha/2}\frac S{\sqrt n},
-> \quad
-> \bar X+t_{n-1,1-\alpha/2}\frac S{\sqrt n}
-> \right]
-> }
-> $$
->
-> である。
+> $X_1,\ldots,X_n\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ とし、$\sigma^2$ は未知とする。不偏標本分散を $S^2$ とすると次が成り立つ。
+
+$$
+\frac{\sqrt n(\bar X-\mu)}S\sim t_{n-1}.
+$$
+
+従って、$\mu$ の両側 $100(1-\alpha)\%$ 信頼区間は
+
+$$
+\boxed{
+\left[
+\bar X-t_{n-1,1-\alpha/2}\frac S{\sqrt n},
+\quad
+\bar X+t_{n-1,1-\alpha/2}\frac S{\sqrt n}
+\right]
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 4.1 Z区間とt区間を同じ数字で比較する
@@ -376,19 +370,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（正規母分散のカイ二乗信頼区間）**  
-> 母分散 $\sigma^2$ の両側 $100(1-\alpha)\%$ 信頼区間は
->
-> $$
-> \boxed{
-> \left[
-> \frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}},
-> \quad
-> \frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}}
-> \right]
-> }
-> $$
->
-> である。
+> 母分散 $\sigma^2$ の両側 $100(1-\alpha)\%$ 信頼区間は次である。
+
+$$
+\boxed{
+\left[
+\frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}},
+\quad
+\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}}
+\right]
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 5.1 数字で端点反転を見る
@@ -505,24 +497,22 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（漸近正規推定量のワルド型信頼区間）**  
-> 推定量 $\hat\theta$ が
->
-> $$
-> \frac{\hat\theta-\theta}{\widehat{\operatorname{se}}(\hat\theta)}
-> \xrightarrow{d}N(0,1)
-> $$
->
-> を満たすとする。このとき
->
-> $$
-> \boxed{
-> \hat\theta
-> \pm z_{1-\alpha/2}
-> \widehat{\operatorname{se}}(\hat\theta)
-> }
-> $$
->
-> は両側 $100(1-\alpha)\%$ 漸近信頼区間である。
+> 推定量 $\hat\theta$ が次の漸近正規性を満たすとする。
+
+$$
+\frac{\hat\theta-\theta}{\widehat{\operatorname{se}}(\hat\theta)}
+\xrightarrow{d}N(0,1).
+$$
+
+このとき、次は両側 $100(1-\alpha)\%$ 漸近信頼区間である。
+
+$$
+\boxed{
+\hat\theta
+\pm z_{1-\alpha/2}
+\widehat{\operatorname{se}}(\hat\theta)
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 7.1 二項比率：うまくいく例
@@ -732,19 +722,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（一様分布最大値による厳密信頼区間）**  
-> $0<a<b\le1$ が $b^n-a^n=1-\alpha$ を満たすなら
->
-> $$
-> \boxed{
-> \left[
-> \frac Mb,
-> \quad
-> \frac Ma
-> \right]
-> }
-> $$
->
-> は $\theta$ の被覆確率 $1-\alpha$ の厳密信頼区間である。
+> $0<a<b\le1$ が $b^n-a^n=1-\alpha$ を満たすなら、次は $\theta$ の被覆確率 $1-\alpha$ の厳密信頼区間である。
+
+$$
+\boxed{
+\left[
+\frac Mb,
+\quad
+\frac Ma
+\right]
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 10.1 最大値8.0から95%区間を作る
