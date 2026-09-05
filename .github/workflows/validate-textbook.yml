@@ -56,6 +56,9 @@ jobs:
       - name: Audit official syllabus term coverage
         run: npm run audit:textbook-syllabus -- --strict
 
+      - name: Validate reader-facing wording
+        run: python3 scripts/validate-reader-facing-wording.py
+
       - name: Validate textbook structure
         run: npm run validate:structure
 
