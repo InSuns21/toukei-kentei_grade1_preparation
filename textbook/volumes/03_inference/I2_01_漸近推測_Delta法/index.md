@@ -117,7 +117,11 @@ $$
 > となる非退化な確率変数 $Z$ の分布を、その中心化・尺度の下での漸近分布という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-i2-01-asymptotic-distribution -->
+**定義の確認**
+
 たとえば標本平均では、有限分散の独立同分布標本について $a_n=\sqrt n$、$b_n=\mu$ とすれば中心極限定理から正規分布が現れます。
+<!-- definition-example-end -->
 
 ---
 
@@ -191,6 +195,9 @@ $$
 
 ### 2.2 例: 標本平均
 
+<!-- definition-example-start: def-i2-01-asymptotic-normality, def-i2-01-asymptotic-variance -->
+**定義の確認**
+
 $X_i$ が独立同分布で
 
 $$
@@ -213,6 +220,8 @@ $$
 \qquad
 \operatorname{Var}(\bar X)=\frac{\sigma^2}{n}.
 $$
+
+<!-- definition-example-end -->
 
 ---
 
@@ -415,6 +424,9 @@ $$
 
 グラフでいえば、$j_n$ は対数尤度の山の「尖り具合」を測ります。これはあくまで $-\ell_n''$ の直観的説明です。
 
+<!-- definition-example-start: def-i2-01-observed-information -->
+**定義の確認**
+
 たとえば指数分布の率母数 $\lambda$ では
 
 $$
@@ -428,6 +440,7 @@ j_n(\lambda)=\frac n{\lambda^2}.
 $$
 
 この例では二階微分がデータに依存しないため、観測情報量と期待フィッシャー情報量が一致します。
+<!-- definition-example-end -->
 
 一般には有限標本で両者は一致しませんが、正則な大標本では同じ一次の尺度 $n$ を持ちます。そのため最尤推定量の標準誤差は
 
@@ -467,6 +480,20 @@ $$
 
 > を満たすとき、本章では $T_n$ がフィッシャー情報量に基づく漸近効率限界を達成するといい、漸近有効と呼ぶ。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i2-01-asymptotic-efficiency -->
+**定義の確認**
+
+たとえば $X_i\overset{\mathrm{iid}}{\sim}N(\mu,\sigma^2)$ で $\sigma^2$ が既知なら、$\hat\mu=\bar X$ であり
+
+$$
+I_1(\mu)=\frac1{\sigma^2},
+\qquad
+\sqrt n(\bar X-\mu)\sim N(0,\sigma^2)=N\!\left(0,I_1(\mu)^{-1}\right).
+$$
+
+したがって $\bar X$ はこの定義の意味で漸近有効です。
+<!-- definition-example-end -->
 
 [正則な1母数最尤推定量の漸近正規性](#thm-i2-01-mle-asymptotic-normality)により、正則な最尤推定量はこの形を持ちます。ただし、有限標本の分散が厳密に $I_n^{-1}$ であるという意味ではありません。
 
