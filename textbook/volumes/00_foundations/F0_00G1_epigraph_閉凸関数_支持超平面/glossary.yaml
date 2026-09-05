@@ -1,0 +1,29 @@
+chapter: "F0-00G1"
+terms:
+  - term: 有効定義域
+    english: effective domain
+    meaning: 拡張実数値関数が有限値を取る点の集合。
+  - term: proper関数
+    english: proper function
+    meaning: 有効定義域が空でなく、値としてマイナス無限大を取らない拡張実数値関数。
+  - term: epigraph
+    english: epigraph
+    meaning: 関数のグラフ以上にある点をすべて集めた集合。
+  - term: 下半連続
+    english: lower semicontinuous
+    meaning: 極限で関数値が突然下へ落ちないことを表す連続性条件。
+  - term: 閉凸関数
+    english: closed convex function
+    meaning: proper・凸・下半連続な拡張実数値関数。
+  - term: sublevel set
+    english: sublevel set
+    meaning: 関数値が指定した水準以下となる点の集合。
+  - term: 支持超平面
+    english: supporting hyperplane
+    meaning: 凸集合を片側に保ちながら境界点に接する超平面。
+  - term: relative interior
+    english: relative interior
+    meaning: affine hullの中で取った内部。
+  - term: coercive
+    english: coercive
+    meaning: ノルムが無限大へ発散すると関数値もプラス無限大へ発散する性質。
