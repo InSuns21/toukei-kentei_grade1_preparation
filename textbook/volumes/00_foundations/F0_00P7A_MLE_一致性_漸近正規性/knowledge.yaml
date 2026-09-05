@@ -1,0 +1,68 @@
+chapter: F0-00P7A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P7
+  - F0-00P5
+  - F0-00P6A
+
+concepts:
+  - id: stat.slutsky-theorem
+    name: Slutskyの定理
+    kind: theorem
+    aliases: [Slutskyの定理]
+    requires:
+      - prob.distribution-convergence
+      - prob.probability-convergence
+
+  - id: stat.uniform-lln
+    name: 一様大数の法則
+    kind: term
+    aliases: [一様大数の法則]
+    requires:
+      - prob.almost-sure-convergence
+
+  - id: stat.mle
+    name: 最尤推定量
+    kind: term
+    aliases: [最尤推定量]
+    requires:
+      - stat.likelihood
+
+  - id: stat.mle-consistency
+    name: MLE一致性
+    kind: term
+    aliases: [一致性]
+    introduction_aliases: [一致性も別に必要]
+    requires:
+      - stat.mle
+      - stat.uniform-lln
+      - prob.probability-convergence
+
+  - id: stat.kl-divergence
+    name: Kullback--Leibler divergence
+    kind: term
+    aliases: [Kullback--Leibler divergence, KL divergence]
+    requires:
+      - stat.dominated-model
+      - prob.expectation
+
+  - id: stat.argmax-consistency
+    name: argmax consistency
+    kind: term
+    aliases: [argmax consistency, argmax]
+    requires:
+      - stat.uniform-lln
+      - stat.kl-divergence
+      - stat.mle-consistency
+
+  - id: stat.mle-asymptotic-normality
+    name: MLEの漸近正規性
+    kind: term
+    aliases: [最尤推定量の漸近正規性]
+    requires:
+      - stat.mle-consistency
+      - stat.score-function
+      - stat.fisher-information
+      - prob.iid-clt
+      - stat.slutsky-theorem
