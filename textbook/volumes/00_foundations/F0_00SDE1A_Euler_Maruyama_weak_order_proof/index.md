@@ -105,7 +105,11 @@ $$
 
 なので、Euler--Maruyama の1ステップそのものです。
 
-この過程の generator は
+<a id="def-f0-00sde1a-frozen-generator"></a>
+
+<!-- formal-statement-start -->
+> **定義（frozen generator）**  
+> 1ステップの始点 $x$ で係数を固定した拡散 $\widehat X$ の生成作用素を frozen generator と呼ぶ。
 
 $$
 \boxed{
@@ -113,8 +117,18 @@ $$
 =b(x)f'(y)+\frac12\sigma^2(x)f''(y)
 }
 $$
+<!-- formal-statement-end -->
 
-です。始点 $x$ の係数を1ステップ中ずっと使うため **frozen generator** と呼びます。
+<!-- definition-example-start: def-f0-00sde1a-frozen-generator -->
+**定義の確認**  
+$\widehat X$ のdriftと拡散係数は1ステップ中 $b(x),\sigma(x)$ のままなので、Itô公式のdrift項は
+
+$$
+b(x)f'(\widehat X_s)+\frac12\sigma^2(x)f''(\widehat X_s)
+$$
+
+となり、上の作用素がgeneratorです。
+<!-- definition-example-end -->
 
 ---
 
