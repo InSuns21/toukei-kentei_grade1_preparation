@@ -53,9 +53,14 @@ function findExerciseSlot(source, file, wantedLevel) {
   const exerciseHeadings = headings.filter((heading) => heading.text.includes('演習') && !heading.text.includes('実過去問演習'));
 
   for (const exercise of exerciseHeadings) {
+    const sectionLevel = exercise.text.match(/演習\s+Level\s+([A-D])(?:\b|[:：])/i)?.[1]?.toUpperCase();
     const exerciseEnd = headings.find((heading) => heading.pos > exercise.pos && heading.depth <= exercise.depth)?.pos ?? source.length;
-    const inExercise = headings.filter((heading) => heading.pos > exercise.pos && heading.pos < exerciseEnd);
+    if (sectionLevel) {
+      if (sectionLevel === wantedLevel) return { problemDepth: exercise.depth + 1, end: exerciseEnd };
+      continue;
+    }
 
+    const inExercise = headings.filter((heading) => heading.pos > exercise.pos && heading.pos < exerciseEnd);
     const grouped = inExercise.find((heading) => {
       const match = heading.text.match(/^Level\s+([A-D])(?:\b|[:：])/i);
       return match?.[1].toUpperCase() === wantedLevel;
