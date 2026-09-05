@@ -1,80 +1,130 @@
 # F0-02C 関数解析補講ロードマップ：F0-00からRKHSまで
 
-このページはDREAM THEATERのうち、有限次元最適化から関数解析・RKHSへ進む路線の入口です。
+このページはDREAM THEATERのうち、関数解析から凸解析・制約付き最適化・RKHSへ進む部分のロードマップです。
 
-設計原則は **一講義一学習サイクル** です。標準の読み順と、各 `chapter.yaml` に記す数学的な必須前提は区別します。
+ここでは「短距離ルート」「本線」のように分岐させず、**上から順に読める標準通読順**を一つ置きます。数学的には途中を短絡できる箇所もありますが、それは最後に補足します。
 
-## 完全通読ルート
+## 標準通読ルート
 
 ```text
 A → A1 → A2 → A3 → B
 → C → C1 → C2 → D → D1
 → D2 → D2A → D2B → D2C → D2D → D2E
 → E → E1 → E2 → F → F1 → F2 → G
-→ F0-02 → 02A → 02B → 02B1 SVM凸包幾何
-→ C1  Banach / Hilbert
-→ C1A Hilbert射影定理 / 直交分解
-→ C2  双対空間 / Riesz
-→ C3  Fréchet微分 / 有界作用素 / 連鎖律
-→ C3A 随伴作用素
-→ C4  劣勾配 / normal cone
-→ C4A tangent / polar / dual cone
-→ C5  一般化KKT / 錐制約
-→ C5A LICQ / MFCQ / Robinson CQ
-→ C6  Hahn--Banach / 汎関数拡張
-→ C6A 分離定理 / Minkowski functional / Farkas
-→ C7  RKHS / 再生核 / Moore--Aronszajn
-→ C7A representer theorem / kernel SVM
+
+→ C1   Banach / Hilbert
+→ C1A  Hilbert射影定理 / 直交分解
+→ C2   双対空間 / Riesz
+→ C3   Fréchet微分 / 有界線形作用素
+→ C3A  随伴作用素
+→ C3B  Fréchet連鎖律 / Hilbert随伴の証明
+→ C6   Hahn--Banach
+→ C6A  分離定理 / Minkowski functional / Farkas
+
+→ C4   劣勾配 / normal cone
+→ C4A  tangent / polar / dual cone
+→ C4B  tangent-normal polar identity
+
+→ F0-02 制約付き最適化 / 双対 / KKT
+→ 02B   分離超平面 / Farkas
+→ 02A   接錐・polar・FarkasからKKTを導出
+→ C5    一般化KKT / 錐制約
+→ C5A   LICQ / MFCQ / Robinson CQ
+
+→ C7    RKHS / 再生核 / Moore--Aronszajn
+→ 02B1  SVM / 凸包 / 最大マージン
+→ C7A   representer theorem / kernel SVM
 ```
 
-※ 上段の `C1/C2` は F0-00C1/C2、下段は F0-02C1/C2 です。ID衝突を避けるため本文ではフルIDを確認してください。
+※ 上段の `C1/C2` は F0-00C1/C2、下段は F0-02C1/C2 です。本文ではフルIDを確認してください。
 
-## 関数解析路線の中心線
+## なぜこの順か
+
+### 1. まず関数解析の言葉をそろえる
 
 ```text
-完備性・内積
+Banach / Hilbert
  ↓
-連続線形汎関数とRiesz
+Hilbert射影
  ↓
-微分は有界線形作用素
+双対空間 / Riesz
  ↓
-随伴で乗数を入力側へ戻す
+Fréchet微分 / 有界作用素
  ↓
-劣微分・normal cone
+随伴作用素
+ ↓
+Hahn--Banach
+ ↓
+分離定理
+```
+
+ここまでで、無限次元でも「距離」「射影」「双対」「微分」「分離」を同じ言葉で扱えるようになります。
+
+### 2. その上で凸解析と錐へ進む
+
+`F0-02C4` は機械可読の prerequisite として `F0-02C6` と `F0-02C6A` を要求しています。したがって標準通読順では、Hahn--Banachと分離定理を凸解析より前に置きます。
+
+```text
+分離定理
+ ↓
+劣微分 / normal cone
  ↓
 tangent / polar / dual cone
+```
+
+### 3. KKTはここで回収する
+
+有限次元KKTを最初に置くと、接錐・polar cone・Farkasが「まだ出所不明の道具」として先に現れます。そこで標準通読では、関数解析と凸解析で道具を準備してからKKT系列へ進みます。
+
+```text
+制約付き最適化の概要
+ ↓
+分離超平面 / Farkas
+ ↓
+KKT導出
  ↓
 一般化KKT
  ↓
-制約想定で乗数存在を保証
+制約想定
+```
+
+`F0-02C5` は `F0-02A` を prerequisite に持つため、一般化KKTへ入る前に有限次元KKTの導出を回収します。
+
+### 4. 最後にRKHSとSVMが合流する
+
+```text
+Riesz
  ↓
-Hahn--Banachで双対空間を豊かにする
+RKHS / 再生核
+
+Farkas / KKT
  ↓
-分離定理
+SVM / 最大マージン
+
+RKHS + SVM
  ↓
-評価汎関数 + Riesz = 再生核
- ↓
-representer theorem = 無限次元問題の有限和解
+representer theorem / kernel SVM
 ```
 
 ## どこまで読むか
 
-- **有限次元KKT/Farkasまで**：F0-02Bまで。
-- **SVMの凸包・最大マージン幾何**：F0-02B1まで。
 - **Banach/Hilbertの基礎**：F0-02C1まで。
 - **Hilbert射影定理とRiesz**：F0-02C2まで（C1Aを経由）。
-- **無限次元のKKTの型**：F0-02C5まで。
-- **KKT乗数の存在条件**：F0-02C5Aまで。
+- **Fréchet微分と随伴**：F0-02C3Bまで。
 - **Hahn--Banachと分離**：F0-02C6Aまで。
+- **凸解析と錐**：F0-02C4Bまで。
+- **有限次元KKTの導出**：F0-02Aまで。
+- **一般化KKTと制約想定**：F0-02C5Aまで。
 - **RKHSそのもの**：F0-02C7まで。
-- **kernel SVMまで回収**：F0-02C7Aまで。
+- **kernel SVMまで**：F0-02C7Aまで。
 
-## 依存関係を細く保つ
+## 短絡できる箇所
 
-標準通読ではC1からC7Aまで順に読めますが、数学的には例えば次の短絡路があります。
+標準通読順は上の通りですが、数学的な必須前提だけを見ると次の短絡ができます。
 
 - Hahn--Banach本体は `F0-00A3 + F0-02C2` から読める。
 - RKHS本体は `F0-02C2` から読める。
-- kernel SVM応用は `F0-02C7 + F0-02C3 + F0-02B1` を使う。
+- 有限次元KKTの概要 `F0-02` は `F0-00G` のあとに先取りできる。
+- kernel SVMは `F0-02C7 + F0-02C3 + F0-02B1` がそろえば読める。
 
-「前のページだから」という理由だけで機械可読prerequisiteを追加しません。
+「前のページだから」という理由だけで `chapter.yaml` の prerequisite を追加しません。標準通読順と数学的な最小前提は区別します。
