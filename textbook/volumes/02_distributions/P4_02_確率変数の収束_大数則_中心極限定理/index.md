@@ -209,7 +209,7 @@ $$
 
 ---
 
-## 3A. 公式シラバス補完：少数法則
+## 3A. 少数法則
 
 <a id="law-of-small-numbers-syllabus"></a>
 
