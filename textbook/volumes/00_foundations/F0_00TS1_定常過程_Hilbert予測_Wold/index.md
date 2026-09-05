@@ -161,7 +161,7 @@ $$
 <!-- proof-start -->
 ### 証明：Hilbert射影定理をそのまま適用する
 
-$L^2$ はHilbert空間で、$\mathcal H_{t-1}$ は定義により閉部分空間です。[Hilbert射影定理](../F0_02C1_Banach_Hilbert_射影/index.md#thm-hilbert-projection)から一意な直交射影
+$L^2$ はHilbert空間で、$\mathcal H_{t-1}$ は定義により閉部分空間です。[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から一意な直交射影
 
 $$
 P_{\mathcal H_{t-1}}X_t
