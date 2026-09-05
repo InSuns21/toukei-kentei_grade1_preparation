@@ -1,0 +1,84 @@
+name: Batch 9 one-shot formal panel normalizer
+
+on:
+  push:
+    branches:
+      - audit/dream-theater-batch9-probability-convergence
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/dream-theater-batch9-probability-convergence
+          fetch-depth: 0
+
+      - name: Normalize formal statement display math
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          paths = [
+              Path('textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md'),
+              Path('textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md'),
+              Path('textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md'),
+          ]
+
+          for path in paths:
+              lines = path.read_text(encoding='utf-8').splitlines()
+              out = []
+              in_formal = False
+              in_display = False
+              for line in lines:
+                  if line.strip() == '<!-- formal-statement-start -->':
+                      in_formal = True
+                      in_display = False
+                      out.append(line)
+                      continue
+                  if line.strip() == '<!-- formal-statement-end -->':
+                      in_formal = False
+                      in_display = False
+                      out.append(line)
+                      continue
+                  if in_formal and line.strip() == '> $$':
+                      out.append('$$')
+                      in_display = not in_display
+                      continue
+                  if in_formal and in_display:
+                      if line.startswith('> '):
+                          line = line[2:]
+                      elif line == '>':
+                          line = ''
+                  elif in_formal and line == '>':
+                      line = ''
+                  out.append(line)
+              path.write_text('\n'.join(out) + '\n', encoding='utf-8')
+
+          p6 = paths[2]
+          text = p6.read_text(encoding='utf-8')
+          old_anchor = '<a id="lem-f0-00p6-gaussian-fourier"></a>\n\n## 5. Gaussian Fourier identity'
+          if old_anchor in text:
+              text = text.replace(old_anchor, '## 5. Gaussian Fourier identity', 1)
+          marker = 'とします。\n\n<!-- formal-statement-start -->\n> **補題（Gaussian Fourier identity）**'
+          replacement = 'とします。\n\n<a id="lem-f0-00p6-gaussian-fourier"></a>\n\n<!-- formal-statement-start -->\n> **補題（Gaussian Fourier identity）**'
+          if marker not in text:
+              raise SystemExit('Gaussian Fourier formal-panel marker not found')
+          text = text.replace(marker, replacement, 1)
+          p6.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit normalized files and remove one-shot workflow
+        run: |
+          rm .github/workflows/batch9-normalize-once.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md \
+                  textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md \
+                  textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md \
+                  .github/workflows/batch9-normalize-once.yml
+          git commit -m 'Normalize Batch 9 formal statement display math'
+          git push origin HEAD:audit/dream-theater-batch9-probability-convergence
