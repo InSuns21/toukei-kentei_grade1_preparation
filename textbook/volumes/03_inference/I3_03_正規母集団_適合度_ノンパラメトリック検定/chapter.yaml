@@ -5,7 +5,6 @@ status: reviewed
 prerequisites:
   - S1-01
   - I3-01
-  - I3-02
 official_scope:
   - 平均値と分散に関する検定
   - 適合度の検定
@@ -20,23 +19,23 @@ learning_objectives:
   - 分割表の独立性検定で期待度数と自由度を求められる
   - 適合度検定で母数を標本から推定したとき自由度を減らす理由を説明できる
   - 符号検定を中央値に対する二項分布の検定として構成できる
-  - Wilcoxon符号付順位検定の対称性仮定と統計量を説明できる
-  - Wilcoxon順位和検定とMann--Whitney統計量を相互に変換できる
+  - ウィルコクソン符号付き順位和検定の対称性仮定と統計量を説明できる
+  - ウィルコクソン順位和検定とマン・ホイットニーU統計量を相互に変換できる
   - 順位検定の正規近似で平均・分散・連続修正を使える
   - ノンパラメトリックという語を無仮定と誤解せず各検定の仮定を列挙できる
 definitions:
   - { id: I303-DEF-01, name: Pearsonの適合度統計量 }
   - { id: I303-DEF-02, name: 分割表の独立性検定統計量 }
   - { id: I303-DEF-03, name: 符号検定 }
-  - { id: I303-DEF-04, name: Wilcoxon符号付順位統計量 }
-  - { id: I303-DEF-05, name: Wilcoxon順位和統計量とMann--Whitney統計量 }
+  - { id: I303-DEF-04, name: ウィルコクソン符号付き順位和統計量 }
+  - { id: I303-DEF-05, name: ウィルコクソン順位和統計量とマン・ホイットニーU統計量 }
 theorems:
   - { id: I303-THM-01, name: 正規母平均・母分散の正確な検定統計量 }
   - { id: I303-THM-02, name: Pearson適合度統計量のカイ二乗極限 }
   - { id: I303-THM-03, name: 分割表独立性統計量のカイ二乗極限 }
   - { id: I303-PROP-01, name: 符号検定の帰無分布 }
-  - { id: I303-PROP-02, name: Wilcoxon順位和統計量の平均と分散 }
-canonical_examples: [正規母平均のt検定, 正規母分散のカイ二乗検定, 二標本分散比のF検定, Pearson適合度検定, 2行3列分割表の独立性検定, 対応差の符号検定, Wilcoxon符号付順位検定, Wilcoxon順位和検定]
+  - { id: I303-PROP-02, name: ウィルコクソン順位和統計量の平均と分散 }
+canonical_examples: [正規母平均のt検定, 正規母分散のカイ二乗検定, 二標本分散比のF検定, Pearson適合度検定, 2行3列分割表の独立性検定, 対応差の符号検定, ウィルコクソン符号付き順位和検定, ウィルコクソン順位和検定]
 problem_patterns: [NORMAL-MEAN-TEST-1, NORMAL-VAR-TEST-1, TWO-VAR-F-TEST-1, TWO-MEAN-TEST-1, GOF-CHI-SQUARE-1, CONTINGENCY-INDEPENDENCE-1, SIGN-TEST-1, SIGNED-RANK-1, RANK-SUM-1]
 past_exam_alignment:
   - { id: MATH-2014-Q4, theme: F分布・二標本比較, skills: [F分布, 二標本比較, 棄却判断], source_type: third_party_topic_index }
