@@ -1,0 +1,43 @@
+chapter: F0-00A3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A2
+
+concepts:
+  - id: set.partial-order
+    name: 半順序集合
+    kind: definition
+    aliases: [半順序集合, partial order, poset]
+    requires: []
+
+  - id: set.maximum-maximal-element
+    name: 最大元・極大元
+    kind: definition
+    aliases: [最大元・極大元, 最大元, 極大元]
+    requires:
+      - set.partial-order
+
+  - id: set.chain
+    name: chain
+    kind: definition
+    aliases: [chain, 鎖]
+    requires:
+      - set.partial-order
+
+  - id: set.poset-upper-bound
+    name: 半順序集合における上界
+    kind: definition
+    aliases: [半順序集合における上界]
+    requires:
+      - set.partial-order
+
+  - id: set.zorn-lemma
+    name: Zornの補題
+    kind: lemma
+    aliases: [Zornの補題, Zorn]
+    requires:
+      - set.partial-order
+      - set.maximum-maximal-element
+      - set.chain
+      - set.poset-upper-bound

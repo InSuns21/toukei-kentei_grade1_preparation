@@ -1,0 +1,47 @@
+chapter: F0-00A2
+scope: dream-theater
+coverage: complete
+prerequisites: []
+
+# Zornとその半順序語彙は次章A3で正式導入する。A2では同値形の説明として先に名前だけ出す。
+forward_references:
+  - set.zorn-lemma
+  - set.maximum-maximal-element
+  - set.chain
+
+concepts:
+  - id: set.choice-function
+    name: 選択関数
+    kind: definition
+    aliases: [選択関数]
+    requires: []
+
+  - id: set.choice-axiom
+    name: 選択公理
+    kind: axiom
+    aliases: [選択公理, axiom of choice, AC]
+    requires:
+      - set.choice-function
+
+  - id: set.countable-choice
+    name: 可算選択公理
+    kind: axiom
+    aliases: [可算選択公理, countable choice]
+    requires:
+      - set.choice-function
+
+  # metadata上では同値定理の依存を先に宣言する。raw監査は本文の実行番号を使うため、
+  # 本文で整列の定義が定理より後なら隠せない。
+  - id: set.well-order
+    name: 整列
+    kind: definition
+    aliases: [整列]
+    requires: []
+
+  - id: set.choice-equivalence-summary
+    name: 選択公理の代表的同値形
+    kind: theorem
+    aliases: [選択公理の代表的同値形]
+    requires:
+      - set.choice-axiom
+      - set.well-order

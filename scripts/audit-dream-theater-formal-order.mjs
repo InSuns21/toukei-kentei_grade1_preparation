@@ -133,8 +133,8 @@ function collectFormalDeclarations(source) {
 
 function looksLikeFormalHeading(line) {
   const text = line.trim();
-  return /^(?:#{1,6}\s+|>\s*)?(?:\*\*)?(?:定義|定理|補題|命題|系)(?:\*\*)?(?:[（(：:\s]|$)/u.test(text) ||
-    /^(?:#{1,6}\s+|>\s*)(?:\*\*)?.+(?:定理|補題|命題)(?:\*\*)?(?:[（(：:]|$)/u.test(text);
+  return /^(?:#{1,6}\s+|>\s*)?(?:\*\*)?(?:公理|定義|定理|補題|命題|系)(?:\*\*)?(?:[（(：:\s]|$)/u.test(text) ||
+    /^(?:#{1,6}\s+|>\s*)(?:\*\*)?.+(?:公理|定理|補題|命題)(?:\*\*)?(?:[（(：:]|$)/u.test(text);
 }
 
 function findIntroductionLine(declarations, readerLines, concept) {
@@ -226,7 +226,7 @@ function inferPageId(relPath) {
 }
 
 function isFormalKind(kind) {
-  return ['definition', 'theorem', 'lemma', 'proposition', 'corollary'].includes(kind);
+  return ['axiom', 'definition', 'theorem', 'lemma', 'proposition', 'corollary'].includes(kind);
 }
 
 function countBySeverity(items) {

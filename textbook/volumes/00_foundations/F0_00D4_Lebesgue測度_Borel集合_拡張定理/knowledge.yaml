@@ -6,11 +6,12 @@ prerequisites:
   - F0-00D2B
   - F0-00C
 
-# 積測度の回収と D5 の非可測集合は、ここでは後続章への接続として言及する。
+# 積測度の回収と D5 の非可測集合・選択公理は、ここでは後続章への接続として言及する。
 forward_references:
   - measure.product-measure
   - measure.vitali-set
   - measure.vitali-nonmeasurability
+  - set.choice-axiom
 
 concepts:
   - id: measure.finite-interval-cover-length

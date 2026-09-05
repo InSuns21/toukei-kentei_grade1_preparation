@@ -1,0 +1,48 @@
+chapter: F0-00A3A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A2
+  - F0-00A3
+
+concepts:
+  - id: set.ordinal
+    name: 順序数
+    kind: term
+    introduction: inline
+    aliases: [順序数, ordinal]
+    requires: []
+
+  - id: set.replacement-schema
+    name: Replacement
+    kind: term
+    introduction: inline
+    aliases: [Replacement]
+    requires: []
+
+  - id: set.transfinite-recursion
+    name: 超限再帰
+    kind: term
+    introduction: inline
+    aliases: [超限再帰, transfinite recursion]
+    requires:
+      - set.ordinal
+
+  - id: set.hartogs-lemma
+    name: Hartogs
+    kind: lemma
+    aliases: [Hartogs, Hartogs補題]
+    requires:
+      - set.ordinal
+      - set.replacement-schema
+
+  - id: set.ac-zorn-equivalence
+    name: 選択公理とZornの補題の同値性
+    kind: theorem
+    aliases: [選択公理とZornの補題の同値性]
+    requires:
+      - set.choice-axiom
+      - set.zorn-lemma
+      - set.well-order
+      - set.hartogs-lemma
+      - set.transfinite-recursion
