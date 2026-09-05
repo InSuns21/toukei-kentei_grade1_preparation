@@ -1,0 +1,65 @@
+chapter: F0-00P1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2
+
+# P1では密度・絶対連続性・Radon--Nikodymは次章への予告としてのみ言及する。
+forward_references:
+  - measure.absolute-continuity
+  - measure.radon-nikodym-theorem
+
+concepts:
+  - id: prob.probability-space
+    name: 確率空間
+    kind: term
+    aliases: [確率空間]
+    requires:
+      - measure.measure-space
+
+  - id: prob.random-variable
+    name: 確率変数
+    kind: term
+    aliases: [確率変数]
+    requires:
+      - prob.probability-space
+      - measure.measurable-function
+
+  - id: measure.pushforward-measure
+    name: 押し出し測度
+    kind: term
+    aliases: [押し出し測度]
+    requires:
+      - measure.measure-space
+      - measure.measurable-function
+
+  # タイトル中の一般語「分布」を導入行と誤認しないよう、本文の定義文に固有な別名を使う。
+  - id: prob.distribution-law
+    name: 確率変数の分布
+    kind: term
+    aliases: ["分布または law"]
+    requires:
+      - prob.random-variable
+      - measure.pushforward-measure
+
+  - id: prob.cdf
+    name: 累積分布関数
+    kind: term
+    aliases: [累積分布関数]
+    requires:
+      - prob.distribution-law
+
+  - id: prob.joint-distribution
+    name: 同時分布
+    kind: term
+    aliases: [同時分布]
+    requires:
+      - prob.random-variable
+      - prob.distribution-law
+
+  - id: prob.marginal-distribution
+    name: 周辺分布
+    kind: term
+    aliases: [周辺分布]
+    requires:
+      - prob.joint-distribution
