@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 103件
+- 明示的な定義ラベルヒット: 109件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -28,12 +28,12 @@
 |math-distribution-functions|同時分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-joint-distribution|—|E2-04 / E2-04-B01 3時点の|
 |math-distribution-functions|周辺分布|exact|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|P2-01 / 2.6 同時分布と周辺分布#def-p2-01-marginal-distribution|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
 |math-distribution-functions|条件付き分布|exact|P3-03 / 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」#def-p3-03-conditional-distribution|P3-03 / 2.4 条件付き分布は「$X=x$と分かった後の$Y$の分布」#def-p3-03-conditional-distribution|I4-01 / 3A.3 例：解析積分が閉じないところからMCMCが必要になる|P3-01 / P3-C03 ポアソン和と|
-|math-distribution-functions|確率母関数|exact|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例5：確率質量関数から|P2-02 / P2-B06|
-|math-distribution-functions|モーメント母関数（積率母関数）|alias|P2-02 / P2-02 期待値・分散・共分散・母関数|—|P2-02 / 例6：ベルヌーイ分布から|P2-02 / P2-B07 ベルヌーイ分布から|
-|math-distribution-characteristics|モーメント|exact|I1-02 / 2. モーメント法#def-i1-02-moment-method|I1-02 / 2. モーメント法#def-i1-02-moment-method|P2-02 / 例1：離散分布の平均と分散|P2-02 / P2-A06 共分散公式|
-|math-distribution-characteristics|期待値|exact|F0-00 / 1. この章で扱う数学|—|—|P2-02 / P2-A04 離散平均・分散|
-|math-distribution-characteristics|分散|exact|F0-00 / 15. 統計でどこに使うか|—|P2-02 / 例1：離散分布の平均と|P2-02 / P2-A04 離散平均・|
-|math-distribution-characteristics|標準偏差|exact|P2-02 / 2.2 分散・|—|P2-02 / 3A.1 例：同じ|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
+|math-distribution-functions|確率母関数|exact|P2-02 / 2.7 確率母関数#def-p2-02-pgf|P2-02 / 2.7 確率母関数#def-p2-02-pgf|P2-02 / 例5：確率質量関数から|P2-02 / P2-B06|
+|math-distribution-functions|モーメント母関数（積率母関数）|alias|P2-02 / 2.8 モーメント母関数#def-p2-02-mgf|P2-02 / 2.8 モーメント母関数#def-p2-02-mgf|P2-02 / 例6：ベルヌーイ分布から|P2-02 / P2-B07 ベルヌーイ分布から|
+|math-distribution-characteristics|モーメント|exact|P2-02 / 2.1A モーメント#def-p2-02-moment|P2-02 / 2.1A モーメント#def-p2-02-moment|P2-02 / 例1：離散分布の平均と分散|P2-02 / P2-A06 共分散公式|
+|math-distribution-characteristics|期待値|exact|P2-02 / 2.1 期待値と存在条件#def-p2-02-expectation|P2-02 / 2.1 期待値と存在条件#def-p2-02-expectation|—|P2-02 / P2-A04 離散平均・分散|
+|math-distribution-characteristics|分散|exact|P2-02 / 2.2 分散・標準偏差#def-p2-02-variance-sd|P2-02 / 2.2 分散・標準偏差#def-p2-02-variance-sd|P2-02 / 例1：離散分布の平均と|P2-02 / P2-A04 離散平均・|
+|math-distribution-characteristics|標準偏差|exact|P2-02 / 2.2 分散・標準偏差#def-p2-02-variance-sd|P2-02 / 2.2 分散・標準偏差#def-p2-02-variance-sd|P2-02 / 3A.1 例：同じ|P2-02 / P202-B05 歪度・尖度・変動係数と四分位範囲|
 |math-distribution-characteristics|歪度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05|
 |math-distribution-characteristics|尖度|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|—|P2-02 / P202-B05 歪度・|
 |math-distribution-characteristics|変動係数|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-shape-characteristics|P2-02 / 3A.1 例：同じ標準偏差でも|P2-02 / P202-B05 歪度・尖度・|
@@ -43,8 +43,8 @@
 |math-distribution-characteristics|範囲|exact|F0-00 / 公式出題|—|P4-01 / 例2 独立な一様分布の和|P2-02 / P202-B05 歪度・尖度・変動係数と四分位|
 |math-distribution-characteristics|四分位範囲|exact|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|P2-02 / 3A. 分布の形・相対的ばらつき・分位点#def-p2-02-quantiles|—|P2-02 / P202-B05 歪度・尖度・変動係数と|
 |math-distribution-characteristics|最頻値|exact|P3-02 / P3C-C02 ベータ分布の形とモーメント|—|—|P3-02 / P3C-C02 ベータ分布の形とモーメント|
-|math-distribution-characteristics|共分散|exact|L1-03 / 3A. 共分散分析#def-l1-03-ancova|L1-03 / 3A. 共分散分析#def-l1-03-ancova|P2-02 / 例3：全|P2-02 / P2-A06|
-|math-distribution-characteristics|相関係数|exact|P2-02 / この章で解けるようになる問題|—|P3-03 / 例1：分散共分散行列を読む|P2-02 / P2-B05 二値変数の相関|
+|math-distribution-characteristics|共分散|exact|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 例3：全|P2-02 / P2-A06|
+|math-distribution-characteristics|相関係数|exact|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P2-02 / 2.3 共分散・相関係数#def-p2-02-covariance-correlation|P3-03 / 例1：分散共分散行列を読む|P2-02 / P2-B05 二値変数の相関|
 |math-distribution-characteristics|偏相関係数|exact|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|P3-03 / 2.5 偏相関は「第3の変数の影響を除いた後の相関」#def-p3-03-partial-correlation|—|P3-03 / P3M-A04 偏相関|
 |math-transformations|変数変換|exact|F0-00 / F0-00 統計検定1級のための数学速習|—|—|P4-01 / P4-A01 平方変換|
 |math-transformations|確率変数の線形結合|exact|P4-02 / 詳細解答|—|—|—|
