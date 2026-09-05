@@ -1,0 +1,29 @@
+chapter: F0-00P6A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P6
+
+# stable極限やLindeberg--Fellerはこの章では入口の説明にとどめる。
+concepts:
+  - id: prob.standardized-iid-sum
+    name: iid標準化和
+    kind: term
+    aliases: [標準化和]
+    requires:
+      - prob.independent-random-variables
+      - prob.expectation
+      - prob.variance
+
+  # 現本文は導出全体を示すが、独立した formal-statement パネルはまだ置かれていない。
+  - id: prob.iid-clt
+    name: iid有限分散中心極限定理
+    kind: term
+    aliases: [独立同分布有限分散版の中心極限定理]
+    introduction_aliases: [これが独立同分布有限分散版の中心極限定理です]
+    requires:
+      - prob.standardized-iid-sum
+      - prob.characteristic-function-properties
+      - prob.characteristic-function-second-order-expansion
+      - prob.gaussian-fourier-identity
+      - prob.levy-continuity-theorem
