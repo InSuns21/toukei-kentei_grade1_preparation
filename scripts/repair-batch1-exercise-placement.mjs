@@ -19,8 +19,6 @@ const targets = [
 ];
 
 for (const [file, anchor, level] of targets) moveExercise(file, anchor, level);
-installPlacementGuard();
-
 console.log(`Moved ${targets.length} Batch 1 exercise blocks into their Level sections.`);
 
 function moveExercise(file, anchor, level) {
@@ -46,8 +44,7 @@ function moveExercise(file, anchor, level) {
   lines[headingIndex] = lines[headingIndex].replace(/^#{1,6}/, '#'.repeat(slot.depth + 1));
   block = lines.join('\n');
 
-  const insertion = `\n\n${block}\n\n`;
-  source = source.slice(0, slot.end) + insertion + source.slice(slot.end).replace(/^\n+/, '');
+  source = source.slice(0, slot.end) + `\n\n${block}\n\n` + source.slice(slot.end).replace(/^\n+/, '');
   fs.writeFileSync(file, source, 'utf8');
 }
 
@@ -77,89 +74,4 @@ function collectHeadings(source) {
     depth: match[1].length,
     text: match[2].trim(),
   }));
-}
-
-function installPlacementGuard() {
-  const file = 'scripts/validate_textbook_structure.mjs';
-  let source = fs.readFileSync(file, 'utf8');
-  if (source.includes('function validateExercisePlacement()')) return;
-
-  source = source.replace(
-    'validateCanonicalTemplate();\n',
-    'validateCanonicalTemplate();\nvalidateExercisePlacement();\n',
-  );
-
-  const guard = String.raw`
-function validateExercisePlacement() {
-  const volumesRoot = path.join(textbookRoot, 'volumes');
-  if (!fs.existsSync(volumesRoot)) return;
-
-  for (const volume of fs.readdirSync(volumesRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
-    const volumeDir = path.join(volumesRoot, volume.name);
-    for (const chapter of fs.readdirSync(volumeDir, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
-      const chapterDir = path.join(volumeDir, chapter.name);
-      const indexPath = path.join(chapterDir, 'index.md');
-      const manifestPath = path.join(chapterDir, 'chapter.yaml');
-      if (!fs.existsSync(indexPath) || !fs.existsSync(manifestPath)) continue;
-
-      let manifest;
-      try {
-        manifest = YAML.parse(fs.readFileSync(manifestPath, 'utf8'));
-      } catch {
-        continue;
-      }
-      if (manifest?.status === 'supplementary') continue;
-
-      const content = fs.readFileSync(indexPath, 'utf8');
-      const headings = [...content.matchAll(/^(#{1,6})\s+(.+)$/gm)].map((match) => ({
-        pos: match.index,
-        depth: match[1].length,
-        text: match[2].trim(),
-      }));
-      const levelHeadings = headings
-        .map((heading) => {
-          const match = heading.text.match(/^Level\s+([A-D])(?:\b|[:：])/i);
-          return match ? { ...heading, level: match[1].toUpperCase() } : null;
-        })
-        .filter(Boolean);
-
-      const exercisePattern = /<a id="ex-[^"]+"><\/a>\s*\n(#{1,6})\s+([^\n]+)\n(?:[^\n]*\n){0,8}?-\s*Level:\s*([A-D])\b/g;
-      for (const match of content.matchAll(exercisePattern)) {
-        const problemPos = match.index;
-        const problemDepth = match[1].length;
-        const level = match[3].toUpperCase();
-        const levelHeading = [...levelHeadings]
-          .reverse()
-          .find((heading) => heading.pos < problemPos && heading.level === level);
-
-        if (!levelHeading) {
-          errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} anchored Level ${level} exercise is outside a Level ${level} section`);
-          continue;
-        }
-
-        const levelEnd = headings.find((heading) => heading.pos > levelHeading.pos && heading.depth <= levelHeading.depth)?.pos ?? content.length;
-        const parent = [...headings]
-          .reverse()
-          .find((heading) => heading.pos < levelHeading.pos && heading.depth < levelHeading.depth);
-
-        if (problemPos >= levelEnd || !parent?.text.includes('演習')) {
-          errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} anchored Level ${level} exercise is not inside the exercise Level ${level} block`);
-        }
-        if (problemDepth !== levelHeading.depth + 1) {
-          errors.push(`${relative(indexPath)}:${lineAt(content, problemPos)} exercise heading depth ${problemDepth} must be one level below Level ${level} heading depth ${levelHeading.depth}`);
-        }
-      }
-    }
-  }
-}
-
-function lineAt(source, index) {
-  return source.slice(0, index).split('\n').length;
-}
-`;
-
-  const insertionPoint = '\nfunction relative(file) {';
-  if (!source.includes(insertionPoint)) throw new Error(`${file}: insertion point not found`);
-  source = source.replace(insertionPoint, `${guard}${insertionPoint}`);
-  fs.writeFileSync(file, source, 'utf8');
 }
