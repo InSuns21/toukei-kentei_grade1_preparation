@@ -1,3 +1,5 @@
+<!-- definition-example-audit: strict -->
+
 # I1-01 尤度・最尤推定
 
 観測データが得られたとき、「どの母数なら、このデータがもっとも自然に出てきたと考えられるか」を測るのが尤度です。確率モデルを、今度はデータを固定して母数の関数として読み替えることで、点推定・尤度比検定・ベイズ推定・期待値最大化法へ続く共通言語が得られます。
@@ -145,6 +147,25 @@ $$
 
 > を**最尤推定値**という。データ $X$ の関数として見た $\hat\theta_{\mathrm{ML}}(X)$ を**最尤推定量（MLE）**という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i1-01-likelihood, def-i1-01-loglikelihood, def-i1-01-score, def-i1-01-mle -->
+**定義の確認**  
+独立なベルヌーイ標本で成功数を $S=\sum_iX_i$ とすると
+
+$$
+L(p)=p^S(1-p)^{n-S},
+\qquad
+\ell(p)=S\log p+(n-S)\log(1-p).
+$$
+
+その微分
+
+$$
+U(p)=\frac{S}{p}-\frac{n-S}{1-p}
+$$
+
+がスコアで、$0<S<n$ なら $U(p)=0$ を解いた $\hat p=S/n$ が尤度を最大化します。同じ一例で、尤度・対数尤度・スコア・最尤推定量の4定義を確認できます。
+<!-- definition-example-end -->
 
 最大値が複数ある場合、最尤推定値は一意とは限りません。また、母数空間が開集合だと最大値が達成されず「最尤推定量が存在しない」こともあります。
 
@@ -363,66 +384,93 @@ $$
 
 これは「推定量一般の変換でいつも成り立つ」性質ではなく、**最尤法の最大化構造**から生じます。
 
-### 3.8 多母数スコアと有効スコア
+### 3.8 有効スコア: まず1個の局外母数で考える
 
-母数を関心母数 $\psi$ と局外母数 $\lambda$ に分け、
+公式範囲には**有効スコア関数**が含まれます。一方、フィッシャー情報量は1次元が中心なので、通常ルートでは関心母数 $\psi$ と局外母数 $\lambda$ がどちらも1個の実数である場合から考えます。
+
+それぞれのスコアを
 
 $$
-\theta=
-\begin{pmatrix}
-\psi\\
-\lambda
-\end{pmatrix},
+U_\psi=\frac{\partial\ell}{\partial\psi},
 \qquad
-U(\theta)=
-\begin{pmatrix}
-U_\psi\\
-U_\lambda
-\end{pmatrix}
+U_\lambda=\frac{\partial\ell}{\partial\lambda}
 $$
 
-とします。
-
-スコア同士の共分散に相当する情報行列を
+とします。正則条件の下では両者の期待値は0です。そこで、$U_\psi$ のうち $U_\lambda$ と線形に重なる成分を
 
 $$
-I(\theta)=
-\begin{pmatrix}
-I_{\psi\psi}&I_{\psi\lambda}\\
-I_{\lambda\psi}&I_{\lambda\lambda}
-\end{pmatrix}
+\frac{\operatorname{Cov}(U_\psi,U_\lambda)}
+{\operatorname{Var}(U_\lambda)}U_\lambda
 $$
 
-と書きます。フィッシャー情報量そのものの性質は I1-02 で扱います。
+として差し引きます。
 
 <a id="def-i1-01-efficient-score"></a>
 
 <!-- formal-statement-start -->
-> **定義（有効スコア）**  
-> $I_{\lambda\lambda}$ が可逆であるとき、関心母数 $\psi$ に対する有効スコアを
+> **定義（有効スコア: 1個の局外母数）**  
+> 関心母数 $\psi$、局外母数 $\lambda$ がともに1次元で、$\operatorname{Var}(U_\lambda)>0$ とする。このとき
+
+$$
+\boxed{
+U_{\mathrm{eff},\psi}
+=
+U_\psi
+-
+\frac{\operatorname{Cov}(U_\psi,U_\lambda)}
+{\operatorname{Var}(U_\lambda)}U_\lambda
+}
+$$
+
+> を $\psi$ に対する有効スコアという。
+<!-- formal-statement-end -->
+
+意味は、**関心母数のスコアから、局外母数のスコアで説明できる方向を取り除く**ことです。特に
+
+$$
+\operatorname{Cov}(U_\psi,U_\lambda)=0
+$$
+
+なら調整項は消え、$U_{\mathrm{eff},\psi}=U_\psi$ です。
+
+<!-- definition-example-start: def-i1-01-efficient-score -->
+**定義の確認**  
+ある観測で $U_\psi=3,U_\lambda=2$、また
+
+$$
+\operatorname{Cov}(U_\psi,U_\lambda)=1,
+\qquad
+\operatorname{Var}(U_\lambda)=4
+$$
+
+なら
+
+$$
+U_{\mathrm{eff},\psi}
+=3-\frac14\,2
+=\frac52.
+$$
+
+局外母数方向と正の重なりがある分だけ、元のスコア $3$ から差し引かれています。
+<!-- definition-example-end -->
+
+正規分布 $N(\mu,\sigma^2)$ では、平均 $\mu$ のスコアと分散 $\sigma^2$ のスコアの共分散が0になります。この場合、平均に対する有効スコアは通常の $\mu$ スコアと一致します。
+
+#### 発展: 局外母数がベクトルの場合
+
+> **発展項目**  
+> 局外母数が複数ある一般形では情報行列のブロック表示を使います。これは1次元フィッシャー情報量を中心とする通常ルートでは必須としません。
+
+局外母数をベクトル $\lambda$ とし、情報行列をブロック表示すると、一般形は
 
 $$
 U_{\mathrm{eff},\psi}
 =
 U_\psi
--
-I_{\psi\lambda}
-I_{\lambda\lambda}^{-1}
-U_\lambda
+-I_{\psi\lambda}I_{\lambda\lambda}^{-1}U_\lambda.
 $$
 
-> とする。
-<!-- formal-statement-end -->
-
-これは $U_\psi$ から、局外母数のスコア $U_\lambda$ で線形に説明できる成分を差し引いたものです。$I_{\psi\lambda}=0$ なら両者は直交しており、
-
-$$
-U_{\mathrm{eff},\psi}=U_\psi
-$$
-
-です。
-
-正規分布 $N(\mu,\sigma^2)$ では、適切な正則条件の下で平均 $\mu$ のスコアと分散 $\sigma^2$ のスコアは直交し、平均に対する有効スコアは通常の $\mu$ スコアと一致します。
+局外母数が1個なら $I_{\psi\lambda}=\operatorname{Cov}(U_\psi,U_\lambda)$、$I_{\lambda\lambda}=\operatorname{Var}(U_\lambda)$ なので、上の通常ルートの式へ戻ります。
 
 ### 3.9 正則モデルでスコアの期待値が0になる理由
 
@@ -1339,35 +1387,29 @@ $$
 ### I1-01-C04 有効スコアの計算
 
 - Level: C
-- 目安時間: 25分
+- 目安時間: 20分
 - 主題: 有効スコア
-- 使用技術: 情報行列のブロック計算
+- 使用技術: スコアの共分散・分散、射影の意味
 
-関心母数を $\psi$、局外母数を $\lambda$ とし、ある観測で
+関心母数を $\psi$、1個の局外母数を $\lambda$ とする。ある観測で
 
 $$
 U_\psi=3,\qquad U_\lambda=2,
 $$
 
-情報行列の対応成分が
+またモデルの下で
 
 $$
-I_{\psi\psi}=5,\qquad I_{\psi\lambda}=I_{\lambda\psi}=1,\qquad I_{\lambda\lambda}=4
+\operatorname{Cov}(U_\psi,U_\lambda)=1,
+\qquad
+\operatorname{Var}(U_\lambda)=4
 $$
 
 であった。
 
-1. $\psi$ の有効スコアを求めよ。
-2. 局外母数調整後の有効情報
-   $$
-   I_{\mathrm{eff},\psi}
-   =
-   I_{\psi\psi}
-   -
-   I_{\psi\lambda}I_{\lambda\lambda}^{-1}I_{\lambda\psi}
-   $$
-   を求めよ。
-3. $I_{\psi\lambda}=0$ の場合に何が簡単になるか説明せよ。
+1. $U_\lambda$ を差し引く係数を求めよ。
+2. $\psi$ の有効スコアを求めよ。
+3. $\operatorname{Cov}(U_\psi,U_\lambda)=0$ なら何が簡単になるか説明せよ。
 
 <!-- solution-start -->
 
@@ -1375,29 +1417,28 @@ $$
 
 ##### 詳細解答
 
-定義より
+差し引く係数は
 
 $$
+\frac{\operatorname{Cov}(U_\psi,U_\lambda)}
+{\operatorname{Var}(U_\lambda)}
+=\frac14.
+$$
+
+したがって
+
+$$
+\boxed{
 U_{\mathrm{eff},\psi}
-=U_\psi-
-I_{\psi\lambda}I_{\lambda\lambda}^{-1}U_\lambda
 =3-\frac14\cdot2
-=\boxed{\frac52}.
+=\frac52
+}.
 $$
 
-有効情報は
+共分散が0なら $U_\psi$ と $U_\lambda$ は線形な意味で直交しているため、差し引く成分がなく
 
 $$
-I_{\mathrm{eff},\psi}
-=5-1\cdot\frac14\cdot1
-=\boxed{\frac{19}{4}}.
-$$
-
-$I_{\psi\lambda}=0$ なら関心母数と局外母数のスコアが情報行列の意味で直交し、
-
-$$
-U_{\mathrm{eff},\psi}=U_\psi,\qquad
-I_{\mathrm{eff},\psi}=I_{\psi\psi}
+\boxed{U_{\mathrm{eff},\psi}=U_\psi}
 $$
 
 となる。
@@ -1405,20 +1446,19 @@ $$
 ##### 本番答案
 
 $$
-U_{\rm eff,\psi}=3-(1)(1/4)(2)=\boxed{5/2},
+\frac{\operatorname{Cov}(U_\psi,U_\lambda)}
+{\operatorname{Var}(U_\lambda)}=\frac14,
+\qquad
+\boxed{U_{\rm eff,\psi}=3-(1/4)2=5/2}.
 $$
 
-$$
-I_{\rm eff,\psi}=5-(1)(1/4)(1)=\boxed{19/4}.
-$$
-
-交差情報が0なら局外母数の調整項が消え、通常のスコア・情報がそのまま有効スコア・有効情報となる。
+共分散が0なら調整項は0である。
 
 ##### 採点基準
 
-- 有効スコア式: 5点
-- 数値計算: 5点
-- 有効情報式と計算: 6点
+- 係数: 5点
+- 有効スコア式: 7点
+- 数値計算: 4点
 - 直交時の解釈: 4点
 
 <!-- solution-end -->
