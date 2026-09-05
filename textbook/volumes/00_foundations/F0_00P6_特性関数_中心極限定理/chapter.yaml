@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00P3
   - F0-00D2B
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - 特性関数を定義し常に存在する理由を証明できる

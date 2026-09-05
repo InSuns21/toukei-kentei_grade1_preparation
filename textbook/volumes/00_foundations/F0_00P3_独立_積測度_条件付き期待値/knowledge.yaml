@@ -30,7 +30,7 @@ concepts:
     name: 独立な確率変数
     kind: term
     aliases: [独立な確率変数]
-    introduction_aliases: ["確率変数 X,Y の独立性は、それぞれが生成する sigma代数"]
+    introduction_aliases: ["の独立性は、それぞれが生成する sigma代数"]
     requires:
       - prob.independent-sigma-algebras
       - prob.random-variable

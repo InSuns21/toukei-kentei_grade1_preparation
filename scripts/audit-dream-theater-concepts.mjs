@@ -212,12 +212,14 @@ function normalizeConcept(raw, pageId, order, knowledgePath) {
   }
   const kind = String(raw.kind);
   const aliases = [...new Set([raw.name, ...(raw.aliases ?? [])].map((value) => String(value).trim()).filter(Boolean))];
+  const introductionAliases = [...new Set((raw.introduction_aliases ?? []).map((value) => String(value).trim()).filter(Boolean))];
   return {
     id: String(raw.id),
     name: String(raw.name),
     kind,
     introduction: raw.introduction ? String(raw.introduction) : (kind === 'term' ? 'inline' : 'formal'),
     aliases,
+    introductionAliases,
     requires: [...new Set((raw.requires ?? []).map(String))],
     pageId,
     order,
@@ -291,6 +293,10 @@ function isFormalKind(kind) {
 function isFormalDeclarationLine(line) {
   const text = line.trim();
   if (!text) return false;
+  // H1はページタイトルでありformal statementではない。
+  if (/^#(?!#)\s+/u.test(text)) return false;
+  // 採点基準の「- 定義: 6点」のような行をformal declarationと誤認しない。
+  if (/^[-*]\s*(?:\*\*)?(?:定義|定理|補題|命題|系)(?:\*\*)?\s*[:：]\s*\d+\s*点(?:\s|$)/u.test(text)) return false;
   if (/^(?:#{1,6}\s+|>\s*|[-*]\s*)?(?:\*\*)?(?:定義|定理|補題|命題|系)(?:\*\*)?(?:[（(：:\s]|$)/u.test(text)) return true;
   if (/^#{1,6}\s+.+(?:定理|補題|命題)(?:[（(：:]|$)/u.test(text)) return true;
   return false;
@@ -302,10 +308,11 @@ function firstFormalLine(lines) {
 }
 
 function findIntroductionLine(lines, concept) {
-  if (concept.introduction === 'inline') return firstAliasUse(lines, concept.aliases);
+  const aliases = concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
+  if (concept.introduction === 'inline') return firstAliasUse(lines, aliases);
   for (let i = 0; i < lines.length; i += 1) {
     if (!isFormalDeclarationLine(lines[i])) continue;
-    if (concept.aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
+    if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
   }
   return null;
 }

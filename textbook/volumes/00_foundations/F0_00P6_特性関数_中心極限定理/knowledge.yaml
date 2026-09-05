@@ -1,0 +1,100 @@
+chapter: F0-00P6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3
+  - F0-00D2B
+  - F0-00D2C
+
+# 二次展開とLévyを組み合わせたiid CLTは次章で正式にまとめる。
+forward_references:
+  - prob.standardized-iid-sum
+  - prob.iid-clt
+
+concepts:
+  - id: prob.characteristic-function
+    name: 特性関数
+    kind: definition
+    aliases: [特性関数]
+    requires:
+      - prob.random-variable
+      - prob.expectation
+
+  - id: prob.characteristic-function-properties
+    name: 特性関数の基本性質
+    kind: proposition
+    aliases: [特性関数の基本性質]
+    requires:
+      - prob.characteristic-function
+      - prob.independent-random-variables
+      - measure.dominated-convergence-theorem
+
+  - id: prob.distribution-convergence
+    name: 分布収束
+    kind: definition
+    aliases: [分布収束]
+    requires:
+      - prob.cdf
+
+  - id: prob.bounded-lipschitz-characterization
+    name: bounded Lipschitz testによる分布収束の特徴付け
+    kind: theorem
+    aliases: [bounded Lipschitz testによる分布収束の特徴付け]
+    requires:
+      - prob.distribution-convergence
+      - prob.cdf
+
+  - id: prob.gaussian-fourier-identity
+    name: Gaussian Fourier identity
+    kind: lemma
+    aliases: [Gaussian Fourier identity]
+    requires:
+      - measure.lebesgue-integral
+
+  - id: prob.gaussian-smoothing-density
+    name: Gaussian smoothingの密度公式
+    kind: lemma
+    aliases: [Gaussian smoothingの密度公式]
+    requires:
+      - prob.gaussian-fourier-identity
+      - prob.characteristic-function
+      - prob.independent-random-variables
+      - measure.fubini-theorem
+
+  - id: prob.characteristic-function-uniqueness
+    name: 特性関数の一意性
+    kind: theorem
+    aliases: [特性関数の一意性]
+    requires:
+      - prob.characteristic-function
+      - prob.gaussian-smoothing-density
+      - prob.cdf
+
+  - id: prob.characteristic-function-second-order-expansion
+    name: 特性関数の二次展開
+    kind: theorem
+    aliases: [特性関数の二次展開]
+    requires:
+      - prob.characteristic-function
+      - prob.expectation
+      - measure.dominated-convergence-theorem
+
+  - id: prob.scheffe-lemma
+    name: Schefféの補題
+    kind: lemma
+    aliases: [Schefféの補題, Scheffé]
+    requires:
+      - measure.dominated-convergence-theorem
+      - measure.integrable-function
+
+  - id: prob.levy-continuity-theorem
+    name: Lévy連続性定理
+    kind: theorem
+    aliases: [Lévy連続性定理, Levy連続性定理]
+    requires:
+      - prob.characteristic-function
+      - prob.distribution-convergence
+      - prob.bounded-lipschitz-characterization
+      - prob.gaussian-smoothing-density
+      - prob.scheffe-lemma
+      - measure.dominated-convergence-theorem
