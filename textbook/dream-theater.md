@@ -90,15 +90,16 @@
 5. [P3 独立・積測度](textbook/volumes/00_foundations/F0_00P3_独立_積測度_条件付き期待値/index.md)
 6. [P3A 条件付き期待値](textbook/volumes/00_foundations/F0_00P3A_条件付き期待値_Radon_Nikodym/index.md)
 7. [P3B L2射影・最良予測](textbook/volumes/00_foundations/F0_00P3B_L2射影_最良予測/index.md)
-8. [P4 limsup・Borel–Cantelli・収束関係](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
-9. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
-10. [P5 Kolmogorov最大不等式・有限分散SLLN](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
-11. [P5A truncation・Kronecker・一般iid SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
-12. [P6 特性関数・Lévy](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
-13. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
-14. [P7 正則統計モデル・score・Fisher](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
-15. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
-16. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
+8. [P3C Lévy上昇定理・情報の増加](textbook/volumes/00_foundations/F0_00P3C_Levy上昇定理_情報の増加/index.md)
+9. [P4 limsup・Borel–Cantelli・収束関係](textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md)
+10. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
+11. [P5 Kolmogorov最大不等式・有限分散SLLN](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
+12. [P5A truncation・Kronecker・一般iid SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
+13. [P6 特性関数・Lévy](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
+14. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
+15. [P7 正則統計モデル・score・Fisher](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
+16. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
+17. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
 ---
 
@@ -257,70 +258,3 @@ PDEの弱形式を有限次元へ落とすのがGalerkin法・有限要素法で
 ```
 
 したがって数値計算は理論のおまけではなく、**理論を実際の答えへ変換する最後の層**です。
-
-### 子羊への案内
-
-全部を最初から順に履修する必要はありません。
-
-- 「この積分・期待値は何者？」と思ったら、DREAM THEATER本編・確率論補講へ。
-- 「SVMや予測の射影をもっと理解したい」なら、関数解析・RKHSへ。
-- 「特性関数や周波数解析が気になる」なら、Encore IIへ。
-- 「弱解って何？」なら、Encore IIIへ。
-- 「Brown運動・SDE・スペクトル時系列が気になる」なら、Encore IVへ。
-- 「で、実際どう計算するの？」なら、Encore Vへ。
-
-**分からない言葉が出た地点から地下へ潜り、納得したら地上へ戻る。** それで十分です。
-
-以下が各教材への直接リンク付き目次です。
-
----
-
-## 全体路線図
-
-```text
-統計検定1級の数学速習
-        │
-        ├─→ 関数解析・RKHS・SVM
-        │
-        ├─→ DREAM THEATER本編
-        │      集合・写像 → 距離 → 連続 → compactness → completeness
-        │      選択公理 / Zorn
-        │      → ベクトル空間 → 線形写像 → 内積 → スペクトル / SVD
-        │      → ノルム / Banach
-        │      → 測度基礎 → 外測度 / Carathéodory / Lebesgue測度 / Vitali集合
-        │      → Lebesgue積分 → 収束定理 → 積測度 → Lp → L2完備性
-        │
-        ├─→ 確率論「それどこから来た？」
-        │      測度論的確率
-        │      条件付き期待値
-        │      大数の法則 / 中心極限定理
-        │
-        └─→ Encore II
-               Fourier解析 / ODE / 古典PDE
-                    │
-                    └─→ Encore III
-                           Schwartz超関数
-                           Sobolev空間 / 弱解
-                           Lax--Milgram / Galerkin
-                                │
-                                ├─→ Encore V
-                                │      FEM / 数値線形代数
-                                │      Monte Carlo / MLMC
-                                │
-確率論 ─→ Encore IV ────────────┘
-          martingale / Brown運動
-          Itô / SDE / generator
-          Wold / スペクトル時系列
-```
-
-一本道ではありません。興味のある分岐だけ読めます。
-
----
-
-## 監査・証明補完
-
-現在、F0-00から上の順序で「未定義語が突然出てこないか」「主要命題に必要な証明があるか」を監査しています。
-
-- [DREAM THEATER 通読監査：未定義概念と証明補完計画](textbook/f0-dream-theater-proof-audit.md)
-
-DREAM THEATER系列は統計検定1級の必須範囲ではありません。必要なところで降りて大丈夫です。

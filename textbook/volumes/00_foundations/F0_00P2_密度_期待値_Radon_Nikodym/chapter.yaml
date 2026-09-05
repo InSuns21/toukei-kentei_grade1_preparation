@@ -5,21 +5,26 @@ status: supplementary
 prerequisites:
   - F0-00P1
   - F0-00D2A
+  - F0-00D2E
+  - F0-02C1A
 official_scope: []
 learning_objectives:
-  - 絶対連続性を説明できる
-  - Radon--Nikodym密度としてpdfを定義できる
-  - counting measureによりpmfも同じ枠組みで書ける
-  - 支配測度の役割を説明できる
+  - 測度の絶対連続性を定義し具体例で確認できる
+  - Radon--Nikodym微分を定義し積分表示を確認できる
+  - Hilbert射影定理からL2表現補題を証明できる
+  - Radon--Nikodym定理の存在とa.e.一意性を証明できる
+  - 数え上げ測度によりpmfも同じ枠組みで書ける
+  - 支配測度を定義しBernoulliモデルで確認できる
 definitions:
-  - { id: F0P2-DEF-01, name: 絶対連続 }
-  - { id: F0P2-DEF-02, name: Radon--Nikodym密度 }
+  - { id: F0P2-DEF-01, name: 測度の絶対連続性 }
+  - { id: F0P2-DEF-02, name: Radon--Nikodym微分 }
   - { id: F0P2-DEF-03, name: 支配測度 }
 theorems:
+  - { id: F0P2-LEM-01, name: L2表現補題 }
   - { id: F0P2-THM-01, name: Radon--Nikodym定理 }
-canonical_examples: [Bernoulli pmf, Lebesgue pdf, 重み付きcounting measure]
+canonical_examples: [密度2xから作る測度, Bernoulliモデルの支配測度, Bernoulli分布のpmf, 重み付き数え上げ測度]
 problem_patterns: [RN-DENSITY-1, DOMINATING-MEASURE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+estimated_hours: { reading: 4.0, exercises: 0.75, review: 0.75 }
