@@ -3,11 +3,14 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D3
+  - F0-00D2B
   - F0-00C
 
-# 冒頭で積測度への応用を予告する。
+# 積測度の回収と D5 の非可測集合は、ここでは後続章への接続として言及する。
 forward_references:
   - measure.product-measure
+  - measure.vitali-set
+  - measure.vitali-nonmeasurability
 
 concepts:
   - id: measure.finite-interval-cover-length
@@ -111,7 +114,7 @@ concepts:
   - id: measure.caratheodory-extension-theorem
     name: Carathéodory拡張定理
     kind: theorem
-    aliases: [Carathéodory拡張定理]
+    aliases: [Carathéodory拡張定理, "Carathéodory 拡張定理"]
     requires:
       - measure.premeasure
       - measure.premeasure-induced-outer-measure
