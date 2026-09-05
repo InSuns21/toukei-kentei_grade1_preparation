@@ -1,0 +1,25 @@
+id: "F0-00P3C"
+title: "Lévy上昇定理・情報の増加"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P3A
+official_scope: []
+learning_objectives:
+  - 増加する部分sigma代数列と極限情報を定義できる
+  - 増加情報の和集合が代数になることを示せる
+  - 生成sigma代数の集合を有限段階の情報で確率近似できることを示せる
+  - 条件付き期待値のL1縮小性からLevy上昇定理のL1収束を証明できる
+  - upcrossing評価から条件付き期待値列のa.s.収束を証明できる
+definitions:
+  - { id: F0P3C-DEF-01, name: 増加する部分sigma代数列 }
+  - { id: F0P3C-DEF-02, name: 極限情報 }
+theorems:
+  - { id: F0P3C-THM-01, name: 増加情報の代数による集合近似 }
+  - { id: F0P3C-THM-02, name: Lévy上昇定理 }
+canonical_examples: [二進分割, 条件付き期待値の逐次精密化]
+problem_patterns: [LEVY-UPWARD-1, UPCROSSING-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 1.0, review: 0.75 }
