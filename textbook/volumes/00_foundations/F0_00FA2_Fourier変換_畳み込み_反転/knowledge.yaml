@@ -21,8 +21,8 @@ concepts:
   - id: fourier.translation-continuity-l1
     name: L1 の平行移動連続性
     kind: lemma
-    # $L^1$ の5文字を空白化した後にも直後の通常空白が残るため、合計6空白で章固有に照合する。
-    aliases: ["補題（      の平行移動連続性）"]
+    # reader-source 用の6空白版と raw Markdown 用の数式版を併記する。
+    aliases: ["補題（      の平行移動連続性）", '$L^1$ の平行移動連続性']
     requires:
       - fourier.transform-l1
 
