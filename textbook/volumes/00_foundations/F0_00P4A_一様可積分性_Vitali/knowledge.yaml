@@ -6,6 +6,11 @@ prerequisites:
   - F0-00P2A
   - F0-00D2B
 
+# 章末で別ルートとして特性関数・分布収束のP6を案内する。
+forward_references:
+  - prob.characteristic-function
+  - prob.distribution-convergence
+
 concepts:
   - id: prob.uniform-integrability
     name: 一様可積分性
