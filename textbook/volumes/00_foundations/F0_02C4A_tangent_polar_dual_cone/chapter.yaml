@@ -6,14 +6,17 @@ prerequisites:
   - F0-02C4
 learning_objectives:
   - tangent coneを実行可能一次方向として説明できる
-  - polar coneとnormal coneの関係を説明できる
+  - 凸集合のtangent coneをcone(C-x)の閉包として証明できる
+  - normal coneがtangent coneのpolarに一致することを証明できる
   - dual coneとpolar coneの符号規約を区別できる
 definitions:
   - { id: F002C4A-DEF-01, name: tangent cone }
   - { id: F002C4A-DEF-02, name: polar cone }
   - { id: F002C4A-DEF-03, name: dual cone }
-theorems: []
+theorems:
+  - { id: F002C4A-THM-01, name: 凸集合のtangent coneの錐包表示 }
+  - { id: F002C4A-THM-02, name: normal coneとtangent coneのpolarの一致 }
 canonical_examples: [半空間のtangent cone, 非負直交錐の自己双対性]
 problem_patterns: [FA-CONE-1]
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.5, exercises: 0.75, review: 0.5 }
+estimated_hours: { reading: 1.75, exercises: 0.75, review: 0.5 }
