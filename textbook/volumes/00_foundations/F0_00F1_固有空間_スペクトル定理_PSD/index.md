@@ -23,6 +23,43 @@ $$
 > を固有値 $\lambda$ に対応する **固有空間** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-eigenvalue-eigenvector-eigenspace -->
+### 1.1 例：$2\times2$ 対称行列の固有空間
+
+**定義の確認**
+
+$$
+A=\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\qquad
+v=\begin{pmatrix}1\\1\end{pmatrix}
+$$
+
+とします。$v\ne0$ で
+
+$$
+Av
+=\begin{pmatrix}3\\3\end{pmatrix}
+=3v
+$$
+
+なので、定義より $3$ は固有値、$v$ は固有値 $3$ に属する固有ベクトルです。また
+
+$$
+A-3I
+=\begin{pmatrix}-1&1\\1&-1\end{pmatrix}
+$$
+
+だから
+
+$$
+E_3
+=\ker(A-3I)
+=\operatorname{span}\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\}.
+$$
+
+「非零ベクトルが $Av=\lambda v$ を満たすこと」と「固有空間が $\ker(A-\lambda I)$ であること」の両方を直接確認しています。
+<!-- definition-example-end -->
+
 重要なのは、固有空間は1本のベクトルではなく部分空間だということです。
 
 行列 $A$ なら
@@ -55,6 +92,34 @@ T(M)\subset M
 $$
 > が成り立つとき、$M$ を $T$ の **不変部分空間** という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-invariant-subspace -->
+### 2.1 例：固有ベクトルが張る直線は不変
+
+**定義の確認**
+
+上の行列 $A$ と
+
+$$
+M=\operatorname{span}\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\}
+$$
+
+を考えます。任意の $z\in M$ は $z=c(1,1)^{\mathsf T}$ と書けるので
+
+$$
+Az
+=3c\begin{pmatrix}1\\1\end{pmatrix}
+\in M.
+$$
+
+したがって全ての $z\in M$ に対して $Az\in M$、すなわち
+
+$$
+A(M)\subset M
+$$
+
+です。これは不変部分空間の定義そのものを確認しています。
+<!-- definition-example-end -->
 
 固有空間 $E_\lambda$ は不変部分空間です。
 
@@ -160,6 +225,36 @@ $$
 > を $A$ の $x$ における **Rayleigh商** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-rayleigh-quotient -->
+### 5.1 例：対角行列でRayleigh商を計算する
+
+**定義の確認**
+
+$$
+A=\begin{pmatrix}2&0\\0&5\end{pmatrix},
+\qquad
+x=\begin{pmatrix}0\\2\end{pmatrix}
+$$
+
+とします。$x\ne0$ なのでRayleigh商を定義でき、
+
+$$
+x^{\mathsf T}Ax=20,
+\qquad
+x^{\mathsf T}x=4
+$$
+
+より
+
+$$
+R_A(x)
+=\frac{x^{\mathsf T}Ax}{x^{\mathsf T}x}
+=5.
+$$
+
+分子・分母を定義式へそのまま代入して確認しています。この $x$ は固有値 $5$ の固有ベクトルでもあるため、後述する $R_A(x)=\lambda$ とも一致します。
+<!-- definition-example-end -->
+
 $x$ が固有ベクトルで
 
 $$
@@ -212,39 +307,63 @@ $$
 
 とします。
 
-制約
+ここで「球面上の極値なら勾配が半径方向を向く」という、今回必要なラグランジュ未定乗数法の形を先に証明します。
+
+<a id="thm-f0-00f1-sphere-lagrange"></a>
+
+<!-- formal-statement-start -->
+> **定理（球面制約に対するLagrange必要条件）**  
+> $f$ を単位球面 $S^{n-1}=\{x:\|x\|=1\}$ の近傍で $C^1$ 級とする。$q\in S^{n-1}$ が $f|_{S^{n-1}}$ の局所極値点なら、ある $\lambda\in\mathbb R$ が存在して
 
 $$
-g(x)=x^{\mathsf T}x-1=0
+\boxed{\nabla f(q)=2\lambda q}
 $$
 
-の下で $f$ を最大化しているので、ラグランジュ未定乗数法から
+> が成り立つ。これは制約 $g(x)=x^{\mathsf T}x-1=0$ に対する $\nabla f(q)=\lambda\nabla g(q)$ の形そのものである。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：接方向の微分が全て0になる
+
+$q$ に直交する任意の $v\in q^\perp$ を取ります。$v=0$ なら自明なので $v\ne0$ とします。
 
 $$
-\nabla f(q_1)
-=\lambda\nabla g(q_1).
+\gamma(t)=\frac{q+tv}{\|q+tv\|}
 $$
 
-$A$ は対称なので
+と置けば、十分小さい $t$ で $\gamma(t)\in S^{n-1}$ かつ $\gamma(0)=q$ です。また $q^{\mathsf T}v=0$ なので
 
 $$
-\nabla f(x)=2Ax,
-\qquad
-\nabla g(x)=2x.
+\|q+tv\|=\sqrt{1+t^2\|v\|^2}
 $$
 
-したがって
+であり、$t=0$ で微分すると $\gamma'(0)=v$ です。
+
+$q$ は球面上の局所極値点なので、一変数関数 $t\mapsto f(\gamma(t))$ は $t=0$ で局所極値を取り、従って
 
 $$
-2Aq_1=2\lambda q_1
+0=\frac{d}{dt}f(\gamma(t))\bigg|_{t=0}=\nabla f(q)^{\mathsf T}v.
 $$
 
-より
+これは全ての $v\in q^\perp$ に対して成り立つので
 
 $$
-\boxed{
-Aq_1=\lambda q_1
-}.
+\nabla f(q)\in(q^\perp)^\perp=\operatorname{span}\{q\}.
+$$
+
+従ってある実数 $c$ が存在して $\nabla f(q)=cq$。$c=2\lambda$ と書けば結論です。
+<!-- proof-end -->
+
+この定理を $f(x)=x^{\mathsf T}Ax$ へ適用します。$A$ は対称なので $\nabla f(x)=2Ax$。したがって最大点 $q_1$ では
+
+$$
+2Aq_1=2\lambda q_1,
+$$
+
+すなわち
+
+$$
+\boxed{Aq_1=\lambda q_1}.
 $$
 
 つまり最大点は固有ベクトルです。
@@ -552,6 +671,45 @@ $z=Q^Tx$ とすると $x^TAx=\sum_i\lambda_i z_i^2$。全固有値非負なら�
 - 十分性: 5点
 - 必要性の反証: 7点
 - 結論: 2点
+<!-- solution-end -->
+
+### F0-00F1-B02 Rayleigh商最大点が固有ベクトルになることを接方向から示す
+
+- Level: B
+- 目安時間: 15分
+
+実対称行列 $A$ に対して $f(x)=x^{\mathsf T}Ax$ とし、単位球面上の局所最大点を $q$ とする。任意の $v\perp q$ に対し
+
+$$
+\gamma(t)=\frac{q+tv}{\|q+tv\|}
+$$
+
+を用いて $v^{\mathsf T}Aq=0$ を示し、$Aq=\lambda q$ を導け。
+
+<!-- solution-start -->
+#### 詳細解答
+$q^{\mathsf T}v=0$ なので $\gamma'(0)=v$。球面上の極大性から
+
+$$
+0=(f\circ\gamma)'(0)=\nabla f(q)^{\mathsf T}v=2v^{\mathsf T}Aq.
+$$
+
+従って $Aq$ は全ての $v\in q^\perp$ と直交する。よって
+
+$$
+Aq\in(q^\perp)^\perp=\operatorname{span}\{q\},
+$$
+
+なので $Aq=\lambda q$。
+
+#### 本番答案
+$\gamma'(0)=v$ と球面上の極値条件から $0=2v^{\mathsf T}Aq$。全ての $v\perp q$ で成立するから $Aq\in\operatorname{span}\{q\}$、従って $Aq=\lambda q$。
+
+#### 採点基準（20点）
+- $\gamma'(0)=v$: 5点
+- 接方向微分0: 6点
+- $v^{\mathsf T}Aq=0$: 4点
+- 直交補から固有方程式: 5点
 <!-- solution-end -->
 
 ---
