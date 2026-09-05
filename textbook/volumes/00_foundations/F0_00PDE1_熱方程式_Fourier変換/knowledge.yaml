@@ -1,0 +1,60 @@
+chapter: F0-00PDE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00H1
+  - F0-00FA3
+
+concepts:
+  - id: pde.partial-differential-equation
+    name: 偏微分方程式
+    kind: definition
+    aliases: [偏微分方程式]
+    introduction: inline
+
+  - id: pde.heat-equation
+    name: 熱方程式
+    kind: definition
+    aliases: [熱方程式]
+    introduction: inline
+    requires:
+      - pde.partial-differential-equation
+
+  - id: pde.heat-kernel
+    name: heat kernel
+    kind: definition
+    aliases: [heat kernel]
+    introduction: inline
+    requires:
+      - pde.heat-equation
+      - fourier.gaussian-transform
+
+  - id: pde.heat-fourier-representation
+    name: 実数全体上の熱方程式のFourier表示
+    kind: theorem
+    aliases: [PDEが周波数ごとの独立なODEへ分解]
+    introduction: inline
+    requires:
+      - pde.heat-equation
+      - fourier.transform-l1
+      - fourier.derivative-rule
+      - ode.ordinary-differential-equation
+
+  - id: pde.heat-kernel-representation
+    name: Gaussian heat kernelによる表現
+    kind: theorem
+    aliases: [初期データをGaussianでぼかす操作]
+    introduction: inline
+    requires:
+      - pde.heat-fourier-representation
+      - pde.heat-kernel
+      - fourier.inversion-l1
+      - fourier.convolution-theorem
+
+  - id: pde.heat-semigroup
+    name: heat semigroup
+    kind: term
+    aliases: [半群性]
+    requires:
+      - pde.heat-kernel
+      - fourier.convolution-l1
