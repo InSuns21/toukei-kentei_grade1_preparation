@@ -1,0 +1,54 @@
+chapter: F0-00DS1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2
+  - F0-00D2A
+  - F0-02C2
+
+# Fourier解析との接続と、次章の微分概念を明示的に予告する。
+forward_references:
+  - fourier.transform-l1
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
+
+concepts:
+  - id: distribution.test-function
+    name: テスト関数
+    kind: definition
+    aliases: [テスト関数]
+    introduction: inline
+
+  - id: distribution.schwartz-distribution
+    name: Schwartz超関数
+    kind: definition
+    aliases: [Schwartz超関数]
+    introduction: inline
+    requires:
+      - distribution.test-function
+
+  - id: distribution.regular-distribution
+    name: 正則超関数
+    kind: definition
+    aliases: [正則超関数]
+    introduction: inline
+    requires:
+      - distribution.schwartz-distribution
+      - measure.integrable-function
+
+  - id: distribution.dirac-delta
+    name: Dirac delta
+    kind: definition
+    aliases: [Dirac delta]
+    introduction: inline
+    requires:
+      - distribution.schwartz-distribution
+
+  - id: distribution.distributional-convergence
+    name: 超関数収束
+    kind: definition
+    aliases: [超関数の意味で収束する]
+    introduction: inline
+    requires:
+      - distribution.schwartz-distribution
+      - distribution.test-function

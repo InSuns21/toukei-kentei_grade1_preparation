@@ -1,0 +1,16 @@
+chapter: F0-00R3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00PDE3
+  - F0-02C2
+
+# ロードマップ本文で直後の超関数・弱微分を先取りする。
+forward_references:
+  - distribution.test-function
+  - distribution.schwartz-distribution
+  - distribution.dirac-delta
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
+
+concepts: []
