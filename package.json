@@ -22,7 +22,7 @@
     "validate:acronym-first-use:changed": "node scripts/audit_acronym_first_use.mjs --strict --changed-only",
     "audit:dream-theater-concepts": "node scripts/audit-dream-theater-concepts.mjs",
     "validate:dream-theater-concepts": "node scripts/audit-dream-theater-concepts.mjs --strict",
-    "validate:dream-theater-concepts:changed": "node scripts/audit-dream-theater-concepts.mjs --strict --changed-only",
+    "validate:dream-theater-concepts:changed": "node scripts/validate-dream-theater-concepts-changed.mjs",
     "report:dream-theater-concepts": "node scripts/audit-dream-theater-concepts.mjs --write-report",
     "validate:rikou80": "node applied-rikou-80/validate-katex.mjs",
     "validate:mathstat": "node statistical-mathematics/validate-katex.mjs",
