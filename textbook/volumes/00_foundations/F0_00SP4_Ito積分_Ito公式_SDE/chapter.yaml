@@ -1,35 +1,44 @@
 id: "F0-00SP4"
-title: "Encore IV：Ito積分・Ito公式・確率微分方程式"
+title: "Encore IV：Itô積分・Itô公式・SDE"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00SP3
   - F0-00SP2
+  - F0-00D2E
 official_scope: []
 learning_objectives:
-  - simple predictable processに対するIto積分を定義できる
-  - Ito isometryを導ける
-  - L2極限による一般のIto積分の構成を説明できる
-  - Ito積分がmartingaleになる条件を説明できる
-  - Ito公式を二次変分から説明できる
-  - SDEを積分方程式として読める
+  - simple predictable processとそのIto積分を定義できる
+  - Ito isometryをcross term消失から証明できる
+  - H_T^2のcompletionとして一般のIto積分を構成できる
+  - Ito積分過程の連続martingale版を構成できる
+  - Brown運動に対するC2 Ito公式をTaylor展開と二次変分から証明できる
+  - 一般Ito process版のIto公式へsimple近似で拡張できる
+  - SDEのstrong solutionを積分方程式として定義できる
+  - global Lipschitz SDEの存在一意性をPicard反復・Ito isometry・Gronwallで証明できる
   - 幾何Brown運動とOrnstein--Uhlenbeck過程を解ける
-  - Lipschitz条件によるSDE解の存在一意性を位置付けられる
 definitions:
-  - { id: F000SP4-DEF-01, name: Ito積分 }
-  - { id: F000SP4-DEF-02, name: 確率微分方程式 }
-  - { id: F000SP4-DEF-03, name: strong solution }
+  - { id: F000SP4-DEF-01, name: simple predictable process }
+  - { id: F000SP4-DEF-02, name: simple processのIto積分 }
+  - { id: F000SP4-DEF-03, name: Ito integrand space H_T^2 }
+  - { id: F000SP4-DEF-04, name: Ito process }
+  - { id: F000SP4-DEF-05, name: SDEのstrong solution }
 theorems:
-  - { id: F000SP4-THM-01, name: Ito isometry }
-  - { id: F000SP4-THM-02, name: Ito公式 }
-  - { id: F000SP4-THM-03, name: Lipschitz SDEの存在一意性 }
+  - { id: F000SP4-THM-01, name: simple processに対するIto isometry }
+  - { id: F000SP4-THM-02, name: Ito積分のL2拡張 }
+  - { id: F000SP4-LEM-01, name: L2 maximal inequality }
+  - { id: F000SP4-THM-03, name: Ito積分の連続martingale版 }
+  - { id: F000SP4-THM-04, name: Brown運動に対するC2 Ito公式 }
+  - { id: F000SP4-THM-05, name: 一般Ito processに対するIto公式 }
+  - { id: F000SP4-THM-06, name: global Lipschitz SDEの存在一意性 }
 canonical_examples:
   - 定数被積分過程のIto積分
   - B_t^2へのIto公式
+  - Brown運動をIto processとして確認
   - 幾何Brown運動
   - Ornstein--Uhlenbeck過程
-problem_patterns: [ITO-ISOMETRY-1, ITO-FORMULA-1, SDE-LINEAR-1]
+problem_patterns: [ITO-ISOMETRY-1, ITO-FORMULA-1, SDE-LINEAR-1, SDE-PICARD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 6, exercises: 1.5, review: 0.5 }
+exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 2.5, review: 1 }
