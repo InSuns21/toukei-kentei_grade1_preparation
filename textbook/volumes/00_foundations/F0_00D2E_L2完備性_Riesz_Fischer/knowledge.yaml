@@ -5,6 +5,14 @@ prerequisites:
   - F0-00D2D
   - F0-00D2B
 
+# 後半の確率論への応用節では、後続章の確率概念を先取りして接続を示す。
+forward_references:
+  - prob.probability-space
+  - prob.random-variable
+  - prob.expectation
+  - prob.variance
+  - prob.conditional-expectation
+
 concepts:
   - id: functional.normed-cauchy-sequence
     name: ノルム空間のCauchy列
