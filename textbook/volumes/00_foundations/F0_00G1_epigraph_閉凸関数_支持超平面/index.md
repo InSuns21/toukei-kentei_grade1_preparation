@@ -465,6 +465,7 @@ $$
 > とします。このとき $f$ は最小値を達成します。
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 適当な $x_0\in\operatorname{dom}f$ を一つ取ります。coercivity により sublevel set
@@ -474,6 +475,7 @@ L=\{x:f(x)\le f(x_0)\}
 $$
 
 は有界です。下半連続性から $L$ は閉なので、有限次元では compact です。$f$ の下半連続性から compact 集合上で最小値を達成し、その最小値は全空間での最小値です。$\square$
+<!-- proof-end -->
 
 ここは後の「変分法の直接法」の有限次元版です。
 
