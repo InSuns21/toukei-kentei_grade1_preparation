@@ -169,14 +169,12 @@ TS2で使ったFejér近似は、連続周期関数を三角多項式で一様�
 
 <!-- formal-statement-start -->
 > **定理（三角多項式の $L^2(F)$ 稠密性）**  
-> 円周上の有限Borel測度 $F$ に対し
->
-> $$
-> \mathcal P
-> :=\operatorname{span}_{\mathbb C}\{e^{it\lambda}:t\in\mathbb Z\}
-> $$
->
-> は $L^2(F)$ に稠密である。
+> 円周上の有限Borel測度 $F$ に対し、次の三角多項式全体は $L^2(F)$ に稠密である。
+
+$$
+\mathcal P
+:=\operatorname{span}_{\mathbb C}\{e^{it\lambda}:t\in\mathbb Z\}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -330,19 +328,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（直交増分ランダム測度）**  
-> 有限測度 $F$ に対する写像
->
-> $$
-> Z:\mathcal B(\mathbb T)\to L^2(\Omega)
-> $$
->
-> が、互いに素なBorel集合に対する直交性、互いに素な列に対する $L^2$ 可算加法性、および
->
-> $$
-> E[Z(A)\overline{Z(B)}]=F(A\cap B)
-> $$
->
-> を満たすとき、$Z$ をcontrol measure $F$ を持つ **直交増分ランダム測度** という。
+> 有限測度 $F$ に対する写像 $Z:\mathcal B(\mathbb T)\to L^2(\Omega)$ が、互いに素なBorel集合に対する直交性、互いに素な列に対する $L^2$ 可算加法性、および次の二次モーメント関係を満たすとき、$Z$ をcontrol measure $F$ を持つ **直交増分ランダム測度** という。
+
+$$
+E[Z(A)\overline{Z(B)}]=F(A\cap B)
+$$
 <!-- formal-statement-end -->
 
 上で作った $U$ を使って
@@ -401,15 +391,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（spectral stochastic integral）**  
-> 上で構成した $Z$ に対し、$g\in L^2(F)$ のspectral stochastic integralを
->
-> $$
-> \boxed{
-> \int_{\mathbb T}g(\lambda)Z(d\lambda):=Ug
-> }
-> $$
->
-> と定める。
+> 上で構成した $Z$ に対し、$g\in L^2(F)$ のspectral stochastic integralを次で定める。
+
+$$
+\boxed{
+\int_{\mathbb T}g(\lambda)Z(d\lambda):=Ug
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00ts2a-spectral-integral -->
@@ -455,15 +443,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（定常過程の spectral representation theorem）**  
-> $(X_t)_{t\in\mathbb Z}$ を平均0の二次定常過程とし、$F$ をそのspectral measureとする。このとき、control measure $F$ を持つ直交増分ランダム測度 $Z$ が存在して、全ての $t\in\mathbb Z$ について
->
-> $$
-> \boxed{
-> X_t=\int_{\mathbb T}e^{it\lambda}Z(d\lambda)
-> }
-> $$
->
-> が $L^2(\Omega)$ の意味で成り立つ。
+> $(X_t)_{t\in\mathbb Z}$ を平均0の二次定常過程とし、$F$ をそのspectral measureとする。このとき、control measure $F$ を持つ直交増分ランダム測度 $Z$ が存在して、全ての $t\in\mathbb Z$ について次が $L^2(\Omega)$ の意味で成り立つ。
+
+$$
+\boxed{
+X_t=\int_{\mathbb T}e^{it\lambda}Z(d\lambda)
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -720,7 +706,7 @@ $$
 g_m=\min\{1,m d(\cdot,O^c)\}
 $$
 
-と置けば $g_m\to1_O$ かつ $0\le g_m\le1$ なのでDCTより $L^2(F)$ 収束します。$O=\mathbb T$ は定数関数1でよいです。
+と置けば $g_m\to1_O$ かつ $0\le g_m\le1$ なので優収束定理より $L^2(F)$ 収束します。$O=\mathbb T$ は定数関数1でよいです。
 
 この近似可能性を持つBorel集合族はDynkin族で、開集合全体を含みます。開集合は $\pi$-systemなので $\pi$--$\lambda$ 定理から全Borel集合が近似可能です。従って単関数を介して $C(\mathbb T)$ は $L^2(F)$ に稠密です。
 
