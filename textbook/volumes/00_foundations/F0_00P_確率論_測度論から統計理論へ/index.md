@@ -44,7 +44,7 @@ P7B QMD・LAN
 
 上は通読しやすい順番です。machine-readable prerequisiteは証明で実際に使う数学まで明示します。
 
-- P2のRadon--Nikodym定理は、定理を**使うだけ**ならD2系の測度論を前提に読めるが、この教材で掲載した完全証明は [F0-02C2 線形汎関数・双対空間・Riesz](../F0_02C2_線形汎関数_双対空間_Riesz/index.md) のRiesz表現定理を使う。そのためP2のchapter metadataにはF0-02C2も前提として記録している。
+- P2のRadon--Nikodym定理は、章内で必要な $L^2$ 表現補題まで証明する。表現補題はHilbert射影定理から直接導くため、P2のchapter metadataには $L^2$ 完備性とHilbert射影を前提として記録している。
 - P3Cは一般のmartingale収束定理を前提にしない。$M_n=E[X\mid\mathcal G_n]$ という条件付き期待値から作られる特別な列について、$L^1$近似とupcrossing評価をその場で証明してLévy上昇定理を閉じる。
 - P6「特性関数・Lévy」は強大数則を必要としない。標準通読ではP5の後だが、必須前提にはしない。
 - [P6Aの独立同分布 中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)も強大数則を証明に使わない。
