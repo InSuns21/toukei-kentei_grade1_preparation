@@ -1,363 +1,266 @@
-# F0-00P4 limsup・Borel–Cantelli・確率収束：無限回起こる事象を制御する
+# F0-00P4 limsup・Borel--Cantelli・確率収束
 
-確率論では点列の極限だけでなく「悪い事象が無限回起こるか」を集合のlimsupで追います。
+確率論では、単に「各 $n$ で確率が小さい」だけでなく、
 
-この章では、事象列 $A_1,A_2,\ldots$ に対する $\limsup_n A_n$ を **「$A_n$ が無限回起こる事象」** と読みます。集合の和・共通部分を使った正式な定義は第1節で与えます。
+> その事象が標本経路上で無限回起こるのか
 
-Borel--Cantelliを軸に、a.s.収束・確率収束・$L^p$収束の関係までを一講義にまとめます。期待値まで極限交換するための条件はP4Aへ分離します。
+を区別する必要があります。この章では事象の $\limsup$ を入口に、Borel--Cantelliの2補題と確率収束・概収束の関係を証明します。
 
-## 0. まず「無限回起こる」をコイン投げで見る
-
-独立なコイン投げで、$A_n$ を「$n$ 回目が表」とします。
-
-各 $A_n$ は1回限りの事象ですが、
-
-$$
-\limsup_n A_n
-$$
-
-は
-
-> **どれだけ先へ進んでも、その後また表が出る**
-
-すなわち「表が無限回出る」という一つの事象です。
-
-逆に $P(A_n)\le2^{-n}$ のように事象が急速に希少になるなら
-
-$$
-\sum_nP(A_n)<\infty
-$$
-
-で、第一Borel--Cantelliにより無限回は起こりません。
-
-この章でやることは、個々の確率 $P(A_n)$ を
-
-> **長期的に何度起きるか**
-
-という経路の情報へ変換することです。これが確率収束からa.s.収束を引き出す道具になります。
+```text
+limsup event = infinitely often
+  ↓
+Borel--Cantelli I：確率がsummableなら無限回は起こらない
+  ↓
+Borel--Cantelli II：独立 + 確率和が発散なら無限回起こる
+  ↓
+概収束 / 確率収束の関係
+  ↓
+確率収束列から概収束部分列を抽出
+```
 
 ---
 
-## 1. 事象のlimsup
+## 1. 事象の上極限
 
-事象列 $A_1,A_2,\dots$ に対して
+<a id="def-f0-00p4-limsup-event"></a>
 
-$$
-\limsup_{n\to\infty}A_n
-=
-\bigcap_{m=1}^{\infty}
-\bigcup_{n\ge m}A_n
-$$
+<!-- formal-statement-start -->
+> **定義（事象列の上極限）**  
+> 事象列 $A_1,A_2,\ldots$ に対し
+>
+> $$
+> \boxed{
+> \limsup_{n\to\infty}A_n
+> :=\bigcap_{m=1}^{\infty}\bigcup_{n\ge m}A_n
+> }
+> $$
+>
+> と定義します。これは $A_n$ が**無限回起こる事象**であり、$\{A_n\ \mathrm{i.o.}\}$ とも書きます。
+<!-- formal-statement-end -->
 
-と定義します。
-
-これは
-
-$$
-\boxed{A_n\text{ が無限回起こる事象}}
-$$
-
-です。
-
-英語では infinitely often、略して i.o. と書きます。
-
-ある $\omega$ が $\limsup A_n$ に入るとは、どれだけ先へ進んでも、その後に $A_n$ がまた起こることを意味します。
-
----
-
-### 1.1 具体例：limsupとliminfは「無限回」と「最終的にずっと」
-
-決定論的な集合列
+### 1.1 例：偶数番目だけ起こる
 
 $$
-A_n=\begin{cases}
+A_n=
+\begin{cases}
 \{0\},&n\text{ が偶数},\\
 \varnothing,&n\text{ が奇数}
 \end{cases}
 $$
 
-では、0は無限回 $A_n$ に入るので
+とします。
+
+<!-- definition-example-start: def-f0-00p4-limsup-event -->
+**定義の確認**  
+任意の $m$ より後にも偶数 $n$ があるので
 
 $$
-\limsup A_n=\{0\}.
+0\in\bigcup_{n\ge m}A_n
+\qquad(\forall m).
 $$
 
-しかし「ある時点以降ずっと」入るわけではないので
+従って
 
 $$
-\liminf A_n=\varnothing.
+0\in\bigcap_m\bigcup_{n\ge m}A_n,
 $$
 
-この差が、確率変数列で「大きな誤差がたまに再発する」と「最終的に誤差が消える」を区別します。
+すなわち $\limsup_nA_n=\{0\}$ です。これは「0が $A_n$ に無限回入る」という定義そのものです。
+<!-- definition-example-end -->
 
-## 2. liminf
-
-同様に
+比較のため、
 
 $$
 \liminf_{n\to\infty}A_n
-=
-\bigcup_{m=1}^{\infty}
-\bigcap_{n\ge m}A_n
+:=\bigcup_{m=1}^{\infty}\bigcap_{n\ge m}A_n
 $$
 
-です。
-
-これは
-
-> ある時点以降ずっと $A_n$ が起こる
-
-という事象です。
-
-P1-01で出てきた上極限・下極限事象が、ここで確率変数列の収束に直接使われます。
+は「ある時点以降ずっと $A_n$ が起こる事象」です。上の例では $\liminf_nA_n=\varnothing$ です。
 
 ---
 
-## 3. a.s.収束をlimsupで読む
+## 2. 概収束と確率収束
 
-$X_n\to X$ a.s. とは
+<a id="def-f0-00p4-as-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定義（概収束）**  
+> 確率変数列 $X_n$ が $X$ へ概収束するとは
+>
+> $$
+> \boxed{
+> P\{\omega:X_n(\omega)\to X(\omega)\}=1
+> }
+> $$
+>
+> が成り立つことです。$X_n\xrightarrow{a.s.}X$ と書きます。
+<!-- formal-statement-end -->
+
+### 2.1 例：決定論的な収束列
+
+<!-- definition-example-start: def-f0-00p4-as-convergence -->
+**定義の確認**  
+$X_n(\omega)=1/n$, $X(\omega)=0$ とすれば、全ての $\omega$ で $X_n(\omega)\to0$ です。従って収束する標本点全体の確率は1で、$X_n\xrightarrow{a.s.}0$ です。
+<!-- definition-example-end -->
+
+<a id="def-f0-00p4-probability-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定義（確率収束）**  
+> 任意の $\varepsilon>0$ に対して
+>
+> $$
+> \boxed{
+> P(|X_n-X|>\varepsilon)\to0
+> }
+> $$
+>
+> が成り立つとき、$X_n$ は $X$ へ確率収束するといい、$X_n\xrightarrow{p}X$ と書きます。
+<!-- formal-statement-end -->
+
+### 2.2 例：まれに1になる確率変数
+
+$P(X_n=1)=1/n$, $P(X_n=0)=1-1/n$ とします。
+
+<!-- definition-example-start: def-f0-00p4-probability-convergence -->
+**定義の確認**  
+$0<\varepsilon<1$ なら
 
 $$
-P\{\omega:X_n(\omega)\to X(\omega)\}=1
+P(|X_n|>\varepsilon)=P(X_n=1)=\frac1n\to0.
 $$
 
-でした。
+$\varepsilon\ge1$ なら左辺は0です。従って任意の $\varepsilon>0$ で定義を満たし、$X_n\xrightarrow{p}0$ です。
+<!-- definition-example-end -->
 
-固定した $\varepsilon>0$ に対して
+概収束は経路ごとの主張、確率収束は各 $n$ の誤差確率についての主張です。両者の差をBorel--Cantelliが埋めます。
+
+---
+
+## 3. 概収束を「大誤差が無限回起こらない」と読む
+
+固定した $\varepsilon>0$ に対し
 
 $$
-A_n^{(\varepsilon)}
-=\{|X_n-X|>\varepsilon\}
+A_n^{(\varepsilon)}:=\{|X_n-X|>\varepsilon\}
 $$
 
-と置きます。
-
-$X_n(\omega)\to X(\omega)$ なら、各 $\varepsilon>0$ について大きなずれは有限回しか起きません。
-
-したがって
+と置きます。概収束は
 
 $$
 \boxed{
-X_n\to X\ \text{a.s.}
-\Longleftrightarrow
-P(A_n^{(1/k)}\ \text{i.o.})=0
-\quad(k=1,2,\dots)
+X_n\xrightarrow{a.s.}X
+\iff
+P\left(A_n^{(1/k)}\ \mathrm{i.o.}\right)=0
+\quad(k=1,2,\ldots)
 }
 $$
 
-です。
+と読み替えられます。
 
-概収束は「各標本点で極限を取る」という定義ですが、確率論的には
-
-> 誤差が一定以上になる事象が無限回起こらない
-
-という形に翻訳できます。
+実際、$X_n(\omega)\to X(\omega)$ なら各 $1/k$ について大誤差は有限回しか起きません。逆に全ての $1/k$ について大誤差が有限回なら、任意の $\varepsilon>0$ に対し $1/k<\varepsilon$ を選べるので $|X_n-X|\to0$ です。
 
 ---
 
 <a id="thm-borel-cantelli-1"></a>
+<a id="thm-f0-00p4-borel-cantelli-1"></a>
 
 ## 4. Borel--Cantelli第1補題
 
 <!-- formal-statement-start -->
 > **補題（Borel--Cantelli第1補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が
-
-$$
-\sum_{n=1}^{\infty}P(A_n)<\infty
-$$
-
+>
+> $$
+> \sum_{n=1}^{\infty}P(A_n)<\infty
+> $$
+>
 > を満たすなら
-
-$$
-\boxed{P(A_n\ \mathrm{i.o.})=0}
-$$
-
+>
+> $$
+> \boxed{P(A_n\ \mathrm{i.o.})=0}
+> $$
+>
 > が成り立ちます。独立性は仮定しません。
 <!-- formal-statement-end -->
 
-事象列 $A_n$ が
-
-$$
-\sum_{n=1}^{\infty}P(A_n)<\infty
-$$
-
-を満たすなら
-
-$$
-\boxed{
-P(A_n\ \text{i.o.})=0
-}
-$$
-
-です。
-
-独立性は不要です。
-
-### 4.1 証明の見取り図：無限回起こるなら、どの尾部にも少なくとも一回起こる
-
-$$
-\{A_n\text{ i.o.}\}
-\subset
-\bigcup_{n\ge m}A_n
-$$
-
-は任意の $m$ で成り立ちます。
-
-右辺の確率をunion boundで
-
-$$
-P\left(\bigcup_{n\ge m}A_n\right)
-\le\sum_{n\ge m}P(A_n)
-$$
-
-と抑え、収束級数の尾部が0へ行くことを使います。
-
-つまり第一補題は「無限回」という複雑な経路事象を、単なる級数の尾部評価へ変換しています。
-
 <!-- proof-start -->
-### 証明
+### 証明：tail unionを級数のtailで抑える
 
 任意の $m$ について
 
 $$
-\{A_n\ \text{i.o.}\}
+\{A_n\ \mathrm{i.o.}\}
+=\bigcap_{r=1}^{\infty}\bigcup_{n\ge r}A_n
 \subset
 \bigcup_{n\ge m}A_n.
 $$
 
-したがってunion boundから
+従ってunion boundより
 
 $$
-P(A_n\ \text{i.o.})
+P(A_n\ \mathrm{i.o.})
+\le
+P\left(\bigcup_{n\ge m}A_n\right)
 \le
 \sum_{n\ge m}P(A_n).
 $$
 
-級数が収束するので右辺は $m\to\infty$ で0です。
-
-よって結論が従います。
-
-非常に短い証明ですが、強大数則などで中心的に使います。
-
+収束級数のtailは $m\to\infty$ で0なので、左辺は0です。
 <!-- proof-end -->
----
 
-## 5. 第1補題の典型的な使い方
+### 4.1 典型形：summableな誤差確率から概収束
 
-もし
-
-$$
-\sum_n
-P(|X_n-X|>\varepsilon)<\infty
-$$
-
-がすべての $\varepsilon>0$ について成り立てば、Borel--Cantelliから
+全ての $k\ge1$ について
 
 $$
-|X_n-X|>\varepsilon
+\sum_{n=1}^{\infty}
+P(|X_n-X|>1/k)<\infty
 $$
 
-は有限回しか起こりません。
-
-したがって
+なら、第1補題から各 $k$ で $\{|X_n-X|>1/k\}$ はa.s.有限回しか起こりません。可算個の確率1事象を交差して
 
 $$
-\boxed{X_n\to X\quad\text{a.s.}}
+X_n\xrightarrow{a.s.}X
 $$
 
-です。
-
-確率収束では各確率が0へ行けば十分でしたが、a.s.収束を直接出すには**確率の総和が有限**という強い評価が役立ちます。
+を得ます。
 
 ---
-
-### 5.1 具体例：確率評価を summable にできると a.s. まで上がる
-
-たとえば
-
-$$
-P(|X_n-X|>\varepsilon)\le C_\varepsilon n^{-2}
-$$
-
-と評価できれば
-
-$$
-\sum_nP(|X_n-X|>\varepsilon)<\infty.
-$$
-
-したがって超過事象はa.s.有限回しか起きません。
-
-単に
-
-$$
-P(|X_n-X|>\varepsilon)\to0
-$$
-
-だけでは確率収束ですが、**級数として足せるほど速く0へ行く**とBorel--Cantelliを通して経路ごとのa.s.収束へ強化できます。
-
-## 6. Borel--Cantelli第2補題
 
 <a id="lem-borel-cantelli-2"></a>
+<a id="thm-f0-00p4-borel-cantelli-2"></a>
+
+## 5. Borel--Cantelli第2補題
 
 <!-- formal-statement-start -->
 > **補題（Borel--Cantelli第2補題）**  
 > 同一の確率空間上の事象列 $A_1,A_2,\ldots$ が互いに独立で
-
-$$
-\sum_{n=1}^{\infty}P(A_n)=\infty
-$$
-
+>
+> $$
+> \sum_{n=1}^{\infty}P(A_n)=\infty
+> $$
+>
 > を満たすなら
-
-$$
-\boxed{P(A_n\ \mathrm{i.o.})=1}
-$$
-
+>
+> $$
+> \boxed{P(A_n\ \mathrm{i.o.})=1}
+> $$
+>
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-$A_n$ が独立で
+<!-- proof-start -->
+### 証明：tailで一度も起きない確率を積で0へ落とす
 
-$$
-\sum_{n=1}^{\infty}P(A_n)=\infty
-$$
-
-なら
-
-$$
-\boxed{
-P(A_n\ \text{i.o.})=1
-}
-$$
-
-です。
-
-第1補題と合わせると、独立な事象列では級数
-
-$$
-\sum P(A_n)
-$$
-
-の収束・発散が「無限回起こるか」をほぼ完全に決めます。
-
-### 証明の骨格
-
-独立性から
+$m\le N$ に対して独立性から
 
 $$
 P\left(\bigcap_{n=m}^{N}A_n^c\right)
-=
-\prod_{n=m}^{N}(1-P(A_n)).
+=\prod_{n=m}^{N}(1-P(A_n)).
 $$
 
-不等式
-
-$$
-1-x\le e^{-x}
-$$
-
-を使えば
+$0\le x\le1$ で $1-x\le e^{-x}$ なので
 
 $$
 P\left(\bigcap_{n=m}^{N}A_n^c\right)
@@ -365,58 +268,84 @@ P\left(\bigcap_{n=m}^{N}A_n^c\right)
 \exp\left(-\sum_{n=m}^{N}P(A_n)\right).
 $$
 
-級数が発散するので $N\to\infty$ で0になります。
+$\sum_nP(A_n)=\infty$ だから、固定した $m$ に対して右辺は $N\to\infty$ で0です。
 
-つまり、どの時点 $m$ 以降にも少なくとも一度は $A_n$ が起きる確率が1であり、結局無限回起きます。
+集合
+
+$$
+C_{m,N}:=\bigcap_{n=m}^{N}A_n^c
+$$
+
+は $N$ とともに減少するので、確率測度の上からの連続性より
+
+$$
+P\left(\bigcap_{n=m}^{\infty}A_n^c\right)
+=\lim_{N\to\infty}P(C_{m,N})=0.
+$$
+
+従って
+
+$$
+P\left(\bigcup_{n\ge m}A_n\right)=1
+\qquad(\forall m).
+$$
+
+最後に
+
+$$
+\{A_n\ \mathrm{i.o.}\}
+=\bigcap_{m=1}^{\infty}\bigcup_{n\ge m}A_n.
+$$
+
+各 $m$ の事象の補集合は零事象なので、その可算和も零事象です。よって上の可算共通部分の確率は1、すなわち
+
+$$
+P(A_n\ \mathrm{i.o.})=1.
+$$
+<!-- proof-end -->
+
+第1補題と違い、第2補題では独立性が本質的です。独立性を外すと、例えば全て同じ事象 $A_n=A$ で $0<P(A)<1$ とすれば $\sum_nP(A_n)=\infty$ でも $P(A_n\ \mathrm{i.o.})=P(A)<1$ です。
 
 ---
 
-## 7. a.s.収束なら確率収束
+## 6. 概収束なら確率収束
 
-$X_n\to X$ a.s. とします。
+<a id="thm-f0-00p4-as-implies-probability"></a>
 
-固定した $\varepsilon>0$ について
+<!-- formal-statement-start -->
+> **定理（概収束は確率収束を含意する）**  
+> $X_n\xrightarrow{a.s.}X$ なら
+>
+> $$
+> \boxed{X_n\xrightarrow{p}X}
+> $$
+>
+> です。
+<!-- formal-statement-end -->
 
-$$
-1_{\{|X_n-X|>\varepsilon\}}
-\to0
-\qquad\text{a.s.}
-$$
+<!-- proof-start -->
+### 証明：誤差事象の指示関数へ優収束定理を使う
 
-です。
-
-指示関数は常に1以下なので優収束定理から
-
-$$
-E[1_{\{|X_n-X|>\varepsilon\}}]
-\to0.
-$$
-
-左辺は
+固定した $\varepsilon>0$ に対し
 
 $$
-P(|X_n-X|>\varepsilon)
+I_n:=1_{\{|X_n-X|>\varepsilon\}}
 $$
 
-です。
-
-したがって
+と置きます。概収束より $I_n\to0$ a.s. で、$0\le I_n\le1$ です。優収束定理から
 
 $$
-\boxed{
-X_n\xrightarrow{a.s.}X
-\Longrightarrow
-X_n\xrightarrow{p}X
-}
+P(|X_n-X|>\varepsilon)=E[I_n]\to0.
 $$
 
-です。
+これは確率収束の定義です。
+<!-- proof-end -->
 
-ここでも測度論の収束定理が確率論の収束関係を支えています。
+逆向きは一般には成り立ちません。後の第8節で、確率収束からは「部分列なら概収束へ上げられる」ことを示します。
 
 ---
 
-## 8. Lp収束なら確率収束
+## 7. $L^p$ 収束なら確率収束
 
 $p>0$ とし
 
@@ -424,40 +353,17 @@ $$
 E|X_n-X|^p\to0
 $$
 
-とします。
-
-Markov不等式から
+とします。Markov不等式から
 
 $$
 P(|X_n-X|>\varepsilon)
+=P(|X_n-X|^p>\varepsilon^p)
 \le
 \frac{E|X_n-X|^p}{\varepsilon^p}
 \to0.
 $$
 
-よって
-
-$$
-\boxed{
-X_n\xrightarrow{L^p}X
-\Longrightarrow
-X_n\xrightarrow{p}X
-}
-$$
-
-です。
-
-特に平均二乗収束 $L^2$ は確率収束を含意します。
-
-## 8.1 収束概念の地図
-
-この講義で直接得た含意は
-
-$$
-X_n\xrightarrow{a.s.}X
-\Longrightarrow
-X_n\xrightarrow{p}X,
-$$
+従って
 
 $$
 X_n\xrightarrow{L^p}X
@@ -465,64 +371,220 @@ X_n\xrightarrow{L^p}X
 X_n\xrightarrow{p}X.
 $$
 
-です。一方、確率収束からa.s.収束は一般にはそのまま戻せませんが、**a.s.収束する部分列は必ず取れる**という重要な事実を演習B01で示します。
+---
+
+<a id="thm-f0-00p4-probability-subsequence-as"></a>
+
+## 8. 確率収束から概収束部分列を取れる
+
+<!-- formal-statement-start -->
+> **定理（確率収束から概収束部分列）**  
+> $X_n\xrightarrow{p}X$ なら、部分列 $X_{n_k}$ が存在して
+>
+> $$
+> \boxed{X_{n_k}\xrightarrow{a.s.}X}
+> $$
+>
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：誤差確率を $2^{-k}$ 以下にしてBorel--Cantelliへ渡す
+
+確率収束より、各 $k$ に対し十分大きい $n_k$ を前のものより大きく選んで
+
+$$
+P(|X_{n_k}-X|>2^{-k})\le2^{-k}
+$$
+
+とできます。
+
+$$
+A_k:=\{|X_{n_k}-X|>2^{-k}\}
+$$
+
+と置けば
+
+$$
+\sum_{k=1}^{\infty}P(A_k)
+\le\sum_{k=1}^{\infty}2^{-k}<\infty.
+$$
+
+[Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)より $A_k$ はa.s.有限回しか起こりません。従って確率1で、ある $K(\omega)$ 以降
+
+$$
+|X_{n_k}(\omega)-X(\omega)|\le2^{-k}.
+$$
+
+右辺は0へ行くので $X_{n_k}\to X$ a.s. です。
+<!-- proof-end -->
+
+この定理は後のVitali収束定理で、確率収束する列の極限が可積分であることを示す際にも使います。
+
+---
+
+## 9. 確率収束と概収束は同じではない
+
+独立な事象 $A_n$ が
+
+$$
+P(A_n)=\frac1n
+$$
+
+を満たすとし、$X_n=1_{A_n}$ と置きます。
+
+各 $0<\varepsilon<1$ で
+
+$$
+P(|X_n|>\varepsilon)=\frac1n\to0
+$$
+
+なので $X_n\xrightarrow{p}0$ です。一方
+
+$$
+\sum_nP(A_n)=\infty
+$$
+
+かつ $A_n$ は独立なので、[Borel--Cantelli第2補題](#thm-f0-00p4-borel-cantelli-2)より
+
+$$
+P(A_n\ \mathrm{i.o.})=1.
+$$
+
+つまりa.s.で $X_n=1$ が無限回現れ、$X_n$ は0へ概収束しません。
 
 ```text
-L^p ───────→ probability
-                ↑
-a.s. ───────────┘
+a.s. ─────────────→ probability
+                       ↑
+L^p ──────────────────┘
 
 probability ──→ a.s. convergent subsequence
 ```
 
-次講P4Aでは、さらに「確率収束だけでは期待値収束しない」という別の不足を一様可積分性で埋めます。
-
 ---
 
-## 演習
+## 10. 演習
 
-### F0-00P4-A01 第一Borel–Cantelliを使う
+### F0-00P4-A01 summableな誤差確率
 
 - Level: A
 - 目安時間: 10分
 
-$P(A_n)\le 2^{-n}$ とする。$A_n$ が無限回起こる確率を求めよ。
+全ての $k\ge1$ について
+
+$$
+\sum_{n=1}^{\infty}P(|X_n-X|>1/k)<\infty
+$$
+
+とする。$X_n\to X$ a.s. を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\sum_nP(A_n)\le\sum_n2^{-n}<\infty$。第一Borel--Cantelliより $P(A_n\ i.o.)=0$。独立性は不要。
+各 $k$ についてBorel--Cantelli第1補題を使うと、$|X_n-X|>1/k$ はa.s.有限回しか起こらない。可算個の確率1事象を交差すれば、全ての $k$ について最終的に $|X_n-X|\le1/k$。従って $X_n\to X$ a.s.
 
 #### 本番答案
-$\sum P(A_n)<\infty$ なので第一Borel--Cantelliより $P(\limsup A_n)=0$。
+$A_n^{(k)}=\{|X_n-X|>1/k\}$ と置く。各 $k$ で $\sum_nP(A_n^{(k)})<\infty$ だからBorel--Cantelli Iより $P(A_n^{(k)}\ \mathrm{i.o.})=0$。全 $k$ を可算交差して $X_n\to X$ a.s.
 
 #### 採点基準（20点）
-- 級数収束: 6点
-- BC適用: 8点
-- limsup/i.o.解釈: 6点
+- 事象設定: 5点
+- Borel--Cantelli I: 8点
+- 可算交差: 4点
+- 結論: 3点
 <!-- solution-end -->
 
-### F0-00P4-B01 確率収束からa.s.収束部分列を取る
+### F0-00P4-A02 独立コインは表を無限回出す
+
+- Level: A
+- 目安時間: 10分
+
+独立なコイン投げで、$A_n$ を「$n$ 回目が表」とし $P(A_n)=p>0$ とする。表が無限回出る確率を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$\sum_nP(A_n)=\sum_np=\infty$ で事象は独立。Borel--Cantelli第2補題から $P(A_n\ \mathrm{i.o.})=1$。
+
+#### 本番答案
+独立かつ $\sum_nP(A_n)=\infty$ よりBorel--Cantelli IIを適用し、確率1。
+
+#### 採点基準（20点）
+- 独立性: 5点
+- 級数発散: 5点
+- 第2補題: 7点
+- 結論: 3点
+<!-- solution-end -->
+
+### F0-00P4-B01 確率収束から概収束部分列
 
 - Level: B
 - 目安時間: 15分
 
-$X_n\to X$ in probability とする。$P(|X_{n_k}-X|>2^{-k})\le2^{-k}$ を満たす部分列を選び、$X_{n_k}\to X$ a.s.を示せ。
+$X_n\xrightarrow{p}X$ とする。$P(|X_{n_k}-X|>2^{-k})\le2^{-k}$ を満たす部分列を選び、概収束を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-確率収束により各kでそのような $n_k$ を帰納的に選べる。確率の和が有限なので第一Borel--Cantelliより $|X_{n_k}-X|>2^{-k}$ は有限回しか起こらない。従って差はa.s.0へ行く。
+確率収束から再帰的にそのような $n_k$ を取れる。超過事象の確率和は $\sum2^{-k}<\infty$。Borel--Cantelli Iより超過は有限回なので、a.s.で最終的に $|X_{n_k}-X|\le2^{-k}\to0$。
 
 #### 本番答案
-部分列を $P(|X_{n_k}-X|>2^{-k})\le2^{-k}$ と取る。確率和が有限なのでBCより超過は有限回、よってa.s.収束。
+$A_k=\{|X_{n_k}-X|>2^{-k}\}$ とすれば $\sum_kP(A_k)<\infty$。BC Iより $A_k$ はa.s.有限回、従って $X_{n_k}\to X$ a.s.
 
 #### 採点基準（20点）
 - 部分列選択: 6点
-- BC: 7点
-- a.s.収束結論: 7点
+- 確率和: 4点
+- BC I: 6点
+- 結論: 4点
+<!-- solution-end -->
+
+### F0-00P4-B02 確率収束するが概収束しない列
+
+- Level: B
+- 目安時間: 15分
+
+独立な事象 $A_n$ が $P(A_n)=1/n$ を満たすとし、$X_n=1_{A_n}$ と置く。$X_n\to0$ in probability だが $X_n\not\to0$ a.s. を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$0<\varepsilon<1$ で $P(|X_n|>\varepsilon)=1/n\to0$。一方 $\sum_n1/n=\infty$ かつ独立なのでBC IIより $A_n$ は無限回起こる確率1。従って $X_n=1$ がa.s.無限回現れ、0へ収束しない。
+
+#### 本番答案
+$P(|X_n|>1/2)=1/n\to0$ なので確率収束。BC IIより $P(A_n\ \mathrm{i.o.})=1$ なので概収束しない。
+
+#### 採点基準（20点）
+- 確率収束: 6点
+- 調和級数発散: 4点
+- BC II: 6点
+- 非概収束: 4点
+<!-- solution-end -->
+
+### F0-00P4-B03 $L^2$ 収束から確率収束
+
+- Level: B
+- 目安時間: 10分
+
+$E|X_n-X|^2\to0$ なら $X_n\xrightarrow{p}X$ を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+Markov不等式を $|X_n-X|^2$ に適用して $P(|X_n-X|>\varepsilon)\le E|X_n-X|^2/\varepsilon^2\to0$。
+
+#### 本番答案
+$P(|X_n-X|>\varepsilon)\le\varepsilon^{-2}E|X_n-X|^2\to0$。
+
+#### 採点基準（20点）
+- Markov適用: 10点
+- 極限: 6点
+- 結論: 4点
 <!-- solution-end -->
 
 ---
 
-## 次に進む
+## 章末チェック
 
-確率収束だけでは期待値収束は保証されません。その不足を埋める [F0-00P4A 一様可積分性・Vitali](../F0_00P4A_一様可積分性_Vitali/index.md) へ進みます。
+- $\limsup A_n$ を「無限回起こる事象」として定義できる。
+- Borel--Cantelli第1補題をunion boundから証明できる。
+- Borel--Cantelli第2補題を独立性・積・$1-x\le e^{-x}$ から証明できる。
+- 概収束と確率収束を区別できる。
+- 概収束 $\Rightarrow$ 確率収束を証明できる。
+- 確率収束から概収束部分列を抽出できる。
+- 確率収束が概収束を一般には含意しない反例を説明できる。
+
+次は [F0-00P4A 一様可積分性・Vitali](../F0_00P4A_一様可積分性_Vitali/index.md) で、確率収束から $L^1$ 収束へ進むために不足するtail controlを扱います。
