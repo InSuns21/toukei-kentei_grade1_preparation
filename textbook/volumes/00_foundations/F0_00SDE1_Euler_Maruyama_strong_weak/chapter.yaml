@@ -6,18 +6,31 @@ prerequisites:
   - F0-00SP4
   - F0-00MC1
   - F0-00NA4
+official_scope: []
 learning_objectives:
-  - Euler--Maruyama法を導ける
+  - Euler--Maruyama法の格子点更新と連続時間補間を定義できる
   - strong convergenceとweak convergenceを区別できる
-  - SDE Monte Carloのsampling errorとbiasを分離できる
+  - global Lipschitz条件から線形成長とEuler--Maruyamaの二次モーメント評価を導ける
+  - 連続補間の1 step内L2増分がO(h)になることを証明できる
+  - DoobのL2最大不等式とIto isometryからEuler--Maruyamaのstrong order 1/2を証明できる
+  - weak order 1に追加の滑らかさが必要な理由を説明できる
+  - SDE Monte Carloのsampling errorとtime discretization biasを分離できる
   - Milstein法への補正項を説明できる
 definitions:
   - { id: F000SDE1-DEF-01, name: Euler--Maruyama法 }
-  - { id: F000SDE1-DEF-02, name: strong convergence }
-  - { id: F000SDE1-DEF-03, name: weak convergence }
+  - { id: F000SDE1-DEF-02, name: L2-sup strong order }
+  - { id: F000SDE1-DEF-03, name: weak order }
 theorems:
-  - { id: F000SDE1-THM-01, name: Euler--Maruyamaの典型的収束次数 }
-canonical_examples: [OU過程, geometric Brownian motion, Milstein法]
-problem_patterns: [SDE-EM-1, SDE-WEAK-STRONG-1]
-exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1, review: 0.5 }
+  - { id: F000SDE1-THM-01, name: Euler--Maruyama格子点の二次モーメント一様評価 }
+  - { id: F000SDE1-THM-02, name: Euler--Maruyama連続補間の局所増分評価 }
+  - { id: F000SDE1-THM-03, name: Euler--Maruyamaのstrong order 1/2 }
+canonical_examples:
+  - Ornstein--Uhlenbeck過程
+  - 定数係数SDE
+  - geometric Brownian motion
+  - Milstein法
+problem_patterns: [SDE-EM-1, SDE-STRONG-HALF-1, SDE-WEAK-STRONG-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 1.5, review: 0.75 }
