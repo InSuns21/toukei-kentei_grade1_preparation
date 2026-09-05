@@ -18,7 +18,7 @@ const curriculumIds = new Set((curriculum.chapters ?? []).map((ch) => ch.id));
 const aliases = new Map([
   ['モーメント母関数（積率母関数）', ['モーメント母関数', '積率母関数']],
   ['正規分布（ガウス分布）', ['正規分布', 'ガウス分布']],
-  ['検出力（検定力）', ['検出力', '検定力']],
+  ['検出力（検定力）', ['検出力', '検定力', '検出力関数']],
   ['ウィルコクソン順位和検定（マン・ホイットニーU検定）', ['ウィルコクソン順位和検定', 'マン・ホイットニーU検定', 'マン・ホイットニー']],
   ['欠測（欠損）', ['欠測', '欠損']],
   ['フィッシャー情報量（1次元）', ['フィッシャー情報量', '期待フィッシャー情報量']],
@@ -48,6 +48,8 @@ const aliases = new Map([
   ['モンテカルロシミュレーション', ['モンテカルロシミレーション', 'モンテカルロシミュレーション', 'モンテカルロ', 'Monte Carlo']],
   ['ロジスティック回帰分析', ['ロジスティック回帰分析', 'ロジスティック回帰']],
   ['トランケーション', ['トランケーション', '切断']],
+  ['最尤推定', ['最尤推定量']],
+  ['最小二乗推定', ['最小二乗推定量']],
 ]);
 
 function walkDirs(dir, acc = []) {
@@ -175,16 +177,25 @@ function labelMentions(term, label) {
     .split(/(?:・|、|，|,|\/|／|および|及び|または|又は|\s+と\s+)/u)
     .map((x) => x.trim())
     .filter(Boolean);
-  for (const c of candidates(term)) {
-    if (label === c || parts.includes(c)) return true;
-    for (const p of parts) {
-      if (!p.startsWith(c)) continue;
-      const suffix = p.slice(c.length);
-      if (/^(?:量|関数|法|分析|モデル|過程|検定|係数|統計量)(?:[（(].*)?$/u.test(suffix)) return true;
+  return candidates(term).some((c) => label === c || parts.includes(c));
+}
+
+function assertDefinitionLabelMatcher() {
+  const checks = [
+    ['モーメント', 'モーメント法', false],
+    ['共分散', '共分散分析', false],
+    ['最尤推定', '最尤推定量', true],
+    ['検出力（検定力）', '検出力関数', true],
+    ['最小二乗推定', '最小二乗法・最小二乗推定量', true],
+  ];
+  for (const [term, label, expected] of checks) {
+    const actual = labelMentions(term, label);
+    if (actual !== expected) {
+      throw new Error(`definition-label matcher regression: ${term} vs ${label} -> ${actual}, expected ${expected}`);
     }
   }
-  return false;
 }
+assertDefinitionLabelMatcher();
 
 function formalDefinitionHits(term) {
   const hits = [];
@@ -289,7 +300,7 @@ if (process.argv.includes('--write')) {
     `- missing: ${counts.missing ?? 0}`,
     `- 明示的な定義ラベルヒット: ${explicitDefinitionCount}件`,
     '',
-    '`alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。',
+    '`alias` は公式表記そのものではなく、日本語同義語・慣用表記で通常教材に存在します。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。',
     '',
     '|公式区分|公式用語|判定|主対応（章 / 節・アンカー）|定義アンカー|例|演習|',
     '|---|---|---|---|---|---|---|',
