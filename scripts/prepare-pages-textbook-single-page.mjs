@@ -6,6 +6,7 @@ const root = process.cwd();
 const sourceRoot = path.join(root, 'textbook', 'volumes');
 const targetRoot = path.join(root, '_site', 'textbook', 'volumes');
 const inlineAppendixName = 'linear_algebra_singular_null_span.md';
+const determinantInverseAppendixName = 'linear_algebra_determinant_inverse.md';
 const calculationDrillAppendixName = 'calculation_drills.md';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
@@ -19,7 +20,7 @@ let removedAuxiliaryMarkdown = 0;
 let inlinedAppendices = 0;
 
 for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
-  const sourceVolume = path.join(sourceRoot, volume.name);
+  const sourceVolume = path.join(root, 'textbook', 'volumes', volume.name);
   const targetVolume = path.join(targetRoot, volume.name);
   if (!fs.existsSync(targetVolume)) continue;
 
@@ -32,6 +33,13 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
     if (fs.existsSync(canonicalPath)) {
       const siteRelative = path.posix.join('textbook', 'volumes', volume.name, chapter.name, 'index.md');
       let text = orientMarkdownLinks(fs.readFileSync(canonicalPath, 'utf8'), siteRelative);
+
+      const determinantInversePath = path.join(sourceChapter, determinantInverseAppendixName);
+      if (chapter.name.startsWith('F0_00_') && fs.existsSync(determinantInversePath)) {
+        text = inlineDeterminantInverseAppendix(text, fs.readFileSync(determinantInversePath, 'utf8'));
+        inlinedAppendices += 1;
+      }
+
       const appendixPath = path.join(sourceChapter, inlineAppendixName);
       if (fs.existsSync(appendixPath)) {
         text = inlineLinearAlgebraAppendix(text, fs.readFileSync(appendixPath, 'utf8'));
@@ -104,6 +112,28 @@ function composeLegacyChapter(files) {
   return out.filter((value, index, values) => value !== '' || values[index - 1] !== '').join('\n').trim() + '\n';
 }
 
+function inlineDeterminantInverseAppendix(indexText, appendixText) {
+  const appendix = demoteHeadings(appendixText, 2).trim();
+  const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
+  const expectedDisplayDelimiters = countOccurrences(indexText, '$$') + countOccurrences(appendix, '$$');
+
+  const output = insertionPoint.test(indexText)
+    ? indexText.replace(
+        insertionPoint,
+        () => `${appendix}\n\n### 9.5 階数と列フルランク`,
+      )
+    : `${indexText.trimEnd()}\n\n---\n\n${appendix}\n`;
+
+  const actualDisplayDelimiters = countOccurrences(output, '$$');
+  if (actualDisplayDelimiters !== expectedDisplayDelimiters) {
+    throw new Error(
+      `Inlining ${determinantInverseAppendixName} changed display-math delimiters: expected ${expectedDisplayDelimiters}, got ${actualDisplayDelimiters}`,
+    );
+  }
+
+  return output;
+}
+
 function inlineLinearAlgebraAppendix(indexText, appendixText) {
   const appendix = demoteHeadings(appendixText, 2).trim();
   const insertionPoint = /^### 9\.5 階数と列フルランク\s*$/m;
@@ -129,7 +159,8 @@ function inlineLinearAlgebraAppendix(indexText, appendixText) {
 }
 
 function inlineCalculationDrills(indexText, appendixText) {
-  const appendix = demoteHeadings(appendixText, 1).trim();
+  const drillOnlyText = stripCalculationFormulaSection(appendixText);
+  const appendix = demoteHeadings(drillOnlyText, 1).trim();
   const insertionPoint = /^## 14\. 本番ドリル\s*$/m;
   const expectedDisplayDelimiters = countOccurrences(indexText, '$$') + countOccurrences(appendix, '$$');
 
@@ -148,6 +179,13 @@ function inlineCalculationDrills(indexText, appendixText) {
   }
 
   return output;
+}
+
+function stripCalculationFormulaSection(text) {
+  return text.replace(
+    /^## 追加公式：手計算でよく使うもの[\s\S]*?(?=^## F0M-A10\b)/m,
+    '',
+  );
 }
 
 function countOccurrences(text, token) {
