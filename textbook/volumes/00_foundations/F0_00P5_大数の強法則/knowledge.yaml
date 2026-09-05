@@ -9,13 +9,6 @@ forward_references:
   - prob.iid-integrable-slln
 
 concepts:
-  - id: prob.partial-sum
-    name: 部分和
-    kind: term
-    aliases: [部分和]
-    requires:
-      - prob.random-variable
-
   - id: prob.dyadic-subsequence
     name: dyadic subsequence
     kind: term
@@ -27,7 +20,6 @@ concepts:
     kind: theorem
     aliases: [Kolmogorov最大不等式]
     requires:
-      - prob.partial-sum
       - prob.independent-random-variables
       - prob.expectation
       - prob.variance
