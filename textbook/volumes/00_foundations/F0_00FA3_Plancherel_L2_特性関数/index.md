@@ -56,10 +56,10 @@ FA1で周期版を証明しました。実数全体でも同じ構造です。
 <!-- formal-statement-start -->
 > **補題（$L^2(\mathbb R)$ の平行移動連続性）**  
 > $f\in L^2(\mathbb R)$ とし $(\tau_hf)(x)=f(x-h)$ と置くと
->
-> $$
-> \boxed{\|\tau_hf-f\|_2\to0\qquad(h\to0)}.
-> $$
+
+$$
+\boxed{\|\tau_hf-f\|_2\to0\qquad(h\to0)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -104,11 +104,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（Gaussian approximate identity の $L^2$ 収束）**  
 > 任意の $f\in L^2(\mathbb R)$ について
->
-> $$
-> \boxed{\|f*k_\varepsilon-f\|_2\to0
-> \qquad(\varepsilon\downarrow0)}.
-> $$
+
+$$
+\boxed{\|f*k_\varepsilon-f\|_2\to0
+\qquad(\varepsilon\downarrow0)}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -130,7 +130,7 @@ $$
 \int k_\varepsilon(h)\|\tau_hf-f\|_2^2dh.
 $$
 
-任意の $\eta>0$ に対し、前節から $|h|<\delta$ なら $\|\tau_hf-f\|_2^2<\eta$ とできます。遠方では常に
+任意の $\eta>0$ に対し、[$L^2(\mathbb R)$ の平行移動連続性](#lem-f0-00fa3-l2-translation)から $|h|<\delta$ なら $\|\tau_hf-f\|_2^2<\eta$ とできます。遠方では常に
 
 $$
 \|\tau_hf-f\|_2^2\le4\|f\|_2^2
@@ -148,14 +148,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（Plancherel 等式：$L^1\cap L^2$ 版）**  
 > $f\in L^1(\mathbb R)\cap L^2(\mathbb R)$ とします。このとき $\widehat f\in L^2(\mathbb R)$ で
->
-> $$
-> \boxed{
-> \frac1{2\pi}\|\widehat f\|_2^2
-> =\|f\|_2^2
-> }
-> $$
->
+
+$$
+\boxed{
+\frac1{2\pi}\|\widehat f\|_2^2
+=\|f\|_2^2
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
@@ -192,7 +192,7 @@ I_\varepsilon
 \end{aligned}
 $$
 
-前節から $f*k_\varepsilon\to f$ in $L^2$ なので Cauchy--Schwarz により
+[Gaussian approximate identity の $L^2$ 収束](#lem-f0-00fa3-gaussian-l2)から $f*k_\varepsilon\to f$ in $L^2$ なので Cauchy--Schwarz により
 
 $$
 I_\varepsilon\to\|f\|_2^2.
@@ -237,10 +237,11 @@ $$
 と置きます。$f_N$ は有界かつ有限測度台を持つので $f_N\in L^1\cap L^2$ です。また
 
 $$
-|f-f_N|^2\downarrow0
+|f-f_N|^2
+=|f|^2 1_{\{|x|>N\}\cup\{|f|>N\}}
 $$
 
-に対応する尾部積分が0へ行くため
+であり、右辺は0へ点wise収束し $|f|^2$ に支配されるので優収束定理から
 
 $$
 \|f_N-f\|_2\to0.
@@ -256,17 +257,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（$L^2$ Fourier変換）**  
-> $f\in L^2(\mathbb R)$ に対し、$f_n\in L^1\cap L^2$ で $\|f_n-f\|_2\to0$ となる列を取ります。Plancherel 等式により $(\widehat f_n)$ は $L^2$ Cauchy 列になるので、その $L^2$ 極限を
->
-> $$
-> \mathcal F_2f
-> :=L^2\text{-}\lim_{n\to\infty}\widehat f_n
-> $$
->
+> $f\in L^2(\mathbb R)$ に対し、$f_n\in L^1\cap L^2$ で $\|f_n-f\|_2\to0$ となる列を取ります。[Plancherel等式の $L^1\cap L^2$ 版](#thm-f0-00fa3-plancherel-core)により $(\widehat f_n)$ は $L^2$ Cauchy 列になるので、その $L^2$ 極限を
+
+$$
+\mathcal F_2f
+:=L^2\text{-}\lim_{n\to\infty}\widehat f_n
+$$
+
 > と定義します。
 <!-- formal-statement-end -->
 
-近似列を変えても、二つの列の差に Plancherel 等式を使えば極限は同じです。したがって定義は well-defined です。
+近似列を変えても、二つの列の差に同じ Plancherel 等式を使えば極限は同じです。したがって定義は well-defined です。
 
 ### 6.1 例：Gaussianでは古典的変換と一致する
 
@@ -292,14 +293,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（Plancherel）**  
 > 上で定義した $L^2$ Fourier変換 $\mathcal F_2$ は線形で、任意の $f\in L^2(\mathbb R)$ に対して
->
-> $$
-> \boxed{
-> \|\mathcal F_2f\|_2^2
-> =2\pi\|f\|_2^2
-> }
-> $$
->
+
+$$
+\boxed{
+\|\mathcal F_2f\|_2^2
+=2\pi\|f\|_2^2
+}
+$$
+
 > を満たします。
 <!-- formal-statement-end -->
 
@@ -313,7 +314,7 @@ $$
 \quad\text{in }L^2.
 $$
 
-$L^1\cap L^2$ 上の Plancherel 等式より
+[Plancherel等式の $L^1\cap L^2$ 版](#thm-f0-00fa3-plancherel-core)より
 
 $$
 \|\widehat f_n\|_2^2=2\pi\|f_n\|_2^2.
@@ -349,22 +350,22 @@ $$
 <!-- formal-statement-start -->
 > **系（Parseval--Plancherel の内積形）**  
 > 任意の $f,g\in L^2(\mathbb R)$ について
->
-> $$
-> \boxed{
-> \langle f,g\rangle_{L^2}
-> =\frac1{2\pi}
-> \langle\mathcal F_2f,\mathcal F_2g\rangle_{L^2}
-> }
-> $$
->
+
+$$
+\boxed{
+\langle f,g\rangle_{L^2}
+=\frac1{2\pi}
+\langle\mathcal F_2f,\mathcal F_2g\rangle_{L^2}
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明：ノルム保存を偏極する
 
-複素内積空間では、$\|f+g\|^2$、$\|f-g\|^2$、$\|f+ig\|^2$、$\|f-ig\|^2$ の4本から $\langle f,g\rangle$ の実部・虚部を復元できます。前節のノルム保存をこの4本へ適用すれば、内積も同じ倍率 $2\pi$ で保存されることが従います。
+複素内積空間では、$\|f+g\|^2$、$\|f-g\|^2$、$\|f+ig\|^2$、$\|f-ig\|^2$ の4本から $\langle f,g\rangle$ の実部・虚部を復元できます。[Plancherel定理](#thm-f0-00fa3-plancherel)をこの4本へ適用すれば、内積も同じ倍率 $2\pi$ で保存されることが従います。
 <!-- proof-end -->
 
 従って正規化 Fourier 変換 $U$ は Hilbert 空間の角度と距離を保存します。
@@ -380,13 +381,26 @@ $$
 :=\frac1{2\pi}\int g(\xi)e^{i\xi x}d\xi
 $$
 
-と書きます。前節までの証明を符号を反転して同じように行えば、$\check{\phantom g}$ も $L^2$ 上の連続作用素へ拡張できます。
+と書きます。前節までの証明を符号を反転して同じように行えば、$\check{\phantom g}$ も $L^2$ 上の連続作用素へ拡張でき、
+
+$$
+\|\check g\|_2^2=\frac1{2\pi}\|g\|_2^2
+$$
+
+を満たします。
 
 <a id="thm-f0-00fa3-unitary"></a>
 
 <!-- formal-statement-start -->
 > **定理（正規化 Fourier変換のユニタリ性）**  
-> $U=(2\pi)^{-1/2}\mathcal F_2$ は $L^2(\mathbb R)$ から $L^2(\mathbb R)$ への全単射な等長線形写像です。逆写像は逆符号の Fourier 積分を $L^2$ へ連続拡張した作用素です。
+> $U=(2\pi)^{-1/2}\mathcal F_2$ は $L^2(\mathbb R)$ から $L^2(\mathbb R)$ への全単射な等長線形写像です。古典的に積分表示できる関数では逆写像は
+
+$$
+U^{-1}g(x)
+=\frac1{\sqrt{2\pi}}\int_{\mathbb R}g(\xi)e^{i\xi x}d\xi
+$$
+
+> であり、一般の $L^2$ 関数にはこの作用素を $L^2$ 連続拡張して定義します。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -401,7 +415,7 @@ $$
 
 と置くと、$\widehat f$ は $L^1$ Fourier変換なので有界であり、Gaussianを掛けた $h_\varepsilon$ は $L^1\cap L^2$ です。
 
-FA2の計算と同じ Fubini の議論から、その逆 Fourier 積分は
+FA2の反転証明と同じ Fubini の議論から、その逆 Fourier 積分は
 
 $$
 \check h_\varepsilon=f*k_\varepsilon.
@@ -415,7 +429,7 @@ $$
 
 が $L^1\cap L^2$ 上で従います。両作用素は $L^2$ 連続で $L^1\cap L^2$ は稠密なので、この恒等式は全 $L^2$ へ延長されます。逆向きの合成も同様です。
 
-したがって $U$ は全単射で、Plancherel により等長です。
+したがって $\mathcal F_2$ は可逆であり、正規化した $U=(2\pi)^{-1/2}\mathcal F_2$ は [Plancherel定理](#thm-f0-00fa3-plancherel) により等長です。上の $\check{\phantom g}$ との係数関係から、$U^{-1}$ の古典的積分式はステートメントの $1/\sqrt{2\pi}$ 規約になります。
 <!-- proof-end -->
 
 これで「Fourier変換は無限次元版の直交座標変換」という比喩が、数学的にも literal な主張になります。
@@ -544,7 +558,7 @@ $$
 =|f|^2 1_{\{|x|>N\}\cup\{|f|>N\}}
 $$
 
-で、集合は $N$ とともに減少し空集合へ向かいます。$|f|^2$ は可積分なので積分は0へ収束します。
+で右辺は0へ点wise収束し、$|f|^2$ に支配されます。従って優収束定理により $\|f_N-f\|_2\to0$ です。
 
 ### 本番答案
 
@@ -643,7 +657,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-線形性と Plancherel から
+線形性と [Plancherel定理](#thm-f0-00fa3-plancherel) から
 
 $$
 \|Uf-Ug\|_2
