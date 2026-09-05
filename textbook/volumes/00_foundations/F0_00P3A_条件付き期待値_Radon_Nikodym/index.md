@@ -73,13 +73,11 @@ $$
 $Y$ は各 $A_j$ 上で定数であり、各 $A_j\in\mathcal G$ なので $\mathcal G$-可測です。
 
 **(2) 可積分性**  
-三角不等式から
 
 $$
 \begin{aligned}
 E|Y|
-&=
-\sum_{j=1}^m
+&=\sum_{j=1}^m
 \left|\frac{E[X\mathbf1_{A_j}]}{P(A_j)}\right|P(A_j)\\
 &=\sum_{j=1}^m|E[X\mathbf1_{A_j}]|\\
 &\le\sum_{j=1}^mE[|X|\mathbf1_{A_j}]\\
@@ -99,8 +97,7 @@ $$
 $$
 \begin{aligned}
 \int_B Y\,dP
-&=\sum_{j\in J}
-\frac{E[X\mathbf1_{A_j}]}{P(A_j)}P(A_j)\\
+&=\sum_{j\in J}\frac{E[X\mathbf1_{A_j}]}{P(A_j)}P(A_j)\\
 &=\sum_{j\in J}E[X\mathbf1_{A_j}]\\
 &=E[X\mathbf1_B]\\
 &=\int_BX\,dP.
@@ -116,8 +113,6 @@ $$
 です。
 <!-- definition-example-end -->
 
-有限分割で「各セル内の平均」に見えるのは、この一般定義を計算した結果です。
-
 ---
 
 ## 3. 存在：符号付き測度へ直接RNを使わない
@@ -129,16 +124,10 @@ $$
 > $X\in L^1(P)$、$\mathcal G\subseteq\mathcal F$ を部分 $\sigma$ 代数とします。このとき $E[X\mid\mathcal G]$ は存在し、$P$-a.s. の意味で一意です。
 <!-- formal-statement-end -->
 
-現行のRN定理は**非負測度**に対する定理です。$X$ が符号を持つと
-
-$$
-A\longmapsto\int_AX\,dP
-$$
-
-は符号付き測度なので、そのまま適用してはいけません。正負部分へ分けます。
+現行のRN定理は**非負測度**に対する定理です。$X$ が符号を持つと $A\mapsto\int_AX\,dP$ は符号付き測度なので、そのまま適用してはいけません。正負部分へ分けます。
 
 <!-- proof-start -->
-### 3.1 存在
+### 3.1 証明：存在
 
 $$
 X=X^+-X^-,
@@ -146,15 +135,7 @@ X=X^+-X^-,
 |X|=X^++X^-
 $$
 
-と分解します。$X\in L^1$ なので
-
-$$
-E[X^+]<\infty,
-\qquad
-E[X^-]<\infty.
-$$
-
-$A\in\mathcal G$ に対して
+と分解します。$X\in L^1$ なので $E[X^+],E[X^-]<\infty$ です。$A\in\mathcal G$ に対して
 
 $$
 \nu_+(A)=\int_AX^+\,dP,
@@ -162,13 +143,7 @@ $$
 \nu_-(A)=\int_AX^-\,dP
 $$
 
-と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な**非負測度**です。また
-
-$$
-P(A)=0\Longrightarrow\nu_+(A)=\nu_-(A)=0
-$$
-
-なので
+と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度で、
 
 $$
 \nu_+\ll P|_{\mathcal G},
@@ -183,15 +158,7 @@ $$
 \qquad(\forall A\in\mathcal G)
 $$
 
-となります。$A=\Omega$ とすれば
-
-$$
-E[f_+]=E[X^+]<\infty,
-\qquad
-E[f_-]=E[X^-]<\infty,
-$$
-
-したがって
+となります。$A=\Omega$ とすれば $E[f_+]=E[X^+]$、$E[f_-]=E[X^-]$ なので
 
 $$
 Y=f_+-f_-
@@ -200,51 +167,29 @@ $$
 は $\mathcal G$-可測かつ可積分です。さらに任意の $A\in\mathcal G$ で
 
 $$
-\begin{aligned}
 \int_AY\,dP
-&=\nu_+(A)-\nu_-(A)\\
-&=\int_AX^+\,dP-\int_AX^-\,dP\\
-&=\int_AX\,dP.
-\end{aligned}
+=\nu_+(A)-\nu_-(A)
+=\int_AX\,dP.
 $$
 
 従って $Y$ は条件付き期待値です。
 
-### 3.2 一意性
+### 3.2 証明：一意性
 
-$Y,Z$ がともに定義の3条件を満たすとします。差
-
-$$
-D=Y-Z
-$$
-
-は $\mathcal G$-可測で、任意の $A\in\mathcal G$ に対して
+$Y,Z$ がともに定義の3条件を満たすとします。$D=Y-Z$ は $\mathcal G$-可測で、任意の $A\in\mathcal G$ に対して
 
 $$
 \int_AD\,dP=0.
 $$
 
-$n\ge1$ に対し
-
-$$
-A_n=\{D\ge1/n\}
-$$
-
-と置くと $A_n\in\mathcal G$ です。もし $P(A_n)>0$ なら
+$n\ge1$ に対し $A_n=\{D\ge1/n\}\in\mathcal G$ と置きます。もし $P(A_n)>0$ なら
 
 $$
 0=\int_{A_n}D\,dP
 \ge\frac1nP(A_n)>0
 $$
 
-となり矛盾します。従って $P(A_n)=0$ であり、
-
-$$
-P(D>0)
-=P\left(\bigcup_{n=1}^\infty A_n\right)=0.
-$$
-
-同様に $P(D<0)=0$ なので
+となり矛盾します。従って $P(D>0)=0$。同様に $P(D<0)=0$ なので
 
 $$
 \boxed{Y=Z\quad P\text{-a.s.}}
@@ -252,8 +197,6 @@ $$
 
 です。
 <!-- proof-end -->
-
-以後 $E[X\mid\mathcal G]$ はa.s.同値類として扱います。
 
 ---
 
@@ -272,18 +215,8 @@ E[aX+bY\mid\mathcal G]
 =aE[X\mid\mathcal G]+bE[Y\mid\mathcal G].
 $$
 
-> 2. **正値性**：$X\ge0$ a.s. なら
-
-$$
-E[X\mid\mathcal G]\ge0\quad\text{a.s.}
-$$
-
-> 3. **単調性**：$X\le Y$ a.s. なら
-
-$$
-E[X\mid\mathcal G]\le E[Y\mid\mathcal G]\quad\text{a.s.}
-$$
-
+> 2. **正値性**：$X\ge0$ a.s. なら $E[X\mid\mathcal G]\ge0$ a.s.
+> 3. **単調性**：$X\le Y$ a.s. なら $E[X\mid\mathcal G]\le E[Y\mid\mathcal G]$ a.s.
 > 4. **$L^1$縮小性**
 
 $$
@@ -298,19 +231,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 4.1 線形性
+### 4.1 証明：線形性
 
 右辺は $\mathcal G$-可測かつ可積分で、任意の $A\in\mathcal G$ について
 
 $$
 \int_A\{aE[X\mid\mathcal G]+bE[Y\mid\mathcal G]\}\,dP
-=
-\int_A(aX+bY)\,dP.
+=\int_A(aX+bY)\,dP.
 $$
 
 一意性から線形性が従います。
 
-### 4.2 正値性と単調性
+### 4.2 証明：正値性と単調性
 
 $X\ge0$ とし $M=E[X\mid\mathcal G]$ とします。$B_n=\{M\le-1/n\}\in\mathcal G$ とすると
 
@@ -318,11 +250,9 @@ $$
 \int_{B_n}M\,dP=\int_{B_n}X\,dP\ge0.
 $$
 
-一方、$P(B_n)>0$ なら左辺は $\le-P(B_n)/n<0$ となり矛盾します。従って各 $P(B_n)=0$ であり $M\ge0$ a.s. です。
+一方、$P(B_n)>0$ なら左辺は $\le-P(B_n)/n<0$ となり矛盾します。従って $M\ge0$ a.s. です。単調性は $Y-X\ge0$ に正値性と線形性を適用すれば従います。
 
-$X\le Y$ の場合は $Y-X\ge0$ に正値性と線形性を適用すれば単調性が従います。
-
-### 4.3 $L^1$縮小性
+### 4.3 証明：$L^1$縮小性
 
 $$
 -|X|\le X\le|X|
@@ -331,21 +261,11 @@ $$
 に単調性を適用すると
 
 $$
--E[|X|\mid\mathcal G]
-\le
-E[X\mid\mathcal G]
-\le
-E[|X|\mid\mathcal G].
-$$
-
-従って
-
-$$
 |E[X\mid\mathcal G]|
 \le E[|X|\mid\mathcal G].
 $$
 
-期待値を取ると
+期待値を取れば
 
 $$
 \|E[X\mid\mathcal G]\|_1
@@ -353,15 +273,9 @@ $$
 =E|X|.
 $$
 
-### 4.4 既知の有界量を外へ出す
+### 4.4 証明：既知の有界量を外へ出す
 
-まず $Z=\mathbf1_B$、$B\in\mathcal G$ とします。候補
-
-$$
-\mathbf1_BE[X\mid\mathcal G]
-$$
-
-は $\mathcal G$-可測で、任意の $A\in\mathcal G$ に対して
+まず $Z=\mathbf1_B$、$B\in\mathcal G$ とします。任意の $A\in\mathcal G$ に対して
 
 $$
 \begin{aligned}
@@ -372,7 +286,7 @@ $$
 \end{aligned}
 $$
 
-一意性から結論が成り立ちます。$\mathcal G$-可測単関数へ線形性で拡張し、有界 $Z$ へは単関数近似と優収束で極限を取ればよいです。
+一意性から指示関数の場合が成り立ちます。$\mathcal G$-可測単関数へ線形性で拡張し、有界 $Z$ へは単関数近似と優収束で極限を取ります。
 <!-- proof-end -->
 
 ---
@@ -386,16 +300,15 @@ $$
 > $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ なら
 
 $$
-\boxed{
-E[E[X\mid\mathcal G]\mid\mathcal H]
-=E[X\mid\mathcal H]
-}
+\boxed{E[E[X\mid\mathcal G]\mid\mathcal H]=E[X\mid\mathcal H]}
 $$
 
 > がa.s.で成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
+### 5.1 証明
+
 左辺は $\mathcal H$-可測です。任意の $A\in\mathcal H$ は $A\in\mathcal G$ でもあるので
 
 $$
@@ -415,7 +328,7 @@ $$
 E[E[X\mid\mathcal G]]=E[X]
 $$
 
-という全期待値の法則が得られます。
+です。
 
 ---
 
@@ -443,13 +356,7 @@ $$
 
 と書けます。通常の記号 $E[X\mid Y=y]$ は、この関数 $m(y)$ を表します。
 
-連続分布では一般に $P(Y=y)=0$ なので、
-
-$$
-\frac{E[X\mathbf1_{\{Y=y\}}]}{P(Y=y)}
-$$
-
-を定義として使うことはできません。部分 $\sigma$ 代数による定義が必要なのはこのためです。
+連続分布では一般に $P(Y=y)=0$ なので、$E[X\mathbf1_{\{Y=y\}}]/P(Y=y)$ を定義として使うことはできません。
 
 ---
 
@@ -461,12 +368,13 @@ $$
 \boxed{E[X\mid\mathcal G]=E[X]\quad\text{a.s.}}
 $$
 
-です。
-
-実際、定数 $E[X]$ は $\mathcal G$-可測かつ可積分です。また任意の $A\in\mathcal G$ で独立性から
+です。定数 $E[X]$ は $\mathcal G$-可測かつ可積分で、任意の $A\in\mathcal G$ について
 
 $$
-\int_AX\,dP=E[X\mathbf1_A]=E[X]P(A)=\int_AE[X]\,dP.
+\int_AX\,dP
+=E[X\mathbf1_A]
+=E[X]P(A)
+=\int_AE[X]\,dP.
 $$
 
 従って定義3条件を満たします。
@@ -484,27 +392,16 @@ $\mathcal G=\sigma(A)$、$0<P(A)<1$ とする。$X\in L^1$ に対する $E[X\mid
 
 <!-- solution-start -->
 #### 詳細解答
-候補は
 
 $$
-Y=
-\frac{E[X\mathbf1_A]}{P(A)}\mathbf1_A
-+
-\frac{E[X\mathbf1_{A^c}]}{P(A^c)}\mathbf1_{A^c}.
+Y=\frac{E[X\mathbf1_A]}{P(A)}\mathbf1_A
++\frac{E[X\mathbf1_{A^c}]}{P(A^c)}\mathbf1_{A^c}.
 $$
 
-$A,A^c$ 上で定数なので $\mathcal G$-可測。さらに
-
-$$
-E|Y|
-\le E[|X|\mathbf1_A]+E[|X|\mathbf1_{A^c}]
-=E|X|<\infty.
-$$
-
-$\mathcal G=\{\varnothing,A,A^c,\Omega\}$ の4事象それぞれで積分一致が成立するので、条件付き期待値である。
+$A,A^c$ 上で定数なので $\mathcal G$-可測。また $E|Y|\le E|X|<\infty$。$\mathcal G=\{\varnothing,A,A^c,\Omega\}$ の4事象で積分一致が成立するので条件付き期待値である。
 
 #### 本番答案
-上の $Y$ を置く。$\mathcal G$-可測性、$E|Y|\le E|X|$、$A,A^c$ 上の積分一致を確認すればよい。
+上の $Y$ を置き、$\mathcal G$-可測性、$E|Y|\le E|X|$、$A,A^c$ 上の積分一致を確認する。
 
 #### 採点基準（20点）
 - 候補の式: 6点
