@@ -2,6 +2,8 @@
 
 実行可能な一次方向と、それを支える双対側の法線・錐を整理します。C4 の normal cone を、接方向と双対錐の言葉で読み直す章です。
 
+---
+
 ## 1. tangent cone
 
 集合 $C$ と $x\in C$ に対し、「実際に集合内から近づける一次方向」を集めたものが tangent cone です。
@@ -10,14 +12,21 @@
 
 <!-- formal-statement-start -->
 > **定義（Bouligand tangent cone）**  
-> 集合 $C$ と $x\in C$ に対し
-> $$
-> T_C(x)=\left\{h:\exists t_n\downarrow0,\ \exists x_n\in C,\ \frac{x_n-x}{t_n}\to h\right\}
-> $$
-> を $C$ の $x$ における **Bouligand tangent cone** といいます。
+> 集合 $C$ と $x\in C$ に対し、次で定まる集合を $C$ の $x$ における **Bouligand tangent cone** といいます。
+
+$$
+T_C(x)
+=
+\left\{
+ h:
+ \exists t_n\downarrow0,
+ \ \exists x_n\in C,
+ \ \frac{x_n-x}{t_n}\to h
+\right\}.
+$$
 <!-- formal-statement-end -->
 
-凸集合なら、直感的には
+凸集合では、直感的には
 
 $$
 y-x
@@ -34,11 +43,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（polar cone）**  
-> 錐 $K\subset X$ に対して
-> $$
-> K^\circ=\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}
-> $$
-> を $K$ の **polar cone** といいます。
+> 錐 $K\subset X$ に対し、次の集合を $K$ の **polar cone** といいます。
+
+$$
+K^\circ
+=
+\{x^*\in X^*:x^*(k)\le0\ \forall k\in K\}.
+$$
 <!-- formal-statement-end -->
 
 normal cone の定義と比べると、凸集合について
@@ -59,11 +70,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（dual cone）**  
-> 錐 $K\subset Y$ に対して
-> $$
-> K^*=\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}
-> $$
-> を $K$ の **dual cone** といいます。
+> 錐 $K\subset Y$ に対し、次の集合を $K$ の **dual cone** といいます。
+
+$$
+K^*
+=
+\{\lambda\in Y^*:\lambda(k)\ge0\ \forall k\in K\}.
+$$
 <!-- formal-statement-end -->
 
 本教材では polar cone を $\le0$、dual cone を $\ge0$ で定義しているため
@@ -84,9 +97,7 @@ $$
 K=\mathbb R_+^m
 $$
 
-とします。
-
-$\lambda\in K^*$ である条件は
+とします。$\lambda\in K^*$ である条件は
 
 $$
 \lambda^{\mathsf T}k\ge0
@@ -99,15 +110,13 @@ $$
 \lambda_i\ge0.
 $$
 
-逆に $\lambda\ge0$ なら $k\ge0$ に対して内積は非負です。
-
-したがって
+逆に $\lambda\ge0$ なら $k\ge0$ に対して内積は非負です。したがって
 
 $$
 \boxed{(\mathbb R_+^m)^*=\mathbb R_+^m}.
 $$
 
-有限次元KKTの
+有限次元 KKT の
 
 $$
 \lambda_i\ge0
@@ -153,7 +162,7 @@ $$
 N_C(x)=T_C(x)^\circ
 $$
 
-を完全に証明し、その後 G2 で Fenchel 共役・双対を入れてから、有限次元KKTへ進みます。
+を完全に証明し、その後 G2 で Fenchel 共役・双対を入れてから有限次元 KKT へ進みます。
 
 ---
 
@@ -168,30 +177,49 @@ $K=\mathbb R_+^m$ について $K^*=K$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
+$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^{\mathsf T}k\ge0$。したがって $K^*=K$ である。
+
 #### 本番答案
-$\lambda\in K^*$ なら標準基底 $e_i\in K$ により $\lambda_i\ge0$。逆に $\lambda,k\ge0$ なら $\lambda^Tk\ge0$。
+$\lambda\in K^*$ なら $e_i\in K$ を代入して $\lambda_i\ge0$。逆向きは非負ベクトル同士の内積が非負であることから従う。
+
 #### 採点基準（20点）
 - 定義・設定: 6点
 - 推論・計算: 10点
 - 結論: 4点
 <!-- solution-end -->
 
-### F0-02C4A-B01 半空間のtangentとpolar
+### F0-02C4A-B01 半空間の tangent と polar
 
 - Level: B
 - 目安時間: 15分
 
-$C=\{x:a^Tx\le b\}$ の境界点 $x$ で $T_C(x)=\{d:a^Td\le0\}$ とそのpolarを求めよ。
+$C=\{x:a^{\mathsf T}x\le b\}$ の境界点 $x$ で $T_C(x)$ とその polar を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
+境界では $a^{\mathsf T}x=b$ なので、一次的に実行可能な方向は
+
+$$
+T_C(x)=\{d:a^{\mathsf T}d\le0\}.
+$$
+
+この半空間錐の polar は
+
+$$
+T_C(x)^\circ
+=
+\{\lambda a:\lambda\ge0\},
+$$
+
+であり、これは $N_C(x)$ に一致する。
+
 #### 本番答案
-一次的に実行可能なのは $a^Td\le0$。この半空間錐のpolarは $\{\lambda a:\lambda\ge0\}$ で、これは $N_C(x)$ に一致する。
+$T_C(x)=\{d:a^{\mathsf T}d\le0\}$、したがって $T_C(x)^\circ=\{\lambda a:\lambda\ge0\}=N_C(x)$。
+
 #### 採点基準（20点）
 - 方針: 5点
-- 中心となる導出: 11点
+- tangent cone: 7点
+- polar cone: 4点
 - 結論: 4点
 <!-- solution-end -->
 
