@@ -5,19 +5,26 @@ prerequisites:
   - F0-00C
 
 concepts:
+  - id: topology.compact-set
+    name: コンパクト集合
+    kind: definition
+    aliases: [コンパクト集合]
+    requires:
+      - topology.open-set
+
   - id: topology.sequentially-compact
     name: 点列コンパクト
     kind: definition
-    introduction: inline
-    aliases: [点列コンパクト]
+    introduction_aliases: [点列コンパクト性]
+    aliases: [点列コンパクト, 点列コンパクト性]
     requires:
       - topology.sequence-convergence
 
   - id: topology.compact-sequential-equivalence-metric
     name: 距離空間におけるコンパクト性と点列コンパクト性の同値
     kind: theorem
-    introduction: inline
-    aliases: [コンパクト性と点列コンパクト性]
+    introduction_aliases: [距離空間におけるコンパクト性と点列コンパクト性]
+    aliases: [距離空間におけるコンパクト性と点列コンパクト性の同値, コンパクト性と点列コンパクト性]
     requires:
       - topology.compact-set
       - topology.sequentially-compact
@@ -25,8 +32,17 @@ concepts:
   - id: topology.heine-borel
     name: Heine--Borelの定理
     kind: theorem
-    introduction: inline
-    aliases: [Heine--Borel]
+    introduction_aliases: [Heine–Borel]
+    aliases: [Heine--Borelの定理, Heine–Borel]
     requires:
       - topology.compact-set
       - topology.closed-set
+
+  - id: topology.continuous-image-compact
+    name: コンパクト集合の連続像はコンパクト
+    kind: theorem
+    introduction_aliases: [コンパクト集合の連続像]
+    aliases: [コンパクト集合の連続像はコンパクト, コンパクト集合の連続像]
+    requires:
+      - topology.continuous-map
+      - topology.compact-set

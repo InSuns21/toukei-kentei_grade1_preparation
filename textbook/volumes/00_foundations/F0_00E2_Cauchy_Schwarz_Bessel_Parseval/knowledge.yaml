@@ -8,16 +8,16 @@ concepts:
   - id: linear.cauchy-schwarz
     name: Cauchy--Schwarzの不等式
     kind: theorem
-    introduction: inline
-    aliases: [Cauchy--Schwarz]
+    introduction_aliases: [Cauchy--Schwarz不等式]
+    aliases: [Cauchy--Schwarzの不等式, Cauchy--Schwarz不等式]
     requires:
       - linear.inner-product
 
   - id: linear.bessel-inequality
     name: Besselの不等式
     kind: theorem
-    introduction: inline
-    aliases: [Besselの不等式]
+    introduction_aliases: [Bessel不等式]
+    aliases: [Besselの不等式, Bessel不等式]
     requires:
       - linear.orthogonality
       - linear.inner-product
@@ -25,7 +25,7 @@ concepts:
   - id: linear.parseval-identity
     name: Parsevalの等式
     kind: theorem
-    introduction: inline
-    aliases: [Parsevalの等式]
+    introduction_aliases: [有限次元Parseval等式]
+    aliases: [Parsevalの等式, 有限次元Parseval等式]
     requires:
       - linear.bessel-inequality

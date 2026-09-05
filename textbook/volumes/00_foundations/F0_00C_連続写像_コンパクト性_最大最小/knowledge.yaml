@@ -4,38 +4,16 @@ coverage: partial
 prerequisites:
   - F0-00B
 
+forward_references:
+  - topology.compact-set
+  - topology.continuous-image-compact
+  - topology.extreme-value-theorem
+
 concepts:
   - id: topology.continuous-map
     name: 連続写像
     kind: definition
-    introduction: inline
     aliases: [連続写像]
     requires:
       - topology.metric-space
       - set.function
-
-  - id: topology.compact-set
-    name: コンパクト集合
-    kind: definition
-    introduction: inline
-    aliases: [コンパクト集合]
-    requires:
-      - topology.open-set
-
-  - id: topology.continuous-image-compact
-    name: コンパクト集合の連続像はコンパクト
-    kind: theorem
-    introduction: inline
-    aliases: [連続像はコンパクト]
-    requires:
-      - topology.continuous-map
-      - topology.compact-set
-
-  - id: topology.extreme-value-theorem
-    name: 最大最小値定理
-    kind: theorem
-    introduction: inline
-    aliases: [最大最小値定理]
-    requires:
-      - topology.continuous-map
-      - topology.compact-set

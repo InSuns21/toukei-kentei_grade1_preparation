@@ -13,7 +13,6 @@ concepts:
   - id: functional.norm
     name: ノルム
     kind: definition
-    introduction: inline
     aliases: [ノルム]
     requires:
       - linear.vector-space
@@ -21,16 +20,7 @@ concepts:
   - id: functional.normed-space
     name: ノルム空間
     kind: definition
-    introduction: inline
-    aliases: [ノルム空間]
+    introduction_aliases: [ノルム・ノルム空間]
+    aliases: [ノルム空間, ノルム・ノルム空間]
     requires:
       - functional.norm
-
-  - id: functional.norm-induced-metric
-    name: ノルムが誘導する距離
-    kind: proposition
-    introduction: inline
-    aliases: [ノルムが誘導する距離]
-    requires:
-      - functional.normed-space
-      - topology.metric-space

@@ -4,4 +4,11 @@ coverage: partial
 prerequisites:
   - F0-00C1
 
-concepts: []
+concepts:
+  - id: topology.extreme-value-theorem
+    name: Weierstrassの最大最小定理
+    kind: theorem
+    aliases: [Weierstrassの最大最小定理, 最大最小値定理]
+    requires:
+      - topology.continuous-map
+      - topology.compact-set

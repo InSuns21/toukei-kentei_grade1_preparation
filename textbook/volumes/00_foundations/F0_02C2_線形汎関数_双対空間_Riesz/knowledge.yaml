@@ -8,15 +8,13 @@ concepts:
   - id: functional.linear-functional
     name: 線形汎関数
     kind: definition
-    introduction: inline
     aliases: [線形汎関数]
     requires:
       - linear.vector-space
 
   - id: functional.continuous-linear-functional
     name: 連続線形汎関数
-    kind: definition
-    introduction: inline
+    kind: term
     aliases: [連続線形汎関数]
     requires:
       - functional.linear-functional
@@ -25,15 +23,13 @@ concepts:
   - id: functional.dual-space
     name: 双対空間
     kind: definition
-    introduction: inline
     aliases: [双対空間]
     requires:
       - functional.continuous-linear-functional
 
   - id: functional.dual-norm
     name: 双対ノルム
-    kind: definition
-    introduction: inline
+    kind: term
     aliases: [双対ノルム]
     requires:
       - functional.dual-space
@@ -42,15 +38,13 @@ concepts:
   - id: functional.evaluation-functional
     name: 評価汎関数
     kind: definition
-    introduction: inline
     aliases: [評価汎関数]
     requires:
       - functional.linear-functional
 
   - id: functional.linear-functional-continuity-boundedness
     name: 線形汎関数の連続性と有界性の同値
-    kind: theorem
-    introduction: inline
+    kind: term
     aliases: [線形汎関数の連続性と有界性の同値]
     requires:
       - functional.continuous-linear-functional
@@ -58,7 +52,6 @@ concepts:
   - id: functional.riesz-representation-theorem
     name: Riesz表現定理
     kind: theorem
-    introduction: inline
     aliases: [Riesz表現定理]
     requires:
       - functional.hilbert-space
