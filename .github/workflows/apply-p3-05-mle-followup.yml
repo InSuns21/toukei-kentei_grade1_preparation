@@ -1,0 +1,783 @@
+name: Apply P3-05 MLE follow-up migration
+
+on:
+  push:
+    branches:
+      - fix/p3-05-mle-followup-placement
+    paths:
+      - '.github/workflows/apply-p3-05-mle-followup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/p3-05-mle-followup-placement
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Move deferred P3-05 inference material to inference chapters
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          def replace_once(text: str, old: str, new: str, label: str) -> str:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one anchor, found {count}')
+              return text.replace(old, new, 1)
+
+          # ------------------------------------------------------------------
+          # I1-01: Laplace MLE + Pareto support-dependent MLE
+          # ------------------------------------------------------------------
+          p = Path('textbook/volumes/03_inference/I1_01_尤度_最尤推定/index.md')
+          t = p.read_text(encoding='utf-8')
+
+          p3_02_link = '- [P3-02 主要な連続分布](../../02_distributions/P3_02_主要な連続分布/index.md): 正規・指数・一様分布。\n'
+          t = replace_once(
+              t,
+              p3_02_link,
+              p3_02_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): ラプラス分布・パレート分布と、推定前に必要な分布の性質。\n',
+              'I1-01 related P3-05',
+          )
+
+          support_bullet = '- 一様分布のように支持が母数へ依存するモデルで、指示関数を落とさず最尤推定量を求める。\n'
+          t = replace_once(
+              t,
+              support_bullet,
+              support_bullet
+              + '- ラプラス分布の位置母数では、尤度最大化が絶対偏差和の最小化になり、標本中央値が現れることを説明する。\n'
+              + '- パレート分布の下端母数では、支持条件から最小順序統計量が最尤推定量になることを導く。\n',
+              'I1-01 objectives bullets',
+          )
+
+          # Renumber the pre-existing subsections before inserting two new ones.
+          t = replace_once(t, '### 3.7 最尤推定量の再パラメータ化不変性', '### 3.9 最尤推定量の再パラメータ化不変性', 'I1-01 renumber 3.7')
+          t = replace_once(t, '### 3.8 有効スコア関数: まず1個の局外母数で考える', '### 3.10 有効スコア関数: まず1個の局外母数で考える', 'I1-01 renumber 3.8')
+          t = replace_once(t, '### 3.9 正則モデルでスコアの期待値が0になる理由', '### 3.11 正則モデルでスコアの期待値が0になる理由', 'I1-01 renumber 3.9')
+
+          theory = r'''### 3.7 ラプラス分布: 最尤法から中央値が出る
+
+P3-05 では、ラプラス分布を「中心が鋭く、中心からの絶対距離に対して指数的に減衰する分布」として学びました。ここでは、その形が推定量をどう決めるかを見ます。
+
+位置母数 $\mu\in\mathbb R$、尺度母数 $b>0$ のラプラス分布
+
+$$
+f(x\mid\mu,b)
+=\frac1{2b}\exp\left(-\frac{|x-\mu|}{b}\right)
+$$
+
+から独立標本を得たとします。対数尤度は
+
+$$
+\ell(\mu,b)
+=-n\log(2b)-\frac1b\sum_{i=1}^n|x_i-\mu|.
+$$
+
+まず $b$ を固定すると、$\mu$ について尤度を最大化することは
+
+$$
+\sum_{i=1}^n|x_i-\mu|
+$$
+
+を最小化することと同じです。絶対偏差和を最小にする点は標本中央値なので、
+
+$$
+\boxed{\hat\mu_{\mathrm{ML}}\in\operatorname{Median}(x_1,\ldots,x_n)}.
+$$
+
+$n$ が奇数なら通常の標本中央値が一意です。$n$ が偶数なら中央2観測の間の任意の点で絶対偏差和が同じ最小値をとるため、位置母数の最尤推定値は一意とは限りません。
+
+次に $\mu$ を固定して $b$ で微分すると
+
+$$
+\frac{\partial\ell}{\partial b}
+=-\frac nb+\frac1{b^2}\sum_{i=1}^n|x_i-\mu|.
+$$
+
+したがって
+
+$$
+\boxed{
+\hat b_{\mathrm{ML}}
+=\frac1n\sum_{i=1}^n|x_i-\hat\mu_{\mathrm{ML}}|
+}.
+$$
+
+ここで重要なのは、推定法と損失の形の対応です。
+
+- 正規分布の位置推定: 二乗偏差和を最小化し、標本平均が現れる。
+- ラプラス分布の位置推定: 絶対偏差和を最小化し、標本中央値が現れる。
+
+「平均と中央値のどちらを使うか」は暗記ではなく、仮定した誤差分布の尤度から出てきます。
+
+### 3.8 パレート分布: 支持が動くと最小値が最尤推定量になる
+
+P3-05 のパレート分布を、形状母数 $\alpha>0$ は既知、下端母数 $x_m>0$ は未知として
+
+$$
+f(x\mid x_m)
+=\alpha x_m^\alpha x^{-(\alpha+1)}
+\mathbf1(x\ge x_m)
+$$
+
+とします。独立標本の最小値を
+
+$$
+X_{(1)}=\min_iX_i
+$$
+
+とすると、尤度は
+
+$$
+L(x_m)
+=\alpha^n x_m^{n\alpha}
+\left(\prod_{i=1}^n x_i^{-(\alpha+1)}\right)
+\mathbf1(x_m\le X_{(1)}).
+$$
+
+観測データを固定すれば、$x_m$ に依存する部分は
+
+$$
+L(x_m)\propto x_m^{n\alpha}\mathbf1(x_m\le X_{(1)}).
+$$
+
+許される範囲 $0<x_m\le X_{(1)}$ では $x_m^{n\alpha}$ は単調増加なので、
+
+$$
+\boxed{\hat x_{m,\mathrm{ML}}=X_{(1)}}.
+$$
+
+これは一様分布 $U(0,\theta)$ で $\hat\theta=X_{(n)}$ になったのと同じ構造です。どちらも**支持そのものが母数で動くため、微分してスコア方程式を解く前に支持条件を見る**必要があります。
+
+さらに、このモデルは正則モデルではありません。$x_m$ を動かすと積分範囲も動くため、$E[U]=0$ やクラーメル・ラオ不等式を機械的には使えません。$X_{(1)}$ のバイアスと不偏補正は、次章 I1-02 で扱います。
+
+'''
+          t = replace_once(t, '### 3.9 最尤推定量の再パラメータ化不変性', theory + '### 3.9 最尤推定量の再パラメータ化不変性', 'I1-01 insert deferred theory')
+
+          b05 = r'''### I1-01-B05 ラプラス分布の位置・尺度最尤推定
+
+- Level: B
+- 目安時間: 15分
+- 主題: ラプラス分布の最尤推定
+- 使用技術: 絶対偏差、中央値、条件付き最大化
+
+$X_1,\ldots,X_n$ は独立に
+
+$$
+f(x\mid\mu,b)=\frac1{2b}\exp\left(-\frac{|x-\mu|}{b}\right),
+\qquad b>0
+$$
+
+に従う。
+
+1. 対数尤度を書け。
+2. $b$ を固定したとき、$\mu$ の最尤推定値が標本中央値であることを説明せよ。
+3. $\mu$ を固定したとき、$b$ の最尤推定値を求めよ。
+4. 正規分布の位置母数の最尤推定と比較し、平均ではなく中央値が現れる理由を述べよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+対数尤度は
+
+$$
+\ell(\mu,b)
+=-n\log(2b)-\frac1b\sum_i|x_i-\mu|.
+$$
+
+$b$ を固定すれば、第1項は $\mu$ に依存しないので、尤度最大化は
+
+$$
+\sum_i|x_i-\mu|
+$$
+
+の最小化と同値である。絶対偏差和は標本中央値で最小になるため
+
+$$
+\boxed{\hat\mu_{\rm ML}\in\operatorname{Median}(X_1,\ldots,X_n)}.
+$$
+
+また
+
+$$
+\frac{\partial\ell}{\partial b}
+=-\frac nb+\frac1{b^2}\sum_i|x_i-\mu|=0
+$$
+
+より
+
+$$
+\boxed{
+\hat b_{\rm ML}
+=\frac1n\sum_i|X_i-\hat\mu_{\rm ML}|
+}.
+$$
+
+正規分布では負の対数尤度が二乗偏差和に比例するため平均が現れ、ラプラス分布では絶対偏差和に比例するため中央値が現れる。
+
+##### 本番答案
+
+$$
+\ell=-n\log(2b)-b^{-1}\sum_i|x_i-\mu|.
+$$
+
+従って $\mu$ については絶対偏差和を最小化すればよく、
+
+$$
+\boxed{\hat\mu_{\rm ML}=\text{標本中央値}}
+$$
+
+（偶数標本では中央2値の間の任意の点）。さらに
+
+$$
+\boxed{\hat b_{\rm ML}=n^{-1}\sum_i|X_i-\hat\mu_{\rm ML}|}.
+$$
+
+正規分布は二乗偏差、ラプラス分布は絶対偏差が負の対数尤度に現れるため、前者では平均、後者では中央値となる。
+
+##### 採点基準
+
+- 対数尤度: 5点
+- 中央値の導出: 7点
+- $\hat b$: 5点
+- 正規分布との比較: 3点
+
+<!-- solution-end -->
+
+'''
+          t = replace_once(t, '### I1-01-C01 二項尤度・境界・尤度比', b05 + '### I1-01-C01 二項尤度・境界・尤度比', 'I1-01 B05')
+
+          c05 = r'''### I1-01-C05 パレート分布の下端母数と支持依存最尤推定
+
+- Level: C
+- 目安時間: 18分
+- 主題: 支持が母数に依存する最尤推定
+- 使用技術: 最小順序統計量、単調性、非正則性
+
+形状母数 $\alpha>0$ を既知とし、$X_1,\ldots,X_n$ は独立に
+
+$$
+f(x\mid x_m)
+=\alpha x_m^\alpha x^{-(\alpha+1)}\mathbf1(x\ge x_m),
+\qquad x_m>0
+$$
+
+に従う。$X_{(1)}=\min_iX_i$ とする。
+
+1. $x_m$ の尤度を書け。
+2. $x_m$ の最尤推定量を求めよ。
+3. 対数尤度の微分を0と置く通常の解法が本質ではない理由を説明せよ。
+4. 一様分布 $U(0,\theta)$ の端点推定との共通点を述べよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+独立性より
+
+$$
+L(x_m)
+=\alpha^n x_m^{n\alpha}
+\left(\prod_i x_i^{-(\alpha+1)}\right)
+\mathbf1(x_m\le X_{(1)}).
+$$
+
+したがって、$x_m$ に依存する部分だけ見れば
+
+$$
+L(x_m)\propto x_m^{n\alpha}\mathbf1(x_m\le X_{(1)}).
+$$
+
+許容範囲 $0<x_m\le X_{(1)}$ では単調増加なので
+
+$$
+\boxed{\hat x_{m,\rm ML}=X_{(1)}}.
+$$
+
+支持 $[x_m,\infty)$ 自体が $x_m$ に依存するため、指示関数を落とすと母数空間の制約を失う。最大値は滑らかな内点停留点ではなく、許容範囲の境界で決まる。
+
+一様分布 $U(0,\theta)$ では支持の上端が動き、最大値 $X_{(n)}$ が最尤推定量になる。パレート分布では支持の下端が動き、最小値 $X_{(1)}$ が最尤推定量になるという対称的な構造である。
+
+##### 本番答案
+
+$$
+L(x_m)\propto x_m^{n\alpha}\mathbf1\{x_m\le X_{(1)}\}.
+$$
+
+許容範囲で単調増加するため
+
+$$
+\boxed{\hat x_{m,\rm ML}=X_{(1)}}.
+$$
+
+支持が母数に依存し最大点が境界で決まるので、指示関数を落としてスコア方程式だけを見るのは不適切。一様分布の $\hat\theta=X_{(n)}$ と同じ支持依存型の端点推定である。
+
+##### 採点基準
+
+- 尤度と指示関数: 7点
+- 単調性と最尤推定量: 6点
+- 非正則性の説明: 4点
+- 一様分布との対応: 3点
+
+<!-- solution-end -->
+
+'''
+          t = replace_once(t, '### I1-01-D01 位置尺度一様分布の最尤推定', c05 + '### I1-01-D01 位置尺度一様分布の最尤推定', 'I1-01 C05')
+
+          endcheck = '- ベルヌーイ、ポアソン、指数、正規、一様分布の最尤推定量を導出できる。\n'
+          t = replace_once(t, endcheck, endcheck + '- ラプラス分布では絶対偏差和から中央値、パレート分布では支持条件から最小値が最尤推定量になることを導出できる。\n', 'I1-01 endcheck')
+          p.write_text(t, encoding='utf-8')
+
+          p = Path('textbook/volumes/03_inference/I1_01_尤度_最尤推定/chapter.yaml')
+          t = p.read_text(encoding='utf-8')
+          t = replace_once(t, 'prerequisites:\n  - S1-02\n', 'prerequisites:\n  - S1-02\n  - P3-05\n', 'I1-01 prerequisite')
+          objective = '  - 支持が母数に依存する一様分布で指示関数を残して境界最尤解を求められる\n'
+          t = replace_once(t, objective, objective + '  - ラプラス分布で絶対偏差和の最小化から位置・尺度母数の最尤推定量を導出できる\n  - パレート分布で支持条件と単調性から下端母数の最尤推定量を導出できる\n', 'I1-01 yaml objectives')
+          t = replace_once(t, 'canonical_examples: [Bernoulli最尤推定, Poisson最尤推定, 指数率と平均寿命, 正規平均分散の同時最尤推定, 一様分布の端点推定, プロファイル尤度, 1個の局外母数に対する有効スコア]', 'canonical_examples: [Bernoulli最尤推定, Poisson最尤推定, 指数率と平均寿命, 正規平均分散の同時最尤推定, 一様分布の端点推定, ラプラス位置尺度最尤推定, パレート下端の境界最尤推定, プロファイル尤度, 1個の局外母数に対する有効スコア]', 'I1-01 yaml examples')
+          t = replace_once(t, 'problem_patterns: [LIKELIHOOD-BUILD-1, SCORE-EQ-1, BOUNDARY-MLE-1, SUPPORT-MLE-1, MULTIPARAM-MLE-1, PROFILE-LIK-1, MLE-INVARIANCE-1, EFFICIENT-SCORE-1]', 'problem_patterns: [LIKELIHOOD-BUILD-1, SCORE-EQ-1, BOUNDARY-MLE-1, SUPPORT-MLE-1, LAPLACE-MLE-1, PARETO-SUPPORT-MLE-1, MULTIPARAM-MLE-1, PROFILE-LIK-1, MLE-INVARIANCE-1, EFFICIENT-SCORE-1]', 'I1-01 yaml patterns')
+          t = replace_once(t, 'integrated_exam_problems: [I1-01-C01, I1-01-C02, I1-01-C03, I1-01-C04, I1-01-D01]', 'integrated_exam_problems: [I1-01-C01, I1-01-C02, I1-01-C03, I1-01-C04, I1-01-C05, I1-01-D01]', 'I1-01 yaml integrated')
+          t = replace_once(t, 'exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }', 'exercise_counts: { level_a: 4, level_b: 5, level_c: 5, level_d: 1 }', 'I1-01 yaml counts')
+          p.write_text(t, encoding='utf-8')
+
+          # ------------------------------------------------------------------
+          # I1-02: bias, unbiased correction and consistency of Pareto endpoint MLE
+          # ------------------------------------------------------------------
+          p = Path('textbook/volumes/03_inference/I1_02_推定法と推定量の評価/index.md')
+          t = p.read_text(encoding='utf-8')
+          i101_link = '- [I1-01 尤度・最尤推定](../I1_01_尤度_最尤推定/index.md): 尤度・スコア・最尤推定の基本。\n'
+          t = replace_once(t, i101_link, i101_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): パレート分布と最小順序統計量の分布計算に使う生存関数。\n', 'I1-02 related P3-05')
+          nonregular_bullet = '- 一様分布のような非正則モデルで、クラーメル・ラオ下限を無条件に使ってはいけない理由を説明する。\n'
+          t = replace_once(t, nonregular_bullet, nonregular_bullet + '- パレート分布の下端最尤推定量について、バイアス・不偏補正・一致性を順序統計量から評価する。\n', 'I1-02 objective bullet')
+
+          pareto_eval = r'''### 9.2 パレート下端の最尤推定量は「不偏ではないが一致的」
+
+I1-01 では、形状母数 $\alpha>0$ を既知とするパレート分布
+
+$$
+P(X>x)=\left(\frac{x_m}{x}\right)^\alpha,
+\qquad x\ge x_m
+$$
+
+で、下端母数の最尤推定量が
+
+$$
+\hat x_{m,\mathrm{ML}}=X_{(1)}
+$$
+
+になることを導きました。ここでは「最尤だから良い」で終わらず、その有限標本での性質を評価します。
+
+$M=X_{(1)}$ とすると、$y\ge x_m$ に対して
+
+$$
+\begin{aligned}
+P(M>y)
+&=P(X_1>y,\ldots,X_n>y)\\
+&=\left\{P(X>y)\right\}^n\\
+&=\left(\frac{x_m}{y}\right)^{n\alpha}.
+\end{aligned}
+$$
+
+したがって $M$ 自身が、下端 $x_m$、形状 $n\alpha$ のパレート分布に従います。$n\alpha>1$ なら
+
+$$
+E[M]
+=\frac{n\alpha}{n\alpha-1}x_m
+>x_m.
+$$
+
+よって最尤推定量 $M$ は上方に偏っています。係数を補正すると
+
+$$
+\boxed{
+\tilde x_m
+=\frac{n\alpha-1}{n\alpha}X_{(1)}
+}
+$$
+
+は $x_m$ の不偏推定量です。
+
+一方、任意の $\varepsilon>0$ について
+
+$$
+P\left(X_{(1)}>x_m+\varepsilon\right)
+=\left(\frac{x_m}{x_m+\varepsilon}\right)^{n\alpha}
+\longrightarrow0.
+$$
+
+しかも常に $X_{(1)}\ge x_m$ なので
+
+$$
+\boxed{X_{(1)}\xrightarrow{p}x_m}.
+$$
+
+つまり、この例は
+
+$$
+\boxed{\text{最尤推定量は有限標本では不偏とは限らないが、一致的でありうる}}
+$$
+
+ことを具体的に示します。また支持が $x_m$ に依存する非正則モデルなので、クラーメル・ラオ不等式を使うのではなく、順序統計量の分布から直接評価するのが筋です。
+
+'''
+          t = replace_once(t, '---\n\n## 10. 典型例題', pareto_eval + '---\n\n## 10. 典型例題', 'I1-02 Pareto evaluation')
+
+          b06 = r'''### I1-02-B06 パレート下端MLEのバイアス・不偏補正・一致性
+
+- Level: B
+- 目安時間: 15分
+- 主題: 最尤推定量の評価
+- 使用技術: 最小順序統計量、生存関数、不偏性、一致性
+
+形状母数 $\alpha>0$ を既知とし、$X_1,\ldots,X_n$ は独立なパレート分布
+
+$$
+P(X>x)=\left(\frac{x_m}{x}\right)^\alpha,
+\qquad x\ge x_m
+$$
+
+に従う。I1-01 より $x_m$ の最尤推定量は $M=X_{(1)}$ である。
+
+1. $P(M>y)$ を求め、$M$ の分布を同定せよ。
+2. $n\alpha>1$ として $E[M]$ を求め、$M$ のバイアスの向きを判定せよ。
+3. $M$ から $x_m$ の不偏推定量を作れ。
+4. $M\xrightarrow{p}x_m$ を示せ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+$y\ge x_m$ では
+
+$$
+P(M>y)
+=\prod_{i=1}^nP(X_i>y)
+=\left(\frac{x_m}{y}\right)^{n\alpha}.
+$$
+
+従って $M$ は下端 $x_m$、形状 $n\alpha$ のパレート分布である。$n\alpha>1$ なら
+
+$$
+E[M]=\frac{n\alpha}{n\alpha-1}x_m,
+$$
+
+なので $M$ は上方バイアスを持つ。よって
+
+$$
+\boxed{
+\tilde x_m=\frac{n\alpha-1}{n\alpha}M
+}
+$$
+
+は不偏である。
+
+また任意の $\varepsilon>0$ に対して
+
+$$
+P(|M-x_m|>\varepsilon)
+=P(M>x_m+\varepsilon)
+=\left(\frac{x_m}{x_m+\varepsilon}\right)^{n\alpha}
+\to0.
+$$
+
+したがって
+
+$$
+\boxed{M\xrightarrow{p}x_m}.
+$$
+
+##### 本番答案
+
+$$
+P(M>y)=\left(\frac{x_m}{y}\right)^{n\alpha},
+$$
+
+ゆえに $M$ は形状 $n\alpha$ のパレート分布で
+
+$$
+E[M]=\frac{n\alpha}{n\alpha-1}x_m>x_m.
+$$
+
+従って
+
+$$
+\boxed{\tilde x_m=\frac{n\alpha-1}{n\alpha}X_{(1)}}
+$$
+
+が不偏。また
+
+$$
+P(M>x_m+\varepsilon)
+=\left(\frac{x_m}{x_m+\varepsilon}\right)^{n\alpha}\to0
+$$
+
+より $\boxed{M\xrightarrow{p}x_m}$。
+
+##### 採点基準
+
+- 最小値の生存関数: 6点
+- 期待値とバイアス: 5点
+- 不偏補正: 4点
+- 一致性: 5点
+
+<!-- solution-end -->
+
+'''
+          t = replace_once(t, '### I1-02-C01', b06 + '### I1-02-C01', 'I1-02 B06')
+          p.write_text(t, encoding='utf-8')
+
+          p = Path('textbook/volumes/03_inference/I1_02_推定法と推定量の評価/chapter.yaml')
+          t = p.read_text(encoding='utf-8')
+          objective = '  - 支持が母数に依存する非正則モデルではCramér--Rao不等式を機械的に使わないと判断できる\n'
+          t = replace_once(t, objective, objective + '  - パレート分布の下端最尤推定量についてバイアス・不偏補正・一致性を順序統計量から評価できる\n', 'I1-02 yaml objective')
+          t = replace_once(t, 'canonical_examples: [一様分布のモーメント法, 正規平均の最小二乗法, 二つの不偏測定の逆分散重み, Gauss--Markov, BernoulliのFisher情報量, 正規平均のCramér--Rao下限, 一様分布の非正則推定]', 'canonical_examples: [一様分布のモーメント法, 正規平均の最小二乗法, 二つの不偏測定の逆分散重み, Gauss--Markov, BernoulliのFisher情報量, 正規平均のCramér--Rao下限, 一様分布の非正則推定, パレート下端MLEのバイアス補正]', 'I1-02 yaml examples')
+          t = replace_once(t, 'problem_patterns: [MOMENT-METHOD-1, LS-LOCATION-1, BIAS-MSE-1, CONSISTENCY-1, BLUE-WEIGHT-1, GAUSS-MARKOV-1, FISHER-INFO-1, CRLB-1, EFFICIENCY-1, NONREGULAR-CRLB-1]', 'problem_patterns: [MOMENT-METHOD-1, LS-LOCATION-1, BIAS-MSE-1, CONSISTENCY-1, PARETO-MIN-BIAS-1, BLUE-WEIGHT-1, GAUSS-MARKOV-1, FISHER-INFO-1, CRLB-1, EFFICIENCY-1, NONREGULAR-CRLB-1]', 'I1-02 yaml patterns')
+          t = replace_once(t, 'exercise_counts: {level_a: 4, level_b: 5, level_c: 4, level_d: 1}', 'exercise_counts: {level_a: 4, level_b: 6, level_c: 4, level_d: 1}', 'I1-02 yaml counts')
+          p.write_text(t, encoding='utf-8')
+
+          # ------------------------------------------------------------------
+          # I4-02: right-censored Weibull likelihood and MLE after I1-01
+          # ------------------------------------------------------------------
+          p = Path('textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/index.md')
+          t = p.read_text(encoding='utf-8')
+          p304_link = '- [P3-04 混合分布・潜在変数](../../02_distributions/P3_04_混合分布_潜在変数/index.md): 混合分布、潜在クラス、事後所属確率。\n'
+          t = replace_once(t, p304_link, p304_link + '- [P3-05 重尾・切断・寿命派生分布](../../02_distributions/P3_05_重尾_切断_寿命派生分布/index.md): 生存関数・ハザードと、故障観測 $f(t)$／右打ち切り $S(c)$ の情報の違い。\n', 'I4-02 related P3-05')
+          old_problem = '- 右打ち切り指数寿命の尤度を構成し、打ち切りを故障と誤認した場合との差を説明する。\n'
+          t = replace_once(t, old_problem, '- 右打ち切り指数・ワイブル寿命の尤度を構成し、打ち切りを故障と誤認した場合との差を説明する。\n', 'I4-02 objectives')
+          t = replace_once(t, '| 打ち切り | 右打ち切り寿命データの尤度 |', '| 打ち切り | 右打ち切り寿命データの尤度、指数・ワイブル寿命の最尤推定 |', 'I4-02 scope table')
+
+          weibull = r'''### 13.1 右打ち切りワイブル寿命: $f(t)$ と $S(c)$ を最尤推定へつなぐ
+
+P3-05 では、故障時刻 $t$ を観測した個体は密度 $f(t)$、時刻 $c$ まで故障しなかった個体は生存関数 $S(c)$ の情報を持つところまで扱いました。I1-01 で最尤推定を学んだので、ここではその情報を一つの尤度へまとめます。
+
+形状母数 $k>0$、尺度母数 $\eta>0$ のワイブル寿命を
+
+$$
+S(t)=\exp\left[-\left(\frac{t}{\eta}\right)^k\right],
+$$
+
+$$
+f(t)
+=\frac{k}{\eta}\left(\frac{t}{\eta}\right)^{k-1}
+\exp\left[-\left(\frac{t}{\eta}\right)^k\right]
+$$
+
+とします。観測時間を
+
+$$
+y_i=\min(T_i,c_i),
+$$
+
+故障を観測したとき $\delta_i=1$、右打ち切りなら $\delta_i=0$ とすると、各個体の尤度寄与は
+
+$$
+[f(y_i)]^{\delta_i}[S(y_i)]^{1-\delta_i}
+$$
+
+です。したがって
+
+$$
+\boxed{
+L(k,\eta)
+=\prod_i[f(y_i)]^{\delta_i}[S(y_i)]^{1-\delta_i}
+}.
+$$
+
+ここで形状 $k$ を既知とし、尺度 $\eta$ だけを推定します。故障数を
+
+$$
+d=\sum_i\delta_i
+$$
+
+とすると、$\eta$ に依存する対数尤度は
+
+$$
+\ell(\eta)
+=-dk\log\eta
+-\eta^{-k}\sum_i y_i^k
++\text{const.}
+$$
+
+です。$d>0$ なら
+
+$$
+\frac{d\ell}{d\eta}
+=-\frac{dk}{\eta}
++k\eta^{-k-1}\sum_i y_i^k=0,
+$$
+
+よって
+
+$$
+\boxed{
+\hat\eta_{\mathrm{ML}}
+=\left(\frac{\sum_i y_i^k}{d}\right)^{1/k}
+}.
+$$
+
+分母が「全個体数」ではなく**実際に故障した個体数 $d$** になるのは、右打ち切り個体には密度の前因子 $k\eta^{-k}$ が付かず、生存関数だけが寄与するためです。
+
+なお $d=0$、つまり全個体が右打ち切りなら、観測されたのは「どれもまだ故障していない」という情報だけです。この場合は有限の $\eta$ を最大点として決められず、$\eta\to\infty$ で尤度が上がります。打ち切りデータでは、**何個の故障を実際に観測したか**が識別可能性にも効きます。
+
+'''
+          t = replace_once(t, '## 14. 左切断', weibull + '## 14. 左切断', 'I4-02 Weibull theory')
+
+          b05 = r'''### I4-02-B05 右打ち切りワイブル寿命の尺度最尤推定
+
+- Level: B
+- 目安時間: 15分
+- 主題: 右打ち切りワイブル寿命
+- 使用技術: 密度・生存関数、最尤推定
+
+形状母数 $k=2$ を既知とするワイブル寿命
+
+$$
+S(t)=\exp\left[-(t/\eta)^2\right]
+$$
+
+を考える。3個の装置を試験し、2個は時刻 $1,2$ で故障し、残り1個は時刻 $3$ で試験終了となり未故障だった。
+
+1. 正しい尤度を $f(t)$ と $S(t)$ を用いて書け。
+2. $\eta$ の最尤推定量を求めよ。
+3. 時刻3の個体を「時刻3で故障した」と誤って扱った場合の最尤推定量を求め、正しい推定量と大小を比較せよ。
+
+<!-- solution-start -->
+
+#### 解答
+
+##### 詳細解答
+
+$k=2$ では
+
+$$
+f(t)=\frac{2t}{\eta^2}e^{-(t/\eta)^2},
+\qquad
+S(t)=e^{-(t/\eta)^2}.
+$$
+
+したがって
+
+$$
+L(\eta)
+=f(1)f(2)S(3)
+\propto
+\eta^{-4}\exp\left(-\frac{1^2+2^2+3^2}{\eta^2}\right)
+=\eta^{-4}e^{-14/\eta^2}.
+$$
+
+故障数は $d=2$ なので一般式から
+
+$$
+\hat\eta^2=\frac{14}{2}=7,
+\qquad
+\boxed{\hat\eta=\sqrt7}.
+$$
+
+時刻3を故障と誤認すると $d=3$ となり、
+
+$$
+\hat\eta_{\rm wrong}^2=\frac{14}{3},
+\qquad
+\boxed{\hat\eta_{\rm wrong}=\sqrt{14/3}}.
+$$
+
+従って
+
+$$
+\sqrt{14/3}<\sqrt7.
+$$
+
+未故障個体を故障扱いすると「より早く壊れた」という誤情報を加えるため、尺度を過小に推定する方向へ動く。
+
+##### 本番答案
+
+$$
+L(\eta)=f(1)f(2)S(3)
+\propto\eta^{-4}e^{-14/\eta^2}.
+$$
+
+故障数 $d=2$ より
+
+$$
+\boxed{\hat\eta=\sqrt{14/2}=\sqrt7}.
+$$
+
+時刻3も故障扱いすると $d=3$ なので
+
+$$
+\boxed{\hat\eta_{\rm wrong}=\sqrt{14/3}<\sqrt7}.
+$$
+
+##### 採点基準
+
+- $f(1)f(2)S(3)$: 6点
+- 正しい最尤推定量: 7点
+- 誤った推定量: 4点
+- 大小と解釈: 3点
+
+<!-- solution-end -->
+
+'''
+          t = replace_once(t, '## Level C', b05 + '## Level C', 'I4-02 B05')
+          p.write_text(t, encoding='utf-8')
+
+          p = Path('textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/chapter.yaml')
+          t = p.read_text(encoding='utf-8')
+          t = replace_once(t, '  - P3-04\n  - P3-03\n', '  - P3-04\n  - P3-03\n  - P3-05\n', 'I4-02 prerequisite')
+          objective = '  - 単一代入が欠測値の不確実性を無視する危険を説明できる\n'
+          t = replace_once(t, objective, objective + '  - 右打ち切りワイブル寿命で密度と生存関数から尤度を組み立て既知形状の尺度最尤推定量を導出できる\n', 'I4-02 yaml objective')
+          t = replace_once(t, 'canonical_examples: [欠測機構の判定, 右打ち切りと切断の比較, 2成分正規混合の所属確率, 期待値最大化法の1反復, 単一代入の分散過小評価]', 'canonical_examples: [欠測機構の判定, 右打ち切りと切断の比較, 右打ち切り指数寿命, 右打ち切りワイブル尺度最尤推定, 2成分正規混合の所属確率, 期待値最大化法の1反復, 単一代入の分散過小評価]', 'I4-02 yaml examples')
+          t = replace_once(t, 'problem_patterns: [MISSING-MECH-1, CENSOR-TRUNC-1, OBS-LIK-1, MIX-E-STEP-1, MIX-M-STEP-1, EM-ITER-1, IMPUTE-UNCERTAINTY-1]', 'problem_patterns: [MISSING-MECH-1, CENSOR-TRUNC-1, OBS-LIK-1, CENSOR-WEIBULL-MLE-1, MIX-E-STEP-1, MIX-M-STEP-1, EM-ITER-1, IMPUTE-UNCERTAINTY-1]', 'I4-02 yaml patterns')
+          t = replace_once(t, 'exercise_counts: { level_a: 4, level_b: 4, level_c: 4, level_d: 1 }', 'exercise_counts: { level_a: 4, level_b: 5, level_c: 4, level_d: 1 }', 'I4-02 yaml counts')
+          p.write_text(t, encoding='utf-8')
+          PY
+
+      - name: Check patch
+        run: |
+          git diff --check
+          git diff --stat
+
+      - name: Validate pages
+        run: npm run validate:pages
+
+      - name: Validate terminology
+        run: npm run validate:terminology
+
+      - name: Validate textbook
+        run: npm run validate:textbook
+
+      - name: Commit validated migration and remove one-shot workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/apply-p3-05-mle-followup.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/03_inference/I1_01_尤度_最尤推定/index.md
+          git add textbook/volumes/03_inference/I1_01_尤度_最尤推定/chapter.yaml
+          git add textbook/volumes/03_inference/I1_02_推定法と推定量の評価/index.md
+          git add textbook/volumes/03_inference/I1_02_推定法と推定量の評価/chapter.yaml
+          git add textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/index.md
+          git add textbook/volumes/03_inference/I4_02_欠測_不完全データ_期待値最大化法/chapter.yaml
+          git commit -m 'Move deferred lifetime MLE exercises into inference chapters'
+          git push origin HEAD:fix/p3-05-mle-followup-placement
