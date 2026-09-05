@@ -1,0 +1,33 @@
+id: "F0-00G2"
+title: "Fenchel共役・Fenchel–Young・双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00G1
+  - F0-02C4
+  - F0-02C4A
+official_scope: []
+learning_objectives:
+  - Fenchel共役を定義し基本例を計算できる
+  - indicator関数の共役がsupport functionになることを説明できる
+  - Fenchel–Young不等式と劣勾配による等号条件を証明できる
+  - proper closed convex functionに対するFenchel–Moreau定理の幾何を説明できる
+  - 劣微分の逆関係を共役関数から導ける
+  - Fenchel双対を導出し弱双対性を示せる
+  - relative-interior条件と強双対性・KKTの関係を説明できる
+definitions:
+  - { id: F000G2-DEF-01, name: Fenchel-Legendre共役 }
+  - { id: F000G2-DEF-02, name: support function }
+  - { id: F000G2-DEF-03, name: 二重共役 }
+theorems:
+  - { id: F000G2-THM-01, name: Fenchel-Young不等式 }
+  - { id: F000G2-THM-02, name: Fenchel-Young等号条件と劣勾配 }
+  - { id: F000G2-THM-03, name: Fenchel-Moreau定理 }
+  - { id: F000G2-THM-04, name: 劣微分の逆関係 }
+  - { id: F000G2-THM-05, name: Fenchel双対の弱双対性 }
+canonical_examples: [二次関数の共役, 絶対値と区間indicator, support functionと双対ノルム, Fenchel-YoungのYoung不等式]
+problem_patterns: [CVX-CONJ-1, CVX-FY-1, CVX-BICONJ-1, CVX-DUAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 1.5, review: 0.75 }
