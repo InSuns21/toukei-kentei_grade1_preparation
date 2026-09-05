@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 75件
+- 明示的な定義ラベルヒット: 77件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -218,8 +218,8 @@
 |engineering-quality|プロセス管理|exact|E4-01 / 公式出題範囲との対応|—|—|—|
 |engineering-quality|工程能力指数|exact|E4-01 / E4-01 管理図と工程能力|—|—|E4-01 / E4-01-A04 $C_p$ と $C_{pk}$|
 |engineering-design|実験の計画と実施|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-C01 設計の欠陥を直し、乱塊法へつなぐ|
-|engineering-design|固定効果|exact|L1-03 / 5.4 ここで一般式に戻る#def-l1-03-two-way-anova|—|—|—|
-|engineering-design|変量効果|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-B02|
+|engineering-design|固定効果|exact|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|—|—|
+|engineering-design|変量効果|exact|E3-01 / 4.2 変量効果#def-e3-01-random-effect|E3-01 / 4.2 変量効果#def-e3-01-random-effect|—|E3-01 / E3-01-B02|
 |engineering-design|交絡因子|exact|E3-01 / 公式出題範囲との対応|—|—|—|
 |engineering-design|ブロック化|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
 |engineering-design|直交表|exact|S1-03 / S1-03 標本抽出・研究設計|—|—|—|
