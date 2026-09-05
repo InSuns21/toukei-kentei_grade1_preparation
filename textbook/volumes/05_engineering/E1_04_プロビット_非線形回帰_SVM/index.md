@@ -349,8 +349,7 @@ $$
 > **定義（トービット分析）**  
 > 潜在変数
 >
-> $Y_i^*=x_i^\mathsf T\beta+\varepsilon_i,\qquad
-> \varepsilon_i\sim N(0,\sigma^2)$
+> $Y_i^*=x_i^\mathsf T\beta+\varepsilon_i,\qquad \varepsilon_i\sim N(0,\sigma^2)$
 >
 > を置き、左検閲点 $c$ に対して観測値を $Y_i=\max(c,Y_i^*)$ とする検閲回帰モデルをトービットモデルという。このモデルの尤度に基づく推定・検定をトービット分析という。
 <!-- formal-statement-end -->

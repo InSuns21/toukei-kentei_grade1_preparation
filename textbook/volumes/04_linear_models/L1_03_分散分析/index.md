@@ -286,9 +286,7 @@ $$
 > **定義（共分散分析）**  
 > 群を表すカテゴリ因子と、反応に影響する連続共変量を同じ線形モデルに入れ、共変量の影響を調整したうえで群効果を比較する方法を共分散分析という。代表的な共通傾きモデルは
 >
-> $Y_{ij}
-> =
-> \mu+\tau_i+\beta(X_{ij}-\bar X_{\cdot\cdot})+\varepsilon_{ij}$
+> $Y_{ij}=\mu+\tau_i+\beta(X_{ij}-\bar X_{\cdot\cdot})+\varepsilon_{ij}$
 >
 > である。
 <!-- formal-statement-end -->
