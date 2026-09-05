@@ -9,7 +9,7 @@
 - alias: 14
 - scope-only: 0
 - missing: 0
-- 明示的な定義ラベルヒット: 84件
+- 明示的な定義ラベルヒット: 89件
 
 `alias` は公式表記そのものではなく、日本語同義語・慣用表記で本文に回収されているものです。`定義アンカー` は `formal-statement` 内の定義ラベル（例: `定義（尤度関数）`）そのものが公式語または登録済み別名に対応するときだけ表示します。定義本文に偶然その語が出るだけでは定義扱いしません。`—` は教材全体での未扱いを意味しません。
 
@@ -24,7 +24,7 @@
 |math-distribution-functions|確率密度関数|exact|F0-00 / 1. この章で扱う数学|—|—|P2-01 / P2-A02 連続密度の正規化|
 |math-distribution-functions|累積分布関数|exact|P2-01 / P2-01 確率変数・確率質量関数・確率密度関数・|—|P2-01 / 例1：離散分布から|P2-01 / P2-A03|
 |math-distribution-functions|生存関数|exact|P3-02 / この章で解けるようになる問題|—|—|P3-02 / 7. 演習：問題の直後に解答|
-|math-distribution-functions|危険率|exact|E4-02 / E4-02 信頼性・保全性|—|—|E4-02 / E4-02-A01|
+|math-distribution-functions|危険率|exact|E4-02 / 2. 危険率#def-e4-02-hazard-rate|E4-02 / 2. 危険率#def-e4-02-hazard-rate|—|E4-02 / E4-02-A01|
 |math-distribution-functions|同時分布|exact|F0-00 / 15. 統計でどこに使うか|—|—|E2-04 / E2-04-B01 3時点の|
 |math-distribution-functions|周辺分布|exact|P2-01 / P2-01 確率変数・確率質量関数・確率密度関数・累積分布関数|—|I4-02 / 5. 正規分布の簡単な例|P2-01 / P2-B01 二変量離散分布|
 |math-distribution-functions|条件付き分布|exact|F0-00 / 15. 統計でどこに使うか|—|I4-01 / 3A.3 例：解析積分が閉じないところからMCMCが必要になる|P3-01 / P3-C03 ポアソン和と|
@@ -212,11 +212,11 @@
 |engineering-asymptotics|漸近分散|exact|I1-02 / 3A. 推定量の相対効率#def-i1-02-relative-efficiency|—|I2-01 / 11.1 発展例: 標本第1・第2モーメントから分散へ|I2-01 / I2-01-A01|
 |engineering-asymptotics|一致性|exact|I1-02 / 5. 一致性#def-i1-02-consistency|I1-02 / 5. 一致性#def-i1-02-consistency|—|P3-04 / P3L-D01 ポアソン–ガンマ混合の総合問題|
 |engineering-asymptotics|デルタ法|exact|F0-00 / 1. この章で扱う数学|—|I2-01 / 8.1 例: 平均0で $\bar X^2$|I2-01 / I2-01-A03 指数分布の率母数に|
-|engineering-quality|管理図|exact|E4-01 / E4-01|—|—|E4-01 / E4-01-A01 $\bar X$ 管理限界|
-|engineering-quality|信頼性|exact|P3-02 / P3C-C04 ワイブル寿命|—|—|P3-02 / P3C-C04 ワイブル寿命|
-|engineering-quality|保全性|exact|I4-02 / I4-02 欠測・不完全データ・期待値最大化法|—|—|E4-02 / E4-02-A04 保全度と平均修復時間|
+|engineering-quality|管理図|exact|E4-01 / 1. 管理図と規格は別の問い#def-e4-01-control-chart|E4-01 / 1. 管理図と規格は別の問い#def-e4-01-control-chart|—|E4-01 / E4-01-A01 $\bar X$ 管理限界|
+|engineering-quality|信頼性|exact|E4-02 / 1. 信頼度関数#def-e4-02-reliability|E4-02 / 1. 信頼度関数#def-e4-02-reliability|—|P3-02 / P3C-C04 ワイブル寿命|
+|engineering-quality|保全性|exact|E4-02 / 7. 保全性#def-e4-02-maintainability|E4-02 / 7. 保全性#def-e4-02-maintainability|—|E4-02 / E4-02-A04 保全度と平均修復時間|
 |engineering-quality|プロセス管理|exact|E4-01 / 公式出題範囲との対応|—|—|—|
-|engineering-quality|工程能力指数|exact|E4-01 / E4-01 管理図と工程能力|—|—|E4-01 / E4-01-A04 $C_p$ と $C_{pk}$|
+|engineering-quality|工程能力指数|exact|E4-01 / 7. 工程能力指数#def-e4-01-process-capability-index|E4-01 / 7. 工程能力指数#def-e4-01-process-capability-index|—|E4-01 / E4-01-A04 $C_p$ と $C_{pk}$|
 |engineering-design|実験の計画と実施|exact|E3-01 / E3-01 実験計画・直交表・交絡|—|—|E3-01 / E3-01-C01 設計の欠陥を直し、乱塊法へつなぐ|
 |engineering-design|固定効果|exact|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|E3-01 / 4.1 固定効果#def-e3-01-fixed-effect|—|—|
 |engineering-design|変量効果|exact|E3-01 / 4.2 変量効果#def-e3-01-random-effect|E3-01 / 4.2 変量効果#def-e3-01-random-effect|—|E3-01 / E3-01-B02|
