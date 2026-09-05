@@ -19,7 +19,8 @@ concepts:
   - id: fourier.translation-continuity-l1
     name: L1 の平行移動連続性
     kind: lemma
-    aliases: [平行移動連続性]
+    # 監査器はinline mathを同じ幅の空白へ置換するため、formal見出しの $L^1$ だけを識別する。
+    aliases: ["補題（     の平行移動連続性）"]
     requires:
       - fourier.transform-l1
 
