@@ -57,7 +57,9 @@ jobs:
         run: npm ci
 
       - name: Apply regression diagnostics formal-density edits
-        run: node scripts/tmp-regression-diagnostics-formal-s6.mjs
+        run: |
+          node scripts/tmp-regression-diagnostics-formal-s6.mjs
+          node scripts/tmp-regression-diagnostics-examples-s6.mjs
 
       - name: Audit official syllabus term coverage
         run: npm run audit:textbook-syllabus -- --write --strict
