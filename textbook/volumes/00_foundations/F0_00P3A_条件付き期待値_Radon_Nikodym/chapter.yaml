@@ -7,21 +7,22 @@ prerequisites:
   - F0-00P2
 official_scope: []
 learning_objectives:
-  - 条件付き期待値を部分sigma代数上の積分一致で定義できる
-  - Radon--Nikodym定理から存在を説明できる
-  - a.e.一意性を説明できる
-  - tower propertyを導ける
-  - E[X|Y]をsigma(Y)で説明できる
+  - 条件付き期待値を可測性・可積分性・積分一致の3条件で定義できる
+  - 有限分割の例で定義3条件を確認できる
+  - 正負部分へ分けてRadon--Nikodym定理から存在を証明できる
+  - 条件付き期待値のa.s.一意性を証明できる
+  - 線形性・正値性・単調性・L1縮小性を導ける
+  - tower propertyを定義から証明できる
+  - E[X|Y]をsigma(Y)への条件付けとして説明できる
 definitions:
   - { id: F0P3A-DEF-01, name: 条件付き期待値 }
-  - { id: F0P3A-DEF-02, name: 条件付き確率 }
-  - { id: F0P3A-DEF-03, name: sigma(Y) }
 theorems:
-  - { id: F0P3A-THM-01, name: 条件付き期待値の存在 }
-  - { id: F0P3A-THM-02, name: tower property }
+  - { id: F0P3A-THM-01, name: 条件付き期待値の存在とa.s.一意性 }
+  - { id: F0P3A-THM-02, name: 条件付き期待値の基本性質 }
+  - { id: F0P3A-THM-03, name: tower property }
 canonical_examples: [有限分割, 独立な場合, "E[X|Y]"]
-problem_patterns: [COND-EXP-1, TOWER-1]
+problem_patterns: [COND-EXP-1, RN-COND-EXP-1, TOWER-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+estimated_hours: { reading: 3.5, exercises: 0.75, review: 0.75 }
