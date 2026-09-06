@@ -1,0 +1,31 @@
+name: Apply textbook concept DAG batch5 setup
+
+on:
+  push:
+    branches:
+      - audit/textbook-concept-dag-batch5-estimator-core
+    paths:
+      - .github/workflows/tmp-textbook-concept-dag-batch5-setup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/textbook-concept-dag-batch5-estimator-core
+          fetch-depth: 0
+      - name: Apply exact edits
+        run: python3 scripts/tmp_textbook_concept_dag_batch5_setup.py
+      - name: Commit setup
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --check
+          git commit -m 'Register Batch 5 estimator-core concepts'
+          git push origin HEAD:audit/textbook-concept-dag-batch5-estimator-core
