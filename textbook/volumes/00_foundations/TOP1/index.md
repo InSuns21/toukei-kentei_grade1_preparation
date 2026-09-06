@@ -170,7 +170,15 @@ $$
 (-\infty,a)\cap(b,\infty)=(b,a)
 $$
 
-となります。従って全ての開区間が有限交差として得られ、それらの任意和から通常の開集合が全て得られます。
+となります。従って全ての開区間が有限交差として得られ、それらの任意和から通常の開集合が全て生成位相に入ります。通常位相を $\tau_{\mathrm{std}}$ と書けば
+$
+\tau_{\mathrm{std}}\subseteq\tau(\mathcal S).
+$
+逆に、部分基底をなす各半直線 $(-\infty,a)$ と $(b,\infty)$ はもともと $\tau_{\mathrm{std}}$ の開集合です。$\tau_{\mathrm{std}}$ は有限交差と任意和に閉じているため、$\mathcal S$ の有限交差とその任意和で作られる全ての集合も $\tau_{\mathrm{std}}$ に属します。従って
+$
+\tau(\mathcal S)\subseteq\tau_{\mathrm{std}}.
+$
+二つの包含から $\tau(\mathcal S)=\tau_{\mathrm{std}}$ です。
 <!-- definition-example-end -->
 
 <a id="thm-top1-subbasis-generates"></a>
@@ -236,7 +244,7 @@ $$
 
 まず $\rho=\bigcap_{\sigma\in\mathfrak T}\sigma$ と置きます。全ての $\sigma\in\mathfrak T$ が位相なので $\varnothing,X$ は各 $\sigma$ に属し、従って $\varnothing,X\in\rho$ です。さらに $U_\lambda\in\rho$ なら全ての $\sigma$ に $U_\lambda\in\sigma$ なので、各 $\sigma$ の任意和閉性から $\bigcup_\lambda U_\lambda\in\sigma$、従って $\bigcup_\lambda U_\lambda\in\rho$ です。有限交差も同様に、$U_1,\dots,U_m\in\rho$ なら各 $\sigma$ で $U_1\cap\cdots\cap U_m$ が開だから、その交差は $\rho$ に属します。よって $\rho$ は位相です。
 
-また各 $S\in\mathcal S$ は全ての $\sigma\in\mathfrak T$ に属するので $\mathcal S\subseteq\rho$ です。したがって生成位相の最小性から $\tau(\mathcal S)\subseteq\rho$。逆に $\tau(\mathcal S)$ 自身が $\mathfrak T$ の一員なので、共通部分の定義から $\rho\subseteq\tau(\mathcal S)$。従って両者は等しいです。
+また各 $S\in\mathcal S$ は全ての $\sigma\in\mathfrak T$ に属するので $\mathcal S\subseteq\rho$ です。したがって[部分基底から生成される位相の最小性](#thm-top1-subbasis-generates)から $\tau(\mathcal S)\subseteq\rho$。逆に $\tau(\mathcal S)$ 自身が $\mathfrak T$ の一員なので、共通部分の定義から $\rho\subseteq\tau(\mathcal S)$。従って両者は等しいです。
 
 ---
 
