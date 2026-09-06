@@ -103,6 +103,17 @@ $$
 
 つまり一致性は、新しい収束概念ではありません。**確率収束を「推定量が真の母数へ近づく」という統計の言葉に読み替えたもの**です。後続の I1-02 では、不偏性・MSE・効率性と並べて推定量の評価基準として改めて扱います。
 
+<!-- definition-example-start: def-p4-02-consistency -->
+**定義の確認**
+独立同分布な $X_1,\ldots,X_n\sim\operatorname{Bernoulli}(p)$ に対し $\widehat p_n=\overline X_n$ とおきます。弱大数則から
+
+$$
+\widehat p_n=\overline X_n\xrightarrow{p}E[X_1]=p
+$$
+
+なので、$\widehat p_n$ は $p$ の一致推定量です。
+<!-- definition-example-end -->
+
 ### 2.2 概収束
 
 $X_n$が$X$へ概収束するとは
