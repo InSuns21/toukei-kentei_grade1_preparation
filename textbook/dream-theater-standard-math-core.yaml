@@ -1,0 +1,317 @@
+schema_version: 1
+id: dream-theater-standard-math-core
+title: DREAM THEATER 標準数学コア
+canonical_for:
+  - chapter_ids
+  - implementation_status
+  - prerequisite_dag
+  - implementation_batches
+
+status_values:
+  - existing-anchor
+  - planned
+
+tier_values:
+  - core
+  - bridge
+  - advanced-standard
+  - core-advanced-standard
+  - advanced-standard-bridge
+
+# 本ファイルは章ID・依存・実装状態・実装順の機械可読な正本。
+# dream-theater-standard-math-core.md は読者向け説明と可視化であり、
+# 依存関係が食い違う場合は本ファイルを修正した上で説明図を同期する。
+nodes:
+  - id: BASE
+    title: 集合・写像・実数の完備性
+    area: foundations
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00A, F0_00A1, F0_00A1B]
+    prerequisites: []
+
+  - id: RA1
+    title: 数列・級数
+    area: real-analysis
+    tier: core
+    status: planned
+    reuses: [F0_00A1, F0_00A1B, F0_00B0, F0_00D]
+    prerequisites: [BASE]
+  - id: RA2
+    title: 極限・連続・一様連続
+    area: real-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA1]
+  - id: RA3
+    title: 微分法の理論
+    area: real-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA2]
+  - id: RA4
+    title: Riemann/Darboux積分・FTC
+    area: real-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA2]
+  - id: RA5
+    title: 関数列・関数級数・一様収束
+    area: real-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA2]
+  - id: RA6
+    title: 多変数微分
+    area: real-analysis
+    tier: core
+    status: planned
+    reuses: [F0_02C3]
+    prerequisites: [RA3]
+  - id: RA7
+    title: 多重Riemann積分・変数変換
+    area: real-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA4]
+  - id: RA8
+    title: 関数族のコンパクト性・近似
+    area: real-analysis
+    tier: advanced-standard
+    status: planned
+    prerequisites: [RA5]
+
+  - id: TOP0
+    title: 距離・位相・Hausdorff
+    area: topology
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00B, F0_00B1]
+    prerequisites: [BASE]
+  - id: TOP1
+    title: 基底・部分基底
+    area: topology
+    tier: core
+    status: planned
+    prerequisites: [TOP0]
+  - id: TOP2
+    title: 積位相・商位相
+    area: topology
+    tier: core
+    status: planned
+    prerequisites: [TOP1]
+  - id: TOP3
+    title: 連結性
+    area: topology
+    tier: core
+    status: planned
+    prerequisites: [TOP2]
+  - id: TOP4
+    title: 可算性公理・分離公理
+    area: topology
+    tier: core
+    status: planned
+    prerequisites: [TOP3]
+  - id: TOP5
+    title: コンパクト性の一般論
+    area: topology
+    tier: core-advanced-standard
+    status: planned
+    prerequisites: [TOP4]
+  - id: TOP6
+    title: 全有界性・Baire・net/filter
+    area: topology
+    tier: advanced-standard
+    status: planned
+    prerequisites: [TOP5]
+
+  - id: LA1
+    title: 実・複素線形空間
+    area: linear-algebra
+    tier: core
+    status: planned
+    reuses: [F0_00E]
+    prerequisites: [BASE]
+  - id: LA2
+    title: 直和・補空間・商空間
+    area: linear-algebra
+    tier: core
+    status: planned
+    prerequisites: [LA1]
+  - id: LA3
+    title: 双対空間・抽象行列式
+    area: linear-algebra
+    tier: core
+    status: planned
+    prerequisites: [LA2]
+  - id: LA4
+    title: 不変部分空間・作用素多項式
+    area: linear-algebra
+    tier: core
+    status: planned
+    prerequisites: [LA3]
+  - id: LA5
+    title: 複素内積・随伴・normal operator
+    area: linear-algebra
+    tier: core
+    status: planned
+    prerequisites: [LA4]
+  - id: LA6
+    title: スペクトル定理・SVD・二次形式
+    area: linear-algebra
+    tier: core
+    status: planned
+    reuses: [F0_00F1, F0_00F2]
+    prerequisites: [LA5]
+
+  - id: MT0
+    title: Borel・測度・Caratheodory
+    area: measure-theory
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00D2, F0_00D3, F0_00D4]
+    prerequisites: [TOP0]
+  - id: MTI
+    title: Lebesgue積分・MCT/Fatou/DCT
+    area: measure-theory
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00D2A, F0_00D2B]
+    prerequisites: [MT0]
+  - id: MTP
+    title: 積測度・Fubini・Lp
+    area: measure-theory
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00D2C, F0_00D2D, F0_00D2E]
+    prerequisites: [MTI]
+  - id: MT-RL
+    title: Riemann ↔ Lebesgue
+    area: measure-theory
+    tier: bridge
+    status: planned
+    prerequisites: [RA4, MTI]
+  - id: MT1
+    title: 収束様式・Egorov・Lusin
+    area: measure-theory
+    tier: core
+    status: planned
+    prerequisites: [MTI]
+  - id: MT2
+    title: 符号付き測度・全変動
+    area: measure-theory
+    tier: core
+    status: planned
+    prerequisites: [MTI]
+  - id: MT3
+    title: Radon–Nikodym・Lebesgue分解
+    area: measure-theory
+    tier: core
+    status: planned
+    prerequisites: [MT2]
+  - id: MT4
+    title: Lebesgue微分定理・絶対連続関数
+    area: measure-theory
+    tier: advanced-standard
+    status: planned
+    prerequisites: [MT3]
+  - id: MT5
+    title: Radon測度・Riesz–Markov
+    area: measure-theory
+    tier: advanced-standard-bridge
+    status: planned
+    prerequisites: [TOP5, MT3]
+
+  - id: FA0
+    title: Banach/Hilbert・有界作用素
+    area: functional-analysis
+    tier: core
+    status: existing-anchor
+    reuses: [F0_00D1, F0_02C1, F0_02C3]
+    prerequisites: [MTP, LA6]
+  - id: HB
+    title: Hahn–Banach・双対
+    area: functional-analysis
+    tier: core
+    status: existing-anchor
+    reuses: [F0_02C2, F0_02C6]
+    prerequisites: [FA0, MT5]
+  - id: FA1
+    title: Baire・一様有界性原理
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA0, TOP6]
+  - id: FA2
+    title: 開写像定理・閉グラフ定理
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA1]
+  - id: FA3
+    title: weak / weak* topology
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA0, HB]
+  - id: FA4
+    title: Banach–Alaoglu・反射性
+    area: functional-analysis
+    tier: core-advanced-standard
+    status: planned
+    prerequisites: [FA3, TOP5]
+  - id: FA5
+    title: spectrum・resolvent
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA0, FA2, LA6]
+  - id: FA6
+    title: compact operator
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA5]
+  - id: FA7
+    title: compact self-adjoint spectral theorem・Fredholm alternative
+    area: functional-analysis
+    tier: core
+    status: planned
+    prerequisites: [FA6]
+
+implementation_batches:
+  - order: 1
+    id: real-analysis-foundation
+    nodes: [RA1, RA2, RA3, RA4, RA5]
+  - order: 2
+    id: riemann-lebesgue-bridge
+    nodes: [MT-RL]
+  - order: 3
+    id: linear-algebra-core
+    nodes: [LA1, LA2, LA3, LA4, LA5, LA6]
+  - order: 4
+    id: topology-core
+    nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
+  - order: 5
+    id: measure-theory-extension
+    nodes: [MT1, MT2, MT3, MT4, MT5]
+  - order: 6
+    id: functional-analysis-extension
+    nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]
+  - order: 7
+    id: real-analysis-multivariable-and-compactness
+    nodes: [RA6, RA7, RA8]
+
+deferred_integrations:
+  - id: dream-theater-facade-entrypoint
+    status: deferred
+    trigger: first-standard-math-core-chapter-is-written
+    note: >-
+      現行 dream-theater.md に残る廃止済み F0-01 への導線は、実章を生やす段階で
+      標準数学コアへの入口へ差し替える。今回は本文章を作らないため変更しない。
+  - id: docsify-mermaid-rendering
+    status: deferred
+    trigger: site-rendering-work
+    note: >-
+      Mermaidソースと依存DAGの正本化は本バッチに含むが、Docsify上のMermaid描画
+      プラグイン導入・確認は別タスクとする。
