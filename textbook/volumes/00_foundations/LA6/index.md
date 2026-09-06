@@ -1,4 +1,4 @@
-# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解（SVD）
+# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解（Singular Value Decomposition; SVD）
 
 ここまでで、一般作用素のJordan構造と、normal operatorのunitary対角化を扱いました。この章では既存の [実対称スペクトル定理・PSD](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) と [特異値分解（SVD）](../F0_00F2_SVD_特異値_作用素ノルム/index.md) を再利用し、二次形式・polar decomposition・複素特異値分解（SVD）を一つの線にまとめます。
 
@@ -37,7 +37,7 @@ $$
 正の方向と負の方向が混在するので不定値です。
 <!-- definition-example-end -->
 
-LA5のスペクトル定理によりHermitian作用素はunitary対角化できるので、ある正規直交基底で
+[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)によりHermitian作用素はunitary対角化できるので、ある正規直交基底で
 $$
 q_A(x)=\sum_{j=1}^n\lambda_j|x_j|^2
 $$
@@ -142,7 +142,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-スペクトル定理により
+[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により
 $$
 A=Q\operatorname{diag}(\lambda_1,\dots,\lambda_n)Q^*,
 \qquad \lambda_i\ge0.
@@ -244,7 +244,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A^*A$ はHermitian PSDなので、複素normal operatorのスペクトル定理により正規直交固有基底 $v_1,\dots,v_n$ を取れます。
+$A^*A$ はHermitian PSDなので、[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により正規直交固有基底 $v_1,\dots,v_n$ を取れます。
 $$
 A^*Av_i=\lambda_i v_i,
 \qquad \lambda_i\ge0.
