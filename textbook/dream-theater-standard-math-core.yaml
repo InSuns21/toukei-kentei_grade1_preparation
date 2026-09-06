@@ -1,4 +1,4 @@
-schema_version: 1
+schema_version: 2
 id: dream-theater-standard-math-core
 title: DREAM THEATER 標準数学コア
 canonical_for:
@@ -10,6 +10,7 @@ canonical_for:
 status_values:
   - existing-anchor
   - planned
+  - implemented
 
 tier_values:
   - core
@@ -34,32 +35,42 @@ nodes:
     title: 数列・級数
     area: real-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/RA1/index.md
     reuses: [F0_00A1, F0_00A1B, F0_00B0, F0_00D]
     prerequisites: [BASE]
   - id: RA2
     title: 極限・連続・一様連続
     area: real-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/RA2/index.md
     prerequisites: [RA1]
   - id: RA3
     title: 微分法の理論
     area: real-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/RA3/index.md
     prerequisites: [RA2]
   - id: RA4
     title: Riemann/Darboux積分・FTC
     area: real-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/RA4/index.md
     prerequisites: [RA2]
   - id: RA5
     title: 関数列・関数級数・一様収束
     area: real-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/RA5/index.md
     prerequisites: [RA2]
   - id: RA6
     title: 多変数微分
@@ -304,14 +315,15 @@ implementation_batches:
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
-    status: deferred
+    status: completed
+    completed_at: 2026-09-06
     trigger: first-standard-math-core-chapter-is-written
     note: >-
-      現行 dream-theater.md に残る廃止済み F0-01 への導線は、実章を生やす段階で
-      標準数学コアへの入口へ差し替える。今回は本文章を作らないため変更しない。
+      RA1〜RA5の実章化に伴い、dream-theater.md の旧 F0-01 直リンクを
+      標準数学コア入口へ差し替え、本編にもRA1〜RA5の読順を追加した。
   - id: docsify-mermaid-rendering
     status: deferred
     trigger: site-rendering-work
     note: >-
-      Mermaidソースと依存DAGの正本化は本バッチに含むが、Docsify上のMermaid描画
+      Mermaidソースと依存DAGの正本化は完了しているが、Docsify上のMermaid描画
       プラグイン導入・確認は別タスクとする。
