@@ -331,6 +331,41 @@ concepts:
       - pivot quantity
     introduced_in: I2-02
 
+  - id: coverage-probability
+    name: 被覆確率
+    aliases:
+      - coverage probability
+    introduced_in: I2-02
+    requires: [confidence-interval]
+
+  - id: confidence-coefficient
+    name: 信頼係数
+    aliases:
+      - confidence coefficient
+    introduced_in: I2-02
+    requires: [coverage-probability]
+
+  - id: exact-confidence-interval
+    name: 厳密信頼区間
+    aliases:
+      - exact confidence interval
+    introduced_in: I2-02
+    requires: [confidence-interval, pivotal-quantity]
+
+  - id: asymptotic-confidence-interval
+    name: 漸近信頼区間
+    aliases:
+      - asymptotic confidence interval
+    introduced_in: I2-02
+    requires: [confidence-interval, root-n-asymptotic-variance]
+
+  - id: one-sided-confidence-interval
+    name: 片側信頼区間
+    aliases:
+      - one-sided confidence interval
+    introduced_in: I2-02
+    requires: [confidence-interval]
+
   - id: null-hypothesis
     name: 帰無仮説
     aliases:
