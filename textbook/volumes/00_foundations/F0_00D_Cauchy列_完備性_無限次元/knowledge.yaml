@@ -32,7 +32,7 @@ concepts:
   - id: topology.closed-subset-complete
     name: 完備空間の閉部分集合は完備
     kind: theorem
-    aliases: [完備空間の閉部分集合は完備]
+    aliases: [完備空間の閉部分集合は完備, 完備空間の閉部分集合の定理]
     requires:
       - topology.complete-metric-space
       - topology.closed-set
