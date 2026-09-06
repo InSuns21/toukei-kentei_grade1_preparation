@@ -1,6 +1,6 @@
-# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・SVD
+# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解（SVD）
 
-ここまでで、一般作用素のJordan構造と、normal operatorのunitary対角化を扱いました。この章では既存の [実対称スペクトル定理・PSD](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) と [SVD](../F0_00F2_SVD_特異値_作用素ノルム/index.md) を再利用し、二次形式・polar decomposition・複素SVDを一つの線にまとめます。
+ここまでで、一般作用素のJordan構造と、normal operatorのunitary対角化を扱いました。この章では既存の [実対称スペクトル定理・PSD](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) と [特異値分解（SVD）](../F0_00F2_SVD_特異値_作用素ノルム/index.md) を再利用し、二次形式・polar decomposition・複素特異値分解（SVD）を一つの線にまとめます。
 
 ---
 
@@ -227,7 +227,7 @@ $A$ が可逆なら $P$ も可逆で、$U=AP^{-1}$ と強制されるため一�
 
 ---
 
-## 6. 複素SVD
+## 6. 複素特異値分解（SVD）
 
 実行列版の特異値分解は [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-svd) で証明済みです。複素数上では転置を共役転置へ変えます。
 
@@ -266,18 +266,18 @@ $$
 にまとめられます。$\square$
 <!-- proof-end -->
 
-SVDはnormalでない行列、長方形行列にも使えます。固有値分解より適用範囲が広い理由は、$A$ 自身ではなく必ずHermitian PSDになる $A^*A$ を対角化するからです。
+特異値分解（SVD）はnormalでない行列、長方形行列にも使えます。固有値分解より適用範囲が広い理由は、$A$ 自身ではなく必ずHermitian PSDになる $A^*A$ を対角化するからです。
 
 ---
 
-## 7. スペクトル定理・Jordan・SVDの使い分け
+## 7. スペクトル定理・Jordan・特異値分解（SVD）の使い分け
 
 | 対象 | 分解 | 基底 | 何が見えるか |
 |---|---|---|---|
 | 一般の複素自己写像 | Jordan標準形 | 一般基底 | 一般化固有構造・冪零部分 |
 | complex normal | unitary対角化 | 正規直交基底 | 固有方向が直交して完全分解 |
 | Hermitian | unitary対角化 | 正規直交基底 | 実固有値・二次形式の符号 |
-| 任意の長方形行列 | SVD | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
+| 任意の長方形行列 | 特異値分解（SVD） | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
 | 任意の正方行列 | polar decomposition | 基底不要な作用素分解 | unitary部分 × PSD伸縮 |
 
 「どの分解を使うか」は、対象がどこまで特殊かで決まります。
@@ -373,10 +373,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-la6-b02"></a>
-#### LA6-B02 polar分解とSVD
+#### LA6-B02 polar分解と特異値分解（SVD）
 - Level: B
 
-SVD $A=U\Sigma V^*$ が与えられているとき
+特異値分解（SVD） $A=U\Sigma V^*$ が与えられているとき
 $$
 P=V\Sigma V^*,
 \qquad
@@ -408,14 +408,14 @@ Hermitian行列 $A$ が正定値であることと、慣性が $(n,0,0)$ であ�
 ### Level C
 
 <a id="ex-la6-c01"></a>
-#### LA6-C01 SVDから最良rank-k近似を読む
+#### LA6-C01 特異値分解（SVD）から最良rank-k近似を読む
 - Level: C
 
 $A=U\Sigma V^*$ の特異値を $\sigma_1\ge\cdots\ge\sigma_r>0$ とする。rank $\le k$ の行列 $B$ に対し
 $$
 \|A-B\|_2\ge\sigma_{k+1}
 $$
-を示し、上位 $k$ 個の特異値だけ残した打切りSVDで等号が達成されることを説明せよ。
+を示し、上位 $k$ 個の特異値だけ残した打切り特異値分解（SVD）で等号が達成されることを説明せよ。
 
 <!-- solution-start -->
 **解答**：unitary不変性から $\|A-B\|_2=\|\Sigma-U^*BV\|_2$。$C=U^*BV$ はrank $\le k$。右特異ベクトル側の $(k+1)$ 次元部分空間 $E=\operatorname{span}(e_1,\dots,e_{k+1})$ を考えると、$C|_E$ は次元 $k+1$ からrank高々 $k$ への写像なので非零な $x\in E\cap\ker C$ を単位長で取れる。すると
@@ -442,7 +442,7 @@ $$
   ↓
 複素内積・有限次元随伴・normal
   ↓
-二次形式・polar decomposition・複素SVD
+二次形式・polar decomposition・複素特異値分解（SVD）
 ```
 
 まで一巡しました。
