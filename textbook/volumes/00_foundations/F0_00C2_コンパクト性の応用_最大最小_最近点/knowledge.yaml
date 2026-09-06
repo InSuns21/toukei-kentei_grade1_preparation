@@ -3,6 +3,15 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00C1
+  - F0-00A1
+
+forward_references:
+  - topology.complete-metric-space
+  - functional.hilbert-space
+  - functional.l2-completeness
+  - functional.hilbert-space-recap-c1
+  - functional.hilbert-projection-theorem
+  - convex.convex-hull
 
 concepts:
   - id: topology.extreme-value-theorem
