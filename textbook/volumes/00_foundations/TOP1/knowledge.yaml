@@ -1,0 +1,136 @@
+chapter: TOP1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00B1
+
+forward_references: []
+
+concepts:
+  - id: topology.basis
+    name: 位相の基底
+    kind: definition
+    aliases: [位相の基底, basis for a topology]
+    requires:
+      - topology.topology
+      - set.family
+
+  - id: topology.basis-generates-topology
+    name: 基底から位相を作れる
+    kind: theorem
+    aliases: [基底から位相を作れる, 位相の基底が生成する位相]
+    requires:
+      - topology.basis
+      - topology.topology
+
+  - id: topology.subbasis
+    name: 部分基底と生成位相
+    kind: definition
+    aliases: [部分基底, 部分基底と生成位相, subbasis]
+    requires:
+      - topology.basis
+      - topology.topology
+
+  - id: topology.subbasis-generated-minimality
+    name: 部分基底から生成される位相の最小性
+    kind: theorem
+    aliases: [部分基底から生成される位相の最小性, 生成位相の最小性]
+    requires:
+      - topology.subbasis
+      - topology.basis-generates-topology
+
+  - id: topology.initial-topology
+    name: initial topology／始位相
+    kind: definition
+    aliases: [initial topology, 始位相, initial topology／始位相]
+    requires:
+      - topology.subbasis
+      - topology.topological-space
+      - set.preimage
+
+  - id: topology.initial-universal-property
+    name: initial topology の最粗性と連続性判定
+    kind: theorem
+    aliases: [initial topology の最粗性と連続性判定, initial topologyの普遍性, 始位相の普遍性]
+    requires:
+      - topology.initial-topology
+      - topology.topological-continuous-map
+      - topology.subbasis-generated-minimality
+
+  - id: topology.subspace-universal-property
+    name: 部分空間位相の連続性判定
+    kind: proposition
+    aliases: [部分空間位相の連続性判定, 部分空間位相の普遍性]
+    requires:
+      - topology.subspace-topology
+      - topology.initial-universal-property
+
+  - id: topology.product-topology
+    name: 積位相
+    kind: definition
+    aliases: [積位相, product topology]
+    requires:
+      - topology.initial-topology
+
+  - id: topology.product-basis
+    name: 積位相の基底
+    kind: theorem
+    aliases: [積位相の基底]
+    requires:
+      - topology.product-topology
+      - topology.basis
+      - topology.subbasis
+
+  - id: topology.product-universal-property
+    name: 積位相の普遍性
+    kind: theorem
+    aliases: [積位相の普遍性]
+    requires:
+      - topology.product-topology
+      - topology.initial-universal-property
+
+  - id: topology.final-topology
+    name: final topology／終位相
+    kind: definition
+    aliases: [final topology, 終位相, final topology／終位相]
+    requires:
+      - topology.topological-space
+      - set.preimage
+
+  - id: topology.final-universal-property
+    name: final topology は位相であり、最細である
+    kind: theorem
+    aliases: [final topology は位相であり、最細である, final topologyの普遍性, 終位相の普遍性]
+    requires:
+      - topology.final-topology
+      - topology.topological-continuous-map
+
+  - id: topology.quotient-topology-map
+    name: 商位相・商写像
+    kind: definition
+    aliases: [商位相, 商写像, 商位相・商写像, quotient topology, quotient map]
+    requires:
+      - topology.final-topology
+
+  - id: topology.quotient-universal-property
+    name: 商写像の普遍性
+    kind: theorem
+    aliases: [商写像の普遍性, 商位相の普遍性]
+    requires:
+      - topology.quotient-topology-map
+      - topology.final-universal-property
+
+  - id: topology.saturated-set
+    name: 飽和集合
+    kind: definition
+    aliases: [飽和集合, saturated set]
+    requires:
+      - set.preimage
+
+  - id: topology.saturated-open-image
+    name: 開な飽和集合の像は商位相で開
+    kind: proposition
+    aliases: [開な飽和集合の像は商位相で開]
+    requires:
+      - topology.saturated-set
+      - topology.quotient-topology-map

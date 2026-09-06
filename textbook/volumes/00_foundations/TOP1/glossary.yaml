@@ -1,0 +1,26 @@
+chapter: "TOP1"
+terms:
+  - term: 位相の基底
+    english: basis for a topology
+    meaning: 各点を覆い、二つの基底要素の交点内で各点の周囲をさらに基底要素で細かくできる集合族。任意和を取ると位相を生成する。
+  - term: 部分基底
+    english: subbasis
+    meaning: 有限交差を取って基底を作り、その任意和で位相を生成するための集合族。
+  - term: initial topology
+    english: initial topology
+    meaning: 写像族 f_i:X→Y_i を全て連続にする X 上の最も粗い位相。開集合の逆像を部分基底として生成する。
+  - term: final topology
+    english: final topology
+    meaning: 写像族 q_i:X_i→Y を全て連続にする Y 上の最も細かい位相。U⊂Y が開であることを全ての q_i^{-1}(U) の開性で判定する。
+  - term: 積位相
+    english: product topology
+    meaning: 直積から各成分への射影が誘導する initial topology。無限積では有限個の座標だけを制限する集合が基底になる。
+  - term: 商位相
+    english: quotient topology
+    meaning: 全射 q:X→Y が誘導する final topology。U⊂Y が開であることと q^{-1}(U) が X で開であることが同値になる。
+  - term: 商写像
+    english: quotient map
+    meaning: 値域に商位相を入れた全射。一般には開写像とは限らない。
+  - term: 飽和集合
+    english: saturated set
+    meaning: q^{-1}(q(A))=A を満たす集合。商写像では各ファイバー・同値類を丸ごと含む集合。

@@ -48,9 +48,10 @@ concepts:
       - linear.linear-combination-span
 
   - id: linear.basis
-    name: 基底
+    name: 線形代数の基底
     kind: definition
-    aliases: [基底]
+    introduction_aliases: [基底]
+    aliases: [線形代数の基底, linear basis]
     requires:
       - linear.linear-combination-span
       - linear.linear-independence

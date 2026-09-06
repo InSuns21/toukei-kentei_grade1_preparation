@@ -50,7 +50,7 @@ for (const page of pages.values()) {
 
   for (const decl of declarations) {
     const matched = page.concepts.some((concept) =>
-      isFormalKind(concept.kind) && concept.aliases.some((alias) => semanticIncludes(decl.text, alias))
+      isFormalKind(concept.kind) && formalMarkers(concept).some((alias) => semanticIncludes(decl.text, alias))
     );
     if (matched) continue;
     const mustBlock = strict && page.coverage === 'complete' && pageTouched;
@@ -139,7 +139,7 @@ function looksLikeFormalHeading(line) {
 
 function findIntroductionLine(declarations, readerLines, concept) {
   if (isFormalKind(concept.kind) && concept.introduction !== 'inline' && concept.introduction !== 'prose-math') {
-    const match = declarations.find((decl) => concept.aliases.some((alias) => semanticIncludes(decl.text, alias)));
+    const match = declarations.find((decl) => formalMarkers(concept).some((alias) => semanticIncludes(decl.text, alias)));
     return match?.line ?? null;
   }
   const markers = concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
@@ -147,6 +147,10 @@ function findIntroductionLine(declarations, readerLines, concept) {
     if (markers.some((alias) => semanticIncludes(readerLines[i], alias))) return i + 1;
   }
   return null;
+}
+
+function formalMarkers(concept) {
+  return concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
 }
 
 function semanticIncludes(text, alias) {
