@@ -1,0 +1,8 @@
+chapter: "F0-00A1B"
+terms:
+  - term: 実数の上限性質
+    english: least-upper-bound property
+    meaning: 空でなく上に有界な実数集合が実数として上限を持つという実数の完備性の基本性質。
+  - term: Archimedes性
+    english: Archimedean property
+    meaning: 任意の実数より大きい自然数が存在するという性質。
