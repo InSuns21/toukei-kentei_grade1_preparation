@@ -71,6 +71,7 @@ concepts:
     name: 分離超平面
     kind: definition
     introduction: inline
+    introduction_aliases: [H は C と z を厳密に分離しています]
     aliases: [分離超平面]
     requires:
       - convex.hyperplane
