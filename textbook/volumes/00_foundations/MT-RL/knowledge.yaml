@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
+  - F0-00D4
   - F0-00D2B
 forward_references: []
 
