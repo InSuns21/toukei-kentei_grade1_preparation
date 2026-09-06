@@ -300,7 +300,10 @@ function normalizeLiteral(value) {
 }
 
 function inferPageId(relPath) {
-  return path.basename(path.dirname(relPath)).split('_', 1)[0];
+  const dir = path.basename(path.dirname(relPath));
+  const parts = dir.split('_');
+  if (parts.length >= 2 && parts[0] === 'F0') return `F0-${parts[1]}`;
+  return dir;
 }
 
 function relative(fullPath) {
