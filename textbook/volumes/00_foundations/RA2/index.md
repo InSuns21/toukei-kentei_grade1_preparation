@@ -18,6 +18,14 @@ $$
 
 極限の定義には $f(a)$ 自体は入りません。$f(a)=L$ まで要求したものが点 $a$ での連続性です。
 
+<!-- definition-example-start: def-ra2-limit -->
+**定義の確認**：$f(x)=3x+2$ では $L=3a+2$ とすると
+$$
+|f(x)-L|=3|x-a|.
+$$
+任意の $\varepsilon>0$ に対して $\delta=\varepsilon/3$ と取れば、$0<|x-a|<\delta$ から $|f(x)-L|<\varepsilon$ が従います。したがって定義から $\lim_{x\to a}f(x)=3a+2$ です。
+<!-- definition-example-end -->
+
 <a id="thm-ra2-sequential"></a>
 <!-- formal-statement-start -->
 > **定理（関数極限の点列判定）**  
@@ -71,6 +79,14 @@ $$
 <!-- formal-statement-end -->
 
 $K>0$ なら $\delta=\varepsilon/K$ と取れるため、Lipschitz連続なら一様連続です。
+
+<!-- definition-example-start: def-ra2-uniform, def-ra2-lipschitz -->
+**定義の確認**：$f(x)=2x$ を $\mathbb R$ 上で考えると
+$$
+|f(x)-f(y)|=2|x-y|.
+$$
+したがって $K=2$ でLipschitz連続です。また任意の $\varepsilon>0$ に対して $\delta=\varepsilon/2$ と取れば、点 $x,y$ の位置に依存せず $|x-y|<\delta$ から $|f(x)-f(y)|<\varepsilon$ が従うので、一様連続の定義も満たします。
+<!-- definition-example-end -->
 
 ---
 
