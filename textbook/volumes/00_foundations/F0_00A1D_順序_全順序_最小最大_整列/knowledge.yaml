@@ -1,0 +1,56 @@
+chapter: F0-00A1D
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1C
+
+forward_references:
+  - set.choice-axiom
+  - set.zorn-lemma
+  - set.maximum-maximal-element
+  - set.choice-equivalence-summary
+
+concepts:
+  - id: order.binary-relation
+    name: 二項関係
+    kind: definition
+    aliases: [二項関係]
+    requires:
+      - set.cartesian-product
+      - set.subset
+
+  - id: order.partial-order-relation
+    name: 順序関係・半順序
+    kind: definition
+    aliases: [順序関係, 半順序, partial order]
+    requires:
+      - order.binary-relation
+
+  - id: order.total-order
+    name: 全順序
+    kind: definition
+    aliases: [全順序, 線形順序, total order, linear order]
+    requires:
+      - order.partial-order-relation
+
+  - id: order.minimum-maximum-element
+    name: 最小元・最大元
+    kind: definition
+    aliases: [最小元, 最大元, 最小元・最大元]
+    requires:
+      - order.partial-order-relation
+
+  - id: order.well-order
+    name: 整列
+    kind: definition
+    aliases: [整列, well-order]
+    requires:
+      - order.total-order
+      - order.minimum-maximum-element
+
+  - id: order.well-orderable
+    name: 整列可能
+    kind: definition
+    aliases: [整列可能, well-orderable]
+    requires:
+      - order.well-order
