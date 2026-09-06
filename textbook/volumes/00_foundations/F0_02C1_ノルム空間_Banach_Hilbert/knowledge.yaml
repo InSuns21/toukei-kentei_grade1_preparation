@@ -27,7 +27,7 @@ concepts:
     name: Banach空間の再掲
     kind: definition
     introduction_aliases: [Banach空間]
-    aliases: [Banach空間の再掲]
+    aliases: [Banach空間の再掲, Banach空間]
     requires:
       - functional.banach-space
       - functional.normed-space-recap-c1
@@ -45,7 +45,7 @@ concepts:
     name: Hilbert空間の再掲
     kind: definition
     introduction_aliases: [Hilbert空間]
-    aliases: [Hilbert空間の再掲]
+    aliases: [Hilbert空間の再掲, Hilbert空間]
     requires:
       - functional.hilbert-space
       - linear.inner-product-recap-c1
