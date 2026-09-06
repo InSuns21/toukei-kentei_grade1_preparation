@@ -1,0 +1,88 @@
+chapter: LA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3
+  - F0-00F
+  - F0-00F1
+forward_references: []
+
+concepts:
+  - id: linear.operator-polynomial
+    name: 作用素多項式
+    kind: definition
+    aliases: [作用素多項式, polynomial in an operator]
+    requires:
+      - linear.linear-map
+
+  - id: linear.characteristic-polynomial
+    name: 特性多項式
+    kind: definition
+    aliases: [特性多項式, characteristic polynomial]
+    requires:
+      - linear.abstract-determinant
+      - linear.operator-polynomial
+
+  - id: linear.minimal-polynomial
+    name: 最小多項式
+    kind: definition
+    aliases: [最小多項式, minimal polynomial]
+    requires:
+      - linear.operator-polynomial
+
+  - id: linear.cayley-hamilton-theorem
+    name: Cayley-Hamilton定理
+    kind: theorem
+    aliases: [Cayley-Hamilton定理, Cayley–Hamilton定理]
+    requires:
+      - linear.characteristic-polynomial
+      - linear.minimal-polynomial
+
+  - id: linear.diagonalizable-minimal-polynomial-criterion
+    name: 最小多項式による対角化判定
+    kind: theorem
+    aliases: [最小多項式による対角化判定]
+    requires:
+      - linear.minimal-polynomial
+      - linear.diagonalizable
+
+  - id: linear.generalized-eigenspace
+    name: 一般化固有空間
+    kind: definition
+    aliases: [一般化固有空間, generalized eigenspace]
+    requires:
+      - linear.eigenvalue
+      - linear.operator-polynomial
+      - linear.kernel-image
+
+  - id: linear.generalized-eigenspace-decomposition
+    name: 一般化固有空間分解
+    kind: theorem
+    aliases: [一般化固有空間分解, primary decomposition]
+    requires:
+      - linear.generalized-eigenspace
+      - linear.minimal-polynomial
+      - linear.sum-direct-sum
+
+  - id: linear.jordan-chain
+    name: Jordan鎖
+    kind: definition
+    aliases: [Jordan鎖, Jordan chain]
+    requires:
+      - linear.generalized-eigenspace
+
+  - id: linear.jordan-block
+    name: Jordanブロック
+    kind: definition
+    aliases: [Jordanブロック, Jordan block]
+    requires:
+      - linear.jordan-chain
+      - linear.representation-matrix
+
+  - id: linear.jordan-canonical-form
+    name: Jordan標準形定理
+    kind: theorem
+    aliases: [Jordan標準形定理, Jordan標準形, Jordan canonical form]
+    requires:
+      - linear.generalized-eigenspace-decomposition
+      - linear.jordan-block
