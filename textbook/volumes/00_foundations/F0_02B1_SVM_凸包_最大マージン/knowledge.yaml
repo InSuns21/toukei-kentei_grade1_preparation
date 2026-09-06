@@ -9,6 +9,7 @@ concepts:
     name: 線形分離可能性と凸包非交差の同値性
     kind: theorem
     introduction: inline
+    introduction_aliases: [線形分離可能性と凸包の非交差]
     aliases: [線形分離可能性と凸包非交差]
     requires:
       - convex.convex-hull
