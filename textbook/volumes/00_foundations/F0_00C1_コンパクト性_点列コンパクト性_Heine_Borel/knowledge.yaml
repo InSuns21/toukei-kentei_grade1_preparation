@@ -29,7 +29,7 @@ concepts:
   - id: topology.compact-sequential-equivalence-metric
     name: 距離空間におけるコンパクト性と点列コンパクト性
     kind: theorem
-    aliases: [距離空間におけるコンパクト性と点列コンパクト性, コンパクト性と点列コンパクト性]
+    aliases: [距離空間におけるコンパクト性と点列コンパクト性, コンパクト性と点列コンパクト性, 距離空間での同値定理, 距離空間における同値定理]
     requires:
       - topology.compact-set
       - topology.sequentially-compact
