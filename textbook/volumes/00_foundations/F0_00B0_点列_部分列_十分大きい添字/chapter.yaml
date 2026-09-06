@@ -1,0 +1,25 @@
+id: "F0-00B0"
+title: "補講：点列・部分列・十分大きい添字"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1B
+official_scope: []
+learning_objectives:
+  - 点列を自然数から集合への写像として定義できる
+  - 部分列を狭義単調増加な添字列による抜き出しとして定義できる
+  - 「十分大きいn」と「無限回起こる」を量化記号へ戻せる
+  - 無限版の鳩ノ巣原理から定数部分列を構成できる
+definitions:
+  - { id: F000B0-DEF-01, name: 点列 }
+  - { id: F000B0-DEF-02, name: 部分列 }
+  - { id: F000B0-DEF-03, name: eventually }
+  - { id: F000B0-DEF-04, name: 無限回起こる }
+theorems:
+  - { id: F000B0-LEM-01, name: 無限版の鳩ノ巣原理 }
+canonical_examples: [偶数番目と奇数番目の部分列]
+problem_patterns: [SUBSEQUENCE-1, EVENTUALLY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.8, exercises: 0.2, review: 0.15 }
