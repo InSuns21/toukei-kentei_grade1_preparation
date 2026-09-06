@@ -648,11 +648,11 @@ f:\mathbb R^4\to\mathbb R,
 \qquad
 f(x)=x_1+x_2+x_3+x_4
 $$
-の核です。$f(e_1)=1$ なので $f$ は全射でrankは1。rank-nullity theoremから
+の核です。$f(e_1)=1$ なので $f$ は全射でrankは1。[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
 $$
 \dim W=4-1=3.
 $$
-従って商空間の次元公式より
+従って[商空間の次元公式](#thm-la2-quotient-dimension)より
 $$
 \dim(\mathbb R^4/W)=4-3=1.
 $$

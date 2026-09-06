@@ -320,7 +320,7 @@ $$
 $$
 C^2=\lambda I.
 $$
-また $C$ はHermitian PSDなので、スペクトル定理により $E_\lambda$ の正規直交基底で対角化でき、固有値を $\mu$ とすれば
+また $C$ はHermitian PSDなので、[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により $E_\lambda$ の正規直交基底で対角化でき、固有値を $\mu$ とすれば
 $$
 \mu\ge0.
 $$
@@ -452,7 +452,7 @@ U_0(aPx+bPy)
 &=aU_0(Px)+bU_0(Py).
 \end{aligned}
 $$
-さらに先ほどのノルム等式から
+さらに先ほどの長さの等式から
 $$
 \|U_0(Px)\|
 =\|Ax\|
@@ -583,7 +583,7 @@ $$
 \qquad
 u_i=\frac{Av_i}{\sigma_i}
 $$
-と定めます。まず $u_i$ のノルムを計算します。
+と定めます。まず $u_i$ の長さを計算します。
 $$
 \begin{aligned}
 \|u_i\|^2
@@ -909,7 +909,7 @@ $$
 を示し、上位 $k$ 個の特異値だけ残した打切り特異値分解（SVD）で等号が達成されることを説明せよ。
 
 <!-- solution-start -->
-**解答**：作用素ノルムはunitary変換で不変なので
+**解答**：[行列の作用素ノルム（スペクトルノルム）](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-operator-norm) はunitary変換で不変なので
 $$
 \|A-B\|_2
 =\|U^*(A-B)V\|_2
@@ -932,7 +932,7 @@ $$
 $$
 C|_E:E\to\mathbb C^m
 $$
-のrankも高々 $k$ なので、rank-nullity theoremから
+のrankも高々 $k$ なので、[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
 $$
 \dim\ker(C|_E)
 \ge(k+1)-k=1.

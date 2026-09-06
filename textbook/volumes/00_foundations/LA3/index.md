@@ -2,7 +2,7 @@
 
 この章では、ベクトルを「測る」側へ回ります。ベクトル $v$ 自体ではなく、$v$ をスカラーへ送る線形な測定器を集めると、元の空間を別方向から見られます。
 
-関数解析では連続線形汎関数だけを集めた双対を使いますが、ここでは位相を入れない **代数的双対** を扱います。
+ここでは追加の構造を仮定せず、線形写像 $V\to\mathbb F$ 全体からなる **代数的双対** を扱います。
 
 ---
 
@@ -262,7 +262,7 @@ $$
 $$
 \dim W^\circ=n-r=\dim V-\dim W.
 $$
-さらにLA2の商空間の次元公式から
+さらに[LA2の商空間の次元公式](../LA2/index.md#thm-la2-quotient-dimension)から
 $$
 \dim(V/W)=\dim V-\dim W
 $$
@@ -393,7 +393,7 @@ J(v)(v^1)=v^1(v)=1\ne0
 $$
 なので $J(v)\ne0$。よって $\ker J=\{0\}$ で $J$ は単射です。
 
-双対基底定理から
+[双対基底定理](#thm-la3-dual-basis)から
 $$
 \dim V^{**}=\dim V^*=\dim V.
 $$
@@ -723,7 +723,7 @@ $$
 $$
 \operatorname{span}(\varphi)\subset W^\circ.
 $$
-また $W$ は1本の独立な線形条件で定まる2次元部分空間なので、annihilatorの次元公式から
+また $W$ は1本の独立な線形条件で定まる2次元部分空間なので、[annihilatorの次元公式](#thm-la3-annihilator-dimension)から
 $$
 \dim W^\circ=3-2=1.
 $$
@@ -864,10 +864,10 @@ $$
 #### LA3-B03 determinant と可逆性
 - Level: B
 
-有限次元 $V$ の線形自己写像 $T$ について、$T$ が可逆なら $\det T\ne0$ を抽象行列式の乗法性から示せ。
+有限次元 $V$ の線形自己写像 $T$ について、$T$ が可逆なら $\det T\ne0$ を抽象[行列式の乗法性](#thm-la3-det-multiplicative)から示せ。
 
 <!-- solution-start -->
-**解答**：$T^{-1}\circ T=I$ なので、行列式の乗法性から
+**解答**：$T^{-1}\circ T=I$ なので、[行列式の乗法性](#thm-la3-det-multiplicative)から
 $$
 \det(T^{-1})\det T=\det I.
 $$
