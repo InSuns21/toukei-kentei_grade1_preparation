@@ -1,48 +1,82 @@
 chapter: F0-00C1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00C
 
 concepts:
+  - id: topology.open-cover
+    name: 開被覆
+    kind: definition
+    aliases: [開被覆]
+    requires:
+      - topology.open-set
+
   - id: topology.compact-set
     name: コンパクト集合
     kind: definition
     aliases: [コンパクト集合]
     requires:
-      - topology.open-set
+      - topology.open-cover
 
   - id: topology.sequentially-compact
-    name: 点列コンパクト
+    name: 点列コンパクト性
     kind: definition
-    introduction_aliases: [点列コンパクト性]
     aliases: [点列コンパクト, 点列コンパクト性]
     requires:
       - topology.sequence-convergence
 
   - id: topology.compact-sequential-equivalence-metric
-    name: 距離空間におけるコンパクト性と点列コンパクト性の同値
+    name: 距離空間におけるコンパクト性と点列コンパクト性
     kind: theorem
-    introduction_aliases: [距離空間におけるコンパクト性と点列コンパクト性]
-    aliases: [距離空間におけるコンパクト性と点列コンパクト性の同値, コンパクト性と点列コンパクト性]
+    aliases: [距離空間におけるコンパクト性と点列コンパクト性, コンパクト性と点列コンパクト性]
     requires:
       - topology.compact-set
       - topology.sequentially-compact
 
-  - id: topology.heine-borel
-    name: Heine--Borelの定理
-    kind: theorem
-    introduction_aliases: [Heine–Borel]
-    aliases: [Heine--Borelの定理, Heine–Borel]
+  - id: topology.totally-bounded
+    name: 全有界性
+    kind: definition
+    aliases: [全有界性]
     requires:
-      - topology.compact-set
+      - topology.metric-space
+
+  - id: topology.lebesgue-number
+    name: Lebesgue数
+    kind: definition
+    aliases: [Lebesgue数]
+    requires:
+      - topology.open-cover
+      - topology.open-ball
+
+  - id: topology.bolzano-weierstrass-real
+    name: 実数列のBolzano–Weierstrass
+    kind: lemma
+    aliases: [実数列のBolzano–Weierstrass, 実数列のBolzano--Weierstrass, Bolzano–Weierstrassの定理]
+    requires:
+      - topology.bounded-set
+
+  - id: topology.bolzano-weierstrass-rp
+    name: R^pのBolzano–Weierstrass
+    kind: lemma
+    aliases: ["$\\mathbb R^p$ のBolzano–Weierstrass", R^pのBolzano–Weierstrass, "補題（              のBolzano–Weierstrass）"]
+    requires:
+      - topology.bolzano-weierstrass-real
+
+  - id: topology.heine-borel
+    name: Heine–Borel
+    kind: theorem
+    aliases: [Heine–Borel, Heine--Borel]
+    requires:
+      - topology.compact-sequential-equivalence-metric
+      - topology.bolzano-weierstrass-rp
       - topology.closed-set
+      - topology.bounded-set
 
   - id: topology.continuous-image-compact
-    name: コンパクト集合の連続像はコンパクト
+    name: コンパクト集合の連続像
     kind: theorem
-    introduction_aliases: [コンパクト集合の連続像]
-    aliases: [コンパクト集合の連続像はコンパクト, コンパクト集合の連続像]
+    aliases: [コンパクト集合の連続像, コンパクト集合の連続像はコンパクト]
     requires:
       - topology.continuous-map
       - topology.compact-set

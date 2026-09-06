@@ -1,23 +1,58 @@
 chapter: F0-00D
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00B
+  - F0-00C1
 
 concepts:
   - id: topology.cauchy-sequence
     name: Cauchy列
     kind: definition
-    introduction: inline
     aliases: [Cauchy列]
     requires:
       - topology.metric-space
       - topology.sequence-convergence
 
+  - id: topology.convergent-implies-cauchy
+    name: 収束列はCauchy列
+    kind: proposition
+    aliases: [収束列はCauchy列]
+    requires:
+      - topology.sequence-convergence
+      - topology.cauchy-sequence
+
   - id: topology.complete-metric-space
     name: 完備距離空間
     kind: definition
-    introduction: inline
     aliases: [完備距離空間]
     requires:
+      - topology.cauchy-sequence
+
+  - id: topology.closed-subset-complete
+    name: 完備空間の閉部分集合は完備
+    kind: theorem
+    aliases: [完備空間の閉部分集合は完備]
+    requires:
+      - topology.complete-metric-space
+      - topology.closed-set
+      - topology.closed-set-sequential-characterization
+
+  - id: topology.complete-subspace-closed
+    name: 完備な部分空間は閉集合
+    kind: proposition
+    aliases: [完備な部分空間は閉集合]
+    requires:
+      - topology.complete-metric-space
+      - topology.convergent-implies-cauchy
+      - topology.limit-uniqueness
+      - topology.closed-set-sequential-characterization
+
+  - id: topology.compact-metric-complete
+    name: コンパクト距離空間は完備
+    kind: theorem
+    aliases: [コンパクト距離空間は完備]
+    requires:
+      - topology.compact-set
+      - topology.compact-sequential-equivalence-metric
       - topology.cauchy-sequence

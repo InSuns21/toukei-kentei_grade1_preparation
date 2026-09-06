@@ -1,6 +1,6 @@
 chapter: F0-00C2
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00C1
 
@@ -12,3 +12,20 @@ concepts:
     requires:
       - topology.continuous-map
       - topology.compact-set
+      - topology.heine-borel
+
+  - id: topology.finite-product-compact-metric
+    name: 有限個のコンパクト距離空間の直積
+    kind: theorem
+    aliases: [有限個のコンパクト距離空間の直積]
+    requires:
+      - topology.compact-set
+      - topology.compact-sequential-equivalence-metric
+
+  - id: topology.disjoint-compact-positive-distance
+    name: 互いに素なコンパクト集合間の正距離
+    kind: theorem
+    aliases: [互いに素なコンパクト集合間の正距離]
+    requires:
+      - topology.finite-product-compact-metric
+      - topology.extreme-value-theorem
