@@ -1,0 +1,35 @@
+name: Temporary textbook concept DAG batch1 fixer
+
+on:
+  push:
+    branches:
+      - 'audit/textbook-concept-dag-batch1'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fixes:
+    if: ${{ !contains(github.event.head_commit.message, 'Apply concept DAG batch1 content fixes') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Apply exact content fixes
+        run: python3 scripts/_tmp_fix_textbook_concept_dag_batch1.py
+
+      - name: Commit generated fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          if git diff --cached --quiet; then
+            echo 'No generated changes.'
+            exit 0
+          fi
+          git commit -m 'Apply concept DAG batch1 content fixes'
+          git push origin HEAD:${{ github.ref_name }}
