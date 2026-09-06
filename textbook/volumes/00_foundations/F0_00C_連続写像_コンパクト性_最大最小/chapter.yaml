@@ -3,15 +3,16 @@ title: "補講：連続写像・連続性の同値条件"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00B
+  - F0-00B1
 official_scope: []
 learning_objectives:
+  - 位相空間で定義した連続写像を距離空間のepsilon-delta条件へ翻訳できる
   - 距離空間の連続性をepsilon-delta・点列・開集合逆像の三形式で説明できる
   - 三つの連続性条件の同値性を証明できる
   - 距離関数の連続性を三角不等式から示せる
 definitions:
   - { id: F000C-DEF-01, name: 点における連続性 }
-  - { id: F000C-DEF-02, name: 連続写像 }
+  - { id: F000C-DEF-02, name: 距離空間の連続写像 }
 theorems:
   - { id: F000C-THM-01, name: 距離空間における連続性の同値条件 }
 canonical_examples: [距離関数の連続性]
