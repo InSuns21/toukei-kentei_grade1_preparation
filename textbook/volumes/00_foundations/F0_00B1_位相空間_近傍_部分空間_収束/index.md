@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-[F0-00B](../F0_00B_距離空間_開集合_閉集合_収束/index.md) では、距離 $d$ から
+[F0-00A1C](../F0_00A1C_集合族_添字集合_べき集合/index.md) で、べき集合・集合族・添字付き集合族・任意和を定義しました。[F0-00B](../F0_00B_距離空間_開集合_閉集合_収束/index.md) では、距離 $d$ から
 
 $$
 \text{開球}\to\text{開集合}\to\text{収束}
@@ -10,29 +10,7 @@ $$
 
 を定義しました。
 
-しかし次のコンパクト性では、より一般に **位相空間 $X$** という言葉を使います。位相空間では距離の数値そのものを忘れ、
-
-> **どの部分集合を「開」とみなすか**
-
-だけを構造として残します。
-
-この章では
-
-$$
-\boxed{
-\text{位相}
-\to
-\text{近傍}
-\to
-\text{部分空間位相}
-\to
-\text{点列収束}
-\to
-\text{連続写像}
-}
-$$
-
-を整備し、距離空間で学んだ内容と接続します。
+ここでは距離の数値を忘れ、**どの部分集合を開とみなすか**だけを構造として残します。次のコンパクト性で使う「位相空間 $X$」を、この章で正式に導入します。
 
 ---
 
@@ -42,41 +20,45 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（位相・位相空間）**  
-> 集合 $X$ の部分集合族 $\tau$ が次の三条件を満たすとき、$\tau$ を $X$ 上の **位相** という。
+> 集合 $X$ の部分集合族 $\tau\subseteq\mathcal P(X)$ が次の三条件を満たすとき、$\tau$ を $X$ 上の **位相** という。
 > 1. $\varnothing,X\in\tau$。
-> 2. $\tau$ の要素を任意個集めた和集合も $\tau$ に属する。
-> 3. $\tau$ の要素を有限個集めた共通部分も $\tau$ に属する。
-> 組 $(X,\tau)$ を **位相空間** といい、$\tau$ の要素を **開集合** という。
+> 2. $\{U_i\}_{i\in I}\subseteq\tau$ なら
+
+$$
+\bigcup_{i\in I}U_i\in\tau.
+$$
+
+> 3. $U_1,\ldots,U_m\in\tau$ なら
+
+$$
+U_1\cap\cdots\cap U_m\in\tau.
+$$
+
+> 組 $(X,\tau)$ を **位相空間** といい、$\tau$ の要素を開集合という。
 <!-- formal-statement-end -->
 
-距離空間では「各点のまわりに小さな開球を入れられる集合」を開集合と呼びました。位相空間では逆に、**開集合族そのものを最初に指定**します。
+距離空間では開球から開集合を作りました。位相空間では逆に、開集合族 $\tau$ を最初に指定します。
 
 <!-- definition-example-start: def-f0-00b1-topology -->
-### 1.1 定義の確認：二つの極端な位相
+### 1.1 定義の確認：二つの極端な例
 
-任意の集合 $X$ に対して、全ての部分集合を集めた
+任意の集合 $X$ に対して
 
 $$
 \tau_{\mathrm{disc}}=\mathcal P(X)
 $$
 
-を考えます。
+は位相です。全ての部分集合を開にするこの例は離散位相と呼ばれます。
 
-- $\varnothing,X\subset X$ なので $\varnothing,X\in\tau_{\mathrm{disc}}$。
-- $X$ の部分集合の任意和も $X$ の部分集合。
-- $X$ の部分集合の有限交差も $X$ の部分集合。
-
-したがって $\tau_{\mathrm{disc}}$ は位相です。これを **離散位相** といいます。
-
-一方
+また
 
 $$
 \tau_{\mathrm{ind}}=\{\varnothing,X\}
 $$
 
-も三条件を直接確認できるので位相です。これを **密着位相** といいます。
+も位相です。開集合を $\varnothing$ と $X$ だけにしたこの例は密着位相と呼ばれます。
 
-同じ集合 $X$ でも、どの位相を入れるかで「開集合」「収束」「連続」の意味が変わります。
+同じ集合 $X$ でも、位相が違えば開集合・収束・連続性の意味が変わります。
 <!-- definition-example-end -->
 
 ---
@@ -87,15 +69,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（位相空間の閉集合）**  
-> 位相空間 $(X,\tau)$ の部分集合 $F\subset X$ が **閉集合** であるとは、補集合 $X\setminus F$ が開集合であることをいう。
+> 位相空間 $(X,\tau)$ の部分集合 $F\subseteq X$ について、補集合 $X\setminus F$ が開集合であるとき、$F$ は **閉集合** であるという。
 <!-- formal-statement-end -->
-
-これは距離空間での定義と同じ形です。違うのは「開」が距離ではなく位相 $\tau$ で決まることです。
 
 <!-- definition-example-start: def-f0-00b1-closed -->
 ### 2.1 定義の確認
 
-離散位相では全ての部分集合が開です。任意の $F\subset X$ に対して補集合 $X\setminus F$ も部分集合なので開です。したがって離散位相では全ての部分集合が閉でもあります。
+$\tau=\mathcal P(X)$ なら任意の $F\subseteq X$ について $X\setminus F\in\tau$ です。したがって全ての部分集合が閉集合でもあります。
 <!-- definition-example-end -->
 
 ---
@@ -106,38 +86,32 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（近傍）**  
-> 位相空間 $(X,\tau)$、点 $x\in X$、集合 $N\subset X$ に対して、ある開集合 $U\in\tau$ が存在して $x\in U\subset N$ となるとき、$N$ を $x$ の **近傍** という。
+> 位相空間 $(X,\tau)$、点 $x\in X$、集合 $N\subseteq X$ に対して、ある開集合 $U\in\tau$ が存在して
+
+$$
+x\in U\subseteq N
+$$
+
+> となるとき、$N$ を $x$ の **近傍** という。
 <!-- formal-statement-end -->
 
-近傍そのものが開集合である必要はありません。「$x$ を含む開集合を一つ内側に持つ」ことが条件です。
+近傍そのものが開集合である必要はありません。
 
 <!-- definition-example-start: def-f0-00b1-neighborhood -->
 ### 3.1 定義の確認
 
-通常の実数直線で $N=[-1,1]$ を考えます。
+通常の実数直線で
 
 $$
-0\in(-1/2,1/2)\subset[-1,1]
+0\in(-1/2,1/2)\subseteq[-1,1]
 $$
 
-なので $N$ は0の近傍です。$N$ 自身は開集合でなくても構いません。
-
-一方 $[0,1]$ は0の近傍ではありません。0を含む通常の開区間は必ず負の数も含むため、$[0,1]$ の中に収められないからです。
+なので $[-1,1]$ は0の近傍です。一方 $[0,1]$ の中には0を含む通常の開区間を入れられないので、0の近傍ではありません。
 <!-- definition-example-end -->
 
 ---
 
 ## 4. 距離が位相を作る
-
-距離空間 $(X,d)$ では、F0-00Bで
-
-$$
-U\subset X\text{ が開}
-\iff
-\forall x\in U\ \exists r>0:\ B(x,r)\subset U
-$$
-
-と定義しました。この開集合全体は位相になります。
 
 <a id="def-f0-00b1-metric-topology"></a>
 
@@ -152,8 +126,8 @@ $$
 \tau_d
 =
 \left\{
-U\subset X:
-\forall x\in U\ \exists r>0\ \ B(x,r)\subset U
+U\subseteq X:
+\forall x\in U\ \exists r>0\ \ B(x,r)\subseteq U
 \right\}.
 $$
 
@@ -164,58 +138,32 @@ $$
 > 任意の距離空間 $(X,d)$ について $\tau_d$ は $X$ 上の位相である。
 <!-- formal-statement-end -->
 
-### 証明の見取り図
-
-任意和では、点 $x$ が属している一つの開集合から開球をもらいます。有限交差では各開集合から得た半径の最小値を使います。
-
 <!-- proof-start -->
 ### 証明
 
-$\varnothing$ は条件を空虚に満たし、$X$ は任意の点 $x\in X$ に対して例えば $B(x,1)\subset X$ とできるので
+$\varnothing$ は条件を空虚に満たし、$X$ は任意の $x\in X$ に対して $B(x,1)\subseteq X$ なので、$\varnothing,X\in\tau_d$ です。
+
+各 $U_i\in\tau_d$ とし、$x\in\bigcup_{i\in I}U_i$ とします。ある $i_0$ で $x\in U_{i_0}$ なので、ある $r>0$ が存在して
 
 $$
-\varnothing,X\in\tau_d.
+B(x,r)\subseteq U_{i_0}\subseteq\bigcup_{i\in I}U_i.
 $$
 
-次に各 $U_\lambda\in\tau_d$ とし
+よって任意和は開です。
 
-$$
-U=\bigcup_{\lambda\in\Lambda}U_\lambda
-$$
-
-とします。$x\in U$ なら、ある $\lambda_0$ について $x\in U_{\lambda_0}$ です。$U_{\lambda_0}$ は開なので、ある $r>0$ が存在して
-
-$$
-B(x,r)\subset U_{\lambda_0}\subset U.
-$$
-
-したがって任意和 $U$ も開です。
-
-最後に
-
-$$
-U=U_1\cap\cdots\cap U_m
-$$
-
-とします。$x\in U$ なら各 $j$ について $r_j>0$ を取れて
-
-$$
-B(x,r_j)\subset U_j.
-$$
-
-そこで
+最後に $x\in U_1\cap\cdots\cap U_m$ とします。各 $j$ について $B(x,r_j)\subseteq U_j$ となる $r_j>0$ を取り
 
 $$
 r=\min\{r_1,\ldots,r_m\}>0
 $$
 
-と置けば
+とすれば
 
 $$
-B(x,r)\subset U_1\cap\cdots\cap U_m=U.
+B(x,r)\subseteq U_1\cap\cdots\cap U_m.
 $$
 
-よって有限交差も開です。以上から $\tau_d$ は位相です。$\square$
+よって有限交差も開です。$\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-f0-00b1-metric-topology -->
@@ -227,54 +175,36 @@ $$
 B(x,r)=(x-r,x+r)
 $$
 
-なので、距離位相は通常の実数直線の位相になります。
-
-離散距離では
-
-$$
-B(x,1/2)=\{x\}
-$$
-
-です。任意の集合 $A\subset X$ と $x\in A$ に対して $B(x,1/2)=\{x\}\subset A$ なので、全ての $A$ が開になります。したがって距離位相は離散位相です。
+です。離散距離では $B(x,1/2)=\{x\}$ なので全ての部分集合が開になります。
 <!-- definition-example-end -->
-
-これで、F0-00Bで学んだ全ての距離空間を位相空間として見られます。
 
 ---
 
 ## 5. 部分空間位相
 
-コンパクト性では「位相空間 $X$ の部分集合 $K$」を頻繁に扱います。そのとき $K$ 自身にも自然な位相を入れます。
-
 <a id="def-f0-00b1-subspace"></a>
 
 <!-- formal-statement-start -->
 > **定義（部分空間位相）**  
-> 位相空間 $(X,\tau)$ と部分集合 $A\subset X$ に対し、$A\cap U$（$U\in\tau$）の形の集合を全て集めた族を $A$ 上の **部分空間位相** という。
+> 位相空間 $(X,\tau)$ と部分集合 $A\subseteq X$ に対し
+
+$$
+\tau_A=\{A\cap U:U\in\tau\}
+$$
+
+> を $A$ 上の **部分空間位相** という。
 <!-- formal-statement-end -->
 
-記号では
-
-$$
-\tau_A=\{A\cap U:U\in\tau\}.
-$$
-
-「$A$ の中で開」とは、もとの空間の開集合を $A$ で切った形になっていることです。
-
 <!-- definition-example-start: def-f0-00b1-subspace -->
-### 5.1 定義の確認：端点を含んでも部分空間では開になれる
+### 5.1 定義の確認
 
-$A=[0,1]\subset\mathbb R$ とします。
+$A=[0,1]\subseteq\mathbb R$ とすると
 
 $$
-[0,1/2)
-=
-[0,1]\cap(-1,1/2).
+[0,1/2)=[0,1]\cap(-1,1/2).
 $$
 
-$(-1,1/2)$ は $\mathbb R$ の開集合なので、定義どおり $[0,1/2)$ は $A=[0,1]$ の部分空間位相では開集合です。
-
-「$\mathbb R$ では開でない」ことと「$A$ の中では開である」ことは両立します。
+$(-1,1/2)$ は $\mathbb R$ で開なので、$[0,1/2)$ は $A$ の部分空間位相では開です。
 <!-- definition-example-end -->
 
 ---
@@ -288,55 +218,31 @@ $(-1,1/2)$ は $\mathbb R$ の開集合なので、定義どおり $[0,1/2)$ は
 > 位相空間 $X$ の点列 $(x_n)$ と点 $x\in X$ に対して、$x$ の任意の近傍 $N$ について十分大きい $n$ で $x_n\in N$ となるとき、$(x_n)$ は $x$ に **収束する** といい $x_n\to x$ と書く。
 <!-- formal-statement-end -->
 
-[F0-00B0の「十分大きい添字」](../F0_00B0_点列_部分列_十分大きい添字/index.md#def-f0-00b0-eventually)を展開すると、これは
+[F0-00B0の eventually](../F0_00B0_点列_部分列_十分大きい添字/index.md#def-f0-00b0-eventually)を展開すれば
 
 $$
 \forall N\text{（$x$ の近傍）}\ \exists n_0\ \forall n\ge n_0:\ x_n\in N
 $$
 
-という意味です。
+です。
 
 <a id="thm-f0-00b1-metric-convergence"></a>
 
 <!-- formal-statement-start -->
 > **定理（距離収束と位相収束の一致）**  
-> 距離空間 $(X,d)$ に距離位相 $\tau_d$ を入れる。このとき、F0-00Bで定義した距離による収束と、近傍による位相的収束は同値である。
+> 距離空間 $(X,d)$ に距離位相 $\tau_d$ を入れる。このとき、距離による点列収束と近傍による位相的収束は同値である。
 <!-- formal-statement-end -->
-
-つまり
-
-$$
-d(x_n,x)\to0
-\iff
-x_n\to x\quad\text{（位相的収束）}.
-$$
-
-### 証明の見取り図
-
-距離収束から位相収束へは、近傍の内側に開球を一つ取ります。逆向きは $B(x,\varepsilon)$ 自身を近傍として使います。
 
 <!-- proof-start -->
 ### 証明
 
-まず距離の意味で $x_n\to x$ とします。$N$ を $x$ の近傍とすると、ある開集合 $U$ が存在して
+距離の意味で $x_n\to x$ とします。$N$ を $x$ の近傍とすると、ある開集合 $U$ が存在して
 
 $$
-x\in U\subset N.
+x\in U\subseteq N.
 $$
 
-$U$ は距離位相で開なので、ある $r>0$ が存在して
-
-$$
-B(x,r)\subset U.
-$$
-
-距離収束より十分大きい $n$ で $d(x_n,x)<r$、すなわち
-
-$$
-x_n\in B(x,r)\subset N.
-$$
-
-よって位相的に収束します。
+$U$ は距離位相で開なので、ある $r>0$ について $B(x,r)\subseteq U$ です。距離収束より十分大きい $n$ で $x_n\in B(x,r)\subseteq N$ となり、位相的に収束します。
 
 逆に位相的に $x_n\to x$ とします。任意の $\varepsilon>0$ に対し $B(x,\varepsilon)$ は $x$ の近傍です。したがって十分大きい $n$ で
 
@@ -344,25 +250,19 @@ $$
 x_n\in B(x,\varepsilon),
 $$
 
-つまり
-
-$$
-d(x_n,x)<\varepsilon.
-$$
-
-よって距離の意味でも $x_n\to x$ です。$\square$
+すなわち $d(x_n,x)<\varepsilon$ です。よって距離の意味でも収束します。$\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-f0-00b1-topological-convergence -->
 ### 6.1 定義の確認
 
-通常の $\mathbb R$ では、$x$ の任意の近傍はある開区間 $(x-\varepsilon,x+\varepsilon)$ を含みます。したがって位相的な $x_n\to x$ は
+通常の $\mathbb R$ では、位相的な $x_n\to x$ は
 
 $$
-|x_n-x|<\varepsilon
+\forall\varepsilon>0\ \exists n_0\ \forall n\ge n_0:\ |x_n-x|<\varepsilon
 $$
 
-が十分大きい $n$ で成り立つという通常の $\varepsilon$ 定義と一致します。
+という通常の $\varepsilon$ 定義と一致します。
 <!-- definition-example-end -->
 
 ---
@@ -373,10 +273,8 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（位相空間の連続写像）**  
-> 位相空間 $X,Y$ の間の写像 $f:X\to Y$ が **連続** であるとは、$Y$ の任意の開集合 $V$ に対して逆像 $f^{-1}(V)$ が $X$ の開集合になることをいう。
+> 位相空間 $X,Y$ の間の写像 $f:X\to Y$ について、$Y$ の任意の開集合 $V$ の逆像 $f^{-1}(V)$ が $X$ の開集合になるとき、$f$ は **連続** であるという。
 <!-- formal-statement-end -->
-
-これは距離を使わない定義です。次のF0-00Cでは、距離空間に限定するとこの定義が $\varepsilon$--$\delta$ と点列の条件に一致することを示します。
 
 <a id="prop-f0-00b1-continuity-sequences"></a>
 
@@ -385,102 +283,63 @@ $$
 > 位相空間 $X,Y$ と連続写像 $f:X\to Y$ に対して、$x_n\to x$ なら $f(x_n)\to f(x)$ である。
 <!-- formal-statement-end -->
 
-### 証明の見取り図
-
-$f(x)$ の近傍の内側に開集合 $W$ を取り、その逆像 $f^{-1}(W)$ を $x$ の近傍として使います。
-
 <!-- proof-start -->
 ### 証明
 
 $V$ を $f(x)$ の任意の近傍とします。ある開集合 $W$ が存在して
 
 $$
-f(x)\in W\subset V.
+f(x)\in W\subseteq V.
 $$
 
-$f$ は連続なので $f^{-1}(W)$ は $X$ の開集合で、しかも $x\in f^{-1}(W)$ です。したがって $f^{-1}(W)$ は $x$ の近傍です。
-
-$x_n\to x$ より十分大きい $n$ で
-
-$$
-x_n\in f^{-1}(W).
-$$
-
-よって
-
-$$
-f(x_n)\in W\subset V.
-$$
-
-$V$ は任意だったので $f(x_n)\to f(x)$ です。$\square$
+連続性より $f^{-1}(W)$ は $x$ を含む開集合です。$x_n\to x$ より十分大きい $n$ で $x_n\in f^{-1}(W)$、したがって $f(x_n)\in W\subseteq V$ です。よって $f(x_n)\to f(x)$ です。$\square$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-f0-00b1-continuous -->
-### 7.1 定義の確認：恒等写像と定数写像
+### 7.1 定義の確認
 
-恒等写像 $\operatorname{id}_X:X\to X$ では、任意の開集合 $V\subset X$ に対し
+恒等写像 $\operatorname{id}_X:X\to X$ では
 
 $$
 \operatorname{id}_X^{-1}(V)=V
 $$
 
-が開なので連続です。
-
-定数写像 $f(x)=y_0$ では、開集合 $V\subset Y$ の逆像は
-
-$$
-f^{-1}(V)=
-\begin{cases}
-X,&y_0\in V,\\
-\varnothing,&y_0\notin V.
-\end{cases}
-$$
-
-$X$ と $\varnothing$ はどちらも開なので、定数写像も連続です。
+なので連続です。定数写像 $f(x)=y_0$ では開集合 $V\subseteq Y$ の逆像は $X$ または $\varnothing$ なので、やはり連続です。
 <!-- definition-example-end -->
 
 ---
 
-## 8. 極限の一意性は一般の位相空間では自動ではない
+## 8. Hausdorff性と極限の一意性
 
-距離空間では極限は一意でした。しかし位相空間まで一般化すると、これは自動ではありません。
-
-例えば密着位相 $\{\varnothing,X\}$ では、任意の点 $x$ の近傍は $X$ しかありません。したがって任意の点列が任意の点へ収束します。
-
-極限を一意にする代表的な条件が Hausdorff 性です。
+一般の位相空間では点列の極限は一意とは限りません。例えば開集合が $\varnothing$ と $X$ だけの位相では、任意の点列が任意の点へ収束します。
 
 <a id="def-f0-00b1-hausdorff"></a>
 
 <!-- formal-statement-start -->
 > **定義（Hausdorff空間）**  
-> 位相空間 $X$ が **Hausdorff** であるとは、任意の異なる二点 $x\ne y$ に対して、互いに交わらない開集合 $U,V$ が存在し、$x\in U$、$y\in V$ とできることをいう。
+> 位相空間 $X$ について、任意の異なる二点 $x\ne y$ に対して、互いに交わらない開集合 $U,V$ が存在し
+
+$$
+x\in U,
+\qquad
+y\in V,
+\qquad
+U\cap V=\varnothing
+$$
+
+> とできるとき、$X$ を **Hausdorff空間** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00b1-hausdorff -->
 ### 8.1 定義の確認
 
-通常の $\mathbb R$ で $x<y$ とします。
+通常の $\mathbb R$ で $x<y$ とし
 
 $$
-r=\frac{y-x}{3}>0
+r=\frac{y-x}{3}
 $$
 
-と置けば、開区間
-
-$$
-U=(x-r,x+r),
-\qquad
-V=(y-r,y+r)
-$$
-
-はそれぞれ $x,y$ を含みます。また
-
-$$
-x+r=x+\frac{y-x}{3}
-<y-\frac{y-x}{3}=y-r
-$$
-
-なので $U\cap V=\varnothing$ です。したがって通常の実数直線はHausdorffです。
+と置けば、$(x-r,x+r)$ と $(y-r,y+r)$ は互いに交わらない開集合です。したがって通常の実数直線は Hausdorff です。
 <!-- definition-example-end -->
 
 <a id="thm-f0-00b1-hausdorff-limit"></a>
@@ -490,10 +349,6 @@ $$
 > Hausdorff空間 $X$ で点列 $(x_n)$ が $x$ と $y$ の両方へ収束するなら $x=y$ である。
 <!-- formal-statement-end -->
 
-### 証明の見取り図
-
-$x\ne y$ なら互いに素な開近傍 $U,V$ を取れます。しかし十分後ろの $x_n$ は $U$ と $V$ の両方に入る必要があり、矛盾します。
-
 <!-- proof-start -->
 ### 証明
 
@@ -501,31 +356,19 @@ $x\ne y$ と仮定します。Hausdorff性により互いに素な開集合 $U,V
 
 $$
 x\in U,
-\qquad
-y\in V,
-\qquad
-U\cap V=\varnothing.
+\qquad y\in V,
+\qquad U\cap V=\varnothing.
 $$
 
-$x_n\to x$ なので十分大きい $n$ で $x_n\in U$、また $x_n\to y$ なので十分大きい $n$ で $x_n\in V$ です。したがって十分後ろでは
-
-$$
-x_n\in U\cap V
-$$
-
-となりますが、$U\cap V=\varnothing$ に矛盾します。よって $x=y$ です。$\square$
+$x_n\to x$ と $x_n\to y$ から、十分大きい $n$ では $x_n\in U$ と $x_n\in V$ が同時に必要になります。これは $U\cap V=\varnothing$ に矛盾します。$\square$
 <!-- proof-end -->
 
 <a id="prop-f0-00b1-metric-hausdorff"></a>
 
 <!-- formal-statement-start -->
 > **命題（距離空間はHausdorff）**  
-> 任意の距離空間は、その距離位相に関してHausdorff空間である。
+> 任意の距離空間は、その距離位相に関して Hausdorff 空間である。
 <!-- formal-statement-end -->
-
-### 証明の見取り図
-
-異なる二点の距離の $1/3$ を半径にした二つの開球を取ります。
 
 <!-- proof-start -->
 ### 証明
@@ -539,24 +382,15 @@ $$
 と置きます。もし $z\in B(x,r)\cap B(y,r)$ なら三角不等式より
 
 $$
-d(x,y)
-\le d(x,z)+d(z,y)
-<2r
-=\frac23d(x,y),
+d(x,y)<2r=\frac23d(x,y),
 $$
 
-となり矛盾します。したがって
-
-$$
-B(x,r)\cap B(y,r)=\varnothing.
-$$
-
-二つの開球はそれぞれ $x,y$ を含む開集合なので、距離空間はHausdorffです。$\square$
+となり矛盾します。したがって $B(x,r)$ と $B(y,r)$ は互いに素な開集合です。$\square$
 <!-- proof-end -->
 
 ---
 
-## 9. 「点列だけ見ればよい」は一般の位相空間では危険
+## 9. 点列だけで一般位相を判定しない
 
 距離空間では
 
@@ -566,28 +400,27 @@ $$
 
 という便利な事実があります。
 
-しかし一般の位相空間では、点列だけで位相の全情報を捉えられない場合があります。したがって後続では主語を意識して読み分けます。
+しかし一般の位相空間では、点列だけでは位相の全情報を捉えられない場合があります。後続では主語を区別します。
 
 | 主語 | 基本言語 |
 |---|---|
 | 位相空間 | 開集合・近傍・開被覆 |
 | 距離空間 | 上に加えて点列による特徴付けを使える |
-| $\mathbb R^p$ | さらにHeine--Borelで「閉かつ有界」へ落とせる |
-
-この三段階を混ぜないことが、この補講を入れる最大の目的です。
+| $\mathbb R^p$ | さらに Heine--Borel で「閉かつ有界」へ落とせる |
 
 ---
 
 ## 10. 章末チェック
 
-- 位相を開集合族の三条件で定義できる。
-- 距離空間が距離位相を通じて位相空間になることを説明できる。
-- 近傍は開集合そのものとは限らないことを説明できる。
-- 部分空間位相で、もとの空間では開でない集合が開になり得ることを説明できる。
+- 位相を部分集合族の三条件で定義できる。
+- $\mathcal P(X)$ と添字付き任意和の意味を説明できる。
+- 距離空間が距離位相を通じて位相空間になることを証明できる。
+- 近傍と部分空間位相を定義できる。
 - 位相的収束を近傍で定義できる。
-- 距離収束と距離位相での収束が同値であることを証明できる。
-- 位相空間の連続写像を「開集合の逆像が開」で定義できる。
-- 一般の位相空間では極限一意性や点列特徴付けを無条件に使えないと分かる。
+- 距離収束と距離位相での収束の一致を証明できる。
+- 位相空間の連続写像を逆像で定義できる。
+- Hausdorff性が極限一意性を保証することを説明できる。
+- 一般位相空間では点列特徴付けを無条件に使えないと分かる。
 
 ---
 
