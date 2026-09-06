@@ -187,3 +187,39 @@ concepts:
       - expectation maximization algorithm
     introduced_in: I4-02
     requires: [maximum-likelihood-estimator]
+
+  - id: complete-statistic
+    name: 完備統計量
+    aliases:
+      - 完備性
+      - complete statistic
+      - completeness of a statistic
+    introduced_in: S1-02
+
+  - id: rao-blackwell-theorem
+    name: Rao--Blackwellの定理
+    aliases:
+      - Rao–Blackwellの定理
+      - ラオ・ブラックウェルの定理
+      - Rao-Blackwell theorem
+      - Rao--Blackwell theorem
+    introduced_in: S1-02
+    requires: [sufficient-statistic]
+
+  - id: umvu-estimator
+    name: 一様最小分散不偏推定量
+    aliases:
+      - UMVU推定量
+      - UMVU estimator
+      - uniformly minimum variance unbiased estimator
+    introduced_in: S1-02
+
+  - id: lehmann-scheffe-theorem
+    name: Lehmann--Schefféの定理
+    aliases:
+      - Lehmann–Schefféの定理
+      - レーマン・シェッフェの定理
+      - Lehmann-Scheffe theorem
+      - Lehmann--Scheffe theorem
+    introduced_in: S1-02
+    requires: [sufficient-statistic, complete-statistic, rao-blackwell-theorem, umvu-estimator]
