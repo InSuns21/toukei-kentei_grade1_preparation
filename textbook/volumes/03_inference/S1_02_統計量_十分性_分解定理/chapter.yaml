@@ -26,6 +26,7 @@ learning_objectives:
   - 完備統計量を期待値が全母数で0になる関数が自明になる性質として説明できる
   - Rao--Blackwellの定理を全分散公式から導き、十分統計量による条件付けで不偏推定量の分散が改善することを示せる
   - 一様最小分散不偏推定量とLehmann--Schefféの定理を説明し、ベルヌーイ標本で標本平均が一様最小分散不偏推定量になることを示せる
+  - 付随統計量を「分布が未知母数に依存しない統計量」として定義し、十分統計量との役割の違いを説明できる
 definitions:
   - { id: S102-DEF-01, name: 統計量 }
   - { id: S102-DEF-02, name: 十分統計量 }
@@ -33,13 +34,14 @@ definitions:
   - { id: S102-DEF-04, name: 指数型分布族 }
   - { id: S102-DEF-05, name: 完備統計量 }
   - { id: S102-DEF-06, name: 一様最小分散不偏推定量 }
+  - { id: S102-DEF-07, name: 付随統計量 }
 theorems:
   - { id: S102-THM-01, name: ネイマンの分解定理 }
   - { id: S102-THM-02, name: 一対一変換による十分性の保存 }
   - { id: S102-THM-03, name: 尤度比による最小十分性の判定基準 }
   - { id: S102-THM-04, name: Rao--Blackwellの定理 }
   - { id: S102-THM-05, name: Lehmann--Schefféの定理 }
-canonical_examples: [ベルヌーイ標本の成功回数, ポアソン標本の標本和, 指数分布の標本和, 一様分布の標本最大値, 正規分布の十分統計量, 指数型分布族, ベルヌーイ標本の完備性とRao--Blackwell化, Bernoulli標本平均のUMVU性]
+canonical_examples: [ベルヌーイ標本の成功回数, ポアソン標本の標本和, 指数分布の標本和, 一様分布の標本最大値, 正規分布の十分統計量, 指数型分布族, ベルヌーイ標本の完備性とRao--Blackwell化, Bernoulli標本平均のUMVU性, 正規位置母数モデルの付随統計量]
 problem_patterns: [STATISTIC-DEF-1, FACTORIZATION-BERNOULLI-1, FACTORIZATION-POISSON-1, FACTORIZATION-UNIFORM-1, NORMAL-SUFFICIENT-1, MINIMAL-SUFFICIENT-1, EXP-FAMILY-1, COMPLETE-BERNOULLI-1, RAO-BLACKWELL-1, LEHMANN-SCHEFFE-1]
 past_exam_alignment: []
 integrated_exam_problems: [S1-02-C01, S1-02-C02, S1-02-C03, S1-02-C04, S1-02-C05, S1-02-D01, S1-02-DRILL-01]

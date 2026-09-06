@@ -282,3 +282,51 @@ concepts:
       - relative efficiency of estimators
       - estimator relative efficiency
     introduced_in: I1-02
+
+  - id: method-of-moments
+    name: モーメント法
+    aliases:
+      - method of moments
+      - method-of-moments
+    introduced_in: I1-02
+
+  - id: least-squares-method
+    name: 最小二乗法
+    aliases:
+      - least squares method
+      - least-squares method
+    introduced_in: I1-02
+
+  - id: estimator-bias
+    name: 推定量のバイアス
+    aliases:
+      - estimator bias
+      - bias of an estimator
+    introduced_in: I1-02
+
+  - id: mean-squared-error
+    name: 平均二乗誤差
+    aliases:
+      - MSE
+      - mean squared error
+      - mean-squared error
+    introduced_in: I1-02
+
+  - id: ancillary-statistic
+    name: 付随統計量
+    aliases:
+      - ancillary statistic
+    introduced_in: S1-02
+
+  - id: confidence-interval
+    name: 信頼区間
+    aliases:
+      - confidence interval
+    introduced_in: I2-02
+
+  - id: pivotal-quantity
+    name: ピボット量
+    aliases:
+      - pivotal quantity
+      - pivot quantity
+    introduced_in: I2-02
