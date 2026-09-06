@@ -6,6 +6,10 @@ prerequisites:
   - F0-00F
 forward_references:
   - linear.algebraic-dual-space
+  - linear.dual-basis
+  - linear.annihilator
+  - linear.dual-map
+  - measure.lp-space
 
 concepts:
   - id: linear.complementary-subspace
