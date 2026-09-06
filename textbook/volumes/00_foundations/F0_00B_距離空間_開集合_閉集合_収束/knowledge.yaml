@@ -9,10 +9,6 @@ concepts:
     name: 距離空間
     kind: definition
     aliases: [距離空間, 距離・距離空間]
-    source_anchor: def-f0-00b-01
-    inference_aliases:
-      - literal: 距離関数は連続なので
-      - literal: 距離関数の連続性から
     requires:
       - set.set
 
@@ -77,10 +73,6 @@ concepts:
     name: 距離空間における閉集合の点列特徴付け
     kind: theorem
     aliases: [距離空間における閉集合の点列特徴付け, 閉集合の点列特徴付け]
-    source_anchor: thm-f0-00b-01
-    inference_aliases:
-      - regex: '閉なので.{0,80}(?:\\in|∈)'
-      - regex: '閉集合なので.{0,80}(?:\\in|∈)'
     requires:
       - topology.closed-set
       - topology.sequence-convergence
