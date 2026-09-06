@@ -30,7 +30,7 @@ theorems:
   - { id: TOP1-THM-05, name: 積位相の普遍性 }
   - { id: TOP1-THM-06, name: final topology は位相であり、最細である }
   - { id: TOP1-THM-07, name: 商写像の普遍性 }
-  - { id: TOP1-PROP-02, name: 開な飽和集合の像は商空間で開 }
+  - { id: TOP1-PROP-02, name: 開な飽和集合の像は商位相で開 }
 canonical_examples: [実数直線の開区間基底, 半直線部分基底, 部分空間位相, 積位相の開長方形, 0と1を同一視する商空間]
 problem_patterns: [TOPOLOGY-BASIS-1, INITIAL-TOPOLOGY-1, PRODUCT-TOPOLOGY-1, FINAL-TOPOLOGY-1, QUOTIENT-TOPOLOGY-1, SATURATED-SET-1]
 past_exam_alignment: []

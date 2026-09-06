@@ -2,18 +2,18 @@
 
 <!-- definition-example-audit: strict -->
 
-[F0-00B1](../F0_00B1_位相空間_近傍_部分空間_収束/index.md) では、位相を「開集合族」として定義し、近傍・部分空間・収束・連続写像まで導入しました。
+[F0-00B1](../F0_00B1_位相空間_近傍_部分空間_収束/index.md) では、位相を「開集合族」として定義し、近傍・部分空間・収束・位相空間での連続性まで導入しました。
 
 この章では一段進んで、**開集合を一つずつ列挙する代わりに、少数の集合や写像から位相全体を生成する方法**を扱います。中心になる問いは次の二つです。
 
 1. 「この集合族を開にしたい」とき、必要最小限の位相はどう作るか。
 2. 「この写像を連続にしたい」とき、定義域・値域にどの位相を入れればよいか。
 
-この二問から、基底・部分基底、initial topology、積位相、final topology、商位相が一つの流れで出てきます。
+この二問から、位相を生成する集合族、initial topology、積位相、final topology、商位相が一つの流れで出てきます。
 
 ---
 
-## 1. 基底：開集合を局所的な部品から作る
+## 1. 開集合を局所的な部品から作る
 
 <a id="def-top1-basis"></a>
 <!-- formal-statement-start -->
@@ -31,6 +31,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-basis -->
+**定義の確認**
 ### 1.1 定義の確認：開区間は $\mathbb R$ の基底
 
 通常の $\mathbb R$ で
@@ -151,6 +152,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-subbasis -->
+**定義の確認**
 ### 2.1 定義の確認：半直線から通常位相を作る
 
 $\mathbb R$ 上で
@@ -232,7 +234,9 @@ $$
 =\bigcap_{\sigma\in\mathfrak T}\sigma.
 $$
 
-実際、右辺は $\mathcal S$ を含む全ての位相に含まれる集合だけを残すので、上の最小性と一致します。共通部分が位相であることも、各位相公理を成分ごとに確認すれば分かります。
+まず $\rho=\bigcap_{\sigma\in\mathfrak T}\sigma$ と置きます。全ての $\sigma\in\mathfrak T$ が位相なので $\varnothing,X$ は各 $\sigma$ に属し、従って $\varnothing,X\in\rho$ です。さらに $U_\lambda\in\rho$ なら全ての $\sigma$ に $U_\lambda\in\sigma$ なので、各 $\sigma$ の任意和閉性から $\bigcup_\lambda U_\lambda\in\sigma$、従って $\bigcup_\lambda U_\lambda\in\rho$ です。有限交差も同様に、$U_1,\dots,U_m\in\rho$ なら各 $\sigma$ で $U_1\cap\cdots\cap U_m$ が開だから、その交差は $\rho$ に属します。よって $\rho$ は位相です。
+
+また各 $S\in\mathcal S$ は全ての $\sigma\in\mathfrak T$ に属するので $\mathcal S\subseteq\rho$ です。したがって生成位相の最小性から $\tau(\mathcal S)\subseteq\rho$。逆に $\tau(\mathcal S)$ 自身が $\mathfrak T$ の一員なので、共通部分の定義から $\rho\subseteq\tau(\mathcal S)$。従って両者は等しいです。
 
 ---
 
@@ -260,6 +264,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-initial-topology -->
+**定義の確認**
 ### 3.1 定義の確認：一つの実数値関数から位相を入れる
 
 集合 $X$ と写像 $f:X\to\mathbb R$ を考えます。例えば
@@ -324,10 +329,10 @@ $$
 
 **3. 普遍的な連続性判定。**  まず $g$ が連続とします。$U\subseteq Y_i$ を開集合とすると、1より $f_i^{-1}(U)$ は $X$ で開です。従って
 
-$
+$$
 (f_i\circ g)^{-1}(U)
 =g^{-1}(f_i^{-1}(U))
-$
+$$
 
 は $Z$ で開です。よって各 $f_i\circ g$ は連続です。
 
@@ -471,6 +476,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-product-topology -->
+**定義の確認**
 ### 5.1 定義の確認：$\mathbb R^2$ の長方形
 
 $\mathbb R^2=\mathbb R\times\mathbb R$ では
@@ -617,6 +623,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-final-topology -->
+**定義の確認**
 ### 6.1 定義の確認：一つの全射で値域の開集合を決める
 
 全射 $q:X\to Y$ があるとき、$U\subseteq Y$ を開と宣言するかどうかを
@@ -699,16 +706,16 @@ $$
 
 **3. 普遍的な連続性判定。**  まず $h$ が連続とします。$V\subseteq Z$ を開集合とすると $h^{-1}(V)$ は $Y$ で開です。final topology の定義から各 $i$ について
 
-$
+$$
 q_i^{-1}(h^{-1}(V))
-$
+$$
 
 は $X_i$ で開です。一方
 
-$
+$$
 (h\circ q_i)^{-1}(V)
 =q_i^{-1}(h^{-1}(V)),
-$
+$$
 
 なので各 $h\circ q_i$ は連続です。
 
@@ -765,7 +772,7 @@ $$
 X/{\sim}
 $$
 
-とします。標準射影を
+とします。自然な全射を
 
 $$
 q:X\to X/{\sim},
@@ -790,11 +797,12 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-quotient-topology -->
+**定義の確認**
 ### 7.1 定義の確認：区間の両端を貼る
 
 $X=[0,1]$ で $0\sim1$ とし、それ以外の点は自分自身とのみ同値とします。商集合 $Y=X/{\sim}$ は、直感的には両端を貼って円を作ったものです。
 
-商空間の集合 $U\subseteq Y$ が貼り合わせ点 $q(0)=q(1)$ を含むなら、その逆像 $q^{-1}(U)$ は0と1を両方含みます。従って貼り合わせ点の小さな開近傍は、$[0,1]$ 側では0付近と1付近の **二つの端** を同時に含む形になります。
+商位相空間の集合 $U\subseteq Y$ が貼り合わせ点 $q(0)=q(1)$ を含むなら、その逆像 $q^{-1}(U)$ は0と1を両方含みます。従って貼り合わせ点の小さな開近傍は、$[0,1]$ 側では0付近と1付近の **二つの端** を同時に含む形になります。
 <!-- definition-example-end -->
 
 <a id="thm-top1-quotient-universal"></a>
@@ -844,9 +852,10 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-top1-saturated -->
+**定義の確認**
 ### 8.1 定義の確認
 
-$\mathbb R$ で $0\sim1$ とし、それ以外は自分自身とのみ同値とします。$q:\mathbb R\to\mathbb R/{\sim}$ を標準射影とします。
+$\mathbb R$ で $0\sim1$ とし、それ以外は自分自身とのみ同値とします。$q:\mathbb R\to\mathbb R/{\sim}$ を自然な全射とします。
 
 集合
 
@@ -868,12 +877,16 @@ $$
 A'=(-1/2,1/2)\cup(1-\varepsilon,1+\varepsilon)
 $$
 
-のように0と1を同時に十分含む集合でも、他の同値類は単点なので、適切な $\varepsilon$ のもとで飽和性を直接確認できます。
+とします。任意の $\varepsilon>0$ について $A'$ は0と1をともに含み、その他の同値類は単点なので
+$$
+q^{-1}(q(A'))=A'.
+$$
+従って $A'$ は飽和しています。
 <!-- definition-example-end -->
 
 <a id="prop-top1-saturated-open-image"></a>
 <!-- formal-statement-start -->
-> **命題（開な飽和集合の像は商空間で開）**  
+> **命題（開な飽和集合の像は商位相で開）**  
 > $q:X\to Y$ を商写像とする。$A\subseteq X$ が開かつ飽和なら $q(A)$ は $Y$ で開である。
 <!-- formal-statement-end -->
 
@@ -892,7 +905,7 @@ $$
 q^{-1}(q(A))=A.
 $$
 
-仮定により $A$ は開なので、$q^{-1}(q(A))$ は開です。従って $q(A)$ は商空間で開です。$\square$
+仮定により $A$ は開なので、$q^{-1}(q(A))$ は開です。従って $q(A)$ は商位相空間で開です。$\square$
 <!-- proof-end -->
 
 ### 8.2 商写像は開写像とは限らない
@@ -959,7 +972,7 @@ $$
 A=(-1/2,1/2).
 $$
 
-像 $q(A)$ は商空間の部分集合ですが、その開性を調べるには像を眺めるのでなく逆像へ戻します。
+像 $q(A)$ は商位相空間の部分集合ですが、その開性を調べるには像を眺めるのでなく逆像へ戻します。
 
 $$
 q^{-1}(q(A))=A\cup\{1\}.
@@ -981,7 +994,7 @@ $$
 
 $B$ は開なので $q(B)$ は開です。
 
-**例3：商空間の集合から始める。**
+**例3：商位相空間の集合から始める。**
 
 $U=q(B)$ と置けば
 
@@ -1013,7 +1026,7 @@ $$
 \tau_1\subseteq\tau_2
 $$
 
-なら、$\tau_1$ の方が **粗い**、$\tau_2$ の方が **細かい** といいます。
+という包含では、$\tau_1$ を **粗い側**、$\tau_2$ を **細かい側** と読みます。ここで比較しているのは開集合族の包含そのものです。
 
 ### initial topology
 
@@ -1234,7 +1247,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-top1-b03"></a>
-#### TOP1-B03 商空間上の写像を降ろす
+#### TOP1-B03 商位相空間上の写像を降ろす
 - Level: B
 
 $q:X\to Y$ を商写像とし、連続写像 $F:X\to Z$ が各ファイバー上で定数、すなわち
@@ -1328,4 +1341,4 @@ $$
 
 ## 13. 次に進む
 
-この章では「位相を作る装置」を整備しました。次は、これらの構成を使って **商空間・貼り合わせ・同値関係による具体的な位相空間の構成** を扱い、円・円柱・トーラスなどの標準例を、図の直感だけでなく商写像の普遍性で追います。
+この章では「位相を作る装置」を整備しました。次は、これらの構成を使って **商位相空間・貼り合わせ・同値関係による具体的な位相空間の構成** を扱い、円・円柱・トーラスなどの標準例を、図の直感だけでなく商写像の普遍性で追います。
