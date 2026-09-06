@@ -38,6 +38,8 @@ concepts:
   - id: measure.young-inequality
     name: Youngの不等式
     kind: lemma
+    introduction: inline
+    introduction_aliases: [なぜYoungの不等式を先に置くのか]
     aliases: [Youngの不等式]
     requires: []
 
