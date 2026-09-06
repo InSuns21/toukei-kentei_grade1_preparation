@@ -6,6 +6,10 @@ prerequisites:
   - F0-00P5
   - F0-00P6A
 
+forward_references:
+  - stat.qmd
+  - stat.lan
+
 concepts:
   - id: stat.slutsky-theorem
     name: Slutskyの定理
@@ -33,7 +37,7 @@ concepts:
     name: MLE一致性
     kind: term
     aliases: [MLE consistency, 最尤推定量一致性]
-    introduction_aliases: [一致性も別に必要]
+    introduction_aliases: [argmaxを押し込みます]
     requires:
       - stat.mle
       - stat.uniform-lln
@@ -59,6 +63,7 @@ concepts:
   - id: stat.mle-asymptotic-normality
     name: MLEの漸近正規性
     kind: term
+    introduction_aliases: [最尤推定量の漸近正規性は大数の法則と中心極限定理の合体]
     aliases: [最尤推定量の漸近正規性]
     requires:
       - stat.mle-consistency

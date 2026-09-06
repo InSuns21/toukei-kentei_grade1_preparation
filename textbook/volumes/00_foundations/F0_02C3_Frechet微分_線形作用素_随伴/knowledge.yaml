@@ -7,6 +7,7 @@ prerequisites:
 forward_references:
   - functional.frechet-chain-rule
   - functional.adjoint-operator
+  - functional.hilbert-adjoint
 
 concepts:
   - id: functional.directional-derivative
