@@ -20,9 +20,11 @@
 <!-- formal-statement-start -->
 > **定理（実数の上限性質 / least-upper-bound property）**  
 > 空でない集合 $A\subset\mathbb R$ が上に有界なら、上限
-> $$
-> \sup A
-> $$
+
+$$
+\sup A
+$$
+
 > が実数として存在する。
 <!-- formal-statement-end -->
 
@@ -51,9 +53,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Archimedes性）**  
 > 任意の実数 $x\in\mathbb R$ に対し、
-> $$
-> n>x
-> $$
+
+$$
+n>x
+$$
+
 > を満たす自然数 $n\in\mathbb N$ が存在する。
 <!-- formal-statement-end -->
 
@@ -98,9 +102,11 @@ $$
 <!-- formal-statement-start -->
 > **系（逆数を任意に小さくできる）**  
 > 任意の $\varepsilon>0$ に対し、ある自然数 $N$ が存在して
-> $$
-> \frac1N<\varepsilon
-> $$
+
+$$
+\frac1N<\varepsilon
+$$
+
 > となる。
 <!-- formal-statement-end -->
 
