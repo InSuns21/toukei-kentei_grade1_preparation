@@ -1,19 +1,71 @@
 chapter: F0-02B
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-00G
   - F0-00E
+  - F0-00C
+  - F0-00D1
   - F0-02
 
+forward_references:
+  - convex.polar-cone
+  - optimization.constraint-qualification
+  - svm.maximum-margin-convex-hull
+
 concepts:
+  - id: convex.convex-combination-recap-f0-02b
+    name: 凸結合の再掲
+    kind: definition
+    aliases: [凸結合・凸集合・凸包]
+    requires:
+      - convex.convex-combination
+
+  - id: convex.convex-set-recap-f0-02b
+    name: 凸集合の再掲
+    kind: definition
+    aliases: [凸結合・凸集合・凸包]
+    requires:
+      - convex.convex-set
+      - convex.convex-combination-recap-f0-02b
+
+  - id: convex.convex-hull-recap-f0-02b
+    name: 凸包の再掲
+    kind: definition
+    aliases: [凸結合・凸集合・凸包]
+    requires:
+      - convex.convex-hull
+      - convex.convex-set-recap-f0-02b
+
+  - id: convex.cone
+    name: 錐
+    kind: definition
+    aliases: [錐, 錐・凸錐・有限生成凸錐]
+    requires:
+      - linear.vector-space
+
   - id: convex.convex-cone
     name: 凸錐
     kind: definition
-    introduction: inline
-    aliases: [凸錐]
+    aliases: [凸錐, 錐・凸錐・有限生成凸錐]
     requires:
+      - convex.cone
       - convex.convex-set
+
+  - id: convex.finitely-generated-cone
+    name: 有限生成凸錐
+    kind: definition
+    aliases: [有限生成凸錐, 錐・凸錐・有限生成凸錐]
+    requires:
+      - convex.convex-cone
+
+  - id: convex.hyperplane
+    name: 超平面
+    kind: definition
+    aliases: [超平面]
+    requires:
+      - linear.inner-product-space
 
   - id: convex.separating-hyperplane
     name: 分離超平面
@@ -21,16 +73,8 @@ concepts:
     introduction: inline
     aliases: [分離超平面]
     requires:
+      - convex.hyperplane
       - convex.convex-set
-      - linear.inner-product-space
-
-  - id: convex.finitely-generated-cone
-    name: 有限生成凸錐
-    kind: definition
-    introduction: inline
-    aliases: [有限生成凸錐]
-    requires:
-      - convex.convex-cone
 
   - id: optimization.nearest-point-projection
     name: 最近点射影
@@ -43,8 +87,7 @@ concepts:
 
   - id: convex.farkas-lemma
     name: Farkasの補題
-    kind: theorem
-    introduction: inline
+    kind: lemma
     aliases: [Farkasの補題]
     requires:
       - convex.separating-hyperplane

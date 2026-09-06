@@ -1,35 +1,67 @@
 chapter: F0-02A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02
   - F0-02B
+  - F0-02C4A
+
+forward_references:
+  - optimization.constraint-qualification
+  - optimization.licq
+  - optimization.mfcq
+  - svm.maximum-margin-convex-hull
 
 concepts:
   - id: optimization.tangent-cone
-    name: 接錐
-    kind: definition
+    name: KKT導出での接錐の再掲
+    kind: term
     introduction: inline
-    aliases: [接錐]
+    introduction_aliases: [接錐, tangent cone]
+    aliases: [KKT導出での接錐の再掲]
     requires:
-      - convex.convex-set
+      - convex.bouligand-tangent-cone
 
   - id: optimization.polar-cone
-    name: polar cone
-    kind: definition
+    name: KKT導出でのpolar coneの再掲
+    kind: term
     introduction: inline
-    aliases: [polar cone]
+    introduction_aliases: [polar cone]
+    aliases: [KKT導出でのpolar coneの再掲]
     requires:
+      - convex.polar-cone
       - optimization.tangent-cone
-      - linear.inner-product
+
+  - id: optimization.active-set
+    name: active set
+    kind: definition
+    aliases: [active set]
+    requires:
+      - optimization.active-constraint
+
+  - id: optimization.linearized-cone
+    name: 線形化錐
+    kind: definition
+    aliases: [線形化錐]
+    requires:
+      - optimization.active-set
+
+  - id: optimization.farkas-alternative
+    name: Farkas型のalternative
+    kind: lemma
+    aliases: [Farkas型のalternative, Farkasの補題：必要な形]
+    requires:
+      - convex.farkas-lemma
+      - optimization.linearized-cone
 
   - id: optimization.kkt-multiplier-existence
     name: KKT乗数表示
     kind: theorem
     introduction: inline
     introduction_aliases: [KKTの停留条件]
-    aliases: [KKT乗数]
+    aliases: [KKT乗数表示]
     requires:
       - optimization.kkt-conditions
-      - convex.farkas-lemma
-      - optimization.polar-cone
+      - optimization.farkas-alternative
+      - optimization.linearized-cone
+      - convex.polar-cone

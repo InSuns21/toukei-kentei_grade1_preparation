@@ -1,57 +1,65 @@
 chapter: F0-02
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-00G
 
-concepts:
-  - id: optimization.primal-problem
-    name: 主問題
-    kind: definition
-    introduction: inline
-    aliases: [主問題]
-    requires:
-      - convex.convex-optimization
+forward_references:
+  - optimization.tangent-cone
+  - optimization.polar-cone
+  - optimization.kkt-multiplier-existence
+  - convex.polar-cone
+  - convex.cone
+  - convex.hyperplane
+  - convex.separating-hyperplane
+  - convex.farkas-lemma
+  - svm.maximum-margin-convex-hull
 
+concepts:
   - id: optimization.lagrangian
     name: Lagrangian
-    kind: term
+    kind: definition
     aliases: [Lagrangian]
     requires:
-      - optimization.primal-problem
+      - convex.convex-optimization
 
   - id: optimization.dual-function
     name: 双対関数
     kind: definition
-    introduction: inline
     aliases: [双対関数]
     requires:
       - optimization.lagrangian
 
+  - id: optimization.primal-problem
+    name: 主問題
+    kind: definition
+    aliases: [主問題, 主問題・双対問題]
+    requires:
+      - convex.convex-optimization
+
   - id: optimization.dual-problem
     name: 双対問題
     kind: definition
-    introduction: inline
-    aliases: [双対問題]
+    aliases: [双対問題, 主問題・双対問題]
     requires:
       - optimization.dual-function
-
-  - id: optimization.active-constraint
-    name: active制約
-    kind: definition
-    introduction: inline
-    aliases: [active制約, activeな制約]
-    requires:
       - optimization.primal-problem
 
   - id: optimization.weak-duality
     name: 弱双対性
-    kind: theorem
-    introduction: inline
-    aliases: [弱双対性]
+    kind: definition
+    aliases: [弱双対性, 弱双対性・強双対性]
     requires:
       - optimization.primal-problem
       - optimization.dual-problem
+
+  - id: optimization.strong-duality
+    name: 強双対性
+    kind: definition
+    aliases: [強双対性, 弱双対性・強双対性]
+    requires:
+      - optimization.weak-duality
 
   - id: optimization.slater-condition
     name: Slater条件
@@ -60,14 +68,16 @@ concepts:
     aliases: [Slater条件]
     requires:
       - convex.convex-optimization
+      - optimization.strong-duality
 
   - id: optimization.strong-duality-slater
     name: Slater条件下の強双対性
     kind: theorem
     introduction: inline
-    aliases: [強双対性]
+    introduction_aliases: [Slater条件]
+    aliases: [Slater条件下の強双対性]
     requires:
-      - optimization.weak-duality
+      - optimization.strong-duality
       - optimization.slater-condition
 
   - id: optimization.kkt-conditions
@@ -77,5 +87,12 @@ concepts:
     aliases: [KKT条件]
     requires:
       - optimization.lagrangian
-      - optimization.active-constraint
       - optimization.strong-duality-slater
+
+  - id: optimization.active-constraint
+    name: activeな制約
+    kind: definition
+    aliases: [activeな制約, active制約]
+    requires:
+      - optimization.primal-problem
+      - optimization.kkt-conditions
