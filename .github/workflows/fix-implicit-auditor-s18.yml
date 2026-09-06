@@ -1,0 +1,43 @@
+name: Fix implicit auditor S18
+
+on:
+  push:
+    branches:
+      - audit/dream-theater-implicit-dependencies-s18
+    paths:
+      - '.github/workflows/fix-implicit-auditor-s18.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/dream-theater-implicit-dependencies-s18
+          fetch-depth: 0
+
+      - name: Fix page id parsing
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/audit-dream-theater-implicit-dependencies.mjs')
+          text = path.read_text(encoding='utf-8')
+          old = """function inferPageId(relPath) {\n  return path.basename(path.dirname(relPath)).split('_', 1)[0];\n}\n"""
+          new = """function inferPageId(relPath) {\n  const dir = path.basename(path.dirname(relPath));\n  const parts = dir.split('_');\n  if (parts.length >= 2 && parts[0] === 'F0') return `F0-${parts[1]}`;\n  return dir;\n}\n"""
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one inferPageId block, found {text.count(old)}')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Commit fix
+        run: |
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/audit-dream-theater-implicit-dependencies.mjs
+          git commit -m 'Fix DREAM page id parsing in implicit audit'
+          git push
