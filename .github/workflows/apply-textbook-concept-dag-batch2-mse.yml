@@ -1,0 +1,42 @@
+name: Apply textbook concept DAG batch2 MSE wording fix
+
+on:
+  push:
+    branches:
+      - audit/textbook-concept-dag-batch2
+    paths:
+      - .github/workflows/apply-textbook-concept-dag-batch2-mse.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/textbook-concept-dag-batch2
+          fetch-depth: 0
+      - name: Fix Japanese terminology
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md')
+          text = p.read_text(encoding='utf-8')
+          old = '後続の I1-02 では、不偏性・MSE・効率性と並べて推定量の評価基準として改めて扱います。'
+          new = '後続の I1-02 では、不偏性・平均二乗誤差・効率性と並べて推定量の評価基準として改めて扱います。'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected exactly one match, got {text.count(old)}')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --check
+          git commit -m 'Use Japanese term for mean squared error'
+          git push origin HEAD:audit/textbook-concept-dag-batch2
