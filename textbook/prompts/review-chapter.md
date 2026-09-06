@@ -6,15 +6,17 @@
 
 査読開始時に担当IDと実行日時を `review/validation.md` に記録する。最初に `chapter.yaml` の `prerequisites`、`textbook/dependency-graph.md`、各前提章を確認し、**未修用語と既習用語を区別してから**指摘を出す。
 
+対象 `index.md` が `textbook/dream-theater-index.json` に掲載される DREAM THEATER ページなら、`textbook/DREAM_THEATER_EXERCISE_POLICY.md` も確認する。DREAM THEATER では本番答案・採点基準を欠落扱いせず、詳細解答の数学的・教育的完全性を査読する。
+
 ## A. 数学的完全性監査 — 独立数理査読の担当
 
 - 全定義、命題、例題、問題、解答を独立に再計算する。
 - 仮定、台、母数範囲、期待値の存在、微分・積分交換、行列次元、可逆性、正定値性など、式が成立する条件を確認する。
-- 各非自明な数式変形について、採点対象または理解上必要な「変形前・操作と根拠・変形後」が再現可能か確認する。
+- 各非自明な数式変形について、理解上必要な「変形前・操作と根拠・変形後」が再現可能か確認する。通常の試験向け章では採点対象の変形も同じ観点で確認する。
 - 論理展開では量化順序、必要・十分、存在・一意性、場合分け、境界値を確認する。
 - 一致性・漸近正規性・Delta法・尤度比理論では仮定、正規化、極限分布を確認する。
 - 検定では仮説、帰無分布、有意水準、棄却域、p値、検出力を混同していないか確認する。
-- 全問題ID、詳細解答、本番答案、採点基準の結論を照合する。
+- 通常の試験向け章では全問題ID、詳細解答、本番答案、採点基準の結論を照合する。DREAM THEATER では問題IDと詳細解答を照合し、本番答案・採点基準は要求しない。
 
 ### 数学的完全性監査の禁止事項
 
@@ -35,10 +37,11 @@
 
 - `official_scope` の各語が実質的に扱われているか確認する。
 - 未修前提への依存、循環参照、過去問や参考資料のコピーがないか確認する。
-- `past_exam_alignment` を `references/past-exam-index.yaml` と照合し、小問間の技能連鎖まで確認する。
-- Level C/Dと30分ドリルが単発公式問題に退化せず、複合技能、誘導、部分点救済を持つか確認する。
-- Level Cを20〜30分で解く想定で、計算量と本番答案への圧縮可能性を評価する。
-- KaTeX strict と `npm run validate` の結果を確認する。
+- 通常の試験向け章では `past_exam_alignment` を `references/past-exam-index.yaml` と照合し、小問間の技能連鎖まで確認する。
+- 通常の試験向け章では Level C/Dと30分ドリルが単発公式問題に退化せず、複合技能、誘導、部分点救済を持つか確認する。
+- 通常の試験向け章では Level Cを20〜30分で解く想定で、計算量と本番答案への圧縮可能性を評価する。
+- DREAM THEATER では本番答案への圧縮・部分点設計を評価項目にせず、変更章が原則 `Level A >= 4 / Level B >= 3 / Level C >= 1` を満たすか確認する。題数を水増しするより例外が適切なら、`chapter.yaml` の `dream_theater_exercise_count_exception` に教育上の理由があることを確認する。
+- KaTeX strict と `npm run validate` の結果を確認する。DREAM THEATER の変更章では `npm run validate:dream-theater-exercise-counts` の結果も確認する。
 
 ## 監査間で結論が衝突したとき
 
