@@ -32,6 +32,27 @@ concepts:
     requires:
       - linear.operator-polynomial
 
+  - id: linear.adjugate-identity
+    name: 余因子行列の恒等式
+    kind: lemma
+    aliases: [余因子行列の恒等式]
+    requires:
+      - linear.abstract-determinant
+
+  - id: linear.polynomial-bezout-identity
+    name: 多項式のBézout等式
+    kind: lemma
+    aliases: [多項式のBézout等式]
+    requires:
+      - linear.operator-polynomial
+
+  - id: linear.coprime-product-divisibility
+    name: 互いに素な因子の積による整除
+    kind: lemma
+    aliases: [互いに素な因子の積による整除]
+    requires:
+      - linear.polynomial-bezout-identity
+
   - id: linear.cayley-hamilton-theorem
     name: Cayley-Hamilton定理
     kind: theorem
@@ -39,6 +60,7 @@ concepts:
     requires:
       - linear.characteristic-polynomial
       - linear.minimal-polynomial
+      - linear.adjugate-identity
 
   - id: linear.diagonalizable-minimal-polynomial-criterion
     name: 最小多項式による対角化判定
@@ -65,6 +87,8 @@ concepts:
       - linear.generalized-eigenspace
       - linear.minimal-polynomial
       - linear.sum-direct-sum
+      - linear.polynomial-bezout-identity
+      - linear.coprime-product-divisibility
 
   - id: linear.jordan-chain
     name: Jordan鎖
