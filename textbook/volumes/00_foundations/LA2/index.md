@@ -293,7 +293,7 @@ $\pi:V\to V/W$ の核を求めよ。
 $T:\mathbb R^3\to\mathbb R^2$, $T(x,y,z)=(x+y,y+z)$ とする。$\ker T$ を求め、$\mathbb R^3/\ker T\cong\mathbb R^2$ を確認せよ。
 
 <!-- solution-start -->
-**解答**：$x+y=0$, $y+z=0$ より $\ker T=\operatorname{span}((-1,1,-1)^T)$。行列のrankは2なので像は $\mathbb R^2$。第一同型定理より $\mathbb R^3/\ker T\cong\mathbb R^2$。次元も $3-1=2$ で一致する。
+**解答**：$x+y=0$, $y+z=0$ より $\ker T=\operatorname{span}((-1,1,-1)^T)$。行列のrankは2なので像は $\mathbb R^2$。[第一同型定理](#thm-la2-first-isomorphism)より $\mathbb R^3/\ker T\cong\mathbb R^2$。次元も $3-1=2$ で一致する。
 <!-- solution-end -->
 
 <a id="ex-la2-b02"></a>
