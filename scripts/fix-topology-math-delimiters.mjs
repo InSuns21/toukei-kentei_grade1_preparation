@@ -52,13 +52,14 @@ top1 = top1.replaceAll('標準射影', '自然な全射');
 top1 = top1.replaceAll('商空間', '商位相空間');
 top1 = replaceRequired(
   top1,
-  'のように0と1を同時に十分含む集合でも、他の同値類は単点なので、適切な $\\varepsilon$ のもとで飽和性を直接確認できます。',
-  'とします。任意の $\\varepsilon>0$ について $A\' $ は0と1をともに含み、その他の同値類は単点なので\\n$$\\nq^{-1}(q(A\'))=A\'.\\n$$\\n従って $A\'$ は飽和しています。',
+  `のように0と1を同時に十分含む集合でも、他の同値類は単点なので、適切な $\\varepsilon$ のもとで飽和性を直接確認できます。`,
+  `とします。任意の $\\varepsilon>0$ について $A'$ は0と1をともに含み、その他の同値類は単点なので
+$$
+q^{-1}(q(A'))=A'.
+$$
+従って $A'$ は飽和しています。`,
   'TOP1 saturated epsilon wording'
 );
-// Correct the deliberately escaped spacing introduced above.
-top1 = top1.replaceAll("$A' $", "$A'$");
-top1 = top1.replaceAll('\\n', '\n');
 
 const top1Before = (top1.match(/^\$$/gm) ?? []).length;
 top1 = top1.replace(/^\$$/gm, '$$$$');
@@ -70,9 +71,7 @@ let la4 = fs.readFileSync(la4Path, 'utf8');
 const la4Before = (la4.match(/^\$$/gm) ?? []).length;
 la4 = la4.replace(/^\$$/gm, '$$$$');
 
-// The knowledge DAG correctly records that these theorems depend on the helper
-// lemmas. Put each lemma before the theorem declaration as well as before its
-// proof, so the reader encounters dependencies in the same order as the DAG.
+// The knowledge DAG records these dependencies, so the prose order should too.
 {
   const moved = extractFormal(la4, '<a id="thm-la4-cayley-hamilton"></a>');
   la4 = insertBeforeNextProofAfterLemma(moved.source, '<a id="lem-la4-adjugate-identity"></a>', moved.block);
