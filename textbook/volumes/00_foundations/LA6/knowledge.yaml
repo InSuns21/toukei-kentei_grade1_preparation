@@ -1,0 +1,61 @@
+chapter: LA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA5
+  - F0-00F1
+  - F0-00F2
+forward_references:
+  - functional.norm
+  - functional.operator-norm
+
+concepts:
+  - id: linear.hermitian-quadratic-form
+    name: Hermitian二次形式
+    kind: definition
+    aliases: [Hermitian二次形式, Hermitian quadratic form]
+    requires:
+      - linear.hermitian-operator
+      - linear.complex-inner-product
+
+  - id: linear.congruence
+    name: congruence
+    kind: definition
+    aliases: [congruence, 合同変換]
+    requires:
+      - linear.hermitian-quadratic-form
+      - linear.representation-matrix
+
+  - id: linear.sylvester-inertia-law
+    name: Sylvesterの慣性法則
+    kind: theorem
+    aliases: [Sylvesterの慣性法則, law of inertia]
+    requires:
+      - linear.congruence
+      - linear.complex-normal-spectral-theorem
+
+  - id: linear.psd-square-root
+    name: Hermitian PSD平方根定理
+    kind: theorem
+    aliases: [Hermitian PSD平方根定理, PSD平方根]
+    requires:
+      - linear.hermitian-operator
+      - linear.complex-normal-spectral-theorem
+      - linear.positive-semidefinite-matrix
+
+  - id: linear.polar-decomposition
+    name: polar decomposition
+    kind: theorem
+    aliases: [polar decomposition, 極分解]
+    requires:
+      - linear.psd-square-root
+      - linear.unitary-operator
+
+  - id: linear.complex-singular-value-decomposition
+    name: 複素特異値分解
+    kind: theorem
+    aliases: [複素特異値分解, complex SVD]
+    requires:
+      - linear.psd-square-root
+      - linear.complex-normal-spectral-theorem
+      - linear.singular-value-decomposition

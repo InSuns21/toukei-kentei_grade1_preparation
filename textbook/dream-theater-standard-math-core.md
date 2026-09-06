@@ -17,7 +17,7 @@
 
 各章は `core` / `bridge` / `advanced-standard` を区別し、標準コアに含めることと統計検定1級の通常教材の必修前提にすることは分けます。
 
-**Jordan標準形は標準コアの必須項目から明示的に除外**します。ただし、Jordan標準形を使わなくても扱える最小多項式、Cayley–Hamilton、三角化、一般化固有空間、一次分解などは扱います。
+**Jordan標準形は LA4 の構造論の到達点として標準コアに含めます。** ただし、統計検定1級の通常教材の必修前提にはせず、最小多項式・Cayley–Hamilton・一般化固有空間から「対角化不能な作用素がどう壊れるか」を閉じるための数学科標準事項として扱います。
 
 ---
 
@@ -28,7 +28,7 @@ flowchart TD
   A["集合・写像・実数の完備性<br/>既存 A/A1/A1B"]
 
   A --> RA1["実解析 I<br/>数列・級数・limsup/liminf<br/>RA1"]
-  A --> LA1["線形代数 I<br/>R/C・線形空間<br/>既存 E + LA1"]
+  A --> LA1["線形代数 I<br/>R/C・線形空間<br/>既存 E/F + LA1"]
   A --> TOP0["位相 I<br/>距離・位相・Hausdorff<br/>既存 B/B1"]
 
   RA1 --> RA2["実解析 II<br/>極限・連続・一様連続<br/>RA2"]
@@ -44,10 +44,11 @@ flowchart TD
   TOP3 --> TOP5["局所コンパクト・Tychonoff・距離化<br/>TOP5"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
 
-  LA1 --> LA2["直和・商・双対・抽象行列式<br/>LA2/LA3"]
-  LA2 --> LA4["不変部分空間・最小多項式・Cayley-Hamilton<br/>LA4"]
-  LA4 --> LA5["複素内積・Hermitian/unitary/normal<br/>LA5"]
-  LA5 --> LA6["スペクトル定理・SVD・二次形式<br/>既存 F1/F2 + LA6"]
+  LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
+  LA2 --> LA3["代数的双対・抽象行列式<br/>LA3"]
+  LA3 --> LA4["最小多項式・Cayley-Hamilton・Jordan構造<br/>LA4"]
+  LA4 --> LA5["複素内積・有限次元随伴・normal<br/>LA5"]
+  LA5 --> LA6["二次形式・polar decomposition・複素SVD<br/>既存 F1/F2 + LA6"]
 
   TOP0 --> MT0["測度 I<br/>Borel・測度・Caratheodory<br/>既存 D2/D3/D4"]
   MT0 --> MTI["測度 II<br/>Lebesgue積分・MCT/Fatou/DCT<br/>既存 D2A/D2B"]
@@ -190,9 +191,9 @@ flowchart TD
 
 ---
 
-# 4. 線形代数：Jordan標準形を除く数学科コア
+# 4. 線形代数：数学科標準コア
 
-現行 E/F/E1/E2/F1/F2 を土台とし、足りない構造論を追加します。
+現行 E/F/E1/E2/F1/F2 を基底・線形写像・実内積・実対称スペクトル定理・実SVDの正本として再利用し、LA系列では複素数体、商空間、代数的双対、一般作用素の構造、複素内積を補います。
 
 ## LA1 実・複素線形空間 `core`
 
@@ -206,33 +207,36 @@ flowchart TD
 - 商空間 `V/W`、商写像
 - 次元公式、線形写像の第一同型定理
 
-## LA3 双対空間・抽象行列式 `core`
+## LA3 代数的双対・抽象行列式 `core`
 
-- 代数的双対、双対基底、annihilator、dual map
+- 線形形式、代数的双対、双対基底、annihilator、dual map
 - 自然写像 `V -> V**` と有限次元
 - 行列式を交代多重線形写像として特徴付ける
+- 関数解析で使う「連続線形汎関数全体としての双対」とは概念名を分離する
 
-## LA4 不変部分空間・作用素多項式 `core`
+## LA4 作用素多項式・最小多項式・Jordan構造 `core`
 
-- 不変部分空間、特性多項式、最小多項式
+- 作用素多項式、特性多項式、最小多項式
 - Cayley–Hamilton
-- 三角化可能性、Schur三角化
-- 一般化固有空間、primary decomposition の考え方
-- **Jordan標準形そのものは必須化しない**
+- 最小多項式による対角化判定
+- 一般化固有空間とその直和分解
+- Jordan鎖・Jordanブロック・Jordan標準形
+- Jordan標準形は数学科標準コアとして扱うが、通常の統計検定1級ルートの必修前提にはしない
 
-## LA5 複素内積・随伴・normal operator `core`
+## LA5 複素内積・有限次元随伴・normal operator `core`
 
 - sesquilinear form、複素内積、conjugate transpose
-- adjoint、Hermitian/self-adjoint、unitary、normal
-- 複素スペクトル定理
+- **有限次元随伴**、Hermitian/self-adjoint、unitary、normal
+- Schurのユニタリ三角化と複素normal operatorのスペクトル定理
+- Banach/Hilbert空間での随伴作用素とは名称と依存を分離する
 
-## LA6 双線形形式・二次形式 `core`
+## LA6 スペクトル・二次形式・polar decomposition・SVD `core`
 
-- 双線形形式、対称双線形形式、二次形式、congruence
-- Sylvesterの慣性法則
-- 正定値・半正定値、Gram行列
-- 正作用素の平方根、polar decomposition
-- 既存F1/F2のスペクトル定理・PSD・SVDと統合
+- Hermitian二次形式、congruence、Sylvesterの慣性法則
+- Hermitian PSD作用素の一意なPSD平方根
+- polar decomposition
+- 既存F1/F2の実対称スペクトル定理・PSD・実SVDを正本として再利用
+- 複素特異値分解へ拡張
 
 `rational canonical form`、tensor/exterior algebra は `advanced-standard` 候補とし、主DAGの必須前提にはしません。
 
@@ -402,7 +406,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 | 実数の完備性 | A1/A1B | RA1から参照して解析定理へ使用 |
 | 距離・位相・収束 | B/B1/C/C1/D | RA/TOP系列から相互参照 |
 | 計算微積分 | F0-00 | RA3/RA4/RA6/RA7で理論を与える |
-| 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・双対・作用素多項式等を補う |
+| 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・作用素多項式・Jordan構造等を補う |
 | 測度・Lebesgue | D2–D5, D2A–E | MT系列が収束様式・RN・微分定理等を補う |
 | Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |
 
@@ -414,7 +418,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
-3. **LA1–LA6**：複素、商、双対、最小多項式、normal、二次形式。
+3. **LA1–LA6**：複素 → 商 → 代数的双対 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。
 4. **TOP1–TOP6**：基底 → 積/商 → 連結 → 可算性/分離 → compact/Baire。
 5. **MT1–MT5**：収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
@@ -436,7 +440,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 この標準コアを通ると、DREAM THEATER は次を狙います。
 
 - **実解析**：計算微積分だけでなく、Riemann積分・一様収束まで証明付きで一周。
-- **線形代数**：実/複素線形空間・商・双対・作用素の構造まで一周（Jordan標準形は必須外）。
+- **線形代数**：実/複素線形空間・商・代数的双対・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。Jordan標準形は数学科標準コアに含めるが、統計検定1級通常ルートの必修前提にはしない。
 - **位相**：積・商・連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成に加え、収束様式・signed measure・Radon–Nikodymまで一周。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。

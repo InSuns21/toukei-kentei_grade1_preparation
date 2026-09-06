@@ -1,0 +1,33 @@
+id: "LA4"
+title: "標準線形代数 IV：作用素多項式・最小多項式・Jordan構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3
+  - F0-00F
+  - F0-00F1
+official_scope: []
+learning_objectives:
+  - 線形自己写像に多項式を代入する p(T) を扱える
+  - 特性多項式と最小多項式の役割を区別できる
+  - Cayley-Hamilton定理から有限次元作用素の多項式関係を得られる
+  - 最小多項式から対角化可能性を判定できる
+  - 一般化固有空間・Jordan鎖・Jordan標準形を説明できる
+definitions:
+  - { id: LA4-DEF-01, name: 作用素多項式 }
+  - { id: LA4-DEF-02, name: 特性多項式 }
+  - { id: LA4-DEF-03, name: 最小多項式 }
+  - { id: LA4-DEF-04, name: 一般化固有空間 }
+  - { id: LA4-DEF-05, name: Jordan鎖 }
+  - { id: LA4-DEF-06, name: Jordanブロック }
+theorems:
+  - { id: LA4-THM-01, name: Cayley-Hamilton定理 }
+  - { id: LA4-THM-02, name: 最小多項式による対角化判定 }
+  - { id: LA4-THM-03, name: 一般化固有空間分解 }
+  - { id: LA4-THM-04, name: Jordan標準形定理 }
+canonical_examples: [2x2 Jordan block, 冪零作用素, 対角化不能行列, 重複固有値を持つ行列]
+problem_patterns: [LA4-MINPOLY-1, LA4-GENERALIZED-EIGEN-1, LA4-JORDAN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.5 }

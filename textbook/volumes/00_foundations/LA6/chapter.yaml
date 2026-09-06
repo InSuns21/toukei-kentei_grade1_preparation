@@ -1,0 +1,30 @@
+id: "LA6"
+title: "標準線形代数 VI：スペクトル・二次形式・polar decomposition・SVD"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA5
+  - F0-00F1
+  - F0-00F2
+official_scope: []
+learning_objectives:
+  - Hermitian二次形式をunitary対角化して符号構造を読める
+  - congruenceとsimilarityの違いを説明できる
+  - Sylvesterの慣性法則を理解し正負零の個数が座標に依らないことを説明できる
+  - Hermitian PSD作用素の一意なPSD平方根を構成できる
+  - polar decomposition A=UP をスペクトル定理から導ける
+  - 実SVDを複素行列へ拡張できる
+definitions:
+  - { id: LA6-DEF-01, name: Hermitian二次形式 }
+  - { id: LA6-DEF-02, name: congruence }
+theorems:
+  - { id: LA6-THM-01, name: Sylvesterの慣性法則 }
+  - { id: LA6-THM-02, name: Hermitian PSD平方根定理 }
+  - { id: LA6-THM-03, name: polar decomposition }
+  - { id: LA6-THM-04, name: 複素特異値分解 }
+canonical_examples: [Hermitian二次形式の対角化, 不定値形式, 行列の絶対値, 回転と伸縮のpolar分解]
+problem_patterns: [LA6-INERTIA-1, LA6-POLAR-1, LA6-COMPLEX-SVD-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }

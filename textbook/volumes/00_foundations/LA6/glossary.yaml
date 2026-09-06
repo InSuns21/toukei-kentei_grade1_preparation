@@ -1,0 +1,20 @@
+chapter: "LA6"
+terms:
+  - term: Hermitian二次形式
+    english: Hermitian quadratic form
+    meaning: Hermitian作用素 A に対する実数値 q(x)=<x,Ax>。固有値の符号が形式の正負を決める。
+  - term: congruence
+    english: congruence
+    meaning: 二次形式の基底変換 A↦S*AS。線形作用素の基底変換であるsimilarityとは目的が異なる。
+  - term: 慣性
+    english: inertia
+    meaning: Hermitian二次形式を対角化したときの正・負・零の係数個数。
+  - term: PSD平方根
+    english: positive semidefinite square root
+    meaning: Hermitian PSD作用素 A に対し B^2=A を満たす一意なHermitian PSD作用素 B=A^{1/2}。
+  - term: polar decomposition
+    english: polar decomposition
+    meaning: 正方複素行列を unitary 部分 U と PSD 部分 P=(A*A)^{1/2} の積 A=UP に分ける分解。
+  - term: 複素特異値分解
+    english: complex singular value decomposition
+    meaning: 任意の複素行列を A=UΣV* とunitary行列と非負対角行列で分解すること。

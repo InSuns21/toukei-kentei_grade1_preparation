@@ -44,14 +44,22 @@
 4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
 5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
 
-### 線形代数
+### 標準線形代数コア
+
+既存章を基底・線形写像・実内積・実対称スペクトル定理・実SVDの正本として再利用し、LA系列で複素数体・商空間・代数的双対・作用素構造・複素内積を補います。
 
 1. [F0-00E ベクトル空間・基底](textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md)
 2. [F0-00F 線形写像・固有空間・SVD](textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md)
-3. [F0-00E1 内積・Gram–Schmidt・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
-4. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
-5. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
-6. [F0-00F2 SVD・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+3. [LA1 実・複素線形空間](textbook/volumes/00_foundations/LA1/index.md)
+4. [LA2 直和・補空間・商空間](textbook/volumes/00_foundations/LA2/index.md)
+5. [LA3 代数的双対・双対基底・抽象行列式](textbook/volumes/00_foundations/LA3/index.md)
+6. [LA4 作用素多項式・最小多項式・Jordan構造](textbook/volumes/00_foundations/LA4/index.md)
+7. [F0-00E1 内積・Gram–Schmidt・QR](textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)
+8. [F0-00E2 Cauchy–Schwarz・Bessel・Parseval](textbook/volumes/00_foundations/F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md)
+9. [LA5 複素内積・有限次元随伴・normal operator](textbook/volumes/00_foundations/LA5/index.md)
+10. [F0-00F1 スペクトル定理・PSD](textbook/volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md)
+11. [F0-00F2 SVD・作用素ノルム](textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md)
+12. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 
 ### ノルム空間・測度・Lebesgue積分
 

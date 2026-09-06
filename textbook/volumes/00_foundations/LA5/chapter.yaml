@@ -1,0 +1,33 @@
+id: "LA5"
+title: "標準線形代数 V：複素内積・有限次元随伴・normal operator"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA4
+  - F0-00E1
+  - F0-00E2
+official_scope: []
+learning_objectives:
+  - 複素内積の共役対称性と線形性の向きを正しく扱える
+  - 有限次元随伴を定義し共役転置との対応を説明できる
+  - Hermitian・unitary・normal operatorを区別できる
+  - Schur三角化を使ってnormal operatorのスペクトル定理を証明できる
+  - Hermitian作用素とunitary作用素の固有値制約を導ける
+definitions:
+  - { id: LA5-DEF-01, name: 複素内積 }
+  - { id: LA5-DEF-02, name: 有限次元随伴 }
+  - { id: LA5-DEF-03, name: Hermitian作用素 }
+  - { id: LA5-DEF-04, name: unitary作用素 }
+  - { id: LA5-DEF-05, name: normal operator }
+theorems:
+  - { id: LA5-THM-01, name: 有限次元随伴の存在一意性 }
+  - { id: LA5-THM-02, name: Schurのユニタリ三角化定理 }
+  - { id: LA5-THM-03, name: 複素normal operatorのスペクトル定理 }
+  - { id: LA5-THM-04, name: Hermitian作用素の固有値は実数 }
+  - { id: LA5-THM-05, name: unitary作用素の固有値は絶対値1 }
+canonical_examples: [複素共役転置, Hermitian行列, unitary行列, normalだがHermitianでない行列]
+problem_patterns: [LA5-ADJOINT-1, LA5-NORMAL-1, LA5-SPECTRAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }

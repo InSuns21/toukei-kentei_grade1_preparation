@@ -6,6 +6,20 @@ const args = process.argv.slice(2);
 const writeIndex = args.indexOf('--write');
 const writePath = writeIndex >= 0 ? args[writeIndex + 1] : null;
 
+const PROOF_COMPRESSION_PATTERNS = [
+  ['明らか', /明らか(?:である|です|に)?/gu],
+  ['容易', /容易(?:に|である|です)?/gu],
+  ['自明', /自明(?:である|です)?/gu],
+  ['同様に', /同様に/gu],
+  ['同じ計算で', /同じ計算で/gu],
+  ['適切に', /適切に/gu],
+  ['持ち上げれば', /持ち上げれば/gu],
+  ['延長できる', /延長でき(?:る|ます)/gu],
+  ['相殺する', /(?:望ましく|うまく)?相殺(?:し|する)/gu],
+  ['直ちに', /直ちに/gu],
+  ['すぐ分かる', /すぐ(?:に)?分か(?:る|ります)/gu]
+];
+
 function walk(dir) {
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -35,6 +49,20 @@ function substantiveProofHeading(title) {
 
 function countPattern(text, re) {
   return [...text.matchAll(re)].length;
+}
+
+function proofBlocks(text) {
+  return [...text.matchAll(/<!-- proof-start -->([\s\S]*?)<!-- proof-end -->/g)].map((m) => m[1]);
+}
+
+function compressionWarnings(text) {
+  const joined = proofBlocks(text).join('\n');
+  const hits = [];
+  for (const [label, pattern] of PROOF_COMPRESSION_PATTERNS) {
+    const count = countPattern(joined, pattern);
+    if (count > 0) hits.push({ label, count });
+  }
+  return hits;
 }
 
 function classify(row) {
@@ -70,6 +98,13 @@ function classify(row) {
   } else if (row.proofLinesRatio >= 0.30) {
     score += 1;
     reasons.push(`証明ブロック約${Math.round(row.proofLinesRatio * 100)}%`);
+  }
+  if (row.compressionHitCount >= 3) {
+    score += 2;
+    reasons.push(`証明内の省略語${row.compressionHitCount}件`);
+  } else if (row.compressionHitCount >= 1) {
+    score += 1;
+    reasons.push(`証明内の省略語${row.compressionHitCount}件`);
   }
 
   let status = 'WATCH';
@@ -113,6 +148,7 @@ for (const file of walk(ROOT)) {
   const nonblank = lines.filter((line) => line.trim()).length || 1;
   const rel = path.relative(process.cwd(), file).replaceAll(path.sep, '/');
   const firstH1 = hs.find((h) => h.level === 1)?.title ?? path.basename(path.dirname(file));
+  const compression = compressionWarnings(text);
   const row = {
     path: rel,
     title: firstH1,
@@ -120,7 +156,9 @@ for (const file of walk(ROOT)) {
     examples,
     intuition,
     exercises,
-    proofLinesRatio: proofLines / nonblank
+    proofLinesRatio: proofLines / nonblank,
+    compression,
+    compressionHitCount: compression.reduce((sum, hit) => sum + hit.count, 0)
   };
   Object.assign(row, classify(row));
   rows.push(row);
@@ -138,7 +176,9 @@ report.push('# DREAM THEATER 証明偏重・教材導線監査');
 report.push('');
 report.push('この文書は、証明補完によって本文が「定理 → 証明 → 定理 → 証明」に偏っていないかを継続監査するための一次スクリーニングです。**数学的正しさの監査とは別に、読者が証明を後回しにしても意味・具体例・使い道を追えるか**を対象にします。');
 report.push('');
-report.push('機械判定は、人間の教材レビューを置き換えません。証明本数、例・直感・演習の見出し数、折りたたみ対象の本文比率から、優先的に読み直すページを抽出します。P0/P1は人手で必ず本文を読み、単純な見出し追加で解消扱いにしません。');
+report.push('加えて、`proof-start` 内の「明らか」「同様に」「同じ計算で」「適切に」「持ち上げれば」「延長できる」「相殺する」など、**核心の論証を文章一語で圧縮している可能性がある表現**をレビュー候補として数えます。これらの語自体を禁止するのではなく、その語が定理固有の難所を隠していないかを人手で確認します。');
+report.push('');
+report.push('機械判定は、人間の教材レビューを置き換えません。証明本数、例・直感・演習の見出し数、折りたたみ対象の本文比率、省略語候補から、優先的に読み直すページを抽出します。P0/P1は人手で必ず本文を読み、単純な見出し追加や省略語の言い換えだけで解消扱いにしません。');
 report.push('');
 report.push('## 監査基準');
 report.push('');
@@ -160,7 +200,7 @@ report.push('  ↓');
 report.push('その場で使う例・演習');
 report.push('```');
 report.push('');
-report.push('完全証明は削除しません。ただし、証明を読まないと「その定理が何を言っているか」「なぜ欲しいか」「どう使うか」が分からない構成は教材監査NGです。');
+report.push('完全証明は削除しません。ただし、証明を読んでも核心操作が「同様に」「適切に選ぶ」「持ち上げれば」「相殺する」だけで消えている構成は教材監査NGです。完全証明として置くなら、読者が各段階を再現できるところまで式・補題・構成を展開します。');
 report.push('');
 report.push('## 機械スクリーニング結果');
 report.push('');
@@ -170,26 +210,30 @@ report.push(`- P1候補: **${counts.P1 || 0}**`);
 report.push(`- P2候補: **${counts.P2 || 0}**`);
 report.push(`- WATCH: **${counts.WATCH || 0}**`);
 report.push('');
-report.push('| 優先 | 講義 | 証明 | 例 | 直感/意味 | 演習 | 証明比 | 機械警告 |');
-report.push('|---|---|---:|---:|---:|---:|---:|---|');
+report.push('| 優先 | 講義 | 証明 | 例 | 直感/意味 | 演習 | 証明比 | 省略語候補 | 機械警告 |');
+report.push('|---|---|---:|---:|---:|---:|---:|---|---|');
 for (const row of rows) {
   const title = row.title.replaceAll('|', '\\|');
   const link = `[${title}](${row.path.replace(/^textbook\//, '')})`;
-  report.push(`| ${row.status} | ${link} | ${row.proofs} | ${row.examples} | ${row.intuition} | ${row.exercises} | ${Math.round(row.proofLinesRatio * 100)}% | ${row.reasons} |`);
+  const compression = row.compression.length
+    ? row.compression.map((hit) => `${hit.label}:${hit.count}`).join(' / ')
+    : '-';
+  report.push(`| ${row.status} | ${link} | ${row.proofs} | ${row.examples} | ${row.intuition} | ${row.exercises} | ${Math.round(row.proofLinesRatio * 100)}% | ${compression} | ${row.reasons} |`);
 }
 report.push('');
 report.push('## 人手レビュー時の判定');
 report.push('');
+report.push('- **FIX-PROOF-GAP**: 完全証明を名乗っているが、定理固有の核心操作・存在・well-defined性・一次独立性・直和性・一意性などが省略されている。');
 report.push('- **FIX-NARRATIVE**: 証明の前に動機・具体例・直感を追加し、証明後に使い道を回収する。');
 report.push('- **FIX-EXAMPLE**: 定理が抽象的なままなので、数値・低次元・有限集合など最小例を追加する。');
 report.push('- **FIX-ORDER**: 定義・定理・証明の順序は正しいが、教材としては一般論が先行しすぎている。具体例から一般化する順へ組み替える。');
-report.push('- **OK**: 証明を閉じたままでも本文だけで学習サイクルが成立する。');
+report.push('- **OK**: 証明を閉じたままでも本文だけで学習サイクルが成立し、証明を開けば論理段階を再現できる。');
 report.push('');
 report.push('## CIとの役割分担');
 report.push('');
 report.push('`npm run validate:proof-folding` は、本文中の明示的な「証明」節が `<!-- proof-start -->` / `<!-- proof-end -->` の外へ露出していないこと、マーカーが対応していること、Pages側に折りたたみレンダラが存在することを**ブロッキング検証**します。');
 report.push('');
-report.push('一方、この監査のP0/P1/P2判定は文章の質を完全には機械判定できないため、`npm run audit:proof-pedagogy` で非ブロッキングのレビュー候補を出します。');
+report.push('一方、この監査のP0/P1/P2判定と省略語候補は文章の質を完全には機械判定できないため、`npm run audit:proof-pedagogy` で非ブロッキングのレビュー候補を出します。');
 report.push('');
 
 const output = report.join('\n');

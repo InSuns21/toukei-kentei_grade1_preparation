@@ -1,0 +1,109 @@
+chapter: LA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA2
+  - F0-00F
+forward_references:
+  - topology.topology
+  - linear.characteristic-polynomial
+  - linear.minimal-polynomial
+  - linear.generalized-eigenspace
+  - measure.lp-space
+  - functional.linear-functional
+  - functional.continuous-linear-functional
+
+concepts:
+  - id: linear.linear-form
+    name: 線形形式
+    kind: definition
+    aliases: [線形形式, linear form]
+    requires:
+      - linear.real-complex-vector-space
+
+  - id: linear.algebraic-dual-space
+    name: 代数的双対
+    kind: definition
+    aliases: [代数的双対, algebraic dual]
+    requires:
+      - linear.linear-form
+
+  - id: linear.dual-basis
+    name: 双対基底
+    kind: definition
+    aliases: [双対基底, dual basis]
+    requires:
+      - linear.algebraic-dual-space
+      - linear.basis
+
+  - id: linear.dual-basis-theorem
+    name: 双対基底定理
+    kind: theorem
+    aliases: [双対基底定理]
+    requires:
+      - linear.dual-basis
+      - linear.dimension
+
+  - id: linear.annihilator
+    name: annihilator
+    kind: definition
+    aliases: [annihilator, 零化空間]
+    requires:
+      - linear.algebraic-dual-space
+      - linear.linear-subspace
+
+  - id: linear.annihilator-dimension-formula
+    name: annihilatorの次元公式
+    kind: theorem
+    aliases: [annihilatorの次元公式]
+    requires:
+      - linear.annihilator
+      - linear.quotient-dimension-formula
+      - linear.dual-basis-theorem
+
+  - id: linear.dual-map
+    name: 双対写像
+    kind: definition
+    aliases: [双対写像, dual map, transpose map]
+    requires:
+      - linear.algebraic-dual-space
+      - linear.linear-map
+
+  - id: linear.finite-dimensional-double-dual-isomorphism
+    name: 有限次元二重双対同型
+    kind: theorem
+    aliases: [有限次元二重双対同型]
+    requires:
+      - linear.algebraic-dual-space
+      - linear.dual-basis-theorem
+
+  - id: linear.alternating-multilinear-form
+    name: 交代多重線形形式
+    kind: definition
+    aliases: [交代多重線形形式, alternating multilinear form]
+    requires:
+      - linear.linear-form
+
+  - id: linear.top-alternating-form-one-dimensional
+    name: 最高次交代形式は1次元
+    kind: theorem
+    aliases: [最高次交代形式は1次元]
+    requires:
+      - linear.alternating-multilinear-form
+      - linear.dimension
+
+  - id: linear.abstract-determinant
+    name: 抽象行列式
+    kind: definition
+    aliases: [抽象行列式, coordinate-free determinant]
+    requires:
+      - linear.top-alternating-form-one-dimensional
+      - linear.dimension
+      - linear.linear-map
+
+  - id: linear.determinant-multiplicativity
+    name: 行列式の乗法性
+    kind: theorem
+    aliases: [行列式の乗法性]
+    requires:
+      - linear.abstract-determinant

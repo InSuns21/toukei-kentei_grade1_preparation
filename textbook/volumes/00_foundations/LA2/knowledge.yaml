@@ -1,0 +1,62 @@
+chapter: LA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA1
+  - F0-00F
+forward_references:
+  - linear.algebraic-dual-space
+  - linear.dual-basis
+  - linear.annihilator
+  - linear.dual-map
+  - measure.lp-space
+
+concepts:
+  - id: linear.complementary-subspace
+    name: 補空間
+    kind: definition
+    aliases: [補空間, complementary subspace]
+    requires:
+      - linear.sum-direct-sum
+
+  - id: linear.finite-dimensional-complement-existence
+    name: 有限次元補空間の存在
+    kind: theorem
+    aliases: [有限次元補空間の存在]
+    requires:
+      - linear.complementary-subspace
+      - linear.basis-extension-theorem
+
+  - id: linear.quotient-space
+    name: 商空間
+    kind: definition
+    aliases: [商空間, quotient space]
+    requires:
+      - linear.real-complex-vector-space
+      - linear.linear-subspace
+
+  - id: linear.canonical-quotient-map
+    name: 標準射影
+    kind: definition
+    aliases: [標準射影, canonical quotient map]
+    requires:
+      - linear.quotient-space
+      - linear.linear-map
+
+  - id: linear.quotient-dimension-formula
+    name: 商空間の次元公式
+    kind: theorem
+    aliases: [商空間の次元公式]
+    requires:
+      - linear.quotient-space
+      - linear.dimension
+      - linear.basis-extension-theorem
+
+  - id: linear.first-isomorphism-theorem
+    name: 第一同型定理
+    kind: theorem
+    aliases: [第一同型定理, first isomorphism theorem]
+    requires:
+      - linear.quotient-space
+      - linear.kernel-image
+      - linear.linear-map
