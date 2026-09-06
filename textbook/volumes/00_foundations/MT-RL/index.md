@@ -98,7 +98,7 @@ u_n\downarrow u,
 \ell_n\le f\le u_n
 $$
 
-です。$|f|\le M$ とすれば $|\ell_n|,|u_n|\le M$ なので、[Lebesgueの優収束定理（DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
+です。$|f|\le M$ とすれば $|\ell_n|,|u_n|\le M$ なので、[Lebesgueの優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
 
 $$
 \int\ell\,dm
@@ -147,7 +147,7 @@ Lebesgue積分は0ですが、どの小区間にも有理数と無理数があ�
 
 ## 3. どの程度の不連続までRiemann積分は許すか
 
-Riemann可積分性は「連続か不連続か」だけではなく、**不連続点がどれだけ大きな集合を作るか**で決まります。その量を測るため局所振動を入れます。
+Riemann可積分性は「連続か不連続か」だけではなく、**不連続点がどれだけ大きな集合を作るか**で決まります。その量を測るため、点のまわりでの振れ幅を定式化します。
 
 <a id="def-mt-rl-local-oscillation"></a>
 <!-- formal-statement-start -->
@@ -303,7 +303,7 @@ $$
 \int_{a_n}^bf(x)\,dx.
 $$
 
-[単調収束定理（MCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
+[単調収束定理（Monotone Convergence Theorem; MCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
 
 $$
 \int f\,dm
