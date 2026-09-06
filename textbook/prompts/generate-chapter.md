@@ -6,6 +6,8 @@
 
 `AGENTS.md`、`textbook/curriculum.yaml`、`textbook/notation.md`、`textbook/style-guide.md`、`textbook/dependency-graph.md`、`references/official-scope.md`、対象章の `chapter.yaml` を読み、章 `{{chapter_id}}`「{{chapter_title}}」を完成させよ。
 
+対象 `index.md` が `textbook/dream-theater-index.json` に掲載される DREAM THEATER ページなら、あわせて `textbook/DREAM_THEATER_EXERCISE_POLICY.md` を読み、演習量・解答形式についてはその差分規約を優先する。
+
 ## 制約
 
 1. `chapter.yaml` の `prerequisites` にある章だけを既知として使う。専門語を削除・言い換えする前に、必ず前提章で定義済みか確認する。前提章で学習済みなら通常語彙として使用し、章の前提知識欄から正本へリンクする。
@@ -14,10 +16,10 @@
 4. 数学的完全性のために追加が必要な条件・補題・用語は、通常本文へ直ちに展開せず、(a) 本章で意味から導入、(b) 共通基礎章へ追加して依存関係を明示、(c) 補足へ退避、のどれが適切か判断する。
 5. 分布の台、パラメータ空間、標本仮定、正則性条件を明記する。名前付き分布を定理・問題で使うときは、同じ節または問題近傍に必要な定義式を置く。
 6. 久保川資料は難度と解答粒度の校正にだけ使い、問題・解答を転載しない。
-7. `references/past-exam-trends.md` と `references/past-exam-index.yaml` を読み、Level Cは実過去問と同様に一設定で4〜6小問を連結し、20〜30分で論述答案まで完成できる独自問題とする。
-8. 詳細解答と本番答案を分離し、同じ結論になることを確認する。
+7. 通常の試験向け章では `references/past-exam-trends.md` と `references/past-exam-index.yaml` を読み、Level Cは実過去問と同様に一設定で4〜6小問を連結し、20〜30分で論述答案まで完成できる独自問題とする。DREAM THEATER では試験答案形式を強制せず、`DREAM_THEATER_EXERCISE_POLICY.md` の最低題数と例外規約を適用する。
+8. 通常の試験向け章では詳細解答と本番答案を分離し、同じ結論になることを確認する。DREAM THEATER では詳細解答だけを必須とし、本番答案・採点基準は作成しない。
 9. 既知の定理を使うたびに名称または章IDと、現在の仮定が満たされる理由を示す。公式の名称暗記が本質でない場合でも、他教材で同じ名称を継続利用するなら共通正本の名称に合わせる。
-10. `chapter.yaml` の `past_exam_alignment` に少なくとも2件を記録し、単元名ではなく小問の技能連鎖まで対応させる。
+10. 通常の試験向け章では `chapter.yaml` の `past_exam_alignment` に少なくとも2件を記録し、単元名ではなく小問の技能連鎖まで対応させる。DREAM THEATER では章の目的上不要なら機械的に過去問対応を水増ししない。
 11. 実過去問は問題文を転載せず、公式入手先、年度・科目・大問、現在解く範囲、後続章へ保留する範囲、答案確認項目を示す。
 12. 独自ドリルは過去問の数値や設定の言い換えコピーにせず、構造だけを校正に使う。
 13. PMF・PDF・CDF・PGF・MGFなど非自明な略語を通常本文の主表記にしない。`references/terminology-guide.md` の日本語正式名を使う。
@@ -26,8 +28,10 @@
 ## 出力
 
 - `index.md` を章本文の正本とし、導入・定義・定理・例題・演習・詳細解答・本番ドリル・過去問参照を1ページへ統合する。
-- 各演習は「問題 → `<!-- solution-start -->` → 詳細解答・本番答案・採点基準 → `<!-- solution-end -->`」の順に置く。
+- 通常の試験向け章では、各演習を「問題 → `<!-- solution-start -->` → 詳細解答・本番答案・採点基準 → `<!-- solution-end -->`」の順に置く。
+- DREAM THEATER では、各演習を「問題 → `<!-- solution-start -->` → 詳細解答 → `<!-- solution-end -->`」の順に置き、本番答案・採点基準を追加しない。
+- DREAM THEATER の変更章は原則として実本文上 `Level A >= 4 / Level B >= 3 / Level C >= 1` を満たす。教育的に不自然なら問題を水増しせず、`chapter.yaml` の `dream_theater_exercise_count_exception` に理由を書く。
 - `chapter.yaml`、`glossary.yaml`、`review/validation.md` を同期する。
 - 旧 `00_overview.md`〜`09_past_exam_practice.md` 分割形式は新規生成しない。
 
-生成後、数値例は独立計算で検算し、`npm run validate`、`npm run audit:textbook-granularity`、`npm run validate:pages` を実行して修正せよ。
+生成後、数値例は独立計算で検算し、`npm run validate`、`npm run audit:textbook-granularity`、`npm run validate:pages` を実行して修正せよ。DREAM THEATER の変更章では `npm run validate:dream-theater-exercise-counts` も成功させること。
