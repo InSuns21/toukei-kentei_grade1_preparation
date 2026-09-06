@@ -666,3 +666,50 @@ concepts:
       - paired-sample t-test
     introduced_in: I3-03
     requires: [null-hypothesis, test-statistic, t-statistic-sampling-distribution]
+
+  - id: bayes-theorem
+    name: ベイズの定理
+    aliases:
+      - Bayes theorem
+      - Bayes' theorem
+    introduced_in: P1-02
+
+  - id: prior-distribution
+    name: 事前分布
+    aliases:
+      - prior distribution
+      - prior probability distribution
+    introduced_in: I4-01
+
+  - id: posterior-distribution
+    name: 事後分布
+    aliases:
+      - posterior distribution
+      - posterior probability distribution
+    introduced_in: I4-01
+    requires: [prior-distribution, likelihood-function, bayes-theorem]
+
+  - id: marginal-likelihood
+    name: 周辺尤度
+    aliases:
+      - marginal likelihood
+      - evidence
+    introduced_in: I4-01
+    requires: [prior-distribution, likelihood-function]
+
+  - id: conjugate-prior-distribution
+    name: 共役事前分布
+    aliases:
+      - conjugate prior
+      - conjugate prior distribution
+    introduced_in: I4-01
+    requires: [prior-distribution, posterior-distribution]
+
+  - id: bayes-posterior-update
+    name: ベイズの定理による事後分布
+    aliases:
+      - ベイズ更新による事後分布
+      - Bayesian posterior update
+      - posterior distribution by Bayes' theorem
+    introduced_in: I4-01
+    requires: [bayes-theorem, likelihood-function, prior-distribution, marginal-likelihood, posterior-distribution]
