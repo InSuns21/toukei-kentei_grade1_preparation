@@ -42,6 +42,19 @@ $$
 > となることをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-ra5-pointwise, def-ra5-uniform, def-ra5-uniform-cauchy -->
+**定義の確認**：$E=[0,1]$, $f_n(x)=x/n$, $f(x)=0$ とします。各 $x$ を固定すれば $x/n\to0$ なので各点収束します。さらに
+$$
+\sup_{x\in[0,1]}|f_n(x)-f(x)|=\frac1n\to0
+$$
+なので一様収束です。また $m,n\ge N$ なら
+$$
+\sup_{x\in[0,1]}|f_n(x)-f_m(x)|
+\le \frac1n+\frac1m\le\frac2N,
+$$
+よって $N>2/\varepsilon$ とすれば一様Cauchy条件も満たします。同じ例で、各点ごとの極限より一様収束・一様Cauchyの方が強い量化条件を持つことを確認できます。
+<!-- definition-example-end -->
+
 ---
 
 ## 2. 一様極限は連続性を保存する
