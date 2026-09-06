@@ -573,6 +573,14 @@ concepts:
     introduced_in: I3-03
     requires: [wilcoxon-rank-sum-mann-whitney-u-statistic]
 
+  - id: normal-sample-orthogonal-decomposition-degrees-of-freedom
+    name: 正規標本の直交分解と自由度
+    aliases:
+      - 正規標本の平方和分解と自由度
+      - normal-sample orthogonal decomposition and degrees of freedom
+      - orthogonal decomposition of a normal sample
+    introduced_in: S1-01
+
   - id: normal-sample-mean-variance-sampling-distribution
     name: 正規標本の平均と分散の標本分布
     aliases:
@@ -580,6 +588,7 @@ concepts:
       - normal-sample mean and variance sampling distribution
       - sampling distribution of the mean and variance of a normal sample
     introduced_in: S1-01
+    requires: [normal-sample-orthogonal-decomposition-degrees-of-freedom]
 
   - id: t-statistic-sampling-distribution
     name: t統計量の分布
@@ -629,3 +638,31 @@ concepts:
       - null distribution of the two-normal-variance ratio F statistic
     introduced_in: I3-03
     requires: [null-hypothesis, test-statistic, two-sample-variance-ratio-sampling-distribution]
+
+  - id: pooled-two-sample-t-test
+    name: プールt検定
+    aliases:
+      - 等分散二標本t検定
+      - pooled two-sample t-test
+      - pooled t-test
+    introduced_in: I3-03
+    requires: [null-hypothesis, test-statistic, t-statistic-sampling-distribution]
+
+  - id: welch-two-sample-t-test
+    name: ウェルチ型検定
+    aliases:
+      - ウェルチのt検定
+      - Welch t-test
+      - Welch's t-test
+      - Welch two-sample t-test
+    introduced_in: I3-03
+    requires: [null-hypothesis, test-statistic]
+
+  - id: paired-t-test
+    name: 対応のあるt検定
+    aliases:
+      - 対応ありt検定
+      - paired t-test
+      - paired-sample t-test
+    introduced_in: I3-03
+    requires: [null-hypothesis, test-statistic, t-statistic-sampling-distribution]

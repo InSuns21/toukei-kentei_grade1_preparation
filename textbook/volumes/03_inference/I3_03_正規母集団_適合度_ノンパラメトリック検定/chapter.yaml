@@ -40,13 +40,16 @@ definitions:
   - {id: I303-DEF-07, name: イェーツの補正}
   - {id: I303-DEF-08, name: マクネマー検定}
   - {id: I303-DEF-09, name: 順位相関係数}
+  - {id: I303-DEF-10, name: プールt検定}
+  - {id: I303-DEF-11, name: ウェルチ型検定}
+  - {id: I303-DEF-12, name: 対応のあるt検定}
 theorems:
   - { id: I303-THM-01, name: 正規母平均・母分散の正確な検定統計量 }
   - { id: I303-THM-02, name: ピアソン適合度統計量のカイ二乗極限 }
   - { id: I303-THM-03, name: 分割表独立性統計量のカイ二乗極限 }
   - { id: I303-PROP-01, name: 符号検定の帰無分布 }
   - { id: I303-PROP-02, name: ウィルコクソン順位和統計量の平均と分散 }
-canonical_examples: [正規母平均のt検定, 正規母分散のカイ二乗検定, 二標本分散比のF検定, ピアソン適合度検定, 2行3列分割表の独立性検定, 対応差の符号検定, ウィルコクソン符号付き順位和検定, ウィルコクソン順位和検定]
+canonical_examples: [正規母平均のt検定, 正規母分散のカイ二乗検定, 二標本分散比のF検定, プールt検定, ウェルチ型検定, 対応のあるt検定, ピアソン適合度検定, 2行3列分割表の独立性検定, 対応差の符号検定, ウィルコクソン符号付き順位和検定, ウィルコクソン順位和検定]
 problem_patterns: [NORMAL-MEAN-TEST-1, NORMAL-VAR-TEST-1, TWO-VAR-F-TEST-1, TWO-MEAN-TEST-1, GOF-CHI-SQUARE-1, CONTINGENCY-INDEPENDENCE-1, SIGN-TEST-1, SIGNED-RANK-1, RANK-SUM-1]
 past_exam_alignment:
   - { id: MATH-2014-Q4, theme: F分布・二標本比較, skills: [F分布, 二標本比較, 棄却判断], source_type: third_party_topic_index }
