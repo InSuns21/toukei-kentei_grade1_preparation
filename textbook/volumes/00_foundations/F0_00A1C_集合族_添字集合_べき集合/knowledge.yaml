@@ -6,10 +6,14 @@ prerequisites:
 
 forward_references:
   - topology.sequence
+  - topology.subsequence
+  - topology.open-set
   - topology.topology
+  - measure.sigma-algebra
   - order.partial-order-relation
   - order.total-order
   - order.well-order
+  - order.well-orderable
   - set.choice-axiom
 
 concepts:
