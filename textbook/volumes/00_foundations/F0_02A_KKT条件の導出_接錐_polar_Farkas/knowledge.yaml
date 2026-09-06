@@ -27,6 +27,7 @@ concepts:
     name: KKT乗数表示
     kind: theorem
     introduction: inline
+    introduction_aliases: [KKTの停留条件]
     aliases: [KKT乗数]
     requires:
       - optimization.kkt-conditions
