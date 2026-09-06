@@ -11,9 +11,9 @@ forward_references:
 
 concepts:
   - id: analysis.monotone-convergence-sequence
-    name: 単調収束定理
+    name: 有界単調数列の収束定理
     kind: theorem
-    aliases: [単調収束定理, monotone convergence theorem for sequences]
+    aliases: [有界単調数列の収束定理, bounded monotone sequence convergence theorem, monotone convergence theorem for sequences]
     requires: [analysis.least-upper-bound-property, topology.sequence]
   - id: analysis.limsup-liminf
     name: 上極限・下極限
