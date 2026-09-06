@@ -1,0 +1,14 @@
+chapter: "MT-RL"
+terms:
+  - term: 局所振動
+    english: local oscillation
+    meaning: 点のまわりで関数値がどれだけ振れるかを、近傍を縮めながら測った量。0であることとその点での連続性が対応する。
+  - term: Riemann積分とLebesgue積分の一致
+    english: agreement of Riemann and Lebesgue integrals
+    meaning: 有界閉区間上でRiemann可積分ならLebesgue可積分でもあり、両者の積分値が等しいこと。
+  - term: LebesgueのRiemann可積分性判定
+    english: Lebesgue criterion for Riemann integrability
+    meaning: 有界関数がRiemann可積分であることと、不連続点集合がLebesgue測度0であることの同値条件。
+  - term: 条件収束する広義積分
+    english: conditionally convergent improper integral
+    meaning: 広義Riemann積分は収束するが絶対値の積分は発散する場合。通常のLebesgue可積分性とは一致しない。
