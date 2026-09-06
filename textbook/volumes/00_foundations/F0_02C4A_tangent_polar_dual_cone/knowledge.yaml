@@ -1,8 +1,31 @@
 chapter: F0-02C4A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C4
-  - F0-02A
 
-concepts: []
+forward_references:
+  - optimization.kkt-multiplier-existence
+
+concepts:
+  - id: convex.bouligand-tangent-cone
+    name: Bouligand tangent cone
+    kind: definition
+    aliases: [Bouligand tangent cone, tangent cone]
+    requires:
+      - convex.convex-set
+
+  - id: convex.polar-cone
+    name: polar cone
+    kind: definition
+    aliases: [polar cone]
+    requires:
+      - functional.dual-space
+
+  - id: convex.dual-cone
+    name: dual cone
+    kind: definition
+    aliases: [dual cone]
+    requires:
+      - functional.dual-space
+      - convex.polar-cone
