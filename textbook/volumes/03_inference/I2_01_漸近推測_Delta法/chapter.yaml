@@ -5,6 +5,8 @@ status: reviewed
 prerequisites:
   - I1-02
   - P4-02
+forward_references:
+  - wald-test
 official_scope:
   - 最尤推定量の漸近正規性
   - デルタ法

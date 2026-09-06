@@ -6,6 +6,8 @@ prerequisites:
   - I1-01
   - P3-05
   - P4-02
+forward_references:
+  - mle-asymptotic-normality
 official_scope:
   - モーメント法
   - 最小二乗法

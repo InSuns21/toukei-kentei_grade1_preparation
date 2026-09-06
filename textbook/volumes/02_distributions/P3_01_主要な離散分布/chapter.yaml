@@ -3,6 +3,8 @@ title: "主要な離散分布"
 volume: "distributions"
 status: reviewed
 prerequisites: [P2-02]
+forward_references:
+  - consistency
 official_scope: [ベルヌーイ分布, 二項分布, 超幾何分布, 幾何分布, ポアソン分布, 負の二項分布, 多項分布]
 learning_objectives:
   - 試行構造から適切な離散分布を選べる

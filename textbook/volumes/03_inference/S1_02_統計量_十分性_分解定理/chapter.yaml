@@ -6,6 +6,8 @@ prerequisites:
   - S1-01
   - P4-01
   - P2-02
+forward_references:
+  - consistency
 official_scope:
   - 十分統計量
   - ネイマンの分解定理

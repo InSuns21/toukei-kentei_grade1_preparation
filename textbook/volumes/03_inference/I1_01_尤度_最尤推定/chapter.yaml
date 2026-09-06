@@ -10,6 +10,8 @@ forward_references:
   - cramer-rao-inequality
   - likelihood-ratio-test
   - score-test
+  - consistency
+  - expectation-maximization
 official_scope:
   - 尤度関数
   - 対数尤度関数
