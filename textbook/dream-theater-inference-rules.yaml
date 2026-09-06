@@ -22,8 +22,8 @@ rules:
     concept: topology.closed-set-sequential-characterization
     source_anchor: thm-f0-00b-01
     patterns:
-      - regex: '閉なので.{0,80}(?:\\in|∈)'
-      - regex: '閉集合なので.{0,80}(?:\\in|∈)'
+      - regex: '閉なので\s*\$[^$]{0,60}(?:\\in|∈)[^$]{0,60}\$'
+      - regex: '閉集合なので\s*\$[^$]{0,60}(?:\\in|∈)[^$]{0,60}\$'
 
   - id: distance-map-continuity
     concept: topology.metric-space
