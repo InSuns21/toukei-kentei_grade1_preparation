@@ -1,0 +1,22 @@
+id: "F0-00A1B"
+title: "補講：実数の上限性質・Archimedes性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1
+official_scope: []
+learning_objectives:
+  - supremumの定義と実数の上限性質による存在保証を区別できる
+  - 実数の上限性質からArchimedes性を証明できる
+  - 任意のepsilonに対し1/N<epsilonとなる自然数Nを取れることを説明できる
+definitions: []
+theorems:
+  - { id: F000A1B-THM-01, name: 実数の上限性質 }
+  - { id: F000A1B-THM-02, name: Archimedes性 }
+  - { id: F000A1B-COR-01, name: 逆数を任意に小さくできること }
+canonical_examples: [1/Nをepsilonより小さく取る]
+problem_patterns: [ARCHIMEDEAN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.75, exercises: 0.2, review: 0.15 }
