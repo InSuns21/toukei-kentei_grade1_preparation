@@ -1,0 +1,17 @@
+chapter: "LA2"
+terms:
+  - term: 補空間
+    english: complementary subspace
+    meaning: V=U⊕W となるときの W。U の不足する方向をちょうど補う部分空間。
+  - term: 商空間
+    english: quotient space
+    meaning: 部分空間 W だけ異なるベクトルを同一視して作る空間 V/W。
+  - term: 剰余類
+    english: coset
+    meaning: x+W={x+w:w∈W} の形の集合。商空間の1つの元。
+  - term: 標準射影
+    english: canonical quotient map
+    meaning: x を剰余類 x+W に送る線形写像 V→V/W。
+  - term: 第一同型定理
+    english: first isomorphism theorem
+    meaning: 線形写像 T の情報は、kernel を潰した空間 V/ker T と像 Im T の同型として表せるという定理。
