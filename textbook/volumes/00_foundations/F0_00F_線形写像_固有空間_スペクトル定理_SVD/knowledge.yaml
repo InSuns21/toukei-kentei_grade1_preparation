@@ -1,11 +1,12 @@
 chapter: F0-00F
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00E
   - F0-00E1
 
 forward_references:
+  - linear.spectral-theorem
   - linear.singular-value-decomposition
 
 concepts:
@@ -16,6 +17,39 @@ concepts:
     requires:
       - linear.vector-space
 
+  - id: linear.kernel-image
+    name: 核と像
+    kind: definition
+    aliases: [核と像, kernel と image]
+    requires:
+      - linear.linear-map
+      - linear.linear-subspace
+
+  - id: linear.rank-nullity-theorem
+    name: rank-nullity theorem
+    kind: theorem
+    aliases: [rank-nullity theorem]
+    requires:
+      - linear.kernel-image
+      - linear.dimension
+      - linear.basis-extension-theorem
+
+  - id: linear.representation-matrix
+    name: 表現行列
+    kind: definition
+    aliases: [表現行列]
+    requires:
+      - linear.linear-map
+      - linear.coordinate-vector
+      - linear.basis
+
+  - id: linear.similarity
+    name: 相似
+    kind: definition
+    aliases: [相似]
+    requires:
+      - linear.representation-matrix
+
   - id: linear.eigenvalue
     name: 固有値
     kind: definition
@@ -24,6 +58,14 @@ concepts:
     requires:
       - linear.linear-map
 
+  - id: linear.eigenvector
+    name: 固有ベクトル
+    kind: definition
+    introduction_aliases: [固有値・固有ベクトル・固有空間]
+    aliases: [固有ベクトル, 固有値・固有ベクトル・固有空間]
+    requires:
+      - linear.eigenvalue
+
   - id: linear.eigenspace
     name: 固有空間
     kind: definition
@@ -31,11 +73,22 @@ concepts:
     aliases: [固有空間, 固有値・固有ベクトル・固有空間]
     requires:
       - linear.eigenvalue
+      - linear.kernel-image
 
-  - id: linear.spectral-theorem
-    name: スペクトル定理
-    kind: term
-    aliases: [スペクトル定理]
+  - id: linear.diagonalizable
+    name: 対角化可能
+    kind: definition
+    aliases: [対角化可能]
+    requires:
+      - linear.eigenvector
+      - linear.basis
+      - linear.representation-matrix
+
+  - id: linear.eigenvalue-multiplicities
+    name: 代数的重複度・幾何学的重複度
+    kind: definition
+    aliases: [代数的重複度・幾何学的重複度, 代数的重複度, 幾何学的重複度]
     requires:
       - linear.eigenvalue
-      - linear.orthogonality
+      - linear.eigenspace
+      - linear.dimension
