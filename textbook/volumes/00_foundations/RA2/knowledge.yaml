@@ -1,0 +1,40 @@
+chapter: RA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA1
+  - F0-00C
+  - F0-00C1
+  - F0-00C2
+
+concepts:
+  - id: analysis.function-limit
+    name: 関数の極限
+    kind: definition
+    aliases: [関数の極限, epsilon-delta極限]
+    requires: [analysis.archimedean-property]
+  - id: analysis.sequential-criterion-limit
+    name: 関数極限の点列判定
+    kind: theorem
+    aliases: [関数極限の点列判定]
+    requires: [analysis.function-limit, topology.sequence]
+  - id: analysis.intermediate-value-theorem
+    name: 中間値定理
+    kind: theorem
+    aliases: [中間値定理, intermediate value theorem]
+    requires: [analysis.function-limit, analysis.least-upper-bound-property]
+  - id: analysis.uniform-continuity
+    name: 一様連続
+    kind: definition
+    aliases: [一様連続, uniform continuity]
+    requires: [analysis.function-limit]
+  - id: analysis.lipschitz-continuity
+    name: Lipschitz連続
+    kind: definition
+    aliases: [Lipschitz連続, リプシッツ連続]
+    requires: [analysis.uniform-continuity]
+  - id: analysis.heine-cantor
+    name: Heine–Cantorの定理
+    kind: theorem
+    aliases: [Heine–Cantorの定理, Heine-Cantor theorem]
+    requires: [analysis.uniform-continuity, topology.compact-set]

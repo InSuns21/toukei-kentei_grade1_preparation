@@ -7,8 +7,10 @@
 ## 0. 入口
 
 1. [F0-00 統計検定1級のための数学速習](textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md)
-2. [F0-01 統計のための微積分・線形代数・答案記法](textbook/volumes/00_foundations/F0_01_統計のための微積分_線形代数_答案記法/index.md)
+2. [標準数学コア（読む順DAG）](textbook/dream-theater-standard-math-core.md)
 3. [F0-00R 基礎論ロードマップ](textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md)
+
+旧 F0-01 は過去URL互換のためファイルを残していますが、現行の標準入口は上の **標準数学コア** です。
 
 ---
 
@@ -31,6 +33,16 @@
 13. [F0-00C1 点列コンパクト性・Heine–Borel](textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md)
 14. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
 15. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+
+### 標準実解析コア
+
+既存の実数・点列・コンパクト性を「定義の床」として再利用し、ここから数学科標準の実解析を積み上げます。
+
+1. [RA1 数列・級数](textbook/volumes/00_foundations/RA1/index.md)
+2. [RA2 極限・連続・一様連続](textbook/volumes/00_foundations/RA2/index.md)
+3. [RA3 微分法の理論](textbook/volumes/00_foundations/RA3/index.md)
+4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
+5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
 
 ### 線形代数
 
@@ -185,4 +197,5 @@
 
 - 統計検定1級の本線だけなら、まず通常教材を優先してください。
 - DREAM THEATERは「この定理はどこから来たのか」を掘りたいときの補講系列です。
+- 標準数学コアの章は、既存概念を再定義せず、既存章を正本として再利用しながら不足する定理列を補います。
 - 証明補講は、既存の概念章を肥大化させず **定義 → 例 → 定理 → 証明 → A/B演習** を閉じるために分離しています。

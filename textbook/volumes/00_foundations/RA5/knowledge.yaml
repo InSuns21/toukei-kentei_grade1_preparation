@@ -1,0 +1,45 @@
+chapter: RA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA2
+  - RA4
+forward_references:
+  - measure.lebesgue-integral
+
+concepts:
+  - id: analysis.pointwise-convergence
+    name: 各点収束
+    kind: definition
+    aliases: [各点収束, pointwise convergence]
+    requires: [topology.sequence, analysis.function-limit]
+  - id: analysis.uniform-convergence
+    name: 一様収束
+    kind: definition
+    aliases: [一様収束, uniform convergence]
+    requires: [analysis.pointwise-convergence]
+  - id: analysis.uniform-cauchy
+    name: 一様Cauchy条件
+    kind: definition
+    aliases: [一様Cauchy条件]
+    requires: [analysis.uniform-convergence]
+  - id: analysis.uniform-limit-continuity
+    name: 一様極限の連続性
+    kind: theorem
+    aliases: [一様極限の連続性]
+    requires: [analysis.uniform-convergence]
+  - id: analysis.uniform-limit-integral
+    name: 一様収束と積分の交換
+    kind: theorem
+    aliases: [一様収束と積分の交換]
+    requires: [analysis.uniform-convergence, analysis.riemann-integrable]
+  - id: analysis.derivative-limit-interchange
+    name: 微分と極限の交換定理
+    kind: theorem
+    aliases: [微分と極限の交換定理]
+    requires: [analysis.uniform-convergence, analysis.derivative, analysis.ftc-2]
+  - id: analysis.weierstrass-m-test
+    name: Weierstrass M-test
+    kind: theorem
+    aliases: [Weierstrass M-test, M-test]
+    requires: [analysis.uniform-convergence, analysis.absolute-convergence]

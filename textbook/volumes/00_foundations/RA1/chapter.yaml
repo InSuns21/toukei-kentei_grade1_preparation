@@ -1,0 +1,31 @@
+id: "RA1"
+title: "標準実解析 I：数列・級数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1B
+  - F0-00B0
+  - F0-00D
+official_scope: []
+learning_objectives:
+  - 実数の完備性から単調収束定理を導ける
+  - limsup・liminfをtailの上限下限として扱える
+  - 級数のCauchy判定・絶対収束・代表的判定法を使い分けられる
+  - 冪級数の収束半径と端点判定を区別できる
+definitions:
+  - { id: RA1-DEF-01, name: 上極限・下極限 }
+  - { id: RA1-DEF-02, name: 級数の収束 }
+  - { id: RA1-DEF-03, name: 絶対収束・条件収束 }
+  - { id: RA1-DEF-04, name: 冪級数・収束半径 }
+theorems:
+  - { id: RA1-THM-01, name: 単調収束定理 }
+  - { id: RA1-THM-02, name: limsup・liminfによる収束判定 }
+  - { id: RA1-THM-03, name: 級数のCauchy判定 }
+  - { id: RA1-THM-04, name: 絶対収束なら収束 }
+  - { id: RA1-THM-05, name: Cauchy–Hadamardの公式 }
+canonical_examples: [幾何級数, 交代調和級数, 冪級数]
+problem_patterns: [RA-SEQUENCE-1, RA-SERIES-1, RA-POWER-SERIES-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }

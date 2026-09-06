@@ -1,0 +1,37 @@
+chapter: RA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA2
+
+concepts:
+  - id: analysis.derivative
+    name: 導関数
+    kind: definition
+    aliases: [導関数, derivative]
+    requires: [analysis.function-limit]
+  - id: analysis.rolle-theorem
+    name: Rolleの定理
+    kind: theorem
+    aliases: [Rolleの定理]
+    requires: [analysis.derivative, topology.extreme-value-theorem]
+  - id: analysis.mean-value-theorem
+    name: 平均値定理
+    kind: theorem
+    aliases: [平均値定理, mean value theorem]
+    requires: [analysis.rolle-theorem]
+  - id: analysis.cauchy-mean-value-theorem
+    name: Cauchyの平均値定理
+    kind: theorem
+    aliases: [Cauchyの平均値定理]
+    requires: [analysis.mean-value-theorem]
+  - id: analysis.taylor-theorem
+    name: Taylorの定理
+    kind: theorem
+    aliases: [Taylorの定理, Taylor theorem]
+    requires: [analysis.mean-value-theorem]
+  - id: analysis.inverse-derivative
+    name: 逆関数の微分
+    kind: theorem
+    aliases: [逆関数の微分]
+    requires: [analysis.derivative]

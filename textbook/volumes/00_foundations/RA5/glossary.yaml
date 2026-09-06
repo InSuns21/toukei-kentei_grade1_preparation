@@ -1,0 +1,14 @@
+chapter: "RA5"
+terms:
+  - term: 各点収束
+    english: pointwise convergence
+    meaning: 各点xを固定するごとに数列f_n(x)が収束すること。
+  - term: 一様収束
+    english: uniform convergence
+    meaning: 誤差を小さくするための番号Nを点xに依存させず領域全体で共通に選べる収束。
+  - term: 一様Cauchy条件
+    english: uniform Cauchy criterion
+    meaning: 関数列のtail同士の差を領域全体で一様に小さくできる条件。
+  - term: Weierstrass M-test
+    english: Weierstrass M-test
+    meaning: 各関数を収束数値級数で一様に抑えることで関数級数の一様絶対収束を保証する判定法。

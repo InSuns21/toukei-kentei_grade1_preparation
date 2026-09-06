@@ -5,6 +5,7 @@ const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
 const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json');
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
+const deprecatedCompatibilityDirs = new Set(['F0_01_統計のための微積分_線形代数_答案記法']);
 
 const toPosix = (p) => p.split(path.sep).join('/');
 const fail = (messages) => {
@@ -41,11 +42,13 @@ for (const section of manifest.sections) {
 }
 
 // Direct foundation chapters normally belong in the DREAM THEATER facade.
-// F0_00CALC_* is reserved for calculation-only reader support: it lives beside
-// the foundations for navigation, but is intentionally outside the theory facade.
+// F0_00CALC_* is calculation-only reader support. The deprecated F0-01 directory
+// remains on disk only for compatibility with old URLs and is intentionally not
+// part of the current reader-facing manifest.
 const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .filter((entry) => !entry.name.startsWith('F0_00CALC_'))
+  .filter((entry) => !deprecatedCompatibilityDirs.has(entry.name))
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
   .map((p) => toPosix(path.relative(repoRoot, p)))

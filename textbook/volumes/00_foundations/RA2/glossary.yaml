@@ -1,0 +1,11 @@
+chapter: "RA2"
+terms:
+  - term: 関数の極限
+    english: limit of a function
+    meaning: xが点aへ近づくときf(x)を一定値へ任意精度で近づけられること。
+  - term: 一様連続
+    english: uniform continuity
+    meaning: 入力差を制御するdeltaを点xに依存させず領域全体で共通に選べる連続性。
+  - term: Lipschitz連続
+    english: Lipschitz continuity
+    meaning: |f(x)-f(y)|を定数倍の|x-y|で一様に上から抑えられる性質。

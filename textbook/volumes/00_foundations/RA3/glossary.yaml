@@ -1,0 +1,14 @@
+chapter: "RA3"
+terms:
+  - term: 平均値定理
+    english: mean value theorem
+    meaning: 区間全体の平均変化率と一致する瞬間変化率を持つ点が区間内に存在するという定理。
+  - term: Cauchyの平均値定理
+    english: Cauchy mean value theorem
+    meaning: 二つの関数の増分比を導関数比へ結び付ける平均値定理。
+  - term: Taylorの定理
+    english: Taylor theorem
+    meaning: 関数を有限次数の多項式と剰余項に厳密に分解する定理。
+  - term: Lagrange剰余項
+    english: Lagrange remainder
+    meaning: Taylor展開の誤差をある中間点での高階導関数により表す剰余項。

@@ -1,0 +1,28 @@
+id: "RA5"
+title: "標準実解析 V：関数列・関数級数・一様収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA2
+  - RA4
+official_scope: []
+learning_objectives:
+  - 各点収束と一様収束を量化記号の順序で区別できる
+  - 一様極限が連続性を保存することを証明できる
+  - 積分・微分と極限の交換条件を説明できる
+  - Weierstrass M-testを関数級数に適用できる
+definitions:
+  - { id: RA5-DEF-01, name: 各点収束 }
+  - { id: RA5-DEF-02, name: 一様収束 }
+  - { id: RA5-DEF-03, name: 一様Cauchy条件 }
+theorems:
+  - { id: RA5-THM-01, name: 一様極限の連続性 }
+  - { id: RA5-THM-02, name: 一様収束と積分の交換 }
+  - { id: RA5-THM-03, name: 微分と極限の交換定理 }
+  - { id: RA5-THM-04, name: Weierstrass M-test }
+canonical_examples: [x^n, 幾何関数級数, 冪級数の項別積分]
+problem_patterns: [RA-UNIFORM-LIMIT-1, RA-MTEST-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }

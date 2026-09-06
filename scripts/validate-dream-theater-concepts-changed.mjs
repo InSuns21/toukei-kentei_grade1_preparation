@@ -25,7 +25,10 @@ const errors = output
 
 const blocking = [];
 const legacy = [];
+const locallyShadowed = [];
 const baseSourceCache = new Map();
+const currentSourceCache = new Map();
+const localAliasCache = new Map();
 
 for (const line of errors) {
   const parsed = parseError(line);
@@ -34,7 +37,7 @@ for (const line of errors) {
     continue;
   }
 
-  const { file, message, conceptId } = parsed;
+  const { file, lineNumber, message, conceptId } = parsed;
   const isUnreachable =
     file.endsWith('.md') &&
     conceptId &&
@@ -45,10 +48,22 @@ for (const line of errors) {
     continue;
   }
 
+  if (conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, currentSourceCache, localAliasCache)) {
+    locallyShadowed.push(line);
+    continue;
+  }
+
   const untouchedLegacy = !changedMarkdown.has(file);
   const semanticLegacy = conceptWasAlreadyUsedInBase(base, file, conceptId, baseSourceCache);
   if (untouchedLegacy || semanticLegacy) legacy.push(line);
   else blocking.push(line);
+}
+
+if (locallyShadowed.length) {
+  console.log('');
+  console.log('同名aliasは、そのページ自身で導入する概念を優先します:');
+  for (const line of locallyShadowed) console.log(`  ${line.replace('- [ERROR] ', '')}`);
+  console.log('例: 数列の「単調収束定理 / liminf」と測度論の同名概念を、ローカル定義があるページで二重計上しません。');
 }
 
 if (legacy.length) {
@@ -117,6 +132,44 @@ function loadConceptAliases() {
   return out;
 }
 
+function conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, sourceCache, aliasCache) {
+  const remoteAliases = conceptAliases.get(conceptId) ?? [];
+  if (!remoteAliases.length || !file.endsWith('/index.md')) return false;
+
+  let localAliases = aliasCache.get(file);
+  if (localAliases === undefined) {
+    const knowledgePath = path.join(process.cwd(), path.dirname(file), 'knowledge.yaml');
+    localAliases = new Set();
+    if (fs.existsSync(knowledgePath)) {
+      const doc = YAML.parse(fs.readFileSync(knowledgePath, 'utf8')) ?? {};
+      for (const raw of doc.concepts ?? []) {
+        for (const alias of [raw?.name, ...(raw?.aliases ?? [])]) {
+          const value = String(alias ?? '').trim();
+          if (value) localAliases.add(normalizeAlias(value));
+        }
+      }
+    }
+    aliasCache.set(file, localAliases);
+  }
+
+  let source = sourceCache.get(file);
+  if (source === undefined) {
+    try {
+      source = stripNonReaderContent(fs.readFileSync(path.join(process.cwd(), file), 'utf8'));
+    } catch {
+      source = null;
+    }
+    sourceCache.set(file, source);
+  }
+  if (source == null) return false;
+
+  const sourceLine = source.split(/\r?\n/)[lineNumber - 1] ?? '';
+  return remoteAliases.some((alias) => {
+    const normalized = normalizeAlias(alias);
+    return localAliases.has(normalized) && aliasAppears(sourceLine, alias);
+  });
+}
+
 function conceptWasAlreadyUsedInBase(baseSha, file, conceptId, cache) {
   if (!baseSha || /^0+$/.test(baseSha)) return false;
   const aliases = conceptAliases.get(conceptId) ?? [];
@@ -160,6 +213,10 @@ function stripNonReaderContent(source) {
   value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
   return value;
+}
+
+function normalizeAlias(value) {
+  return String(value).trim().toLocaleLowerCase('en-US');
 }
 
 function preserveLines(value) {
