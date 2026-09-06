@@ -1,34 +1,24 @@
-name: Validate Pages assembly
+name: Apply TOP1 final review patch
 
 on:
-  pull_request:
+  push:
+    branches:
+      - feature/dream-theater-topology-core
     paths:
-      - 'pages/**'
-      - 'textbook/**'
-      - 'statistical-mathematics/**'
-      - 'applied-rikou-80/**'
-      - 'anki/**'
-      - 'scripts/**'
-      - 'package.json'
-      - 'package-lock.json'
       - '.github/workflows/validate-pages.yml'
-  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  validate-pages:
+  patch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
         with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Assemble and validate Pages site
-        run: npm run validate:pages
+          ref: feature/dream-theater-topology-core
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/patch-top1-final-review.mjs
