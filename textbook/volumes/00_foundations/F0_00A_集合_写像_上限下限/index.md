@@ -43,6 +43,18 @@ $$
 > と書く。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a-subset -->
+### 1.1 定義の確認
+
+**定義の確認**
+
+$$
+A=\{1,2\},\qquad B=\{1,2,3\}
+$$
+
+では、$A$ の要素1,2はいずれも $B$ に属するので $A\subseteq B$ です。一方 $3\in B$ ですが $3\notin A$ なので $B\subseteq A$ ではありません。
+<!-- definition-example-end -->
+
 したがって集合の等号は
 
 $$
@@ -80,6 +92,26 @@ $$
 > を $A$ の **補集合** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a-set-operations -->
+### 2.1 定義の確認
+
+**定義の確認**
+
+$$
+X=\{1,2,3,4\},\quad A=\{1,2\},\quad B=\{2,3\}
+$$
+
+とすると
+
+$$
+A\cup B=\{1,2,3\},\qquad
+A\cap B=\{2\},\qquad
+A^c=\{3,4\}.
+$$
+
+それぞれ「少なくとも一方に属する」「両方に属する」「$X$ に属して $A$ には属さない」という定義をそのまま確認しています。
+<!-- definition-example-end -->
+
 De Morgan則
 
 $$
@@ -108,6 +140,25 @@ $$
 > を $X$ と $Y$ の **直積集合** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a-cartesian-product -->
+### 3.1 定義の確認
+
+**定義の確認**
+
+$$
+X=\{1,2\},\qquad Y=\{a,b\}
+$$
+
+なら
+
+$$
+X\times Y
+=\{(1,a),(1,b),(2,a),(2,b)\}.
+$$
+
+第1成分を $X$ から、第2成分を $Y$ から選んだ順序対がすべて入っています。
+<!-- definition-example-end -->
+
 例えば
 
 $$
@@ -133,6 +184,24 @@ $$
 > と書く。このとき $X$ を **定義域**、$Y$ を **終域** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a-map -->
+### 4.1 定義の確認
+
+**定義の確認**
+
+$$
+X=\{1,2,3\},\qquad Y=\{a,b\}
+$$
+
+として
+
+$$
+f(1)=a,\qquad f(2)=b,\qquad f(3)=a
+$$
+
+とすれば、各 $x\in X$ に $Y$ の元がただ一つ対応しているので $f:X\to Y$ は写像です。$1$ に $a$ と $b$ の両方を対応させる規則なら写像ではありません。
+<!-- definition-example-end -->
+
 「同じ $x$ に二つの値を割り当てない」が写像の条件です。異なる $x$ が同じ値へ写ることは許されます。
 
 ---
@@ -157,6 +226,26 @@ $$
 
 > を $B$ の **逆像** という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-image-preimage -->
+### 5.1 定義の確認
+
+**定義の確認**
+
+$f:\mathbb R\to\mathbb R$, $f(x)=x^2$ とします。$A=[-2,-1]$ なら
+
+$$
+f(A)=[1,4].
+$$
+
+また $B=(1,4)$ なら
+
+$$
+f^{-1}(B)=(-2,-1)\cup(1,2).
+$$
+
+像では定義域側の集合を前へ写し、逆像では終域側の条件を満たす入力を集めています。
+<!-- definition-example-end -->
 
 ここで $f^{-1}(B)$ は逆関数を仮定していません。例えば
 
@@ -202,6 +291,30 @@ $$
 > が成り立つことをいう。単射かつ全射である写像を **全単射** という。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00a-injective-surjective-bijective -->
+### 6.1 定義の確認
+
+**定義の確認**
+
+$$
+f:\{1,2,3\}\to\{a,b,c\},
+\qquad
+f(1)=a,\ f(2)=b,\ f(3)=c
+$$
+
+は、異なる入力が異なる出力へ写り、終域の $a,b,c$ がすべて像に現れるので全単射です。
+
+一方
+
+$$
+g:\{1,2,3\}\to\{a,b\},
+\qquad
+g(1)=a,\ g(2)=b,\ g(3)=a
+$$
+
+は全射ですが、$g(1)=g(3)$ なので単射ではありません。
+<!-- definition-example-end -->
+
 言い換えると、
 
 - 単射：異なる入力を同じ出力へ潰さない。
@@ -237,6 +350,32 @@ $$
 
 > で定まる写像 $g\circ f:X\to Z$ を **合成写像** という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00a-composition -->
+### 7.1 定義の確認
+
+**定義の確認**
+
+$$
+f:\mathbb R\to\mathbb R,\quad f(x)=x+1,
+\qquad
+g:\mathbb R\to\mathbb R,\quad g(y)=y^2
+$$
+
+なら
+
+$$
+(g\circ f)(x)=g(x+1)=(x+1)^2,
+$$
+
+一方
+
+$$
+(f\circ g)(x)=f(x^2)=x^2+1.
+$$
+
+したがって合成では写像を適用する順序が重要です。
+<!-- definition-example-end -->
 
 逆像には
 
