@@ -6,6 +6,8 @@ prerequisites:
   - P3-01
   - P4-02
   - P2-02
+forward_references:
+  - confidence-coefficient
 official_scope:
   - 実験研究
   - 観察研究
