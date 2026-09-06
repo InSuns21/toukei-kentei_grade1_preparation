@@ -48,6 +48,8 @@ $$
 <!-- definition-example-start: def-f0-00b0-sequence -->
 ### 1.1 定義の確認
 
+**定義の確認**
+
 $X=\mathbb R$ として
 
 $$
@@ -92,6 +94,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b0-subsequence -->
 ### 2.1 定義の確認
+
+**定義の確認**
 
 $$
 x_n=(-1)^n
@@ -142,6 +146,8 @@ $$
 <!-- definition-example-start: def-f0-00b0-eventually -->
 ### 3.1 定義の確認
 
+**定義の確認**
+
 例えば次の条件を考えます。
 
 $$
@@ -166,6 +172,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b0-infinitely-often -->
 ### 4.1 定義の確認
+
+**定義の確認**
 
 $x_n=(-1)^n$ では $x_n=1$ は偶数番目ごとに起こるので無限回起こります。同様に $x_n=-1$ も無限回起こります。
 <!-- definition-example-end -->
