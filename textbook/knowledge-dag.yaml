@@ -1,0 +1,34 @@
+version: 1
+scope: textbook
+
+# 通常教材の知識DAG監査ポリシー。
+# 章間DAGの正本は curriculum.yaml の prerequisites、章内の定義・定理は chapter.yaml / glossary.yaml。
+# このファイルは「高信頼に機械検出したい概念」の別名・導入位置だけを補う。
+# 自由文から全専門語を自動抽出すると誤検知が増えるため、確認済み概念から段階登録する。
+
+strict:
+  reject_future_volume_prerequisite: true
+  reject_prerequisite_metadata_drift: true
+  reject_unreachable_registered_concept: true
+  reject_unresolved_concept_dependency: true
+
+rollout:
+  # 既存負債は audit に残し、changed-only CI では変更章だけ strict にする。
+  existing_findings: audit
+
+concepts:
+  - id: blue
+    name: BLUE
+    aliases:
+      - 最良線形不偏推定量
+    # 現状は I1-02 と L1-02 の双方で自己完結に導入されている。
+    # 重複整理後に canonical な導入章を1つへ絞る。
+    introduced_in: [I1-02, L1-02]
+
+  - id: gauss-markov-theorem
+    name: ガウス・マルコフの定理
+    aliases:
+      - ガウス・マルコフ
+      - Gauss--Markov
+      - Gauss-Markov
+    introduced_in: L1-02
