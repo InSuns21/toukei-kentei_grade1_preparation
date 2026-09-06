@@ -48,17 +48,31 @@ top1 = replaceRequired(
   '## 1. 開集合を局所的な部品から作る',
   'TOP1 basis heading'
 );
+top1 = replaceRequired(
+  top1,
+  `実際、右辺は $\\mathcal S$ を含む全ての位相に含まれる集合だけを残すので、上の最小性と一致します。共通部分が位相であることも、各位相公理を成分ごとに確認すれば分かります。`,
+  `まず $\\rho=\\bigcap_{\\sigma\\in\\mathfrak T}\\sigma$ と置きます。全ての $\\sigma\\in\\mathfrak T$ が位相なので $\\varnothing,X$ は各 $\\sigma$ に属し、従って $\\varnothing,X\\in\\rho$ です。さらに $U_\\lambda\\in\\rho$ なら全ての $\\sigma$ に $U_\\lambda\\in\\sigma$ なので、各 $\\sigma$ の任意和閉性から $\\bigcup_\\lambda U_\\lambda\\in\\sigma$、従って $\\bigcup_\\lambda U_\\lambda\\in\\rho$ です。有限交差も同様に、$U_1,\\dots,U_m\\in\\rho$ なら各 $\\sigma$ で $U_1\\cap\\cdots\\cap U_m$ が開だから、その交差は $\\rho$ に属します。よって $\\rho$ は位相です。\n\nまた各 $S\\in\\mathcal S$ は全ての $\\sigma\\in\\mathfrak T$ に属するので $\\mathcal S\\subseteq\\rho$ です。したがって生成位相の最小性から $\\tau(\\mathcal S)\\subseteq\\rho$。逆に $\\tau(\\mathcal S)$ 自身が $\\mathfrak T$ の一員なので、共通部分の定義から $\\rho\\subseteq\\tau(\\mathcal S)$。従って両者は等しいです。`,
+  'TOP1 intersection-of-topologies proof'
+);
+top1 = replaceRequired(
+  top1,
+  '> **命題（開な飽和集合の像は商空間で開）**',
+  '> **命題（開な飽和集合の像は商位相で開）**',
+  'TOP1 saturated proposition title'
+);
 top1 = top1.replaceAll('標準射影', '自然な全射');
 top1 = top1.replaceAll('商空間', '商位相空間');
 top1 = replaceRequired(
   top1,
   `のように0と1を同時に十分含む集合でも、他の同値類は単点なので、適切な $\\varepsilon$ のもとで飽和性を直接確認できます。`,
-  `とします。任意の $\\varepsilon>0$ について $A'$ は0と1をともに含み、その他の同値類は単点なので
-$$
-q^{-1}(q(A'))=A'.
-$$
-従って $A'$ は飽和しています。`,
+  `とします。任意の $\\varepsilon>0$ について $A'$ は0と1をともに含み、その他の同値類は単点なので\n$$\nq^{-1}(q(A'))=A'.\n$$\n従って $A'$ は飽和しています。`,
   'TOP1 saturated epsilon wording'
+);
+top1 = replaceRequired(
+  top1,
+  `なら、$\\tau_1$ の方が **粗い**、$\\tau_2$ の方が **細かい** といいます。`,
+  `という包含では、$\\tau_1$ を **粗い側**、$\\tau_2$ を **細かい側** と読みます。ここで比較しているのは開集合族の包含そのものです。`,
+  'TOP1 coarse/fine implicit formal wording'
 );
 
 const top1Before = (top1.match(/^\$$/gm) ?? []).length;
@@ -90,7 +104,8 @@ fs.writeFileSync(chapterPath, chapter);
 
 for (const temp of [
   'scripts/fix-topology-math-delimiters.mjs',
-  '.github/workflows/fix-topology-math-delimiters.yml'
+  '.github/workflows/fix-topology-math-delimiters.yml',
+  'scripts/refine-top1-proof-detail.mjs'
 ]) {
   if (fs.existsSync(temp)) fs.unlinkSync(temp);
 }
