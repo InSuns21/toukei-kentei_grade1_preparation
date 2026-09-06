@@ -6,6 +6,9 @@ prerequisites:
   - F0-00B0
   - F0-00D
 
+forward_references:
+  - analysis.uniform-continuity
+
 concepts:
   - id: analysis.monotone-convergence-sequence
     name: 単調収束定理
