@@ -5,6 +5,7 @@ prerequisites:
   - F0-00A1C
 
 forward_references:
+  - set.choice-function
   - set.choice-axiom
   - set.zorn-lemma
   - set.maximum-maximal-element
