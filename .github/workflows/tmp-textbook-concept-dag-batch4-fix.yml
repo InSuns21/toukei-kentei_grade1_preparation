@@ -1,5 +1,6 @@
 name: Apply textbook concept DAG batch4 fixes
 
+# Temporary exact-edit workflow; removed before merge.
 on:
   push:
     branches:
