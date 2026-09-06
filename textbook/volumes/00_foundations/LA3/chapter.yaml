@@ -7,13 +7,13 @@ prerequisites:
   - F0-00F
 official_scope: []
 learning_objectives:
-  - 代数的双対空間 V* と双対基底を構成できる
+  - 代数的双対 V* と双対基底を構成できる
   - annihilator と双対写像の意味を説明できる
   - 有限次元で V と V** が標準的に同型になることを示せる
   - 行列式を交代多重線形形式の作用として座標に依らず定義できる
 definitions:
   - { id: LA3-DEF-01, name: 線形形式 }
-  - { id: LA3-DEF-02, name: 代数的双対空間 }
+  - { id: LA3-DEF-02, name: 代数的双対 }
   - { id: LA3-DEF-03, name: 双対基底 }
   - { id: LA3-DEF-04, name: annihilator }
   - { id: LA3-DEF-05, name: 双対写像 }
