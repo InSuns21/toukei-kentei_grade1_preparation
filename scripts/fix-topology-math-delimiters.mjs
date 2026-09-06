@@ -75,6 +75,11 @@ top1 = replaceRequired(
   'TOP1 coarse/fine implicit formal wording'
 );
 
+const defExampleStartRe = /(<!-- definition-example-start:[^\n]* -->)\n/g;
+const defExampleCount = (top1.match(defExampleStartRe) ?? []).length;
+if (defExampleCount !== 7) throw new Error(`expected 7 TOP1 definition examples, found ${defExampleCount}`);
+top1 = top1.replace(defExampleStartRe, '$1\n**定義の確認**\n');
+
 const top1Before = (top1.match(/^\$$/gm) ?? []).length;
 top1 = top1.replace(/^\$$/gm, '$$$$');
 fs.writeFileSync(top1Path, top1);
