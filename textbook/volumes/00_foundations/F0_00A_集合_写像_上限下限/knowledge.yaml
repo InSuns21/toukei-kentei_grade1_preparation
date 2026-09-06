@@ -4,6 +4,18 @@ coverage: complete
 prerequisites:
   - F0-00
 
+forward_references:
+  - order.upper-bound
+  - order.lower-bound
+  - order.supremum
+  - order.infimum
+  - topology.open-set
+  - topology.closed-set
+  - topology.boundary
+  - topology.topology
+  - linear.dimension
+  - optimization.constraint-qualification
+
 concepts:
   - id: set.set
     name: 集合
