@@ -18,7 +18,7 @@ concepts:
     name: Fenchel--Youngの不等式
     kind: theorem
     introduction: inline
-    aliases: [Fenchel--Young]
+    aliases: [Fenchel--Young, Fenchel–Young]
     requires:
       - convex.fenchel-conjugate
 
