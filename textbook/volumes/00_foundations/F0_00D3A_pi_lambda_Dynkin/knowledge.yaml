@@ -1,0 +1,37 @@
+chapter: F0-00D3A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+  - F0-00D3
+
+# 冒頭・末尾では、π–λ定理が後続の拡張定理・積測度でどう使われるかを予告する。
+forward_references:
+  - measure.caratheodory-extension-theorem
+  - measure.set-algebra
+  - measure.product-sigma-algebra
+  - measure.product-measure
+  - measure.tonelli-theorem
+  - measure.fubini-theorem
+
+concepts:
+  - id: measure.pi-system
+    name: π-system
+    kind: definition
+    aliases: [π-system, π系]
+    requires: []
+
+  - id: measure.dynkin-system
+    name: Dynkin族
+    kind: definition
+    aliases: [Dynkin族, Dynkin 族, λ-system, λ系]
+    requires: []
+
+  - id: measure.pi-lambda-theorem
+    name: π–λ定理
+    kind: theorem
+    aliases: [π–λ定理, π–λ 定理, π-λ定理, Dynkinのπ–λ定理]
+    requires:
+      - measure.pi-system
+      - measure.dynkin-system
+      - measure.generated-sigma-algebra

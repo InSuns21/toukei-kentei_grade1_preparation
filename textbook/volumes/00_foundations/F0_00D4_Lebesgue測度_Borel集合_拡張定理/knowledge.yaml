@@ -2,7 +2,7 @@ chapter: F0-00D4
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00D3
+  - F0-00D3A
   - F0-00D2B
   - F0-00C
   - F0-00A1
@@ -133,3 +133,4 @@ concepts:
       - measure.algebra-caratheodory-measurable
       - measure.caratheodory-theorem
       - measure.sigma-finite-premeasure
+      - measure.pi-lambda-theorem

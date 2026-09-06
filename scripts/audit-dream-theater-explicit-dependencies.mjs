@@ -67,18 +67,25 @@ for (const page of pages.values()) {
   for (let i = 0; i < lines.length; i += 1) {
     const rawLine = lines[i];
     if (!rawLine.trim()) continue;
+    if (isNavigationOrChecklistLine(rawLine)) continue;
+
     const lineNumber = i + 1;
     const normalizedLine = normalizeSemantic(rawLine);
+    const acceptedAliasTexts = [];
 
-    // 登録済みの「定理・補題・命題・系」は「○○より / ○○により / ○○を用いる」等を拾う。
-    // 定義・用語は裸の「○○より」だと比較表現に誤爆するため、「○○の定義から」等に限定する。
+    // 登録済み result は「○○より / ○○により / ○○を用いる」等を拾う。
+    // definition は「○○の定義から」のように definition そのものを根拠にする場合だけ拾う。
+    // 「polar cone の公式から」を polar cone 定義へ、「分離超平面定理から」を
+    // 分離超平面の定義へ誤解決しない。未登録の公式・定理は下の named candidate 側へ流す。
     for (const item of aliases) {
       if (!normalizedLine.includes(item.normalized)) continue;
+      if (acceptedAliasTexts.some((longer) => longer.length > item.normalized.length && longer.includes(item.normalized))) continue;
       if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
+      acceptedAliasTexts.push(item.normalized);
       uses.set(`${lineNumber}:${item.concept.id}`, { line: lineNumber, concept: item.concept, raw: compact(rawLine) });
     }
 
-    // 未登録の「○○定理より」も見えるよう、formal名を根拠表現の直前から抽出する。
+    // 未登録の「○○定理より」「○○公式から」も見えるよう、formal名を根拠表現の直前から抽出する。
     for (const candidate of extractNamedDependencyCandidates(rawLine)) {
       if (isGenericDependencyCandidate(candidate)) continue;
       const resolved = resolveCandidate(candidate, aliases);
@@ -141,11 +148,13 @@ function hasExplicitReasoningUse(line, item) {
     const index = line.indexOf(item.normalized, offset);
     if (index < 0) return false;
     const tail = line.slice(index + item.normalized.length);
+
     if (isResultLike(item.concept, item.alias)) {
-      if (/^(?:により|によれば|より(?!弱|強|大|小|高|低|一般|厳|緩)|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) return true;
-    } else if (/^(?:の)?(?:定義|公式|不等式|定理|補題|命題|原理|法則|恒等式)(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) {
-      return true;
+      if (/^(?:(?:の)?(?:定理|補題|命題|系))?(?:により|によれば|より(?!弱|強|大|小|高|低|一般|厳|緩)|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) return true;
+    } else if (item.concept.kind === 'definition') {
+      if (/^(?:の)?定義(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して))/u.test(tail)) return true;
     }
+
     offset = index + item.normalized.length;
   }
 }
@@ -153,6 +162,15 @@ function hasExplicitReasoningUse(line, item) {
 function isResultLike(concept, alias) {
   if (['theorem', 'lemma', 'proposition', 'corollary'].includes(concept.kind)) return true;
   return /(?:定理|補題|命題|公式|不等式|原理|法則|恒等式)$/u.test(String(alias).trim());
+}
+
+function isNavigationOrChecklistLine(line) {
+  const text = String(line).trim();
+  if (/へ(?:進んでください|進みます|進む|戻ってください|戻る)/u.test(text)) return true;
+  if (/(?:で扱います|で扱う予定|後続章で扱|次章で扱|を予告します|への接続として)/u.test(text)) return true;
+  if (/(?:次章|次節|後続章|後続節|この先).*(?:説明|導入|扱|証明|確認|見る|学ぶ)/u.test(text)) return true;
+  if (/^[-*]\s+.+(?:説明|証明|区別|確認|導出|計算|判断|再現|適用)できる[。.]?$/u.test(text)) return true;
+  return false;
 }
 
 function extractNamedDependencyCandidates(line) {
@@ -166,31 +184,62 @@ function extractNamedDependencyCandidates(line) {
     const prefix = text.slice(0, match.index).trimEnd();
     const named = prefix.match(/(?:^|[、。；;:：!！?？「」『』（）()])\s*([^、。；;:：!！?？「」『』（）()]{1,80}?(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))\s*$/u);
     if (!named) continue;
-    let candidate = named[1].trim();
-    candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
-    candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
+    let candidate = cleanCandidateLead(named[1].trim());
     if (candidate) out.push(candidate);
   }
   return [...new Set(out)];
 }
 
+function cleanCandidateLead(value) {
+  let candidate = String(value).trim();
+  candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
+  candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
+  candidate = candidate.replace(/^(?:なら|では|について(?:は)?|積分は|積分を|と)\s*/u, '');
+  const conjunction = candidate.match(/^.+[、,]\s*([^、,]{2,50}(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))$/u);
+  if (conjunction) candidate = conjunction[1].trim();
+  return candidate;
+}
+
 function resolveCandidate(candidate, aliasItems) {
   const normalized = normalizeSemantic(candidate);
   const base = stripFormalSuffix(normalized);
+  const candidateType = formalCandidateType(normalized);
+  const compatibleItems = aliasItems.filter((item) => isCandidateCompatible(candidateType, item));
 
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     if (item.normalized === normalized) return item.concept;
   }
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     if (item.normalized === base) return item.concept;
   }
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     const aliasBase = stripFormalSuffix(item.normalized);
     if (normalized.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (base.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (aliasBase.length >= 4 && base.endsWith(aliasBase) && isResultLike(item.concept, item.alias)) return item.concept;
   }
   return null;
+}
+
+function formalCandidateType(value) {
+  if (/定義$/u.test(value)) return 'definition';
+  if (/(?:定理|補題|命題|系)$/u.test(value)) return 'result';
+  if (/(?:公式|不等式|恒等式|原理|法則)$/u.test(value)) return 'formula';
+  return 'unknown';
+}
+
+function isCandidateCompatible(type, item) {
+  if (type === 'unknown') return true;
+  if (type === 'definition') return item.concept.kind === 'definition' || /定義$/u.test(item.normalized);
+  if (type === 'result') {
+    return ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind)
+      || /(?:定理|補題|命題|系)$/u.test(item.normalized);
+  }
+  if (type === 'formula') {
+    return /(?:公式|不等式|恒等式|原理|法則)$/u.test(item.normalized)
+      || ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind);
+  }
+  return true;
 }
 
 function stripFormalSuffix(value) {
@@ -208,6 +257,8 @@ function isGenericDependencyCandidate(candidate) {
     '定理', '上の定理', 'この定理', '前の定理',
   ]).has(value)) return true;
   if (/^(?:二つ|2つ|三つ|3つ|複数|いくつか)の/u.test(value)) return true;
+  if (/^(?:[A-D]\d+|\d+[.．]|その|これ|それ|同じ|前節の?\s*$)/u.test(value)) return true;
+  if (/(?:ことを|を|が|は|なので|なら|について).*(?:定義|定理|補題|命題)$/u.test(value)) return true;
   const base = stripFormalSuffix(value);
   if (!/[A-Za-z0-9πΠλΛα-ωΑ-Ω・\-]/u.test(base) && base.length < 5) return true;
   return false;
@@ -365,6 +416,7 @@ function resolveDiffBase() {
 function normalizeSemantic(value) {
   return String(value)
     .replace(/[‐‑‒–—−]/g, '-')
+    .replace(/-+/g, '-')
     .replace(/[\s*_>#`\[\]「」『』]/g, '')
     .replace(/\\,/g, '')
     .replace(/\\!/g, '')

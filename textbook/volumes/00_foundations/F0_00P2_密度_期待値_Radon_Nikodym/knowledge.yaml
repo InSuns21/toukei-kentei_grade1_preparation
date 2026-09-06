@@ -42,7 +42,7 @@ concepts:
   - id: measure.radon-nikodym-theorem
     name: Radon--Nikodym定理
     kind: theorem
-    aliases: [Radon--Nikodym定理]
+    aliases: [Radon--Nikodym定理, RN定理]
     requires:
       - measure.absolute-continuity
       - measure.radon-nikodym-derivative

@@ -20,10 +20,15 @@ concepts:
       - prob.variance
 
   # 現本文は導出全体を示すが、独立した formal-statement パネルはまだ置かれていない。
+  # 後続章は「中心極限定理」「P6Aの中心極限定理」と略記するため、その参照形も正規aliasとして持つ。
   - id: prob.iid-clt
     name: iid有限分散中心極限定理
     kind: term
-    aliases: [独立同分布有限分散版の中心極限定理]
+    aliases:
+      - 独立同分布有限分散版の中心極限定理
+      - iid有限分散中心極限定理
+      - P6Aの中心極限定理
+      - 中心極限定理
     introduction_aliases: [これが独立同分布有限分散版の中心極限定理です]
     requires:
       - prob.standardized-iid-sum
