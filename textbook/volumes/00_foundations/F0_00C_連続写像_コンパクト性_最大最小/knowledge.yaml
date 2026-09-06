@@ -6,6 +6,8 @@ prerequisites:
 
 forward_references:
   - topology.compact-set
+  - topology.sequentially-compact
+  - topology.heine-borel
   - topology.continuous-image-compact
   - topology.extreme-value-theorem
 
