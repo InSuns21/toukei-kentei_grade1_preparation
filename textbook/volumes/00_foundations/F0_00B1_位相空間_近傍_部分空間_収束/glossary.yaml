@@ -14,7 +14,7 @@ terms:
     meaning: 距離空間の開球から定まる開集合全体が作る位相。
   - term: 部分空間位相
     english: subspace topology
-    meaning: 部分集合 A に対して ambient 空間の開集合 U との交わり A∩U を開集合とする位相。
+    meaning: 部分集合 A に対して、もとの空間の開集合 U との交わり A∩U を開集合とする位相。
   - term: 位相的収束
     english: topological convergence
     meaning: 極限点の任意の近傍に点列が最終的に入ること。
