@@ -5,6 +5,7 @@ prerequisites:
   - F0-02C4
 
 forward_references:
+  - optimization.polar-cone
   - optimization.kkt-multiplier-existence
 
 concepts:
