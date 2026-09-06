@@ -575,7 +575,7 @@ $$
 f(x,y)=x^2+4xy+5y^2
 $$
 
-が $\mathbb R^2$ 上で凸であることを Hessian 判定から示せ。
+が $\mathbb R^2$ 上で凸であることを [Hessian 判定](#thm-f0-00g-hessian-convexity)から示せ。
 
 <!-- solution-start -->
 #### 詳細解答

@@ -208,14 +208,14 @@ function collectDreamDependencyUses(readerLine, rawLine, lineNumber, aliases) {
   return [...uses.values()];
 }
 
-function validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors) {
+function validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, aliasItems) {
   const reference = use.concept.reference;
   if (!reference) {
     errors.push(`${rel}:${use.line}: knowledge dependency ${use.concept.name} (${use.concept.id}) has no resolvable stable source anchor in ${use.concept.page.path}`);
     return { ok: false, line, fixed: false };
   }
   const expectedHref = hrefToReference(file, reference);
-  const matchingLinks = [...line.matchAll(linkRe)].filter((match) => linkLabelNamesConcept(match[1], use.concept));
+  const matchingLinks = [...line.matchAll(linkRe)].filter((match) => linkLabelNamesConcept(match[1], use.concept) || resolveCandidate(match[1], aliasItems)?.id === use.concept.id);
   for (const match of matchingLinks) {
     const href = match[2].trim();
     if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
@@ -485,7 +485,7 @@ for (const [file, markdown] of contents) {
       if (readerLine.trim() && !isNavigationOrChecklistLine(readerLine)) {
         for (const use of collectDreamDependencyUses(readerLine, line, i + 1, dreamAliases)) {
           checkedKnowledgeUses += 1;
-          const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors);
+          const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, dreamAliases);
           if (result.fixed) { line = result.line; lines[i] = line; fileChanged = true; fixedKnowledgeLinks += 1; }
           if (result.ok) checkedKnowledgeLinks += 1;
         }
