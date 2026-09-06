@@ -6,6 +6,7 @@ prerequisites:
 
 forward_references:
   - topology.continuous-map
+  - topology.sequentially-compact
   - topology.heine-borel
 
 concepts:
