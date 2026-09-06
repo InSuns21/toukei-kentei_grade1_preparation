@@ -1,0 +1,34 @@
+name: tmp Batch 12 apply
+
+on:
+  push:
+    branches:
+      - audit/textbook-concept-dag-batch12-normal-orthogonal-two-sample-t
+    paths:
+      - .github/workflows/tmp-batch12.yml
+      - scripts/tmp_batch12.py
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply Batch 12 edits
+        run: python3 scripts/tmp_batch12.py
+      - name: Check and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/knowledge-dag.yaml \
+            textbook/volumes/03_inference/I3_03_正規母集団_適合度_ノンパラメトリック検定/chapter.yaml \
+            textbook/volumes/03_inference/I3_03_正規母集団_適合度_ノンパラメトリック検定/index.md
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "Formalize two-sample t tests and extend concept DAG Batch 12"
+            git push
+          fi
