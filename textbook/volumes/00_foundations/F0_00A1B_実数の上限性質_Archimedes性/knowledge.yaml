@@ -6,10 +6,12 @@ prerequisites:
 
 forward_references:
   - topology.bolzano-weierstrass-real
+  - topology.topology
   - set.power-set
   - set.family
   - set.indexed-family
   - set.indexed-union-intersection
+  - set.choice-axiom
 
 concepts:
   - id: analysis.least-upper-bound-property
