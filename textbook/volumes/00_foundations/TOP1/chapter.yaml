@@ -10,6 +10,7 @@ learning_objectives:
   - initial topology を逆像部分基底から構成し、最粗性と普遍性を証明できる
   - 部分空間位相と積位相を initial topology の特殊例として説明できる
   - final topology が位相であること、最細性と普遍性を証明できる
+  - initial の最粗性と final の最細性を位相の集合包含の向きで区別できる
   - 商位相を final topology として理解し、商写像の連続性判定を使える
   - 飽和集合と q^{-1}(q(A)) を計算し、商写像が開写像とは限らないことを反例で説明できる
 definitions:
