@@ -7,7 +7,6 @@ if "  - id: fisher-exact-test\n" in text:
     raise RuntimeError("Batch 9 concepts already registered")
 
 block = r'''
-
   - id: pearson-goodness-of-fit-statistic
     name: ピアソンの適合度統計量
     aliases:
@@ -80,4 +79,4 @@ block = r'''
     introduced_in: I3-03
 '''
 
-p.write_text(text.rstrip() + block + "\n", encoding="utf-8")
+p.write_text(text.rstrip() + "\n\n" + block.strip() + "\n", encoding="utf-8")
