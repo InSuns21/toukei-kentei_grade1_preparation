@@ -9,7 +9,6 @@ on:
       - 'scripts/audit-dream-theater-concepts.mjs'
       - 'scripts/audit-dream-theater-formal-order.mjs'
       - 'scripts/audit-dream-theater-explicit-dependencies.mjs'
-      - 'scripts/s15-targeted-edit.py'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-dream-theater-concepts.yml'
@@ -27,9 +26,6 @@ on:
       - 'package-lock.json'
       - '.github/workflows/validate-dream-theater-concepts.yml'
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   validate-dream-theater-concepts:
@@ -56,28 +52,3 @@ jobs:
 
       - name: Audit full DREAM THEATER concept coverage
         run: npm run audit:dream-theater-concepts
-
-  s15-targeted-source-edits:
-    if: github.event_name == 'pull_request' && github.head_ref == 'audit/dream-theater-explicit-dependency-s15'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout PR head
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Apply exact dependency fixes
-        run: python scripts/s15-targeted-edit.py
-
-      - name: Commit source edits
-        run: |
-          if git diff --quiet; then
-            echo 'No source edits to commit.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/audit-dream-theater-explicit-dependencies.mjs textbook/volumes/00_foundations
-          git commit -m 'Resolve final DREAM THEATER explicit dependency gaps'
-          git push origin HEAD:audit/dream-theater-explicit-dependency-s15
