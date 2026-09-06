@@ -2,7 +2,7 @@ chapter: F0-00A1C
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00A1
+  - F0-00A1B
 
 forward_references:
   - topology.sequence
