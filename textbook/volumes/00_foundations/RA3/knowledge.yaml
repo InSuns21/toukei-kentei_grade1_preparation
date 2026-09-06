@@ -14,7 +14,7 @@ concepts:
     name: Rolleの定理
     kind: theorem
     aliases: [Rolleの定理]
-    requires: [analysis.derivative]
+    requires: [analysis.derivative, topology.extreme-value]
   - id: analysis.mean-value-theorem
     name: 平均値定理
     kind: theorem
