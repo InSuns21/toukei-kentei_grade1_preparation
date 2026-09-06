@@ -3,7 +3,17 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00F
+  - F0-00F1
   - F0-00A
+
+forward_references:
+  - convex.epigraph
+  - convex.lower-semicontinuous
+  - convex.closed-convex-function
+  - convex.supporting-hyperplane
+  - convex.subgradient
+  - convex.subdifferential
+  - optimization.strong-duality-slater
 
 concepts:
   - id: convex.convex-combination
@@ -35,9 +45,9 @@ concepts:
       - convex.convex-set
 
   - id: convex.hessian-convexity
-    name: C2凸関数のHessian判定
+    name: C2 凸関数の Hessian 判定
     kind: theorem
-    aliases: ["C^2 凸関数の Hessian 判定", 凸関数のHessian判定, Hessian判定]
+    aliases: ["C2 凸関数の Hessian 判定", "C^2 凸関数の Hessian 判定", 凸関数のHessian判定, Hessian判定]
     requires:
       - convex.convex-function
 
