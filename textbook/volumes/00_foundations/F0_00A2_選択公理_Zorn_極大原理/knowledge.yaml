@@ -6,6 +6,7 @@ prerequisites:
 
 # Zornとその半順序語彙は次章A3で正式導入する。線形代数への言及は後続応用の予告。
 forward_references:
+  - set.partial-order
   - set.zorn-lemma
   - set.maximum-maximal-element
   - set.chain
