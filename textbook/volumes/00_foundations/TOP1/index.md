@@ -171,13 +171,13 @@ $$
 $$
 
 となります。従って全ての開区間が有限交差として得られ、それらの任意和から通常の開集合が全て生成位相に入ります。通常位相を $\tau_{\mathrm{std}}$ と書けば
-$
+$$
 \tau_{\mathrm{std}}\subseteq\tau(\mathcal S).
-$
+$$
 逆に、部分基底をなす各半直線 $(-\infty,a)$ と $(b,\infty)$ はもともと $\tau_{\mathrm{std}}$ の開集合です。$\tau_{\mathrm{std}}$ は有限交差と任意和に閉じているため、$\mathcal S$ の有限交差とその任意和で作られる全ての集合も $\tau_{\mathrm{std}}$ に属します。従って
-$
+$$
 \tau(\mathcal S)\subseteq\tau_{\mathrm{std}}.
-$
+$$
 二つの包含から $\tau(\mathcal S)=\tau_{\mathrm{std}}$ です。
 <!-- definition-example-end -->
 
