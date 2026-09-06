@@ -401,3 +401,35 @@ concepts:
       - p-value
     introduced_in: I3-01
     requires: [significance-level, rejection-region]
+
+  - id: power-curve
+    name: 検出力曲線
+    aliases:
+      - power curve
+    introduced_in: I3-01
+    requires: [power-function]
+
+  - id: most-powerful-test
+    name: 最強力検定
+    aliases:
+      - most powerful test
+      - most-powerful test
+    introduced_in: I3-01
+    requires: [significance-level, power-function]
+
+  - id: randomized-test
+    name: ランダム化検定
+    aliases:
+      - randomized test
+      - randomised test
+    introduced_in: I3-01
+    requires: [test-function, significance-level]
+
+  - id: test-confidence-duality
+    name: 検定と信頼集合の双対性
+    aliases:
+      - 検定と信頼区間の双対性
+      - test-confidence set duality
+      - duality between tests and confidence sets
+    introduced_in: I3-01
+    requires: [significance-level, confidence-interval]
