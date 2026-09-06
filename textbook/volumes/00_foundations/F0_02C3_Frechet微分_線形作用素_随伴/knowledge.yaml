@@ -1,11 +1,12 @@
 chapter: F0-02C3
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C2
 
 forward_references:
   - functional.frechet-chain-rule
+  - functional.adjoint-operator
 
 concepts:
   - id: functional.directional-derivative
@@ -28,6 +29,7 @@ concepts:
     aliases: [Fréchet微分, Frechet微分]
     requires:
       - functional.normed-space
+      - functional.bounded-linear-operator
 
   - id: functional.bounded-linear-operator
     name: 有界線形作用素
