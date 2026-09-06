@@ -103,7 +103,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明の骨格
+### 証明
 
 [微積分学の基本定理I](../RA4/index.md#thm-ra4-ftc1) を用いて
 $$
