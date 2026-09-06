@@ -54,6 +54,185 @@ for (const { path, from, to } of replacements) {
   fs.writeFileSync(path, source.replace(from, to));
 }
 
+// LA4 proof-pedagogy repair: promote nontrivial auxiliary results to named
+// formal lemmas, remove the generic English "chain" token from authored anchor
+// IDs, and derive the minimal-polynomial/Jordan-block-size correspondence that
+// later prose and exercises rely on.
+{
+  const path = 'textbook/volumes/00_foundations/LA4/index.md';
+  let source = fs.readFileSync(path, 'utf8');
+
+  const replaceOnce = (from, to, label) => {
+    if (!source.includes(from)) throw new Error(`LA4 replacement point not found: ${label}`);
+    source = source.replace(from, to);
+  };
+
+  replaceOnce(
+    String.raw`#### 補助事実：余因子行列の恒等式
+
+任意の $n\times n$ 行列 $M=(m_{ij})$ に対し、$(i,j)$ 余因子を $C_{ij}$ と書き
+$$
+\operatorname{adj}(M)_{kj}=C_{jk}
+$$
+で余因子行列を定めます。このとき
+$$
+M\operatorname{adj}(M)=\det(M)I
+$$
+です。`,
+    String.raw`<a id="lem-la4-adjugate-identity"></a>
+#### 補題（余因子行列の恒等式）
+
+<!-- formal-statement-start -->
+> **補題（余因子行列の恒等式）**  
+> 任意の $n\times n$ 行列 $M=(m_{ij})$ に対し、$(i,j)$ 余因子を $C_{ij}$ と書き
+$$
+\operatorname{adj}(M)_{kj}=C_{jk}
+$$
+> で余因子行列を定める。このとき
+$$
+M\operatorname{adj}(M)=\det(M)I.
+$$
+<!-- formal-statement-end -->`,
+    'adjugate lemma'
+  );
+
+  replaceOnce(
+    String.raw`#### 補助事実1：多項式のBézout等式
+
+多項式 $f,g$ が互いに素なら、ある多項式 $a,b$ が存在して
+$$
+af+bg=1
+$$
+と書けます。`,
+    String.raw`<a id="lem-la4-polynomial-bezout"></a>
+#### 補題（多項式のBézout等式）
+
+<!-- formal-statement-start -->
+> **補題（多項式のBézout等式）**  
+> 多項式 $f,g$ が互いに素なら、ある多項式 $a,b$ が存在して
+$$
+af+bg=1
+$$
+> と書ける。
+<!-- formal-statement-end -->`,
+    'Bezout lemma'
+  );
+
+  replaceOnce(
+    String.raw`#### 補助事実2：互いに素な因子をまとめる
+
+$f_1,\dots,f_r$ が2つずつ互いに素で、多項式 $h$ が全ての $f_i$ で割り切れるなら
+$$
+f_1\cdots f_r\mid h
+$$
+です。`,
+    String.raw`<a id="lem-la4-coprime-product-divisibility"></a>
+#### 補題（互いに素な因子の積による整除）
+
+<!-- formal-statement-start -->
+> **補題（互いに素な因子の積による整除）**  
+> $f_1,\dots,f_r$ が2つずつ互いに素で、多項式 $h$ が全ての $f_i$ で割り切れるなら
+$$
+f_1\cdots f_r\mid h.
+$$
+<!-- formal-statement-end -->`,
+    'coprime product lemma'
+  );
+
+  source = source.replaceAll('def-la4-jordan-chain', 'def-la4-jordan-sequence');
+
+  const blockHeading = '### ブロックサイズから何が読めるか';
+  const derivation = String.raw`#### 最小多項式の指数と最大Jordanブロックサイズ
+
+ここまででJordanブロックの存在と一意性は示せました。次に、後で使う
+$$
+\text{「最小多項式中の }(t-\lambda)\text{ の指数」}
+=
+\text{「固有値 }\lambda\text{ の最大Jordanブロックサイズ」}
+$$
+を式から確認します。
+
+まず1個のJordanブロック $J_k(\lambda)$ を考え、
+$$
+N=J_k(\lambda)-\lambda I
+$$
+と置きます。Jordan鎖基底を $v_1,\dots,v_k$ とすると
+$$
+Nv_1=0,
+\qquad
+Nv_j=v_{j-1}\quad(j=2,\dots,k).
+$$
+従って
+$$
+N^kv_j=0\qquad(j=1,\dots,k)
+$$
+なので $N^k=0$、すなわち
+$$
+(J_k(\lambda)-\lambda I)^k=0.
+$$
+一方、鎖の最上段 $v_k$ に作用させると
+$$
+N^{k-1}v_k=v_1\ne0
+$$
+なので $N^{k-1}\ne0$ です。したがって $(t-\lambda)^k$ はこのブロックを消しますが、$(t-\lambda)^{k-1}$ では消せません。
+
+ここで「別の形の低次数多項式なら消せるかもしれない」という可能性も潰します。$p(J_k(\lambda))=0$ を満たす任意の多項式 $p$ を、$(t-\lambda)^k$ で割って
+$$
+p(t)=q(t)(t-\lambda)^k+r(t),
+\qquad
+\deg r<k
+$$
+と書きます。すでに $(J_k(\lambda)-\lambda I)^k=0$ なので
+$$
+0=p(J_k(\lambda))=r(J_k(\lambda)).
+$$
+$\deg r<k$ だから、$t-\lambda$ の冪を基底にして
+$$
+r(t)=a_0+a_1(t-\lambda)+\cdots+a_{k-1}(t-\lambda)^{k-1}
+$$
+と一意に書けます。これを $v_k$ に作用させると
+$$
+\begin{aligned}
+0=r(J_k(\lambda))v_k
+&=a_0v_k+a_1Nv_k+\cdots+a_{k-1}N^{k-1}v_k\\
+&=a_0v_k+a_1v_{k-1}+\cdots+a_{k-1}v_1.
+\end{aligned}
+$$
+$v_1,\dots,v_k$ は基底なので一次独立です。従って
+$$
+a_0=a_1=\cdots=a_{k-1}=0,
+$$
+すなわち $r=0$。よって、このブロックを消す任意の多項式は $(t-\lambda)^k$ で割り切れます。したがって
+$$
+m_{J_k(\lambda)}(t)=(t-\lambda)^k.
+$$
+
+次にJordanブロックの直和
+$$
+T=J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
+$$
+を考えます。作用素多項式もブロックごとに作用するので
+$$
+p(T)=0
+$$
+であることと、全ての $i$ について
+$$
+p(J_{k_i}(\lambda_i))=0
+$$
+であることは同値です。従って $T$ の最小多項式は、各ブロックの最小多項式の最小公倍多項式です。
+
+固定した固有値 $\lambda$ に属するブロックサイズを $k_1,\dots,k_c$ とすれば、その部分の最小公倍多項式は
+$$
+\operatorname{lcm}\bigl((t-\lambda)^{k_1},\dots,(t-\lambda)^{k_c}\bigr)
+=(t-\lambda)^{\max_i k_i}.
+$$
+従って、最小多項式中の $(t-\lambda)$ の指数は、固有値 $\lambda$ に対応する最大Jordanブロックのサイズそのものです。
+
+`;
+  replaceOnce(blockHeading, `${derivation}${blockHeading}`, 'minimal polynomial/Jordan block derivation');
+  fs.writeFileSync(path, source);
+}
+
 // Reader-content audit must not treat stable HTML anchor IDs as prose.
 {
   const path = 'scripts/audit-dream-theater-concepts.mjs';
@@ -89,17 +268,23 @@ addForwardRefs('textbook/volumes/00_foundations/LA1/knowledge.yaml', [
   'linear.quotient-space',
   'linear.canonical-quotient-map',
   'linear.first-isomorphism-theorem',
-  'linear.complex-inner-product'
+  'linear.complex-inner-product',
+  'measure.lp-space'
 ]);
 addForwardRefs('textbook/volumes/00_foundations/LA2/knowledge.yaml', [
   'linear.dual-basis',
   'linear.annihilator',
-  'linear.dual-map'
+  'linear.dual-map',
+  'measure.lp-space'
 ]);
 addForwardRefs('textbook/volumes/00_foundations/LA3/knowledge.yaml', [
+  'topology.topology',
   'linear.characteristic-polynomial',
   'linear.minimal-polynomial',
-  'linear.generalized-eigenspace'
+  'linear.generalized-eigenspace',
+  'measure.lp-space',
+  'functional.linear-functional',
+  'functional.continuous-linear-functional'
 ]);
 addForwardRefs('textbook/volumes/00_foundations/LA4/knowledge.yaml', [
   'linear.complex-inner-product',
@@ -110,7 +295,14 @@ addForwardRefs('textbook/volumes/00_foundations/LA5/knowledge.yaml', [
   'linear.singular-value-decomposition',
   'linear.hermitian-quadratic-form',
   'linear.polar-decomposition',
-  'linear.complex-singular-value-decomposition'
+  'linear.complex-singular-value-decomposition',
+  'functional.norm',
+  'functional.l2-inner-product',
+  'linear.inner-product-recap-c1'
+]);
+addForwardRefs('textbook/volumes/00_foundations/LA6/knowledge.yaml', [
+  'functional.norm',
+  'functional.operator-norm'
 ]);
 
 // Let the knowledge-DAG aware fixer insert exact stable-anchor links for named proof dependencies.
