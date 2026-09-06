@@ -1,9 +1,9 @@
 chapter: F0-00F2
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00F1
-  - F0-00D1
+  - F0-00E2
 
 concepts:
   - id: linear.singular-value
@@ -12,21 +12,41 @@ concepts:
     introduction_aliases: [特異値・右特異ベクトル]
     aliases: [特異値, 特異値・右特異ベクトル]
     requires:
-      - linear.linear-map
+      - linear.spectral-theorem
+      - linear.positive-semidefinite-matrix
+
+  - id: linear.right-singular-vector
+    name: 右特異ベクトル
+    kind: definition
+    introduction_aliases: [特異値・右特異ベクトル]
+    aliases: [右特異ベクトル, 特異値・右特異ベクトル]
+    requires:
+      - linear.singular-value
+      - linear.eigenvector
+
+  - id: linear.left-singular-vector
+    name: 左特異ベクトル
+    kind: definition
+    aliases: [左特異ベクトル]
+    requires:
+      - linear.singular-value
+      - linear.right-singular-vector
+      - linear.orthonormal-system
 
   - id: linear.singular-value-decomposition
     name: 特異値分解
     kind: theorem
     aliases: [特異値分解, SVD]
     requires:
-      - linear.singular-value
+      - linear.right-singular-vector
+      - linear.left-singular-vector
       - linear.orthogonality
 
   - id: linear.spectral-norm
-    name: 行列のスペクトルノルム
+    name: 行列の作用素ノルム（スペクトルノルム）
     kind: definition
     introduction_aliases: [作用素ノルム]
-    aliases: [行列のスペクトルノルム, "定義（作用素ノルム）"]
+    aliases: [行列の作用素ノルム（スペクトルノルム）, "定義（作用素ノルム）"]
     requires:
-      - linear.singular-value
-      - functional.norm
+      - linear.inner-product-induced-norm
+      - linear.singular-value-decomposition
