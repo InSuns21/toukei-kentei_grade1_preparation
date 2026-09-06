@@ -193,7 +193,7 @@ $$
 <a id="def-f0-00e-basis"></a>
 
 <!-- formal-statement-start -->
-> **定義（基底）**  
+> **定義（線形代数の基底）**  
 > ベクトル族 $v_1,\dots,v_n$ が、(1) $V$ を張り、(2) 一次独立である、という2条件を満たすとき、$(v_1,\dots,v_n)$ を $V$ の **基底** といいます。
 <!-- formal-statement-end -->
 
