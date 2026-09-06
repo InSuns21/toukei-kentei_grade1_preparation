@@ -17,14 +17,14 @@ Carathéodory拡張定理や積測度の証明では、しばしば
 <a id="def-f0-00d3a-pi-system"></a>
 
 <!-- formal-statement-start -->
-> **定義（π-system）**  
-> 全体集合 $\Omega$ の部分集合からなる族 $\mathcal P$ が **π-system** であるとは、任意の $A,B\in\mathcal P$ に対して
->
-> $$
-> A\cap B\in\mathcal P
-> $$
->
-> が成り立つことです。
+**定義（π-system）**  
+全体集合 $\Omega$ の部分集合からなる族 $\mathcal P$ が **π-system** であるとは、任意の $A,B\in\mathcal P$ に対して
+
+$$
+A\cap B\in\mathcal P
+$$
+
+が成り立つことです。
 <!-- formal-statement-end -->
 
 要するに、**二つ取って交わりを作っても同じ集合族から出ない**、という条件です。
@@ -60,15 +60,16 @@ $$
 <a id="def-f0-00d3a-dynkin-system"></a>
 
 <!-- formal-statement-start -->
-> **定義（Dynkin族 / λ-system）**  
-> 全体集合 $\Omega$ の部分集合からなる族 $\mathcal D$ が **Dynkin族（λ-system）** であるとは、次の3条件を満たすことです。
->
-> 1. $\Omega\in\mathcal D$。
-> 2. $A\in\mathcal D$ なら $A^c\in\mathcal D$。
-> 3. $A_1,A_2,\ldots\in\mathcal D$ が互いに素なら
->    $$
->    \bigcup_{n=1}^{\infty}A_n\in\mathcal D.
->    $$
+**定義（Dynkin族 / λ-system）**  
+全体集合 $\Omega$ の部分集合からなる族 $\mathcal D$ が **Dynkin族（λ-system）** であるとは、次の3条件を満たすことです。
+
+1. $\Omega\in\mathcal D$。
+2. $A\in\mathcal D$ なら $A^c\in\mathcal D$。
+3. $A_1,A_2,\ldots\in\mathcal D$ が互いに素なら
+
+   $$
+   \bigcup_{n=1}^{\infty}A_n\in\mathcal D.
+   $$
 <!-- formal-statement-end -->
 
 σ代数にかなり似ていますが、Dynkin族が仮定する可算和の閉性は **互いに素な集合列だけ** です。そのぶんσ代数より弱い概念です。
@@ -119,21 +120,20 @@ $$
 <a id="thm-f0-00d3a-pi-lambda"></a>
 
 <!-- formal-statement-start -->
-> **定理（π–λ定理 / Dynkinのπ–λ定理）**  
-> $\mathcal P$ を $\Omega$ 上のπ-system、$\mathcal D$ を $\Omega$ 上のDynkin族とします。
-> もし
->
-> $$
-> \mathcal P\subset\mathcal D
-> $$
->
-> なら
->
-> $$
-> \boxed{\sigma(\mathcal P)\subset\mathcal D}
-> $$
->
-> が成り立ちます。
+**定理（π–λ定理 / Dynkinのπ–λ定理）**  
+$\mathcal P$ を $\Omega$ 上のπ-system、$\mathcal D$ を $\Omega$ 上のDynkin族とします。もし
+
+$$
+\mathcal P\subset\mathcal D
+$$
+
+なら
+
+$$
+\boxed{\sigma(\mathcal P)\subset\mathcal D}
+$$
+
+が成り立ちます。
 <!-- formal-statement-end -->
 
 ここで $\sigma(\mathcal P)$ は $\mathcal P$ を含む最小のσ代数です。
