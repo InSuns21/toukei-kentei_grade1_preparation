@@ -1,7 +1,7 @@
 chapter: "LA3"
 terms:
-  - term: 代数的双対空間
-    english: algebraic dual space
+  - term: 代数的双対
+    english: algebraic dual
     meaning: V からスカラー体への全ての線形形式を集めたベクトル空間 V*。位相や連続性は仮定しない。
   - term: 双対基底
     english: dual basis
