@@ -1,0 +1,26 @@
+chapter: "F0-00B1"
+terms:
+  - term: 位相
+    english: topology
+    meaning: 空集合と全体集合を含み、任意和と有限交差で閉じた開集合族。
+  - term: 位相空間
+    english: topological space
+    meaning: 集合と、その上の位相を組にしたもの。
+  - term: 近傍
+    english: neighborhood
+    meaning: 点を含む開集合を内部に含む集合。
+  - term: 距離位相
+    english: metric topology
+    meaning: 距離空間の開球から定まる開集合全体が作る位相。
+  - term: 部分空間位相
+    english: subspace topology
+    meaning: 部分集合 A に対して ambient 空間の開集合 U との交わり A∩U を開集合とする位相。
+  - term: 位相的収束
+    english: topological convergence
+    meaning: 極限点の任意の近傍に点列が最終的に入ること。
+  - term: 連続写像
+    english: continuous map
+    meaning: 終域の任意の開集合の逆像が始域で開集合になる写像。
+  - term: Hausdorff空間
+    english: Hausdorff space
+    meaning: 異なる二点を互いに交わらない開近傍で分離できる位相空間。
