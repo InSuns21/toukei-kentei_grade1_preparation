@@ -5,10 +5,13 @@ prerequisites:
   - F0-00B0
 
 # 「近傍」は導入部で直観語として予告し、B1で位相的に正式定義する。
-# Euclid距離の三角不等式の確認では後続E2の内積ノルムを参照する。
+# Euclid距離の三角不等式の確認では後続E1/E2の内積・ノルムを参照する。
 forward_references:
   - topology.neighborhood
+  - topology.continuous-map
+  - linear.inner-product
   - linear.inner-product-induced-norm
+  - functional.norm
 
 concepts:
   - id: topology.metric-space
