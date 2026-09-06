@@ -42,7 +42,7 @@ concepts:
   - id: set.choice-equivalence-summary
     name: 選択公理の代表的同値形
     kind: theorem
-    aliases: [選択公理の代表的同値形]
+    aliases: [選択公理の代表的同値形, 整列可能定理, 整列定理]
     requires:
       - set.choice-axiom
       - set.well-order
