@@ -58,7 +58,7 @@ concepts:
   - id: functional.l2-completeness
     name: L2の完備性
     kind: theorem
-    aliases: [完備性]
+    aliases: [L2の完備性, L^2の完備性, L²の完備性]
     requires:
       - functional.normed-cauchy-sequence
       - measure.minkowski-inequality
