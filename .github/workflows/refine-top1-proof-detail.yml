@@ -1,0 +1,23 @@
+name: One-shot TOP1 proof refinement
+
+on:
+  push:
+    branches:
+      - feature/dream-theater-topology-core
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: node scripts/refine-top1-proof-detail.mjs
