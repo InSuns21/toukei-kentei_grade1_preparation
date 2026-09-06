@@ -6,6 +6,7 @@ prerequisites:
   - I1-01
   - P1-02
   - P3-04
+  - I2-02
 official_scope:
   - 事前分布
   - 事後分布

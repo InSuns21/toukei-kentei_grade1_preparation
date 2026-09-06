@@ -304,12 +304,12 @@ concepts:
       - bias of an estimator
     introduced_in: I1-02
 
-  - id: mean-squared-error
-    name: 平均二乗誤差
+  - id: estimator-mean-squared-error
+    name: 推定量の平均二乗誤差
     aliases:
-      - MSE
-      - mean squared error
-      - mean-squared error
+      - estimator MSE
+      - mean squared error of an estimator
+      - mean-squared error of an estimator
     introduced_in: I1-02
 
   - id: ancillary-statistic
