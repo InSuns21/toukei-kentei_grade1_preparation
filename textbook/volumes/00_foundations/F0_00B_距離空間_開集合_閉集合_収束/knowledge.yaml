@@ -2,7 +2,7 @@ chapter: F0-00B
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00A
+  - F0-00B0
 
 concepts:
   - id: topology.metric-space
@@ -46,6 +46,8 @@ concepts:
     aliases: [点列の収束, 距離空間における点列の収束]
     requires:
       - topology.metric-space
+      - topology.sequence
+      - logic.eventually
 
   - id: topology.limit-uniqueness
     name: 距離空間における極限の一意性
