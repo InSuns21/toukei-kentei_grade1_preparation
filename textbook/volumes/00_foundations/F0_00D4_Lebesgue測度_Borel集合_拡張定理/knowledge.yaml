@@ -69,7 +69,7 @@ concepts:
   - id: measure.measure-completion
     name: 測度空間の完備化
     kind: definition
-    aliases: [測度空間の完備化, 完備化]
+    aliases: [測度空間の完備化]
     requires:
       - measure.complete-measure
       - measure.null-set

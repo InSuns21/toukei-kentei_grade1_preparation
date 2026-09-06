@@ -1,33 +1,46 @@
 chapter: F0-02C7
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C2
+  - F0-00D2E
   - F0-00F
+
+forward_references:
+  - rkhs.representer-theorem
+  - svm.kernel-trick
+  - svm.kernel-svm
 
 concepts:
   - id: rkhs.rkhs
-    name: RKHS
+    name: 再生核Hilbert空間
     kind: definition
-    introduction: inline
-    aliases: [RKHS]
+    aliases: [再生核Hilbert空間, RKHS]
     requires:
       - functional.hilbert-space
       - functional.evaluation-functional
+      - functional.continuous-linear-functional
 
-  - id: rkhs.reproducing-kernel
-    name: 再生核
+  - id: rkhs.reproducing-property
+    name: 再生性
     kind: definition
-    introduction: inline
-    aliases: [再生核]
+    aliases: [再生性]
     requires:
       - rkhs.rkhs
       - functional.riesz-representation-theorem
 
+  - id: rkhs.reproducing-kernel
+    name: 再生核
+    kind: definition
+    introduction_aliases: ["定義（再生核）"]
+    aliases: [再生核]
+    requires:
+      - rkhs.reproducing-property
+      - rkhs.rkhs
+
   - id: rkhs.psd-kernel
     name: positive semidefinite kernel
     kind: definition
-    introduction: inline
     aliases: [positive semidefinite kernel, PSD kernel]
     requires:
       - rkhs.reproducing-kernel
@@ -35,7 +48,6 @@ concepts:
   - id: rkhs.canonical-feature-map
     name: canonical feature map
     kind: definition
-    introduction: inline
     aliases: [canonical feature map]
     requires:
       - rkhs.reproducing-kernel
@@ -43,8 +55,8 @@ concepts:
   - id: rkhs.moore-aronszajn-theorem
     name: Moore--Aronszajnの定理
     kind: theorem
-    introduction: inline
-    aliases: [Moore--Aronszajn]
+    aliases: [Moore--Aronszajnの定理, Moore--Aronszajn]
     requires:
       - rkhs.psd-kernel
       - functional.hilbert-space
+      - functional.normed-cauchy-sequence

@@ -33,7 +33,7 @@ concepts:
   - id: measure.section
     name: 集合の section
     kind: definition
-    aliases: [集合の section, section]
+    aliases: [集合の section]
     requires:
       - measure.product-sigma-algebra
 
