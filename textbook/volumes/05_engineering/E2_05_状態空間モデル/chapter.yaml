@@ -6,6 +6,7 @@ prerequisites:
   - E2-03
   - E1-01
   - F0-00
+  - I1-01
 official_scope:
   - 状態空間モデル
   - 状態方程式

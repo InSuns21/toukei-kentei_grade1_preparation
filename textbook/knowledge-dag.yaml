@@ -266,7 +266,8 @@ concepts:
     name: 不偏推定量
     aliases:
       - unbiased estimator
-    introduced_in: I1-02
+    # P2-01 で期待値の応用として最小限を正式導入し、I1-02 で推定量評価として再導入する。
+    introduced_in: [P2-01, I1-02]
 
   - id: efficient-estimator
     name: 有効推定量
