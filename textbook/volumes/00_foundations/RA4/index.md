@@ -45,6 +45,14 @@ $$
 > となることは同値である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-ra4-darboux, def-ra4-integrable -->
+**定義の確認**：$f(x)=x$ を $[0,1]$ で考えます。分割 $P=\{0,1/2,1\}$ では各小区間の下限・上限から
+$$
+L(f,P)=\frac14,\qquad U(f,P)=\frac34.
+$$
+一方、$n$ 等分では $U(f,P_n)-L(f,P_n)=1/n\to0$ です。したがって上和の下限と下和の上限は同じ値 $1/2$ に挟み込まれ、Riemann可積分の定義を満たします。
+<!-- definition-example-end -->
+
 ---
 
 ## 2. 連続関数はなぜ可積分か
