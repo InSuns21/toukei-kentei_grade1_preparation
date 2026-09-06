@@ -27,7 +27,7 @@ concepts:
     name: Banach空間の再掲
     kind: definition
     introduction_aliases: [Banach空間]
-    aliases: [Banach空間の再掲]
+    aliases: [Banach空間の再掲, Banach空間]
     requires:
       - functional.banach-space
       - functional.normed-cauchy-sequence
