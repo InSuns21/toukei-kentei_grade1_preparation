@@ -1,0 +1,27 @@
+id: "LA2"
+title: "標準線形代数 II：直和・補空間・商空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA1
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 直和分解と補空間を使ってベクトルを一意に分解できる
+  - 商空間 V/W の元と演算を定義できる
+  - 商空間の次元公式を証明できる
+  - 第一同型定理 V/ker T ≅ Im T を構成できる
+definitions:
+  - { id: LA2-DEF-01, name: 補空間 }
+  - { id: LA2-DEF-02, name: 商空間 }
+  - { id: LA2-DEF-03, name: 標準射影 }
+theorems:
+  - { id: LA2-THM-01, name: 有限次元補空間の存在 }
+  - { id: LA2-THM-02, name: 商空間の次元公式 }
+  - { id: LA2-THM-03, name: 第一同型定理 }
+canonical_examples: [R2を直線で割った商空間, kernelで割る線形写像, 直交補空間]
+problem_patterns: [LA2-QUOTIENT-1, LA2-FIRST-ISO-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }
