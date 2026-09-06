@@ -1,6 +1,6 @@
 chapter: F0-02C7A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C7
   - F0-02C3
@@ -14,6 +14,7 @@ concepts:
     aliases: [representer theorem]
     requires:
       - rkhs.rkhs
+      - rkhs.reproducing-property
       - functional.orthogonal-decomposition
 
   - id: svm.kernel-trick
@@ -23,6 +24,8 @@ concepts:
     requires:
       - rkhs.reproducing-kernel
       - rkhs.psd-kernel
+      - rkhs.canonical-feature-map
+      - rkhs.moore-aronszajn-theorem
 
   - id: svm.kernel-svm
     name: kernel SVM
@@ -32,4 +35,6 @@ concepts:
       - rkhs.representer-theorem
       - svm.kernel-trick
       - svm.maximum-margin-convex-hull
+      - svm.support-vector
       - optimization.kkt-conditions
+      - functional.frechet-derivative
