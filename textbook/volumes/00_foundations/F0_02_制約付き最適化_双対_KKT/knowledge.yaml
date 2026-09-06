@@ -2,13 +2,19 @@ chapter: F0-02
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-00G
 
 forward_references:
   - optimization.tangent-cone
   - optimization.polar-cone
   - optimization.kkt-multiplier-existence
+  - convex.polar-cone
+  - convex.cone
+  - convex.hyperplane
+  - convex.separating-hyperplane
   - convex.farkas-lemma
+  - svm.maximum-margin-convex-hull
 
 concepts:
   - id: optimization.lagrangian
