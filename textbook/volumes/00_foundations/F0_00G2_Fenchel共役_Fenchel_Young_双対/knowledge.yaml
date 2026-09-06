@@ -1,32 +1,84 @@
 chapter: F0-00G2
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
+  - F0-00A1
+  - F0-02C4A
   - F0-00G1
+  - F0-02B
+
+forward_references:
+  - optimization.polar-cone
+  - optimization.strong-duality-slater
 
 concepts:
   - id: convex.fenchel-conjugate
     name: Fenchel共役
     kind: definition
-    introduction: inline
-    aliases: [Fenchel共役]
+    aliases: [Fenchel共役, Fenchel–Legendre 共役, Fenchel-Legendre共役]
     requires:
       - convex.convex-function
+      - linear.inner-product
+
+  - id: convex.support-function
+    name: support function
+    kind: definition
+    aliases: [support function]
+    requires:
+      - convex.convex-set
       - linear.inner-product
 
   - id: convex.fenchel-young
     name: Fenchel--Youngの不等式
     kind: theorem
-    introduction: inline
-    aliases: [Fenchel--Young, Fenchel–Young]
+    aliases: [Fenchel--Young, Fenchel–Young, Fenchel–Young 不等式, Fenchel--Young不等式]
     requires:
       - convex.fenchel-conjugate
 
-  - id: convex.fenchel-duality
-    name: Fenchel双対
+  - id: convex.fenchel-young-equality
+    name: Fenchel--Youngの等号条件
     kind: theorem
-    introduction: inline
-    aliases: [Fenchel双対]
+    aliases: [Fenchel–Young の等号条件, Fenchel--Youngの等号条件, Fenchel–Youngの等号条件]
+    requires:
+      - convex.fenchel-young
+      - convex.subgradient
+      - convex.subdifferential
+
+  - id: convex.biconjugate
+    name: 二重共役
+    kind: definition
+    aliases: [二重共役]
     requires:
       - convex.fenchel-conjugate
+
+  - id: convex.fenchel-moreau
+    name: 有限次元Fenchel--Moreau
+    kind: theorem
+    aliases: [有限次元 Fenchel–Moreau, 有限次元 Fenchel--Moreau, Fenchel–Moreau, Fenchel--Moreau]
+    requires:
+      - convex.biconjugate
       - convex.closed-convex-function
+      - convex.supporting-hyperplane-theorem
+
+  - id: convex.subgradient-inverse-relation
+    name: 劣微分の逆関係
+    kind: theorem
+    aliases: [劣微分の逆関係]
+    requires:
+      - convex.fenchel-young-equality
+      - convex.fenchel-moreau
+
+  - id: convex.fenchel-duality
+    name: Fenchel双対問題
+    kind: definition
+    aliases: [Fenchel 双対問題, Fenchel双対問題, Fenchel 双対, Fenchel双対]
+    requires:
+      - convex.fenchel-conjugate
+
+  - id: convex.fenchel-weak-duality
+    name: Fenchel双対の弱双対性
+    kind: theorem
+    aliases: [Fenchel 双対の弱双対性, Fenchel双対の弱双対性]
+    requires:
+      - convex.fenchel-duality
+      - convex.fenchel-young

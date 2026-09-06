@@ -1,32 +1,99 @@
 chapter: F0-02C4
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
-  - F0-00G2
+  - F0-00A1
+  - F0-00G1
   - F0-02B
+  - F0-02C3
+  - F0-02C6
+
+forward_references:
+  - convex.bouligand-tangent-cone
+  - convex.polar-cone
+  - convex.dual-cone
+  - convex.support-function
+  - convex.fenchel-young
+  - convex.fenchel-duality
+  - optimization.polar-cone
 
 concepts:
   - id: convex.subgradient
     name: 劣勾配
     kind: definition
-    introduction: inline
-    aliases: [劣勾配]
+    aliases: [劣勾配, 劣勾配・劣微分]
     requires:
       - convex.convex-function
+      - convex.proper-function
 
   - id: convex.subdifferential
     name: 劣微分
     kind: definition
-    introduction: inline
-    aliases: [劣微分]
+    aliases: [劣微分, 劣勾配・劣微分]
     requires:
       - convex.subgradient
+
+  - id: convex.fermat-subgradient-condition
+    name: 凸関数のFermat条件
+    kind: theorem
+    aliases: [凸関数の Fermat 条件, 凸関数のFermat条件]
+    requires:
+      - convex.subdifferential
+
+  - id: convex.directional-derivative-support
+    name: 方向微分の支持関数表示
+    kind: theorem
+    aliases: [方向微分の支持関数表示]
+    requires:
+      - convex.subdifferential
+      - functional.directional-derivative
+      - functional.sublinear-functional
+      - functional.hahn-banach-theorem
+
+  - id: convex.subdifferential-sum-rule
+    name: 有限値凸関数の劣微分和則
+    kind: theorem
+    aliases: [有限値凸関数の劣微分和則]
+    requires:
+      - convex.subdifferential
+
+  - id: convex.max-subdifferential
+    name: max関数の劣微分公式
+    kind: theorem
+    aliases: [max 関数の劣微分公式, max関数の劣微分公式]
+    requires:
+      - convex.subdifferential
+      - convex.convex-hull
+      - convex.directional-derivative-support
+
+  - id: convex.indicator-function
+    name: 集合のindicator関数
+    kind: definition
+    aliases: [集合の indicator 関数, 集合のindicator関数, indicator 関数]
+    requires:
+      - convex.convex-set
 
   - id: convex.normal-cone
     name: normal cone
     kind: definition
-    introduction: inline
     aliases: [normal cone]
     requires:
       - convex.convex-set
       - linear.inner-product
+
+  - id: convex.indicator-normal-cone
+    name: indicator関数の劣微分はnormal cone
+    kind: theorem
+    aliases: [indicator 関数の劣微分は normal cone, indicator関数の劣微分はnormal cone]
+    requires:
+      - convex.indicator-function
+      - convex.subdifferential
+      - convex.normal-cone
+
+  - id: convex.smooth-constrained-optimality
+    name: 凸集合上の微分可能凸最適化
+    kind: theorem
+    aliases: [凸集合上の微分可能凸最適化]
+    requires:
+      - convex.normal-cone
+      - convex.first-order-support-inequality
