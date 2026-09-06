@@ -4,6 +4,8 @@
 
 ## 1. PDEとは何か
 
+<a id="def-f0-00pde1-pde"></a>
+
 <!-- formal-statement-start -->
 > **定義（偏微分方程式）**  
 > $u=u(t,x)$ のように複数の独立変数を持つ未知関数について、未知関数とその偏導関数の関係を与える方程式を **偏微分方程式（PDE）** といいます。
@@ -23,6 +25,8 @@ $$
 $$
 
 です。
+
+<a id="def-f0-00pde1-heat-equation"></a>
 
 <!-- formal-statement-start -->
 > **定義（熱方程式）**  
@@ -199,6 +203,8 @@ G_t(x)
 $$
 
 を得ます。
+
+<a id="def-f0-00pde1-heat-kernel"></a>
 
 <!-- formal-statement-start -->
 > **定義（Gaussian heat kernel）**  
