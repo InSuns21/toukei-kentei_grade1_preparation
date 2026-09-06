@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - RA2
   - RA4
+forward_references:
+  - measure.lebesgue-integral
 
 concepts:
   - id: analysis.pointwise-convergence
