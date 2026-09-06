@@ -23,8 +23,8 @@ concepts:
   - id: linear.triangle-inequality-inner-product
     name: 内積ノルムの三角不等式
     kind: theorem
-    introduction_aliases: [三角不等式]
-    aliases: [内積ノルムの三角不等式, 三角不等式]
+    introduction_aliases: ["定理（三角不等式）"]
+    aliases: [内積ノルムの三角不等式]
     requires:
       - linear.cauchy-schwarz
       - linear.inner-product
