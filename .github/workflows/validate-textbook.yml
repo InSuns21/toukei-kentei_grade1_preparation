@@ -78,6 +78,29 @@ jobs:
               if needle in text:
                   path.write_text(text.replace(needle, replacement))
 
+      - name: Resolve link-label aliases through the DAG
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('scripts/validate-formal-reference-links-dag.mjs')
+          text = path.read_text()
+          edits = {
+              'function validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors) {':
+                  'function validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, aliasItems) {',
+              'const matchingLinks = [...line.matchAll(linkRe)].filter((match) => linkLabelNamesConcept(match[1], use.concept));':
+                  'const matchingLinks = [...line.matchAll(linkRe)].filter((match) => linkLabelNamesConcept(match[1], use.concept) || resolveCandidate(match[1], aliasItems)?.id === use.concept.id);',
+              'const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors);':
+                  'const result = validateOrFixKnowledgeDependencyLink(file, rel, use, line, errors, dreamAliases);',
+          }
+          for old, new in edits.items():
+              if new in text:
+                  continue
+              if old not in text:
+                  raise SystemExit(f'validator patch point not found: {old}')
+              text = text.replace(old, new, 1)
+          path.write_text(text)
+
       - name: Verify formal references
         run: npm run validate:formal-references
 
@@ -91,7 +114,7 @@ jobs:
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook/volumes
+          git add textbook/volumes scripts
           git commit -m 'Finish knowledge DAG proof links'
           git push origin HEAD:${{ github.head_ref }}
 
