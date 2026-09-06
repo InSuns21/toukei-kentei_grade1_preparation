@@ -4,31 +4,6 @@ import YAML from 'yaml';
 
 const replacements = [
   {
-    path: 'textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/knowledge.yaml',
-    from: 'aliases: [L^p空間, "空間、"]',
-    to: 'aliases: [L^p空間]'
-  },
-  {
-    path: 'textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/knowledge.yaml',
-    from: 'aliases: [L^pノルム, "ノルム）"]',
-    to: 'aliases: [L^pノルム]'
-  },
-  {
-    path: 'textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/knowledge.yaml',
-    from: 'aliases: [L2内積, "内積）"]',
-    to: 'aliases: [L2内積]'
-  },
-  {
-    path: 'textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/knowledge.yaml',
-    from: 'aliases: [L2の完備性, L^2の完備性, L²の完備性, "定理（     の完備性）"]',
-    to: 'aliases: [L2の完備性, L^2の完備性, L²の完備性]'
-  },
-  {
-    path: 'textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/knowledge.yaml',
-    from: 'aliases: [行列の作用素ノルム（スペクトルノルム）, "定義（作用素ノルム）"]',
-    to: 'aliases: [行列の作用素ノルム（スペクトルノルム）, 作用素ノルム, スペクトルノルム, "定義（作用素ノルム）"]'
-  },
-  {
     path: 'textbook/volumes/00_foundations/LA3/index.md',
     from: '関数解析では連続線形汎関数だけを集めた双対を使いますが、ここでは位相を入れない **代数的双対** を扱います。',
     to: 'ここでは追加の構造を仮定せず、線形写像 $V\\to\\mathbb F$ 全体からなる **代数的双対** を扱います。'
@@ -36,7 +11,12 @@ const replacements = [
   {
     path: 'textbook/volumes/00_foundations/LA5/index.md',
     from: '実内積空間では転置 $A^{\\mathsf T}$ が自然に現れました。',
-    to: '[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) で扱った実数上の内積空間では転置 $A^{\\mathsf T}$ が自然に現れました。'
+    to: '[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) で実数の場合に扱った内積では、転置 $A^{\\mathsf T}$ が自然に現れました。'
+  },
+  {
+    path: 'textbook/volumes/00_foundations/LA5/index.md',
+    from: '実内積空間のCauchy–Schwarz不等式・Gram–Schmidt・直交射影は、共役を正しく入れれば複素内積空間にも拡張できます。',
+    to: '[F0-00E1](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) で実数の場合に確認したCauchy–Schwarz不等式・Gram–Schmidt・直交射影は、共役を正しく入れれば複素内積空間にも拡張できます。'
   },
   {
     path: 'textbook/volumes/00_foundations/LA5/index.md',
@@ -44,9 +24,24 @@ const replacements = [
     to: '特に内積から定まる長さ $\\sqrt{\\langle x,x\\rangle}$ も保存します。'
   },
   {
+    path: 'textbook/volumes/00_foundations/LA5/index.md',
+    from: 'ノルムが0なので',
+    to: '長さが0なので'
+  },
+  {
     path: 'textbook/volumes/00_foundations/LA6/index.md',
     from: 'さらに先ほどのノルム等式から',
     to: 'さらに先ほどの長さの等式から'
+  },
+  {
+    path: 'textbook/volumes/00_foundations/LA6/index.md',
+    from: 'と定めます。まず $u_i$ のノルムを計算します。',
+    to: 'と定めます。まず $u_i$ の長さを計算します。'
+  },
+  {
+    path: 'textbook/volumes/00_foundations/LA6/index.md',
+    from: '作用素ノルムはunitary変換で不変なので',
+    to: '[行列の作用素ノルム（スペクトルノルム）](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-operator-norm) はunitary変換で不変なので'
   }
 ];
 
@@ -68,9 +63,9 @@ for (const { path, from, to } of replacements) {
   if (!source.includes(from)) throw new Error('stripNonReaderContent insertion point not found');
   source = source.replace(from, to);
 
-  // When the same text is owned by both a reachable concept and a later generalization,
-  // do not accuse the page of using the unreachable owner. Also let a longer reachable
-  // alias shadow a shorter generic alias (e.g. 作用素ノルム vs ノルム).
+  // If a later general concept and an already reachable concept overlap in the same
+  // reader-visible phrase, prefer the reachable/specific owner. This prevents
+  // e.g. a future abstract "norm" node from stealing a matrix-norm occurrence.
   const scanFrom = `      const firstUse = firstAliasUse(lines, concept.aliases);\n      if (firstUse == null) continue;\n`;
   const scanTo = `      const firstUse = firstUnshadowedAliasUse(lines, concept, page);\n      if (firstUse == null) continue;\n`;
   if (!source.includes(scanFrom)) throw new Error('concept scan replacement point not found');
@@ -134,7 +129,6 @@ execFileSync('git', ['config', 'user.email', '41898282+github-actions[bot]@users
 execFileSync('git', ['add', '-A']);
 execFileSync('git', ['commit', '-m', 'fix: close LA proof and DAG review gaps'], { stdio: 'inherit' });
 
-// Validate the committed diff before pushing it.
 for (const [cmd, args] of [
   [process.execPath, ['scripts/validate-formal-reference-links.mjs']],
   [process.execPath, ['scripts/validate-dream-theater-concepts-changed.mjs']],
