@@ -27,9 +27,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（熱方程式）**  
 > $\kappa>0$ とし、未知関数 $u(t,x)$ が
-> $$
-> \partial_tu=\kappa\partial_{xx}u
-> $$
+
+$$
+\partial_tu=\kappa\partial_{xx}u
+$$
+
 > を満たすPDEを考えます。この方程式を **熱方程式** といいます。
 <!-- formal-statement-end -->
 
@@ -201,10 +203,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（Gaussian heat kernel）**  
 > $t>0$ に対して
-> $$
-> G_t(x)=\frac1{\sqrt{4\pi\kappa t}}
-> \exp\left(-\frac{x^2}{4\kappa t}\right)
-> $$
+
+$$
+G_t(x)=\frac1{\sqrt{4\pi\kappa t}}
+\exp\left(-\frac{x^2}{4\kappa t}\right)
+$$
+
 > と定める関数を、熱方程式の **Gaussian heat kernel** といいます。
 <!-- formal-statement-end -->
 
