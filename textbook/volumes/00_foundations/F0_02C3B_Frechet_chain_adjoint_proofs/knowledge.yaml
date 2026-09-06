@@ -1,6 +1,6 @@
 chapter: F0-02C3B
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C3A
 
@@ -12,3 +12,12 @@ concepts:
     requires:
       - functional.frechet-derivative
       - functional.bounded-linear-operator
+
+  - id: functional.hilbert-adjoint-existence-uniqueness
+    name: Hilbert随伴の存在一意性
+    kind: theorem
+    aliases: [Hilbert随伴の存在一意性]
+    requires:
+      - functional.hilbert-adjoint
+      - functional.riesz-representation-theorem
+      - linear.cauchy-schwarz

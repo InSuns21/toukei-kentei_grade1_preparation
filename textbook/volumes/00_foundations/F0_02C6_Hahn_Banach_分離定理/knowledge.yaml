@@ -1,6 +1,6 @@
 chapter: F0-02C6
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00A3
   - F0-02C2
@@ -11,16 +11,17 @@ concepts:
     kind: definition
     aliases: [sublinear functional]
     requires:
-      - functional.linear-functional
+      - linear.vector-space
 
   - id: functional.hahn-banach-theorem
     name: Hahn--Banachの定理
     kind: theorem
     introduction_aliases: [Hahn--Banach：実線形版]
-    aliases: [Hahn--Banachの定理, Hahn--Banach]
+    aliases: [Hahn--Banachの定理, Hahn--Banach：実線形版]
     requires:
       - functional.sublinear-functional
       - functional.linear-functional
+      - set.zorn-lemma
 
   - id: functional.norm-preserving-extension
     name: ノルム保存拡張

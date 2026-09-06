@@ -1,6 +1,6 @@
 chapter: F0-02C6A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C6
   - F0-00G1
@@ -25,3 +25,4 @@ concepts:
       - functional.hahn-banach-theorem
       - functional.minkowski-functional
       - convex.separating-hyperplane
+      - topology.closed-set
