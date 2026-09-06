@@ -115,7 +115,9 @@ for (const page of pages.values()) {
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
     if (!isFormalDeclarationLine(line)) continue;
-    const matched = localFormalConcepts.some((concept) => concept.aliases.some((alias) => aliasAppears(line, alias)));
+    const matched = localFormalConcepts.some((concept) =>
+      [...concept.aliases, ...concept.introductionAliases].some((alias) => aliasAppears(line, alias))
+    );
     if (matched) continue;
 
     const mustBlock = strict && page.coverage === 'complete' && (pageChanged || !changedOnly);
