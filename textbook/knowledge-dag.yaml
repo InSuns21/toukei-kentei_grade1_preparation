@@ -125,7 +125,9 @@ concepts:
       - 一致推定量
       - consistency
       - consistent estimator
-    introduced_in: I1-02
+    # P4-02 で確率収束を推定量の言葉へ読み替えて正式導入し、
+    # I1-02 で推定量評価の観点から自己完結に再導入する。
+    introduced_in: [P4-02, I1-02]
 
   - id: mle-asymptotic-normality
     name: 最尤推定量の漸近正規性
