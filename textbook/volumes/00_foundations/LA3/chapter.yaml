@@ -1,0 +1,32 @@
+id: "LA3"
+title: "標準線形代数 III：代数的双対・双対基底・抽象行列式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA2
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 代数的双対空間 V* と双対基底を構成できる
+  - annihilator と双対写像の意味を説明できる
+  - 有限次元で V と V** が標準的に同型になることを示せる
+  - 行列式を交代多重線形形式の作用として座標に依らず定義できる
+definitions:
+  - { id: LA3-DEF-01, name: 線形形式 }
+  - { id: LA3-DEF-02, name: 代数的双対空間 }
+  - { id: LA3-DEF-03, name: 双対基底 }
+  - { id: LA3-DEF-04, name: annihilator }
+  - { id: LA3-DEF-05, name: 双対写像 }
+  - { id: LA3-DEF-06, name: 交代多重線形形式 }
+  - { id: LA3-DEF-07, name: 抽象行列式 }
+theorems:
+  - { id: LA3-THM-01, name: 双対基底定理 }
+  - { id: LA3-THM-02, name: annihilatorの次元公式 }
+  - { id: LA3-THM-03, name: 有限次元二重双対同型 }
+  - { id: LA3-THM-04, name: 行列式の乗法性 }
+canonical_examples: [座標汎関数, R3の部分空間のannihilator, 行列の転置と双対写像, 面積体積の符号付き倍率]
+problem_patterns: [LA3-DUAL-BASIS-1, LA3-ANNIHILATOR-1, LA3-DET-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }
