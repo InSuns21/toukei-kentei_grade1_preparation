@@ -191,7 +191,7 @@ concepts:
   - id: complete-statistic
     name: 完備統計量
     aliases:
-      - 完備性
+      - 統計量の完備性
       - complete statistic
       - completeness of a statistic
     introduced_in: S1-02
