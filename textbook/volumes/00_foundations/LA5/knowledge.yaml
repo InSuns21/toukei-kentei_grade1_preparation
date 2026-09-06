@@ -1,0 +1,86 @@
+chapter: LA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA4
+  - F0-00E1
+  - F0-00E2
+forward_references: []
+
+concepts:
+  - id: linear.complex-inner-product
+    name: 複素内積
+    kind: definition
+    aliases: [複素内積, complex inner product]
+    requires:
+      - linear.real-complex-vector-space
+
+  - id: linear.finite-dimensional-adjoint
+    name: 有限次元随伴
+    kind: definition
+    aliases: [有限次元随伴, finite-dimensional adjoint]
+    requires:
+      - linear.complex-inner-product
+      - linear.linear-map
+
+  - id: linear.finite-dimensional-adjoint-existence
+    name: 有限次元随伴の存在一意性
+    kind: theorem
+    aliases: [有限次元随伴の存在一意性]
+    requires:
+      - linear.finite-dimensional-adjoint
+      - linear.orthonormal-system
+
+  - id: linear.hermitian-operator
+    name: Hermitian作用素
+    kind: definition
+    aliases: [Hermitian作用素, Hermitian operator]
+    requires:
+      - linear.finite-dimensional-adjoint
+
+  - id: linear.unitary-operator
+    name: unitary作用素
+    kind: definition
+    aliases: [unitary作用素, unitary operator]
+    requires:
+      - linear.finite-dimensional-adjoint
+
+  - id: linear.normal-operator
+    name: normal operator
+    kind: definition
+    aliases: [normal operator, 正規作用素]
+    requires:
+      - linear.finite-dimensional-adjoint
+
+  - id: linear.schur-unitary-triangularization
+    name: Schurのユニタリ三角化定理
+    kind: theorem
+    aliases: [Schurのユニタリ三角化定理, Schur三角化]
+    requires:
+      - linear.complex-inner-product
+      - linear.orthonormal-system
+      - linear.characteristic-polynomial
+
+  - id: linear.complex-normal-spectral-theorem
+    name: 複素normal operatorのスペクトル定理
+    kind: theorem
+    aliases: [複素normal operatorのスペクトル定理]
+    requires:
+      - linear.normal-operator
+      - linear.schur-unitary-triangularization
+
+  - id: linear.hermitian-real-eigenvalues
+    name: Hermitian作用素の固有値は実数
+    kind: theorem
+    aliases: [Hermitian作用素の固有値は実数]
+    requires:
+      - linear.hermitian-operator
+      - linear.eigenvalue
+
+  - id: linear.unitary-modulus-one-eigenvalues
+    name: unitary作用素の固有値は絶対値1
+    kind: theorem
+    aliases: [unitary作用素の固有値は絶対値1]
+    requires:
+      - linear.unitary-operator
+      - linear.eigenvalue
