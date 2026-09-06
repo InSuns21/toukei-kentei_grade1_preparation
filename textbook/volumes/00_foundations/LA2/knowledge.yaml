@@ -28,17 +28,19 @@ concepts:
       - linear.basis-extension-theorem
 
   - id: linear.quotient-space
-    name: 商空間
+    name: 線形空間の商空間
     kind: definition
-    aliases: [商空間, quotient space]
+    introduction_aliases: [商空間]
+    aliases: [線形空間の商空間, quotient vector space]
     requires:
       - linear.real-complex-vector-space
       - linear.linear-subspace
 
   - id: linear.canonical-quotient-map
-    name: 標準射影
+    name: 線形商空間の標準射影
     kind: definition
-    aliases: [標準射影, canonical quotient map]
+    introduction_aliases: [標準射影]
+    aliases: [線形商空間の標準射影, canonical quotient map]
     requires:
       - linear.quotient-space
       - linear.linear-map
