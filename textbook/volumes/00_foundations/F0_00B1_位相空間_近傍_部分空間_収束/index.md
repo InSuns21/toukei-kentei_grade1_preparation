@@ -42,6 +42,8 @@ $$
 <!-- definition-example-start: def-f0-00b1-topology -->
 ### 1.1 定義の確認：二つの極端な例
 
+**定義の確認**
+
 任意の集合 $X$ に対して
 
 $$
@@ -75,6 +77,8 @@ $$
 <!-- definition-example-start: def-f0-00b1-closed -->
 ### 2.1 定義の確認
 
+**定義の確認**
+
 $\tau=\mathcal P(X)$ なら任意の $F\subseteq X$ について $X\setminus F\in\tau$ です。したがって全ての部分集合が閉集合でもあります。
 <!-- definition-example-end -->
 
@@ -99,6 +103,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b1-neighborhood -->
 ### 3.1 定義の確認
+
+**定義の確認**
 
 通常の実数直線で
 
@@ -169,6 +175,8 @@ $$
 <!-- definition-example-start: def-f0-00b1-metric-topology -->
 ### 4.1 定義の確認
 
+**定義の確認**
+
 $\mathbb R$ に通常距離 $d(x,y)=|x-y|$ を入れると、開球は
 
 $$
@@ -197,6 +205,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b1-subspace -->
 ### 5.1 定義の確認
+
+**定義の確認**
 
 $A=[0,1]\subseteq\mathbb R$ とすると
 
@@ -256,6 +266,8 @@ $$
 <!-- definition-example-start: def-f0-00b1-topological-convergence -->
 ### 6.1 定義の確認
 
+**定義の確認**
+
 通常の $\mathbb R$ では、位相的な $x_n\to x$ は
 
 $$
@@ -298,6 +310,8 @@ $$
 <!-- definition-example-start: def-f0-00b1-continuous -->
 ### 7.1 定義の確認
 
+**定義の確認**
+
 恒等写像 $\operatorname{id}_X:X\to X$ では
 
 $$
@@ -332,6 +346,8 @@ $$
 
 <!-- definition-example-start: def-f0-00b1-hausdorff -->
 ### 8.1 定義の確認
+
+**定義の確認**
 
 通常の $\mathbb R$ で $x<y$ とし
 
