@@ -200,7 +200,9 @@ nodes:
     title: Riemann ↔ Lebesgue
     area: measure-theory
     tier: bridge
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/MT-RL/index.md
     prerequisites: [RA4, MTI]
   - id: MT1
     title: 収束様式・Egorov・Lusin

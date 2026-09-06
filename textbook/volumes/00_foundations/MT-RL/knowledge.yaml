@@ -1,0 +1,51 @@
+chapter: MT-RL
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - F0-00D4
+  - F0-00D2B
+forward_references: []
+
+concepts:
+  - id: analysis.local-oscillation
+    name: 局所振動
+    kind: definition
+    aliases: [局所振動, local oscillation]
+    requires:
+      - topology.metric-space
+      - set.function
+
+  - id: analysis.darboux-simple-integral-agreement
+    name: Darboux和と単関数積分の一致
+    kind: proposition
+    aliases: [Darboux和と単関数積分の一致]
+    requires:
+      - analysis.darboux-sums
+      - measure.simple-function-integral
+
+  - id: analysis.riemann-lebesgue-agreement
+    name: Riemann積分とLebesgue積分の一致
+    kind: theorem
+    aliases: [Riemann積分とLebesgue積分の一致, Riemann-Lebesgue積分一致]
+    requires:
+      - analysis.darboux-simple-integral-agreement
+      - measure.dominated-convergence-theorem
+      - measure.measure-completion
+
+  - id: analysis.lebesgue-riemann-integrability-criterion
+    name: LebesgueのRiemann可積分性判定
+    kind: theorem
+    aliases: [LebesgueのRiemann可積分性判定, Lebesgue criterion for Riemann integrability]
+    requires:
+      - analysis.local-oscillation
+      - analysis.riemann-integrable
+      - measure.null-set
+
+  - id: analysis.nonnegative-improper-riemann-lebesgue-agreement
+    name: 非負広義Riemann積分とLebesgue積分の一致
+    kind: theorem
+    aliases: [非負広義Riemann積分とLebesgue積分の一致]
+    requires:
+      - analysis.riemann-lebesgue-agreement
+      - measure.monotone-convergence-theorem

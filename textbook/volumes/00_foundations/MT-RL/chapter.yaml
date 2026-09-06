@@ -1,0 +1,26 @@
+id: "MT-RL"
+title: "標準測度論ブリッジ：Riemann積分とLebesgue積分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA4
+  - F0-00D4
+  - F0-00D2B
+official_scope: []
+learning_objectives:
+  - Darboux上和・下和をLebesgue単関数の積分として読み替えられる
+  - 有界なRiemann可積分関数がLebesgue可積分で積分値が一致することを説明できる
+  - LebesgueのRiemann可積分性判定を使って可積分・非可積分を判定できる
+  - 広義Riemann積分とLebesgue積分の一致条件・不一致例を区別できる
+definitions:
+  - { id: MT-RL-DEF-01, name: 局所振動 }
+theorems:
+  - { id: MT-RL-THM-01, name: Riemann積分とLebesgue積分の一致 }
+  - { id: MT-RL-THM-02, name: LebesgueのRiemann可積分性判定 }
+  - { id: MT-RL-THM-03, name: 非負広義Riemann積分とLebesgue積分の一致 }
+canonical_examples: [Dirichlet関数, Thomae関数, Cantor集合の指示関数, sin(x)/xの広義積分]
+problem_patterns: [MT-RL-COMPARE-1, MT-RL-CRITERION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }
