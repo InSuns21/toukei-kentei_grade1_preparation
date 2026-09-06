@@ -10,7 +10,7 @@ concepts:
   - id: topology.basis
     name: 位相の基底
     kind: definition
-    aliases: [位相の基底, 基底, basis for a topology]
+    aliases: [位相の基底, basis for a topology]
     requires:
       - topology.topology
       - set.family
@@ -18,7 +18,7 @@ concepts:
   - id: topology.basis-generates-topology
     name: 基底から位相を作れる
     kind: theorem
-    aliases: [基底から位相を作れる, 基底が生成する位相]
+    aliases: [基底から位相を作れる, 位相の基底が生成する位相]
     requires:
       - topology.basis
       - topology.topology
@@ -128,9 +128,9 @@ concepts:
       - set.preimage
 
   - id: topology.saturated-open-image
-    name: 開な飽和集合の像は商空間で開
+    name: 開な飽和集合の像は商位相で開
     kind: proposition
-    aliases: [開な飽和集合の像は商空間で開]
+    aliases: [開な飽和集合の像は商位相で開]
     requires:
       - topology.saturated-set
       - topology.quotient-topology-map
