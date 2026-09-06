@@ -469,7 +469,7 @@ concepts:
     introduced_in: I3-01
     requires: [significance-level, confidence-interval]
 
-- id: pearson-goodness-of-fit-statistic
+  - id: pearson-goodness-of-fit-statistic
     name: ピアソンの適合度統計量
     aliases:
       - Pearson goodness-of-fit statistic
