@@ -47,6 +47,7 @@ for (const relPath of pagePaths) {
 const ancestorCache = new Map();
 for (const page of pages.values()) page.ancestors = collectAncestors(page.id, new Set());
 const changedFiles = changedOnly ? collectChangedFiles() : new Set();
+const changedLines = changedOnly ? collectChangedLineNumbers() : new Map();
 
 const aliases = concepts
   .flatMap((concept) => concept.aliases.map((alias) => ({ concept, alias, normalized: normalizeSemantic(alias) })))
@@ -69,11 +70,11 @@ for (const page of pages.values()) {
     const lineNumber = i + 1;
     const normalizedLine = normalizeSemantic(rawLine);
 
-    // 登録済みaliasが「○○より / ○○によれば / ○○を用いる」等の
-    // 論証表現に直結している場合を拾う。CLTより、のような略称も対象。
+    // 登録済みの「定理・補題・命題・系」は「○○より / ○○により / ○○を用いる」等を拾う。
+    // 定義・用語は裸の「○○より」だと比較表現に誤爆するため、「○○の定義から」等に限定する。
     for (const item of aliases) {
       if (!normalizedLine.includes(item.normalized)) continue;
-      if (!hasDependencyMarkerAfterAlias(normalizedLine, item.normalized)) continue;
+      if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
       uses.set(`${lineNumber}:${item.concept.id}`, { line: lineNumber, concept: item.concept, raw: compact(rawLine) });
     }
 
@@ -86,7 +87,7 @@ for (const page of pages.values()) {
         continue;
       }
       findings.push({
-        severity: strict && pageTouched ? 'ERROR' : 'AUDIT',
+        severity: severityForLine(page.path, lineNumber),
         file: page.path,
         line: lineNumber,
         message: `明示的な論証依存「${candidate}」を検出しましたが、knowledge.yaml の概念aliasへ解決できません。定理・補題・公式等を概念登録してください。`,
@@ -94,13 +95,13 @@ for (const page of pages.values()) {
     }
   }
 
-  for (const use of uses.values()) validateExplicitUse(page, use, pageTouched);
+  for (const use of uses.values()) validateExplicitUse(page, use);
 }
 
 const counts = countBySeverity(findings);
 console.log(strict ? 'DREAM THEATER 明示的論証依存検証（strict）' : 'DREAM THEATER 明示的論証依存監査');
 console.log(`対象ページ: ${pagePaths.length} / 登録概念: ${concepts.length}`);
-if (changedOnly) console.log(`変更ファイル: ${changedFiles.size}`);
+if (changedOnly) console.log(`変更ファイル: ${changedFiles.size} / 本文変更行をblocking対象に限定`);
 console.log(`ERROR: ${counts.ERROR ?? 0} / WARN: ${counts.WARN ?? 0} / AUDIT: ${counts.AUDIT ?? 0}`);
 for (const finding of findings.slice(0, 250)) {
   console.log(`- [${finding.severity}] ${finding.file}:${finding.line} ${finding.message}`);
@@ -108,7 +109,7 @@ for (const finding of findings.slice(0, 250)) {
 if (findings.length > 250) console.log(`  ...ほか ${findings.length - 250} 件`);
 if (strict && findings.some((finding) => finding.severity === 'ERROR')) process.exit(1);
 
-function validateExplicitUse(page, use, pageTouched) {
+function validateExplicitUse(page, use) {
   const concept = use.concept;
   let problem = null;
 
@@ -127,22 +128,31 @@ function validateExplicitUse(page, use, pageTouched) {
 
   if (!problem) return;
   findings.push({
-    severity: strict && pageTouched ? 'ERROR' : 'AUDIT',
+    severity: severityForLine(page.path, use.line),
     file: page.path,
     line: use.line,
     message: problem,
   });
 }
 
-function hasDependencyMarkerAfterAlias(line, alias) {
+function hasExplicitReasoningUse(line, item) {
   let offset = 0;
   while (true) {
-    const index = line.indexOf(alias, offset);
+    const index = line.indexOf(item.normalized, offset);
     if (index < 0) return false;
-    const tail = line.slice(index + alias.length);
-    if (/^(?:の(?:定理|補題|命題|系|公式|不等式|原理|法則|恒等式|条件))?(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) return true;
-    offset = index + alias.length;
+    const tail = line.slice(index + item.normalized.length);
+    if (isResultLike(item.concept, item.alias)) {
+      if (/^(?:により|によれば|より(?!弱|強|大|小|高|低|一般|厳|緩)|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) return true;
+    } else if (/^(?:の)?(?:定義|公式|不等式|定理|補題|命題|原理|法則|恒等式)(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) {
+      return true;
+    }
+    offset = index + item.normalized.length;
   }
+}
+
+function isResultLike(concept, alias) {
+  if (['theorem', 'lemma', 'proposition', 'corollary'].includes(concept.kind)) return true;
+  return /(?:定理|補題|命題|公式|不等式|原理|法則|恒等式)$/u.test(String(alias).trim());
 }
 
 function extractNamedDependencyCandidates(line) {
@@ -154,9 +164,11 @@ function extractNamedDependencyCandidates(line) {
   const marker = /(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/gu;
   for (const match of text.matchAll(marker)) {
     const prefix = text.slice(0, match.index).trimEnd();
-    const named = prefix.match(/(?:^|[、。；;:：!！?？「」『』（）()])\s*([^、。；;:：!！?？「」『』（）()]{1,80}?(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|条件|定義))\s*$/u);
+    const named = prefix.match(/(?:^|[、。；;:：!！?？「」『』（）()])\s*([^、。；;:：!！?？「」『』（）()]{1,80}?(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))\s*$/u);
     if (!named) continue;
-    const candidate = named[1].trim().replace(/^(?:また|さらに|ここで|したがって|よって)\s*/u, '');
+    let candidate = named[1].trim();
+    candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
+    candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
     if (candidate) out.push(candidate);
   }
   return [...new Set(out)];
@@ -164,27 +176,47 @@ function extractNamedDependencyCandidates(line) {
 
 function resolveCandidate(candidate, aliasItems) {
   const normalized = normalizeSemantic(candidate);
+  const base = stripFormalSuffix(normalized);
+
   for (const item of aliasItems) {
     if (item.normalized === normalized) return item.concept;
   }
-  // 「Slutskyの定理」対「Slutsky定理」のような軽微な表記差だけを許す。
-  const relaxed = normalized.replace(/の(?=定理|補題|命題|公式|不等式|原理|法則|恒等式|条件)/gu, '');
   for (const item of aliasItems) {
-    const aliasRelaxed = item.normalized.replace(/の(?=定理|補題|命題|公式|不等式|原理|法則|恒等式|条件)/gu, '');
-    if (aliasRelaxed === relaxed) return item.concept;
+    if (item.normalized === base) return item.concept;
+  }
+  for (const item of aliasItems) {
+    const aliasBase = stripFormalSuffix(item.normalized);
+    if (normalized.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
+    if (base.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
+    if (aliasBase.length >= 4 && base.endsWith(aliasBase) && isResultLike(item.concept, item.alias)) return item.concept;
   }
   return null;
 }
 
+function stripFormalSuffix(value) {
+  return String(value)
+    .replace(/の(?=定理|補題|命題|公式|不等式|原理|法則|恒等式|定義$)/gu, '')
+    .replace(/(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義)$/u, '');
+}
+
 function isGenericDependencyCandidate(candidate) {
   const value = normalizeSemantic(candidate);
-  return new Set([
+  if (new Set([
     '定義', 'この定義', '上の定義', '前の定義', '同じ定義',
-    '条件', 'この条件', '上の条件', '前の条件', '仮定の条件',
     '公式', '上の公式', 'この公式', '前の公式',
     '不等式', '上の不等式', 'この不等式', '前の不等式',
     '定理', '上の定理', 'この定理', '前の定理',
-  ]).has(value);
+  ]).has(value)) return true;
+  if (/^(?:二つ|2つ|三つ|3つ|複数|いくつか)の/u.test(value)) return true;
+  const base = stripFormalSuffix(value);
+  if (!/[A-Za-z0-9πΠλΛα-ωΑ-Ω・\-]/u.test(base) && base.length < 5) return true;
+  return false;
+}
+
+function severityForLine(file, line) {
+  if (!strict) return 'AUDIT';
+  if (!changedOnly) return 'ERROR';
+  return changedLines.get(file)?.has(line) ? 'ERROR' : 'AUDIT';
 }
 
 function findIntroductionLine(lines, concept) {
@@ -290,6 +322,36 @@ function collectChangedFiles() {
   }
 }
 
+function collectChangedLineNumbers() {
+  const base = resolveDiffBase();
+  const out = new Map();
+  if (!base) return out;
+  try {
+    const diff = execFileSync('git', [
+      '-c', 'core.quotepath=false',
+      'diff', '--unified=0', '--diff-filter=ACMR', base, 'HEAD', '--',
+      'textbook/volumes/00_foundations',
+    ], { cwd: root, encoding: 'utf8', maxBuffer: 40 * 1024 * 1024 });
+    let current = null;
+    for (const line of diff.split('\n')) {
+      if (line.startsWith('+++ b/')) {
+        current = line.slice(6);
+        if (!out.has(current)) out.set(current, new Set());
+        continue;
+      }
+      if (!current || !line.startsWith('@@')) continue;
+      const match = line.match(/\+(\d+)(?:,(\d+))?/u);
+      if (!match) continue;
+      const start = Number(match[1]);
+      const count = match[2] == null ? 1 : Number(match[2]);
+      for (let n = 0; n < count; n += 1) out.get(current).add(start + n);
+    }
+  } catch (error) {
+    console.warn(`明示的論証依存の変更行抽出に失敗しました: ${error.message}`);
+  }
+  return out;
+}
+
 function resolveDiffBase() {
   const explicit = process.env.DREAM_THEATER_BASE_SHA?.trim() || process.env.TERMINOLOGY_BASE_SHA?.trim();
   if (explicit && !/^0+$/.test(explicit)) return explicit;
@@ -302,6 +364,7 @@ function resolveDiffBase() {
 
 function normalizeSemantic(value) {
   return String(value)
+    .replace(/[‐‑‒–—−]/g, '-')
     .replace(/[\s*_>#`\[\]「」『』]/g, '')
     .replace(/\\,/g, '')
     .replace(/\\!/g, '')
