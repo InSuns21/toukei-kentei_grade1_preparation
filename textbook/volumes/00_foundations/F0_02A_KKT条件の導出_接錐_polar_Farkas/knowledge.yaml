@@ -10,6 +10,7 @@ forward_references:
   - optimization.constraint-qualification
   - optimization.licq
   - optimization.mfcq
+  - svm.maximum-margin-convex-hull
 
 concepts:
   - id: optimization.tangent-cone
@@ -48,7 +49,7 @@ concepts:
   - id: optimization.farkas-alternative
     name: Farkas型のalternative
     kind: lemma
-    aliases: [Farkas型のalternative]
+    aliases: [Farkas型のalternative, Farkasの補題：必要な形]
     requires:
       - convex.farkas-lemma
       - optimization.linearized-cone
