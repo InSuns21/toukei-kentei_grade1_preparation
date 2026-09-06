@@ -1,16 +1,70 @@
 chapter: F0-00F1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00F
-  - F0-00E1
+  - F0-00E2
+  - F0-00C2
 
 concepts:
+  - id: linear.eigen-data-recap-f1
+    name: 固有値・固有ベクトル・固有空間の再掲
+    kind: definition
+    introduction_aliases: [固有値・固有ベクトル・固有空間]
+    aliases: [固有値・固有ベクトル・固有空間の再掲, 固有値・固有ベクトル・固有空間]
+    requires:
+      - linear.eigenvalue
+      - linear.eigenvector
+      - linear.eigenspace
+
+  - id: linear.invariant-subspace
+    name: 不変部分空間
+    kind: definition
+    aliases: [不変部分空間]
+    requires:
+      - linear.linear-map
+      - linear.linear-subspace
+
+  - id: linear.rayleigh-quotient
+    name: Rayleigh商
+    kind: definition
+    aliases: [Rayleigh商]
+    requires:
+      - linear.inner-product
+      - linear.eigenvalue
+
+  - id: linear.sphere-lagrange-necessary-condition
+    name: 球面制約に対するLagrange必要条件
+    kind: theorem
+    aliases: [球面制約に対するLagrange必要条件]
+    requires:
+      - linear.inner-product
+      - topology.extreme-value-theorem
+
+  - id: linear.spectral-theorem
+    name: 実対称行列のスペクトル定理
+    kind: theorem
+    aliases: [実対称行列のスペクトル定理, スペクトル定理]
+    requires:
+      - linear.invariant-subspace
+      - linear.rayleigh-quotient
+      - linear.sphere-lagrange-necessary-condition
+      - linear.orthonormal-system
+      - linear.gram-schmidt
+
+  - id: linear.positive-definite-matrix
+    name: 正定値行列
+    kind: definition
+    introduction: inline
+    aliases: [正定値行列, 正定値]
+    requires:
+      - linear.spectral-theorem
+
   - id: linear.positive-semidefinite-matrix
     name: 半正定値行列
     kind: definition
     introduction: inline
-    aliases: [半正定値行列, PSD]
+    aliases: [半正定値行列, 半正定値, PSD]
     requires:
-      - linear.inner-product
+      - linear.spectral-theorem
       - linear.eigenvalue

@@ -1,6 +1,6 @@
 chapter: F0-00E1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00E
 
@@ -27,11 +27,27 @@ concepts:
     requires:
       - linear.inner-product
 
+  - id: linear.orthonormal-system
+    name: 正規直交系
+    kind: definition
+    aliases: [正規直交系]
+    requires:
+      - linear.orthogonality
+
   - id: linear.gram-schmidt
     name: Gram--Schmidtの直交化
     kind: term
     aliases: [Gram--Schmidt, Gram–Schmidt]
     requires:
+      - linear.orthonormal-system
+      - linear.linear-independence
+
+  - id: linear.orthogonal-complement
+    name: 直交補空間
+    kind: definition
+    aliases: [直交補空間]
+    requires:
+      - linear.linear-subspace
       - linear.orthogonality
 
   - id: linear.orthogonal-projection
@@ -39,7 +55,7 @@ concepts:
     kind: term
     aliases: [直交射影]
     requires:
-      - linear.orthogonality
+      - linear.orthogonal-complement
 
   - id: linear.qr-decomposition
     name: QR分解

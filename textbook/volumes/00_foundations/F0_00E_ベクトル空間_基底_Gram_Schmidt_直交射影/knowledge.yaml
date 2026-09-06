@@ -1,6 +1,6 @@
 chapter: F0-00E
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00A
 
@@ -19,9 +19,76 @@ concepts:
     requires:
       - set.set
 
+  - id: linear.linear-subspace
+    name: 線形部分空間
+    kind: definition
+    aliases: [線形部分空間]
+    requires:
+      - linear.vector-space
+
+  - id: linear.subspace-test
+    name: 部分空間判定法
+    kind: proposition
+    aliases: [部分空間判定法]
+    requires:
+      - linear.linear-subspace
+
+  - id: linear.linear-combination-span
+    name: 線形結合とspan
+    kind: definition
+    aliases: [線形結合とspan]
+    requires:
+      - linear.linear-subspace
+
+  - id: linear.linear-independence
+    name: 一次独立・一次従属
+    kind: definition
+    aliases: [一次独立・一次従属, 一次独立, 一次従属]
+    requires:
+      - linear.linear-combination-span
+
   - id: linear.basis
     name: 基底
     kind: definition
     aliases: [基底]
     requires:
-      - linear.vector-space
+      - linear.linear-combination-span
+      - linear.linear-independence
+
+  - id: linear.coordinate-vector
+    name: 座標ベクトル
+    kind: definition
+    aliases: [座標ベクトル]
+    requires:
+      - linear.basis
+
+  - id: linear.steinitz-exchange-lemma
+    name: Steinitzの交換補題
+    kind: lemma
+    aliases: [Steinitzの交換補題]
+    requires:
+      - linear.linear-combination-span
+      - linear.linear-independence
+
+  - id: linear.dimension
+    name: 次元
+    kind: definition
+    aliases: [次元]
+    requires:
+      - linear.basis
+      - linear.steinitz-exchange-lemma
+
+  - id: linear.basis-extension-theorem
+    name: 基底延長定理
+    kind: theorem
+    aliases: [基底延長定理]
+    requires:
+      - linear.dimension
+      - linear.linear-independence
+
+  - id: linear.sum-direct-sum
+    name: 部分空間の和・直和
+    kind: definition
+    aliases: [部分空間の和・直和, 直和]
+    requires:
+      - linear.linear-subspace
