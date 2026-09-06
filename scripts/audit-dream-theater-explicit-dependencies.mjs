@@ -168,6 +168,7 @@ function isNavigationOrChecklistLine(line) {
   const text = String(line).trim();
   if (/へ(?:進んでください|進みます|進む|戻ってください|戻る)/u.test(text)) return true;
   if (/(?:で扱います|で扱う予定|後続章で扱|次章で扱|を予告します|への接続として)/u.test(text)) return true;
+  if (/(?:次章|次節|後続章|後続節|この先).*(?:説明|導入|扱|証明|確認|見る|学ぶ)/u.test(text)) return true;
   if (/^[-*]\s+.+(?:説明|証明|区別|確認|導出|計算|判断|再現|適用)できる[。.]?$/u.test(text)) return true;
   return false;
 }
@@ -183,31 +184,62 @@ function extractNamedDependencyCandidates(line) {
     const prefix = text.slice(0, match.index).trimEnd();
     const named = prefix.match(/(?:^|[、。；;:：!！?？「」『』（）()])\s*([^、。；;:：!！?？「」『』（）()]{1,80}?(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))\s*$/u);
     if (!named) continue;
-    let candidate = named[1].trim();
-    candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
-    candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
+    let candidate = cleanCandidateLead(named[1].trim());
     if (candidate) out.push(candidate);
   }
   return [...new Set(out)];
 }
 
+function cleanCandidateLead(value) {
+  let candidate = String(value).trim();
+  candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
+  candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
+  candidate = candidate.replace(/^(?:なら|では|について(?:は)?|積分は|積分を|と)\s*/u, '');
+  const conjunction = candidate.match(/^.+[、,]\s*([^、,]{2,50}(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))$/u);
+  if (conjunction) candidate = conjunction[1].trim();
+  return candidate;
+}
+
 function resolveCandidate(candidate, aliasItems) {
   const normalized = normalizeSemantic(candidate);
   const base = stripFormalSuffix(normalized);
+  const candidateType = formalCandidateType(normalized);
+  const compatibleItems = aliasItems.filter((item) => isCandidateCompatible(candidateType, item));
 
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     if (item.normalized === normalized) return item.concept;
   }
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     if (item.normalized === base) return item.concept;
   }
-  for (const item of aliasItems) {
+  for (const item of compatibleItems) {
     const aliasBase = stripFormalSuffix(item.normalized);
     if (normalized.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (base.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (aliasBase.length >= 4 && base.endsWith(aliasBase) && isResultLike(item.concept, item.alias)) return item.concept;
   }
   return null;
+}
+
+function formalCandidateType(value) {
+  if (/定義$/u.test(value)) return 'definition';
+  if (/(?:定理|補題|命題|系)$/u.test(value)) return 'result';
+  if (/(?:公式|不等式|恒等式|原理|法則)$/u.test(value)) return 'formula';
+  return 'unknown';
+}
+
+function isCandidateCompatible(type, item) {
+  if (type === 'unknown') return true;
+  if (type === 'definition') return item.concept.kind === 'definition' || /定義$/u.test(item.normalized);
+  if (type === 'result') {
+    return ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind)
+      || /(?:定理|補題|命題|系)$/u.test(item.normalized);
+  }
+  if (type === 'formula') {
+    return /(?:公式|不等式|恒等式|原理|法則)$/u.test(item.normalized)
+      || ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind);
+  }
+  return true;
 }
 
 function stripFormalSuffix(value) {
@@ -225,7 +257,7 @@ function isGenericDependencyCandidate(candidate) {
     '定理', '上の定理', 'この定理', '前の定理',
   ]).has(value)) return true;
   if (/^(?:二つ|2つ|三つ|3つ|複数|いくつか)の/u.test(value)) return true;
-  if (/^(?:\d+[.．]|その|これ|それ|同じ|前節の?\s*$)/u.test(value)) return true;
+  if (/^(?:[A-D]\d+|\d+[.．]|その|これ|それ|同じ|前節の?\s*$)/u.test(value)) return true;
   if (/(?:ことを|を|が|は|なので|なら|について).*(?:定義|定理|補題|命題)$/u.test(value)) return true;
   const base = stripFormalSuffix(value);
   if (!/[A-Za-z0-9πΠλΛα-ωΑ-Ω・\-]/u.test(base) && base.length < 5) return true;
@@ -384,6 +416,7 @@ function resolveDiffBase() {
 function normalizeSemantic(value) {
   return String(value)
     .replace(/[‐‑‒–—−]/g, '-')
+    .replace(/-+/g, '-')
     .replace(/[\s*_>#`\[\]「」『』]/g, '')
     .replace(/\\,/g, '')
     .replace(/\\!/g, '')
