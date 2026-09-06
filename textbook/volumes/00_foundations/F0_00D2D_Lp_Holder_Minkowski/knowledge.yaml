@@ -23,6 +23,7 @@ concepts:
     name: L^p空間
     kind: definition
     aliases: [L^p空間]
+    introduction_aliases: ["空間、"]
     requires:
       - measure.ae-equivalence
       - measure.measurable-function
@@ -71,6 +72,7 @@ concepts:
     name: L^pノルム
     kind: theorem
     aliases: [L^pノルム]
+    introduction_aliases: ["ノルム）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality
