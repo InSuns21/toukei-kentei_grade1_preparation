@@ -20,7 +20,18 @@ jobs:
           fetch-depth: 0
 
       - name: Apply exact content fixes
-        run: python3 scripts/_tmp_fix_textbook_concept_dag_batch1.py
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/_tmp_fix_textbook_concept_dag_batch1.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'new_text, count = pat.subn(replacement, text, count=1)'
+          new = 'new_text, count = pat.subn(lambda _match: replacement, text, count=1)'
+          if text.count(old) != 1:
+              raise SystemExit('temporary fixer patch target mismatch')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          python3 scripts/_tmp_fix_textbook_concept_dag_batch1.py
 
       - name: Commit generated fixes
         run: |
