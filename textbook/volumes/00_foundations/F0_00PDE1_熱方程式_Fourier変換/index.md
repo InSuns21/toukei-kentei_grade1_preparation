@@ -190,15 +190,23 @@ $$
 GaussianのFourier変換公式から
 
 $$
-\boxed{
 G_t(x)
 =
 \frac1{\sqrt{4\pi\kappa t}}
 \exp\left(-\frac{x^2}{4\kappa t}\right)
-}
 $$
 
 を得ます。
+
+<!-- formal-statement-start -->
+> **定義（Gaussian heat kernel）**  
+> $t>0$ に対して
+> $$
+> G_t(x)=\frac1{\sqrt{4\pi\kappa t}}
+> \exp\left(-\frac{x^2}{4\kappa t}\right)
+> $$
+> と定める関数を、熱方程式の **Gaussian heat kernel** といいます。
+<!-- formal-statement-end -->
 
 したがって解は
 
