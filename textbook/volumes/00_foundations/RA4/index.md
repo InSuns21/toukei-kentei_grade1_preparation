@@ -19,19 +19,19 @@ $$
 <a id="def-ra4-darboux"></a>
 <!-- formal-statement-start -->
 > **定義（Darboux上和・下和）**  
-> $$
-> U(f,P)=\sum_iM_i(x_i-x_{i-1}),\qquad
-> L(f,P)=\sum_im_i(x_i-x_{i-1}).
-> $$
+$$
+U(f,P)=\sum_iM_i(x_i-x_{i-1}),\qquad
+L(f,P)=\sum_im_i(x_i-x_{i-1}).
+$$
 <!-- formal-statement-end -->
 
 <a id="def-ra4-integrable"></a>
 <!-- formal-statement-start -->
 > **定義（Riemann可積分）**  
 > 有界関数 $f:[a,b]\to\mathbb R$ がRiemann可積分であるとは
-> $$
-> \inf_PU(f,P)=\sup_PL(f,P)
-> $$
+$$
+\inf_PU(f,P)=\sup_PL(f,P)
+$$
 > が成り立つことをいう。この共通値を $\int_a^bf(x)\,dx$ と書く。
 <!-- formal-statement-end -->
 
@@ -39,9 +39,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（Darboux可積分性判定）**  
 > 有界関数 $f$ がRiemann可積分であることと、任意の $\varepsilon>0$ に対してある分割 $P$ が存在し
-> $$
-> U(f,P)-L(f,P)<\varepsilon
-> $$
+$$
+U(f,P)-L(f,P)<\varepsilon
+$$
 > となることは同値である。
 <!-- formal-statement-end -->
 
@@ -79,9 +79,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（微積分学の基本定理I）**  
 > $f$ が $[a,b]$ で連続なら
-> $$
-> F(x)=\int_a^xf(t)\,dt
-> $$
+$$
+F(x)=\int_a^xf(t)\,dt
+$$
 > は $(a,b)$ で微分可能で $F'(x)=f(x)$。
 <!-- formal-statement-end -->
 
@@ -104,9 +104,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（微積分学の基本定理II）**  
 > $F'=f$ で $f$ が連続なら
-> $$
-> \int_a^bf(x)\,dx=F(b)-F(a).
-> $$
+$$
+\int_a^bf(x)\,dx=F(b)-F(a).
+$$
 <!-- formal-statement-end -->
 
 FTC I は「積分から原始関数を作る」、FTC II は「原始関数から積分値を計算する」と役割を分けると混乱しません。
@@ -119,10 +119,10 @@ FTC I は「積分から原始関数を作る」、FTC II は「原始関数か�
 <!-- formal-statement-start -->
 > **定理（置換積分）**  
 > $\phi:[\alpha,\beta]\to\mathbb R$ が連続微分可能で、$f$ が $\phi([\alpha,\beta])$ 上連続なら
-> $$
-> \int_{\alpha}^{\beta}f(\phi(t))\phi'(t)\,dt
-> =\int_{\phi(\alpha)}^{\phi(\beta)}f(x)\,dx.
-> $$
+$$
+\int_{\alpha}^{\beta}f(\phi(t))\phi'(t)\,dt
+=\int_{\phi(\alpha)}^{\phi(\beta)}f(x)\,dx.
+$$
 <!-- formal-statement-end -->
 
 部分積分は積の微分公式を [微積分学の基本定理II](#thm-ra4-ftc2) で積分したものとして理解できます。
