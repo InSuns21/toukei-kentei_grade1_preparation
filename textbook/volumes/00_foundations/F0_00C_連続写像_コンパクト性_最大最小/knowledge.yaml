@@ -21,9 +21,10 @@ concepts:
       - set.function
 
   - id: topology.continuous-map
-    name: 連続写像
+    name: 距離空間の連続写像
     kind: definition
-    aliases: [連続写像]
+    introduction_aliases: [連続写像]
+    aliases: [距離空間の連続写像, metric-space continuous map]
     requires:
       - topology.continuity-at-point
       - topology.topological-continuous-map
