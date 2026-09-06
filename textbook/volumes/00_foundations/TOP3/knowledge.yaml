@@ -5,7 +5,8 @@ prerequisites:
   - TOP2
   - F0-00A1
 
-forward_references: []
+forward_references:
+  - convex.convex-set
 
 concepts:
   - id: topology.separation
@@ -23,12 +24,21 @@ concepts:
     requires:
       - topology.separation
 
+  - id: topology.clopen-set
+    name: 開閉集合
+    kind: definition
+    aliases: [開閉集合, clopen set]
+    introduction_aliases: [開閉集合]
+    requires:
+      - topology.topological-space
+
   - id: topology.connected-clopen-criterion
     name: 連結性と非自明な開閉集合の不存在
     kind: proposition
     aliases: [連結性と非自明な開閉集合の不存在, 連結性のclopen判定]
     requires:
       - topology.connected-space
+      - topology.clopen-set
 
   - id: topology.continuous-image-connected
     name: 連結空間の連続像は連結
@@ -76,6 +86,7 @@ concepts:
     aliases: [凸集合は弧状連結]
     requires:
       - topology.path-connected-space
+      - convex.convex-set
 
   - id: topology.union-connected-common-point
     name: 共通点を持つ連結集合族の合併は連結
