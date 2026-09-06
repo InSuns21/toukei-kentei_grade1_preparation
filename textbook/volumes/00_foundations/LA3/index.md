@@ -269,7 +269,121 @@ $$
 なので結論を得ます。$\square$
 <!-- proof-end -->
 
-実際、$W^\circ$ は $(V/W)^*$ と自然に同一視できます。「$W$ を潰してから測る」ことと「最初から $W$ を0にする測定器を使う」ことは同じです。
+<a id="thm-la3-quotient-dual-annihilator"></a>
+<!-- formal-statement-start -->
+> **定理（商空間の双対とannihilator）**  
+> $W\subset V$ を部分空間、$q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき双対写像
+$$
+q^*:(V/W)^*\to V^*,
+\qquad
+q^*(\psi)=\psi\circ q
+$$
+> は $(V/W)^*$ から $W^\circ$ への線形同型を与える。すなわち
+$$
+(V/W)^*\cong W^\circ
+$$
+> である。
+<!-- formal-statement-end -->
+
+ここで「自然に同一視できる」の中身を、写像の定義から逆写像まで確認します。
+
+<!-- proof-start -->
+### 証明
+
+**1. まず $q^*$ の像が $W^\circ$ に入ることを示す。**  
+$\psi\in(V/W)^*$ を取ります。任意の $w\in W$ について、商空間では
+$$
+q(w)=w+W=W=0_{V/W}
+$$
+なので
+$$
+(q^*\psi)(w)=\psi(q(w))=\psi(0_{V/W})=0.
+$$
+従って $q^*(\psi)$ は $W$ の全てを消し、
+$$
+q^*(\psi)\in W^\circ.
+$$
+よって $q^*$ を余域 $W^\circ$ に制限して考えられます。
+
+**2. $W^\circ$ から商空間の双対へ戻す写像を作る。**  
+$\varphi\in W^\circ$ に対して
+$$
+\widetilde\varphi:V/W\to\mathbb F,
+\qquad
+\widetilde\varphi(v+W)=\varphi(v)
+$$
+と定めたいところですが、同じ剰余類には複数の代表元があります。そこでwell-defined性を確認します。
+
+もし
+$$
+v+W=v'+W
+$$
+なら、商空間の剰余類の等号の定義から
+$$
+v-v'\in W.
+$$
+$\varphi\in W^\circ$ なので $\varphi(v-v')=0$、従って
+$$
+\varphi(v)-\varphi(v')
+=\varphi(v-v')
+=0.
+$$
+したがって
+$$
+\varphi(v)=\varphi(v')
+$$
+であり、$\widetilde\varphi(v+W)$ は代表元の選び方に依存しません。
+
+次に線形性を確認します。$a,b\in\mathbb F$ と $v,u\in V$ に対して
+$$
+\begin{aligned}
+\widetilde\varphi\bigl(a(v+W)+b(u+W)\bigr)
+&=\widetilde\varphi(av+bu+W)\\
+&=\varphi(av+bu)\\
+&=a\varphi(v)+b\varphi(u)\\
+&=a\widetilde\varphi(v+W)+b\widetilde\varphi(u+W).
+\end{aligned}
+$$
+よって $\widetilde\varphi\in(V/W)^*$ です。従って
+$$
+R:W^\circ\to(V/W)^*,
+\qquad
+R(\varphi)=\widetilde\varphi
+$$
+という写像が定義できます。この $R$ も点ごとの計算から線形です。
+
+**3. 2つの写像が互いに逆であることを確認する。**  
+$\varphi\in W^\circ$ と $v\in V$ に対して
+$$
+\begin{aligned}
+(q^*R(\varphi))(v)
+&=R(\varphi)(q(v))\\
+&=\widetilde\varphi(v+W)\\
+&=\varphi(v).
+\end{aligned}
+$$
+全ての $v$ で一致するので
+$$
+q^*\circ R=I_{W^\circ}.
+$$
+
+逆に $\psi\in(V/W)^*$ と任意の剰余類 $v+W$ に対して
+$$
+\begin{aligned}
+(R(q^*\psi))(v+W)
+&=(q^*\psi)(v)\\
+&=\psi(q(v))\\
+&=\psi(v+W).
+\end{aligned}
+$$
+全ての剰余類で一致するので
+$$
+R\circ q^*=I_{(V/W)^*}.
+$$
+従って $q^*$ と $R$ は互いに逆な線形写像であり、$q^*$ は $(V/W)^*$ から $W^\circ$ への線形同型です。$\square$
+<!-- proof-end -->
+
+「$W$ を潰してから測る」ことと「最初から $W$ を0にする測定器を使う」ことが同じだ、という言い方は、この同型の略記です。重要なのは次元がたまたま一致することではなく、標準射影 $q$ から基底を選ばずに同型が作られることです。
 
 ---
 
