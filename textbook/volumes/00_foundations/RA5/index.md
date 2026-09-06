@@ -118,7 +118,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[微積分学の基本定理I](../RA4/index.md#thm-ra4-ftc1) を用いて
+[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を用いて
 $$
 f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)dt
 $$
