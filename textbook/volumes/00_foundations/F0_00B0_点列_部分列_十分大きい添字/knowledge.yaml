@@ -2,10 +2,13 @@ chapter: F0-00B0
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00A1B
+  - F0-00A1C
 
 forward_references:
   - topology.sequentially-compact
+  - topology.metric-space
+  - topology.open-set
+  - topology.closed-set
 
 concepts:
   - id: topology.sequence
