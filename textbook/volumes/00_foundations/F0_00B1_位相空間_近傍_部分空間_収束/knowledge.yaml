@@ -1,0 +1,119 @@
+chapter: F0-00B1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00B
+
+forward_references:
+  - topology.continuous-map
+  - topology.heine-borel
+
+concepts:
+  - id: topology.topology
+    name: 位相
+    kind: definition
+    aliases: [位相]
+    requires:
+      - set.set
+
+  - id: topology.topological-space
+    name: 位相空間
+    kind: definition
+    aliases: [位相空間, 位相・位相空間]
+    requires:
+      - topology.topology
+
+  - id: topology.topological-closed-set
+    name: 位相空間の閉集合
+    kind: definition
+    aliases: [位相空間の閉集合]
+    requires:
+      - topology.topology
+
+  - id: topology.neighborhood
+    name: 近傍
+    kind: definition
+    aliases: [近傍]
+    requires:
+      - topology.topology
+
+  - id: topology.metric-topology
+    name: 距離から誘導される位相
+    kind: definition
+    aliases: [距離から誘導される位相, 距離位相]
+    requires:
+      - topology.metric-space
+      - topology.open-ball
+
+  - id: topology.metric-topology-is-topology
+    name: 距離位相は位相である
+    kind: proposition
+    aliases: [距離位相は位相である]
+    requires:
+      - topology.metric-topology
+      - topology.topology
+
+  - id: topology.subspace-topology
+    name: 部分空間位相
+    kind: definition
+    aliases: [部分空間位相]
+    requires:
+      - topology.topology
+
+  - id: topology.topological-sequence-convergence
+    name: 位相空間における点列収束
+    kind: definition
+    aliases: [位相空間における点列収束, 位相的収束]
+    requires:
+      - topology.topological-space
+      - topology.sequence
+      - topology.neighborhood
+      - logic.eventually
+
+  - id: topology.metric-topological-convergence-equivalence
+    name: 距離収束と位相収束の一致
+    kind: theorem
+    aliases: [距離収束と位相収束の一致]
+    requires:
+      - topology.sequence-convergence
+      - topology.topological-sequence-convergence
+      - topology.metric-topology
+
+  - id: topology.topological-continuous-map
+    name: 位相空間の連続写像
+    kind: definition
+    aliases: [位相空間の連続写像]
+    requires:
+      - topology.topological-space
+      - set.preimage
+
+  - id: topology.continuous-preserves-convergence-topological
+    name: 連続写像は収束列を収束列へ送る
+    kind: proposition
+    aliases: [連続写像は収束列を収束列へ送る]
+    requires:
+      - topology.topological-continuous-map
+      - topology.topological-sequence-convergence
+
+  - id: topology.hausdorff-space
+    name: Hausdorff空間
+    kind: definition
+    aliases: [Hausdorff空間, Hausdorff]
+    requires:
+      - topology.topological-space
+
+  - id: topology.hausdorff-limit-uniqueness
+    name: Hausdorff空間では点列の極限は一意
+    kind: theorem
+    aliases: [Hausdorff空間では点列の極限は一意]
+    requires:
+      - topology.hausdorff-space
+      - topology.topological-sequence-convergence
+
+  - id: topology.metric-space-hausdorff
+    name: 距離空間はHausdorff
+    kind: proposition
+    aliases: [距離空間はHausdorff]
+    requires:
+      - topology.metric-space
+      - topology.hausdorff-space
