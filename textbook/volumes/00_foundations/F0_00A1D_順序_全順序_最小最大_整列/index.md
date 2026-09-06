@@ -31,6 +31,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-binary-relation -->
 ### 1.1 定義の確認
 
+**定義の確認**
+
 実数上の $\le$ は二項関係です。
 
 $$
@@ -58,6 +60,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1d-partial-order -->
 ### 2.1 定義の確認：包含関係
+
+**定義の確認**
 
 $\mathcal P(X)$ 上の包含関係 $\subseteq$ は順序関係です。
 
@@ -89,6 +93,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1d-total-order -->
 ### 3.1 定義の確認
+
+**定義の確認**
 
 $\mathbb R$ の通常の $\le$ は全順序です。任意の二実数 $x,y$ は必ず比較できます。
 
@@ -123,6 +129,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-minimum-maximum -->
 ### 4.1 定義の確認
 
+**定義の確認**
+
 通常の順序を入れた集合
 
 $$
@@ -150,6 +158,8 @@ $$
 <!-- definition-example-start: def-f0-00a1d-well-order -->
 ### 5.1 定義の確認
 
+**定義の確認**
+
 $\mathbb N$ の通常の順序は整列です。自然数の任意の非空部分集合には最小元があります。
 
 一方、$\mathbb Z$ の通常の順序は全順序ですが整列ではありません。非空部分集合 $\mathbb Z$ 自身に最小元がないからです。
@@ -176,6 +186,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1d-well-orderable -->
 ### 6.1 定義の確認
+
+**定義の確認**
 
 $\mathbb Z$ は通常の順序では整列されていませんが、例えば
 
