@@ -7,6 +7,7 @@ prerequisites:
 forward_references:
   - functional.frechet-chain-rule
   - functional.adjoint-operator
+  - functional.hilbert-adjoint
 
 concepts:
   - id: functional.directional-derivative
@@ -27,7 +28,7 @@ concepts:
     name: 有界線形作用素
     kind: definition
     introduction: inline
-    introduction_aliases: [有界線形作用素 といいます]
+    introduction_aliases: [先にこの語の意味だけ固定します]
     aliases: [有界線形作用素]
     requires:
       - linear.linear-map
