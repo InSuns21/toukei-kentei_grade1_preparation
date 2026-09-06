@@ -1,7 +1,23 @@
 chapter: F0-02C4B
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C4A
 
-concepts: []
+concepts:
+  - id: convex.tangent-cone-conic-hull
+    name: 凸集合のtangent cone表示
+    kind: theorem
+    aliases: [凸集合のtangent cone表示]
+    requires:
+      - convex.bouligand-tangent-cone
+      - convex.convex-set
+
+  - id: convex.normal-tangent-polar-identity
+    name: normal--tangent polar identity
+    kind: theorem
+    aliases: [normal--tangent polar identity, normal–tangent polar identity]
+    requires:
+      - convex.tangent-cone-conic-hull
+      - convex.normal-cone
+      - convex.polar-cone
