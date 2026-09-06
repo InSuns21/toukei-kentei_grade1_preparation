@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
 
+# Temporary exact-edit workflow for Batch 2 only. Removed before merge.
 jobs:
   apply-fixes:
     runs-on: ubuntu-latest
@@ -34,8 +35,8 @@ jobs:
                   raise SystemExit(f'{path}: expected exactly one match, got {count}: {old!r}')
               p.write_text(text.replace(old, new, 1), encoding='utf-8')
 
-          # 1) P2-02 / P3-04: do not name consistency before it is introduced;
-          #    the exercises themselves only ask for probability convergence.
+          # P2-02 / P3-04: the exercises prove probability convergence but do not
+          # need the estimator-evaluation term "consistency" before its introduction.
           replace_once(
               'textbook/volumes/01_probability/P2_02_期待値_分散_共分散_母関数/index.md',
               '- 目標: 混合モデルのモーメントから推定量の不偏性・分散・一致性へ進む',
@@ -47,14 +48,13 @@ jobs:
               '周辺化4点、モーメント4点、不偏性・確率収束4点、事後予測5点、二母数の分離3点。',
           )
 
-          # 2) P4-02 actually uses consistency as the estimator-language form of
-          #    probability convergence. Make that introduction explicit and formal.
+          # P4-02 already has all machinery needed for consistency: probability
+          # convergence and LLN. Make the statistical terminology explicit here.
           p4 = 'textbook/volumes/02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/index.md'
           needle = '''「ある$\\varepsilon$で確率が小さい」だけでは足りません。**全ての正の誤差幅**について確率が0へ行く必要があります。\n\n### 2.2 概収束'''
           insert = '''「ある$\\varepsilon$で確率が小さい」だけでは足りません。**全ての正の誤差幅**について確率が0へ行く必要があります。\n\n<a id="def-p4-02-consistency"></a>\n\n<!-- formal-statement-start -->\n> **定義（一致性・一致推定量）**  \n> 母数 $\\theta$ の推定量列 $T_n$ が\n\n$$\nT_n\\xrightarrow{p}\\theta\n$$\n\n> を満たすとき、$T_n$ は $\\theta$ に**一致する**といい、$T_n$ を $\\theta$ の**一致推定量**と呼びます。\n<!-- formal-statement-end -->\n\nつまり一致性は、新しい収束概念ではありません。**確率収束を「推定量が真の母数へ近づく」という統計の言葉に読み替えたもの**です。後続の I1-02 では、不偏性・MSE・効率性と並べて推定量の評価基準として改めて扱います。\n\n### 2.2 概収束'''
           replace_once(p4, needle, insert)
 
-          # Keep chapter metadata synchronized with the new explicit definition.
           p4_yaml = 'textbook/volumes/02_distributions/P4_02_確率変数の収束_大数則_中心極限定理/chapter.yaml'
           replace_once(
               p4_yaml,
@@ -67,8 +67,8 @@ jobs:
               '  - {id: P4T-DEF-03, name: 確率Cauchy列}\n  - {id: P4T-DEF-04, name: 一致性・一致推定量}\n',
           )
 
-          # 3) Genuine previews: declare them as forward references rather than
-          #    pretending the later concept is already a prerequisite.
+          # Genuine previews: declare them explicitly instead of inventing a
+          # prerequisite edge just to silence the knowledge-DAG audit.
           p3_yaml = 'textbook/volumes/02_distributions/P3_01_主要な離散分布/chapter.yaml'
           replace_once(
               p3_yaml,
@@ -112,15 +112,6 @@ jobs:
               raise SystemExit(f'{i201_yaml}: expected one official_scope marker')
           text = text.replace(marker, 'forward_references:\n  - wald-test\n' + marker, 1)
           p.write_text(text, encoding='utf-8')
-
-          # 4) The first explicit introduction of consistency is now P4-02;
-          #    I1-02 remains a second self-contained introduction in estimator evaluation.
-          kd = 'textbook/knowledge-dag.yaml'
-          replace_once(
-              kd,
-              '''  - id: consistency\n    name: 一致性\n    aliases:\n      - 一致推定量\n      - consistency\n      - consistent estimator\n    introduced_in: I1-02''',
-              '''  - id: consistency\n    name: 一致性\n    aliases:\n      - 一致推定量\n      - consistency\n      - consistent estimator\n    introduced_in: [P4-02, I1-02]''',
-          )
           PY
 
       - name: Commit generated fixes
