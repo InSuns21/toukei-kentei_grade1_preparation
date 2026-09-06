@@ -50,3 +50,10 @@ concepts:
       - functional.hilbert-space
       - linear.inner-product-recap-c1
       - functional.banach-space-recap-c1
+
+  - id: linear.parallelogram-identity
+    name: 平行四辺形恒等式
+    kind: term
+    aliases: [平行四辺形恒等式]
+    requires:
+      - linear.inner-product-recap-c1
