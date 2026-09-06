@@ -12,7 +12,7 @@ concepts:
   - id: convex.bouligand-tangent-cone
     name: Bouligand tangent cone
     kind: definition
-    aliases: [Bouligand tangent cone, tangent cone]
+    aliases: [Bouligand tangent cone, tangent cone, Bouligand の定義]
     requires:
       - convex.convex-set
 
