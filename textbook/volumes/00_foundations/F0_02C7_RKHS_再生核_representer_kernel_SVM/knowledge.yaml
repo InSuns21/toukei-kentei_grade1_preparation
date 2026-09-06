@@ -32,6 +32,7 @@ concepts:
   - id: rkhs.reproducing-kernel
     name: 再生核
     kind: definition
+    introduction_aliases: ["定義（再生核）"]
     aliases: [再生核]
     requires:
       - rkhs.reproducing-property
