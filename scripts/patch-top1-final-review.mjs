@@ -10,8 +10,8 @@ const top1Path = 'textbook/volumes/00_foundations/TOP1/index.md';
 let top1 = fs.readFileSync(top1Path, 'utf8');
 top1 = replaceRequired(
   top1,
-  'したがって有限交差で通常の開区間が作れ、任意和を取れば $\\mathbb R$ の通常位相が得られます。',
-  `したがって有限交差で通常の開区間が作れ、任意和を取れば通常の開集合は全て生成位相に入ります。よって通常位相を $\\tau_{\\mathrm{std}}$ と書けば\n$$\n\\tau_{\\mathrm{std}}\\subseteq\\tau(\\mathcal S).\n$$\n逆に、部分基底をなす各半直線 $(-\\infty,b)$ と $(a,\\infty)$ はもともと $\\tau_{\\mathrm{std}}$ の開集合です。$\\tau_{\\mathrm{std}}$ は有限交差と任意和で閉じているので、$\\mathcal S$ から有限交差と任意和で作られる全ての集合も $\\tau_{\\mathrm{std}}$ に属します。従って\n$$\n\\tau(\\mathcal S)\\subseteq\\tau_{\\mathrm{std}}.\n$$\n以上の二つの包含から $\\tau(\\mathcal S)=\\tau_{\\mathrm{std}}$ です。`,
+  '従って全ての開区間が有限交差として得られ、それらの任意和から通常の開集合が全て得られます。',
+  `従って全ての開区間が有限交差として得られ、それらの任意和から通常の開集合が全て生成位相に入ります。通常位相を $\\tau_{\\mathrm{std}}$ と書けば\n$$\n\\tau_{\\mathrm{std}}\\subseteq\\tau(\\mathcal S).\n$$\n逆に、部分基底をなす各半直線 $(-\\infty,a)$ と $(b,\\infty)$ はもともと $\\tau_{\\mathrm{std}}$ の開集合です。$\\tau_{\\mathrm{std}}$ は有限交差と任意和に閉じているため、$\\mathcal S$ の有限交差とその任意和で作られる全ての集合も $\\tau_{\\mathrm{std}}$ に属します。従って\n$$\n\\tau(\\mathcal S)\\subseteq\\tau_{\\mathrm{std}}.\n$$\n二つの包含から $\\tau(\\mathcal S)=\\tau_{\\mathrm{std}}$ です。`,
   'subbasis reverse inclusion'
 );
 top1 = replaceRequired(
@@ -22,9 +22,44 @@ top1 = replaceRequired(
 );
 fs.writeFileSync(top1Path, top1);
 
-// Restore the normal validation workflow from the parent commit, then remove this helper.
-execFileSync('git', ['checkout', 'HEAD^', '--', '.github/workflows/validate-pages.yml'], { stdio: 'inherit' });
+const normalPagesWorkflow = `name: Validate Pages assembly
+
+on:
+  pull_request:
+    paths:
+      - 'pages/**'
+      - 'textbook/**'
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
+      - 'anki/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-pages.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Assemble and validate Pages site
+        run: npm run validate:pages
+`;
+fs.writeFileSync('.github/workflows/validate-pages.yml', normalPagesWorkflow);
 fs.unlinkSync('scripts/patch-top1-final-review.mjs');
+
 execFileSync('git', ['config', 'user.name', 'github-actions[bot]']);
 execFileSync('git', ['config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com']);
 execFileSync('git', ['add', '-A']);
