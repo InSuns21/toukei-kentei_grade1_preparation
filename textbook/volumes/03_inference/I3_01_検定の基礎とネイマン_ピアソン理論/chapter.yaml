@@ -32,6 +32,7 @@ definitions:
   - { id: I301-DEF-00, name: 帰無仮説・対立仮説・単純仮説・複合仮説 }
   - { id: I301-DEF-01, name: 検定関数 }
   - { id: I301-DEF-02, name: 棄却域 }
+  - { id: I301-DEF-02A, name: 検定統計量 }
   - { id: I301-DEF-03, name: 第一種の過誤 }
   - { id: I301-DEF-04, name: 有意水準 }
   - { id: I301-DEF-05, name: 第二種の過誤 }
