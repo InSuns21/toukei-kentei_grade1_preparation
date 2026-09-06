@@ -12,6 +12,7 @@ prerequisites:
 forward_references:
   - convex.polar-cone
   - optimization.constraint-qualification
+  - optimization.closed-cone-normal
   - svm.maximum-margin-convex-hull
 
 concepts:
@@ -71,7 +72,7 @@ concepts:
     name: 分離超平面
     kind: definition
     introduction: inline
-    introduction_aliases: [H は C と z を厳密に分離しています]
+    introduction_aliases: [厳密に分離しています]
     aliases: [分離超平面]
     requires:
       - convex.hyperplane
