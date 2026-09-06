@@ -1,0 +1,33 @@
+version: 1
+scope: dream-theater
+
+# 名前を明示せず「〜なので」「〜から」で使われる論証を、
+# DREAM THEATER knowledge DAG の概念IDへ解決するための自然言語lexicon。
+# concept は各ページの knowledge.yaml に登録済みの概念を参照する。
+# source_anchor は、その概念の読者向け正本へ飛ぶ安定アンカー。
+#
+# rollout方針:
+# - 全ページ監査では既存違反を AUDIT として可視化する。
+# - changed-only CI では、新しく変更した本文行だけ blocking にする。
+
+rules:
+  - id: closed-bounded-implies-compact
+    concept: topology.heine-borel
+    source_anchor: thm-f0-00c1-02
+    patterns:
+      - regex: '閉かつ有界なので.{0,120}コンパクト'
+      - regex: '閉かつ有界だから.{0,120}コンパクト'
+
+  - id: closed-set-keeps-sequential-limit
+    concept: topology.closed-set-sequential-characterization
+    source_anchor: thm-f0-00b-01
+    patterns:
+      - regex: '閉なので\s*\$[^$]{0,60}(?:\\in|∈)[^$]{0,60}\$'
+      - regex: '閉集合なので\s*\$[^$]{0,60}(?:\\in|∈)[^$]{0,60}\$'
+
+  - id: distance-map-continuity
+    concept: topology.metric-space
+    source_anchor: def-f0-00b-01
+    patterns:
+      - literal: 距離関数は連続なので
+      - literal: 距離関数の連続性から
