@@ -2,9 +2,14 @@ chapter: F0-00G2
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-02C4A
   - F0-00G1
   - F0-02B
+
+forward_references:
+  - optimization.polar-cone
+  - optimization.strong-duality-slater
 
 concepts:
   - id: convex.fenchel-conjugate
