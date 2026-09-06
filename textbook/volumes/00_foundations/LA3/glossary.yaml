@@ -1,0 +1,20 @@
+chapter: "LA3"
+terms:
+  - term: 代数的双対空間
+    english: algebraic dual space
+    meaning: V からスカラー体への全ての線形形式を集めたベクトル空間 V*。位相や連続性は仮定しない。
+  - term: 双対基底
+    english: dual basis
+    meaning: 基底 e_i に対して e^i(e_j)=δ_ij を満たす V* の基底。
+  - term: annihilator
+    english: annihilator
+    meaning: 部分空間 W の全ての元を0へ送る線形形式全体 W°。
+  - term: 双対写像
+    english: dual map
+    meaning: T:V→W に対し、W* の線形形式を T と合成して V* へ引き戻す写像 T*:W*→V*。
+  - term: 交代多重線形形式
+    english: alternating multilinear form
+    meaning: 各変数について線形で、同じベクトルを2つ入れると0になる多重線形形式。
+  - term: 抽象行列式
+    english: coordinate-free determinant
+    meaning: 最高次の交代形式に線形自己写像が作用するときのスカラー倍率として定義される行列式。
