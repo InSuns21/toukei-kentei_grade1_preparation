@@ -1,0 +1,20 @@
+chapter: "LA4"
+terms:
+  - term: 作用素多項式
+    english: polynomial in an operator
+    meaning: 多項式 p(t)=a0+a1t+…+akt^k に線形自己写像 T を代入した p(T)=a0I+a1T+…+akT^k。
+  - term: 最小多項式
+    english: minimal polynomial
+    meaning: m(T)=0 を満たす首一多項式のうち次数が最小のもの。
+  - term: 一般化固有空間
+    english: generalized eigenspace
+    meaning: ある十分大きい k に対する ker(T-λI)^k。固有ベクトルだけでは捉えられないJordan方向を含む。
+  - term: Jordan鎖
+    english: Jordan chain
+    meaning: (T-λI)v1=0, (T-λI)vj=v_{j-1} を満たすベクトル列。
+  - term: Jordanブロック
+    english: Jordan block
+    meaning: 対角にλ、直上に1を持つ行列。1本のJordan鎖に対応する。
+  - term: Jordan標準形
+    english: Jordan canonical form
+    meaning: 複素有限次元作用素をJordanブロックの直和として表す標準形。
