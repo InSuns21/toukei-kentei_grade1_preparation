@@ -67,3 +67,11 @@ concepts:
     aliases: [Markovの不等式, Markov不等式]
     requires:
       - prob.expectation
+
+  - id: prob.chebyshev-inequality
+    name: Chebyshevの不等式
+    kind: theorem
+    aliases: [Chebyshevの不等式, Chebyshev不等式, チェビシェフの不等式, チェビシェフ不等式]
+    requires:
+      - prob.markov-inequality
+      - prob.variance
