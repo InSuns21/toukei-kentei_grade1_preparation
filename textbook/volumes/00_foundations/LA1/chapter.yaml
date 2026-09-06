@@ -1,0 +1,25 @@
+id: "LA1"
+title: "標準線形代数 I：実・複素線形空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00E
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 実ベクトル空間と複素ベクトル空間を同じ公理系で扱える
+  - 実線形写像と複素線形写像の違いを判定できる
+  - 複素基底を実基底へ読み替えたときの次元変化を説明できる
+  - 複素共役が実線形だが複素線形でない理由を説明できる
+definitions:
+  - { id: LA1-DEF-01, name: 実・複素ベクトル空間 }
+  - { id: LA1-DEF-02, name: 複素線形写像 }
+theorems:
+  - { id: LA1-PROP-01, name: 複素線形性の判定 }
+  - { id: LA1-THM-01, name: 複素次元と実次元の関係 }
+canonical_examples: [C^n, 複素共役写像, 複素数の回転としてのスカラー倍]
+problem_patterns: [LA1-SCALAR-FIELD-1, LA1-COMPLEX-LINEARITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.0, exercises: 1.5, review: 0.5 }
