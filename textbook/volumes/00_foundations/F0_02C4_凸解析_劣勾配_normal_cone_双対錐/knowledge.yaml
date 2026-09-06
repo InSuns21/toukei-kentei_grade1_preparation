@@ -30,12 +30,3 @@ concepts:
     requires:
       - convex.convex-set
       - linear.inner-product
-
-  - id: convex.dual-cone
-    name: 双対錐
-    kind: definition
-    introduction: inline
-    aliases: [双対錐]
-    requires:
-      - convex.convex-cone
-      - linear.inner-product
