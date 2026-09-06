@@ -1,0 +1,28 @@
+id: "RA4"
+title: "標準実解析 IV：Riemann/Darboux積分・FTC"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA2
+  - RA3
+official_scope: []
+learning_objectives:
+  - Darboux上和・下和からRiemann可積分性を定義できる
+  - 連続関数がRiemann可積分であることを一様連続性から証明できる
+  - 微積分学の基本定理I・IIの役割の違いを説明できる
+  - 広義積分と通常のRiemann積分を区別できる
+definitions:
+  - { id: RA4-DEF-01, name: Darboux上和・下和 }
+  - { id: RA4-DEF-02, name: Riemann可積分 }
+theorems:
+  - { id: RA4-THM-01, name: Darboux可積分性判定 }
+  - { id: RA4-THM-02, name: 連続関数のRiemann可積分性 }
+  - { id: RA4-THM-03, name: 微積分学の基本定理I }
+  - { id: RA4-THM-04, name: 微積分学の基本定理II }
+  - { id: RA4-THM-05, name: 置換積分定理 }
+canonical_examples: [連続関数の積分, Dirichlet関数の非可積分性, 1/xの広義積分]
+problem_patterns: [RA-RIEMANN-1, RA-FTC-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.5, review: 0.5 }

@@ -1,0 +1,54 @@
+chapter: RA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1B
+  - F0-00B0
+  - F0-00D
+
+concepts:
+  - id: analysis.monotone-convergence-sequence
+    name: 単調収束定理
+    kind: theorem
+    aliases: [単調収束定理, monotone convergence theorem for sequences]
+    requires: [analysis.least-upper-bound-property, topology.sequence]
+  - id: analysis.limsup-liminf
+    name: 上極限・下極限
+    kind: definition
+    aliases: [上極限, 下極限, limsup, liminf]
+    requires: [order.supremum, order.infimum, topology.sequence]
+  - id: analysis.limsup-convergence-criterion
+    name: limsup・liminfによる収束判定
+    kind: theorem
+    aliases: [limsup・liminfによる収束判定]
+    requires: [analysis.limsup-liminf]
+  - id: analysis.series
+    name: 級数
+    kind: definition
+    aliases: [級数, series]
+    requires: [topology.sequence]
+  - id: analysis.series-cauchy-criterion
+    name: 級数のCauchy判定
+    kind: theorem
+    aliases: [級数のCauchy判定]
+    requires: [analysis.series]
+  - id: analysis.absolute-convergence
+    name: 絶対収束
+    kind: definition
+    aliases: [絶対収束, absolute convergence]
+    requires: [analysis.series]
+  - id: analysis.absolute-implies-convergence
+    name: 絶対収束なら収束
+    kind: theorem
+    aliases: [絶対収束なら収束]
+    requires: [analysis.absolute-convergence, analysis.series-cauchy-criterion]
+  - id: analysis.power-series
+    name: 冪級数
+    kind: definition
+    aliases: [冪級数, power series, 収束半径]
+    requires: [analysis.series]
+  - id: analysis.cauchy-hadamard
+    name: Cauchy–Hadamardの公式
+    kind: theorem
+    aliases: [Cauchy–Hadamardの公式, Cauchy-Hadamard formula]
+    requires: [analysis.power-series, analysis.limsup-liminf]

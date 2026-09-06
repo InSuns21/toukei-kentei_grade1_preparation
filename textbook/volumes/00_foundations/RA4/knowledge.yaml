@@ -1,0 +1,43 @@
+chapter: RA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA2
+  - RA3
+
+concepts:
+  - id: analysis.darboux-sums
+    name: Darboux上和・下和
+    kind: definition
+    aliases: [Darboux上和, Darboux下和, Darboux sums]
+    requires: [order.supremum, order.infimum]
+  - id: analysis.riemann-integrable
+    name: Riemann可積分
+    kind: definition
+    aliases: [Riemann可積分, Riemann integrable]
+    requires: [analysis.darboux-sums]
+  - id: analysis.darboux-integrability-criterion
+    name: Darboux可積分性判定
+    kind: theorem
+    aliases: [Darboux可積分性判定]
+    requires: [analysis.riemann-integrable]
+  - id: analysis.continuous-riemann-integrable
+    name: 連続関数のRiemann可積分性
+    kind: theorem
+    aliases: [連続関数のRiemann可積分性]
+    requires: [analysis.riemann-integrable, analysis.heine-cantor]
+  - id: analysis.ftc-1
+    name: 微積分学の基本定理I
+    kind: theorem
+    aliases: [微積分学の基本定理I, FTC I]
+    requires: [analysis.riemann-integrable]
+  - id: analysis.ftc-2
+    name: 微積分学の基本定理II
+    kind: theorem
+    aliases: [微積分学の基本定理II, FTC II]
+    requires: [analysis.ftc-1, analysis.derivative]
+  - id: analysis.change-of-variables-riemann
+    name: Riemann積分の置換積分定理
+    kind: theorem
+    aliases: [置換積分定理]
+    requires: [analysis.ftc-2]

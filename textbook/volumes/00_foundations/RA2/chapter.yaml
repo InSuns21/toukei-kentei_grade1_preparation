@@ -1,0 +1,29 @@
+id: "RA2"
+title: "標準実解析 II：極限・連続・一様連続"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA1
+  - F0-00C
+  - F0-00C1
+  - F0-00C2
+official_scope: []
+learning_objectives:
+  - 関数極限と連続性をepsilon-deltaで扱える
+  - 点ごとの連続と一様連続を区別できる
+  - 中間値定理とHeine–Cantor定理の証明を説明できる
+  - Lipschitz連続が一様連続を含意することを示せる
+definitions:
+  - { id: RA2-DEF-01, name: 関数の極限 }
+  - { id: RA2-DEF-02, name: 一様連続 }
+  - { id: RA2-DEF-03, name: Lipschitz連続 }
+theorems:
+  - { id: RA2-THM-01, name: 関数極限の点列判定 }
+  - { id: RA2-THM-02, name: 中間値定理 }
+  - { id: RA2-THM-03, name: Heine–Cantorの定理 }
+canonical_examples: [x^2の一様連続性, 1/xの非一様連続性, 中間値定理]
+problem_patterns: [RA-CONTINUITY-1, RA-UNIFORM-CONTINUITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.0, exercises: 1.5, review: 0.5 }

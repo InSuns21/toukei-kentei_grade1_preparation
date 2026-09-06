@@ -1,0 +1,17 @@
+chapter: "RA1"
+terms:
+  - term: 上極限
+    english: limit superior
+    meaning: tail集合の上限を並べた単調列の極限として定義される、部分列極限の最大側を表す量。
+  - term: 下極限
+    english: limit inferior
+    meaning: tail集合の下限を並べた単調列の極限として定義される、部分列極限の最小側を表す量。
+  - term: 絶対収束
+    english: absolute convergence
+    meaning: 項の絶対値からなる級数が収束すること。
+  - term: 条件収束
+    english: conditional convergence
+    meaning: 元の級数は収束するが絶対収束しないこと。
+  - term: 収束半径
+    english: radius of convergence
+    meaning: 冪級数が絶対収束する中心からの距離の境界値。
