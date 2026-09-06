@@ -57,23 +57,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Add the three missing canonical source anchors
+      - name: Repair final canonical references
         shell: python
         run: |
           from pathlib import Path
 
           edits = {
-              Path('textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md'): (
-                  '## 9. すべてのノルムが内積から来るわけではない',
-                  '<a id="ref-parallelogram-identity"></a>\n\n## 9. すべてのノルムが内積から来るわけではない',
+              Path('textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md'): (
+                  '完備空間の閉部分集合は完備なので',
+                  '[完備空間の閉部分集合は完備](#thm-f0-00d-01)なので',
               ),
-              Path('textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md'): (
-                  '## 11. Hilbert空間では双対が再びベクトルになる',
-                  '<a id="ref-riesz-representation"></a>\n\n## 11. Hilbert空間では双対が再びベクトルになる',
-              ),
-              Path('textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md'): (
-                  '## 12. ノルム空間での重要な系：ノルム保存拡張',
-                  '<a id="ref-hahn-banach-norm-preserving-extension"></a>\n\n## 12. ノルム空間での重要な系：ノルム保存拡張',
+              Path('textbook/volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md'): (
+                  'が $\\mathbb R^2$ 上で凸であることを Hessian 判定から示せ。',
+                  'が $\\mathbb R^2$ 上で凸であることを [Hessian 判定](#thm-f0-00g-hessian-convexity)から示せ。',
               ),
           }
 
@@ -82,15 +78,10 @@ jobs:
               if replacement in text:
                   continue
               if needle not in text:
-                  raise SystemExit(f'migration anchor insertion point not found: {path}')
+                  raise SystemExit(f'final link insertion point not found: {path}')
               path.write_text(text.replace(needle, replacement, 1))
 
-      - name: Rewrite named proof dependencies to canonical DAG sources
-        run: |
-          node scripts/validate-formal-reference-links-dag.mjs --fix || true
-          node scripts/validate-formal-reference-links-dag.mjs --fix || true
-
-      - name: Inspect migrated formal references
+      - name: Verify formal references
         run: npm run validate:formal-references
 
       - name: Commit migration
