@@ -1,0 +1,20 @@
+chapter: "LA5"
+terms:
+  - term: 複素内積
+    english: complex inner product
+    meaning: 第1変数で共役線形、第2変数で線形、共役対称かつ正定値な内積。
+  - term: 有限次元随伴
+    english: finite-dimensional adjoint
+    meaning: <Tx,y>=<x,T*y> を満たす一意な線形写像。正規直交基底では行列の共役転置に対応する。
+  - term: Hermitian作用素
+    english: Hermitian operator
+    meaning: T*=T を満たす複素内積空間上の作用素。有限次元の自己共役作用素。
+  - term: unitary作用素
+    english: unitary operator
+    meaning: T*T=TT*=I を満たし内積・ノルムを保存する作用素。
+  - term: normal operator
+    english: normal operator
+    meaning: T*T=TT* を満たす作用素。複素有限次元では正規直交基底で対角化できることと同値。
+  - term: Schur三角化
+    english: Schur decomposition
+    meaning: 複素正方行列をunitary相似により上三角行列へ変換する分解。
