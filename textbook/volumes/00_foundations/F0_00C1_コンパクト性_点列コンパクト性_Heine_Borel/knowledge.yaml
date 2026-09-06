@@ -52,14 +52,14 @@ concepts:
   - id: topology.bolzano-weierstrass-real
     name: 実数列のBolzano–Weierstrass
     kind: lemma
-    aliases: [実数列のBolzano–Weierstrass, 実数列のBolzano--Weierstrass]
+    aliases: [実数列のBolzano–Weierstrass, 実数列のBolzano--Weierstrass, Bolzano–Weierstrassの定理]
     requires:
       - topology.bounded-set
 
   - id: topology.bolzano-weierstrass-rp
     name: R^pのBolzano–Weierstrass
     kind: lemma
-    aliases: ["$\\mathbb R^p$ のBolzano–Weierstrass", R^pのBolzano–Weierstrass]
+    aliases: ["$\\mathbb R^p$ のBolzano–Weierstrass", R^pのBolzano–Weierstrass, "補題（ のBolzano–Weierstrass）"]
     requires:
       - topology.bolzano-weierstrass-real
 
