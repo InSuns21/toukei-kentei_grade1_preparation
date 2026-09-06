@@ -334,7 +334,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-複素数上では特性多項式が一次因子へ分解するので、一般化固有空間分解により各 $G_\lambda$ を別々に扱えば十分です。
+複素数上では特性多項式が一次因子へ分解するので、[一般化固有空間分解](#thm-la4-generalized-decomposition)により各 $G_\lambda$ を別々に扱えば十分です。
 
 $G_\lambda$ 上で $N=T-\lambda I$ は冪零です。核の列
 $$
@@ -457,7 +457,7 @@ $$
 $2\times2$ 行列 $A$ の特性多項式が $t^2-3t+2$ であるとする。$A^4$ を $I,A$ の線形結合へ簡約せよ。
 
 <!-- solution-start -->
-**解答**：Cayley–Hamiltonから $A^2=3A-2I$。よって
+**解答**：[Cayley–Hamilton定理](#thm-la4-cayley-hamilton)から $A^2=3A-2I$。よって
 $$
 A^3=3A^2-2A=7A-6I,
 $$
