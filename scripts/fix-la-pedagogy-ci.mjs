@@ -1,8 +1,20 @@
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import YAML from 'yaml';
 
-const replacements = [
+function replaceOnce(source, from, to, label) {
+  if (!source.includes(from)) throw new Error(`replacement point not found: ${label}`);
+  return source.replace(from, to);
+}
+
+function replaceRange(source, start, end, replacement, label) {
+  const a = source.indexOf(start);
+  if (a < 0) throw new Error(`range start not found: ${label}`);
+  const b = source.indexOf(end, a + start.length);
+  if (b < 0) throw new Error(`range end not found: ${label}`);
+  return source.slice(0, a) + replacement + source.slice(b);
+}
+
+const simpleReplacements = [
   {
     path: 'textbook/volumes/00_foundations/LA3/index.md',
     from: '関数解析では連続線形汎関数だけを集めた双対を使いますが、ここでは位相を入れない **代数的双対** を扱います。',
@@ -45,41 +57,18 @@ const replacements = [
   }
 ];
 
-for (const { path, from, to } of replacements) {
-  const source = fs.readFileSync(path, 'utf8');
-  if (!source.includes(from)) {
-    console.error(`Expected text not found in ${path}: ${from}`);
-    process.exit(1);
-  }
-  fs.writeFileSync(path, source.replace(from, to));
+for (const { path, from, to } of simpleReplacements) {
+  let source = fs.readFileSync(path, 'utf8');
+  source = replaceOnce(source, from, to, `${path}: prose`);
+  fs.writeFileSync(path, source);
 }
 
-// LA4 proof-pedagogy repair: promote nontrivial auxiliary results to named
-// formal lemmas, remove the generic English "chain" token from authored anchor
-// IDs, and derive the minimal-polynomial/Jordan-block-size correspondence that
-// later prose and exercises rely on.
 {
   const path = 'textbook/volumes/00_foundations/LA4/index.md';
   let source = fs.readFileSync(path, 'utf8');
 
-  const replaceOnce = (from, to, label) => {
-    if (!source.includes(from)) throw new Error(`LA4 replacement point not found: ${label}`);
-    source = source.replace(from, to);
-  };
-
-  replaceOnce(
-    String.raw`#### 補助事実：余因子行列の恒等式
-
-任意の $n\times n$ 行列 $M=(m_{ij})$ に対し、$(i,j)$ 余因子を $C_{ij}$ と書き
-$$
-\operatorname{adj}(M)_{kj}=C_{jk}
-$$
-で余因子行列を定めます。このとき
-$$
-M\operatorname{adj}(M)=\det(M)I
-$$
-です。`,
-    String.raw`<a id="lem-la4-adjugate-identity"></a>
+  const cayleyProofStart = `<!-- proof-start -->\n### 証明\n\n基底を選び $T$ の表現行列を $A$ とします。`;
+  const adjugateLemma = String.raw`<a id="lem-la4-adjugate-identity"></a>
 #### 補題（余因子行列の恒等式）
 
 <!-- formal-statement-start -->
@@ -92,19 +81,53 @@ $$
 $$
 M\operatorname{adj}(M)=\det(M)I.
 $$
-<!-- formal-statement-end -->`,
-    'adjugate lemma'
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+積の $(i,j)$ 成分は
+$$
+(M\operatorname{adj}(M))_{ij}
+=\sum_{k=1}^n m_{ik}C_{jk}
+$$
+です。$i=j$ なら、これは第 $j$ 行に関するLaplace展開そのものなので
+$$
+\sum_{k=1}^n m_{jk}C_{jk}=\det M.
+$$
+一方 $i\ne j$ なら、上の和は「$M$ の第 $j$ 行を第 $i$ 行で置き換えた行列」を第 $j$ 行でLaplace展開した値です。その行列には第 $i$ 行と第 $j$ 行という同じ2行があるため行列式は0です。したがって
+$$
+(M\operatorname{adj}(M))_{ij}
+=
+\begin{cases}
+\det M,&i=j,\\
+0,&i\ne j,
+\end{cases}
+$$
+となり
+$$
+M\operatorname{adj}(M)=\det(M)I
+$$
+が示されました。$\square$
+<!-- proof-end -->
+
+`;
+  source = replaceOnce(source, cayleyProofStart, `${adjugateLemma}${cayleyProofStart}`, 'insert adjugate lemma');
+
+  source = replaceRange(
+    source,
+    '#### 補助事実：余因子行列の恒等式',
+    'そこで多項式行列 $tI-A$ に補助事実を適用すると',
+    '上の[余因子行列の恒等式](#lem-la4-adjugate-identity)は、成分が多項式でも同じLaplace展開で成り立つので $M=tI-A$ に使えます。\n\n',
+    'remove nested adjugate derivation'
+  );
+  source = source.replace(
+    'そこで多項式行列 $tI-A$ に補助事実を適用すると',
+    'そこで多項式行列 $tI-A$ に補題を適用すると'
   );
 
-  replaceOnce(
-    String.raw`#### 補助事実1：多項式のBézout等式
-
-多項式 $f,g$ が互いに素なら、ある多項式 $a,b$ が存在して
-$$
-af+bg=1
-$$
-と書けます。`,
-    String.raw`<a id="lem-la4-polynomial-bezout"></a>
+  const generalizedProofStart = `<!-- proof-start -->\n### 証明\n\n各 $j$ について`;
+  const polynomialLemmas = String.raw`<a id="lem-la4-polynomial-bezout"></a>
 #### 補題（多項式のBézout等式）
 
 <!-- formal-statement-start -->
@@ -114,19 +137,33 @@ $$
 af+bg=1
 $$
 > と書ける。
-<!-- formal-statement-end -->`,
-    'Bezout lemma'
-  );
+<!-- formal-statement-end -->
 
-  replaceOnce(
-    String.raw`#### 補助事実2：互いに素な因子をまとめる
+<!-- proof-start -->
+### 証明
 
-$f_1,\dots,f_r$ が2つずつ互いに素で、多項式 $h$ が全ての $f_i$ で割り切れるなら
+Euclidの互除法を
 $$
-f_1\cdots f_r\mid h
+r_{-1}=f,\qquad r_0=g,
 $$
-です。`,
-    String.raw`<a id="lem-la4-coprime-product-divisibility"></a>
+$$
+r_{k-1}=q_kr_k+r_{k+1},
+\qquad \deg r_{k+1}<\deg r_k
+$$
+と続けます。最後の非零余りは $\gcd(f,g)$ の定数倍です。$f,g$ は互いに素なので、この最後の余りを定数倍して1とできます。
+
+各式を
+$$
+r_{k+1}=r_{k-1}-q_kr_k
+$$
+と書き直し、最後の式から順に逆代入します。各余りはその一つ前と二つ前の余りの多項式係数線形結合なので、逆代入を最初まで続けると、最後の1は最初の $f,g$ の多項式係数線形結合になります。従ってある多項式 $a,b$ が存在して
+$$
+1=af+bg.
+$$
+$\square$
+<!-- proof-end -->
+
+<a id="lem-la4-coprime-product-divisibility"></a>
 #### 補題（互いに素な因子の積による整除）
 
 <!-- formal-statement-start -->
@@ -135,9 +172,53 @@ $$
 $$
 f_1\cdots f_r\mid h.
 $$
-<!-- formal-statement-end -->`,
-    'coprime product lemma'
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず2因子の場合を示します。$h=f_1c$ かつ $f_2\mid h$ とします。[多項式のBézout等式](#lem-la4-polynomial-bezout)から
+$$
+af_1+bf_2=1
+$$
+と書けます。両辺に $c$ を掛けると
+$$
+c=af_1c+bf_2c=ah+bf_2c.
+$$
+右辺の2項はいずれも $f_2$ で割り切れるので $f_2\mid c$。従って $c=f_2d$ と書け
+$$
+h=f_1f_2d.
+$$
+よって $f_1f_2\mid h$ です。
+
+次にこの2因子の場合を繰り返します。$f_1,\dots,f_r$ が2つずつ互いに素なら、積 $f_1\cdots f_{j-1}$ と $f_j$ も互いに素です。実際、両者に共通する既約因子があれば、その因子は $f_j$ といずれかの $f_i$（$i<j$）の共通因子になり、仮定に反します。従って
+$$
+f_1f_2\mid h,
+$$
+次に
+$$
+f_1f_2f_3\mid h,
+$$
+と順に進め、最後に
+$$
+f_1\cdots f_r\mid h
+$$
+を得ます。$\square$
+<!-- proof-end -->
+
+`;
+  source = replaceOnce(source, generalizedProofStart, `${polynomialLemmas}${generalizedProofStart}`, 'insert polynomial lemmas');
+
+  source = replaceRange(
+    source,
+    '#### 補助事実1：多項式のBézout等式',
+    '#### 最小多項式の指数と一般化固有空間を結ぶ',
+    'この証明では、直前に示した[多項式のBézout等式](#lem-la4-polynomial-bezout)と[互いに素な因子の積による整除](#lem-la4-coprime-product-divisibility)を使います。\n\n',
+    'remove nested polynomial lemmas'
   );
+  source = source.replaceAll('補助事実1により', '[多項式のBézout等式](#lem-la4-polynomial-bezout)により');
+  source = source.replaceAll('補助事実1から', '[多項式のBézout等式](#lem-la4-polynomial-bezout)から');
+  source = source.replaceAll('補助事実2から', '[互いに素な因子の積による整除](#lem-la4-coprime-product-divisibility)から');
 
   source = source.replaceAll('def-la4-jordan-chain', 'def-la4-jordan-sequence');
 
@@ -229,86 +310,16 @@ $$
 従って、最小多項式中の $(t-\lambda)$ の指数は、固有値 $\lambda$ に対応する最大Jordanブロックのサイズそのものです。
 
 `;
-  replaceOnce(blockHeading, `${derivation}${blockHeading}`, 'minimal polynomial/Jordan block derivation');
+  source = replaceOnce(source, blockHeading, `${derivation}${blockHeading}`, 'insert minimal-polynomial/block-size derivation');
+
   fs.writeFileSync(path, source);
 }
 
-// Reader-content audit must not treat stable HTML anchor IDs as prose.
-{
-  const path = 'scripts/audit-dream-theater-concepts.mjs';
-  let source = fs.readFileSync(path, 'utf8');
-  const from = "  value = value.replace(/<!--[\\s\\S]*?-->/g, preserveLines);\n";
-  const to = `${from}  value = value.replace(/<[^>\\n]+>/g, preserveWidth);\n`;
-  if (!source.includes(from)) throw new Error('stripNonReaderContent insertion point not found');
-  source = source.replace(from, to);
-
-  // If a later general concept and an already reachable concept overlap in the same
-  // reader-visible phrase, prefer the reachable/specific owner. This prevents
-  // e.g. a future abstract "norm" node from stealing a matrix-norm occurrence.
-  const scanFrom = `      const firstUse = firstAliasUse(lines, concept.aliases);\n      if (firstUse == null) continue;\n`;
-  const scanTo = `      const firstUse = firstUnshadowedAliasUse(lines, concept, page);\n      if (firstUse == null) continue;\n`;
-  if (!source.includes(scanFrom)) throw new Error('concept scan replacement point not found');
-  source = source.replace(scanFrom, scanTo);
-
-  const helperPoint = `function firstAliasUse(lines, aliases) {\n  for (let i = 0; i < lines.length; i += 1) {\n    if (aliases.some((alias) => aliasAppears(lines[i], alias))) return i + 1;\n  }\n  return null;\n}\n\n`;
-  const helper = `${helperPoint}function conceptIsReachableFrom(page, concept) {\n  return concept.pageId === page.id || page.ancestors.has(concept.pageId) || page.forwardReferences.has(concept.id);\n}\n\nfunction firstUnshadowedAliasUse(lines, concept, page) {\n  for (let i = 0; i < lines.length; i += 1) {\n    const line = lines[i];\n    for (const alias of concept.aliases) {\n      if (!aliasAppears(line, alias)) continue;\n      const needle = normalizeAlias(alias);\n      let shadowed = false;\n      for (const other of conceptById.values()) {\n        if (other.id === concept.id || !conceptIsReachableFrom(page, other)) continue;\n        for (const otherAlias of other.aliases) {\n          const longer = normalizeAlias(otherAlias);\n          if (!aliasAppears(line, otherAlias)) continue;\n          if (longer === needle || (longer.length > needle.length && longer.includes(needle))) {\n            shadowed = true;\n            break;\n          }\n        }\n        if (shadowed) break;\n      }\n      if (!shadowed) return i + 1;\n    }\n  }\n  return null;\n}\n\n`;
-  if (!source.includes(helperPoint)) throw new Error('firstAliasUse helper point not found');
-  source = source.replace(helperPoint, helper);
-  fs.writeFileSync(path, source);
-}
-
-function addForwardRefs(path, ids) {
-  const doc = YAML.parse(fs.readFileSync(path, 'utf8')) ?? {};
-  doc.forward_references = [...new Set([...(doc.forward_references ?? []), ...ids])];
-  fs.writeFileSync(path, YAML.stringify(doc), 'utf8');
-}
-
-addForwardRefs('textbook/volumes/00_foundations/LA1/knowledge.yaml', [
-  'linear.complementary-subspace',
-  'linear.quotient-space',
-  'linear.canonical-quotient-map',
-  'linear.first-isomorphism-theorem',
-  'linear.complex-inner-product',
-  'measure.lp-space'
-]);
-addForwardRefs('textbook/volumes/00_foundations/LA2/knowledge.yaml', [
-  'linear.dual-basis',
-  'linear.annihilator',
-  'linear.dual-map',
-  'measure.lp-space'
-]);
-addForwardRefs('textbook/volumes/00_foundations/LA3/knowledge.yaml', [
-  'topology.topology',
-  'linear.characteristic-polynomial',
-  'linear.minimal-polynomial',
-  'linear.generalized-eigenspace',
-  'measure.lp-space',
-  'functional.linear-functional',
-  'functional.continuous-linear-functional'
-]);
-addForwardRefs('textbook/volumes/00_foundations/LA4/knowledge.yaml', [
-  'linear.complex-inner-product',
-  'linear.normal-operator'
-]);
-addForwardRefs('textbook/volumes/00_foundations/LA5/knowledge.yaml', [
-  'linear.singular-value',
-  'linear.singular-value-decomposition',
-  'linear.hermitian-quadratic-form',
-  'linear.polar-decomposition',
-  'linear.complex-singular-value-decomposition',
-  'functional.norm',
-  'functional.l2-inner-product',
-  'linear.inner-product-recap-c1'
-]);
-addForwardRefs('textbook/volumes/00_foundations/LA6/knowledge.yaml', [
-  'functional.norm',
-  'functional.operator-norm'
-]);
-
-// Let the knowledge-DAG aware fixer insert exact stable-anchor links for named proof dependencies.
+// Insert exact stable-anchor links for named proof dependencies after the new
+// lemma anchors and registered knowledge nodes exist.
 execFileSync(process.execPath, ['scripts/validate-formal-reference-links.mjs', '--fix'], { stdio: 'inherit' });
 
-// Remove this one-shot machinery from the resulting commit.
+// Remove this temporary one-shot machinery from the resulting branch commit.
 for (const path of [
   'scripts/fix-la-pedagogy-ci.mjs',
   '.github/workflows/fix-la-pedagogy-ci.yml'
