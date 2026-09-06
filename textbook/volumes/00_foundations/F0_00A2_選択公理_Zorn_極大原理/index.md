@@ -79,6 +79,8 @@ $$
 <!-- definition-example-start: def-choice-function -->
 ### 2.1 定義の確認：二つの集合から一つずつ選ぶ
 
+**定義の確認**
+
 $$
 I=\{1,2\},\qquad A_1=\{a,b\},\qquad A_2=\{10,20\}
 $$
