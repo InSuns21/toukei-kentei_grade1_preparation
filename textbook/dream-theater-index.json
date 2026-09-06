@@ -4,7 +4,6 @@
       "name": "入口",
       "paths": [
         "textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/index.md",
-        "textbook/volumes/00_foundations/F0_01_統計のための微積分_線形代数_答案記法/index.md",
         "textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/index.md"
       ]
     },
@@ -26,6 +25,11 @@
         "textbook/volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md",
         "textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md",
         "textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md",
+        "textbook/volumes/00_foundations/RA1/index.md",
+        "textbook/volumes/00_foundations/RA2/index.md",
+        "textbook/volumes/00_foundations/RA3/index.md",
+        "textbook/volumes/00_foundations/RA4/index.md",
+        "textbook/volumes/00_foundations/RA5/index.md",
         "textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md",
         "textbook/volumes/00_foundations/F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md",
         "textbook/volumes/00_foundations/F0_00E1_内積_Gram_Schmidt_射影_QR/index.md",
