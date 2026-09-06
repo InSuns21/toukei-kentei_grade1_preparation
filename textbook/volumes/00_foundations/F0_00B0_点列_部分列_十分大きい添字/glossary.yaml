@@ -1,0 +1,14 @@
+chapter: "F0-00B0"
+terms:
+  - term: 点列
+    english: sequence
+    meaning: 自然数を添字として集合の点を並べたもの。写像 N→X として定義する。
+  - term: 部分列
+    english: subsequence
+    meaning: 元の添字順を保つ狭義単調増加な添字列で点列から項を抜き出したもの。
+  - term: 十分大きい添字で
+    english: eventually
+    meaning: ある N 以降のすべての添字で命題が成り立つこと。
+  - term: 無限回起こる
+    english: infinitely often
+    meaning: どの N より後にも命題が成り立つ添字が存在すること。

@@ -1,0 +1,27 @@
+id: "F0-00A1D"
+title: "補講：順序・全順序・最小最大・整列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1C
+official_scope: []
+learning_objectives:
+  - 二項関係を直積の部分集合として説明できる
+  - 順序関係と全順序を区別できる
+  - 最小元と最大元を定義できる
+  - 整列と全順序を区別できる
+  - 整列可能の意味を説明できる
+definitions:
+  - { id: F000A1D-DEF-01, name: 二項関係 }
+  - { id: F000A1D-DEF-02, name: 順序関係・半順序 }
+  - { id: F000A1D-DEF-03, name: 全順序 }
+  - { id: F000A1D-DEF-04, name: 最小元・最大元 }
+  - { id: F000A1D-DEF-05, name: 整列 }
+  - { id: F000A1D-DEF-06, name: 整列可能 }
+theorems: []
+canonical_examples: [包含関係の半順序, 実数の全順序, 自然数の整列, 整数の整列可能性]
+problem_patterns: [ORDER-RELATION-1, WELL-ORDER-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 1.2, exercises: 0.3, review: 0.2 }

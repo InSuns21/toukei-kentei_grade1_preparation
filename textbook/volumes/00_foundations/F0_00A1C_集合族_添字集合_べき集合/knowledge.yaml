@@ -1,0 +1,47 @@
+chapter: F0-00A1C
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1B
+
+forward_references:
+  - topology.sequence
+  - topology.subsequence
+  - topology.open-set
+  - topology.topology
+  - measure.sigma-algebra
+  - order.partial-order-relation
+  - order.total-order
+  - order.well-order
+  - order.well-orderable
+  - set.choice-axiom
+
+concepts:
+  - id: set.power-set
+    name: べき集合
+    kind: definition
+    aliases: [べき集合, power set]
+    requires:
+      - set.subset
+
+  - id: set.family
+    name: 集合族
+    kind: definition
+    aliases: [集合族, 部分集合族]
+    requires:
+      - set.power-set
+
+  - id: set.indexed-family
+    name: 添字集合・添字付き集合族
+    kind: definition
+    aliases: [添字集合, 添字付き集合族]
+    requires:
+      - set.function
+      - set.family
+
+  - id: set.indexed-union-intersection
+    name: 添字付き集合族の任意和・任意交差
+    kind: definition
+    aliases: [任意和, 任意交差, 添字付き集合族の任意和, 添字付き集合族の任意交差]
+    requires:
+      - set.indexed-family

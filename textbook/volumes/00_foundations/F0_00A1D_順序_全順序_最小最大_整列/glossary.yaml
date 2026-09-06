@@ -1,0 +1,23 @@
+chapter: "F0-00A1D"
+terms:
+  - term: 二項関係
+    english: binary relation
+    meaning: 集合 X 上で X×X の部分集合として表される関係。
+  - term: 順序関係
+    english: partial order
+    meaning: 反射律・反対称律・推移律を満たす二項関係。
+  - term: 全順序
+    english: total order / linear order
+    meaning: 任意の二元が比較可能である順序関係。
+  - term: 最小元
+    english: minimum element
+    meaning: 順序集合のすべての元以下にある元。
+  - term: 最大元
+    english: maximum element
+    meaning: 順序集合のすべての元以上にある元。
+  - term: 整列
+    english: well-order
+    meaning: 任意の非空部分集合が最小元を持つ全順序。
+  - term: 整列可能
+    english: well-orderable
+    meaning: 何らかの整列を入れることができる集合の性質。

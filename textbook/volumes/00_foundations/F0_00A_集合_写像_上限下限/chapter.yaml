@@ -7,20 +7,23 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 集合・部分集合・集合演算を記号と日本語で読める
+  - 写像・定義域・終域を説明できる
   - 像と逆像を区別し、逆像が逆関数を必要としないことを説明できる
   - 単射・全射・全単射を区別できる
   - 合成写像と逆像の関係を使える
   - 量化記号を日本語へ戻して読める
 definitions:
   - { id: F000A-DEF-01, name: 部分集合 }
-  - { id: F000A-DEF-02, name: 像 }
-  - { id: F000A-DEF-03, name: 逆像 }
-  - { id: F000A-DEF-04, name: 単射 }
-  - { id: F000A-DEF-05, name: 全射 }
+  - { id: F000A-DEF-02, name: 和集合・共通部分・補集合 }
+  - { id: F000A-DEF-03, name: 直積集合 }
+  - { id: F000A-DEF-04, name: 写像・定義域・終域 }
+  - { id: F000A-DEF-05, name: 像・逆像 }
+  - { id: F000A-DEF-06, name: 単射・全射・全単射 }
+  - { id: F000A-DEF-07, name: 合成写像 }
 theorems: []
-canonical_examples: [x平方の区間逆像]
+canonical_examples: [x平方の区間逆像, 単射全射全単射の区別]
 problem_patterns: [SET-NOTATION-1, PREIMAGE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.5, exercises: 0.6, review: 0.25 }
+estimated_hours: { reading: 1.7, exercises: 0.6, review: 0.25 }

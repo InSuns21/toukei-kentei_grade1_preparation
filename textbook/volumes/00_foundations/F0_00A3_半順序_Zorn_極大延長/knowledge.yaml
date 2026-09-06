@@ -4,19 +4,32 @@ coverage: complete
 prerequisites:
   - F0-00A2
 
+forward_references:
+  - topology.metric-space
+  - topology.open-set
+  - topology.closed-set
+  - linear.vector-space
+  - linear.linear-independence
+  - linear.basis
+  - linear.dimension
+  - linear.gram-schmidt
+  - functional.linear-functional
+
 concepts:
   - id: set.partial-order
     name: 半順序集合
     kind: definition
-    aliases: [半順序集合, partial order, poset]
-    requires: []
+    aliases: [半順序集合, poset]
+    requires:
+      - order.partial-order-relation
 
   - id: set.maximum-maximal-element
     name: 最大元・極大元
     kind: definition
-    aliases: [最大元・極大元, 最大元, 極大元]
+    aliases: [最大元・極大元, 極大元]
     requires:
       - set.partial-order
+      - order.minimum-maximum-element
 
   - id: set.chain
     name: chain

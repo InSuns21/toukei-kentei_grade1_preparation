@@ -1,0 +1,24 @@
+id: "F0-00A1C"
+title: "補講：集合族・添字集合・べき集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A1B
+official_scope: []
+learning_objectives:
+  - べき集合を定義し、部分集合の集合として読める
+  - 集合族と添字付き集合族を区別できる
+  - 添字集合の役割を説明できる
+  - 添字付き集合族の任意和・任意交差を定義できる
+definitions:
+  - { id: F000A1C-DEF-01, name: べき集合 }
+  - { id: F000A1C-DEF-02, name: 集合族 }
+  - { id: F000A1C-DEF-03, name: 添字集合・添字付き集合族 }
+  - { id: F000A1C-DEF-04, name: 添字付き集合族の任意和・任意交差 }
+theorems: []
+canonical_examples: [有限集合のべき集合, 重複を許す添字付き集合族]
+problem_patterns: [SET-FAMILY-1, INDEXED-UNION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 1, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 0.9, exercises: 0.2, review: 0.2 }

@@ -2,10 +2,13 @@ chapter: "F0-00A2"
 terms:
   - term: 選択関数
     english: choice function
-    meaning: 非空集合族の各集合から一つずつ元を選ぶ写像。
+    meaning: 非空の添字付き集合族の各集合から一つずつ元を選ぶ写像。
   - term: 選択公理
     english: axiom of choice
-    meaning: 非空集合からなる任意の族に選択関数が存在するとする公理。
+    meaning: 非空集合からなる任意の添字付き集合族に選択関数が存在するとする公理。
   - term: 可算選択公理
     english: axiom of countable choice
     meaning: 可算個の非空集合から一つずつ元を選べるとする選択原理。
+  - term: 整列可能定理
+    english: well-ordering theorem
+    meaning: 選択公理の下で任意の集合が整列可能であるという定理。ZF上では選択公理と同値。

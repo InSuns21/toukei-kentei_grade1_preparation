@@ -1,0 +1,20 @@
+chapter: "F0-00A1C"
+terms:
+  - term: べき集合
+    english: power set
+    meaning: 集合 X の部分集合をすべて集めた集合 P(X)。
+  - term: 集合族
+    english: family of sets
+    meaning: 要素がすべて集合である集合。特に X の部分集合族は P(X) の部分集合として表せる。
+  - term: 添字集合
+    english: index set
+    meaning: 添字付き集合族 {A_i}_{i in I} の各位置 i を与える集合 I。
+  - term: 添字付き集合族
+    english: indexed family of sets
+    meaning: 各 i in I に集合 A_i を対応させた族。異なる添字が同じ集合を指してもよい。
+  - term: 任意和
+    english: arbitrary union
+    meaning: ある添字 i について A_i に属する元をすべて集めた集合。
+  - term: 任意交差
+    english: arbitrary intersection
+    meaning: すべての添字 i について A_i に属する元を集めた集合。

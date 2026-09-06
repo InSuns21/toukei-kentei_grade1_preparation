@@ -3,25 +3,30 @@ title: "補講：距離空間・開集合・閉集合・収束"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A
+  - F0-00B0
 official_scope: []
 learning_objectives:
   - 距離空間と開球を定義できる
   - 開集合・閉集合を定義し、具体例を判定できる
   - 点列の収束をepsilonを用いて説明できる
+  - 有界集合と収束列の有界性を説明できる
   - 距離空間で閉集合の点列特徴付けを証明できる
   - 内部・閉包・境界を区別できる
   - 閉包の点列特徴付けを証明できる
 definitions:
   - { id: F000B-DEF-01, name: 距離空間 }
   - { id: F000B-DEF-02, name: 開球 }
+  - { id: F000B-DEF-02A, name: 離散距離 }
   - { id: F000B-DEF-03, name: 開集合 }
   - { id: F000B-DEF-04, name: 閉集合 }
-  - { id: F000B-DEF-05, name: 収束 }
-  - { id: F000B-DEF-06, name: interior }
-  - { id: F000B-DEF-07, name: closure }
-  - { id: F000B-DEF-08, name: boundary }
+  - { id: F000B-DEF-05, name: 距離空間における点列の収束 }
+  - { id: F000B-DEF-06, name: 有界集合 }
+  - { id: F000B-DEF-07, name: 内部 }
+  - { id: F000B-DEF-08, name: 閉包 }
+  - { id: F000B-DEF-09, name: 境界 }
 theorems:
+  - { id: F000B-PROP-01, name: 距離空間における極限の一意性 }
+  - { id: F000B-PROP-02, name: 収束列は有界 }
   - { id: F000B-THM-01, name: 距離空間における閉集合の点列特徴付け }
   - { id: F000B-THM-02, name: 閉包の点列特徴付け }
 canonical_examples: [実数直線の開区間と閉区間, 離散距離, 有理数の稠密性, 内部と閉包]
