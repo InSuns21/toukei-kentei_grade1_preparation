@@ -359,11 +359,59 @@ $$
 
 $n\ge2$ とします。複素数上では特性多項式が一次因子を持つので、$T$ は固有値 $\lambda$ と非零固有ベクトルを持ちます。それを正規化して単位固有ベクトル $q_1$ を取ります。
 
-$q_1$ をGram–Schmidtにより正規直交基底
+ここで「$q_1$ をGram–Schmidtで正規直交基底へ延長する」の中身を確認します。まず $q_1$ を含む任意の基底
+$$
+q_1,w_2,\dots,w_n
+$$
+を取ります。$q_1$ は既に単位ベクトルなのでそのまま残し、$k=2,\dots,n$ に対して帰納的に
+$$
+z_k
+=w_k-\sum_{j=1}^{k-1}\langle q_j,w_k\rangle q_j,
+\qquad
+q_k=\frac{z_k}{\|z_k\|}
+$$
+と定めます。
+
+まず $z_k\ne0$ であることを確認します。もし $z_k=0$ なら
+$$
+w_k=\sum_{j=1}^{k-1}\langle q_j,w_k\rangle q_j
+$$
+となります。Gram–Schmidtの構成から各 $q_j$ は
+$$
+\operatorname{span}(q_1,w_2,\dots,w_j)
+$$
+に属するので、右辺は $\operatorname{span}(q_1,w_2,\dots,w_{k-1})$ に入ります。これは $q_1,w_2,\dots,w_n$ が基底であることに反します。従って $z_k\ne0$ で、$q_k$ は定義できます。
+
+次に直交性を確認します。$i<k$ とすると、内積は第2変数で線形なので
+$$
+\begin{aligned}
+\langle q_i,z_k\rangle
+&=\langle q_i,w_k\rangle
+-\sum_{j=1}^{k-1}\langle q_j,w_k\rangle\langle q_i,q_j\rangle\\
+&=\langle q_i,w_k\rangle
+-\langle q_i,w_k\rangle\\
+&=0,
+\end{aligned}
+$$
+ここで既に構成済みの $q_1,\dots,q_{k-1}$ が正規直交であること、すなわち $\langle q_i,q_j\rangle=\delta_{ij}$ を使いました。したがって
+$$
+\langle q_i,q_k\rangle
+=\frac{1}{\|z_k\|}\langle q_i,z_k\rangle
+=0.
+$$
+また
+$$
+\|q_k\|^2
+=\left\langle \frac{z_k}{\|z_k\|},\frac{z_k}{\|z_k\|}\right\rangle
+=1.
+$$
+従って最終的に
 $$
 q_1,q_2,\dots,q_n
 $$
-へ延長します。この基底で $T$ の行列を $M$ とします。$Tq_1=\lambda q_1$ なので、$M$ の第1列は
+は正規直交基底になります。複素内積で必要な係数が $\langle q_j,w_k\rangle$ であることも、この直交性計算から分かります。
+
+この基底で $T$ の行列を $M$ とします。$Tq_1=\lambda q_1$ なので、$M$ の第1列は
 $$
 (\lambda,0,\dots,0)^{\mathsf T}.
 $$
