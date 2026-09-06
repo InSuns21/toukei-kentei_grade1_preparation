@@ -29,3 +29,5 @@ jobs:
           git diff --cached --check
           git commit -m 'Register Batch 9 I3-03 testing concepts'
           git push origin HEAD:audit/textbook-concept-dag-batch9-i303-tests
+
+# retrigger after EOF cleanup
