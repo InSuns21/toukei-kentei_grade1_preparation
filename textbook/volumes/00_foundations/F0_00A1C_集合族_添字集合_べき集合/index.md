@@ -44,6 +44,8 @@ $$
 <!-- definition-example-start: def-f0-00a1c-power-set -->
 ### 1.1 定義の確認
 
+**定義の確認**
+
 $X=\{1,2\}$ なら
 
 $$
@@ -74,6 +76,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1c-family -->
 ### 2.1 定義の確認
+
+**定義の確認**
 
 $$
 \mathcal A
@@ -107,6 +111,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1c-indexed-family -->
 ### 3.1 定義の確認
+
+**定義の確認**
 
 $$
 I=\{1,2,3\},
@@ -148,6 +154,8 @@ $$
 
 <!-- definition-example-start: def-f0-00a1c-indexed-union-intersection -->
 ### 4.1 定義の確認
+
+**定義の確認**
 
 $$
 A_n=(0,1/n)
