@@ -65,16 +65,16 @@ concepts:
     name: Slater条件
     kind: definition
     introduction: inline
+    introduction_aliases: [条件（Slater条件）があれば]
     aliases: [Slater条件]
     requires:
       - convex.convex-optimization
-      - optimization.strong-duality
 
   - id: optimization.strong-duality-slater
     name: Slater条件下の強双対性
     kind: theorem
     introduction: inline
-    introduction_aliases: [Slater条件]
+    introduction_aliases: [Slater条件）があれば、強双対性が成立します]
     aliases: [Slater条件下の強双対性]
     requires:
       - optimization.strong-duality
@@ -84,10 +84,10 @@ concepts:
     name: KKT条件
     kind: theorem
     introduction: inline
+    introduction_aliases: [KKT条件は何をまとめたものか]
     aliases: [KKT条件]
     requires:
       - optimization.lagrangian
-      - optimization.strong-duality-slater
 
   - id: optimization.active-constraint
     name: activeな制約
