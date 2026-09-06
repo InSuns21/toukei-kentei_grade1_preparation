@@ -140,38 +140,54 @@ nodes:
     title: 実・複素線形空間
     area: linear-algebra
     tier: core
-    status: planned
-    reuses: [F0_00E]
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA1/index.md
+    reuses: [F0_00E, F0_00F]
     prerequisites: [BASE]
   - id: LA2
     title: 直和・補空間・商空間
     area: linear-algebra
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA2/index.md
+    reuses: [F0_00F]
     prerequisites: [LA1]
   - id: LA3
-    title: 双対空間・抽象行列式
+    title: 代数的双対・抽象行列式
     area: linear-algebra
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA3/index.md
+    reuses: [F0_00F]
     prerequisites: [LA2]
   - id: LA4
-    title: 不変部分空間・作用素多項式
+    title: 作用素多項式・最小多項式・Jordan構造
     area: linear-algebra
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA4/index.md
+    reuses: [F0_00F, F0_00F1]
     prerequisites: [LA3]
   - id: LA5
-    title: 複素内積・随伴・normal operator
+    title: 複素内積・有限次元随伴・normal operator
     area: linear-algebra
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA5/index.md
+    reuses: [F0_00E1, F0_00E2]
     prerequisites: [LA4]
   - id: LA6
-    title: スペクトル定理・SVD・二次形式
+    title: スペクトル・二次形式・polar decomposition・SVD
     area: linear-algebra
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-06
+    implementation_path: textbook/volumes/00_foundations/LA6/index.md
     reuses: [F0_00F1, F0_00F2]
     prerequisites: [LA5]
 
