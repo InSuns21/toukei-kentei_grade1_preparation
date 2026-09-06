@@ -10,9 +10,9 @@
 <!-- formal-statement-start -->
 > **定義（関数の極限）**  
 > $\lim_{x\to a}f(x)=L$ とは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、
-> $$
-> 0<|x-a|<\delta\quad\Longrightarrow\quad |f(x)-L|<\varepsilon
-> $$
+$$
+0<|x-a|<\delta\quad\Longrightarrow\quad |f(x)-L|<\varepsilon
+$$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -52,9 +52,9 @@ $A=\{x\in[a,b]:f(x)\le c\}$ とし、$s=\sup A$ とします。$f(s)<c$ なら�
 <!-- formal-statement-start -->
 > **定義（一様連続）**  
 > $f:E\to\mathbb R$ が一様連続であるとは、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、任意の $x,y\in E$ について
-> $$
-> |x-y|<\delta\quad\Longrightarrow\quad |f(x)-f(y)|<\varepsilon
-> $$
+$$
+|x-y|<\delta\quad\Longrightarrow\quad |f(x)-f(y)|<\varepsilon
+$$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -64,9 +64,9 @@ $A=\{x\in[a,b]:f(x)\le c\}$ とし、$s=\sup A$ とします。$f(s)<c$ なら�
 <!-- formal-statement-start -->
 > **定義（Lipschitz連続）**  
 > ある $K\ge0$ が存在して、すべての $x,y\in E$ に対して
-> $$
-> |f(x)-f(y)|\le K|x-y|
-> $$
+$$
+|f(x)-f(y)|\le K|x-y|
+$$
 > が成り立つとき、$f$ はLipschitz連続であるという。
 <!-- formal-statement-end -->
 
