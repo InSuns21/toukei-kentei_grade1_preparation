@@ -109,7 +109,9 @@ for (const page of pages.values()) {
     }
   }
 
-  const localFormalConcepts = page.concepts.filter((concept) => isFormalKind(concept.kind) && concept.introduction !== 'inline');
+  // introduction: inline/prose-math は「読者が最初に意味を知る位置」を指定するだけで、
+  // 後段の formal-statement をその概念の正式宣言として登録する資格を失わせない。
+  const localFormalConcepts = page.concepts.filter((concept) => isFormalKind(concept.kind));
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
     if (!isFormalDeclarationLine(line)) continue;
