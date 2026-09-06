@@ -1,0 +1,35 @@
+chapter: F0-02C7A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C7
+  - F0-02C3
+  - F0-02B1
+
+concepts:
+  - id: rkhs.representer-theorem
+    name: representer theorem
+    kind: theorem
+    introduction: inline
+    aliases: [representer theorem]
+    requires:
+      - rkhs.rkhs
+      - functional.orthogonal-decomposition
+
+  - id: svm.kernel-trick
+    name: kernel trick
+    kind: term
+    aliases: [kernel trick]
+    requires:
+      - rkhs.reproducing-kernel
+      - rkhs.psd-kernel
+
+  - id: svm.kernel-svm
+    name: kernel SVM
+    kind: term
+    aliases: [kernel SVM]
+    requires:
+      - rkhs.representer-theorem
+      - svm.kernel-trick
+      - svm.maximum-margin-convex-hull
+      - optimization.kkt-conditions

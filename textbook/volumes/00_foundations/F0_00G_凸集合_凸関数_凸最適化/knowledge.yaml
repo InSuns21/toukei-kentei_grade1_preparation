@@ -1,0 +1,55 @@
+chapter: F0-00G
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00F
+  - F0-00A
+
+concepts:
+  - id: convex.convex-combination
+    name: 凸結合
+    kind: definition
+    introduction: inline
+    aliases: [凸結合]
+    requires:
+      - linear.vector-space
+
+  - id: convex.convex-set
+    name: 凸集合
+    kind: definition
+    introduction: inline
+    aliases: [凸集合]
+    requires:
+      - convex.convex-combination
+
+  - id: convex.convex-hull
+    name: 凸包
+    kind: definition
+    introduction: inline
+    aliases: [凸包]
+    requires:
+      - convex.convex-set
+
+  - id: convex.convex-function
+    name: 凸関数
+    kind: definition
+    introduction: inline
+    aliases: [凸関数]
+    requires:
+      - convex.convex-set
+
+  - id: convex.strictly-convex-function
+    name: 狭義凸関数
+    kind: definition
+    introduction: inline
+    aliases: [狭義凸関数]
+    requires:
+      - convex.convex-function
+
+  - id: convex.convex-optimization
+    name: 凸最適化問題
+    kind: definition
+    introduction: inline
+    aliases: [凸最適化問題]
+    requires:
+      - convex.convex-function

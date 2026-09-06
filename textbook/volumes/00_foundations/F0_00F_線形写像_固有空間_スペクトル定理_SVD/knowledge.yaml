@@ -1,0 +1,41 @@
+chapter: F0-00F
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00E
+  - F0-00E1
+
+forward_references:
+  - linear.singular-value-decomposition
+
+concepts:
+  - id: linear.linear-map
+    name: 線形写像
+    kind: definition
+    aliases: [線形写像]
+    requires:
+      - linear.vector-space
+
+  - id: linear.eigenvalue
+    name: 固有値
+    kind: definition
+    introduction_aliases: [固有値・固有ベクトル・固有空間]
+    aliases: [固有値, 固有値・固有ベクトル・固有空間]
+    requires:
+      - linear.linear-map
+
+  - id: linear.eigenspace
+    name: 固有空間
+    kind: definition
+    introduction_aliases: [固有値・固有ベクトル・固有空間]
+    aliases: [固有空間, 固有値・固有ベクトル・固有空間]
+    requires:
+      - linear.eigenvalue
+
+  - id: linear.spectral-theorem
+    name: スペクトル定理
+    kind: term
+    aliases: [スペクトル定理]
+    requires:
+      - linear.eigenvalue
+      - linear.orthogonality

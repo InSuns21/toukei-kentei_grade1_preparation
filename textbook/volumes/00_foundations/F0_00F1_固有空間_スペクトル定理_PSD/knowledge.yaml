@@ -1,0 +1,16 @@
+chapter: F0-00F1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00F
+  - F0-00E1
+
+concepts:
+  - id: linear.positive-semidefinite-matrix
+    name: 半正定値行列
+    kind: definition
+    introduction: inline
+    aliases: [半正定値行列, PSD]
+    requires:
+      - linear.inner-product
+      - linear.eigenvalue

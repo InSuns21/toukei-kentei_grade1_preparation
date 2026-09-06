@@ -1,0 +1,51 @@
+chapter: F0-02B
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00G
+  - F0-00E
+  - F0-02
+
+concepts:
+  - id: convex.convex-cone
+    name: 凸錐
+    kind: definition
+    introduction: inline
+    aliases: [凸錐]
+    requires:
+      - convex.convex-set
+
+  - id: convex.separating-hyperplane
+    name: 分離超平面
+    kind: definition
+    introduction: inline
+    aliases: [分離超平面]
+    requires:
+      - convex.convex-set
+      - linear.inner-product-space
+
+  - id: convex.finitely-generated-cone
+    name: 有限生成凸錐
+    kind: definition
+    introduction: inline
+    aliases: [有限生成凸錐]
+    requires:
+      - convex.convex-cone
+
+  - id: optimization.nearest-point-projection
+    name: 最近点射影
+    kind: definition
+    introduction: inline
+    aliases: [最近点射影]
+    requires:
+      - convex.convex-set
+      - linear.orthogonal-projection
+
+  - id: convex.farkas-lemma
+    name: Farkasの補題
+    kind: theorem
+    introduction: inline
+    aliases: [Farkasの補題]
+    requires:
+      - convex.separating-hyperplane
+      - convex.finitely-generated-cone

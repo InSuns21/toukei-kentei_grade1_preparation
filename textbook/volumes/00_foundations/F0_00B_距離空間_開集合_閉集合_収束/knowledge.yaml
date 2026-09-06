@@ -1,0 +1,71 @@
+chapter: F0-00B
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00A
+
+concepts:
+  - id: topology.metric-space
+    name: 距離空間
+    kind: definition
+    introduction: inline
+    aliases: [距離空間]
+    requires:
+      - set.set
+
+  - id: topology.open-ball
+    name: 開球
+    kind: definition
+    introduction: inline
+    aliases: [開球]
+    requires:
+      - topology.metric-space
+
+  - id: topology.open-set
+    name: 開集合
+    kind: definition
+    introduction: inline
+    aliases: [開集合]
+    requires:
+      - topology.open-ball
+
+  - id: topology.closed-set
+    name: 閉集合
+    kind: definition
+    introduction: inline
+    aliases: [閉集合]
+    requires:
+      - topology.metric-space
+
+  - id: topology.sequence-convergence
+    name: 点列の収束
+    kind: definition
+    introduction: inline
+    aliases: [点列の収束]
+    requires:
+      - topology.metric-space
+
+  - id: topology.interior
+    name: 内部
+    kind: definition
+    introduction: inline
+    aliases: [内部]
+    requires:
+      - topology.open-set
+
+  - id: topology.closure
+    name: 閉包
+    kind: definition
+    introduction: inline
+    aliases: [閉包]
+    requires:
+      - topology.closed-set
+
+  - id: topology.boundary
+    name: 境界
+    kind: definition
+    introduction: inline
+    aliases: [境界]
+    requires:
+      - topology.closure
+      - topology.interior

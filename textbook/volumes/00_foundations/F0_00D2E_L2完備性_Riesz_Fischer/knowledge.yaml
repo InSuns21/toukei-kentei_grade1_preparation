@@ -17,7 +17,7 @@ concepts:
   - id: functional.normed-cauchy-sequence
     name: ノルム空間のCauchy列
     kind: definition
-    aliases: [ノルム空間のCauchy列, Cauchy列]
+    aliases: [ノルム空間のCauchy列]
     requires: []
 
   - id: functional.banach-space
@@ -30,7 +30,7 @@ concepts:
   - id: functional.l2-inner-product
     name: L2内積
     kind: definition
-    aliases: [内積]
+    aliases: [L2内積, "内積）"]
     requires:
       - measure.holder-inequality
       - measure.lebesgue-integral

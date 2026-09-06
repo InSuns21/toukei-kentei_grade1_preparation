@@ -1,0 +1,14 @@
+chapter: F0-02C3B
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C3A
+
+concepts:
+  - id: functional.frechet-chain-rule
+    name: Fréchet連鎖律
+    kind: theorem
+    aliases: [Fréchet連鎖律]
+    requires:
+      - functional.frechet-derivative
+      - functional.bounded-linear-operator

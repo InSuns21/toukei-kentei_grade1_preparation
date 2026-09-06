@@ -46,7 +46,8 @@ if (legacy.length) {
 
 if (blocking.length) {
   console.error('');
-  console.error('変更内容に起因する DREAM THEATER 概念依存違反が残っています。');
+  console.error('変更内容に起因する DREAM THEATER 概念依存違反が残っています:');
+  for (const line of blocking) console.error(`  ${line.replace('- [ERROR] ', '')}`);
   process.exit(run.status ?? 1);
 }
 

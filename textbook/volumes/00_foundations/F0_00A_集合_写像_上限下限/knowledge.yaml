@@ -1,0 +1,59 @@
+chapter: F0-00A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00
+
+concepts:
+  - id: set.set
+    name: 集合
+    kind: term
+    aliases: [集合]
+    requires: []
+
+  - id: set.function
+    name: 写像
+    kind: term
+    aliases: [写像]
+    requires:
+      - set.set
+
+  - id: set.subset
+    name: 部分集合
+    kind: definition
+    introduction: inline
+    aliases: [部分集合]
+    requires:
+      - set.set
+
+  - id: set.image
+    name: 像
+    kind: definition
+    introduction: inline
+    aliases: [像]
+    requires:
+      - set.function
+
+  - id: set.preimage
+    name: 逆像
+    kind: definition
+    introduction: inline
+    aliases: [逆像]
+    requires:
+      - set.function
+
+  - id: set.injection
+    name: 単射
+    kind: definition
+    introduction: inline
+    aliases: [単射]
+    requires:
+      - set.function
+
+  - id: set.surjection
+    name: 全射
+    kind: definition
+    introduction: inline
+    aliases: [全射]
+    requires:
+      - set.function

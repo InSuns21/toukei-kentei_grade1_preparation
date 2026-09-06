@@ -1,0 +1,31 @@
+chapter: F0-00E2
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00E1
+
+concepts:
+  - id: linear.cauchy-schwarz
+    name: Cauchy--Schwarzの不等式
+    kind: theorem
+    introduction_aliases: [Cauchy--Schwarz不等式]
+    aliases: [Cauchy--Schwarzの不等式, Cauchy--Schwarz不等式]
+    requires:
+      - linear.inner-product
+
+  - id: linear.bessel-inequality
+    name: Besselの不等式
+    kind: theorem
+    introduction_aliases: [Bessel不等式]
+    aliases: [Besselの不等式, Bessel不等式]
+    requires:
+      - linear.orthogonality
+      - linear.inner-product
+
+  - id: linear.parseval-identity
+    name: Parsevalの等式
+    kind: theorem
+    introduction_aliases: [有限次元Parseval等式]
+    aliases: [Parsevalの等式, 有限次元Parseval等式]
+    requires:
+      - linear.bessel-inequality

@@ -1,0 +1,15 @@
+chapter: F0-02C3A
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-02C3
+
+concepts:
+  - id: functional.adjoint-operator
+    name: 随伴作用素
+    kind: definition
+    introduction: inline
+    aliases: [随伴作用素]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.hilbert-space

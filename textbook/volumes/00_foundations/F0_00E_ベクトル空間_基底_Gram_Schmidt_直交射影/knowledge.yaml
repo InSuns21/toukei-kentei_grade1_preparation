@@ -1,0 +1,27 @@
+chapter: F0-00E
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00A
+
+forward_references:
+  - linear.inner-product
+  - linear.orthogonality
+  - linear.gram-schmidt
+  - linear.orthogonal-projection
+
+concepts:
+  - id: linear.vector-space
+    name: ベクトル空間
+    kind: definition
+    introduction_aliases: [実ベクトル空間]
+    aliases: [ベクトル空間, 実ベクトル空間]
+    requires:
+      - set.set
+
+  - id: linear.basis
+    name: 基底
+    kind: definition
+    aliases: [基底]
+    requires:
+      - linear.vector-space

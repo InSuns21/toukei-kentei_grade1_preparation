@@ -1,0 +1,26 @@
+chapter: F0-00D1
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00D
+  - F0-00E
+
+forward_references:
+  - functional.banach-space
+  - functional.hilbert-space
+
+concepts:
+  - id: functional.norm
+    name: ノルム
+    kind: definition
+    aliases: [ノルム]
+    requires:
+      - linear.vector-space
+
+  - id: functional.normed-space
+    name: ノルム空間
+    kind: definition
+    introduction_aliases: [ノルム]
+    aliases: [ノルム空間]
+    requires:
+      - functional.norm

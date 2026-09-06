@@ -1,0 +1,19 @@
+chapter: F0-00C
+scope: dream-theater
+coverage: partial
+prerequisites:
+  - F0-00B
+
+forward_references:
+  - topology.compact-set
+  - topology.continuous-image-compact
+  - topology.extreme-value-theorem
+
+concepts:
+  - id: topology.continuous-map
+    name: 連続写像
+    kind: definition
+    aliases: [連続写像]
+    requires:
+      - topology.metric-space
+      - set.function
