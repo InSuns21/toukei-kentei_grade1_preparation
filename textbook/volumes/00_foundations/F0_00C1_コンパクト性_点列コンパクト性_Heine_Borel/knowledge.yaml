@@ -4,6 +4,11 @@ coverage: complete
 prerequisites:
   - F0-00C
 
+forward_references:
+  - topology.extreme-value-theorem
+  - linear.dimension
+  - convex.convex-hull
+
 concepts:
   - id: topology.open-cover
     name: 開被覆
