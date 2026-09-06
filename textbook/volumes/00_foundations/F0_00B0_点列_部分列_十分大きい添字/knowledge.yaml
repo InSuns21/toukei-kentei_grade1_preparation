@@ -1,0 +1,44 @@
+chapter: F0-00B0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1B
+
+forward_references:
+  - topology.sequentially-compact
+
+concepts:
+  - id: topology.sequence
+    name: 点列
+    kind: definition
+    aliases: [点列]
+    requires:
+      - set.function
+
+  - id: topology.subsequence
+    name: 部分列
+    kind: definition
+    aliases: [部分列]
+    requires:
+      - topology.sequence
+
+  - id: logic.eventually
+    name: 十分大きい添字で
+    kind: definition
+    aliases: [十分大きい添字で, 十分大きい n で成り立つ]
+    requires: []
+
+  - id: logic.infinitely-often
+    name: 無限回起こる
+    kind: definition
+    aliases: [無限回起こる]
+    requires: []
+
+  - id: combinatorics.infinite-pigeonhole
+    name: 無限版の鳩ノ巣原理
+    kind: lemma
+    aliases: [無限版の鳩ノ巣原理]
+    requires:
+      - topology.sequence
+      - topology.subsequence
+      - logic.infinitely-often
