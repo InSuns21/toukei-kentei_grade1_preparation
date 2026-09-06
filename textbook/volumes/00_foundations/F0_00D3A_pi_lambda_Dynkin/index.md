@@ -236,7 +236,7 @@ $$
 
 ### 5.1 Carathéodory拡張の一意性
 
-algebra上で一致する二つの測度について
+D4で定義する集合のalgebra上で一致する二つの測度について
 
 $$
 \mathcal D=\{A:\mu(A)=\nu(A)\}
@@ -267,15 +267,15 @@ $$
 - Level: A
 - 目安時間: 8分
 
-$\mathcal A$ を $\Omega$ 上のalgebraとする。$\mathcal A$ がπ-systemであることを示せ。
+$\mathcal A$ を $\Omega$ 上のσ代数とする。$\mathcal A$ がπ-systemであることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-algebraは有限和と補集合で閉じるので、De Morgan則から有限交差でも閉じる。従って $A,B\in\mathcal A$ なら $A\cap B\in\mathcal A$ であり、π-systemの定義を満たす。
+σ代数は可算和と補集合で閉じるので、De Morgan則から有限交差でも閉じる。従って $A,B\in\mathcal A$ なら $A\cap B\in\mathcal A$ であり、π-systemの定義を満たす。
 #### 本番答案
-$A\cap B=(A^c\cup B^c)^c$。algebraの有限和・補集合閉性より右辺は $\mathcal A$ に属する。従って $\mathcal A$ はπ-system。
+$A\cap B=(A^c\cup B^c)^c$。σ代数の可算和・補集合閉性より右辺は $\mathcal A$ に属する。従って $\mathcal A$ はπ-system。
 #### 採点基準（20点）
-- algebraの閉性を使う: 8点
+- σ代数の閉性を使う: 8点
 - De Morgan則で交差閉性を示す: 8点
 - π-systemと結論する: 4点
 <!-- solution-end -->
