@@ -284,7 +284,7 @@ AA^*=QDD^*Q^*.
 $$
 対角行列は $D^*D=DD^*$ なのでnormalです。
 
-逆に $A$ をnormalとします。Schur三角化により
+逆に $A$ をnormalとします。[Schur三角化](#thm-la5-schur)により
 $$
 A=QRQ^*
 $$
@@ -309,7 +309,7 @@ $$
 
 ## 8. normalならJordanブロックは育たない
 
-スペクトル定理からnormal operatorは対角化可能です。したがってLA4の言葉では、Jordanブロックは全て $1\times1$ です。
+[複素normal operatorのスペクトル定理](#thm-la5-normal-spectral)からnormal operatorは対角化可能です。したがってLA4の言葉では、Jordanブロックは全て $1\times1$ です。
 
 normal性は
 $$
@@ -459,4 +459,4 @@ $x=v$ とすると左辺は0なので右辺も0。よって $T^*v=\overline\lamb
 
 ## 10. 次に進む
 
-複素有限次元作用素のスペクトル理論が閉じました。最後に既存の実対称スペクトル定理・PSD・特異値分解（SVD）を再利用し、**Hermitian二次形式・慣性・polar decomposition・複素特異値分解（SVD）** を一つの橋にまとめます。
+複素有限次元作用素のスペクトル理論が閉じました。最後に既存の実対称スペクトル定理・PSD・特異値分解を再利用し、**Hermitian二次形式・慣性・polar decomposition・複素特異値分解** を一つの橋にまとめます。
