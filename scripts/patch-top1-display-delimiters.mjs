@@ -3,16 +3,9 @@ import { execFileSync } from 'node:child_process';
 
 const file = 'textbook/volumes/00_foundations/TOP1/index.md';
 let source = fs.readFileSync(file, 'utf8');
-const before = source;
-source = source.replace(
-  '\n$\n\\tau_{\\mathrm{std}}\\subseteq\\tau(\\mathcal S).\n$\n',
-  '\n$$\n\\tau_{\\mathrm{std}}\\subseteq\\tau(\\mathcal S).\n$$\n'
-);
-source = source.replace(
-  '\n$\n\\tau(\\mathcal S)\\subseteq\\tau_{\\mathrm{std}}.\n$\n',
-  '\n$$\n\\tau(\\mathcal S)\\subseteq\\tau_{\\mathrm{std}}.\n$$\n'
-);
-if (source === before) throw new Error('TOP1 display delimiter targets not found');
+const count = (source.match(/^\$$/gm) ?? []).length;
+if (count !== 4) throw new Error(`expected 4 standalone dollar delimiters, found ${count}`);
+source = source.replace(/^\$$/gm, '$$$$');
 fs.writeFileSync(file, source);
 
 const normalPagesWorkflow = `name: Validate Pages assembly
