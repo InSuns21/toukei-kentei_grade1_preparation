@@ -6,6 +6,8 @@ prerequisites:
   - P3-02
   - P3-03
   - P4-02
+forward_references:
+  - confidence-interval
 official_scope:
   - 標本分布
   - t分布
