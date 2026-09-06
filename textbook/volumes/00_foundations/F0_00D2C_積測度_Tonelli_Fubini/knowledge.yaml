@@ -23,7 +23,7 @@ concepts:
   - id: measure.product-measure
     name: σ有限測度の積測度
     kind: theorem
-    aliases: [σ有限測度の積測度, 積測度, product measure]
+    aliases: [σ有限測度の積測度, 積測度, product measure, 積測度の長方形公式]
     requires:
       - measure.product-sigma-algebra
       - measure.measure-space
@@ -54,6 +54,7 @@ concepts:
       - measure.measurable-section
       - measure.continuity-from-below
       - measure.monotone-convergence-theorem
+      - measure.pi-lambda-theorem
 
   - id: measure.tonelli-theorem
     name: Tonelli
