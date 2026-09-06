@@ -4,6 +4,8 @@ volume: "probability"
 status: reviewed
 canonical_source: index.md
 prerequisites: [P2-01]
+forward_references:
+  - consistency
 official_scope: [期待値, 分散, 共分散, 条件付き期待値, 条件付き分散, 条件付き共分散, 確率母関数, モーメント母関数, 歪度, 尖度, 変動係数, パーセント点, 四分位数, 四分位範囲]
 learning_objectives:
   - 絶対可積分性を確認して期待値を計算できる
