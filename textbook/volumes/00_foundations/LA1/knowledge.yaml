@@ -4,7 +4,13 @@ coverage: complete
 prerequisites:
   - F0-00E
   - F0-00F
-forward_references: []
+forward_references:
+  - linear.complementary-subspace
+  - linear.quotient-space
+  - linear.canonical-quotient-map
+  - linear.first-isomorphism-theorem
+  - linear.complex-inner-product
+  - measure.lp-space
 
 concepts:
   - id: linear.real-complex-vector-space
