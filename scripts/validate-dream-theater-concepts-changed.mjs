@@ -1,8 +1,11 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
+import YAML from 'yaml';
 
 const base = process.env.DREAM_THEATER_BASE_SHA?.trim() || process.env.TERMINOLOGY_BASE_SHA?.trim();
 const env = { ...process.env };
+const conceptAliases = loadConceptAliases();
 
 const run = spawnSync(
   process.execPath,
@@ -22,8 +25,7 @@ const errors = output
 
 const blocking = [];
 const legacy = [];
-const baseLineCache = new Map();
-const currentLineCache = new Map();
+const baseSourceCache = new Map();
 
 for (const line of errors) {
   const parsed = parseError(line);
@@ -32,9 +34,10 @@ for (const line of errors) {
     continue;
   }
 
-  const { file, lineNumber, message } = parsed;
+  const { file, message, conceptId } = parsed;
   const isUnreachable =
     file.endsWith('.md') &&
+    conceptId &&
     message.includes('を使用していますが、導入ページ');
 
   if (!isUnreachable) {
@@ -43,7 +46,7 @@ for (const line of errors) {
   }
 
   const untouchedLegacy = !changedMarkdown.has(file);
-  const semanticLegacy = hasSameReaderLineInBase(base, file, lineNumber, baseLineCache, currentLineCache);
+  const semanticLegacy = conceptWasAlreadyUsedInBase(base, file, conceptId, baseSourceCache);
   if (untouchedLegacy || semanticLegacy) legacy.push(line);
   else blocking.push(line);
 }
@@ -52,7 +55,7 @@ if (legacy.length) {
   console.log('');
   console.log('既存本文に由来する概念依存違反は今回のPRでは audit 扱いにします:');
   for (const line of legacy) console.log(`  ${line.replace('- [ERROR] ', '')}`);
-  console.log('リンク化・アンカー追加など、読者向け本文がbase版と同じ行は新規依存違反へ昇格させません。');
+  console.log('main版の同じページにも同じknowledge conceptのaliasが存在した場合、リンク化や言い換えで行が変わっても新規依存とはみなしません。');
 }
 
 if (blocking.length) {
@@ -68,7 +71,13 @@ function parseError(line) {
   const match = /^- \[ERROR\] (.+?):(\d+) (.+)$/u.exec(line);
   if (!match) return null;
   const [, file, rawLineNumber, message] = match;
-  return { file, lineNumber: Number(rawLineNumber), message };
+  const conceptMatch = /概念「[^」]+」\(([^)]+)\) を使用していますが/u.exec(message);
+  return {
+    file,
+    lineNumber: Number(rawLineNumber),
+    message,
+    conceptId: conceptMatch?.[1] ?? null,
+  };
 }
 
 function collectChangedMarkdown(baseSha) {
@@ -86,46 +95,81 @@ function collectChangedMarkdown(baseSha) {
   }
 }
 
-function hasSameReaderLineInBase(baseSha, file, lineNumber, baseCache, currentCache) {
-  if (!baseSha || /^0+$/.test(baseSha)) return false;
+function loadConceptAliases() {
+  const root = process.cwd();
+  const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
+  const policy = YAML.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-knowledge.yaml'), 'utf8')) ?? {};
+  const metadataFile = policy.metadata_file || 'knowledge.yaml';
+  const out = new Map();
 
-  let currentLines = currentCache.get(file);
-  if (!currentLines) {
-    try {
-      currentLines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
-    } catch {
-      return false;
+  for (const relPath of (index.sections ?? []).flatMap((section) => section.paths ?? [])) {
+    const knowledgePath = path.join(root, path.dirname(relPath), metadataFile);
+    if (!fs.existsSync(knowledgePath)) continue;
+    const doc = YAML.parse(fs.readFileSync(knowledgePath, 'utf8')) ?? {};
+    for (const raw of doc.concepts ?? []) {
+      if (!raw?.id) continue;
+      const aliases = [...new Set([raw.name, ...(raw.aliases ?? [])]
+        .map((value) => String(value ?? '').trim())
+        .filter(Boolean))];
+      out.set(String(raw.id), aliases);
     }
-    currentCache.set(file, currentLines);
   }
+  return out;
+}
 
-  const currentLine = normalizeReaderLine(currentLines[lineNumber - 1] ?? '');
-  if (!currentLine) return false;
+function conceptWasAlreadyUsedInBase(baseSha, file, conceptId, cache) {
+  if (!baseSha || /^0+$/.test(baseSha)) return false;
+  const aliases = conceptAliases.get(conceptId) ?? [];
+  if (!aliases.length) return false;
 
-  let baseLines = baseCache.get(file);
-  if (!baseLines) {
+  let source = cache.get(file);
+  if (source === undefined) {
     try {
-      const baseText = execFileSync(
+      source = execFileSync(
         'git',
         ['-c', 'core.quotepath=false', 'show', `${baseSha}:${file}`],
         { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 }
       );
-      baseLines = new Set(baseText.split(/\r?\n/).map(normalizeReaderLine).filter(Boolean));
+      source = stripNonReaderContent(source);
     } catch {
-      baseLines = new Set();
+      source = null;
     }
-    baseCache.set(file, baseLines);
+    cache.set(file, source);
   }
+  if (source == null) return false;
 
-  return baseLines.has(currentLine);
+  return aliases.some((alias) => aliasAppears(source, alias));
 }
 
-function normalizeReaderLine(line) {
-  return String(line)
-    .replace(/\[([^\]]+)\]\((?:[^()]|\([^)]*\))*\)/g, '$1')
-    .replace(/<a\s+id=["'][^"']+["']\s*><\/a>/giu, '')
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/[*_`]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+function aliasAppears(source, alias) {
+  const needle = String(alias).trim();
+  if (!needle) return false;
+  if (/^[A-Za-z][A-Za-z0-9.^+\-]*$/u.test(needle)) {
+    return new RegExp(`(?<![A-Za-z0-9_])${escapeRegExp(needle)}(?![A-Za-z0-9_])`, 'iu').test(source);
+  }
+  return source.includes(needle);
+}
+
+function stripNonReaderContent(source) {
+  let value = source;
+  value = value.replace(/<!--[\s\S]*?-->/g, preserveLines);
+  value = value.replace(/```[\s\S]*?```/g, preserveLines);
+  value = value.replace(/`[^`\n]*`/g, preserveWidth);
+  value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
+  value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
+  value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
+  value = value.replace(/https?:\/\/\S+/g, preserveWidth);
+  return value;
+}
+
+function preserveLines(value) {
+  return '\n'.repeat((value.match(/\n/g) ?? []).length);
+}
+
+function preserveWidth(value) {
+  return ' '.repeat(value.length);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
