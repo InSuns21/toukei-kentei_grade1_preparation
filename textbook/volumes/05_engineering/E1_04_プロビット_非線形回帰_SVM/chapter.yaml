@@ -3,7 +3,6 @@ title: "プロビット・非線形回帰・SVM"
 volume: "engineering"
 status: reviewed
 prerequisites:
-  - E1-01
   - L2-01
   - L1-01
   - F0-00
