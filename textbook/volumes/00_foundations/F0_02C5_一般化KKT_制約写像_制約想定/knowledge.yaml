@@ -39,7 +39,7 @@ concepts:
   - id: optimization.closed-cone-normal
     name: 閉凸錐のnormal cone
     kind: theorem
-    aliases: [閉凸錐, 閉凸錐のnormal cone]
+    aliases: [閉凸錐, 閉凸錐のnormal cone, 錐normal cone定理]
     requires:
       - optimization.cone-constraint
       - convex.normal-cone

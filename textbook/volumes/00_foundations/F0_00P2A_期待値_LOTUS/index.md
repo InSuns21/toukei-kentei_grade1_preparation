@@ -327,6 +327,62 @@ $$
 
 を得ます。この形は、後で $L^p$ 収束から確率収束を導くときや、$L^2$ 収束から確率の大きい部分列を抜き出すときに使います。
 
+<a id="thm-f0-00p2a-chebyshev"></a>
+
+### 6.1 Chebyshevの不等式：平均からのずれを分散で抑える
+
+<!-- formal-statement-start -->
+**定理（Chebyshevの不等式）**  
+$X$ が有限平均 $\mu=E[X]$ と有限分散 $\sigma^2=\operatorname{Var}(X)$ を持つとします。このとき任意の $\varepsilon>0$ に対して
+
+$$
+\boxed{
+P(|X-\mu|\ge\varepsilon)
+\le
+\frac{\sigma^2}{\varepsilon^2}
+}
+$$
+
+が成り立ちます。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明：Markovの不等式へ戻す
+
+非負確率変数
+
+$$
+Y=(X-\mu)^2
+$$
+
+にMarkovの不等式を適用します。事象
+
+$$
+|X-\mu|\ge\varepsilon
+$$
+
+は
+
+$$
+Y\ge\varepsilon^2
+$$
+
+と同じなので、
+
+$$
+P(|X-\mu|\ge\varepsilon)
+=P(Y\ge\varepsilon^2)
+\le
+\frac{E[Y]}{\varepsilon^2}
+=
+\frac{\operatorname{Var}(X)}{\varepsilon^2}.
+$$
+
+これがChebyshevの不等式です。$\square$
+<!-- proof-end -->
+
+Markovは「非負量の平均からtailを抑える」一般形で、Chebyshevはそれを二乗偏差へ適用した系です。P5では標本平均の分散が $\sigma^2/n$ になることと組み合わせて、弱大数則の最初の評価に使います。
+
 ---
 
 ## 7. 期待値の極限交換も積分論になる

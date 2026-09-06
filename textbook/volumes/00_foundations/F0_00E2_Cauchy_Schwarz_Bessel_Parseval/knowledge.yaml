@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - F0-00E1
 
+# 冒頭の Hilbert 空間への言及は後続の無限次元化の予告。
+forward_references:
+  - functional.hilbert-space-recap-c1
+
 concepts:
   - id: linear.cauchy-schwarz
     name: Cauchy--Schwarzの不等式
@@ -23,8 +27,8 @@ concepts:
   - id: linear.triangle-inequality-inner-product
     name: 内積ノルムの三角不等式
     kind: theorem
-    introduction_aliases: [三角不等式]
-    aliases: [内積ノルムの三角不等式, 三角不等式]
+    introduction_aliases: ["定理（三角不等式）"]
+    aliases: [内積ノルムの三角不等式, "定理（三角不等式）"]
     requires:
       - linear.cauchy-schwarz
       - linear.inner-product

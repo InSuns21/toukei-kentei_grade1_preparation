@@ -10,6 +10,7 @@ forward_references:
   - prob.independent-random-variables
   - prob.probability-convergence
   - measure.product-measure
+  - stat.likelihood
   # P2AではLOTUSを先に使用し、完全証明はP3Dで与える。
   - measure.pushforward-integration-theorem
 
@@ -67,3 +68,11 @@ concepts:
     aliases: [Markovの不等式, Markov不等式]
     requires:
       - prob.expectation
+
+  - id: prob.chebyshev-inequality
+    name: Chebyshevの不等式
+    kind: theorem
+    aliases: [Chebyshevの不等式, Chebyshev不等式, チェビシェフの不等式, チェビシェフ不等式]
+    requires:
+      - prob.markov-inequality
+      - prob.variance

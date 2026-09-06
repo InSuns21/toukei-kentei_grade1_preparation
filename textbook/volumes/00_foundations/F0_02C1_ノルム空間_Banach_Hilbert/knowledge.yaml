@@ -5,6 +5,12 @@ prerequisites:
   - F0-02C
   - F0-00D2E
 
+forward_references:
+  - functional.hilbert-projection-theorem
+  - functional.orthogonal-decomposition
+  - rkhs.rkhs
+  - topology.extreme-value-theorem
+
 concepts:
   - id: functional.norm-recap-c1
     name: ノルムの再掲
@@ -50,3 +56,10 @@ concepts:
       - functional.hilbert-space
       - linear.inner-product-recap-c1
       - functional.banach-space-recap-c1
+
+  - id: linear.parallelogram-identity
+    name: 平行四辺形恒等式
+    kind: term
+    aliases: [平行四辺形恒等式]
+    requires:
+      - linear.inner-product-recap-c1

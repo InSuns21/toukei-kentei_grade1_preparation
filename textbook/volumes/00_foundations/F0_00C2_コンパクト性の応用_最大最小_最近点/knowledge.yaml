@@ -3,12 +3,21 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00C1
+  - F0-00A1
+
+forward_references:
+  - topology.complete-metric-space
+  - functional.hilbert-space
+  - functional.l2-completeness
+  - functional.hilbert-space-recap-c1
+  - functional.hilbert-projection-theorem
+  - convex.convex-hull
 
 concepts:
   - id: topology.extreme-value-theorem
     name: Weierstrassの最大最小定理
     kind: theorem
-    aliases: [Weierstrassの最大最小定理, 最大最小値定理]
+    aliases: [Weierstrassの最大最小定理, Weierstrassの定理, 最大最小値定理]
     requires:
       - topology.continuous-map
       - topology.compact-set
@@ -25,7 +34,7 @@ concepts:
   - id: topology.disjoint-compact-positive-distance
     name: 互いに素なコンパクト集合間の正距離
     kind: theorem
-    aliases: [互いに素なコンパクト集合間の正距離]
+    aliases: [互いに素なコンパクト集合間の正距離, 互いに素な非空コンパクト集合間の正距離定理]
     requires:
       - topology.finite-product-compact-metric
       - topology.extreme-value-theorem
