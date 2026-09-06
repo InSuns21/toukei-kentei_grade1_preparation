@@ -73,7 +73,7 @@ $$
 
 ---
 
-## 3. 微積分学の基本定理
+## 3. 積分と微分をつなぐ二つの主張
 
 <a id="thm-ra4-ftc1"></a>
 <!-- formal-statement-start -->
