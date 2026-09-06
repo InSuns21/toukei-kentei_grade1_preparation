@@ -26,7 +26,7 @@ concepts:
     name: 行列のスペクトルノルム
     kind: definition
     introduction_aliases: [作用素ノルム]
-    aliases: [行列のスペクトルノルム]
+    aliases: [行列のスペクトルノルム, "定義（作用素ノルム）"]
     requires:
       - linear.singular-value
       - functional.norm
