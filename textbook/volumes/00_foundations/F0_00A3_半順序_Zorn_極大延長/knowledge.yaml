@@ -21,7 +21,7 @@ concepts:
   - id: set.chain
     name: chain
     kind: definition
-    aliases: [chain, 鎖]
+    aliases: [chain]
     requires:
       - set.partial-order
 

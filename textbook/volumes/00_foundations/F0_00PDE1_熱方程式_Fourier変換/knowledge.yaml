@@ -5,26 +5,26 @@ prerequisites:
   - F0-00H1
   - F0-00FA3
 
+forward_references:
+  - prob.variance
+
 concepts:
   - id: pde.partial-differential-equation
     name: 偏微分方程式
     kind: definition
     aliases: [偏微分方程式]
-    introduction: inline
 
   - id: pde.heat-equation
     name: 熱方程式
     kind: definition
     aliases: [熱方程式]
-    introduction: inline
     requires:
       - pde.partial-differential-equation
 
   - id: pde.heat-kernel
-    name: heat kernel
+    name: Gaussian heat kernel
     kind: definition
-    aliases: [heat kernel]
-    introduction: inline
+    aliases: [Gaussian heat kernel]
     requires:
       - pde.heat-equation
       - fourier.gaussian-transform

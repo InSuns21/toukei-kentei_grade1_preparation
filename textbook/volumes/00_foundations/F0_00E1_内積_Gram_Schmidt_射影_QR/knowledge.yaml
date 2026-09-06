@@ -37,6 +37,7 @@ concepts:
   - id: linear.gram-schmidt
     name: Gram--Schmidtの直交化
     kind: term
+    introduction_aliases: [Gram--Schmidt直交化：正規直交基底を実際に作る]
     aliases: [Gram--Schmidt, Gram–Schmidt]
     requires:
       - linear.orthonormal-system
@@ -53,6 +54,7 @@ concepts:
   - id: linear.orthogonal-projection
     name: 直交射影
     kind: term
+    introduction_aliases: [正規直交基底から射影公式を導く]
     aliases: [直交射影]
     requires:
       - linear.orthogonal-complement

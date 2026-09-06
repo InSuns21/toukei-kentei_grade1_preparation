@@ -1,13 +1,16 @@
 chapter: F0-00A2
 scope: dream-theater
 coverage: complete
-prerequisites: []
+prerequisites:
+  - F0-00A1
 
-# Zornとその半順序語彙は次章A3で正式導入する。A2では同値形の説明として先に名前だけ出す。
+# Zornとその半順序語彙は次章A3で正式導入する。線形代数への言及は後続応用の予告。
 forward_references:
   - set.zorn-lemma
   - set.maximum-maximal-element
   - set.chain
+  - linear.vector-space
+  - linear.basis
 
 concepts:
   - id: set.choice-function
@@ -30,8 +33,6 @@ concepts:
     requires:
       - set.choice-function
 
-  # metadata上では同値定理の依存を先に宣言する。raw監査は本文の実行番号を使うため、
-  # 本文で整列の定義が定理より後なら隠せない。
   - id: set.well-order
     name: 整列
     kind: definition

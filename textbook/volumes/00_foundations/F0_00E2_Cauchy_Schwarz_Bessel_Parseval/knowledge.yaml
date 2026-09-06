@@ -27,7 +27,7 @@ concepts:
     aliases: [内積ノルムの三角不等式, 三角不等式]
     requires:
       - linear.cauchy-schwarz
-      - linear.inner-product-induced-norm
+      - linear.inner-product
 
   - id: linear.reverse-triangle-inequality
     name: 逆三角不等式

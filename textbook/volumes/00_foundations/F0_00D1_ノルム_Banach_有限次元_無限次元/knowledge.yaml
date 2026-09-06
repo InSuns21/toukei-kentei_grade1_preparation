@@ -20,7 +20,8 @@ concepts:
   - id: functional.normed-space
     name: ノルム空間
     kind: definition
-    introduction_aliases: [ノルム]
+    introduction: inline
+    introduction_aliases: [ノルム空間** という]
     aliases: [ノルム空間]
     requires:
       - functional.norm

@@ -15,6 +15,7 @@ concepts:
   - id: functional.continuous-linear-functional
     name: 連続線形汎関数
     kind: term
+    introduction_aliases: [なぜ「連続」線形汎関数だけを集めるのか]
     aliases: [連続線形汎関数]
     requires:
       - functional.linear-functional

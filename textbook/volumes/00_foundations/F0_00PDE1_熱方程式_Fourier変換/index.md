@@ -2,6 +2,33 @@
 
 ここから偏微分方程式へ入ります。
 
+## 1. PDEとは何か
+
+<a id="def-f0-00pde1-pde"></a>
+
+<!-- formal-statement-start -->
+> **定義（偏微分方程式）**  
+> $u=u(t,x)$ のように複数の独立変数を持つ未知関数について、未知関数とその偏導関数の関係を与える方程式を **偏微分方程式（PDE）** といいます。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00pde1-pde -->
+### 例：二変数関数の偏導関数を含む方程式
+
+**定義の確認**
+
+未知関数 $u=u(t,x)$ に対する
+
+$$
+\partial_tu+\partial_xu=0
+$$
+
+は、独立変数 $t,x$ を持ち、それらに関する偏導関数の関係を与えているので、定義よりPDEです。
+<!-- definition-example-end -->
+
+常微分方程式（ODE）が一つの独立変数に関する微分を扱うのに対し、PDEでは時間と空間など複数の変数に関する偏微分が現れます。
+
+### 1.1 最初の例：熱方程式
+
 最初に扱うのは
 
 $$
@@ -11,23 +38,53 @@ $$
 }
 $$
 
-という熱方程式です。
+です。
 
-この方程式は、Fourier解析・Gaussian・確率論が一つの式へ集まる最もきれいな例の一つです。
+<a id="def-f0-00pde1-heat-equation"></a>
 
----
+<!-- formal-statement-start -->
+> **定義（熱方程式）**  
+> $\kappa>0$ とし、未知関数 $u(t,x)$ が
 
-## 1. PDEとは何か
+$$
+\partial_tu=\kappa\partial_{xx}u
+$$
 
-$u=u(t,x)$ のように複数の独立変数を持つ未知関数について、偏導関数の関係を与える方程式を偏微分方程式といいます。
+> を満たすPDEを考えます。この方程式を **熱方程式** といいます。
+<!-- formal-statement-end -->
 
-熱方程式では
+<!-- definition-example-start: def-f0-00pde1-heat-equation -->
+### 例：$u(t,x)=e^{-t}\sin x$ を代入する
+
+**定義の確認**
+
+$\kappa=1$ とし
+
+$$
+u(t,x)=e^{-t}\sin x
+$$
+
+と置くと
+
+$$
+\partial_tu=-e^{-t}\sin x,
+\qquad
+\partial_{xx}u=-e^{-t}\sin x.
+$$
+
+したがって $\partial_tu=\partial_{xx}u$ であり、この $u$ は $\kappa=1$ の熱方程式を満たします。
+<!-- definition-example-end -->
+
+ここで
 
 - $t$：時間
 - $x$：空間
 - $u(t,x)$：温度などの場
+- $\kappa$：拡散の速さを決める正の定数
 
 です。
+
+熱方程式は、Fourier解析・Gaussian・確率論が一つの式へ集まる最もきれいな例の一つです。
 
 ---
 
@@ -175,15 +232,47 @@ $$
 GaussianのFourier変換公式から
 
 $$
-\boxed{
 G_t(x)
 =
 \frac1{\sqrt{4\pi\kappa t}}
 \exp\left(-\frac{x^2}{4\kappa t}\right)
-}
 $$
 
 を得ます。
+
+<a id="def-f0-00pde1-heat-kernel"></a>
+
+<!-- formal-statement-start -->
+> **定義（Gaussian heat kernel）**  
+> $t>0$ に対して
+
+$$
+G_t(x)=\frac1{\sqrt{4\pi\kappa t}}
+\exp\left(-\frac{x^2}{4\kappa t}\right)
+$$
+
+> と定める関数を、熱方程式の **Gaussian heat kernel** といいます。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00pde1-heat-kernel -->
+### 例：$\kappa=t=1$ のheat kernel
+
+**定義の確認**
+
+$\kappa=1,t=1$ を定義式へ代入すると
+
+$$
+G_1(x)=\frac1{\sqrt{4\pi}}e^{-x^2/4}.
+$$
+
+特に
+
+$$
+G_1(0)=\frac1{\sqrt{4\pi}}.
+$$
+
+これは定義式を具体的な時刻で評価したGaussian heat kernelです。
+<!-- definition-example-end -->
 
 したがって解は
 
@@ -393,6 +482,8 @@ $$
 
 ## 章末チェック
 
+- PDEとODEの違いを説明できる。
+- 熱方程式をPDEの具体例として定義できる。
 - 熱方程式を空間変数についてFourier変換できる。
 - 変換後が周波数ごとの一階ODEになることを説明できる。
 - $\widehat u=e^{-\kappa t\xi^2}\widehat u_0$ を導ける。

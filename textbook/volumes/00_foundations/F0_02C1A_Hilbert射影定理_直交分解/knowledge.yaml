@@ -18,6 +18,7 @@ concepts:
     name: 直交分解
     kind: theorem
     introduction: inline
+    introduction_aliases: [への直交分解です]
     aliases: [直交分解]
     requires:
       - functional.hilbert-projection-theorem
