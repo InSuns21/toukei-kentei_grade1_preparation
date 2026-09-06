@@ -118,3 +118,72 @@ concepts:
     # 通常教材では E1-04 §7.3 が4条件を自己完結に導入する。
     # より一般の導出は supplementary の F0-02 / F0-02A に委ねる。
     introduced_in: E1-04
+
+  - id: consistency
+    name: 一致性
+    aliases:
+      - 一致推定量
+      - consistency
+      - consistent estimator
+    # P4-02 で確率収束を推定量の言葉へ読み替えて正式導入し、
+    # I1-02 で推定量評価の観点から自己完結に再導入する。
+    introduced_in: [P4-02, I1-02]
+
+  - id: mle-asymptotic-normality
+    name: 最尤推定量の漸近正規性
+    aliases:
+      - MLEの漸近正規性
+      - MLE asymptotic normality
+      - asymptotic normality of the MLE
+    introduced_in: I2-01
+    requires: [maximum-likelihood-estimator, fisher-information, consistency, slutsky-theorem]
+
+  - id: root-n-asymptotic-variance
+    name: root-$n$ 漸近分散
+    aliases:
+      - root-n 漸近分散
+      - AVar
+    introduced_in: I2-01
+
+  - id: neyman-pearson-lemma
+    name: ネイマン・ピアソン補題
+    aliases:
+      - NP補題
+      - Neyman--Pearson lemma
+      - Neyman-Pearson lemma
+    introduced_in: I3-01
+
+  - id: uniformly-most-powerful-test
+    name: 一様最強力検定
+    aliases:
+      - UMP検定
+      - uniformly most powerful test
+    introduced_in: I3-01
+    requires: [neyman-pearson-lemma]
+
+  - id: wald-test
+    name: ワルド型検定
+    aliases:
+      - Wald検定
+      - ワルド検定
+      - Wald test
+    introduced_in: I3-02
+    requires: [root-n-asymptotic-variance]
+
+  - id: wilks-theorem
+    name: Wilksの定理
+    aliases:
+      - ウィルクスの定理
+      - Wilks theorem
+    introduced_in: I3-02
+    requires: [likelihood-ratio-test]
+
+  - id: expectation-maximization
+    name: 期待値最大化法
+    aliases:
+      - EMアルゴリズム
+      - EM法
+      - expectation-maximization algorithm
+      - expectation maximization algorithm
+    introduced_in: I4-02
+    requires: [maximum-likelihood-estimator]
