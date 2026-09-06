@@ -1,6 +1,6 @@
 chapter: F0-00B
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00A
 
@@ -8,15 +8,20 @@ concepts:
   - id: topology.metric-space
     name: 距離空間
     kind: definition
-    introduction: inline
-    aliases: [距離空間]
+    aliases: [距離空間, 距離・距離空間]
     requires:
       - set.set
+
+  - id: topology.discrete-metric
+    name: 離散距離
+    kind: definition
+    aliases: [離散距離]
+    requires:
+      - topology.metric-space
 
   - id: topology.open-ball
     name: 開球
     kind: definition
-    introduction: inline
     aliases: [開球]
     requires:
       - topology.metric-space
@@ -24,7 +29,6 @@ concepts:
   - id: topology.open-set
     name: 開集合
     kind: definition
-    introduction: inline
     aliases: [開集合]
     requires:
       - topology.open-ball
@@ -32,23 +36,50 @@ concepts:
   - id: topology.closed-set
     name: 閉集合
     kind: definition
-    introduction: inline
     aliases: [閉集合]
+    requires:
+      - topology.open-set
+
+  - id: topology.sequence-convergence
+    name: 距離空間における点列の収束
+    kind: definition
+    aliases: [点列の収束, 距離空間における点列の収束]
     requires:
       - topology.metric-space
 
-  - id: topology.sequence-convergence
-    name: 点列の収束
+  - id: topology.limit-uniqueness
+    name: 距離空間における極限の一意性
+    kind: proposition
+    aliases: [距離空間における極限の一意性, 極限の一意性]
+    requires:
+      - topology.sequence-convergence
+
+  - id: topology.bounded-set
+    name: 有界集合
     kind: definition
-    introduction: inline
-    aliases: [点列の収束]
+    aliases: [有界集合]
     requires:
       - topology.metric-space
+
+  - id: topology.convergent-sequence-bounded
+    name: 収束列は有界
+    kind: proposition
+    aliases: [収束列は有界]
+    requires:
+      - topology.sequence-convergence
+      - topology.bounded-set
+
+  - id: topology.closed-set-sequential-characterization
+    name: 距離空間における閉集合の点列特徴付け
+    kind: theorem
+    aliases: [距離空間における閉集合の点列特徴付け, 閉集合の点列特徴付け]
+    requires:
+      - topology.closed-set
+      - topology.sequence-convergence
 
   - id: topology.interior
     name: 内部
     kind: definition
-    introduction: inline
     aliases: [内部]
     requires:
       - topology.open-set
@@ -56,7 +87,6 @@ concepts:
   - id: topology.closure
     name: 閉包
     kind: definition
-    introduction: inline
     aliases: [閉包]
     requires:
       - topology.closed-set
@@ -64,8 +94,15 @@ concepts:
   - id: topology.boundary
     name: 境界
     kind: definition
-    introduction: inline
     aliases: [境界]
     requires:
       - topology.closure
       - topology.interior
+
+  - id: topology.closure-sequential-characterization
+    name: 閉包の点列特徴付け
+    kind: theorem
+    aliases: [閉包の点列特徴付け]
+    requires:
+      - topology.closure
+      - topology.sequence-convergence
