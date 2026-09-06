@@ -2,9 +2,20 @@ chapter: F0-02C4
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-00G1
   - F0-02B
+  - F0-02C3
   - F0-02C6
+
+forward_references:
+  - convex.bouligand-tangent-cone
+  - convex.polar-cone
+  - convex.dual-cone
+  - convex.support-function
+  - convex.fenchel-young
+  - convex.fenchel-duality
+  - optimization.polar-cone
 
 concepts:
   - id: convex.subgradient
@@ -35,6 +46,7 @@ concepts:
     aliases: [方向微分の支持関数表示]
     requires:
       - convex.subdifferential
+      - functional.directional-derivative
       - functional.sublinear-functional
       - functional.hahn-banach-theorem
 
