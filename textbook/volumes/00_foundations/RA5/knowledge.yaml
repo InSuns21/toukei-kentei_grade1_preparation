@@ -35,7 +35,7 @@ concepts:
     name: 微分と極限の交換定理
     kind: theorem
     aliases: [微分と極限の交換定理]
-    requires: [analysis.uniform-convergence, analysis.derivative]
+    requires: [analysis.uniform-convergence, analysis.derivative, analysis.ftc-1]
   - id: analysis.weierstrass-m-test
     name: Weierstrass M-test
     kind: theorem
