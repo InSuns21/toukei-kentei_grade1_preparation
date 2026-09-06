@@ -52,7 +52,7 @@ concepts:
   - id: measure.cauchy-schwarz-l2
     name: L2におけるCauchy--Schwarz
     kind: corollary
-    aliases: [L2におけるCauchy--Schwarz]
+    aliases: [L2におけるCauchy--Schwarz, "系（Cauchy--Schwarz）"]
     introduction_aliases: [Cauchy--Schwarz, Cauchy-Schwarz]
     requires:
       - measure.holder-inequality
