@@ -1,0 +1,38 @@
+id: "TOP3"
+title: "標準位相 III：連結性・弧状連結性・連結成分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP2
+  - F0-00A1
+official_scope: []
+learning_objectives:
+  - 分離と非自明な開閉集合の不存在が連結性の同値な見方であることを両方向に証明できる
+  - 連結空間の連続像が連結であることを逆像による分離の引き戻しから証明できる
+  - 実数の区間が連結であることを上限を用いた矛盾法で証明できる
+  - 実数の連結部分集合が区間になることを中間点の欠落から分離を作って示せる
+  - 道と弧状連結性を定義し、弧状連結なら連結であることを区間の連結性から証明できる
+  - 共通点を持つ連結集合族の合併が連結であることを使い、連結成分の極大性と分割を証明できる
+  - 連結集合の閉包が連結であることから、連結成分が閉集合であることを証明できる
+definitions:
+  - { id: TOP3-DEF-01, name: 分離 }
+  - { id: TOP3-DEF-02, name: 連結空間・連結性 }
+  - { id: TOP3-DEF-03, name: 道・弧状連結 }
+  - { id: TOP3-DEF-04, name: 連結成分 }
+theorems:
+  - { id: TOP3-PROP-01, name: 連結性と非自明な開閉集合の不存在 }
+  - { id: TOP3-THM-01, name: 連結空間の連続像は連結 }
+  - { id: TOP3-THM-02, name: 実数の区間は連結 }
+  - { id: TOP3-THM-03, name: 実数の連結部分集合は区間 }
+  - { id: TOP3-THM-04, name: 弧状連結なら連結 }
+  - { id: TOP3-PROP-02, name: 凸集合は弧状連結 }
+  - { id: TOP3-LEM-01, name: 共通点を持つ連結集合族の合併は連結 }
+  - { id: TOP3-THM-05, name: 連結成分は極大連結集合であり空間を分割する }
+  - { id: TOP3-LEM-02, name: 連結集合の閉包は連結 }
+  - { id: TOP3-THM-06, name: 連結成分は閉集合 }
+canonical_examples: [二つの区間の分離, 単点空間の連結性, 実区間の連結性, 凸集合の線分道, 実直線から一点を除いた空間の連結成分]
+problem_patterns: [SEPARATION-1, CLOPEN-CONNECTED-1, CONTINUOUS-IMAGE-CONNECTED-1, REAL-INTERVAL-CONNECTED-1, PATH-CONNECTED-1, CONNECTED-COMPONENT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 0.8 }
