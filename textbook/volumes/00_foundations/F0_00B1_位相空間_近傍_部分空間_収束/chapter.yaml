@@ -1,0 +1,36 @@
+id: "F0-00B1"
+title: "補講：位相空間・近傍・部分空間・収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00B
+official_scope: []
+learning_objectives:
+  - 位相と位相空間を開集合族の三条件で定義できる
+  - 近傍と部分空間位相を定義できる
+  - 距離から誘導される位相を構成できる
+  - 位相空間での点列収束を近傍で定義できる
+  - 距離収束と距離位相での収束の同値性を証明できる
+  - 位相空間の連続写像を開集合の逆像で定義できる
+  - Hausdorff性と極限一意性の関係を説明できる
+definitions:
+  - { id: F000B1-DEF-01, name: 位相・位相空間 }
+  - { id: F000B1-DEF-02, name: 位相空間の閉集合 }
+  - { id: F000B1-DEF-03, name: 近傍 }
+  - { id: F000B1-DEF-04, name: 距離から誘導される位相 }
+  - { id: F000B1-DEF-05, name: 部分空間位相 }
+  - { id: F000B1-DEF-06, name: 位相空間における点列収束 }
+  - { id: F000B1-DEF-07, name: 位相空間の連続写像 }
+  - { id: F000B1-DEF-08, name: Hausdorff空間 }
+theorems:
+  - { id: F000B1-PROP-01, name: 距離位相は位相である }
+  - { id: F000B1-THM-01, name: 距離収束と位相収束の一致 }
+  - { id: F000B1-PROP-02, name: 連続写像は収束列を収束列へ送る }
+  - { id: F000B1-THM-02, name: Hausdorff空間では点列の極限は一意 }
+  - { id: F000B1-PROP-03, name: 距離空間はHausdorff }
+canonical_examples: [離散位相と密着位相, 閉区間の部分空間位相, 通常の実数直線のHausdorff性]
+problem_patterns: [TOPOLOGY-AXIOMS-1, SUBSPACE-TOPOLOGY-1, TOPOLOGICAL-CONVERGENCE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 0.0, review: 0.4 }
