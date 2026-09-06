@@ -58,7 +58,7 @@ concepts:
   - id: fourier.gaussian-transform
     name: Gaussian の Fourier 変換
     kind: lemma
-    aliases: [Gaussian の Fourier 変換]
+    aliases: [Gaussian の Fourier 変換, Gaussian の Fourier 公式, Gaussian 変換公式]
     requires:
       - fourier.transform-l1
       - ode.ordinary-differential-equation
