@@ -3,7 +3,13 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00G
+  - F0-00A1
   - F0-02C1A
+
+forward_references:
+  - convex.subgradient
+  - convex.indicator-function
+  - convex.normal-cone
 
 concepts:
   - id: convex.effective-domain
