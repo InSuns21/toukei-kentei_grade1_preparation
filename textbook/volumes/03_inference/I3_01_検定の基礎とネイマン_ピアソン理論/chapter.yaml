@@ -40,7 +40,8 @@ definitions:
   - { id: I301-DEF-07, name: P値 }
   - { id: I301-DEF-08, name: 最強力検定 }
   - { id: I301-DEF-09, name: 一様最強力検定 }
-  - {id: I301-DEF-10, name: 検出力曲線}
+  - { id: I301-DEF-10, name: 検出力曲線 }
+  - { id: I301-DEF-11, name: ランダム化検定 }
 theorems:
   - { id: I301-LEM-01, name: ネイマン・ピアソン補題 }
   - { id: I301-THM-01, name: 既知分散正規平均の片側一様最強力検定 }
