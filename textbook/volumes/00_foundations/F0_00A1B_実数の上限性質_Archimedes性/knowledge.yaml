@@ -1,0 +1,31 @@
+chapter: F0-00A1B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A1
+
+forward_references:
+  - topology.bolzano-weierstrass-real
+
+concepts:
+  - id: analysis.least-upper-bound-property
+    name: 実数の上限性質
+    kind: theorem
+    aliases: [実数の上限性質, least-upper-bound property]
+    requires:
+      - order.supremum
+      - order.upper-bound
+
+  - id: analysis.archimedean-property
+    name: Archimedes性
+    kind: theorem
+    aliases: [Archimedes性]
+    requires:
+      - analysis.least-upper-bound-property
+
+  - id: analysis.reciprocal-smallness
+    name: 逆数を任意に小さくできる
+    kind: corollary
+    aliases: [逆数を任意に小さくできる]
+    requires:
+      - analysis.archimedean-property
