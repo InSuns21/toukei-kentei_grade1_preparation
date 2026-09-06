@@ -86,7 +86,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明の核
+### 証明
 
 $h\ne0$ に対し
 $$
