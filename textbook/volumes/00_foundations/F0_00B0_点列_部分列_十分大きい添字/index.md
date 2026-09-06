@@ -35,9 +35,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（点列）**  
 > 集合 $X$ に値を取る **点列** とは、写像
-> $$
-> x:\mathbb N\to X
-> $$
+
+$$
+x:\mathbb N\to X
+$$
+
 > のことである。$x(n)$ を通常 $x_n$ と書き、点列全体を $(x_n)_{n\ge1}$ または単に $(x_n)$ と書く。
 <!-- formal-statement-end -->
 
@@ -72,13 +74,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（部分列）**  
 > 点列 $(x_n)$ に対し、自然数の添字を
-> $$
-> n_1<n_2<n_3<\cdots
-> $$
+
+$$
+n_1<n_2<n_3<\cdots
+$$
+
 > と選ぶ。このとき
-> $$
-> (x_{n_k})_{k\ge1}
-> $$
+
+$$
+(x_{n_k})_{k\ge1}
+$$
+
 > を $(x_n)$ の **部分列** という。
 <!-- formal-statement-end -->
 
@@ -117,9 +123,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（十分大きい添字で / eventually）**  
 > 添字 $n$ に依存する命題 $P(n)$ が **十分大きい $n$ で成り立つ**とは、ある自然数 $N$ が存在して
-> $$
-> n\ge N\Longrightarrow P(n)
-> $$
+
+$$
+n\ge N\Longrightarrow P(n)
+$$
+
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -171,9 +179,11 @@ $x_n=(-1)^n$ では $x_n=1$ は偶数番目ごとに起こるので無限回起�
 <!-- formal-statement-start -->
 > **補題（無限版の鳩ノ巣原理）**  
 > 点列 $(x_n)$ の値が有限集合
-> $$
-> F=\{a_1,\ldots,a_m\}
-> $$
+
+$$
+F=\{a_1,\ldots,a_m\}
+$$
+
 > にしか入らないなら、少なくとも一つの値 $a_j$ は点列中に無限回現れる。したがって $(x_n)$ は定数部分列を持つ。
 <!-- formal-statement-end -->
 
