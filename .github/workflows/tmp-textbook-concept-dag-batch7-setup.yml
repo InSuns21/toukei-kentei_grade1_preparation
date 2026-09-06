@@ -29,3 +29,4 @@ jobs:
           git diff --cached --check
           git commit -m 'Register Batch 7 testing-theory concepts'
           git push origin HEAD:audit/textbook-concept-dag-batch7-testing-theory
+# rerun after whitespace cleanup
