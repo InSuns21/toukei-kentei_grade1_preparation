@@ -3,22 +3,24 @@ title: "補講：選択関数・選択公理・可算選択"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A
+  - F0-00A1D
 official_scope: []
 learning_objectives:
   - 選択関数と選択公理を定義できる
   - 明示的な選択規則がある場合と公理的存在保証を区別できる
   - 可算選択と完全な選択公理を区別できる
+  - 整列可能定理の意味を説明できる
   - 選択公理・Zornの補題・整列可能定理がZF上で同値であることを位置付けられる
 definitions:
   - { id: F000A2-DEF-01, name: 選択関数 }
   - { id: F000A2-DEF-02, name: 選択公理 }
   - { id: F000A2-DEF-03, name: 可算選択公理 }
 theorems:
-  - { id: F000A2-THM-01, name: 選択公理・Zornの補題・整列可能定理の同値性 }
+  - { id: F000A2-THM-01, name: 整列可能定理 }
+  - { id: F000A2-THM-02, name: 選択公理の代表的同値形 }
 canonical_examples: [明示的選択関数]
 problem_patterns: [CHOICE-FUNCTION-1, COUNTABLE-CHOICE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 1.4, exercises: 0.6, review: 0.3 }
+estimated_hours: { reading: 1.5, exercises: 0.6, review: 0.3 }
