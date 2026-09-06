@@ -24,7 +24,7 @@ $$
     '''<a id="def-p2-01-unbiased-estimator"></a>
 
 <!-- formal-statement-start -->
-> **定義（不偏推定量）**  
+> **定義（不偏推定量）**
 > 推定量 $T$ が推定対象 $\\alpha$ に対して
 
 $$
@@ -35,7 +35,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-p2-01-unbiased-estimator -->
-**定義の確認**  
+**定義の確認**
 問5では $E_\\alpha[\\widehat\\alpha]=\\alpha$ を示せれば、この定義から $\\widehat\\alpha$ は $\\alpha$ の不偏推定量だと判定できます。
 <!-- definition-example-end -->''',
 )
