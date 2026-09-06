@@ -47,16 +47,6 @@ const replacements = [
     path: 'textbook/volumes/00_foundations/LA6/index.md',
     from: 'さらに先ほどのノルム等式から',
     to: 'さらに先ほどの長さの等式から'
-  },
-  {
-    path: 'textbook/volumes/00_foundations/LA6/index.md',
-    from: String.raw`\nu_i=\frac{Av_i}{\sigma_i}`,
-    to: String.raw`u_i=\frac{Av_i}{\sigma_i}`
-  },
-  {
-    path: 'textbook/volumes/00_foundations/LA6/index.md',
-    from: String.raw`\nu_1,\dots,u_r`,
-    to: String.raw`u_1,\dots,u_r`
   }
 ];
 
