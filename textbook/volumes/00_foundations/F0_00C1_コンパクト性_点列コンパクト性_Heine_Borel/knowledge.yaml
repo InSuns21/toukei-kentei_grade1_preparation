@@ -79,3 +79,4 @@ concepts:
     aliases: [コンパクト集合の連続像, コンパクト集合の連続像はコンパクト]
     requires:
       - topology.continuous-map
+      - topology.compact-set
