@@ -59,7 +59,7 @@ concepts:
   - id: topology.bolzano-weierstrass-rp
     name: R^pのBolzano–Weierstrass
     kind: lemma
-    aliases: ["$\\mathbb R^p$ のBolzano–Weierstrass", R^pのBolzano–Weierstrass, "補題（ のBolzano–Weierstrass）"]
+    aliases: ["$\\mathbb R^p$ のBolzano–Weierstrass", R^pのBolzano–Weierstrass, "補題（              のBolzano–Weierstrass）"]
     requires:
       - topology.bolzano-weierstrass-real
 
