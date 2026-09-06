@@ -15,9 +15,9 @@ concepts:
       - linear.real-complex-vector-space
 
   - id: linear.algebraic-dual-space
-    name: 代数的双対空間
+    name: 代数的双対
     kind: definition
-    aliases: [代数的双対空間, algebraic dual space]
+    aliases: [代数的双対, algebraic dual]
     requires:
       - linear.linear-form
 
