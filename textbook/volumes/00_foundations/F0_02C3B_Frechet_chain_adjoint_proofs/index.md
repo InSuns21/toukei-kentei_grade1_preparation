@@ -1,6 +1,6 @@
 # F0-02C3B：Fréchet連鎖律とHilbert随伴の証明
 
-C3/C3AではFréchet微分と随伴作用素の意味を先に学びました。この補講では、**Fréchet連鎖律を残差評価から完全に証明**し、**Riesz表現定理からHilbert随伴を構成**します。
+C3/C3AではFréchet微分と随伴作用素の意味を先に学びました。この補講では、**Fréchet連鎖律を残差評価から完全に証明**し、**[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)からHilbert随伴を構成**します。
 
 ```text
 Fréchet微分の残差表示
@@ -214,7 +214,7 @@ $$
 \|\phi_y\|\le\|T\|\|y\|.
 $$
 
-Riesz表現定理により、一意な $z_y\in H_1$ が存在して
+[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、一意な $z_y\in H_1$ が存在して
 
 $$
 \phi_y(x)=\langle x,z_y\rangle_{H_1}
@@ -341,5 +341,5 @@ $$
 ## 9. 章末チェック
 
 - Fréchet連鎖律を残差評価から証明できる。
-- Riesz表現定理からHilbert随伴の存在・一意性を構成できる。
+- [Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)からHilbert随伴の存在・一意性を構成できる。
 - 最小二乗汎関数の勾配を随伴を使って表せる。

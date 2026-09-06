@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-P3Aでは条件付き期待値をRadon--Nikodym定理から構成しました。$X\in L^2$ なら、同じ対象をHilbert空間の**直交射影**として読むことができます。
+P3Aでは条件付き期待値を[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から構成しました。$X\in L^2$ なら、同じ対象をHilbert空間の**直交射影**として読むことができます。
 
 $$
 \boxed{E[X\mid\mathcal G]=P_{L^2(\mathcal G)}X}
@@ -83,7 +83,7 @@ $$
 E|Z_{n_k}-Z|^2\le2^{-3k}
 $$
 
-となるように取れます。Markovの不等式から
+となるように取れます。[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
 
 $$
 P(|Z_{n_k}-Z|>2^{-k})
@@ -149,7 +149,7 @@ A_K:=E[M^2\mathbf1_{\{|M|\le K\}}]
 \le\|X\|_2A_K^{1/2}
 $$
 
-です。$A_K>0$ なら $A_K^{1/2}\le\|X\|_2$。$K\to\infty$ とし単調収束定理を使えば
+です。$A_K>0$ なら $A_K^{1/2}\le\|X\|_2$。$K\to\infty$ と[し単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使えば
 
 $$
 E[M^2]\le E[X^2]<\infty.
@@ -335,7 +335,7 @@ A_K:=E[M^2\mathbf1_{\{|M|\le K\}}]
 \le\|X\|_2A_K^{1/2}.
 $$
 
-よって $A_K\le\|X\|_2^2$。$K\to\infty$ として単調収束定理を使えば $E[M^2]\le E[X^2]$。
+よって $A_K\le\|X\|_2^2$。$K\to\infty$ と[して単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使えば $E[M^2]\le E[X^2]$。
 
 #### 本番答案
 切断 $M_K$ をテスト関数として積分一致を使い、Cauchy--Schwarzで $A_K^{1/2}\le\|X\|_2$。最後に単調収束定理で $K\to\infty$。

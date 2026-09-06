@@ -46,7 +46,7 @@ $Y_n=X_n'-E[X_n']$ と中心化します。独立性は保たれます。
 
 $$\operatorname{Var}(Y_n)\le E[(X_n')^2].$$
 
-Tonelliを使うと
+[Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
 $$
 \sum_{n=1}^\infty\frac{E[(X_n')^2]}{n^2}
@@ -171,7 +171,7 @@ $$\boxed{\frac1n\sum_{k=1}^nY_k\to0\quad\text{a.s.}}$$
 
 ## 5. 中心を元へ戻す
 
-DCTにより
+[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$E[X_n']=E[X_1\mathbf1_{\{|X_1|\le n\}}]\to E[X_1].$$
 

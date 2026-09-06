@@ -244,7 +244,7 @@ $$
 
 を作り、$\mathcal D$ がDynkin族であることを示します。出発点のalgebraは有限交差で閉じるのでπ-systemです。
 
-したがってπ–λ定理により、そのalgebraが生成するσ代数全体で二つの測度が一致します。
+したがって[π–λ定理](#thm-f0-00d3a-pi-lambda)により、そのalgebraが生成するσ代数全体で二つの測度が一致します。
 
 ### 5.2 積測度
 
@@ -295,9 +295,9 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$\Omega\in\mathcal D$ は仮定から従う。$A\in\mathcal D$ なら有限性より $\mu(A^c)=\mu(\Omega)-\mu(A)=\nu(\Omega)-\nu(A)=\nu(A^c)$ なので $A^c\in\mathcal D$。互いに素な $A_n\in\mathcal D$ については可算加法性から $\mu(\cup_nA_n)=\sum_n\mu(A_n)=\sum_n\nu(A_n)=\nu(\cup_nA_n)$。従って $\mathcal D$ はDynkin族で、$\mathcal P\subset\mathcal D$。π–λ定理より $\sigma(\mathcal P)\subset\mathcal D$、よって両測度は $\sigma(\mathcal P)$ 上で一致する。
+$\Omega\in\mathcal D$ は仮定から従う。$A\in\mathcal D$ なら有限性より $\mu(A^c)=\mu(\Omega)-\mu(A)=\nu(\Omega)-\nu(A)=\nu(A^c)$ なので $A^c\in\mathcal D$。互いに素な $A_n\in\mathcal D$ については可算加法性から $\mu(\cup_nA_n)=\sum_n\mu(A_n)=\sum_n\nu(A_n)=\nu(\cup_nA_n)$。従って $\mathcal D$ はDynkin族で、$\mathcal P\subset\mathcal D$。[π–λ定理](#thm-f0-00d3a-pi-lambda)より $\sigma(\mathcal P)\subset\mathcal D$、よって両測度は $\sigma(\mathcal P)$ 上で一致する。
 #### 本番答案
-$\Omega$、補集合、互いに素な可算和について測度の一致が保存されるので $\mathcal D$ はDynkin族。$\mathcal P\subset\mathcal D$ だからπ–λ定理より $\sigma(\mathcal P)\subset\mathcal D$。従って $\mu=\nu$ on $\sigma(\mathcal P)$。
+$\Omega$、補集合、互いに素な可算和について測度の一致が保存されるので $\mathcal D$ はDynkin族。$\mathcal P\subset\mathcal D$ [だからπ–λ定理](#thm-f0-00d3a-pi-lambda)より $\sigma(\mathcal P)\subset\mathcal D$。従って $\mu=\nu$ on $\sigma(\mathcal P)$。
 #### 採点基準（20点）
 - Dynkin族3条件: 12点
 - $\mathcal P\subset\mathcal D$: 3点

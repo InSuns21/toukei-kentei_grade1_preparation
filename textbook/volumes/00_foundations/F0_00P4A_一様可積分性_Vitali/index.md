@@ -327,7 +327,7 @@ $$
 X_{n_k}\xrightarrow{a.s.}X.
 $$
 
-従って $|X_{n_k}|\to|X|$ a.s. です。Fatouの補題より
+従って $|X_{n_k}|\to|X|$ a.s. です。[Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)より
 
 $$
 E|X|

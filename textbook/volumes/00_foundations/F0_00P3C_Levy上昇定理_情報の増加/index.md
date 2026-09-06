@@ -269,7 +269,7 @@ $$
 <!-- proof-start -->
 ### 4.1 証明：まず $L^1$ 収束
 
-$\mathcal G_n\subseteq\mathcal G_\infty$ なのでtower propertyから
+$\mathcal G_n\subseteq\mathcal G_\infty$ なので[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 E[Y\mid\mathcal G_n]
@@ -302,7 +302,7 @@ $$
 
 ### 4.2 証明：条件付き平均の増分は予測不能
 
-$n\ge2$ に対しtower propertyから
+$n\ge2$ に対し[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 E[M_n\mid\mathcal G_{n-1}]=M_{n-1}.
@@ -354,7 +354,7 @@ $$
 \boxed{E[U_N(a,b)]\le\frac{E|X|+|a|}{b-a}}.
 $$
 
-$U_N(a,b)$ は $N$ とともに増加するので単調収束定理より
+$U_N(a,b)$ は $N$ とともに増加するので[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
 
 $$
 E[U_\infty(a,b)]<\infty,
@@ -374,7 +374,7 @@ $$
 
 有理数対 $(a,b)$ は可算個なので、確率1ですべての有理数対について上向き横断回数が有限です。従って確率1で $M_n$ の拡張実数値極限が存在します。
 
-さらにFatouの補題から
+さらに[Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 E\left[\liminf_{n\to\infty}|M_n|\right]
@@ -516,7 +516,7 @@ $$
 G_N=\sum_{k=2}^NH_{k-1}(M_k-M_{k-1})
 $$
 
-と置く。tower propertyから各増分の条件付き平均が0なので $E[G_N]=0$。経路ごとに
+と置く。[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から各増分の条件付き平均が0なので $E[G_N]=0$。経路ごとに
 
 $$
 G_N\ge(b-a)U_N(a,b)-(M_N-a)^-.
@@ -528,7 +528,7 @@ $$
 E[(M_N-a)^-]\le E|M_N|+|a|\le E|X|+|a|
 $$
 
-なので $E[U_N]$ は一様有界。単調収束定理から $E[U_\infty]<\infty$、従って $U_\infty<\infty$ a.s.。
+なので $E[U_N]$ は一様有界。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から $E[U_\infty]<\infty$、従って $U_\infty<\infty$ a.s.。
 
 #### 本番答案
 予測可能な0/1保有戦略の期待損益が0であることと、経路ごとの利益下界を組み合わせる。最後に $L^1$縮小性で右辺を $N$ に一様に抑える。

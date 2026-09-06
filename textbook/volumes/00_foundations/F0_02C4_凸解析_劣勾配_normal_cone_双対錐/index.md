@@ -417,7 +417,7 @@ $$
 
 従って右辺の凸包は $\partial h(x)$ に含まれます。
 
-逆向きは方向微分の支持関数表示を使います。active な関数だけが方向微分へ寄与するので
+逆向きは[方向微分の支持関数表示](#thm-f0-02c4-directional-support)を使います。active な関数だけが方向微分へ寄与するので
 
 $$
 h'(x;d)
@@ -734,7 +734,7 @@ $$
 h(x)=\max\{x,-x\}
 $$
 
-について $\partial h(0)$ を max 関数の公式から求めよ。
+について $\partial h(0)$ [を max 関数の公式](#thm-f0-02c4-max-subgradient)から求めよ。
 
 <!-- solution-start -->
 #### 詳細解答

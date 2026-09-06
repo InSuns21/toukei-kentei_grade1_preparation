@@ -124,7 +124,7 @@ e^{it_nX}\to e^{itX}
 \qquad\text{a.s.}
 $$
 
-かつ絶対値は常に1なので、優収束定理から
+かつ絶対値は常に1なので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \varphi_X(t_n)\to\varphi_X(t).
@@ -650,7 +650,7 @@ $$
 \qquad\text{a.s.}
 $$
 
-で、絶対値は $CX^2$ に支配されます。$E[X^2]<\infty$ なので優収束定理から
+で、絶対値は $CX^2$ に支配されます。$E[X^2]<\infty$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 E[r(tX)]=o(t^2).
@@ -716,7 +716,7 @@ $$
 =2-2\int\min(f_n,f).
 $$
 
-$\min(f_n,f)\to f$ a.e. で、$0\le\min(f_n,f)\le f$ です。優収束定理から
+$\min(f_n,f)\to f$ a.e. で、$0\le\min(f_n,f)\le f$ です。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \int\min(f_n,f)\to\int f=1.
@@ -804,7 +804,7 @@ f_{\varepsilon}(x)
 \int e^{-itx}\varphi(t)e^{-\varepsilon^2t^2/2}dt.
 $$
 
-$|\varphi_n(t)|\le1$ なのでintegrandは可積分関数 $e^{-\varepsilon^2t^2/2}$ に支配されます。優収束定理より各 $x$ で
+$|\varphi_n(t)|\le1$ なのでintegrandは可積分関数 $e^{-\varepsilon^2t^2/2}$ に支配されます。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より各 $x$ で
 
 $$
 f_{n,\varepsilon}(x)\to f_\varepsilon(x).
@@ -984,7 +984,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-正規分布の特性関数は $\exp(i\mu t-\sigma^2t^2/2)$。独立和なので積を取り、$\exp(i(\mu_1+\mu_2)t-(\sigma_1^2+\sigma_2^2)t^2/2)$。特性関数の一意性から対応する正規分布。
+正規分布の特性関数は $\exp(i\mu t-\sigma^2t^2/2)$。独立和なので積を取り、$\exp(i(\mu_1+\mu_2)t-(\sigma_1^2+\sigma_2^2)t^2/2)$。[特性関数の一意性](#thm-f0-00p6-uniqueness)から対応する正規分布。
 
 #### 本番答案
 $\varphi_{X+Y}(t)=\exp(i(\mu_1+\mu_2)t-(\sigma_1^2+\sigma_2^2)t^2/2)$ より $X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$。
@@ -1011,7 +1011,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$r(u)/u^2\to0$ かつ $|r(u)|\le Cu^2$ を示す。すると $r(tX)/t^2=X^2r(tX)/(tX)^2\to0$ a.s. で絶対値は $CX^2$ に支配される。DCTから期待値が0へ行く。
+$r(u)/u^2\to0$ かつ $|r(u)|\le Cu^2$ を示す。すると $r(tX)/t^2=X^2r(tX)/(tX)^2\to0$ a.s. で絶対値は $CX^2$ に支配される。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から期待値が0へ行く。
 
 #### 本番答案
 $|r(tX)|/t^2\le CX^2\in L^1$ かつ $r(tX)/t^2\to0$ a.s. よりDCT。
@@ -1032,7 +1032,7 @@ $\varphi_n(t)\to\varphi_X(t)$ とする。固定した $\varepsilon>0$ に対し
 
 <!-- solution-start -->
 #### 詳細解答
-Gaussian factorを掛けた逆Fourier積分では $e^{-\varepsilon^2t^2/2}$ が可積分支配関数になるためDCTで密度が点wise収束する。両者は密度なのでSchefféからL1収束。bounded Lipschitz hについてnoise追加の誤差は $L\varepsilon E|Z|$ 以下でnに一様。固定εでn→∞、次にε→0としてEh(X_n)→Eh(X)。BL特徴付けから分布収束。
+Gaussian factorを掛けた逆Fourier積分では $e^{-\varepsilon^2t^2/2}$ が可積分支配関数になるためDCTで密度が点wise収束する。両者は密度なので[Scheffé](#lem-f0-00p6-scheffe)からL1収束。bounded Lipschitz hについてnoise追加の誤差は $L\varepsilon E|Z|$ 以下でnに一様。固定εでn→∞、次にε→0としてEh(X_n)→Eh(X)。BL特徴付けから分布収束。
 
 #### 本番答案
 Gaussian smoothing後はDCT + Schefféで密度がL1収束。元の変数との差はBL関数に対して $O(\varepsilon)$ なので、$n\to\infty$ 後に $\varepsilon\to0$。

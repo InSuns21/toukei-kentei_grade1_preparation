@@ -226,7 +226,7 @@ $$
 
 一般のBanach空間では、微分そのものをまず「ベクトル」だと思わないことが重要です。
 
-Hilbert空間 $H$ ならRiesz表現定理により一意な $g\in H$ が存在して
+Hilbert空間 $H$ なら[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により一意な $g\in H$ が存在して
 
 $$
 Df(x)[h]

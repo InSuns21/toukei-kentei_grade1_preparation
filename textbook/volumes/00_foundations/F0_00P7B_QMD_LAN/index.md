@@ -182,7 +182,7 @@ QMD展開 $\sqrt{p_{\theta+h}}=\sqrt{p_\theta}+\frac12h^Ts_\theta\sqrt{p_\theta}
 
 <!-- solution-start -->
 #### 詳細解答
-$\Delta_n=n^{-1/2}\sum_i s_{\theta_0}(X_i)$。score平均0・共分散$I(\theta_0)$なので多変量中心極限定理から $\Delta_n\Rightarrow N(0,I)$。log likelihood ratioは $h^T\Delta_n-\frac12h^TIh+o_P(1)$。二次項は局所的なlog likelihood curvature/情報量を表す。
+$\Delta_n=n^{-1/2}\sum_i s_{\theta_0}(X_i)$。score平均0・共分散$I(\theta_0)$なので多変量[中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から $\Delta_n\Rightarrow N(0,I)$。log likelihood ratioは $h^T\Delta_n-\frac12h^TIh+o_P(1)$。二次項は局所的なlog likelihood curvature/情報量を表す。
 
 #### 本番答案
 $\Delta_n=n^{-1/2}\sum s_{\theta_0}(X_i)\Rightarrow N(0,I)$、$\log(dP_{\theta_0+h/\sqrt n}^n/dP_{\theta_0}^n)=h^T\Delta_n-\frac12h^TIh+o_P(1)$。
@@ -199,3 +199,32 @@ $\Delta_n=n^{-1/2}\sum s_{\theta_0}(X_i)\Rightarrow N(0,I)$、$\log(dP_{\theta_0
 ## 次に進む
 
 これで「測度としての分布」から「局所Gaussian実験」まで一本で接続しました。統計理論本編へ戻るか、Fourier・確率過程・数値計算のEncoreへ分岐できます。
+
+---
+
+## 定義の確認：正規位置モデルはQMD
+
+<!-- definition-example-start: def-f0-00p7b-qmd -->
+**定義の確認**
+
+$P_\theta=N(\theta,1)$ とし、Lebesgue測度に関する密度を $p_\theta$ とします。このとき
+
+$$
+\sqrt{p_\theta(x)}=(2\pi)^{-1/4}\exp\left(-\frac{(x-\theta)^2}{4}\right)
+$$
+
+なので
+
+$$
+\frac{\partial}{\partial\theta}\sqrt{p_\theta(x)}
+=\frac12(x-\theta)\sqrt{p_\theta(x)}.
+$$
+
+従ってscore $s_\theta(x)=x-\theta$ に対し、平方根密度の一次項はQMD定義の
+
+$$
+\frac12h\,s_\theta\sqrt{p_\theta}
+$$
+
+と一致します。正規密度は十分滑らかで導関数も二乗可積分なのでTaylor剰余は $L^2$ で $o(|h|)$、従って定義式の二乗積分は $o(h^2)$ です。これは正規位置モデルがQMDである代表例です。
+<!-- definition-example-end -->

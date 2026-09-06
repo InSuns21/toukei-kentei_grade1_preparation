@@ -247,7 +247,7 @@ $$
 B_n:=A_1\setminus A_n
 $$
 
-と置くと $B_n\uparrow A_1\setminus A$ です。測度の下からの連続性より
+と置くと $B_n\uparrow A_1\setminus A$ です。測度の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より
 
 $$
 P(B_n)\uparrow P(A_1\setminus A).
@@ -402,7 +402,7 @@ $$
 \qquad E[Y]<\infty
 $$
 
-なら優収束定理から
+なら[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \boxed{
@@ -412,7 +412,7 @@ $$
 
 です。
 
-また $0\le X_n\uparrow X$ なら単調収束定理から交換できます。
+また $0\le X_n\uparrow X$ なら[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から交換できます。
 
 この視点は後の尤度微分や漸近統計で重要になります。
 

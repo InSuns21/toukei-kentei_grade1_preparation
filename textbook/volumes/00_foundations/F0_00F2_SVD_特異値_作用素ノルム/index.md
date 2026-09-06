@@ -58,7 +58,7 @@ $$
 
 ## 2. 特異値と右特異ベクトル
 
-スペクトル定理により
+[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により
 
 $$
 A^{\mathsf T}A v_i
@@ -349,7 +349,7 @@ $$
 
 を表します。
 
-SVDを使うと
+[SVD](#thm-f0-00f2-svd)を使うと
 
 $$
 x
@@ -602,3 +602,37 @@ $\Sigma_r$ が正則なので、$A$ は右特異部分空間を左特異部分�
 次はこの有限次元の常識が、無限次元ではどこまで壊れるかを見ます。
 
 **次：[F0-00D1 ノルム空間・Banach・有限次元と無限次元](../F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)**
+
+---
+
+## 定義の確認：対角行列のSVD
+
+<!-- definition-example-start: def-f0-00f2-singular-values-right-vectors, def-f0-00f2-left-singular-vectors, def-f0-00f2-operator-norm -->
+**定義の確認**
+
+$$
+A=\begin{pmatrix}3&0\\0&2\end{pmatrix}
+$$
+
+とすると
+
+$$
+A^{\mathsf T}A=\begin{pmatrix}9&0\\0&4\end{pmatrix}.
+$$
+
+従って特異値は $\sigma_1=3,\sigma_2=2$、右特異ベクトルは $v_1=e_1,v_2=e_2$ です。さらに
+
+$$
+u_i=\frac{Av_i}{\sigma_i}=e_i
+$$
+
+なので左特異ベクトルも $e_1,e_2$ です。
+
+単位ベクトル $x=(x_1,x_2)$ に対して
+
+$$
+\|Ax\|_2^2=9x_1^2+4x_2^2\le9(x_1^2+x_2^2)=9,
+$$
+
+等号は $x=e_1$ で達成されるので $\|A\|_{\mathrm{op}}=3$。最大特異値と作用素ノルムが一致することも定義から直接見えます。
+<!-- definition-example-end -->

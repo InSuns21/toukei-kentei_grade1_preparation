@@ -425,7 +425,7 @@ $$
 \nu_\pm(A)=\int_AX^\pm\,dP
 $$
 
-を作る。両者は有限非負測度で $\nu_\pm\ll P|_{\mathcal G}$。RN定理により $f_\pm=d\nu_\pm/dP$ が存在する。$Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し $\int_AYdP=\int_AXdP$。従って $Y=E[X\mid\mathcal G]$。
+を作る。両者は有限非負測度で $\nu_\pm\ll P|_{\mathcal G}$。[RN定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により $f_\pm=d\nu_\pm/dP$ が存在する。$Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し $\int_AYdP=\int_AXdP$。従って $Y=E[X\mid\mathcal G]$。
 
 #### 本番答案
 符号付き量へ非負測度版RNを直接使えない。$X=X^+-X^-$ とし、$\nu_\pm(A)=\int_AX^\pm dP$ にRNを適用して $E[X\mid\mathcal G]=d\nu_+/dP-d\nu_-/dP$ と構成する。

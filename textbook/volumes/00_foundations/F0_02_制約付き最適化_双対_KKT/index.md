@@ -483,7 +483,7 @@ $$
 - 目的関数 $\frac12\|\boldsymbol w\|^2$ は凸
 - 制約 $1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\le0$ はアフィン
 
-なので凸最適化問題です。線形分離可能で適切な実行可能性条件が満たされれば、KKT条件を使って最適解を特徴付けられます。
+なので凸最適化問題です。線形分離可能で適切な実行可能性条件が満たされれば、[KKT条件](#ref-kkt-overview)を使って最適解を特徴付けられます。
 
 ---
 
@@ -535,7 +535,7 @@ $$
 \qquad\text{subject to}\qquad x\ge0
 $$
 
-を $g(x)=-x\le0$ と書き、KKT条件から最適解と乗数を求めよ。
+を $g(x)=-x\le0$ と書き、[KKT条件](#ref-kkt-overview)から最適解と乗数を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -585,3 +585,39 @@ $q=\inf_zL(z,\alpha,\nu)\le L(x,\alpha,\nu)\le f(x)$。従って双対側でsup�
 - SVMで $\alpha_i>0$ の点がサポートベクトルになる理由を相補性から説明できる。
 - 4条件の導出そのものを追う必要があるとき、[F0-02Aの接錐・polar cone・Farkasの補講](../F0_02A_KKT条件の導出_接錐_polar_Farkas/index.md#ref-kkt-derivation)へ辿れる。
 - Farkasの補題の証明や分離超平面定理・SVMの凸包幾何まで必要なとき、[F0-02B](../F0_02B_分離超平面定理_Farkas_SVM/index.md#ref-farkas-from-separation)へ辿れる。
+
+---
+
+## 定義の確認：1変数問題で主問題から強双対性まで計算する
+
+<!-- definition-example-start: def-f0-02-lagrangian, def-f0-02-dual-function, def-f0-02-primal-dual-problem, def-f0-02-weak-strong-duality, def-f0-02-active-constraint -->
+**定義の確認**
+
+本文と同じ
+
+$$
+\min_x (x-2)^2
+\qquad\text{subject to}\qquad x\le1
+$$
+
+を使います。$g(x)=x-1\le0$ と書けば、$\alpha\ge0$ に対するLagrangianは
+
+$$
+L(x,\alpha)=(x-2)^2+\alpha(x-1).
+$$
+
+$x$ で最小化すると $x=2-\alpha/2$ なので、双対関数は
+
+$$
+q(\alpha)=\inf_xL(x,\alpha)
+=\alpha-\frac{\alpha^2}{4}.
+$$
+
+元の最小化が主問題、$\max_{\alpha\ge0}q(\alpha)$ が双対問題です。主問題は $x^*=1$ で $p^*=1$、双対問題は $\alpha^*=2$ で
+
+$$
+d^*=q(2)=1=p^*.
+$$
+
+従ってこの例では弱双対性 $q(\alpha)\le p^*$ を満たすだけでなく強双対性も成立します。また $g(x^*)=0$ なので制約 $x\le1$ は最適点でactiveです。
+<!-- definition-example-end -->

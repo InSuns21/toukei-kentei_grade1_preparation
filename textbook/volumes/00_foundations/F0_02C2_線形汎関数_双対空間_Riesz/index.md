@@ -336,6 +336,8 @@ $$
 
 ---
 
+<a id="ref-riesz-representation"></a>
+
 ## 11. Hilbert空間では双対が再びベクトルになる
 
 Hilbert空間 $H$ では、驚くほど有限次元に近い状況が戻ってきます。
@@ -667,3 +669,39 @@ $\alpha=\ell(x)/\ell(u)$ とすると $x-\alpha u\in M$。$u\perp M$ より $\la
 - $C([0,1])$ の点評価がsupノルムで連続であることを示せる。
 - $L^2$ では一点評価が一般に使えない理由を説明できる。
 - Riesz表現定理の主張と、射影定理を使った証明の流れを説明できる。
+
+---
+
+## 定義の確認：積分と点評価は双対空間の元になる
+
+<!-- definition-example-start: def-f0-02c2-linear-functional, def-f0-02c2-dual-space, def-f0-02c2-evaluation-functional -->
+**定義の確認**
+
+$X=C([0,1])$ にsupノルムを入れ、
+
+$$
+\ell(f)=\int_0^1f(t)\,dt
+$$
+
+とします。積分の線形性から $\ell(af+bg)=a\ell(f)+b\ell(g)$ で、さらに
+
+$$
+|\ell(f)|\le\|f\|_\infty
+$$
+
+なので $\ell$ は連続線形汎関数、すなわち $\ell\in X^*$ です。
+
+また $x=1/2$ を固定した評価汎関数
+
+$$
+\delta_{1/2}(f)=f(1/2)
+$$
+
+も
+
+$$
+|\delta_{1/2}(f)|\le\|f\|_\infty
+$$
+
+を満たすため連続で、$\delta_{1/2}\in X^*$ です。これで「線形汎関数」「双対空間」「評価汎関数」の三つを同じ関数空間上で確認できます。
+<!-- definition-example-end -->

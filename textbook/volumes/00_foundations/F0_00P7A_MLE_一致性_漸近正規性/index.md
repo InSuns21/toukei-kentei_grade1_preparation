@@ -75,7 +75,7 @@ I(p)
 =\frac1{p(1-p)}.
 $$
 
-一方、中心極限定理から直接
+一方、[中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から直接
 
 $$
 \sqrt n(\widehat p_n-p_0)
@@ -195,7 +195,7 @@ $$
 I(\theta_0).
 $$
 
-したがってSlutskyの定理から
+したがって[Slutskyの定理](#thm-f0-00p7a-slutsky)から
 
 $$
 \boxed{
@@ -333,7 +333,7 @@ $X_1,\dots,X_n\overset{iid}{\sim}\operatorname{Poisson}(\lambda_0)$、$\lambda_0
 
 1. 最尤推定量が $\widehat\lambda_n=\overline X_n$ であることを示せ。
 2. 1観測あたりのFisher情報量 $I(\lambda)$ を求めよ。
-3. 中心極限定理から $\sqrt n(\widehat\lambda_n-\lambda_0)$ の極限分布を求め、分散が $I(\lambda_0)^{-1}$ と一致することを確認せよ。
+3. [中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)から $\sqrt n(\widehat\lambda_n-\lambda_0)$ の極限分布を求め、分散が $I(\lambda_0)^{-1}$ と一致することを確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答

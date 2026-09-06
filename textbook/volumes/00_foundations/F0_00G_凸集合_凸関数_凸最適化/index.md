@@ -382,7 +382,7 @@ $$
 \nabla f(x^*)=0
 $$
 
-なら一次支持不等式から任意の $y$ に対して
+なら[一次支持不等式](#thm-f0-00g-first-order-convexity)から任意の $y$ に対して
 
 $$
 f(y)
@@ -575,7 +575,7 @@ $$
 f(x,y)=x^2+4xy+5y^2
 $$
 
-が $\mathbb R^2$ 上で凸であることを Hessian 判定から示せ。
+が $\mathbb R^2$ 上で凸であることを [Hessian 判定](#thm-f0-00g-hessian-convexity)から示せ。
 
 <!-- solution-start -->
 #### 詳細解答

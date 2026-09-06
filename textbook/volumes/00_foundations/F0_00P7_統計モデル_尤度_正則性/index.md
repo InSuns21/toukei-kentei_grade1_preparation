@@ -45,7 +45,7 @@ $$
 
 となるとします。
 
-するとRadon--Nikodym定理から
+[するとRadon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から
 
 $$
 \boxed{

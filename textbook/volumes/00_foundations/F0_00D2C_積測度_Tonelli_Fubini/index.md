@@ -19,7 +19,7 @@ Fubini（絶対可積分）
 です。
 
 > **証明依存**  
-> 積測度の存在・一意性には Carathéodory 拡張定理を使います。標準ルートではこの定理を受け入れて先へ進んで構いません。DREAM THEATER ルートでは [D3](../F0_00D3_外測度_Caratheodory可測性/index.md) → [D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で拡張定理そのものを証明します。本章では、それ以外の section → Tonelli → Fubini の論理を黒箱なしで閉じます。
+> 積測度の存在・一意性には [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を使います。標準ルートではこの定理を受け入れて先へ進んで構いません。DREAM THEATER ルートでは [D3](../F0_00D3_外測度_Caratheodory可測性/index.md) → [D4](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension) で拡張定理そのものを証明します。本章では、それ以外の section → Tonelli → Fubini の論理を黒箱なしで閉じます。
 
 ---
 
@@ -147,7 +147,7 @@ $$
 \sum_{n=1}^\infty1_{A_n}(x)1_{B_n}(y).
 $$
 
-固定した $x$ で $y$ について積分し、非負級数に MCT を使うと
+固定した $x$ で $y$ について積分し、非負級数に [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使うと
 
 $$
 1_A(x)\nu(B)
@@ -155,7 +155,7 @@ $$
 \sum_{n=1}^\infty1_{A_n}(x)\nu(B_n).
 $$
 
-さらに $x$ について MCT を使えば
+さらに $x$ について [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使えば
 
 $$
 \mu(A)\nu(B)
@@ -381,7 +381,7 @@ $$
 \end{aligned}
 $$
 
-従って $\mathcal D$ は Dynkin 族です。可測長方形全体は交わりで閉じる π-system であり、それを含むので π–λ 定理から
+従って $\mathcal D$ は Dynkin 族です。可測長方形全体は交わりで閉じる π-system であり、それを含むので [π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \mathcal D=\mathcal A\otimes\mathcal B.
@@ -426,7 +426,7 @@ $$
 1_{X_n}(x)\nu(E_x\cap Y_n)\uparrow\nu(E_x).
 $$
 
-したがって測度の下からの連続性と MCT により
+したがって測度の下からの連続性と [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
 
 $$
 \begin{aligned}
@@ -500,7 +500,7 @@ Tonelli
 
 #### Step 1：指示関数
 
-$f=1_E$、$E\in\mathcal A\otimes\mathcal B$ とします。section 測度公式から
+$f=1_E$、$E\in\mathcal A\otimes\mathcal B$ とします。[section 測度公式](#lem-section-measure)から
 
 $$
 \int_Y1_E(x,y)d\nu(y)=\nu(E_x)
@@ -534,13 +534,13 @@ $$
 
 #### Step 3：一般の非負可測関数
 
-単関数近似定理により非負単関数 $\phi_n$ を
+[単関数近似定理](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)により非負単関数 $\phi_n$ を
 
 $$
 0\le\phi_n\uparrow f
 $$
 
-となるよう取れます。各 $x$ で MCT を使うと
+となるよう取れます。各 $x$ で [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使うと
 
 $$
 \int_Y\phi_n(x,y)d\nu(y)
@@ -548,7 +548,7 @@ $$
 \int_Yf(x,y)d\nu(y).
 $$
 
-よって内側積分は可測関数の単調極限なので可測です。さらに $X$ 側と積空間側へ MCT を使って
+よって内側積分は可測関数の単調極限なので可測です。さらに $X$ 側と積空間側へ [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使って
 
 $$
 \begin{aligned}
@@ -676,7 +676,7 @@ $$
 
 ### 例4：確率論での独立性
 
-独立な確率変数 $X,Y$ の結合分布が積測度 $P_X\times P_Y$ で、$g,h\ge0$ なら Tonelli により
+独立な確率変数 $X,Y$ の結合分布が積測度 $P_X\times P_Y$ で、$g,h\ge0$ なら [Tonelli](#thm-tonelli) により
 
 $$
 E[g(X)h(Y)]
@@ -722,7 +722,7 @@ $$
 
 ### 採点基準（20点）
 
-- 積測度の長方形公式を用いる：8点
+- [積測度の長方形公式](#thm-f0-00d2c-01)を用いる：8点
 - 各区間の測度を $2,3$ と評価：6点
 - 結論 $6$：6点
 <!-- solution-end -->
@@ -736,7 +736,7 @@ $$
 E=\{(x,y)\in[0,1]^2:y\le x\}
 $$
 
-について $E_x$ と $m(E_x)$ を求め、$m_2(E)$ を section 測度公式から計算せよ。
+について $E_x$ と $m(E_x)$ を求め、$m_2(E)$ [を section 測度公式](#lem-section-measure)から計算せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -748,7 +748,7 @@ E_x=[0,x],
 \qquad m(E_x)=x.
 $$
 
-従って section 測度公式から
+従って [section 測度公式](#lem-section-measure)から
 
 $$
 m_2(E)=\int_0^1m(E_x)dx=\int_0^1x\,dx=\frac12.
@@ -784,7 +784,7 @@ Tonelli。非負可測性だけで使え、積分値が $+\infty$ でもよい�
 
 ### 本番答案
 
-$f\ge0$ なので Tonelli の定理を用いる。Tonelli は積分値の有限性を仮定せず、$+\infty$ も許す。
+$f\ge0$ なので [Tonelli](#thm-tonelli) の定理を用いる。Tonelli は積分値の有限性を仮定せず、$+\infty$ も許す。
 
 ### 採点基準（20点）
 
@@ -817,9 +817,9 @@ $$
 \nu((E^c)_x)=\nu(Y)-\nu(E_x)
 $$
 
-を使え、補集合でも公式を保つ。互いに素な $E_n\in\mathcal D$ については section も互いに素なので、可算加法性と MCT により $\bigcup_nE_n\in\mathcal D$。よって $\mathcal D$ は Dynkin 族である。
+を使え、補集合でも公式を保つ。互いに素な $E_n\in\mathcal D$ については section も互いに素なので、可算加法性と [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\bigcup_nE_n\in\mathcal D$。よって $\mathcal D$ は Dynkin 族である。
 
-可測長方形全体は π-system で $\mathcal D$ に含まれるため、π–λ 定理から
+可測長方形全体は π-system で $\mathcal D$ に含まれるため、[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \mathcal A\otimes\mathcal B\subset\mathcal D.
@@ -833,7 +833,7 @@ $$
 \nu((E^c)_x)=\nu(Y)-\nu(E_x)
 $$
 
-が使え、互いに素な可算和では section の可算加法性と MCT で公式が保存される。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族。π–λ 定理より
+が使え、互いに素な可算和では section の可算加法性と MCT で公式が保存される。従って $\mathcal D$ は長方形 π-system を含む Dynkin 族。[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)より
 
 $$
 \mathcal D=\mathcal A\otimes\mathcal B.
@@ -864,7 +864,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$f=1_E$ では section 測度公式により
+$f=1_E$ では [section 測度公式](#lem-section-measure)により
 
 $$
 \int_{X\times Y}1_Ed(\mu\times\nu)
@@ -878,14 +878,14 @@ $$
 
 ### 本番答案
 
-指示関数では section 測度公式。非負単関数では有限線形性。一般の $f\ge0$ には $\phi_n\uparrow f$ となる非負単関数近似を取り、内側・外側・積空間の各積分に MCT を適用する。これで Tonelli の等式を得る。
+指示関数では section 測度公式。非負単関数では有限線形性。一般の $f\ge0$ には $\phi_n\uparrow f$ となる非負単関数近似を取り、内側・外側・積空間の各積分に [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を適用する。これで Tonelli の等式を得る。
 
 ### 採点基準（20点）
 
 - 指示関数段階：5点
 - 単関数への有限線形拡張：4点
 - 単関数近似 $\phi_n\uparrow f$：4点
-- MCT を用いた極限操作：5点
+- [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を用いた極限操作：5点
 - 逆順も同様と結論：2点
 <!-- solution-end -->
 
@@ -909,7 +909,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Tonelli により
+[Tonelli](#thm-tonelli) により
 
 $$
 h(x):=\int_Y|f(x,y)|d\nu(y)
@@ -925,7 +925,7 @@ $$
 
 ### 本番答案
 
-Tonelli より
+[Tonelli](#thm-tonelli) より
 
 $$
 \int_X\left(\int_Y|f(x,y)|d\nu(y)\right)d\mu
@@ -979,7 +979,7 @@ $$
 
 ### 本番答案
 
-$\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$ を排除する。したがって両者へ Tonelli を適用して差を取る操作が正当化され、反復積分の順序交換が安全になる。
+$\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$ を排除する。したがって両者へ [Tonelli](#thm-tonelli) を適用して差を取る操作が正当化され、反復積分の順序交換が安全になる。
 
 ### 採点基準（20点）
 
@@ -987,7 +987,7 @@ $\int|f|<\infty$ は $f^+,f^-$ の両方を有限積分にし、$+\infty-\infty$
 - $+\infty-\infty$ または条件収束との対応：5点
 - $f=f^+-f^-$ の分解：4点
 - $f^+,f^-$ が有限積分になること：3点
-- Tonelli から Fubini へつながる説明：3点
+- [Tonelli](#thm-tonelli) から Fubini へつながる説明：3点
 <!-- solution-end -->
 
 ---

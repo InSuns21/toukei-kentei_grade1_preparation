@@ -186,7 +186,7 @@ $$
 \le\|f-\tau_{-h}f\|_1.
 $$
 
-$|\xi|\to\infty$ なら $h\to0$ なので、[$L^1$ の平行移動連続性](#lem-f0-00fa2-l1-translation)から右辺は0へ収束します。
+$|\xi|\to\infty$ なら $h\to0$ なので、[$L^1$ の平行移動連続性](../F0_00FA1_Fourier級数_直交展開/index.md#lem-f0-00fa1-translation-continuity)から右辺は0へ収束します。
 <!-- proof-end -->
 
 ---
@@ -506,7 +506,7 @@ $$
 \|f\|_1\int e^{-\varepsilon\xi^2}d\xi<\infty
 $$
 
-なので [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により積分順序を交換できます。Gaussian の Fourier 公式から内側積分は $2\pi k_\varepsilon(x-y)$ なので
+なので [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により積分順序を交換できます。[Gaussian の Fourier 公式](#lem-f0-00fa2-gaussian-transform)から内側積分は $2\pi k_\varepsilon(x-y)$ なので
 
 $$
 I_\varepsilon(x)
@@ -683,7 +683,7 @@ $$
 =\|f\|_1\sqrt{\pi/\varepsilon}<\infty.
 $$
 
-従って Fubini が使えます。$\xi$ 積分は Gaussian 変換公式より $2\pi k_\varepsilon(x-y)$ なので
+従って Fubini が使えます。$\xi$ 積分は [Gaussian 変換公式](#lem-f0-00fa2-gaussian-transform)より $2\pi k_\varepsilon(x-y)$ なので
 
 $$
 I_\varepsilon(x)=\int f(y)k_\varepsilon(x-y)dy.

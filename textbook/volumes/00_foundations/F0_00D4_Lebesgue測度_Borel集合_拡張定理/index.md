@@ -780,7 +780,7 @@ $$
 \mathcal A\subset\mathcal D.
 $$
 
-π–λ 定理から
+[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \sigma(\mathcal A)\subset\mathcal D.
@@ -1124,7 +1124,7 @@ $$
 \mathcal D=\{E:\mu(E)=\nu(E)\}
 $$
 
-が Dynkin 族であることを示し、π–λ 定理から一意性を証明せよ。
+が Dynkin 族であることを示し、[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から一意性を証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1153,7 +1153,7 @@ $$
 
 よって互いに素な可算和でも閉じ、$\mathcal D$ は Dynkin 族。
 
-$\mathcal A$ は π-system で、両拡張は $\mathcal A$ 上で $\mu_0$ と一致するため $\mathcal A\subset\mathcal D$。π–λ 定理から
+$\mathcal A$ は π-system で、両拡張は $\mathcal A$ 上で $\mu_0$ と一致するため $\mathcal A\subset\mathcal D$。[π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \sigma(\mathcal A)\subset\mathcal D.
@@ -1163,7 +1163,7 @@ $$
 
 ### 本番答案
 
-全空間の測度が共通かつ有限なので $\mathcal D$ は補集合で閉じ、可算加法性から互いに素な可算和でも閉じる。従って Dynkin 族。$\mathcal A$ は π-system かつ $\mathcal A\subset\mathcal D$ なので π–λ 定理より $\sigma(\mathcal A)\subset\mathcal D$。よって拡張は一意。
+全空間の測度が共通かつ有限なので $\mathcal D$ は補集合で閉じ、可算加法性から互いに素な可算和でも閉じる。従って Dynkin 族。$\mathcal A$ は π-system かつ $\mathcal A\subset\mathcal D$ なので [π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)より $\sigma(\mathcal A)\subset\mathcal D$。よって拡張は一意。
 
 ### 採点基準（20点）
 
