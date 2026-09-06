@@ -3,6 +3,8 @@ title: "変数変換・順序統計量"
 volume: "distributions"
 status: reviewed
 prerequisites: [P3-03]
+forward_references:
+  - maximum-likelihood-estimator
 official_scope: [1変数変換, 多変数変換, ヤコビアン, 和, 差, 積, 比, 最大値, 最小値, 順序統計量]
 learning_objectives:
   - 単調・非単調な一変数変換で g(x)=y を満たす元の値を全て数えられる

@@ -3,6 +3,8 @@ title: "統計検定1級のための数学速習"
 volume: "foundations"
 status: reviewed
 prerequisites: []
+forward_references:
+  - delta-method
 official_scope:
   - 変数変換
   - 固有値

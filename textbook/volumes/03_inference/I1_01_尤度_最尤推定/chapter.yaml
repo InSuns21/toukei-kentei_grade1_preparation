@@ -5,6 +5,11 @@ status: reviewed
 prerequisites:
   - S1-02
   - P3-05
+forward_references:
+  - fisher-information
+  - cramer-rao-inequality
+  - likelihood-ratio-test
+  - score-test
 official_scope:
   - 尤度関数
   - 対数尤度関数

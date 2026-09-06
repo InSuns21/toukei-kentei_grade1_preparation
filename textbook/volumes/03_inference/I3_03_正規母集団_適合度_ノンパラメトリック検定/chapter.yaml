@@ -5,6 +5,7 @@ status: reviewed
 prerequisites:
   - S1-01
   - I3-01
+  - I3-02
 official_scope:
   - 平均値と分散に関する検定
   - 適合度の検定

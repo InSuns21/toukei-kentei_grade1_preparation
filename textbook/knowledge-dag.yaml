@@ -88,8 +88,7 @@ concepts:
     aliases:
       - Delta法
       - delta method
-      - Delta method
-    introduced_in: I2-01
+    introduced_in: P4-02
     requires: [slutsky-theorem]
 
   - id: likelihood-ratio-test
