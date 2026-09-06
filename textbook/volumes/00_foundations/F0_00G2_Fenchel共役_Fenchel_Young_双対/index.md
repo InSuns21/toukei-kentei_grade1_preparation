@@ -171,7 +171,7 @@ $$
 C=\{x:\|x\|_2\le1\}
 $$
 
-なら Cauchy–Schwarz 不等式より
+なら [Cauchy–Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \sigma_C(y)
@@ -315,7 +315,7 @@ f^{**}(x)
 $$
 <!-- formal-statement-end -->
 
-Fenchel–Young 不等式から常に
+[Fenchel–Young 不等式](#thm-f0-00g2-fenchel-young)から常に
 
 $$
 \langle x,y\rangle-f^*(y)
@@ -797,7 +797,7 @@ $$
 C=\{x\in\mathbb R^n:\|x\|_p\le1\}
 $$
 
-とし、$1/p+1/q=1$ とする。Hölder 不等式を使って
+とし、$1/p+1/q=1$ とする。[Hölder 不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使って
 
 $$
 \sigma_C(y)=\|y\|_q
@@ -807,7 +807,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-Hölder 不等式から
+[Hölder 不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から
 
 $$
 y^{\mathsf T}x

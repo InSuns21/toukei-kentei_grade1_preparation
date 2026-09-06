@@ -364,7 +364,7 @@ $$
 \nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。陰関数定理により、$x^*$ の近くで等式集合 $h(x)=0$ は
+MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。[陰関数定理](#thm-f0-02c5a-implicit-function)により、$x^*$ の近くで等式集合 $h(x)=0$ は
 
 $$
 z=\varphi(u)
@@ -372,7 +372,7 @@ $$
 
 と表せます。
 
-$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と陰関数定理の微分公式から
+$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と[陰関数定理の微分公式](#thm-f0-02c5a-implicit-function)から
 
 $$
 D\varphi(u^*)d_u=d_z.

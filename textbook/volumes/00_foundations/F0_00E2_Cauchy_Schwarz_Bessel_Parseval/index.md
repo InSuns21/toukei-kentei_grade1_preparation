@@ -168,7 +168,7 @@ $$
 > を満たします。
 <!-- formal-statement-end -->
 
-この定理はCauchy--Schwarz不等式から次のように従います。
+[この定理はCauchy--Schwarz不等式](#thm-f0-00e2-cauchy-schwarz)から次のように従います。
 
 $$
 \begin{aligned}

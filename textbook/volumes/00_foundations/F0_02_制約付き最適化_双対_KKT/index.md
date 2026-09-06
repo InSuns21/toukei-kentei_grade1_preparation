@@ -483,7 +483,7 @@ $$
 - 目的関数 $\frac12\|\boldsymbol w\|^2$ は凸
 - 制約 $1-y_i(\boldsymbol w^{\mathsf T}\boldsymbol x_i+b)\le0$ はアフィン
 
-なので凸最適化問題です。線形分離可能で適切な実行可能性条件が満たされれば、KKT条件を使って最適解を特徴付けられます。
+なので凸最適化問題です。線形分離可能で適切な実行可能性条件が満たされれば、[KKT条件](#ref-kkt-overview)を使って最適解を特徴付けられます。
 
 ---
 
@@ -535,7 +535,7 @@ $$
 \qquad\text{subject to}\qquad x\ge0
 $$
 
-を $g(x)=-x\le0$ と書き、KKT条件から最適解と乗数を求めよ。
+を $g(x)=-x\le0$ と書き、[KKT条件](#ref-kkt-overview)から最適解と乗数を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答

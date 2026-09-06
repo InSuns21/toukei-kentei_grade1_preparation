@@ -115,7 +115,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f_n\le f$ なのでLebesgue積分の単調性より
+$f_n\le f$ なので[Lebesgue積分の単調性](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#prop-f0-00d2a-02)より
 
 $$
 \int f_n\,d\mu\le\int f\,d\mu.
@@ -173,7 +173,7 @@ $$
 \sum_{k=1}^m a_k\mu(A_k\cap E_n).
 $$
 
-D2の測度の下からの連続性より、$E_n\uparrow\{\phi>0\}$ 上で
+D2の測度の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より、$E_n\uparrow\{\phi>0\}$ 上で
 
 $$
 \mu(A_k\cap E_n)\uparrow\mu(A_k),
@@ -216,7 +216,7 @@ $$
 f_n(x)=1-x^n
 $$
 
-とすると $0\le f_n\uparrow1_{[0,1)}$。MCTより
+とすると $0\le f_n\uparrow1_{[0,1)}$。[MCT](#ref-limit-integral-exchange)より
 
 $$
 \int_0^1(1-x^n)\,dx
@@ -288,7 +288,7 @@ $$
 g_n\uparrow\liminf f_n.
 $$
 
-したがってFatouは「振動する列を liminf という単調な下側近似へ変換し、MCTを使う定理」と読めます。
+したがってFatouは「振動する列を liminf という単調な下側近似へ変換し、[MCT](#ref-limit-integral-exchange)を使う定理」と読めます。
 
 <a id="lem-f0-00d2b-01"></a>
  
@@ -335,7 +335,7 @@ g_1\le g_2\le\cdots,
 g_n\uparrow\liminf_{n\to\infty}f_n.
 $$
 
-MCTより
+[MCT](#ref-limit-integral-exchange)より
 
 $$
 \int\liminf f_n\,d\mu
@@ -553,7 +553,7 @@ $$
 f_n\to0\quad\text{a.e.}
 $$
 
-また $0\le x^n\le1$ で、$g=1$ は可積分。DCTより
+また $0\le x^n\le1$ で、$g=1$ は可積分。[DCT](#thm-f0-00d2b-01)より
 
 $$
 \int_0^1x^n\,dx\to0.
@@ -621,7 +621,7 @@ $[0,1]$ 上で $f_n=1-x^n$ とする。MCTの仮定を確認し、積分の極�
 <!-- solution-start -->
 ### 詳細解答
 
-$0\le1-x^n\le1-x^{n+1}$ なので単調増加。$x\in[0,1)$ で $x^n\to0$、$x=1$ でも $f_n(1)=0$ なので極限は $1_{[0,1)}$。MCTより
+$0\le1-x^n\le1-x^{n+1}$ なので単調増加。$x\in[0,1)$ で $x^n\to0$、$x=1$ でも $f_n(1)=0$ なので極限は $1_{[0,1)}$。[MCT](#ref-limit-integral-exchange)より
 
 $$
 \lim_n\int_0^1(1-x^n)dx
@@ -633,7 +633,7 @@ $$
 
 ### 本番答案
 
-$f_n\uparrow1_{[0,1)}$ かつ非負なのでMCTより積分極限は1。
+$f_n\uparrow1_{[0,1)}$ かつ非負なので[MCT](#ref-limit-integral-exchange)より積分極限は1。
 
 ### 採点基準（20点）
 
@@ -681,7 +681,7 @@ f_n(x)=\frac{x}{1+nx}
 \qquad(0\le x\le1)
 $$
 
-について、DCTを用いて $\lim_n\int_0^1f_n(x)dx$ を求めよ。
+について、[DCT](#thm-f0-00d2b-01)を用いて $\lim_n\int_0^1f_n(x)dx$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -692,7 +692,7 @@ $$
 0\le f_n(x)\le x\le1.
 $$
 
-$g(x)=x$ は $[0,1]$ 上可積分なのでDCTより
+$g(x)=x$ は $[0,1]$ 上可積分なので[DCT](#thm-f0-00d2b-01)より
 
 $$
 \lim_n\int_0^1f_n(x)dx
@@ -702,7 +702,7 @@ $$
 
 ### 本番答案
 
-$f_n\to0$ pointwise、$|f_n|\le x$ で $x\in L^1([0,1])$。DCTより極限は0。
+$f_n\to0$ pointwise、$|f_n|\le x$ で $x\in L^1([0,1])$。[DCT](#thm-f0-00d2b-01)より極限は0。
 
 ### 採点基準（20点）
 
@@ -767,7 +767,7 @@ $$
 
 ### 本番答案
 
-$|f|\le g$ a.e. より $|f_n-f|\le2g\in L^1$、かつ $|f_n-f|\to0$ a.e.。DCTより $\int|f_n-f|\to0$。
+$|f|\le g$ a.e. より $|f_n-f|\le2g\in L^1$、かつ $|f_n-f|\to0$ a.e.。[DCT](#thm-f0-00d2b-01)より $\int|f_n-f|\to0$。
 
 ### 採点基準（20点）
 

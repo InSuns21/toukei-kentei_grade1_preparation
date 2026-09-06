@@ -461,6 +461,8 @@ $$
 
 ---
 
+<a id="ref-hahn-banach-norm-preserving-extension"></a>
+
 ## 12. ノルム空間での重要な系：ノルム保存拡張
 
 $X$ をノルム空間、$M\subset X$ を線形部分空間、$f_0\in M^*$ とします。
@@ -559,7 +561,7 @@ $$
 \|f_0\|=1.
 $$
 
-ノルム保存拡張により、$f\in X^*$ で
+[ノルム保存拡張](#ref-hahn-banach-norm-preserving-extension)により、$f\in X^*$ で
 
 $$
 \boxed{

@@ -1,6 +1,6 @@
 # F0-02C1A 関数解析I-A：Hilbert射影定理・直交分解
 
-F0-02C1でBanach/Hilbert空間の型を分けました。この講義ではHilbert空間の**閉凸集合への最近点**を、有限次元のcompactnessに頼らず完備性と平行四辺形恒等式から構成します。
+F0-02C1でBanach/Hilbert空間の型を分けました。この講義ではHilbert空間の**閉凸集合への最近点**を、[有限次元のcompactnessに頼らず完備性と平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)から構成します。
 
 $$
 \boxed{
@@ -49,7 +49,7 @@ $$
 
 です。
 
-有限次元のF0-02BではHeine--Borelを使いました。しかし無限次元では閉有界集合がコンパクトとは限りません。
+有限次元のF0-02Bでは[Heine--Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)を使いました。しかし無限次元では閉有界集合がコンパクトとは限りません。
 
 Hilbert空間では、**内積構造と完備性**を使って別の証明をします。
 
@@ -150,7 +150,7 @@ $$
 
 $p,q\in C$ が両方最近点だとします。
 
-同じ平行四辺形恒等式から
+同じ[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)から
 
 $$
 \left\|z-\frac{p+q}{2}\right\|^2

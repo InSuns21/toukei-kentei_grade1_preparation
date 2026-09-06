@@ -245,7 +245,7 @@ G_N
 \sum_{k=1}^N g_k
 $$
 
-と置きます。Minkowskiの不等式より
+と置きます。[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)より
 
 $$
 \|G_N\|_2
@@ -267,7 +267,7 @@ $$
 
 と定められます。
 
-$G_N^2\uparrow G^2$ なので、D2BのMCTより
+$G_N^2\uparrow G^2$ なので、D2Bの[MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
 
 $$
 \int G^2d\mu
@@ -318,7 +318,7 @@ $$
 H_k.
 $$
 
-有限部分和にMinkowskiを使って極限を取れば
+有限部分和に[Minkowski](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使って極限を取れば
 
 $$
 \|H_k\|_2

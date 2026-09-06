@@ -27,7 +27,7 @@ $$
 =\frac1n\sum_{i=1}^nX_i
 $$
 
-についてチェビシェフの不等式から
+について[チェビシェフの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev)から
 
 $$
 P(|\overline X_n-\mu|>\varepsilon)
@@ -263,7 +263,7 @@ $$
 
 ## 6. Borel--Cantelliを使う
 
-[前章のBorel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-borel-cantelli-1)から
+[前章のBorel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)から
 
 $$
 \max_{k\le2^m}|S_k|
@@ -397,11 +397,11 @@ $P(|S_{2^k}|>\varepsilon2^k)\le\sigma^2/(\varepsilon^22^k)$。総和有限ゆえ
 - Level: B
 - 目安時間: 18分
 
-Kolmogorov最大不等式を用いて、$2^k<n\le2^{k+1}$ の区間内変動を $2^k$ で割った量がa.s.0へ行くことを示す方針を書け。
+[Kolmogorov最大不等式](#thm-kolmogorov-maximal)を用いて、$2^k<n\le2^{k+1}$ の区間内変動を $2^k$ で割った量がa.s.0へ行くことを示す方針を書け。
 
 <!-- solution-start -->
 #### 詳細解答
-区間内の増分 $S_n-S_{2^k}$ にKolmogorov最大不等式を適用すると、最大値が $\varepsilon2^k$ を超える確率は区間の分散和 $2^k\sigma^2$ を $\varepsilon^22^{2k}$ で割った $O(2^{-k})$。総和可能なのでBCで区間最大増分/2^k→0 a.s.。
+区間内の増分 $S_n-S_{2^k}$ に[Kolmogorov最大不等式](#thm-kolmogorov-maximal)を適用すると、最大値が $\varepsilon2^k$ を超える確率は区間の分散和 $2^k\sigma^2$ を $\varepsilon^22^{2k}$ で割った $O(2^{-k})$。総和可能なのでBCで区間最大増分/2^k→0 a.s.。
 
 #### 本番答案
 最大不等式で $P(\max_{2^k<n\le2^{k+1}}|S_n-S_{2^k}|>\varepsilon2^k)\le C2^{-k}$。総和有限→BC。

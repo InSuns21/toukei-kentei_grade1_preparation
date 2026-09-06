@@ -891,7 +891,7 @@ Carathéodory 構成で得た測度が完全であることを説明せよ。
 <!-- solution-start -->
 ### 詳細解答
 
-$N\in\mathcal M$、$\mu(N)=0$ とし $A\subset N$ を任意に取る。外測度の単調性から
+$N\in\mathcal M$、$\mu(N)=0$ とし $A\subset N$ を任意に取る。外[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から
 
 $$
 0\le\mu^*(A)\le\mu^*(N)=0

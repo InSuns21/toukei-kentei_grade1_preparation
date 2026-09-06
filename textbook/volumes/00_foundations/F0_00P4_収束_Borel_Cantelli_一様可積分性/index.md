@@ -196,7 +196,7 @@ $$
 \bigcup_{n\ge m}A_n.
 $$
 
-従ってunion boundより
+従って[union bound](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)より
 
 $$
 P(A_n\ \mathrm{i.o.})
@@ -218,7 +218,7 @@ $$
 P(|X_n-X|>1/k)<\infty
 $$
 
-なら、Borel--Cantelli第1補題から各 $k$ で $\{|X_n-X|>1/k\}$ はa.s.有限回しか起こりません。可算個の確率1事象を交差して
+なら、[Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)から各 $k$ で $\{|X_n-X|>1/k\}$ はa.s.有限回しか起こりません。可算個の確率1事象を交差して
 
 $$
 X_n\xrightarrow{a.s.}X
@@ -276,7 +276,7 @@ $$
 C_{m,N}:=\bigcap_{n=m}^{N}A_n^c
 $$
 
-は $N$ とともに減少するので、確率測度の上からの連続性より
+は $N$ とともに減少するので、[確率測度の上からの連続性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-continuity-from-above)より
 
 $$
 P\left(\bigcap_{n=m}^{\infty}A_n^c\right)
@@ -332,7 +332,7 @@ $$
 I_n:=1_{\{|X_n-X|>\varepsilon\}}
 $$
 
-と置きます。概収束より $I_n\to0$ a.s. で、$0\le I_n\le1$ です。優収束定理から
+と置きます。概収束より $I_n\to0$ a.s. で、$0\le I_n\le1$ です。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 P(|X_n-X|>\varepsilon)=E[I_n]\to0.
@@ -353,7 +353,7 @@ $$
 E|X_n-X|^p\to0
 $$
 
-とします。Markov不等式から
+とします。[Markov不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
 
 $$
 P(|X_n-X|>\varepsilon)
@@ -480,7 +480,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-各 $k$ についてBorel--Cantelli第1補題を使うと、$|X_n-X|>1/k$ はa.s.有限回しか起こらない。可算個の確率1事象を交差すれば、全ての $k$ について最終的に $|X_n-X|\le1/k$。従って $X_n\to X$ a.s.
+各 $k$ について[Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)を使うと、$|X_n-X|>1/k$ はa.s.有限回しか起こらない。可算個の確率1事象を交差すれば、全ての $k$ について最終的に $|X_n-X|\le1/k$。従って $X_n\to X$ a.s.
 
 #### 本番答案
 $A_n^{(k)}=\{|X_n-X|>1/k\}$ と置く。各 $k$ で $\sum_nP(A_n^{(k)})<\infty$ だからBorel--Cantelli Iより $P(A_n^{(k)}\ \mathrm{i.o.})=0$。全 $k$ を可算交差して $X_n\to X$ a.s.
@@ -501,7 +501,7 @@ $A_n^{(k)}=\{|X_n-X|>1/k\}$ と置く。各 $k$ で $\sum_nP(A_n^{(k)})<\infty$ 
 
 <!-- solution-start -->
 #### 詳細解答
-$\sum_nP(A_n)=\sum_np=\infty$ で事象は独立。Borel--Cantelli第2補題から $P(A_n\ \mathrm{i.o.})=1$。
+$\sum_nP(A_n)=\sum_np=\infty$ で事象は独立。[Borel--Cantelli第2補題](#thm-f0-00p4-borel-cantelli-2)から $P(A_n\ \mathrm{i.o.})=1$。
 
 #### 本番答案
 独立かつ $\sum_nP(A_n)=\infty$ よりBorel--Cantelli IIを適用し、確率1。

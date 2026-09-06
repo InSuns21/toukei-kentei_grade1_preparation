@@ -336,6 +336,8 @@ $$
 
 ---
 
+<a id="ref-riesz-representation"></a>
+
 ## 11. Hilbert空間では双対が再びベクトルになる
 
 Hilbert空間 $H$ では、驚くほど有限次元に近い状況が戻ってきます。

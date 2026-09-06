@@ -70,7 +70,7 @@ $$
 
 $\delta_x$ は連続線形汎関数です。
 
-したがってRiesz表現定理により、各 $x$ に対して一意な
+したがって[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により、各 $x$ に対して一意な
 
 $$
 K_x\in\mathcal H

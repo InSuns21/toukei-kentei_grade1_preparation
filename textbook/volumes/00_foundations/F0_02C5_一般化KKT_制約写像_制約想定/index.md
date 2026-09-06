@@ -610,7 +610,7 @@ $$
 - 主題: 一般化KKT
 - 使用技術: 自己双対錐と成分相補性
 
-$K=\mathbb R_+^m$ として、一般化KKTから $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
+$K=\mathbb R_+^m$ として、[一般化KKT](#thm-f0-02c5-kkt-from-normal-chain)から $\lambda_i\ge0$ と $\lambda_i g_i(x^*)=0$ を導け。
 
 <!-- solution-start -->
 #### 解答
@@ -657,7 +657,7 @@ $$
 <!-- solution-start -->
 #### 解答
 ##### 詳細解答
-局所最適点の接方向条件から
+[局所最適点の接方向条件](#lem-f0-02c5-local-min-tangent)から
 
 $$
 -\nabla f(x^*)\in T_C(x^*)^\circ.
@@ -675,7 +675,7 @@ $$
 \nabla f(x^*)+DG(x^*)^T\lambda=0
 $$
 
-を得ます。さらに錐normal cone定理から $\lambda\in K^*$ と $\lambda^TG(x^*)=0$ です。
+を得ます。さらに[錐normal cone定理](#thm-f0-02c5-cone-normal)から $\lambda\in K^*$ と $\lambda^TG(x^*)=0$ です。
 ##### 本番答案
 
 $$

@@ -58,7 +58,7 @@ $$
 
 ## 2. 特異値と右特異ベクトル
 
-スペクトル定理により
+[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により
 
 $$
 A^{\mathsf T}A v_i
@@ -349,7 +349,7 @@ $$
 
 を表します。
 
-SVDを使うと
+[SVD](#thm-f0-00f2-svd)を使うと
 
 $$
 x

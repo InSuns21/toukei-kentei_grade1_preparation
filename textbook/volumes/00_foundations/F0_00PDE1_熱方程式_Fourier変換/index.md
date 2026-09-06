@@ -229,7 +229,7 @@ $$
 
 ## 7. Gaussian heat kernel
 
-GaussianのFourier変換公式から
+[GaussianのFourier変換公式](../F0_00FA2_Fourier変換_畳み込み_反転/index.md#lem-f0-00fa2-gaussian-transform)から
 
 $$
 G_t(x)

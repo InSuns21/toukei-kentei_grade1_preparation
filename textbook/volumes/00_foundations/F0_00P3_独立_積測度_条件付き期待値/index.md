@@ -152,7 +152,7 @@ E[g(X)h(Y)]
 \int g(x)h(y)\,d(P_X\otimes P_Y)(x,y).
 $$
 
-Fubiniを使えば
+[Fubini](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使えば
 
 $$
 \boxed{
@@ -186,14 +186,14 @@ $$
 - Level: A
 - 目安時間: 10分
 
-独立な可積分確率変数 $X,Y$ について、積分可能性が保証されるとき $E[XY]=E[X]E[Y]$ を積測度から示せ。
+独立な可積分確率変数 $X,Y$ について、積分可能性が保証されるとき $E[XY]=E[X]E[Y]$ を[積測度](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-01)から示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-独立性より $(X,Y)$ の同時分布は $P_X\otimes P_Y$。従ってTonelli/Fubiniにより $E[XY]=\iint xy\,dP_X(x)dP_Y(y)=(\int x\,dP_X)(\int y\,dP_Y)$。
+独立性より $(X,Y)$ の同時分布は $P_X\otimes P_Y$。従ってTonelli/[Fubini](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により $E[XY]=\iint xy\,dP_X(x)dP_Y(y)=(\int x\,dP_X)(\int y\,dP_Y)$。
 
 #### 本番答案
-$P_{(X,Y)}=P_X\otimes P_Y$ より、Fubiniを用いて $E[XY]=\iint xy\,dP_XdP_Y=E[X]E[Y]$。
+$P_{(X,Y)}=P_X\otimes P_Y$ より、[Fubini](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を用いて $E[XY]=\iint xy\,dP_XdP_Y=E[X]E[Y]$。
 
 #### 採点基準（20点）
 - 同時分布の積表示: 7点

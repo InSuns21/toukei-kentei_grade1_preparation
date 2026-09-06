@@ -95,7 +95,7 @@ $$
 0\le g_n\circ Y\uparrow g\circ Y.
 $$
 
-単調収束定理より
+[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
 
 $$
 \begin{aligned}
@@ -285,7 +285,7 @@ $$
 E[X\mid\sigma(Y)]
 $$
 
-は $\sigma(Y)$-可測です。Doob--Dynkin lemmaにより、あるBorel可測関数 $m$ が存在して
+は $\sigma(Y)$-可測です。[Doob--Dynkin lemma](#thm-f0-00p3d-doob-dynkin)により、あるBorel可測関数 $m$ が存在して
 
 $$
 \boxed{
@@ -351,7 +351,7 @@ $$
 
 ### B02 Doob--Dynkinの単関数近似
 
-$W\ge0$ が $\sigma(Y)$-可測とする。$W_n\uparrow W$ となる単関数近似から $W=m(Y)$ となるBorel可測 $m$ を構成せよ。
+$W\ge0$ が $\sigma(Y)$-可測とする。$W_n\uparrow W$ となる[単関数近似](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)から $W=m(Y)$ となるBorel可測 $m$ を構成せよ。
 
 <!-- solution-start -->
 各 $W_n$ のレベル集合を $Y^{-1}(B)$ と書き、$W_n=m_n(Y)$ を作る。$m=\limsup_nm_n$ とすればBorel可測で、$Y(\Omega)$ 上では $m(Y)=\lim_nW_n=W$。
