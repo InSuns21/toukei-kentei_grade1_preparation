@@ -5,6 +5,7 @@ prerequisites:
   - F0-00D3
   - F0-00D2B
   - F0-00C
+  - F0-00A1
 
 # 積測度の回収と D5 の非可測集合・選択公理は、ここでは後続章への接続として言及する。
 forward_references:
