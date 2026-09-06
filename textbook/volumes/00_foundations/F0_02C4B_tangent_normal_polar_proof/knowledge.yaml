@@ -4,6 +4,11 @@ coverage: complete
 prerequisites:
   - F0-02C4A
 
+forward_references:
+  - convex.fenchel-conjugate
+  - convex.fenchel-young
+  - optimization.kkt-multiplier-existence
+
 concepts:
   - id: convex.tangent-cone-conic-hull
     name: 凸集合のtangent cone表示
