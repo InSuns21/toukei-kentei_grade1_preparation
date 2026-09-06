@@ -836,17 +836,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（完備統計量）**
 > 統計量 $T$ について、任意の可測関数 $g$ が全ての母数 $\theta$ で $E_\theta[|g(T)|]<\infty$ を満たすとする。このとき
->
-> $$
-> E_\theta[g(T)]=0\qquad\text{for all }\theta
-> $$
->
+
+$$
+E_\theta[g(T)]=0\qquad\text{for all }\theta
+$$
+
 > ならば
->
-> $$
-> P_\theta(g(T)=0)=1\qquad\text{for all }\theta
-> $$
->
+
+$$
+P_\theta(g(T)=0)=1\qquad\text{for all }\theta
+$$
+
 > が成り立つとき、$T$ を**完備統計量**という。
 <!-- formal-statement-end -->
 
@@ -905,17 +905,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（Rao--Blackwellの定理）**
 > $U$ を $\tau(\theta)$ の不偏推定量で $E_\theta[U^2]<\infty$ とし、$T$ を $\theta$ の十分統計量とする。
->
-> $$
-> U^*=E_\theta[U\mid T]
-> $$
->
+
+$$
+U^*=E_\theta[U\mid T]
+$$
+
 > と置く。十分性により $U^*$ は未知母数に依存しない $T$ の関数として選べる。このとき $U^*$ も $\tau(\theta)$ の不偏推定量であり、全ての $\theta$ で
->
-> $$
-> \operatorname{Var}_\theta(U^*)\le \operatorname{Var}_\theta(U)
-> $$
->
+
+$$
+\operatorname{Var}_\theta(U^*)\le \operatorname{Var}_\theta(U)
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1003,17 +1003,17 @@ Rao--Blackwellの定理は「この推定量よりは悪くならない」と言
 <!-- formal-statement-start -->
 > **定義（一様最小分散不偏推定量）**
 > $U$ が $\tau(\theta)$ の不偏推定量であり、同じ $\tau(\theta)$ の任意の不偏推定量 $V$ に対して、全ての $\theta$ で
->
-> $$
-> \operatorname{Var}_\theta(U)\le\operatorname{Var}_\theta(V)
-> $$
->
-> を満たすとき、$U$ を $\tau(\theta)$ の**一様最小分散不偏推定量（UMVU推定量）**という。
+
+$$
+\operatorname{Var}_\theta(U)\le\operatorname{Var}_\theta(V)
+$$
+
+> を満たすとき、$U$ を $\tau(\theta)$ の**一様最小分散不偏推定量**という。
 <!-- formal-statement-end -->
 
 「一様」は、ある特定の $\theta$ だけでなく、母数空間の全ての点で同時に最小分散という意味です。
 
-## 23. Lehmann--Schefféの定理：完備十分統計量でUMVUが決まる
+## 23. Lehmann--Schefféの定理：完備十分統計量で一様最小分散不偏推定量が決まる
 
 <a id="thm-s1-02-lehmann-scheffe"></a>
 
@@ -1066,7 +1066,7 @@ $$
 $V$ は任意だったので、$h(T)$ は一様最小分散不偏推定量です。同じ議論で、$T$ の関数としての不偏推定量は完備性により一意です。
 <!-- proof-end -->
 
-### 23.2 ベルヌーイ標本では標本平均がUMVU
+### 23.2 ベルヌーイ標本では標本平均が一様最小分散不偏推定量
 
 ベルヌーイ標本では
 
