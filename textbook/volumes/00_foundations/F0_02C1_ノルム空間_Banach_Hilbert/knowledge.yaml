@@ -5,6 +5,12 @@ prerequisites:
   - F0-02C
   - F0-00D2E
 
+forward_references:
+  - functional.hilbert-projection-theorem
+  - functional.orthogonal-decomposition
+  - rkhs.rkhs
+  - topology.extreme-value-theorem
+
 concepts:
   - id: functional.norm-recap-c1
     name: ノルムの再掲
