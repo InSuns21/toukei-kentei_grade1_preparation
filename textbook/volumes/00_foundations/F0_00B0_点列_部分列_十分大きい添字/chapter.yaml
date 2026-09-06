@@ -3,7 +3,7 @@ title: "補講：点列・部分列・十分大きい添字"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A1B
+  - F0-00A1C
 official_scope: []
 learning_objectives:
   - 点列を自然数から集合への写像として定義できる
