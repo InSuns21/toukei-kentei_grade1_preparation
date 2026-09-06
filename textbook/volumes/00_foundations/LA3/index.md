@@ -20,12 +20,12 @@ $$
 
 <a id="def-la3-dual-space"></a>
 <!-- formal-statement-start -->
-> **定義（代数的双対空間）**  
+> **定義（代数的双対）**  
 > $V$ 上の線形形式全体
 $$
 V^*=\{\varphi:V\to\mathbb F:\varphi\text{ は線形}\}
 $$
-> を $V$ の代数的双対空間という。加法とスカラー倍は点ごとに定める。
+> を $V$ の代数的双対という。加法とスカラー倍は点ごとに定める。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la3-linear-form, def-la3-dual-space -->
@@ -166,7 +166,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la3-dual-map -->
-**定義の確認**：基底を選び $T$ の表現行列を $A$ とすると、双対基底に関する $T^*$ の表現行列は $A^{\mathsf T}$ です。ここでは複素数上でも単なる転置です。後の内積空間で出る共役転置 $A^*$ は、代数的双対写像ではなく随伴作用素の行列表現です。
+**定義の確認**：基底を選び $T$ の表現行列を $A$ とすると、双対基底に関する $T^*$ の表現行列は $A^{\mathsf T}$ です。ここでは複素数上でも単なる転置です。後の内積空間で出る共役転置 $A^*$ は、代数的双対写像ではなく有限次元随伴の行列表現です。
 <!-- definition-example-end -->
 
 双対写像は向きを反転させます。
