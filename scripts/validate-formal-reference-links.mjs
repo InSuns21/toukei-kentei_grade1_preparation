@@ -1,8 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = path.resolve('textbook/volumes');
 const REPO = process.cwd();
+const DREAM_INDEX = path.resolve('textbook/dream-theater-index.json');
+const DREAM_POLICY = path.resolve('textbook/dream-theater-knowledge.yaml');
 const STABLE_PREFIX = '(?:def|thm|prop|lem|cor|axiom|principle|ref)';
 
 function walk(dir) {
@@ -26,39 +29,6 @@ const chapterSource = '(?:F0-[0-9A-Z]+(?:-[0-9A-Z]+)?|P\\d+[A-Z]?|D\\d+[A-Z]?|C\
 const priorDependencyRe = new RegExp(`(?:前章|前節|前講義)の.{0,28}${formalSource}.{0,20}(?:から|より|により|を使|を用)`, 'u');
 const chapterDependencyRe = new RegExp(`${chapterSource}(?:の|で).{0,18}${formalSource}.{0,20}(?:から|より|により|を使|を用|を証明|で証明|を導出|で導出)`, 'u');
 const proofLocationRe = new RegExp(`(?:証明|導出|出所|由来)(?:そのもの)?(?:は|を|が|まで)?\\s*.{0,35}${chapterSource}(?:へ|に|で)`, 'u');
-
-const canonicalResults = [
-  {
-    name: 'Tonelliの定理',
-    pattern: /(?:Tonelli|トネリ)の定理/u,
-    target: 'textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md',
-    fragment: 'thm-tonelli',
-  },
-  {
-    name: 'Borel--Cantelli第1補題',
-    pattern: /Borel[-–—]{1,2}Cantelli第1補題/u,
-    target: 'textbook/volumes/00_foundations/F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md',
-    fragment: 'thm-borel-cantelli-1',
-  },
-  {
-    name: 'Zornの補題',
-    pattern: /Zornの補題/u,
-    target: 'textbook/volumes/00_foundations/F0_00A3_半順序_Zorn_極大延長/index.md',
-    fragment: 'thm-zorn',
-  },
-  {
-    name: '基底延長定理',
-    pattern: /基底延長定理/u,
-    target: 'textbook/volumes/00_foundations/F0_00E_ベクトル空間_基底_Gram_Schmidt_直交射影/index.md',
-    fragment: 'thm-basis-extension',
-  },
-  {
-    name: 'Kolmogorov最大不等式',
-    pattern: /(?:Kolmogorov|コルモゴロフ)最大不等式/u,
-    target: 'textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md',
-    fragment: 'thm-kolmogorov-maximal',
-  },
-];
 
 function splitHref(href) {
   const [beforeHash, rawFragment = ''] = href.split('#', 2);
@@ -105,41 +75,332 @@ function stableLinksOnLine(line) {
   return [...line.matchAll(linkRe)].filter((m) => stableFragmentInHrefRe.test(m[2]));
 }
 
-function canonicalResultIsInvoked(unlinked, result) {
-  const match = result.pattern.exec(unlinked);
-  if (!match) return false;
-  const after = unlinked.slice(match.index + match[0].length, match.index + match[0].length + 24);
-  return /^[^。！？\n]{0,10}(?:から|より|により|を使(?:う|って|い)|を用(?:いる|いて)?)/u.test(after);
+function loadDreamTheaterKnowledge(contents) {
+  if (!fs.existsSync(DREAM_INDEX) || !fs.existsSync(DREAM_POLICY)) return { pagesByFile: new Map(), aliases: [] };
+
+  const index = JSON.parse(fs.readFileSync(DREAM_INDEX, 'utf8'));
+  const policy = YAML.parse(fs.readFileSync(DREAM_POLICY, 'utf8')) ?? {};
+  const metadataFile = policy.metadata_file || 'knowledge.yaml';
+  const pagesByFile = new Map();
+  const concepts = [];
+
+  for (const relPath of (index.sections ?? []).flatMap((section) => section.paths ?? [])) {
+    const fullPath = path.resolve(REPO, relPath);
+    const knowledgePath = path.join(path.dirname(fullPath), metadataFile);
+    if (!fs.existsSync(fullPath) || !fs.existsSync(knowledgePath)) continue;
+    const doc = YAML.parse(fs.readFileSync(knowledgePath, 'utf8')) ?? {};
+    const page = { id: inferPageId(relPath), path: relPath, fullPath, concepts: [] };
+    page.concepts = (doc.concepts ?? []).map((raw, order) => normalizeConcept(raw, page, order));
+    concepts.push(...page.concepts);
+    pagesByFile.set(fullPath, page);
+  }
+
+  const aliases = concepts
+    .flatMap((concept) => concept.aliases.map((alias) => ({ concept, alias, normalized: normalizeSemantic(alias) })))
+    .filter((item) => item.normalized.length >= 2)
+    .sort((a, b) => b.normalized.length - a.normalized.length);
+
+  for (const concept of concepts) concept.reference = deriveCanonicalReference(concept, contents);
+  return { pagesByFile, aliases };
 }
+
+function normalizeConcept(raw, page, order) {
+  const kind = String(raw.kind ?? 'term');
+  return {
+    id: String(raw.id ?? ''),
+    name: String(raw.name ?? ''),
+    kind,
+    introduction: raw.introduction ? String(raw.introduction) : (kind === 'term' ? 'inline' : 'formal'),
+    aliases: [...new Set([raw.name, ...(raw.aliases ?? [])].map((value) => String(value).trim()).filter(Boolean))],
+    introductionAliases: [...new Set((raw.introduction_aliases ?? []).map((value) => String(value).trim()).filter(Boolean))],
+    page,
+    order,
+    reference: null,
+  };
+}
+
+function deriveCanonicalReference(concept, contents) {
+  const markdown = contents.get(concept.page.fullPath) ?? fs.readFileSync(concept.page.fullPath, 'utf8');
+  const lines = stripNonReaderContent(markdown).split(/\r?\n/);
+  const rawLines = markdown.split(/\r?\n/);
+  const intro = findIntroductionLine(lines, concept);
+  if (intro == null) return null;
+
+  const formalKind = ['theorem', 'lemma', 'proposition', 'corollary'].includes(concept.kind);
+  const candidates = [];
+  for (let i = Math.max(0, intro - 14); i < Math.min(rawLines.length, intro + 1); i += 1) {
+    for (const match of rawLines[i].matchAll(anchorRe)) {
+      const fragment = match[1];
+      const prefix = fragment.split('-', 1)[0];
+      if (formalKind && prefix === 'ref') continue;
+      candidates.push({ line: i + 1, fragment });
+    }
+  }
+
+  let chosen = candidates.filter((item) => item.line <= intro).at(-1) ?? null;
+  if (!chosen && !formalKind) {
+    let heading = -1;
+    for (let i = intro - 1; i >= 0; i -= 1) {
+      if (/^\s*#{2,6}\s+/u.test(rawLines[i])) { heading = i; break; }
+    }
+    if (heading >= 0) {
+      const sectionAnchors = [];
+      for (let i = Math.max(0, heading - 5); i <= heading; i += 1) {
+        for (const match of rawLines[i].matchAll(anchorRe)) sectionAnchors.push({ line: i + 1, fragment: match[1] });
+      }
+      chosen = sectionAnchors.at(-1) ?? null;
+    }
+  }
+
+  return chosen ? { target: concept.page.fullPath, targetRel: concept.page.path, fragment: chosen.fragment, introLine: intro } : null;
+}
+
+function collectDreamDependencyUses(readerLine, rawLine, lineNumber, aliases) {
+  const normalizedLine = normalizeSemantic(readerLine);
+  const uses = new Map();
+  const acceptedAliasTexts = [];
+
+  for (const item of aliases) {
+    if (!normalizedLine.includes(item.normalized)) continue;
+    if (acceptedAliasTexts.some((longer) => longer.length > item.normalized.length && longer.includes(item.normalized))) continue;
+    if (!hasExplicitReasoningUse(normalizedLine, item)) continue;
+    acceptedAliasTexts.push(item.normalized);
+    if (isResultLike(item.concept, item.alias)) {
+      uses.set(item.concept.id, { concept: item.concept, alias: item.alias, line: lineNumber, raw: rawLine });
+    }
+  }
+
+  for (const candidate of extractNamedDependencyCandidates(readerLine)) {
+    if (isGenericDependencyCandidate(candidate)) continue;
+    const resolved = resolveCandidate(candidate, aliases);
+    if (resolved && isResultLike(resolved, candidate)) {
+      uses.set(resolved.id, { concept: resolved, alias: candidate, line: lineNumber, raw: rawLine });
+    }
+  }
+  return [...uses.values()];
+}
+
+function validateKnowledgeDependencyLink(file, rel, use, errors) {
+  const reference = use.concept.reference;
+  if (!reference) {
+    errors.push(`${rel}:${use.line}: knowledge dependency ${use.concept.name} (${use.concept.id}) has no stable source anchor near its introduction in ${use.concept.page.path}`);
+    return false;
+  }
+
+  const matchingLinks = [...use.raw.matchAll(linkRe)].filter((match) => linkLabelNamesConcept(match[1], use.concept));
+  if (matchingLinks.length === 0) {
+    errors.push(`${rel}:${use.line}: named proof dependency ${use.concept.name} (${use.concept.id}) must be a clickable link to ${reference.targetRel}#${reference.fragment}`);
+    return false;
+  }
+
+  for (const match of matchingLinks) {
+    const href = match[2].trim();
+    if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
+    const actual = resolveTarget(file, href);
+    if (actual.target === reference.target && actual.fragment === reference.fragment) return true;
+  }
+
+  errors.push(`${rel}:${use.line}: ${use.concept.name} (${use.concept.id}) is linked, but not to its knowledge-DAG source ${reference.targetRel}#${reference.fragment}`);
+  return false;
+}
+
+function linkLabelNamesConcept(label, concept) {
+  const normalized = normalizeSemantic(label);
+  return concept.aliases.some((alias) => {
+    const needle = normalizeSemantic(alias);
+    return needle.length >= 2 && (normalized === needle || normalized.includes(needle));
+  });
+}
+
+function hasExplicitReasoningUse(line, item) {
+  let offset = 0;
+  while (true) {
+    const index = line.indexOf(item.normalized, offset);
+    if (index < 0) return false;
+    const tail = line.slice(index + item.normalized.length);
+    if (isResultLike(item.concept, item.alias)) {
+      if (/^(?:(?:の)?(?:定理|補題|命題|系))?(?:により|によれば|より(?!弱|強|大|小|高|低|一般|厳|緩)|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/u.test(tail)) return true;
+    }
+    offset = index + item.normalized.length;
+  }
+}
+
+function isResultLike(concept, alias) {
+  if (['theorem', 'lemma', 'proposition', 'corollary'].includes(concept.kind)) return true;
+  return /(?:定理|補題|命題|公式|不等式|原理|法則|恒等式)$/u.test(String(alias).trim());
+}
+
+function extractNamedDependencyCandidates(line) {
+  const text = line.replace(/[*_>#`\[\]]/g, '').replace(/\s+/g, ' ').trim();
+  const out = [];
+  const marker = /(?:により|によれば|より|から|を用(?:いる|いて|いれば|いた)|を使(?:う|って|えば|い)|を適用(?:する|して)|の系として)/gu;
+  for (const match of text.matchAll(marker)) {
+    const prefix = text.slice(0, match.index).trimEnd();
+    const named = prefix.match(/(?:^|[、。；;:：!！?？「」『』（）()])\s*([^、。；;:：!！?？「」『』（）()]{1,80}?(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))\s*$/u);
+    if (!named) continue;
+    const candidate = cleanCandidateLead(named[1].trim());
+    if (candidate) out.push(candidate);
+  }
+  return [...new Set(out)];
+}
+
+function cleanCandidateLead(value) {
+  let candidate = String(value).trim();
+  candidate = candidate.replace(/^(?:[-+]\s*)/u, '');
+  candidate = candidate.replace(/^(?:また|さらに|ここで|したがって|従って|よって)\s*/u, '');
+  candidate = candidate.replace(/^(?:なら|では|について(?:は)?|積分は|積分を|と)\s*/u, '');
+  const conjunction = candidate.match(/^.+[、,]\s*([^、,]{2,50}(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義))$/u);
+  if (conjunction) candidate = conjunction[1].trim();
+  return candidate;
+}
+
+function resolveCandidate(candidate, aliasItems) {
+  const normalized = normalizeSemantic(candidate);
+  const base = stripFormalSuffix(normalized);
+  const candidateType = formalCandidateType(normalized);
+  const compatibleItems = aliasItems.filter((item) => isCandidateCompatible(candidateType, item));
+  for (const item of compatibleItems) if (item.normalized === normalized) return item.concept;
+  for (const item of compatibleItems) if (item.normalized === base) return item.concept;
+  for (const item of compatibleItems) {
+    const aliasBase = stripFormalSuffix(item.normalized);
+    if (normalized.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
+    if (base.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
+    if (aliasBase.length >= 4 && base.endsWith(aliasBase) && isResultLike(item.concept, item.alias)) return item.concept;
+    if (candidateType === 'result' && base.length >= 6 && aliasBase.startsWith(`${base}は`) && isResultLike(item.concept, item.alias)) return item.concept;
+  }
+  return null;
+}
+
+function formalCandidateType(value) {
+  if (/定義$/u.test(value)) return 'definition';
+  if (/(?:定理|補題|命題|系)$/u.test(value)) return 'result';
+  if (/(?:公式|不等式|恒等式|原理|法則)$/u.test(value)) return 'formula';
+  return 'unknown';
+}
+
+function isCandidateCompatible(type, item) {
+  if (type === 'unknown') return true;
+  if (type === 'definition') return item.concept.kind === 'definition' || /定義$/u.test(item.normalized);
+  if (type === 'result') return ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind) || /(?:定理|補題|命題|系)$/u.test(item.normalized);
+  if (type === 'formula') return /(?:公式|不等式|恒等式|原理|法則)$/u.test(item.normalized) || ['theorem', 'lemma', 'proposition', 'corollary'].includes(item.concept.kind);
+  return true;
+}
+
+function stripFormalSuffix(value) {
+  return String(value)
+    .replace(/の(?=定理|補題|命題|公式|不等式|原理|法則|恒等式|定義$)/gu, '')
+    .replace(/(?:定理|補題|命題|公式|不等式|原理|法則|恒等式|定義)$/u, '');
+}
+
+function isGenericDependencyCandidate(candidate) {
+  const value = normalizeSemantic(candidate);
+  if (new Set(['定義', 'この定義', '上の定義', '前の定義', '同じ定義', '公式', '上の公式', 'この公式', '前の公式', '不等式', '上の不等式', 'この不等式', '前の不等式', '定理', '上の定理', 'この定理', '前の定理']).has(value)) return true;
+  if (/^(?:二つ|2つ|三つ|3つ|複数|いくつか)の/u.test(value)) return true;
+  if (/^(?:[A-D]\d+|\d+[.．]|その|これ|それ|同じ|前節の?\s*$)/u.test(value)) return true;
+  if (/(?:ことを|を|が|は|なので|なら|について).*(?:定義|定理|補題|命題)$/u.test(value)) return true;
+  const base = stripFormalSuffix(value);
+  if (!/[A-Za-z0-9πΠλΛα-ωΑ-Ω・\-]/u.test(base) && base.length < 5) return true;
+  return false;
+}
+
+function findIntroductionLine(lines, concept) {
+  const markers = concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
+  if (concept.introduction === 'inline' || concept.introduction === 'prose-math' || concept.kind === 'term') return firstAliasUse(lines, markers);
+  for (let i = 0; i < lines.length; i += 1) {
+    if (!isFormalDeclarationLine(lines[i])) continue;
+    if (markers.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
+  }
+  return null;
+}
+
+function firstAliasUse(lines, aliasesToFind) {
+  for (let i = 0; i < lines.length; i += 1) if (aliasesToFind.some((alias) => aliasAppears(lines[i], alias))) return i + 1;
+  return null;
+}
+
+function aliasAppears(line, alias) {
+  const needle = String(alias).trim();
+  if (!needle) return false;
+  if (/^[A-Za-z][A-Za-z0-9.^+-]*$/u.test(needle)) return new RegExp(`(?<![A-Za-z0-9_])${escapeRegExp(needle)}(?![A-Za-z0-9_])`, 'iu').test(line);
+  return line.includes(needle);
+}
+
+function isFormalDeclarationLine(line) {
+  const text = line.trim();
+  if (!text || /^#(?!#)\s+/u.test(text)) return false;
+  if (/^[-*]\s*(?:\*\*)?(?:定義|定理|補題|命題|系)(?:\*\*)?\s*[:：]\s*\d+\s*点(?:\s|$)/u.test(text)) return false;
+  return /^(?:#{1,6}\s+|>\s*|[-*]\s*)?(?:\*\*)?(?:定義|定理|補題|命題|系)(?:\*\*)?(?:[（(：:\s]|$)/u.test(text)
+    || /^#{1,6}\s+.+(?:定理|補題|命題)(?:[（(：:]|$)/u.test(text);
+}
+
+function stripNonReaderContent(source) {
+  let value = source;
+  value = value.replace(/<!--[\s\S]*?-->/g, preserveLines);
+  value = value.replace(/```[\s\S]*?```/g, preserveLines);
+  value = value.replace(/`[^`\n]*`/g, preserveWidth);
+  value = value.replace(/\$\$[\s\S]*?\$\$/g, preserveLines);
+  value = value.replace(/\$(?:\\.|[^$\n])+\$/g, preserveWidth);
+  value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
+  value = value.replace(/https?:\/\/\S+/g, preserveWidth);
+  return value;
+}
+
+function inferPageId(relPath) {
+  const dir = path.basename(path.dirname(relPath));
+  const parts = dir.split('_');
+  if (parts.length >= 2 && parts[0] === 'F0') return `F0-${parts[1]}`;
+  return dir;
+}
+
+function isNavigationOrChecklistLine(line) {
+  const text = String(line).trim();
+  if (/へ(?:進んでください|進みます|進む|戻ってください|戻る)/u.test(text)) return true;
+  if (/(?:で扱います|で扱う予定|後続章で扱|次章で扱|を予告します|への接続として)/u.test(text)) return true;
+  if (/(?:次章|次節|後続章|後続節|この先).*(?:説明|導入|扱|証明|確認|見る|学ぶ)/u.test(text)) return true;
+  if (/^[-*]\s+.+(?:説明|証明|区別|確認|導出|計算|判断|再現|適用)できる[。.]?$/u.test(text)) return true;
+  return false;
+}
+
+function normalizeSemantic(value) {
+  return String(value)
+    .replace(/[‐‑‒–—−]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/[\s*_>#`\[\]「」『』]/g, '')
+    .replace(/\\,/g, '')
+    .replace(/\\!/g, '')
+    .toLocaleLowerCase('en-US');
+}
+
+function preserveLines(value) { return '\n'.repeat((value.match(/\n/g) ?? []).length); }
+function preserveWidth(value) { return ' '.repeat(value.length); }
+function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 const files = walk(ROOT);
 const contents = new Map(files.map((file) => [file, fs.readFileSync(file, 'utf8')]));
 const anchors = new Map([...contents].map(([file, text]) => [file, explicitAnchors(text)]));
+const { pagesByFile: dreamPages, aliases: dreamAliases } = loadDreamTheaterKnowledge(contents);
 const errors = [];
 let checkedPreciseLinks = 0;
 let checkedAnchors = 0;
-let checkedCanonicalUses = 0;
+let checkedKnowledgeUses = 0;
+let checkedKnowledgeLinks = 0;
 
 for (const [file, markdown] of contents) {
   const rel = path.relative(REPO, file).replaceAll(path.sep, '/');
   const lines = markdown.split(/\r?\n/);
+  const readerLines = dreamPages.has(file) ? stripNonReaderContent(markdown).split(/\r?\n/) : null;
   let inFence = false;
 
   const seen = new Set();
   for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    for (const m of line.matchAll(anchorRe)) {
+    for (const m of lines[i].matchAll(anchorRe)) {
       const id = m[1];
       checkedAnchors += 1;
       if (seen.has(id)) errors.push(`${rel}:${i + 1}: duplicate formal reference anchor #${id}`);
       seen.add(id);
       const nearby = lines.slice(i, i + 10).join(' ');
-      if (!id.startsWith('ref-') && !formalWord.test(nearby)) {
-        errors.push(`${rel}:${i + 1}: formal anchor #${id} is not adjacent to a definition/theorem/lemma/formal result`);
-      }
-      if (id.startsWith('ref-') && !/^\s*#{2,6}\s+/m.test(lines.slice(i, i + 9).join('\n'))) {
-        errors.push(`${rel}:${i + 1}: reference anchor #${id} is not adjacent to a Markdown section heading`);
-      }
+      if (!id.startsWith('ref-') && !formalWord.test(nearby)) errors.push(`${rel}:${i + 1}: formal anchor #${id} is not adjacent to a definition/theorem/lemma/formal result`);
+      if (id.startsWith('ref-') && !/^\s*#{2,6}\s+/m.test(lines.slice(i, i + 9).join('\n'))) errors.push(`${rel}:${i + 1}: reference anchor #${id} is not adjacent to a Markdown section heading`);
     }
   }
 
@@ -153,7 +414,6 @@ for (const [file, markdown] of contents) {
       const href = m[2].trim();
       if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
       if (!preciseDependency(line, label, m.index ?? 0, m[0])) continue;
-
       checkedPreciseLinks += 1;
       const { target, fragment } = resolveTarget(file, href);
       if (!fragment) {
@@ -174,20 +434,19 @@ for (const [file, markdown] of contents) {
       }
     }
 
-    const unlinked = stripLinksAndCode(line);
-
-    for (const result of canonicalResults) {
-      if (rel === result.target) continue;
-      if (!canonicalResultIsInvoked(unlinked, result)) continue;
-      checkedCanonicalUses += 1;
-      errors.push(
-        `${rel}:${i + 1}: ${result.name} is invoked in prose but is not linked; use ${result.target}#${result.fragment}`,
-      );
+    if (readerLines) {
+      const readerLine = readerLines[i] ?? '';
+      if (readerLine.trim() && !isNavigationOrChecklistLine(readerLine)) {
+        for (const use of collectDreamDependencyUses(readerLine, line, i + 1, dreamAliases)) {
+          checkedKnowledgeUses += 1;
+          if (validateKnowledgeDependencyLink(file, rel, use, errors)) checkedKnowledgeLinks += 1;
+        }
+      }
     }
 
+    const unlinked = stripLinksAndCode(line);
     if (stableLinksOnLine(line).length > 0) continue;
     if (!formalWord.test(unlinked) || !dependencyCue.test(unlinked)) continue;
-
     if (priorDependencyRe.test(unlinked)) {
       errors.push(`${rel}:${i + 1}: prior formal result is referenced in prose but is not linked to a stable anchor: ${unlinked.trim()}`);
       continue;
@@ -196,9 +455,7 @@ for (const [file, markdown] of contents) {
       errors.push(`${rel}:${i + 1}: chapter-qualified formal result is referenced without a link: ${unlinked.trim()}`);
       continue;
     }
-    if (proofLocationRe.test(unlinked)) {
-      errors.push(`${rel}:${i + 1}: proof/derivation location names another chapter but is not linked: ${unlinked.trim()}`);
-    }
+    if (proofLocationRe.test(unlinked)) errors.push(`${rel}:${i + 1}: proof/derivation location names another chapter but is not linked: ${unlinked.trim()}`);
   }
 }
 
@@ -208,4 +465,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable formal anchor(s), ${checkedCanonicalUses} bare canonical use(s), ${files.length} user-facing textbook page(s).`);
+console.log(`Formal reference validation passed: ${checkedPreciseLinks} precise dependency link(s), ${checkedAnchors} stable formal anchor(s), ${checkedKnowledgeLinks}/${checkedKnowledgeUses} knowledge-DAG proof dependency link(s), ${files.length} user-facing textbook page(s).`);
