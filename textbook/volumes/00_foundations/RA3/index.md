@@ -9,9 +9,9 @@
 <a id="def-ra3-derivative"></a>
 <!-- formal-statement-start -->
 > **定義（導関数）**  
-> $$
-> f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
-> $$
+$$
+f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}
+$$
 > が有限値として存在するとき、$f$ は $a$ で微分可能という。
 <!-- formal-statement-end -->
 
@@ -37,9 +37,9 @@
 <!-- formal-statement-start -->
 > **定理（平均値定理）**  
 > $f$ が $[a,b]$ で連続、$(a,b)$ で微分可能なら、ある $c\in(a,b)$ が存在して
-> $$
-> f'(c)=\frac{f(b)-f(a)}{b-a}.
-> $$
+$$
+f'(c)=\frac{f(b)-f(a)}{b-a}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -61,9 +61,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（Cauchyの平均値定理）**  
 > $f,g$ が $[a,b]$ で連続、$(a,b)$ で微分可能なら、ある $c\in(a,b)$ が存在して
-> $$
-> (f(b)-f(a))g'(c)=(g(b)-g(a))f'(c).
-> $$
+$$
+(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c).
+$$
 <!-- formal-statement-end -->
 
 二つの関数の増分比を導関数比へつなぐ形で、極限計算の理論的な土台になります。
@@ -76,10 +76,10 @@ $$
 <!-- formal-statement-start -->
 > **定理（Taylorの定理：Lagrange剰余）**  
 > $f$ が $a$ と $x$ を含む区間で $n+1$ 回微分可能なら、ある $\xi$ が $a$ と $x$ の間に存在して
-> $$
-> f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k
-> +\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
-> $$
+$$
+f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k
++\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
+$$
 <!-- formal-statement-end -->
 
 有限次のTaylor定理は剰余項込みの厳密な等式です。一方、Taylor**級数**と関数が一致するには剰余が0へ行く確認が別途必要です。
@@ -92,9 +92,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（逆関数の微分）**  
 > $f$ が単調で逆関数を持ち、$f$ が $a$ で微分可能、$f'(a)\ne0$、逆関数が $b=f(a)$ で連続なら
-> $$
-> (f^{-1})'(b)=\frac1{f'(a)}.
-> $$
+$$
+(f^{-1})'(b)=\frac1{f'(a)}.
+$$
 <!-- formal-statement-end -->
 
 差商を
