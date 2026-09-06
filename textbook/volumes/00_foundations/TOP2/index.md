@@ -730,7 +730,7 @@ $$
 は $Y$ で開です。位相的直和の定義から $H^{-1}(V)$ は $X\sqcup Y$ で開です。従って $H$ は連続です。$\square$
 <!-- proof-end -->
 
-これは [TOP1の final topology](../TOP1/index.md#thm-top1-final-topology) を包含写像 $i_X,i_Y$ に特殊化したものです。一般定理に依存している一方、逆像の等式まで書けば、なぜ「各成分ごとに連続性を見ればよい」のかを追えます。
+これは [TOP1の final topology](../TOP1/index.md#def-top1-final-topology) を包含写像 $i_X,i_Y$ に特殊化したものです。一般定理に依存している一方、逆像の等式まで書けば、なぜ「各成分ごとに連続性を見ればよい」のかを追えます。
 
 <a id="def-top2-gluing-space"></a>
 <!-- formal-statement-start -->
