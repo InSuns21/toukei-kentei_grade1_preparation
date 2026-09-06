@@ -1,0 +1,38 @@
+name: Migrate implicit dependencies S18
+
+on:
+  push:
+    branches:
+      - audit/dream-theater-implicit-dependencies-s18
+    paths:
+      - 'scripts/migrate-implicit-dependencies-s18.py'
+      - '.github/workflows/migrate-implicit-dependencies-s18.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/dream-theater-implicit-dependencies-s18
+          fetch-depth: 0
+
+      - name: Apply migration
+        run: python3 scripts/migrate-implicit-dependencies-s18.py
+
+      - name: Commit migrated textbook page
+        run: |
+          if git diff --quiet; then
+            echo 'No migration changes.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md
+          git commit -m 'Make compactness proof dependencies explicit'
+          git push
