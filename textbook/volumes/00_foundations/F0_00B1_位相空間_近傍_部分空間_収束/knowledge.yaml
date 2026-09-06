@@ -15,7 +15,9 @@ concepts:
     kind: definition
     aliases: [位相]
     requires:
-      - set.set
+      - set.family
+      - set.power-set
+      - set.indexed-union-intersection
 
   - id: topology.topological-space
     name: 位相空間
