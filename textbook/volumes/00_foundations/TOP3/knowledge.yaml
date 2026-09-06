@@ -1,0 +1,116 @@
+chapter: TOP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP2
+  - F0-00A1
+
+forward_references: []
+
+concepts:
+  - id: topology.separation
+    name: 分離
+    kind: definition
+    aliases: [位相空間の分離, separation of a topological space]
+    introduction_aliases: [分離]
+    requires:
+      - topology.topological-space
+
+  - id: topology.connected-space
+    name: 連結空間・連結性
+    kind: definition
+    aliases: [連結空間, 連結性, connected space, connectedness]
+    requires:
+      - topology.separation
+
+  - id: topology.connected-clopen-criterion
+    name: 連結性と非自明な開閉集合の不存在
+    kind: proposition
+    aliases: [連結性と非自明な開閉集合の不存在, 連結性のclopen判定]
+    requires:
+      - topology.connected-space
+
+  - id: topology.continuous-image-connected
+    name: 連結空間の連続像は連結
+    kind: theorem
+    aliases: [連結空間の連続像は連結, continuous image of a connected space]
+    requires:
+      - topology.connected-space
+      - topology.topological-continuous-map
+
+  - id: topology.real-interval-connected
+    name: 実数の区間は連結
+    kind: theorem
+    aliases: [実数の区間は連結, 実区間の連結性]
+    requires:
+      - topology.connected-space
+      - order.supremum
+
+  - id: topology.connected-subsets-real-intervals
+    name: 実数の連結部分集合は区間
+    kind: theorem
+    aliases: [実数の連結部分集合は区間, connected subsets of the real line are intervals]
+    requires:
+      - topology.real-interval-connected
+      - topology.connected-space
+
+  - id: topology.path-connected-space
+    name: 道・弧状連結
+    kind: definition
+    aliases: [道, 弧状連結, path, path-connected, path connected]
+    requires:
+      - topology.topological-continuous-map
+
+  - id: topology.path-connected-implies-connected
+    name: 弧状連結なら連結
+    kind: theorem
+    aliases: [弧状連結なら連結, path-connected implies connected]
+    requires:
+      - topology.path-connected-space
+      - topology.real-interval-connected
+      - topology.continuous-image-connected
+
+  - id: topology.convex-path-connected
+    name: 凸集合は弧状連結
+    kind: proposition
+    aliases: [凸集合は弧状連結]
+    requires:
+      - topology.path-connected-space
+
+  - id: topology.union-connected-common-point
+    name: 共通点を持つ連結集合族の合併は連結
+    kind: lemma
+    aliases: [共通点を持つ連結集合族の合併は連結]
+    requires:
+      - topology.connected-space
+
+  - id: topology.connected-component
+    name: 連結成分
+    kind: definition
+    aliases: [連結成分, connected component]
+    requires:
+      - topology.connected-space
+      - topology.union-connected-common-point
+
+  - id: topology.connected-components-maximal-partition
+    name: 連結成分は極大連結集合であり空間を分割する
+    kind: theorem
+    aliases: [連結成分は極大連結集合であり空間を分割する, 連結成分の極大性と分割]
+    requires:
+      - topology.connected-component
+
+  - id: topology.closure-connected
+    name: 連結集合の閉包は連結
+    kind: lemma
+    aliases: [連結集合の閉包は連結]
+    requires:
+      - topology.connected-space
+      - topology.closure
+
+  - id: topology.connected-components-closed
+    name: 連結成分は閉集合
+    kind: theorem
+    aliases: [連結成分は閉集合]
+    requires:
+      - topology.connected-components-maximal-partition
+      - topology.closure-connected
