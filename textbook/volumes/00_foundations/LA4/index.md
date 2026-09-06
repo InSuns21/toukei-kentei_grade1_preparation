@@ -152,8 +152,6 @@ $$
 証明では「多項式 $t$ をいきなり行列 $A$ に代入する」のではなく、まず多項式行列の恒等式から**係数ごとの行列等式**を取り出し、その等式を最後に組み合わせます。
 
 <a id="lem-la4-adjugate-identity"></a>
-#### 補題（余因子行列の恒等式）
-
 <!-- formal-statement-start -->
 > **補題（余因子行列の恒等式）**  
 > 任意の $n\times n$ 行列 $M=(m_{ij})$ に対し、$(i,j)$ 余因子を $C_{ij}$ と書き
@@ -480,8 +478,6 @@ $$
 <!-- formal-statement-end -->
 
 <a id="lem-la4-polynomial-bezout"></a>
-#### 補題（多項式のBézout等式）
-
 <!-- formal-statement-start -->
 > **補題（多項式のBézout等式）**  
 > 多項式 $f,g$ が互いに素なら、ある多項式 $a,b$ が存在して
@@ -516,8 +512,6 @@ $\square$
 <!-- proof-end -->
 
 <a id="lem-la4-coprime-product-divisibility"></a>
-#### 補題（互いに素な因子の積による整除）
-
 <!-- formal-statement-start -->
 > **補題（互いに素な因子の積による整除）**  
 > $f_1,\dots,f_r$ が2つずつ互いに素で、多項式 $h$ が全ての $f_i$ で割り切れるなら
