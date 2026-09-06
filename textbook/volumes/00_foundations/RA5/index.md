@@ -10,9 +10,9 @@
 <!-- formal-statement-start -->
 > **定義（各点収束）**  
 > $f_n:E\to\mathbb R$ が $f$ に各点収束するとは、各 $x\in E$ を固定したとき
-> $$
-> f_n(x)\to f(x)
-> $$
+$$
+f_n(x)\to f(x)
+$$
 > となることをいう。
 <!-- formal-statement-end -->
 
@@ -20,9 +20,9 @@
 <!-- formal-statement-start -->
 > **定義（一様収束）**  
 > $f_n\to f$ が一様収束するとは、任意の $\varepsilon>0$ に対してある $N$ が存在し、すべての $n\ge N$ とすべての $x\in E$ について
-> $$
-> |f_n(x)-f(x)|<\varepsilon
-> $$
+$$
+|f_n(x)-f(x)|<\varepsilon
+$$
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
@@ -36,9 +36,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（一様Cauchy条件）**  
 > 任意の $\varepsilon>0$ に対してある $N$ が存在し、$m,n\ge N$ ならすべての $x\in E$ について
-> $$
-> |f_n(x)-f_m(x)|<\varepsilon
-> $$
+$$
+|f_n(x)-f_m(x)|<\varepsilon
+$$
 > となることをいう。
 <!-- formal-statement-end -->
 
@@ -76,9 +76,9 @@ $f_n(x)=x^n$ on $[0,1]$ は各点収束しますが、極限は $x=1$ だけ値1
 <!-- formal-statement-start -->
 > **定理（一様収束と積分の交換）**  
 > $f_n$ が $[a,b]$ 上Riemann可積分で $f_n\to f$ が一様収束するなら $f$ もRiemann可積分で
-> $$
-> \int_a^bf(x)dx=\lim_{n\to\infty}\int_a^bf_n(x)dx.
-> $$
+$$
+\int_a^bf(x)dx=\lim_{n\to\infty}\int_a^bf_n(x)dx.
+$$
 <!-- formal-statement-end -->
 
 核になる評価は
@@ -96,9 +96,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（微分と極限の交換定理）**  
 > $f_n\in C^1([a,b])$ とする。ある $x_0\in[a,b]$ で $(f_n(x_0))$ が収束し、導関数列 $f_n'$ が $[a,b]$ 上一様収束するなら、ある $f\in C^1([a,b])$ に $f_n\to f$ が一様収束し、
-> $$
-> f'=\lim_{n\to\infty}f_n'
-> $$
+$$
+f'=\lim_{n\to\infty}f_n'
+$$
 > が成り立つ。
 <!-- formal-statement-end -->
 
