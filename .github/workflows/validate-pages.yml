@@ -1,4 +1,4 @@
-name: Apply TOP1 display delimiter fix
+name: Apply TOP1 display delimiter fix v2
 
 on:
   push:
