@@ -5,6 +5,7 @@ status: reviewed
 prerequisites: []
 forward_references:
   - delta-method
+  - null-hypothesis
 official_scope:
   - 変数変換
   - 固有値

@@ -112,7 +112,7 @@ chapters:
   - { id: E2-02, title: Poisson過程・ランダムウォーク, volume: engineering, prerequisites: [ P3-01, P3-02, E2-01 ], official_scope: [ ポアソン過程, ランダムウォーク ] }
   - { id: E2-03, title: AR・MA・ARIMA時系列, volume: engineering, prerequisites: [ P3-03, E2-01 ], official_scope: [ 自己回帰過程, 移動平均過程, ARIMA過程, 時系列解析 ] }
   - { id: E2-04, title: ブラウン運動・拡散極限, volume: engineering, prerequisites: [ E2-02, P3-03, P4-02 ], official_scope: [ ブラウン運動, ランダムウォーク, 確率過程 ] }
-  - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ P2-02, P3-02, S1-01, F0-00, I2-02 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差, 線形モデル, 平均への回帰（回帰効果） ] }
+  - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ P2-02, P3-02, S1-01, F0-00, I2-02, I3-01 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差, 線形モデル, 平均への回帰（回帰効果） ] }
   - { id: L1-02, title: 重回帰・線形モデルの行列表現, volume: linear_models, prerequisites: [ L1-01, F0-00, P3-03, S1-01 ], official_scope: [ 線形重回帰, ガウス・マルコフの定理, 線形対比, 線形制約, 線形結合の分布, 重相関係数 ] }
   - { id: L1-03, title: 分散分析, volume: linear_models, prerequisites: [ L1-02, S1-01 ], official_scope: [ 一元配置分散分析, 二元配置分散分析, 交互作用, 多重比較, 共分散分析 ] }
   - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ P3-01, L1-02, P2-02, F0-00, I3-02 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }

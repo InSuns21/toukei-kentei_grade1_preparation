@@ -330,3 +330,74 @@ concepts:
       - pivotal quantity
       - pivot quantity
     introduced_in: I2-02
+
+  - id: null-hypothesis
+    name: 帰無仮説
+    aliases:
+      - null hypothesis
+    introduced_in: I3-01
+
+  - id: alternative-hypothesis
+    name: 対立仮説
+    aliases:
+      - alternative hypothesis
+    introduced_in: I3-01
+
+  - id: test-function
+    name: 検定関数
+    aliases:
+      - test function
+    introduced_in: I3-01
+    requires: [null-hypothesis, alternative-hypothesis]
+
+  - id: rejection-region
+    name: 棄却域
+    aliases:
+      - rejection region
+      - critical region
+    introduced_in: I3-01
+    requires: [test-function]
+
+  - id: test-statistic
+    name: 検定統計量
+    aliases:
+      - test statistic
+    introduced_in: I3-01
+    requires: [rejection-region]
+
+  - id: type-one-error
+    name: 第一種の過誤
+    aliases:
+      - 第一種過誤
+      - type I error
+    introduced_in: I3-01
+    requires: [null-hypothesis, rejection-region]
+
+  - id: significance-level
+    name: 有意水準
+    aliases:
+      - significance level
+    introduced_in: I3-01
+    requires: [type-one-error]
+
+  - id: type-two-error
+    name: 第二種の過誤
+    aliases:
+      - 第二種過誤
+      - type II error
+    introduced_in: I3-01
+    requires: [alternative-hypothesis, rejection-region]
+
+  - id: power-function
+    name: 検出力関数
+    aliases:
+      - power function
+    introduced_in: I3-01
+    requires: [type-two-error]
+
+  - id: p-value
+    name: P値
+    aliases:
+      - p-value
+    introduced_in: I3-01
+    requires: [significance-level, rejection-region]

@@ -10,6 +10,7 @@ forward_references:
   - cramer-rao-inequality
   - likelihood-ratio-test
   - score-test
+  - test-statistic
   - consistency
   - expectation-maximization
 official_scope:
