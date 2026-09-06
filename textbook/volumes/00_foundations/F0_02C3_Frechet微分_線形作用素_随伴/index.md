@@ -44,6 +44,23 @@ $$
 > が存在するとき、これを $f$ の $x$ における方向 $h$ の **方向微分** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-02c3-directional-derivative -->
+### 例：二次関数の方向微分
+
+**定義の確認**
+
+$f(x)=x^2$、$x=1$、方向 $h=3$ とすると
+
+$$
+D_3f(1)
+=\lim_{t\to0}\frac{(1+3t)^2-1}{t}
+=\lim_{t\to0}(6+9t)
+=6.
+$$
+
+したがって、方向 $3$ に沿った方向微分は $6$ です。
+<!-- definition-example-end -->
+
 これは「方向 $h$ に沿って一変数関数として微分する」だけです。
 
 方向ごとに微分できること自体は、まだ一つの良い線形近似が存在することを保証しません。
@@ -64,6 +81,28 @@ $$
 
 > と書きます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-gateaux-derivative -->
+### 例：ノルム二乗のGâteaux微分
+
+**定義の確認**
+
+$\mathbb R^p$ 上で $f(x)=\|x\|^2$ とすると
+
+$$
+\frac{f(x+th)-f(x)}{t}
+=2x^{\mathsf T}h+t\|h\|^2
+\to 2x^{\mathsf T}h.
+$$
+
+よって
+
+$$
+D_Gf(x)[h]=2x^{\mathsf T}h.
+$$
+
+これは $h$ に関して線形なので、定義どおりGâteaux微分になっています。
+<!-- definition-example-end -->
 
 ただしGâteaux微分は方向ごとの情報をまとめただけなので、$h$ の方向によらず誤差が一様に小さいことまでは要求していません。
 
@@ -124,6 +163,35 @@ $$
 
 > となることです。この一意な $A$ を $Df(x)$ と書き、$f$ の $x$ における **Fréchet微分** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-frechet-derivative -->
+### 例：ノルム二乗のFréchet微分
+
+**定義の確認**
+
+$\mathbb R^p$ 上で $f(x)=\frac12\|x\|^2$ とし、線形写像
+
+$$
+Ah=x^{\mathsf T}h
+$$
+
+を考えます。このとき
+
+$$
+f(x+h)-f(x)-Ah
+=\frac12\|h\|^2,
+$$
+
+したがって
+
+$$
+\frac{|f(x+h)-f(x)-Ah|}{\|h\|}
+=\frac12\|h\|
+\to0.
+$$
+
+よって $Df(x)[h]=x^{\mathsf T}h$ がFréchet微分です。
+<!-- definition-example-end -->
 
 つまり
 
@@ -316,6 +384,22 @@ $$
 
 > を $T$ の **作用素ノルム** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-operator-norm -->
+### 例：2倍写像の作用素ノルム
+
+**定義の確認**
+
+$T:\mathbb R\to\mathbb R$、$T(x)=2x$ なら
+
+$$
+\|T\|
+=\sup_{|x|\le1}|2x|
+=2.
+$$
+
+したがって、この作用素の作用素ノルムは $2$ です。
+<!-- definition-example-end -->
 
 同値に
 
