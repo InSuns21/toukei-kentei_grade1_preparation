@@ -1,30 +1,99 @@
 chapter: F0-00G1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00G
+  - F0-02C1A
 
 concepts:
+  - id: convex.effective-domain
+    name: effective domain
+    kind: definition
+    aliases: [effective domain, 有効定義域]
+    requires:
+      - convex.convex-function
+
+  - id: convex.proper-function
+    name: proper
+    kind: definition
+    aliases: [proper]
+    requires:
+      - convex.effective-domain
+
   - id: convex.epigraph
     name: epigraph
     kind: definition
-    introduction: inline
     aliases: [epigraph]
     requires:
+      - convex.effective-domain
+
+  - id: convex.epigraph-convexity
+    name: epigraphによる凸性判定
+    kind: theorem
+    aliases: [epigraph による凸性判定, epigraphによる凸性判定]
+    requires:
+      - convex.epigraph
       - convex.convex-function
+      - convex.proper-function
+
+  - id: convex.lower-semicontinuous
+    name: 下半連続
+    kind: definition
+    aliases: [下半連続]
+    requires:
+      - convex.epigraph
+
+  - id: convex.lsc-closed-epigraph
+    name: 下半連続性と閉epigraph
+    kind: theorem
+    aliases: [下半連続性と閉 epigraph, 下半連続性と閉epigraph]
+    requires:
+      - convex.lower-semicontinuous
+      - convex.epigraph
 
   - id: convex.closed-convex-function
     name: 閉凸関数
     kind: definition
-    introduction: inline
-    aliases: [閉凸関数]
+    aliases: [閉凸関数, proper closed convex function]
     requires:
-      - convex.epigraph
+      - convex.proper-function
+      - convex.convex-function
+      - convex.lower-semicontinuous
+
+  - id: convex.sublevel-set
+    name: sublevel set
+    kind: definition
+    aliases: [sublevel set]
+    requires:
+      - convex.lower-semicontinuous
 
   - id: convex.supporting-hyperplane
     name: 支持超平面
     kind: definition
-    introduction: inline
     aliases: [支持超平面]
     requires:
       - convex.convex-set
+
+  - id: convex.supporting-hyperplane-theorem
+    name: 有限次元の支持超平面定理
+    kind: theorem
+    aliases: [有限次元の支持超平面定理, 支持超平面定理]
+    requires:
+      - convex.supporting-hyperplane
+      - functional.hilbert-projection-theorem
+
+  - id: convex.subgradient-existence-relative-interior
+    name: relative interiorでの劣勾配の存在
+    kind: theorem
+    aliases: [relative interior での劣勾配の存在, relative interiorでの劣勾配の存在]
+    requires:
+      - convex.epigraph
+      - convex.supporting-hyperplane-theorem
+
+  - id: convex.finite-dimensional-direct-method
+    name: 有限次元の直接法
+    kind: theorem
+    aliases: [有限次元の直接法]
+    requires:
+      - convex.lower-semicontinuous
+      - convex.sublevel-set
