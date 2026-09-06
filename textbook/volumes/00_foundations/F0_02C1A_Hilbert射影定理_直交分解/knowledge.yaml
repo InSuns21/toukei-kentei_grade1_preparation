@@ -1,17 +1,18 @@
 chapter: F0-02C1A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C1
 
 concepts:
   - id: functional.hilbert-projection-theorem
-    name: Hilbert射影定理
+    name: Hilbert空間の射影定理
     kind: theorem
-    introduction: inline
-    aliases: [Hilbert射影定理]
+    aliases: [Hilbert空間の射影定理, Hilbert射影定理]
     requires:
       - functional.hilbert-space
+      - convex.convex-set
+      - topology.closed-set
 
   - id: functional.orthogonal-decomposition
     name: 直交分解
@@ -20,3 +21,4 @@ concepts:
     aliases: [直交分解]
     requires:
       - functional.hilbert-projection-theorem
+      - linear.orthogonal-complement

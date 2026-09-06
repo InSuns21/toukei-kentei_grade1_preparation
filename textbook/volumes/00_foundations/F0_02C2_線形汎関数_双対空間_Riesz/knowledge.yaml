@@ -1,6 +1,6 @@
 chapter: F0-02C2
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C1A
 
@@ -50,3 +50,5 @@ concepts:
     requires:
       - functional.hilbert-space
       - functional.continuous-linear-functional
+      - functional.hilbert-projection-theorem
+      - functional.dual-space

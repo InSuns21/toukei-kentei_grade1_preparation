@@ -1,12 +1,12 @@
 chapter: F0-00D1
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00D
-  - F0-00E
+  - F0-00C2
+  - F0-00F2
 
 forward_references:
-  - functional.banach-space
   - functional.hilbert-space
 
 concepts:
@@ -24,3 +24,38 @@ concepts:
     aliases: [ノルム空間]
     requires:
       - functional.norm
+
+  - id: functional.banach-space
+    name: Banach空間
+    kind: definition
+    aliases: [Banach空間]
+    requires:
+      - functional.normed-space
+      - topology.complete-metric-space
+
+  - id: functional.equivalent-norms
+    name: 同値なノルム
+    kind: definition
+    aliases: [同値なノルム]
+    requires:
+      - functional.norm
+
+  - id: functional.finite-dimensional-norm-equivalence
+    name: 有限次元ノルム空間では全てのノルムが同値
+    kind: theorem
+    aliases: [有限次元ノルム空間では全てのノルムが同値]
+    requires:
+      - functional.equivalent-norms
+      - linear.dimension
+      - linear.reverse-triangle-inequality
+      - topology.heine-borel
+      - topology.extreme-value-theorem
+
+  - id: functional.finite-dimensional-normed-space-complete
+    name: 有限次元ノルム空間の完備性
+    kind: theorem
+    aliases: [有限次元ノルム空間の完備性]
+    requires:
+      - functional.finite-dimensional-norm-equivalence
+      - topology.cauchy-sequence
+      - topology.complete-metric-space
