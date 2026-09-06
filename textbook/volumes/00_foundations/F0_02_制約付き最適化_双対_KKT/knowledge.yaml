@@ -40,7 +40,7 @@ concepts:
     name: active制約
     kind: definition
     introduction: inline
-    aliases: [active制約]
+    aliases: [active制約, activeな制約]
     requires:
       - optimization.primal-problem
 
