@@ -3009,7 +3009,7 @@ $$
 
 # 8. 30分ドリル
 
-## P3C-DRILL-01 ワイブル寿命・変換・最尤推定
+## P3C-DRILL-01 ワイブル寿命・変換・モーメント・確率収束
 
 - 制限時間: 30分
 - level: C
@@ -3021,17 +3021,13 @@ P(X>x)=\exp\{-(x/\eta)^2\},
 \qquad x\ge0,
 $$
 
-であり、$x<0$ では $P(X>x)=1$ である。独立同分布標本を $X_1,\ldots,X_n$ とする。
-
-観測値の同時確率密度関数を $\eta$ の関数とみたものを尤度といい、尤度を $\eta>0$ で最大にする値を最尤推定値という。推定量 $T$ が $E[T]=\eta^2$ を満たすとき $\eta^2$ の不偏推定量という。また任意の $\varepsilon>0$ について
+であり、$x<0$ では $P(X>x)=1$ である。独立同分布標本を $X_1,\ldots,X_n$ とし、
 
 $$
-P(|T_n-\eta^2|\ge\varepsilon)\to0
+T_n=\frac1n\sum_{i=1}^nX_i^2
 $$
 
-となることを、$T_n$ が $\eta^2$ へ確率収束するという。
-
-任意の有限分散な確率変数 $T$ と $\varepsilon>0$ に対するチェビシェフの不等式
+とおく。任意の有限分散な確率変数 $T$ と $\varepsilon>0$ に対するチェビシェフの不等式
 
 $$
 P(|T-E[T]|\ge\varepsilon)
@@ -3042,9 +3038,9 @@ $$
 
 1. $X$ の確率密度関数、生存関数、ハザードを求めよ。（20点）
 2. $P(X>\eta)$ と $P(X>\eta\mid X>\eta/2)$ を求めよ。（15点）
-3. $Y=(X/\eta)^2$ の分布を求め、$E[X^2]$ と $\operatorname{Var}(X^2)$ を求めよ。（20点）
-4. $\eta$ の尤度を台の条件とともに書き、$\widehat{\eta^2}=n^{-1}\sum_iX_i^2$ が $\eta^2$ の最尤推定量であることを示せ。（25点）
-5. $\widehat{\eta^2}$ の不偏性と分散を求め、チェビシェフの不等式で $\eta^2$ へ確率収束することを示せ。（20点）
+3. $Y=(X/\eta)^2$ の分布を求め、$E[X^2]$ と $\operatorname{Var}(X^2)$ を求めよ。（25点）
+4. $T_n$ の期待値と分散を求め、$\eta^2$ の不偏推定量であることを示せ。（20点）
+5. チェビシェフの不等式を用いて $T_n\xrightarrow{p}\eta^2$ を示せ。（20点）
 
 <!-- solution-start -->
 
@@ -3054,25 +3050,20 @@ $$
 
 **(1) 確率密度関数・生存関数・ハザード**
 
-$x>0$ では生存関数
+$x>0$ では
 
 $$
-S_\eta(x)=e^{-(x/\eta)^2}
+S_\eta(x)=e^{-(x/\eta)^2},
 $$
 
-を微分して
+したがって
 
 $$
-\begin{aligned}
-f_\eta(x)
-&=-\frac d{dx}S_\eta(x)\\
-&=-e^{-(x/\eta)^2}
-\left(-\frac{2x}{\eta^2}\right)\\
-&=\frac{2x}{\eta^2}e^{-(x/\eta)^2}.
-\end{aligned}
+f_\eta(x)=-S_\eta'(x)
+=\frac{2x}{\eta^2}e^{-(x/\eta)^2}.
 $$
 
-$x\le0$ では確率密度関数は0です。生存関数は全実数上で
+$x\le0$ では密度は0で、生存関数は
 
 $$
 S_\eta(x)=
@@ -3082,31 +3073,24 @@ e^{-(x/\eta)^2},&x>0.
 \end{cases}
 $$
 
-したがって $x>0$ で
+よって $x>0$ で
 
 $$
-\begin{aligned}
-h_\eta(x)
-&=\frac{f_\eta(x)}{S_\eta(x)}\\
-&=\frac{2x}{\eta^2}.
-\end{aligned}
+h_\eta(x)=\frac{f_\eta(x)}{S_\eta(x)}=\frac{2x}{\eta^2}.
 $$
 
 **(2) 尾確率**
 
 $$
-P(X>\eta)=S_\eta(\eta)=e^{-1}.
+P(X>\eta)=e^{-1},
 $$
 
 また
 
 $$
-\begin{aligned}
 P(X>\eta\mid X>\eta/2)
-&=\frac{S_\eta(\eta)}{S_\eta(\eta/2)}\\
-&=\frac{e^{-1}}{e^{-1/4}}\\
-&=e^{-3/4}.
-\end{aligned}
+=\frac{e^{-1}}{e^{-1/4}}
+=e^{-3/4}.
 $$
 
 **(3) 変換とモーメント**
@@ -3114,198 +3098,58 @@ $$
 $y\ge0$ で
 
 $$
-\begin{aligned}
 P(Y\le y)
-&=P\left((X/\eta)^2\le y\right)\\
-&=P(X\le\eta\sqrt y)\\
-&=1-e^{-y}.
-\end{aligned}
+=P(X\le\eta\sqrt y)
+=1-e^{-y},
 $$
 
-よって
+したがって $Y\sim\operatorname{Exp}(1)$。ゆえに $E[Y]=1$, $\operatorname{Var}(Y)=1$ であり、$X^2=\eta^2Y$ から
 
 $$
-Y\sim\operatorname{Exp}(1).
+E[X^2]=\eta^2,
+\qquad
+\operatorname{Var}(X^2)=\eta^4.
 $$
 
-指数分布の密度 $e^{-y}$ から
+**(4) 標本平均型統計量**
+
+独立性より
 
 $$
-E[Y]
-=\int_0^\infty ye^{-y}dy
-=\Gamma(2)
-=1,
+E[T_n]=\frac1n\sum_{i=1}^nE[X_i^2]=\eta^2,
 $$
 
 $$
-E[Y^2]
-=\int_0^\infty y^2e^{-y}dy
-=\Gamma(3)
-=2.
+\operatorname{Var}(T_n)
+=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i^2)
+=\frac{\eta^4}{n}.
+$$
+
+従って $T_n$ は $\eta^2$ の不偏推定量である。
+
+**(5) 確率収束**
+
+任意の $\varepsilon>0$ について
+
+$$
+P(|T_n-\eta^2|\ge\varepsilon)
+\le\frac{\eta^4}{n\varepsilon^2}
+\to0.
 $$
 
 したがって
 
 $$
-\operatorname{Var}(Y)
-=2-1^2
-=1.
-$$
-
-$X^2=\eta^2Y$ なので
-
-$$
-E[X^2]
-=\eta^2E[Y]
-=\eta^2,
-$$
-
-$$
-\operatorname{Var}(X^2)
-=\eta^4\operatorname{Var}(Y)
-=\eta^4.
-$$
-
-**(4) 最尤推定**
-
-観測値 $x_i>0$ に対する尤度は
-
-$$
-L(\eta)
-=\prod_{i=1}^n
-\frac{2x_i}{\eta^2}
-\exp\left(-\frac{x_i^2}{\eta^2}\right),
-\qquad \eta>0.
-$$
-
-$Q=\sum_i x_i^2$ と置くと
-
-$$
-\begin{aligned}
-\ell(\eta)
-&=\log L(\eta)\\
-&=\sum_i\log(2x_i)-2n\log\eta-\frac Q{\eta^2}.
-\end{aligned}
-$$
-
-$\eta$ に依存しない第1項を $C$ と書けば
-
-$$
-\ell(\eta)
-=C-2n\log\eta-\frac Q{\eta^2}.
-$$
-
-微分すると
-
-$$
-\begin{aligned}
-\ell'(\eta)
-&=-\frac{2n}{\eta}+\frac{2Q}{\eta^3}\\
-&=\frac{2(Q-n\eta^2)}{\eta^3}.
-\end{aligned}
-$$
-
-$\eta^2<Q/n$ で正、$\eta^2>Q/n$ で負なので一意な最大点は
-
-$$
-\widehat{\eta^2}
-=\frac Qn
-=\frac1n\sum_{i=1}^nX_i^2.
-$$
-
-**(5) 不偏性・分散・一致性**
-
-(3)より $E[X_i^2]=\eta^2$, $\operatorname{Var}(X_i^2)=\eta^4$ です。したがって
-
-$$
-\begin{aligned}
-E[\widehat{\eta^2}]
-&=\frac1n\sum_{i=1}^nE[X_i^2]\\
-&=\eta^2.
-\end{aligned}
-$$
-
-独立性から
-
-$$
-\begin{aligned}
-\operatorname{Var}(\widehat{\eta^2})
-&=\frac1{n^2}\sum_{i=1}^n\operatorname{Var}(X_i^2)\\
-&=\frac1{n^2}\cdot n\eta^4\\
-&=\frac{\eta^4}{n}.
-\end{aligned}
-$$
-
-従って任意の $\varepsilon>0$ でチェビシェフの不等式から
-
-$$
-\begin{aligned}
-P(|\widehat{\eta^2}-\eta^2|\ge\varepsilon)
-&\le\frac{\operatorname{Var}(\widehat{\eta^2})}{\varepsilon^2}\\
-&=\frac{\eta^4}{n\varepsilon^2}\\
-&\longrightarrow0.
-\end{aligned}
+T_n\xrightarrow{p}\eta^2.
 $$
 
 #### 本番答案
 
-$x>0$ で
+$Y=(X/\eta)^2\sim\operatorname{Exp}(1)$ より $E[X^2]=\eta^2$, $\operatorname{Var}(X^2)=\eta^4$。したがって $E[T_n]=\eta^2$, $\operatorname{Var}(T_n)=\eta^4/n$ であり、チェビシェフの不等式から $T_n\xrightarrow{p}\eta^2$。
 
-$$
-f_\eta(x)
-=-\frac d{dx}e^{-(x/\eta)^2}
-=\frac{2x}{\eta^2}e^{-(x/\eta)^2},
-$$
+#### 採点基準と選択判断
 
-$$
-S_\eta(x)=
-\begin{cases}
-1,&x\le0,\\
-e^{-(x/\eta)^2},&x>0,
-\end{cases}
-\quad
-h_\eta(x)=2x/\eta^2.
-$$
-
-従って尾確率は $e^{-1}$ と $e^{-3/4}$。$Y=(X/\eta)^2\sim\operatorname{Exp}(1)$ で
-
-$$
-E[Y]=1,
-\quad E[Y^2]=2,
-\quad \operatorname{Var}(Y)=1,
-$$
-
-より $E[X^2]=\eta^2$、$\operatorname{Var}(X^2)=\eta^4$。
-
-$Q=\sum x_i^2$ とすると
-
-$$
-\ell(\eta)=C-2n\log\eta-Q/\eta^2,
-$$
-
-$$
-\ell'(\eta)=2(Q-n\eta^2)/\eta^3.
-$$
-
-符号変化から $\widehat{\eta^2}=Q/n$ が一意な最尤推定量である。さらに
-
-$$
-E[\widehat{\eta^2}]=\eta^2,
-\quad
-\operatorname{Var}(\widehat{\eta^2})=\eta^4/n,
-$$
-
-なので不偏で、チェビシェフの不等式から $\eta^2$ へ確率収束する。
-
-#### 採点基準・時間配分・選択判断
-
-- 確率密度関数・生存関数・ハザード: 20点
-- 尾確率: 15点
-- 指数変換とモーメント: 20点
-- 尤度と最尤推定: 25点
-- 不偏性・一致性: 20点
-
-初動3分、(1)4分、(2)3分、(3)5分、(4)8分、(5)4分、見直し3分。15分で $Y\sim\operatorname{Exp}(1)$ まで進めば継続し、25分では対数尤度と $Q/n$、分散 $\eta^4/n$ を優先します。
+密度・生存・ハザード20点、尾確率15点、変換とモーメント25点、不偏性・分散20点、確率収束20点。合計100点。
 
 <!-- solution-end -->
 

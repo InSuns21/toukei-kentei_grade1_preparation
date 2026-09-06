@@ -62,10 +62,8 @@ jobs:
       - name: Validate textbook structure
         run: npm run validate:structure
 
-      - name: Validate changed textbook knowledge DAG
-        env:
-          TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: npm run validate:textbook-knowledge:changed
+      - name: Validate textbook knowledge DAG
+        run: npm run validate:textbook-knowledge
 
       - name: Validate textbook math
         run: npm run validate:math

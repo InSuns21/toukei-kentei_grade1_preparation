@@ -7,6 +7,7 @@ prerequisites:
   - L1-02
   - P2-02
   - F0-00
+  - I3-02
 official_scope:
   - 一般化線形モデル
   - ロジスティック回帰

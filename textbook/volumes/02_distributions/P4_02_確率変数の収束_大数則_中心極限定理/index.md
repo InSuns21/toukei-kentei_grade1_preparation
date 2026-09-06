@@ -1013,10 +1013,10 @@ $E[\widehat p]=p$, $\operatorname{Var}(\widehat p)=p(1-p)/n$より不偏・一�
 
 <!-- solution-end -->
 
-#### P4T-C03 ポアソン和・最尤推定・正規近似
+#### P4T-C03 ポアソン和・正規近似・一致性
 - level: C
 - minutes: 25
-- topics: ポアソン分布, 中心極限定理, 最尤推定
+- topics: ポアソン分布, 中心極限定理, 確率収束
 
 $\lambda>0$とする。独立な確率変数$X_1,\ldots,X_n$が
 $$
@@ -1031,7 +1031,7 @@ $$
 1. $T_n$の分布を求めよ。
 2. $T_n/n$の平均と分散を求めよ。
 3. $T_n$の正規近似を書け。
-4. 観測値$t_n>0$のとき$\lambda$の最尤推定量を導け。$t_n=0$の場合も母数空間$\lambda>0$の境界に注意して述べよ。
+4. チェビシェフの不等式を用いて $T_n/n\xrightarrow{p}\lambda$ を示せ。
 5. $n=50,\lambda=2$で$P(T_n\geq120)$を連続補正付き正規近似で求めよ。
 
 <!-- solution-start -->
@@ -1050,29 +1050,25 @@ E[T_n/n]=\lambda,
 \qquad
 \operatorname{Var}(T_n/n)=\frac\lambda n.
 $$
+
 また大標本では
 $$
 T_n\approx N(n\lambda,n\lambda).
 $$
 
-観測値$t_n=\sum_ix_i$に対する尤度は、$\lambda$に依存しない因子を除けば
-$$
-L(\lambda)\propto\lambda^{t_n}e^{-n\lambda}.
-$$
-$t_n>0$なら対数尤度は
-$$
-\ell(\lambda)=t_n\log\lambda-n\lambda+C,
-$$
-$$
-\ell'(\lambda)=\frac{t_n}{\lambda}-n.
-$$
-従って
-$$
-\widehat\lambda=\frac{t_n}{n}.
-$$
-二階微分$\ell''(\lambda)=-t_n/\lambda^2<0$なので最大です。
+任意の $\varepsilon>0$ に対してチェビシェフの不等式より
 
-$t_n=0$なら$L(\lambda)\propto e^{-n\lambda}$で$\lambda>0$上では単調減少し、$\lambda\downarrow0$で上限1へ近づくものの最大値を取らないため、母数空間$\lambda>0$内には最尤推定量が存在しません。
+$$
+P\left(\left|\frac{T_n}{n}-\lambda\right|\ge\varepsilon\right)
+\le\frac{\lambda}{n\varepsilon^2}
+\to0,
+$$
+
+したがって
+
+$$
+\frac{T_n}{n}\xrightarrow{p}\lambda.
+$$
 
 $n=50,\lambda=2$なら$T_n$の平均・分散はともに100です。連続補正から
 $$
@@ -1085,11 +1081,11 @@ $$
 
 ###### 本番答案
 
-$T_n\sim\operatorname{Poisson}(n\lambda)$、$E[T_n/n]=\lambda$, $\operatorname{Var}(T_n/n)=\lambda/n$、$T_n\approx N(n\lambda,n\lambda)$。$t_n>0$では$\ell'=t_n/\lambda-n=0$より$\widehat\lambda=t_n/n$。$t_n=0$では$\lambda>0$内に最大点なし。$n=50,\lambda=2$では$P(T_n\ge120)\approx1-\Phi(1.95)\approx0.0256$。
+$T_n\sim\operatorname{Poisson}(n\lambda)$、$E[T_n/n]=\lambda$, $\operatorname{Var}(T_n/n)=\lambda/n$、$T_n\approx N(n\lambda,n\lambda)$。チェビシェフより $P(|T_n/n-\lambda|\ge\varepsilon)\le\lambda/(n\varepsilon^2)\to0$。$n=50,\lambda=2$では$P(T_n\ge120)\approx1-\Phi(1.95)\approx0.0256$。
 
 ###### 採点基準と選択判断
 
-和の分布4点、平均分散3点、正規近似3点、最尤推定6点、近似確率4点。合計20点。
+和の分布4点、平均分散4点、正規近似4点、確率収束4点、近似確率4点。合計20点。
 
 <!-- solution-end -->
 

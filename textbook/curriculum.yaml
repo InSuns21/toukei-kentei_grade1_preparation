@@ -115,7 +115,7 @@ chapters:
   - { id: L1-01, title: 単回帰と最小二乗法, volume: linear_models, prerequisites: [ P2-02, P3-02, S1-01, F0-00 ], official_scope: [ 線形単回帰, 最小二乗推定, 決定係数, 残差, 線形モデル, 平均への回帰（回帰効果） ] }
   - { id: L1-02, title: 重回帰・線形モデルの行列表現, volume: linear_models, prerequisites: [ L1-01, F0-00, P3-03, S1-01 ], official_scope: [ 線形重回帰, ガウス・マルコフの定理, 線形対比, 線形制約, 線形結合の分布, 重相関係数 ] }
   - { id: L1-03, title: 分散分析, volume: linear_models, prerequisites: [ L1-02, S1-01 ], official_scope: [ 一元配置分散分析, 二元配置分散分析, 交互作用, 多重比較, 共分散分析 ] }
-  - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ P3-01, L1-02, P2-02, F0-00 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }
+  - { id: L2-01, title: 一般化線形モデル, volume: linear_models, prerequisites: [ P3-01, L1-02, P2-02, F0-00, I3-02 ], official_scope: [ 一般化線形モデル, ロジスティック回帰, ポアソン回帰 ] }
   - { id: E4-01, title: 管理図と工程能力, volume: engineering, prerequisites: [ P3-01, P3-02, P4-02 ], official_scope: [ 管理図, プロセス管理, 工程能力指数 ] }
   - { id: E4-02, title: 信頼性・保全性, volume: engineering, prerequisites: [ P3-02, P3-05, E2-01 ], official_scope: [ 信頼性, 保全性, ハザード, MTBF ] }
   - { id: E3-01, title: 実験計画・直交表・交絡, volume: engineering, prerequisites: [ L1-03, L1-02 ], official_scope: [ 実験の計画と実施, フィッシャーの3原則, 一元配置法, 二元配置法, 固定効果, 変量効果, 交絡因子, ブロック化, 乱塊法, 直交表, 一部実施要因計画, 交絡法 ] }
@@ -133,7 +133,7 @@ chapters:
   - { id: I2-02, title: 区間推定, volume: inference, prerequisites: [ S1-01, I2-01 ], official_scope: [ 信頼係数, 信頼区間の構成, 被覆確率 ] }
   - { id: I3-01, title: 検定の基礎とネイマン・ピアソン理論, volume: inference, prerequisites: [ I1-01, I2-02 ], official_scope: [ P値, 有意水準, 棄却域, 第一種の過誤, 第二種の過誤, 検出力, ネイマン・ピアソンの基本定理, 検出力曲線 ] }
   - { id: I3-02, title: 尤度比・Wald・Score検定, volume: inference, prerequisites: [ I2-01, I3-01 ], official_scope: [ 尤度比検定, ワルド型検定, スコア型検定 ] }
-  - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定, 複数の平均に関する検定, 二項分布・ポアソン分布など基本的な分布に関する検定, フィッシャー検定, マクネマー検定, イェーツの補正, 順位相関係数 ] }
+  - { id: I3-03, title: 正規母集団・適合度・ノンパラメトリック検定, volume: inference, prerequisites: [ S1-01, I3-01, I3-02 ], official_scope: [ 平均値と分散に関する検定, 適合度の検定, ノンパラメトリック検定, 複数の平均に関する検定, 二項分布・ポアソン分布など基本的な分布に関する検定, フィッシャー検定, マクネマー検定, イェーツの補正, 順位相関係数 ] }
   - { id: I4-01, title: ベイズ推定・事後分布・予測分布, volume: inference, prerequisites: [ I1-01, P1-02, P3-04 ], official_scope: [ 事前分布, 事後分布, 共役事前分布, ベイズ推定量, 事後最頻値, 予測分布, 損失関数, 階層ベイズモデル, ギブスサンプリング ] }
   - { id: I4-02, title: 欠測・不完全データ・期待値最大化法, volume: inference, prerequisites: [ I1-01, P1-02, P3-04, P3-03, P3-05 ], official_scope: [ 欠測, 不完全データ, 観測データ尤度, 期待値最大化法, 打ち切り, 切断 ] }
   - { id: L2-02, title: モデル評価・選択, volume: linear_models, prerequisites: [ L1-02, L2-01, L1-04, I1-01 ], official_scope: [ カルバック・ライブラー情報量, 情報量規準AIC, クロスバリデーション, 変数選択 ] }
