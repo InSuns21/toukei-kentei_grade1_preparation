@@ -5,7 +5,15 @@ prerequisites:
   - LA4
   - F0-00E1
   - F0-00E2
-forward_references: []
+forward_references:
+  - linear.singular-value
+  - linear.singular-value-decomposition
+  - linear.hermitian-quadratic-form
+  - linear.polar-decomposition
+  - linear.complex-singular-value-decomposition
+  - functional.norm
+  - functional.l2-inner-product
+  - linear.inner-product-recap-c1
 
 concepts:
   - id: linear.complex-inner-product
