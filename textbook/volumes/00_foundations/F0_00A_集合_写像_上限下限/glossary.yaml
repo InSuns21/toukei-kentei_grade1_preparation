@@ -1,11 +1,35 @@
 chapter: "F0-00A"
 terms:
+  - term: 部分集合
+    english: subset
+    meaning: A のすべての要素が B にも属するときの関係 A⊆B。
+  - term: 直積集合
+    english: Cartesian product
+    meaning: x∈X, y∈Y を満たす順序対 (x,y) 全体の集合 X×Y。
+  - term: 写像
+    english: map / function
+    meaning: 定義域 X の各元に終域 Y の元をただ一つ対応させる規則。
+  - term: 定義域
+    english: domain
+    meaning: 写像 f:X→Y の入力側の集合 X。
+  - term: 終域
+    english: codomain
+    meaning: 写像 f:X→Y で出力先として指定された集合 Y。
+  - term: 像
+    english: image
+    meaning: A⊆X に対する {f(x):x∈A}。
   - term: 逆像
     english: preimage
-    meaning: B⊂Y に対する {x∈X:f(x)∈B}。逆関数の存在は必要ない。
+    meaning: B⊆Y に対する {x∈X:f(x)∈B}。逆写像の存在は必要ない。
   - term: 単射
     english: injective map
     meaning: 同じ値へ写る二点が必ず同じ点である写像。
   - term: 全射
     english: surjective map
     meaning: 終域の各点が少なくとも一つの定義域の点の像になっている写像。
+  - term: 全単射
+    english: bijective map
+    meaning: 単射かつ全射であり、定義域と終域の間に一対一対応を与える写像。
+  - term: 合成写像
+    english: composition
+    meaning: f:X→Y と g:Y→Z に対する (g∘f)(x)=g(f(x)) で定まる写像。
