@@ -13,6 +13,13 @@ concepts:
     requires:
       - linear.inner-product
 
+  - id: linear.inner-product-induced-norm
+    name: 内積から定まるノルム
+    kind: term
+    aliases: [内積から定まるノルム]
+    requires:
+      - linear.inner-product
+
   - id: linear.triangle-inequality-inner-product
     name: 内積ノルムの三角不等式
     kind: theorem
@@ -20,6 +27,7 @@ concepts:
     aliases: [内積ノルムの三角不等式, 三角不等式]
     requires:
       - linear.cauchy-schwarz
+      - linear.inner-product-induced-norm
 
   - id: linear.reverse-triangle-inequality
     name: 逆三角不等式
