@@ -1,6 +1,6 @@
 chapter: F0-00E2
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-00E1
 
@@ -13,13 +13,36 @@ concepts:
     requires:
       - linear.inner-product
 
+  - id: linear.triangle-inequality-inner-product
+    name: 内積ノルムの三角不等式
+    kind: theorem
+    introduction_aliases: [三角不等式]
+    aliases: [内積ノルムの三角不等式, 三角不等式]
+    requires:
+      - linear.cauchy-schwarz
+
+  - id: linear.reverse-triangle-inequality
+    name: 逆三角不等式
+    kind: theorem
+    aliases: [逆三角不等式]
+    requires:
+      - linear.triangle-inequality-inner-product
+
+  - id: linear.orthogonal-projection-coefficients
+    name: 正規直交系への射影係数
+    kind: proposition
+    aliases: [正規直交系への射影係数]
+    requires:
+      - linear.orthonormal-system
+      - linear.orthogonal-projection
+
   - id: linear.bessel-inequality
     name: Besselの不等式
     kind: theorem
     introduction_aliases: [Bessel不等式]
     aliases: [Besselの不等式, Bessel不等式]
     requires:
-      - linear.orthogonality
+      - linear.orthogonal-projection-coefficients
       - linear.inner-product
 
   - id: linear.parseval-identity
@@ -29,3 +52,4 @@ concepts:
     aliases: [Parsevalの等式, 有限次元Parseval等式]
     requires:
       - linear.bessel-inequality
+      - linear.basis
