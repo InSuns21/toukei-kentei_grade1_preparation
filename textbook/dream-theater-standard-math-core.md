@@ -39,9 +39,11 @@ flowchart TD
   RA4 --> RA7["実解析 VII<br/>重積分・変数変換<br/>RA7"]
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
 
-  TOP0 --> TOP1["基底・部分基底・積・商位相<br/>TOP1/TOP2"]
-  TOP1 --> TOP3["連結性・可算性・分離公理<br/>TOP3/TOP4"]
-  TOP3 --> TOP5["局所コンパクト・Tychonoff・距離化<br/>TOP5"]
+  TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
+  TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
+  TOP2 --> TOP3["連結性<br/>TOP3"]
+  TOP3 --> TOP4["可算性・分離公理<br/>TOP4"]
+  TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
 
   LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
@@ -246,18 +248,23 @@ flowchart TD
 
 現行 B1 には位相空間・部分空間位相・位相的収束・連続写像に加え、Hausdorff性と極限一意性まで入っています。以下を補います。
 
-## TOP1 基底・部分基底 `core`
+## TOP1 位相の生成・initial/final topology・積・商 `core`
 
-- basis / subbasis / neighborhood basis
-- 生成位相、位相の強弱
-- 基底による連続性判定
+- basis / subbasis / neighborhood basis と生成位相
+- 位相の包含関係による「最粗・最細」の証明
+- initial topology の普遍性と、部分空間位相・積位相への特殊化
+- final topology の普遍性と、商位相・商写像への特殊化
+- 連続性判定を逆像の等式まで追う
+- 飽和集合と $q^{-1}(q(A))$ の具体計算
 
-## TOP2 積位相・商位相 `core`
+## TOP2 同値関係による商空間・貼り合わせ `core`
 
-- 有限積・任意積、product topology
-- box topologyとの違い、射影写像
-- quotient topology / quotient map
-- 貼り合わせ・同一視の典型例
+- 同相写像、同値関係・同値類、同一視空間
+- 商空間への写像の降下：well-defined性・連続性・一意性
+- compact → Hausdorff の連続全単射による同相判定
+- 区間の端点同一視から円、正方形の辺同一視から円柱・トーラス
+- 位相的直和を final topology として扱い、貼り合わせを「直和 → 商」で構成
+- 二重原点直線による「商空間はHausdorffとは限らない」反例
 
 ## TOP3 連結性 `core`
 
@@ -276,7 +283,7 @@ flowchart TD
 ## TOP5 コンパクト性の一般論 `core / advanced-standard`
 
 - finite intersection property
-- compact subset of Hausdorff is closed
+- TOP2で証明した「Hausdorff空間のコンパクト部分集合は閉集合」を再利用
 - locally compact、one-point compactification、tube lemma
 - 任意積とTychonoff定理、選択公理との関係
 - Urysohn metrization theorem の位置付け
@@ -419,7 +426,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。
-4. **TOP1–TOP6**：基底 → 積/商 → 連結 → 可算性/分離 → compact/Baire。
+4. **TOP1–TOP6**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact/Baire。
 5. **MT1–MT5**：収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
 7. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
@@ -441,7 +448,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 - **実解析**：計算微積分だけでなく、Riemann積分・一様収束まで証明付きで一周。
 - **線形代数**：実/複素線形空間・商・代数的双対・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。Jordan標準形は数学科標準コアに含めるが、統計検定1級通常ルートの必修前提にはしない。
-- **位相**：積・商・連結・可算性・分離・コンパクト性の一般論まで一周。
+- **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成に加え、収束様式・signed measure・Radon–Nikodymまで一周。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。
 
