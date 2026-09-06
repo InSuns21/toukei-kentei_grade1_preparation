@@ -279,8 +279,9 @@ function collectAncestors(pageId, visiting) {
 
 function stripNonReaderContent(source) {
   return String(source)
-    .replace(/<!-- solution-start -->[\s\S]*?<!-- solution-end -->/gu, '')
-    .replace(/<!--[^]*?-->/gu, '');
+    .replace(/<!--[\s\S]*?-->/gu, preserveLines)
+    .replace(/```[\s\S]*?```/gu, preserveLines)
+    .replace(/`[^`\n]*`/gu, (value) => ' '.repeat(value.length));
 }
 
 function isNavigationOrChecklistLine(line) {
@@ -289,6 +290,10 @@ function isNavigationOrChecklistLine(line) {
   if (/(?:で扱います|で扱う予定|後続章で扱|次章で扱|を予告します|への接続として)/u.test(text)) return true;
   if (/(?:次章|次節|後続章|後続節|この先).*(?:説明|導入|扱|証明|確認|見る|学ぶ)/u.test(text)) return true;
   return false;
+}
+
+function preserveLines(value) {
+  return '\n'.repeat((value.match(/\n/g) ?? []).length);
 }
 
 function normalizeLiteral(value) {
