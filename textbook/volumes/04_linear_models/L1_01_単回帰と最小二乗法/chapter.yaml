@@ -8,6 +8,7 @@ prerequisites:
   - S1-01
   - F0-00
   - I2-02
+  - I3-01
 official_scope:
   - 線形単回帰
   - 最小二乗推定

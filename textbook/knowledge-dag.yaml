@@ -370,7 +370,6 @@ concepts:
     aliases:
       - 第一種過誤
       - type I error
-      - Type I error
     introduced_in: I3-01
     requires: [null-hypothesis, rejection-region]
 
@@ -386,7 +385,6 @@ concepts:
     aliases:
       - 第二種過誤
       - type II error
-      - Type II error
     introduced_in: I3-01
     requires: [alternative-hypothesis, rejection-region]
 
@@ -401,6 +399,5 @@ concepts:
     name: P値
     aliases:
       - p-value
-      - P-value
     introduced_in: I3-01
     requires: [significance-level, rejection-region]
