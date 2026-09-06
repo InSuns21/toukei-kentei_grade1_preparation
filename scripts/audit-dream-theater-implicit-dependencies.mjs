@@ -8,12 +8,15 @@ const strict = process.argv.includes('--strict');
 const changedOnly = process.argv.includes('--changed-only');
 const indexPath = path.join(root, 'textbook/dream-theater-index.json');
 const policyPath = path.join(root, 'textbook/dream-theater-knowledge.yaml');
+const inferencePath = path.join(root, 'textbook/dream-theater-inference-rules.yaml');
 
 if (!fs.existsSync(indexPath)) fatal('textbook/dream-theater-index.json が見つかりません。');
 if (!fs.existsSync(policyPath)) fatal('textbook/dream-theater-knowledge.yaml が見つかりません。');
+if (!fs.existsSync(inferencePath)) fatal('textbook/dream-theater-inference-rules.yaml が見つかりません。');
 
 const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
 const policy = YAML.parse(fs.readFileSync(policyPath, 'utf8')) ?? {};
+const inferencePolicy = YAML.parse(fs.readFileSync(inferencePath, 'utf8')) ?? {};
 const metadataFile = policy.metadata_file || 'knowledge.yaml';
 const pagePaths = (index.sections ?? []).flatMap((section) => section.paths ?? []);
 const pages = new Map();
@@ -36,10 +39,15 @@ for (const relPath of pagePaths) {
   if (fs.existsSync(knowledgePath)) {
     const doc = YAML.parse(fs.readFileSync(knowledgePath, 'utf8')) ?? {};
     page.prerequisites = [...new Set((doc.prerequisites ?? []).map(String))];
-    page.concepts = (doc.concepts ?? []).map((raw) => normalizeConcept(raw, page));
+    page.concepts = (doc.concepts ?? []).map((raw) => ({
+      id: String(raw.id ?? ''),
+      name: String(raw.name ?? ''),
+      kind: String(raw.kind ?? 'term'),
+      page,
+    }));
     for (const concept of page.concepts) {
       if (concepts.has(concept.id)) {
-        findings.push(configFinding(page, `概念ID ${concept.id} が重複登録されています。`));
+        configError(`概念ID ${concept.id} が重複登録されています。`);
       } else {
         concepts.set(concept.id, concept);
       }
@@ -51,15 +59,11 @@ for (const relPath of pagePaths) {
 const ancestorCache = new Map();
 for (const page of pages.values()) page.ancestors = collectAncestors(page.id, new Set());
 
-const changed = changedOnly ? collectChangedLineNumbers() : { files: new Set(), lines: new Map() };
-let registeredRules = 0;
-let matchedUses = 0;
+const rules = (inferencePolicy.rules ?? []).map(normalizeRule).filter(Boolean);
+for (const rule of rules) validateRule(rule);
 
-for (const concept of concepts.values()) {
-  if (!concept.inferenceAliases.length) continue;
-  registeredRules += concept.inferenceAliases.length;
-  validateInferenceConcept(concept);
-}
+const changed = changedOnly ? collectChangedLineNumbers() : { files: new Set(), lines: new Map() };
+let matchedUses = 0;
 
 for (const page of pages.values()) {
   if (!fs.existsSync(page.fullPath) || !fs.existsSync(page.knowledgePath)) continue;
@@ -71,21 +75,22 @@ for (const page of pages.values()) {
     if (!rawLine.trim() || isNavigationOrChecklistLine(rawLine)) continue;
     const lineNumber = i + 1;
 
-    for (const concept of concepts.values()) {
-      if (!concept.inferenceAliases.length) continue;
-      for (const rule of concept.inferenceAliases) {
-        if (!matchesRule(rawLine, rule)) continue;
+    for (const rule of rules) {
+      if (!rule.concept) continue;
+      for (const pattern of rule.patterns) {
+        if (!matchesPattern(rawLine, pattern)) continue;
         matchedUses += 1;
-        validateImplicitUse(page, lineNumber, rawLine, concept, rule);
+        validateImplicitUse(page, lineNumber, rawLine, rule, pattern);
       }
     }
   }
 }
 
 const counts = countBySeverity(findings);
+const patternCount = rules.reduce((sum, rule) => sum + rule.patterns.length, 0);
 console.log(strict ? 'DREAM THEATER 暗黙論証依存検証（strict）' : 'DREAM THEATER 暗黙論証依存監査');
-console.log(`対象ページ: ${pagePaths.length} / inference rules: ${registeredRules} / 検出使用: ${matchedUses}`);
-if (changedOnly) console.log(`変更ファイル: ${changed.files.size} / 変更本文行または変更knowledgeのページだけをblocking対象に限定`);
+console.log(`対象ページ: ${pagePaths.length} / inference rules: ${rules.length} / patterns: ${patternCount} / 検出使用: ${matchedUses}`);
+if (changedOnly) console.log(`変更ファイル: ${changed.files.size} / 変更本文行だけをblocking対象に限定`);
 console.log(`ERROR: ${counts.ERROR ?? 0} / WARN: ${counts.WARN ?? 0} / AUDIT: ${counts.AUDIT ?? 0}`);
 for (const finding of findings.slice(0, 250)) {
   console.log(`- [${finding.severity}] ${finding.file}:${finding.line} ${finding.message}`);
@@ -93,109 +98,115 @@ for (const finding of findings.slice(0, 250)) {
 if (findings.length > 250) console.log(`  ...ほか ${findings.length - 250} 件`);
 if (strict && findings.some((finding) => finding.severity === 'ERROR')) process.exit(1);
 
-function normalizeConcept(raw, page) {
-  const inferenceAliases = (raw.inference_aliases ?? []).map((entry, index) => normalizeInferenceRule(entry, page, raw, index));
-  return {
-    id: String(raw.id ?? ''),
-    name: String(raw.name ?? ''),
-    kind: String(raw.kind ?? 'term'),
-    sourceAnchor: raw.source_anchor ? String(raw.source_anchor).trim() : '',
-    inferenceAliases,
-    page,
-  };
+function normalizeRule(raw, index) {
+  if (!raw || typeof raw !== 'object') {
+    configError(`rules[${index}] は object で指定してください。`);
+    return null;
+  }
+  const id = String(raw.id ?? `rule-${index + 1}`);
+  const conceptId = String(raw.concept ?? '').trim();
+  const sourceAnchor = String(raw.source_anchor ?? '').trim();
+  const concept = concepts.get(conceptId) ?? null;
+  const patterns = (raw.patterns ?? []).map((entry, patternIndex) => normalizePattern(entry, id, patternIndex)).filter(Boolean);
+  if (!conceptId) configError(`${id}: concept がありません。`);
+  else if (!concept) configError(`${id}: concept ${conceptId} を DREAM THEATER knowledge DAG から解決できません。`);
+  if (!sourceAnchor) configError(`${id}: source_anchor がありません。`);
+  if (!patterns.length) configError(`${id}: patterns がありません。`);
+  return { id, conceptId, concept, sourceAnchor, patterns };
 }
 
-function normalizeInferenceRule(entry, page, raw, index) {
+function normalizePattern(entry, ruleId, index) {
   if (typeof entry === 'string') {
     const literal = entry.trim();
-    return { type: 'literal', value: literal, label: literal, index };
+    if (!literal) {
+      configError(`${ruleId}: patterns[${index}] が空です。`);
+      return null;
+    }
+    return { type: 'literal', value: literal, label: literal };
   }
   if (!entry || typeof entry !== 'object') {
-    findings.push(configFinding(page, `${raw.id ?? '(unknown)'} の inference_aliases[${index}] は文字列または {literal|regex: ...} で指定してください。`));
-    return { type: 'invalid', value: '', label: '(invalid)', index };
+    configError(`${ruleId}: patterns[${index}] は文字列または {literal|regex: ...} で指定してください。`);
+    return null;
   }
   if (entry.literal != null) {
     const literal = String(entry.literal).trim();
-    return { type: 'literal', value: literal, label: literal, index };
+    if (!literal) {
+      configError(`${ruleId}: patterns[${index}].literal が空です。`);
+      return null;
+    }
+    return { type: 'literal', value: literal, label: literal };
   }
   if (entry.regex != null) {
     const value = String(entry.regex);
     try {
       new RegExp(value, 'u');
     } catch (error) {
-      findings.push(configFinding(page, `${raw.id ?? '(unknown)'} の inference regex が不正です: ${error.message}`));
-      return { type: 'invalid', value: '', label: value, index };
+      configError(`${ruleId}: patterns[${index}].regex が不正です: ${error.message}`);
+      return null;
     }
-    return { type: 'regex', value, label: value, index };
+    return { type: 'regex', value, label: value };
   }
-  findings.push(configFinding(page, `${raw.id ?? '(unknown)'} の inference_aliases[${index}] に literal または regex がありません。`));
-  return { type: 'invalid', value: '', label: '(invalid)', index };
+  configError(`${ruleId}: patterns[${index}] に literal または regex がありません。`);
+  return null;
 }
 
-function validateInferenceConcept(concept) {
-  if (!concept.id) {
-    findings.push(configFinding(concept.page, 'inference_aliases を持つ概念に id がありません。'));
+function validateRule(rule) {
+  if (!rule.concept || !rule.sourceAnchor) return;
+  const page = rule.concept.page;
+  if (!fs.existsSync(page.fullPath)) {
+    configError(`${rule.id}: 導入ページ ${page.path} が存在しません。`);
     return;
   }
-  if (!concept.sourceAnchor) {
-    findings.push(configFinding(concept.page, `${concept.name} (${concept.id}) は inference_aliases を持つため source_anchor が必要です。`));
-    return;
-  }
-  if (!fs.existsSync(concept.page.fullPath)) return;
-  const source = fs.readFileSync(concept.page.fullPath, 'utf8');
-  const anchorRe = new RegExp(`<a\\s+id=["']${escapeRegex(concept.sourceAnchor)}["']\\s*><\\/a>`, 'u');
+  const source = fs.readFileSync(page.fullPath, 'utf8');
+  const anchorRe = new RegExp(`<a\\s+id=["']${escapeRegex(rule.sourceAnchor)}["']\\s*><\\/a>`, 'u');
   if (!anchorRe.test(source)) {
-    findings.push(configFinding(concept.page, `${concept.name} (${concept.id}) の source_anchor #${concept.sourceAnchor} が導入ページに存在しません。`));
+    configError(`${rule.id}: ${rule.concept.name} (${rule.concept.id}) の source_anchor #${rule.sourceAnchor} が導入ページに存在しません。`);
   }
 }
 
-function validateImplicitUse(page, lineNumber, rawLine, concept, rule) {
-  const severity = severityForLine(page, lineNumber);
+function validateImplicitUse(page, lineNumber, rawLine, rule, pattern) {
+  const concept = rule.concept;
   let problem = null;
 
   if (concept.page.id !== page.id && !page.ancestors.has(concept.page.id)) {
-    problem = `暗黙の論証「${rule.label}」は ${concept.name} (${concept.id}) に対応しますが、導入ページ ${concept.page.id} は ${page.id} の prerequisite から到達できません。`;
-  } else if (!concept.sourceAnchor) {
-    problem = `暗黙の論証「${rule.label}」は ${concept.name} (${concept.id}) に対応しますが source_anchor がありません。`;
-  } else if (!hasExpectedLink(rawLine, page.fullPath, concept)) {
-    problem = `名前を省略した論証「${rule.label}」を検出しました。${concept.name} (${concept.id}) を明示し、${concept.page.path}#${concept.sourceAnchor} へのクリック可能なリンクを同じ推論行に置いてください。`;
+    problem = `暗黙の論証「${pattern.label}」は ${concept.name} (${concept.id}) に対応しますが、導入ページ ${concept.page.id} は ${page.id} の prerequisite から到達できません。`;
+  } else if (!hasExpectedLink(rawLine, page.fullPath, concept.page.fullPath, rule.sourceAnchor)) {
+    problem = `名前を省略した論証「${pattern.label}」を検出しました。${concept.name} (${concept.id}) を明示し、${concept.page.path}#${rule.sourceAnchor} へのクリック可能なリンクを同じ推論行に置いてください。`;
   }
 
   if (!problem) return;
   findings.push({
-    severity,
+    severity: severityForLine(page.path, lineNumber),
     file: page.path,
     line: lineNumber,
     message: `${problem} [${compact(rawLine)}]`,
   });
 }
 
-function matchesRule(line, rule) {
-  if (rule.type === 'invalid' || !rule.value) return false;
-  if (rule.type === 'regex') return new RegExp(rule.value, 'u').test(line);
-  return normalizeLiteral(line).includes(normalizeLiteral(rule.value));
+function matchesPattern(line, pattern) {
+  if (pattern.type === 'regex') return new RegExp(pattern.value, 'u').test(line);
+  return normalizeLiteral(line).includes(normalizeLiteral(pattern.value));
 }
 
-function hasExpectedLink(line, sourceFile, concept) {
+function hasExpectedLink(line, sourceFile, targetFile, sourceAnchor) {
   const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
   for (const match of line.matchAll(linkRe)) {
     const href = match[2].trim();
     if (/^(?:https?:|mailto:|tel:|javascript:)/i.test(href)) continue;
     const [pathPart, fragment = ''] = href.split('#', 2);
-    if (fragment !== concept.sourceAnchor) continue;
+    if (fragment !== sourceAnchor) continue;
     let target;
     if (!pathPart) target = sourceFile;
     else if (pathPart.startsWith('textbook/')) target = path.resolve(root, pathPart);
     else target = path.resolve(path.dirname(sourceFile), pathPart);
-    if (target === concept.page.fullPath) return true;
+    if (target === targetFile) return true;
   }
   return false;
 }
 
-function severityForLine(page, lineNumber) {
+function severityForLine(relPath, lineNumber) {
   if (!changedOnly) return 'AUDIT';
-  if (changed.files.has(page.knowledgeRel)) return 'ERROR';
-  const changedLines = changed.lines.get(page.path);
+  const changedLines = changed.lines.get(relPath);
   if (changedLines?.has(lineNumber)) return 'ERROR';
   return 'AUDIT';
 }
@@ -306,13 +317,13 @@ function countBySeverity(items) {
   return out;
 }
 
-function configFinding(page, message) {
-  return {
+function configError(message) {
+  findings.push({
     severity: strict ? 'ERROR' : 'WARN',
-    file: page?.knowledgeRel ?? 'textbook/dream-theater-knowledge.yaml',
+    file: 'textbook/dream-theater-inference-rules.yaml',
     line: 1,
     message,
-  };
+  });
 }
 
 function escapeRegex(value) {
