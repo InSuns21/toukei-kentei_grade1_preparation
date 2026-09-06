@@ -12,6 +12,7 @@
 - 共通分布規約：`../references/distribution-notation-guide.md`
 - 通常教材だけの執筆差分：`style-guide.md`
 - 共通演習規約：`../EXERCISE_GUIDELINES.md`
+- DREAM THEATER 演習・解答差分：`DREAM_THEATER_EXERCISE_POLICY.md`
 - 粒度レビュー計画：`REVIEW_PLAN.md`
 - 章間依存：`dependency-graph.md`
 - 章生成・査読プロンプト：`prompts/`
@@ -37,6 +38,12 @@
 新規章は `index.md` 1枚に、導入・定義・定理・例題・演習・詳細解答・本番ドリルをまとめます。演習は「問題 → 折りたたみ式の解答 → 次の問題」の順に配置します。
 
 既存章には `00_overview.md` から `09_past_exam_practice.md` までの旧分割形式が残っています。移行期間中はこの形式もvalidationで許容し、GitHub Pagesのビルド時に1ページへ合成します。既存の個別ファイルへのリンクは互換性のため当面残します。
+
+### DREAM THEATER の差分
+
+`dream-theater-index.json` に掲載されるページは `DREAM_THEATER_EXERCISE_POLICY.md` を併用します。DREAM THEATER では、変更した章について原則 `Level A >= 4 / Level B >= 3 / Level C >= 1` を確保しますが、教育上不要なら理由付き例外を使い、水増ししません。
+
+また DREAM THEATER は本番答案訓練を目的としないため、演習では詳細解答を用意すればよく、**本番答案と採点基準は要求しません**。通常の試験向け章にはこの免除を適用しません。
 
 ## Chatからの追記
 
