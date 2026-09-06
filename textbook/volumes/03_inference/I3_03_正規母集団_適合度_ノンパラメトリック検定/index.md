@@ -333,27 +333,34 @@ $$
 
 ### 2.1 独立・正規・等分散
 
-$$
-X_1,\ldots,X_{n_1}\sim N(\mu_1,\sigma^2),
-\qquad
-Y_1,\ldots,Y_{n_2}\sim N(\mu_2,\sigma^2)
-$$
+<a id="def-i3-03-pooled-t-test"></a>
 
-が互いに独立とします。プール分散は
+<!-- formal-statement-start -->
+> **定義（プールt検定）**
+> 独立な二つの正規標本が共通分散 $\sigma^2$ を持つとする。プール分散を
 
 $$
 S_p^2
-=\frac{(n_1-1)S_X^2+(n_2-1)S_Y^2}{n_1+n_2-2}.
+=\frac{(n_1-1)S_X^2+(n_2-1)S_Y^2}{n_1+n_2-2}
 $$
 
-$H_0:\mu_1-\mu_2=\delta_0$ の下で
+> とし、$H_0:\mu_1-\mu_2=\delta_0$ に対する統計量を
 
 $$
 T
 =\frac{\bar X-\bar Y-\delta_0}
 {S_p\sqrt{1/n_1+1/n_2}}
-\sim t_{n_1+n_2-2}.
 $$
+
+> とする。帰無仮説の下で $T\sim t_{n_1+n_2-2}$ となるこの検定をプールt検定という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i3-03-pooled-t-test -->
+
+**定義の確認**
+$n_1=10,n_2=12,S_X^2=1.8,S_Y^2=2.0$ なら $S_p^2=1.91$、自由度は $10+12-2=20$ である。
+
+<!-- definition-example-end -->
 
 #### 数値例：プール分散から判断まで
 
@@ -402,13 +409,19 @@ $$
 
 ### 2.2 等分散を仮定しないウェルチ型検定
 
+<a id="def-i3-03-welch-t-test"></a>
+
+<!-- formal-statement-start -->
+> **定義（ウェルチ型検定）**
+> 独立な二標本で等分散を仮定せず、$H_0:\mu_1-\mu_2=\delta_0$ に対して
+
 $$
 T_W
 =\frac{\bar X-\bar Y-\delta_0}
 {\sqrt{S_X^2/n_1+S_Y^2/n_2}}
 $$
 
-を使い、自由度を
+> を用い、ウェルチ・サタースウェイトの自由度
 
 $$
 \nu
@@ -418,7 +431,15 @@ $$
 +\dfrac{(S_Y^2/n_2)^2}{n_2-1}}
 $$
 
-で近似します。一般には有限標本で正確なt分布ではありません。
+> でt分布を参照する検定をウェルチ型検定という。一般には有限標本で正確なt分布ではない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-i3-03-welch-t-test -->
+
+**定義の確認**
+$n_1=8,n_2=10,S_X^2=9,S_Y^2=1$ なら標準誤差は $\sqrt{9/8+1/10}$、近似自由度は約 $8.25$ となる。
+
+<!-- definition-example-end -->
 
 #### 数値例：分散がかなり違う2群
 
@@ -455,23 +476,25 @@ $$
 
 ### 2.3 対応のある二標本
 
-同じ個体の処置前後などでは
+<a id="def-i3-03-paired-t-test"></a>
+
+<!-- formal-statement-start -->
+> **定義（対応のあるt検定）**
+> 同じ個体の処置前後などの対応データでは差 $D_i=X_i-Y_i$ を作る。$H_0:E[D_i]=\delta_0$ に対して
 
 $$
-D_i=X_i-Y_i
+T_D=\frac{\sqrt n(\bar D-\delta_0)}{S_D}
 $$
 
-を作り、1標本問題
+> を用い、差 $D_i$ が正規分布に従うなら帰無仮説の下で $T_D\sim t_{n-1}$ として行う検定を対応のあるt検定という。
+<!-- formal-statement-end -->
 
-$$
-H_0:E[D_i]=0
-$$
+<!-- definition-example-start: def-i3-03-paired-t-test -->
 
-へ帰着します。差が正規なら
+**定義の確認**
+$n=8,\bar D=0.775,S_D=0.871,\delta_0=0$ なら $T_D\approx2.516$、自由度は7である。
 
-$$
-T_D=\frac{\sqrt n\bar D}{S_D}\sim t_{n-1}.
-$$
+<!-- definition-example-end -->
 
 > **見分け方**  
 > 「新薬群10人と対照群10人」は独立2標本です。「同じ10人の投与前と投与後」は対応があります。後者を独立2標本として扱うと、個人差を相殺できる対応構造を捨ててしまいます。
