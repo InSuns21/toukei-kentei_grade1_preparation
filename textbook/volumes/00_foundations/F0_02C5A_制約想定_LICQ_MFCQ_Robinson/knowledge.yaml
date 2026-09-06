@@ -1,30 +1,109 @@
 chapter: F0-02C5A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C5
 
 concepts:
+  - id: optimization.active-set-recap-c5a
+    name: active setの再掲
+    kind: definition
+    aliases: [active set・線形化cone]
+    requires:
+      - optimization.active-set
+
+  - id: optimization.linearized-cone-recap-c5a
+    name: 線形化coneの再掲
+    kind: definition
+    aliases: [active set・線形化cone]
+    requires:
+      - optimization.linearized-cone
+      - optimization.active-set-recap-c5a
+
   - id: optimization.licq
     name: LICQ
     kind: definition
-    introduction: inline
     aliases: [LICQ]
     requires:
       - optimization.constraint-qualification
+      - optimization.active-set-recap-c5a
 
   - id: optimization.mfcq
     name: MFCQ
     kind: definition
-    introduction: inline
     aliases: [MFCQ]
     requires:
       - optimization.constraint-qualification
+      - optimization.active-set-recap-c5a
+
+  - id: optimization.licq-implies-mfcq
+    name: LICQならMFCQ
+    kind: theorem
+    aliases: ["定理（LICQ", LICQならMFCQ]
+    requires:
+      - optimization.licq
+      - optimization.mfcq
+
+  - id: optimization.tangent-subset-linearized
+    name: 接錐は線形化coneに含まれる
+    kind: theorem
+    aliases: [接錐は線形化coneに含まれる]
+    requires:
+      - convex.bouligand-tangent-cone
+      - optimization.linearized-cone-recap-c5a
+
+  - id: optimization.mfcq-tangent-equality
+    name: MFCQ下の接錐一致
+    kind: theorem
+    aliases: [MFCQ下の接錐一致]
+    requires:
+      - optimization.mfcq
+      - optimization.tangent-subset-linearized
+      - optimization.linearized-cone-recap-c5a
 
   - id: optimization.robinson-cq
-    name: Robinsonの制約想定
+    name: 有限次元の通常制約に対するRobinson CQ
     kind: definition
-    introduction: inline
-    aliases: [Robinson]
+    aliases: [有限次元の通常制約に対する Robinson CQ, Robinson CQ]
     requires:
       - optimization.constraint-qualification
+      - optimization.robinson-cq-preview
+      - optimization.linearized-cone-recap-c5a
+
+  - id: optimization.robinson-mfcq-equivalence
+    name: Robinson CQとMFCQの同値
+    kind: theorem
+    aliases: ["定理（Robinson CQ", Robinson CQとMFCQの同値]
+    requires:
+      - optimization.robinson-cq
+      - optimization.mfcq
+
+  - id: optimization.linearized-cone-polar
+    name: 線形化coneのpolar表示
+    kind: theorem
+    aliases: [線形化coneのpolar表示]
+    requires:
+      - optimization.linearized-cone-recap-c5a
+      - convex.polar-cone
+      - convex.finitely-generated-cone
+      - optimization.nearest-point-projection
+
+  - id: optimization.mfcq-kkt-existence
+    name: MFCQ下のKKT乗数存在
+    kind: theorem
+    aliases: [MFCQ下のKKT乗数存在]
+    requires:
+      - optimization.local-minimum-tangent-condition
+      - optimization.mfcq-tangent-equality
+      - optimization.linearized-cone-polar
+      - optimization.kkt-conditions
+
+  - id: optimization.smooth-convex-normal-cone
+    name: 滑らかな凸制約集合のnormal cone
+    kind: theorem
+    aliases: [滑らかな凸制約集合のnormal cone]
+    requires:
+      - optimization.mfcq-tangent-equality
+      - optimization.linearized-cone-polar
+      - convex.normal-cone
+      - convex.convex-function

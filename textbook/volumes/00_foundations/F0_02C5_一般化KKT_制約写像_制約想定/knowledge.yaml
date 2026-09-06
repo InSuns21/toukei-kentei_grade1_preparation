@@ -1,34 +1,91 @@
 chapter: F0-02C5
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C4B
-  - F0-02C3
+  - F0-02C3A
   - F0-02A
+
+forward_references:
+  - optimization.licq
+  - optimization.mfcq
+  - optimization.robinson-cq
 
 concepts:
   - id: optimization.constraint-map
     name: 制約写像
-    kind: definition
+    kind: term
     introduction: inline
     aliases: [制約写像]
     requires:
       - functional.frechet-derivative
 
+  - id: optimization.cone-constraint
+    name: 錐制約
+    kind: definition
+    aliases: [錐制約]
+    requires:
+      - optimization.constraint-map
+      - convex.convex-cone
+
+  - id: optimization.generalized-lagrangian
+    name: 一般化Lagrangian
+    kind: definition
+    aliases: [一般化Lagrangian]
+    requires:
+      - optimization.cone-constraint
+      - convex.dual-cone
+      - optimization.lagrangian
+
+  - id: optimization.closed-cone-normal
+    name: 閉凸錐のnormal cone
+    kind: theorem
+    aliases: [閉凸錐, 閉凸錐のnormal cone]
+    requires:
+      - optimization.cone-constraint
+      - convex.normal-cone
+      - convex.dual-cone
+
+  - id: optimization.local-minimum-tangent-condition
+    name: 局所最適点の接方向条件
+    kind: lemma
+    aliases: [局所最適点の接方向条件]
+    requires:
+      - convex.bouligand-tangent-cone
+      - convex.polar-cone
+
   - id: optimization.constraint-qualification
     name: 制約想定
     kind: term
+    introduction: inline
     aliases: [制約想定]
     requires:
       - optimization.constraint-map
+      - optimization.local-minimum-tangent-condition
 
   - id: optimization.generalized-kkt
-    name: 一般化KKT条件
+    name: normal-cone表現からの一般化KKT
     kind: theorem
-    introduction: inline
-    aliases: [一般化KKT]
+    aliases: [normal-cone表現からの一般化KKT, 一般化KKT]
     requires:
-      - optimization.kkt-conditions
-      - optimization.constraint-map
+      - optimization.local-minimum-tangent-condition
+      - optimization.closed-cone-normal
       - optimization.constraint-qualification
-      - convex.normal-cone
+      - functional.adjoint-operator
+
+  - id: optimization.robinson-cq-preview
+    name: Robinson CQの予告
+    kind: term
+    introduction: inline
+    introduction_aliases: [Robinson CQ]
+    aliases: [Robinson CQの予告]
+    requires:
+      - optimization.constraint-qualification
+
+  - id: optimization.robinson-generalized-kkt
+    name: Robinson CQ下の一般化KKT
+    kind: theorem
+    aliases: [Robinson CQ下の一般化KKT]
+    requires:
+      - optimization.generalized-kkt
+      - optimization.robinson-cq-preview
