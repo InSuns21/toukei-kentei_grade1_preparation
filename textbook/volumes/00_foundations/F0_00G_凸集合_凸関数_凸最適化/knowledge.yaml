@@ -47,7 +47,7 @@ concepts:
   - id: convex.hessian-convexity
     name: C2 凸関数の Hessian 判定
     kind: theorem
-    aliases: ["C2 凸関数の Hessian 判定", "C^2 凸関数の Hessian 判定", 凸関数のHessian判定, Hessian判定]
+    aliases: ["C2 凸関数の Hessian 判定", "C^2 凸関数の Hessian 判定", "凸関数の Hessian 判定", 凸関数のHessian判定, Hessian判定]
     requires:
       - convex.convex-function
 
