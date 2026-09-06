@@ -1,15 +1,23 @@
 chapter: F0-02C3A
 scope: dream-theater
-coverage: partial
+coverage: complete
 prerequisites:
   - F0-02C3
 
 concepts:
   - id: functional.adjoint-operator
-    name: 随伴作用素
+    name: Banach空間での随伴作用素
     kind: definition
-    introduction: inline
-    aliases: [随伴作用素]
+    aliases: [Banach空間での随伴作用素, 随伴作用素]
     requires:
       - functional.bounded-linear-operator
+      - functional.dual-space
+
+  - id: functional.hilbert-adjoint
+    name: Hilbert随伴
+    kind: definition
+    aliases: [Hilbert随伴]
+    requires:
+      - functional.adjoint-operator
       - functional.hilbert-space
+      - functional.riesz-representation-theorem
