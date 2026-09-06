@@ -67,6 +67,10 @@ concepts:
     name: Heine–Borel
     kind: theorem
     aliases: [Heine–Borel, Heine--Borel]
+    source_anchor: thm-f0-00c1-02
+    inference_aliases:
+      - regex: '閉かつ有界なので.{0,120}コンパクト'
+      - regex: '閉かつ有界だから.{0,120}コンパクト'
     requires:
       - topology.compact-sequential-equivalence-metric
       - topology.bolzano-weierstrass-rp
