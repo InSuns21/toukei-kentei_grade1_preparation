@@ -1,0 +1,39 @@
+id: "TOP2"
+title: "標準位相 II：同値関係による商空間・貼り合わせ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP1
+  - F0-00C1
+official_scope: []
+learning_objectives:
+  - 同相写像の定義を使い、二つの空間が位相的に同じであることを証明できる
+  - 同値関係・同値類・標準射影を具体的に書き、どの点が同一視されるか判定できる
+  - 同値関係による商空間上へ写像を降ろすとき、well-defined性・連続性・一意性を確認できる
+  - コンパクト空間からHausdorff空間への連続全単射が同相写像になることを証明し、商空間の同定に使える
+  - 区間の端点同一視から円、正方形の辺同一視から円柱・トーラスを構成し、同値類を具体計算できる
+  - 位相的直和と貼り合わせ空間を final topology と商位相の組合せとして説明できる
+  - 商を取るとHausdorff性が失われうることを、二重原点直線の近傍計算で証明できる
+definitions:
+  - { id: TOP2-DEF-01, name: 同相写像・同相 }
+  - { id: TOP2-DEF-02, name: 同値関係・同値類 }
+  - { id: TOP2-DEF-03, name: 同値関係による同一視空間 }
+  - { id: TOP2-DEF-04, name: 位相的直和 }
+  - { id: TOP2-DEF-05, name: 貼り合わせ空間 }
+theorems:
+  - { id: TOP2-THM-01, name: 商空間への写像の降下 }
+  - { id: TOP2-LEM-01, name: Hausdorff空間のコンパクト部分集合は閉集合 }
+  - { id: TOP2-THM-02, name: コンパクト空間からHausdorff空間への連続全単射 }
+  - { id: TOP2-THM-03, name: コンパクト商空間の同定判定 }
+  - { id: TOP2-THM-04, name: 区間の端点同一視は円 }
+  - { id: TOP2-THM-05, name: 正方形の一組の対辺同一視は円柱 }
+  - { id: TOP2-THM-06, name: 正方形の二組の対辺同一視はトーラス }
+  - { id: TOP2-PROP-01, name: 位相的直和から出る写像の連続性判定 }
+  - { id: TOP2-THM-07, name: 二つの区間の端点貼り合わせ }
+  - { id: TOP2-PROP-02, name: 商空間はHausdorffとは限らない }
+canonical_examples: [区間の端点同一視と円, 正方形の対辺同一視と円柱, 正方形の対辺同一視とトーラス, 二区間の貼り合わせ, 二重原点直線]
+problem_patterns: [EQUIVALENCE-CLASS-1, QUOTIENT-DESCENT-1, COMPACT-HAUSDORFF-IDENTIFICATION-1, ENDPOINT-IDENTIFICATION-1, EDGE-GLUING-1, TORUS-QUOTIENT-1, NON-HAUSDORFF-QUOTIENT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.2, exercises: 3.0, review: 0.8 }

@@ -88,8 +88,9 @@ concepts:
       - linear.linear-independence
 
   - id: linear.sum-direct-sum
-    name: 部分空間の和・直和
+    name: 線形部分空間の和・直和
     kind: definition
-    aliases: [部分空間の和・直和, 直和]
+    introduction_aliases: [部分空間の和・直和]
+    aliases: [線形部分空間の和・直和, linear direct sum]
     requires:
       - linear.linear-subspace

@@ -150,6 +150,10 @@ function findIntroductionLine(declarations, readerLines, concept) {
 }
 
 function formalMarkers(concept) {
+  // introduction_aliases は「読者向け初出位置」を探すためにも使う。
+  // formal 概念を prose/inline で先に導入する場合、その語が formal 見出し名とは限らないため、
+  // raw formal 登録照合では本来の aliases を使う。
+  if (concept.introduction === 'inline' || concept.introduction === 'prose-math') return concept.aliases;
   return concept.introductionAliases.length ? concept.introductionAliases : concept.aliases;
 }
 

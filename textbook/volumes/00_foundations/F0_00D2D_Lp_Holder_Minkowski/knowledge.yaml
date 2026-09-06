@@ -22,7 +22,8 @@ concepts:
   - id: measure.lp-space
     name: L^p空間
     kind: definition
-    aliases: [L^p空間, "空間、"]
+    aliases: [L^p空間]
+    introduction_aliases: ["空間、"]
     requires:
       - measure.ae-equivalence
       - measure.measurable-function
@@ -70,7 +71,8 @@ concepts:
   - id: measure.lp-norm
     name: L^pノルム
     kind: theorem
-    aliases: [L^pノルム, "ノルム）"]
+    aliases: [L^pノルム]
+    introduction_aliases: ["ノルム）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality

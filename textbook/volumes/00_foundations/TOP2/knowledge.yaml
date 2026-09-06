@@ -1,0 +1,125 @@
+chapter: TOP2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP1
+  - F0-00C1
+
+forward_references: []
+
+concepts:
+  - id: topology.homeomorphism
+    name: 同相写像・同相
+    kind: definition
+    aliases: [同相写像, 同相, homeomorphism]
+    requires:
+      - topology.topological-continuous-map
+
+  - id: set.equivalence-relation-class
+    name: 同値関係・同値類
+    kind: definition
+    aliases: [同値関係, 同値類, equivalence relation, equivalence class]
+    requires: []
+
+  - id: topology.identification-space
+    name: 同値関係による同一視空間
+    kind: definition
+    aliases: [同値関係による同一視空間, 位相的同一視空間, identification space]
+    requires:
+      - set.equivalence-relation-class
+      - topology.quotient-topology-map
+
+  - id: topology.quotient-descent
+    name: 商空間への写像の降下
+    kind: theorem
+    aliases: [商空間への写像の降下, 商空間への降下, descent to a quotient]
+    requires:
+      - topology.identification-space
+      - topology.quotient-universal-property
+
+  - id: topology.compact-subset-closed-hausdorff
+    name: Hausdorff空間のコンパクト部分集合は閉集合
+    kind: lemma
+    aliases: [Hausdorff空間のコンパクト部分集合は閉集合]
+    requires:
+      - topology.compact-set
+      - topology.hausdorff-space
+
+  - id: topology.compact-hausdorff-continuous-bijection
+    name: コンパクト空間からHausdorff空間への連続全単射
+    kind: theorem
+    aliases: [コンパクト空間からHausdorff空間への連続全単射, compact to Hausdorff continuous bijection]
+    requires:
+      - topology.homeomorphism
+      - topology.compact-set
+      - topology.compact-subset-closed-hausdorff
+      - topology.continuous-image-compact
+
+  - id: topology.compact-quotient-identification
+    name: コンパクト商空間の同定判定
+    kind: theorem
+    aliases: [コンパクト商空間の同定判定, compact quotient identification criterion]
+    requires:
+      - topology.quotient-descent
+      - topology.compact-hausdorff-continuous-bijection
+
+  - id: topology.endpoint-identification-circle
+    name: 区間の端点同一視は円
+    kind: theorem
+    aliases: [区間の端点同一視は円]
+    requires:
+      - topology.compact-quotient-identification
+
+  - id: topology.square-side-identification-cylinder
+    name: 正方形の一組の対辺同一視は円柱
+    kind: theorem
+    aliases: [正方形の一組の対辺同一視は円柱]
+    requires:
+      - topology.compact-quotient-identification
+
+  - id: topology.square-opposite-sides-torus
+    name: 正方形の二組の対辺同一視はトーラス
+    kind: theorem
+    aliases: [正方形の二組の対辺同一視はトーラス]
+    requires:
+      - topology.compact-quotient-identification
+
+  - id: topology.disjoint-union-topology
+    name: 位相的直和
+    kind: definition
+    aliases: [位相的直和, topological disjoint union]
+    requires:
+      - topology.final-topology
+
+  - id: topology.disjoint-union-universal-property
+    name: 位相的直和から出る写像の連続性判定
+    kind: proposition
+    aliases: [位相的直和から出る写像の連続性判定]
+    requires:
+      - topology.disjoint-union-topology
+      - topology.final-universal-property
+
+  - id: topology.gluing-space
+    name: 貼り合わせ空間
+    kind: definition
+    aliases: [貼り合わせ空間, gluing space, adjunction space]
+    requires:
+      - topology.disjoint-union-topology
+      - topology.identification-space
+
+  - id: topology.gluing-two-intervals
+    name: 二つの区間の端点貼り合わせ
+    kind: theorem
+    aliases: [二つの区間の端点貼り合わせ]
+    requires:
+      - topology.gluing-space
+      - topology.compact-quotient-identification
+
+  - id: topology.quotient-can-fail-hausdorff
+    name: 商空間はHausdorffとは限らない
+    kind: proposition
+    aliases: [商空間はHausdorffとは限らない, 二重原点直線]
+    requires:
+      - topology.identification-space
+      - topology.disjoint-union-topology
+      - topology.hausdorff-space

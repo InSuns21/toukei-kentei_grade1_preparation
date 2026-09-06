@@ -1,0 +1,20 @@
+chapter: "TOP2"
+terms:
+  - term: 同相写像
+    english: homeomorphism
+    meaning: 全単射であり、自身と逆写像がともに連続な写像。二つの位相空間が位相的に同じ形であることを表す。
+  - term: 同一視空間
+    english: identification space
+    meaning: 同値関係で同じとみなす点を一つの同値類へまとめ、その標準射影が商写像になるよう商位相を入れた空間。
+  - term: 降下
+    english: descent to a quotient
+    meaning: 元の空間上の写像が各同値類で一定であるとき、商空間上の写像として一意に書き直すこと。
+  - term: 位相的直和
+    english: topological disjoint union
+    meaning: 各成分への制限で開集合を判定する、互いに交わらない空間の和。各包含写像に関する final topology として記述できる。
+  - term: 貼り合わせ空間
+    english: adjunction space / gluing space
+    meaning: 直和した空間の一部を指定した写像に従って同一視して作る商空間。
+  - term: 二重原点直線
+    english: line with two origins
+    meaning: 二本の実直線の0以外の対応点を同一視し、二つの原点だけを別々に残した商空間。商でHausdorff性が失われる標準反例。
