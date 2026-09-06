@@ -1,0 +1,20 @@
+chapter: "TOP3"
+terms:
+  - term: 分離
+    english: separation
+    meaning: 空間を互いに交わらない二つの非空な開集合の和として表すこと。分離が存在しないことが連結性である。
+  - term: 連結
+    english: connected
+    meaning: 空間を二つの非空な開集合へ分離できないこと。同値に、空集合と全体以外の開かつ閉な部分集合を持たないこと。
+  - term: 開閉集合
+    english: clopen set
+    meaning: 開集合であると同時に閉集合でもある部分集合。連結空間では空集合と全体だけが開閉集合になる。
+  - term: 道
+    english: path
+    meaning: 二点 x,y を端点として結ぶ連続写像 gamma:[0,1]→X。途中で自己交差してもよい。
+  - term: 弧状連結
+    english: path-connected
+    meaning: 任意の二点を道で結べること。弧状連結な空間は必ず連結である。
+  - term: 連結成分
+    english: connected component
+    meaning: ある点を含む連結部分集合をすべて合わせて得られる極大連結部分集合。連結成分どうしは一致するか交わらず、空間を分割する。
