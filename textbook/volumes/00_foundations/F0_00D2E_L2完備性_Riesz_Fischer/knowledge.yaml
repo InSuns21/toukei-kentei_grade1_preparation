@@ -2,6 +2,7 @@ chapter: F0-00D2E
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00D1
   - F0-00D2D
   - F0-00D2B
 
@@ -18,13 +19,17 @@ concepts:
     name: ノルム空間のCauchy列
     kind: definition
     aliases: [ノルム空間のCauchy列]
-    requires: []
-
-  - id: functional.banach-space
-    name: Banach空間
-    kind: definition
-    aliases: [Banach空間]
     requires:
+      - functional.normed-space
+      - topology.cauchy-sequence
+
+  - id: functional.banach-space-recap-d2e
+    name: Banach空間の再掲
+    kind: definition
+    introduction_aliases: [Banach空間]
+    aliases: [Banach空間の再掲]
+    requires:
+      - functional.banach-space
       - functional.normed-cauchy-sequence
 
   - id: functional.l2-inner-product
@@ -55,6 +60,7 @@ concepts:
     kind: theorem
     aliases: [完備性]
     requires:
+      - functional.normed-cauchy-sequence
       - measure.minkowski-inequality
       - measure.monotone-convergence-theorem
       - measure.almost-everywhere
