@@ -25,7 +25,6 @@ concepts:
     kind: definition
     aliases: [錐制約]
     requires:
-      - optimization.constraint-map
       - convex.convex-cone
 
   - id: optimization.generalized-lagrangian
