@@ -23,15 +23,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-la4-operator-polynomial -->
-**定義の確認**：$p(t)=t^2-3t+2$ なら
+**定義の確認**：$p(t)=t^2-3t+2$ なら、定義に $a_2=1,a_1=-3,a_0=2$ を代入して
 $$
 p(T)=T^2-3T+2I.
 $$
-固有ベクトル $Tv=\lambda v$ に対しては
+さらに固有ベクトル $Tv=\lambda v$ なら
 $$
-p(T)v=p(\lambda)v
+T^2v=T(\lambda v)=\lambda^2v
 $$
-となります。
+なので
+$$
+p(T)v=(\lambda^2-3\lambda+2)v=p(\lambda)v.
+$$
 <!-- definition-example-end -->
 
 多項式同士の積は
@@ -77,13 +80,24 @@ A=\begin{pmatrix}2&1\\0&2\end{pmatrix}
 $$
 なら
 $$
-\chi_A(t)=(t-2)^2.
+tI-A=
+\begin{pmatrix}t-2&-1\\0&t-2\end{pmatrix}
 $$
-また $A-2I\ne0$ だが $(A-2I)^2=0$ なので
+なので
+$$
+\chi_A(t)=\det(tI-A)=(t-2)^2.
+$$
+一方
+$$
+A-2I=\begin{pmatrix}0&1\\0&0\end{pmatrix}\ne0,
+\qquad
+(A-2I)^2=0.
+$$
+したがって次数1の $t-2$ では $A$ を0にできず、次数2の $(t-2)^2$ では0にできるため
 $$
 m_A(t)=(t-2)^2.
 $$
-一方 $A=2I$ なら特性多項式は同じ $(t-2)^2$ でも最小多項式は $t-2$ です。
+一方 $A=2I$ なら $(A-2I)=0$ なので、特性多項式は同じ $(t-2)^2$ でも最小多項式は $t-2$ です。
 <!-- definition-example-end -->
 
 最小多項式は「この作用素を0にする最短の多項式関係」です。
@@ -99,7 +113,7 @@ $$
 $$
 0=p(T)=q(T)m_T(T)+r(T)=r(T).
 $$
-最小性から $r=0$。したがって
+もし $r\ne0$ なら、$r$ の最高次係数で割って首一多項式に直せば、$m_T$ より低次数で $T$ を0にする多項式が得られ、$m_T$ の最小性に反します。したがって $r=0$ で
 $$
 m_T\mid p.
 $$
@@ -121,24 +135,95 @@ m_T(t)\mid\chi_T(t).
 $$
 <!-- formal-statement-end -->
 
+証明では「多項式 $t$ をいきなり行列 $A$ に代入する」のではなく、まず多項式行列の恒等式から**係数ごとの行列等式**を取り出し、その等式を最後に組み合わせます。
+
 <!-- proof-start -->
 ### 証明
 
-基底を選び $T$ の行列を $A$ とします。多項式行列 $tI-A$ に対する余因子行列を $\operatorname{adj}(tI-A)$ とすると
+基底を選び $T$ の表現行列を $A$ とします。特性多項式を
 $$
-(tI-A)\operatorname{adj}(tI-A)=\chi_A(t)I.
+\chi_A(t)=t^n+c_{n-1}t^{n-1}+\cdots+c_1t+c_0
 $$
-ここで
-$$
-\operatorname{adj}(tI-A)=B_0+B_1t+\cdots+B_{n-1}t^{n-1}
-$$
-と書き、両辺の $t$ の係数を比較します。得られた係数関係をそれぞれ $I,A,A^2,\dots$ で重み付けして足し合わせると中間項が望ましく相殺し
-$$
-\chi_A(A)=0
-$$
-を得ます。したがって座標に戻して $\chi_T(T)=0$ です。
+と書きます。
 
-最小多項式は全ての消去多項式を割るので $m_T\mid\chi_T$。$\square$
+多項式行列 $tI-A$ に対する余因子行列を $\operatorname{adj}(tI-A)$ とすると、余因子行列の基本恒等式から
+$$
+(tI-A)\operatorname{adj}(tI-A)=\det(tI-A)I=\chi_A(t)I.
+$$
+$\operatorname{adj}(tI-A)$ の各成分は次数高々 $n-1$ の多項式なので、ある行列 $B_0,\dots,B_{n-1}$ を用いて
+$$
+\operatorname{adj}(tI-A)
+=B_0+B_1t+\cdots+B_{n-1}t^{n-1}
+$$
+と書けます。
+
+左辺を展開すると
+$$
+\begin{aligned}
+(tI-A)\operatorname{adj}(tI-A)
+&=t\sum_{k=0}^{n-1}B_kt^k-A\sum_{k=0}^{n-1}B_kt^k\\
+&=\sum_{k=0}^{n-1}B_kt^{k+1}-\sum_{k=0}^{n-1}AB_kt^k.
+\end{aligned}
+$$
+これを
+$$
+\chi_A(t)I
+=t^nI+c_{n-1}t^{n-1}I+\cdots+c_1tI+c_0I
+$$
+と係数比較します。最高次、途中、定数項から順に
+$$
+B_{n-1}=I,
+$$
+$$
+B_{k-1}-AB_k=c_kI
+\qquad(k=1,\dots,n-1),
+$$
+$$
+-AB_0=c_0I
+$$
+を得ます。
+
+ここから $\chi_A(A)=0$ を直接作ります。途中の等式
+$$
+B_{k-1}-AB_k=c_kI
+$$
+に左から $A^k$ を掛けると
+$$
+A^kB_{k-1}-A^{k+1}B_k=c_kA^k.
+$$
+これを $k=1,\dots,n-1$ について足し、さらに定数項の等式 $-AB_0=c_0I$ を加えると、左辺は
+$$
+\begin{aligned}
+&-AB_0
++(AB_0-A^2B_1)
++(A^2B_1-A^3B_2)\\
+&\qquad+\cdots
++(A^{n-1}B_{n-2}-A^nB_{n-1})\\
+&=-A^nB_{n-1}
+=-A^n
+\end{aligned}
+$$
+と途中項が一つずつ相殺します。したがって
+$$
+c_0I+c_1A+\cdots+c_{n-1}A^{n-1}=-A^n,
+$$
+すなわち
+$$
+A^n+c_{n-1}A^{n-1}+\cdots+c_1A+c_0I=0.
+$$
+左辺は $\chi_A(A)$ なので
+$$
+\chi_A(A)=0.
+$$
+表現行列で成り立つ等式は元の線形写像でも成り立つため
+$$
+\chi_T(T)=0.
+$$
+最後に、$m_T$ は $T$ を0にする全ての多項式を割るので
+$$
+m_T\mid\chi_T.
+$$
+$\square$
 <!-- proof-end -->
 
 これにより、$n$ 次元空間上の作用素は必ず次数高々 $n$ の非自明な多項式関係を持ちます。
@@ -160,17 +245,83 @@ $$
 <!-- proof-start -->
 ### 証明
 
-対角化可能なら固有基底を取り、固有値を $\lambda_1,\dots,\lambda_r$ とすれば
+まず $T$ が対角化可能だとします。固有基底を取り、現れる相異なる固有値を $\lambda_1,\dots,\lambda_r$ とします。多項式
 $$
-\prod_j(T-\lambda_jI)=0.
+p(t)=\prod_{j=1}^r(t-\lambda_j)
 $$
-したがって $m_T$ は相異なる一次因子の積を割り、重根を持ちません。
+を考えると、固有ベクトル $v$ が固有値 $\lambda_i$ に属するとき
+$$
+p(T)v=p(\lambda_i)v=0.
+$$
+固有基底の全てのベクトルを0にするので $p(T)=0$。よって最小多項式は $p$ を割ります。$p$ は相異なる一次因子だけを持つため、$m_T$ も重根を持ちません。
 
-逆に $m_T=\prod_j(t-\lambda_j)$ とします。因子は互いに素なので、Lagrange補間により多項式 $q_j$ を取って
+逆に
 $$
-1=\sum_j q_j(t)\prod_{k\ne j}(t-\lambda_k)
+m_T(t)=\prod_{j=1}^r(t-\lambda_j)
 $$
-とできます。$t=T$ を代入すると任意の $v$ が各 $\ker(T-\lambda_jI)$ 成分の和に分解されます。異なる固有空間の和は直和なので、固有ベクトルだけで $V$ を張れます。$\square$
+と相異なる一次因子に分解するとします。各 $j$ に対してLagrange補間多項式
+$$
+e_j(t)
+=
+\prod_{k\ne j}
+\frac{t-\lambda_k}{\lambda_j-\lambda_k}
+$$
+を定めます。これは
+$$
+e_j(\lambda_i)=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
+を満たし、次数は高々 $r-1$ です。したがって多項式
+$$
+1-\sum_{j=1}^re_j(t)
+$$
+は次数高々 $r-1$ なのに $r$ 個の相異なる点 $\lambda_1,\dots,\lambda_r$ で0になるため、恒等的に0です。よって
+$$
+1=\sum_{j=1}^re_j(t).
+$$
+$t=T$ を代入すると
+$$
+I=\sum_{j=1}^re_j(T).
+$$
+したがって任意の $v\in V$ は
+$$
+v=\sum_{j=1}^re_j(T)v
+$$
+と分解されます。
+
+ここで各成分が本当に固有空間に入ることを確認します。定義から
+$$
+(t-\lambda_j)e_j(t)
+=
+\frac{m_T(t)}{\prod_{k\ne j}(\lambda_j-\lambda_k)}.
+$$
+したがって
+$$
+(T-\lambda_jI)e_j(T)
+=
+\frac{m_T(T)}{\prod_{k\ne j}(\lambda_j-\lambda_k)}
+=0.
+$$
+ゆえに
+$$
+e_j(T)v\in\ker(T-\lambda_jI).
+$$
+つまり全ての $v$ は固有ベクトル成分の和に書けます。
+
+最後に和が直和であることを確認します。$v_j\in\ker(T-\lambda_jI)$ が
+$$
+v_1+\cdots+v_r=0
+$$
+を満たすとします。固有ベクトル上では多項式作用素はスカラー代入になるので
+$$
+e_i(T)v_j=e_i(\lambda_j)v_j=\delta_{ij}v_j.
+$$
+両辺に $e_i(T)$ を作用させると $v_i=0$。これは全ての $i$ で成り立つため、異なる固有空間の和は直和です。
+
+よって $V$ は固有空間の直和であり、各固有空間の基底を合わせれば固有基底になります。したがって $T$ は対角化可能です。$\square$
 <!-- proof-end -->
 
 対角化不能の原因は、最小多項式に
@@ -202,24 +353,52 @@ $$
 > は有限回で安定するので定義できる。
 <!-- formal-statement-end -->
 
+「十分大きい $N$」が本当に意味を持つことを確認します。$S=T-\lambda I$ と置くと
+$$
+K_j=\ker S^j
+$$
+は
+$$
+K_1\subset K_2\subset\cdots
+$$
+という増大列です。$V$ が $n$ 次元なら $\dim K_j\le n$ なので、どこかで
+$$
+K_j=K_{j+1}
+$$
+となります。さらに一度等しくなれば、その後も増えません。実際 $x\in K_{j+2}$ なら
+$$
+Sx\in K_{j+1}=K_j
+$$
+なので $S^{j+1}x=0$、すなわち $x\in K_{j+1}$。よって $K_{j+2}=K_{j+1}$ です。同じ議論を繰り返せば以後ずっと一定です。
+
 <!-- definition-example-start: def-la4-generalized-eigenspace -->
 **定義の確認**：
 $$
 A=\begin{pmatrix}2&1\\0&2\end{pmatrix}
 $$
-では通常の固有空間は
+では
 $$
-\ker(A-2I)=\operatorname{span}(e_1)
+A-2I=\begin{pmatrix}0&1\\0&0\end{pmatrix},
 $$
-の1次元ですが
+したがって
+$$
+\ker(A-2I)=\operatorname{span}(e_1).
+$$
+一方
 $$
 (A-2I)^2=0
 $$
-なので一般化固有空間は $\mathbb R^2$ 全体です。$e_2$ は固有ベクトルではないものの
+なので
 $$
-(A-2I)e_2=e_1
+\ker(A-2I)^2=\mathbb R^2.
 $$
-と固有ベクトルへ送られます。
+よって核の列は2段目で全空間に達し、一般化固有空間は $\mathbb R^2$ 全体です。また
+$$
+(A-2I)e_2=e_1,
+\qquad
+(A-2I)e_1=0
+$$
+なので、$e_2$ は固有ベクトルではないものの1回作用させると固有ベクトルへ移ります。
 <!-- definition-example-end -->
 
 <a id="thm-la4-generalized-decomposition"></a>
@@ -238,20 +417,93 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p_j(t)=(t-\lambda_j)^{s_j}$ と置くと $p_j$ は互いに素です。中国剰余定理またはBézoutの等式から、多項式 $e_j(t)$ を取って
+各 $j$ について
 $$
-1=e_1(t)+\cdots+e_r(t),
+p_j(t)=(t-\lambda_j)^{s_j},
+\qquad
+q_j(t)=\frac{m_T(t)}{p_j(t)}
 $$
-かつ $e_j(T)V\subset\ker p_j(T)$ となるようにできます。したがって任意の $v$ は
+と置きます。$p_j$ と $q_j$ は共通因子を持たないので、Bézoutの等式により多項式 $a_j,b_j$ が存在して
 $$
-v=\sum_j e_j(T)v
+a_j(t)p_j(t)+b_j(t)q_j(t)=1
 $$
-と一般化固有空間の和に分解されます。
+とできます。ここで
+$$
+e_j(t)=b_j(t)q_j(t)
+$$
+と定めます。
 
-さらに異なる因子が互いに素であることを再びBézoutに使うと交わりが0と分かり、和は直和です。$\square$
+この $e_j$ は二つの重要な合同式を満たします。まずBézout式から
+$$
+e_j(t)\equiv1\pmod{p_j(t)}.
+$$
+また $k\ne j$ なら $q_j$ は因子 $p_k$ を含むので
+$$
+e_j(t)\equiv0\pmod{p_k(t)}.
+$$
+したがって
+$$
+1-\sum_{j=1}^re_j(t)
+$$
+は全ての $p_k$ で割り切れます。$p_1,\dots,p_r$ は互いに素なので、その積
+$$
+m_T=p_1\cdots p_r
+$$
+でも割り切れます。よってある多項式 $h$ が存在して
+$$
+1-\sum_{j=1}^re_j(t)=h(t)m_T(t).
+$$
+$t=T$ を代入し $m_T(T)=0$ を使うと
+$$
+I=\sum_{j=1}^re_j(T).
+$$
+したがって任意の $v\in V$ は
+$$
+v=\sum_{j=1}^re_j(T)v
+$$
+と書けます。
+
+各項が対応する一般化固有空間に入ることを示します。$e_j=b_jq_j$ なので
+$$
+p_j(T)e_j(T)
+=b_j(T)p_j(T)q_j(T)
+=b_j(T)m_T(T)
+=0.
+$$
+したがって
+$$
+e_j(T)v\in\ker p_j(T)=G_{\lambda_j}.
+$$
+これで $V$ が一般化固有空間の和で張られることが分かりました。
+
+次に直和性を示します。$v_j\in G_{\lambda_j}$ が
+$$
+v_1+\cdots+v_r=0
+$$
+を満たすとします。上の合同式から
+$$
+e_i(t)=1+p_i(t)c_i(t)
+$$
+と書けるので、$p_i(T)v_i=0$ より
+$$
+e_i(T)v_i=v_i.
+$$
+一方 $j\ne i$ なら $e_i$ は $p_j$ で割り切れるため
+$$
+e_i(T)v_j=0.
+$$
+したがって元の等式に $e_i(T)$ を作用させると
+$$
+v_i=0.
+$$
+これは全ての $i$ について成り立つので和は直和です。よって
+$$
+V=G_{\lambda_1}\oplus\cdots\oplus G_{\lambda_r}.
+$$
+$\square$
 <!-- proof-end -->
 
-複素数上では特性多項式が必ず一次因子へ分解するので、全ての有限次元作用素にこの分解が使えます。
+複素数上では特性多項式が必ず一次因子へ分解し、Cayley–Hamilton定理から最小多項式も特性多項式を割るので、全ての有限次元複素作用素にこの分解が使えます。
 
 ---
 
@@ -261,7 +513,7 @@ $$
 $$
 N=T-\lambda I
 $$
-は冪零です。つまりある $k$ で $N^k=0$ になります。
+は冪零です。実際 $G_\lambda=\ker(T-\lambda I)^{s}$ と書けるので、$G_\lambda$ 上では $N^s=0$ です。
 
 <a id="def-la4-jordan-chain"></a>
 <!-- formal-statement-start -->
@@ -283,7 +535,7 @@ $$
 \qquad
 (A-2I)v_2=v_1.
 $$
-したがって $(e_1,e_2)$ は長さ2のJordan鎖です。
+定義の2条件をともに満たすので $(e_1,e_2)$ は長さ2のJordan鎖です。
 <!-- definition-example-end -->
 
 <a id="def-la4-jordan-block"></a>
@@ -307,13 +559,19 @@ Jordan鎖を基底として並べると、$T$ のその鎖上の表現行列が�
 <!-- definition-example-start: def-la4-jordan-block -->
 **定義の確認**：長さ2のJordan鎖 $v_1,v_2$ では
 $$
+(T-\lambda I)v_1=0,
+\qquad
+(T-\lambda I)v_2=v_1,
+$$
+すなわち
+$$
 Tv_1=\lambda v_1,
 \qquad
-Tv_2=v_1+\lambda v_2,
+Tv_2=v_1+\lambda v_2.
 $$
-なので基底 $(v_1,v_2)$ での行列は
+表現行列の第1列・第2列はそれぞれこの係数なので、基底 $(v_1,v_2)$ での行列は
 $$
-\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}.
+\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}=J_2(\lambda).
 $$
 <!-- definition-example-end -->
 
@@ -331,30 +589,194 @@ $$
 > というJordanブロックの直和になる。ブロックの順序を除けば、各固有値に対するブロックサイズの多重集合は一意である。
 <!-- formal-statement-end -->
 
+証明は二段階です。まず一般化固有空間分解で固有値ごとに分けます。その後、各一般化固有空間上の冪零作用素
+$$
+N=T-\lambda I
+$$
+に対して「Jordan鎖からなる基底が存在する」ことを示します。
+
 <!-- proof-start -->
 ### 証明
 
-複素数上では特性多項式が一次因子へ分解するので、[一般化固有空間分解](#thm-la4-generalized-decomposition)により各 $G_\lambda$ を別々に扱えば十分です。
+複素数上では特性多項式が一次因子へ分解するので、[一般化固有空間分解](#thm-la4-generalized-decomposition)により
+$$
+V=\bigoplus_\lambda G_\lambda.
+$$
+したがって各 $G_\lambda$ 上で $N=T-\lambda I$ のJordan鎖基底を作れば、それらを全部合わせて $V$ の基底にできます。以下では一つの $G_\lambda$ を固定し、そこを改めて $V$ と書き、$N$ を冪零作用素とします。
 
-$G_\lambda$ 上で $N=T-\lambda I$ は冪零です。核の列
-$$
-0\subset\ker N\subset\ker N^2\subset\cdots\subset\ker N^s=G_\lambda
-$$
-を考えます。各段階で $\ker N^{j-1}$ にまだ入っていない方向を選び、その代表を $N$ で順に下へ送ると
-$$
-v_j\mapsto v_{j-1}\mapsto\cdots\mapsto v_1\mapsto0
-$$
-という鎖が得られます。各商空間
-$$
-\ker N^j/\ker N^{j-1}
-$$
-の基底を上から整合的に持ち上げれば、これらの鎖を合わせて $G_\lambda$ の基底にできます。
+#### 冪零作用素にはJordan鎖基底がある
 
-各鎖上の行列はJordanブロックなので、全一般化固有空間を合わせればJordan標準形を得ます。ブロックサイズは
+$\dim V$ に関する帰納法で示します。
+
+$N=0$ なら、任意の基底 $z_1,\dots,z_n$ が全て長さ1のJordan鎖です。したがって主張は成り立ちます。
+
+$N\ne0$ とし
 $$
-\dim\ker N,\ \dim\ker N^2,\dots
+W=\operatorname{Im}N
 $$
-の増分から復元できるため一意です。$\square$
+と置きます。$N(W)\subset W$ なので $N$ は $W$ 上の作用素でもあり、しかも冪零です。また $N$ が冪零である以上、$N$ は非零空間上で全射にはなれません。実際、もし全射なら $N^k$ も全射ですが、十分大きい $k$ で $N^k=0$ となり、零写像が全射という矛盾になります。したがって
+$$
+\dim W<\dim V.
+$$
+よって帰納法の仮定を $N|_W$ に使えます。
+
+帰納法により $W$ にはJordan鎖からなる基底が存在します。それを鎖ごとに
+$$
+w_{i,1},\dots,w_{i,k_i}
+\qquad(i=1,\dots,c)
+$$
+と書きます。つまり
+$$
+Nw_{i,1}=0,
+\qquad
+Nw_{i,j}=w_{i,j-1}
+\quad(j=2,\dots,k_i),
+$$
+であり、全ての $w_{i,j}$ を合わせると $W$ の基底です。
+
+各鎖の最上段 $w_{i,k_i}$ は $W=\operatorname{Im}N$ に属するので、ある $v_i\in V$ を選んで
+$$
+Nv_i=w_{i,k_i}
+$$
+とできます。すると
+$$
+w_{i,1},\dots,w_{i,k_i},v_i
+$$
+は $V$ 上で1段長いJordan鎖になります。
+
+ただし、これらを延長しただけでは $V$ の全てを埋めるとは限りません。そこで長さ1の鎖を必要な分だけ追加します。
+
+$W$ 上のJordan鎖では、各鎖の先頭 $w_{i,1}$ だけが $N$ で0になります。したがって
+$$
+w_{1,1},\dots,w_{c,1}
+$$
+は
+$$
+\ker(N|_W)=W\cap\ker N
+$$
+の基底です。この基底を $\ker N$ の基底へ延長し
+$$
+w_{1,1},\dots,w_{c,1},z_1,\dots,z_r
+$$
+を $\ker N$ の基底とします。各 $z_\ell$ は $Nz_\ell=0$ なので、それ自体が長さ1のJordan鎖です。
+
+ここで候補となるベクトル族
+$$
+\mathcal B
+=
+\{w_{i,j}\}_{i,j}
+\cup\{v_1,\dots,v_c\}
+\cup\{z_1,\dots,z_r\}
+$$
+を考えます。これが基底であることを確認します。
+
+まず一次独立性です。
+$$
+\sum_i\left(
+\sum_{j=1}^{k_i}a_{i,j}w_{i,j}
++b_iv_i
+\right)
++\sum_{\ell=1}^r c_\ell z_\ell
+=0
+$$
+とします。両辺に $N$ を作用させると $Nz_\ell=0$ であり
+$$
+Nv_i=w_{i,k_i},
+\qquad
+Nw_{i,j}=w_{i,j-1}\ (j\ge2),
+\qquad
+Nw_{i,1}=0
+$$
+なので
+$$
+\sum_i\left(
+\sum_{j=2}^{k_i}a_{i,j}w_{i,j-1}
++b_iw_{i,k_i}
+\right)=0.
+$$
+左辺は $W$ の基底 $\{w_{i,j}\}$ の線形結合です。したがって全係数が0で
+$$
+a_{i,j}=0\quad(j\ge2),
+\qquad
+b_i=0
+$$
+を得ます。元の関係式は
+$$
+\sum_i a_{i,1}w_{i,1}
++\sum_\ell c_\ell z_\ell=0
+$$
+まで簡約されます。しかし
+$$
+w_{1,1},\dots,w_{c,1},z_1,\dots,z_r
+$$
+は $\ker N$ の基底なので、残りの係数も全て0です。よって $\mathcal B$ は一次独立です。
+
+次に本数を数えます。$\{w_{i,j}\}$ は $W$ の基底なのでその本数は $\dim W$。また鎖の本数 $c$ は
+$$
+c=\dim(W\cap\ker N).
+$$
+そして $z_1,\dots,z_r$ を加えて $\ker N$ の基底にしたので
+$$
+r=\dim\ker N-c.
+$$
+したがって $\mathcal B$ の本数は
+$$
+\dim W+c+r
+=\dim W+\dim\ker N.
+$$
+rank-nullity theoremより
+$$
+\dim W+\dim\ker N=\dim V.
+$$
+一次独立な $\dim V$ 本のベクトルなので $\mathcal B$ は $V$ の基底です。しかも構成上、全てJordan鎖を並べたものです。これで冪零作用素にJordan鎖基底が存在することが示されました。
+
+各Jordan鎖
+$$
+v_1,\dots,v_k
+$$
+上では
+$$
+Nv_1=0,
+\qquad
+Nv_j=v_{j-1}
+$$
+なので
+$$
+Tv_1=\lambda v_1,
+\qquad
+Tv_j=v_{j-1}+\lambda v_j.
+$$
+したがってその鎖に対応する表現行列は $J_k(\lambda)$ です。各一般化固有空間のJordan鎖基底を合わせれば、$T$ の行列はJordanブロックの直和になります。
+
+#### ブロックサイズの一意性
+
+最後にブロックサイズが基底の選び方に依存しないことを示します。固定した固有値 $\lambda$ について $N=T-\lambda I$ とし、Jordanブロックのサイズを
+$$
+k_1,\dots,k_c
+$$
+とします。1個の冪零Jordanブロック $J_{k_i}(0)$ では、$N^j$ を掛けると鎖の先頭から $\min(j,k_i)$ 本が0になるので
+$$
+\dim\ker N^j
+=\sum_{i=1}^c\min(j,k_i).
+$$
+よって差
+$$
+d_j
+=
+\dim\ker N^j-\dim\ker N^{j-1}
+$$
+は
+$$
+d_j
+=\#\{i:k_i\ge j\},
+$$
+すなわち「長さ $j$ 以上のJordanブロックの個数」です。したがって長さがちょうど $j$ のブロック数は
+$$
+d_j-d_{j+1}
+$$
+で復元できます。
+
+$\dim\ker N^j$ は作用素 $N$ 自身から決まり、基底に依存しません。よって全てのブロックサイズの個数も一意に決まります。ブロックの並べ順だけが自由です。$\square$
 <!-- proof-end -->
 
 ### ブロックサイズから何が読めるか
@@ -366,6 +788,14 @@ $$
 - ブロックサイズ総和 = $G_\lambda$ の次元
 
 です。
+
+さらに
+$$
+\dim\ker(T-\lambda I)^j
+-
+\dim\ker(T-\lambda I)^{j-1}
+$$
+は「サイズ $j$ 以上のJordanブロックの個数」です。したがって核の次元列を追えば、Jordanブロックの形を段階的に復元できます。
 
 対角化可能とは、全てのJordanブロックが $1\times1$ であることに他なりません。
 
@@ -397,7 +827,20 @@ $$
 A01の行列の特性多項式と最小多項式を求めよ。
 
 <!-- solution-start -->
-**解答**：特性多項式は $(t-1)^2$。$A-I\ne0$ だが $(A-I)^2=0$ なので最小多項式も $(t-1)^2$。
+**解答**：
+$$
+\chi_A(t)=\det\begin{pmatrix}t-1&-1\\0&t-1\end{pmatrix}=(t-1)^2.
+$$
+また
+$$
+A-I=\begin{pmatrix}0&1\\0&0\end{pmatrix}\ne0,
+\qquad
+(A-I)^2=0.
+$$
+したがって次数1では消えず次数2で消えるので
+$$
+m_A(t)=(t-1)^2.
+$$
 <!-- solution-end -->
 
 <a id="ex-la4-a03"></a>
@@ -407,7 +850,7 @@ A01の行列の特性多項式と最小多項式を求めよ。
 最小多項式が $(t-1)(t+2)$ の作用素は対角化可能か。
 
 <!-- solution-start -->
-**解答**：相異なる一次因子の積なので対角化可能。
+**解答**：$(t-1)$ と $(t+2)$ は相異なる一次因子で重複がありません。[最小多項式による対角化判定](#thm-la4-diagonalizable-criterion)から対角化可能です。
 <!-- solution-end -->
 
 <a id="ex-la4-a04"></a>
@@ -417,7 +860,24 @@ A01の行列の特性多項式と最小多項式を求めよ。
 $J_3(0)$ に対し標準基底 $e_1,e_2,e_3$ がJordan鎖になることを確認せよ。
 
 <!-- solution-start -->
-**解答**：$J_3(0)e_1=0$, $J_3(0)e_2=e_1$, $J_3(0)e_3=e_2$。したがって長さ3のJordan鎖。
+**解答**：
+$$
+J_3(0)=
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+$$
+なので
+$$
+J_3(0)e_1=0,
+\qquad
+J_3(0)e_2=e_1,
+\qquad
+J_3(0)e_3=e_2.
+$$
+Jordan鎖の定義を順に満たすため $(e_1,e_2,e_3)$ は長さ3のJordan鎖です。
 <!-- solution-end -->
 
 ### Level B
@@ -429,7 +889,14 @@ $J_3(0)$ に対し標準基底 $e_1,e_2,e_3$ がJordan鎖になることを確�
 4次元複素空間上の作用素 $T$ が特性多項式 $(t-2)^4$、最小多項式 $(t-2)^3$ を持つとする。可能なJordanブロックサイズを求めよ。
 
 <!-- solution-start -->
-**解答**：全ブロックサイズの和は4、最大サイズは3。したがって分割は $3+1$ のみ。Jordan形は $J_3(2)\oplus J_1(2)$。
+**解答**：特性多項式の次数から、固有値2に属するJordanブロックのサイズ総和は4です。最小多項式中の $(t-2)$ の指数3は最大ブロックサイズが3であることを意味します。したがってサイズ3のブロックを少なくとも1個含み、残りの次元は1。よって分割は
+$$
+4=3+1
+$$
+のみで、Jordan形は
+$$
+J_3(2)\oplus J_1(2).
+$$
 <!-- solution-end -->
 
 <a id="ex-la4-b02"></a>
@@ -447,7 +914,19 @@ $$
 を満たす。Jordanブロックサイズを求めよ。
 
 <!-- solution-start -->
-**解答**：ブロック数は2。$\dim\ker N^2-\dim\ker N=2$ なので長さ2以上のブロックも2個。$\dim\ker N^3-\dim\ker N^2=1$ なので長さ3以上は1個。総和5よりサイズは3と2。
+**解答**：
+$$
+d_1=\dim\ker N=2
+$$
+なのでブロックは2個です。さらに
+$$
+d_2=\dim\ker N^2-\dim\ker N=4-2=2
+$$
+なので長さ2以上のブロックも2個、
+$$
+d_3=\dim\ker N^3-\dim\ker N^2=5-4=1
+$$
+なので長さ3以上は1個です。従って一方は長さ3以上、もう一方は長さ2以上です。全次元が5なのでサイズは3と2です。
 <!-- solution-end -->
 
 <a id="ex-la4-b03"></a>
@@ -457,12 +936,24 @@ $$
 $2\times2$ 行列 $A$ の特性多項式が $t^2-3t+2$ であるとする。$A^4$ を $I,A$ の線形結合へ簡約せよ。
 
 <!-- solution-start -->
-**解答**：[Cayley–Hamilton定理](#thm-la4-cayley-hamilton)から $A^2=3A-2I$。よって
+**解答**：[Cayley–Hamilton定理](#thm-la4-cayley-hamilton)から
 $$
-A^3=3A^2-2A=7A-6I,
+A^2-3A+2I=0,
+$$
+したがって
+$$
+A^2=3A-2I.
+$$
+これを順に使うと
+$$
+A^3=A(3A-2I)=3A^2-2A
+=3(3A-2I)-2A
+=7A-6I,
 $$
 $$
-A^4=7A^2-6A=15A-14I.
+A^4=A(7A-6I)=7A^2-6A
+=7(3A-2I)-6A
+=15A-14I.
 $$
 <!-- solution-end -->
 
@@ -485,7 +976,34 @@ $$
 が $V=G_\lambda\oplus G_\mu$ の射影になることを示せ。
 
 <!-- solution-start -->
-**解答**：Bézout式に $T$ を代入して $P_\lambda+P_\mu=I$。また $(T-\lambda I)^rP_\lambda=0$ は $m_T(T)=0$ から従うので $\operatorname{Im}P_\lambda\subset G_\lambda$。同様に $\operatorname{Im}P_\mu\subset G_\mu$。$v\in G_\lambda$ では $(T-\lambda I)^rv=0$ なので Bézout式から $P_\lambda v=v$、$P_\mu v=0$。$G_\mu$ でも逆。したがって両者は対応する直和成分への射影。
+**解答**：Bézout式に $T$ を代入すると
+$$
+P_\mu+P_\lambda=I.
+$$
+また
+$$
+(T-\lambda I)^rP_\lambda
+=b(T)(T-\lambda I)^r(T-\mu I)^s
+=b(T)m_T(T)=0,
+$$
+したがって
+$$
+\operatorname{Im}P_\lambda\subset G_\lambda.
+$$
+同様に
+$$
+\operatorname{Im}P_\mu\subset G_\mu.
+$$
+
+$v\in G_\lambda$ なら $(T-\lambda I)^rv=0$ なので
+$$
+P_\mu v=a(T)(T-\lambda I)^rv=0.
+$$
+さらに $P_\lambda+P_\mu=I$ から
+$$
+P_\lambda v=v.
+$$
+同様に $v\in G_\mu$ なら $P_\lambda v=0$, $P_\mu v=v$。よって $P_\lambda,P_\mu$ はそれぞれ対応する直和成分への射影です。
 <!-- solution-end -->
 
 ---
