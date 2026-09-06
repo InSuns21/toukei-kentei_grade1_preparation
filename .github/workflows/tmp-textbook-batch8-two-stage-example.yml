@@ -1,0 +1,31 @@
+name: Add Batch 8 S1-03 definition verification
+
+on:
+  push:
+    branches:
+      - audit/textbook-concept-dag-batch8-confidence-core
+    paths:
+      - .github/workflows/tmp-textbook-batch8-two-stage-example.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/textbook-concept-dag-batch8-confidence-core
+          fetch-depth: 0
+      - name: Apply exact edit
+        run: python3 scripts/tmp_textbook_batch8_two_stage_example.py
+      - name: Commit verification
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --check
+          git commit -m 'Add S1-03 two-stage definition verification'
+          git push origin HEAD:audit/textbook-concept-dag-batch8-confidence-core
