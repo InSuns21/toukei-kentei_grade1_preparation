@@ -457,3 +457,23 @@ $x=e_1,y=e_2$ で左辺8、右辺4となり平行四辺形恒等式が破れる�
 - supノルムと $L^2$ ノルムの違いを説明できる。
 - $L^2$ で一点評価が一般には決まらない理由を説明できる。
 - 平行四辺形恒等式が内積由来ノルムを特徴付けることを説明できる。
+
+---
+
+## 定義の確認：Euclid空間はBanachかつHilbert
+
+<!-- definition-example-start: def-f0-02c1-norm-normed-space, def-f0-02c1-banach-space, def-f0-02c1-inner-product, def-f0-02c1-hilbert-space -->
+**定義の確認**
+
+$X=\mathbb R^2$ に
+
+$$
+\langle x,y\rangle=x_1y_1+x_2y_2,
+\qquad
+\|x\|_2=\sqrt{x_1^2+x_2^2}
+$$
+
+を入れます。標準内積は正定値性・対称性・線形性を満たし、そこから誘導される $\|\cdot\|_2$ は正定値性・絶対斉次性・三角不等式を満たすのでノルムです。
+
+さらに $\mathbb R^2$ のEuclidノルムに関するCauchy列は各座標が $\mathbb R$ のCauchy列になり、各座標極限をまとめた点へ収束します。従って $\mathbb R^2$ はBanach空間であり、しかもこの完備ノルムが内積から来ているのでHilbert空間です。
+<!-- definition-example-end -->

@@ -533,3 +533,48 @@ Riesz表現で $\delta_x(f)=\langle f,K_x\rangle$ なので $\|\delta_x\|=\|K_x\
 ## 次に進む
 
 **次：[F0-02C7A representer theorem・kernel SVM](../F0_02C7A_representer_kernel_SVM/index.md)**
+
+---
+
+## 定義の確認：線形kernelからRKHSを全部組み立てる
+
+<!-- definition-example-start: def-f0-02c7-rkhs, def-f0-02c7-reproducing-property, def-f0-02c7-reproducing-kernel, def-f0-02c7-psd-kernel, def-f0-02c7-canonical-feature-map -->
+**定義の確認**
+
+$\mathcal X=\mathbb R^p$ とし、
+
+$$
+\mathcal H=\{f_w:f_w(x)=w^{\mathsf T}x,\ w\in\mathbb R^p\},
+\qquad
+\langle f_w,f_v\rangle_{\mathcal H}=w^{\mathsf T}v
+$$
+
+とします。有限次元なので $\mathcal H$ はHilbert空間です。各 $x$ について
+
+$$
+|f_w(x)|\le\|w\|_2\|x\|_2=\|f_w\|_{\mathcal H}\|x\|_2
+$$
+
+だから評価汎関数は連続で、$\mathcal H$ はRKHSです。
+
+$K_x=f_x$ と置けば
+
+$$
+\langle f_w,K_x\rangle_{\mathcal H}=w^{\mathsf T}x=f_w(x),
+$$
+
+なので再生性を満たし、再生核は
+
+$$
+K(x,z)=K_z(x)=z^{\mathsf T}x=x^{\mathsf T}z
+$$
+
+です。任意の $x_i,c_i$ に対して
+
+$$
+\sum_{i,j}c_ic_jK(x_i,x_j)
+=\left\|\sum_i c_ix_i\right\|_2^2\ge0
+$$
+
+なのでこのkernelはPSDです。さらにcanonical feature mapは $\varphi(x)=K_x$ で、この例では係数ベクトル $x$ そのものと同一視できます。
+<!-- definition-example-end -->

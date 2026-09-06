@@ -802,3 +802,21 @@ $$
 完備性そのものは距離空間の概念です。次講ではベクトル空間へノルムを入れ、Banach空間と有限次元・無限次元の差を整理します。
 
 **次：[F0-00D1 ノルム空間・Banach・有限次元と無限次元](../F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)**
+
+---
+
+## 定義の確認：Cauchy性と完備性は列と空間の別条件
+
+<!-- definition-example-start: def-f0-00d-01, def-f0-00d-02 -->
+**定義の確認**
+
+$\mathbb R$ で $x_n=1/n$ とします。$m,n\ge N$ なら
+
+$$
+|x_m-x_n|\le \frac1m+\frac1n\le\frac2N,
+$$
+
+なので、$N>2/\varepsilon$ と取ればCauchy条件を満たします。さらに $x_n\to0\in\mathbb R$ です。
+
+一方、$\sqrt2$ の有限小数近似を有理数列として並べると $\mathbb Q$ 内ではCauchy列ですが、極限 $\sqrt2$ は $\mathbb Q$ に属しません。したがって「列がCauchyである」は列の性質、「すべてのCauchy列が空間内で収束する」は空間の完備性であり、$\mathbb R$ は完備、$\mathbb Q$ は完備ではありません。
+<!-- definition-example-end -->

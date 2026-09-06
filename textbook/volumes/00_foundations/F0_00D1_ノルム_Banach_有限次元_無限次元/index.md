@@ -965,3 +965,21 @@ $$
 次は測度・可測関数・Lebesgue積分へ進み、関数空間を本格的に扱う準備をします。
 
 **次：[F0-00D2 測度空間・測度0・a.e.・可測関数](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md)**
+
+---
+
+## 定義の確認：$\mathbb R^2$ の標準ノルム
+
+<!-- definition-example-start: def-f0-00d1-01, def-f0-00d1-02, def-f0-00d1-03 -->
+**定義の確認**
+
+$V=\mathbb R^2$ にEuclidノルム $\|x\|_2=(x_1^2+x_2^2)^{1/2}$ を入れます。正定値性・絶対斉次性・三角不等式を満たすのでこれはノルムであり、$\mathbb R^2$ はこのノルムについて完備なのでBanach空間です。
+
+さらに全ての $x\in\mathbb R^2$ について
+
+$$
+\|x\|_\infty\le\|x\|_2\le\sqrt2\,\|x\|_\infty
+$$
+
+です。したがって $\|\cdot\|_2$ と $\|\cdot\|_\infty$ は、定義の $c=1, C=\sqrt2$ を取れる同値なノルムです。
+<!-- definition-example-end -->

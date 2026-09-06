@@ -708,3 +708,27 @@ L2完備性
 まで床がつながりました。
 
 ここから標準ルートはベクトル空間・直交・スペクトル理論へ進めます。確率論へ進む読者は、期待値をLebesgue積分、確率変数を可測関数として読み直せます。
+
+---
+
+## 定義の確認：有限次元Hilbert空間で4定義を一周する
+
+<!-- definition-example-start: def-f0-00d2e-01, def-f0-00d2e-02, def-f0-00d2e-03, def-f0-00d2e-04 -->
+**定義の確認**
+
+$V=\mathbb R^2$、$x_n=(1/n,0)$ とします。$m,n\ge N$ なら
+
+$$
+\|x_m-x_n\|_2=|1/m-1/n|\le1/N,
+$$
+
+なので $(x_n)$ はCauchy列です。$\mathbb R^2$ はEuclidノルムについて完備なのでBanach空間です。
+
+標準内積
+
+$$
+\langle x,y\rangle=x_1y_1+x_2y_2
+$$
+
+は $\|x\|_2=\sqrt{\langle x,x\rangle}$ を誘導し、このノルムについて $\mathbb R^2$ は完備です。したがって同じ例で、内積とHilbert空間の定義も確認できます。$L^2$ では有限和が積分へ置き換わるだけで、定義の構造は同じです。
+<!-- definition-example-end -->

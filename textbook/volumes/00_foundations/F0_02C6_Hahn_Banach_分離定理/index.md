@@ -636,3 +636,31 @@ $M=\operatorname{span}(x_0)$ 上で $f_0(tx_0)=t\|x_0\|$ と定めると $\|f_0\
 ## 次に進む
 
 **次：[F0-02C6A 分離定理・Minkowski functional・Farkas](../F0_02C6A_分離定理_Minkowski_Farkas/index.md)**
+
+---
+
+## 定義の確認：ノルムはsublinear functional
+
+<!-- definition-example-start: def-f0-02c6-sublinear-functional -->
+**定義の確認**
+
+$X=\mathbb R^2$ で
+
+$$
+p(x)=\|x\|_2
+$$
+
+と置きます。三角不等式から
+
+$$
+p(x+y)\le p(x)+p(y),
+$$
+
+また $a\ge0$ ならノルムの絶対斉次性から
+
+$$
+p(ax)=\|ax\|_2=a\|x\|_2=ap(x).
+$$
+
+従ってEuclidノルムはsublinear functionalの定義を満たします。Hahn--Banachでノルムを支配関数に使えるのはこのためです。
+<!-- definition-example-end -->
