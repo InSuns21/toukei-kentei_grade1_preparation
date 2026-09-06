@@ -3,7 +3,7 @@ title: "補講：集合族・添字集合・べき集合"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00A1
+  - F0-00A1B
 official_scope: []
 learning_objectives:
   - べき集合を定義し、部分集合の集合として読める
