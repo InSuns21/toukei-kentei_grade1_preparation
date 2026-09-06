@@ -77,12 +77,20 @@ concepts:
     requires:
       - linear.linear-form
 
+  - id: linear.top-alternating-form-one-dimensional
+    name: 最高次交代形式は1次元
+    kind: theorem
+    aliases: [最高次交代形式は1次元]
+    requires:
+      - linear.alternating-multilinear-form
+      - linear.dimension
+
   - id: linear.abstract-determinant
     name: 抽象行列式
     kind: definition
     aliases: [抽象行列式, coordinate-free determinant]
     requires:
-      - linear.alternating-multilinear-form
+      - linear.top-alternating-form-one-dimensional
       - linear.dimension
       - linear.linear-map
 
