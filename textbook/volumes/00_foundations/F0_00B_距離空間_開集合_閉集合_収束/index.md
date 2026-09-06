@@ -367,7 +367,7 @@ $$
 
 **定義の確認**
 
-任意の $\varepsilon>0$ を取ります。Archimedes性により
+任意の $\varepsilon>0$ を取ります。[Archimedes性](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-archimedean)により
 
 $$
 N>\frac1\varepsilon
