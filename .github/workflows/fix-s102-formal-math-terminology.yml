@@ -1,0 +1,119 @@
+name: Fix S1-02 formal math and terminology
+
+on:
+  push:
+    branches:
+      - feat/textbook-completeness-rao-blackwell-lehmann-scheffe
+    paths:
+      - .github/workflows/fix-s102-formal-math-terminology.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/textbook-completeness-rao-blackwell-lehmann-scheffe
+          fetch-depth: 0
+      - name: Fix formal display math and terminology
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/03_inference/S1_02_統計量_十分性_分解定理/index.md')
+          text = p.read_text(encoding='utf-8')
+
+          replacements = [
+          ('''> **定義（完備統計量）**
+> 統計量 $T$ について、任意の可測関数 $g$ が全ての母数 $\\theta$ で $E_\\theta[|g(T)|]<\\infty$ を満たすとする。このとき
+>
+> $$
+> E_\\theta[g(T)]=0\\qquad\\text{for all }\\theta
+> $$
+>
+> ならば
+>
+> $$
+> P_\\theta(g(T)=0)=1\\qquad\\text{for all }\\theta
+> $$
+>
+> が成り立つとき、$T$ を**完備統計量**という。''', '''> **定義（完備統計量）**
+> 統計量 $T$ について、任意の可測関数 $g$ が全ての母数 $\\theta$ で $E_\\theta[|g(T)|]<\\infty$ を満たすとする。このとき
+
+$$
+E_\\theta[g(T)]=0\\qquad\\text{for all }\\theta
+$$
+
+> ならば
+
+$$
+P_\\theta(g(T)=0)=1\\qquad\\text{for all }\\theta
+$$
+
+> が成り立つとき、$T$ を**完備統計量**という。'''),
+          ('''> **定理（Rao--Blackwellの定理）**
+> $U$ を $\\tau(\\theta)$ の不偏推定量で $E_\\theta[U^2]<\\infty$ とし、$T$ を $\\theta$ の十分統計量とする。
+>
+> $$
+> U^*=E_\\theta[U\\mid T]
+> $$
+>
+> と置く。十分性により $U^*$ は未知母数に依存しない $T$ の関数として選べる。このとき $U^*$ も $\\tau(\\theta)$ の不偏推定量であり、全ての $\\theta$ で
+>
+> $$
+> \\operatorname{Var}_\\theta(U^*)\\le \\operatorname{Var}_\\theta(U)
+> $$
+>
+> が成り立つ。''', '''> **定理（Rao--Blackwellの定理）**
+> $U$ を $\\tau(\\theta)$ の不偏推定量で $E_\\theta[U^2]<\\infty$ とし、$T$ を $\\theta$ の十分統計量とする。
+
+$$
+U^*=E_\\theta[U\\mid T]
+$$
+
+> と置く。十分性により $U^*$ は未知母数に依存しない $T$ の関数として選べる。このとき $U^*$ も $\\tau(\\theta)$ の不偏推定量であり、全ての $\\theta$ で
+
+$$
+\\operatorname{Var}_\\theta(U^*)\\le \\operatorname{Var}_\\theta(U)
+$$
+
+> が成り立つ。'''),
+          ('''> **定義（一様最小分散不偏推定量）**
+> $U$ が $\\tau(\\theta)$ の不偏推定量であり、同じ $\\tau(\\theta)$ の任意の不偏推定量 $V$ に対して、全ての $\\theta$ で
+>
+> $$
+> \\operatorname{Var}_\\theta(U)\\le\\operatorname{Var}_\\theta(V)
+> $$
+>
+> を満たすとき、$U$ を $\\tau(\\theta)$ の**一様最小分散不偏推定量（UMVU推定量）**という。''', '''> **定義（一様最小分散不偏推定量）**
+> $U$ が $\\tau(\\theta)$ の不偏推定量であり、同じ $\\tau(\\theta)$ の任意の不偏推定量 $V$ に対して、全ての $\\theta$ で
+
+$$
+\\operatorname{Var}_\\theta(U)\\le\\operatorname{Var}_\\theta(V)
+$$
+
+> を満たすとき、$U$ を $\\tau(\\theta)$ の**一様最小分散不偏推定量**という。'''),
+          ('## 23. Lehmann--Schefféの定理：完備十分統計量でUMVUが決まる', '## 23. Lehmann--Schefféの定理：完備十分統計量で一様最小分散不偏推定量が決まる'),
+          ('### 23.2 ベルヌーイ標本では標本平均がUMVU', '### 23.2 ベルヌーイ標本では標本平均が一様最小分散不偏推定量'),
+          ]
+
+          for old, new in replacements:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one match, got {count}: {old[:60]!r}')
+              text = text.replace(old, new, 1)
+
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook
+          git diff --cached --check
+          git commit -m 'Fix S1-02 formal math rendering and terminology'
+          git push origin HEAD:feat/textbook-completeness-rao-blackwell-lehmann-scheffe
