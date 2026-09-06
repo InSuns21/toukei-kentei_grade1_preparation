@@ -1,0 +1,38 @@
+id: "TOP1"
+title: "標準位相 I：位相の生成・initial/final topology・積・商"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00B1
+official_scope: []
+learning_objectives:
+  - 基底と部分基底から位相を生成し、位相公理と最小性を証明できる
+  - initial topology を逆像部分基底から構成し、最粗性と普遍性を証明できる
+  - 部分空間位相と積位相を initial topology の特殊例として説明できる
+  - final topology が位相であること、最細性と普遍性を証明できる
+  - 商位相を final topology として理解し、商写像の連続性判定を使える
+  - 飽和集合と q^{-1}(q(A)) を計算し、商写像が開写像とは限らないことを反例で説明できる
+definitions:
+  - { id: TOP1-DEF-01, name: 位相の基底 }
+  - { id: TOP1-DEF-02, name: 部分基底と生成位相 }
+  - { id: TOP1-DEF-03, name: initial topology／始位相 }
+  - { id: TOP1-DEF-04, name: 積位相 }
+  - { id: TOP1-DEF-05, name: final topology／終位相 }
+  - { id: TOP1-DEF-06, name: 商位相・商写像 }
+  - { id: TOP1-DEF-07, name: 飽和集合 }
+theorems:
+  - { id: TOP1-THM-01, name: 基底から位相を作れる }
+  - { id: TOP1-THM-02, name: 部分基底から生成される位相の最小性 }
+  - { id: TOP1-THM-03, name: initial topology の最粗性と連続性判定 }
+  - { id: TOP1-PROP-01, name: 部分空間位相の連続性判定 }
+  - { id: TOP1-THM-04, name: 積位相の基底 }
+  - { id: TOP1-THM-05, name: 積位相の普遍性 }
+  - { id: TOP1-THM-06, name: final topology は位相であり、最細である }
+  - { id: TOP1-THM-07, name: 商写像の普遍性 }
+  - { id: TOP1-PROP-02, name: 開な飽和集合の像は商空間で開 }
+canonical_examples: [実数直線の開区間基底, 半直線部分基底, 部分空間位相, 積位相の開長方形, 0と1を同一視する商空間]
+problem_patterns: [TOPOLOGY-BASIS-1, INITIAL-TOPOLOGY-1, PRODUCT-TOPOLOGY-1, FINAL-TOPOLOGY-1, QUOTIENT-TOPOLOGY-1, SATURATED-SET-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.8 }
