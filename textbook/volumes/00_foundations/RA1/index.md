@@ -151,6 +151,10 @@ $$
 
 **端点 $|x-x_0|=R$ は別判定**です。収束半径だけでは決まりません。
 
+<!-- definition-example-start: def-ra1-limsup, def-ra1-series, def-ra1-absolute, def-ra1-power-series -->
+**定義の確認**：まず $a_n=(-1)^n$ では、どのtailにも $1$ と $-1$ が現れるので $s_n=1$, $i_n=-1$、したがって $\limsup a_n=1$, $\liminf a_n=-1$ です。次に $\sum_{n=0}^{\infty}2^{-n}$ は部分和 $S_N=2-2^{-N}$ が $2$ に収束するので、級数の定義どおり収束します。また $\sum_{n=0}^{\infty}(-1)^n/(n+1)^2$ は絶対値を取ると収束する $p$ 級数になるため絶対収束です。最後に $\sum_{n=0}^{\infty}x^n$ は中心0の冪級数で、$|x|<1$ で絶対収束し $|x|>1$ では項が0へ行かないため発散するので、収束半径は $R=1$ です。
+<!-- definition-example-end -->
+
 ---
 
 ## 6. 演習
