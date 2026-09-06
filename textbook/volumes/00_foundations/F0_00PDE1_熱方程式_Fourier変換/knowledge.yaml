@@ -22,10 +22,9 @@ concepts:
       - pde.partial-differential-equation
 
   - id: pde.heat-kernel
-    name: heat kernel
+    name: Gaussian heat kernel
     kind: definition
-    aliases: [heat kernel]
-    introduction: inline
+    aliases: [Gaussian heat kernel]
     requires:
       - pde.heat-equation
       - fourier.gaussian-transform
