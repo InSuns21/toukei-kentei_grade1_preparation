@@ -33,6 +33,7 @@ concepts:
   - id: stat.likelihood
     name: 尤度
     kind: term
+    introduction_aliases: [尤度の正体]
     aliases: [尤度の正体]
     requires:
       - stat.dominated-model
@@ -83,6 +84,7 @@ concepts:
   - id: stat.fisher-information
     name: Fisher情報
     kind: term
+    introduction_aliases: [フィッシャー情報量の二つの表現]
     aliases: [フィッシャー情報量, Fisher情報]
     requires:
       - stat.score-function
