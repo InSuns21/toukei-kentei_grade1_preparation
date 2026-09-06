@@ -43,6 +43,6 @@ concepts:
     requires:
       - set.choice-axiom
       - set.zorn-lemma
-      - set.well-order
+      - order.well-order
       - set.hartogs-lemma
       - set.transfinite-recursion
