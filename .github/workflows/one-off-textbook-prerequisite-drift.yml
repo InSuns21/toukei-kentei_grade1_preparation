@@ -1,0 +1,26 @@
+name: One-off textbook prerequisite drift audit
+
+on:
+  push:
+    branches:
+      - audit/textbook-prerequisite-drift-s2
+    paths:
+      - '.github/workflows/one-off-textbook-prerequisite-drift.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/textbook-prerequisite-drift-s2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Audit textbook knowledge DAG
+        run: node scripts/audit-textbook-knowledge-dag.mjs
