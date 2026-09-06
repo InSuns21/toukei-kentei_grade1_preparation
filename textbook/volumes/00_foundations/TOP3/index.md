@@ -73,7 +73,26 @@ $$
 
 ## 2. 連結性は「非自明な開閉集合がない」と言い換えられる
 
-開集合であると同時に閉集合でもある集合を **開閉集合（clopen set）** と呼びます。
+<a id="def-top3-clopen"></a>
+<!-- formal-statement-start -->
+> **定義（開閉集合）**  
+> 位相空間 $X$ の部分集合 $A\subseteq X$ が、$X$ で開集合であると同時に閉集合でもあるとき、$A$ を **開閉集合（clopen set）** という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-top3-clopen -->
+**定義の確認**
+### 2.1 空集合と全体は必ず開閉集合
+
+$\varnothing$ と $X$ はどちらも開です。また
+
+$$
+X\setminus\varnothing=X,
+\qquad
+X\setminus X=\varnothing
+$$
+
+も開なので、$\varnothing$ と $X$ はどちらも閉でもあります。従って任意の位相空間で $\varnothing$ と $X$ は開閉集合です。これら二つ以外の開閉集合を **非自明な開閉集合** と呼びます。
+<!-- definition-example-end -->
 
 <a id="prop-top3-clopen"></a>
 <!-- formal-statement-start -->
@@ -460,6 +479,8 @@ $$
 
 従って $(K\cap U,K\cap V)$ は $K$ の分離です。これは $K$ の連結性に矛盾します。ゆえに $X$ は連結です。$\square$
 <!-- proof-end -->
+
+この次の命題だけは、後続の [F0-00G](../F0_00G_凸集合_凸関数_凸最適化/index.md) で定義する **凸集合** を先取りして使います。TOP3の前提へ追加するのではなく、ここでは「線分が集合内に残る」という性質だけを使います。
 
 <a id="prop-top3-convex-path"></a>
 <!-- formal-statement-start -->
