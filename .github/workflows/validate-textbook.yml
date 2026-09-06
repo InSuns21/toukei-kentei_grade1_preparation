@@ -36,6 +36,49 @@ on:
   workflow_dispatch:
 
 jobs:
+  migrate-acronym-first-use:
+    if: github.event_name == 'pull_request' && github.head_ref == 'audit/dream-theater-formal-reference-dag-s16'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fix acronym first use
+        run: python3 scripts/fix-acronym-first-use-s17.py
+
+      - name: Validate acronym first use
+        env:
+          TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: npm run validate:acronym-first-use:changed
+
+      - name: Commit acronym cleanup
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'No acronym changes.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes
+          git commit -m 'Spell out acronyms on first use'
+          git push origin HEAD:${{ github.head_ref }}
+
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
