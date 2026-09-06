@@ -19,6 +19,7 @@ concepts:
     name: 最大マージンと凸包間最短距離の対応
     kind: theorem
     introduction: inline
+    introduction_aliases: [最大マージンは二つの凸包の最短距離]
     aliases: [最大マージン]
     requires:
       - svm.linear-separability-convex-hull
