@@ -1,0 +1,39 @@
+chapter: LA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00E
+  - F0-00F
+forward_references: []
+
+concepts:
+  - id: linear.real-complex-vector-space
+    name: 実・複素ベクトル空間
+    kind: definition
+    aliases: [実・複素ベクトル空間, 複素ベクトル空間, complex vector space]
+    requires:
+      - linear.vector-space
+
+  - id: linear.complex-linear-map
+    name: 複素線形写像
+    kind: definition
+    aliases: [複素線形写像, complex-linear map]
+    requires:
+      - linear.real-complex-vector-space
+      - linear.linear-map
+
+  - id: linear.complex-linearity-criterion
+    name: 複素線形性の判定
+    kind: proposition
+    aliases: [複素線形性の判定]
+    requires:
+      - linear.complex-linear-map
+
+  - id: linear.complex-dimension-real-dimension
+    name: 複素次元と実次元の関係
+    kind: theorem
+    aliases: [複素次元と実次元の関係]
+    requires:
+      - linear.real-complex-vector-space
+      - linear.basis
+      - linear.dimension
