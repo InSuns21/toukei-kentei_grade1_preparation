@@ -73,16 +73,35 @@ $$
 
 ## 3.5 Fréchet微分に必要な「有界線形作用素」
 
-Fréchet微分の定義では、一次近似を単なる線形写像ではなく **有界線形作用素** に限定します。先にこの語の意味だけ固定します。
+Fréchet微分の定義では、一次近似を単なる線形写像ではなく **有界線形作用素** に限定します。そこで先にこの概念を定義します。
 
-ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ が、ある定数 $M<\infty$ に対して
+<a id="def-f0-02c3-bounded-linear-operator"></a>
+
+<!-- formal-statement-start -->
+> **定義（有界線形作用素）**  
+> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ が、ある $M<\infty$ に対して
 
 $$
 \|Tx\|_Y\le M\|x\|_X
 \qquad(\forall x\in X)
 $$
 
-を満たすとき、$T$ を **有界線形作用素** といいます。
+> を満たすとき、$T$ を **有界線形作用素** といいます。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-02c3-bounded-linear-operator -->
+### 例：実数上の2倍写像
+
+**定義の確認**
+
+$X=Y=\mathbb R$、$T(x)=2x$ とします。すると
+
+$$
+|T(x)|=2|x|
+$$
+
+なので $M=2$ を取れば定義の不等式を満たします。したがって $T$ は有界線形作用素です。
+<!-- definition-example-end -->
 
 線形写像ではこの有界性と連続性は同値です。作用素ノルムとの関係はSection 9・10で改めて整理します。
 
@@ -265,21 +284,7 @@ $$
 
 ## 9. 有界線形作用素を詳しく見る
 
-<a id="def-f0-02c3-bounded-linear-operator"></a>
-
-<!-- formal-statement-start -->
-> **定義（有界線形作用素）**  
-> ノルム空間 $X,Y$ の間の線形写像 $T:X\to Y$ が、ある $M<\infty$ に対して
-
-$$
-\|Tx\|_Y\le M\|x\|_X
-\qquad(\forall x\in X)
-$$
-
-> を満たすとき、$T$ を **有界線形作用素** といいます。
-<!-- formal-statement-end -->
-
-Section 3.5 で先に使える形だけ定義した内容を、ここで作用素ノルムへ接続します。
+Section 3.5で定義した有界線形作用素について、ここでは連続性との関係を整理します。
 
 線形写像については
 
