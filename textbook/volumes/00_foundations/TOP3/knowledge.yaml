@@ -5,8 +5,7 @@ prerequisites:
   - TOP2
   - F0-00A1
 
-forward_references:
-  - convex.convex-set
+forward_references: []
 
 concepts:
   - id: topology.separation
@@ -79,14 +78,6 @@ concepts:
       - topology.path-connected-space
       - topology.real-interval-connected
       - topology.continuous-image-connected
-
-  - id: topology.convex-path-connected
-    name: 凸集合は弧状連結
-    kind: proposition
-    aliases: [凸集合は弧状連結]
-    requires:
-      - topology.path-connected-space
-      - convex.convex-set
 
   - id: topology.union-connected-common-point
     name: 共通点を持つ連結集合族の合併は連結
