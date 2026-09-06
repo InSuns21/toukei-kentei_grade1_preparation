@@ -94,3 +94,11 @@ concepts:
     requires:
       - convex.separating-hyperplane
       - convex.finitely-generated-cone
+
+  # C4Aの一般polar cone理論を先取りするのではなく、このページでFarkasから直接導く局所公式。
+  - id: optimization.linearized-constraint-polar-formula
+    name: 線形化制約集合のpolar cone公式
+    kind: term
+    aliases: [polar coneの公式, 前節のpolar coneの公式]
+    requires:
+      - convex.farkas-lemma
