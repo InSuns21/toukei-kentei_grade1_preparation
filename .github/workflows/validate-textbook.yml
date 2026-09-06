@@ -36,6 +36,75 @@ on:
   workflow_dispatch:
 
 jobs:
+  migrate-formal-references:
+    if: github.event_name == 'pull_request' && github.head_ref == 'audit/dream-theater-formal-reference-dag-s16'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Add the three missing canonical source anchors
+        shell: python
+        run: |
+          from pathlib import Path
+
+          edits = {
+              Path('textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md'): (
+                  '## 9. すべてのノルムが内積から来るわけではない',
+                  '<a id="ref-parallelogram-identity"></a>\n\n## 9. すべてのノルムが内積から来るわけではない',
+              ),
+              Path('textbook/volumes/00_foundations/F0_02C2_線形汎関数_双対空間_Riesz/index.md'): (
+                  '## 11. Hilbert空間では双対が再びベクトルになる',
+                  '<a id="ref-riesz-representation"></a>\n\n## 11. Hilbert空間では双対が再びベクトルになる',
+              ),
+              Path('textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md'): (
+                  '## 12. ノルム空間での重要な系：ノルム保存拡張',
+                  '<a id="ref-hahn-banach-norm-preserving-extension"></a>\n\n## 12. ノルム空間での重要な系：ノルム保存拡張',
+              ),
+          }
+
+          for path, (needle, replacement) in edits.items():
+              text = path.read_text()
+              if replacement in text:
+                  continue
+              if needle not in text:
+                  raise SystemExit(f'migration anchor insertion point not found: {path}')
+              path.write_text(text.replace(needle, replacement, 1))
+
+      - name: Rewrite named proof dependencies to canonical DAG sources
+        run: node scripts/validate-formal-reference-links-dag.mjs --fix || true
+
+      - name: Inspect migrated formal references
+        run: npm run validate:formal-references || true
+
+      - name: Commit migration
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'No migration changes.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes
+          git commit -m 'Link proof dependencies to knowledge DAG sources'
+          git push origin HEAD:${{ github.head_ref }}
+
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
