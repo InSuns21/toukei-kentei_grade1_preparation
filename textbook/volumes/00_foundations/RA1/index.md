@@ -10,9 +10,9 @@
 <!-- formal-statement-start -->
 > **定理（単調収束定理）**  
 > 上に有界な単調増加実数列 $(a_n)$ は収束し、
-> $$
-> \lim_{n\to\infty}a_n=\sup\{a_n:n\in\mathbb N\}.
-> $$
+$$
+\lim_{n\to\infty}a_n=\sup\{a_n:n\in\mathbb N\}.
+$$
 > 下に有界な単調減少列についても同様である。
 <!-- formal-statement-end -->
 
@@ -36,14 +36,14 @@ $$
 <!-- formal-statement-start -->
 > **定義（上極限・下極限）**  
 > 実数列 $(a_n)$ に対し
-> $$
-> s_n=\sup_{k\ge n}a_k,\qquad i_n=\inf_{k\ge n}a_k
-> $$
+$$
+s_n=\sup_{k\ge n}a_k,\qquad i_n=\inf_{k\ge n}a_k
+$$
 > と置き、拡張実数を許して
-> $$
-> \limsup_{n\to\infty}a_n=\lim_{n\to\infty}s_n,\qquad
-> \liminf_{n\to\infty}a_n=\lim_{n\to\infty}i_n
-> $$
+$$
+\limsup_{n\to\infty}a_n=\lim_{n\to\infty}s_n,\qquad
+\liminf_{n\to\infty}a_n=\lim_{n\to\infty}i_n
+$$
 > と定める。
 <!-- formal-statement-end -->
 
@@ -53,9 +53,9 @@ $s_n$ は単調減少、$i_n$ は単調増加です。「後ろを全部見た�
 <!-- formal-statement-start -->
 > **定理（limsup・liminfによる収束判定）**  
 > $(a_n)$ が有限値 $L$ に収束することと
-> $$
-> \liminf a_n=\limsup a_n=L
-> $$
+$$
+\liminf a_n=\limsup a_n=L
+$$
 > は同値である。
 <!-- formal-statement-end -->
 
@@ -69,9 +69,9 @@ $s_n$ は単調減少、$i_n$ は単調増加です。「後ろを全部見た�
 <!-- formal-statement-start -->
 > **定義（級数の収束）**  
 > 級数 $\sum_{n=1}^{\infty}a_n$ が収束するとは、部分和
-> $$
-> S_N=\sum_{n=1}^{N}a_n
-> $$
+$$
+S_N=\sum_{n=1}^{N}a_n
+$$
 > が有限値へ収束することをいう。
 <!-- formal-statement-end -->
 
@@ -79,9 +79,9 @@ $s_n$ は単調減少、$i_n$ は単調増加です。「後ろを全部見た�
 <!-- formal-statement-start -->
 > **定理（級数のCauchy判定）**  
 > 実数級数 $\sum a_n$ が収束することと、任意の $\varepsilon>0$ に対し、ある $N$ が存在して $m>n\ge N$ なら
-> $$
-> \left|\sum_{k=n+1}^{m}a_k\right|<\varepsilon
-> $$
+$$
+\left|\sum_{k=n+1}^{m}a_k\right|<\varepsilon
+$$
 > となることは同値である。
 <!-- formal-statement-end -->
 
@@ -134,18 +134,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（冪級数・収束半径）**  
 > 中心 $x_0$ の冪級数は
-> $$
-> \sum_{n=0}^{\infty}c_n(x-x_0)^n
-> $$
+$$
+\sum_{n=0}^{\infty}c_n(x-x_0)^n
+$$
 > の形の級数である。ある $R\in[0,\infty]$ が存在し、$|x-x_0|<R$ で絶対収束し、$|x-x_0|>R$ で発散する。この $R$ を収束半径という。
 <!-- formal-statement-end -->
 
 <a id="thm-ra1-cauchy-hadamard"></a>
 <!-- formal-statement-start -->
 > **定理（Cauchy–Hadamardの公式）**  
-> $$
-> \frac1R=\limsup_{n\to\infty}|c_n|^{1/n}
-> $$
+$$
+\frac1R=\limsup_{n\to\infty}|c_n|^{1/n}
+$$
 > と解釈すれば冪級数の収束半径が与えられる。
 <!-- formal-statement-end -->
 
