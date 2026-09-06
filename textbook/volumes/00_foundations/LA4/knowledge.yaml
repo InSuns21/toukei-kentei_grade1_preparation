@@ -5,7 +5,9 @@ prerequisites:
   - LA3
   - F0-00F
   - F0-00F1
-forward_references: []
+forward_references:
+  - linear.complex-inner-product
+  - linear.normal-operator
 
 concepts:
   - id: linear.operator-polynomial
