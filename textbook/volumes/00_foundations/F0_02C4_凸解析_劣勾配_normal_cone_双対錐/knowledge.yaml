@@ -60,7 +60,7 @@ concepts:
   - id: convex.max-subdifferential
     name: max関数の劣微分公式
     kind: theorem
-    aliases: [max 関数の劣微分公式, max関数の劣微分公式]
+    aliases: [max 関数の劣微分公式, max関数の劣微分公式, max 関数の公式]
     requires:
       - convex.subdifferential
       - convex.convex-hull
@@ -69,7 +69,7 @@ concepts:
   - id: convex.indicator-function
     name: 集合のindicator関数
     kind: definition
-    aliases: [集合の indicator 関数, 集合のindicator関数, indicator 関数]
+    aliases: [集合の indicator 関数, 集合のindicator関数, indicator 関数, indicator の定義]
     requires:
       - convex.convex-set
 
