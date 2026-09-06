@@ -4,6 +4,17 @@ coverage: complete
 prerequisites:
   - F0-00A2
 
+forward_references:
+  - topology.metric-space
+  - topology.open-set
+  - topology.closed-set
+  - linear.vector-space
+  - linear.linear-independence
+  - linear.basis
+  - linear.dimension
+  - linear.gram-schmidt
+  - functional.linear-functional
+
 concepts:
   - id: set.partial-order
     name: 半順序集合
