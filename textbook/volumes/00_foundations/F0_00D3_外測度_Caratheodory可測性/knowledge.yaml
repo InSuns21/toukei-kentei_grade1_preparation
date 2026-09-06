@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00D2
+  - F0-00A1
 
 # D3 は次章の拡張定理と D5 の非可測集合を動機・予告として先に言及する。
 forward_references:
