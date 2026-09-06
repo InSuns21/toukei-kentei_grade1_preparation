@@ -26,6 +26,8 @@ concepts:
   - id: functional.bounded-linear-operator
     name: 有界線形作用素
     kind: definition
+    introduction: inline
+    introduction_aliases: [有界線形作用素 といいます]
     aliases: [有界線形作用素]
     requires:
       - linear.linear-map
