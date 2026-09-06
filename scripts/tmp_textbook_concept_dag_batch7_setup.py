@@ -28,7 +28,7 @@ replace_once(
     "## 9. 離散分布ではランダム化が必要になることがある\n\n"
     "<a id=\"def-i3-01-randomized-test\"></a>\n\n"
     "<!-- formal-statement-start -->\n"
-    "> **定義（ランダム化検定）**  \n"
+    "> **定義（ランダム化検定）**\n"
     "> 検定関数 $\\varphi(x)$ がある標本点 $x$ で $0<\\varphi(x)<1$ を取るとき、観測値 $x$ に対して確率 $\\varphi(x)$ で帰無仮説を棄却する検定を **ランダム化検定** という。全ての標本点で $\\varphi(x)\\in\\{0,1\\}$ なら非ランダム検定である。\n"
     "<!-- formal-statement-end -->\n\n"
     "コインを5回投げ、表の回数を $X$ とします。\n",
@@ -38,7 +38,7 @@ replace_once(
     "$$\n\\boxed{\\gamma=0.12}.\n$$\n\n例えば対立点 $p=0.8$ での検出力は\n",
     "$$\n\\boxed{\\gamma=0.12}.\n$$\n\n"
     "<!-- definition-example-start: def-i3-01-randomized-test -->\n"
-    "**定義の確認**  \n"
+    "**定義の確認**\n"
     "この例の検定関数は $\\varphi(5)=1$、$\\varphi(4)=0.12$、$\\varphi(x)=0$（$x\\le3$）です。$X=4$ では確率0.12で棄却し、$0<\\varphi(4)<1$ となるため、これはランダム化検定です。\n"
     "<!-- definition-example-end -->\n\n"
     "例えば対立点 $p=0.8$ での検出力は\n",
