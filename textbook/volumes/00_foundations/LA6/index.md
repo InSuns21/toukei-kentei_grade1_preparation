@@ -176,9 +176,9 @@ $$
 $$
 従って零方向の個数 $r$ はcongruenceで不変です。
 
-次に $p$ の一意性を示します。標準形
+次に $p$ の一意性を示します。ここでは二次形式そのものを $h$ と書き、負方向の個数 $q$ と記号を分けます。標準形
 $$
-q(x)
+h(x)
 =|x_1|^2+\cdots+|x_p|^2
 -|x_{p+1}|^2-\cdots-|x_{p+q}|^2
 $$
@@ -188,9 +188,9 @@ P=\operatorname{span}(e_1,\dots,e_p)
 $$
 では、$x\ne0$ なら
 $$
-q(x)=|x_1|^2+\cdots+|x_p|^2>0.
+h(x)=|x_1|^2+\cdots+|x_p|^2>0.
 $$
-従って「$q$ が正定値になる部分空間の最大次元」は少なくとも $p$ です。
+従って「$h$ が正定値になる部分空間の最大次元」は少なくとも $p$ です。
 
 逆に、$L$ を任意の $(p+1)$ 次元部分空間とします。負・零方向からなる部分空間を
 $$
@@ -214,19 +214,19 @@ $$
 $$
 よって非零な $x\in L\cap N_0$ が存在します。この $x$ は正方向成分を持たないので
 $$
-q(x)\le0.
+h(x)\le0.
 $$
-従って $L$ 上で $q$ は正定値ではありません。つまり正定値部分空間の次元は $p$ を超えられません。
+従って $L$ 上で $h$ は正定値ではありません。つまり正定値部分空間の次元は $p$ を超えられません。
 
 以上から
 $$
-p=\max\{\dim L:q|_L\text{ が正定値}\}
+p=\max\{\dim L:h|_L\text{ が正定値}\}
 $$
 であり、これは座標表示ではなく二次形式そのものから決まる量です。従って $p$ は一意です。
 
-同じ議論を $-q$ に適用すれば
+同じ議論を $-h$ に適用すれば
 $$
-q=\max\{\dim L:q|_L\text{ が負定値}\}
+q=\max\{\dim L:h|_L\text{ が負定値}\}
 $$
 も形式そのものから一意に決まります。したがって $(p,q,r)$ は一意です。$\square$
 <!-- proof-end -->
@@ -320,7 +320,7 @@ $$
 $$
 C^2=\lambda I.
 $$
-また $C$ はHermitian PSDなので、[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により $E_\lambda$ の正規直交基底で対角化でき、固有値を $\mu$ とすれば
+また $C|_{E_\lambda}$ はHermitian PSDです。したがって[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)をこの制限作用素に適用でき、$E_\lambda$ の正規直交基底で対角化できます。その固有値を $\mu$ とすればPSD性から
 $$
 \mu\ge0.
 $$
@@ -342,7 +342,7 @@ C=\sqrt\lambda I
 $$
 です。
 
-$A$ の固有空間は全空間を直交直和に分解するので、全ての固有空間上で $C$ の作用は一意に決まり、先ほど構成した
+$A$ の固有空間は[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により全空間を直交直和に分解するので、全ての固有空間上で $C$ の作用は一意に決まり、先ほど構成した
 $$
 B=Q\Lambda^{1/2}Q^*
 $$
@@ -452,13 +452,22 @@ U_0(aPx+bPy)
 &=aU_0(Px)+bU_0(Py).
 \end{aligned}
 $$
-さらに先ほどの長さの等式から
+
+ここで「長さを保つ」だけで済ませず、内積そのものを保存することを計算します。$Px,Py\in\operatorname{Im}P$ に対して
 $$
-\|U_0(Px)\|
-=\|Ax\|
-=\|Px\|,
+\begin{aligned}
+\langle U_0(Px),U_0(Py)\rangle
+&=\langle Ax,Ay\rangle\\
+&=\langle x,A^*Ay\rangle\\
+&=\langle x,P^2y\rangle\\
+&=\langle P x,P y\rangle,
+\end{aligned}
 $$
-なので $U_0$ は等長写像です。
+最後の等号では $P^*=P$ を使いました。したがって $U_0$ は内積を保存します。特に $y=x$ とすれば
+$$
+\|U_0(Px)\|=\|Px\|
+$$
+も従います。
 
 像も確認します。任意の $Ax\in\operatorname{Im}A$ は
 $$
@@ -472,7 +481,7 @@ $$
 $$
 U_0:\operatorname{Im}P\to\operatorname{Im}A
 $$
-は全射な等長同型です。
+は全射な内積保存同型です。
 
 次に全空間へ延長します。rank-nullity theoremと $\ker P=\ker A$ から
 $$
@@ -486,7 +495,7 @@ $$
 \dim(\operatorname{Im}P)^\perp
 =\dim(\operatorname{Im}A)^\perp.
 $$
-$\operatorname{Im}P$ の正規直交基底 $p_1,\dots,p_r$ を取ると、等長性から
+$\operatorname{Im}P$ の正規直交基底 $p_1,\dots,p_r$ を取ると、内積保存性から
 $$
 U_0p_1,\dots,U_0p_r
 $$
