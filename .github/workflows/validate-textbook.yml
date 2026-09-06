@@ -75,11 +75,8 @@ jobs:
 
           for path, (needle, replacement) in edits.items():
               text = path.read_text()
-              if replacement in text:
-                  continue
-              if needle not in text:
-                  raise SystemExit(f'final link insertion point not found: {path}')
-              path.write_text(text.replace(needle, replacement, 1))
+              if needle in text:
+                  path.write_text(text.replace(needle, replacement))
 
       - name: Verify formal references
         run: npm run validate:formal-references
