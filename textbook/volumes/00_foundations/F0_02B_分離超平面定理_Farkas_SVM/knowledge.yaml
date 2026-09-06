@@ -2,10 +2,17 @@ chapter: F0-02B
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00A1
   - F0-00G
   - F0-00E
   - F0-00C
+  - F0-00D1
   - F0-02
+
+forward_references:
+  - convex.polar-cone
+  - optimization.constraint-qualification
+  - svm.maximum-margin-convex-hull
 
 concepts:
   - id: convex.convex-combination-recap-f0-02b
