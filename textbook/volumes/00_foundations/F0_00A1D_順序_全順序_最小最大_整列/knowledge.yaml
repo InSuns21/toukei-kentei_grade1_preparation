@@ -8,6 +8,7 @@ forward_references:
   - set.choice-axiom
   - set.zorn-lemma
   - set.maximum-maximal-element
+  - set.well-ordering-theorem
   - set.choice-equivalence-summary
 
 concepts:
