@@ -4,6 +4,13 @@ coverage: complete
 prerequisites:
   - F0-00F1
 
+forward_references:
+  - fourier.transform-l1
+  - pde.partial-differential-equation
+  - pde.heat-equation
+  - pde.separation-of-variables
+  - pde.sturm-liouville-problem
+
 concepts:
   - id: ode.ordinary-differential-equation
     name: 常微分方程式
@@ -42,6 +49,13 @@ concepts:
     introduction: inline
     requires:
       - ode.ordinary-differential-equation
+
+  - id: complex.euler-formula
+    name: Eulerの公式
+    kind: term
+    aliases: [Eulerの公式]
+    introduction: inline
+    requires: []
 
   - id: ode.matrix-exponential-solution
     name: 線形系の行列指数解

@@ -137,13 +137,15 @@ $$
 
 ## 5. しかし直交成分はノルムだけ増やす
 
-Pythagorasの定理から
+$f_{\parallel}\perp f_{\perp}$ なので、内積を展開すると
 
 $$
+\begin{aligned}
 \|f\|^2
-=\|f_{\parallel}\|^2
-+\|f_{\perp}\|^2
-\ge\|f_{\parallel}\|^2.
+&=\langle f_{\parallel}+f_{\perp},f_{\parallel}+f_{\perp}\rangle\\
+&=\|f_{\parallel}\|^2+\|f_{\perp}\|^2\\
+&\ge\|f_{\parallel}\|^2.
+\end{aligned}
 $$
 
 したがって $f_{\perp}$ を捨てても訓練点での予測値は変わらず、正則化項は悪化しません。

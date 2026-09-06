@@ -7,6 +7,7 @@ prerequisites:
 # 冒頭と末尾で、有限平均まで一般化した次章のSLLNを予告する。
 forward_references:
   - prob.iid-integrable-slln
+  - prob.iid-clt
 
 concepts:
   - id: prob.dyadic-subsequence

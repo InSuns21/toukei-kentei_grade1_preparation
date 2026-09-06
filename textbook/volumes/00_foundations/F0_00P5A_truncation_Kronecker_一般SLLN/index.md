@@ -18,9 +18,19 @@ $$\boxed{\frac1n\sum_{k=1}^nX_k\to E[X_1]\quad\text{a.s.}}$$
 
 $$X_n'=X_n\mathbf1_{\{|X_n|\le n\}}$$
 
-とします。tail-sum公式から
+とします。ここで使うtail-sum評価は
 
-$$\sum_{n=1}^\infty P(|X_1|>n)\le E|X_1|<\infty.$$
+$$
+\sum_{n=1}^\infty P(|X_1|>n)\le E|X_1|<\infty
+$$
+
+です。実際、点ごとに
+
+$$
+\sum_{n=1}^\infty \mathbf 1_{\{|X_1|>n\}}\le |X_1|
+$$
+
+なので、Tonelliの定理で期待値と和を交換すれば従います。
 
 独立同分布性より $P(X_n\ne X_n')=P(|X_1|>n)$ なので第一Borel--Cantelliから
 
