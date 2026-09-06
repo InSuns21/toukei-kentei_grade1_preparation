@@ -5,6 +5,10 @@ prerequisites:
   - RA2
   - RA3
 
+forward_references:
+  - analysis.uniform-convergence
+  - measure.lebesgue-integral
+
 concepts:
   - id: analysis.darboux-sums
     name: Darboux上和・下和
@@ -37,7 +41,7 @@ concepts:
     aliases: [微積分学の基本定理II, FTC II]
     requires: [analysis.ftc-1, analysis.derivative]
   - id: analysis.change-of-variables-riemann
-    name: Riemann積分の置換積分定理
+    name: 置換積分
     kind: theorem
-    aliases: [置換積分定理]
+    aliases: [置換積分, 置換積分定理, Riemann積分の置換積分定理]
     requires: [analysis.ftc-2]
