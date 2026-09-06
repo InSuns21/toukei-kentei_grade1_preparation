@@ -223,3 +223,62 @@ concepts:
       - Lehmann--Scheffe theorem
     introduced_in: S1-02
     requires: [sufficient-statistic, complete-statistic, rao-blackwell-theorem, umvu-estimator]
+
+  - id: factorization-theorem
+    name: ネイマンの分解定理
+    aliases:
+      - Neyman factorization theorem
+      - Fisher--Neyman factorization theorem
+      - Fisher-Neyman factorization theorem
+    introduced_in: S1-02
+    requires: [sufficient-statistic]
+
+  - id: minimal-sufficient-statistic
+    name: 最小十分統計量
+    aliases:
+      - minimal sufficient statistic
+    introduced_in: S1-02
+    requires: [sufficient-statistic]
+
+  - id: exponential-family
+    name: 指数型分布族
+    aliases:
+      - exponential family
+    introduced_in: S1-02
+    requires: [factorization-theorem]
+
+  - id: likelihood-function
+    name: 尤度関数
+    aliases:
+      - likelihood function
+    introduced_in: I1-01
+
+  - id: log-likelihood-function
+    name: 対数尤度関数
+    aliases:
+      - 対数尤度
+      - log-likelihood function
+      - log likelihood
+    introduced_in: I1-01
+    requires: [likelihood-function]
+
+  - id: unbiased-estimator
+    name: 不偏推定量
+    aliases:
+      - unbiased estimator
+    # P2-01 で期待値の応用として最小限を正式導入し、I1-02 で推定量評価として再導入する。
+    introduced_in: [P2-01, I1-02]
+
+  - id: efficient-estimator
+    name: 有効推定量
+    aliases:
+      - efficient estimator
+    introduced_in: I1-02
+    requires: [cramer-rao-inequality]
+
+  - id: relative-efficiency
+    name: 推定量の相対効率
+    aliases:
+      - relative efficiency of estimators
+      - estimator relative efficiency
+    introduced_in: I1-02

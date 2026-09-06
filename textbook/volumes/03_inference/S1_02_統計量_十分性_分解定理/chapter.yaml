@@ -8,6 +8,7 @@ prerequisites:
   - P2-02
 forward_references:
   - consistency
+  - log-likelihood-function
 official_scope:
   - 十分統計量
   - ネイマンの分解定理

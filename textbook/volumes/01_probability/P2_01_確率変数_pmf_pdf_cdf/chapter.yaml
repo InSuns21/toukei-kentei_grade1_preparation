@@ -10,12 +10,14 @@ learning_objectives:
   - 累積分布関数の右連続性・単調性・端点と跳躍を使える
   - 同時分布から周辺分布を和または積分で導ける
   - 離散・連続・混合分布を見分けLevel Cを20〜30分で記述できる
+  - 期待値の応用として、$E_\theta[T]=\theta$ から不偏推定量を判定できる
 definitions:
   - { id: P2-DEF-01, name: 確率変数と分布 }
   - { id: P2-DEF-02, name: 確率質量関数 }
   - { id: P2-DEF-03, name: 確率密度関数 }
   - { id: P2-DEF-04, name: 累積分布関数 }
   - { id: P2-DEF-05, name: 同時分布と周辺分布 }
+  - { id: P2-DEF-06, name: 不偏推定量 }
 theorems:
   - { id: P2-THM-01, name: 累積分布関数の基本性質 }
   - { id: P2-THM-02, name: 累積分布関数による区間確率と跳躍 }

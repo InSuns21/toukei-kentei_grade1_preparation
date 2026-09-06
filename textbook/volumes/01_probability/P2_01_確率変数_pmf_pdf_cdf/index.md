@@ -1923,13 +1923,23 @@ $$
 
 を用いてよい。
 
-推定量 $T$ が推定対象 $\alpha$ に対して
+<a id="def-p2-01-unbiased-estimator"></a>
+
+<!-- formal-statement-start -->
+> **定義（不偏推定量）**
+> 推定量 $T$ が推定対象 $\alpha$ に対して
 
 $$
 E_\alpha[T]=\alpha
 $$
 
-を満たすとき、$T$ を $\alpha$ の不偏推定量という。
+> を満たすとき、$T$ を $\alpha$ の不偏推定量という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-p2-01-unbiased-estimator -->
+**定義の確認**
+問5では $E_\alpha[\widehat\alpha]=\alpha$ を示せれば、この定義から $\widehat\alpha$ は $\alpha$ の不偏推定量だと判定できます。
+<!-- definition-example-end -->
 
 1. $f_\alpha$ が同時確率密度関数であることを示せ。（15点）
 2. $X,Y$ の周辺確率密度関数と累積分布関数を求めよ。（20点）
