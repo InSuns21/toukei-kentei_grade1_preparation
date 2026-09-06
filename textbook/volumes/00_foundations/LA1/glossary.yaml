@@ -1,0 +1,11 @@
+chapter: "LA1"
+terms:
+  - term: 実・複素ベクトル空間
+    english: real and complex vector spaces
+    meaning: スカラーを実数または複素数から取るベクトル空間。加法・スカラー倍の公理は同じだが、利用できるスカラーが異なる。
+  - term: 複素線形写像
+    english: complex-linear map
+    meaning: 加法だけでなく複素数によるスカラー倍まで保存する線形写像。
+  - term: スカラー制限
+    english: restriction of scalars
+    meaning: 複素ベクトル空間を、複素数によるスカラー倍の一部だけを使って実ベクトル空間として見ること。
