@@ -5,7 +5,9 @@ prerequisites:
   - LA5
   - F0-00F1
   - F0-00F2
-forward_references: []
+forward_references:
+  - functional.norm
+  - functional.operator-norm
 
 concepts:
   - id: linear.hermitian-quadratic-form
