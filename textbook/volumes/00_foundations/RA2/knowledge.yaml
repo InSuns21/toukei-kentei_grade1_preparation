@@ -37,4 +37,4 @@ concepts:
     name: Heine–Cantorの定理
     kind: theorem
     aliases: [Heine–Cantorの定理, Heine-Cantor theorem]
-    requires: [analysis.uniform-continuity, topology.compact]
+    requires: [analysis.uniform-continuity, topology.compact-set]
