@@ -13,8 +13,8 @@ strict:
   reject_unresolved_concept_dependency: true
 
 rollout:
-  # 既存負債は audit に残し、changed-only CI では変更章だけ strict にする。
-  existing_findings: audit
+  # 章DAGの既存負債は解消済み。登録概念は全通常章を strict に監査する。
+  existing_findings: error
 
 concepts:
   - id: blue
@@ -32,3 +32,90 @@ concepts:
       - Gauss--Markov
       - Gauss-Markov
     introduced_in: L1-02
+
+  - id: sufficient-statistic
+    name: 十分統計量
+    aliases:
+      - sufficient statistic
+    introduced_in: S1-02
+
+  - id: maximum-likelihood-estimator
+    name: 最尤推定量
+    aliases:
+      - maximum likelihood estimator
+      - maximum-likelihood estimator
+      - MLE
+    introduced_in: I1-01
+
+  - id: score-function
+    name: スコア関数
+    aliases:
+      - score function
+    introduced_in: I1-01
+
+  - id: fisher-information
+    name: Fisher情報量
+    aliases:
+      - フィッシャー情報量
+      - Fisher information
+    introduced_in: I1-02
+    requires: [score-function]
+
+  - id: cramer-rao-inequality
+    name: Cramér--Rao不等式
+    aliases:
+      - Cramér–Rao不等式
+      - Cramer--Rao不等式
+      - Cramer-Rao inequality
+      - クラーメル・ラオの不等式
+      - クラーメル・ラオ不等式
+      - Cramér--Rao下限
+      - Cramér–Rao下限
+      - CRLB
+    introduced_in: I1-02
+    requires: [fisher-information]
+
+  - id: slutsky-theorem
+    name: Slutskyの定理
+    aliases:
+      - Slutsky型の定理
+      - スルツキーの定理
+      - Slutsky theorem
+    introduced_in: P4-02
+
+  - id: delta-method
+    name: デルタ法
+    aliases:
+      - Delta法
+      - delta method
+      - Delta method
+    introduced_in: I2-01
+    requires: [slutsky-theorem]
+
+  - id: likelihood-ratio-test
+    name: 尤度比検定
+    aliases:
+      - 尤度比統計量
+      - likelihood ratio test
+      - likelihood-ratio test
+    introduced_in: I3-02
+    requires: [maximum-likelihood-estimator]
+
+  - id: score-test
+    name: スコア型検定
+    aliases:
+      - Score検定
+      - スコア検定
+      - score test
+    introduced_in: I3-02
+    requires: [score-function, fisher-information]
+
+  - id: kkt-conditions
+    name: KKT条件
+    aliases:
+      - KKT conditions
+      - Karush--Kuhn--Tucker条件
+      - Karush-Kuhn-Tucker conditions
+    # 通常教材では E1-04 §7.3 が4条件を自己完結に導入する。
+    # より一般の導出は supplementary の F0-02 / F0-02A に委ねる。
+    introduced_in: E1-04
