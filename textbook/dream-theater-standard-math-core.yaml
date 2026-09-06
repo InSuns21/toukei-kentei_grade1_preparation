@@ -117,10 +117,13 @@ nodes:
     reuses: [F0_00C1]
     prerequisites: [TOP1]
   - id: TOP3
-    title: 連結性
+    title: 連結性・弧状連結性・連結成分
     area: topology
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP3/index.md
+    reuses: [F0_00A1]
     prerequisites: [TOP2]
   - id: TOP4
     title: 可算性公理・分離公理
