@@ -17,7 +17,7 @@ concepts:
   - id: linear.algebraic-dual-space
     name: 代数的双対空間
     kind: definition
-    aliases: [代数的双対空間, 双対空間, algebraic dual space]
+    aliases: [代数的双対空間, algebraic dual space]
     requires:
       - linear.linear-form
 
