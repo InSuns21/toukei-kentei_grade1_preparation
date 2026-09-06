@@ -33,7 +33,7 @@ concepts:
   - id: measure.l2-representation-lemma
     name: L^2表現補題
     kind: lemma
-    # 旧reader-source監査ではインライン数式が落るため安定部分も登録する。
+    # 旧reader-source監査ではインライン数式が落ちるため安定部分も登録する。
     aliases: [L^2表現補題, "表現補題）"]
     requires:
       - measure.lp-space
