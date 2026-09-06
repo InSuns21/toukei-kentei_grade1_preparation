@@ -4,7 +4,14 @@ coverage: complete
 prerequisites:
   - LA2
   - F0-00F
-forward_references: []
+forward_references:
+  - topology.topology
+  - linear.characteristic-polynomial
+  - linear.minimal-polynomial
+  - linear.generalized-eigenspace
+  - measure.lp-space
+  - functional.linear-functional
+  - functional.continuous-linear-functional
 
 concepts:
   - id: linear.linear-form
