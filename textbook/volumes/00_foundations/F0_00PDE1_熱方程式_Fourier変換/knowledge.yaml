@@ -5,20 +5,19 @@ prerequisites:
   - F0-00H1
   - F0-00FA3
 
+forward_references:
+  - prob.variance
+
 concepts:
   - id: pde.partial-differential-equation
     name: 偏微分方程式
     kind: definition
     aliases: [偏微分方程式]
-    introduction: inline
-    introduction_aliases: [未知関数とその偏導関数の関係を与える方程式]
 
   - id: pde.heat-equation
     name: 熱方程式
     kind: definition
     aliases: [熱方程式]
-    introduction: inline
-    introduction_aliases: [この方程式を熱方程式といいます]
     requires:
       - pde.partial-differential-equation
 
