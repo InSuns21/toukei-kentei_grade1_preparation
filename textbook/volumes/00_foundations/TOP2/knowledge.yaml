@@ -121,4 +121,5 @@ concepts:
     aliases: [商空間はHausdorffとは限らない, 二重原点直線]
     requires:
       - topology.identification-space
+      - topology.disjoint-union-topology
       - topology.hausdorff-space
