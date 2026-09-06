@@ -401,7 +401,7 @@ Kolmogorov最大不等式を用いて、$2^k<n\le2^{k+1}$ の区間内変動を 
 
 <!-- solution-start -->
 #### 詳細解答
-区間内の増分 $S_n-S_{2^k}$ に最大不等式を適用すると、最大値が $\varepsilon2^k$ を超える確率は区間の分散和 $2^k\sigma^2$ を $\varepsilon^22^{2k}$ で割った $O(2^{-k})$。総和可能なのでBCで区間最大増分/2^k→0 a.s.。
+区間内の増分 $S_n-S_{2^k}$ にKolmogorov最大不等式を適用すると、最大値が $\varepsilon2^k$ を超える確率は区間の分散和 $2^k\sigma^2$ を $\varepsilon^22^{2k}$ で割った $O(2^{-k})$。総和可能なのでBCで区間最大増分/2^k→0 a.s.。
 
 #### 本番答案
 最大不等式で $P(\max_{2^k<n\le2^{k+1}}|S_n-S_{2^k}|>\varepsilon2^k)\le C2^{-k}$。総和有限→BC。

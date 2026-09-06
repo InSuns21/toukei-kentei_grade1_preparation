@@ -294,6 +294,34 @@ $$
 
 ---
 
+## 6.5 証明で使う陰関数定理
+
+<a id="thm-f0-02c5a-implicit-function"></a>
+
+<!-- formal-statement-start -->
+> **定理（陰関数定理：有限次元の局所グラフ表示）**  
+> $h:\mathbb R^{p+q}\to\mathbb R^q$ を $C^1$ 級とし、$h(u^*,z^*)=0$、$D_zh(u^*,z^*)$ が正則であるとします。このとき $(u^*,z^*)$ の近くで $h(u,z)=0$ は
+
+$$
+z=\varphi(u)
+$$
+
+> と一意に表せる $C^1$ 級写像 $\varphi$ を持ち、
+
+$$
+\boxed{
+D\varphi(u^*)
+=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
+}
+$$
+
+> が成り立ちます。
+<!-- formal-statement-end -->
+
+この定理により、等式制約を壊さない接方向を実際の曲線として実現できます。
+
+---
+
 ## 7. MFCQ の下では $T_C(x^*)=L_C(x^*)$
 
 <a id="thm-f0-02c5a-mfcq-tangent-equality"></a>

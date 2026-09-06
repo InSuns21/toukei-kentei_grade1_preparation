@@ -221,11 +221,19 @@ $$
 
 ### 5.3 複素根
 
+ここで使うEulerの公式は
+
+$$
+\boxed{e^{i\theta}=\cos\theta+i\sin\theta}
+$$
+
+です。したがって
+
 $$
 r=\alpha\pm i\beta
 $$
 
-ならEulerの公式から実数解として
+に対応する複素指数解の実部・虚部を取ると、実数解は
 
 $$
 \boxed{

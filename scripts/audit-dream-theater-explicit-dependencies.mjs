@@ -217,6 +217,7 @@ function resolveCandidate(candidate, aliasItems) {
     if (normalized.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (base.endsWith(item.normalized) && item.normalized.length >= 4) return item.concept;
     if (aliasBase.length >= 4 && base.endsWith(aliasBase) && isResultLike(item.concept, item.alias)) return item.concept;
+    if (candidateType === 'result' && base.length >= 6 && aliasBase.startsWith(`${base}は`) && isResultLike(item.concept, item.alias)) return item.concept;
   }
   return null;
 }

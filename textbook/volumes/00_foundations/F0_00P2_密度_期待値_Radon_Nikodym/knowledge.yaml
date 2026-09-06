@@ -12,6 +12,9 @@ prerequisites:
 forward_references:
   - prob.expectation
   - prob.lotus
+  - functional.linear-functional
+  - functional.continuous-linear-functional
+  - stat.statistical-model
 
 concepts:
   - id: measure.absolute-continuity

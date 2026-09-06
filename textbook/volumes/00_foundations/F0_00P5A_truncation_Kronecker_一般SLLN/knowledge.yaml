@@ -22,7 +22,7 @@ concepts:
   - id: prob.tail-sum-bound
     name: 可積分変数のtail-sum評価
     kind: term
-    aliases: [tail-sum公式]
+    aliases: [tail-sum公式, tail-sum評価]
     requires:
       - prob.expectation
 

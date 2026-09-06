@@ -225,7 +225,7 @@ $$
 \le\nu(\Omega)^{1/2}\|g\|_{L^2(\rho)}.
 $$
 
-従って $T$ は連続です。[前節の$L^2$表現補題](#lem-f0-00p2-l2-representation)から、ある $h\in L^2(\rho)$ が存在して
+従って $T$ は連続です。[前節のL^2表現補題](#lem-f0-00p2-l2-representation)から、ある $h\in L^2(\rho)$ が存在して
 
 $$
 T(g)=\int gh\,d\rho
