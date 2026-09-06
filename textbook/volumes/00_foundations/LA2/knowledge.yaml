@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - LA1
   - F0-00F
-forward_references: []
+forward_references:
+  - linear.algebraic-dual-space
 
 concepts:
   - id: linear.complementary-subspace
