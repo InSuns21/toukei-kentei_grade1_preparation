@@ -11,6 +11,20 @@
 > $u=u(t,x)$ のように複数の独立変数を持つ未知関数について、未知関数とその偏導関数の関係を与える方程式を **偏微分方程式（PDE）** といいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00pde1-pde -->
+### 例：二変数関数の偏導関数を含む方程式
+
+**定義の確認**
+
+未知関数 $u=u(t,x)$ に対する
+
+$$
+\partial_tu+\partial_xu=0
+$$
+
+は、独立変数 $t,x$ を持ち、それらに関する偏導関数の関係を与えているので、定義よりPDEです。
+<!-- definition-example-end -->
+
 常微分方程式（ODE）が一つの独立変数に関する微分を扱うのに対し、PDEでは時間と空間など複数の変数に関する偏微分が現れます。
 
 ### 1.1 最初の例：熱方程式
@@ -38,6 +52,28 @@ $$
 
 > を満たすPDEを考えます。この方程式を **熱方程式** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00pde1-heat-equation -->
+### 例：$u(t,x)=e^{-t}\sin x$ を代入する
+
+**定義の確認**
+
+$\kappa=1$ とし
+
+$$
+u(t,x)=e^{-t}\sin x
+$$
+
+と置くと
+
+$$
+\partial_tu=-e^{-t}\sin x,
+\qquad
+\partial_{xx}u=-e^{-t}\sin x.
+$$
+
+したがって $\partial_tu=\partial_{xx}u$ であり、この $u$ は $\kappa=1$ の熱方程式を満たします。
+<!-- definition-example-end -->
 
 ここで
 
@@ -217,6 +253,26 @@ $$
 
 > と定める関数を、熱方程式の **Gaussian heat kernel** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00pde1-heat-kernel -->
+### 例：$\kappa=t=1$ のheat kernel
+
+**定義の確認**
+
+$\kappa=1,t=1$ を定義式へ代入すると
+
+$$
+G_1(x)=\frac1{\sqrt{4\pi}}e^{-x^2/4}.
+$$
+
+特に
+
+$$
+G_1(0)=\frac1{\sqrt{4\pi}}.
+$$
+
+これは定義式を具体的な時刻で評価したGaussian heat kernelです。
+<!-- definition-example-end -->
 
 したがって解は
 
