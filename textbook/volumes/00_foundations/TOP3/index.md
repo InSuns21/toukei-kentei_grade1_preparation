@@ -91,7 +91,7 @@ X\setminus\varnothing=X,
 X\setminus X=\varnothing
 $$
 
-も開なので、$\varnothing$ と $X$ はどちらも閉でもあります。従って任意の位相空間で $\varnothing$ と $X$ は開閉集合です。これら二つ以外の開閉集合を **非自明な開閉集合** と呼びます。
+も開なので、$\varnothing$ と $X$ はどちらも閉でもあります。従って任意の位相空間で $\varnothing$ と $X$ は開閉集合です。連結性を判定するときに問題になるのは、この二つ以外の開閉集合です。
 <!-- definition-example-end -->
 
 <a id="prop-top3-clopen"></a>
@@ -479,34 +479,6 @@ $$
 
 従って $(K\cap U,K\cap V)$ は $K$ の分離です。これは $K$ の連結性に矛盾します。ゆえに $X$ は連結です。$\square$
 <!-- proof-end -->
-
-この次の命題だけは、後続の [F0-00G](../F0_00G_凸集合_凸関数_凸最適化/index.md) で定義する **凸集合** を先取りして使います。TOP3の前提へ追加するのではなく、ここでは「線分が集合内に残る」という性質だけを使います。
-
-<a id="prop-top3-convex-path"></a>
-<!-- formal-statement-start -->
-> **命題（凸集合は弧状連結）**  
-> 凸集合 $C\subseteq\mathbb R^n$ は弧状連結である。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-$x,y\in C$ を任意に取ります。凸性から、任意の $t\in[0,1]$ に対して
-
-$$
-(1-t)x+ty\in C.
-$$
-
-従って
-
-$$
-\gamma(t)=(1-t)x+ty
-$$
-
-は $[0,1]$ から $C$ への写像として定義できます。各座標が一次関数なので連続であり、$\gamma(0)=x$, $\gamma(1)=y$ です。よって任意の二点を道で結べるので $C$ は弧状連結です。$\square$
-<!-- proof-end -->
-
-したがって球、開球、閉球、直方体などの凸集合は弧状連結であり、特に連結です。
 
 ---
 
