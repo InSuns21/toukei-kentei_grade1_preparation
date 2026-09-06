@@ -1,0 +1,32 @@
+name: tmp Batch 13 apply
+
+on:
+  push:
+    branches:
+      - audit/textbook-concept-dag-batch13-bayes-core
+    paths:
+      - .github/workflows/tmp-batch13.yml
+      - scripts/tmp_batch13.py
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply Batch 13 edits
+        run: python3 scripts/tmp_batch13.py
+      - name: Check and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/knowledge-dag.yaml
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m "Extend concept DAG with Bayesian core concepts Batch 13"
+            git push
+          fi
