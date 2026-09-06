@@ -1,0 +1,43 @@
+name: Validate DREAM THEATER standard math core
+
+on:
+  pull_request:
+    paths:
+      - 'textbook/dream-theater-standard-math-core.yaml'
+      - 'textbook/dream-theater-standard-math-core.md'
+      - 'textbook/dream-theater-index.json'
+      - 'scripts/validate-dream-theater-standard-math-core.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-dream-theater-standard-math-core.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'textbook/dream-theater-standard-math-core.yaml'
+      - 'textbook/dream-theater-standard-math-core.md'
+      - 'textbook/dream-theater-index.json'
+      - 'scripts/validate-dream-theater-standard-math-core.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-dream-theater-standard-math-core.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-standard-math-core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate canonical curriculum and prerequisite DAG
+        run: npm run validate:dream-theater-standard-math-core
