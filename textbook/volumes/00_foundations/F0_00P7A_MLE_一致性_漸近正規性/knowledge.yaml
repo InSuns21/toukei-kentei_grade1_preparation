@@ -6,6 +6,10 @@ prerequisites:
   - F0-00P5
   - F0-00P6A
 
+forward_references:
+  - stat.qmd
+  - stat.lan
+
 concepts:
   - id: stat.slutsky-theorem
     name: Slutskyの定理
