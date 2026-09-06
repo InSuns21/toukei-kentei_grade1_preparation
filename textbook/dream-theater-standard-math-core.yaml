@@ -100,16 +100,21 @@ nodes:
     reuses: [F0_00B, F0_00B1]
     prerequisites: [BASE]
   - id: TOP1
-    title: 基底・部分基底
+    title: 位相の生成・initial/final topology・積・商
     area: topology
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP1/index.md
     prerequisites: [TOP0]
   - id: TOP2
-    title: 積位相・商位相
+    title: 同値関係による商空間・貼り合わせ
     area: topology
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP2/index.md
+    reuses: [F0_00C1]
     prerequisites: [TOP1]
   - id: TOP3
     title: 連結性
