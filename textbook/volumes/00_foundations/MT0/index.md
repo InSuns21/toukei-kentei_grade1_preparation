@@ -316,13 +316,98 @@ $$
 
 ## 5. 練習問題
 
-### 問1
+### Level A
+
+<a id="ex-mt0-a01"></a>
+#### MT0-A01 $f(x)=x$ の有限単関数近似
+- Level: A
+
+$[0,1]$ 上の $f(x)=x$ に対して、有限値可測単関数 $s$ を具体的に作り、
+
+$$
+\|f-s\|_\infty\le\frac14
+$$
+
+を示してください。
+
+<!-- solution-start -->
+**解答**：
+
+$$
+A_j=\left[\frac j4,\frac{j+1}4\right)\quad(j=0,1,2),
+\qquad
+A_3=\left[\frac34,1\right]
+$$
+
+とし、
+
+$$
+s(x)=\sum_{j=0}^3\frac j4\,1_{A_j}(x)
+$$
+
+と置きます。各 $A_j$ は可測で、$s$ は4個の値しか取りません。$x\in A_j$ なら
+
+$$
+0\le x-\frac j4\le\frac14
+$$
+
+なので $|f(x)-s(x)|\le1/4$。従って $\|f-s\|_\infty\le1/4$ です。値域を有限分割して丸める、という定理の構成そのものです。
+<!-- solution-end -->
+
+<a id="ex-mt0-a02"></a>
+#### MT0-A02 外正則性の測度評価
+- Level: A
+
+$A\subset\mathbb R$ が可測、$\lambda(A)<\infty$ で、開集合 $G\supset A$ が
+
+$$
+\lambda(G\setminus A)<\varepsilon
+$$
+
+を満たすとします。$\lambda(G)<\lambda(A)+\varepsilon$ を導いてください。
+
+<!-- solution-start -->
+**解答**：$G=A\sqcup(G\setminus A)$ は互いに素な可測集合の和なので
+
+$$
+\lambda(G)=\lambda(A)+\lambda(G\setminus A)
+<\lambda(A)+\varepsilon.
+$$
+
+有限測度性により右辺は有限で、外側近似が「集合包含」だけでなく測度差まで制御していることが分かります。
+<!-- solution-end -->
+
+<a id="ex-mt0-a03"></a>
+#### MT0-A03 有限分割への誤差予算
+- Level: A
+
+互いに素な有限測度可測集合 $A_1,A_2,A_3$ があり、総損失を $\delta$ 未満にしたいとします。内正則性を各集合へどの精度で適用すれば十分か示してください。
+
+<!-- solution-start -->
+**解答**：各 $j=1,2,3$ に内正則性を $\delta/3$ で適用し、コンパクト $K_j\subset A_j$ を
+
+$$
+\lambda(A_j\setminus K_j)<\frac\delta3
+$$
+
+となるように取ります。すると
+
+$$
+\sum_{j=1}^3\lambda(A_j\setminus K_j)
+<3\cdot\frac\delta3=\delta.
+$$
+
+有限個だから均等配分で十分です。
+<!-- solution-end -->
+
+<a id="ex-mt0-a04"></a>
+#### MT0-A04 非有界関数を有限値単関数で一様近似できない
+- Level: A
 
 $f:X\to\mathbb R$ が可測だが非有界であるとき、「有限値単関数 $s_n$ が $f$ に一様収束する」と一般には言えない理由を示してください。
 
-### 解答
-
-各 $s_n$ は有限個の実数値しか取らないので有界です。もしある $s_n$ について
+<!-- solution-start -->
+**解答**：各 $s_n$ は有限個の実数値しか取らないので有界です。もしある $s_n$ について
 
 $$
 \|f-s_n\|_\infty<1
@@ -335,14 +420,119 @@ $$
 $$
 
 が全ての $x$ で成り立ち、$f$ も有界になって矛盾します。従って非有界関数を有限値単関数で一様近似することはできません。
+<!-- solution-end -->
 
-### 問2
+### Level B
+
+<a id="ex-mt0-b01"></a>
+#### MT0-B01 内正則性で先に有限区間へ切る理由
+- Level: B
 
 内正則性の証明で、なぜ最初から $A^c$ に外正則性を適用しなかったのでしょうか。
 
-### 解答
+<!-- solution-start -->
+**解答**：$A$ が有限測度でも $A^c$ は無限測度かもしれず、この章で証明した外正則性は有限測度集合に対する形だからです。先に $A$ の大部分を有限区間 $H=[-R,R]$ に閉じ込めると、$C=H\setminus A_R$ は自動的に有限測度になります。そこで初めて外正則性を適用し、$H$ の中で補集合を取ることで compact 集合を得ています。
+<!-- solution-end -->
 
-$A$ が有限測度でも $A^c$ は無限測度かもしれず、この章で証明した外正則性は有限測度集合に対する形だからです。先に $A$ の大部分を有限区間 $H=[-R,R]$ に閉じ込めると、$C=H\setminus A_R$ は自動的に有限測度になります。そこで初めて外正則性を適用し、$H$ の中で補集合を取ることで compact 集合を得ています。
+<a id="ex-mt0-b02"></a>
+#### MT0-B02 内正則性の上限表示
+- Level: B
+
+$A\subset\mathbb R$ が Lebesgue 可測で $\lambda(A)<\infty$ とします。内正則性から
+
+$$
+\lambda(A)=\sup\{\lambda(K):K\subset A,\ K\text{ compact}\}
+$$
+
+を示してください。
+
+<!-- solution-start -->
+**解答**：$K\subset A$ なら測度の単調性から $\lambda(K)\le\lambda(A)$ なので、右辺は高々 $\lambda(A)$ です。一方、任意の $\varepsilon>0$ に対して内正則性より compact $K\subset A$ で
+
+$$
+\lambda(A\setminus K)<\varepsilon
+$$
+
+を取れます。$A=K\sqcup(A\setminus K)$ と $\lambda(A)<\infty$ から
+
+$$
+\lambda(K)=\lambda(A)-\lambda(A\setminus K)>\lambda(A)-\varepsilon.
+$$
+
+従って compact 部分集合の測度は $\lambda(A)$ に下から任意に近づけるので、上限は $\lambda(A)$ です。
+<!-- solution-end -->
+
+<a id="ex-mt0-b03"></a>
+#### MT0-B03 互いに素な compact 集合は有限族なら正の距離で分離できる
+- Level: B
+
+$K_1,\ldots,K_m\subset\mathbb R$ を互いに素な非空 compact 集合とします。各 $i\ne j$ について
+
+$$
+\operatorname{dist}(K_i,K_j)>0
+$$
+
+を示し、有限族全体に共通する正の分離幅が取れることを示してください。
+
+<!-- solution-start -->
+**解答**：固定した $i\ne j$ について、連続関数 $d(x,y)=|x-y|$ は compact 集合 $K_i\times K_j$ 上で最小値を取ります。もし最小値が0なら、ある $(x,y)\in K_i\times K_j$ で $|x-y|=0$、すなわち $x=y$ となり $K_i\cap K_j\ne\varnothing$ に矛盾します。従って
+
+$$
+d_{ij}:=\operatorname{dist}(K_i,K_j)>0.
+$$
+
+組 $(i,j)$ は有限個しかないので
+
+$$
+d_*:=\min_{i<j}d_{ij}>0.
+$$
+
+この有限性が、有限値単関数を各 compact レベル集合上で連続にする際の分離機構です。
+<!-- solution-end -->
+
+### Level C
+
+<a id="ex-mt0-c01"></a>
+#### MT0-C01 有限単関数を大部分で連続にする
+- Level: C
+
+$F\subset\mathbb R$ を有限測度 Lebesgue 可測集合とし、
+
+$$
+s=\sum_{j=1}^m a_j1_{A_j}
+$$
+
+を $F$ 上の有限値可測単関数とします。$A_1,\ldots,A_m$ は互いに素で $F$ を分割するとします。任意の $\delta>0$ に対し compact $K\subset F$ を
+
+$$
+\lambda(F\setminus K)<\delta
+$$
+
+かつ $s|_K$ が連続となるように構成してください。
+
+<!-- solution-start -->
+**解答**：有限分割のコンパクト近似を使い、各 $A_j$ の compact 部分集合 $K_j\subset A_j$ を
+
+$$
+\sum_{j=1}^m\lambda(A_j\setminus K_j)<\delta
+$$
+
+となるように取ります。$K=\bigcup_{j=1}^mK_j$ は有限個の compact 集合の和なので compact で、
+
+$$
+F\setminus K=\bigsqcup_{j=1}^m(A_j\setminus K_j)
+$$
+
+より $\lambda(F\setminus K)<\delta$ です。
+
+非空な $K_j$ 同士は B03 により正の距離で分離されます。そのため各 $K_j$ は $K$ の相対位相で開かつ閉です。$s|_K$ は各 $K_j$ 上で定数 $a_j$ なので、任意の開集合 $U\subset\mathbb R$ に対する逆像
+
+$$
+(s|_K)^{-1}(U)=\bigcup_{a_j\in U}K_j
+$$
+
+は $K$ で開です。従って $s|_K$ は連続です。これは Lusin の証明で各有限単関数に対して使う局所機構そのものです。
+<!-- solution-end -->
 
 ---
 
@@ -350,7 +540,7 @@ $A$ が有限測度でも $A^c$ は無限測度かもしれず、この章で証
 
 次の [MT1](../MT1/index.md) では、
 
-- a.e. 収束
+- ほとんど至る所（almost everywhere; a.e.）収束
 - 測度収束
 - $L^p$ 収束
 - Egorov の定理
