@@ -11,7 +11,6 @@ status_values:
   - existing-anchor
   - planned
   - implemented
-
 tier_values:
   - core
   - bridge
@@ -170,14 +169,38 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/LA2/index.md
     reuses: [F0_00F]
     prerequisites: [LA1]
-  - id: LA3
-    title: 代数的双対・抽象行列式
+  - id: LA3A
+    title: 代数的双対・双対基底
     area: linear-algebra
     tier: core
     status: implemented
-    implemented_at: 2026-09-06
-    implementation_path: textbook/volumes/00_foundations/LA3/index.md
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/LA3A/index.md
     prerequisites: [LA2]
+  - id: LA3B
+    title: 行列式の構成
+    area: linear-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/LA3B/index.md
+    prerequisites: [LA3A]
+  - id: LA3C
+    title: 行列式の計算・可逆性
+    area: linear-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/LA3C/index.md
+    prerequisites: [LA3B]
+  - id: LA3D
+    title: 交代多重線形形式・抽象行列式
+    area: linear-algebra
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/LA3D/index.md
+    prerequisites: [LA3C]
   - id: LA4
     title: 作用素多項式・最小多項式・Jordan構造
     area: linear-algebra
@@ -186,7 +209,7 @@ nodes:
     implemented_at: 2026-09-06
     implementation_path: textbook/volumes/00_foundations/LA4/index.md
     reuses: [F0_00F, F0_00F1]
-    prerequisites: [LA3]
+    prerequisites: [LA3C]
   - id: LA5
     title: 複素内積・有限次元随伴・normal operator
     area: linear-algebra
@@ -333,7 +356,7 @@ implementation_batches:
     nodes: [RA1, RA2, RA3, RA4, RA5]
   - order: 2
     id: linear-algebra-core
-    nodes: [LA1, LA2, LA3, LA4, LA5, LA6]
+    nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]
   - order: 3
     id: topology-core
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
