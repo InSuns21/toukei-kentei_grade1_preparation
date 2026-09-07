@@ -126,10 +126,13 @@ nodes:
     reuses: [F0_00A1]
     prerequisites: [TOP2]
   - id: TOP4
-    title: 可算性公理・分離公理
+    title: 分離公理・可算性公理
     area: topology
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP4/index.md
+    reuses: [F0_00B1]
     prerequisites: [TOP3]
   - id: TOP5
     title: コンパクト性の一般論
