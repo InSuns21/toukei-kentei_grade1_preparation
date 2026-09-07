@@ -91,6 +91,95 @@ $$
 
 ---
 
+## 測度の上からの連続性：有限測度性が必要な場所を先に閉じる
+
+後で a.e.収束、Egorov、Lusin を扱うとき、減少する可測集合列の測度を極限へ通します。既存 D2 では[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)までを証明しているので、必要な上からの連続性をここでそこから導きます。
+
+<a id="thm-mt1-continuity-from-above-finite"></a>
+<!-- formal-statement-start -->
+### 補題（測度の上からの連続性）
+
+測度空間 $(X,\mathcal F,\mu)$ の可測集合列 $(A_n)$ が
+
+$$
+A_1\supset A_2\supset\cdots,
+\qquad
+A=\bigcap_{n=1}^{\infty}A_n
+$$
+
+を満たし、さらに
+
+$$
+\mu(A_1)<\infty
+$$
+
+とする。このとき
+
+$$
+\boxed{\mu(A_n)\downarrow\mu(A)}.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+減少列を直接扱う代わりに、最初の有限測度集合 $A_1$ の中で補集合を取り
+
+$$
+B_n=A_1\setminus A_n
+$$
+
+とします。すると $B_n\uparrow A_1\setminus A$ なので D2 の下からの連続性を使えます。$\mu(A_1)<\infty$ は、最後に $\mu(A_1)$ から差し引くために必要です。
+
+<!-- proof-start -->
+### 証明
+
+$$
+B_n=A_1\setminus A_n
+$$
+
+と置くと
+
+$$
+B_1\subset B_2\subset\cdots,
+\qquad
+\bigcup_{n=1}^{\infty}B_n
+=A_1\setminus A.
+$$
+
+[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より
+
+$$
+\mu(B_n)\uparrow\mu(A_1\setminus A).
+$$
+
+$A_n$ と $B_n$ は互いに素で $A_1=A_n\sqcup B_n$ だから
+
+$$
+\mu(A_1)=\mu(A_n)+\mu(B_n).
+$$
+
+$\mu(A_1)<\infty$ なので
+
+$$
+\mu(A_n)=\mu(A_1)-\mu(B_n)
+\to
+\mu(A_1)-\mu(A_1\setminus A)
+=\mu(A).
+$$
+
+また $(A_n)$ は減少列なので $(\mu(A_n))$ も減少列です。従って
+
+$$
+\mu(A_n)\downarrow\mu(A).
+$$
+
+$\square$
+<!-- proof-end -->
+
+この補題で有限測度性を外せないことは、$A_n=[n,\infty)$ とすれば分かります。$A_n\downarrow\varnothing$ ですが全ての $n$ で $\lambda(A_n)=\infty$ です。
+
+---
+
 ## 2. $L^p$収束なら測度収束する
 
 <a id="thm-mt1-lp-implies-measure"></a>
@@ -157,7 +246,7 @@ $$
 A_N=\bigcup_{n\ge N}\{|f_n-f|>\varepsilon\}
 $$
 
-とまとめます。a.e.収束は $A_N\downarrow$ の極限が零集合になることを意味します。有限測度性は、**この減少列へ測度の上からの連続性を適用するため**に使います。
+とまとめます。a.e.収束は $A_N\downarrow$ の極限が零集合になることを意味します。有限測度性は、**この減少列へ[測度の上からの連続性](#thm-mt1-continuity-from-above-finite)を適用するため**に使います。
 
 <!-- proof-start -->
 ### 証明
@@ -191,7 +280,7 @@ $$
 \mu(A_1)\le\mu(X)<\infty.
 $$
 
-よって測度の上からの連続性により
+よって[測度の上からの連続性](#thm-mt1-continuity-from-above-finite)により
 
 $$
 \mu(A_N)\downarrow0.
@@ -402,7 +491,7 @@ A_{m,N}
 \bigcup_{n\ge N}\{|f_n-f|\ge1/m\}
 $$
 
-を作ります。a.e.収束により、零集合を除けば $N\to\infty$ でこれらは空へ縮みます。有限測度性により上からの連続性を使い、各 $m$ について測度の小さい尾部を一つ選びます。最後に $m$ 全体の悪い集合を $\varepsilon/2^m$ で予算配分して除きます。
+を作ります。a.e.収束により、零集合を除けば $N\to\infty$ でこれらは空へ縮みます。有限測度性により[上からの連続性](#thm-mt1-continuity-from-above-finite)を使い、各 $m$ について測度の小さい尾部を一つ選びます。最後に $m$ 全体の悪い集合を $\varepsilon/2^m$ で予算配分して除きます。
 
 <!-- proof-start -->
 ### 証明
@@ -436,7 +525,7 @@ $$
 \mu(A_{m,1})\le\mu(E)<\infty.
 $$
 
-従って測度の上からの連続性より
+従って[上からの連続性](#thm-mt1-continuity-from-above-finite)より
 
 $$
 \mu(A_{m,N})\downarrow0\qquad(N\to\infty).
@@ -517,7 +606,7 @@ $$
 f:E\to\mathbb R
 $$
 
-を有限値 Lebesgue 可測関数とする。このとき任意の $\varepsilon>0$ に対して compact 集合 $K\subset E$ が存在し、
+を実数値 Lebesgue 可測関数とする。このとき任意の $\varepsilon>0$ に対して compact 集合 $K\subset E$ が存在し、
 
 $$
 \boxed{\lambda(E\setminus K)<\varepsilon}
@@ -534,7 +623,7 @@ $$
 
 ### 7.1 最初に大値部分を捨てる
 
-$f$ は有限値ですが有界とは限りません。
+$f$ は実数値ですが有界とは限りません。
 
 $$
 H_M=\{x\in E:|f(x)|>M\}
@@ -546,7 +635,7 @@ $$
 H_M\downarrow\varnothing\qquad(M\to\infty).
 $$
 
-ここで $\lambda(E)<\infty$ だから上からの連続性を使えて
+ここで $\lambda(E)<\infty$ だから[上からの連続性](#thm-mt1-continuity-from-above-finite)を使えて
 
 $$
 \lambda(H_M)\downarrow0.
@@ -655,7 +744,7 @@ $$
 
 ### どこで何を使ったか
 
-- $\lambda(E)<\infty$：非有界な $f$ の大値部分 $\{|f|>M\}$ を小測度へ追い出すため。
+- $\lambda(E)<\infty$：非有界な $f$ の大値部分 $\{|f|>M\}$ を小測度へ追い出すため。その論証はこの章で導いた[上からの連続性](#thm-mt1-continuity-from-above-finite)を使う。
 - $f$ の可測性：大値集合と有限単関数のレベル集合を可測にするため。
 - [MT0 の一様近似](../MT0/index.md#thm-mt0-bounded-simple-uniform)：$f$ を有限個のレベル集合へ落とすため。ここ自体には有限測度性不要。
 - [Lebesgue 測度の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite)：各レベル集合をほとんど失わず compact に縮めるため。
