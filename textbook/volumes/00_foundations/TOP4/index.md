@@ -390,7 +390,7 @@ $$
 と取れば正規性を満たします。従って離散空間は $T_4$ です。
 <!-- definition-example-end -->
 
-<a id="thm-top4-separation-chain"></a>
+<a id="thm-top4-separation-implications"></a>
 <!-- formal-statement-start -->
 > **定理（分離公理の含意関係）**  
 > 本章の規約では
