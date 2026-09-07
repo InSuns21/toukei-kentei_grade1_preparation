@@ -23,6 +23,20 @@ concepts:
     requires:
       - linear.real-complex-vector-space
 
+  - id: linear.complex-gram-schmidt
+    name: 複素Gram–Schmidt
+    kind: theorem
+    aliases: [複素Gram–Schmidt, complex Gram-Schmidt]
+    requires:
+      - linear.complex-inner-product
+
+  - id: linear.orthonormal-extension
+    name: 正規直交系の延長
+    kind: theorem
+    aliases: [正規直交系の延長, orthonormal extension]
+    requires:
+      - linear.complex-gram-schmidt
+
   - id: linear.finite-dimensional-adjoint
     name: 有限次元随伴
     kind: definition
@@ -37,7 +51,14 @@ concepts:
     aliases: [有限次元随伴の存在一意性]
     requires:
       - linear.finite-dimensional-adjoint
-      - linear.orthonormal-system
+      - linear.orthonormal-extension
+
+  - id: linear.adjoint-calculus
+    name: 随伴の基本則
+    kind: theorem
+    aliases: [随伴の基本則, adjoint calculus]
+    requires:
+      - linear.finite-dimensional-adjoint
 
   - id: linear.hermitian-operator
     name: Hermitian作用素
@@ -66,7 +87,7 @@ concepts:
     aliases: [Schurのユニタリ三角化定理, Schur三角化]
     requires:
       - linear.complex-inner-product
-      - linear.orthonormal-system
+      - linear.orthonormal-extension
       - linear.characteristic-polynomial
 
   - id: linear.complex-normal-spectral-theorem
