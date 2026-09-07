@@ -52,10 +52,11 @@ flowchart TD
   LA4 --> LA5["複素内積・有限次元随伴・normal<br/>LA5"]
   LA5 --> LA6["二次形式・polar decomposition・複素SVD<br/>既存 F1/F2 + LA6"]
 
-  TOP0 --> MT0["測度 I<br/>Borel・測度・Caratheodory・Lebesgue正則性<br/>既存 D2/D3/D4 + MT0"]
+  TOP5 --> MT0["測度 I<br/>Borel・測度・Caratheodory・Lebesgue正則性<br/>既存 D2/D3/D4 + MT0"]
   MT0 --> MTI["測度 II<br/>Lebesgue積分・MCT/Fatou/DCT<br/>既存 D2A/D2B"]
   MTI --> MTP["測度 III<br/>積測度・Fubini・Lp<br/>既存 D2C/D2D/D2E"]
   MTI --> MT1["収束様式・Egorov・Lusin<br/>MT1"]
+  RA5 --> MT1
   MTI --> MT2["符号付き測度・RN・Lebesgue分解<br/>MT2/MT3"]
 
   RA4 --> RLB["Riemann ↔ Lebesgue<br/>一致定理・Lebesgue判定<br/>MT-RL"]
