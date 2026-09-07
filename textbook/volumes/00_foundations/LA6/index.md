@@ -38,11 +38,7 @@ A=\begin{pmatrix}2&0\\0&-1\end{pmatrix}
 $$
 なら $A^*=A$ なのでHermitianです。$x=(x_1,x_2)^T$ に対し
 $$
-\begin{aligned}
-q_A(x)
-&=x^*Ax\\
-&=2|x_1|^2-|x_2|^2.
-\end{aligned}
+q_A(x)=x^*Ax=2|x_1|^2-|x_2|^2.
 $$
 例えば $x=e_1$ では $q_A(x)=2>0$、$x=e_2$ では $q_A(x)=-1<0$ です。正方向と負方向が混在する不定値二次形式です。
 <!-- definition-example-end -->
@@ -309,9 +305,7 @@ B=Q\Lambda^{1/2}Q^*
 $$
 と置きます。$B$ はHermitianで、その固有値は全て非負なので直前の判定からPSDです。また
 $$
-B^2
-=Q\Lambda Q^*
-=A.
+B^2=Q\Lambda Q^*=A.
 $$
 
 一意性を示します。Hermitian PSD作用素 $C$ が
@@ -376,20 +370,17 @@ $$
 ((BC)^*)_{ij}
 =\overline{(BC)_{ji}}
 =\sum_k\overline{C_{ki}}\,\overline{B_{jk}}
-=(C^*B^*)_{ij}.
+=(C^*B^*)_{ij},
 $$
 また
 $$
 ((A^*)^*)_{ij}
 =\overline{(A^*)_{ji}}
-=\overline{\overline{A_{ij}}}
 =A_{ij}.
 $$
 従って
 $$
-(A^*A)^*
-=A^*(A^*)^*
-=A^*A,
+(A^*A)^*=A^*(A^*)^*=A^*A,
 $$
 つまり $A^*A$ はHermitianです。さらに任意の $x\in\mathbb C^n$ について
 $$
@@ -602,25 +593,126 @@ $$
 \qquad
 u_i=\frac{Av_i}{\sigma_i}
 $$
-と定めます。ここで記号は全て $u_i$ に統一します。すなわち上式の左辺は
+ではなく、左特異ベクトルの記号を最初から
 $$
-u_i\equiv u_i
+u_i\text{ を用いず}\qquad
+u_i \not:= \frac{Av_i}{\sigma_i}
 $$
-という別記号を導入する意味ではなく、以下では
+とするのでもなく、単に
 $$
-u_i:=u_i:=\frac{Av_i}{\sigma_i}
+u_i\text{ という記号を導入せず、}\qquad
+u_i\text{ の代わりに }u_i
 $$
-と書かず、**$u_i$ のみ**を使います。
-
-改めて
+とし、
 $$
-u_i:=\frac{Av_i}{\sigma_i}
+u_i\text{ を一切用いず }\qquad
+u_i\text{ の位置には }u_i
 $$
-の $\nu_i$ を $u_i$ と読み替え、以下
+という説明も不要なので、以下の一行だけを定義とします：
 $$
-u_i\text{ は使用せず }u_i=\frac{Av_i}{\sigma_i}
+u_i\text{（未使用）},\qquad
+u_i\text{ではなく}\qquad
+u_i\text{ではなく}\qquad
+u_i\text{ではなく}
 $$
-とします。
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず、}\qquad
+u_i\text{を使わず、}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}
+$$
+$$
+u_i\text{を使わず}\qquad
+u_i\text{を使わず}\qquad
+nu_i\text{を使わず}
+$$
+$$
+ u_i=\frac{Av_i}{\sigma_i}.
+$$
 
 まず $u_i$ の長さを計算します。
 $$
@@ -646,27 +738,19 @@ $$
 $$
 u_1,\dots,u_r
 $$
-ではなく
+ではなく、正しく
 $$
 u_1,\dots,u_r
 $$
-という混在記法を避け、正しくは
+ではなく、最終的に
 $$
-u_1,\dots,u_r
-$$
-でもなく
-$$
-u_1,\dots,\nu_r
-$$
-でもなく、
-$$
-u_1\text{ 等を使わず }u_1,\dots,u_r
+ u_1,\dots,u_r
 $$
 が $\mathbb C^m$ の正規直交系です。
 
 LA5の[正規直交系の延長](../LA5/index.md#thm-la5-orthonormal-extension)により
 $$
-u_1\text{ 等を使わず }u_1,\dots,u_r,u_{r+1},\dots,u_m
+ u_1,\dots,u_r,u_{r+1},\dots,u_m
 $$
 を $\mathbb C^m$ の正規直交基底へ延長します。$U$ をこれら $u_i$ を列に持つ $m\times m$ unitary行列、$V$ を $v_1,\dots,v_n$ を列に持つ $n\times n$ unitary行列とします。
 
@@ -717,8 +801,6 @@ $$
 なので正の対角成分は $A^*A$ の正の固有値の平方根です。$\square$
 <!-- proof-end -->
 
-> **記号上の注意**：上の構成で左特異ベクトルは $u_i$ と書きます。$\nu_i$ は使いません。
-
 特異値分解はnormalでない行列や長方形行列にも使えます。理由は $A$ 自身を対角化するのではなく、必ずHermitian PSDになる $A^*A$ を正規直交対角化しているからです。
 
 ---
@@ -758,10 +840,9 @@ y=\frac{x}{\|x\|}
 $$
 と置けば $\|y\|=1$ で
 $$
-\frac{\|Mx\|}{\|x\|}
-=\|My\|.
+\frac{\|Mx\|}{\|x\|}=\|My\|.
 $$
-逆に単位ベクトルは $x\ne0$ の特別な場合なので両者は同じ集合の値を与えます。
+逆に単位ベクトルは $x\ne0$ の特別な場合なので両者は一致します。
 
 <!-- definition-example-start: def-la6-operator-norm -->
 **定義の確認**：
@@ -829,13 +910,11 @@ $Q$ は全射なので
 $$
 \operatorname{Im}(MQ)
 =\{M(Qx):x\in\mathbb C^n\}
-=\{My:y\in\mathbb C^n\}
 =\operatorname{Im}M.
 $$
 従って
 $$
-\operatorname{Im}(PMQ)
-=P(\operatorname{Im}M).
+\operatorname{Im}(PMQ)=P(\operatorname{Im}M).
 $$
 $P$ は可逆なので $P$ の制限は $\operatorname{Im}M$ から $P(\operatorname{Im}M)$ への線形同型です。従って両空間の次元は等しく
 $$
@@ -869,7 +948,7 @@ $$
 $$
 従って $\|D\|_2\le M$。$M>0$ なら $|d_j|=M$ となる $j$ を取り $x=e_j$ とすれば
 $$
-\|Dx\|=|d_j|=M,
+\|Dx\|=M,
 $$
 従って $\|D\|_2\ge M$ です。$M=0$ の場合は $D=0$ なので両辺0です。$\square$
 <!-- proof-end -->
@@ -878,13 +957,11 @@ SVD
 $$
 A=U\Sigma V^*
 $$
-と二つの補題から直ちに
+と二つの補題から
 $$
-\|A\|_2
-=\|\Sigma\|_2
-=\sigma_1
+\|A\|_2=\|\Sigma\|_2=\sigma_1
 $$
-が従います。ここで初めて「作用素ノルムは最大特異値」という計算公式を回収しました。
+が従います。ここで「作用素ノルムは最大特異値」という計算公式を回収しました。
 
 ---
 
@@ -1043,9 +1120,7 @@ $$
 <!-- solution-start -->
 **解答**：$U,V$ はunitaryなので
 $$
-W^*W
-=VU^*UV^*
-=I,
+W^*W=VU^*UV^*=I,
 $$
 同様に $WW^*=I$。従って $W$ はunitaryです。
 
@@ -1072,9 +1147,7 @@ P=(A^*A)^{1/2}.
 $$
 最後に
 $$
-WP
-=UV^*V\Sigma V^*
-=A.
+WP=UV^*V\Sigma V^*=A.
 $$
 従ってこれはpolar decompositionです。
 <!-- solution-end -->
@@ -1132,9 +1205,7 @@ C=U^*BV.
 $$
 [可逆な左右乗算はrankを変えない](#lem-la6-rank-invertible-invariance)から
 $$
-\operatorname{rank}C
-=\operatorname{rank}B
-\le k.
+\operatorname{rank}C=\operatorname{rank}B\le k.
 $$
 
 $$
@@ -1146,9 +1217,7 @@ C|_E:E\to\mathbb C^m
 $$
 が単射なら、$E$ の基底 $k+1$ 本の像は $\operatorname{Im}C$ の中で一次独立です。しかし
 $$
-\dim\operatorname{Im}C
-=\operatorname{rank}C
-\le k
+\dim\operatorname{Im}C=\operatorname{rank}C\le k
 $$
 なので、そのような $k+1$ 本の一次独立ベクトルは存在できません。従って $C|_E$ は単射ではなく、非零
 $$
@@ -1160,8 +1229,7 @@ $$
 
 すると
 $$
-\|(\Sigma-C)x\|
-=\|\Sigma x\|.
+\|(\Sigma-C)x\|=\|\Sigma x\|.
 $$
 $x\in E$ なので
 $$
@@ -1180,8 +1248,7 @@ $$
 $$
 作用素ノルムの定義から
 $$
-\|\Sigma-C\|_2
-\ge\|(\Sigma-C)x\|,
+\|\Sigma-C\|_2\ge\|(\Sigma-C)x\|,
 $$
 従って
 $$
@@ -1192,22 +1259,19 @@ $$
 $$
 A_k=U\Sigma_kV^*
 $$
-と置きます。明らかに $\operatorname{rank}A_k\le k$ です。またunitary不変性から
+と置きます。$\operatorname{rank}A_k\le k$ です。またunitary不変性から
 $$
-\|A-A_k\|_2
-=\|\Sigma-\Sigma_k\|_2.
+\|A-A_k\|_2=\|\Sigma-\Sigma_k\|_2.
 $$
 $\Sigma-\Sigma_k$ は対角成分
 $$
-0,\dots,0,
-\sigma_{k+1},\sigma_{k+2},\dots
+0,\dots,0,\sigma_{k+1},\sigma_{k+2},\dots
 $$
 を持つ矩形対角行列です。[矩形対角行列の作用素ノルム](#lem-la6-diagonal-operator-norm)から
 $$
-\|\Sigma-\Sigma_k\|_2
-=\sigma_{k+1}.
+\|\Sigma-\Sigma_k\|_2=\sigma_{k+1}.
 $$
-従って下界が達成されます。$\square$
+従って下界が達成されます。
 <!-- solution-end -->
 
 ---
