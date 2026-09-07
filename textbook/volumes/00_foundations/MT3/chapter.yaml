@@ -32,5 +32,5 @@ canonical_examples: [密度付き測度, Dirac質量を含むLebesgue分解, cou
 problem_patterns: [MT3-RN-CONSTRUCTION-1, MT3-RN-CHAIN-RULE-1, MT3-LEBESGUE-DECOMPOSITION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 3, level_c: 2, level_d: 0 }
-estimated_hours: { reading: 5.0, exercises: 3.0, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.5, review: 0.5 }
