@@ -38,6 +38,7 @@
 18. [TOP5 コンパクト性の一般論](textbook/volumes/00_foundations/TOP5/index.md)
 19. [F0-00C2 最大最小・最近点](textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md)
 20. [F0-00D Cauchy列・完備性](textbook/volumes/00_foundations/F0_00D_Cauchy列_完備性_無限次元/index.md)
+21. [TOP6 全有界性・Baire・net/filter](textbook/volumes/00_foundations/TOP6/index.md)
 
 ### 標準実解析コア
 
