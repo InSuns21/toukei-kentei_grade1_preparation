@@ -9,7 +9,7 @@ forward_references: []
 
 concepts:
   - id: topology.separation
-    name: 分離
+    name: 位相空間の分離
     kind: definition
     aliases: [位相空間の分離, separation of a topological space]
     introduction_aliases: [分離]
