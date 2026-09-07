@@ -1,6 +1,6 @@
 # LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解
 
-ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解・作用素ノルム** を一つの依存鎖にまとめます。
+ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解・最大特異値による伸縮評価** を一つの依存鎖にまとめます。
 
 [F0-00F1](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) や [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md) は計算上の先行プレビューとして参照できますが、本章の証明では「速習章に公式があるから既知」とは扱いません。必要な構造はLA5の複素スペクトル定理と本章内の補題から導きます。
 
@@ -672,7 +672,7 @@ $$
 従って $\|D\|_2\le M$。$|d_j|=M$ となる $j$ で $x=e_j$ と取れば等号を達成するので $\|D\|_2=M$ です。$\square$
 <!-- proof-end -->
 
-特異値分解 $A=U\Sigma V^*$ にunitary不変性と対角行列の補題を使えば
+特異値分解 $A=U\Sigma V^*$ に[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)と[矩形対角行列の作用素ノルム](#lem-la6-diagonal-operator-norm)を使えば
 $$
 \|A\|_2=\|\Sigma\|_2=\sigma_1.
 $$
@@ -906,10 +906,16 @@ $$
 &\ge\sigma_{k+1}^2.
 \end{aligned}
 $$
-作用素ノルムの定義から
+定義式
+$$
+\|M\|_2=\sup_{\|y\|=1}\|My\|
+$$
+を $M=\Sigma-C$ に適用すると
 $$
 \|A-B\|_2
 =\|\Sigma-C\|_2
+\ge\|(\Sigma-C)x\|
+=\|\Sigma x\|
 \ge\sigma_{k+1}.
 $$
 
@@ -917,7 +923,7 @@ $$
 $$
 A_k=U\Sigma_kV^*
 $$
-を取ります。$\operatorname{rank}A_k\le k$ で、unitary不変性から
+を取ります。$\operatorname{rank}A_k\le k$ で、[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)から
 $$
 \|A-A_k\|_2
 =\|\Sigma-\Sigma_k\|_2.
