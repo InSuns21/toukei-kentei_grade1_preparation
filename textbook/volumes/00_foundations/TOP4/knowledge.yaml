@@ -24,6 +24,14 @@ concepts:
     requires:
       - topology.topological-space
 
+  - id: topology.t2-space-recap-top4
+    name: T2空間・Hausdorff空間
+    kind: definition
+    aliases: [T2空間・Hausdorff空間, T2空間]
+    introduction_aliases: [T2空間・Hausdorff空間]
+    requires:
+      - topology.hausdorff-space
+
   - id: topology.t1-singletons-closed
     name: T1空間と一点集合の閉性
     kind: proposition

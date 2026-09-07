@@ -23,7 +23,7 @@ T_4 & \text{二つの閉集合}\\ \hline
 \end{array}
 $$
 
-なお Hausdorff 空間は F0-00B1 で既に定義しています。本章ではそれを $T_2$ として含意関係の中へ置きます。
+Hausdorff 空間は F0-00B1 で既に定義していますが、本章では分離公理の列をこの章だけでも読めるよう、同じ条件を $T_2$ の定義として明示的に再掲します。
 
 ---
 
@@ -74,6 +74,52 @@ $$
 と置けば、$U=(x-r,x+r)$ は $x$ を含み $y$ を含みません。同様に $V=(y-r,y+r)$ は $y$ を含み $x$ を含まない開集合です。従って $\mathbb R$ は $T_1$ です。
 <!-- definition-example-end -->
 
+<a id="def-top4-t2"></a>
+<!-- formal-statement-start -->
+> **定義（T2空間・Hausdorff空間）**  
+> 位相空間 $X$ が **$T_2$** であるとは、任意の異なる二点 $x,y\in X$ に対し、開集合 $U,V\subseteq X$ が存在して
+
+$$
+x\in U,
+\qquad
+y\in V,
+\qquad
+U\cap V=\varnothing
+$$
+
+> となることをいう。$T_2$ 空間を **Hausdorff 空間**ともいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-top4-t2 -->
+**定義の確認**
+### 1.3 距離空間は $T_2$
+
+距離空間 $(X,d)$ で相異なる $x,y\in X$ を取ります。$d(x,y)>0$ なので
+
+$$
+r=\frac{d(x,y)}{3}>0
+$$
+
+と置けます。開球
+
+$$
+U=B(x,r),
+\qquad
+V=B(y,r)
+$$
+
+を取れば $x\in U$, $y\in V$ です。もし $z\in U\cap V$ なら距離空間の定義から
+
+$$
+d(x,y)
+\le d(x,z)+d(z,y)
+<r+r
+=\frac{2}{3}d(x,y),
+$$
+
+となって矛盾します。従って $U\cap V=\varnothing$ です。よって任意の距離空間は $T_2$、すなわち Hausdorff です。
+<!-- definition-example-end -->
+
 <a id="prop-top4-t1-singleton"></a>
 <!-- formal-statement-start -->
 > **命題（T1空間と一点集合の閉性）**  
@@ -119,13 +165,7 @@ $$
 は開で、$x$ を含み $y$ を含みません。同様に $X\setminus\{x\}$ は $y$ を含み $x$ を含まない開集合です。従って $X$ は $T_1$ です。$\square$
 <!-- proof-end -->
 
-Hausdorff 空間では、異なる $x,y$ に対し
-
-$$
-x\in U,\qquad y\in V,\qquad U\cap V=\varnothing
-$$
-
-となる開集合 $U,V$ を要求します。従って $T_1$ よりさらに強く、二点の近傍そのものを交わらないようにできます。
+$T_2$ では $U\cap V=\varnothing$ を要求するので、$y\notin U$ かつ $x\notin V$ です。従って $T_2$ の二つの開近傍はそのまま $T_1$ の二方向の分離にもなります。逆に $T_1$ では $U,V$ が交わっていてもよいため、$T_2$ の方が強い条件です。
 
 <a id="prop-top4-sierpinski"></a>
 <!-- formal-statement-start -->
