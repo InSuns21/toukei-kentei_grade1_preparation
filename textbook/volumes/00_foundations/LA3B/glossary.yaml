@@ -1,0 +1,14 @@
+chapter: "LA3B"
+terms:
+  - term: 置換の符号
+    english: sign of permutation
+    meaning: 置換を隣接交換へ分解したときの交換回数の偶奇を ±1 で記録する量。
+  - term: Leibniz公式
+    english: Leibniz formula
+    meaning: 置換全体について符号付き成分積を足し合わせて一般の n×n 行列式を定義する公式。
+  - term: 交代多重線形性
+    english: alternating multilinearity
+    meaning: 各列について線形で、同じ列が2本あると値が0になる性質。行列式を特徴付ける中心的性質。
+  - term: 行列式の特徴付け
+    english: determinant characterization
+    meaning: 交代多重線形で標準基底に値1を取る関数は行列式に一意に一致するという定理。

@@ -1,0 +1,14 @@
+chapter: "LA3D"
+terms:
+  - term: 交代多重線形形式
+    english: alternating multilinear form
+    meaning: 各変数について線形で、同じベクトルを2つ入れると0になる多重線形形式。最高次では符号付き体積を抽象化する。
+  - term: 最高次交代形式
+    english: top-degree alternating form
+    meaning: n次元空間上の交代 n 重線形形式。全体は1次元なので基底での1個の値だけで決まる。
+  - term: 抽象行列式
+    english: coordinate-free determinant
+    meaning: 最高次交代形式に線形自己写像 T が作用したときのスカラー倍率として定義される基底非依存の行列式。
+  - term: 体積形式
+    english: volume form
+    meaning: 非零な最高次交代形式。抽象行列式の定義では1つ選ぶが、得られる倍率はその選択に依存しない。

@@ -1,0 +1,32 @@
+id: "LA3A"
+title: "標準線形代数 III-A：代数的双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA2
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 線形形式をベクトルをスカラーで測る写像として説明できる
+  - 双対基底を構成し座標読み取りとの関係を説明できる
+  - annihilator を部分空間の方程式側の記述として扱える
+  - 商空間の双対と annihilator の同型を well-defined 性から示せる
+  - 双対写像と有限次元二重双対同型を説明できる
+definitions:
+  - { id: LA3A-DEF-01, name: 線形形式 }
+  - { id: LA3A-DEF-02, name: 代数的双対 }
+  - { id: LA3A-DEF-03, name: 双対基底 }
+  - { id: LA3A-DEF-04, name: annihilator }
+  - { id: LA3A-DEF-05, name: 双対写像 }
+theorems:
+  - { id: LA3A-THM-01, name: 双対基底定理 }
+  - { id: LA3A-THM-02, name: annihilatorの次元公式 }
+  - { id: LA3A-THM-03, name: 商空間の双対とannihilator }
+  - { id: LA3A-THM-04, name: 有限次元二重双対同型 }
+canonical_examples: [線形な測定器, 非標準基底の座標読み取り, 平面のannihilator, 双対写像の転置表示]
+problem_patterns: [LA3A-DUAL-BASIS-1, LA3A-ANNIHILATOR-1, LA3A-QUOTIENT-DUAL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "旧LA3の過密解消を目的に分割した小章のため。本文理解を確認する代表演習に絞り、通常のA/B/C最低数を機械的に水増ししない。"
+estimated_hours: { reading: 1.5, exercises: 1.0, review: 0.25 }

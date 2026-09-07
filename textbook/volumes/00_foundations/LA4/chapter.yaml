@@ -3,7 +3,7 @@ title: "標準線形代数 IV：作用素多項式・最小多項式・Jordan構
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - LA3
+  - LA3C
   - F0-00F
   - F0-00F1
 official_scope: []

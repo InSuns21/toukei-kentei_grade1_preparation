@@ -1,0 +1,64 @@
+chapter: LA3C
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3B
+  - F0-00F
+forward_references:
+  - linear.characteristic-polynomial
+  - linear.cayley-hamilton-theorem
+
+concepts:
+  - id: linear.determinant-elementary-operations
+    name: 基本変形と行列式
+    kind: theorem
+    aliases: [基本変形と行列式, determinant elementary operations]
+    requires:
+      - linear.determinant-alternating-multilinear
+      - linear.determinant-transpose-invariance
+
+  - id: linear.triangular-determinant
+    name: 三角行列の行列式
+    kind: theorem
+    aliases: [三角行列の行列式]
+    requires:
+      - linear.matrix-determinant
+
+  - id: linear.laplace-expansion
+    name: Laplace 展開
+    kind: theorem
+    aliases: ["Laplace 展開", Laplace展開, Laplace expansion, 余因子展開]
+    requires:
+      - linear.matrix-determinant
+      - linear.permutation-sign-product
+
+  - id: linear.adjugate
+    name: 余因子行列
+    kind: definition
+    aliases: [余因子行列, adjugate]
+    requires:
+      - linear.laplace-expansion
+
+  - id: linear.determinant-multiplicativity
+    name: 行列式の乗法性
+    kind: theorem
+    aliases: [行列式の乗法性, determinant multiplicativity]
+    requires:
+      - linear.determinant-characterization
+      - linear.linear-map
+
+  - id: linear.determinant-invertibility-criterion
+    name: 行列式による可逆性判定
+    kind: theorem
+    aliases: [行列式による可逆性判定, determinant invertibility criterion]
+    requires:
+      - linear.adjugate
+      - linear.determinant-multiplicativity
+
+  - id: linear.determinant-similarity-invariance
+    name: 行列式の相似不変性
+    kind: theorem
+    aliases: [行列式の相似不変性, determinant similarity invariance]
+    requires:
+      - linear.determinant-multiplicativity
+      - linear.determinant-invertibility-criterion

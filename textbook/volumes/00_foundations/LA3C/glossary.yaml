@@ -1,0 +1,20 @@
+chapter: "LA3C"
+terms:
+  - term: 基本変形と行列式
+    english: determinant under elementary operations
+    meaning: 行交換で符号反転、行の定数倍で同じ定数倍、他行の倍の加算では不変という追跡則。
+  - term: Laplace展開
+    english: Laplace expansion
+    meaning: 1つの行または列に沿って余因子を用い、n×n 行列式を (n-1)×(n-1) 行列式へ分解する公式。
+  - term: 余因子行列
+    english: adjugate
+    meaning: 余因子 C_ij を転置して並べた行列 adj(A)。A adj(A)=(det A)I を与える。
+  - term: 行列式の乗法性
+    english: determinant multiplicativity
+    meaning: 正方行列 A,B に対して det(AB)=det(A)det(B) が成り立つ性質。
+  - term: 行列式による可逆性判定
+    english: determinant invertibility criterion
+    meaning: 正方行列 A が可逆であることと det A≠0 が同値であること。
+  - term: 相似不変性
+    english: similarity invariance
+    meaning: 可逆 P に対して det(P^{-1}AP)=det A となり、基底変更で行列式が変わらない性質。

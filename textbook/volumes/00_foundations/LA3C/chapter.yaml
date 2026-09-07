@@ -1,0 +1,30 @@
+id: "LA3C"
+title: "標準線形代数 III-C：行列式の計算・可逆性・乗法性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3B
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 基本変形が行列式へ与える影響を追跡できる
+  - 三角行列と Laplace 展開を使い分けて行列式を計算できる
+  - 余因子行列から逆行列公式へ到達できる
+  - 行列式の乗法性を特徴付け定理から示せる
+  - det A≠0 と可逆性の同値および相似不変性を示せる
+definitions:
+  - { id: LA3C-DEF-01, name: 余因子行列 }
+theorems:
+  - { id: LA3C-THM-01, name: 基本変形と行列式 }
+  - { id: LA3C-THM-02, name: 三角行列の行列式 }
+  - { id: LA3C-THM-03, name: Laplace 展開 }
+  - { id: LA3C-THM-04, name: 行列式の乗法性 }
+  - { id: LA3C-THM-05, name: 行列式による可逆性判定 }
+  - { id: LA3C-THM-06, name: 行列式の相似不変性 }
+canonical_examples: [Gaussian eliminationでの行列式追跡, 0の多い行のLaplace展開, 2x2余因子行列, 特性多項式の基底不変性]
+problem_patterns: [LA3C-ROW-REDUCTION-1, LA3C-LAPLACE-1, LA3C-INVERTIBLE-1, LA3C-SIMILARITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "旧LA3の過密解消を目的に分割した小章のため。本文理解を確認する代表演習に絞り、通常のA/B/C最低数を機械的に水増ししない。"
+estimated_hours: { reading: 1.75, exercises: 1.0, review: 0.25 }
