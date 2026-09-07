@@ -1,0 +1,29 @@
+id: "LA3B"
+title: "標準線形代数 III-B：行列式の構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3A
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 面積・体積倍率に必要な性質から行列式を動機づけられる
+  - 置換の符号と Leibniz 公式から一般の n×n 行列式を構成できる
+  - 行列式の交代多重線形性を Leibniz 公式から示せる
+  - 行列式が交代多重線形性と正規化で一意に決まることを示せる
+  - 転置で行列式が不変であることを示せる
+definitions:
+  - { id: LA3B-DEF-01, name: 置換の転倒数と符号 }
+  - { id: LA3B-DEF-02, name: Leibniz 公式による行列式 }
+theorems:
+  - { id: LA3B-LEM-01, name: 置換の符号の積 }
+  - { id: LA3B-THM-01, name: 行列式の交代多重線形性 }
+  - { id: LA3B-THM-02, name: 行列式の特徴付け }
+  - { id: LA3B-THM-03, name: 転置で行列式は変わらない }
+canonical_examples: [2x2 Leibniz公式, 3x3の置換項, 列交換と符号反転]
+problem_patterns: [LA3B-SIGN-1, LA3B-LEIBNIZ-1, LA3B-CHARACTERIZATION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "旧LA3の過密解消を目的に分割した小章のため。本文理解を確認する代表演習に絞り、通常のA/B/C最低数を機械的に水増ししない。"
+estimated_hours: { reading: 1.5, exercises: 1.0, review: 0.25 }

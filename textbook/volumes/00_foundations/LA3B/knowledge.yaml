@@ -1,0 +1,56 @@
+chapter: LA3B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3A
+  - F0-00F
+forward_references:
+  - linear.determinant-elementary-operations
+  - linear.laplace-expansion
+  - linear.determinant-multiplicativity
+
+concepts:
+  - id: linear.permutation-sign
+    name: 置換の転倒数と符号
+    kind: definition
+    aliases: [置換の符号, permutation sign, sign of permutation]
+    requires:
+      - linear.real-complex-vector-space
+
+  - id: linear.permutation-sign-product
+    name: 置換の符号の積
+    kind: lemma
+    aliases: [置換の符号の積]
+    requires:
+      - linear.permutation-sign
+
+  - id: linear.matrix-determinant
+    name: Leibniz 公式による行列式
+    kind: definition
+    aliases: [行列式, determinant, "Leibniz 公式", Leibniz公式, "Leibniz 公式による行列式", Leibniz公式による行列式]
+    requires:
+      - linear.permutation-sign
+
+  - id: linear.determinant-alternating-multilinear
+    name: 行列式の交代多重線形性
+    kind: theorem
+    aliases: [行列式の交代多重線形性]
+    requires:
+      - linear.matrix-determinant
+      - linear.permutation-sign-product
+
+  - id: linear.determinant-characterization
+    name: 行列式の特徴付け
+    kind: theorem
+    aliases: [行列式の特徴付け, determinant characterization]
+    requires:
+      - linear.determinant-alternating-multilinear
+      - linear.basis
+
+  - id: linear.determinant-transpose-invariance
+    name: 転置で行列式は変わらない
+    kind: theorem
+    aliases: [転置で行列式は変わらない, determinant transpose invariance]
+    requires:
+      - linear.matrix-determinant
+      - linear.permutation-sign-product

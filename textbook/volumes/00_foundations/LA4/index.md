@@ -4,7 +4,7 @@
 
 この章では自己写像 $T$ に多項式を代入し、**最小多項式が作用素の構造を圧縮して記録する**ことから、一般化固有空間とJordan標準形まで進みます。スカラー体は特に断らない限り $\mathbb F=\mathbb R$ または $\mathbb C$ とします。
 
-LA3では通常の $n\times n$ 行列式をスカラー行列について構成しました。本章では特性多項式の成分が $\mathbb F[t]$ に入るため、$\det(tI-A)$ を記号的に流用せず、**多項式行列の行列式をLeibniz公式から改めて構成してから** Cayley–Hamiltonへ進みます。
+LA3B–LA3Cでは通常の $n\times n$ 行列式をスカラー行列について構成しました。本章では特性多項式の成分が $\mathbb F[t]$ に入るため、$\det(tI-A)$ を記号的に流用せず、**多項式行列の行列式をLeibniz公式から改めて構成してから** Cayley–Hamiltonへ進みます。
 
 ---
 
@@ -175,7 +175,7 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-右辺は $\mathbb F[t]$ の元の有限和・有限積なので、確かに一つの多項式です。ここではLA3のスカラー行列式の性質を「多項式でも同じ」と仮定していません。Leibniz公式そのものを $\mathbb F[t]$ 上で定義に採用しています。
+右辺は $\mathbb F[t]$ の元の有限和・有限積なので、確かに一つの多項式です。ここではLA3B–LA3Cのスカラー行列式の性質を「多項式でも同じ」と仮定していません。Leibniz公式そのものを $\mathbb F[t]$ 上で定義に採用しています。
 
 <!-- definition-example-start: def-la4-polynomial-matrix-determinant -->
 **定義の確認**：
@@ -217,7 +217,7 @@ $$
 &=\det M(s).
 \end{aligned}
 $$
-最後の式はLA3で定義した通常の行列式のLeibniz公式です。$\square$
+最後の式はLA3Bで定義した通常の行列式のLeibniz公式です。$\square$
 <!-- proof-end -->
 
 <a id="lem-la4-polynomial-laplace"></a>
@@ -297,7 +297,7 @@ $$
 =\det M(t).
 $$
 
-$i\ne j$ とします。$M(t)$ の第 $j$ 行を第 $i$ 行で置き換えた行列を $N(t)$ とします。第 $j$ 行を削除した小行列は元の $M(t)$ と同じなので、第 $j$ 行の余因子は $C_{jk}(t)$ のままです。従ってLaplace展開から
+$i\ne j$ とします。$M(t)$ の第 $j$ 行を第 $i$ 行で置き換えた行列を $N(t)$ とします。第 $j$ 行を削除した小行列は元の $M(t)$ と同じなので、第 $j$ 行の余因子は $C_{jk}(t)$ のままです。従って[多項式行列のLaplace展開](#lem-la4-polynomial-laplace)を第 $j$ 行へ適用すると
 $$
 \det N(t)
 =\sum_{k=1}^n m_{ik}(t)C_{jk}(t).
@@ -348,7 +348,7 @@ $$
 $$
 sI-B=P^{-1}(sI-A)P.
 $$
-ここでは $s$ はスカラーなので両辺は通常のスカラー行列です。LA3の[行列式の相似不変性](../LA3/index.md#thm-la3-det-similarity-invariant)から
+ここでは $s$ はスカラーなので両辺は通常のスカラー行列です。[行列式の相似不変性](../LA3C/index.md#thm-la3c-det-similarity-invariant)から
 $$
 \det(sI-B)=\det(sI-A).
 $$
@@ -420,7 +420,7 @@ $$
 \iff
 A-\lambda I\text{ が不可逆}.
 $$
-LA3の[行列式による可逆性判定](../LA3/index.md#thm-la3-det-invertible)から
+[行列式による可逆性判定](../LA3C/index.md#thm-la3c-det-invertible)から
 $$
 A-\lambda I\text{ が不可逆}
 \iff

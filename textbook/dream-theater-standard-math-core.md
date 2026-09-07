@@ -4,7 +4,7 @@
 
 既存章はできるだけ正本として再利用し、新章は不足分だけを追加します。追加章は原則として **定義 → 代表定理 → 証明 → 典型例・反例 → 後続章への接続** まで閉じます。
 
-章IDは実装時の衝突を避けるため、予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`FA`（functional analysis）とします。既存章IDは変更しません。
+章IDは実装時の衝突を避けるため、予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`FA`（functional analysis）とします。公開済みの旧章URLは、分割時も互換ハブを残して読者リンクを切らないようにします。
 
 ## 0. 採用方針
 
@@ -47,8 +47,11 @@ flowchart TD
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
 
   LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
-  LA2 --> LA3["代数的双対・抽象行列式<br/>LA3"]
-  LA3 --> LA4["最小多項式・Cayley-Hamilton・Jordan構造<br/>LA4"]
+  LA2 --> LA3A["代数的双対・双対基底<br/>LA3A"]
+  LA3A --> LA3B["行列式の構成<br/>LA3B"]
+  LA3B --> LA3C["行列式の計算・可逆性<br/>LA3C"]
+  LA3C --> LA4["最小多項式・Cayley-Hamilton・Jordan構造<br/>LA4"]
+  LA3C --> LA3D["交代多重線形形式・抽象行列式<br/>LA3D（発展分岐）"]
   LA4 --> LA5["複素内積・有限次元随伴・normal<br/>LA5"]
   LA5 --> LA6["二次形式・polar decomposition・複素SVD<br/>既存 F1/F2 + LA6"]
 
@@ -210,12 +213,31 @@ flowchart TD
 - 商空間 `V/W`、商写像
 - 次元公式、線形写像の第一同型定理
 
-## LA3 代数的双対・抽象行列式 `core`
+## LA3A 代数的双対・双対基底 `core`
 
-- 線形形式、代数的双対、双対基底、annihilator、dual map
+- 「ベクトルを測る線形な測定器」という具体像から線形形式と代数的双対へ入る
+- 双対基底、annihilator、商空間の双対、dual map
 - 自然写像 `V -> V**` と有限次元
-- 行列式を交代多重線形写像として特徴付ける
 - 関数解析で使う「連続線形汎関数全体としての双対」とは概念名を分離する
+
+## LA3B 行列式の構成 `core`
+
+- 面積・体積倍率に欲しい性質を先に確認する
+- 置換・転倒数・符号から Leibniz 公式を構成する
+- 交代多重線形性、転置不変性、特徴付けによる一意性を証明する
+
+## LA3C 行列式の計算・可逆性 `core`
+
+- 基本変形、三角行列、Laplace 展開、余因子行列
+- 行列式の乗法性と可逆性判定
+- 相似不変性まで閉じ、LA4 の特性多項式へ直接接続する
+
+## LA3D 交代多重線形形式・抽象行列式 `core / enrichment`
+
+- 最高次交代形式の1次元性
+- 線形自己写像が体積形式へ与える倍率としての抽象行列式
+- 表現行列の行列式との一致
+- 標準コアには含めるが、LA4へ進むための必須関門にはしない
 
 ## LA4 作用素多項式・最小多項式・Jordan構造 `core`
 
@@ -426,7 +448,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 | 実数の完備性 | A1/A1B | RA1から参照して解析定理へ使用 |
 | 距離・位相・収束 | B/B1/C/C1/D | RA/TOP系列から相互参照 |
 | 計算微積分 | F0-00 | RA3/RA4/RA6/RA7で理論を与える |
-| 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・作用素多項式・Jordan構造等を補う |
+| 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・行列式・作用素多項式・Jordan構造等を補う |
 | 測度・Lebesgue | D2–D5, D2A–E | MT0がLebesgue正則性を閉じ、MT系列が収束様式・RN・微分定理等を補う |
 | Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |
 
@@ -438,7 +460,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
-3. **LA1–LA6**：複素 → 商 → 代数的双対 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。
+3. **LA1–LA6**：複素 → 商 → 代数的双対 → 通常行列式 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。LA3D の抽象行列式は LA3C から分岐する発展読順。
 4. **TOP1–TOP6**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact/Baire。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
@@ -460,7 +482,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 この標準コアを通ると、DREAM THEATER は次を狙います。
 
 - **実解析**：計算微積分だけでなく、Riemann積分・一様収束まで証明付きで一周。
-- **線形代数**：実/複素線形空間・商・代数的双対・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。Jordan標準形は数学科標準コアに含めるが、統計検定1級通常ルートの必修前提にはしない。
+- **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。

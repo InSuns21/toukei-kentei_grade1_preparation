@@ -2,7 +2,7 @@ chapter: LA4
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - LA3
+  - LA3C
   - F0-00F
   - F0-00F1
 forward_references:
@@ -36,7 +36,7 @@ concepts:
     kind: definition
     aliases: [多項式行列の行列式, polynomial matrix determinant]
     requires:
-      - linear.abstract-determinant
+      - linear.permutation-sign
 
   - id: linear.polynomial-determinant-evaluation
     name: 多項式行列式とスカラー代入
@@ -67,10 +67,10 @@ concepts:
     requires:
       - linear.operator-polynomial
 
-  - id: linear.adjugate-identity
-    name: 余因子行列の恒等式
+  - id: linear.polynomial-adjugate-identity
+    name: 多項式行列の余因子行列の恒等式
     kind: lemma
-    aliases: [余因子行列の恒等式]
+    aliases: [多項式行列の余因子行列の恒等式, 余因子行列の恒等式]
     requires:
       - linear.polynomial-laplace-expansion
 
@@ -102,7 +102,7 @@ concepts:
     requires:
       - linear.characteristic-polynomial
       - linear.minimal-polynomial
-      - linear.adjugate-identity
+      - linear.polynomial-adjugate-identity
 
   - id: linear.diagonalizable-minimal-polynomial-criterion
     name: 最小多項式による対角化判定

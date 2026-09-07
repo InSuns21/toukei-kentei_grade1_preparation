@@ -1,0 +1,20 @@
+chapter: "LA3A"
+terms:
+  - term: 線形形式
+    english: linear form
+    meaning: ベクトル空間 V からスカラー体への線形写像。ベクトルを1個の数で測る写像とみなせる。
+  - term: 代数的双対
+    english: algebraic dual
+    meaning: V からスカラー体への全ての線形形式を集めたベクトル空間 V*。位相や連続性は仮定しない。
+  - term: 双対基底
+    english: dual basis
+    meaning: 基底 e_i に対して e^i(e_j)=δ_ij を満たす V* の基底。各座標を読み取る線形形式。
+  - term: annihilator
+    english: annihilator
+    meaning: 部分空間 W の全ての元を0へ送る線形形式全体 W°。
+  - term: 双対写像
+    english: dual map
+    meaning: T:V→W に対し、W* の線形形式を T と合成して V* へ引き戻す写像 T*:W*→V*。
+  - term: 二重双対
+    english: double dual
+    meaning: V* の代数的双対 V**。有限次元では v↦(φ↦φ(v)) により V と標準的に同型になる。

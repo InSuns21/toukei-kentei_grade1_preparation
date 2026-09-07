@@ -1,0 +1,27 @@
+id: "LA3D"
+title: "標準線形代数 III-D：抽象行列式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA3C
+  - F0-00F
+official_scope: []
+learning_objectives:
+  - 交代多重線形形式を符号付き体積の抽象化として説明できる
+  - 最高次交代形式全体が1次元であることを示せる
+  - 抽象行列式を最高次交代形式への倍率として定義できる
+  - 抽象行列式が体積形式の選択に依存しないことを示せる
+  - 抽象行列式と表現行列の行列式が一致することを示せる
+definitions:
+  - { id: LA3D-DEF-01, name: 交代多重線形形式 }
+  - { id: LA3D-DEF-02, name: 抽象行列式 }
+theorems:
+  - { id: LA3D-THM-01, name: 最高次交代形式は1次元 }
+  - { id: LA3D-THM-02, name: 抽象行列式と表現行列の行列式 }
+canonical_examples: [平面の面積形式, 最高次交代形式の座標展開, 体積形式の選択独立性]
+problem_patterns: [LA3D-TOP-FORM-1, LA3D-ABSTRACT-DET-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "旧LA3の過密解消を目的に分割した小章のため。本文理解を確認する代表演習に絞り、通常のA/B/C最低数を機械的に水増ししない。"
+estimated_hours: { reading: 1.25, exercises: 0.75, review: 0.25 }

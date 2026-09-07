@@ -1,0 +1,47 @@
+chapter: LA3D
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA3C
+  - F0-00F
+forward_references:
+  - linear.characteristic-polynomial
+  - linear.minimal-polynomial
+  - linear.cayley-hamilton-theorem
+  - linear.generalized-eigenspace
+  - functional.linear-functional
+
+concepts:
+  - id: linear.alternating-multilinear-form
+    name: 交代多重線形形式
+    kind: definition
+    aliases: [交代多重線形形式, alternating multilinear form]
+    requires:
+      - linear.linear-form
+
+  - id: linear.top-alternating-form-one-dimensional
+    name: 最高次交代形式は1次元
+    kind: theorem
+    aliases: [最高次交代形式は1次元]
+    requires:
+      - linear.alternating-multilinear-form
+      - linear.dimension
+      - linear.matrix-determinant
+
+  - id: linear.abstract-determinant
+    name: 抽象行列式
+    kind: definition
+    aliases: [抽象行列式, coordinate-free determinant]
+    requires:
+      - linear.top-alternating-form-one-dimensional
+      - linear.dimension
+      - linear.linear-map
+
+  - id: linear.abstract-matrix-determinant-agreement
+    name: 抽象行列式と表現行列の行列式
+    kind: theorem
+    aliases: [抽象行列式と表現行列の行列式, coordinate-free determinant agrees with matrix determinant]
+    requires:
+      - linear.abstract-determinant
+      - linear.matrix-determinant
+      - linear.representation-matrix
