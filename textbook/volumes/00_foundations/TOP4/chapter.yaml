@@ -27,7 +27,7 @@ definitions:
   - { id: TOP4-DEF-09, name: 可分空間 }
 theorems:
   - { id: TOP4-PROP-01, name: T1空間と一点集合の閉性 }
-  - { id: TOP4-THM-01, name: 分離公理の含意鎖 }
+  - { id: TOP4-THM-01, name: 分離公理の含意関係 }
   - { id: TOP4-PROP-02, name: Sierpinski空間はT0だがT1でない }
   - { id: TOP4-PROP-03, name: 無限集合の補有限位相はT1だがHausdorffでない }
   - { id: TOP4-PROP-04, name: K位相はHausdorffだが正則でない }
