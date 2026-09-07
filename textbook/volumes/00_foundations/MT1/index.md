@@ -81,6 +81,37 @@ $$
 となるとき、$f_n$ は $f$ に $L^p$ 収束するという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mt1-pointwise, def-mt1-ae, def-mt1-in-measure, def-mt1-lp -->
+### 例：同じ列を四つの定義で照合する
+
+$X=[0,1]$、Lebesgue 測度、$f_n(x)=x/n$、$f(x)=0$ とします。
+
+**定義の確認**：
+
+- **各点収束**：任意の $x\in[0,1]$ と $\varepsilon>0$ に対し、$N>1/\varepsilon$ と取れば、$n\ge N$ で
+  $$
+  |f_n(x)-f(x)|=\frac{x}{n}\le\frac1n<\varepsilon.
+  $$
+- **a.e.収束**：実際には全点で収束するので、例外集合を $\varnothing$ と取れ、$\lambda(\varnothing)=0$ です。
+- **測度収束**：任意の $\varepsilon>0$ に対し $n>1/\varepsilon$ なら
+  $$
+  \{|f_n-f|>\varepsilon\}=\varnothing,
+  $$
+  したがってその測度は最終的に0です。
+- **$L^p$収束**：$1\le p<\infty$ について
+  $$
+  \|f_n\|_p^p
+  =\int_0^1\left(\frac{x}{n}\right)^pdx
+  =\frac{1}{(p+1)n^p},
+  $$
+  よって
+  $$
+  \|f_n\|_p=\frac{1}{n(p+1)^{1/p}}\to0.
+  $$
+
+同じ列でも、各定義が要求している量化・零集合・悪い集合の測度・ノルムをそれぞれ別に確認する必要があります。
+<!-- definition-example-end -->
+
 ### 量化順序の違い
 
 各点収束では $N$ が点 $x$ に依存してよいのに対し、一様収束では
