@@ -151,12 +151,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（無限集合の補有限位相は $T_1$ だが Hausdorff でない）**  
 > 無限集合 $X$ に
->
-> $$
-> \tau=\{\varnothing\}\cup\{U\subseteq X:X\setminus U\text{ が有限}
-> \}
-> $$
->
+
+$$
+\tau=\{\varnothing\}\cup\{U\subseteq X:X\setminus U\text{ が有限}\}
+$$
+
 > を入れる。この空間は $T_1$ だが Hausdorff ではない。
 <!-- formal-statement-end -->
 
@@ -204,15 +203,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（正則性）**  
 > 位相空間 $X$ が **正則性** を満たすとは、任意の閉集合 $F\subseteq X$ と点 $x\notin F$ に対し、開集合 $U,V\subseteq X$ が存在して
->
-> $$
-> x\in U,
-> \qquad
-> F\subseteq V,
-> \qquad
-> U\cap V=\varnothing
-> $$
->
+
+$$
+x\in U,
+\qquad
+F\subseteq V,
+\qquad
+U\cap V=\varnothing
+$$
+
 > となることをいう。本章では、この語自体には $T_1$ 条件を含めない。
 <!-- formal-statement-end -->
 
@@ -260,18 +259,25 @@ $$
 
 <a id="prop-top4-k-topology"></a>
 <!-- formal-statement-start -->
-> **命題（$K$ 位相は Hausdorff だが正則でない）**  
-> $$
-> K=\{1/n:n\in\mathbb N\}\subset\mathbb R
-> $$
->
+> **命題（$K$ 位相は Hausdorff だが正則でない）**
+
+$$
+K=\{1/n:n\in\mathbb N\}\subset\mathbb R
+$$
+
 > とし、通常の開区間 $(a,b)$ と $(a,b)\setminus K$ を全て集めた族を基底として $\mathbb R$ に位相を入れる。この位相は Hausdorff だが正則性を満たさない。従って $T_2$ であっても $T_3$ とは限らない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-まず、この族が基底になることを確認します。各点は通常の開区間に入るので全体を覆います。また二つの基底要素の共通部分は、空集合を除けば通常の開区間、または通常の開区間から $K$ を除いた集合の形に局所的に書けます。従って共通部分の各点のまわりに再び同じ型の基底要素を取れます。
+まず、この族が基底になることを確認します。各点は通常の開区間に入るので全体を覆います。次に二つの基底要素 $B_1,B_2$ と点 $z\in B_1\cap B_2$ を取ります。それぞれの基底要素の元になった通常の開区間を $I_1,I_2$ とします。$z\in I_1\cap I_2$ なので、ある通常の開区間 $J$ を
+
+$$
+z\in J\subseteq I_1\cap I_2
+$$
+
+と取れます。$B_1,B_2$ がともに通常の開区間型なら $J$ 自身が $z$ を含み $B_1\cap B_2$ に含まれる基底要素です。一方、少なくとも一方が $I_i\setminus K$ 型なら $z\notin K$ であり、$J\setminus K$ が $z$ を含み $B_1\cap B_2$ に含まれる基底要素です。従って基底の共通部分条件も満たします。
 
 この位相は全ての通常の開区間を開集合として含むので、通常の位相より細かい位相です。相異なる二点 $x<y$ に対して通常の位相で互いに素な小区間を取れば、それらは $K$ 位相でも開です。よって Hausdorff です。
 
@@ -332,15 +338,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（正規性）**  
 > 位相空間 $X$ が **正規性** を満たすとは、互いに素な任意の閉集合 $F,G\subseteq X$ に対し、開集合 $U,V\subseteq X$ が存在して
->
-> $$
-> F\subseteq U,
-> \qquad
-> G\subseteq V,
-> \qquad
-> U\cap V=\varnothing
-> $$
->
+
+$$
+F\subseteq U,
+\qquad
+G\subseteq V,
+\qquad
+U\cap V=\varnothing
+$$
+
 > となることをいう。本章では、この語自体には $T_1$ 条件を含めない。
 <!-- formal-statement-end -->
 
@@ -388,12 +394,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（分離公理の含意鎖）**  
 > 本章の規約では
->
-> $$
-> T_4\Longrightarrow T_3\Longrightarrow T_2\text{ (Hausdorff)}
-> \Longrightarrow T_1\Longrightarrow T_0
-> $$
->
+
+$$
+T_4\Longrightarrow T_3\Longrightarrow T_2\text{ (Hausdorff)}
+\Longrightarrow T_1\Longrightarrow T_0
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -477,11 +483,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（局所基底・第一可算）**  
 > 位相空間 $X$ の点 $x$ に対し、$x$ の近傍からなる族 $\mathcal B_x$ が **局所基底** であるとは、任意の $x$ の近傍 $N$ に対し、ある $B\in\mathcal B_x$ が存在して
->
-> $$
-> x\in B\subseteq N
-> $$
->
+
+$$
+x\in B\subseteq N
+$$
+
 > となることをいう。
 >
 > 各 $x\in X$ が可算な局所基底を持つとき、$X$ は **第一可算** であるという。
@@ -565,11 +571,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（可分空間）**  
 > 位相空間 $X$ が **可分** であるとは、可算部分集合 $D\subseteq X$ で
->
-> $$
-> \overline D=X
-> $$
->
+
+$$
+\overline D=X
+$$
+
 > となるものが存在することをいう。すなわち可算な稠密部分集合を持つことをいう。
 <!-- formal-statement-end -->
 
@@ -744,17 +750,17 @@ $$
 <!-- formal-statement-start -->
 > **命題（可分でも第一可算とは限らない）**  
 > 集合
->
-> $$
-> X=\{p\}\cup(\mathbb N\times\mathbb N)
-> $$
->
+
+$$
+X=\{p\}\cup(\mathbb N\times\mathbb N)
+$$
+
 > に次の位相を入れる。各 $(m,n)$ は孤立点とし、$p$ を含む集合 $U$ は、各 $m\in\mathbb N$ について
->
-> $$
-> \{n\in\mathbb N:(m,n)\notin U\}
-> $$
->
+
+$$
+\{n\in\mathbb N:(m,n)\notin U\}
+$$
+
 > が有限であるとき開とする。この空間は可分だが第一可算ではない。
 <!-- formal-statement-end -->
 
