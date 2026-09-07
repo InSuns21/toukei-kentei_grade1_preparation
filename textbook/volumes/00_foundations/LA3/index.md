@@ -27,41 +27,14 @@ LA3A と行列式側は数学的にはかなり独立していますが、標準
 
 ---
 
-## 旧アンカーから来た読者へ
+## 旧 LA3 から来た読者へ
 
-<a id="def-la3-linear-form"></a>
-<a id="def-la3-dual-space"></a>
-<a id="def-la3-dual-basis"></a>
-<a id="thm-la3-dual-basis"></a>
-<a id="def-la3-annihilator"></a>
-<a id="thm-la3-annihilator-dimension"></a>
-<a id="thm-la3-quotient-dual-annihilator"></a>
-<a id="def-la3-dual-map"></a>
-<a id="thm-la3-double-dual"></a>
-旧 §1–5 の内容は **[LA3A](../LA3A/index.md)** へ移動しました。
+旧 §1–5 の代数的双対・双対基底・annihilator・双対写像・二重双対は **[LA3A](../LA3A/index.md)** へ移動しました。
 
-<a id="def-la3-permutation-sign"></a>
-<a id="lem-la3-permutation-sign-product"></a>
-<a id="def-la3-matrix-determinant"></a>
-<a id="thm-la3-det-alternating-multilinear"></a>
-<a id="thm-la3-det-uniqueness"></a>
-<a id="thm-la3-det-transpose"></a>
-旧 §6.1–6.4 の内容は **[LA3B](../LA3B/index.md)** へ移動しました。
+旧 §6.1–6.4 の置換符号・Leibniz 公式・行列式の交代多重線形性・特徴付け・転置不変性は **[LA3B](../LA3B/index.md)** へ移動しました。
 
-<a id="thm-la3-det-elementary-operations"></a>
-<a id="thm-la3-triangular-determinant"></a>
-<a id="thm-la3-laplace-expansion"></a>
-<a id="def-la3-adjugate"></a>
-<a id="thm-la3-adjugate-identity"></a>
-<a id="thm-la3-det-multiplicative"></a>
-<a id="thm-la3-det-invertible"></a>
-<a id="thm-la3-det-similarity-invariant"></a>
-旧 §6.5–6.7 と計算・可逆性の内容は **[LA3C](../LA3C/index.md)** へ移動しました。
+旧 §6.5–6.7 の基本変形・三角行列・Laplace 展開・余因子・乗法性・可逆性・相似不変性は **[LA3C](../LA3C/index.md)** へ移動しました。
 
-<a id="def-la3-alternating-form"></a>
-<a id="thm-la3-top-alternating-one-dimensional"></a>
-<a id="def-la3-abstract-determinant"></a>
-<a id="thm-la3-abstract-matrix-det-agree"></a>
-旧 §7–8 の抽象化は **[LA3D](../LA3D/index.md)** へ移動しました。
+旧 §7–8 の交代多重線形形式・最高次交代形式・抽象行列式は **[LA3D](../LA3D/index.md)** へ移動しました。
 
-このページは旧 URL と旧 fragment を極力失効させないための案内ページとして残します。新しい数学的正本は LA3A–LA3D 側です。
+このページは旧 LA3 の URL を維持するための案内ページです。現行の formal anchor は各分割先を正本とし、旧 fragment は新しい正本の anchor へ置き換えています。
