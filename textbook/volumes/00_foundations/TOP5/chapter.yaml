@@ -29,5 +29,5 @@ canonical_examples: [有限空間, 実直線の非コンパクト性, 有限交�
 problem_patterns: [COMPACT-OPEN-COVER-1, COMPACT-FIP-1, CLOSED-SUBSET-COMPACT-1, CONTINUOUS-IMAGE-COMPACT-1, COMPACT-HAUSDORFF-CLOSED-1, COMPACT-TO-HAUSDORFF-HOMEOMORPHISM-1, METRIC-SEQUENTIAL-COMPACTNESS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 5, level_b: 5, level_c: 3, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
