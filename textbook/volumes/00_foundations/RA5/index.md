@@ -143,6 +143,12 @@ $$
 
 $a=b$ なら自明なので $a<b$ とします。まず、極限関数 $f$ 自身がRiemann可積分であることを示します。ここを飛ばすと「積分の極限交換」の左辺自体がまだ定義できません。
 
+一様収束から、ある一つの $f_N$ に対して $\|f-f_N\|_\infty<1$ とできます。$f_N$ はRiemann可積分なので有界であり、したがって
+$$
+|f(x)|\le |f_N(x)|+1
+$$
+から $f$ も有界です。
+
 任意の $\varepsilon>0$ を取ります。一様収束から、ある $n$ を十分大きく選んで
 $$
 \|f-f_n\|_\infty
@@ -176,7 +182,7 @@ $$
 \begin{aligned}
 U(f,P)-L(f,P)
 &\le U(f_n,P)-L(f_n,P)+2\eta(b-a)\\
-&<\frac\varepsilon2+rac\varepsilon2
+&<\frac\varepsilon2+\frac\varepsilon2
 =\varepsilon.
 \end{aligned}
 $$
@@ -236,7 +242,7 @@ f'(x)=g(x).
 $$
 したがって $f\in C^1([a,b])$ です。
 
-残るのは $f_n\to f$ が一様であることです。各 $f_n$ にFTC IIを適用すると
+残るのは $f_n\to f$ が一様であることです。各 $f_n$ に [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を適用すると
 $$
 f_n(x)
 =f_n(x_0)+\int_{x_0}^{x}f_n'(t)dt.
@@ -320,7 +326,7 @@ $$
 \le |c_n|\rho^n
 \le |c_n|r^n.
 $$
-したがってM-testにより元の冪級数は閉区間 $|x-x_0|\le\rho$ 上で一様収束し、前節の積分交換定理により項別積分できます。
+したがって [Weierstrass M-test](#thm-ra5-mtest) により元の冪級数は閉区間 $|x-x_0|\le\rho$ 上で一様収束し、[一様収束と積分の交換](#thm-ra5-integral) により項別積分できます。
 
 項別微分には導関数級数の一様収束も必要です。収束級数の一般項は有界なので、ある $C>0$ が存在して
 $$
@@ -337,7 +343,7 @@ $q=\rho/r<1$ と置けば、RA1のCauchy積で得た
 $$
 \sum_{n=1}^{\infty}nq^{n-1}=\frac1{(1-q)^2}<\infty
 $$
-から、M-testにより
+から、[Weierstrass M-test](#thm-ra5-mtest) により
 $$
 \sum_{n=1}^{\infty}n c_n(x-x_0)^{n-1}
 $$
@@ -469,7 +475,7 @@ $$
 $$
 |x^n|\le r^n
 $$
-で、$\sum r^n$ が収束するためM-testにより一様収束します。
+で、$\sum r^n$ が収束するため [Weierstrass M-test](#thm-ra5-mtest) により一様収束します。
 <!-- solution-end -->
 
 <a id="ex-ra5-b03"></a>
@@ -483,7 +489,7 @@ $0\le r<1$ とし、$\sum_{n=0}^{\infty}x^n$ を $[0,r]$ で項別積分して $
 $$
 |x^n|\le r^n
 $$
-で、$\sum r^n$ は収束します。したがってM-testから $\sum x^n$ は $[0,r]$ 上一様収束し、[一様収束と積分の交換](#thm-ra5-integral) を使えます。
+で、$\sum r^n$ は収束します。したがって [Weierstrass M-test](#thm-ra5-mtest) から $\sum x^n$ は $[0,r]$ 上一様収束し、[一様収束と積分の交換](#thm-ra5-integral) を使えます。
 
 幾何級数の和は
 $$
@@ -544,7 +550,7 @@ g(x)=
 1,&x>0,
 \end{cases}
 $$
-で不連続です。もし $f_n'$ が一様収束していれば、一様極限の連続性から $g$ は連続でなければならないので矛盾します。したがって導関数列は一様収束していません。
+で不連続です。もし $f_n'$ が一様収束していれば、[一様極限の連続性](#thm-ra5-continuity) から $g$ は連続でなければならないので矛盾します。したがって導関数列は一様収束していません。
 
 この例は、関数列 $f_n$ 自身の一様収束だけでは微分交換できず、[微分と極限の交換定理](#thm-ra5-derivative) のように導関数側の一様制御が必要であることを示しています。
 <!-- solution-end -->
