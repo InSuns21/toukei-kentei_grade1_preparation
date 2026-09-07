@@ -35,14 +35,14 @@ $a_{ij}$ から各列1個ずつ、しかも各行も1回ずつ選ぶには置換
 <!-- formal-statement-start -->
 > **定義（置換の転倒数と符号）**  
 > $n$ 個の記号 $1,\dots,n$ の置換全体を $S_n$ とする。$\sigma\in S_n$ に対して
-> $$
-> \operatorname{inv}(\sigma)
-> =\#\{(i,j):i<j,\ \sigma(i)>\sigma(j)\}
-> $$
+$$
+\operatorname{inv}(\sigma)
+=\#\{(i,j):i<j,\ \sigma(i)>\sigma(j)\}
+$$
 > を転倒数といい
-> $$
-> \operatorname{sgn}(\sigma)=(-1)^{\operatorname{inv}(\sigma)}
-> $$
+$$
+\operatorname{sgn}(\sigma)=(-1)^{\operatorname{inv}(\sigma)}
+$$
 > を $\sigma$ の符号という。
 <!-- formal-statement-end -->
 
@@ -52,10 +52,10 @@ $a_{ij}$ から各列1個ずつ、しかも各行も1回ずつ選ぶには置換
 <!-- formal-statement-start -->
 > **補題（置換の符号の積）**  
 > $\sigma,\rho\in S_n$ に対して
-> $$
-> \operatorname{sgn}(\sigma\circ\rho)
-> =\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
-> $$
+$$
+\operatorname{sgn}(\sigma\circ\rho)
+=\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
+$$
 > 特に互換 $\tau$ について $\operatorname{sgn}(\tau)=-1$ である。
 <!-- formal-statement-end -->
 
@@ -93,12 +93,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（Leibniz 公式による行列式）**  
 > $A=(a_{ij})\in\mathbb F^{n\times n}$ に対して
-> $$
-> \det A
-> =\sum_{\sigma\in S_n}
-> \operatorname{sgn}(\sigma)
-> \prod_{j=1}^n a_{\sigma(j),j}
-> $$
+$$
+\det A
+=\sum_{\sigma\in S_n}
+\operatorname{sgn}(\sigma)
+\prod_{j=1}^n a_{\sigma(j),j}
+$$
 > と定める。
 <!-- formal-statement-end -->
 
@@ -128,9 +128,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（行列式の交代多重線形性）**  
 > 行列式は各列について線形であり、2列を交換すると符号が反転する。従って同じ列を2本持つ行列の行列式は0である。また
-> $$
-> \det I_n=1.
-> $$
+$$
+\det I_n=1.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -184,13 +184,13 @@ $\square$
 <!-- formal-statement-start -->
 > **定理（行列式の特徴付け）**  
 > $D:(\mathbb F^n)^n\to\mathbb F$ が列について多重線形、交代的で
-> $$
-> D(e_1,\dots,e_n)=1
-> $$
+$$
+D(e_1,\dots,e_n)=1
+$$
 > を満たすなら
-> $$
-> D(c_1,\dots,c_n)=\det[c_1\ \cdots\ c_n].
-> $$
+$$
+D(c_1,\dots,c_n)=\det[c_1\ \cdots\ c_n].
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -243,15 +243,15 @@ $$
 
 ## 6. 行と列は本当に対称か
 
-これまでは列について議論しました。行基本変形にも同じ法則を使うには、転置で値が変わらないことを確認すれば十分です。
+これまでは列について議論しました。行について対応する性質を得るには、転置で値が変わらないことを確認すれば十分です。
 
 <a id="thm-la3b-det-transpose"></a>
 <!-- formal-statement-start -->
 > **定理（転置で行列式は変わらない）**  
 > 任意の正方行列 $A$ に対して
-> $$
-> \det(A^{\mathsf T})=\det A.
-> $$
+$$
+\det(A^{\mathsf T})=\det A.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
