@@ -68,10 +68,10 @@ concepts:
       - topology.normality
       - topology.t1-space
 
-  - id: topology.separation-axiom-chain
-    name: 分離公理の含意鎖
+  - id: topology.separation-axiom-implications
+    name: 分離公理の含意関係
     kind: theorem
-    aliases: [分離公理の含意鎖, T4ならT3ならT2ならT1ならT0]
+    aliases: [分離公理の含意関係, T4ならT3ならT2ならT1ならT0]
     requires:
       - topology.t0-space
       - topology.t1-space
