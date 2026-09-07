@@ -108,7 +108,7 @@ U=B(x,r),
 V=B(y,r)
 $$
 
-を取れば $x\in U$, $y\in V$ です。もし $z\in U\cap V$ なら三角不等式から
+を取れば $x\in U$, $y\in V$ です。もし $z\in U\cap V$ なら距離空間の定義から
 
 $$
 d(x,y)
