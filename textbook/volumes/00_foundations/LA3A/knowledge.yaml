@@ -7,6 +7,8 @@ prerequisites:
 forward_references:
   - functional.linear-functional
   - functional.continuous-linear-functional
+  - functional.dual-space
+  - linear.matrix-determinant
 
 concepts:
   - id: linear.linear-form
