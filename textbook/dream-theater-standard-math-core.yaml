@@ -288,7 +288,9 @@ nodes:
     title: Lebesgue微分定理・絶対連続関数
     area: measure-theory
     tier: advanced-standard
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT4/index.md
     prerequisites: [MT3]
   - id: MT5
     title: Radon測度・Riesz–Markov
