@@ -234,7 +234,7 @@ $$
 r<s
 \quad\Longrightarrow\quad
 \boxed{\overline{U_r}\subseteq U_s}
-\tag{1}
+\qquad\text{(1)}
 $$
 
 が成り立ちます。実際、$r<s$ を含む十分細かい同一二進格子を取れば、隣接点間の包含を有限回つないで得られます。
@@ -255,8 +255,8 @@ $A\subseteq U_0$ なので $x\in A$ なら $f(x)=0$ です。一方 $B\cap U_1=\
 $$
 \{x:f(x)<a\}
 =
-\bigcup_{\substack{r\in D\\r<a}}U_r.
-\tag{2}
+\bigcup_{\substack{r\in D\\r<a}}U_r
+\qquad\text{(2)}
 $$
 
 右辺は開です。$a\le0$ なら左辺は空集合、$a>1$ なら左辺は $X$ なので、任意の $a\in\mathbb R$ について $\{f<a\}$ は開です。
@@ -267,8 +267,8 @@ $$
 \{x:f(x)>a\}
 =
 \bigcup_{\substack{r\in D\\r>a}}
-\bigl(X\setminus\overline{U_r}\bigr).
-\tag{3}
+\bigl(X\setminus\overline{U_r}\bigr)
+\qquad\text{(3)}
 $$
 
 右から左を示します。$x\notin\overline{U_r}$ で $r>a$ とします。もし $s<r$ なら (1) により
@@ -449,8 +449,7 @@ $$
 
 $$
 f_x(y)=
-\begin{cases}
-g_x(y),&y\in C_x,\\0,&y\notin C_x\end{cases}
+\begin{cases}g_x(y),&y\in C_x,\\0,&y\notin C_x\end{cases}
 $$
 
 と置きます。$C_x$ と $X\setminus V_x$ は閉集合で $X$ を覆い、その共通部分 $C_x\setminus V_x$ 上では $g_x=0$ と0関数が一致します。有限閉集合版の貼り合わせ補題により $f_x$ は連続です。
