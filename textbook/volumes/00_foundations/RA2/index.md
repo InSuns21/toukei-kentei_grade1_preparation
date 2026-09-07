@@ -39,7 +39,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\lim_{x\to a}f(x)=L$ とします。$x_n\ne a$, $x_n\to a$ を満たす任意の点列を取ります。任意の $\varepsilon>0$ に対して極限の定義から $\delta>0$ が存在し、
+まず $\lim_{x\to a}f(x)=L$ とします。$x_n\ne a$, $x_n\to a$ を満たす任意の点列を取ります。任意の $\varepsilon>0$ を固定します。仮定を定義どおり読み替えると、ある $\delta>0$ が存在し、
 $$
 0<|x-a|<\delta\Longrightarrow |f(x)-L|<\varepsilon
 $$
