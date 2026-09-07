@@ -70,8 +70,6 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 
-旧 [LA3 分割案内](textbook/volumes/00_foundations/LA3/index.md) は過去URL・fragment互換のため残し、数学的正本は LA3A–LA3D 側に置きます。LA4 の必須前提は LA3C までです。
-
 ### ノルム空間・測度・Lebesgue積分
 
 1. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
@@ -204,7 +202,7 @@
 2. [NA1 浮動小数点・誤差・条件数](textbook/volumes/00_foundations/F0_00NA1_浮動小数点_誤差_条件数_安定性/index.md)
 3. [NA2 数値線形代数・CG・前処理](textbook/volumes/00_foundations/F0_00NA2_数値線形代数_疎行列_CG_前処理/index.md)
 4. [NA3 補間・数値微分・数値積分](textbook/volumes/00_foundations/F0_00NA3_補間_数値微分_数値積分/index.md)
-5. [NA4 ODE数値解法・Runge–Kutta](textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Runge_Kutta_安定性/index.md)
+5. [NA4 ODE数値解法・Runge–Kutta](textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Run ge_Kutta_安定性/index.md)
 6. [FEM1 メッシュ・基底・assembly・Poisson](textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/index.md)
 7. [MC1 Monte Carlo積分・LLN・CLT](textbook/volumes/00_foundations/F0_00MC1_Monte_Carlo積分_LLN_CLT_誤差/index.md)
 8. [MC2 分散削減・importance・control variate](textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md)
