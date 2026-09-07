@@ -121,7 +121,7 @@ $$
 $$
 U(f,P_n)-L(f,P_n)=\frac1n\to0.
 $$
-したがってDarboux可積分性判定から $f$ はRiemann可積分です。さらに下和と上和はともに $1/2$ へ収束するので積分値は $1/2$ です。
+したがって [Darboux可積分性判定](#thm-ra4-darboux-criterion) から $f$ はRiemann可積分です。さらに下和と上和はともに $1/2$ へ収束するので積分値は $1/2$ です。
 <!-- definition-example-end -->
 
 ---
@@ -168,18 +168,25 @@ $$
 
 ### 積分の基本評価
 
-Riemann可積分な $g$ に対して
+まず $u<v$ とします。Riemann可積分な $g$ に対して $M=\sup_{t\in[u,v]}|g(t)|$ と置けば
+$$
+-M\le g(t)\le M.
+$$
+積分の単調性から
+$$
+-M(v-u)\le \int_u^v g(t)\,dt\le M(v-u),
+$$
+したがって
 $$
 \left|\int_u^v g(t)\,dt\right|
-\le |v-u|\sup_{t\in[u,v]}|g(t)|
+\le (v-u)\sup_{t\in[u,v]}|g(t)|.
 $$
-が成り立ちます。実際、$-|g|\le g\le |g|$ から積分の単調性を使えば
+$u>v$ では積分区間を反転して符号を変えれば、同じ内容を
 $$
--\int_u^v|g|
-\le\int_u^v g
-\le\int_u^v|g|,
+\left|\int_u^v g(t)\,dt\right|
+\le |v-u|\sup_{t\text{ between }u,v}|g(t)|
 $$
-さらに $|g(t)|\le M$ なら $\int_u^v|g|\le M|v-u|$ です。FTC I の証明で使うのはこの評価です。
+と書けます。FTC I の証明で使うのはこの評価です。
 
 ---
 
@@ -225,7 +232,7 @@ $$
 <a id="thm-ra4-ftc2"></a>
 <!-- formal-statement-start -->
 > **定理（微積分学の基本定理II）**  
-> $F'=f$ で $f$ が連続なら
+> $f:[a,b]\to\mathbb R$ が連続で、$F:[a,b]\to\mathbb R$ が連続かつ $(a,b)$ で微分可能であり、すべての $x\in(a,b)$ で $F'(x)=f(x)$ なら
 $$
 \int_a^bf(x)\,dx=F(b)-F(a).
 $$
@@ -266,7 +273,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-FTC I は「積分から原始関数を作る」、FTC II は「原始関数から積分値を計算する」と役割を分けると混乱しません。**再構成公式 $F(x)=F(a)+\int_a^x f$ はFTC IIの帰結**です。
+FTC I は「積分から原始関数を作る」、FTC II は「原始関数から積分値を計算する」と役割を分けると混乱しません。**再構成公式 $F(x)=F(a)+\int_a^x f$ は [微積分学の基本定理II](#thm-ra4-ftc2) の帰結**です。
 
 ---
 
@@ -275,7 +282,7 @@ FTC I は「積分から原始関数を作る」、FTC II は「原始関数か�
 <a id="thm-ra4-substitution"></a>
 <!-- formal-statement-start -->
 > **定理（置換積分）**  
-> $\phi:[\alpha,\beta]\to\mathbb R$ が連続微分可能で、$f$ が $\phi([\alpha,\beta])$ 上連続なら
+> $\phi:[\alpha,\beta]\to\mathbb R$ が連続微分可能で、$\phi([\alpha,\beta])$ を含む開区間 $J$ 上で $f:J\to\mathbb R$ が連続なら
 $$
 \int_{\alpha}^{\beta}f(\phi(t))\phi'(t)\,dt
 =\int_{\phi(\alpha)}^{\phi(\beta)}f(x)\,dx.
@@ -285,11 +292,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\phi([\alpha,\beta])$ を含む区間上で
+$u_0\in J$ を固定して
 $$
 H(u)=\int_{u_0}^{u}f(x)\,dx
 $$
-と定めます。FTC I により
+と定めます。[微積分学の基本定理I](#thm-ra4-ftc1) により
 $$
 H'(u)=f(u).
 $$
@@ -299,12 +306,12 @@ $$
 =H'(\phi(t))\phi'(t)
 =f(\phi(t))\phi'(t).
 $$
-そこで $H\circ\phi$ にFTC IIを適用すると
+そこで $H\circ\phi$ に [微積分学の基本定理II](#thm-ra4-ftc2) を適用すると
 $$
 \int_{\alpha}^{\beta}f(\phi(t))\phi'(t)\,dt
 =H(\phi(\beta))-H(\phi(\alpha)).
 $$
-一方、再びFTC IIから
+一方、再び [微積分学の基本定理II](#thm-ra4-ftc2) から
 $$
 H(\phi(\beta))-H(\phi(\alpha))
 =\int_{\phi(\alpha)}^{\phi(\beta)}f(x)\,dx.
@@ -318,7 +325,7 @@ $u,v$ が $C^1$ 級なら、積の微分公式から
 $$
 (uv)'=u'v+uv'.
 $$
-両辺を $[a,b]$ で積分し、FTC IIを使うと
+両辺を $[a,b]$ で積分し、[微積分学の基本定理II](#thm-ra4-ftc2) を使うと
 $$
 [u(x)v(x)]_a^b
 =\int_a^b u'(x)v(x)\,dx
@@ -456,7 +463,7 @@ $$
 $$
 L(f,P)=\sum_i0\cdot(x_i-x_{i-1})=0.
 $$
-したがって常に $U-L=1$ で、Darboux可積分性判定を満たしません。よってRiemann可積分ではありません。
+したがって常に $U-L=1$ で、[Darboux可積分性判定](#thm-ra4-darboux-criterion) を満たしません。よってRiemann可積分ではありません。
 <!-- solution-end -->
 
 <a id="ex-ra4-b02"></a>
