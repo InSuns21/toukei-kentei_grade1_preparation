@@ -401,7 +401,8 @@ $$
 $$
 \int_{A_n}f\,d\mu
 \ge
-\int_{A_n}g\,d\mu+rac1n\mu(A_n).
+\int_{A_n}g\,d\mu+
+\frac1n\mu(A_n).
 $$
 
 左辺と第1項は仮定により等しいので
