@@ -4,7 +4,11 @@ coverage: complete
 prerequisites:
   - TOP5
   - MT0
+  - F0-00D1
   - F0-00D2A
+  - F0-00E
+  - F0-00F
+  - F0-02C2
   - MT3
 
 forward_references: []
