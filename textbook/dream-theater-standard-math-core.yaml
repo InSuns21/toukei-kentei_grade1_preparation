@@ -138,7 +138,9 @@ nodes:
     title: コンパクト性の一般論
     area: topology
     tier: core-advanced-standard
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP5/index.md
     prerequisites: [TOP4]
   - id: TOP6
     title: 全有界性・Baire・net/filter
