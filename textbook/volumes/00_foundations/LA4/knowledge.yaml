@@ -17,12 +17,47 @@ concepts:
     requires:
       - linear.linear-map
 
+  - id: linear.polynomial-division
+    name: 多項式の除法
+    kind: lemma
+    aliases: [多項式の除法, polynomial division]
+    requires:
+      - linear.operator-polynomial
+
+  - id: linear.polynomial-root-bound
+    name: 非零多項式の根の個数
+    kind: lemma
+    aliases: [非零多項式の根の個数, polynomial root bound]
+    requires:
+      - linear.polynomial-division
+
+  - id: linear.polynomial-matrix-determinant
+    name: 多項式行列の行列式
+    kind: definition
+    aliases: [多項式行列の行列式, polynomial matrix determinant]
+    requires:
+      - linear.abstract-determinant
+
+  - id: linear.polynomial-determinant-evaluation
+    name: 多項式行列式とスカラー代入
+    kind: lemma
+    aliases: [多項式行列式とスカラー代入, determinant evaluation]
+    requires:
+      - linear.polynomial-matrix-determinant
+
+  - id: linear.polynomial-laplace-expansion
+    name: 多項式行列のLaplace展開
+    kind: lemma
+    aliases: [多項式行列のLaplace展開, polynomial Laplace expansion]
+    requires:
+      - linear.polynomial-matrix-determinant
+
   - id: linear.characteristic-polynomial
     name: 特性多項式
     kind: definition
     aliases: [特性多項式, characteristic polynomial]
     requires:
-      - linear.abstract-determinant
+      - linear.polynomial-matrix-determinant
       - linear.operator-polynomial
 
   - id: linear.minimal-polynomial
@@ -37,14 +72,21 @@ concepts:
     kind: lemma
     aliases: [余因子行列の恒等式]
     requires:
-      - linear.abstract-determinant
+      - linear.polynomial-laplace-expansion
 
   - id: linear.polynomial-bezout-identity
     name: 多項式のBézout等式
     kind: lemma
     aliases: [多項式のBézout等式]
     requires:
-      - linear.operator-polynomial
+      - linear.polynomial-division
+
+  - id: linear.distinct-linear-factor-powers-coprime
+    name: 相異なる一次因子の冪は互いに素
+    kind: lemma
+    aliases: [相異なる一次因子の冪は互いに素, coprime powers of distinct linear factors]
+    requires:
+      - linear.polynomial-bezout-identity
 
   - id: linear.coprime-product-divisibility
     name: 互いに素な因子の積による整除
@@ -68,6 +110,7 @@ concepts:
     aliases: [最小多項式による対角化判定]
     requires:
       - linear.minimal-polynomial
+      - linear.polynomial-root-bound
       - linear.diagonalizable
 
   - id: linear.generalized-eigenspace
@@ -88,6 +131,7 @@ concepts:
       - linear.minimal-polynomial
       - linear.sum-direct-sum
       - linear.polynomial-bezout-identity
+      - linear.distinct-linear-factor-powers-coprime
       - linear.coprime-product-divisibility
 
   - id: linear.jordan-chain
