@@ -1,0 +1,166 @@
+chapter: TOP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP3
+  - F0-00B1
+
+forward_references: []
+
+concepts:
+  - id: topology.t0-space
+    name: T0空間
+    kind: definition
+    aliases: [T0空間, Kolmogorov空間, T0 space]
+    introduction_aliases: [T0空間]
+    requires:
+      - topology.topological-space
+
+  - id: topology.t1-space
+    name: T1空間
+    kind: definition
+    aliases: [T1空間, Fréchet空間, T1 space]
+    introduction_aliases: [T1空間]
+    requires:
+      - topology.topological-space
+
+  - id: topology.t1-singletons-closed
+    name: T1空間と一点集合の閉性
+    kind: proposition
+    aliases: [T1空間と一点集合の閉性, T1なら一点集合が閉, T1 singleton closed]
+    requires:
+      - topology.t1-space
+      - topology.topological-closed-set
+
+  - id: topology.regularity
+    name: 正則性
+    kind: definition
+    aliases: [正則性, regularity]
+    introduction_aliases: [正則性]
+    requires:
+      - topology.topological-space
+      - topology.topological-closed-set
+
+  - id: topology.t3-space
+    name: T3空間
+    kind: definition
+    aliases: [T3空間, 正則T1空間, T3 space]
+    introduction_aliases: [T3空間]
+    requires:
+      - topology.regularity
+      - topology.t1-space
+
+  - id: topology.normality
+    name: 正規性
+    kind: definition
+    aliases: [正規性, normality]
+    introduction_aliases: [正規性]
+    requires:
+      - topology.topological-space
+      - topology.topological-closed-set
+
+  - id: topology.t4-space
+    name: T4空間
+    kind: definition
+    aliases: [T4空間, 正規T1空間, T4 space]
+    introduction_aliases: [T4空間]
+    requires:
+      - topology.normality
+      - topology.t1-space
+
+  - id: topology.separation-axiom-chain
+    name: 分離公理の含意鎖
+    kind: theorem
+    aliases: [分離公理の含意鎖, T4ならT3ならT2ならT1ならT0]
+    requires:
+      - topology.t0-space
+      - topology.t1-space
+      - topology.hausdorff-space
+      - topology.t3-space
+      - topology.t4-space
+      - topology.t1-singletons-closed
+
+  - id: topology.sierpinski-t0-not-t1
+    name: Sierpinski空間はT0だがT1でない
+    kind: proposition
+    aliases: [Sierpinski空間はT0だがT1でない, Sierpinski space]
+    requires:
+      - topology.t0-space
+      - topology.t1-space
+
+  - id: topology.cofinite-t1-not-hausdorff
+    name: 無限集合の補有限位相はT1だがHausdorffでない
+    kind: proposition
+    aliases: [補有限位相はT1だがHausdorffでない, cofinite topology]
+    requires:
+      - topology.t1-space
+      - topology.hausdorff-space
+
+  - id: topology.k-topology-hausdorff-not-regular
+    name: K位相はHausdorffだが正則でない
+    kind: proposition
+    aliases: [K位相はHausdorffだが正則でない, K-topology]
+    requires:
+      - topology.basis
+      - topology.hausdorff-space
+      - topology.regularity
+
+  - id: topology.local-base-first-countable
+    name: 局所基底・第一可算
+    kind: definition
+    aliases: [局所基底, 第一可算, 第一可算公理, local base, first countable]
+    introduction_aliases: [局所基底, 第一可算]
+    requires:
+      - topology.neighborhood
+
+  - id: topology.second-countable
+    name: 第二可算
+    kind: definition
+    aliases: [第二可算, 第二可算公理, second countable]
+    introduction_aliases: [第二可算]
+    requires:
+      - topology.basis
+
+  - id: topology.separable-space
+    name: 可分空間
+    kind: definition
+    aliases: [可分空間, 可分性, separable space, separability]
+    introduction_aliases: [可分空間]
+    requires:
+      - topology.topological-space
+
+  - id: topology.second-countable-implies-first-separable
+    name: 第二可算なら第一可算かつ可分
+    kind: theorem
+    aliases: [第二可算なら第一可算かつ可分, second countable implies first countable and separable]
+    requires:
+      - topology.local-base-first-countable
+      - topology.second-countable
+      - topology.separable-space
+
+  - id: topology.uncountable-discrete-first-not-second-separable
+    name: 非可算離散空間は第一可算だが第二可算でも可分でもない
+    kind: proposition
+    aliases: [非可算離散空間は第一可算だが第二可算でも可分でもない]
+    requires:
+      - topology.local-base-first-countable
+      - topology.second-countable
+      - topology.separable-space
+
+  - id: topology.separable-not-first-countable
+    name: 可分でも第一可算とは限らない
+    kind: proposition
+    aliases: [可分でも第一可算とは限らない, separable not first countable]
+    requires:
+      - topology.local-base-first-countable
+      - topology.separable-space
+
+  - id: topology.metric-separable-second-countable
+    name: 距離空間では可分性と第二可算性が同値
+    kind: theorem
+    aliases: [距離空間では可分性と第二可算性が同値, separable metric space second countable]
+    requires:
+      - topology.metric-space
+      - topology.second-countable
+      - topology.separable-space
+      - topology.basis
