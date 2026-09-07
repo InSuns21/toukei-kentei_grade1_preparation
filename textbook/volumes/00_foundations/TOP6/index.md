@@ -1276,7 +1276,7 @@ $$
 A_0\subseteq S.
 $$
 
-$A_0\in\mathcal F$ かつfilterは上方閉なので $S\in\mathcal F$ です。従って
+$A_0\in\mathcal F$ かつfilterの上方包含条件より $S\in\mathcal F$ です。従って
 
 $$
 \mathcal F_{(x_d)}\subseteq\mathcal F.
