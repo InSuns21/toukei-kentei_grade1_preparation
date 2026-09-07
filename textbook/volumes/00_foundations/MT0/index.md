@@ -263,7 +263,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-### 系：有限個の可測集合を同時にコンパクト化する
+### 有限個の可測集合を同時にコンパクト化する
 
 <a id="cor-mt0-finite-partition-compactification"></a>
 <!-- formal-statement-start -->
