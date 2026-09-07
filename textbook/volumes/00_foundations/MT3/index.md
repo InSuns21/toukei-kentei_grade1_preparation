@@ -67,7 +67,7 @@ $$
 と書く。
 <!-- formal-statement-end -->
 
-密度は点ごとには一意でなく、$\mu$-a.e. の意味で一意です。
+密度は点ごとには一意でなく、ほとんど至る所（almost everywhere; a.e.）、すなわち $\mu$-a.e. の意味で一意です。
 
 ---
 
@@ -401,7 +401,7 @@ $$
 $$
 \int_{A_n}f\,d\mu
 \ge
-\int_{A_n}g\,d\mu+rac1n\mu(A_n).
+\int_{A_n}g\,d\mu+\frac1n\mu(A_n).
 $$
 
 左辺と第1項は仮定により等しいので
@@ -439,7 +439,7 @@ $$
 - $\mu(X)<\infty$：残差 $\lambda(X)>0$ なら $c\mu(X)<\lambda(X)$ となる $c>0$ を選ぶ。
 - $\nu\ll\mu$：Hahn 正集合 $P$ が $\mu(P)>0$ を持つことを保証する。
 - Hahn 分解：残差が残る場所で $\lambda\ge c\mu$ となる領域を一度に取り出す。
-- MCT：最大化列 $g_n\uparrow g$ の極限を候補族の中へ残す。
+- 単調収束定理（Monotone Convergence Theorem; MCT）：最大化列 $g_n\uparrow g$ の極限を候補族の中へ残す。
 
 ---
 
@@ -1382,6 +1382,60 @@ $$
 $$
 
 従って定義通り σ-finite です。
+<!-- solution-end -->
+
+<a id="ex-mt3-a03"></a>
+#### MT3-A03 絶対連続性の向きを確認する
+- Level: A
+
+$[0,1]$ 上で $\nu(E)=\int_E 2x\,dx$ とする。Lebesgue 測度 $\lambda$ に対して $\nu\ll\lambda$ を定義から示してください。
+
+<!-- solution-start -->
+**解答**：$\lambda(E)=0$ なら、非負可測関数 $2x$ の零測度集合上の積分は0なので
+
+$$
+\nu(E)=\int_E2x\,dx=0.
+$$
+
+従って
+
+$$
+\lambda(E)=0\Longrightarrow\nu(E)=0,
+$$
+
+すなわち $\nu\ll\lambda$ です。含意の向きを逆にしないことがポイントです。
+<!-- solution-end -->
+
+<a id="ex-mt3-a04"></a>
+#### MT3-A04 Dirac測度はLebesgue測度と特異である
+- Level: A
+
+$[0,1]$ 上の Dirac 測度 $\delta_0$ と Lebesgue 測度 $\lambda$ が互いに特異であることを、本章の定義に従って示してください。
+
+<!-- solution-start -->
+**解答**：
+
+$$
+S=\{0\}
+$$
+
+と取ります。Lebesgue 測度では
+
+$$
+\lambda(S)=0,
+$$
+
+一方 Dirac 測度は $S$ に全質量を持つので
+
+$$
+\delta_0([0,1]\setminus S)=0.
+$$
+
+従って定義通り
+
+$$
+\delta_0\perp\lambda.
+$$
 <!-- solution-end -->
 
 ### Level B
