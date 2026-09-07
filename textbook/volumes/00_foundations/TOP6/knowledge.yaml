@@ -1,0 +1,147 @@
+chapter: TOP6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP5
+  - F0-00D
+  - F0-00A1D
+  - F0-00A1C
+
+forward_references: []
+
+concepts:
+  - id: topology.total-bounded-cauchy-subsequence-characterization
+    name: 全有界性とCauchy部分列による特徴付け
+    kind: theorem
+    aliases: [全有界性とCauchy部分列による特徴付け, totally bounded Cauchy subsequence characterization]
+    requires:
+      - topology.totally-bounded
+      - topology.cauchy-sequence
+      - topology.metric-space
+
+  - id: topology.compact-complete-totally-bounded-equivalence
+    name: コンパクト距離空間と完備かつ全有界の同値
+    kind: theorem
+    aliases: [コンパクト距離空間と完備かつ全有界の同値, compact complete totally bounded equivalence]
+    requires:
+      - topology.compact-set
+      - topology.complete-metric-space
+      - topology.totally-bounded
+      - topology.compact-metric-complete
+      - topology.compact-sequential-equivalence-metric
+      - topology.total-bounded-cauchy-subsequence-characterization
+
+  - id: topology.nowhere-dense-set
+    name: 疎集合
+    kind: definition
+    aliases: [疎集合, nowhere dense set]
+    introduction_aliases: [疎集合]
+    requires:
+      - topology.closure
+      - topology.interior
+
+  - id: topology.meagre-set
+    name: 第一類集合・meagre集合
+    kind: definition
+    aliases: [第一類集合, meagre集合, meager set, meagre set]
+    introduction_aliases: [第一類集合, meagre集合]
+    requires:
+      - topology.nowhere-dense-set
+
+  - id: topology.baire-space
+    name: Baire空間
+    kind: definition
+    aliases: [Baire空間, Baire space]
+    introduction_aliases: [Baire空間]
+    requires:
+      - topology.topological-space
+      - topology.closure
+
+  - id: topology.baire-category-theorem-complete-metric
+    name: Baireのカテゴリー定理
+    kind: theorem
+    aliases: [Baireのカテゴリー定理, Baire category theorem]
+    requires:
+      - topology.complete-metric-space
+      - topology.baire-space
+      - topology.open-ball
+      - topology.topological-closed-set
+
+  - id: topology.complete-metric-not-meagre-in-itself
+    name: 非空完備距離空間は自身の中でmeagreでない
+    kind: corollary
+    aliases: [非空完備距離空間は自身の中でmeagreでない, complete metric space is not meagre in itself]
+    requires:
+      - topology.baire-category-theorem-complete-metric
+      - topology.meagre-set
+
+  - id: topology.directed-set
+    name: 有向集合
+    kind: definition
+    aliases: [有向集合, directed set]
+    introduction_aliases: [有向集合]
+    requires:
+      - order.binary-relation
+
+  - id: topology.net
+    name: net
+    kind: definition
+    aliases: [net, ネット]
+    introduction_aliases: [net]
+    requires:
+      - topology.directed-set
+      - set.function
+
+  - id: topology.net-convergence
+    name: netの収束
+    kind: definition
+    aliases: [netの収束, ネットの収束, net convergence]
+    introduction_aliases: [netの収束]
+    requires:
+      - topology.net
+      - topology.neighborhood
+
+  - id: topology.filter
+    name: filter
+    kind: definition
+    aliases: [filter, フィルター]
+    introduction_aliases: [filter]
+    requires:
+      - set.power-set
+      - set.family
+
+  - id: topology.filter-convergence
+    name: filterの収束
+    kind: definition
+    aliases: [filterの収束, フィルターの収束, filter convergence]
+    introduction_aliases: [filterの収束]
+    requires:
+      - topology.filter
+      - topology.neighborhood
+
+  - id: topology.closure-net-characterization
+    name: 閉包のnetによる特徴付け
+    kind: theorem
+    aliases: [閉包のnetによる特徴付け, closure net characterization]
+    requires:
+      - topology.closure
+      - topology.net-convergence
+
+  - id: topology.continuity-net-characterization
+    name: 連続性のnetによる特徴付け
+    kind: theorem
+    aliases: [連続性のnetによる特徴付け, continuity net characterization]
+    requires:
+      - topology.topological-continuous-map
+      - topology.net-convergence
+      - topology.neighborhood
+
+  - id: topology.net-filter-convergence-correspondence
+    name: netとfilterの収束対応
+    kind: theorem
+    aliases: [netとfilterの収束対応, net filter convergence correspondence]
+    requires:
+      - topology.net
+      - topology.net-convergence
+      - topology.filter
+      - topology.filter-convergence
