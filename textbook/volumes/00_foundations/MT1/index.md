@@ -804,7 +804,7 @@ $$
 
 ---
 
-## 9. 練習問題
+## 9. 演習
 
 ### Level A
 
@@ -1018,13 +1018,13 @@ $$
 
 と置き、$H_M\downarrow\varnothing$ と $\lambda(E)<\infty$ から上からの連続性を使って $\lambda(H_M)<\varepsilon/2$ となる $M$ を選びます。$F=E\setminus H_M$ 上では $f$ が有界です。
 
-次に MT0 の定理から有限値単関数 $s_n$ を
+次に [MT0 の有限単関数一様近似](../MT0/index.md#thm-mt0-bounded-simple-uniform) から有限値単関数 $s_n$ を
 
 $$
 \|s_n-f\|_{L^\infty(F)}<2^{-n}
 $$
 
-となるように取ります。各 $s_n$ の有限可測分割を MT0 の内正則性で compact 部分集合へ縮め、損失を $\delta_n=\varepsilon/2^{n+1}$ 未満にします。有限個の互いに素な compact レベル集合は正の距離で分離されるので、$s_n$ は残した compact 集合 $K_n$ 上で連続です。
+となるように取ります。各 $s_n$ の有限可測分割を [MT0 の内正則性](../MT0/index.md#thm-mt0-inner-regularity-finite) で compact 部分集合へ縮め、損失を $\delta_n=\varepsilon/2^{n+1}$ 未満にします。有限個の互いに素な compact レベル集合は正の距離で分離されるので、$s_n$ は残した compact 集合 $K_n$ 上で連続です。
 
 ただし $n$ ごとに別々の $K_n$ を使うだけでは、全ての $s_n$ が同じ定義域上で連続とは言えません。そこで
 
