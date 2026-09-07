@@ -528,7 +528,7 @@ $$
 
 ## 4. Cayley–Hamilton定理
 
-証明の危険箇所は、$t$ を行列 $A$ に直接「代入」することです。$tI-A$ の成分は多項式であり、行列同士は一般に可換しません。そこで、まず $\mathbb F[t]$ 上の多項式行列恒等式から**係数ごとの定数行列等式**を取り出し、その後で $A$ の冪を掛けて相殺します。
+証明の危険箇所は、$t$ を行列 $A$ に直接「代入」することです。$tI-A$ の成分は多項式であり、行列同士は一般に可換しません。そこで、まず $\mathbb F[t]$ 上の[多項式行列の余因子行列の恒等式](#lem-la4-adjugate-identity)から**係数ごとの定数行列等式**を取り出し、その後で $A$ の冪を掛けて相殺します。
 
 <a id="thm-la4-cayley-hamilton"></a>
 <!-- formal-statement-start -->
@@ -562,7 +562,7 @@ $$
 =\det(tI-A)I
 =\chi_A(t)I.
 $$
-$\operatorname{adj}(tI-A)$ の各成分は $(n-1)\times(n-1)$ 小行列の行列式です。各因子の次数は高々1なので、Leibniz公式から各成分の次数は高々 $n-1$ です。従って定数行列 $B_0,\dots,B_{n-1}$ が存在して
+$\operatorname{adj}(tI-A)$ の各成分は $(n-1)\times(n-1)$ 小行列の行列式です。各因子の次数は高々1なので、[多項式行列の行列式](#def-la4-polynomial-matrix-determinant)の定義式から各成分の次数は高々 $n-1$ です。従って定数行列 $B_0,\dots,B_{n-1}$ が存在して
 $$
 \operatorname{adj}(tI-A)
 =B_0+B_1t+\cdots+B_{n-1}t^{n-1}
