@@ -13,7 +13,7 @@ concepts:
   - id: prob.dyadic-subsequence
     name: dyadic subsequence
     kind: term
-    aliases: [dyadic subsequence, dyadic]
+    aliases: [dyadic subsequence]
     requires: []
 
   - id: prob.kolmogorov-maximal-inequality
