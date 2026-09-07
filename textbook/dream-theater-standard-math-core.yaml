@@ -213,8 +213,8 @@ nodes:
     status: implemented
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/MT0/index.md
-    reuses: [F0_00D2, F0_00D3, F0_00D4]
-    prerequisites: [TOP0]
+    reuses: [F0_00D2, F0_00D3, F0_00D4, F0_00C1]
+    prerequisites: [TOP5]
   - id: MTI
     title: Lebesgue積分・MCT/Fatou/DCT
     area: measure-theory
@@ -244,7 +244,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/MT1/index.md
-    prerequisites: [MTI]
+    prerequisites: [MTI, RA5]
   - id: MT2
     title: 符号付き測度・全変動
     area: measure-theory
