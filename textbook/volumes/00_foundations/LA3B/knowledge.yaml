@@ -27,7 +27,7 @@ concepts:
   - id: linear.matrix-determinant
     name: Leibniz 公式による行列式
     kind: definition
-    aliases: [行列式, determinant, "Leibniz 公式による行列式", Leibniz公式による行列式]
+    aliases: [行列式, determinant, "Leibniz 公式", Leibniz公式, "Leibniz 公式による行列式", Leibniz公式による行列式]
     requires:
       - linear.permutation-sign
 
