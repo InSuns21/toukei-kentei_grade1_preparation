@@ -743,17 +743,14 @@ $$
 
 は自動的です。逆向きを示します。
 
-$A\subseteq U$ となる open $U$ を任意に取ります。まず
+$A\subseteq U$ となる open $U$ を任意に取ります。まず次を示します。
 
 $$
 \boxed{
 m(U)
 \ge
 m(U\cap G)+\mu^*(U\setminus G)}
-\tag{1}
 $$
-
-を示します。
 
 compact $K\subseteq U\cap G$ を任意に取ります。TOP5 の cutoff を $K\subseteq U\cap G$ に適用し、$K$ の open neighborhood $W$ で
 
@@ -803,7 +800,7 @@ m(U)
 m_K+\mu^*(U\setminus G).
 $$
 
-compact $K\subseteq U\cap G$ について上限を取り、open-inner content の補題を使うと (1) が得られます。
+compact $K\subseteq U\cap G$ について上限を取り、open-inner content の補題を使うと先ほどの boxed 不等式が得られます。
 
 いま
 
@@ -825,7 +822,7 @@ $$
 \le\mu^*(U\setminus G).
 $$
 
-よって (1) から
+よって先ほどの不等式から
 
 $$
 m(U)
@@ -1007,8 +1004,9 @@ m(U_k)-\frac1n
 <L(g_k)
 \le L(h_k)
 \le m(U_k).
-\tag{2}
 $$
+
+以下ではこの三項評価を繰り返し使います。
 
 ここで連続関数
 
@@ -1041,7 +1039,6 @@ $f(x)=M$ の場合は全ての $K_k$ に入るので $s_n(x)=M$、$f(x)=0$ の�
 
 $$
 \boxed{\|s_n-f\|_\infty\le\delta.}
-\tag{3}
 $$
 
 全ての $h_k$ の support は $U_1\subseteq C$ に含まれるので
@@ -1050,17 +1047,16 @@ $$
 \operatorname{supp}(s_n-f)\subseteq C.
 $$
 
-局所 order bound を $C$ に適用するため $\chi=1$ near $C$ となる cutoff を固定すると、(3) から
+局所 order bound を $C$ に適用するため $\chi=1$ near $C$ となる cutoff を固定すると、直前の一様評価から
 
 $$
 |L(s_n)-L(f)|
 \le
 \delta L(\chi)
 \longrightarrow0.
-\tag{4}
 $$
 
-一方 (2) より
+一方、上の三項評価より
 
 $$
 0
@@ -1071,17 +1067,15 @@ $$
 =
 \delta
 \longrightarrow0.
-\tag{5}
 $$
 
-従って (4)(5) から
+従って二つの極限評価から
 
 $$
 L(f)
 =
 \lim_{n\to\infty}
 \delta\sum_{k=1}^n\mu(U_k).
-\tag{6}
 $$
 
 最後に右辺が $\int f\,d\mu$ へ収束することを、Tonelli 等を使わず有限単関数で直接確認します。
@@ -1142,7 +1136,7 @@ $$
 \delta\sum_{k=1}^n\mu(U_k).
 $$
 
-これと (6) を合わせて
+これと直前の $L(f)$ の極限表示を合わせて
 
 $$
 L(f)=\int f\,d\mu.
@@ -1236,7 +1230,6 @@ $f\prec U$ について supremum を取ると
 
 $$
 m(U)\le\nu(U).
-\tag{7}
 $$
 
 逆に compact $K\subseteq U$ を任意に取ります。TOP5 の cutoff から $f\prec U$ で $f=1$ on $K$ となるものを取れます。すると
@@ -1254,10 +1247,9 @@ $\nu$ の open-inner regularity により compact $K\subseteq U$ について su
 
 $$
 \nu(U)\le m(U).
-\tag{8}
 $$
 
-(7)(8) から
+両方の不等式から
 
 $$
 \nu(U)=m(U)=\mu(U)
@@ -1488,6 +1480,26 @@ $$
 
 となることを示せ。
 
+## A3. open set では outer measure と content が一致する
+
+open $U\subseteq X$ について
+
+$$
+\mu^*(U)=m(U)
+$$
+
+を、$\mu^*$ の定義と $m$ の単調性だけから証明せよ。
+
+## A4. compact 集合の測度は有限である
+
+compact $K\subseteq X$ について
+
+$$
+\mu(K)=m_K<\infty
+$$
+
+を示せ。どこで Hausdorff 性と cutoff を使うかも明示せよ。
+
 ## B1. compact support の有限化が必要な箇所
 
 $m(U)$ の可算劣加法性の証明で、なぜ open cover $U\subseteq\bigcup_nU_n$ から最初から全空間の partition of unity を作る必要がないのか説明せよ。
@@ -1495,6 +1507,24 @@ $m(U)$ の可算劣加法性の証明で、なぜ open cover $U\subseteq\bigcup_
 ## B2. open set 上の一致だけで一意性が出る理由
 
 二つの Radon 測度 $\mu,\nu$ が全ての open set 上で一致するとする。Borel set 上でも一致することを、本章の Radon の定義だけから証明せよ。
+
+## B3. Caratheodory 可測性で shrinking が必要な理由
+
+open $G\subseteq X$ と open $U\subseteq X$ に対して
+
+$$
+m(U)\ge m(U\cap G)+\mu^*(U\setminus G)
+$$
+
+を証明せよ。その際、compact $K\subseteq U\cap G$ に対して
+
+$$
+K\subseteq W,
+\qquad
+\overline W\subseteq U\cap G
+$$
+
+となる open $W$ を挟む理由を説明せよ。
 
 ## C1. 離散空間の例
 
@@ -1531,6 +1561,59 @@ $x_0\notin U$ なら、$f\prec U$ の support は $U$ に含まれるので $f(x
 $x_0\in U$ なら TOP5 の cutoff により $f\prec U$ で $f(x_0)=1$ となるものがあります。従って $m(U)\ge1$。一方全候補で $0\le f(x_0)\le1$ だから $m(U)\le1$。よって $m(U)=1$ です。
 
 これは outer measure 構成前の段階ですでに Dirac 測度の open set 上の値が現れていることを示します。
+
+## A3 解答
+
+$U$ 自身が $U$ を覆う open set なので、outer measure の定義から
+
+$$
+\mu^*(U)\le m(U).
+$$
+
+逆に $V\supseteq U$ が open なら $m$ の単調性から
+
+$$
+m(U)\le m(V).
+$$
+
+従って全 open $V\supseteq U$ について下限を取れば
+
+$$
+m(U)
+\le
+\inf_{V\supseteq U\text{ open}}m(V)
+=
+\mu^*(U).
+$$
+
+両方を合わせて $\mu^*(U)=m(U)$ です。ここではまだ Caratheodory 可測性は使っていません。
+
+## A4 解答
+
+Hausdorff 空間では compact 集合 $K$ は閉なので Borel 集合です。従って構成後の Borel 測度について
+
+$$
+\mu(K)
+=
+\mu^*(K)
+=
+\inf_{U\supseteq K\text{ open}}m(U)
+=m_K.
+$$
+
+有限性には cutoff を使います。TOP5 により $K$ のある open neighborhood $N$ 上で $\chi=1$、$0\le\chi\le1$ となる $\chi\in C_c(X)$ を取れます。$f\prec N$ なら全点で $0\le f\le\chi$ なので
+
+$$
+L(f)\le L(\chi).
+$$
+
+よって $m(N)\le L(\chi)<\infty$、従って
+
+$$
+m_K\le m(N)<\infty.
+$$
+
+Hausdorff 性は $K$ を Borel に入れるため、局所コンパクト性を含む cutoff 構成は有限上界を作るために使われています。
 
 ## B1 解答
 
@@ -1573,6 +1656,58 @@ $$
 $$
 
 内正則性ではなく **外正則性が open set 上の一致を Borel set 全体へ運ぶ**ことがポイントです。
+
+## B3 解答
+
+compact $K\subseteq U\cap G$ を任意に取ります。TOP5 の shrinking/cutoff により open $W$ を
+
+$$
+K\subseteq W,
+\qquad
+\overline W\subseteq U\cap G
+$$
+
+となるように取れます。すると $W$ と $U\setminus\overline W$ は互いに素な open sets で、その合併は $U$ に含まれるので
+
+$$
+m(U)
+\ge
+m(W)+m(U\setminus\overline W).
+$$
+
+また $K\subseteq W$ から $m(W)\ge m_K$、さらに $\overline W\subseteq G$ から
+
+$$
+U\setminus G
+\subseteq
+U\setminus\overline W
+$$
+
+なので
+
+$$
+\mu^*(U\setminus G)
+\le
+m(U\setminus\overline W).
+$$
+
+従って
+
+$$
+m(U)
+\ge
+m_K+\mu^*(U\setminus G).
+$$
+
+compact $K\subseteq U\cap G$ について supremum を取り、open-inner content の等式を使えば
+
+$$
+m(U)
+\ge
+m(U\cap G)+\mu^*(U\setminus G).
+$$
+
+$W$ を挟む理由は、$U\cap G$ の compact 部分を一方に保持しつつ、その閉包を $G$ の内側へ押し込み、もう一方の **open set** $U\setminus\overline W$ が $U\setminus G$ を覆うようにするためです。単に $U\cap G$ と $U\setminus G$ に分けると後者は一般には open でなく、$m$ の有限加法性を適用できません。
 
 ## C1 解答
 
