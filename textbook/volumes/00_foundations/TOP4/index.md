@@ -78,15 +78,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（T2空間・Hausdorff空間）**  
 > 位相空間 $X$ が **$T_2$** であるとは、任意の異なる二点 $x,y\in X$ に対し、開集合 $U,V\subseteq X$ が存在して
->
-> $$
-> x\in U,
-> \qquad
-> y\in V,
-> \qquad
-> U\cap V=\varnothing
-> $$
->
+
+$$
+x\in U,
+\qquad
+y\in V,
+\qquad
+U\cap V=\varnothing
+$$
+
 > となることをいう。$T_2$ 空間を **Hausdorff 空間**ともいう。
 <!-- formal-statement-end -->
 
