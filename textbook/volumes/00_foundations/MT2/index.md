@@ -2,13 +2,13 @@
 
 この章では、正の測度だけでは表せない「差」を測度として扱うための最小コアを構成します。
 
-主役は有限符号付き測度
+主役は実数値の符号付き測度
 
 $$
 \nu:\mathcal F\to\mathbb R
 $$
 
-です。ここで有限とは、各可測集合で値が実数として有限という意味です。まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明し、そこから Jordan 分解と全変動を導きます。
+です。この章ではこれを **有限符号付き測度** と呼びます。まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明し、そこから Jordan 分解と全変動を導きます。
 
 ```text
 正の測度・Lebesgue積分（MTI）
@@ -468,10 +468,16 @@ $$
 すなわち $\nu(A)=0$。よって $P\cap N'$ は $\nu$-零集合です。同様に $P'\cap N$ も $\nu$-零集合です。
 
 $$
-P\triangle P'=(P\cap N')\cup(P'\cap N)
+P\triangle P'=(P\cap N')\cup(P'\cap N).
 $$
 
-なので対称差全体も $\nu$-零集合です。$N\triangle N'=P\triangle P'$ も同様です。$\square$
+任意の可測 $A\subset P\triangle P'$ は
+
+$$
+A=(A\cap P\cap N')\sqcup(A\cap P'\cap N)
+$$
+
+と分かれ、各項の $\nu$-値は0です。従って $P\triangle P'$ 自体が $\nu$-零集合です。$N\triangle N'=P\triangle P'$ も同様です。$\square$
 <!-- proof-end -->
 
 ---
@@ -576,9 +582,47 @@ $$
 \nu^-(E)=-\inf_{A\subset E}\nu(A)
 $$
 
-を得ます。
+を得ます。従って Hahn 分解から作った正負部分は $\nu$ だけから決まり、Hahn 分解の選び方には依存しません。
 
-これら二つの式の右辺は $\nu$ だけで決まり、Hahn 分解の選び方に依存しません。従って $\nu^+,\nu^-$ は一意です。$\square$
+最後に「互いに特異な差表示」の一意性を確認します。有限正測度 $\alpha,\beta$ が
+
+$$
+\nu=\alpha-\beta,
+\qquad
+\alpha\perp\beta
+$$
+
+を満たすとします。特異性より可測分割 $X=S\sqcup T$ を
+
+$$
+\alpha(T)=0,
+\qquad
+\beta(S)=0
+$$
+
+となるように取れます。任意の可測 $A\subset S$ では
+
+$$
+\nu(A)=\alpha(A)-\beta(A)=\alpha(A)\ge0,
+$$
+
+任意の可測 $A\subset T$ では
+
+$$
+\nu(A)=\alpha(A)-\beta(A)=-\beta(A)\le0.
+$$
+
+従って $(S,T)$ 自身が Hahn 分解です。上限表示、または Hahn 分解からの定義を使えば
+
+$$
+\nu^+(E)=\nu(E\cap S)=\alpha(E\cap S)=\alpha(E),
+$$
+
+$$
+\nu^-(E)=-\nu(E\cap T)=\beta(E\cap T)=\beta(E).
+$$
+
+よって任意の互いに特異な表現は同じ $\nu^+,\nu^-$ に一致し、Jordan 分解は一意です。$\square$
 <!-- proof-end -->
 
 ### Jordan 分解は「差としての表現」の最小形
