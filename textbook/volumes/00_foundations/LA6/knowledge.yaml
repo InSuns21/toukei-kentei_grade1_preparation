@@ -68,14 +68,14 @@ concepts:
   - id: linear.euclidean-operator-norm
     name: Euclidノルムから誘導される作用素ノルム
     kind: definition
-    aliases: [Euclidノルムから誘導される作用素ノルム, 作用素ノルムの定義, Euclidean operator norm, 作用素ノルム]
+    aliases: [Euclidノルムから誘導される作用素ノルム, Euclidean operator norm, 作用素ノルム]
     requires:
       - linear.complex-inner-product
 
   - id: linear.unitary-operator-norm-invariance
     name: 作用素ノルムのunitary不変性
     kind: lemma
-    aliases: [作用素ノルムのunitary不変性, unitary不変性, unitary invariance of operator norm]
+    aliases: [作用素ノルムのunitary不変性, unitary invariance of operator norm]
     requires:
       - linear.euclidean-operator-norm
       - linear.unitary-operator
@@ -90,6 +90,6 @@ concepts:
   - id: linear.diagonal-operator-norm
     name: 矩形対角行列の作用素ノルム
     kind: lemma
-    aliases: [矩形対角行列の作用素ノルム, 対角行列の補題, operator norm of a rectangular diagonal matrix]
+    aliases: [矩形対角行列の作用素ノルム, operator norm of a rectangular diagonal matrix]
     requires:
       - linear.euclidean-operator-norm
