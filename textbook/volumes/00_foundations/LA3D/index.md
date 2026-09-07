@@ -125,7 +125,7 @@ $$
 \omega_0(v_1,\dots,v_n)
 =\det[v_1\ \cdots\ v_n]_{\mathcal B}
 $$
-と定めます。LA3B で証明した通常行列式の交代多重線形性から $\omega_0$ は交代 $n$ 重線形形式で
+と定めます。[行列式の交代多重線形性](../LA3B/index.md#thm-la3b-det-alternating-multilinear)から $\omega_0$ は交代 $n$ 重線形形式で
 $$
 \omega_0(e_1,\dots,e_n)=\det I=1.
 $$
