@@ -38,9 +38,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（線形形式）**  
 > $\mathbb F=\mathbb R$ または $\mathbb C$ とし、$V$ を $\mathbb F$ 上のベクトル空間とする。線形写像
-> $$
-> \varphi:V\to\mathbb F
-> $$
+$$
+\varphi:V\to\mathbb F
+$$
 > を **線形形式** という。
 <!-- formal-statement-end -->
 
@@ -50,9 +50,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（代数的双対）**  
 > $V$ 上の線形形式全体
-> $$
-> V^*=\{\varphi:V\to\mathbb F:\varphi\text{ は線形}\}
-> $$
+$$
+V^*=\{\varphi:V\to\mathbb F:\varphi\text{ は線形}\}
+$$
 > を $V$ の **代数的双対** という。加法とスカラー倍は点ごとに定める。
 <!-- formal-statement-end -->
 
@@ -92,9 +92,9 @@ $x=av_1+bv_2$ と書いたとき、係数 $a$ だけを返す関数、$b$ だけ
 <!-- formal-statement-start -->
 > **定義（双対基底）**  
 > $V$ の基底 $e_1,\dots,e_n$ に対して
-> $$
-> e^i(e_j)=\delta_{ij}
-> $$
+$$
+e^i(e_j)=\delta_{ij}
+$$
 > を満たす線形形式 $e^1,\dots,e^n\in V^*$ を **双対基底** という。
 <!-- formal-statement-end -->
 
@@ -104,9 +104,9 @@ $x=av_1+bv_2$ と書いたとき、係数 $a$ だけを返す関数、$b$ だけ
 <!-- formal-statement-start -->
 > **定理（双対基底定理）**  
 > 有限次元ベクトル空間 $V$ の任意の基底 $e_1,\dots,e_n$ に対して双対基底 $e^1,\dots,e^n$ が一意に存在し、これは $V^*$ の基底である。特に
-> $$
-> \dim V^*=\dim V.
-> $$
+$$
+\dim V^*=\dim V.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -203,9 +203,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（annihilator / 零化空間）**  
 > 部分空間 $W\subset V$ に対して
-> $$
-> W^\circ=\{\varphi\in V^*: \varphi(w)=0\ \text{for all }w\in W\}
-> $$
+$$
+W^\circ=\{\varphi\in V^*: \varphi(w)=0\ \text{for all }w\in W\}
+$$
 > を $W$ の **annihilator（零化空間）** という。
 <!-- formal-statement-end -->
 
@@ -219,9 +219,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（annihilator の次元公式）**  
 > $V$ を有限次元、$W\subset V$ を部分空間とすると
-> $$
-> \dim W^\circ=\dim V-\dim W=\dim(V/W).
-> $$
+$$
+\dim W^\circ=\dim V-\dim W=\dim(V/W).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -266,13 +266,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（商空間の双対と annihilator）**  
 > $q:V\to V/W$, $q(v)=v+W$ を標準射影とする。このとき
-> $$
-> q^*:(V/W)^*\to W^\circ,\qquad q^*(\psi)=\psi\circ q
-> $$
+$$
+q^*:(V/W)^*\to W^\circ,\qquad q^*(\psi)=\psi\circ q
+$$
 > は線形同型である。従って
-> $$
-> (V/W)^*\cong W^\circ.
-> $$
+$$
+(V/W)^*\cong W^\circ.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -327,9 +327,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（双対写像）**  
 > 線形写像 $T:V\to W$ に対し
-> $$
-> T^*:W^*\to V^*,\qquad T^*(\psi)=\psi\circ T
-> $$
+$$
+T^*:W^*\to V^*,\qquad T^*(\psi)=\psi\circ T
+$$
 > を双対写像という。
 <!-- formal-statement-end -->
 
@@ -367,9 +367,9 @@ $v\in V$ を固定すると、任意の線形形式 $\varphi\in V^*$ に対し�
 <!-- formal-statement-start -->
 > **定理（有限次元二重双対同型）**  
 > 有限次元ベクトル空間 $V$ に対し
-> $$
-> J:V\to V^{**},\qquad J(v)(\varphi)=\varphi(v)
-> $$
+$$
+J:V\to V^{**},\qquad J(v)(\varphi)=\varphi(v)
+$$
 > は基底の選択によらない線形同型である。
 <!-- formal-statement-end -->
 
@@ -469,7 +469,7 @@ $$
 $$
 \operatorname{span}(\varphi)\subset W^\circ.
 $$
-また $\dim W=2$ なので次元公式から $\dim W^\circ=1$。従って
+[annihilator の次元公式](#thm-la3a-annihilator-dimension)より $\dim W=2$ なら $\dim W^\circ=1$。従って
 $$
 W^\circ=\operatorname{span}(\varphi).
 $$
