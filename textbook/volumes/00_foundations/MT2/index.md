@@ -8,7 +8,7 @@ $$
 \nu:\mathcal F\to\mathbb R
 $$
 
-です。この章ではこれを **有限符号付き測度** と呼びます。まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明し、そこから Jordan 分解と全変動を導きます。
+です。本章では **有限符号付き測度** を主役にし、まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明して、そこから Jordan 分解と全変動を導きます。
 
 ```text
 正の測度・Lebesgue積分（MTI）
