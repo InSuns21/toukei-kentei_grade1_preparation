@@ -1,0 +1,36 @@
+id: "MT1"
+title: "標準測度論 II：関数列の収束様式・Egorov・Lusin"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA5
+  - F0-00D2
+  - F0-00D2A
+  - F0-00D2B
+  - MT0
+official_scope: []
+learning_objectives:
+  - 各点収束・a.e.収束・測度収束・Lp収束を量化と例外集合の違いから区別できる
+  - 有限測度版の測度の上からの連続性を下からの連続性から導出できる
+  - Lp収束から測度収束、測度収束からa.e.収束部分列への含意を、必要な仮定を過不足なく付けて証明できる
+  - Egorovの定理で有限測度性が使われる箇所を明示して証明できる
+  - Lusinの定理を、大値部分の切断・有限単関数一様近似・Lebesgue測度の内正則性から構成できる
+  - 成立しない逆向きを反例と証明機構の欠落の両方で説明できる
+definitions:
+  - { id: MT1-DEF-01, name: 各点収束の再掲 }
+  - { id: MT1-DEF-02, name: a.e.収束 }
+  - { id: MT1-DEF-03, name: 測度収束 }
+  - { id: MT1-DEF-04, name: Lp収束 }
+theorems:
+  - { id: MT1-LEM-01, name: 有限測度版の測度の上からの連続性 }
+  - { id: MT1-THM-01, name: Lp収束なら測度収束 }
+  - { id: MT1-THM-02, name: 有限測度空間でa.e.収束なら測度収束 }
+  - { id: MT1-THM-03, name: 測度収束からa.e.収束部分列 }
+  - { id: MT1-THM-04, name: Egorovの定理 }
+  - { id: MT1-THM-05, name: Lusinの定理 }
+canonical_examples: [移動する指示関数, dyadic typewriter, 高さが発散するLp反例, Dirichlet関数のLusin適用]
+problem_patterns: [MT1-CONVERGENCE-IMPLICATIONS-1, MT1-EGOROV-1, MT1-LUSIN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 3, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 1.5, review: 0.5 }
