@@ -34,7 +34,7 @@ concepts:
   - id: linear.polynomial-matrix-determinant
     name: 多項式行列の行列式
     kind: definition
-    aliases: [多項式行列の行列式, polynomial matrix determinant]
+    aliases: [多項式行列の行列式, Leibniz公式, polynomial matrix determinant]
     requires:
       - linear.abstract-determinant
 
@@ -70,7 +70,7 @@ concepts:
   - id: linear.adjugate-identity
     name: 余因子行列の恒等式
     kind: lemma
-    aliases: [余因子行列の恒等式]
+    aliases: [余因子行列の恒等式, 多項式行列恒等式]
     requires:
       - linear.polynomial-laplace-expansion
 
