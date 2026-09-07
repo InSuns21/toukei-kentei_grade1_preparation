@@ -1,0 +1,35 @@
+chapter: "TOP4"
+terms:
+  - term: T0空間
+    english: T0 space / Kolmogorov space
+    meaning: 異なる二点について、少なくとも一方だけを含む開集合が存在する位相空間。
+  - term: T1空間
+    english: T1 space
+    meaning: 異なる二点 x,y のそれぞれについて、相手を含まない開近傍を取れる位相空間。同値に一点集合がすべて閉である。
+  - term: Hausdorff空間
+    english: Hausdorff space / T2 space
+    meaning: 異なる二点を互いに交わらない開近傍で分離できる位相空間。F0-00B1で定義済み。
+  - term: 正則性
+    english: regularity
+    meaning: 点 x と、その点を含まない閉集合 F を、互いに交わらない開集合で分離できる性質。T1条件はこの語自体には含めない。
+  - term: T3空間
+    english: T3 space
+    meaning: T1であり、かつ正則性を満たす位相空間。本章ではこの規約を採用する。
+  - term: 正規性
+    english: normality
+    meaning: 交わらない二つの閉集合を、互いに交わらない開集合で分離できる性質。T1条件はこの語自体には含めない。
+  - term: T4空間
+    english: T4 space
+    meaning: T1であり、かつ正規性を満たす位相空間。本章ではこの規約を採用する。
+  - term: 局所基底
+    english: local base / neighborhood base
+    meaning: 点 x の任意の近傍の中に、その族の要素を一つ見つけられるような x の近傍族。
+  - term: 第一可算
+    english: first countable
+    meaning: 各点が可算な局所基底を持つこと。点ごとの近傍構造を可算化する条件。
+  - term: 第二可算
+    english: second countable
+    meaning: 位相全体を生成する可算な基底を持つこと。空間全体の開集合構造を一つの可算族で記述する条件。
+  - term: 可分空間
+    english: separable space
+    meaning: 可算な稠密部分集合を持つ位相空間。可算個の点が任意の非空開集合に入り込むという条件。
