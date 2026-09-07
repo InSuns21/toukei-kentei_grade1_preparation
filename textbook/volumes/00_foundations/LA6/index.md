@@ -128,16 +128,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $r$ を示します。$B=S^*AS$、$S$ 可逆なら
+まず $r$ を示します。$B=S^*AS$、$S$ 可逆なら $S^*$ も可逆なので
 $$
 Bx=0
+\iff S^*ASx=0
 \iff ASx=0.
 $$
 従って $x\mapsto Sx$ は $\ker B$ と $\ker A$ の線形同型で
 $$
 \dim\ker B=\dim\ker A.
 $$
-よって零方向の個数 $r$ は不変です。
+よって零方向の個数 $r$ はcongruenceで不変です。
 
 次に標準形
 $$
@@ -163,13 +164,24 @@ $$
 $$
 p=\max\{\dim L:h|_L\text{ が正定値}\}.
 $$
-これは二次形式そのものから決まるので $p$ は一意です。
 
-$-h$ に同じ議論を適用すると
+ここでcongruenceでこの最大次元が保存されることを確認します。$B=S^*AS$ なら、その二次形式は
+$$
+q_B(x)=x^*Bx=(Sx)^*A(Sx)=q_A(Sx)
+$$
+です。$S$ は可逆なので、$L\mapsto S(L)$ は部分空間全体の間の次元を保つ全単射です。また
+$$
+q_B|_L\text{ が正定値}
+\iff
+q_A|_{S(L)}\text{ が正定値}.
+$$
+従って正定値部分空間の最大次元はcongruenceで変わらず、標準形で求めた値 $p$ は変換の選び方によらず一意です。
+
+同じ議論を $-h$ に適用すると
 $$
 q=\max\{\dim L:h|_L\text{ が負定値}\}
 $$
-も一意です。従って $(p,q,r)$ は一意です。$\square$
+であり、負定値部分空間の最大次元も同じ写像 $L\mapsto S(L)$ で保存されるので $q$ も一意です。従って $(p,q,r)$ は一意です。$\square$
 <!-- proof-end -->
 
 ---
@@ -349,7 +361,18 @@ $\operatorname{Im}P$ 上で
 $$
 U_0(Px)=Ax
 $$
-と定めます。$Px=Py$ なら $P(x-y)=0$、従って $A(x-y)=0$ なのでwell-definedです。線形性は $P,A$ の線形性から従います。
+と定めます。$Px=Py$ なら $P(x-y)=0$、従って $A(x-y)=0$ なのでwell-definedです。
+
+線形性も、$a,b\in\mathbb C$ に対して
+$$
+\begin{aligned}
+U_0(aPx+bPy)
+&=U_0(P(ax+by))\\
+&=A(ax+by)\\
+&=aU_0(Px)+bU_0(Py)
+\end{aligned}
+$$
+から従います。
 
 さらに
 $$
@@ -394,9 +417,9 @@ Up_i=U_0p_i\quad(i\le r),
 \qquad
 Up_i=a_i\quad(i>r)
 $$
-と定めれば、$U$ は正規直交基底を正規直交基底へ送るのでunitaryです。また $Px\in\operatorname{Im}P$ 上では $U=U_0$ なので
+と定めれば、$U$ は正規直交基底を正規直交基底へ送るのでunitaryです。任意の $x$ について $Px\in\operatorname{Im}P$ であり、その部分空間上では $U=U_0$ なので
 $$
-UPx=Ax.
+UPx=U_0(Px)=Ax.
 $$
 従って $A=UP$ です。
 
@@ -438,9 +461,9 @@ A^*Av_i=\lambda_i v_i,
 \qquad
 \lambda_i\ge0.
 $$
-正の固有値を先に並べ
+正の固有値を大きい順に先に並べ
 $$
-\lambda_1,\dots,\lambda_r>0,
+\lambda_1\ge\cdots\ge\lambda_r>0,
 \qquad
 \lambda_{r+1}=\cdots=\lambda_n=0
 $$
@@ -452,17 +475,7 @@ $$
 \qquad
 u_i=\frac{Av_i}{\sigma_i}
 $$
-ではなく、ここでは左特異ベクトルを **$u_i$** と書き、
-$$
-u_i\text{ という記号は使わず},
-\qquad
-u_i\text{ の代わりに }u_i
-$$
-といったメタな読み替えも行いません。定義は単に
-$$
- u_i=\frac{Av_i}{\sigma_i}
-$$
-です。
+と定めます。
 
 すると
 $$
@@ -486,13 +499,13 @@ $$
 $$
 従って
 $$
- u_1,\dots,u_r
+u_1,\dots,u_r
 $$
-は $\mathbb C^m$ の正規直交系です。
+は $\mathbb C^m$ の正規直交系です。特に $r\le m$ です。
 
 LA5の[正規直交系の延長](../LA5/index.md#thm-la5-orthonormal-extension)により
 $$
- u_1,\dots,u_r,u_{r+1},\dots,u_m
+u_1,\dots,u_r,u_{r+1},\dots,u_m
 $$
 を $\mathbb C^m$ の正規直交基底へ延長します。$U$ を $u_i$ を列に持つunitary行列、$V$ を $v_i$ を列に持つunitary行列とします。
 
@@ -527,7 +540,13 @@ $$
 $$
 A=U\Sigma V^*.
 $$
-また $\sigma_i=\sqrt{\lambda_i}$ なので、正の対角成分は $A^*A$ の正の固有値の平方根です。$\square$
+また
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0,
+\qquad
+\sigma_i=\sqrt{\lambda_i}
+$$
+なので、$\Sigma$ の正の対角成分は $A^*A$ の正の固有値の平方根を大きい順に並べたものです。$\square$
 <!-- proof-end -->
 
 SVDはnormalでない行列や長方形行列にも使えます。$A$ 自身ではなく、必ずHermitian PSDになる $A^*A$ を対角化するからです。
@@ -657,7 +676,7 @@ SVD $A=U\Sigma V^*$ にunitary不変性と対角行列の補題を使えば
 $$
 \|A\|_2=\|\Sigma\|_2=\sigma_1.
 $$
-つまり「作用素ノルムは最大特異値」という公式をここで回収できます。
+ここで $\sigma_1$ が最大特異値であることは、SVDの構成時に $\lambda_1\ge\cdots\ge\lambda_r$ と並べたことから従います。つまり「作用素ノルムは最大特異値」という公式をここで回収できます。
 
 ---
 
