@@ -1,6 +1,6 @@
-# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解（SVD）
+# LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解
 
-ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解（SVD）・作用素ノルム** を一つの依存鎖にまとめます。
+ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。本章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解・作用素ノルム** を一つの依存鎖にまとめます。
 
 [F0-00F1](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) や [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md) は計算上の先行プレビューとして参照できますが、本章の証明では「速習章に公式があるから既知」とは扱いません。必要な構造はLA5の複素スペクトル定理と本章内の補題から導きます。
 
@@ -434,9 +434,9 @@ $A$ が特異なら、$\operatorname{Im}P$ の直交補上での $U$ の選び�
 
 ---
 
-## 6. 複素特異値分解（SVD）
+## 6. 複素特異値分解
 
-速習章の実SVDを前提に「転置を共役転置へ替える」とはしません。矩形行列からHermitian PSD作用素 $A^*A$ を作り、LA5の複素スペクトル定理から直接構成します。
+速習章の実特異値分解を前提に「転置を共役転置へ替える」とはしません。矩形行列からHermitian PSD作用素 $A^*A$ を作り、[LA5の複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)から直接構成します。
 
 <a id="thm-la6-complex-svd"></a>
 <!-- formal-statement-start -->
@@ -549,7 +549,7 @@ $$
 なので、$\Sigma$ の正の対角成分は $A^*A$ の正の固有値の平方根を大きい順に並べたものです。$\square$
 <!-- proof-end -->
 
-SVDはnormalでない行列や長方形行列にも使えます。$A$ 自身ではなく、必ずHermitian PSDになる $A^*A$ を対角化するからです。
+特異値分解はnormalでない行列や長方形行列にも使えます。$A$ 自身ではなく、必ずHermitian PSDになる $A^*A$ を対角化するからです。
 
 ---
 
@@ -672,22 +672,22 @@ $$
 従って $\|D\|_2\le M$。$|d_j|=M$ となる $j$ で $x=e_j$ と取れば等号を達成するので $\|D\|_2=M$ です。$\square$
 <!-- proof-end -->
 
-SVD $A=U\Sigma V^*$ にunitary不変性と対角行列の補題を使えば
+特異値分解 $A=U\Sigma V^*$ にunitary不変性と対角行列の補題を使えば
 $$
 \|A\|_2=\|\Sigma\|_2=\sigma_1.
 $$
-ここで $\sigma_1$ が最大特異値であることは、SVDの構成時に $\lambda_1\ge\cdots\ge\lambda_r$ と並べたことから従います。つまり「作用素ノルムは最大特異値」という公式をここで回収できます。
+ここで $\sigma_1$ が最大特異値であることは、特異値分解の構成時に $\lambda_1\ge\cdots\ge\lambda_r$ と並べたことから従います。つまり「作用素ノルムは最大特異値」という公式をここで回収できます。
 
 ---
 
-## 8. スペクトル定理・Jordan・SVDの使い分け
+## 8. スペクトル定理・Jordan・特異値分解の使い分け
 
 | 対象 | 分解 | 基底 | 何が見えるか |
 |---|---|---|---|
 | 一般の複素自己写像 | Jordan標準形 | 一般基底 | 一般化固有構造・冪零部分 |
 | complex normal | unitary対角化 | 正規直交基底 | 固有方向が直交して完全分解 |
 | Hermitian | unitary対角化 | 正規直交基底 | 実固有値・二次形式の符号 |
-| 任意の長方形行列 | SVD | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
+| 任意の長方形行列 | 特異値分解 | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
 | 任意の正方行列 | polar decomposition | 基底不要な作用素分解 | unitary部分 × PSD伸縮 |
 
 ---
@@ -772,7 +772,7 @@ $$
 $$
 A^*A=\operatorname{diag}(1,1,4).
 $$
-[複素SVD](#thm-la6-complex-svd)から特異値はその固有値の非負平方根なので、降順に
+[上の定理](#thm-la6-complex-svd)から特異値はその固有値の非負平方根なので、降順に
 $$
 2,1,1
 $$
@@ -798,10 +798,10 @@ similarityでは固有値を保ちます。congruenceでは固有値の値は変
 <!-- solution-end -->
 
 <a id="ex-la6-b02"></a>
-#### LA6-B02 polar分解とSVD
+#### LA6-B02 polar分解と特異値分解
 - Level: B
 
-正方可逆行列 $A$ のSVD
+正方可逆行列 $A$ の特異値分解
 $$
 A=U\Sigma V^*
 $$
@@ -855,7 +855,7 @@ $$
 ### Level C
 
 <a id="ex-la6-c01"></a>
-#### LA6-C01 SVDから最良rank-$k$近似を読む
+#### LA6-C01 特異値分解から最良rank-$k$近似を読む
 - Level: C
 
 $A=U\Sigma V^*$ の正の特異値を
@@ -866,7 +866,7 @@ $$
 $$
 \|A-B\|_2\ge\sigma_{k+1}
 $$
-を示し、上位 $k$ 個の特異値だけ残した打切りSVDで等号が達成されることを示せ。
+を示し、上位 $k$ 個の特異値だけ残した打切り特異値分解で等号が達成されることを示せ。
 
 <!-- solution-start -->
 **解答**：[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)から
@@ -946,7 +946,7 @@ $$
   ↓
 複素Gram–Schmidt・有限次元随伴・normal
   ↓
-二次形式・PSD平方根・polar decomposition・複素SVD・作用素ノルム
+二次形式・PSD平方根・polar decomposition・複素特異値分解・作用素ノルム
 ```
 
 まで一巡しました。
