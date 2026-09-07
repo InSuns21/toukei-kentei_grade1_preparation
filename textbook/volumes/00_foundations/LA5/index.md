@@ -520,7 +520,7 @@ $$
 
 次元 $n$ に関する帰納法で示します。$n=1$ なら自明です。
 
-$n\ge2$ とします。LA4で明示した[代数学の基本定理という証明境界](../LA4/index.md#note-la4-fta-boundary)により、$n$ 次の特性多項式 $\chi_T$ は複素数の根 $\lambda$ を持ちます。LA4の[固有値と特性多項式の根](../LA4/index.md#thm-la4-eigenvalue-characteristic-root)から $\lambda$ は $T$ の固有値です。従って非零固有ベクトル $v$ が存在し
+$n\ge2$ とします。LA4で明示した[代数学の基本定理という証明境界](../LA4/index.md#ref-la4-fta-boundary)により、$n$ 次の特性多項式 $\chi_T$ は複素数の根 $\lambda$ を持ちます。LA4の[固有値と特性多項式の根](../LA4/index.md#thm-la4-eigenvalue-characteristic-root)から $\lambda$ は $T$ の固有値です。従って非零固有ベクトル $v$ が存在し
 $$
 q_1=\frac{v}{\|v\|}
 $$
