@@ -1,0 +1,39 @@
+id: "TOP6"
+title: "標準位相 VI：全有界性・Baire・net/filter"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP5
+  - F0-00D
+official_scope: []
+learning_objectives:
+  - 全有界性を既存正本から再利用し、任意の点列がCauchy部分列を持つこととの同値を両方向に証明できる
+  - 距離空間でコンパクト性と「完備かつ全有界」が同値であることを、全有界性と完備性の役割を分離して証明できる
+  - 疎集合・meagre集合・Baire空間の定義を量化込みで説明できる
+  - Baireのカテゴリー定理を縮小閉球列から証明し、稠密性・開性・完備性・閉性が働く箇所を説明できる
+  - 点列では閉包を検出できない一般位相空間の例を、非可算積の有限台点を用いて説明できる
+  - 有向集合・net・filterを定義し、閉包と連続性をnetで特徴付けられる
+  - netの最終filterとfilterから構成したnetの対応を、filter公理と有向性を使って証明できる
+definitions:
+  - { id: TOP6-DEF-01, name: 疎集合 }
+  - { id: TOP6-DEF-02, name: 第一類集合・meagre集合 }
+  - { id: TOP6-DEF-03, name: Baire空間 }
+  - { id: TOP6-DEF-04, name: 有向集合 }
+  - { id: TOP6-DEF-05, name: net }
+  - { id: TOP6-DEF-06, name: netの収束 }
+  - { id: TOP6-DEF-07, name: filter }
+  - { id: TOP6-DEF-08, name: filterの収束 }
+theorems:
+  - { id: TOP6-THM-01, name: 全有界性とCauchy部分列による特徴付け }
+  - { id: TOP6-THM-02, name: コンパクト距離空間と完備かつ全有界の同値 }
+  - { id: TOP6-THM-03, name: Baireのカテゴリー定理 }
+  - { id: TOP6-COR-01, name: 非空完備距離空間は自身の中でmeagreでない }
+  - { id: TOP6-THM-04, name: 閉包のnetによる特徴付け }
+  - { id: TOP6-THM-05, name: 連続性のnetによる特徴付け }
+  - { id: TOP6-THM-06, name: netとfilterの収束対応 }
+canonical_examples: [全有界だが非完備な開区間, 完備だが非全有界な無限離散距離空間, meagreな有理数, 非Baireな有理数, 点列で閉包を検出できない非可算積, 近傍有向集合, 一点filter]
+problem_patterns: [TOTAL-BOUNDED-CAUCHY-1, COMPACT-COMPLETE-TOTAL-BOUNDED-1, BAIRE-CATEGORY-1, NON-BAIRE-Q-1, NET-CLOSURE-1, NET-CONTINUITY-1, NET-FILTER-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
