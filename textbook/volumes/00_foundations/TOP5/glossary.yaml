@@ -1,0 +1,23 @@
+chapter: "TOP5"
+terms:
+  - term: 開被覆
+    english: open cover
+    meaning: 部分集合 A に対し、開集合族 U_i の合併が A を含むとき、その族を A の開被覆という。
+  - term: 有限部分被覆
+    english: finite subcover
+    meaning: 開被覆の中から有限個だけを選び、それでも対象全体を覆う部分族。
+  - term: コンパクト空間
+    english: compact space
+    meaning: 任意の開被覆が有限部分被覆を持つ位相空間。被覆ごとに選ぶ有限個は変わってよい。
+  - term: 有限交差性
+    english: finite intersection property / FIP
+    meaning: 集合族の任意の有限部分族について、その共通部分が空でない性質。本章では非空な有限部分族について述べる。
+  - term: コンパクト部分集合
+    english: compact subset
+    meaning: 部分空間位相を入れたときコンパクトになる部分集合。母空間がHausdorffであることは定義に含まれない。
+  - term: 点列コンパクト性
+    english: sequential compactness
+    meaning: 任意の点列が収束部分列を持つ性質。一般位相ではコンパクト性と無条件には同値でない。
+  - term: Lebesgue数
+    english: Lebesgue number
+    meaning: 距離空間の開被覆に対し、半径 delta の各開球が被覆のどれか一要素へ入るような正数 delta。本章では距離空間での同値証明の補助として用いる。
