@@ -1,0 +1,45 @@
+chapter: MT0
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2
+  - F0-00D3
+  - F0-00D4
+  - F0-00C1
+
+# D2A は単関数近似との役割比較にだけ登場し、MT0 の証明依存にはしない。
+forward_references:
+  - measure.simple-function-approximation
+
+concepts:
+  - id: measure.bounded-measurable-finite-simple-uniform-approximation
+    name: 有界可測関数の有限単関数による一様近似
+    kind: theorem
+    aliases: [有界可測関数の有限単関数による一様近似, bounded measurable finite simple uniform approximation]
+    requires:
+      - measure.measurable-function
+      - measure.indicator-measurability
+
+  - id: measure.lebesgue-outer-regularity-finite
+    name: 有限測度Lebesgue可測集合の外正則性
+    kind: theorem
+    aliases: [有限測度 Lebesgue 可測集合の外正則性, Lebesgue outer regularity for finite-measure sets]
+    requires:
+      - measure.lebesgue-outer-measure
+      - measure.interval-lebesgue-outer-measure
+
+  - id: measure.lebesgue-inner-regularity-finite
+    name: 有限測度Lebesgue可測集合の内正則性
+    kind: theorem
+    aliases: [有限測度 Lebesgue 可測集合の内正則性, Lebesgue inner regularity for finite-measure sets]
+    requires:
+      - measure.lebesgue-outer-regularity-finite
+      - measure.continuity-from-below
+      - topology.compact-set
+
+  - id: measure.finite-partition-compact-approximation
+    name: 有限可測分割のコンパクト近似
+    kind: corollary
+    aliases: [有限可測分割のコンパクト近似]
+    requires:
+      - measure.lebesgue-inner-regularity-finite
