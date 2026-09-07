@@ -13,11 +13,13 @@ learning_objectives:
   - Hausdorff空間のコンパクト部分集合が閉であることを、点ごとの分離と有限部分被覆を組み合わせて証明できる
   - コンパクト空間からHausdorff空間への連続全単射が同相写像になることを、閉写像性から証明できる
   - 一般位相ではコンパクト性と点列コンパクト性を同一視できないことを理解し、距離空間での同値を必要な補題から証明できる
+  - 局所コンパクトHausdorff空間でcompact-open cutoffを、compact Hausdorffの正規性と連続分離から構成できる
 definitions:
   - { id: TOP5-DEF-01, name: 開被覆・有限部分被覆 }
   - { id: TOP5-DEF-02, name: コンパクト空間 }
   - { id: TOP5-DEF-03, name: 有限交差性 }
   - { id: TOP5-DEF-04, name: 点列コンパクト性 }
+  - { id: TOP5-DEF-05, name: 局所コンパクト性, source: lch-cutoff.md }
 theorems:
   - { id: TOP5-THM-01, name: コンパクト性の有限交差性による特徴付け }
   - { id: TOP5-THM-02, name: コンパクト空間の閉部分集合はコンパクト }
@@ -25,9 +27,14 @@ theorems:
   - { id: TOP5-THM-04, name: Hausdorff空間のコンパクト部分集合は閉 }
   - { id: TOP5-COR-01, name: コンパクト空間からHausdorff空間への連続全単射は同相写像 }
   - { id: TOP5-THM-05, name: 距離空間ではコンパクト性と点列コンパクト性が同値 }
+  - { id: TOP5-THM-06, name: compact Hausdorffならnormal, source: lch-cutoff.md }
+  - { id: TOP5-LEM-06, name: normal shrinking, source: lch-cutoff.md }
+  - { id: TOP5-LEM-07, name: compact Hausdorff上のUrysohn型連続分離, source: lch-cutoff.md }
+  - { id: TOP5-THM-07, name: LCHのprecompact shrinking, source: lch-cutoff.md }
+  - { id: TOP5-THM-08, name: LCH compact-open cutoff, source: lch-cutoff.md }
 canonical_examples: [有限空間, 実直線の非コンパクト性, 有限交差性を失う閉集合族, コンパクト集合の連続像, 一般位相での点列コンパクト性とのずれ]
-problem_patterns: [COMPACT-OPEN-COVER-1, COMPACT-FIP-1, CLOSED-SUBSET-COMPACT-1, CONTINUOUS-IMAGE-COMPACT-1, COMPACT-HAUSDORFF-CLOSED-1, COMPACT-TO-HAUSDORFF-HOMEOMORPHISM-1, METRIC-SEQUENTIAL-COMPACTNESS-1]
+problem_patterns: [COMPACT-OPEN-COVER-1, COMPACT-FIP-1, CLOSED-SUBSET-COMPACT-1, CONTINUOUS-IMAGE-COMPACT-1, COMPACT-HAUSDORFF-CLOSED-1, COMPACT-TO-HAUSDORFF-HOMEOMORPHISM-1, METRIC-SEQUENTIAL-COMPACTNESS-1, LCH-CUTOFF-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.0 }

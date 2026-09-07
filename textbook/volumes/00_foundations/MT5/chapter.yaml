@@ -1,0 +1,46 @@
+id: "MT5"
+title: "標準測度論 VI：Radon測度・Riesz–Markov"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP5
+  - MT3
+  - F0-00F
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - Radon測度をcompact-finite・open-inner regular・Borel-outer regularとして量化付きで定義できる
+  - 局所コンパクトHausdorff空間上のcompact-open cutoffを使って正線形汎関数からopen contentを構成できる
+  - compact supportの有限化だけからopen contentの可算劣加法性と互いに素なopen set上の有限加法性を証明できる
+  - open contentからouter measureを作りopen setのCaratheodory可測性を証明できる
+  - 構成したBorel測度のcompact-finiteness・内正則性・外正則性を証明できる
+  - 高さ方向の有限単関数近似と局所order boundからL(f)=int f dmuを証明できる
+  - cutoffとRadon正則性から表現測度の一意性を証明できる
+  - C_c上の正汎関数版とC_0双対・符号付き測度版の証明境界を区別できる
+definitions:
+  - { id: MT5-DEF-01, name: C_c(X)とsupport }
+  - { id: MT5-DEF-02, name: Radon測度 }
+  - { id: MT5-DEF-03, name: 正線形汎関数 }
+  - { id: MT5-DEF-04, name: open content m(U) }
+  - { id: MT5-DEF-05, name: compact content m_K }
+  - { id: MT5-DEF-06, name: open contentから作るouter measure }
+theorems:
+  - { id: MT5-LEM-01, name: 正性から得られる局所order bound }
+  - { id: MT5-LEM-02, name: compact集合上の有限cutoff partition }
+  - { id: MT5-LEM-03, name: open contentの可算劣加法性 }
+  - { id: MT5-LEM-04, name: 互いに素なopen sets上の有限加法性 }
+  - { id: MT5-LEM-05, name: compact contentの有限性 }
+  - { id: MT5-LEM-06, name: open contentのcompactからの復元 }
+  - { id: MT5-THM-01, name: open contentから作ったmu*はouter measure }
+  - { id: MT5-THM-02, name: open setはCaratheodory可測 }
+  - { id: MT5-THM-03, name: 構成したBorel測度はRadon }
+  - { id: MT5-THM-04, name: 非負C_c関数の積分表示 }
+  - { id: MT5-COR-01, name: 実数値C_c関数の積分表示 }
+  - { id: MT5-THM-05, name: 表現Radon測度の一意性 }
+  - { id: MT5-THM-06, name: Riesz-Markov正汎関数版 }
+canonical_examples: [Dirac測度, 有限原子測度, Lebesgue測度, 離散空間のcounting measure]
+problem_patterns: [MT5-POSITIVE-ORDER-1, MT5-OPEN-CONTENT-1, MT5-OUTER-MEASURE-1, MT5-CARATHEODORY-OPEN-1, MT5-REPRESENTATION-1, MT5-UNIQUENESS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.0, review: 1.0 }

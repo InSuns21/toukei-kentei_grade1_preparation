@@ -1,0 +1,22 @@
+terms:
+  - id: mt3-sigma-finite
+    name: σ-finite測度
+    definition: 全空間を可算個の有限測度可測集合の和で覆える測度。Radon–Nikodym定理を有限測度版から局所化して拡張する際の仮定となる。
+  - id: mt3-radon-nikodym-derivative
+    name: Radon–Nikodym微分
+    definition: nu<<mu のとき nu(A)=int_A f dmu を満たす非負可測関数 f。mu-a.e.の違いを除いて一意で dnu/dmu と書く。
+  - id: mt3-radon-nikodym-theorem
+    name: Radon–Nikodym定理
+    definition: σ-finite正測度 mu,nu で nu<<mu なら Radon–Nikodym微分 dnu/dmu が存在するという定理。
+  - id: mt3-change-of-measure
+    name: 測度変更の積分公式
+    definition: dnu=f dmu のとき適切な可測関数 g について int g dnu=int gf dmu と書けること。
+  - id: mt3-chain-rule
+    name: Radon–Nikodym微分のchain rule
+    definition: lambda<<nu<<mu のもとで dlambda/dmu=(dlambda/dnu)(dnu/dmu) がmu-a.e.に成り立つ関係。
+  - id: mt3-singularity
+    name: 測度の特異性
+    definition: 二つの正測度が互いに素な可測集合へ全質量を集中できること。符号付き測度では全変動を通して定義する。
+  - id: mt3-lebesgue-decomposition
+    name: Lebesgue分解
+    definition: 測度 nu を基準測度 mu に絶対連続な部分と mu に特異な部分へ一意に分ける分解 nu=nu_ac+nu_s。
