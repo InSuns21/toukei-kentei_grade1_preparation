@@ -10,7 +10,7 @@
    線形形式を「ベクトルを測る道具」として導入し、双対基底、annihilator、商空間の双対、双対写像、二重双対へ進みます。
 
 2. **[LA3B 行列式の構成](../LA3B/index.md)**  
-   面積・体積倍率に欲しい性質を先に考え、置換の符号と Leibniz 公式から一般の $n\times n$ 行列式を構成します。
+   面積・体積倍率に欲しい性質を先に考え、[置換の符号](../LA3B/index.md#def-la3b-permutation-sign)で向きを管理し、[Leibniz 公式による行列式](../LA3B/index.md#def-la3b-matrix-determinant)を構成します。
 
 3. **[LA3C 行列式の計算・可逆性・乗法性](../LA3C/index.md)**  
    基本変形、三角行列、Laplace 展開、余因子、乗法性、可逆性、相似不変性を扱います。**LA4 の必須前提はここまで**です。
