@@ -853,7 +853,7 @@ $$
 \boxed{\mu(A):=\mu^*(A)}
 $$
 
-と定めます。Caratheodory の定理によりこれは Borel 測度です。
+と定めます。Carathéodory の定理によりこれは Borel 測度です。
 
 <a id="thm-mt5-radon-regularity"></a>
 <!-- formal-statement-start -->
@@ -1458,6 +1458,8 @@ MT2 には符号付き測度・全変動がありますが、**任意の有界�
 
 ## A1. 正性から単調性
 
+- Level: A
+
 正線形汎関数 $L:C_c(X)\to\mathbb R$ について
 
 $$
@@ -1467,6 +1469,8 @@ $$
 を、正性の定義だけから証明せよ。
 
 ## A2. 点評価の open content
+
+- Level: A
 
 $x_0\in X$ とし $L(f)=f(x_0)$ とする。本章の定義した $m(U)$ が
 
@@ -1482,6 +1486,8 @@ $$
 
 ## A3. open set では outer measure と content が一致する
 
+- Level: A
+
 open $U\subseteq X$ について
 
 $$
@@ -1491,6 +1497,8 @@ $$
 を、$\mu^*$ の定義と $m$ の単調性だけから証明せよ。
 
 ## A4. compact 集合の測度は有限である
+
+- Level: A
 
 compact $K\subseteq X$ について
 
@@ -1502,13 +1510,19 @@ $$
 
 ## B1. compact support の有限化が必要な箇所
 
+- Level: B
+
 $m(U)$ の可算劣加法性の証明で、なぜ open cover $U\subseteq\bigcup_nU_n$ から最初から全空間の partition of unity を作る必要がないのか説明せよ。
 
 ## B2. open set 上の一致だけで一意性が出る理由
 
+- Level: B
+
 二つの Radon 測度 $\mu,\nu$ が全ての open set 上で一致するとする。Borel set 上でも一致することを、本章の Radon の定義だけから証明せよ。
 
 ## B3. Caratheodory 可測性で shrinking が必要な理由
+
+- Level: B
 
 open $G\subseteq X$ と open $U\subseteq X$ に対して
 
@@ -1527,6 +1541,8 @@ $$
 となる open $W$ を挟む理由を説明せよ。
 
 ## C1. 離散空間の例
+
+- Level: C
 
 $X$ を非可算離散空間、$a_x=1$ とする。
 
