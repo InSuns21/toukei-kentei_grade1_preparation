@@ -54,9 +54,9 @@ concepts:
       - linear.orthonormal-extension
 
   - id: linear.adjoint-calculus
-    name: 随伴の基本則
+    name: 随伴の計算規則
     kind: theorem
-    aliases: [随伴の基本則, adjoint calculus]
+    aliases: [随伴の計算規則, 随伴の基本則, adjoint calculus]
     requires:
       - linear.finite-dimensional-adjoint
 
