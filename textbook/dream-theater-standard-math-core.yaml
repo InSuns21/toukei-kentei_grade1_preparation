@@ -272,7 +272,9 @@ nodes:
     title: 符号付き測度・全変動
     area: measure-theory
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT2/index.md
     prerequisites: [MTI]
   - id: MT3
     title: Radon–Nikodym・Lebesgue分解
