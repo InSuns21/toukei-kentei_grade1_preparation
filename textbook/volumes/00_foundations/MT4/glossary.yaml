@@ -1,0 +1,25 @@
+terms:
+  - id: mt4-l1-loc
+    name: 局所可積分関数 L1_loc
+    definition: 各compact区間上でLebesgue可積分となる可測関数。局所平均とLebesgue微分定理の自然な定義域である。
+  - id: mt4-hardy-littlewood-maximal
+    name: Hardy–Littlewood maximal function
+    definition: 各点を含む区間上の |f| の平均値の上限を取って得る関数。弱(1,1)評価がLebesgue微分定理の近似誤差を制御する。
+  - id: mt4-lebesgue-differentiation
+    name: Lebesgue微分定理
+    definition: 局所可積分関数の局所平均がほとんど至る所で元の関数値へ収束するという定理。
+  - id: mt4-density-theorem
+    name: Lebesgue密度定理
+    definition: 可測集合の指示関数へLebesgue微分定理を適用し、ほとんど全ての集合内点で局所密度が1になることを述べる定理。
+  - id: mt4-absolute-continuity
+    name: 絶対連続関数
+    definition: 互いに素な有限個の区間の長さの総和を十分小さくすれば、対応する関数値の増分絶対値の総和も任意に小さくできる関数。
+  - id: mt4-bounded-variation
+    name: bounded variation
+    definition: 区間の全ての有限分割について増分絶対値の和が一様に有界となる関数。上限を全変動という。
+  - id: mt4-lebesgue-stieltjes
+    name: Lebesgue–Stieltjes測度
+    definition: 連続増加関数の区間増分から構成されるBorel測度。絶対連続関数のFTCをRadon–Nikodym定理へ接続する。
+  - id: mt4-ac-ftc
+    name: 絶対連続関数の微積分学の基本定理
+    definition: 絶対連続関数 F はa.e.微分可能で F' は可積分、かつ F(x)-F(a)=int_a^x F'(t)dt と復元できるという定理。
