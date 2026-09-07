@@ -5,6 +5,7 @@ prerequisites:
   - LA3B
   - F0-00F
 forward_references:
+  - linear.operator-polynomial
   - linear.characteristic-polynomial
   - linear.cayley-hamilton-theorem
 
