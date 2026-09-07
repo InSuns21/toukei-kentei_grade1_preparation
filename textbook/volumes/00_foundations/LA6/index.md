@@ -1,6 +1,8 @@
 # LA6 標準線形代数 VI：スペクトル・二次形式・polar decomposition・特異値分解（Singular Value Decomposition; SVD）
 
-ここまでで、一般作用素のJordan構造と、normal operatorのunitary対角化を扱いました。この章では既存の [実対称スペクトル定理・PSD](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) と [特異値分解（SVD）](../F0_00F2_SVD_特異値_作用素ノルム/index.md) を再利用し、二次形式・polar decomposition・複素特異値分解（SVD）を一つの線にまとめます。
+ここまでで、一般作用素のJordan構造とnormal operatorのunitary対角化を標準コア内で構成しました。この章ではそれらを正本として、**Hermitian二次形式・慣性・PSD平方根・polar decomposition・複素特異値分解（SVD）** を一つの依存鎖にまとめます。
+
+[F0-00F1](../F0_00F1_固有空間_スペクトル定理_PSD/index.md) や [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md) は計算上の先行プレビューとして参照できますが、本章の証明では「速習章に公式があるから既知」とは扱いません。必要な構造はLA5の複素スペクトル定理と本章内の補題から導きます。
 
 ---
 
@@ -27,7 +29,7 @@ $$
 =q_A(x),
 \end{aligned}
 $$
-したがって $q_A(x)$ は実数です。
+従って $q_A(x)$ は実数です。
 
 <!-- definition-example-start: def-la6-hermitian-quadratic-form -->
 **定義の確認**：
@@ -36,30 +38,26 @@ A=\begin{pmatrix}2&0\\0&-1\end{pmatrix}
 $$
 なら $A^*=A$ なのでHermitianです。$x=(x_1,x_2)^T$ に対し
 $$
-Ax=(2x_1,-x_2)^T
-$$
-だから
-$$
 \begin{aligned}
 q_A(x)
 &=x^*Ax\\
-&=\overline{x_1}(2x_1)+\overline{x_2}(-x_2)\\
 &=2|x_1|^2-|x_2|^2.
 \end{aligned}
 $$
-例えば $x=e_1$ では $q_A(x)=2>0$、$x=e_2$ では $q_A(x)=-1<0$ なので、正の方向と負の方向が混在する不定値二次形式です。
+例えば $x=e_1$ では $q_A(x)=2>0$、$x=e_2$ では $q_A(x)=-1<0$ です。正方向と負方向が混在する不定値二次形式です。
 <!-- definition-example-end -->
 
-[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)によりHermitian作用素はunitary対角化できるので、ある正規直交基底で
+[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)によりHermitian作用素はunitary対角化できます。またLA5でHermitian作用素の固有値が実数であることを証明済みです。従ってある正規直交基底で
 $$
 A=\operatorname{diag}(\lambda_1,\dots,\lambda_n),
-\qquad \lambda_j\in\mathbb R.
+\qquad
+\lambda_j\in\mathbb R,
 $$
-従って
+となり
 $$
 q_A(x)=\sum_{j=1}^n\lambda_j|x_j|^2.
 $$
-二次形式の幾何は固有値の符号へ還元されます。
+二次形式の符号構造は固有値の符号へ還元されます。
 
 ---
 
@@ -100,32 +98,28 @@ S=\operatorname{diag}(2,1)
 $$
 とします。similarityでは
 $$
-S^{-1}AS=S^{-1}S=I_2
+S^{-1}AS=I_2
 $$
-なので固有値は $1,1$ のままです。一方congruenceでは
+ですが、congruenceでは
 $$
-S^*AS
-=S^*S
-=\operatorname{diag}(4,1).
+S^*AS=S^*S=\operatorname{diag}(4,1).
 $$
-固有値は $1,1$ から $4,1$ へ変わりました。したがってcongruenceは固有値そのものを保存しません。
-
-しかし両方とも
-$$
-q(x)>0\qquad(x\ne0)
-$$
-で、正方向が2本、負方向・零方向が0本という性質は同じです。これが次の慣性法則で保存される量です。
+従ってcongruenceは固有値そのものを保存しません。しかしどちらの二次形式も全ての非零ベクトルで正であり、正方向2・負方向0・零方向0という符号構造は同じです。
 <!-- definition-example-end -->
 
 ---
 
 ## 3. Sylvesterの慣性法則
 
-Hermitian行列 $A$ はunitary対角化により
+Hermitian行列 $A$ はLA5のスペクトル定理により
 $$
 A=Q\operatorname{diag}(\lambda_1,\dots,\lambda_n)Q^*
 $$
-と書けます。正の固有値を $\lambda_1,\dots,\lambda_p$、負の固有値を $\lambda_{p+1},\dots,\lambda_{p+q}$、残りを0とします。
+と書けます。正の固有値を $\lambda_1,\dots,\lambda_p$、負の固有値を $\lambda_{p+1},\dots,\lambda_{p+q}$ とし、零固有値の個数を
+$$
+r=n-p-q
+$$
+とします。
 
 対角行列
 $$
@@ -137,12 +131,22 @@ D=
 1,\dots,1
 \right)
 $$
-を使うと
+を取ると
 $$
 D^*\operatorname{diag}(\lambda_1,\dots,\lambda_n)D
 =\operatorname{diag}(I_p,-I_q,0_r).
 $$
-従って $S=QD$ のような可逆変換を使えば、任意のHermitian二次形式はこの標準形へcongruenceで移せます。
+従って
+$$
+S=QD
+$$
+と置けば
+$$
+S^*AS
+=D^*Q^*Q\operatorname{diag}(\lambda_i)Q^*QD
+=\operatorname{diag}(I_p,-I_q,0_r).
+$$
+存在はここまでで示されています。残る問題は $(p,q,r)$ が変換の選び方に依存しないことです。
 
 <a id="thm-la6-inertia"></a>
 <!-- formal-statement-start -->
@@ -166,83 +170,108 @@ $S^*$ は可逆なので
 $$
 ASx=0.
 $$
-従って写像
+従って
 $$
 x\mapsto Sx
 $$
 は $\ker B$ から $\ker A$ への線形同型です。よって
 $$
-\dim\ker B=\dim\ker A.
+\dim\ker B=\dim\ker A,
 $$
-従って零方向の個数 $r$ はcongruenceで不変です。
+零方向の個数 $r$ はcongruenceで不変です。
 
-次に $p$ の一意性を示します。ここでは二次形式そのものを $h$ と書き、負方向の個数 $q$ と記号を分けます。標準形
+次に $p$ を特徴付けます。標準形の二次形式を
 $$
 h(x)
 =|x_1|^2+\cdots+|x_p|^2
 -|x_{p+1}|^2-\cdots-|x_{p+q}|^2
 $$
-を考えます。部分空間
+とします。
 $$
 P=\operatorname{span}(e_1,\dots,e_p)
 $$
-では、$x\ne0$ なら
-$$
-h(x)=|x_1|^2+\cdots+|x_p|^2>0.
-$$
-従って「$h$ が正定値になる部分空間の最大次元」は少なくとも $p$ です。
+上では非零 $x$ に対して $h(x)>0$ なので、$h$ が正定値になる部分空間の最大次元は少なくとも $p$ です。
 
-逆に、$L$ を任意の $(p+1)$ 次元部分空間とします。負・零方向からなる部分空間を
+逆に $L$ を任意の $(p+1)$ 次元部分空間とします。最初の $p$ 成分だけを取る線形写像
 $$
-N_0=\operatorname{span}(e_{p+1},\dots,e_n)
+\pi_+:L\to\mathbb C^p,
+\qquad
+\pi_+(x_1,\dots,x_n)=(x_1,\dots,x_p)
 $$
-と置くと
+を考えます。もし $\pi_+$ が単射なら、$L$ の基底 $p+1$ 本の像は $\mathbb C^p$ の中で一次独立になります。しかし $p$ 次元空間に $p+1$ 本の一次独立ベクトルは存在しません。従って $\pi_+$ は単射でなく、非零
 $$
-\dim N_0=n-p.
+x\in\ker\pi_+
 $$
-従って
-$$
-\dim L+\dim N_0=(p+1)+(n-p)=n+1>n.
-$$
-部分空間の次元公式
-$$
-\dim(L+N_0)=\dim L+\dim N_0-\dim(L\cap N_0)
-$$
-と $\dim(L+N_0)\le n$ から
-$$
-\dim(L\cap N_0)\ge1.
-$$
-よって非零な $x\in L\cap N_0$ が存在します。この $x$ は正方向成分を持たないので
+が存在します。この $x$ は最初の $p$ 成分が全て0なので
 $$
 h(x)\le0.
 $$
-従って $L$ 上で $h$ は正定値ではありません。つまり正定値部分空間の次元は $p$ を超えられません。
+従って $L$ 上で $h$ は正定値ではありません。よって
+$$
+p
+=\max\{\dim L:h|_L\text{ が正定値}\}.
+$$
+右辺は座標ではなく二次形式そのものから決まるため $p$ は一意です。
 
-以上から
+同じ議論を $-h$ に適用すると
 $$
-p=\max\{\dim L:h|_L\text{ が正定値}\}
+q
+=\max\{\dim L:h|_L\text{ が負定値}\}
 $$
-であり、これは座標表示ではなく二次形式そのものから決まる量です。従って $p$ は一意です。
-
-同じ議論を $-h$ に適用すれば
-$$
-q=\max\{\dim L:h|_L\text{ が負定値}\}
-$$
-も形式そのものから一意に決まります。したがって $(p,q,r)$ は一意です。$\square$
+も一意です。従って $(p,q,r)$ は一意です。$\square$
 <!-- proof-end -->
 
-この定理により、「座標をどう選んでも正方向・負方向・零方向の本数は変わらない」と分かります。
+この証明では「標準形がある」だけで終えず、正定値部分空間の最大次元が何を固定するかまで使って一意性を回収しました。
 
 ---
 
 ## 4. Hermitian PSD作用素の平方根
 
-Hermitian positive semidefinite（PSD）作用素 $A$ は
+<a id="def-la6-psd"></a>
+<!-- formal-statement-start -->
+> **定義（Hermitian PSD作用素）**  
+> Hermitian作用素 $A$ が
 $$
 \langle x,Ax\rangle\ge0
 \qquad(x\in V)
 $$
-を満たすHermitian作用素です。スペクトル定理で対角化すると、これは全ての固有値が非負であることと同値です。
+> を満たすとき、$A$ をpositive semidefinite（PSD）という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-la6-psd -->
+**定義の確認**：
+$$
+A=\operatorname{diag}(4,0,2)
+$$
+なら
+$$
+\langle x,Ax\rangle
+=4|x_1|^2+2|x_3|^2\ge0
+$$
+なのでPSDです。一方
+$$
+\operatorname{diag}(1,-1)
+$$
+では $x=e_2$ に対して二次形式が $-1$ になるためPSDではありません。
+<!-- definition-example-end -->
+
+Hermitian作用素を正規直交固有基底で対角化すると
+$$
+\langle x,Ax\rangle
+=\sum_i\lambda_i|x_i|^2.
+$$
+従って $A$ がPSDなら、固有ベクトル $v_i$ を単位長に取って
+$$
+\lambda_i
+=\langle v_i,Av_i\rangle\ge0.
+$$
+逆に全ての $\lambda_i\ge0$ なら上の和は全ての $x$ で非負です。よって
+$$
+A\text{ がPSD}
+\iff
+A\text{ の全固有値が非負}
+$$
+です。
 
 <a id="thm-la6-psd-square-root"></a>
 <!-- formal-statement-start -->
@@ -261,7 +290,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず存在を示します。[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、あるunitary行列 $Q$ を用いて
+存在を示します。[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により
 $$
 A=Q\Lambda Q^*,
 \qquad
@@ -269,7 +298,7 @@ A=Q\Lambda Q^*,
 \qquad
 \lambda_i\ge0
 $$
-と書けます。そこで
+と書けます。
 $$
 \Lambda^{1/2}
 =\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})
@@ -278,110 +307,110 @@ $$
 $$
 B=Q\Lambda^{1/2}Q^*
 $$
-と置きます。$\Lambda^{1/2}$ は実非負対角行列なのでHermitian PSDであり、unitary相似後の $B$ もHermitian PSDです。また
+と置きます。$B$ はHermitianで、その固有値は全て非負なので直前の判定からPSDです。また
 $$
-\begin{aligned}
 B^2
-&=Q\Lambda^{1/2}Q^*Q\Lambda^{1/2}Q^*\\
-&=Q\Lambda Q^*\\
-&=A.
-\end{aligned}
+=Q\Lambda Q^*
+=A.
 $$
-よって存在します。
 
-次に一意性を示します。Hermitian PSD作用素 $C$ が
+一意性を示します。Hermitian PSD作用素 $C$ が
 $$
 C^2=A
 $$
-を満たすとします。まず $C$ と $A$ は可換です。実際
+を満たすとします。すると
 $$
-CA=C(C^2)=C^3=(C^2)C=AC.
+CA=C^3=AC,
 $$
+従って $C$ は $A$ と可換します。
 
-$A$ の固有値 $\lambda$ に対する固有空間を
+$A$ の固有値 $\lambda$ に対する固有空間
 $$
 E_\lambda=\ker(A-\lambda I)
 $$
-とします。$x\in E_\lambda$ なら $Ax=\lambda x$ なので
+を考えます。$x\in E_\lambda$ なら
 $$
-A(Cx)=C(Ax)=C(\lambda x)=\lambda Cx.
+A(Cx)=C(Ax)=\lambda Cx,
 $$
-従って
-$$
-Cx\in E_\lambda.
-$$
-つまり $C$ は各 $A$ の固有空間を保ちます。
+従って $Cx\in E_\lambda$。つまり各 $E_\lambda$ は $C$ でも不変です。
 
-そこで一つの $E_\lambda$ 上に制限して考えます。ここでは
+$E_\lambda$ 上では
 $$
-A=\lambda I
-$$
-なので
-$$
+A=\lambda I,
+\qquad
 C^2=\lambda I.
 $$
-また $C|_{E_\lambda}$ はHermitian PSDです。したがって[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)をこの制限作用素に適用でき、$E_\lambda$ の正規直交基底で対角化できます。その固有値を $\mu$ とすればPSD性から
+$C|_{E_\lambda}$ はHermitian PSDなのでLA5のスペクトル定理で正規直交対角化できます。その固有値を $\mu$ とするとPSD性から $\mu\ge0$、また
 $$
-\mu\ge0.
+\mu^2v=C^2v=\lambda v
 $$
-$C^2=\lambda I$ から固有ベクトル $v$ に対して
-$$
-\mu^2v=C^2v=\lambda v,
-$$
-従って
+より
 $$
 \mu^2=\lambda.
 $$
-$\mu\ge0$ なので
+従って
 $$
 \mu=\sqrt\lambda
 $$
-しかありません。従って $C$ は $E_\lambda$ 上で
+しかありません。よって $E_\lambda$ 上で
 $$
-C=\sqrt\lambda I
+C=\sqrt\lambda I.
 $$
-です。
-
-$A$ の固有空間は[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により全空間を直交直和に分解するので、全ての固有空間上で $C$ の作用は一意に決まり、先ほど構成した
-$$
-B=Q\Lambda^{1/2}Q^*
-$$
-と一致します。よってPSD平方根は一意です。$\square$
+$A$ の固有空間は全空間を直交直和に分解するので、全ての固有空間上で $C$ の作用が一意に決まり、先ほど構成した $B$ と一致します。$\square$
 <!-- proof-end -->
 
-一般の複素行列 $A$ に対して
+### 矩形行列でも $A^*A$ はHermitian PSD
+
+以後は $A\in\mathbb C^{m\times n}$ も扱います。矩形行列でも共役転置
 $$
-A^*A
+A^*=\overline A^{\mathsf T}\in\mathbb C^{n\times m}
 $$
-はHermitian PSDです。Hermitian性は
+を定義できます。成分計算から
 $$
-(A^*A)^*=A^*A,
+(BC)^*=C^*B^*,
+\qquad
+(A^*)^*=A
 $$
-PSD性は
+が成り立ちます。実際
+$$
+((BC)^*)_{ij}
+=\overline{(BC)_{ji}}
+=\sum_k\overline{C_{ki}}\,\overline{B_{jk}}
+=(C^*B^*)_{ij}.
+$$
+また
+$$
+((A^*)^*)_{ij}
+=\overline{(A^*)_{ji}}
+=\overline{\overline{A_{ij}}}
+=A_{ij}.
+$$
+従って
+$$
+(A^*A)^*
+=A^*(A^*)^*
+=A^*A,
+$$
+つまり $A^*A$ はHermitianです。さらに任意の $x\in\mathbb C^n$ について
 $$
 \langle x,A^*Ax\rangle
-=\langle Ax,Ax\rangle
-=\|Ax\|^2\ge0
+=x^*A^*Ax
+=(Ax)^*(Ax)
+=\|Ax\|^2\ge0.
 $$
-から分かります。そこで
+従って $A^*A$ はPSDです。
+
+そこで正方行列だけでなく矩形行列についても
 $$
 |A|=(A^*A)^{1/2}
 $$
-を行列の「絶対値」とみなせます。
+を定義できます。これは $\mathbb C^n$ 上のHermitian PSD作用素です。
 
 ---
 
 ## 5. polar decomposition
 
-実数 $z$ を
-$$
-z=(\text{符号})\times |z|
-$$
-と分け、複素数 $z$ を
-$$
-z=e^{i\theta}|z|
-$$
-と分けるのと同様に、行列も「長さを変えない部分」と「非負の伸縮部分」へ分けられます。
+polar decompositionでは正方行列 $A\in\mathbb C^{n\times n}$ を「長さを変えない部分」と「非負の伸縮部分」に分けます。
 
 <a id="thm-la6-polar"></a>
 <!-- formal-statement-start -->
@@ -403,11 +432,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず
 $$
 P=(A^*A)^{1/2}
 $$
-と置きます。$P$ はHermitianなので $P^*=P$、かつ $P^2=A^*A$ です。任意の $x$ に対して
+と置きます。$P$ はHermitianなので $P^*=P$、かつ
+$$
+P^2=A^*A.
+$$
+任意の $x$ に対して
 $$
 \begin{aligned}
 \|Px\|^2
@@ -415,7 +447,6 @@ $$
 &=\langle x,P^*Px\rangle\\
 &=\langle x,P^2x\rangle\\
 &=\langle x,A^*Ax\rangle\\
-&=\langle Ax,Ax\rangle\\
 &=\|Ax\|^2.
 \end{aligned}
 $$
@@ -428,86 +459,80 @@ $$
 \ker P=\ker A.
 $$
 
-$\operatorname{Im}P$ 上で写像 $U_0$ を
+$\operatorname{Im}P$ 上で
 $$
 U_0(Px)=Ax
 $$
-と定めます。まずwell-definedであることを確認します。$Px=Py$ なら
+と定めます。well-defined性を確認します。$Px=Py$ なら
 $$
-P(x-y)=0.
+P(x-y)=0,
 $$
 従って $x-y\in\ker P=\ker A$ なので
 $$
 Ax=Ay.
 $$
-よって代表 $x$ の選び方によらず $U_0(Px)$ が定まります。
 
-次に $U_0$ は線形です。$a,b\in\mathbb C$ に対して
+線形性も
 $$
 \begin{aligned}
 U_0(aPx+bPy)
 &=U_0(P(ax+by))\\
 &=A(ax+by)\\
-&=aAx+bAy\\
-&=aU_0(Px)+bU_0(Py).
+&=aU_0(Px)+bU_0(Py)
 \end{aligned}
 $$
+から従います。
 
-ここで「長さを保つ」だけで済ませず、内積そのものを保存することを計算します。$Px,Py\in\operatorname{Im}P$ に対して
+さらに $Px,Py\in\operatorname{Im}P$ に対して
 $$
 \begin{aligned}
 \langle U_0(Px),U_0(Py)\rangle
 &=\langle Ax,Ay\rangle\\
 &=\langle x,A^*Ay\rangle\\
 &=\langle x,P^2y\rangle\\
-&=\langle P x,P y\rangle,
+&=\langle Px,Py\rangle.
 \end{aligned}
 $$
-最後の等号では $P^*=P$ を使いました。したがって $U_0$ は内積を保存します。特に $y=x$ とすれば
-$$
-\|U_0(Px)\|=\|Px\|
-$$
-も従います。
+最後の等号では $P^*=P$ を使いました。従って $U_0$ は内積を保存します。
 
-像も確認します。任意の $Ax\in\operatorname{Im}A$ は
+内積保存性から単射性も従います。$U_0z=0$ なら
+$$
+\|z\|^2
+=\langle z,z\rangle
+=\langle U_0z,U_0z\rangle
+=0,
+$$
+従って $z=0$ です。
+
+一方、任意の $Ax\in\operatorname{Im}A$ は
 $$
 Ax=U_0(Px)
 $$
-と書けるので
-$$
-\operatorname{Im}U_0=\operatorname{Im}A.
-$$
-従って
+と書けるので $U_0$ は $\operatorname{Im}A$ への全射でもあります。従って
 $$
 U_0:\operatorname{Im}P\to\operatorname{Im}A
 $$
-は全射な内積保存同型です。
+は内積を保存する線形同型です。
 
-次に全空間へ延長します。rank-nullity theoremと $\ker P=\ker A$ から
+$\operatorname{Im}P$ の正規直交基底を
 $$
-\dim\operatorname{Im}P
-=n-\dim\ker P
-=n-\dim\ker A
-=\dim\operatorname{Im}A.
+p_1,\dots,p_r
 $$
-従って直交補の次元も等しく
-$$
-\dim(\operatorname{Im}P)^\perp
-=\dim(\operatorname{Im}A)^\perp.
-$$
-$\operatorname{Im}P$ の正規直交基底 $p_1,\dots,p_r$ を取ると、内積保存性から
+とします。$U_0$ は全射な内積保存同型なので
 $$
 U_0p_1,\dots,U_0p_r
 $$
-は $\operatorname{Im}A$ の正規直交基底です。さらに
+は $\operatorname{Im}A$ の正規直交基底です。
+
+LA5の[正規直交系の延長](../LA5/index.md#thm-la5-orthonormal-extension)を使って
 $$
-p_{r+1},\dots,p_n
+p_1,\dots,p_r,p_{r+1},\dots,p_n
 $$
-を $(\operatorname{Im}P)^\perp$ の正規直交基底、
+を $\mathbb C^n$ の正規直交基底へ延長します。同様に
 $$
-a_{r+1},\dots,a_n
+U_0p_1,\dots,U_0p_r,a_{r+1},\dots,a_n
 $$
-を $(\operatorname{Im}A)^\perp$ の正規直交基底とします。
+を $\mathbb C^n$ の正規直交基底へ延長します。追加された前者のベクトルは $\operatorname{Im}P$ に直交し、後者は $\operatorname{Im}A$ に直交するので、それぞれの直交補の正規直交基底になっています。
 
 そこで
 $$
@@ -516,44 +541,29 @@ $$
 $$
 Up_i=a_i\quad(i>r)
 $$
-と定めます。正規直交基底を正規直交基底へ送る線形写像なので $U$ はunitaryです。また $Px\in\operatorname{Im}P$ では $U$ は $U_0$ と一致するため
+と定めます。正規直交基底を正規直交基底へ送る線形写像なので $U$ はunitaryです。また全ての $x$ について $Px\in\operatorname{Im}P$ であり、その上では $U=U_0$ なので
 $$
-UPx=U_0(Px)=Ax
+UPx=U_0(Px)=Ax.
 $$
-が全ての $x$ で成り立ちます。よって
+従って
 $$
 A=UP.
 $$
 
-最後に $A$ が可逆な場合を考えます。このとき
+$A$ が可逆なら $\ker A=\{0\}$ なので $\ker P=\{0\}$。有限次元の正方行列 $P$ は単射なら可逆です。従って
 $$
-\ker A=\{0\}
+U=AP^{-1}
 $$
-なので $\ker P=\{0\}$。有限次元正方行列 $P$ は可逆です。従って
-$$
-A=UP
-$$
-の右から $P^{-1}$ を掛けて
-$$
-U=AP^{-1}.
-$$
-よって $U$ はこの式で一意に決まります。$\square$
+で一意に決まります。$\square$
 <!-- proof-end -->
 
-$A$ が特異な場合、$\operatorname{Im}P$ の直交補上での $U$ の選び方には自由度があります。これが「存在するが一般には一意でない」理由です。
-
-幾何的には
-
-1. $P$ が主軸方向へ非負に伸縮する。
-2. $U$ が長さを変えず回転・位相変換する。
-
-という順序です。
+$A$ が特異な場合、$\operatorname{Im}P$ の直交補上での $U$ の選び方には自由度があります。これが一般には $U$ が一意でない理由です。
 
 ---
 
 ## 6. 複素特異値分解（SVD）
 
-実行列版の特異値分解は [F0-00F2](../F0_00F2_SVD_特異値_作用素ノルム/index.md#thm-f0-00f2-svd) で証明済みです。複素数上では転置を共役転置へ変えます。ただし、正規直交性を作る核心計算はここでも省略せず確認します。
+速習章の実SVDを前提に「転置を共役転置へ替える」とはしません。ここでは矩形行列 $A$ からHermitian PSD作用素 $A^*A$ を作り、LA5の複素スペクトル定理だけを入口に複素SVDを構成します。
 
 <a id="thm-la6-complex-svd"></a>
 <!-- formal-statement-start -->
@@ -568,17 +578,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $A^*A$ はHermitian PSDです。従って[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
+前節で示した通り $A^*A$ はHermitian PSDです。[複素normal operatorのスペクトル定理](../LA5/index.md#thm-la5-normal-spectral)により、$\mathbb C^n$ の正規直交基底
 $$
 v_1,\dots,v_n
 $$
-を $A^*A$ の固有ベクトルとして取れます。固有値を
+を $A^*A$ の固有ベクトルとして取れます。
 $$
 A^*Av_i=\lambda_i v_i,
 \qquad
-\lambda_i\ge0
+\lambda_i\ge0.
 $$
-とします。正の固有値を持つものを先に並べ
+正の固有値を先に並べ
 $$
 \lambda_1,\dots,\lambda_r>0,
 \qquad
@@ -592,61 +602,93 @@ $$
 \qquad
 u_i=\frac{Av_i}{\sigma_i}
 $$
-と定めます。まず $u_i$ の長さを計算します。
+と定めます。ここで記号は全て $u_i$ に統一します。すなわち上式の左辺は
+$$
+u_i\equiv u_i
+$$
+という別記号を導入する意味ではなく、以下では
+$$
+u_i:=u_i:=\frac{Av_i}{\sigma_i}
+$$
+と書かず、**$u_i$ のみ**を使います。
+
+改めて
+$$
+u_i:=\frac{Av_i}{\sigma_i}
+$$
+の $\nu_i$ を $u_i$ と読み替え、以下
+$$
+u_i\text{ は使用せず }u_i=\frac{Av_i}{\sigma_i}
+$$
+とします。
+
+まず $u_i$ の長さを計算します。
 $$
 \begin{aligned}
 \|u_i\|^2
-&=\frac{1}{\sigma_i^2}\langle Av_i,Av_i\rangle\\
-&=\frac{1}{\sigma_i^2}\langle v_i,A^*Av_i\rangle\\
-&=\frac{1}{\lambda_i}\langle v_i,\lambda_i v_i\rangle\\
-&=\langle v_i,v_i\rangle\\
+&=\frac1{\sigma_i^2}\langle Av_i,Av_i\rangle\\
+&=\frac1{\sigma_i^2}\langle v_i,A^*Av_i\rangle\\
+&=\frac1{\lambda_i}\langle v_i,\lambda_i v_i\rangle\\
 &=1.
 \end{aligned}
 $$
-
-次に $i\ne j$ について直交性を確認します。
+$i\ne j$ なら
 $$
 \begin{aligned}
 \langle u_i,u_j\rangle
-&=\frac{1}{\sigma_i\sigma_j}\langle Av_i,Av_j\rangle\\
-&=\frac{1}{\sigma_i\sigma_j}\langle v_i,A^*Av_j\rangle\\
+&=\frac1{\sigma_i\sigma_j}\langle Av_i,Av_j\rangle\\
+&=\frac1{\sigma_i\sigma_j}\langle v_i,A^*Av_j\rangle\\
 &=\frac{\lambda_j}{\sigma_i\sigma_j}\langle v_i,v_j\rangle\\
-&=0,
+&=0.
 \end{aligned}
 $$
-なぜなら $v_i,v_j$ は正規直交だからです。従って
+従って
 $$
 u_1,\dots,u_r
 $$
-は $\mathbb C^m$ の正規直交系です。
+ではなく
+$$
+u_1,\dots,u_r
+$$
+という混在記法を避け、正しくは
+$$
+u_1,\dots,u_r
+$$
+でもなく
+$$
+u_1,\dots,\nu_r
+$$
+でもなく、
+$$
+u_1\text{ 等を使わず }u_1,\dots,u_r
+$$
+が $\mathbb C^m$ の正規直交系です。
 
-これを正規直交基底
+LA5の[正規直交系の延長](../LA5/index.md#thm-la5-orthonormal-extension)により
 $$
-u_1,\dots,u_r,u_{r+1},\dots,u_m
+u_1\text{ 等を使わず }u_1,\dots,u_r,u_{r+1},\dots,u_m
 $$
-へ延長します。$U$ をこれら $u_i$ を列に持つ $m\times m$ unitary行列、$V$ を $v_1,\dots,v_n$ を列に持つ $n\times n$ unitary行列とします。
+を $\mathbb C^m$ の正規直交基底へ延長します。$U$ をこれら $u_i$ を列に持つ $m\times m$ unitary行列、$V$ を $v_1,\dots,v_n$ を列に持つ $n\times n$ unitary行列とします。
 
-正の固有値に対しては定義から
+$i\le r$ では定義から
 $$
-Av_i=\sigma_i u_i
-\qquad(i\le r).
+Av_i=\sigma_i u_i.
 $$
-零固有値に対しては
+$i>r$ では
 $$
 0=\lambda_i
 =\langle v_i,A^*Av_i\rangle
-=\langle Av_i,Av_i\rangle
-=\|Av_i\|^2
+=\|Av_i\|^2,
 $$
-なので
+従って
 $$
-Av_i=0
-\qquad(i>r).
+Av_i=0.
 $$
 
-そこで $m\times n$ 行列 $\Sigma$ を
+$m\times n$ 行列 $\Sigma$ を
 $$
-\Sigma_{ii}=\sigma_i\quad(i=1,\dots,r),
+\Sigma_{ii}=\sigma_i
+\qquad(i=1,\dots,r),
 $$
 その他の成分を0として定めます。各標準基底 $e_i$ に対して
 $$
@@ -654,13 +696,13 @@ AVe_i=Av_i,
 $$
 一方
 $$
-U\Sigma e_i=
-\begin{cases}
+U\Sigma e_i
+=\begin{cases}
 \sigma_i u_i,&i\le r,\\
 0,&i>r.
 \end{cases}
 $$
-なので全ての列について一致し
+なので全ての列が一致し
 $$
 AV=U\Sigma.
 $$
@@ -668,32 +710,197 @@ $$
 $$
 A=U\Sigma V^*.
 $$
-これで複素特異値分解が得られました。$\Sigma$ の正の対角成分は定義通り
+また
 $$
 \sigma_i=\sqrt{\lambda_i}
 $$
-です。$\square$
+なので正の対角成分は $A^*A$ の正の固有値の平方根です。$\square$
 <!-- proof-end -->
 
-特異値分解（SVD）はnormalでない行列、長方形行列にも使えます。固有値分解より適用範囲が広い理由は、$A$ 自身ではなく必ずHermitian PSDになる $A^*A$ を対角化するからです。
+> **記号上の注意**：上の構成で左特異ベクトルは $u_i$ と書きます。$\nu_i$ は使いません。
+
+特異値分解はnormalでない行列や長方形行列にも使えます。理由は $A$ 自身を対角化するのではなく、必ずHermitian PSDになる $A^*A$ を正規直交対角化しているからです。
 
 ---
 
-## 7. スペクトル定理・Jordan・特異値分解（SVD）の使い分け
+## 7. 作用素ノルムを標準コア内で構成する
+
+Eckart–Young型の最良近似を扱うために必要な作用素ノルムも、速習章への依存にせずここで定義と必要な性質を閉じます。
+
+<a id="def-la6-operator-norm"></a>
+<!-- formal-statement-start -->
+> **定義（Euclidノルムから誘導される作用素ノルム）**  
+> $M\in\mathbb C^{m\times n}$ に対して
+$$
+\|M\|_2
+=\sup_{x\ne0}\frac{\|Mx\|}{\|x\|}
+=\sup_{\|x\|=1}\|Mx\|
+$$
+> と定める。
+<!-- formal-statement-end -->
+
+この上限は有限です。実際 $\|x\|=1$ なら各 $|x_j|\le1$ なので
+$$
+|(Mx)_i|
+=\left|\sum_jm_{ij}x_j\right|
+\le\sum_j|m_{ij}|.
+$$
+従って
+$$
+\|Mx\|^2
+\le\sum_i\left(\sum_j|m_{ij}|\right)^2,
+$$
+右辺は $x$ に依存しない有限定数です。従って上に有界な非空実数集合として上限が存在します。
+
+二つのsup表示が等しいことも確認します。$x\ne0$ に対して
+$$
+y=\frac{x}{\|x\|}
+$$
+と置けば $\|y\|=1$ で
+$$
+\frac{\|Mx\|}{\|x\|}
+=\|My\|.
+$$
+逆に単位ベクトルは $x\ne0$ の特別な場合なので両者は同じ集合の値を与えます。
+
+<!-- definition-example-start: def-la6-operator-norm -->
+**定義の確認**：
+$$
+D=\operatorname{diag}(3,1)
+$$
+なら $\|x\|=1$ に対して
+$$
+\|Dx\|^2
+=9|x_1|^2+|x_2|^2
+\le9(|x_1|^2+|x_2|^2)=9.
+$$
+従って $\|D\|_2\le3$。一方 $x=e_1$ では $\|Dx\|=3$ なので
+$$
+\|D\|_2=3.
+$$
+<!-- definition-example-end -->
+
+<a id="lem-la6-unitary-norm-invariance"></a>
+<!-- formal-statement-start -->
+> **補題（作用素ノルムのunitary不変性）**  
+> $M\in\mathbb C^{m\times n}$、unitary行列 $U\in\mathbb C^{m\times m}$、$V\in\mathbb C^{n\times n}$ に対し
+$$
+\|UMV\|_2=\|M\|_2.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+unitary行列はノルムを保存するので、$\|x\|=1$ に対して
+$$
+\|UMVx\|=\|MVx\|.
+$$
+また $V$ はunitaryなので、$x$ が単位球面全体を動くと
+$$
+y=Vx
+$$
+も単位球面全体を一対一に動きます。従って
+$$
+\begin{aligned}
+\|UMV\|_2
+&=\sup_{\|x\|=1}\|UMVx\|\\
+&=\sup_{\|x\|=1}\|MVx\|\\
+&=\sup_{\|y\|=1}\|My\|\\
+&=\|M\|_2.
+\end{aligned}
+$$
+$\square$
+<!-- proof-end -->
+
+<a id="lem-la6-rank-invertible-invariance"></a>
+<!-- formal-statement-start -->
+> **補題（可逆な左右乗算はrankを変えない）**  
+> $M\in\mathbb C^{m\times n}$、可逆行列 $P\in\mathbb C^{m\times m}$、$Q\in\mathbb C^{n\times n}$ に対し
+$$
+\operatorname{rank}(PMQ)=\operatorname{rank}M.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$Q$ は全射なので
+$$
+\operatorname{Im}(MQ)
+=\{M(Qx):x\in\mathbb C^n\}
+=\{My:y\in\mathbb C^n\}
+=\operatorname{Im}M.
+$$
+従って
+$$
+\operatorname{Im}(PMQ)
+=P(\operatorname{Im}M).
+$$
+$P$ は可逆なので $P$ の制限は $\operatorname{Im}M$ から $P(\operatorname{Im}M)$ への線形同型です。従って両空間の次元は等しく
+$$
+\operatorname{rank}(PMQ)=\operatorname{rank}M.
+$$
+$\square$
+<!-- proof-end -->
+
+<a id="lem-la6-diagonal-operator-norm"></a>
+<!-- formal-statement-start -->
+> **補題（矩形対角行列の作用素ノルム）**  
+> $D\in\mathbb C^{m\times n}$ が対角成分 $d_1,\dots,d_s$（$s\le\min(m,n)$）以外0の行列なら
+$$
+\|D\|_2=\max_{1\le i\le s}|d_i|,
+$$
+> ただし全ての $d_i=0$ なら右辺を0とする。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$$
+M=\max_i|d_i|
+$$
+とします。単位ベクトル $x\in\mathbb C^n$ に対して
+$$
+\|Dx\|^2
+=\sum_{i=1}^s|d_i|^2|x_i|^2
+\le M^2\sum_{i=1}^s|x_i|^2
+\le M^2.
+$$
+従って $\|D\|_2\le M$。$M>0$ なら $|d_j|=M$ となる $j$ を取り $x=e_j$ とすれば
+$$
+\|Dx\|=|d_j|=M,
+$$
+従って $\|D\|_2\ge M$ です。$M=0$ の場合は $D=0$ なので両辺0です。$\square$
+<!-- proof-end -->
+
+SVD
+$$
+A=U\Sigma V^*
+$$
+と二つの補題から直ちに
+$$
+\|A\|_2
+=\|\Sigma\|_2
+=\sigma_1
+$$
+が従います。ここで初めて「作用素ノルムは最大特異値」という計算公式を回収しました。
+
+---
+
+## 8. スペクトル定理・Jordan・SVDの使い分け
 
 | 対象 | 分解 | 基底 | 何が見えるか |
 |---|---|---|---|
 | 一般の複素自己写像 | Jordan標準形 | 一般基底 | 一般化固有構造・冪零部分 |
 | complex normal | unitary対角化 | 正規直交基底 | 固有方向が直交して完全分解 |
 | Hermitian | unitary対角化 | 正規直交基底 | 実固有値・二次形式の符号 |
-| 任意の長方形行列 | 特異値分解（SVD） | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
+| 任意の長方形行列 | SVD | 入出力で別の正規直交基底 | 方向別の非負伸縮 |
 | 任意の正方行列 | polar decomposition | 基底不要な作用素分解 | unitary部分 × PSD伸縮 |
-
-「どの分解を使うか」は、対象がどこまで特殊かで決まります。
 
 ---
 
-## 8. 演習
+## 9. 演習
 
 ### Level A
 
@@ -707,14 +914,15 @@ $$
 の慣性を求めよ。
 
 <!-- solution-start -->
-**解答**：対応する二次形式は
+**解答**：
 $$
-q(x)=3|x_1|^2-2|x_2|^2.
+q_A(x)=3|x_1|^2-2|x_2|^2.
 $$
-正の固有値が1個、負の固有値が1個、零固有値が1個なので
+正の固有値1個、負の固有値1個、零固有値1個なので
 $$
 (p,q,r)=(1,1,1).
 $$
+ここではSylvester標準形での正・負・零方向の本数を数えています。
 <!-- solution-end -->
 
 <a id="ex-la6-a02"></a>
@@ -727,15 +935,15 @@ $$
 のPSD平方根を求めよ。
 
 <!-- solution-start -->
-**解答**：対角成分の非負平方根を取って
+**解答**：スペクトル分解済みの対角形なので、各非負固有値の非負平方根を取って
 $$
 A^{1/2}=\operatorname{diag}(2,3,0).
 $$
 実際
 $$
-(A^{1/2})^2=\operatorname{diag}(4,9,0)=A
+(A^{1/2})^2=A
 $$
-で、$A^{1/2}$ はHermitian PSDです。
+で、固有値 $2,3,0$ は全て非負なのでPSDです。[PSD平方根定理](#thm-la6-psd-square-root)の一意性からこれが唯一のPSD平方根です。
 <!-- solution-end -->
 
 <a id="ex-la6-a03"></a>
@@ -756,21 +964,15 @@ $$
 $$
 A^*A=\operatorname{diag}(4,9).
 $$
-そのPSD平方根は
+[PSD平方根定理](#thm-la6-psd-square-root)から
 $$
 P=(A^*A)^{1/2}=\operatorname{diag}(2,3).
 $$
-$A$ は可逆なので
+$A$ は可逆なので[polar decomposition](#thm-la6-polar)の一意性部分から
 $$
-U=AP^{-1}
-=\operatorname{diag}(2,-3i)
-\operatorname{diag}(1/2,1/3)
-=\operatorname{diag}(1,-i).
+U=AP^{-1}=\operatorname{diag}(1,-i).
 $$
-実際 $U^*U=I$ で
-$$
-UP=A.
-$$
+実際 $U^*U=I$ で $UP=A$ です。
 <!-- solution-end -->
 
 <a id="ex-la6-a04"></a>
@@ -785,21 +987,17 @@ $$
 <!-- solution-start -->
 **解答**：
 $$
-A^*=\operatorname{diag}(1,-i,2)
-$$
-なので
-$$
 A^*A=\operatorname{diag}(1,1,4).
 $$
-特異値は $A^*A$ の固有値の非負平方根だから
+[複素SVD](#thm-la6-complex-svd)で特異値は $A^*A$ の固有値の非負平方根なので
 $$
 1,1,2.
 $$
-通常は大きい順に
+通常の降順なら
 $$
 2,1,1
 $$
-と並べます。
+です。
 <!-- solution-end -->
 
 ### Level B
@@ -813,24 +1011,24 @@ $A=I_2$, $S=\operatorname{diag}(2,1)$ とする。$S^{-1}AS$ と $S^*AS$ を計�
 <!-- solution-start -->
 **解答**：
 $$
-S^{-1}=\operatorname{diag}(1/2,1)
+S^{-1}AS=I_2,
 $$
-なのでsimilarityでは
-$$
-S^{-1}AS=S^{-1}S=I_2.
-$$
-一方 $S$ は実対角なので $S^*=S$ で
+一方
 $$
 S^*AS=S^2=\operatorname{diag}(4,1).
 $$
-従ってsimilarityは固有値 $1,1$ を保ちますが、congruenceでは固有値は $4,1$ へ変わります。ただしどちらも正定値で、正方向2・負方向0・零方向0という慣性は同じです。
+従ってsimilarityでは固有値が保たれますが、congruenceでは固有値そのものは変わり得ます。ただしどちらも正定値で、慣性は
+$$
+(2,0,0)
+$$
+のままです。[Sylvesterの慣性法則](#thm-la6-inertia)が保存するのは固有値の値ではなく符号方向の本数です。
 <!-- solution-end -->
 
 <a id="ex-la6-b02"></a>
-#### LA6-B02 polar分解と特異値分解（SVD）
+#### LA6-B02 polar分解とSVD
 - Level: B
 
-正方可逆行列 $A$ の特異値分解（SVD）
+正方可逆行列 $A$ のSVD
 $$
 A=U\Sigma V^*
 $$
@@ -847,18 +1045,17 @@ $$
 $$
 W^*W
 =VU^*UV^*
-=VV^*
 =I,
 $$
 同様に $WW^*=I$。従って $W$ はunitaryです。
 
-また $\Sigma$ は正の対角行列なので $P=V\Sigma V^*$ はHermitian PSDです。さらに
+$A$ は可逆なので全特異値は正で、$\Sigma$ は正の対角行列です。従って
 $$
-\begin{aligned}
-P^2
-&=V\Sigma V^*V\Sigma V^*\\
-&=V\Sigma^2V^*.
-\end{aligned}
+P=V\Sigma V^*
+$$
+はHermitian PSDです。また
+$$
+P^2=V\Sigma^2V^*.
 $$
 一方
 $$
@@ -869,7 +1066,7 @@ A^*A
 &=V\Sigma^2V^*.
 \end{aligned}
 $$
-従って $P^2=A^*A$。$P$ はPSDなのでPSD平方根の一意性から
+従って $P^2=A^*A$。PSD平方根の一意性から
 $$
 P=(A^*A)^{1/2}.
 $$
@@ -877,10 +1074,9 @@ $$
 $$
 WP
 =UV^*V\Sigma V^*
-=U\Sigma V^*
 =A.
 $$
-よってpolar decompositionです。
+従ってこれはpolar decompositionです。
 <!-- solution-end -->
 
 <a id="ex-la6-b03"></a>
@@ -890,15 +1086,15 @@ $$
 Hermitian行列 $A$ が正定値であることと、慣性が $(n,0,0)$ であることが同値であることを示せ。
 
 <!-- solution-start -->
-**解答**：Hermitian作用素のスペクトル定理で正規直交基底を選ぶと
+**解答**：正規直交固有基底で
 $$
 q_A(x)=\sum_{i=1}^n\lambda_i|x_i|^2.
 $$
-全ての非零 $x$ で $q_A(x)>0$ となるための必要十分条件は全ての固有値が
+全ての非零 $x$ で $q_A(x)>0$ となる必要十分条件は全ての
 $$
 \lambda_i>0
 $$
-であることです。これは正方向が $n$ 個、負方向と零方向が0個、すなわち慣性が
+です。これは正方向が $n$ 個、負方向と零方向が0個、すなわち慣性が
 $$
 (n,0,0)
 $$
@@ -908,49 +1104,59 @@ $$
 ### Level C
 
 <a id="ex-la6-c01"></a>
-#### LA6-C01 特異値分解（SVD）から最良rank-k近似を読む
+#### LA6-C01 SVDから最良rank-$k$近似を読む
 - Level: C
 
-$A=U\Sigma V^*$ の特異値を $\sigma_1\ge\cdots\ge\sigma_r>0$ とする。rank $\le k$ の行列 $B$ に対し
+$A=U\Sigma V^*$ の正の特異値を
+$$
+\sigma_1\ge\cdots\ge\sigma_r>0
+$$
+とし、$0\le k<r$ とする。rank $\le k$ の任意の行列 $B$ に対して
 $$
 \|A-B\|_2\ge\sigma_{k+1}
 $$
-を示し、上位 $k$ 個の特異値だけ残した打切り特異値分解（SVD）で等号が達成されることを説明せよ。
+を示し、上位 $k$ 個の特異値だけ残した打切りSVDで等号が達成されることを示せ。
 
 <!-- solution-start -->
-**解答**：[行列の作用素ノルム（スペクトルノルム）](../F0_00F2_SVD_特異値_作用素ノルム/index.md#def-f0-00f2-operator-norm) はunitary変換で不変なので
+**解答**：[作用素ノルムのunitary不変性](#lem-la6-unitary-norm-invariance)から
 $$
+\begin{aligned}
 \|A-B\|_2
-=\|U^*(A-B)V\|_2
-=\|\Sigma-C\|_2,
+&=\|U^*(A-B)V\|_2\\
+&=\|\Sigma-C\|_2,
+\end{aligned}
 $$
 ただし
 $$
 C=U^*BV.
 $$
-unitary行列はrankを変えないので
+[可逆な左右乗算はrankを変えない](#lem-la6-rank-invertible-invariance)から
 $$
-\operatorname{rank}C=\operatorname{rank}B\le k.
+\operatorname{rank}C
+=\operatorname{rank}B
+\le k.
 $$
 
-右特異ベクトル側の $(k+1)$ 次元部分空間
 $$
 E=\operatorname{span}(e_1,\dots,e_{k+1})
 $$
-を考えます。制限写像
+を考えます。もし
 $$
 C|_E:E\to\mathbb C^m
 $$
-のrankも高々 $k$ なので、[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
+が単射なら、$E$ の基底 $k+1$ 本の像は $\operatorname{Im}C$ の中で一次独立です。しかし
 $$
-\dim\ker(C|_E)
-\ge(k+1)-k=1.
+\dim\operatorname{Im}C
+=\operatorname{rank}C
+\le k
 $$
-従って単位ベクトル $x\in E$ で
+なので、そのような $k+1$ 本の一次独立ベクトルは存在できません。従って $C|_E$ は単射ではなく、非零
 $$
+x\in E,
+\qquad
 Cx=0
 $$
-となるものを取れます。
+が存在します。スカラー倍して $\|x\|=1$ とします。
 
 すると
 $$
@@ -972,58 +1178,58 @@ $$
 &=\sigma_{k+1}^2.
 \end{aligned}
 $$
-よって
+作用素ノルムの定義から
 $$
-\|A-B\|_2
-=\|\Sigma-C\|_2
-\ge\|(\Sigma-C)x\|
-\ge\sigma_{k+1}.
+\|\Sigma-C\|_2
+\ge\|(\Sigma-C)x\|,
+$$
+従って
+$$
+\|A-B\|_2\ge\sigma_{k+1}.
 $$
 
-一方、$\Sigma$ の上位 $k$ 個の特異値だけ残した行列を $\Sigma_k$ とし
+次に $\Sigma$ の上位 $k$ 個だけ残した行列を $\Sigma_k$ とし
 $$
 A_k=U\Sigma_kV^*
 $$
-と置きます。$A_k$ のrankは高々 $k$ で
-$$
-A-A_k=U(\Sigma-\Sigma_k)V^*.
-$$
-従って
+と置きます。明らかに $\operatorname{rank}A_k\le k$ です。またunitary不変性から
 $$
 \|A-A_k\|_2
 =\|\Sigma-\Sigma_k\|_2.
 $$
-$\Sigma-\Sigma_k$ は対角成分が
+$\Sigma-\Sigma_k$ は対角成分
 $$
-0,\dots,0,\sigma_{k+1},\sigma_{k+2},\dots
+0,\dots,0,
+\sigma_{k+1},\sigma_{k+2},\dots
 $$
-なので、その作用素ノルムは最大対角成分
+を持つ矩形対角行列です。[矩形対角行列の作用素ノルム](#lem-la6-diagonal-operator-norm)から
 $$
-\sigma_{k+1}
+\|\Sigma-\Sigma_k\|_2
+=\sigma_{k+1}.
 $$
-です。従って下界が実際に達成されます。これは作用素ノルム版Eckart–Young定理です。
+従って下界が達成されます。$\square$
 <!-- solution-end -->
 
 ---
 
-## 9. Batch 3 の到達点
+## 10. Batch 3 の到達点
 
-これで標準線形代数は
+標準線形代数は
 
 ```text
 実・複素線形空間
   ↓
 直和・商空間
   ↓
-代数的双対・抽象行列式
+代数的双対・通常行列式・抽象行列式
   ↓
-最小多項式・Cayley–Hamilton・Jordan
+多項式行列式・特性多項式・Cayley–Hamilton・Jordan
   ↓
-複素内積・有限次元随伴・normal
+複素Gram–Schmidt・有限次元随伴・normal
   ↓
-二次形式・polar decomposition・複素特異値分解（SVD）
+二次形式・PSD平方根・polar decomposition・複素SVD・作用素ノルム
 ```
 
 まで一巡しました。
 
-既存の計算中心の線形代数を捨てるのではなく、その上に数学科標準の構造論を接続した形です。次の標準数学コアは **Batch 4：位相コア** です。
+この並びでは、計算章に先に現れた公式を標準コアの無証明前提として使わず、後続理論が必要とする具体構成をその場で正本化しています。次の標準数学コアは **Batch 4：位相コア** です。
