@@ -9,8 +9,10 @@ prerequisites:
   - MT0
 
 # a.e.収束だけでは Lp 収束しない箇所で、後続の一様可積分性を追加条件の例として明示的に予告する。
+# Lp の式を「ノルム」と呼ぶ語彙は D1 に正本があるが、MT1 の収束定理の証明依存にはしない。
 forward_references:
   - prob.uniform-integrability
+  - functional.norm
 
 concepts:
   # 各点収束そのものの正本は RA5。MT1 の formal 再掲だけを別登録して二重正本を避ける。
