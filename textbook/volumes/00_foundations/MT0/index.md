@@ -447,7 +447,7 @@ $$
 を示してください。
 
 <!-- solution-start -->
-**解答**：$K\subset A$ なら測度の単調性から $\lambda(K)\le\lambda(A)$ なので、右辺は高々 $\lambda(A)$ です。一方、任意の $\varepsilon>0$ に対して内正則性より compact $K\subset A$ で
+**解答**：$K\subset A$ なら[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から $\lambda(K)\le\lambda(A)$ なので、右辺は高々 $\lambda(A)$ です。一方、任意の $\varepsilon>0$ に対して内正則性より compact $K\subset A$ で
 
 $$
 \lambda(A\setminus K)<\varepsilon
