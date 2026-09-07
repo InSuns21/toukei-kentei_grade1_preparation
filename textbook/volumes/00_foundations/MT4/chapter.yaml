@@ -1,0 +1,40 @@
+id: "MT4"
+title: "標準測度論 V：Lebesgue微分定理・絶対連続関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MT0
+  - MT3
+  - F0-00D2B
+official_scope: []
+learning_objectives:
+  - 1次元区間選択補題からHardy–Littlewood maximal functionの弱(1,1)評価を証明できる
+  - C_cのL1稠密性と弱型評価を使ってLebesgue微分定理を証明できる
+  - Lebesgue密度定理を指示関数への微分定理適用として導出できる
+  - L1不定積分が絶対連続でa.e.に元の関数へ微分されることを示せる
+  - 絶対連続関数をbounded variationおよび増加AC関数の差へ接続できる
+  - Lebesgue–Stieltjes測度とRadon–Nikodym定理からAC版FTCを構成できる
+  - Cantor関数を用いてBV・a.e.微分可能性とACの差を説明できる
+definitions:
+  - { id: MT4-DEF-01, name: 局所可積分 L1_loc }
+  - { id: MT4-DEF-02, name: Hardy–Littlewood maximal function }
+  - { id: MT4-DEF-03, name: 絶対連続関数 }
+  - { id: MT4-DEF-04, name: bounded variationと全変動 }
+theorems:
+  - { id: MT4-LEM-01, name: C_c(R)のL1稠密性 }
+  - { id: MT4-LEM-02, name: 1次元有限区間選択補題 }
+  - { id: MT4-THM-01, name: Hardy–Littlewood maximal弱1-1評価 }
+  - { id: MT4-THM-02, name: Lebesgue微分定理 }
+  - { id: MT4-THM-03, name: Lebesgue密度定理 }
+  - { id: MT4-LEM-03, name: Lebesgue積分の絶対連続性 }
+  - { id: MT4-THM-04, name: L1不定積分の絶対連続性とa.e.微分 }
+  - { id: MT4-THM-05, name: ACならBV }
+  - { id: MT4-LEM-04, name: AC関数の変動関数もAC }
+  - { id: MT4-LEM-05, name: 連続増加関数のLebesgue–Stieltjes測度 }
+  - { id: MT4-THM-06, name: 絶対連続関数の微積分学の基本定理 }
+canonical_examples: [指示関数の密度点, L1不定積分, Cantor関数]
+problem_patterns: [MT4-MAXIMAL-WEAK11-1, MT4-DIFFERENTIATION-1, MT4-AC-FTC-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 3, level_b: 3, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 3.5, review: 1.0 }
