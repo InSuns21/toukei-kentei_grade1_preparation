@@ -70,8 +70,6 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 
-旧 [LA3 分割案内](textbook/volumes/00_foundations/LA3/index.md) は過去URL・fragment互換のため残し、数学的正本は LA3A–LA3D 側に置きます。LA4 の必須前提は LA3C までです。
-
 ### ノルム空間・測度・Lebesgue積分
 
 1. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
