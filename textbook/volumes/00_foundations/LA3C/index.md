@@ -94,9 +94,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（三角行列の行列式）**  
 > 上三角または下三角行列 $A=(a_{ij})$ に対して
-> $$
-> \det A=\prod_{i=1}^na_{ii}.
-> $$
+$$
+\det A=\prod_{i=1}^na_{ii}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -146,13 +146,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Laplace 展開）**  
 > 任意の $n\times n$ 行列 $A=(a_{ij})$ と固定した列 $j$ に対して
-> $$
-> \det A=\sum_{i=1}^n a_{ij}C_{ij}.
-> $$
+$$
+\det A=\sum_{i=1}^n a_{ij}C_{ij}.
+$$
 > 固定した行 $i$ に対しても
-> $$
-> \det A=\sum_{j=1}^n a_{ij}C_{ij}.
-> $$
+$$
+\det A=\sum_{j=1}^n a_{ij}C_{ij}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -209,9 +209,9 @@ Leibniz 公式の6項を全部書く必要はありません。
 <!-- formal-statement-start -->
 > **定義（余因子行列）**  
 > 余因子 $C_{ij}$ を用いて
-> $$
-> \operatorname{adj}(A)_{ji}=C_{ij}
-> $$
+$$
+\operatorname{adj}(A)_{ji}=C_{ij}
+$$
 > と定めた行列を $A$ の **余因子行列（adjugate）** という。
 <!-- formal-statement-end -->
 
@@ -255,9 +255,9 @@ $\det(AB)$ を Leibniz 公式へ直接代入すると二重の置換和になり
 <!-- formal-statement-start -->
 > **定理（行列式の乗法性）**  
 > 正方行列 $A,B$ に対して
-> $$
-> \det(AB)=\det A\det B.
-> $$
+$$
+\det(AB)=\det A\det B.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -297,11 +297,11 @@ $\square$
 <!-- formal-statement-start -->
 > **定理（行列式による可逆性判定）**  
 > 正方行列 $A$ について
-> $$
-> A\text{ が可逆}
-> \Longleftrightarrow
-> \det A\ne0.
-> $$
+$$
+A\text{ が可逆}
+\Longleftrightarrow
+\det A\ne0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -342,9 +342,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（行列式の相似不変性）**  
 > $P$ が可逆なら
-> $$
-> \det(P^{-1}AP)=\det A.
-> $$
+$$
+\det(P^{-1}AP)=\det A.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
