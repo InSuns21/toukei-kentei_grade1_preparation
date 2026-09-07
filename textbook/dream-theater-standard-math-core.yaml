@@ -146,7 +146,10 @@ nodes:
     title: 全有界性・Baire・net/filter
     area: topology
     tier: advanced-standard
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/TOP6/index.md
+    reuses: [F0_00C1, F0_00D]
     prerequisites: [TOP5]
 
   - id: LA1
@@ -174,7 +177,6 @@ nodes:
     status: implemented
     implemented_at: 2026-09-06
     implementation_path: textbook/volumes/00_foundations/LA3/index.md
-    reuses: [F0_00F]
     prerequisites: [LA2]
   - id: LA4
     title: 作用素多項式・最小多項式・Jordan構造

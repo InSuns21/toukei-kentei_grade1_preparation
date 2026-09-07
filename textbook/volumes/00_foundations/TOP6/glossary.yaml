@@ -1,0 +1,35 @@
+chapter: "TOP6"
+terms:
+  - term: 全有界性
+    english: total boundedness
+    meaning: 任意の正の半径に対して、有限個のその半径の開球で空間全体を覆える性質。定義の正本はF0-00C1。
+  - term: 疎集合
+    english: nowhere dense set
+    meaning: 閉包の内部が空である部分集合。集合自身の内部が空であるだけでは足りない。
+  - term: 第一類集合
+    english: meagre set / first category set
+    meaning: 可算個の疎集合の合併に含まれる集合。稠密な集合でもmeagreであり得る。
+  - term: Baire空間
+    english: Baire space
+    meaning: 開かつ稠密な集合の可算共通部分が再び稠密になる位相空間。
+  - term: Baireのカテゴリー定理
+    english: Baire category theorem
+    meaning: 完備距離空間がBaire空間であることを述べる定理。縮小する閉球の中心列を完備性で収束させる。
+  - term: 有向集合
+    english: directed set
+    meaning: 任意の二つの添字に対して両方より後ろの添字を取れる、反射的・推移的な関係を備えた非空集合。
+  - term: net
+    english: net
+    meaning: 有向集合を添字集合とする写像。自然数を添字にする点列を一般化する。
+  - term: netの収束
+    english: net convergence
+    meaning: 任意の近傍に対して、ある添字以後の全てのnetの値がその近傍に入ること。
+  - term: filter
+    english: filter
+    meaning: 空集合を含まず、有限交差と上方包含で閉じた部分集合族。最終的に満たされる集合条件を記録する。
+  - term: filterの収束
+    english: filter convergence
+    meaning: 極限点の全ての近傍をfilterが含むこと。
+  - term: 最終filter
+    english: eventual filter of a net
+    meaning: netがある添字以後ずっと入る部分集合を全て集めたfilter。
