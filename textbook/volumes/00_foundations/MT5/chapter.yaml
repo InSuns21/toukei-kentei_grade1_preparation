@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - TOP5
   - MT3
+  - F0-00F
+  - F0-02C2
 official_scope: []
 learning_objectives:
   - Radon測度をcompact-finite・open-inner regular・Borel-outer regularとして量化付きで定義できる
@@ -40,5 +42,5 @@ canonical_examples: [Dirac測度, 有限原子測度, Lebesgue測度, 離散空�
 problem_patterns: [MT5-POSITIVE-ORDER-1, MT5-OPEN-CONTENT-1, MT5-OUTER-MEASURE-1, MT5-CARATHEODORY-OPEN-1, MT5-REPRESENTATION-1, MT5-UNIQUENESS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 7.0, exercises: 3.0, review: 1.0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.0, review: 1.0 }
