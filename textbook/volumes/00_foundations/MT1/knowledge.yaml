@@ -39,8 +39,8 @@ concepts:
     name: L^p収束
     kind: definition
     aliases: [L^p収束, Lp収束, Lp convergence]
-    # concept audit は reader-facing 本文から inline math を同幅の空白へ置換して formal 見出しを照合する。
-    introduction_aliases: ["### 定義（     収束）"]
+    # concept audit は inline math を同幅の空白へ置換し、formal-order audit は raw Markdown を見る。
+    introduction_aliases: ["### 定義（     収束）", "L^p収束"]
     requires:
       - measure.lebesgue-integral
       - measure.measurable-function
@@ -57,8 +57,8 @@ concepts:
     name: L^p収束なら測度収束
     kind: theorem
     aliases: [L^p収束 ⇒ 測度収束, Lp convergence implies convergence in measure]
-    # `$L^p$` 部分は strict audit の reader source では5文字分の空白になる。
-    introduction_aliases: ["### 定理（     収束"]
+    # reader-stripped 見出しと raw formal 見出しの双方に固有マーカーを持たせる。
+    introduction_aliases: ["### 定理（     収束", '### 定理（$L^p$収束 $\Rightarrow$ 測度収束）']
     requires:
       - measure.lp-convergence
       - measure.convergence-in-measure
