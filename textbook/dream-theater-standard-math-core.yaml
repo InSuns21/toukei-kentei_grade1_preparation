@@ -207,10 +207,12 @@ nodes:
     prerequisites: [LA5]
 
   - id: MT0
-    title: Borel・測度・Caratheodory
+    title: Borel・測度・Caratheodory・Lebesgue正則性
     area: measure-theory
     tier: core
-    status: existing-anchor
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT0/index.md
     reuses: [F0_00D2, F0_00D3, F0_00D4]
     prerequisites: [TOP0]
   - id: MTI
@@ -239,7 +241,9 @@ nodes:
     title: 収束様式・Egorov・Lusin
     area: measure-theory
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT1/index.md
     prerequisites: [MTI]
   - id: MT2
     title: 符号付き測度・全変動
@@ -359,4 +363,4 @@ deferred_integrations:
     trigger: site-rendering-work
     note: >-
       Mermaidソースと依存DAGの正本化は完了しているが、Docsify上のMermaid描画
-      プラグイン導入・確認は別タスクとする。
+      プラグイン導入・確認は別タスクとする.
