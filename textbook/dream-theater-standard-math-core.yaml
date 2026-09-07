@@ -280,7 +280,9 @@ nodes:
     title: Radon–Nikodym・Lebesgue分解
     area: measure-theory
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT3/index.md
     prerequisites: [MT2]
   - id: MT4
     title: Lebesgue微分定理・絶対連続関数
