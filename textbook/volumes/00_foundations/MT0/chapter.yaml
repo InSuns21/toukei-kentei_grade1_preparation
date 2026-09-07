@@ -1,0 +1,27 @@
+id: "MT0"
+title: "標準測度論 I：Lebesgue測度の正則性と有限単関数近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2
+  - F0-00D3
+  - F0-00D4
+  - F0-00C1
+official_scope: []
+learning_objectives:
+  - 有界可測関数を有限値可測単関数で任意精度に一様近似できることを、値域の有限分割から証明できる
+  - 有限測度Lebesgue可測集合の外正則性を、外測度の区間被覆から証明できる
+  - 有限測度Lebesgue可測集合の内正則性を、有限区間への切断と外正則性から証明できる
+  - 有限可測分割の各部分を総測度損失を制御しながらcompact集合へ縮められる
+definitions: []
+theorems:
+  - { id: MT0-THM-01, name: 有界可測関数の有限単関数による一様近似 }
+  - { id: MT0-THM-02, name: 有限測度Lebesgue可測集合の外正則性 }
+  - { id: MT0-THM-03, name: 有限測度Lebesgue可測集合の内正則性 }
+  - { id: MT0-COR-01, name: 有限可測分割のコンパクト近似 }
+canonical_examples: [無理数集合のcompact内近似, 非有界可測関数が有限値単関数で一様近似できない例]
+problem_patterns: [MT0-BOUNDED-SIMPLE-1, MT0-INNER-REGULARITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 0, level_c: 0, level_d: 0 }
+estimated_hours: { reading: 2.0, exercises: 1.0, review: 0.5 }
