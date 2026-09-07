@@ -1,6 +1,6 @@
 # RA1 標準実解析 I：数列・級数
 
-この章は、既存の [実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md)、[点列・部分列](../F0_00B0_点列_部分列_十分大きい添字/index.md)、[Cauchy列と完備性](../F0_00D_Cauchy列_完備性_無限次元/index.md) を土台に、実解析の最初の定理列を組み立てます。
+この章は、既存の [実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)、[点列・部分列](../F0_00B0_点列_部分列_十分大きい添字/index.md)、[Cauchy列と完備性](../F0_00D_Cauchy列_完備性_無限次元/index.md) を土台に、実解析の最初の定理列を組み立てます。
 
 ---
 
@@ -23,7 +23,7 @@ $$
 $$
 A=\{a_n:n\in\mathbb N\}
 $$
-は空でなく上に有界なので、実数の上限性質から $L=\sup A\in\mathbb R$ が存在します。
+は空でなく上に有界なので、[実数の上限性質](../F0_00A1B_実数の上限性質_Archimedes性/index.md#thm-f0-00a1b-lub)から $L=\sup A\in\mathbb R$ が存在します。
 
 任意の $\varepsilon>0$ を取ります。もし $L-\varepsilon$ も $A$ の上界なら $L$ が最小上界であることに反するので、ある $N$ が存在して
 $$
@@ -158,7 +158,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\sum |a_n|$ が収束するとします。級数のCauchy判定から、任意の $\varepsilon>0$ に対し、ある $N$ が存在して $m>n\ge N$ なら
+$\sum |a_n|$ が収束するとします。[級数のCauchy判定](#thm-ra1-series-cauchy)から、任意の $\varepsilon>0$ に対し、ある $N$ が存在して $m>n\ge N$ なら
 $$
 \sum_{k=n+1}^{m}|a_k|<\varepsilon
 $$
