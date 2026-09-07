@@ -332,21 +332,18 @@ implementation_batches:
     id: real-analysis-foundation
     nodes: [RA1, RA2, RA3, RA4, RA5]
   - order: 2
-    id: riemann-lebesgue-bridge
-    nodes: [MT-RL]
-  - order: 3
     id: linear-algebra-core
     nodes: [LA1, LA2, LA3, LA4, LA5, LA6]
-  - order: 4
+  - order: 3
     id: topology-core
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
-  - order: 5
+  - order: 4
     id: measure-theory-extension
-    nodes: [MT1, MT2, MT3, MT4, MT5]
-  - order: 6
+    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5]
+  - order: 5
     id: functional-analysis-extension
     nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]
-  - order: 7
+  - order: 6
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6, RA7, RA8]
 
@@ -363,4 +360,4 @@ deferred_integrations:
     trigger: site-rendering-work
     note: >-
       Mermaidソースと依存DAGの正本化は完了しているが、Docsify上のMermaid描画
-      プラグイン導入・確認は別タスクとする.
+      プラグイン導入・確認は別タスクとする。
