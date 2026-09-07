@@ -170,13 +170,13 @@ $$
 
 の補集合は一点集合で有限なので開です。従って $\{x\}$ は閉です。直前の命題から $X$ は $T_1$ です。
 
-次に Hausdorff でないことを示します。相異なる $x,y\in X$ を取り、$x\in U$, $y\in V$ となる非空開集合 $U,V$ を任意に取ります。補有限位相の定義から
+次に Hausdorff でないことを示します。相異なる $x,y\in X$ を取り、$x\in U$, $y\in V$ となる非空開集合 $U,V$ を任意に取ります。補有限位相では
 
 $$
 X\setminus U,\qquad X\setminus V
 $$
 
-は有限です。もし $U\cap V=\varnothing$ なら De Morgan の法則により
+は有限です。もし $U\cap V=\varnothing$ なら、補集合を取ると
 
 $$
 X
