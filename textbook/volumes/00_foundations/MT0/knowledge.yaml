@@ -8,8 +8,12 @@ prerequisites:
   - F0-00C1
 
 # D2A は単関数近似との役割比較にだけ登場し、MT0 の証明依存にはしない。
+# MT1 の収束概念・定理は末尾の「次章への橋」と Lusin の動機で明示的に予告する。
 forward_references:
   - measure.simple-function-approximation
+  - measure.convergence-in-measure
+  - measure.egorov-theorem
+  - measure.lusin-theorem
 
 concepts:
   - id: measure.bounded-measurable-finite-simple-uniform-approximation
