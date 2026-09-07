@@ -2,6 +2,8 @@
 
 この章では、測度論で頻出する収束概念を「名前の一覧」ではなく、**どの仮定がどの矢印を成立させるか**まで追います。
 
+以下では「ほとんど至る所（almost everywhere; a.e.）」を a.e. と略記します。
+
 ```text
 一様収束 → 各点収束 → a.e.収束
                          │  μ(X)<∞
@@ -450,7 +452,7 @@ $$
 
 従って $L^p$収束しません。
 
-失われているのは「高さの暴走を積分可能な形で抑える機構」です。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md) の支配関数や、一様可積分性のような追加条件が必要になる理由がここにあります。
+失われているのは「高さの暴走を積分可能な形で抑える機構」です。[優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md) の支配関数や、一様可積分性のような追加条件が必要になる理由がここにあります。
 
 ---
 
@@ -804,50 +806,248 @@ $$
 
 ## 9. 練習問題
 
-### 問1
+### Level A
+
+<a id="ex-mt1-a01"></a>
+#### MT1-A01 $L^p$収束から測度収束を数値評価する
+- Level: A
+
+$1\le p<\infty$ とし、$\|f_n-f\|_p\le1/n$ とします。固定した $\varepsilon>0$ に対して
+
+$$
+\mu(|f_n-f|>\varepsilon)
+$$
+
+を上から評価し、測度収束を確認してください。
+
+<!-- solution-start -->
+**解答**：[証明で得た評価](#thm-mt1-lp-implies-measure)をそのまま使うと
+
+$$
+\mu(|f_n-f|>\varepsilon)
+\le\varepsilon^{-p}\|f_n-f\|_p^p
+\le\frac{1}{\varepsilon^pn^p}.
+$$
+
+右辺は $n\to\infty$ で0へ収束するため、任意の固定 $\varepsilon>0$ について悪い集合の測度が0へ収束します。従って $f_n\to f$ in measure です。ここでは $\mu(X)<\infty$ を使っていません。
+<!-- solution-end -->
+
+<a id="ex-mt1-a02"></a>
+#### MT1-A02 shrinking indicator の収束様式
+- Level: A
+
+$[0,1]$ 上で
+
+$$
+f_n=1_{(0,1/n)}
+$$
+
+とします。$f_n\to0$ a.e. かつ in measure であることを直接確認してください。
+
+<!-- solution-start -->
+**解答**：$x>0$ を固定すると、$n>1/x$ なら $x\notin(0,1/n)$ なので $f_n(x)=0$ です。$x=0$ でも全ての $n$ で $f_n(0)=0$ です。従って全点で $f_n(x)\to0$、特に a.e.収束します。
+
+また $0<\varepsilon<1$ なら
+
+$$
+\{|f_n|>\varepsilon\}=(0,1/n),
+$$
+
+したがって
+
+$$
+\lambda(\{|f_n|>\varepsilon\})=\frac1n\to0.
+$$
+
+$\varepsilon\ge1$ なら悪い集合は空です。よって測度収束も成り立ちます。
+<!-- solution-end -->
+
+<a id="ex-mt1-a03"></a>
+#### MT1-A03 無限測度では各点収束から測度収束しない
+- Level: A
+
+$\mathbb R$ 上で $f_n=1_{[n,n+1]}$ とします。$f_n\to0$ 各点収束するが、測度収束しないことを示してください。
+
+<!-- solution-start -->
+**解答**：固定した $x\in\mathbb R$ に対し、十分大きい $n$ では $x<n$ なので $x\notin[n,n+1]$、従って $f_n(x)=0$ です。よって各点収束します。
+
+一方 $0<\varepsilon<1$ なら
+
+$$
+\{|f_n|>\varepsilon\}=[n,n+1]
+$$
+
+なので
+
+$$
+\lambda(\{|f_n|>\varepsilon\})=1
+$$
+
+のままです。従って測度収束しません。有限測度空間で使えた上からの連続性の有限性条件が失われています。
+<!-- solution-end -->
+
+<a id="ex-mt1-a04"></a>
+#### MT1-A04 dyadic typewriter は測度収束する
+- Level: A
+
+本文の dyadic typewriter で、$2^k\le n<2^{k+1}$ のとき
+
+$$
+f_n=1_{[j/2^k,(j+1)/2^k)},\qquad j=n-2^k
+$$
+
+とします。$f_n\to0$ in measure を定義から確認してください。
+
+<!-- solution-start -->
+**解答**：$0<\varepsilon<1$ なら $f_n$ は0か1しか取らないので
+
+$$
+\{|f_n|>\varepsilon\}
+=\left[\frac j{2^k},\frac{j+1}{2^k}\right)
+$$
+
+です。従って
+
+$$
+\lambda(\{|f_n|>\varepsilon\})=2^{-k}.
+$$
+
+$n\to\infty$ なら対応するブロック番号 $k\to\infty$ なので $2^{-k}\to0$。$\varepsilon\ge1$ なら悪い集合は空です。従って測度収束します。ただし各点では各ブロックで1回ずつ値1を取るため、列全体は a.e.収束しません。
+<!-- solution-end -->
+
+### Level B
+
+<a id="ex-mt1-b01"></a>
+#### MT1-B01 任意の部分列から a.e.収束部分列を抜ける
+- Level: B
 
 $f_n\to f$ in measure とする。任意の部分列 $(f_{n_j})$ から、さらに a.e. で $f$ に収束する部分列を取れることを示してください。
 
-### 解答
-
-元の列が測度収束するなら任意の部分列も測度収束します。実際、固定した $\varepsilon>0$ について
+<!-- solution-start -->
+**解答**：元の列が測度収束するなら任意の部分列も測度収束します。実際、固定した $\varepsilon>0$ について
 
 $$
 \mu(|f_{n_j}-f|>\varepsilon)
 $$
 
-は元の数列 $\mu(|f_n-f|>\varepsilon)\to0$ の部分列だから0へ収束します。従って [測度収束から a.e.収束部分列を取る定理](#thm-mt1-measure-subsequence-ae) を $(f_{n_j})$ に適用すればよいです。
+は元の数列 $\mu(|f_n-f|>\varepsilon)\to0$ の部分列だから0へ収束します。従って [測度収束から a.e.収束部分列を取る定理](#thm-mt1-measure-subsequence-ae) を $(f_{n_j})$ に適用すれば、さらに a.e. で $f$ に収束する部分列を取れます。
+<!-- solution-end -->
 
-### 問2
+<a id="ex-mt1-b02"></a>
+#### MT1-B02 Egorov の可算誤差予算
+- Level: B
 
 Egorov の証明で、$m$ ごとに単に $\mu(A_{m,N_m})<\varepsilon$ と選ぶだけでは不十分な理由を説明してください。
 
-### 解答
-
-最終的には全ての精度 $1/m$ に対応する悪い集合を
+<!-- solution-start -->
+**解答**：最終的には全ての精度 $1/m$ に対応する悪い集合を
 
 $$
 \bigcup_{m=1}^\infty A_{m,N_m}
 $$
 
-として一度に除きます。各集合の測度を $\varepsilon$ 未満としか抑えなければ、その可算和は有限とは限りません。そこで
+として一度に除きます。各集合の測度を $\varepsilon$ 未満としか抑えなければ、可算劣加法性から得られる上界は $\sum_m\varepsilon=\infty$ で、全体が小さいとは言えません。
+
+そこで
 
 $$
 \mu(A_{m,N_m})<\varepsilon2^{-(m+1)}
 $$
 
-のように可算和可能な予算を割り振り、合計を $\varepsilon$ 未満にします。
-
-### 問3
-
-Lusin の証明で、一つの有限単関数 $s$ を $f$ に近づけて、その $s$ が連続になる大きな compact 集合を取るだけではなぜ不十分でしょうか。
-
-### 解答
-
-一つの $s$ について得られるのは
+のように総和可能な予算を割り振ります。すると
 
 $$
-\|f-s\|_\infty<\eta
+\mu\left(\bigcup_mA_{m,N_m}\right)
+\le\sum_m\mu(A_{m,N_m})
+<\sum_m\varepsilon2^{-(m+1)}
+<\varepsilon.
 $$
 
-という近似であって、$f$ 自身の連続性ではありません。連続関数に一様に「近い」だけの関数は連続とは限りません。$\eta\to0$ となる**列** $s_n$ を用意し、それら全てが連続になる一つの compact 集合 $K$ を作って、最後に「連続関数列の一様極限は連続」を使う必要があります。
+可算個の精度条件を一つの例外集合にまとめるには、誤差予算も可算和可能にする必要があります。
+<!-- solution-end -->
+
+<a id="ex-mt1-b03"></a>
+#### MT1-B03 a.e.収束だけでは $L^p$収束しない
+- Level: B
+
+$[0,1]$ 上で
+
+$$
+f_n(x)=n^{1/p}1_{(0,1/n)}(x),\qquad1\le p<\infty
+$$
+
+とします。$f_n\to0$ a.e. だが $L^p$ 収束しないことを示し、どの量が制御されていないか説明してください。
+
+<!-- solution-start -->
+**解答**：任意の $x>0$ について十分大きい $n$ では $x\notin(0,1/n)$ なので $f_n(x)=0$ です。$x=0$ でも値は0です。従って $f_n\to0$ a.e. です。
+
+一方
+
+$$
+\|f_n\|_p^p
+=\int_0^{1/n}\left(n^{1/p}\right)^pdx
+=\int_0^{1/n}n\,dx
+=1.
+$$
+
+従って $\|f_n\|_p=1$ のままで $L^p$ 収束しません。台の測度は $1/n$ へ縮みますが、高さが $n^{1/p}$ へ増大して積分質量を保っています。a.e.収束だけではこの高さ・積分質量を制御できません。
+<!-- solution-end -->
+
+### Level C
+
+<a id="ex-mt1-c01"></a>
+#### MT1-C01 Lusin の証明を一つの依存鎖として再構成する
+- Level: C
+
+Lusin の証明で、一つの有限単関数 $s$ を $f$ に近づけ、その $s$ が連続になる大きな compact 集合を取るだけでは不十分です。一般の実数値可測関数 $f:E\to\mathbb R$ に対して、なぜ
+
+1. 大値部分の切断、
+2. 有限単関数列による一様近似、
+3. 各レベル集合の compact 近似、
+4. 可算個の損失を一つの $K$ にまとめる操作、
+5. 一様極限の連続性
+
+の全てが必要か、論証をつないで説明してください。
+
+<!-- solution-start -->
+**解答**：まず $f$ は非有界かもしれないため、有限値単関数による一様近似をそのまま適用できません。そこで
+
+$$
+H_M=\{|f|>M\}
+$$
+
+と置き、$H_M\downarrow\varnothing$ と $\lambda(E)<\infty$ から上からの連続性を使って $\lambda(H_M)<\varepsilon/2$ となる $M$ を選びます。$F=E\setminus H_M$ 上では $f$ が有界です。
+
+次に MT0 の定理から有限値単関数 $s_n$ を
+
+$$
+\|s_n-f\|_{L^\infty(F)}<2^{-n}
+$$
+
+となるように取ります。各 $s_n$ の有限可測分割を MT0 の内正則性で compact 部分集合へ縮め、損失を $\delta_n=\varepsilon/2^{n+1}$ 未満にします。有限個の互いに素な compact レベル集合は正の距離で分離されるので、$s_n$ は残した compact 集合 $K_n$ 上で連続です。
+
+ただし $n$ ごとに別々の $K_n$ を使うだけでは、全ての $s_n$ が同じ定義域上で連続とは言えません。そこで
+
+$$
+K=\bigcap_{n=1}^\infty K_n
+$$
+
+とし、可算劣加法性から
+
+$$
+\lambda(F\setminus K)
+\le\sum_n\lambda(F\setminus K_n)
+<\sum_n\delta_n
+=\frac\varepsilon2
+$$
+
+を得ます。大値部分と合わせて $\lambda(E\setminus K)<\varepsilon$ です。$K\subset K_1$ かつ各 $K_n$ は閉なので $K$ は compact です。
+
+最後に全ての $s_n|_K$ は連続で、
+
+$$
+\sup_{x\in K}|s_n(x)-f(x)|<2^{-n}\to0
+$$
+
+だから $s_n|_K\to f|_K$ は一様収束します。一つの $s$ が $f$ に近いだけでは $f$ の連続性は出ませんが、**連続関数列の一様極限**なら連続です。これにより $f|_K$ の連続性が得られ、Lusin の結論が閉じます。
+<!-- solution-end -->
