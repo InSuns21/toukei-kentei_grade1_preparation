@@ -8,9 +8,10 @@ prerequisites:
   - F0-00C1
 
 # D2A は単関数近似との役割比較にだけ登場し、MT0 の証明依存にはしない。
-# MT1 の収束概念・定理は末尾の「次章への橋」と Lusin の動機で明示的に予告する。
+# RA5 の一様収束は練習問題の比較用語としてのみ、MT1 の収束概念・定理は末尾の橋と Lusin の動機で予告する。
 forward_references:
   - measure.simple-function-approximation
+  - analysis.uniform-convergence
   - measure.convergence-in-measure
   - measure.egorov-theorem
   - measure.lusin-theorem
@@ -44,6 +45,6 @@ concepts:
   - id: measure.finite-partition-compact-approximation
     name: 有限可測分割のコンパクト近似
     kind: corollary
-    aliases: [有限可測分割のコンパクト近似]
+    aliases: [有限可測分割のコンパクト近似, 有限個の可測集合を同時にコンパクト化する]
     requires:
       - measure.lebesgue-inner-regularity-finite
