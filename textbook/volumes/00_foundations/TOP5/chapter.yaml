@@ -1,0 +1,33 @@
+id: "TOP5"
+title: "標準位相 V：コンパクト性の一般論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP4
+official_scope: []
+learning_objectives:
+  - コンパクト性を「任意の開被覆から有限部分被覆を選べること」として量化を含めて説明できる
+  - コンパクト性と閉集合族の有限交差性による特徴付けを、補集合とDe Morgan則を両方向に使って証明できる
+  - コンパクト空間の閉部分集合がコンパクトであることを、部分空間位相の開集合を母空間の開集合へ持ち上げて証明できる
+  - コンパクト空間の連続像がコンパクトであることを、像の開被覆を逆像へ引き戻して証明できる
+  - Hausdorff空間のコンパクト部分集合が閉であることを、点ごとの分離と有限部分被覆を組み合わせて証明できる
+  - コンパクト空間からHausdorff空間への連続全単射が同相写像になることを、閉写像性から証明できる
+  - 一般位相ではコンパクト性と点列コンパクト性を同一視できないことを理解し、距離空間での同値を必要な補題から証明できる
+definitions:
+  - { id: TOP5-DEF-01, name: 開被覆・有限部分被覆 }
+  - { id: TOP5-DEF-02, name: コンパクト空間 }
+  - { id: TOP5-DEF-03, name: 有限交差性 }
+  - { id: TOP5-DEF-04, name: 点列コンパクト性 }
+theorems:
+  - { id: TOP5-THM-01, name: コンパクト性の有限交差性による特徴付け }
+  - { id: TOP5-THM-02, name: コンパクト空間の閉部分集合はコンパクト }
+  - { id: TOP5-THM-03, name: コンパクト空間の連続像はコンパクト }
+  - { id: TOP5-THM-04, name: Hausdorff空間のコンパクト部分集合は閉 }
+  - { id: TOP5-COR-01, name: コンパクト空間からHausdorff空間への連続全単射は同相写像 }
+  - { id: TOP5-THM-05, name: 距離空間ではコンパクト性と点列コンパクト性が同値 }
+canonical_examples: [有限空間, 実直線の非コンパクト性, 有限交差性を失う閉集合族, コンパクト集合の連続像, 一般位相での点列コンパクト性とのずれ]
+problem_patterns: [COMPACT-OPEN-COVER-1, COMPACT-FIP-1, CLOSED-SUBSET-COMPACT-1, CONTINUOUS-IMAGE-COMPACT-1, COMPACT-HAUSDORFF-CLOSED-1, COMPACT-TO-HAUSDORFF-HOMEOMORPHISM-1, METRIC-SEQUENTIAL-COMPACTNESS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 3, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
