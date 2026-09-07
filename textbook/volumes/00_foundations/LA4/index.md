@@ -414,7 +414,7 @@ $$
 \iff
 \ker(T-\lambda I)\ne\{0\}.
 $$
-有限次元の自己写像ではrank-nullity theoremにより、非単射であることと不可逆であることは同値です。従って
+有限次元の自己写像では[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)により、非単射であることと不可逆であることは同値です。従って
 $$
 \lambda\text{ が固有値}
 \iff
@@ -442,7 +442,7 @@ $$
 よって結論を得ます。$\square$
 <!-- proof-end -->
 
-<a id="note-la4-fta-boundary"></a>
+<a id="ref-la4-fta-boundary"></a>
 > **証明境界（代数学の基本定理）**  
 > 「複素係数の非定数多項式は複素数の根を持ち、従って一次因子の積へ分解できる」という事実は**代数学の基本定理**です。本章ではこの定理そのものは証明しません。以後「複素数上では特性多項式が一次因子へ分解する」と使う箇所は、ここで明示した外部事実を使用しています。分解が得られた後の一般化固有空間・Jordan構造は本章内の論証で閉じます。
 
@@ -666,7 +666,27 @@ $$
 $$
 m_T\mid p.
 $$
-$p$ は相異なる一次因子を一度ずつしか持ちません。$m_T$ の根 $\mu$ は $p(\mu)=0$ も満たすのでいずれかの $\lambda_j$ です。また $(t-\lambda_j)^2$ が $m_T$ を割れば $p$ も割ることになり、$p$ の明示的な積表示に反します。従って $m_T$ も相異なる一次因子の積です。
+そこで
+$$
+p=m_Tq,
+\qquad
+d=\deg m_T
+$$
+と書きます。$p$ は $r$ 次なので $\deg q=r-d$ です。各 $\lambda_j$ について
+$$
+0=p(\lambda_j)=m_T(\lambda_j)q(\lambda_j).
+$$
+従って各 $\lambda_j$ は $m_T$ または $q$ の少なくとも一方の根です。[非零多項式の根の個数](#lem-la4-polynomial-root-bound)から $q$ の相異なる根は高々 $r-d$ 個なので、$r$ 個の $\lambda_j$ のうち少なくとも $d$ 個は $m_T$ の根です。一方、$m_T$ の次数は $d$ なので相異なる根は高々 $d$ 個です。従って $m_T$ はちょうど $d$ 個の相異なる $\lambda_j$ を根に持ちます。
+
+それらを $\lambda_{j_1},\dots,\lambda_{j_d}$ とします。[多項式の除法](#lem-la4-polynomial-division)を根ごとに繰り返すと
+$$
+\prod_{a=1}^d(t-\lambda_{j_a})\mid m_T(t).
+$$
+左辺も $m_T$ も首一 $d$ 次なので、商は首一0次、すなわち1です。よって
+$$
+m_T(t)=\prod_{a=1}^d(t-\lambda_{j_a}),
+$$
+相異なる一次因子の積になっています。
 
 逆に
 $$
@@ -1103,7 +1123,7 @@ $$
 全ての $i$ について成り立つので和は直和です。$\square$
 <!-- proof-end -->
 
-複素数上では[代数学の基本定理という証明境界](#note-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley–Hamiltonから $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
+複素数上では[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により特性多項式が一次因子へ分解します。Cayley–Hamiltonから $m_T\mid\chi_T$ なので最小多項式も一次因子の冪へ分解し、全ての有限次元複素作用素にこの定理を適用できます。
 
 ---
 
@@ -1195,7 +1215,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[代数学の基本定理という証明境界](#note-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley–Hamiltonから最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
+[代数学の基本定理という証明境界](#ref-la4-fta-boundary)により複素数上では特性多項式が一次因子へ分解し、Cayley–Hamiltonから最小多項式も一次因子の冪へ分解します。[一般化固有空間分解](#thm-la4-generalized-decomposition)により
 $$
 V=\bigoplus_\lambda G_\lambda.
 $$
@@ -1328,7 +1348,7 @@ $$
 \dim W+c+r
 =\dim W+\dim\ker N.
 $$
-$W=\operatorname{Im}N$ なのでrank-nullity theoremから
+$W=\operatorname{Im}N$ なので[rank-nullity theorem](../F0_00F_線形写像_固有空間_スペクトル定理_SVD/index.md#thm-f0-00f-01)から
 $$
 \dim W+\dim\ker N=\dim V.
 $$
@@ -1477,7 +1497,7 @@ $$
 $$
 J=J_{k_1}(\lambda_1)\oplus\cdots\oplus J_{k_m}(\lambda_m)
 $$
-なら、$tI-J$ も同じブロック分割を持ちます。Leibniz和で異なるブロック間をまたぐ置換の項にはブロック外の0成分が現れるため消え、生き残る置換は各ブロック内の置換を独立に選ぶものだけです。従って有限和は各ブロックのLeibniz和の積へ分離し
+なら、$tI-J$ も同じブロック分割を持ちます。Leibniz和で異なるブロック間をまたぐ置換の項にはブロック外の0成分が現れるため消え、生き残る置換は各ブロック内の置換を独立に選ぶものだけです。従って有限和は各ブロックのLeibniz和の積としてまとまり
 $$
 \chi_J(t)
 =\prod_{a=1}^m\chi_{J_{k_a}(\lambda_a)}(t)
