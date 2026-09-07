@@ -75,12 +75,14 @@
 4. [F0-00D3A π–λ定理・Dynkin族](textbook/volumes/00_foundations/F0_00D3A_pi_lambda_Dynkin/index.md)
 5. [F0-00D4 Lebesgue測度・Borel・拡張定理](textbook/volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md)
 6. [F0-00D5 Vitali集合・非可測集合](textbook/volumes/00_foundations/F0_00D5_Vitali集合_非可測集合_選択公理/index.md)
-7. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
-8. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
-9. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
-10. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
-11. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
-12. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+7. [MT0 Lebesgue測度の正則性・有限単関数近似](textbook/volumes/00_foundations/MT0/index.md)
+8. [F0-00D2A 単関数からLebesgue積分](textbook/volumes/00_foundations/F0_00D2A_単関数_Lebesgue積分_構成/index.md)
+9. [F0-00D2B MCT・Fatou・DCT](textbook/volumes/00_foundations/F0_00D2B_単調収束_Fatou_優収束/index.md)
+10. [MT1 収束様式・Egorov・Lusin](textbook/volumes/00_foundations/MT1/index.md)
+11. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
+12. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+13. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+14. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
 
 ### 関数解析
 
