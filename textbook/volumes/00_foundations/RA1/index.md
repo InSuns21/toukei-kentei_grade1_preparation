@@ -50,7 +50,7 @@ $$
 
 ---
 
-## 2. limsup / liminf
+## 2. 上極限と下極限
 
 <a id="def-ra1-limsup"></a>
 <!-- formal-statement-start -->
