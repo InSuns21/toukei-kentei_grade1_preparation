@@ -37,13 +37,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（交代多重線形形式）**  
 > $n$ 個の変数を持つ写像
-> $$
-> \omega:V^n\to\mathbb F
-> $$
+$$
+\omega:V^n\to\mathbb F
+$$
 > が各変数について線形で、$v_i=v_j$ となる2つの引数があるとき常に
-> $$
-> \omega(v_1,\dots,v_n)=0
-> $$
+$$
+\omega(v_1,\dots,v_n)=0
+$$
 > となるとき、$\omega$ を **交代 $n$ 重線形形式** という。
 <!-- formal-statement-end -->
 
@@ -72,9 +72,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（最高次交代形式は1次元）**  
 > $V$ を $n$ 次元ベクトル空間とし、基底 $e_1,\dots,e_n$ を固定する。任意の交代 $n$ 重線形形式 $\omega$ は
-> $$
-> \omega(e_1,\dots,e_n)
-> $$
+$$
+\omega(e_1,\dots,e_n)
+$$
 > だけで一意に決まる。また $\omega(e_1,\dots,e_n)=1$ を満たす交代 $n$ 重線形形式が存在する。従って交代 $n$ 重線形形式全体の空間は1次元である。
 <!-- formal-statement-end -->
 
@@ -163,10 +163,10 @@ $$
 <!-- formal-statement-start -->
 > **定義（抽象行列式）**  
 > $V$ を $n$ 次元ベクトル空間、$T:V\to V$ を線形写像とする。非零な交代 $n$ 重線形形式 $\omega$ を1つ取る。このとき一意なスカラー $\det T$ を
-> $$
-> \omega(Tv_1,\dots,Tv_n)
-> =(\det T)\,\omega(v_1,\dots,v_n)
-> $$
+$$
+\omega(Tv_1,\dots,Tv_n)
+=(\det T)\,\omega(v_1,\dots,v_n)
+$$
 > が全ての $v_1,\dots,v_n\in V$ で成り立つように定める。
 <!-- formal-statement-end -->
 
@@ -229,9 +229,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（抽象行列式と表現行列の行列式）**  
 > $V$ の任意の基底 $\mathcal B$ に対して
-> $$
-> \det T=\det[T]_{\mathcal B}.
-> $$
+$$
+\det T=\det[T]_{\mathcal B}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -395,9 +395,9 @@ $$
 です。従って $\eta$ を使っても同じ $c$ が得られます。
 <!-- solution-end -->
 
-### LA3D-B02 抽象定義から乗法性
+### LA3D-B02 乗法性を座標なしに導く
 
-抽象行列式の定義だけから
+[抽象行列式](#def-la3d-abstract-determinant)の定義だけから
 $$
 \det(S\circ T)=\det S\det T
 $$
