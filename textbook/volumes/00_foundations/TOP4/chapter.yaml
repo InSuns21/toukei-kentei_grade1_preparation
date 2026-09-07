@@ -1,0 +1,43 @@
+id: "TOP4"
+title: "標準位相 IV：分離公理・可算性公理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP3
+  - F0-00B1
+official_scope: []
+learning_objectives:
+  - T0・T1・Hausdorff(T2)・T3・T4を「何を互いに分離できるか」で比較し、各含意でどの仮定を使うか説明できる
+  - T1空間と一点集合が閉であることの同値性を両方向に証明できる
+  - T4⇒T3⇒T2⇒T1⇒T0を、T1条件が使われる箇所を明示して証明できる
+  - Sierpinski空間・補有限位相・K位相により分離公理の逆向きが一般には成り立たないことを確認できる
+  - 局所基底・第一可算・第二可算・可分性を「何を可算な族で記述するか」で区別できる
+  - 第二可算なら第一可算かつ可分であることを、可算基底から局所基底と稠密集合を構成して証明できる
+  - 非可算離散空間と可算な非第一可算空間により可算性条件の逆向きが一般には成り立たないことを確認できる
+  - 距離空間では可分性と第二可算性が同値であることを、稠密集合の点を中心とする有理半径の球から証明できる
+definitions:
+  - { id: TOP4-DEF-01, name: T0空間 }
+  - { id: TOP4-DEF-02, name: T1空間 }
+  - { id: TOP4-DEF-03, name: 正則性 }
+  - { id: TOP4-DEF-04, name: T3空間 }
+  - { id: TOP4-DEF-05, name: 正規性 }
+  - { id: TOP4-DEF-06, name: T4空間 }
+  - { id: TOP4-DEF-07, name: 局所基底・第一可算 }
+  - { id: TOP4-DEF-08, name: 第二可算 }
+  - { id: TOP4-DEF-09, name: 可分空間 }
+theorems:
+  - { id: TOP4-PROP-01, name: T1空間と一点集合の閉性 }
+  - { id: TOP4-THM-01, name: 分離公理の含意鎖 }
+  - { id: TOP4-PROP-02, name: Sierpinski空間はT0だがT1でない }
+  - { id: TOP4-PROP-03, name: 無限集合の補有限位相はT1だがHausdorffでない }
+  - { id: TOP4-PROP-04, name: K位相はHausdorffだが正則でない }
+  - { id: TOP4-THM-02, name: 第二可算なら第一可算かつ可分 }
+  - { id: TOP4-PROP-05, name: 非可算離散空間は第一可算だが第二可算でも可分でもない }
+  - { id: TOP4-PROP-06, name: 可分でも第一可算とは限らない }
+  - { id: TOP4-THM-03, name: 距離空間では可分性と第二可算性が同値 }
+canonical_examples: [Sierpinski空間, 補有限位相, K位相, 非可算離散空間, 可算な非第一可算空間, 可分距離空間の可算基底]
+problem_patterns: [SEPARATION-AXIOMS-1, T1-SINGLETON-CLOSED-1, K-TOPOLOGY-1, COUNTABILITY-AXIOMS-1, SECOND-COUNTABLE-IMPLICATIONS-1, METRIC-SEPARABLE-SECOND-COUNTABLE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
