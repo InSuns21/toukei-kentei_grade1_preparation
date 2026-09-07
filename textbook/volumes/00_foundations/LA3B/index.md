@@ -140,7 +140,7 @@ $$
 $$
 c_k=\alpha u+\beta v
 $$
-とします。Leibniz 公式の各項には第 $k$ 列の成分 $a_{\sigma(k),k}$ がちょうど1個だけ現れます。その因子について分配すれば
+とします。[Leibniz 公式](#def-la3b-matrix-determinant)の各項には第 $k$ 列の成分 $a_{\sigma(k),k}$ がちょうど1個だけ現れます。その因子について分配すれば
 $$
 \det(c_1,\dots,\alpha u+\beta v,\dots,c_n)
 =
@@ -165,7 +165,7 @@ $$
 $$
 従って $\mathbb R,\mathbb C$ 上では $\det A=0$ です。
 
-最後に $I_n$ の Leibniz 公式では恒等置換以外の項はどこかで非対角成分0を含みます。従って
+最後に $I_n$ の [Leibniz 公式](#def-la3b-matrix-determinant)では恒等置換以外の項はどこかで非対角成分0を含みます。従って
 $$
 \det I_n=1.
 $$
@@ -257,7 +257,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Leibniz 公式から
+[Leibniz 公式](#def-la3b-matrix-determinant)から
 $$
 \det(A^{\mathsf T})
 =
@@ -334,7 +334,7 @@ $$
 $$
 A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
 $$
-について Leibniz 公式から $\det A=ad-bc$ を導け。
+について [Leibniz 公式](#def-la3b-matrix-determinant)から $\det A=ad-bc$ を導け。
 
 <!-- solution-start -->
 **解答**：$S_2=\{\mathrm{id},(1\ 2)\}$ で符号はそれぞれ $+1,-1$ です。従って
