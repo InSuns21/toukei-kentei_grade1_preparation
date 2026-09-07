@@ -5,9 +5,7 @@ prerequisites:
   - LA5
   - F0-00F1
   - F0-00F2
-forward_references:
-  - functional.norm
-  - functional.operator-norm
+forward_references: []
 
 concepts:
   - id: linear.hermitian-quadratic-form
@@ -34,14 +32,20 @@ concepts:
       - linear.congruence
       - linear.complex-normal-spectral-theorem
 
+  - id: linear.hermitian-psd-operator
+    name: Hermitian PSD作用素
+    kind: definition
+    aliases: [Hermitian PSD作用素, Hermitian positive semidefinite operator, PSD作用素]
+    requires:
+      - linear.hermitian-operator
+
   - id: linear.psd-square-root
     name: Hermitian PSD平方根定理
     kind: theorem
     aliases: [Hermitian PSD平方根定理, PSD平方根]
     requires:
-      - linear.hermitian-operator
+      - linear.hermitian-psd-operator
       - linear.complex-normal-spectral-theorem
-      - linear.positive-semidefinite-matrix
 
   - id: linear.polar-decomposition
     name: polar decomposition
@@ -50,12 +54,42 @@ concepts:
     requires:
       - linear.psd-square-root
       - linear.unitary-operator
+      - linear.orthonormal-extension
 
   - id: linear.complex-singular-value-decomposition
     name: 複素特異値分解
     kind: theorem
-    aliases: [複素特異値分解, complex SVD]
+    aliases: [複素特異値分解, complex singular value decomposition]
     requires:
-      - linear.psd-square-root
+      - linear.hermitian-psd-operator
       - linear.complex-normal-spectral-theorem
-      - linear.singular-value-decomposition
+      - linear.orthonormal-extension
+
+  - id: linear.euclidean-operator-norm
+    name: Euclidノルムから誘導される作用素ノルム
+    kind: definition
+    aliases: [Euclidノルムから誘導される作用素ノルム, Euclidean operator norm, 作用素ノルム]
+    requires:
+      - linear.complex-inner-product
+
+  - id: linear.unitary-operator-norm-invariance
+    name: 作用素ノルムのunitary不変性
+    kind: lemma
+    aliases: [作用素ノルムのunitary不変性, unitary invariance of operator norm]
+    requires:
+      - linear.euclidean-operator-norm
+      - linear.unitary-operator
+
+  - id: linear.rank-invertible-invariance
+    name: 可逆な左右乗算はrankを変えない
+    kind: lemma
+    aliases: [可逆な左右乗算はrankを変えない, rank invariance under invertible multiplication]
+    requires:
+      - linear.kernel-image
+
+  - id: linear.diagonal-operator-norm
+    name: 矩形対角行列の作用素ノルム
+    kind: lemma
+    aliases: [矩形対角行列の作用素ノルム, operator norm of a rectangular diagonal matrix]
+    requires:
+      - linear.euclidean-operator-norm
