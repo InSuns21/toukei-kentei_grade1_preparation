@@ -23,7 +23,7 @@ T_4 & \text{二つの閉集合}\\ \hline
 \end{array}
 $$
 
-なお Hausdorff 空間は F0-00B1 で既に定義しています。本章ではそれを $T_2$ として含意鎖の中へ置きます。
+なお Hausdorff 空間は F0-00B1 で既に定義しています。本章ではそれを $T_2$ として含意関係の中へ置きます。
 
 ---
 
@@ -31,7 +31,7 @@ $$
 
 <a id="def-top4-t0"></a>
 <!-- formal-statement-start -->
-> **定義（$T_0$ 空間）**  
+> **定義（T0空間）**  
 > 位相空間 $X$ が **$T_0$** であるとは、任意の異なる二点 $x,y\in X$ に対し、$x,y$ の一方を含み他方を含まない開集合が存在することをいう。
 <!-- formal-statement-end -->
 
@@ -52,7 +52,7 @@ $$
 
 <a id="def-top4-t1"></a>
 <!-- formal-statement-start -->
-> **定義（$T_1$ 空間）**  
+> **定義（T1空間）**  
 > 位相空間 $X$ が **$T_1$** であるとは、任意の異なる二点 $x,y\in X$ に対し、
 >
 > - $x$ を含み $y$ を含まない開集合 $U$、
@@ -71,12 +71,12 @@ $$
 r=\frac{|x-y|}{2}>0
 $$
 
-と置けば、$U=(x-r,x+r)$ は $x$ を含み $y$ を含みません。同様に $V=(y-r,y+r)$ は $y$ を含み $x$ を含みません。従って $\mathbb R$ は $T_1$ です。
+と置けば、$U=(x-r,x+r)$ は $x$ を含み $y$ を含みません。同様に $V=(y-r,y+r)$ は $y$ を含み $x$ を含まない開集合です。従って $\mathbb R$ は $T_1$ です。
 <!-- definition-example-end -->
 
 <a id="prop-top4-t1-singleton"></a>
 <!-- formal-statement-start -->
-> **命題（$T_1$ 空間と一点集合の閉性）**  
+> **命題（T1空間と一点集合の閉性）**  
 > 位相空間 $X$ について、次は同値である。
 >
 > 1. $X$ は $T_1$ である。
@@ -129,7 +129,7 @@ $$
 
 <a id="prop-top4-sierpinski"></a>
 <!-- formal-statement-start -->
-> **命題（Sierpinski 空間は $T_0$ だが $T_1$ でない）**  
+> **命題（Sierpinski空間はT0だがT1でない）**  
 > $X=\{0,1\}$ に $\tau=\{\varnothing,\{1\},X\}$ を入れた空間は $T_0$ だが $T_1$ ではない。
 <!-- formal-statement-end -->
 
@@ -149,7 +149,7 @@ $$
 
 <a id="prop-top4-cofinite"></a>
 <!-- formal-statement-start -->
-> **命題（無限集合の補有限位相は $T_1$ だが Hausdorff でない）**  
+> **命題（無限集合の補有限位相はT1だがHausdorffでない）**  
 > 無限集合 $X$ に
 
 $$
@@ -236,7 +236,7 @@ $$
 
 <a id="def-top4-t3"></a>
 <!-- formal-statement-start -->
-> **定義（$T_3$ 空間）**  
+> **定義（T3空間）**  
 > 位相空間 $X$ が **$T_3$** であるとは、$X$ が $T_1$ であり、かつ正則性を満たすことをいう。
 <!-- formal-statement-end -->
 
@@ -259,7 +259,7 @@ $$
 
 <a id="prop-top4-k-topology"></a>
 <!-- formal-statement-start -->
-> **命題（$K$ 位相は Hausdorff だが正則でない）**
+> **命題（K位相はHausdorffだが正則でない）**
 
 $$
 K=\{1/n:n\in\mathbb N\}\subset\mathbb R
@@ -373,7 +373,7 @@ $$
 
 <a id="def-top4-t4"></a>
 <!-- formal-statement-start -->
-> **定義（$T_4$ 空間）**  
+> **定義（T4空間）**  
 > 位相空間 $X$ が **$T_4$** であるとは、$X$ が $T_1$ であり、かつ正規性を満たすことをいう。
 <!-- formal-statement-end -->
 
@@ -392,7 +392,7 @@ $$
 
 <a id="thm-top4-separation-chain"></a>
 <!-- formal-statement-start -->
-> **定理（分離公理の含意鎖）**  
+> **定理（分離公理の含意関係）**  
 > 本章の規約では
 
 $$
