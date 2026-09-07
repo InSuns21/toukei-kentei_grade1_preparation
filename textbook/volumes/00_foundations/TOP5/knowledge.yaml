@@ -7,22 +7,6 @@ prerequisites:
 forward_references: []
 
 concepts:
-  - id: topology.open-cover
-    name: 開被覆・有限部分被覆
-    kind: definition
-    aliases: [開被覆, 有限部分被覆, open cover, finite subcover]
-    introduction_aliases: [開被覆, 有限部分被覆]
-    requires:
-      - topology.topological-space
-
-  - id: topology.compact-space
-    name: コンパクト空間
-    kind: definition
-    aliases: [コンパクト空間, コンパクト性, compact space, compactness]
-    introduction_aliases: [コンパクト空間]
-    requires:
-      - topology.open-cover
-
   - id: topology.finite-intersection-property
     name: 有限交差性
     kind: definition
@@ -36,7 +20,7 @@ concepts:
     kind: theorem
     aliases: [コンパクト性の有限交差性による特徴付け, compactness FIP characterization]
     requires:
-      - topology.compact-space
+      - topology.compact-set
       - topology.finite-intersection-property
       - topology.topological-closed-set
 
@@ -45,24 +29,16 @@ concepts:
     kind: theorem
     aliases: [コンパクト空間の閉部分集合はコンパクト, closed subset of compact space]
     requires:
-      - topology.compact-space
+      - topology.compact-set
       - topology.subspace-topology
       - topology.topological-closed-set
-
-  - id: topology.continuous-image-compact
-    name: コンパクト空間の連続像はコンパクト
-    kind: theorem
-    aliases: [コンパクト空間の連続像はコンパクト, continuous image of compact space]
-    requires:
-      - topology.compact-space
-      - topology.topological-continuous-map
 
   - id: topology.compact-subset-hausdorff-closed
     name: Hausdorff空間のコンパクト部分集合は閉
     kind: theorem
     aliases: [Hausdorff空間のコンパクト部分集合は閉, compact subset of Hausdorff space is closed]
     requires:
-      - topology.compact-space
+      - topology.compact-set
       - topology.hausdorff-space
       - topology.topological-closed-set
 
@@ -75,21 +51,3 @@ concepts:
       - topology.continuous-image-compact
       - topology.compact-subset-hausdorff-closed
       - topology.topological-continuous-map
-
-  - id: topology.sequentially-compact-space
-    name: 点列コンパクト性
-    kind: definition
-    aliases: [点列コンパクト性, 点列コンパクト, sequential compactness, sequentially compact]
-    introduction_aliases: [点列コンパクト性]
-    requires:
-      - topology.topological-space
-
-  - id: topology.metric-compact-sequentially-compact
-    name: 距離空間ではコンパクト性と点列コンパクト性が同値
-    kind: theorem
-    aliases: [距離空間ではコンパクト性と点列コンパクト性が同値, compact iff sequentially compact in metric spaces]
-    requires:
-      - topology.metric-space
-      - topology.compact-space
-      - topology.sequentially-compact-space
-      - topology.compact-fip-characterization
