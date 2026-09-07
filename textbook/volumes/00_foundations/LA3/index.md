@@ -128,6 +128,7 @@ $$
 なので
 $$
 e^i(\alpha x+\beta y)
+=\alpha x_i+\beta y_i
 =\alpha e^i(x)+\beta e^i(y).
 $$
 よって $e^i\in V^*$ であり、定義から $e^i(e_j)=\delta_{ij}$ です。
@@ -398,28 +399,88 @@ $$
 
 ### 6.1 置換と符号
 
-$n$ 個の記号 $1,\dots,n$ の並べ替え全体を $S_n$ と書きます。$\sigma\in S_n$ に対して
+<a id="def-la3-permutation-sign"></a>
+<!-- formal-statement-start -->
+> **定義（置換の転倒数と符号）**  
+> $n$ 個の記号 $1,\dots,n$ の置換全体を $S_n$ とする。$\sigma\in S_n$ に対して
 $$
 \operatorname{inv}(\sigma)
 =\#\{(i,j):i<j,\ \sigma(i)>\sigma(j)\}
 $$
-を転倒数とし
+> を転倒数といい
 $$
 \operatorname{sgn}(\sigma)=(-1)^{\operatorname{inv}(\sigma)}
 $$
-と定めます。
+> を $\sigma$ の符号という。
+<!-- formal-statement-end -->
 
-隣り合う2箇所を1回交換すると転倒数の偶奇が反転するので、置換の符号も反転します。従って任意の1回の互換 $\tau$ について
+<!-- definition-example-start: def-la3-permutation-sign -->
+**定義の確認**：$\sigma=(2,3,1)$、すなわち
+$$
+\sigma(1)=2,\quad \sigma(2)=3,\quad \sigma(3)=1
+$$
+とします。転倒は
+$$
+(1,3),\ (2,3)
+$$
+の2個なので
+$$
+\operatorname{inv}(\sigma)=2,
+\qquad
+\operatorname{sgn}(\sigma)=(-1)^2=1.
+$$
+<!-- definition-example-end -->
+
+<a id="lem-la3-permutation-sign-product"></a>
+<!-- formal-statement-start -->
+> **補題（置換の符号の積）**  
+> $\sigma,\rho\in S_n$ に対して
+$$
+\operatorname{sgn}(\sigma\circ\rho)
+=\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
+$$
+> 特に互換 $\tau$ について $\operatorname{sgn}(\tau)=-1$ であり
 $$
 \operatorname{sgn}(\sigma\circ\tau)
 =-\operatorname{sgn}(\sigma).
 $$
-また置換を続けて行えば交換回数の偶奇は加算されるので
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+隣り合う2箇所を交換する置換を $s_k=(k\ k+1)$ とします。$\sigma$ の並びの第 $k$ 項と第 $k+1$ 項を交換すると、この2項どうしの大小関係だけが反転し、他の項との転倒数の合計は変わりません。従って
+$$
+\operatorname{inv}(\sigma\circ s_k)
+\equiv \operatorname{inv}(\sigma)+1\pmod2,
+$$
+すなわち
+$$
+\operatorname{sgn}(\sigma\circ s_k)
+=-\operatorname{sgn}(\sigma).
+$$
+
+任意の置換 $\rho$ は隣接互換の積
+$$
+\rho=s_{i_1}\cdots s_{i_m}
+$$
+と書けます。恒等置換から同じ交換を順に施せば
+$$
+\operatorname{sgn}(\rho)=(-1)^m.
+$$
+同じ交換列を $\sigma$ の右から施せば
 $$
 \operatorname{sgn}(\sigma\circ\rho)
-=\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho)
+=(-1)^m\operatorname{sgn}(\sigma)
+=\operatorname{sgn}(\sigma)\operatorname{sgn}(\rho).
 $$
-です。
+
+一般の互換 $(p\ q)$（$p<q$）は
+$$
+(p\ p+1)\cdots(q-1\ q)(q-2\ q-1)\cdots(p\ p+1)
+$$
+という $2(q-p)-1$ 回の隣接交換で表せるので奇置換です。従って符号は $-1$ です。$\square$
+<!-- proof-end -->
 
 <a id="def-la3-matrix-determinant"></a>
 <!-- formal-statement-start -->
@@ -435,12 +496,17 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-$n=2$ では $S_2$ は恒等置換と1回の交換だけなので
+<!-- definition-example-start: def-la3-matrix-determinant -->
+**定義の確認**：$n=2$ では $S_2$ は恒等置換と互換 $(1\ 2)$ の2個だけです。従って
 $$
+\begin{aligned}
 \det\begin{pmatrix}a&b\\c&d\end{pmatrix}
-=ad-cb=ad-bc.
+&=(+1)ad+(-1)cb\\
+&=ad-bc.
+\end{aligned}
 $$
-速習で使った公式は Leibniz 公式の $n=2$ の場合です。
+速習で使った $2\times2$ の公式は Leibniz 公式の特殊例です。
+<!-- definition-example-end -->
 
 ### 6.2 列に関する多重線形性と交代性
 
@@ -474,7 +540,7 @@ $$
 $$
 よって各列について線形です。
 
-次に第 $p$ 列と第 $q$ 列を交換した行列を $A'$ とします。$\tau=(p\ q)$ と置きます。$A'$ の Leibniz 展開で置換 $\sigma$ に対応する積は、元の $A$ では $\sigma\circ\tau$ に対応する積と同じです。一方
+次に第 $p$ 列と第 $q$ 列を交換した行列を $A'$ とし、$\tau=(p\ q)$ と置きます。$A'$ の Leibniz 展開で $\sigma$ に対応する積は、元の $A$ では $\sigma\circ\tau$ に対応する積と同じです。一方[置換の符号の積](#lem-la3-permutation-sign-product)から
 $$
 \operatorname{sgn}(\sigma\circ\tau)
 =-\operatorname{sgn}(\sigma).
@@ -500,7 +566,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-### 6.3 行列式はこの4性質で一意に決まる
+### 6.3 行列式はこの性質で一意に決まる
 
 <a id="thm-la3-det-uniqueness"></a>
 <!-- formal-statement-start -->
@@ -536,7 +602,7 @@ $$
 $$
 と置換になっている項だけです。
 
-置換は交換の繰り返しで作れ、交換1回ごとに交代性から符号が反転するので
+交換1回ごとに交代性から符号が反転するので
 $$
 D(e_{\sigma(1)},\dots,e_{\sigma(n)})
 =\operatorname{sgn}(\sigma)D(e_1,\dots,e_n)
@@ -554,8 +620,6 @@ D(c_1,\dots,c_n)
 $$
 $\square$
 <!-- proof-end -->
-
-この定理により、「Leibniz 公式」と「正規化された交代多重線形形式」は同じ対象を二つの見方で表していると分かります。
 
 ### 6.4 転置・行に関する性質
 
@@ -585,7 +649,15 @@ $$
 =
 \prod_{i=1}^na_{\sigma^{-1}(i),i}.
 $$
-また
+また[置換の符号の積](#lem-la3-permutation-sign-product)を
+$$
+\sigma\circ\sigma^{-1}=\mathrm{id}
+$$
+に適用すると
+$$
+1=\operatorname{sgn}(\sigma)\operatorname{sgn}(\sigma^{-1})
+$$
+なので
 $$
 \operatorname{sgn}(\sigma^{-1})=\operatorname{sgn}(\sigma).
 $$
@@ -655,11 +727,15 @@ $$
 $$
 でなければなりません。
 
-しかし置換について全ての $j$ で $\sigma(j)\le j$ なら、和を取って
+しかし全ての $j$ で $\sigma(j)\le j$ なら
 $$
-\sum_j\sigma(j)\le\sum_jj
+\sum_j\sigma(j)\le\sum_jj.
 $$
-となります。両辺は置換なので実際には等しく、従って各 $j$ で $\sigma(j)=j$ です。つまり非零になり得るのは恒等置換の項だけです。
+左辺も右辺も $1+\cdots+n$ なので実際には等号であり、各不等式も全て等号でなければなりません。従って
+$$
+\sigma(j)=j
+$$
+が全ての $j$ で成り立ちます。つまり非零になり得るのは恒等置換の項だけです。
 
 従って
 $$
@@ -703,17 +779,26 @@ $$
 $$
 固定した $i$ の内側の和では $a_{ij}$ が全項に共通なので外へ出せます。
 
-残った行集合 $\{1,\dots,n\}\setminus\{i\}$ と列集合 $\{1,\dots,n\}\setminus\{j\}$ の対応は、ちょうど小行列 $M_{ij}$ の置換展開です。元の置換で行 $i$ と列 $j$ を所定位置へ移すのに必要な交換回数の偶奇が $i+j$ と一致するため、元の置換の符号は
+$\sigma(j)=i$ を固定し、元の並びから第 $j$ 列と第 $i$ 行を取り除いて残った添字を昇順に詰め直すと、$M_{ij}$ のある置換 $\bar\sigma\in S_{n-1}$ が得られます。第 $j$ 列を先頭へ移すのに $j-1$ 回、第 $i$ 行を先頭へ移すのに $i-1$ 回の交換が必要なので、元の置換と残りの置換の符号には
 $$
-(-1)^{i+j}
+(-1)^{(i-1)+(j-1)}=(-1)^{i+j}
 $$
-と $M_{ij}$ 側の置換の符号の積になります。従って
+の差があります。従って
 $$
-\sum_{\sigma:\sigma(j)=i}
 \operatorname{sgn}(\sigma)
-\prod_{k=1}^n a_{\sigma(k),k}
-=a_{ij}(-1)^{i+j}\det M_{ij}
+=(-1)^{i+j}\operatorname{sgn}(\bar\sigma).
+$$
+
+よって固定した $i$ に対応する項の和は
+$$
+\begin{aligned}
+&\sum_{\sigma:\sigma(j)=i}
+\operatorname{sgn}(\sigma)
+\prod_{k=1}^n a_{\sigma(k),k}\\
+&\qquad=
+a_{ij}(-1)^{i+j}\det M_{ij}
 =a_{ij}C_{ij}.
+\end{aligned}
 $$
 これを $i$ について足せば
 $$
@@ -722,48 +807,7 @@ $$
 行展開は $A^{\mathsf T}$ に列展開を適用し、$\det A^{\mathsf T}=\det A$ を使えば従います。$\square$
 <!-- proof-end -->
 
-### 6.7 行列式と可逆性
-
-<a id="thm-la3-det-invertible"></a>
-<!-- formal-statement-start -->
-> **定理（行列式による可逆性判定）**  
-> $A\in\mathbb F^{n\times n}$ に対して次は同値である。
->
-> 1. $A$ は可逆。
-> 2. $A$ の列は一次独立。
-> 3. $\det A\ne0$。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-1 と 2 の同値は有限次元線形写像の基本事実です。ここでは 2 と 3 を行列式から確認します。
-
-列が一次従属なら、ある列 $c_j$ が他の列の線形結合として書けます。行列式の第 $j$ 列について線形性を使うと、各項には同じ列が2本現れるため全て0になり
-$$
-\det A=0.
-$$
-従って
-$$
-\det A\ne0\Longrightarrow\text{列は一次独立}.
-$$
-
-逆に列が一次独立なら $A$ は可逆であり、Gauss 消去により有限回の基本行変形で $A$ を $I$ に変形できます。可逆行列では途中で0倍による行の消去は必要なく、使う行の定数倍の係数は全て非零です。
-
-[基本変形と行列式](#thm-la3-det-elementary-operations)によれば、行交換は $-1$ 倍、非零定数倍は非零定数倍、他行の倍の加算は不変です。従って有限回の操作で行列式が0から非零へ変わることはありません。最終的に
-$$
-\det I=1
-$$
-なので、出発点でも
-$$
-\det A\ne0
-$$
-でなければなりません。
-
-以上から 2 と 3 が同値で、結論を得ます。$\square$
-<!-- proof-end -->
-
-### 6.8 余因子行列と逆行列
+### 6.7 余因子行列
 
 <a id="def-la3-adjugate"></a>
 <!-- formal-statement-start -->
@@ -774,6 +818,22 @@ $$
 $$
 > と定めた行列を $A$ の余因子行列（adjugate）という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-la3-adjugate -->
+**定義の確認**：
+$$
+A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
+$$
+なら
+$$
+C_{11}=d,\quad C_{12}=-c,\quad C_{21}=-b,\quad C_{22}=a.
+$$
+余因子を転置して並べるので
+$$
+\operatorname{adj}(A)
+=\begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
+$$
+<!-- definition-example-end -->
 
 <a id="thm-la3-adjugate-identity"></a>
 <!-- formal-statement-start -->
@@ -816,11 +876,11 @@ $$
 $\operatorname{adj}(A)A=(\det A)I$ も列について同じ議論を行えば得られます。$\square$
 <!-- proof-end -->
 
-$\det A\ne0$ なら両辺を $\det A$ で割って
+特に $\det A\ne0$ なら
 $$
-A^{-1}=\frac{1}{\det A}\operatorname{adj}(A).
+A^{-1}=\frac{1}{\det A}\operatorname{adj}(A)
 $$
-これで速習で見た $2\times2$ 逆行列公式も一般論の特殊例として位置づきます。
+なので $A$ は可逆です。逆向きも含む完全な可逆性判定は、抽象行列式の乗法性を得た後で証明します。
 
 ---
 
@@ -935,7 +995,7 @@ $$
 なので、交代 $n$ 重線形形式全体は $\omega_0$ が張る1次元空間です。$\square$
 <!-- proof-end -->
 
-ここでは以前のように「通常の行列式の性質」を未証明のまま借りていません。Leibniz 公式から通常行列式を先に構成し、その性質を証明してから最高次交代形式の存在へ進んでいます。
+ここでは「通常の行列式の性質」を未証明のまま借りていません。Leibniz 公式から通常行列式を先に構成し、その性質を証明してから最高次交代形式の存在へ進んでいます。
 
 ---
 
@@ -992,15 +1052,34 @@ $$
 $$
 <!-- definition-example-end -->
 
-### 8.1 抽象行列式と通常の行列式は一致する
+### 8.1 抽象行列式と通常の行列式の一致
 
-基底 $e_1,\dots,e_n$ を取り、$\omega(e_1,\dots,e_n)=1$ と正規化します。$T$ の表現行列を $A=(A_{ij})$ とすると
+<a id="thm-la3-abstract-matrix-det-agree"></a>
+<!-- formal-statement-start -->
+> **定理（抽象行列式と表現行列の行列式）**  
+> $V$ の任意の基底 $\mathcal B$ に対して
+$$
+\det T=\det[T]_{\mathcal B}.
+$$
+> 従って右辺は基底の選択に依存しない。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+基底を $e_1,\dots,e_n$ と書き、[最高次交代形式は1次元](#thm-la3-top-alternating-one-dimensional)で構成した
+$$
+\omega(e_1,\dots,e_n)=1
+$$
+を満たす交代 $n$ 重線形形式を取ります。$T$ の表現行列を $A=(A_{ij})$ とすると
 $$
 Te_j=\sum_iA_{ij}e_i.
 $$
-[最高次交代形式の証明](#thm-la3-top-alternating-one-dimensional)から
+最高次交代形式の展開式から
 $$
-\omega(Te_1,\dots,Te_n)=\det A.
+\omega(Te_1,\dots,Te_n)
+=\det A\,\omega(e_1,\dots,e_n)
+=\det A.
 $$
 一方、抽象行列式の定義から
 $$
@@ -1010,8 +1089,12 @@ $$
 $$
 従って
 $$
-\boxed{\det T=\det A}.
+\det T=\det A=\det[T]_{\mathcal B}.
 $$
+左辺は基底を使わず定義されているので、右辺も基底に依存しません。$\square$
+<!-- proof-end -->
+
+### 8.2 乗法性
 
 <a id="thm-la3-det-multiplicative"></a>
 <!-- formal-statement-start -->
@@ -1051,14 +1134,86 @@ $$
 \det(S\circ T)=(\det S)(\det T).
 $$
 
-基底を1つ固定すれば $S,T,S\circ T$ の表現行列はそれぞれ $A,B,AB$ となり、抽象行列式と通常行列式の一致から
+基底を1つ固定すれば $S,T,S\circ T$ の表現行列はそれぞれ $A,B,AB$ となり、[抽象行列式と表現行列の一致](#thm-la3-abstract-matrix-det-agree)から
 $$
 \det(AB)=\det A\det B.
 $$
 $\square$
 <!-- proof-end -->
 
-ここで乗法性は Leibniz 公式の二重和を直接整理して証明していません。通常行列式から最高次交代形式を作り、抽象行列式へ持ち上げることで「体積倍率の合成」として自然に得ています。
+### 8.3 可逆性判定
+
+<a id="thm-la3-det-invertible"></a>
+<!-- formal-statement-start -->
+> **定理（行列式による可逆性判定）**  
+> 有限次元線形自己写像 $T:V\to V$ について
+$$
+T\text{ が可逆}
+\Longleftrightarrow
+\det T\ne0.
+$$
+> 従って正方行列 $A$ について
+$$
+A\text{ が可逆}
+\Longleftrightarrow
+\det A\ne0.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+まず $T$ が可逆とします。[乗法性](#thm-la3-det-multiplicative)から
+$$
+1=\det I
+=\det(T^{-1}T)
+=\det(T^{-1})\det T.
+$$
+積が1なので
+$$
+\det T\ne0.
+$$
+
+逆に $T$ が可逆でないとします。有限次元で始域と終域が同じ次元なので、$T$ は単射でもありません。従ってある $0\ne v_1\in V$ が存在して
+$$
+Tv_1=0.
+$$
+$v_1$ を基底
+$$
+v_1,v_2,\dots,v_n
+$$
+へ延長します。[最高次交代形式は1次元](#thm-la3-top-alternating-one-dimensional)から、この基底について
+$$
+\omega(v_1,\dots,v_n)=1
+$$
+となる交代 $n$ 重線形形式 $\omega$ を取れます。
+
+抽象行列式の定義をこの基底に適用すると
+$$
+\begin{aligned}
+\det T
+&=(\det T)\omega(v_1,\dots,v_n)\\
+&=\omega(Tv_1,Tv_2,\dots,Tv_n)\\
+&=\omega(0,Tv_2,\dots,Tv_n)\\
+&=0.
+\end{aligned}
+$$
+従って
+$$
+T\text{ が不可逆}\Longrightarrow\det T=0.
+$$
+その対偶から $\det T\ne0$ なら $T$ は可逆です。
+
+行列の場合は $A$ が定める線形自己写像 $T_A(x)=Ax$ に[抽象行列式と表現行列の一致](#thm-la3-abstract-matrix-det-agree)を使えば同じ結論が得られます。$\square$
+<!-- proof-end -->
+
+この定理と[余因子行列の恒等式](#thm-la3-adjugate-identity)を合わせると、可逆な行列には
+$$
+A^{-1}=\frac1{\det A}\operatorname{adj}(A)
+$$
+が成り立ちます。
+
+### 8.4 相似不変性
 
 <a id="thm-la3-det-similarity-invariant"></a>
 <!-- formal-statement-start -->
@@ -1079,11 +1234,8 @@ $$
 $$
 また
 $$
-I=P^{-1}P
-$$
-なので
-$$
 1=\det I
+=\det(P^{-1}P)
 =\det(P^{-1})\det(P).
 $$
 従って
@@ -1245,7 +1397,7 @@ $$
 \det A
 &=1\det\begin{pmatrix}3&4\\0&6\end{pmatrix}
 -2\det\begin{pmatrix}0&4\\5&6\end{pmatrix}\\
-&=1(18)-2(0-20)\\
+&=18-2(-20)\\
 &=58.
 \end{aligned}
 $$
@@ -1327,15 +1479,17 @@ $$
 を示せ。
 
 <!-- solution-start -->
-**解答**：基底を固定し $T$ の表現行列を $A$ とします。[抽象行列式と通常行列式の一致](#def-la3-abstract-determinant)から
+**解答**：[行列式による可逆性判定](#thm-la3-det-invertible)そのものです。可逆なら
 $$
-\det T=\det A.
+1=\det(T^{-1}T)=\det(T^{-1})\det T
 $$
-また $T$ が可逆であることと $A$ が可逆であることは同値です。[行列式による可逆性判定](#thm-la3-det-invertible)から
+なので $\det T\ne0$。逆に $T$ が不可逆なら非零な $v_1\in\ker T$ を基底へ延長し、その基底で値1に正規化した最高次交代形式 $\omega$ を使って
 $$
-A\text{ が可逆}\Longleftrightarrow\det A\ne0.
+\det T
+=\omega(Tv_1,\dots,Tv_n)
+=0
 $$
-従って結論を得ます。
+を得ます。従って $\det T\ne0$ なら可逆です。
 <!-- solution-end -->
 
 <a id="ex-la3-b04"></a>
