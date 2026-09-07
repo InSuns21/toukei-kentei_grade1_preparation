@@ -6,7 +6,9 @@ prerequisites:
   - F0-00F
 forward_references:
   - linear.characteristic-polynomial
+  - linear.minimal-polynomial
   - linear.cayley-hamilton-theorem
+  - linear.generalized-eigenspace
   - functional.linear-functional
 
 concepts:
