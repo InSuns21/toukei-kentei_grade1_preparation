@@ -1,0 +1,25 @@
+terms:
+  - id: mt2-signed-measure
+    name: 有限符号付き測度
+    definition: 可算加法的な実数値集合関数で、全ての可測集合に有限実数値を取るもの。本章では正負部分と全変動を通じて扱う。
+  - id: mt2-positive-negative-set
+    name: 正集合・負集合・零集合
+    definition: 符号付き測度について、全ての可測部分集合の値がそれぞれ非負・非正・0になる可測集合。
+  - id: mt2-hahn-decomposition
+    name: Hahn分解
+    definition: 全空間を正集合と負集合の互いに素な可測和へ分ける分解。零集合を除いて本質的に一意である。
+  - id: mt2-jordan-decomposition
+    name: Jordan分解
+    definition: 符号付き測度を互いに特異な二つの有限正測度の差として表す一意な分解 nu=nu^+-nu^-。
+  - id: mt2-total-variation
+    name: 全変動測度
+    definition: Jordan正負部分の和 |nu|=nu^++nu^-。有限分割上の絶対値和の上限としても特徴付けられる。
+  - id: mt2-total-variation-norm
+    name: 全変動ノルム
+    definition: 有限符号付き測度 nu に対する ||nu||_TV=|nu|(X)。符号付き積分を絶対値で評価する自然な大きさである。
+  - id: mt2-signed-integral
+    name: 符号付き測度に関する積分
+    definition: Jordan分解を用いて int f dnu=int f dnu^+-int f dnu^- と定義する積分。可積分性は int |f| d|nu|<infinity で判定する。
+  - id: mt2-absolute-continuity
+    name: 符号付き測度の絶対連続性
+    definition: 正測度 mu に対し mu(A)=0 なら nu(A)=0 となること。Jordan正負部分および全変動の絶対連続性と同値である。
