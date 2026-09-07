@@ -1,0 +1,20 @@
+chapter: "MT1"
+terms:
+  - term: a.e.収束
+    english: almost everywhere convergence
+    meaning: 測度0の例外集合を除く各点で関数列が極限関数へ収束すること。
+  - term: 測度収束
+    english: convergence in measure
+    meaning: 任意の正の誤差幅について、その幅を超えてずれる点の集合の測度が0へ収束すること。
+  - term: Lp収束
+    english: Lp convergence
+    meaning: 関数差のp乗積分から定まるLpノルムが0へ収束すること。
+  - term: 測度の上からの連続性
+    english: continuity from above
+    meaning: 減少する可測集合列について、先頭集合が有限測度なら交わりの測度が各集合の測度の極限に等しくなる性質。
+  - term: Egorovの定理
+    english: Egorov's theorem
+    meaning: 有限測度空間でのa.e.収束を、小測度集合を除くことで一様収束へ強められる定理。
+  - term: Lusinの定理
+    english: Lusin's theorem
+    meaning: 有限測度のLebesgue可測集合上の実数値可測関数が、小測度集合を除いたコンパクト部分集合上では連続になることを保証する定理。

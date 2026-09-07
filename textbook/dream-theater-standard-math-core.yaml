@@ -207,12 +207,14 @@ nodes:
     prerequisites: [LA5]
 
   - id: MT0
-    title: Borel・測度・Caratheodory
+    title: Borel・測度・Caratheodory・Lebesgue正則性
     area: measure-theory
     tier: core
-    status: existing-anchor
-    reuses: [F0_00D2, F0_00D3, F0_00D4]
-    prerequisites: [TOP0]
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT0/index.md
+    reuses: [F0_00D2, F0_00D3, F0_00D4, F0_00C1]
+    prerequisites: [TOP5]
   - id: MTI
     title: Lebesgue積分・MCT/Fatou/DCT
     area: measure-theory
@@ -239,8 +241,10 @@ nodes:
     title: 収束様式・Egorov・Lusin
     area: measure-theory
     tier: core
-    status: planned
-    prerequisites: [MTI]
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT1/index.md
+    prerequisites: [MTI, RA5]
   - id: MT2
     title: 符号付き測度・全変動
     area: measure-theory
@@ -328,21 +332,18 @@ implementation_batches:
     id: real-analysis-foundation
     nodes: [RA1, RA2, RA3, RA4, RA5]
   - order: 2
-    id: riemann-lebesgue-bridge
-    nodes: [MT-RL]
-  - order: 3
     id: linear-algebra-core
     nodes: [LA1, LA2, LA3, LA4, LA5, LA6]
-  - order: 4
+  - order: 3
     id: topology-core
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
-  - order: 5
+  - order: 4
     id: measure-theory-extension
-    nodes: [MT1, MT2, MT3, MT4, MT5]
-  - order: 6
+    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5]
+  - order: 5
     id: functional-analysis-extension
     nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]
-  - order: 7
+  - order: 6
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6, RA7, RA8]
 

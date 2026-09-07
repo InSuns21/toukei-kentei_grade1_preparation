@@ -1,0 +1,109 @@
+chapter: MT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA5
+  - F0-00D2
+  - F0-00D2A
+  - F0-00D2B
+  - MT0
+
+# a.e.収束だけでは Lp 収束しない箇所で、後続の一様可積分性を追加条件の例として明示的に予告する。
+# Lp の式を「ノルム」と呼ぶ語彙は D1 に正本があるが、MT1 の収束定理の証明依存にはしない。
+forward_references:
+  - prob.uniform-integrability
+  - functional.norm
+
+concepts:
+  # 各点収束そのものの正本は RA5。MT1 の formal 再掲だけを別登録して二重正本を避ける。
+  - id: analysis.pointwise-convergence-mt1-recap
+    name: 各点収束の再掲
+    kind: definition
+    aliases: ["### 定義（各点収束）"]
+    requires:
+      - analysis.pointwise-convergence
+
+  - id: measure.ae-convergence
+    name: a.e.収束
+    kind: definition
+    aliases: [a.e.収束, almost everywhere convergence]
+    requires:
+      - measure.almost-everywhere
+      - analysis.pointwise-convergence
+
+  - id: measure.convergence-in-measure
+    name: 測度収束
+    kind: definition
+    aliases: [測度収束, convergence in measure]
+    requires:
+      - measure.measure-space
+      - measure.measurable-function
+
+  - id: measure.lp-convergence
+    name: L^p収束
+    kind: definition
+    aliases: [L^p収束, Lp収束, Lp convergence]
+    # concept audit は inline math を同幅の空白へ置換し、formal-order audit は raw Markdown を見る。
+    introduction_aliases: ["### 定義（     収束）", "L^p収束"]
+    requires:
+      - measure.lebesgue-integral
+      - measure.measurable-function
+
+  - id: measure.continuity-from-above-finite
+    name: 測度の上からの連続性
+    kind: lemma
+    aliases: [測度の上からの連続性, continuity from above]
+    requires:
+      - measure.measure-space
+      - measure.continuity-from-below
+
+  - id: measure.lp-implies-convergence-in-measure
+    name: L^p収束なら測度収束
+    kind: theorem
+    aliases: [L^p収束 ⇒ 測度収束, Lp convergence implies convergence in measure]
+    # reader-stripped 見出しと raw formal 見出しの双方に固有マーカーを持たせる。
+    introduction_aliases: ["### 定理（     収束", '### 定理（$L^p$収束 $\Rightarrow$ 測度収束）']
+    requires:
+      - measure.lp-convergence
+      - measure.convergence-in-measure
+
+  - id: measure.ae-implies-convergence-in-measure-finite
+    name: 有限測度空間でa.e.収束なら測度収束
+    kind: theorem
+    aliases: [有限測度空間で a.e.収束 ⇒ 測度収束, a.e. convergence implies convergence in measure on finite measure spaces]
+    # 矢印は inline math なので、空白化されない固有部分で formal 見出しを照合する。
+    introduction_aliases: [有限測度空間で a.e.収束]
+    requires:
+      - measure.ae-convergence
+      - measure.convergence-in-measure
+      - measure.continuity-from-above-finite
+
+  - id: measure.convergence-in-measure-ae-subsequence
+    name: 測度収束からa.e.収束部分列
+    kind: theorem
+    aliases: [測度収束から a.e.収束部分列, convergence in measure has an a.e. convergent subsequence]
+    requires:
+      - measure.convergence-in-measure
+      - measure.ae-convergence
+
+  - id: measure.egorov-theorem
+    name: Egorovの定理
+    kind: theorem
+    aliases: [Egorov, Egorovの定理, Egorov theorem]
+    requires:
+      - measure.ae-convergence
+      - measure.continuity-from-above-finite
+      - analysis.uniform-convergence
+
+  - id: measure.lusin-theorem
+    name: Lusinの定理
+    kind: theorem
+    aliases: [Lusin, Lusinの定理, Lusin theorem]
+    requires:
+      - measure.measurable-function
+      - measure.continuity-from-above-finite
+      - measure.bounded-measurable-finite-simple-uniform-approximation
+      - measure.lebesgue-inner-regularity-finite
+      - measure.finite-partition-compact-approximation
+      - analysis.uniform-limit-continuity
+      - topology.compact-set

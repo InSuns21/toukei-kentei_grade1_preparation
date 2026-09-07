@@ -41,9 +41,9 @@ concepts:
       - topology.topological-closed-set
 
   - id: topology.regularity
-    name: 正則性
+    name: 位相空間の正則性
     kind: definition
-    aliases: [正則性, regularity]
+    aliases: [位相空間の正則性, topological regularity]
     introduction_aliases: [正則性]
     requires:
       - topology.topological-space

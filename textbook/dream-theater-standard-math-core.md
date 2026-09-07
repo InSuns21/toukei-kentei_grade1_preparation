@@ -52,10 +52,11 @@ flowchart TD
   LA4 --> LA5["複素内積・有限次元随伴・normal<br/>LA5"]
   LA5 --> LA6["二次形式・polar decomposition・複素SVD<br/>既存 F1/F2 + LA6"]
 
-  TOP0 --> MT0["測度 I<br/>Borel・測度・Caratheodory<br/>既存 D2/D3/D4"]
+  TOP5 --> MT0["測度 I<br/>Borel・測度・Caratheodory・Lebesgue正則性<br/>既存 D2/D3/D4 + MT0"]
   MT0 --> MTI["測度 II<br/>Lebesgue積分・MCT/Fatou/DCT<br/>既存 D2A/D2B"]
   MTI --> MTP["測度 III<br/>積測度・Fubini・Lp<br/>既存 D2C/D2D/D2E"]
   MTI --> MT1["収束様式・Egorov・Lusin<br/>MT1"]
+  RA5 --> MT1
   MTI --> MT2["符号付き測度・RN・Lebesgue分解<br/>MT2/MT3"]
 
   RA4 --> RLB["Riemann ↔ Lebesgue<br/>一致定理・Lebesgue判定<br/>MT-RL"]
@@ -303,12 +304,24 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 現行 D2–D5 / D2A–D2E は、σ代数・測度・外測度・Caratheodory・Lebesgue測度・可測関数・Lebesgue積分・MCT/Fatou/DCT・積測度・Tonelli/Fubini・Lp を既に担当します。
 
+## MT0 Borel・測度・Caratheodory・Lebesgue正則性 `core`
+
+既存 D2/D3/D4 を正本として再利用し、後続の Lusin で暗黙依存になっていた部分だけを補います。
+
+- 有界可測関数の有限値単関数による一様近似（測度有限性は不要）
+- 有限測度 Lebesgue 可測集合の外正則性
+- 有限測度 Lebesgue 可測集合の内正則性
+- 有限可測分割を、総測度損失を制御しながら compact 集合へ縮める系
+
 ## MT1 収束様式・Egorov・Lusin `core`
 
 - a.e. convergence / convergence in measure / Lp convergence
 - 一様収束との関係、subsequence principle
-- Egorov、Lusin
-- 含意が逆転しないことを反例で整理
+- `L^p -> in measure` は有限測度性不要
+- `in measure -> a.e. convergent subsequence` は有限測度性不要
+- `a.e. -> in measure` と Egorov では有限測度性を上からの連続性に使う
+- Lusin では MT0 の内正則性と有限単関数一様近似を明示的に使う
+- 含意が逆転しないことを反例と「失われる機構」で整理
 
 確率論の almost sure / in probability / Lp convergence へ接続します。
 
@@ -414,7 +427,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 | 距離・位相・収束 | B/B1/C/C1/D | RA/TOP系列から相互参照 |
 | 計算微積分 | F0-00 | RA3/RA4/RA6/RA7で理論を与える |
 | 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・作用素多項式・Jordan構造等を補う |
-| 測度・Lebesgue | D2–D5, D2A–E | MT系列が収束様式・RN・微分定理等を補う |
+| 測度・Lebesgue | D2–D5, D2A–E | MT0がLebesgue正則性を閉じ、MT系列が収束様式・RN・微分定理等を補う |
 | Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |
 
 二重正本は作りません。既存章に定義がある概念は新章からリンクし、新章では新しい定理・依存だけを担当します。
@@ -427,7 +440,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。
 4. **TOP1–TOP6**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact/Baire。
-5. **MT1–MT5**：収束様式 → signed measure → RN → differentiation/Radon。
+5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
 7. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
@@ -449,7 +462,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 - **実解析**：計算微積分だけでなく、Riemann積分・一様収束まで証明付きで一周。
 - **線形代数**：実/複素線形空間・商・代数的双対・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。Jordan標準形は数学科標準コアに含めるが、統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
-- **測度論**：Lebesgue積分の構成に加え、収束様式・signed measure・Radon–Nikodymまで一周。
+- **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。
 
 その上で確率論・統計理論・凸解析・RKHS・PDEへ進み、「知らない定理が地下から突然生えてくる」状態を減らします。

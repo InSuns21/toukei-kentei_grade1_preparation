@@ -1,0 +1,17 @@
+chapter: "MT0"
+terms:
+  - term: 有限値単関数
+    english: finite-valued simple function
+    meaning: 有限個の実数値だけを取り、それぞれの値の逆像が可測である単関数。
+  - term: 一様近似
+    english: uniform approximation
+    meaning: 定義域全体での最大誤差を任意に小さくできる近似。
+  - term: Lebesgue測度の外正則性
+    english: outer regularity of Lebesgue measure
+    meaning: 有限測度Lebesgue可測集合を、測度差を任意に小さくしながら外側の開集合で近似できる性質。
+  - term: Lebesgue測度の内正則性
+    english: inner regularity of Lebesgue measure
+    meaning: 有限測度Lebesgue可測集合を、測度差を任意に小さくしながら内側のコンパクト集合で近似できる性質。
+  - term: 有限可測分割のコンパクト近似
+    english: compact approximation of a finite measurable partition
+    meaning: 有限個の互いに素な有限測度可測集合を、総測度損失を任意に小さく保ちながらそれぞれコンパクト部分集合へ縮めること。
