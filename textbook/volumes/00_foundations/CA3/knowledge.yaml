@@ -1,0 +1,84 @@
+chapter: CA3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA2
+
+concepts:
+  - id: complex-analysis.analytic-function
+    name: 解析的関数
+    kind: definition
+    aliases: [解析的関数, 解析的, analytic function, analytic]
+    requires: [analysis.uniform-convergence]
+
+  - id: complex-analysis.punctured-disk-boundary-transfer
+    name: 穿孔円板の境界積分移送
+    kind: lemma
+    aliases: [穿孔円板の境界積分移送]
+    requires: [complex-analysis.homotopy-invariance-line-integral, complex-analysis.complex-line-integral]
+
+  - id: complex-analysis.cauchy-integral-formula
+    name: Cauchy積分公式
+    kind: theorem
+    aliases: [Cauchy積分公式, Cauchy integral formula]
+    requires: [complex-analysis.punctured-disk-boundary-transfer, complex-analysis.reparametrization-ml-estimate, complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.cauchy-mean-value-formula
+    name: Cauchy平均値公式
+    kind: corollary
+    aliases: [Cauchy平均値公式, Cauchy mean value formula]
+    requires: [complex-analysis.cauchy-integral-formula]
+
+  - id: complex-analysis.cauchy-differentiation-formula
+    name: Cauchy高階導関数公式
+    kind: theorem
+    aliases: [Cauchy高階導関数公式, Cauchy differentiation formula]
+    requires: [complex-analysis.cauchy-integral-formula, complex-analysis.reparametrization-ml-estimate]
+
+  - id: complex-analysis.holomorphic-taylor-expansion
+    name: 正則関数のTaylor展開
+    kind: theorem
+    aliases: [正則関数のTaylor展開, 正則なら解析的, holomorphic functions are analytic]
+    requires: [complex-analysis.cauchy-integral-formula, complex-analysis.cauchy-differentiation-formula, complex-analysis.analytic-function]
+
+  - id: complex-analysis.cauchy-estimate
+    name: Cauchy評価
+    kind: theorem
+    aliases: [Cauchy評価, Cauchy estimate, Cauchy estimates]
+    requires: [complex-analysis.cauchy-differentiation-formula, complex-analysis.reparametrization-ml-estimate]
+
+  - id: complex-analysis.liouville-theorem
+    name: Liouvilleの定理
+    kind: theorem
+    aliases: [Liouvilleの定理, Liouville theorem]
+    requires: [complex-analysis.cauchy-estimate, complex-analysis.zero-derivative-constant]
+
+  - id: complex-analysis.fundamental-theorem-of-algebra
+    name: 代数学の基本定理
+    kind: corollary
+    aliases: [代数学の基本定理, fundamental theorem of algebra]
+    requires: [complex-analysis.liouville-theorem]
+
+  - id: complex-analysis.isolated-zeros-identity-theorem
+    name: 零点の孤立性・恒等定理
+    kind: theorem
+    aliases: [零点の孤立性, 恒等定理, identity theorem, isolated zeros]
+    requires: [complex-analysis.holomorphic-taylor-expansion, topology.connected-space]
+
+  - id: complex-analysis.maximum-modulus-principle
+    name: 最大値原理
+    kind: theorem
+    aliases: [最大値原理, 最大絶対値原理, maximum modulus principle]
+    requires: [complex-analysis.cauchy-mean-value-formula, complex-analysis.isolated-zeros-identity-theorem]
+
+  - id: complex-analysis.boundary-maximum-on-disk
+    name: 円板上の境界最大値評価
+    kind: corollary
+    aliases: [円板上の境界最大値評価]
+    requires: [complex-analysis.maximum-modulus-principle, topology.compact-space]
+
+  - id: complex-analysis.open-mapping-theorem
+    name: 正則関数は開集合を開集合へ写す
+    kind: theorem
+    aliases: [正則関数は開集合を開集合へ写す, open mapping property of holomorphic functions]
+    requires: [complex-analysis.maximum-modulus-principle, complex-analysis.isolated-zeros-identity-theorem]

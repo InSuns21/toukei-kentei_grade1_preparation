@@ -375,7 +375,9 @@ nodes:
     title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
     area: complex-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/CA3/index.md
     prerequisites: [CA2]
   - id: CA4
     title: Laurent展開・孤立特異点・留数定理

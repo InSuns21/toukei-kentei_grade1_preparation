@@ -1,0 +1,37 @@
+id: "CA3"
+title: "標準複素解析 III：Cauchy積分公式・Taylor展開・Liouville・最大値原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA2
+official_scope: []
+learning_objectives:
+  - 穿孔円板の外周・内周の境界積分をホモトピーと向きの相殺で比較し、小円極限からCauchy積分公式を証明できる
+  - Cauchy積分核の差商を曲線上で一様評価し、微分と線積分の交換から高階導関数公式を導ける
+  - Cauchy核の有限幾何級数展開と剰余評価からTaylor展開を導き、正則性から解析性が従う機構を説明できる
+  - 高階導関数公式とML評価からCauchy評価を導き、Liouvilleの定理と代数学の基本定理へ接続できる
+  - Taylor展開の最初の非零係数から零点の局所因数分解・孤立性・恒等定理を証明できる
+  - Cauchy平均値公式の等号条件を追って最大値原理を証明し、境界最大値評価へ落とせる
+  - 最大値原理を逆数へ適用し、非定数正則関数が開集合を開集合へ写すことを証明できる
+  - Laurent展開・留数・偏角原理を先取りせず、CA2のCauchy理論だけから本章の結論を閉じられる
+definitions:
+  - { id: CA3-DEF-01, name: 解析的関数 }
+theorems:
+  - { id: CA3-LEM-01, name: 穿孔円板の境界積分移送 }
+  - { id: CA3-THM-01, name: Cauchy積分公式 }
+  - { id: CA3-COR-02, name: Cauchy平均値公式 }
+  - { id: CA3-THM-02, name: Cauchy高階導関数公式 }
+  - { id: CA3-THM-03, name: 正則関数のTaylor展開 }
+  - { id: CA3-THM-04, name: Cauchy評価 }
+  - { id: CA3-THM-05, name: Liouvilleの定理 }
+  - { id: CA3-COR-01, name: 代数学の基本定理 }
+  - { id: CA3-THM-06, name: 零点の孤立性・恒等定理 }
+  - { id: CA3-THM-07, name: 最大値原理 }
+  - { id: CA3-COR-03, name: 円板上の境界最大値評価 }
+  - { id: CA3-THM-08, name: 正則関数は開集合を開集合へ写す }
+canonical_examples: [Cauchy公式による円周積分, 高階導関数を含む円周積分, Cauchy評価, Liouvilleによる代数学の基本定理, 零点の孤立性, 最大値原理]
+problem_patterns: [CA3-CAUCHY-INTEGRAL-1, CA3-DERIVATIVE-INTEGRAL-1, CA3-CAUCHY-ESTIMATE-1, CA3-LIOUVILLE-1, CA3-TAYLOR-1, CA3-IDENTITY-1, CA3-MAXIMUM-1, CA3-GROWTH-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.5 }
