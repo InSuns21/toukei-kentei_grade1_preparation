@@ -203,7 +203,7 @@ $$
 <!-- definition-example-start: def-fa3-weak-convergence -->
 **定義の確認**：$\ell^2$ の標準基底
 
-$e_n=(0,\dots,0,1,0,\dots)\in\ell^2$ とします。Hilbert 空間の Riesz 表現により任意の $f\in(\ell^2)^*$ はある $y\in\ell^2$ を使って
+$e_n=(0,\dots,0,1,0,\dots)\in\ell^2$ とします。Hilbert 空間の [Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により任意の $f\in(\ell^2)^*$ はある $y\in\ell^2$ を使って
 
 $$
 f(x)=\langle x,y\rangle
@@ -1157,7 +1157,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $f\in(\ell^2)^*$ は Riesz 表現により $f(x)=\langle x,y\rangle$ と書ける。$y\in\ell^2$ なら $y_n\to0$ なので
+任意の $f\in(\ell^2)^*$ は [Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)により $f(x)=\langle x,y\rangle$ と書ける。$y\in\ell^2$ なら $y_n\to0$ なので
 
 $$
 f(e_n)=\overline{y_n}\to0.

@@ -340,11 +340,13 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/FA2/index.md
     prerequisites: [FA1]
   - id: FA3
-    title: weak / weak* topology
+    title: 弱位相・弱*位相・標準埋め込み
     area: functional-analysis
     tier: core
-    status: planned
-    prerequisites: [FA0, HB]
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/FA3/index.md
+    prerequisites: [FA0, HB, TOP6]
   - id: FA4
     title: Banach–Alaoglu・反射性
     area: functional-analysis
