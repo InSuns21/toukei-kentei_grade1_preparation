@@ -6,9 +6,6 @@ prerequisites:
   - RA5
   - LA1
   - TOP3
-forward_references:
-  - complex-analysis.complex-line-integral
-  - complex-analysis.cauchy-goursat
 
 concepts:
   - id: complex-analysis.complex-differentiable
@@ -42,9 +39,9 @@ concepts:
     requires: [complex-analysis.complex-differentiable, complex-analysis.differentiable-implies-continuous]
 
   - id: complex-analysis.cauchy-riemann-equations
-    name: Cauchy–Riemann方程式
+    name: Cauchy–Riemann必要条件
     kind: theorem
-    aliases: [Cauchy–Riemann方程式, Cauchy-Riemann equations]
+    aliases: [Cauchy–Riemann必要条件, Cauchy–Riemann方程式, Cauchy-Riemann equations]
     requires: [complex-analysis.complex-differentiable]
 
   - id: complex-analysis.cauchy-riemann-sufficient
