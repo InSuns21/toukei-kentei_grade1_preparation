@@ -25,8 +25,6 @@ jobs:
           from pathlib import Path
           import json
 
-          branch = "codex/ca3-cauchy-taylor-liouville-maxmod"
-
           ca3 = Path("textbook/volumes/00_foundations/CA3/index.md")
           text = ca3.read_text(encoding="utf-8")
           text = text.replace(chr(8) + "igl", chr(92) + "bigl")
@@ -102,4 +100,4 @@ jobs:
             exit 0
           fi
           git commit -m "Publish CA3 and fix math escapes"
-          git push origin HEAD:${branch}
+          git push origin HEAD:codex/ca3-cauchy-taylor-liouville-maxmod
