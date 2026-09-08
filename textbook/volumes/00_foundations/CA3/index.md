@@ -78,7 +78,7 @@ $$
 
 $$
 H(s,t)
-=(1-s)a+sz+igl((1-s)R+s\rho\bigr)e^{it}
+=(1-s)a+sz+\bigl((1-s)R+s\rho\bigr)e^{it}
 $$
 
 を考えます。$s=0$ で $C_R$、$s=1$ で $C_\rho$ です。
@@ -445,7 +445,7 @@ $$
 したがって
 
 $$
-I=rac{2\pi i}{2!}e=\pi i e.
+I=\frac{2\pi i}{2!}e=\pi i e.
 $$
 
 分母の冪 $3$ は「二階導関数」に対応します。
@@ -482,7 +482,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（正則関数のTaylor展開）
 
-$f$ が円板 $D(a,R)$ 上正則なら、任意の $z$ with $|z-a|<R$ に対して
+$f$ が円板 $D(a,R)$ 上正則なら、任意の $z$ で $|z-a|<R$ に対して
 
 $$
 f(z)
@@ -517,7 +517,7 @@ $$
 
 $$
 q:=\left|\frac{z-a}{\zeta-a}\right|
-=rac{|z-a|}{r}<1.
+=\frac{|z-a|}{r}<1.
 $$
 
 有限幾何級数の恒等式を使うと
@@ -923,7 +923,7 @@ $$
 さらに $|h|\le M$ なので
 
 $$
-M^2+igl(\operatorname{Im}h(a+re^{it})\bigr)^2
+M^2+\bigl(\operatorname{Im}h(a+re^{it})\bigr)^2
 =|h(a+re^{it})|^2
 \le M^2.
 $$
