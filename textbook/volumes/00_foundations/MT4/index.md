@@ -1164,6 +1164,43 @@ $$
 従って $x\ne1/2$ では $F'(x)=f(x)$。$x=1/2$ では左微分が1、右微分が$-1$ なので微分不能です。例外は一点で測度0であり、a.e. の定理と一致します。
 <!-- solution-end -->
 
+<a id="ex-mt4-a04"></a>
+#### MT4-A04 有界関数で積分の絶対連続性を確認する
+- Level: A
+
+可測集合 $E\subseteq[a,b]$ と $f\in L^1([a,b])$ が
+
+$$
+|f(x)|\le M
+\qquad\text{a.e.}
+$$
+
+を満たすとする。$M>0$ のとき、$\lambda(E)<\varepsilon/M$ なら
+
+$$
+\int_E|f|<\varepsilon
+$$
+
+となることを示してください。また $M=0$ の場合も確認してください。
+
+<!-- solution-start -->
+**解答**：$M>0$ なら $|f|\le M$ a.e. なので積分の単調性から
+
+$$
+\int_E|f|
+\le
+\int_E M
+=
+M\lambda(E)
+<
+M\frac{\varepsilon}{M}
+=
+\varepsilon.
+$$
+
+$M=0$ なら $f=0$ a.e. なので任意の可測集合 $E$ に対して $\int_E|f|=0$ です。一般の $L^1$ 関数では一様な上界 $M$ がないため、本文では大値部分を切って同じ評価へ帰着しています。
+<!-- solution-end -->
+
 ### Level B
 
 <a id="ex-mt4-b01"></a>
