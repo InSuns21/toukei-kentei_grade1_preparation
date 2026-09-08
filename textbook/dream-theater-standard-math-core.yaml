@@ -324,10 +324,12 @@ nodes:
     reuses: [F0_02C2, F0_02C6]
     prerequisites: [FA0, MT6]
   - id: FA1
-    title: Baire・一様有界性原理
+    title: Banach空間の商・Baire・一様有界性原理
     area: functional-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/FA1/index.md
     prerequisites: [FA0, TOP6]
   - id: FA2
     title: 開写像定理・閉グラフ定理
