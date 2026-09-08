@@ -927,7 +927,7 @@ $$
 \sup_n\|T_nx\|<\infty.
 $$
 
-従って一様有界性原理から
+従って[一様有界性原理](#thm-fa1-uniform-boundedness)から
 
 $$
 M:=\sup_n\|T_n\|<\infty.
@@ -1018,7 +1018,7 @@ $$
 G_m:=X\setminus E_m
 $$
 
-は開かつ稠密です。Baire のカテゴリー定理から
+は開かつ稠密です。[Baire のカテゴリー定理](../TOP6/index.md#thm-top6-baire-category)から
 
 $$
 \bigcap_{m=1}^{\infty}G_m
@@ -1214,7 +1214,7 @@ $X$ を Banach、$Y$ をノルム空間とし、$T_n\in\mathcal L(X,Y)$ が全�
 <!-- solution-start -->
 #### 詳細解答
 
-各 $x$ について収束列 $(T_nx)$ は有界なので $(T_n)$ は点ごとに有界。一様有界性原理により
+各 $x$ について収束列 $(T_nx)$ は有界なので $(T_n)$ は点ごとに有界。[一様有界性原理](#thm-fa1-uniform-boundedness)により
 
 $$
 M:=\sup_n\|T_n\|<\infty.
@@ -1240,7 +1240,7 @@ $T_nx\to Tx$ より各 $x$ で $\sup_n\|T_nx\|<\infty$。Banach–Steinhaus か�
 
 #### 採点基準（20点）
 - pointwise bounded性: 5点
-- 一様有界性原理の適用: 7点
+- [一様有界性原理](#thm-fa1-uniform-boundedness)の適用: 7点
 - 線形性・有界性: 8点
 <!-- solution-end -->
 
