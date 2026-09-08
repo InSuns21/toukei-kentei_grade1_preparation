@@ -983,7 +983,7 @@ $$
 \nu_P\ll\lambda.
 $$
 
-$\nu_P$ は有限正測度なので [MT3 の Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)により $p\in L^1([a,b])$、$p\ge0$ が存在して
+$\nu_P$ は有限正測度なので [Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により $p\in L^1([a,b])$、$p\ge0$ が存在して
 
 $$
 \nu_P(E)=\int_Ep\,d\lambda.
@@ -1306,7 +1306,7 @@ $$
 \nu_P,\nu_N\ll\lambda.
 $$
 
-[Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)から
+[Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から
 
 $$
 d\nu_P=p\,d\lambda,
