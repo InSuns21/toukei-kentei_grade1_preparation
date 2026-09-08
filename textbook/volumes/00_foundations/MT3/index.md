@@ -8,7 +8,7 @@ $$
 
 という **密度による表示**へ引き上げます。
 
-証明は関数解析の Riesz 表現定理を使いません。[MT2](../MT2/index.md) で構成した Hahn 分解を使い、測度論の内部だけで Radon–Nikodym 定理を証明します。
+証明は関数解析側の表現定理を使いません。[MT2 の Hahn 分解](../MT2/index.md#thm-mt2-hahn)を使い、測度論の内部だけで密度表示を構成します。
 
 ```text
 MT2：Hahn–Jordan・全変動
@@ -237,7 +237,7 @@ $$
 g=\lim_{n\to\infty}g_n
 $$
 
-と置きます。単調収束定理より
+と置きます。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
 
 $$
 \int_Xg\,d\mu
@@ -517,7 +517,7 @@ $$
 \nu(C_k)<\infty.
 $$
 
-$C_k$ 上の制限測度に有限版 RN 定理を適用すると、$C_k$ 上の非負可測関数 $f_k$ が存在して
+$C_k$ 上の制限測度に [§2 の有限正測度版](#thm-mt3-rn-finite)を適用すると、$C_k$ 上の非負可測関数 $f_k$ が存在して
 
 $$
 \nu(E\cap C_k)
@@ -659,7 +659,7 @@ $$
 \int sf\,d\mu.
 $$
 
-一般の $h\ge0$ については非負単関数列 $s_n\uparrow h$ を取り、両方の測度に関する MCT を使って
+一般の $h\ge0$ については非負単関数列 $s_n\uparrow h$ を取り、両方の測度に関する [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使って
 
 $$
 \int h\,d\nu
@@ -771,7 +771,7 @@ $$
 \nu^-\ll\mu.
 $$
 
-$\nu^+,\nu^-$ は有限正測度なので σ-finite です。正測度版 RN 定理により非負可測関数 $f_+,f_-$ が存在して
+$\nu^+,\nu^-$ は有限正測度なので σ-finite です。[§3 の σ-finite 正測度版](#thm-mt3-rn-sigma-finite)により非負可測関数 $f_+,f_-$ が存在して
 
 $$
 \nu^+(E)=\int_Ef_+\,d\mu,
@@ -994,7 +994,7 @@ $$
 \nu\ll\tau.
 $$
 
-RN 定理から非負可測 $f,g$ が存在して
+[§3 の σ-finite 正測度版](#thm-mt3-rn-sigma-finite)から非負可測 $f,g$ が存在して
 
 $$
 \nu(E)=\int_Ef\,d\tau,
@@ -1210,7 +1210,7 @@ $$
 \nu_{\mathrm{s}}\perp\mu.
 $$
 
-有限符号付き RN 定理から $f\in L^1(\mu)$ が存在して
+[§5 の有限符号付き測度版](#thm-mt3-rn-signed)から $f\in L^1(\mu)$ が存在して
 
 $$
 \nu_{\mathrm{ac}}(E)=\int_Ef\,d\mu.
@@ -1629,7 +1629,7 @@ $$
 この章では、関数解析を先取りせず次を閉じました。
 
 - 有限正測度版 Radon–Nikodym 定理の存在・a.e.一意性
-- Hahn 分解を用いた残差消去
+- [Hahn 分解](../MT2/index.md#thm-mt2-hahn)を用いた残差消去
 - σ-finite 版への可算局所化
 - σ-finite 性を外したときの具体的反例
 - 測度変更の積分公式と RN 微分の chain rule

@@ -17,8 +17,8 @@ concepts:
   - id: measure.cc-space
     name: C_c(X)
     kind: definition
-    aliases: [C_c(X), compact support continuous functions]
-    introduction_aliases: ["### 定義（        ）"]
+    aliases: [C_c(X), compact support continuous functions, "### 定義（$C_c(X)$）"]
+    introduction_aliases: ["### 定義（        ）", "### 定義（$C_c(X)$）"]
     requires: []
 
   - id: measure.radon-measure

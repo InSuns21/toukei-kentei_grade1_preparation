@@ -28,7 +28,7 @@ Jordan分解  ν = ν⁺ - ν⁻
 Radon–Nikodym / Lebesgue分解（MT3）
 ```
 
-重要なのは、Hahn–Jordan 分解を後続の Radon–Nikodym 定理から逆輸入しないことです。依存の向きをこの章だけで閉じます。
+重要なのは、Hahn–Jordan 分解を後続の密度表示から逆輸入しないことです。依存の向きをこの章だけで閉じます。
 
 ---
 
@@ -155,7 +155,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$E_1\setminus E_n\uparrow E_1\setminus E$ です。[下からの連続性](#thm-mt2-continuity-below)より
+$E_1\setminus E_n\uparrow E_1\setminus E$ です。[有限符号付き測度の下からの連続性](#thm-mt2-continuity-below)より
 
 $$
 \nu(E_1\setminus E_n)\to\nu(E_1\setminus E).
@@ -382,7 +382,7 @@ $$
 F_n:=\bigcup_{k=n}^{\infty}E_k
 $$
 
-と置くと、$U_{n,r}\uparrow F_n$ です。[下からの連続性](#thm-mt2-continuity-below)より
+と置くと、$U_{n,r}\uparrow F_n$ です。[有限符号付き測度の下からの連続性](#thm-mt2-continuity-below)より
 
 $$
 m\le\nu(F_n)
@@ -484,7 +484,7 @@ $$
 
 ## 5. Jordan 分解
 
-Hahn 分解 $(P,N)$ を一つ固定します。
+[Hahn 分解](#thm-mt2-hahn) $(P,N)$ を一つ固定します。
 
 <a id="def-mt2-jordan-parts"></a>
 <!-- formal-statement-start -->
@@ -548,7 +548,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Hahn 分解から作った $\nu^+,\nu^-$ が正測度で、$\nu=\nu^+-\nu^-$、かつ互いに特異であることは上で確認しました。
+[Hahn 分解](#thm-mt2-hahn)から作った $\nu^+,\nu^-$ が正測度で、$\nu=\nu^+-\nu^-$、かつ互いに特異であることは上で確認しました。
 
 次に上限表示を示します。$A\subset E$ なら
 
@@ -582,7 +582,7 @@ $$
 \nu^-(E)=-\inf_{A\subset E}\nu(A)
 $$
 
-を得ます。従って Hahn 分解から作った正負部分は $\nu$ だけから決まり、Hahn 分解の選び方には依存しません。
+を得ます。従って [Hahn 分解](#thm-mt2-hahn)から作った正負部分は $\nu$ だけから決まり、その選び方には依存しません。
 
 最後に「互いに特異な差表示」の一意性を確認します。有限正測度 $\alpha,\beta$ が
 
@@ -612,7 +612,7 @@ $$
 \nu(A)=\alpha(A)-\beta(A)=-\beta(A)\le0.
 $$
 
-従って $(S,T)$ 自身が Hahn 分解です。上限表示、または Hahn 分解からの定義を使えば
+従って $(S,T)$ 自身が [Hahn 分解](#thm-mt2-hahn)です。上限表示、またはその分解からの定義を使えば
 
 $$
 \nu^+(E)=\nu(E\cap S)=\alpha(E\cap S)=\alpha(E),
@@ -737,7 +737,7 @@ $$
 
 よって左辺の上限は $|\nu|(E)$ 以下です。
 
-逆向きには Hahn 分解 $X=P\sqcup N$ を使い、
+逆向きには [Hahn 分解](#thm-mt2-hahn) $X=P\sqcup N$ を使い、
 
 $$
 E=(E\cap P)\sqcup(E\cap N)
@@ -954,7 +954,7 @@ $$
 
 ## 8. 密度を既に知っている場合：Jordan 分解は点ごとの正負部分になる
 
-後続の Radon–Nikodym 定理では「符号付き測度が密度を持つ」方向を一般に証明します。ここでは逆に、密度が最初から与えられている場合だけを直接確認します。これは RN 定理を使っていません。
+後続章では「符号付き測度が密度を持つ」方向を一般に証明します。ここでは逆に、密度が最初から与えられている場合だけを直接確認し、後続結果は使いません。
 
 <a id="thm-mt2-density-jordan"></a>
 <!-- formal-statement-start -->
@@ -1462,7 +1462,7 @@ P=\{g\ge0\},
 N=\{g<0\}
 $$
 
-は Hahn 分解です。したがって Jordan 分解から
+は Hahn 分解です。したがって [Jordan 分解](#thm-mt2-jordan)から
 
 $$
 \nu^+(E)=\nu(E\cap P)=\int_Eg^+\,d\mu,
@@ -1494,10 +1494,10 @@ $$
 - 有限符号付き測度の下から・上からの連続性
 - 値域の有界性
 - Hahn 分解の存在と本質的一意性
-- Jordan 分解の存在・一意性・最小性
+- [Jordan 分解](#thm-mt2-jordan)の存在・一意性・最小性
 - 全変動測度と有限分割表示
 - 符号付き積分と全変動による評価
 - 密度が既知の場合の正負部分・全変動
 - 絶対連続性と $\nu^+,\nu^-,|\nu|$ の同値な零集合条件
 
-Radon–Nikodym 定理は一度も使っていません。次の段階では、この章の Jordan 分解を使って符号付き測度の問題を正測度へ還元し、Radon–Nikodym と Lebesgue 分解を構成できます。
+後続の密度表示結果は一度も使っていません。次の段階では、この章の [Jordan 分解](#thm-mt2-jordan)を使って符号付き測度の問題を正測度へ還元し、密度表示と Lebesgue 分解を構成できます。

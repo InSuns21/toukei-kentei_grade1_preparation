@@ -853,7 +853,7 @@ $$
 \boxed{\mu(A):=\mu^*(A)}
 $$
 
-と定めます。Carathéodory の定理によりこれは Borel 測度です。
+と定めます。[Carathéodory の定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)によりこれは Borel 測度です。
 
 <a id="thm-mt5-radon-regularity"></a>
 <!-- formal-statement-start -->

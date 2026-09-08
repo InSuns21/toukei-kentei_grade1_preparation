@@ -29,7 +29,7 @@ concepts:
   - id: measure.signed-continuity-below
     name: 有限符号付き測度の下からの連続性
     kind: lemma
-    aliases: ["### 補題（下からの連続性）"]
+    aliases: [有限符号付き測度の下からの連続性, "### 補題（下からの連続性）"]
     introduction_aliases: ["### 補題（下からの連続性）"]
     requires:
       - measure.finite-signed-measure
