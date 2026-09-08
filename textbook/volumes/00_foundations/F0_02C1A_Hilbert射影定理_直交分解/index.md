@@ -2,7 +2,7 @@
 
 F0-02C1でBanach/Hilbert空間の型を分けました。この講義ではHilbert空間の**閉凸集合への最近点**を、有限次元のcompactnessに頼らず、内積構造と完備性から構成します。
 
-この証明で本当に使う道具は、凸集合の定義、平行四辺形恒等式、ノルムの連続性です。凸解析を先取りせず、この章で必要な範囲だけを先に確認します。
+この証明で本当に使う道具は、凸集合の定義、平行四辺形恒等式、ノルムの連続性です。後続理論を先取りせず、この章で必要な範囲だけを先に確認します。
 
 $$
 \boxed{
@@ -16,26 +16,7 @@ $$
 
 ---
 
-<a id="thm-hilbert-projection"></a>
-
-## 1. Hilbert空間の射影定理
-
-<!-- formal-statement-start -->
-> **定理（Hilbert空間の射影定理）**  
-> $H$ を実Hilbert空間、$C\subset H$ を空でない閉凸集合、$z\in H$ とします。このとき一意な $p\in C$ が存在して
->
-> $$
-> \boxed{
-> \|z-p\|=\inf_{x\in C}\|z-x\|
-> }
-> $$
->
-> が成り立ちます。この一意な点を $P_C(z)$ と書きます。
-<!-- formal-statement-end -->
-
-有限次元のF0-02Bでは[Heine--Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)を使いました。しかし無限次元では閉有界集合がコンパクトとは限りません。
-
-Hilbert空間では、**内積構造と完備性**を使って別の証明をします。
+## 1. 射影定理の準備
 
 ### 1.1 凸集合：中間点が集合から出ない
 
@@ -43,13 +24,11 @@ Hilbert空間では、**内積構造と完備性**を使って別の証明をし
 
 <!-- formal-statement-start -->
 > **定義（凸集合）**  
-> 実ベクトル空間 $H$ の部分集合 $C$ が **凸** であるとは、任意の $x,y\in C$ と任意の $t\in[0,1]$ に対して
->
-> $$
-> (1-t)x+ty\in C
-> $$
->
-> が成り立つことをいいます。
+> 実ベクトル空間 $H$ の部分集合 $C$ が **凸** であるとは、任意の $x,y\in C$ と任意の $t\in[0,1]$ に対して次が成り立つことをいいます。
+
+$$
+(1-t)x+ty\in C.
+$$
 <!-- formal-statement-end -->
 
 特に $t=1/2$ とすれば
@@ -58,7 +37,19 @@ $$
 \frac{x+y}{2}\in C.
 $$
 
-射影定理の存在証明では、この「二つの候補の中点も候補である」という事実だけで最小化列をCauchy列へ押し込みます。ここで必要なのは凸集合の初歩的な定義だけで、凸解析の一般論は使いません。
+射影定理の存在証明では、この「二つの候補の中点も候補である」という事実で最小化列をCauchy列へ押し込みます。ここで必要なのは凸集合の初歩的な定義だけです。
+
+<!-- definition-example-start: def-f0-02c1a-convex-set -->
+**定義の確認**
+
+線形部分空間 $M\subset H$ は凸です。実際、$x,y\in M$ と $0\le t\le1$ に対して、線形部分空間は加法とスカラー倍で閉じているので
+
+$$
+(1-t)x+ty\in M.
+$$
+
+従って、後で閉線形部分空間 $M$ に射影定理を適用するとき、凸性は別途仮定する必要がありません。
+<!-- definition-example-end -->
 
 ### 1.2 平行四辺形恒等式
 
@@ -66,19 +57,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（平行四辺形恒等式）**  
-> 実内積空間 $H$ では、任意の $u,v\in H$ に対して
->
-> $$
-> \boxed{
-> \|u+v\|^2+\|u-v\|^2
-> =2\|u\|^2+2\|v\|^2
-> }
-> $$
->
-> が成り立ちます。
+> 実内積空間 $H$ では、任意の $u,v\in H$ に対して次が成り立ちます。
+
+$$
+\boxed{
+\|u+v\|^2+\|u-v\|^2
+=2\|u\|^2+2\|v\|^2
+}
+$$
 <!-- formal-statement-end -->
 
 前章でも[内積由来ノルムの特徴](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)として登場しましたが、ここでは証明で直接使うので計算を確認します。
+
+<!-- proof-start -->
+#### 証明
 
 内積の双線形性と対称性から
 
@@ -98,7 +90,15 @@ $$
 \end{aligned}
 $$
 
-二式を足すと交差項が相殺され、平行四辺形恒等式が得られます。
+二式を足すと交差項が相殺され、
+
+$$
+\|u+v\|^2+\|u-v\|^2
+=2\|u\|^2+2\|v\|^2
+$$
+
+を得ます。
+<!-- proof-end -->
 
 ### 1.3 ノルムは連続である
 
@@ -106,18 +106,21 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（逆三角不等式とノルムの連続性）**  
-> 任意のノルム空間で
->
-> $$
-> \boxed{
-> \bigl|\|x\|-\|y\|\bigr|\le\|x-y\|
-> }
-> $$
->
-> が成り立ちます。したがって $x_n\to x$ なら $\|x_n\|\to\|x\|$ です。
+> 任意のノルム空間で次が成り立ちます。
+
+$$
+\boxed{
+\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|
+}
+$$
+
+> したがって $x_n\to x$ なら $\|x_n\|\to\|x\|$ です。
 <!-- formal-statement-end -->
 
-実際、三角不等式から
+<!-- proof-start -->
+#### 証明
+
+三角不等式から
 
 $$
 \|x\|=\|(x-y)+y\|\le\|x-y\|+\|y\|
@@ -135,13 +138,41 @@ $$
 \|y\|-\|x\|\le\|x-y\|
 $$
 
-も得られるため、二つを合わせて逆三角不等式になります。よって $x_n\to x$ なら
+も得られます。二つを合わせれば
 
 $$
-\bigl|\|x_n\|-\|x\|\bigr|\le\|x_n-x\|\to0.
+\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|.
 $$
 
-射影定理では最後に $x_n\to p$ から $z-x_n\to z-p$ とし、この補題を使って距離の極限を取ります。
+従って $x_n\to x$ なら
+
+$$
+\bigl|\|x_n\|-\|x\|\bigr|\le\|x_n-x\|\to0,
+$$
+
+ゆえに $\|x_n\|\to\|x\|$ です。
+<!-- proof-end -->
+
+<a id="thm-hilbert-projection"></a>
+
+### 1.4 Hilbert空間の射影定理
+
+<!-- formal-statement-start -->
+> **定理（Hilbert空間の射影定理）**  
+> $H$ を実Hilbert空間、$C\subset H$ を空でない閉凸集合、$z\in H$ とします。このとき一意な $p\in C$ が存在して次を満たします。
+
+$$
+\boxed{
+\|z-p\|=\inf_{x\in C}\|z-x\|
+}
+$$
+
+> この一意な点を $P_C(z)$ と書きます。
+<!-- formal-statement-end -->
+
+有限次元のF0-02Bでは[Heine--Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)を使いました。しかし無限次元では閉有界集合がコンパクトとは限りません。
+
+Hilbert空間では、**内積構造と完備性**を使って別の証明をします。
 
 ---
 
@@ -197,7 +228,7 @@ $$
 \left\|z-\frac{x_n+x_m}{2}\right\|\ge\delta.
 $$
 
-ここで平行四辺形恒等式を
+ここで[平行四辺形恒等式](#thm-f0-02c1a-parallelogram-identity)を
 
 $$
 u=z-x_n,\qquad v=z-x_m
@@ -252,7 +283,7 @@ $$
 z-x_n\to z-p.
 $$
 
-1.3のノルムの連続性から
+[ノルムの連続性](#lem-f0-02c1a-norm-continuity)から
 
 $$
 \|z-p\|
@@ -288,7 +319,7 @@ $$
 
 とします。
 
-凸性から中点 $(p+q)/2$ も $C$ に入ります。平行四辺形恒等式を使うと
+凸性から中点 $(p+q)/2$ も $C$ に入ります。[平行四辺形恒等式](#thm-f0-02c1a-parallelogram-identity)を使うと
 
 $$
 \left\|z-\frac{p+q}{2}\right\|^2
@@ -320,16 +351,19 @@ $$
 > $H$ を実Hilbert空間、$C\subset H$ を空でない閉凸集合、$z\in H$、$p\in C$ とします。このとき次は同値です。
 >
 > 1. $p=P_C(z)$。
-> 2. 任意の $x\in C$ に対して
->    $$
->    \boxed{
->    \langle z-p,x-p\rangle\le0
->    }
->    $$
->    が成り立つ。
+> 2. 任意の $x\in C$ に対して、次の内積不等式が成り立つ。
+
+$$
+\boxed{
+\langle z-p,x-p\rangle\le0
+}
+$$
 <!-- formal-statement-end -->
 
-### 5.1 最近点なら内積不等式が成り立つ
+<!-- proof-start -->
+### 証明
+
+#### 5.1 最近点なら内積不等式が成り立つ
 
 $p=P_C(z)$ とし、任意の $x\in C$ を固定します。凸性より、$0\le t\le1$ に対して
 
@@ -368,7 +402,7 @@ $$
 \langle z-p,x-p\rangle\le0.
 $$
 
-### 5.2 内積不等式が成り立てば最近点である
+#### 5.2 内積不等式が成り立てば最近点である
 
 逆に、任意の $x\in C$ に対して
 
@@ -395,6 +429,7 @@ $$
 $$
 
 つまり $p=P_C(z)$ です。
+<!-- proof-end -->
 
 この定理は「最近点」という距離の最小化問題を、残差 $z-p$ と許される方向 $x-p$ の内積条件へ読み替えています。
 
@@ -406,24 +441,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（閉部分空間への射影と直交分解）**  
-> $H$ を実Hilbert空間、$M\subset H$ を閉線形部分空間とします。このとき任意の $z\in H$ に対して一意に
->
-> $$
-> z=p+q,
-> \qquad p\in M,
-> \qquad q\in M^\perp
-> $$
->
-> と表せます。ここで $p=P_Mz$ です。したがって
->
-> $$
-> \boxed{H=M\oplus M^\perp}
-> $$
->
-> が成り立ちます。
+> $H$ を実Hilbert空間、$M\subset H$ を閉線形部分空間とします。このとき任意の $z\in H$ に対して一意に、$p\in M$ と $q\in M^\perp$ が存在して次を満たします。
+
+$$
+z=p+q.
+$$
+
+> ここで $p=P_Mz$ であり、従って次の直交分解が成り立ちます。
+
+$$
+\boxed{H=M\oplus M^\perp}
+$$
 <!-- formal-statement-end -->
 
-線形部分空間は凸なので、射影定理から $p=P_Mz$ が存在します。5節の特徴付けより任意の $x\in M$ に対して
+<!-- proof-start -->
+### 証明
+
+線形部分空間は凸なので、[Hilbert空間の射影定理](#thm-hilbert-projection)から $p=P_Mz$ が存在します。[射影の特徴付け](#thm-f0-02c1a-projection-characterization)より任意の $x\in M$ に対して
 
 $$
 \langle z-p,x-p\rangle\le0.
@@ -452,7 +486,7 @@ $$
 q=z-p\in M^\perp.
 $$
 
-これで存在が示されました。
+これで分解の存在が示されました。
 
 一意性も確認します。もし
 
@@ -475,6 +509,7 @@ $$
 $$
 
 従って $r=0$ です。よって $p_1=p_2$、$q_1=q_2$ となり分解は一意です。
+<!-- proof-end -->
 
 この射影定理と直交分解が、次章のRiesz表現定理の証明にも使われます。
 
@@ -544,7 +579,7 @@ $$
 \langle z-p,m\rangle=0
 $$
 
-だから $z-p\in M^\perp$。6節の直交分解の一意性より $p=P_Mz$ である。
+だから $z-p\in M^\perp$。[閉部分空間への射影と直交分解](#thm-f0-02c1a-orthogonal-decomposition)の一意性より $p=P_Mz$ である。
 
 #### 本番答案
 $P_Mz=(0,z_2,z_3,\dots)$、$z-P_Mz=(z_1,0,0,\dots)\in M^\perp$。
@@ -583,7 +618,7 @@ $$
 \bigl|\|x\|-\|y\|\bigr|\le\|x-y\|.
 $$
 
-$y=x$、$x=x_n$ とすれば
+$x=x_n$、$y=x$ とすれば
 
 $$
 \bigl|\|x_n\|-\|x\|\bigr|\le\|x_n-x\|\to0,
@@ -645,13 +680,13 @@ $\delta+1/n$ は $S$ の下界ではないので、ある $x_n\in C$ が存在�
 - Level: B
 - 目安時間: 15分
 
-閉線形部分空間 $M\subset H$ と $p=P_Mz$ に対し、閉凸集合の射影条件
+閉線形部分空間 $M\subset H$ と $p=P_Mz$ に対し、[閉凸集合への射影の特徴付け](#thm-f0-02c1a-projection-characterization)から
 
 $$
 \langle z-p,x-p\rangle\le0\qquad(\forall x\in M)
 $$
 
-から $z-p\in M^\perp$ を示せ。
+が成り立つ。これを使って $z-p\in M^\perp$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -696,7 +731,7 @@ $$
 P_C(z)=r\frac{z}{\|z\|}
 $$
 
-であることを、5節の射影の特徴付けを使って示せ。なお $C$ が凸であることも確認せよ。
+であることを、[射影の特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。なお $C$ が凸であることも確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -720,7 +755,7 @@ $$
 z-p=(\|z\|-r)u.
 $$
 
-任意の $x\in C$ に対しCauchy--Schwarz不等式から
+任意の $x\in C$ に対し[Cauchy--Schwarz不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \langle u,x\rangle\le|\langle u,x\rangle|
@@ -739,7 +774,7 @@ $$
 \end{aligned}
 $$
 
-5節の特徴付けより $p=P_C(z)$。
+[射影の特徴付け](#thm-f0-02c1a-projection-characterization)より $p=P_C(z)$。
 
 #### 本番答案
 $C$ の凸性は三角不等式で確認できる。$u=z/\|z\|$, $p=ru$ と置くと $p\in C$ かつ $z-p=(\|z\|-r)u$。任意の $x\in C$ について $\langle u,x\rangle\le\|x\|\le r$ なので $\langle z-p,x-p\rangle\le0$。よって $p=P_C(z)$。
