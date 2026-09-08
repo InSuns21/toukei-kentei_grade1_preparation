@@ -1495,6 +1495,8 @@ $$
 ## 12. 定義の横断確認：二点離散空間
 
 <!-- definition-example-start: def-mt6-c0, def-mt6-positive-envelope, def-mt6-finite-signed-radon -->
+**定義の確認**：以下では同じ有限離散模型の中で、$C_0(X)$、正部分 envelope、有限符号付き Radon 測度の三定義を順に具体化します。
+
 $X=\{a,b\}$ に離散位相を入れます。有限空間なので全ての実数値関数が $C_0(X)$ に属し、一様ノルムは
 
 $$
