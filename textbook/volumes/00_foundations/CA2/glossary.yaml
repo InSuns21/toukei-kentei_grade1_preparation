@@ -1,0 +1,35 @@
+chapter: "CA2"
+terms:
+  - term: 区分的C1曲線
+    english: piecewise C1 curve
+    meaning: 有限分割の各小区間でC1級になる連続曲線。
+  - term: 複素線積分
+    english: complex line integral
+    meaning: 曲線gammaに沿ってf(gamma(t))gamma'(t)を実パラメータで積分して得る複素数。
+  - term: 曲線長
+    english: curve length
+    meaning: 区分的C1曲線について|gamma'|を積分して得る長さ。
+  - term: 原始関数
+    english: primitive
+    meaning: 導関数が与えられた関数fに一致する正則関数F。
+  - term: 経路独立性
+    english: path independence
+    meaning: 同じ始点・終点を持つ許容曲線なら線積分値が常に一致する性質。
+  - term: ML評価
+    english: ML estimate
+    meaning: 線積分の絶対値を被積分関数の最大値Mと曲線長Lの積で上から抑える評価。
+  - term: Cauchy–Goursatの定理
+    english: Cauchy-Goursat theorem
+    meaning: 正則関数の三角形境界上の線積分が0になる定理で、導関数の連続性を追加仮定しない。
+  - term: 星型領域
+    english: star-shaped domain
+    meaning: 一点から領域内の任意の点へ結ぶ線分が全て領域内に残る領域。
+  - term: 端点固定ホモトピー
+    english: fixed-endpoint homotopy
+    meaning: 二曲線の始点と終点を動かさず領域内で連続変形するホモトピー。
+  - term: 単連結領域
+    english: simply connected domain
+    meaning: 経路連結で、任意の閉曲線を領域内で定値閉曲線へ縮約できる領域。
+  - term: 正則対数の枝
+    english: holomorphic branch of logarithm
+    meaning: e^{L(z)}=zを満たす一価の正則関数L。

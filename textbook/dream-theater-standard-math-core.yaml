@@ -367,8 +367,10 @@ nodes:
     title: 複素線積分・原始関数・Cauchy–Goursat
     area: complex-analysis
     tier: core
-    status: planned
-    prerequisites: [CA1, RA4, TOP3]
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/CA2/index.md
+    prerequisites: [CA1, RA4, TOP3, TOP5]
   - id: CA3
     title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
     area: complex-analysis

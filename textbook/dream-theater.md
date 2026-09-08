@@ -115,6 +115,7 @@
 実解析・複素線形代数を受け、Cauchy理論から留数・調和関数・スペクトル論へ進む独立系列です。証明まで完成した章だけをここへ公開します。
 
 1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
+2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
 
 ### 凸解析・凸最適化
 
