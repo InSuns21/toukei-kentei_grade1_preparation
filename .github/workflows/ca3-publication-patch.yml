@@ -34,22 +34,26 @@ jobs:
 
           core = Path("textbook/dream-theater-standard-math-core.yaml")
           text = core.read_text(encoding="utf-8")
-          old = """  - id: CA3
-    title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
-    area: complex-analysis
-    tier: core
-    status: planned
-    prerequisites: [CA2]
-"""
-          new = """  - id: CA3
-    title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
-    area: complex-analysis
-    tier: core
-    status: implemented
-    implemented_at: 2026-09-09
-    implementation_path: textbook/volumes/00_foundations/CA3/index.md
-    prerequisites: [CA2]
-"""
+          old = "\n".join([
+              "  - id: CA3",
+              "    title: Cauchy積分公式・Taylor展開・Liouville・最大値原理",
+              "    area: complex-analysis",
+              "    tier: core",
+              "    status: planned",
+              "    prerequisites: [CA2]",
+              "",
+          ])
+          new = "\n".join([
+              "  - id: CA3",
+              "    title: Cauchy積分公式・Taylor展開・Liouville・最大値原理",
+              "    area: complex-analysis",
+              "    tier: core",
+              "    status: implemented",
+              "    implemented_at: 2026-09-09",
+              "    implementation_path: textbook/volumes/00_foundations/CA3/index.md",
+              "    prerequisites: [CA2]",
+              "",
+          ])
           if old not in text and new not in text:
               raise SystemExit("CA3 block not found in standard-math-core.yaml")
           if old in text:
