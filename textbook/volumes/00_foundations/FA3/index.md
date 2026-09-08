@@ -497,7 +497,7 @@ $$
 
 <a id="thm-fa3-weak-continuous-dual"></a>
 <!-- formal-statement-start -->
-### 定理（弱位相の連続双対は $X^*$ そのもの）
+### 定理（弱位相の連続双対の同定）
 
 線形汎関数 $L:X\to\mathbb K$ が弱位相 $\sigma(X,X^*)$ に関して連続であることと
 
@@ -902,7 +902,7 @@ $$
 
 <a id="thm-fa3-weak-star-continuous-dual"></a>
 <!-- formal-statement-start -->
-### 定理（弱*位相の連続双対は $J(X)$）
+### 定理（弱*位相の連続双対の同定）
 
 線形汎関数
 
@@ -1188,7 +1188,7 @@ $$
 f_n(x)=x_n\to0.
 $$
 
-弱*収束の評価判定から $f_n\overset{*}{\rightharpoonup}0$。
+[弱*収束の評価判定](#thm-fa3-weak-star-convergence-criterion)から $f_n\overset{*}{\rightharpoonup}0$。
 <!-- solution-end -->
 
 ### FA3-A04 標準埋め込みの等長性
