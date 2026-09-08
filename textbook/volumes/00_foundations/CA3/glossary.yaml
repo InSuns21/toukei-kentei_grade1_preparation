@@ -30,6 +30,6 @@ terms:
   - term: 最大値原理
     english: maximum modulus principle
     meaning: 非定数正則関数の絶対値は領域内部で局所最大値を取らないという原理。
-  - term: 開写像定理（複素解析）
-    english: open mapping theorem in complex analysis
-    meaning: 非定数正則関数が開集合を開集合へ写すという定理。Banach空間の開写像定理とは別物。
+  - term: 正則関数は開集合を開集合へ写す
+    english: open mapping property of holomorphic functions
+    meaning: 非定数正則関数について、任意の開集合の像が再び開集合になる性質。
