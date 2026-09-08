@@ -897,7 +897,7 @@ $$
 
 ---
 
-## 7. 系：pointwise limit は自動的に有界になる
+## 7. pointwise limit は自動的に有界になる
 
 <a id="cor-fa1-pointwise-limit"></a>
 <!-- formal-statement-start -->
