@@ -1,4 +1,4 @@
-name: Temporary MT4 final cleanup
+name: Temporary MT4 RN final fix
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         with:
           ref: codex/mt5-radon-riesz-markov
           fetch-depth: 0
-      - name: Canonicalize remaining RN link and remove this helper
+      - name: Canonicalize remaining RN link
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -29,11 +29,10 @@ jobs:
               raise SystemExit(f'expected one stale RN link, got {s.count(old)}')
           p.write_text(s.replace(old, new, 1), encoding='utf-8')
           PY
-          git rm .github/workflows/tmp-add-mt4-a04.yml
       - name: Commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook/volumes/00_foundations/MT4/index.md .github/workflows/tmp-add-mt4-a04.yml
-          git commit -m 'fix(MT4): finish canonical references and cleanup'
+          git add textbook/volumes/00_foundations/MT4/index.md
+          git commit -m 'fix(MT4): canonicalize remaining RN link'
           git push origin HEAD:codex/mt5-radon-riesz-markov
