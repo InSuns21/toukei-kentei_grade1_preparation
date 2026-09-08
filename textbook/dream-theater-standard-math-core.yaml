@@ -332,10 +332,12 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/FA1/index.md
     prerequisites: [FA0, TOP6]
   - id: FA2
-    title: 開写像定理・閉グラフ定理
+    title: 開写像定理・有界逆定理・閉グラフ定理
     area: functional-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/FA2/index.md
     prerequisites: [FA1]
   - id: FA3
     title: weak / weak* topology

@@ -1,0 +1,31 @@
+id: "FA2"
+title: "標準関数解析 II：開写像定理・有界逆定理・閉グラフ定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA1
+official_scope: []
+learning_objectives:
+  - 全射有界線形作用素についてBaireのカテゴリー定理から像の閉包が0近傍を含むことを導ける
+  - 像の閉包に球が入ることから実際の像に球が入ることを幾何縮小型の逐次近似で証明し、定義域の完備性を使う箇所を特定できる
+  - 開写像定理から有界逆定理を導き、逆作用素の有界性と局所的な球包含を同値に読める
+  - 閉グラフを積Banach空間の閉部分空間として扱い、座標射影と有界逆定理から閉グラフ定理を証明できる
+  - 商Banach空間を用いて全射作用素の定量的持ち上げ評価を導ける
+  - c00と対角作用素の反例により、完備性または全定義域の仮定を外したときに失われる機構を説明できる
+definitions:
+  - { id: FA2-DEF-01, name: 開写像 }
+  - { id: FA2-DEF-02, name: 作用素のグラフ }
+  - { id: FA2-DEF-03, name: グラフノルム }
+theorems:
+  - { id: FA2-LEM-01, name: 閉包内の球から像内の球への逐次近似 }
+  - { id: FA2-THM-01, name: 開写像定理 }
+  - { id: FA2-THM-02, name: 有界逆定理 }
+  - { id: FA2-THM-03, name: 閉グラフ定理 }
+  - { id: FA2-COR-01, name: 全射作用素の商空間による定量的持ち上げ }
+  - { id: FA2-COR-02, name: 閉グラフとグラフノルムの同値性 }
+canonical_examples: [積空間の座標射影, c00上の恒等写像による非完備反例, ell2上の対角同型, 定義域が真部分空間の非有界対角作用素]
+problem_patterns: [FA2-OPEN-BALL-1, FA2-ITERATIVE-LIFT-1, FA2-BOUNDED-INVERSE-1, FA2-CLOSED-GRAPH-1, FA2-QUOTIENT-LIFT-1, FA2-INCOMPLETE-COUNTEREXAMPLE-1, FA2-GRAPH-NORM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }
