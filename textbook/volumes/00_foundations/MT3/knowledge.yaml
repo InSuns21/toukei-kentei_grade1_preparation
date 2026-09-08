@@ -5,6 +5,9 @@ prerequisites:
   - F0-00D2A
   - F0-00D2B
   - MT2
+  # RN微分という概念名のcanonical所有権だけ既存F0-00P2へ接続する。
+  # 以下のRN定理の証明自体はMT3本文で独立に閉じる。
+  - F0-00P2
 
 forward_references: []
 
@@ -16,13 +19,15 @@ concepts:
     introduction_aliases: [σ-finite 測度]
     requires: []
 
-  - id: measure.radon-nikodym-derivative
-    name: Radon–Nikodym微分
+  # RN微分そのもののcanonical IDはF0-00P2に既存。MT3ではformal再掲だけを別登録し、
+  # 標準コアの証明鎖が速習側のRN定理を前提にしたかのような二重正本を作らない。
+  - id: measure.radon-nikodym-derivative-mt3-recap
+    name: Radon–Nikodym微分の再掲
     kind: definition
-    aliases: [Radon–Nikodym微分, Radon-Nikodym derivative, RN微分, RN 微分]
-    introduction_aliases: [Radon–Nikodym 微分]
+    aliases: ["### 定義（Radon–Nikodym 微分）"]
+    introduction_aliases: ["### 定義（Radon–Nikodym 微分）"]
     requires:
-      - measure.sigma-finite
+      - measure.radon-nikodym-derivative
 
   - id: measure.radon-nikodym-finite-positive
     name: Radon–Nikodym定理・有限正測度版
@@ -30,7 +35,7 @@ concepts:
     aliases: [Radon–Nikodym：有限正測度版, 有限正測度版 Radon–Nikodym 定理]
     introduction_aliases: [Radon–Nikodym：有限正測度版]
     requires:
-      - measure.radon-nikodym-derivative
+      - measure.radon-nikodym-derivative-mt3-recap
 
   - id: measure.radon-nikodym-sigma-finite
     name: Radon–Nikodym定理・σ-finite版
@@ -47,7 +52,7 @@ concepts:
     aliases: [測度変更の積分公式, change of measure formula]
     introduction_aliases: [測度変更の積分公式]
     requires:
-      - measure.radon-nikodym-derivative
+      - measure.radon-nikodym-derivative-mt3-recap
 
   - id: measure.radon-nikodym-chain-rule
     name: Radon–Nikodym微分のchain rule
@@ -56,7 +61,7 @@ concepts:
     introduction_aliases: [Radon–Nikodym 微分の chain rule]
     requires:
       - measure.change-of-measure-integral
-      - measure.radon-nikodym-derivative
+      - measure.radon-nikodym-derivative-mt3-recap
 
   - id: measure.radon-nikodym-signed
     name: Radon–Nikodym定理・有限符号付き測度版
