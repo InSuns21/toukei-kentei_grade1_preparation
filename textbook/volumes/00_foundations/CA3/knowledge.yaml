@@ -78,7 +78,7 @@ concepts:
     requires: [complex-analysis.maximum-modulus-principle, topology.compact-space]
 
   - id: complex-analysis.open-mapping-theorem
-    name: 複素解析の開写像定理
+    name: 正則関数は開集合を開集合へ写す
     kind: theorem
-    aliases: [複素解析の開写像定理, open mapping theorem in complex analysis]
+    aliases: [正則関数は開集合を開集合へ写す, open mapping property of holomorphic functions]
     requires: [complex-analysis.maximum-modulus-principle, complex-analysis.isolated-zeros-identity-theorem]
