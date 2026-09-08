@@ -1,0 +1,36 @@
+name: CA3 reference patch
+
+on:
+  push:
+    branches:
+      - codex/ca3-cauchy-taylor-liouville-maxmod
+    paths:
+      - .ca3-reference-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca3-cauchy-taylor-liouville-maxmod
+          fetch-depth: 0
+      - name: Fix formal references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/CA3/index.md')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('従って ML 評価から', '従って [ML評価](../CA2/index.md#thm-ca2-reparam-ml) から', 1)
+          s = s.replace("について $f'(a)=0$ を Cauchy評価から示せ。", "について $f'(a)=0$ を [Cauchy評価](#thm-ca3-cauchy-estimate) から示せ。", 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/CA3/index.md
+          git commit -m "Link CA3 formal dependencies"
+          git push origin HEAD:codex/ca3-cauchy-taylor-liouville-maxmod
