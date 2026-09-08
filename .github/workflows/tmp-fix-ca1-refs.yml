@@ -1,11 +1,12 @@
 name: Temporary fix CA1 refs
 on:
-  push:
+  pull_request:
     branches:
-      - codex/ca1-complex-differentiation
+      - main
     paths:
       - scripts/tmp_fix_ca1_refs.py
       - .github/workflows/tmp-fix-ca1-refs.yml
+      - textbook/volumes/00_foundations/CA1/index.md
 permissions:
   contents: write
 jobs:
