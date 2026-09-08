@@ -1,0 +1,105 @@
+chapter: CA2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA1
+  - RA4
+  - TOP3
+  - TOP5
+
+concepts:
+  - id: complex-analysis.piecewise-c1-path
+    name: 区分的C1曲線
+    kind: definition
+    aliases: [区分的C1曲線, piecewise C1 path, piecewise C1 curve]
+    requires: [analysis.derivative]
+
+  - id: complex-analysis.complex-line-integral
+    name: 複素線積分
+    kind: definition
+    aliases: [複素線積分, complex line integral]
+    requires: [complex-analysis.piecewise-c1-path, analysis.riemann-integrable]
+
+  - id: complex-analysis.line-integral-basic-rules
+    name: 複素線積分の基本則
+    kind: proposition
+    aliases: [複素線積分の基本則]
+    requires: [complex-analysis.complex-line-integral, analysis.change-of-variables-riemann]
+
+  - id: complex-analysis.ml-estimate
+    name: ML評価
+    kind: theorem
+    aliases: [ML評価, ML estimate]
+    requires: [complex-analysis.complex-line-integral]
+
+  - id: complex-analysis.primitive
+    name: 原始関数
+    kind: definition
+    aliases: [原始関数, primitive]
+    requires: [complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.line-integral-ftc
+    name: 複素線積分の基本定理
+    kind: theorem
+    aliases: [複素線積分の基本定理]
+    requires: [complex-analysis.primitive, analysis.ftc-2]
+
+  - id: complex-analysis.path-independence-primitive-equivalence
+    name: 原始関数・経路独立性・閉曲線積分0の同値
+    kind: theorem
+    aliases: [原始関数・経路独立性・閉曲線積分0の同値, 経路独立性]
+    requires: [complex-analysis.line-integral-ftc, topology.path-connected-space]
+
+  - id: complex-analysis.star-shaped-domain
+    name: 星型領域
+    kind: definition
+    aliases: [星型領域, star-shaped domain]
+    requires: [topology.path-connected-space]
+
+  - id: complex-analysis.cauchy-goursat-triangle
+    name: 三角形版Cauchy–Goursat
+    kind: theorem
+    aliases: [三角形版Cauchy–Goursat, Cauchy–Goursatの定理, triangle Cauchy-Goursat]
+    requires: [complex-analysis.holomorphic-function, complex-analysis.ml-estimate, complex-analysis.line-integral-ftc]
+
+  - id: complex-analysis.star-shaped-cauchy
+    name: 星型領域のCauchyの定理
+    kind: theorem
+    aliases: [星型領域のCauchyの定理]
+    requires: [complex-analysis.star-shaped-domain, complex-analysis.cauchy-goursat-triangle, complex-analysis.primitive]
+
+  - id: complex-analysis.fixed-endpoint-homotopy
+    name: 端点固定homotopy
+    kind: definition
+    aliases: [端点固定homotopy, homotopy relative to endpoints]
+    requires: [topology.topological-continuous-map]
+
+  - id: complex-analysis.simply-connected-domain
+    name: 単連結領域
+    kind: definition
+    aliases: [単連結領域, simply connected domain, simply connected]
+    requires: [complex-analysis.fixed-endpoint-homotopy, topology.path-connected-space]
+
+  - id: complex-analysis.homotopy-invariance-line-integral
+    name: 正則関数の線積分は端点固定homotopyで不変
+    kind: lemma
+    aliases: [正則関数の線積分は端点固定homotopyで不変, 線積分のhomotopy不変性]
+    requires: [complex-analysis.fixed-endpoint-homotopy, complex-analysis.star-shaped-cauchy, topology.compact-space]
+
+  - id: complex-analysis.simply-connected-cauchy
+    name: 単連結領域のCauchyの定理
+    kind: theorem
+    aliases: [単連結領域のCauchyの定理]
+    requires: [complex-analysis.simply-connected-domain, complex-analysis.homotopy-invariance-line-integral, complex-analysis.path-independence-primitive-equivalence]
+
+  - id: complex-analysis.holomorphic-logarithm
+    name: 正則対数の枝
+    kind: definition
+    aliases: [正則対数の枝, holomorphic branch of logarithm]
+    requires: [complex-analysis.holomorphic-function, complex-analysis.complex-exponential]
+
+  - id: complex-analysis.holomorphic-logarithm-existence
+    name: 単連結領域上の正則対数
+    kind: theorem
+    aliases: [単連結領域上の正則対数]
+    requires: [complex-analysis.holomorphic-logarithm, complex-analysis.simply-connected-cauchy, complex-analysis.derivative-rules, complex-analysis.zero-derivative-constant]
