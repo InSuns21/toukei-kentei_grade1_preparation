@@ -1,0 +1,86 @@
+name: FA4 branch integration autofix
+
+on:
+  push:
+    branches:
+      - codex/fa4-banach-alaoglu-reflexivity
+    paths:
+      - .github/workflows/fa4-branch-autofix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fa4-banach-alaoglu-reflexivity
+      - name: Apply FA4 integration fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          fa4 = Path('textbook/volumes/00_foundations/FA4/index.md')
+          text = fa4.read_text(encoding='utf-8')
+          old = '$K_i$ はコンパクトなので前節の定理から $\\mathcal U_i$ はある点へ収束します。'
+          new = '$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-ultrafilter)から $\\mathcal U_i$ はある点へ収束します。'
+          assert old in text, 'first formal-reference target not found'
+          text = text.replace(old, new, 1)
+          old = '反射性と前節の定理により $B_X$ は弱コンパクトで、'
+          new = '反射性と[前節の定理](#thm-fa4-reflexive-weak-compact-ball)により $B_X$ は弱コンパクトで、'
+          assert old in text, 'second formal-reference target not found'
+          text = text.replace(old, new, 1)
+          fa4.write_text(text, encoding='utf-8')
+
+          manifest_path = Path('textbook/dream-theater-index.json')
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          section = next(s for s in manifest['sections'] if s['name'] == 'DREAM THEATER 本編')
+          fa3 = 'textbook/volumes/00_foundations/FA3/index.md'
+          fa4_path = 'textbook/volumes/00_foundations/FA4/index.md'
+          if fa4_path not in section['paths']:
+              section['paths'].insert(section['paths'].index(fa3) + 1, fa4_path)
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          facade = Path('textbook/dream-theater.md')
+          text = facade.read_text(encoding='utf-8')
+          if '[FA4 Banach–Alaoglu・Goldstine・反射性]' not in text:
+              old = '11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)\n12. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'
+              new = '11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)\n12. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)\n13. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'
+              assert old in text, 'function-analysis facade insertion point not found'
+              text = text.replace(old, new, 1)
+          facade.write_text(text, encoding='utf-8')
+
+          core = Path('textbook/dream-theater-standard-math-core.yaml')
+          text = core.read_text(encoding='utf-8')
+          old = '''  - id: FA4
+    title: Banach–Alaoglu・反射性
+    area: functional-analysis
+    tier: core-advanced-standard
+    status: planned
+    prerequisites: [FA3, TOP5]
+'''
+          new = '''  - id: FA4
+    title: Banach–Alaoglu・Goldstine・反射性
+    area: functional-analysis
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/FA4/index.md
+    prerequisites: [FA3, TOP5, TOP6, HB]
+'''
+          assert old in text, 'FA4 standard-core planned block not found'
+          text = text.replace(old, new, 1)
+          core.write_text(text, encoding='utf-8')
+          PY
+          git diff --check
+          git status --short
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/FA4/index.md textbook/dream-theater-index.json textbook/dream-theater.md textbook/dream-theater-standard-math-core.yaml
+          git commit -m "Integrate FA4 navigation and formal references"
+          git push origin HEAD:codex/fa4-banach-alaoglu-reflexivity
