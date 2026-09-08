@@ -2,10 +2,8 @@ name: Temporary complex analysis scaffold
 
 on:
   push:
-    branches:
-      - codex/complex-analysis-core-scaffold
-    paths:
-      - '.github/workflows/tmp-complex-analysis-scaffold.yml'
+    branches: [codex/complex-analysis-core-scaffold]
+    paths: ['.github/workflows/tmp-complex-analysis-scaffold.yml']
 
 permissions:
   contents: write
@@ -17,872 +15,434 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: codex/complex-analysis-core-scaffold
-      - name: Write complex analysis scaffold
+      - name: Write scaffold and curriculum changes
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import textwrap
+          import re, textwrap
 
-          def write(path, content):
-              p = Path(path)
-              p.parent.mkdir(parents=True, exist_ok=True)
-              p.write_text(textwrap.dedent(content).lstrip(), encoding='utf-8')
+          root = Path('textbook/volumes/00_foundations')
 
-          chapters = {
-          'CA1': r'''
+          specs = {
+          'CA1': {
+            'title': '標準複素解析 I：複素微分・Cauchy–Riemann・初等正則関数',
+            'prereq': '[RA3, RA5, LA1]',
+            'defs': ['複素微分可能', '正則関数', '整関数'],
+            'thms': ['複素微分の微分法則', 'Cauchy–Riemann必要条件', 'Cauchy–Riemann十分条件', '複素指数関数の正則性'],
+            'body': r'''
           # CA1 複素微分・Cauchy–Riemann・初等正則関数
 
-          > **実装状態**：章構造・定義・定理文・例・演習を先に固定した draft です。**定理の証明は TODO** とし、後続フェーズで本文から再構成できる密度まで実装します。証明未実装のまま標準コアの `implemented` にはしません。
-
-          ## この章の役割
-
-          実変数の微分可能性と複素微分可能性は別物である。複素微分では差商を複素平面の**あらゆる方向**から近づける必要があり、その強さが Cauchy–Riemann 方程式と正則関数の剛性を生む。本章では、後の Cauchy 理論・Fourier 解析・作用素の resolvent に必要な複素指数関数までを準備する。
+          > **実装状態**：定義・定理文・例・演習を先に固定した draft です。**定理の証明は TODO**。証明完成までは標準コア上も `planned` とします。
 
           ## 1. 複素微分と正則性
 
-          開集合 $\Omega\subset\mathbb C$ と $f:\Omega\to\mathbb C$ を考える。$z_0\in\Omega$ で
+          開集合 $\Omega\subset\mathbb C$ と $f:\Omega\to\mathbb C$ に対し
+          $$f'(z_0)=\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}$$
+          が存在するとき複素微分可能という。各点で複素微分可能なら **正則**、$\mathbb C$ 全体で正則なら **整関数** という。
 
-          $$
-          f'(z_0)=\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}
-          $$
-
-          が複素数として存在するとき、$f$ は $z_0$ で**複素微分可能**という。$\Omega$ の各点で複素微分可能なら **正則（holomorphic）**、$\mathbb C$ 全体で正則なら **整関数（entire）** という。
-
-          ### 定理 CA1-THM-01：微分法則
-
-          複素微分可能な関数について和・積・商（分母非零）・合成の微分法則が実変数と同じ形で成り立つ。
-
-          **証明 TODO**：差商の分解と $h\to0$ の量化を省略せず実装する。
+          ### 定理 CA1-THM-01：複素微分の微分法則
+          和・積・商・合成について実変数と同じ微分法則が成り立つ。
+          **証明 TODO**：差商の分解と極限を直接追う。
 
           ## 2. Cauchy–Riemann 方程式
+          $f(x+iy)=u(x,y)+iv(x,y)$ とする。
 
-          $z=x+iy$ として
+          ### 定理 CA1-THM-02：必要条件
+          $f$ が $z_0$ で複素微分可能なら
+          $$u_x=v_y,\qquad u_y=-v_x$$
+          かつ $f'=u_x+iv_x=v_y-iu_y$。
+          **証明 TODO**：実方向と純虚方向から同じ差商極限を見る。
 
-          $$
-          f(z)=u(x,y)+iv(x,y)
-          $$
+          ### 定理 CA1-THM-03：$C^1$ 十分条件
+          $u,v$ の一階偏導関数が近傍で存在し $z_0$ で連続、かつ Cauchy–Riemann を満たせば $f$ は $z_0$ で複素微分可能。
+          **証明 TODO**：二変数の増分を一次部分と $o(|h|)$ に分解する。
 
-          と書く。
-
-          ### 定理 CA1-THM-02：複素微分可能性から Cauchy–Riemann へ
-
-          $f$ が $z_0=x_0+iy_0$ で複素微分可能なら、対応する偏微分が存在し
-
-          $$
-          u_x=v_y,\qquad u_y=-v_x
-          $$
-
-          が $(x_0,y_0)$ で成立する。また
-
-          $$
-          f'(z_0)=u_x+iv_x=v_y-iu_y.
-          $$
-
-          **証明 TODO**：$h\in\mathbb R$ と $h=it$ の二方向から同じ差商極限を見る。
-
-          ### 定理 CA1-THM-03：Cauchy–Riemann の十分条件
-
-          $u,v$ の一階偏導関数が $z_0$ の近傍で存在して $z_0$ で連続であり、Cauchy–Riemann 方程式を $z_0$ で満たすなら $f$ は $z_0$ で複素微分可能である。
-
-          **証明 TODO**：増分を $x$ 方向と $y$ 方向へ分け、実変数の平均値型評価から $o(|h|)$ を作る。
-
-          > Cauchy–Riemann 方程式を一点で満たすだけでは十分ではない。十分条件に置いた偏導関数の局所的制御を消してはいけない。
-
-          ## 3. Wirtinger 微分
-
-          形式的に
-
-          $$
-          \partial_z=\frac12(\partial_x-i\partial_y),\qquad
-          \partial_{\bar z}=\frac12(\partial_x+i\partial_y)
-          $$
-
-          と置くと、$C^1$ 級関数について Cauchy–Riemann 方程式は $\partial_{\bar z}f=0$ と同値になる。
+          $\partial_z=(\partial_x-i\partial_y)/2$, $\partial_{\bar z}=(\partial_x+i\partial_y)/2$ とすると、$C^1$ 級では正則性は $\partial_{\bar z}f=0$ と同値になる。
 
           ### 例
+          $z^n$ は正則、$\bar z$ はどこでも正則でない。$|z|^2$ は $0$ では複素微分可能だが、どの近傍でも正則でない。
 
-          - $f(z)=z^n$ は正則で $f'(z)=nz^{n-1}$。
-          - $f(z)=\bar z$ はどの点でも正則ではない。実軸方向と虚軸方向の差商が一致しない。
-          - $f(z)=|z|^2$ は $z=0$ では複素微分可能だが、どの近傍でも正則ではない。「一点で微分可能」と「正則」は大きく違う。
-
-          ## 4. 複素指数・三角関数
-
-          $$
-          e^{x+iy}=e^x(\cos y+i\sin y)
-          $$
-
-          と定義する。
+          ## 3. 複素指数・三角関数
+          $$e^{x+iy}=e^x(\cos y+i\sin y).$$
 
           ### 定理 CA1-THM-04：複素指数関数
+          $e^z$ は整関数で $(e^z)'=e^z$, $e^{z+w}=e^ze^w$, $e^{z+2\pi i}=e^z$、かつ零点を持たない。
+          **証明 TODO**：実指数・三角関数と Cauchy–Riemann から閉じる。
 
-          $e^z$ は整関数で
-
-          $$
-          (e^z)'=e^z,\qquad e^{z+w}=e^ze^w,\qquad e^{z+2\pi i}=e^z
-          $$
-
-          を満たし、零点を持たない。
-
-          **証明 TODO**：実指数・三角関数の加法定理と Cauchy–Riemann を用いて閉じる。
-
-          $\cos z=(e^{iz}+e^{-iz})/2$, $\sin z=(e^{iz}-e^{-iz})/(2i)$ と定義する。これは Fourier 解析で使う $e^{inx}$ の正本となる。
+          $\cos z=(e^{iz}+e^{-iz})/2$, $\sin z=(e^{iz}-e^{-iz})/(2i)$ と定義する。これは Fourier 解析の $e^{inx}$ の正本となる。
 
           ## 演習
-
-          - Level: A — $f(z)=z^3-2z+1$ の導関数を定義から確認せよ。
-          - Level: A — $f(z)=\bar z$ の差商を実方向・虚方向から計算せよ。
-          - Level: A — $f(z)=|z|^2$ が $0$ でのみ複素微分可能であることを示せ。
-          - Level: A — $e^{z+2\pi i}=e^z$ を定義から示せ。
-          - Level: B — $f(z)=u+iv$ が $C^1$ で Cauchy–Riemann を満たすとき、$f'$ の式を導け。
-          - Level: B — $z\mapsto 1/z$ が $\mathbb C\setminus\{0\}$ で正則であることを示せ。
-          - Level: B — $\sin z$ と $\cos z$ の導関数・加法公式を複素指数から導け。
-          - Level: C — $f$ と $\bar f$ が同じ連結開集合上でともに正則なら $f$ は定数であることを示せ（後半では導関数0から定数を得る実変数の議論を使ってよい）。
-          ''',
-          'CA2': r'''
+          - Level: A — $z^3-2z+1$ の導関数を定義から確認せよ。
+          - Level: A — $\bar z$ の差商を実方向・虚方向から計算せよ。
+          - Level: A — $|z|^2$ が $0$ でのみ複素微分可能であることを示せ。
+          - Level: A — $e^{z+2\pi i}=e^z$ を示せ。
+          - Level: B — $C^1$ 級の $f=u+iv$ について Cauchy–Riemann から $f'$ の式を導け。
+          - Level: B — $1/z$ が $\mathbb C\setminus\{0\}$ で正則であることを示せ。
+          - Level: B — $\sin z,\cos z$ の導関数を複素指数から導け。
+          - Level: C — $f$ と $\bar f$ が連結開集合上でともに正則なら $f$ は定数であることを示せ。
+          '''},
+          'CA2': {
+            'title': '標準複素解析 II：複素線積分・原始関数・Cauchy–Goursat',
+            'prereq': '[CA1, RA4, TOP3]',
+            'defs': ['複素線積分', '原始関数'],
+            'thms': ['ML評価', '複素線積分の基本定理', '経路独立性と原始関数', '三角形版Cauchy–Goursat', '星型領域のCauchyの定理', '正則対数の枝'],
+            'body': r'''
           # CA2 複素線積分・原始関数・Cauchy–Goursat
 
-          > **実装状態**：定義・定理文・例・演習を固定した draft。**定理の証明は TODO**。特に Cauchy–Goursat は「既知」と書くだけで済ませず、三角形版から一般領域へ何を使って拡張するかを後続フェーズで明示する。
+          > **実装状態**：定義・定理文・例・演習を固定した draft。**定理の証明は TODO**。Cauchy–Goursat を名前だけで既知扱いしません。
 
-          ## 1. 曲線と複素線積分
-
+          ## 1. 複素線積分
           区分的 $C^1$ 曲線 $\gamma:[a,b]\to\Omega$ に対し
-
-          $$
-          \int_\gamma f(z)\,dz
-          :=\int_a^b f(\gamma(t))\gamma'(t)\,dt
-          $$
-
-          と定義する。右辺は実変数 Riemann 積分を実部・虚部ごとに取ったものとする。
+          $$\int_\gamma f(z)\,dz:=\int_a^b f(\gamma(t))\gamma'(t)\,dt$$
+          と定義する。右辺は実部・虚部ごとの Riemann 積分である。
 
           ### 定理 CA2-THM-01：再パラメータ化と ML 評価
+          向きを保つ再パラメータ化で値は不変で、
+          $$\left|\int_\gamma f(z)\,dz\right|\le L(\gamma)\max_{\gamma}|f|.$$
+          **証明 TODO**：実積分の置換と三角不等式を使う。
 
-          向きを保つ $C^1$ 再パラメータ化で線積分は不変であり、曲線長を $L(\gamma)$ とすると
-
-          $$
-          \left|\int_\gamma f(z)\,dz\right|
-          \le L(\gamma)\max_{z\in\gamma([a,b])}|f(z)|.
-          $$
-
-          **証明 TODO**：実積分の置換と三角不等式を局所的に使用する。
-
-          ## 2. 原始関数と経路独立性
-
-          $F'=f$ を満たす正則関数 $F$ を $f$ の**原始関数**という。
+          ## 2. 原始関数
+          $F'=f$ を満たす正則関数 $F$ を原始関数という。
 
           ### 定理 CA2-THM-02：複素線積分の基本定理
-
-          $F'=f$ なら
-
-          $$
-          \int_\gamma f(z)\,dz=F(\gamma(b))-F(\gamma(a)).
-          $$
-
-          よって閉曲線上の積分は0である。
-
-          **証明 TODO**：$F(\gamma(t))$ の連鎖律を実変数の FTC へ接続する。
+          $$\int_\gamma f(z)\,dz=F(\gamma(b))-F(\gamma(a)).$$
+          **証明 TODO**：$F\circ\gamma$ の連鎖律を実変数 FTC へ接続する。
 
           ### 定理 CA2-THM-03：経路独立性と原始関数
-
-          領域 $\Omega$ 上の連続関数 $f$ について、任意の閉曲線で積分が0であること、端点だけで線積分値が決まること、$f$ が原始関数を持つことは適切な経路連結性の下で同値である。
-
-          **証明 TODO**：基点からの積分で $F$ を定義し、微分可能性を小線分積分の評価から示す。
+          経路積分が端点だけで決まること、全閉曲線積分が0であること、原始関数を持つことの同値を適切な経路連結性の下で示す。
+          **証明 TODO**：基点からの積分で原始関数を構成する。
 
           ## 3. Cauchy–Goursat
-
           ### 定理 CA2-THM-04：三角形版 Cauchy–Goursat
-
-          三角形 $\Delta$ とその近傍で $f$ が正則なら
-
-          $$
-          \int_{\partial\Delta}f(z)\,dz=0.
-          $$
-
-          **証明 TODO**：三角形を4分割する反復構成と、複素微分可能性から得る局所一次近似を用いる。偏導関数の連続性を追加仮定して逃げない Goursat 型で実装する。
+          三角形 $\Delta$ とその近傍で $f$ が正則なら $\int_{\partial\Delta}f\,dz=0$。
+          **証明 TODO**：4分割反復と局所一次近似を使い、偏導関数連続を追加仮定しない Goursat 型で証明する。
 
           ### 定理 CA2-THM-05：星型領域の Cauchy の定理
+          星型領域上の正則関数は原始関数を持ち、閉曲線積分は0。
+          **証明 TODO**：三角形版から基点を頂点とする積分を構成する。
 
-          $\Omega$ が星型で $f$ が正則なら、$f$ は原始関数を持ち、任意の閉曲線 $\gamma$ に対して $\int_\gamma f\,dz=0$。
+          ## 4. 穴と対数
+          単位円 $\gamma(t)=e^{it}$ では
+          $$\int_\gamma\frac{dz}{z}=2\pi i,$$
+          したがって $1/z$ は $\mathbb C\setminus\{0\}$ 全体で原始関数を持たない。
 
-          **証明 TODO**：三角形版から基点を頂点にした積分で原始関数を構成する。
-
-          ## 4. 穴がある領域
-
-          単位円 $\gamma(t)=e^{it}$ について直接計算すると
-
-          $$
-          \int_\gamma \frac{dz}{z}=2\pi i.
-          $$
-
-          したがって $1/z$ は $\mathbb C\setminus\{0\}$ 全体では原始関数を持たない。局所的に正則であることと、大域的に原始関数を持つことの間には領域の位相が入る。
-
-          ### 定理 CA2-THM-06：対数の枝
-
-          単連結領域 $\Omega\subset\mathbb C\setminus\{0\}$ では、適切な Cauchy 定理を前提に $1/z$ の原始関数を取り、$e^{L(z)}=z$ を満たす正則な対数の枝 $L$ を構成できる。
-
-          **証明 TODO**：単連結性から閉曲線積分0を得る段階をブラックボックス化せず、必要なホモトピー版 Cauchy 定理を先に実装する。
+          ### 定理 CA2-THM-06：正則対数の枝
+          単連結領域 $\Omega\subset\mathbb C\setminus\{0\}$ では $e^{L(z)}=z$ を満たす正則な対数の枝を構成できる。
+          **証明 TODO**：単連結性から閉曲線積分0へ進むホモトピー版 Cauchy 理論を明示する。
 
           ## 演習
-
           - Level: A — 線分 $0\to1+i$ 上で $\int z\,dz$ を計算せよ。
           - Level: A — 単位円上で $\int z^n\,dz$ を整数 $n$ ごとに計算せよ。
-          - Level: A — 逆向き曲線で線積分の符号が反転することを示せ。
-          - Level: A — ML 評価を使って短い円弧上の積分を評価せよ。
-          - Level: B — 原始関数が存在すれば閉曲線積分が0になることを示せ。
-          - Level: B — $1/z$ が $\mathbb C\setminus\{0\}$ で原始関数を持たないことを単位円積分から示せ。
-          - Level: B — 星型領域で基点からの積分が経路に依存しないことから原始関数を構成せよ。
-          - Level: C — $\mathbb C\setminus(-\infty,0]$ 上で主値対数を構成し、その導関数が $1/z$ であることを示せ。
-          ''',
-          'CA3': r'''
+          - Level: A — 逆向き曲線で積分の符号が反転することを示せ。
+          - Level: A — ML 評価で短い円弧上の積分を評価せよ。
+          - Level: B — 原始関数があれば閉曲線積分が0になることを示せ。
+          - Level: B — $1/z$ が穿孔平面で原始関数を持たないことを示せ。
+          - Level: B — 星型領域で基点積分から原始関数を構成せよ。
+          - Level: C — $\mathbb C\setminus(-\infty,0]$ 上で主値対数を構成せよ。
+          '''},
+          'CA3': {
+            'title': '標準複素解析 III：Cauchy積分公式・Taylor展開・Liouville・最大値原理',
+            'prereq': '[CA2]',
+            'defs': [],
+            'thms': ['Cauchy積分公式', 'Cauchy高階導関数公式', '正則関数のTaylor展開', 'Cauchy評価', 'Liouvilleの定理', '代数学の基本定理', '恒等定理', '最大値原理', '複素解析の開写像定理'],
+            'body': r'''
           # CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理
 
-          > **実装状態**：FA5 の正式前提になる中核章の draft。定理文・論理順を先に固定し、**証明は TODO**。FA5 はこの章の証明完成後に実装する。
+          > **実装状態**：FA5 の正式前提になる中核章の draft。**定理の証明は TODO**。FA5 はこの章の証明完成後に実装します。
 
           ## 1. Cauchy 積分公式
-
           ### 定理 CA3-THM-01：Cauchy 積分公式
-
-          $f$ が円板 $\overline{D(a,R)}$ を含む開集合で正則なら、$|z-a|<R$ に対して
-
-          $$
-          f(z)=\frac{1}{2\pi i}\int_{|\zeta-a|=R}\frac{f(\zeta)}{\zeta-z}\,d\zeta.
-          $$
-
-          **証明 TODO**：$\frac{f(\zeta)-f(z)}{\zeta-z}$ の可除特異性と Cauchy の定理を使い、$1/(\zeta-z)$ の円周積分を直接計算する。
+          $f$ が $\overline{D(a,R)}$ を含む開集合で正則なら $|z-a|<R$ に対して
+          $$f(z)=\frac1{2\pi i}\int_{|\zeta-a|=R}\frac{f(\zeta)}{\zeta-z}\,d\zeta.$$
+          **証明 TODO**：可除特異性と Cauchy の定理から導く。
 
           ### 定理 CA3-THM-02：高階導関数公式
+          $$f^{(n)}(a)=\frac{n!}{2\pi i}\int_{|\zeta-a|=R}\frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta.$$
+          **証明 TODO**：積分核を一様評価して微分と積分の交換を正当化する。
 
-          正則関数は無限回複素微分可能で
-
-          $$
-          f^{(n)}(z)=\frac{n!}{2\pi i}\int_{|\zeta-a|=R}\frac{f(\zeta)}{(\zeta-z)^{n+1}}\,d\zeta
-          $$
-
-          が成り立つ（円が $z$ を囲む適切な配置で読む）。
-
-          **証明 TODO**：積分核の差商を一様評価し、微分と積分の交換を正当化する。
-
-          ## 2. Taylor 展開と解析性
-
-          ### 定理 CA3-THM-03：正則なら局所べき級数展開
-
+          ## 2. Taylor 展開
+          ### 定理 CA3-THM-03：正則なら解析的
           $f$ が $D(a,R)$ で正則なら
+          $$f(z)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(z-a)^n\qquad(|z-a|<R).$$
+          **証明 TODO**：Cauchy 核の幾何級数展開と一様収束による項別積分を使う。
 
-          $$
-          f(z)=\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(z-a)^n
-          $$
-
-          が $|z-a|<R$ で成立する。
-
-          **証明 TODO**：Cauchy 核を幾何級数展開し、閉円上の一様収束を使って項別積分する。
-
-          ここで「複素正則 $\Rightarrow$ 解析的」という実解析にはない強い剛性が得られる。
-
-          ## 3. Cauchy 評価・Liouville・代数学の基本定理
-
+          ## 3. Cauchy 評価と Liouville
           ### 定理 CA3-THM-04：Cauchy 評価
-
-          $M_R=\max_{|\zeta-a|=R}|f(\zeta)|$ とすると
-
-          $$
-          |f^{(n)}(a)|\le \frac{n!M_R}{R^n}.
-          $$
-
-          **証明 TODO**：高階導関数公式と ML 評価を組み合わせる。
+          $M_R=\max_{|\zeta-a|=R}|f(\zeta)|$ なら
+          $$|f^{(n)}(a)|\le n!M_R/R^n.$$
+          **証明 TODO**：高階公式と ML 評価を組み合わせる。
 
           ### 定理 CA3-THM-05：Liouville の定理
-
           有界な整関数は定数である。
-
-          **証明 TODO**：任意に大きい半径で Cauchy 評価を適用して $f'(a)=0$ を得る。
+          **証明 TODO**：任意半径での Cauchy 評価から $f'=0$ を得る。
 
           ### 系 CA3-COR-01：代数学の基本定理
+          非定数複素多項式は零点を持つ。
+          **証明 TODO**：零点なしなら $1/p$ が有界整関数になることを示す。
 
-          非定数複素多項式は少なくとも一つ零点を持つ。
-
-          **証明 TODO**：零点がないと仮定して $1/p$ が整関数かつ無限遠で0へ行くことから Liouville を適用する。
-
-          ## 4. 零点・恒等定理・最大値原理
-
-          ### 定理 CA3-THM-06：零点の孤立性と恒等定理
-
-          非零の正則関数の零点は孤立する。連結領域上の二つの正則関数が集積点を持つ集合上で一致すれば領域全体で一致する。
-
+          ## 4. 零点と剛性
+          ### 定理 CA3-THM-06：零点の孤立性・恒等定理
+          非零正則関数の零点は孤立し、集積点を持つ一致集合は連結領域全体へ広がる。
           **証明 TODO**：Taylor 展開の最初の非零係数で因数分解する。
 
           ### 定理 CA3-THM-07：最大値原理
-
-          非定数正則関数は領域内部で $|f|$ の局所最大値を取らない。
-
-          **証明 TODO**：Cauchy 平均値表示から最大値達成時の等号条件を追う。
+          非定数正則関数は領域内部で $|f|$ の局所最大を取らない。
+          **証明 TODO**：Cauchy 平均値表示の等号条件を追う。
 
           ### 定理 CA3-THM-08：開写像定理（複素解析）
-
           非定数正則関数は開写像である。
-
-          **証明 TODO**：零点の局所因数分解または最小値原理を用いる。関数解析の「開写像定理」と同名なので概念IDを分離する。
+          **証明 TODO**：局所因数分解から示し、関数解析 FA2 の開写像定理とは概念を分離する。
 
           ## 5. FA5 への橋
-
-          複素 Banach 空間上の resolvent をスカラー化した
-
-          $$
-          \lambda\mapsto f\bigl((\lambda I-T)^{-1}x\bigr)
-          $$
-
-          に Liouville を適用することで、複素 Banach 空間のスペクトル非空性を証明できる。FA5 ではこの章を正式前提にし、Liouville を再証明しない。
+          複素 Banach 空間の resolvent をスカラー化した
+          $$\lambda\mapsto f\bigl((\lambda I-T)^{-1}x\bigr)$$
+          に Liouville を適用してスペクトル非空性を示す。FA5 では Liouville を再証明しない。
 
           ## 演習
-
-          - Level: A — Cauchy積分公式で $\int_{|z|=2} e^z/z\,dz$ を求めよ。
-          - Level: A — $\int_{|z|=2} e^z/(z-1)^3\,dz$ を求めよ。
-          - Level: A — Cauchy評価から $|f^{(n)}(0)|$ を評価せよ。
-          - Level: A — 有界整関数が定数になることを Cauchy 評価から導け。
-          - Level: B — 正則関数の Taylor 係数が Cauchy 積分で表されることを示せ。
-          - Level: B — 多項式版 Liouville 議論から代数学の基本定理を導け。
-          - Level: B — 零点が集積すれば関数が恒等的に0であることを示せ。
-          - Level: C — $|f(z)|\le C(1+|z|^m)$ を満たす整関数が次数高々 $m$ の多項式であることを Cauchy 評価から示せ。
-          ''',
-          'CA4': r'''
+          - Level: A — Cauchy公式で $\int_{|z|=2}e^z/z\,dz$ を求めよ。
+          - Level: A — $\int_{|z|=2}e^z/(z-1)^3\,dz$ を求めよ。
+          - Level: A — Cauchy評価から導関数を評価せよ。
+          - Level: A — Liouville を Cauchy 評価から導け。
+          - Level: B — Taylor係数の積分表示を導け。
+          - Level: B — Liouville から代数学の基本定理を導け。
+          - Level: B — 零点が集積すれば恒等的に0であることを示せ。
+          - Level: C — $|f(z)|\le C(1+|z|^m)$ を満たす整関数が次数高々 $m$ の多項式であることを示せ。
+          '''},
+          'CA4': {
+            'title': '標準複素解析 IV：Laurent展開・孤立特異点・留数定理',
+            'prereq': '[CA3]',
+            'defs': ['Laurent展開', '孤立特異点', '留数'],
+            'thms': ['Laurent展開定理', '孤立特異点分類', '可除特異点定理', '留数定理'],
+            'body': r'''
           # CA4 Laurent展開・孤立特異点・留数定理
 
-          > **実装状態**：定理文・例・演習を先行実装した draft。**証明は TODO**。留数計算だけを公式暗記にせず、Laurent 展開から留数が何を抽出しているかを主題にする。
+          > **実装状態**：定理文・例・演習を先行実装した draft。**定理の証明は TODO**。
 
           ## 1. Laurent 展開
-
           ### 定理 CA4-THM-01：Laurent 展開
-
-          $f$ が環状領域 $r<|z-a|<R$ で正則なら
-
-          $$
-          f(z)=\sum_{n=-\infty}^{\infty}c_n(z-a)^n
-          $$
-
-          と一意に展開でき、係数は適切な円周 $|\zeta-a|=\rho$ 上で
-
-          $$
-          c_n=\frac1{2\pi i}\int_{|\zeta-a|=\rho}\frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta
-          $$
-
-          と表される。
-
-          **証明 TODO**：内側・外側の Cauchy 核をそれぞれ幾何級数展開し、一様収束で項別積分する。
+          $f$ が $r<|z-a|<R$ で正則なら
+          $$f(z)=\sum_{n=-\infty}^{\infty}c_n(z-a)^n,$$
+          $$c_n=\frac1{2\pi i}\int_{|\zeta-a|=\rho}\frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta$$
+          と一意に展開できる。
+          **証明 TODO**：内外の Cauchy 核を幾何級数展開し項別積分する。
 
           ## 2. 孤立特異点
-
-          孤立特異点 $a$ の Laurent 主部により、可除特異点・極・真性特異点を分類する。
-
-          ### 定理 CA4-THM-02：特異点分類
-
-          - 負冪項が無い iff 可除特異点。
-          - 負冪項が有限個で最高位が $(z-a)^{-m}$ iff $m$ 位の極。
-          - 負冪項が無限個 iff 真性特異点。
-
+          ### 定理 CA4-THM-02：分類
+          Laurent 主部が空なら可除、有限非空なら極、無限なら真性特異点である。
           **証明 TODO**：有界性・零点の位数・Laurent 一意性を対応させる。
 
           ### 定理 CA4-THM-03：可除特異点定理
-
-          孤立特異点の近傍で有界な正則関数はその点へ正則に延長できる。
-
-          **証明 TODO**：Laurent の負係数が Cauchy 評価で消えることを示す。
+          孤立特異点の近傍で有界な正則関数は正則に延長できる。
+          **証明 TODO**：負の Laurent 係数が消えることを Cauchy 評価で示す。
 
           ## 3. 留数
-
-          $c_{-1}$ を $f$ の $a$ における**留数** $\operatorname{Res}(f,a)$ と呼ぶ。
+          $c_{-1}$ を $\operatorname{Res}(f,a)$ と呼ぶ。
 
           ### 定理 CA4-THM-04：留数定理
+          適切な閉曲線 $\gamma$ と孤立特異点 $a_k$ に対し
+          $$\int_\gamma f(z)\,dz=2\pi i\sum_k\operatorname{Ind}(\gamma,a_k)\operatorname{Res}(f,a_k).$$
+          **証明 TODO**：特異点を小円でくり抜き、境界の向きを追う。
 
-          領域内の有限個の孤立特異点 $a_k$ を囲む適切な閉曲線 $\gamma$ に対し
-
-          $$
-          \int_\gamma f(z)\,dz
-          =2\pi i\sum_k \operatorname{Ind}(\gamma,a_k)\operatorname{Res}(f,a_k).
-          $$
-
-          **証明 TODO**：特異点を小円でくり抜いた領域へ Cauchy の定理を適用し、境界向きを追跡する。
-
-          ### 極での留数計算
-
-          単純極なら
-
-          $$
-          \operatorname{Res}(f,a)=\lim_{z\to a}(z-a)f(z).
-          $$
-
-          $m$ 位の極なら導関数公式で計算できる。
-
-          ## 4. 実積分への応用
-
-          半円・鍵穴型 contour を使うと
-
-          $$
-          \int_{-\infty}^{\infty}\frac{dx}{1+x^2}=\pi
-          $$
-
-          などを複素積分へ移せる。大円弧の寄与を0とする箇所では、被積分関数の減衰と弧長の積を必ず評価する。
+          単純極では $\operatorname{Res}(f,a)=\lim_{z\to a}(z-a)f(z)$。contour 実積分では大円弧の寄与を「減衰×弧長」で必ず評価する。
 
           ## 演習
-
           - Level: A — $1/[z(z-1)]$ の各極の留数を求めよ。
-          - Level: A — $e^z/z^3$ の $0$ における留数を求めよ。
-          - Level: A — $\sin z/z^4$ の Laurent 展開の主部を求めよ。
-          - Level: A — $z=0$ が $e^{1/z}$ の真性特異点であることを確認せよ。
+          - Level: A — $e^z/z^3$ の0での留数を求めよ。
+          - Level: A — $\sin z/z^4$ の Laurent 主部を求めよ。
+          - Level: A — $e^{1/z}$ の0が真性特異点であることを確認せよ。
           - Level: B — 可除特異点定理を Laurent 係数から導け。
-          - Level: B — 有理関数の単純極での留数公式を導け。
-          - Level: B — 留数定理を用いて $\int_{-\infty}^{\infty}(1+x^2)^{-1}dx$ を計算し、大円弧評価も書け。
-          - Level: C — $\int_{-\infty}^{\infty} e^{itx}/(1+x^2)\,dx$ を $t>0$ と $t<0$ に分けて contour を選び計算せよ。Fourier 変換との接続も説明せよ。
-          ''',
-          'CA5': r'''
-          # CA5 零点・偏角原理・Rouché・解析接続
+          - Level: B — 単純極の留数公式を導け。
+          - Level: B — 留数定理で $\int_{-\infty}^{\infty}(1+x^2)^{-1}dx$ を計算し大円弧評価も書け。
+          - Level: C — $\int_{-\infty}^{\infty}e^{itx}/(1+x^2)\,dx$ を計算し Fourier 変換との接続を説明せよ。
+          '''},
+          'CA5': {
+            'title': '標準複素解析 V：偏角原理・Rouché・解析接続',
+            'prereq': '[CA4, TOP3]',
+            'defs': ['winding number', '解析接続'],
+            'thms': ['winding numberの整数値性', '偏角原理', 'Rouchéの定理', '解析接続の一意性', 'monodromy theorem'],
+            'body': r'''
+          # CA5 偏角原理・Rouché・解析接続
 
-          > **実装状態**：標準複素解析の大域的な零点計数と解析接続をまとめる draft。**定理の証明は TODO**。
+          > **実装状態**：大域的な零点計数と解析接続の draft。**定理の証明は TODO**。
 
-          ## 1. winding number / index
+          ## 1. winding number
+          $$\operatorname{Ind}(\gamma,a)=\frac1{2\pi i}\int_\gamma\frac{dz}{z-a}.$$
 
-          閉曲線 $\gamma$ と $a\notin\gamma$ に対し
-
-          $$
-          \operatorname{Ind}(\gamma,a)
-          =\frac1{2\pi i}\int_\gamma\frac{dz}{z-a}
-          $$
-
-          を $a$ のまわりの winding number とする。
-
-          ### 定理 CA5-THM-01：index の整数値性と局所定数性
-
-          $\operatorname{Ind}(\gamma,a)$ は整数で、$\mathbb C\setminus\gamma$ の各連結成分上で一定であり、非有界成分では0である。
-
-          **証明 TODO**：対数の局所枝または曲線上の偏角持ち上げを構成し、終点での偏角差が $2\pi\mathbb Z$ に入ることを示す。
+          ### 定理 CA5-THM-01：整数値性と局所定数性
+          index は整数で、$\mathbb C\setminus\gamma$ の各連結成分上で一定、非有界成分で0。
+          **証明 TODO**：偏角の持ち上げから終点差が $2\pi\mathbb Z$ に入ることを示す。
 
           ## 2. 偏角原理
-
           ### 定理 CA5-THM-02：偏角原理
-
-          $f$ が閉曲線とその内部で meromorphic で、曲線上に零点・極を持たないなら
-
-          $$
-          \frac1{2\pi i}\int_\gamma\frac{f'(z)}{f(z)}\,dz
-          =N-P
-          $$
-
-          （零点・極を重複度込みで数え、一般には index で重み付け）となる。
-
+          曲線上に零点・極を持たない meromorphic 関数について
+          $$\frac1{2\pi i}\int_\gamma\frac{f'}f\,dz=N-P$$
+          （一般には index で重み付け）。
           **証明 TODO**：零点・極の局所因数分解から $f'/f$ の留数を計算する。
 
-          ## 3. Rouché の定理
-
-          ### 定理 CA5-THM-03：Rouché
-
-          単純閉曲線 $\gamma$ 上で
-
-          $$
-          |g(z)|<|f(z)|
-          $$
-
-          が成り立ち、$f,g$ が曲線と内部で正則なら、$f$ と $f+g$ は内部に同数の零点を重複度込みで持つ。
-
-          **証明 TODO**：$f+t g$ が曲線上で0にならないことを示し、偏角原理の積分値が $t$ に連続かつ整数値なので一定であることを使う。
+          ## 3. Rouché
+          ### 定理 CA5-THM-03：Rouché の定理
+          単純閉曲線上で $|g|<|f|$ なら $f$ と $f+g$ は内部に同数の零点を重複度込みで持つ。
+          **証明 TODO**：$f+tg$ の偏角原理の値が連続な整数値なので一定であることを使う。
 
           ## 4. 解析接続
+          ### 定理 CA5-THM-04：一意性
+          連結した重なりを通じた解析接続は存在する限り一意。
+          **証明 TODO**：恒等定理を逐次適用する。
 
-          正則関数の芽を重なり合う領域へ恒等定理で一意に延ばす操作を解析接続と呼ぶ。
-
-          ### 定理 CA5-THM-04：解析接続の一意性
-
-          連結した重なりを通じた解析接続は、存在する限り恒等定理により一意である。
-
-          **証明 TODO**：一致集合の開閉性または恒等定理の逐次適用で示す。
-
-          ### 定理 CA5-THM-05：monodromy theorem（標準形）
-
-          単連結領域で局所解析接続が全経路に沿って可能なら、解析接続は経路に依存せず一価の正則関数を与える。
-
-          **証明 TODO**：経路ホモトピーを小長方形へ分割する議論を詳細化する。ここでは単連結性を名前だけで消費しない。
+          ### 定理 CA5-THM-05：monodromy theorem
+          単連結領域で全経路に沿う局所解析接続が可能なら、結果は経路に依存せず一価の正則関数を与える。
+          **証明 TODO**：経路ホモトピーの分割で単連結性を実際に使う。
 
           ## 演習
-
           - Level: A — 円 $|z|=2$ の $0,1,3$ に対する index を求めよ。
-          - Level: A — $z^n$ に偏角原理を適用し零点数を確認せよ。
-          - Level: A — $z^5+10z+1$ の適切な円内の零点数を Rouché で評価せよ。
+          - Level: A — $z^n$ に偏角原理を適用せよ。
+          - Level: A — Rouché で多項式の円内零点数を評価せよ。
           - Level: A — $f'/f$ が単純零点で留数1を持つことを示せ。
-          - Level: B — $z^n+a_{n-1}z^{n-1}+\cdots+a_0$ の大円内の零点数が $n$ であることを Rouché から示せ。
+          - Level: B — 大円上で Rouché を使い次数 $n$ の多項式の零点数を示せ。
           - Level: B — 偏角原理から代数学の基本定理を別証明せよ。
-          - Level: B — 対数の解析接続を $\mathbb C\setminus\{0\}$ の一周に沿って行うと値が $2\pi i$ ずれることを説明せよ。
-          - Level: C — monodromy theorem が「局所的な正則性」から「大域的一価性」を得る際に単連結性をどこで使うか、対数を反例として論証せよ。
-          ''',
-          'CA6': r'''
+          - Level: B — 対数を一周解析接続すると $2\pi i$ ずれることを説明せよ。
+          - Level: C — monodromy で単連結性が必要な箇所を対数を反例に論証せよ。
+          '''},
+          'CA6': {
+            'title': '標準複素解析 VI：Möbius変換・Schwarz補題・調和関数・Poisson核',
+            'prereq': '[CA5]',
+            'defs': ['Möbius変換', '調和関数', 'Poisson kernel'],
+            'thms': ['Möbius変換の基本性質', 'Schwarz lemma', '円板自己同型の分類', '正則関数の実部虚部の調和性', '調和関数の平均値性質', 'Poisson integral'],
+            'body': r'''
           # CA6 Möbius変換・Schwarz補題・調和関数・Poisson核
 
-          > **実装状態**：複素解析から Fourier/PDE へ渡す発展標準章の draft。**定理の証明は TODO**。Riemann mapping theorem・Montel theorem はこの章では既知扱いせず、別の advanced-standard 拡張へ延期する。
+          > **実装状態**：複素解析から Fourier/PDE へ渡す draft。**定理の証明は TODO**。Riemann mapping theorem・Montel theorem は別の advanced-standard 拡張へ延期します。
 
-          ## 1. Riemann 球面と Möbius 変換
+          ## 1. Möbius 変換
+          $$M(z)=\frac{az+b}{cz+d},\qquad ad-bc\ne0$$
+          を Riemann 球面上で扱う。
 
-          $$
-          M(z)=\frac{az+b}{cz+d},\qquad ad-bc\ne0
-          $$
-
-          を Riemann 球面 $\widehat{\mathbb C}=\mathbb C\cup\{\infty\}$ 上の Möbius 変換として扱う。
-
-          ### 定理 CA6-THM-01：Möbius 変換の基本性質
-
-          Möbius 変換は全単射な等角写像で、逆写像も Möbius 変換である。また一般化円（円または直線）を一般化円へ写す。
-
-          **証明 TODO**：行列表示と分数線形変換の直接計算、必要なら cross ratio を用いる。
+          ### 定理 CA6-THM-01：基本性質
+          Möbius 変換は全単射な等角写像で、逆も Möbius。一般化円を一般化円へ写す。
+          **証明 TODO**：分数線形変換を直接計算する。
 
           ## 2. Schwarz lemma
-
           ### 定理 CA6-THM-02：Schwarz lemma
-
-          $f:\mathbb D\to\mathbb D$ が正則で $f(0)=0$ なら
-
-          $$
-          |f(z)|\le|z|,\qquad |f'(0)|\le1.
-          $$
-
-          どこかで等号が成立する非自明な場合、$f(z)=e^{i\theta}z$ である。
-
-          **証明 TODO**：$g(z)=f(z)/z$ の可除特異点を埋め、最大値原理を半径 $r<1$ の円板で適用して $r\uparrow1$ とする。
+          $f:\mathbb D\to\mathbb D$, $f(0)=0$ なら
+          $$|f(z)|\le|z|,\qquad |f'(0)|\le1.$$
+          等号の場合は $f(z)=e^{i\theta}z$。
+          **証明 TODO**：$f(z)/z$ の可除特異点と最大値原理を使う。
 
           ### 系 CA6-COR-01：円板自己同型
-
-          単位円板の正則自己同型は
-
-          $$
-          e^{i\theta}\frac{z-a}{1-\bar a z}
-          $$
-
-          の形で尽くされる。
-
+          円板自己同型は $e^{i\theta}(z-a)/(1-\bar az)$ の形。
           **証明 TODO**：$a$ を0へ送る Möbius 変換と Schwarz lemma を合成する。
 
           ## 3. 調和関数
+          $\Delta u=u_{xx}+u_{yy}=0$ を満たす $C^2$ 関数を調和関数という。
 
-          $u\in C^2$ が
+          ### 定理 CA6-THM-03：正則関数と調和関数
+          正則関数の実部・虚部は調和的。
+          **証明 TODO**：CA3 の滑らかさと Cauchy–Riemann を使う。
 
-          $$
-          \Delta u=u_{xx}+u_{yy}=0
-          $$
-
-          を満たすとき調和関数という。
-
-          ### 定理 CA6-THM-03：正則関数の実部・虚部は調和的
-
-          $f=u+iv$ が正則なら $u,v$ は調和関数である。
-
-          **証明 TODO**：CA3 により正則関数が十分滑らかであることを先に確保し、Cauchy–Riemann を微分して混合偏導関数を相殺する。
-
-          ### 定理 CA6-THM-04：平均値性質と最大値原理（調和版）
-
-          調和関数は円周平均で中心値を表せる。その結果、非定数調和関数は内部最大・最小を取らない。
-
-          **証明 TODO**：正則関数の実部として局所表示する方法と、直接 Green 型計算を使う方法の依存を比較して採用する。
+          ### 定理 CA6-THM-04：平均値性質
+          調和関数は円周平均で中心値を表し、非定数なら内部最大・最小を持たない。
+          **証明 TODO**：局所調和共役を使う方法と直接証明の依存を整理する。
 
           ## 4. Poisson kernel
-
-          単位円板では
-
-          $$
-          P_r(\theta)=\frac{1-r^2}{1-2r\cos\theta+r^2}
-          $$
-
-          を Poisson kernel とする。
+          $$P_r(\theta)=\frac{1-r^2}{1-2r\cos\theta+r^2}.$$
 
           ### 定理 CA6-THM-05：Poisson integral
+          $$u(re^{i\theta})=\frac1{2\pi}\int_{-\pi}^{\pi}P_r(\theta-t)g(e^{it})\,dt$$
+          は連続境界データ $g$ に対する円板内の調和拡張で、$r\uparrow1$ で境界値へ収束する。
+          **証明 TODO**：非負性、平均1、質量集中という approximate identity の3性質を分離して示す。
 
-          連続境界データ $g$ に対し
+          $$P_r(\theta)=1+2\sum_{n\ge1}r^n\cos(n\theta)$$
+          は Fourier 解析との直接の接点である。
 
-          $$
-          u(re^{i\theta})=\frac1{2\pi}\int_{-\pi}^{\pi}P_r(\theta-t)g(e^{it})\,dt
-          $$
-
-          は円板内で調和的で、$r\uparrow1$ で境界値 $g$ へ適切に収束する。
-
-          **証明 TODO**：$P_r\ge0$、平均1、質量が $0$ 近傍へ集中する approximate identity の3性質を分離して証明する。
-
-          > $P_r$ の Fourier 級数
-          > $$P_r(\theta)=1+2\sum_{n\ge1}r^n\cos(n\theta)$$
-          > は複素解析と Fourier 解析の直接の接点になる。後の標準 Fourier 系列ではここを正本として参照できる。
-
-          ## 5. この章の境界
-
-          Riemann mapping theorem、normal family、Montel theorem は重要だが、関数族のコンパクト性を本格的に使う。RA8 と接続した advanced-standard 章として後で追加し、この章では証明なしに使用しない。
+          ## 証明境界
+          Riemann mapping theorem、normal family、Montel theorem はここでは使用しない。RA8 と接続した発展章へ送る。
 
           ## 演習
-
-          - Level: A — 上半平面を単位円板へ写す Möbius 変換を一つ構成せよ。
-          - Level: A — $z\mapsto(z-a)/(1-\bar a z)$ が $a$ を0へ写すことを確認せよ。
-          - Level: A — $u(x,y)=x^2-y^2$ が調和的であることを確認し、調和共役を求めよ。
+          - Level: A — 上半平面を単位円板へ写す Möbius 変換を構成せよ。
+          - Level: A — $(z-a)/(1-\bar az)$ が $a$ を0へ写すことを確認せよ。
+          - Level: A — $x^2-y^2$ が調和的であることを示せ。
           - Level: A — Poisson kernel の非負性を示せ。
-          - Level: B — Schwarz lemma の等号条件から円板自己同型の形を導け。
-          - Level: B — 正則関数の実部が調和的であることを Cauchy–Riemann から導け。
-          - Level: B — $P_r$ の積分が $2\pi$ になることを Fourier 級数または複素積分で示せ。
-          - Level: C — Poisson integral が連続境界データを一様に近似する機構を「近傍の寄与」と「遠方の寄与」に分けて $\varepsilon$ 論証で示せ。
-          ''',
+          - Level: B — Schwarz lemma から円板自己同型を導け。
+          - Level: B — 正則関数の実部の調和性を導け。
+          - Level: B — $P_r$ の積分が $2\pi$ であることを示せ。
+          - Level: C — Poisson integral の境界収束を近傍・遠方に分けた $\varepsilon$ 論証で示せ。
+          '''},
           }
 
-          chapter_yamls = {
-          'CA1': r'''
-          id: "CA1"
-          title: "標準複素解析 I：複素微分・Cauchy–Riemann・初等正則関数"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [RA3, RA5, LA1]
-          official_scope: []
-          learning_objectives:
-            - 複素微分可能性と正則性を定義し実微分との強さの違いを説明できる
-            - Cauchy–Riemann方程式の必要条件とC1十分条件を区別できる
-            - 複素指数・三角関数を正則関数として扱いFourier解析へ接続できる
-          definitions:
-            - { id: CA1-DEF-01, name: 複素微分可能 }
-            - { id: CA1-DEF-02, name: 正則関数 }
-            - { id: CA1-DEF-03, name: 整関数 }
-          theorems:
-            - { id: CA1-THM-01, name: 複素微分の微分法則 }
-            - { id: CA1-THM-02, name: Cauchy–Riemann必要条件 }
-            - { id: CA1-THM-03, name: Cauchy–Riemann十分条件 }
-            - { id: CA1-THM-04, name: 複素指数関数の正則性 }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          'CA2': r'''
-          id: "CA2"
-          title: "標準複素解析 II：複素線積分・原始関数・Cauchy–Goursat"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [CA1, RA4, TOP3]
-          official_scope: []
-          learning_objectives:
-            - 複素線積分を実Riemann積分から構成しML評価を使える
-            - 原始関数・経路独立性・閉曲線積分0の関係を説明できる
-            - Cauchy–Goursatの三角形版から星型領域へ進む論理を追える
-            - 穴のある領域で1/zが大域的原始関数を持たないことを説明できる
-          definitions:
-            - { id: CA2-DEF-01, name: 複素線積分 }
-            - { id: CA2-DEF-02, name: 原始関数 }
-          theorems:
-            - { id: CA2-THM-01, name: ML評価 }
-            - { id: CA2-THM-02, name: 複素線積分の基本定理 }
-            - { id: CA2-THM-03, name: 経路独立性と原始関数 }
-            - { id: CA2-THM-04, name: 三角形版Cauchy–Goursat }
-            - { id: CA2-THM-05, name: 星型領域のCauchyの定理 }
-            - { id: CA2-THM-06, name: 正則対数の枝 }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          'CA3': r'''
-          id: "CA3"
-          title: "標準複素解析 III：Cauchy積分公式・Taylor展開・Liouville・最大値原理"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [CA2]
-          official_scope: []
-          learning_objectives:
-            - Cauchy積分公式から高階導関数公式と局所べき級数展開へ進める
-            - Cauchy評価からLiouvilleと代数学の基本定理を導く論理を説明できる
-            - 零点の孤立性・恒等定理・最大値原理・複素解析の開写像定理を区別できる
-            - Liouvilleが複素Banach空間のスペクトル非空性にどう使われるか説明できる
-          definitions: []
-          theorems:
-            - { id: CA3-THM-01, name: Cauchy積分公式 }
-            - { id: CA3-THM-02, name: Cauchy高階導関数公式 }
-            - { id: CA3-THM-03, name: 正則関数のTaylor展開 }
-            - { id: CA3-THM-04, name: Cauchy評価 }
-            - { id: CA3-THM-05, name: Liouvilleの定理 }
-            - { id: CA3-COR-01, name: 代数学の基本定理 }
-            - { id: CA3-THM-06, name: 恒等定理 }
-            - { id: CA3-THM-07, name: 最大値原理 }
-            - { id: CA3-THM-08, name: 複素解析の開写像定理 }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          'CA4': r'''
-          id: "CA4"
-          title: "標準複素解析 IV：Laurent展開・孤立特異点・留数定理"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [CA3]
-          official_scope: []
-          learning_objectives:
-            - 環状領域上のLaurent展開と係数公式を説明できる
-            - 孤立特異点を可除・極・真性に分類できる
-            - 留数をLaurent係数として理解し留数定理へ接続できる
-            - contour積分で大円弧評価を省略せず実積分を計算できる
-          definitions:
-            - { id: CA4-DEF-01, name: Laurent展開 }
-            - { id: CA4-DEF-02, name: 孤立特異点 }
-            - { id: CA4-DEF-03, name: 留数 }
-          theorems:
-            - { id: CA4-THM-01, name: Laurent展開定理 }
-            - { id: CA4-THM-02, name: 孤立特異点分類 }
-            - { id: CA4-THM-03, name: 可除特異点定理 }
-            - { id: CA4-THM-04, name: 留数定理 }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          'CA5': r'''
-          id: "CA5"
-          title: "標準複素解析 V：偏角原理・Rouché・解析接続"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [CA4, TOP3]
-          official_scope: []
-          learning_objectives:
-            - winding numberを積分で定義し整数値性と局所定数性を説明できる
-            - 偏角原理で零点と極を重複度込みに数えられる
-            - Rouchéの定理を零点数評価へ使える
-            - 解析接続の一意性とmonodromyで単連結性が果たす役割を説明できる
-          definitions:
-            - { id: CA5-DEF-01, name: winding number }
-            - { id: CA5-DEF-02, name: 解析接続 }
-          theorems:
-            - { id: CA5-THM-01, name: winding numberの整数値性 }
-            - { id: CA5-THM-02, name: 偏角原理 }
-            - { id: CA5-THM-03, name: Rouchéの定理 }
-            - { id: CA5-THM-04, name: 解析接続の一意性 }
-            - { id: CA5-THM-05, name: monodromy theorem }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          'CA6': r'''
-          id: "CA6"
-          title: "標準複素解析 VI：Möbius変換・Schwarz補題・調和関数・Poisson核"
-          volume: "foundations"
-          status: supplementary
-          proof_status: todo
-          prerequisites: [CA5]
-          official_scope: []
-          learning_objectives:
-            - Möbius変換と円板・上半平面の標準自己同型を扱える
-            - Schwarz lemmaから円板自己同型の剛性を導ける
-            - 正則関数の実部・虚部と調和関数の関係を説明できる
-            - Poisson kernelをapproximate identityとして理解しFourier解析・Dirichlet問題へ接続できる
-          definitions:
-            - { id: CA6-DEF-01, name: Möbius変換 }
-            - { id: CA6-DEF-02, name: 調和関数 }
-            - { id: CA6-DEF-03, name: Poisson kernel }
-          theorems:
-            - { id: CA6-THM-01, name: Möbius変換の基本性質 }
-            - { id: CA6-THM-02, name: Schwarz lemma }
-            - { id: CA6-COR-01, name: 円板自己同型の分類 }
-            - { id: CA6-THM-03, name: 正則関数の実部虚部の調和性 }
-            - { id: CA6-THM-04, name: 調和関数の平均値性質 }
-            - { id: CA6-THM-05, name: Poisson integral }
-          exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-          ''',
-          }
+          for cid, spec in specs.items():
+              d = root / cid
+              d.mkdir(parents=True, exist_ok=True)
+              (d/'index.md').write_text(textwrap.dedent(spec['body']).lstrip(), encoding='utf-8')
+              defs = '\n'.join(f'  - {{ id: {cid}-DEF-{i:02d}, name: {name} }}' for i,name in enumerate(spec['defs'],1)) or '  []'
+              thms = '\n'.join(f'  - {{ id: {cid}-THM-{i:02d}, name: {name} }}' for i,name in enumerate(spec['thms'],1))
+              chapter = f'''id: "{cid}"\ntitle: "{spec['title']}"\nvolume: "foundations"\nstatus: supplementary\nproof_status: todo\nprerequisites: {spec['prereq']}\nofficial_scope: []\nlearning_objectives:\n  - 定義・主要定理・典型例の論理順を説明できる\n  - 後続章で使う結果と証明未実装の境界を区別できる\ndefinitions:\n{defs}\ntheorems:\n{thms}\nexercise_counts: {{ level_a: 4, level_b: 3, level_c: 1, level_d: 0 }}\n'''
+              (d/'chapter.yaml').write_text(chapter, encoding='utf-8')
 
-          for cid, body in chapters.items():
-              write(f'textbook/volumes/00_foundations/{cid}/index.md', body)
-              write(f'textbook/volumes/00_foundations/{cid}/chapter.yaml', chapter_yamls[cid])
-
-          curriculum = Path('textbook/dream-theater-standard-math-core.yaml')
-          s = curriculum.read_text(encoding='utf-8')
-          old = '''  - id: FA5
-              title: spectrum・resolvent
-              area: functional-analysis
-              tier: core
-              status: planned
-              prerequisites: [FA0, FA2, LA6]
-          '''
-          old = textwrap.dedent(old)
-          new = '''  - id: CA1
-              title: 複素微分・Cauchy–Riemann・初等正則関数
-              area: complex-analysis
-              tier: core
-              status: planned
-              prerequisites: [RA3, RA5, LA1]
+          p = Path('textbook/dream-theater-standard-math-core.yaml')
+          s = p.read_text(encoding='utf-8')
+          ca_nodes = '''  - id: CA1
+            title: 複素微分・Cauchy–Riemann・初等正則関数
+            area: complex-analysis
+            tier: core
+            status: planned
+            prerequisites: [RA3, RA5, LA1]
             - id: CA2
-              title: 複素線積分・原始関数・Cauchy–Goursat
-              area: complex-analysis
-              tier: core
-              status: planned
-              prerequisites: [CA1, RA4, TOP3]
+            title: 複素線積分・原始関数・Cauchy–Goursat
+            area: complex-analysis
+            tier: core
+            status: planned
+            prerequisites: [CA1, RA4, TOP3]
             - id: CA3
-              title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
-              area: complex-analysis
-              tier: core
-              status: planned
-              prerequisites: [CA2]
+            title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
+            area: complex-analysis
+            tier: core
+            status: planned
+            prerequisites: [CA2]
             - id: CA4
-              title: Laurent展開・孤立特異点・留数定理
-              area: complex-analysis
-              tier: core
-              status: planned
-              prerequisites: [CA3]
+            title: Laurent展開・孤立特異点・留数定理
+            area: complex-analysis
+            tier: core
+            status: planned
+            prerequisites: [CA3]
             - id: CA5
-              title: 偏角原理・Rouché・解析接続
-              area: complex-analysis
-              tier: core-advanced-standard
-              status: planned
-              prerequisites: [CA4, TOP3]
+            title: 偏角原理・Rouché・解析接続
+            area: complex-analysis
+            tier: core-advanced-standard
+            status: planned
+            prerequisites: [CA4, TOP3]
             - id: CA6
-              title: Möbius変換・Schwarz補題・調和関数・Poisson核
-              area: complex-analysis
-              tier: advanced-standard-bridge
-              status: planned
-              prerequisites: [CA5]
+            title: Möbius変換・Schwarz補題・調和関数・Poisson核
+            area: complex-analysis
+            tier: advanced-standard-bridge
+            status: planned
+            prerequisites: [CA5]
 
-            - id: FA5
-              title: spectrum・resolvent
-              area: functional-analysis
-              tier: core
-              status: planned
-              prerequisites: [FA0, FA2, LA6, CA3]
           '''
-          new = textwrap.dedent(new)
-          if old not in s:
-              raise SystemExit('FA5 curriculum marker not found')
-          s = s.replace(old, new, 1)
-          old_batches = '''  - order: 5
-              id: functional-analysis-extension
-              nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]
+          ca_nodes = textwrap.dedent(ca_nodes)
+          marker = '  - id: FA5\n'
+          if marker not in s: raise SystemExit('FA5 marker missing')
+          s = s.replace(marker, ca_nodes + marker, 1)
+          s = s.replace('    prerequisites: [FA0, FA2, LA6]\n  - id: FA6', '    prerequisites: [FA0, FA2, LA6, CA3]\n  - id: FA6', 1)
+          s, n = re.subn(r'  - order: 5\n    id: functional-analysis-extension\n    nodes: \[FA1, FA2, FA3, FA4, FA5, FA6, FA7\]\n  - order: 6\n    id: real-analysis-multivariable-and-compactness\n    nodes: \[RA6, RA7, RA8\]', '''  - order: 5
+            id: functional-analysis-foundation
+            nodes: [FA1, FA2, FA3, FA4]
             - order: 6
-              id: real-analysis-multivariable-and-compactness
-              nodes: [RA6, RA7, RA8]
-          '''
-          old_batches = textwrap.dedent(old_batches)
-          new_batches = '''  - order: 5
-              id: functional-analysis-foundation
-              nodes: [FA1, FA2, FA3, FA4]
-            - order: 6
-              id: complex-analysis-core
-              nodes: [CA1, CA2, CA3, CA4, CA5, CA6]
+            id: complex-analysis-core
+            nodes: [CA1, CA2, CA3, CA4, CA5, CA6]
             - order: 7
-              id: functional-analysis-spectral
-              nodes: [FA5, FA6, FA7]
+            id: functional-analysis-spectral
+            nodes: [FA5, FA6, FA7]
             - order: 8
-              id: real-analysis-multivariable-and-compactness
-              nodes: [RA6, RA7, RA8]
-          '''
-          new_batches = textwrap.dedent(new_batches)
-          if old_batches not in s:
-              raise SystemExit('batch marker not found')
-          s = s.replace(old_batches, new_batches, 1)
-          curriculum.write_text(s, encoding='utf-8')
+            id: real-analysis-multivariable-and-compactness
+            nodes: [RA6, RA7, RA8]'''.replace('            ', ''), s, count=1)
+          if n != 1: raise SystemExit('batch block missing')
+          p.write_text(s, encoding='utf-8')
 
-          roadmap = Path('textbook/dream-theater-standard-math-core.md')
-          m = roadmap.read_text(encoding='utf-8')
-          m = m.replace(
-              '予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`FA`（functional analysis）とします。',
-              '予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`CA`（complex analysis）、`FA`（functional analysis）とします。',
-              1,
-          )
-          old_dag = '''  MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
-            LA6 --> FA0
-            FA0 --> HB["Hahn-Banach・双対<br/>既存 C2/C6"]
-            BAIRE --> FA2["一様有界性・開写像・閉グラフ<br/>FA1/FA2"]
-            FA0 --> FA2
-            HB --> FA4["weak/weak*・Banach-Alaoglu・反射性<br/>FA3/FA4"]
-            TOP5 --> FA4
-            FA0 --> FA6["spectrum・resolvent・compact operator<br/>FA5/FA6"]
-            FA2 --> FA6
-            LA6 --> FA6
-            FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
-            MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
-            MT6 --> HB
-          '''
-          old_dag = textwrap.dedent(old_dag)
-          new_dag = '''  RA3 --> CA1["複素解析 I<br/>複素微分・Cauchy-Riemann<br/>CA1"]
+          p = Path('textbook/dream-theater-standard-math-core.md')
+          m = p.read_text(encoding='utf-8')
+          m = m.replace('`MT`（measure theory）、`FA`（functional analysis）', '`MT`（measure theory）、`CA`（complex analysis）、`FA`（functional analysis）', 1)
+          dag_insert = '''  RA3 --> CA1["複素解析 I<br/>複素微分・Cauchy-Riemann<br/>CA1"]
             RA5 --> CA1
             LA1 --> CA1
             CA1 --> CA2["複素線積分・Cauchy-Goursat<br/>CA2"]
@@ -891,119 +451,56 @@ jobs:
             CA2 --> CA3["Cauchy積分公式・Liouville<br/>CA3"]
             CA3 --> CA4["Laurent・留数<br/>CA4"]
             CA4 --> CA5["偏角原理・Rouche・解析接続<br/>CA5"]
-            CA5 --> CA6["等角写像・調和関数・Poisson核<br/>CA6"]
+            CA5 --> CA6["Möbius・調和関数・Poisson核<br/>CA6"]
 
-            MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
-            LA6 --> FA0
-            FA0 --> HB["Hahn-Banach・双対<br/>既存 C2/C6"]
-            BAIRE --> FA2["一様有界性・開写像・閉グラフ<br/>FA1/FA2"]
-            FA0 --> FA2
-            HB --> FA4["weak/weak*・Banach-Alaoglu・反射性<br/>FA3/FA4"]
-            TOP5 --> FA4
-            FA0 --> FA5["spectrum・resolvent<br/>FA5"]
-            FA2 --> FA5
-            LA6 --> FA5
-            CA3 --> FA5
-            FA5 --> FA6["compact operator<br/>FA6"]
-            FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
-            MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
-            MT6 --> HB
-          '''
-          new_dag = textwrap.dedent(new_dag)
-          if old_dag not in m:
-              raise SystemExit('roadmap DAG marker not found')
-          m = m.replace(old_dag, new_dag, 1)
+          '''.replace('            ', '')
+          if '  MTP --> FA0[' not in m: raise SystemExit('DAG insertion marker missing')
+          m = m.replace('  MTP --> FA0[', dag_insert + '  MTP --> FA0[', 1)
+          m = m.replace('  FA0 --> FA6["spectrum・resolvent・compact operator<br/>FA5/FA6"]\n  FA2 --> FA6\n  LA6 --> FA6\n  FA6 --> FA7', '  FA0 --> FA5["spectrum・resolvent<br/>FA5"]\n  FA2 --> FA5\n  LA6 --> FA5\n  CA3 --> FA5\n  FA5 --> FA6["compact operator<br/>FA6"]\n  FA6 --> FA7', 1)
 
-          complex_section = r'''
-          # 7. 複素解析：Cauchy 理論から留数・等角写像まで
+          section = '''# 7. 複素解析：Cauchy 理論から留数・調和関数まで
 
-          複素解析は FA5 の補助定理置き場ではなく、Fourier 解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列として置きます。現段階では各章の定義・定理・例・演習の骨格を先に固定し、**定理の証明は TODO** とします。証明が本文から再構成できる品質になるまで YAML 上の状態は `planned` のままです。
+          複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。現段階では **定義・定理・例・演習の骨格を先に固定し、定理の証明は TODO** とする。証明完成まで YAML 上の状態は `planned` のままにする。
 
           ## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
-
-          - 複素微分可能、holomorphic / entire
-          - Cauchy–Riemann 必要条件と $C^1$ 十分条件
-          - Wirtinger 微分
-          - $e^z,\sin z,\cos z$ と Fourier 解析への橋
+          複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
 
           ## CA2 複素線積分・原始関数・Cauchy–Goursat `core`
-
-          - 区分的 $C^1$ 曲線、複素線積分、ML 評価
-          - 原始関数・経路独立性
-          - 三角形版 Cauchy–Goursat と星型領域への拡張
-          - $1/z$、穴のある領域、対数の枝
+          曲線積分、ML評価、原始関数、三角形版Cauchy–Goursat、星型領域、対数の枝。
 
           ## CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理 `core`
-
-          - Cauchy 積分公式・高階導関数公式
-          - 正則 $\Rightarrow$ 局所べき級数展開
-          - Cauchy 評価、Liouville、代数学の基本定理
-          - 零点の孤立性・恒等定理・最大値原理・複素解析の開写像定理
-          - **FA5 のスペクトル非空性はこの章へ正式依存する**
+          Cauchy積分公式、高階導関数、正則なら解析的、Cauchy評価、Liouville、恒等定理、最大値原理。**FA5 のスペクトル非空性はこの章へ正式依存する。**
 
           ## CA4 Laurent展開・孤立特異点・留数定理 `core`
-
-          - annulus 上の Laurent 展開
-          - 可除特異点・極・真性特異点
-          - residue と residue theorem
-          - contour による実積分・Fourier transform の具体例
+          Laurent展開、可除特異点・極・真性特異点、留数定理、contourによる実積分。Fourier変換の具体例へ接続する。
 
           ## CA5 偏角原理・Rouché・解析接続 `core / advanced-standard`
-
-          - winding number / index
-          - argument principle
-          - Rouché theorem
-          - analytic continuation と monodromy
+          winding number、偏角原理、Rouché、解析接続、monodromy。
 
           ## CA6 Möbius変換・Schwarz補題・調和関数・Poisson核 `advanced-standard / bridge`
+          Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel。Fourier級数とDirichlet問題へ直接接続する。
 
-          - Riemann sphere と Möbius transformation
-          - Schwarz lemma、円板自己同型
-          - 正則関数の実部・虚部と harmonic function
-          - Poisson kernel / Poisson integral
-          - Fourier 級数・Dirichlet 問題への直接接続
-
-          **証明境界**：Riemann mapping theorem、normal family、Montel theorem はここで名前だけ既知扱いしません。RA8 の関数族コンパクト性と接続する advanced-standard 拡張として後段に回します。
+          **証明境界**：Riemann mapping theorem、normal family、Montel theorem は既知扱いせず、RA8 と接続する後続 advanced-standard 拡張へ送る。
 
           ---
 
           # 8. 関数解析：標準三大定理の先まで
           '''
-          complex_section = textwrap.dedent(complex_section)
-          marker = '# 7. 関数解析：標準三大定理の先まで\n'
-          if marker not in m:
-              raise SystemExit('function analysis section marker not found')
-          m = m.replace(marker, complex_section, 1)
+          section = textwrap.dedent(section)
+          if '# 7. 関数解析：標準三大定理の先まで\n' not in m: raise SystemExit('FA section marker missing')
+          m = m.replace('# 7. 関数解析：標準三大定理の先まで\n', section, 1)
           m = m.replace('# 8. 既存正本との役割分担', '# 9. 既存正本との役割分担', 1)
           m = m.replace('# 9. 実装順', '# 10. 実装順', 1)
           m = m.replace('# 10. 到達状態', '# 11. 到達状態', 1)
-          m = m.replace(
-              '| Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |',
-              '| 複素解析 | RA/LA/TOPの基礎を再利用 | CA系列が複素微分・Cauchy理論・留数・等角写像を正本化し、FA5・Fourier・PDEへ接続 |\n| Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |',
-              1,
-          )
-          old_order = '''5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
-          6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
-          7. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
-          '''
-          old_order = textwrap.dedent(old_order)
-          new_order = '''5. **MT0・MT1–MT6**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon → C0版Riesz–Markov。
-          6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
-          7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。
-          8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
-          9. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析・複素解析発展へ接続。
-          '''
-          new_order = textwrap.dedent(new_order)
-          if old_order not in m:
-              raise SystemExit('implementation order marker not found')
-          m = m.replace(old_order, new_order, 1)
-          m = m.replace(
-              '- **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。',
-              '- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・等角写像・Poisson核まで一周し、Fourier/PDE/スペクトル論の共通前提を正本化。\n- **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。',
-              1,
-          )
-          roadmap.write_text(m, encoding='utf-8')
+          m = m.replace('| Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |', '| 複素解析 | RA/LA/TOPを再利用 | CA系列がCauchy理論・留数・調和関数を正本化し、FA5・Fourier・PDEへ接続 |\n| Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |', 1)
+          m = m.replace('6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。\n7. **RA6–RA8**：', '6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。\n7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。\n8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。\n9. **RA6–RA8**：', 1)
+          m = m.replace('- **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。', '- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核まで一周し、Fourier/PDE/スペクトル論の共通前提を正本化。\n- **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。', 1)
+          p.write_text(m, encoding='utf-8')
           PY
+      - name: Validate curriculum locally
+        run: |
+          npm ci
+          npm run validate:dream-theater-standard-math-core
       - name: Commit scaffold
         run: |
           git config user.name "github-actions[bot]"
