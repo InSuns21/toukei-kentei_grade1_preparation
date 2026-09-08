@@ -1,0 +1,35 @@
+chapter: "CA3"
+terms:
+  - term: Cauchy積分公式
+    english: Cauchy integral formula
+    meaning: 円板内の正則関数値を境界円周上のf(zeta)/(zeta-z)の線積分で表す公式。
+  - term: Cauchy高階導関数公式
+    english: Cauchy differentiation formula
+    meaning: 正則関数の任意階導関数を境界円周上の積分で表す公式。
+  - term: 解析的関数
+    english: analytic function
+    meaning: 各点の近傍で収束べき級数として表される関数。
+  - term: Taylor展開
+    english: Taylor expansion
+    meaning: 正則関数を一点での高階導関数を係数とするべき級数として局所表示する展開。
+  - term: Cauchy評価
+    english: Cauchy estimate
+    meaning: 円周上の最大値と半径から中心での高階導関数を上から抑える評価。
+  - term: Liouvilleの定理
+    english: Liouville theorem
+    meaning: 有界な整関数は定数であるという定理。
+  - term: 代数学の基本定理
+    english: fundamental theorem of algebra
+    meaning: 非定数複素多項式は少なくとも一つ複素零点を持つという定理。
+  - term: 零点の孤立性
+    english: isolated zeros
+    meaning: 恒等的に0でない正則関数の零点は領域内部で互いに孤立する性質。
+  - term: 恒等定理
+    english: identity theorem
+    meaning: 連結領域上の二正則関数が集積点を持つ集合上で一致すれば領域全体で一致するという定理。
+  - term: 最大値原理
+    english: maximum modulus principle
+    meaning: 非定数正則関数の絶対値は領域内部で局所最大値を取らないという原理。
+  - term: 開写像定理（複素解析）
+    english: open mapping theorem in complex analysis
+    meaning: 非定数正則関数が開集合を開集合へ写すという定理。Banach空間の開写像定理とは別物。
