@@ -1,0 +1,42 @@
+id: "CA1"
+title: "標準複素解析 I：複素微分・Cauchy–Riemann・初等正則関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - RA5
+  - LA1
+  - TOP3
+official_scope: []
+learning_objectives:
+  - 複素差商の定義から複素微分可能性を判定し、複素微分可能なら連続であることを示せる
+  - 和・積・商・合成の微分法則を差商と誤差表示から証明できる
+  - 実方向と純虚方向の差商を比較してCauchy–Riemann必要条件を導ける
+  - 偏導関数の連続性を使って横・縦の増分を一次化し、Cauchy–Riemann十分条件をo(|h|)評価から証明できる
+  - Wirtinger微分でCauchy–Riemann方程式を一つの式partial_bar_z f=0として表せる
+  - 共役写像と絶対値二乗を使い、一点での複素微分可能性と開集合上の正則性を区別できる
+  - 導関数0の正則関数が連結開集合上で定数になることを局所定数性と連結性から証明できる
+  - 複素指数関数の正則性・加法公式・周期性・零点不存在を定義から導ける
+  - 複素正弦・余弦を指数関数から定義し、その導関数を導ける
+definitions:
+  - { id: CA1-DEF-01, name: 複素微分可能 }
+  - { id: CA1-DEF-02, name: 正則関数 }
+  - { id: CA1-DEF-03, name: 整関数 }
+  - { id: CA1-DEF-04, name: Wirtinger微分 }
+  - { id: CA1-DEF-05, name: 複素指数関数 }
+  - { id: CA1-DEF-06, name: 複素正弦・複素余弦 }
+theorems:
+  - { id: CA1-LEM-01, name: 複素微分可能なら連続 }
+  - { id: CA1-THM-01, name: 複素微分の微分法則 }
+  - { id: CA1-THM-02, name: Cauchy–Riemann必要条件 }
+  - { id: CA1-THM-03, name: Cauchy–Riemann十分条件 }
+  - { id: CA1-PROP-01, name: Wirtinger判定 }
+  - { id: CA1-LEM-02, name: 導関数0なら連結開集合上で定数 }
+  - { id: CA1-THM-04, name: 複素指数関数の基本性質 }
+  - { id: CA1-COR-01, name: 複素正弦・余弦の微分 }
+canonical_examples: [z^2の差商, 共役写像, 絶対値二乗, Cauchy–Riemann一点条件だけでは不十分な反例, 複素指数関数]
+problem_patterns: [CA1-DIFFERENCE-QUOTIENT-1, CA1-CR-NECESSARY-1, CA1-CR-SUFFICIENT-1, CA1-WIRTINGER-1, CA1-EXP-1, CA1-CONNECTED-CONSTANT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.5, review: 1.0 }
