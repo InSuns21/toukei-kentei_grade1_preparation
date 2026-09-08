@@ -604,7 +604,7 @@ $$
 \frac{q^{N+1}}{r-|z-a|}.
 $$
 
-従って ML 評価から
+従って [ML評価](../CA2/index.md#thm-ca2-reparam-ml) から
 
 $$
 \begin{aligned}
@@ -1261,7 +1261,7 @@ $$
 #### CA3-A04 Cauchy評価からLiouvilleを再構成する
 - Level: A
 
-$f$ が整関数で $|f(z)|\le7$ が全平面で成り立つとする。任意の $a\in\mathbb C$ について $f'(a)=0$ を Cauchy評価から示せ。
+$f$ が整関数で $|f(z)|\le7$ が全平面で成り立つとする。任意の $a\in\mathbb C$ について $f'(a)=0$ を [Cauchy評価](#thm-ca3-cauchy-estimate) から示せ。
 
 <!-- solution-start -->
 **解答**：任意の $R>0$ について $f$ は $\overline{D(a,R)}$ の近傍で正則で、円周上でも $|f|\le7$ です。従って
