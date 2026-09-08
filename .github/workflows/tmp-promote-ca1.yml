@@ -1,0 +1,80 @@
+name: Temporary promote CA1
+on:
+  push:
+    branches: [codex/ca1-complex-differentiation]
+    paths:
+      - .github/workflows/tmp-promote-ca1.yml
+permissions:
+  contents: write
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca1-complex-differentiation
+      - name: Promote CA1 in curriculum and facade
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          p = Path('textbook/dream-theater-standard-math-core.yaml')
+          s = p.read_text(encoding='utf-8')
+          old = '''  - id: CA1
+            title: 複素微分・Cauchy–Riemann・初等正則関数
+            area: complex-analysis
+            tier: core
+            status: planned
+            prerequisites: [RA3, RA5, LA1]
+          '''
+          new = '''  - id: CA1
+            title: 複素微分・Cauchy–Riemann・初等正則関数
+            area: complex-analysis
+            tier: core
+            status: implemented
+            implemented_at: 2026-09-09
+            implementation_path: textbook/volumes/00_foundations/CA1/index.md
+            prerequisites: [RA3, RA5, LA1, TOP3]
+          '''
+          if old not in s:
+              raise SystemExit('CA1 planned block not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+          p = Path('textbook/dream-theater-index.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          paths = next(sec['paths'] for sec in data['sections'] if sec['name'] == 'DREAM THEATER 本編')
+          ca1 = 'textbook/volumes/00_foundations/CA1/index.md'
+          anchor = 'textbook/volumes/00_foundations/FA4/index.md'
+          if ca1 not in paths:
+              paths.insert(paths.index(anchor) + 1, ca1)
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          p = Path('textbook/dream-theater.md')
+          s = p.read_text(encoding='utf-8')
+          section = '''### 標準複素解析コア
+
+実解析・複素線形代数を受け、Cauchy理論から留数・調和関数・スペクトル論へ進む独立系列です。証明まで完成した章だけをここへ公開します。
+
+1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
+
+'''
+          marker = '### 凸解析・凸最適化\n'
+          if '### 標準複素解析コア\n' not in s:
+              if marker not in s:
+                  raise SystemExit('facade insertion marker not found')
+              s = s.replace(marker, section + marker, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          npm ci
+          npm run validate:dream-theater-standard-math-core
+          npm run validate:dream-theater-index
+      - name: Commit promotion
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/dream-theater-standard-math-core.yaml textbook/dream-theater-index.json textbook/dream-theater.md
+          git diff --cached --quiet || git commit -m "feat: promote CA1 to published standard core"
+          git push
