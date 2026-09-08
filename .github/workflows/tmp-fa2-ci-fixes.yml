@@ -1,0 +1,253 @@
+name: Temporary FA2 CI fixes
+
+on:
+  push:
+    branches:
+      - codex/fa2-open-mapping-bounded-inverse-closed-graph
+
+permissions:
+  contents: write
+
+jobs:
+  fix-fa2:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fa2-open-mapping-bounded-inverse-closed-graph
+      - name: Patch FA2 math and dependency issues
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('textbook/volumes/00_foundations/FA2/index.md')
+          s = p.read_text()
+
+          # House math syntax: hand-written equation tags are not supported.
+          s = re.sub(r'\n\\tag\{\d+\}', '', s)
+          for old, new in [
+              ('従って (1) から', '従ってこの球包含から'),
+              ('以後の目標は (1) の形の球包含', '以後の目標はこの形の球包含'),
+              ('を (2) に適用でき', 'をこの可算被覆に適用でき'),
+              ('(3) より $y_+,y_-', 'この球包含より $y_+,y_-'),
+              ('まだ (4) は閉包の主張にすぎません', 'まだここで得たのは閉包の主張にすぎません'),
+              ('であり、(5) から', 'であり、上の拡大縮小した包含から'),
+              ('(6) から $m>n$', 'このノルム評価から $m>n$'),
+              ('一方 (7) の右辺', '一方この残差評価の右辺'),
+              ('## 4. 主定理：全射有界線形作用素は開く', '## 4. 全射有界線形作用素の像は開く'),
+              ('補正級数', '補正列の部分和'),
+              ('逐次補正の級数', '逐次補正の部分和'),
+          ]:
+              s = s.replace(old, new)
+
+          limit_link = '[極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)'
+          s = s.replace('極限の一意性', limit_link)
+
+          bounded_inverse_example = r'''### 例：対角作用素の逆を直接読む
+
+$T:\ell^2\to\ell^2$ を
+
+$$
+(Tx)_n=\left(2+\frac1n\right)x_n
+$$
+
+で定めます。各 $n$ で $2<2+1/n\le3$ なので
+
+$$
+\|Tx\|_2\le3\|x\|_2.
+$$
+
+また任意の $y\in\ell^2$ に対して
+
+$$
+(T^{-1}y)_n=\frac{y_n}{2+1/n}
+$$
+
+と置けば $T^{-1}y\in\ell^2$ であり、
+
+$$
+\|T^{-1}y\|_2\le\frac12\|y\|_2.
+$$
+
+この例では逆作用素を座標ごとに直接書けますが、一般には明示公式がなくても Banach 性と全単射性だけで逆作用素の有界性が従います。
+
+---
+
+## 6.'''
+          s, n = re.subn(r'### 例：微分と積分が互いに有界になるノルム\n.*?\n---\n\n## 6\.', bounded_inverse_example, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('bounded inverse example target not found')
+
+          graph_example = r'''<!-- definition-example-start: def-fa2-graph-norm -->
+**定義の確認**：座標ごとの重みを持つ作用素
+
+$S:\ell^2\to\ell^2$ を
+
+$$
+(Sx)_n=\frac{n}{n+1}x_n
+$$
+
+で定めます。このとき
+
+$$
+\|x\|_S=\|x\|_2+\|Sx\|_2
+$$
+
+であり、$\|Sx\|_2\le\|x\|_2$ なので
+
+$$
+\|x\|_2\le\|x\|_S\le2\|x\|_2.
+$$
+
+グラフノルムは、元の大きさと作用素を通した後の大きさを同時に測るノルムです。
+<!-- definition-example-end -->'''
+          s, n = re.subn(r'<!-- definition-example-start: def-fa2-graph-norm -->.*?<!-- definition-example-end -->', graph_example, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('graph norm example target not found')
+
+          diagonal_section = r'''### 10.2 閉作用素でも定義域が全空間でなければ有界とは限らない
+
+$X=Y=\ell^2$ とし、
+
+$$
+D(A)=\{x=(x_n)\in\ell^2:(n x_n)_{n\ge1}\in\ell^2\},
+\qquad
+(Ax)_n=n x_n
+$$
+
+と定めます。$A$ は $D(A)$ 上の線形作用素ですが、$\ell^2$ ノルムについて有界ではありません。第 $N$ 座標だけが 1 のベクトルを $e_N$ とすると
+
+$$
+\|e_N\|_2=1,
+\qquad
+\|Ae_N\|_2=N,
+$$
+
+だからです。
+
+一方、グラフは $\ell^2\times\ell^2$ で閉です。実際、$x^{(m)}\in D(A)$ が
+
+$$
+x^{(m)}\to x,
+\qquad
+Ax^{(m)}\to y
+$$
+
+と $\ell^2$ で収束するとします。各固定 $n$ について
+
+$$
+|x_n^{(m)}-x_n|\le\|x^{(m)}-x\|_2\to0,
+$$
+
+また
+
+$$
+|(Ax^{(m)})_n-y_n|\le\|Ax^{(m)}-y\|_2\to0.
+$$
+
+ところが $(Ax^{(m)})_n=n x_n^{(m)}$ なので、実数または複素数の極限を取って
+
+$$
+y_n=n x_n
+$$
+
+を得ます。$y\in\ell^2$ だから $(n x_n)\in\ell^2$、従って $x\in D(A)$ かつ $Ax=y$ です。よってグラフは閉じています。
+
+これは[閉グラフ定理](#thm-fa2-closed-graph)と矛盾しません。$A$ の定義域は Banach 空間 $X=\ell^2$ の全体ではなく、真部分空間 $D(A)$ だからです。グラフノルム
+
+$$
+\|x\|_A=\|x\|_2+\|Ax\|_2
+$$
+
+を入れると $D(A)$ は Banach になり、定義から
+
+$$
+\|Ax\|_2\le\|x\|_A
+$$
+
+なので $A$ は有界になります。
+
+---
+
+## 11.'''
+          s, n = re.subn(r'### 10\.2 閉作用素でも定義域が全空間でなければ有界とは限らない\n.*?\n---\n\n## 11\.', diagonal_section, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('closed operator counterexample target not found')
+
+          exercise = r'''### FA2-C01 閉じているが有界でない対角作用素
+
+- Level: C
+- 目安時間: 40分
+
+$X=Y=\ell^2$ とし、
+
+$$
+D(A)=\{x=(x_n)\in\ell^2:(n x_n)_{n\ge1}\in\ell^2\},
+\qquad
+(Ax)_n=n x_n
+$$
+
+とする。
+
+1. $A$ が $D(A)$ 上で $\ell^2$ ノルムについて有界でないことを示せ。
+2. グラフ $G(A)\subset\ell^2\times\ell^2$ は閉であることを示せ。
+3. なぜこれは本章の[閉グラフ定理](#thm-fa2-closed-graph)と矛盾しないか説明せよ。
+4. $D(A)$ にグラフノルムを入れると Banach になり、$A$ が有界になることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. 第 $N$ 座標だけが 1 の $e_N$ を取ると
+   $$
+   \|e_N\|_2=1,
+   \qquad
+   \|Ae_N\|_2=N.
+   $$
+   もし $A$ が有界なら $N\le C$ が全ての $N$ で必要になり矛盾する。
+
+2. $x^{(m)}\to x$、$Ax^{(m)}\to y$ とする。各固定 $n$ で $\ell^2$ 収束から座標収束が従い、
+   $$
+   x_n^{(m)}\to x_n,
+   \qquad
+   n x_n^{(m)}=(Ax^{(m)})_n\to y_n.
+   $$
+   従って $y_n=n x_n$。$y\in\ell^2$ なので $(n x_n)\in\ell^2$、従って $x\in D(A)$ かつ $Ax=y$。よってグラフは閉じている。
+
+3. $A$ は $\ell^2$ 全体ではなく真部分空間 $D(A)$ 上でのみ定義される。本章の定理が必要とする全定義性がない。
+
+4. $(x^{(m)})$ がグラフノルムで Cauchy なら、$x^{(m)}$ と $Ax^{(m)}$ はともに $\ell^2$ で Cauchy。$\ell^2$ の完備性からそれぞれ $x,y$ に収束し、2 の閉性から $x\in D(A)$、$Ax=y$。従って
+   $$
+   \|x^{(m)}-x\|_A
+   =\|x^{(m)}-x\|_2+\|Ax^{(m)}-Ax\|_2\to0.
+   $$
+   よって $(D(A),\|\cdot\|_A)$ は Banach。また
+   $$
+   \|Ax\|_2\le\|x\|_A
+   $$
+   なので作用素ノルムは高々 1。
+<!-- solution-end -->
+
+---'''
+          s, n = re.subn(r'### FA2-C01 閉じているが有界でない微分作用素\n.*?\n<!-- solution-end -->\n\n---', exercise, s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('C01 derivative exercise target not found')
+
+          p.write_text(s)
+
+          p = Path('textbook/volumes/00_foundations/FA1/index.md')
+          s = p.read_text()
+          old = 'ここでは FA2 の開写像定理を使っていません。'
+          new = 'ここでは FA2 の[開写像定理](../FA2/index.md#thm-fa2-open-mapping)を使っていません。'
+          if old not in s:
+              raise SystemExit('FA1 open mapping reference target not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FA1/index.md textbook/volumes/00_foundations/FA2/index.md
+          git commit -m 'Fix FA2 math and dependency audits'
+          git push origin HEAD:codex/fa2-open-mapping-bounded-inverse-closed-graph
