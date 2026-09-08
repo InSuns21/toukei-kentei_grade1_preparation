@@ -348,11 +348,13 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/FA3/index.md
     prerequisites: [FA0, HB, TOP6]
   - id: FA4
-    title: Banach–Alaoglu・反射性
+    title: Banach–Alaoglu・Goldstine・反射性
     area: functional-analysis
     tier: core-advanced-standard
-    status: planned
-    prerequisites: [FA3, TOP5]
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/FA4/index.md
+    prerequisites: [FA3, TOP5, TOP6, HB]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
