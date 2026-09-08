@@ -106,7 +106,8 @@
 8. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)
 9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)
 10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)
+12. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
 
 ### 凸解析・凸最適化
 
