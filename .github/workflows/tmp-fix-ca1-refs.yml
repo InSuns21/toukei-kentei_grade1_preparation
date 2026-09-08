@@ -1,0 +1,33 @@
+name: Temporary fix CA1 refs
+on:
+  push:
+    branches:
+      - codex/ca1-complex-differentiation
+    paths:
+      - scripts/tmp_fix_ca1_refs.py
+      - .github/workflows/tmp-fix-ca1-refs.yml
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca1-complex-differentiation
+      - name: Repair CA1 references
+        run: python scripts/tmp_fix_ca1_refs.py
+      - name: Validate targeted checks
+        run: |
+          npm ci
+          npm run validate:formal-references
+          npm run validate:dream-theater-concepts:changed
+        env:
+          DREAM_THEATER_BASE_SHA: b8ae198854527c62614dba20b4e758e771223c98
+      - name: Commit repair
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/CA1/index.md
+          git diff --cached --quiet || git commit -m "fix: make CA1 proof dependencies explicit"
+          git push
