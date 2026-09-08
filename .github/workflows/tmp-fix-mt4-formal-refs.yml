@@ -1,0 +1,76 @@
+name: Temporary MT4 formal-reference fix
+
+on:
+  push:
+    branches:
+      - codex/mt5-radon-riesz-markov
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/mt5-radon-riesz-markov
+          fetch-depth: 0
+      - name: Apply the seven canonical formal-reference links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/00_foundations/MT4/index.md')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              (
+                  'です。DCT により十分大きい $M,R$ で',
+                  'です。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で',
+              ),
+              (
+                  'ので、DCT により\n\n$$\n\\int_{\\{|f|>M\\}}|f|\\to0.',
+                  'ので、[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により\n\n$$\n\\int_{\\{|f|>M\\}}|f|\\to0.',
+              ),
+              (
+                  '[MT0 で正本化した Carathéodory 拡張定理](../MT0/index.md)',
+                  '[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)',
+              ),
+              (
+                  'ただし AC の場合は RN と Lebesgue 微分定理を通じて証明済みです。',
+                  'ただし AC の場合は [RN 定理](../MT3/index.md#thm-mt3-rn-finite) と Lebesgue 微分定理を通じて証明済みです。',
+              ),
+              (
+                  '$E=[0,1]\\cup\\mathbb Q$ とする。Lebesgue 密度定理から、',
+                  '$E=[0,1]\\cup\\mathbb Q$ とする。[Lebesgue 密度定理](#thm-mt4-density)から、',
+              ),
+              (
+                  'です。Lebesgue 密度定理により a.e. $x\\in E$ で密度1、',
+                  'です。[Lebesgue 密度定理](#thm-mt4-density)により a.e. $x\\in E$ で密度1、',
+              ),
+              (
+                  'Radon–Nikodym 定理から\n\n$$\nd\\nu_P=p\\,d\\lambda,',
+                  '[Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)から\n\n$$\nd\\nu_P=p\\,d\\lambda,',
+              ),
+          ]
+
+          for old, new in replacements:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one occurrence, got {count}: {old!r}')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit the fix
+        run: |
+          if git diff --quiet -- textbook/volumes/00_foundations/MT4/index.md; then
+            echo 'No change produced' >&2
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/MT4/index.md
+          git commit -m 'fix(MT4): link canonical formal references'
+          git push origin HEAD:codex/mt5-radon-riesz-markov
