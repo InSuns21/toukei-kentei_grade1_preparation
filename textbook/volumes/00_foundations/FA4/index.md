@@ -646,7 +646,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有界性からある $R>0$ が存在して $C\subseteq RB_X$。反射性と[前節の定理](#thm-fa4-reflexive-weak-compact-ball)により $B_X$ は弱コンパクトで、スカラー倍写像 $x\mapsto Rx$ は弱位相の同相写像なので $RB_X$ も弱コンパクトです。
+有界性からある $R>0$ が存在して $C\subseteq RB_X$。[反射性と閉単位球の弱コンパクト性](#thm-fa4-reflexive-weak-compact-ball)の $1\Rightarrow2$ により $B_X$ は弱コンパクトで、スカラー倍写像 $x\mapsto Rx$ は弱位相の同相写像なので $RB_X$ も弱コンパクトです。
 
 上で Hahn–Banach 分離から $C$ が弱閉であることを示しました。従って $C$ は弱コンパクト空間 $RB_X$ の閉部分集合であり、弱コンパクトです。$\square$
 <!-- proof-end -->
