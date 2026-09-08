@@ -162,7 +162,7 @@ $$
 +f(z_0)\frac{g(z_0+h)-g(z_0)}{h}.
 $$
 
-前節の補題により $g(z_0+h)\to g(z_0)$ なので、$h\to0$ で
+[複素微分可能なら連続](#lem-ca1-differentiable-continuous) により $g(z_0+h)\to g(z_0)$ なので、$h\to0$ で
 
 $$
 f'(z_0)g(z_0)+f(z_0)g'(z_0)
@@ -678,7 +678,7 @@ $$
 \phi'(t)=f'(\gamma(t))(z-a)=0
 $$
 
-です。実部・虚部それぞれに実1変数の平均値定理を使うと、$\phi$ は $[0,1]$ 上定数です。従って
+です。[RA3 の平均値定理](../RA3/index.md#thm-ra3-mvt)を実部・虚部それぞれに使うと、$\phi$ は $[0,1]$ 上定数です。従って
 
 $$
 f(z)=\phi(1)=\phi(0)=f(a).
@@ -762,7 +762,7 @@ u(x,y)=e^x\cos y,
 v(x,y)=e^x\sin y
 $$
 
-と置きます。実1変数の微分公式から
+と置きます。各偏導関数を実変数 $x,y$ について直接計算すると
 
 $$
 u_x=e^x\cos y,
@@ -790,17 +790,28 @@ $$
 (e^z)'=u_x+iv_x=e^x(\cos y+i\sin y)=e^z.
 $$
 
-次に $z=x+iy$, $w=s+it$ とします。実指数の加法公式と三角関数の加法公式から
+次に $z=x+iy$, $w=s+it$ とします。実変数について成り立つ等式
+
+$$
+e^{x+s}=e^xe^s,
+$$
+
+$$
+\cos(y+t)=\cos y\cos t-\sin y\sin t,
+$$
+
+$$
+\sin(y+t)=\sin y\cos t+\cos y\sin t
+$$
+
+を代入して積を直接展開すると
 
 $$
 \begin{aligned}
-e^{z+w}
-&=e^{x+s}
-\bigl(\cos(y+t)+i\sin(y+t)\bigr)\\
-&=e^xe^s
-(\cos y+i\sin y)
-(\cos t+i\sin t)\\
-&=e^ze^w.
+e^ze^w
+&=e^xe^s(\cos y+i\sin y)(\cos t+i\sin t)\\
+&=e^{x+s}\bigl(\cos(y+t)+i\sin(y+t)\bigr)\\
+&=e^{z+w}.
 \end{aligned}
 $$
 
@@ -1158,7 +1169,7 @@ $$
 $\Omega\subset\mathbb C$ を連結開集合とする。$f$ と $\bar f$ がともに $\Omega$ 上正則なら、$f$ が定数であることを示せ。
 
 <!-- solution-start -->
-**解答**：$f=u+iv$ と書きます。$f$ が正則なので Cauchy–Riemann 方程式から
+**解答**：$f=u+iv$ と書きます。$f$ が正則なので [Cauchy–Riemann必要条件](#thm-ca1-cr-necessary) から
 
 $$
 u_x=v_y,
@@ -1172,7 +1183,7 @@ $$
 \bar f=u-iv
 $$
 
-も正則です。その実部は $u$、虚部は $-v$ なので、再び Cauchy–Riemann 方程式を使うと
+も正則です。その実部は $u$、虚部は $-v$ なので、再び [Cauchy–Riemann必要条件](#thm-ca1-cr-necessary) を使うと
 
 $$
 u_x=(-v)_y=-v_y,
