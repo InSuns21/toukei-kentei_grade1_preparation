@@ -29,7 +29,7 @@ theorems:
   - { id: FA4-THM-04, name: Goldstineの定理 }
   - { id: FA4-THM-05, name: 反射性と閉単位球の弱コンパクト性の同値 }
   - { id: FA4-COR-01, name: 反射的Banach空間の閉有界凸集合は弱コンパクト }
-canonical_examples: [一点filterとultrafilter, 双対単位球の座標埋め込み, 有限次元Banach空間の反射性, Hilbert空間の反射性]
+canonical_examples: [一点filterとultrafilter, 双対単位球の座標埋め込み, 有限次元Banach空間の反射性]
 problem_patterns: [FA4-ULTRAFILTER-1, FA4-ALAOGLU-CLOSED-IMAGE-1, FA4-GOLDSTINE-FINITE-1, FA4-REFLEXIVE-BALL-1, FA4-WEAK-COMPACT-CONVEX-1]
 past_exam_alignment: []
 integrated_exam_problems: []
