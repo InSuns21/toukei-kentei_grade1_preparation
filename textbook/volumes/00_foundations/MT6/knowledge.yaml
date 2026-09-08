@@ -29,7 +29,6 @@ concepts:
     introduction_aliases: ["### 定理（Cc の C0 稠密性）"]
     requires:
       - functional.c0-space
-      - topology.compact-open-cutoff
 
   - id: measure.c0-positive-riesz-representation
     name: 正有界汎関数の有限Radon表現
@@ -120,7 +119,6 @@ concepts:
       - measure.finite-signed-radon
       - measure.signed-integral-variation-bound
       - measure.hahn-decomposition
-      - topology.compact-open-cutoff
 
   - id: measure.riesz-markov-c0-real
     name: Riesz–Markov実数値C0版

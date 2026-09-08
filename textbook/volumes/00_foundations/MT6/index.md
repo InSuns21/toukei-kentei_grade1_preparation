@@ -189,7 +189,7 @@ $$
 $|f|$ は連続で
 
 $$
-\{||f||\ge\varepsilon\}
+\{x:|f(x)|\ge\varepsilon\}
 =
 \{|f|\ge\varepsilon\}
 $$
@@ -773,7 +773,7 @@ $$
 \boxed{
 \|T^+\|\le\|T\|,
 \qquad
-\|T^-\|\le2\|T\|
+\|T^-\|\le\|T\|
 }
 $$
 
@@ -809,28 +809,33 @@ $$
 
 よって $\|T^+\|\le\|T\|$ です。
 
-次に $T^-:=T^+-T$ と置きます。線形性と有界性は明らかで
+次に $T^-:=T^+-T$ と置きます。$f\ge0$ なら正部分 envelope の候補として $g=f$ を取れるので
 
 $$
-\|T^-\|
-\le
-\|T^+\|+\|T\|
-\le2\|T\|.
+T^+(f)\ge T(f),
 $$
 
-$f\ge0$ なら正部分 envelope の候補として $g=f$ を取れるので
+従って $T^-(f)\ge0$、すなわち $T^-$ も正です。さらに $0\le g\le f$ に対し $h=f-g$ と置けば $0\le h\le f$ で
 
 $$
-T^+(f)\ge T(f).
+T(g)-T(f)=-T(h).
 $$
 
-従って
+したがって正錐上で
 
 $$
-T^-(f)=T^+(f)-T(f)\ge0.
+T^-(f)
+=T^+(f)-T(f)
+=\sup_{0\le h\le f}(-T(h)),
 $$
 
-よって $T^-$ も正です。定義から直ちに $T=T^+-T^-$ です。$\square$
+つまり $T^-$ は $-T$ の正部分 envelope です。先ほど $T^+$ に示した評価を $-T$ に適用して
+
+$$
+\|T^-\|\le\|-T\|=\|T\|.
+$$
+
+定義から直ちに $T=T^+-T^-$ です。$\square$
 <!-- proof-end -->
 
 この段階では $T^+,T^-$ が「互いに特異」であることを仮定していません。測度側では後で Jordan 分解を取り、余分に共通している正質量を自動的に落とします。
@@ -965,6 +970,8 @@ $$
 
 直前の domination 補題をそれぞれ適用すれば $\nu^+,\nu^-$ は有限 Radon 測度です。従って定義より $\nu$ は有限符号付き Radon 測度です。$\square$
 <!-- proof-end -->
+
+有限 Radon 測度 $\alpha,\beta$ の和も有限 Radon です。compact-finite は自明です。open $U$ では $\alpha(U),\beta(U)$ をそれぞれ compact $K_\alpha,K_\beta\subseteq U$ で任意精度に近似し、$K_\alpha\cup K_\beta$ を取れば open-inner regularity が従います。Borel $A$ では $\alpha,\beta$ それぞれの outer regularity から open $U_\alpha,U_\beta\supseteq A$ を取り、$U_\alpha\cap U_\beta$ を使えば outer regularity が従います。
 
 弱めの Radon 規約を採用している MT5 では、「差だから Jordan 部分も自動的に正則」と一言で済ませるのは危険です。ここで domination を一段挟むことで、その穴を明示的に閉じています。
 
