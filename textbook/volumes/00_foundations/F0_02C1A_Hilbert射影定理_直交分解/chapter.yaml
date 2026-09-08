@@ -14,11 +14,10 @@ learning_objectives:
 definitions:
   - { id: F002C1A-DEF-01, name: 凸集合 }
 theorems:
-  - { id: F002C1A-THM-01, name: 平行四辺形恒等式 }
-  - { id: F002C1A-THM-02, name: 逆三角不等式とノルムの連続性 }
-  - { id: F002C1A-THM-03, name: Hilbert空間の射影定理 }
-  - { id: F002C1A-THM-04, name: 閉凸集合への射影の特徴付け }
-  - { id: F002C1A-THM-05, name: 閉線形部分空間の直交分解 }
+  - { id: F002C1A-THM-01, name: ノルム写像の連続性 }
+  - { id: F002C1A-THM-02, name: Hilbert空間の射影定理 }
+  - { id: F002C1A-THM-03, name: Hilbert射影の変分不等式特徴付け }
+  - { id: F002C1A-THM-04, name: 閉線形部分空間の直交分解 }
 canonical_examples: [l2の座標部分空間への射影, 閉凸集合への最近点, 閉球への射影]
 problem_patterns: [FA-PROJECTION-1]
 exercise_counts: { level_a: 3, level_b: 2, level_c: 0, level_d: 0 }
