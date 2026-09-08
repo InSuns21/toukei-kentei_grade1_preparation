@@ -1,0 +1,26 @@
+chapter: "CA1"
+terms:
+  - term: 複素微分可能
+    english: complex differentiable
+    meaning: 複素差商がhの近づく方向によらず一つの複素数へ収束すること。
+  - term: 正則関数
+    english: holomorphic function
+    meaning: 開集合の全ての点で複素微分可能な複素数値関数。
+  - term: 整関数
+    english: entire function
+    meaning: 複素平面全体で正則な関数。
+  - term: Cauchy–Riemann方程式
+    english: Cauchy–Riemann equations
+    meaning: f=u+ivの実部・虚部の偏導関数が満たすu_x=v_y, u_y=-v_xという正則性の局所整合条件。
+  - term: Wirtinger微分
+    english: Wirtinger derivatives
+    meaning: partial_z=(partial_x-i partial_y)/2とpartial_bar_z=(partial_x+i partial_y)/2で定める複素座標に沿った微分作用素。
+  - term: 複素指数関数
+    english: complex exponential
+    meaning: z=x+iyに対してe^z=e^x(cos y+i sin y)で定める整関数。
+  - term: 複素正弦
+    english: complex sine
+    meaning: (e^{iz}-e^{-iz})/(2i)で定義される整関数。
+  - term: 複素余弦
+    english: complex cosine
+    meaning: (e^{iz}+e^{-iz})/2で定義される整関数。
