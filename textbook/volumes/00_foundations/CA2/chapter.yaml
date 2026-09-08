@@ -1,0 +1,45 @@
+id: "CA2"
+title: "標準複素解析 II：複素線積分・原始関数・Cauchy–Goursat"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA1
+  - RA4
+  - TOP3
+  - TOP5
+official_scope: []
+learning_objectives:
+  - 区分的C1曲線と複素線積分を定義し、逆向き・連結・再パラメータ化の基本則を証明できる
+  - 複素積分の絶対値評価からML評価を導ける
+  - 原始関数があれば線積分が端点差で決まることを実変数FTCへ還元して証明できる
+  - 原始関数・経路独立性・全閉曲線積分0の同値を基点積分の構成まで含めて証明できる
+  - 三角形版Cauchy–Goursatを4分割反復と正則性の一次近似から証明できる
+  - 星型領域で基点からの線分積分を原始関数にする機構を説明できる
+  - 1/zの単位円積分が穿孔平面の穴を検出することを説明できる
+  - 端点固定homotopyの像を有限個の局所原始関数領域で覆い、格子辺の相殺から線積分のhomotopy不変性を証明できる
+  - 単連結領域でCauchyの定理と原始関数の存在を導ける
+  - 単連結な零点を含まない領域で1/zの原始関数から正則対数の枝を構成できる
+definitions:
+  - { id: CA2-DEF-01, name: 区分的C1曲線 }
+  - { id: CA2-DEF-02, name: 複素線積分 }
+  - { id: CA2-DEF-03, name: 原始関数 }
+  - { id: CA2-DEF-04, name: 星型領域 }
+  - { id: CA2-DEF-05, name: 端点固定homotopy }
+  - { id: CA2-DEF-06, name: 単連結領域 }
+  - { id: CA2-DEF-07, name: 正則対数の枝 }
+theorems:
+  - { id: CA2-PROP-01, name: 複素線積分の基本則 }
+  - { id: CA2-THM-01, name: ML評価 }
+  - { id: CA2-THM-02, name: 複素線積分の基本定理 }
+  - { id: CA2-THM-03, name: 原始関数・経路独立性・閉曲線積分0の同値 }
+  - { id: CA2-THM-04, name: 三角形版Cauchy–Goursat }
+  - { id: CA2-THM-05, name: 星型領域のCauchyの定理 }
+  - { id: CA2-LEM-01, name: 正則関数の線積分は端点固定homotopyで不変 }
+  - { id: CA2-THM-06, name: 単連結領域のCauchyの定理 }
+  - { id: CA2-THM-07, name: 単連結領域上の正則対数 }
+canonical_examples: [線分積分, 単位円上のzの整数冪, 1/zの単位円積分, 星型領域, 切断平面上の主値対数]
+problem_patterns: [CA2-PARAMETRIZE-1, CA2-ML-1, CA2-PRIMITIVE-1, CA2-GOURSAT-1, CA2-HOMOTOPY-1, CA2-LOG-BRANCH-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.5 }
