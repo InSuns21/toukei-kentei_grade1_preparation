@@ -1,0 +1,96 @@
+chapter: CA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - RA5
+  - LA1
+  - TOP3
+forward_references:
+  - complex-analysis.complex-line-integral
+  - complex-analysis.cauchy-goursat
+
+concepts:
+  - id: complex-analysis.complex-differentiable
+    name: 複素微分可能
+    kind: definition
+    aliases: [複素微分可能, complex differentiable]
+    requires: [analysis.derivative, linear.real-complex-vector-space]
+
+  - id: complex-analysis.holomorphic-function
+    name: 正則関数
+    kind: definition
+    aliases: [正則関数, holomorphic function, holomorphic]
+    requires: [complex-analysis.complex-differentiable]
+
+  - id: complex-analysis.entire-function
+    name: 整関数
+    kind: definition
+    aliases: [整関数, entire function]
+    requires: [complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.differentiable-implies-continuous
+    name: 複素微分可能なら連続
+    kind: lemma
+    aliases: [複素微分可能なら連続]
+    requires: [complex-analysis.complex-differentiable]
+
+  - id: complex-analysis.derivative-rules
+    name: 複素微分の微分法則
+    kind: theorem
+    aliases: [複素微分の微分法則]
+    requires: [complex-analysis.complex-differentiable, complex-analysis.differentiable-implies-continuous]
+
+  - id: complex-analysis.cauchy-riemann-equations
+    name: Cauchy–Riemann方程式
+    kind: theorem
+    aliases: [Cauchy–Riemann方程式, Cauchy-Riemann equations]
+    requires: [complex-analysis.complex-differentiable]
+
+  - id: complex-analysis.cauchy-riemann-sufficient
+    name: Cauchy–Riemann十分条件
+    kind: theorem
+    aliases: [Cauchy–Riemann十分条件]
+    requires: [complex-analysis.cauchy-riemann-equations, analysis.mean-value-theorem]
+
+  - id: complex-analysis.wirtinger-derivatives
+    name: Wirtinger微分
+    kind: definition
+    aliases: [Wirtinger微分, Wirtinger derivatives]
+    requires: [complex-analysis.cauchy-riemann-equations]
+
+  - id: complex-analysis.wirtinger-criterion
+    name: Wirtinger判定
+    kind: proposition
+    aliases: [Wirtinger判定]
+    requires: [complex-analysis.wirtinger-derivatives, complex-analysis.cauchy-riemann-sufficient]
+
+  - id: complex-analysis.zero-derivative-constant
+    name: 導関数0なら連結開集合上で定数
+    kind: lemma
+    aliases: [導関数0なら連結開集合上で定数]
+    requires: [complex-analysis.holomorphic-function, topology.connected-space, analysis.mean-value-theorem]
+
+  - id: complex-analysis.complex-exponential
+    name: 複素指数関数
+    kind: definition
+    aliases: [複素指数関数, complex exponential]
+    requires: [linear.real-complex-vector-space]
+
+  - id: complex-analysis.complex-exponential-properties
+    name: 複素指数関数の基本性質
+    kind: theorem
+    aliases: [複素指数関数の基本性質]
+    requires: [complex-analysis.complex-exponential, complex-analysis.cauchy-riemann-sufficient]
+
+  - id: complex-analysis.complex-trigonometric-functions
+    name: 複素正弦・複素余弦
+    kind: definition
+    aliases: [複素正弦, 複素余弦, complex sine, complex cosine]
+    requires: [complex-analysis.complex-exponential]
+
+  - id: complex-analysis.complex-trigonometric-derivatives
+    name: 複素正弦・余弦の微分
+    kind: corollary
+    aliases: [複素正弦・余弦の微分]
+    requires: [complex-analysis.complex-trigonometric-functions, complex-analysis.derivative-rules, complex-analysis.complex-exponential-properties]
