@@ -11,7 +11,7 @@ concepts:
   - id: complex-analysis.piecewise-c1-curve
     name: 区分的C1曲線
     kind: definition
-    aliases: [区分的C1曲線, piecewise C1 curve]
+    aliases: [区分的C1曲線, 区分的 C1 曲線, piecewise C1 curve]
     requires: [analysis.derivative]
 
   - id: complex-analysis.complex-line-integral
@@ -59,7 +59,7 @@ concepts:
   - id: complex-analysis.cauchy-goursat-triangle
     name: 三角形版Cauchy–Goursat
     kind: theorem
-    aliases: [三角形版Cauchy–Goursat, Cauchy–Goursatの定理, Cauchy-Goursat theorem]
+    aliases: [三角形版Cauchy–Goursat, 三角形版 Cauchy–Goursat, Cauchy–Goursatの定理, Cauchy-Goursat theorem]
     requires: [complex-analysis.holomorphic-function, complex-analysis.reparametrization-ml-estimate, complex-analysis.line-integral-fundamental-theorem, topology.compact-space]
 
   - id: complex-analysis.star-shaped-domain
@@ -71,7 +71,7 @@ concepts:
   - id: complex-analysis.cauchy-star-shaped
     name: 星型領域のCauchyの定理
     kind: theorem
-    aliases: [星型領域のCauchyの定理]
+    aliases: [星型領域のCauchyの定理, 星型領域の Cauchy の定理]
     requires: [complex-analysis.star-shaped-domain, complex-analysis.cauchy-goursat-triangle]
 
   - id: complex-analysis.local-primitive
@@ -113,7 +113,7 @@ concepts:
   - id: complex-analysis.cauchy-simply-connected
     name: 単連結領域のCauchyの定理
     kind: theorem
-    aliases: [単連結領域のCauchyの定理]
+    aliases: [単連結領域のCauchyの定理, 単連結領域の Cauchy の定理]
     requires: [complex-analysis.simply-connected-domain, complex-analysis.homotopy-invariance-line-integral, complex-analysis.path-independence-primitive-equivalence]
 
   - id: complex-analysis.holomorphic-logarithm
