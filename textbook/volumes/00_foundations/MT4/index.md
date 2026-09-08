@@ -86,7 +86,7 @@ $$
 |f_{M,R}-f|\le2|f|
 $$
 
-です。DCT により十分大きい $M,R$ で
+です。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で
 
 $$
 \|f-f_{M,R}\|_1<\frac\varepsilon3.
@@ -583,7 +583,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|f|1_{\{|f|>M\}}\downarrow0$ a.e. で $|f|$ に支配されるので、DCT により
+$|f|1_{\{|f|>M\}}\downarrow0$ a.e. で $|f|$ に支配されるので、[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
 
 $$
 \int_{\{|f|>M\}}|f|\to0.
@@ -883,7 +883,7 @@ $$
 
 から従います。また $G$ の連続性により、端点が単調に縮む区間列に対して対応する増分も0へ縮みます。このため半環上の有限加法的関数は空集合へ減少する列に対して0へ連続であり、したがって前測度になります。
 
-[MT0 で正本化した Carathéodory 拡張定理](../MT0/index.md)を適用すると、生成される Borel $\sigma$-代数へ有限測度として延長できます。有限測度なので拡張の一意性条件も満たします。$\square$
+[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を適用すると、生成される Borel $\sigma$-代数へ有限測度として延長できます。有限測度なので拡張の一意性条件も満たします。$\square$
 <!-- proof-end -->
 
 この補題では Carathéodory 拡張定理そのものを再証明せず、**どの前測度へ適用しているか**を明示しています。
@@ -1089,7 +1089,7 @@ BV
 \text{a.e. 微分可能}
 $$
 
-最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は RN と Lebesgue 微分定理を通じて証明済みです。
+最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [RN 定理](../MT3/index.md#thm-mt3-rn-finite) と Lebesgue 微分定理を通じて証明済みです。
 
 逆向きは一般に成り立ちません。特に Cantor 関数は
 
@@ -1132,10 +1132,10 @@ $$
 #### MT4-A02 密度点
 - Level: A
 
-$E=[0,1]\cup\mathbb Q$ とする。Lebesgue 密度定理から、a.e. $x\in(0,1)$ で $E$ の密度が1、a.e. $x\notin[0,1]$ で密度が0であることを説明してください。
+$E=[0,1]\cup\mathbb Q$ とする。[Lebesgue 密度定理](#thm-mt4-density)から、a.e. $x\in(0,1)$ で $E$ の密度が1、a.e. $x\notin[0,1]$ で密度が0であることを説明してください。
 
 <!-- solution-start -->
-**解答**：$\mathbb Q$ は零集合なので $1_E=1_{[0,1]}$ a.e. です。Lebesgue 密度定理により a.e. $x\in E$ で密度1、a.e. $x\notin E$ で密度0です。零集合 $\mathbb Q$ の追加は a.e. の結論を変えません。
+**解答**：$\mathbb Q$ は零集合なので $1_E=1_{[0,1]}$ a.e. です。[Lebesgue 密度定理](#thm-mt4-density)により a.e. $x\in E$ で密度1、a.e. $x\notin E$ で密度0です。零集合 $\mathbb Q$ の追加は a.e. の結論を変えません。
 <!-- solution-end -->
 
 <a id="ex-mt4-a03"></a>
@@ -1306,7 +1306,7 @@ $$
 \nu_P,\nu_N\ll\lambda.
 $$
 
-Radon–Nikodym 定理から
+[Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)から
 
 $$
 d\nu_P=p\,d\lambda,
