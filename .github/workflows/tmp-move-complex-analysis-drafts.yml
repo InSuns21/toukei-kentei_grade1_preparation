@@ -1,0 +1,37 @@
+name: Temporary move complex analysis drafts
+
+on:
+  push:
+    branches: [codex/complex-analysis-core-scaffold]
+    paths: ['.github/workflows/tmp-move-complex-analysis-drafts.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/complex-analysis-core-scaffold
+      - name: Move draft chapters outside published volume tree
+        run: |
+          mkdir -p textbook/drafts/standard-math-core
+          for id in CA1 CA2 CA3 CA4 CA5 CA6; do
+            git mv "textbook/volumes/00_foundations/$id" "textbook/drafts/standard-math-core/$id"
+          done
+          cat > textbook/drafts/standard-math-core/README.md <<'EOF'
+          # Standard math core drafts
+
+          このディレクトリは、章構造・定義・定理文・例・演習を先行設計した**未公開 draft**を保持するための作業領域です。
+
+          `textbook/volumes/` 配下は Pages の公開章・manifest/facade 監査対象なので、証明が TODO の章はここに置きます。`dream-theater-standard-math-core.yaml` では対応ノードを `planned` のまま維持し、証明・formal metadata・knowledge・glossary を完成させた段階で正規の volume path へ移し、公開 index/facade に登録します。
+          EOF
+      - name: Commit move
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/drafts textbook/volumes/00_foundations
+          git diff --cached --quiet || git commit -m "chore: keep TODO complex analysis chapters as unpublished drafts"
+          git push
