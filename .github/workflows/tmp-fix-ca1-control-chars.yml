@@ -1,0 +1,36 @@
+name: Temporary fix CA1 control chars
+on:
+  push:
+    branches:
+      - codex/ca1-complex-differentiation
+    paths:
+      - .github/workflows/tmp-fix-ca1-control-chars.yml
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca1-complex-differentiation
+      - name: Repair LaTeX control characters
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/CA1/index.md')
+          data = p.read_bytes()
+          data = data.replace(bytes([12]), b'\\f').replace(bytes([8]), b'\\b')
+          p.write_bytes(data)
+          PY
+      - name: Validate math
+        run: |
+          npm ci
+          npm run validate:math
+      - name: Commit repair
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/CA1/index.md
+          git diff --cached --quiet || git commit -m "fix: repair CA1 LaTeX control characters"
+          git push
