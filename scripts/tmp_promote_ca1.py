@@ -27,7 +27,7 @@ p = Path('textbook/dream-theater-index.json')
 data = json.loads(p.read_text(encoding='utf-8'))
 paths = next(sec['paths'] for sec in data['sections'] if sec['name'] == 'DREAM THEATER 本編')
 ca1 = 'textbook/volumes/00_foundations/CA1/index.md'
-anchor = 'textbook/volumes/00_foundations/FA4/index.md'
+anchor = 'textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md'
 if ca1 not in paths:
     paths.insert(paths.index(anchor) + 1, ca1)
 p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
