@@ -114,7 +114,7 @@ $A,B\in\mathcal H$ なら、ある $\mathcal G_1,\mathcal G_2\in\mathscr C$ が�
 したがって [Zorn の補題](../F0_00A3_半順序_Zorn_極大延長/index.md#thm-zorn) により $\mathscr P$ は極大元 $\mathcal U$ を持ちます。これは定義どおり ultrafilter で、$\mathcal F\subseteq\mathcal U$ です。$\square$
 <!-- proof-end -->
 
-**選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ultrafilter 拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–AlaogluでACを丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
+**選択原理を使ったのはこの Zorn 適用です。** 本教材では ZFC を採用するのでこの形で進めます。なお ultrafilter 拡張原理は完全な選択公理より弱い原理でも得られるため、「Banach–Alaogluで選択公理全体を丸ごと使う」とだけ言うより、極大延長が実際の入口だと見る方が正確です。
 
 ---
 
@@ -341,7 +341,7 @@ J:X\to X^{**},
 Jx(f)=f(x)
 $$
 
-を用います。FA3 では Hahn–Banach のノルム保存拡張により $J$ が等長であることまで証明しました。
+を用います。FA3 では [Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $J$ が等長であることまで証明しました。
 
 <a id="thm-fa4-goldstine"></a>
 <!-- formal-statement-start -->
