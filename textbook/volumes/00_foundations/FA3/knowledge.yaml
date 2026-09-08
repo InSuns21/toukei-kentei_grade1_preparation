@@ -2,7 +2,9 @@ chapter: FA3
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-02C3
   - F0-02C6
+  - LA3A
   - TOP6
 
 forward_references: []
@@ -68,8 +70,8 @@ concepts:
   - id: functional.weak-continuous-dual-recovery
     name: 弱位相の連続双対の同定
     kind: theorem
-    aliases: [弱位相の連続双対の同定, "### 定理（弱位相の連続双対は $X^*$ そのもの）"]
-    introduction_aliases: ["### 定理（弱位相の連続双対は $X^*$ そのもの）"]
+    aliases: [弱位相の連続双対の同定, "### 定理（弱位相の連続双対の同定）"]
+    introduction_aliases: ["### 定理（弱位相の連続双対の同定）"]
     requires:
       - functional.weak-topology
       - functional.dual-space
@@ -133,8 +135,8 @@ concepts:
   - id: functional.weak-star-continuous-dual-recovery
     name: 弱*位相の連続双対の同定
     kind: theorem
-    aliases: [弱*位相の連続双対の同定, "### 定理（弱*位相の連続双対は $J(X)$）"]
-    introduction_aliases: ["### 定理（弱*位相の連続双対は $J(X)$）"]
+    aliases: [弱*位相の連続双対の同定, "### 定理（弱*位相の連続双対の同定）"]
+    introduction_aliases: ["### 定理（弱*位相の連続双対の同定）"]
     requires:
       - functional.weak-star-topology
       - functional.canonical-bidual-embedding
