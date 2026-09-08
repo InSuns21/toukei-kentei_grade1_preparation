@@ -58,7 +58,7 @@ Lebesgue 微分定理は、$f$ が全空間で $L^1$ であることまでは要
 
 <a id="thm-mt4-cc-dense-l1"></a>
 <!-- formal-statement-start -->
-### 補題（$C_c(\mathbb R)$ の $L^1$ 稠密性）
+### 補題（Cc(R) の L1 稠密性）
 
 任意の $f\in L^1(\mathbb R)$ と $\varepsilon>0$ に対して、コンパクト台を持つ連続関数 $g\in C_c(\mathbb R)$ が存在して
 
@@ -265,7 +265,7 @@ $$
 
 <a id="thm-mt4-maximal-weak11"></a>
 <!-- formal-statement-start -->
-### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）
+### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）
 
 $f\in L^1(\mathbb R)$、$\alpha>0$ とする。このとき
 
@@ -346,7 +346,7 @@ $\square$
 
 <a id="thm-mt4-lebesgue-differentiation-l1"></a>
 <!-- formal-statement-start -->
-### 定理（Lebesgue 微分定理：$L^1(\mathbb R)$ 版）
+### 定理（Lebesgue 微分定理：L1(R) 版）
 
 $f\in L^1(\mathbb R)$ とする。このとき a.e. $x\in\mathbb R$ について
 
@@ -459,7 +459,7 @@ $$
 
 <a id="thm-mt4-lebesgue-differentiation-local"></a>
 <!-- formal-statement-start -->
-### 系（$L^1_{\mathrm{loc}}$ 版）
+### 系（L1loc 版）
 
 $f\in L^1_{\mathrm{loc}}(\mathbb R)$ なら、a.e. $x$ について
 
@@ -628,7 +628,7 @@ $\square$
 
 <a id="thm-mt4-indefinite-integral-ac"></a>
 <!-- formal-statement-start -->
-### 定理（$L^1$ 不定積分の絶対連続性）
+### 定理（L1 不定積分の絶対連続性）
 
 $f\in L^1([a,b])$ とし
 
@@ -726,7 +726,7 @@ $$
 
 <a id="thm-mt4-ac-implies-bv"></a>
 <!-- formal-statement-start -->
-### 定理（AC $\Rightarrow$ BV）
+### 定理（AC なら BV）
 
 $$
 \boxed{AC([a,b])\subset BV([a,b]).}
@@ -1040,7 +1040,7 @@ $\square$
 
 ## 13. Cantor 関数：なぜ AC が必要か
 
-Cantor 関数 $C:[0,1]\to[0,1]$ は連続・単調増加で、従って BV です。また Cantor 集合の補集合では各連結成分上で局所的に定数なので
+Cantor 関数 $C:[0,1]\to[0,1]$ は連続・単調増加で、従って BV です。また Cantor 集合の補集合をなす各開区間上で局所的に定数なので
 
 $$
 C'(x)=0

@@ -24,7 +24,7 @@ concepts:
   - id: measure.radon-nikodym-derivative-mt3-recap
     name: Radon–Nikodym微分の再掲
     kind: definition
-    aliases: ["### 定義（Radon–Nikodym 微分）"]
+    aliases: ["### 定義（Radon–Nikodym 微分）", derivative]
     introduction_aliases: ["### 定義（Radon–Nikodym 微分）"]
     requires:
       - measure.radon-nikodym-derivative
@@ -57,7 +57,7 @@ concepts:
   - id: measure.radon-nikodym-chain-rule
     name: Radon–Nikodym微分のchain rule
     kind: corollary
-    aliases: [Radon–Nikodym 微分の chain rule, RN微分のchain rule]
+    aliases: [Radon–Nikodym 微分の chain rule, RN微分のchain rule, chain]
     introduction_aliases: [Radon–Nikodym 微分の chain rule]
     requires:
       - measure.change-of-measure-integral

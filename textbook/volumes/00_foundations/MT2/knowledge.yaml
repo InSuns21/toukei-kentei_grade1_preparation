@@ -158,7 +158,7 @@ concepts:
   - id: measure.signed-absolute-continuity
     name: 符号付き測度の絶対連続性
     kind: definition
-    aliases: [符号付き測度の絶対連続性, "### 定義（符号付き測度の絶対連続性）"]
+    aliases: [符号付き測度の絶対連続性, 測度の絶対連続性, "### 定義（符号付き測度の絶対連続性）"]
     introduction_aliases: ["### 定義（符号付き測度の絶対連続性）"]
     requires:
       - measure.finite-signed-measure

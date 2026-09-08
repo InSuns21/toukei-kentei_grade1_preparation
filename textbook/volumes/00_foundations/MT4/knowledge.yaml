@@ -5,6 +5,7 @@ prerequisites:
   - MT0
   - MT3
   - F0-00D2B
+  - RA3
 
 forward_references: []
 
@@ -19,14 +20,14 @@ concepts:
   - id: measure.mt4-cc-dense-l1
     name: C_c(R)のL1稠密性
     kind: theorem
-    aliases: ["### 補題（$C_c(\\mathbb R)$ の $L^1$ 稠密性）"]
-    introduction_aliases: ["### 補題（$C_c(\\mathbb R)$ の $L^1$ 稠密性）"]
+    aliases: ["### 補題（Cc(R) の L1 稠密性）"]
+    introduction_aliases: ["### 補題（Cc(R) の L1 稠密性）"]
     requires: []
 
   - id: measure.mt4-interval-selection
     name: 1次元有限区間選択補題
     kind: lemma
-    aliases: ["### 補題（有限区間族からの互いに素な選択）"]
+    aliases: ["### 補題（有限区間族からの互いに素な選択）", "## 3. 1次元区間選択補題"]
     introduction_aliases: ["### 補題（有限区間族からの互いに素な選択）"]
     requires: []
 
@@ -40,8 +41,8 @@ concepts:
   - id: measure.mt4-maximal-weak11
     name: Hardy–Littlewood maximal弱(1,1)評価
     kind: theorem
-    aliases: ["### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）"]
-    introduction_aliases: ["### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）"]
+    aliases: ["### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）"]
+    introduction_aliases: ["### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）"]
     requires:
       - measure.mt4-maximal-function
       - measure.mt4-interval-selection
@@ -49,8 +50,8 @@ concepts:
   - id: measure.mt4-lebesgue-differentiation-l1
     name: Lebesgue微分定理L1版
     kind: theorem
-    aliases: ["### 定理（Lebesgue 微分定理：$L^1(\\mathbb R)$ 版）"]
-    introduction_aliases: ["### 定理（Lebesgue 微分定理：$L^1(\\mathbb R)$ 版）"]
+    aliases: ["### 定理（Lebesgue 微分定理：L1(R) 版）", "## 5. Lebesgue 微分定理"]
+    introduction_aliases: ["### 定理（Lebesgue 微分定理：L1(R) 版）"]
     requires:
       - measure.mt4-cc-dense-l1
       - measure.mt4-maximal-weak11
@@ -58,8 +59,8 @@ concepts:
   - id: measure.mt4-lebesgue-differentiation-local
     name: Lebesgue微分定理L1loc版
     kind: theorem
-    aliases: ["### 系（$L^1_{\\mathrm{loc}}$ 版）"]
-    introduction_aliases: ["### 系（$L^1_{\\mathrm{loc}}$ 版）"]
+    aliases: ["### 系（L1loc 版）"]
+    introduction_aliases: ["### 系（L1loc 版）"]
     requires:
       - measure.mt4-l1-local
       - measure.mt4-lebesgue-differentiation-l1
@@ -67,7 +68,7 @@ concepts:
   - id: measure.mt4-lebesgue-density
     name: Lebesgue密度定理
     kind: theorem
-    aliases: ["### 定理（Lebesgue 密度定理）"]
+    aliases: ["### 定理（Lebesgue 密度定理）", "## 6. Lebesgue 密度定理"]
     introduction_aliases: ["### 定理（Lebesgue 密度定理）"]
     requires:
       - measure.mt4-lebesgue-differentiation-local
@@ -75,7 +76,7 @@ concepts:
   - id: analysis.mt4-absolute-continuous-function
     name: 絶対連続関数
     kind: definition
-    aliases: ["### 定義（絶対連続関数）"]
+    aliases: [AC, "### 定義（絶対連続関数）"]
     introduction_aliases: ["### 定義（絶対連続関数）"]
     requires: []
 
@@ -89,8 +90,8 @@ concepts:
   - id: analysis.mt4-indefinite-integral-ac
     name: L1不定積分の絶対連続性
     kind: theorem
-    aliases: ["### 定理（$L^1$ 不定積分の絶対連続性）"]
-    introduction_aliases: ["### 定理（$L^1$ 不定積分の絶対連続性）"]
+    aliases: ["### 定理（L1 不定積分の絶対連続性）"]
+    introduction_aliases: ["### 定理（L1 不定積分の絶対連続性）"]
     requires:
       - analysis.mt4-absolute-continuous-function
       - measure.mt4-integral-absolute-continuity
@@ -106,8 +107,8 @@ concepts:
   - id: analysis.mt4-ac-implies-bv
     name: ACならBV
     kind: theorem
-    aliases: ["### 定理（AC $\\Rightarrow$ BV）"]
-    introduction_aliases: ["### 定理（AC $\\Rightarrow$ BV）"]
+    aliases: ["### 定理（AC なら BV）"]
+    introduction_aliases: ["### 定理（AC なら BV）"]
     requires:
       - analysis.mt4-absolute-continuous-function
       - analysis.mt4-bounded-variation
@@ -140,7 +141,7 @@ concepts:
   - id: analysis.mt4-ac-ftc
     name: 絶対連続関数の基本定理
     kind: theorem
-    aliases: ["### 定理（絶対連続関数の基本定理）"]
+    aliases: ["### 定理（絶対連続関数の基本定理）", "## 12. AC 版の微積分学の基本定理"]
     introduction_aliases: ["### 定理（絶対連続関数の基本定理）"]
     requires:
       - analysis.mt4-indefinite-integral-ac
