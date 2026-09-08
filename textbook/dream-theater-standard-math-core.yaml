@@ -359,8 +359,10 @@ nodes:
     title: 複素微分・Cauchy–Riemann・初等正則関数
     area: complex-analysis
     tier: core
-    status: planned
-    prerequisites: [RA3, RA5, LA1]
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/CA1/index.md
+    prerequisites: [RA3, RA5, LA1, TOP3]
   - id: CA2
     title: 複素線積分・原始関数・Cauchy–Goursat
     area: complex-analysis

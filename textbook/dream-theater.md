@@ -110,6 +110,12 @@
 12. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
 13. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
 
+### 標準複素解析コア
+
+実解析・複素線形代数を受け、Cauchy理論から留数・調和関数・スペクトル論へ進む独立系列です。証明まで完成した章だけをここへ公開します。
+
+1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
+
 ### 凸解析・凸最適化
 
 有限次元の凸性の基礎から入り、epigraph と支持超平面、劣微分、錐、Fenchel 共役・双対までを一つの系列として読みます。F0-00G 自体は早い段階でも読めますが、標準通読では関数解析・分離定理のあとにまとめます。
