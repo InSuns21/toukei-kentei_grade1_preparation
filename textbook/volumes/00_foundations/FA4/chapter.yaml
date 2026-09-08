@@ -1,0 +1,37 @@
+id: "FA4"
+title: "標準関数解析 IV：Banach–Alaoglu・Goldstine・反射性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA3
+  - TOP5
+  - TOP6
+  - F0-00A3
+  - F0-02C6
+  - F0-02C6A
+official_scope: []
+learning_objectives:
+  - ultrafilter拡張補題をZornの補題から導き、どの存在段階で選択原理を使うか説明できる
+  - compactnessをultrafilterの収束で特徴付け、compact Hausdorff空間族の積のコンパクト性を座標filterから証明できる
+  - Banach–Alaogluを双対単位球の座標埋め込みと閉条件の積として証明し、定義域の完備性が不要であることを説明できる
+  - Goldstineの定理を有限個の汎関数による同時近似へ還元し、有限次元分離の核心計算から証明できる
+  - 反射性を標準埋め込みJ:X→X**の全射性として定義し、有限次元Banach空間が反射的であることを示せる
+  - 反射性と閉単位球の弱コンパクト性の同値をBanach–Alaoglu・Goldstine・Hausdorff性から証明できる
+  - Eberlein–Šmulianを使わず、弱コンパクト性を一般位相のコンパクト性として扱う証明境界を説明できる
+definitions:
+  - { id: FA4-DEF-01, name: ultrafilter }
+  - { id: FA4-DEF-02, name: 反射的Banach空間 }
+theorems:
+  - { id: FA4-LEM-01, name: ultrafilter拡張補題 }
+  - { id: FA4-THM-01, name: コンパクト性のultrafilter特徴付け }
+  - { id: FA4-THM-02, name: compact Hausdorff空間族の積コンパクト性 }
+  - { id: FA4-THM-03, name: Banach–Alaogluの定理 }
+  - { id: FA4-THM-04, name: Goldstineの定理 }
+  - { id: FA4-THM-05, name: 反射性と閉単位球の弱コンパクト性の同値 }
+  - { id: FA4-COR-01, name: 反射的Banach空間の閉有界凸集合は弱コンパクト }
+canonical_examples: [一点filterとultrafilter, 双対単位球の座標埋め込み, 有限次元Banach空間の反射性, Hilbert空間の反射性]
+problem_patterns: [FA4-ULTRAFILTER-1, FA4-ALAOGLU-CLOSED-IMAGE-1, FA4-GOLDSTINE-FINITE-1, FA4-REFLEXIVE-BALL-1, FA4-WEAK-COMPACT-CONVEX-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 5.5, review: 1.5 }
