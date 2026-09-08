@@ -1,4 +1,4 @@
-name: Temporary MT4 A04 fix
+name: Temporary MT4 final cleanup
 
 on:
   push:
@@ -17,64 +17,23 @@ jobs:
         with:
           ref: codex/mt5-radon-riesz-markov
           fetch-depth: 0
-      - name: Add one genuine Level A exercise to MT4
+      - name: Canonicalize remaining RN link and remove this helper
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('textbook/volumes/00_foundations/MT4/index.md')
           s = p.read_text(encoding='utf-8')
-          marker = '\n### Level B\n'
-          lines = [
-              '',
-              '<a id="ex-mt4-a04"></a>',
-              '#### MT4-A04 有界関数で積分の絶対連続性を確認する',
-              '- Level: A',
-              '',
-              '可測集合 $E\\subseteq[a,b]$ と $f\\in L^1([a,b])$ が',
-              '',
-              '$$',
-              '|f(x)|\\le M',
-              '\\qquad\\text{a.e.}',
-              '$$',
-              '',
-              'を満たすとする。$M>0$ のとき、$\\lambda(E)<\\varepsilon/M$ なら',
-              '',
-              '$$',
-              '\\int_E|f|<\\varepsilon',
-              '$$',
-              '',
-              'となることを示してください。また $M=0$ の場合も確認してください。',
-              '',
-              '<!-- solution-start -->',
-              '**解答**：$M>0$ なら $|f|\\le M$ a.e. なので積分の単調性から',
-              '',
-              '$$',
-              '\\int_E|f|',
-              '\\le',
-              '\\int_E M',
-              '=',
-              'M\\lambda(E)',
-              '<',
-              'M\\frac{\\varepsilon}{M}',
-              '=',
-              '\\varepsilon.',
-              '$$',
-              '',
-              '$M=0$ なら $f=0$ a.e. なので任意の可測集合 $E$ に対して $\\int_E|f|=0$ です。一般の $L^1$ 関数では一様な上界 $M$ がないため、本文では大値部分を切って同じ評価へ帰着しています。',
-              '<!-- solution-end -->',
-              '',
-          ]
-          block = '\n'.join(lines)
-          if s.count(marker) != 1:
-              raise SystemExit(f'expected one Level B marker, got {s.count(marker)}')
-          if 'ex-mt4-a04' in s:
-              raise SystemExit('MT4-A04 already exists')
-          p.write_text(s.replace(marker, block + marker, 1), encoding='utf-8')
+          old = '[RN 定理](../MT3/index.md#thm-mt3-rn-finite)'
+          new = '[RN 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)'
+          if s.count(old) != 1:
+              raise SystemExit(f'expected one stale RN link, got {s.count(old)}')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
           PY
+          git rm .github/workflows/tmp-add-mt4-a04.yml
       - name: Commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add textbook/volumes/00_foundations/MT4/index.md
-          git commit -m 'fix(MT4): add fourth Level A exercise'
+          git add textbook/volumes/00_foundations/MT4/index.md .github/workflows/tmp-add-mt4-a04.yml
+          git commit -m 'fix(MT4): finish canonical references and cleanup'
           git push origin HEAD:codex/mt5-radon-riesz-markov
