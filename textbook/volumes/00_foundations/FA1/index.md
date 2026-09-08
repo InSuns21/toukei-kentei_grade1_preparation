@@ -1236,7 +1236,7 @@ $$
 
 #### 本番答案
 
-$T_nx\to Tx$ より各 $x$ で $\sup_n\|T_nx\|<\infty$。Banach–Steinhaus から $M:=\sup_n\|T_n\|<\infty$。極限で線形性が保たれ、$\|Tx\|\le M\|x\|$ だから $T\in\mathcal L(X,Y)$。
+$T_nx\to Tx$ より各 $x$ で $\sup_n\|T_nx\|<\infty$。[Banach–Steinhaus](#thm-fa1-uniform-boundedness)から $M:=\sup_n\|T_n\|<\infty$。極限で線形性が保たれ、$\|Tx\|\le M\|x\|$ だから $T\in\mathcal L(X,Y)$。
 
 #### 採点基準（20点）
 - pointwise bounded性: 5点
