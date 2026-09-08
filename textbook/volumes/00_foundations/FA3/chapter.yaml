@@ -1,0 +1,39 @@
+id: "FA3"
+title: "標準関数解析 III：弱位相・弱*位相・標準埋め込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-02C6
+  - TOP6
+official_scope: []
+learning_objectives:
+  - 有限個の連続線形汎関数から弱位相の基本近傍を構成し、それがX*を連続にする最も粗い位相であることを示せる
+  - netの弱収束を全ての双対汎関数によるスカラー収束と同値に判定できる
+  - Hahn--Banachのノルム保存拡張が弱位相のHausdorff性と標準埋め込みの等長性に使われる箇所を特定できる
+  - 有限次元では弱位相とノルム位相が一致し、無限次元では有限個の汎関数の共通核により真に粗くなることを証明できる
+  - 弱*位相を有限個の点評価から構成し、弱*収束を点ごとの収束として判定できる
+  - 標準埋め込みJ:X→X**を定義し、Xの弱収束とJ(X)の弱*収束を対応させられる
+  - 弱連続双対がX*、弱*連続双対がJ(X)になることを有限次元因子化で証明できる
+definitions:
+  - { id: FA3-DEF-01, name: 弱位相 }
+  - { id: FA3-DEF-02, name: Banach空間の弱収束 }
+  - { id: FA3-DEF-03, name: 弱*位相 }
+  - { id: FA3-DEF-04, name: 弱*収束 }
+  - { id: FA3-DEF-05, name: 双対の双対と標準埋め込み }
+theorems:
+  - { id: FA3-THM-01, name: 弱収束の汎関数判定 }
+  - { id: FA3-PROP-01, name: ノルム収束なら弱収束 }
+  - { id: FA3-THM-02, name: 弱位相はHausdorff }
+  - { id: FA3-THM-03, name: 弱位相とノルム位相の有限次元一致 }
+  - { id: FA3-THM-04, name: 弱位相の連続双対の同定 }
+  - { id: FA3-THM-05, name: 弱*収束の評価判定 }
+  - { id: FA3-THM-06, name: 標準埋め込みの等長性 }
+  - { id: FA3-PROP-02, name: 弱収束と標準埋め込み後の弱*収束 }
+  - { id: FA3-THM-07, name: 弱*位相の連続双対の同定 }
+  - { id: FA3-PROP-03, name: 有界線形作用素の弱連続性 }
+canonical_examples: [R2の帯状弱近傍, ell2標準基底の弱収束, ell1座標汎関数の弱*収束, 標準埋め込みの等長性]
+problem_patterns: [FA3-WEAK-BASE-1, FA3-WEAK-CONV-1, FA3-WEAKSTAR-CONV-1, FA3-BIDUAL-EMBED-1, FA3-WEAK-DUAL-1, FA3-WEAKSTAR-DUAL-1, FA3-FINITE-DIM-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.5 }
