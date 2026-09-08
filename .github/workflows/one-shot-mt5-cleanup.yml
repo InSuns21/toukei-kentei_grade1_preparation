@@ -1,16 +1,12 @@
 name: One-shot MT5 cleanup
 
-on:
-  push:
-    branches:
-      - codex/mt5-radon-riesz-markov
+on: push
 
 permissions:
   contents: write
 
 jobs:
   patch:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +15,6 @@ jobs:
           fetch-depth: 0
 
       - name: Apply audited source fixes
-        shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -80,7 +75,6 @@ jobs:
           text = text.replace("      - __RN_CANONICAL__\n", "      - measure.radon-nikodym-derivative\n")
           p.write_text(text, encoding="utf-8")
 
-          # This workflow is intentionally one-shot and must not enter the PR.
           Path(".github/workflows/one-shot-mt5-cleanup.yml").unlink()
           PY
 
