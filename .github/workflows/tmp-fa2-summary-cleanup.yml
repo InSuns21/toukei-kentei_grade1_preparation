@@ -1,0 +1,41 @@
+name: Temporary FA2 summary cleanup
+
+on:
+  push:
+    branches:
+      - codex/fa2-open-mapping-bounded-inverse-closed-graph
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fa2-open-mapping-bounded-inverse-closed-graph
+      - name: Clean remaining dependency wording
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/FA2/index.md')
+          s = p.read_text()
+          replacements = [
+              ('幾何級数型の補正列', '幾何縮小型の補正列'),
+              ('全定義でない微分作用素', '全定義でない対角作用素'),
+          ]
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f'missing target: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+      - name: Commit cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FA2/index.md
+          git commit -m 'Clean remaining FA2 dependency wording'
+          git push origin HEAD:codex/fa2-open-mapping-bounded-inverse-closed-graph
