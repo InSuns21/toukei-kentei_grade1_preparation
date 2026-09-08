@@ -1,0 +1,43 @@
+name: FA4 Final Fix
+
+on:
+  push:
+    branches: [codex/fa4-banach-alaoglu-reflexivity]
+    paths: ['.github/workflows/fa4-final-fix.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fa4-banach-alaoglu-reflexivity
+      - name: Patch FA4
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/FA4/index.md')
+          s = p.read_text(encoding='utf-8')
+          old = '「Banach–AlaogluでACを丸ごと使う」'
+          new = '「Banach–Alaogluで選択公理全体を丸ごと使う」'
+          assert old in s
+          s = s.replace(old, new, 1)
+          old = 'FA3 では Hahn–Banach のノルム保存拡張により $J$ が等長であることまで証明しました。'
+          new = 'FA3 では [Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)により $J$ が等長であることまで証明しました。'
+          assert old in s
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git diff --check
+      - name: Commit
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/FA4/index.md
+          git commit -m "Fix FA4 dependency references"
+          git push origin HEAD:codex/fa4-banach-alaoglu-reflexivity
