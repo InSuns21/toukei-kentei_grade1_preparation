@@ -1,86 +1,9 @@
 name: One-shot MT5 cleanup
 
-on: push
-
-permissions:
-  contents: write
+on: [push]
 
 jobs:
   patch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: codex/mt5-radon-riesz-markov
-          fetch-depth: 0
-
-      - name: Apply audited source fixes
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-
-          def replace_once(path, old, new):
-              p = Path(path)
-              text = p.read_text(encoding="utf-8")
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f"{path}: expected exactly one match, got {count}")
-              p.write_text(text.replace(old, new), encoding="utf-8")
-
-          replace_once(
-              "textbook/volumes/00_foundations/MT5/index.md",
-              "最後に右辺が $\\int f\\,d\\mu$ へ収束することを、Tonelli 等を使わず有限単関数で直接確認します。",
-              "最後に右辺が $\\int f\\,d\\mu$ へ収束することを、有限単関数の上下評価だけで直接確認します。",
-          )
-
-          replace_once(
-              "textbook/volumes/00_foundations/MT2/index.md",
-              "### 確率測度の場合の $1/2$ の確認\n",
-              "### 証明\n\n確率測度の場合の $1/2$ を確認します。\n",
-          )
-
-          p = Path("textbook/volumes/00_foundations/MT3/knowledge.yaml")
-          text = p.read_text(encoding="utf-8")
-          prereq_old = "  - MT2\n\nforward_references: []"
-          prereq_new = "  - MT2\n  # RN微分という概念名のcanonical所有権だけ既存F0-00P2へ接続する。\n  # 以下のRN定理の証明自体はMT3本文で独立に閉じる。\n  - F0-00P2\n\nforward_references: []"
-          if text.count(prereq_old) != 1:
-              raise SystemExit("MT3 knowledge: prerequisite insertion point mismatch")
-          text = text.replace(prereq_old, prereq_new)
-
-          old_block = """  - id: measure.radon-nikodym-derivative
-    name: Radon–Nikodym微分
-    kind: definition
-    aliases: [Radon–Nikodym微分, Radon-Nikodym derivative, RN微分, RN 微分]
-    introduction_aliases: [Radon–Nikodym 微分]
-    requires:
-      - measure.sigma-finite
-"""
-          new_block = """  # RN微分そのもののcanonical IDはF0-00P2に既存。MT3ではformal再掲だけを別登録し、
-  # 標準コアの証明鎖が速習側のRN定理を前提にしたかのような二重正本を作らない。
-  - id: measure.radon-nikodym-derivative-mt3-recap
-    name: Radon–Nikodym微分の再掲
-    kind: definition
-    aliases: [\"### 定義（Radon–Nikodym 微分）\"]
-    introduction_aliases: [\"### 定義（Radon–Nikodym 微分）\"]
-    requires:
-      - __RN_CANONICAL__
-"""
-          if text.count(old_block) != 1:
-              raise SystemExit("MT3 knowledge: RN derivative block mismatch")
-          text = text.replace(old_block, new_block)
-          text = text.replace(
-              "      - measure.radon-nikodym-derivative\n",
-              "      - measure.radon-nikodym-derivative-mt3-recap\n",
-          )
-          text = text.replace("      - __RN_CANONICAL__\n", "      - measure.radon-nikodym-derivative\n")
-          p.write_text(text, encoding="utf-8")
-
-          Path(".github/workflows/one-shot-mt5-cleanup.yml").unlink()
-          PY
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --check
-          git commit -m "Fix MT5 residual dependencies and cross-CI regressions"
-          git push origin HEAD:codex/mt5-radon-riesz-markov
+      - run: echo one-shot-workflow-ok
