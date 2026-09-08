@@ -1,0 +1,35 @@
+id: "FA1"
+title: "標準関数解析 I：Banach空間の商・Baire・一様有界性原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA2
+  - TOP6
+  - F0-02C1
+  - F0-02C3
+official_scope: []
+learning_objectives:
+  - 閉部分空間による商空間に商ノルムを定義し、well-defined性・ノルム公理・閉性の役割を証明できる
+  - 標準商写像が1-Lipschitzかつ開写像であることを、商ノルムのinfimumから直接証明できる
+  - Banach空間を閉部分空間で割った商空間がBanachになることを、infimumの達成を仮定せず構成的に証明できる
+  - 作用素族のpointwise boundednessとuniform boundednessを量化順序まで区別できる
+  - TOP6のBaireカテゴリー定理からBanach–Steinhausの一様有界性原理を導出し、完備性を使う箇所を特定できる
+  - c00上の反例により、定義域の完備性を外すと一様有界性原理が壊れる機構を説明できる
+  - pointwise収束する作用素列の一様ノルム評価と、一様非有界な作用素族の残余集合版共鳴原理を導ける
+definitions:
+  - { id: FA1-DEF-01, name: 商ノルム }
+  - { id: FA1-DEF-02, name: 点ごとに有界な作用素族 }
+  - { id: FA1-DEF-03, name: 一様有界な作用素族 }
+theorems:
+  - { id: FA1-THM-01, name: 商ノルムのwell-defined性とノルム性 }
+  - { id: FA1-LEM-01, name: 標準商写像の開球像 }
+  - { id: FA1-THM-02, name: Banach空間の閉部分空間による商はBanach }
+  - { id: FA1-THM-03, name: 一様有界性原理（Banach–Steinhaus） }
+  - { id: FA1-COR-01, name: pointwise収束する作用素列の一様有界性 }
+  - { id: FA1-COR-02, name: 一様非有界作用素族の残余集合版 }
+canonical_examples: [R2を1次元部分空間で割る商ノルム, 標準商写像, c00上のT_n(x)=n x_n, l2の座標汎関数, pointwise収束する作用素列]
+problem_patterns: [FA1-QUOTIENT-NORM-1, FA1-QUOTIENT-BANACH-1, FA1-POINTWISE-UNIFORM-1, FA1-UBP-BAIRE-1, FA1-INCOMPLETE-COUNTEREXAMPLE-1, FA1-RESONANCE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 3.5, review: 1.0 }
