@@ -48,16 +48,12 @@ $$
 (1-t)x+ty\in M.
 $$
 
-従って、後で閉線形部分空間 $M$ に射影定理を適用するとき、凸性は別途仮定する必要がありません。
+従って、閉線形部分空間はこの章で扱う閉凸集合の結果の適用対象になります。
 <!-- definition-example-end -->
 
 ### 1.2 平行四辺形恒等式
 
-<a id="thm-f0-02c1a-parallelogram-identity"></a>
-
-<!-- formal-statement-start -->
-> **命題（平行四辺形恒等式）**  
-> 実内積空間 $H$ では、任意の $u,v\in H$ に対して次が成り立ちます。
+前章で導入した[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)は、射影定理の核心計算なのでここでも式と導出を確認します。実内積空間 $H$ の任意の $u,v\in H$ に対して
 
 $$
 \boxed{
@@ -65,9 +61,8 @@ $$
 =2\|u\|^2+2\|v\|^2
 }
 $$
-<!-- formal-statement-end -->
 
-前章でも[内積由来ノルムの特徴](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)として登場しましたが、ここでは証明で直接使うので計算を確認します。
+が成り立ちます。
 
 <!-- proof-start -->
 #### 証明
@@ -105,7 +100,7 @@ $$
 <a id="lem-f0-02c1a-norm-continuity"></a>
 
 <!-- formal-statement-start -->
-> **補題（逆三角不等式とノルムの連続性）**  
+> **補題（ノルム写像の連続性）**  
 > 任意のノルム空間で次が成り立ちます。
 
 $$
@@ -228,7 +223,7 @@ $$
 \left\|z-\frac{x_n+x_m}{2}\right\|\ge\delta.
 $$
 
-ここで[平行四辺形恒等式](#thm-f0-02c1a-parallelogram-identity)を
+ここで1.2の恒等式を
 
 $$
 u=z-x_n,\qquad v=z-x_m
@@ -283,7 +278,7 @@ $$
 z-x_n\to z-p.
 $$
 
-[ノルムの連続性](#lem-f0-02c1a-norm-continuity)から
+[ノルム写像の連続性](#lem-f0-02c1a-norm-continuity)から
 
 $$
 \|z-p\|
@@ -319,7 +314,7 @@ $$
 
 とします。
 
-凸性から中点 $(p+q)/2$ も $C$ に入ります。[平行四辺形恒等式](#thm-f0-02c1a-parallelogram-identity)を使うと
+凸性から中点 $(p+q)/2$ も $C$ に入ります。ここでも1.2の恒等式を使うと
 
 $$
 \left\|z-\frac{p+q}{2}\right\|^2
@@ -347,7 +342,7 @@ $$
 ## 5. 射影の特徴付け
 
 <!-- formal-statement-start -->
-> **定理（閉凸集合への射影の特徴付け）**  
+> **定理（Hilbert射影の変分不等式特徴付け）**  
 > $H$ を実Hilbert空間、$C\subset H$ を空でない閉凸集合、$z\in H$、$p\in C$ とします。このとき次は同値です。
 >
 > 1. $p=P_C(z)$。
@@ -457,7 +452,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-線形部分空間は凸なので、[Hilbert空間の射影定理](#thm-hilbert-projection)から $p=P_Mz$ が存在します。[射影の特徴付け](#thm-f0-02c1a-projection-characterization)より任意の $x\in M$ に対して
+線形部分空間は凸なので、[Hilbert空間の射影定理](#thm-hilbert-projection)から $p=P_Mz$ が存在します。[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)より任意の $x\in M$ に対して
 
 $$
 \langle z-p,x-p\rangle\le0.
@@ -591,7 +586,7 @@ $P_Mz=(0,z_2,z_3,\dots)$、$z-P_Mz=(z_1,0,0,\dots)\in M^\perp$。
 - 結論: 2点
 <!-- solution-end -->
 
-### F0-02C1A-A02 逆三角不等式からノルムの連続性を示す
+### F0-02C1A-A02 ノルム差を三角不等式で評価する
 
 - Level: A
 - 目安時間: 10分
@@ -627,7 +622,7 @@ $$
 ゆえに $\|x_n\|\to\|x\|$。
 
 #### 本番答案
-三角不等式を $x=(x-y)+y$ と $y=(y-x)+x$ に適用して逆三角不等式を得る。そこへ $x_n\to x$ を代入すれば結論が従う。
+三角不等式を $x=(x-y)+y$ と $y=(y-x)+x$ に適用して二方向の評価を得る。そこへ $x_n\to x$ を代入すれば結論が従う。
 
 #### 採点基準（20点）
 - 一方向の評価: 5点
@@ -680,7 +675,7 @@ $\delta+1/n$ は $S$ の下界ではないので、ある $x_n\in C$ が存在�
 - Level: B
 - 目安時間: 15分
 
-閉線形部分空間 $M\subset H$ と $p=P_Mz$ に対し、[閉凸集合への射影の特徴付け](#thm-f0-02c1a-projection-characterization)から
+閉線形部分空間 $M\subset H$ と $p=P_Mz$ に対し、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)から
 
 $$
 \langle z-p,x-p\rangle\le0\qquad(\forall x\in M)
@@ -731,7 +726,7 @@ $$
 P_C(z)=r\frac{z}{\|z\|}
 $$
 
-であることを、[射影の特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。なお $C$ が凸であることも確認せよ。
+であることを、[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)を使って示せ。なお $C$ が凸であることも確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -774,7 +769,7 @@ $$
 \end{aligned}
 $$
 
-[射影の特徴付け](#thm-f0-02c1a-projection-characterization)より $p=P_C(z)$。
+[Hilbert射影の変分不等式特徴付け](#thm-f0-02c1a-projection-characterization)より $p=P_C(z)$。
 
 #### 本番答案
 $C$ の凸性は三角不等式で確認できる。$u=z/\|z\|$, $p=ru$ と置くと $p\in C$ かつ $z-p=(\|z\|-r)u$。任意の $x\in C$ について $\langle u,x\rangle\le\|x\|\le r$ なので $\langle z-p,x-p\rangle\le0$。よって $p=P_C(z)$。
@@ -801,10 +796,10 @@ $C$ の凸性は三角不等式で確認できる。$u=z/\|z\|$, $p=ru$ と置�
 
 - 凸集合の定義を述べ、射影定理のどこで凸性を使うか説明できる。
 - 平行四辺形恒等式を内積の展開から導ける。
-- 逆三角不等式からノルムの連続性を示せる。
+- ノルム差の評価からノルム写像の連続性を示せる。
 - infimumから最小化列を具体的に作れる。
 - 閉凸集合への射影定理の存在証明で完備性と閉性が使われる箇所を区別できる。
-- 平行四辺形恒等式から最小化列がCauchyになることを説明できる。
+- 1.2の恒等式から最小化列がCauchyになることを説明できる。
 - 射影点の一意性を示せる。
 - 射影の特徴付けを両方向とも証明できる。
 - 閉線形部分空間では残差が直交補空間に入り、$H=M\oplus M^\perp$ となることを説明できる。
