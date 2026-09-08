@@ -1,0 +1,172 @@
+chapter: MT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP5
+  - MT0
+  - F0-00D1
+  - F0-00D2A
+  - F0-00E
+  - F0-00F
+  - F0-02C2
+  - MT3
+
+forward_references: []
+
+concepts:
+  - id: measure.cc-space
+    name: C_c(X)
+    kind: definition
+    aliases: [C_c(X), compact support continuous functions, "### 定義（$C_c(X)$）"]
+    introduction_aliases: ["### 定義（        ）", "### 定義（$C_c(X)$）"]
+    requires: []
+
+  - id: measure.radon-measure
+    name: Radon測度
+    kind: definition
+    aliases: [Radon測度, Radon measure]
+    introduction_aliases: [本章での Radon 測度]
+    requires: []
+
+  - id: functional.positive-linear-functional-cc
+    name: C_c(X)上の正線形汎関数
+    kind: definition
+    aliases: [正線形汎関数, positive linear functional]
+    introduction_aliases: [正線形汎関数]
+    requires: []
+
+  - id: measure.riesz-open-content
+    name: open set上のcontent
+    kind: definition
+    aliases: [open set 上の content, open content]
+    introduction_aliases: [open set 上の content]
+    requires: []
+
+  - id: functional.positive-local-order-bound
+    name: 正性から得られる局所order bound
+    kind: lemma
+    aliases: [正性から得られる局所 order bound, local order bound]
+    introduction_aliases: [正性から得られる局所 order bound]
+    requires:
+      - functional.positive-linear-functional-cc
+
+  - id: measure.finite-cutoff-partition
+    name: compact集合上の有限cutoff partition
+    kind: lemma
+    aliases: [compact 集合上の有限 cutoff partition, finite cutoff partition]
+    introduction_aliases: [compact 集合上の有限 cutoff partition]
+    requires: []
+
+  - id: measure.open-content-countable-subadditivity
+    name: open set上の可算劣加法性
+    kind: lemma
+    aliases: [open set 上の可算劣加法性]
+    introduction_aliases: [open set 上の可算劣加法性]
+    requires:
+      - measure.riesz-open-content
+      - measure.finite-cutoff-partition
+
+  - id: measure.open-content-disjoint-finite-additivity
+    name: 互いに素なopen sets上の有限加法性
+    kind: lemma
+    aliases: [互いに素な open sets 上の有限加法性]
+    introduction_aliases: [互いに素な open sets 上の有限加法性]
+    requires:
+      - measure.riesz-open-content
+
+  - id: measure.riesz-compact-content
+    name: compact content
+    kind: definition
+    aliases: [compact content]
+    introduction_aliases: [compact content]
+    requires:
+      - measure.riesz-open-content
+
+  - id: measure.compact-content-finite
+    name: compact contentは有限
+    kind: lemma
+    aliases: [compact content は有限]
+    introduction_aliases: [compact content は有限]
+    requires:
+      - measure.riesz-compact-content
+
+  - id: measure.open-content-inner-recovery
+    name: open contentのcompactからの復元
+    kind: lemma
+    aliases: [open content の compact からの復元]
+    introduction_aliases: [open content の compact からの復元]
+    requires:
+      - measure.riesz-open-content
+      - measure.riesz-compact-content
+
+  - id: measure.riesz-outer-measure-definition
+    name: open contentから作るouter measure
+    kind: definition
+    aliases: [open contentから作るouter measure]
+    introduction_aliases: [から作る outer measure]
+    requires:
+      - measure.riesz-open-content
+
+  - id: measure.riesz-outer-measure-theorem
+    name: 構成したmu*はouter measure
+    kind: theorem
+    aliases: [構成したouter measure, outer measure]
+    introduction_aliases: [は outer measure]
+    requires:
+      - measure.riesz-outer-measure-definition
+      - measure.open-content-countable-subadditivity
+
+  - id: measure.riesz-open-caratheodory-measurable
+    name: open setはCaratheodory可測
+    kind: theorem
+    aliases: [open set は Caratheodory 可測, Caratheodory 可測]
+    introduction_aliases: [全ての open set は]
+    requires:
+      - measure.riesz-outer-measure-theorem
+      - measure.open-content-inner-recovery
+
+  - id: measure.riesz-constructed-radon
+    name: 構成したBorel測度はRadon
+    kind: theorem
+    aliases: [構成した Borel 測度は Radon]
+    introduction_aliases: [構成した]
+    requires:
+      - measure.radon-measure
+      - measure.riesz-open-caratheodory-measurable
+      - measure.compact-content-finite
+      - measure.open-content-inner-recovery
+
+  - id: measure.riesz-positive-representation
+    name: 非負C_c関数の積分表示
+    kind: theorem
+    aliases: [非負 C_c 関数の積分表示]
+    introduction_aliases: [非負]
+    requires:
+      - functional.positive-local-order-bound
+      - measure.riesz-constructed-radon
+
+  - id: measure.riesz-real-representation
+    name: 実数値C_c関数の積分表示
+    kind: corollary
+    aliases: [実数値 C_c 関数の積分表示]
+    introduction_aliases: [実数値]
+    requires:
+      - measure.riesz-positive-representation
+
+  - id: measure.riesz-representation-uniqueness
+    name: 表現Radon測度の一意性
+    kind: theorem
+    aliases: [表現 Radon 測度の一意性]
+    introduction_aliases: [表現 Radon 測度の一意性]
+    requires:
+      - measure.riesz-real-representation
+      - measure.radon-measure
+
+  - id: measure.riesz-markov-positive
+    name: Riesz–Markov正汎関数版
+    kind: theorem
+    aliases: [Riesz–Markov, Riesz-Markov, Riesz–Markov正汎関数版]
+    introduction_aliases: [Riesz–Markov]
+    requires:
+      - measure.riesz-real-representation
+      - measure.riesz-representation-uniqueness

@@ -296,7 +296,9 @@ nodes:
     title: Radon測度・Riesz–Markov
     area: measure-theory
     tier: advanced-standard-bridge
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-07
+    implementation_path: textbook/volumes/00_foundations/MT5/index.md
     prerequisites: [TOP5, MT3]
 
   - id: FA0

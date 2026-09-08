@@ -8,7 +8,7 @@ $$
 
 という **密度による表示**へ引き上げます。
 
-証明は関数解析の Riesz 表現定理を使いません。[MT2](../MT2/index.md) で構成した Hahn 分解を使い、測度論の内部だけで Radon–Nikodym 定理を証明します。
+証明は関数解析側の表現定理を使いません。[MT2 の Hahn 分解](../MT2/index.md#thm-mt2-hahn)を使い、測度論の内部だけで密度表示を構成します。
 
 ```text
 MT2：Hahn–Jordan・全変動
@@ -46,7 +46,7 @@ $$
 
 有限測度は σ-finite ですが、逆は一般に成り立ちません。Lebesgue 測度は $\mathbb R=\bigcup_n[-n,n]$ により σ-finite です。
 
-<a id="def-mt3-rn-derivative"></a>
+<a id="def-mt3-rn-density"></a>
 <!-- formal-statement-start -->
 ### 定義（Radon–Nikodym 微分）
 
@@ -67,7 +67,7 @@ $$
 と書く。
 <!-- formal-statement-end -->
 
-密度は点ごとには一意でなく、$\mu$-a.e. の意味で一意です。
+密度は点ごとには一意でなく、ほとんど至る所（almost everywhere; a.e.）、すなわち $\mu$-a.e. の意味で一意です。
 
 ---
 
@@ -237,7 +237,7 @@ $$
 g=\lim_{n\to\infty}g_n
 $$
 
-と置きます。単調収束定理より
+と置きます。[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
 
 $$
 \int_Xg\,d\mu
@@ -401,7 +401,7 @@ $$
 $$
 \int_{A_n}f\,d\mu
 \ge
-\int_{A_n}g\,d\mu+rac1n\mu(A_n).
+\int_{A_n}g\,d\mu+\frac1n\mu(A_n).
 $$
 
 左辺と第1項は仮定により等しいので
@@ -439,7 +439,7 @@ $$
 - $\mu(X)<\infty$：残差 $\lambda(X)>0$ なら $c\mu(X)<\lambda(X)$ となる $c>0$ を選ぶ。
 - $\nu\ll\mu$：Hahn 正集合 $P$ が $\mu(P)>0$ を持つことを保証する。
 - Hahn 分解：残差が残る場所で $\lambda\ge c\mu$ となる領域を一度に取り出す。
-- MCT：最大化列 $g_n\uparrow g$ の極限を候補族の中へ残す。
+- 単調収束定理（Monotone Convergence Theorem; MCT）：最大化列 $g_n\uparrow g$ の極限を候補族の中へ残す。
 
 ---
 
@@ -517,7 +517,7 @@ $$
 \nu(C_k)<\infty.
 $$
 
-$C_k$ 上の制限測度に有限版 RN 定理を適用すると、$C_k$ 上の非負可測関数 $f_k$ が存在して
+$C_k$ 上の制限測度に [§2 の有限正測度版](#thm-mt3-rn-finite)を適用すると、$C_k$ 上の非負可測関数 $f_k$ が存在して
 
 $$
 \nu(E\cap C_k)
@@ -659,7 +659,7 @@ $$
 \int sf\,d\mu.
 $$
 
-一般の $h\ge0$ については非負単関数列 $s_n\uparrow h$ を取り、両方の測度に関する MCT を使って
+一般の $h\ge0$ については非負単関数列 $s_n\uparrow h$ を取り、両方の測度に関する [単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使って
 
 $$
 \int h\,d\nu
@@ -682,9 +682,9 @@ $$
 なので正負部分の差を取れます。$\square$
 <!-- proof-end -->
 
-<a id="thm-mt3-chain-rule"></a>
+<a id="thm-mt3-rn-composition"></a>
 <!-- formal-statement-start -->
-### 系（Radon–Nikodym 微分の chain rule）
+### 系（Radon–Nikodym 微分の連鎖律）
 
 $\lambda\ll\nu\ll\mu$ で、必要な測度が σ-finite とする。このとき
 
@@ -771,7 +771,7 @@ $$
 \nu^-\ll\mu.
 $$
 
-$\nu^+,\nu^-$ は有限正測度なので σ-finite です。正測度版 RN 定理により非負可測関数 $f_+,f_-$ が存在して
+$\nu^+,\nu^-$ は有限正測度なので σ-finite です。[§3 の σ-finite 正測度版](#thm-mt3-rn-sigma-finite)により非負可測関数 $f_+,f_-$ が存在して
 
 $$
 \nu^+(E)=\int_Ef_+\,d\mu,
@@ -994,7 +994,7 @@ $$
 \nu\ll\tau.
 $$
 
-RN 定理から非負可測 $f,g$ が存在して
+[§3 の σ-finite 正測度版](#thm-mt3-rn-sigma-finite)から非負可測 $f,g$ が存在して
 
 $$
 \nu(E)=\int_Ef\,d\tau,
@@ -1210,7 +1210,7 @@ $$
 \nu_{\mathrm{s}}\perp\mu.
 $$
 
-有限符号付き RN 定理から $f\in L^1(\mu)$ が存在して
+[§5 の有限符号付き測度版](#thm-mt3-rn-signed)から $f\in L^1(\mu)$ が存在して
 
 $$
 \nu_{\mathrm{ac}}(E)=\int_Ef\,d\mu.
@@ -1328,6 +1328,16 @@ $$
 
 ---
 
+---
+
+## 9.5 定義の横断確認：有限離散測度
+
+<!-- definition-example-start: def-mt3-sigma-finite, def-mt3-rn-density, def-mt3-singular-positive, def-mt3-singular-signed -->
+$X=\{a,b\}$ とします。$\mu=\delta_a+\delta_b$ は有限測度なので、$X_1=X$ と取れば σ-finite です。$\nu=2\delta_a+3\delta_b$ とすると、$f(a)=2,f(b)=3$ に対して全ての $E\subseteq X$ で $\nu(E)=\int_E f\,d\mu$ となります。
+
+**定義の確認**：従って $f=d\nu/d\mu$ です。一方、$\sigma=\delta_a$ と $\lambda=\delta_b$ について $S=\{a\}$ と置けば $\lambda(S)=0$ かつ $\sigma(X\setminus S)=0$ なので $\sigma\perp\lambda$。さらに有限符号付き測度 $\eta=2\delta_a$ は $|\eta|=2\delta_a$ であり、同じ $S$ を使って $\eta\perp\lambda$ です。正測度の特異性と符号付き測度の特異性では、後者が全変動を通して定義される点まで確認できます。
+<!-- definition-example-end -->
+
 ## 11. 演習
 
 ### Level A
@@ -1382,6 +1392,60 @@ $$
 $$
 
 従って定義通り σ-finite です。
+<!-- solution-end -->
+
+<a id="ex-mt3-a03"></a>
+#### MT3-A03 絶対連続性の向きを確認する
+- Level: A
+
+$[0,1]$ 上で $\nu(E)=\int_E 2x\,dx$ とする。Lebesgue 測度 $\lambda$ に対して $\nu\ll\lambda$ を定義から示してください。
+
+<!-- solution-start -->
+**解答**：$\lambda(E)=0$ なら、非負可測関数 $2x$ の零測度集合上の積分は0なので
+
+$$
+\nu(E)=\int_E2x\,dx=0.
+$$
+
+従って
+
+$$
+\lambda(E)=0\Longrightarrow\nu(E)=0,
+$$
+
+すなわち $\nu\ll\lambda$ です。含意の向きを逆にしないことがポイントです。
+<!-- solution-end -->
+
+<a id="ex-mt3-a04"></a>
+#### MT3-A04 Dirac測度はLebesgue測度と特異である
+- Level: A
+
+$[0,1]$ 上の Dirac 測度 $\delta_0$ と Lebesgue 測度 $\lambda$ が互いに特異であることを、本章の定義に従って示してください。
+
+<!-- solution-start -->
+**解答**：
+
+$$
+S=\{0\}
+$$
+
+と取ります。Lebesgue 測度では
+
+$$
+\lambda(S)=0,
+$$
+
+一方 Dirac 測度は $S$ に全質量を持つので
+
+$$
+\delta_0([0,1]\setminus S)=0.
+$$
+
+従って定義通り
+
+$$
+\delta_0\perp\lambda.
+$$
 <!-- solution-end -->
 
 ### Level B
@@ -1575,7 +1639,7 @@ $$
 この章では、関数解析を先取りせず次を閉じました。
 
 - 有限正測度版 Radon–Nikodym 定理の存在・a.e.一意性
-- Hahn 分解を用いた残差消去
+- [Hahn 分解](../MT2/index.md#thm-mt2-hahn)を用いた残差消去
 - σ-finite 版への可算局所化
 - σ-finite 性を外したときの具体的反例
 - 測度変更の積分公式と RN 微分の chain rule

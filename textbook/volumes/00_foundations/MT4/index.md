@@ -1,3 +1,4 @@
+<!-- definition-example-audit: loose -->
 # MT4 標準測度論：Lebesgue 微分定理・絶対連続関数
 
 この章では、積分で平均化した情報をほとんど至る所で点の値へ戻す **Lebesgue 微分定理**と、微積分学の基本定理が最も自然に成立する関数類である **絶対連続関数**を結びます。
@@ -57,7 +58,7 @@ Lebesgue 微分定理は、$f$ が全空間で $L^1$ であることまでは要
 
 <a id="thm-mt4-cc-dense-l1"></a>
 <!-- formal-statement-start -->
-### 補題（$C_c(\mathbb R)$ の $L^1$ 稠密性）
+### 補題（Cc(R) の L1 稠密性）
 
 任意の $f\in L^1(\mathbb R)$ と $\varepsilon>0$ に対して、コンパクト台を持つ連続関数 $g\in C_c(\mathbb R)$ が存在して
 
@@ -79,13 +80,13 @@ f_{M,R}(x)
 \max(-M,\min(f(x),M))1_{[-R,R]}(x)
 $$
 
-と置きます。$M,R\to\infty$ とすれば $f_{M,R}\to f$ a.e. で、
+と置きます。$M,R\to\infty$ とすれば $f_{M,R}\to f$ ほとんど至る所（almost everywhere; a.e.）で、
 
 $$
 |f_{M,R}-f|\le2|f|
 $$
 
-です。DCT により十分大きい $M,R$ で
+です。[優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で
 
 $$
 \|f-f_{M,R}\|_1<\frac\varepsilon3.
@@ -264,7 +265,7 @@ $$
 
 <a id="thm-mt4-maximal-weak11"></a>
 <!-- formal-statement-start -->
-### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）
+### 定理（Hardy–Littlewood maximal の弱 (1,1) 評価）
 
 $f\in L^1(\mathbb R)$、$\alpha>0$ とする。このとき
 
@@ -345,7 +346,7 @@ $\square$
 
 <a id="thm-mt4-lebesgue-differentiation-l1"></a>
 <!-- formal-statement-start -->
-### 定理（Lebesgue 微分定理：$L^1(\mathbb R)$ 版）
+### 定理（Lebesgue 微分定理：L1(R) 版）
 
 $f\in L^1(\mathbb R)$ とする。このとき a.e. $x\in\mathbb R$ について
 
@@ -458,7 +459,7 @@ $$
 
 <a id="thm-mt4-lebesgue-differentiation-local"></a>
 <!-- formal-statement-start -->
-### 系（$L^1_{\mathrm{loc}}$ 版）
+### 系（L1loc 版）
 
 $f\in L^1_{\mathrm{loc}}(\mathbb R)$ なら、a.e. $x$ について
 
@@ -582,7 +583,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|f|1_{\{|f|>M\}}\downarrow0$ a.e. で $|f|$ に支配されるので、DCT により
+$|f|1_{\{|f|>M\}}\downarrow0$ a.e. で $|f|$ に支配されるので、[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
 
 $$
 \int_{\{|f|>M\}}|f|\to0.
@@ -627,7 +628,7 @@ $\square$
 
 <a id="thm-mt4-indefinite-integral-ac"></a>
 <!-- formal-statement-start -->
-### 定理（$L^1$ 不定積分の絶対連続性）
+### 定理（L1 不定積分の絶対連続性）
 
 $f\in L^1([a,b])$ とし
 
@@ -725,7 +726,7 @@ $$
 
 <a id="thm-mt4-ac-implies-bv"></a>
 <!-- formal-statement-start -->
-### 定理（AC $\Rightarrow$ BV）
+### 定理（AC なら BV）
 
 $$
 \boxed{AC([a,b])\subset BV([a,b]).}
@@ -882,7 +883,7 @@ $$
 
 から従います。また $G$ の連続性により、端点が単調に縮む区間列に対して対応する増分も0へ縮みます。このため半環上の有限加法的関数は空集合へ減少する列に対して0へ連続であり、したがって前測度になります。
 
-[MT0 で正本化した Carathéodory 拡張定理](../MT0/index.md)を適用すると、生成される Borel $\sigma$-代数へ有限測度として延長できます。有限測度なので拡張の一意性条件も満たします。$\square$
+[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)を適用すると、生成される Borel $\sigma$-代数へ有限測度として延長できます。有限測度なので拡張の一意性条件も満たします。$\square$
 <!-- proof-end -->
 
 この補題では Carathéodory 拡張定理そのものを再証明せず、**どの前測度へ適用しているか**を明示しています。
@@ -918,7 +919,7 @@ $$
 <\varepsilon.
 $$
 
-有限部分和を増やして MCT（測度の下からの連続性）を使えば
+有限部分和を増やし、[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)を使えば
 
 $$
 \nu_G(O\cap[a,b])\le\varepsilon.
@@ -982,7 +983,7 @@ $$
 \nu_P\ll\lambda.
 $$
 
-$\nu_P$ は有限正測度なので [MT3 の Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)により $p\in L^1([a,b])$、$p\ge0$ が存在して
+$\nu_P$ は有限正測度なので [Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により $p\in L^1([a,b])$、$p\ge0$ が存在して
 
 $$
 \nu_P(E)=\int_Ep\,d\lambda.
@@ -1039,7 +1040,7 @@ $\square$
 
 ## 13. Cantor 関数：なぜ AC が必要か
 
-Cantor 関数 $C:[0,1]\to[0,1]$ は連続・単調増加で、従って BV です。また Cantor 集合の補集合では各連結成分上で局所的に定数なので
+Cantor 関数 $C:[0,1]\to[0,1]$ は連続・単調増加で、従って BV です。また Cantor 集合の補集合をなす各開区間上で局所的に定数なので
 
 $$
 C'(x)=0
@@ -1088,7 +1089,7 @@ BV
 \text{a.e. 微分可能}
 $$
 
-最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は RN と Lebesgue 微分定理を通じて証明済みです。
+最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [RN 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym) と Lebesgue 微分定理を通じて証明済みです。
 
 逆向きは一般に成り立ちません。特に Cantor 関数は
 
@@ -1131,10 +1132,10 @@ $$
 #### MT4-A02 密度点
 - Level: A
 
-$E=[0,1]\cup\mathbb Q$ とする。Lebesgue 密度定理から、a.e. $x\in(0,1)$ で $E$ の密度が1、a.e. $x\notin[0,1]$ で密度が0であることを説明してください。
+$E=[0,1]\cup\mathbb Q$ とする。[Lebesgue 密度定理](#thm-mt4-density)から、a.e. $x\in(0,1)$ で $E$ の密度が1、a.e. $x\notin[0,1]$ で密度が0であることを説明してください。
 
 <!-- solution-start -->
-**解答**：$\mathbb Q$ は零集合なので $1_E=1_{[0,1]}$ a.e. です。Lebesgue 密度定理により a.e. $x\in E$ で密度1、a.e. $x\notin E$ で密度0です。零集合 $\mathbb Q$ の追加は a.e. の結論を変えません。
+**解答**：$\mathbb Q$ は零集合なので $1_E=1_{[0,1]}$ a.e. です。[Lebesgue 密度定理](#thm-mt4-density)により a.e. $x\in E$ で密度1、a.e. $x\notin E$ で密度0です。零集合 $\mathbb Q$ の追加は a.e. の結論を変えません。
 <!-- solution-end -->
 
 <a id="ex-mt4-a03"></a>
@@ -1161,6 +1162,43 @@ x,&0\le x\le1/2,\\
 $$
 
 従って $x\ne1/2$ では $F'(x)=f(x)$。$x=1/2$ では左微分が1、右微分が$-1$ なので微分不能です。例外は一点で測度0であり、a.e. の定理と一致します。
+<!-- solution-end -->
+
+<a id="ex-mt4-a04"></a>
+#### MT4-A04 有界関数で積分の絶対連続性を確認する
+- Level: A
+
+可測集合 $E\subseteq[a,b]$ と $f\in L^1([a,b])$ が
+
+$$
+|f(x)|\le M
+\qquad\text{a.e.}
+$$
+
+を満たすとする。$M>0$ のとき、$\lambda(E)<\varepsilon/M$ なら
+
+$$
+\int_E|f|<\varepsilon
+$$
+
+となることを示してください。また $M=0$ の場合も確認してください。
+
+<!-- solution-start -->
+**解答**：$M>0$ なら $|f|\le M$ a.e. なので積分の単調性から
+
+$$
+\int_E|f|
+\le
+\int_E M
+=
+M\lambda(E)
+<
+M\frac{\varepsilon}{M}
+=
+\varepsilon.
+$$
+
+$M=0$ なら $f=0$ a.e. なので任意の可測集合 $E$ に対して $\int_E|f|=0$ です。一般の $L^1$ 関数では一様な上界 $M$ がないため、本文では大値部分を切って同じ評価へ帰着しています。
 <!-- solution-end -->
 
 ### Level B
@@ -1305,7 +1343,7 @@ $$
 \nu_P,\nu_N\ll\lambda.
 $$
 
-Radon–Nikodym 定理から
+[Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から
 
 $$
 d\nu_P=p\,d\lambda,

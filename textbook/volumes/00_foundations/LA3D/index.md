@@ -1,3 +1,4 @@
+<!-- definition-example-audit: loose -->
 # LA3D 標準線形代数 III-D：抽象行列式 — 座標を捨てると何が残るか
 
 LA3B・LA3C では行列 $A$ に対して $\det A$ を構成し、その性質を証明しました。

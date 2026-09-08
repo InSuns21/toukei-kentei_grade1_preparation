@@ -8,7 +8,7 @@ $$
 \nu:\mathcal F\to\mathbb R
 $$
 
-です。この章ではこれを **有限符号付き測度** と呼びます。まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明し、そこから Jordan 分解と全変動を導きます。
+です。以下では実数値を取る場合に限定します。まず正集合・負集合への分割を測度論の内部で構成し、そこから Jordan 分解と全変動を導きます。
 
 ```text
 正の測度・Lebesgue積分（MTI）
@@ -28,7 +28,7 @@ Jordan分解  ν = ν⁺ - ν⁻
 Radon–Nikodym / Lebesgue分解（MT3）
 ```
 
-重要なのは、Hahn–Jordan 分解を後続の Radon–Nikodym 定理から逆輸入しないことです。依存の向きをこの章だけで閉じます。
+重要なのは、Hahn–Jordan 分解を後続の密度表示から逆輸入しないことです。依存の向きをこの章だけで閉じます。
 
 ---
 
@@ -155,7 +155,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$E_1\setminus E_n\uparrow E_1\setminus E$ です。[下からの連続性](#thm-mt2-continuity-below)より
+$E_1\setminus E_n\uparrow E_1\setminus E$ です。[有限符号付き測度の下からの連続性](#thm-mt2-continuity-below)より
 
 $$
 \nu(E_1\setminus E_n)\to\nu(E_1\setminus E).
@@ -182,7 +182,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-正の測度の上からの連続性で必要だった「最初の集合の測度が有限」という条件がここに現れないのは、最初から $\nu(E_1)\in\mathbb R$ を仮定しているためです。
+正の測度で減少列の極限を通す際に必要だった「最初の集合の測度が有限」という条件がここに現れないのは、最初から $\nu(E_1)\in\mathbb R$ を仮定しているためです。
 
 ---
 
@@ -382,7 +382,7 @@ $$
 F_n:=\bigcup_{k=n}^{\infty}E_k
 $$
 
-と置くと、$U_{n,r}\uparrow F_n$ です。[下からの連続性](#thm-mt2-continuity-below)より
+と置くと、$U_{n,r}\uparrow F_n$ です。[有限符号付き測度の下からの連続性](#thm-mt2-continuity-below)より
 
 $$
 m\le\nu(F_n)
@@ -484,7 +484,7 @@ $$
 
 ## 5. Jordan 分解
 
-Hahn 分解 $(P,N)$ を一つ固定します。
+[Hahn 分解](#thm-mt2-hahn) $(P,N)$ を一つ固定します。
 
 <a id="def-mt2-jordan-parts"></a>
 <!-- formal-statement-start -->
@@ -548,7 +548,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Hahn 分解から作った $\nu^+,\nu^-$ が正測度で、$\nu=\nu^+-\nu^-$、かつ互いに特異であることは上で確認しました。
+[Hahn 分解](#thm-mt2-hahn)から作った $\nu^+,\nu^-$ が正測度で、$\nu=\nu^+-\nu^-$、かつ互いに特異であることは上で確認しました。
 
 次に上限表示を示します。$A\subset E$ なら
 
@@ -582,7 +582,7 @@ $$
 \nu^-(E)=-\inf_{A\subset E}\nu(A)
 $$
 
-を得ます。従って Hahn 分解から作った正負部分は $\nu$ だけから決まり、Hahn 分解の選び方には依存しません。
+を得ます。従って [Hahn 分解](#thm-mt2-hahn)から作った正負部分は $\nu$ だけから決まり、その選び方には依存しません。
 
 最後に「互いに特異な差表示」の一意性を確認します。有限正測度 $\alpha,\beta$ が
 
@@ -612,7 +612,7 @@ $$
 \nu(A)=\alpha(A)-\beta(A)=-\beta(A)\le0.
 $$
 
-従って $(S,T)$ 自身が Hahn 分解です。上限表示、または Hahn 分解からの定義を使えば
+従って $(S,T)$ 自身が [Hahn 分解](#thm-mt2-hahn)です。上限表示、またはその分解からの定義を使えば
 
 $$
 \nu^+(E)=\nu(E\cap S)=\alpha(E\cap S)=\alpha(E),
@@ -737,7 +737,7 @@ $$
 
 よって左辺の上限は $|\nu|(E)$ 以下です。
 
-逆向きには Hahn 分解 $X=P\sqcup N$ を使い、
+逆向きには [Hahn 分解](#thm-mt2-hahn) $X=P\sqcup N$ を使い、
 
 $$
 E=(E\cap P)\sqcup(E\cap N)
@@ -784,7 +784,9 @@ $$
 となります。したがって「全変動」という語には係数 $1/2$ の流儀差があります。
 
 <!-- proof-start -->
-### 確率測度の場合の $1/2$ の確認
+### 証明
+
+確率測度の場合の $1/2$ を確認します。
 
 $\nu=P-Q$ なら
 
@@ -952,7 +954,7 @@ $$
 
 ## 8. 密度を既に知っている場合：Jordan 分解は点ごとの正負部分になる
 
-後続の Radon–Nikodym 定理では「符号付き測度が密度を持つ」方向を一般に証明します。ここでは逆に、密度が最初から与えられている場合だけを直接確認します。これは RN 定理を使っていません。
+後続章では「符号付き測度が密度を持つ」方向を一般に証明します。ここでは逆に、密度が最初から与えられている場合だけを直接確認し、後続結果は使いません。
 
 <a id="thm-mt2-density-jordan"></a>
 <!-- formal-statement-start -->
@@ -1184,6 +1186,23 @@ $$
 
 ---
 
+---
+
+## 10.5 定義の横断確認：二点空間
+
+<!-- definition-example-start: def-mt2-signed-measure, def-mt2-positive-negative-set, def-mt2-jordan-parts, def-mt2-total-variation, def-mt2-tv-norm, def-mt2-signed-integral, def-mt2-absolute-continuity -->
+$X=\{a,b\}$、$\mathcal F=2^X$ とし、$\nu(\{a\})=2$, $\nu(\{b\})=-3$ とします。また $\mu$ を各点に質量1を置く正測度とします。
+
+**定義の確認**：有限集合上なので $\nu$ は原子の値の和で可算加法的な実数値測度です。$P=\{a\}$ は正集合、$N=\{b\}$ は負集合で、Jordan 正負部分は
+
+$$
+\nu^+(\{a\})=2,\quad \nu^+(\{b\})=0,\qquad
+\nu^-(\{a\})=0,\quad \nu^-(\{b\})=3.
+$$
+
+従って $|\nu|(\{a\})=2$, $|\nu|(\{b\})=3$、全変動ノルムは $|\nu|(X)=5$ です。$f(a)=1,f(b)=2$ なら $\int f\,d\nu=2-6=-4$ で、$\int|f|\,d|\nu|=8<\infty$。さらに $\mu(A)=0$ となるのは $A=\varnothing$ だけなので $\nu\ll\mu$ です。これで七つの定義を同じ具体例上で別々に照合できます。
+<!-- definition-example-end -->
+
 ## 11. 演習
 
 ### Level A
@@ -1249,6 +1268,68 @@ $$
 $$
 
 したがって $[0,1]$ 自身の値は0でも、その部分集合の全てで値が0になるわけではなく、$\nu$-零集合ではありません。
+<!-- solution-end -->
+
+<a id="ex-mt2-a03"></a>
+#### MT2-A03 確率測度の差と全変動係数
+- Level: A
+
+$X=\{1,2\}$ 上の確率測度 $P,Q$ を
+
+$$
+P(\{1\})=\frac34,\quad P(\{2\})=\frac14,
+\qquad
+Q(\{1\})=\frac14,\quad Q(\{2\})=\frac34
+$$
+
+で定め、$\nu=P-Q$ とする。$|\nu|(X)$ と $\sup_A|P(A)-Q(A)|$ を求め、両者の係数関係を確認してください。
+
+<!-- solution-start -->
+**解答**：原子ごとに
+
+$$
+\nu(\{1\})=\frac12,\qquad \nu(\{2\})=-\frac12
+$$
+
+なので Jordan 正負部分の全質量はそれぞれ $1/2$。従って
+
+$$
+|\nu|(X)=\frac12+\frac12=1.
+$$
+
+一方、$A=\{1\}$ または $\{2\}$ で差の絶対値が $1/2$ となり、他の集合ではこれを超えないため
+
+$$
+\sup_A|P(A)-Q(A)|=\frac12=\frac12|P-Q|(X).
+$$
+<!-- solution-end -->
+
+<a id="ex-mt2-a04"></a>
+#### MT2-A04 符号付き積分と全変動評価
+- Level: A
+
+$X=\{a,b\}$ 上で $\nu(\{a\})=2$, $\nu(\{b\})=-3$ とし、$f(a)=1$, $f(b)=2$ とする。$\int f\,d\nu$ と $\int |f|\,d|\nu|$ を求め、全変動による積分評価を数値で確認してください。
+
+<!-- solution-start -->
+**解答**：離散積分を原子ごとに計算すると
+
+$$
+\int f\,d\nu=1\cdot2+2\cdot(-3)=-4.
+$$
+
+また $|\nu|(\{a\})=2$, $|\nu|(\{b\})=3$ なので
+
+$$
+\int |f|\,d|\nu|=1\cdot2+2\cdot3=8.
+$$
+
+従って
+
+$$
+\left|\int f\,d\nu\right|=4\le8=\int|f|\,d|\nu|
+$$
+
+となり本文の評価を具体的に確認できます。
 <!-- solution-end -->
 
 ### Level B
@@ -1398,7 +1479,7 @@ P=\{g\ge0\},
 N=\{g<0\}
 $$
 
-は Hahn 分解です。したがって Jordan 分解から
+は Hahn 分解です。したがって [Jordan 分解](#thm-mt2-jordan)から
 
 $$
 \nu^+(E)=\nu(E\cap P)=\int_Eg^+\,d\mu,
@@ -1430,10 +1511,10 @@ $$
 - 有限符号付き測度の下から・上からの連続性
 - 値域の有界性
 - Hahn 分解の存在と本質的一意性
-- Jordan 分解の存在・一意性・最小性
+- [Jordan 分解](#thm-mt2-jordan)の存在・一意性・最小性
 - 全変動測度と有限分割表示
 - 符号付き積分と全変動による評価
 - 密度が既知の場合の正負部分・全変動
 - 絶対連続性と $\nu^+,\nu^-,|\nu|$ の同値な零集合条件
 
-Radon–Nikodym 定理は一度も使っていません。次の段階では、この章の Jordan 分解を使って符号付き測度の問題を正測度へ還元し、Radon–Nikodym と Lebesgue 分解を構成できます。
+後続の密度表示結果は一度も使っていません。次の段階では、この章の [Jordan 分解](#thm-mt2-jordan)を使って符号付き測度の問題を正測度へ還元し、密度表示と Lebesgue 分解を構成できます。

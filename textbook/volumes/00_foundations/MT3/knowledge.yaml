@@ -1,0 +1,114 @@
+chapter: MT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2A
+  - F0-00D2B
+  - MT2
+  # RN微分という概念名のcanonical所有権だけ既存F0-00P2へ接続する。
+  # 以下のRN定理の証明自体はMT3本文で独立に閉じる。
+  - F0-00P2
+
+forward_references: []
+
+concepts:
+  - id: measure.sigma-finite
+    name: σ-finite測度
+    kind: definition
+    aliases: [σ-finite測度, σ-finite 測度, sigma-finite measure]
+    introduction_aliases: [σ-finite 測度]
+    requires: []
+
+  # RN微分そのもののcanonical IDはF0-00P2に既存。MT3ではformal再掲だけを別登録し、
+  # 標準コアの証明鎖が速習側のRN定理を前提にしたかのような二重正本を作らない。
+  - id: measure.radon-nikodym-derivative-mt3-recap
+    name: Radon–Nikodym微分の再掲
+    kind: definition
+    aliases: ["### 定義（Radon–Nikodym 微分）"]
+    introduction_aliases: ["### 定義（Radon–Nikodym 微分）"]
+    requires:
+      - measure.radon-nikodym-derivative
+
+  - id: measure.radon-nikodym-finite-positive
+    name: Radon–Nikodym定理・有限正測度版
+    kind: theorem
+    aliases: [Radon–Nikodym：有限正測度版, 有限正測度版 Radon–Nikodym 定理]
+    introduction_aliases: [Radon–Nikodym：有限正測度版]
+    requires:
+      - measure.radon-nikodym-derivative-mt3-recap
+
+  - id: measure.radon-nikodym-sigma-finite
+    name: Radon–Nikodym定理・σ-finite版
+    kind: theorem
+    aliases: [Radon–Nikodym：σ-finite 版, σ-finite 版 Radon–Nikodym 定理]
+    introduction_aliases: [Radon–Nikodym：σ-finite 版]
+    requires:
+      - measure.radon-nikodym-finite-positive
+      - measure.sigma-finite
+
+  - id: measure.change-of-measure-integral
+    name: 測度変更の積分公式
+    kind: theorem
+    aliases: [測度変更の積分公式, change of measure formula]
+    introduction_aliases: [測度変更の積分公式]
+    requires:
+      - measure.radon-nikodym-derivative-mt3-recap
+
+  - id: measure.radon-nikodym-chain-rule
+    name: Radon–Nikodym微分の連鎖律
+    kind: corollary
+    aliases: [Radon–Nikodym 微分の連鎖律, RN微分の連鎖律]
+    introduction_aliases: [Radon–Nikodym 微分の連鎖律]
+    requires:
+      - measure.change-of-measure-integral
+      - measure.radon-nikodym-derivative-mt3-recap
+
+  - id: measure.radon-nikodym-signed
+    name: Radon–Nikodym定理・有限符号付き測度版
+    kind: theorem
+    aliases: [Radon–Nikodym：有限符号付き測度版, 有限符号付き測度版 Radon–Nikodym 定理]
+    introduction_aliases: [Radon–Nikodym：有限符号付き測度版]
+    requires:
+      - measure.radon-nikodym-sigma-finite
+
+  - id: measure.mutually-singular-positive
+    name: 互いに特異な正測度
+    kind: definition
+    aliases: [互いに特異な正測度, mutually singular measures]
+    introduction_aliases: [互いに特異な正測度]
+    requires: []
+
+  - id: measure.signed-measure-singularity
+    name: 符号付き測度の特異性
+    kind: definition
+    aliases: [符号付き測度の特異性]
+    introduction_aliases: [符号付き測度の特異性]
+    requires:
+      - measure.mutually-singular-positive
+
+  - id: measure.ac-and-singular-zero
+    name: 絶対連続かつ特異なら0
+    kind: lemma
+    aliases: [絶対連続かつ特異なら0]
+    introduction_aliases: [絶対連続かつ特異なら0]
+    requires:
+      - measure.signed-measure-singularity
+
+  - id: measure.lebesgue-decomposition-positive
+    name: Lebesgue分解・σ-finite正測度版
+    kind: theorem
+    aliases: [Lebesgue 分解：σ-finite 正測度版, Lebesgue分解]
+    introduction_aliases: [Lebesgue 分解：σ-finite 正測度版]
+    requires:
+      - measure.radon-nikodym-sigma-finite
+      - measure.mutually-singular-positive
+
+  - id: measure.lebesgue-decomposition-signed
+    name: Lebesgue分解・有限符号付き測度版
+    kind: theorem
+    aliases: [Lebesgue 分解：有限符号付き測度版]
+    introduction_aliases: [Lebesgue 分解：有限符号付き測度版]
+    requires:
+      - measure.lebesgue-decomposition-positive
+      - measure.radon-nikodym-signed
+      - measure.ac-and-singular-zero

@@ -1,3 +1,4 @@
+<!-- definition-example-audit: loose -->
 # LA3B 標準線形代数 III-B：行列式の構成 — 面積・体積倍率をどう作るか
 
 $2\times2$ 行列なら
