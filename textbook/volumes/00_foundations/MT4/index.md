@@ -80,13 +80,13 @@ f_{M,R}(x)
 \max(-M,\min(f(x),M))1_{[-R,R]}(x)
 $$
 
-と置きます。$M,R\to\infty$ とすれば $f_{M,R}\to f$ a.e. で、
+と置きます。$M,R\to\infty$ とすれば $f_{M,R}\to f$ ほとんど至る所（almost everywhere; a.e.）で、
 
 $$
 |f_{M,R}-f|\le2|f|
 $$
 
-です。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で
+です。[優収束定理（Dominated Convergence Theorem; DCT）](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により十分大きい $M,R$ で
 
 $$
 \|f-f_{M,R}\|_1<\frac\varepsilon3.
@@ -919,7 +919,7 @@ $$
 <\varepsilon.
 $$
 
-有限部分和を増やして MCT（測度の下からの連続性）を使えば
+有限部分和を増やし、測度の下からの連続性を使えば
 
 $$
 \nu_G(O\cap[a,b])\le\varepsilon.

@@ -13,6 +13,7 @@ const integrationOrderAppendixName = 'integration_order_exchange.md';
 const eigenCalculationAppendixName = 'linear_algebra_eigen_calculation.md';
 const positiveDefiniteAppendixName = 'linear_algebra_positive_definite.md';
 const matrixDifferentiationAppendixName = 'matrix_differentiation_calculation.md';
+const top5LchCutoffAppendixName = 'lch-cutoff.md';
 
 if (!fs.existsSync(sourceRoot) || !fs.existsSync(targetRoot)) {
   console.error('先に scripts/build-pages.mjs を実行してください。');
@@ -96,6 +97,18 @@ for (const volume of fs.readdirSync(sourceRoot, { withFileTypes: true }).filter(
           1,
         );
         text = sanitizeF000Vocabulary(text);
+      }
+
+      const top5LchCutoffPath = path.join(sourceChapter, top5LchCutoffAppendixName);
+      if (chapter.name === 'TOP5' && fs.existsSync(top5LchCutoffPath)) {
+        const appendix = demoteHeadings(fs.readFileSync(top5LchCutoffPath, 'utf8'), 1).trim();
+        text = `${text.trimEnd()}
+
+---
+
+${appendix}
+`;
+        inlinedAppendices += 1;
       }
 
       const calculationDrillPath = path.join(sourceChapter, calculationDrillAppendixName);
