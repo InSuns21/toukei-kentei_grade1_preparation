@@ -1,0 +1,132 @@
+chapter: MT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT5
+
+forward_references: []
+
+concepts:
+  - id: functional.c0-space
+    name: C0空間
+    kind: definition
+    aliases: [C0空間, "### 定義（C0 空間）"]
+    introduction_aliases: ["### 定義（C0 空間）"]
+    requires: []
+
+  - id: functional.c0-banach-lattice
+    name: C0のBanach lattice性
+    kind: theorem
+    aliases: [C0のBanach lattice性, "### 定理（C0 は Banach lattice）"]
+    introduction_aliases: ["### 定理（C0 は Banach lattice）"]
+    requires:
+      - functional.c0-space
+
+  - id: functional.cc-dense-in-c0
+    name: CcのC0稠密性
+    kind: theorem
+    aliases: [CcのC0稠密性, "### 定理（Cc の C0 稠密性）"]
+    introduction_aliases: ["### 定理（Cc の C0 稠密性）"]
+    requires:
+      - functional.c0-space
+      - topology.compact-open-cutoff
+
+  - id: measure.c0-positive-riesz-representation
+    name: 正有界汎関数の有限Radon表現
+    kind: theorem
+    aliases: [正有界汎関数の有限Radon表現, "### 定理（正有界汎関数の有限 Radon 表現）"]
+    introduction_aliases: ["### 定理（正有界汎関数の有限 Radon 表現）"]
+    requires:
+      - functional.cc-dense-in-c0
+      - measure.riesz-markov-positive
+
+  - id: functional.riesz-positive-envelope
+    name: 正部分envelope
+    kind: definition
+    aliases: [正部分envelope, "### 定義（正部分 envelope）"]
+    introduction_aliases: ["### 定義（正部分 envelope）"]
+    requires:
+      - functional.c0-banach-lattice
+
+  - id: functional.riesz-positive-envelope-additivity
+    name: 正部分envelopeの加法性
+    kind: lemma
+    aliases: [正部分envelopeの加法性, "### 補題（正部分 envelope の加法性）"]
+    introduction_aliases: ["### 補題（正部分 envelope の加法性）"]
+    requires:
+      - functional.riesz-positive-envelope
+      - functional.c0-banach-lattice
+
+  - id: functional.positive-cone-linear-extension
+    name: 正錐上の加法写像の線形拡張
+    kind: lemma
+    aliases: [正錐上の加法写像の線形拡張, "### 補題（正錐上の加法写像の線形拡張）"]
+    introduction_aliases: ["### 補題（正錐上の加法写像の線形拡張）"]
+    requires:
+      - functional.c0-banach-lattice
+
+  - id: functional.c0-functional-positive-negative-decomposition
+    name: C0有界汎関数の正負分解
+    kind: theorem
+    aliases: [C0有界汎関数の正負分解, "### 定理（有界汎関数の正負分解）"]
+    introduction_aliases: ["### 定理（有界汎関数の正負分解）"]
+    requires:
+      - functional.riesz-positive-envelope-additivity
+      - functional.positive-cone-linear-extension
+
+  - id: measure.finite-signed-radon
+    name: 有限符号付きRadon測度
+    kind: definition
+    aliases: [有限符号付きRadon測度, "### 定義（有限符号付き Radon 測度）"]
+    introduction_aliases: ["### 定義（有限符号付き Radon 測度）"]
+    requires:
+      - measure.jordan-decomposition
+      - measure.radon-measure
+
+  - id: measure.finite-radon-domination-regularity
+    name: 有限Radon測度のdominationによる正則性
+    kind: lemma
+    aliases: [有限Radon測度のdominationによる正則性, "### 補題（有限 Radon 測度の domination による正則性）"]
+    introduction_aliases: ["### 補題（有限 Radon 測度の domination による正則性）"]
+    requires:
+      - measure.radon-measure
+
+  - id: measure.finite-radon-difference-signed-radon
+    name: 有限Radon測度の差
+    kind: lemma
+    aliases: [有限Radon測度の差, "### 補題（有限 Radon 測度の差は有限符号付き Radon）"]
+    introduction_aliases: ["### 補題（有限 Radon 測度の差は有限符号付き Radon）"]
+    requires:
+      - measure.finite-signed-radon
+      - measure.finite-radon-domination-regularity
+      - measure.jordan-minimality
+
+  - id: measure.c0-general-signed-radon-existence
+    name: C0有界汎関数の有限符号付きRadon表示
+    kind: theorem
+    aliases: [C0有界汎関数の有限符号付きRadon表示, "### 定理（任意の有界汎関数の有限符号付き Radon 表示）"]
+    introduction_aliases: ["### 定理（任意の有界汎関数の有限符号付き Radon 表示）"]
+    requires:
+      - functional.c0-functional-positive-negative-decomposition
+      - measure.c0-positive-riesz-representation
+      - measure.finite-radon-difference-signed-radon
+
+  - id: measure.signed-radon-c0-norm-equality
+    name: 有限符号付きRadon測度のC0ノルム等式
+    kind: theorem
+    aliases: [有限符号付きRadon測度のC0ノルム等式, "### 定理（有限符号付き Radon 測度のノルム等式）"]
+    introduction_aliases: ["### 定理（有限符号付き Radon 測度のノルム等式）"]
+    requires:
+      - measure.finite-signed-radon
+      - measure.signed-integral-variation-bound
+      - measure.hahn-decomposition
+      - topology.compact-open-cutoff
+
+  - id: measure.riesz-markov-c0-real
+    name: Riesz–Markov実数値C0版
+    kind: theorem
+    aliases: [Riesz–Markov実数値C0版, Riesz-Markov C0 real, "### 定理（Riesz–Markov：実数値 C0 版）"]
+    introduction_aliases: ["### 定理（Riesz–Markov：実数値 C0 版）"]
+    requires:
+      - measure.c0-general-signed-radon-existence
+      - measure.signed-radon-c0-norm-equality
