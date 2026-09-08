@@ -902,7 +902,7 @@ $$
 
 <a id="thm-fa3-weak-star-continuous-dual"></a>
 <!-- formal-statement-start -->
-### 定理（弱*位相の連続双対の同定）
+### 定理（弱*連続線形汎関数は標準埋め込みの像）
 
 線形汎関数
 
