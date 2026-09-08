@@ -205,7 +205,7 @@ $$
 \frac{G(f(z_0+h))-G(f(z_0))}{h}
 &=
 G'(w_0)\frac{k}{h}
-+rac{k}{h}\varepsilon(k).
++\frac{k}{h}\varepsilon(k).
 \end{aligned}
 $$
 
@@ -421,7 +421,7 @@ $$
 
 $$
 \Delta u
-=u_x s+u_y t+\alpha(h)s+eta(h)t.
+=u_x s+u_y t+\alpha(h)s+\beta(h)t.
 $$
 
 $|s|,|t|\le r$ なので
@@ -466,7 +466,7 @@ $h\ne0$ で割れば
 
 $$
 \frac{f(z_0+h)-f(z_0)}{h}
-=A+rac{o(|h|)}{h}.
+=A+\frac{o(|h|)}{h}.
 $$
 
 最後の項の絶対値は $o(|h|)/|h|\to0$ なので、差商は $A$ へ収束します。$\square$
