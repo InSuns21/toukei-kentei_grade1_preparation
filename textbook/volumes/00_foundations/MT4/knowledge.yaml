@@ -1,0 +1,148 @@
+chapter: MT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT0
+  - MT3
+  - F0-00D2B
+
+forward_references: []
+
+concepts:
+  - id: measure.mt4-l1-local
+    name: 局所可積分
+    kind: definition
+    aliases: ["### 定義（局所可積分）"]
+    introduction_aliases: ["### 定義（局所可積分）"]
+    requires: []
+
+  - id: measure.mt4-cc-dense-l1
+    name: C_c(R)のL1稠密性
+    kind: theorem
+    aliases: ["### 補題（$C_c(\\mathbb R)$ の $L^1$ 稠密性）"]
+    introduction_aliases: ["### 補題（$C_c(\\mathbb R)$ の $L^1$ 稠密性）"]
+    requires: []
+
+  - id: measure.mt4-interval-selection
+    name: 1次元有限区間選択補題
+    kind: lemma
+    aliases: ["### 補題（有限区間族からの互いに素な選択）"]
+    introduction_aliases: ["### 補題（有限区間族からの互いに素な選択）"]
+    requires: []
+
+  - id: measure.mt4-maximal-function
+    name: 非中心Hardy–Littlewood maximal function
+    kind: definition
+    aliases: ["### 定義（非中心 Hardy–Littlewood maximal function）"]
+    introduction_aliases: ["### 定義（非中心 Hardy–Littlewood maximal function）"]
+    requires: []
+
+  - id: measure.mt4-maximal-weak11
+    name: Hardy–Littlewood maximal弱(1,1)評価
+    kind: theorem
+    aliases: ["### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）"]
+    introduction_aliases: ["### 定理（Hardy–Littlewood maximal 弱 $(1,1)$ 評価）"]
+    requires:
+      - measure.mt4-maximal-function
+      - measure.mt4-interval-selection
+
+  - id: measure.mt4-lebesgue-differentiation-l1
+    name: Lebesgue微分定理L1版
+    kind: theorem
+    aliases: ["### 定理（Lebesgue 微分定理：$L^1(\\mathbb R)$ 版）"]
+    introduction_aliases: ["### 定理（Lebesgue 微分定理：$L^1(\\mathbb R)$ 版）"]
+    requires:
+      - measure.mt4-cc-dense-l1
+      - measure.mt4-maximal-weak11
+
+  - id: measure.mt4-lebesgue-differentiation-local
+    name: Lebesgue微分定理L1loc版
+    kind: theorem
+    aliases: ["### 系（$L^1_{\\mathrm{loc}}$ 版）"]
+    introduction_aliases: ["### 系（$L^1_{\\mathrm{loc}}$ 版）"]
+    requires:
+      - measure.mt4-l1-local
+      - measure.mt4-lebesgue-differentiation-l1
+
+  - id: measure.mt4-lebesgue-density
+    name: Lebesgue密度定理
+    kind: theorem
+    aliases: ["### 定理（Lebesgue 密度定理）"]
+    introduction_aliases: ["### 定理（Lebesgue 密度定理）"]
+    requires:
+      - measure.mt4-lebesgue-differentiation-local
+
+  - id: analysis.mt4-absolute-continuous-function
+    name: 絶対連続関数
+    kind: definition
+    aliases: ["### 定義（絶対連続関数）"]
+    introduction_aliases: ["### 定義（絶対連続関数）"]
+    requires: []
+
+  - id: measure.mt4-integral-absolute-continuity
+    name: Lebesgue積分の絶対連続性
+    kind: lemma
+    aliases: ["### 補題（積分の絶対連続性）"]
+    introduction_aliases: ["### 補題（積分の絶対連続性）"]
+    requires: []
+
+  - id: analysis.mt4-indefinite-integral-ac
+    name: L1不定積分の絶対連続性
+    kind: theorem
+    aliases: ["### 定理（$L^1$ 不定積分の絶対連続性）"]
+    introduction_aliases: ["### 定理（$L^1$ 不定積分の絶対連続性）"]
+    requires:
+      - analysis.mt4-absolute-continuous-function
+      - measure.mt4-integral-absolute-continuity
+      - measure.mt4-lebesgue-differentiation-l1
+
+  - id: analysis.mt4-bounded-variation
+    name: bounded variationと全変動
+    kind: definition
+    aliases: ["### 定義（全変動・bounded variation）"]
+    introduction_aliases: ["### 定義（全変動・bounded variation）"]
+    requires: []
+
+  - id: analysis.mt4-ac-implies-bv
+    name: ACならBV
+    kind: theorem
+    aliases: ["### 定理（AC $\\Rightarrow$ BV）"]
+    introduction_aliases: ["### 定理（AC $\\Rightarrow$ BV）"]
+    requires:
+      - analysis.mt4-absolute-continuous-function
+      - analysis.mt4-bounded-variation
+
+  - id: analysis.mt4-variation-ac
+    name: AC関数の変動関数もAC
+    kind: lemma
+    aliases: ["### 補題（AC 関数の変動関数も AC）"]
+    introduction_aliases: ["### 補題（AC 関数の変動関数も AC）"]
+    requires:
+      - analysis.mt4-absolute-continuous-function
+      - analysis.mt4-bounded-variation
+
+  - id: measure.mt4-stieltjes-measure
+    name: 連続増加関数のLebesgue–Stieltjes測度
+    kind: lemma
+    aliases: ["### 補題（連続増加関数の Lebesgue–Stieltjes 測度）"]
+    introduction_aliases: ["### 補題（連続増加関数の Lebesgue–Stieltjes 測度）"]
+    requires: []
+
+  - id: measure.mt4-ac-stieltjes-absolute
+    name: 増加AC関数のStieltjes測度の絶対連続性
+    kind: lemma
+    aliases: ["### 補題（増加 AC 関数の Stieltjes 測度は Lebesgue 測度に絶対連続）"]
+    introduction_aliases: ["### 補題（増加 AC 関数の Stieltjes 測度は Lebesgue 測度に絶対連続）"]
+    requires:
+      - analysis.mt4-absolute-continuous-function
+      - measure.mt4-stieltjes-measure
+
+  - id: analysis.mt4-ac-ftc
+    name: 絶対連続関数の基本定理
+    kind: theorem
+    aliases: ["### 定理（絶対連続関数の基本定理）"]
+    introduction_aliases: ["### 定理（絶対連続関数の基本定理）"]
+    requires:
+      - analysis.mt4-indefinite-integral-ac
+      - analysis.mt4-variation-ac
+      - measure.mt4-ac-stieltjes-absolute
