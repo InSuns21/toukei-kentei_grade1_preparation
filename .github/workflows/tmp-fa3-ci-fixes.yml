@@ -1,0 +1,43 @@
+name: Temporary FA3 CI text fixes
+
+on:
+  push:
+    branches:
+      - codex/fa3-weak-weak-star-topology
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/fa3-weak-weak-star-topology
+      - name: Apply exact FA3 text fixes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/FA3/index.md')
+          s = p.read_text()
+          replacements = [
+              ('### 定理（弱位相の連続双対は $X^*$ そのもの）', '### 定理（弱位相の連続双対の同定）'),
+              ('### 定理（弱*位相の連続双対は $J(X)$）', '### 定理（弱*位相の連続双対の同定）'),
+              ('弱*収束の評価判定から $f_n\\overset{*}{\\rightharpoonup}0$。', '[弱*収束の評価判定](#thm-fa3-weak-star-convergence-criterion)から $f_n\\overset{*}{\\rightharpoonup}0$。'),
+          ]
+          for old, new in replacements:
+              if s.count(old) != 1:
+                  raise SystemExit(f'exact replacement target count for {old!r}: {s.count(old)}')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+      - name: Commit fixes and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FA3/index.md
+          git rm .github/workflows/tmp-fa3-ci-fixes.yml
+          git commit -m 'Fix FA3 dependency headings and links'
+          git push origin HEAD:codex/fa3-weak-weak-star-topology
