@@ -31,7 +31,7 @@ theorems:
   - { id: FA3-THM-05, name: 弱*収束の評価判定 }
   - { id: FA3-THM-06, name: 標準埋め込みの等長性 }
   - { id: FA3-PROP-02, name: 弱収束と標準埋め込み後の弱*収束 }
-  - { id: FA3-THM-07, name: 弱*位相の連続双対の同定 }
+  - { id: FA3-THM-07, name: 弱*連続線形汎関数は標準埋め込みの像 }
   - { id: FA3-PROP-03, name: 有界線形作用素の弱連続性 }
 canonical_examples: [R2の帯状弱近傍, ell2標準基底の弱収束, ell1座標汎関数の弱*収束, 標準埋め込みの等長性]
 problem_patterns: [FA3-WEAK-BASE-1, FA3-WEAK-CONV-1, FA3-WEAKSTAR-CONV-1, FA3-BIDUAL-EMBED-1, FA3-WEAK-DUAL-1, FA3-WEAKSTAR-DUAL-1, FA3-FINITE-DIM-1]
