@@ -1,0 +1,24 @@
+id: "CA3"
+title: "標準複素解析 III：Cauchy積分公式・Taylor展開・Liouville・最大値原理"
+volume: "foundations"
+status: supplementary
+proof_status: todo
+prerequisites: [CA2]
+official_scope: []
+learning_objectives:
+  - Cauchy積分公式から高階導関数・Taylor展開・Cauchy評価へ進む論理を説明できる
+  - Liouvilleから代数学の基本定理を導く機構を説明できる
+  - 恒等定理・最大値原理・複素解析の開写像定理を区別できる
+  - FA5のスペクトル非空性でLiouvilleが必要になる理由を説明できる
+definitions: []
+theorems:
+  - { id: CA3-THM-01, name: Cauchy積分公式 }
+  - { id: CA3-THM-02, name: Cauchy高階導関数公式 }
+  - { id: CA3-THM-03, name: 正則関数のTaylor展開 }
+  - { id: CA3-THM-04, name: Cauchy評価 }
+  - { id: CA3-THM-05, name: Liouvilleの定理 }
+  - { id: CA3-COR-01, name: 代数学の基本定理 }
+  - { id: CA3-THM-06, name: 零点の孤立性・恒等定理 }
+  - { id: CA3-THM-07, name: 最大値原理 }
+  - { id: CA3-THM-08, name: 複素解析の開写像定理 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }

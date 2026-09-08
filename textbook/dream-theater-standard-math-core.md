@@ -4,7 +4,7 @@
 
 既存章はできるだけ正本として再利用し、新章は不足分だけを追加します。追加章は原則として **定義 → 代表定理 → 証明 → 典型例・反例 → 後続章への接続** まで閉じます。
 
-章IDは実装時の衝突を避けるため、予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`FA`（functional analysis）とします。公開済みの旧章URLは、分割時も互換ハブを残して読者リンクを切らないようにします。
+章IDは実装時の衝突を避けるため、予定名前空間を `RA`（real analysis）、`LA`（linear algebra）、`TOP`（topology）、`MT`（measure theory）、`CA`（complex analysis）、`FA`（functional analysis）とします。公開済みの旧章URLは、分割時も互換ハブを残して読者リンクを切らないようにします。
 
 ## 0. 採用方針
 
@@ -69,6 +69,17 @@ flowchart TD
   TOP5 --> MT5["Radon測度・Riesz-Markov<br/>MT5"]
   MT2 --> MT5
 
+  RA3 --> CA1["複素解析 I<br/>複素微分・Cauchy-Riemann<br/>CA1"]
+  RA5 --> CA1
+  LA1 --> CA1
+  CA1 --> CA2["複素線積分・Cauchy-Goursat<br/>CA2"]
+  RA4 --> CA2
+  TOP3 --> CA2
+  CA2 --> CA3["Cauchy積分公式・Liouville<br/>CA3"]
+  CA3 --> CA4["Laurent・留数<br/>CA4"]
+  CA4 --> CA5["偏角原理・Rouche・解析接続<br/>CA5"]
+  CA5 --> CA6["Möbius・調和関数・Poisson核<br/>CA6"]
+
   MTP --> FA0["関数解析 I<br/>Banach/Hilbert・有界作用素<br/>既存 D1/C1/C3"]
   LA6 --> FA0
   FA0 --> HB["Hahn-Banach・双対<br/>既存 C2/C6"]
@@ -76,9 +87,11 @@ flowchart TD
   FA0 --> FA2
   HB --> FA4["weak/weak*・Banach-Alaoglu・反射性<br/>FA3/FA4"]
   TOP5 --> FA4
-  FA0 --> FA6["spectrum・resolvent・compact operator<br/>FA5/FA6"]
-  FA2 --> FA6
-  LA6 --> FA6
+  FA0 --> FA5["spectrum・resolvent<br/>FA5"]
+  FA2 --> FA5
+  LA6 --> FA5
+  CA3 --> FA5
+  FA5 --> FA6["compact operator<br/>FA6"]
   FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
   MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
   MT6 --> HB
@@ -393,7 +406,33 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 ---
 
-# 7. 関数解析：標準三大定理の先まで
+# 7. 複素解析：Cauchy 理論から留数・調和関数まで
+
+複素解析は FA5 の補助定理置き場ではなく、Fourier解析・PDE・スペクトル論へ共通に流れ込む独立した標準系列とする。現段階では **定義・定理・例・演習の骨格を先に固定し、定理の証明は TODO** とする。証明完成まで YAML 上の状態は `planned` のままにする。
+
+## CA1 複素微分・Cauchy–Riemann・初等正則関数 `core`
+複素微分、holomorphic/entire、Cauchy–Riemann、Wirtinger微分、複素指数・三角関数。
+
+## CA2 複素線積分・原始関数・Cauchy–Goursat `core`
+曲線積分、ML評価、原始関数、三角形版Cauchy–Goursat、星型領域、対数の枝。
+
+## CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理 `core`
+Cauchy積分公式、高階導関数、正則なら解析的、Cauchy評価、Liouville、恒等定理、最大値原理。**FA5 のスペクトル非空性はこの章へ正式依存する。**
+
+## CA4 Laurent展開・孤立特異点・留数定理 `core`
+Laurent展開、可除特異点・極・真性特異点、留数定理、contourによる実積分。Fourier変換の具体例へ接続する。
+
+## CA5 偏角原理・Rouché・解析接続 `core / advanced-standard`
+winding number、偏角原理、Rouché、解析接続、monodromy。
+
+## CA6 Möbius変換・Schwarz補題・調和関数・Poisson核 `advanced-standard / bridge`
+Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel。Fourier級数とDirichlet問題へ直接接続する。
+
+**証明境界**：Riemann mapping theorem、normal family、Montel theorem は既知扱いせず、RA8 と接続する後続 advanced-standard 拡張へ送る。
+
+---
+
+# 8. 関数解析：標準三大定理の先まで
 
 現行 C1/C1A/C2/C3/C3A/C3B/C6 は Banach/Hilbert・射影・双対・Riesz・有界線形作用素・随伴・Hahn–Banach を担当します。
 
@@ -449,7 +488,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 ---
 
-# 8. 既存正本との役割分担
+# 9. 既存正本との役割分担
 
 | 分野 | 既存の正本 | 新系列の役割 |
 |---|---|---|
@@ -458,21 +497,24 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 | 計算微積分 | F0-00 | RA3/RA4/RA6/RA7で理論を与える |
 | 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・行列式・作用素多項式・Jordan構造等を補う |
 | 測度・Lebesgue | D2–D5, D2A–E | MT0がLebesgue正則性を閉じ、MT系列が収束様式・RN・微分定理等を補う |
+| 複素解析 | RA/LA/TOPを再利用 | CA系列がCauchy理論・留数・調和関数を正本化し、FA5・Fourier・PDEへ接続 |
 | Banach/Hilbert | C1–C3, C6 | FA系列がBaire系三大定理・弱位相・スペクトルを補う |
 
 二重正本は作りません。既存章に定義がある概念は新章からリンクし、新章では新しい定理・依存だけを担当します。
 
 ---
 
-# 9. 実装順
+# 10. 実装順
 
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 通常行列式 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。LA3D の抽象行列式は LA3C から分岐する発展読順。
 4. **TOP1–TOP6**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact/Baire。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
-6. **FA1–FA7**：Baire系三大定理 → weak/weak* → spectrum/compact operator。
-7. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
+6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
+7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。
+8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
+9. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
 各バッチで次を監査対象にします。
 
@@ -485,7 +527,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 ---
 
-# 10. 到達状態
+# 11. 到達状態
 
 この標準コアを通ると、DREAM THEATER は次を狙います。
 
@@ -493,6 +535,7 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 - **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
+- **複素解析**：複素微分・Cauchy理論・Taylor/Liouville・Laurent/留数・偏角原理・調和関数・Poisson核まで一周し、Fourier/PDE/スペクトル論の共通前提を正本化。
 - **関数解析**：Banach/Hilbertから一様有界性・開写像・閉グラフ・弱位相・スペクトル・compact operatorまで一周。
 
 その上で確率論・統計理論・凸解析・RKHS・PDEへ進み、「知らない定理が地下から突然生えてくる」状態を減らします。

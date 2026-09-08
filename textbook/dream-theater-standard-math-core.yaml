@@ -355,12 +355,48 @@ nodes:
     implemented_at: 2026-09-08
     implementation_path: textbook/volumes/00_foundations/FA4/index.md
     prerequisites: [FA3, TOP5, TOP6, HB]
+  - id: CA1
+    title: 複素微分・Cauchy–Riemann・初等正則関数
+    area: complex-analysis
+    tier: core
+    status: planned
+    prerequisites: [RA3, RA5, LA1]
+  - id: CA2
+    title: 複素線積分・原始関数・Cauchy–Goursat
+    area: complex-analysis
+    tier: core
+    status: planned
+    prerequisites: [CA1, RA4, TOP3]
+  - id: CA3
+    title: Cauchy積分公式・Taylor展開・Liouville・最大値原理
+    area: complex-analysis
+    tier: core
+    status: planned
+    prerequisites: [CA2]
+  - id: CA4
+    title: Laurent展開・孤立特異点・留数定理
+    area: complex-analysis
+    tier: core
+    status: planned
+    prerequisites: [CA3]
+  - id: CA5
+    title: 偏角原理・Rouché・解析接続
+    area: complex-analysis
+    tier: core-advanced-standard
+    status: planned
+    prerequisites: [CA4, TOP3]
+  - id: CA6
+    title: Möbius変換・Schwarz補題・調和関数・Poisson核
+    area: complex-analysis
+    tier: advanced-standard-bridge
+    status: planned
+    prerequisites: [CA5]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
     tier: core
     status: planned
-    prerequisites: [FA0, FA2, LA6]
+    prerequisites: [FA0, FA2, LA6, CA3]
   - id: FA6
     title: compact operator
     area: functional-analysis
@@ -388,9 +424,15 @@ implementation_batches:
     id: measure-theory-extension
     nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6]
   - order: 5
-    id: functional-analysis-extension
-    nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]
+    id: functional-analysis-foundation
+    nodes: [FA1, FA2, FA3, FA4]
   - order: 6
+    id: complex-analysis-core
+    nodes: [CA1, CA2, CA3, CA4, CA5, CA6]
+  - order: 7
+    id: functional-analysis-spectral
+    nodes: [FA5, FA6, FA7]
+  - order: 8
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6, RA7, RA8]
 
