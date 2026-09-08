@@ -133,10 +133,10 @@ concepts:
       - functional.weak-star-convergence-evaluation-criterion
 
   - id: functional.weak-star-continuous-dual-recovery
-    name: 弱*位相の連続双対の同定
+    name: 弱*連続線形汎関数は標準埋め込みの像
     kind: theorem
-    aliases: [弱*位相の連続双対の同定, "### 定理（弱*位相の連続双対の同定）"]
-    introduction_aliases: ["### 定理（弱*位相の連続双対の同定）"]
+    aliases: [弱*連続線形汎関数は標準埋め込みの像, "### 定理（弱*連続線形汎関数は標準埋め込みの像）"]
+    introduction_aliases: ["### 定理（弱*連続線形汎関数は標準埋め込みの像）"]
     requires:
       - functional.weak-star-topology
       - functional.canonical-bidual-embedding
