@@ -20,61 +20,32 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
-          # DREAM THEATER index: FA3 must come after Hahn--Banach, which it uses.
           p = Path('textbook/dream-theater-index.json')
           s = p.read_text()
           old = '        "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",\n        "textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md",'
           new = '        "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",\n        "textbook/volumes/00_foundations/FA3/index.md",\n        "textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md",'
-          if old not in s:
-              raise SystemExit('index insertion target not found')
+          if old not in s: raise SystemExit('index insertion target not found')
           p.write_text(s.replace(old, new, 1))
 
-          # Standard core node.
           p = Path('textbook/dream-theater-standard-math-core.yaml')
           s = p.read_text()
-          old = '''  - id: FA3
-    title: weak / weak* topology
-    area: functional-analysis
-    tier: core
-    status: planned
-    prerequisites: [FA0, HB]
-'''
-          new = '''  - id: FA3
-    title: 弱位相・弱*位相・標準埋め込み
-    area: functional-analysis
-    tier: core
-    status: implemented
-    implemented_at: 2026-09-08
-    implementation_path: textbook/volumes/00_foundations/FA3/index.md
-    prerequisites: [FA0, HB, TOP6]
-'''
-          if old not in s:
-              raise SystemExit('standard core FA3 target not found')
+          old = '  - id: FA3\n    title: weak / weak* topology\n    area: functional-analysis\n    tier: core\n    status: planned\n    prerequisites: [FA0, HB]\n'
+          new = '  - id: FA3\n    title: 弱位相・弱*位相・標準埋め込み\n    area: functional-analysis\n    tier: core\n    status: implemented\n    implemented_at: 2026-09-08\n    implementation_path: textbook/volumes/00_foundations/FA3/index.md\n    prerequisites: [FA0, HB, TOP6]\n'
+          if old not in s: raise SystemExit('standard core FA3 target not found')
           p.write_text(s.replace(old, new, 1))
 
-          # Reader roadmap order.
           p = Path('textbook/dream-theater.md')
           s = p.read_text()
-          old = '''9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)
-10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-'''
-          new = '''9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)
-10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)
-12. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-'''
-          if old not in s:
-              raise SystemExit('roadmap insertion target not found')
+          old = '9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)\n10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)\n11. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)\n'
+          new = '9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)\n10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)\n11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)\n12. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)\n'
+          if old not in s: raise SystemExit('roadmap insertion target not found')
           p.write_text(s.replace(old, new, 1))
 
-          # Named proof dependency must point to the canonical Riesz anchor.
           p = Path('textbook/volumes/00_foundations/FA3/index.md')
           s = p.read_text()
           link = '[Riesz 表現](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)'
-          s = s.replace('Hilbert 空間の Riesz 表現により', f'Hilbert 空間の {link}により')
-          s = s.replace('Riesz 表現により $f(x)=', f'{link}により $f(x)=')
+          s = s.replace('Hilbert 空間の Riesz 表現により', 'Hilbert 空間の ' + link + 'により')
+          s = s.replace('Riesz 表現により $f(x)=', link + 'により $f(x)=')
           p.write_text(s)
           PY
       - name: Commit registration and remove workflow
