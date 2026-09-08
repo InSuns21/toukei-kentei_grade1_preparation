@@ -68,7 +68,7 @@ concepts:
   - id: linear.euclidean-operator-norm
     name: Euclidノルムから誘導される作用素ノルム
     kind: definition
-    aliases: [Euclidノルムから誘導される作用素ノルム, Euclidean operator norm, 作用素ノルム]
+    aliases: [Euclidノルムから誘導される作用素ノルム, Euclidean operator norm]
     requires:
       - linear.complex-inner-product
 
