@@ -206,7 +206,7 @@ $$
 
 だから $\mathcal U$ の二者択一により $\mathcal U_i$ も ultrafilter です。
 
-$K_i$ はコンパクトなので前節の定理から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
+$K_i$ はコンパクトなので[前節の定理](#thm-fa4-compact-ultrafilter)から $\mathcal U_i$ はある点へ収束します。しかも $K_i$ は Hausdorff なので極限は一意です。実際 $x_i\ne y_i$ がともに極限なら、互いに素な近傍 $V\ni x_i$, $W\ni y_i$ があり、$V,W\in\mathcal U_i$ から $\varnothing=V\cap W\in\mathcal U_i$ となって矛盾します。
 
 よって各 $i$ に対する唯一の極限点 $x_i$ が定まり、$x=(x_i)_{i\in I}\in K$ が定まります。ここでは各座標で「どれか一つ」を新たに選んでいません。Hausdorff 性が極限を一意に指定しています。
 
@@ -646,7 +646,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有界性からある $R>0$ が存在して $C\subseteq RB_X$。反射性と前節の定理により $B_X$ は弱コンパクトで、スカラー倍写像 $x\mapsto Rx$ は弱位相の同相写像なので $RB_X$ も弱コンパクトです。
+有界性からある $R>0$ が存在して $C\subseteq RB_X$。反射性と[前節の定理](#thm-fa4-reflexive-weak-compact-ball)により $B_X$ は弱コンパクトで、スカラー倍写像 $x\mapsto Rx$ は弱位相の同相写像なので $RB_X$ も弱コンパクトです。
 
 上で Hahn–Banach 分離から $C$ が弱閉であることを示しました。従って $C$ は弱コンパクト空間 $RB_X$ の閉部分集合であり、弱コンパクトです。$\square$
 <!-- proof-end -->
