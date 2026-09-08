@@ -5,21 +5,48 @@ prerequisites:
   - F0-02C1
 
 concepts:
+  - id: functional.convex-set-basic-c1a
+    name: 凸集合
+    kind: definition
+    aliases: [凸集合]
+
+  - id: linear.parallelogram-identity-recap-c1a
+    name: 平行四辺形恒等式の再掲
+    kind: proposition
+    introduction_aliases: [平行四辺形恒等式]
+    aliases: [平行四辺形恒等式の再掲, 平行四辺形恒等式]
+    requires:
+      - linear.parallelogram-identity
+
+  - id: functional.norm-continuity-c1a
+    name: 逆三角不等式とノルムの連続性
+    kind: lemma
+    aliases: [逆三角不等式とノルムの連続性, 逆三角不等式, ノルムの連続性]
+    requires:
+      - functional.normed-space-recap-c1
+
   - id: functional.hilbert-projection-theorem
     name: Hilbert空間の射影定理
     kind: theorem
     aliases: [Hilbert空間の射影定理, Hilbert射影定理]
     requires:
       - functional.hilbert-space
-      - convex.convex-set
+      - functional.convex-set-basic-c1a
       - topology.closed-set
+      - linear.parallelogram-identity-recap-c1a
+      - functional.norm-continuity-c1a
+
+  - id: functional.projection-characterization-c1a
+    name: 閉凸集合への射影の特徴付け
+    kind: theorem
+    aliases: [閉凸集合への射影の特徴付け, 射影の特徴付け]
+    requires:
+      - functional.hilbert-projection-theorem
 
   - id: functional.orthogonal-decomposition
     name: 直交分解
     kind: theorem
-    introduction: inline
-    introduction_aliases: [への直交分解です]
-    aliases: [直交分解]
+    aliases: [直交分解, 閉部分空間への射影と直交分解]
     requires:
-      - functional.hilbert-projection-theorem
+      - functional.projection-characterization-c1a
       - linear.orthogonal-complement
