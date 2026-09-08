@@ -1,0 +1,43 @@
+name: Temporary MT4 RN source fix
+
+on:
+  push:
+    branches:
+      - codex/mt5-radon-riesz-markov
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/mt5-radon-riesz-markov
+          fetch-depth: 0
+      - name: Point RN references to the knowledge-DAG source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/MT4/index.md')
+          s = p.read_text(encoding='utf-8')
+          pairs = [
+              ('[MT3 の Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)', '[Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)'),
+              ('[Radon–Nikodym 定理](../MT3/index.md#thm-mt3-rn-finite)から', '[Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から'),
+          ]
+          for old, new in pairs:
+              n = s.count(old)
+              if n != 1:
+                  raise SystemExit(f'expected one occurrence, got {n}: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/MT4/index.md
+          git commit -m 'fix(MT4): point RN references to DAG source'
+          git push origin HEAD:codex/mt5-radon-riesz-markov
