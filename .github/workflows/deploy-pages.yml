@@ -4,6 +4,19 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'pages/**'
+      - 'textbook/**'
+      - 'statistical-mathematics/**'
+      - 'applied-rikou-80/**'
+      - 'anki/**'
+      - 'references/**'
+      - 'scripts/**'
+      - 'CONTENT_GUIDELINES.md'
+      - 'EXERCISE_GUIDELINES.md'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
