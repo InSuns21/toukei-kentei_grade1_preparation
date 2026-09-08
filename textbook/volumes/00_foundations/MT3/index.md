@@ -46,7 +46,7 @@ $$
 
 有限測度は σ-finite ですが、逆は一般に成り立ちません。Lebesgue 測度は $\mathbb R=\bigcup_n[-n,n]$ により σ-finite です。
 
-<a id="def-mt3-rn-derivative"></a>
+<a id="def-mt3-rn-density"></a>
 <!-- formal-statement-start -->
 ### 定義（Radon–Nikodym 微分）
 
@@ -682,9 +682,9 @@ $$
 なので正負部分の差を取れます。$\square$
 <!-- proof-end -->
 
-<a id="thm-mt3-chain-rule"></a>
+<a id="thm-mt3-rn-composition"></a>
 <!-- formal-statement-start -->
-### 系（Radon–Nikodym 微分の chain rule）
+### 系（Radon–Nikodym 微分の連鎖律）
 
 $\lambda\ll\nu\ll\mu$ で、必要な測度が σ-finite とする。このとき
 
@@ -1332,7 +1332,7 @@ $$
 
 ## 9.5 定義の横断確認：有限離散測度
 
-<!-- definition-example-start: def-mt3-sigma-finite, def-mt3-rn-derivative, def-mt3-singular-positive, def-mt3-singular-signed -->
+<!-- definition-example-start: def-mt3-sigma-finite, def-mt3-rn-density, def-mt3-singular-positive, def-mt3-singular-signed -->
 $X=\{a,b\}$ とします。$\mu=\delta_a+\delta_b$ は有限測度なので、$X_1=X$ と取れば σ-finite です。$\nu=2\delta_a+3\delta_b$ とすると、$f(a)=2,f(b)=3$ に対して全ての $E\subseteq X$ で $\nu(E)=\int_E f\,d\mu$ となります。
 
 **定義の確認**：従って $f=d\nu/d\mu$ です。一方、$\sigma=\delta_a$ と $\lambda=\delta_b$ について $S=\{a\}$ と置けば $\lambda(S)=0$ かつ $\sigma(X\setminus S)=0$ なので $\sigma\perp\lambda$。さらに有限符号付き測度 $\eta=2\delta_a$ は $|\eta|=2\delta_a$ であり、同じ $S$ を使って $\eta\perp\lambda$ です。正測度の特異性と符号付き測度の特異性では、後者が全変動を通して定義される点まで確認できます。
