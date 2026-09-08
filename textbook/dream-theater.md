@@ -86,10 +86,11 @@
 12. [MT3 Radon–Nikodym定理・Lebesgue分解](textbook/volumes/00_foundations/MT3/index.md)
 13. [MT4 Lebesgue微分定理・絶対連続関数](textbook/volumes/00_foundations/MT4/index.md)
 14. [MT5 Radon測度・Riesz–Markov](textbook/volumes/00_foundations/MT5/index.md)
-15. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
-16. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
-17. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
-18. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
+15. [MT6 C0版Riesz–Markov・有限符号付きRadon測度](textbook/volumes/00_foundations/MT6/index.md)
+16. [MT-RL Riemann積分とLebesgue積分の橋](textbook/volumes/00_foundations/MT-RL/index.md)
+17. [F0-00D2C 積測度・Tonelli・Fubini](textbook/volumes/00_foundations/F0_00D2C_積測度_Tonelli_Fubini/index.md)
+18. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
+19. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
 
 ### 関数解析
 

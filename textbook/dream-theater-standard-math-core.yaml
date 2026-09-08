@@ -300,6 +300,14 @@ nodes:
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/MT5/index.md
     prerequisites: [TOP5, MT3]
+  - id: MT6
+    title: C0版Riesz–Markov・有限符号付きRadon測度
+    area: measure-theory
+    tier: advanced-standard-bridge
+    status: implemented
+    implemented_at: 2026-09-08
+    implementation_path: textbook/volumes/00_foundations/MT6/index.md
+    prerequisites: [MT5]
 
   - id: FA0
     title: Banach/Hilbert・有界作用素
@@ -314,7 +322,7 @@ nodes:
     tier: core
     status: existing-anchor
     reuses: [F0_02C2, F0_02C6]
-    prerequisites: [FA0, MT5]
+    prerequisites: [FA0, MT6]
   - id: FA1
     title: Baire・一様有界性原理
     area: functional-analysis
@@ -370,7 +378,7 @@ implementation_batches:
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
   - order: 4
     id: measure-theory-extension
-    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5]
+    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6]
   - order: 5
     id: functional-analysis-extension
     nodes: [FA1, FA2, FA3, FA4, FA5, FA6, FA7]

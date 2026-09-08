@@ -80,7 +80,8 @@ flowchart TD
   FA2 --> FA6
   LA6 --> FA6
   FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
-  MT5 --> HB
+  MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
+  MT6 --> HB
 ```
 
 最短の大動脈は次です。
@@ -372,8 +373,15 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 
 - regular Borel measure、Radon measure
 - locally compact Hausdorff space
-- Riesz–Markov representation theorem
-- `C_c(X)` / `C_0(X)` と測度
+- 正線形汎関数 `C_c(X) → R` の Riesz–Markov 表現
+- LCH cutoff と測度の構成・一意性
+
+## MT6 C0版Riesz–Markov・有限符号付きRadon測度 `advanced-standard / bridge`
+
+- `C_0(X)` の Banach lattice 性と `C_c(X)` の一様稠密性
+- 正錐上の envelope による有界汎関数の正負分解
+- 有限符号付き Radon 測度との表現対応
+- `||T|| = |ν|(X)` の等長性と一意性
 
 ## Lp系列の補強 `core`
 

@@ -1,0 +1,37 @@
+id: "MT6"
+title: "標準測度論 VII：C0版Riesz–Markov・有限符号付きRadon測度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MT5
+official_scope: []
+learning_objectives:
+  - C0(X)を無限遠で0になる連続関数として定義し、一様ノルムに関するBanach lattice性を直接証明できる
+  - 局所コンパクトHausdorff空間のcutoffを使ってC_c(X)のC_0(X)における一様稠密性を証明できる
+  - 正の有界線形汎関数をMT5へ制限し、cutoffとRadon正則性から表現測度の有限性とノルム等式を証明できる
+  - 非負関数集合上の正部分envelopeをmin分解で加法化し、正線形汎関数へ線形拡張してT=T^+-T^-を構成できる
+  - 有限Radon測度によるdominationからJordan部分のRadon性を導き、有限符号付きRadon測度の差を正当化できる
+  - Hahn分解・互いに素なcompact集合・cutoffを使って汎関数ノルムと全変動質量の等式を証明できる
+  - ノルム等式から実数値C0版Riesz–Markovの一意性を導ける
+definitions:
+  - { id: MT6-DEF-01, name: C0空間 }
+  - { id: MT6-DEF-02, name: 正部分envelope }
+  - { id: MT6-DEF-03, name: 有限符号付きRadon測度 }
+theorems:
+  - { id: MT6-THM-01, name: C0はBanach lattice }
+  - { id: MT6-THM-02, name: C_cのC0稠密性 }
+  - { id: MT6-THM-03, name: 正有界汎関数の有限Radon表現 }
+  - { id: MT6-LEM-01, name: 正部分envelopeの加法性 }
+  - { id: MT6-LEM-02, name: 非負関数集合上の加法写像の線形拡張 }
+  - { id: MT6-THM-04, name: 有界汎関数の正負分解 }
+  - { id: MT6-LEM-03, name: 有限Radon測度のdominationによる正則性 }
+  - { id: MT6-LEM-04, name: 有限Radon測度の差は有限符号付きRadon }
+  - { id: MT6-THM-05, name: 任意の有界汎関数の有限符号付きRadon表示 }
+  - { id: MT6-THM-06, name: 有限符号付きRadon測度のノルム等式 }
+  - { id: MT6-THM-07, name: Riesz-Markov実数値C0版 }
+canonical_examples: [compact空間上のC0=C, 離散空間N上のc0-l1対応, Dirac測度, counting measureとの境界]
+problem_patterns: [MT6-C0-COMPLETE-1, MT6-CC-DENSE-1, MT6-POSITIVE-REPRESENTATION-1, MT6-POSITIVE-ENVELOPE-1, MT6-SIGNED-RADON-1, MT6-NORM-EQUALITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 4.0, review: 1.0 }
