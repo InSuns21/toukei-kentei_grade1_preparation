@@ -84,11 +84,11 @@ concepts:
     requires:
       - functional.uniform-boundedness-principle
 
-  - id: functional.residual-unbounded-orbits
-    name: 一様非有界作用素族の残余集合版
+  - id: functional.dense-unbounded-orbits
+    name: 一様非有界作用素族の発散点は稠密
     kind: corollary
-    aliases: [一様非有界作用素族の残余集合版, resonance principle, "### 系（一様非有界作用素族の残余集合版）"]
-    introduction_aliases: ["### 系（一様非有界作用素族の残余集合版）"]
+    aliases: [一様非有界作用素族の発散点は稠密, "### 系（一様非有界作用素族の発散点は稠密）"]
+    introduction_aliases: ["### 系（一様非有界作用素族の発散点は稠密）"]
     requires:
       - functional.uniform-boundedness-principle
       - topology.baire-category-theorem-complete-metric
