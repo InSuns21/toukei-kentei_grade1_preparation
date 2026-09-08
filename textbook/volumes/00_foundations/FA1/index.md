@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa1-quotient-norm -->
-**定義の確認：$\mathbb R^2$ を横方向で割る**
+**定義の確認**：$\mathbb R^2$ を横方向で割る
 
 $X=\mathbb R^2$ に Euclid ノルムを入れ、
 
@@ -449,7 +449,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa1-pointwise-bounded -->
-**定義の確認：$\ell^2$ の座標汎関数**
+**定義の確認**：$\ell^2$ の座標汎関数
 
 $$
 p_n:\ell^2\to\mathbb R,
@@ -488,7 +488,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa1-uniformly-bounded -->
-**定義の確認：同じ座標汎関数族**
+**定義の確認**：同じ座標汎関数族
 
 上の $p_n$ について
 
