@@ -7,10 +7,7 @@ prerequisites:
   - F0-02C1
   - F0-02C3
 
-forward_references:
-  - functional.open-mapping-theorem
-  - functional.bounded-inverse-theorem
-  - functional.closed-graph-theorem
+forward_references: []
 
 concepts:
   - id: functional.quotient-norm
