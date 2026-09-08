@@ -54,22 +54,8 @@ jobs:
 
           core = Path('textbook/dream-theater-standard-math-core.yaml')
           text = core.read_text(encoding='utf-8')
-          old = '''  - id: FA4
-    title: Banach–Alaoglu・反射性
-    area: functional-analysis
-    tier: core-advanced-standard
-    status: planned
-    prerequisites: [FA3, TOP5]
-'''
-          new = '''  - id: FA4
-    title: Banach–Alaoglu・Goldstine・反射性
-    area: functional-analysis
-    tier: core-advanced-standard
-    status: implemented
-    implemented_at: 2026-09-08
-    implementation_path: textbook/volumes/00_foundations/FA4/index.md
-    prerequisites: [FA3, TOP5, TOP6, HB]
-'''
+          old = '  - id: FA4\n    title: Banach–Alaoglu・反射性\n    area: functional-analysis\n    tier: core-advanced-standard\n    status: planned\n    prerequisites: [FA3, TOP5]\n'
+          new = '  - id: FA4\n    title: Banach–Alaoglu・Goldstine・反射性\n    area: functional-analysis\n    tier: core-advanced-standard\n    status: implemented\n    implemented_at: 2026-09-08\n    implementation_path: textbook/volumes/00_foundations/FA4/index.md\n    prerequisites: [FA3, TOP5, TOP6, HB]\n'
           assert old in text
           text = text.replace(old, new, 1)
           core.write_text(text, encoding='utf-8')
