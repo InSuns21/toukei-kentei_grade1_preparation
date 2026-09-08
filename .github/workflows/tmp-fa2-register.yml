@@ -20,46 +20,22 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
           p = Path('textbook/dream-theater-index.json')
           s = p.read_text()
           old = '        "textbook/volumes/00_foundations/FA1/index.md",\n        "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",'
           new = '        "textbook/volumes/00_foundations/FA1/index.md",\n        "textbook/volumes/00_foundations/FA2/index.md",\n        "textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md",'
           if old not in s: raise SystemExit('dream-theater-index target missing')
           p.write_text(s.replace(old, new, 1))
-
           p = Path('textbook/dream-theater-standard-math-core.yaml')
           s = p.read_text()
-          old = '''  - id: FA2
-    title: 開写像定理・閉グラフ定理
-    area: functional-analysis
-    tier: core
-    status: planned
-    prerequisites: [FA1]
-'''
-          new = '''  - id: FA2
-    title: 開写像定理・有界逆定理・閉グラフ定理
-    area: functional-analysis
-    tier: core
-    status: implemented
-    implemented_at: 2026-09-08
-    implementation_path: textbook/volumes/00_foundations/FA2/index.md
-    prerequisites: [FA1]
-'''
+          old = '  - id: FA2\n    title: 開写像定理・閉グラフ定理\n    area: functional-analysis\n    tier: core\n    status: planned\n    prerequisites: [FA1]\n'
+          new = '  - id: FA2\n    title: 開写像定理・有界逆定理・閉グラフ定理\n    area: functional-analysis\n    tier: core\n    status: implemented\n    implemented_at: 2026-09-08\n    implementation_path: textbook/volumes/00_foundations/FA2/index.md\n    prerequisites: [FA1]\n'
           if old not in s: raise SystemExit('standard-core FA2 target missing')
           p.write_text(s.replace(old, new, 1))
-
           p = Path('textbook/dream-theater.md')
           s = p.read_text()
-          old = '''8. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)
-9. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-10. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-'''
-          new = '''8. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)
-9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)
-10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)
-11. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
-'''
+          old = '8. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)\n9. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)\n10. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)\n'
+          new = '8. [FA1 Banach空間の商・Baire・一様有界性原理](textbook/volumes/00_foundations/FA1/index.md)\n9. [FA2 開写像定理・有界逆定理・閉グラフ定理](textbook/volumes/00_foundations/FA2/index.md)\n10. [F0-02C6 Hahn–Banach](textbook/volumes/00_foundations/F0_02C6_Hahn_Banach_分離定理/index.md)\n11. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)\n'
           if old not in s: raise SystemExit('dream-theater list target missing')
           p.write_text(s.replace(old, new, 1))
           PY
