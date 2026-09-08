@@ -57,10 +57,10 @@ concepts:
       - functional.c0-banach-lattice
 
   - id: functional.positive-cone-linear-extension
-    name: 正錐上の加法写像の線形拡張
+    name: 非負関数集合上の加法写像の線形拡張
     kind: lemma
-    aliases: [正錐上の加法写像の線形拡張, "### 補題（正錐上の加法写像の線形拡張）"]
-    introduction_aliases: ["### 補題（正錐上の加法写像の線形拡張）"]
+    aliases: [非負関数集合上の加法写像の線形拡張, "### 補題（非負関数集合上の加法写像の線形拡張）"]
+    introduction_aliases: ["### 補題（非負関数集合上の加法写像の線形拡張）"]
     requires:
       - functional.c0-banach-lattice
 
