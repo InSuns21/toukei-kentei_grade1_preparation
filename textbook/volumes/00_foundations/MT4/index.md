@@ -1089,7 +1089,7 @@ BV
 \text{a.e. 微分可能}
 $$
 
-最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [RN 定理](../MT3/index.md#thm-mt3-rn-finite) と Lebesgue 微分定理を通じて証明済みです。
+最後の $BV\Rightarrow$ a.e.微分可能は本章では一般形を独立定理として証明していません。ただし AC の場合は [RN 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym) と Lebesgue 微分定理を通じて証明済みです。
 
 逆向きは一般に成り立ちません。特に Cantor 関数は
 
