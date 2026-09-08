@@ -1,0 +1,95 @@
+chapter: FA1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA2
+  - TOP6
+  - F0-02C1
+  - F0-02C3
+
+forward_references:
+  - functional.open-mapping-theorem
+  - functional.bounded-inverse-theorem
+  - functional.closed-graph-theorem
+
+concepts:
+  - id: functional.quotient-norm
+    name: 商ノルム
+    kind: definition
+    aliases: [商ノルム, quotient norm, "### 定義（商ノルム）"]
+    introduction_aliases: ["### 定義（商ノルム）"]
+    requires:
+      - linear.quotient-space
+      - functional.norm
+
+  - id: functional.quotient-norm-well-defined
+    name: 商ノルムのwell-defined性とノルム性
+    kind: theorem
+    aliases: [商ノルムのwell-defined性とノルム性, "### 定理（商ノルムの well-defined 性とノルム性）"]
+    introduction_aliases: ["### 定理（商ノルムの well-defined 性とノルム性）"]
+    requires:
+      - functional.quotient-norm
+      - topology.topological-closed-set
+
+  - id: functional.quotient-map-open-balls
+    name: 標準商写像の開球像
+    kind: lemma
+    aliases: [標準商写像の開球像, "### 補題（標準商写像は開球を開球へ写す）"]
+    introduction_aliases: ["### 補題（標準商写像は開球を開球へ写す）"]
+    requires:
+      - functional.quotient-norm-well-defined
+      - linear.canonical-quotient-map
+
+  - id: functional.quotient-banach-space
+    name: Banach空間の閉部分空間による商はBanach
+    kind: theorem
+    aliases: [Banach空間の閉部分空間による商はBanach, quotient Banach space, "### 定理（Banach 空間の閉部分空間による商は Banach）"]
+    introduction_aliases: ["### 定理（Banach 空間の閉部分空間による商は Banach）"]
+    requires:
+      - functional.quotient-norm-well-defined
+      - functional.banach-space
+
+  - id: functional.pointwise-bounded-operator-family
+    name: 点ごとに有界な作用素族
+    kind: definition
+    aliases: [点ごとに有界な作用素族, pointwise bounded family, "### 定義（点ごとに有界な作用素族）"]
+    introduction_aliases: ["### 定義（点ごとに有界な作用素族）"]
+    requires:
+      - functional.bounded-linear-operator
+
+  - id: functional.uniformly-bounded-operator-family
+    name: 一様有界な作用素族
+    kind: definition
+    aliases: [一様有界な作用素族, uniformly bounded family, "### 定義（一様有界な作用素族）"]
+    introduction_aliases: ["### 定義（一様有界な作用素族）"]
+    requires:
+      - functional.operator-norm
+
+  - id: functional.uniform-boundedness-principle
+    name: 一様有界性原理
+    kind: theorem
+    aliases: [一様有界性原理, Banach-Steinhaus, Banach–Steinhaus, uniform boundedness principle, "### 定理（一様有界性原理：Banach–Steinhaus）"]
+    introduction_aliases: ["### 定理（一様有界性原理：Banach–Steinhaus）"]
+    requires:
+      - functional.pointwise-bounded-operator-family
+      - functional.uniformly-bounded-operator-family
+      - functional.banach-space
+      - topology.baire-category-theorem-complete-metric
+
+  - id: functional.pointwise-limit-uniform-boundedness
+    name: pointwise収束する作用素列の一様有界性
+    kind: corollary
+    aliases: [pointwise収束する作用素列の一様有界性, "### 系（pointwise 収束する作用素列の一様有界性）"]
+    introduction_aliases: ["### 系（pointwise 収束する作用素列の一様有界性）"]
+    requires:
+      - functional.uniform-boundedness-principle
+
+  - id: functional.residual-unbounded-orbits
+    name: 一様非有界作用素族の残余集合版
+    kind: corollary
+    aliases: [一様非有界作用素族の残余集合版, resonance principle, "### 系（一様非有界作用素族の残余集合版）"]
+    introduction_aliases: ["### 系（一様非有界作用素族の残余集合版）"]
+    requires:
+      - functional.uniform-boundedness-principle
+      - topology.baire-category-theorem-complete-metric
+      - topology.nowhere-dense-set
