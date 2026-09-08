@@ -8,7 +8,7 @@ $$
 \nu:\mathcal F\to\mathbb R
 $$
 
-です。以下では実数値を取る場合に限定し、第1節の正式な定義から出発します。まず Hahn 分解を **Radon–Nikodym 定理に頼らず** 証明し、そこから Jordan 分解と全変動を導きます。
+です。以下では実数値を取る場合に限定します。まず正集合・負集合への分割を測度論の内部で構成し、そこから Jordan 分解と全変動を導きます。
 
 ```text
 正の測度・Lebesgue積分（MTI）
@@ -1185,6 +1185,23 @@ $$
 集合全体の値が0でも、その部分集合では正負の相殺が崩れます。
 
 ---
+
+---
+
+## 10.5 定義の横断確認：二点空間
+
+<!-- definition-example-start: def-mt2-signed-measure, def-mt2-positive-negative-set, def-mt2-jordan-parts, def-mt2-total-variation, def-mt2-tv-norm, def-mt2-signed-integral, def-mt2-absolute-continuity -->
+$X=\{a,b\}$、$\mathcal F=2^X$ とし、$\nu(\{a\})=2$, $\nu(\{b\})=-3$ とします。また $\mu$ を各点に質量1を置く正測度とします。
+
+**定義の確認**：有限集合上なので $\nu$ は原子の値の和で可算加法的な実数値測度です。$P=\{a\}$ は正集合、$N=\{b\}$ は負集合で、Jordan 正負部分は
+
+$$
+\nu^+(\{a\})=2,\quad \nu^+(\{b\})=0,\qquad
+\nu^-(\{a\})=0,\quad \nu^-(\{b\})=3.
+$$
+
+従って $|\nu|(\{a\})=2$, $|\nu|(\{b\})=3$、全変動ノルムは $|\nu|(X)=5$ です。$f(a)=1,f(b)=2$ なら $\int f\,d\nu=2-6=-4$ で、$\int|f|\,d|\nu|=8<\infty$。さらに $\mu(A)=0$ となるのは $A=\varnothing$ だけなので $\nu\ll\mu$ です。これで七つの定義を同じ具体例上で別々に照合できます。
+<!-- definition-example-end -->
 
 ## 11. 演習
 

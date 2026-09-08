@@ -38,7 +38,7 @@ open set 上の一致から一意性
 
 を一段ずつ閉じます。
 
-位相的な唯一の新しい道具は [TOP5 補遺：局所コンパクト Hausdorff 空間の縮小と cutoff](../TOP5/lch-cutoff.md) に正本化しました。したがって本章では Urysohn 補題、partition of unity、one-point compactification を暗黙に使いません。
+位相的な唯一の新しい道具は [TOP5 補遺：局所コンパクト Hausdorff 空間の縮小と cutoff](../TOP5/index.md#thm-top5-lch-cutoff) に正本化しました。したがって本章では Urysohn 補題、partition of unity、one-point compactification を暗黙に使いません。
 
 また Hahn–Banach、Banach 双対、Jordan 分解された汎関数も使いません。まず **正汎関数版**だけを完全に証明します。
 
@@ -800,7 +800,7 @@ m(U)
 m_K+\mu^*(U\setminus G).
 $$
 
-compact $K\subseteq U\cap G$ について上限を取り、open-inner content の補題を使うと先ほどの boxed 不等式が得られます。
+compact $K\subseteq U\cap G$ について上限を取り、[open content の compact からの復元](#lem-mt5-open-inner-content)を使うと先ほどの boxed 不等式が得られます。
 
 いま
 
@@ -1453,6 +1453,16 @@ MT2 には符号付き測度・全変動がありますが、**任意の有界�
 後続の関数解析では、本章を測度側の正本として $C_0(X)$ 版へ接続します。
 
 ---
+
+---
+
+## 15.5 定義の横断確認：二点離散空間
+
+<!-- definition-example-start: def-mt5-cc, def-mt5-radon, def-mt5-positive-functional, def-mt5-open-content, def-mt5-compact-content, def-mt5-outer-measure -->
+$X=\{a,b\}$ に離散位相を入れ、$L(f)=2f(a)+3f(b)$ とします。有限離散空間では全ての部分集合が open かつ compact で、全ての実数値関数が $C_c(X)$ に属します。
+
+**定義の確認**：$f\ge0$ なら $L(f)\ge0$ なので $L$ は正線形汎関数です。$\mu=2\delta_a+3\delta_b$ は compact-finite で、内正則性・外正則性は各集合自身を compact/open 候補に取れば直ちに成立するため Radon 測度です。open $U$ では $1_U\in C_c(X)$ を候補にでき、$0\le f\le1_U$ なら $L(f)\le L(1_U)$ なので $m(U)=2\,1_U(a)+3\,1_U(b)=\mu(U)$。同様に compact content は $m_K=\mu(K)$ です。全ての $A\subseteq X$ が open なので、外測度の定義でも $\mu^*(A)=\inf_{U\supseteq A}m(U)=m(A)=\mu(A)$。六つの定義が同じ模型で整合します。
+<!-- definition-example-end -->
 
 # 演習
 
