@@ -10,18 +10,10 @@ concepts:
     kind: definition
     aliases: [凸集合]
 
-  - id: linear.parallelogram-identity-recap-c1a
-    name: 平行四辺形恒等式の再掲
-    kind: proposition
-    introduction_aliases: [平行四辺形恒等式]
-    aliases: [平行四辺形恒等式の再掲, 平行四辺形恒等式]
-    requires:
-      - linear.parallelogram-identity
-
-  - id: functional.norm-continuity-c1a
-    name: 逆三角不等式とノルムの連続性
+  - id: functional.norm-map-continuity-c1a
+    name: ノルム写像の連続性
     kind: lemma
-    aliases: [逆三角不等式とノルムの連続性, 逆三角不等式, ノルムの連続性]
+    aliases: [ノルム写像の連続性]
     requires:
       - functional.normed-space-recap-c1
 
@@ -33,13 +25,13 @@ concepts:
       - functional.hilbert-space
       - functional.convex-set-basic-c1a
       - topology.closed-set
-      - linear.parallelogram-identity-recap-c1a
-      - functional.norm-continuity-c1a
+      - linear.parallelogram-identity
+      - functional.norm-map-continuity-c1a
 
-  - id: functional.projection-characterization-c1a
-    name: 閉凸集合への射影の特徴付け
+  - id: functional.hilbert-projection-variational-characterization-c1a
+    name: Hilbert射影の変分不等式特徴付け
     kind: theorem
-    aliases: [閉凸集合への射影の特徴付け, 射影の特徴付け]
+    aliases: [Hilbert射影の変分不等式特徴付け]
     requires:
       - functional.hilbert-projection-theorem
 
@@ -48,5 +40,5 @@ concepts:
     kind: theorem
     aliases: [直交分解, 閉部分空間への射影と直交分解]
     requires:
-      - functional.projection-characterization-c1a
+      - functional.hilbert-projection-variational-characterization-c1a
       - linear.orthogonal-complement
