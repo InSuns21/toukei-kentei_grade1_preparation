@@ -20,12 +20,12 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import base64
           import re
-
+          def dec(value):
+              return base64.b64decode(value).decode()
           p = Path('textbook/volumes/00_foundations/FA2/index.md')
           s = p.read_text()
-
-          # House math syntax: hand-written equation tags are not supported.
           s = re.sub(r'\n\\tag\{\d+\}', '', s)
           for old, new in [
               ('従って (1) から', '従ってこの球包含から'),
@@ -41,201 +41,25 @@ jobs:
               ('逐次補正の級数', '逐次補正の部分和'),
           ]:
               s = s.replace(old, new)
-
           limit_link = '[極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)'
           s = s.replace('極限の一意性', limit_link)
-
-          bounded_inverse_example = r'''### 例：対角作用素の逆を直接読む
-
-$T:\ell^2\to\ell^2$ を
-
-$$
-(Tx)_n=\left(2+\frac1n\right)x_n
-$$
-
-で定めます。各 $n$ で $2<2+1/n\le3$ なので
-
-$$
-\|Tx\|_2\le3\|x\|_2.
-$$
-
-また任意の $y\in\ell^2$ に対して
-
-$$
-(T^{-1}y)_n=\frac{y_n}{2+1/n}
-$$
-
-と置けば $T^{-1}y\in\ell^2$ であり、
-
-$$
-\|T^{-1}y\|_2\le\frac12\|y\|_2.
-$$
-
-この例では逆作用素を座標ごとに直接書けますが、一般には明示公式がなくても Banach 性と全単射性だけで逆作用素の有界性が従います。
-
----
-
-## 6.'''
-          s, n = re.subn(r'### 例：微分と積分が互いに有界になるノルム\n.*?\n---\n\n## 6\.', bounded_inverse_example, s, count=1, flags=re.S)
+          bounded = dec('IyMjIOS+i++8muWvvuinkuS9nOeUqOe0oOOBrumAhuOCkuebtOaOpeiqreOCgAoKJFQ6XGVsbF4yXHRvXGVsbF4yJCDjgpIKCiQkCihUeClfbj1cbGVmdCgyK1xmcmFjMW5ccmlnaHQpeF9uCiQkCgrjgaflrprjgoHjgb7jgZnjgILlkIQgJG4kIOOBpyAkMjwyKzEvblxsZTMkIOOBquOBruOBpwoKJCQKXHxUeFx8XzJcbGUzXHx4XHxfMi4KJCQKCuOBvuOBn+S7u+aEj+OBriAkeVxpblxlbGxeMiQg44Gr5a++44GX44GmCgokJAooVF57LTF9eSlfbj1cZnJhY3t5X259ezIrMS9ufQokJAoK44Go572u44GR44GwICRUXnstMX15XGluXGVsbF4yJCDjgafjgYLjgorjgIEKCiQkClx8VF57LTF9eVx8XzJcbGVcZnJhYzEyXHx5XHxfMi4KJCQKCuOBk+OBruS+i+OBp+OBr+mAhuS9nOeUqOe0oOOCkuW6p+aomeOBlOOBqOOBq+ebtOaOpeabuOOBkeOBvuOBmeOBjOOAgeS4gOiIrOOBq+OBr+aYjuekuuWFrOW8j+OBjOOBquOBj+OBpuOCgiBCYW5hY2gg5oCn44Go5YWo5Y2Y5bCE5oCn44Gg44GR44Gn6YCG5L2c55So57Sg44Gu5pyJ55WM5oCn44GM5b6T44GE44G+44GZ44CCCgotLS0KCiMjIDYu')
+          s, n = re.subn(r'### 例：微分と積分が互いに有界になるノルム\n.*?\n---\n\n## 6\.', lambda m: bounded, s, count=1, flags=re.S)
           if n != 1:
               raise SystemExit('bounded inverse example target not found')
-
-          graph_example = r'''<!-- definition-example-start: def-fa2-graph-norm -->
-**定義の確認**：座標ごとの重みを持つ作用素
-
-$S:\ell^2\to\ell^2$ を
-
-$$
-(Sx)_n=\frac{n}{n+1}x_n
-$$
-
-で定めます。このとき
-
-$$
-\|x\|_S=\|x\|_2+\|Sx\|_2
-$$
-
-であり、$\|Sx\|_2\le\|x\|_2$ なので
-
-$$
-\|x\|_2\le\|x\|_S\le2\|x\|_2.
-$$
-
-グラフノルムは、元の大きさと作用素を通した後の大きさを同時に測るノルムです。
-<!-- definition-example-end -->'''
-          s, n = re.subn(r'<!-- definition-example-start: def-fa2-graph-norm -->.*?<!-- definition-example-end -->', graph_example, s, count=1, flags=re.S)
+          graph = dec('PCEtLSBkZWZpbml0aW9uLWV4YW1wbGUtc3RhcnQ6IGRlZi1mYTItZ3JhcGgtbm9ybSAtLT4KKirlrprnvqnjga7norroqo0qKu+8muW6p+aomeOBlOOBqOOBrumHjeOBv+OCkuaMgeOBpOS9nOeUqOe0oAoKJFM6XGVsbF4yXHRvXGVsbF4yJCDjgpIKCiQkCihTeClfbj1cZnJhY3tufXtuKzF9eF9uCiQkCgrjgaflrprjgoHjgb7jgZnjgILjgZPjga7jgajjgY0KCiQkClx8eFx8X1M9XHx4XHxfMitcfFN4XHxfMgokJAoK44Gn44GC44KK44CBJFx8U3hcfF8yXGxlXHx4XHxfMiQg44Gq44Gu44GnCgokJApcfHhcfF8yXGxlXHx4XHxfU1xsZTJcfHhcfF8yLgokJAoK44Kw44Op44OV44OO44Or44Og44Gv44CB5YWD44Gu5aSn44GN44GV44Go5L2c55So57Sg44KS6YCa44GX44Gf5b6M44Gu5aSn44GN44GV44KS5ZCM5pmC44Gr5ris44KL44OO44Or44Og44Gn44GZ44CCCjwhLS0gZGVmaW5pdGlvbi1leGFtcGxlLWVuZCAtLT4=')
+          s, n = re.subn(r'<!-- definition-example-start: def-fa2-graph-norm -->.*?<!-- definition-example-end -->', lambda m: graph, s, count=1, flags=re.S)
           if n != 1:
               raise SystemExit('graph norm example target not found')
-
-          diagonal_section = r'''### 10.2 閉作用素でも定義域が全空間でなければ有界とは限らない
-
-$X=Y=\ell^2$ とし、
-
-$$
-D(A)=\{x=(x_n)\in\ell^2:(n x_n)_{n\ge1}\in\ell^2\},
-\qquad
-(Ax)_n=n x_n
-$$
-
-と定めます。$A$ は $D(A)$ 上の線形作用素ですが、$\ell^2$ ノルムについて有界ではありません。第 $N$ 座標だけが 1 のベクトルを $e_N$ とすると
-
-$$
-\|e_N\|_2=1,
-\qquad
-\|Ae_N\|_2=N,
-$$
-
-だからです。
-
-一方、グラフは $\ell^2\times\ell^2$ で閉です。実際、$x^{(m)}\in D(A)$ が
-
-$$
-x^{(m)}\to x,
-\qquad
-Ax^{(m)}\to y
-$$
-
-と $\ell^2$ で収束するとします。各固定 $n$ について
-
-$$
-|x_n^{(m)}-x_n|\le\|x^{(m)}-x\|_2\to0,
-$$
-
-また
-
-$$
-|(Ax^{(m)})_n-y_n|\le\|Ax^{(m)}-y\|_2\to0.
-$$
-
-ところが $(Ax^{(m)})_n=n x_n^{(m)}$ なので、実数または複素数の極限を取って
-
-$$
-y_n=n x_n
-$$
-
-を得ます。$y\in\ell^2$ だから $(n x_n)\in\ell^2$、従って $x\in D(A)$ かつ $Ax=y$ です。よってグラフは閉じています。
-
-これは[閉グラフ定理](#thm-fa2-closed-graph)と矛盾しません。$A$ の定義域は Banach 空間 $X=\ell^2$ の全体ではなく、真部分空間 $D(A)$ だからです。グラフノルム
-
-$$
-\|x\|_A=\|x\|_2+\|Ax\|_2
-$$
-
-を入れると $D(A)$ は Banach になり、定義から
-
-$$
-\|Ax\|_2\le\|x\|_A
-$$
-
-なので $A$ は有界になります。
-
----
-
-## 11.'''
-          s, n = re.subn(r'### 10\.2 閉作用素でも定義域が全空間でなければ有界とは限らない\n.*?\n---\n\n## 11\.', diagonal_section, s, count=1, flags=re.S)
+          diag = dec('IyMjIDEwLjIg6ZaJ5L2c55So57Sg44Gn44KC5a6a576p5Z+f44GM5YWo56m66ZaT44Gn44Gq44GR44KM44Gw5pyJ55WM44Go44Gv6ZmQ44KJ44Gq44GECgokWD1ZPVxlbGxeMiQg44Go44GX44CBCgokJApEKEEpPVx7eD0oeF9uKVxpblxlbGxeMjoobiB4X24pX3tuXGdlMX1caW5cZWxsXjJcfSwKXHFxdWFkCihBeClfbj1uIHhfbgokJAoK44Go5a6a44KB44G+44GZ44CCJEEkIOOBryAkRChBKSQg5LiK44Gu57ea5b2i5L2c55So57Sg44Gn44GZ44GM44CBJFxlbGxeMiQg44OO44Or44Og44Gr44Gk44GE44Gm5pyJ55WM44Gn44Gv44GC44KK44G+44Gb44KT44CC56ysICROJCDluqfmqJnjgaDjgZHjgYwgMSDjga7jg5njgq/jg4jjg6vjgpIgJGVfTiQg44Go44GZ44KL44GoCgokJApcfGVfTlx8XzI9MSwKXHFxdWFkClx8QWVfTlx8XzI9TiwKJCQKCuOBoOOBi+OCieOBp+OBmeOAggoK5LiA5pa544CB44Kw44Op44OV44GvICRcZWxsXjJcdGltZXNcZWxsXjIkIOOBp+mWieOBp+OBmeOAguWun+mam+OAgSR4XnsobSl9XGluIEQoQSkkIOOBjAoKJCQKeF57KG0pfVx0byB4LApccXF1YWQKQXheeyhtKX1cdG8geQokJAoK44GoICRcZWxsXjIkIOOBp+WPjuadn+OBmeOCi+OBqOOBl+OBvuOBmeOAguWQhOWbuuWumiAkbiQg44Gr44Gk44GE44GmCgokJAp8eF9uXnsobSl9LXhfbnxcbGVcfHheeyhtKX0teFx8XzJcdG8wLAokJAoK44G+44GfCgokJAp8KEF4XnsobSl9KV9uLXlfbnxcbGVcfEF4XnsobSl9LXlcfF8yXHRvMC4KJCQKCuOBqOOBk+OCjeOBjCAkKEF4XnsobSl9KV9uPW4geF9uXnsobSl9JCDjgarjga7jgafjgIHlrp/mlbDjgb7jgZ/jga/opIfntKDmlbDjga7mpbXpmZDjgpLlj5bjgaPjgaYKCiQkCnlfbj1uIHhfbgokJAoK44KS5b6X44G+44GZ44CCJHlcaW5cZWxsXjIkIOOBoOOBi+OCiSAkKG4geF9uKVxpblxlbGxeMiTjgIHlvpPjgaPjgaYgJHhcaW4gRChBKSQg44GL44GkICRBeD15JCDjgafjgZnjgILjgojjgaPjgabjgrDjg6njg5Xjga/plonjgZjjgabjgYTjgb7jgZnjgIIKCuOBk+OCjOOBr1vplonjgrDjg6njg5XlrprnkIZdKCN0aG0tZmEyLWNsb3NlZC1ncmFwaCnjgajnn5vnm77jgZfjgb7jgZvjgpPjgIIkQSQg44Gu5a6a576p5Z+f44GvIEJhbmFjaCDnqbrplpMgJFg9XGVsbF4yJCDjga7lhajkvZPjgafjga/jgarjgY/jgIHnnJ/pg6jliIbnqbrplpMgJEQoQSkkIOOBoOOBi+OCieOBp+OBmeOAguOCsOODqeODleODjuODq+ODoAoKJCQKXHx4XHxfQT1cfHhcfF8yK1x8QXhcfF8yCiQkCgrjgpLlhaXjgozjgovjgaggJEQoQSkkIOOBryBCYW5hY2gg44Gr44Gq44KK44CB5a6a576p44GL44KJCgokJApcfEF4XHxfMlxsZVx8eFx8X0EKJCQKCuOBquOBruOBpyAkQSQg44Gv5pyJ55WM44Gr44Gq44KK44G+44GZ44CCCgotLS0KCiMjIDExLg==')
+          s, n = re.subn(r'### 10\.2 閉作用素でも定義域が全空間でなければ有界とは限らない\n.*?\n---\n\n## 11\.', lambda m: diag, s, count=1, flags=re.S)
           if n != 1:
               raise SystemExit('closed operator counterexample target not found')
-
-          exercise = r'''### FA2-C01 閉じているが有界でない対角作用素
-
-- Level: C
-- 目安時間: 40分
-
-$X=Y=\ell^2$ とし、
-
-$$
-D(A)=\{x=(x_n)\in\ell^2:(n x_n)_{n\ge1}\in\ell^2\},
-\qquad
-(Ax)_n=n x_n
-$$
-
-とする。
-
-1. $A$ が $D(A)$ 上で $\ell^2$ ノルムについて有界でないことを示せ。
-2. グラフ $G(A)\subset\ell^2\times\ell^2$ は閉であることを示せ。
-3. なぜこれは本章の[閉グラフ定理](#thm-fa2-closed-graph)と矛盾しないか説明せよ。
-4. $D(A)$ にグラフノルムを入れると Banach になり、$A$ が有界になることを示せ。
-
-<!-- solution-start -->
-#### 詳細解答
-
-1. 第 $N$ 座標だけが 1 の $e_N$ を取ると
-   $$
-   \|e_N\|_2=1,
-   \qquad
-   \|Ae_N\|_2=N.
-   $$
-   もし $A$ が有界なら $N\le C$ が全ての $N$ で必要になり矛盾する。
-
-2. $x^{(m)}\to x$、$Ax^{(m)}\to y$ とする。各固定 $n$ で $\ell^2$ 収束から座標収束が従い、
-   $$
-   x_n^{(m)}\to x_n,
-   \qquad
-   n x_n^{(m)}=(Ax^{(m)})_n\to y_n.
-   $$
-   従って $y_n=n x_n$。$y\in\ell^2$ なので $(n x_n)\in\ell^2$、従って $x\in D(A)$ かつ $Ax=y$。よってグラフは閉じている。
-
-3. $A$ は $\ell^2$ 全体ではなく真部分空間 $D(A)$ 上でのみ定義される。本章の定理が必要とする全定義性がない。
-
-4. $(x^{(m)})$ がグラフノルムで Cauchy なら、$x^{(m)}$ と $Ax^{(m)}$ はともに $\ell^2$ で Cauchy。$\ell^2$ の完備性からそれぞれ $x,y$ に収束し、2 の閉性から $x\in D(A)$、$Ax=y$。従って
-   $$
-   \|x^{(m)}-x\|_A
-   =\|x^{(m)}-x\|_2+\|Ax^{(m)}-Ax\|_2\to0.
-   $$
-   よって $(D(A),\|\cdot\|_A)$ は Banach。また
-   $$
-   \|Ax\|_2\le\|x\|_A
-   $$
-   なので作用素ノルムは高々 1。
-<!-- solution-end -->
-
----'''
-          s, n = re.subn(r'### FA2-C01 閉じているが有界でない微分作用素\n.*?\n<!-- solution-end -->\n\n---', exercise, s, count=1, flags=re.S)
+          exercise = dec('IyMjIEZBMi1DMDEg6ZaJ44GY44Gm44GE44KL44GM5pyJ55WM44Gn44Gq44GE5a++6KeS5L2c55So57SgCgotIExldmVsOiBDCi0g55uu5a6J5pmC6ZaTOiA0MOWIhgoKJFg9WT1cZWxsXjIkIOOBqOOBl+OAgQoKJCQKRChBKT1ce3g9KHhfbilcaW5cZWxsXjI6KG4geF9uKV97blxnZTF9XGluXGVsbF4yXH0sClxxcXVhZAooQXgpX249biB4X24KJCQKCuOBqOOBmeOCi+OAggoKMS4gJEEkIOOBjCAkRChBKSQg5LiK44GnICRcZWxsXjIkIOODjuODq+ODoOOBq+OBpOOBhOOBpuacieeVjOOBp+OBquOBhOOBk+OBqOOCkuekuuOBm+OAggoyLiDjgrDjg6njg5UgJEcoQSlcc3Vic2V0XGVsbF4yXHRpbWVzXGVsbF4yJCDjga/plonjgafjgYLjgovjgZPjgajjgpLnpLrjgZvjgIIKMy4g44Gq44Gc44GT44KM44Gv5pys56ug44GuW+mWieOCsOODqeODleWumueQhl0oI3RobS1mYTItY2xvc2VkLWdyYXBoKeOBqOefm+ebvuOBl+OBquOBhOOBi+iqrOaYjuOBm+OCiOOAggo0LiAkRChBKSQg44Gr44Kw44Op44OV44OO44Or44Og44KS5YWl44KM44KL44GoIEJhbmFjaCDjgavjgarjgorjgIEkQSQg44GM5pyJ55WM44Gr44Gq44KL44GT44Go44KS56S644Gb44CCCgo8IS0tIHNvbHV0aW9uLXN0YXJ0IC0tPgojIyMjIOips+e0sOino+etlAoKMS4g56ysICROJCDluqfmqJnjgaDjgZHjgYwgMSDjga4gJGVfTiQg44KS5Y+W44KL44GoCiAgICQkCiAgIFx8ZV9OXHxfMj0xLAogICBccXF1YWQKICAgXHxBZV9OXHxfMj1OLgogICAkJAogICDjgoLjgZcgJEEkIOOBjOacieeVjOOBquOCiSAkTlxsZSBDJCDjgYzlhajjgabjga4gJE4kIOOBp+W/heimgeOBq+OBquOCiuefm+ebvuOBmeOCi+OAggoKMi4gJHheeyhtKX1cdG8geCTjgIEkQXheeyhtKX1cdG8geSQg44Go44GZ44KL44CC5ZCE5Zu65a6aICRuJCDjgacgJFxlbGxeMiQg5Y+O5p2f44GL44KJ5bqn5qiZ5Y+O5p2f44GM5b6T44GE44CBCiAgICQkCiAgIHhfbl57KG0pfVx0byB4X24sCiAgIFxxcXVhZAogICBuIHhfbl57KG0pfT0oQXheeyhtKX0pX25cdG8geV9uLgogICAkJAogICDlvpPjgaPjgaYgJHlfbj1uIHhfbiTjgIIkeVxpblxlbGxeMiQg44Gq44Gu44GnICQobiB4X24pXGluXGVsbF4yJOOAgeW+k+OBo+OBpiAkeFxpbiBEKEEpJCDjgYvjgaQgJEF4PXkk44CC44KI44Gj44Gm44Kw44Op44OV44Gv6ZaJ44GY44Gm44GE44KL44CCCgozLiAkQSQg44GvICRcZWxsXjIkIOWFqOS9k+OBp+OBr+OBquOBj+ecn+mDqOWIhuepuumWkyAkRChBKSQg5LiK44Gn44Gu44G/5a6a576p44GV44KM44KL44CC5pys56ug44Gu5a6a55CG44GM5b+F6KaB44Go44GZ44KL5YWo5a6a576p5oCn44GM44Gq44GE44CCCgo0LiAkKHheeyhtKX0pJCDjgYzjgrDjg6njg5Xjg47jg6vjg6DjgacgQ2F1Y2h5IOOBquOCieOAgSR4XnsobSl9JCDjgaggJEF4XnsobSl9JCDjga/jgajjgoLjgasgJFxlbGxeMiQg44GnIENhdWNoeeOAgiRcZWxsXjIkIOOBruWujOWCmeaAp+OBi+OCieOBneOCjOOBnuOCjCAkeCx5JCDjgavlj47mnZ/jgZfjgIEyIOOBrumWieaAp+OBi+OCiSAkeFxpbiBEKEEpJOOAgSRBeD15JOOAguW+k+OBo+OBpgogICAkJAogICBcfHheeyhtKX0teFx8X0EKICAgPVx8eF57KG0pfS14XHxfMitcfEF4XnsobSl9LUF4XHxfMlx0bzAuCiAgICQkCiAgIOOCiOOBo+OBpiAkKEQoQSksXHxcY2RvdFx8X0EpJCDjga8gQmFuYWNo44CC44G+44GfCiAgICQkCiAgIFx8QXhcfF8yXGxlXHx4XHxfQQogICAkJAogICDjgarjga7jgafkvZznlKjntKDjg47jg6vjg6Djga/pq5jjgIUgMeOAggo8IS0tIHNvbHV0aW9uLWVuZCAtLT4KCi0tLQ==')
+          s, n = re.subn(r'### FA2-C01 閉じているが有界でない微分作用素\n.*?\n<!-- solution-end -->\n\n---', lambda m: exercise, s, count=1, flags=re.S)
           if n != 1:
               raise SystemExit('C01 derivative exercise target not found')
-
           p.write_text(s)
-
           p = Path('textbook/volumes/00_foundations/FA1/index.md')
           s = p.read_text()
           old = 'ここでは FA2 の開写像定理を使っていません。'
