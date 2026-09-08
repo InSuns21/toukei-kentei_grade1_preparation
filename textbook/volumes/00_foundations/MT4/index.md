@@ -919,7 +919,7 @@ $$
 <\varepsilon.
 $$
 
-有限部分和を増やし、測度の下からの連続性を使えば
+有限部分和を増やし、[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)を使えば
 
 $$
 \nu_G(O\cap[a,b])\le\varepsilon.
