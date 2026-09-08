@@ -579,7 +579,7 @@ f(z)
 \frac1{2\pi i}
 \int_{|\zeta-a|=r}
 \frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta
-\right](z-a)^n
+\right]\,(z-a)^n
 +E_N(z).
 \end{aligned}
 $$
