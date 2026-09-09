@@ -422,7 +422,7 @@ $$
 \lambda\left(I-\frac K\lambda\right).
 $$
 
-$K/\lambda$ はコンパクトです。[コンパクト作用素のFredholm alternative](#thm-fa7-fredholm-alternative)により $I-K/\lambda$ は単射であることと全射であることが同値です。もし単射なら全射でもあり、有界逆定理により可逆です。これは $\lambda\in\sigma(K)$ に矛盾します。従って単射ではなく
+$K/\lambda$ はコンパクトです。[コンパクト作用素のFredholm alternative](#thm-fa7-fredholm-alternative)により $I-K/\lambda$ は単射であることと全射であることが同値です。もし単射なら全射でもあり、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)により可逆です。これは $\lambda\in\sigma(K)$ に矛盾します。従って単射ではなく
 
 $$
 \ker(\lambda I-K)\ne\{0\}.
@@ -643,7 +643,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-右辺を $M$ とします。Cauchy–Schwarz 不等式から
+右辺を $M$ とします。[Cauchy–Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\langle Tx,x\rangle|
@@ -674,7 +674,7 @@ M\|x+y\|^2+M\|x-y\|^2\\
 \end{aligned}
 $$
 
-ここで最後に平行四辺形法則を使いました。よって
+ここで最後に[平行四辺形法則](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使いました。よって
 
 $$
 |\langle Tx,y\rangle|\le M
@@ -887,7 +887,7 @@ H=M\oplus M^\perp
 \overline{\bigoplus_jE_j}\oplus\ker T.
 $$
 
-5 を示します。各 $E_j$ は有限次元なので正規直交基底 $(e_{j,r})$ を選べます。4 の直交分解により、任意の $x\in H$ は
+5 を示します。各 $E_j$ は有限次元なので正規直交基底 $(e_{j,r})$ を選べます。4 の[直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)により、任意の $x\in H$ は
 
 $$
 x=x_0+\sum_jP_jx,
