@@ -1,0 +1,41 @@
+name: FA6 audit autofix
+
+on:
+  push:
+    branches:
+      - feat/fa6-compact-operator
+
+permissions:
+  contents: write
+
+jobs:
+  autofix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/fa6-compact-operator
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Autofix formal references
+        run: node scripts/validate-formal-reference-links-dag.mjs --fix || true
+      - name: Capture concept audit
+        shell: bash
+        run: |
+          set +e
+          DREAM_THEATER_BASE_SHA=f45484524c038306e58f37ecde348ec2dd293710 npm run validate:dream-theater-concepts:changed > textbook/volumes/00_foundations/FA6/audit.tmp.txt 2>&1
+          exit 0
+      - name: Commit audit output and fixes
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/FA6/index.md textbook/volumes/00_foundations/FA6/audit.tmp.txt
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore(FA6): capture audit and autofix references'
+          git push origin HEAD:feat/fa6-compact-operator
