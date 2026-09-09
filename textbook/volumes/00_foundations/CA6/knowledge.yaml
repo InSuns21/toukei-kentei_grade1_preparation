@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CA5
+  - LA3B
 
 concepts:
   - id: complex-analysis.mobius-transformation
