@@ -50,7 +50,7 @@ concepts:
   - id: complex-analysis.residue
     name: 留数
     kind: definition
-    aliases: [留数, residue]
+    aliases: [留数, residue, 留数の係数積分公式]
     requires: [complex-analysis.laurent-expansion, complex-analysis.isolated-singularity]
 
   - id: complex-analysis.residue-formulas-at-poles
