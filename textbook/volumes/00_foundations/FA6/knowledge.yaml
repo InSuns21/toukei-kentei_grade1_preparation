@@ -1,0 +1,103 @@
+chapter: FA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FA5
+
+forward_references: []
+
+concepts:
+  - id: functional.compact-operator
+    name: コンパクト作用素
+    kind: definition
+    aliases: [コンパクト作用素, compact operator, "### 定義（コンパクト作用素）"]
+    introduction_aliases: ["### 定義（コンパクト作用素）"]
+    requires:
+      - functional.bounded-linear-operator
+      - topology.compact-sequential-equivalence-metric-space
+
+  - id: functional.compact-operator-unit-ball-characterization
+    name: コンパクト作用素の単位球像による特徴付け
+    kind: theorem
+    aliases: [コンパクト作用素の単位球像による特徴付け, compact operator unit ball characterization, "### 定理（コンパクト作用素の単位球像による特徴付け）"]
+    introduction_aliases: ["### 定理（コンパクト作用素の単位球像による特徴付け）"]
+    requires:
+      - functional.compact-operator
+      - topology.compact-sequential-equivalence-metric-space
+
+  - id: functional.riesz-lemma
+    name: Rieszの補題
+    kind: lemma
+    aliases: [Rieszの補題, Riesz lemma, "### 補題（Rieszの補題）"]
+    introduction_aliases: ["### 補題（Rieszの補題）"]
+    requires:
+      - functional.banach-space
+
+  - id: functional.identity-compact-finite-dimensional
+    name: 恒等作用素のコンパクト性と有限次元性
+    kind: theorem
+    aliases: [恒等作用素のコンパクト性と有限次元性, identity compact finite dimensional, "### 定理（恒等作用素のコンパクト性と有限次元性）"]
+    introduction_aliases: ["### 定理（恒等作用素のコンパクト性と有限次元性）"]
+    requires:
+      - functional.compact-operator
+      - functional.riesz-lemma
+
+  - id: functional.finite-rank-operator
+    name: 有限ランク作用素
+    kind: definition
+    aliases: [有限ランク作用素, finite-rank operator, "### 定義（有限ランク作用素）"]
+    introduction_aliases: ["### 定義（有限ランク作用素）"]
+    requires:
+      - functional.bounded-linear-operator
+
+  - id: functional.finite-rank-compact
+    name: 有限ランク作用素はコンパクト
+    kind: theorem
+    aliases: [有限ランク作用素はコンパクト, finite-rank operators are compact, "### 定理（有限ランク作用素はコンパクト）"]
+    introduction_aliases: ["### 定理（有限ランク作用素はコンパクト）"]
+    requires:
+      - functional.finite-rank-operator
+      - functional.compact-operator
+
+  - id: functional.compact-operator-ideal
+    name: コンパクト作用素の線形性とideal性
+    kind: theorem
+    aliases: [コンパクト作用素の線形性とideal性, compact operator ideal property, "### 定理（コンパクト作用素の線形性とideal性）"]
+    introduction_aliases: ["### 定理（コンパクト作用素の線形性とideal性）"]
+    requires:
+      - functional.compact-operator
+      - functional.bounded-linear-operator
+
+  - id: functional.compact-operators-norm-closed
+    name: コンパクト作用素全体の作用素ノルム閉性
+    kind: theorem
+    aliases: [コンパクト作用素全体の作用素ノルム閉性, compact operators are norm closed, "### 定理（コンパクト作用素全体の作用素ノルム閉性）"]
+    introduction_aliases: ["### 定理（コンパクト作用素全体の作用素ノルム閉性）"]
+    requires:
+      - functional.compact-operator
+      - functional.banach-space
+
+  - id: functional.finite-rank-norm-limit-compact
+    name: 有限ランク作用素の作用素ノルム収束先はコンパクト
+    kind: corollary
+    aliases: [有限ランク作用素の作用素ノルム収束先はコンパクト, finite-rank norm limits are compact, "### 系（有限ランク作用素の作用素ノルム収束先はコンパクト）"]
+    introduction_aliases: ["### 系（有限ランク作用素の作用素ノルム収束先はコンパクト）"]
+    requires:
+      - functional.finite-rank-compact
+      - functional.compact-operators-norm-closed
+
+  - id: functional.diagonal-compact-criterion
+    name: ell2対角作用素のコンパクト性判定
+    kind: theorem
+    aliases: [ell2対角作用素のコンパクト性判定, diagonal compact operator criterion, "### 定理（ell2対角作用素のコンパクト性判定）"]
+    introduction_aliases: ["### 定理（ell2対角作用素のコンパクト性判定）"]
+    requires:
+      - functional.finite-rank-norm-limit-compact
+
+  - id: functional.continuous-kernel-integral-compact
+    name: 連続核積分作用素のコンパクト性
+    kind: theorem
+    aliases: [連続核積分作用素のコンパクト性, continuous-kernel integral operator compactness, "### 定理（連続核積分作用素のコンパクト性）"]
+    introduction_aliases: ["### 定理（連続核積分作用素のコンパクト性）"]
+    requires:
+      - functional.finite-rank-norm-limit-compact

@@ -109,7 +109,8 @@
 11. [FA3 弱位相・弱*位相・標準埋め込み](textbook/volumes/00_foundations/FA3/index.md)
 12. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
 13. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)
-14. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+14. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
+15. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
 
 ### 標準複素解析コア
 
