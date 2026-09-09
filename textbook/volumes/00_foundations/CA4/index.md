@@ -81,7 +81,7 @@ $$
 
 <a id="def-ca4-laurent-series"></a>
 <!-- formal-statement-start -->
-### 定義（Laurent 級数）
+### 定義（Laurent級数）
 
 点 $a$ を中心とする **Laurent 級数**とは
 
@@ -102,7 +102,7 @@ $$
 
 <a id="thm-ca4-laurent"></a>
 <!-- formal-statement-start -->
-### 定理（Laurent 展開）
+### 定理（Laurent展開）
 
 $f$ が環状領域
 
@@ -367,7 +367,7 @@ $$
 
 <a id="def-ca4-meromorphic"></a>
 <!-- formal-statement-start -->
-### 定義（meromorphic 関数）
+### 定義（meromorphic関数）
 
 領域 $\Omega$ 上の関数 $f$ が **meromorphic** であるとは、各点の近傍で正則であるか、有限位数の極だけを持つことをいう。
 <!-- formal-statement-end -->
@@ -378,7 +378,7 @@ $$
 
 <a id="thm-ca4-singularity-classification"></a>
 <!-- formal-statement-start -->
-### 定理（孤立特異点の Laurent 分類）
+### 定理（孤立特異点のLaurent分類）
 
 $a$ を $f$ の孤立特異点とし、
 
@@ -676,7 +676,7 @@ $$
 \frac1{2i}.
 $$
 
-留数定理から
+[留数定理](#thm-ca4-residue) から
 
 $$
 \int_{-R}^{R}\frac{dx}{1+x^2}
@@ -693,7 +693,7 @@ $$
 \ge R^2-1,
 $$
 
-円弧長は $\pi R$ なので ML 評価により
+円弧長は $\pi R$ なので [ML評価](../CA2/index.md#thm-ca2-reparam-ml) により
 
 $$
 \left|
@@ -816,11 +816,11 @@ $$
 
 ---
 
-## 8. Rouché の定理
+## 8. Rouchéの定理
 
 <a id="thm-ca4-rouche"></a>
 <!-- formal-statement-start -->
-### 定理（Rouché の定理）
+### 定理（Rouchéの定理）
 
 $\Gamma$ を反時計回りの区分的 $C^1$ 単純閉曲線、その内部を $G$ とする。$f,g$ が $\overline G$ の近傍で正則で、境界上で
 
@@ -871,7 +871,7 @@ $$
 \frac{f'(z)+t g'(z)}{f(z)+t g(z)}
 $$
 
-は $[0,1]\times\Gamma$ 上で連続かつ一様連続である。したがって $t\to s$ なら integrand は $\Gamma$ 上一様に収束し、ML 評価から積分値も連続に変化する。よって $N(t)$ は $[0,1]$ 上の連続な整数値関数である。
+は $[0,1]\times\Gamma$ 上で連続かつ一様連続である。したがって $t\to s$ なら integrand は $\Gamma$ 上一様に収束し、[ML評価](../CA2/index.md#thm-ca2-reparam-ml) から積分値も連続に変化する。よって $N(t)$ は $[0,1]$ 上の連続な整数値関数である。
 
 連結区間から離散集合 $\mathbb Z$ への連続写像は定数なので
 
@@ -1070,7 +1070,7 @@ $$
 \operatorname{Res}(f,a)=\frac{G''(a)}{2}
 $$
 
-を Laurent 展開から導け。
+を [Laurent展開](#thm-ca4-laurent) から導け。
 
 <!-- solution-start -->
 **解答**：位数3の極なので $G$ は $a$ の近傍で正則で $G(a)\ne0$。Taylor 展開すると
@@ -1140,7 +1140,7 @@ $$
 #### CA4-B03 実積分と大円弧評価
 - Level: B
 
-留数定理を使って
+[留数定理](#thm-ca4-residue) を使って
 
 $$
 \int_{-\infty}^{\infty}\frac{dx}{x^2+4}
@@ -1260,4 +1260,4 @@ $$
 - 留数は $(z-a)^{-1}$ の係数であり、小円積分がその係数だけを抽出する。
 - 留数定理では、外側境界は反時計回り、穴から見た内側境界は時計回りである。
 - 偏角原理は $f'/f$ の留数が零点位数なら正、極位数なら負になることから導く。
-- Rouché は偏角原理の後に置き、$f+t g$ が境界で0にならないことと零点数の連続整数値性から証明する。
+- [Rouchéの定理](#thm-ca4-rouche) は偏角原理の後に置き、$f+t g$ が境界で0にならないことと零点数の連続整数値性から証明する。
