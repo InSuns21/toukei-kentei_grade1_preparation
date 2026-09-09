@@ -457,7 +457,7 @@ $$
 **定義の確認**：$U,V$ 全体で一致する必要はない。点 $a$ の十分小さい近傍で一致すれば同じ芽である。
 <!-- definition-example-end -->
 
-<a id="def-ca5-continuation-chain"></a>
+<a id="def-ca5-analytic-continuation-along-path"></a>
 <!-- formal-statement-start -->
 ### 定義（経路に沿う解析接続）
 
@@ -476,7 +476,7 @@ $$
 を満たすものをいう。最後の芽 $[f_N]_{\gamma(1)}$ を終点芽という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ca5-continuation-chain -->
+<!-- definition-example-start: def-ca5-analytic-continuation-along-path -->
 **定義の確認**：二円板の交わりは凸なので連結である。代表関数が重なりの非空開部分で一致すれば [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity) により重なり全体で一致する。従って局所的一致を次の円板へ伝播できる。
 <!-- definition-example-end -->
 
