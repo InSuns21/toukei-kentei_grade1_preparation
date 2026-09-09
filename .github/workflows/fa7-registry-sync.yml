@@ -1,0 +1,74 @@
+name: FA7 registry sync
+
+on:
+  push:
+    branches:
+      - feat/fa7-compact-spectral-fredholm
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-clean:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feat/fa7-compact-spectral-fredholm
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Synchronize FA7 registries
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          core = Path('textbook/dream-theater-standard-math-core.yaml')
+          s = core.read_text()
+          old = '''  - id: FA7\n    title: compact self-adjoint spectral theorem・Fredholm alternative\n    area: functional-analysis\n    tier: core\n    status: planned\n    prerequisites: [FA6]'''
+          new = '''  - id: FA7\n    title: compact self-adjoint spectral theorem・Fredholm alternative\n    area: functional-analysis\n    tier: core\n    status: implemented\n    implemented_at: 2026-09-10\n    implementation_path: textbook/volumes/00_foundations/FA7/index.md\n    prerequisites: [FA6]'''
+          if old not in s:
+              raise SystemExit('FA7 planned block not found in standard core')
+          core.write_text(s.replace(old, new, 1))
+
+          idx = Path('textbook/dream-theater-index.json')
+          data = json.loads(idx.read_text())
+          target = 'textbook/volumes/00_foundations/FA7/index.md'
+          prev = 'textbook/volumes/00_foundations/FA6/index.md'
+          found = False
+          for section in data['sections']:
+              paths = section['paths']
+              if prev in paths:
+                  if target not in paths:
+                      paths.insert(paths.index(prev) + 1, target)
+                  found = True
+                  break
+          if not found:
+              raise SystemExit('FA6 path not found in dream-theater-index.json')
+          idx.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+
+          facade = Path('textbook/dream-theater.md')
+          f = facade.read_text()
+          oldf = '''14. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)\n15. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'''
+          newf = '''14. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)\n15. [FA7 コンパクト自己共役作用素・Fredholm alternative](textbook/volumes/00_foundations/FA7/index.md)\n16. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'''
+          if oldf not in f:
+              raise SystemExit('FA6/F0-02C6A facade sequence not found')
+          facade.write_text(f.replace(oldf, newf, 1))
+          PY
+      - name: Validate reader index
+        run: npm run validate:dream-theater-index
+      - name: Remove temporary workflow and commit
+        shell: bash
+        run: |
+          git rm .github/workflows/fa7-registry-sync.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/dream-theater-standard-math-core.yaml textbook/dream-theater-index.json textbook/dream-theater.md
+          git commit -m 'feat(FA7): register chapter in standard math core'
+          git push origin HEAD:feat/fa7-compact-spectral-fredholm
