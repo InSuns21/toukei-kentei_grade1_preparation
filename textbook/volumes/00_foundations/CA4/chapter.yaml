@@ -1,0 +1,36 @@
+id: "CA4"
+title: "標準複素解析 IV：Laurent展開・孤立特異点・留数・偏角原理・Rouché"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA3
+official_scope: []
+learning_objectives:
+  - 有限個の穴を持つ領域で外側境界と内側境界の向きを追い、三角形分割による境界積分の相殺を説明できる
+  - 環状領域のCauchy型表示から内外の幾何級数を一様収束させ、Laurent展開と係数公式・一意性を導ける
+  - Laurent主部と可除特異点・極・真性特異点の三分類を双方向に対応づけられる
+  - 留数をLaurent係数として定義し、単純極・高位極の留数公式を導ける
+  - 小円を除いた領域の境界向きを明示して単純閉曲線版の留数定理を証明できる
+  - 対数微分f'/fの留数から零点・極の位数を数え、単純閉曲線版の偏角原理を導ける
+  - f+tgが境界で消えないことと連続な整数値零点数を使ってRouchéの定理を証明できる
+definitions:
+  - { id: CA4-DEF-01, name: Laurent級数 }
+  - { id: CA4-DEF-02, name: 孤立特異点 }
+  - { id: CA4-DEF-03, name: meromorphic関数 }
+  - { id: CA4-DEF-04, name: 留数 }
+theorems:
+  - { id: CA4-LEM-01, name: 有限個の穴を持つ領域の境界相殺 }
+  - { id: CA4-THM-01, name: Laurent展開 }
+  - { id: CA4-THM-02, name: 孤立特異点のLaurent分類 }
+  - { id: CA4-COR-01, name: 有界な孤立特異点は可除 }
+  - { id: CA4-PROP-01, name: 極での留数公式 }
+  - { id: CA4-THM-03, name: 留数定理（単純閉曲線版） }
+  - { id: CA4-LEM-02, name: 対数微分の留数 }
+  - { id: CA4-THM-04, name: 偏角原理（単純閉曲線版） }
+  - { id: CA4-THM-05, name: Rouchéの定理 }
+canonical_examples: [環状領域ごとのLaurent展開, Laurent主部による特異点分類, 単純極と高位極の留数計算, 留数定理による実積分, 偏角原理, Rouchéによる零点計数]
+problem_patterns: [CA4-LAURENT-1, CA4-SINGULARITY-1, CA4-RESIDUE-1, CA4-CONTOUR-INTEGRAL-1, CA4-ARGUMENT-PRINCIPLE-1, CA4-ROUCHE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 5.0, review: 1.5 }
