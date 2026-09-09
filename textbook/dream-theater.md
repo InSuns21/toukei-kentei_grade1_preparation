@@ -119,6 +119,7 @@
 3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)
 4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)
 5. [CA5 winding number・解析接続・monodromy](textbook/volumes/00_foundations/CA5/index.md)
+6. [CA6 Möbius変換・Schwarz補題・調和関数・Poisson核](textbook/volumes/00_foundations/CA6/index.md)
 
 ### 凸解析・凸最適化
 

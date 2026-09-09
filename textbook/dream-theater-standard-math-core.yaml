@@ -399,8 +399,10 @@ nodes:
     title: Möbius変換・Schwarz補題・調和関数・Poisson核
     area: complex-analysis
     tier: advanced-standard-bridge
-    status: planned
-    prerequisites: [CA5]
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/CA6/index.md
+    prerequisites: [CA5, LA3B]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
