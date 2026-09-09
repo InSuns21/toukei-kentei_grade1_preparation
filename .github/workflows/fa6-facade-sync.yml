@@ -1,0 +1,48 @@
+name: FA6 facade sync
+
+on:
+  push:
+    branches:
+      - feat/fa6-compact-operator
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-clean:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feat/fa6-compact-operator
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Add FA6 to reader facade
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/dream-theater.md')
+          s = p.read_text()
+          old = '''13. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)\n14. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'''
+          new = '''13. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)\n14. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)\n15. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)'''
+          if old not in s:
+              raise SystemExit('expected FA5/F0-02C6A facade sequence not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+      - name: Validate facade index
+        run: npm run validate:dream-theater-index
+      - name: Commit facade and remove temporary workflow
+        shell: bash
+        run: |
+          git rm .github/workflows/fa6-facade-sync.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/dream-theater.md
+          git commit -m 'fix(FA6): add chapter to DREAM THEATER facade'
+          git push origin HEAD:feat/fa6-compact-operator
