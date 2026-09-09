@@ -1,0 +1,44 @@
+id: "CAX1"
+title: "複素解析・院試／編入 計算演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA4
+official_scope: []
+learning_objectives:
+  - Cauchy–Riemann方程式から正則性と導関数を手計算で判定できる
+  - 調和共役を偏微分の積分から復元し、対応する正則関数を構成できる
+  - 複素指数方程式を絶対値と偏角へ分解して全解を求められる
+  - 複素線積分をパラメータ表示から直接計算し、原始関数が使える場合と使えない場合を区別できる
+  - Cauchy積分公式と高階導関数公式を分母の冪から正しく選び、円周積分を計算できる
+  - Taylor展開とLaurent展開を収束領域とともに求められる
+  - 単純極・高位極の留数を複数の方法で計算し、閉曲線積分へ適用できる
+  - 半円輪郭とML評価を用いて標準的な実積分を留数計算へ落とせる
+  - Rouchéの定理で円板・環状領域内の零点数を重複度込みで数えられる
+  - 偏角原理を用いて対数微分の円周積分と零点数を結び付けられる
+definitions: []
+theorems: []
+canonical_examples:
+  - Cauchy–Riemann判定と調和共役
+  - 複素指数方程式
+  - パラメータ表示による複素線積分
+  - Cauchy積分公式と高階導関数公式
+  - Taylor展開とLaurent展開
+  - 留数計算と実積分
+  - Rouchéによる零点計数
+  - 偏角原理による対数微分積分
+problem_patterns:
+  - CAX1-CR-1
+  - CAX1-HARMONIC-1
+  - CAX1-EXP-1
+  - CAX1-LINE-INTEGRAL-1
+  - CAX1-CAUCHY-1
+  - CAX1-SERIES-1
+  - CAX1-RESIDUE-1
+  - CAX1-REAL-INTEGRAL-1
+  - CAX1-ROUCHE-1
+  - CAX1-ARGUMENT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 8, level_b: 10, level_c: 4, level_d: 0 }
+estimated_hours: { reading: 1.0, exercises: 12.0, review: 3.0 }
