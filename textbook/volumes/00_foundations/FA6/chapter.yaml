@@ -1,0 +1,37 @@
+id: "FA6"
+title: "標準関数解析 VI：コンパクト作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA5
+official_scope: []
+learning_objectives:
+  - コンパクト作用素を有界列の像に対する収束部分列条件で定義し、単位球像の閉包のコンパクト性との同値を証明できる
+  - Rieszの補題を距離のinfimumから証明し、恒等作用素がコンパクトであることと有限次元性の同値を導ける
+  - 有限ランク作用素がコンパクトであることを有限次元の点列コンパクト性から証明できる
+  - コンパクト作用素の和・スカラー倍・有界作用素との合成が再びコンパクトになることを部分列抽出から証明できる
+  - 値域がBanach空間ならコンパクト作用素全体が作用素ノルムで閉じることを対角部分列とCauchy評価から証明できる
+  - ell2上の対角作用素がコンパクトであるための必要十分条件を有限ランク切断と標準基底列から判定できる
+  - 連続核積分作用素を区分線形な有限ランク核で作用素ノルム近似し、Arzela-Ascoliを先取りせずコンパクト性を示せる
+  - 有限ランク作用素のノルム閉包と一般のコンパクト作用素を無条件に同一視してはいけない理由を説明できる
+definitions:
+  - { id: FA6-DEF-01, name: コンパクト作用素 }
+  - { id: FA6-DEF-02, name: 有限ランク作用素 }
+theorems:
+  - { id: FA6-THM-01, name: コンパクト作用素の単位球像による特徴付け }
+  - { id: FA6-LEM-01, name: Rieszの補題 }
+  - { id: FA6-THM-02, name: 恒等作用素のコンパクト性と有限次元性 }
+  - { id: FA6-THM-03, name: 有限ランク作用素はコンパクト }
+  - { id: FA6-THM-04, name: コンパクト作用素の線形性とideal性 }
+  - { id: FA6-THM-05, name: コンパクト作用素全体の作用素ノルム閉性 }
+  - { id: FA6-THM-06, name: ell2対角作用素のコンパクト性判定 }
+  - { id: FA6-THM-07, name: 連続核積分作用素のコンパクト性 }
+canonical_examples:
+  - 有限次元空間上の恒等作用素はコンパクトだが無限次元ではコンパクトでない
+  - "ell2上のD_a(x_n)=(a_n x_n)はa_n→0のとき、かつそのときに限りコンパクト"
+  - C([0,1])上の連続核積分作用素は区分線形有限ランク近似によりコンパクト
+problem_patterns: [FA6-UNIT-BALL-1, FA6-RIESZ-1, FA6-FINITE-RANK-1, FA6-NORM-LIMIT-1, FA6-DIAGONAL-1, FA6-INTEGRAL-KERNEL-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 2.0 }
