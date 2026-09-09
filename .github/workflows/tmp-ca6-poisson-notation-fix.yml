@@ -1,0 +1,40 @@
+name: Temporary CA6 Poisson notation fix
+
+on:
+  push:
+    branches:
+      - codex/ca6-mobius-schwarz-poisson
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca6-mobius-schwarz-poisson
+          fetch-depth: 0
+      - name: Disambiguate Poisson notation from Markdown links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/CA6/index.md')
+          s = p.read_text(encoding='utf-8')
+          old = r'\mathcal P[g]('
+          new = r'\mathcal P[g]\,('
+          count = s.count(old)
+          if count != 8:
+              raise SystemExit(f'expected 8 Poisson notation occurrences, got {count}')
+          p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
+      - name: Commit fix and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/tmp-ca6-poisson-notation-fix.yml
+          git add textbook/volumes/00_foundations/CA6/index.md
+          git commit -m "Disambiguate CA6 Poisson notation from Markdown links"
+          git push origin HEAD:codex/ca6-mobius-schwarz-poisson
