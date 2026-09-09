@@ -29,6 +29,13 @@ concepts:
       - functional.normed-space
       - functional.norm-recap-c1
 
+  - id: functional.norm-map-continuity-c1
+    name: ノルム写像の連続性
+    kind: lemma
+    aliases: [ノルム写像の連続性]
+    requires:
+      - functional.normed-space-recap-c1
+
   - id: functional.banach-space-recap-c1
     name: Banach空間の再掲
     kind: definition
@@ -59,7 +66,7 @@ concepts:
 
   - id: linear.parallelogram-identity
     name: 平行四辺形恒等式
-    kind: term
+    kind: theorem
     aliases: [平行四辺形恒等式]
     requires:
       - linear.inner-product-recap-c1

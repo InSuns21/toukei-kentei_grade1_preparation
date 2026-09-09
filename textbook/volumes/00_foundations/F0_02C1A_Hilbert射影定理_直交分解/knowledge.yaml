@@ -4,22 +4,37 @@ coverage: complete
 prerequisites:
   - F0-02C1
 
+forward_references:
+  - functional.riesz-representation-theorem
+
 concepts:
+  - id: functional.convex-set-basic-c1a
+    name: 凸集合
+    kind: definition
+    aliases: [凸集合]
+
   - id: functional.hilbert-projection-theorem
     name: Hilbert空間の射影定理
     kind: theorem
     aliases: [Hilbert空間の射影定理, Hilbert射影定理]
     requires:
       - functional.hilbert-space
-      - convex.convex-set
+      - functional.convex-set-basic-c1a
       - topology.closed-set
+      - linear.parallelogram-identity
+      - functional.norm-map-continuity-c1
+
+  - id: functional.hilbert-projection-variational-characterization-c1a
+    name: Hilbert射影の変分不等式特徴付け
+    kind: theorem
+    aliases: [Hilbert射影の変分不等式特徴付け]
+    requires:
+      - functional.hilbert-projection-theorem
 
   - id: functional.orthogonal-decomposition
     name: 直交分解
     kind: theorem
-    introduction: inline
-    introduction_aliases: [への直交分解です]
-    aliases: [直交分解]
+    aliases: [直交分解, 閉部分空間への射影と直交分解]
     requires:
-      - functional.hilbert-projection-theorem
+      - functional.hilbert-projection-variational-characterization-c1a
       - linear.orthogonal-complement
