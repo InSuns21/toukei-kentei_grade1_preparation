@@ -15,6 +15,7 @@ learning_objectives:
   - 単純極・高位極の留数を複数の方法で計算し、閉曲線積分へ適用できる
   - 半円輪郭とML評価を用いて標準的な実積分を留数計算へ落とせる
   - Rouchéの定理で円板・環状領域内の零点数を重複度込みで数えられる
+  - 偏角原理を用いて対数微分の円周積分と零点数を結び付けられる
 definitions: []
 theorems: []
 canonical_examples:
@@ -25,6 +26,7 @@ canonical_examples:
   - Taylor展開とLaurent展開
   - 留数計算と実積分
   - Rouchéによる零点計数
+  - 偏角原理による対数微分積分
 problem_patterns:
   - CAX1-CR-1
   - CAX1-HARMONIC-1
@@ -35,7 +37,8 @@ problem_patterns:
   - CAX1-RESIDUE-1
   - CAX1-REAL-INTEGRAL-1
   - CAX1-ROUCHE-1
+  - CAX1-ARGUMENT-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 8, level_b: 5, level_c: 2, level_d: 0 }
-estimated_hours: { reading: 1.0, exercises: 8.0, review: 2.0 }
+exercise_counts: { level_a: 8, level_b: 10, level_c: 4, level_d: 0 }
+estimated_hours: { reading: 1.0, exercises: 12.0, review: 3.0 }
