@@ -28,8 +28,8 @@ jobs:
           old = '](z-a)'
           new = ']\\,(z-a)'
           count = s.count(old)
-          if count != 4:
-              raise SystemExit(f'expected four false-link targets, found {count}')
+          if count != 2:
+              raise SystemExit(f'expected two false-link source targets, found {count}')
           p.write_text(s.replace(old, new), encoding='utf-8')
           Path('.github/workflows/ca4-pages-math-link-fix.yml').unlink()
           PY
