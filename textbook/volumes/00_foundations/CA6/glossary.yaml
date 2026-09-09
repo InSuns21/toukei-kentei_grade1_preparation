@@ -1,0 +1,35 @@
+chapter: "CA6"
+terms:
+  - term: Möbius変換
+    english: Möbius transformation
+    meaning: Riemann球面上で (az+b)/(cz+d), ad-bc≠0 の形に書かれる分数線形変換。極と無限遠を含めると球面の全単射になる。
+  - term: Riemann球面
+    english: Riemann sphere
+    meaning: 複素平面に無限遠点∞を一つ加えた拡張複素平面。∞の近傍では局所座標1/zを用いる。
+  - term: 一般化円
+    english: generalized circle
+    meaning: Riemann球面上で、通常の円または∞を含む直線を一つのクラスとして扱ったもの。
+  - term: 円板自己同型
+    english: automorphism of the unit disk
+    meaning: 単位円板から自身への双正則写像。Schwarz lemmaにより回転と標準Möbius変換の合成に限られる。
+  - term: Schwarz lemma
+    english: Schwarz lemma
+    meaning: 原点を固定する単位円板の正則自己写像について |f(z)|≤|z| と |f'(0)|≤1 を与え、等号時の回転剛性まで述べる定理。
+  - term: 調和関数
+    english: harmonic function
+    meaning: 開集合上の実数値C2関数uで Laplacian Δu=u_xx+u_yy が0になるもの。
+  - term: 平均値性質
+    english: mean value property
+    meaning: 調和関数の中心値が、その中心を持つ任意の十分小さい円周上の値の平均に等しい性質。
+  - term: Poisson kernel
+    english: Poisson kernel
+    meaning: 単位円板で P_r(θ)=(1-r^2)/(1-2r cosθ+r^2) と定義される非負核。正規化質量1と境界への質量集中を持つ。
+  - term: Poisson積分
+    english: Poisson integral
+    meaning: 円周上の境界データをPoisson kernelとの畳み込みで円板内へ調和的に延長する積分。
+  - term: Dirichlet問題
+    english: Dirichlet problem
+    meaning: 領域内部で調和し、境界上で指定された値を取る関数を求める境界値問題。本章では単位円板と連続境界データを扱う。
+  - term: approximate identity
+    english: approximate identity
+    meaning: 非負・全質量1で、パラメータ極限に伴い原点近傍へ質量が集中する核族。Poisson kernelの境界収束を支える機構。
