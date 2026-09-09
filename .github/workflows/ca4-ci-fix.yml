@@ -1,0 +1,58 @@
+name: CA4 CI fix
+
+on:
+  push:
+    branches:
+      - codex/ca4-laurent-residue-rouche
+    paths:
+      - .github/workflows/ca4-ci-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: codex/ca4-laurent-residue-rouche
+          fetch-depth: 0
+      - name: Fix CA4 canonical headings and formal references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('textbook/volumes/00_foundations/CA4/index.md')
+          s = p.read_text(encoding='utf-8')
+          replacements = [
+              ('### 定義（Laurent 級数）', '### 定義（Laurent級数）'),
+              ('### 定理（Laurent 展開）', '### 定理（Laurent展開）'),
+              ('### 定義（meromorphic 関数）', '### 定義（meromorphic関数）'),
+              ('### 定理（孤立特異点の Laurent 分類）', '### 定理（孤立特異点のLaurent分類）'),
+              ('## 8. Rouché の定理', '## 8. Rouchéの定理'),
+              ('### 定理（Rouché の定理）', '### 定理（Rouchéの定理）'),
+              ('\n留数定理から\n', '\n[留数定理](#thm-ca4-residue) から\n'),
+              ('円弧長は $\\pi R$ なので ML 評価により', '円弧長は $\\pi R$ なので [ML評価](../CA2/index.md#thm-ca2-reparam-ml) により'),
+              ('したがって $t\\to s$ なら integrand は $\\Gamma$ 上一様に収束し、ML 評価から積分値も連続に変化する。', 'したがって $t\\to s$ なら integrand は $\\Gamma$ 上一様に収束し、[ML評価](../CA2/index.md#thm-ca2-reparam-ml) から積分値も連続に変化する。'),
+              ('を Laurent 展開から導け。', 'を [Laurent展開](#thm-ca4-laurent) から導け。'),
+              ('\n留数定理を使って\n', '\n[留数定理](#thm-ca4-residue) を使って\n'),
+              ('- Rouché は偏角原理の後に置き、', '- [Rouchéの定理](#thm-ca4-rouche) は偏角原理の後に置き、'),
+          ]
+          for old, new in replacements:
+              count = s.count(old)
+              if count != 1:
+                  raise SystemExit(f'expected one occurrence of {old!r}, found {count}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+
+          wf = Path('.github/workflows/ca4-ci-fix.yml')
+          if wf.exists():
+              wf.unlink()
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix CA4 canonical names and formal references"
+          git push origin HEAD:codex/ca4-laurent-residue-rouche
