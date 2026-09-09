@@ -14,11 +14,13 @@ learning_objectives:
   - コンパクト自己共役作用素について非零固有空間の直交和と核がHilbert空間を尽くすことを示し、スペクトル展開を再構成できる
   - 0がspectrumに属しても固有値とは限らないことをell2対角作用素で説明できる
   - Fredholm alternativeと一般の有限次元行列の単射・全射同値を混同せず、コンパクト性が担う役割を説明できる
-definitions: []
+definitions:
+  - { id: FA7-DEF-01, name: 自己共役有界作用素 }
 theorems:
   - { id: FA7-THM-01, name: I-Kの核の有限次元性 }
+  - { id: FA7-LEM-00, name: 核からの距離による下側評価 }
   - { id: FA7-THM-02, name: I-Kの像の閉性 }
-  - { id: FA7-THM-03, name: Fredholm alternative }
+  - { id: FA7-THM-03, name: コンパクト作用素のFredholm alternative }
   - { id: FA7-COR-01, name: コンパクト作用素の非零spectrumの固有値化 }
   - { id: FA7-THM-04, name: 非零固有値の有限重複度と0以外での非集積 }
   - { id: FA7-LEM-01, name: 自己共役作用素のRayleigh商によるノルム評価 }
