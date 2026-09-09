@@ -1,0 +1,17 @@
+chapter: "FA5"
+terms:
+  - term: spectrum
+    english: spectrum
+    meaning: 複素Banach空間上の有界作用素Tについて、lambda I-Tが有界逆を持たない複素数lambda全体。有限次元では固有値集合に一致するが、無限次元では単射性・全射性・逆の有界性のいずれかが破れて現れる。
+  - term: resolvent set
+    english: resolvent set
+    meaning: lambda I-Tが可逆となる複素数lambda全体。spectrumの補集合で、Neumann級数により開集合である。
+  - term: resolvent operator
+    english: resolvent operator
+    meaning: lambdaがresolvent集合に属するときのR(lambda,T)=(lambda I-T)^(-1)。resolvent集合上で作用素ノルム値の正則関数になる。
+  - term: spectral radius
+    english: spectral radius
+    meaning: r(T)=max{|lambda|:lambda in sigma(T)}。複素Banach空間上ではlim_n ||T^n||^(1/n)に一致する。
+  - term: Neumann series
+    english: Neumann series
+    meaning: ||S||<1のとき(I-S)^(-1)=sum_{n>=0}S^nと表す作用素級数。resolventの局所展開と大きなlambdaでの逆作用素構成の基本道具。

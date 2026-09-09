@@ -1,0 +1,41 @@
+id: "FA5"
+title: "標準関数解析 V：スペクトル・レゾルベント"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA0
+  - FA2
+  - LA6
+  - CA3
+  - F0-02C6
+official_scope: []
+learning_objectives:
+  - 複素Banach空間上の有界作用素についてresolvent集合・spectrum・resolvent作用素を定義し、有限次元の固有値集合との違いを説明できる
+  - Neumann級数を作用素ノルムで構成し、可逆作用素全体の開性と逆写像の局所級数表示を証明できる
+  - resolvent恒等式と局所級数表示からresolvent集合の開性・resolventの正則性を導ける
+  - spectrumが空でないcompact集合であり、sigma(T)が閉円板{|lambda|<=||T||}に含まれることを証明できる
+  - Liouvilleの定理を使うspectrum非空性の証明で、Hahn–Banachによるscalarizationが必要な箇所を特定できる
+  - 多項式spectral mapping theoremを因数分解と可換な作用素因子の可逆性から証明できる
+  - spectral radius formula r(T)=lim ||T^n||^(1/n)をresolventのCauchy積分評価から証明できる
+  - unilateral shiftや乗算作用素を通じ、無限次元ではspectrumの点が固有値とは限らないことを判定できる
+definitions:
+  - { id: FA5-DEF-01, name: resolvent集合・spectrum }
+  - { id: FA5-DEF-02, name: resolvent作用素 }
+  - { id: FA5-DEF-03, name: spectral radius }
+theorems:
+  - { id: FA5-LEM-01, name: Neumann級数 }
+  - { id: FA5-THM-01, name: resolvent集合の開性と局所級数表示 }
+  - { id: FA5-THM-02, name: resolvent恒等式 }
+  - { id: FA5-THM-03, name: spectrumのcompact性とノルム円板評価 }
+  - { id: FA5-THM-04, name: 複素Banach空間上のspectrum非空性 }
+  - { id: FA5-THM-05, name: 多項式spectral mapping theorem }
+  - { id: FA5-THM-06, name: spectral radius formula }
+canonical_examples:
+  - 有限次元行列ではspectrumと固有値集合が一致
+  - unilateral shiftのspectrumは閉単位円板で固有値を持たない
+  - "C([0,1])上の座標乗算作用素のspectrumは[0,1]"
+problem_patterns: [FA5-NEUMANN-1, FA5-RESOLVENT-IDENTITY-1, FA5-SPECTRUM-NONEMPTY-1, FA5-SHIFT-SPECTRUM-1, FA5-SPECTRAL-RADIUS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 2.0 }
