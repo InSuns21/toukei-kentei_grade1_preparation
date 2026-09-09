@@ -10,13 +10,6 @@ concepts:
     kind: definition
     aliases: [凸集合]
 
-  - id: functional.norm-map-continuity-c1a
-    name: ノルム写像の連続性
-    kind: lemma
-    aliases: [ノルム写像の連続性]
-    requires:
-      - functional.normed-space-recap-c1
-
   - id: functional.hilbert-projection-theorem
     name: Hilbert空間の射影定理
     kind: theorem
@@ -26,7 +19,7 @@ concepts:
       - functional.convex-set-basic-c1a
       - topology.closed-set
       - linear.parallelogram-identity
-      - functional.norm-map-continuity-c1a
+      - functional.norm-map-continuity-c1
 
   - id: functional.hilbert-projection-variational-characterization-c1a
     name: Hilbert射影の変分不等式特徴付け
