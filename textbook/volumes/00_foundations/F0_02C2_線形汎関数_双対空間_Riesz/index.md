@@ -40,7 +40,7 @@ $$
 「functional」という名前は、入力がベクトルや関数で、出力がスカラーであることを強調しています。
 
 <!-- definition-example-start: def-f0-02c2-linear-functional -->
-**定義の確認：線形汎関数と、線形でないスカラー値写像**
+**定義の確認**：線形汎関数と、線形でないスカラー値写像
 
 まず $X=\mathbb R^2$ で
 
@@ -292,7 +292,7 @@ $$
 です。
 
 <!-- definition-example-start: def-f0-02c2-dual-space -->
-**定義の確認：$X^*$ の中で足し算する**
+**定義の確認**：$X^*$ の中で足し算する
 
 $X=\mathbb R^2$ にEuclidノルムを入れ、
 
@@ -483,7 +483,7 @@ $$
 $$
 
 <!-- definition-example-start: def-f0-02c2-linear-functional, def-f0-02c2-dual-space, def-f0-02c2-evaluation-functional -->
-**定義の確認：積分と点評価は双対空間の元になる**
+**定義の確認**：積分と点評価は双対空間の元になる
 
 ここまでの三つの定義を同じ関数空間でまとめて確認します。$X=C([0,1])$ にsupノルムを入れ、
 
