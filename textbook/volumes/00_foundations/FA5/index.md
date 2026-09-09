@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-FA4 までで Banach 空間、双対空間、Hahn–Banach、弱位相・弱*位相とコンパクト性を準備しました。本章では一つの有界作用素 $T$ を固定し、
+これまでに Banach 空間、双対空間、Hahn–Banach と複素解析側の道具を準備しました。本章では一つの有界作用素 $T$ を固定し、
 
 ```text
 Neumann級数
@@ -824,7 +824,7 @@ R(\lambda,T)
 \end{pmatrix}.
 $$
 
-従って $\sigma(T)=\{2\}$ です。非対角化可能性は resolvent に二次の極として見えますが、spectrum の集合そのものは固有値2だけです。
+従って $\sigma(T)=\{2\}$ です。非対角化可能性は resolvent の $(\lambda-2)^{-2}$ 項として見えますが、spectrum の集合そのものは固有値2だけです。
 
 ### 例2：unilateral shift は固有値なしで閉単位円板を spectrum に持つ
 
