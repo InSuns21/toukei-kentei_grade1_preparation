@@ -221,7 +221,7 @@ $$
 \frac1{2\pi i}
 \int_{|\zeta-a|=\rho_+}
 \frac{f(\zeta)}{(\zeta-a)^{n+1}}\,d\zeta
-\right](z-a)^n.
+\right]\,(z-a)^n.
 $$
 
 一方、内円では
@@ -252,7 +252,7 @@ $$
 \frac1{2\pi i}
 \int_{|\zeta-a|=\rho_-}
 f(\zeta)(\zeta-a)^m\,d\zeta
-\right](z-a)^{-m-1}.
+\right]\,(z-a)^{-m-1}.
 $$
 
 $n=-m-1$ と置けば正負両方をまとめて Laurent 級数になる。
