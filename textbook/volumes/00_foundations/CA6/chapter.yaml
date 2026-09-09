@@ -1,0 +1,39 @@
+id: "CA6"
+title: "標準複素解析 VI：Möbius変換・Schwarz補題・調和関数・Poisson核"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA5
+official_scope: []
+learning_objectives:
+  - Riemann球面上のMöbius変換を局所座標まで含めて全単射・等角と示し、一般化円の保存を基本変換への分解から証明できる
+  - 円板自己同型の標準写像を直接計算し、Schwarz lemmaの最大値原理による証明と等号成立条件から自己同型を分類できる
+  - C2調和関数から局所的な正則関数を構成し、Cauchy平均値公式を介して平均値性質と最大・最小値原理を導ける
+  - Poisson kernelの非負性・質量1・境界から離れた質量消失を個別に証明し、Poisson積分の調和性と連続境界値への一様収束を導ける
+  - Poisson積分の一意性を調和関数の最大・最小値原理から示し、Fourier級数表示を幾何級数から導ける
+definitions:
+  - { id: CA6-DEF-01, name: Möbius変換 }
+  - { id: CA6-DEF-02, name: 一般化円 }
+  - { id: CA6-DEF-03, name: 円板自己同型 }
+  - { id: CA6-DEF-04, name: 調和関数 }
+  - { id: CA6-DEF-05, name: Poisson kernel }
+  - { id: CA6-DEF-06, name: Poisson積分 }
+theorems:
+  - { id: CA6-THM-01, name: Möbius変換の基本性質 }
+  - { id: CA6-LEM-01, name: 円板の標準自己同型 }
+  - { id: CA6-THM-02, name: Schwarz lemma }
+  - { id: CA6-COR-01, name: 円板自己同型の分類 }
+  - { id: CA6-THM-03, name: 正則関数の実部・虚部の調和性 }
+  - { id: CA6-LEM-02, name: 調和関数の局所正則表示 }
+  - { id: CA6-THM-04, name: 調和関数の平均値性質 }
+  - { id: CA6-COR-02, name: 調和関数の最大・最小値原理 }
+  - { id: CA6-LEM-03, name: Poisson kernelのapproximate identity性 }
+  - { id: CA6-THM-05, name: Poisson積分によるDirichlet問題の解 }
+  - { id: CA6-COR-03, name: 円板Dirichlet問題の一意性 }
+  - { id: CA6-COR-04, name: Poisson kernelのFourier級数 }
+canonical_examples: [上半平面と単位円板のMöbius同値, 円板自己同型, x^2-y^2の調和性, Poisson kernelによる境界データcos ntの再生]
+problem_patterns: [CA6-MOBIUS-1, CA6-SCHWARZ-1, CA6-HARMONIC-1, CA6-POISSON-1, CA6-DIRICHLET-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 2.0 }
