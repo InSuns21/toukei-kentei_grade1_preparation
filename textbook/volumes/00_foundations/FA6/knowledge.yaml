@@ -78,10 +78,10 @@ concepts:
       - functional.banach-space
 
   - id: functional.finite-rank-norm-limit-compact
-    name: 有限ランク作用素の作用素ノルム極限はコンパクト
+    name: 有限ランク作用素の作用素ノルム収束先はコンパクト
     kind: corollary
-    aliases: [有限ランク作用素の作用素ノルム極限はコンパクト, finite-rank norm limits are compact, "### 系（有限ランク作用素の作用素ノルム極限はコンパクト）"]
-    introduction_aliases: ["### 系（有限ランク作用素の作用素ノルム極限はコンパクト）"]
+    aliases: [有限ランク作用素の作用素ノルム収束先はコンパクト, finite-rank norm limits are compact, "### 系（有限ランク作用素の作用素ノルム収束先はコンパクト）"]
+    introduction_aliases: ["### 系（有限ランク作用素の作用素ノルム収束先はコンパクト）"]
     requires:
       - functional.finite-rank-compact
       - functional.compact-operators-norm-closed
