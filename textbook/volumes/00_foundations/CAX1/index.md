@@ -44,10 +44,12 @@ Laurent 展開
 
 ---
 
-## 2. Level A：一手を迷わず出す
+## 2. 演習
+
+### Level A：一手を迷わず出す
 
 <a id="ex-cax1-a01"></a>
-### CAX1-A01 Cauchy–Riemann 判定と導関数
+#### CAX1-A01 Cauchy–Riemann 判定と導関数
 - Level: A
 
 $$
@@ -118,7 +120,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a02"></a>
-### CAX1-A02 調和共役を復元する
+#### CAX1-A02 調和共役を復元する
 - Level: A
 
 $$
@@ -215,7 +217,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a03"></a>
-### CAX1-A03 複素指数方程式
+#### CAX1-A03 $e^z=w$ 型方程式
 - Level: A
 
 複素方程式
@@ -227,7 +229,7 @@ $$
 の全ての解を求めよ。
 
 <!-- solution-start -->
-**解答**：$z=x+iy$ と置きます。[CA1 の複素指数関数](../CA1/index.md#thm-ca1-complex-exponential) から
+**解答**：$z=x+iy$ と置きます。[CA1 の $e^z$ の基本性質](../CA1/index.md#thm-ca1-complex-exponential) から
 
 $$
 e^z=e^x(\cos y+i\sin y).
@@ -273,11 +275,11 @@ z=\frac12\log2+i\left(\frac\pi4+2\pi k\right),
 }.
 $$
 
-複素指数では虚部に $2\pi$ 周期があるため、解が無限個に分岐する点を落とさないことが重要です。
+$e^z$ では虚部に $2\pi$ 周期があるため、解が無限個に分岐する点を落とさないことが重要です。
 <!-- solution-end -->
 
 <a id="ex-cax1-a04"></a>
-### CAX1-A04 パラメータ表示で線積分する
+#### CAX1-A04 パラメータ表示で線積分する
 - Level: A
 
 $0$ から $1+i$ までの線分を
@@ -337,7 +339,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a05"></a>
-### CAX1-A05 Cauchy 積分公式を使う
+#### CAX1-A05 Cauchy 積分公式を使う
 - Level: A
 
 反時計回りの円周 $|z|=2$ に沿って
@@ -385,7 +387,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a06"></a>
-### CAX1-A06 分母の冪から微分階数を読む
+#### CAX1-A06 分母の冪から微分階数を読む
 - Level: A
 
 反時計回りの円周 $|z|=2$ に沿って
@@ -441,7 +443,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a07"></a>
-### CAX1-A07 Taylor 展開と収束半径
+#### CAX1-A07 Taylor 展開と収束半径
 - Level: A
 
 $$
@@ -501,7 +503,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-a08"></a>
-### CAX1-A08 同じ関数を二つの領域で Laurent 展開する
+#### CAX1-A08 同じ関数を二つの領域で Laurent 展開する
 - Level: A
 
 $$
@@ -594,12 +596,10 @@ $$
 同じ有理関数でも、どちらの比を $|w|<1$ にするかで Laurent 展開が変わります。
 <!-- solution-end -->
 
----
-
-## 3. Level B：複数の判断をつなぐ
+### Level B：複数の判断をつなぐ
 
 <a id="ex-cax1-b01"></a>
-### CAX1-B01 円の半径で積分値が変わる
+#### CAX1-B01 円の半径で積分値が変わる
 - Level: B
 
 反時計回りの円周 $|z|=R$ に沿う積分
@@ -662,7 +662,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-b02"></a>
-### CAX1-B02 3位の極の留数
+#### CAX1-B02 3位の極の留数
 - Level: B
 
 $$
@@ -725,7 +725,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-b03"></a>
-### CAX1-B03 留数で実積分を求める
+#### CAX1-B03 留数で実積分を求める
 - Level: B
 
 実積分
@@ -823,7 +823,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-b04"></a>
-### CAX1-B04 Rouché で単位円内の零点数を数える
+#### CAX1-B04 Rouché で単位円内の零点数を数える
 - Level: B
 
 多項式
@@ -877,7 +877,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-b05"></a>
-### CAX1-B05 Laurent 展開から極の位数と留数を読む
+#### CAX1-B05 Laurent 展開から極の位数と留数を読む
 - Level: B
 
 $$
@@ -929,12 +929,10 @@ $$
 $$
 <!-- solution-end -->
 
----
-
-## 4. Level C：院試・編入の大問を意識した連結計算
+### Level C：院試・編入の大問を意識した連結計算
 
 <a id="ex-cax1-c01"></a>
-### CAX1-C01 Taylor 係数・高階導関数・円周積分をつなぐ
+#### CAX1-C01 Taylor 係数・高階導関数・円周積分をつなぐ
 - Level: C
 
 $$
@@ -1093,7 +1091,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-cax1-c02"></a>
-### CAX1-C02 Rouché で円板と環状領域の零点数を数える
+#### CAX1-C02 Rouché で円板と環状領域の零点数を数える
 - Level: C
 
 $$
@@ -1209,7 +1207,7 @@ $$
 
 ---
 
-## 5. 仕上げチェック
+## 3. 仕上げチェック
 
 次を紙上で迷わず実行できれば、CA1〜CA4 の計算コアはかなり安定しています。
 
