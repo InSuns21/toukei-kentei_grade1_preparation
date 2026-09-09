@@ -893,7 +893,7 @@ $g:\partial\mathbb D\to\mathbb R$ を連続関数とする。$0\le r<1$ に対�
 
 $$
 \boxed{
-\mathcal P[g](re^{i\theta})
+\mathcal P[g]\,(re^{i\theta})
 =
 \frac1{2\pi}
 \int_{-\pi}^{\pi}
@@ -908,7 +908,7 @@ $$
 **定義の確認**：$g\equiv c$ なら質量1から
 
 $$
-\mathcal P[g](re^{i\theta})=c.
+\mathcal P[g]\,(re^{i\theta})=c.
 $$
 
 定数境界データは同じ定数関数へ延長される。核の正規化がなければ、この最も基本的な境界条件すら再現できない。
@@ -925,7 +925,7 @@ $$
 $g:\partial\mathbb D\to\mathbb R$ を連続とし
 
 $$
-u(z)=\mathcal P[g](z)
+u(z)=\mathcal P[g]\,(z)
 \qquad(z\in\mathbb D)
 $$
 
@@ -1199,7 +1199,7 @@ $$
 $n\ge1$ とし $g(e^{it})=\cos(nt)$ とする。Fourier 級数表示を Poisson 積分へ代入すると、積の積分で同じ周波数だけが残り
 
 $$
-\mathcal P[g](re^{i\theta})
+\mathcal P[g]\,(re^{i\theta})
 =r^n\cos(n\theta).
 $$
 
