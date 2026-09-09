@@ -100,6 +100,8 @@ concepts:
     introduction_aliases: ["### 定理（spectral radius formula）"]
     requires:
       - functional.spectral-radius
+      - functional.polynomial-spectral-mapping
       - functional.resolvent-local-series
       - functional.norm-preserving-extension
-      - complex-analysis.cauchy-integral-formula
+      - complex-analysis.homotopy-invariance-line-integral
+      - complex-analysis.reparametrization-ml-estimate
