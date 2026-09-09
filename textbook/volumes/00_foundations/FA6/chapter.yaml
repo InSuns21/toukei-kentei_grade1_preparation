@@ -24,6 +24,7 @@ theorems:
   - { id: FA6-THM-03, name: 有限ランク作用素はコンパクト }
   - { id: FA6-THM-04, name: コンパクト作用素の線形性とideal性 }
   - { id: FA6-THM-05, name: コンパクト作用素全体の作用素ノルム閉性 }
+  - { id: FA6-COR-01, name: 有限ランク作用素の作用素ノルム極限はコンパクト }
   - { id: FA6-THM-06, name: ell2対角作用素のコンパクト性判定 }
   - { id: FA6-THM-07, name: 連続核積分作用素のコンパクト性 }
 canonical_examples:
