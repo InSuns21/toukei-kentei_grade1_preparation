@@ -1,0 +1,31 @@
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:dream-theater-concepts:changed
+> node scripts/validate-dream-theater-concepts-changed.mjs && node scripts/audit-dream-theater-formal-order.mjs --strict --changed-only && node scripts/audit-dream-theater-explicit-dependencies.mjs --strict --changed-only && node scripts/audit-dream-theater-implicit-dependencies.mjs --strict --changed-only
+
+DREAM THEATER 概念依存検証（strict）
+対象ページ: 153 / knowledge移行済み: 120 / 未移行: 33
+変更ファイル: 5
+概念登録数: 980
+ERROR: 3 / WARN: 13 / AUDIT: 0
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「ac」を共有しています: set.choice-axiom, analysis.mt4-absolute-continuous-function
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「点列コンパクト性」を共有しています: topology.sequentially-compact, topology.sequentially-compact-space
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「下極限」を共有しています: analysis.limsup-liminf, measure.limit-inferior
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「liminf」を共有しています: analysis.limsup-liminf, measure.limit-inferior
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「固有値・固有ベクトル・固有空間」を共有しています: linear.eigenvalue, linear.eigenvector, linear.eigenspace, linear.eigen-data-recap-f1
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「banach空間」を共有しています: functional.banach-space, functional.banach-space-recap-d2e, functional.banach-space-recap-c1
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「outer measure」を共有しています: measure.outer-measure, measure.riesz-outer-measure-theorem
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「測度の絶対連続性」を共有しています: measure.signed-absolute-continuity, measure.absolute-continuity
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「banach空間の再掲」を共有しています: functional.banach-space-recap-d2e, functional.banach-space-recap-c1
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「hilbert空間」を共有しています: functional.hilbert-space, functional.hilbert-space-recap-c1
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「凸集合」を共有しています: functional.convex-set-basic-c1a, convex.convex-set
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「調和関数」を共有しています: complex-analysis.harmonic-function, pde.harmonic-function
+- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「laplace方程式」を共有しています: complex-analysis.harmonic-function, pde.laplace-equation
+- [ERROR] textbook/volumes/00_foundations/FA6/index.md:129 未登録の定義・定理・補題・命題・系の宣言候補: ## 3. Riesz の補題：無限次元の単位球には離れた点を無限に作れる
+- [ERROR] textbook/volumes/00_foundations/FA6/index.md:345 概念「孤立特異点」(complex-analysis.isolated-singularity) を使用していますが、導入ページ CA4 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+- [ERROR] textbook/volumes/00_foundations/FA6/index.md:858 概念「winding number」(complex-analysis.winding-number) を使用していますが、導入ページ CA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+fatal: path 'textbook/volumes/00_foundations/FA6/index.md' exists on disk, but not in 'f45484524c038306e58f37ecde348ec2dd293710'
+
+変更内容に起因する DREAM THEATER 概念依存違反が残っています:
+  textbook/volumes/00_foundations/FA6/index.md:129 未登録の定義・定理・補題・命題・系の宣言候補: ## 3. Riesz の補題：無限次元の単位球には離れた点を無限に作れる
+  textbook/volumes/00_foundations/FA6/index.md:345 概念「孤立特異点」(complex-analysis.isolated-singularity) を使用していますが、導入ページ CA4 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+  textbook/volumes/00_foundations/FA6/index.md:858 概念「winding number」(complex-analysis.winding-number) を使用していますが、導入ページ CA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
