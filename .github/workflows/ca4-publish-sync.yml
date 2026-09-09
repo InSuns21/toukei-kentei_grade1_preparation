@@ -18,169 +18,77 @@ jobs:
         with:
           ref: codex/ca4-laurent-residue-rouche
           fetch-depth: 0
-      - name: Publish CA4 and realign CA5 draft
+      - name: Publish CA4 wiring and remove temporary files
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          from textwrap import dedent
 
           def replace_once(path, old, new):
               p = Path(path)
               s = p.read_text(encoding='utf-8')
-              old = dedent(old)
-              new = dedent(new)
               count = s.count(old)
               if count != 1:
-                  raise SystemExit(f'{path}: expected one match, found {count}')
+                  raise SystemExit(f'{path}: expected exactly one target, found {count}')
               p.write_text(s.replace(old, new, 1), encoding='utf-8')
 
-          replace_once(
-              'textbook/dream-theater-standard-math-core.yaml',
-              '''\
-              - id: CA4
-                title: Laurent展開・孤立特異点・留数定理
-                area: complex-analysis
-                tier: core
-                status: planned
-                prerequisites: [CA3]
-              - id: CA5
-                title: 偏角原理・Rouché・解析接続
-                area: complex-analysis
-                tier: core-advanced-standard
-                status: planned
-                prerequisites: [CA4, TOP3]
-              ''',
-              '''\
-              - id: CA4
-                title: Laurent展開・孤立特異点・留数・偏角原理・Rouché
-                area: complex-analysis
-                tier: core
-                status: implemented
-                implemented_at: 2026-09-09
-                implementation_path: textbook/volumes/00_foundations/CA4/index.md
-                prerequisites: [CA3]
-              - id: CA5
-                title: winding number・解析接続・monodromy
-                area: complex-analysis
-                tier: core-advanced-standard
-                status: planned
-                prerequisites: [CA4, TOP3]
-              ''')
+          core_old = "\n".join([
+              "  - id: CA4",
+              "    title: Laurent展開・孤立特異点・留数定理",
+              "    area: complex-analysis",
+              "    tier: core",
+              "    status: planned",
+              "    prerequisites: [CA3]",
+              "  - id: CA5",
+              "    title: 偏角原理・Rouché・解析接続",
+              "    area: complex-analysis",
+              "    tier: core-advanced-standard",
+              "    status: planned",
+              "    prerequisites: [CA4, TOP3]",
+              "",
+          ])
+          core_new = "\n".join([
+              "  - id: CA4",
+              "    title: Laurent展開・孤立特異点・留数・偏角原理・Rouché",
+              "    area: complex-analysis",
+              "    tier: core",
+              "    status: implemented",
+              "    implemented_at: 2026-09-09",
+              "    implementation_path: textbook/volumes/00_foundations/CA4/index.md",
+              "    prerequisites: [CA3]",
+              "  - id: CA5",
+              "    title: winding number・解析接続・monodromy",
+              "    area: complex-analysis",
+              "    tier: core-advanced-standard",
+              "    status: planned",
+              "    prerequisites: [CA4, TOP3]",
+              "",
+          ])
+          replace_once('textbook/dream-theater-standard-math-core.yaml', core_old, core_new)
 
+          ca3_md = "3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)\n"
           replace_once(
               'textbook/dream-theater.md',
-              '''\
-              1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
-              2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
-              3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)
-              ''',
-              '''\
-              1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
-              2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
-              3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)
-              4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)
-              ''')
+              ca3_md,
+              ca3_md + "4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)\n",
+          )
 
+          ca3_json = '        "textbook/volumes/00_foundations/CA3/index.md",\n'
           replace_once(
               'textbook/dream-theater-index.json',
-              '''\
-                      "textbook/volumes/00_foundations/CA2/index.md",
-                      "textbook/volumes/00_foundations/CA3/index.md",
-              ''',
-              '''\
-                      "textbook/volumes/00_foundations/CA2/index.md",
-                      "textbook/volumes/00_foundations/CA3/index.md",
-                      "textbook/volumes/00_foundations/CA4/index.md",
-              ''')
+              ca3_json,
+              ca3_json + '        "textbook/volumes/00_foundations/CA4/index.md",\n',
+          )
 
-          Path('textbook/drafts/standard-math-core/CA5/chapter.yaml').write_text(dedent('''\
-              id: "CA5"
-              title: "標準複素解析 V：winding number・解析接続・monodromy"
-              volume: "foundations"
-              status: supplementary
-              proof_status: todo
-              prerequisites: [CA4, TOP3]
-              official_scope: []
-              learning_objectives:
-                - winding numberを定義し、整数値性・局所定数性と一般閉曲線の留数定理への接続を説明できる
-                - CA4の単純閉曲線版偏角原理をindexで重み付けした一般形へ拡張できる
-                - 解析接続の一意性を恒等定理から導き、経路に沿う解析接続を定式化できる
-                - monodromy theoremで単連結性が経路独立性を生む箇所をホモトピー分割から説明できる
-              definitions:
-                - { id: CA5-DEF-01, name: winding number }
-                - { id: CA5-DEF-02, name: 解析接続 }
-              theorems:
-                - { id: CA5-THM-01, name: winding numberの整数値性と局所定数性 }
-                - { id: CA5-THM-02, name: 一般閉曲線版留数定理・偏角原理 }
-                - { id: CA5-THM-03, name: 解析接続の一意性 }
-                - { id: CA5-THM-04, name: monodromy theorem }
-              exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
-              '''), encoding='utf-8')
-
-          Path('textbook/drafts/standard-math-core/CA5/index.md').write_text(dedent('''\
-              # CA5 winding number・解析接続・monodromy
-
-              > **実装状態**：一般閉曲線への拡張と解析接続の draft。**定理の証明は TODO**。単純閉曲線版の留数定理・偏角原理・Rouché は CA4 で証明済みなので、本章では再実装しない。
-
-              ## 1. winding number
-
-              閉じた区分的 $C^1$ 曲線 $\\gamma$ と $a\\notin\\gamma$ に対し
-
-              $$
-              \\operatorname{Ind}(\\gamma,a)=\\frac1{2\\pi i}\\int_\\gamma\\frac{dz}{z-a}
-              $$
-
-              と定義する。
-
-              ### 定理 CA5-THM-01：整数値性と局所定数性
-
-              $\\operatorname{Ind}(\\gamma,a)$ は整数で、$\\mathbb C\\setminus\\gamma$ の各連結成分上で一定、非有界成分では0である。
-
-              **証明 TODO**：曲線を十分細かく分割して各区間で連続な偏角を選び、終点差の総和が $2\\pi\\mathbb Z$ に入ることを示す。局所定数性は $a$ の小変動に対する積分の一様評価から閉じる。
-
-              ## 2. 一般閉曲線版の留数定理・偏角原理
-
-              CA4の単純閉曲線版を、各特異点のindexで重み付けした形
-
-              $$
-              \\int_\\gamma f(z)\\,dz
-              =2\\pi i\\sum_a \\operatorname{Ind}(\\gamma,a)\\operatorname{Res}(f,a)
-              $$
-
-              へ拡張する。偏角原理も同様に零点・極をindexで重み付けする。
-
-              **証明 TODO**：曲線の像の補集合を有限個の関連成分に分け、局所的な小円積分とindexの局所定数性を組み合わせる。CA4の単純閉曲線版を名前だけで再利用せず、自己交差する曲線で何が変わるかを明示する。
-
-              ## 3. 解析接続
-
-              局所正則関数の芽を、重なり上で一致させながら経路に沿って延長する。
-
-              ### 定理 CA5-THM-03：解析接続の一意性
-
-              連結した重なりを通じた解析接続は、存在する限り一意である。
-
-              **証明 TODO**：各重なりで恒等定理を逐次適用し、どの区間で一致が次へ伝播するかを書く。
-
-              ## 4. monodromy theorem
-
-              ### 定理 CA5-THM-04：monodromy theorem
-
-              単連結領域で全経路に沿う局所解析接続が可能なら、終点で得られる芽は経路に依存せず、一価の正則関数を与える。
-
-              **証明 TODO**：二経路のホモトピーを有限格子へ分割し、隣接する経路で解析接続結果が一致することを局所一意性から示す。単連結性を「だから同じ」で済ませない。
-
-              ## 演習
-
-              - Level: A — 円 $|z|=2$ の $0,1,3$ に対する index を求めよ。
-              - Level: A — 時計回り・複数周回で index の符号と大きさを確認せよ。
-              - Level: A — 一般閉曲線版留数定理が単純閉曲線版を含むことを確認せよ。
-              - Level: A — 重なり上の解析接続の一意性を恒等定理から示せ。
-              - Level: B — 自己交差する曲線で二領域の index を計算せよ。
-              - Level: B — 一般偏角原理を多項式へ適用せよ。
-              - Level: B — 対数を一周解析接続すると $2\\pi i$ ずれることを説明せよ。
-              - Level: C — monodromyで単連結性が必要な箇所を対数を反例に論証せよ。
-              '''), encoding='utf-8')
+          old_geometry = (
+              "一般の区分的 $C^1$ 境界では、多角形版へ無断で置き換えない。境界の像はコンパクトであり、$f$ の正則領域の補集合から正の距離を持つ。十分細かい分割を取り、各曲線をその細分点を結ぶ多角形曲線へ置き換えると、元の曲線と多角形曲線の間は正則領域内の細い帯で結べる。[曲線の多角形化](../CA2/index.md#lem-ca2-polygonal-replacement) と [正則線積分のホモトピー不変性](../CA2/index.md#thm-ca2-homotopy-invariance) により各境界積分は変わらない。多角形化した境界について上の有限三角形化を適用すれば結論が元の境界へ戻る。$\\square$"
+          )
+          new_geometry = (
+              "一般の区分的 $C^1$ 境界では、多角形版へ無断で置き換えない。まず有限個の境界成分は互いに素なコンパクト集合であり、各境界は $f$ の正則領域の補集合とも交わらない。従って、異なる境界成分どうしの距離と正則領域の補集合までの距離のうち正のものの最小値を $\\delta>0$ と取れる。各境界を幅 $\\delta/10$ より小さい互いに交わらない近傍の中で扱う。\n\n"
+              "各境界曲線について [曲線の多角形化](../CA2/index.md#lem-ca2-polygonal-replacement) の分割をさらに細かくする。単純閉曲線の異なる離れたパラメータ区間の像はコンパクトで交わらないので正の距離を持ち、隣接する小弧はそれぞれ上の細い近傍内にある。この有限個の正の距離より小さく弦を取ることで、多角形近似は元の境界成分と同じ近傍内にあり、自己交差せず、異なる境界成分とも交わらないように選べる。各小弧と弦の直線補間も同じ局所円板内にあるため、境界ごとに積分値を保つホモトピーが得られる。\n\n"
+              "こうして得た外側の単純多角形と互いに素な内側単純多角形については、まず各穴から外側境界へ互いに交わらない有限本の多角形の切れ目を入れる。切れ目の両側は最終的な境界和では逆向きに二度現れて相殺する。切った後は有限個の単純多角形領域へ分かれるので、それぞれを有限三角形分割し、三角形版 Cauchy–Goursat を足す。内部辺と切れ目が相殺した後に残るのは外側境界と逆向きの内側境界だけである。[正則線積分のホモトピー不変性](../CA2/index.md#thm-ca2-homotopy-invariance) で元の曲線へ戻せば結論を得る。$\\square$"
+          )
+          replace_once('textbook/volumes/00_foundations/CA4/index.md', old_geometry, new_geometry)
 
           for path in [
               'textbook/drafts/standard-math-core/CA4/chapter.yaml',
@@ -194,5 +102,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Publish CA4 and realign CA5 roadmap"
+          git commit -m "Publish CA4 and strengthen boundary geometry"
           git push origin HEAD:codex/ca4-laurent-residue-rouche
