@@ -1,0 +1,36 @@
+id: "CA5"
+title: "標準複素解析 V：winding number・解析接続・monodromy"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA4
+  - TOP3
+official_scope: []
+learning_objectives:
+  - winding numberを大域的な偏角の枝を仮定せず整数値と示し、補集合各成分での局所定数性・非有界成分で0を導ける
+  - 一般閉曲線を極を避けて多角形化し、有限平面グラフの面境界をindexで重み付けして一般留数定理を証明できる
+  - 一般閉曲線版偏角原理を対数微分の局所留数から導ける
+  - 正則関数の芽と経路に沿う解析接続を定式化し、恒等定理を有限個の重なりへ逐次適用して固定経路での一意性を証明できる
+  - 解析接続の経路安定性とホモトピーの有限分割からmonodromy theoremの経路独立性を証明できる
+  - 穿孔平面上の対数を、単連結性を欠くとmonodromyが生じる標準反例として計算できる
+definitions:
+  - { id: CA5-DEF-01, name: winding number }
+  - { id: CA5-DEF-02, name: null-homologousな閉曲線 }
+  - { id: CA5-DEF-03, name: 正則関数の芽 }
+  - { id: CA5-DEF-04, name: 経路に沿う解析接続 }
+theorems:
+  - { id: CA5-THM-01, name: winding numberの整数値性・局所定数性 }
+  - { id: CA5-COR-01, name: winding numberのホモトピー不変性 }
+  - { id: CA5-LEM-01, name: 非零indexの支持のコンパクト性 }
+  - { id: CA5-LEM-02, name: 多角形曲線の面境界分解 }
+  - { id: CA5-THM-02, name: 一般閉曲線版留数定理 }
+  - { id: CA5-THM-03, name: 一般閉曲線版偏角原理 }
+  - { id: CA5-THM-04, name: 固定経路に沿う解析接続の一意性 }
+  - { id: CA5-LEM-03, name: 解析接続の経路安定性 }
+  - { id: CA5-THM-05, name: monodromy theorem }
+canonical_examples: [複数周回円のwinding number, index付き留数計算, 自己交差曲線の符号付き零点計数, 対数のmonodromy, 零点を持たない正則関数の大域対数]
+problem_patterns: [CA5-WINDING-1, CA5-GENERAL-RESIDUE-1, CA5-ARGUMENT-PRINCIPLE-1, CA5-CONTINUATION-1, CA5-MONODROMY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 2.0 }
