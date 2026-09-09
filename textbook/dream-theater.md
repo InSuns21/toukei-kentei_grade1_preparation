@@ -169,7 +169,7 @@
 14. [P6 特性関数・中心極限定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
 15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
 16. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
-17. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE一致性_漸近正規性/index.md)
+17. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
 18. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
 ---
