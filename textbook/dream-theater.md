@@ -117,6 +117,7 @@
 1. [CA1 複素微分・Cauchy–Riemann・初等正則関数](textbook/volumes/00_foundations/CA1/index.md)
 2. [CA2 複素線積分・原始関数・Cauchy–Goursat](textbook/volumes/00_foundations/CA2/index.md)
 3. [CA3 Cauchy積分公式・Taylor展開・Liouville・最大値原理](textbook/volumes/00_foundations/CA3/index.md)
+4. [CA4 Laurent展開・孤立特異点・留数・偏角原理・Rouché](textbook/volumes/00_foundations/CA4/index.md)
 
 ### 凸解析・凸最適化
 

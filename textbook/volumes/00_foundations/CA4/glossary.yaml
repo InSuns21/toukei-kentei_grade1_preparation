@@ -1,0 +1,38 @@
+chapter: "CA4"
+terms:
+  - term: Laurent級数
+    english: Laurent series
+    meaning: 一点を中心に正負両方の整数べきを許す級数表示。
+  - term: 主部
+    english: principal part
+    meaning: Laurent級数のうち負べきだけからなる部分。
+  - term: 孤立特異点
+    english: isolated singularity
+    meaning: ある点を除く穿孔近傍では正則であるが、その点自身では正則性を仮定しない特異点。
+  - term: 可除特異点
+    english: removable singularity
+    meaning: 適切な値を一点に補うことで正則関数へ延長できる孤立特異点。
+  - term: 極
+    english: pole
+    meaning: Laurent主部が有限非空で、最も低い負べきによって位数が決まる孤立特異点。
+  - term: 真性特異点
+    english: essential singularity
+    meaning: Laurent主部に無限個の非零項を持つ孤立特異点。
+  - term: meromorphic関数
+    english: meromorphic function
+    meaning: 領域内で正則点または有限位数の極だけを持つ関数。
+  - term: 留数
+    english: residue
+    meaning: 孤立特異点まわりのLaurent展開における1次の負べき係数。
+  - term: 留数定理
+    english: residue theorem
+    meaning: 閉曲線積分を内部の孤立特異点の留数の和で表す定理。
+  - term: 対数微分
+    english: logarithmic derivative
+    meaning: 非零点で定義される比f'/fで、零点と極の位数を留数として符号付きで記録する。
+  - term: 偏角原理
+    english: argument principle
+    meaning: f'/fの閉曲線積分から内部の零点数と極数の差を重複度込みで求める原理。
+  - term: Rouchéの定理
+    english: Rouché theorem
+    meaning: 境界上で主項が摂動項を絶対値で厳密に支配するとき、主項とその和が内部に持つ零点数が重複度込みで一致する定理。

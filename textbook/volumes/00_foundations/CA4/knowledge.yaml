@@ -1,0 +1,84 @@
+chapter: CA4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA3
+
+concepts:
+  - id: complex-analysis.multiply-connected-boundary-cancellation
+    name: 有限個の穴を持つ領域の境界相殺
+    kind: lemma
+    aliases: [有限個の穴を持つ領域の境界相殺, 穴を持つ領域の境界相殺]
+    requires: [complex-analysis.cauchy-goursat-triangle, complex-analysis.polygonal-replacement, complex-analysis.homotopy-invariance-line-integral, topology.compact-space]
+
+  - id: complex-analysis.laurent-series
+    name: Laurent級数
+    kind: definition
+    aliases: [Laurent級数, Laurent series, 主部, principal part]
+    requires: [analysis.uniform-convergence]
+
+  - id: complex-analysis.laurent-expansion
+    name: Laurent展開
+    kind: theorem
+    aliases: [Laurent展開, Laurent expansion, Laurent theorem]
+    requires: [complex-analysis.laurent-series, complex-analysis.multiply-connected-boundary-cancellation, complex-analysis.reparametrization-ml-estimate, complex-analysis.cauchy-integral-formula, analysis.uniform-convergence]
+
+  - id: complex-analysis.isolated-singularity
+    name: 孤立特異点
+    kind: definition
+    aliases: [孤立特異点, isolated singularity, 可除特異点, removable singularity, 極, pole, 真性特異点, essential singularity]
+    requires: [complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.meromorphic-function
+    name: meromorphic関数
+    kind: definition
+    aliases: [meromorphic関数, 有理型関数, meromorphic function]
+    requires: [complex-analysis.isolated-singularity]
+
+  - id: complex-analysis.isolated-singularity-classification
+    name: 孤立特異点のLaurent分類
+    kind: theorem
+    aliases: [孤立特異点のLaurent分類, 孤立特異点分類, classification of isolated singularities]
+    requires: [complex-analysis.laurent-expansion, complex-analysis.isolated-singularity, complex-analysis.holomorphic-taylor-expansion]
+
+  - id: complex-analysis.bounded-isolated-singularity-removable
+    name: 有界な孤立特異点は可除
+    kind: corollary
+    aliases: [有界な孤立特異点は可除, 可除特異点定理, removable singularity theorem]
+    requires: [complex-analysis.isolated-singularity-classification, complex-analysis.reparametrization-ml-estimate]
+
+  - id: complex-analysis.residue
+    name: 留数
+    kind: definition
+    aliases: [留数, residue, 留数の係数積分公式]
+    requires: [complex-analysis.laurent-expansion, complex-analysis.isolated-singularity]
+
+  - id: complex-analysis.residue-formulas-at-poles
+    name: 極での留数公式
+    kind: proposition
+    aliases: [極での留数公式, residue formula at a pole]
+    requires: [complex-analysis.residue, complex-analysis.isolated-singularity-classification, complex-analysis.holomorphic-taylor-expansion]
+
+  - id: complex-analysis.residue-theorem-simple-curve
+    name: 留数定理（単純閉曲線版）
+    kind: theorem
+    aliases: [留数定理, 留数定理（単純閉曲線版）, residue theorem]
+    requires: [complex-analysis.residue, complex-analysis.multiply-connected-boundary-cancellation]
+
+  - id: complex-analysis.logarithmic-derivative-residue
+    name: 対数微分の留数
+    kind: lemma
+    aliases: [対数微分の留数, logarithmic derivative residue, 対数微分]
+    requires: [complex-analysis.residue, complex-analysis.isolated-zeros-identity-theorem, complex-analysis.isolated-singularity-classification]
+
+  - id: complex-analysis.argument-principle-simple-curve
+    name: 偏角原理（単純閉曲線版）
+    kind: theorem
+    aliases: [偏角原理, 偏角原理（単純閉曲線版）, argument principle]
+    requires: [complex-analysis.residue-theorem-simple-curve, complex-analysis.logarithmic-derivative-residue, complex-analysis.meromorphic-function, topology.compact-space]
+
+  - id: complex-analysis.rouche-theorem
+    name: Rouchéの定理
+    kind: theorem
+    aliases: [Rouchéの定理, Roucheの定理, Rouche theorem, Rouché theorem]
+    requires: [complex-analysis.argument-principle-simple-curve, complex-analysis.reparametrization-ml-estimate, topology.connected-space]
