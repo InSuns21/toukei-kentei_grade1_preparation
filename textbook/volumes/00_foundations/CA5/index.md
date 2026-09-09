@@ -263,7 +263,7 @@ $$
 
 $f$ が $\Omega$ 上 meromorphic なら、このコンパクト集合に入る極は有限個である。無限個あれば $\Omega$ 内に集積点を持ち、極の孤立性に反する。
 
-<a id="lem-ca5-polygonal-face-chain"></a>
+<a id="lem-ca5-polygonal-face-decomposition"></a>
 <!-- formal-statement-start -->
 ### 補題（多角形曲線の面境界分解）
 
@@ -350,7 +350,7 @@ $$
 
 #### 2. 面境界へ分解して CA4 を適用する
 
-$P$ の有限面 $F$ に $n_F=\operatorname{Ind}(P,w_F)$ を付ける。[面境界分解](#lem-ca5-polygonal-face-chain) から
+$P$ の有限面 $F$ に $n_F=\operatorname{Ind}(P,w_F)$ を付ける。[面境界分解](#lem-ca5-polygonal-face-decomposition) から
 
 $$
 \int_P f\,dz=\sum_Fn_F\int_{\partial F}f\,dz.
