@@ -26,8 +26,8 @@ jobs:
           old = r'\mathcal P[g]('
           new = r'\mathcal P[g]\,('
           count = s.count(old)
-          if count != 8:
-              raise SystemExit(f'expected 8 Poisson notation occurrences, got {count}')
+          if count != 4:
+              raise SystemExit(f'expected 4 Poisson notation occurrences, got {count}')
           p.write_text(s.replace(old, new), encoding='utf-8')
           PY
       - name: Commit fix and remove temporary workflow
