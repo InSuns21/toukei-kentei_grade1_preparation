@@ -391,7 +391,9 @@ nodes:
     title: winding number・解析接続・monodromy
     area: complex-analysis
     tier: core-advanced-standard
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/CA5/index.md
     prerequisites: [CA4, TOP3]
   - id: CA6
     title: Möbius変換・Schwarz補題・調和関数・Poisson核

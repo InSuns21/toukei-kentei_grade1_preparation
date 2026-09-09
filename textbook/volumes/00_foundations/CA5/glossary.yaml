@@ -1,0 +1,29 @@
+chapter: "CA5"
+terms:
+  - term: winding number
+    english: winding number
+    meaning: 閉曲線が曲線外の一点のまわりを符号付きで何周するかを、1/(2πi)倍したCauchy核の線積分で表す整数。
+  - term: index
+    english: index of a curve
+    meaning: winding numberの別名。本章ではInd(γ,a)と書く。
+  - term: null-homologousな閉曲線
+    english: null-homologous cycle
+    meaning: 領域の外側にある全ての点に対してwinding numberが0になる閉曲線。
+  - term: 一般閉曲線版留数定理
+    english: residue theorem for cycles
+    meaning: 自己交差や複数周回を許す閉曲線積分を、各極の留数にその点のindexを掛けた有限和で表す定理。
+  - term: 一般閉曲線版偏角原理
+    english: argument principle for cycles
+    meaning: f'/fの閉曲線積分を、零点と極の位数をindexで重み付けした符号付き和として表す原理。
+  - term: 芽
+    english: germ
+    meaning: 一点の十分小さい近傍で一致する局所正則関数を同一視した同値類。
+  - term: 解析接続
+    english: analytic continuation
+    meaning: 局所正則関数の芽を、重なり上の一致を保ちながら経路に沿って次々に延長する操作。
+  - term: monodromy
+    english: monodromy
+    meaning: 閉経路に沿う解析接続の後、同じ点へ戻っても初期芽と異なる芽が得られ得る現象。
+  - term: monodromy theorem
+    english: monodromy theorem
+    meaning: 単連結領域で全経路に沿う解析接続が可能なら、終点の芽が経路に依存せず一価正則関数へ貼り合わさることを述べる定理。

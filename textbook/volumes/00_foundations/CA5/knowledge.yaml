@@ -1,0 +1,85 @@
+chapter: CA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA4
+  - TOP3
+
+concepts:
+  - id: complex-analysis.winding-number
+    name: winding number
+    kind: definition
+    aliases: [winding number, 巻き数, 指数, index of a curve]
+    requires: [complex-analysis.complex-line-integral]
+
+  - id: complex-analysis.winding-integer-local-constant
+    name: winding numberの整数値性・局所定数性
+    kind: theorem
+    aliases: [winding numberの整数値性・局所定数性, winding numberの整数値性, indexの局所定数性]
+    requires: [complex-analysis.winding-number, complex-analysis.reparametrization-ml-estimate, topology.compact-space, topology.connected-space]
+
+  - id: complex-analysis.winding-homotopy-invariance
+    name: winding numberのホモトピー不変性
+    kind: corollary
+    aliases: [winding numberのホモトピー不変性, indexのホモトピー不変性]
+    requires: [complex-analysis.winding-number, complex-analysis.homotopy-invariance-line-integral]
+
+  - id: complex-analysis.null-homologous-cycle
+    name: null-homologousな閉曲線
+    kind: definition
+    aliases: [null-homologousな閉曲線, null-homologous cycle]
+    requires: [complex-analysis.winding-number]
+
+  - id: complex-analysis.nonzero-index-compact-support
+    name: 非零indexの支持のコンパクト性
+    kind: lemma
+    aliases: [非零indexの支持のコンパクト性]
+    requires: [complex-analysis.null-homologous-cycle, complex-analysis.winding-integer-local-constant, topology.compact-space]
+
+  - id: complex-analysis.polygonal-face-chain
+    name: 多角形曲線の面境界分解
+    kind: lemma
+    aliases: [多角形曲線の面境界分解, winding numberによる面境界分解]
+    requires: [complex-analysis.winding-number, complex-analysis.polygonal-replacement]
+
+  - id: complex-analysis.residue-theorem-general-cycle
+    name: 一般閉曲線版留数定理
+    kind: theorem
+    aliases: [一般閉曲線版留数定理, residue theorem for cycles, index付き留数定理]
+    requires: [complex-analysis.null-homologous-cycle, complex-analysis.nonzero-index-compact-support, complex-analysis.polygonal-face-chain, complex-analysis.residue, complex-analysis.multiply-connected-boundary-cancellation, complex-analysis.winding-homotopy-invariance]
+
+  - id: complex-analysis.argument-principle-general-cycle
+    name: 一般閉曲線版偏角原理
+    kind: theorem
+    aliases: [一般閉曲線版偏角原理, argument principle for cycles, index付き偏角原理]
+    requires: [complex-analysis.residue-theorem-general-cycle, complex-analysis.logarithmic-derivative-residue, complex-analysis.meromorphic-function]
+
+  - id: complex-analysis.holomorphic-germ
+    name: 正則関数の芽
+    kind: definition
+    aliases: [正則関数の芽, 芽, germ, holomorphic germ]
+    requires: [complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.analytic-continuation-along-path
+    name: 経路に沿う解析接続
+    kind: definition
+    aliases: [経路に沿う解析接続, 解析接続, analytic continuation]
+    requires: [complex-analysis.holomorphic-germ, complex-analysis.isolated-zeros-identity-theorem, topology.path-connected-space]
+
+  - id: complex-analysis.analytic-continuation-uniqueness
+    name: 固定経路に沿う解析接続の一意性
+    kind: theorem
+    aliases: [固定経路に沿う解析接続の一意性, 解析接続の一意性]
+    requires: [complex-analysis.analytic-continuation-along-path, complex-analysis.isolated-zeros-identity-theorem, topology.compact-space]
+
+  - id: complex-analysis.analytic-continuation-path-stability
+    name: 解析接続の経路安定性
+    kind: lemma
+    aliases: [解析接続の経路安定性]
+    requires: [complex-analysis.analytic-continuation-uniqueness, topology.compact-space]
+
+  - id: complex-analysis.monodromy-theorem
+    name: monodromy theorem
+    kind: theorem
+    aliases: [monodromy theorem, モノドロミー定理, monodromyの定理]
+    requires: [complex-analysis.analytic-continuation-path-stability, complex-analysis.simply-connected-domain, complex-analysis.isolated-zeros-identity-theorem, topology.compact-space]
