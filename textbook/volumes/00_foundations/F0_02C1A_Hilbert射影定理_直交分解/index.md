@@ -2,7 +2,7 @@
 
 F0-02C1でBanach/Hilbert空間の型を分けました。この講義ではHilbert空間の**閉凸集合への最近点**を、有限次元のcompactnessに頼らず、内積構造と完備性から構成します。
 
-この証明で本当に使う道具は、凸集合の定義、平行四辺形恒等式、ノルムの連続性です。後続理論を先取りせず、この章で必要な範囲だけを先に確認します。
+この証明で本当に使う道具は、凸集合の定義、平行四辺形恒等式、ノルム写像の連続性です。凸集合だけはこの章で必要な最小限を定義し、一般のノルム・内積に関する結果は前章を正本として参照します。
 
 $$
 \boxed{
@@ -51,106 +51,18 @@ $$
 従って、閉線形部分空間はこの章で扱う閉凸集合の結果の適用対象になります。
 <!-- definition-example-end -->
 
-### 1.2 核心計算：二つの和と差を比べる
+### 1.2 前章から使う二つの結果
 
-前章で導入した[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)は、射影定理の核心計算なのでここでも式と導出を確認します。実内積空間 $H$ の任意の $u,v\in H$ に対して
+射影定理の証明では、前章で証明した次の二つの結果をそのまま使います。
 
-$$
-\boxed{
-\|u+v\|^2+\|u-v\|^2
-=2\|u\|^2+2\|v\|^2
-}
-$$
+- [平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)：二つの最小化候補の差を、中点までの距離と結び付けてCauchy性・一意性を出す。
+- [ノルム写像の連続性](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#lem-f0-02c1-norm-continuity)：最小化列の極限 $x_n\to p$ から $\|z-x_n\|\to\|z-p\|$ を得る。
 
-が成り立ちます。
-
-<!-- proof-start -->
-#### 証明
-
-内積の双線形性と対称性から
-
-$$
-\begin{aligned}
-\|u+v\|^2
-&=\langle u+v,u+v\rangle\\
-&=\|u\|^2+2\langle u,v\rangle+\|v\|^2,
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\|u-v\|^2
-&=\langle u-v,u-v\rangle\\
-&=\|u\|^2-2\langle u,v\rangle+\|v\|^2.
-\end{aligned}
-$$
-
-二式を足すと交差項が相殺され、
-
-$$
-\|u+v\|^2+\|u-v\|^2
-=2\|u\|^2+2\|v\|^2
-$$
-
-を得ます。
-<!-- proof-end -->
-
-### 1.3 ノルムは連続である
-
-<a id="lem-f0-02c1a-norm-continuity"></a>
-
-<!-- formal-statement-start -->
-> **補題（ノルム写像の連続性）**  
-> 任意のノルム空間で次が成り立ちます。
-
-$$
-\boxed{
-\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|
-}
-$$
-
-> したがって $x_n\to x$ なら $\|x_n\|\to\|x\|$ です。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-#### 証明
-
-三角不等式から
-
-$$
-\|x\|=\|(x-y)+y\|\le\|x-y\|+\|y\|
-$$
-
-なので
-
-$$
-\|x\|-\|y\|\le\|x-y\|.
-$$
-
-$x,y$ を入れ替えると
-
-$$
-\|y\|-\|x\|\le\|x-y\|
-$$
-
-も得られます。二つを合わせれば
-
-$$
-\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|.
-$$
-
-従って $x_n\to x$ なら
-
-$$
-\bigl|\|x_n\|-\|x\|\bigr|\le\|x_n-x\|\to0,
-$$
-
-ゆえに $\|x_n\|\to\|x\|$ です。
-<!-- proof-end -->
+ここでは一般論の証明を繰り返さず、射影定理の論証の中でどこに適用するかを追います。
 
 <a id="thm-hilbert-projection"></a>
 
-### 1.4 Hilbert空間の射影定理
+### 1.3 Hilbert空間の射影定理
 
 <!-- formal-statement-start -->
 > **定理（Hilbert空間の射影定理）**  
@@ -185,7 +97,7 @@ Hilbert空間では、**内積構造と完備性**を使って別の証明をし
   ↓
 閉性で p を C に戻す
   ↓
-ノルムの連続性で距離の極限を取る
+ノルム写像の連続性で距離の極限を取る
   ↓
 同じ恒等式で一意性を出す
 ```
@@ -223,7 +135,7 @@ $$
 \left\|z-\frac{x_n+x_m}{2}\right\|\ge\delta.
 $$
 
-ここで[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を
+ここで前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を
 
 $$
 u=z-x_n,\qquad v=z-x_m
@@ -278,7 +190,7 @@ $$
 z-x_n\to z-p.
 $$
 
-[ノルム写像の連続性](#lem-f0-02c1a-norm-continuity)から
+前章の[ノルム写像の連続性](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#lem-f0-02c1-norm-continuity)から
 
 $$
 \|z-p\|
@@ -296,7 +208,7 @@ $$
 +\text{平行四辺形恒等式}
 +\text{完備性}
 +\text{閉性}
-+\text{ノルムの連続性}
++\text{ノルム写像の連続性}
 }
 $$
 
@@ -314,7 +226,7 @@ $$
 
 とします。
 
-凸性から中点 $(p+q)/2$ も $C$ に入ります。ここでも[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使うと
+凸性から中点 $(p+q)/2$ も $C$ に入ります。ここでも前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使うと
 
 $$
 \left\|z-\frac{p+q}{2}\right\|^2
@@ -586,49 +498,71 @@ $P_Mz=(0,z_2,z_3,\dots)$、$z-P_Mz=(z_1,0,0,\dots)\in M^\perp$。
 - 結論: 2点
 <!-- solution-end -->
 
-### F0-02C1A-A02 ノルム差を三角不等式で評価する
+### F0-02C1A-A02 平行四辺形恒等式から最小化列のCauchy評価を出す
 
 - Level: A
-- 目安時間: 10分
+- 目安時間: 12分
 
-ノルム空間 $X$ で
+射影定理の設定で
 
 $$
-\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|
+\delta=\inf_{x\in C}\|z-x\|,
 $$
 
-を三角不等式から導き、$x_n\to x$ なら $\|x_n\|\to\|x\|$ であることを示せ。
+$$
+\delta\le\|z-x_n\|<\delta+\frac1n,
+\qquad
+\delta\le\|z-x_m\|<\delta+\frac1m
+$$
+
+とする。$C$ の凸性と前章の[平行四辺形恒等式](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#ref-parallelogram-identity)を使って
+
+$$
+\|x_n-x_m\|^2
+\le
+2\left(\delta+\frac1n\right)^2
++2\left(\delta+\frac1m\right)^2
+-4\delta^2
+$$
+
+を示し、$(x_n)$ がCauchy列であることを説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
-三角不等式より
+凸性より $(x_n+x_m)/2\in C$ なので
 
 $$
-\|x\|\le\|x-y\|+\|y\|
+\left\|z-\frac{x_n+x_m}{2}\right\|\ge\delta.
 $$
 
-だから $\|x\|-\|y\|\le\|x-y\|$。$x,y$ を交換すると $\|y\|-\|x\|\le\|x-y\|$。従って
+平行四辺形恒等式を $u=z-x_n$, $v=z-x_m$ に適用すると
 
 $$
-\bigl|\|x\|-\|y\|\bigr|\le\|x-y\|.
+\|x_n-x_m\|^2
+=2\|z-x_n\|^2+2\|z-x_m\|^2
+-4\left\|z-\frac{x_n+x_m}{2}\right\|^2.
 $$
 
-$x=x_n$、$y=x$ とすれば
+各項を仮定で評価して
 
 $$
-\bigl|\|x_n\|-\|x\|\bigr|\le\|x_n-x\|\to0,
+\|x_n-x_m\|^2
+\le
+2\left(\delta+\frac1n\right)^2
++2\left(\delta+\frac1m\right)^2
+-4\delta^2.
 $$
 
-ゆえに $\|x_n\|\to\|x\|$。
+右辺は $n,m\to\infty$ で0へ行く。従って任意の $\varepsilon>0$ に対して十分大きい $n,m$ では $\|x_n-x_m\|<\varepsilon$ となり、$(x_n)$ はCauchy列である。
 
 #### 本番答案
-三角不等式を $x=(x-y)+y$ と $y=(y-x)+x$ に適用して二方向の評価を得る。そこへ $x_n\to x$ を代入すれば結論が従う。
+中点が $C$ に入るのでその距離は $\delta$ 以上。平行四辺形恒等式で $\|x_n-x_m\|^2$ を二つの距離と中点距離に書き換え、仮定で上下評価する。右辺が0へ収束するのでCauchy。
 
 #### 採点基準（20点）
-- 一方向の評価: 5点
-- 逆方向の評価: 5点
-- 絶対値への統合: 4点
-- 連続性の結論: 6点
+- 凸性による中点: 4点
+- 平行四辺形恒等式の適用: 7点
+- 距離の評価: 5点
+- Cauchy性: 4点
 <!-- solution-end -->
 
 ### F0-02C1A-A03 infimumから最小化列を作る
@@ -795,11 +729,10 @@ $C$ の凸性は三角不等式で確認できる。$u=z/\|z\|$, $p=ru$ と置�
 ## 章末チェック
 
 - 凸集合の定義を述べ、射影定理のどこで凸性を使うか説明できる。
-- 平行四辺形恒等式を内積の展開から導ける。
-- ノルム差の評価からノルム写像の連続性を示せる。
+- 前章の平行四辺形恒等式を、最小化列のCauchy性と射影点の一意性に適用できる。
+- 前章のノルム写像の連続性を、最近点の存在証明で距離の極限を取る箇所に適用できる。
 - infimumから最小化列を具体的に作れる。
 - 閉凸集合への射影定理の存在証明で完備性と閉性が使われる箇所を区別できる。
-- 平行四辺形恒等式から最小化列がCauchyになることを説明できる。
 - 射影点の一意性を示せる。
 - 射影の特徴付けを両方向とも証明できる。
 - 閉線形部分空間では残差が直交補空間に入り、$H=M\oplus M^\perp$ となることを説明できる。
