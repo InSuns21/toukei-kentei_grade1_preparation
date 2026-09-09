@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CA5
+  - LA3B
 official_scope: []
 learning_objectives:
   - Riemann球面上のMöbius変換を局所座標まで含めて全単射・等角と示し、一般化円の保存を基本変換への分解から証明できる
