@@ -24,7 +24,7 @@ spectral radius formula
 
 を一続きに証明します。
 
-全章を通じて $X\ne\{0\}$ を **複素 Banach 空間**、$T\in\mathcal B(X)$ を有界線形作用素とします。複素数体を仮定する理由は spectrum 非空性で Liouville と代数学の基本定理を使うからです。実 Banach 空間上の作用素を実数だけで調べると spectrum が空になる例があります。
+全章を通じて $X\ne\{0\}$ を **複素 Banach 空間**、$T\in\mathcal B(X)$ を有界線形作用素とします。複素数体を仮定する理由は spectrum 非空性で [Liouvilleの定理](../CA3/index.md#thm-ca3-liouville) と [代数学の基本定理](../CA3/index.md#cor-ca3-fta) を使うからです。実 Banach 空間上の作用素を実数だけで調べると spectrum が空になる例があります。
 
 既知とする主な結果は [FA2 の有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)、[Hahn–Banach のノルム保存拡張](../F0_02C6_Hahn_Banach_分離定理/index.md#ref-hahn-banach-norm-preserving-extension)、[CA3 の Cauchy積分公式](../CA3/index.md#thm-ca3-cauchy-integral-formula)、[Liouvilleの定理](../CA3/index.md#thm-ca3-liouville)、[代数学の基本定理](../CA3/index.md#cor-ca3-fta) です。FA6 の compact operator、Fredholm 理論、FA7 の自己共役 compact operator の spectral theorem は使いません。
 
@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-resolvent-spectrum -->
-**定義の確認：有限次元では固有値集合へ戻る。**
+**定義の確認**：有限次元では固有値集合へ戻る。
 
 $X=\mathbb C^n$、$T$ を行列 $A$ で表すとします。$\lambda I-A$ が非可逆であることと、その核に $0$ でないベクトルがあることは同値です。従って
 
@@ -91,7 +91,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-resolvent-operator -->
-**定義の確認：スカラー作用素。**
+**定義の確認**：スカラー作用素。
 
 $T=aI$ とすると
 
@@ -179,13 +179,13 @@ $$
 $\square$
 <!-- proof-end -->
 
-重要なのは $S^n x$ を各 $x$ ごとに収束させただけではなく、**作用素ノルムで級数を収束させた**ことです。これにより得られた極限自身が有界作用素になり、積との極限交換も正当化できます。
+重要なのは $S^n x$ を各 $x$ ごとに収束させただけではなく、**作用素ノルムで級数を収束させた**ことです。これにより得られた収束先自身が有界作用素になり、積と収束操作を交換することも正当化できます。
 
 ---
 
 ## 3. resolvent集合は開いている
 
-$\lambda_0\in\rho(T)$ を一つ知っていると、その近くの $\lambda$ も可逆であることが Neumann級数から従います。
+$\lambda_0\in\rho(T)$ を一つ知っていると、その近くの $\lambda$ も可逆であることが [Neumann級数](#lem-fa5-neumann-series)から従います。
 
 <a id="thm-fa5-resolvent-open"></a>
 <!-- formal-statement-start -->
@@ -258,7 +258,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この証明は「逆行列は連続である」を既知として使っていません。逆写像の安定性そのものを Neumann級数から作っています。
+この証明は「逆行列は連続である」を既知として使っていません。逆写像の安定性そのものを [Neumann級数](#lem-fa5-neumann-series)から作っています。
 
 <a id="thm-fa5-resolvent-identity"></a>
 <!-- formal-statement-start -->
@@ -311,7 +311,7 @@ $$
 \lambda\left(I-\frac{T}{\lambda}\right)
 $$
 
-で、$\|T/\lambda\|<1$ です。従って Neumann級数から
+で、$\|T/\lambda\|<1$ です。従って [Neumann級数](#lem-fa5-neumann-series)から
 
 $$
 R(\lambda,T)
@@ -354,7 +354,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-上の Neumann級数から $|\lambda|>\|T\|$ なら $\lambda\in\rho(T)$ です。従って
+上の [Neumann級数](#lem-fa5-neumann-series)から $|\lambda|>\|T\|$ なら $\lambda\in\rho(T)$ です。従って
 
 $$
 \sigma(T)\subset\{|\lambda|\le\|T\|\}.
@@ -550,9 +550,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fa5-spectral-radius -->
-**定義の確認：冪零作用素。**
+**定義の確認**：冪零作用素。
 
-$T^m=0$ なら多項式 spectral mapping theorem から
+$T^m=0$ なら[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 \sigma(T)^m
@@ -594,7 +594,7 @@ r(T)
 \qquad(n\ge1).
 $$
 
-つまり作用素の高冪の成長率は spectrum の半径より小さくなれません。実は極限でちょうど一致します。
+つまり作用素の高冪の成長率は spectrum の半径より小さくなれません。実はこの列は収束し、その値がちょうど一致します。
 
 <a id="thm-fa5-spectral-radius-formula"></a>
 <!-- formal-statement-start -->
@@ -614,7 +614,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-#### Step 1：$\|T^n\|^{1/n}$ の極限が存在する
+#### Step 1：$\|T^n\|^{1/n}$ は収束する
 
 $a_n=\|T^n\|$ と置くと
 
@@ -664,7 +664,7 @@ $$
 L\le\liminf a_n^{1/n}.
 $$
 
-従って極限が存在し、その値は $L$ です。
+従ってこの列は収束し、その値は $L$ です。
 
 #### Step 2：$r(T)\le L$
 
@@ -735,7 +735,7 @@ f(T^nx)
 \lambda^n f(R(\lambda,T)x)\,d\lambda.
 $$
 
-ML評価から
+[ML評価](../CA2/index.md#thm-ca2-reparam-ml)から
 
 $$
 \begin{aligned}
@@ -837,7 +837,7 @@ $$
 
 と置きます。$\|S\|=1$ です。
 
-まず $|\lambda|>1$ なら Neumann級数により $\lambda\in\rho(S)$ です。
+まず $|\lambda|>1$ なら [Neumann級数](#lem-fa5-neumann-series)により $\lambda\in\rho(S)$ です。
 
 次に $0<|\lambda|<1$ とします。もし
 
@@ -955,9 +955,9 @@ $S\in\mathcal B(X)$、$\|S\|\le q<1$ とする。
 2. $\|(I-S)^{-1}-I\|\le q/(1-q)$ を示せ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
-Neumann級数から
+[Neumann級数](#lem-fa5-neumann-series)から
 
 $$
 (I-S)^{-1}=I+S+S^2+\cdots.
@@ -984,7 +984,7 @@ $$
 #### FA5-A02 resolvent恒等式から局所評価
 - Level: A
 
-$\lambda,\mu\in\rho(T)$ とする。resolvent恒等式から
+$\lambda,\mu\in\rho(T)$ とする。[resolvent恒等式](#thm-fa5-resolvent-identity)から
 
 $$
 \|R(\lambda,T)-R(\mu,T)\|
@@ -995,9 +995,9 @@ $$
 を示せ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
-resolvent恒等式
+[resolvent恒等式](#thm-fa5-resolvent-identity)
 
 $$
 R(\lambda,T)-R(\mu,T)
@@ -1034,7 +1034,7 @@ $$
 について $\sigma(T)$ と $R(\lambda,T)$ を求めよ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
 $$
 \lambda I-T
@@ -1080,7 +1080,7 @@ $$
 を示せ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
 まず
 
@@ -1123,7 +1123,7 @@ $$
 #### FA5-B01 spectrumまでの距離とresolvent norm
 - Level: B
 
-$\lambda\in\rho(T)$ とする。resolvent の局所級数表示から
+$\lambda\in\rho(T)$ とする。[resolvent の局所級数表示](#thm-fa5-resolvent-open)から
 
 $$
 \operatorname{dist}(\lambda,\sigma(T))
@@ -1142,9 +1142,9 @@ $$
 を得よ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
-局所級数表示の定理によれば
+[resolvent集合の開性と局所級数表示](#thm-fa5-resolvent-open)によれば
 
 $$
 |\mu-\lambda|\,\|R(\lambda,T)\|<1
@@ -1186,7 +1186,7 @@ $$
 5. $S$ は固有値を持たないが $\sigma(S)=\{|\lambda|\le1\}$。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
 $S$ は座標を一つ右へずらすだけなので
 
@@ -1242,13 +1242,13 @@ $$
 
 $P\in\mathcal B(X)$ が $P^2=P$ を満たすとする。
 
-1. 多項式 spectral mapping theorem から $\sigma(P)\subset\{0,1\}$ を示せ。
+1. [多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から $\sigma(P)\subset\{0,1\}$ を示せ。
 2. $P=0$、$P=I$、$P\ne0,I$ の三場合で $\sigma(P)$ を決定せよ。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
-$p(z)=z^2-z$ とすると $p(P)=0$ です。spectral mapping theorem から
+$p(z)=z^2-z$ とすると $p(P)=0$ です。[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 p(\sigma(P))
@@ -1303,7 +1303,7 @@ $X\ne\{0\}$ を複素 Banach 空間、$T\in\mathcal B(X)$ とする。次を一�
 6. どこで複素数体、Banach 性、Hahn–Banach を使ったかを列挙すること。
 
 <!-- solution-start -->
-### 解答
+**解答・解説**
 
 $|\lambda|>\|T\|$ なら
 
@@ -1328,7 +1328,7 @@ $$
 
 は整関数で、上の無限遠評価と閉円板上の連続性から全平面で有界です。Liouville により定数、しかも無限遠で0なので $g\equiv0$。全ての $f$ が $R(\lambda,T)x$ を0と見るので Hahn–Banach の点分離から $R(\lambda,T)x=0$ となり、可逆性に反します。従って spectrum は非空です。
 
-多項式 spectral mapping theorem から
+[多項式 spectral mapping theorem](#thm-fa5-polynomial-spectral-mapping)から
 
 $$
 r(T^n)=r(T)^n
@@ -1372,7 +1372,7 @@ $$
 
 依存は次の通りです。
 
-- Banach 性：$\mathcal B(X)$ で Neumann級数を収束させ、有界逆定理を使う。
+- Banach 性：$\mathcal B(X)$ で [Neumann級数](#lem-fa5-neumann-series)を収束させ、[有界逆定理](../FA2/index.md#thm-fa2-bounded-inverse)を使う。
 - 複素数体：Liouville、代数学の基本定理、Cauchy積分を使う。
 - Hahn–Banach：双対が点を分離すること、および $\|y\|=\sup_{\|f\|\le1}|f(y)|$ でスカラー評価をノルム評価へ戻すこと。
 
