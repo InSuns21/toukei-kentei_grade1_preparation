@@ -1,0 +1,17 @@
+chapter: "FA6"
+terms:
+  - term: compact operator
+    english: compact operator
+    meaning: 有界集合から取った任意の点列の像が収束部分列を持つ有界線形作用素。単位球の像の閉包がコンパクトであることと同値。
+  - term: relatively compact
+    english: relatively compact
+    meaning: 集合の閉包がコンパクトであること。コンパクト作用素は単位球を相対コンパクトな集合へ送る。
+  - term: finite-rank operator
+    english: finite-rank operator
+    meaning: 値域が有限次元部分空間に含まれる有界線形作用素。有限ランク作用素はコンパクトである。
+  - term: Riesz lemma
+    english: Riesz lemma
+    meaning: ノルム空間の真の閉部分空間から一定距離だけ離れた単位ベクトルを選べることを保証する補題。無限次元の単位球がコンパクトでないことの基本道具。
+  - term: compact operator ideal
+    english: compact operator ideal
+    meaning: コンパクト作用素の前後に有界作用素を合成してもコンパクト性が保たれるという性質。和とスカラー倍にも閉じている。
