@@ -1,0 +1,91 @@
+name: Temporary CA6 targeted fixes
+
+on:
+  push:
+    branches:
+      - codex/ca6-mobius-schwarz-poisson
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/ca6-mobius-schwarz-poisson
+          fetch-depth: 0
+      - name: Apply audit-driven minimal fixes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/00_foundations/CA6/index.md')
+          s = path.read_text()
+
+          replacements = [
+              ('# CA6 Möbius変換・Schwarz補題・調和関数・Poisson核',
+               '# CA6 Möbius変換・Schwarz補題・Poisson核'),
+              ('後半では $C^2$ 調和関数を正則関数へ局所的に持ち上げ、平均値性質・最大最小値原理を導いた後、Poisson kernel により連続境界データを単位円板へ調和的に延長する。',
+               '後半では実二変数の $C^2$ 関数に $\\Delta u=0$ を課す理論を第3節から導入し、正則関数への局所的な持ち上げ、平均値性質、内部極値の剛性を証明した後、Poisson kernel により連続境界データを単位円板へ延長する。'),
+              ('- 弱解・分布の意味での調和関数。',
+               '- 弱解・分布を用いる一般化理論。'),
+              ('C2調和関数\n  ↓ u_x-i u_y にCRを確認',
+               'C2実関数 + Δu=0\n  ↓ u_x-i u_y にCRを確認'),
+              ('となる。逆変換の行列式は',
+               'となる。逆変換についても係数条件は'),
+              ('ここで単位円そのものを境界として最大値原理を使ってはいけない。',
+               'ここで単位円そのものを境界として[CA3 の最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使ってはいけない。'),
+              ('しかも $|g|\\le1$ なので、最大値原理から $g$ は定数である。',
+               'しかも $|g|\\le1$ なので、[CA3 の最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)から $g$ は定数である。'),
+              ('は円板自己同型で $G(0)=0$ である。Schwarz lemma により',
+               'は円板自己同型で $G(0)=0$ である。[Schwarz lemma](#thm-ca6-schwarz-lemma) により'),
+              ('なら、境界値は0なので正の最大値は内部で達成される。[調和関数の最大値原理](#cor-ca6-harmonic-maximum-minimum-principle) により $w$ は定数となるが、境界値0と矛盾する。',
+               'なら、境界値は0なので正の最大値は内部で達成される。[前節で得た内部極値の剛性](#cor-ca6-harmonic-maximum-minimum-principle) により $w$ は定数となるが、境界値0と矛盾する。'),
+              ('同様に $-w$ へ最大値原理を適用して $w\\ge0$。',
+               '同様に $-w$ へ[同じ極値結果](#cor-ca6-harmonic-maximum-minimum-principle)を適用して $w\\ge0$。'),
+              ('**解答**：$G$ は円板自己同型で $G(0)=0$。Schwarz lemma から',
+               '**解答**：$G$ は円板自己同型で $G(0)=0$。[Schwarz lemma](#thm-ca6-schwarz-lemma) から'),
+              ('内部で達成され、調和関数の最大値原理により定数になって境界0と矛盾する。',
+               '内部で達成され、[前節の内部極値の結果](#cor-ca6-harmonic-maximum-minimum-principle)により定数になって境界0と矛盾する。'),
+              ('一意性側では最大・最小値原理が別の解を排除する。',
+               '一意性側では[内部極値の剛性](#cor-ca6-harmonic-maximum-minimum-principle)が別の解を排除する。'),
+              ('- Schwarz lemma では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で最大値原理を使って $R\\uparrow1$ とした。',
+               '- [Schwarz lemma](#thm-ca6-schwarz-lemma) では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で[CA3 の最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使って $R\\uparrow1$ とした。'),
+              ('- 円板自己同型の分類では全単射性を $G^{-1}$ に Schwarz lemma を適用する箇所で使った。',
+               '- 円板自己同型の分類では全単射性を $G^{-1}$ に [Schwarz lemma](#thm-ca6-schwarz-lemma) を適用する箇所で使った。'),
+              ('- 調和関数の最大・最小値原理では平均値の等号から局所定数性を出し、$u_x-iu_y$ と恒等定理で領域全体へ伝播した。',
+               '- [調和関数の内部極値定理](#cor-ca6-harmonic-maximum-minimum-principle)では平均値の等号から局所定数性を出し、$u_x-iu_y$ と恒等定理で領域全体へ伝播した。'),
+          ]
+
+          for old, new in replacements:
+              count = s.count(old)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one match, got {count}: {old[:80]}')
+              s = s.replace(old, new)
+
+          marker = '<a id="def-ca6-harmonic-function"></a>'
+          prefix = s.split(marker, 1)[0]
+          if '調和関数' in prefix:
+              raise SystemExit('pre-definition occurrence of 調和関数 remains')
+
+          path.write_text(s)
+
+          kpath = Path('textbook/volumes/00_foundations/CA6/knowledge.yaml')
+          k = kpath.read_text()
+          old = 'aliases: [Poisson kernelのapproximate identity性, Poisson核の質量集中, approximate identity]'
+          new = 'aliases: [Poisson kernelのapproximate identity性, Poisson核の質量集中]'
+          if k.count(old) != 1:
+              raise SystemExit('unexpected Poisson approximate-identity alias state')
+          kpath.write_text(k.replace(old, new))
+          PY
+
+          rm .github/workflows/ca6-targeted-fix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/CA6/index.md textbook/volumes/00_foundations/CA6/knowledge.yaml .github/workflows/ca6-targeted-fix.yml
+          git commit -m 'Fix CA6 concept and formal-reference audits'
+          git push origin HEAD:codex/ca6-mobius-schwarz-poisson
