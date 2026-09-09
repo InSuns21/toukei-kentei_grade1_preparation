@@ -1,0 +1,114 @@
+chapter: CA6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA5
+
+concepts:
+  - id: complex-analysis.mobius-transformation
+    name: Möbius変換
+    kind: definition
+    aliases: [Möbius変換, Mobius変換, Möbius transformation, fractional linear transformation]
+    requires: [linear.real-complex-vector-space]
+
+  - id: complex-analysis.generalized-circle
+    name: 一般化円
+    kind: definition
+    aliases: [一般化円, generalized circle]
+    requires: [complex-analysis.mobius-transformation]
+
+  - id: complex-analysis.mobius-basic-properties
+    name: Möbius変換の基本性質
+    kind: theorem
+    aliases: [Möbius変換の基本性質, Möbius変換は一般化円を保つ]
+    requires: [complex-analysis.mobius-transformation, complex-analysis.generalized-circle, complex-analysis.derivative-rules]
+
+  - id: complex-analysis.disk-automorphism
+    name: 円板自己同型
+    kind: definition
+    aliases: [円板自己同型, unit disk automorphism, automorphism of the disk]
+    requires: [complex-analysis.holomorphic-function]
+
+  - id: complex-analysis.standard-disk-automorphism
+    name: 円板の標準自己同型
+    kind: lemma
+    aliases: [円板の標準自己同型, disk automorphism phi_a]
+    requires: [complex-analysis.mobius-basic-properties, complex-analysis.disk-automorphism]
+
+  - id: complex-analysis.schwarz-lemma
+    name: Schwarz lemma
+    kind: theorem
+    aliases: [Schwarz lemma, Schwarzの補題, Schwarz補題]
+    requires: [complex-analysis.bounded-isolated-singularity-removable, complex-analysis.maximum-modulus-principle]
+
+  - id: complex-analysis.disk-automorphism-classification
+    name: 円板自己同型の分類
+    kind: corollary
+    aliases: [円板自己同型の分類, classification of disk automorphisms]
+    requires: [complex-analysis.standard-disk-automorphism, complex-analysis.schwarz-lemma]
+
+  - id: complex-analysis.harmonic-function
+    name: 調和関数
+    kind: definition
+    aliases: [調和関数, harmonic function, Laplace方程式]
+    requires: [analysis.derivative]
+
+  - id: complex-analysis.holomorphic-parts-harmonic
+    name: 正則関数の実部・虚部の調和性
+    kind: theorem
+    aliases: [正則関数の実部・虚部の調和性, 正則関数の実部は調和的]
+    requires: [complex-analysis.cauchy-riemann-equations, complex-analysis.cauchy-differentiation-formula, complex-analysis.harmonic-function]
+
+  - id: complex-analysis.local-holomorphic-representation-harmonic
+    name: 調和関数の局所正則表示
+    kind: lemma
+    aliases: [調和関数の局所正則表示, 局所調和共役, local harmonic conjugate]
+    requires: [complex-analysis.harmonic-function, complex-analysis.cauchy-riemann-sufficient, complex-analysis.local-primitive]
+
+  - id: complex-analysis.harmonic-mean-value-property
+    name: 調和関数の平均値性質
+    kind: theorem
+    aliases: [調和関数の平均値性質, mean value property for harmonic functions]
+    requires: [complex-analysis.local-holomorphic-representation-harmonic, complex-analysis.cauchy-mean-value-formula]
+
+  - id: complex-analysis.harmonic-maximum-minimum-principle
+    name: 調和関数の最大・最小値原理
+    kind: corollary
+    aliases: [調和関数の最大・最小値原理, maximum principle for harmonic functions]
+    requires: [complex-analysis.harmonic-mean-value-property, topology.connected-space]
+
+  - id: complex-analysis.poisson-kernel
+    name: Poisson kernel
+    kind: definition
+    aliases: [Poisson kernel, Poisson核]
+    requires: [complex-analysis.complex-exponential]
+
+  - id: complex-analysis.poisson-kernel-approximate-identity
+    name: Poisson kernelのapproximate identity性
+    kind: lemma
+    aliases: [Poisson kernelのapproximate identity性, Poisson核の質量集中, approximate identity]
+    requires: [complex-analysis.poisson-kernel, analysis.riemann-integrable, topology.compact-space]
+
+  - id: complex-analysis.poisson-integral
+    name: Poisson積分
+    kind: definition
+    aliases: [Poisson積分, Poisson integral]
+    requires: [complex-analysis.poisson-kernel, analysis.riemann-integrable]
+
+  - id: complex-analysis.poisson-dirichlet-solution
+    name: Poisson積分によるDirichlet問題の解
+    kind: theorem
+    aliases: [Poisson積分によるDirichlet問題の解, Poisson integral solves the Dirichlet problem]
+    requires: [complex-analysis.poisson-integral, complex-analysis.poisson-kernel-approximate-identity, complex-analysis.holomorphic-parts-harmonic, analysis.uniform-convergence]
+
+  - id: complex-analysis.disk-dirichlet-uniqueness
+    name: 円板Dirichlet問題の一意性
+    kind: corollary
+    aliases: [円板Dirichlet問題の一意性, uniqueness of the Dirichlet problem on the disk]
+    requires: [complex-analysis.poisson-dirichlet-solution, complex-analysis.harmonic-maximum-minimum-principle, topology.compact-space]
+
+  - id: complex-analysis.poisson-fourier-series
+    name: Poisson kernelのFourier級数
+    kind: corollary
+    aliases: [Poisson kernelのFourier級数, Fourier series of the Poisson kernel]
+    requires: [complex-analysis.poisson-kernel, complex-analysis.complex-exponential-properties, analysis.uniform-convergence]
