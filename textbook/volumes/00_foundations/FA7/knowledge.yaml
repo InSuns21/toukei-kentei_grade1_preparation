@@ -1,0 +1,97 @@
+chapter: FA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FA6
+
+forward_references: []
+
+concepts:
+  - id: functional.self-adjoint-bounded-operator
+    name: 自己共役有界作用素
+    kind: definition
+    aliases: [自己共役有界作用素, self-adjoint bounded operator, "### 定義（自己共役有界作用素）"]
+    introduction_aliases: ["### 定義（自己共役有界作用素）"]
+    requires:
+      - functional.bounded-linear-operator
+      - functional.hilbert-space
+
+  - id: functional.compact-identity-kernel-finite
+    name: I-Kの核の有限次元性
+    kind: theorem
+    aliases: [I-Kの核の有限次元性, compact perturbation finite kernel, "### 定理（I-Kの核の有限次元性）"]
+    introduction_aliases: ["### 定理（I-Kの核の有限次元性）"]
+    requires:
+      - functional.compact-operator
+      - functional.identity-compact-finite-dimensional
+
+  - id: functional.compact-quotient-lower-bound
+    name: 核からの距離による下側評価
+    kind: lemma
+    aliases: [核からの距離による下側評価, quotient lower bound for I-K, "### 補題（核からの距離による下側評価）"]
+    introduction_aliases: ["### 補題（核からの距離による下側評価）"]
+    requires:
+      - functional.compact-operator
+      - functional.compact-identity-kernel-finite
+
+  - id: functional.compact-identity-closed-range
+    name: I-Kの像の閉性
+    kind: theorem
+    aliases: [I-Kの像の閉性, compact perturbation closed range, "### 定理（I-Kの像の閉性）"]
+    introduction_aliases: ["### 定理（I-Kの像の閉性）"]
+    requires:
+      - functional.compact-quotient-lower-bound
+
+  - id: functional.fredholm-alternative-compact
+    name: コンパクト作用素のFredholm alternative
+    kind: theorem
+    aliases: [コンパクト作用素のFredholm alternative, Fredholm alternative for compact operators, "### 定理（コンパクト作用素のFredholm alternative）"]
+    introduction_aliases: ["### 定理（コンパクト作用素のFredholm alternative）"]
+    requires:
+      - functional.compact-identity-closed-range
+      - functional.riesz-lemma
+
+  - id: functional.compact-nonzero-spectrum-eigenvalue
+    name: コンパクト作用素の非零spectrumの固有値化
+    kind: corollary
+    aliases: [コンパクト作用素の非零spectrumの固有値化, nonzero compact spectrum consists of eigenvalues, "### 系（コンパクト作用素の非零spectrumの固有値化）"]
+    introduction_aliases: ["### 系（コンパクト作用素の非零spectrumの固有値化）"]
+    requires:
+      - functional.fredholm-alternative-compact
+      - functional.resolvent-spectrum
+
+  - id: functional.compact-nonzero-eigenvalue-discreteness
+    name: 非零固有値の有限重複度と0以外での非集積
+    kind: theorem
+    aliases: [非零固有値の有限重複度と0以外での非集積, finite multiplicity of nonzero compact eigenvalues, "### 定理（非零固有値の有限重複度と0以外での非集積）"]
+    introduction_aliases: ["### 定理（非零固有値の有限重複度と0以外での非集積）"]
+    requires:
+      - functional.compact-operator
+      - functional.riesz-lemma
+      - functional.compact-nonzero-spectrum-eigenvalue
+
+  - id: functional.self-adjoint-rayleigh-norm
+    name: 自己共役作用素のRayleigh商によるノルム評価
+    kind: lemma
+    aliases: [自己共役作用素のRayleigh商によるノルム評価, self-adjoint Rayleigh norm formula, "### 補題（自己共役作用素のRayleigh商によるノルム評価）"]
+    introduction_aliases: ["### 補題（自己共役作用素のRayleigh商によるノルム評価）"]
+    requires:
+      - functional.self-adjoint-bounded-operator
+
+  - id: functional.compact-self-adjoint-norm-eigenvalue
+    name: コンパクト自己共役作用素のノルム固有値
+    kind: theorem
+    aliases: [コンパクト自己共役作用素のノルム固有値, norm eigenvalue of compact self-adjoint operator, "### 定理（コンパクト自己共役作用素のノルム固有値）"]
+    introduction_aliases: ["### 定理（コンパクト自己共役作用素のノルム固有値）"]
+    requires:
+      - functional.compact-operator
+      - functional.self-adjoint-rayleigh-norm
+
+  - id: functional.compact-self-adjoint-spectral-theorem
+    name: コンパクト自己共役作用素のスペクトル定理
+    kind: theorem
+    aliases: [コンパクト自己共役作用素のスペクトル定理, compact self-adjoint spectral theorem, "### 定理（コンパクト自己共役作用素のスペクトル定理）"]
+    introduction_aliases: ["### 定理（コンパクト自己共役作用素のスペクトル定理）"]
+    requires:
+      - functional.compact-self-adjoint-norm-eigenvalue
+      - functional.compact-nonzero-eigenvalue-discreteness

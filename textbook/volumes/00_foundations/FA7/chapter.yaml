@@ -1,0 +1,37 @@
+id: "FA7"
+title: "標準関数解析 VII：コンパクト自己共役作用素・Fredholm alternative"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FA6
+official_scope: []
+learning_objectives:
+  - コンパクト作用素 K に対して I-K の核が有限次元、像が閉であることをRieszの補題とコンパクト性から証明できる
+  - コンパクト作用素に対するFredholm alternativeを、像の反復と核の反復が作る閉部分空間列を用いて証明できる
+  - 非零 spectrum が固有値だけからなり、各非零固有空間が有限次元で、非零固有値の集積が0以外には起こらないことを導ける
+  - 自己共役作用素の固有値が実数で、異なる固有値の固有空間が直交することを証明できる
+  - 非零コンパクト自己共役作用素が絶対値最大の固有値を持つことを近似固有ベクトルとコンパクト性から証明できる
+  - コンパクト自己共役作用素について非零固有空間の直交和と核がHilbert空間を尽くすことを示し、スペクトル展開を再構成できる
+  - 0がspectrumに属しても固有値とは限らないことをell2対角作用素で説明できる
+  - Fredholm alternativeと一般の有限次元行列の単射・全射同値を混同せず、コンパクト性が担う役割を説明できる
+definitions:
+  - { id: FA7-DEF-01, name: 自己共役有界作用素 }
+theorems:
+  - { id: FA7-THM-01, name: I-Kの核の有限次元性 }
+  - { id: FA7-LEM-00, name: 核からの距離による下側評価 }
+  - { id: FA7-THM-02, name: I-Kの像の閉性 }
+  - { id: FA7-THM-03, name: コンパクト作用素のFredholm alternative }
+  - { id: FA7-COR-01, name: コンパクト作用素の非零spectrumの固有値化 }
+  - { id: FA7-THM-04, name: 非零固有値の有限重複度と0以外での非集積 }
+  - { id: FA7-LEM-01, name: 自己共役作用素のRayleigh商によるノルム評価 }
+  - { id: FA7-THM-05, name: コンパクト自己共役作用素のノルム固有値 }
+  - { id: FA7-THM-06, name: コンパクト自己共役作用素のスペクトル定理 }
+canonical_examples:
+  - "ell2上の対角作用素D_aはa_n→0ならコンパクトで、非零spectrumは非零のa_nだけからなる"
+  - "rank-one作用素Kx=α<x,u>uではI-Kの可逆性がα=1を境に切り替わる"
+  - "コンパクト自己共役作用素では非零固有値に対応する固有ベクトルを直交規格化でき、固有値は0へ近づく"
+problem_patterns: [FA7-KERNEL-1, FA7-CLOSED-RANGE-1, FA7-FREDHOLM-1, FA7-NONZERO-SPECTRUM-1, FA7-SELFADJOINT-1, FA7-SPECTRAL-DECOMP-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 7.0, review: 2.0 }

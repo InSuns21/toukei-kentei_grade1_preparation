@@ -1,0 +1,17 @@
+chapter: "FA7"
+terms:
+  - term: Fredholm alternative
+    english: Fredholm alternative
+    meaning: コンパクト作用素Kに対してI-Kが単射であることと全射であることが同値になるという原理。従って同次方程式に非零解があるか、任意の右辺に一意解があるかの二者択一になる。
+  - term: self-adjoint operator
+    english: self-adjoint operator
+    meaning: Hilbert空間上の有界作用素Tで、任意のx,yに対し内積が<Tx,y>=<x,Ty>を満たすもの。
+  - term: compact self-adjoint operator
+    english: compact self-adjoint operator
+    meaning: コンパクト性と自己共役性を同時に満たす作用素。非零部分は有限重複度の実固有値と互いに直交する固有空間で分解される。
+  - term: nonzero spectrum of a compact operator
+    english: nonzero spectrum of a compact operator
+    meaning: コンパクト作用素では0以外のspectrum点はすべて固有値で、各固有空間は有限次元。0以外の場所には固有値の集積は起こらない。
+  - term: Rayleigh quotient
+    english: Rayleigh quotient
+    meaning: 単位ベクトルxに対する<Tx,x>。自己共役作用素では実数であり、作用素ノルムと絶対値最大のRayleigh商が一致する。

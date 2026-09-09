@@ -110,7 +110,8 @@
 12. [FA4 Banach–Alaoglu・Goldstine・反射性](textbook/volumes/00_foundations/FA4/index.md)
 13. [FA5 スペクトル・レゾルベント](textbook/volumes/00_foundations/FA5/index.md)
 14. [FA6 コンパクト作用素](textbook/volumes/00_foundations/FA6/index.md)
-15. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
+15. [FA7 コンパクト自己共役作用素・Fredholm alternative](textbook/volumes/00_foundations/FA7/index.md)
+16. [F0-02C6A 分離定理・Minkowski・Farkas](textbook/volumes/00_foundations/F0_02C6A_分離定理_Minkowski_Farkas/index.md)
 
 ### 標準複素解析コア
 

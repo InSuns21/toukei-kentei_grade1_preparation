@@ -423,7 +423,9 @@ nodes:
     title: compact self-adjoint spectral theorem・Fredholm alternative
     area: functional-analysis
     tier: core
-    status: planned
+    status: implemented
+    implemented_at: 2026-09-10
+    implementation_path: textbook/volumes/00_foundations/FA7/index.md
     prerequisites: [FA6]
 
 implementation_batches:
