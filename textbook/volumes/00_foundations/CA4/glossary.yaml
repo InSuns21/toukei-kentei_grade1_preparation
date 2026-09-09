@@ -34,5 +34,5 @@ terms:
     english: argument principle
     meaning: f'/fの閉曲線積分から内部の零点数と極数の差を重複度込みで求める原理。
   - term: Rouchéの定理
-    english: Rouche theorem
+    english: Rouché theorem
     meaning: 境界上で主項が摂動項を絶対値で厳密に支配するとき、主項とその和が内部に持つ零点数が重複度込みで一致する定理。
