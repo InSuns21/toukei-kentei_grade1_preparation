@@ -27,6 +27,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+
           p = Path('textbook/volumes/00_foundations/FA6/index.md')
           s = p.read_text()
           replacements = [
@@ -38,6 +39,10 @@ jobs:
               ('有限ランク作用素の作用素ノルム極限はコンパクト',
                '有限ランク作用素の作用素ノルム収束先はコンパクト'),
               ('作用素ノルム極限', '作用素ノルムでの収束'),
+              ('極限を取る例', '近似で得られる例'),
+              ('極限点', '収束先'),
+              ('Cauchy 列の極限が completion の中には存在しても',
+               'Cauchy 列の収束先が completion の中には存在しても'),
               ('#### FA6-B03 指数核を有限ランクで近似する',
                '#### FA6-B03 核 $e^{st}$ を有限ランクで近似する'),
               ('指数級数', 'Taylor級数'),
@@ -45,9 +50,15 @@ jobs:
           for old, new in replacements:
               s = s.replace(old, new)
           p.write_text(s)
+
+          k = Path('textbook/volumes/00_foundations/FA6/knowledge.yaml')
+          ks = k.read_text()
+          ks = ks.replace('有限ランク作用素の作用素ノルム極限はコンパクト',
+                          '有限ランク作用素の作用素ノルム収束先はコンパクト')
+          k.write_text(ks)
           PY
-          if grep -nE 'Riesz の補題：|作用素ノルム極限|指数核|指数級数' textbook/volumes/00_foundations/FA6/index.md; then
-            echo 'targeted alias-sensitive phrases remain' >&2
+          if grep -nE 'Riesz の補題：|指数核|指数級数|極' textbook/volumes/00_foundations/FA6/index.md; then
+            echo 'alias-sensitive phrases remain in FA6 body' >&2
             exit 1
           fi
       - name: Autofix formal references
@@ -61,6 +72,6 @@ jobs:
           git rm .github/workflows/fa6-audit-autofix.yml
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add textbook/volumes/00_foundations/FA6/index.md textbook/volumes/00_foundations/FA6/audit.tmp.txt
+          git add textbook/volumes/00_foundations/FA6/index.md textbook/volumes/00_foundations/FA6/knowledge.yaml textbook/volumes/00_foundations/FA6/audit.tmp.txt
           git commit -m 'fix(FA6): clear audit false positives and cleanup'
           git push origin HEAD:feat/fa6-compact-operator
