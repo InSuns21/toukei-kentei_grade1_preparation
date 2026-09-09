@@ -371,7 +371,7 @@ $$
 
 と置けば $g$ は $\mathbb D$ 全体で正則になる。
 
-ここで単位円そのものを境界として最大値原理を使ってはいけない。$f$ は $|z|=1$ 上に定義されているとは限らないからである。そこで任意の $0<R<1$ を固定する。$|\zeta|=R$ では $|f(\zeta)|<1$ より
+ここで単位円そのものを境界として[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使ってはいけない。$f$ は $|z|=1$ 上に定義されているとは限らないからである。そこで任意の $0<R<1$ を固定する。$|\zeta|=R$ では $|f(\zeta)|<1$ より
 
 $$
 |g(\zeta)|\le\frac1R.
@@ -398,7 +398,7 @@ $$
 
 $z=0$ では $g(0)=f'(0)$ だから同じ評価により $|f'(0)|\le1$。
 
-等号の場合を確認する。$z_0\ne0$ で $|f(z_0)|=|z_0|$ なら $|g(z_0)|=1$。また $|f'(0)|=1$ なら $|g(0)|=1$。いずれも $g$ が領域内部で絶対値1を取り、しかも $|g|\le1$ なので、最大値原理から $g$ は定数である。$g\equiv\lambda$、$|\lambda|=1$ と書けば
+等号の場合を確認する。$z_0\ne0$ で $|f(z_0)|=|z_0|$ なら $|g(z_0)|=1$。また $|f'(0)|=1$ なら $|g(0)|=1$。いずれも $g$ が領域内部で絶対値1を取り、しかも $|g|\le1$ なので、[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)から $g$ は定数である。$g\equiv\lambda$、$|\lambda|=1$ と書けば
 
 $$
 f(z)=\lambda z.
@@ -407,7 +407,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-Schwarz lemma で単位円板のコンパクト性を仮定してはいない。半径 $R<1$ の閉円板へ局所化して最大値原理を適用し、最後に $R\uparrow1$ とした点が重要である。
+Schwarz lemma で単位円板のコンパクト性を仮定してはいない。半径 $R<1$ の閉円板へ局所化して[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を適用し、最後に $R\uparrow1$ とした点が重要である。
 
 <a id="cor-ca6-disk-automorphism-classification"></a>
 <!-- formal-statement-start -->
@@ -439,7 +439,7 @@ $$
 G=F\circ\phi_a^{-1}
 $$
 
-は円板自己同型で $G(0)=0$ である。Schwarz lemma により
+は円板自己同型で $G(0)=0$ である。[Schwarz lemma](#thm-ca6-schwarz-lemma) により
 
 $$
 |G(z)|\le|z|.
@@ -457,7 +457,7 @@ $$
 |z|\le|G(z)|.
 $$
 
-従って $|G(z)|=|z|$ が全ての $z$ で成り立つ。Schwarz lemma の等号条件から
+従って $|G(z)|=|z|$ が全ての $z$ で成り立つ。[Schwarz lemma](#thm-ca6-schwarz-lemma) の等号条件から
 
 $$
 G(z)=e^{i\theta}z.
@@ -707,7 +707,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-閉円板を少し大きい円板へ広げた箇所で、$\overline{D(a,r)}$ のコンパクト性と $\Omega$ の開性を使っている。境界に接する円板へ無断で Cauchy 公式を適用してはいない。
+閉円板を少し大きい円板へ広げた箇所で、$\overline{D(a,r)}$ のコンパクト性と $\Omega$ の開性を使っている。境界に接する円板へ無断で [Cauchy 平均値公式](../CA3/index.md#cor-ca3-cauchy-mean-value) を適用してはいない。
 
 <a id="cor-ca6-harmonic-maximum-minimum-principle"></a>
 <!-- formal-statement-start -->
@@ -762,7 +762,7 @@ $$
 u(re^{it})=r^2\cos(2t).
 $$
 
-その平均は0で $u(0)=0$ と一致する。平均値性質は「正負がたまたま相殺した例」ではなく、任意の調和関数について局所正則表示と Cauchy 公式が強制する構造である。
+その平均は0で $u(0)=0$ と一致する。平均値性質は「正負がたまたま相殺した例」ではなく、任意の調和関数について局所正則表示と [Cauchy 平均値公式](../CA3/index.md#cor-ca3-cauchy-mean-value) が強制する構造である。
 
 ---
 
@@ -1147,9 +1147,9 @@ $$
 \max_{\overline{\mathbb D}}w>0
 $$
 
-なら、境界値は0なので正の最大値は内部で達成される。[調和関数の最大値原理](#cor-ca6-harmonic-maximum-minimum-principle) により $w$ は定数となるが、境界値0と矛盾する。従って $w\le0$。
+なら、境界値は0なので正の最大値は内部で達成される。[調和関数の最大・最小値原理](#cor-ca6-harmonic-maximum-minimum-principle) により $w$ は定数となるが、境界値0と矛盾する。従って $w\le0$。
 
-同様に $-w$ へ最大値原理を適用して $w\ge0$。よって $w\equiv0$、すなわち $u=v$ である。$\square$
+同様に $-w$ へ [調和関数の最大・最小値原理](#cor-ca6-harmonic-maximum-minimum-principle) を適用して $w\ge0$。よって $w\equiv0$、すなわち $u=v$ である。$\square$
 <!-- proof-end -->
 
 <a id="cor-ca6-poisson-fourier-series"></a>
@@ -1355,10 +1355,10 @@ $r\uparrow1$ で0付近が高く、反対側が低くなることが質量集中
 #### CA6-B01 Schwarz lemma から円板自己同型を分類する
 - Level: B
 
-$F$ を円板自己同型とし $a=F^{-1}(0)$ とする。$G=F\circ\phi_a^{-1}$ と $G^{-1}$ の両方へ Schwarz lemma を適用し、$F$ の一般形を導け。
+$F$ を円板自己同型とし $a=F^{-1}(0)$ とする。$G=F\circ\phi_a^{-1}$ と $G^{-1}$ の両方へ [Schwarz lemma](#thm-ca6-schwarz-lemma) を適用し、$F$ の一般形を導け。
 
 <!-- solution-start -->
-**解答**：$G$ は円板自己同型で $G(0)=0$。Schwarz lemma から
+**解答**：$G$ は円板自己同型で $G(0)=0$。[Schwarz lemma](#thm-ca6-schwarz-lemma) から
 
 $$
 |G(z)|\le|z|.
@@ -1370,7 +1370,7 @@ $$
 |G^{-1}(w)|\le|w|.
 $$
 
-$w=G(z)$ とすれば $|z|\le|G(z)|$。よって全ての $z$ で $|G(z)|=|z|$。非零点を一つ取れば Schwarz lemma の等号条件から
+$w=G(z)$ とすれば $|z|\le|G(z)|$。よって全ての $z$ で $|G(z)|=|z|$。非零点を一つ取れば [Schwarz lemma](#thm-ca6-schwarz-lemma) の等号条件から
 
 $$
 G(z)=e^{i\theta}z.
@@ -1518,13 +1518,13 @@ $$
 \sup_\theta|u(re^{i\theta})-g(e^{i\theta})|<\varepsilon.
 $$
 
-**2. 一意性。** $w=v-u$ は円板内で調和的、閉円板上連続、境界上0。コンパクトな閉円板で最大・最小を取る。もし最大値が正なら境界ではない内部で達成され、調和関数の最大値原理により定数になって境界0と矛盾する。よって $w\le0$。$-w$ に同じ議論をして $w\ge0$。従って
+**2. 一意性。** $w=v-u$ は円板内で調和的、閉円板上連続、境界上0。コンパクトな閉円板で最大・最小を取る。もし最大値が正なら境界ではない内部で達成され、[調和関数の最大・最小値原理](#cor-ca6-harmonic-maximum-minimum-principle) により定数になって境界0と矛盾する。よって $w\le0$。$-w$ に同じ議論をして $w\ge0$。従って
 
 $$
 \boxed{v=u}.
 $$
 
-存在側では approximate identity が境界への収束を作り、一意性側では最大・最小値原理が別の解を排除する。この二つは独立した機構である。
+存在側では approximate identity が境界への収束を作り、一意性側では [調和関数の最大・最小値原理](#cor-ca6-harmonic-maximum-minimum-principle) が別の解を排除する。この二つは独立した機構である。
 <!-- solution-end -->
 
 ---
@@ -1533,8 +1533,8 @@ $$
 
 - Möbius 変換の全単射性は逆写像を直接解き、等角性は有限点だけでなく極と $\infty$ を局所座標へ移して確認した。
 - 一般化円の保存は「有名な定理」で済ませず、平行移動・非零定数倍・反転への分解と一般化円の方程式から閉じた。
-- Schwarz lemma では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で最大値原理を使って $R\uparrow1$ とした。
-- 円板自己同型の分類では全単射性を $G^{-1}$ に Schwarz lemma を適用する箇所で使った。
+- [Schwarz lemma](#thm-ca6-schwarz-lemma) では $|z|=1$ 上の境界値を仮定せず、$R<1$ の閉円板で[最大値原理](../CA3/index.md#thm-ca3-maximum-modulus)を使って $R\uparrow1$ とした。
+- 円板自己同型の分類では全単射性を $G^{-1}$ に [Schwarz lemma](#thm-ca6-schwarz-lemma) を適用する箇所で使った。
 - 調和関数の平均値性質は Green 公式を先取りせず、$u_x-iu_y$ の正則性、局所原始関数、Cauchy 平均値公式の順に導いた。
 - 調和関数の最大・最小値原理では平均値の等号から局所定数性を出し、$u_x-iu_y$ と恒等定理で領域全体へ伝播した。
 - Poisson kernel は非負性・質量1・遠方質量消失を分離して証明した。

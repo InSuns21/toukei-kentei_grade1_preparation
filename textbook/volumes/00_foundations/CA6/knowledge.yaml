@@ -87,7 +87,7 @@ concepts:
   - id: complex-analysis.poisson-kernel-approximate-identity
     name: Poisson kernelのapproximate identity性
     kind: lemma
-    aliases: [Poisson kernelのapproximate identity性, Poisson核の質量集中, approximate identity]
+    aliases: [Poisson kernelのapproximate identity性, Poisson核の質量集中]
     requires: [complex-analysis.poisson-kernel, analysis.riemann-integrable, topology.compact-space]
 
   - id: complex-analysis.poisson-integral
