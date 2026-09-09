@@ -1089,19 +1089,10 @@ $|w|<1$ では
 
 $$
 \frac1{1+w}
-=1-w+w^2-w^3+\cdots
+=1-w+w^2-w^3+\cdots.
 $$
 
-なので
-
-$$
-\begin{aligned}
-f(z)
-&=\frac1w-w+w^0? 
-\end{aligned}
-$$
-
-と途中でまとめず、一項ずつ掛けます。
+従って一項ずつ $1/w$ を掛けて
 
 $$
 \frac1w(1-w+w^2-w^3+\cdots)
