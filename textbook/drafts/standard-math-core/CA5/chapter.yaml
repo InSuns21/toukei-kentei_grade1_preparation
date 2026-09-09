@@ -1,20 +1,21 @@
 id: "CA5"
-title: "標準複素解析 V：偏角原理・Rouché・解析接続"
+title: "標準複素解析 V：winding number・解析接続・monodromy"
 volume: "foundations"
 status: supplementary
 proof_status: todo
 prerequisites: [CA4, TOP3]
 official_scope: []
 learning_objectives:
-  - 定義・主要定理・典型例の論理順を説明できる
-  - 後続章で使う結果と証明未実装の境界を区別できる
+  - winding numberを定義し、整数値性・局所定数性と一般閉曲線の留数定理への接続を説明できる
+  - CA4の単純閉曲線版留数定理・偏角原理をindexで重み付けした一般閉曲線版へ拡張できる
+  - 解析接続の一意性を恒等定理から導き、経路に沿う解析接続を定式化できる
+  - monodromy theoremで単連結性が経路独立性を生む箇所をホモトピー分割から説明できる
 definitions:
   - { id: CA5-DEF-01, name: winding number }
   - { id: CA5-DEF-02, name: 解析接続 }
 theorems:
-  - { id: CA5-THM-01, name: winding numberの整数値性 }
-  - { id: CA5-THM-02, name: 偏角原理 }
-  - { id: CA5-THM-03, name: Rouchéの定理 }
-  - { id: CA5-THM-04, name: 解析接続の一意性 }
-  - { id: CA5-THM-05, name: monodromy theorem }
+  - { id: CA5-THM-01, name: winding numberの整数値性と局所定数性 }
+  - { id: CA5-THM-02, name: 一般閉曲線版留数定理・偏角原理 }
+  - { id: CA5-THM-03, name: 解析接続の一意性 }
+  - { id: CA5-THM-04, name: monodromy theorem }
 exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
