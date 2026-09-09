@@ -14,11 +14,18 @@ concepts:
 
   - id: functional.continuous-linear-functional
     name: 連続線形汎関数
-    kind: term
-    introduction_aliases: [なぜ「連続」線形汎関数だけを集めるのか]
+    kind: definition
     aliases: [連続線形汎関数]
     requires:
       - functional.linear-functional
+      - functional.normed-space
+
+  - id: functional.linear-functional-continuity-boundedness
+    name: 線形汎関数の連続性と有界性の同値
+    kind: theorem
+    aliases: [線形汎関数の連続性と有界性の同値, 連続性と有界性の同値]
+    requires:
+      - functional.continuous-linear-functional
       - functional.normed-space
 
   - id: functional.dual-space
@@ -28,13 +35,37 @@ concepts:
     requires:
       - functional.continuous-linear-functional
 
+  - id: functional.dual-space-vector-space
+    name: 双対空間のベクトル空間構造
+    kind: proposition
+    aliases: [双対空間のベクトル空間構造, X*はベクトル空間]
+    requires:
+      - functional.dual-space
+      - functional.linear-functional-continuity-boundedness
+
   - id: functional.dual-norm
     name: 双対ノルム
-    kind: term
+    kind: definition
     aliases: [双対ノルム]
     requires:
       - functional.dual-space
       - functional.norm
+
+  - id: functional.dual-norm-is-norm
+    name: 双対ノルムはノルムである
+    kind: proposition
+    aliases: [双対ノルムはノルムである]
+    requires:
+      - functional.dual-norm
+      - functional.dual-space-vector-space
+
+  - id: functional.dual-norm-basic-estimate
+    name: 双対ノルムの基本評価
+    kind: proposition
+    aliases: [双対ノルムの基本評価]
+    requires:
+      - functional.dual-norm
+      - functional.linear-functional
 
   - id: functional.evaluation-functional
     name: 評価汎関数
@@ -46,10 +77,10 @@ concepts:
   - id: functional.riesz-representation-theorem
     name: Riesz表現定理
     kind: theorem
-    introduction: inline
     aliases: [Riesz表現定理]
     requires:
       - functional.hilbert-space
       - functional.continuous-linear-functional
       - functional.hilbert-projection-theorem
       - functional.dual-space
+      - functional.dual-norm
