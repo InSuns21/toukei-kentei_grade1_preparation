@@ -24,5 +24,5 @@ canonical_examples: [有限次元の内積汎関数, 積分汎関数, C区間の
 problem_patterns: [FA-DUAL-1, FA-RIESZ-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 1 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 2, review: 1 }
