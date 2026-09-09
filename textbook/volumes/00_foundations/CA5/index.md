@@ -13,7 +13,7 @@ winding number
   ↓ 大域的な偏角の枝を仮定せず整数値性を証明
 局所定数性・非有界成分で0
   ↓
-多角形化 → 有限平面グラフ → 面のindexによる境界chain
+多角形化 → 有限平面グラフ → 面のindexによる境界分解
   ↓
 一般閉曲線版留数定理 → 一般閉曲線版偏角原理
   ↓
@@ -24,7 +24,7 @@ winding number
 monodromy theorem
 ```
 
-既知とするのは、[CA2 の曲線・ホモトピー・単連結性](../CA2/index.md)、[CA3 の恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)、[CA4 の留数・単純閉曲線版留数定理・対数微分](../CA4/index.md)までである。CA4 の Rouché の定理は再証明しない。
+既知とするのは、[CA2 の曲線・ホモトピー・単連結性](../CA2/index.md)、[CA3 の恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity)、[CA4 の留数](../CA4/index.md#def-ca4-residue)・[単純閉曲線版留数定理](../CA4/index.md#thm-ca4-residue)・[対数微分](../CA4/index.md#lem-ca4-log-derivative-residue)までである。CA4 の Rouché の定理は再証明しない。
 
 ---
 
@@ -71,7 +71,7 @@ $$
 
 <a id="thm-ca5-winding-integer-local-constant"></a>
 <!-- formal-statement-start -->
-### 定理（winding number の整数値性・局所定数性）
+### 定理（winding numberの整数値性・局所定数性）
 
 閉じた区分的 $C^1$ 曲線 $\gamma$ と $a\notin\gamma$ に対して
 
@@ -180,7 +180,7 @@ $|a|$ が十分大きければ右辺は1未満で、左辺は整数の絶対値�
 
 <a id="cor-ca5-winding-homotopy"></a>
 <!-- formal-statement-start -->
-### 系（winding number のホモトピー不変性）
+### 系（winding numberのホモトピー不変性）
 
 $a$ を避ける二つの閉じた区分的 $C^1$ 曲線 $\gamma_0,\gamma_1$ が $\mathbb C\setminus\{a\}$ 内で閉曲線としてホモトピックなら
 
@@ -201,7 +201,7 @@ $1/(z-a)$ は $\mathbb C\setminus\{a\}$ 上正則である。[正則線積分の
 
 <a id="def-ca5-null-homologous-cycle"></a>
 <!-- formal-statement-start -->
-### 定義（領域内で null-homologous な閉曲線）
+### 定義（null-homologousな閉曲線）
 
 領域 $\Omega\subset\mathbb C$ 内の閉曲線 $\gamma$ が **$\Omega$ 内で null-homologous** であるとは
 
@@ -221,7 +221,7 @@ $$
 
 <a id="lem-ca5-index-support-compact"></a>
 <!-- formal-statement-start -->
-### 補題（非零 index の支持は $\Omega$ 内でコンパクト）
+### 補題（非零indexの支持のコンパクト性）
 
 $\gamma\subset\Omega$ が $\Omega$ 内で null-homologous とする。このとき
 
@@ -273,7 +273,7 @@ $$
 n_F=\operatorname{Ind}(P,w_F)
 $$
 
-とする。各面境界を面を左に見る向きに取れば、向き付き1-chainとして
+とする。各面境界を面を左に見る向きに取れば、向き付き辺の形式和として
 
 $$
 \boxed{P=\sum_{F\text{ bounded}}n_F\partial F}
@@ -305,7 +305,7 @@ $$
 
 $a_+,a_-$ がそれぞれ同じ二面に留まる間、両 index は整数で一定である。従って十分小さい $\varepsilon$ では差は厳密に1である。向きを逆にすれば $-1$、正味 $m_e$ 回なら加法性から $m_e$ となる。
 
-一方 $\sum_F n_F\partial F$ における $e$ の係数は、左面から $+n_{F_L}$、右面から $-n_{F_R}$ が来るので $m_e$ に一致する。全開辺で係数が一致するから1-chainとして等しい。非有界面の index は0であり、橋は同じ面の境界に逆向きで二度現れて相殺する。$\square$
+一方 $\sum_F n_F\partial F$ における $e$ の係数は、左面から $+n_{F_L}$、右面から $-n_{F_R}$ が来るので $m_e$ に一致する。全開辺で係数が一致するから向き付き辺の形式和として等しい。非有界面の index は0であり、橋は同じ面の境界に逆向きで二度現れて相殺する。$\square$
 <!-- proof-end -->
 
 ここが一般曲線の有限化の要点である。元の区分的 $C^1$ 曲線に「自己交差は有限個」と仮定してはいけない。正則性を使える局所円板内で先に有限多角形へ移し、その有限グラフにだけ上の補題を適用する。
@@ -346,7 +346,7 @@ $$
 
 また $w\notin\Omega$ に対しても変形は $w$ を通らないので $\operatorname{Ind}(P,w)=0$。従って $P$ も null-homologous である。
 
-必要なら有限個の頂点を上の極なし円板内で微小に動かす。変更前後の二折れ線が張る小三角形内で $f$ は正則だから三角形版 Cauchy–Goursat により積分は変わらず、極も領域外の点も横切らない。有限回の摂動で重なる辺を除き、異なる辺の交差を有限個の横断交差だけにできる。
+必要なら有限個の頂点を上の極なし円板内で微小に動かす。変更前後の二折れ線が張る小三角形内で $f$ は正則だから[三角形版 Cauchy–Goursat](../CA2/index.md#thm-ca2-goursat-triangle) により積分は変わらず、極も領域外の点も横切らない。有限回の摂動で重なる辺を除き、異なる辺の交差を有限個の横断交差だけにできる。
 
 #### 2. 面境界へ分解して CA4 を適用する
 
@@ -504,7 +504,7 @@ $$
 
 を十分細かくし、各 $[s_{\ell-1},s_\ell]$ が一つの $I_t$ に入るようにする。
 
-最初は初期芽が同じなので、対応する二代表は始点近傍で一致する。両者は連結な $D_j\cap E_k$ 上正則だから恒等定理により共通部分全体で一致し、$\gamma(s_1)$ の芽が一致する。これを $\ell=2,\dots,M$ と有限回繰り返すと、一致が隣接区間へ順に伝わり、終点芽が一致する。$\square$
+最初は初期芽が同じなので、対応する二代表は始点近傍で一致する。両者は連結な $D_j\cap E_k$ 上正則だから [恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity) により共通部分全体で一致し、$\gamma(s_1)$ の芽が一致する。これを $\ell=2,\dots,M$ と有限回繰り返すと、一致が隣接区間へ順に伝わり、終点芽が一致する。$\square$
 <!-- proof-end -->
 
 ---
@@ -720,7 +720,7 @@ $$
 とする。$\int_\gamma f(z)dz$ を求めよ。
 
 <!-- solution-start -->
-**解答**：留数は3と5なので一般留数定理から
+**解答**：留数は3と5なので[index付き留数公式](#thm-ca5-general-residue) から
 
 $$
 \int_\gamma fdz
@@ -738,7 +738,7 @@ $$
 円板 $D_1,D_2,D_3$ が順に重なり、$f_j$ が $D_j$ 上正則とする。$f_1=f_2$ が $D_1\cap D_2$ の非空開部分で、$f_2=f_3$ が $D_2\cap D_3$ の非空開部分で成り立つとき、各重なり全体で一致することを示せ。
 
 <!-- solution-start -->
-**解答**：二円板の共通部分は凸、従って連結である。$f_1-f_2$ は $D_1\cap D_2$ 上正則で非空開集合上0だから、恒等定理により共通部分全体で0。同様に $f_2=f_3$ も共通部分全体へ広がる。これが解析接続の一意性を有限個の重なりへ伝える局所機構である。
+**解答**：二円板の共通部分は凸、従って連結である。$f_1-f_2$ は $D_1\cap D_2$ 上正則で非空開集合上0だから、[恒等定理](../CA3/index.md#thm-ca3-isolated-zeros-identity) により共通部分全体で0。同様に $f_2=f_3$ も共通部分全体へ広がる。これが解析接続の一意性を有限個の重なりへ伝える局所機構である。
 <!-- solution-end -->
 
 ### Level B
@@ -750,7 +750,7 @@ $$
 $a\notin H([0,1]^2)$ とし、$H(0,\cdot)=\gamma_0$、$H(1,\cdot)=\gamma_1$ が閉曲線であるとする。適切な区分的 $C^1$ 条件の下で二曲線の $a$ に関する index が等しいことを示せ。
 
 <!-- solution-start -->
-**解答**：$1/(z-a)$ はホモトピー像を含む $\mathbb C\setminus\{a\}$ 上正則である。CA2 の正則線積分のホモトピー不変性から
+**解答**：$1/(z-a)$ はホモトピー像を含む $\mathbb C\setminus\{a\}$ 上正則である。[正則線積分のホモトピー不変性](../CA2/index.md#thm-ca2-homotopy-invariance) から
 
 $$
 \int_{\gamma_0}\frac{dz}{z-a}
@@ -773,7 +773,7 @@ $$
 とする。$(2\pi i)^{-1}\int_\gamma p'/p\,dz$ を求めよ。
 
 <!-- solution-start -->
-**解答**：$-1$ は位数2、$1$ は位数3の零点で極はない。従って一般偏角原理から
+**解答**：$-1$ は位数2、$1$ は位数3の零点で極はない。従って [index付き偏角公式](#thm-ca5-general-argument-principle) から
 
 $$
 \frac1{2\pi i}\int_\gamma\frac{p'}p dz
@@ -788,7 +788,7 @@ $$
 #### CA5-B03 対数の monodromy
 - Level: B
 
-$z=1$ で値0を取る局所対数を単位円に沿って反時計回りに一周して解析接続する。終点で値が $2\pi i$ 増えることを示し、monodromy theorem と矛盾しない理由を述べよ。
+$z=1$ で値0を取る局所対数を単位円に沿って反時計回りに一周して解析接続する。終点で値が $2\pi i$ 増えることを示し、[monodromy theorem](#thm-ca5-monodromy) と矛盾しない理由を述べよ。
 
 <!-- solution-start -->
 **解答**：局所対数は $L'=1/z$。$\gamma(t)=e^{2\pi it}$ なら
@@ -797,7 +797,7 @@ $$
 \ell'(t)=L'(\gamma(t))\gamma'(t)=2\pi i,
 $$
 
-従って $\ell(0)=0$ から $\ell(1)=2\pi i$。終点の点は1でも芽は異なる。$\mathbb C\setminus\{0\}$ は単連結でなく、単位円を0を避けたまま定値曲線へ縮められないため monodromy theorem の仮定を満たさない。
+従って $\ell(0)=0$ から $\ell(1)=2\pi i$。終点の点は1でも芽は異なる。$\mathbb C\setminus\{0\}$ は単連結でなく、単位円を0を避けたまま定値曲線へ縮められないため [monodromy theorem](#thm-ca5-monodromy) の仮定を満たさない。
 <!-- solution-end -->
 
 ### Level C
@@ -806,7 +806,7 @@ $$
 #### CA5-C01 零点を持たない正則関数の大域対数
 - Level: C
 
-$\Omega$ を単連結領域、$f$ を $\Omega$ 上の零点を持たない正則関数とする。$z_0\in\Omega$ と $e^{w_0}=f(z_0)$ を満たす $w_0$ を固定する。局所対数の芽を作り、任意の経路に沿って解析接続し、monodromy theorem から $e^{L}=f$ を満たす大域正則関数 $L$ を得よ。
+$\Omega$ を単連結領域、$f$ を $\Omega$ 上の零点を持たない正則関数とする。$z_0\in\Omega$ と $e^{w_0}=f(z_0)$ を満たす $w_0$ を固定する。局所対数の芽を作り、任意の経路に沿って解析接続し、[monodromy theorem](#thm-ca5-monodromy) から $e^{L}=f$ を満たす大域正則関数 $L$ を得よ。
 
 <!-- solution-start -->
 **解答**：
