@@ -33,6 +33,8 @@ jobs:
           replacements = [
               ('## 3. Riesz の補題：無限次元の単位球には離れた点を無限に作れる',
                '## 3. 無限次元の単位球には離れた点を無限に作れる'),
+              ('一方、無限次元空間上の恒等作用素は一般にコンパクトではありません。[後で Riesz の補題](#lem-fa6-riesz)を使って、単位球の中に互いに一定距離以上離れた列を実際に作ります。',
+               '一方、無限次元空間上の恒等作用素は一般にコンパクトではありません。第3節では、単位球の中に互いに一定距離以上離れた列を構成して、この事実を証明します。'),
               ('作用素ノルム極限でも保存（値域Banach）', '作用素ノルム収束でも保存（値域Banach）'),
               ('## 6. 作用素ノルム極限でもコンパクト性は保たれる',
                '## 6. 作用素ノルム収束でもコンパクト性は保たれる'),
@@ -57,8 +59,8 @@ jobs:
                           '有限ランク作用素の作用素ノルム収束先はコンパクト')
           k.write_text(ks)
           PY
-          if grep -nE 'Riesz の補題：|指数核|指数級数|極' textbook/volumes/00_foundations/FA6/index.md; then
-            echo 'alias-sensitive phrases remain in FA6 body' >&2
+          if grep -nE 'Riesz の補題：|指数核|指数級数|極|後で Riesz の補題' textbook/volumes/00_foundations/FA6/index.md; then
+            echo 'alias-sensitive or forward-reference phrases remain in FA6 body' >&2
             exit 1
           fi
       - name: Autofix formal references
