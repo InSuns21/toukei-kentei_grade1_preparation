@@ -1,0 +1,105 @@
+chapter: FA5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FA0
+  - FA2
+  - LA6
+  - CA3
+  - HB
+
+forward_references: []
+
+concepts:
+  - id: functional.resolvent-spectrum
+    name: resolvent集合・spectrum
+    kind: definition
+    aliases: [resolvent集合, resolvent set, spectrum, スペクトル, "### 定義（resolvent集合・spectrum）"]
+    introduction_aliases: ["### 定義（resolvent集合・spectrum）"]
+    requires:
+      - functional.banach-space
+      - functional.bounded-linear-operator
+      - functional.bounded-inverse-theorem
+
+  - id: functional.resolvent-operator
+    name: resolvent作用素
+    kind: definition
+    aliases: [resolvent作用素, resolvent operator, "### 定義（resolvent作用素）"]
+    introduction_aliases: ["### 定義（resolvent作用素）"]
+    requires:
+      - functional.resolvent-spectrum
+
+  - id: functional.neumann-series
+    name: Neumann級数
+    kind: lemma
+    aliases: [Neumann級数, Neumann series, "### 補題（Neumann級数）"]
+    introduction_aliases: ["### 補題（Neumann級数）"]
+    requires:
+      - functional.banach-space
+      - functional.bounded-linear-operator
+
+  - id: functional.resolvent-local-series
+    name: resolvent集合の開性と局所級数表示
+    kind: theorem
+    aliases: [resolvent集合の開性, resolventの局所級数表示, "### 定理（resolvent集合の開性と局所級数表示）"]
+    introduction_aliases: ["### 定理（resolvent集合の開性と局所級数表示）"]
+    requires:
+      - functional.resolvent-operator
+      - functional.neumann-series
+
+  - id: functional.resolvent-identity
+    name: resolvent恒等式
+    kind: theorem
+    aliases: [resolvent恒等式, resolvent identity, "### 定理（resolvent恒等式）"]
+    introduction_aliases: ["### 定理（resolvent恒等式）"]
+    requires:
+      - functional.resolvent-operator
+
+  - id: functional.spectrum-compact-norm-bound
+    name: spectrumのcompact性とノルム円板評価
+    kind: theorem
+    aliases: [spectrumのcompact性, スペクトルのコンパクト性, "### 定理（spectrumのcompact性とノルム円板評価）"]
+    introduction_aliases: ["### 定理（spectrumのcompact性とノルム円板評価）"]
+    requires:
+      - functional.resolvent-local-series
+      - functional.neumann-series
+
+  - id: functional.spectrum-nonempty
+    name: 複素Banach空間上のspectrum非空性
+    kind: theorem
+    aliases: [spectrum非空性, spectrum is nonempty, "### 定理（複素Banach空間上のspectrum非空性）"]
+    introduction_aliases: ["### 定理（複素Banach空間上のspectrum非空性）"]
+    requires:
+      - functional.spectrum-compact-norm-bound
+      - functional.resolvent-local-series
+      - functional.norm-preserving-extension
+      - complex-analysis.liouville-theorem
+
+  - id: functional.polynomial-spectral-mapping
+    name: 多項式spectral mapping theorem
+    kind: theorem
+    aliases: [多項式spectral mapping theorem, polynomial spectral mapping theorem, 多項式スペクトル写像定理, "### 定理（多項式spectral mapping theorem）"]
+    introduction_aliases: ["### 定理（多項式spectral mapping theorem）"]
+    requires:
+      - functional.resolvent-spectrum
+      - complex-analysis.fundamental-theorem-of-algebra
+
+  - id: functional.spectral-radius
+    name: spectral radius
+    kind: definition
+    aliases: [spectral radius, スペクトル半径, "### 定義（spectral radius）"]
+    introduction_aliases: ["### 定義（spectral radius）"]
+    requires:
+      - functional.spectrum-nonempty
+      - functional.spectrum-compact-norm-bound
+
+  - id: functional.spectral-radius-formula
+    name: spectral radius formula
+    kind: theorem
+    aliases: [spectral radius formula, Gelfand formula, スペクトル半径公式, "### 定理（spectral radius formula）"]
+    introduction_aliases: ["### 定理（spectral radius formula）"]
+    requires:
+      - functional.spectral-radius
+      - functional.resolvent-local-series
+      - functional.norm-preserving-extension
+      - complex-analysis.cauchy-integral-formula
