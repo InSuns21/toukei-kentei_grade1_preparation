@@ -25,14 +25,22 @@ concepts:
       - functional.compact-operator
       - functional.identity-compact-finite-dimensional
 
+  - id: functional.compact-quotient-lower-bound
+    name: 核からの距離による下側評価
+    kind: lemma
+    aliases: [核からの距離による下側評価, quotient lower bound for I-K, "### 補題（核からの距離による下側評価）"]
+    introduction_aliases: ["### 補題（核からの距離による下側評価）"]
+    requires:
+      - functional.compact-operator
+      - functional.compact-identity-kernel-finite
+
   - id: functional.compact-identity-closed-range
     name: I-Kの像の閉性
     kind: theorem
     aliases: [I-Kの像の閉性, compact perturbation closed range, "### 定理（I-Kの像の閉性）"]
     introduction_aliases: ["### 定理（I-Kの像の閉性）"]
     requires:
-      - functional.compact-operator
-      - functional.compact-identity-kernel-finite
+      - functional.compact-quotient-lower-bound
 
   - id: functional.fredholm-alternative-compact
     name: コンパクト作用素のFredholm alternative
