@@ -6,7 +6,7 @@ prerequisites:
   - F0-02C1
   - F0-00G
 learning_objectives:
-  - 凸集合・平行四辺形恒等式・ノルムの連続性を射影定理の証明に使える
+  - 前章の平行四辺形恒等式・ノルム写像の連続性を射影定理の証明に適用できる
   - Hilbert空間の閉凸集合への射影定理を説明できる
   - 最小化列がCauchyになる導出を追える
   - 射影の特徴付けを必要十分条件として証明できる
@@ -14,12 +14,11 @@ learning_objectives:
 definitions:
   - { id: F002C1A-DEF-01, name: 凸集合 }
 theorems:
-  - { id: F002C1A-THM-01, name: ノルム写像の連続性 }
-  - { id: F002C1A-THM-02, name: Hilbert空間の射影定理 }
-  - { id: F002C1A-THM-03, name: Hilbert射影の変分不等式特徴付け }
-  - { id: F002C1A-THM-04, name: 閉線形部分空間の直交分解 }
+  - { id: F002C1A-THM-01, name: Hilbert空間の射影定理 }
+  - { id: F002C1A-THM-02, name: Hilbert射影の変分不等式特徴付け }
+  - { id: F002C1A-THM-03, name: 閉線形部分空間の直交分解 }
 canonical_examples: [l2の座標部分空間への射影, 閉凸集合への最近点, 閉球への射影]
 problem_patterns: [FA-PROJECTION-1]
 exercise_counts: { level_a: 3, level_b: 2, level_c: 0, level_d: 0 }
 dream_theater_exercise_count_exception: "射影定理を自足的に読むための補助章であり、前提確認と射影の特徴付けに直結する A3/B2 に絞る。C問題を含む規定数への水増しは行わない。"
-estimated_hours: { reading: 2.5, exercises: 1.25, review: 0.5 }
+estimated_hours: { reading: 2.25, exercises: 1.25, review: 0.5 }
