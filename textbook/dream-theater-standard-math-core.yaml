@@ -407,8 +407,10 @@ nodes:
     title: spectrum・resolvent
     area: functional-analysis
     tier: core
-    status: planned
-    prerequisites: [FA0, FA2, LA6, CA3]
+    status: implemented
+    implemented_at: 2026-09-09
+    implementation_path: textbook/volumes/00_foundations/FA5/index.md
+    prerequisites: [FA0, FA2, LA6, CA3, HB]
   - id: FA6
     title: compact operator
     area: functional-analysis
