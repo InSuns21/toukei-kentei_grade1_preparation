@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - F0-02C1
 
+forward_references:
+  - functional.riesz-representation-theorem
+
 concepts:
   - id: functional.convex-set-basic-c1a
     name: 凸集合
