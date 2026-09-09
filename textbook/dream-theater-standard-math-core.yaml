@@ -402,7 +402,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-09
     implementation_path: textbook/volumes/00_foundations/CA6/index.md
-    prerequisites: [CA5]
+    prerequisites: [CA5, LA3B]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
