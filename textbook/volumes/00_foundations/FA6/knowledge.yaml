@@ -77,14 +77,22 @@ concepts:
       - functional.compact-operator
       - functional.banach-space
 
+  - id: functional.finite-rank-norm-limit-compact
+    name: 有限ランク作用素の作用素ノルム極限はコンパクト
+    kind: corollary
+    aliases: [有限ランク作用素の作用素ノルム極限はコンパクト, finite-rank norm limits are compact, "### 系（有限ランク作用素の作用素ノルム極限はコンパクト）"]
+    introduction_aliases: ["### 系（有限ランク作用素の作用素ノルム極限はコンパクト）"]
+    requires:
+      - functional.finite-rank-compact
+      - functional.compact-operators-norm-closed
+
   - id: functional.diagonal-compact-criterion
     name: ell2対角作用素のコンパクト性判定
     kind: theorem
     aliases: [ell2対角作用素のコンパクト性判定, diagonal compact operator criterion, "### 定理（ell2対角作用素のコンパクト性判定）"]
     introduction_aliases: ["### 定理（ell2対角作用素のコンパクト性判定）"]
     requires:
-      - functional.finite-rank-compact
-      - functional.compact-operators-norm-closed
+      - functional.finite-rank-norm-limit-compact
 
   - id: functional.continuous-kernel-integral-compact
     name: 連続核積分作用素のコンパクト性
@@ -92,5 +100,4 @@ concepts:
     aliases: [連続核積分作用素のコンパクト性, continuous-kernel integral operator compactness, "### 定理（連続核積分作用素のコンパクト性）"]
     introduction_aliases: ["### 定理（連続核積分作用素のコンパクト性）"]
     requires:
-      - functional.finite-rank-compact
-      - functional.compact-operators-norm-closed
+      - functional.finite-rank-norm-limit-compact
