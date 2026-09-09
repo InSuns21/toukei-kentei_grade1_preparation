@@ -243,12 +243,38 @@
     node.textContent = node.classList.contains(DISPLAY_CLASS) ? `$$${tex}$$` : `$${tex}$`;
   }
 
-  function renderMath(container) {
-    if (!container) return;
-    const nodes = [...container.querySelectorAll('.toukei-math[data-tex]')];
-    if (!nodes.length) return;
+  function currentDocsifyAnchorId() {
+    if (!root || !root.location) return null;
+    const hash = root.location.hash || '';
+    const queryIndex = hash.indexOf('?');
+    if (queryIndex === -1) return null;
 
-    ensureKatexRuntime()
+    const params = new URLSearchParams(hash.slice(queryIndex + 1));
+    return params.get('id');
+  }
+
+  function restoreAnchorAfterMath() {
+    if (typeof document === 'undefined') return;
+    const id = currentDocsifyAnchorId();
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const scroll = () => target.scrollIntoView();
+    if (root && typeof root.requestAnimationFrame === 'function') {
+      root.requestAnimationFrame(scroll);
+    } else {
+      scroll();
+    }
+  }
+
+  function renderMath(container) {
+    if (!container) return Promise.resolve();
+    const nodes = [...container.querySelectorAll('.toukei-math[data-tex]')];
+    if (!nodes.length) return Promise.resolve();
+
+    return ensureKatexRuntime()
       .then(() => nodes.forEach(renderPlaceholder))
       .catch((error) => {
         console.error('KaTeX runtime unavailable; showing raw TeX instead', error);
@@ -266,7 +292,8 @@
     });
 
     hook.doneEach(function () {
-      renderMath(document.querySelector('.markdown-section'));
+      renderMath(document.querySelector('.markdown-section'))
+        .then(restoreAnchorAfterMath);
     });
   }
 
