@@ -7,7 +7,7 @@ prerequisites:
   - FA2
   - LA6
   - CA3
-  - HB
+  - F0-02C6
 official_scope: []
 learning_objectives:
   - 複素Banach空間上の有界作用素についてresolvent集合・spectrum・resolvent作用素を定義し、有限次元の固有値集合との違いを説明できる
@@ -30,7 +30,10 @@ theorems:
   - { id: FA5-THM-04, name: 複素Banach空間上のspectrum非空性 }
   - { id: FA5-THM-05, name: 多項式spectral mapping theorem }
   - { id: FA5-THM-06, name: spectral radius formula }
-canonical_examples: [有限次元行列ではspectrumと固有値集合が一致, unilateral shiftのspectrumは閉単位円板で固有値を持たない, C([0,1])上の座標乗算作用素のspectrumは[0,1]]
+canonical_examples:
+  - 有限次元行列ではspectrumと固有値集合が一致
+  - unilateral shiftのspectrumは閉単位円板で固有値を持たない
+  - "C([0,1])上の座標乗算作用素のspectrumは[0,1]"
 problem_patterns: [FA5-NEUMANN-1, FA5-RESOLVENT-IDENTITY-1, FA5-SPECTRUM-NONEMPTY-1, FA5-SHIFT-SPECTRUM-1, FA5-SPECTRAL-RADIUS-1]
 past_exam_alignment: []
 integrated_exam_problems: []
