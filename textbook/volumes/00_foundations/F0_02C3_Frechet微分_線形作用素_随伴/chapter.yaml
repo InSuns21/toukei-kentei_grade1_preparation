@@ -6,20 +6,26 @@ prerequisites:
   - F0-02C2
 official_scope: []
 learning_objectives:
-  - 方向微分・Gateaux微分・Frechet微分を区別できる
-  - Frechet微分を有界線形作用素として説明できる
+  - Fréchet微分を一つの線形一次近似として定義し、一意性と連続性を証明できる
+  - 方向微分・Gâteaux微分・Fréchet微分を区別できる
+  - 有限次元で偏微分・全微分・Jacobianの関係を説明できる
+  - 全偏微分の存在だけでは微分可能性を保証しない反例を計算できる
+  - 連続偏微分からFréchet微分可能性を座標増分と平均値定理で証明できる
+  - Fréchet連鎖律を残差評価から証明できる
+  - 高階微分・Hessian・二階Taylor展開を一次近似の反復として説明できる
   - 有界線形作用素と作用素ノルムを定義できる
-  - 連鎖律を作用素の合成として読める
 definitions:
   - { id: F002C3-DEF-01, name: 方向微分 }
-  - { id: F002C3-DEF-02, name: Gateaux微分 }
-  - { id: F002C3-DEF-03, name: Frechet微分 }
+  - { id: F002C3-DEF-02, name: Gâteaux微分 }
+  - { id: F002C3-DEF-03, name: Fréchet微分 }
   - { id: F002C3-DEF-04, name: 有界線形作用素 }
   - { id: F002C3-DEF-05, name: 作用素ノルム }
 theorems:
-  - { id: F002C3-THM-01, name: 有界線形作用素の連続性との同値 }
-  - { id: F002C3-THM-02, name: Frechet微分の連鎖律 }
-canonical_examples: [ノルム二乗の微分, 二乗誤差汎関数]
-problem_patterns: [FA-DERIVATIVE-1]
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+  - { id: F002C3-THM-01, name: Fréchet微分の一意性と微分可能性からの連続性 }
+  - { id: F002C3-THM-02, name: 連続な偏微分による微分可能性 }
+  - { id: F002C3-THM-03, name: Fréchet連鎖律 }
+  - { id: F002C3-THM-04, name: 二階の多変数Taylor展開 }
+canonical_examples: [ノルム二乗の微分, 全偏微分が存在するが微分可能でない関数, Jacobian計算, 二乗誤差汎関数]
+problem_patterns: [RA-MULTIVARIABLE-DERIVATIVE-1, FA-DERIVATIVE-1]
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.0, review: 1.0 }
