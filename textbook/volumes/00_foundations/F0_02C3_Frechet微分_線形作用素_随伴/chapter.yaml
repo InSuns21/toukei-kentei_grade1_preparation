@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-02C2
+  - RA3
 official_scope: []
 learning_objectives:
   - Fréchet微分を一つの線形一次近似として定義し、一意性と連続性を証明できる
