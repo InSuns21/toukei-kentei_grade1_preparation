@@ -1,13 +1,13 @@
 # F0-02C3B：Fréchet連鎖律とHilbert随伴の証明
 
-C3/C3AではFréchet微分と随伴作用素の意味を先に学びました。この補講では、**Fréchet連鎖律を残差評価から完全に証明**し、**[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)からHilbert随伴を構成**します。
+C3/C3AではFréchet微分と随伴作用素の意味を先に学びました。この補講では、**C3で正本化したFréchet連鎖律を残差評価からもう一度追い**、**[Riesz表現定理](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#ref-riesz-representation)からHilbert随伴を構成**します。
 
 ```text
 Fréchet微分の残差表示
   ↓
 合成後も残差は o(||h||)
   ↓
-chain rule
+連鎖律
 
 Riesz表現
   ↓
@@ -46,21 +46,20 @@ $$
 
 ---
 
-## 2. Fréchet連鎖律
+## 2. Fréchet連鎖律の再確認
 
-<a id="thm-f0-02c3b-chain-rule"></a>
+Fréchet連鎖律のformalな正本は [F0-02C3](../F0_02C3_Frechet微分_線形作用素_随伴/index.md#thm-f0-02c3-frechet-composition) にあります。ここでは後続の随伴計算へ接続するため、同じ残差評価を再確認します。
 
-<!-- formal-statement-start -->
-> **定理（Fréchet連鎖律）**  
-> $X,Y,Z$ をノルム空間とする。$f:X\to Y$ が $x$ でFréchet微分可能、$g:Y\to Z$ が $f(x)$ でFréchet微分可能なら、$g\circ f$ は $x$ でFréchet微分可能である。
+$X,Y,Z$ をノルム空間とし、$f:X\to Y$ が $x$ でFréchet微分可能、$g:Y\to Z$ が $f(x)$ でFréchet微分可能とすると、
 
 $$
 \boxed{D(g\circ f)(x)=Dg(f(x))\circ Df(x)}
 $$
-<!-- formal-statement-end -->
+
+となります。
 
 <!-- proof-start -->
-### 証明
+### 証明の再確認
 
 $A=Df(x)$、$B=Dg(f(x))$ と置きます。
 
@@ -302,7 +301,7 @@ $\langle Ax,y\rangle=x^TA^Ty=\langle x,A^Ty\rangle$ なので、随伴の一意�
 
 ## 8. 演習B
 
-### B01 chain rule の核心
+### B01 連鎖律の核心
 
 連鎖律の証明で
 
