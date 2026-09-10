@@ -75,7 +75,7 @@ nodes:
     title: 多変数微分
     area: real-analysis
     tier: core
-    status: planned
+    status: existing-anchor
     reuses: [F0_02C3]
     prerequisites: [RA3]
   - id: RA7
@@ -452,7 +452,7 @@ implementation_batches:
     nodes: [FA5, FA6, FA7]
   - order: 8
     id: real-analysis-multivariable-and-compactness
-    nodes: [RA6, RA7, RA8]
+    nodes: [RA7, RA8]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
