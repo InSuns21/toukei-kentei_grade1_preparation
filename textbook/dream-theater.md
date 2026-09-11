@@ -70,7 +70,7 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 
-**院試・編入の計算演習**：[線形代数・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/all.md)。
+**院試・編入の計算演習**：[線形代数・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)。
 
 ### ノルム空間・測度・Lebesgue積分
 
