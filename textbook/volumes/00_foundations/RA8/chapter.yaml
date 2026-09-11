@@ -1,0 +1,32 @@
+id: "RA8"
+title: "標準実解析 VIII：関数族のコンパクト性・近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA5
+  - TOP5
+official_scope: []
+learning_objectives:
+  - コンパクト距離空間 K 上の C(K) と一様ノルムを定義し、その完備性を証明できる
+  - 同程度連続性と各点有界性が関数族の相対コンパクト性を特徴付ける仕組みを説明できる
+  - Arzela-Ascoli を有限ネット・対角部分列・一様Cauchy評価から再構成できる
+  - Bernstein多項式を用いて区間上のWeierstrass近似定理を証明できる
+  - 点分離代数が max/min を近似的に閉じることから実Stone-Weierstrassを証明できる
+definitions:
+  - { id: RA8-DEF-01, name: C(K) と一様ノルム }
+  - { id: RA8-DEF-02, name: 同程度連続な関数族 }
+  - { id: RA8-DEF-03, name: 各点有界な関数族 }
+  - { id: RA8-DEF-04, name: 相対コンパクトな関数族 }
+  - { id: RA8-DEF-05, name: Bernstein多項式 }
+  - { id: RA8-DEF-06, name: 点を分離する部分代数 }
+theorems:
+  - { id: RA8-THM-01, name: C(K) の一様ノルム完備性 }
+  - { id: RA8-THM-02, name: Arzela-Ascoli定理 }
+  - { id: RA8-THM-03, name: Weierstrass近似定理 }
+  - { id: RA8-THM-04, name: 実Stone-Weierstrass定理 }
+canonical_examples: [共通Lipschitz関数族, x^nの非同程度連続性, Bernstein近似, 多項式代数によるStone-Weierstrass]
+problem_patterns: [RA-EQUICONTINUITY-1, RA-ARZELA-ASCOLI-1, RA-BERNSTEIN-1, RA-STONE-WEIERSTRASS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.5 }
