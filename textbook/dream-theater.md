@@ -70,7 +70,7 @@
 14. [LA6 スペクトル・二次形式・polar decomposition・複素SVD](textbook/volumes/00_foundations/LA6/index.md)
 15. [LA3D 交代多重線形形式・抽象行列式（発展分岐）](textbook/volumes/00_foundations/LA3D/index.md)
 
-**院試・編入の計算演習**：<a href="textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md">基本セット（A8・B5・C2）</a> ／ <a href="textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/advanced.md">追加B/Cセット（B5・C2）</a>。合計22題です。
+**院試・編入の計算演習**：[線形代数・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/all.md)。
 
 ### ノルム空間・測度・Lebesgue積分
 
@@ -126,7 +126,7 @@
 5. [CA5 winding number・解析接続・monodromy](textbook/volumes/00_foundations/CA5/index.md)
 6. [CA6 Möbius変換・Schwarz補題・調和関数・Poisson核](textbook/volumes/00_foundations/CA6/index.md)
 
-**院試・編入の計算演習**：<a href="textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md">複素解析・院試／編入 計算演習（A8・B10・C4、計22題）</a>。
+**院試・編入の計算演習**：[複素解析・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md)。
 
 ### 凸解析・凸最適化
 
@@ -235,7 +235,7 @@
 8. [MC2 分散削減・importance・control variate](textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md)
 9. [SDE1 Euler–Maruyama・strong/weak](textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md)
 10. [SDE1A Euler–Maruyama weak order 1 の証明](textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/index.md)
-11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)
+11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo/index.md)
 12. [MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)
 
 ---
