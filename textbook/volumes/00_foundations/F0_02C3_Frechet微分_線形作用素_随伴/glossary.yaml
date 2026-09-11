@@ -1,5 +1,8 @@
 chapter: "F0-02C3"
 terms:
   - { term: Fréchet微分, english: Frechet derivative, meaning: 誤差が増分ノルムより高次になる一様な線形一次近似。 }
+  - { term: 全微分, english: total derivative, meaning: 多変数関数を点の近くで一次近似する線形写像。有限次元ではFréchet微分と同じ対象。 }
+  - { term: Jacobian, english: Jacobian matrix, meaning: 有限次元のFréchet微分を標準基底で行列表示したもの。 }
+  - { term: Hessian, english: Hessian matrix, meaning: 実数値関数の二階微分を二階偏微分で表した行列。 }
   - { term: 有界線形作用素, english: bounded linear operator, meaning: ノルムを一定倍率以内に抑える線形作用素。 }
   - { term: 作用素ノルム, english: operator norm, meaning: 単位球上での作用素の最大伸長率。 }

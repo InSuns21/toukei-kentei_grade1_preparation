@@ -8,7 +8,7 @@ prerequisites:
   - F0-02C3A
 official_scope: []
 learning_objectives:
-  - Fréchet微分の定義から連鎖律を証明できる
+  - F0-02C3で正本化したFréchet連鎖律の残差証明を再構成できる
   - 合成写像の残差が o(||h||) になる理由を説明できる
   - Riesz表現定理からHilbert随伴の存在一意性を導ける
   - 随伴の有界性と作用素ノルム評価を示せる
@@ -16,11 +16,11 @@ definitions:
   - { id: F0C3B-DEF-01, name: Fréchet微分の残差表示 }
   - { id: F0C3B-DEF-02, name: Hilbert随伴 }
 theorems:
-  - { id: F0C3B-THM-01, name: Fréchet chain rule }
   - { id: F0C3B-THM-02, name: Hilbert随伴の存在一意性 }
 canonical_examples: [二乗ノルムの合成, 行列の転置随伴]
 problem_patterns: [FRECHET-CHAIN-1, HILBERT-ADJOINT-RIESZ-1]
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "F0-02C3本体でRA6演習A4/B3/C1を満たしており、本章は連鎖律の再証明とHilbert随伴への接続だけを扱う補講のため。"
 estimated_hours: { reading: 0.75, exercises: 0.75, review: 0.25 }

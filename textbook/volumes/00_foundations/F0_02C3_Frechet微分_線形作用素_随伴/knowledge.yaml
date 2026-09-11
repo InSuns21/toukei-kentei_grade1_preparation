@@ -3,9 +3,9 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-02C2
+  - RA3
 
 forward_references:
-  - functional.frechet-chain-rule
   - functional.adjoint-operator
   - functional.hilbert-adjoint
 
@@ -47,3 +47,35 @@ concepts:
     requires:
       - functional.bounded-linear-operator
       - functional.norm
+
+  - id: functional.frechet-derivative-uniqueness-continuity
+    name: Fréchet微分の一意性と微分可能性からの連続性
+    kind: theorem
+    aliases: [Fréchet微分の一意性と微分可能性からの連続性]
+    requires:
+      - functional.frechet-derivative
+
+  - id: analysis.continuous-partials-differentiability
+    name: 連続な偏微分による微分可能性
+    kind: theorem
+    aliases: [連続な偏微分による微分可能性]
+    requires:
+      - functional.frechet-derivative
+      - analysis.mean-value-theorem
+
+  - id: functional.frechet-chain-rule
+    name: Fréchet連鎖律
+    kind: theorem
+    aliases: [Fréchet連鎖律]
+    requires:
+      - functional.frechet-derivative
+      - functional.bounded-linear-operator
+
+  - id: analysis.multivariable-second-order-taylor
+    name: 二階の多変数Taylor展開
+    kind: theorem
+    aliases: [二階の多変数Taylor展開]
+    requires:
+      - functional.frechet-derivative
+      - analysis.taylor-theorem
+      - functional.frechet-chain-rule

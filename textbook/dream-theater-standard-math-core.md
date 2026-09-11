@@ -35,7 +35,7 @@ flowchart TD
   RA2 --> RA3["実解析 III<br/>微分・平均値定理・Taylor<br/>RA3"]
   RA2 --> RA4["実解析 IV<br/>Riemann/Darboux積分・FTC<br/>RA4"]
   RA2 --> RA5["実解析 V<br/>関数列・級数・一様収束<br/>RA5"]
-  RA3 --> RA6["実解析 VI<br/>多変数微分・逆/陰関数<br/>RA6"]
+  RA3 --> RA6["実解析 VI<br/>多変数微分・Fréchet微分<br/>既存 F0-02C3"]
   RA4 --> RA7["実解析 VII<br/>重積分・変数変換<br/>RA7"]
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
 
@@ -166,12 +166,14 @@ flowchart TD
 
 ## RA6 多変数微分 `core`
 
-- `R^n` の極限、全微分・Fréchet微分、Jacobian、chain rule
-- 高階微分・Hessian、多変数Taylor
-- 逆関数定理、陰関数定理
-- 制約なし極値、Lagrange未定乗数法への接続
+- Fréchet微分を一つの線形一次近似として定義し、一意性と微分可能性からの連続性を証明
+- 偏微分・方向微分・全微分・Jacobianの関係
+- 全偏微分の存在だけでは微分可能とは限らない反例と、破綻する残差比
+- 連続な偏微分からFréchet微分可能性を導く座標増分・一変数平均値定理による証明
+- Fréchet連鎖律を二つの剰余項の合成から証明
+- 高階微分・Hessian・二階の多変数Taylor展開
 
-既存 F0-02C3 のFréchet微分は、無限次元版としてRA6の後へ接続します。
+既存 [F0-02C3](volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md) を標準コア正本として再利用し、Section 1〜10でRA6の有限次元部分を閉じます。後半はBanach/Hilbert空間への発展として関数解析系列へ接続します。
 
 ## RA7 多重Riemann積分・変数変換 `core`
 
@@ -514,7 +516,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
 7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
-9. **RA6–RA8**：多変数・変数変換・Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
+9. **RA7–RA8**：RA6は既存F0-02C3再利用で閉じ、続いて多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
 各バッチで次を監査対象にします。
 
@@ -531,7 +533,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 
 この標準コアを通ると、DREAM THEATER は次を狙います。
 
-- **実解析**：計算微積分だけでなく、Riemann積分・一様収束まで証明付きで一周。
+- **実解析**：計算微積分だけでなく、Riemann積分・一様収束・多変数微分まで証明付きで一周。
 - **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
