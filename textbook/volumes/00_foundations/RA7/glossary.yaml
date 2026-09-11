@@ -1,0 +1,17 @@
+chapter: "RA7"
+terms:
+  - term: 多重Riemann積分
+    english: multiple Riemann integral
+    meaning: 矩形分割上の多次元Darboux和またはRiemann和から定める有限次元の積分。
+  - term: Jordan可測集合
+    english: Jordan measurable set
+    meaning: 有界集合の指示関数が、それを含む矩形上でRiemann可積分となる集合。
+  - term: Jordan内容
+    english: Jordan content
+    meaning: Jordan可測集合の指示関数のRiemann積分で定める有限次元体積。
+  - term: Jacobian因子
+    english: Jacobian factor
+    meaning: 変数変換で局所体積が何倍になるかを表す、微分行列の行列式の絶対値。
+  - term: 変数変換定理
+    english: change of variables theorem
+    meaning: C1級の正則な座標変換の下で、積分要素にJacobian因子を掛けて積分を移す定理。
