@@ -82,8 +82,10 @@ nodes:
     title: 多重Riemann積分・変数変換
     area: real-analysis
     tier: core
-    status: planned
-    prerequisites: [RA4]
+    status: implemented
+    implemented_at: 2026-09-11
+    implementation_path: textbook/volumes/00_foundations/RA7/index.md
+    prerequisites: [RA4, RA6, LA3C]
   - id: RA8
     title: 関数族のコンパクト性・近似
     area: real-analysis
@@ -467,4 +469,4 @@ deferred_integrations:
     trigger: site-rendering-work
     note: >-
       Mermaidソースと依存DAGの正本化は完了しているが、Docsify上のMermaid描画
-      プラグイン導入・確認は別タスクとする。
+      プラグイン導入・確認は別タスクとする.
