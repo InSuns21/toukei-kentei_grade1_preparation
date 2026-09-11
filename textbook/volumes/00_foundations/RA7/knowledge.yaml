@@ -1,0 +1,88 @@
+chapter: RA7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - F0-02C3
+  - LA3C
+
+concepts:
+  - id: analysis.multidimensional-darboux-sums
+    name: 多次元Darboux上和・下和
+    kind: definition
+    aliases: [多次元Darboux上和, 多次元Darboux下和]
+    requires:
+      - analysis.darboux-sums
+
+  - id: analysis.multiple-riemann-integral
+    name: 多重Riemann積分
+    kind: definition
+    aliases: [多重Riemann積分, 多次元Riemann積分]
+    requires:
+      - analysis.multidimensional-darboux-sums
+
+  - id: analysis.jordan-measurable-set
+    name: Jordan可測集合
+    kind: definition
+    aliases: [Jordan可測集合, Jordan可測]
+    requires:
+      - analysis.multiple-riemann-integral
+
+  - id: analysis.jordan-domain-riemann-integral
+    name: Jordan可測集合上のRiemann積分
+    kind: definition
+    aliases: [Jordan可測集合上のRiemann積分]
+    requires:
+      - analysis.jordan-measurable-set
+      - analysis.multiple-riemann-integral
+
+  - id: analysis.continuous-multiple-riemann-integrable
+    name: 連続関数の多重Riemann可積分性
+    kind: theorem
+    aliases: [連続関数の多重Riemann可積分性]
+    requires:
+      - analysis.multiple-riemann-integral
+      - analysis.heine-cantor
+
+  - id: analysis.iterated-riemann-integral-rectangle
+    name: 矩形上の反復積分定理
+    kind: theorem
+    aliases: [矩形上の反復積分定理, Riemann版反復積分定理]
+    requires:
+      - analysis.continuous-multiple-riemann-integrable
+      - analysis.riemann-integrable
+
+  - id: analysis.linear-volume-scaling
+    name: 線形写像の体積倍率
+    kind: theorem
+    aliases: [線形写像の体積倍率]
+    requires:
+      - analysis.jordan-measurable-set
+      - linear.determinant-elementary-operations
+      - linear.determinant-multiplicativity
+
+  - id: analysis.local-volume-scaling
+    name: C1写像の局所体積倍率
+    kind: lemma
+    aliases: [C1写像の局所体積倍率, 局所体積倍率補題]
+    requires:
+      - analysis.linear-volume-scaling
+      - functional.frechet-derivative
+      - linear.determinant-invertibility-criterion
+
+  - id: analysis.multivariable-riemann-change-of-variables
+    name: Riemann積分の多変数変数変換定理
+    kind: theorem
+    aliases: [Riemann積分の多変数変数変換定理, 多変数変数変換定理]
+    requires:
+      - analysis.jordan-domain-riemann-integral
+      - analysis.local-volume-scaling
+      - functional.frechet-derivative
+      - linear.matrix-determinant
+
+  - id: analysis.polar-spherical-riemann-change-of-variables
+    name: 極座標・球座標のRiemann積分公式
+    kind: corollary
+    aliases: [極座標のRiemann積分公式, 球座標のRiemann積分公式]
+    requires:
+      - analysis.multivariable-riemann-change-of-variables
