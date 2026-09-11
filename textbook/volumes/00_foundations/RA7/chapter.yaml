@@ -1,0 +1,33 @@
+id: "RA7"
+title: "標準実解析 VII：多重Riemann積分・変数変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA4
+  - F0-02C3
+  - LA3C
+official_scope: []
+learning_objectives:
+  - 矩形上の多次元Darboux和から多重Riemann積分を定義できる
+  - Jordan可測集合上の積分を矩形上の積分へ帰着できる
+  - 連続関数について重積分と反復積分の一致をRiemann和から証明できる
+  - 線形写像の体積倍率が行列式の絶対値になる理由を説明できる
+  - C1変数変換公式を局所線形化とRiemann和から再構成できる
+  - 極座標・球座標で特異集合を切り離して公式を適用できる
+definitions:
+  - { id: RA7-DEF-01, name: 多次元Darboux上和・下和 }
+  - { id: RA7-DEF-02, name: 多重Riemann積分 }
+  - { id: RA7-DEF-03, name: Jordan可測集合 }
+  - { id: RA7-DEF-04, name: Jordan領域上のRiemann積分 }
+theorems:
+  - { id: RA7-THM-01, name: 連続関数の多重Riemann可積分性 }
+  - { id: RA7-THM-02, name: 矩形上の反復積分定理 }
+  - { id: RA7-THM-03, name: 線形写像の体積倍率 }
+  - { id: RA7-THM-04, name: 局所体積倍率補題 }
+  - { id: RA7-THM-05, name: Riemann積分の多変数変数変換定理 }
+canonical_examples: [長方形上の二重積分, 三角形領域の反復積分, 極座標による円板積分, 球座標による球体積]
+problem_patterns: [RA-MULTI-RIEMANN-1, RA-ITERATED-1, RA-CHANGE-VARS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 2.0, review: 0.5 }
