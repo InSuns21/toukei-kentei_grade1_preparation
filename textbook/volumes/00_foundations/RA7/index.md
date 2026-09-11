@@ -251,7 +251,7 @@ $$
 <a id="lem-ra7-local-volume"></a>
 <!-- formal-statement-start -->
 > **補題（局所体積倍率補題）**  
-> $K\subset U$ を閉矩形とし、$\Phi$ は $K$ の近傍で $C^1$ 級、単射で、各 $x\in K$ で $D\Phi(x)$ が可逆とする。$K$ の小矩形 $Q$ とその点 $\xi_Q\in Q$ に対し、分割の最大直径を $\delta\to0$ とすると一様に
+> $K\subset U$ を閉矩形とする。$\Phi$ は $K$ の近傍で一対一な $C^1$ 級写像で、その像の近傍上の逆写像も $C^1$ 級とする。各 $x\in K$ で $D\Phi(x)$ は可逆とする。$K$ の小矩形 $Q$ とその点 $\xi_Q\in Q$ に対し、分割の最大直径を $\delta\to0$ とすると一様に
 > $$|\Phi(Q)|=\bigl(|\det D\Phi(\xi_Q)|+o(1)\bigr)|Q|.$$
 <!-- formal-statement-end -->
 
@@ -282,22 +282,80 @@ $$
 
 しかもこの評価は $Q$ と $\xi$ に依らず一様です。
 
-$T=L^{-1}\circ(\Phi-\Phi(\xi))+\xi$ と正規化すると
+$T=L^{-1}\circ(\Phi-\Phi(\xi))+\xi$ と正規化します。有限次元ではノルムを $\|\cdot\|_\infty$ に取り直しても収束の意味は変わらず、ノルム同値の定数を吸収すれば
 
 $$
-\|T(x)-T(y)-(x-y)\|
-\le C\omega(\delta)\|x-y\|.
+\|(T-I)(x)-(T-I)(y)\|_\infty
+\le \eta(\delta)\|x-y\|_\infty,
+\qquad \eta(\delta)\to0
 $$
 
-つまり $T$ は恒等写像から相対誤差 $\eta(\delta)=C\omega(\delta)\to0$ の範囲でしかずれません。$Q$ を一辺 $s_i$ の小矩形とすると、$T(Q)$ は $Q$ の各面を $O(\eta\,\operatorname{diam}Q)$ だけ動かした領域に含まれます。逆写像にも同じ型の評価が成り立つので、外側・内側の矩形近似から
+と書けます。十分小さい $\delta$ では $\eta<1$ とします。
+
+ここで、恒等写像に近い写像が体積をどれだけ変えられるかを上下から評価します。$E$ をJordan可測集合、$S=I+u$ とし、$u$ が $\|\cdot\|_\infty$ についてLipschitz定数 $\eta<1$ を持つとします。$E$ を細かい立方体 $C_j$ で外から覆り、総体積を $|E|+\varepsilon$ 未満にできます。$C_j$ の一辺を $h_j$ とすると、$x,y\in E\cap C_j$ に対して各座標の振幅は
+
+$$
+|S_k(x)-S_k(y)|
+\le |x_k-y_k|+|u_k(x)-u_k(y)|
+\le (1+\eta)h_j.
+$$
+
+従って $S(E\cap C_j)$ は各辺長が高々 $(1+\eta)h_j$ の矩形に入り、外側から
+
+$$
+|S(E)|\le (1+\eta)^n(|E|+\varepsilon)
+$$
+
+と評価できます。$\varepsilon\downarrow0$ として
+
+$$
+|S(E)|\le(1+\eta)^n|E|.
+$$
+
+一方、$z=S(x)$、$w=S(y)$ とすると
+
+$$
+\|x-y\|_\infty
+\le \|z-w\|_\infty+\eta\|x-y\|_\infty,
+$$
+
+ゆえに
+
+$$
+\|x-y\|_\infty\le\frac1{1-\eta}\|z-w\|_\infty.
+$$
+
+したがって $S^{-1}-I$ のLipschitz定数は高々 $\eta/(1-\eta)$ です。同じ外側評価を $S^{-1}$ に適用すると
+
+$$
+|E|
+\le\left(1+\frac{\eta}{1-\eta}\right)^n|S(E)|
+=(1-\eta)^{-n}|S(E)|,
+$$
+
+すなわち
+
+$$
+(1-\eta)^n|E|
+\le |S(E)|
+\le(1+\eta)^n|E|.
+$$
+
+なお、ここで使った体積が実際にJordan内容として定まることも同じ被覆で確認できます。Lipschitz写像はJordan内容0の集合をJordan内容0へ送り、$S$ と $S^{-1}$ が連続な逆写像なので $\partial S(E)=S(\partial E)$ です。従って $E$ の境界がJordan内容0なら $S(E)$ の境界もJordan内容0です。
+
+これを $S=T$、$E=Q$ に適用します。$\eta(\delta)\to0$ なので
 
 $$
 |T(Q)|=(1+o(1))|Q|
 $$
 
-が一様に従います。ここで $o(1)$ が一様なのは、上で $D\Phi$ の一様連続性と $D\Phi^{-1}$ の一様有界性を使ったためです。
+が $Q$ と $\xi$ に依らず一様に従います。最後に
 
-最後に $\Phi(Q)$ は $L(T(Q)-\xi)+\Phi(\xi)$ です。平行移動は体積を変えず、[線形写像の体積倍率](#thm-ra7-linear-volume) から
+$$
+\Phi(Q)=L(T(Q)-\xi)+\Phi(\xi)
+$$
+
+であり、平行移動は体積を変えないので、[線形写像の体積倍率](#thm-ra7-linear-volume) から
 
 $$
 |\Phi(Q)|
@@ -308,7 +366,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-この補題で重要なのは「各点でFréchet近似できる」だけでは足りず、**コンパクト集合上で微分が連続だから誤差を全小矩形について一様に制御できる**ことです。
+この補題で重要なのは「各点でFréchet近似できる」だけでは足りず、**コンパクト集合上で微分が連続だから誤差を全小矩形について一様に制御でき、その誤差を体積の二側評価へ変換できる**ことです。
 
 ---
 
