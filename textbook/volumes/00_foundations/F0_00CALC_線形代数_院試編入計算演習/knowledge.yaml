@@ -1,0 +1,6 @@
+chapter: LAX1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA6
+exports: []
