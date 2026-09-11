@@ -4,6 +4,8 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RA4
+  - RA6
+  - LA3B
 official_scope: []
 learning_objectives:
   - 矩形上の多次元Darboux和から多重Riemann積分を定義できる
