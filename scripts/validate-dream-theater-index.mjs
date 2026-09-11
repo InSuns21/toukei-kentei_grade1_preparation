@@ -5,6 +5,8 @@ const repoRoot = process.cwd();
 const facadePath = path.join(repoRoot, 'textbook', 'dream-theater.md');
 const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json');
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
+const calculationReaderSupportPrefix = 'F0_00CALC_';
+const calculationReaderSupportMarker = `/00_foundations/${calculationReaderSupportPrefix}`;
 const deprecatedCompatibilityDirs = new Set(['F0_01_統計のための微積分_線形代数_答案記法']);
 
 const toPosix = (p) => p.split(path.sep).join('/');
@@ -47,7 +49,7 @@ for (const section of manifest.sections) {
 // part of the current reader-facing manifest.
 const discovered = fs.readdirSync(foundationsDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
-  .filter((entry) => !entry.name.startsWith('F0_00CALC_'))
+  .filter((entry) => !entry.name.startsWith(calculationReaderSupportPrefix))
   .filter((entry) => !deprecatedCompatibilityDirs.has(entry.name))
   .map((entry) => path.join(foundationsDir, entry.name, 'index.md'))
   .filter((p) => fs.existsSync(p))
@@ -69,7 +71,9 @@ for (const p of expected) {
 
 const facade = fs.readFileSync(facadePath, 'utf8');
 const chapterLinkPattern = /\]\((textbook\/volumes\/00_foundations\/[^)]+\/index\.md)\)/g;
-const actual = [...facade.matchAll(chapterLinkPattern)].map((m) => m[1]);
+const actual = [...facade.matchAll(chapterLinkPattern)]
+  .map((m) => m[1])
+  .filter((p) => !p.includes(calculationReaderSupportMarker));
 const counts = new Map();
 for (const p of actual) counts.set(p, (counts.get(p) ?? 0) + 1);
 
