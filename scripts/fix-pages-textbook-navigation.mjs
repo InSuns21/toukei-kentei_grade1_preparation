@@ -12,27 +12,31 @@ if (!fs.existsSync(sourceRoot) || !fs.existsSync(siteIndexPath) || !fs.existsSyn
 }
 
 // The linear-algebra exam drills were authored in two source files, but the
-// Pages textbook contract is one canonical index.md per chapter. Compose the
-// additional B/C set into the already-normalized canonical page after the
-// single-page pass has restored the source index and removed auxiliary files.
+// published textbook should expose one continuous page. The single-page pass
+// has already restored the basic set as the canonical index.md and removed
+// auxiliary Markdown, so append the advanced B/C set here and publish the same
+// merged content at the reader-facing all.md route used by the DREAM THEATER
+// facade. No runtime include files are required.
 const linearCalcSource = path.join(sourceRoot, '00_foundations', linearAlgebraCalcChapter);
 const linearCalcAdvanced = path.join(linearCalcSource, 'advanced.md');
-const linearCalcSiteIndex = path.join(
+const linearCalcSiteDir = path.join(
   root,
   '_site',
   'textbook',
   'volumes',
   '00_foundations',
   linearAlgebraCalcChapter,
-  'index.md',
 );
+const linearCalcSiteIndex = path.join(linearCalcSiteDir, 'index.md');
 if (fs.existsSync(linearCalcAdvanced) && fs.existsSync(linearCalcSiteIndex)) {
   const base = fs.readFileSync(linearCalcSiteIndex, 'utf8').trimEnd();
   const advanced = fs.readFileSync(linearCalcAdvanced, 'utf8')
     .replace(/^#\s+[^\n]+\n+/, '')
     .trim();
-  fs.writeFileSync(linearCalcSiteIndex, `${base}\n\n---\n\n${advanced}\n`, 'utf8');
-  console.log('Linear algebra calculation drills merged into the canonical Pages index: A8/B10/C4.');
+  const merged = `${base}\n\n---\n\n${advanced}\n`;
+  fs.writeFileSync(linearCalcSiteIndex, merged, 'utf8');
+  fs.writeFileSync(path.join(linearCalcSiteDir, 'all.md'), merged, 'utf8');
+  console.log('Linear algebra calculation drills merged into one Pages document: A8/B10/C4.');
 }
 
 let textbookIndex = fs.readFileSync(siteIndexPath, 'utf8');
