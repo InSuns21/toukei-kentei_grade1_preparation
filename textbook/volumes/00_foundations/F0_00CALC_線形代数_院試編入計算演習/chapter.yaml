@@ -1,0 +1,67 @@
+id: "LAX1"
+title: "線形代数・院試／編入 計算演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA6
+official_scope: []
+learning_objectives:
+  - 行基本変形から階数・核・像・連立一次方程式の解を手計算で求められる
+  - パラメータを含む連立一次方程式を階数条件で場合分けできる
+  - 非標準基底間の基底変換と線形写像の表現行列を計算できる
+  - 基本変形・Laplace展開を使い分けて行列式を効率よく計算できる
+  - 固有値・固有ベクトル・対角化・行列の冪を手計算で処理できる
+  - Gram–Schmidt法からQR分解を構成し、最小二乗問題へ適用できる
+  - 直和分解から斜交射影を構成し、射影行列を求められる
+  - Householder変換を構成して直交性と作用を確認できる
+  - 特異値分解をA^*AまたはAA^*から構成し、特異値・作用素ノルムを求められる
+  - 実対称行列の直交対角化から二次形式の符号と球面上の極値を求められる
+  - 双対基底・annihilatorを具体的な基底行列から計算できる
+  - 複素Hermitian行列のunitary対角化とSchur分解を具体的に計算できる
+  - polar decompositionを正の平方根から構成できる
+  - 最小多項式・Jordan鎖・核次元からJordan構造と行列の冪を計算できる
+definitions: []
+theorems: []
+canonical_examples:
+  - 行基本変形と階数・核・像
+  - パラメータ付き連立一次方程式
+  - 基底変換と表現行列
+  - 行列式の効率的計算
+  - 固有値・対角化・行列の冪
+  - Gram–Schmidt法・QR分解・最小二乗
+  - 直和分解と射影
+  - Householder変換
+  - 特異値分解と特異値
+  - 二次形式と直交対角化
+  - 双対基底とannihilator
+  - 複素Hermitian行列のunitary対角化
+  - Schur分解
+  - polar decomposition
+  - Jordan鎖とnilpotent構造
+problem_patterns:
+  - LAX1-RREF-1
+  - LAX1-PARAMETER-SYSTEM-1
+  - LAX1-BASIS-CHANGE-1
+  - LAX1-DETERMINANT-1
+  - LAX1-DIAGONALIZATION-1
+  - LAX1-MATRIX-POWER-1
+  - LAX1-QR-1
+  - LAX1-LEAST-SQUARES-1
+  - LAX1-PROJECTION-1
+  - LAX1-HOUSEHOLDER-1
+  - LAX1-SVD-1
+  - LAX1-QUADRATIC-FORM-1
+  - LAX1-JORDAN-1
+  - LAX1-PARAMETER-SYMMETRIC-1
+  - LAX1-DUAL-BASIS-1
+  - LAX1-UNITARY-DIAG-1
+  - LAX1-SCHUR-1
+  - LAX1-POLAR-1
+  - LAX1-JORDAN-CHAIN-1
+  - LAX1-NILPOTENT-BLOCKS-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 8, level_b: 10, level_c: 4, level_d: 0 }
+estimated_hours: { reading: 1.0, exercises: 15.0, review: 3.0 }
+supplementary_pages:
+  - advanced.md
