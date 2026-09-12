@@ -257,13 +257,15 @@ $$
 $$
 S(Q)\subset\bigcup_{r=1}^N R_r,
 \qquad
-\sum_r|R_r|<|S(Q)|+\varepsilon
+\sum_r|R_r|<|S(Q)|+\frac{\varepsilon}{2}
 $$
 
-と外側から覆えます。$S^{-1}$ も係数 $-c$ の shear なので、各 $R_r$ について今の薄片評価を適用し、その像 $S^{-1}(R_r)$ を体積 $|R_r|$ に任意に近い直方体和で外側から覆えます。従って
+と外側から覆えます。$S^{-1}$ も係数 $-c$ の shear なので、各 $R_r$ について今の薄片評価を適用できます。各像 $S^{-1}(R_r)$ の外側直方体近似を、$N$ 個を合わせた追加誤差が $\varepsilon/2$ 未満になるように選べば
 
 $$
-|Q|\le |S(Q)|+\varepsilon.
+|Q|
+\le \sum_r |R_r|+\frac{\varepsilon}{2}
+<|S(Q)|+\varepsilon.
 $$
 
 $\varepsilon\downarrow0$ とすれば $|Q|\le|S(Q)|$。先ほどの $|S(Q)|\le|Q|$ と合わせて
