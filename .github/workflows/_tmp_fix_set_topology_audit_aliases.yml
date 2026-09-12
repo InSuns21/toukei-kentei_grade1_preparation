@@ -1,0 +1,34 @@
+name: Temporary fix set/topology audit aliases
+
+on:
+  push:
+    branches:
+      - audit/set-topology-exercises-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/set-topology-exercises-20260912
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply targeted wording fixes
+        run: python scripts/_tmp_fix_set_topology_audit_aliases.py
+      - name: Remove temporary automation
+        run: |
+          rm scripts/_tmp_fix_set_topology_audit_aliases.py
+          rm .github/workflows/_tmp_fix_set_topology_audit_aliases.yml
+      - name: Commit wording fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations scripts .github/workflows
+          git commit -m 'Avoid forward aliases in added set topology exercises'
+          git push origin HEAD:audit/set-topology-exercises-20260912
