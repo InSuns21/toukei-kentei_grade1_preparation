@@ -78,6 +78,14 @@ nodes:
     status: existing-anchor
     reuses: [F0_02C3]
     prerequisites: [RA3]
+  - id: RA6A
+    title: 逆関数定理・陰関数定理
+    area: real-analysis
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-13
+    implementation_path: textbook/volumes/00_foundations/RA6A/index.md
+    prerequisites: [RA4, RA6, LA3C]
   - id: RA7
     title: 多重Riemann積分・変数変換
     area: real-analysis
@@ -85,7 +93,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-11
     implementation_path: textbook/volumes/00_foundations/RA7/index.md
-    prerequisites: [RA4, RA6, LA3C]
+    prerequisites: [RA4, RA6A, LA3C]
   - id: RA8
     title: 関数族のコンパクト性・近似
     area: real-analysis
@@ -126,7 +134,6 @@ nodes:
     status: implemented
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/TOP3/index.md
-    reuses: [F0_00A1]
     prerequisites: [TOP2]
   - id: TOP4
     title: 分離公理・可算性公理
@@ -464,7 +471,7 @@ implementation_batches:
     nodes: [FA5, FA6, FA7]
   - order: 8
     id: real-analysis-multivariable-and-compactness
-    nodes: [RA7, RA8]
+    nodes: [RA6A, RA7, RA8]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

@@ -1,0 +1,20 @@
+chapter: "RA6A"
+terms:
+  - term: 逆関数定理
+    english: inverse function theorem
+    meaning: 微分が可逆な点の近くで、写像がC1級の局所逆写像をもつことを保証する定理。
+  - term: 陰関数定理
+    english: implicit function theorem
+    meaning: 方程式 F(x,y)=0 で y 側の微分が可逆なら、局所的に y を x のC1級関数として一意に解けることを保証する定理。
+  - term: 収縮写像
+    english: contraction mapping
+    meaning: 距離を一定比率 q<1 で縮める写像。本章では閉球上の不動点の存在一意性を逆関数定理の証明に用いる。
+  - term: 局所逆写像
+    english: local inverse
+    meaning: ある点の近傍へ制限した写像に対して定義される逆写像。
+  - term: 正則レベル集合
+    english: regular level set
+    meaning: レベル集合上で微分が最大階数をもつ場合の解集合。陰関数定理により局所的にグラフ表示できる。
+  - term: Lagrange未定乗数法
+    english: Lagrange multiplier method
+    meaning: 正則な等式制約下の局所最大・最小点で、目的関数の勾配が制約勾配の線形結合になるという必要条件。

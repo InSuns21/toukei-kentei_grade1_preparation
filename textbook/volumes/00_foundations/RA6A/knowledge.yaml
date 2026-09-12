@@ -1,0 +1,69 @@
+chapter: RA6A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - F0-02C3
+  - LA3C
+
+# 本文末尾のRA7への接続、および既存レジストリの短いaliasが本文中の一般語へ
+# 反応する箇所を、正本依存へ昇格させずreader-facingな先取りとして明示する。
+forward_references:
+  - analysis.multiple-riemann-integral
+  - analysis.ck-uniform-norm
+  - complex-analysis.isolated-singularity
+  - convex.hyperplane
+
+concepts:
+  - id: analysis.segment-derivative-integral-formula
+    name: 線分上の微分の積分表示
+    kind: lemma
+    aliases: [線分上の微分の積分表示, 線分積分表示]
+    requires:
+      - functional.frechet-chain-rule
+      - analysis.ftc-2
+
+  - id: analysis.closed-ball-contraction-fixed-point
+    name: 閉球上の収縮写像
+    kind: lemma
+    aliases: [閉球上の収縮写像, 収縮写像補題]
+    requires:
+      - topology.cauchy-sequence
+      - topology.complete-metric-space
+      - topology.closed-subset-complete
+
+  - id: analysis.inverse-function-theorem
+    name: 逆関数定理
+    kind: theorem
+    aliases: [逆関数定理, inverse function theorem]
+    requires:
+      - analysis.segment-derivative-integral-formula
+      - analysis.closed-ball-contraction-fixed-point
+      - functional.frechet-derivative
+      - functional.operator-norm
+      - linear.determinant-invertibility-criterion
+
+  - id: analysis.implicit-function-theorem
+    name: 陰関数定理
+    kind: theorem
+    aliases: [陰関数定理, 陰関数定理の微分公式, implicit function theorem]
+    requires:
+      - analysis.inverse-function-theorem
+      - functional.frechet-chain-rule
+      - linear.determinant-invertibility-criterion
+
+  - id: analysis.regular-level-set-local-graph
+    name: 正則レベル集合の局所グラフ表示
+    kind: corollary
+    aliases: [正則レベル集合の局所グラフ表示, 正則レベル集合, 正則レベル集合の接空間公式, 接空間公式]
+    requires:
+      - analysis.implicit-function-theorem
+      - linear.determinant-invertibility-criterion
+
+  - id: analysis.lagrange-multiplier-regular-constraint
+    name: Lagrange未定乗数法
+    kind: corollary
+    aliases: [Lagrange未定乗数法, Lagrange乗数法]
+    requires:
+      - analysis.regular-level-set-local-graph
+      - linear.linear-map

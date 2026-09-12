@@ -1,0 +1,30 @@
+id: "RA6A"
+title: "標準実解析 VI-A：逆関数定理・陰関数定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA4
+  - F0-02C3
+  - LA3C
+official_scope: []
+learning_objectives:
+  - Fréchet微分の可逆性から局所逆写像が生じる機構を説明できる
+  - 収縮写像を用いて逆関数定理を有限次元で証明できる
+  - 逆写像の微分公式 D(f^{-1})(f(x))=[Df(x)]^{-1} を導ける
+  - 陰関数定理を逆関数定理から導き Dφ=-(D_yF)^{-1}D_xF を計算できる
+  - 正則レベル集合の局所グラフ表示と接空間 ker DF を説明できる
+  - Lagrange未定乗数法を陰関数定理の系として導ける
+definitions: []
+theorems:
+  - { id: RA6A-THM-01, name: 線分上の微分の積分表示 }
+  - { id: RA6A-THM-02, name: 閉球上の収縮写像 }
+  - { id: RA6A-THM-03, name: 逆関数定理 }
+  - { id: RA6A-THM-04, name: 陰関数定理 }
+  - { id: RA6A-THM-05, name: 正則レベル集合の局所グラフ表示 }
+  - { id: RA6A-THM-06, name: Lagrange未定乗数法 }
+canonical_examples: [指数極座標写像, x^3の逆写像, 円周の陰関数, y+e^y=xの感度]
+problem_patterns: [RA-INVERSE-FUNCTION-1, RA-IMPLICIT-FUNCTION-1, RA-REGULAR-LEVEL-1, RA-LAGRANGE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.5 }

@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-02C5
+  - RA6A
 
 concepts:
   - id: optimization.active-set-recap-c5a
@@ -51,13 +52,6 @@ concepts:
     requires:
       - convex.bouligand-tangent-cone
       - optimization.linearized-cone-recap-c5a
-
-  - id: analysis.implicit-function-theorem
-    name: 陰関数定理
-    kind: theorem
-    aliases: [陰関数定理, 陰関数定理の微分公式]
-    requires:
-      - functional.frechet-derivative
 
   - id: optimization.mfcq-tangent-equality
     name: MFCQ下の接錐一致

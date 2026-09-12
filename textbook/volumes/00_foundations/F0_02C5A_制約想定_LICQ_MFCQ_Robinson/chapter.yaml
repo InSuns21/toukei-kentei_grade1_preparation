@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - F0-02C4A
   - F0-02C5
+  - RA6A
 learning_objectives:
   - active setと線形化coneを定義し具体例で計算できる
   - 制約想定がないと真のtangent coneと線形化coneがずれる反例を説明できる
@@ -30,4 +31,5 @@ theorems:
 canonical_examples: [x二乗制約の退化例, MFCQとLICQの比較, 単位円板の接錐とnormal cone]
 problem_patterns: [FA-CQ-1, FA-CQ-TANGENT-1, FA-CQ-KKT-1, FA-CQ-NORMAL-1]
 exercise_counts: { level_a: 3, level_b: 4, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "既存のsupplementary制約想定章であり、本PRは陰関数定理の正本をRA6Aへ移す依存整理のみを行う。無関係な演習を水増しせず、演習量の増補は章自体を再査読する変更で扱う。"
 estimated_hours: { reading: 4.5, exercises: 2.0, review: 1.0 }

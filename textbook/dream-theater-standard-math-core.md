@@ -36,8 +36,11 @@ flowchart TD
   RA2 --> RA4["実解析 IV<br/>Riemann/Darboux積分・FTC<br/>RA4"]
   RA2 --> RA5["実解析 V<br/>関数列・級数・一様収束<br/>RA5"]
   RA3 --> RA6["実解析 VI<br/>多変数微分・Fréchet微分<br/>既存 F0-02C3"]
+  RA4 --> RA6A["実解析 VI-A<br/>逆関数定理・陰関数定理<br/>RA6A"]
+  RA6 --> RA6A
+  LA3C --> RA6A
   RA4 --> RA7["実解析 VII<br/>重積分・変数変換<br/>RA7"]
-  RA6 --> RA7
+  RA6A --> RA7
   LA3C --> RA7
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
   TOP5 --> RA8
@@ -177,6 +180,17 @@ flowchart TD
 - 高階微分・Hessian・二階の多変数Taylor展開
 
 既存 [F0-02C3](volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md) を標準コア正本として再利用し、Section 1〜10でRA6の有限次元部分を閉じます。後半はBanach/Hilbert空間への発展として関数解析系列へ接続します。
+
+## RA6A 逆関数定理・陰関数定理 `core`
+
+- 線分上の微分の積分表示と、恒等写像からのずれを使う定量評価
+- 有限次元の閉球上で収縮写像補題を証明し、外部の不動点定理をブラックボックス化しない
+- 逆関数定理を正規化 → 収縮写像 → 局所全単射 → 逆写像の微分可能性・$C^1$ 性まで証明
+- 陰関数定理を $G(x,y)=(x,F(x,y))$ に対する逆関数定理から導き、$D\varphi=-(D_yF)^{-1}D_xF$ を証明
+- 正則レベル集合の局所グラフ表示と接空間 $\ker DF$、Lagrange未定乗数法までを系として接続
+- 「Jacobianが全点で正則でも大域単射とは限らない」「微分が非可逆でも写像自体は可逆な場合がある」という境界を反例で確認
+
+[RA6A 本文](volumes/00_foundations/RA6A/index.md) は RA6 と RA7 の間に置き、局所可逆性を変数変換・制約付き最適化・推定方程式の感度解析へ接続します。
 
 ## RA7 多重Riemann積分・変数変換 `core`
 
@@ -499,7 +513,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 |---|---|---|
 | 実数の完備性 | A1/A1B | RA1から参照して解析定理へ使用 |
 | 距離・位相・収束 | B/B1/C/C1/D | RA/TOP系列から相互参照 |
-| 計算微積分 | F0-00 | RA3/RA4/RA6/RA7で理論を与える |
+| 計算微積分 | F0-00 | RA3/RA4/RA6/RA6A/RA7で理論を与える |
 | 基礎線形代数 | E/F/E1/E2/F1/F2 | LA系列が複素・商・代数的双対・行列式・作用素多項式・Jordan構造等を補う |
 | 測度・Lebesgue | D2–D5, D2A–E | MT0がLebesgue正則性を閉じ、MT系列が収束様式・RN・微分定理等を補う |
 | 複素解析 | RA/LA/TOPを再利用 | CA系列がCauchy理論・留数・調和関数を正本化し、FA5・Fourier・PDEへ接続 |
@@ -519,7 +533,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
 7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。
 8. **FA5–FA7**：CA3を受けて spectrum/resolvent → compact operator → compact self-adjoint spectral theorem/Fredholm alternative。
-9. **RA7–RA8**：RA6は既存F0-02C3再利用で閉じ、続いて多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
+9. **RA6A–RA8**：RA6は既存F0-02C3再利用で閉じ、逆関数定理・陰関数定理 → 多重積分・変数変換 → Arzela–Ascoli/Stone–Weierstrassを最適化・関数解析へ接続。
 
 各バッチで次を監査対象にします。
 
@@ -536,7 +550,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 
 この標準コアを通ると、DREAM THEATER は次を狙います。
 
-- **実解析**：計算微積分だけでなく、Riemann積分・一様収束・多変数微分まで証明付きで一周。
+- **実解析**：計算微積分だけでなく、Riemann積分・一様収束・多変数微分・逆関数定理・陰関数定理まで証明付きで一周。
 - **線形代数**：実/複素線形空間・商・代数的双対・通常行列式・抽象行列式・最小多項式・Jordan構造・複素スペクトル・二次形式・polar decompositionまで一周。抽象行列式は発展分岐、Jordan標準形は数学科標準コアに含めるが統計検定1級通常ルートの必修前提にはしない。
 - **位相**：位相の生成・initial/final topology、積・商・貼り合わせ、連結・可算性・分離・コンパクト性の一般論まで一周。
 - **測度論**：Lebesgue積分の構成とLebesgue正則性に加え、収束様式・signed measure・Radon–Nikodymまで一周。
