@@ -18,7 +18,7 @@ definitions:
 theorems:
   - { id: RA4-THM-01, name: Darboux可積分性判定 }
   - { id: RA4-THM-02, name: 連続関数のRiemann可積分性 }
-  - { id: RA4-THM-06, name: Riemann積分の基本性質 }
+  - { id: RA4-THM-06, name: Riemann積分の基本性質（線形性・単調性・区間加法性） }
   - { id: RA4-THM-03, name: 微積分学の基本定理I }
   - { id: RA4-THM-04, name: 微積分学の基本定理II }
   - { id: RA4-THM-05, name: 置換積分定理 }
