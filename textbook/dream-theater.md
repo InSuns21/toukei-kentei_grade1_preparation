@@ -49,6 +49,7 @@
 3. [RA3 微分法の理論](textbook/volumes/00_foundations/RA3/index.md)
 4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
 5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
+6. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
 
 ### 標準線形代数コア
 

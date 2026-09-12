@@ -1,0 +1,20 @@
+chapter: "RA8"
+terms:
+  - term: 一様ノルム
+    english: uniform norm / sup norm
+    meaning: コンパクト集合 K 上の連続関数 f に対する sup_{x in K}|f(x)| で定めるノルム。
+  - term: 同程度連続
+    english: equicontinuous
+    meaning: 関数族の全メンバーに共通する局所的な連続性の尺度を取れること。
+  - term: 各点有界
+    english: pointwise bounded
+    meaning: 各点 x を固定したとき、その点での関数値全体が有界であること。
+  - term: 相対コンパクト
+    english: relatively compact
+    meaning: 与えられた位相・距離で閉包がコンパクトになること。
+  - term: Bernstein多項式
+    english: Bernstein polynomial
+    meaning: 区間上の連続関数を二項係数付きの有限多項式和で近似する構成。
+  - term: 点を分離する
+    english: separates points
+    meaning: 異なる二点に異なる値を取る関数を部分代数の中から選べること。

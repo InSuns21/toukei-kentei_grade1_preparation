@@ -90,8 +90,10 @@ nodes:
     title: 関数族のコンパクト性・近似
     area: real-analysis
     tier: advanced-standard
-    status: planned
-    prerequisites: [RA5]
+    status: implemented
+    implemented_at: 2026-09-12
+    implementation_path: textbook/volumes/00_foundations/RA8/index.md
+    prerequisites: [RA5, TOP5]
 
   - id: TOP0
     title: 距離・位相・Hausdorff
@@ -469,4 +471,4 @@ deferred_integrations:
     trigger: site-rendering-work
     note: >-
       Mermaidソースと依存DAGの正本化は完了しているが、Docsify上のMermaid描画
-      プラグイン導入・確認は別タスクとする.
+      プラグイン導入・確認は別タスクとする。

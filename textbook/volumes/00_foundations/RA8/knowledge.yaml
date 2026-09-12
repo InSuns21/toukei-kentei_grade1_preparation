@@ -1,0 +1,85 @@
+chapter: RA8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA5
+  - TOP5
+forward_references: []
+
+concepts:
+  - id: analysis.ck-uniform-norm
+    name: C(K)の一様ノルム
+    kind: definition
+    aliases: [C(K)の一様ノルム, C(K) と一様ノルム, 一様ノルム, ノルム, sup norm on C(K)]
+    requires:
+      - topology.compact-space
+
+  - id: analysis.equicontinuous-family
+    name: 同程度連続な関数族
+    kind: definition
+    aliases: [同程度連続な関数族, 同程度連続, equicontinuous family, equicontinuity]
+    requires:
+      - topology.metric-space
+
+  - id: analysis.pointwise-bounded-family
+    name: 各点有界な関数族
+    kind: definition
+    aliases: [各点有界な関数族, 各点有界, pointwise bounded family]
+    requires: []
+
+  - id: analysis.relatively-compact-family
+    name: 相対コンパクトな関数族
+    kind: definition
+    aliases: [相対コンパクトな関数族, 相対コンパクト, relatively compact family]
+    requires:
+      - topology.compact-space
+      - analysis.ck-uniform-norm
+
+  - id: analysis.ck-completeness
+    name: C(K)の一様ノルム完備性
+    kind: theorem
+    aliases: [C(K)の一様ノルム完備性]
+    requires:
+      - analysis.ck-uniform-norm
+      - analysis.uniform-limit-continuity
+
+  - id: analysis.arzela-ascoli
+    name: Arzela-Ascoli定理
+    kind: theorem
+    aliases: [Arzela-Ascoli定理, Arzela-Ascoli theorem]
+    requires:
+      - analysis.equicontinuous-family
+      - analysis.pointwise-bounded-family
+      - analysis.relatively-compact-family
+      - analysis.ck-completeness
+      - topology.compact-sequential-equivalence-metric-space
+
+  - id: analysis.bernstein-polynomial
+    name: Bernstein多項式
+    kind: definition
+    aliases: [Bernstein多項式, Bernstein polynomial]
+    requires: []
+
+  - id: analysis.weierstrass-approximation
+    name: Weierstrass近似定理
+    kind: theorem
+    aliases: [Weierstrass近似定理, Weierstrass approximation theorem]
+    requires:
+      - analysis.bernstein-polynomial
+      - analysis.uniform-convergence
+
+  - id: analysis.separates-points-algebra
+    name: 点を分離する部分代数
+    kind: definition
+    aliases: [点を分離する部分代数, 点を分離する, separates points]
+    requires:
+      - analysis.ck-uniform-norm
+
+  - id: analysis.stone-weierstrass-real
+    name: 実Stone-Weierstrass定理
+    kind: theorem
+    aliases: [実Stone-Weierstrass定理, Stone-Weierstrass定理, real Stone-Weierstrass theorem]
+    requires:
+      - analysis.separates-points-algebra
+      - analysis.weierstrass-approximation
+      - topology.compact-space
