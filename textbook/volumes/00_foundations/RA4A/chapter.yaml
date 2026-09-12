@@ -33,4 +33,4 @@ problem_patterns: [RA-IMPROPER-1, RA-IMPROPER-COMPARE-1, RA-OSCILLATORY-1, RA-PR
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 6, level_b: 5, level_c: 3, level_d: 0 }
-estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
+estimated_hours: { reading: 5.0, exercises: 4.5, review: 1.0 }
