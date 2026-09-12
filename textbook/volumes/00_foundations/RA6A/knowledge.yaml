@@ -46,7 +46,7 @@ concepts:
   - id: analysis.implicit-function-theorem
     name: 陰関数定理
     kind: theorem
-    aliases: [陰関数定理, implicit function theorem]
+    aliases: [陰関数定理, 陰関数定理の微分公式, implicit function theorem]
     requires:
       - analysis.inverse-function-theorem
       - functional.frechet-chain-rule
@@ -55,7 +55,7 @@ concepts:
   - id: analysis.regular-level-set-local-graph
     name: 正則レベル集合の局所グラフ表示
     kind: corollary
-    aliases: [正則レベル集合の局所グラフ表示, 正則レベル集合]
+    aliases: [正則レベル集合の局所グラフ表示, 正則レベル集合, 正則レベル集合の接空間公式, 接空間公式]
     requires:
       - analysis.implicit-function-theorem
       - linear.determinant-invertibility-criterion
