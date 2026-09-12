@@ -166,13 +166,217 @@ $$
 必要なら最初に $\varepsilon$ を $\varepsilon/2$ に置き換えれば厳密に $<\varepsilon$ とできます。[Darboux可積分性判定](#thm-ra4-darboux-criterion) から可積分です。$\square$
 <!-- proof-end -->
 
+### Riemann積分の基本性質
+
+FTCへ進む前に、そこで暗黙に使う性質をDarboux和から閉じておきます。
+
+<a id="thm-ra4-integral-properties"></a>
+<!-- formal-statement-start -->
+> **定理（Riemann積分の基本性質）**  
+> $f,g:[a,b]\to\mathbb R$ をRiemann可積分関数、$\alpha,\beta\in\mathbb R$ とする。このとき $\alpha f+\beta g$ もRiemann可積分で
+$$
+\int_a^b(\alpha f+\beta g)
+=\alpha\int_a^bf+\beta\int_a^bg.
+$$
+> また $f\le g$ なら
+$$
+\int_a^bf\le\int_a^bg.
+$$
+> さらに $c\in[a,b]$ なら $f$ の $[a,c]$, $[c,b]$ への制限もRiemann可積分で
+$$
+\int_a^bf=\int_a^cf+\int_c^bf.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+#### 1. 定数関数と定数倍
+
+定数関数 $k(x)=K$ では、任意の分割 $P$ と任意の小区間で上限・下限がともに $K$ です。したがって
+$$
+U(k,P)=L(k,P)=K(b-a),
+$$
+よって
+$$
+\int_a^bK\,dx=K(b-a).
+$$
+
+次に $f$ を可積分とします。$\alpha\ge0$ なら各小区間で
+$$
+\sup(\alpha f)=\alpha\sup f,
+\qquad
+\inf(\alpha f)=\alpha\inf f,
+$$
+なので
+$$
+U(\alpha f,P)=\alpha U(f,P),
+\qquad
+L(\alpha f,P)=\alpha L(f,P).
+$$
+$\alpha<0$ では順序が反転し
+$$
+\sup(\alpha f)=\alpha\inf f,
+\qquad
+\inf(\alpha f)=\alpha\sup f,
+$$
+だから
+$$
+U(\alpha f,P)=\alpha L(f,P),
+\qquad
+L(\alpha f,P)=\alpha U(f,P).
+$$
+したがっていずれの場合も上Darboux積分と下Darboux積分は同じ値 $\alpha\int_a^bf$ になり、$\alpha f$ は可積分で
+$$
+\int_a^b\alpha f=\alpha\int_a^bf.
+$$
+
+#### 2. 和の可積分性と加法性
+
+各小区間 $I_i$ で
+$$
+\sup_{I_i}(f+g)
+\le \sup_{I_i}f+\sup_{I_i}g,
+$$
+$$
+\inf_{I_i}(f+g)
+\ge \inf_{I_i}f+\inf_{I_i}g.
+$$
+したがって任意の分割 $P$ について
+$$
+U(f+g,P)\le U(f,P)+U(g,P),
+$$
+$$
+L(f+g,P)\ge L(f,P)+L(g,P),
+$$
+ゆえに
+$$
+U(f+g,P)-L(f+g,P)
+\le [U(f,P)-L(f,P)]+[U(g,P)-L(g,P)].
+$$
+
+任意の $\varepsilon>0$ に対し、$f,g$ の可積分性から、それぞれDarboux差が $\varepsilon/2$ 未満になる分割 $P_f,P_g$ を取れます。共通細分 $P=P_f\cup P_g$ では細分の単調性により両方のDarboux差がそれぞれ $\varepsilon/2$ 未満のままなので
+$$
+U(f+g,P)-L(f+g,P)<\varepsilon.
+$$
+[Darboux可積分性判定](#thm-ra4-darboux-criterion) から $f+g$ は可積分です。
+
+積分値も確認します。$I_f=\int_a^bf$, $I_g=\int_a^bg$, $I_{f+g}=\int_a^b(f+g)$ と書きます。任意の分割 $P$ について
+$$
+L(f,P)\le I_f\le U(f,P),
+\qquad
+L(g,P)\le I_g\le U(g,P),
+$$
+かつ上の不等式から
+$$
+L(f,P)+L(g,P)
+\le I_{f+g}
+\le U(f,P)+U(g,P).
+$$
+したがって $I_f+I_g$ と $I_{f+g}$ はともに同じ区間
+$$
+[L(f,P)+L(g,P),\ U(f,P)+U(g,P)]
+$$
+に入ります。先ほどと同様に共通細分を選んでこの区間の長さを任意に小さくできるので
+$$
+I_{f+g}=I_f+I_g.
+$$
+定数倍の結果と合わせれば一般の
+$$
+\int_a^b(\alpha f+\beta g)
+=\alpha\int_a^bf+\beta\int_a^bg
+$$
+が従います。
+
+#### 3. 単調性
+
+$f(x)\le g(x)$ がすべての $x\in[a,b]$ で成り立つとします。各小区間で
+$$
+\inf f\le\inf g,
+\qquad
+\sup f\le\sup g
+$$
+なので、任意の分割 $P$ に対し
+$$
+L(f,P)\le L(g,P).
+$$
+両辺について分割全体の上限を取れば
+$$
+\int_a^bf
+=\sup_PL(f,P)
+\le\sup_PL(g,P)
+=\int_a^bg.
+$$
+これが積分の単調性です。
+
+#### 4. 部分区間でも可積分であること
+
+$c\in(a,b)$ とします。任意の $\varepsilon>0$ に対し、$f$ の可積分性から
+$$
+U(f,P)-L(f,P)<\varepsilon
+$$
+となる分割 $P$ を取ります。$c$ が分点でなければ加えて細分 $Q=P\cup\{c\}$ とします。細分の単調性から
+$$
+U(f,Q)-L(f,Q)<\varepsilon.
+$$
+$Q_1=Q\cap[a,c]$, $Q_2=Q\cap[c,b]$ とすると
+$$
+U(f,Q)-L(f,Q)
+=[U(f,Q_1)-L(f,Q_1)]
++[U(f,Q_2)-L(f,Q_2)].
+$$
+右辺の二項はともに非負なので、それぞれが $\varepsilon$ 未満です。$\varepsilon>0$ は任意だったから、Darboux可積分性判定より $f$ は $[a,c]$ と $[c,b]$ の両方で可積分です。$c=a,b$ の場合は自明です。
+
+#### 5. 積分区間の加法性
+
+$I_{a,b}=\int_a^bf$, $I_{a,c}=\int_a^cf$, $I_{c,b}=\int_c^bf$ と書きます。任意の $\varepsilon>0$ に対し、$c$ を分点に含み
+$$
+U(f,P)-L(f,P)<\varepsilon
+$$
+となる分割 $P$ を、前項と同じ方法で取れます。$P_1=P\cap[a,c]$, $P_2=P\cap[c,b]$ とすると
+$$
+L(f,P)
+=L(f,P_1)+L(f,P_2)
+\le I_{a,c}+I_{c,b}
+\le U(f,P_1)+U(f,P_2)
+=U(f,P).
+$$
+一方 $I_{a,b}$ も同じく
+$$
+L(f,P)\le I_{a,b}\le U(f,P)
+$$
+に入ります。したがって
+$$
+\left|I_{a,b}-(I_{a,c}+I_{c,b})\right|
+\le U(f,P)-L(f,P)<\varepsilon.
+$$
+これが任意の $\varepsilon>0$ について成り立つので
+$$
+\int_a^bf
+=\int_a^cf+\int_c^bf.
+$$
+$\square$
+<!-- proof-end -->
+
+積分区間の向きを自由に扱えるよう、ここからは
+$$
+\int_a^a f:=0,
+\qquad
+\int_b^a f:=-\int_a^b f\quad(a<b)
+$$
+と定義します。この規約と上の加法性を合わせれば、$x,y,z$ の大小関係によらず
+$$
+\int_x^z f=\int_x^y f+\int_y^z f
+$$
+が成り立ちます。実際、三点を小さい順に並べた場合の加法性に、必要な区間だけ符号反転を適用すればよいです。
+
 ### 積分の基本評価
 
 まず $u<v$ とします。Riemann可積分な $g$ に対して $M=\sup_{t\in[u,v]}|g(t)|$ と置けば
 $$
 -M\le g(t)\le M.
 $$
-積分の単調性から
+[Riemann積分の基本性質](#thm-ra4-integral-properties) の単調性と定数関数の積分から
 $$
 -M(v-u)\le \int_u^v g(t)\,dt\le M(v-u),
 $$
@@ -181,7 +385,7 @@ $$
 \left|\int_u^v g(t)\,dt\right|
 \le (v-u)\sup_{t\in[u,v]}|g(t)|.
 $$
-$u>v$ では積分区間を反転して符号を変えれば、同じ内容を
+$u>v$ では上で定めた向き反転を使えば、同じ内容を
 $$
 \left|\int_u^v g(t)\,dt\right|
 \le |v-u|\sup_{t\text{ between }u,v}|g(t)|
@@ -205,11 +409,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x\in(a,b)$ を固定し、$x+h\in[a,b]$ となる十分小さい $h\ne0$ を考えます。積分区間の加法性から
+$x\in(a,b)$ を固定し、$x+h\in[a,b]$ となる十分小さい $h\ne0$ を考えます。[積分区間の加法性](#thm-ra4-integral-properties) と向き反転の規約から、$h$ の符号によらず
 $$
 F(x+h)-F(x)=\int_x^{x+h}f(t)\,dt.
 $$
-したがって
+また線形性と定数関数の積分より
+$$
+\int_x^{x+h}f(x)\,dt=h f(x),
+$$
+なので
 $$
 \frac{F(x+h)-F(x)}h-f(x)
 =\frac1h\int_x^{x+h}(f(t)-f(x))\,dt.
@@ -325,7 +533,7 @@ $u,v$ が $C^1$ 級なら、積の微分公式から
 $$
 (uv)'=u'v+uv'.
 $$
-両辺を $[a,b]$ で積分し、[微積分学の基本定理II](#thm-ra4-ftc2) を使うと
+両辺を $[a,b]$ で積分し、[Riemann積分の基本性質](#thm-ra4-integral-properties) の線形性と [微積分学の基本定理II](#thm-ra4-ftc2) を使うと
 $$
 [u(x)v(x)]_a^b
 =\int_a^b u'(x)v(x)\,dx
