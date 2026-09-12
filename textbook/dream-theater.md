@@ -50,8 +50,9 @@
 4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
 5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
 6. [RA6 多変数微分・Fréchet微分（既存 F0-02C3）](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
-7. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
-8. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
+7. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
+8. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
+9. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
 
 ### 標準線形代数コア
 
@@ -238,7 +239,7 @@
 8. [MC2 分散削減・importance・control variate](textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/index.md)
 9. [SDE1 Euler–Maruyama・strong/weak](textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/index.md)
 10. [SDE1A Euler–Maruyama weak order 1 の証明](textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/index.md)
-11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/index.md)
+11. [UQ1 random PDE・Monte Carlo FEM](textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo/index.md)
 12. [MLMC Multilevel Monte Carlo](textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/index.md)
 
 ---
