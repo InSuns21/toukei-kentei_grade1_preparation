@@ -1,0 +1,40 @@
+name: Temporary LA3A-D quality patch
+
+on:
+  push:
+    branches:
+      - audit/la3abcd-quality-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, '[audit-patch-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/la3abcd-quality-20260912
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply audit patch
+        run: python .github/tmp/apply_la3abcd_quality_patch.py
+      - name: Remove temporary patch machinery
+        run: |
+          rm -f .github/tmp/apply_la3abcd_quality_patch.py
+          rm -f .github/workflows/tmp-la3abcd-quality.yml
+      - name: Commit patched chapters
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/LA3A/index.md \
+                  textbook/volumes/00_foundations/LA3B/index.md \
+                  textbook/volumes/00_foundations/LA3C/index.md \
+                  textbook/volumes/00_foundations/LA3D/index.md \
+                  .github/tmp/apply_la3abcd_quality_patch.py \
+                  .github/workflows/tmp-la3abcd-quality.yml
+          git commit -m "Strengthen LA3A-D proofs and exercises [audit-patch-applied]"
+          git push origin HEAD:audit/la3abcd-quality-20260912
