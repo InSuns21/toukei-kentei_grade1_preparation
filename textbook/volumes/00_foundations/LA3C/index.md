@@ -575,7 +575,7 @@ A=
 1&0&1
 \end{pmatrix}
 $$
-について $\det A$ と $\operatorname{adj}(A)$ を求め、余因子行列の基本恒等式から $A^{-1}$ を求めよ。
+について $\det A$ と $\operatorname{adj}(A)$ を求め、[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から $A^{-1}$ を求めよ。
 
 <!-- solution-start -->
 **解答**：計算すると
@@ -657,7 +657,7 @@ $$
 \operatorname{adj}(A)\ne0.
 $$
 
-余因子行列の基本恒等式から
+[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から
 $$
 A\operatorname{adj}(A)=(\det A)I=0.
 $$
