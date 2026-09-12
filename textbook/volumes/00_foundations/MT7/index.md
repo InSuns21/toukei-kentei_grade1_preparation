@@ -25,12 +25,13 @@ p=infinity では何が壊れるか
 
 ## 1. 一般の $L^p$ は Banach 空間
 
-まず $1\le p<\infty$ を扱います。D2E の $L^2$ 証明で本質だったのは二乗そのものではなく、差分級数を Minkowski で制御できることでした。同じ議論は全ての有限 $p$ で動きます。
+まず $1\le p<\infty$ を扱います。D2E の $L^2$ 証明で本質だったのは二乗そのものではなく、差分の和を [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)で制御できることでした。同じ議論は全ての有限 $p$ で動きます。
 
 <a id="thm-mt7-lp-complete"></a>
 <!-- formal-statement-start -->
-> **定理（Lp の完備性）**  
-> 任意の測度空間について、$1\le p\le\infty$ の $L^p$ はそれぞれの $L^p$ ノルムに関して完備である。
+### 定理（Lpの完備性）
+
+任意の測度空間について、$1\le p\le\infty$ の $L^p$ はそれぞれの $\|\cdot\|_p$ に関して完備である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -100,7 +101,7 @@ $$
 |f_{n_k}-f|\le H_k.
 $$
 
-有限部分和に Minkowski を使ってから単調極限を取れば
+有限部分和に [Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使って $N\to\infty$ とすれば
 
 $$
 \|H_k\|_p
@@ -154,7 +155,7 @@ $$
 |f_{n_{k+1}}(x)-f_{n_k}(x)|\le2^{-k}
 $$
 
-です。可算和 $N=\bigcup_kN_k$ も零集合なので、$x\notin N$ では差分級数が一様に絶対収束し、ある $f(x)$ へ収束します。すると
+です。可算和 $N=\bigcup_kN_k$ も零集合なので、$x\notin N$ では差分の絶対値和が $\sum_k2^{-k}<\infty$ で抑えられ、ある $f(x)$ へ収束します。すると
 
 $$
 |f(x)-f_{n_k}(x)|
@@ -171,7 +172,7 @@ $$
 従って $f\in L^\infty$ かつ部分列は $f$ へ収束します。元の列全体の収束は有限 $p$ の最後と同じ Cauchy 評価で従います。よって $L^\infty$ も完備です。$\square$
 <!-- proof-end -->
 
-ここで有限 $p$ では MCT が「差分の絶対値和が a.e. で有限」を作り、$p=\infty$ では本質的一様評価そのものが差分級数を支えています。
+ここで有限 $p$ では [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) が「差分の絶対値和が a.e. で有限」を作り、$p=\infty$ では本質的一様評価そのものが差分の和を支えています。
 
 ---
 
@@ -181,8 +182,9 @@ $L^p$ の抽象元を扱うとき、まず有限個の値しか取らない関�
 
 <a id="thm-mt7-simple-dense"></a>
 <!-- formal-statement-start -->
-> **定理（単関数の Lp 稠密性）**  
-> $1\le p<\infty$ とする。任意の $f\in L^p(\mu)$ と $\varepsilon>0$ に対し、$L^p$ に属する実数値単関数 $s$ が存在して $\|f-s\|_p<\varepsilon$ となる。
+### 定理（単関数のLp稠密性）
+
+$1\le p<\infty$ とする。任意の $f\in L^p(\mu)$ と $\varepsilon>0$ に対し、$L^p$ に属する実数値単関数 $s$ が存在して $\|f-s\|_p<\varepsilon$ となる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -202,7 +204,7 @@ $$
 0\le|f-s_n|^p\le f^p,
 $$
 
-かつ $|f-s_n|^p\to0$ a.e. です。$f\in L^p$ だから $f^p\in L^1$。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)より
+かつ $|f-s_n|^p\to0$ a.e. です。$f\in L^p$ だから $f^p\in L^1$。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より
 
 $$
 \|f-s_n\|_p^p
@@ -217,7 +219,7 @@ $$
 f=f^+-f^-
 $$
 
-と分け、それぞれを非負単関数 $u_n,v_n$ で $L^p$ 近似します。すると $s_n=u_n-v_n$ も単関数で、Minkowski により
+と分け、それぞれを非負単関数 $u_n,v_n$ で $L^p$ 近似します。すると $s_n=u_n-v_n$ も単関数で、[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)により
 
 $$
 \|f-s_n\|_p
@@ -259,14 +261,15 @@ a.e. で、右辺は $|f|^p$ に支配されるからです。従って上の単
 
 <a id="thm-mt7-cc-dense"></a>
 <!-- formal-statement-start -->
-> **定理（Cc の Lp 稠密性）**  
-> $1\le p<\infty$ とする。局所コンパクト Hausdorff 空間 $X$ 上の Radon 測度 $\mu$ に対し、$C_c(X)$ は $L^p(\mu)$ に稠密である。
+### 定理（CcのLp稠密性）
+
+$1\le p<\infty$ とする。局所コンパクト Hausdorff 空間 $X$ 上の Radon 測度 $\mu$ に対し、$C_c(X)$ は $L^p(\mu)$ に稠密である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-[単関数の Lp 稠密性](#thm-mt7-simple-dense)により、有限測度 support を持つ単関数
+[単関数のLp稠密性](#thm-mt7-simple-dense)により、有限測度 support を持つ単関数
 
 $$
 s=\sum_{j=1}^m a_j1_{E_j}
@@ -322,7 +325,7 @@ $$
 g:=\sum_{j=1}^m a_j\varphi_j\in C_c(X)
 $$
 
-と置きます。Minkowski により
+と置きます。[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)により
 
 $$
 \|g-s\|_p
@@ -352,7 +355,7 @@ $$
 
 ## 4. $L^q$ の関数は $L^p$ 上の連続線形汎関数を作る
 
-$1\le p<\infty$ とし、共役指数 $q$ を
+$1\le p<\infty$ とし、$q$ を
 
 $$
 \frac1p+\frac1q=1
@@ -381,7 +384,7 @@ $$
 
 実は等号です。
 
-### $1<p<\infty$ のノルム等号
+### $1<p<\infty$ の作用素評価の等号
 
 $g\ne0$ とし
 
@@ -392,7 +395,7 @@ f
 {\|g\|_q^{q/p}}
 $$
 
-と置きます。共役指数の関係から $(q-1)p=q$ なので
+と置きます。関係式 $1/p+1/q=1$ から $(q-1)p=q$ なので
 
 $$
 \|f\|_p^p
@@ -416,7 +419,7 @@ $$
 \|T_g\|=\|g\|_q.
 $$
 
-### $p=1$ のノルム等号
+### $p=1$ の作用素評価の等号
 
 $M=\|g\|_\infty$ とします。任意の $\varepsilon>0$ に対し
 
@@ -455,8 +458,9 @@ $$
 
 <a id="thm-mt7-lp-duality"></a>
 <!-- formal-statement-start -->
-> **定理（σ-finite Lp 双対定理）**  
-> $(X,\mathcal F,\mu)$ を σ-finite 測度空間、$1\le p<\infty$、$q$ を共役指数とする。このとき任意の $T\in(L^p(\mu))^*$ に対し一意な $g\in L^q(\mu)$ が存在して $T(f)=\int fg\,d\mu$ が全ての $f\in L^p$ で成り立ち、さらに $\|T\|=\|g\|_q$ である。
+### 定理（σ-finite Lp双対定理）
+
+$(X,\mathcal F,\mu)$ を σ-finite 測度空間、$1\le p<\infty$、$q$ は $1/p+1/q=1$ を満たすとする。このとき任意の $T\in(L^p(\mu))^*$ に対し一意な $g\in L^q(\mu)$ が存在して $T(f)=\int fg\,d\mu$ が全ての $f\in L^p$ で成り立ち、さらに $\|T\|=\|g\|_q$ である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -535,7 +539,7 @@ $$
 \int_{X_n}|g_n|^q1_{\{|g_n|\le m\}}\,d\mu.
 $$
 
-この積分を $A_m$ と書きます。単関数近似から $T(h_m)=\int h_mg_n\,d\mu$ が成り立つので
+この積分を $A_m$ と書きます。[単関数近似](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)から $T(h_m)=\int h_mg_n\,d\mu$ が成り立つので
 
 $$
 A_m
@@ -551,7 +555,7 @@ $$
 A_m^{1/q}\le\|T\|.
 $$
 
-$m\to\infty$ とし MCT を使えば
+$m\to\infty$ とし [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) を使えば
 
 $$
 \|g_n\|_q\le\|T\|.
@@ -601,7 +605,7 @@ $$
 \int_Ag_m\,d\mu.
 $$
 
-RN 密度の一意性から
+密度の一意性から
 
 $$
 g_n=g_m
@@ -624,7 +628,7 @@ $$
 \le\|T\|^q
 $$
 
-が全ての $n$ で成り立つので、MCT により
+が全ての $n$ で成り立つので、[MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
 
 $$
 \|g\|_q\le\|T\|.
@@ -644,7 +648,7 @@ $$
 T(s1_{X_n})=\int s1_{X_n}g\,d\mu
 $$
 
-が成り立ちます。一方、$X_n\uparrow X$ かつ $|s|^p\in L^1$ なので DCT により
+が成り立ちます。一方、$X_n\uparrow X$ かつ $|s|^p\in L^1$ なので [DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
 
 $$
 \|s-s1_{X_n}\|_p^p
@@ -653,13 +657,13 @@ $$
 \to0.
 $$
 
-$T$ の連続性と Hölder により $n\to\infty$ として
+$T$ の連続性と [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により $n\to\infty$ として
 
 $$
 T(s)=\int sg\,d\mu.
 $$
 
-次に一般の $f\in L^p$ に対し、[単関数の Lp 稠密性](#thm-mt7-simple-dense)から単関数列 $s_k\to f$ を $L^p$ で取ります。再び $T$ の連続性と Hölder により
+次に一般の $f\in L^p$ に対し、[単関数のLp稠密性](#thm-mt7-simple-dense)から単関数列 $s_k\to f$ を $L^p$ で取ります。再び $T$ の連続性と [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 T(s_k)\to T(f),
@@ -673,13 +677,13 @@ $$
 T(f)=\int fg\,d\mu.
 $$
 
-前節で積分汎関数のノルムが $\|g\|_q$ に等しいことを示したので
+前節で積分汎関数について $\|T_g\|=\|g\|_q$ を示したので
 
 $$
 \|T\|=\|g\|_q.
 $$
 
-一意性は、二つの $g,h\in L^q$ が同じ汎関数を表すなら $T_{g-h}=0$ であり、ノルム等号から
+一意性は、二つの $g,h\in L^q$ が同じ汎関数を表すなら $T_{g-h}=0$ であり、この等式から
 
 $$
 \|g-h\|_q=0
@@ -690,7 +694,7 @@ $$
 
 ### Step 2 の積分表示に単関数近似を使う理由
 
-RN 定理から直接分かるのは指示関数、従って有限線形結合である単関数についての表示です。$h_m$ 自体は一般には単関数ではありません。しかし $h_m$ は有限測度集合 $X_n$ 上の有界可測関数なので、単関数で $L^p$ 近似できます。$T$ と積分の両方がその近似に対して連続なため、
+[Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から直接分かるのは指示関数、従って有限線形結合である単関数についての表示です。$h_m$ 自体は一般には単関数ではありません。しかし $h_m$ は有限測度集合 $X_n$ 上の有界可測関数なので、単関数で $L^p$ 近似できます。$T$ と積分の両方がその近似に対して連続なため、
 
 $$
 T(h_m)=\int h_mg_n\,d\mu
@@ -704,8 +708,9 @@ $$
 
 <a id="prop-mt7-linfty-boundary"></a>
 <!-- formal-statement-start -->
-> **命題（L-infinity 双対で RN 構成が破綻する機構）**  
-> $L^\infty$ の連続線形汎関数に対し $A\mapsto T(1_A)$ と置いても、有限 $p$ の証明で使った可算加法性は一般には連続性だけから従わない。
+### 命題（L-infinity双対でRN構成が破綻する機構）
+
+$L^\infty$ の連続線形汎関数に対し $A\mapsto T(1_A)$ と置いても、有限 $p$ の証明で使った可算加法性は一般には連続性だけから従わない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -721,7 +726,7 @@ $$
 1_{\bigcup_{j>N}A_j}
 $$
 
-の $L^p$ ノルムが
+の $L^p$ での距離が
 
 $$
 \mu\left(\bigcup_{j>N}A_j\right)^{1/p}
@@ -736,7 +741,7 @@ $$
 \left\|1_{\bigcup_{j>N}A_j}\right\|_\infty=1.
 $$
 
-従って有限部分和の指示関数は、和集合の指示関数へ $L^\infty$ 収束しません。連続線形汎関数 $T$ の連続性から
+従って有限部分和の指示関数は、和集合の指示関数へ $L^\infty$ で収束しません。連続線形汎関数 $T$ の連続性から
 
 $$
 T(1_{\bigcup_{j=1}^NA_j})
@@ -746,10 +751,10 @@ $$
 
 を結論できず、$A\mapsto T(1_A)$ が可算加法的測度になる保証が失われます。
 
-したがって Radon–Nikodym 定理へ渡す入口そのものが閉じません。これが $(L^\infty)^*$ を一般に $L^1$ と同一視できない構造的理由です。$\square$
+したがって [Radon–Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)へ渡す入口そのものが閉じません。これが $(L^\infty)^*$ を一般に $L^1$ と同一視できない構造的理由です。$\square$
 <!-- proof-end -->
 
-「$L^1$ 関数 $g$ は $L^\infty$ 上の積分汎関数を作る」こと自体は Hölder から正しいですが、**全ての** $L^\infty$ 連続線形汎関数がその形になる、という全射性が一般に壊れます。
+「$L^1$ 関数 $g$ は $L^\infty$ 上の積分汎関数を作る」こと自体は [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から正しいですが、**全ての** $L^\infty$ 連続線形汎関数がその形になる、という全射性が一般に壊れます。
 
 ---
 
@@ -761,14 +766,14 @@ $$
 $L^3$-Cauchy 列から部分列 $(f_{n_k})$ を $\|f_{n_{k+1}}-f_{n_k}\|_3\le2^{-k}$ と取った。$G_N=\sum_{k=1}^N|f_{n_{k+1}}-f_{n_k}|$ とするとき、$\|G_N\|_3<1$ を示し、$G=\lim G_N<\infty$ a.e. を導け。
 
 <!-- solution-start -->
-Minkowski から
+[Minkowski の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
 
 $$
 \|G_N\|_3
 \le\sum_{k=1}^N2^{-k}<1.
 $$
 
-従って $\int G_N^3\le1$。$G_N^3\uparrow G^3$ なので MCT により $\int G^3\le1$。よって $G\in L^3$ であり、$G=\infty$ となる集合は零集合である。
+従って $\int G_N^3\le1$。$G_N^3\uparrow G^3$ なので [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\int G^3\le1$。よって $G\in L^3$ であり、$G=\infty$ となる集合は零集合である。
 <!-- solution-end -->
 
 ### A02 単関数近似
@@ -777,7 +782,7 @@ $$
 $f\ge0$、$f\in L^p$ とし、$0\le s_n\uparrow f$ を単関数近似とする。なぜ $\|f-s_n\|_p\to0$ か。
 
 <!-- solution-start -->
-$|f-s_n|^p\to0$ a.e. かつ $0\le|f-s_n|^p\le f^p$。$f^p\in L^1$ なので DCT により $\int|f-s_n|^p\to0$。従って $\|f-s_n\|_p\to0$。
+$|f-s_n|^p\to0$ a.e. かつ $0\le|f-s_n|^p\le f^p$。$f^p\in L^1$ なので [DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により $\int|f-s_n|^p\to0$。従って $\|f-s_n\|_p\to0$。
 <!-- solution-end -->
 
 ### A03 compact-open cutoff の $L^p$ 誤差
@@ -800,7 +805,7 @@ $$
 $$
 <!-- solution-end -->
 
-### A04 双対ノルム
+### A04 双対作用素の大きさ
 - Level: A
 
 $1<p<\infty$、$g\in L^q\setminus\{0\}$ とする。$T_g(f)=\int fg$ に対し、$\|T_g\|=\|g\|_q$ を達成する $L^p$ 単位ベクトルを一つ書け。
@@ -813,7 +818,7 @@ f=
 {\|g\|_q^{q/p}}
 $$
 
-と取る。$(q-1)p=q$ より $\|f\|_p=1$、また $\int fg=\|g\|_q$。従って Hölder の上側評価と合わせて $\|T_g\|=\|g\|_q$。
+と取る。$(q-1)p=q$ より $\|f\|_p=1$、また $\int fg=\|g\|_q$。従って [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)の上側評価と合わせて $\|T_g\|=\|g\|_q$。
 <!-- solution-end -->
 
 ---
@@ -823,10 +828,10 @@ $$
 ### B01 $L^\infty$ の完備性
 - Level: B
 
-$L^\infty$-Cauchy 列から差分ノルムが $2^{-k}$ 以下の部分列を取り、可算個の零集合を除いた上で一様 Cauchy になることを示せ。
+$L^\infty$-Cauchy 列から差分の $\|\cdot\|_\infty$ が $2^{-k}$ 以下の部分列を取り、可算個の零集合を除いた上で各点に同じ幾何和評価が成り立つことを示せ。
 
 <!-- solution-start -->
-各 $k$ で本質的上限評価を破る集合を $N_k$ とすれば $\mu(N_k)=0$。$N=\bigcup_kN_k$ も零集合。$x\notin N$ では差分が $2^{-k}$ 以下なので差分級数が一様収束し、極限 $f$ に対し $|f-f_{n_k}|\le2^{1-k}$。従って $L^\infty$ ノルムでも収束する。元の列全体は Cauchy 性から同じ極限へ収束する。
+各 $k$ で本質的上限評価を破る集合を $N_k$ とすれば $\mu(N_k)=0$。$N=\bigcup_kN_k$ も零集合。$x\notin N$ では差分が $2^{-k}$ 以下なので絶対値和が有限であり、ある $f$ に収束する。さらに $|f-f_{n_k}|\le2^{1-k}$。従って $\|f-f_{n_k}\|_\infty\to0$。元の列全体は Cauchy 性から同じ $f$ へ収束する。
 <!-- solution-end -->
 
 ### B02 $C_c$ が $L^\infty$ に稠密でない例
@@ -844,13 +849,15 @@ $\mathbb R$ 上の Lebesgue 測度で、定数関数1が $C_c(\mathbb R)$ の $L
 互いに素な $A_j\subset X_n$、$\mu(X_n)<\infty$ に対し、$1\le p<\infty$ では $1_{\cup_{j=1}^NA_j}\to1_{\cup_jA_j}$ in $L^p$ だが、$p=\infty$ では一般に成り立たないことを説明せよ。
 
 <!-- solution-start -->
-有限 $p$ では差の $p$ 乗ノルムが尾部集合の測度
+有限 $p$ では差について
 
 $$
+\left\|1_{\cup_jA_j}-1_{\cup_{j=1}^NA_j}\right\|_p^p
+=
 \mu\left(\bigcup_{j>N}A_j\right)
 $$
 
-に等しく、有限測度集合内の下からの連続性により0へ行く。一方 $p=\infty$ では尾部集合が正測度なら指示関数の本質的上限は1のまま。従って連続汎関数から可算加法性を引き出す議論が壊れる。
+となり、有限測度集合内の [下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により0へ行く。一方 $p=\infty$ では尾部集合が正測度なら指示関数の本質的上限は1のまま。従って連続汎関数から可算加法性を引き出す議論が壊れる。
 <!-- solution-end -->
 
 ---
@@ -872,16 +879,16 @@ $$
 \int_Ag_n\,d\mu.
 $$
 
-従って $g_{n+1}$ と $g_n$ は $X_n$ 上で同じ符号付き測度の RN 密度であり、一意性から a.e. 一致する。可算個の零集合を同時に除いて代表元を整合させれば $g|_{X_n}=g_n$ と定義できる。$1<p<\infty$ では各 $n$ で $\int_{X_n}|g|^q\le\|T\|^q$ なので MCT により $\int_X|g|^q\le\|T\|^q$。$p=1$ では各 $X_n$ 上で $|g|\le\|T\|$ a.e. なので全体でも同じ本質的上限評価が成り立つ。
+従って $g_{n+1}$ と $g_n$ は $X_n$ 上で同じ符号付き測度の RN 密度であり、一意性から a.e. 一致する。可算個の零集合を同時に除いて代表元を整合させれば $g|_{X_n}=g_n$ と定義できる。$1<p<\infty$ では各 $n$ で $\int_{X_n}|g|^q\le\|T\|^q$ なので [MCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により $\int_X|g|^q\le\|T\|^q$。$p=1$ では各 $X_n$ 上で $|g|\le\|T\|$ a.e. なので全体でも同じ本質的上限評価が成り立つ。
 <!-- solution-end -->
 
 ---
 
 ## 10. 章末チェック
 
-- $1\le p<\infty$ の完備性を「速い部分列 → 差分級数 → a.e.極限 → 尾部 $L^p$ 評価 → 元の列」の順で再構成できる。
+- $1\le p<\infty$ の完備性を「速い部分列 → 差分の和 → a.e.での収束 → 尾部 $L^p$ 評価 → 元の列」の順で再構成できる。
 - $p=\infty$ では可算個の零集合を除き、本質的一様評価から完備性を直接示せる。
-- 単関数稠密性で DCT をどこに使うか説明できる。
+- 単関数稠密性で [DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) をどこに使うか説明できる。
 - Radon 正則性と compact-open cutoff から指示関数を $C_c$ で $L^p$ 近似できる。
 - σ-finite $L^p$ 双対で、有限測度局所化が指示関数の可算加法性を保証する箇所を説明できる。
-- $p=\infty$ で同じ RN 構成が壊れる理由を、尾部指示関数の $L^\infty$ ノルムが1のままになることから説明できる。
+- $p=\infty$ で同じ RN 構成が壊れる理由を、尾部指示関数の $\|\cdot\|_\infty$ が1のままになることから説明できる。
