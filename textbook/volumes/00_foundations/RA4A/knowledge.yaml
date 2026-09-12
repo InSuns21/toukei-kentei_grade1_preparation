@@ -63,7 +63,7 @@ concepts:
     aliases: [広義積分の絶対収束・条件収束]
     requires:
       - analysis.improper-riemann-integral
-      - analysis.riemann-integrable-absolute-product-closure
+      - analysis.riemann-integrable
 
   - id: analysis.improper-integral-absolute-test
     name: 広義積分の絶対収束判定
