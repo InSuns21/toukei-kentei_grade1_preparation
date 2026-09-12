@@ -14,7 +14,9 @@ def edit(path, replacements):
     p.write_text(s, encoding='utf-8')
 
 edit('LA3A', [
-    ('annihilator の次元公式', '[annihilator の次元公式](#thm-la3a-annihilator-dimension)', 3),
+    ('ここで最初の等式と annihilator の次元公式を使うと', 'ここで最初の等式と [annihilator の次元公式](#thm-la3a-annihilator-dimension)を使うと', 1),
+    ('一方、rank-nullity と annihilator の次元公式から', '一方、rank-nullity と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から', 1),
+    ('$\\dim V^*=\\dim V=n$ と annihilator の次元公式から', '$\\dim V^*=\\dim V=n$ と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から', 1),
     ('標準埋め込み $J:V\\to V^{**}$ に対して', '上で定義した写像 $J:V\\to V^{**}$ に対して', 1),
     ('標準埋め込み $J$ で同一視している点', '写像 $J$ を通して同一視している点', 1),
 ])
@@ -30,4 +32,3 @@ edit('LA3C', [
 ])
 
 print('LA3A-D CI wording/reference fixes applied')
-# trigger after workflow registration
