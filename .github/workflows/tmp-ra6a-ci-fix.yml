@@ -25,8 +25,6 @@ jobs:
 
           ra = Path('textbook/volumes/00_foundations/RA6A/index.md')
           text = ra.read_text(encoding='utf-8')
-
-          # House style: display mathematics inside formal statements must sit outside blockquotes.
           lines = text.splitlines()
           out = []
           in_formal = False
@@ -76,12 +74,7 @@ jobs:
           for old, new in replacements.items():
               if old in text:
                   text = text.replace(old, new)
-
-          text = text.replace(
-              '両者は別々の暗記項目ではありません。陰関数定理は',
-              '両者は別々の暗記項目ではありません。[陰関数定理](#thm-ra6a-implicit-function)は',
-              1,
-          )
+          text = text.replace('両者は別々の暗記項目ではありません。陰関数定理は', '両者は別々の暗記項目ではありません。[陰関数定理](#thm-ra6a-implicit-function)は', 1)
           ra.write_text(text, encoding='utf-8')
 
           rak = Path('textbook/volumes/00_foundations/RA6A/knowledge.yaml')
@@ -93,34 +86,13 @@ jobs:
           c5 = Path('textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md')
           c = c5.read_text(encoding='utf-8')
           pattern = re.compile(r'## 6\.5 証明で使う陰関数定理\n.*?\n---\n\n## 7\.', re.S)
-          replacement = '''## 6.5 証明で使う陰関数定理
-
-以下では [RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\\varphi(u)$ として表せます。必要な微分公式は
-
-$$
-D\\varphi(u^*)=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
-$$
-
-です。証明は RA6A で逆関数定理から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。
-
----
-
-## 7.'''
-          c2, n = pattern.subn(replacement, c, count=1)
+          replacement = "## 6.5 証明で使う陰関数定理\n\n以下では [RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\\varphi(u)$ として表せます。必要な微分公式は\n\n$$\nD\\varphi(u^*)=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)\n$$\n\nです。証明は RA6A で逆関数定理から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。\n\n---\n\n## 7."
+          c2, n = pattern.subn(lambda _: replacement, c, count=1)
           if n != 1:
               raise SystemExit(f'expected one C5A section 6.5 replacement, got {n}')
-          c2 = c2.replace(
-              '[陰関数定理](#thm-f0-02c5a-implicit-function)',
-              '[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)',
-          )
-          c2 = c2.replace(
-              '[陰関数定理の微分公式](#thm-f0-02c5a-implicit-function)',
-              '[陰関数定理の微分公式](../RA6A/index.md#thm-ra6a-implicit-function)',
-          )
-          c2 = c2.replace(
-              '等式制約は陰関数定理で作る等式多様体上の曲線に沿わせます。',
-              '等式制約は[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。',
-          )
+          c2 = c2.replace('[陰関数定理](#thm-f0-02c5a-implicit-function)', '[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)')
+          c2 = c2.replace('[陰関数定理の微分公式](#thm-f0-02c5a-implicit-function)', '[陰関数定理の微分公式](../RA6A/index.md#thm-ra6a-implicit-function)')
+          c2 = c2.replace('等式制約は陰関数定理で作る等式多様体上の曲線に沿わせます。', '等式制約は[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。')
           c5.write_text(c2, encoding='utf-8')
 
           c5k = Path('textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/knowledge.yaml')
