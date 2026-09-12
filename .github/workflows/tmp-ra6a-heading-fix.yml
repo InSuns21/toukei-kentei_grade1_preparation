@@ -1,0 +1,36 @@
+name: Temporary RA6A heading fix
+
+on:
+  push:
+    branches:
+      - feat/ra6a-inverse-implicit-function
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ra6a-inverse-implicit-function
+          fetch-depth: 0
+      - name: Fix C5A bridge heading
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('## 6.5 証明で使う陰関数定理', '## 6.5 RA6Aから利用する局所グラフ表示')
+          s = s.replace('証明は RA6A で逆関数定理から導出済みなので', '証明は [RA6A の逆関数定理](../RA6A/index.md#thm-ra6a-inverse-function) から導出済みなので')
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md
+          if ! git diff --cached --quiet; then
+            git commit -m "fix: treat C5A implicit theorem as RA6A bridge [ra6a-heading-fix]"
+            git push origin HEAD:feat/ra6a-inverse-implicit-function
+          fi
