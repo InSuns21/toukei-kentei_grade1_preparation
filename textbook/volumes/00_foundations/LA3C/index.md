@@ -170,14 +170,39 @@ $$
 $$
 固定した $i$ の内側の和では $a_{ij}$ が共通なので外へ出せます。
 
-$\sigma(j)=i$ を固定し、第 $j$ 列と第 $i$ 行を除いて残りの添字を昇順に詰め直すと $M_{ij}$ の置換 $\bar\sigma\in S_{n-1}$ が得られます。第 $j$ 列を先頭へ移すのに $j-1$ 回、第 $i$ 行を先頭へ移すのに $i-1$ 回の交換が必要なので
+$\sigma(j)=i$ を固定します。列番号 $1,\dots,n$ から $j$ を除いた集合を
+$$
+C=\{1,\dots,n\}\setminus\{j\},
+$$
+行番号 $1,\dots,n$ から $i$ を除いた集合を
+$$
+R=\{1,\dots,n\}\setminus\{i\}
+$$
+とし、それぞれを昇順に
+$$
+c_1<\cdots<c_{n-1},\qquad r_1<\cdots<r_{n-1}
+$$
+と並べます。$\sigma(j)=i$ なので、$\sigma$ は $C$ を $R$ へ全単射に移します。従って一意な $\bar\sigma\in S_{n-1}$ が
+$$
+\sigma(c_k)=r_{\bar\sigma(k)}
+$$
+で定まります。これは $\sigma(j)=i$ を満たす置換と $S_{n-1}$ の置換との1対1対応です。
+
+成分積から $a_{ij}$ を除いた部分は、この対応の下でちょうど小行列 $M_{ij}$ の Leibniz 項になります。残るのは符号です。位置 $j$ を先頭へ移すには $j-1$ 回、値 $i$ を先頭へ移すには $i-1$ 回の隣接交換が必要で、その後に残る置換が $\bar\sigma$ です。従って
 $$
 \operatorname{sgn}(\sigma)
+=(-1)^{(j-1)+(i-1)}\operatorname{sgn}(\bar\sigma)
 =(-1)^{i+j}\operatorname{sgn}(\bar\sigma).
 $$
-従って固定した $i$ に対応する項の和は
+ここで最後の等号は、$i+j$ と $(i-1)+(j-1)$ が2だけ違い、$(-1)^2=1$ だからです。
+
+したがって固定した $i$ に対応する項の和は
 $$
-a_{ij}(-1)^{i+j}\det M_{ij}=a_{ij}C_{ij}.
+a_{ij}(-1)^{i+j}
+\sum_{\bar\sigma\in S_{n-1}}
+\operatorname{sgn}(\bar\sigma)
+\prod_{k=1}^{n-1}(M_{ij})_{\bar\sigma(k),k}
+=a_{ij}C_{ij}.
 $$
 これを $i$ について足せば列展開を得ます。行展開は $A^{\mathsf T}$ に列展開を適用し、$\det A^{\mathsf T}=\det A$ を使えば従います。$\square$
 <!-- proof-end -->
@@ -224,20 +249,38 @@ A=\begin{pmatrix}a&b\\c&d\end{pmatrix}
 \begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
 $$
 
-ここで積を直接計算します。$A\operatorname{adj}(A)$ の $(i,j)$ 成分は
+<a id="thm-la3c-adjugate-identity"></a>
+<!-- formal-statement-start -->
+> **定理（余因子行列の基本恒等式）**  
+> 任意の正方行列 $A$ に対して
+
+$$
+A\operatorname{adj}(A)
+=\operatorname{adj}(A)A
+=(\det A)I.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$A\operatorname{adj}(A)$ の $(i,j)$ 成分は
 $$
 \sum_{k=1}^na_{ik}C_{jk}
 $$
 です。
 
-$i=j$ なら第 $i$ 行の Laplace 展開そのものなので $\det A$。$i\ne j$ なら「第 $j$ 行を第 $i$ 行で置き換えた行列」の第 $j$ 行 Laplace 展開であり、その行列には同じ行が2本あるため0です。従って
+$i=j$ なら第 $i$ 行の Laplace 展開そのものなので $\det A$ です。$i\ne j$ なら、第 $j$ 行を第 $i$ 行で置き換えた行列を考えます。その第 $j$ 行に沿う Laplace 展開が上の和であり、この行列には第 $i$ 行と第 $j$ 行として同じ行が2本あるため行列式は0です。従って
 $$
 A\operatorname{adj}(A)=(\det A)I.
 $$
-列について同じ議論をすれば
+
+同様に $\operatorname{adj}(A)A$ の $(i,j)$ 成分を列の Laplace 展開として読むと、$i=j$ で $\det A$、$i\ne j$ で同じ列を2本持つ行列の行列式0になるため
 $$
 \operatorname{adj}(A)A=(\det A)I.
 $$
+$\square$
+<!-- proof-end -->
 
 したがって $\det A\ne0$ なら
 $$
@@ -486,6 +529,156 @@ $$
 =\det(tI-A).
 $$
 従って特性多項式は表現行列の基底選択に依存しません。
+<!-- solution-end -->
+
+
+### LA3C-A03 パラメータ付き行列の可逆性
+
+$t\in\mathbb R$ とし
+$$
+A_t=
+\begin{pmatrix}
+1&t&0\\
+0&1&t\\
+t&0&1
+\end{pmatrix}.
+$$
+$\det A_t$ を求め、$A_t$ が可逆でない $t$ を全て求めよ。
+
+<!-- solution-start -->
+**解答**：第1行で展開すると
+$$
+\begin{aligned}
+\det A_t
+&=1\det\begin{pmatrix}1&t\\0&1\end{pmatrix}
+-t\det\begin{pmatrix}0&t\\t&1\end{pmatrix}\\
+&=1-t(0-t^2)=1+t^3.
+\end{aligned}
+$$
+実数では
+$$
+1+t^3=(t+1)(t^2-t+1)
+$$
+で、$t^2-t+1>0$ なので
+$$
+\boxed{t=-1}
+$$
+のときだけ $\det A_t=0$、従って可逆ではありません。
+<!-- solution-end -->
+
+### LA3C-A04 余因子行列から逆行列を作る
+
+$$
+A=
+\begin{pmatrix}
+1&1&0\\
+0&1&1\\
+1&0&1
+\end{pmatrix}
+$$
+について $\det A$ と $\operatorname{adj}(A)$ を求め、[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から $A^{-1}$ を求めよ。
+
+<!-- solution-start -->
+**解答**：計算すると
+$$
+\det A=2.
+$$
+各余因子を並べて転置すると
+$$
+\operatorname{adj}(A)=
+\begin{pmatrix}
+1&-1&1\\
+1&1&-1\\
+-1&1&1
+\end{pmatrix}.
+$$
+従って
+$$
+A^{-1}
+=\frac1{\det A}\operatorname{adj}(A)
+=\frac12
+\begin{pmatrix}
+1&-1&1\\
+1&1&-1\\
+-1&1&1
+\end{pmatrix}.
+$$
+実際に $A\operatorname{adj}(A)=2I$ を掛け算で確認できます。
+<!-- solution-end -->
+
+### LA3C-B03 Cramer の公式を導く
+
+$A=[a_1\ \cdots\ a_n]$ を可逆な $n\times n$ 行列とし、$Ax=b$ の解を
+$$
+x=(x_1,\dots,x_n)^T
+$$
+とする。$A_j$ を $A$ の第 $j$ 列だけを $b$ に置き換えた行列とするとき
+$$
+\boxed{x_j=\frac{\det A_j}{\det A}}
+$$
+を、行列式の多重線形性と交代性から導け。
+
+<!-- solution-start -->
+**解答**：$Ax=b$ は列ベクトルで書けば
+$$
+b=x_1a_1+\cdots+x_na_n
+$$
+です。従って第 $j$ 列について多重線形性を使うと
+$$
+\det A_j
+=\sum_{k=1}^n x_k
+\det(a_1,\dots,a_{j-1},a_k,a_{j+1},\dots,a_n).
+$$
+$k\ne j$ の項には $a_k$ が2本現れるので0です。残るのは $k=j$ の項だけで
+$$
+\det A_j=x_j\det A.
+$$
+$A$ は可逆だから $\det A\ne0$。従って
+$$
+x_j=\frac{\det A_j}{\det A}.
+$$
+公式を暗記するより、「置換列 $b$ を解の線形結合で展開すると重複列が全部消える」と見るのが本質です。
+<!-- solution-end -->
+
+### LA3C-C01 corank 1 の行列と余因子行列
+
+$A\in\mathbb F^{n\times n}$ が
+$$
+\operatorname{rank}A=n-1
+$$
+を満たすとする。次を示せ。
+
+1. $\operatorname{adj}(A)\ne0$。
+2. $\operatorname{adj}(A)$ の各列は $\ker A$ に属する。
+3. $\operatorname{rank}\operatorname{adj}(A)=1$。
+
+<!-- solution-start -->
+**解答**：$\operatorname{rank}A=n-1$ なので $\det A=0$ です。
+
+まず「rank が $r$ なら非零な $r\times r$ 小行列式が存在する」という事実を、この場合に必要な範囲で確認します。$\operatorname{rank}A=n-1$ なので $A$ には一次独立な $n-1$ 本の列があり、それらだけを取り出した $n\times(n-1)$ 行列を $B$ とします。$B$ の列階数は $n-1$ です。行階数と列階数は等しいので、$B$ の行のうち $n-1$ 本を選んで一次独立にできます。その行と先ほど選んだ列の交差部分は正則な $(n-1)\times(n-1)$ 行列であり、その行列式は非零です。したがって $A$ には少なくとも1つの非零な $(n-1)\times(n-1)$ 小行列式があります。
+
+その値は符号を除いて $A$ の余因子の1つなので
+$$
+\operatorname{adj}(A)\ne0.
+$$
+
+[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から
+$$
+A\operatorname{adj}(A)=(\det A)I=0.
+$$
+従って $\operatorname{adj}(A)$ の各列 $u$ は $Au=0$ を満たし、$u\in\ker A$ です。rank-nullity より
+$$
+\dim\ker A=n-(n-1)=1.
+$$
+したがって $\operatorname{adj}(A)$ の全ての列は同じ1次元空間に入り
+$$
+\operatorname{rank}\operatorname{adj}(A)\le1.
+$$
+しかし第1段階で $\operatorname{adj}(A)\ne0$ を示したので rank は0ではありません。従って
+$$
+\boxed{\operatorname{rank}\operatorname{adj}(A)=1}.
+$$
+なお $\operatorname{adj}(A)A=0$ から、行についても同様に左核へ入ることが分かります。
 <!-- solution-end -->
 
 ---

@@ -356,6 +356,75 @@ T^*f^i=\sum_jA_{ij}e^j.
 $$
 よって $T^*$ の表現行列は $A^{\mathsf T}$ です。
 
+### 核と像は annihilator でつながる
+
+双対写像と annihilator は別々の定義ではなく、核と像を通じて直接つながります。
+
+<a id="thm-la3a-dual-map-kernel-image"></a>
+<!-- formal-statement-start -->
+> **定理（双対写像の核・像と annihilator）**  
+> $V,W$ を有限次元ベクトル空間、$T:V\to W$ を線形写像とする。このとき
+
+$$
+\ker T^*=(\operatorname{im}T)^\circ,
+\qquad
+\operatorname{im}T^*=(\ker T)^\circ.
+$$
+
+> 特に
+
+$$
+\operatorname{rank}T^*=\operatorname{rank}T.
+$$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$\psi\in W^*$ に対して
+$$
+\psi\in\ker T^*
+\Longleftrightarrow
+\psi(Tv)=0\quad(\forall v\in V)
+\Longleftrightarrow
+\psi|_{\operatorname{im}T}=0.
+$$
+従って
+$$
+\ker T^*=(\operatorname{im}T)^\circ.
+$$
+
+次に $T^*\psi=\psi\circ T$ は $v\in\ker T$ に対して
+$$
+(T^*\psi)(v)=\psi(Tv)=\psi(0)=0
+$$
+なので
+$$
+\operatorname{im}T^*\subset(\ker T)^\circ.
+$$
+ここで最初の等式と [annihilator の次元公式](#thm-la3a-annihilator-dimension)を使うと
+$$
+\begin{aligned}
+\dim\operatorname{im}T^*
+&=\dim W^*-\dim\ker T^*\\
+&=\dim W-\dim(\operatorname{im}T)^\circ\\
+&=\dim\operatorname{im}T
+=\operatorname{rank}T.
+\end{aligned}
+$$
+一方、rank-nullity と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
+$$
+\dim(\ker T)^\circ
+=\dim V-\dim\ker T
+=\operatorname{rank}T.
+$$
+包含する2つの部分空間の次元が等しいので
+$$
+\operatorname{im}T^*=(\ker T)^\circ.
+$$
+同時に $\operatorname{rank}T^*=\operatorname{rank}T$ も得られました。$\square$
+<!-- proof-end -->
+
 ここでは内積を使っていません。したがって複素数上でも **共役転置ではなく単なる転置** が現れます。共役転置が出るのは LA5 の内積・随伴です。
 
 ---
@@ -410,6 +479,12 @@ J(v)(\varphi)=\varphi(v)
 $$
 には基底が一切現れていません。基底を選んだのは単射性を証明するためだけです。従ってこの同型は、基底を選んで無理に作った同型ではなく標準的なものです。$\square$
 <!-- proof-end -->
+
+有限次元では $\dim V=\dim V^*$ なので $V\cong V^*$ となる同型も作れます。しかし一般には、その同型は基底などの追加の選択に依存します。これに対し
+$$
+J(v)(\varphi)=\varphi(v)
+$$
+で定まる $V\to V^{**}$ は、式そのものに基底の選択がなく自然です。この違いは、後で「双対」と「随伴」を混同しないためにも重要です。
 
 ---
 
@@ -516,6 +591,168 @@ $$
 \end{aligned}
 $$
 全ての $\psi$ で一致するので $T^{**}J_V(v)=J_W(Tv)$。全ての $v$ で成り立つから写像等式を得ます。
+<!-- solution-end -->
+
+
+### LA3A-A03 3次元の双対基底
+
+$V=\mathbb R^3$ の基底
+$$
+v_1=(1,0,1)^T,\qquad
+v_2=(1,1,0)^T,\qquad
+v_3=(0,1,1)^T
+$$
+の双対基底 $v^1,v^2,v^3$ を、標準座標 $x=(x_1,x_2,x_3)^T$ を用いて求めよ。
+
+<!-- solution-start -->
+**解答**：$x=av_1+bv_2+cv_3$ と置くと
+$$
+x_1=a+b,\qquad x_2=b+c,\qquad x_3=a+c.
+$$
+従って
+$$
+a=\frac{x_1-x_2+x_3}{2},\quad
+b=\frac{x_1+x_2-x_3}{2},\quad
+c=\frac{-x_1+x_2+x_3}{2}.
+$$
+双対基底は各係数を読むので
+$$
+\boxed{
+\begin{aligned}
+v^1(x)&=\frac{x_1-x_2+x_3}{2},\\
+v^2(x)&=\frac{x_1+x_2-x_3}{2},\\
+v^3(x)&=\frac{-x_1+x_2+x_3}{2}.
+\end{aligned}}
+$$
+実際、各 $v^i$ に $v_j$ を代入すると $v^i(v_j)=\delta_{ij}$ になります。
+<!-- solution-end -->
+
+### LA3A-A04 双対写像を具体的に計算する
+
+$$
+T:\mathbb R^2\to\mathbb R^3,\qquad
+T(x,y)=(x+2y,\,3x-y,\,x)
+$$
+とし、$\psi\in(\mathbb R^3)^*$ を
+$$
+\psi(a,b,c)=2a-b+4c
+$$
+で定める。$T^*\psi$ を求め、標準基底で $T^*$ の表現行列が $T$ の表現行列の転置になることを確認せよ。
+
+<!-- solution-start -->
+**解答**：定義から
+$$
+\begin{aligned}
+(T^*\psi)(x,y)
+&=\psi(T(x,y))\\
+&=2(x+2y)-(3x-y)+4x\\
+&=3x+5y.
+\end{aligned}
+$$
+一方
+$$
+[T]=
+\begin{pmatrix}
+1&2\\
+3&-1\\
+1&0
+\end{pmatrix},
+\qquad
+[T]^\mathsf T=
+\begin{pmatrix}
+1&3&1\\
+2&-1&0
+\end{pmatrix}.
+$$
+$\psi$ の係数ベクトル $(2,-1,4)^T$ に $[T]^\mathsf T$ を掛けると
+$$
+\begin{pmatrix}1&3&1\\2&-1&0\end{pmatrix}
+\begin{pmatrix}2\\-1\\4\end{pmatrix}
+=
+\begin{pmatrix}3\\5\end{pmatrix},
+$$
+確かに $3x+5y$ の係数と一致します。
+<!-- solution-end -->
+
+### LA3A-B03 $\operatorname{im}T^*$ と $(\ker T)^\circ$ を手で照合する
+
+$$
+T:\mathbb R^3\to\mathbb R^2,\qquad
+T(x,y,z)=(x+y,\,y+z)
+$$
+について $\ker T$ と $\operatorname{im}T^*$ を求め、
+$$
+\operatorname{im}T^*=(\ker T)^\circ
+$$
+を座標計算で確認せよ。
+
+<!-- solution-start -->
+**解答**：$T(x,y,z)=0$ なら
+$$
+x=-y,\qquad z=-y,
+$$
+なので
+$$
+\ker T=\operatorname{span}\{(1,-1,1)^T\}.
+$$
+$\psi(u,v)=\alpha u+\beta v$ とすると
+$$
+(T^*\psi)(x,y,z)
+=\alpha(x+y)+\beta(y+z)
+=\alpha x+(\alpha+\beta)y+\beta z.
+$$
+従って $\operatorname{im}T^*$ は係数 $(a,b,c)$ が
+$$
+b=a+c
+$$
+を満たす線形形式全体です。一方、$ax+by+cz$ が $(1,-1,1)^T$ を消す条件は
+$$
+a-b+c=0,
+$$
+すなわち同じく $b=a+c$。従って両者は一致します。
+<!-- solution-end -->
+
+### LA3A-C01 二重 annihilator
+
+$V$ を有限次元ベクトル空間、$W\subset V$ を部分空間とする。$W^\circ\subset V^*$ の annihilator を
+$$
+(W^\circ)^\circ
+=\{F\in V^{**}:F(\varphi)=0\ \text{for all }\varphi\in W^\circ\}
+$$
+と定める。上で定義した写像 $J:V\to V^{**}$ に対して
+$$
+\boxed{J(W)=(W^\circ)^\circ}
+$$
+を示せ。
+
+<!-- solution-start -->
+**解答**：まず $w\in W$ と $\varphi\in W^\circ$ なら
+$$
+J(w)(\varphi)=\varphi(w)=0
+$$
+なので
+$$
+J(W)\subset(W^\circ)^\circ.
+$$
+あとは次元を比較します。$J$ は単射なので
+$$
+\dim J(W)=\dim W.
+$$
+また $\dim V^*=\dim V=n$ と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
+$$
+\dim W^\circ=n-\dim W.
+$$
+これを $V^*$ の部分空間 $W^\circ$ にもう一度適用すると
+$$
+\dim(W^\circ)^\circ
+=n-\dim W^\circ
+=\dim W.
+$$
+包含する有限次元部分空間の次元が等しいため
+$$
+J(W)=(W^\circ)^\circ.
+$$
+「二回消すと元へ戻る」と言っても、厳密には $W\subset V$ と $(W^\circ)^\circ\subset V^{**}$ を写像 $J$ を通して同一視している点が重要です。
 <!-- solution-end -->
 
 ---
