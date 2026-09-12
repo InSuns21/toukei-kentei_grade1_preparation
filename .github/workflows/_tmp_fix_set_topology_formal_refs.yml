@@ -1,0 +1,65 @@
+name: Temporary fix exercise formal references
+
+on:
+  push:
+    branches:
+      - audit/set-topology-exercises-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/set-topology-exercises-20260912
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Link named dependencies in added exercises
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          marker = '<!-- exercise-density-supplement-20260912 -->'
+
+          def patch_tail(path, replacements):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              head, sep, tail = text.partition(marker)
+              if not sep:
+                  raise SystemExit(f'marker missing: {path}')
+              for old, new in replacements:
+                  tail = tail.replace(old, new)
+              p.write_text(head + sep + tail, encoding='utf-8')
+
+          patch_tail(
+              'textbook/volumes/00_foundations/F0_00A1B_実数の上限性質_Archimedes性/index.md',
+              [
+                  ('Archimedes性', '[Archimedes性](#thm-f0-00a1b-archimedean)'),
+                  ('実数の上限性質', '[実数の上限性質](#thm-f0-00a1b-lub)'),
+              ],
+          )
+
+          patch_tail(
+              'textbook/volumes/00_foundations/F0_00C2_コンパクト性の応用_最大最小_最近点/index.md',
+              [
+                  ('Weierstrassの最大最小定理', '[Weierstrassの最大最小定理](#thm-f0-00c2-01)'),
+                  ('Weierstrassの定理', '[Weierstrassの定理](#thm-f0-00c2-01)'),
+                  ('Heine--Borel', '[Heine--Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)'),
+                  ('Heine–Borel', '[Heine–Borel](../F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md#thm-f0-00c1-02)'),
+              ],
+          )
+          PY
+      - name: Remove temporary workflow
+        run: rm .github/workflows/_tmp_fix_set_topology_formal_refs.yml
+      - name: Commit reference fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations .github/workflows
+          git commit -m 'Link formal dependencies in added exercises'
+          git push origin HEAD:audit/set-topology-exercises-20260912
