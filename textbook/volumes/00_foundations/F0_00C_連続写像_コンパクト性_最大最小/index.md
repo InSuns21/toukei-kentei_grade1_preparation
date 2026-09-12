@@ -65,12 +65,59 @@ $$
 > が全ての $y\in X$ について成り立つことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00c-01 -->
+### 1.1 定義の確認：$x^2$ は $x=1$ で連続
+
+**定義の確認**
+
+$f:\mathbb R\to\mathbb R$, $f(t)=t^2$ を $t=1$ で考えます。任意の $\varepsilon>0$ に対し
+
+$$
+\delta=\min\left\{1,\frac{\varepsilon}{3}\right\}
+$$
+
+と取ります。$|t-1|<\delta\le1$ なら $0<t<2$ なので $|t+1|<3$ です。したがって
+
+$$
+|f(t)-f(1)|
+=|t^2-1|
+=|t-1||t+1|
+<3\delta
+\le\varepsilon.
+$$
+
+よって、定義に現れる「任意の $\varepsilon>0$ に対して適切な $\delta>0$ を選ぶ」という条件を $t=1$ で満たしています。
+<!-- definition-example-end -->
+
 <a id="def-f0-00c-02"></a>
  
 <!-- formal-statement-start -->
 > **定義（連続写像）**  
 > 距離空間 $(X,d_X)$、$(Y,d_Y)$ の間の写像 $f:X\to Y$ が **連続写像** であるとは、$f$ が全ての $x\in X$ で連続であることをいう。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00c-02 -->
+### 1.2 定義の確認：一次関数は全ての点で連続
+
+**定義の確認**
+
+$f:\mathbb R\to\mathbb R$, $f(t)=3t+1$ とします。任意の点 $x\in\mathbb R$ と任意の $\varepsilon>0$ に対し
+
+$$
+\delta=\frac{\varepsilon}{3}
+$$
+
+と取れば、$|t-x|<\delta$ から
+
+$$
+|f(t)-f(x)|
+=3|t-x|
+<3\delta
+=\varepsilon
+$$
+
+です。$x$ は任意だったので、この写像は全ての点で連続、すなわち連続写像です。
+<!-- definition-example-end -->
 
 「入力を十分近づければ、出力も好きなだけ近づけられる」という意味です。
 
