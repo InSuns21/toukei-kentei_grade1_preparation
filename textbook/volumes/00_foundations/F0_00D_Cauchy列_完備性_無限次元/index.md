@@ -797,6 +797,165 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00D-A03 Cauchy列は有界
+
+- Level: A
+- 目安時間: 10分
+
+距離空間 $(X,d)$ のCauchy列 $(x_n)$ が有界、すなわちある $x_0\in X$ と $R>0$ が存在して全ての $n$ で
+$$
+d(x_n,x_0)\le R
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+Cauchy条件を $\varepsilon=1$ に適用し、ある $N$ を取って
+$$
+m,n\ge N\Longrightarrow d(x_m,x_n)<1
+$$
+とする。基準点を $x_N$ に取れば $n\ge N$ で
+$$
+d(x_n,x_N)<1.
+$$
+残る $x_1,\ldots,x_{N-1}$ は有限個なので
+$$
+R=1+\max\{d(x_1,x_N),\ldots,d(x_{N-1},x_N)\}
+$$
+とすれば全ての項が $B(x_N,R)$ に入る。
+
+#### 本番答案
+Cauchy条件の $\varepsilon=1$ で尾部を $x_N$ の1球に入れ、有限個の初項を有限半径で吸収する。
+<!-- solution-end -->
+
+### F0-00D-B02 完備な部分空間は閉
+
+- Level: B
+- 目安時間: 15分
+
+距離空間 $(X,d)$ の部分集合 $F\subseteq X$ が、制限距離に関して完備であるとする。$F$ が $X$ で閉であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in\overline F$ を取る。距離空間では閉包点から $F$ の点列を作れ、各 $n$ について
+$$
+x_n\in F\cap B(x,1/n)
+$$
+を取れる。すると $x_n\to x$ なので $(x_n)$ は $X$ でCauchyであり、距離は同じだから $F$ 内でもCauchyである。
+
+$F$ は完備なので、ある $y\in F$ に $x_n\to y$。一方 $X$ では既に $x_n\to x$ である。距離空間では極限は一意だから $x=y\in F$。従って $\overline F\subseteq F$、よって $F$ は閉。
+
+#### 本番答案
+$x\in\overline F$ から $x_n\in F$, $x_n\to x$ を取る。この列はCauchyなので完備性から $F$ 内の $y$ に収束する。極限一意性より $x=y\in F$。従って $F$ は閉。
+<!-- solution-end -->
+
+---
+
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00D-A04 収束列からCauchy条件を再構成する
+
+- Level: A
+- 目安時間: 8分
+
+$x_n\to x$ なら $(x_n)$ がCauchy列であることを、任意の $\varepsilon>0$ に対して $\varepsilon/2$ を用いて示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $\varepsilon>0$ を取る。収束より、ある $N$ が存在して $n\ge N$ なら
+$$
+d(x_n,x)<\varepsilon/2.
+$$
+従って $m,n\ge N$ なら
+$$
+d(x_m,x_n)
+\le d(x_m,x)+d(x,x_n)
+<\varepsilon.
+$$
+よってCauchy列。
+
+#### 本番答案
+$m,n\ge N$ なら $d(x_m,x_n)\le d(x_m,x)+d(x,x_n)<\varepsilon/2+\varepsilon/2=\varepsilon$。
+<!-- solution-end -->
+
+### F0-00D-B03 有限直積の完備性
+
+- Level: B
+- 目安時間: 15分
+
+完備距離空間 $(X,d_X)$、$(Y,d_Y)$ の直積 $X\times Y$ に
+$$
+d((x,y),(x',y'))=\max\{d_X(x,x'),d_Y(y,y')\}
+$$
+を入れる。この距離について $X\times Y$ が完備であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$((x_n,y_n))$ を $X\times Y$ のCauchy列とする。任意の $\varepsilon>0$ に対し十分大きい $m,n$ で
+$$
+\max\{d_X(x_m,x_n),d_Y(y_m,y_n)\}<\varepsilon.
+$$
+従って各座標列 $(x_n)$、$(y_n)$ はそれぞれCauchy。完備性からある $x\in X,y\in Y$ が存在して
+$$
+x_n\to x,\qquad y_n\to y.
+$$
+すると
+$$
+d((x_n,y_n),(x,y))
+=\max\{d_X(x_n,x),d_Y(y_n,y)\}\to0.
+$$
+よって直積は完備。
+
+#### 本番答案
+直積のCauchy列は各座標でCauchy。各空間の完備性で座標極限を取り、max距離で組の収束を確認する。
+<!-- solution-end -->
+
+### F0-00D-C01 完備性からCantor型の交点を得る
+
+- Level: C
+- 目安時間: 22分
+
+完備距離空間 $(X,d)$ で、非空閉集合列
+$$
+F_1\supseteq F_2\supseteq\cdots
+$$
+が
+$$
+\operatorname{diam}(F_n):=\sup\{d(x,y):x,y\in F_n\}\to0
+$$
+を満たすとする。次を示せ。
+
+1. $\bigcap_{n=1}^{\infty}F_n$ は非空。
+2. その共通部分は一点だけからなる。
+
+<!-- solution-start -->
+#### 詳細解答
+各 $n$ から $x_n\in F_n$ を取る。$m\ge n$ なら入れ子性から $x_m\in F_m\subseteq F_n$ であり、$x_n,x_m\in F_n$。従って
+$$
+d(x_n,x_m)\le\operatorname{diam}(F_n).
+$$
+直径が0へ行くので $(x_n)$ はCauchy。$X$ の完備性から $x_n\to x\in X$。
+
+固定した $N$ に対して $n\ge N$ なら $x_n\in F_n\subseteq F_N$。$F_N$ は閉なので極限 $x\in F_N$。$N$ は任意だから
+$$
+x\in\bigcap_NF_N.
+$$
+従って共通部分は非空。
+
+次に $x,y$ がともに全ての $F_n$ に属するとする。すると全ての $n$ で
+$$
+d(x,y)\le\operatorname{diam}(F_n).
+$$
+右辺が0へ収束するため $d(x,y)=0$、従って $x=y$。よって共通部分は一点。
+
+#### 本番答案
+$x_n\in F_n$ を取り、入れ子性と直径→0からCauchy。完備性で極限 $x$ を得て、各 $F_N$ の閉性で $x\in F_N$。一意性は $d(x,y)\le\operatorname{diam}(F_n)\to0$。
+<!-- solution-end -->
+
+---
+
 ## 9. 次に進む
 
 完備性そのものは距離空間の概念です。次講ではベクトル空間へノルムを入れ、Banach空間と有限次元・無限次元の差を整理します。

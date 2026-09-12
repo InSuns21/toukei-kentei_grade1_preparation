@@ -202,6 +202,181 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00A1B-A02 $n\varepsilon$ を任意に大きくする
+
+- Level: A
+- 目安時間: 7分
+
+$\varepsilon>0$、$M>0$ とする。[Archimedes性](#thm-f0-00a1b-archimedean)を用いて、ある $N\in\mathbb N$ が存在し
+$$
+N\varepsilon>M
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$M/\varepsilon$ は実数である。[Archimedes性](#thm-f0-00a1b-archimedean)から
+$$
+N>\frac{M}{\varepsilon}
+$$
+となる自然数 $N$ が存在する。$\varepsilon>0$ を掛ければ $N\varepsilon>M$ となる。
+
+#### 本番答案
+[Archimedes性](#thm-f0-00a1b-archimedean)を $M/\varepsilon$ に適用して $N>M/\varepsilon$ を取ればよい。
+<!-- solution-end -->
+
+### F0-00A1B-A03 $1/n$ の尾部を誤差内に入れる
+
+- Level: A
+- 目安時間: 7分
+
+任意の $\varepsilon>0$ に対して、十分大きい全ての $n$ で
+$$
+\frac1n<\varepsilon
+$$
+となることを量化記号を省略せず示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+[Archimedes性](#thm-f0-00a1b-archimedean)から $N>1/\varepsilon$ となる自然数 $N$ を取れる。$n\ge N$ なら
+$$
+n\ge N>\frac1\varepsilon.
+$$
+正数の逆数を取ると
+$$
+0<\frac1n\le\frac1N<\varepsilon.
+$$
+従って
+$$
+\forall\varepsilon>0\ \exists N\in\mathbb N\ \forall n\ge N:\ \frac1n<\varepsilon.
+$$
+
+#### 本番答案
+$N>1/\varepsilon$ を取る。$n\ge N$ なら $1/n\le1/N<\varepsilon$。
+<!-- solution-end -->
+
+### F0-00A1B-B01 自然数全体は上に有界でない
+
+- Level: B
+- 目安時間: 10分
+
+[実数の上限性質](#thm-f0-00a1b-lub)を仮定し、$\mathbb N$ が上に有界であると仮定すると矛盾することを、$s=\sup\mathbb N$ を使って再構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$\mathbb N$ が上に有界なら上限性質により $s=\sup\mathbb N$ が存在する。$s-1<s$ なので $s-1$ は最小上界 $s$ より小さく、上界ではない。従ってある $n\in\mathbb N$ が $n>s-1$ を満たす。すると $n+1>s$ だが $n+1\in\mathbb N$ であり、$s$ が上界であることに反する。
+
+#### 本番答案
+$s=\sup\mathbb N$ とすると $s-1$ は上界でないため $n>s-1$ となる $n\in\mathbb N$ がある。よって $n+1>s$。しかし $n+1\in\mathbb N$ なので矛盾。
+<!-- solution-end -->
+
+### F0-00A1B-B02 下限版の存在保証
+
+- Level: B
+- 目安時間: 12分
+
+[実数の上限性質](#thm-f0-00a1b-lub)を用いて、空でなく下に有界な $A\subseteq\mathbb R$ には $\inf A$ が存在することを示せ。$-A:=\{-a:a\in A\}$ を使ってよい。
+
+<!-- solution-start -->
+#### 詳細解答
+$A$ が下に有界なら、ある $m$ が全ての $a\in A$ に対して $m\le a$ を満たす。従って $-a\le-m$ なので $-A$ は上に有界であり、空でもない。上限性質から
+$$
+s=\sup(-A)
+$$
+が存在する。
+
+$-s$ は $A$ の下界である。実際 $-a\le s$ から $a\ge-s$。さらに $\ell>-s$ なら $-\ell<s$ なので $-\ell$ は $-A$ の上界ではない。よってある $a\in A$ で $-a>-\ell$、すなわち $a<\ell$。従って $\ell$ は下界ではない。よって $-s$ が最大の下界である。
+
+#### 本番答案
+$-A$ は空でなく上に有界なので $s=\sup(-A)$ が存在する。すると $-s$ は $A$ の下界で、これより大きい数は下界になれない。従って
+$$
+\boxed{\inf A=-\sup(-A)}.
+$$
+<!-- solution-end -->
+
+---
+
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00A1B-A04 $1/n^2$ を誤差内に入れる
+
+- Level: A
+- 目安時間: 8分
+
+任意の $\varepsilon>0$ に対して、十分大きい $n$ で
+$$
+\frac1{n^2}<\varepsilon
+$$
+となることを [Archimedes性](#thm-f0-00a1b-archimedean) から示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$1/\sqrt\varepsilon$ は正の実数なので、[Archimedes性](#thm-f0-00a1b-archimedean)から
+$$
+N>\frac1{\sqrt\varepsilon}
+$$
+となる自然数 $N$ を取れる。$n\ge N$ なら $n>1/\sqrt\varepsilon$ なので
+$$
+\frac1{n^2}<\varepsilon.
+$$
+
+#### 本番答案
+$N>1/\sqrt\varepsilon$ を取れば $n\ge N$ で $1/n^2<\varepsilon$。
+<!-- solution-end -->
+
+### F0-00A1B-B03 二点の間に $a+1/N$ を入れる
+
+- Level: B
+- 目安時間: 10分
+
+実数 $a<b$ に対し、ある $N\in\mathbb N$ が存在して
+$$
+a<a+\frac1N<b
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$b-a>0$ だから、[Archimedes性](#thm-f0-00a1b-archimedean)の系より
+$$
+\frac1N<b-a
+$$
+となる自然数 $N$ が存在する。$1/N>0$ なので $a<a+1/N$、また不等式へ $a$ を加えて $a+1/N<b$。従って主張が従う。
+
+#### 本番答案
+$1/N<b-a$ を満たす $N$ を取れば
+$$
+a<a+1/N<b.
+$$
+<!-- solution-end -->
+
+### F0-00A1B-C01 正の無限小は実数には存在しない
+
+- Level: C
+- 目安時間: 15分
+
+$r>0$ が
+$$
+nr\le1\qquad(\forall n\in\mathbb N)
+$$
+を満たす実数だと仮定すると矛盾することを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$r>0$ なので $1/r\in\mathbb R$。 [Archimedes性](#thm-f0-00a1b-archimedean) から
+$$
+n>\frac1r
+$$
+となる自然数 $n$ が存在する。両辺に $r>0$ を掛けると $nr>1$。これは全ての自然数について $nr\le1$ という仮定に矛盾する。
+
+#### 本番答案
+[Archimedes性](#thm-f0-00a1b-archimedean)で $n>1/r$ を取れば $nr>1$ となり矛盾。
+<!-- solution-end -->
+
+---
+
 ## 6. 次に進む
 
 次は、位相や選択公理に現れる記号を読むため、**べき集合・集合族・添字集合・任意和/任意交差**を正式に定義します。

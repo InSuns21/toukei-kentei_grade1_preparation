@@ -65,12 +65,59 @@ $$
 > が全ての $y\in X$ について成り立つことをいう。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00c-01 -->
+### 1.1 定義の確認：$x^2$ は $x=1$ で連続
+
+**定義の確認**
+
+$f:\mathbb R\to\mathbb R$, $f(t)=t^2$ を $t=1$ で考えます。任意の $\varepsilon>0$ に対し
+
+$$
+\delta=\min\left\{1,\frac{\varepsilon}{3}\right\}
+$$
+
+と取ります。$|t-1|<\delta\le1$ なら $0<t<2$ なので $|t+1|<3$ です。したがって
+
+$$
+|f(t)-f(1)|
+=|t^2-1|
+=|t-1||t+1|
+<3\delta
+\le\varepsilon.
+$$
+
+よって、定義に現れる「任意の $\varepsilon>0$ に対して適切な $\delta>0$ を選ぶ」という条件を $t=1$ で満たしています。
+<!-- definition-example-end -->
+
 <a id="def-f0-00c-02"></a>
  
 <!-- formal-statement-start -->
 > **定義（連続写像）**  
 > 距離空間 $(X,d_X)$、$(Y,d_Y)$ の間の写像 $f:X\to Y$ が **連続写像** であるとは、$f$ が全ての $x\in X$ で連続であることをいう。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00c-02 -->
+### 1.2 定義の確認：一次関数は全ての点で連続
+
+**定義の確認**
+
+$f:\mathbb R\to\mathbb R$, $f(t)=3t+1$ とします。任意の点 $x\in\mathbb R$ と任意の $\varepsilon>0$ に対し
+
+$$
+\delta=\frac{\varepsilon}{3}
+$$
+
+と取れば、$|t-x|<\delta$ から
+
+$$
+|f(t)-f(x)|
+=3|t-x|
+<3\delta
+=\varepsilon
+$$
+
+です。$x$ は任意だったので、この写像は全ての点で連続、すなわち連続写像です。
+<!-- definition-example-end -->
 
 「入力を十分近づければ、出力も好きなだけ近づけられる」という意味です。
 
@@ -367,6 +414,169 @@ $$
 - 連続性を逆像へ適用: 7点
 - 逆像と補集合の関係: 5点
 - 結論: 3点
+<!-- solution-end -->
+
+---
+
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00C-A02 $\varepsilon$--$\delta$ で一次関数の連続性を示す
+
+- Level: A
+- 目安時間: 8分
+
+$f:\mathbb R\to\mathbb R$, $f(x)=3x+1$ が任意の $x_0\in\mathbb R$ で連続であることを $\varepsilon$--$\delta$ 定義から示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $\varepsilon>0$ に対し $\delta=\varepsilon/3$ と取る。$|x-x_0|<\delta$ なら
+$$
+|f(x)-f(x_0)|
+=|3x+1-(3x_0+1)|
+=3|x-x_0|
+<3\delta
+=\varepsilon.
+$$
+従って $f$ は $x_0$ で連続である。$x_0$ は任意なので全域で連続。
+
+#### 本番答案
+$\delta=\varepsilon/3$ と取れば
+$$
+|f(x)-f(x_0)|=3|x-x_0|<\varepsilon.
+$$
+<!-- solution-end -->
+
+### F0-00C-A03 点列で不連続性を検出する
+
+- Level: A
+- 目安時間: 8分
+
+$$
+f(x)=\begin{cases}
+0,&x<0,\\
+1,&x\ge0
+\end{cases}
+$$
+が $x=0$ で連続でないことを、適切な点列を一つ作って示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x_n=-1/n$ と置けば $x_n\to0$ である。しかし全ての $n$ で $x_n<0$ なので
+$$
+f(x_n)=0,
+$$
+一方 $f(0)=1$。従って $f(x_n)$ は $f(0)$ に収束しない。距離空間における連続性の点列特徴付けから $f$ は0で不連続である。
+
+#### 本番答案
+$x_n=-1/n\to0$ だが $f(x_n)=0\not\to1=f(0)$。よって不連続。
+<!-- solution-end -->
+
+### F0-00C-B02 連続写像の合成
+
+- Level: B
+- 目安時間: 12分
+
+位相空間 $X,Y,Z$ と連続写像 $f:X\to Y$, $g:Y\to Z$ に対し、$g\circ f:X\to Z$ が連続であることを開集合の逆像から示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$U\subseteq Z$ を任意の開集合とする。$g$ の連続性から $g^{-1}(U)$ は $Y$ で開。さらに $f$ の連続性から
+$$
+f^{-1}(g^{-1}(U))
+$$
+は $X$ で開である。一方
+$$
+(g\circ f)^{-1}(U)=f^{-1}(g^{-1}(U)).
+$$
+従って任意の開集合の逆像が開であり、$g\circ f$ は連続。
+
+#### 本番答案
+$$
+(g\circ f)^{-1}(U)=f^{-1}(g^{-1}(U))
+$$
+で、右辺は連続性を二回使えば開。従って合成も連続。
+<!-- solution-end -->
+
+---
+
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00C-A04 絶対値関数の連続性
+
+- Level: A
+- 目安時間: 8分
+
+$f(x)=|x|$ が $\mathbb R$ 上で連続であることを
+$$
+\bigl||x|-|y|\bigr|\le|x-y|
+$$
+を使って示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x_0\in\mathbb R$ と $\varepsilon>0$ を任意に取る。$\delta=\varepsilon$ とすれば、$|x-x_0|<\delta$ から
+$$
+\bigl|f(x)-f(x_0)\bigr|
+=\bigl||x|-|x_0|\bigr|
+\le|x-x_0|
+<\varepsilon.
+$$
+従って $f$ は任意の $x_0$ で連続。
+
+#### 本番答案
+$\delta=\varepsilon$ と取れば $\bigl||x|-|x_0|\bigr|\le |x-x_0|<\varepsilon$ となる。
+<!-- solution-end -->
+
+### F0-00C-B03 閉包と連続像
+
+- Level: B
+- 目安時間: 14分
+
+距離空間 $X,Y$、連続写像 $f:X\to Y$、集合 $A\subseteq X$ に対して
+$$
+f(\overline A)\subseteq\overline{f(A)}
+$$
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in\overline A$ を取る。各 $n$ について閉包の定義から $A\cap B(x,1/n)\ne\varnothing$ なので、$a_n\in A\cap B(x,1/n)$ を一つ取る。すると $a_n\to x$。連続性から
+$$
+f(a_n)\to f(x).
+$$
+各 $f(a_n)\in f(A)$ で $f(a_n)\to f(x)$ だから、$f(x)$ の任意の近傍は十分大きい $n$ の $f(a_n)$ を含み、$f(A)$ と交わる。従って閉包の定義から $f(x)\in\overline{f(A)}$。よって包含が成り立つ。
+
+#### 本番答案
+$x\in\overline A$ なら各 $n$ で $a_n\in A\cap B(x,1/n)$ を取り、$a_n\to x$ とできる。連続性で $f(a_n)\to f(x)$ なので、$f(x)$ の任意の近傍が $f(A)$ と交わる。
+<!-- solution-end -->
+
+### F0-00C-C01 不連続なら反例列を作れる
+
+- Level: C
+- 目安時間: 18分
+
+距離空間 $X,Y$ の写像 $f:X\to Y$ が点 $x\in X$ で連続でないとする。ある点列 $x_n\to x$ が存在して $f(x_n)\not\to f(x)$ となることを定義から構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$f$ が $x$ で連続でないので、ある $\varepsilon_0>0$ が存在し、どの $\delta>0$ に対しても
+$$
+d_X(x,y)<\delta,\qquad d_Y(f(x),f(y))\ge\varepsilon_0
+$$
+を満たす $y$ が存在する。
+
+各 $n$ で $\delta=1/n$ として、そのような点を $x_n$ と選ぶ。すると
+$$
+d_X(x_n,x)<1/n
+$$
+なので $x_n\to x$。しかし全ての $n$ で
+$$
+d_Y(f(x_n),f(x))\ge\varepsilon_0,
+$$
+従って $f(x_n)$ は $f(x)$ に収束しない。
+
+#### 本番答案
+ある $\varepsilon_0>0$ があり、各 $n$ で $d_X(x_n,x)<1/n$ かつ $d_Y(f(x_n),f(x))\ge\varepsilon_0$ となる $x_n$ を選べる。従って $x_n\to x$ だが像は $\varepsilon_0$ 以上離れ続ける。
 <!-- solution-end -->
 
 ---
