@@ -296,29 +296,13 @@ $$
 
 ## 6.5 証明で使う陰関数定理
 
-<a id="thm-f0-02c5a-implicit-function"></a>
-
-<!-- formal-statement-start -->
-> **定理（陰関数定理：有限次元の局所グラフ表示）**  
-> $h:\mathbb R^{p+q}\to\mathbb R^q$ を $C^1$ 級とし、$h(u^*,z^*)=0$、$D_zh(u^*,z^*)$ が正則であるとします。このとき $(u^*,z^*)$ の近くで $h(u,z)=0$ は
+以下では [RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\varphi(u)$ として表せます。必要な微分公式は
 
 $$
-z=\varphi(u)
+D\varphi(u^*)=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
 $$
 
-> と一意に表せる $C^1$ 級写像 $\varphi$ を持ち、
-
-$$
-\boxed{
-D\varphi(u^*)
-=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
-}
-$$
-
-> が成り立ちます。
-<!-- formal-statement-end -->
-
-この定理により、等式制約を壊さない接方向を実際の曲線として実現できます。
+です。証明は RA6A で逆関数定理から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。
 
 ---
 
@@ -339,7 +323,7 @@ $$
 
 ### 証明の見取り図
 
-$d\in L_C(x^*)$ に MFCQ 方向 $v$ を少量足して $d_\varepsilon=d+\varepsilon v$ とすると、active不等式の方向微分がすべて厳密に負になります。等式制約は陰関数定理で作る等式多様体上の曲線に沿わせます。
+$d\in L_C(x^*)$ に MFCQ 方向 $v$ を少量足して $d_\varepsilon=d+\varepsilon v$ とすると、active不等式の方向微分がすべて厳密に負になります。等式制約は[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。
 
 <!-- proof-start -->
 ### 証明
@@ -364,7 +348,7 @@ $$
 \nabla g_i(x^*)^{\mathsf T}d_\varepsilon<0.
 $$
 
-MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。[陰関数定理](#thm-f0-02c5a-implicit-function)により、$x^*$ の近くで等式集合 $h(x)=0$ は
+MFCQ の第1条件から $Dh(x^*)$ は行フルランクです。座標を並べ替えれば、$x=(u,z)$ と分けたとき $D_zh(x^*)$ を正則にできます。[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)により、$x^*$ の近くで等式集合 $h(x)=0$ は
 
 $$
 z=\varphi(u)
@@ -372,7 +356,7 @@ $$
 
 と表せます。
 
-$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と[陰関数定理の微分公式](#thm-f0-02c5a-implicit-function)から
+$d_\varepsilon=(d_u,d_z)$ と分けます。$Dh(x^*)d_\varepsilon=0$ と[陰関数定理の微分公式](../RA6A/index.md#thm-ra6a-implicit-function)から
 
 $$
 D\varphi(u^*)d_u=d_z.

@@ -4,10 +4,10 @@
 
 この章の答えは次の二つです。
 
-- **逆関数定理**：$Df(a)$ が可逆なら、$f$ 自身も $a$ の近くで可逆になり、逆写像も $C^1$ 級になる。
-- **陰関数定理**：方程式 $F(x,y)=0$ で $y$ 側の微分が可逆なら、局所的には $y=\varphi(x)$ と解ける。
+- **[逆関数定理](#thm-ra6a-inverse-function)**：$Df(a)$ が可逆なら、$f$ 自身も $a$ の近くで可逆になり、逆写像も $C^1$ 級になる。
+- **[陰関数定理](#thm-ra6a-implicit-function)**：方程式 $F(x,y)=0$ で $y$ 側の微分が可逆なら、局所的には $y=\varphi(x)$ と解ける。
 
-両者は別々の暗記項目ではありません。陰関数定理は
+両者は別々の暗記項目ではありません。[陰関数定理](#thm-ra6a-implicit-function)は
 
 $$
 G(x,y)=(x,F(x,y))
@@ -15,7 +15,7 @@ $$
 
 へ逆関数定理を適用して得られます。この一本の流れを証明まで追うことが本章の主題です。
 
-前提として [多変数微分・Fréchet微分](../F0_02C3_Frechet微分_線形作用素_随伴/index.md)、[Riemann積分と微積分学の基本定理](../RA4/index.md)、[行列式と可逆性](../LA3C/index.md) を使います。後続の [多重Riemann積分・変数変換](../RA7/index.md) では、ここで得る局所可逆性が座標変換の理論的な土台になります。
+前提として [多変数微分・Fréchet微分](../F0_02C3_Frechet微分_線形作用素_随伴/index.md)、[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)、[行列式と可逆性](../LA3C/index.md) を使います。後続の [多重Riemann積分・変数変換](../RA7/index.md) では、ここで得る局所可逆性が座標変換の理論的な土台になります。
 
 ---
 
@@ -86,10 +86,12 @@ $$
 <!-- formal-statement-start -->
 > **補題（線分上の微分の積分表示）**  
 > $U\subset\mathbb R^n$ を開集合、$g:U\to\mathbb R^m$ を $C^1$ 級とする。$x,z\in U$ を結ぶ線分 $[z,x]$ が $U$ に含まれるなら
-> $$
-> g(x)-g(z)
-> =\int_0^1Dg(z+t(x-z))(x-z)\,dt.
-> $$
+
+$$
+g(x)-g(z)
+=\int_0^1Dg(z+t(x-z))(x-z)\,dt.
+$$
+
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -141,9 +143,11 @@ $$
 <!-- formal-statement-start -->
 > **補題（閉球上の収縮写像）**  
 > $B\subset\mathbb R^n$ を閉球とし、$T:B\to B$ がある $0\le q<1$ に対して
-> $$
-> \|T(x)-T(z)\|\le q\|x-z\|
-> $$
+
+$$
+\|T(x)-T(z)\|\le q\|x-z\|
+$$
+
 > をすべての $x,z\in B$ で満たすとする。このとき $T$ はただ一つの不動点 $x_*$ を持つ。
 <!-- formal-statement-end -->
 
@@ -209,13 +213,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（逆関数定理）**  
 > $U\subset\mathbb R^n$ を開集合、$f:U\to\mathbb R^n$ を $C^1$ 級とする。$a\in U$ で $Df(a)$ が可逆なら、$a$ の開近傍 $V\subset U$ と $f(a)$ の開近傍 $W$ が存在して、制限
-> $$
-> f|_V:V\to W
-> $$
+
+$$
+f|_V:V\to W
+$$
+
 > は全単射であり、その逆写像 $f^{-1}:W\to V$ も $C^1$ 級である。さらに $x\in V$ に対して
-> $$
-> D(f^{-1})(f(x))=[Df(x)]^{-1}.
-> $$
+
+$$
+D(f^{-1})(f(x))=[Df(x)]^{-1}.
+$$
+
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -287,7 +295,7 @@ $$
 DT_y(x)=I-Df(x)
 $$
 
-なので、Section 2 の線分積分表示から
+なので、[線分上の微分の積分表示](#lem-ra6a-segment-integral)から
 
 $$
 \|T_y(x)-T_y(z)\|
@@ -318,7 +326,7 @@ $$
 <qr+(1-q)r=r.
 $$
 
-よって $T_y$ は $\overline{B_r(0)}$ をそれ自身へ写します。収縮写像補題から、各
+よって $T_y$ は $\overline{B_r(0)}$ をそれ自身へ写します。[閉球上の収縮写像](#lem-ra6a-contraction)から、各
 
 $$
 y\in B_{(1-q)r}(0)
@@ -540,24 +548,32 @@ $$
 <!-- formal-statement-start -->
 > **定理（陰関数定理）**  
 > $U\subset\mathbb R^{m+n}$ を開集合、$F:U\to\mathbb R^n$ を $C^1$ 級とする。$(a,b)\in U$ が
-> $$
-> F(a,b)=0
-> $$
+
+$$
+F(a,b)=0
+$$
+
 > を満たし、$y$ に関する偏微分
-> $$
-> D_yF(a,b):\mathbb R^n\to\mathbb R^n
-> $$
+
+$$
+D_yF(a,b):\mathbb R^n\to\mathbb R^n
+$$
+
 > が可逆であるとする。このとき $a$ の開近傍 $A$ と $b$ の開近傍 $B$、ただ一つの $C^1$ 級写像 $\varphi:A\to B$ が存在し、$(x,y)\in A\times B$ では
-> $$
-> F(x,y)=0
-> \quad\Longleftrightarrow\quad
-> y=\varphi(x).
-> $$
+
+$$
+F(x,y)=0
+\quad\Longleftrightarrow\quad
+y=\varphi(x).
+$$
+
 > さらに
-> $$
-> D\varphi(x)
-> =-[D_yF(x,\varphi(x))]^{-1}D_xF(x,\varphi(x)).
-> $$
+
+$$
+D\varphi(x)
+=-[D_yF(x,\varphi(x))]^{-1}D_xF(x,\varphi(x)).
+$$
+
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -698,7 +714,7 @@ $$
 
 です。
 
-陰関数定理の微分公式から
+[陰関数定理の微分公式](#thm-ra6a-implicit-function)から
 
 $$
 \varphi'(x)
@@ -779,19 +795,23 @@ $$
 
 ## 7. 正則なレベル集合は局所的にグラフになる
 
-陰関数定理から、曲線・曲面を「方程式の解集合」として扱う基本結果が得られます。
+[陰関数定理](#thm-ra6a-implicit-function)から、曲線・曲面を「方程式の解集合」として扱う基本結果が得られます。
 
 <a id="cor-ra6a-regular-level-set"></a>
 <!-- formal-statement-start -->
 > **系（正則レベル集合の局所グラフ表示）**  
 > $F:U\subset\mathbb R^n\to\mathbb R^k$ を $C^1$ 級、$p\in U$ とする。$DF(p)$ の階数が $k$ なら、座標を必要に応じて並べ替えることで $x=(u,v)\in\mathbb R^{n-k}\times\mathbb R^k$ と書け、$p=(u_0,v_0)$ の近くで
-> $$
-> F(x)=F(p)
-> $$
+
+$$
+F(x)=F(p)
+$$
+
 > の解集合は
-> $$
-> v=\varphi(u)
-> $$
+
+$$
+v=\varphi(u)
+$$
+
 > という $C^1$ 級グラフになる。特に自由度は局所的に $n-k$ 個である。
 <!-- formal-statement-end -->
 
@@ -815,7 +835,7 @@ $$
 となります。$H=0$ は $F=F(p)$ と同値なので主張が従います。$\square$
 <!-- proof-end -->
 
-この結果は一般の定数階数定理そのものではありません。本章で必要な「最大階数のレベル集合」の局所形だけを陰関数定理から取り出しています。
+この結果は一般の定数階数定理そのものではありません。本章で必要な「最大階数のレベル集合」の局所形だけを[陰関数定理](#thm-ra6a-implicit-function)から取り出しています。
 
 さらに $p$ における接方向も読めます。グラフ表示
 
@@ -845,13 +865,17 @@ $$
 <!-- formal-statement-start -->
 > **系（Lagrange未定乗数法）**  
 > $f:U\subset\mathbb R^n\to\mathbb R$、$g:U\to\mathbb R^k$ を $C^1$ 級とする。$p\in U$ が制約
-> $$
-> g(x)=g(p)
-> $$
+
+$$
+g(x)=g(p)
+$$
+
 > の下で $f$ の局所極値点であり、$Dg(p)$ の階数が $k$ であるとする。このときある $\lambda\in\mathbb R^k$ が存在して
-> $$
-> \nabla f(p)=Dg(p)^{\mathsf T}\lambda.
-> $$
+
+$$
+\nabla f(p)=Dg(p)^{\mathsf T}\lambda.
+$$
+
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1036,7 +1060,7 @@ $$
 \det Df(x,y)=e^{2x}>0.
 $$
 
-$f$ は $C^1$ 級で、微分は任意の点で可逆です。従って逆関数定理から、各点ごとに十分小さい近傍を取れば局所逆写像が存在します。
+$f$ は $C^1$ 級で、微分は任意の点で可逆です。従って [逆関数定理](#thm-ra6a-inverse-function) から、各点ごとに十分小さい近傍を取れば局所逆写像が存在します。
 
 しかし
 
@@ -1063,7 +1087,7 @@ $$
 F(x,y)=x^2+y^2-1
 $$
 
-について、点 $(0,1)$ の近くで $y=\varphi(x)$ と解けることを示し、$\varphi'(0)$ を陰関数定理から求めよ。また $(1,0)$ で同じ向きに解けない理由を述べよ。
+について、点 $(0,1)$ の近くで $y=\varphi(x)$ と解けることを示し、$\varphi'(0)$ を[陰関数定理](#thm-ra6a-implicit-function)から求めよ。また $(1,0)$ で同じ向きに解けない理由を述べよ。
 
 <!-- solution-start -->
 **解答**：$(0,1)$ では
@@ -1140,7 +1164,7 @@ $$
 F_y(1,0)=2\ne0.
 $$
 
-従って陰関数定理から、$x=1$ の近くでただ一つの $C^1$ 級関数 $y=\varphi(x)$ が存在します。
+従って [陰関数定理](#thm-ra6a-implicit-function) から、$x=1$ の近くでただ一つの $C^1$ 級関数 $y=\varphi(x)$ が存在します。
 
 また
 
@@ -1220,7 +1244,7 @@ $$
 =(1+q)\|x-z\|.
 $$
 
-下側は逆三角不等式から
+下側は[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)から
 
 $$
 \begin{aligned}
@@ -1324,7 +1348,7 @@ $$
 \nabla g=2(x,y,z)\ne0
 $$
 
-なので $Dg$ の階数は1です。従って [Lagrange未定乗数法](#cor-ra6a-lagrange) の正則性条件を満たします。
+なので $Dg$ の階数は1です。従って [Lagrange未定乗数法](#cor-ra6a-lagrange) の適用条件を満たします。
 
 極値点ではある $\lambda$ に対して
 

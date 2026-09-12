@@ -13,7 +13,6 @@ forward_references:
   - analysis.ck-uniform-norm
   - complex-analysis.isolated-singularity
   - convex.hyperplane
-  - statistics.regularity-assumptions
 
 concepts:
   - id: analysis.segment-derivative-integral-formula
