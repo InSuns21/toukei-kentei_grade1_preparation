@@ -89,3 +89,4 @@ $$''')],
           git add textbook/volumes/00_foundations/LA3A/index.md textbook/volumes/00_foundations/LA3C/index.md textbook/volumes/00_foundations/LA3D/index.md .github/workflows/tmp-la3-formal-math.yml
           git commit -m "Align LA3 formal statements with math rendering style [formal-math-fixed]"
           git push origin HEAD:audit/la3abcd-quality-20260912
+# trigger after registration
