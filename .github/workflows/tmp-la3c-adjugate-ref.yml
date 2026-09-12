@@ -23,11 +23,11 @@ jobs:
           from pathlib import Path
           p = Path('textbook/volumes/00_foundations/LA3C/index.md')
           s = p.read_text(encoding='utf-8')
-          old = '余因子行列の基本恒等式'
-          new = '[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)'
+          old = '余因子行列の基本恒等式から'
+          new = '[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)から'
           n = s.count(old)
           if n != 2:
-              raise SystemExit(f'expected 2 occurrences, got {n}')
+              raise SystemExit(f'expected 2 dependency occurrences, got {n}')
           p.write_text(s.replace(old, new), encoding='utf-8')
           PY
       - name: Remove temporary workflow
@@ -39,4 +39,4 @@ jobs:
           git add textbook/volumes/00_foundations/LA3C/index.md .github/workflows/tmp-la3c-adjugate-ref.yml
           git commit -m "Link LA3C adjugate identity references [adjugate-ref-fixed]"
           git push origin HEAD:audit/la3abcd-quality-20260912
-# trigger after workflow registration
+# targeted trigger
