@@ -37,7 +37,10 @@ flowchart TD
   RA2 --> RA5["実解析 V<br/>関数列・級数・一様収束<br/>RA5"]
   RA3 --> RA6["実解析 VI<br/>多変数微分・Fréchet微分<br/>既存 F0-02C3"]
   RA4 --> RA7["実解析 VII<br/>重積分・変数変換<br/>RA7"]
+  RA6 --> RA7
+  LA3C --> RA7
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
+  TOP5 --> RA8
 
   TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
   TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
