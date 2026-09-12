@@ -1,0 +1,41 @@
+name: Temporary LA3C adjugate reference fix
+
+on:
+  push:
+    branches:
+      - audit/la3abcd-quality-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, '[adjugate-ref-fixed]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/la3abcd-quality-20260912
+          fetch-depth: 0
+      - name: Replace unresolved named dependency with canonical link
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/LA3C/index.md')
+          s = p.read_text(encoding='utf-8')
+          old = '余因子行列の基本恒等式'
+          new = '[上で示した余因子行列の等式](#thm-la3c-adjugate-identity)'
+          n = s.count(old)
+          if n != 2:
+              raise SystemExit(f'expected 2 occurrences, got {n}')
+          p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
+      - name: Remove temporary workflow
+        run: rm -f .github/workflows/tmp-la3c-adjugate-ref.yml
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/LA3C/index.md .github/workflows/tmp-la3c-adjugate-ref.yml
+          git commit -m "Link LA3C adjugate identity references [adjugate-ref-fixed]"
+          git push origin HEAD:audit/la3abcd-quality-20260912
