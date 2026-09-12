@@ -30,11 +30,16 @@ concepts:
     kind: theorem
     aliases: [連続関数のRiemann可積分性]
     requires: [analysis.riemann-integrable, analysis.heine-cantor]
+  - id: analysis.riemann-integral-basic-properties
+    name: Riemann積分の基本性質（線形性・単調性・区間加法性）
+    kind: theorem
+    aliases: [Riemann積分の基本性質（線形性・単調性・区間加法性）]
+    requires: [analysis.riemann-integrable, analysis.darboux-integrability-criterion]
   - id: analysis.ftc-1
     name: 微積分学の基本定理I
     kind: theorem
     aliases: [微積分学の基本定理I, FTC I]
-    requires: [analysis.riemann-integrable]
+    requires: [analysis.continuous-riemann-integrable, analysis.riemann-integral-basic-properties]
   - id: analysis.ftc-2
     name: 微積分学の基本定理II
     kind: theorem
