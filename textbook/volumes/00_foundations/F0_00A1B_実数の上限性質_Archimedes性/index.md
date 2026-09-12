@@ -209,7 +209,7 @@ $$
 - Level: A
 - 目安時間: 7分
 
-$\varepsilon>0$、$M>0$ とする。Archimedes性を用いて、ある $N\in\mathbb N$ が存在し
+$\varepsilon>0$、$M>0$ とする。[Archimedes性](#thm-f0-00a1b-archimedean)を用いて、ある $N\in\mathbb N$ が存在し
 $$
 N\varepsilon>M
 $$
@@ -217,14 +217,14 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$M/\varepsilon$ は実数である。Archimedes性から
+$M/\varepsilon$ は実数である。[Archimedes性](#thm-f0-00a1b-archimedean)から
 $$
 N>\frac{M}{\varepsilon}
 $$
 となる自然数 $N$ が存在する。$\varepsilon>0$ を掛ければ $N\varepsilon>M$ となる。
 
 #### 本番答案
-Archimedes性を $M/\varepsilon$ に適用して $N>M/\varepsilon$ を取ればよい。
+[Archimedes性](#thm-f0-00a1b-archimedean)を $M/\varepsilon$ に適用して $N>M/\varepsilon$ を取ればよい。
 <!-- solution-end -->
 
 ### F0-00A1B-A03 $1/n$ の尾部を誤差内に入れる
@@ -240,7 +240,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-Archimedes性から $N>1/\varepsilon$ となる自然数 $N$ を取れる。$n\ge N$ なら
+[Archimedes性](#thm-f0-00a1b-archimedean)から $N>1/\varepsilon$ となる自然数 $N$ を取れる。$n\ge N$ なら
 $$
 n\ge N>\frac1\varepsilon.
 $$
@@ -262,7 +262,7 @@ $N>1/\varepsilon$ を取る。$n\ge N$ なら $1/n\le1/N<\varepsilon$。
 - Level: B
 - 目安時間: 10分
 
-実数の上限性質を仮定し、$\mathbb N$ が上に有界であると仮定すると矛盾することを、$s=\sup\mathbb N$ を使って再構成せよ。
+[実数の上限性質](#thm-f0-00a1b-lub)を仮定し、$\mathbb N$ が上に有界であると仮定すると矛盾することを、$s=\sup\mathbb N$ を使って再構成せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -277,7 +277,7 @@ $s=\sup\mathbb N$ とすると $s-1$ は上界でないため $n>s-1$ となる 
 - Level: B
 - 目安時間: 12分
 
-実数の上限性質を用いて、空でなく下に有界な $A\subseteq\mathbb R$ には $\inf A$ が存在することを示せ。$-A:=\{-a:a\in A\}$ を使ってよい。
+[実数の上限性質](#thm-f0-00a1b-lub)を用いて、空でなく下に有界な $A\subseteq\mathbb R$ には $\inf A$ が存在することを示せ。$-A:=\{-a:a\in A\}$ を使ってよい。
 
 <!-- solution-start -->
 #### 詳細解答
