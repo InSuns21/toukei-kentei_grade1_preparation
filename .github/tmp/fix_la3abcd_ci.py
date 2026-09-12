@@ -30,3 +30,4 @@ edit('LA3C', [
 ])
 
 print('LA3A-D CI wording/reference fixes applied')
+# trigger after workflow registration
