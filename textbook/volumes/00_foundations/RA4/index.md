@@ -172,8 +172,8 @@ FTCへ進む前に、そこで暗黙に使う性質をDarboux和から閉じて�
 
 <a id="thm-ra4-integral-properties"></a>
 <!-- formal-statement-start -->
-> **定理（Riemann積分の基本性質）**  
-> $f,g:[a,b]\to\mathbb R$ をRiemann可積分関数、$\alpha,\beta\in\mathbb R$ とする。このとき $\alpha f+\beta g$ もRiemann可積分で
+> **定理（Riemann積分の基本性質（線形性・単調性・区間加法性））**  
+> $f,g:[a,b]\to\mathbb R$ をRiemann可積分な関数、$\alpha,\beta\in\mathbb R$ とする。このとき $\alpha f+\beta g$ もRiemann可積分で
 $$
 \int_a^b(\alpha f+\beta g)
 =\alpha\int_a^bf+\beta\int_a^bg.
@@ -325,7 +325,7 @@ U(f,Q)-L(f,Q)
 =[U(f,Q_1)-L(f,Q_1)]
 +[U(f,Q_2)-L(f,Q_2)].
 $$
-右辺の二項はともに非負なので、それぞれが $\varepsilon$ 未満です。$\varepsilon>0$ は任意だったから、Darboux可積分性判定より $f$ は $[a,c]$ と $[c,b]$ の両方で可積分です。$c=a,b$ の場合は自明です。
+右辺の二項はともに非負なので、それぞれが $\varepsilon$ 未満です。$\varepsilon>0$ は任意だったから、[Darboux可積分性判定](#thm-ra4-darboux-criterion) より $f$ は $[a,c]$ と $[c,b]$ の両方で可積分です。$c=a,b$ の場合は自明です。
 
 #### 5. 積分区間の加法性
 
@@ -364,7 +364,7 @@ $$
 \qquad
 \int_b^a f:=-\int_a^b f\quad(a<b)
 $$
-と定義します。この規約と上の加法性を合わせれば、$x,y,z$ の大小関係によらず
+と定義します。この規約と上の加法性を合わせれば、$x,y,z\in[a,b]$ の大小関係によらず
 $$
 \int_x^z f=\int_x^y f+\int_y^z f
 $$
@@ -376,7 +376,7 @@ $$
 $$
 -M\le g(t)\le M.
 $$
-[Riemann積分の基本性質](#thm-ra4-integral-properties) の単調性と定数関数の積分から
+[Riemann積分の基本性質（線形性・単調性・区間加法性）](#thm-ra4-integral-properties) の単調性と定数関数の積分から
 $$
 -M(v-u)\le \int_u^v g(t)\,dt\le M(v-u),
 $$
@@ -409,11 +409,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x\in(a,b)$ を固定し、$x+h\in[a,b]$ となる十分小さい $h\ne0$ を考えます。[積分区間の加法性](#thm-ra4-integral-properties) と向き反転の規約から、$h$ の符号によらず
+$x\in(a,b)$ を固定し、$x+h\in[a,b]$ となる十分小さい $h\ne0$ を考えます。[Riemann積分の基本性質（線形性・単調性・区間加法性）](#thm-ra4-integral-properties) と向き反転の規約から、$h$ の符号によらず
 $$
 F(x+h)-F(x)=\int_x^{x+h}f(t)\,dt.
 $$
-また線形性と定数関数の積分より
+また同じ定理の線形性と定数関数の積分より
 $$
 \int_x^{x+h}f(x)\,dt=h f(x),
 $$
@@ -533,7 +533,7 @@ $u,v$ が $C^1$ 級なら、積の微分公式から
 $$
 (uv)'=u'v+uv'.
 $$
-両辺を $[a,b]$ で積分し、[Riemann積分の基本性質](#thm-ra4-integral-properties) の線形性と [微積分学の基本定理II](#thm-ra4-ftc2) を使うと
+両辺を $[a,b]$ で積分し、[Riemann積分の基本性質（線形性・単調性・区間加法性）](#thm-ra4-integral-properties) の線形性と [微積分学の基本定理II](#thm-ra4-ftc2) を使うと
 $$
 [u(x)v(x)]_a^b
 =\int_a^b u'(x)v(x)\,dx
