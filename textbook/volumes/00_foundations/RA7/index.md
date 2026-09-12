@@ -219,9 +219,78 @@ $$
 
 1. **座標交換**：二座標を交換するだけなので、矩形の各辺長の積は変わりません。体積倍率は1で、行列式の絶対値も1です。
 2. **一座標の倍率変更**：$x_i\mapsto c x_i$ では、その方向の辺長だけが $|c|$ 倍されます。体積倍率は $|c|$ です。
-3. **shear**：$x_i\mapsto x_i+c x_j$、他の座標は固定する変換では、$x_j$ と残りの座標を固定した断面の $x_i$ 方向の長さは平行移動するだけで変わりません。矩形の有限和について反復積分すれば体積は不変です。
+3. **shear**：$S(x)_i=x_i+c x_j$、他の座標は固定する変換を考えます。ここは「断面の長さが同じ」と言うだけではなく、Jordan内容の定義まで戻って確認します。
 
-Jordan可測集合 $E$ は、境界を総体積任意小の矩形で覆うことで、内側・外側の有限矩形和に挟めます。上の三種類の写像ではその誤差矩形の総体積も固定定数倍にしかならないため、矩形和で成立した体積倍率を分割誤差を0へ送って $E$ へ移せます。
+まず直方体
+
+$$
+Q=I_1\times\cdots\times I_n
+$$
+
+を考え、$I_j$ を $m$ 等分して $Q$ を $j$ 方向の薄い直方体 $Q_1,\dots,Q_m$ に分けます。$I_j$ の長さを $\ell_j$、各薄片の幅を $h=\ell_j/m$ とします。$Q_r$ の中では $x_j$ の振幅が $h$ なので、shear 後の $i$ 座標の振幅は元の $I_i$ の長さ $\ell_i$ より高々 $|c|h$ だけ増えます。従って $S(Q_r)$ は体積
+
+$$
+(\ell_i+|c|h)h\prod_{k\ne i,j}\ell_k
+$$
+
+の軸平行直方体に入ります。全薄片について足すと
+
+$$
+\sum_{r=1}^m |\operatorname{cover}_r|
+=|Q|+
+\frac{|c|\ell_j^2}{m}
+\prod_{k\ne i,j}\ell_k.
+$$
+
+右の余分な項は $m\to\infty$ で0へ行くので、$S(Q)$ の外側Jordan内容は $|Q|$ 以下です。
+
+次に $S(Q)$ が実際にJordan可測であることを確認します。$\partial Q$ は有限個の $(n-1)$ 次元の面からなります。各面を幅 $\delta$ 程度の格子へ分けると、各格子片の shear 像は各辺長が $O(\delta)$ の軸平行直方体で覆えます。必要な個数は $O(\left(1/\delta\right)^{n-1})$、各被覆直方体の $n$ 次元体積は $O(\delta^n)$ なので、総体積は $O(\delta)\to0$ です。$S$ は連続な全単射で逆写像も連続だから
+
+$$
+\partial S(Q)=S(\partial Q),
+$$
+
+従って $S(Q)$ の境界はJordan内容0で、$S(Q)$ はJordan可測です。
+
+逆向きの評価には逆 shear を使います。任意の $\varepsilon>0$ に対し、Jordan可測な $S(Q)$ を有限個の軸平行直方体 $R_1,\dots,R_N$ で
+
+$$
+S(Q)\subset\bigcup_{r=1}^N R_r,
+\qquad
+\sum_r|R_r|<|S(Q)|+\frac{\varepsilon}{2}
+$$
+
+と外側から覆えます。$S^{-1}$ も係数 $-c$ の shear なので、各 $R_r$ について今の薄片評価を適用できます。各像 $S^{-1}(R_r)$ の外側直方体近似を、$N$ 個を合わせた追加誤差が $\varepsilon/2$ 未満になるように選べば
+
+$$
+|Q|
+\le \sum_r |R_r|+\frac{\varepsilon}{2}
+<|S(Q)|+\varepsilon.
+$$
+
+$\varepsilon\downarrow0$ とすれば $|Q|\le|S(Q)|$。先ほどの $|S(Q)|\le|Q|$ と合わせて
+
+$$
+|S(Q)|=|Q|.
+$$
+
+最後に一般のJordan可測集合 $E$ へ移します。任意の $\varepsilon>0$ に対し、有限個の互いに内部で交わらない直方体からなる集合 $I,O$ を
+
+$$
+I\subset E\subset O,
+\qquad
+|O|-|I|<\varepsilon
+$$
+
+となるように取れます。shear は単射で、各直方体の体積を保存するので
+
+$$
+S(I)\subset S(E)\subset S(O),
+\qquad
+|S(O)|-|S(I)|=|O|-|I|<\varepsilon.
+$$
+
+従って $S(E)$ はJordan可測で $|S(E)|=|E|$ です。これで shear の体積保存を、反復積分の定理を未証明の指示関数へ拡張することなく閉じました。
 
 基本行列を合成したとき体積倍率は積になり、[行列式の乗法性](../LA3C/index.md#thm-la3c-det-multiplicative) により行列式の絶対値も同じ積になります。従って一般の可逆 $A$ について
 
@@ -558,17 +627,54 @@ $$
 
 ## 10. 演習A
 
+ここでは答えだけでなく、**領域・座標変換・Jacobian・定理の仮定をどの順で確認するか**まで解答に残します。
+
 ### A01 多次元Darboux和
 - Level: A
+- 目安時間: 10分
 
 $f(x,y)=x+y$ を $[0,1]^2$ 上で考え、各軸を $N$ 等分する。$U(f,P_N)-L(f,P_N)$ を求め、可積分性を直接示せ。
 
 <!-- solution-start -->
-$\|Ah\|\le\|A\|\|h\|$ のような作用素評価は不要で、各小正方形で $x+y$ の振幅が $2/N$、小正方形の総面積が1であることから差は $2/N$。従って0へ収束し、Darboux判定から可積分。
+**詳細解答**
+
+小正方形
+
+$$
+Q_{ij}=\left[\frac{i-1}{N},\frac{i}{N}\right]
+\times
+\left[\frac{j-1}{N},\frac{j}{N}\right]
+$$
+
+では $f(x,y)=x+y$ は各座標について増加するので、最小値と最大値はそれぞれ左下・右上で取られます。従って振幅は
+
+$$
+M_{ij}-m_{ij}=\frac2N.
+$$
+
+各小正方形の面積は $1/N^2$、全部で $N^2$ 個なので
+
+$$
+\begin{aligned}
+U(f,P_N)-L(f,P_N)
+&=\sum_{i,j}(M_{ij}-m_{ij})|Q_{ij}|\\
+&=N^2\cdot\frac2N\cdot\frac1{N^2}
+=\frac2N.
+\end{aligned}
+$$
+
+これは $N\to\infty$ で0へ行きます。したがって任意の $\varepsilon>0$ に対して $N>2/\varepsilon$ と取れば $U-L<\varepsilon$ となり、多次元Darboux判定から $f$ はRiemann可積分です。
+
+**本番答案**
+
+各小正方形での振幅が $2/N$、面積和が1なので $U-L=2/N\to0$。よってDarboux判定から可積分。
+
+**採点基準（20点）**：小正方形上の振幅8点、$U-L$ の総和6点、Darboux判定による結論6点。
 <!-- solution-end -->
 
 ### A02 反復積分
 - Level: A
+- 目安時間: 10分
 
 $$
 \int_{[0,1]^2}(x^2+2xy)\,dx\,dy
@@ -577,25 +683,89 @@ $$
 を反復積分で計算せよ。
 
 <!-- solution-start -->
-先に $y$ で積分すると $\int_0^1(x^2+x)dx=1/3+1/2=5/6$。
+**詳細解答**
+
+被積分関数は閉矩形上連続なので、反復積分定理を使えます。先に $y$ で積分すると
+
+$$
+\int_0^1(x^2+2xy)\,dy=x^2+x.
+$$
+
+従って
+
+$$
+\int_0^1\int_0^1(x^2+2xy)\,dy\,dx
+=\int_0^1(x^2+x)\,dx
+=\frac13+\frac12
+=\frac56.
+$$
+
+**本番答案**
+
+連続性から反復積分可能。$\int_0^1(x^2+2xy)dy=x^2+x$ より、外側を積分して $5/6$。
+
+**採点基準（20点）**：反復積分の設定4点、内側積分8点、外側積分と値8点。
 <!-- solution-end -->
 
 ### A03 polar coordinates
 - Level: A
+- 目安時間: 10分
 
-円板 $x^2+y^2\le a^2$ 上で $x^2+y^2$ を積分せよ。
+$a>0$ とする。円板 $x^2+y^2\le a^2$ 上で $x^2+y^2$ を積分せよ。
 
 <!-- solution-start -->
-polar coordinates で被積分関数は $r^2$、Jacobian因子は $r$。従って $\int_0^{2\pi}\int_0^a r^3drd\theta=\pi a^4/2$。
+**詳細解答**
+
+$$
+x=r\cos\theta,\qquad y=r\sin\theta,
+\qquad 0\le r\le a,\quad0\le\theta\le2\pi
+$$
+
+と置きます。被積分関数は $r^2$、Jacobian因子は $r$ なので
+
+$$
+\begin{aligned}
+\int_{x^2+y^2\le a^2}(x^2+y^2)\,dx\,dy
+&=\int_0^{2\pi}\int_0^a r^3\,dr\,d\theta\\
+&=2\pi\frac{a^4}{4}
+=\frac{\pi a^4}{2}.
+\end{aligned}
+$$
+
+$r=0$ でJacobianが退化しますが、本文で確認した通り原点はJordan内容0なので公式の値に影響しません。
+
+**本番答案**
+
+polar coordinates で被積分関数 $r^2$、Jacobian $r$。$\int_0^{2\pi}\int_0^a r^3drd\theta=\pi a^4/2$。
+
+**採点基準（20点）**：座標範囲5点、被積分関数とJacobian7点、積分計算8点。
 <!-- solution-end -->
 
 ### A04 絶対値の役割
 - Level: A
+- 目安時間: 10分
 
 $\Phi(u,v)=(v,u)$ について $\det D\Phi$ と $|\det D\Phi|$ を求め、体積公式に絶対値が必要な理由を説明せよ。
 
 <!-- solution-start -->
-$D\Phi=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ なので行列式は $-1$、絶対値は1。座標交換は向きを反転するが面積は保存するため、体積倍率には絶対値が必要。
+**詳細解答**
+
+$$
+D\Phi=
+\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\det D\Phi=-1,
+\qquad
+|\det D\Phi|=1.
+$$
+
+この写像は二つの座標を交換するだけなので面積を保存します。一方、行列式の符号は向きが反転したことを記録します。面積・体積は向きではなく大きさを測るため、倍率には絶対値が必要です。絶対値を外すと、座標交換だけで正の面積が負になってしまいます。
+
+**本番答案**
+
+$\det D\Phi=-1$、$|\det D\Phi|=1$。座標交換は向きを反転するが面積を保存するので、体積倍率は行列式そのものではなく絶対値。
+
+**採点基準（20点）**：Jacobian4点、行列式4点、向きと体積の区別8点、結論4点。
 <!-- solution-end -->
 
 ---
@@ -604,30 +774,113 @@ $D\Phi=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ なので行列式は $-1$、絶対
 
 ### B01 三角形領域
 - Level: B
+- 目安時間: 15分
 
 $T=\{(x,y):x\ge0,y\ge0,x+y\le1\}$ 上で $xy$ を積分せよ。
 
 <!-- solution-start -->
-$0\le x\le1$, $0\le y\le1-x$ として
-$\int_0^1\int_0^{1-x}xy\,dy\,dx=\frac12\int_0^1x(1-x)^2dx=1/24$。
+**詳細解答**
+
+$x$ を固定すると
+
+$$
+0\le y\le1-x,
+\qquad 0\le x\le1.
+$$
+
+したがって
+
+$$
+\begin{aligned}
+\int_Txy\,dx\,dy
+&=\int_0^1\int_0^{1-x}xy\,dy\,dx\\
+&=\frac12\int_0^1x(1-x)^2dx\\
+&=\frac12\left(\frac12-\frac23+\frac14\right)
+=\frac1{24}.
+\end{aligned}
+$$
+
+積分計算より先に、三角形を $x$ 固定の縦線で切ったときの範囲を書けることが核心です。
+
+**本番答案**
+
+$0\le x\le1$, $0\le y\le1-x$ と領域を記述し、$\int_0^1\int_0^{1-x}xy\,dy\,dx=1/24$。
+
+**採点基準（20点）**：積分領域の記述8点、内側積分5点、外側積分7点。
 <!-- solution-end -->
 
 ### B02 円環
 - Level: B
+- 目安時間: 15分
 
 $A=\{(x,y):a^2\le x^2+y^2\le b^2\}$ で $1/(x^2+y^2)$ を積分せよ。ただし $0<a<b$。
 
 <!-- solution-start -->
-polar coordinates で $\int_0^{2\pi}\int_a^b r^{-2}r\,dr\,d\theta=2\pi\log(b/a)$。
+**詳細解答**
+
+領域は半径 $a$ と $b$ の間の円環なので
+
+$$
+a\le r\le b,
+\qquad 0\le\theta\le2\pi.
+$$
+
+$a>0$ なので特異点 $r=0$ は領域に含まれません。被積分関数とJacobianを合わせると
+
+$$
+\frac1{r^2}\,r=\frac1r.
+$$
+
+従って
+
+$$
+\int_A\frac{dx\,dy}{x^2+y^2}
+=\int_0^{2\pi}\int_a^b\frac1r\,dr\,d\theta
+=2\pi\log\frac ba.
+$$
+
+**本番答案**
+
+$a\le r\le b$ として $r^{-2}\cdot r=r^{-1}$。よって $2\pi\int_a^bdr/r=2\pi\log(b/a)$。
+
+**採点基準（20点）**：領域変換5点、Jacobian込みの被積分関数7点、積分計算8点。
 <!-- solution-end -->
 
 ### B03 線形変換の像
 - Level: B
+- 目安時間: 15分
 
 $A=\begin{pmatrix}2&1\\0&3\end{pmatrix}$ とし、単位正方形 $Q=[0,1]^2$ の像 $A(Q)$ の面積を求めよ。また $A(Q)$ 上で定数関数1を積分する変数変換を書け。
 
 <!-- solution-start -->
-$|\det A|=6$ なので $|A(Q)|=6$。変数変換公式では $\int_{A(Q)}1\,dy=\int_Q6\,dx=6$。
+**詳細解答**
+
+$$
+\det A=2\cdot3-0\cdot1=6.
+$$
+
+[線形写像の体積倍率](#thm-ra7-linear-volume)から
+
+$$
+|A(Q)|=|\det A|\,|Q|=6.
+$$
+
+積分として書けば、$z=Au$ として
+
+$$
+\int_{A(Q)}1\,dz
+=\int_Q1\cdot|\det A|\,du
+=\int_Q6\,du
+=6.
+$$
+
+$\det A\ne0$ なので $A$ は可逆であり、線形変数変換の仮定も満たします。
+
+**本番答案**
+
+$|\det A|=6$ より $|A(Q)|=6$。また $z=Au$ と置けば $\int_{A(Q)}1dz=\int_Q6du=6$。
+
+**採点基準（20点）**：行列式6点、面積倍率6点、変数変換式8点。
 <!-- solution-end -->
 
 ---
@@ -636,6 +889,7 @@ $|\det A|=6$ なので $|A(Q)|=6$。変数変換公式では $\int_{A(Q)}1\,dy=\
 
 ### C01 非線形変数変換を設計する
 - Level: C
+- 目安時間: 30分
 
 第一象限の領域
 
@@ -646,16 +900,72 @@ $$
 を考える。$u=xy$, $v=y/x$ と置いて $D$ を長方形へ移し、$\int_D1\,dx\,dy$ を計算せよ。
 
 <!-- solution-start -->
-第一象限では $x=\sqrt{u/v}$, $y=\sqrt{uv}$。したがって
+**詳細解答**
+
+この変数変換を選ぶ理由は、領域の二つの境界条件がそのまま
+
 $$
-\left|\det\frac{\partial(x,y)}{\partial(u,v)}\right|=\frac1{2v}.
+1\le u\le4,
+\qquad
+1\le v\le9
 $$
-$D$ は $(u,v)\in[1,4]\times[1,9]$ に対応するので
+
+となり、$(u,v)$ 平面で長方形になるからです。
+
+第一象限では $x>0,y>0$ なので
+
 $$
-|D|=\int_1^4\int_1^9\frac1{2v}\,dv\,du
-=\frac32\log9=3\log3.
+x=\sqrt{\frac uv},
+\qquad
+y=\sqrt{uv}
 $$
-ここでは第一象限という条件が逆変換を一意にしている。象限条件がなければ $(u,v)$ だけでは $(x,y)$ の符号を一意に復元できず、単射性が失われる。
+
+と逆変換が一意に定まります。偏微分は
+
+$$
+\frac{\partial x}{\partial u}=\frac{x}{2u},
+\quad
+\frac{\partial x}{\partial v}=-\frac{x}{2v},
+\quad
+\frac{\partial y}{\partial u}=\frac{y}{2u},
+\quad
+\frac{\partial y}{\partial v}=\frac{y}{2v}.
+$$
+
+従って
+
+$$
+\begin{aligned}
+\det\frac{\partial(x,y)}{\partial(u,v)}
+&=\frac{x}{2u}\frac{y}{2v}
+-\left(-\frac{x}{2v}\right)\frac{y}{2u}\\
+&=\frac{xy}{2uv}
+=\frac1{2v}.
+\end{aligned}
+$$
+
+よって
+
+$$
+\begin{aligned}
+|D|
+&=\int_1^4\int_1^9\frac1{2v}\,dv\,du\\
+&=\frac32\log9
+=3\log3.
+\end{aligned}
+$$
+
+第一象限という条件がなければ、同じ $(u,v)$ に $(x,y)$ と $(-x,-y)$ が対応し得るため単射性が失われます。変数変換では「式が解ける」だけでなく、対象領域上で一対一かを確認する必要があります。
+
+**本番答案**
+
+$u=xy$, $v=y/x$ で領域は $[1,4]\times[1,9]$。第一象限より $x=\sqrt{u/v}$, $y=\sqrt{uv}$。逆Jacobianは $1/(2v)$ なので
+
+$$
+|D|=\int_1^4\int_1^9\frac{1}{2v}\,dv\,du=3\log3.
+$$
+
+**採点基準（30点）**：長方形化6点、逆変換と単射性8点、Jacobian計算10点、積分と結論6点。
 <!-- solution-end -->
 
 ---
