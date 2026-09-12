@@ -1,7 +1,7 @@
 <!-- definition-example-audit: strict -->
 # RA8 標準実解析 VIII：関数族のコンパクト性・近似
 
-RA5では「一つの関数列が一様収束するか」を調べました。本章では視点を一段上げ、**関数の集合そのものが、どの条件で一様収束部分列を必ず持つか**を考えます。後半では同じ一様ノルムの世界で、連続関数を多項式や部分代数でどこまで近似できるかを証明します。
+RA5では「一つの関数列が一様収束するか」を調べました。本章では視点を一段上げ、**関数の集合そのものが、どの条件で一様収束部分列を必ず持つか**を考えます。後半では同じ一様収束の枠組みで、連続関数を多項式や部分代数でどこまで近似できるかを証明します。
 
 流れは
 
@@ -26,20 +26,10 @@ $$
 <a id="def-ra8-ck-uniform-norm"></a>
 <!-- formal-statement-start -->
 > **定義（C(K)の一様ノルム）**  
-> コンパクト距離空間 $K$ に対し、$K$ 上の実数値連続関数全体を $C(K)$ と書く。$f\in C(K)$ に対し
-> $$
-> \|f\|_\infty=\sup_{x\in K}|f(x)|
-> $$
-> を **一様ノルム** と呼ぶ。二関数の距離を $d_\infty(f,g)=\|f-g\|_\infty$ とする。
+> コンパクト距離空間 $K$ に対し、$K$ 上の実数値連続関数全体を $C(K)$ と書く。$f\in C(K)$ に対し $\|f\|_\infty=\sup_{x\in K}|f(x)|$ を **一様ノルム** と呼ぶ。二関数の距離を $d_\infty(f,g)=\|f-g\|_\infty$ とする。
 <!-- formal-statement-end -->
 
-コンパクト集合上の連続関数は有界なので、$\|f\|_\infty$ は有限です。一様収束
-
-$$
-f_n\to f
-$$
-
-は、そのまま
+コンパクト集合上の連続関数は有界なので、$\|f\|_\infty$ は有限です。一様収束 $f_n\to f$ は、そのまま
 
 $$
 \|f_n-f\|_\infty\to0
@@ -115,14 +105,7 @@ $$
 <a id="def-ra8-equicontinuous"></a>
 <!-- formal-statement-start -->
 > **定義（同程度連続な関数族）**  
-> $\mathcal F\subset C(K)$ が **同程度連続** であるとは、任意の $x\in K$ と任意の $\varepsilon>0$ に対し、ある $\delta>0$ が存在して
-> $$
-> d(x,y)<\delta
-> \Longrightarrow
-> |f(x)-f(y)|<\varepsilon
-> \quad(\forall f\in\mathcal F)
-> $$
-> となることをいう。
+> $\mathcal F\subset C(K)$ が **同程度連続** であるとは、任意の $x\in K$ と任意の $\varepsilon>0$ に対し、ある $\delta>0$ が存在して、$d(x,y)<\delta$ なら $|f(x)-f(y)|<\varepsilon$ が全ての $f\in\mathcal F$ について成り立つことをいう。
 <!-- formal-statement-end -->
 
 一つ一つの $f$ ごとに別の $\delta$ を選ぶのではなく、**同じ点 $x$ では関数族全体に共通の $\delta$ を選べる**ことが条件です。
@@ -157,21 +140,11 @@ $$
 <a id="def-ra8-pointwise-bounded"></a>
 <!-- formal-statement-start -->
 > **定義（各点有界な関数族）**  
-> $\mathcal F\subset C(K)$ が **各点有界** であるとは、各 $x\in K$ について
-> $$
-> \sup_{f\in\mathcal F}|f(x)|<\infty
-> $$
-> となることをいう。
+> $\mathcal F\subset C(K)$ が **各点有界** であるとは、各 $x\in K$ について $\sup_{f\in\mathcal F}|f(x)|<\infty$ となることをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ra8-pointwise-bounded -->
-**定義の確認**：$\mathcal F=\{f_n:n\ge1\}$、$f_n(x)=x^n$ を $[0,1]$ 上で考えると
-
-$$
-0\le f_n(x)\le1
-$$
-
-なので各点有界です。しかし後で見るように、この関数族は同程度連続ではありません。各点有界だけでは一様収束部分列を保証できません。
+**定義の確認**：$\mathcal F=\{f_n:n\ge1\}$、$f_n(x)=x^n$ を $[0,1]$ 上で考えると $0\le f_n(x)\le1$ なので各点有界です。しかし後で見るように、この関数族は同程度連続ではありません。各点有界だけでは一様収束部分列を保証できません。
 <!-- definition-example-end -->
 
 <a id="def-ra8-relatively-compact"></a>
@@ -186,15 +159,12 @@ $$
 
 ---
 
-## 3. コンパクトな関数族なら二条件が必要
+## 3. Arzela-Ascoli定理
 
 <a id="thm-ra8-arzela-ascoli"></a>
 <!-- formal-statement-start -->
 > **定理（Arzela-Ascoli定理）**  
-> $K$ をコンパクト距離空間、$\mathcal F\subset C(K)$ とする。このとき次は同値である。
->
-> 1. $\mathcal F$ は一様ノルムについて相対コンパクトである。
-> 2. $\mathcal F$ は同程度連続かつ各点有界である。
+> $K$ をコンパクト距離空間、$\mathcal F\subset C(K)$ とする。このとき、$\mathcal F$ が一様ノルムについて相対コンパクトであることと、$\mathcal F$ が同程度連続かつ各点有界であることは同値である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -214,8 +184,7 @@ $$
 
 $$
 f_n\in\mathcal F,
-\qquad
-y_n\in K,
+\qquad y_n\in K,
 \qquad d(x,y_n)<\frac1n,
 $$
 
@@ -225,13 +194,7 @@ $$
 |f_n(x)-f_n(y_n)|\ge\varepsilon_0
 $$
 
-となるものを選べます。すると $y_n\to x$ です。一方、$\overline{\mathcal F}$ のコンパクト性から部分列を取り
-
-$$
-f_{n_k}\to g
-$$
-
-を一様収束とできます。$g$ は連続なので
+となるものを選べます。すると $y_n\to x$ です。一方、$\overline{\mathcal F}$ のコンパクト性から部分列を取り $f_{n_k}\to g$ を一様収束とできます。$g$ は連続なので
 
 $$
 |g(x)-g(y_{n_k})|\to0.
@@ -242,13 +205,12 @@ $$
 $$
 \begin{aligned}
 |f_{n_k}(x)-f_{n_k}(y_{n_k})|
-&\le 2\|f_{n_k}-g\|_\infty
- +|g(x)-g(y_{n_k})|\\
+&\le 2\|f_{n_k}-g\|_\infty+|g(x)-g(y_{n_k})|\\
 &\to0,
 \end{aligned}
 $$
 
-となり $\varepsilon_0$ 以上という選び方に反します。従って $\mathcal F$ は同程度連続です。
+となり、$\varepsilon_0$ 以上という選び方に反します。従って $\mathcal F$ は同程度連続です。
 
 ### 証明：二条件から相対コンパクト性へ
 
@@ -311,11 +273,10 @@ $$
 
 $$
 \|g_{n_k}-f\|_\infty
-\le\|g_{n_k}-f_{n_k}\|_\infty
-+\|f_{n_k}-f\|_\infty\to0.
+\le\|g_{n_k}-f_{n_k}\|_\infty+\|f_{n_k}-f\|_\infty\to0.
 $$
 
-従って $\overline{\mathcal F}$ は点列コンパクトです。再び [距離空間ではコンパクト性と点列コンパクト性が同値](../TOP5/index.md#thm-top5-metric-sequential) を使えば、$\overline{\mathcal F}$ はコンパクトです。よって $\mathcal F$ は相対コンパクトです。$\square$
+従って $\overline{\mathcal F}$ は点列コンパクトです。再び[距離空間ではコンパクト性と点列コンパクト性が同値](../TOP5/index.md#thm-top5-metric-sequential)を使えば、$\overline{\mathcal F}$ はコンパクトです。よって $\mathcal F$ は相対コンパクトです。$\square$
 <!-- proof-end -->
 
 証明の中心は「無限個の関数を直接制御する」のではなく、コンパクト性で $K$ を有限個の観測点へ落とし、対角化でその観測点上の収束をそろえ、同程度連続性で点の間を埋めることです。
@@ -350,20 +311,14 @@ $$
 
 ---
 
-## 5. 有限和で連続関数を近似する
+## 5. Bernstein多項式とWeierstrass近似
 
 一様収束部分列の存在とは別に、任意の連続関数を扱いやすい関数で一様近似できるかを考えます。まず $[0,1]$ 上で具体的な多項式を作ります。
 
 <a id="def-ra8-bernstein"></a>
 <!-- formal-statement-start -->
 > **定義（Bernstein多項式）**  
-> $f\in C([0,1])$ に対し
-> $$
-> B_nf(x)=\sum_{k=0}^n
-> f\!\left(\frac{k}{n}\right)
-> \binom nk x^k(1-x)^{n-k}
-> $$
-> を $f$ の第 $n$ Bernstein多項式という。
+> $f\in C([0,1])$ に対し $B_nf(x)=\sum_{k=0}^n f(k/n)\binom nk x^k(1-x)^{n-k}$ を $f$ の第 $n$ Bernstein多項式という。
 <!-- formal-statement-end -->
 
 各 $B_nf$ は有限和なので $x$ の多項式です。
@@ -389,11 +344,7 @@ $$
 <a id="thm-ra8-weierstrass"></a>
 <!-- formal-statement-start -->
 > **定理（Weierstrass近似定理）**  
-> 任意の $f\in C([a,b])$ と $\varepsilon>0$ に対し、ある実係数多項式 $p$ が存在して
-> $$
-> \sup_{x\in[a,b]}|f(x)-p(x)|<\varepsilon
-> $$
-> となる。
+> 任意の $f\in C([a,b])$ と $\varepsilon>0$ に対し、ある実係数多項式 $p$ が存在して $\sup_{x\in[a,b]}|f(x)-p(x)|<\varepsilon$ となる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -493,16 +444,12 @@ $$
 
 ---
 
-## 6. 一つの多項式列から部分代数全体へ
+## 6. 実Stone-Weierstrass定理
 
 <a id="def-ra8-separates-points"></a>
 <!-- formal-statement-start -->
 > **定義（点を分離する部分代数）**  
-> コンパクト距離空間 $K$ に対し $A\subset C(K)$ が **点を分離する部分代数** であるとは、$A$ が和・実数倍・積について閉じ、定数関数を全て含み、任意の異なる $x,y\in K$ に対して
-> $$
-> g(x)\ne g(y)
-> $$
-> となる $g\in A$ が存在することをいう。
+> コンパクト距離空間 $K$ に対し $A\subset C(K)$ が **点を分離する部分代数** であるとは、$A$ が和・実数倍・積について閉じ、定数関数を全て含み、任意の異なる $x,y\in K$ に対して $g(x)\ne g(y)$ となる $g\in A$ が存在することをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ra8-separates-points -->
@@ -512,11 +459,7 @@ $$
 <a id="thm-ra8-stone-weierstrass"></a>
 <!-- formal-statement-start -->
 > **定理（実Stone-Weierstrass定理）**  
-> $K$ をコンパクト距離空間とし、$A\subset C(K)$ を定数関数を含み点を分離する実部分代数とする。このとき $A$ は一様ノルムで $C(K)$ に稠密である。すなわち任意の $f\in C(K)$ と $\varepsilon>0$ に対し、ある $g\in A$ が存在して
-> $$
-> \|f-g\|_\infty<\varepsilon
-> $$
-> となる。
+> $K$ をコンパクト距離空間とし、$A\subset C(K)$ を定数関数を含み点を分離する実部分代数とする。このとき $A$ は一様ノルムで $C(K)$ に稠密である。すなわち任意の $f\in C(K)$ と $\varepsilon>0$ に対し、ある $g\in A$ が存在して $\|f-g\|_\infty<\varepsilon$ となる。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -567,19 +510,13 @@ $$
 U_y=\{z\in K:h_{x,y}(z)>f(z)-\varepsilon\}
 $$
 
-と置くと、$h_{x,y}(y)=f(y)$ なので $y\in U_y$ です。$U_y$ は開であり、$\{U_y\}_{y\in K}$ は $K$ の開被覆です。コンパクト性から有限個 $y_1,\dots,y_m$ を選べます。そこで
+と置くと、$h_{x,y}(y)=f(y)$ なので $y\in U_y$ です。$U_y$ は開であり、$\{U_y\}_{y\in K}$ は $K$ の開被覆です。[コンパクト性](../TOP5/index.md#def-top5-compact)から有限個 $y_1,\dots,y_m$ を選べます。そこで
 
 $$
 g_x=\max\{h_{x,y_1},\dots,h_{x,y_m}\}\in B
 $$
 
-と置きます。全ての $h_{x,y_j}$ は $x$ で $f(x)$ に等しいため
-
-$$
-g_x(x)=f(x),
-$$
-
-また有限被覆の作り方から全ての $z\in K$ で
+と置きます。全ての $h_{x,y_j}$ は $x$ で $f(x)$ に等しいため $g_x(x)=f(x)$ であり、有限被覆の作り方から全ての $z\in K$ で
 
 $$
 g_x(z)>f(z)-\varepsilon
@@ -593,29 +530,13 @@ $$
 V_x=\{z\in K:g_x(z)<f(z)+\varepsilon\}
 $$
 
-と置きます。$g_x(x)=f(x)$ なので $x\in V_x$ であり、$\{V_x\}_{x\in K}$ は開被覆です。再びコンパクト性から有限個 $x_1,\dots,x_r$ を選べます。最後に
+と置きます。$g_x(x)=f(x)$ なので $x\in V_x$ であり、$\{V_x\}_{x\in K}$ は開被覆です。再び[コンパクト性](../TOP5/index.md#def-top5-compact)から有限個 $x_1,\dots,x_r$ を選べます。最後に
 
 $$
 g=\min\{g_{x_1},\dots,g_{x_r}\}\in B
 $$
 
-と置きます。各 $g_{x_i}$ は全点で $f-\varepsilon$ より大きいので
-
-$$
-g(z)>f(z)-\varepsilon.
-$$
-
-一方、各 $z$ はどれか $V_{x_i}$ に入るため、その $i$ について $g_{x_i}(z)<f(z)+\varepsilon$ であり、最小値を取った $g$ も
-
-$$
-g(z)<f(z)+\varepsilon
-$$
-
-です。従って
-
-$$
-\|f-g\|_\infty\le\varepsilon.
-$$
+と置きます。各 $g_{x_i}$ は全点で $f-\varepsilon$ より大きいので $g(z)>f(z)-\varepsilon$。一方、各 $z$ はどれか $V_{x_i}$ に入るため、その $i$ について $g_{x_i}(z)<f(z)+\varepsilon$ であり、最小値を取った $g$ も $g(z)<f(z)+\varepsilon$ です。従って $\|f-g\|_\infty\le\varepsilon$。
 
 上の構成を最初から $\varepsilon/2$ に対して行えば、$\|f-g\|_\infty<\varepsilon$ を得ます。よって $f\in B=\overline A$。任意の $f\in C(K)$ について成り立つため $B=C(K)$ です。$\square$
 <!-- proof-end -->
@@ -669,12 +590,39 @@ $$
 を示し、$\|B_nf-f\|_\infty$ を求めよ。
 
 <!-- solution-start -->
-本文の有限和恒等式から
+$p_{n,k}(x)=\binom nkx^k(1-x)^{n-k}$ と置く。$k^2=k(k-1)+k$ と
+
 $$
-\sum\frac{k^2}{n^2}p_{n,k}(x)
-=x^2+\frac{x(1-x)}n.
+k\binom nk=n\binom{n-1}{k-1},
+\qquad
+k(k-1)\binom nk=n(n-1)\binom{n-2}{k-2}
 $$
-従って誤差は $x(1-x)/n$。$[0,1]$ で $x(1-x)$ の最大値は $1/4$ なので
+
+を使うと、二項展開から
+
+$$
+\sum_{k=0}^n k\,p_{n,k}(x)=nx,
+$$
+
+および
+
+$$
+\sum_{k=0}^n k(k-1)p_{n,k}(x)=n(n-1)x^2
+$$
+
+を得る。従って
+
+$$
+\begin{aligned}
+B_nf(x)
+&=\sum_{k=0}^n\frac{k^2}{n^2}p_{n,k}(x)\\
+&=\frac{n(n-1)x^2+nx}{n^2}\\
+&=x^2+\frac{x(1-x)}n.
+\end{aligned}
+$$
+
+よって誤差は $x(1-x)/n$。$[0,1]$ で $x(1-x)$ の最大値は $1/4$ なので
+
 $$
 \|B_nf-f\|_\infty=\frac1{4n}.
 $$
@@ -690,10 +638,12 @@ $$
 $f_n(x)=\sin(nx)/n$ を $[0,1]$ 上で考える。この関数族が同程度連続かつ各点有界であることを示し、実際の一様収束先も求めよ。
 
 <!-- solution-start -->
-$|f_n'(x)|=|\cos(nx)|\le1$ なので $|f_n(x)-f_n(y)|\le|x-y|$。従って共通Lipschitz定数1を持つ。また $|f_n(x)|\le1/n\le1$ なので各点有界。さらに
+$|f_n'(x)|=|\cos(nx)|\le1$ なので、1変数の平均値定理から $|f_n(x)-f_n(y)|\le|x-y|$。従って共通Lipschitz定数1を持つ。また $|f_n(x)|\le1/n\le1$ なので各点有界。さらに
+
 $$
 \|f_n\|_\infty\le\frac1n\to0,
 $$
+
 よって列全体が0へ一様収束する。
 <!-- solution-end -->
 
@@ -704,10 +654,12 @@ $f_n(x)=x^n$ の任意の部分列も一様収束しないことを示せ。
 
 <!-- solution-start -->
 任意の部分列 $x^{n_k}$ も $x<1$ では0、$x=1$ では1へ各点収束する。したがって一様収束するなら収束先は
+
 $$
 f(x)=0\ (x<1),\qquad f(1)=1
 $$
-でなければならない。しかしこれは不連続。一様収束先の連続性に反するので、どの部分列も一様収束しない。
+
+でなければならない。しかしこれは不連続。[一様収束で連続性が保存される定理](../RA5/index.md#thm-ra5-continuity)に反するので、どの部分列も一様収束しない。
 <!-- solution-end -->
 
 ### B03 多項式代数
@@ -741,30 +693,40 @@ $$
 2. さらに $f_n(0)\to a$、$f_n'\to g$ が一様収束するとき、列全体の一様収束先を求めよ。
 
 <!-- solution-start -->
-導関数の上界から
+1変数の平均値定理から
+
 $$
 |f_n(x)-f_n(y)|\le|x-y|,
 $$
+
 なので関数族は同程度連続。また
+
 $$
 |f_n(x)|\le|f_n(0)|+|x|\le2
 $$
+
 なので各点有界。[Arzela-Ascoli定理](#thm-ra8-arzela-ascoli)により一様収束部分列を持つ。
 
-追加仮定の下では [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
+追加仮定の下では[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)から
+
 $$
 f_n(x)=f_n(0)+\int_0^x f_n'(t)\,dt.
 $$
+
 従って
+
 $$
 \sup_{x\in[0,1]}
 \left|f_n(x)-\left(a+\int_0^x g(t)\,dt\right)\right|
 \le |f_n(0)-a|+\|f_n'-g\|_\infty\to0.
 $$
+
 よって列全体が
+
 $$
 f(x)=a+\int_0^xg(t)\,dt
 $$
+
 へ一様収束する。
 <!-- solution-end -->
 
