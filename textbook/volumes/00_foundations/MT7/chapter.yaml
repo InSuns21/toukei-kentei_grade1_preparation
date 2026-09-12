@@ -1,0 +1,29 @@
+id: "MT7"
+title: "標準測度論 VIII：Lp完備性・稠密性・双対"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D2D
+  - F0-00D2E
+  - MT3
+  - MT5
+official_scope: []
+learning_objectives:
+  - 1<=p<infinity の Lp 完備性を速い部分列と差分級数から証明し、p=infinity の完備性を本質的一様収束から証明できる
+  - Lp 関数を単関数で近似し、1<=p<infinity で単関数が Lp に稠密であることを証明できる
+  - LCH 空間上の Radon 測度に対し、compact-open cutoff と正則性から C_c(X) の Lp 稠密性を証明できる
+  - σ-finite 測度空間で 1<=p<infinity の双対 (Lp)* を Lq で表現し、作用素ノルムと Lq ノルムの一致を証明できる
+  - p=infinity では同じ Radon-Nikodym 構成が一般に閉じない理由を L-infinity ノルムでの指示関数列の非収束から説明できる
+definitions: []
+theorems:
+  - { id: MT7-THM-01, name: Lpの完備性 }
+  - { id: MT7-THM-02, name: 単関数のLp稠密性 }
+  - { id: MT7-THM-03, name: CcのLp稠密性 }
+  - { id: MT7-THM-04, name: σ-finite Lp双対定理 }
+  - { id: MT7-PROP-01, name: L-infinity双対でRN構成が破綻する機構 }
+canonical_examples: [速いLp-Cauchy部分列, 指示関数のCc近似, Lp-Lq積分汎関数, L-infinity双対の境界]
+problem_patterns: [MT7-LP-COMPLETE-1, MT7-SIMPLE-DENSE-1, MT7-CC-DENSE-1, MT7-LP-DUALITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }

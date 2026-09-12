@@ -1,0 +1,20 @@
+chapter: "MT7"
+terms:
+  - term: Lp完備性
+    english: completeness of Lp
+    meaning: Lpノルムに関する任意のCauchy列が同じLp空間内で収束する性質。
+  - term: 単関数稠密性
+    english: density of simple functions
+    meaning: 1<=p<infinity で任意のLp関数をLpノルムの意味で単関数により任意精度で近似できること。
+  - term: C_c(X)のLp稠密性
+    english: density of compactly supported continuous functions in Lp
+    meaning: LCH空間上のRadon測度のもとで、1<=p<infinity のLp関数をcompact supportを持つ連続関数で近似できること。
+  - term: Lp双対
+    english: Lp duality
+    meaning: σ-finite測度空間で1<=p<infinity の連続線形汎関数が共役指数qのLq関数との積分で表されること。
+  - term: 共役指数
+    english: conjugate exponent
+    meaning: 1/p+1/q=1を満たす指数q。p=1ではq=infinityとする。
+  - term: L-infinity双対の境界
+    english: boundary of L-infinity duality
+    meaning: L-infinityの連続双対が一般にはL1による積分汎関数だけでは尽きないため、p<infinityの双対定理をそのまま延長できないこと。

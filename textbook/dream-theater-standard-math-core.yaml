@@ -312,6 +312,14 @@ nodes:
     implemented_at: 2026-09-08
     implementation_path: textbook/volumes/00_foundations/MT6/index.md
     prerequisites: [MT5]
+  - id: MT7
+    title: Lp完備性・稠密性・双対
+    area: measure-theory
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-12
+    implementation_path: textbook/volumes/00_foundations/MT7/index.md
+    prerequisites: [MTP, MT5]
 
   - id: FA0
     title: Banach/Hilbert・有界作用素
@@ -444,7 +452,7 @@ implementation_batches:
     nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
   - order: 4
     id: measure-theory-extension
-    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6]
+    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6, MT7]
   - order: 5
     id: functional-analysis-foundation
     nodes: [FA1, FA2, FA3, FA4]
