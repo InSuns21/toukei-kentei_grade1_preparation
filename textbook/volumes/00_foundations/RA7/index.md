@@ -859,7 +859,7 @@ $$
 \det A=2\cdot3-0\cdot1=6.
 $$
 
-線形写像の体積倍率から
+[線形写像の体積倍率](#thm-ra7-linear-volume)から
 
 $$
 |A(Q)|=|\det A|\,|Q|=6.

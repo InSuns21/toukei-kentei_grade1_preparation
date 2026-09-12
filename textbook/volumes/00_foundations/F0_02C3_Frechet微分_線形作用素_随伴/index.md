@@ -522,7 +522,7 @@ $$
 g_i(t)=f(a+te_i+ke_j)-f(a+te_i)
 $$
 
-と置きます。すると $\Delta(h,k)=g_i(h)-g_i(0)$ なので、一変数平均値定理から、ある $\theta\in(0,1)$ が存在して
+と置きます。すると $\Delta(h,k)=g_i(h)-g_i(0)$ なので、[一変数平均値定理](../RA3/index.md#thm-ra3-mvt)から、ある $\theta\in(0,1)$ が存在して
 
 $$
 \Delta(h,k)
@@ -530,7 +530,7 @@ $$
 =h\{\partial_i f(a+\theta h e_i+ke_j)-\partial_i f(a+\theta h e_i)\}.
 $$
 
-中括弧へ $j$ 方向の一変数平均値定理を使うと、ある $\eta\in(0,1)$ が存在して
+中括弧へ $j$ 方向の[一変数平均値定理](../RA3/index.md#thm-ra3-mvt)を使うと、ある $\eta\in(0,1)$ が存在して
 
 $$
 \Delta(h,k)
