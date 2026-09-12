@@ -11,7 +11,7 @@ learning_objectives:
   - 連続関数がRiemann可積分であることを一様連続性から証明できる
   - Riemann積分の線形性・単調性・区間加法性をDarboux定義から証明できる
   - 微積分学の基本定理I・IIの役割の違いを説明できる
-  - 広義積分と通常のRiemann積分を区別できる
+  - 有限閉区間上のRiemann積分と、RA4Aで扱う広義積分の極限操作を区別できる
 definitions:
   - { id: RA4-DEF-01, name: Darboux上和・下和 }
   - { id: RA4-DEF-02, name: Riemann可積分 }
@@ -22,7 +22,7 @@ theorems:
   - { id: RA4-THM-03, name: 微積分学の基本定理I }
   - { id: RA4-THM-04, name: 微積分学の基本定理II }
   - { id: RA4-THM-05, name: 置換積分定理 }
-canonical_examples: [連続関数の積分, Dirichlet関数の非可積分性, 1/xの広義積分]
+canonical_examples: [連続関数の積分, Dirichlet関数の非可積分性, FTCによる積分計算]
 problem_patterns: [RA-RIEMANN-1, RA-FTC-1]
 past_exam_alignment: []
 integrated_exam_problems: []
