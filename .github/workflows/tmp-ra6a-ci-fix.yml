@@ -1,0 +1,150 @@
+name: Temporary RA6A CI fix
+
+on:
+  push:
+    branches:
+      - feat/ra6a-inverse-implicit-function
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, '[ra6a-ci-fix]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ra6a-inverse-implicit-function
+          fetch-depth: 0
+      - name: Apply mechanical CI fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          ra = Path('textbook/volumes/00_foundations/RA6A/index.md')
+          text = ra.read_text(encoding='utf-8')
+
+          # House style: display mathematics inside formal statements must sit outside blockquotes.
+          lines = text.splitlines()
+          out = []
+          in_formal = False
+          in_display = False
+          for line in lines:
+              if line.strip() == '<!-- formal-statement-start -->':
+                  in_formal = True
+                  out.append(line)
+                  continue
+              if line.strip() == '<!-- formal-statement-end -->':
+                  in_formal = False
+                  in_display = False
+                  out.append(line)
+                  continue
+              if in_formal and line == '> $$':
+                  if not in_display:
+                      if out and out[-1] != '':
+                          out.append('')
+                      out.append('$$')
+                      in_display = True
+                  else:
+                      out.append('$$')
+                      out.append('')
+                      in_display = False
+                  continue
+              if in_formal and in_display and line.startswith('> '):
+                  out.append(line[2:])
+                  continue
+              out.append(line)
+          text = '\n'.join(out) + '\n'
+
+          replacements = {
+              '- **逆関数定理**：': '- **[逆関数定理](#thm-ra6a-inverse-function)**：',
+              '- **陰関数定理**：': '- **[陰関数定理](#thm-ra6a-implicit-function)**：',
+              '[Riemann積分と微積分学の基本定理](../RA4/index.md)': '[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)',
+              'Section 2 の線分積分表示から': '[線分上の微分の積分表示](#lem-ra6a-segment-integral)から',
+              '収縮写像補題から、各': '[閉球上の収縮写像](#lem-ra6a-contraction)から、各',
+              '陰関数定理の微分公式から': '[陰関数定理の微分公式](#thm-ra6a-implicit-function)から',
+              '陰関数定理から、曲線・曲面を': '[陰関数定理](#thm-ra6a-implicit-function)から、曲線・曲面を',
+              '陰関数定理から取り出しています': '[陰関数定理](#thm-ra6a-implicit-function)から取り出しています',
+              '従って逆関数定理から、各点ごとに': '従って [逆関数定理](#thm-ra6a-inverse-function) から、各点ごとに',
+              'を陰関数定理から求めよ': 'を[陰関数定理](#thm-ra6a-implicit-function)から求めよ',
+              '従って陰関数定理から、$x=1$': '従って [陰関数定理](#thm-ra6a-implicit-function) から、$x=1$',
+              '下側は逆三角不等式から': '下側は[逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality)から',
+              'の正則性条件を満たします': 'の適用条件を満たします',
+          }
+          for old, new in replacements.items():
+              if old in text:
+                  text = text.replace(old, new)
+
+          # Link the early explanatory mention as well, without touching theorem headings/declarations.
+          text = text.replace(
+              '両者は別々の暗記項目ではありません。陰関数定理は',
+              '両者は別々の暗記項目ではありません。[陰関数定理](#thm-ra6a-implicit-function)は',
+              1,
+          )
+          ra.write_text(text, encoding='utf-8')
+
+          rak = Path('textbook/volumes/00_foundations/RA6A/knowledge.yaml')
+          k = rak.read_text(encoding='utf-8')
+          k = k.replace('  - statistics.regularity-assumptions\n', '')
+          k = k.replace('  - stat.regularity-conditions\n', '')
+          rak.write_text(k, encoding='utf-8')
+
+          c5 = Path('textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md')
+          c = c5.read_text(encoding='utf-8')
+          pattern = re.compile(r'## 6\.5 証明で使う陰関数定理\n.*?\n---\n\n## 7\.', re.S)
+          replacement = '''## 6.5 証明で使う陰関数定理
+
+以下では [RA6A の陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function) を使います。$h(u,z)=0$ で $D_zh(u^*,z^*)$ が可逆なら、$(u^*,z^*)$ の近くで等式集合は一意な $C^1$ 級グラフ $z=\\varphi(u)$ として表せます。必要な微分公式は
+
+$$
+D\\varphi(u^*)=-D_zh(u^*,z^*)^{-1}D_uh(u^*,z^*)
+$$
+
+です。証明は RA6A で逆関数定理から導出済みなので、ここでは等式制約を壊さない接方向を実際の曲線へ持ち上げるために利用します。
+
+---
+
+## 7.'''
+          c2, n = pattern.subn(replacement, c, count=1)
+          if n != 1:
+              raise SystemExit(f'expected one C5A section 6.5 replacement, got {n}')
+          c2 = c2.replace(
+              '[陰関数定理](#thm-f0-02c5a-implicit-function)',
+              '[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)',
+          )
+          c2 = c2.replace(
+              '[陰関数定理の微分公式](#thm-f0-02c5a-implicit-function)',
+              '[陰関数定理の微分公式](../RA6A/index.md#thm-ra6a-implicit-function)',
+          )
+          c2 = c2.replace(
+              '等式制約は陰関数定理で作る等式多様体上の曲線に沿わせます。',
+              '等式制約は[陰関数定理](../RA6A/index.md#thm-ra6a-implicit-function)で作る等式多様体上の曲線に沿わせます。',
+          )
+          c5.write_text(c2, encoding='utf-8')
+
+          c5k = Path('textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/knowledge.yaml')
+          ck = c5k.read_text(encoding='utf-8')
+          marker = '  - id: optimization.implicit-function-theorem-recap\n'
+          start = ck.find(marker)
+          if start != -1:
+              end = ck.find('\n  - id:', start + len(marker))
+              if end == -1:
+                  raise SystemExit('could not find end of recap concept block')
+              ck = ck[:start] + ck[end+1:]
+          ck = ck.replace('      - optimization.implicit-function-theorem-recap\n', '      - analysis.implicit-function-theorem\n')
+          c5k.write_text(ck, encoding='utf-8')
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/RA6A/index.md \
+                  textbook/volumes/00_foundations/RA6A/knowledge.yaml \
+                  textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md \
+                  textbook/volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/knowledge.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "fix: align RA6A with formal and concept audits [ra6a-ci-fix]"
+            git push origin HEAD:feat/ra6a-inverse-implicit-function
+          fi
