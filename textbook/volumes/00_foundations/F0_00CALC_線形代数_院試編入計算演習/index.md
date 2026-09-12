@@ -1492,7 +1492,7 @@ A^Tu_1
 0&1
 \end{pmatrix}
 \frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix}
-=rac1{\sqrt2}egin{pmatrix}1\\2\\1\end{pmatrix},
+=\frac1{\sqrt2}\begin{pmatrix}1\\2\\1\end{pmatrix},
 $$
 
 したがって
@@ -1507,7 +1507,7 @@ $$
 $$
 A^Tu_2
 =
-\frac1{\sqrt2}egin{pmatrix}-1\\0\\1\end{pmatrix},
+\frac1{\sqrt2}\begin{pmatrix}-1\\0\\1\end{pmatrix},
 $$
 
 $\sigma_2=1$ なので
@@ -1688,7 +1688,7 @@ J=\begin{pmatrix}
 0&0&2
 \end{pmatrix}
 =2I_3+N,\qquad
-N=egin{pmatrix}
+N=\begin{pmatrix}
 0&1&0\\
 0&0&1\\
 0&0&0
