@@ -855,7 +855,7 @@ $x\in\overline F$ から $x_n\in F$, $x_n\to x$ を取る。この列はCauchy�
 
 <!-- exercise-density-standard-supplement-20260912 -->
 
-### F0-00D-A04 収束列からCauchy評価を再構成する
+### F0-00D-A04 収束列からCauchy条件を再構成する
 
 - Level: A
 - 目安時間: 8分

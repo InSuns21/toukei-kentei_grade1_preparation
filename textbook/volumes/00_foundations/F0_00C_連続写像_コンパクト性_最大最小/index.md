@@ -477,7 +477,7 @@ $$
 従って $f$ は任意の $x_0$ で連続。
 
 #### 本番答案
-$\delta=\varepsilon$ と取れば逆三角不等式から直ちに従う。
+$\delta=\varepsilon$ と取り、問題文で与えた不等式を使えば直ちに従う。
 <!-- solution-end -->
 
 ### F0-00C-B03 閉包と連続像
@@ -493,14 +493,14 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$x\in\overline A$ を取る。距離空間では閉包の点列特徴付けにより、ある列 $a_n\in A$ が存在して $a_n\to x$。連続性から
+$x\in\overline A$ を取る。各 $n$ について閉包の定義から $A\cap B(x,1/n)\ne\varnothing$ なので、$a_n\in A\cap B(x,1/n)$ を一つ取る。すると $a_n\to x$。連続性から
 $$
 f(a_n)\to f(x).
 $$
-各 $f(a_n)\in f(A)$ なので、再び閉包の点列特徴付けから $f(x)\in\overline{f(A)}$。従って包含が成り立つ。
+各 $f(a_n)\in f(A)$ で $f(a_n)\to f(x)$ だから、$f(x)$ の任意の近傍は十分大きい $n$ の $f(a_n)$ を含み、$f(A)$ と交わる。従って閉包の定義から $f(x)\in\overline{f(A)}$。よって包含が成り立つ。
 
 #### 本番答案
-$x\in\overline A$ なら $a_n\in A$, $a_n\to x$ を取れる。連続性で $f(a_n)\to f(x)$ だから $f(x)\in\overline{f(A)}$。
+$x\in\overline A$ なら各 $n$ で $a_n\in A\cap B(x,1/n)$ を取り、$a_n\to x$ とできる。連続性で $f(a_n)\to f(x)$ なので、$f(x)$ の任意の近傍が $f(A)$ と交わる。
 <!-- solution-end -->
 
 ### F0-00C-C01 不連続なら反例列を作れる
