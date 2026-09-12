@@ -1,0 +1,37 @@
+name: Repair LAX1 control characters
+
+on:
+  push:
+    branches:
+      - improve-lax1-solution-granularity
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: improve-lax1-solution-granularity
+      - name: Replace accidental control characters
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md')
+          data = p.read_bytes()
+          repaired = data.replace(b'\x0c', b'\\f').replace(b'\x08', b'\\b')
+          if repaired == data:
+              raise SystemExit('No control characters found')
+          p.write_bytes(repaired)
+          print('repaired', data.count(b'\x0c'), 'form-feed and', data.count(b'\x08'), 'backspace bytes')
+          PY
+      - name: Commit repair
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md
+          git commit -m 'Fix LAX1 KaTeX control characters'
+          git push origin HEAD:improve-lax1-solution-granularity
