@@ -202,6 +202,102 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00A1B-A02 $n\varepsilon$ を任意に大きくする
+
+- Level: A
+- 目安時間: 7分
+
+$\varepsilon>0$、$M>0$ とする。Archimedes性を用いて、ある $N\in\mathbb N$ が存在し
+$$
+N\varepsilon>M
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$M/\varepsilon$ は実数である。Archimedes性から
+$$
+N>\frac{M}{\varepsilon}
+$$
+となる自然数 $N$ が存在する。$\varepsilon>0$ を掛ければ $N\varepsilon>M$ となる。
+
+#### 本番答案
+Archimedes性を $M/\varepsilon$ に適用して $N>M/\varepsilon$ を取ればよい。
+<!-- solution-end -->
+
+### F0-00A1B-A03 $1/n$ の尾部を誤差内に入れる
+
+- Level: A
+- 目安時間: 7分
+
+任意の $\varepsilon>0$ に対して、十分大きい全ての $n$ で
+$$
+\frac1n<\varepsilon
+$$
+となることを量化記号を省略せず示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+Archimedes性から $N>1/\varepsilon$ となる自然数 $N$ を取れる。$n\ge N$ なら
+$$
+n\ge N>\frac1\varepsilon.
+$$
+正数の逆数を取ると
+$$
+0<\frac1n\le\frac1N<\varepsilon.
+$$
+従って
+$$
+\forall\varepsilon>0\ \exists N\in\mathbb N\ \forall n\ge N:\ \frac1n<\varepsilon.
+$$
+
+#### 本番答案
+$N>1/\varepsilon$ を取る。$n\ge N$ なら $1/n\le1/N<\varepsilon$。
+<!-- solution-end -->
+
+### F0-00A1B-B01 自然数全体は上に有界でない
+
+- Level: B
+- 目安時間: 10分
+
+実数の上限性質を仮定し、$\mathbb N$ が上に有界であると仮定すると矛盾することを、$s=\sup\mathbb N$ を使って再構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$\mathbb N$ が上に有界なら上限性質により $s=\sup\mathbb N$ が存在する。$s-1<s$ なので $s-1$ は最小上界 $s$ より小さく、上界ではない。従ってある $n\in\mathbb N$ が $n>s-1$ を満たす。すると $n+1>s$ だが $n+1\in\mathbb N$ であり、$s$ が上界であることに反する。
+
+#### 本番答案
+$s=\sup\mathbb N$ とすると $s-1$ は上界でないため $n>s-1$ となる $n\in\mathbb N$ がある。よって $n+1>s$。しかし $n+1\in\mathbb N$ なので矛盾。
+<!-- solution-end -->
+
+### F0-00A1B-B02 下限版の存在保証
+
+- Level: B
+- 目安時間: 12分
+
+実数の上限性質を用いて、空でなく下に有界な $A\subseteq\mathbb R$ には $\inf A$ が存在することを示せ。$-A:=\{-a:a\in A\}$ を使ってよい。
+
+<!-- solution-start -->
+#### 詳細解答
+$A$ が下に有界なら、ある $m$ が全ての $a\in A$ に対して $m\le a$ を満たす。従って $-a\le-m$ なので $-A$ は上に有界であり、空でもない。上限性質から
+$$
+s=\sup(-A)
+$$
+が存在する。
+
+$-s$ は $A$ の下界である。実際 $-a\le s$ から $a\ge-s$。さらに $\ell>-s$ なら $-\ell<s$ なので $-\ell$ は $-A$ の上界ではない。よってある $a\in A$ で $-a>-\ell$、すなわち $a<\ell$。従って $\ell$ は下界ではない。よって $-s$ が最大の下界である。
+
+#### 本番答案
+$-A$ は空でなく上に有界なので $s=\sup(-A)$ が存在する。すると $-s$ は $A$ の下界で、これより大きい数は下界になれない。従って
+$$
+\boxed{\inf A=-\sup(-A)}.
+$$
+<!-- solution-end -->
+
+---
+
 ## 6. 次に進む
 
 次は、位相や選択公理に現れる記号を読むため、**べき集合・集合族・添字集合・任意和/任意交差**を正式に定義します。

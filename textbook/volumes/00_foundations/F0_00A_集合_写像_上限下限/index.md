@@ -472,6 +472,91 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00A-A02 像と逆像の違いを計算する
+
+- Level: A
+- 目安時間: 8分
+
+$f:\mathbb R\to\mathbb R$, $f(x)=x^2$、$A=[-2,1]$、$B=[1,4]$ とする。$f(A)$ と $f^{-1}(B)$ を求め、像と逆像で出発する集合がどちら側にあるか説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$A$ は定義域側の集合なので、その各点を $f$ で送ると
+$$
+f(A)=[0,4].
+$$
+一方 $B$ は終域側の集合であり、逆像は $1\le x^2\le4$ を満たす入力全体だから
+$$
+f^{-1}(B)=[-2,-1]\cup[1,2].
+$$
+像は「入力側の集合を前へ送る」、逆像は「出力側の条件を満たす入力を集める」操作である。
+
+#### 本番答案
+$$
+\boxed{f(A)=[0,4]},\qquad
+\boxed{f^{-1}(B)=[-2,-1]\cup[1,2]}.
+$$
+像は定義域側から、逆像は終域側から出発する。
+<!-- solution-end -->
+
+### F0-00A-A03 量化記号の否定
+
+- Level: A
+- 目安時間: 8分
+
+命題
+$$
+\forall x\in\mathbb R\ \exists y\in\mathbb R:\ y>x
+$$
+を日本語で読み、その否定を量化記号で書け。
+
+<!-- solution-start -->
+#### 詳細解答
+元の命題は「任意の実数 $x$ に対して、それより大きい実数 $y$ が存在する」である。否定では $\forall$ と $\exists$ が入れ替わり、最後の条件も否定されるので
+$$
+\exists x\in\mathbb R\ \forall y\in\mathbb R:\ y\le x.
+$$
+これは「最大の実数が存在する」という主張であり、元の命題の否定になっている。
+
+#### 本番答案
+$$
+\boxed{\exists x\in\mathbb R\ \forall y\in\mathbb R:\ y\le x}.
+$$
+<!-- solution-end -->
+
+### F0-00A-B02 逆像は集合演算を保つ
+
+- Level: B
+- 目安時間: 12分
+
+写像 $f:X\to Y$ と $B,C\subseteq Y$ に対して
+$$
+f^{-1}(B\cap C)=f^{-1}(B)\cap f^{-1}(C)
+$$
+を、両包含を示して証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in f^{-1}(B\cap C)$ とする。逆像の定義から $f(x)\in B\cap C$、すなわち $f(x)\in B$ かつ $f(x)\in C$ である。よって $x\in f^{-1}(B)$ かつ $x\in f^{-1}(C)$ なので
+$$
+f^{-1}(B\cap C)\subseteq f^{-1}(B)\cap f^{-1}(C).
+$$
+逆に $x\in f^{-1}(B)\cap f^{-1}(C)$ なら $f(x)\in B$ かつ $f(x)\in C$ だから $f(x)\in B\cap C$。従って $x\in f^{-1}(B\cap C)$ である。
+
+#### 本番答案
+任意の $x\in X$ について
+$$
+x\in f^{-1}(B\cap C)
+\iff f(x)\in B\cap C
+\iff x\in f^{-1}(B)\cap f^{-1}(C).
+$$
+よって両集合は等しい。
+<!-- solution-end -->
+
+---
+
 ## 10. 次に進む
 
 集合と写像の読み方が固まったら、実数集合の「境界値」を表す supremum / infimum へ進みます。

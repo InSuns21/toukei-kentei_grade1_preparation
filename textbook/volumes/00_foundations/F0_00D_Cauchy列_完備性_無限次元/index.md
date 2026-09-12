@@ -797,6 +797,62 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00D-A03 Cauchy列は有界
+
+- Level: A
+- 目安時間: 10分
+
+距離空間 $(X,d)$ のCauchy列 $(x_n)$ が有界、すなわちある $x_0\in X$ と $R>0$ が存在して全ての $n$ で
+$$
+d(x_n,x_0)\le R
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+Cauchy条件を $\varepsilon=1$ に適用し、ある $N$ を取って
+$$
+m,n\ge N\Longrightarrow d(x_m,x_n)<1
+$$
+とする。基準点を $x_N$ に取れば $n\ge N$ で
+$$
+d(x_n,x_N)<1.
+$$
+残る $x_1,\ldots,x_{N-1}$ は有限個なので
+$$
+R=1+\max\{d(x_1,x_N),\ldots,d(x_{N-1},x_N)\}
+$$
+とすれば全ての項が $B(x_N,R)$ に入る。
+
+#### 本番答案
+Cauchy条件の $\varepsilon=1$ で尾部を $x_N$ の1球に入れ、有限個の初項を有限半径で吸収する。
+<!-- solution-end -->
+
+### F0-00D-B02 完備な部分空間は閉
+
+- Level: B
+- 目安時間: 15分
+
+距離空間 $(X,d)$ の部分集合 $F\subseteq X$ が、制限距離に関して完備であるとする。$F$ が $X$ で閉であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in\overline F$ を取る。距離空間では閉包点から $F$ の点列を作れ、各 $n$ について
+$$
+x_n\in F\cap B(x,1/n)
+$$
+を取れる。すると $x_n\to x$ なので $(x_n)$ は $X$ でCauchyであり、距離は同じだから $F$ 内でもCauchyである。
+
+$F$ は完備なので、ある $y\in F$ に $x_n\to y$。一方 $X$ では既に $x_n\to x$ である。距離空間では極限は一意だから $x=y\in F$。従って $\overline F\subseteq F$、よって $F$ は閉。
+
+#### 本番答案
+$x\in\overline F$ から $x_n\in F$, $x_n\to x$ を取る。この列はCauchyなので完備性から $F$ 内の $y$ に収束する。極限一意性より $x=y\in F$。従って $F$ は閉。
+<!-- solution-end -->
+
+---
+
 ## 9. 次に進む
 
 完備性そのものは距離空間の概念です。次講ではベクトル空間へノルムを入れ、Banach空間と有限次元・無限次元の差を整理します。

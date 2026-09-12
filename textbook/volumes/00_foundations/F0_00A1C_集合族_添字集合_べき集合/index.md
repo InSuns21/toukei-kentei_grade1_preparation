@@ -239,6 +239,128 @@ $$
 
 ---
 
+<!-- exercise-density-supplement-20260912 -->
+
+### F0-00A1C-A02 同じ集合が複数の添字を持つ
+
+- Level: A
+- 目安時間: 6分
+
+$I=\{1,2,3\}$、$A_1=A_3=\{0\}$、$A_2=\{1\}$ とする。添字付き集合族としては何個の場所を持つか。また $\{A_i:i\in I\}$ を通常の集合族として重複を除いて書け。
+
+<!-- solution-start -->
+#### 詳細解答
+添字付き集合族は $1,2,3$ の三つの添字を持つので三つの場所を持つ。一方、値として現れる集合だけを通常の集合として集めると重複は消え
+$$
+\{A_i:i\in I\}=\bigl\{\{0\},\{1\}\bigr\}.
+$$
+
+#### 本番答案
+添字は3個。通常の集合族としては
+$$
+\boxed{\{\{0\},\{1\}\}}.
+$$
+<!-- solution-end -->
+
+### F0-00A1C-A03 任意和・任意交差を量化記号で読む
+
+- Level: A
+- 目安時間: 7分
+
+添字付き集合族 $\{A_i\}_{i\in I}$ について、
+$$
+x\in\bigcup_{i\in I}A_i,
+\qquad
+x\in\bigcap_{i\in I}A_i
+$$
+をそれぞれ $\exists,\forall$ を使って書き換えよ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意和は「少なくとも一つの集合に入る」、任意交差は「全ての集合に入る」なので
+$$
+x\in\bigcup_{i\in I}A_i
+\iff
+\exists i\in I:\ x\in A_i,
+$$
+$$
+x\in\bigcap_{i\in I}A_i
+\iff
+\forall i\in I:\ x\in A_i.
+$$
+
+#### 本番答案
+上式の通り。任意和は $\exists$、任意交差は $\forall$ に対応する。
+<!-- solution-end -->
+
+### F0-00A1C-B01 任意和と共通部分の分配法則
+
+- Level: B
+- 目安時間: 12分
+
+集合 $B$ と添字付き集合族 $\{A_i\}_{i\in I}$ に対して
+$$
+B\cap\left(\bigcup_{i\in I}A_i\right)
+=
+\bigcup_{i\in I}(B\cap A_i)
+$$
+を要素による同値変形で証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $x$ について
+$$
+\begin{aligned}
+x\in B\cap\bigcup_iA_i
+&\iff x\in B\ \text{かつ}\ \exists i:\ x\in A_i\\
+&\iff \exists i:\ (x\in B\ \text{かつ}\ x\in A_i)\\
+&\iff \exists i:\ x\in B\cap A_i\\
+&\iff x\in\bigcup_i(B\cap A_i).
+\end{aligned}
+$$
+従って両集合は等しい。
+
+#### 本番答案
+任意の $x$ に対して上の所属条件が同値なので等しい。
+<!-- solution-end -->
+
+### F0-00A1C-B02 任意族のDe Morgan則
+
+- Level: B
+- 目安時間: 12分
+
+全体集合 $X$ の部分集合族 $\{A_i\}_{i\in I}$ に対して
+$$
+X\setminus\bigcup_{i\in I}A_i
+=
+\bigcap_{i\in I}(X\setminus A_i)
+$$
+を証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $x\in X$ について
+$$
+\begin{aligned}
+x\notin\bigcup_iA_i
+&\iff \neg(\exists i:\ x\in A_i)\\
+&\iff \forall i:\ x\notin A_i\\
+&\iff x\in\bigcap_i(X\setminus A_i).
+\end{aligned}
+$$
+量化記号の否定 $\neg\exists=\forall\neg$ が核心である。
+
+#### 本番答案
+所属条件を量化記号に直すと
+$$
+x\notin\bigcup_iA_i
+\iff \forall i,\ x\notin A_i,
+$$
+よって主張が従う。
+<!-- solution-end -->
+
+---
+
 ## 7. 次に進む
 
 標準ルートでは、実数の基礎と集合族の記法を持って点列へ進みます。選択公理まで追う場合は、その前に順序・全順序・整列可能性を整備します。
