@@ -877,7 +877,7 @@ $$
 よってCauchy列。
 
 #### 本番答案
-極限 $x$ を中継して三角不等式を使い、両側を $\varepsilon/2$ にする。
+$m,n\ge N$ なら $d(x_m,x_n)\le d(x_m,x)+d(x,x_n)<\varepsilon/2+\varepsilon/2=\varepsilon$。
 <!-- solution-end -->
 
 ### F0-00D-B03 有限直積の完備性

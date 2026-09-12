@@ -477,7 +477,7 @@ $$
 従って $f$ は任意の $x_0$ で連続。
 
 #### 本番答案
-$\delta=\varepsilon$ と取り、問題文で与えた不等式を使えば直ちに従う。
+$\delta=\varepsilon$ と取れば $\bigl||x|-|x_0|\bigr|\le |x-x_0|<\varepsilon$ となる。
 <!-- solution-end -->
 
 ### F0-00C-B03 閉包と連続像
@@ -529,7 +529,7 @@ $$
 従って $f(x_n)$ は $f(x)$ に収束しない。
 
 #### 本番答案
-不連続性の否定定義から固定 $\varepsilon_0>0$ を取り、$\delta=1/n$ ごとに反例 $x_n$ を選ぶ。すると $x_n\to x$ だが像は $\varepsilon_0$ 以上離れ続ける。
+ある $\varepsilon_0>0$ があり、各 $n$ で $d_X(x_n,x)<1/n$ かつ $d_Y(f(x_n),f(x))\ge\varepsilon_0$ となる $x_n$ を選べる。従って $x_n\to x$ だが像は $\varepsilon_0$ 以上離れ続ける。
 <!-- solution-end -->
 
 ---
