@@ -1,0 +1,91 @@
+name: Temporary LA3 formal math style fix
+
+on:
+  push:
+    branches:
+      - audit/la3abcd-quality-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, '[formal-math-fixed]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/la3abcd-quality-20260912
+          fetch-depth: 0
+      - name: Move display math outside blockquotes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('textbook/volumes/00_foundations')
+          repls = {
+            'LA3A': [('''> $V,W$ を有限次元ベクトル空間、$T:V\\to W$ を線形写像とする。このとき
+> $$
+> \\ker T^*=(\\operatorname{im}T)^\\circ,
+> \\qquad
+> \\operatorname{im}T^*=(\\ker T)^\\circ.
+> $$
+> 特に
+> $$
+> \\operatorname{rank}T^*=\\operatorname{rank}T.
+> $$''', '''> $V,W$ を有限次元ベクトル空間、$T:V\\to W$ を線形写像とする。このとき
+
+$$
+\\ker T^*=(\\operatorname{im}T)^\\circ,
+\\qquad
+\\operatorname{im}T^*=(\\ker T)^\\circ.
+$$
+
+> 特に
+
+$$
+\\operatorname{rank}T^*=\\operatorname{rank}T.
+$$''')],
+            'LA3C': [('''> 任意の正方行列 $A$ に対して
+> $$
+> A\\operatorname{adj}(A)
+> =\\operatorname{adj}(A)A
+> =(\\det A)I.
+> $$''', '''> 任意の正方行列 $A$ に対して
+
+$$
+A\\operatorname{adj}(A)
+=\\operatorname{adj}(A)A
+=(\\det A)I.
+$$''')],
+            'LA3D': [('''> 有限次元ベクトル空間 $V$ の線形写像 $T:V\\to V$ に対して
+> $$
+> \\det T=0
+> \\Longleftrightarrow
+> T\\text{ は可逆でない}.
+> $$''', '''> 有限次元ベクトル空間 $V$ の線形写像 $T:V\\to V$ に対して
+
+$$
+\\det T=0
+\\Longleftrightarrow
+T\\text{ は可逆でない}.
+$$''')],
+          }
+          for chapter, pairs in repls.items():
+              p = root / chapter / 'index.md'
+              s = p.read_text(encoding='utf-8')
+              for old, new in pairs:
+                  n = s.count(old)
+                  if n != 1:
+                      raise SystemExit(f'{chapter}: expected one formal block, got {n}')
+                  s = s.replace(old, new, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Remove temporary workflow
+        run: rm -f .github/workflows/tmp-la3-formal-math.yml
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/LA3A/index.md textbook/volumes/00_foundations/LA3C/index.md textbook/volumes/00_foundations/LA3D/index.md .github/workflows/tmp-la3-formal-math.yml
+          git commit -m "Align LA3 formal statements with math rendering style [formal-math-fixed]"
+          git push origin HEAD:audit/la3abcd-quality-20260912
