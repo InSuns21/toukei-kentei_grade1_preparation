@@ -380,7 +380,7 @@ $4\times4$ 行列 $P$ の列が順に
 $$
 e_2,\ e_4,\ e_1,\ e_3
 $$
-であるとする。Leibniz 公式を使って $\det P$ を求めよ。
+であるとする。[Leibniz 公式](#def-la3b-matrix-determinant)を使って $\det P$ を求めよ。
 
 <!-- solution-start -->
 **解答**：各列には1個だけ1があるので、Leibniz 公式で非零になるのは

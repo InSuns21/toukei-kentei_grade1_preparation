@@ -399,7 +399,7 @@ $$
 $$
 \operatorname{im}T^*\subset(\ker T)^\circ.
 $$
-ここで最初の等式と annihilator の次元公式を使うと
+ここで最初の等式と [annihilator の次元公式](#thm-la3a-annihilator-dimension)を使うと
 $$
 \begin{aligned}
 \dim\operatorname{im}T^*
@@ -409,7 +409,7 @@ $$
 =\operatorname{rank}T.
 \end{aligned}
 $$
-一方、rank-nullity と annihilator の次元公式から
+一方、rank-nullity と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
 $$
 \dim(\ker T)^\circ
 =\dim V-\dim\ker T
@@ -716,7 +716,7 @@ $$
 (W^\circ)^\circ
 =\{F\in V^{**}:F(\varphi)=0\ \text{for all }\varphi\in W^\circ\}
 $$
-と定める。標準埋め込み $J:V\to V^{**}$ に対して
+と定める。上で定義した写像 $J:V\to V^{**}$ に対して
 $$
 \boxed{J(W)=(W^\circ)^\circ}
 $$
@@ -735,7 +735,7 @@ $$
 $$
 \dim J(W)=\dim W.
 $$
-また $\dim V^*=\dim V=n$ と annihilator の次元公式から
+また $\dim V^*=\dim V=n$ と [annihilator の次元公式](#thm-la3a-annihilator-dimension)から
 $$
 \dim W^\circ=n-\dim W.
 $$
@@ -749,7 +749,7 @@ $$
 $$
 J(W)=(W^\circ)^\circ.
 $$
-「二回消すと元へ戻る」と言っても、厳密には $W\subset V$ と $(W^\circ)^\circ\subset V^{**}$ を標準埋め込み $J$ で同一視している点が重要です。
+「二回消すと元へ戻る」と言っても、厳密には $W\subset V$ と $(W^\circ)^\circ\subset V^{**}$ を写像 $J$ を通して同一視している点が重要です。
 <!-- solution-end -->
 
 ---
