@@ -72,10 +72,59 @@ $$
 とする。$\operatorname{rank}A$、$\ker T$ の基底、$\operatorname{Im}T$ の基底を求めよ。
 
 <!-- solution-start -->
-**解答**：行基本変形すると
+**解答**：まず第1列を消します。
 
 $$
-A\sim
+\begin{pmatrix}
+1&2&-1&1\\
+2&4&1&5\\
+-1&-2&2&-1
+\end{pmatrix}
+\xrightarrow[\,R_3\leftarrow R_3+R_1\,]{\,R_2\leftarrow R_2-2R_1\,}
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&3&3\\
+0&0&1&0
+\end{pmatrix}.
+$$
+
+第3列の pivot を扱いやすくするため第2行と第3行を入れ替え、下を消します。
+
+$$
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&3&3\\
+0&0&1&0
+\end{pmatrix}
+\xrightarrow{R_2\leftrightarrow R_3}
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&1&0\\
+0&0&3&3
+\end{pmatrix}
+\xrightarrow{R_3\leftarrow R_3-3R_2}
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&1&0\\
+0&0&0&3
+\end{pmatrix}.
+$$
+
+最後に第4列を正規化し、第1行の第3・第4成分を消すと
+
+$$
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&1&0\\
+0&0&0&3
+\end{pmatrix}
+\xrightarrow{R_3\leftarrow \frac13R_3}
+\begin{pmatrix}
+1&2&-1&1\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+\xrightarrow[\,R_1\leftarrow R_1-R_3\,]{\,R_1\leftarrow R_1+R_2\,}
 \begin{pmatrix}
 1&2&0&0\\
 0&0&1&0\\
@@ -83,25 +132,31 @@ A\sim
 \end{pmatrix}.
 $$
 
-pivot 列は第1, 3, 4列なので
+pivot は3個なので
 
 $$
 \boxed{\operatorname{rank}A=3}.
 $$
 
-$Ax=0$ では $x_2=t$ が自由変数で
+$Ax=0$ は簡約後の行列から
 
 $$
-(x_1,x_2,x_3,x_4)=t(-2,1,0,0).
+x_1+2x_2=0,\qquad x_3=0,\qquad x_4=0
 $$
 
-よって
+となります。$x_2=t$ と置けば $x_1=-2t$ なので
+
+$$
+(x_1,x_2,x_3,x_4)=t(-2,1,0,0),
+$$
+
+したがって
 
 $$
 \boxed{\ker T=\operatorname{span}\{(-2,1,0,0)^T\}}.
 $$
 
-像の基底は、簡約後ではなく**元の行列の pivot 列**から取り
+像の基底は、簡約後の列ではなく**元の行列で pivot に対応する第1,3,4列**から取ります。よって
 
 $$
 \boxed{
@@ -113,7 +168,13 @@ $$
 \right\}.}
 $$
 
-rank-nullity の検算は $3+1=4$ です。
+検算すると、rank-nullity は
+
+$$
+\dim\operatorname{Im}T+\dim\ker T=3+1=4=\dim\mathbb R^4
+$$
+
+を満たします。
 <!-- solution-end -->
 
 <a id="ex-lax1-a02"></a>
@@ -136,37 +197,137 @@ $$
 を考える。解が一意に存在する場合、無数に存在する場合、存在しない場合を分類し、存在する場合は解を求めよ。
 
 <!-- solution-start -->
-**解答**：係数行列を $A_a$ とすると
+**解答**：係数行列を $A_a$ とします。第1行を第2・第3行から引けば
 
 $$
-\det A_a=a(a-2).
+\det A_a
+=
+\det
+\begin{pmatrix}
+1&1&1\\
+0&a-1&1\\
+0&1&a-1
+\end{pmatrix}
+=(a-1)^2-1
+=a(a-2).
 $$
 
-従って $a\neq0,2$ では一意解で、消去すると
+したがって $a\neq0,2$ では $\det A_a\neq0$ なので一意解があります。この場合、拡大係数行列に同じ消去を行うと
 
 $$
-\boxed{(x,y,z)=\left(1,-\frac1{a-2},\frac1{a-2}\right)}.
+\left(
+\begin{array}{ccc|c}
+1&1&1&1\\
+1&a&2&0\\
+1&2&a&2
+\end{array}
+\right)
+\xrightarrow[\,R_3\leftarrow R_3-R_1\,]{\,R_2\leftarrow R_2-R_1\,}
+\left(
+\begin{array}{ccc|c}
+1&1&1&1\\
+0&a-1&1&-1\\
+0&1&a-1&1
+\end{array}
+\right).
 $$
 
-$a=0$ では拡大係数行列が
+下2行は
 
 $$
+(a-1)y+z=-1,\qquad y+(a-1)z=1
+$$
+
+です。第1式から $z=-1-(a-1)y$ として第2式へ代入すると
+
+$$
+y+(a-1)\{-1-(a-1)y\}=1,
+$$
+
+$$
+\{1-(a-1)^2\}y=a,
+$$
+
+$$
+-a(a-2)y=a.
+$$
+
+ここでは $a\neq0,2$ なので割ることができ、
+
+$$
+y=-\frac1{a-2}.
+$$
+
+これを $(a-1)y+z=-1$ に戻すと
+
+$$
+z=-1+\frac{a-1}{a-2}=\frac1{a-2}.
+$$
+
+さらに第1行 $x+y+z=1$ で $y+z=0$ だから $x=1$。従って
+
+$$
+\boxed{(x,y,z)=\left(1,-\frac1{a-2},\frac1{a-2}\right)}
+\qquad(a\neq0,2).
+$$
+
+次に、割り算をしてはいけない特別な値を個別に調べます。
+
+$a=0$ では
+
+$$
+\left(
+\begin{array}{ccc|c}
+1&1&1&1\\
+1&0&2&0\\
+1&2&0&2
+\end{array}
+\right)
+\sim
 \left(
 \begin{array}{ccc|c}
 1&0&2&0\\
 0&1&-1&1\\
 0&0&0&0
 \end{array}
+\right).
+$$
+
+したがって
+
+$$
+x+2z=0,\qquad y-z=1.
+$$
+
+$z=t$ と置けば
+
+$$
+\boxed{(x,y,z)=(-2t,1+t,t),\qquad t\in\mathbb R},
+$$
+
+で、解は無数にあります。
+
+$a=2$ では、第1行を第2・第3行から引いた時点で
+
+$$
+\left(
+\begin{array}{ccc|c}
+1&1&1&1\\
+0&1&1&-1\\
+0&1&1&1
+\end{array}
 \right)
+\xrightarrow{R_3\leftarrow R_3-R_2}
+\left(
+\begin{array}{ccc|c}
+1&1&1&1\\
+0&1&1&-1\\
+0&0&0&2
+\end{array}
+\right).
 $$
 
-まで簡約できるため
-
-$$
-\boxed{(x,y,z)=(-2t,1+t,t),\quad t\in\mathbb R}.
-$$
-
-$a=2$ では $(0\ 0\ 0\mid1)$ が現れ不整合です。よって
+最後の行は $0=2$ を意味するので不整合です。以上より
 
 $$
 \boxed{
@@ -177,7 +338,7 @@ a=2 &: \text{解なし}.
 \end{cases}}
 $$
 
-パラメータ問題では、$a$ や $a-2$ で割る前に零の場合を分離します。
+パラメータ問題では、$a$ や $a-2$ で割る前に、それらが0になる場合を先に分離するのが重要です。
 <!-- solution-end -->
 
 <a id="ex-lax1-a03"></a>
@@ -208,29 +369,86 @@ $$
 とする。$[T]_{C\leftarrow B}$ を求めよ。
 
 <!-- solution-start -->
-**解答**：基底ベクトルを列に並べて
+**解答**：基底ベクトルを標準座標で列に並べると
 
 $$
 B=
-\begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix},\qquad
+\begin{pmatrix}
+1&1&0\\
+1&0&1\\
+0&1&1
+\end{pmatrix},\qquad
 C=
-\begin{pmatrix}1&1&1\\0&1&1\\0&0&1\end{pmatrix}.
+\begin{pmatrix}
+1&1&1\\
+0&1&1\\
+0&0&1
+\end{pmatrix}.
 $$
 
-したがって
+$B$ 座標 $[x]_B$ から標準座標へは $x=B[x]_B$、標準座標で $T$ を作用させると $T(x)=MB[x]_B$、最後に $C$ 座標へ直すには $C^{-1}$ を掛けます。従って
 
 $$
 [T]_{C\leftarrow B}=C^{-1}MB.
 $$
 
+まず $MB$ を列ごとに計算します。
+
 $$
-MB=
-\begin{pmatrix}2&1&1\\1&1&2\\1&2&1\end{pmatrix},\qquad
-C^{-1}=
-\begin{pmatrix}1&-1&0\\0&1&-1\\0&0&1\end{pmatrix}
+Mb_1=
+\begin{pmatrix}2\\1\\1\end{pmatrix},\qquad
+Mb_2=
+\begin{pmatrix}1\\1\\2\end{pmatrix},\qquad
+Mb_3=
+\begin{pmatrix}1\\2\\1\end{pmatrix},
 $$
 
-より
+よって
+
+$$
+MB=
+\begin{pmatrix}
+2&1&1\\
+1&1&2\\
+1&2&1
+\end{pmatrix}.
+$$
+
+また $C$ は上三角なので、$CC^{-1}=I$ を満たすように後退代入すると
+
+$$
+C^{-1}=
+\begin{pmatrix}
+1&-1&0\\
+0&1&-1\\
+0&0&1
+\end{pmatrix}.
+$$
+
+したがって
+
+$$
+C^{-1}MB
+=
+\begin{pmatrix}
+1&-1&0\\
+0&1&-1\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+2&1&1\\
+1&1&2\\
+1&2&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2-1&1-1&1-2\\
+1-1&1-2&2-1\\
+1&2&1
+\end{pmatrix}.
+$$
+
+従って
 
 $$
 \boxed{
@@ -261,15 +479,15 @@ $$
 を、余因子展開を力任せに使わず求めよ。
 
 <!-- solution-start -->
-**解答**：
+**解答**：下から順に隣り合う行の差を取ります。すべて「ある行に別の行の倍を加える」操作なので、行列式の値は変わりません。
 
 $$
-R_4\leftarrow R_4-R_3,\quad
-R_3\leftarrow R_3-R_2,\quad
+R_4\leftarrow R_4-R_3,\qquad
+R_3\leftarrow R_3-R_2,\qquad
 R_2\leftarrow R_2-R_1
 $$
 
-により
+より
 
 $$
 D=
@@ -282,13 +500,52 @@ D=
 \end{pmatrix}.
 $$
 
-さらに差を取って上三角化すると対角成分がすべて1になります。これらは他の行の倍を加える操作なので行列式は変わりません。従って
+もう一度、下から差を取ります。
 
 $$
-\boxed{D=1}.
+R_4\leftarrow R_4-R_3,\qquad
+R_3\leftarrow R_3-R_2
 $$
 
-行列式は「展開する前に0を作れるか」を確認するのが定石です。
+とすると
+
+$$
+D=
+\det
+\begin{pmatrix}
+1&1&1&1\\
+0&1&2&3\\
+0&0&1&3\\
+0&0&1&4
+\end{pmatrix}.
+$$
+
+最後に
+
+$$
+R_4\leftarrow R_4-R_3
+$$
+
+として
+
+$$
+D=
+\det
+\begin{pmatrix}
+1&1&1&1\\
+0&1&2&3\\
+0&0&1&3\\
+0&0&0&1
+\end{pmatrix}.
+$$
+
+上三角行列の行列式は対角成分の積なので
+
+$$
+\boxed{D=1\cdot1\cdot1\cdot1=1}.
+$$
+
+途中で行交換や定数倍を使っていないため、符号や倍率の補正も不要です。行列式は「展開する前に0を作れるか」を確認するのが定石です。
 <!-- solution-end -->
 
 <a id="ex-lax1-a05"></a>
@@ -307,33 +564,110 @@ $$
 について固有値と各固有空間を求め、$A=PDP^{-1}$ の形に対角化せよ。
 
 <!-- solution-start -->
-**解答**：
+**解答**：まず特性多項式を計算します。
 
 $$
 \det(\lambda I-A)
-=(\lambda-4)((\lambda-2)^2-1)
-=(\lambda-1)(\lambda-3)(\lambda-4).
+=
+\det
+\begin{pmatrix}
+\lambda-2&-1&0\\
+-1&\lambda-2&0\\
+0&0&\lambda-4
+\end{pmatrix}.
 $$
 
-固有値と対応する固有ベクトルとして
+第3成分が分離しているので
 
 $$
-1:(1,-1,0)^T,\qquad
-3:(1,1,0)^T,\qquad
-4:(0,0,1)^T
+\det(\lambda I-A)
+=(\lambda-4)\{(\lambda-2)^2-1\}
+=(\lambda-4)(\lambda-1)(\lambda-3).
 $$
 
-を取れます。従って
+従って固有値は $1,3,4$ です。
+
+$\lambda=1$ では
+
+$$
+(A-I)x=0
+\iff
+\begin{pmatrix}
+1&1&0\\
+1&1&0\\
+0&0&3
+\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}=0,
+$$
+
+すなわち $x+y=0$, $z=0$。よって
+
+$$
+E_1=\ker(A-I)=\operatorname{span}\{(1,-1,0)^T\}.
+$$
+
+$\lambda=3$ では
+
+$$
+(A-3I)x=0
+\iff
+\begin{pmatrix}
+-1&1&0\\
+1&-1&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}=0,
+$$
+
+より $y=x$, $z=0$。したがって
+
+$$
+E_3=\operatorname{span}\{(1,1,0)^T\}.
+$$
+
+$\lambda=4$ では
+
+$$
+(A-4I)x=0
+\iff
+\begin{pmatrix}
+-2&1&0\\
+1&-2&0\\
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}=0.
+$$
+
+$-2x+y=0$ と $x-2y=0$ を同時に満たすには $x=y=0$ で、$z$ は自由です。よって
+
+$$
+E_4=\operatorname{span}\{(0,0,1)^T\}.
+$$
+
+各固有空間から1本ずつ取って列に並べると
 
 $$
 P=
 \begin{pmatrix}
-1&1&0\\-1&1&0\\0&0&1
+1&1&0\\
+-1&1&0\\
+0&0&1
 \end{pmatrix},\qquad
-D=\operatorname{diag}(1,3,4)
+D=\operatorname{diag}(1,3,4).
 $$
 
-とすれば
+実際
+
+$$
+P^{-1}=
+\begin{pmatrix}
+\frac12&-\frac12&0\\
+\frac12&\frac12&0\\
+0&0&1
+\end{pmatrix}
+$$
+
+であり、各列 $p_i$ が $Ap_i=\lambda_i p_i$ を満たすので $AP=PD$。右から $P^{-1}$ を掛けて
 
 $$
 \boxed{A=PDP^{-1}}.
@@ -352,32 +686,86 @@ $$
 について、整数 $n\ge0$ に対する $A^n$ を求めよ。
 
 <!-- solution-start -->
-**解答**：固有値は $3,1$ で、正規直交固有ベクトルを
+**解答**：特性多項式は
+
+$$
+\det(\lambda I-A)
+=(\lambda-2)^2-1
+=(\lambda-3)(\lambda-1),
+$$
+
+なので固有値は $3,1$ です。対応する正規直交固有ベクトルを
 
 $$
 q_1=\frac1{\sqrt2}(1,1)^T,\qquad
 q_2=\frac1{\sqrt2}(1,-1)^T
 $$
 
-と取れます。従って
+と取ります。これらを列に並べて
 
 $$
-A=Q\operatorname{diag}(3,1)Q^T
+Q=\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
 $$
 
-から
+とすれば $Q^TQ=I$ で、
 
 $$
-\boxed{
-A^n=
+A=Q
+\begin{pmatrix}3&0\\0&1\end{pmatrix}
+Q^T.
+$$
+
+従って、$Q^TQ=I$ を用いると中間の $Q^TQ$ がすべて消え、
+
+$$
+A^n
+=Q
+\begin{pmatrix}3^n&0\\0&1\end{pmatrix}
+Q^T.
+$$
+
+実際に掛け戻すと
+
+$$
+A^n
+=\frac12
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+\begin{pmatrix}
+3^n&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+$$
+
+$$
+=\frac12
+\begin{pmatrix}
+3^n&1\\
+3^n&-1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+=\boxed{
 \frac12
 \begin{pmatrix}
 3^n+1&3^n-1\\
 3^n-1&3^n+1
-\end{pmatrix}.}
+\end{pmatrix}}.
 $$
 
-$n=0$ で $I$、$n=1$ で $A$ に戻ることを検算します。
+$n=0$ では $I$、$n=1$ では $A$ に戻り、式の検算ができます。
 <!-- solution-end -->
 
 <a id="ex-lax1-a07"></a>
@@ -396,30 +784,79 @@ $$
 の列ベクトルに Gram–Schmidt 法を適用し、$A=QR$ を求めよ。ただし $R$ の対角成分は正とする。
 
 <!-- solution-start -->
-**解答**：列を $a_1,a_2,a_3$ とすると
+**解答**：列を
 
 $$
-q_1=\frac1{\sqrt2}(1,1,0)^T.
+a_1=(1,1,0)^T,\qquad a_2=(1,0,1)^T,\qquad a_3=(0,1,1)^T
+$$
+
+とします。
+
+まず
+
+$$
+\|a_1\|=\sqrt2,\qquad
+q_1=\frac{a_1}{\|a_1\|}=\frac1{\sqrt2}(1,1,0)^T.
+$$
+
+次に $a_2$ から $q_1$ 方向を引きます。
+
+$$
+q_1^Ta_2=\frac1{\sqrt2},
 $$
 
 $$
 u_2=a_2-(q_1^Ta_2)q_1
-=\left(\frac12,-\frac12,1\right)^T
+=\begin{pmatrix}1\\0\\1\end{pmatrix}
+-\frac1{\sqrt2}\frac1{\sqrt2}
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+=\begin{pmatrix}\frac12\\-\frac12\\1\end{pmatrix}.
 $$
 
-なので
+その長さは
 
 $$
-q_2=\frac1{\sqrt6}(1,-1,2)^T.
+\|u_2\|
+=\sqrt{\frac14+\frac14+1}
+=\frac{\sqrt6}{2},
 $$
 
-さらに $a_3$ から $q_1,q_2$ 成分を除くと
+したがって
 
 $$
+q_2=\frac{u_2}{\|u_2\|}
+=\frac1{\sqrt6}(1,-1,2)^T.
+$$
+
+最後に $a_3$ から $q_1,q_2$ の両成分を引きます。
+
+$$
+q_1^Ta_3=\frac1{\sqrt2},\qquad
+q_2^Ta_3=\frac{-1+2}{\sqrt6}=\frac1{\sqrt6}.
+$$
+
+よって
+
+$$
+u_3
+=a_3-(q_1^Ta_3)q_1-(q_2^Ta_3)q_2
+$$
+
+$$
+=\begin{pmatrix}0\\1\\1\end{pmatrix}
+-\begin{pmatrix}\frac12\\\frac12\\0\end{pmatrix}
+-\begin{pmatrix}\frac16\\-\frac16\\\frac13\end{pmatrix}
+=\begin{pmatrix}-\frac23\\\frac23\\\frac23\end{pmatrix}.
+$$
+
+したがって
+
+$$
+\|u_3\|=\frac2{\sqrt3},\qquad
 q_3=\frac1{\sqrt3}(-1,1,1)^T.
 $$
 
-従って
+以上より
 
 $$
 Q=
@@ -427,11 +864,21 @@ Q=
 \frac1{\sqrt2}&\frac1{\sqrt6}&-\frac1{\sqrt3}\\
 \frac1{\sqrt2}&-\frac1{\sqrt6}&\frac1{\sqrt3}\\
 0&\frac2{\sqrt6}&\frac1{\sqrt3}
-\end{pmatrix},
+\end{pmatrix}.
 $$
 
+$R=Q^TA$ の成分は $r_{ij}=q_i^Ta_j$ です。上で計算した内積と
+
 $$
-R=Q^TA=
+q_1^Ta_1=\sqrt2,\qquad
+q_2^Ta_2=\frac{\sqrt6}{2},\qquad
+q_3^Ta_3=\frac2{\sqrt3}
+$$
+
+をまとめると
+
+$$
+R=
 \begin{pmatrix}
 \sqrt2&\frac1{\sqrt2}&\frac1{\sqrt2}\\
 0&\frac{\sqrt6}{2}&\frac1{\sqrt6}\\
@@ -439,7 +886,13 @@ R=Q^TA=
 \end{pmatrix}.
 $$
 
-よって $\boxed{A=QR}$。検算は $Q^TQ=I$ と $QR=A$ です。
+従って
+
+$$
+\boxed{A=QR}.
+$$
+
+検算では、まず $Q^TQ=I$ を確認し、次に $QR$ の第 $j$ 列が $a_j$ に戻ることを確認します。
 <!-- solution-end -->
 
 <a id="ex-lax1-a08"></a>
@@ -460,34 +913,117 @@ $$
 とする。$\|Ax-b\|_2$ を最小にする $\hat x$、射影 $A\hat x$、残差 $r=b-A\hat x$ を求めよ。
 
 <!-- solution-start -->
-**解答**：正規方程式
+**解答**：$x=(x_1,x_2)^T$ とすると
 
 $$
-A^TA\hat x=A^Tb
+Ax-b=
+\begin{pmatrix}
+x_1-1\\
+x_1+x_2-2\\
+x_1+2x_2-2
+\end{pmatrix}.
 $$
 
-は
+従って、平方ノルム
 
 $$
-\begin{pmatrix}3&3\\3&5\end{pmatrix}\hat x
-=\begin{pmatrix}5\\6\end{pmatrix}.
+f(x_1,x_2)
+=(x_1-1)^2+(x_1+x_2-2)^2+(x_1+2x_2-2)^2
 $$
 
-従って
+を最小化すればよいです。偏微分すると
 
 $$
-\boxed{\hat x=(7/6,1/2)^T}.
-$$
-
-$$
-\boxed{A\hat x=(7/6,5/3,13/6)^T},
+\frac{\partial f}{\partial x_1}
+=2\{(x_1-1)+(x_1+x_2-2)+(x_1+2x_2-2)\}
+=2(3x_1+3x_2-5),
 $$
 
 $$
-\boxed{r=(-1/6,1/3,-1/6)^T}.
+\frac{\partial f}{\partial x_2}
+=2(x_1+x_2-2)+4(x_1+2x_2-2)
+=2(3x_1+5x_2-6).
 $$
 
-実際 $A^Tr=0$ で、残差は列空間に直交しています。また $\|r\|_2^2=1/6$ です。
+両方を0と置くと
+
+$$
+3x_1+3x_2=5,\qquad
+3x_1+5x_2=6,
+$$
+
+すなわち正規方程式
+
+$$
+\begin{pmatrix}3&3\\3&5\end{pmatrix}
+\begin{pmatrix}x_1\\x_2\end{pmatrix}
+=
+\begin{pmatrix}5\\6\end{pmatrix}
+$$
+
+を得ます。第2式から第1式を引けば
+
+$$
+2x_2=1,\qquad x_2=\frac12.
+$$
+
+これを $3x_1+3x_2=5$ に代入して
+
+$$
+3x_1=5-\frac32=\frac72,\qquad x_1=\frac76.
+$$
+
+したがって
+
+$$
+\boxed{\hat x=\begin{pmatrix}7/6\\1/2\end{pmatrix}}.
+$$
+
+射影は
+
+$$
+A\hat x
+=
+\begin{pmatrix}
+7/6\\
+7/6+1/2\\
+7/6+1
+\end{pmatrix}
+=
+\boxed{\begin{pmatrix}7/6\\5/3\\13/6\end{pmatrix}}.
+$$
+
+残差は
+
+$$
+r=b-A\hat x
+=
+\begin{pmatrix}1\\2\\2\end{pmatrix}
+-
+\begin{pmatrix}7/6\\5/3\\13/6\end{pmatrix}
+=
+\boxed{\begin{pmatrix}-1/6\\1/3\\-1/6\end{pmatrix}}.
+$$
+
+検算すると
+
+$$
+A^Tr
+=
+\begin{pmatrix}
+1&1&1\\
+0&1&2
+\end{pmatrix}
+\begin{pmatrix}-1/6\\1/3\\-1/6\end{pmatrix}
+=
+\begin{pmatrix}0\\0\end{pmatrix},
+$$
+
+確かに残差は $\operatorname{Im}A$ に直交しています。また
+
+$$
+\|r\|_2^2=\frac1{36}+\frac19+\frac1{36}=\frac16.
+$$
 <!-- solution-end -->
 
 ### Level B：場合分けと複数手法をつなぐ
@@ -514,47 +1050,124 @@ $$
 3. すべての $a$ について直交対角化を与え、固有値が重複する $a$ も明示せよ。
 
 <!-- solution-start -->
-**解答**：
+**解答**：特性多項式は
 
 $$
-(1,1,0)^T,\quad(1,-1,0)^T,\quad e_3
+\det(\lambda I-A_a)
+=(\lambda-2)
+\det
+\begin{pmatrix}
+\lambda-a&-1\\
+-1&\lambda-a
+\end{pmatrix}
 $$
 
-はそれぞれ固有値
-
 $$
-\boxed{a+1,\quad a-1,\quad2}
-$$
-
-の固有ベクトルです。固有値が一致するときは対応する固有方向の和がその固有空間になります。
-
-$$
-\det A_a=2(a^2-1)
+=(\lambda-2)\{(\lambda-a)^2-1\}
+=(\lambda-2)(\lambda-a-1)(\lambda-a+1).
 $$
 
-なので可逆でないのは
+したがって固有値は
 
 $$
-\boxed{a=\pm1},
+\boxed{a+1,\qquad a-1,\qquad2}.
 $$
 
-どちらも階数は2です。
-
-正規直交化した
+実際、
 
 $$
-q_1=\frac1{\sqrt2}(1,1,0)^T,\quad
-q_2=\frac1{\sqrt2}(1,-1,0)^T,\quad
+A_a\begin{pmatrix}1\\1\\0\end{pmatrix}
+=(a+1)\begin{pmatrix}1\\1\\0\end{pmatrix},
+$$
+
+$$
+A_a\begin{pmatrix}1\\-1\\0\end{pmatrix}
+=(a-1)\begin{pmatrix}1\\-1\\0\end{pmatrix},
+$$
+
+$$
+A_ae_3=2e_3.
+$$
+
+固有値が相異なる場合の固有空間はそれぞれ
+
+$$
+E_{a+1}=\operatorname{span}\{(1,1,0)^T\},
+$$
+
+$$
+E_{a-1}=\operatorname{span}\{(1,-1,0)^T\},
+$$
+
+$$
+E_2=\operatorname{span}\{e_3\}.
+$$
+
+重複が起こるのは
+
+$$
+a+1=2\iff a=1,\qquad
+a-1=2\iff a=3
+$$
+
+の2場合です。$a=1$ では固有値2の固有空間が
+
+$$
+E_2=\operatorname{span}\{(1,1,0)^T,e_3\},
+$$
+
+$a=3$ では
+
+$$
+E_2=\operatorname{span}\{(1,-1,0)^T,e_3\}
+$$
+
+となります。
+
+可逆性は固有値の積、すなわち行列式から判定できます。
+
+$$
+\det A_a=2(a+1)(a-1)=2(a^2-1).
+$$
+
+よって可逆でないのは
+
+$$
+\boxed{a=\pm1}.
+$$
+
+$a=1$ の固有値は $2,0,2$、$a=-1$ の固有値は $0,-2,2$ なので、どちらも0固有値の重複度は1です。したがって
+
+$$
+\boxed{\operatorname{rank}A_{1}=\operatorname{rank}A_{-1}=2}.
+$$
+
+最後に、互いに直交する単位固有ベクトル
+
+$$
+q_1=\frac1{\sqrt2}(1,1,0)^T,\qquad
+q_2=\frac1{\sqrt2}(1,-1,0)^T,\qquad
 q_3=e_3
 $$
 
-を列にもつ $Q$ なら、全ての $a$ で
+を列にもつ
+
+$$
+Q=
+\begin{pmatrix}
+1/\sqrt2&1/\sqrt2&0\\
+1/\sqrt2&-1/\sqrt2&0\\
+0&0&1
+\end{pmatrix}
+$$
+
+を取ります。$Q^TQ=I$ であり、各列が上記の固有ベクトルなので、すべての $a$ に対して
 
 $$
 \boxed{Q^TA_aQ=\operatorname{diag}(a+1,a-1,2)}.
 $$
 
-固有値が重複するのは $a=1$ と $a=3$ です。
+固有値が重複しても、この同じ $Q$ がそのまま直交対角化を与えます。
 <!-- solution-end -->
 
 <a id="ex-lax1-b02"></a>
@@ -574,10 +1187,17 @@ $$
 $U$ への $W$ に沿った射影 $P$ の標準基底に関する行列を求めよ。さらに $P^2=P$ を確認し、この射影が直交射影ではないことも確認せよ。
 
 <!-- solution-start -->
-**解答**：基底ベクトルを並べて
+**解答**：
 
 $$
-S=
+u_1=(1,1,0)^T,\qquad u_2=(0,1,1)^T,\qquad w=(1,0,1)^T
+$$
+
+を列に並べて
+
+$$
+S=(u_1,u_2,w)
+=
 \begin{pmatrix}
 1&0&1\\
 1&1&0\\
@@ -585,38 +1205,117 @@ S=
 \end{pmatrix}.
 $$
 
-$\det S=2\neq0$ なので確かに直和です。この基底では射影は
+行列式は
 
 $$
-D=\operatorname{diag}(1,1,0)
+\det S
+=1\det\begin{pmatrix}1&0\\1&1\end{pmatrix}
++1\det\begin{pmatrix}1&1\\0&1\end{pmatrix}
+=1+1=2\neq0,
+$$
+
+したがって3本は基底をなし、確かに $\mathbb R^3=U\oplus W$ です。
+
+この基底で $x=\alpha u_1+\beta u_2+\gamma w$ と書けば、$U$ への $W$ に沿った射影は
+
+$$
+(\alpha,\beta,\gamma)^T\longmapsto(\alpha,\beta,0)^T
+$$
+
+です。従って、この基底での表現行列は
+
+$$
+D=\operatorname{diag}(1,1,0),
+$$
+
+標準基底では
+
+$$
+P=SDS^{-1}
+$$
+
+となります。
+
+$S^{-1}$ は、
+
+$$
+\begin{cases}
+x_1=\alpha+\gamma,\\
+x_2=\alpha+\beta,\\
+x_3=\beta+\gamma
+\end{cases}
+$$
+
+を $\alpha,\beta,\gamma$ について解けば
+
+$$
+\alpha=\frac{x_1+x_2-x_3}{2},\qquad
+\beta=\frac{-x_1+x_2+x_3}{2},\qquad
+\gamma=\frac{x_1-x_2+x_3}{2},
 $$
 
 なので
 
 $$
-P=SDS^{-1}.
+S^{-1}=\frac12
+\begin{pmatrix}
+1&1&-1\\
+-1&1&1\\
+1&-1&1
+\end{pmatrix}.
 $$
 
-計算すると
+したがって
 
 $$
-\boxed{
-P=
-\frac12
+SD
+=
+\begin{pmatrix}
+1&0&0\\
+1&1&0\\
+0&1&0
+\end{pmatrix},
+$$
+
+$$
+P=SDS^{-1}
+=\boxed{\frac12
 \begin{pmatrix}
 1&1&-1\\
 0&2&0\\
 -1&1&1
-\end{pmatrix}.}
+\end{pmatrix}}.
 $$
 
-直接掛けて $P^2=P$、また $Pu=u$ $(u\in U)$、$Pw=0$ $(w\in W)$ を確認できます。一方
+$M=\begin{pmatrix}1&1&-1\\0&2&0\\-1&1&1\end{pmatrix}$ と置くと
 
 $$
-P^T\neq P
+M^2=
+\begin{pmatrix}
+2&2&-2\\
+0&4&0\\
+-2&2&2
+\end{pmatrix}=2M.
 $$
 
-なので直交射影ではありません。射影だからといって対称行列になるとは限りません。
+よって
+
+$$
+P^2=\frac14M^2=\frac12M=P.
+$$
+
+また
+
+$$
+P^T=\frac12
+\begin{pmatrix}
+1&0&-1\\
+1&2&1\\
+-1&0&1
+\end{pmatrix}\neq P
+$$
+
+です。例えば $P_{12}=1/2$ に対し $P_{21}=0$ なので対称ではありません。従ってこの射影は直交射影ではなく、$W$ に沿った斜交射影です。
 <!-- solution-end -->
 
 <a id="ex-lax1-b03"></a>
@@ -626,35 +1325,95 @@ $$
 $x=(1,2,2)^T$ を $3e_1=(3,0,0)^T$ へ写す Householder 行列 $H$ を求めよ。さらに $H^TH=I$ と $Hx=3e_1$ を確認せよ。
 
 <!-- solution-start -->
-**解答**：$\|x\|=3$ なので
+**解答**：まず
 
 $$
-v=x-3e_1=(-2,2,2)^T.
+\|x\|=\sqrt{1^2+2^2+2^2}=3.
 $$
 
-定数倍を落として $v=(-1,1,1)^T$ としてよく、
+$x$ を $3e_1$ へ反射させるため
 
 $$
-H=I-2\frac{vv^T}{v^Tv}.
+v=x-3e_1=(-2,2,2)^T
 $$
 
-$v^Tv=3$ より
+を取ります。Householder 行列
 
 $$
-\boxed{
-H=
-\frac13
+H=I-2\frac{vv^T}{v^Tv}
+$$
+
+は $v$ の定数倍に依存しないので、簡単のため $v=(-1,1,1)^T$ としてよいです。このとき
+
+$$
+v^Tv=1+1+1=3,
+$$
+
+$$
+vv^T=
+\begin{pmatrix}
+1&-1&-1\\
+-1&1&1\\
+-1&1&1
+\end{pmatrix}.
+$$
+
+従って
+
+$$
+H
+=I-\frac23
+\begin{pmatrix}
+1&-1&-1\\
+-1&1&1\\
+-1&1&1
+\end{pmatrix}
+=\boxed{\frac13
 \begin{pmatrix}
 1&2&2\\
 2&1&-2\\
 2&-2&1
-\end{pmatrix}.}
+\end{pmatrix}}.
 $$
 
-$H^T=H$ かつ $H^2=I$ なので $H^TH=I$。また直接計算して
+直交性を確認します。$P_v=vv^T/(v^Tv)$ と置くと
 
 $$
-\boxed{Hx=(3,0,0)^T}.
+P_v^2
+=\frac{vv^Tvv^T}{(v^Tv)^2}
+=\frac{v(v^Tv)v^T}{(v^Tv)^2}
+=P_v.
+$$
+
+また $P_v^T=P_v$ なので $H^T=H$ であり、
+
+$$
+H^TH=H^2=(I-2P_v)^2
+=I-4P_v+4P_v^2
+=I.
+$$
+
+さらに
+
+$$
+Hx
+=\frac13
+\begin{pmatrix}
+1&2&2\\
+2&1&-2\\
+2&-2&1
+\end{pmatrix}
+\begin{pmatrix}1\\2\\2\end{pmatrix}
+$$
+
+$$
+=\frac13
+\begin{pmatrix}
+1+4+4\\
+2+2-4\\
+2-4+2
+\end{pmatrix}
+=\boxed{\begin{pmatrix}3\\0\\0\end{pmatrix}}.
 $$
 <!-- solution-end -->
 
@@ -673,55 +1432,121 @@ $$
 の特異値を求め、特異値分解 $A=U\Sigma V^T$ を一つ構成せよ。さらに $\|A\|_2$ を求めよ。
 
 <!-- solution-start -->
-**解答**：小さい方の
+**解答**：$A$ は $2\times3$ なので、小さい $2\times2$ 行列 $AA^T$ を対角化します。
 
 $$
-AA^T=
-\begin{pmatrix}2&1\\1&2\end{pmatrix}
+AA^T
+=
+\begin{pmatrix}
+1&1&0\\
+0&1&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0\\
+1&1\\
+0&1
+\end{pmatrix}
+=
+\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-を対角化します。固有値は $3,1$ なので
+その特性多項式は
 
 $$
-\boxed{\sigma_1=\sqrt3,\qquad\sigma_2=1}.
+\det(AA^T-\lambda I)
+=(2-\lambda)^2-1
+=(\lambda-3)(\lambda-1).
 $$
 
-左特異ベクトルを
+従って $AA^T$ の固有値は $3,1$ で、特異値はその正の平方根
+
+$$
+\boxed{\sigma_1=\sqrt3,\qquad\sigma_2=1}
+$$
+
+です。
+
+$\lambda=3$ に対して $x=y$、$\lambda=1$ に対して $x=-y$ なので、左特異ベクトルを
 
 $$
 u_1=\frac1{\sqrt2}(1,1)^T,\qquad
 u_2=\frac1{\sqrt2}(-1,1)^T
 $$
 
-と取ります。$Av_i=\sigma_i u_i$ を満たす右特異ベクトルとして
+と取ります。
+
+右特異ベクトルは
 
 $$
-v_1=\frac1{\sqrt6}(1,2,1)^T,\qquad
-v_2=\frac1{\sqrt2}(-1,0,1)^T
+v_i=\frac1{\sigma_i}A^Tu_i
 $$
 
-を取れます。さらに
+から求めます。まず
 
 $$
-v_3=\frac1{\sqrt3}(1,-1,1)^T
+A^Tu_1
+=
+\begin{pmatrix}
+1&0\\
+1&1\\
+0&1
+\end{pmatrix}
+\frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix}
+=rac1{\sqrt2}egin{pmatrix}1\\2\\1\end{pmatrix},
 $$
 
-は核の単位ベクトルです。従って
+したがって
 
 $$
-U=(u_1,u_2),\quad
-V=(v_1,v_2,v_3),\quad
+v_1=\frac1{\sqrt3}A^Tu_1
+=\frac1{\sqrt6}(1,2,1)^T.
+$$
+
+同様に
+
+$$
+A^Tu_2
+=
+\frac1{\sqrt2}egin{pmatrix}-1\\0\\1\end{pmatrix},
+$$
+
+$\sigma_2=1$ なので
+
+$$
+v_2=\frac1{\sqrt2}(-1,0,1)^T.
+$$
+
+残る $v_3$ は $\ker A$ の単位ベクトルに取ります。$Av=0$ は
+
+$$
+x+y=0,\qquad y+z=0
+$$
+
+なので $(x,y,z)=t(1,-1,1)$。従って
+
+$$
+v_3=\frac1{\sqrt3}(1,-1,1)^T.
+$$
+
+$v_1,v_2,v_3$ は互いに直交し、いずれも長さ1です。よって
+
+$$
+U=(u_1,u_2),\qquad
+V=(v_1,v_2,v_3),\qquad
 \Sigma=
-\begin{pmatrix}\sqrt3&0&0\\0&1&0\end{pmatrix}
+\begin{pmatrix}
+\sqrt3&0&0\\
+0&1&0
+\end{pmatrix}
 $$
 
-として
+とすれば、$Av_1=\sqrt3u_1$, $Av_2=u_2$, $Av_3=0$ から
 
 $$
 \boxed{A=U\Sigma V^T}.
 $$
 
-最大特異値から
+作用素2-ノルムは最大特異値なので
 
 $$
 \boxed{\|A\|_2=\sqrt3}.
@@ -746,38 +1571,86 @@ $$
 とする。$A$ を直交対角化し、$q$ の符号型を判定せよ。さらに $\|x\|_2=1$ のもとで $q(x)$ の最大値・最小値と達成点を求めよ。
 
 <!-- solution-start -->
-**解答**：固有値と正規直交固有ベクトルは
+**解答**：上左の $2\times2$ ブロックについて
 
 $$
-3:\frac1{\sqrt2}(1,1,0)^T,\qquad
-1:\frac1{\sqrt2}(1,-1,0)^T,\qquad
--1:(0,0,1)^T.
+\det
+\begin{pmatrix}
+2-\lambda&1\\
+1&2-\lambda
+\end{pmatrix}
+=(2-\lambda)^2-1
+=(\lambda-3)(\lambda-1),
 $$
 
-これらを列にもつ $Q$ に対して
+第3成分は固有値 $-1$ です。従って $A$ の固有値は
+
+$$
+3,\qquad1,\qquad-1.
+$$
+
+対応する正規直交固有ベクトルは
+
+$$
+q_1=\frac1{\sqrt2}(1,1,0)^T,\qquad
+q_2=\frac1{\sqrt2}(1,-1,0)^T,\qquad
+q_3=(0,0,1)^T.
+$$
+
+これらを列に並べた $Q=(q_1,q_2,q_3)$ は $Q^TQ=I$ を満たし、
 
 $$
 \boxed{Q^TAQ=\operatorname{diag}(3,1,-1)}.
 $$
 
-正の固有値2個、負の固有値1個なので $q$ は不定値です。
-
-$y=Q^Tx$ と置けば $\|y\|=1$ かつ
+正の固有値が2個、負の固有値が1個なので、$q$ は正定値でも負定値でもなく
 
 $$
-q(x)=3y_1^2+y_2^2-y_3^2.
+\boxed{q\text{ は不定値}}
 $$
 
-従って
+です。
+
+$y=Q^Tx$ と置くと、$Q$ は直交行列なので
 
 $$
-\boxed{\max q=3},\qquad
-x=\pm\frac1{\sqrt2}(1,1,0)^T,
+\|y\|_2=\|x\|_2=1,\qquad
+y_1^2+y_2^2+y_3^2=1.
 $$
 
+また
+
 $$
-\boxed{\min q=-1},\qquad
-x=\pm(0,0,1)^T.
+q(x)=x^TAx
+=y^T(Q^TAQ)y
+=3y_1^2+y_2^2-y_3^2.
+$$
+
+最大値については
+
+$$
+q(x)\le3(y_1^2+y_2^2+y_3^2)=3.
+$$
+
+等号には $y_2=y_3=0$, $y_1=\pm1$ が必要なので
+
+$$
+\boxed{\max_{\|x\|=1}q(x)=3},\qquad
+\boxed{x=\pm\frac1{\sqrt2}(1,1,0)^T}.
+$$
+
+最小値については
+
+$$
+q(x)+1
+=4y_1^2+2y_2^2\ge0,
+$$
+
+よって $q(x)\ge-1$。等号には $y_1=y_2=0$, $y_3=\pm1$ が必要なので
+
+$$
+\boxed{\min_{\|x\|=1}q(x)=-1},\qquad
+\boxed{x=\pm(0,0,1)^T}.
 $$
 <!-- solution-end -->
 
@@ -800,45 +1673,122 @@ $$
 について、特性多項式、最小多項式、各固有空間、Jordan 標準形、$n\ge2$ に対する $A^n$ を求め、対角化可能性を判定せよ。
 
 <!-- solution-start -->
-**解答**：上三角行列なので
+**解答**：$A$ は上三角行列なので、対角成分から特性多項式は
 
 $$
-\chi_A(t)=(t-2)^3(t+1).
+\boxed{\chi_A(t)=(t-2)^3(t+1)}.
 $$
 
-固有値2の最初の3成分について $N=A-2I$ とすれば
+固有値2に対応する左上 $3\times3$ ブロックを
 
 $$
-N^2\neq0,\qquad N^3=0.
+J=\begin{pmatrix}
+2&1&0\\
+0&2&1\\
+0&0&2
+\end{pmatrix}
+=2I_3+N,\qquad
+N=egin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
 $$
 
-従って
+と書きます。この $N$ について
+
+$$
+N^2=
+\begin{pmatrix}
+0&0&1\\
+0&0&0\\
+0&0&0
+\end{pmatrix}\neq0,\qquad
+N^3=0.
+$$
+
+従って $J$ の最小多項式は $(t-2)^3$ です。残る1次元ブロックは $(-1)$ なので最小多項式は $t+1$。両者は互いに素だから全体では最小公倍数を取り
 
 $$
 \boxed{m_A(t)=(t-2)^3(t+1)}.
 $$
 
+次に固有空間を求めます。$\lambda=2$ では
+
 $$
-\ker(A-2I)=\operatorname{span}\{e_1\},\qquad
-\ker(A+I)=\operatorname{span}\{e_4\}.
+A-2I=
+\begin{pmatrix}
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&0\\
+0&0&0&-3
+\end{pmatrix}.
 $$
 
-固有値2の代数的重複度3に対し固有空間次元は1なので、大きさ3の Jordan block が1個です。この行列自体が
+$(A-2I)x=0$ から $x_2=x_3=x_4=0$、$x_1$ が自由なので
+
+$$
+\boxed{E_2=\ker(A-2I)=\operatorname{span}\{e_1\}}.
+$$
+
+$\lambda=-1$ では
+
+$$
+A+I=
+\begin{pmatrix}
+3&1&0&0\\
+0&3&1&0\\
+0&0&3&0\\
+0&0&0&0
+\end{pmatrix}.
+$$
+
+下から解くと $x_3=0$, 次に $x_2=0$, 最後に $x_1=0$ で、$x_4$ が自由です。従って
+
+$$
+\boxed{E_{-1}=\operatorname{span}\{e_4\}}.
+$$
+
+固有値2の代数的重複度は3ですが、固有空間の次元は1です。従って固有値2には大きさ3の Jordan block が1個あり、この行列自体がすでに
 
 $$
 \boxed{J_3(2)\oplus(-1)}
 $$
 
-になっています。
+という Jordan 標準形になっています。
 
-$J_3(2)=2I+N$、$N^3=0$ なので
+次に冪を求めます。$J=2I_3+N$ で $N^3=0$ だから、二項展開は第2次までで止まり、
 
 $$
-(2I+N)^n
-=2^nI+n2^{n-1}N+\binom n2 2^{n-2}N^2.
+J^n
+=(2I_3+N)^n
+=2^nI_3+n2^{n-1}N+\binom n2 2^{n-2}N^2.
 $$
 
-従って $n\ge2$ で
+各項を書き下すと
+
+$$
+J^n=
+\begin{pmatrix}
+2^n&0&0\\
+0&2^n&0\\
+0&0&2^n
+\end{pmatrix}
++
+\begin{pmatrix}
+0&n2^{n-1}&0\\
+0&0&n2^{n-1}\\
+0&0&0
+\end{pmatrix}
++
+\begin{pmatrix}
+0&0&\binom n2 2^{n-2}\\
+0&0&0\\
+0&0&0
+\end{pmatrix}.
+$$
+
+従って $n\ge2$ では
 
 $$
 \boxed{
@@ -851,11 +1801,13 @@ A^n=
 \end{pmatrix}.}
 $$
 
-最小多項式に重根があるため
+最後に、固有空間の次元の合計は $1+1=2<4$ なので固有ベクトルだけでは基底を作れません。従って
 
 $$
 \boxed{A\text{ は対角化不可能}}.
 $$
+
+同じことは、最小多項式に $(t-2)^3$ という重根が現れることからも判定できます。
 <!-- solution-end -->
 
 <a id="ex-lax1-c02"></a>
@@ -881,47 +1833,127 @@ $$
 4. 最小残差平方を求めよ。
 
 <!-- solution-start -->
-**解答**：次の3本は正規直交固有ベクトルです。
+**解答**：まず、次の3本を候補として直接作用させます。
 
 $$
-v_3=\frac1{\sqrt6}(1,1,2)^T,\qquad Av_3=3v_3,
+v_3=\frac1{\sqrt6}(1,1,2)^T,\qquad
+Av_3
+=\frac1{\sqrt6}\begin{pmatrix}3\\3\\6\end{pmatrix}
+=3v_3,
 $$
 
 $$
-v_1=\frac1{\sqrt2}(-1,1,0)^T,\qquad Av_1=v_1,
+v_1=\frac1{\sqrt2}(-1,1,0)^T,\qquad
+Av_1
+=\frac1{\sqrt2}\begin{pmatrix}-1\\1\\0\end{pmatrix}
+=v_1,
 $$
 
 $$
-v_0=\frac1{\sqrt3}(-1,-1,1)^T,\qquad Av_0=0.
+v_0=\frac1{\sqrt3}(-1,-1,1)^T,\qquad
+Av_0
+=\frac1{\sqrt3}\begin{pmatrix}0\\0\\0\end{pmatrix}
+=0.
 $$
 
-従って固有値は $3,1,0$。$A$ は対称かつ半正定値なので特異値も
+それぞれ長さ1で、内積も
 
 $$
-\boxed{3,1,0},\qquad
+v_3^Tv_1=0,\qquad v_3^Tv_0=0,\qquad v_1^Tv_0=0
+$$
+
+です。従って $v_3,v_1,v_0$ は正規直交固有基底で、固有値は
+
+$$
+\boxed{3,1,0}.
+$$
+
+$A$ は実対称行列で固有値がすべて非負なので、特異値は固有値の絶対値と一致し
+
+$$
+\boxed{\sigma_1=3,\qquad\sigma_2=1,\qquad\sigma_3=0}.
+$$
+
+非零特異値が2個なので
+
+$$
 \boxed{\operatorname{rank}A=2}.
 $$
 
-$b$ をこの基底で分解すると
+次に $b$ をこの正規直交基底で分解します。係数は内積で求まり、
+
+$$
+v_3^Tb=\frac{1+2+0}{\sqrt6}=\frac3{\sqrt6},
+$$
+
+$$
+v_1^Tb=\frac{-1+2}{\sqrt2}=\frac1{\sqrt2},
+$$
+
+$$
+v_0^Tb=\frac{-1-2+0}{\sqrt3}=-\sqrt3.
+$$
+
+したがって
 
 $$
 b=\frac3{\sqrt6}v_3+\frac1{\sqrt2}v_1-\sqrt3\,v_0.
 $$
 
-$x=\alpha v_3+\beta v_1+\gamma v_0$ と書けば
+任意の $x$ を
+
+$$
+x=\alpha v_3+\beta v_1+\gamma v_0
+$$
+
+と書くと、固有値を使って
 
 $$
 Ax=3\alpha v_3+\beta v_1.
 $$
 
-従って残差を最小にするには
+よって残差は
+
+$$
+Ax-b
+=\left(3\alpha-\frac3{\sqrt6}\right)v_3
++\left(\beta-\frac1{\sqrt2}\right)v_1
++\sqrt3\,v_0.
+$$
+
+3本は正規直交しているので
+
+$$
+\|Ax-b\|_2^2
+=\left(3\alpha-\frac3{\sqrt6}\right)^2
++\left(\beta-\frac1{\sqrt2}\right)^2
++3.
+$$
+
+従って最小化には
 
 $$
 3\alpha=\frac3{\sqrt6},\qquad
 \beta=\frac1{\sqrt2}
 $$
 
-とすればよく、$\gamma$ は任意です。標準座標へ戻すと
+とすればよく、$\gamma$ は $Ax$ に現れないため任意です。すなわち
+
+$$
+\alpha=\frac1{\sqrt6},\qquad
+\beta=\frac1{\sqrt2}.
+$$
+
+この2成分を標準座標へ戻すと
+
+$$
+\frac1{\sqrt6}v_3+\frac1{\sqrt2}v_1
+=\frac16\begin{pmatrix}1\\1\\2\end{pmatrix}
++\frac12\begin{pmatrix}-1\\1\\0\end{pmatrix}
+=\begin{pmatrix}-1/3\\2/3\\1/3\end{pmatrix}.
+$$
+
+また $\gamma v_0$ は $\ker A$ の任意成分です。パラメータを取り直せば、最小二乗解全体は
 
 $$
 \boxed{
@@ -931,7 +1963,14 @@ x=
 \begin{pmatrix}-1\\-1\\1\end{pmatrix},\qquad t\in\mathbb R.}
 $$
 
-最初のベクトルは $\ker A$ に直交しているため、この中で $\|x\|_2$ が最小の解は
+最初のベクトルは $v_3,v_1$ の線形結合であり、核方向 $v_0$ に直交しています。したがって Pythagoras より
+
+$$
+\left\|x_{\min}+t(-1,-1,1)^T\right\|_2^2
+=\|x_{\min}\|_2^2+3t^2,
+$$
+
+なのでノルム最小の解は $t=0$、すなわち
 
 $$
 \boxed{x_{\min}=(-1/3,2/3,1/3)^T}.
@@ -940,17 +1979,35 @@ $$
 このとき
 
 $$
-Ax_{\min}=(0,1,1)^T,\qquad
-r=b-Ax_{\min}=(1,1,-1)^T.
+Ax_{\min}
+=
+\begin{pmatrix}
+-1/3+1/3\\
+2/3+1/3\\
+-1/3+2/3+2/3
+\end{pmatrix}
+=
+\begin{pmatrix}0\\1\\1\end{pmatrix}.
 $$
 
 従って
 
 $$
-\boxed{\min_x\|Ax-b\|_2^2=3}.
+r=b-Ax_{\min}
+=
+\begin{pmatrix}1\\2\\0\end{pmatrix}
+-
+\begin{pmatrix}0\\1\\1\end{pmatrix}
+=
+\begin{pmatrix}1\\1\\-1\end{pmatrix},
 $$
 
-直交固有分解を使うと、階数落ちした正規方程式を無理に逆行列で解かずに済みます。
+$$
+\boxed{\min_x\|Ax-b\|_2^2
+=1^2+1^2+(-1)^2=3}.
+$$
+
+これは上の直交分解で最後まで消せなかった $-\sqrt3\,v_0$ の平方ノルム $3$ とも一致します。
 <!-- solution-end -->
 
 ---
