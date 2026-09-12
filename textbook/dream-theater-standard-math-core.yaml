@@ -458,7 +458,7 @@ nodes:
 implementation_batches:
   - order: 1
     id: real-analysis-foundation
-    nodes: [RA1, RA2, RA3, RA4, RA5]
+    nodes: [RA1, RA2, RA3, RA4, RA4A, RA5]
   - order: 2
     id: linear-algebra-core
     nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]

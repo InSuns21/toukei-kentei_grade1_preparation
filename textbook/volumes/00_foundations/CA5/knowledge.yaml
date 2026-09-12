@@ -9,7 +9,7 @@ concepts:
   - id: complex-analysis.winding-number
     name: winding number
     kind: definition
-    aliases: [winding number, 巻き数, 指数, index of a curve]
+    aliases: [winding number, 巻き数, index of a curve]
     requires: [complex-analysis.complex-line-integral]
 
   - id: complex-analysis.winding-integer-local-constant
