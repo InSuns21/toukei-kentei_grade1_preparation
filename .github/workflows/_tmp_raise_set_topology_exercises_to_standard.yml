@@ -1,0 +1,62 @@
+name: Temporary raise set/topology exercise minimums
+
+on:
+  push:
+    branches:
+      - audit/set-topology-exercises-20260912
+
+permissions:
+  contents: write
+
+jobs:
+  complete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/set-topology-exercises-20260912
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Add missing A/B/C exercises
+        run: python scripts/_tmp_raise_set_topology_exercises_to_standard.py
+      - name: Validate A4 B3 C1 minimums on targets
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          root = Path('textbook/volumes/00_foundations')
+          targets = [
+            'F0_00A_集合_写像_上限下限',
+            'F0_00A1_上界_下界_supremum_infimum',
+            'F0_00A1B_実数の上限性質_Archimedes性',
+            'F0_00A1C_集合族_添字集合_べき集合',
+            'F0_00A1D_順序_全順序_最小最大_整列',
+            'F0_00A2_選択公理_Zorn_極大原理',
+            'F0_00A3_半順序_Zorn_極大延長',
+            'F0_00B0_点列_部分列_十分大きい添字',
+            'F0_00B1_位相空間_近傍_部分空間_収束',
+            'F0_00C_連続写像_コンパクト性_最大最小',
+            'F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel',
+            'F0_00C2_コンパクト性の応用_最大最小_最近点',
+            'F0_00D_Cauchy列_完備性_無限次元',
+          ]
+          for d in targets:
+              text = (root/d/'index.md').read_text(encoding='utf-8')
+              counts = {level: len(re.findall(rf'- Level: {level}\b', text)) for level in 'ABC'}
+              print(d, counts)
+              if counts['A'] < 4 or counts['B'] < 3 or counts['C'] < 1:
+                  raise SystemExit(f'minimum failed: {d}: {counts}')
+          PY
+      - name: Remove temporary automation
+        run: |
+          rm scripts/_tmp_raise_set_topology_exercises_to_standard.py
+          rm .github/workflows/_tmp_raise_set_topology_exercises_to_standard.yml
+      - name: Commit exercise completion
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations scripts .github/workflows
+          git commit -m 'Meet DREAM THEATER exercise minimums in set topology core'
+          git push origin HEAD:audit/set-topology-exercises-20260912
