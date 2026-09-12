@@ -1,0 +1,141 @@
+name: Temporary RA4A registry sync v3
+on:
+  push:
+    branches: [feat/ra4a-improper-integrals]
+    paths: [.github/workflows/tmp-ra4a-sync-v3.yml]
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ra4a-improper-integrals
+          fetch-depth: 0
+      - name: Synchronize RA4A
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,re
+
+          p=Path('textbook/dream-theater-index.json'); d=json.loads(p.read_text())
+          sec=next(x for x in d['sections'] if x['name']=='DREAM THEATER 本編')
+          a='textbook/volumes/00_foundations/RA4/index.md'; b='textbook/volumes/00_foundations/RA4A/index.md'
+          if b not in sec['paths']: sec['paths'].insert(sec['paths'].index(a)+1,b)
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+
+          p=Path('textbook/dream-theater.md'); s=p.read_text()
+          old='''4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
+          5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
+          6. [RA6 多変数微分・Fréchet微分（既存 F0-02C3）](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+          7. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
+          8. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
+          9. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)'''
+          new='''4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
+          5. [RA4A 広義積分・収束判定](textbook/volumes/00_foundations/RA4A/index.md)
+          6. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
+          7. [RA6 多変数微分・Fréchet微分（既存 F0-02C3）](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+          8. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
+          9. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
+          10. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)'''
+          if 'RA4A 広義積分・収束判定' not in s:
+              if old not in s: raise SystemExit('facade block not found')
+              s=s.replace(old,new,1)
+          p.write_text(s)
+
+          p=Path('textbook/dream-theater-standard-math-core.yaml'); s=p.read_text()
+          if '\n  - id: RA4A\n' not in s:
+              block='''  - id: RA4A
+            title: 広義積分・収束判定
+            area: real-analysis
+            tier: core
+            status: implemented
+            implemented_at: 2026-09-13
+            implementation_path: textbook/volumes/00_foundations/RA4A/index.md
+            prerequisites: [RA4]
+          '''
+              block='\n'.join(line[10:] if line.startswith('          ') else line for line in block.splitlines())+'\n'
+              if '  - id: RA5\n' not in s: raise SystemExit('RA5 node not found')
+              s=s.replace('  - id: RA5\n',block+'  - id: RA5\n',1)
+          p.write_text(s)
+
+          p=Path('textbook/dream-theater-standard-math-core.md'); s=p.read_text()
+          dag='  RA2 --> RA4["実解析 IV<br/>Riemann/Darboux積分・FTC<br/>RA4"]\n'
+          if 'RA4 --> RA4A[' not in s:
+              if dag not in s: raise SystemExit('RA4 DAG line not found')
+              s=s.replace(dag,dag+'  RA4 --> RA4A["実解析 IV-A<br/>広義積分・収束判定<br/>RA4A"]\n',1)
+          old='''- 通常のRiemann積分と広義Riemann積分を明確に分離
+
+          ## RA5 関数列・関数級数・一様収束 `core`'''
+          new='''- 本章は有限閉区間上の通常のRiemann積分で閉じ、広義積分の収束論は RA4A へ分離
+
+          ## RA4A 広義積分・収束判定 `core`
+
+          - 無限区間・端点特異点・内部特異点を有限区間Riemann積分の片側極限として定義
+          - 複数の不良端点は各片側を独立に判定し、Cauchy主値による相殺と区別
+          - Cauchy判定、非負関数の有界性判定、比較判定・極限比較判定
+          - 無限遠・0近傍の $p$ 積分と $1/[x(\\log x)^q]$ 型の対数補正
+          - 絶対収束・条件収束と「絶対収束なら収束」
+          - 級数と広義積分の積分判定
+          - Dirichlet判定・Abel判定と $\\sin x/x$ 型の振動積分
+          - Cauchy主値が通常の広義積分とは別の極限操作であることを反例で確認
+
+          ## RA5 関数列・関数級数・一様収束 `core`'''
+          if '## RA4A 広義積分・収束判定 `core`' not in s:
+              if old not in s: raise SystemExit('core detail insertion point not found')
+              s=s.replace(old,new,1)
+          p.write_text(s)
+
+          p=Path('textbook/volumes/00_foundations/RA4/index.md'); s=p.read_text()
+          r='''## 5. 広義積分は別ページで扱う
+
+          ここまでのRA4は、**有限閉区間上の通常のRiemann積分**を扱う章です。無限区間や非有界な被積分関数では、有限区間の積分値に対してさらに極限を取る必要があり、収束・発散そのものが新しい問題になります。
+
+          その収束論は独立ページ **[RA4A 広義積分・収束判定](../RA4A/index.md)** に分離します。そこでは無限区間・特異点の定義だけでなく、Cauchy判定、比較・極限比較、$p$ 積分、絶対/条件収束、級数の積分判定、Dirichlet/Abel判定、Cauchy主値まで扱います。
+
+          RA4内では $\\infty$ や特異点を通常の積分端点として形式的に代入せず、広義積分が必要になった時点でRA4Aの極限定義へ移る、と整理してください。
+
+          ---
+
+          ## 6. 演習'''
+          r='\n'.join(line[10:] if line.startswith('          ') else line for line in r.splitlines())
+          s,n=re.subn(r'## 5\. 通常積分と広義積分を分ける\n.*?\n---\n\n## 6\. 演習',lambda m:r,s,count=1,flags=re.S)
+          if n!=1: raise SystemExit(f'RA4 section replacement count={n}')
+          a04='''<a id="ex-ra4-a04"></a>
+          #### RA4-A04 向き付き積分
+          - Level: A
+
+          $$
+          \\int_2^{-1}(3x^2+1)\\,dx
+          $$
+          を計算せよ。積分区間を反転したときの符号も明示せよ。
+
+          <!-- solution-start -->
+          **解答**：原始関数を $F(x)=x^3+x$ と取ります。[微積分学の基本定理II](#thm-ra4-ftc2) と向き反転の規約から
+          $$
+          \\int_2^{-1}(3x^2+1)\\,dx=F(-1)-F(2)=-12.
+          $$
+          逆向きなら $\\int_{-1}^{2}(3x^2+1)\\,dx=12$ であり、端点を反転すると符号だけが変わります。
+          <!-- solution-end -->'''
+          a04='\n'.join(line[10:] if line.startswith('          ') else line for line in a04.splitlines())
+          s,n=re.subn(r'<a id="ex-ra4-a04"></a>\n#### RA4-A04 .*?(?=\n### Level B)',lambda m:a04,s,count=1,flags=re.S)
+          if n!=1: raise SystemExit(f'RA4 A04 replacement count={n}')
+          s=s.replace('**次：[RA5 関数列・関数級数・一様収束](../RA5/index.md)**','**次：[RA4A 広義積分・収束判定](../RA4A/index.md)**',1)
+          p.write_text(s)
+
+          p=Path('textbook/volumes/00_foundations/RA4/chapter.yaml'); s=p.read_text()
+          s=s.replace('  - 広義積分と通常のRiemann積分を区別できる','  - 有限閉区間上のRiemann積分と、RA4Aで扱う広義積分の極限操作を区別できる')
+          s=s.replace('canonical_examples: [連続関数の積分, Dirichlet関数の非可積分性, 1/xの広義積分]','canonical_examples: [連続関数の積分, Dirichlet関数の非可積分性, FTCによる積分計算]')
+          p.write_text(s)
+          PY
+      - name: Commit synchronized files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f --ignore-unmatch .github/workflows/tmp-ra4a-sync.yml .github/workflows/tmp-ra4a-sync-v2.yml .github/workflows/tmp-ra4a-sync-v3.yml
+          git add textbook/dream-theater-index.json textbook/dream-theater.md textbook/dream-theater-standard-math-core.yaml textbook/dream-theater-standard-math-core.md textbook/volumes/00_foundations/RA4/index.md textbook/volumes/00_foundations/RA4/chapter.yaml
+          git commit -m "Register RA4A and split improper integrals"
+          git push origin HEAD:feat/ra4a-improper-integrals
