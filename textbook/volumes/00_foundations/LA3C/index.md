@@ -253,11 +253,12 @@ $$
 <!-- formal-statement-start -->
 > **定理（余因子行列の基本恒等式）**  
 > 任意の正方行列 $A$ に対して
-> $$
-> A\operatorname{adj}(A)
-> =\operatorname{adj}(A)A
-> =(\det A)I.
-> $$
+
+$$
+A\operatorname{adj}(A)
+=\operatorname{adj}(A)A
+=(\det A)I.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->

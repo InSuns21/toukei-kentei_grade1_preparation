@@ -299,11 +299,12 @@ $$
 <!-- formal-statement-start -->
 > **系（抽象行列式による可逆性判定）**  
 > 有限次元ベクトル空間 $V$ の線形写像 $T:V\to V$ に対して
-> $$
-> \det T=0
-> \Longleftrightarrow
-> T\text{ は可逆でない}.
-> $$
+
+$$
+\det T=0
+\Longleftrightarrow
+T\text{ は可逆でない}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->

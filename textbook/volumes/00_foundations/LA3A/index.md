@@ -364,15 +364,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（双対写像の核・像と annihilator）**  
 > $V,W$ を有限次元ベクトル空間、$T:V\to W$ を線形写像とする。このとき
-> $$
-> \ker T^*=(\operatorname{im}T)^\circ,
-> \qquad
-> \operatorname{im}T^*=(\ker T)^\circ.
-> $$
+
+$$
+\ker T^*=(\operatorname{im}T)^\circ,
+\qquad
+\operatorname{im}T^*=(\ker T)^\circ.
+$$
+
 > 特に
-> $$
-> \operatorname{rank}T^*=\operatorname{rank}T.
-> $$
+
+$$
+\operatorname{rank}T^*=\operatorname{rank}T.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
