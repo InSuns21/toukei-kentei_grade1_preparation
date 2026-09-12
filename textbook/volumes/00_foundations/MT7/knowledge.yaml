@@ -13,8 +13,8 @@ concepts:
   - id: measure.lp-complete
     name: Lpの完備性
     kind: theorem
-    aliases: [Lpの完備性, "> **定理（Lp の完備性）**"]
-    introduction_aliases: ["> **定理（Lp の完備性）**"]
+    aliases: [Lpの完備性, "### 定理（Lpの完備性）"]
+    introduction_aliases: ["### 定理（Lpの完備性）"]
     requires:
       - measure.lp-space
       - measure.minkowski-inequality
@@ -23,8 +23,8 @@ concepts:
   - id: measure.lp-simple-dense
     name: 単関数のLp稠密性
     kind: theorem
-    aliases: [単関数のLp稠密性, "> **定理（単関数の Lp 稠密性）**"]
-    introduction_aliases: ["> **定理（単関数の Lp 稠密性）**"]
+    aliases: [単関数のLp稠密性, "### 定理（単関数のLp稠密性）"]
+    introduction_aliases: ["### 定理（単関数のLp稠密性）"]
     requires:
       - measure.lp-space
       - measure.dominated-convergence-theorem
@@ -32,8 +32,8 @@ concepts:
   - id: measure.cc-dense-in-lp
     name: CcのLp稠密性
     kind: theorem
-    aliases: [CcのLp稠密性, "> **定理（Cc の Lp 稠密性）**"]
-    introduction_aliases: ["> **定理（Cc の Lp 稠密性）**"]
+    aliases: [CcのLp稠密性, "### 定理（CcのLp稠密性）"]
+    introduction_aliases: ["### 定理（CcのLp稠密性）"]
     requires:
       - measure.lp-simple-dense
       - measure.cc-space
@@ -42,8 +42,8 @@ concepts:
   - id: measure.lp-duality-sigma-finite
     name: σ-finite Lp双対定理
     kind: theorem
-    aliases: [σ-finite Lp双対定理, "> **定理（σ-finite Lp 双対定理）**"]
-    introduction_aliases: ["> **定理（σ-finite Lp 双対定理）**"]
+    aliases: [σ-finite Lp双対定理, "### 定理（σ-finite Lp双対定理）"]
+    introduction_aliases: ["### 定理（σ-finite Lp双対定理）"]
     requires:
       - measure.lp-space
       - measure.holder-inequality
@@ -53,8 +53,8 @@ concepts:
   - id: measure.linfty-duality-rn-boundary
     name: L-infinity双対でRN構成が破綻する機構
     kind: proposition
-    aliases: [L-infinity双対でRN構成が破綻する機構, "> **命題（L-infinity 双対で RN 構成が破綻する機構）**"]
-    introduction_aliases: ["> **命題（L-infinity 双対で RN 構成が破綻する機構）**"]
+    aliases: [L-infinity双対でRN構成が破綻する機構, "### 命題（L-infinity双対でRN構成が破綻する機構）"]
+    introduction_aliases: ["### 命題（L-infinity双対でRN構成が破綻する機構）"]
     requires:
       - measure.essential-supremum
       - measure.lp-duality-sigma-finite
