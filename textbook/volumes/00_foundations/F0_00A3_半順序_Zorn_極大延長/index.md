@@ -366,6 +366,67 @@ $$
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00A3-A04 最大元なら極大元
+
+- Level: A
+- 目安時間: 7分
+
+半順序集合で最大元が存在すれば、それは極大元でもあることを示せ。逆が一般に成り立たない理由も例で述べよ。
+
+<!-- solution-start -->
+#### 詳細解答
+最大元 $M$ は全ての $x\in P$ に対して $x\preceq M$ を満たす。もし $M\preceq y$ なら最大性から $y\preceq M$ でもあり、反対称律より $y=M$。従って $M$ は極大元。
+
+逆は一般に偽で、例えば $P=\{\{1\},\{2\}\}$ を包含関係で順序付けると両方が極大元だが最大元はない。
+
+#### 本番答案
+$M\preceq y$ と最大性の $y\preceq M$ から反対称律で $y=M$。逆の反例は互いに比較不能な二要素。
+<!-- solution-end -->
+
+### F0-00A3-B03 chainになった部分空間の合併
+
+- Level: B
+- 目安時間: 12分
+
+ベクトル空間 $X$ の部分空間からなるchain $\mathcal C$ を包含関係で考える。$U=\bigcup_{M\in\mathcal C}M$ が再び部分空間であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$0$ は全ての部分空間に属するので $0\in U$。$x,y\in U$ を取ると、ある $M,N\in\mathcal C$ が存在して $x\in M$, $y\in N$。chain性から $M\subseteq N$ または $N\subseteq M$。例えば $M\subseteq N$ なら $x,y\in N$ なので任意のスカラー $a,b$ に対して
+$$
+ax+by\in N\subseteq U.
+$$
+従って $U$ は線形結合に閉じた部分空間。
+
+#### 本番答案
+任意の二元 $x,y\in U$ はchain中の一つの部分空間に同時に入る。そこで線形結合を取れば再び $U$ に入る。
+<!-- solution-end -->
+
+### F0-00A3-C01 極大一次独立集合は基底になる
+
+- Level: C
+- 目安時間: 20分
+
+ベクトル空間 $X$ の一次独立集合全体を包含関係で順序付ける。[Zornの補題](#thm-zorn)を用いて極大一次独立集合 $B$ を取り、$B$ が $X$ を張ることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+一次独立集合のchainの合併は、任意の有限個の元がchain中の一つの一次独立集合に同時に含まれるため一次独立である。従って各chainは上界を持ち、[Zornの補題](#thm-zorn)から極大一次独立集合 $B$ が存在する。
+
+もし $\operatorname{span}B\ne X$ なら、ある $x\in X\setminus\operatorname{span}B$ を取れる。このとき $B\cup\{x\}$ は一次独立である。実際
+$$
+a x+\sum_{j=1}^m a_jb_j=0
+$$
+で $a\ne0$ なら $x$ が $B$ の線形結合となり矛盾するので $a=0$、残りも $B$ の一次独立性から全て0。これは $B$ の極大性に反する。よって $\operatorname{span}B=X$ であり $B$ は基底。
+
+#### 本番答案
+chainの合併が一次独立なのでZornを適用できる。極大一次独立集合 $B$ が張らないなら $x\notin\operatorname{span}B$ を一つ加えても一次独立となり極大性に矛盾。従って $B$ は基底。
+<!-- solution-end -->
+
+---
+
 ## 10. 次に進む
 
 Zornの補題は後のF0-02C6 Hahn--Banachで再登場します。標準通読では次に距離空間へ進みます。

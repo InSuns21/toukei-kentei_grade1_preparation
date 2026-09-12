@@ -298,6 +298,85 @@ $$
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00A1B-A04 $1/n^2$ を誤差内に入れる
+
+- Level: A
+- 目安時間: 8分
+
+任意の $\varepsilon>0$ に対して、十分大きい $n$ で
+$$
+\frac1{n^2}<\varepsilon
+$$
+となることを [Archimedes性](#thm-f0-00a1b-archimedean) から示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$1/\sqrt\varepsilon$ は正の実数なので、[Archimedes性](#thm-f0-00a1b-archimedean)から
+$$
+N>\frac1{\sqrt\varepsilon}
+$$
+となる自然数 $N$ を取れる。$n\ge N$ なら $n>1/\sqrt\varepsilon$ なので
+$$
+\frac1{n^2}<\varepsilon.
+$$
+
+#### 本番答案
+$N>1/\sqrt\varepsilon$ を取れば $n\ge N$ で $1/n^2<\varepsilon$。
+<!-- solution-end -->
+
+### F0-00A1B-B03 二点の間に $a+1/N$ を入れる
+
+- Level: B
+- 目安時間: 10分
+
+実数 $a<b$ に対し、ある $N\in\mathbb N$ が存在して
+$$
+a<a+\frac1N<b
+$$
+となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$b-a>0$ だから、[Archimedes性](#thm-f0-00a1b-archimedean)の系より
+$$
+\frac1N<b-a
+$$
+となる自然数 $N$ が存在する。$1/N>0$ なので $a<a+1/N$、また不等式へ $a$ を加えて $a+1/N<b$。従って主張が従う。
+
+#### 本番答案
+$1/N<b-a$ を満たす $N$ を取れば
+$$
+a<a+1/N<b.
+$$
+<!-- solution-end -->
+
+### F0-00A1B-C01 正の無限小は実数には存在しない
+
+- Level: C
+- 目安時間: 15分
+
+$r>0$ が
+$$
+nr\le1\qquad(\forall n\in\mathbb N)
+$$
+を満たす実数だと仮定すると矛盾することを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$r>0$ なので $1/r\in\mathbb R$。 [Archimedes性](#thm-f0-00a1b-archimedean) から
+$$
+n>\frac1r
+$$
+となる自然数 $n$ が存在する。両辺に $r>0$ を掛けると $nr>1$。これは全ての自然数について $nr\le1$ という仮定に矛盾する。
+
+#### 本番答案
+[Archimedes性](#thm-f0-00a1b-archimedean)で $n>1/r$ を取れば $nr>1$ となり矛盾。
+<!-- solution-end -->
+
+---
+
 ## 6. 次に進む
 
 次は、位相や選択公理に現れる記号を読むため、**べき集合・集合族・添字集合・任意和/任意交差**を正式に定義します。

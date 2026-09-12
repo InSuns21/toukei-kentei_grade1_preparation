@@ -378,6 +378,88 @@ $P(n)$ が $n\ge N$ で成り立つとする。$n_k\ge k$ なので $k\ge N$ な
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00B0-A04 部分列添字は元の番号より遅れない
+
+- Level: A
+- 目安時間: 7分
+
+$n_1<n_2<\cdots$ が自然数の狭義増加列なら
+$$
+n_k\ge k
+$$
+が全ての $k$ で成り立つことを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$n_1\ge1$。また自然数で狭義増加なので $n_{k+1}\ge n_k+1$。帰納法で $n_k\ge k$ と仮定すれば
+$$
+n_{k+1}\ge n_k+1\ge k+1.
+$$
+従って全ての $k$ で $n_k\ge k$。
+
+#### 本番答案
+$n_1\ge1$ と $n_{k+1}\ge n_k+1$ から帰納法で従う。
+<!-- solution-end -->
+
+### F0-00B0-B03 無限回起こる命題だけを抜き出す
+
+- Level: B
+- 目安時間: 10分
+
+命題 $P(n)$ が無限回起こるとする。$P(n_k)$ が全ての $k$ で成り立つような狭義増加添字列 $n_1<n_2<\cdots$ を構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$P(n)$ が無限回起こるので、$N=1$ に対して $P(n_1)$ を満たす $n_1\ge1$ を取れる。$n_k$ まで取ったら $N=n_k+1$ とする。再び無限回性から $n_{k+1}\ge n_k+1$ で $P(n_{k+1})$ を満たすものが存在する。これを繰り返せば狭義増加列を得る。
+
+#### 本番答案
+$n_k$ の次は無限回性を $N=n_k+1$ に適用して選ぶ。これで $n_{k+1}>n_k$ かつ $P(n_{k+1})$。
+<!-- solution-end -->
+
+### F0-00B0-C01 eventually と infinitely often の量化双対
+
+- Level: C
+- 目安時間: 16分
+
+命題 $P(n)$ について、次を示せ。
+
+1. $P(n)$ が十分大きい $n$ で成り立つことと、$\neg P(n)$ が無限回は起こらないことは同値。
+2. $P(n)$ が無限回起こることと、$\neg P(n)$ が「十分大きい $n$ で常に成り立つ」ことの否定は同値。
+
+<!-- solution-start -->
+#### 詳細解答
+「$P$ がeventually」は
+$$
+\exists N\ \forall n\ge N:\ P(n).
+$$
+その否定は
+$$
+\forall N\ \exists n\ge N:\ \neg P(n),
+$$
+すなわち「$\neg P$ が無限回起こる」。従って1が従う。
+
+同様に「$P$ が無限回」は
+$$
+\forall N\ \exists n\ge N:\ P(n),
+$$
+であり、これは
+$$
+\neg\bigl(\exists N\ \forall n\ge N:\ \neg P(n)\bigr)
+$$
+と同値。括弧内が「$\neg P$ がeventually」なので2も従う。
+
+#### 本番答案
+量化記号の否定
+$$
+\neg\exists N\forall n\ge N=\forall N\exists n\ge N\neg
+$$
+を使えば両方とも従う。
+<!-- solution-end -->
+
+---
+
 ## 8. 次に進む
 
 次は集合 $X$ に距離 $d$ を入れ、「近い」「収束する」を定量化します。

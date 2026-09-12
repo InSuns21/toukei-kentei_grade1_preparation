@@ -361,6 +361,101 @@ $$
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00A1C-A04 縮小する区間族の和と交差
+
+- Level: A
+- 目安時間: 8分
+
+$A_n=(-1/n,1/n)$ $(n\in\mathbb N)$ とする。次を求めよ。
+$$
+\bigcup_{n\in\mathbb N}A_n,\qquad
+\bigcap_{n\in\mathbb N}A_n.
+$$
+
+<!-- solution-start -->
+#### 詳細解答
+$A_1=(-1,1)$ が全ての $A_n$ を含むので任意和は $(-1,1)$。0は全ての $A_n$ に入る。一方 $x\ne0$ なら十分大きい $n$ で $1/n<|x|$ となり $x\notin A_n$。従って任意交差は $\{0\}$。
+
+#### 本番答案
+$$
+\boxed{\bigcup_nA_n=(-1,1),\qquad \bigcap_nA_n=\{0\}}.
+$$
+<!-- solution-end -->
+
+### F0-00A1C-B03 和集合と任意交差の分配
+
+- Level: B
+- 目安時間: 12分
+
+$I\ne\varnothing$ とし、$B\subseteq X$ と集合族 $\{A_i\}_{i\in I}$ に対して
+$$
+B\cup\left(\bigcap_{i\in I}A_i\right)
+=
+\bigcap_{i\in I}(B\cup A_i)
+$$
+を要素による論理式から証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $x\in X$ について
+$$
+\begin{aligned}
+x\in B\cup\bigcap_iA_i
+&\iff (x\in B)\ \text{または}\ (\forall i,\ x\in A_i)\\
+&\iff \forall i,\ ((x\in B)\ \text{または}\ x\in A_i)\\
+&\iff x\in\bigcap_i(B\cup A_i).
+\end{aligned}
+$$
+第2の同値では「$x\in B$」が添字 $i$ に依存しないことを使っている。
+
+#### 本番答案
+所属条件を命題論理へ直せば
+$$
+P\lor(\forall i\,Q_i)\iff\forall i(P\lor Q_i)
+$$
+となるため等しい。
+<!-- solution-end -->
+
+### F0-00A1C-C01 「無限回」と「最終的に」を集合族で表す
+
+- Level: C
+- 目安時間: 18分
+
+集合列 $(A_n)$ に対して
+$$
+L:=\bigcap_{N=1}^{\infty}\bigcup_{n\ge N}A_n,
+\qquad
+E:=\bigcup_{N=1}^{\infty}\bigcap_{n\ge N}A_n
+$$
+と置く。点 $x$ について、$x\in L$ と $x\in E$ がそれぞれ何を意味するか、量化記号で展開して説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in L$ は
+$$
+\forall N\ \exists n\ge N:\ x\in A_n
+$$
+と同値である。どこまで先へ進んでも再び $A_n$ に入る添字があるので、「$x$ が $A_n$ に無限回属する」という意味。
+
+$x\in E$ は
+$$
+\exists N\ \forall n\ge N:\ x\in A_n
+$$
+と同値である。ある番号以降は常に $A_n$ に属するので、「最終的にずっと属する」という意味。
+
+#### 本番答案
+$$
+x\in L\iff \forall N\exists n\ge N:x\in A_n,
+$$
+$$
+x\in E\iff \exists N\forall n\ge N:x\in A_n.
+$$
+<!-- solution-end -->
+
+---
+
 ## 7. 次に進む
 
 標準ルートでは、実数の基礎と集合族の記法を持って点列へ進みます。選択公理まで追う場合は、その前に順序・全順序・整列可能性を整備します。

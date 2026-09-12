@@ -452,6 +452,88 @@ $$
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00C-A04 絶対値関数の連続性
+
+- Level: A
+- 目安時間: 8分
+
+$f(x)=|x|$ が $\mathbb R$ 上で連続であることを
+$$
+\bigl||x|-|y|\bigr|\le|x-y|
+$$
+を使って示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x_0\in\mathbb R$ と $\varepsilon>0$ を任意に取る。$\delta=\varepsilon$ とすれば、$|x-x_0|<\delta$ から
+$$
+\bigl|f(x)-f(x_0)\bigr|
+=\bigl||x|-|x_0|\bigr|
+\le|x-x_0|
+<\varepsilon.
+$$
+従って $f$ は任意の $x_0$ で連続。
+
+#### 本番答案
+$\delta=\varepsilon$ と取れば逆三角不等式から直ちに従う。
+<!-- solution-end -->
+
+### F0-00C-B03 閉包と連続像
+
+- Level: B
+- 目安時間: 14分
+
+距離空間 $X,Y$、連続写像 $f:X\to Y$、集合 $A\subseteq X$ に対して
+$$
+f(\overline A)\subseteq\overline{f(A)}
+$$
+を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$x\in\overline A$ を取る。距離空間では閉包の点列特徴付けにより、ある列 $a_n\in A$ が存在して $a_n\to x$。連続性から
+$$
+f(a_n)\to f(x).
+$$
+各 $f(a_n)\in f(A)$ なので、再び閉包の点列特徴付けから $f(x)\in\overline{f(A)}$。従って包含が成り立つ。
+
+#### 本番答案
+$x\in\overline A$ なら $a_n\in A$, $a_n\to x$ を取れる。連続性で $f(a_n)\to f(x)$ だから $f(x)\in\overline{f(A)}$。
+<!-- solution-end -->
+
+### F0-00C-C01 不連続なら反例列を作れる
+
+- Level: C
+- 目安時間: 18分
+
+距離空間 $X,Y$ の写像 $f:X\to Y$ が点 $x\in X$ で連続でないとする。ある点列 $x_n\to x$ が存在して $f(x_n)\not\to f(x)$ となることを定義から構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$f$ が $x$ で連続でないので、ある $\varepsilon_0>0$ が存在し、どの $\delta>0$ に対しても
+$$
+d_X(x,y)<\delta,\qquad d_Y(f(x),f(y))\ge\varepsilon_0
+$$
+を満たす $y$ が存在する。
+
+各 $n$ で $\delta=1/n$ として、そのような点を $x_n$ と選ぶ。すると
+$$
+d_X(x_n,x)<1/n
+$$
+なので $x_n\to x$。しかし全ての $n$ で
+$$
+d_Y(f(x_n),f(x))\ge\varepsilon_0,
+$$
+従って $f(x_n)$ は $f(x)$ に収束しない。
+
+#### 本番答案
+不連続性の否定定義から固定 $\varepsilon_0>0$ を取り、$\delta=1/n$ ごとに反例 $x_n$ を選ぶ。すると $x_n\to x$ だが像は $\varepsilon_0$ 以上離れ続ける。
+<!-- solution-end -->
+
+---
+
 ## 4. 次に進む
 
 連続性を三つの形で扱えるようになったので、次は「無限の局所情報を有限に圧縮できる」コンパクト性へ進みます。

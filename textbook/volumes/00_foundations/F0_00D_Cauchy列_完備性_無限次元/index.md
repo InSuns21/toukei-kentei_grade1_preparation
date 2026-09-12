@@ -853,6 +853,109 @@ $x\in\overline F$ から $x_n\in F$, $x_n\to x$ を取る。この列はCauchy�
 
 ---
 
+<!-- exercise-density-standard-supplement-20260912 -->
+
+### F0-00D-A04 収束列からCauchy評価を再構成する
+
+- Level: A
+- 目安時間: 8分
+
+$x_n\to x$ なら $(x_n)$ がCauchy列であることを、任意の $\varepsilon>0$ に対して $\varepsilon/2$ を用いて示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+任意の $\varepsilon>0$ を取る。収束より、ある $N$ が存在して $n\ge N$ なら
+$$
+d(x_n,x)<\varepsilon/2.
+$$
+従って $m,n\ge N$ なら
+$$
+d(x_m,x_n)
+\le d(x_m,x)+d(x,x_n)
+<\varepsilon.
+$$
+よってCauchy列。
+
+#### 本番答案
+極限 $x$ を中継して三角不等式を使い、両側を $\varepsilon/2$ にする。
+<!-- solution-end -->
+
+### F0-00D-B03 有限直積の完備性
+
+- Level: B
+- 目安時間: 15分
+
+完備距離空間 $(X,d_X)$、$(Y,d_Y)$ の直積 $X\times Y$ に
+$$
+d((x,y),(x',y'))=\max\{d_X(x,x'),d_Y(y,y')\}
+$$
+を入れる。この距離について $X\times Y$ が完備であることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$((x_n,y_n))$ を $X\times Y$ のCauchy列とする。任意の $\varepsilon>0$ に対し十分大きい $m,n$ で
+$$
+\max\{d_X(x_m,x_n),d_Y(y_m,y_n)\}<\varepsilon.
+$$
+従って各座標列 $(x_n)$、$(y_n)$ はそれぞれCauchy。完備性からある $x\in X,y\in Y$ が存在して
+$$
+x_n\to x,\qquad y_n\to y.
+$$
+すると
+$$
+d((x_n,y_n),(x,y))
+=\max\{d_X(x_n,x),d_Y(y_n,y)\}\to0.
+$$
+よって直積は完備。
+
+#### 本番答案
+直積のCauchy列は各座標でCauchy。各空間の完備性で座標極限を取り、max距離で組の収束を確認する。
+<!-- solution-end -->
+
+### F0-00D-C01 完備性からCantor型の交点を得る
+
+- Level: C
+- 目安時間: 22分
+
+完備距離空間 $(X,d)$ で、非空閉集合列
+$$
+F_1\supseteq F_2\supseteq\cdots
+$$
+が
+$$
+\operatorname{diam}(F_n):=\sup\{d(x,y):x,y\in F_n\}\to0
+$$
+を満たすとする。次を示せ。
+
+1. $\bigcap_{n=1}^{\infty}F_n$ は非空。
+2. その共通部分は一点だけからなる。
+
+<!-- solution-start -->
+#### 詳細解答
+各 $n$ から $x_n\in F_n$ を取る。$m\ge n$ なら入れ子性から $x_m\in F_m\subseteq F_n$ であり、$x_n,x_m\in F_n$。従って
+$$
+d(x_n,x_m)\le\operatorname{diam}(F_n).
+$$
+直径が0へ行くので $(x_n)$ はCauchy。$X$ の完備性から $x_n\to x\in X$。
+
+固定した $N$ に対して $n\ge N$ なら $x_n\in F_n\subseteq F_N$。$F_N$ は閉なので極限 $x\in F_N$。$N$ は任意だから
+$$
+x\in\bigcap_NF_N.
+$$
+従って共通部分は非空。
+
+次に $x,y$ がともに全ての $F_n$ に属するとする。すると全ての $n$ で
+$$
+d(x,y)\le\operatorname{diam}(F_n).
+$$
+右辺が0へ収束するため $d(x,y)=0$、従って $x=y$。よって共通部分は一点。
+
+#### 本番答案
+$x_n\in F_n$ を取り、入れ子性と直径→0からCauchy。完備性で極限 $x$ を得て、各 $F_N$ の閉性で $x\in F_N$。一意性は $d(x,y)\le\operatorname{diam}(F_n)\to0$。
+<!-- solution-end -->
+
+---
+
 ## 9. 次に進む
 
 完備性そのものは距離空間の概念です。次講ではベクトル空間へノルムを入れ、Banach空間と有限次元・無限次元の差を整理します。
