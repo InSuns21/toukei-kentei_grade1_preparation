@@ -17,7 +17,7 @@ learning_objectives:
 definitions:
   - { id: RA4A-DEF-01, name: 広義Riemann積分 }
   - { id: RA4A-DEF-02, name: 広義積分の絶対収束・条件収束 }
-  - { id: RA4A-DEF-03, name: Cauchy主値 }
+  - { id: RA4A-DEF-03, name: 広義積分に対するCauchy主値 }
 theorems:
   - { id: RA4A-THM-01, name: 広義積分のCauchy判定 }
   - { id: RA4A-THM-02, name: 非負広義積分の有界性判定 }
