@@ -1,0 +1,218 @@
+name: Enhance CAX1 solution granularity
+
+on:
+  push:
+    branches:
+      - improve-cax1-solution-granularity
+
+permissions:
+  contents: write
+
+jobs:
+  enhance:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: improve-cax1-solution-granularity
+      - name: Strengthen worked solutions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md')
+          text = path.read_text()
+
+          def repl(old, new, label):
+              global text
+              n = text.count(old)
+              if n != 1:
+                  raise SystemExit(f'{label}: expected exactly one match, got {n}')
+              text = text.replace(old, new, 1)
+
+          repl(r'''**解答**：まず部分分数分解します。
+
+$$
+\frac1{z(z-2)}
+=-\frac1{2z}+\frac1{2(z-2)}.
+$$''', r'''**解答**：まず部分分数分解します。係数を飛ばさず
+
+$$
+\frac1{z(z-2)}=\frac A z+\frac B{z-2}
+$$
+
+と置くと、両辺に $z(z-2)$ を掛けて
+
+$$
+1=A(z-2)+Bz.
+$$
+
+$z=0$ を代入すると $1=-2A$ なので $A=-1/2$、$z=2$ を代入すると $1=2B$ なので $B=1/2$ です。従って
+
+$$
+\frac1{z(z-2)}
+=-\frac1{2z}+\frac1{2(z-2)}.
+$$''', 'A08 partial fractions')
+
+          repl(r'''2位の極の留数は
+
+$$
+\operatorname{Res}(f,i)
+=\left.
+\frac d{dz}\frac1{(z+i)^2}
+\right|_{z=i}.
+$$''', r'''$z=i$ では
+
+$$
+(z-i)^2f(z)=\frac1{(z+i)^2}
+$$
+
+が $i$ の近傍で正則です。2位の極 $a$ に対する公式
+
+$$
+\operatorname{Res}(f,a)
+=\left.\frac d{dz}\bigl((z-a)^2f(z)\bigr)\right|_{z=a}
+$$
+
+を $a=i$ に適用すると
+
+$$
+\operatorname{Res}(f,i)
+=\left.
+\frac d{dz}\frac1{(z+i)^2}
+\right|_{z=i}.
+$$''', 'B03 double pole formula')
+
+          repl(r'''同様に $z=-i$ では
+
+$$
+\operatorname{Res}(f,-i)
+=\frac{1+i}{4}.
+$$''', r'''$z=-i$ も省略せず計算すると
+
+$$
+\begin{aligned}
+\operatorname{Res}(f,-i)
+&=\left.\frac{z^2}{(z-1)(z-i)}\right|_{z=-i}\\
+&=\frac{-1}{(-i-1)(-2i)}.
+\end{aligned}
+$$
+
+分母は
+
+$$
+(-i-1)(-2i)=2i(i+1)=-2+2i=-2(1-i)
+$$
+
+なので
+
+$$
+\operatorname{Res}(f,-i)
+=\frac1{2(1-i)}
+=\frac{1+i}{4}.
+$$''', 'B08 minus i residue')
+
+          repl(r'''と置きます。$h$ は0の近傍で正則です。2位の極では留数は $h'(0)$ です。
+
+商を微分すると''', r'''と置きます。$h$ は0の近傍で正則です。ここで
+
+$$
+h(z)=h(0)+h'(0)z+O(z^2)
+$$
+
+と Taylor 展開すれば
+
+$$
+\frac{h(z)}{z^2}
+=\frac{h(0)}{z^2}+\frac{h'(0)}z+O(1),
+$$
+
+となるので、$z^{-1}$ の係数、すなわち留数は $h'(0)$ です。
+
+商を微分すると''', 'B09 residue justification')
+
+          repl(r'''**解答**：まず部分分数分解します。
+
+$$
+\frac1{(z-1)(z-3)}
+=-\frac1{2(z-1)}+\frac1{2(z-3)}.
+$$''', r'''**解答**：まず部分分数分解します。
+
+$$
+\frac1{(z-1)(z-3)}
+=\frac A{z-1}+\frac B{z-3}
+$$
+
+と置くと
+
+$$
+1=A(z-3)+B(z-1).
+$$
+
+$z=1$ を代入して $1=-2A$ より $A=-1/2$、$z=3$ を代入して $1=2B$ より $B=1/2$。したがって
+
+$$
+\frac1{(z-1)(z-3)}
+=-\frac1{2(z-1)}+\frac1{2(z-3)}.
+$$''', 'C01 partial fractions')
+
+          repl(r'''$$
+[z^2]:1+1+\frac12=\frac52.
+$$
+
+従って
+
+$$
+\frac{e^z}{1-z}
+=1+2z+\frac52z^2+\frac83z^3+\cdots.
+$$''', r'''$$
+[z^2]:1+1+\frac12=\frac52,
+$$
+
+$$
+[z^3]:1+1+\frac12+\frac16=\frac83.
+$$
+
+従って
+
+$$
+\frac{e^z}{1-z}
+=1+2z+\frac52z^2+\frac83z^3+\cdots.
+$$''', 'C03 product coefficient')
+
+          repl(r'''多項式 $p$ は極を持ちません。偏角原理から、境界上に零点がない円周 $|z|=r$ について
+
+$$
+\frac1{2\pi i}
+\int_{|z|=r}\frac{p'(z)}{p(z)}\,dz
+=N_r
+$$
+
+です。''', r'''偏角原理では、一般に
+
+$$
+\frac1{2\pi i}
+\int_{|z|=r}\frac{f'(z)}{f(z)}\,dz
+=N_r-P_r
+$$
+
+となります。ここで $N_r$ は円内の零点数、$P_r$ は極の個数で、どちらも重複度・位数込みです。本問の $p$ は多項式なので有限平面に極を持たず $P_r=0$。さらに (1), (2) で $|z|=1,2$ 上に零点がないことも確認済みです。従って
+
+$$
+\frac1{2\pi i}
+\int_{|z|=r}\frac{p'(z)}{p(z)}\,dz
+=N_r
+$$
+
+と使えます。''', 'C04 argument principle conditions')
+
+          path.write_text(text)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/F0_00CALC_複素解析_院試編入計算演習/index.md
+          git commit -m 'Strengthen CAX1 worked-solution derivations'
+          git push origin HEAD:improve-cax1-solution-granularity
