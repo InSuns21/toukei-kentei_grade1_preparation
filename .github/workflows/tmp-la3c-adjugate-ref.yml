@@ -39,3 +39,4 @@ jobs:
           git add textbook/volumes/00_foundations/LA3C/index.md .github/workflows/tmp-la3c-adjugate-ref.yml
           git commit -m "Link LA3C adjugate identity references [adjugate-ref-fixed]"
           git push origin HEAD:audit/la3abcd-quality-20260912
+# trigger after workflow registration
