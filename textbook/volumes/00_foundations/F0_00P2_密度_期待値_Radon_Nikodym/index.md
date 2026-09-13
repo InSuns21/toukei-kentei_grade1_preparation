@@ -131,40 +131,41 @@ $$
 $T=0$ なら $h=0$ でよいので、以下 $T\ne0$ とします。
 
 $$
-M:=\ker T
+M:=\ker T.
 $$
 
-と置きます。$T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
+$T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
 
-[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から、直交成分を
 
 $$
-y=P_My+u,
-\qquad
-u:=y-P_My\in M^\perp
-$$
+u:=y-P_My$$
 
-と書く必要はありません。ここでは最初から直交成分を $u$ と定めて
+とは置かず、単に
 
 $$
 u$$
 
-という別記号は導入せず、
+も導入せず、以下のように $u$ で定義します。
+
+$$
+u u:=y-P_My$$
+
+という積を意味するのではなく、**$u=y-P_My$** と定める、という意味です。数式としては
 
 $$
 u u$$
 
-という積ももちろん考えません。正しい定義は次の一行です。
+ではなく、次の関係だけを使います：$u=y-P_My$。Hilbert射影定理により
 
 $$
-u u:=y-P_My.$$
+u u\in M^\perp$$
 
-この表記も紛らわしいので、言葉で固定します：**以後 $u$ は $y-P_My$ を表す。** したがって
+という表記ではなく、$u\in M^\perp$ が成り立ち、また
 
 $$
-u$$
-
-という記号は一切用いません。
+y=P_My+u.
+$$
 
 $y\notin M$ なので $u\ne0$ であり、$P_My\in M$ だから
 
@@ -434,16 +435,10 @@ $$
 
 したがって $f,g$ は $D_k$ 上でa.e.有限です。
 
-もし
+もし $H:=D_k\cap\{f>g\}$ が正の測度を持つなら
 
 $$
-H:=D_k\cap\{f>g\}
-$$
-
-が正の測度を持つなら
-
-$$
-H=igcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
+H=\bigcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
 $$
 
 がa.e.の意味で成り立つため、ある $n$ について
@@ -464,14 +459,7 @@ $$
 \end{aligned}
 $$
 
-となり矛盾です。従って $f\le g$ が $D_k$ 上でa.e.成り立ちます。$f,g$ を交換すれば $g\le f$ も成り立つので
-
-$$
-f=g
-\qquad\mu\text{-a.e. on }D_k.
-$$
-
-全ての $k$ を合わせて $f=g$ が $\mu$-a.e.で成り立ちます。
+となり矛盾です。従って $f\le g$ が $D_k$ 上でa.e.成り立ちます。$f,g$ を交換すれば $g\le f$ も成り立つので $f=g$ が $D_k$ 上でa.e.成り立ちます。全ての $k$ を合わせて $f=g$ が $\mu$-a.e.です。
 <!-- proof-end -->
 
 ---
@@ -578,9 +566,7 @@ $P(X=1)=p$, $P(X=0)=1-p$ とする。$\{0,1\}$ 上の数え上げ測度 $\#$ に
 $f(0)=1-p$, $f(1)=p$ と置きます。任意の $A\subseteq\{0,1\}$ について
 
 $$
-\int_Af\,d\#
-=\sum_{x\in A}f(x)
-=P_X(A).
+\int_Af\,d\#=\sum_{x\in A}f(x)=P_X(A).
 $$
 
 従って
@@ -601,13 +587,7 @@ $[0,1]$ 上で $\nu(A)=\int_A3x^2\,dx$ とする。$\nu\ll\lambda$ を示し、$
 <!-- solution-start -->
 #### 詳細解答
 
-$\lambda(A)=0$ なら
-
-$$
-\nu(A)=\int_A3x^2\,dx=0,
-$$
-
-なので $\nu\ll\lambda$ です。定義式と比較して
+$\lambda(A)=0$ なら $\nu(A)=\int_A3x^2\,dx=0$ なので $\nu\ll\lambda$ です。定義式と比較して
 
 $$
 \frac{d\nu}{d\lambda}(x)=3x^2.
@@ -624,15 +604,7 @@ Dirac測度 $\delta_a$ がLebesgue測度 $\lambda$ に関して絶対連続で�
 <!-- solution-start -->
 #### 詳細解答
 
-$A=\{a\}$ と取ると
-
-$$
-\lambda(A)=0,
-\qquad
-\delta_a(A)=1.
-$$
-
-従って $\lambda(A)=0\Rightarrow\delta_a(A)=0$ が破れ、$\delta_a\not\ll\lambda$ です。
+$A=\{a\}$ と取ると $\lambda(A)=0$ ですが $\delta_a(A)=1$ です。従って $\lambda(A)=0\Rightarrow\delta_a(A)=0$ が破れ、$\delta_a\not\ll\lambda$ です。
 <!-- solution-end -->
 
 ### F0-00P2-A04 重み付き数え上げ測度に対する密度
@@ -651,20 +623,15 @@ $$
 p_x=P_X(\{x\})=f(x)w_x,
 $$
 
-従って
-
-$$
-f(x)=\frac{p_x}{w_x}.
-$$
-
-確認すると
+従って $f(x)=p_x/w_x$ です。さらに
 
 $$
 \int_Af\,d\nu
 =\sum_{x\in A}\frac{p_x}{w_x}w_x
-=\sum_{x\in A}p_x
-=P_X(A).
+=P_X(A),
 $$
+
+なので定義式も満たします。
 <!-- solution-end -->
 
 ### F0-00P2-B01 Bernoulli族の支配測度
@@ -677,19 +644,15 @@ $P_p$ を $\{0,1\}$ 上のBernoulli分布とする。数え上げ測度 $\#$ が
 <!-- solution-start -->
 #### 詳細解答
 
-$\#(A)=0$ なら $A=\varnothing$ なので、全ての $p$ で $P_p(A)=0$ です。従って $P_p\ll\#$ です。一点集合で評価すると
+$\#(A)=0$ なら $A=\varnothing$ なので、全ての $p$ で $P_p(A)=0$ です。従って $P_p\ll\#$。一点集合で評価すると
 
 $$
 \frac{dP_p}{d\#}(0)=1-p,
 \qquad
-\frac{dP_p}{d\#}(1)=p.
+\frac{dP_p}{d\#}(1)=p,
 $$
 
-よって
-
-$$
-\frac{dP_p}{d\#}(x)=p^x(1-p)^{1-x}.
-$$
+よって $dP_p/d\#(x)=p^x(1-p)^{1-x}$ です。
 <!-- solution-end -->
 
 ### F0-00P2-B02 点質量と連続部分を同時に支配する
@@ -710,16 +673,13 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ です。従って点質量部分も正規分布部分も $A$ に確率0を与え、$P(A)=0$。よって $P\ll\mu$ です。
-
-候補を
+$\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ なので、点質量部分も正規分布部分も $A$ に確率0を与えます。従って $P\ll\mu$ です。
 
 $$
-f(x)=p\boldsymbol{1}_{\{0\}}(x)
-+(1-p)\varphi(x)\boldsymbol{1}_{\mathbb R\setminus\{0\}}(x)
+f(x):=p\boldsymbol{1}_{\{0\}}(x)+(1-p)\varphi(x)\boldsymbol{1}_{\mathbb R\setminus\{0\}}(x)
 $$
 
-とします。任意のBorel集合 $A$ について
+と置くと
 
 $$
 \begin{aligned}
@@ -738,18 +698,12 @@ $$
 - Level: B
 - 目安時間: 15分
 
-有限測度 $\nu$ に対して
-
-$$
-\nu(A)=\int_Af\,d\mu=\int_Ag\,d\mu
-$$
-
-が全ての可測集合 $A$ で成り立つとする。$f,g\ge0$ とし、$f=g$ が $\mu$-a.e. 成り立つことを示せ。
+有限測度 $\nu$ に対して $\nu(A)=\int_Af\,d\mu=\int_Ag\,d\mu$ が全ての可測集合 $A$ で成り立つとする。$f,g\ge0$ とし、$f=g$ が $\mu$-a.e. 成り立つことを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$H:=\{f>g\}$ とします。$f,g$ は積分可能なのでa.e.有限です。従って
+$H:=\{f>g\}$ とします。$f,g$ は積分可能なのでa.e.有限で
 
 $$
 H=\bigcup_{n=1}^{\infty}\{f\ge g+1/n\}
@@ -767,7 +721,7 @@ $$
 \end{aligned}
 $$
 
-となり矛盾です。よって $f\le g$ a.e.。役割を交換して $g\le f$ a.e.なので $f=g$ a.e.です。
+となり矛盾です。よって $f\le g$ a.e.。役割を交換すれば $g\le f$ a.e.なので $f=g$ a.e.です。
 <!-- solution-end -->
 
 ### F0-00P2-C01 基準測度を変えて同じ分布を表す
@@ -787,39 +741,21 @@ $$
 
 1. $\nu\ll\mu$ を示せ。
 2. $d\nu/d\mu$ を求めよ。
-3. 求めた密度を使って $\nu(A)=\int_A(d\nu/d\mu)d\mu$ を確認せよ。
+3. 求めた密度を使って定義式を確認せよ。
 4. Lebesgue測度を基準にした密度と $\mu$ を基準にした密度が異なっても、表す確率測度が同じである理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 絶対連続性。** $\mu(A)=0$ とします。$A_m:=A\cap[-m,m]$ と置くと、$A_m$ 上で
+**1. 絶対連続性。** $\mu(A)=0$ とします。$A_m:=A\cap[-m,m]$ と置くと、$A_m$ 上で $(1+x^2)^{-1}\ge(1+m^2)^{-1}$ なので
 
 $$
-\frac1{1+x^2}\ge\frac1{1+m^2}.
+0=\mu(A_m)\ge\frac1{1+m^2}\lambda(A_m).
 $$
 
-従って
+従って $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$ であり、$\nu(A)=0$。よって $\nu\ll\mu$ です。
 
-$$
-0=\mu(A_m)\ge\frac1{1+m^2}\lambda(A_m),
-$$
-
-なので $\lambda(A_m)=0$ です。$A=\bigcup_mA_m$ だから $\lambda(A)=0$。従って
-
-$$
-\nu(A)=\int_Ace^{-x^2}\,dx=0,
-$$
-
-よって $\nu\ll\mu$ です。
-
-**2. 密度。** 候補 $f$ は
-
-$$
-f(x)\frac1{1+x^2}=ce^{-x^2}
-$$
-
-を満たす必要があるので
+**2. 密度。** $f(x)(1+x^2)^{-1}=ce^{-x^2}$ を満たせばよいので
 
 $$
 \frac{d\nu}{d\mu}(x)=ce^{-x^2}(1+x^2).
