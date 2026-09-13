@@ -1,0 +1,14 @@
+chapter: "F0-00D0C"
+terms:
+  - term: 順序体同型
+    english: ordered-field isomorphism
+    meaning: 加法・乗法・順序・零元・単位元を保つ全単射。
+  - term: Cauchy実数
+    english: Cauchy real
+    meaning: 有理Cauchy列の同値類として構成した実数。
+  - term: Dedekind実数
+    english: Dedekind real
+    meaning: Dedekind切断として構成した実数。
+  - term: 二分近似
+    english: bisection approximation
+    meaning: 切断の内側と外側を挟む有理区間を半分ずつ縮めて境界へ近づく方法。
