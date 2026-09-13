@@ -36,4 +36,4 @@ problem_patterns: [RA-SERIES-COMPARE-1, RA-SERIES-RATIO-ROOT-1, RA-SERIES-ALTERN
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 7, level_b: 6, level_c: 3, level_d: 0 }
-estimated_hours: { reading: 4.0, exercises: 6.5, review: 1.25 }
+estimated_hours: { reading: 4.5, exercises: 6.5, review: 1.25 }
