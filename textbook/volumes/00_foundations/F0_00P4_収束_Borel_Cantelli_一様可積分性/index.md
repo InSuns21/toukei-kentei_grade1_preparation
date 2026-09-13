@@ -48,9 +48,7 @@ $$
 }
 $$
 
-> と定義します。$\omega\in\limsup_nA_n$ であることは、任意の $m$ より後に $\omega\in A_n$ となる $n$ が存在すること、すなわち $A_n$ が**無限回起こる**ことと同値です。
->
-> この事象を
+> と定義します。$\omega\in\limsup_nA_n$ であることは、任意の $m$ より後に $\omega\in A_n$ となる $n$ が存在すること、すなわち $A_n$ が**無限回起こる**ことと同値です。この事象を
 
 $$
 \{A_n\ \mathrm{i.o.}\}
@@ -156,7 +154,7 @@ $$
 
 ### 証明の見取り図
 
-上極限と下極限は、標本点 $\omega$ ごとに量化記号へ直すと違いが見えます。
+標本点 $\omega$ ごとに量化記号へ直すと、二つの違いが見えます。
 
 $$
 \omega\in\limsup_nA_n
@@ -170,7 +168,7 @@ $$
 \exists m\ \forall n\ge m:\ \omega\in A_n.
 $$
 
-「ある時点以降ずっと」なら当然「任意の時点より後にも少なくとも一度」は起こります。また補集合の式は、この量化を否定したときに $\forall$ と $\exists$ が入れ替わることそのものです。
+「ある時点以降ずっと」なら「任意の時点より後にも少なくとも一度」は起こります。また補集合の式は、この量化を否定したときに $\forall$ と $\exists$ が入れ替わることそのものです。
 
 <!-- proof-start -->
 ### 証明
@@ -212,19 +210,13 @@ $$
 \exists m\ \forall n\ge m:\ \omega\in A_n^c
 $$
 
-と同じです。従って
-
-$$
-\omega\in\liminf_nA_n^c.
-$$
-
-よって
+と同じです。従って $\omega\in\liminf_nA_n^c$ であり、
 
 $$
 (\limsup_nA_n)^c=\liminf_nA_n^c.
 $$
 
-同様に、$\omega\notin\liminf_nA_n$ は
+同様に $\omega\notin\liminf_nA_n$ は
 
 $$
 \neg\left(\exists m\ \forall n\ge m:\ \omega\in A_n\right)
@@ -243,7 +235,7 @@ $$
 $$
 <!-- proof-end -->
 
-したがって、次の4つは同じ事象を別の言葉で見ています。
+したがって、次の4つは同じ構造を別の言葉で見ています。
 
 | 集合 | 経路上の意味 |
 |---|---|
@@ -258,7 +250,7 @@ $$
 
 ## 3. 独立な事象列と末尾事象
 
-Borel--Cantelli第2補題や Kolmogorov の 0--1 則では、無限個の事象の独立性を扱います。有限個の場合の mutual independence をそのまま無限列へ拡張します。
+Borel--Cantelli 第2補題や Kolmogorov の 0--1 則では、無限個の事象の独立性を扱います。有限個の場合の mutual independence をそのまま無限列へ拡張します。
 
 <!-- formal-statement-start -->
 > **定義（独立な事象列）**  
@@ -286,7 +278,7 @@ $$
 <!-- definition-example-start: def-f0-00p4-independent-event-sequence -->
 ### 3.1 例：独立コイン投げ
 
-独立な公平コインを無限回投げ、$H_n$ を「$n$ 回目が表」の事象とします。相異なる $i_1,\ldots,i_r$ を取り、それぞれの回について表 $H_{i_j}$ か裏 $H_{i_j}^c$ を指定します。この特定の $r$ 回の表裏パターンが起こる確率は
+標準的な無限回の公平コイン投げの積確率モデルを考え、$H_n$ を「$n$ 回目が表」の事象とします。相異なる $i_1,\ldots,i_r$ を取り、それぞれの回について表 $H_{i_j}$ か裏 $H_{i_j}^c$ を指定します。この特定の $r$ 回の表裏パターンが起こる確率は
 
 $$
 2^{-r}
@@ -326,12 +318,12 @@ $$
 > を末尾 σ 代数と定義します。
 <!-- formal-statement-end -->
 
-末尾事象とは、直感的には**最初の有限個をどう変えても最終的な真偽が変わらない事象**です。
+「最初の有限個を無視しても判定できる」というのが末尾事象の直感です。
 
 <!-- definition-example-start: def-f0-00p4-tail-sigma-field -->
-### 3.2 例：無限回表が出る事象は末尾事象
+### 3.2 例：無限回起こる事象は末尾事象
 
-独立性の有無に関係なく、事象列 $(A_n)$ に対して
+事象列 $(A_n)$ に対して
 
 $$
 T:=\{A_n\ \mathrm{i.o.}\}
@@ -386,7 +378,7 @@ $$
 
 ### 証明の見取り図
 
-独立性の定義から直ちに積公式が分かるのは、有限個の $A_i$ または $A_i^c$ を交差して作る**円筒事象**です。そこから生成 σ 代数全体へ広げるため、[π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を2回使います。
+独立性の定義から直ちに積公式が分かるのは、有限個の $A_i$ または $A_i^c$ を交差して作る**有限円筒事象**です。そこから生成 σ 代数全体へ広げるため、[π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を2回使います。
 
 <!-- proof-start -->
 ### 証明
@@ -407,7 +399,7 @@ $$
 
 とします。$J$ 側も同様に $\mathcal P_J$ とします。
 
-有限円筒事象どうしを交差しても再び有限円筒事象になるので、$\mathcal P_I,\mathcal P_J$ は π-system です。また
+二つの有限円筒事象を交差すると、同じ添字に関する条件は $\sigma(A_i)$ 内で交差して一つにまとめられるので、再び有限円筒事象になります。従って $\mathcal P_I,\mathcal P_J$ は π-system です。また
 
 $$
 \sigma(\mathcal P_I)=\mathcal F_I,
@@ -415,11 +407,38 @@ $$
 \sigma(\mathcal P_J)=\mathcal F_J.
 $$
 
-独立な事象列の定義から、任意の $C\in\mathcal P_I$、$D\in\mathcal P_J$ について、$I$ と $J$ で使われる添字は重ならないので
+$C\in\mathcal P_I$ と $D\in\mathcal P_J$ を取り、空集合でない場合を考えます。ある相異なる $i_1,\ldots,i_r\in I$ と $j_1,\ldots,j_s\in J$ を用いて
+
+$$
+C=\bigcap_{k=1}^rB_{i_k},
+\qquad
+D=\bigcap_{\ell=1}^sB_{j_\ell}
+$$
+
+と書けます。$I\cap J=\varnothing$ なので、現れる全ての添字は互いに異なります。独立な事象列の定義から
+
+$$
+P(C\cap D)
+=
+\left(\prod_{k=1}^rP(B_{i_k})\right)
+\left(\prod_{\ell=1}^sP(B_{j_\ell})\right).
+$$
+
+同じ定義を $C$ と $D$ にそれぞれ適用すると
+
+$$
+P(C)=\prod_{k=1}^rP(B_{i_k}),
+\qquad
+P(D)=\prod_{\ell=1}^sP(B_{j_\ell}),
+$$
+
+したがって
 
 $$
 P(C\cap D)=P(C)P(D).
 $$
+
+$C$ または $D$ が空集合なら両辺とも0なので同じ式が成り立ちます。
 
 まず $C\in\mathcal P_I$ を固定し、
 
@@ -429,35 +448,35 @@ $$
 \{D\in\mathcal F_J:P(C\cap D)=P(C)P(D)\}
 $$
 
-と置きます。$\mathcal D_C$ が Dynkin 族であることを確認します。
+と置きます。$\mathcal D_C$ が Dynkin 族であることを3条件から確認します。
 
-1. $\Omega\in\mathcal D_C$。実際、$P(C\cap\Omega)=P(C)=P(C)P(\Omega)$。
+1. $\Omega\in\mathcal D_C$ です。実際、$P(C\cap\Omega)=P(C)=P(C)P(\Omega)$。
 2. $D\in\mathcal D_C$ なら
 
-   $$
-   \begin{aligned}
-   P(C\cap D^c)
-   &=P(C)-P(C\cap D)\\
-   &=P(C)-P(C)P(D)\\
-   &=P(C)P(D^c),
-   \end{aligned}
-   $$
+$$
+\begin{aligned}
+P(C\cap D^c)
+&=P(C)-P(C\cap D)\\
+&=P(C)-P(C)P(D)\\
+&=P(C)P(D^c),
+\end{aligned}
+$$
 
-   なので $D^c\in\mathcal D_C$。
-3. $D_1,D_2,\ldots\in\mathcal D_C$ が互いに素なら
+なので $D^c\in\mathcal D_C$ です。
+3. $D_1,D_2,\ldots\in\mathcal D_C$ が互いに素なら、$C\cap D_k$ も互いに素なので
 
-   $$
-   \begin{aligned}
-   P\left(C\cap\bigcup_{k=1}^{\infty}D_k\right)
-   &=\sum_{k=1}^{\infty}P(C\cap D_k)\\
-   &=P(C)\sum_{k=1}^{\infty}P(D_k)\\
-   &=P(C)P\left(\bigcup_{k=1}^{\infty}D_k\right).
-   \end{aligned}
-   $$
+$$
+\begin{aligned}
+P\left(C\cap\bigcup_{k=1}^{\infty}D_k\right)
+&=\sum_{k=1}^{\infty}P(C\cap D_k)\\
+&=P(C)\sum_{k=1}^{\infty}P(D_k)\\
+&=P(C)P\left(\bigcup_{k=1}^{\infty}D_k\right).
+\end{aligned}
+$$
 
-   よって $\bigcup_kD_k\in\mathcal D_C$。
+従って $\bigcup_kD_k\in\mathcal D_C$ です。
 
-従って $\mathcal D_C$ は Dynkin 族です。有限円筒事象についてはすでに積公式を確認したので
+よって $\mathcal D_C$ は Dynkin 族です。有限円筒事象についてはすでに積公式を確認したので
 
 $$
 \mathcal P_J\subset\mathcal D_C.
@@ -482,13 +501,35 @@ $$
 P(C\cap D)=P(C)P(D)\text{ が全ての }D\in\mathcal F_J\text{ で成り立つ}\}
 $$
 
-と置きます。上と全く同じ補集合・互いに素な可算和の計算により $\mathcal E$ は Dynkin 族です。前段から
+と置きます。今度は $C$ 側について Dynkin 族の3条件を確認します。
+
+1. 任意の $D\in\mathcal F_J$ に対して $P(\Omega\cap D)=P(D)=P(\Omega)P(D)$ なので $\Omega\in\mathcal E$。
+2. $C\in\mathcal E$ とします。任意の $D\in\mathcal F_J$ に対して
 
 $$
-\mathcal P_I\subset\mathcal E
+\begin{aligned}
+P(C^c\cap D)
+&=P(D)-P(C\cap D)\\
+&=P(D)-P(C)P(D)\\
+&=P(C^c)P(D),
+\end{aligned}
 $$
 
-なので、再び π--λ定理より
+よって $C^c\in\mathcal E$。
+3. $C_1,C_2,\ldots\in\mathcal E$ が互いに素とします。任意の $D\in\mathcal F_J$ に対し $C_k\cap D$ も互いに素なので
+
+$$
+\begin{aligned}
+P\left(\left(\bigcup_{k=1}^{\infty}C_k\right)\cap D\right)
+&=\sum_{k=1}^{\infty}P(C_k\cap D)\\
+&=\sum_{k=1}^{\infty}P(C_k)P(D)\\
+&=P\left(\bigcup_{k=1}^{\infty}C_k\right)P(D).
+\end{aligned}
+$$
+
+よって $\bigcup_kC_k\in\mathcal E$。
+
+従って $\mathcal E$ は Dynkin 族です。前段から $\mathcal P_I\subset\mathcal E$ なので、再び [π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)より
 
 $$
 \mathcal F_I
@@ -534,7 +575,7 @@ $$
 
 ### 何を言っているのか
 
-0--1 則は、末尾事象が**必ず起こるか、ほとんど決して起こらないかのどちらか**だと言っています。しかし、それだけでは 0 と 1 のどちらかまでは教えてくれません。後の Borel--Cantelli 補題が、その判定をしてくれる典型的な道具になります。
+0--1 則は、末尾事象が**ほとんど確実に起こるか、ほとんど確実に起こらないかのどちらか**だと言っています。しかし、それだけでは 0 と 1 のどちらかまでは教えてくれません。後の Borel--Cantelli 補題が、その判定をしてくれる典型的な道具になります。
 
 ### 証明の見取り図
 
@@ -544,7 +585,7 @@ $$
 \mathcal F_m:=\sigma(A_1,\ldots,A_m)
 $$
 
-とします。末尾事象 $T$ は $A_{m+1},A_{m+2},\ldots$ だけから判定できるため、[独立列のブロック独立性](#lem-f0-00p4-independent-blocks)により $T$ は $\mathcal F_m$ と独立です。これが全ての $m$ で成り立つので、π--λ定理で有限過去の和から全情報
+とします。末尾事象 $T$ は $A_{m+1},A_{m+2},\ldots$ だけから判定できるため、[独立列のブロック独立性](#lem-f0-00p4-independent-blocks)により $T$ は $\mathcal F_m$ と独立です。これが全ての $m$ で成り立つので、[π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)で有限過去の和から全情報
 
 $$
 \sigma(A_1,A_2,\ldots)
@@ -616,11 +657,38 @@ $$
 $$
 \mathcal D_T
 :=
-\{B\in\mathcal F_{\infty}:
-P(T\cap B)=P(T)P(B)\}
+\{B\in\mathcal F_{\infty}:P(T\cap B)=P(T)P(B)\}
 $$
 
-と置きます。[独立列のブロック独立性](#lem-f0-00p4-independent-blocks)の証明と同じ補集合・互いに素な可算和の計算により、$\mathcal D_T$ は Dynkin 族です。
+と置きます。$\mathcal D_T$ が Dynkin 族であることを確認します。
+
+1. $P(T\cap\Omega)=P(T)=P(T)P(\Omega)$ なので $\Omega\in\mathcal D_T$。
+2. $B\in\mathcal D_T$ なら
+
+$$
+\begin{aligned}
+P(T\cap B^c)
+&=P(T)-P(T\cap B)\\
+&=P(T)-P(T)P(B)\\
+&=P(T)P(B^c),
+\end{aligned}
+$$
+
+よって $B^c\in\mathcal D_T$。
+3. $B_1,B_2,\ldots\in\mathcal D_T$ が互いに素なら $T\cap B_k$ も互いに素なので
+
+$$
+\begin{aligned}
+P\left(T\cap\bigcup_{k=1}^{\infty}B_k\right)
+&=\sum_{k=1}^{\infty}P(T\cap B_k)\\
+&=P(T)\sum_{k=1}^{\infty}P(B_k)\\
+&=P(T)P\left(\bigcup_{k=1}^{\infty}B_k\right).
+\end{aligned}
+$$
+
+よって $\bigcup_kB_k\in\mathcal D_T$。
+
+従って $\mathcal D_T$ は Dynkin 族です。
 
 任意の $B\in\mathcal P$ はある $m$ について $B\in\mathcal F_m$ なので、上で示した有限過去との独立性から
 
@@ -632,10 +700,8 @@ $$
 
 $$
 \mathcal F_{\infty}
-=
-\sigma(\mathcal P)
-\subset
-\mathcal D_T.
+=\sigma(\mathcal P)
+\subset\mathcal D_T.
 $$
 
 一方、末尾 σ 代数は全情報の σ 代数に含まれるので
@@ -659,9 +725,9 @@ P(T)\in\{0,1\}.
 $$
 <!-- proof-end -->
 
-### 5.1 確率変数列版
+### 5.1 確率変数列にも同じ機構が働く
 
-独立な確率変数列 $X_1,X_2,\ldots$ についても、$\sigma(X_n)$ を上の $\sigma(A_n)$ の代わりに使えば同じ証明がそのまま通ります。従って
+独立な確率変数列 $X_1,X_2,\ldots$ についても、各 $\sigma(X_n)$ が互いに独立な σ 代数をなすという意味で同じ証明を行えます。従って
 
 $$
 T\in
@@ -669,13 +735,15 @@ T\in
 \sigma(X_m,X_{m+1},\ldots)
 $$
 
-なら
+である末尾事象 $T$ は
 
 $$
-P(T)\in\{0,1\}.
+P(T)\in\{0,1\}
 $$
 
-たとえば独立コイン投げで「表が無限回出る」は末尾事象なので、0--1 則だけから確率は 0 か 1 のどちらかだと分かります。どちらかを決めるのが次の Borel--Cantelli です。
+を満たします。
+
+たとえば独立コイン投げで「表が無限回出る」は末尾事象なので、[Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)だけから確率は 0 か 1 のどちらかだと分かります。どちらかを決めるのが次の Borel--Cantelli です。
 
 ---
 
@@ -709,7 +777,7 @@ $$
 \bigcup_{n\ge m}A_n
 $$
 
-の中にあります。その確率を union bound で級数の tail に抑えます。
+の中にあります。その確率を [union bound](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound) で級数の tail に抑えます。
 
 <!-- proof-start -->
 ### 証明
@@ -742,7 +810,7 @@ $$
 \qquad(m\to\infty).
 $$
 
-左辺 $P(A_n\ \mathrm{i.o.})$ は $m$ に依らない非負数なので、0 以下にまで抑えられることから
+左辺 $P(A_n\ \mathrm{i.o.})$ は $m$ に依らない非負数なので
 
 $$
 P(A_n\ \mathrm{i.o.})=0.
@@ -834,7 +902,7 @@ P\left(\bigcup_{n\ge m}A_n\right)=1
 \qquad(\forall m).
 $$
 
-ここで
+さらに
 
 $$
 \{A_n\ \mathrm{i.o.}\}
@@ -869,11 +937,11 @@ $$
 P(A_n\ \mathrm{i.o.})=P(A)\notin\{0,1\}.
 $$
 
-独立性を失うと、そもそも $\{A_n\ \mathrm{i.o.}\}$ に Kolmogorov の 0--1 則を適用できず、第2補題の積分解も壊れます。
+独立性を失うと、$\{A_n\ \mathrm{i.o.}\}$ に [Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)を適用できず、第2補題の有限積への分解も保証されません。
 
 ### 7.2 0--1 則と Borel--Cantelli の役割分担
 
-独立列では $\{A_n\ \mathrm{i.o.}\}$ は末尾事象なので、Kolmogorov の 0--1 則から
+独立列では $\{A_n\ \mathrm{i.o.}\}$ は末尾事象なので、[Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)から
 
 $$
 P(A_n\ \mathrm{i.o.})\in\{0,1\}
@@ -881,10 +949,10 @@ $$
 
 までは分かります。
 
-- $\sum_nP(A_n)<\infty$ なら Borel--Cantelli I が **0** と判定する。
-- 独立かつ $\sum_nP(A_n)=\infty$ なら Borel--Cantelli II が **1** と判定する。
+- $\sum_nP(A_n)<\infty$ なら [Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)が **0** と判定する。
+- 独立かつ $\sum_nP(A_n)=\infty$ なら [Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)が **1** と判定する。
 
-この関係を押さえると、Borel--Cantelli が「突然出てくる補題」ではなくなります。
+ここまで来ると、Borel--Cantelli は「突然出てくる補題」ではなく、末尾事象の確率を具体的に判定する道具として見えます。
 
 ---
 
@@ -1087,7 +1155,7 @@ $$
 P(|X_n-X|>1/k)<\infty
 $$
 
-なら、[Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)により
+なら、[Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)により
 
 $$
 P\left(\{|X_n-X|>1/k\}\ \mathrm{i.o.}\right)=0
@@ -1124,7 +1192,7 @@ $$
 
 ### 証明の見取り図
 
-ここでは優収束定理を使わず、すでに学んだ limsup をそのまま使います。固定した $\varepsilon>0$ に対し
+固定した $\varepsilon>0$ に対し
 
 $$
 A_n:=\{|X_n-X|>\varepsilon\}
@@ -1136,7 +1204,7 @@ $$
 B_m:=\bigcup_{n\ge m}A_n
 $$
 
-は $m$ とともに減少し、その共通部分が $\limsup A_n$ です。
+は $m$ とともに減少し、その共通部分が $\limsup A_n$ です。[確率測度の上からの連続性](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-continuity-from-above)を使って $P(B_m)\to0$ とします。
 
 <!-- proof-start -->
 ### 証明
@@ -1188,7 +1256,7 @@ $$
 0\le
 P(|X_m-X|>\varepsilon)
 =P(A_m)
-\le P(B_m)	o0.
+\le P(B_m)\to0.
 $$
 
 任意の $\varepsilon>0$ で成り立つため
@@ -1222,6 +1290,10 @@ $$
 
 > が成り立ちます。
 <!-- formal-statement-end -->
+
+### 証明の見取り図
+
+誤差の $p$ 乗を非負確率変数として [Markov不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)へ入れます。
 
 <!-- proof-start -->
 ### 証明
@@ -1271,7 +1343,7 @@ $$
 
 ### 証明の見取り図
 
-確率収束から、$k$ 番目の部分列では誤差確率を $2^{-k}$ 以下にできるよう添字を選びます。すると誤差確率の総和が有限になるので、Borel--Cantelli I が概収束へ引き上げます。
+確率収束から、$k$ 番目の部分列では誤差確率を $2^{-k}$ 以下にできるよう添字を選びます。すると誤差確率の総和が有限になるので、[Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)が概収束へ引き上げます。
 
 <!-- proof-start -->
 ### 証明
@@ -1304,7 +1376,7 @@ $$
 <\infty.
 $$
 
-[Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)より
+[Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)より
 
 $$
 P(A_k\ \mathrm{i.o.})=0.
@@ -1373,7 +1445,7 @@ $$
 \infty.
 $$
 
-$(A_n)$ は独立なので、[Borel--Cantelli第2補題](#thm-f0-00p4-borel-cantelli-2)より
+$(A_n)$ は独立なので、[Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)より
 
 $$
 P(A_n\ \mathrm{i.o.})=1.
@@ -1427,25 +1499,15 @@ $$
 - $2$ は $3,6,9,\ldots$ のときだけ $A_n$ に入ります。従って無限回入りますが、どの番号以降も常に入るわけではありません。
 - $3$ は一度も $A_n$ に入りません。
 
-したがって「無限回入る点」の集合は
+したがって
 
 $$
 \limsup_{n\to\infty}A_n=\{1,2\},
-$$
-
-「ある時点以降ずっと入る点」の集合は
-
-$$
+\qquad
 \liminf_{n\to\infty}A_n=\{1\}.
 $$
 
-特に
-
-$$
-\liminf_nA_n\subsetneq\limsup_nA_n
-$$
-
-となり、両者が一般には一致しないことも確認できます。
+$2$ は「無限回」には該当しますが「eventually」には該当しません。従って両概念の違いがこの1点に現れています。
 <!-- solution-end -->
 
 ### F0-00P4-A02 「有限回」と補集合の liminf
@@ -1493,14 +1555,6 @@ $$
 =
 \liminf_nA_n^c.
 $$
-
-これは
-
-$$
-(\limsup_nA_n)^c=\liminf_nA_n^c
-$$
-
-の経路上の意味でもあります。
 <!-- solution-end -->
 
 ### F0-00P4-A03 i.o. が末尾事象であることを確認する
@@ -1533,7 +1587,7 @@ T
 \bigcap_{r=1}^{\infty}\bigcup_{n\ge r}A_n.
 $$
 
-有限個の最初の事象を捨てても「無限回起こるか」は変わりません。従って任意の固定した $m$ に対して
+有限個の最初の事象を捨てても「無限回起こるか」は変わらないので、任意の固定した $m$ に対して
 
 $$
 T
@@ -1541,7 +1595,7 @@ T
 \bigcap_{r=m}^{\infty}\bigcup_{n\ge r}A_n.
 $$
 
-右辺に現れる事象は全て $A_m,A_{m+1},\ldots$ なので、σ代数の可算和・可算共通部分に対する閉性から
+右辺に現れる事象は全て $A_m,A_{m+1},\ldots$ なので
 
 $$
 T\in\sigma(A_m,A_{m+1},\ldots).
@@ -1551,8 +1605,7 @@ $$
 
 $$
 T\in
-\bigcap_{m=1}^{\infty}
-\sigma(A_m,A_{m+1},\ldots)
+\bigcap_{m=1}^{\infty}\sigma(A_m,A_{m+1},\ldots)
 =
 \mathcal T_A.
 $$
@@ -1588,13 +1641,13 @@ $$
 \sum_{n=1}^{\infty}P(A_n^{(k)})<\infty.
 $$
 
-従って [Borel--Cantelli第1補題](#thm-f0-00p4-borel-cantelli-1)より
+従って [Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)より
 
 $$
 P(A_n^{(k)}\ \mathrm{i.o.})=0.
 $$
 
-つまり確率1で、誤差が $1/k$ を超えるのは有限回だけです。この結論が全ての $k$ で同時に成り立つ確率1の集合を得るため、各 $k$ の確率1事象を可算共通部分します。
+つまり各 $k$ について、確率1で誤差が $1/k$ を超えるのは有限回だけです。これらの確率1事象を $k$ について可算共通部分しても確率1です。
 
 その集合上では、任意の $\varepsilon>0$ に対して $1/k<\varepsilon$ となる $k$ を選ぶと、十分大きい $n$ で
 
@@ -1602,7 +1655,7 @@ $$
 |X_n-X|\le\frac1k<\varepsilon.
 $$
 
-従って $X_n\to X$ です。よって
+従って $X_n\to X$ であり、
 
 $$
 X_n\xrightarrow{a.s.}X.
@@ -1617,8 +1670,8 @@ $$
 独立な公平コインを無限回投げ、$H_n$ を「$n$ 回目が表」の事象とする。次を示せ。
 
 1. $T=\{H_n\ \mathrm{i.o.}\}$ は末尾事象である。
-2. Kolmogorov の 0--1 則だけから $P(T)\in\{0,1\}$ を導け。
-3. Borel--Cantelli 第2補題を用いて実際には $P(T)=1$ と決定せよ。
+2. [Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)だけから $P(T)\in\{0,1\}$ を導け。
+3. [Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)を用いて実際には $P(T)=1$ と決定せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1650,7 +1703,7 @@ $$
 
 です。ただし、この段階では 0 と 1 のどちらかまでは決まりません。
 
-**3. Borel--Cantelli 第2補題。**  
+**3. 第2補題。**  
 各 $n$ で
 
 $$
@@ -1665,13 +1718,13 @@ $$
 =\infty.
 $$
 
-$(H_n)$ は独立なので [Borel--Cantelli第2補題](#thm-f0-00p4-borel-cantelli-2)より
+$(H_n)$ は独立なので [Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)より
 
 $$
 P(H_n\ \mathrm{i.o.})=1.
 $$
 
-従って $P(T)=1$ です。0--1 則が「候補は0か1」と絞り、Borel--Cantelli が「1」と判定していることが分かります。
+従って $P(T)=1$ です。0--1 則が「候補は0か1」と絞り、第2補題が「1」と判定しています。
 <!-- solution-end -->
 
 ### F0-00P4-B02 確率収束から概収束部分列を構成する
@@ -1723,7 +1776,7 @@ $$
 =1<\infty.
 $$
 
-Borel--Cantelli 第1補題より
+[Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)より
 
 $$
 P(A_k\ \mathrm{i.o.})=0.
@@ -1786,7 +1839,7 @@ $$
 =\infty.
 $$
 
-$(A_n)$ は独立なので Borel--Cantelli 第2補題から
+$(A_n)$ は独立なので [Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)から
 
 $$
 P(A_n\ \mathrm{i.o.})=1.
@@ -1841,7 +1894,7 @@ $$
 \in\sigma(A_m,A_{m+1},\ldots)
 $$
 
-です。全ての $m$ で成り立つので末尾事象です。独立列なので Kolmogorov の 0--1 則から、この事象の確率は0か1のどちらかです。
+です。全ての $m$ で成り立つので末尾事象です。独立列なので [Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)から、この事象の確率は0か1のどちらかです。
 
 **2. $p_n=1/n^2$。**  
 
@@ -1852,7 +1905,7 @@ $$
 <\infty.
 $$
 
-Borel--Cantelli 第1補題より
+[Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)より
 
 $$
 P(A_n\ \mathrm{i.o.})=0.
@@ -1869,7 +1922,7 @@ $$
 =\infty.
 $$
 
-さらに $(A_n)$ は独立なので Borel--Cantelli 第2補題より
+さらに $(A_n)$ は独立なので [Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)より
 
 $$
 P(A_n\ \mathrm{i.o.})=1.
@@ -1926,9 +1979,9 @@ $$
 - $(\limsup A_n)^c=\liminf A_n^c$ と $(\liminf A_n)^c=\limsup A_n^c$ を証明できる。
 - 独立な事象列と末尾 σ 代数・末尾事象を定義できる。
 - $\{A_n\ \mathrm{i.o.}\}$ と $\liminf A_n$ が末尾事象であることを確認できる。
-- 独立列のブロック独立性を π--λ 定理から証明できる。
-- Kolmogorov の 0--1 則を「末尾事象が自分自身と独立になる」まで追って証明できる。
-- Borel--Cantelli 第1補題と第2補題の仮定の違いを説明できる。
+- 独立列のブロック独立性を [π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から証明できる。
+- [Kolmogorov の 0--1 則](#thm-f0-00p4-kolmogorov-zero-one)を「末尾事象が自分自身と独立になる」まで追って証明できる。
+- [Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)と[Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)の仮定の違いを説明できる。
 - 0--1 則と Borel--Cantelli の役割の違いを説明できる。
 - 概収束を誤差事象の limsup で特徴付けられる。
 - 概収束 $\Rightarrow$ 確率収束、$L^p$ 収束 $\Rightarrow$ 確率収束を証明できる。
