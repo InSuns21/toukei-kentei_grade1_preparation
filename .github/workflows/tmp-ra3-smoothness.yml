@@ -1,0 +1,25 @@
+name: Temporary RA3 smoothness patch
+on:
+  push:
+    branches:
+      - fix/ra3-smoothness-classes
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/ra3-smoothness-classes
+          fetch-depth: 0
+      - name: Apply RA3 patch
+        run: python scripts/tmp_ra3_smoothness.py
+      - name: Commit patch and remove temporary files
+        run: |
+          rm scripts/tmp_ra3_smoothness.py .github/workflows/tmp-ra3-smoothness.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'RA3: define Ck and smoothness classes'
+          git push origin HEAD:fix/ra3-smoothness-classes
