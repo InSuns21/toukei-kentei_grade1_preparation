@@ -24,20 +24,17 @@ $$
 
 ## 1. 押し出し測度
 
+押し出し測度そのものの正本は [P1 の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-pushforward) です。ここではLOTUSの証明に使う記号だけ再掲します。
+
 <a id="def-f0-00p3d-pushforward-measure"></a>
 
-<!-- formal-statement-start -->
-> **定義（押し出し測度）**  
-> 可測写像 $Y:(\Omega,\mathcal F)\to(S,\mathcal S)$ と $\Omega$ 上の確率測度 $P$ に対し、$Y$ による押し出し測度 $P_Y=P\circ Y^{-1}$ を
+可測写像 $Y:(\Omega,\mathcal F)\to(S,\mathcal S)$ と $\Omega$ 上の確率測度 $P$ に対し、$Y$ による押し出し測度 $P_Y=P\circ Y^{-1}$ は
 
 $$
 \boxed{P_Y(B):=P(Y^{-1}(B)),\qquad B\in\mathcal S}
 $$
 
-> で定めます。
-<!-- formal-statement-end -->
-
-確率変数の「分布」は、この押し出し測度そのものです。
+で与えられます。確率変数の「分布」は、この押し出し測度そのものです。
 
 ### 1.1 直接例：定義を実際に使う
 
@@ -213,8 +210,6 @@ $$
 
 ## 4. $\sigma(Y)$-可測とは何か
 
-<a id="def-f0-00p3d-sigma-y-measurable"></a>
-
 実数値可測関数 $Y:\Omega\to\mathbb R$ に対して
 
 $$
@@ -225,17 +220,22 @@ $$
 
 右辺が本当に $\sigma$ 代数になるのは、逆像が補集合と可算和を保つからです。したがって「$Y$ を可測にする最小の $\sigma$ 代数」という定義と一致します。
 
-<!-- formal-statement-start -->
-> **定義（$\sigma(Y)$-可測）**  
-> 実数値関数 $W:\Omega\to\mathbb R$ が $\sigma(Y)$-可測であるとは、任意のBorel集合 $C\subset\mathbb R$ に対して $W^{-1}(C)\in\sigma(Y)$ が成り立つことです。
-<!-- formal-statement-end -->
+<a id="def-f0-00p3d-sigma-y-measurable"></a>
+
+この章で「$W$ が $\sigma(Y)$-可測」と言うときは、実数値関数 $W:\Omega\to\mathbb R$ が任意のBorel集合 $C\subset\mathbb R$ に対して
+
+$$
+W^{-1}(C)\in\sigma(Y)
+$$
+
+を満たす、という通常の可測性を意味します。
 
 ### 4.1 直接例：同じ $Y$ の値を持つ点を区別しない
 
 1.1節の有限確率空間で $W=3Y-1$ とします。
 
 <!-- definition-example-start: def-f0-00p3d-sigma-y-measurable -->
-**定義の確認**  
+**条件の確認**  
 $W$ は $\omega_1$ で $-1$、$\omega_2,\omega_3$ で $2$ です。したがって任意のBorel集合 $C$ に対する $W^{-1}(C)$ は
 
 $$
@@ -383,7 +383,7 @@ $$
 
 ## 6. 条件付き期待値へ適用する
 
-P3Aで構成した
+[P3Aで構成した条件付き期待値](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#def-f0-00p3a-conditional-expectation)
 
 $$
 Z:=E[X\mid\sigma(Y)]
@@ -403,9 +403,9 @@ $$
 E[X\mid Y]:=E[X\mid\sigma(Y)]=m(Y)\qquad P\text{-a.s.}
 $$
 
-と書きます。最後の等号を a.s. と書くのは、条件付き期待値そのものがa.s.同値類だからです。
+と書きます。最後の等号を a.s. と書くのは、条件付き期待値そのものが a.s. の違いを除いてしか一意でないためです。
 
-### 6.1 version の自由度は $P_Y$-a.e. の自由度とちょうど一致する
+### 6.1 version の自由度は $P_Y$-ほとんど至る所（almost everywhere; a.e.）の自由度とちょうど一致する
 
 Borel可測関数 $m_1,m_2$ に対して
 
@@ -444,7 +444,16 @@ $$
 m(y)=\frac{E[X\mathbf1_{\{Y=y\}}]}{P(Y=y)}}
 $$
 
-と置くと、$m(Y)$ は $E[X\mid Y]$ のversionになります。実際、$B$ を $Y$ の値の集合とすると、互いに素な事象 $\{Y=y\}$ 上で
+と置きます。まず
+
+$$
+\sum_y\left|E[X\mathbf1_{\{Y=y\}}]\right|
+\le
+\sum_yE[|X|\mathbf1_{\{Y=y\}}]
+=E|X|<\infty
+$$
+
+なので、以下の可算和は有限値として扱えます。$B$ を $Y$ が取り得る値のうち注目するものの集合とすると
 
 $$
 \begin{aligned}
@@ -455,7 +464,7 @@ E[m(Y)\mathbf1_{\{Y\in B\}}]
 \end{aligned}
 $$
 
-$X\in L^1$ なのでこの和は絶対収束し、条件付き期待値の積分保存条件を満たします。$P(Y=y)=0$ の点では $m(y)$ は任意に定めてよく、これは6.1節の $P_Y$-a.e. 自由度そのものです。
+従って [$E[X\mid\sigma(Y)]$ の積分保存条件](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#def-f0-00p3a-conditional-expectation)を満たし、$m(Y)$ は条件付き期待値のversionです。$P(Y=y)=0$ の点では $m(y)$ は任意に定めてよく、これは6.1節の $P_Y$-a.e. 自由度そのものです。
 
 一方、連続型では通常 $P(Y=y)=0$ です。したがって
 
@@ -467,43 +476,58 @@ $$
 
 ### 6.3 joint density がある特殊場合
 
-$(X,Y)$ が $\mathbb R^2$ 上のjoint density $f_{X,Y}$ を持ち、$E|X|<\infty$ とします。
+$(X,Y)$ が $\mathbb R^2$ 上のjoint density $f_{X,Y}$ を持ち、$E|X|<\infty$ とします。まず
 
 $$
-f_Y(y):=\int_{\mathbb R}f_{X,Y}(x,y)\,dx
+f_Y(y):=\int_{\mathbb R}f_{X,Y}(x,y)\,dx,
+\qquad
+h(y):=\int_{\mathbb R}|x|f_{X,Y}(x,y)\,dx
 $$
 
-とし、$f_Y(y)>0$ の点で
+と置きます。[Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)から $h$ は可測で
+
+$$
+\int_{\mathbb R}h(y)dy=E|X|<\infty.
+$$
+
+従って
+
+$$
+N:=\{y:h(y)=\infty\}
+$$
+
+はLebesgue零集合です。さらに $P_Y$ は密度 $f_Y$ を持つので $P_Y(N)=0$ です。また $\{f_Y=0\}$ も $P_Y$-零集合です。そこで
+
+$$
+G:=\{y:f_Y(y)>0,\ h(y)<\infty\}
+$$
+
+と置けば $P_Y(G)=1$ です。
+
+$y\in G$ では
 
 $$
 f_{X\mid Y}(x\mid y):=
-\frac{f_{X,Y}(x,y)}{f_Y(y)}
+\frac{f_{X,Y}(x,y)}{f_Y(y)},
+\qquad
+m(y):=\int_{\mathbb R}x f_{X\mid Y}(x\mid y)\,dx
 $$
 
-と定めます。さらに
+と定め、$y\notin G$ では $m(y)=0$ とします。$G$ 上では $h(y)<\infty$ なので分子の積分は有限です。また [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により、$y\mapsto\int x f_{X,Y}(x,y)dx$ は零集合上の値を適当に補えば可測に取れるため、$m$ もBorel可測に取れます。
 
-$$
-m(y):=
-\begin{cases}
-\displaystyle\int_{\mathbb R}x f_{X\mid Y}(x\mid y)\,dx,&f_Y(y)>0,\\
-0,&f_Y(y)=0
-\end{cases}
-$$
-
-と置きます。$E|X|<\infty$ なのでTonelli/Fubiniにより $\int |x|f_{X,Y}(x,y)dx<\infty$ はほとんどすべての $y$ で成り立ち、$m$ は $P_Y$-a.e. で意味を持ちます。
-
-この式が条件付き期待値になることは、任意のBorel集合 $B$ に対して
+任意のBorel集合 $B$ に対して、$G^c$ は $P_Y$-零集合だから
 
 $$
 \begin{aligned}
 E[m(Y)\mathbf1_{\{Y\in B\}}]
-&=\int_Bm(y)f_Y(y)dy\\
+&=\int_{B\cap G}m(y)f_Y(y)dy\\
+&=\int_{B\cap G}\int_{\mathbb R}x f_{X,Y}(x,y)\,dx\,dy\\
 &=\int_B\int_{\mathbb R}x f_{X,Y}(x,y)\,dx\,dy\\
-&=E[X\mathbf1_{\{Y\in B\}}]
+&=E[X\mathbf1_{\{Y\in B\}}].
 \end{aligned}
 $$
 
-と確認できます。ここで使ったのは **joint density の存在、$X\in L^1$、Tonelli/Fubini** です。一般の確率変数対にはこのdensity表示を持ち込めません。結論として、density公式はDoob--Dynkinの代替定義ではなく、追加仮定の下で得られる具体的なversionです。
+3本目の等号では、$G^c$ 上の内側積分を0に補ってもLebesgue積分値が変わらないことを使っています。ここで使った追加仮定は **joint density の存在と $X\in L^1$** であり、積分交換にはTonelli/Fubiniを使いました。一般の確率変数対にはこのdensity表示を持ち込めません。density公式はDoob--Dynkinの代替定義ではなく、追加仮定の下で得られる具体的なversionです。
 
 ---
 
@@ -680,7 +704,7 @@ $$
 =\int g\,dP_Y.
 $$
 
-**非負可測関数。** 非負単関数 $g_j\uparrow g$ を取り、$g_j(Y)\uparrow g(Y)$ にMCTを適用します。
+**非負可測関数。** 非負単関数 $g_j\uparrow g$ を取り、$g_j(Y)\uparrow g(Y)$ に単調収束定理を適用します。
 
 $$
 \int g(Y)dP
@@ -786,7 +810,7 @@ E[m(Y)\mathbf1_A]
 \end{aligned}
 $$
 
-条件付き期待値の3条件を満たすので $m(Y)$ はそのversionです。$P(Y=y)=0$ の点を変更しても、その点集合は $P_Y$-零集合であり $Y$ がそこへ入る確率は0です。したがって $m(Y)$ のa.s.同値類は変わりません。
+条件付き期待値の3条件を満たすので $m(Y)$ はそのversionです。$P(Y=y)=0$ の点を変更しても、その点集合は $P_Y$-零集合であり $Y$ がそこへ入る確率は0です。したがって $m(Y)$ のa.s.の値は変わりません。
 <!-- solution-end -->
 
 ---
@@ -801,18 +825,24 @@ $$
 $(X,Y)$ はjoint density $f_{X,Y}$ を持ち、$E|X|<\infty$ とする。
 
 $$
-f_Y(y)=\int f_{X,Y}(x,y)dx
+f_Y(y)=\int f_{X,Y}(x,y)dx,
+\qquad
+h(y)=\int |x|f_{X,Y}(x,y)dx,
 $$
 
-と置き、$f_Y(y)>0$ で
+$$
+G=\{y:f_Y(y)>0,\ h(y)<\infty\}
+$$
+
+と置く。$y\in G$ では
 
 $$
 m(y)=\frac{\int x f_{X,Y}(x,y)dx}{f_Y(y)}
 $$
 
-と定義し、$f_Y(y)=0$ では $m(y)=0$ とする。
+と定義し、$y\notin G$ では $m(y)=0$ とする。
 
-1. 分子がほとんどすべての $y$ で絶対収束することを示せ。
+1. $P_Y(G)=1$ を示せ。
 2. 任意のBorel集合 $B$ に対し
    $E[m(Y)\mathbf1_{\{Y\in B\}}]=E[X\mathbf1_{\{Y\in B\}}]$
    を示せ。
@@ -820,40 +850,49 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-1. $E|X|<\infty$ とjoint densityの定義から
+1. Tonelliの定理により
 
 $$
-\int_{\mathbb R}\int_{\mathbb R}|x|f_{X,Y}(x,y)\,dx\,dy
+\int_{\mathbb R}h(y)dy
+=\int_{\mathbb R}\int_{\mathbb R}|x|f_{X,Y}(x,y)dx\,dy
 =E|X|<\infty.
 $$
 
-Tonelli/Fubiniにより、内側の積分
+従って $N=\{h=\infty\}$ はLebesgue零集合で、$P_Y$ が密度 $f_Y$ を持つことから $P_Y(N)=0$ です。また
 
 $$
-\int|x|f_{X,Y}(x,y)dx
+P_Y(f_Y=0)=\int_{\{f_Y=0\}}f_Y(y)dy=0.
 $$
 
-はLebesgue-a.e.の $y$ で有限です。従って分子 $\int x f_{X,Y}(x,y)dx$ はそのような $y$ で絶対収束します。
+よって $G^c\subset N\cup\{f_Y=0\}$ は $P_Y$-零集合であり、$P_Y(G)=1$ です。
 
-2. $f_Y(y)=0$ なら非負関数 $f_{X,Y}(\cdot,y)$ の積分が0なので、ほとんどすべての $x$ で $f_{X,Y}(x,y)=0$ です。従って分子も0です。よってa.e.に
+2. $G$ 上では $h(y)<\infty$ なので分子は有限です。Fubiniの定理により、零集合上を0に補った
 
 $$
-m(y)f_Y(y)=\int x f_{X,Y}(x,y)dx.
+y\longmapsto \int x f_{X,Y}(x,y)dx
 $$
 
-これを用いると
+は可測に取れます。従って $m$ もBorel可測に取れます。任意のBorel集合 $B$ について
 
 $$
 \begin{aligned}
 E[m(Y)\mathbf1_{\{Y\in B\}}]
-&=\int_Bm(y)f_Y(y)dy\\
+&=\int_{B\cap G}m(y)f_Y(y)dy\\
+&=\int_{B\cap G}\int x f_{X,Y}(x,y)dx\,dy\\
 &=\int_B\int x f_{X,Y}(x,y)dx\,dy\\
-&=\int\!\!\int x\mathbf1_B(y)f_{X,Y}(x,y)dx\,dy\\
 &=E[X\mathbf1_{\{Y\in B\}}].
 \end{aligned}
 $$
 
-また $E|m(Y)|\le E|X|$ も同じ積分評価から従うので可積分です。したがって $m(Y)$ は $E[X\mid\sigma(Y)]$ のversionです。
+また
+
+$$
+E|m(Y)|
+\le\int\!\!\int |x|f_{X,Y}(x,y)dx\,dy
+=E|X|<\infty,
+$$
+
+なので可積分です。したがって $m(Y)$ は $E[X\mid\sigma(Y)]$ のversionです。
 
 3. 連続型では典型的に $P(Y=y)=0$ なので
 
@@ -870,8 +909,8 @@ $$
 
 この補講で、次を本文から再構成できる形にしました。
 
-- 押し出し測度の定義から、指示関数 → 単関数 → 非負可測関数 → 可積分関数の順にLOTUSを証明する。
+- P1の押し出し測度の定義から、指示関数 → 単関数 → 非負可測関数 → 可積分関数の順にLOTUSを証明する。
 - Doob--Dynkin lemma で、$\sigma(Y)$ の逆像表示と単関数近似からBorel可測な $m$ を実際に構成する。
 - $E[X\mid Y]=m(Y)$ のversion自由度が $m$ の $P_Y$-a.e. 自由度と一致することを示す。
 - 離散型の比の公式と、連続型一般では点確率の比が定義にならないことを区別する。
-- joint density がある場合だけ条件付き密度表示へ進み、その追加仮定と証明境界を明示する。
+- joint density がある場合だけ条件付き密度表示へ進み、有限なslice集合を明示して追加仮定と証明境界を閉じる。
