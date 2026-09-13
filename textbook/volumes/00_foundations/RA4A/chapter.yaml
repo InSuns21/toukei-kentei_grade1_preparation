@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RA4
+  - RA1A
 official_scope: []
 learning_objectives:
   - 無限区間・端点特異点・内部特異点をもつ広義Riemann積分を片側極限で定義できる
