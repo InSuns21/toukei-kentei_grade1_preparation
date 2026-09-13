@@ -139,7 +139,7 @@ $$
 0\le s_n(X)\uparrow g(X).
 $$
 
-単調収束定理を $P$ と $P_X$ の両方に適用すると
+[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を $P$ と $P_X$ の両方に適用すると
 
 $$
 \begin{aligned}
@@ -188,7 +188,7 @@ $$
 
 ## 3. 離散和と連続積分は同じ式
 
-LOTUSから
+[LOTUS](#thm-f0-00p2a-lotus)から
 
 $$
 E[g(X)]=\int g\,dP_X.
@@ -468,7 +468,7 @@ $$
 Y:=(X-\mu)^2
 $$
 
-にMarkovの不等式を適用します。有限分散の仮定から $E[Y]=\sigma^2<\infty$ で、
+に[Markovの不等式](#thm-f0-00p2a-markov)を適用します。有限分散の仮定から $E[Y]=\sigma^2<\infty$ で、
 
 $$
 |X-\mu|\ge\varepsilon
@@ -514,7 +514,7 @@ $$
 0\le X_n\uparrow X
 $$
 
-なら単調収束定理から
+なら[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
 
 $$
 E[X_n]\uparrow E[X].
@@ -535,7 +535,7 @@ $X\sim\mathrm{Unif}(0,1)$ とする。$g(x)=x^2$ として $E[g(X)]$ を求め�
 <!-- solution-start -->
 #### 詳細解答
 
-$P_X$ の確率密度関数は $f_X(x)=\boldsymbol{1}_{(0,1)}(x)$ です。LOTUSより
+$P_X$ の確率密度関数は $f_X(x)=\boldsymbol{1}_{(0,1)}(x)$ です。[LOTUS](#thm-f0-00p2a-lotus)より
 
 $$
 \begin{aligned}
@@ -557,7 +557,7 @@ $P(X=-1)=1/4$, $P(X=2)=3/4$ とする。$g(x)=x^2+1$ に対して $E[g(X)]$ を�
 <!-- solution-start -->
 #### 詳細解答
 
-LOTUSの離散形から
+[LOTUS](#thm-f0-00p2a-lotus)の離散形から
 
 $$
 \begin{aligned}
@@ -628,7 +628,7 @@ $$
 =\int\boldsymbol{1}_B\,dP_X.
 $$
 
-非負単関数 $s=\sum_ja_j\boldsymbol{1}_{B_j}$ へは有限線形性で拡張できます。一般の非負可測関数 $g$ について $0\le s_n\uparrow g$ となる単関数列を取り、単調収束定理を両辺へ適用すると
+非負単関数 $s=\sum_ja_j\boldsymbol{1}_{B_j}$ へは有限線形性で拡張できます。一般の非負可測関数 $g$ について $0\le s_n\uparrow g$ となる単関数列を取り、[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を両辺へ適用すると
 
 $$
 \int g(X)\,dP
@@ -687,7 +687,7 @@ $$
 0\le Y_n\le X\le1.
 $$
 
-支配関数 $1$ は可積分で $E[1]=1$。従って優収束定理により
+支配関数 $1$ は可積分で $E[1]=1$。従って[Lebesgueの優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$
 E[Y_n]\to E[X].
@@ -753,7 +753,7 @@ $$
 \end{aligned}
 $$
 
-**3.** Chebyshevの不等式から
+**3.** [Chebyshevの不等式](#thm-f0-00p2a-chebyshev)から
 
 $$
 P(|\overline X_n-\mu|\ge\varepsilon)
