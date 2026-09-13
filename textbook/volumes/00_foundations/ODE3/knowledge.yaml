@@ -43,7 +43,7 @@ concepts:
   - id: ode.ode3-homogeneous-ivp
     name: 定係数斉次線形系の初期値問題
     kind: theorem
-    aliases: [定係数斉次線形系の初期値問題, x'=Ax, e^{tA}x0]
+    aliases: [定係数斉次線形系の初期値問題, "x'=Ax", "e^{tA}x0"]
     introduction: formal
     requires:
       - ode.matrix-exponential-properties
