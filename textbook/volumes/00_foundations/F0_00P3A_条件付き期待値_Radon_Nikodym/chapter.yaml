@@ -12,17 +12,18 @@ learning_objectives:
   - 正負部分へ分けてRadon--Nikodym定理から存在を証明できる
   - 条件付き期待値のa.s.一意性を証明できる
   - 線形性・正値性・単調性・L1縮小性を導ける
+  - 有界な既知量を外へ出す性質を単関数近似とDCTから証明できる
   - tower propertyを定義から証明できる
-  - E[X|Y]をsigma(Y)への条件付けとして説明できる
+  - E[X|Y]をsigma(Y)への条件付けとして説明しversionの自由度を区別できる
 definitions:
   - { id: F0P3A-DEF-01, name: 条件付き期待値 }
 theorems:
   - { id: F0P3A-THM-01, name: 条件付き期待値の存在とa.s.一意性 }
   - { id: F0P3A-THM-02, name: 条件付き期待値の基本性質 }
   - { id: F0P3A-THM-03, name: tower property }
-canonical_examples: [有限分割, 独立な場合, "E[X|Y]"]
-problem_patterns: [COND-EXP-1, RN-COND-EXP-1, TOWER-1]
+canonical_examples: [有限分割, 独立な場合, "E[X|Y]", versionの自由度]
+problem_patterns: [COND-EXP-1, RN-COND-EXP-1, TOWER-1, PULL-OUT-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.5, exercises: 0.75, review: 0.75 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 1.0 }
