@@ -8,12 +8,13 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 確率収束だけでは期待値収束しない反例を説明できる
-  - 一様可積分性をtail expectationの一様制御として定義できる
+  - 一様可積分性をtail expectationの一様制御として量化まで含めて定義できる
   - 積分の一様絶対連続性を定義できる
   - UIから一様L1有界性と積分の一様絶対連続性を証明できる
   - Lp有界性からUIを示せる
   - 可積分な支配関数からUIを示せる
   - Vitali型収束定理を確率収束部分列とFatouから証明できる
+  - L1収束から確率収束とUIを逆向きに証明できる
 definitions:
   - { id: F0P4A-DEF-01, name: 一様可積分性 }
   - { id: F0P4A-DEF-02, name: 積分の一様絶対連続性 }
@@ -25,9 +26,11 @@ theorems:
 canonical_examples:
   - rare large values
   - uniformly bounded family
+  - L1 bounded but not uniformly integrable
+  - unbounded but uniformly integrable family
   - Lp bounded family
-problem_patterns: [UI-1, UI-UAC-1, VITALI-1]
+problem_patterns: [UI-1, UI-UAC-1, VITALI-1, L1-TO-UI-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 1.25, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2.25, review: 0.75 }
