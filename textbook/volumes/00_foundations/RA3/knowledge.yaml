@@ -10,6 +10,16 @@ concepts:
     kind: definition
     aliases: [導関数, derivative]
     requires: [analysis.function-limit]
+  - id: analysis.higher-derivative
+    name: 高階導関数
+    kind: definition
+    aliases: [高階導関数, k階導関数]
+    requires: [analysis.derivative]
+  - id: analysis.ck-smoothness-class
+    name: C^k級・C∞級
+    kind: definition
+    aliases: [C^k級, C∞級, 滑らかな関数]
+    requires: [analysis.higher-derivative]
   - id: analysis.rolle-theorem
     name: Rolleの定理
     kind: theorem
@@ -29,7 +39,7 @@ concepts:
     name: Taylorの定理
     kind: theorem
     aliases: [Taylorの定理, Taylor theorem]
-    requires: [analysis.mean-value-theorem]
+    requires: [analysis.mean-value-theorem, analysis.ck-smoothness-class]
   - id: analysis.inverse-derivative
     name: 逆関数の微分
     kind: theorem

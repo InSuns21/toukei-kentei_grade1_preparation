@@ -1,5 +1,14 @@
 chapter: "RA3"
 terms:
+  - term: 高階導関数
+    english: higher derivative
+    meaning: 導関数を反復して得る2階以上を含む導関数。k階導関数を f^(k) と書く。
+  - term: C^k級
+    english: C^k class
+    meaning: k階までの導関数が存在し、それらがすべて連続である関数の滑らかさの階級。
+  - term: C∞級
+    english: smooth function / C-infinity class
+    meaning: 任意の階数まで導関数が存在し、それらがすべて連続である関数。滑らかな関数ともいう。
   - term: 平均値定理
     english: mean value theorem
     meaning: 区間全体の平均変化率と一致する瞬間変化率を持つ点が区間内に存在するという定理。
