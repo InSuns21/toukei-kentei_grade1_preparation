@@ -42,7 +42,10 @@ concepts:
   - id: completion.cauchy-real-order
     name: Cauchy実数の正値性と順序
     kind: definition
-    aliases: [Cauchy実数の正値性と順序]
+    aliases:
+      - Cauchy実数の正値性と順序
+      - Cauchy 実数の正値性の定義
+      - Cauchy 実数の順序定義
     requires: [completion.cauchy-real, completion.cauchy-real-operations-well-defined]
 
   - id: completion.cauchy-real-ordered-field
