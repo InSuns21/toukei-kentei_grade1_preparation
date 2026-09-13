@@ -1,0 +1,26 @@
+chapter: "RA4A"
+terms:
+  - term: 広義Riemann積分
+    english: improper Riemann integral
+    meaning: 無限区間や非有界な被積分関数を、有限閉区間上のRiemann積分の極限として定義した積分。
+  - term: 不良端点
+    english: improper endpoint
+    meaning: 無限遠または被積分関数の非有界性のため、通常の有限閉区間Riemann積分をそのまま適用できない端点。
+  - term: 絶対収束
+    english: absolute convergence
+    meaning: 広義積分そのものだけでなく、被積分関数の絶対値を積分した広義積分も収束すること。
+  - term: 条件収束
+    english: conditional convergence
+    meaning: 広義積分は収束するが、絶対値を積分した広義積分は発散すること。
+  - term: Cauchy主値
+    english: Cauchy principal value
+    meaning: 左右または正負の無限遠を連動させた対称極限で定める値。通常の広義積分とは別の正則化である。
+  - term: 比較判定
+    english: comparison test for improper integrals
+    meaning: 非負関数の大小関係を使い、既知の広義積分の収束・発散から別の広義積分を判定する方法。
+  - term: Dirichlet判定
+    english: Dirichlet test for improper integrals
+    meaning: 原始積分が有界な振動因子と、0へ単調減少する因子の積の広義積分が収束することを保証する判定法。
+  - term: Abel判定
+    english: Abel test for improper integrals
+    meaning: 収束する広義積分に有界単調な因子を掛けても収束が保たれることを保証する判定法。

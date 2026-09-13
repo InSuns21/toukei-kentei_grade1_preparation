@@ -48,11 +48,12 @@
 2. [RA2 極限・連続・一様連続](textbook/volumes/00_foundations/RA2/index.md)
 3. [RA3 微分法の理論](textbook/volumes/00_foundations/RA3/index.md)
 4. [RA4 Riemann/Darboux積分・FTC](textbook/volumes/00_foundations/RA4/index.md)
-5. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
-6. [RA6 多変数微分・Fréchet微分（既存 F0-02C3）](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
-7. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
-8. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
-9. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
+5. [RA4A 広義積分・収束判定](textbook/volumes/00_foundations/RA4A/index.md)
+6. [RA5 関数列・関数級数・一様収束](textbook/volumes/00_foundations/RA5/index.md)
+7. [RA6 多変数微分・Fréchet微分（既存 F0-02C3）](textbook/volumes/00_foundations/F0_02C3_Frechet微分_線形作用素_随伴/index.md)
+8. [RA6A 逆関数定理・陰関数定理](textbook/volumes/00_foundations/RA6A/index.md)
+9. [RA7 多重Riemann積分・変数変換](textbook/volumes/00_foundations/RA7/index.md)
+10. [RA8 関数族のコンパクト性・近似](textbook/volumes/00_foundations/RA8/index.md)
 
 ### 標準線形代数コア
 

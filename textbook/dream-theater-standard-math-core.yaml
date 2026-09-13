@@ -63,6 +63,14 @@ nodes:
     implemented_at: 2026-09-06
     implementation_path: textbook/volumes/00_foundations/RA4/index.md
     prerequisites: [RA2]
+  - id: RA4A
+    title: 広義積分・収束判定
+    area: real-analysis
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-13
+    implementation_path: textbook/volumes/00_foundations/RA4A/index.md
+    prerequisites: [RA4]
   - id: RA5
     title: 関数列・関数級数・一様収束
     area: real-analysis
@@ -450,7 +458,7 @@ nodes:
 implementation_batches:
   - order: 1
     id: real-analysis-foundation
-    nodes: [RA1, RA2, RA3, RA4, RA5]
+    nodes: [RA1, RA2, RA3, RA4, RA4A, RA5]
   - order: 2
     id: linear-algebra-core
     nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]

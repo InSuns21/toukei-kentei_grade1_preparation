@@ -1,0 +1,109 @@
+chapter: RA4A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+
+forward_references:
+  - analysis.uniform-convergence
+  - measure.lebesgue-integral
+
+concepts:
+  - id: analysis.improper-riemann-integral
+    name: 広義Riemann積分
+    kind: definition
+    aliases: [広義Riemann積分, improper Riemann integral]
+    requires:
+      - analysis.riemann-integrable
+      - analysis.riemann-integral-basic-properties
+
+  - id: analysis.improper-integral-cauchy-criterion
+    name: 広義積分のCauchy判定
+    kind: theorem
+    aliases: [広義積分のCauchy判定]
+    requires:
+      - analysis.improper-riemann-integral
+      - topology.cauchy-sequence
+
+  - id: analysis.nonnegative-improper-integral-boundedness
+    name: 非負広義積分の有界性判定
+    kind: theorem
+    aliases: [非負広義積分の有界性判定]
+    requires:
+      - analysis.improper-riemann-integral
+      - analysis.riemann-integral-basic-properties
+      - analysis.least-upper-bound-property
+
+  - id: analysis.improper-integral-linearity-tail-invariance
+    name: 広義積分の線形性・有限区間切り捨て
+    kind: theorem
+    aliases: [広義積分の線形性・有限区間切り捨て]
+    requires:
+      - analysis.improper-riemann-integral
+      - analysis.riemann-integral-basic-properties
+
+  - id: analysis.improper-integral-comparison-test
+    name: 広義積分の比較判定
+    kind: theorem
+    aliases: [広義積分の比較判定]
+    requires:
+      - analysis.nonnegative-improper-integral-boundedness
+      - analysis.riemann-integral-basic-properties
+
+  - id: analysis.improper-integral-limit-comparison-test
+    name: 広義積分の極限比較判定
+    kind: theorem
+    aliases: [広義積分の極限比較判定]
+    requires:
+      - analysis.improper-integral-comparison-test
+
+  - id: analysis.improper-integral-absolute-convergence
+    name: 広義積分の絶対収束・条件収束
+    kind: definition
+    aliases: [広義積分の絶対収束・条件収束]
+    requires:
+      - analysis.improper-riemann-integral
+      - analysis.riemann-integrable
+
+  - id: analysis.improper-integral-absolute-test
+    name: 広義積分の絶対収束判定
+    kind: theorem
+    aliases: [広義積分の絶対収束判定]
+    requires:
+      - analysis.improper-integral-cauchy-criterion
+      - analysis.improper-integral-absolute-convergence
+      - analysis.riemann-integral-basic-properties
+
+  - id: analysis.series-integral-test
+    name: 級数と広義積分の積分判定
+    kind: theorem
+    aliases: [級数と広義積分の積分判定]
+    requires:
+      - analysis.improper-riemann-integral
+      - analysis.series
+      - analysis.monotone-convergence-sequence
+
+  - id: analysis.improper-integral-dirichlet-test
+    name: 広義積分のDirichlet判定
+    kind: theorem
+    aliases: [広義積分のDirichlet判定]
+    requires:
+      - analysis.improper-integral-cauchy-criterion
+      - analysis.ftc-1
+      - analysis.ftc-2
+      - analysis.riemann-integral-basic-properties
+
+  - id: analysis.improper-integral-abel-test
+    name: 広義積分のAbel判定
+    kind: theorem
+    aliases: [広義積分のAbel判定]
+    requires:
+      - analysis.improper-integral-dirichlet-test
+      - analysis.improper-integral-linearity-tail-invariance
+
+  - id: analysis.cauchy-principal-value-improper
+    name: 広義積分に対するCauchy主値
+    kind: definition
+    aliases: [広義積分に対するCauchy主値, Cauchy principal value for improper integrals]
+    requires:
+      - analysis.improper-riemann-integral

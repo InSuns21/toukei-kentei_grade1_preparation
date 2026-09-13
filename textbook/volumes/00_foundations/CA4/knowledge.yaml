@@ -26,7 +26,7 @@ concepts:
   - id: complex-analysis.isolated-singularity
     name: 孤立特異点
     kind: definition
-    aliases: [孤立特異点, isolated singularity, 可除特異点, removable singularity, 極, pole, 真性特異点, essential singularity]
+    aliases: [孤立特異点, isolated singularity, 可除特異点, removable singularity, pole, 真性特異点, essential singularity]
     requires: [complex-analysis.holomorphic-function]
 
   - id: complex-analysis.meromorphic-function

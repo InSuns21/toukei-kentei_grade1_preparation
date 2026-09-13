@@ -1,0 +1,36 @@
+id: "RA4A"
+title: "標準実解析 IV-A：広義積分・収束判定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA4
+official_scope: []
+learning_objectives:
+  - 無限区間・端点特異点・内部特異点をもつ広義Riemann積分を片側極限で定義できる
+  - 複数の不良端点では各片側積分を別々に判定し、Cauchy主値による相殺と区別できる
+  - 広義積分のCauchy判定・非負関数の有界性判定・比較判定・極限比較判定を証明して使える
+  - p積分と対数補正積分の収束・発散を分類できる
+  - 絶対収束から収束を導き、条件収束との違いを説明できる
+  - 級数と広義積分の積分判定を証明し、p級数へ適用できる
+  - Dirichlet判定・Abel判定を有限区間のFTCから導き、振動積分の条件収束を判定できる
+  - Cauchy主値は通常の広義積分とは異なる極限操作であることを反例から説明できる
+definitions:
+  - { id: RA4A-DEF-01, name: 広義Riemann積分 }
+  - { id: RA4A-DEF-02, name: 広義積分の絶対収束・条件収束 }
+  - { id: RA4A-DEF-03, name: 広義積分に対するCauchy主値 }
+theorems:
+  - { id: RA4A-THM-01, name: 広義積分のCauchy判定 }
+  - { id: RA4A-THM-02, name: 非負広義積分の有界性判定 }
+  - { id: RA4A-THM-03, name: 広義積分の線形性・有限区間切り捨て }
+  - { id: RA4A-THM-04, name: 広義積分の比較判定 }
+  - { id: RA4A-THM-05, name: 広義積分の極限比較判定 }
+  - { id: RA4A-THM-06, name: 広義積分の絶対収束判定 }
+  - { id: RA4A-THM-07, name: 級数と広義積分の積分判定 }
+  - { id: RA4A-THM-08, name: 広義積分のDirichlet判定 }
+  - { id: RA4A-THM-09, name: 広義積分のAbel判定 }
+canonical_examples: [p積分, 対数補正積分, sin(x)/xの条件収束, 1/xのCauchy主値]
+problem_patterns: [RA-IMPROPER-1, RA-IMPROPER-COMPARE-1, RA-OSCILLATORY-1, RA-PRINCIPAL-VALUE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 5, level_c: 3, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.5, review: 1.0 }
