@@ -1,0 +1,28 @@
+id: "F0-00D0A"
+title: "一般距離空間の完備化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D0
+  - F0-00B
+official_scope: []
+learning_objectives:
+  - 任意の距離空間のCauchy列から完備化を構成できる
+  - 完備化上の距離がwell-definedであることを証明できる
+  - 元の空間が完備化へ等長かつ稠密に埋め込まれることを証明できる
+  - 完備化が完備であることを対角近似で証明できる
+  - 完備化の一意性を等長同型の意味で説明できる
+definitions:
+  - { id: F000D0A-DEF-01, name: 距離空間のCauchy列同値関係 }
+  - { id: F000D0A-DEF-02, name: 完備化 }
+theorems:
+  - { id: F000D0A-THM-01, name: 完備化距離のwell-defined性 }
+  - { id: F000D0A-THM-02, name: 標準埋め込みの等長性と稠密性 }
+  - { id: F000D0A-THM-03, name: 完備化の完備性 }
+  - { id: F000D0A-THM-04, name: 完備化の一意性 }
+canonical_examples: [有理数から実数, 開区間から閉区間]
+problem_patterns: [距離のwell-defined性, 稠密埋め込み, 完備化の同定]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 1.8, review: 0.4 }
