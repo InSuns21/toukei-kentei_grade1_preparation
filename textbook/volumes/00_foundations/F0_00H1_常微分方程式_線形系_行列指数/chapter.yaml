@@ -16,4 +16,5 @@ problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "旧URL互換ハブであり、演習は正本 ODE1・ODE2・ODE3 に移送済みのため。"
 estimated_hours: { reading: 0.1, exercises: 0, review: 0 }
