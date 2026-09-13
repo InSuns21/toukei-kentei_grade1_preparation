@@ -5,6 +5,13 @@ const buildRevision = '__TOUKEI_BUILD_REVISION__';
 const cacheBaseName = config.cacheName || 'toukei-grade1-runtime';
 const cacheName = `${cacheBaseName}-${buildRevision}`;
 const cachePrefix = config.cachePrefix || 'toukei-grade1-';
+const offlineContentCacheName = config.offlineContentCacheName || 'toukei-grade1-offline-content-v1';
+const offlineMetadataCacheName = config.offlineMetadataCacheName || 'toukei-grade1-offline-metadata-v1';
+const offlineStageCachePrefix = config.offlineStageCachePrefix || 'toukei-grade1-offline-stage-';
+const offlineManifestStateUrl = new URL(
+  './__offline-cache-manifest-v1__.json',
+  self.registration.scope,
+).href;
 const supportedStrategies = new Set([
   'network-first',
   'cache-first',
@@ -35,10 +42,6 @@ function responseLooksUsable(request, response) {
     return true;
   }
 
-  // A nominally-online mobile/VPN path may return a branded/proxy HTML error
-  // page with HTTP 200. Never accept that as Markdown, JSON, an image, JS, CSS,
-  // or another static asset, because doing so would both render a 404-like page
-  // and poison the offline cache with the error document.
   const contentType = (response.headers.get('content-type') || '').toLowerCase();
   const pathname = new URL(request.url).pathname.toLowerCase();
   if (contentType.includes('text/html') && !pathname.endsWith('.html')) {
@@ -196,14 +199,44 @@ async function findCachedResponse(request, cache) {
   return null;
 }
 
-async function cachedFallback(request, cache) {
-  const cached = await findCachedResponse(request, cache);
+function isManagedAuxiliaryCache(name) {
+  return name === offlineContentCacheName
+    || name === offlineMetadataCacheName
+    || name.startsWith(offlineStageCachePrefix);
+}
+
+async function findLegacyCachedResponse(request) {
+  const names = await caches.keys();
+  for (const name of names) {
+    if (!name.startsWith(cachePrefix) || name === cacheName || isManagedAuxiliaryCache(name)) continue;
+    const legacy = await caches.open(name);
+    const cached = await findCachedResponse(request, legacy);
+    if (cached) return cached;
+  }
+  return null;
+}
+
+async function cachedFallback(request, primaryCache) {
+  const cached = await findCachedResponse(request, primaryCache);
   if (cached) return cached;
+
+  if (isSameOriginRequest(request)) {
+    const offlineContent = await caches.open(offlineContentCacheName);
+    const saved = await findCachedResponse(request, offlineContent);
+    if (saved) return saved;
+
+    const legacy = await findLegacyCachedResponse(request);
+    if (legacy) return legacy;
+  }
 
   if (request.mode === 'navigate' && config.navigationFallback) {
     const fallbackUrl = new URL(config.navigationFallback, self.registration.scope).href;
-    const fallback = await cache.match(fallbackUrl, { ignoreSearch: true });
+    const fallback = await primaryCache.match(fallbackUrl, { ignoreSearch: true });
     if (fallback) return fallback;
+
+    const offlineContent = await caches.open(offlineContentCacheName);
+    const savedFallback = await offlineContent.match(fallbackUrl, { ignoreSearch: true });
+    if (savedFallback) return savedFallback;
   }
 
   return Response.error();
@@ -251,7 +284,7 @@ async function networkFirst(request, cache) {
     const response = await updateCache(cache, request);
     if (!responseLooksUsable(request, response)) {
       if (isSameOriginRequest(request)) markNetworkDegraded();
-      const fallback = await findCachedResponse(request, cache);
+      const fallback = await cachedFallback(request, cache);
       if (fallback) return fallback;
       return response;
     }
@@ -296,15 +329,10 @@ async function staleWhileRevalidate(event, request, cache) {
 async function applyStrategy(event, request, kind) {
   const cache = await caches.open(cacheName);
 
-  // onLine=false is a strong signal: do not start network work at all.
   if (self.navigator?.onLine === false) {
     return cachedFallback(request, cache);
   }
 
-  // Android can stay "online" through mobile data or a VPN after Wi-Fi is
-  // disabled even when GitHub Pages itself is unreachable. After one failed,
-  // timed-out, or invalid same-origin response, serve already-saved content
-  // immediately for a short cooldown, then retry the network automatically.
   if ((kind === 'navigation' || kind === 'sameOrigin') && isNetworkDegraded()) {
     const fallback = await cachedFallback(request, cache);
     if (fallback.type !== 'error') return fallback;
@@ -371,6 +399,37 @@ async function readPublishedUrls() {
   }
 }
 
+async function readPublishedManifest() {
+  const configured = config.publishedFilesHashManifest || './pages-manifest.json';
+  try {
+    const manifestUrl = new URL(configured, self.registration.scope).href;
+    const response = await fetch(manifestUrl, { cache: 'no-store' });
+    if (!response.ok) return null;
+    const manifest = await response.json();
+    if (!manifest || manifest.schemaVersion !== 1 || !Array.isArray(manifest.files)) return null;
+
+    const files = [];
+    for (const item of manifest.files) {
+      if (!item || typeof item.path !== 'string' || !/^[a-f0-9]{64}$/i.test(item.sha256 || '')) {
+        return null;
+      }
+      files.push({
+        path: item.path,
+        url: new URL(item.path, self.registration.scope).href,
+        sha256: item.sha256.toLowerCase(),
+      });
+    }
+
+    return {
+      schemaVersion: 1,
+      revision: manifest.revision || null,
+      files,
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function readSiteMeta() {
   try {
     const metaUrl = new URL(config.siteMetaUrl || './site-meta.json', self.registration.scope).href;
@@ -395,6 +454,99 @@ function notify(source, payload) {
   }
 }
 
+async function sha256Response(response) {
+  if (!self.crypto?.subtle) return null;
+  const bytes = await response.arrayBuffer();
+  const digest = await self.crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)]
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+async function readStoredOfflineManifest() {
+  try {
+    const metadataCache = await caches.open(offlineMetadataCacheName);
+    const response = await metadataCache.match(offlineManifestStateUrl);
+    if (!response) return null;
+    const state = await response.json();
+    if (!state || state.schemaVersion !== 1 || !Array.isArray(state.files)) return null;
+    return state;
+  } catch {
+    return null;
+  }
+}
+
+async function writeStoredOfflineManifest(manifest) {
+  const metadataCache = await caches.open(offlineMetadataCacheName);
+  const state = {
+    schemaVersion: 1,
+    revision: manifest.revision || null,
+    files: manifest.files.map(({ path, sha256 }) => ({ path, sha256 })),
+  };
+  await metadataCache.put(
+    offlineManifestStateUrl,
+    new Response(JSON.stringify(state), {
+      headers: { 'Content-Type': 'application/json' },
+    }),
+  );
+}
+
+async function filesNeedingRefresh(manifest, contentCache) {
+  const stored = await readStoredOfflineManifest();
+  const storedHashes = new Map(
+    (stored?.files || []).map((item) => [item.path, String(item.sha256 || '').toLowerCase()]),
+  );
+  const changed = [];
+  let unchanged = 0;
+
+  for (const file of manifest.files) {
+    const cached = await contentCache.match(file.url, { ignoreSearch: true });
+    if (!cached) {
+      changed.push(file);
+      continue;
+    }
+
+    const storedHash = storedHashes.get(file.path);
+    if (storedHash === file.sha256) {
+      unchanged += 1;
+      continue;
+    }
+
+    // The first version with persistent content may inherit files from the old
+    // revision-scoped cache without a local hash manifest. Hash those bytes
+    // locally once so unchanged material does not have to cross the network.
+    if (!storedHash) {
+      const cachedHash = await sha256Response(cached.clone());
+      if (cachedHash === file.sha256) {
+        unchanged += 1;
+        continue;
+      }
+    }
+
+    changed.push(file);
+  }
+
+  return { changed, unchanged };
+}
+
+async function removeObsoleteOfflineFiles(contentCache, manifest) {
+  const current = new Set(manifest.files.map((file) => file.url));
+  const requests = await contentCache.keys();
+  await Promise.all(
+    requests
+      .filter((request) => isSameOriginRequest(request) && !current.has(normalizedSameOriginUrl(request.url)))
+      .map((request) => contentCache.delete(request)),
+  );
+}
+
+async function commitStage(stageCache, contentCache, changedFiles) {
+  for (const file of changedFiles) {
+    const response = await stageCache.match(file.url, { ignoreSearch: true });
+    if (!response) throw new Error(`staged response missing: ${file.path}`);
+    await contentCache.put(file.url, response);
+  }
+}
+
 async function cachePublishedFiles(source) {
   const startMeta = await readSiteMeta();
   if (!startMeta) {
@@ -405,39 +557,49 @@ async function cachePublishedFiles(source) {
     return;
   }
 
-  const manifestUrls = await readPublishedUrls();
-  if (!manifestUrls.length) {
+  const manifest = await readPublishedManifest();
+  if (!manifest || !manifest.files.length) {
     notify(source, {
       type: 'CACHE_ERROR',
       message: '公開教材一覧を取得できませんでした。オンライン接続を確認してください。',
     });
     return;
   }
+  if (manifest.revision && manifest.revision !== startMeta.revision) {
+    notify(source, {
+      type: 'CACHE_ERROR',
+      message: '教材一覧とサイト更新情報が一致しません。少し後でもう一度保存してください。',
+    });
+    return;
+  }
 
-  const urls = [...new Set([
-    ...manifestUrls,
-    ...(config.appShell || []).map((url) => new URL(url, self.registration.scope).href),
-    ...(config.externalAssets || []),
-  ])];
-  const total = urls.length;
-  const cache = await caches.open(cacheName);
-  const queue = [...urls];
-  const concurrency = Math.min(Math.max(Number(config.manualCacheConcurrency) || 6, 1), total);
+  const contentCache = await caches.open(offlineContentCacheName);
+  const { changed, unchanged } = await filesNeedingRefresh(manifest, contentCache);
+  const total = changed.length;
+  const stageCacheName = `${offlineStageCachePrefix}${startMeta.revision}`;
+  await caches.delete(stageCacheName);
+  const stageCache = await caches.open(stageCacheName);
+  const queue = [...changed];
+  const concurrency = total
+    ? Math.min(Math.max(Number(config.manualCacheConcurrency) || 6, 1), total)
+    : 0;
   let completed = 0;
   let failed = 0;
 
   notify(source, {
     type: 'CACHE_STARTED',
     total,
+    fileCount: manifest.files.length,
+    unchanged,
     siteRevision: startMeta.revision,
     siteUpdatedAt: startMeta.updatedAt,
   });
 
   async function worker() {
     while (queue.length) {
-      const url = queue.shift();
+      const file = queue.shift();
       try {
-        const cached = await precacheOne(cache, url);
+        const cached = await precacheOne(stageCache, file.url, false);
         if (!cached) failed += 1;
       } catch {
         failed += 1;
@@ -457,8 +619,18 @@ async function cachePublishedFiles(source) {
 
   await Promise.all(Array.from({ length: concurrency }, () => worker()));
 
+  if (failed) {
+    await caches.delete(stageCacheName);
+    notify(source, {
+      type: 'CACHE_ERROR',
+      message: `更新が必要な ${total} 件のうち ${failed} 件を取得できませんでした。前回の保存内容は維持します。`,
+    });
+    return;
+  }
+
   const endMeta = await readSiteMeta();
   if (!endMeta || endMeta.revision !== startMeta.revision) {
+    await caches.delete(stageCacheName);
     notify(source, {
       type: 'CACHE_ERROR',
       message: '保存中に教材サイトが更新されました。最新版をそろえるため、もう一度保存してください。',
@@ -466,14 +638,49 @@ async function cachePublishedFiles(source) {
     return;
   }
 
+  await commitStage(stageCache, contentCache, changed);
+  await removeObsoleteOfflineFiles(contentCache, manifest);
+  await writeStoredOfflineManifest(manifest);
+  await caches.delete(stageCacheName);
+
   notify(source, {
     type: 'CACHE_COMPLETE',
     total,
-    succeeded: total - failed,
-    failed,
+    updated: total,
+    unchanged,
+    succeeded: manifest.files.length,
+    fileCount: manifest.files.length,
+    failed: 0,
     siteRevision: endMeta.revision,
     siteUpdatedAt: endMeta.updatedAt,
   });
+}
+
+async function migrateLegacyOfflineContent(cacheNames) {
+  const legacyNames = cacheNames.filter(
+    (name) => name.startsWith(cachePrefix) && name !== cacheName && !isManagedAuxiliaryCache(name),
+  );
+  if (!legacyNames.length) return true;
+
+  const manifest = await readPublishedManifest();
+  if (!manifest) return false;
+
+  const allowed = new Set(manifest.files.map((file) => file.url));
+  const contentCache = await caches.open(offlineContentCacheName);
+
+  for (const name of legacyNames) {
+    const legacyCache = await caches.open(name);
+    const requests = await legacyCache.keys();
+    for (const request of requests) {
+      const normalized = normalizedSameOriginUrl(request.url);
+      if (!allowed.has(normalized)) continue;
+      if (await contentCache.match(normalized, { ignoreSearch: true })) continue;
+      const response = await legacyCache.match(request);
+      if (response) await contentCache.put(normalized, response);
+    }
+  }
+
+  return true;
 }
 
 self.addEventListener('install', (event) => {
@@ -496,9 +703,24 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
+    const migrated = await migrateLegacyOfflineContent(names);
+
+    // Do not destroy the only offline copy if migration could not obtain the
+    // new manifest. Legacy caches remain readable by cachedFallback and a later
+    // Service Worker activation can retry the local migration.
+    if (migrated) {
+      await Promise.all(
+        names
+          .filter((name) => name.startsWith(cachePrefix)
+            && name !== cacheName
+            && !isManagedAuxiliaryCache(name))
+          .map((name) => caches.delete(name)),
+      );
+    }
+
     await Promise.all(
       names
-        .filter((name) => name.startsWith(cachePrefix) && name !== cacheName)
+        .filter((name) => name.startsWith(offlineStageCachePrefix))
         .map((name) => caches.delete(name)),
     );
     await self.clients.claim();

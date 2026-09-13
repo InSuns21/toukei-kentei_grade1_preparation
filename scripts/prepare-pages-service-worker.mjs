@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { access, cp, readFile, readdir, writeFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -10,6 +11,8 @@ const outDir = path.join(root, '_site');
 const serviceWorkerFile = 'service-worker.js';
 const copiedFiles = ['sw-config.js'];
 const revisionMarker = '__TOUKEI_BUILD_REVISION__';
+const textManifestFile = 'pages-manifest.txt';
+const hashManifestFile = 'pages-manifest.json';
 
 await access(outDir);
 
@@ -33,6 +36,11 @@ async function recursivePublishedFiles(baseDir, relativeDir = '') {
   }
 
   return files;
+}
+
+async function sha256File(relative) {
+  const bytes = await readFile(path.join(outDir, relative));
+  return createHash('sha256').update(bytes).digest('hex');
 }
 
 let revision = process.env.GITHUB_SHA || '';
@@ -72,6 +80,9 @@ if (!builtServiceWorker.includes(stampedRevisionDeclaration)) {
 if (!builtServiceWorker.includes('const cacheName = `${cacheBaseName}-${buildRevision}`;')) {
   throw new Error(`${serviceWorkerFile}: runtime cache name is not revision-scoped`);
 }
+if (!builtServiceWorker.includes("offlineContentCacheName || 'toukei-grade1-offline-content-v1'")) {
+  throw new Error(`${serviceWorkerFile}: persistent offline content cache is not configured`);
+}
 new Function(builtServiceWorker);
 await writeFile(path.join(outDir, serviceWorkerFile), builtServiceWorker, 'utf8');
 
@@ -94,11 +105,12 @@ if (revision !== 'local') {
 }
 if (!updatedAt) updatedAt = new Date().toISOString();
 
+const builtAt = new Date().toISOString();
 const siteMeta = {
   schemaVersion: 1,
   revision,
   updatedAt,
-  builtAt: new Date().toISOString(),
+  builtAt,
 };
 await writeFile(
   path.join(outDir, 'site-meta.json'),
@@ -106,16 +118,36 @@ await writeFile(
   'utf8',
 );
 
-// Generate the offline snapshot manifest as part of the same validation command
-// that assembles _site. This keeps pull-request CI and the deployed artifact on
-// exactly the same file list instead of creating the manifest only during the
-// deploy workflow.
+// Generate both the legacy path-only manifest used by the live smoke test and
+// a content-addressed manifest used by the browser for differential offline
+// updates. The manifests themselves are excluded to avoid recursive hashing.
 const publishedFiles = (await recursivePublishedFiles(outDir))
-  .filter((relative) => relative !== '.nojekyll' && relative !== 'pages-manifest.txt')
+  .filter((relative) => relative !== '.nojekyll'
+    && relative !== textManifestFile
+    && relative !== hashManifestFile)
   .sort((a, b) => a.localeCompare(b, 'en'));
+
 await writeFile(
-  path.join(outDir, 'pages-manifest.txt'),
+  path.join(outDir, textManifestFile),
   `${publishedFiles.join('\n')}\n`,
+  'utf8',
+);
+
+const hashEntries = await Promise.all(
+  publishedFiles.map(async (relative) => ({
+    path: relative,
+    sha256: await sha256File(relative),
+  })),
+);
+const hashManifest = {
+  schemaVersion: 1,
+  revision,
+  generatedAt: builtAt,
+  files: hashEntries,
+};
+await writeFile(
+  path.join(outDir, hashManifestFile),
+  `${JSON.stringify(hashManifest, null, 2)}\n`,
   'utf8',
 );
 
@@ -124,4 +156,4 @@ console.log(
 );
 console.log(`Service Worker cache revision stamped: ${revision}`);
 console.log(`Site metadata published: ${revision.slice(0, 8)} @ ${updatedAt}`);
-console.log(`Offline manifest published: ${publishedFiles.length} files`);
+console.log(`Offline manifests published: ${publishedFiles.length} files with SHA-256 hashes`);

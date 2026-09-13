@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash, webcrypto } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -23,15 +24,28 @@ async function recursiveFiles(baseDir, relativeDir = '') {
   return files.sort((a, b) => a.localeCompare(b, 'en'));
 }
 
+function sha256(bytes) {
+  return createHash('sha256').update(bytes).digest('hex');
+}
+
 const manifestPath = path.join(siteDir, 'pages-manifest.txt');
 const manifestEntries = (await readFile(manifestPath, 'utf8'))
   .split(/\r?\n/)
   .map((line) => line.trim())
   .filter(Boolean);
 const manifest = new Set(manifestEntries);
+const hashManifestPath = path.join(siteDir, 'pages-manifest.json');
+const hashManifest = JSON.parse(await readFile(hashManifestPath, 'utf8'));
+assert.equal(hashManifest.schemaVersion, 1, 'hash manifest schemaVersion must be 1');
+assert.equal(typeof hashManifest.revision, 'string', 'hash manifest revision must be a string');
+assert(Array.isArray(hashManifest.files), 'hash manifest files must be an array');
+const hashEntries = new Map(hashManifest.files.map((entry) => [entry.path, entry.sha256]));
+
 const publishedFiles = await recursiveFiles(siteDir);
 const requiredPublishedFiles = publishedFiles.filter(
-  (relative) => relative !== '.nojekyll' && relative !== 'pages-manifest.txt',
+  (relative) => relative !== '.nojekyll'
+    && relative !== 'pages-manifest.txt'
+    && relative !== 'pages-manifest.json',
 );
 
 const missingFromManifest = requiredPublishedFiles.filter((relative) => !manifest.has(relative));
@@ -40,6 +54,20 @@ assert.deepEqual(
   [],
   `pages-manifest.txt is missing published files: ${missingFromManifest.join(', ')}`,
 );
+const extraInManifest = manifestEntries.filter((relative) => !requiredPublishedFiles.includes(relative));
+assert.deepEqual(extraInManifest, [], `pages-manifest.txt has unexpected files: ${extraInManifest.join(', ')}`);
+
+assert.equal(
+  hashEntries.size,
+  requiredPublishedFiles.length,
+  'pages-manifest.json must contain exactly one hash for every published file',
+);
+for (const relative of requiredPublishedFiles) {
+  const expected = hashEntries.get(relative);
+  assert.match(expected || '', /^[a-f0-9]{64}$/, `missing/invalid SHA-256 for ${relative}`);
+  const actual = sha256(await readFile(path.join(siteDir, relative)));
+  assert.equal(expected, actual, `SHA-256 mismatch for ${relative}`);
+}
 
 for (const required of [
   'index.html',
@@ -52,6 +80,7 @@ for (const required of [
   'textbook/dream-theater-index.json',
 ]) {
   assert(manifest.has(required), `offline manifest must include ${required}`);
+  assert(hashEntries.has(required), `hash manifest must include ${required}`);
 }
 
 const imageFiles = requiredPublishedFiles.filter((relative) =>
@@ -101,9 +130,30 @@ class MemoryCache {
   async put(input, response) {
     this.entries.set(this.key(input), response.clone());
   }
+
+  async delete(input) {
+    return this.entries.delete(this.key(input));
+  }
+
+  async keys() {
+    return [...this.entries.keys()].map((url) => new Request(url));
+  }
 }
 
-const memoryCache = new MemoryCache();
+const cacheStores = new Map();
+const cacheStorage = {
+  async open(name) {
+    if (!cacheStores.has(name)) cacheStores.set(name, new MemoryCache());
+    return cacheStores.get(name);
+  },
+  async keys() {
+    return [...cacheStores.keys()];
+  },
+  async delete(name) {
+    return cacheStores.delete(name);
+  },
+};
+
 const listeners = new Map();
 let fetchImplementation = async () => {
   throw new Error('offline');
@@ -116,19 +166,18 @@ const sandbox = {
   Response,
   Headers,
   Set,
+  Map,
   Promise,
   Date,
+  Uint8Array,
   AbortController,
   setTimeout,
   clearTimeout,
   importScripts() {},
   fetch: (...args) => fetchImplementation(...args),
-  caches: {
-    async open() { return memoryCache; },
-    async keys() { return []; },
-    async delete() { return true; },
-  },
+  caches: cacheStorage,
   self: {
+    crypto: webcrypto,
     navigator: { onLine: false },
     location: { origin: 'https://example.test' },
     registration: { scope },
@@ -142,30 +191,25 @@ const sandbox = {
 
 const configSource = await readFile(path.join(root, 'pages', 'sw-config.js'), 'utf8');
 vm.runInNewContext(configSource, sandbox, { filename: 'pages/sw-config.js' });
-assert.equal(
-  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.navigation,
-  'network-first',
-  'online navigation must request the latest app shell',
-);
-assert.equal(
-  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.sameOrigin,
-  'network-first',
-  'online same-origin content must request the latest published file',
-);
-assert.equal(
-  sandbox.self.TOUKEI_SW_CONFIG.strategyByKind.externalAsset,
-  'cache-first',
-  'version-pinned external runtime assets may prefer cache',
-);
-assert(
-  sandbox.self.TOUKEI_SW_CONFIG.networkTimeoutMs > 0,
-  'nominally-online requests must have a bounded network wait',
-);
+const swConfig = sandbox.self.TOUKEI_SW_CONFIG;
+assert.equal(swConfig.strategyByKind.navigation, 'network-first', 'online navigation must request latest shell');
+assert.equal(swConfig.strategyByKind.sameOrigin, 'network-first', 'online same-origin must request latest content');
+assert.equal(swConfig.strategyByKind.externalAsset, 'cache-first', 'version-pinned external assets may prefer cache');
+assert(swConfig.networkTimeoutMs > 0, 'nominally-online requests must have a bounded network wait');
+assert.equal(swConfig.publishedFilesHashManifest, './pages-manifest.json');
+assert.equal(swConfig.offlineContentCacheName, 'toukei-grade1-offline-content-v1');
 
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
 vm.runInNewContext(serviceWorkerSource, sandbox, { filename: 'pages/service-worker.js' });
 const fetchHandler = listeners.get('fetch');
+const messageHandler = listeners.get('message');
+const activateHandler = listeners.get('activate');
 assert.equal(typeof fetchHandler, 'function', 'Service Worker fetch handler was not registered');
+assert.equal(typeof messageHandler, 'function', 'Service Worker message handler was not registered');
+assert.equal(typeof activateHandler, 'function', 'Service Worker activate handler was not registered');
+
+const runtimeCacheName = `${swConfig.cacheName}-__TOUKEI_BUILD_REVISION__`;
+const memoryCache = await cacheStorage.open(runtimeCacheName);
 
 async function dispatch(request) {
   let responsePromise;
@@ -181,6 +225,24 @@ async function dispatch(request) {
   return responsePromise;
 }
 
+async function dispatchMessage(data) {
+  const messages = [];
+  let work = Promise.resolve();
+  messageHandler({
+    data,
+    source: { postMessage(message) { messages.push(message); } },
+    waitUntil(value) { work = Promise.resolve(value); },
+  });
+  await work;
+  return messages;
+}
+
+async function dispatchActivate() {
+  let work = Promise.resolve();
+  activateHandler({ waitUntil(value) { work = Promise.resolve(value); } });
+  await work;
+}
+
 const dreamTheaterCachedUrl = new URL('textbook/dream-theater.md', scope).href;
 await memoryCache.put(
   dreamTheaterCachedUrl,
@@ -193,7 +255,6 @@ const dreamRouteResponse = await dispatch(
 assert.equal(dreamRouteResponse.status, 200, 'offline Docsify extensionless route must resolve to cached .md');
 assert.equal(await dreamRouteResponse.text(), '# cached DREAM THEATER');
 
-// Known-offline mode must never start a network request for a saved page.
 const instantCachedUrl = new URL('textbook/offline-speed.md', scope).href;
 await memoryCache.put(
   instantCachedUrl,
@@ -215,7 +276,6 @@ assert.equal(instantResponse.status, 200, 'offline cached same-origin page must 
 assert.equal(await instantResponse.text(), '# instant cached page');
 assert.equal(offlineFetchCalls, 0, 'known-offline cached page must not start a fetch');
 
-// While genuinely online, network-first must return and cache the latest copy.
 sandbox.self.navigator.onLine = true;
 const freshOnlineUrl = new URL('textbook/online-fresh.md', scope).href;
 await memoryCache.put(
@@ -232,11 +292,8 @@ assert.equal(freshOnlineResponse.status, 200, 'online same-origin request must s
 assert.equal(await freshOnlineResponse.text(), '# latest online page');
 assert.equal(onlineFetchCalls, 1, 'online same-origin request must hit the network');
 const refreshedCachedResponse = await memoryCache.match(freshOnlineUrl);
-assert.equal(await refreshedCachedResponse.text(), '# latest online page', 'online response must refresh offline cache');
+assert.equal(await refreshedCachedResponse.text(), '# latest online page', 'online response must refresh runtime cache');
 
-// Android can report onLine=true after Wi-Fi is disabled because mobile data or
-// a VPN remains active. If that path returns a HTTP-200 HTML error document for
-// a Markdown URL, treat it as unreachable and keep the saved Markdown intact.
 const pseudoOnlineUrl = new URL('home.md', scope).href;
 await memoryCache.put(
   pseudoOnlineUrl,
@@ -255,10 +312,8 @@ assert.equal(pseudoOnlineResponse.status, 200, 'nominally-online HTML error must
 assert.equal(await pseudoOnlineResponse.text(), '# saved home');
 assert.equal(pseudoOnlineFetchCalls, 1, 'first nominally-online request should probe the network once');
 const pseudoOnlineCached = await memoryCache.match(pseudoOnlineUrl);
-assert.equal(await pseudoOnlineCached.text(), '# saved home', 'HTML error must not poison the offline cache');
+assert.equal(await pseudoOnlineCached.text(), '# saved home', 'HTML error must not poison the runtime cache');
 
-// The failure cooldown should make immediately-following saved-page transitions
-// cache-only even though WorkerNavigator still claims the browser is online.
 const cooldownUrl = new URL('textbook/cooldown.md', scope).href;
 await memoryCache.put(
   cooldownUrl,
@@ -277,9 +332,7 @@ await memoryCache.put(
 fetchImplementation = async () => {
   throw new Error('offline');
 };
-const imageResponse = await dispatch(
-  new Request(`${imageCachedUrl}?revision=123`),
-);
+const imageResponse = await dispatch(new Request(`${imageCachedUrl}?revision=123`));
 assert.equal(imageResponse.status, 200, 'query-string image request must resolve to cached image');
 assert.equal(await imageResponse.text(), 'image-bytes');
 
@@ -288,13 +341,115 @@ await memoryCache.put(
   mediaCachedUrl,
   new Response('0123456789', { status: 200, headers: { 'Content-Type': 'application/octet-stream' } }),
 );
-const rangeResponse = await dispatch(
-  new Request(mediaCachedUrl, { headers: { Range: 'bytes=2-5' } }),
-);
+const rangeResponse = await dispatch(new Request(mediaCachedUrl, { headers: { Range: 'bytes=2-5' } }));
 assert.equal(rangeResponse.status, 206, 'cached range request must return HTTP 206');
 assert.equal(rangeResponse.headers.get('content-range'), 'bytes 2-5/10');
 assert.equal(await rangeResponse.text(), '2345');
 
-console.log(`Offline manifest validated: ${manifest.size} files (${imageFiles.length} images).`);
+// Regression: migrate a previously saved file out of the old revision-scoped
+// runtime cache before deleting that cache.
+const legacyName = `${swConfig.cacheName}-legacy-revision`;
+const legacyCache = await cacheStorage.open(legacyName);
+const migratedPath = 'textbook/migrated.md';
+const migratedUrl = new URL(migratedPath, scope).href;
+const migratedBody = '# unchanged legacy material';
+await legacyCache.put(
+  migratedUrl,
+  new Response(migratedBody, { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+const activationManifest = {
+  schemaVersion: 1,
+  revision: 'revision-2',
+  files: [{ path: migratedPath, sha256: sha256(Buffer.from(migratedBody)) }],
+};
+fetchImplementation = async (input) => {
+  const url = typeof input === 'string' ? input : input.url;
+  if (url.endsWith('pages-manifest.json')) {
+    return new Response(JSON.stringify(activationManifest), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  throw new Error(`unexpected activation fetch: ${url}`);
+};
+await dispatchActivate();
+assert(!cacheStores.has(legacyName), 'legacy revision cache must be removed after successful local migration');
+const persistentCache = await cacheStorage.open(swConfig.offlineContentCacheName);
+const migratedResponse = await persistentCache.match(migratedUrl);
+assert.equal(await migratedResponse.text(), migratedBody, 'legacy saved material must survive deployment migration');
+
+// Regression: a manual update must fetch only changed/new content. The migrated
+// file has no stored local hash manifest yet, so the worker must hash its cached
+// bytes locally and skip the network when they still match.
+const changedPath = 'textbook/changed.md';
+const changedUrl = new URL(changedPath, scope).href;
+const staleChangedBody = '# old changed material';
+const freshChangedBody = '# new changed material';
+await persistentCache.put(
+  changedUrl,
+  new Response(staleChangedBody, { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+);
+const differentialManifest = {
+  schemaVersion: 1,
+  revision: 'revision-2',
+  files: [
+    { path: migratedPath, sha256: sha256(Buffer.from(migratedBody)) },
+    { path: changedPath, sha256: sha256(Buffer.from(freshChangedBody)) },
+  ],
+};
+const siteMeta = {
+  schemaVersion: 1,
+  revision: 'revision-2',
+  updatedAt: '2026-09-13T00:00:00Z',
+};
+const contentFetches = [];
+fetchImplementation = async (input) => {
+  const url = typeof input === 'string' ? input : input.url;
+  if (url.endsWith('site-meta.json')) {
+    return new Response(JSON.stringify(siteMeta), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  if (url.endsWith('pages-manifest.json')) {
+    return new Response(JSON.stringify(differentialManifest), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  if (url === changedUrl) {
+    contentFetches.push(url);
+    return new Response(freshChangedBody, {
+      status: 200,
+      headers: { 'Content-Type': 'text/markdown' },
+    });
+  }
+  if (url === migratedUrl) {
+    contentFetches.push(url);
+    return new Response(migratedBody, {
+      status: 200,
+      headers: { 'Content-Type': 'text/markdown' },
+    });
+  }
+  throw new Error(`unexpected differential fetch: ${url}`);
+};
+const firstMessages = await dispatchMessage({ type: 'CACHE_PUBLISHED_FILES' });
+assert.deepEqual(contentFetches, [changedUrl], 'unchanged cached material must not be re-downloaded');
+const completion = firstMessages.find((message) => message.type === 'CACHE_COMPLETE');
+assert(completion, 'differential cache update must complete');
+assert.equal(completion.updated, 1, 'exactly one changed file should be downloaded');
+assert.equal(completion.unchanged, 1, 'exactly one unchanged file should be reused');
+assert.equal(completion.succeeded, 2, 'complete offline snapshot should contain both files');
+const refreshedPersistent = await persistentCache.match(changedUrl);
+assert.equal(await refreshedPersistent.text(), freshChangedBody, 'changed offline material must be replaced');
+
+contentFetches.length = 0;
+const secondMessages = await dispatchMessage({ type: 'CACHE_PUBLISHED_FILES' });
+assert.deepEqual(contentFetches, [], 'second save with identical hashes must download no content files');
+const secondCompletion = secondMessages.find((message) => message.type === 'CACHE_COMPLETE');
+assert.equal(secondCompletion.updated, 0, 'identical manifest should require zero content downloads');
+assert.equal(secondCompletion.unchanged, 2, 'all content should be reused when hashes are unchanged');
+
+console.log(`Offline manifests validated: ${manifest.size} files (${imageFiles.length} images), all SHA-256 hashes match.`);
 console.log(`DREAM THEATER offline links validated: ${new Set(lectureLinks).size}.`);
-console.log('Service Worker fresh-online, Wi-Fi-off fallback, cooldown, instant-offline, query-string asset, and range tests passed.');
+console.log('Service Worker runtime fallback, legacy migration, differential updates, query-string assets, and range tests passed.');
