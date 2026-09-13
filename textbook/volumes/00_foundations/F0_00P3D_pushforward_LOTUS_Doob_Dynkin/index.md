@@ -1,6 +1,6 @@
 # F0-00P3D：pushforward積分・LOTUS・Doob--Dynkin
 
-P2Aでは[LOTUS](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-lotus)を使い、P3Aでは
+P2AではLOTUSを使い、P3Aでは
 
 $$
 E[X\mid Y]=m(Y)
