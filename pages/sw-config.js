@@ -62,7 +62,9 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
   publishedFilesManifest: './pages-manifest.txt',
   publishedFilesHashManifest: './pages-manifest.json',
 
-  // Manual differential caching uses bounded concurrency to avoid flooding the
-  // browser/network while still finishing quickly when several files changed.
+  // Network downloads use conservative concurrency. Local Cache Storage work
+  // can be wider so checking/committing a large saved教材 set does not appear
+  // to freeze after the network has already reached 100%.
   manualCacheConcurrency: 6,
+  manualCacheLocalConcurrency: 12,
 });
