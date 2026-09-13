@@ -8,13 +8,13 @@ official_scope: []
 learning_objectives:
   - Rolle・平均値定理・Cauchy平均値定理の論理関係を説明できる
   - 平均値定理から単調性・誤差評価を導ける
-  - 高階導関数とC^k・C^∞級記法を定義から説明し、微分可能性との違いを判定できる
+  - 高階導関数とC^k・C∞級記法を定義から説明し、微分可能性との違いを判定できる
   - Taylor定理の剰余項を評価できる
   - 逆関数の微分公式の成立条件を説明できる
 definitions:
   - { id: RA3-DEF-01, name: 導関数 }
   - { id: RA3-DEF-02, name: 高階導関数 }
-  - { id: RA3-DEF-03, name: C^k級・C^∞級 }
+  - { id: RA3-DEF-03, name: C^k級・C∞級 }
 theorems:
   - { id: RA3-THM-01, name: Rolleの定理 }
   - { id: RA3-THM-02, name: 平均値定理 }
