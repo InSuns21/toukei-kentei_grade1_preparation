@@ -15,7 +15,7 @@ a.s.一意性
  ↓
 線形性・正値性・tower・L1縮小性・既知量の取り出し
  ↓
-E[X|Y] と Doob--Dynkin
+E[X|Y] の意味
 ```
 
 ---
@@ -26,23 +26,19 @@ E[X|Y] と Doob--Dynkin
 
 <!-- formal-statement-start -->
 > **定義（条件付き期待値）**  
-> 確率空間 $(\Omega,\mathcal F,P)$、部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$、$X\in L^1(P)$ を取ります。確率変数 $Y$ が次の3条件を満たすとき、$Y$ を $X$ の $\mathcal G$ に関する条件付き期待値と呼び、
->
-> $$
-> Y=E[X\mid\mathcal G]
-> $$
->
-> と書きます。
->
+> 確率空間 $(\Omega,\mathcal F,P)$、部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$、$X\in L^1(P)$ を取ります。確率変数 $Y$ が次の3条件を満たすとき、$Y$ を $X$ の $\mathcal G$ に関する条件付き期待値と呼び、次のように書きます。
+
+$$
+Y=E[X\mid\mathcal G].
+$$
+
 > 1. $Y$ は $\mathcal G$-可測である。
 > 2. $Y\in L^1(P)$ である。
-> 3. 任意の $A\in\mathcal G$ に対して
->
-> $$
-> \int_A Y\,dP=\int_A X\,dP
-> $$
->
-> が成り立つ。
+> 3. 任意の $A\in\mathcal G$ に対して次が成り立つ。
+
+$$
+\int_A Y\,dP=\int_A X\,dP.
+$$
 <!-- formal-statement-end -->
 
 第1条件は「$Y$ は現在の情報 $\mathcal G$ だけで決まる」、第3条件は「$\mathcal G$ で見えるどの領域でも平均量を保存する」という意味です。条件付き期待値は点ごとに一意なのではなく、後で示すように **a.s. の意味で一意に決まります**。
@@ -219,31 +215,31 @@ $$
 > $X,Y\in L^1(P)$、$a,b\in\mathbb R$ とします。
 >
 > 1. **線形性**
->
-> $$
-> E[aX+bY\mid\mathcal G]
-> =aE[X\mid\mathcal G]+bE[Y\mid\mathcal G].
-> $$
->
+
+$$
+E[aX+bY\mid\mathcal G]
+=aE[X\mid\mathcal G]+bE[Y\mid\mathcal G].
+$$
+
 > 2. **正値性**：$X\ge0$ a.s. なら $E[X\mid\mathcal G]\ge0$ a.s.
 > 3. **単調性**：$X\le Y$ a.s. なら $E[X\mid\mathcal G]\le E[Y\mid\mathcal G]$ a.s.
 > 4. **$L^1$縮小性**
->
-> $$
-> \boxed{\|E[X\mid\mathcal G]\|_1\le\|X\|_1}.
-> $$
->
+
+$$
+\boxed{\|E[X\mid\mathcal G]\|_1\le\|X\|_1}.
+$$
+
 > 5. **既知量の取り出し**：有界な $\mathcal G$-可測確率変数 $Z$ に対して
->
-> $$
-> E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G].
-> $$
->
+
+$$
+E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G].
+$$
+
 > 6. **既知量は変わらない**：$X$ 自身が $\mathcal G$-可測なら
->
-> $$
-> E[X\mid\mathcal G]=X\quad\text{a.s.}
-> $$
+
+$$
+E[X\mid\mathcal G]=X\quad\text{a.s.}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -361,13 +357,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（tower property）**  
-> $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ なら
->
-> $$
-> \boxed{E[E[X\mid\mathcal G]\mid\mathcal H]=E[X\mid\mathcal H]}
-> $$
->
-> がa.s.で成り立ちます。
+> $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ なら次がa.s.で成り立ちます。
+
+$$
+\boxed{E[E[X\mid\mathcal G]\mid\mathcal H]=E[X\mid\mathcal H]}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -396,7 +390,7 @@ $$
 
 ---
 
-## 6. $E[X\mid Y]$ の意味と version の注意
+## 6. $E[X\mid Y]$ の意味
 
 記号
 
@@ -412,34 +406,21 @@ $$
 
 の略記です。つまり「$Y$ から読み取れる情報だけを使った $X$ の条件付き平均」です。
 
-$E[X\mid\sigma(Y)]$ の代表元 $W$ は $\sigma(Y)$-可測です。[P3DのDoob--Dynkin lemma](../F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md#thm-f0-00p3d-doob-dynkin)により、あるBorel可測関数 $m$ が存在して
-
-$$
-W=m(Y)
-$$
-
-と書けます。従って
+ここではこの定義だけで先へ進めます。後続のP3Dでは、$\sigma(Y)$-可測な実数値確率変数をBorel可測関数 $m$ を用いて $m(Y)$ と表示できることを証明し、その結果として
 
 $$
 E[X\mid Y]=m(Y)
 $$
 
-という表示が得られます。ただしここには **version の自由度**があります。
+という書き方を正当化します。この表示はこの章の証明には使いません。
 
-もし $m_1(Y)=m_2(Y)$ a.s. なら、押し出し測度 $P_Y$ に関して
-
-$$
-P_Y(\{y:m_1(y)\ne m_2(y)\})
-=P(m_1(Y)\ne m_2(Y))=0.
-$$
-
-したがって $m$ は $P_Y$-a.e. にしか一意ではありません。特に連続分布では普通 $P(Y=y)=0$ なので、記号
+なお連続分布では普通 $P(Y=y)=0$ なので、
 
 $$
-E[X\mid Y=y]
+\frac{E[X\mathbf1_{\{Y=y\}}]}{P(Y=y)}
 $$
 
-を $E[X\mathbf1_{\{Y=y\}}]/P(Y=y)$ で定義することはできません。これは通常、選んだversion $m$ の値 $m(y)$ を表す記号です。零確率の点ではversionを変えると値も変えられるため、**各点 $y$ で固有に決まる値ではない**ことに注意してください。
+を $E[X\mid Y=y]$ の定義として使うことはできません。$m(Y)$ 表示が得られた後も、$m$ は $P_Y$-a.e. にしか決まらないため、零確率の点 $y$ での値にはversionの自由度があります。この点もP3Dで整理します。
 
 ---
 
@@ -600,7 +581,7 @@ $$
 \int_AZ_nMdP=\int_AZ_nXdP.
 $$
 
-両辺はそれぞれ $\|Z\|_\infty|M|$、$\|Z\|_\infty|X|$ で支配されるのでDCTにより極限を取れる。よって $ZM$ が $ZX$ の条件付き期待値の定義を満たす。
+両辺はそれぞれ $\|Z\|_\infty|M|$、$\|Z\|_\infty|X|$ で支配されるので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により極限を取れる。よって $ZM$ が $ZX$ の条件付き期待値の定義を満たす。
 <!-- solution-end -->
 
 ### F0-00P3A-B03 $E[X\mid Y]$ を離散表から求める
@@ -615,11 +596,11 @@ $(X,Y)$ の同時分布が
 | $X=0$ | $1/4$ | $1/8$ |
 | $X=2$ | $1/4$ | $3/8$ |
 
-で与えられるとする。$E[X\mid Y]$ を $m(Y)$ の形で求めよ。
+で与えられるとする。$E[X\mid Y]$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-まず
+$\sigma(Y)$ は $\{Y=0\}$ と $\{Y=1\}$ の有限分割が生成するので、P3A第2節の有限分割公式を直接使える。まず
 
 $$
 P(Y=0)=\frac12,
@@ -639,13 +620,11 @@ E[X\mid Y=1]
 =0\cdot\frac{1/8}{1/2}+2\cdot\frac{3/8}{1/2}=\frac32.
 $$
 
-したがって $m(0)=1,m(1)=3/2$ と置けば
+したがって
 
 $$
 \boxed{E[X\mid Y]=1\cdot\mathbf1_{\{Y=0\}}+\frac32\mathbf1_{\{Y=1\}}}.
 $$
-
-$Y$ が取らない値での $m(y)$ は任意に定めてよい。これはversionの自由度の有限離散版である。
 <!-- solution-end -->
 
 ### F0-00P3A-C01 入れ子になった有限情報を総合する
@@ -718,4 +697,4 @@ $$
 
 ## 次に進む
 
-二乗可積分な場合の幾何を見るなら [F0-00P3B L2射影・最良予測](../F0_00P3B_L2射影_最良予測/index.md) へ進みます。その次のP3Cでは、情報 $\mathcal G_n$ が増えると $E[X\mid\mathcal G_n]$ がどこへ収束するかを証明します。$E[X\mid Y]=m(Y)$ の可測関数表示そのものの証明は [P3D](../F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md#thm-f0-00p3d-doob-dynkin) で閉じます。
+二乗可積分な場合の幾何を見るなら [F0-00P3B L2射影・最良予測](../F0_00P3B_L2射影_最良予測/index.md) へ進みます。その次のP3Cでは、情報 $\mathcal G_n$ が増えると $E[X\mid\mathcal G_n]$ がどこへ収束するかを証明します。$E[X\mid Y]=m(Y)$ の可測関数表示とversion問題は後続のP3Dで証明・整理します。
