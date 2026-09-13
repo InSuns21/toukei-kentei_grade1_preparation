@@ -1,0 +1,51 @@
+name: Temporary ODE3 targeted fixes
+
+on:
+  push:
+    branches:
+      - codex/dream-theater-ode3-linear-systems
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/dream-theater-ode3-linear-systems
+      - name: Apply exact ODE3 fixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('textbook/volumes/00_foundations/ODE3/index.md')
+          s = p.read_text()
+
+          replacements = [
+              ('半群性', '時間加法則'),
+              ('部分和を\n\n$$\nS_n(t)=', '第 $n$ 近似を\n\n$$\nS_n(t)='),
+              ('を微分すると、行列指数の基本性質から', 'を微分すると、[行列指数の基本性質](#thm-ode3-matrix-exponential-properties)から'),
+              ('$\\|\\cdot\\|_2$ を Euclid ノルムとする。', '$\\|x\\|_2=(\\sum_i |x_i|^2)^{1/2}$ を Euclid 長さと書く。'),
+              ('定係数線形系のスペクトル安定性判定', '定係数線形系の固有値実部と Jordan 構造による安定性判定'),
+              ('[スペクトル安定性判定](#thm-ode3-spectral-stability)', '[固有値実部と Jordan 構造による安定性判定](#thm-ode3-spectral-stability)'),
+              ('実際、Cauchy--Schwarz 不等式から各行について', '実際、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から各行について'),
+              ('[斉次線形系の初期値問題](#thm-ode3-homogeneous-ivp)', '[定係数斉次線形系の初期値問題](#thm-ode3-homogeneous-ivp)'),
+          ]
+
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f'missing expected text: {old!r}')
+              s = s.replace(old, new)
+
+          p.write_text(s)
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/ODE3/index.md
+          git commit -m "Fix ODE3 canonical references and local wording"
+          git push origin HEAD:codex/dream-theater-ode3-linear-systems
