@@ -143,7 +143,23 @@ $$
 \nu_-(A)=\int_AX^-\,dP
 $$
 
-と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度です。また $P(A)=0$ なら測度0集合上の積分は0なので
+と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度です。ここで測度性も確認しておきます。互いに素な $A_1,A_2,\dots\in\mathcal G$ に対し
+
+$$
+X^+\mathbf1_{\cup_{k=1}^nA_k}
+=\sum_{k=1}^nX^+\mathbf1_{A_k}
+\uparrow
+X^+\mathbf1_{\cup_{k=1}^\infty A_k},
+$$
+
+なので[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から
+
+$$
+\nu_+\!\left(\bigcup_{k=1}^\infty A_k\right)
+=\sum_{k=1}^\infty\nu_+(A_k).
+$$
+
+$\nu_-$ も同様です。また $\nu_\pm(\Omega)=E[X^\pm]<\infty$ なので有限測度です。さらに $P(A)=0$ なら測度0集合上の積分は0なので
 
 $$
 \nu_+\ll P|_{\mathcal G},
@@ -426,7 +442,7 @@ $$
 
 ## 7. 独立なら条件付けしても平均は変わらない
 
-$X$ が $\mathcal G$ と独立で $X\in L^1$ なら
+$\sigma(X)$ と $\mathcal G$ が独立、すなわち「$X$ が $\mathcal G$ と独立」で $X\in L^1$ なら
 
 $$
 \boxed{E[X\mid\mathcal G]=E[X]\quad\text{a.s.}}
@@ -514,7 +530,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-$X\in L^1$ が部分 $\sigma$ 代数 $\mathcal G$ と独立であるとする。$E[X\mid\mathcal G]=E[X]$ a.s. を示せ。
+$X\in L^1$ とし、$\sigma(X)$ と部分 $\sigma$ 代数 $\mathcal G$ が独立であるとする。$E[X\mid\mathcal G]=E[X]$ a.s. を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -542,7 +558,7 @@ $$
 \nu_\pm(A)=\int_AX^\pm\,dP
 $$
 
-を作る。両者は有限非負測度で $\nu_\pm\ll P|_{\mathcal G}$。[RN定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により非負 $\mathcal G$-可測 $f_\pm=d\nu_\pm/dP$ が存在する。$A=\Omega$ とすれば $f_\pm\in L^1$。したがって $Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し
+を作る。互いに素な $A_k$ に対して $X^\pm\mathbf1_{\cup_{k\le n}A_k}\uparrow X^\pm\mathbf1_{\cup_kA_k}$ なので[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から可算加法性が従い、$E[X^\pm]<\infty$ だから両者は有限非負測度である。また $\nu_\pm\ll P|_{\mathcal G}$。[RN定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により非負 $\mathcal G$-可測 $f_\pm=d\nu_\pm/dP$ が存在する。$A=\Omega$ とすれば $f_\pm\in L^1$。したがって $Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し
 
 $$
 \int_AYdP=\nu_+(A)-\nu_-(A)=\int_AXdP.

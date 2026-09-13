@@ -4,7 +4,9 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P3A
+  - F0-00D2A
   - F0-00D2B
+  - F0-00P2A
 official_scope: []
 learning_objectives:
   - 増加する部分σ代数列と極限情報を定義できる

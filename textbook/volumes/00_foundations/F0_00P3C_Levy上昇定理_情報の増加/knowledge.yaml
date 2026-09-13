@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00P3A
+  - F0-00D2A
   - F0-00D2B
   - F0-00P2A
 
