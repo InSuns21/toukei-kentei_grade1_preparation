@@ -12,31 +12,31 @@
 <!-- formal-statement-start -->
 > **定義（広義Riemann積分）**  
 > $f$ がすべての $R>a$ について $[a,R]$ 上Riemann可積分であるとする。このとき
-> $$
-> \int_a^\infty f(x)\,dx
-> :=\lim_{R\to\infty}\int_a^R f(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)\,dx
+:=\lim_{R\to\infty}\int_a^R f(x)\,dx
+$$
 > と定め、右辺が有限値として存在するとき **収束**、存在しないとき **発散** という。
 >
 > 同様に、$f$ が各 $r<b$ について $[a,r]$ 上Riemann可積分で、$b$ で非有界になり得るとき
-> $$
-> \int_a^b f(x)\,dx
-> :=\lim_{r\uparrow b}\int_a^r f(x)\,dx
-> $$
+$$
+\int_a^b f(x)\,dx
+:=\lim_{r\uparrow b}\int_a^r f(x)\,dx
+$$
 > と定める。左端 $a$ が不良端点なら右側極限で定める。
 >
 > 内部点 $c\in(a,b)$ が特異点なら
-> $$
-> \int_a^b f
-> :=\int_a^c f+\int_c^b f
-> $$
+$$
+\int_a^b f
+:=\int_a^c f+\int_c^b f
+$$
 > と書くが、これは **左右二つの広義積分がそれぞれ有限値へ収束するときに限って** 定義する。
 >
 > また
-> $$
-> \int_{-\infty}^{\infty}f
-> :=\int_{-\infty}^{c}f+\int_c^{\infty}f
-> $$
+$$
+\int_{-\infty}^{\infty}f
+:=\int_{-\infty}^{c}f+\int_c^{\infty}f
+$$
 > も、左右がそれぞれ収束するときに限って定義する。
 <!-- formal-statement-end -->
 
@@ -94,23 +94,23 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分のCauchy判定）**  
 > $f$ が各有限区間 $[a,R]$ 上Riemann可積分であるとする。このとき
-> $$
-> \int_a^\infty f(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)\,dx
+$$
 > が収束することと、任意の $\varepsilon>0$ に対してある $A>a$ が存在し、
-> $$
-> v>u>A
-> \Longrightarrow
-> \left|\int_u^v f(x)\,dx\right|<\varepsilon
-> $$
+$$
+v>u>A
+\Longrightarrow
+\left|\int_u^v f(x)\,dx\right|<\varepsilon
+$$
 > となることは同値である。
 >
 > 端点 $b$ が特異点の場合も、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し、
-> $$
-> b-\delta<u<v<b
-> \Longrightarrow
-> \left|\int_u^v f(x)\,dx\right|<\varepsilon
-> $$
+$$
+b-\delta<u<v<b
+\Longrightarrow
+\left|\int_u^v f(x)\,dx\right|<\varepsilon
+$$
 > となることと $\int_a^b f$ の収束は同値である。
 <!-- formal-statement-end -->
 
@@ -176,13 +176,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（非負広義積分の有界性判定）**  
 > $f(x)\ge0$ とする。このとき
-> $$
-> \int_a^\infty f(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)\,dx
+$$
 > が収束することと、集合
-> $$
-> \left\{\int_a^R f(x)\,dx:R>a\right\}
-> $$
+$$
+\left\{\int_a^R f(x)\,dx:R>a\right\}
+$$
 > が上に有界であることは同値である。
 >
 > 上に有界でなければ、部分積分は $+\infty$ へ発散する。
@@ -227,16 +227,16 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分の線形性・有限区間切り捨て）**  
 > $A>a$ とする。$\int_a^\infty f$ が収束することと $\int_A^\infty f$ が収束することは同値で、収束するとき
-> $$
-> \int_a^\infty f
-> =\int_a^A f+\int_A^\infty f.
-> $$
+$$
+\int_a^\infty f
+=\int_a^A f+\int_A^\infty f.
+$$
 > また $\int_a^\infty f$, $\int_a^\infty g$ が収束し、$\alpha,\beta\in\mathbb R$ なら
-> $$
-> \int_a^\infty(\alpha f+\beta g)
-> =\alpha\int_a^\infty f
-> +\beta\int_a^\infty g.
-> $$
+$$
+\int_a^\infty(\alpha f+\beta g)
+=\alpha\int_a^\infty f
++\beta\int_a^\infty g.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -267,9 +267,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分の比較判定）**  
 > ある $A$ 以降で
-> $$
-> 0\le f(x)\le g(x)
-> $$
+$$
+0\le f(x)\le g(x)
+$$
 > とする。
 >
 > 1. $\int_A^\infty g(x)\,dx$ が収束するなら、$\int_A^\infty f(x)\,dx$ も収束する。
@@ -302,18 +302,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分の極限比較判定）**  
 > 十分大きい $x$ で $f(x)>0$, $g(x)>0$ とし、
-> $$
-> \lim_{x\to\infty}\frac{f(x)}{g(x)}=L,
-> \qquad 0<L<\infty
-> $$
+$$
+\lim_{x\to\infty}\frac{f(x)}{g(x)}=L,
+\qquad 0<L<\infty
+$$
 > とする。このとき
-> $$
-> \int_A^\infty f(x)\,dx
-> $$
+$$
+\int_A^\infty f(x)\,dx
+$$
 > と
-> $$
-> \int_A^\infty g(x)\,dx
-> $$
+$$
+\int_A^\infty g(x)\,dx
+$$
 > は同時に収束するか、同時に発散する。
 <!-- formal-statement-end -->
 
@@ -412,9 +412,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（広義積分の絶対収束・条件収束）**  
 > $\int_a^\infty f(x)\,dx$ について
-> $$
-> \int_a^\infty |f(x)|\,dx<\infty
-> $$
+$$
+\int_a^\infty |f(x)|\,dx<\infty
+$$
 > となるとき **絶対収束** という。
 >
 > $\int_a^\infty f$ は収束するが $\int_a^\infty|f|$ は発散するとき **条件収束** という。
@@ -474,13 +474,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（級数と広義積分の積分判定）**  
 > $f:[1,\infty)\to[0,\infty)$ が単調減少で、各有限区間上Riemann可積分であるとする。このとき
-> $$
-> \sum_{n=1}^\infty f(n)
-> $$
+$$
+\sum_{n=1}^\infty f(n)
+$$
 > と
-> $$
-> \int_1^\infty f(x)\,dx
-> $$
+$$
+\int_1^\infty f(x)\,dx
+$$
 > は同時に収束するか、同時に発散する。
 <!-- formal-statement-end -->
 
@@ -529,17 +529,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分のDirichlet判定）**  
 > $f:[a,\infty)\to\mathbb R$ を連続関数とし
-> $$
-> F(x)=\int_a^x f(t)\,dt
-> $$
+$$
+F(x)=\int_a^x f(t)\,dt
+$$
 > が有界であるとする。$g:[a,\infty)\to[0,\infty)$ は $C^1$ 級、単調減少で
-> $$
-> g(x)\to0
-> $$
+$$
+g(x)\to0
+$$
 > とする。このとき
-> $$
-> \int_a^\infty f(x)g(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)g(x)\,dx
+$$
 > は収束する。
 <!-- formal-statement-end -->
 
@@ -606,13 +606,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（広義積分のAbel判定）**  
 > $f:[a,\infty)\to\mathbb R$ を連続関数とし
-> $$
-> \int_a^\infty f(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)\,dx
+$$
 > が収束するとする。$g:[a,\infty)\to\mathbb R$ が $C^1$ 級で有界かつ単調なら
-> $$
-> \int_a^\infty f(x)g(x)\,dx
-> $$
+$$
+\int_a^\infty f(x)g(x)\,dx
+$$
 > も収束する。
 <!-- formal-statement-end -->
 
@@ -659,21 +659,21 @@ Dirichlet判定では「振動側の原始積分が有界」で十分でした�
 <!-- formal-statement-start -->
 > **定義（広義積分に対するCauchy主値）**  
 > 内部特異点 $c\in(a,b)$ に対し
-> $$
-> \operatorname{PV}\int_a^b f(x)\,dx
-> :=\lim_{\varepsilon\downarrow0}
-> \left(
-> \int_a^{c-\varepsilon}f(x)\,dx
-> +\int_{c+\varepsilon}^{b}f(x)\,dx
-> \right)
-> $$
+$$
+\operatorname{PV}\int_a^b f(x)\,dx
+:=\lim_{\varepsilon\downarrow0}
+\left(
+\int_a^{c-\varepsilon}f(x)\,dx
++\int_{c+\varepsilon}^{b}f(x)\,dx
+\right)
+$$
 > が存在するとき、この値をCauchy主値という。
 >
 > 無限区間では典型的に
-> $$
-> \operatorname{PV}\int_{-\infty}^{\infty}f(x)\,dx
-> :=\lim_{R\to\infty}\int_{-R}^{R}f(x)\,dx
-> $$
+$$
+\operatorname{PV}\int_{-\infty}^{\infty}f(x)\,dx
+:=\lim_{R\to\infty}\int_{-R}^{R}f(x)\,dx
+$$
 > と定める。
 <!-- formal-statement-end -->
 
@@ -1000,7 +1000,7 @@ $$
 $$
 \sum_{n=1}^\infty\frac1{n^p}
 $$
-の収束・発散を分類せよ。また $p=1$ の調和級数が発散することを積分との比較不等式から明示せよ。
+の収束・発散を分類せよ。また $p=1$ では、各 $N$ について $\int_1^{N+1} dx/x\le\sum_{n=1}^N 1/n$ を直接示し、調和級数の発散を導け。
 
 <!-- solution-start -->
 **解答**：$f(x)=x^{-p}$ を考えます。$p>0$ では $f$ は正で単調減少です。積分判定により
