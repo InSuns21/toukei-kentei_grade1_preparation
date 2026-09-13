@@ -9,6 +9,9 @@ terms:
   - term: Riemann可積分
     english: Riemann integrable
     meaning: 分割を細かくしたとき上積分と下積分が一致すること。
+  - term: FTC
+    english: Fundamental Theorem of Calculus
+    meaning: Fundamental Theorem of Calculus の略語で、日本語では「微積分学の基本定理」。本章ではIを「積分からFを作る主張」、IIを「F'=fから定積分を計算する主張」と呼ぶ。文献によりI・IIの番号づけが逆の場合もある。
   - term: 微積分学の基本定理
-    english: fundamental theorem of calculus
-    meaning: 積分による原始関数の構成と原始関数による定積分計算を結ぶ定理群。
+    english: Fundamental Theorem of Calculus (FTC)
+    meaning: 積分と微分が互いに逆向きの操作であることを、積分から作る関数の微分と定積分の評価公式の二側面から結ぶ定理群。英語名の頭文字からFTCと略す。
