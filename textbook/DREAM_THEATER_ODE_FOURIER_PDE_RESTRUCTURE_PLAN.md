@@ -658,7 +658,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 
 | 章 | 状態 | 本文・証明 | 演習・詳細解答 | 依存・再利用 | 機械検証 |
 |---|---|---|---|---|---|
-| ODE1 | **執筆完了・PR検証待ち** | 一階解法、phase line、積分方程式、Lipschitz、Picard--Lindelöf の存在一意性を実装。固定点定理を黒箱化せず Picard 反復の一様Cauchy性から閉じた | A4 / B3 / C1。全問に `solution-start/end` の詳細解答あり | RA3 / RA4 / RA5 を前提。H1 §1–4 を再利用・補強 | PR上で DREAM THEATER 専用 validation / audit を実行する |
+| ODE1 | **実装・検証完了（PR #276）** | 一階解法、phase line、積分方程式、Lipschitz、Picard--Lindelöf の存在一意性を実装。固定点定理を黒箱化せず Picard 反復の一様Cauchy性から閉じた | A4 / B3 / C1。全問に `solution-start/end` の詳細解答あり | RA3 / RA4 / RA5 を前提。H1 §1–4 を再利用・補強 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を green 確認 |
 | ODE2 | 未着手 | H1 §5–7 を再利用予定 | 未着手 | ODE1 + 実解析 | 未実施 |
 | ODE3 | 未着手 | H1 §8–11 を主要再利用予定 | 未着手 | ODE2 + LA4 等 | 未実施 |
 | ODE4 | 未着手 | - | - | ODE3 + 多変数微分 | 未実施 |
@@ -675,4 +675,10 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 - 非一意性反例 $y'=3|y|^{2/3}$ では、結論が偽であるだけでなく Lipschitz 評価と縮小機構が壊れることまで説明した。
 - 演習は分類・変数分離・積分因子・完全微分・Bernoulli・phase line・Lipschitz・Picard反復を実際に使わせ、題数だけの水増しを避けた。
 
-次の実装単位は **ODE2 高階線形微分方程式**。ただし ODE1 の PR で機械検証が失敗した場合は、先に実ログに従って ODE1 と本進捗表を修正してから merge する。
+## 11.4 ODE1 検証記録
+
+PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、DREAM THEATER manifest 未登録、RA4 formal anchor 参照不足、definition-example の明示ラベル、knowledge metadata と導入順の不整合を、実ログに従って本文・metadata側で修正した。CIを通すためだけの prerequisite 追加はせず、ODE3 の行列指数のみ正当な forward reference として明示した。
+
+最終的に **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統をすべて green 確認した。ODE1 は本文・証明・定義例・演習・詳細解答・依存関係の初回実装を完了し、merge-ready とする。
+
+次の実装単位は **ODE2 高階線形微分方程式**。H1 §5–7 を主要再利用元とし、解空間・Wronskian・非斉次方程式・定数変化法までを学部標準コアとして閉じる。
