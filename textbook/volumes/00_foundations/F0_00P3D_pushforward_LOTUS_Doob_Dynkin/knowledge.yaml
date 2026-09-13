@@ -4,7 +4,9 @@ coverage: complete
 prerequisites:
   - F0-00P3A
   - F0-00P2A
+  - F0-00D2A
   - F0-00D2B
+  - F0-00D2C
 
 concepts:
   - id: measure.pushforward-integration-theorem
@@ -30,9 +32,17 @@ concepts:
   - id: prob.conditional-expectation-as-function
     name: 条件付き期待値の可測関数表示
     kind: term
-    # main reader-source監査でも説明節を確認できる通常aliasを一つ持たせる。
     aliases: ["E[X\\mid Y]", "m(Y)", "Doob--Dynkin lemmaにより"]
     introduction_aliases: ["条件付き期待値へ適用する"]
     requires:
       - prob.conditional-expectation
       - prob.doob-dynkin-lemma
+
+  - id: prob.conditional-expectation-version-freedom
+    name: 条件付き期待値表示のversion自由度
+    kind: term
+    aliases: ["version の自由度", "P_Y-a.e."]
+    introduction_aliases: ["version の自由度は"]
+    requires:
+      - prob.conditional-expectation-as-function
+      - measure.pushforward-measure
