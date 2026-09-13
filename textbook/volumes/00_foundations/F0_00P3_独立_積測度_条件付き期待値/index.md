@@ -29,11 +29,11 @@
 <!-- formal-statement-start -->
 > **定義（独立な事象）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ 上の事象 $A,B\in\mathcal F$ が
->
-> $$
-> P(A\cap B)=P(A)P(B)
-> $$
->
+
+$$
+P(A\cap B)=P(A)P(B)
+$$
+
 > を満たすとき、$A,B$ は**独立**であるといいます。
 <!-- formal-statement-end -->
 
@@ -88,19 +88,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（独立なσ代数）**  
 > 確率空間 $(\Omega,\mathcal F,P)$ の部分σ代数 $\mathcal G_1,\mathcal G_2\subseteq\mathcal F$ が、任意の
->
-> $$
-> A\in\mathcal G_1,
-> \qquad
-> B\in\mathcal G_2
-> $$
->
+
+$$
+A\in\mathcal G_1,
+\qquad
+B\in\mathcal G_2
+$$
+
 > に対して
->
-> $$
-> P(A\cap B)=P(A)P(B)
-> $$
->
+
+$$
+P(A\cap B)=P(A)P(B)
+$$
+
 > を満たすとき、$\mathcal G_1,\mathcal G_2$ は**独立**であるといいます。
 <!-- formal-statement-end -->
 
@@ -169,11 +169,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（独立な確率変数）**  
 > 実数値確率変数 $X,Y$ が、生成するσ代数
->
-> $$
-> \sigma(X),\qquad\sigma(Y)
-> $$
->
+
+$$
+\sigma(X),\qquad\sigma(Y)
+$$
+
 > の独立性を満たすとき、$X,Y$ は**独立な確率変数**であるといいます。
 <!-- formal-statement-end -->
 
@@ -206,13 +206,13 @@ $$
 > 確率変数 $X_1,\ldots,X_n$ が **pairwise independent** であるとは、任意の $i\ne j$ について $X_i,X_j$ が独立であることをいいます。
 >
 > 一方、$X_1,\ldots,X_n$ が **mutually independent** であるとは、任意の Borel 集合 $A_1,\ldots,A_n$ に対して
->
-> $$
-> P(X_1\in A_1,\ldots,X_n\in A_n)
-> =
-> \prod_{k=1}^nP(X_k\in A_k)
-> $$
->
+
+$$
+P(X_1\in A_1,\ldots,X_n\in A_n)
+=
+\prod_{k=1}^nP(X_k\in A_k)
+$$
+
 > が成り立つことをいいます。
 <!-- formal-statement-end -->
 
@@ -269,17 +269,17 @@ $$
 >
 > 1. $X,Y$ は独立である。
 > 2. 任意の Borel 集合 $A,B\in\mathcal B(\mathbb R)$ に対して
->
-> $$
-> P(X\in A,Y\in B)=P_X(A)P_Y(B).
-> $$
->
+
+$$
+P(X\in A,Y\in B)=P_X(A)P_Y(B).
+$$
+
 > 3. 同時分布が
->
-> $$
-> \boxed{P_{X,Y}=P_X\otimes P_Y}
-> $$
->
+
+$$
+\boxed{P_{X,Y}=P_X\otimes P_Y}
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -430,22 +430,22 @@ $$
 <!-- formal-statement-start -->
 > **定理（独立な確率変数の期待値因数分解）**  
 > 独立な実数値確率変数 $X,Y$ と Borel 可測関数 $g,h$ が
->
-> $$
-> E[|g(X)|]<\infty,
-> \qquad
-> E[|h(Y)|]<\infty
-> $$
->
+
+$$
+E[|g(X)|]<\infty,
+\qquad
+E[|h(Y)|]<\infty
+$$
+
 > を満たすとします。このとき $g(X)h(Y)$ も可積分で
->
-> $$
-> \boxed{
-> E[g(X)h(Y)]
-> =E[g(X)]E[h(Y)]
-> }
-> $$
->
+
+$$
+\boxed{
+E[g(X)h(Y)]
+=E[g(X)]E[h(Y)]
+}
+$$
+
 > が成り立ちます。
 <!-- formal-statement-end -->
 
