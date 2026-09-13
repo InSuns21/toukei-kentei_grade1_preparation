@@ -21,7 +21,7 @@ P3B L2射影・最良予測
  ↓
 P3C Lévy上昇定理・情報の増加
  ↓
-P4 limsup・Borel--Cantelli・収束関係
+P4 limsup/liminf・末尾事象・0--1則・Borel--Cantelli・収束関係
  ↓
 P4A 一様可積分性・Vitali
  ↓
@@ -46,6 +46,7 @@ P7B QMD・LAN
 
 - P2のRadon--Nikodym定理は、章内で必要な $L^2$ 表現補題まで証明する。表現補題は [Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection) から直接導くため、P2のchapter metadataには $L^2$ 完備性とHilbert射影を前提として記録している。
 - P3Cは一般のmartingale収束定理を前提にしない。$M_n=E[X\mid\mathcal G_n]$ という条件付き期待値から作られる特別な列について、$L^1$近似とupcrossing評価をその場で証明してLévy上昇定理を閉じる。
+- P4は末尾事象に対する Kolmogorov の 0--1 則を本文で証明する。独立な有限円筒事象から生成 sigma 代数全体へ独立性を拡張する箇所では [π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) を使うため、F0-00D3Aを局所的な必須前提にする。
 - P6「特性関数・Lévy」は強大数則を必要としない。標準通読ではP5の後だが、必須前提にはしない。
 - [P6Aの独立同分布 中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)も強大数則を証明に使わない。
 - P5Aの一般強大数則はheavy-tailまで追う読者向けで、中心極限定理へ進むための必須駅ではない。
@@ -56,7 +57,7 @@ P7B QMD・LAN
 
 - **確率変数・期待値を測度論で読みたい**：P2Aまで。
 - **条件付き期待値・martingaleへ行きたい**：P3Aまで。Hilbert予測も見るならP3B、情報増加に伴う収束まで見るならP3C。
-- **a.s.収束とBorel--Cantelli**：P4まで。
+- **a.s.収束・末尾事象・0--1則・Borel--Cantelli**：P4まで。
 - **期待値まで極限交換したい**：P4Aまで。
 - **有限分散強大数則**：P5まで。
 - **一般独立同分布有限平均強大数則の証明**：P5Aまで。
