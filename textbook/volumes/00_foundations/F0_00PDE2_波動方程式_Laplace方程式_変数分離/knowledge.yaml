@@ -65,5 +65,6 @@ concepts:
     name: 調和関数
     kind: term
     aliases: [調和関数]
+    introduction: inline
     requires:
       - pde.laplace-equation
