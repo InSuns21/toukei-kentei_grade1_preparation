@@ -97,7 +97,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00p5a-truncation -->
-**定義の確認。**  
+**定義の確認**  
 $X$ が標本点ごとに $-4,1,5$ という値を取り得るとき、閾値 $c=3$ なら
 
 $$
