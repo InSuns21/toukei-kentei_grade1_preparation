@@ -59,7 +59,7 @@ concepts:
     name: 一階線形初期値問題の解
     kind: theorem
     aliases: [一階線形初期値問題の解]
-    introduction: inline
+    introduction: formal
     requires:
       - ode.ode1-integrating-factor-method
       - analysis.ftc-2
@@ -90,9 +90,9 @@ concepts:
 
   - id: ode.ode1-integral-equation-equivalence
     name: 初期値問題と積分方程式の同値性
-    kind: theorem
+    kind: proposition
     aliases: [初期値問題と積分方程式の同値性, 積分方程式]
-    introduction: inline
+    introduction: formal
     requires:
       - ode.ode1-initial-boundary-value-problem
       - analysis.ftc-1
@@ -116,10 +116,10 @@ concepts:
       - analysis.uniform-limit-continuity
 
   - id: ode.ode1-picard-lindelof
-    name: Picard--Lindelöfの局所存在・一意性
+    name: Picard--Lindelöf の局所存在・一意性
     kind: theorem
-    aliases: [Picard--Lindelöf, Picard–Lindelöf, Picard-Lindelöf, 局所存在・一意性]
-    introduction: inline
+    aliases: [Picard--Lindelöf の局所存在・一意性, Picard–Lindelöf, Picard-Lindelöf, Picard--Lindelöf, 局所存在・一意性]
+    introduction: formal
     requires:
       - ode.ode1-picard-iteration
       - ode.ode1-lipschitz-y
