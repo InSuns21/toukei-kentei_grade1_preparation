@@ -2,9 +2,9 @@ chapter: F0-00P3C
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00P3B
   - F0-00P3A
   - F0-00D2B
+  - F0-00P2A
 
 concepts:
   - id: prob.increasing-sigma-fields
@@ -23,6 +23,17 @@ concepts:
       - prob.increasing-sigma-fields
       - measure.sigma-algebra
       - measure.continuity-from-below
+      - prob.union-bound
+
+  - id: prob.finite-stage-l1-density
+    name: 有限段階可測単関数のL1稠密性
+    kind: lemma
+    aliases: [有限段階可測単関数のL1稠密性, 有限段階単関数稠密性]
+    introduction_aliases: [有限段階可測単関数の稠密性]
+    requires:
+      - prob.increasing-algebra-approximation
+      - measure.simple-function-approximation
+      - measure.lp-space
 
   - id: prob.upcrossing
     name: 上向き横断
@@ -37,9 +48,11 @@ concepts:
     requires:
       - prob.increasing-sigma-fields
       - prob.increasing-algebra-approximation
+      - prob.finite-stage-l1-density
       - prob.upcrossing
       - prob.conditional-expectation
       - prob.conditional-expectation-properties
       - prob.tower-property
+      - prob.union-bound
       - measure.monotone-convergence-theorem
       - measure.fatou-lemma

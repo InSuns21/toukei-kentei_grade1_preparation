@@ -13,7 +13,9 @@ Radon--Nikodym定理で存在
  ↓
 a.s.一意性
  ↓
-線形性・正値性・tower・L1縮小性
+線形性・正値性・tower・L1縮小性・既知量の取り出し
+ ↓
+E[X|Y] の意味
 ```
 
 ---
@@ -24,26 +26,22 @@ a.s.一意性
 
 <!-- formal-statement-start -->
 > **定義（条件付き期待値）**  
-> 確率空間 $(\Omega,\mathcal F,P)$、部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$、$X\in L^1(P)$ を取ります。確率変数 $Y$ が次の3条件を満たすとき、$Y$ を $X$ の $\mathcal G$ に関する条件付き期待値と呼び、
+> 確率空間 $(\Omega,\mathcal F,P)$、部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$、$X\in L^1(P)$ を取ります。確率変数 $Y$ が次の3条件を満たすとき、$Y$ を $X$ の $\mathcal G$ に関する条件付き期待値と呼び、次のように書きます。
 
 $$
-Y=E[X\mid\mathcal G]
+Y=E[X\mid\mathcal G].
 $$
 
-> と書きます。
->
 > 1. $Y$ は $\mathcal G$-可測である。
 > 2. $Y\in L^1(P)$ である。
-> 3. 任意の $A\in\mathcal G$ に対して
+> 3. 任意の $A\in\mathcal G$ に対して次が成り立つ。
 
 $$
-\int_A Y\,dP=\int_A X\,dP
+\int_A Y\,dP=\int_A X\,dP.
 $$
-
-> が成り立つ。
 <!-- formal-statement-end -->
 
-第1条件は「$Y$ は現在の情報 $\mathcal G$ だけで決まる」、第3条件は「$\mathcal G$ で見えるどの領域でも平均量を保存する」という意味です。
+第1条件は「$Y$ は現在の情報 $\mathcal G$ だけで決まる」、第3条件は「$\mathcal G$ で見えるどの領域でも平均量を保存する」という意味です。条件付き期待値は点ごとに一意なのではなく、後で示すように **a.s. の意味で一意に決まります**。
 
 ---
 
@@ -72,7 +70,7 @@ $$
 **(1) $\mathcal G$-可測性**  
 $Y$ は各 $A_j$ 上で定数であり、各 $A_j\in\mathcal G$ なので $\mathcal G$-可測です。
 
-**(2) 可積分性**  
+**(2) 可積分性**
 
 $$
 \begin{aligned}
@@ -113,6 +111,8 @@ $$
 です。
 <!-- definition-example-end -->
 
+この公式は「セル $A_j$ にいることだけが分かるなら、そのセル内平均を予測値にする」という意味です。
+
 ---
 
 ## 3. 存在：符号付き測度へ直接RNを使わない
@@ -143,7 +143,7 @@ $$
 \nu_-(A)=\int_AX^-\,dP
 $$
 
-と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度で、
+と置きます。$\nu_+,\nu_-$ は $(\Omega,\mathcal G)$ 上の有限な非負測度です。また $P(A)=0$ なら測度0集合上の積分は0なので
 
 $$
 \nu_+\ll P|_{\mathcal G},
@@ -189,7 +189,13 @@ $$
 \ge\frac1nP(A_n)>0
 $$
 
-となり矛盾します。従って $P(D>0)=0$。同様に $P(D<0)=0$ なので
+となり矛盾します。従って $P(A_n)=0$ であり、
+
+$$
+\{D>0\}=\bigcup_{n=1}^\infty A_n
+$$
+
+だから $P(D>0)=0$ です。同じ議論を $-D$ に適用すると $P(D<0)=0$。従って
 
 $$
 \boxed{Y=Z\quad P\text{-a.s.}}
@@ -223,10 +229,16 @@ $$
 \boxed{\|E[X\mid\mathcal G]\|_1\le\|X\|_1}.
 $$
 
-> 5. 有界な $\mathcal G$-可測確率変数 $Z$ に対して
+> 5. **既知量の取り出し**：有界な $\mathcal G$-可測確率変数 $Z$ に対して
 
 $$
 E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G].
+$$
+
+> 6. **既知量は変わらない**：$X$ 自身が $\mathcal G$-可測なら
+
+$$
+E[X\mid\mathcal G]=X\quad\text{a.s.}
 $$
 <!-- formal-statement-end -->
 
@@ -250,7 +262,7 @@ $$
 \int_{B_n}M\,dP=\int_{B_n}X\,dP\ge0.
 $$
 
-一方、$P(B_n)>0$ なら左辺は $\le-P(B_n)/n<0$ となり矛盾します。従って $M\ge0$ a.s. です。単調性は $Y-X\ge0$ に正値性と線形性を適用すれば従います。
+一方、$P(B_n)>0$ なら左辺は $\le-P(B_n)/n<0$ となり矛盾します。従って各 $P(B_n)=0$、ゆえに $M\ge0$ a.s. です。単調性は $Y-X\ge0$ に正値性と線形性を適用すれば従います。
 
 ### 4.3 証明：$L^1$縮小性
 
@@ -265,7 +277,7 @@ $$
 \le E[|X|\mid\mathcal G].
 $$
 
-期待値を取れば
+期待値を取れば、定義の積分一致を $A=\Omega$ に使って
 
 $$
 \|E[X\mid\mathcal G]\|_1
@@ -275,18 +287,66 @@ $$
 
 ### 4.4 証明：既知の有界量を外へ出す
 
-まず $Z=\mathbf1_B$、$B\in\mathcal G$ とします。任意の $A\in\mathcal G$ に対して
+$M=E[X\mid\mathcal G]$ とします。まず $Z=\mathbf1_B$、$B\in\mathcal G$ なら、任意の $A\in\mathcal G$ に対して
 
 $$
 \begin{aligned}
-\int_A\mathbf1_BE[X\mid\mathcal G]\,dP
-&=\int_{A\cap B}E[X\mid\mathcal G]\,dP\\
+\int_A\mathbf1_BM\,dP
+&=\int_{A\cap B}M\,dP\\
 &=\int_{A\cap B}X\,dP\\
 &=\int_A\mathbf1_BX\,dP.
 \end{aligned}
 $$
 
-一意性から指示関数の場合が成り立ちます。$\mathcal G$-可測単関数へ線形性で拡張し、有界 $Z$ へは単関数近似と優収束で極限を取ります。
+よって一意性から
+
+$$
+E[\mathbf1_BX\mid\mathcal G]=\mathbf1_BM.
+$$
+
+線形性により、$\mathcal G$-可測単関数 $Z$ についても
+
+$$
+E[ZX\mid\mathcal G]=ZM
+$$
+
+です。
+
+一般の有界 $\mathcal G$-可測 $Z$ には、$\mathcal G$-可測単関数 $Z_n$ を
+
+$$
+Z_n\to Z\quad\text{pointwise},
+\qquad
+|Z_n|\le\|Z\|_\infty
+$$
+
+となるように取ります。任意の $A\in\mathcal G$ について単関数の場合から
+
+$$
+\int_A Z_nM\,dP=\int_A Z_nX\,dP.
+$$
+
+左辺は $|Z_nM|\le\|Z\|_\infty|M|$、右辺は $|Z_nX|\le\|Z\|_\infty|X|$ で支配され、$M,X\in L^1$ です。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+\int_A ZM\,dP=\int_A ZX\,dP.
+$$
+
+$ZM$ は $\mathcal G$-可測かつ可積分なので、一意性より
+
+$$
+\boxed{E[ZX\mid\mathcal G]=ZM}.
+$$
+
+### 4.5 証明：既知量は変わらない
+
+$X$ が $\mathcal G$-可測なら、$X$ 自身が定義の3条件を満たします。よって一意性から
+
+$$
+E[X\mid\mathcal G]=X\quad\text{a.s.}
+$$
+
+です。
 <!-- proof-end -->
 
 ---
@@ -297,19 +357,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（tower property）**  
-> $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ なら
+> $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ なら次がa.s.で成り立ちます。
 
 $$
-\boxed{E[E[X\mid\mathcal G]\mid\mathcal H]=E[X\mid\mathcal H]}
+\boxed{E[E[X\mid\mathcal G]\mid\mathcal H]=E[X\mid\mathcal H]}.
 $$
-
-> がa.s.で成り立ちます。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 5.1 証明
+### 証明
 
-左辺は $\mathcal H$-可測です。任意の $A\in\mathcal H$ は $A\in\mathcal G$ でもあるので
+左辺は $\mathcal H$-可測かつ可積分です。任意の $A\in\mathcal H$ は $A\in\mathcal G$ でもあるので
 
 $$
 \begin{aligned}
@@ -348,15 +406,21 @@ $$
 
 の略記です。つまり「$Y$ から読み取れる情報だけを使った $X$ の条件付き平均」です。
 
-実数値確率変数については、$\sigma(Y)$-可測な実数値確率変数はあるBorel可測関数 $m$ を用いて $m(Y)$ の形に表せるため、
+ここではこの定義だけで先へ進めます。後続のP3Dでは、$\sigma(Y)$-可測な実数値確率変数をBorel可測関数 $m$ を用いて $m(Y)$ と表示できることを証明し、その結果として
 
 $$
 E[X\mid Y]=m(Y)
 $$
 
-と書けます。通常の記号 $E[X\mid Y=y]$ は、この関数 $m(y)$ を表します。
+という書き方を正当化します。この表示はこの章の証明には使いません。
 
-連続分布では一般に $P(Y=y)=0$ なので、$E[X\mathbf1_{\{Y=y\}}]/P(Y=y)$ を定義として使うことはできません。
+なお連続分布では普通 $P(Y=y)=0$ なので、
+
+$$
+\frac{E[X\mathbf1_{\{Y=y\}}]}{P(Y=y)}
+$$
+
+を $E[X\mid Y=y]$ の定義として使うことはできません。$m(Y)$ 表示が得られた後も、$m$ は $P_Y$-a.e. にしか決まらないため、零確率の点 $y$ での値にはversionの自由度があります。この点もP3Dで整理します。
 
 ---
 
@@ -368,7 +432,7 @@ $$
 \boxed{E[X\mid\mathcal G]=E[X]\quad\text{a.s.}}
 $$
 
-です。定数 $E[X]$ は $\mathcal G$-可測かつ可積分で、任意の $A\in\mathcal G$ について
+です。定数 $E[X]$ は $\mathcal G$-可測かつ可積分です。また任意の $A\in\mathcal G$ について、P3で示した独立性による期待値の因数分解を $X$ と $\mathbf1_A$ に適用すると
 
 $$
 \int_AX\,dP
@@ -377,7 +441,7 @@ $$
 =\int_AE[X]\,dP.
 $$
 
-従って定義3条件を満たします。
+従って定義3条件を満たし、一意性から結論が従います。
 
 ---
 
@@ -395,19 +459,72 @@ $\mathcal G=\sigma(A)$、$0<P(A)<1$ とする。$X\in L^1$ に対する $E[X\mid
 
 $$
 Y=\frac{E[X\mathbf1_A]}{P(A)}\mathbf1_A
-+\frac{E[X\mathbf1_{A^c}]}{P(A^c)}\mathbf1_{A^c}.
++\frac{E[X\mathbf1_{A^c}]}{P(A^c)}\mathbf1_{A^c}
 $$
 
-$A,A^c$ 上で定数なので $\mathcal G$-可測。また $E|Y|\le E|X|<\infty$。$\mathcal G=\{\varnothing,A,A^c,\Omega\}$ の4事象で積分一致が成立するので条件付き期待値である。
+と置く。$A,A^c$ 上で定数なので $Y$ は $\mathcal G$-可測である。また
 
-#### 本番答案
-上の $Y$ を置き、$\mathcal G$-可測性、$E|Y|\le E|X|$、$A,A^c$ 上の積分一致を確認する。
+$$
+E|Y|
+\le E[|X|\mathbf1_A]+E[|X|\mathbf1_{A^c}]
+=E|X|<\infty.
+$$
 
-#### 採点基準（20点）
-- 候補の式: 6点
-- 可測性: 4点
-- 可積分性: 4点
-- 積分一致: 6点
+$\mathcal G=\{\varnothing,A,A^c,\Omega\}$ であり、$A,A^c$ 上では構成から積分一致する。$\varnothing,\Omega$ についても加法性から一致する。従って $Y=E[X\mid\mathcal G]$。
+<!-- solution-end -->
+
+### F0-00P3A-A02 自明な情報と完全な情報
+
+- Level: A
+- 目安時間: 10分
+
+$X\in L^1$ とする。次を示せ。
+
+1. $E[X\mid\{\varnothing,\Omega\}]=E[X]$ a.s.
+2. $E[X\mid\mathcal F]=X$ a.s.
+
+<!-- solution-start -->
+#### 詳細解答
+1. 定数 $E[X]$ は自明な $\sigma$ 代数に関して可測・可積分である。$\varnothing$ と $\Omega$ 上の積分一致も成り立つので、条件付き期待値の定義を満たす。
+2. $X$ 自身が $\mathcal F$-可測・可積分で、任意の $A\in\mathcal F$ に対し $\int_AXdP=\int_AXdP$。一意性より結論。
+<!-- solution-end -->
+
+### F0-00P3A-A03 tower property の直接確認
+
+- Level: A
+- 目安時間: 10分
+
+$\mathcal H\subseteq\mathcal G\subseteq\mathcal F$ とする。$M=E[X\mid\mathcal G]$ に対して $E[M\mid\mathcal H]=E[X\mid\mathcal H]$ を定義から示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+$E[M\mid\mathcal H]$ は $\mathcal H$-可測・可積分。任意の $A\in\mathcal H$ は $\mathcal G$ にも属するから
+
+$$
+\int_AE[M\mid\mathcal H]dP
+=\int_AMdP
+=\int_AXdP.
+$$
+
+従って $E[M\mid\mathcal H]$ は $X$ の $\mathcal H$ に関する条件付き期待値の3条件を満たす。一意性から結論。
+<!-- solution-end -->
+
+### F0-00P3A-A04 独立な情報への条件付け
+
+- Level: A
+- 目安時間: 12分
+
+$X\in L^1$ が部分 $\sigma$ 代数 $\mathcal G$ と独立であるとする。$E[X\mid\mathcal G]=E[X]$ a.s. を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+候補を定数 $c=E[X]$ とする。定数なので $\mathcal G$-可測で可積分。任意の $A\in\mathcal G$ について独立性から
+
+$$
+\int_AXdP=E[X\mathbf1_A]=E[X]E[\mathbf1_A]=cP(A)=\int_Ac\,dP.
+$$
+
+従って定義3条件を満たし、一意性より結論。
 <!-- solution-end -->
 
 ### F0-00P3A-B01 存在証明で正負部分へ分ける理由
@@ -425,20 +542,159 @@ $$
 \nu_\pm(A)=\int_AX^\pm\,dP
 $$
 
-を作る。両者は有限非負測度で $\nu_\pm\ll P|_{\mathcal G}$。[RN定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により $f_\pm=d\nu_\pm/dP$ が存在する。$Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し $\int_AYdP=\int_AXdP$。従って $Y=E[X\mid\mathcal G]$。
+を作る。両者は有限非負測度で $\nu_\pm\ll P|_{\mathcal G}$。[RN定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により非負 $\mathcal G$-可測 $f_\pm=d\nu_\pm/dP$ が存在する。$A=\Omega$ とすれば $f_\pm\in L^1$。したがって $Y=f_+-f_-$ は $\mathcal G$-可測・可積分で、全 $A\in\mathcal G$ に対し
 
-#### 本番答案
-符号付き量へ非負測度版RNを直接使えない。$X=X^+-X^-$ とし、$\nu_\pm(A)=\int_AX^\pm dP$ にRNを適用して $E[X\mid\mathcal G]=d\nu_+/dP-d\nu_-/dP$ と構成する。
+$$
+\int_AYdP=\nu_+(A)-\nu_-(A)=\int_AXdP.
+$$
 
-#### 採点基準（20点）
-- 直接適用できない理由: 5点
-- 正負部分の測度: 5点
-- RN適用: 5点
-- 差による構成と定義確認: 5点
+よって $Y=E[X\mid\mathcal G]$。
+<!-- solution-end -->
+
+### F0-00P3A-B02 既知量を外へ出す
+
+- Level: B
+- 目安時間: 20分
+
+$Z$ を有界 $\mathcal G$-可測確率変数とする。指示関数の場合から出発して
+
+$$
+E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G]
+$$
+
+を証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$M=E[X\mid\mathcal G]$ とする。$Z=\mathbf1_B$、$B\in\mathcal G$ なら任意の $A\in\mathcal G$ に対し
+
+$$
+\int_A\mathbf1_BMdP
+=\int_{A\cap B}MdP
+=\int_{A\cap B}XdP
+=\int_A\mathbf1_BXdP.
+$$
+
+線形性で $\mathcal G$-可測単関数へ拡張する。一般の有界 $Z$ に対しては、$|Z_n|\le\|Z\|_\infty$、$Z_n\to Z$ pointwise となる $\mathcal G$-可測単関数列を取る。各 $A\in\mathcal G$ について
+
+$$
+\int_AZ_nMdP=\int_AZ_nXdP.
+$$
+
+両辺はそれぞれ $\|Z\|_\infty|M|$、$\|Z\|_\infty|X|$ で支配されるので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により極限を取れる。よって $ZM$ が $ZX$ の条件付き期待値の定義を満たす。
+<!-- solution-end -->
+
+### F0-00P3A-B03 $E[X\mid Y]$ を離散表から求める
+
+- Level: B
+- 目安時間: 18分
+
+$(X,Y)$ の同時分布が
+
+| | $Y=0$ | $Y=1$ |
+|---|---:|---:|
+| $X=0$ | $1/4$ | $1/8$ |
+| $X=2$ | $1/4$ | $3/8$ |
+
+で与えられるとする。$E[X\mid Y]$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+$\sigma(Y)$ は $\{Y=0\}$ と $\{Y=1\}$ の有限分割が生成するので、P3A第2節の有限分割公式を直接使える。まず
+
+$$
+P(Y=0)=\frac12,
+\qquad
+P(Y=1)=\frac12.
+$$
+
+従って
+
+$$
+E[X\mid Y=0]
+=0\cdot\frac{1/4}{1/2}+2\cdot\frac{1/4}{1/2}=1,
+$$
+
+$$
+E[X\mid Y=1]
+=0\cdot\frac{1/8}{1/2}+2\cdot\frac{3/8}{1/2}=\frac32.
+$$
+
+したがって
+
+$$
+\boxed{E[X\mid Y]=1\cdot\mathbf1_{\{Y=0\}}+\frac32\mathbf1_{\{Y=1\}}}.
+$$
+<!-- solution-end -->
+
+### F0-00P3A-C01 入れ子になった有限情報を総合する
+
+- Level: C
+- 目安時間: 30分
+
+$\Omega=\{1,2,3,4\}$ に一様分布を入れ、
+
+$$
+X=(0,2,4,10),
+$$
+
+$$
+\mathcal G=\sigma(\{1,2\},\{3,4\}),
+\qquad
+\mathcal H=\{\varnothing,\Omega\}
+$$
+
+とする。
+
+1. $E[X\mid\mathcal G]$ を求めよ。
+2. $E[E[X\mid\mathcal G]\mid\mathcal H]$ を求め、$E[X\mid\mathcal H]$ と一致することを確認せよ。
+3. $\|E[X\mid\mathcal G]\|_1\le\|X\|_1$ を数値で確認せよ。
+4. $Z=\mathbf1_{\{1,2\}}$ として $E[ZX\mid\mathcal G]=ZE[X\mid\mathcal G]$ を確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+1. 各セル平均を取れば
+
+$$
+E[X\mid\mathcal G]=(1,1,7,7).
+$$
+
+2. その全体平均は
+
+$$
+\frac{1+1+7+7}{4}=4.
+$$
+
+一方 $E[X]=(0+2+4+10)/4=4$ なので、両方とも定数4でありtower propertyを具体的に確認できる。
+
+3.
+
+$$
+\|E[X\mid\mathcal G]\|_1=\frac{1+1+7+7}{4}=4,
+\qquad
+\|X\|_1=\frac{0+2+4+10}{4}=4.
+$$
+
+この例では等号である。
+
+4. $ZX=(0,2,0,0)$。$\mathcal G$ の各セルで平均を取ると
+
+$$
+E[ZX\mid\mathcal G]=(1,1,0,0).
+$$
+
+一方
+
+$$
+ZE[X\mid\mathcal G]
+=(1,1,0,0).
+$$
+
+よって一致する。
 <!-- solution-end -->
 
 ---
 
 ## 次に進む
 
-二乗可積分な場合の幾何を見るなら [F0-00P3B L2射影・最良予測](../F0_00P3B_L2射影_最良予測/index.md) へ進みます。その次のP3Cでは、情報 $\mathcal G_n$ が増えると $E[X\mid\mathcal G_n]$ がどこへ収束するかを証明します。
+二乗可積分な場合の幾何を見るなら [F0-00P3B L2射影・最良予測](../F0_00P3B_L2射影_最良予測/index.md) へ進みます。その次のP3Cでは、情報 $\mathcal G_n$ が増えると $E[X\mid\mathcal G_n]$ がどこへ収束するかを証明します。$E[X\mid Y]=m(Y)$ の可測関数表示とversion問題は後続のP3Dで証明・整理します。

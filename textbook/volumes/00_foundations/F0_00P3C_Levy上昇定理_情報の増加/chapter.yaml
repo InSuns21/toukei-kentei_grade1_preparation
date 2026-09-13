@@ -4,23 +4,28 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P3A
+  - F0-00D2B
 official_scope: []
 learning_objectives:
   - 増加する部分σ代数列と極限情報を定義できる
   - 増加情報の和集合が代数になることを示せる
   - 生成σ代数の集合を有限段階の情報で確率近似できることを示せる
+  - 集合近似から有限段階可測単関数のL1稠密性を証明できる
   - 上向き横断を定義し具体的な数列で回数を確認できる
   - 条件付き期待値のL1縮小性からLévy上昇定理のL1収束を証明できる
-  - 上向き横断評価から条件付き期待値列のa.s.収束を証明できる
+  - 予測可能な0/1保有戦略から上向き横断評価を導ける
+  - 上向き横断評価とFatouの補題からa.s.収束を証明できる
+  - 次章の確率収束を先取りせずa.s.極限を同定できる
 definitions:
   - { id: F0P3C-DEF-01, name: 増加する部分σ代数列と極限情報 }
   - { id: F0P3C-DEF-02, name: 上向き横断 }
 theorems:
   - { id: F0P3C-THM-01, name: 増加情報の代数による集合近似 }
+  - { id: F0P3C-THM-01B, name: 有限段階可測単関数のL1稠密性 }
   - { id: F0P3C-THM-02, name: Lévy上昇定理 }
 canonical_examples: [二進分割, 上向き横断回数, 条件付き期待値の逐次精密化]
-problem_patterns: [LEVY-UPWARD-1, UPCROSSING-1]
+problem_patterns: [LEVY-UPWARD-1, UPCROSSING-1, FINITE-STAGE-DENSITY-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3.0, exercises: 1.0, review: 0.75 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.75, review: 1.0 }

@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - F0-00P3
   - F0-00P2
+  - F0-00D2B
+
+forward_references:
+  - prob.doob-dynkin-lemma
 
 concepts:
   - id: prob.conditional-expectation
