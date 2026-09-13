@@ -116,20 +116,24 @@ $$
 
 と置きます。$T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
 
-[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、直交成分を $u:=y-P_My$ と置くと
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、直交成分を
 
 $$
-u$$
+u:=y-P_My$$
 
-を使う必要はなく、実際に必要なのは
+とは置かず、ここでは $u$ を
+
+$$
+ u:=y-P_My
+$$
+
+と定めます。すると
 
 $$
  u\in M^\perp,
 \qquad
-y=P_My+u
+y=P_My+u.
 $$
-
-だけです。
 
 $y\notin M$ なので $u\ne0$ です。また $P_My\in M$ なので
 
