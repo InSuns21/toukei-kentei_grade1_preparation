@@ -5,8 +5,6 @@ prerequisites:
   - F0-00P1
   - F0-00D2D
   - F0-00D2E
-  # L^2表現補題の証明で Hilbert射影定理を実使用する。
-  # F0-02C1A 自体はまだknowledge未移行だが、ページDAG上の依存は先に明示する。
   - F0-02C1A
 
 forward_references:
@@ -28,6 +26,7 @@ concepts:
     name: Radon--Nikodym微分
     kind: definition
     aliases: [Radon--Nikodym微分]
+    introduction_aliases: [基準測度に対する密度]
     requires:
       - measure.measure-space
       - measure.measurable-function
@@ -36,7 +35,6 @@ concepts:
   - id: measure.l2-representation-lemma
     name: L^2表現補題
     kind: lemma
-    # 旧reader-source監査ではインライン数式が落ちるため安定部分も登録する。
     aliases: [L^2表現補題, "表現補題）"]
     requires:
       - measure.lp-space
