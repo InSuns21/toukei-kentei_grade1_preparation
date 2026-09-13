@@ -1,0 +1,40 @@
+name: Fix one P5A Tonelli link
+
+on:
+  push:
+    branches:
+      - audit/f0-00p5a-slln-pedagogy
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/f0-00p5a-slln-pedagogy
+      - name: Normalize Tonelli link
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md')
+          s = p.read_text(encoding='utf-8')
+          old = '[[Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)'
+          new = '[Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)'
+          if old in s:
+              p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
+      - name: Commit patch
+        run: |
+          if git diff --quiet; then
+            echo 'No patch needed.'
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md
+          git commit -m 'Fix P5A Tonelli exercise link'
+          git push origin HEAD:audit/f0-00p5a-slln-pedagogy
