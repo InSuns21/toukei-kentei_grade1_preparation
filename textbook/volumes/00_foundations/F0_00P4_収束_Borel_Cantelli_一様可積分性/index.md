@@ -94,7 +94,7 @@ $$
 とします。
 
 <!-- definition-example-start: def-f0-00p4-limsup-event -->
-**上極限の定義を確認します。**  
+**定義の確認**  
 $a$ は全ての $A_n$ に入り、$b$ は全ての偶数番目、$c$ は全ての奇数番目の $A_n$ に入ります。従って $a,b,c$ のどの点についても、任意の $m$ より後にその点を含む $A_n$ が存在します。よって
 
 $$
@@ -105,7 +105,7 @@ $b,c$ は「ずっと」ではありませんが「無限回」は現れるた�
 <!-- definition-example-end -->
 
 <!-- definition-example-start: def-f0-00p4-liminf-event -->
-**下極限の定義を確認します。**  
+**定義の確認**  
 $a$ は全ての $n$ で $A_n$ に入ります。一方、$b$ は奇数番目で外れ、$c$ は偶数番目で外れるので、$b,c$ について「ある番号以降ずっと $A_n$ に入る」は成り立ちません。従って
 
 $$
@@ -278,6 +278,7 @@ $$
 <!-- definition-example-start: def-f0-00p4-independent-event-sequence -->
 ### 3.1 例：独立コイン投げ
 
+**定義の確認**  
 標準的な無限回の公平コイン投げの積確率モデルを考え、$H_n$ を「$n$ 回目が表」の事象とします。相異なる $i_1,\ldots,i_r$ を取り、それぞれの回について表 $H_{i_j}$ か裏 $H_{i_j}^c$ を指定します。この特定の $r$ 回の表裏パターンが起こる確率は
 
 $$
@@ -323,6 +324,7 @@ $$
 <!-- definition-example-start: def-f0-00p4-tail-sigma-field -->
 ### 3.2 例：無限回起こる事象は末尾事象
 
+**定義の確認**  
 事象列 $(A_n)$ に対して
 
 $$
@@ -982,6 +984,7 @@ $$
 <!-- definition-example-start: def-f0-00p4-as-convergence -->
 ### 8.1 例：全ての標本点で収束する列
 
+**定義の確認**  
 $$
 X_n(\omega)=\frac1n,
 \qquad
@@ -1019,6 +1022,7 @@ $$
 <!-- definition-example-start: def-f0-00p4-probability-convergence -->
 ### 8.2 例：まれに1になる確率変数
 
+**定義の確認**  
 $X_n$ が
 
 $$
@@ -1275,7 +1279,7 @@ $$
 ## 11. $L^p$ 収束なら確率収束
 
 <!-- formal-statement-start -->
-> **定理（$L^p$ 収束は確率収束を含意する）**  
+> **定理（Lp収束は確率収束を含意する）**  
 > $p\ge1$ とし、同一の確率空間上の確率変数 $X_n,X\in L^p$ が
 
 $$
