@@ -1,0 +1,39 @@
+name: Temporary RA1A proof detail fix
+on:
+  push:
+    branches: [feat/ra1a-series-convergence]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ra1a-series-convergence
+          fetch-depth: 0
+      - name: Close rearrangement proof detail
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('textbook/volumes/00_foundations/RA1A/index.md')
+          s=p.read_text()
+          old='''この「上へ越える」「下へ越える」を交互に繰り返します。各段階ではまだ使っていない次の正項または負項から順に取るので、各元の項は一度だけ使われ、最終的にすべての項が使われます。したがって得られる級数は再配列です。\n'''
+          new='''この「上へ越える」「下へ越える」を交互に繰り返します。各段階ではまだ使っていない次の正項または負項から順に取ります。正項・負項はどちらも無限に必要になるので、それぞれ元の順序で有限番目の項まで必ず消費されます。$a_n=0$ となる項があれば、正負の各ブロックの末尾などに元の順序で挿入しても部分和を変えません。したがって正・負・0のすべての元の項をちょうど一度ずつ使う全単射 $\\pi:\\mathbb N\\to\\mathbb N$ が得られ、構成した級数は本当に再配列です。\n'''
+          if old not in s:
+              if new not in s:
+                  raise SystemExit('rearrangement paragraph not found')
+          else:
+              s=s.replace(old,new,1)
+          p.write_text(s)
+          PY
+          rm .github/workflows/tmp-ra1a-proof-fix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'RA1A: close zero-term detail in rearrangement proof'
+            git push origin HEAD:feat/ra1a-series-convergence
+          fi
