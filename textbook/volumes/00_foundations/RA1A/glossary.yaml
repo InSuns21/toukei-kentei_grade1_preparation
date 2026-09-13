@@ -1,0 +1,26 @@
+chapter: RA1A
+terms:
+  - term: 非負項級数
+    definition: 各項が0以上である実数級数。部分和が単調増加するため、有界性だけで収束を判定できる。
+  - term: 比較判定
+    definition: 非負項級数の各項を既知の収束・発散級数と大小比較して収束性を移す方法。
+  - term: 極限比較判定
+    definition: 二つの正項列の比が正の有限値へ収束するとき、対応する級数の収束・発散が一致することを使う判定法。
+  - term: 比判定
+    definition: 隣接項の絶対値の比が1より小さい極限を持つとき幾何級数で支配して絶対収束を導く判定法。
+  - term: 根判定
+    definition: n乗根 |a_n|^(1/n) の上極限を幾何級数の公比と比較して絶対収束または発散を判定する方法。
+  - term: Cauchy凝縮判定
+    definition: 単調減少する非負列 a_n に対し、sum a_n と sum 2^k a_(2^k) の収束性が一致することを使う判定法。
+  - term: 交代級数
+    definition: 正の数列 b_n を用いて sum (-1)^(n-1)b_n の形に書ける級数。
+  - term: Abelの部分和変換
+    definition: 有限和 sum a_k b_k を a_k の部分和と b_k の差分を用いて書き直す離散版の部分積分公式。
+  - term: Dirichlet判定
+    definition: a_n の部分和が有界で、b_n が単調に0へ収束するとき sum a_n b_n が収束するという判定法。
+  - term: Abel判定
+    definition: sum a_n が収束し、b_n が単調かつ有界なら sum a_n b_n が収束するという判定法。
+  - term: 級数の再配列
+    definition: 元の項を一度ずつすべて使い、全単射によって順番だけを変えて得る級数。
+  - term: 条件収束
+    definition: 級数自体は収束するが絶対値級数は発散すること。再配列に対して和が不変ではない。
