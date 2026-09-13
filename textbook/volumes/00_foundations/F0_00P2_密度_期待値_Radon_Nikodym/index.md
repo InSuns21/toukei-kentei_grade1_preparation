@@ -34,7 +34,7 @@ $$
 <!-- definition-example-start: def-f0-00p2-absolute-continuity -->
 **定義の確認**
 
-$\lambda(A)=0$ なら測度0の集合上の積分は0なので $\nu(A)=0$。従って $\nu\ll\lambda$ です。
+$\lambda(A)=0$ なら測度0の集合上の積分は0なので $\nu(A)=0$ です。従って $\nu\ll\lambda$ です。
 <!-- definition-example-end -->
 
 一方、Dirac測度 $\delta_0$ では
@@ -114,20 +114,25 @@ $$
 M:=\ker T
 $$
 
-と置きます。$T$ は連続なので $M$ は閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
+と置きます。$T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
 
-[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、直交成分を
+
+$$
+u:=y-P_My$$
+
+ではなく、ここでは単に
 
 $$
 u$$
 
-ではなく、直交成分 $u$ を
+も導入せず、次の $u$ だけを使います。
 
 $$
- u:=y-P_My
+ u:=y-P_My.
 $$
 
-と定めると
+すると
 
 $$
  u\in M^\perp,
@@ -147,20 +152,20 @@ $$
 \alpha:=\frac{T(g)}{T(u)}
 $$
 
-と置くと $T(g-\alpha u)=0$、従って $g-\alpha u\in M$ です。$u\perp M$ だから
+と置くと $T(g-\alpha u)=0$ なので $g-\alpha u\in M$ です。$u\perp M$ より
 
 $$
 0=\langle u,g-\alpha u\rangle
 =\int ug\,d\rho-\alpha\|u\|_2^2.
 $$
 
-よって
+従って
 
 $$
-\alpha=\frac{\int ug\,d\rho}{\|u\|_2^2}
+\alpha=\frac{\int ug\,d\rho}{\|u\|_2^2}.
 $$
 
-であり
+したがって
 
 $$
 T(g)
@@ -181,7 +186,13 @@ $$
 \qquad(\forall g\in L^2(\rho)).
 $$
 
-$g=h_1-h_2$ と取れば $\|h_1-h_2\|_2^2=0$ なので、$h_1=h_2$ が $\rho$-a.e. で成り立ちます。
+$g=h_1-h_2$ と取れば
+
+$$
+\|h_1-h_2\|_2^2=0,
+$$
+
+従って $h_1=h_2$ が $\rho$-a.e. で成り立ちます。
 <!-- proof-end -->
 
 ---
@@ -410,9 +421,11 @@ $P(X=1)=p$, $P(X=0)=1-p$ とする。数え上げ測度 $\#$ に対する $P_X$ 
 <!-- solution-start -->
 #### 詳細解答
 $f(0)=1-p$, $f(1)=p$ と置けば
+
 $$
 \int_Af\,d\#=\sum_{x\in A}f(x)=P_X(A).
 $$
+
 従って $dP_X/d\#(x)=p^x(1-p)^{1-x}$ です。
 <!-- solution-end -->
 
@@ -425,6 +438,7 @@ $[0,1]$ 上で $\nu(A)=\int_A3x^2\,dx$ とする。$\nu\ll\lambda$ を示し、$
 <!-- solution-start -->
 #### 詳細解答
 $\lambda(A)=0$ なら $\nu(A)=0$ なので $\nu\ll\lambda$ です。また
+
 $$
 \frac{d\nu}{d\lambda}(x)=3x^2.
 $$
@@ -450,9 +464,11 @@ $A=\{a\}$ なら $\lambda(A)=0$ ですが $\delta_a(A)=1$ なので、絶対連�
 <!-- solution-start -->
 #### 詳細解答
 一点集合で $p_x=f(x)w_x$ なので
+
 $$
 f(x)=\frac{p_x}{w_x}.
 $$
+
 さらに $\int_Af\,d\nu=\sum_{x\in A}p_x=P_X(A)$ です。
 <!-- solution-end -->
 
@@ -465,6 +481,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 $\#(A)=0$ なら $A=\varnothing$ なので全ての $p$ で $P_p(A)=0$。従って $P_p\ll\#$ です。また
+
 $$
 \frac{dP_p}{d\#}(0)=1-p,
 \qquad
@@ -481,9 +498,11 @@ $0<p<1$ とし $P=p\delta_0+(1-p)N(0,1)$、$\mu:=\delta_0+\lambda$ とする。�
 <!-- solution-start -->
 #### 詳細解答
 $\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ なので $P(A)=0$。従って $P\ll\mu$ です。
+
 $$
 f(x):=p\boldsymbol{1}_{\{0\}}(x)+(1-p)\varphi(x)\boldsymbol{1}_{\mathbb R\setminus\{0\}}(x)
 $$
+
 と置けば $\int_Af\,d\mu=P(A)$ なので $f=dP/d\mu$ です。
 <!-- solution-end -->
 
@@ -496,14 +515,19 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 $H:=\{f>g\}$ とします。a.e.有限性から
+
 $$
 H=\bigcup_{n=1}^{\infty}\{f\ge g+1/n\}
 $$
+
 がa.e.の意味で成り立ちます。$\mu(H)>0$ なら、ある $n$ で $H_n:=\{f\ge g+1/n\}$ が正の測度を持ち
+
 $$
 \nu(H_n)=\int_{H_n}f\,d\mu
-\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)>\nu(H_n),
+\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)
+>\nu(H_n),
 $$
+
 となり矛盾です。従って $f\le g$ a.e.。逆も同様なので $f=g$ a.e.です。
 <!-- solution-end -->
 
@@ -512,11 +536,13 @@ $$
 - 目安時間: 25分
 
 実数上で
+
 $$
 \mu(A)=\int_A\frac1{1+x^2}\,dx,
 \qquad
 \nu(A)=\int_Ace^{-x^2}\,dx
 $$
+
 とする。ただし $c>0$ は $\nu(\mathbb R)=1$ となる正規化定数である。
 
 1. $\nu\ll\mu$ を示せ。
@@ -527,17 +553,21 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 **1.** $\mu(A)=0$ とします。$A_m:=A\cap[-m,m]$ 上では $(1+x^2)^{-1}\ge(1+m^2)^{-1}$ なので
+
 $$
 0=\mu(A_m)\ge\frac1{1+m^2}\lambda(A_m).
 $$
+
 従って $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$、よって $\nu(A)=0$ です。
 
 **2.**
+
 $$
 \frac{d\nu}{d\mu}(x)=ce^{-x^2}(1+x^2).
 $$
 
 **3.**
+
 $$
 \int_A\frac{d\nu}{d\mu}\,d\mu
 =\int_Ace^{-x^2}\,dx
