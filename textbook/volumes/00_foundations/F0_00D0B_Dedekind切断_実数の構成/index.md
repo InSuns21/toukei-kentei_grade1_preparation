@@ -203,7 +203,7 @@ $$
 r^*\subsetneq s^*.
 $$
 
-包含で定めた順序の定義から $r^*<s^*$ となり、有理切断埋め込みは元の有理数の順序を保ちます。
+Dedekind実数では $A\le B$ を $A\subseteq B$ と定めたので、上の真包含から $r^*<s^*$ です。したがって有理切断埋め込みは元の有理数の順序を保ちます。
 <!-- definition-example-end -->
 
 この順序は全順序です。実際、$A\not\subseteq B$ とします。$a\in A\setminus B$ を一つ取ります。任意の $b\in B$ について $b\ge a$ なら、$b>a$ のとき $B$ の下方閉性から $a\in B$ となり矛盾し、$b=a$ も $a\notin B$ に反します。従って $b<a$。$a\in A$ と $A$ の下方閉性から $b\in A$ です。よって
