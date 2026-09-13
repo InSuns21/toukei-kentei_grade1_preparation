@@ -335,12 +335,12 @@ $$
 
 ---
 
-## 7. 確率測度の上からの連続性
+## 7. 確率測度の減少列連続性
 
 <a id="thm-f0-00p2a-continuity-from-above"></a>
 
 <!-- formal-statement-start -->
-> **定理（確率測度の上からの連続性）**  
+> **定理（確率測度の減少列連続性）**  
 > 事象列が $A_1\supset A_2\supset\cdots$ と単調減少し、
 
 $$
