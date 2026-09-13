@@ -5,9 +5,6 @@ prerequisites:
   - ODE2
   - LA4
 
-forward_references:
-  - ode.nonlinear-linearization
-
 concepts:
   - id: ode.ode3-linear-system
     name: 定係数線形連立系・斉次系・非斉次系
@@ -27,7 +24,7 @@ concepts:
   - id: ode.matrix-exponential-properties
     name: 行列指数の基本性質
     kind: theorem
-    aliases: [行列指数の基本性質, 行列指数の微分, 行列指数の半群性]
+    aliases: [行列指数の基本性質, 行列指数の微分, 行列指数の時間加法則]
     introduction: formal
     requires:
       - ode.matrix-exponential
@@ -50,7 +47,7 @@ concepts:
       - ode.ode3-fundamental-matrix
 
   - id: ode.ode3-jordan-exponential
-    name: 相似変換とJordan blockの行列指数
+    name: 相似変換と Jordan block の行列指数
     kind: theorem
     aliases: [Jordan blockの行列指数, Jordanブロックの行列指数, 相似変換と行列指数]
     introduction: formal
@@ -85,9 +82,9 @@ concepts:
       - ode.ode3-homogeneous-ivp
 
   - id: ode.ode3-spectral-stability
-    name: 定係数線形系のスペクトル安定性判定
+    name: 定係数線形系の固有値実部と Jordan 構造による安定性判定
     kind: theorem
-    aliases: [スペクトル安定性判定, 固有値実部と安定性, spectral stability criterion]
+    aliases: [固有値実部とJordan構造による安定性判定, 固有値実部と安定性, linear stability criterion]
     introduction: formal
     requires:
       - ode.ode3-linear-stability
