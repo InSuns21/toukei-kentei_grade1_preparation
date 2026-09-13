@@ -29,6 +29,7 @@ concepts:
     name: 有限段階可測単関数のL1稠密性
     kind: lemma
     aliases: [有限段階可測単関数のL1稠密性, 有限段階単関数稠密性]
+    introduction_aliases: [有限段階可測単関数の稠密性]
     requires:
       - prob.increasing-algebra-approximation
       - measure.simple-function-approximation
