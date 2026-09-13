@@ -1,0 +1,56 @@
+name: Patch F0-00P5A canonical links
+
+on:
+  push:
+    branches:
+      - audit/f0-00p5a-slln-pedagogy
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/f0-00p5a-slln-pedagogy
+      - name: Patch canonical references
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md')
+          s = p.read_text()
+          reps = {
+            '確率の下からの連続性': '[確率の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)',
+            '3. Kolmogorov収束定理とKronecker補題から': '3. [Kolmogorov収束定理](#thm-kolmogorov-convergence)と[Kronecker補題](#thm-kronecker)から',
+            '可積分変数のtail-sum評価から': '[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)から',
+            '同一分布性と第3節の補題から': '同一分布性と[切断二次モーメントの重み付き総和](#lem-f0-00p5a-truncated-second-moment)から',
+            '指示関数と Tonelli の定理から示せ。': '指示関数と [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。',
+            '### F0-00P5A-B01 Kolmogorov収束定理を最大不等式から再構成する': '### F0-00P5A-B01 最大不等式から収束を再構成する',
+            'Borel--Cantelli第1補題から': '[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)から',
+            'A01 のtail-sum評価により': '[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)により',
+            '従って Kolmogorov収束定理から': '従って [Kolmogorov収束定理](#thm-kolmogorov-convergence)から',
+            'その確率1の事象上で Kronecker補題を': 'その確率1の事象上で [Kronecker補題](#thm-kronecker)を',
+            '優収束定理より': '[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より',
+          }
+          changed = False
+          for old, new in reps.items():
+              if old in s:
+                  s = s.replace(old, new)
+                  changed = True
+          if changed:
+              p.write_text(s)
+          PY
+      - name: Commit patch
+        run: |
+          if git diff --quiet; then
+            echo 'No patch needed.'
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md
+          git commit -m 'Link F0-00P5A proof dependencies to canonical anchors'
+          git push origin HEAD:audit/f0-00p5a-slln-pedagogy
