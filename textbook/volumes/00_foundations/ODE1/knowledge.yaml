@@ -1,0 +1,116 @@
+chapter: ODE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA3
+  - RA4
+  - RA5
+
+# 旧 H1 と同名の入口概念は、再編中の ODE1 本文自身で再導入するため
+# ローカル alias として保持する。H1 を ODE1 の prerequisite にはしない。
+concepts:
+  - id: ode.ode1-ordinary-differential-equation
+    name: 常微分方程式・階数
+    kind: definition
+    aliases: [常微分方程式, ODE, 階数]
+    introduction: inline
+
+  - id: ode.ode1-first-order-linear-autonomous
+    name: 線形・非線形、自律・非自律
+    kind: definition
+    aliases: [一階線形ODE, 線形ODE, 非線形ODE, 自律方程式, 非自律方程式]
+    introduction: inline
+    requires: [ode.ode1-ordinary-differential-equation]
+
+  - id: ode.ode1-initial-boundary-value-problem
+    name: 初期値問題・境界値問題
+    kind: definition
+    aliases: [初期値問題, 境界値問題]
+    introduction: inline
+    requires: [ode.ode1-ordinary-differential-equation]
+
+  - id: ode.ode1-direction-field
+    name: 方向場
+    kind: definition
+    aliases: [方向場, direction field, 解曲線]
+    introduction: inline
+    requires: [ode.ode1-ordinary-differential-equation]
+
+  - id: ode.ode1-separable-equation
+    name: 変数分離形
+    kind: definition
+    aliases: [変数分離形, 変数分離]
+    introduction: inline
+    requires: [ode.ode1-ordinary-differential-equation]
+
+  - id: ode.ode1-integrating-factor-method
+    name: 一階線形ODE・積分因子法
+    kind: theorem
+    aliases: [積分因子, 積分因子法, 一階線形初期値問題の解]
+    introduction: inline
+    requires:
+      - ode.ode1-first-order-linear-autonomous
+      - analysis.ftc-1
+      - analysis.ftc-2
+
+  - id: ode.ode1-exact-equation
+    name: 完全微分方程式
+    kind: definition
+    aliases: [完全微分方程式, 完全性判定]
+    introduction: inline
+    requires:
+      - ode.ode1-ordinary-differential-equation
+      - analysis.ftc-1
+
+  - id: ode.ode1-bernoulli-equation
+    name: Bernoulli方程式
+    kind: definition
+    aliases: [Bernoulli方程式, Bernoulli 方程式]
+    introduction: inline
+    requires:
+      - ode.ode1-integrating-factor-method
+
+  - id: ode.ode1-equilibrium-phase-line
+    name: 平衡解・phase line
+    kind: definition
+    aliases: [平衡解, 平衡点, phase line]
+    introduction: inline
+    requires: [ode.ode1-first-order-linear-autonomous]
+
+  - id: ode.ode1-integral-equation-equivalence
+    name: 初期値問題と積分方程式の同値性
+    kind: theorem
+    aliases: [初期値問題と積分方程式の同値性, 積分方程式]
+    introduction: inline
+    requires:
+      - ode.ode1-initial-boundary-value-problem
+      - analysis.ftc-1
+      - analysis.ftc-2
+
+  - id: ode.ode1-lipschitz-y
+    name: yに関するLipschitz条件
+    kind: definition
+    aliases: [Lipschitz条件, Lipschitz 条件, Lipschitz連続, Lipschitz 連続]
+    introduction: inline
+
+  - id: ode.ode1-picard-iteration
+    name: Picard反復
+    kind: method
+    aliases: [Picard反復, Picard 反復]
+    introduction: inline
+    requires:
+      - ode.ode1-integral-equation-equivalence
+      - ode.ode1-lipschitz-y
+      - analysis.uniform-cauchy
+      - analysis.uniform-limit-continuity
+
+  - id: ode.ode1-picard-lindelof
+    name: Picard--Lindelöfの局所存在・一意性
+    kind: theorem
+    aliases: [Picard--Lindelöf, Picard–Lindelöf, Picard-Lindelöf, 局所存在・一意性]
+    introduction: inline
+    requires:
+      - ode.ode1-picard-iteration
+      - ode.ode1-lipschitz-y
+      - analysis.uniform-cauchy
+      - analysis.uniform-limit-continuity
