@@ -19,7 +19,7 @@ Borel--Cantelli I / II
   ↓
 概収束を「大誤差が i.o. でない」と読む
   ↓
-a.s. ⇒ probability,  L^p ⇒ probability
+a.s. ⇒ probability
   ↓
 probability ⇒ a.s. 収束部分列
 ```
@@ -1270,63 +1270,13 @@ X_n\xrightarrow{p}X.
 $$
 <!-- proof-end -->
 
-逆向きは一般には成り立ちません。第13節で具体的に壊します。
-
----
-
-<a id="thm-f0-00p4-lp-implies-probability"></a>
-
-## 11. $L^p$ 収束なら確率収束
-
-<!-- formal-statement-start -->
-> **定理（Lp収束は確率収束を含意する）**  
-> $p\ge1$ とし、同一の確率空間上の確率変数 $X_n,X\in L^p$ が
-
-$$
-E|X_n-X|^p\to0
-$$
-
-> を満たすとします。このとき
-
-$$
-\boxed{X_n\xrightarrow{p}X}
-$$
-
-> が成り立ちます。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-誤差の $p$ 乗を非負確率変数として [Markov不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)へ入れます。
-
-<!-- proof-start -->
-### 証明
-
-任意の $\varepsilon>0$ に対し、非負確率変数 $|X_n-X|^p$ へ [Markov不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を適用すると
-
-$$
-\begin{aligned}
-P(|X_n-X|>\varepsilon)
-&=P(|X_n-X|^p>\varepsilon^p)\\
-&\le
-\frac{E|X_n-X|^p}{\varepsilon^p}.
-\end{aligned}
-$$
-
-仮定より分子は0へ収束するので
-
-$$
-P(|X_n-X|>\varepsilon)\to0.
-$$
-
-従って $X_n\xrightarrow{p}X$ です。
-<!-- proof-end -->
+逆向きは一般には成り立ちません。第12節で具体的に壊します。
 
 ---
 
 <a id="thm-f0-00p4-probability-subsequence-as"></a>
 
-## 12. 確率収束から概収束部分列を取れる
+## 11. 確率収束から概収束部分列を取れる
 
 <!-- formal-statement-start -->
 > **定理（確率収束から概収束部分列）**  
@@ -1409,7 +1359,7 @@ $$
 
 ---
 
-## 13. 確率収束しても概収束しないことがある
+## 12. 確率収束しても概収束しないことがある
 
 独立な事象列 $(A_n)$ が
 
@@ -1465,8 +1415,6 @@ $$
 
 ```text
 a.s. ─────────────→ probability
-                       ↑
-L^p ──────────────────┘
 
 probability ──→ a.s. convergent subsequence
 ```
@@ -1475,7 +1423,7 @@ probability ──→ a.s. convergent subsequence
 
 ---
 
-## 14. 演習
+## 13. 演習
 
 ### F0-00P4-A01 limsup と liminf を直接計算する
 
@@ -1988,7 +1936,7 @@ $$
 - [Borel--Cantelli 第1補題](#thm-f0-00p4-borel-cantelli-1)と[Borel--Cantelli 第2補題](#thm-f0-00p4-borel-cantelli-2)の仮定の違いを説明できる。
 - 0--1 則と Borel--Cantelli の役割の違いを説明できる。
 - 概収束を誤差事象の limsup で特徴付けられる。
-- 概収束 $\Rightarrow$ 確率収束、$L^p$ 収束 $\Rightarrow$ 確率収束を証明できる。
+- 概収束 $\Rightarrow$ 確率収束を証明できる。
 - 確率収束列から概収束部分列を抽出できる。
 - 確率収束が概収束を一般には含意しない反例を説明できる。
 
