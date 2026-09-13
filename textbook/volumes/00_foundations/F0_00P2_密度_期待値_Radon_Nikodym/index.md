@@ -139,33 +139,27 @@ $T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y
 [Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)から、直交成分を
 
 $$
-u:=y-P_My$$
-
-とは置かず、単に
-
-$$
 u$$
 
-も導入せず、以下のように $u$ で定義します。
+と置くのではなく、$u$ で
 
 $$
 u u:=y-P_My$$
 
-という積を意味するのではなく、**$u=y-P_My$** と定める、という意味です。数式としては
-
-$$
-u u$$
-
-ではなく、次の関係だけを使います：$u=y-P_My$。Hilbert射影定理により
+と書くわけでもありません。正しくは、**$u:=y-P_My$** と定めます。Hilbert射影定理により
 
 $$
 u u\in M^\perp$$
 
-という表記ではなく、$u\in M^\perp$ が成り立ち、また
+ではなく
 
 $$
-y=P_My+u.
+ u\in M^\perp,
+\qquad
+y=P_My+u
 $$
+
+が成り立ちます。
 
 $y\notin M$ なので $u\ne0$ であり、$P_My\in M$ だから
 
@@ -247,33 +241,19 @@ $$
 <!-- proof-start -->
 ### 4.1 証明：有限測度の場合
 
-まず
-
-$$
-\mu(\Omega)<\infty,
-\qquad
-\nu(\Omega)<\infty
-$$
-
-とします。
+まず $\mu(\Omega)<\infty$, $\nu(\Omega)<\infty$ とし
 
 $$
 \rho:=\mu+\nu
 $$
 
-と置くと $\rho$ も有限測度です。$L^2(\rho)$ 上で
+と置きます。$L^2(\rho)$ 上で
 
 $$
 T(g):=\int_\Omega g\,d\nu
 $$
 
-と定めます。$\nu\le\rho$ なので
-
-$$
-\int g^2\,d\nu\le\int g^2\,d\rho.
-$$
-
-Cauchy--Schwarz不等式により
+と定めます。$\nu\le\rho$ とCauchy--Schwarz不等式から
 
 $$
 \begin{aligned}
@@ -290,9 +270,7 @@ $$
 T(g)=\int gh\,d\rho
 $$
 
-と書けます。
-
-有限測度 $\rho$ のもとでは $\boldsymbol{1}_A\in L^2(\rho)$ なので、$g=\boldsymbol{1}_A$ と置くと
+と書けます。$\rho$ は有限測度なので $\boldsymbol{1}_A\in L^2(\rho)$ であり、$g=\boldsymbol{1}_A$ と置くと
 
 $$
 \nu(A)=\int_Ah\,d\rho.
@@ -300,13 +278,7 @@ $$
 
 #### $0\le h\le1$ を示す
 
-$B:=\{h<0\}$ とします。もし $\rho(B)>0$ なら
-
-$$
-\int_Bh\,d\rho<0
-$$
-
-ですが、左辺は $\nu(B)\ge0$ に等しいので矛盾です。従って $h\ge0$ が $\rho$-a.e. で成り立ちます。
+$B:=\{h<0\}$ とします。もし $\rho(B)>0$ なら $\int_Bh\,d\rho<0$ ですが、この積分は $\nu(B)\ge0$ に等しいので矛盾です。従って $h\ge0$ a.e.です。
 
 また
 
@@ -314,37 +286,23 @@ $$
 \mu(A)=\rho(A)-\nu(A)=\int_A(1-h)\,d\rho.
 $$
 
-同じ議論を $1-h$ に適用すると $h\le1$ が $\rho$-a.e. で成り立ちます。
-
-さらに
+同じ議論を $1-h$ に適用すると $h\le1$ a.e.です。
 
 $$
 D:=\{h=1\}
 $$
 
-とすると
-
-$$
-\mu(D)=\int_D(1-h)\,d\rho=0.
-$$
-
-$\nu\ll\mu$ から $\nu(D)=0$、従って $\rho(D)=0$ です。
+と置くと $\mu(D)=0$ で、$\nu\ll\mu$ から $\nu(D)=0$。よって $\rho(D)=0$ です。
 
 #### $\mu$ に対する密度を作る
 
-$D^c$ 上で
-
-$$
-f:=\frac{h}{1-h}
-$$
-
-とし、$D$ 上では $f:=0$ とします。$f$ は非負可測です。
+$D^c$ 上で $f:=h/(1-h)$、$D$ 上で $f:=0$ とします。$f$ は非負可測です。
 
 $$
 \mu(A)=\int_A(1-h)\,d\rho
 $$
 
-から、指示関数、非負単関数、単調収束定理の順に拡張すると、任意の非負可測関数 $\varphi$ について
+という関係を指示関数から非負単関数、さらに単調収束定理で非負可測関数へ拡張すると
 
 $$
 \int\varphi\,d\mu
@@ -364,7 +322,7 @@ $$
 \end{aligned}
 $$
 
-ここで $\rho(D)=0$ を使いました。有限測度の場合の存在が示されました。
+有限測度の場合が示されました。
 
 ### 4.2 証明：$\sigma$ 有限の場合
 
@@ -376,13 +334,7 @@ D_1:=C_1,
 D_k:=C_k\setminus\bigcup_{j<k}C_j
 $$
 
-と置きます。$D_k$ は互いに素で $\Omega$ を覆い、各 $k$ で
-
-$$
-\mu(D_k)<\infty,
-\qquad
-\nu(D_k)<\infty.
-$$
+と置きます。$D_k$ は互いに素で $\Omega$ を覆い、各 $D_k$ 上で $\mu,\nu$ は有限です。
 
 制限測度
 
@@ -392,25 +344,15 @@ $$
 \nu_k(A):=\nu(A\cap D_k)
 $$
 
-を考えます。$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので、$\nu\ll\mu$ から $\nu(A\cap D_k)=0$、すなわち $\nu_k(A)=0$ です。従って
+を考えます。$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので、$\nu\ll\mu$ から $\nu_k(A)=0$。従って $\nu_k\ll\mu_k$ です。
 
-$$
-\nu_k\ll\mu_k.
-$$
-
-各 $D_k$ で有限測度版を適用でき、ある非負可測関数 $f_k$ が存在して
-
-$$
-\nu(A\cap D_k)=\int_{A\cap D_k}f_k\,d\mu
-$$
-
-となります。
+各 $D_k$ で有限測度版を適用して $f_k$ を取り
 
 $$
 f:=\sum_{k=1}^{\infty}f_k\boldsymbol{1}_{D_k}
 $$
 
-と置けば $f$ は非負可測で、
+と置けば
 
 $$
 \begin{aligned}
@@ -423,31 +365,21 @@ $$
 
 ### 4.3 証明：一意性
 
-$f,g$ がともにRadon--Nikodym微分だとします。上の有限測度分割 $D_k$ を使います。各 $D_k$ で
+$f,g$ がともにRadon--Nikodym微分だとします。有限測度分割 $D_k$ 上では
 
 $$
-\int_{D_k}f\,d\mu
-=
-\int_{D_k}g\,d\mu
-=
-u(D_k)<\infty,
+\int_{D_k}f\,d\mu=\int_{D_k}g\,d\mu=\nu(D_k)<\infty,
 $$
 
-したがって $f,g$ は $D_k$ 上でa.e.有限です。
+したがって $f,g$ はa.e.有限です。
 
 もし $H:=D_k\cap\{f>g\}$ が正の測度を持つなら
 
 $$
-H=\bigcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
+H=igcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
 $$
 
-がa.e.の意味で成り立つため、ある $n$ について
-
-$$
-H_n:=D_k\cap\{f\ge g+1/n\}
-$$
-
-が正の測度を持ちます。しかし
+がa.e.の意味で成り立つため、ある $n$ で $H_n:=D_k\cap\{f\ge g+1/n\}$ が正の測度を持ちます。しかし
 
 $$
 \begin{aligned}
@@ -459,50 +391,38 @@ $$
 \end{aligned}
 $$
 
-となり矛盾です。従って $f\le g$ が $D_k$ 上でa.e.成り立ちます。$f,g$ を交換すれば $g\le f$ も成り立つので $f=g$ が $D_k$ 上でa.e.成り立ちます。全ての $k$ を合わせて $f=g$ が $\mu$-a.e.です。
+となり矛盾です。従って $f\le g$ a.e.。役割を交換して $g\le f$ a.e.なので $f=g$ a.e.です。
 <!-- proof-end -->
 
 ---
 
-## 5. 確率密度関数の正体
+## 5. 確率密度関数と確率質量関数
 
-実数上のLebesgue測度を $\lambda$ とします。確率分布 $P_X$ が $P_X\ll\lambda$ を満たすなら
+実数上のLebesgue測度を $\lambda$ とします。$P_X\ll\lambda$ なら
 
 $$
 f_X:=\frac{dP_X}{d\lambda}
 $$
 
-が存在し、任意のBorel集合 $A$ に対して
+が存在し
 
 $$
 P(X\in A)=\int_Af_X(x)\,dx.
 $$
 
-この $f_X$ が確率密度関数です。
+これが確率密度関数です。
 
----
-
-## 6. 離散分布では数え上げ測度を使う
-
-可算集合 $S$ 上の数え上げ測度を $\#$ とします。$\#(A)=0$ なら $A=\varnothing$ なので、$S$ 上の任意の確率分布 $P_X$ は $P_X\ll\#$ です。一点 $x\in S$ に対して
-
-$$
-P_X(\{x\})
-=\int_{\{x\}}\frac{dP_X}{d\#}\,d\#
-=\frac{dP_X}{d\#}(x).
-$$
-
-従って
+一方、可算集合 $S$ 上の数え上げ測度を $\#$ とすると、$S$ 上の任意の確率分布は $P_X\ll\#$ であり
 
 $$
 \frac{dP_X}{d\#}(x)=P(X=x).
 $$
 
-つまり確率質量関数は、数え上げ測度に対する密度です。
+つまり確率質量関数も基準測度に対する密度です。
 
 ---
 
-## 7. 支配測度
+## 6. 支配測度
 
 <a id="def-f0-00p2-dominating-measure"></a>
 
@@ -518,20 +438,18 @@ $$
 > を満たすとき、$\mu$ をこの確率測度族の**支配測度**と呼びます。
 <!-- formal-statement-end -->
 
-### 7.1 例：Bernoulliモデル
-
-$\Omega=\{0,1\}$ 上のBernoulliモデルと数え上げ測度 $\#$ を考えます。
+### 6.1 例：Bernoulliモデル
 
 <!-- definition-example-start: def-f0-00p2-dominating-measure -->
 **定義の確認**
 
-任意の $A\subseteq\{0,1\}$ について
+$\Omega=\{0,1\}$ 上の数え上げ測度 $\#$ について $\#(A)=0$ なら $A=\varnothing$ です。従って任意のBernoulli分布 $P_p$ について
 
 $$
-\#(A)=0\Longrightarrow A=\varnothing.
+P_p(A)=0.
 $$
 
-従って全ての $p\in[0,1]$ について $P_p(A)=0$ です。よって
+よって
 
 $$
 P_p\ll\#
@@ -541,13 +459,7 @@ $$
 すなわち $\#$ はBernoulliモデルの支配測度です。
 <!-- definition-example-end -->
 
-支配測度があれば
-
-$$
-p_\theta:=\frac{dP_\theta}{d\mu}
-$$
-
-という一つの記法で離散・連続・混合型を扱えます。ただし密度 $p_\theta$ の数値は基準測度 $\mu$ に依存し、確率測度 $P_\theta$ 自体は変わりません。
+密度は基準測度に依存しますが、そこから復元される確率測度そのものは同じです。
 
 ---
 
@@ -563,7 +475,7 @@ $P(X=1)=p$, $P(X=0)=1-p$ とする。$\{0,1\}$ 上の数え上げ測度 $\#$ に
 <!-- solution-start -->
 #### 詳細解答
 
-$f(0)=1-p$, $f(1)=p$ と置きます。任意の $A\subseteq\{0,1\}$ について
+$f(0)=1-p$, $f(1)=p$ と置くと
 
 $$
 \int_Af\,d\#=\sum_{x\in A}f(x)=P_X(A).
@@ -587,7 +499,7 @@ $[0,1]$ 上で $\nu(A)=\int_A3x^2\,dx$ とする。$\nu\ll\lambda$ を示し、$
 <!-- solution-start -->
 #### 詳細解答
 
-$\lambda(A)=0$ なら $\nu(A)=\int_A3x^2\,dx=0$ なので $\nu\ll\lambda$ です。定義式と比較して
+$\lambda(A)=0$ なら $\nu(A)=0$ なので $\nu\ll\lambda$ です。定義式と比較して
 
 $$
 \frac{d\nu}{d\lambda}(x)=3x^2.
@@ -604,7 +516,7 @@ Dirac測度 $\delta_a$ がLebesgue測度 $\lambda$ に関して絶対連続で�
 <!-- solution-start -->
 #### 詳細解答
 
-$A=\{a\}$ と取ると $\lambda(A)=0$ ですが $\delta_a(A)=1$ です。従って $\lambda(A)=0\Rightarrow\delta_a(A)=0$ が破れ、$\delta_a\not\ll\lambda$ です。
+$A=\{a\}$ なら $\lambda(A)=0$ ですが $\delta_a(A)=1$ なので、絶対連続性の定義を満たしません。
 <!-- solution-end -->
 
 ### F0-00P2-A04 重み付き数え上げ測度に対する密度
@@ -620,10 +532,10 @@ $A=\{a\}$ と取ると $\lambda(A)=0$ ですが $\delta_a(A)=1$ です。従っ�
 一点集合に定義式を適用すると
 
 $$
-p_x=P_X(\{x\})=f(x)w_x,
+p_x=f(x)w_x,
 $$
 
-従って $f(x)=p_x/w_x$ です。さらに
+従って $f(x)=p_x/w_x$ です。任意の $A$ について
 
 $$
 \int_Af\,d\nu
@@ -631,7 +543,7 @@ $$
 =P_X(A),
 $$
 
-なので定義式も満たします。
+なので確認もできました。
 <!-- solution-end -->
 
 ### F0-00P2-B01 Bernoulli族の支配測度
@@ -644,15 +556,13 @@ $P_p$ を $\{0,1\}$ 上のBernoulli分布とする。数え上げ測度 $\#$ が
 <!-- solution-start -->
 #### 詳細解答
 
-$\#(A)=0$ なら $A=\varnothing$ なので、全ての $p$ で $P_p(A)=0$ です。従って $P_p\ll\#$。一点集合で評価すると
+$\#(A)=0$ なら $A=\varnothing$ なので全ての $p$ で $P_p(A)=0$。従って $P_p\ll\#$ です。また
 
 $$
 \frac{dP_p}{d\#}(0)=1-p,
 \qquad
-\frac{dP_p}{d\#}(1)=p,
+\frac{dP_p}{d\#}(1)=p.
 $$
-
-よって $dP_p/d\#(x)=p^x(1-p)^{1-x}$ です。
 <!-- solution-end -->
 
 ### F0-00P2-B02 点質量と連続部分を同時に支配する
@@ -673,7 +583,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ なので、点質量部分も正規分布部分も $A$ に確率0を与えます。従って $P\ll\mu$ です。
+$\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ なので $P(A)=0$。従って $P\ll\mu$ です。
 
 $$
 f(x):=p\boldsymbol{1}_{\{0\}}(x)+(1-p)\varphi(x)\boldsymbol{1}_{\mathbb R\setminus\{0\}}(x)
@@ -682,12 +592,9 @@ $$
 と置くと
 
 $$
-\begin{aligned}
 \int_Af\,d\mu
-&=\int_Af\,d\delta_0+\int_Af\,d\lambda\\
-&=p\delta_0(A)+(1-p)\int_A\varphi(x)\,dx\\
-&=P(A).
-\end{aligned}
+=p\delta_0(A)+(1-p)\int_A\varphi(x)\,dx
+=P(A).
 $$
 
 従って $f=dP/d\mu$ です。
@@ -703,25 +610,22 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$H:=\{f>g\}$ とします。$f,g$ は積分可能なのでa.e.有限で
+$H:=\{f>g\}$ とします。a.e.有限性から
 
 $$
 H=\bigcup_{n=1}^{\infty}\{f\ge g+1/n\}
 $$
 
-がa.e.の意味で成り立ちます。もし $\mu(H)>0$ なら、ある $n$ で $H_n:=\{f\ge g+1/n\}$ が正の測度を持ちます。しかし
+がa.e.の意味で成り立ちます。もし $\mu(H)>0$ なら、ある $n$ で $H_n:=\{f\ge g+1/n\}$ が正の測度を持ち
 
 $$
-\begin{aligned}
 \nu(H_n)
 =\int_{H_n}f\,d\mu
-&\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)\\
-&=\nu(H_n)+\frac1n\mu(H_n)\\
-&>\nu(H_n),
-\end{aligned}
+\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)
+>\nu(H_n),
 $$
 
-となり矛盾です。よって $f\le g$ a.e.。役割を交換すれば $g\le f$ a.e.なので $f=g$ a.e.です。
+となり矛盾です。よって $f\le g$ a.e.。役割を交換して $g\le f$ a.e.なので $f=g$ a.e.です。
 <!-- solution-end -->
 
 ### F0-00P2-C01 基準測度を変えて同じ分布を表す
@@ -742,7 +646,7 @@ $$
 1. $\nu\ll\mu$ を示せ。
 2. $d\nu/d\mu$ を求めよ。
 3. 求めた密度を使って定義式を確認せよ。
-4. Lebesgue測度を基準にした密度と $\mu$ を基準にした密度が異なっても、表す確率測度が同じである理由を説明せよ。
+4. 基準測度を変えると密度が変わっても、確率測度は変わらない理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -753,26 +657,25 @@ $$
 0=\mu(A_m)\ge\frac1{1+m^2}\lambda(A_m).
 $$
 
-従って $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$ であり、$\nu(A)=0$。よって $\nu\ll\mu$ です。
+従って $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$、したがって $\nu(A)=0$ です。
 
-**2. 密度。** $f(x)(1+x^2)^{-1}=ce^{-x^2}$ を満たせばよいので
+**2. 密度。**
 
 $$
 \frac{d\nu}{d\mu}(x)=ce^{-x^2}(1+x^2).
 $$
 
-**3. 定義式。**
+**3. 確認。**
 
 $$
 \begin{aligned}
 \int_A\frac{d\nu}{d\mu}\,d\mu
 &=\int_Ace^{-x^2}(1+x^2)\frac1{1+x^2}\,dx\\
-&=\int_Ace^{-x^2}\,dx\\
 &=\nu(A).
 \end{aligned}
 $$
 
-**4. 基準測度への依存。** Lebesgue測度に対する密度は $ce^{-x^2}$、$\mu$ に対する密度は $ce^{-x^2}(1+x^2)$ です。しかし任意の可測集合 $A$ に積分した結果はいずれも $\nu(A)$ です。密度は表現、確率分布は測度 $\nu$ そのものです。
+**4. 解釈。** Lebesgue測度に対する密度は $ce^{-x^2}$、$\mu$ に対する密度は $ce^{-x^2}(1+x^2)$ ですが、任意の可測集合 $A$ に積分すると同じ $\nu(A)$ を与えます。密度は表現、分布は測度そのものです。
 <!-- solution-end -->
 
 ---
