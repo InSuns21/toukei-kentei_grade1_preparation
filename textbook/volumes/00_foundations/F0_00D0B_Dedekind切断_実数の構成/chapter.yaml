@@ -17,7 +17,7 @@ definitions:
   - { id: F000D0B-DEF-02, name: Dedekind実数 }
   - { id: F000D0B-DEF-03, name: 切断の順序 }
 theorems:
-  - { id: F000D0B-THM-01, name: 有理数の標準埋め込み }
+  - { id: F000D0B-THM-01, name: 有理数の標準切断 }
   - { id: F000D0B-THM-02, name: 切断上の加法 }
   - { id: F000D0B-THM-03, name: Dedekind切断の上限性質 }
   - { id: F000D0B-THM-04, name: Dedekind実数の完備順序体性 }
@@ -25,5 +25,5 @@ canonical_examples: [sqrt2の切断, 有理数に対応する切断]
 problem_patterns: [切断条件の確認, 包含順序, 上限の構成, 演算の確認]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 2.8, exercises: 1.8, review: 0.4 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 2.4, review: 0.5 }
