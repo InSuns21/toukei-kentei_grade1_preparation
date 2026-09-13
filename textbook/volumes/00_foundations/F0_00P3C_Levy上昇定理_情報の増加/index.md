@@ -869,11 +869,11 @@ $$
 
 $M_n=E[X\mid\mathcal G_n]$、$Y=E[X\mid\mathcal G_\infty]$ とする。次の順にLévy上昇定理を再構成せよ。
 
-1. 有限段階単関数近似から $M_n\to Y$ in $L^1$ を示す。
+1. [有限段階可測単関数のL1稠密性](#lem-f0-00p3c-l1-finite-stage-density)から $M_n\to Y$ in $L^1$ を示す。
 2. 任意の有理数 $a<b$ について $U_\infty(a,b)<\infty$ a.s. を示す。
 3. 有理数の可算性から $M_n$ がa.s.で拡張実数値極限を持つことを示す。
 4. [Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)と $\sup_nE|M_n|<\infty$ から極限が有限であることを示す。
-5. 後続章の一般の収束概念を使わず、Fatouの補題だけでその極限が $Y$ とa.s.一致することを示す。
+5. 後続章の一般の収束概念を使わず、[Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)だけでその極限が $Y$ とa.s.一致することを示す。
 
 <!-- solution-start -->
 #### 詳細解答
