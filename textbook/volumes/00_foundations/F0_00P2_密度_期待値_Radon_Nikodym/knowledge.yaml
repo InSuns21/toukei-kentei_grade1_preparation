@@ -26,7 +26,7 @@ concepts:
     name: Radon--Nikodym微分
     kind: definition
     aliases: [Radon--Nikodym微分]
-    introduction_aliases: [基準測度に対する密度]
+    introduction_aliases: ["定義（Radon--Nikodym微分）", 基準測度に対する密度]
     requires:
       - measure.measure-space
       - measure.measurable-function
@@ -36,6 +36,7 @@ concepts:
     name: L^2表現補題
     kind: lemma
     aliases: [L^2表現補題, "表現補題）"]
+    introduction_aliases: ["補題（$L^2$ 表現補題）"]
     requires:
       - measure.lp-space
       - measure.cauchy-schwarz-l2
