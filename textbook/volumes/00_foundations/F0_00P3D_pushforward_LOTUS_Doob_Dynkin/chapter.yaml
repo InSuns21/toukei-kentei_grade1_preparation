@@ -6,21 +6,30 @@ prerequisites:
   - F0-00P1
   - F0-00P2A
   - F0-00P3A
+  - F0-00D2A
+  - F0-00D2B
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - 押し出し測度の定義から積分公式を証明できる
   - 指示関数から単関数・非負可測関数・可積分関数へ拡張できる
-  - Doob--Dynkin lemma を単関数近似から証明できる
-  - E[X|Y]=m(Y) の意味を定理として説明できる
+  - Doob--Dynkin lemma を単関数近似からBorel可測な因子を構成して証明できる
+  - E[X|Y]=m(Y) のversion自由度とP_Y-a.e.一意性の対応を説明できる
+  - 離散型の比の公式と連続型一般の条件付き期待値を区別できる
+  - joint densityがある場合の条件付き密度表示を追加仮定から導ける
 definitions:
   - { id: F0P3D-DEF-01, name: pushforward measure }
   - { id: F0P3D-DEF-02, name: sigma(Y)-measurability }
 theorems:
   - { id: F0P3D-THM-01, name: pushforward integration formula }
   - { id: F0P3D-THM-02, name: Doob--Dynkin lemma }
-canonical_examples: [LOTUSによる二乗モーメント, 条件付き期待値のYによる因子化]
-problem_patterns: [PUSHFORWARD-INTEGRAL-1, DOOB-DYNKIN-1]
+canonical_examples:
+  - finite pushforward measure
+  - LOTUSによる二乗モーメント
+  - 条件付き期待値のYによる因子化
+  - Bernoulli support上のversion自由度
+problem_patterns: [PUSHFORWARD-INTEGRAL-1, DOOB-DYNKIN-1, CONDITIONAL-EXPECTATION-VERSION-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 0.75, exercises: 0.75, review: 0.25 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 1.5, exercises: 2.0, review: 0.5 }
