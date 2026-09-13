@@ -10,7 +10,7 @@ learning_objectives:
   - Darboux上和・下和からRiemann可積分性を定義できる
   - 連続関数がRiemann可積分であることを一様連続性から証明できる
   - Riemann積分の線形性・単調性・区間加法性をDarboux定義から証明できる
-  - FTCがFundamental Theorem of Calculus（微積分学の基本定理）の略であることを説明し、I・IIの役割の違いを区別できる
+  - FTC・FTC I・FTC IIとFundamental Theorem of Calculus・微積分学の基本定理I・IIの対応を説明し、I・IIの役割の違いを区別できる
   - 有限閉区間上のRiemann積分と、RA4Aで扱う広義積分の極限操作を区別できる
 definitions:
   - { id: RA4-DEF-01, name: Darboux上和・下和 }
