@@ -121,7 +121,7 @@ concepts:
     aliases: [Picard--Lindelöf の局所存在・一意性, Picard–Lindelöf, Picard-Lindelöf, Picard--Lindelöf, 局所存在・一意性]
     introduction: formal
     requires:
-      - ode.ode1-picard-iteration
+      - ode.ode1-integral-equation-equivalence
       - ode.ode1-lipschitz-y
       - analysis.uniform-cauchy
       - analysis.uniform-limit-continuity
