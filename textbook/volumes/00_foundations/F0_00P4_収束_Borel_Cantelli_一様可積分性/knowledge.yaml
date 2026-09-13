@@ -3,8 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - F0-00P3
-  - F0-00P2A
-  - F0-00D2B
+  - F0-00D3A
 
 forward_references:
   - prob.uniform-integrability
@@ -14,15 +13,81 @@ concepts:
   - id: prob.event-limsup
     name: 事象列の上極限
     kind: definition
-    aliases: [事象列の上極限]
+    aliases: [事象列の上極限, limsup event, infinitely often, i.o.]
+    introduction_aliases: ["定義（事象列の上極限）"]
     requires:
       - prob.probability-space
       - measure.sigma-algebra
+
+  - id: prob.event-liminf
+    name: 事象列の下極限
+    kind: definition
+    aliases: [事象列の下極限, liminf event, eventually]
+    introduction_aliases: ["定義（事象列の下極限）"]
+    requires:
+      - prob.probability-space
+      - measure.sigma-algebra
+
+  - id: prob.limsup-liminf-duality
+    name: 上極限・下極限の包含と補集合
+    kind: proposition
+    aliases: [上極限・下極限の包含と補集合, limsupとliminfの補集合関係]
+    introduction_aliases: ["命題（上極限・下極限の包含と補集合）"]
+    requires:
+      - prob.event-limsup
+      - prob.event-liminf
+
+  - id: prob.independent-event-sequence
+    name: 独立な事象列
+    kind: definition
+    aliases: [独立な事象列, independent event sequence]
+    introduction_aliases: ["定義（独立な事象列）"]
+    requires:
+      - prob.mutual-independence
+      - prob.independent-sigma-algebras
+
+  - id: prob.tail-sigma-field
+    name: 末尾sigma代数
+    kind: definition
+    aliases: [末尾sigma代数, 末尾σ代数, tail sigma-field, tail σ-field, tail sigma algebra]
+    introduction_aliases: ["定義（末尾 σ 代数 / tail σ-field）"]
+    requires:
+      - measure.sigma-algebra
+      - measure.generated-sigma-algebra
+      - prob.probability-space
+
+  - id: prob.tail-event
+    name: 末尾事象
+    kind: definition
+    aliases: [末尾事象, tail event, テール事象, テールイベント]
+    introduction_aliases: ["定義（末尾 σ 代数 / tail σ-field）"]
+    requires:
+      - prob.tail-sigma-field
+
+  - id: prob.independent-blocks
+    name: 独立列のブロック独立性
+    kind: lemma
+    aliases: [独立列のブロック独立性, block independence]
+    introduction_aliases: ["補題（独立列のブロック独立性）"]
+    requires:
+      - prob.independent-event-sequence
+      - measure.pi-lambda-theorem
+
+  - id: prob.kolmogorov-zero-one
+    name: Kolmogorovの0--1則
+    kind: theorem
+    aliases: [Kolmogorovの0--1則, Kolmogorov 0--1則, Kolmogorov zero-one law, Kolmogorov 0-1 law]
+    introduction_aliases: ["定理（Kolmogorov の 0--1 則：事象列版）"]
+    requires:
+      - prob.tail-event
+      - prob.independent-blocks
+      - measure.pi-lambda-theorem
 
   - id: prob.almost-sure-convergence
     name: 概収束
     kind: definition
     aliases: [概収束]
+    introduction_aliases: ["定義（概収束）"]
     requires:
       - prob.random-variable
       - measure.almost-everywhere
@@ -31,6 +96,7 @@ concepts:
     name: 確率収束
     kind: definition
     aliases: [確率収束]
+    introduction_aliases: ["定義（確率収束）"]
     requires:
       - prob.random-variable
 
@@ -38,6 +104,7 @@ concepts:
     name: Borel--Cantelli第1補題
     kind: lemma
     aliases: [Borel--Cantelli第1補題, Borel-Cantelli第1補題]
+    introduction_aliases: ["補題（Borel--Cantelli 第1補題）"]
     requires:
       - prob.event-limsup
       - prob.probability-space
@@ -47,26 +114,38 @@ concepts:
     name: Borel--Cantelli第2補題
     kind: lemma
     aliases: [Borel--Cantelli第2補題, Borel-Cantelli第2補題]
+    introduction_aliases: ["補題（Borel--Cantelli 第2補題）"]
     requires:
       - prob.event-limsup
-      - prob.independent-events
+      - prob.independent-event-sequence
       - prob.probability-space
       - prob.probability-continuity-from-above
+
+  - id: prob.as-limsup-characterization
+    name: 概収束のlimsupによる特徴付け
+    kind: proposition
+    aliases: [概収束のlimsupによる特徴付け]
+    introduction_aliases: ["命題（概収束の limsup による特徴付け）"]
+    requires:
+      - prob.almost-sure-convergence
+      - prob.event-limsup
 
   - id: prob.as-implies-probability
     name: 概収束は確率収束を含意する
     kind: theorem
     aliases: [概収束は確率収束を含意する]
+    introduction_aliases: ["定理（概収束は確率収束を含意する）"]
     requires:
       - prob.almost-sure-convergence
       - prob.probability-convergence
-      - measure.dominated-convergence-theorem
+      - prob.event-limsup
+      - prob.probability-continuity-from-above
 
   - id: prob.lp-implies-probability
-    name: L^p収束なら確率収束
-    kind: term
-    aliases: [収束なら確率収束]
-    introduction_aliases: [収束なら確率収束]
+    name: Lp収束は確率収束を含意する
+    kind: theorem
+    aliases: [Lp収束は確率収束を含意する, L^p収束は確率収束を含意する]
+    introduction_aliases: ["定理（$L^p$ 収束は確率収束を含意する）"]
     requires:
       - prob.probability-convergence
       - prob.markov-inequality
@@ -75,6 +154,7 @@ concepts:
     name: 確率収束から概収束部分列
     kind: theorem
     aliases: [確率収束から概収束部分列]
+    introduction_aliases: ["定理（確率収束から概収束部分列）"]
     requires:
       - prob.probability-convergence
       - prob.almost-sure-convergence
