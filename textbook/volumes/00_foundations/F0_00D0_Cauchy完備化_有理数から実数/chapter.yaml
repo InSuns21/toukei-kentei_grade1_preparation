@@ -9,21 +9,25 @@ official_scope: []
 learning_objectives:
   - 有理Cauchy列上の同値関係を定義し、同値関係であることを証明できる
   - 同値類上の加法・乗法が代表元に依存しないことを証明できる
-  - 有理数を定数列としてCauchy実数へ埋め込める
-  - Cauchy実数が有理数の稠密な完備化になる仕組みを説明できる
+  - 非零Cauchy実数の逆元を構成し、順序体になることを説明できる
+  - Cauchy実数上の絶対値距離を定義できる
+  - 有理数を等長かつ稠密にCauchy実数へ埋め込める
+  - Cauchy実数が完備であることを対角近似で証明できる
   - well-defined性が商構成で必要になる理由を具体的に説明できる
 definitions:
-  - { id: F000D0-DEF-01, name: Cauchy実数の同値関係 }
+  - { id: F000D0-DEF-01, name: 有理Cauchy列の同値関係 }
   - { id: F000D0-DEF-02, name: Cauchy実数 }
-  - { id: F000D0-DEF-03, name: Cauchy実数上の順序 }
+  - { id: F000D0-DEF-03, name: Cauchy実数の正値性と順序 }
+  - { id: F000D0-DEF-04, name: Cauchy実数の絶対値と距離 }
 theorems:
   - { id: F000D0-THM-01, name: 有理Cauchy列の有界性 }
-  - { id: F000D0-THM-02, name: 四則演算のwell-defined性 }
-  - { id: F000D0-THM-03, name: 有理数の標準埋め込みと稠密性 }
-  - { id: F000D0-THM-04, name: Cauchy実数の完備性 }
+  - { id: F000D0-THM-02, name: 加法・乗法のwell-defined性 }
+  - { id: F000D0-THM-03, name: Cauchy実数の順序体性 }
+  - { id: F000D0-THM-04, name: 有理数の標準埋め込みと稠密性 }
+  - { id: F000D0-THM-05, name: Cauchy実数の完備性 }
 canonical_examples: [sqrt2を表す有理Cauchy列, 同値な近似列]
-problem_patterns: [同値関係の確認, well-defined性, 稠密性, 対角近似による完備性]
+problem_patterns: [同値関係の確認, well-defined性, 逆元構成, 稠密性, 対角近似による完備性]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 3.0, exercises: 2.0, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 2.5, review: 0.5 }
