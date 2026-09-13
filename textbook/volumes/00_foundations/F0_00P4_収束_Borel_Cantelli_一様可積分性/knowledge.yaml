@@ -141,15 +141,6 @@ concepts:
       - prob.event-limsup
       - prob.probability-continuity-from-above
 
-  - id: prob.lp-implies-probability
-    name: Lp収束は確率収束を含意する
-    kind: theorem
-    aliases: [Lp収束は確率収束を含意する, L^p収束は確率収束を含意する]
-    introduction_aliases: ["定理（Lp収束は確率収束を含意する）"]
-    requires:
-      - prob.probability-convergence
-      - prob.markov-inequality
-
   - id: prob.probability-subsequence-as
     name: 確率収束から概収束部分列
     kind: theorem
