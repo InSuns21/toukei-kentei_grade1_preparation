@@ -1,5 +1,8 @@
 chapter: "RA3"
 terms:
+  - term: 高階導関数
+    english: higher derivative
+    meaning: 導関数を反復して得る2階以上を含む導関数。k階導関数を f^(k) と書く。
   - term: C^k級
     english: C^k class
     meaning: k階までの導関数が存在し、それらがすべて連続である関数の滑らかさの階級。
