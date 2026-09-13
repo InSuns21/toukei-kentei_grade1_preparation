@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA2
+  - RA1A
   - RA4
 forward_references:
   - measure.lebesgue-integral

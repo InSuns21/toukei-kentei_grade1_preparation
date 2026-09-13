@@ -31,7 +31,10 @@ flowchart TD
   A --> LA1["線形代数 I<br/>R/C・線形空間<br/>既存 E/F + LA1"]
   A --> TOP0["位相 I<br/>距離・位相・Hausdorff<br/>既存 B/B1"]
 
+  RA1 --> RA1A["実解析 I-A<br/>数値級数の収束論<br/>RA1A"]
   RA1 --> RA2["実解析 II<br/>極限・連続・一様連続<br/>RA2"]
+  RA1A --> RA4A
+  RA1A --> RA5
   RA2 --> RA3["実解析 III<br/>微分・平均値定理・Taylor<br/>RA3"]
   RA2 --> RA4["実解析 IV<br/>Riemann/Darboux積分・FTC<br/>RA4"]
   RA4 --> RA4A["実解析 IV-A<br/>広義積分・収束判定<br/>RA4A"]
@@ -126,12 +129,22 @@ flowchart TD
 
 - 数列、部分列、Cauchy列、単調収束、Bolzano–Weierstrass
 - `limsup` / `liminf`
-- 級数とCauchy判定、比較・比・根判定
-- 絶対収束・条件収束、交代級数
-- Riemann再配列定理、Cauchy積
+- 級数を部分和列として定義し、Cauchy判定と絶対収束の基礎を構成
+- 絶対収束級数の再配列不変性、Cauchy積
 - 冪級数、収束半径
 
-既存 A1/A1B/B0/D は正本として再利用します。
+既存 A1/A1B/B0/D は正本として再利用します。数値級数の詳細な収束判定は RA1A に分離します。
+
+## RA1A 数値級数の収束論 `core`
+
+- 一般項が0へ行く必要条件、非負項級数の部分和有界性判定
+- 比較判定・極限比較判定・比判定・根判定と境界値1の反例
+- Cauchy凝縮判定、$p$ 級数、対数補正級数
+- Leibnizの交代級数判定と剰余評価
+- Abelの部分和変換、Dirichlet判定、Abel判定
+- 条件収束とRiemann再配列定理（有限値版）
+
+判定法名を列挙するだけでなく、Cauchy条件・単調収束・部分和変換へ還元して核心論証を本文内で閉じます。
 
 ## RA2 極限・連続・一様連続 `core`
 

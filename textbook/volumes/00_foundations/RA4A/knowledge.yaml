@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
+  - RA1A
 
 forward_references:
   - analysis.uniform-convergence
