@@ -64,10 +64,9 @@ concepts:
     requires: [completion.cauchy-real-metric]
 
   - id: completion.rational-density-cauchy-real
-    name: 有理数の稠密性
+    name: Cauchy実数内の有理数稠密性
     kind: theorem
-    aliases: [有理数の稠密性]
-    introduction_aliases: [の稠密性]
+    aliases: [Cauchy実数内の有理数稠密性]
     requires: [completion.rational-canonical-embedding, topology.cauchy-sequence]
 
   - id: completion.cauchy-real-complete
