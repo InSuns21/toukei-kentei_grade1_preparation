@@ -431,7 +431,7 @@ $$
 \end{aligned}
 $$
 
-$N$ を増やすと左辺の事象は単調に増えます。確率の下からの連続性により $N\to\infty$ とすると
+$N$ を増やすと左辺の事象は単調に増えます。[確率の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により $N\to\infty$ とすると
 
 $$
 P(A_r)\le2^{-r},
@@ -691,7 +691,7 @@ $$
 
 1. 可積分性から $\sum_nP(|X_n|>n)<\infty$ を得て、元の列と切断列が eventually 一致する。
 2. 切断中心化列 $Y_n$ について $\sum_n\operatorname{Var}(Y_n)/n^2<\infty$ を得る。
-3. Kolmogorov収束定理とKronecker補題から $n^{-1}\sum_{k\le n}Y_k\to0$ a.s.
+3. [Kolmogorov収束定理](#thm-kolmogorov-convergence)と[Kronecker補題](#thm-kronecker)から $n^{-1}\sum_{k\le n}Y_k\to0$ a.s.
 4. 切断期待値 $E[X_n']$ は $\mu$ へ収束するので、そのCesàro平均も $\mu$ へ収束する。
 5. 切断列から元の列へ戻す。
 
@@ -718,7 +718,7 @@ P(|X_n|>n)
 P(|X_1|>n).
 $$
 
-可積分変数のtail-sum評価から
+[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)から
 
 $$
 \sum_{n=1}^{\infty}P(X_n\ne X_n')
@@ -737,7 +737,7 @@ $$
 **Step 2：切断中心化列の重み付き分散和は有限である。**  
 $Y_n:=X_n'-E[X_n']$ と置きます。各 $X_n'$ は $X_n$ だけの可測関数なので独立性が保たれ、$Y_n$ も独立です。また $E[Y_n]=0$ です。
 
-同一分布性と第3節の補題から
+同一分布性と[切断二次モーメントの重み付き総和](#lem-f0-00p5a-truncated-second-moment)から
 
 $$
 \begin{aligned}
@@ -937,7 +937,7 @@ $$
 \le E|X|
 $$
 
-を、指示関数と Tonelli の定理から示せ。
+を、指示関数と [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1166,7 +1166,7 @@ $$
 
 ## 9. 演習B
 
-### F0-00P5A-B01 Kolmogorov収束定理を最大不等式から再構成する
+### F0-00P5A-B01 最大不等式から収束を再構成する
 
 - Level: B
 - 目安時間: 25分
@@ -1204,7 +1204,7 @@ P\left(
 \le2^{-r}.
 $$
 
-$N$ を増やすと左辺の事象は単調増加するので、確率の下からの連続性により
+$N$ を増やすと左辺の事象は単調増加するので、[確率の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により
 
 $$
 P\left(
@@ -1217,7 +1217,7 @@ P\left(
 \le2^{-r}.
 $$
 
-右辺は $r$ について総和可能です。Borel--Cantelli第1補題から、確率1で十分大きい全ての $r$ について
+右辺は $r$ について総和可能です。[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)から、確率1で十分大きい全ての $r$ について
 
 $$
 \sup_{k\ge m_r}
@@ -1367,7 +1367,7 @@ P(X_n\ne X_n')
 P(|X_1|>n).
 $$
 
-A01 のtail-sum評価によりこの確率の和は有限です。従って Borel--Cantelli第1補題から $X_n=X_n'$ eventually a.s. です。
+[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)によりこの確率の和は有限です。従って [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)から $X_n=X_n'$ eventually a.s. です。
 
 2. $Y_n$ は独立で中心化されています。また
 
@@ -1404,7 +1404,7 @@ $$
 \sum_n\operatorname{Var}(Z_n)<\infty.
 $$
 
-従って Kolmogorov収束定理から $\sum_nY_n/n$ は概収束します。その確率1の事象上で Kronecker補題を $a_n=Y_n(\omega)$ に適用し、
+従って [Kolmogorov収束定理](#thm-kolmogorov-convergence)から $\sum_nY_n/n$ は概収束します。その確率1の事象上で [Kronecker補題](#thm-kronecker)を $a_n=Y_n(\omega)$ に適用し、
 
 $$
 \frac1n\sum_{k=1}^nY_k\to0
@@ -1423,7 +1423,7 @@ X_1\boldsymbol{1}_{\{|X_1|\le n\}}
 \right].
 $$
 
-被積分関数は $X_1$ へ各標本点で収束し、絶対値は可積分関数 $|X_1|$ 以下です。優収束定理より
+被積分関数は $X_1$ へ各標本点で収束し、絶対値は可積分関数 $|X_1|$ 以下です。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より
 
 $$
 E[X_n']\to E[X_1].
