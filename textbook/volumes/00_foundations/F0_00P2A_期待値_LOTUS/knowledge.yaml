@@ -58,7 +58,7 @@ concepts:
   - id: prob.probability-continuity-from-above
     name: 確率測度の上からの連続性
     kind: theorem
-    aliases: [確率測度の上からの連続性]
+    aliases: [確率測度の上からの連続性, 測度の上からの連続性]
     introduction_aliases: [確率測度の上からの連続性]
     requires:
       - prob.probability-space
