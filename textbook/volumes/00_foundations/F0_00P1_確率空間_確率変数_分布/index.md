@@ -393,7 +393,7 @@ $$
 (-\infty,x]\subseteq(-\infty,y]
 $$
 
-なので、測度の単調性から
+なので、[測度の単調性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#prop-f0-00d2-02)から
 
 $$
 F_X(x)\le F_X(y).
@@ -407,7 +407,7 @@ A_n:=(-\infty,x_n],
 A:=(-\infty,x]
 $$
 
-と置きます。$A_n\downarrow A$ です。減少列を、既出の下からの連続性で扱える増加列へ変えます。
+と置きます。$A_n\downarrow A$ です。減少列を、既出の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)で扱える増加列へ変えます。
 
 $$
 B_n:=A_1\setminus A_n.
@@ -446,7 +446,7 @@ $$
 (-\infty,n]\uparrow\mathbb R
 $$
 
-なので下からの連続性より
+なので[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より
 
 $$
 F_X(n)=P_X(( -\infty,n])\uparrow P_X(\mathbb R)=1.
@@ -460,7 +460,7 @@ $$
 B_n:=A_1\setminus A_n\uparrow A_1
 $$
 
-とすると、下からの連続性から
+とすると、[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)から
 
 $$
 P_X(B_n)\uparrow P_X(A_1).
@@ -503,7 +503,7 @@ $$
 
 を確率質量関数と呼びます。
 
-一方、分布 $P_X$ がLebesgue測度 $\lambda$ に関して絶対連続なら、次章のRadon--Nikodym定理により
+一方、分布 $P_X$ がLebesgue測度 $\lambda$ に関して絶対連続なら、次章の[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)により
 
 $$
 P_X(B)=\int_Bf_X(x)\,dx
@@ -757,7 +757,7 @@ $$
 - Level: B
 - 目安時間: 15分
 
-実数値確率変数 $X$ の累積分布関数 $F_X(x)=P(X\le x)$ が右連続であることを、測度の下からの連続性を使って示せ。
+実数値確率変数 $X$ の累積分布関数 $F_X(x)=P(X\le x)$ が右連続であることを、[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)を使って示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -782,7 +782,7 @@ $$
 B_n\uparrow A_1\setminus A.
 $$
 
-下からの連続性より
+[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)より
 
 $$
 P(B_n)\uparrow P(A_1\setminus A).
