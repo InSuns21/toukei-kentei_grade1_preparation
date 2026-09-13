@@ -3,70 +3,14 @@ name: Audit F0-00P5A pedagogy
 on:
   pull_request:
 
-permissions:
-  contents: write
-
 jobs:
   audit-f0-00p5a:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR head
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Apply targeted reference fixes
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-
-          path = Path('textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md')
-          lines = path.read_text(encoding='utf-8').splitlines(keepends=True)
-          changed = []
-
-          def replace_near(line_no, old, new, window=4):
-              lo = max(0, line_no - 1 - window)
-              hi = min(len(lines), line_no + window)
-              for i in range(lo, hi):
-                  if old in lines[i] and f'[{old}](' not in lines[i]:
-                      lines[i] = lines[i].replace(old, new, 1)
-                      changed.append((i + 1, old, new))
-                      return True
-              return False
-
-          # formal-reference validator findings
-          replace_near(434, '下からの連続性', '[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)')
-          replace_near(694, 'Kronecker補題', '[Kronecker補題](#thm-kronecker)')
-          replace_near(721, '可積分変数のtail-sum評価', '[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)')
-          replace_near(940, 'Tonelli', '[Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)')
-          replace_near(1207, '下からの連続性', '[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)')
-          replace_near(1220, 'Borel--Cantelli第1補題', '[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)')
-          replace_near(1370, 'Borel--Cantelli第1補題', '[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)')
-          replace_near(1370, '可積分変数のtail-sum評価', '[可積分変数のtail-sum評価](#lem-f0-00p5a-tail-sum)')
-          replace_near(1407, 'Kolmogorov収束定理', '[Kolmogorov収束定理](#thm-kolmogorov-convergence)')
-          replace_near(1426, 'Lebesgueの優収束定理', '[Lebesgueの優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)')
-
-          # explicit-dependency validator findings: remove ambiguous prose references.
-          replace_near(740, '同一分布性と第3節の補題', '[切断二次モーメントの重み付き総和](#lem-f0-00p5a-truncated-second-moment)と同一分布性')
-          replace_near(1169, 'Kolmogorov収束定理', '級数収束')
-
-          if changed:
-              path.write_text(''.join(lines), encoding='utf-8')
-              for item in changed:
-                  print('changed:', item)
-          else:
-              print('No targeted replacements were necessary.')
-          PY
-
-          if ! git diff --quiet -- textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md; then
-            git config user.name github-actions[bot]
-            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-            git add textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md
-            git commit -m "fix P5A formal references"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
