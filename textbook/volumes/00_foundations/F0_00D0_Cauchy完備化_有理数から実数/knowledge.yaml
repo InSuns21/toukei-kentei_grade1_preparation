@@ -43,11 +43,23 @@ concepts:
     aliases: [Cauchy実数の正値性と順序]
     requires: [completion.cauchy-real, completion.cauchy-real-operations-well-defined]
 
+  - id: completion.cauchy-real-ordered-field
+    name: Cauchy実数は順序体
+    kind: theorem
+    aliases: [Cauchy実数は順序体]
+    requires: [completion.cauchy-real-order, completion.cauchy-real-operations-well-defined]
+
+  - id: completion.cauchy-real-metric
+    name: Cauchy実数の絶対値と距離
+    kind: definition
+    aliases: [Cauchy実数の絶対値と距離]
+    requires: [completion.cauchy-real-ordered-field]
+
   - id: completion.rational-canonical-embedding
     name: 有理数の標準埋め込み
     kind: theorem
     aliases: [有理数の標準埋め込み]
-    requires: [completion.cauchy-real-order]
+    requires: [completion.cauchy-real-metric]
 
   - id: completion.rational-density-cauchy-real
     name: 有理数の稠密性
@@ -59,4 +71,4 @@ concepts:
     name: Cauchy実数の完備性
     kind: theorem
     aliases: [Cauchy実数の完備性]
-    requires: [completion.rational-density-cauchy-real]
+    requires: [completion.rational-density-cauchy-real, completion.cauchy-real-metric]
