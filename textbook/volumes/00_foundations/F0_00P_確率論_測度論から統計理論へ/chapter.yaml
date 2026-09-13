@@ -16,4 +16,5 @@ problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "確率論補講全体のロードマップであり、独立演習は各P1〜P7章で扱うため"
 estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
