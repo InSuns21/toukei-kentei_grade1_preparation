@@ -35,8 +35,8 @@ concepts:
   - id: measure.l2-representation-lemma
     name: L^2表現補題
     kind: lemma
-    aliases: [L^2表現補題, "表現補題）"]
-    introduction_aliases: ["補題（$L^2$ 表現補題）"]
+    aliases: [L^2表現補題, "L^2 表現補題", "表現補題）"]
+    introduction_aliases: ["L^2 表現補題", "補題（$L^2$ 表現補題）"]
     requires:
       - measure.lp-space
       - measure.cauchy-schwarz-l2
