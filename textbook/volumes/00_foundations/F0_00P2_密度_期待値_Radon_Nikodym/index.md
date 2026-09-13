@@ -89,7 +89,7 @@ $$
 
 ---
 
-## 3. 準備：$L^2$ 表現補題
+## 3. 準備：Hilbert空間から表現を作る
 
 <a id="lem-f0-00p2-l2-representation"></a>
 
@@ -116,31 +116,18 @@ $$
 
 と置きます。$T$ は連続なので $M$ は $L^2(\rho)$ の閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
 
-[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、直交成分を
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、
 
 $$
 u:=y-P_My$$
 
-とは置かず、$u$ という記号で
-
-$$
-u$$
-
-……という説明は不要です。実際には単に
-
-$$
- u:=y-P_My
-$$
-
 と置けば
 
 $$
- u\in M^\perp,
+u\in M^\perp,
 \qquad
-y=P_My+u
+y=P_My+u.
 $$
-
-が成り立ちます。
 
 $y\notin M$ なので $u\ne0$ です。また $P_My\in M$ なので
 
@@ -219,7 +206,7 @@ $$
 T(g):=\int g\,d\nu
 $$
 
-と置きます。$\nu\le\rho$ とCauchy--Schwarz不等式から
+と置きます。$\nu\le\rho$ と[Cauchy--Schwarzの不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -261,7 +248,7 @@ $$
 \mu(A)=\int_A(1-h)\,d\rho
 $$
 
-を指示関数から非負単関数、さらに単調収束定理で非負可測関数へ拡張すると
+を指示関数から非負単関数、さらに[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)で非負可測関数へ拡張すると
 
 $$
 \int\varphi\,d\mu
