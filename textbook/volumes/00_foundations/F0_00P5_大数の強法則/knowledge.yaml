@@ -4,33 +4,54 @@ coverage: complete
 prerequisites:
   - F0-00P4
 
-# 冒頭と末尾で、有限平均まで一般化した次章のSLLNを予告する。
+# 冒頭と末尾では、有限平均まで一般化した次章のSLLNと後続CLTを予告する。
 forward_references:
   - prob.iid-integrable-slln
   - prob.iid-clt
 
 concepts:
+  - id: prob.partial-sum
+    name: 部分和
+    kind: definition
+    aliases: [部分和]
+    introduction_aliases: ["定義（部分和）"]
+    requires:
+      - prob.random-variable
+
   - id: prob.dyadic-subsequence
     name: dyadic subsequence
-    kind: term
+    kind: definition
     aliases: [dyadic subsequence]
+    introduction_aliases: ["定義（dyadic subsequence）"]
     requires: []
+
+  - id: prob.fourth-moment-slln
+    name: 有限4次モーメントからの強大数則
+    kind: theorem
+    aliases: [有限4次モーメントからの強大数則]
+    introduction_aliases: ["定理（有限4次モーメントからの強大数則）"]
+    requires:
+      - prob.independent-random-variables
+      - prob.moment
+      - prob.markov-inequality
+      - prob.borel-cantelli-1
+      - prob.almost-sure-convergence
 
   - id: prob.kolmogorov-maximal-inequality
     name: Kolmogorov最大不等式
     kind: theorem
     aliases: [Kolmogorov最大不等式]
+    introduction_aliases: ["定理（Kolmogorov最大不等式）"]
     requires:
       - prob.independent-random-variables
       - prob.expectation
       - prob.variance
 
-  # 現本文では完全証明されるが、独立した formal-statement パネルはまだない。
   - id: prob.finite-variance-slln
     name: 有限分散iid強大数則
-    kind: term
-    aliases: [有限分散版の強大数則]
-    introduction_aliases: ["これが有限分散版の強大数則です"]
+    kind: theorem
+    aliases: [有限分散iid強大数則, 有限分散版強大数則, 有限分散版の強大数則]
+    introduction_aliases: ["定理（有限分散版強大数則）"]
     requires:
       - prob.kolmogorov-maximal-inequality
       - prob.borel-cantelli-1

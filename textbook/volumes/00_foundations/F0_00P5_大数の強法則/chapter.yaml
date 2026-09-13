@@ -1,24 +1,31 @@
 id: "F0-00P5"
-title: "Kolmogorov最大不等式・有限分散版強大数則"
+title: "強大数則への二段階：4次モーメント法とKolmogorov最大不等式"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P4
 official_scope: []
 learning_objectives:
-  - Kolmogorov最大不等式を使える
-  - dyadic subsequenceにBorel--Cantelliを適用できる
-  - 区間最大増分でgapを埋められる
-  - 有限分散iid強大数則を証明できる
+  - 有限4次モーメントの下でMarkovとBorel--Cantelliから強大数則を直接証明できる
+  - Chebyshevの全n評価がBorel--Cantelliへ直接入らない理由を説明できる
+  - Kolmogorov最大不等式を初回越境事象から証明できる
+  - dyadic化と部分和最大値を組み合わせて有限分散iid強大数則を証明できる
+  - 4次モーメント有限・有限分散・1次モーメント有限の三つの仮定と証明ルートを区別できる
 definitions:
   - { id: F0P5-DEF-01, name: 部分和 }
   - { id: F0P5-DEF-02, name: dyadic subsequence }
 theorems:
+  - { id: F0P5-THM-00, name: 有限4次モーメントからの強大数則 }
   - { id: F0P5-THM-01, name: Kolmogorov最大不等式 }
   - { id: F0P5-THM-02, name: 有限分散版強大数則 }
-canonical_examples: [iid finite variance]
-problem_patterns: [KOLMOGOROV-MAX-1, SLLN-FINITE-VAR-1]
+canonical_examples:
+  - Rademacher和の4次モーメント
+  - 有限分散だが4次モーメント無限の対称離散分布
+problem_patterns:
+  - SLLN-FOURTH-MOMENT-1
+  - KOLMOGOROV-MAX-1
+  - SLLN-FINITE-VAR-1
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 2.5, review: 0.75 }
