@@ -25,7 +25,7 @@ concepts:
   - id: prob.lotus
     name: LOTUS：分布による期待値計算
     kind: theorem
-    aliases: [LOTUS, "LOTUS：分布による期待値計算"]
+    aliases: ["LOTUS：分布による期待値計算"]
     requires:
       - measure.pushforward-measure
       - measure.simple-function-approximation
@@ -56,10 +56,10 @@ concepts:
       - measure.measure-monotonicity
 
   - id: prob.probability-continuity-from-above
-    name: 確率測度の上からの連続性
+    name: 確率測度の減少列連続性
     kind: theorem
-    aliases: [確率測度の上からの連続性, 測度の上からの連続性]
-    introduction_aliases: [確率測度の上からの連続性]
+    aliases: [確率測度の減少列連続性]
+    introduction_aliases: [確率測度の減少列連続性]
     requires:
       - prob.probability-space
       - measure.continuity-from-below
