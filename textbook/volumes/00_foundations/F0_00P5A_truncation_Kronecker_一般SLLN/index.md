@@ -937,7 +937,7 @@ $$
 \le E|X|
 $$
 
-を、指示関数と [[Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。
+を、指示関数と [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。
 
 <!-- solution-start -->
 #### 詳細解答
