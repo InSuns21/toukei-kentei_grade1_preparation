@@ -1,0 +1,14 @@
+chapter: "F0-00D0A"
+terms:
+  - term: 完備化
+    english: completion
+    meaning: 元の距離空間を等長かつ稠密に含む完備距離空間を作る操作。
+  - term: 等長写像
+    english: isometry
+    meaning: 任意の二点間の距離を保つ写像。
+  - term: 稠密
+    english: dense
+    meaning: 完備化側の任意の点を元の空間の点で任意精度に近似できる性質。
+  - term: 完備化の一意性
+    english: uniqueness of completion
+    meaning: 等長かつ稠密な埋め込みを持つ完備化は等長同型を除いて一意であること。
