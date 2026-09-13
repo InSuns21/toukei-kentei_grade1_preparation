@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00D2
+  - F0-00D2A
   - F0-02C2
 official_scope: []
 learning_objectives:
@@ -19,8 +20,7 @@ definitions:
   - { id: F000DS1-DEF-03, name: 正則超関数 }
   - { id: F000DS1-DEF-04, name: Dirac delta }
   - { id: F000DS1-DEF-05, name: 超関数収束 }
-theorems:
-  - { id: F000DS1-THM-01, name: 局所可積分関数による正則超関数の埋め込み }
+theorems: []
 canonical_examples:
   - 局所可積分関数fからTfを作る
   - Dirac deltaの作用
