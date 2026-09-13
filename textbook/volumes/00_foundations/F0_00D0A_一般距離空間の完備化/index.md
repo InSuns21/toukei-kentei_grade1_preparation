@@ -82,7 +82,23 @@ $$
 <!-- definition-example-start: def-f0-00d0a-completion -->
 ### 1.2 新しい点は「収束先候補」の同値類
 
-$X=(0,1)$ では $(1/(n+1))$ と $(1/(n+2))$ の同値類が一つの新しい点になります。後で $[0,1]$ と同一視したとき、この点が0に対応します。
+**定義の確認**
+
+$X=(0,1)$ で
+
+$$
+x_n=\frac1{n+1},
+\qquad
+y_n=\frac1{n+2}
+$$
+
+とします。前節で $(x_n),(y_n)\in\mathcal C(X)$ かつ $(x_n)\sim(y_n)$ を直接確認したので、商集合の定義から
+
+$$
+[(x_n)]=[(y_n)]\in\mathcal C(X)/\sim=\widehat X.
+$$
+
+したがって、二つの異なる近似列は完備化では一つの新しい点を表します。後で $[0,1]$ と同一視したとき、この同値類が0に対応します。
 <!-- definition-example-end -->
 
 ここではまだ集合 $\widehat X$ を作っただけです。次に距離を入れます。
@@ -614,8 +630,7 @@ $(x_n)\sim(y_n)$、$(y_n)\sim(z_n)$ なら $(x_n)\sim(z_n)$ を示せ。
 任意の $\varepsilon>0$ を取る。十分大きい $n$ で
 $$
 d(x_n,y_n)<\varepsilon/2,
-\qquad
-d(y_n,z_n)<\varepsilon/2.
+\qquad d(y_n,z_n)<\varepsilon/2.
 $$
 従って
 $$
