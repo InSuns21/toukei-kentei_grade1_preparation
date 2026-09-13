@@ -326,7 +326,7 @@ $$
 0\le Y1_{\{Y>K\}}\le Y\in L^1
 $$
 
-なので優収束定理を使えます。従って $\{X_n\}$ はUIです。$\square$
+なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を使えます。従って $\{X_n\}$ はUIです。$\square$
 <!-- proof-end -->
 
 これは優収束定理がVitaliより強いtail controlを仮定していることを示します。
@@ -479,7 +479,7 @@ $$
 とします。
 
 **確率収束。**  
-任意の $\eta>0$ に対しMarkovの不等式から
+任意の $\eta>0$ に対し[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
 
 $$
 P(|X_n-X|>\eta)
@@ -585,7 +585,7 @@ $$
 E|X_n-X|\to0.
 $$
 
-つまり優収束定理はVitaliの枠組みからも理解できます。ただしDCTは共通の支配関数という、より直接的で強い十分条件を仮定します。
+つまり[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)はVitaliの枠組みからも理解できます。ただしDCTは共通の支配関数という、より直接的で強い十分条件を仮定します。
 
 ---
 
@@ -644,7 +644,7 @@ $$
 \le E[Y1_{\{Y>K\}}].
 $$
 
-右辺は $Y\in L^1$ とDCTから0へ収束します。上界が $n$ に依存しないため、一様可積分性が得られます。
+右辺は $Y\in L^1$ と[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から0へ収束します。上界が $n$ に依存しないため、一様可積分性が得られます。
 <!-- solution-end -->
 
 ### F0-00P4A-A03 unbounded でもUIになり得る
@@ -879,7 +879,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-条件付き期待値の単調性を $-|X|\le X\le|X|$ に適用すると
+[条件付き期待値の基本性質](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-basic-properties)の単調性を $-|X|\le X\le|X|$ に適用すると
 
 $$
 -E[|X|\mid\mathcal G_n]
@@ -900,7 +900,7 @@ $$
 E|Z_n|\le E|X|
 $$
 
-なのでMarkovの不等式から、
+なので[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から、
 
 $$
 A_{n,K}:=\{|Z_n|>K\}\in\mathcal G_n
@@ -916,7 +916,7 @@ $$
 
 右辺は $n$ に依存せず $K\to\infty$ で0へ行きます。
 
-次に $A_{n,K}\in\mathcal G_n$ を使います。上の絶対値不等式と条件付き期待値の積分保存性から
+次に $A_{n,K}\in\mathcal G_n$ を使います。上の絶対値不等式と[条件付き期待値の積分保存性](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#def-f0-00p3a-conditional-expectation)から
 
 $$
 \begin{aligned}
@@ -926,13 +926,31 @@ E[|Z_n|1_{A_{n,K}}]
 \end{aligned}
 $$
 
-$X\in L^1$ なので、その積分は小測度集合上で絶対連続です。すなわち任意の $\varepsilon>0$ に対して $\delta>0$ があり、$P(A)<\delta$ なら
+ここで $X\in L^1$ から、小測度集合上の積分を直接制御します。$\varepsilon>0$ を固定します。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を $|X|1_{\{|X|>M\}}\to0$ に適用し、$M$ を十分大きく取って
 
 $$
-E[|X|1_A]<\varepsilon.
+E[|X|1_{\{|X|>M\}}]<\frac\varepsilon2
 $$
 
-そこで $K$ を十分大きく取り
+とします。$M>0$ として
+
+$$
+\delta:=\frac{\varepsilon}{2M}
+$$
+
+と置けば、$P(A)<\delta$ のとき
+
+$$
+\begin{aligned}
+E[|X|1_A]
+&\le E[|X|1_{A\cap\{|X|\le M\}}]
+ +E[|X|1_{\{|X|>M\}}]\\
+&\le MP(A)+\frac\varepsilon2\\
+&<\varepsilon.
+\end{aligned}
+$$
+
+従って $X$ の積分は小測度集合上で一様に小さくできます。そこで $K$ を十分大きく取り
 
 $$
 \frac{E|X|}{K}<\delta
