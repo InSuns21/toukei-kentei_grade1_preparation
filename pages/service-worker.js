@@ -454,6 +454,14 @@ function notify(source, payload) {
   }
 }
 
+function boundedLocalConcurrency(total) {
+  if (!total) return 0;
+  return Math.min(
+    Math.max(Number(config.manualCacheLocalConcurrency) || 12, 1),
+    total,
+  );
+}
+
 async function sha256Response(response) {
   if (!self.crypto?.subtle) return null;
   const bytes = await response.arrayBuffer();
@@ -491,42 +499,58 @@ async function writeStoredOfflineManifest(manifest) {
   );
 }
 
-async function filesNeedingRefresh(manifest, contentCache) {
+async function filesNeedingRefresh(manifest, contentCache, source) {
   const stored = await readStoredOfflineManifest();
   const storedHashes = new Map(
     (stored?.files || []).map((item) => [item.path, String(item.sha256 || '').toLowerCase()]),
   );
-  const changed = [];
-  let unchanged = 0;
+  const needsRefresh = new Set();
+  const queue = [...manifest.files];
+  const total = queue.length;
+  const concurrency = boundedLocalConcurrency(total);
+  let completed = 0;
 
-  for (const file of manifest.files) {
-    const cached = await contentCache.match(file.url, { ignoreSearch: true });
-    if (!cached) {
-      changed.push(file);
-      continue;
-    }
+  notify(source, {
+    type: 'CACHE_CHECKING',
+    completed: 0,
+    total,
+  });
 
-    const storedHash = storedHashes.get(file.path);
-    if (storedHash === file.sha256) {
-      unchanged += 1;
-      continue;
-    }
+  async function worker() {
+    while (queue.length) {
+      const file = queue.shift();
+      const cached = await contentCache.match(file.url, { ignoreSearch: true });
+      if (!cached) {
+        needsRefresh.add(file.path);
+      } else {
+        const storedHash = storedHashes.get(file.path);
+        if (storedHash !== file.sha256) {
+          // The first version with persistent content may inherit files from the
+          // old revision-scoped cache without a local hash manifest. Hash those
+          // bytes locally once so unchanged material does not cross the network.
+          if (!storedHash) {
+            const cachedHash = await sha256Response(cached.clone());
+            if (cachedHash !== file.sha256) needsRefresh.add(file.path);
+          } else {
+            needsRefresh.add(file.path);
+          }
+        }
+      }
 
-    // The first version with persistent content may inherit files from the old
-    // revision-scoped cache without a local hash manifest. Hash those bytes
-    // locally once so unchanged material does not have to cross the network.
-    if (!storedHash) {
-      const cachedHash = await sha256Response(cached.clone());
-      if (cachedHash === file.sha256) {
-        unchanged += 1;
-        continue;
+      completed += 1;
+      if (completed === total || completed % 25 === 0) {
+        notify(source, {
+          type: 'CACHE_CHECK_PROGRESS',
+          completed,
+          total,
+        });
       }
     }
-
-    changed.push(file);
   }
 
-  return { changed, unchanged };
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
+  const changed = manifest.files.filter((file) => needsRefresh.has(file.path));
+  return { changed, unchanged: manifest.files.length - changed.length };
 }
 
 async function removeObsoleteOfflineFiles(contentCache, manifest) {
@@ -539,15 +563,48 @@ async function removeObsoleteOfflineFiles(contentCache, manifest) {
   );
 }
 
-async function commitStage(stageCache, contentCache, changedFiles) {
-  for (const file of changedFiles) {
-    const response = await stageCache.match(file.url, { ignoreSearch: true });
-    if (!response) throw new Error(`staged response missing: ${file.path}`);
-    await contentCache.put(file.url, response);
+async function commitStage(stageCache, contentCache, changedFiles, source) {
+  const queue = [...changedFiles];
+  const total = queue.length;
+  const concurrency = boundedLocalConcurrency(total);
+  let completed = 0;
+
+  if (!total) return;
+
+  notify(source, {
+    type: 'CACHE_FINALIZING',
+    completed: 0,
+    total,
+  });
+
+  async function worker() {
+    while (queue.length) {
+      const file = queue.shift();
+      const response = await stageCache.match(file.url, { ignoreSearch: true });
+      if (!response) throw new Error(`staged response missing: ${file.path}`);
+      await contentCache.put(file.url, response);
+
+      completed += 1;
+      if (completed === total || completed % 25 === 0) {
+        notify(source, {
+          type: 'CACHE_FINALIZING',
+          completed,
+          total,
+        });
+      }
+    }
   }
+
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
 }
 
 async function cachePublishedFiles(source) {
+  notify(source, {
+    type: 'CACHE_CHECKING',
+    completed: 0,
+    total: 0,
+  });
+
   const startMeta = await readSiteMeta();
   if (!startMeta) {
     notify(source, {
@@ -574,7 +631,7 @@ async function cachePublishedFiles(source) {
   }
 
   const contentCache = await caches.open(offlineContentCacheName);
-  const { changed, unchanged } = await filesNeedingRefresh(manifest, contentCache);
+  const { changed, unchanged } = await filesNeedingRefresh(manifest, contentCache, source);
   const total = changed.length;
   const stageCacheName = `${offlineStageCachePrefix}${startMeta.revision}`;
   await caches.delete(stageCacheName);
@@ -638,7 +695,8 @@ async function cachePublishedFiles(source) {
     return;
   }
 
-  await commitStage(stageCache, contentCache, changed);
+  await commitStage(stageCache, contentCache, changed, source);
+  notify(source, { type: 'CACHE_CLEANUP' });
   await removeObsoleteOfflineFiles(contentCache, manifest);
   await writeStoredOfflineManifest(manifest);
   await caches.delete(stageCacheName);
@@ -667,6 +725,7 @@ async function migrateLegacyOfflineContent(cacheNames) {
 
   const allowed = new Set(manifest.files.map((file) => file.url));
   const contentCache = await caches.open(offlineContentCacheName);
+  const candidates = [];
 
   for (const name of legacyNames) {
     const legacyCache = await caches.open(name);
@@ -674,12 +733,23 @@ async function migrateLegacyOfflineContent(cacheNames) {
     for (const request of requests) {
       const normalized = normalizedSameOriginUrl(request.url);
       if (!allowed.has(normalized)) continue;
+      candidates.push({ legacyCache, request, normalized });
+    }
+  }
+
+  const queue = candidates;
+  const concurrency = boundedLocalConcurrency(queue.length);
+
+  async function worker() {
+    while (queue.length) {
+      const { legacyCache, request, normalized } = queue.shift();
       if (await contentCache.match(normalized, { ignoreSearch: true })) continue;
       const response = await legacyCache.match(request);
       if (response) await contentCache.put(normalized, response);
     }
   }
 
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
   return true;
 }
 
