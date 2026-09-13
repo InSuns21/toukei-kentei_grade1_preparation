@@ -1,0 +1,36 @@
+name: Temporary P4 pedagogy audit
+
+on:
+  push:
+    branches:
+      - fix/p4-tail-events-zero-one
+    paths:
+      - '.github/workflows/tmp-p4-pedagogy-audit.yml'
+      - 'textbook/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  audit-pedagogy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit proof pedagogy
+        run: npm run audit:proof-pedagogy
+
+      - name: Audit formalism pedagogy
+        run: npm run audit:formalism-pedagogy
