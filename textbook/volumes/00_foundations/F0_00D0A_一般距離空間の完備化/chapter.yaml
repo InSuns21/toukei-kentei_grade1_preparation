@@ -9,7 +9,7 @@ official_scope: []
 learning_objectives:
   - 任意の距離空間のCauchy列から完備化を構成できる
   - 完備化上の距離がwell-definedであることを証明できる
-  - 元の空間が完備化へ等長かつ稠密に埋め込まれることを証明できる
+  - 元の空間が定数列埋め込みによって完備化へ等長かつ稠密に入ることを証明できる
   - 完備化が完備であることを対角近似で証明できる
   - 完備化の一意性を等長同型の意味で証明できる
   - 既に完備な空間や具体例の完備化を一意性から同定できる
@@ -19,7 +19,7 @@ definitions:
 theorems:
   - { id: F000D0A-THM-01, name: 点間距離列のCauchy性 }
   - { id: F000D0A-THM-02, name: 完備化距離のwell-defined性 }
-  - { id: F000D0A-THM-03, name: 標準埋め込みの等長性と稠密性 }
+  - { id: F000D0A-THM-03, name: 定数列埋め込みの等長性と稠密性 }
   - { id: F000D0A-THM-04, name: 完備化空間の完備性 }
   - { id: F000D0A-THM-05, name: 完備化の一意性 }
 canonical_examples: [有理数から実数, 開区間から閉区間, 既に完備な空間]
