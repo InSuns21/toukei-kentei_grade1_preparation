@@ -36,7 +36,7 @@ concepts:
     name: L^2表現補題
     kind: lemma
     aliases: [L^2表現補題, "L^2 表現補題", "表現補題）"]
-    introduction_aliases: ["L^2 表現補題", "補題（$L^2$ 表現補題）"]
+    introduction_aliases: [Hilbert空間から表現を作る]
     requires:
       - measure.lp-space
       - measure.cauchy-schwarz-l2
