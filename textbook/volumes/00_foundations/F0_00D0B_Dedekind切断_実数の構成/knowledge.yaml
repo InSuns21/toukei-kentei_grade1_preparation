@@ -1,0 +1,49 @@
+chapter: F0-00D0B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D0A
+  - F0-00A1B
+
+concepts:
+  - id: completion.dedekind-cut
+    name: Dedekind切断
+    kind: definition
+    aliases: [Dedekind切断]
+    requires: []
+
+  - id: completion.dedekind-real
+    name: Dedekind実数
+    kind: definition
+    aliases: [Dedekind実数]
+    requires: [completion.dedekind-cut]
+
+  - id: completion.rational-standard-cut
+    name: 有理数の標準切断
+    kind: theorem
+    aliases: [有理数の標準切断]
+    requires: [completion.dedekind-cut]
+
+  - id: completion.dedekind-order
+    name: Dedekind実数の順序
+    kind: definition
+    aliases: [Dedekind実数の順序]
+    requires: [completion.dedekind-real]
+
+  - id: completion.dedekind-addition
+    name: 切断の加法
+    kind: theorem
+    aliases: [切断の加法]
+    requires: [completion.dedekind-cut, completion.dedekind-order]
+
+  - id: completion.dedekind-lub
+    name: Dedekind実数の上限性質
+    kind: theorem
+    aliases: [Dedekind実数の上限性質]
+    requires: [completion.dedekind-order]
+
+  - id: completion.dedekind-complete-ordered-field
+    name: Dedekind実数は完備順序体
+    kind: theorem
+    aliases: [Dedekind実数は完備順序体]
+    requires: [completion.dedekind-addition, completion.dedekind-lub]
