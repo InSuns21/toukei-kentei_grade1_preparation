@@ -1,0 +1,86 @@
+chapter: RA1A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA1
+
+forward_references:
+  - analysis.improper-riemann-integral
+  - analysis.uniform-convergence
+
+concepts:
+  - id: analysis.series-term-necessary-condition
+    name: 級数収束の一般項必要条件
+    kind: theorem
+    aliases: [級数収束の一般項必要条件]
+    requires: [analysis.series-cauchy-criterion]
+  - id: analysis.nonnegative-series
+    name: 非負項級数
+    kind: definition
+    aliases: [非負項級数]
+    requires: [analysis.series]
+  - id: analysis.nonnegative-series-bounded-partial-sums
+    name: 非負項級数の部分和有界性判定
+    kind: theorem
+    aliases: [非負項級数の部分和有界性判定]
+    requires: [analysis.nonnegative-series, analysis.monotone-convergence-sequence]
+  - id: analysis.series-comparison-test
+    name: 級数の比較判定
+    kind: theorem
+    aliases: [級数の比較判定]
+    requires: [analysis.nonnegative-series-bounded-partial-sums]
+  - id: analysis.series-limit-comparison-test
+    name: 級数の極限比較判定
+    kind: theorem
+    aliases: [級数の極限比較判定]
+    requires: [analysis.series-comparison-test]
+  - id: analysis.series-ratio-test
+    name: 級数の比判定
+    kind: theorem
+    aliases: [級数の比判定]
+    requires: [analysis.series-comparison-test, analysis.series-term-necessary-condition]
+  - id: analysis.series-root-test
+    name: 級数の根判定
+    kind: theorem
+    aliases: [級数の根判定]
+    requires: [analysis.limsup-liminf, analysis.series-comparison-test, analysis.series-term-necessary-condition]
+  - id: analysis.cauchy-condensation-test
+    name: Cauchy凝縮判定
+    kind: theorem
+    aliases: [Cauchy凝縮判定]
+    requires: [analysis.nonnegative-series-bounded-partial-sums]
+  - id: analysis.alternating-series
+    name: 交代級数
+    kind: definition
+    aliases: [交代級数]
+    requires: [analysis.series]
+  - id: analysis.leibniz-alternating-series-test
+    name: Leibnizの交代級数判定
+    kind: theorem
+    aliases: [Leibnizの交代級数判定]
+    requires: [analysis.alternating-series, analysis.monotone-convergence-sequence]
+  - id: analysis.abel-summation-formula
+    name: Abelの部分和変換
+    kind: theorem
+    aliases: [Abelの部分和変換]
+    requires: [analysis.series]
+  - id: analysis.series-dirichlet-test
+    name: 級数のDirichlet判定
+    kind: theorem
+    aliases: [級数のDirichlet判定]
+    requires: [analysis.abel-summation-formula, analysis.series-cauchy-criterion]
+  - id: analysis.series-abel-test
+    name: 級数のAbel判定
+    kind: theorem
+    aliases: [級数のAbel判定]
+    requires: [analysis.series-dirichlet-test, analysis.monotone-convergence-sequence]
+  - id: analysis.series-rearrangement
+    name: 級数の再配列
+    kind: definition
+    aliases: [級数の再配列]
+    requires: [analysis.series]
+  - id: analysis.riemann-rearrangement-finite-target
+    name: Riemann再配列定理（有限値版）
+    kind: theorem
+    aliases: [Riemann再配列定理（有限値版）]
+    requires: [analysis.series-rearrangement, analysis.absolute-convergence, analysis.series-term-necessary-condition]
