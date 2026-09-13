@@ -1,0 +1,41 @@
+id: "ODE2"
+title: "標準常微分方程式 II：高階線形微分方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE1
+  - LA3C
+official_scope: []
+learning_objectives:
+  - n階線形ODEを斉次・非斉次に分類し、斉次解集合がベクトル空間になることを説明できる
+  - 連続係数のn階線形初期値問題の存在・一意性を有限次元Picard反復から証明できる
+  - 初期データ写像から斉次解空間がn次元であることを導ける
+  - Wronskianを計算し、Abelの公式と初期値一意性から基本解系を判定できる
+  - 定係数斉次方程式の特性多項式を使い、実根・重根・複素根から実基本解系を構成できる
+  - 非斉次方程式の一般解を特殊解と斉次一般解に分解できる
+  - 未定係数法で共鳴の有無を判定し、必要なtの冪を掛けた試行形を選べる
+  - 定数変化法をWronskian行列から導出し、二階・n階の非斉次方程式へ適用できる
+  - Cauchy--Euler方程式を対数変数変換で定係数方程式へ帰着できる
+  - 二階振動子の零初期値問題をGreen核による積分表示へ書き換え、その表示を直接検証できる
+definitions:
+  - { id: ODE2-DEF-01, name: n階線形ODE・斉次方程式・非斉次方程式 }
+  - { id: ODE2-DEF-02, name: 解空間・基本解系 }
+  - { id: ODE2-DEF-03, name: Wronskian }
+  - { id: ODE2-DEF-04, name: 特性多項式 }
+  - { id: ODE2-DEF-05, name: Cauchy--Euler方程式 }
+  - { id: ODE2-DEF-06, name: 零初期値Green核 }
+theorems:
+  - { id: ODE2-THM-01, name: 連続係数線形高階初期値問題の存在・一意性 }
+  - { id: ODE2-THM-02, name: 斉次解空間の次元 }
+  - { id: ODE2-THM-03, name: AbelのWronskian公式と基本解系判定 }
+  - { id: ODE2-THM-04, name: 定係数斉次方程式の基本解系 }
+  - { id: ODE2-THM-05, name: 非斉次方程式の一般解 }
+  - { id: ODE2-THM-06, name: 定数変化法 }
+  - { id: ODE2-THM-07, name: Cauchy--Euler変換 }
+  - { id: ODE2-THM-08, name: 調和振動子のGreen核表示 }
+canonical_examples: [Wronskian, 重根, 複素根, 調和振動子, 共鳴, 未定係数法, 定数変化法, Cauchy--Euler方程式, Green核]
+problem_patterns: [ODE-WRONSKIAN-1, ODE-CHARACTERISTIC-1, ODE-RESONANCE-1, ODE-VARIATION-PARAMETERS-1, ODE-CAUCHY-EULER-1, ODE-GREEN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 3.5, review: 0.5 }

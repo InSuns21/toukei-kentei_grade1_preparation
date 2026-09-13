@@ -1,0 +1,147 @@
+chapter: ODE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE1
+  - LA3C
+
+# ODE3 の一般線形系は逆輸入しない。高階IVPの証明では導関数を
+# companion vector に束ねるが、必要な Picard 反復を本章内で直接閉じる。
+forward_references:
+  - ode.matrix-exponential
+
+concepts:
+  - id: ode.ode2-linear-higher-order
+    name: n階線形ODE・斉次方程式・非斉次方程式
+    kind: definition
+    aliases: [高階線形常微分方程式, n階線形ODE, 常微分方程式, 斉次方程式, 非斉次方程式]
+    introduction: formal
+    introduction_aliases: [n階線形ODE・斉次方程式・非斉次方程式]
+
+  - id: ode.ode2-linear-ivp-wellposedness
+    name: 連続係数線形高階初期値問題の存在・一意性
+    kind: theorem
+    aliases: [線形高階初期値問題, 高階線形初期値問題の存在・一意性, 初期値問題]
+    introduction: formal
+    requires:
+      - ode.ode2-linear-higher-order
+      - ode.ode1-picard-lindelof
+
+  - id: ode.ode2-solution-space
+    name: 解空間・基本解系
+    kind: definition
+    aliases: [解空間, 基本解系, fundamental system]
+    introduction: formal
+    requires:
+      - ode.ode2-linear-higher-order
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode2-solution-space-dimension
+    name: 斉次解空間の次元
+    kind: theorem
+    aliases: [斉次解空間の次元, 解空間はn次元]
+    introduction: formal
+    requires:
+      - ode.ode2-solution-space
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode2-wronskian
+    name: Wronskian
+    kind: definition
+    aliases: [Wronskian, ロンスキー行列式, Wronski行列式]
+    introduction: formal
+    requires:
+      - ode.ode2-solution-space
+
+  - id: ode.ode2-abel-identity
+    name: Abelの公式と基本解系判定
+    kind: theorem
+    aliases: [Abelの公式, Abel's identity, Wronskian公式]
+    introduction: formal
+    introduction_aliases: [Abel の公式と基本解系判定]
+    requires:
+      - ode.ode2-wronskian
+      - ode.ode2-linear-ivp-wellposedness
+      - ode.ode1-linear-ivp-solution
+
+  - id: ode.ode2-characteristic-polynomial
+    name: 特性多項式
+    kind: definition
+    aliases: [特性多項式, 特性方程式]
+    introduction: formal
+    requires:
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode2-constant-coefficient-basis
+    name: 定係数斉次方程式の基本解系
+    kind: theorem
+    aliases: [定係数斉次方程式, 重根, 複素根]
+    introduction: formal
+    requires:
+      - ode.ode2-characteristic-polynomial
+      - ode.ode2-solution-space-dimension
+
+  - id: ode.ode2-nonhomogeneous-affine
+    name: 非斉次方程式の一般解
+    kind: theorem
+    aliases: [非斉次方程式の一般解, 特殊解]
+    introduction: formal
+    requires:
+      - ode.ode2-solution-space
+
+  - id: ode.ode2-undetermined-coefficients
+    name: 未定係数法
+    kind: method
+    aliases: [未定係数法, 共鳴]
+    introduction: inline
+    introduction_aliases: [未定係数法：試行形が斉次解に入ったら共鳴している]
+    requires:
+      - ode.ode2-characteristic-polynomial
+      - ode.ode2-nonhomogeneous-affine
+
+  - id: ode.ode2-variation-of-parameters
+    name: 定数変化法
+    kind: theorem
+    aliases: [定数変化法, variation of parameters]
+    introduction: formal
+    requires:
+      - ode.ode2-wronskian
+      - ode.ode2-nonhomogeneous-affine
+
+  - id: ode.ode2-cauchy-euler
+    name: Cauchy--Euler方程式
+    kind: definition
+    aliases: [Cauchy--Euler方程式, Euler方程式, Euler--Cauchy方程式]
+    introduction: formal
+    introduction_aliases: [Cauchy--Euler 方程式]
+    requires:
+      - ode.ode2-linear-higher-order
+      - ode.ode2-constant-coefficient-basis
+
+  - id: ode.ode2-cauchy-euler-transform
+    name: Cauchy--Euler変換
+    kind: theorem
+    aliases: [Cauchy--Euler変換]
+    introduction: formal
+    introduction_aliases: [Cauchy--Euler 変換]
+    requires:
+      - ode.ode2-cauchy-euler
+
+  - id: ode.ode2-green-kernel
+    name: 零初期値Green核
+    kind: definition
+    aliases: [零初期値Green核, Green核, Green関数, グリーン関数]
+    introduction: formal
+    introduction_aliases: [零初期値 Green 核]
+    requires:
+      - ode.ode2-variation-of-parameters
+
+  - id: ode.ode2-oscillator-green
+    name: 調和振動子のGreen核表示
+    kind: theorem
+    aliases: [調和振動子のGreen核表示]
+    introduction: formal
+    introduction_aliases: [調和振動子の Green 核表示]
+    requires:
+      - ode.ode2-green-kernel
+      - ode.ode2-variation-of-parameters
