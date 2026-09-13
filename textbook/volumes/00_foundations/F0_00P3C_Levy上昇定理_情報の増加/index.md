@@ -41,21 +41,19 @@ a.s.極限を Fatou で同定
 
 <!-- formal-statement-start -->
 > **定義（増加する部分$\sigma$代数列）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ の部分 $\sigma$ 代数列 $(\mathcal G_n)_{n\ge1}$ が
->
-> $$
-> \mathcal G_n\subseteq\mathcal G_{n+1}
-> \qquad(\forall n\ge1)
-> $$
->
-> を満たすとき、$(\mathcal G_n)$ を増加する情報列と呼びます。また
->
-> $$
-> \mathcal G_\infty
-> :=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right)
-> $$
->
-> を極限で得られる情報とします。
+> 確率空間 $(\Omega,\mathcal F,P)$ の部分 $\sigma$ 代数列 $(\mathcal G_n)_{n\ge1}$ が次を満たすとき、$(\mathcal G_n)$ を増加する情報列と呼びます。
+
+$$
+\mathcal G_n\subseteq\mathcal G_{n+1}
+\qquad(\forall n\ge1).
+$$
+
+> また、極限で得られる情報を次で定めます。
+
+$$
+\mathcal G_\infty
+:=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right).
+$$
 <!-- formal-statement-end -->
 
 ### 1.1 例：二進分割を細かくしていく
@@ -112,13 +110,11 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（増加情報の代数による集合近似）**  
-> $\mathcal G_\infty=\sigma(\mathcal A)$ とします。任意の $B\in\mathcal G_\infty$ と $\varepsilon>0$ に対し、ある $A\in\mathcal A$ が存在して
->
-> $$
-> \boxed{P(A\triangle B)<\varepsilon}
-> $$
->
-> となります。
+> $\mathcal G_\infty=\sigma(\mathcal A)$ とします。任意の $B\in\mathcal G_\infty$ と $\varepsilon>0$ に対し、ある $A\in\mathcal A$ が存在して次を満たします。
+
+$$
+\boxed{P(A\triangle B)<\varepsilon}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -151,7 +147,7 @@ $$
 B^{(N)}=\bigcup_{i=1}^N B_i
 $$
 
-は $B^{(N)}\uparrow B$ なので、確率測度の下からの連続性から
+は $B^{(N)}\uparrow B$ なので、[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)から
 
 $$
 P(B\setminus B^{(N)})\to0.
@@ -203,19 +199,17 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（有限段階可測単関数の稠密性）**  
-> 任意の $Y\in L^1(\mathcal G_\infty)$ と $\varepsilon>0$ に対して、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在し
->
-> $$
-> \boxed{\|Y-Z\|_1<\varepsilon}
-> $$
->
-> となります。
+> 任意の $Y\in L^1(\mathcal G_\infty)$ と $\varepsilon>0$ に対して、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在し、次を満たします。
+
+$$
+\boxed{\|Y-Z\|_1<\varepsilon}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 2.3 証明
 
-可積分関数の単関数近似により、$\mathcal G_\infty$-可測な有界単関数
+[可積分関数の単関数近似](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)により、$\mathcal G_\infty$-可測な有界単関数
 
 $$
 S=\sum_{j=1}^r c_j\mathbf1_{B_j},
@@ -230,7 +224,7 @@ $$
 
 となるように取れます。$c_j=0$ の項は捨ててよいので、以下 $c_j\ne0$ とします。
 
-前節の集合近似補題から、各 $j$ について $A_j\in\mathcal A$ を
+[増加情報の代数による集合近似](#lem-f0-00p3c-algebra-approximation)から、各 $j$ について $A_j\in\mathcal A$ を
 
 $$
 P(A_j\triangle B_j)
@@ -288,22 +282,18 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（上向き横断）**  
-> 実数列 $x_1,\dots,x_N$ と $a<b$ に対し、添字
->
-> $$
-> s_1<t_1<s_2<t_2<\cdots<s_r<t_r\le N
-> $$
->
-> を選んで
->
-> $$
-> x_{s_j}\le a,
-> \qquad
-> x_{t_j}\ge b
-> \qquad(j=1,\dots,r)
-> $$
->
-> とできる最大の $r$ を、区間 $[a,b]$ の**上向き横断回数**と呼び、$U_N(a,b)$ と書きます。
+> 実数列 $x_1,\dots,x_N$ と $a<b$ に対し、次の条件を満たす添字を選べる最大の $r$ を、区間 $[a,b]$ の**上向き横断回数**と呼び、$U_N(a,b)$ と書きます。
+
+$$
+s_1<t_1<s_2<t_2<\cdots<s_r<t_r\le N,
+$$
+
+$$
+x_{s_j}\le a,
+\qquad
+x_{t_j}\ge b
+\qquad(j=1,\dots,r).
+$$
 <!-- formal-statement-end -->
 
 ### 3.1 例：0と2を往復する数列
@@ -343,34 +333,29 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lévy上昇定理）**  
-> $(\mathcal G_n)$ を増加する部分 $\sigma$ 代数列とし
->
-> $$
-> \mathcal G_\infty
-> =\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right)
-> $$
->
-> とします。$X\in L^1(P)$ に対して
->
-> $$
-> M_n=E[X\mid\mathcal G_n],
-> \qquad
-> Y=E[X\mid\mathcal G_\infty]
-> $$
->
-> と置くと
->
-> $$
-> \boxed{M_n\to Y\quad\text{in }L^1}
-> $$
->
-> かつ
->
-> $$
-> \boxed{M_n\to Y\quad\text{a.s.}}
-> $$
->
-> が成り立ちます。
+> $(\mathcal G_n)$ を増加する部分 $\sigma$ 代数列とし、次で $\mathcal G_\infty$、$M_n$、$Y$ を定めます。
+
+$$
+\mathcal G_\infty
+=\sigma\left(\bigcup_{n=1}^\infty\mathcal G_n\right),
+$$
+
+$$
+M_n=E[X\mid\mathcal G_n],
+\qquad
+Y=E[X\mid\mathcal G_\infty],
+\qquad X\in L^1(P).
+$$
+
+> このとき次の二つが成り立ちます。
+
+$$
+\boxed{M_n\to Y\quad\text{in }L^1},
+$$
+
+$$
+\boxed{M_n\to Y\quad\text{a.s.}}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -384,7 +369,7 @@ E[Y\mid\mathcal G_n]
 =M_n.
 $$
 
-$\varepsilon>0$ を任意に取ります。前節の有限段階単関数稠密性から、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在して
+$\varepsilon>0$ を任意に取ります。[有限段階可測単関数のL1稠密性](#lem-f0-00p3c-l1-finite-stage-density)から、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ が存在して
 
 $$
 \|Y-Z\|_1<\varepsilon.
@@ -417,7 +402,7 @@ $$
 
 ### 4.2 証明：条件付き平均の増分は予測不能
 
-$n\ge2$ に対しtower propertyから
+$n\ge2$ に対し[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 E[M_n\mid\mathcal G_{n-1}]=M_{n-1}.
@@ -453,7 +438,7 @@ $$
 
 とします。
 
-各項は可積分で、条件付き期待値の既知量取り出しとtower propertyから
+各項は可積分で、条件付き期待値の既知量取り出しと[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 \begin{aligned}
@@ -591,7 +576,7 @@ $$
 |M_n-Y|\to|M_\infty-Y|\quad\text{a.s.}
 $$
 
-であり、Fatouの補題から
+であり、[Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 E|M_\infty-Y|
@@ -784,7 +769,7 @@ $$
 G_N=\sum_{k=2}^NH_{k-1}(M_k-M_{k-1})
 $$
 
-と置くと $E[G_N]=0$ である。完成した各横断から少なくとも $b-a$ を得る。最後に未決済なら買値 $q\le a$ なので残り損益は
+と置くと[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)により $E[G_N]=0$ である。完成した各横断から少なくとも $b-a$ を得る。最後に未決済なら買値 $q\le a$ なので残り損益は
 
 $$
 M_N-q\ge-(M_N-a)^-.
@@ -802,7 +787,7 @@ $$
 E[U_N(a,b)]\le\frac{E|X|+|a|}{b-a}.
 $$
 
-$U_N\uparrow U_\infty$ なのでMCTから $E[U_\infty]<\infty$。ゆえに $U_\infty<\infty$ a.s.。
+$U_N\uparrow U_\infty$ なので[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)から $E[U_\infty]<\infty$。ゆえに $U_\infty<\infty$ a.s.。
 <!-- solution-end -->
 
 ### F0-00P3C-B02 集合近似から関数近似へ
@@ -814,7 +799,7 @@ $U_N\uparrow U_\infty$ なのでMCTから $E[U_\infty]<\infty$。ゆえに $U_\i
 
 <!-- solution-start -->
 #### 詳細解答
-まず $\mathcal G_\infty$-可測有界単関数
+[可積分関数の単関数近似](../F0_00D2A_単関数_Lebesgue積分_構成/index.md#thm-simple-function-approximation)により $\mathcal G_\infty$-可測有界単関数
 
 $$
 S=\sum_{j=1}^r c_j\mathbf1_{B_j}
@@ -858,13 +843,13 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-まずtower propertyから
+まず[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 E[X\mid\mathcal G_n]=E[Y\mid\mathcal G_n].
 $$
 
-$\varepsilon>0$ に対し、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ を $\|Y-Z\|_1<\varepsilon$ となるように取る。$n\ge N$ なら $E[Z\mid\mathcal G_n]=Z$。従って
+$\varepsilon>0$ に対し、[有限段階可測単関数のL1稠密性](#lem-f0-00p3c-l1-finite-stage-density)から、ある $N$ と $\mathcal G_N$-可測単関数 $Z$ を $\|Y-Z\|_1<\varepsilon$ となるように取る。$n\ge N$ なら $E[Z\mid\mathcal G_n]=Z$。従って
 
 $$
 \begin{aligned}
@@ -887,15 +872,15 @@ $M_n=E[X\mid\mathcal G_n]$、$Y=E[X\mid\mathcal G_\infty]$ とする。次の順
 1. 有限段階単関数近似から $M_n\to Y$ in $L^1$ を示す。
 2. 任意の有理数 $a<b$ について $U_\infty(a,b)<\infty$ a.s. を示す。
 3. 有理数の可算性から $M_n$ がa.s.で拡張実数値極限を持つことを示す。
-4. Fatouの補題と $\sup_nE|M_n|<\infty$ から極限が有限であることを示す。
-5. 次章の一般の収束概念を使わず、Fatouの補題だけでその極限が $Y$ とa.s.一致することを示す。
+4. [Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)と $\sup_nE|M_n|<\infty$ から極限が有限であることを示す。
+5. 後続章の一般の収束概念を使わず、Fatouの補題だけでその極限が $Y$ とa.s.一致することを示す。
 
 <!-- solution-start -->
 #### 詳細解答
 1. B03の議論で $\|M_n-Y\|_1\to0$。
 2. B01のupcrossing評価から各有理 $a<b$ について $E[U_\infty(a,b)]<\infty$、従って $U_\infty(a,b)<\infty$ a.s.
 3. もし $\liminf M_n<\limsup M_n$ なら、その間に有理 $a<b$ があり、その区間を無限回横断する。これは2に矛盾。有理数対は可算なので全対について同時に成立する確率1の集合を取れる。
-4. Fatouから
+4. [Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $$
 E[\liminf|M_n|]
@@ -904,7 +889,7 @@ E[\liminf|M_n|]
 $$
 
 従って極限が無限大となる集合は零集合。
-5. 有限極限を $M_\infty$ とすると $|M_n-Y|\to|M_\infty-Y|$ a.s.。再びFatouを使って
+5. 有限極限を $M_\infty$ とすると $|M_n-Y|\to|M_\infty-Y|$ a.s.。再び[Fatouの補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)を使って
 
 $$
 E|M_\infty-Y|
