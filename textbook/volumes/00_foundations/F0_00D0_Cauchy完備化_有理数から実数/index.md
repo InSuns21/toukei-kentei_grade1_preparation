@@ -39,14 +39,26 @@ $$
 <!-- definition-example-start: def-f0-00d0-equivalence -->
 ### 1.1 定義の確認
 
-$a_n=1/n$, $b_n=1/(n+1)$ とすると
+**定義の確認**
+
+$a_n=1/n$, $b_n=1/(n+1)$ とします。まず両列が定義域 $\mathcal C_{\mathbb Q}$ に入ることを確認します。$m,n\ge N$ なら
+
+$$
+\left|\frac1m-\frac1n\right|
+\le \frac1m+\frac1n
+\le \frac2N,
+$$
+
+なので $(a_n)$ は Cauchy 列です。$(b_n)$ も同じ評価で Cauchy 列です。そのうえで
 
 $$
 |a_n-b_n|
 =\frac1{n(n+1)}\to0
 $$
 
-なので $(a_n)\sim(b_n)$ です。一方 $a_n=0$, $b_n=1$ なら距離は常に1なので同値ではありません。
+なので $(a_n)\sim(b_n)$ です。
+
+一方、定数列 $a_n=0$, $b_n=1$ はどちらも Cauchy 列ですが、$|a_n-b_n|=1$ は0へ収束しません。従ってこの二列は同値ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-f0-00d0-equivalence"></a>
@@ -111,7 +123,27 @@ $$
 <!-- definition-example-start: def-f0-00d0-cauchy-real -->
 ### 1.2 同値類は一つの代表列ではない
 
-$[(1/n)]$ には $(1/n)$ だけでなく $(1/(n+1))$ や $(1/n+1/n^2)$ も入ります。新しい数は特定の列ではなく、**差が0へ行く近似列を全部まとめた集合**です。
+**定義の確認**
+
+$(1/n)$、$(1/(n+1))$、$(1/n+1/n^2)$ はいずれも有理 Cauchy 列です。また
+
+$$
+\left|\frac1n-\frac1{n+1}\right|\to0,
+\qquad
+\left|\left(\frac1n+\frac1{n^2}\right)-\frac1n\right|
+=\frac1{n^2}\to0.
+$$
+
+従って商集合の定義から
+
+$$
+[(1/n)]
+=[(1/(n+1))]
+=[(1/n+1/n^2)]
+\in\mathbb R_C.
+$$
+
+新しい数は特定の列ではなく、**差が0へ行く近似列を全部まとめた同値類**です。
 <!-- definition-example-end -->
 
 ---
@@ -258,15 +290,29 @@ $$
 <!-- definition-example-start: def-f0-00d0-order -->
 ### 4.1 正の項が並ぶだけでは「正の実数」とは限らない
 
-$a_n=2+1/n$ なら全ての $n$ で $a_n\ge2$ なので $[(a_n)]>0$ です。
+**定義の確認**
 
-一方 $a_n=1/n$ は全項が正ですが、どんな固定 $r>0$ よりも eventually 小さくなります。そして $(1/n)\sim(0)$ なので
+$a_n=2+1/n$ なら、固定した有理数 $r=2>0$ に対して全ての $n$ で
+
+$$
+a_n\ge r,
+$$
+
+なので定義から $[(a_n)]>0$ です。
+
+一方 $a_n=1/n$ は全項が正ですが、どんな固定 $r>0$ に対しても $n>1/r$ なら $1/n<r$ です。従って正値性の定義に必要な「固定した正の幅」は存在しません。さらに
+
+$$
+\left|\frac1n-0\right|\to0
+$$
+
+なので $(1/n)\sim(0)$、したがって
 
 $$
 [(1/n)]=0.
 $$
 
-「各項が正」と「同値類が0から正の距離だけ離れる」は別です。
+「各項が正」と「同値類が0から固定した正の幅だけ離れる」は別です。
 <!-- definition-example-end -->
 
 代表元を同値な列へ取り替えても正値性は変わりません。実際 $a_n\ge r$ が eventually 成立し $|a_n-b_n|\to0$ なら、十分後ろで $|a_n-b_n|<r/2$ なので
@@ -383,15 +429,41 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00d0-metric -->
-### 4.2 有理数上では元の距離に戻る
+### 4.2 有理数の定数列同値類で距離を確認する
 
-後で定義する埋め込み $\iota$ を使うと
+**定義の確認**
+
+$p,q\in\mathbb Q$ に対し、この場では定数列の同値類を
 
 $$
-d_C(\iota(p),\iota(q))=\iota(|p-q|).
+\bar p:=[(p,p,p,\ldots)],
+\qquad
+\bar q:=[(q,q,q,\ldots)]
 $$
 
-したがって有理数どうしの距離は変わりません。以後、文脈上明らかなときは $d_C(x,y)$ を $|x-y|$ とも書きます。
+と書きます。差は定数列の同値類
+
+$$
+\bar p-\bar q=[(p-q,p-q,\ldots)]
+$$
+
+です。$p-q\ge0$ なら絶対値の定義から $|\bar p-\bar q|_C=\overline{p-q}$、$p-q<0$ なら
+
+$$
+|\bar p-\bar q|_C
+=-(\bar p-\bar q)
+=\overline{q-p}.
+$$
+
+従って両場合をまとめると
+
+$$
+d_C(\bar p,\bar q)
+=|\bar p-\bar q|_C
+=\overline{|p-q|}.
+$$
+
+つまり定数列として入れた有理数どうしでは、距離の定義は元の絶対値距離と一致します。次節でこの定数列対応を写像 $\iota$ として正式に定義します。
 <!-- definition-example-end -->
 
 順序体の絶対値について
