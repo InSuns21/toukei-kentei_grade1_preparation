@@ -1,0 +1,41 @@
+chapter: "ODE2"
+terms:
+  - term: 高階線形常微分方程式
+    english: higher-order linear ordinary differential equation
+    meaning: 未知関数とその導関数が一次式として現れる二階以上の常微分方程式。
+  - term: 斉次方程式
+    english: homogeneous equation
+    meaning: 線形微分作用素 L に対して L[y]=0 の形をした方程式。
+  - term: 非斉次方程式
+    english: nonhomogeneous equation
+    meaning: 線形微分作用素 L に対して L[y]=g(t) の形をし、右辺が一般には0でない方程式。
+  - term: 解空間
+    english: solution space
+    meaning: 同じ斉次線形微分方程式を満たす解全体からなるベクトル空間。
+  - term: 基本解系
+    english: fundamental system of solutions
+    meaning: n階斉次線形微分方程式の解空間の基底をなすn個の解。
+  - term: Wronskian
+    english: Wronskian
+    meaning: n個の関数と0階からn-1階までの導関数を並べた行列の行列式。線形ODEの解に対して基本解系の判定に使える。
+  - term: Abelの公式
+    english: Abel's identity
+    meaning: 正規化したn階斉次線形ODEのWronskianが W(t)=W(t0) exp(-∫a_{n-1}) を満たす公式。
+  - term: 特性多項式
+    english: characteristic polynomial
+    meaning: 定係数線形ODEへ指数関数 e^{rt} を代入して得られる、rについての多項式。
+  - term: 未定係数法
+    english: method of undetermined coefficients
+    meaning: 定係数非斉次方程式で右辺の形に合わせた有限個の係数を持つ特殊解候補を置き、係数比較で決める方法。
+  - term: 共鳴
+    english: resonance
+    meaning: 非斉次項に対応する指数・三角関数が斉次方程式の特性根と重なり、通常の試行形が斉次解に入ってしまう現象。
+  - term: 定数変化法
+    english: variation of parameters
+    meaning: 斉次一般解の定数を関数へ置き換え、Wronskian行列を解いて非斉次方程式の特殊解を構成する方法。
+  - term: Cauchy--Euler方程式
+    english: Cauchy--Euler equation
+    meaning: t^k y^(k) の組合せからなり、t>0で x=log t と置くと定係数方程式へ変換できる高階線形ODE。
+  - term: Green核
+    english: Green kernel
+    meaning: 本章では零初期値の強制線形ODEの解を y(t)=∫G(t,s)g(s)ds と表すための積分核。一般のGreen関数論はPDE側で扱う。

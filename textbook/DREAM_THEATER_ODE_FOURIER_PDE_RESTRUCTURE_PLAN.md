@@ -659,7 +659,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | 章 | 状態 | 本文・証明 | 演習・詳細解答 | 依存・再利用 | 機械検証 |
 |---|---|---|---|---|---|
 | ODE1 | **実装・検証完了（PR #276）** | 一階解法、phase line、積分方程式、Lipschitz、Picard--Lindelöf の存在一意性を実装。固定点定理を黒箱化せず Picard 反復の一様Cauchy性から閉じた | A4 / B3 / C1。全問に `solution-start/end` の詳細解答あり | RA3 / RA4 / RA5 を前提。H1 §1–4 を再利用・補強 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を green 確認 |
-| ODE2 | 未着手 | H1 §5–7 を再利用予定 | 未着手 | ODE1 + 実解析 | 未実施 |
+| ODE2 | **実装・検証完了（PR #277）** | 連続係数高階線形IVPの存在一意性、n次元解空間、Wronskian / Abel、定係数の重根・複素根、非斉次、未定係数法、定数変化法、Cauchy--Euler、1次元Green核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE1 + LA3C。H1 §5–7 を再利用・補強し、ODE3 / 行列指数は逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証 |
 | ODE3 | 未着手 | H1 §8–11 を主要再利用予定 | 未着手 | ODE2 + LA4 等 | 未実施 |
 | ODE4 | 未着手 | - | - | ODE3 + 多変数微分 | 未実施 |
 | ODE5 | 未着手 | - | - | ODE2 | 未実施 |
@@ -681,4 +681,4 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 
 最終的に **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統をすべて green 確認した。ODE1 は本文・証明・定義例・演習・詳細解答・依存関係の初回実装を完了し、merge-ready とする。
 
-次の実装単位は **ODE2 高階線形微分方程式**。H1 §5–7 を主要再利用元とし、解空間・Wronskian・非斉次方程式・定数変化法までを学部標準コアとして閉じる。
+次の実装単位は **ODE3 線形連立系・行列指数・安定性**。H1 §8–11 を主要再利用元とし、基本行列・行列指数・Jordan 構造・非斉次系・2次元位相図・固有値実部と安定性までを学部標準コアとして閉じる。
