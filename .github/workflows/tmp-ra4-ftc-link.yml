@@ -1,0 +1,25 @@
+name: Temporary RA4 FTC linkage patch
+on:
+  push:
+    branches:
+      - fix/ra4-ftc-linkage
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/ra4-ftc-linkage
+          fetch-depth: 0
+      - name: Apply RA4 FTC linkage patch
+        run: python scripts/tmp_ra4_ftc_link.py
+      - name: Commit patch and remove temporary files
+        run: |
+          rm scripts/tmp_ra4_ftc_link.py .github/workflows/tmp-ra4-ftc-link.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "RA4: link FTC to the fundamental theorem of calculus"
+          git push origin HEAD:fix/ra4-ftc-linkage
