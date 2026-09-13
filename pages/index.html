@@ -193,7 +193,7 @@
         return;
       }
 
-      updateOfflineCacheUi('保存を開始しています…', true);
+      updateOfflineCacheUi('保存済み教材を確認しています…', true);
       navigator.serviceWorker.ready.then(function (registration) {
         var worker = navigator.serviceWorker.controller || registration.active || registration.waiting;
         if (!worker) throw new Error('active service worker not found');
@@ -207,11 +207,33 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', function (event) {
         var data = event.data || {};
-        if (data.type === 'CACHE_STARTED') {
-          updateOfflineCacheUi('0 / ' + data.total + ' ファイルを保存中…', true);
+        if (data.type === 'CACHE_CHECKING') {
+          updateOfflineCacheUi(data.total
+            ? data.completed + ' / ' + data.total + ' ファイルを確認中…'
+            : '保存済み教材を確認しています…', true);
+        } else if (data.type === 'CACHE_CHECK_PROGRESS') {
+          updateOfflineCacheUi(data.completed + ' / ' + data.total + ' ファイルを確認中…', true);
+        } else if (data.type === 'CACHE_STARTED') {
+          if (data.total === 0) {
+            updateOfflineCacheUi('変更されたファイルはありません。保存状態を確定しています…', true);
+          } else {
+            var unchangedSuffix = data.unchanged ? '（' + data.unchanged + ' 件は再取得不要）' : '';
+            updateOfflineCacheUi('0 / ' + data.total + ' ファイルを更新中…' + unchangedSuffix, true);
+          }
         } else if (data.type === 'CACHE_PROGRESS') {
           var suffix = data.failed ? '（失敗 ' + data.failed + '）' : '';
-          updateOfflineCacheUi(data.completed + ' / ' + data.total + ' ファイルを保存中…' + suffix, true);
+          if (data.completed === data.total && !data.failed) {
+            updateOfflineCacheUi('ネットワーク取得完了。保存内容を確定しています…', true);
+          } else {
+            updateOfflineCacheUi(data.completed + ' / ' + data.total + ' ファイルを更新中…' + suffix, true);
+          }
+        } else if (data.type === 'CACHE_FINALIZING') {
+          updateOfflineCacheUi(
+            data.completed + ' / ' + data.total + ' ファイルの保存内容を確定中…',
+            true
+          );
+        } else if (data.type === 'CACHE_CLEANUP') {
+          updateOfflineCacheUi('保存内容を整理しています…', true);
         } else if (data.type === 'CACHE_COMPLETE') {
           if (data.failed) {
             updateOfflineCacheUi('保存完了：' + data.succeeded + ' 件成功、' + data.failed + ' 件失敗。前回の保存成功記録は維持します。', false);
@@ -230,8 +252,11 @@
                 updatedAt: data.siteUpdatedAt || null
               };
             }
+            var updateSummary = typeof data.updated === 'number'
+              ? '（全 ' + data.succeeded + ' 件、今回更新 ' + data.updated + ' 件）'
+              : '（' + data.succeeded + ' 件）';
             updateOfflineCacheUi(stored
-              ? '教材のオフライン保存が完了しました（' + data.succeeded + ' 件）。'
+              ? '教材のオフライン保存が完了しました' + updateSummary + '。'
               : '教材は保存できましたが、保存日時をブラウザに記録できませんでした。', false);
             renderOfflineCacheMetadata();
           }
