@@ -1,0 +1,14 @@
+chapter: "F0-00D0B"
+terms:
+  - term: Dedekind切断
+    english: Dedekind cut
+    meaning: 非空な有理数の真部分集合で、下方閉かつ最大元を持たないもの。
+  - term: Dedekind実数
+    english: Dedekind real
+    meaning: Dedekind切断そのものを一つの実数とみなしたもの。
+  - term: 下方閉
+    english: downward closed
+    meaning: 集合の元より小さい有理数をすべて含む性質。
+  - term: 上限性質
+    english: least-upper-bound property
+    meaning: 空でなく上に有界な集合が最小上界を持つ性質。

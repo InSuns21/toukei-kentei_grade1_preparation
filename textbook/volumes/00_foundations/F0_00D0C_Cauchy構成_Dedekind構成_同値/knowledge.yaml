@@ -1,0 +1,43 @@
+chapter: F0-00D0C
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D0
+  - F0-00D0B
+
+concepts:
+  - id: completion.cauchy-to-dedekind-map
+    name: Cauchy実数から切断への対応
+    kind: definition
+    aliases: [Cauchy実数から切断への対応]
+    requires: [completion.cauchy-real, completion.dedekind-cut]
+
+  - id: completion.cauchy-image-is-cut
+    name: Cauchy実数の像はDedekind切断
+    kind: theorem
+    aliases: [Cauchy実数の像はDedekind切断]
+    requires: [completion.cauchy-to-dedekind-map]
+
+  - id: completion.cauchy-dedekind-order-embedding
+    name: Cauchy-Dedekind対応は順序埋め込み
+    kind: theorem
+    aliases: [Cauchy-Dedekind対応は順序埋め込み]
+    requires: [completion.cauchy-to-dedekind-map, completion.rational-density-cauchy-real]
+
+  - id: completion.dedekind-bisection-bracketing
+    name: 切断境界の二分近似
+    kind: lemma
+    aliases: [切断境界の二分近似]
+    requires: [completion.dedekind-cut]
+
+  - id: completion.dedekind-cut-from-cauchy-real
+    name: 任意の切断はCauchy実数から得られる
+    kind: theorem
+    aliases: [任意の切断はCauchy実数から得られる]
+    requires: [completion.dedekind-bisection-bracketing, completion.cauchy-to-dedekind-map, completion.cauchy-real-order]
+
+  - id: completion.cauchy-dedekind-ordered-field-isomorphism
+    name: Cauchy実数とDedekind実数の順序体同型
+    kind: theorem
+    aliases: [Cauchy実数とDedekind実数の順序体同型]
+    requires: [completion.dedekind-cut-from-cauchy-real, completion.cauchy-dedekind-order-embedding, completion.dedekind-addition, completion.cauchy-real-ordered-field]

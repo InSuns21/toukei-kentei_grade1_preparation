@@ -1,0 +1,56 @@
+chapter: F0-00D0A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D0
+  - F0-00B
+
+concepts:
+  - id: completion.metric-cauchy-equivalence
+    name: 距離空間Cauchy列の零距離同値
+    kind: definition
+    aliases: [距離空間Cauchy列の零距離同値]
+    introduction_aliases: [Cauchy列の同値関係]
+    requires: [topology.cauchy-sequence]
+
+  - id: completion.metric-completion-carrier
+    name: Cauchy列による完備化の台集合
+    kind: definition
+    aliases: [Cauchy列による完備化の台集合]
+    requires: [completion.metric-cauchy-equivalence]
+
+  - id: completion.distance-sequence-cauchy
+    name: 点間距離列はCauchy
+    kind: lemma
+    aliases: [点間距離列はCauchy]
+    requires: [completion.metric-cauchy-equivalence]
+
+  - id: completion.metric-distance-well-defined
+    name: 完備化距離のwell-defined性
+    kind: theorem
+    aliases: [完備化距離のwell-defined性]
+    requires: [completion.metric-completion-carrier, completion.distance-sequence-cauchy]
+
+  - id: completion.canonical-isometric-embedding
+    name: 定数列埋め込みは等長
+    kind: theorem
+    aliases: [定数列埋め込みは等長]
+    requires: [completion.metric-distance-well-defined]
+
+  - id: completion.canonical-image-dense
+    name: 定数列埋め込みの像は稠密
+    kind: theorem
+    aliases: [定数列埋め込みの像は稠密]
+    requires: [completion.canonical-isometric-embedding, topology.cauchy-sequence]
+
+  - id: completion.metric-completion-complete
+    name: 完備化空間は完備
+    kind: theorem
+    aliases: [完備化空間は完備]
+    requires: [completion.canonical-image-dense]
+
+  - id: completion.metric-completion-uniqueness
+    name: 完備化の一意性
+    kind: theorem
+    aliases: [完備化の一意性]
+    requires: [completion.canonical-isometric-embedding, completion.canonical-image-dense, topology.complete-metric-space]

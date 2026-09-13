@@ -25,6 +25,14 @@ A → A1 → A1B → A1C → B0 → B → B1
   ↓
 C → C1 → C2 → D
   ↓
+D0 Cauchy完備化
+  ↓
+D0A 一般距離空間の完備化
+  ↓
+D0B Dedekind切断
+  ↓
+D0C Cauchy構成とDedekind構成の同値
+  ↓
 E → F → E1 → E2 → F1 → F2
   ↓
 D1 → D2 → D2A → D2B → D2C → D2D → D2E
@@ -45,6 +53,14 @@ A1 → A1B → A1C → B0 → B → B1 → C → C1
 ```
 
 とする。A1Bで実数の上限性質・Archimedes性、A1Cでべき集合・集合族・添字集合・添字付き集合族・任意和/任意交差、B0で点列・部分列・「十分大きい添字」、Bで距離空間、B1で位相空間・近傍・部分空間位相・位相的収束・位相的連続性を導入する。A1D・A2・A3・A3Aは順序・整列・選択公理・Zornの補題を追う集合論側の深掘りであり、この局所列の必須前提にはしない。
+
+実数の構成を追う局所列は
+
+```text
+D → D0 → D0A → D0B → D0C
+```
+
+とする。D0で有理Cauchy列の商から $\mathbb R_C$、D0Aで任意の距離空間の完備化、D0BでDedekind切断から $\mathbb R_D$、D0Cで $\mathbb R_C\cong\mathbb R_D$ を構成する。局所的な必須前提は各 `chapter.yaml` を正本とし、D0Bは上限性質との接続のためA1Bも参照する。
 
 標準通読は細かく刻む一方、局所的な必須前提は各 `chapter.yaml` を正本とする。EはBを前提とし、D1はD+C2+Eを前提とするため、線形代数を測度論より前へ置く。例としてHahn--Banach本体C6はA3+C2から、RKHS本体C7はC2から読める。02AはFarkasの証明を02Bへ参照するが、02Bは02Aを必須前提としないため循環しない。C2のRiesz標準証明はC1AのHilbert射影定理を使用する。
 

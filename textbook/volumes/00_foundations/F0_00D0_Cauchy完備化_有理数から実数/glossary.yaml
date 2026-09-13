@@ -1,0 +1,14 @@
+chapter: "F0-00D0"
+terms:
+  - term: Cauchy完備化
+    english: Cauchy completion
+    meaning: Cauchy列を同値関係で割り、不足する極限を新しい点として加える完備化。
+  - term: Cauchy実数
+    english: Cauchy real
+    meaning: 有理Cauchy列を差が0へ収束する関係で同一視した同値類。
+  - term: well-defined
+    english: well-defined
+    meaning: 商集合上の定義が代表元の選び方に依存しないこと。
+  - term: 標準埋め込み
+    english: canonical embedding
+    meaning: 有理数を定数Cauchy列の同値類へ送る埋め込み。
