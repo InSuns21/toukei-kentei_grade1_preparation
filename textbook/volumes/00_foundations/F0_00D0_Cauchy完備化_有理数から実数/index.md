@@ -51,7 +51,7 @@ $$
 
 <a id="prop-f0-00d0-equivalence"></a>
 <!-- formal-statement-start -->
-> **命題（$\sim$ は同値関係）**  
+> **命題（有理Cauchy列上の関係は同値関係）**  
 > $\mathcal C_{\mathbb Q}$ 上の関係 $\sim$ は反射律・対称律・推移律を満たす。
 <!-- formal-statement-end -->
 
@@ -384,7 +384,7 @@ $$
 
 <a id="thm-f0-00d0-embedding"></a>
 <!-- formal-statement-start -->
-> **定理（有理数の標準埋め込み）**  
+> **定理（有理数の定数列埋め込み）**  
 > 写像
 $$
 \iota:\mathbb Q\to\mathbb R_C,
@@ -435,7 +435,7 @@ $$
 
 <a id="thm-f0-00d0-dense"></a>
 <!-- formal-statement-start -->
-> **定理（$\mathbb Q$ の稠密性）**  
+> **定理（有理数の稠密性）**  
 > 任意の $x\in\mathbb R_C$ と任意の有理数 $\varepsilon>0$ に対し、ある $q\in\mathbb Q$ が存在して
 $$
 d_C(x,q)<\varepsilon
@@ -503,7 +503,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$(x_k)$ を $\mathbb R_C$ の Cauchy 列とします。稠密性から各 $k$ に対して $q_k\in\mathbb Q$ を取り
+$(x_k)$ を $\mathbb R_C$ の Cauchy 列とします。[有理数の稠密性](#thm-f0-00d0-dense)から各 $k$ に対して $q_k\in\mathbb Q$ を取り
 
 $$
 d_C(x_k,q_k)<2^{-k}
@@ -735,7 +735,7 @@ $$
 - 結論：4点
 <!-- solution-end -->
 
-### F0-00D0-A04 標準埋め込みは積を保つ
+### F0-00D0-A04 定数列埋め込みは積を保つ
 
 - Level: A
 - 目安時間: 7分
@@ -762,7 +762,7 @@ $$
 定数列の積は定数列 $(pq,pq,\ldots)$ だから定義から従う。
 
 ##### 採点基準
-- 標準埋め込みの展開：8点
+- 定数列埋め込みの展開：8点
 - 同値類上の積の適用：8点
 - 結論：4点
 <!-- solution-end -->
