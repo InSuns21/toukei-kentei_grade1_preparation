@@ -8,20 +8,21 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - Cauchy実数からDedekind切断への自然な写像を定義できる
-  - その写像がwell-definedで順序を保つことを説明できる
+  - その写像がDedekind切断を与え、順序を保つことを証明できる
   - 任意のDedekind切断を有理Cauchy列で近似できることを示せる
-  - 二つの実数構成が有理数を固定する順序体同型で結ばれることを説明できる
+  - 全射性の両向きで固定した正の幅を用いた論証を再構成できる
+  - 二つの実数構成が有理数を固定する順序体同型で結ばれることを証明できる
   - 構成が異なっても数学的対象が同じという意味を同型の言葉で説明できる
 definitions:
   - { id: F000D0C-DEF-01, name: Cauchy実数から切断への対応 }
 theorems:
-  - { id: F000D0C-THM-01, name: 対応する集合がDedekind切断になること }
-  - { id: F000D0C-THM-02, name: 順序保存性と単射性 }
-  - { id: F000D0C-THM-03, name: Dedekind切断のCauchy近似 }
+  - { id: F000D0C-THM-01, name: Cauchy実数の像はDedekind切断 }
+  - { id: F000D0C-THM-02, name: Cauchy-Dedekind対応の順序埋め込み }
+  - { id: F000D0C-THM-03, name: Dedekind切断のCauchy近似と全射性 }
   - { id: F000D0C-THM-04, name: Cauchy実数とDedekind実数の順序体同型 }
 canonical_examples: [有理数の像, sqrt2の二つの表現]
-problem_patterns: [対応のwell-defined性, 切断条件, 近似列構成, 同型の意味]
+problem_patterns: [対応の切断性, 順序埋め込み, 近似列構成, 加法保存, 同型の意味]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
-estimated_hours: { reading: 2.8, exercises: 1.8, review: 0.4 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.3, exercises: 2.5, review: 0.5 }
