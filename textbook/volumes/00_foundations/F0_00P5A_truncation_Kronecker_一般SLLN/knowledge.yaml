@@ -61,9 +61,7 @@ concepts:
     name: Kronecker補題
     kind: lemma
     aliases: [Kronecker補題]
-    requires:
-      - analysis.summation-by-parts
-      - analysis.cesaro-mean-convergence
+    requires: []
 
   - id: prob.iid-integrable-slln
     name: iid有限平均強大数則
