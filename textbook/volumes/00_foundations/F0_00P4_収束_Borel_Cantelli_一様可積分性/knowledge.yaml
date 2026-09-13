@@ -145,7 +145,7 @@ concepts:
     name: Lp収束は確率収束を含意する
     kind: theorem
     aliases: [Lp収束は確率収束を含意する, L^p収束は確率収束を含意する]
-    introduction_aliases: ["定理（$L^p$ 収束は確率収束を含意する）"]
+    introduction_aliases: ["定理（Lp収束は確率収束を含意する）"]
     requires:
       - prob.probability-convergence
       - prob.markov-inequality
