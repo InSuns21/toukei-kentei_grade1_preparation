@@ -68,12 +68,13 @@ D → D0 → D0A → D0B → D0C
 
 ## 完全基礎論（DREAM THEATER）
 
-Lebesgue測度そのものの建設まで追う場合だけD2の直後に挿入する。
+Lebesgue測度そのものの建設まで追う場合はD2の直後に次を読む。π--λ定理 D3A は、生成 σ 代数へ性質を拡張する独立した道具として P4 からも参照する。
 
 ```text
 F0-00D2
   ↓
 F0-00D3 外測度・Caratheodory可測性
+  ├→ F0-00D3A π--λ定理・Dynkin族
   ↓
 F0-00D4 Lebesgue測度・Borel集合・拡張定理
   ↓
@@ -82,7 +83,7 @@ F0-00D5 Vitali集合・非可測集合・選択公理
 F0-00D2Aへ復帰
 ```
 
-D3〜D5は関数解析・RKHSにも確率論補講にも必須前提としない。
+D4〜D5は関数解析・RKHSにも確率論補講にも必須前提としない。一方、P4で Kolmogorov の 0--1 則を証明するときは D3A の π--λ定理を局所前提として使う。D3A 自身の前提はその knowledge / dependency metadata を正本とする。
 
 ---
 
@@ -97,7 +98,9 @@ P2 RN密度・pmf/pdf → P2A 期待値・LOTUS
   ↓
 P3 独立・積測度 → P3A 条件付き期待値 → P3B L2射影・最良予測
   ↓
-P4 limsup・Borel--Cantelli → P4A UI・Vitali
+P4 limsup/liminf・末尾事象・0--1則・Borel--Cantelli → P4A UI・Vitali
+  ↑
+D3A π--λ定理（P4の独立性拡張で使用）
   ↓
 P5 有限分散SLLN → P5A 一般iid SLLN
   │
@@ -107,7 +110,7 @@ P7 正則model・score・Fisher → P7A MLE漸近論
                          └──→ P7B QMD・LAN
 ```
 
-標準通読と必須前提は分離する。P6/P6AはSLLNを証明に使わず、P5Aはheavy-tailまでSLLNを証明したい読者向け。P3BはHilbert予測への橋、P7BはP7Aを経由せずQMD/LANへ入れる。
+標準通読と必須前提は分離する。P4は末尾事象の0--1則を本文で閉じるため D3A を局所前提に持つ。P6/P6AはSLLNを証明に使わず、P5Aはheavy-tailまでSLLNを証明したい読者向け。P3BはHilbert予測への橋、P7BはP7Aを経由せずQMD/LANへ入れる。
 
 ---
 
@@ -258,11 +261,3 @@ $$
 読者向け入口は `F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md`。
 
 ---
-
-## 構造変更時の確認
-
-通常カリキュラム章を追加・分割するときは `curriculum.yaml` を更新し循環依存を検証する。
-
-補講を追加・分割するときは各 `chapter.yaml` の `prerequisites`、読者向けロードマップ、相互リンクを同じ変更単位で更新する。
-
-補講の深掘りを追加するときは、標準通読ルートへ不要な必須依存を追加しない。必要十分な標準ルートと任意の深掘りルートを明示的に分離する。
