@@ -1,11 +1,29 @@
 chapter: "F0-00P4"
 terms:
-  - term: limsup event
+  - term: 事象列の上極限
     english: limsup event
-    meaning: 無限個のnで発生する標本点の集合。
+    meaning: 無限個のnで発生する標本点の集合。i.o.（infinitely often）事象と同じ。
+  - term: 事象列の下極限
+    english: liminf event
+    meaning: ある時点以降すべてのnで発生する標本点の集合。eventually起こる事象。
+  - term: i.o.
+    english: infinitely often
+    meaning: 事象が無限回起こること。事象列の上極限で表される。
+  - term: 末尾sigma代数
+    english: tail sigma-field
+    meaning: 任意の有限個の初期項を捨てた後の情報だけで判定できる事象全体のsigma代数。
+  - term: 末尾事象
+    english: tail event
+    meaning: 末尾sigma代数に属し、有限個の初期項を変えても真偽が変わらない事象。
+  - term: Kolmogorovの0--1則
+    english: Kolmogorov zero-one law
+    meaning: 独立列の末尾事象の確率は0または1に限られるという定理。
   - term: Borel--Cantelli
     english: Borel--Cantelli lemma
     meaning: 事象確率の級数と無限回発生を結ぶ補題。
+  - term: 概収束
+    english: almost sure convergence
+    meaning: 確率1の標本点上で各経路が極限へ収束すること。
   - term: 確率収束
     english: convergence in probability
     meaning: 任意のepsilonで差がepsilonを超える確率が0へ行く収束。
