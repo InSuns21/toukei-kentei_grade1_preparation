@@ -2,31 +2,37 @@
 
 <!-- definition-example-audit: strict -->
 
-強大数則は、仮定を少し強くすると証明が急に短くなります。この差を先に見ると、有限分散版で **なぜKolmogorov最大不等式が必要になるか** が見えやすくなります。
+強大数則は、仮定を少し強くすると証明がかなり短くなります。この違いを先に見ると、有限分散だけを仮定したときに **なぜ最大不等式が必要になるのか** が見えやすくなります。
 
-この章では次の二段階を扱います。
+この章では次の順で進みます。
 
 ```text
-E|X_1|^4 < ∞
-  ↓ 4次モーメントを直接評価
-Σ P(|S_n| > εn) < ∞
-  ↓ Borel--Cantelli
-S_n/n → 0 a.s.
+有限4次モーメント
+  ↓ 4次モーメントで逸脱確率を n^{-2} にする
+全ての n を直接 Borel--Cantelli へ
+  ↓
+強大数則
 
-E[X_1^2] < ∞
-  ↓ Chebyshevだけでは Σ 1/n が発散
+有限分散
+  ↓ Chebyshev だけでは逸脱確率が n^{-1} で総和できない
 Kolmogorov最大不等式
-  ↓ dyadic時点 + 区間最大増分
-S_n/n → 0 a.s.
+  ↓ dyadic な時点ごとに途中の部分和までまとめて制御
+強大数則
 ```
 
-さらに仮定を $E|X_1|<\infty$ まで弱めた一般の独立同分布版は、次章 [P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) で切断法を使って証明します。
+さらに仮定を $E|X_1|<\infty$ まで弱めた一般の独立同分布版は、次章 [P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) で扱います。
 
 ---
 
-## 1. 強法則で本当に示すこと
+## 1. 強法則を部分和の問題へ直す
 
-$X_1,X_2,\ldots$ を独立同分布とし、$\mu=E[X_1]$ が有限とします。中心化して
+$X_1,X_2,\ldots$ を独立同分布な実数値確率変数とし、有限な平均
+
+$$
+\mu:=E[X_1]
+$$
+
+を持つとします。中心化した確率変数を
 
 $$
 Y_i:=X_i-\mu
@@ -50,97 +56,140 @@ $$
 <!-- definition-example-start: def-f0-00p5-partial-sum -->
 **定義の確認**
 
-たとえば $Y_1=2,Y_2=-1,Y_3=4$ という実現値なら
+ある標本点で $Y_1=2,Y_2=-1,Y_3=4$ という値を取ったなら
 
 $$
-S_1=2,\qquad S_2=2+(-1)=1,\qquad S_3=2+(-1)+4=5.
+S_1=2,
+\qquad
+S_2=2+(-1)=1,
+\qquad
+S_3=2+(-1)+4=5.
 $$
 
-$S_n$ は「第 $n$ 項」ではなく、**最初から第 $n$ 項までを全部足した量**です。
+$S_n$ は「第 $n$ 項」ではなく、最初から第 $n$ 項までを足した量です。
 <!-- definition-example-end -->
 
 標本平均は
 
 $$
 \overline X_n
-=\frac1n\sum_{i=1}^nX_i
+:=\frac1n\sum_{i=1}^nX_i
 =\mu+\frac{S_n}{n}
 $$
 
-なので、強大数則は
+なので、強大数則を示すには
 
 $$
-\boxed{\frac{S_n}{n}\to0\quad\text{a.s.}}
+\boxed{
+\frac{S_n}{n}\to0
+\quad\text{a.s.}
+}
 $$
 
-を示す問題に帰着します。
+を示せば十分です。
 
-### 1.1 確率収束と概収束の差
+### 1.1 有限分散なら確率収束まではすぐ出る
 
-有限分散 $\sigma^2=\operatorname{Var}(X_1)<\infty$ を仮定すれば、[Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev)から
+さらに
 
 $$
+\operatorname{Var}(X_1)=\sigma^2<\infty
+$$
+
+とします。独立性から
+
+$$
+\operatorname{Var}(S_n)
+=\sum_{i=1}^n\operatorname{Var}(Y_i)
+=n\sigma^2.
+$$
+
+したがって [Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) より、任意の $\varepsilon>0$ に対して
+
+$$
+\begin{aligned}
 P\left(\left|\frac{S_n}{n}\right|>\varepsilon\right)
-\le
-\frac{\sigma^2}{n\varepsilon^2}
+&=P(|S_n|>\varepsilon n)\\
+&\le
+\frac{\operatorname{Var}(S_n)}{\varepsilon^2n^2}\\
+&=
+\frac{\sigma^2}{\varepsilon^2n}
 \to0.
+\end{aligned}
 $$
 
-したがって $S_n/n\to0$ は確率収束します。
+よって $S_n/n\to0$ は確率収束します。
 
-しかし概収束まで言うには、固定した $\varepsilon>0$ について
-
-$$
-\left\{\left|\frac{S_n}{n}\right|>\varepsilon\right\}
-$$
-
-が**無限回起こる確率が0**であることを示したいところです。ところが
+ところが概収束を [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) から直接出そうとすると
 
 $$
 \sum_{n=1}^{\infty}
-\frac{\sigma^2}{n\varepsilon^2}
-=\infty
+P(|S_n|>\varepsilon n)
+\le
+\frac{\sigma^2}{\varepsilon^2}
+\sum_{n=1}^{\infty}\frac1n
 $$
 
-なので、このChebyshev評価をそのまま [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) へ入れることはできません。
+の右辺が有限になりません。
 
-ここが有限分散版の最初の壁です。
+**有限分散では、各 $n$ をChebyshevだけで個別に見る方法が一歩足りない**わけです。
 
 ---
 
-## 2. 先に簡単な場合：4次モーメントが有限なら全 $n$ を直接処理できる
+## 2. 先に簡単な場合：4次モーメントが有限なら直接いける
 
-有限分散より強く
+ここで一度、有限分散より強い
 
 $$
 E|X_1|^4<\infty
 $$
 
-まで仮定すると、Chebyshevより一段強い4次モーメント評価が使えます。
+を仮定します。この仮定なら、逸脱確率を $1/n$ ではなく $1/n^2$ の大きさまで落とせます。
 
 ### 2.1 最小例：Rademacher変数
 
-$P(Y_i=1)=P(Y_i=-1)=1/2$ とします。このとき
+$Y_1,Y_2,\ldots$ を独立同分布とし
 
 $$
-E[Y_i]=0,\qquad E[Y_i^2]=1,\qquad E[Y_i^4]=1.
+P(Y_i=1)=P(Y_i=-1)=\frac12
 $$
 
-$S_n=Y_1+\cdots+Y_n$ の4乗を展開して期待値を取ると、独立性と $E[Y_i]=0$ により「添字が1回だけ現れる項」は消えます。残るのは
-
-- 同じ添字が4回現れる項：$n$ 個
-- 異なる2添字が2回ずつ現れる項：$6\binom n2$ 個
-
-です。したがって
+とします。このとき
 
 $$
+E[Y_i]=0,
+\qquad
+E[Y_i^2]=1,
+\qquad
+E[Y_i^4]=1.
+$$
+
+部分和 $S_n=Y_1+\cdots+Y_n$ の4乗を展開します。
+
+$$
+S_n^4
+=
+\sum_{i,j,k,\ell=1}^n
+Y_iY_jY_kY_\ell.
+$$
+
+期待値を取ると、ある添字が1回だけ現れる項は、その添字に対応する $E[Y_r]=0$ が因子になるため消えます。残るのは
+
+- 同じ添字が4回現れる項
+- 異なる2添字が2回ずつ現れる項
+
+だけです。したがって
+
+$$
+\begin{aligned}
 E[S_n^4]
-=n+6\binom n2
-=3n^2-2n
-\le3n^2.
+&=n+6\binom n2\\
+&=3n^2-2n\\
+&\le3n^2.
+\end{aligned}
 $$
 
-[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)を $S_n^4$ に使えば
+ここで [Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) を非負確率変数 $S_n^4$ に適用すると
 
 $$
 P(|S_n|>\varepsilon n)
@@ -150,7 +199,13 @@ P(|S_n|>\varepsilon n)
 \frac{3}{\varepsilon^4n^2}.
 $$
 
-右辺は $n$ について総和可能です。つまりこの場合は、dyadic列へ逃げなくても **全ての $n$ をそのままBorel--Cantelliへ入れられます**。
+今度は
+
+$$
+\sum_{n=1}^{\infty}\frac1{n^2}<\infty
+$$
+
+なので、全ての $n$ をそのまま [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) へ入れられます。
 
 <a id="thm-f0-00p5-fourth-moment-slln"></a>
 
@@ -162,7 +217,7 @@ $$
 E|X_1|^4<\infty
 $$
 
-> とします。$\mu=E[X_1]$ とすれば
+> とします。$\mu=E[X_1]$ とすると
 
 $$
 \boxed{
@@ -176,53 +231,116 @@ $$
 
 ### 証明の見取り図
 
-$Y_i=X_i-\mu$ と中心化します。4次モーメント有限性から
+中心化した部分和 $S_n$ に対して
 
 $$
 E[S_n^4]=O(n^2)
 $$
 
-を作れれば、Markovの不等式により逸脱確率は $O(n^{-2})$ です。これは可算和可能なのでBorel--Cantelliが直接使えます。
+を示します。すると [Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) から
+
+$$
+P(|S_n|>\varepsilon n)=O(n^{-2})
+$$
+
+となり、この確率は $n$ について総和できます。最後に [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) と可算個の $\varepsilon$ を使って極限0を得ます。
 
 <!-- proof-start -->
 ### 証明
 
-$Y_i=X_i-\mu$、$S_n=\sum_{i=1}^nY_i$ と置きます。$E[Y_i]=0$ であり、
+まず $E|X_1|^4<\infty$ から平均が有限であることを確認します。全ての実数 $x$ について
+
+$$
+|x|\le1+|x|^4
+$$
+
+なので
+
+$$
+E|X_1|
+\le1+E|X_1|^4
+<\infty.
+$$
+
+よって $\mu:=E[X_1]$ は有限です。
+
+$Y_i:=X_i-\mu$、$S_n:=\sum_{i=1}^nY_i$ と置きます。中心化後も4次モーメントが有限であることも確認しておきます。$a,b\ge0$ に対して
+
+$$
+(a+b)^4\le8(a^4+b^4)
+$$
+
+なので
+
+$$
+|Y_1|^4
+=|X_1-\mu|^4
+\le8(|X_1|^4+|\mu|^4).
+$$
+
+したがって
+
+$$
+m_4:=E[Y_1^4]<\infty.
+$$
+
+また
 
 $$
 \sigma^2:=E[Y_1^2]<\infty,
 \qquad
-m_4:=E[Y_1^4]<\infty
+E[Y_1]=0.
 $$
 
-です。
-
-まず
+4乗を展開すると
 
 $$
 S_n^4
-=\sum_{i,j,k,\ell=1}^nY_iY_jY_kY_\ell
+=
+\sum_{i,j,k,\ell=1}^nY_iY_jY_kY_\ell.
 $$
 
-を考えます。独立性により期待値は添字ごとに因数分解できます。4個の添字のうち、ある添字がちょうど1回だけ現れる項には $E[Y_r]=0$ が因子として現れるため、期待値は0です。
+独立性から、ある添字がちょうど1回だけ現れる項では、その変数の平均 $E[Y_r]=0$ が因子となり期待値は0です。したがって期待値が残る型は2種類だけです。
 
-したがって期待値が残り得る型は次の2つだけです。
+同じ添字が4回現れる項の総寄与は
 
-1. 同じ添字が4回現れる：$n$ 個、各項の期待値は $m_4$。
-2. 異なる2添字が2回ずつ現れる：添字対の選び方は $\binom n2$、並べ方は $4!/(2!2!)=6$、各項の期待値は $\sigma^4$。
+$$
+nm_4.
+$$
 
-よって
+異なる2添字が2回ずつ現れる場合、添字対の選び方は $\binom n2$ 通り、4箇所への配置は
+
+$$
+\frac{4!}{2!2!}=6
+$$
+
+通りです。独立性から各項の期待値は
+
+$$
+E[Y_i^2Y_j^2]
+=E[Y_i^2]E[Y_j^2]
+=\sigma^4
+\qquad(i\ne j)
+$$
+
+です。したがって
 
 $$
 \begin{aligned}
 E[S_n^4]
 &=nm_4+6\binom n2\sigma^4\\
 &=nm_4+3n(n-1)\sigma^4\\
-&\le (m_4+3\sigma^4)n^2.
+&\le(m_4+3\sigma^4)n^2.
 \end{aligned}
 $$
 
-$C:=m_4+3\sigma^4$ と置きます。任意の $\varepsilon>0$ について、Markovの不等式を非負確率変数 $S_n^4$ に適用すると
+定数
+
+$$
+C:=m_4+3\sigma^4
+$$
+
+を置きます。固定した $\varepsilon>0$ に対し、[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) より
 
 $$
 \begin{aligned}
@@ -233,7 +351,7 @@ P(|S_n|>\varepsilon n)
 \end{aligned}
 $$
 
-したがって
+よって
 
 $$
 \sum_{n=1}^{\infty}P(|S_n|>\varepsilon n)
@@ -243,7 +361,7 @@ $$
 <\infty.
 $$
 
-Borel--Cantelli第1補題より、固定した $\varepsilon>0$ について
+[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) により、固定した $\varepsilon>0$ について
 
 $$
 |S_n|>\varepsilon n
@@ -251,35 +369,53 @@ $$
 
 は概ね有限回しか起こりません。
 
-最後に「各 $\varepsilon$ で確率1」から「極限0」を得る点を明示します。$r=1,2,\ldots$ に対して $\varepsilon=1/r$ とし、それぞれの確率1事象を $\Omega_r$ とします。可算交叉
+ここで「各 $\varepsilon$ について確率1」から「極限が0」を出す部分を省略しません。$r=1,2,\ldots$ に対して $\varepsilon=1/r$ とし、
+
+$$
+\Omega_r
+:=
+\left\{
+\frac{|S_n|}{n}>\frac1r
+\text{ は有限回しか起こらない}
+\right\}
+$$
+
+と置けば $P(\Omega_r)=1$ です。したがって可算交叉
 
 $$
 \Omega_0:=\bigcap_{r=1}^{\infty}\Omega_r
 $$
 
-も確率1です。$\omega\in\Omega_0$ と任意の $\eta>0$ を固定し、$1/r<\eta$ となる $r$ を選べば、十分大きな $n$ で
+も確率1です。
+
+$\omega\in\Omega_0$ と $\eta>0$ を固定します。$1/r<\eta$ となる $r$ を選べば、ある $N$ が存在して $n\ge N$ なら
 
 $$
 \frac{|S_n(\omega)|}{n}\le\frac1r<\eta.
 $$
 
-よって $S_n/n\to0$ a.s. です。したがって
+よって
 
 $$
-\frac1n\sum_{i=1}^nX_i
-=\mu+\frac{S_n}{n}
-\to\mu
+\frac{S_n}{n}\to0
 \quad\text{a.s.}
 $$
 
-を得ます。
+です。最後に
+
+$$
+\overline X_n
+=\mu+\frac{S_n}{n}
+$$
+
+より結論を得ます。
 <!-- proof-end -->
 
 ---
 
-## 3. なぜ有限4次モーメント版だけでは足りないか
+## 3. 4次モーメント法では届かない有限分散分布
 
-4次モーメント法は短い一方、仮定が強すぎます。
+4次モーメント法は簡単ですが、仮定が強すぎます。
 
 $k=1,2,\ldots$ に対して
 
@@ -293,11 +429,26 @@ $$
 c:=\left(2\sum_{k=1}^{\infty}\frac1{k^4}\right)^{-1}
 $$
 
-とします。確率は対称なので $E[X]=0$ です。また
+とします。全確率は
+
+$$
+2c\sum_{k=1}^{\infty}\frac1{k^4}=1
+$$
+
+です。
+
+また
+
+$$
+E|X|
+=2c\sum_{k=1}^{\infty}\frac1{k^3}
+<\infty
+$$
+
+で分布は0について対称なので $E[X]=0$ です。さらに
 
 $$
 E[X^2]
-=2c\sum_{k=1}^{\infty}\frac{k^2}{k^4}
 =2c\sum_{k=1}^{\infty}\frac1{k^2}
 <\infty,
 $$
@@ -306,14 +457,13 @@ $$
 
 $$
 E[X^4]
-=2c\sum_{k=1}^{\infty}\frac{k^4}{k^4}
 =2c\sum_{k=1}^{\infty}1
 =\infty.
 $$
 
 したがって、この分布は有限分散版強大数則の対象ですが、前節の4次モーメント証明は使えません。
 
-ここで必要になるのが、途中の部分和をまとめて制御するKolmogorov最大不等式です。
+ここから先は、各時点を個別に評価する代わりに、**途中の部分和をまとめて制御する**道具を使います。
 
 ---
 
@@ -331,11 +481,13 @@ E[Y_j]=0,
 \operatorname{Var}(Y_j)<\infty
 $$
 
-> とします。$S_k=\sum_{j=1}^kY_j$ と置くと、任意の $\lambda>0$ に対して
+> とします。$S_k:=\sum_{j=1}^kY_j$ と置くと、任意の $\lambda>0$ に対して
 
 $$
 \boxed{
-P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right)
+P\left(
+\max_{1\le k\le n}|S_k|\ge\lambda
+\right)
 \le
 \frac{\operatorname{Var}(S_n)}{\lambda^2}
 }
@@ -344,22 +496,22 @@ $$
 > が成り立ちます。
 <!-- formal-statement-end -->
 
-Chebyshevの不等式は最後の時点 $S_n$ だけを見ます。Kolmogorov最大不等式は
+[Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) が最後の値 $S_n$ だけを評価するのに対し、[Kolmogorov最大不等式](#thm-kolmogorov-maximal) は
 
 $$
 S_1,S_2,\ldots,S_n
 $$
 
-のどこかで閾値を越える確率を、最後の分散1個でまとめて抑えます。
+の**どこか**で閾値を越える確率をまとめて抑えます。
 
 ### 証明の見取り図
 
-核心は「初めて $\lambda$ を越えた時刻」で事象を排反分割することです。その時刻までで決まる量と、その後の独立な増分を分離すると交差項が消えます。
+「初めて $\lambda$ を越えた時刻」が $k$ である事象を $A_k$ とします。$A_k$ は時刻 $k$ までの変数だけで決まり、それ以後の増分とは独立です。この分離によって二乗展開の交差項が0になります。
 
 <!-- proof-start -->
 ### 証明
 
-$k=1,\ldots,n$ に対し
+$k=1,\ldots,n$ に対して
 
 $$
 A_k
@@ -369,21 +521,26 @@ $$
 
 と置きます。
 
-$A_k$ は「初めて閾値を越える時刻が $k$」という事象なので互いに排反で、
+$A_k$ は「初めて $\lambda$ 以上になった時刻が $k$」という事象なので互いに排反であり、
 
 $$
 \bigcup_{k=1}^nA_k
 =
-\left\{\max_{1\le j\le n}|S_j|\ge\lambda\right\}.
+\left\{
+\max_{1\le j\le n}|S_j|\ge\lambda
+\right\}.
 $$
 
-$A_k$ と $S_k$ は $Y_1,\ldots,Y_k$ だけで決まります。一方
+さらに
 
 $$
-T_k:=S_n-S_k=Y_{k+1}+\cdots+Y_n
+T_k:=S_n-S_k
+=Y_{k+1}+\cdots+Y_n
 $$
 
-は $Y_{k+1},\ldots,Y_n$ だけで決まり、独立性から $(S_k\boldsymbol{1}_{A_k})$ と $T_k$ は独立です。また
+と置きます。$S_k\boldsymbol{1}_{A_k}$ は $Y_1,\ldots,Y_k$ だけの関数で、$T_k$ は $Y_{k+1},\ldots,Y_n$ だけの関数です。独立性から両者は独立です。
+
+また有限分散から両者は可積分で、
 
 $$
 E[T_k]
@@ -391,7 +548,7 @@ E[T_k]
 =0.
 $$
 
-したがって交差項は
+したがって
 
 $$
 E[S_kT_k\boldsymbol{1}_{A_k}]
@@ -399,7 +556,7 @@ E[S_kT_k\boldsymbol{1}_{A_k}]
 =0.
 $$
 
-よって
+この等式を使って
 
 $$
 \begin{aligned}
@@ -408,64 +565,111 @@ E[S_n^2\boldsymbol{1}_{A_k}]
 &=E[S_k^2\boldsymbol{1}_{A_k}]
  +2E[S_kT_k\boldsymbol{1}_{A_k}]
  +E[T_k^2\boldsymbol{1}_{A_k}]\\
-&\ge E[S_k^2\boldsymbol{1}_{A_k}]\\
-&\ge\lambda^2P(A_k).
+&\ge E[S_k^2\boldsymbol{1}_{A_k}].
 \end{aligned}
 $$
 
-$A_k$ は互いに排反なので
+$A_k$ 上では $|S_k|\ge\lambda$ なので
+
+$$
+E[S_k^2\boldsymbol{1}_{A_k}]
+\ge
+\lambda^2P(A_k).
+$$
+
+よって
+
+$$
+E[S_n^2\boldsymbol{1}_{A_k}]
+\ge
+\lambda^2P(A_k).
+$$
+
+$A_1,\ldots,A_n$ は互いに排反だから
 
 $$
 \begin{aligned}
 E[S_n^2]
-&\ge E\left[S_n^2\boldsymbol{1}_{\cup_{k=1}^nA_k}\right]\\
+&\ge
+E\left[
+S_n^2\boldsymbol{1}_{\cup_{k=1}^nA_k}
+\right]\\
 &=\sum_{k=1}^nE[S_n^2\boldsymbol{1}_{A_k}]\\
 &\ge\lambda^2\sum_{k=1}^nP(A_k)\\
 &=\lambda^2
-P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right).
+P\left(
+\max_{1\le k\le n}|S_k|\ge\lambda
+\right).
 \end{aligned}
 $$
 
-さらに $E[S_n]=0$ なので
+$E[S_n]=0$ なので
 
 $$
 E[S_n^2]=\operatorname{Var}(S_n).
 $$
 
-両辺を $\lambda^2$ で割れば結論です。
+両辺を $\lambda^2$ で割れば
+
+$$
+P\left(
+\max_{1\le k\le n}|S_k|\ge\lambda
+\right)
+\le
+\frac{\operatorname{Var}(S_n)}{\lambda^2}
+$$
+
+を得ます。
 <!-- proof-end -->
 
-この定理自体には同一分布性は不要です。使ったのは、各増分の独立性・平均0・有限分散です。
+この定理では同一分布性を使っていません。必要なのは、独立性、平均0、有限分散です。
 
 ---
 
-## 5. dyadic時点と区間最大増分
+## 5. dyadic subsequence：$1/n$ を $1/2^m$ に変える
 
 <a id="def-f0-00p5-dyadic"></a>
 
 <!-- formal-statement-start -->
 > **定義（dyadic subsequence）**  
-> 数列 $(a_n)_{n\ge1}$ に対して
+> 数列 $(a_n)_{n\ge1}$ に対して、添字を
 
 $$
-a_{2^0},a_{2^1},a_{2^2},\ldots
+n=2^m
+\qquad(m=0,1,2,\ldots)
 $$
 
-> のように添字を $n=2^m$ に限定して得る部分列を、この章では dyadic subsequence と呼びます。
+> に限定して得る
+
+$$
+a_1,a_2,a_4,a_8,\ldots
+$$
+
+> を、この章では dyadic subsequence と呼びます。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-f0-00p5-dyadic -->
 **定義の確認**
 
-$(a_n)=(1,2,3,4,5,6,7,8,\ldots)$ なら、dyadic subsequence は
+$a_n=n^2$ なら
 
 $$
-a_1,a_2,a_4,a_8,\ldots
-=1,2,4,8,\ldots
+a_1=1,
+\qquad
+a_2=4,
+\qquad
+a_4=16,
+\qquad
+a_8=64,
+\ldots
 $$
 
-です。添字が指数関数的に増えるため、$1/n$ 型の評価が $1/2^m$ 型になり、可算和可能になることが重要です。
+が dyadic subsequence です。添字が $2^m$ なので、$1/n$ 型の上界は $1/2^m$ 型に変わり、$m$ について総和できるようになります。
 <!-- definition-example-end -->
+
+---
+
+## 6. 有限分散版強大数則
 
 <a id="thm-f0-00p5-finite-variance-slln"></a>
 
@@ -493,18 +697,31 @@ $$
 
 ### 証明の見取り図
 
-Chebyshevを全 $n$ に使うと $\sum 1/n$ が発散します。そこで
+全ての $n$ を個別に [Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) で評価すると $1/n$ しか得られません。
 
-1. $n=2^m$ の時点だけなら $\sum2^{-m}<\infty$ なので収束を示せる。
-2. $2^m<n\le2^{m+1}$ の途中で部分和が大きく動かないことをKolmogorov最大不等式で示す。
-3. dyadic時点と区間内の揺れを足して全 $n$ を覆う。
+そこで $2^m$ 個までの部分和を **一つの最大値** にまとめ、[Kolmogorov最大不等式](#thm-kolmogorov-maximal) を使います。すると
 
-という順に進みます。
+$$
+P\left(
+\max_{k\le2^m}|S_k|>\varepsilon2^m
+\right)
+=O(2^{-m})
+$$
+
+となり、$m$ について総和できます。
+
+最後に
+
+$$
+2^{m-1}<n\le2^m
+$$
+
+なら $n$ は直後の dyadic 時点 $2^m$ より高々2倍小さいことを使って、全ての $n$ を覆います。
 
 <!-- proof-start -->
 ### 証明
 
-$Y_i=X_i-\mu$、$S_n=\sum_{i=1}^nY_i$ と置きます。すると
+$Y_i:=X_i-\mu$、$S_n:=\sum_{i=1}^nY_i$ と置きます。すると
 
 $$
 E[Y_i]=0,
@@ -512,15 +729,27 @@ E[Y_i]=0,
 \operatorname{Var}(Y_i)=\sigma^2.
 $$
 
-#### Step 1：dyadic時点 $n=2^m$
+固定した $\varepsilon>0$ に対し、$m=0,1,2,\ldots$ について
 
-固定した $\varepsilon>0$ に対し、Chebyshevの不等式から
+$$
+A_m(\varepsilon)
+:=
+\left\{
+\max_{1\le k\le2^m}|S_k|
+>\varepsilon2^m
+\right\}
+$$
+
+と置きます。
+
+[Kolmogorov最大不等式](#thm-kolmogorov-maximal) と独立性による分散の加法性から
 
 $$
 \begin{aligned}
-P(|S_{2^m}|>\varepsilon2^m)
+P(A_m(\varepsilon))
 &\le
-\frac{\operatorname{Var}(S_{2^m})}{\varepsilon^22^{2m}}\\
+\frac{\operatorname{Var}(S_{2^m})}
+{\varepsilon^22^{2m}}\\
 &=
 \frac{2^m\sigma^2}{\varepsilon^22^{2m}}\\
 &=
@@ -531,156 +760,140 @@ $$
 したがって
 
 $$
-\sum_{m=0}^{\infty}P(|S_{2^m}|>\varepsilon2^m)
+\sum_{m=0}^{\infty}P(A_m(\varepsilon))
+\le
+\frac{\sigma^2}{\varepsilon^2}
+\sum_{m=0}^{\infty}2^{-m}
 <\infty.
 $$
 
-Borel--Cantelli第1補題より、固定した $\varepsilon$ について
+[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) により、固定した $\varepsilon>0$ について $A_m(\varepsilon)$ は概ね有限回しか起こりません。すなわち確率1で、十分大きな $m$ では
 
 $$
-|S_{2^m}|>\varepsilon2^m
+\max_{1\le k\le2^m}|S_k|
+\le\varepsilon2^m.
 $$
 
-は概ね有限回しか起こりません。$\varepsilon=1/r$（$r\in\mathbb N$）について可算交叉を取れば
+ここで任意の十分大きい $n$ を取り
 
 $$
-\boxed{
-\frac{S_{2^m}}{2^m}\to0
-\quad\text{a.s.}
-}
+2^{m-1}<n\le2^m
 $$
 
-です。
-
-#### Step 2：dyadic区間内の最大増分
-
-各 $m$ に対し
+となる $m$ を選びます。すると
 
 $$
-M_m
-:=
-\max_{1\le j\le2^m}
-|S_{2^m+j}-S_{2^m}|
-$$
-
-と置きます。
-
-区間
-
-$$
-Y_{2^m+1},\ldots,Y_{2^{m+1}}
-$$
-
-は独立・平均0・有限分散なので、Kolmogorov最大不等式をこのブロックへ適用できます。閾値を $\varepsilon2^m$ とすると
-
-$$
-\begin{aligned}
-P(M_m>\varepsilon2^m)
-&\le
-\frac{\operatorname{Var}(Y_{2^m+1}+\cdots+Y_{2^{m+1}})}{\varepsilon^22^{2m}}\\
-&=
-\frac{2^m\sigma^2}{\varepsilon^22^{2m}}\\
-&=
-\frac{\sigma^2}{\varepsilon^22^m}.
-\end{aligned}
-$$
-
-よって
-
-$$
-\sum_{m=0}^{\infty}P(M_m>\varepsilon2^m)<\infty.
-$$
-
-再びBorel--Cantelli第1補題と $\varepsilon=1/r$ の可算交叉から
-
-$$
-\boxed{
-\frac{M_m}{2^m}\to0
-\quad\text{a.s.}
-}
-$$
-
-を得ます。
-
-#### Step 3：全ての $n$ へ戻す
-
-$2^m<n\le2^{m+1}$ とします。このとき
-
-$$
-S_n=S_{2^m}+(S_n-S_{2^m})
+|S_n|
+\le
+\max_{1\le k\le2^m}|S_k|
+\le
+\varepsilon2^m
 $$
 
 なので
 
 $$
-\begin{aligned}
 \frac{|S_n|}{n}
-&\le
-\frac{|S_{2^m}|}{n}
-+
-\frac{|S_n-S_{2^m}|}{n}\\
-&\le
-\frac{|S_{2^m}|}{2^m}
-+
-\frac{M_m}{2^m}.
-\end{aligned}
+<
+\frac{\varepsilon2^m}{2^{m-1}}
+=2\varepsilon.
 $$
 
-右辺の第1項はStep 1で0へ、第2項はStep 2で0へ概収束します。したがって
+最後に、固定した $\varepsilon$ の議論から極限0へ移ります。$r=1,2,\ldots$ に対して $\varepsilon=1/r$ とし、それぞれの確率1事象の可算交叉を取ります。その確率1事象上で任意の $r$ について十分大きな $n$ なら
+
+$$
+\frac{|S_n|}{n}<\frac2r.
+$$
+
+任意の $\eta>0$ に対して $2/r<\eta$ となる $r$ を選べるので
 
 $$
 \frac{S_n}{n}\to0
 \quad\text{a.s.}
 $$
 
-です。最後に
+です。したがって
 
 $$
-\frac1n\sum_{i=1}^nX_i
+\overline X_n
 =\mu+\frac{S_n}{n}
+\to\mu
+\quad\text{a.s.}
 $$
 
-より結論を得ます。
+を得ます。
 <!-- proof-end -->
+
+### 6.1 「dyadic の隙間」はどこで埋まったか
+
+この証明では $S_{2^m}$ だけを評価したのではなく
+
+$$
+\max_{1\le k\le2^m}|S_k|
+$$
+
+を評価しました。したがって $2^{m-1}<n\le2^m$ のどの $n$ を選んでも、同じ最大値で一度に抑えられます。
+
+ここが [Kolmogorov最大不等式](#thm-kolmogorov-maximal) を使う決定的な利点です。
 
 ---
 
-## 6. 仮定がどこで働いたか
+## 7. 仮定はどこで働いたか
 
-有限分散版の証明では、それぞれの仮定に役割があります。
+有限分散版の証明で各仮定には役割があります。
 
-- **同じ平均 $\mu$**：$Y_i=X_i-\mu$ と同じ中心へそろえるため。
-- **独立性**：分散を足し算でき、Kolmogorov最大不等式の交差項を0にするため。
-- **有限分散**：dyadic時点と区間最大増分の確率を $O(2^{-m})$ に抑えるため。
-- **同一分布性**：各ブロックの分散を「項数 $\times\sigma^2$」と簡単に書くため。
+- **有限な共通平均**：$Y_i=X_i-\mu$ と中心化するため。
+- **独立性**：$\operatorname{Var}(S_n)$ を各分散の和にし、[Kolmogorov最大不等式](#thm-kolmogorov-maximal) の証明で過去と未来を分離するため。
+- **有限分散**：最大逸脱確率を $O(2^{-m})$ に抑えるため。
+- **同一分布性**：各 $Y_i$ の分散を共通の $\sigma^2$ とし、$\operatorname{Var}(S_{2^m})=2^m\sigma^2$ と書くため。
 
-特に独立性は単なる証明上の飾りではありません。たとえば $Z$ を平均0・非退化な有限分散確率変数とし
+### 7.1 独立性を落とすと何が壊れるか
+
+平均0・非退化・有限分散の確率変数 $Z$ を1つ取り
 
 $$
 X_1=X_2=\cdots=Z
 $$
 
-とすると、各 $X_i$ は同一分布ですが完全に依存しており、
+とします。各 $X_i$ は同一分布ですが完全に依存しています。このとき
 
 $$
-\frac1n\sum_{i=1}^nX_i=Z
+\frac1n\sum_{i=1}^nX_i
+=Z
 $$
 
-のままです。一般には0へ収束しません。
+であり、一般には0へ収束しません。
 
-一方、有限分散そのものは独立同分布強大数則の最小仮定ではありません。$E|X_1|<\infty$ だけで成り立つ一般形は [P5A](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) で扱います。
+証明機構としても
+
+$$
+\operatorname{Var}(X_1+\cdots+X_n)
+=n^2\operatorname{Var}(Z)
+$$
+
+となり、独立な場合の $n\sigma^2$ という増え方を失います。
+
+### 7.2 有限分散は最小仮定ではない
+
+一方、有限分散を落としただけで強大数則が偽になるわけではありません。独立同分布なら
+
+$$
+E|X_1|<\infty
+$$
+
+まで仮定を弱めても強大数則は成り立ちます。その証明では、極端に大きい観測値を切ってから扱う別の仕組みが必要です。詳細は [P5Aの一般独立同分布強大数則](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) で扱います。
 
 ---
 
-## 7. 三つの証明ルートを比較する
+## 8. 三つの証明ルートを比較する
 
-| 仮定 | 主な道具 | 逸脱確率の作り方 | この教材での位置 |
-|---|---|---|---|
-| $E|X_1|^4<\infty$ | 4次モーメント + Markov + BC | $P(|S_n|>\varepsilon n)=O(n^{-2})$ | この章のウォームアップ |
-| $\operatorname{Var}(X_1)<\infty$ | Kolmogorov最大不等式 + dyadic + BC | dyadic/blockごとに $O(2^{-m})$ | この章の主定理 |
-| $E|X_1|<\infty$ | truncation + Kolmogorov収束定理 + Kronecker | 大きい値を切って級数収束へ変換 | P5A |
+| 仮定 | 証明の中心 | なぜその道具で足りるか |
+|---|---|---|
+| $E|X_1|^4<\infty$ | 4次モーメント + [Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) | 逸脱確率を $O(n^{-2})$ にでき、全 $n$ を直接総和できる |
+| $\operatorname{Var}(X_1)<\infty$ | [Kolmogorov最大不等式](#thm-kolmogorov-maximal) + dyadic化 | $O(1/n)$ を $n=2^m$ ごとの $O(2^{-m})$ に変え、途中の部分和もまとめて制御できる |
+| $E|X_1|<\infty$ | P5Aの切断法 | 有限分散を仮定できないので、大きい観測値を切って別の収束問題へ変える |
 
-「仮定が強いほど定理が強い」のではありません。**結論は同じでも、仮定が強いと証明が短くなる**という例です。
+結論はどれも標本平均の概収束です。違うのは、**仮定を強くすると短い証明が使える**という点です。
 
 ---
 
@@ -691,7 +904,13 @@ $$
 - Level: A
 - 目安時間: 12分
 
-$Y_1,Y_2,\ldots$ を独立同分布とし、$P(Y_i=1)=P(Y_i=-1)=1/2$ とする。$S_n=\sum_{i=1}^nY_i$ と置く。
+$Y_1,Y_2,\ldots$ を独立同分布とし
+
+$$
+P(Y_i=1)=P(Y_i=-1)=\frac12
+$$
+
+とする。$S_n:=\sum_{i=1}^nY_i$ と置く。
 
 1. $E[Y_i]=0$, $E[Y_i^2]=E[Y_i^4]=1$ を確認せよ。
 2. $E[S_n^4]=3n^2-2n$ を示せ。
@@ -699,13 +918,15 @@ $Y_1,Y_2,\ldots$ を独立同分布とし、$P(Y_i=1)=P(Y_i=-1)=1/2$ とする�
 <!-- solution-start -->
 #### 詳細解答
 
-まず対称性から
+まず
 
 $$
-E[Y_i]=1\cdot\frac12+(-1)\cdot\frac12=0.
+E[Y_i]
+=1\cdot\frac12+(-1)\cdot\frac12
+=0.
 $$
 
-また $Y_i^2=Y_i^4=1$ が常に成り立つので
+また常に $Y_i^2=Y_i^4=1$ なので
 
 $$
 E[Y_i^2]=E[Y_i^4]=1.
@@ -715,28 +936,29 @@ $$
 
 $$
 S_n^4
-=\sum_{i,j,k,\ell=1}^nY_iY_jY_kY_\ell
+=
+\sum_{i,j,k,\ell=1}^nY_iY_jY_kY_\ell
 $$
 
-と展開します。独立性により、ある添字が1回だけ現れる項ではその添字の期待値 $E[Y_r]=0$ が因子になるため、期待値は0です。
+と展開します。
 
-残るのは2種類です。
+ある添字が1回だけ現れる項では、独立性により期待値を因数分解したとき $E[Y_r]=0$ が含まれるので、その項の期待値は0です。
 
-同じ添字が4回現れる項は
+期待値が残る第1の型は、同じ添字が4回現れる
 
 $$
 Y_i^4
 $$
 
-で、$i$ の選び方が $n$ 通りあり、各期待値は1です。寄与は $n$。
+です。$i$ の選び方が $n$ 通りあり、各期待値は1なので寄与は $n$ です。
 
-異なる2添字 $i\ne j$ が2回ずつ現れる項では、固定した unordered pair $\{i,j\}$ に対して並べ方が
+第2の型は、異なる2添字 $i,j$ が2回ずつ現れる型です。添字対の選び方は $\binom n2$ 通りで、固定した対の配置は
 
 $$
 \frac{4!}{2!2!}=6
 $$
 
-通りあります。各項の期待値は独立性から
+通りです。独立性から
 
 $$
 E[Y_i^2Y_j^2]
@@ -744,25 +966,22 @@ E[Y_i^2Y_j^2]
 =1.
 $$
 
-したがって寄与は
+したがって
 
 $$
-6\binom n2=3n(n-1).
-$$
-
-以上より
-
-$$
+\begin{aligned}
 E[S_n^4]
-=n+3n(n-1)
-=3n^2-2n.
+&=n+6\binom n2\\
+&=n+3n(n-1)\\
+&=3n^2-2n.
+\end{aligned}
 $$
 <!-- solution-end -->
 
-### F0-00P5-A02 $O(n^2)$ の4次モーメント評価から概収束へ
+### F0-00P5-A02 4次モーメント評価から概収束へ
 
 - Level: A
-- 目安時間: 10分
+- 目安時間: 12分
 
 確率変数列 $(S_n)$ が、ある定数 $C>0$ に対して
 
@@ -770,7 +989,14 @@ $$
 E[S_n^4]\le Cn^2
 $$
 
-をすべての $n$ で満たすとする。$S_n/n\to0$ a.s. を示せ。
+をすべての $n$ で満たすとする。[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) と [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) を用いて
+
+$$
+\frac{S_n}{n}\to0
+\quad\text{a.s.}
+$$
+
+を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -779,20 +1005,23 @@ $$
 
 $$
 \{|S_n|>\varepsilon n\}
-=\{S_n^4>\varepsilon^4n^4\}
+=
+\{S_n^4>\varepsilon^4n^4\}.
 $$
 
-です。Markovの不等式より
+[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov) より
 
 $$
+\begin{aligned}
 P(|S_n|>\varepsilon n)
-\le
-\frac{E[S_n^4]}{\varepsilon^4n^4}
-\le
+&\le
+\frac{E[S_n^4]}{\varepsilon^4n^4}\\
+&\le
 \frac{C}{\varepsilon^4n^2}.
+\end{aligned}
 $$
 
-したがって
+よって
 
 $$
 \sum_{n=1}^{\infty}P(|S_n|>\varepsilon n)
@@ -802,33 +1031,36 @@ $$
 <\infty.
 $$
 
-Borel--Cantelli第1補題により、固定した $\varepsilon$ について $|S_n|>\varepsilon n$ はa.s.有限回しか起こりません。
+[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) から、固定した $\varepsilon$ について逸脱は概ね有限回です。
 
-ここで「任意の実数 $\varepsilon>0$」を非可算個そのまま交叉する必要はありません。$r\in\mathbb N$ に対して $\varepsilon=1/r$ だけを考えます。それぞれの確率1事象を $\Omega_r$ とすると
-
-$$
-P\left(\bigcap_{r=1}^{\infty}\Omega_r\right)=1.
-$$
-
-この交叉上では任意の $r$ について、十分大きな $n$ で
+極限0まで出すため、$\varepsilon=1/r$（$r\in\mathbb N$）について得られる確率1事象を可算交叉します。その交叉上では任意の $r$ について、十分大きな $n$ で
 
 $$
 \frac{|S_n|}{n}\le\frac1r.
 $$
 
-任意の $\eta>0$ に対して $1/r<\eta$ となる $r$ を取れるので、$S_n/n\to0$ です。
+任意の $\eta>0$ に対し $1/r<\eta$ となる $r$ を選べるので $S_n/n\to0$ です。
 <!-- solution-end -->
 
-### F0-00P5-A03 dyadic時点ではChebyshevだけで足りる
+### F0-00P5-A03 dyadic化で $1/n$ を総和可能にする
 
 - Level: A
 - 目安時間: 10分
 
-$Y_1,Y_2,\ldots$ を独立同分布、$E[Y_i]=0$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$ とし、$S_n=\sum_{i=1}^nY_i$ とする。Chebyshevの不等式とBorel--Cantelli第1補題を使って
+$Y_1,Y_2,\ldots$ を独立同分布とし
 
 $$
-\frac{S_{2^m}}{2^m}\to0
-\quad\text{a.s.}
+E[Y_i]=0,
+\qquad
+\operatorname{Var}(Y_i)=\sigma^2<\infty
+$$
+
+とする。$S_n:=\sum_{i=1}^nY_i$ と置く。[Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) を用いて
+
+$$
+\sum_{m=0}^{\infty}
+P(|S_{2^m}|>\varepsilon2^m)
+<\infty
 $$
 
 を示せ。
@@ -836,7 +1068,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-独立性と有限分散から
+独立性から
 
 $$
 \operatorname{Var}(S_{2^m})
@@ -844,12 +1076,11 @@ $$
 =2^m\sigma^2.
 $$
 
-固定した $\varepsilon>0$ に対してChebyshevの不等式を適用すると
+したがって [Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) より
 
 $$
 \begin{aligned}
-P\left(\left|\frac{S_{2^m}}{2^m}\right|>\varepsilon\right)
-&=P(|S_{2^m}|>\varepsilon2^m)\\
+P(|S_{2^m}|>\varepsilon2^m)
 &\le
 \frac{2^m\sigma^2}{\varepsilon^22^{2m}}\\
 &=
@@ -857,7 +1088,7 @@ P\left(\left|\frac{S_{2^m}}{2^m}\right|>\varepsilon\right)
 \end{aligned}
 $$
 
-したがって
+よって
 
 $$
 \sum_{m=0}^{\infty}
@@ -868,45 +1099,57 @@ P(|S_{2^m}|>\varepsilon2^m)
 <\infty.
 $$
 
-Borel--Cantelli第1補題から、固定した $\varepsilon$ について逸脱は有限回です。さらに $\varepsilon=1/r$、$r\in\mathbb N$ に対する確率1事象の可算交叉を取れば
-
-$$
-S_{2^m}/2^m\to0
-$$
-
-a.s. を得ます。
+全 $n$ では $1/n$ で総和できなかったものが、$n=2^m$ に限定すると $2^{-m}$ となるのがポイントです。
 <!-- solution-end -->
 
-### F0-00P5-A04 初回越境事象と交差項
+### F0-00P5-A04 初回越境事象で交差項を消す
 
 - Level: A
 - 目安時間: 12分
 
-独立な平均0確率変数 $Y_1,\ldots,Y_n$ に対し $S_k=\sum_{j=1}^kY_j$ とする。$\lambda>0$ を固定し
+独立な平均0確率変数 $Y_1,\ldots,Y_n$ に対して
 
 $$
-A_k=\{|S_1|<\lambda,\ldots,|S_{k-1}|<\lambda,|S_k|\ge\lambda\}
+S_k:=\sum_{j=1}^kY_j
+$$
+
+とし、$\lambda>0$ を固定する。
+
+$$
+A_k
+:=
+\{|S_1|<\lambda,\ldots,|S_{k-1}|<\lambda,|S_k|\ge\lambda\}
 $$
 
 と置く。
 
 1. $A_1,\ldots,A_n$ が互いに排反であることを示せ。
-2. $T_k=S_n-S_k$ とすると $E[S_kT_k\boldsymbol{1}_{A_k}]=0$ であることを示せ。
+2. $T_k:=S_n-S_k$ とすると $E[S_kT_k\boldsymbol{1}_{A_k}]=0$ であることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-1. $A_k$ は「初めて $\lambda$ 以上になった時刻が $k$」という事象です。もし $k<\ell$ で $A_k$ と $A_\ell$ が同時に起これば、$A_k$ から $|S_k|\ge\lambda$、一方 $A_\ell$ から $k<\ell$ なので $|S_k|<\lambda$ が必要になり矛盾します。よって互いに排反です。
+1. $A_k$ は「初めて $\lambda$ 以上になった時刻が $k$」という事象です。$k<\ell$ で $A_k$ と $A_\ell$ が同時に起きたと仮定すると、$A_k$ から
 
-2. $S_k\boldsymbol{1}_{A_k}$ は $Y_1,\ldots,Y_k$ の関数です。一方
+$$
+|S_k|\ge\lambda
+$$
+
+である一方、$A_\ell$ から $k<\ell$ なので
+
+$$
+|S_k|<\lambda
+$$
+
+でなければならず矛盾します。よって互いに排反です。
+
+2. $S_k\boldsymbol{1}_{A_k}$ は $Y_1,\ldots,Y_k$ だけで決まり、
 
 $$
 T_k=Y_{k+1}+\cdots+Y_n
 $$
 
-は $Y_{k+1},\ldots,Y_n$ の関数です。元の確率変数が独立なので、この2つも独立です。
-
-また
+は $Y_{k+1},\ldots,Y_n$ だけで決まります。独立性から両者は独立です。また
 
 $$
 E[T_k]
@@ -925,15 +1168,15 @@ E[S_kT_k\boldsymbol{1}_{A_k}]
 \end{aligned}
 $$
 
-この「初回越境時点までの情報」と「その後の独立な増分」の分離が、Kolmogorov最大不等式の核心です。
+この交差項が消えることが [Kolmogorov最大不等式](#thm-kolmogorov-maximal) の核心です。
 <!-- solution-end -->
 
 ### F0-00P5-B01 Kolmogorov最大不等式を再構成する
 
 - Level: B
-- 目安時間: 20分
+- 目安時間: 22分
 
-独立な平均0・有限分散確率変数 $Y_1,\ldots,Y_n$ に対し $S_k=\sum_{j=1}^kY_j$ とする。任意の $\lambda>0$ に対し
+独立な平均0・有限分散確率変数 $Y_1,\ldots,Y_n$ に対し $S_k:=\sum_{j=1}^kY_j$ とする。任意の $\lambda>0$ に対して [Kolmogorov最大不等式](#thm-kolmogorov-maximal)
 
 $$
 P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right)
@@ -950,51 +1193,40 @@ $$
 
 $$
 A_k
-=\{|S_1|<\lambda,\ldots,|S_{k-1}|<\lambda,|S_k|\ge\lambda\}
+:=
+\{|S_1|<\lambda,\ldots,|S_{k-1}|<\lambda,|S_k|\ge\lambda\}
 $$
 
-を導入します。$A_k$ は互いに排反で
+を置きます。$A_k$ は互いに排反で
 
 $$
 \bigcup_{k=1}^nA_k
-=\left\{\max_{1\le j\le n}|S_j|\ge\lambda\right\}.
+=
+\left\{\max_{1\le j\le n}|S_j|\ge\lambda\right\}.
 $$
 
-$T_k=S_n-S_k$ と置くと、$S_k\boldsymbol{1}_{A_k}$ と $T_k$ は独立で、$E[T_k]=0$ です。したがって
+$T_k:=S_n-S_k$ と置くと、A04と同じ独立性・平均0の議論により
 
 $$
 E[S_kT_k\boldsymbol{1}_{A_k}]=0.
 $$
 
-この等式を二乗展開へ入れると
+したがって
 
 $$
 \begin{aligned}
 E[S_n^2\boldsymbol{1}_{A_k}]
 &=E[(S_k+T_k)^2\boldsymbol{1}_{A_k}]\\
 &=E[S_k^2\boldsymbol{1}_{A_k}]
- +E[T_k^2\boldsymbol{1}_{A_k}]\\
-&\ge E[S_k^2\boldsymbol{1}_{A_k}].
++E[T_k^2\boldsymbol{1}_{A_k}]\\
+&\ge E[S_k^2\boldsymbol{1}_{A_k}]\\
+&\ge\lambda^2P(A_k).
 \end{aligned}
 $$
 
-$A_k$ 上では $|S_k|\ge\lambda$ なので
+最後の不等式では、$A_k$ 上で $|S_k|\ge\lambda$ を使いました。
 
-$$
-S_k^2\boldsymbol{1}_{A_k}
-\ge
-\lambda^2\boldsymbol{1}_{A_k}.
-$$
-
-期待値を取れば
-
-$$
-E[S_n^2\boldsymbol{1}_{A_k}]
-\ge
-\lambda^2P(A_k).
-$$
-
-排反性を使って足し合わせると
+排反性から
 
 $$
 \begin{aligned}
@@ -1004,107 +1236,107 @@ E[S_n^2]
 &\ge
 \lambda^2\sum_{k=1}^nP(A_k)\\
 &=
-\lambda^2
-P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right).
+\lambda^2P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right).
 \end{aligned}
 $$
 
-$E[S_n]=0$ なので $E[S_n^2]=\operatorname{Var}(S_n)$ です。よって
+また $E[S_n]=0$ なので
+
+$$
+E[S_n^2]=\operatorname{Var}(S_n).
+$$
+
+以上より
 
 $$
 P\left(\max_{1\le k\le n}|S_k|\ge\lambda\right)
 \le
-\frac{\operatorname{Var}(S_n)}{\lambda^2}.
+\frac{\operatorname{Var}(S_n)}{\lambda^2}
 $$
+
+を得ます。
 <!-- solution-end -->
 
-### F0-00P5-B02 dyadic区間の隙間を最大不等式で埋める
+### F0-00P5-B02 dyadic の隙間を最大値で埋める
 
 - Level: B
 - 目安時間: 20分
 
-$Y_1,Y_2,\ldots$ を独立同分布、$E[Y_i]=0$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$ とし、$S_n=\sum_{i=1}^nY_i$ とする。さらに
+$Y_1,Y_2,\ldots$ を独立同分布、平均0、分散 $\sigma^2<\infty$ とし、$S_n:=\sum_{i=1}^nY_i$ とする。
+
+固定した $\varepsilon>0$ について
 
 $$
-\frac{S_{2^m}}{2^m}\to0
-\quad\text{a.s.}
+P\left(
+\max_{1\le k\le2^m}|S_k|
+>\varepsilon2^m
+\right)
+\le
+\frac{\sigma^2}{\varepsilon^22^m}
 $$
 
-が分かっているとする。
-
-$$
-M_m:=\max_{1\le j\le2^m}|S_{2^m+j}-S_{2^m}|
-$$
-
-と置き、$M_m/2^m\to0$ a.s. を示して、そこから $S_n/n\to0$ a.s. を導け。
+を [Kolmogorov最大不等式](#thm-kolmogorov-maximal) から導き、[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) を使って $S_n/n\to0$ a.s. を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-まず
+独立性から
 
 $$
-S_{2^m+j}-S_{2^m}
-=Y_{2^m+1}+\cdots+Y_{2^m+j}
+\operatorname{Var}(S_{2^m})
+=2^m\sigma^2.
 $$
 
-です。したがって $M_m$ は、独立なブロック
-
-$$
-Y_{2^m+1},\ldots,Y_{2^{m+1}}
-$$
-
-の部分和最大値です。
-
-Kolmogorov最大不等式をこのブロックへ適用すると、固定した $\varepsilon>0$ に対して
+[Kolmogorov最大不等式](#thm-kolmogorov-maximal) に $n=2^m$、$\lambda=\varepsilon2^m$ を入れると
 
 $$
 \begin{aligned}
-P(M_m>\varepsilon2^m)
+P\left(
+\max_{1\le k\le2^m}|S_k|
+>\varepsilon2^m
+\right)
 &\le
-\frac{\operatorname{Var}(Y_{2^m+1}+\cdots+Y_{2^{m+1}})}{\varepsilon^22^{2m}}\\
-&=
 \frac{2^m\sigma^2}{\varepsilon^22^{2m}}\\
 &=
 \frac{\sigma^2}{\varepsilon^22^m}.
 \end{aligned}
 $$
 
-よって
+右辺は $m$ について総和できるので、[Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) から、固定した $\varepsilon$ について十分大きな $m$ では
 
 $$
-\sum_{m=0}^{\infty}P(M_m>\varepsilon2^m)<\infty.
-$$
-
-Borel--Cantelli第1補題と $\varepsilon=1/r$ の可算交叉から
-
-$$
-\frac{M_m}{2^m}\to0
-\quad\text{a.s.}
+\max_{1\le k\le2^m}|S_k|
+\le\varepsilon2^m
 $$
 
 です。
 
-次に任意の $n$ に対し $2^m<n\le2^{m+1}$ となる $m$ を取ります。すると
+任意の十分大きい $n$ に対して
 
 $$
-\begin{aligned}
+2^{m-1}<n\le2^m
+$$
+
+となる $m$ を取れば
+
+$$
 \frac{|S_n|}{n}
-&\le
-\frac{|S_{2^m}|}{n}
-+
-\frac{|S_n-S_{2^m}|}{n}\\
-&\le
-\frac{|S_{2^m}|}{2^m}
-+
-\frac{M_m}{2^m}.
-\end{aligned}
+\le
+\frac{\max_{k\le2^m}|S_k|}{2^{m-1}}
+\le2\varepsilon.
 $$
 
-右辺の第1項は仮定により0へ、第2項は今示した結果により0へ概収束します。したがって $S_n/n\to0$ a.s. です。
+$\varepsilon=1/r$ の確率1事象を可算交叉すれば、任意の正の精度に対して最終的にこの評価が成立するため
+
+$$
+\frac{S_n}{n}\to0
+\quad\text{a.s.}
+$$
+
+を得ます。
 <!-- solution-end -->
 
-### F0-00P5-B03 有限分散だが4次モーメント無限の分布
+### F0-00P5-B03 有限分散だが4次モーメント無限
 
 - Level: B
 - 目安時間: 18分
@@ -1121,55 +1353,55 @@ $$
 
 1. これが確率分布であることを確認せよ。
 2. $E[X]=0$, $E[X^2]<\infty$, $E[X^4]=\infty$ を示せ。
-3. この分布の独立同分布標本に対して、4次モーメント法は使えないが有限分散版強大数則は使える理由を説明せよ。
+3. この分布では4次モーメント法は使えないが、有限分散版強大数則は適用できる理由を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-1. $c>0$ であり、定義から
+1. $c>0$ で、定義から
 
 $$
-\sum_{k=1}^{\infty}\{P(X=k)+P(X=-k)\}
+\sum_{k=1}^{\infty}
+\{P(X=k)+P(X=-k)\}
 =2c\sum_{k=1}^{\infty}\frac1{k^4}
 =1.
 $$
 
-したがって全確率は1です。
+よって確率分布です。
 
-2. 分布は0について対称です。また
+2. まず
 
 $$
 E|X|
-=2c\sum_{k=1}^{\infty}\frac{k}{k^4}
 =2c\sum_{k=1}^{\infty}\frac1{k^3}
 <\infty
 $$
 
-なので平均は絶対収束し、対称性から $E[X]=0$ です。
+なので平均は有限です。分布は0について対称だから
+
+$$
+E[X]=0.
+$$
 
 二次モーメントは
 
 $$
 E[X^2]
-=2c\sum_{k=1}^{\infty}\frac{k^2}{k^4}
 =2c\sum_{k=1}^{\infty}\frac1{k^2}
 <\infty.
 $$
 
-一方4次モーメントは
+一方、4次モーメントは
 
 $$
 E[X^4]
-=2c\sum_{k=1}^{\infty}\frac{k^4}{k^4}
 =2c\sum_{k=1}^{\infty}1
 =\infty.
 $$
 
-3. 4次モーメント法では $E[S_n^4]$ を有限量として評価する必要があります。しかし $E[X^4]=\infty$ なので、その出発点が成立しません。
+3. 4次モーメント法では $E[S_n^4]$ を有限量として評価することが出発点ですが、ここでは $E[X^4]=\infty$ なのでその方法は使えません。
 
-一方、この分布は $E[X^2]<\infty$ なので分散有限です。独立同分布標本ならKolmogorov最大不等式を使う有限分散版強大数則の仮定を満たし、標本平均は $E[X]=0$ へa.s.収束します。
-
-この例は「4次モーメント法が失敗する」ことと「強大数則そのものが失敗する」ことが別であると示しています。
+しかし $E[X^2]<\infty$ なので分散は有限です。独立同分布な標本を取れば、[Kolmogorov最大不等式](#thm-kolmogorov-maximal) を用いる有限分散版強大数則の仮定を満たします。
 <!-- solution-end -->
 
 ### F0-00P5-C01 同一分布でなくても一様分散有界なら平均揺らぎは消える
@@ -1185,21 +1417,21 @@ E[Y_i]=0,
 \operatorname{Var}(Y_i)\le K
 $$
 
-を満たす定数 $K<\infty$ が存在するとする。$S_n=\sum_{i=1}^nY_i$ と置く。
+を満たす定数 $K<\infty$ が存在するとする。$S_n:=\sum_{i=1}^nY_i$ と置く。
 
-Kolmogorov最大不等式、Chebyshevの不等式、Borel--Cantelli第1補題を使って
+[Kolmogorov最大不等式](#thm-kolmogorov-maximal) と [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) を使って
 
 $$
 \frac{S_n}{n}\to0
 \quad\text{a.s.}
 $$
 
-を示せ。同一分布性をどこでも使っていないことも確認せよ。
+を示せ。また、証明中で同一分布性を使っていないことを確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-同一分布性は仮定されていませんが、分散が一様に $K$ 以下なので、任意の $n$ に対し独立性から
+独立性から
 
 $$
 \operatorname{Var}(S_n)
@@ -1207,13 +1439,13 @@ $$
 \le Kn.
 $$
 
-#### Step 1：dyadic時点
-
-固定した $\varepsilon>0$ に対し
+固定した $\varepsilon>0$ と $m\ge0$ に対し、[Kolmogorov最大不等式](#thm-kolmogorov-maximal) を $n=2^m$、$\lambda=\varepsilon2^m$ で使います。
 
 $$
 \begin{aligned}
-P(|S_{2^m}|>\varepsilon2^m)
+P\left(
+\max_{1\le k\le2^m}|S_k|>\varepsilon2^m
+\right)
 &\le
 \frac{\operatorname{Var}(S_{2^m})}{\varepsilon^22^{2m}}\\
 &\le
@@ -1223,90 +1455,57 @@ P(|S_{2^m}|>\varepsilon2^m)
 \end{aligned}
 $$
 
-したがって確率の和は $m$ について有限です。Borel--Cantelli第1補題と $\varepsilon=1/r$ の可算交叉から
+右辺は $m$ について総和できます。したがって [Borel--Cantelli第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1) により、固定した $\varepsilon$ について十分大きな $m$ では
 
 $$
-\frac{S_{2^m}}{2^m}\to0
-\quad\text{a.s.}
-$$
-
-を得ます。
-
-#### Step 2：dyadic区間内の最大増分
-
-$$
-M_m
-:=
-\max_{1\le j\le2^m}
-|S_{2^m+j}-S_{2^m}|
-$$
-
-とします。ブロック $Y_{2^m+1},\ldots,Y_{2^{m+1}}$ にKolmogorov最大不等式を適用します。ブロック全体の分散は
-
-$$
-\sum_{i=2^m+1}^{2^{m+1}}\operatorname{Var}(Y_i)
-\le K2^m.
-$$
-
-よって
-
-$$
-P(M_m>\varepsilon2^m)
-\le
-\frac{K2^m}{\varepsilon^22^{2m}}
-=
-\frac{K}{\varepsilon^22^m}.
-$$
-
-これも $m$ について総和可能なので
-
-$$
-\frac{M_m}{2^m}\to0
-\quad\text{a.s.}
+\max_{1\le k\le2^m}|S_k|
+\le\varepsilon2^m
 $$
 
 です。
 
-#### Step 3：全 $n$ を覆う
-
-$2^m<n\le2^{m+1}$ なら
+$2^{m-1}<n\le2^m$ なら
 
 $$
 \frac{|S_n|}{n}
 \le
-\frac{|S_{2^m}|}{2^m}
-+
-\frac{M_m}{2^m}.
+\frac{\max_{k\le2^m}|S_k|}{2^{m-1}}
+\le2\varepsilon.
 $$
 
-両項はa.s.0へ行くので
+$\varepsilon=1/r$ の確率1事象を可算交叉すれば
 
 $$
 \frac{S_n}{n}\to0
 \quad\text{a.s.}
 $$
 
-です。
+を得ます。
 
-この証明で必要だったのは
+この証明で使ったのは
 
-- 各 $Y_i$ の平均が0であること
+- 各 $Y_i$ の平均が0
 - 独立性
-- 分散の一様上界 $K$
+- 共通の分散上界 $K$
 
-だけです。同一分布性は使っていません。有限分散版iid強大数則では、同一分布性によってこの一様上界を $K=\sigma^2$ と自動的に得ています。
+です。同一分布性は使っていません。独立同分布の場合は
+
+$$
+K=\operatorname{Var}(Y_1)
+$$
+
+を取れるため、この条件が自動的に満たされます。
 <!-- solution-end -->
 
 ---
 
 ## 次に進む
 
-この章では
+この章では、同じ強大数則でも仮定によって証明の難しさが変わることを確認しました。
 
-- 強い仮定 $E|X_1|^4<\infty$ なら、4次モーメントから全 $n$ を直接Borel--Cantelliへ入れられること
-- 有限分散だけではChebyshevの $1/n$ が総和不能なので、dyadic化とKolmogorov最大不等式が必要になること
-- 固定した $\varepsilon$ ごとの議論から極限0へ移るには、$\varepsilon=1/r$ の可算交叉を明示すればよいこと
+- $E|X_1|^4<\infty$ なら、4次モーメントで逸脱確率を $O(n^{-2})$ にして全 $n$ を直接処理できる。
+- 有限分散だけでは [Chebyshevの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-chebyshev) の $O(n^{-1})$ 評価は総和できない。
+- [Kolmogorov最大不等式](#thm-kolmogorov-maximal) を使えば、dyadic な時点ごとに途中の部分和までまとめて制御できる。
+- 「固定した $\varepsilon$ ごとに確率1」から極限0へ進むには、$\varepsilon=1/r$ の可算交叉を使う。
 
-を確認しました。
-
-有限分散をさらに外し、独立同分布かつ $E|X_1|<\infty$ だけで強大数則を証明するなら [F0-00P5A 一般独立同分布強大数則](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) へ進みます。
+さらに有限分散を外し、独立同分布かつ $E|X_1|<\infty$ だけで証明する場合は [F0-00P5A 一般独立同分布強大数則](../F0_00P5A_truncation_Kronecker_一般SLLN/index.md#ref-general-slln-proof) へ進みます。
