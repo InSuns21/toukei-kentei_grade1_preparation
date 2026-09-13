@@ -9,7 +9,7 @@ learning_objectives:
   - 有限4次モーメントの下でMarkovとBorel--Cantelliから強大数則を直接証明できる
   - Chebyshevの全n評価がBorel--Cantelliへ直接入らない理由を説明できる
   - Kolmogorov最大不等式を初回越境事象から証明できる
-  - dyadic時点と区間最大増分を組み合わせて有限分散iid強大数則を証明できる
+  - dyadic化と部分和最大値を組み合わせて有限分散iid強大数則を証明できる
   - 4次モーメント有限・有限分散・1次モーメント有限の三つの仮定と証明ルートを区別できる
 definitions:
   - { id: F0P5-DEF-01, name: 部分和 }
