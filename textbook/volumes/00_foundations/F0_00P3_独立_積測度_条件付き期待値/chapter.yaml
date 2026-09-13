@@ -7,19 +7,24 @@ prerequisites:
   - F0-00D2C
 official_scope: []
 learning_objectives:
-  - 事象と確率変数の独立性をsigma代数で定義できる
-  - 独立性と同時分布の積測度表示を対応付けられる
-  - 独立性から期待値の因数分解を導ける
-  - pairwiseとmutual independenceを区別できる
+  - 事象・sigma代数・確率変数の独立性を定義できる
+  - pairwise independence と mutual independence を区別できる
+  - 独立性と同時分布の積測度表示が同値であることを証明できる
+  - 密度の積分解を積測度表示から導ける
+  - 独立性から期待値の因数分解を可積分性確認込みで導ける
+  - 無相関が独立性を含意しない反例を説明できる
 definitions:
+  - { id: F0P3-DEF-00, name: 独立な事象 }
   - { id: F0P3-DEF-01, name: 独立なsigma代数 }
   - { id: F0P3-DEF-02, name: 独立な確率変数 }
   - { id: F0P3-DEF-03, name: pairwise independence }
+  - { id: F0P3-DEF-04, name: mutual independence }
 theorems:
   - { id: F0P3-THM-01, name: 独立性と積測度の同値 }
-canonical_examples: [独立な二変量, XOR反例]
-problem_patterns: [INDEPENDENCE-1, PRODUCT-LAW-1]
+  - { id: F0P3-THM-02, name: 独立な確率変数の期待値因数分解 }
+canonical_examples: [4点空間の独立事象, 独立な二変量, XOR反例, 無相関だが非独立]
+problem_patterns: [INDEPENDENCE-1, PRODUCT-LAW-1, PAIRWISE-MUTUAL-1, EXPECTATION-FACTOR-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 2.5, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 2.5, review: 0.75 }
