@@ -9,6 +9,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 一階ODEを階数・線形性・自律性・初期値問題/境界値問題の観点から分類できる
+  - 方向場から解曲線の局所的な向きを読める
   - 変数分離で平衡解を落とさずに解を構成できる
   - 一階線形ODEの積分因子を積の微分から導出し初期値問題を解ける
   - 完全微分方程式とBernoulli方程式を標準変形から解ける
@@ -25,14 +26,15 @@ definitions:
   - { id: ODE1-DEF-05, name: 一階線形ODE }
   - { id: ODE1-DEF-06, name: 完全微分方程式 }
   - { id: ODE1-DEF-07, name: Bernoulli方程式 }
-  - { id: ODE1-DEF-08, name: 平衡解 }
+  - { id: ODE1-DEF-08, name: 平衡解・phase line }
   - { id: ODE1-DEF-09, name: yに関するLipschitz条件 }
+  - { id: ODE1-DEF-10, name: 方向場 }
 theorems:
   - { id: ODE1-THM-01, name: 一階線形初期値問題の解 }
   - { id: ODE1-THM-02, name: 長方形上の完全性判定 }
   - { id: ODE1-THM-03, name: 初期値問題と積分方程式の同値性 }
   - { id: ODE1-THM-04, name: Picard--Lindelöfの局所存在・一意性 }
-canonical_examples: [ロジスティック方程式, 積分因子, 完全微分方程式, Bernoulli方程式, phase line, Lipschitz確認, 待ってから動き出す非一意解]
+canonical_examples: [方向場, ロジスティック方程式, 積分因子, 完全微分方程式, Bernoulli方程式, phase line, Lipschitz確認, 待ってから動き出す非一意解]
 problem_patterns: [ODE-SEPARABLE-1, ODE-LINEAR-1, ODE-EXACT-1, ODE-BERNOULLI-1, ODE-PHASE-LINE-1, ODE-PICARD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
