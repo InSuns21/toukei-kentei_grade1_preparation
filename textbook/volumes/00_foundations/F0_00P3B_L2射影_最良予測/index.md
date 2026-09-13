@@ -18,16 +18,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（$L^2(\mathcal G)$）**  
-> 確率空間 $(\Omega,\mathcal F,P)$ と部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ に対して
->
-> $$
-> L^2(\mathcal G)=\{Z\in L^2(\mathcal F):Z\text{ は }\mathcal G\text{-可測な代表元を持つ}\}
-> $$
->
-> と定めます。
+> 確率空間 $(\Omega,\mathcal F,P)$ と部分 $\sigma$ 代数 $\mathcal G\subseteq\mathcal F$ に対して次で定めます。
+
+$$
+L^2(\mathcal G)=\{Z\in L^2(\mathcal F):Z\text{ は }\mathcal G\text{-可測な代表元を持つ}\}.
+$$
 <!-- formal-statement-end -->
 
-$L^2$ の元はa.s.同値類なので、「$Z$ が $\mathcal G$-可測」と言う代わりに「$\mathcal G$-可測な代表元を持つ」と書いています。
+$L^2$ ではa.s.等しい関数を同一視するため、「$Z$ が $\mathcal G$-可測」と言う代わりに「$\mathcal G$-可測な代表元を持つ」と書いています。
 
 ### 1.1 例：二つのセルしか区別できない情報
 
@@ -108,7 +106,7 @@ P\left(\bigcup_{k\ge m}E_k\right)
 \le\sum_{k\ge m}2^{-k}\to0.
 $$
 
-したがって
+従って
 
 $$
 P\left(\bigcap_{m=1}^\infty\bigcup_{k\ge m}E_k\right)=0.
@@ -138,7 +136,7 @@ W(\omega)=
 \end{cases}
 $$
 
-と置きます。$C$ は $\mathcal G$-可測で、可測関数列の極限から $W$ も $\mathcal G$-可測です。上の議論から $P(C)=1$ かつ $W=Z$ a.s. なので、$Z$ の $L^2$ 同値類は $\mathcal G$-可測な代表元 $W$ を持ちます。従って $Z\in L^2(\mathcal G)$、よって閉です。
+と置きます。$C$ は $\mathcal G$-可測で、可測関数列の極限から $W$ も $\mathcal G$-可測です。上の議論から $P(C)=1$ かつ $W=Z$ a.s. なので、$Z$ は $\mathcal G$-可測な代表元 $W$ を持ちます。従って $Z\in L^2(\mathcal G)$、よって閉です。
 <!-- proof-end -->
 
 ---
@@ -151,13 +149,11 @@ $X\in L^2(\mathcal F)$ とし $M=E[X\mid\mathcal G]$ と置きます。確率測
 
 <!-- formal-statement-start -->
 > **補題（条件付き期待値の$L^2$縮小性）**  
-> $X\in L^2$ なら $E[X\mid\mathcal G]\in L^2$ であり、
->
-> $$
-> \boxed{\|E[X\mid\mathcal G]\|_2\le\|X\|_2}
-> $$
->
-> が成り立ちます。
+> $X\in L^2$ なら $E[X\mid\mathcal G]\in L^2$ であり、次が成り立ちます。
+
+$$
+\boxed{\|E[X\mid\mathcal G]\|_2\le\|X\|_2}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -213,12 +209,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（条件付き期待値の直交性）**  
-> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。このとき
->
-> $$
-> \boxed{E[(X-M)Z]=0\qquad(\forall Z\in L^2(\mathcal G))}
-> $$
->
+> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。このとき任意の $Z\in L^2(\mathcal G)$ に対して次が成り立ちます。
+
+$$
+\boxed{E[(X-M)Z]=0}.
+$$
+
 > すなわち $X-M\perp L^2(\mathcal G)$ です。
 <!-- formal-statement-end -->
 
@@ -250,7 +246,7 @@ $$
 Z_K\to Z\quad\text{a.s.}
 $$
 
-なのでDCTから $\|Z_K-Z\|_2\to0$。Cauchy--Schwarzより
+なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から $\|Z_K-Z\|_2\to0$。Cauchy--Schwarzより
 
 $$
 |E[(X-M)(Z_K-Z)]|
@@ -268,19 +264,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（条件付き期待値は最小二乗最良予測）**  
-> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。任意の $Z\in L^2(\mathcal G)$ に対して
->
-> $$
-> \boxed{\|X-Z\|_2^2=\|X-M\|_2^2+\|M-Z\|_2^2}
-> $$
->
-> が成り立ちます。従って
->
-> $$
-> \boxed{M=\operatorname*{arg\,min}_{Z\in L^2(\mathcal G)}E[(X-Z)^2]}
-> $$
->
-> であり、最小化解はa.s.一意です。
+> $X\in L^2$、$M=E[X\mid\mathcal G]$ とします。任意の $Z\in L^2(\mathcal G)$ に対して次が成り立ちます。
+
+$$
+\boxed{\|X-Z\|_2^2=\|X-M\|_2^2+\|M-Z\|_2^2}.
+$$
+
+> 従って最小二乗誤差は $Z=M$ で最小になり、最小化解はa.s.一意です。
+
+$$
+\boxed{M=\operatorname*{arg\,min}_{Z\in L^2(\mathcal G)}E[(X-Z)^2]}.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -298,7 +292,7 @@ $$
 E[(X-M)(M-Z)]=0.
 $$
 
-平方ノルムを展開すれば
+二乗して期待値を取れば
 
 $$
 \|X-Z\|_2^2
@@ -311,7 +305,7 @@ $$
 \|X-Z\|_2^2=\|X-M\|_2^2+\|M-Z\|_2^2.
 $$
 
-第2項は非負なので $Z=M$ で最小値を取り、等号を達成する $Z$ は $\|M-Z\|_2=0$、すなわち $Z=M$ a.s. です。
+最後の項は非負なので $Z=M$ で最小値を取り、等号を達成する $Z$ は $\|M-Z\|_2=0$、すなわち $Z=M$ a.s. です。
 <!-- proof-end -->
 
 [Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)では、閉部分空間への直交射影は「部分空間に属し、残差が部分空間全体と直交する元」として特徴付けられます。第2節と第4節を合わせると
@@ -361,7 +355,7 @@ $$
 L^2(\mathcal H)\subseteq L^2(\mathcal G).
 $$
 
-情報が増えるほど最小二乗予測の候補が増えるので、最小二乗誤差は悪化しません。さらにP3Aのtower propertyは
+情報が増えるほど最小二乗予測の候補が増えるので、最小二乗誤差は悪化しません。さらにP3Aの[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)は
 
 $$
 P_{L^2(\mathcal H)}P_{L^2(\mathcal G)}
@@ -486,7 +480,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-条件付き期待値と射影の同一視、およびtower propertyから
+条件付き期待値と射影の同一視、およびP3Aの[tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から
 
 $$
 P_{L^2(\mathcal H)}P_{L^2(\mathcal G)}X
@@ -513,7 +507,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$M_H\in L^2(\mathcal H)\subseteq L^2(\mathcal G)$ なので、$M_G$ の最良予測性に $Z=M_H$ を代入すれば直ちに
+$M_H\in L^2(\mathcal H)\subseteq L^2(\mathcal G)$ なので、$M_G$ の最良予測性に $Z=M_H$ を代入すれば
 
 $$
 \|X-M_G\|_2^2\le\|X-M_H\|_2^2.
@@ -546,7 +540,7 @@ A_K:=E[M^2\mathbf1_{\{|M|\le K\}}]
 \le\|X\|_2A_K^{1/2}.
 $$
 
-よって $A_K\le\|X\|_2^2$。$K\uparrow\infty$ としてMCTを使えば
+よって $A_K\le\|X\|_2^2$。$K\uparrow\infty$ として[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を使えば
 
 $$
 E[M^2]=\lim_KA_K\le E[X^2].
@@ -562,13 +556,13 @@ $Z_n\in L^2(\mathcal G)$、$Z_n\to Z$ in $L^2$ とする。適当な部分列が
 
 <!-- solution-start -->
 #### 詳細解答
-$E|Z_{n_k}-Z|^2\le2^{-3k}$ となる部分列を取る。$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ とすれば
+$E|Z_{n_k}-Z|^2\le2^{-3k}$ となる部分列を取る。$E_k=\{|Z_{n_k}-Z|>2^{-k}\}$ とすれば[Markovの不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
 
 $$
 P(E_k)\le2^{-k}.
 $$
 
-従って
+従って[union bound](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-union-bound)より
 
 $$
 P\left(\bigcup_{k\ge m}E_k\right)
@@ -591,7 +585,7 @@ $Y$ が $-1,0,1$ を各確率 $1/3$ で取り、$X=Y^2$ とする。
 
 <!-- solution-start -->
 #### 詳細解答
-1. $X$ は $Y$ の関数なので
+1. $X$ は $Y$ から完全に決まるので
 
 $$
 E[X\mid Y]=Y^2.
@@ -604,7 +598,7 @@ $$
 $$
 
 よって正規方程式から $b=0$、$a=E[X]=2/3$。最良アフィン予測は定数 $2/3$。
-3. $L^2(\sigma(Y))$ は $Y$ の非線形関数 $Y^2$ も含むが、$\operatorname{span}\{1,Y\}$ は含まない。射影先が違うためである。
+3. $L^2(\sigma(Y))$ は $Y$ の非線形関数 $Y^2$ も含むが、$\operatorname{span}\{1,Y\}$ には $Y^2$ が入らない。射影先が違うためである。
 <!-- solution-end -->
 
 ### F0-00P3B-C01 情報増加による誤差改善を直交分解で測る
@@ -637,7 +631,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 1. $M_G-M_H$ は $\mathcal G$-可測かつ $L^2$ なので $L^2(\mathcal G)$ に属する。$X-M_G$ はその空間全体と直交するから結論。
-2. tower propertyから $E[M_G\mid\mathcal H]=M_H$。従ってP3Bの直交性を $M_G$ に適用すると $M_G-M_H\perp L^2(\mathcal H)$。
+2. [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower)から $E[M_G\mid\mathcal H]=M_H$。従ってP3Bの直交性を $M_G$ に適用すると $M_G-M_H\perp L^2(\mathcal H)$。
 3.
 
 $$
