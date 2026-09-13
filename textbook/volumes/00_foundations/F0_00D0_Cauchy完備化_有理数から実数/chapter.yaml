@@ -25,8 +25,9 @@ theorems:
   - { id: F000D0-THM-01, name: 有理Cauchy列の有界性 }
   - { id: F000D0-THM-02, name: 加法・乗法のwell-defined性 }
   - { id: F000D0-THM-03, name: Cauchy実数の順序体性 }
-  - { id: F000D0-THM-04, name: 有理数の定数列埋め込みと稠密性 }
-  - { id: F000D0-THM-05, name: Cauchy実数の完備性 }
+  - { id: F000D0-THM-04, name: 有理数の定数列埋め込み }
+  - { id: F000D0-THM-05, name: Cauchy実数内の有理数稠密性 }
+  - { id: F000D0-THM-06, name: Cauchy実数の完備性 }
 canonical_examples: [sqrt2を表す有理Cauchy列, 同値な近似列]
 problem_patterns: [同値関係の確認, well-defined性, 逆元構成, 稠密性, 対角近似による完備性]
 past_exam_alignment: []
