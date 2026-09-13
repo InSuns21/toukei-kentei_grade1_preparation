@@ -1,0 +1,29 @@
+id: "F0-00D0B"
+title: "Dedekind切断：順序の穴から実数を作る"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D0A
+  - F0-00A1B
+official_scope: []
+learning_objectives:
+  - Dedekind切断を定義し具体例で条件を確認できる
+  - 有理数を標準切断として埋め込める
+  - 切断の順序を包含関係で表せる
+  - 切断の和と正の積の定義を説明できる
+  - 切断族の上限が和集合で与えられることを証明できる
+definitions:
+  - { id: F000D0B-DEF-01, name: Dedekind切断 }
+  - { id: F000D0B-DEF-02, name: Dedekind実数 }
+  - { id: F000D0B-DEF-03, name: 切断の順序 }
+theorems:
+  - { id: F000D0B-THM-01, name: 有理数の標準埋め込み }
+  - { id: F000D0B-THM-02, name: 切断上の加法 }
+  - { id: F000D0B-THM-03, name: Dedekind切断の上限性質 }
+  - { id: F000D0B-THM-04, name: Dedekind実数の完備順序体性 }
+canonical_examples: [sqrt2の切断, 有理数に対応する切断]
+problem_patterns: [切断条件の確認, 包含順序, 上限の構成, 演算の確認]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 2, level_b: 2, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.8, exercises: 1.8, review: 0.4 }
