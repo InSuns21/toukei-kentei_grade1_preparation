@@ -7,9 +7,10 @@ prerequisites:
 
 concepts:
   - id: completion.metric-cauchy-equivalence
-    name: Cauchy列の同値関係
+    name: 距離空間Cauchy列の零距離同値
     kind: definition
-    aliases: [Cauchy列の同値関係]
+    aliases: [距離空間Cauchy列の零距離同値]
+    introduction_aliases: [Cauchy列の同値関係]
     requires: [topology.cauchy-sequence]
 
   - id: completion.metric-completion-carrier
@@ -31,15 +32,15 @@ concepts:
     requires: [completion.metric-completion-carrier, completion.distance-sequence-cauchy]
 
   - id: completion.canonical-isometric-embedding
-    name: 標準埋め込みは等長
+    name: 定数列埋め込みは等長
     kind: theorem
-    aliases: [標準埋め込みは等長]
+    aliases: [定数列埋め込みは等長]
     requires: [completion.metric-distance-well-defined]
 
   - id: completion.canonical-image-dense
-    name: 標準埋め込みの像は稠密
+    name: 定数列埋め込みの像は稠密
     kind: theorem
-    aliases: [標準埋め込みの像は稠密]
+    aliases: [定数列埋め込みの像は稠密]
     requires: [completion.canonical-isometric-embedding, topology.cauchy-sequence]
 
   - id: completion.metric-completion-complete
