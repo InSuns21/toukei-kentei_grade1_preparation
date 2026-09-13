@@ -109,7 +109,7 @@ $$
 
 <a id="def-ra3-ck-class"></a>
 <!-- formal-statement-start -->
-> **定義（$C^k$ 級・$C^\infty$ 級）**  
+> **定義（C^k級・C∞級）**  
 > 開区間 $I\subset\mathbb R$ と整数 $k\ge0$ に対し、$f:I\to\mathbb R$ が **$C^k$ 級**であるとは、$0\le j\le k$ の各 $j$ について $f^{(j)}$ が存在し連続であることをいう。そのような関数全体を $C^k(I)$ と書く。すべての整数 $k\ge0$ について $C^k$ 級である関数を **$C^\infty$ 級**または **滑らかな関数**という。
 <!-- formal-statement-end -->
 
