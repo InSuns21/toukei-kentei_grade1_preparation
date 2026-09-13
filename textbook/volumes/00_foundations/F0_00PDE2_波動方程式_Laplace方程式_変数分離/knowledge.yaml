@@ -29,7 +29,7 @@ concepts:
     introduction: inline
     requires:
       - pde.partial-differential-equation
-      - ode.ordinary-differential-equation
+      - ode.ode1-ordinary-differential-equation
 
   - id: pde.eigenmode
     name: 固有モード
@@ -48,7 +48,7 @@ concepts:
       - pde.wave-equation
       - fourier.transform-l1
       - fourier.derivative-rule
-      - ode.constant-coefficient-second-order-method
+      - ode.ode2-constant-coefficient-basis
 
   - id: pde.fixed-end-wave-sine-expansion
     name: 固定端波動方程式の正弦級数表示
