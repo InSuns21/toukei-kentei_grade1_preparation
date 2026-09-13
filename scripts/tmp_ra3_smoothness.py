@@ -8,7 +8,7 @@ knowledge = root / 'textbook/volumes/00_foundations/RA3/knowledge.yaml'
 
 s = index.read_text(encoding='utf-8')
 marker = '<!-- definition-example-end -->\n\n---\n\n## 2. Rolleから平均値定理へ'
-insert = r'''<!-- definition-example-end -->
+insert = r"""<!-- definition-example-end -->
 
 ### 高階導関数と $C^k$ 級
 
@@ -77,7 +77,7 @@ $C^\infty$ 級であることも、関数がTaylor級数と一致することま
 
 ---
 
-## 2. Rolleから平均値定理へ'''
+## 2. Rolleから平均値定理へ"""
 if 'def-ra3-ck-class' not in s:
     if marker not in s:
         raise SystemExit('RA3 insertion marker not found')
