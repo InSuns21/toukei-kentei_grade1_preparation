@@ -17,9 +17,7 @@ learning_objectives:
   - E[X|Y]=m(Y) のversion自由度とP_Y-a.e.一意性の対応を説明できる
   - 離散型の比の公式と連続型一般の条件付き期待値を区別できる
   - joint densityがある場合の条件付き密度表示を追加仮定から導ける
-definitions:
-  - { id: F0P3D-DEF-01, name: pushforward measure }
-  - { id: F0P3D-DEF-02, name: sigma(Y)-measurability }
+definitions: []
 theorems:
   - { id: F0P3D-THM-01, name: pushforward integration formula }
   - { id: F0P3D-THM-02, name: Doob--Dynkin lemma }
