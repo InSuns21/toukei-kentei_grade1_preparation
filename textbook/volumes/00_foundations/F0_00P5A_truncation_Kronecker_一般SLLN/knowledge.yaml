@@ -13,7 +13,7 @@ forward_references:
 concepts:
   - id: prob.truncation
     name: SLLNの切断法
-    kind: term
+    kind: definition
     aliases: [truncation, 切断, truncation、切断, 大きすぎる観測を切る, 切断平均]
     introduction_aliases: [truncation、切断]
     requires:
