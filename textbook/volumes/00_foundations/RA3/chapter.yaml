@@ -21,7 +21,7 @@ theorems:
   - { id: RA3-THM-03, name: Cauchyの平均値定理 }
   - { id: RA3-THM-04, name: Taylorの定理 }
   - { id: RA3-THM-05, name: 逆関数の微分 }
-canonical_examples: [指数関数の誤差評価, Taylor展開, 単調性]
+canonical_examples: [C^k級と微分可能性, 指数関数の誤差評価, Taylor展開, 単調性]
 problem_patterns: [RA-MVT-1, RA-TAYLOR-1]
 past_exam_alignment: []
 integrated_exam_problems: []
