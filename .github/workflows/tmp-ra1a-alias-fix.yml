@@ -1,0 +1,36 @@
+name: Temporary RA1A alias fix
+on:
+  push:
+    branches: [feat/ra1a-series-convergence]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ra1a-series-convergence
+          fetch-depth: 0
+      - name: Remove measure-theory alias collision
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('textbook/volumes/00_foundations/RA1A/index.md')
+          s=p.read_text()
+          old='条件収束級数 $\\sum a_n$ について、正部分 $p_n=\\max(a_n,0)$ と負部分 $q_n=\\max(-a_n,0)$ の和が両方とも $+\\infty$ でなければならないことを、絶対収束との関係から証明せよ。'
+          new='条件収束級数 $\\sum a_n$ について、正側の非負列 $p_n=\\max(a_n,0)$ と負側の非負列 $q_n=\\max(-a_n,0)$ の和が両方とも $+\\infty$ でなければならないことを、絶対収束との関係から証明せよ。'
+          if old in s:
+              s=s.replace(old,new,1)
+          elif new not in s:
+              raise SystemExit('C03 wording not found')
+          p.write_text(s)
+          PY
+          rm .github/workflows/tmp-ra1a-alias-fix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'RA1A: avoid measure-theory positive-part alias' || true
+          git push origin HEAD:feat/ra1a-series-convergence
