@@ -108,7 +108,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode3-matrix-exponential -->
-**定義の確認：冪零行列なら級数は有限で止まる**
+**定義の確認**
+
+冪零行列なら級数は有限で止まります。
 
 $$
 N=\begin{pmatrix}0&1\\0&0\end{pmatrix}
@@ -265,7 +267,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode3-fundamental-matrix -->
-**定義の確認：対角系**
+**定義の確認**
+
+対角系で条件を直接確認します。
 
 $$
 A=\begin{pmatrix}-1&0\\0&2\end{pmatrix},
@@ -856,7 +860,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode3-stability -->
-**定義の確認：$x'=-2x$**
+**定義の確認**
+
+$x'=-2x$ で三つの安定性を直接確認します。
 
 解は $x(t)=e^{-2t}x_0$ です。任意の $\varepsilon>0$ に対し $\delta=\varepsilon$ とすれば
 
@@ -920,7 +926,7 @@ $$
 
 とします。$J$ は Jordan block の直和です。
 
-まず、固定行列 $P=(p_{ij})$ による乗算はノルムを高々定数倍します。実際、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から各行について
+まず、固定行列 $P=(p_{ij})$ による乗算はユークリッド長さを高々定数倍します。実際、[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から各行について
 
 $$
 \left|\sum_jp_{ij}z_j\right|^2
