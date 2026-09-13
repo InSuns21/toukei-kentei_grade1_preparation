@@ -10,8 +10,9 @@ official_scope: []
 learning_objectives:
   - 実数の完備性から単調収束定理を導ける
   - limsup・liminfをtailの上限下限として扱える
-  - 級数のCauchy判定・絶対収束・代表的判定法を使い分けられる
+  - 級数を部分和列として定義し、Cauchy判定と絶対収束の意味を説明できる
   - 冪級数の収束半径と端点判定を区別できる
+  - 数値級数の詳細な収束判定はRA1Aへ接続できる
 definitions:
   - { id: RA1-DEF-01, name: 上極限・下極限 }
   - { id: RA1-DEF-02, name: 級数の収束 }
