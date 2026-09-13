@@ -309,7 +309,7 @@ $$
 2^{-k},2^{-\ell}<\frac\varepsilon3.
 $$
 
-等長性と三角不等式より
+[定数列埋め込みは等長](#thm-f0-00d0a-isometric-embedding)なので左辺を $\widehat d$ へ移し、その後に距離の三角不等式を適用すると
 
 $$
 \begin{aligned}
@@ -758,7 +758,7 @@ $$
 <!-- solution-start -->
 #### 解答
 ##### 詳細解答
-1. 等長性と三角不等式から
+1. [定数列埋め込みは等長](#thm-f0-00d0a-isometric-embedding)なので
 $$
 \begin{aligned}
 d(x_k,x_\ell)
