@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - F0-00P3A
   - F0-00D2E
+  - F0-00D2B
+  - F0-00P2A
 official_scope: []
 learning_objectives:
   - L2(G)を定義し具体例で確認できる
