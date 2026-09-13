@@ -15,15 +15,13 @@ concepts:
   - id: completion.cauchy-image-is-cut
     name: Cauchy実数の像はDedekind切断
     kind: theorem
-    aliases: [Dedekind切断]
-    introduction_aliases: ["$\\Phi(x)$ はDedekind切断"]
+    aliases: [Cauchy実数の像はDedekind切断]
     requires: [completion.cauchy-to-dedekind-map]
 
   - id: completion.cauchy-dedekind-order-embedding
     name: Cauchy-Dedekind対応は順序埋め込み
     kind: theorem
-    aliases: [順序埋め込み]
-    introduction_aliases: ["$\\Phi$ は順序埋め込み"]
+    aliases: [Cauchy-Dedekind対応は順序埋め込み]
     requires: [completion.cauchy-to-dedekind-map, completion.rational-density-cauchy-real]
 
   - id: completion.dedekind-bisection-bracketing
@@ -36,10 +34,10 @@ concepts:
     name: 任意の切断はCauchy実数から得られる
     kind: theorem
     aliases: [任意の切断はCauchy実数から得られる]
-    requires: [completion.dedekind-bisection-bracketing, completion.cauchy-to-dedekind-map]
+    requires: [completion.dedekind-bisection-bracketing, completion.cauchy-to-dedekind-map, completion.cauchy-real-order]
 
   - id: completion.cauchy-dedekind-ordered-field-isomorphism
     name: Cauchy実数とDedekind実数の順序体同型
     kind: theorem
     aliases: [Cauchy実数とDedekind実数の順序体同型]
-    requires: [completion.dedekind-cut-from-cauchy-real, completion.cauchy-dedekind-order-embedding]
+    requires: [completion.dedekind-cut-from-cauchy-real, completion.cauchy-dedekind-order-embedding, completion.dedekind-addition, completion.cauchy-real-ordered-field]
