@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - F0-00D
   - F0-00A
+  - F0-00A1D
+  - TOP2
 
 concepts:
   - id: completion.rational-cauchy-equivalence
@@ -13,10 +15,10 @@ concepts:
     requires: [topology.cauchy-sequence]
 
   - id: completion.rational-cauchy-equivalence-relation
-    name: Cauchy列同値関係の同値関係性
+    name: 有理Cauchy列上の関係は同値関係
     kind: proposition
-    aliases: [同値関係]
-    introduction_aliases: ["$\\sim$ は同値関係"]
+    aliases: [有理Cauchy列上の関係は同値関係]
+    introduction_aliases: [は同値関係]
     requires: [completion.rational-cauchy-equivalence]
 
   - id: completion.cauchy-real
@@ -56,15 +58,16 @@ concepts:
     requires: [completion.cauchy-real-ordered-field]
 
   - id: completion.rational-canonical-embedding
-    name: 有理数の標準埋め込み
+    name: 有理数の定数列埋め込み
     kind: theorem
-    aliases: [有理数の標準埋め込み]
+    aliases: [有理数の定数列埋め込み]
     requires: [completion.cauchy-real-metric]
 
   - id: completion.rational-density-cauchy-real
     name: 有理数の稠密性
     kind: theorem
     aliases: [有理数の稠密性]
+    introduction_aliases: [の稠密性]
     requires: [completion.rational-canonical-embedding, topology.cauchy-sequence]
 
   - id: completion.cauchy-real-complete
