@@ -8,6 +8,9 @@ prerequisites:
 
 # 旧 H1 と同名の入口概念は、再編中の ODE1 本文自身で再導入するため
 # ローカル alias として保持する。H1 を ODE1 の prerequisite にはしない。
+forward_references:
+  - ode.matrix-exponential
+
 concepts:
   - id: ode.ode1-ordinary-differential-equation
     name: 常微分方程式・階数
@@ -44,13 +47,21 @@ concepts:
     requires: [ode.ode1-ordinary-differential-equation]
 
   - id: ode.ode1-integrating-factor-method
-    name: 一階線形ODE・積分因子法
-    kind: theorem
-    aliases: [積分因子, 積分因子法, 一階線形初期値問題の解]
+    name: 一階線形ODEの積分因子法
+    kind: method
+    aliases: [積分因子, 積分因子法]
     introduction: inline
     requires:
       - ode.ode1-first-order-linear-autonomous
       - analysis.ftc-1
+
+  - id: ode.ode1-linear-ivp-solution
+    name: 一階線形初期値問題の解
+    kind: theorem
+    aliases: [一階線形初期値問題の解]
+    introduction: inline
+    requires:
+      - ode.ode1-integrating-factor-method
       - analysis.ftc-2
 
   - id: ode.ode1-exact-equation
