@@ -6,20 +6,24 @@ prerequisites:
   - F0-00D2
 official_scope: []
 learning_objectives:
-  - 確率空間を三つ組として定義できる
-  - 確率変数を可測写像として説明できる
+  - 確率空間を三つ組として定義し具体例で公理を確認できる
+  - 確率変数を可測写像として説明し具体例で可測性を確認できる
+  - 押し出し測度を定義し確率測度になることを証明できる
   - 分布を押し出し測度として構成できる
-  - CDFと分布測度を対応付けられる
+  - 累積分布関数の基本性質を測度の連続性から証明できる
+  - 離散分布・連続分布・混合分布を測度として区別できる
 definitions:
   - { id: F0P1-DEF-01, name: 確率空間 }
   - { id: F0P1-DEF-02, name: 確率変数 }
   - { id: F0P1-DEF-03, name: 押し出し測度 }
   - { id: F0P1-DEF-04, name: 分布 }
+  - { id: F0P1-DEF-05, name: 累積分布関数 }
 theorems:
-  - { id: F0P1-THM-01, name: 押し出しによる分布の構成 }
-canonical_examples: [サイコロ, Bernoulli変換, 連続変数]
-problem_patterns: [PROB-SPACE-1, PUSHFORWARD-1]
+  - { id: F0P1-THM-01, name: 押し出しによる確率測度の構成 }
+  - { id: F0P1-THM-02, name: 累積分布関数の基本性質 }
+canonical_examples: [サイコロ確率空間, Bernoulli変換, 同分布な異なる確率変数, 混合分布]
+problem_patterns: [PROB-SPACE-1, MEASURABLE-RV-1, PUSHFORWARD-1, CDF-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 3, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 2.5, review: 0.75 }
