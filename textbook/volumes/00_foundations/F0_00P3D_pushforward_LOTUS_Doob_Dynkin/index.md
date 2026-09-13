@@ -1,7 +1,5 @@
 # F0-00P3D：pushforward積分・LOTUS・Doob--Dynkin
 
-<!-- definition-example-audit: strict -->
-
 P2AではLOTUSを使い、P3Aでは
 
 $$
@@ -26,8 +24,6 @@ $$
 
 押し出し測度そのものの正本は [P1 の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-pushforward) です。ここではLOTUSの証明に使う記号だけ再掲します。
 
-<a id="def-f0-00p3d-pushforward-measure"></a>
-
 可測写像 $Y:(\Omega,\mathcal F)\to(S,\mathcal S)$ と $\Omega$ 上の確率測度 $P$ に対し、$Y$ による押し出し測度 $P_Y=P\circ Y^{-1}$ は
 
 $$
@@ -48,7 +44,6 @@ $$
 
 とし、$Y(\omega_1)=0$、$Y(\omega_2)=Y(\omega_3)=1$ とします。
 
-<!-- definition-example-start: def-f0-00p3d-pushforward-measure -->
 **定義の確認**  
 $B=\{1\}$ なら
 
@@ -66,7 +61,6 @@ P_Y(\{1\})
 $$
 
 同様に $P_Y(\{0\})=1/2$ です。したがって $P_Y$ は $\{0,1\}$ 上で質量 $1/2,1/2$ を持つ確率測度です。ここでは「$Y$ の値を数え直した」のではなく、各集合を逆像で $\Omega$ へ戻して $P$ で測っています。
-<!-- definition-example-end -->
 
 ---
 
@@ -220,8 +214,6 @@ $$
 
 右辺が本当に $\sigma$ 代数になるのは、逆像が補集合と可算和を保つからです。したがって「$Y$ を可測にする最小の $\sigma$ 代数」という定義と一致します。
 
-<a id="def-f0-00p3d-sigma-y-measurable"></a>
-
 この章で「$W$ が $\sigma(Y)$-可測」と言うときは、実数値関数 $W:\Omega\to\mathbb R$ が任意のBorel集合 $C\subset\mathbb R$ に対して
 
 $$
@@ -234,7 +226,6 @@ $$
 
 1.1節の有限確率空間で $W=3Y-1$ とします。
 
-<!-- definition-example-start: def-f0-00p3d-sigma-y-measurable -->
 **条件の確認**  
 $W$ は $\omega_1$ で $-1$、$\omega_2,\omega_3$ で $2$ です。したがって任意のBorel集合 $C$ に対する $W^{-1}(C)$ は
 
@@ -246,9 +237,8 @@ $$
 $$
 
 のいずれかであり、いずれも $\sigma(Y)$ に属します。よって $W$ は $\sigma(Y)$-可測です。特に $Y(\omega_2)=Y(\omega_3)$ の2点を $W$ も区別していません。
-<!-- definition-example-end -->
 
-この「$Y$ が見分けられない点を $W$ も見分けない」という直感を、Borel可測な関数 $m$ の存在へ引き上げるのがDoob--Dynkin lemmaです。単に「fiber上で一定だから」と置くのではなく、以下では $m$ を単関数近似から実際に構成します。
+この「$Y$ が見分けられない点を $W$ も見分けない」という直感を、Borel可測な関数 $m$ の存在へ引き上げるのがDoob--Dynkin lemmaです。単に「fiber上で一定だから」と置くのではなく、以下では $m$ を非負単関数列から実際に構成します。
 
 ---
 
@@ -527,7 +517,7 @@ E[m(Y)\mathbf1_{\{Y\in B\}}]
 \end{aligned}
 $$
 
-3本目の等号では、$G^c$ 上の内側積分を0に補ってもLebesgue積分値が変わらないことを使っています。ここで使った追加仮定は **joint density の存在と $X\in L^1$** であり、積分交換にはTonelli/Fubiniを使いました。一般の確率変数対にはこのdensity表示を持ち込めません。density公式はDoob--Dynkinの代替定義ではなく、追加仮定の下で得られる具体的なversionです。
+3本目の等号では、$G^c$ 上の内側積分を0に補ってもLebesgue積分値が変わらないことを使っています。ここで使った追加仮定は **joint density の存在と $X\in L^1$** であり、積分交換には [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) と [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使いました。一般の確率変数対にはこのdensity表示を持ち込めません。density公式はDoob--Dynkinの代替定義ではなく、追加仮定の下で得られる具体的なversionです。
 
 ---
 
@@ -704,7 +694,7 @@ $$
 =\int g\,dP_Y.
 $$
 
-**非負可測関数。** 非負単関数 $g_j\uparrow g$ を取り、$g_j(Y)\uparrow g(Y)$ に単調収束定理を適用します。
+**非負可測関数。** 非負単関数 $g_j\uparrow g$ を取り、$g_j(Y)\uparrow g(Y)$ に[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange)を適用します。
 
 $$
 \int g(Y)dP
@@ -722,12 +712,12 @@ $$
 を得ます。そこで $g=g^+-g^-$ と分解し、$g^+,g^-$ に非負版を適用して差を取ればよいです。この最後の可積分性確認がないと $\infty-\infty$ を作る危険があります。
 <!-- solution-end -->
 
-### F0-00P3D-B02 Doob--Dynkinを単関数近似から構成する
+### F0-00P3D-B02 Doob--Dynkinを非負単関数列から構成する
 
 - Level: B
 - 目安時間: 20分
 
-$W\ge0$ が $\sigma(Y)$-可測とする。$W_n\uparrow W$ となる非負単関数近似から、Borel可測 $m$ を実際に構成して $W=m(Y)$ を示せ。
+$W\ge0$ が $\sigma(Y)$-可測とする。$W_n\uparrow W$ となる非負単関数列から、Borel可測 $m$ を実際に構成して $W=m(Y)$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -850,7 +840,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-1. Tonelliの定理により
+1. [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)により
 
 $$
 \int_{\mathbb R}h(y)dy
@@ -866,7 +856,7 @@ $$
 
 よって $G^c\subset N\cup\{f_Y=0\}$ は $P_Y$-零集合であり、$P_Y(G)=1$ です。
 
-2. $G$ 上では $h(y)<\infty$ なので分子は有限です。Fubiniの定理により、零集合上を0に補った
+2. $G$ 上では $h(y)<\infty$ なので分子は有限です。[Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により、零集合上を0に補った
 
 $$
 y\longmapsto \int x f_{X,Y}(x,y)dx
@@ -909,8 +899,8 @@ $$
 
 この補講で、次を本文から再構成できる形にしました。
 
-- P1の押し出し測度の定義から、指示関数 → 単関数 → 非負可測関数 → 可積分関数の順にLOTUSを証明する。
-- Doob--Dynkin lemma で、$\sigma(Y)$ の逆像表示と単関数近似からBorel可測な $m$ を実際に構成する。
+- [P1の押し出し測度の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-pushforward)から、指示関数 → 単関数 → 非負可測関数 → 可積分関数の順にLOTUSを証明する。
+- Doob--Dynkin lemma で、$\sigma(Y)$ の逆像表示と非負単関数列からBorel可測な $m$ を実際に構成する。
 - $E[X\mid Y]=m(Y)$ のversion自由度が $m$ の $P_Y$-a.e. 自由度と一致することを示す。
 - 離散型の比の公式と、連続型一般では点確率の比が定義にならないことを区別する。
 - joint density がある場合だけ条件付き密度表示へ進み、有限なslice集合を明示して追加仮定と証明境界を閉じる。
