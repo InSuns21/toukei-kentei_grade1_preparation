@@ -431,7 +431,7 @@ $$
 \end{aligned}
 $$
 
-$N$ を増やすと左辺の事象は単調に増えます。[[確率の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により $N\to\infty$ とすると
+$N$ を増やすと左辺の事象は単調に増えます。[[確率の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により $N\to\infty$ とすると
 
 $$
 P(A_r)\le2^{-r},
@@ -937,7 +937,7 @@ $$
 \le E|X|
 $$
 
-を、指示関数と [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。
+を、指示関数と [[Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) から示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -1204,7 +1204,7 @@ P\left(
 \le2^{-r}.
 $$
 
-$N$ を増やすと左辺の事象は単調増加するので、[[確率の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により
+$N$ を増やすと左辺の事象は単調増加するので、[[確率の[下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により
 
 $$
 P\left(
