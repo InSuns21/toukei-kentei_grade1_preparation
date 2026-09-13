@@ -1,0 +1,38 @@
+chapter: "ODE1"
+terms:
+  - term: 常微分方程式
+    english: ordinary differential equation
+    meaning: 一つの独立変数に関する未知関数と、その導関数の関係を表す方程式。
+  - term: 初期値問題
+    english: initial value problem
+    meaning: 微分方程式と、ある一つの初期時刻での未知関数の値などを同時に満たす解を求める問題。
+  - term: 変数分離形
+    english: separable equation
+    meaning: y'=g(t)h(y) の形に書け、t と y の因子を分けて積分できる一階常微分方程式。
+  - term: 積分因子
+    english: integrating factor
+    meaning: 一階線形方程式へ掛けることで左辺を積の微分に変える補助関数。
+  - term: 完全微分方程式
+    english: exact differential equation
+    meaning: M(t,y)+N(t,y)y'=0 がある関数 Φ の全微分 dΦ/dt=0 として表せる方程式。
+  - term: Bernoulli方程式
+    english: Bernoulli equation
+    meaning: y'+p(t)y=q(t)y^α の形をもち、z=y^(1-α) によって一階線形方程式へ変換できる方程式。
+  - term: 平衡解
+    english: equilibrium solution
+    meaning: 自律方程式 y'=f(y) で f(c)=0 を満たす定数 c に対応する定数解 y(t)=c。
+  - term: 方向場
+    english: direction field
+    meaning: 一階方程式 y'=f(t,y) に対し、各点 (t,y) へ傾き f(t,y) をもつ短い線分を対応させた図。
+  - term: phase line
+    english: phase line
+    meaning: 一次元自律方程式で平衡点と各区間の f(y) の符号を数直線上に示し、解の増減方向を表す図。
+  - term: Lipschitz条件
+    english: Lipschitz condition
+    meaning: y の変化に対する f(t,y) の変化を一定倍で抑える条件。Picard--Lindelöf の一意性機構を与える。
+  - term: Picard反復
+    english: Picard iteration
+    meaning: 積分方程式の右辺を反復して近似関数列を作り、その極限から解を構成する方法。
+  - term: Picard--Lindelöfの定理
+    english: Picard--Lindelof theorem
+    meaning: 右辺の連続性と未知関数方向のLipschitz条件のもとで、初期値問題の局所解の存在と一意性を保証する定理。
