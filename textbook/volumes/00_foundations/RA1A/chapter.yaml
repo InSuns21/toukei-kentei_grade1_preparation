@@ -1,0 +1,39 @@
+id: "RA1A"
+title: "標準実解析 I-A：数値級数の収束論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA1
+official_scope: []
+learning_objectives:
+  - 級数の一般項が0へ行くことが必要条件にすぎない理由を説明できる
+  - 非負項級数を部分和の単調性と有界性で判定できる
+  - 比較判定・極限比較判定・比判定・根判定を仮定込みで証明して使い分けられる
+  - Cauchy凝縮判定からp級数と対数補正級数の収束域を導ける
+  - Leibnizの交代級数判定と剰余評価を証明できる
+  - Abelの部分和変換を導き、Dirichlet判定・Abel判定を証明できる
+  - 絶対収束と条件収束の差を再配列の挙動から説明できる
+  - 各判定法が境界例で何を決められないかを反例で説明できる
+definitions:
+  - { id: RA1A-DEF-01, name: 非負項級数 }
+  - { id: RA1A-DEF-02, name: 交代級数 }
+  - { id: RA1A-DEF-03, name: 級数の再配列 }
+theorems:
+  - { id: RA1A-THM-01, name: 級数収束の一般項必要条件 }
+  - { id: RA1A-THM-02, name: 非負項級数の部分和有界性判定 }
+  - { id: RA1A-THM-03, name: 級数の比較判定 }
+  - { id: RA1A-THM-04, name: 級数の極限比較判定 }
+  - { id: RA1A-THM-05, name: 級数の比判定 }
+  - { id: RA1A-THM-06, name: 級数の根判定 }
+  - { id: RA1A-THM-07, name: Cauchy凝縮判定 }
+  - { id: RA1A-THM-08, name: Leibnizの交代級数判定 }
+  - { id: RA1A-THM-09, name: Abelの部分和変換 }
+  - { id: RA1A-THM-10, name: 級数のDirichlet判定 }
+  - { id: RA1A-THM-11, name: 級数のAbel判定 }
+  - { id: RA1A-THM-12, name: Riemann再配列定理（有限値版） }
+canonical_examples: [幾何級数, p級数, 対数補正級数, 交代調和級数, 条件収束級数の再配列]
+problem_patterns: [RA-SERIES-COMPARE-1, RA-SERIES-RATIO-ROOT-1, RA-SERIES-ALTERNATING-1, RA-SERIES-DIRICHLET-1, RA-SERIES-REARRANGE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 7, level_b: 6, level_c: 3, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 6.0, review: 1.0 }
