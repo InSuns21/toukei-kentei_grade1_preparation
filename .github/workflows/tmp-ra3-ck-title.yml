@@ -1,0 +1,25 @@
+name: Temporary RA3 Ck title fix
+on:
+  push:
+    branches:
+      - fix/ra3-smoothness-classes
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/ra3-smoothness-classes
+          fetch-depth: 0
+      - name: Fix formal title
+        run: python scripts/tmp_ra3_ck_title.py
+      - name: Commit and remove temporary files
+        run: |
+          rm scripts/tmp_ra3_ck_title.py .github/workflows/tmp-ra3-ck-title.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'RA3: normalize Ck formal definition title'
+          git push origin HEAD:fix/ra3-smoothness-classes
