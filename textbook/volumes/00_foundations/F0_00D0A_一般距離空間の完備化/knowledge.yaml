@@ -43,10 +43,9 @@ concepts:
     requires: [completion.canonical-isometric-embedding, topology.cauchy-sequence]
 
   - id: completion.metric-completion-complete
-    name: 完備化の完備性
+    name: 完備化空間は完備
     kind: theorem
-    aliases: [完備性]
-    introduction_aliases: ["$\\widehat X$ の完備性"]
+    aliases: [完備化空間は完備]
     requires: [completion.canonical-image-dense]
 
   - id: completion.metric-completion-uniqueness
