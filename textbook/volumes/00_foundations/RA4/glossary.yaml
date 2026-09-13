@@ -11,7 +11,7 @@ terms:
     meaning: 分割を細かくしたとき上積分と下積分が一致すること。
   - term: FTC
     english: Fundamental Theorem of Calculus
-    meaning: Fundamental Theorem of Calculus の略。日本語では「微積分学の基本定理」。本章ではIを「積分から原始関数を作る主張」、IIを「原始関数から定積分を計算する主張」と呼ぶ。
+    meaning: Fundamental Theorem of Calculus の略語で、日本語では「微積分学の基本定理」。本章ではIを「積分から原始関数を作る主張」、IIを「原始関数から定積分を計算する主張」と呼ぶ。
   - term: 微積分学の基本定理
     english: Fundamental Theorem of Calculus (FTC)
-    meaning: 積分による原始関数の構成と原始関数による定積分計算を結ぶ定理群。FTCと略す。
+    meaning: 積分による原始関数の構成と原始関数による定積分計算を結ぶ定理群。英語名の頭文字からFTCと略す。
