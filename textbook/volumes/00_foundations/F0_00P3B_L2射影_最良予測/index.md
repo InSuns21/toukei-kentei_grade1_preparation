@@ -395,7 +395,32 @@ $$
 
 は、$Y$ の任意の二乗可積分な可測関数からなる $L^2(\sigma(Y))$ への射影です。従って一般には非線形です。
 
-特別にスカラー $(X,Y)$ が**jointly Gaussian**で $\operatorname{Var}(Y)>0$ なら
+### 7.1 jointly Gaussian は補足例
+
+以下のGaussian公式は、この章で証明してきた「条件付き期待値＝直交射影」の一般論からだけでは出ません。**多変量正規分布に固有の事実**、すなわち jointly Gaussian なベクトルでは無相関な線形結合が独立になることを追加で使う補足例です。この事実自体はここでの証明依存にはせず、Gaussian分布の既知結果として使います。
+
+スカラー $(X,Y)$ が jointly Gaussian で $\operatorname{Var}(Y)>0$ とし、
+
+$$
+\beta=\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(Y)},
+\qquad
+R=X-E[X]-\beta\{Y-E[Y]\}
+$$
+
+と置きます。すると
+
+$$
+\operatorname{Cov}(R,Y)
+=\operatorname{Cov}(X,Y)-\beta\operatorname{Var}(Y)=0.
+$$
+
+$(R,Y)$ も jointly Gaussian なので、上のGaussian固有事実から $R$ と $Y$ は独立です。従ってP3Aの独立性の性質より
+
+$$
+E[R\mid Y]=E[R]=0.
+$$
+
+これを $R$ の定義へ戻すと
 
 $$
 \boxed{
@@ -406,7 +431,7 @@ E[X\mid Y]
 }
 $$
 
-となり、$Y$ のアフィン関数です。中心化して $E[X]=E[Y]=0$ とした場合に限れば線形関数になります。このためjointly Gaussianでは、切片を含む最小二乗線形回帰と条件付き期待値が一致します。「Gaussianなら何でも線形」ではなく、**同時分布がGaussianであること**が条件です。
+を得ます。つまり $Y$ のアフィン関数です。中心化して $E[X]=E[Y]=0$ とした場合に限れば線形関数になります。このためjointly Gaussianでは、切片を含む最小二乗線形回帰と条件付き期待値が一致します。「Gaussianなら何でも線形」ではなく、**同時分布がGaussianであること**が条件です。
 
 ---
 
@@ -591,13 +616,43 @@ $$
 E[X\mid Y]=Y^2.
 $$
 
-2. $E[Y]=0$、$E[X]=E[Y^2]=2/3$、
+2. $a+bY$ への最小二乗射影では、残差 $X-a-bY$ が $1$ と $Y$ の両方に直交するので
 
 $$
-\operatorname{Cov}(X,Y)=E[Y^3]-E[Y^2]E[Y]=0.
+E[X-a-bY]=0,
 $$
 
-よって正規方程式から $b=0$、$a=E[X]=2/3$。最良アフィン予測は定数 $2/3$。
+$$
+E[(X-a-bY)Y]=0
+$$
+
+が必要です。ここで
+
+$$
+E[Y]=0,
+\qquad
+E[X]=E[Y^2]=\frac23,
+\qquad
+E[XY]=E[Y^3]=0,
+\qquad
+E[Y^2]=\frac23.
+$$
+
+第1式から
+
+$$
+a=E[X]-bE[Y]=\frac23,
+$$
+
+第2式から
+
+$$
+0=E[XY]-aE[Y]-bE[Y^2]
+=-\frac23b,
+$$
+
+よって $b=0$。したがって最良アフィン予測は定数 $2/3$ です。
+
 3. $L^2(\sigma(Y))$ は $Y$ の非線形関数 $Y^2$ も含むが、$\operatorname{span}\{1,Y\}$ には $Y^2$ が入らない。射影先が違うためである。
 <!-- solution-end -->
 
