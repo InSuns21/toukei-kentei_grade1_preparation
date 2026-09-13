@@ -11,45 +11,46 @@ forward_references:
   - prob.probability-convergence
   - measure.product-measure
   - stat.likelihood
-  # P2AではLOTUSを先に使用し、完全証明はP3Dで与える。
   - measure.pushforward-integration-theorem
 
 concepts:
   - id: prob.expectation
     name: 期待値
-    kind: term
-    aliases: ["期待値は確率測度に関する積分"]
+    kind: definition
+    aliases: [期待値]
     requires:
       - prob.random-variable
       - measure.lebesgue-integral
 
-  # ここではLOTUSを計算原理として先に導入する。完全証明はP3Dの押し出し積分公式。
   - id: prob.lotus
-    name: 押し出し積分公式（LOTUS）
-    kind: term
-    aliases: [LOTUS]
+    name: LOTUS：分布による期待値計算
+    kind: theorem
+    aliases: [LOTUS, "LOTUS：分布による期待値計算"]
     requires:
       - measure.pushforward-measure
+      - measure.simple-function-approximation
+      - measure.monotone-convergence-theorem
+      - measure.positive-negative-parts
 
   - id: prob.moment
     name: モーメント
-    kind: term
-    aliases: [次モーメント]
+    kind: definition
+    aliases: [モーメント, 次モーメント]
     requires:
       - prob.expectation
 
   - id: prob.variance
     name: 分散
     kind: term
-    aliases: ["Var(X)"]
+    aliases: [分散, "Var(X)"]
     requires:
       - prob.expectation
 
   - id: prob.union-bound
     name: 可算劣加法性（union bound）
     kind: theorem
-    aliases: ["可算劣加法性・union bound", union bound]
-    introduction_aliases: ["可算劣加法性・union bound"]
+    aliases: ["可算劣加法性（union bound）", union bound]
+    introduction_aliases: ["可算劣加法性（union bound）"]
     requires:
       - prob.probability-space
       - measure.measure-monotonicity
@@ -58,6 +59,7 @@ concepts:
     name: 確率測度の上からの連続性
     kind: theorem
     aliases: [確率測度の上からの連続性]
+    introduction_aliases: [確率測度の上からの連続性]
     requires:
       - prob.probability-space
       - measure.continuity-from-below
