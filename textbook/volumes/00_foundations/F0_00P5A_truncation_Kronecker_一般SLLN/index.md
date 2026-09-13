@@ -65,8 +65,7 @@ E[X^2]
 2c\sum_{k=1}^{\infty}\frac{k^2}{k^3}
 =
 2c\sum_{k=1}^{\infty}\frac1k
-=
-\infty.
+=\infty.
 $$
 
 したがってこの分布では P5 の有限分散版を適用できません。それでも平均 $E[X]$ は有限です。本章の一般形は、このような **平均は存在するが分散は無限大** の場合まで含めます。
@@ -420,7 +419,7 @@ $$
 \left|
 \sum_{j=m_r}^{k}Z_j
 \right|
-\ge2^{-r}
+>2^{-r}
 \right)\\
 &\qquad\le
 2^{2r}
@@ -447,7 +446,7 @@ A_r:=
 \left|
 \sum_{j=m_r}^{k}Z_j
 \right|
-\ge2^{-r}
+>2^{-r}
 \right\}
 $$
 
@@ -469,7 +468,7 @@ $$
 \left|
 \sum_{j=m_r}^{k}Z_j(\omega)
 \right|
-<2^{-r}.
+\le2^{-r}.
 $$
 
 任意の $\varepsilon>0$ に対し、$r\ge r_0(\omega)$ かつ
@@ -495,7 +494,7 @@ $$
 \left|
 \sum_{j=m_r}^{q}Z_j(\omega)
 \right|\\
-&<
+&\le
 2^{1-r}
 <\varepsilon.
 \end{aligned}
@@ -1198,7 +1197,7 @@ P\left(
 \left|
 \sum_{j=m_r}^kZ_j
 \right|
-\ge2^{-r}
+>2^{-r}
 \right)
 \le2^{-r}.
 $$
@@ -1211,7 +1210,7 @@ P\left(
 \left|
 \sum_{j=m_r}^kZ_j
 \right|
-\ge2^{-r}
+>2^{-r}
 \right)
 \le2^{-r}.
 $$
@@ -1223,7 +1222,7 @@ $$
 \left|
 \sum_{j=m_r}^kZ_j
 \right|
-<2^{-r}.
+\le2^{-r}.
 $$
 
 部分和 $S_n=\sum_{j=1}^nZ_j$ とします。任意の $\varepsilon>0$ に対し、上の評価が成立し、かつ $2^{1-r}<\varepsilon$ となる $r$ を取ります。$p>q\ge m_r$ なら
@@ -1239,7 +1238,7 @@ $$
 \left|
 \sum_{j=m_r}^qZ_j
 \right|\\
-&<2^{1-r}
+&\le2^{1-r}
 <\varepsilon.
 \end{aligned}
 $$
