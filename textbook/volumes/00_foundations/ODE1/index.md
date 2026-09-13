@@ -72,7 +72,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode1-ode, def-ode1-linear-autonomous, def-ode1-ivp-bvp -->
-### 定義の確認：三つの方程式を分類する
+**定義の確認**
+
+### 三つの方程式を分類する
 
 1. $y'=2y$ は一階・線形・自律方程式です。$p(t)=-2$, $q(t)=0$ とすれば $y'-2y=0$ の形です。
 2. $y'=t+y^2$ は一階・非線形・非自律方程式です。$y^2$ があるので線形ではなく、右辺に $t$ があるので自律でもありません。
@@ -92,7 +94,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode1-direction-field -->
-### 例：$y'=-y$ の方向場を読む
+**定義の確認**
+
+### $y'=-y$ の方向場を読む
 
 $y>0$ なら傾きは負、$y<0$ なら傾きは正、$y=0$ なら傾きは0です。したがって解曲線は両側から $y=0$ へ向かいます。実際の解 $y(t)=Ce^{-t}$ と整合しています。
 
@@ -138,7 +142,9 @@ $$
 ただし **$h(y)$ で割る前に $h(c)=0$ となる定数 $c$ を調べる必要があります。** そのとき $y(t)\equiv c$ は元の方程式を満たす平衡解ですが、$h(y)$ で割った式からは消えます。
 
 <!-- definition-example-start: def-ode1-separable -->
-### 例：ロジスティック方程式
+**定義の確認**
+
+### ロジスティック方程式
 
 $r>0$, $K>0$ として
 
@@ -276,7 +282,9 @@ $\mu(t_0)=1$, $y(t_0)=y_0$ だから表示式を得ます。逆に表示式を�
 <!-- proof-end -->
 
 <!-- definition-example-start: def-ode1-first-linear -->
-### 例：$y'+2y=e^{-t}$, $y(0)=0$
+**定義の確認**
+
+### $y'+2y=e^{-t}$, $y(0)=0$
 
 $p(t)=2$ なので $\mu(t)=e^{2t}$。方程式に掛けると
 
@@ -381,7 +389,9 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-ode1-exact -->
-### 例：$(2ty+1)+(t^2+2y)y'=0$
+**定義の確認**
+
+### $(2ty+1)+(t^2+2y)y'=0$
 
 $$
 M(t,y)=2ty+1,
@@ -441,7 +451,9 @@ $$
 という一階線形 ODE に変わります。
 
 <!-- definition-example-start: def-ode1-bernoulli -->
-### 例：$y'-y=-y^2$
+**定義の確認**
+
+### $y'-y=-y^2$
 
 非零解について $z=y^{-1}$ と置くと
 
@@ -479,7 +491,9 @@ $$
 $f(y)>0$ なら時間が進むと $y$ は増加し、$f(y)<0$ なら減少します。
 
 <!-- definition-example-start: def-ode1-equilibrium -->
-### 例：ロジスティック方程式の phase line
+**定義の確認**
+
+### ロジスティック方程式の phase line
 
 $$
 y'=r y\left(1-\frac{y}{K}\right),\qquad r,K>0
@@ -550,7 +564,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode1-lipschitz-y -->
-### 定義の確認：$t+y^2$ は有界な帯では Lipschitz
+**定義の確認**
+
+### $t+y^2$ は有界な帯では Lipschitz
 
 $|y|\le B$ なら
 
