@@ -1,0 +1,40 @@
+id: "ODE1"
+title: "標準常微分方程式 I：一階常微分方程式・初期値問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA3
+  - RA4
+  - RA5
+official_scope: []
+learning_objectives:
+  - 一階ODEを階数・線形性・自律性・初期値問題/境界値問題の観点から分類できる
+  - 変数分離で平衡解を落とさずに解を構成できる
+  - 一階線形ODEの積分因子を積の微分から導出し初期値問題を解ける
+  - 完全微分方程式とBernoulli方程式を標準変形から解ける
+  - 自律方程式の平衡点とphase lineから解の増減を読める
+  - 初期値問題と積分方程式の同値性を説明できる
+  - yに関するLipschitz条件を具体的な領域上で検証できる
+  - Picard--Lindelöfの局所存在・一意性をPicard反復と一様収束から証明できる
+  - 連続だがLipschitzでない場合の非一意性を反例と証明機構の破綻から説明できる
+definitions:
+  - { id: ODE1-DEF-01, name: 常微分方程式・階数 }
+  - { id: ODE1-DEF-02, name: 線形・非線形、自律・非自律 }
+  - { id: ODE1-DEF-03, name: 初期値問題・境界値問題 }
+  - { id: ODE1-DEF-04, name: 変数分離形 }
+  - { id: ODE1-DEF-05, name: 一階線形ODE }
+  - { id: ODE1-DEF-06, name: 完全微分方程式 }
+  - { id: ODE1-DEF-07, name: Bernoulli方程式 }
+  - { id: ODE1-DEF-08, name: 平衡解 }
+  - { id: ODE1-DEF-09, name: yに関するLipschitz条件 }
+theorems:
+  - { id: ODE1-THM-01, name: 一階線形初期値問題の解 }
+  - { id: ODE1-THM-02, name: 長方形上の完全性判定 }
+  - { id: ODE1-THM-03, name: 初期値問題と積分方程式の同値性 }
+  - { id: ODE1-THM-04, name: Picard--Lindelöfの局所存在・一意性 }
+canonical_examples: [ロジスティック方程式, 積分因子, 完全微分方程式, Bernoulli方程式, phase line, Lipschitz確認, 待ってから動き出す非一意解]
+problem_patterns: [ODE-SEPARABLE-1, ODE-LINEAR-1, ODE-EXACT-1, ODE-BERNOULLI-1, ODE-PHASE-LINE-1, ODE-PICARD-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.0, review: 0.5 }
