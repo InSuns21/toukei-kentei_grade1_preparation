@@ -1,5 +1,11 @@
 chapter: "RA3"
 terms:
+  - term: C^k級
+    english: C^k class
+    meaning: k階までの導関数が存在し、それらがすべて連続である関数の滑らかさの階級。
+  - term: C∞級
+    english: smooth function / C-infinity class
+    meaning: 任意の階数まで導関数が存在し、それらがすべて連続である関数。滑らかな関数ともいう。
   - term: 平均値定理
     english: mean value theorem
     meaning: 区間全体の平均変化率と一致する瞬間変化率を持つ点が区間内に存在するという定理。
