@@ -51,7 +51,7 @@ $$
 
 ## 2. 基準測度に対する密度
 
-<a id="def-f0-00p2-rn-derivative"></a>
+<a id="def-f0-00p2-rn-density"></a>
 
 <!-- formal-statement-start -->
 > **定義（Radon--Nikodym微分）**  
@@ -67,7 +67,7 @@ $$
 
 ### 2.1 例：先ほどの測度
 
-<!-- definition-example-start: def-f0-00p2-rn-derivative -->
+<!-- definition-example-start: def-f0-00p2-rn-density -->
 **定義の確認**
 
 $f(x)=2x$ は非負Borel可測で、任意の可測集合 $A$ に対して
@@ -94,7 +94,7 @@ $$
 <a id="lem-f0-00p2-l2-representation"></a>
 
 <!-- formal-statement-start -->
-> **補題（$L^2$ 表現補題）**  
+> **補題（L^2表現補題）**  
 > 有限測度空間 $(\Omega,\mathcal F,\rho)$ 上で、$T:L^2(\rho)\to\mathbb R$ を連続線形汎関数とします。このとき、ある $h\in L^2(\rho)$ が存在して
 
 $$
@@ -216,7 +216,7 @@ $$
 \end{aligned}
 $$
 
-従って $T$ は連続です。[前節の $L^2$ 表現補題](#lem-f0-00p2-l2-representation)から
+従って $T$ は連続です。[L^2表現補題](#lem-f0-00p2-l2-representation)から
 
 $$
 T(g)=\int gh\,d\rho
