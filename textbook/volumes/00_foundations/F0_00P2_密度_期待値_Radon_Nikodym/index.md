@@ -34,13 +34,7 @@ $$
 <!-- definition-example-start: def-f0-00p2-absolute-continuity -->
 **定義の確認**
 
-$\lambda(A)=0$ なら測度0の集合上の積分は0なので
-
-$$
-\nu(A)=0.
-$$
-
-従って $\nu\ll\lambda$ です。
+$\lambda(A)=0$ なら測度0の集合上の積分は0なので $\nu(A)=0$。従って $\nu\ll\lambda$ です。
 <!-- definition-example-end -->
 
 一方、Dirac測度 $\delta_0$ では
@@ -122,25 +116,24 @@ $$
 
 と置きます。$T$ は連続なので $M$ は閉線形部分空間です。$T(y)\ne0$ となる $y\in L^2(\rho)$ を一つ取ります。
 
-[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により、
+[Hilbert射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)により
 
 $$
 u$$
 
-のような別記号を導入する必要はなく、直交成分を $u$ として
+ではなく、直交成分 $u$ を
 
 $$
-u$$
+ u:=y-P_My
+$$
 
-を使わずに
+と定めると
 
 $$
- u:=y-P_My\in M^\perp,
+ u\in M^\perp,
 \qquad
-y=P_My+u
+y=P_My+u.
 $$
-
-と書けます。
 
 $y\notin M$ なので $u\ne0$ です。また $P_My\in M$ なので
 
@@ -154,26 +147,20 @@ $$
 \alpha:=\frac{T(g)}{T(u)}
 $$
 
-と置くと
-
-$$
-T(g-\alpha u)=0,
-$$
-
-従って $g-\alpha u\in M$ です。$u\perp M$ だから
+と置くと $T(g-\alpha u)=0$、従って $g-\alpha u\in M$ です。$u\perp M$ だから
 
 $$
 0=\langle u,g-\alpha u\rangle
 =\int ug\,d\rho-\alpha\|u\|_2^2.
 $$
 
-従って
-
-$$
-\alpha=\frac{\int ug\,d\rho}{\|u\|_2^2}.
-$$
-
 よって
+
+$$
+\alpha=\frac{\int ug\,d\rho}{\|u\|_2^2}
+$$
+
+であり
 
 $$
 T(g)
@@ -194,13 +181,7 @@ $$
 \qquad(\forall g\in L^2(\rho)).
 $$
 
-$g=h_1-h_2$ と取れば
-
-$$
-\|h_1-h_2\|_2^2=0,
-$$
-
-従って $h_1=h_2$ が $\rho$-a.e. で成り立ちます。
+$g=h_1-h_2$ と取れば $\|h_1-h_2\|_2^2=0$ なので、$h_1=h_2$ が $\rho$-a.e. で成り立ちます。
 <!-- proof-end -->
 
 ---
@@ -223,15 +204,7 @@ $$
 <!-- proof-start -->
 ### 4.1 証明：有限測度の場合
 
-まず
-
-$$
-\mu(\Omega)<\infty,
-\qquad
-\nu(\Omega)<\infty
-$$
-
-とします。
+まず $\mu(\Omega)<\infty$, $\nu(\Omega)<\infty$ とし
 
 $$
 \rho:=\mu+\nu,
@@ -255,7 +228,7 @@ $$
 T(g)=\int gh\,d\rho
 $$
 
-となる $h\in L^2(\rho)$ が存在します。$\rho$ は有限なので $\boldsymbol{1}_A\in L^2(\rho)$ であり、
+となる $h\in L^2(\rho)$ が存在します。$\rho$ は有限なので $\boldsymbol{1}_A\in L^2(\rho)$ であり
 
 $$
 \nu(A)=\int_Ah\,d\rho.
@@ -273,29 +246,23 @@ $$
 D:=\{h=1\}
 $$
 
-と置くと $\mu(D)=0$。仮定 $\nu\ll\mu$ から $\nu(D)=0$ でもあるので $\rho(D)=0$ です。
+と置くと $\mu(D)=0$。$\nu\ll\mu$ から $\nu(D)=0$ でもあるので $\rho(D)=0$ です。
 
-$D^c$ 上で
-
-$$
-f:=\frac{h}{1-h}
-$$
-
-とし、$D$ 上では $f:=0$ とします。
+$D^c$ 上で $f:=h/(1-h)$、$D$ 上で $f:=0$ とします。
 
 $$
 \mu(A)=\int_A(1-h)\,d\rho
 $$
 
-を指示関数から非負単関数、さらに単調収束定理で一般の非負可測関数へ拡張すると
+を指示関数から非負単関数、さらに単調収束定理で非負可測関数へ拡張すると
 
 $$
 \int\varphi\,d\mu
 =
-\int\varphi(1-h)\,d\rho
+\int\varphi(1-h)\,d\rho.
 $$
 
-です。$\varphi=f\boldsymbol{1}_A$ とすれば
+$\varphi=f\boldsymbol{1}_A$ とすれば
 
 $$
 \begin{aligned}
@@ -321,7 +288,7 @@ $$
 
 と置けば、$D_k$ は互いに素で $\Omega$ を覆い、各 $D_k$ 上で $\mu,\nu$ は有限です。
 
-制限測度を
+制限測度
 
 $$
 \mu_k(A):=\mu(A\cap D_k),
@@ -329,7 +296,7 @@ $$
 \nu_k(A):=\nu(A\cap D_k)
 $$
 
-とします。$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので、$\nu\ll\mu$ から $\nu_k(A)=0$。従って $\nu_k\ll\mu_k$ です。
+について、$\mu_k(A)=0$ なら $\mu(A\cap D_k)=0$ なので $\nu\ll\mu$ から $\nu_k(A)=0$。従って $\nu_k\ll\mu_k$ です。
 
 各 $D_k$ に有限測度版を適用して密度 $f_k$ を取り
 
@@ -352,25 +319,13 @@ $$
 
 $f,g$ がともにRadon--Nikodym微分だとします。各有限測度部分 $D_k$ で $f,g$ はa.e.有限です。
 
-もし
+もし $H:=D_k\cap\{f>g\}$ が正の測度を持つなら
 
 $$
-H:=D_k\cap\{f>g\}
+H=\bigcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
 $$
 
-が正の測度を持つなら
-
-$$
-H=igcup_{n=1}^{\infty}D_k\cap\{f\ge g+1/n\}
-$$
-
-がa.e.の意味で成り立つので、ある $n$ で
-
-$$
-H_n:=D_k\cap\{f\ge g+1/n\}
-$$
-
-が正の測度を持ちます。しかし
+がa.e.の意味で成り立つので、ある $n$ で $H_n:=D_k\cap\{f\ge g+1/n\}$ が正の測度を持ちます。しかし
 
 $$
 \begin{aligned}
@@ -432,13 +387,7 @@ $$
 <!-- definition-example-start: def-f0-00p2-dominating-measure -->
 **定義の確認**
 
-$\{0,1\}$ 上の数え上げ測度 $\#$ について $\#(A)=0$ なら $A=\varnothing$ です。従って任意のBernoulli分布 $P_p$ について
-
-$$
-P_p(A)=0,
-$$
-
-よって
+$\{0,1\}$ 上の数え上げ測度 $\#$ について $\#(A)=0$ なら $A=\varnothing$ です。従って任意のBernoulli分布 $P_p$ について $P_p(A)=0$。よって
 
 $$
 P_p\ll\#
@@ -453,7 +402,6 @@ $$
 ## 演習
 
 ### F0-00P2-A01 Bernoulli分布を数え上げ測度で書く
-
 - Level: A
 - 目安時間: 10分
 
@@ -461,23 +409,14 @@ $P(X=1)=p$, $P(X=0)=1-p$ とする。数え上げ測度 $\#$ に対する $P_X$ 
 
 <!-- solution-start -->
 #### 詳細解答
-
 $f(0)=1-p$, $f(1)=p$ と置けば
-
 $$
 \int_Af\,d\#=\sum_{x\in A}f(x)=P_X(A).
 $$
-
-従って
-
-$$
-\frac{dP_X}{d\#}(x)=p^x(1-p)^{1-x},
-\qquad x\in\{0,1\}.
-$$
+従って $dP_X/d\#(x)=p^x(1-p)^{1-x}$ です。
 <!-- solution-end -->
 
 ### F0-00P2-A02 絶対連続性を確認する
-
 - Level: A
 - 目安時間: 10分
 
@@ -485,16 +424,13 @@ $[0,1]$ 上で $\nu(A)=\int_A3x^2\,dx$ とする。$\nu\ll\lambda$ を示し、$
 
 <!-- solution-start -->
 #### 詳細解答
-
 $\lambda(A)=0$ なら $\nu(A)=0$ なので $\nu\ll\lambda$ です。また
-
 $$
 \frac{d\nu}{d\lambda}(x)=3x^2.
 $$
 <!-- solution-end -->
 
 ### F0-00P2-A03 Dirac測度の絶対連続性
-
 - Level: A
 - 目安時間: 10分
 
@@ -502,20 +438,10 @@ $\delta_a\not\ll\lambda$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-
-$A=\{a\}$ なら
-
-$$
-\lambda(A)=0,
-\qquad
-\delta_a(A)=1,
-$$
-
-なので絶対連続性の定義を満たしません。
+$A=\{a\}$ なら $\lambda(A)=0$ ですが $\delta_a(A)=1$ なので、絶対連続性の定義を満たしません。
 <!-- solution-end -->
 
 ### F0-00P2-A04 重み付き数え上げ測度
-
 - Level: A
 - 目安時間: 10分
 
@@ -523,30 +449,14 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-
-一点集合で
-
-$$
-p_x=f(x)w_x,
-$$
-
-従って
-
+一点集合で $p_x=f(x)w_x$ なので
 $$
 f(x)=\frac{p_x}{w_x}.
 $$
-
-さらに
-
-$$
-\int_Af\,d\nu=\sum_{x\in A}p_x=P_X(A),
-$$
-
-なので定義式も満たします。
+さらに $\int_Af\,d\nu=\sum_{x\in A}p_x=P_X(A)$ です。
 <!-- solution-end -->
 
 ### F0-00P2-B01 Bernoulli族の支配測度
-
 - Level: B
 - 目安時間: 15分
 
@@ -554,9 +464,7 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-
-$\#(A)=0$ なら $A=\varnothing$ なので $P_p(A)=0$。従って全ての $p$ で $P_p\ll\#$ です。また
-
+$\#(A)=0$ なら $A=\varnothing$ なので全ての $p$ で $P_p(A)=0$。従って $P_p\ll\#$ です。また
 $$
 \frac{dP_p}{d\#}(0)=1-p,
 \qquad
@@ -565,87 +473,50 @@ $$
 <!-- solution-end -->
 
 ### F0-00P2-B02 点質量と連続部分を同時に支配する
-
 - Level: B
 - 目安時間: 15分
 
-$0<p<1$ とし
-
-$$
-P=p\delta_0+(1-p)N(0,1),
-\qquad
-\mu:=\delta_0+\lambda.
-$$
-
-標準正規密度を $\varphi$ とする。$P\ll\mu$ を示し、$dP/d\mu$ を求めよ。
+$0<p<1$ とし $P=p\delta_0+(1-p)N(0,1)$、$\mu:=\delta_0+\lambda$ とする。標準正規密度を $\varphi$ として、$P\ll\mu$ を示し $dP/d\mu$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-
 $\mu(A)=0$ なら $\delta_0(A)=0$ かつ $\lambda(A)=0$ なので $P(A)=0$。従って $P\ll\mu$ です。
-
 $$
 f(x):=p\boldsymbol{1}_{\{0\}}(x)+(1-p)\varphi(x)\boldsymbol{1}_{\mathbb R\setminus\{0\}}(x)
 $$
-
-と置くと
-
-$$
-\int_Af\,d\mu
-=p\delta_0(A)+(1-p)\int_A\varphi(x)\,dx
-=P(A),
-$$
-
-よって $f=dP/d\mu$ です。
+と置けば $\int_Af\,d\mu=P(A)$ なので $f=dP/d\mu$ です。
 <!-- solution-end -->
 
 ### F0-00P2-B03 一意性を証明する
-
 - Level: B
 - 目安時間: 15分
 
-有限測度 $\nu$ に対して
-
-$$
-\nu(A)=\int_Af\,d\mu=\int_Ag\,d\mu
-$$
-
-が全ての可測集合 $A$ で成り立つとする。$f,g\ge0$ とし、$f=g$ が $\mu$-a.e. 成り立つことを示せ。
+有限測度 $\nu$ に対して $\nu(A)=\int_Af\,d\mu=\int_Ag\,d\mu$ が全ての可測集合 $A$ で成り立つとする。$f,g\ge0$ とし、$f=g$ が $\mu$-a.e. 成り立つことを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-
 $H:=\{f>g\}$ とします。a.e.有限性から
-
 $$
 H=\bigcup_{n=1}^{\infty}\{f\ge g+1/n\}
 $$
-
 がa.e.の意味で成り立ちます。$\mu(H)>0$ なら、ある $n$ で $H_n:=\{f\ge g+1/n\}$ が正の測度を持ち
-
 $$
-\nu(H_n)
-=\int_{H_n}f\,d\mu
-\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)
->\nu(H_n),
+\nu(H_n)=\int_{H_n}f\,d\mu
+\ge\int_{H_n}g\,d\mu+\frac1n\mu(H_n)>\nu(H_n),
 $$
-
 となり矛盾です。従って $f\le g$ a.e.。逆も同様なので $f=g$ a.e.です。
 <!-- solution-end -->
 
 ### F0-00P2-C01 基準測度を変えて同じ分布を表す
-
 - Level: C
 - 目安時間: 25分
 
 実数上で
-
 $$
 \mu(A)=\int_A\frac1{1+x^2}\,dx,
 \qquad
 \nu(A)=\int_Ace^{-x^2}\,dx
 $$
-
 とする。ただし $c>0$ は $\nu(\mathbb R)=1$ となる正規化定数である。
 
 1. $\nu\ll\mu$ を示せ。
@@ -655,36 +526,25 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-
-**1.** $\mu(A)=0$ とします。$A_m:=A\cap[-m,m]$ 上では
-
-$$
-\frac1{1+x^2}\ge\frac1{1+m^2},
-$$
-
-したがって
-
+**1.** $\mu(A)=0$ とします。$A_m:=A\cap[-m,m]$ 上では $(1+x^2)^{-1}\ge(1+m^2)^{-1}$ なので
 $$
 0=\mu(A_m)\ge\frac1{1+m^2}\lambda(A_m).
 $$
-
-よって $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$、従って $\nu(A)=0$ です。
+従って $\lambda(A_m)=0$。$A=\bigcup_mA_m$ なので $\lambda(A)=0$、よって $\nu(A)=0$ です。
 
 **2.**
-
 $$
 \frac{d\nu}{d\mu}(x)=ce^{-x^2}(1+x^2).
 $$
 
 **3.**
-
 $$
 \int_A\frac{d\nu}{d\mu}\,d\mu
 =\int_Ace^{-x^2}\,dx
 =\nu(A).
 $$
 
-**4.** 基準測度を変えると積分の重みを担う密度は変わりますが、任意の可測集合 $A$ に対して復元される値は同じ $\nu(A)$ です。密度は表現、確率分布は測度そのものです。
+**4.** 基準測度を変えると密度は変わりますが、任意の可測集合 $A$ に対して復元される値は同じ $\nu(A)$ です。密度は表現、分布は測度そのものです。
 <!-- solution-end -->
 
 ---
