@@ -38,12 +38,12 @@ concepts:
   - id: analysis.ftc-1
     name: 微積分学の基本定理I
     kind: theorem
-    aliases: [微積分学の基本定理I, FTC I]
+    aliases: [微積分学の基本定理I, FTC I, Fundamental Theorem of Calculus I]
     requires: [analysis.continuous-riemann-integrable, analysis.riemann-integral-basic-properties]
   - id: analysis.ftc-2
     name: 微積分学の基本定理II
     kind: theorem
-    aliases: [微積分学の基本定理II, FTC II]
+    aliases: [微積分学の基本定理II, FTC II, Fundamental Theorem of Calculus II]
     requires: [analysis.ftc-1, analysis.derivative]
   - id: analysis.change-of-variables-riemann
     name: 置換積分
