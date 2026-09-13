@@ -41,9 +41,3 @@ concepts:
     kind: theorem
     aliases: [Dedekind実数の上限性質]
     requires: [completion.dedekind-order]
-
-  - id: completion.dedekind-complete-ordered-field
-    name: Dedekind実数は完備順序体
-    kind: theorem
-    aliases: [Dedekind実数は完備順序体]
-    requires: [completion.dedekind-addition, completion.dedekind-lub]
