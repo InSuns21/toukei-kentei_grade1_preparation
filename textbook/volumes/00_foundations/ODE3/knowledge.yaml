@@ -1,0 +1,96 @@
+chapter: ODE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE2
+  - LA4
+
+forward_references:
+  - ode.nonlinear-linearization
+
+concepts:
+  - id: ode.ode3-linear-system
+    name: 定係数線形連立系・斉次系・非斉次系
+    kind: definition
+    aliases: [線形連立系, 定係数線形連立系, 斉次系, 非斉次系, linear system]
+    introduction: formal
+    introduction_aliases: [定係数線形連立系・斉次系・非斉次系]
+
+  - id: ode.matrix-exponential
+    name: 行列指数
+    kind: definition
+    aliases: [行列指数, matrix exponential, exp(tA)]
+    introduction: formal
+    requires:
+      - ode.ode3-linear-system
+
+  - id: ode.matrix-exponential-properties
+    name: 行列指数の基本性質
+    kind: theorem
+    aliases: [行列指数の基本性質, 行列指数の微分, 行列指数の半群性]
+    introduction: formal
+    requires:
+      - ode.matrix-exponential
+
+  - id: ode.ode3-fundamental-matrix
+    name: 基本行列・主基本行列
+    kind: definition
+    aliases: [基本行列, 主基本行列, fundamental matrix, principal fundamental matrix]
+    introduction: formal
+    requires:
+      - ode.ode3-linear-system
+
+  - id: ode.ode3-homogeneous-ivp
+    name: 定係数斉次線形系の初期値問題
+    kind: theorem
+    aliases: [定係数斉次線形系の初期値問題, x'=Ax, e^{tA}x0]
+    introduction: formal
+    requires:
+      - ode.matrix-exponential-properties
+      - ode.ode3-fundamental-matrix
+
+  - id: ode.ode3-jordan-exponential
+    name: 相似変換とJordan blockの行列指数
+    kind: theorem
+    aliases: [Jordan blockの行列指数, Jordanブロックの行列指数, 相似変換と行列指数]
+    introduction: formal
+    requires:
+      - ode.matrix-exponential-properties
+      - linear.jordan-block
+      - linear.jordan-canonical-form
+
+  - id: ode.ode3-complex-real-solutions
+    name: 複素固有対からの実解構成
+    kind: theorem
+    aliases: [複素固有対からの実解構成, 複素固有値と実解, complex eigenvalues]
+    introduction: formal
+    requires:
+      - ode.ode3-homogeneous-ivp
+
+  - id: ode.ode3-variation-of-constants
+    name: 非斉次線形系の定数変化公式
+    kind: theorem
+    aliases: [非斉次線形系の定数変化公式, variation of constants, Duhamel公式]
+    introduction: formal
+    requires:
+      - ode.matrix-exponential-properties
+      - ode.ode3-homogeneous-ivp
+
+  - id: ode.ode3-linear-stability
+    name: Lyapunov安定・漸近安定・指数安定
+    kind: definition
+    aliases: [Lyapunov安定, 漸近安定, 指数安定, 線形安定性]
+    introduction: formal
+    requires:
+      - ode.ode3-homogeneous-ivp
+
+  - id: ode.ode3-spectral-stability
+    name: 定係数線形系のスペクトル安定性判定
+    kind: theorem
+    aliases: [スペクトル安定性判定, 固有値実部と安定性, spectral stability criterion]
+    introduction: formal
+    requires:
+      - ode.ode3-linear-stability
+      - ode.ode3-jordan-exponential
+      - ode.ode3-complex-real-solutions
+      - linear.jordan-canonical-form
