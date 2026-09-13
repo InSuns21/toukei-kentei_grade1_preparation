@@ -4,6 +4,8 @@
 
 通常教材は `textbook/`、解法定跡カード教材は `anki/` に分離する。通常教材の構成・進捗の正本は `textbook/curriculum.yaml`、Anki教材の編集規約の正本は `memo/anki.md` とする。
 
+DREAM THEATER は `textbook/` 内の発展数学講座だが、通常の試験答案訓練章とは目的・演習形式・前提知識の扱いが異なる。DREAM THEATER の執筆・改稿・査読では `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` を入口の正本とする。
+
 ---
 
 ## 作業前に読むファイル
@@ -18,6 +20,19 @@
 6. `references/official-scope.md`
 7. `references/past-exam-trends.md`
 8. `references/past-exam-index.yaml`
+
+### DREAM THEATER
+
+対象 `index.md` が `textbook/dream-theater-index.json` に掲載される場合、上記の通常教材共通正本に加えて次を必ず読む。
+
+1. `textbook/DREAM_THEATER_AUTHORING_STANDARD.md`
+2. `textbook/DREAM_THEATER_EXERCISE_POLICY.md`
+3. `textbook/formal-statement-presentation-guide.md`
+4. `textbook/proof-presentation-guide.md`
+5. `textbook/knowledge-dag.yaml`
+6. 対象系列のカリキュラム・設計台帳
+
+旧 `textbook/f0-dream-theater-*-audit.md` は特定時点の監査スナップショットで、現行規約と競合していたため削除済みである。過去状態が必要なら Git 履歴を見る。旧監査を現行規約として復活させない。
 
 ### Ankiカード教材
 
@@ -42,16 +57,18 @@
 2. 進行中の成果物を再開し、なければ `next_work` を開始する。
 3. `npm run progress -- start <ID>` で開始を記録する。
 4. ディレクトリがなければ `npm run new:chapter -- <ID>` で雛形を作る。
-5. メイン担当が本文、問題集、詳細解答、30分ドリルを完成させる。
-6. 完成稿に対し、独立数理査読と試験適合性査読を行う。
+5. メイン担当が対象種別の規約に従って本文・演習・解答等の必要成果物を完成させる。通常の試験向け章では問題集・詳細解答・30分ドリルまで、DREAM THEATER では `DREAM_THEATER_AUTHORING_STANDARD.md` の本文・証明・例・演習・詳細解答を完成させる。
+6. 完成稿に対し、独立数理査読と読者粒度・目的適合性査読を行う。
 7. 指摘を修正し、再査読で `fatal: 0 / major: 0 / minor: 0` を確認する。
-8. `npm run validate` を成功させる。
+8. `npm run validate` を成功させる。DREAM THEATER は専用 validation / audit も実行する。
 9. `npm run progress -- complete <ID>` で完了を記録する。
 10. 対象成果物、査読記録、進捗更新を同じ作業単位でコミットする。
 11. コミット後に `git status --short` と `npm run progress` を確認する。
 12. ユーザーが複数章または継続執筆を求めている場合だけ次へ進む。
 
 進捗状態は `planned -> drafting -> self_review -> independent_review -> revision -> reviewed` を使う。外部判断が必要な場合だけ理由付きで `blocked` とする。
+
+DREAM THEATER では `implemented`、`existing-anchor`、formal statement の存在、proof block の存在、CI green だけを完成条件にしない。独習者が本文から主要概念・主要定理・核心論証を再構成できるかを人手で確認する。
 
 ---
 
@@ -273,9 +290,10 @@ Ankiカードの必須成果物にしないもの：
 1. **独立数理査読 — 数学的完全性監査**
    - 定義、定理、証明、例題、演習、解答を独立に再計算する。
    - 仮定漏れ、定義域、可逆性、正定値性、次元、導出欠落を検査する。
-2. **試験適合性査読 — 読者粒度＋試験適合性監査**
+2. **読者粒度・目的適合性査読**
    - 前提章を確認し、未修概念の説明順・説明量を監査する。
    - 通常章・模試では出題範囲、時間、部分点、問題選択を検証する。
+   - DREAM THEATER では `DREAM_THEATER_AUTHORING_STANDARD.md` に従い、証明粒度・定義例・本文導線・演習量・詳細解答・依存関係を監査する。
    - Ankiでは本ファイルのAnki範囲境界と canonical-card 規約を適用する。
 
 修正後は可能なら同じ担当が再査読し、最終的に `fatal: 0 / major: 0 / minor: 0` を確認する。
@@ -297,13 +315,21 @@ GitHub Contents API 等で複数ファイルが別コミットになる環境で
 
 # 教材の目的
 
-通常教材では、90分で5問から3問を選び、各20～30分で論述答案を完成させる力を作る。
+## 通常の試験向け教材
+
+90分で5問から3問を選び、各20～30分で論述答案を完成させる力を作る。
 
 Level C（本番標準）を中心にし、久保川『現代数理統計学の基礎』章末問題を難度上限の参考にする。
 
 詳細解答と本番答案を分離する。前者は行間を埋め、後者は採点に必要な式・根拠・結論へ圧縮する。
 
 公式出題範囲、過去問構造、頻度、他単元への依存、問題選択上の価値を総合して優先度を決める。
+
+## DREAM THEATER
+
+本番答案訓練ではなく、数学・確率・統計理論を大学数学の標準的な流れで理解し、後続理論を自力で読める状態を作る。
+
+通常章の試験時間・本番答案・20点採点基準を機械的に持ち込まない。標準数学コアでは、数学科標準教科書で中核となる定義・代表定理・証明・典型例/反例・演習を体系的に扱う。詳細は `textbook/DREAM_THEATER_AUTHORING_STANDARD.md` に従う。
 
 ---
 
@@ -325,6 +351,8 @@ Level C（本番標準）を中心にし、久保川『現代数理統計学の�
 - `chapter.yaml` に過去問対応を記録する。
 - 査読では、時間だけでなく技能連鎖・部分点救済・過去問との構造的一致を確認する。
 
+この節の試験形式要件は DREAM THEATER には適用しない。
+
 ---
 
 # 数式と品質
@@ -332,9 +360,9 @@ Level C（本番標準）を中心にし、久保川『現代数理統計学の�
 - Markdown + KaTeX。インラインは `$...$`、別行立ては `$$...$$`。
 - `\(...\)`、`\[...\]`、`align`、`equation`、独自マクロ、`\label`、`\ref`、`\tag` は使わない。
 - 分布の台、パラメータ空間、正則性条件、標本の独立同分布性、極限定理の仮定を省略しない。
-- 名前付き分布を定理・問題で使うときは、必要な台・母数・PMF/PDFを読者が追える位置に置く。
-- PMF・PDF・CDF・PGF・MGFは初出で日本語正式名、英語、略語、定義式を示し、以後も日本語名を優先する。
-- Borel集合・Lebesgue測度・a.e.・微分同相・Tonelliの定理等を大学初年度読者の暗黙前提にしない。必要なら補足へ分離する。
+- 名前付き分布を定理・問題で使うときは、必要な台・母数・確率質量関数/確率密度関数を読者が追える位置に置く。
+- PMF・PDF・CDF・PGF・MGFは本文の主表記にせず、日本語正式名を優先する。
+- 通常の試験向け章では、Borel集合・Lebesgue測度・a.e.・微分同相・Tonelliの定理等を prerequisite にないのに大学初年度読者の暗黙前提にしない。DREAM THEATER では `prerequisites` と knowledge DAG を基準に既知範囲を判定する。
 - 「行間を少なくする」とは文章を短くすることではなく、非自明な暗算・暗黙の定理・未記載の同値変形を減らすことである。
-- 密度の積分が1か、CDFの端点、期待値の存在、行列の次元・正定値性を確認する。
+- 密度の積分が1か、累積分布関数の端点、期待値の存在、行列の次元・正定値性を確認する。
 - 独立と無相関、確率収束と分布収束、$n$ と $n-1$、自由度、Jacobianの絶対値等の典型的誤りを重点検査する。
