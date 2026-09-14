@@ -32,9 +32,9 @@ concepts:
       - functional.frechet-derivative
 
   - id: ode.ode4-linearization-remainder
-    name: Fréchet微分による平衡点まわりの線形化
+    name: Fréchet 微分による平衡点まわりの線形化
     kind: theorem
-    aliases: [平衡点まわりの線形化, 線形化剰余, nonlinear remainder]
+    aliases: [Fréchet微分による平衡点まわりの線形化, 平衡点まわりの線形化, 線形化剰余, nonlinear remainder]
     introduction: formal
     requires:
       - ode.ode4-linearization
@@ -50,7 +50,7 @@ concepts:
       - ode.ode3-spectral-stability
 
   - id: ode.ode4-hurwitz-local-stability
-    name: Hurwitz線形化による局所指数安定性
+    name: Hurwitz 線形化による局所指数安定性
     kind: theorem
     aliases: [Hurwitz線形化による局所指数安定性, 線形化による局所安定性, indirect method]
     introduction: formal
