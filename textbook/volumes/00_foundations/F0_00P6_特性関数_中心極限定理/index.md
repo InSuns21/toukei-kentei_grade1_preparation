@@ -214,24 +214,48 @@ $$
 この章で必要なのはこの二つの不等式だけです。Lipschitz条件は「入力を $|x-y|$ だけ動かしたとき、出力の変化がその定数倍を超えない」という一様な変化率の上限を表します。
 
 <!-- definition-example-start: def-f0-00p6-bounded-lipschitz -->
-**定義の確認**：
+**定義の確認**：次の区分線形関数を考えます。
 
 $$
-h(x)=\frac{1}{1+|x|}
+h(x)=
+\begin{cases}
+1,&x\le0,\\
+1-x,&0<x<1,\\
+0,&x\ge1.
+\end{cases}
 $$
 
-とします。まず $0<h(x)\le1$ なので $M=1$ で有界です。また
+まず $0\le h(x)\le1$ なので $M=1$ で有界です。次に $x\le y$ として Lipschitz 条件を確認します。同じ区間に $x,y$ があれば、$h$ は傾き $0$ または $-1$ の一次関数なので
 
 $$
-\begin{aligned}
-|h(x)-h(y)|
-&=\frac{\bigl||x|-|y|\bigr|}{(1+|x|)(1+|y|)}\\
-&\le \bigl||x|-|y|\bigr|\\
-&\le |x-y|,
-\end{aligned}
+|h(x)-h(y)|\le y-x.
 $$
 
-ここで最後は [逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality) を使いました。したがって $L=1$ を取れ、$h$ は有界Lipschitz関数です。
+異なる区間にまたがる場合も、例えば $x\le0<y<1$ なら
+
+$$
+|h(x)-h(y)|=y\le y-x,
+$$
+
+$0<x<1\le y$ なら
+
+$$
+|h(x)-h(y)|=1-x\le y-x,
+$$
+
+$x\le0$ かつ $y\ge1$ なら
+
+$$
+|h(x)-h(y)|=1\le y-x.
+$$
+
+したがってすべての $x,y$ について
+
+$$
+|h(x)-h(y)|\le |x-y|,
+$$
+
+となり、$L=1$ を取れます。よって $h$ は有界Lipschitz関数です。後で分布関数を上下から挟む関数も、この例と同じ「一定部分と傾き一定の部分をつなぐ」形です。
 <!-- definition-example-end -->
 
 ---
