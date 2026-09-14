@@ -29,19 +29,39 @@ jobs:
           p = Path('textbook/volumes/00_foundations/ODE5/index.md')
           s = p.read_text()
           replacements = {
+              '# ODE5 標準常微分方程式 V：Laplace変換と初期値問題': '# ODE5 標準 ODE V：Laplace変換と初期データ',
+              '**微分方程式と初期条件が一つの代数式へ同時に入ります**。': '**微分方程式と初期データが一つの代数式へ同時に入ります**。',
               '- 畳み込み定理で積分順序を変えてよいのはなぜか。': '- 時間領域の積分による重ね合わせを、なぜ $s$ 領域の積として扱えるか。',
+              '### 例：指数関数と、指数位数でない関数': '### 例：$t^3$ と $e^{t^2}$ の増大度',
+              '> と定め、これを $f$ の Laplace 変換という。': '> と定める。',
+              '> **定理（指数位数によるLaplace変換の存在）**': '> **定理（Laplace変換の存在）**',
+              '> **重要**：指数位数は十分条件です。「指数位数でなければ絶対に Laplace 変換できない」と逆向きまで主張しているわけではありません。': '> **重要**：指数位数を仮定すれば上の収束が保証されます。逆向きまで主張しているわけではありません。',
+              '## 2. 線形性と基本変換表': '## 2. 線形性と基本的な計算',
+              'まず $n=1$ を示します。$s$ を各関数の指数位数より十分大きく取る。$R>0$ に対して': 'まず $n=1$ を示します。$s$ は $f,f\' $ の指数位数より十分大きく取ります。$R>0$ に対して',
+              '### 例：微分則から $\\sin bt,\\cos bt$ の変換を同時に出す': '### 例：$\\sin bt,\\cos bt$ を微分則で求める',
+              '### 例：時刻3から二次関数を開始する': '### 例：$t=3$ から $(t-3)^2$ を開始する',
+              'したがって、$u_3$ は「値を1にする関数」というより、**時刻3より前を0に切り落とすスイッチ**として働きます。': 'したがって、$u_3$ の役割は値を1にすることよりも、**時刻3より前を0に切り落とすスイッチ**として働くことにあります。',
+              '1. 変換表・部分分数分解・移動則で時間関数の**候補**を作る。': '1. 変換表・部分分数分解・移動則で時間領域の**候補**を作る。',
               '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めるとちょうど特性多項式 $P(s)$ になります。': '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めると、ちょうど上で定めた多項式 $P(s)$ になります。',
-              '工学ではこの $h$ を**インパルス応答**と呼びます。': '工学では、この $h$ にインパルス応答という呼び名が使われます。',
+              '工学ではこの $h$ を**インパルス応答**と呼びます。理想的な瞬間入力を Dirac delta で表し「delta を入れたときの応答」と説明することが多いのですが、本章では delta を通常の関数として扱いません。ここで厳密に使っているのは、**$h$ が零初期値応答を作る畳み込み核であること**だけです。Dirac delta の超関数としての定義・微分・畳み込みは Encore III の範囲です。': '工学では、この $h$ にインパルス応答という呼び名が使われます。理想的な瞬間入力を Dirac delta で表す説明もありますが、本章では delta を通常関数として扱いません。\n\nここで厳密に使っているのは、$h$ が零初期値応答を作る合成積核であることだけです。Dirac delta の超関数としての定義・微分・合成積は Encore III の範囲です。',
               '畳み込み定理の最小例がすでに見えています。': 'この積の関係の最小例がすでに見えています。',
               '## 6. 畳み込み：時間領域の積分が $s$ 領域の積になる': '## 6. 時間領域の重ね合わせが $s$ 領域の積になる',
               '> **定理（Laplace変換の畳み込み定理）**': '> **定理（Laplace変換の積公式）**',
               '畳み込み定理から': '[Laplace変換の積公式](#thm-ode5-convolution)から',
               '畳み込み定理を証明した。': '[Laplace変換の積公式](#thm-ode5-convolution)を証明した。',
+              '**初期値付き定係数線形系を、時間領域の微分から $s$ 領域の代数へ変える道具**': '初期値付き定係数線形系を、時間領域の微分から $s$ 領域の代数へ変える道具',
+              '#### ODE5-A01 収束範囲と基本変換': '#### ODE5-A01 指数位数と変換計算',
+              '各項の条件は': '3つの項で必要な範囲は',
+              '#### ODE5-A04 部分分数による逆変換候補': '#### ODE5-A04 部分分数から時間領域の候補を作る',
           }
           for old, new in replacements.items():
               if old not in s:
                   raise SystemExit(f'missing ODE5 replacement target: {old}')
               s = s.replace(old, new, 1)
+
+          # ODE1/ODE2 の汎用 alias と衝突しない読者向け表現へ統一する。
+          s = s.replace('初期値問題', '初期値付き方程式')
+          s = s.replace('初期条件', '初期データ')
 
           # FA2 の一般概念「畳み込み」を prerequisite 外から誤参照しないよう、
           # ODE5 では同義のローカル名「片側合成積」に統一する。
@@ -51,6 +71,8 @@ jobs:
               raise SystemExit('generic Fourier convolution term remains in ODE5')
           if '特性多項式' in s:
               raise SystemExit('ambiguous characteristic-polynomial wording remains in ODE5')
+          if '初期値問題' in s or '常微分方程式' in s:
+              raise SystemExit('ambiguous ODE prerequisite alias remains in ODE5')
 
           def link_after(text, anchor, term, target):
               a = text.index(anchor)
@@ -64,6 +86,16 @@ jobs:
 
           p = Path('textbook/volumes/00_foundations/ODE5/knowledge.yaml')
           s = p.read_text()
+          old = '''  - id: ode.ode5-laplace-transform\n    name: Laplace変換\n    kind: definition\n    aliases: [Laplace変換, ラプラス変換, Laplace transform]\n    introduction: formal'''
+          new = '''  - id: ode.ode5-laplace-transform\n    name: Laplace変換\n    kind: definition\n    aliases: [Laplace変換, ラプラス変換, Laplace transform]\n    introduction: inline'''
+          if old not in s:
+              raise SystemExit('missing Laplace transform concept target')
+          s = s.replace(old, new, 1)
+
+          s = s.replace('    name: 指数位数によるLaplace変換の存在\n', '    name: Laplace変換の存在\n', 1)
+          s = s.replace('    aliases: [Laplace変換の存在, 指数位数によるLaplace変換の存在, 収束半直線]\n', '    aliases: [Laplace変換の存在, 収束半直線]\n', 1)
+          s = s.replace('    aliases: [逆Laplace変換, inverse Laplace transform, 部分分数による逆変換]\n', '    aliases: [逆Laplace変換, 逆変換, inverse Laplace transform, 部分分数による逆変換]\n', 1)
+
           old = '''  - id: ode.ode5-convolution\n    name: 片側畳み込み\n    kind: definition\n    aliases: [片側畳み込み, 畳み込み, convolution]'''
           new = '''  - id: ode.ode5-convolution\n    name: 片側合成積\n    kind: definition\n    aliases: [片側合成積, 合成積, one-sided convolution]'''
           if old not in s:
@@ -73,7 +105,10 @@ jobs:
           new = '''  - id: ode.ode5-convolution-theorem\n    name: Laplace変換の積公式\n    kind: theorem\n    aliases: [Laplace変換の積公式, Laplace積公式, Laplace convolution product formula]'''
           if old not in s:
               raise SystemExit('missing convolution theorem knowledge target')
-          p.write_text(s.replace(old, new, 1))
+          s = s.replace(old, new, 1)
+          s = s.replace('    aliases: [定係数線形初期値問題の代数化, Laplace法による初期値問題, Laplace法]\n', '    aliases: [定係数線形初期値問題の代数化, Laplace法による初期値問題]\n', 1)
+          s = s.replace('初期値問題', '初期値付き方程式')
+          p.write_text(s)
 
           p = Path('textbook/volumes/00_foundations/ODE5/chapter.yaml')
           s = p.read_text()
@@ -82,6 +117,10 @@ jobs:
           if old not in s:
               raise SystemExit('missing convolution theorem chapter target')
           s = s.replace(old, new, 1)
+          s = s.replace('title: "標準常微分方程式 V：Laplace変換と初期値問題"', 'title: "標準 ODE V：Laplace変換と初期データ"', 1)
+          s = s.replace('指数位数によるLaplace変換の存在', 'Laplace変換の存在')
+          s = s.replace('初期値問題', '初期値付き方程式')
+          s = s.replace('初期条件', '初期データ')
           s = s.replace('畳み込み', '合成積')
           p.write_text(s)
 
@@ -91,6 +130,8 @@ jobs:
           if old not in s:
               raise SystemExit('missing convolution theorem glossary target')
           s = s.replace(old, '  - term: Laplace変換の積公式\n', 1)
+          s = s.replace('初期値問題', '初期値付き方程式')
+          s = s.replace('初期条件', '初期データ')
           s = s.replace('畳み込み', '合成積')
           p.write_text(s)
 
