@@ -19,8 +19,6 @@ concepts:
     kind: definition
     aliases: [Laplace変換, ラプラス変換, Laplace transform]
     introduction: formal
-    requires:
-      - ode.ode5-exponential-order
 
   - id: ode.ode5-laplace-existence
     name: 指数位数によるLaplace変換の存在
