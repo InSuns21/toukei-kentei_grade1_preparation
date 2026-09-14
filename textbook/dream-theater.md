@@ -184,7 +184,7 @@
 11. [P4A 一様可積分性・Vitali](textbook/volumes/00_foundations/F0_00P4A_一様可積分性_Vitali/index.md)
 12. [P5 大数の強法則](textbook/volumes/00_foundations/F0_00P5_大数の強法則/index.md)
 13. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
-14. [P6 特性関数・中心極限定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
+14. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
 15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
 16. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
 17. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)

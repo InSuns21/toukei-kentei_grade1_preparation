@@ -10,6 +10,9 @@ $$
 
 この章では後者を「そういう定理」として置かず、Gaussian smoothingを使って証明します。
 
+> **章名について**  
+> このページのURLには過去互換のため「特性関数_中心極限定理」という旧slugが残っていますが、本章の正本タイトルは **「特性関数・Lévy連続性定理」** です。中心極限定理そのものの証明は次章 [F0-00P6A 独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で行います。本章は、その証明で使う特性関数の一意性・二次展開・Lévy連続性定理を閉じる章です。
+
 ```text
 characteristic function
   ↓
@@ -135,11 +138,15 @@ $$
 アフィン変換については
 
 $$
-E[e^{it(aX+b)}]
-=e^{itb}E[e^{i(at)X}].
+\begin{aligned}
+\varphi_{aX+b}(t)
+&=E[e^{it(aX+b)}]\\
+&=e^{itb}E[e^{i(at)X}]\\
+&=e^{itb}\varphi_X(at).
+\end{aligned}
 $$
 
-独立な $X,Y$ については
+独立な $X,Y$ については、$e^{itX}$ と $e^{itY}$ も独立なので
 
 $$
 \begin{aligned}
@@ -252,14 +259,17 @@ $$
 -R=x_0<x_1<\cdots<x_m=R
 $$
 
-に分けます。各区間 $(x_{j-1},x_j]$ で一点 $\xi_j$ を選び、step関数
+に分けます。各区間 $(x_{j-1},x_j]$ で一点 $\xi_j$ を選び、$[-R,R]$ の外では0とするstep関数
 
 $$
-s(x)=h(\xi_j)
-\qquad(x\in(x_{j-1},x_j])
+s(x)=
+\begin{cases}
+h(\xi_j),&x\in(x_{j-1},x_j],\\
+0,&|x|>R
+\end{cases}
 $$
 
-とします。区間内では
+を取ります。区間内では
 
 $$
 |h(x)-s(x)|\le L\delta.
@@ -272,15 +282,15 @@ P(x_{j-1}<X_n\le x_j)
 =F_n(x_j)-F_n(x_{j-1})
 $$
 
-は対応する $X$ の区間確率へ収束するので
+は対応する $X$ の区間確率へ収束するので、有限和を取って
 
 $$
-E[s(X_n)1_{\{|X_n|\le R\}}]
+E[s(X_n)]
 \to
-E[s(X)1_{\{|X|\le R\}}].
+E[s(X)].
 $$
 
-従って
+従ってtailの寄与と区間内近似誤差を分ければ
 
 $$
 \limsup_{n\to\infty}
@@ -378,7 +388,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明：積分を $x$ で微分して一次ODEを解く
+### 証明：積分記号下微分をDCTで確認して一次ODEを解く
 
 $$
 I_\varepsilon(x)
@@ -386,7 +396,29 @@ I_\varepsilon(x)
  e^{-\varepsilon^2t^2/2}e^{-itx}\,dt
 $$
 
-と置きます。$|t|e^{-\varepsilon^2t^2/2}$ は可積分なので積分記号下で微分でき
+と置きます。$h\ne0$ に対して
+
+$$
+\frac{e^{-it(x+h)}-e^{-itx}}{h}
+=e^{-itx}\frac{e^{-ith}-1}{h}.
+$$
+
+実数 $u$ について $|e^{iu}-1|\le |u|$ なので
+
+$$
+\left|
+\frac{e^{-it(x+h)}-e^{-itx}}{h}
+\right|
+\le |t|.
+$$
+
+従って差商にGaussian因子を掛けた絶対値は
+
+$$
+|t|e^{-\varepsilon^2t^2/2}
+$$
+
+で支配されます。この関数は可積分で、差商は各 $t$ について $-it e^{-itx}$ へ収束するため、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により積分と極限を交換でき、
 
 $$
 I_\varepsilon'(x)
@@ -402,7 +434,13 @@ t e^{-\varepsilon^2t^2/2}
 \frac{d}{dt}e^{-\varepsilon^2t^2/2}.
 $$
 
-これを代入して部分積分すると、Gaussian因子により境界項は0なので
+これを代入し、まず有限区間 $[-R,R]$ で部分積分します。境界項の絶対値は
+
+$$
+e^{-\varepsilon^2R^2/2}
+$$
+
+以下なので $R\to\infty$ で0へ収束します。したがって
 
 $$
 I_\varepsilon'(x)
@@ -417,7 +455,7 @@ I_\varepsilon(0)
 =\frac{\sqrt{2\pi}}{\varepsilon}.
 $$
 
-従ってODEの解は
+従って一次ODEの解は
 
 $$
 I_\varepsilon(x)
@@ -467,16 +505,41 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明：Gaussian kernelを条件付きで平均し、Fubiniで順序交換する
+### 証明：Gaussian kernelをTonelliで平均し、FubiniでFourier積分と期待値を交換する
 
-$X=y$ を固定すれば $X+\varepsilon Z$ の条件付き密度は $g_\varepsilon(x-y)$ です。従って無条件密度は
+まず「$X=y$ と条件付ける」という略記を使わず、密度公式を直接確認します。任意のBorel集合 $A\subset\mathbb R$ について、独立性と $\varepsilon Z$ の密度 $g_\varepsilon$ から
 
 $$
-f_\varepsilon(x)
-=E[g_\varepsilon(x-X)].
+\begin{aligned}
+P(X+\varepsilon Z\in A)
+&=E\left[
+\int_{\mathbb R}
+1_A(X+z)g_\varepsilon(z)\,dz
+\right].
+\end{aligned}
 $$
 
-[Gaussian Fourier identity](#lem-f0-00p6-gaussian-fourier)を代入すると
+被積分関数は非負なので [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) を適用でき、変数変換 $x=X+z$ を行うと
+
+$$
+\begin{aligned}
+P(X+\varepsilon Z\in A)
+&=E\left[
+\int_A g_\varepsilon(x-X)\,dx
+\right]\\
+&=\int_A E[g_\varepsilon(x-X)]\,dx.
+\end{aligned}
+$$
+
+従って
+
+$$
+f_\varepsilon(x):=E[g_\varepsilon(x-X)]
+$$
+
+が $X+\varepsilon Z$ の密度です。ここまででは $X$ が離散分布か連続分布かを一切仮定していません。
+
+次に [Gaussian Fourier identity](#lem-f0-00p6-gaussian-fourier) を代入すると
 
 $$
 g_\varepsilon(x-X)
@@ -485,7 +548,7 @@ g_\varepsilon(x-X)
  e^{-itx}e^{itX}e^{-\varepsilon^2t^2/2}\,dt.
 $$
 
-絶対値は $e^{-\varepsilon^2t^2/2}$ 以下で可積分なのでFubiniを適用でき、
+絶対値は $e^{-\varepsilon^2t^2/2}$ であり、これは $t$ について可積分です。したがって [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により期待値と積分を交換でき、
 
 $$
 \begin{aligned}
@@ -499,7 +562,7 @@ f_\varepsilon(x)
 \end{aligned}
 $$
 
-Gaussian factorが可積分なので右辺は $x$ の連続関数です。
+最後に $x_n\to x$ とすると integrand は各 $t$ で収束し、絶対値は同じ可積分関数 $e^{-\varepsilon^2t^2/2}$ に支配されます。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により $f_\varepsilon(x_n)\to f_\varepsilon(x)$ なので、密度は連続です。
 <!-- proof-end -->
 
 ---
@@ -543,7 +606,7 @@ f_{Y,\varepsilon}(x)
 \int e^{-itx}\varphi_Y(t)e^{-\varepsilon^2t^2/2}dt.
 $$
 
-特性関数が等しいので
+特性関数が等しいので密度も等しく、
 
 $$
 X+\varepsilon Z
@@ -568,7 +631,7 @@ P(X+\varepsilon Z\le x)
 P(X\le x+\delta)+P(|\varepsilon Z|>\delta).
 $$
 
-$\varepsilon\downarrow0$ で $P(|\varepsilon Z|>\delta)\to0$、さらに $\delta\downarrow0$ とすればCDFの連続性から
+$\varepsilon\downarrow0$ で $P(|\varepsilon Z|>\delta)\to0$、さらに $\delta\downarrow0$ とすれば $x$ におけるCDFの連続性から
 
 $$
 P(X+\varepsilon Z\le x)\to F_X(x).
@@ -586,7 +649,13 @@ $$
 F_X(x)=F_Y(x).
 $$
 
-CDFの不連続点は高々可算個です。実際、jumpが $1/m$ 以上の点は高々 $m$ 個であり、全不連続点はその可算和に含まれます。従って両CDFの共通連続点は稠密です。CDFの右連続性を使えば稠密集合上の一致から全ての $x$ で一致し、$X\stackrel d=Y$ を得ます。
+CDFの不連続点は高々可算個です。実際、jumpが $1/m$ 以上の点は高々 $m$ 個であり、全不連続点はその可算和に含まれます。従って両CDFの共通連続点は稠密です。任意の $x$ に対し共通連続点列 $x_k\downarrow x$ を取れば、CDFの右連続性から
+
+$$
+F_X(x)=\lim_kF_X(x_k)=\lim_kF_Y(x_k)=F_Y(x).
+$$
+
+したがって全ての $x$ でCDFが一致し、$X\stackrel d=Y$ を得ます。
 <!-- proof-end -->
 
 これで「特性関数を計算して既知分布のものと一致したから、その分布である」という操作が論理的に正当化されました。
@@ -612,45 +681,75 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明：Taylor remainderを $X^2$ で支配してDCTを使う
+### 証明：剰余を積分表示して $X^2$ で支配する
+
+実数 $u$ に対して微積分の基本定理を二回使うと
+
+$$
+e^{iu}-1-iu
+=-u^2\int_0^1(1-s)e^{isu}\,ds.
+$$
+
+したがって
 
 $$
 r(u):=e^{iu}-1-iu+\frac{u^2}{2}
 $$
 
-と置きます。通常のTaylor展開から
+と置けば
 
 $$
-\frac{r(u)}{u^2}\to0
-\qquad(u\to0).
+\frac{r(u)}{u^2}
+=
+\frac12-\int_0^1(1-s)e^{isu}\,ds
+\qquad(u\ne0).
 $$
 
-またある定数 $C$ が存在して全ての $u\in\mathbb R$ で
+$u\to0$ では被積分関数 $e^{isu}$ が1へ収束し、絶対値は1なので、区間 $[0,1]$ 上の[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
-|r(u)|\le C u^2
+\frac{r(u)}{u^2}\to
+\frac12-\int_0^1(1-s)\,ds
+=0.
 $$
 
-とできます。$|u|\le1$ ではTaylor remainder、$|u|>1$ では
+また全ての $u$ について
 
 $$
 |r(u)|
-\le2+|u|+\frac{u^2}{2}
-\le\frac72u^2
+\le
+u^2\left(
+\frac12+\int_0^1(1-s)\,ds
+\right)
+=u^2.
 $$
 
-とすれば十分です。
+ここで
 
-従って
+$$
+q(u):=
+\begin{cases}
+r(u)/u^2,&u\ne0,\\
+0,&u=0
+\end{cases}
+$$
+
+と定義すれば $u\to0$ のとき $q(u)\to0$ かつ $|q(u)|\le1$ です。従って
 
 $$
 \frac{r(tX)}{t^2}
-=X^2\frac{r(tX)}{(tX)^2}
+=X^2q(tX)
 \to0
 \qquad\text{a.s.}
 $$
 
-で、絶対値は $CX^2$ に支配されます。$E[X^2]<\infty$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+で、絶対値は $X^2$ に支配されます。仮定 $E[X^2]<\infty$ がここで初めて使われ、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+\frac{E[r(tX)]}{t^2}\to0,
+$$
+
+すなわち
 
 $$
 E[r(tX)]=o(t^2).
@@ -663,7 +762,14 @@ e^{itX}
 =1+itX-\frac{t^2X^2}{2}+r(tX).
 $$
 
-期待値を取れば主張が従います。
+期待値を取れば
+
+$$
+\varphi_X(t)
+=1+itE[X]-\frac{t^2}{2}E[X^2]+o(t^2)
+$$
+
+を得ます。
 <!-- proof-end -->
 
 特に $E[X]=0$, $E[X^2]=1$ なら
@@ -780,7 +886,7 @@ $$
 \qquad(\forall t)
 $$
 
-を仮定します。標準正規 $Z$ を独立に取り、固定した $\varepsilon>0$ に対して
+を仮定します。標準正規 $Z$ を各 $X_n$ および $X$ と独立に取ったときの分布だけを考え、固定した $\varepsilon>0$ に対して
 
 $$
 X_n^{(\varepsilon)}:=X_n+\varepsilon Z,
@@ -788,7 +894,7 @@ X_n^{(\varepsilon)}:=X_n+\varepsilon Z,
 X^{(\varepsilon)}:=X+\varepsilon Z
 $$
 
-を考えます。
+と書きます。
 
 [Gaussian smoothingの密度公式](#lem-f0-00p6-gaussian-smoothing-density)から密度は
 
@@ -836,7 +942,7 @@ $$
 
 #### Step 4：Gaussian noiseを一様に外す
 
-$h$ を有界Lipschitzとし、Lipschitz定数を $L$ とします。同じ $Z$ を使えば
+$h$ を有界Lipschitzとし、Lipschitz定数を $L$ とします。各変数と独立な標準正規を同じ記号 $Z$ で表せば
 
 $$
 |h(X_n+\varepsilon Z)-h(X_n)|
@@ -880,11 +986,13 @@ $$
 
 この証明では一般のtightness定理やHelly選択定理を黒箱にせず、**Gaussianを足してFourier変換を絶対可積分にする**ことで問題を密度の $L^1$ 収束へ落としています。
 
-> より一般のLévy連続性定理では、点wise極限 $\varphi$ が0で連続であることだけから「$\varphi$ 自身がある確率分布の特性関数である」ことまで結論します。この存在部分にはtightnessを伴う議論が必要です。この教材でCLTに使うのは、極限 $e^{-t^2/2}$ が既に標準正規分布の特性関数だと分かっている上の版です。
+> より一般のLévy連続性定理では、各点極限 $\varphi$ が0で連続であることだけから「$\varphi$ 自身がある確率分布の特性関数である」ことまで結論します。この存在部分にはtightnessを伴う議論が必要です。この教材でCLTに使うのは、極限 $e^{-t^2/2}$ が既に標準正規分布の特性関数だと分かっている上の版です。章末C01では、0での連続性を失うと質量が無限遠へ逃げ得ることを具体例で確認します。
 
 ---
 
 ## 11. iid中心極限定理への接続
+
+ここは次章の証明の**見取り図**です。中心極限定理自体の証明は [F0-00P6A](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で閉じます。
 
 $Y_1,Y_2,\ldots$ が独立同分布で
 
@@ -911,17 +1019,28 @@ $$
 
 $$
 \varphi_{Z_n}(t)
-=\left\{\varphi_Y\left(\frac t{\sqrt n}\right)\right\}^n
-\to e^{-t^2/2}.
+=\left\{\varphi_Y\left(\frac t{\sqrt n}\right)\right\}^n.
 $$
 
-右辺は標準正規分布の特性関数なので、[Lévy連続性定理](#thm-f0-00p6-levy-continuity)により
+ここへ $u=t/\sqrt n$ を代入すると括弧内は
 
 $$
-Z_n\Rightarrow N(0,1).
+1-\frac{t^2}{2n}+o\left(\frac1n\right)
 $$
 
-詳細なCLTの流れは [F0-00P6A](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) でまとめます。
+です。従って次章でこの $n$ 乗の極限を丁寧に評価すると
+
+$$
+\varphi_{Z_n}(t)\to e^{-t^2/2}.
+$$
+
+右辺は標準正規分布の特性関数なので、最後に [Lévy連続性定理](#thm-f0-00p6-levy-continuity) を適用して
+
+$$
+Z_n\Rightarrow N(0,1)
+$$
+
+を得る、というのが全体像です。
 
 ---
 
@@ -936,15 +1055,38 @@ $X\sim\operatorname{Bernoulli}(p)$ の特性関数を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
-$X=0,1$ をそれぞれ確率 $1-p,p$ で取るので $E[e^{itX}]=(1-p)+pe^{it}$。
 
-#### 本番答案
-$\varphi_X(t)=1-p+pe^{it}$。
+特性関数の定義は
 
-#### 採点基準（20点）
-- 定義: 6点
-- 2点の期待値: 10点
-- 結論: 4点
+$$
+\varphi_X(t)=E[e^{itX}]
+$$
+
+です。Bernoulli変数は
+
+$$
+P(X=0)=1-p,
+\qquad
+P(X=1)=p
+$$
+
+なので、離散型期待値の定義へ直接代入して
+
+$$
+\begin{aligned}
+\varphi_X(t)
+&=e^{it\cdot0}P(X=0)+e^{it\cdot1}P(X=1)\\
+&=(1-p)+pe^{it}.
+\end{aligned}
+$$
+
+したがって
+
+$$
+\boxed{\varphi_X(t)=1-p+pe^{it}}.
+$$
+
+確認として $t=0$ を代入すると $\varphi_X(0)=1$ となり、特性関数の基本性質とも一致します。
 <!-- solution-end -->
 
 ### F0-00P6-A02 独立和の特性関数
@@ -956,15 +1098,129 @@ $\varphi_X(t)=1-p+pe^{it}$。
 
 <!-- solution-start -->
 #### 詳細解答
-$e^{it(X+Y)}=e^{itX}e^{itY}$ と独立性による期待値の積への分解を使う。
 
-#### 本番答案
-$\varphi_{X+Y}(t)=E[e^{itX}e^{itY}]=E[e^{itX}]E[e^{itY}]=\varphi_X(t)\varphi_Y(t)$。
+固定した $t\in\mathbb R$ について
 
-#### 採点基準（20点）
-- 指数の積: 6点
-- 独立性: 8点
-- 結論: 6点
+$$
+e^{it(X+Y)}=e^{itX}e^{itY}.
+$$
+
+$X,Y$ が独立なら、それぞれの可測関数 $e^{itX},e^{itY}$ も独立です。また絶対値は1なので期待値は必ず存在します。したがって
+
+$$
+\begin{aligned}
+\varphi_{X+Y}(t)
+&=E[e^{it(X+Y)}]\\
+&=E[e^{itX}e^{itY}]\\
+&=E[e^{itX}]E[e^{itY}]\\
+&=\varphi_X(t)\varphi_Y(t).
+\end{aligned}
+$$
+
+よって全ての $t$ で
+
+$$
+\boxed{\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)}.
+$$
+
+独立性を使ったのは、3行目の「積の期待値を期待値の積へ分ける」ところです。
+<!-- solution-end -->
+
+### F0-00P6-A03 アフィン変換の特性関数
+
+- Level: A
+- 目安時間: 10分
+
+実数 $a,b$ と実確率変数 $X$ に対し
+
+$$
+\varphi_{aX+b}(t)=e^{itb}\varphi_X(at)
+$$
+
+を定義から示せ。また $X\sim N(0,1)$ のとき、この公式から $aX+b$ の特性関数を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+定義から
+
+$$
+\begin{aligned}
+\varphi_{aX+b}(t)
+&=E[e^{it(aX+b)}]\\
+&=E[e^{itb}e^{i(at)X}]\\
+&=e^{itb}E[e^{i(at)X}]\\
+&=e^{itb}\varphi_X(at).
+\end{aligned}
+$$
+
+標準正規分布では
+
+$$
+\varphi_X(s)=e^{-s^2/2}
+$$
+
+なので $s=at$ と置いて
+
+$$
+\varphi_X(at)=e^{-a^2t^2/2}.
+$$
+
+従って
+
+$$
+\boxed{
+\varphi_{aX+b}(t)
+=\exp\left(ibt-\frac{a^2t^2}{2}\right)
+}.
+$$
+
+特に $a=\sigma>0$, $b=\mu$ とすれば、これは $N(\mu,\sigma^2)$ の特性関数です。
+<!-- solution-end -->
+
+### F0-00P6-A04 Rademacher和の特性関数
+
+- Level: A
+- 目安時間: 12分
+
+独立な確率変数 $X_1,\ldots,X_n$ が
+
+$$
+P(X_j=1)=P(X_j=-1)=\frac12
+$$
+
+を満たすとする。$S_n=X_1+\cdots+X_n$ の特性関数を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+まず1個の $X_j$ について定義から
+
+$$
+\begin{aligned}
+\varphi_{X_j}(t)
+&=\frac12e^{it}+\frac12e^{-it}\\
+&=\cos t.
+\end{aligned}
+$$
+
+$X_1,\ldots,X_n$ は独立なので、独立和の公式を繰り返し使って
+
+$$
+\begin{aligned}
+\varphi_{S_n}(t)
+&=\prod_{j=1}^n\varphi_{X_j}(t)\\
+&=(\cos t)^n.
+\end{aligned}
+$$
+
+従って
+
+$$
+\boxed{\varphi_{S_n}(t)=(\cos t)^n}.
+$$
+
+この問題では「各変数の特性関数を直接計算する」段階と、「独立性で和を積へ変える」段階を分けるのが要点です。
 <!-- solution-end -->
 
 ### F0-00P6-B01 正規分布の和を同定する
@@ -984,16 +1240,46 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-正規分布の特性関数は $\exp(i\mu t-\sigma^2t^2/2)$。独立和なので積を取り、$\exp(i(\mu_1+\mu_2)t-(\sigma_1^2+\sigma_2^2)t^2/2)$。[特性関数の一意性](#thm-f0-00p6-uniqueness)から対応する正規分布。
 
-#### 本番答案
-$\varphi_{X+Y}(t)=\exp(i(\mu_1+\mu_2)t-(\sigma_1^2+\sigma_2^2)t^2/2)$ より $X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$。
+標準正規 $Z$ の特性関数は $e^{-t^2/2}$ です。$N(\mu,\sigma^2)$ 変数は $\mu+\sigma Z$ と同分布なので、[特性関数の基本性質](#prop-f0-00p6-basic-properties)から
 
-#### 採点基準（20点）
-- 正規特性関数: 5点
-- 独立積: 6点
-- パラメータ整理: 5点
-- 一意性: 4点
+$$
+\varphi_{N(\mu,\sigma^2)}(t)
+=\exp\left(i\mu t-\frac{\sigma^2t^2}{2}\right).
+$$
+
+従って
+
+$$
+\varphi_X(t)
+=\exp\left(i\mu_1t-\frac{\sigma_1^2t^2}{2}\right),
+$$
+
+$$
+\varphi_Y(t)
+=\exp\left(i\mu_2t-\frac{\sigma_2^2t^2}{2}\right).
+$$
+
+独立性から
+
+$$
+\begin{aligned}
+\varphi_{X+Y}(t)
+&=\varphi_X(t)\varphi_Y(t)\\
+&=\exp\left(
+ i(\mu_1+\mu_2)t
+ -\frac{(\sigma_1^2+\sigma_2^2)t^2}{2}
+\right).
+\end{aligned}
+$$
+
+右辺は $N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$ の特性関数です。[特性関数の一意性](#thm-f0-00p6-uniqueness)により、特性関数が一致すれば分布も一致するので
+
+$$
+\boxed{
+X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)
+}.
+$$
 <!-- solution-end -->
 
 ### F0-00P6-B02 二次展開をDCTで正当化する
@@ -1011,16 +1297,76 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$r(u)/u^2\to0$ かつ $|r(u)|\le Cu^2$ を示す。すると $r(tX)/t^2=X^2r(tX)/(tX)^2\to0$ a.s. で絶対値は $CX^2$ に支配される。[DCT](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から期待値が0へ行く。
 
-#### 本番答案
-$|r(tX)|/t^2\le CX^2\in L^1$ かつ $r(tX)/t^2\to0$ a.s. よりDCT。
+本文と同じく
 
-#### 採点基準（20点）
-- remainder比: 5点
-- 支配: 7点
-- DCT: 6点
-- 結論: 2点
+$$
+e^{iu}-1-iu
+=-u^2\int_0^1(1-s)e^{isu}\,ds
+$$
+
+を使います。従って $u\ne0$ では
+
+$$
+\frac{r(u)}{u^2}
+=
+\frac12-\int_0^1(1-s)e^{isu}\,ds.
+$$
+
+$u\to0$ のとき $e^{isu}\to1$ で、絶対値は1です。よって $[0,1]$ 上の[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+\frac{r(u)}{u^2}\to
+\frac12-\int_0^1(1-s)\,ds
+=0.
+$$
+
+また
+
+$$
+\left|\frac{r(u)}{u^2}\right|
+\le
+\frac12+\int_0^1(1-s)\,ds
+=1.
+$$
+
+$u=0$ では比を0と定義して
+
+$$
+q(u):=
+\begin{cases}
+r(u)/u^2,&u\ne0,\\
+0,&u=0
+\end{cases}
+$$
+
+と置きます。すると $q(tX)\to0$ a.s. かつ $|q(tX)|\le1$ なので
+
+$$
+\frac{r(tX)}{t^2}=X^2q(tX)\to0
+\qquad\text{a.s.}
+$$
+
+であり、
+
+$$
+\left|\frac{r(tX)}{t^2}\right|
+\le X^2.
+$$
+
+仮定 $E[X^2]<\infty$ により $X^2$ は可積分です。従って[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
+
+$$
+E\left[\frac{r(tX)}{t^2}\right]\to0.
+$$
+
+すなわち
+
+$$
+\boxed{E[r(tX)]=o(t^2)}.
+$$
+
+仮定 $E[X^2]<\infty$ は、最後にDCTの支配関数 $X^2$ を可積分にするために使われています。
 <!-- solution-end -->
 
 ### F0-00P6-B03 Gaussian smoothingでLévyを説明する
@@ -1032,16 +1378,162 @@ $\varphi_n(t)\to\varphi_X(t)$ とする。固定した $\varepsilon>0$ に対し
 
 <!-- solution-start -->
 #### 詳細解答
-Gaussian factorを掛けた逆Fourier積分では $e^{-\varepsilon^2t^2/2}$ が可積分支配関数になるためDCTで密度が点wise収束する。両者は密度なので[Scheffé](#lem-f0-00p6-scheffe)からL1収束。bounded Lipschitz hについてnoise追加の誤差は $L\varepsilon E|Z|$ 以下でnに一様。固定εでn→∞、次にε→0としてEh(X_n)→Eh(X)。BL特徴付けから分布収束。
 
-#### 本番答案
-Gaussian smoothing後はDCT + Schefféで密度がL1収束。元の変数との差はBL関数に対して $O(\varepsilon)$ なので、$n\to\infty$ 後に $\varepsilon\to0$。
+固定した $\varepsilon>0$ について、[Gaussian smoothingの密度公式](#lem-f0-00p6-gaussian-smoothing-density)から
 
-#### 採点基準（20点）
-- Gaussian支配: 5点
-- Scheffé: 5点
-- noise除去: 6点
-- BL判定: 4点
+$$
+f_{n,\varepsilon}(x)
+=\frac1{2\pi}
+\int e^{-itx}\varphi_n(t)e^{-\varepsilon^2t^2/2}\,dt,
+$$
+
+$$
+f_{\varepsilon}(x)
+=\frac1{2\pi}
+\int e^{-itx}\varphi_X(t)e^{-\varepsilon^2t^2/2}\,dt.
+$$
+
+各 $t$ で $\varphi_n(t)\to\varphi_X(t)$ です。また特性関数の絶対値は1以下なので
+
+$$
+|e^{-itx}\varphi_n(t)e^{-\varepsilon^2t^2/2}|
+\le e^{-\varepsilon^2t^2/2}.
+$$
+
+右辺は $t$ について可積分です。従ってDCTを適用でき、各 $x$ で
+
+$$
+f_{n,\varepsilon}(x)\to f_\varepsilon(x).
+$$
+
+両者は確率密度なので[Schefféの補題](#lem-f0-00p6-scheffe)から
+
+$$
+\int|f_{n,\varepsilon}-f_\varepsilon|\,dx\to0.
+$$
+
+よって任意の有界関数 $h$ について
+
+$$
+|E[h(X_n+\varepsilon Z)]-E[h(X+\varepsilon Z)]|
+\le
+\|h\|_\infty
+\int|f_{n,\varepsilon}-f_\varepsilon|\,dx
+\to0.
+$$
+
+次に $h$ をLipschitz定数 $L$ の有界Lipschitz関数とします。すると
+
+$$
+|h(X_n+\varepsilon Z)-h(X_n)|
+\le L\varepsilon|Z|,
+$$
+
+ゆえに
+
+$$
+|E[h(X_n+\varepsilon Z)]-E[h(X_n)]|
+\le L\varepsilon E|Z|.
+$$
+
+この評価は $n$ に依存しません。同様の評価が $X$ にも成り立つため、三角不等式を使って固定 $\varepsilon$ で $n\to\infty$ とすると
+
+$$
+\limsup_n|E[h(X_n)]-E[h(X)]|
+\le2L\varepsilon E|Z|.
+$$
+
+最後に $\varepsilon\downarrow0$ として右辺を0へ送れば
+
+$$
+E[h(X_n)]\to E[h(X)].
+$$
+
+全ての有界Lipschitz $h$ でこれが成り立つので、[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)から
+
+$$
+\boxed{X_n\Rightarrow X}.
+$$
+
+順序は **固定した $\varepsilon$ で $n\to\infty$、その後 $\varepsilon\downarrow0$** です。Gaussian noise除去誤差が $n$ に一様だから、この順序で極限を閉じられます。
+<!-- solution-end -->
+
+### F0-00P6-C01 0で不連続な各点極限と「質量の逃亡」
+
+- Level: C
+- 目安時間: 25分
+
+$X_n\sim N(0,n)$ とする。
+
+1. 特性関数 $\varphi_n(t)$ を求め、その各点極限 $\varphi(t)$ を求めよ。
+2. $\varphi$ が $t=0$ で不連続であることを示せ。
+3. 任意の $M>0$ に対して $P(|X_n|\le M)\to0$ を示し、$X_n$ がどの実確率変数にも分布収束しないことを説明せよ。
+4. この例が、一般のLévy連続性定理で「極限関数が0で連続」という条件が必要な理由をどう表しているか説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$X_n\sim N(0,n)$ なので、正規分布の特性関数から
+
+$$
+\varphi_n(t)
+=\exp\left(-\frac{nt^2}{2}\right).
+$$
+
+$t=0$ では全ての $n$ について $\varphi_n(0)=1$ です。一方、$t\ne0$ を固定すると $nt^2/2\to\infty$ なので
+
+$$
+\varphi_n(t)\to0.
+$$
+
+従って各点極限は
+
+$$
+\varphi(t)=
+\begin{cases}
+1,&t=0,\\
+0,&t\ne0.
+\end{cases}
+$$
+
+です。実際
+
+$$
+\lim_{t\to0,\ t\ne0}\varphi(t)=0\ne1=\varphi(0),
+$$
+
+したがって $\varphi$ は0で不連続です。
+
+次に標準正規 $Z\sim N(0,1)$ を用いれば
+
+$$
+X_n\stackrel d=\sqrt n\,Z.
+$$
+
+従って任意の固定 $M>0$ に対し
+
+$$
+P(|X_n|\le M)
+=P\left(|Z|\le\frac{M}{\sqrt n}\right).
+$$
+
+$M/\sqrt n\downarrow0$ で、標準正規分布は0に原子を持たないので
+
+$$
+P\left(|Z|\le\frac{M}{\sqrt n}\right)\to P(Z=0)=0.
+$$
+
+つまり、どれだけ大きな有限区間 $[-M,M]$ を固定しても、そこに残る確率質量は最終的に0へ行きます。質量が $\pm\infty$ 側へ逃げているわけです。
+
+もしある実確率変数 $X$ へ $X_n\Rightarrow X$ なら、本章のLévy連続性定理の「分布収束なら特性関数が各点収束する」向きから
+
+$$
+\varphi_n(t)\to\varphi_X(t)
+$$
+
+となります。ところが特性関数 $\varphi_X$ は必ず0で連続であり $\varphi_X(0)=1$ です。上で得た不連続な極限関数とは一致できないため、そのような $X$ は存在しません。
+
+この例が示す壊れた機構は、単に「極限関数が変な形」というだけではありません。0での連続性を失うと、分布列の確率質量を有限範囲に留めるtightnessが失われ、部分列の極限分布を作れなくなり得ます。一般のLévy連続性定理で0での連続性が要求されるのは、この**質量の逃亡を排除する役割**を持つためです。
 <!-- solution-end -->
 
 ---
@@ -1052,10 +1544,12 @@ Gaussian smoothing後はDCT + Schefféで密度がL1収束。元の変数との�
 - 独立和で特性関数が積になることを証明できる。
 - 分布収束をCDFの連続点で定義できる。
 - bounded Lipschitz期待値による分布収束の特徴付けを証明できる。
-- Gaussian Fourier identityとGaussian smoothing密度公式を証明できる。
+- Gaussian Fourier identityで積分記号下微分と境界項消失を正当化できる。
+- Gaussian smoothing密度公式を、確率0事象への条件付けに頼らずTonelli/Fubiniから証明できる。
 - 特性関数の一意性をGaussian smoothingから証明できる。
 - 有限二次モーメントから特性関数の二次展開をDCTで証明できる。
 - Schefféの補題を証明できる。
 - Lévy連続性定理のCLTに必要な版をGaussian smoothingから証明できる。
+- 一般版で0における連続性が必要な理由を、質量の逃亡と結び付けて説明できる。
 
 次は [F0-00P6A 独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で、この章の二次展開とLévy連続性定理を実際に組み合わせます。
