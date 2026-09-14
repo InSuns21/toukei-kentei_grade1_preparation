@@ -519,7 +519,7 @@ P(X+\varepsilon Z\in A)
 \end{aligned}
 $$
 
-被積分関数は非負なので [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md) を適用でき、変数変換 $x=X+z$ を行うと
+被積分関数は非負なので [Tonelliの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) を適用でき、変数変換 $x=X+z$ を行うと
 
 $$
 \begin{aligned}
@@ -548,7 +548,7 @@ g_\varepsilon(x-X)
  e^{-itx}e^{itX}e^{-\varepsilon^2t^2/2}\,dt.
 $$
 
-絶対値は $e^{-\varepsilon^2t^2/2}$ であり、これは $t$ について可積分です。したがって [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md) により期待値と積分を交換でき、
+絶対値は $e^{-\varepsilon^2t^2/2}$ であり、これは $t$ について可積分です。したがって [Fubiniの定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) により期待値と積分を交換でき、
 
 $$
 \begin{aligned}
@@ -562,7 +562,7 @@ f_\varepsilon(x)
 \end{aligned}
 $$
 
-最後に $x_n\to x$ とすると integrand は各 $t$ で収束し、絶対値は同じ可積分関数 $e^{-\varepsilon^2t^2/2}$ に支配されます。DCTにより $f_\varepsilon(x_n)\to f_\varepsilon(x)$ なので、密度は連続です。
+最後に $x_n\to x$ とすると integrand は各 $t$ で収束し、絶対値は同じ可積分関数 $e^{-\varepsilon^2t^2/2}$ に支配されます。[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により $f_\varepsilon(x_n)\to f_\varepsilon(x)$ なので、密度は連続です。
 <!-- proof-end -->
 
 ---
@@ -705,7 +705,7 @@ $$
 \qquad(u\ne0).
 $$
 
-$u\to0$ では被積分関数 $e^{isu}$ が1へ収束し、絶対値は1なので、区間 $[0,1]$ 上のDCTから
+$u\to0$ では被積分関数 $e^{isu}$ が1へ収束し、絶対値は1なので、区間 $[0,1]$ 上の[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \frac{r(u)}{u^2}\to
@@ -734,7 +734,7 @@ r(u)/u^2,&u\ne0,\\
 \end{cases}
 $$
 
-と定義すれば $q(u)\to0$ as $u\to0$ かつ $|q(u)|\le1$ です。従って
+と定義すれば $u\to0$ のとき $q(u)\to0$ かつ $|q(u)|\le1$ です。従って
 
 $$
 \frac{r(tX)}{t^2}
@@ -1241,7 +1241,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-標準正規 $Z$ の特性関数は $e^{-t^2/2}$ です。$N(\mu,\sigma^2)$ 変数は $\mu+\sigma Z$ と同分布なので、アフィン変換の公式から
+標準正規 $Z$ の特性関数は $e^{-t^2/2}$ です。$N(\mu,\sigma^2)$ 変数は $\mu+\sigma Z$ と同分布なので、[特性関数の基本性質](#prop-f0-00p6-basic-properties)から
 
 $$
 \varphi_{N(\mu,\sigma^2)}(t)
@@ -1313,7 +1313,7 @@ $$
 \frac12-\int_0^1(1-s)e^{isu}\,ds.
 $$
 
-$u\to0$ のとき $e^{isu}\to1$ で、絶対値は1です。よって $[0,1]$ 上のDCTから
+$u\to0$ のとき $e^{isu}\to1$ で、絶対値は1です。よって $[0,1]$ 上の[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \frac{r(u)}{u^2}\to
@@ -1354,7 +1354,7 @@ $$
 \le X^2.
 $$
 
-仮定 $E[X^2]<\infty$ により $X^2$ は可積分です。従ってDCTから
+仮定 $E[X^2]<\infty$ により $X^2$ は可積分です。従って[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 E\left[\frac{r(tX)}{t^2}\right]\to0.
@@ -1379,7 +1379,7 @@ $\varphi_n(t)\to\varphi_X(t)$ とする。固定した $\varepsilon>0$ に対し
 <!-- solution-start -->
 #### 詳細解答
 
-固定した $\varepsilon>0$ について、Gaussian smoothingの密度公式から
+固定した $\varepsilon>0$ について、[Gaussian smoothingの密度公式](#lem-f0-00p6-gaussian-smoothing-density)から
 
 $$
 f_{n,\varepsilon}(x)
@@ -1406,7 +1406,7 @@ $$
 f_{n,\varepsilon}(x)\to f_\varepsilon(x).
 $$
 
-両者は確率密度なのでSchefféの補題から
+両者は確率密度なので[Schefféの補題](#lem-f0-00p6-scheffe)から
 
 $$
 \int|f_{n,\varepsilon}-f_\varepsilon|\,dx\to0.
@@ -1449,7 +1449,7 @@ $$
 E[h(X_n)]\to E[h(X)].
 $$
 
-全ての有界Lipschitz $h$ でこれが成り立つので、本文の特徴付け定理から
+全ての有界Lipschitz $h$ でこれが成り立つので、[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)から
 
 $$
 \boxed{X_n\Rightarrow X}.
@@ -1458,7 +1458,7 @@ $$
 順序は **固定した $\varepsilon$ で $n\to\infty$、その後 $\varepsilon\downarrow0$** です。Gaussian noise除去誤差が $n$ に一様だから、この順序で極限を閉じられます。
 <!-- solution-end -->
 
-### F0-00P6-C01 0で不連続な点wise極限と「質量の逃亡」
+### F0-00P6-C01 0で不連続な各点極限と「質量の逃亡」
 
 - Level: C
 - 目安時間: 25分
@@ -1496,7 +1496,7 @@ $$
 \end{cases}
 $$
 
-です。明らかに
+です。実際
 
 $$
 \lim_{t\to0,\ t\ne0}\varphi(t)=0\ne1=\varphi(0),
