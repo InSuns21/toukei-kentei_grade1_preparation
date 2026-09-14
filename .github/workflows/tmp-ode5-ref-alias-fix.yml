@@ -1,0 +1,41 @@
+name: Temporary ODE5 ODE2 reference fix
+
+on:
+  push:
+    branches:
+      - feat/ode5-laplace-ivp
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ode5-laplace-ivp
+          fetch-depth: 0
+      - name: Patch ODE2 theorem references
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/ODE5/index.md')
+          s = p.read_text()
+          replacements = {
+              'ODE2 の存在・一意性定理より、これが唯一の解です。': '[高階線形初期値問題の存在・一意性](../ODE2/index.md#thm-ode2-linear-ivp)より、これが唯一の解です。',
+              'ODE2 の一意性定理により、この解が唯一です。': '同じ [高階線形初期値問題の存在・一意性](../ODE2/index.md#thm-ode2-linear-ivp) により、この解が唯一です。',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'missing target: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+          rm .github/workflows/tmp-ode5-ref-alias-fix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/ODE5/index.md .github/workflows/tmp-ode5-ref-alias-fix.yml
+          git commit -m 'Use canonical ODE2 theorem references in ODE5'
+          git push origin HEAD:feat/ode5-laplace-ivp
