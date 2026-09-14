@@ -25,5 +25,6 @@ formal_kinds:
   - proposition
   - corollary
 
-# v1 の blocking 対象は登録概念・formal statement・requires 依存関係。
-# 自由文の未知語候補は audit から始め、確認済みパターンを順次 blocking へ昇格する。
+# 登録概念・formal statement・requires 依存関係に加え、changed-only CI では
+# 高信頼の未定義専門語候補、local concept の first-use、曖昧 alias 使用も blocking する。
+# 既存違反は audit/WARN に残し、新しく持ち込む違反だけを merge blocker にする。
