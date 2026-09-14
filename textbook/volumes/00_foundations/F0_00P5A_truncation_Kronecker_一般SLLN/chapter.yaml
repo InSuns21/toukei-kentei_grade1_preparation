@@ -22,5 +22,5 @@ canonical_examples: [heavy-tail finite mean]
 problem_patterns: [SLLN-TRUNCATION-1, KRONECKER-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 4, exercises: 0.75, review: 0.5 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 3, review: 1 }
