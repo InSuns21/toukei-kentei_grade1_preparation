@@ -33,7 +33,6 @@ jobs:
               '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めるとちょうど特性多項式 $P(s)$ になります。': '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めると、ちょうど上で定めた多項式 $P(s)$ になります。',
               '工学ではこの $h$ を**インパルス応答**と呼びます。': '工学では、この $h$ には**インパルス応答**という名称がよく使われます。',
               '畳み込み定理の最小例がすでに見えています。': 'この積の関係の最小例がすでに見えています。',
-              '> **定理（畳み込み定理）**': '> **定理（Laplace変換の畳み込み定理）**',
           }
           for old, new in replacements.items():
               if old not in s:
@@ -70,8 +69,10 @@ jobs:
 
           p = Path('textbook/volumes/00_foundations/ODE5/glossary.yaml')
           s = p.read_text()
-          s = s.replace('  - term: 畳み込み定理\n', '  - term: Laplace変換の畳み込み定理\n', 1)
-          p.write_text(s)
+          old = '  - term: 畳み込み定理\n'
+          if old not in s:
+              raise SystemExit('missing convolution theorem glossary target')
+          p.write_text(s.replace(old, '  - term: Laplace変換の畳み込み定理\n', 1))
 
           p = Path('textbook/dream-theater.md')
           s = p.read_text()
