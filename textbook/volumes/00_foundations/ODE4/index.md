@@ -37,6 +37,8 @@ $$
 <!-- definition-example-start: def-ode4-nonlinear-autonomous-system -->
 ### 例：定義から平衡点を求める
 
+**定義の確認**
+
 $$
 \begin{cases}
 x'=x-x^3,\\
@@ -90,6 +92,8 @@ $$
 <!-- definition-example-start: def-ode4-phase-plane-nullcline -->
 ### 例：nullcline と符号を読む
 
+**定義の確認**
+
 $$
 x'=x(1-x),\qquad y'=-y
 $$
@@ -138,6 +142,8 @@ $$
 
 <!-- definition-example-start: def-ode4-linearization -->
 ### 例：三つの平衡点で線形化する
+
+**定義の確認**
 
 $F(x,y)=(x-x^3,-y)$ なら
 
@@ -210,6 +216,8 @@ $r(u)=o(\|u\|)$ が「十分近くでは高次の非線形部分が一次項よ�
 
 <!-- definition-example-start: def-ode4-hyperbolic-equilibrium -->
 ### 例：双曲型と非双曲型
+
+**定義の確認**
 
 $x'=x-x^3$, $y'=-y$ の原点では固有値は $1,-1$ であり双曲型です。
 
@@ -367,6 +375,8 @@ $$
 
 <!-- definition-example-start: def-ode4-first-integral -->
 ### 例：非線形振動子のエネルギー
+
+**定義の確認**
 
 $$
 x'=y,\qquad y'=-x-x^3
