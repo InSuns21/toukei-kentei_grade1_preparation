@@ -1,0 +1,86 @@
+chapter: ODE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE3
+  - F0-02C3
+
+concepts:
+  - id: ode.ode4-nonlinear-autonomous-system
+    name: 非線形自律系・平衡点
+    kind: definition
+    aliases: [非線形自律系, 自律系, 平衡点, nonlinear autonomous system, equilibrium]
+    introduction: formal
+    requires:
+      - ode.ode1-picard-lindelof
+
+  - id: ode.ode4-phase-plane-nullcline
+    name: 軌道・位相平面・nullcline
+    kind: definition
+    aliases: [軌道, 位相平面, phase plane, nullcline, ヌルクライン]
+    introduction: formal
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
+
+  - id: ode.ode4-linearization
+    name: 線形化・線形化行列
+    kind: definition
+    aliases: [線形化, 線形化行列, Jacobianによる線形化, linearization]
+    introduction: formal
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
+      - functional.frechet-derivative
+
+  - id: ode.ode4-linearization-remainder
+    name: Fréchet 微分による平衡点まわりの線形化
+    kind: theorem
+    aliases: [Fréchet微分による平衡点まわりの線形化, 平衡点まわりの線形化, 線形化剰余, nonlinear remainder]
+    introduction: formal
+    requires:
+      - ode.ode4-linearization
+      - functional.frechet-derivative
+
+  - id: ode.ode4-hyperbolic-equilibrium
+    name: 双曲型・非双曲型平衡点
+    kind: definition
+    aliases: [双曲型平衡点, 非双曲型平衡点, hyperbolic equilibrium, nonhyperbolic equilibrium]
+    introduction: formal
+    requires:
+      - ode.ode4-linearization
+      - ode.ode3-spectral-stability
+
+  - id: ode.ode4-hurwitz-local-stability
+    name: Hurwitz 線形化による局所指数安定性
+    kind: theorem
+    aliases: [Hurwitz線形化による局所指数安定性, 線形化による局所安定性, indirect method]
+    introduction: formal
+    requires:
+      - ode.ode4-linearization-remainder
+      - ode.ode3-variation-of-constants
+      - ode.ode3-spectral-stability
+
+  - id: ode.ode4-first-integral
+    name: 保存量
+    kind: definition
+    aliases: [保存量, 第一積分, first integral, conserved quantity]
+    introduction: formal
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
+      - functional.frechet-chain-rule
+
+  - id: ode.ode4-first-integral-criterion
+    name: 保存量の微分判定
+    kind: theorem
+    aliases: [保存量の微分判定, gradient orthogonality criterion]
+    introduction: formal
+    requires:
+      - ode.ode4-first-integral
+      - functional.frechet-chain-rule
+
+  - id: ode.ode4-nonhyperbolic-warning
+    name: 非双曲型では線形化だけでは判定不能
+    kind: proposition
+    aliases: [線形化で判定不能, 非双曲型の注意, nonhyperbolic warning]
+    introduction: formal
+    requires:
+      - ode.ode4-hyperbolic-equilibrium

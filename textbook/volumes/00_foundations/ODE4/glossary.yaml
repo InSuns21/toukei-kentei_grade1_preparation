@@ -1,0 +1,38 @@
+chapter: "ODE4"
+terms:
+  - term: 非線形自律系
+    english: nonlinear autonomous system
+    meaning: 未知ベクトル x(t) に対して x'=F(x) の形で表され、右辺が時刻 t を陽に含まない常微分方程式系。
+  - term: 平衡点
+    english: equilibrium point
+    meaning: F(x_*)=0 を満たし、x(t)≡x_* が定数解になる点。
+  - term: 軌道
+    english: orbit
+    meaning: 一つの解 x(t) が状態空間内で通過する点の集合。時間の向きを含めて読むと流れの向きも分かる。
+  - term: 位相平面
+    english: phase plane
+    meaning: 二次元自律系の状態 (x,y) とその軌道を平面上で調べる見方。
+  - term: nullcline
+    english: nullcline
+    meaning: 二次元系 x'=f(x,y), y'=g(x,y) で f=0 または g=0 となる曲線。両者の交点は平衡点候補になる。
+  - term: 線形化
+    english: linearization
+    meaning: 平衡点 x_* の近くで F(x_*+u) を Jacobian DF(x_*)u で一次近似し、非線形系を局所的な線形系と比較すること。
+  - term: 線形化行列
+    english: linearization matrix
+    meaning: 平衡点 x_* における Jacobian A=DF(x_*)。変位 u=x-x_* の一次項 u'=Au を定める。
+  - term: 双曲型平衡点
+    english: hyperbolic equilibrium
+    meaning: 線形化行列のどの固有値も実部0を持たない平衡点。
+  - term: 非双曲型平衡点
+    english: nonhyperbolic equilibrium
+    meaning: 線形化行列に実部0の固有値が少なくとも一つある平衡点。高次非線形項が安定性を決めることがある。
+  - term: Hurwitz行列
+    english: Hurwitz matrix
+    meaning: 全ての固有値の実部が負である正方行列。
+  - term: 保存量
+    english: conserved quantity
+    meaning: 解 x(t) に沿って H(x(t)) が時間によらず一定になるスカラー関数 H。
+  - term: 第一積分
+    english: first integral
+    meaning: 保存量の別名。位相平面では軌道を H=constant の level set に拘束する。
