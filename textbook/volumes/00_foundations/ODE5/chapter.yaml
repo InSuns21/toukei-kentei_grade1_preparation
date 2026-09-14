@@ -1,5 +1,5 @@
 id: "ODE5"
-title: "標準常微分方程式 V：Laplace変換と初期値問題"
+title: "標準 ODE V：Laplace変換と初期データ"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -9,25 +9,25 @@ learning_objectives:
   - 指数位数とLaplace変換を定義し、変換が収束する半直線を具体的な評価から判定できる
   - 線形性と微分則を定義から導き、初期値がs領域の代数式へ入る機構を説明できる
   - 指数因子による移動則と単位階段関数による時間移動則を証明し、遅延入力を変換できる
-  - 基本変換表と部分分数分解から逆変換候補を構成し、順変換または元の初期値問題への代入で検証できる
-  - 片側畳み込みを定義し、有限三角領域での積分交換と絶対収束評価から畳み込み定理を証明できる
-  - 定係数線形ODEの初期値問題をLaplace変換で代数化し、初期条件を落とさずに解ける
-  - 階段入力を含む初期値問題を時間移動則で解き、区分的な時間応答として読み戻せる
-  - 零初期値の応答をGreen核・畳み込みと結び付け、インパルス応答という考え方とDirac deltaの厳密理論を区別できる
+  - 基本変換表と部分分数分解から逆変換候補を構成し、順変換または元の初期値付き方程式への代入で検証できる
+  - 片側合成積を定義し、有限三角領域での積分交換と絶対収束評価から合成積定理を証明できる
+  - 定係数線形ODEの初期値付き方程式をLaplace変換で代数化し、初期データを落とさずに解ける
+  - 階段入力を含む初期値付き方程式を時間移動則で解き、区分的な時間応答として読み戻せる
+  - 零初期値の応答をGreen核・合成積と結び付け、インパルス応答という考え方とDirac deltaの厳密理論を区別できる
 definitions:
   - { id: ODE5-DEF-01, name: 指数位数 }
   - { id: ODE5-DEF-02, name: Laplace変換 }
   - { id: ODE5-DEF-03, name: 単位階段関数 }
-  - { id: ODE5-DEF-04, name: 片側畳み込み }
+  - { id: ODE5-DEF-04, name: 片側合成積 }
   - { id: ODE5-DEF-05, name: 伝達因子・応答核 }
 theorems:
-  - { id: ODE5-THM-01, name: 指数位数によるLaplace変換の存在 }
+  - { id: ODE5-THM-01, name: Laplace変換の存在 }
   - { id: ODE5-THM-02, name: 微分のLaplace変換 }
   - { id: ODE5-THM-03, name: 指数移動則 }
   - { id: ODE5-THM-04, name: 時間移動則 }
-  - { id: ODE5-THM-05, name: 畳み込み定理 }
-  - { id: ODE5-THM-06, name: 定係数線形初期値問題の代数化 }
-canonical_examples: [指数関数と多項式の変換, 微分則からsin-cos変換, 部分分数による逆変換, 遅延階段入力, 畳み込みと調和振動子Green核, 共鳴を含む二階初期値問題]
+  - { id: ODE5-THM-05, name: Laplace変換の積公式 }
+  - { id: ODE5-THM-06, name: 定係数線形初期値付き方程式の代数化 }
+canonical_examples: [指数関数と多項式の変換, 微分則からsin-cos変換, 部分分数による逆変換, 遅延階段入力, 合成積と調和振動子Green核, 共鳴を含む二階初期値付き方程式]
 problem_patterns: [ODE-LAPLACE-BASIC-1, ODE-LAPLACE-DERIVATIVE-1, ODE-LAPLACE-SHIFT-1, ODE-LAPLACE-INVERSE-1, ODE-LAPLACE-CONVOLUTION-1, ODE-LAPLACE-IVP-1, ODE-LAPLACE-STEP-1]
 past_exam_alignment: []
 integrated_exam_problems: []

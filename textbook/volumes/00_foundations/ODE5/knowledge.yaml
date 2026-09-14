@@ -18,12 +18,12 @@ concepts:
     name: Laplace変換
     kind: definition
     aliases: [Laplace変換, ラプラス変換, Laplace transform]
-    introduction: formal
+    introduction: inline
 
   - id: ode.ode5-laplace-existence
-    name: 指数位数によるLaplace変換の存在
+    name: Laplace変換の存在
     kind: theorem
-    aliases: [Laplace変換の存在, 指数位数によるLaplace変換の存在, 収束半直線]
+    aliases: [Laplace変換の存在, 収束半直線]
     introduction: formal
     requires:
       - ode.ode5-laplace-transform
@@ -71,15 +71,15 @@ concepts:
   - id: ode.ode5-inverse-method
     name: 逆Laplace変換の候補構成と検証
     kind: method
-    aliases: [逆Laplace変換, inverse Laplace transform, 部分分数による逆変換]
+    aliases: [逆Laplace変換, 逆変換, inverse Laplace transform, 部分分数による逆変換]
     introduction: inline
     requires:
       - ode.ode5-laplace-transform
 
   - id: ode.ode5-convolution
-    name: 片側畳み込み
+    name: 片側合成積
     kind: definition
-    aliases: [片側畳み込み, 畳み込み, convolution]
+    aliases: [片側合成積, 合成積, one-sided convolution]
     introduction: formal
 
   - id: ode.ode5-triangle-interchange
@@ -91,9 +91,9 @@ concepts:
       - ode.ode5-convolution
 
   - id: ode.ode5-convolution-theorem
-    name: 畳み込み定理
+    name: Laplace変換の積公式
     kind: theorem
-    aliases: [畳み込み定理, convolution theorem]
+    aliases: [Laplace変換の積公式, Laplace積公式, Laplace convolution product formula]
     introduction: formal
     requires:
       - ode.ode5-laplace-transform
@@ -101,9 +101,9 @@ concepts:
       - ode.ode5-triangle-interchange
 
   - id: ode.ode5-constant-coefficient-ivp
-    name: 定係数線形初期値問題のLaplace代数化
+    name: 定係数線形初期値付き方程式のLaplace代数化
     kind: theorem
-    aliases: [定係数線形初期値問題の代数化, Laplace法による初期値問題, Laplace法]
+    aliases: [定係数線形初期値付き方程式の代数化, Laplace法による初期値付き方程式]
     introduction: formal
     requires:
       - ode.ode5-derivative-rule

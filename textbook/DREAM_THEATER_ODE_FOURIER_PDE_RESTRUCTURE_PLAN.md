@@ -662,7 +662,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE2 | **実装・検証完了（PR #277）** | 連続係数高階線形IVPの存在一意性、n次元解空間、Wronskian / Abel、定係数の重根・複素根、非斉次、未定係数法、定数変化法、Cauchy--Euler、1次元Green核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE1 + LA3C。H1 §5–7 を再利用・補強し、ODE3 / 行列指数は逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証 |
 | ODE3 | **実装・検証完了（PR #280）** | 線形連立系、行列指数の級数構成と微分、基本行列、Jordan block、複素固有対、定数変化公式、2次元位相図、Lyapunov・漸近・指数安定性と境界 Jordan 条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + LA4。H1 §8–11 を移送・補強し、旧H1を ODE1–ODE3 への互換ハブ化。FA2 / PDE1 / PDE2 の旧ODE concept依存も現行IDへ移管 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も green |
 | ODE4 | **実装・検証完了（PR #282）** | 非線形自律系、平衡点・nullcline、Fréchet/Jacobian 線形化、双曲型・非双曲型を実装。Hurwitz 線形化から局所指数安定性を定数変化公式・剰余評価・退出時刻・解延長まで閉じ、保存量判定と非双曲型の反例も示した | A4 / B3 / C1。全問に詳細解答あり | ODE3 + F0-02C3。一般の Hartman--Grobman、中心多様体、Poincaré--Bendixson、Hopf 分岐は停止線外とし逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit 実行済み。ODE4 は両監査で機械 P2、人手再査読で OK |
-| ODE5 | 未着手 | - | - | ODE2 | 未実施 |
+| ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |
 | ODE6 | 未着手 | - | - | ODE2 + RA5 | 未実施 |
 | ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |
 
@@ -702,4 +702,4 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認した。さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` を実行し、ODE4 はいずれも機械 P2。前者は「証明4本・直接例5件・証明比15%・省略語候補0」、後者は「proof block 4・隠れ証明0・直接例5件」で、P2 の主因は「直感/意味」という名前の見出しがないことだった。本文の導入、線形化の限界説明、実践フロー、各例を人手で再査読し、見出し追加だけでスコアを下げる修正は不要と判断して **OK** とした。
 - 二監査を実行するため一時的に追加した Actions の監査ステップは、結果確認後に元の workflow へ完全に戻した。
 
-次の実装単位は **ODE5 Laplace変換と初期値問題**。Laplace変換の定義、線形性・微分・移動則、逆変換、畳み込み、階段関数とインパルス応答の考え方、定係数 ODE の初期値問題までを標準コアとして閉じる。Dirac delta の厳密な超関数論は Encore III へ送る。
+次の実装単位は **ODE6 級数解・正則特異点**。常点での冪級数解、係数漸化式、正則特異点、Frobenius 法の基本、Bessel / Legendre 方程式を代表例として標準コアを閉じる。特殊関数の百科事典化は避け、ODE2 + RA5 の前提境界を守る。
