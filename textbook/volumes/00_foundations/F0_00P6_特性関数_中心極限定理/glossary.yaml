@@ -5,4 +5,7 @@ terms:
     meaning: E[e^{itX}]で定義される確率分布のFourier変換。
   - term: Lévy連続性定理
     english: Levy continuity theorem
-    meaning: 特性関数の点wise収束と分布収束を結ぶ定理。
+    meaning: 特性関数の各点収束と分布収束を結ぶ定理。
+  - term: 有界Lipschitz関数
+    english: bounded Lipschitz function
+    meaning: 絶対値が一様に有界で、かつ |h(x)-h(y)| を定数倍の |x-y| で一様に上から抑えられる関数。

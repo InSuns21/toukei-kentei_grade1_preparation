@@ -24,7 +24,7 @@ Gaussian convolutionで滑らかな密度を作る
   ↓
 Scheffe + Gaussian smoothing
   ↓
-bounded Lipschitz test functions
+有界Lipschitz関数
   ↓
 Lévy continuity theorem
   ↓
@@ -196,12 +196,76 @@ $X$ の分布関数は $x<0$ で0、$x\ge0$ で1であり、唯一の不連続�
 
 ---
 
-<a id="thm-f0-00p6-bl-characterization"></a>
-
-## 4. bounded Lipschitz関数で分布収束を判定できる
+<a id="def-f0-00p6-bounded-lipschitz"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded Lipschitz testによる分布収束の特徴付け）**  
+> **定義（有界Lipschitz関数）**
+> 関数 $h:\mathbb R\to\mathbb R$ が **有界Lipschitz関数** であるとは、ある有限な定数 $M,L\ge0$ が存在して、すべての $x,y\in\mathbb R$ に対し
+
+$$
+|h(x)|\le M,
+\qquad
+|h(x)-h(y)|\le L|x-y|
+$$
+
+> が成り立つことをいいます。第1の不等式が有界性、第2の不等式が入力の変化に対する出力の変化量を一様に抑える条件です。
+<!-- formal-statement-end -->
+
+この章で必要なのはこの二つの不等式だけです。第2の不等式は「入力を $|x-y|$ だけ動かしたとき、出力の変化がその定数倍を超えない」という一様な変化率の上限を表します。
+
+<!-- definition-example-start: def-f0-00p6-bounded-lipschitz -->
+**定義の確認**：次の区分線形関数を考えます。
+
+$$
+h(x)=
+\begin{cases}
+1,&x\le0,\\
+1-x,&0<x<1,\\
+0,&x\ge1.
+\end{cases}
+$$
+
+まず $0\le h(x)\le1$ なので $M=1$ で有界です。次に $x\le y$ として第2の不等式を確認します。同じ区間に $x,y$ があれば、$h$ は傾き $0$ または $-1$ の一次関数なので
+
+$$
+|h(x)-h(y)|\le y-x.
+$$
+
+異なる区間にまたがる場合も、例えば $x\le0<y<1$ なら
+
+$$
+|h(x)-h(y)|=y\le y-x,
+$$
+
+$0<x<1\le y$ なら
+
+$$
+|h(x)-h(y)|=1-x\le y-x,
+$$
+
+$x\le0$ かつ $y\ge1$ なら
+
+$$
+|h(x)-h(y)|=1\le y-x.
+$$
+
+したがってすべての $x,y$ について
+
+$$
+|h(x)-h(y)|\le |x-y|,
+$$
+
+となり、$L=1$ を取れます。よって $h$ は有界Lipschitz関数です。後で分布関数を上下から挟む関数も、この例と同じ「一定部分と傾き一定の部分をつなぐ」形です。
+<!-- definition-example-end -->
+
+---
+
+<a id="thm-f0-00p6-bl-characterization"></a>
+
+## 4. 有界Lipschitz関数で分布収束を判定できる
+
+<!-- formal-statement-start -->
+> **定理（有界Lipschitz関数による分布収束の特徴付け）**
 > 実確率変数列 $X_n$ と $X$ について、次は同値です。
 
 > 1. $X_n\Rightarrow X$。
@@ -215,11 +279,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
-### 証明：CDFからstep近似し、逆向きはLipschitz cutoffで挟む
+### 証明：CDFからstep近似し、逆向きは区分線形cutoffで挟む
 
-#### Step 1：分布収束ならbounded Lipschitz期待値が収束する
+#### Step 1：分布収束なら有界Lipschitz関数の期待値が収束する
 
-$h$ を有界Lipschitzとし
+$h$ を有界Lipschitz関数とし
 
 $$
 \|h\|_\infty\le M,
@@ -300,7 +364,7 @@ $$
 
 先に $\delta\downarrow0$、次に $\eta\downarrow0$ とすれば期待値収束を得ます。
 
-#### Step 2：bounded Lipschitz期待値収束ならCDFが連続点で収束する
+#### Step 2：有界Lipschitz関数の期待値収束ならCDFが連続点で収束する
 
 $F$ の連続点 $x$ を固定し、$\delta>0$ とします。Lipschitz関数
 
@@ -353,7 +417,7 @@ $$
 従って $X_n\Rightarrow X$ です。
 <!-- proof-end -->
 
-この定理を使うと、後のGaussian smoothingではCDFを直接扱わず、bounded Lipschitz期待値だけを制御すれば十分になります。
+この定理を使うと、後のGaussian smoothingではCDFを直接扱わず、有界Lipschitz関数の期待値だけを制御すれば十分になります。
 
 ---
 
@@ -859,7 +923,7 @@ $$
 
 #### Step 1：分布収束なら特性関数は各点収束する
 
-$X_n\Rightarrow X$ とします。[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)から、任意の有界Lipschitz実関数 $h$ で期待値が収束します。
+$X_n\Rightarrow X$ とします。[有界Lipschitz関数による特徴付け](#thm-f0-00p6-bl-characterization)から、任意の有界Lipschitz実関数 $h$ で期待値が収束します。
 
 固定した $t$ について $\cos(tx)$ と $\sin(tx)$ はともに有界Lipschitzなので
 
@@ -942,7 +1006,7 @@ $$
 
 #### Step 4：Gaussian noiseを一様に外す
 
-$h$ を有界Lipschitzとし、Lipschitz定数を $L$ とします。各変数と独立な標準正規を同じ記号 $Z$ で表せば
+$h$ を有界Lipschitz関数とし、Lipschitz定数を $L$ とします。各変数と独立な標準正規を同じ記号 $Z$ で表せば
 
 $$
 |h(X_n+\varepsilon Z)-h(X_n)|
@@ -977,7 +1041,7 @@ $$
 E[h(X_n)]\to E[h(X)]
 $$
 
-を得ます。これは全ての有界Lipschitz $h$ で成り立つので、[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)から
+を得ます。これは全ての有界Lipschitz関数 $h$ で成り立つので、[有界Lipschitz関数による特徴付け](#thm-f0-00p6-bl-characterization)から
 
 $$
 X_n\Rightarrow X.
@@ -1449,7 +1513,7 @@ $$
 E[h(X_n)]\to E[h(X)].
 $$
 
-全ての有界Lipschitz $h$ でこれが成り立つので、[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)から
+全ての有界Lipschitz関数 $h$ でこれが成り立つので、[有界Lipschitz関数による特徴付け](#thm-f0-00p6-bl-characterization)から
 
 $$
 \boxed{X_n\Rightarrow X}.
