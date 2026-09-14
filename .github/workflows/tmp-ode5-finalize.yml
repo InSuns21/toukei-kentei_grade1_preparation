@@ -31,7 +31,7 @@ jobs:
           replacements = {
               '- 畳み込み定理で積分順序を変えてよいのはなぜか。': '- 時間領域の積分による重ね合わせを、なぜ $s$ 領域の積として扱えるか。',
               '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めるとちょうど特性多項式 $P(s)$ になります。': '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めると、ちょうど上で定めた多項式 $P(s)$ になります。',
-              '工学ではこの $h$ を**インパルス応答**と呼びます。': '工学では、この $h$ には**インパルス応答**という名称がよく使われます。',
+              '工学ではこの $h$ を**インパルス応答**と呼びます。': '工学では、この $h$ にインパルス応答という呼び名が使われます。',
               '畳み込み定理の最小例がすでに見えています。': 'この積の関係の最小例がすでに見えています。',
               '## 6. 畳み込み：時間領域の積分が $s$ 領域の積になる': '## 6. 時間領域の重ね合わせが $s$ 領域の積になる',
               '> **定理（Laplace変換の畳み込み定理）**': '> **定理（Laplace変換の積公式）**',
@@ -49,6 +49,8 @@ jobs:
           s = s.replace('畳み込み', '合成積')
           if '畳み込み' in s:
               raise SystemExit('generic Fourier convolution term remains in ODE5')
+          if '特性多項式' in s:
+              raise SystemExit('ambiguous characteristic-polynomial wording remains in ODE5')
 
           def link_after(text, anchor, term, target):
               a = text.index(anchor)
@@ -63,7 +65,7 @@ jobs:
           p = Path('textbook/volumes/00_foundations/ODE5/knowledge.yaml')
           s = p.read_text()
           old = '''  - id: ode.ode5-convolution\n    name: 片側畳み込み\n    kind: definition\n    aliases: [片側畳み込み, 畳み込み, convolution]'''
-          new = '''  - id: ode.ode5-convolution\n    name: 片側合成積\n    kind: definition\n    aliases: [片側合成積]'''
+          new = '''  - id: ode.ode5-convolution\n    name: 片側合成積\n    kind: definition\n    aliases: [片側合成積, 合成積, one-sided convolution]'''
           if old not in s:
               raise SystemExit('missing convolution concept target')
           s = s.replace(old, new, 1)
