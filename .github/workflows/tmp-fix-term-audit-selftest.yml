@@ -1,0 +1,34 @@
+name: Temporary fix term audit self-test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'scripts/tmp-fix-term-audit-selftest.py'
+      - '.github/workflows/tmp-fix-term-audit-selftest.yml'
+  push:
+    branches:
+      - ci/dream-theater-undefined-term-first-use-final
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ci/dream-theater-undefined-term-first-use-final
+          fetch-depth: 0
+      - run: python scripts/tmp-fix-term-audit-selftest.py
+      - name: Commit fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/audit-dream-theater-undefined-terms.mjs
+          git diff --cached --check
+          git commit -m 'ci: make concept audit self-test fail truthfully'
+          git push origin HEAD:ci/dream-theater-undefined-term-first-use-final
