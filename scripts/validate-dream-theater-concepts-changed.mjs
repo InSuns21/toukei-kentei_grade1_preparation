@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import YAML from 'yaml';
+import { buildLocalAliasIntroductions, normalizeAlias as normalizeResolvedAlias } from './lib/dream-theater-concept-resolution.mjs';
 
 const base = process.env.DREAM_THEATER_BASE_SHA?.trim() || process.env.TERMINOLOGY_BASE_SHA?.trim();
 const env = { ...process.env };
@@ -61,9 +62,9 @@ for (const line of errors) {
 
 if (locallyShadowed.length) {
   console.log('');
-  console.log('同名aliasは、そのページ自身で導入する概念を優先します:');
+  console.log('同名aliasは、そのページ自身で導入済みの概念を優先します:');
   for (const line of locallyShadowed) console.log(`  ${line.replace('- [ERROR] ', '')}`);
-  console.log('例: 数列の「単調収束定理 / liminf」と測度論の同名概念を、ローカル定義があるページで二重計上しません。');
+  console.log('ローカル概念の導入より前では shadow しません。導入前の使用は本来の依存関係として判定します。');
 }
 
 if (legacy.length) {
@@ -139,14 +140,14 @@ function conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, sourceCac
   let localAliases = aliasCache.get(file);
   if (localAliases === undefined) {
     const knowledgePath = path.join(process.cwd(), path.dirname(file), 'knowledge.yaml');
-    localAliases = new Set();
+    localAliases = new Map();
     if (fs.existsSync(knowledgePath)) {
       const doc = YAML.parse(fs.readFileSync(knowledgePath, 'utf8')) ?? {};
-      for (const raw of doc.concepts ?? []) {
-        for (const alias of [raw?.name, ...(raw?.aliases ?? [])]) {
-          const value = String(alias ?? '').trim();
-          if (value) localAliases.add(normalizeAlias(value));
-        }
+      try {
+        const rawSource = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
+        localAliases = buildLocalAliasIntroductions(rawSource, doc);
+      } catch {
+        localAliases = new Map();
       }
     }
     aliasCache.set(file, localAliases);
@@ -165,8 +166,9 @@ function conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, sourceCac
 
   const sourceLine = source.split(/\r?\n/)[lineNumber - 1] ?? '';
   return remoteAliases.some((alias) => {
-    const normalized = normalizeAlias(alias);
-    return localAliases.has(normalized) && aliasAppears(sourceLine, alias);
+    const entries = localAliases.get(normalizeResolvedAlias(alias)) ?? [];
+    const introduced = entries.some((entry) => entry.line != null && entry.line <= lineNumber);
+    return introduced && aliasAppears(sourceLine, alias);
   });
 }
 
@@ -213,10 +215,6 @@ function stripNonReaderContent(source) {
   value = value.replace(/\]\([^\n)]*\)/g, (text) => ']'.padEnd(text.length, ' '));
   value = value.replace(/https?:\/\/\S+/g, preserveWidth);
   return value;
-}
-
-function normalizeAlias(value) {
-  return String(value).trim().toLocaleLowerCase('en-US');
 }
 
 function preserveLines(value) {
