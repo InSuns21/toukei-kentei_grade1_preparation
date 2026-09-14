@@ -1,0 +1,38 @@
+chapter: "ODE5"
+terms:
+  - term: 指数位数
+    english: exponential order
+    meaning: ある定数 M>0, alpha と十分大きい t に対して |f(t)|<=M e^(alpha t) と抑えられる増大度。
+  - term: Laplace変換
+    english: Laplace transform
+    meaning: t>=0 の関数 f に対して、収束する実数 s で積分 integral_0^infinity e^(-st)f(t)dt により定まる変換。
+  - term: 収束半直線
+    english: half-line of convergence
+    meaning: 指数位数 alpha の関数について Laplace 変換が少なくとも s>alpha で絶対収束することから得られる s 軸上の半直線。
+  - term: 逆Laplace変換
+    english: inverse Laplace transform
+    meaning: 与えられた s の関数 F(s) に対し、Laplace変換が F(s) になる時間関数 f(t) を求める操作。本章では変換表・部分分数・移動則から候補を作り、順変換または元のODEへの代入で検証する。
+  - term: 単位階段関数
+    english: unit step function
+    meaning: a>=0 に対し t<a で0、t>=aで1となる関数。時刻 a から入力を開始する表現に用いる。
+  - term: 時間移動則
+    english: second shifting theorem
+    meaning: f のLaplace変換を F(s) とするとき、u_a(t)f(t-a) の変換が e^(-as)F(s) になる法則。
+  - term: 指数移動則
+    english: first shifting theorem
+    meaning: f のLaplace変換を F(s) とするとき、e^(at)f(t) の変換が F(s-a) になる法則。
+  - term: 片側合成積
+    english: one-sided convolution
+    meaning: t>=0 に対して (f*g)(t)=integral_0^t f(tau)g(t-tau)dtau と定める演算。
+  - term: Laplace変換の積公式
+    english: convolution theorem
+    meaning: 適切な収束条件の下で片側合成積のLaplace変換が二つのLaplace変換の積 F(s)G(s) になる定理。
+  - term: 伝達因子
+    english: transfer factor
+    meaning: 零初期値の定係数線形ODEをLaplace変換したとき、入力 F(s) から出力 Y(s) への倍率として現れる有理関数 H(s)=1/P(s)。
+  - term: 応答核
+    english: response kernel
+    meaning: 伝達因子 H(s) の逆変換候補 h(t)。合成積 h*f により零初期値応答を表す。ODE2のGreen核と同じ役割を持つ場合がある。
+  - term: インパルス応答
+    english: impulse response
+    meaning: 線形時不変系の応答核 h を指す工学的な呼び方。本章ではDirac deltaを厳密な超関数として導入せず、合成積核という意味で用いる。

@@ -200,12 +200,13 @@
 4. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
 5. [ODE3 線形連立系・行列指数・安定性](textbook/volumes/00_foundations/ODE3/index.md)
 6. [ODE4 非線形系・位相平面・線形化](textbook/volumes/00_foundations/ODE4/index.md)
-7. [FA1 Fourier級数・直交展開](textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md)
-8. [FA2 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md)
-9. [FA3 Plancherel・L2・特性関数](textbook/volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md)
-10. [PDE1 熱方程式・Fourier変換](textbook/volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md)
-11. [PDE2 波動方程式・Laplace方程式](textbook/volumes/00_foundations/F0_00PDE2_波動方程式_Laplace方程式_変数分離/index.md)
-12. [PDE3 Sturm–Liouville・スペクトル展開](textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md)
+7. [ODE5 Laplace変換と初期値問題](textbook/volumes/00_foundations/ODE5/index.md)
+8. [FA1 Fourier級数・直交展開](textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md)
+9. [FA2 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md)
+10. [FA3 Plancherel・L2・特性関数](textbook/volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md)
+11. [PDE1 熱方程式・Fourier変換](textbook/volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md)
+12. [PDE2 波動方程式・Laplace方程式](textbook/volumes/00_foundations/F0_00PDE2_波動方程式_Laplace方程式_変数分離/index.md)
+13. [PDE3 Sturm–Liouville・スペクトル展開](textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md)
 
 ---
 
