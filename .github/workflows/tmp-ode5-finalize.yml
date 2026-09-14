@@ -47,8 +47,8 @@ jobs:
 
           s = link_after(s, '<a id="thm-ode5-frequency-shift"></a>', '指数移動則', '#thm-ode5-frequency-shift')
           s = link_after(s, '<a id="thm-ode5-time-shift"></a>', '時間移動則', '#thm-ode5-time-shift')
-          s = link_after(s, '<a id="thm-ode5-convolution"></a>', 'Laplace変換の畳み込み定理', '#thm-ode5-convolution')
-          s = s.replace('畳み込み定理を証明した。', 'Laplace変換の畳み込み定理を証明した。')
+          s = link_after(s, '<a id="thm-ode5-convolution"></a>', '畳み込み定理', '#thm-ode5-convolution')
+          s = s.replace('[畳み込み定理](#thm-ode5-convolution)', '[Laplace変換の畳み込み定理](#thm-ode5-convolution)')
           p.write_text(s)
 
           p = Path('textbook/volumes/00_foundations/ODE5/knowledge.yaml')
