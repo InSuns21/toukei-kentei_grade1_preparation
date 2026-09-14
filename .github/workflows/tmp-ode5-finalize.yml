@@ -25,6 +25,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
 
           p = Path('textbook/volumes/00_foundations/ODE5/index.md')
           s = p.read_text()
@@ -33,11 +34,24 @@ jobs:
               '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めるとちょうど特性多項式 $P(s)$ になります。': '各 $y^{(k)}$ を微分則で変換すると、$s^kY$ と初期値多項式に分かれます。$Y$ の係数を集めると、ちょうど上で定めた多項式 $P(s)$ になります。',
               '工学ではこの $h$ を**インパルス応答**と呼びます。': '工学では、この $h$ には**インパルス応答**という名称がよく使われます。',
               '畳み込み定理の最小例がすでに見えています。': 'この積の関係の最小例がすでに見えています。',
+              '## 6. 畳み込み：時間領域の積分が $s$ 領域の積になる': '## 6. 時間領域の重ね合わせが $s$ 領域の積になる',
+              '> **定理（Laplace変換の畳み込み定理）**': '> **定理（Laplace変換の積公式）**',
+              '畳み込み定理から': '[Laplace変換の積公式](#thm-ode5-convolution)から',
+              '畳み込み定理を証明した。': '[Laplace変換の積公式](#thm-ode5-convolution)を証明した。',
           }
           for old, new in replacements.items():
               if old not in s:
                   raise SystemExit(f'missing ODE5 replacement target: {old}')
               s = s.replace(old, new, 1)
+
+          # After the formal definition, consistently use the longer local term
+          # so it cannot be confused with the later Fourier chapter's generic alias.
+          a = s.index('<a id="def-ode5-convolution"></a>')
+          head, tail = s[:a], s[a:]
+          tail = re.sub(r'(?<!片側)畳み込み(?!定理)', '片側畳み込み', tail)
+          s = head + tail
+          if '畳み込み定理' in s:
+              raise SystemExit('generic convolution-theorem wording remains in ODE5')
 
           def link_after(text, anchor, term, target):
               a = text.index(anchor)
@@ -47,14 +61,17 @@ jobs:
 
           s = link_after(s, '<a id="thm-ode5-frequency-shift"></a>', '指数移動則', '#thm-ode5-frequency-shift')
           s = link_after(s, '<a id="thm-ode5-time-shift"></a>', '時間移動則', '#thm-ode5-time-shift')
-          s = link_after(s, '<a id="thm-ode5-convolution"></a>', '畳み込み定理', '#thm-ode5-convolution')
-          s = s.replace('[畳み込み定理](#thm-ode5-convolution)', '[Laplace変換の畳み込み定理](#thm-ode5-convolution)')
           p.write_text(s)
 
           p = Path('textbook/volumes/00_foundations/ODE5/knowledge.yaml')
           s = p.read_text()
+          old = '    aliases: [片側畳み込み, 畳み込み, convolution]'
+          new = '    aliases: [片側畳み込み, one-sided convolution]'
+          if old not in s:
+              raise SystemExit('missing convolution alias target')
+          s = s.replace(old, new, 1)
           old = '''  - id: ode.ode5-convolution-theorem\n    name: 畳み込み定理\n    kind: theorem\n    aliases: [畳み込み定理, convolution theorem]'''
-          new = '''  - id: ode.ode5-convolution-theorem\n    name: Laplace変換の畳み込み定理\n    kind: theorem\n    aliases: [Laplace変換の畳み込み定理, Laplace畳み込み定理, Laplace convolution theorem]'''
+          new = '''  - id: ode.ode5-convolution-theorem\n    name: Laplace変換の積公式\n    kind: theorem\n    aliases: [Laplace変換の積公式, Laplace積公式, Laplace convolution product formula]'''
           if old not in s:
               raise SystemExit('missing convolution theorem knowledge target')
           p.write_text(s.replace(old, new, 1))
@@ -62,7 +79,7 @@ jobs:
           p = Path('textbook/volumes/00_foundations/ODE5/chapter.yaml')
           s = p.read_text()
           old = '- { id: ODE5-THM-05, name: 畳み込み定理 }'
-          new = '- { id: ODE5-THM-05, name: Laplace変換の畳み込み定理 }'
+          new = '- { id: ODE5-THM-05, name: Laplace変換の積公式 }'
           if old not in s:
               raise SystemExit('missing convolution theorem chapter target')
           p.write_text(s.replace(old, new, 1))
@@ -72,7 +89,9 @@ jobs:
           old = '  - term: 畳み込み定理\n'
           if old not in s:
               raise SystemExit('missing convolution theorem glossary target')
-          p.write_text(s.replace(old, '  - term: Laplace変換の畳み込み定理\n', 1))
+          s = s.replace(old, '  - term: Laplace変換の積公式\n', 1)
+          s = s.replace('片側畳み込みのLaplace変換が二つのLaplace変換の積 F(s)G(s) になる定理。', '片側畳み込みのLaplace変換が二つのLaplace変換の積 F(s)G(s) になる公式。', 1)
+          p.write_text(s)
 
           p = Path('textbook/dream-theater.md')
           s = p.read_text()
@@ -105,7 +124,7 @@ jobs:
           p = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
           s = p.read_text()
           old = '| ODE5 | 未着手 | - | - | ODE2 | 未実施 |'
-          new = '| ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の畳み込み定理、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |'
+          new = '| ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |'
           if old not in s:
               raise SystemExit('missing ODE5 status row')
           s = s.replace(old, new, 1)
