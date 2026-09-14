@@ -6,8 +6,6 @@ prerequisites:
 
 # 一般の逆Laplace変換一意性やDirac deltaの超関数論は本章の前提外。
 # 逆変換は変換表・部分分数・移動則で候補を構成し、順変換またはODE2のIVP一意性で検証する。
-forward_references:
-  - distribution.dirac-delta
 
 concepts:
   - id: ode.ode5-exponential-order
@@ -32,6 +30,14 @@ concepts:
     requires:
       - ode.ode5-laplace-transform
       - ode.ode5-exponential-order
+
+  - id: ode.ode5-linearity
+    name: Laplace変換の線形性
+    kind: proposition
+    aliases: [Laplace変換の線形性, Laplace線形性, linearity of the Laplace transform]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
 
   - id: ode.ode5-derivative-rule
     name: 微分のLaplace変換
@@ -78,6 +84,14 @@ concepts:
     aliases: [片側畳み込み, 畳み込み, convolution]
     introduction: formal
 
+  - id: ode.ode5-triangle-interchange
+    name: 三角領域での積分交換
+    kind: lemma
+    aliases: [三角領域での積分交換, 三角領域の積分交換]
+    introduction: formal
+    requires:
+      - ode.ode5-convolution
+
   - id: ode.ode5-convolution-theorem
     name: 畳み込み定理
     kind: theorem
@@ -86,6 +100,7 @@ concepts:
     requires:
       - ode.ode5-laplace-transform
       - ode.ode5-convolution
+      - ode.ode5-triangle-interchange
 
   - id: ode.ode5-constant-coefficient-ivp
     name: 定係数線形初期値問題のLaplace代数化
