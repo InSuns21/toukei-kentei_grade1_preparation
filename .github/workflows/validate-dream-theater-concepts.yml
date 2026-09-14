@@ -11,6 +11,9 @@ on:
       - 'scripts/audit-dream-theater-formal-order.mjs'
       - 'scripts/audit-dream-theater-explicit-dependencies.mjs'
       - 'scripts/audit-dream-theater-implicit-dependencies.mjs'
+      - 'scripts/audit-dream-theater-undefined-terms.mjs'
+      - 'scripts/lib/dream-theater-concept-resolution.mjs'
+      - 'scripts/validate-dream-theater-concepts-changed.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-dream-theater-concepts.yml'
@@ -26,6 +29,9 @@ on:
       - 'scripts/audit-dream-theater-formal-order.mjs'
       - 'scripts/audit-dream-theater-explicit-dependencies.mjs'
       - 'scripts/audit-dream-theater-implicit-dependencies.mjs'
+      - 'scripts/audit-dream-theater-undefined-terms.mjs'
+      - 'scripts/lib/dream-theater-concept-resolution.mjs'
+      - 'scripts/validate-dream-theater-concepts-changed.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate-dream-theater-concepts.yml'
@@ -48,6 +54,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Self-test DREAM THEATER concept audits
+        run: npm run test:dream-theater-concept-audits
 
       - name: Validate changed DREAM THEATER pages
         env:
