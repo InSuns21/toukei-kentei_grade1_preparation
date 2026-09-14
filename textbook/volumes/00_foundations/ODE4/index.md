@@ -20,13 +20,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（非線形自律系・平衡点）**  
 > $U\subset\mathbb R^d$ を開集合、$F:U\to\mathbb R^d$ を連続写像とする。
-> $$
-> x'(t)=F(x(t))
-> $$
+
+$$
+x'(t)=F(x(t))
+$$
+
 > を自律系という。$F$ が線形写像に限られないとき一般に非線形自律系と呼ぶ。$x_*\in U$ が
-> $$
-> F(x_*)=0
-> $$
+
+$$
+F(x_*)=0
+$$
+
 > を満たすとき $x_*$ を平衡点という。このとき $x(t)\equiv x_*$ は定数解である。
 <!-- formal-statement-end -->
 
@@ -112,17 +116,23 @@ nullcline は「ある成分の速度が0になる場所」であり、一般に
 <!-- formal-statement-start -->
 > **定義（線形化・線形化行列）**  
 > $F$ が平衡点 $x_*$ で Fréchet 微分可能とする。
-> $$
-> A=DF(x_*)
-> $$
+
+$$
+A=DF(x_*)
+$$
+
 > を線形化行列といい、
-> $$
-> u'=Au
-> $$
+
+$$
+u'=Au
+$$
+
 > を $x_*$ まわりの線形化という。有限次元の標準座標では $A$ は Jacobian
-> $$
-> J_F(x_*)=\left(\frac{\partial F_i}{\partial x_j}(x_*)\right)_{i,j}
-> $$
+
+$$
+J_F(x_*)=\left(\frac{\partial F_i}{\partial x_j}(x_*)\right)_{i,j}
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -152,13 +162,17 @@ $$
 <!-- formal-statement-start -->
 > **定理（Fréchet 微分による平衡点まわりの線形化）**  
 > $F$ が平衡点 $x_*$ で Fréchet 微分可能、$A=DF(x_*)$ とする。このとき $u=x-x_*$ に対して
-> $$
-> u'=Au+r(u),
-> $$
+
+$$
+u'=Au+r(u),
+$$
+
 > と書け、
-> $$
-> \boxed{\frac{\|r(u)\|}{\|u\|}\to0\qquad(u\to0)}
-> $$
+
+$$
+\boxed{\frac{\|r(u)\|}{\|u\|}\to0\qquad(u\to0)}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -238,9 +252,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Hurwitz 線形化による局所指数安定性）**  
 > $U\subset\mathbb R^d$ を開集合、$F:U\to\mathbb R^d$ を $C^1$、$x_*\in U$ を平衡点とする。$A=DF(x_*)$ の全固有値が $\operatorname{Re}\lambda<0$ を満たすとする。このとき、ある $\delta>0$, $K\ge1$, $\beta>0$ が存在し、$\|x(0)-x_*\|<\delta$ なら解は全ての $t\ge0$ で存在して
-> $$
-> \boxed{\|x(t)-x_*\|\le Ke^{-\beta t}\|x(0)-x_*\|}
-> $$
+
+$$
+\boxed{\|x(t)-x_*\|\le Ke^{-\beta t}\|x(0)-x_*\|}
+$$
+
 > を満たす。したがって $x_*$ は局所指数安定であり、特に漸近安定である。
 <!-- formal-statement-end -->
 
@@ -341,9 +357,11 @@ $K=C$, $\beta=\gamma/2$ とすればよい。$\square$
 <!-- formal-statement-start -->
 > **定義（保存量・第一積分）**  
 > 自律系 $x'=F(x)$ に対し、$C^1$ 関数 $H:U\to\mathbb R$ が保存量であるとは、任意の解 $x(t)$ について
-> $$
-> H(x(t))=\text{constant}
-> $$
+
+$$
+H(x(t))=\text{constant}
+$$
+
 > がその存在区間上で成り立つことをいう。保存量を第一積分ともいう。
 <!-- formal-statement-end -->
 
@@ -375,9 +393,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（保存量の微分判定）**  
 > $F:U\to\mathbb R^d$ と $H:U\to\mathbb R$ を $C^1$ とする。全ての $x\in U$ で
-> $$
-> \boxed{\nabla H(x)\cdot F(x)=0}
-> $$
+
+$$
+\boxed{\nabla H(x)\cdot F(x)=0}
+$$
+
 > なら、$H$ は $x'=F(x)$ の保存量である。
 <!-- formal-statement-end -->
 
@@ -415,12 +435,14 @@ $$
 
 <a id="prop-ode4-nonhyperbolic-warning"></a>
 <!-- formal-statement-start -->
-> **命題（非双曲型では線形化だけでは判定不能）**  
-> $$
-> x'=-x^3,
-> \qquad
-> x'=x^3
-> $$
+> **命題（非双曲型では線形化だけでは判定不能）**
+
+$$
+x'=-x^3,
+\qquad
+x'=x^3
+$$
+
 > はともに原点を平衡点に持ち、原点での線形化は同じ $u'=0$ である。しかし前者の原点は漸近安定、後者の原点は不安定である。したがって実部0の固有値を持つ場合、Jacobian だけでは一般に安定性を決定できない。
 <!-- formal-statement-end -->
 
@@ -639,7 +661,7 @@ $$
 \nabla H\cdot F=(x+x^3)y+y(-x-x^3)=0.
 $$
 
-保存量の微分判定より $H$ は一定。したがって
+[保存量の微分判定](#thm-ode4-first-integral-criterion)より $H$ は一定。したがって
 
 $$
 \boxed{\frac12y(t)^2+\frac12x(t)^2+\frac14x(t)^4=c}
