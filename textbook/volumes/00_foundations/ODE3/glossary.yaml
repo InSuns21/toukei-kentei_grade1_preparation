@@ -1,0 +1,47 @@
+chapter: "ODE3"
+terms:
+  - term: 線形連立系
+    english: linear system of ordinary differential equations
+    meaning: ベクトル値未知関数 x(t) に対して x'=A(t)x+f(t) の形で表される一階常微分方程式系。
+  - term: 定係数線形連立系
+    english: constant-coefficient linear system
+    meaning: 係数行列 A が時刻 t に依存しない線形連立系。
+  - term: 斉次系
+    english: homogeneous system
+    meaning: 線形連立系 x'=Ax+f(t) で強制項 f が恒等的に0であるもの。
+  - term: 非斉次系
+    english: nonhomogeneous system
+    meaning: 線形連立系 x'=Ax+f(t) で一般の強制項 f を持つもの。
+  - term: 行列指数
+    english: matrix exponential
+    meaning: 正方行列 A に対して冪級数 exp(tA)=Σ_{k≥0} t^k A^k/k! で定義される行列値関数。
+  - term: 基本行列
+    english: fundamental matrix
+    meaning: 斉次線形系の解を列に持ち、各時刻で可逆な行列値解 Φ(t)。
+  - term: 主基本行列
+    english: principal fundamental matrix
+    meaning: 指定した基準時刻 t0 で Φ(t0)=I を満たす基本行列。
+  - term: 定数変化公式
+    english: variation of constants formula
+    meaning: 非斉次系 x'=Ax+f(t) の解を斉次時間発展 e^{(t-s)A} と強制項の積分で表す公式。
+  - term: Lyapunov安定
+    english: Lyapunov stability
+    meaning: 平衡点の十分近くから出発した解が全ての将来時刻で平衡点の近くに留まる性質。
+  - term: 漸近安定
+    english: asymptotic stability
+    meaning: Lyapunov安定であり、さらに十分近い初期値からの解が時間とともに平衡点へ収束する性質。
+  - term: 指数安定
+    english: exponential stability
+    meaning: 解の大きさが一様な定数倍を除いて指数関数的に0へ減衰する安定性。
+  - term: node
+    english: node
+    meaning: 二次元線形系で実固有方向に沿う指数的な流れが支配する標準的な位相図の型。
+  - term: saddle
+    english: saddle
+    meaning: 二次元線形系で一方の固有方向が収縮し他方が発散する位相図の型。
+  - term: spiral
+    english: spiral
+    meaning: 複素共役固有値の虚部による回転と実部による収縮または発散が同時に現れる位相図の型。
+  - term: center
+    english: center
+    meaning: 純虚数の複素共役固有値により原点の周囲を周期的に回る二次元線形系の位相図の型。

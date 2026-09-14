@@ -660,7 +660,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 |---|---|---|---|---|---|
 | ODE1 | **実装・検証完了（PR #276）** | 一階解法、phase line、積分方程式、Lipschitz、Picard--Lindelöf の存在一意性を実装。固定点定理を黒箱化せず Picard 反復の一様Cauchy性から閉じた | A4 / B3 / C1。全問に `solution-start/end` の詳細解答あり | RA3 / RA4 / RA5 を前提。H1 §1–4 を再利用・補強 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を green 確認 |
 | ODE2 | **実装・検証完了（PR #277）** | 連続係数高階線形IVPの存在一意性、n次元解空間、Wronskian / Abel、定係数の重根・複素根、非斉次、未定係数法、定数変化法、Cauchy--Euler、1次元Green核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE1 + LA3C。H1 §5–7 を再利用・補強し、ODE3 / 行列指数は逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証 |
-| ODE3 | 未着手 | H1 §8–11 を主要再利用予定 | 未着手 | ODE2 + LA4 等 | 未実施 |
+| ODE3 | **実装・検証完了（PR #280）** | 線形連立系、行列指数の級数構成と微分、基本行列、Jordan block、複素固有対、定数変化公式、2次元位相図、Lyapunov・漸近・指数安定性と境界 Jordan 条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + LA4。H1 §8–11 を移送・補強し、旧H1を ODE1–ODE3 への互換ハブ化。FA2 / PDE1 / PDE2 の旧ODE concept依存も現行IDへ移管 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も green |
 | ODE4 | 未着手 | - | - | ODE3 + 多変数微分 | 未実施 |
 | ODE5 | 未着手 | - | - | ODE2 | 未実施 |
 | ODE6 | 未着手 | - | - | ODE2 + RA5 | 未実施 |
@@ -681,4 +681,14 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 
 最終的に **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統をすべて green 確認した。ODE1 は本文・証明・定義例・演習・詳細解答・依存関係の初回実装を完了し、merge-ready とする。
 
-次の実装単位は **ODE3 線形連立系・行列指数・安定性**。H1 §8–11 を主要再利用元とし、基本行列・行列指数・Jordan 構造・非斉次系・2次元位相図・固有値実部と安定性までを学部標準コアとして閉じる。
+## 11.5 ODE3 で今回閉じた品質論点と検証記録
+
+- 行列指数は記号として置くだけでなく、成分ごとの絶対・一様収束、項別微分、時間加法則、逆行列まで冪級数から閉じた。
+- $x'=Ax$ の一意性は $e^{-(t-t_0)A}x(t)$ の微分が0になることから直接示し、基本行列・主基本行列へ接続した。
+- Jordan block では冪零部分が多項式因子を生む機構を明示し、$\operatorname{Re}\lambda=0$ の境界で非自明 Jordan block が Lyapunov 安定性を壊すことを反例と一般証明の両方で示した。
+- 複素固有対から実解へ戻す計算、非斉次系の定数変化公式、2次元 node / saddle / spiral / center の読み方を本文から再構成できる粒度にした。
+- 旧 F0-00H1 は内容正本から互換ハブへ退役させ、後続 Fourier / PDE 章の旧 ODE concept 依存も ODE1 / ODE2 の現行IDへ付け替えた。
+- 演習は A4 / B3 / C1 を実装し、対角系、複素固有値、Jordan block、定数変化、saddle、境界安定性、パラメータ付き完全分類を実際に使わせ、全問に詳細解答を付した。
+- **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認し、さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` も green を確認した。
+
+次の実装単位は **ODE4 非線形系・位相平面・線形化**。平衡点、Jacobian による線形化、2次元 phase plane、保存量を持つ系、線形化で判定不能になる境界例までを標準コアとして閉じる。
