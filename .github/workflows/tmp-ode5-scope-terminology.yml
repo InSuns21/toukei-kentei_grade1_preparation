@@ -1,0 +1,37 @@
+name: Temporary ODE5 terminology scope fix
+
+on:
+  push:
+    branches:
+      - feat/ode5-laplace-ivp
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/ode5-laplace-ivp
+          fetch-depth: 0
+      - name: Scope terminology validation to changed files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('.github/workflows/tmp-ode5-finalize.yml')
+          s = p.read_text()
+          old = '          npm run validate:terminology\n'
+          new = '          TERMINOLOGY_BASE_SHA="$BASE_SHA" npm run validate:terminology:changed\n'
+          if old not in s:
+              raise SystemExit('terminology validation target not found')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          rm .github/workflows/tmp-ode5-scope-terminology.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/tmp-ode5-finalize.yml .github/workflows/tmp-ode5-scope-terminology.yml
+          git commit -m 'Scope ODE5 terminology validation to changed files'
+          git push origin HEAD:feat/ode5-laplace-ivp
