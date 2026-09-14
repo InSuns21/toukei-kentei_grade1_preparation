@@ -18,8 +18,7 @@ const changedOnly = process.argv.includes('--changed-only');
 const selfTest = process.argv.includes('--self-test');
 
 if (selfTest) {
-  runSelfTest();
-  process.exit(0);
+  process.exit(runSelfTest() ? 0 : 1);
 }
 
 const index = JSON.parse(fs.readFileSync(path.join(root, 'textbook/dream-theater-index.json'), 'utf8'));
@@ -193,7 +192,7 @@ function extractTechnicalCandidates(line) {
 
   const sources = [text, ...boldSpans];
   const suffix = '(?:関数|連続性|収束|条件|空間|位相|測度|作用素|不等式|原理|法則|変換|分布|確率変数|可測性|コンパクト性|完備性|独立性|正則性|稠密性)';
-  const re = new RegExp(`[A-Za-z0-9一-龯ぁ-んァ-ヶ・^+\\-]{2,48}?${suffix}`, 'gu');
+  const re = new RegExp(`[A-Za-z0-9一-龯ぁ-んァ-ヶ・^+\\-\\s]{2,48}?${suffix}`, 'gu');
   for (const source of sources) {
     for (const match of source.matchAll(re)) {
       const cleaned = cleanCandidate(match[0]);
@@ -372,8 +371,8 @@ function runSelfTest() {
 
   if (failures.length) {
     console.error(`DREAM THEATER concept audit self-test failed: ${failures.join(', ')}`);
-    process.exitCode = 1;
-    return;
+    return false;
   }
   console.log('DREAM THEATER concept audit self-test passed.');
+  return true;
 }
