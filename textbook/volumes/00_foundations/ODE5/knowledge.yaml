@@ -1,0 +1,106 @@
+chapter: ODE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE2
+
+# 一般の逆Laplace変換一意性やDirac deltaの超関数論は本章の前提外。
+# 逆変換は変換表・部分分数・移動則で候補を構成し、順変換またはODE2のIVP一意性で検証する。
+forward_references:
+  - distribution.dirac-delta
+
+concepts:
+  - id: ode.ode5-exponential-order
+    name: 指数位数
+    kind: definition
+    aliases: [指数位数, exponential order]
+    introduction: formal
+
+  - id: ode.ode5-laplace-transform
+    name: Laplace変換
+    kind: definition
+    aliases: [Laplace変換, ラプラス変換, Laplace transform]
+    introduction: formal
+    requires:
+      - ode.ode5-exponential-order
+
+  - id: ode.ode5-laplace-existence
+    name: 指数位数によるLaplace変換の存在
+    kind: theorem
+    aliases: [Laplace変換の存在, 指数位数によるLaplace変換の存在, 収束半直線]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
+      - ode.ode5-exponential-order
+
+  - id: ode.ode5-derivative-rule
+    name: 微分のLaplace変換
+    kind: theorem
+    aliases: [微分のLaplace変換, Laplace微分則, derivative rule]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
+
+  - id: ode.ode5-frequency-shift
+    name: 指数移動則
+    kind: theorem
+    aliases: [指数移動則, 第一移動則, first shifting theorem]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
+
+  - id: ode.ode5-unit-step
+    name: 単位階段関数
+    kind: definition
+    aliases: [単位階段関数, Heaviside関数, unit step function]
+    introduction: formal
+
+  - id: ode.ode5-time-shift
+    name: 時間移動則
+    kind: theorem
+    aliases: [時間移動則, 第二移動則, second shifting theorem]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
+      - ode.ode5-unit-step
+
+  - id: ode.ode5-inverse-method
+    name: 逆Laplace変換の候補構成と検証
+    kind: method
+    aliases: [逆Laplace変換, inverse Laplace transform, 部分分数による逆変換]
+    introduction: inline
+    requires:
+      - ode.ode5-laplace-transform
+
+  - id: ode.ode5-convolution
+    name: 片側畳み込み
+    kind: definition
+    aliases: [片側畳み込み, 畳み込み, convolution]
+    introduction: formal
+
+  - id: ode.ode5-convolution-theorem
+    name: 畳み込み定理
+    kind: theorem
+    aliases: [畳み込み定理, convolution theorem]
+    introduction: formal
+    requires:
+      - ode.ode5-laplace-transform
+      - ode.ode5-convolution
+
+  - id: ode.ode5-constant-coefficient-ivp
+    name: 定係数線形初期値問題のLaplace代数化
+    kind: theorem
+    aliases: [定係数線形初期値問題の代数化, Laplace法による初期値問題, Laplace法]
+    introduction: formal
+    requires:
+      - ode.ode5-derivative-rule
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode5-response-kernel
+    name: 伝達因子・応答核
+    kind: definition
+    aliases: [伝達因子, 応答核, transfer factor, response kernel, インパルス応答]
+    introduction: formal
+    requires:
+      - ode.ode5-convolution-theorem
+      - ode.ode2-green-kernel
