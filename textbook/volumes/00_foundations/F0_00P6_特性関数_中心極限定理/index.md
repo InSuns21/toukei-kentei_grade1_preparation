@@ -231,7 +231,7 @@ $$
 \end{aligned}
 $$
 
-ここで最後は逆三角不等式を使いました。したがって $L=1$ を取れ、$h$ は有界Lipschitz関数です。
+ここで最後は [逆三角不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-reverse-triangle-inequality) を使いました。したがって $L=1$ を取れ、$h$ は有界Lipschitz関数です。
 <!-- definition-example-end -->
 
 ---
