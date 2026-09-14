@@ -25,7 +25,6 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re
 
           p = Path('textbook/volumes/00_foundations/ODE5/index.md')
           s = p.read_text()
@@ -44,14 +43,12 @@ jobs:
                   raise SystemExit(f'missing ODE5 replacement target: {old}')
               s = s.replace(old, new, 1)
 
-          # After the formal definition, consistently use the longer local term
-          # so it cannot be confused with the later Fourier chapter's generic alias.
-          a = s.index('<a id="def-ode5-convolution"></a>')
-          head, tail = s[:a], s[a:]
-          tail = re.sub(r'(?<!片側)畳み込み(?!定理)', '片側畳み込み', tail)
-          s = head + tail
-          if '畳み込み定理' in s:
-              raise SystemExit('generic convolution-theorem wording remains in ODE5')
+          # FA2 の一般概念「畳み込み」を prerequisite 外から誤参照しないよう、
+          # ODE5 では同義のローカル名「片側合成積」に統一する。
+          s = s.replace('片側畳み込み', '片側合成積')
+          s = s.replace('畳み込み', '合成積')
+          if '畳み込み' in s:
+              raise SystemExit('generic Fourier convolution term remains in ODE5')
 
           def link_after(text, anchor, term, target):
               a = text.index(anchor)
@@ -65,10 +62,10 @@ jobs:
 
           p = Path('textbook/volumes/00_foundations/ODE5/knowledge.yaml')
           s = p.read_text()
-          old = '    aliases: [片側畳み込み, 畳み込み, convolution]'
-          new = '    aliases: [片側畳み込み, one-sided convolution]'
+          old = '''  - id: ode.ode5-convolution\n    name: 片側畳み込み\n    kind: definition\n    aliases: [片側畳み込み, 畳み込み, convolution]'''
+          new = '''  - id: ode.ode5-convolution\n    name: 片側合成積\n    kind: definition\n    aliases: [片側合成積]'''
           if old not in s:
-              raise SystemExit('missing convolution alias target')
+              raise SystemExit('missing convolution concept target')
           s = s.replace(old, new, 1)
           old = '''  - id: ode.ode5-convolution-theorem\n    name: 畳み込み定理\n    kind: theorem\n    aliases: [畳み込み定理, convolution theorem]'''
           new = '''  - id: ode.ode5-convolution-theorem\n    name: Laplace変換の積公式\n    kind: theorem\n    aliases: [Laplace変換の積公式, Laplace積公式, Laplace convolution product formula]'''
@@ -82,7 +79,9 @@ jobs:
           new = '- { id: ODE5-THM-05, name: Laplace変換の積公式 }'
           if old not in s:
               raise SystemExit('missing convolution theorem chapter target')
-          p.write_text(s.replace(old, new, 1))
+          s = s.replace(old, new, 1)
+          s = s.replace('畳み込み', '合成積')
+          p.write_text(s)
 
           p = Path('textbook/volumes/00_foundations/ODE5/glossary.yaml')
           s = p.read_text()
@@ -90,7 +89,7 @@ jobs:
           if old not in s:
               raise SystemExit('missing convolution theorem glossary target')
           s = s.replace(old, '  - term: Laplace変換の積公式\n', 1)
-          s = s.replace('片側畳み込みのLaplace変換が二つのLaplace変換の積 F(s)G(s) になる定理。', '片側畳み込みのLaplace変換が二つのLaplace変換の積 F(s)G(s) になる公式。', 1)
+          s = s.replace('畳み込み', '合成積')
           p.write_text(s)
 
           p = Path('textbook/dream-theater.md')
@@ -124,7 +123,7 @@ jobs:
           p = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
           s = p.read_text()
           old = '| ODE5 | 未着手 | - | - | ODE2 | 未実施 |'
-          new = '| ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |'
+          new = '| ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |'
           if old not in s:
               raise SystemExit('missing ODE5 status row')
           s = s.replace(old, new, 1)
