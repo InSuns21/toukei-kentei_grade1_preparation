@@ -1,0 +1,37 @@
+id: "ODE3"
+title: "標準常微分方程式 III：線形連立系・行列指数・安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE2
+  - LA4
+official_scope: []
+learning_objectives:
+  - 定係数線形連立系をベクトル・行列形式で表し、初期値問題を設定できる
+  - 行列指数を冪級数から構成し、収束・微分・時間加法則・逆行列を説明できる
+  - x'=Ax の初期値問題の唯一解が e^{(t-t0)A}x0 であることを導ける
+  - 基本行列の意味を説明し、e^{tA} が主基本行列になることを示せる
+  - 対角化可能行列と Jordan block の行列指数を計算できる
+  - 複素固有値・固有ベクトルから実数値の振動解を構成できる
+  - 非斉次線形系の定数変化公式を導出し適用できる
+  - 二次元定係数系の node・saddle・spiral・center 型の位相図を固有値から読める
+  - Lyapunov安定・漸近安定・指数安定を区別し、固有値実部と Jordan 構造から判定できる
+  - 実部0の固有値で非自明 Jordan block があると安定性が壊れる機構を説明できる
+definitions:
+  - { id: ODE3-DEF-01, name: 定係数線形連立系・斉次系・非斉次系 }
+  - { id: ODE3-DEF-02, name: 行列指数 }
+  - { id: ODE3-DEF-03, name: 基本行列・主基本行列 }
+  - { id: ODE3-DEF-04, name: Lyapunov安定・漸近安定・指数安定 }
+theorems:
+  - { id: ODE3-THM-01, name: 行列指数の基本性質 }
+  - { id: ODE3-THM-02, name: 定係数斉次線形系の初期値問題 }
+  - { id: ODE3-THM-03, name: 相似変換と Jordan block の行列指数 }
+  - { id: ODE3-THM-04, name: 複素固有対からの実解構成 }
+  - { id: ODE3-THM-05, name: 非斉次線形系の定数変化公式 }
+  - { id: ODE3-THM-06, name: 定係数線形系の固有値実部と Jordan 構造による安定性判定 }
+canonical_examples: [対角系, Jordan block, 回転系, 減衰螺旋, saddle, variation of constants, 境界固有値のJordan不安定]
+problem_patterns: [ODE-MATRIX-EXP-1, ODE-JORDAN-EXP-1, ODE-COMPLEX-EIGEN-1, ODE-VARIATION-CONSTANTS-SYSTEM-1, ODE-PHASE-PLANE-1, ODE-LINEAR-STABILITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 3.5, review: 0.5 }
