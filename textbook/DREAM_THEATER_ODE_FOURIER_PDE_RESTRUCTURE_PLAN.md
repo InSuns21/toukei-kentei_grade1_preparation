@@ -661,7 +661,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE1 | **実装・検証完了（PR #276）** | 一階解法、phase line、積分方程式、Lipschitz、Picard--Lindelöf の存在一意性を実装。固定点定理を黒箱化せず Picard 反復の一様Cauchy性から閉じた | A4 / B3 / C1。全問に `solution-start/end` の詳細解答あり | RA3 / RA4 / RA5 を前提。H1 §1–4 を再利用・補強 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を green 確認 |
 | ODE2 | **実装・検証完了（PR #277）** | 連続係数高階線形IVPの存在一意性、n次元解空間、Wronskian / Abel、定係数の重根・複素根、非斉次、未定係数法、定数変化法、Cauchy--Euler、1次元Green核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE1 + LA3C。H1 §5–7 を再利用・補強し、ODE3 / 行列指数は逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証 |
 | ODE3 | **実装・検証完了（PR #280）** | 線形連立系、行列指数の級数構成と微分、基本行列、Jordan block、複素固有対、定数変化公式、2次元位相図、Lyapunov・漸近・指数安定性と境界 Jordan 条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + LA4。H1 §8–11 を移送・補強し、旧H1を ODE1–ODE3 への互換ハブ化。FA2 / PDE1 / PDE2 の旧ODE concept依存も現行IDへ移管 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も green |
-| ODE4 | 未着手 | - | - | ODE3 + 多変数微分 | 未実施 |
+| ODE4 | **実装・検証完了（PR #282）** | 非線形自律系、平衡点・nullcline、Fréchet/Jacobian 線形化、双曲型・非双曲型を実装。Hurwitz 線形化から局所指数安定性を定数変化公式・剰余評価・退出時刻・解延長まで閉じ、保存量判定と非双曲型の反例も示した | A4 / B3 / C1。全問に詳細解答あり | ODE3 + F0-02C3。一般の Hartman--Grobman、中心多様体、Poincaré--Bendixson、Hopf 分岐は停止線外とし逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit 実行済み。ODE4 は両監査で機械 P2、人手再査読で OK |
 | ODE5 | 未着手 | - | - | ODE2 | 未実施 |
 | ODE6 | 未着手 | - | - | ODE2 + RA5 | 未実施 |
 | ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |
@@ -691,4 +691,15 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 演習は A4 / B3 / C1 を実装し、対角系、複素固有値、Jordan block、定数変化、saddle、境界安定性、パラメータ付き完全分類を実際に使わせ、全問に詳細解答を付した。
 - **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認し、さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` も green を確認した。
 
-次の実装単位は **ODE4 非線形系・位相平面・線形化**。平衡点、Jacobian による線形化、2次元 phase plane、保存量を持つ系、線形化で判定不能になる境界例までを標準コアとして閉じる。
+## 11.6 ODE4 で今回閉じた品質論点と検証記録
+
+- 非線形自律系・平衡点、軌道・位相平面・nullcline、線形化、双曲型・非双曲型、保存量の主要定義に、条件を実際に計算して確認する直接例を配置した。
+- Fréchet 微分から $F(x_*+u)=DF(x_*)u+r(u)$、$r(u)=o(\|u\|)$ を取り出し、「Jacobian を計算した」ことと「非線形系の挙動を証明した」ことを区別した。
+- 線形化行列が Hurwitz の場合は、ODE3 の指数減衰と定数変化公式を用い、剰余の局所評価、積分不等式、退出時刻による球内不変性、有限時刻端点からの解延長まで書いて局所指数安定性を閉じた。
+- 非双曲型では $x'=-x^3$ と $x'=x^3$ が同じ線形化 $u'=0$ を持ちながら安定性が逆になることを明示解で示し、失われる機構が三次項の符号であることまで説明した。保存量を持つ非線形振動子では $\nabla H\cdot F=0$ を直接確認し、線形化が判定不能な場合の別ルートを示した。
+- Hartman--Grobman、中心多様体、安定多様体、Poincaré--Bendixson、Hopf 分岐、一般分岐理論は停止線外とし、証明なしの黒箱として現在章へ逆輸入しなかった。
+- 演習は A4 / B3 / C1 を実装し、平衡点・Jacobian、nullcline、線形化剰余、保存量、Hurwitz 条件、非双曲型反例、非線形振り子、統合的な位相平面解析を実際に使わせ、全問に詳細解答を付した。
+- **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認した。さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` を実行し、ODE4 はいずれも機械 P2。前者は「証明4本・直接例5件・証明比15%・省略語候補0」、後者は「proof block 4・隠れ証明0・直接例5件」で、P2 の主因は「直感/意味」という名前の見出しがないことだった。本文の導入、線形化の限界説明、実践フロー、各例を人手で再査読し、見出し追加だけでスコアを下げる修正は不要と判断して **OK** とした。
+- 二監査を実行するため一時的に追加した Actions の監査ステップは、結果確認後に元の workflow へ完全に戻した。
+
+次の実装単位は **ODE5 Laplace変換と初期値問題**。Laplace変換の定義、線形性・微分・移動則、逆変換、畳み込み、階段関数とインパルス応答の考え方、定係数 ODE の初期値問題までを標準コアとして閉じる。Dirac delta の厳密な超関数論は Encore III へ送る。
