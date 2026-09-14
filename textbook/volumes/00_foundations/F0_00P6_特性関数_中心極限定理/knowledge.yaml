@@ -36,13 +36,20 @@ concepts:
     requires:
       - prob.cdf
 
+  - id: prob.bounded-lipschitz-function
+    name: 有界Lipschitz関数
+    kind: definition
+    aliases: [有界Lipschitz関数]
+    requires: []
+
   - id: prob.bounded-lipschitz-characterization
-    name: bounded Lipschitz testによる分布収束の特徴付け
+    name: 有界Lipschitz関数による分布収束の特徴付け
     kind: theorem
-    aliases: [bounded Lipschitz testによる分布収束の特徴付け]
+    aliases: [有界Lipschitz関数による分布収束の特徴付け]
     requires:
       - prob.distribution-convergence
       - prob.cdf
+      - prob.bounded-lipschitz-function
 
   - id: prob.gaussian-fourier-identity
     name: Gaussian Fourier identity

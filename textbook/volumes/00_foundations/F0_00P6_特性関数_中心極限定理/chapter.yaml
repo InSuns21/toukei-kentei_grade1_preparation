@@ -11,7 +11,7 @@ learning_objectives:
   - 特性関数を定義し常に存在する理由を証明できる
   - 独立和を特性関数の積へ変換できる
   - 分布収束をCDFの連続点で定義できる
-  - bounded Lipschitz testによる分布収束の特徴付けを証明できる
+  - 有界Lipschitz関数を定義し、その期待値による分布収束の特徴付けを証明できる
   - Gaussian Fourier identityとGaussian smoothing密度公式を証明できる
   - 特性関数が分布を一意に定めることをGaussian smoothingから証明できる
   - 有限二次モーメントから特性関数の二次展開を証明できる
@@ -20,9 +20,10 @@ learning_objectives:
 definitions:
   - { id: F0P6-DEF-01, name: 特性関数 }
   - { id: F0P6-DEF-02, name: 分布収束 }
+  - { id: F0P6-DEF-03, name: 有界Lipschitz関数 }
 theorems:
   - { id: F0P6-PROP-01, name: 特性関数の基本性質 }
-  - { id: F0P6-THM-01, name: bounded Lipschitz testによる分布収束の特徴付け }
+  - { id: F0P6-THM-01, name: 有界Lipschitz関数による分布収束の特徴付け }
   - { id: F0P6-LEM-01, name: Gaussian Fourier identity }
   - { id: F0P6-LEM-02, name: Gaussian smoothingの密度公式 }
   - { id: F0P6-THM-02, name: 特性関数の一意性 }
