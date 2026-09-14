@@ -14,6 +14,7 @@ s = s.replace('#### Step 2：bounded Lipschitz期待値収束ならCDFが連続�
 s = s.replace('後のGaussian smoothingではCDFを直接扱わず、bounded Lipschitz期待値だけを制御すれば十分になります。', '後のGaussian smoothingではCDFを直接扱わず、有界Lipschitz関数の期待値だけを制御すれば十分になります。')
 s = s.replace('[bounded Lipschitz testによる特徴付け](#thm-f0-00p6-bl-characterization)', '[有界Lipschitz関数による特徴付け](#thm-f0-00p6-bl-characterization)')
 s = s.replace('有界Lipschitz $h$', '有界Lipschitz関数 $h$')
+s = s.replace('> **定理（有界Lipschitz関数による分布収束の特徴付け）**  \n', '> **定理（有界Lipschitz関数による分布収束の特徴付け）**\n')
 
 marker = '<a id="thm-f0-00p6-bl-characterization"></a>\n\n'
 if marker not in s:
@@ -21,7 +22,7 @@ if marker not in s:
 definition = r'''<a id="def-f0-00p6-bounded-lipschitz"></a>
 
 <!-- formal-statement-start -->
-> **定義（有界Lipschitz関数）**  
+> **定義（有界Lipschitz関数）**
 > 関数 $h:\mathbb R\to\mathbb R$ が **有界Lipschitz関数** であるとは、ある有限な定数 $M,L\ge0$ が存在して、すべての $x,y\in\mathbb R$ に対し
 
 $$
