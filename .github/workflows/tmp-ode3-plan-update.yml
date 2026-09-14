@@ -18,34 +18,7 @@ jobs:
           ref: codex/dream-theater-ode3-linear-systems
       - name: Update restructure plan
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
-          s = p.read_text()
-
-          old_row = '| ODE3 | 未着手 | H1 §8–11 を主要再利用予定 | 未着手 | ODE2 + LA4 等 | 未実施 |'
-          new_row = '| ODE3 | **実装・検証完了（PR #280）** | 線形連立系、行列指数の級数構成と微分、基本行列、Jordan block、複素固有対、定数変化公式、2次元位相図、Lyapunov・漸近・指数安定性と境界 Jordan 条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + LA4。H1 §8–11 を移送・補強し、旧H1を ODE1–ODE3 への互換ハブ化。FA2 / PDE1 / PDE2 の旧ODE concept依存も現行IDへ移管 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も green |'
-          if old_row not in s:
-              raise SystemExit('ODE3 status row not found')
-          s = s.replace(old_row, new_row, 1)
-
-          old_next = '次の実装単位は **ODE3 線形連立系・行列指数・安定性**。H1 §8–11 を主要再利用元とし、基本行列・行列指数・Jordan 構造・非斉次系・2次元位相図・固有値実部と安定性までを学部標準コアとして閉じる。'
-          new_next = '''## 11.5 ODE3 で今回閉じた品質論点と検証記録
-
-- 行列指数は記号として置くだけでなく、成分ごとの絶対・一様収束、項別微分、時間加法則、逆行列まで冪級数から閉じた。
-- $x'=Ax$ の一意性は $e^{-(t-t_0)A}x(t)$ の微分が0になることから直接示し、基本行列・主基本行列へ接続した。
-- Jordan block では冪零部分が多項式因子を生む機構を明示し、$\operatorname{Re}\lambda=0$ の境界で非自明 Jordan block が Lyapunov 安定性を壊すことを反例と一般証明の両方で示した。
-- 複素固有対から実解へ戻す計算、非斉次系の定数変化公式、2次元 node / saddle / spiral / center の読み方を本文から再構成できる粒度にした。
-- 旧 F0-00H1 は内容正本から互換ハブへ退役させ、後続 Fourier / PDE 章の旧 ODE concept 依存も ODE1 / ODE2 の現行IDへ付け替えた。
-- 演習は A4 / B3 / C1 を実装し、対角系、複素固有値、Jordan block、定数変化、saddle、境界安定性、パラメータ付き完全分類を実際に使わせ、全問に詳細解答を付した。
-- **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認し、さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` も green を確認した。
-
-次の実装単位は **ODE4 非線形系・位相平面・線形化**。平衡点、Jacobian による線形化、2次元 phase plane、保存量を持つ系、線形化で判定不能になる境界例までを標準コアとして閉じる。'''
-          if old_next not in s:
-              raise SystemExit('next-unit text not found')
-          s = s.replace(old_next, new_next, 1)
-          p.write_text(s)
-          PY
+          echo 'ZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCnAgPSBQYXRoKCJ0ZXh0Ym9vay9EUkVBTV9USEVBVEVSX09ERV9GT1VSSUVSX1BERV9SRVNUUlVDVFVSRV9QTEFOLm1kIikKcyA9IHAucmVhZF90ZXh0KCkKb2xkX3JvdyA9ICJ8IE9ERTMgfCDmnKrnnYDmiYsgfCBIMSDCpzjigJMxMSDjgpLkuLvopoHlho3liKnnlKjkuojlrpogfCDmnKrnnYDmiYsgfCBPREUyICsgTEE0IOetiSB8IOacquWun+aWvSB8IgpuZXdfcm93ID0gInwgT0RFMyB8ICoq5a6f6KOF44O75qSc6Ki85a6M5LqG77yIUFIgIzI4MO+8iSoqIHwg57ea5b2i6YCj56uL57O744CB6KGM5YiX5oyH5pWw44Gu57Sa5pWw5qeL5oiQ44Go5b6u5YiG44CB5Z+65pys6KGM5YiX44CBSm9yZGFuIGJsb2Nr44CB6KSH57Sg5Zu65pyJ5a++44CB5a6a5pWw5aSJ5YyW5YWs5byP44CBMuasoeWFg+S9jeebuOWbs+OAgUx5YXB1bm9244O75ry46L+R44O75oyH5pWw5a6J5a6a5oCn44Go5aKD55WMIEpvcmRhbiDmnaHku7bjgb7jgaflrp/oo4UgfCBBNCAvIEIzIC8gQzHjgILlhajllY/jgavoqbPntLDop6PnrZTjgYLjgoogfCBPREUyICsgTEE044CCSDEgwqc44oCTMTEg44KS56e76YCB44O76KOc5by344GX44CB5penSDHjgpIgT0RFMeKAk09ERTMg44G444Gu5LqS5o+b44OP44OW5YyW44CCRkEyIC8gUERFMSAvIFBERTIg44Gu5penT0RFIGNvbmNlcHTkvp3lrZjjgoLnj77ooYxJROOBuOenu+euoSB8IHRleHRib29rIC8gUGFnZXMgLyBleGVyY2lzZXMgLyBjb25jZXB0cyAvIHN0YW5kYXJkIG1hdGggY29yZSAvIHRlcm1pbm9sb2d5IOOBrjbns7vntbEgZ3JlZW7jgIJwcm9vZiAvIGZvcm1hbGlzbSBwZWRhZ29neSBhdWRpdCDjgoIgZ3JlZW4gfCIKaWYgb2xkX3JvdyBub3QgaW4gczoKICAgIHJhaXNlIFN5c3RlbUV4aXQoIk9ERTMgc3RhdHVzIHJvdyBub3QgZm91bmQiKQpzID0gcy5yZXBsYWNlKG9sZF9yb3csIG5ld19yb3csIDEpCm9sZF9uZXh0ID0gIuasoeOBruWun+ijheWNmOS9jeOBryAqKk9ERTMg57ea5b2i6YCj56uL57O744O76KGM5YiX5oyH5pWw44O75a6J5a6a5oCnKirjgIJIMSDCpzjigJMxMSDjgpLkuLvopoHlho3liKnnlKjlhYPjgajjgZfjgIHln7rmnKzooYzliJfjg7vooYzliJfmjIfmlbDjg7tKb3JkYW4g5qeL6YCg44O76Z2e5paJ5qyh57O744O7MuasoeWFg+S9jeebuOWbs+ODu+WbuuacieWApOWun+mDqOOBqOWuieWumuaAp+OBvuOBp+OCkuWtpumDqOaomea6luOCs+OCouOBqOOBl+OBpumWieOBmOOCi+OAgiIKbmV3X25leHQgPSAiIiIjIyAxMS41IE9ERTMg44Gn5LuK5Zue6ZaJ44GY44Gf5ZOB6LOq6KuW54K544Go5qSc6Ki86KiY6YyyCgotIOihjOWIl+aMh+aVsOOBr+iomOWPt+OBqOOBl+OBpue9ruOBj+OBoOOBkeOBp+OBquOBj+OAgeaIkOWIhuOBlOOBqOOBrue1tuWvvuODu+S4gOanmOWPjuadn+OAgemgheWIpeW+ruWIhuOAgeaZgumWk+WKoOazleWJh+OAgemAhuihjOWIl+OBvuOBp+WGque0muaVsOOBi+OCiemWieOBmOOBn+OAggotICR4Jz1BeCQg44Gu5LiA5oSP5oCn44GvICRlXnstKHQtdF8wKUF9eCh0KSQg44Gu5b6u5YiG44GMMOOBq+OBquOCi+OBk+OBqOOBi+OCieebtOaOpeekuuOBl+OAgeWfuuacrOihjOWIl+ODu+S4u+WfuuacrOihjOWIl+OBuOaOpee2muOBl+OBn+OAggotIEpvcmRhbiBibG9jayDjgafjga/lhqrpm7bpg6jliIbjgYzlpJrpoIXlvI/lm6DlrZDjgpLnlJ/jgoDmqZ/mp4vjgpLmmI7npLrjgZfjgIEkXFxvcGVyYXRvcm5hbWV7UmV9XFxsYW1iZGE9MCQg44Gu5aKD55WM44Gn6Z2e6Ieq5piOIEpvcmRhbiBibG9jayDjgYwgTHlhcHVub3Yg5a6J5a6a5oCn44KS5aOK44GZ44GT44Go44KS5Y+N5L6L44Go5LiA6Iis6Ki85piO44Gu5Lih5pa544Gn56S644GX44Gf44CCCi0g6KSH57Sg5Zu65pyJ5a++44GL44KJ5a6f6Kej44G45oi744GZ6KiI566X44CB6Z2e5paJ5qyh57O744Gu5a6a5pWw5aSJ5YyW5YWs5byP44CBMuasoeWFgyBub2RlIC8gc2FkZGxlIC8gc3BpcmFsIC8gY2VudGVyIOOBruiqreOBv+aWueOCkuacrOaWh+OBi+OCieWGjeani+aIkOOBp+OBjeOCi+eykuW6puOBq+OBl+OBn+OAggotIOaXpyBGMC0wMEgxIOOBr+WGheWuueato+acrOOBi+OCieS6kuaPm+ODj+ODluOBuOmAgOW9ueOBleOBm+OAgeW+jOe2miBGb3VyaWVyIC8gUERFIOeroOOBruaXpyBPREUgY29uY2VwdCDkvp3lrZjjgoIgT0RFMSAvIE9ERTIg44Gu54++6KGMSUTjgbjku5jjgZHmm7/jgYjjgZ/jgIIKLSDmvJTnv5Ljga8gQTQgLyBCMyAvIEMxIOOCkuWun+ijheOBl+OAgeWvvuinkuezu+OAgeikh+e0oOWbuuacieWApOOAgUpvcmRhbiBibG9ja+OAgeWumuaVsOWkieWMluOAgXNhZGRsZeOAgeWig+eVjOWuieWumuaAp+OAgeODkeODqeODoeODvOOCv+S7mOOBjeWujOWFqOWIhumhnuOCkuWun+mam+OBq+S9v+OCj+OBm+OAgeWFqOWVj+OBq+ips+e0sOino+etlOOCkuS7mOOBl+OBn+OAggotICoqVmFsaWRhdGUgdGV4dGJvb2sgLyBWYWxpZGF0ZSBQYWdlcyBhc3NlbWJseSAvIFZhbGlkYXRlIERSRUFNIFRIRUFURVIgZXhlcmNpc2VzIC8gVmFsaWRhdGUgRFJFQU0gVEhFQVRFUiBjb25jZXB0cyAvIFZhbGlkYXRlIERSRUFNIFRIRUFURVIgc3RhbmRhcmQgbWF0aCBjb3JlIC8gVmFsaWRhdGUgdGVybWlub2xvZ3kqKiDjga6257O757Wx44KSIGdyZWVuIOeiuuiqjeOBl+OAgeOBleOCieOBqyBgbnBtIHJ1biBhdWRpdDpwcm9vZi1wZWRhZ29neWAg44GoIGBucG0gcnVuIGF1ZGl0OmZvcm1hbGlzbS1wZWRhZ29neWAg44KCIGdyZWVuIOOCkueiuuiqjeOBl+OBn+OAggoK5qyh44Gu5a6f6KOF5Y2Y5L2N44GvICoqT0RFNCDpnZ7nt5rlvaLns7vjg7vkvY3nm7jlubPpnaLjg7vnt5rlvaLljJYqKuOAguW5s+ihoeeCueOAgUphY29iaWFuIOOBq+OCiOOCi+e3muW9ouWMluOAgTLmrKHlhYMgcGhhc2UgcGxhbmXjgIHkv53lrZjph4/jgpLmjIHjgaTns7vjgIHnt5rlvaLljJbjgafliKTlrprkuI3og73jgavjgarjgovlooPnlYzkvovjgb7jgafjgpLmqJnmupbjgrPjgqLjgajjgZfjgabplonjgZjjgovjgIIiIiIKaWYgb2xkX25leHQgbm90IGluIHM6CiAgICByYWlzZSBTeXN0ZW1FeGl0KCJuZXh0LXVuaXQgdGV4dCBub3QgZm91bmQiKQpzID0gcy5yZXBsYWNlKG9sZF9uZXh0LCBuZXdfbmV4dCwgMSkKcC53cml0ZV90ZXh0KHMpCg==' | base64 -d | python
       - name: Commit plan update
         run: |
           git config user.name "github-actions[bot]"
