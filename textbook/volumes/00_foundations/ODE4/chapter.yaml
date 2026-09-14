@@ -1,0 +1,33 @@
+id: "ODE4"
+title: "標準常微分方程式 IV：非線形系・位相平面・線形化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE3
+  - F0-02C3
+official_scope: []
+learning_objectives:
+  - 非線形自律系 x'=F(x) と平衡点を定義し、具体例で平衡点を求められる
+  - 二次元系の軌道・位相平面・nullcline を区別し、ベクトル場の符号から局所的な流れを読める
+  - 平衡点まわりで Fréchet 微分から F(x_*+u)=DF(x_*)u+o(||u||) を導き、Jacobian が線形化行列になる理由を説明できる
+  - ODE3 の線形系分類を使って二次元非線形系の線形化を計算できる
+  - Jacobian が Hurwitz のとき非線形平衡点が局所指数安定になることを、定数変化公式と小さい剰余評価から証明できる
+  - 保存量 H の条件 ∇H·F=0 を軌道上で検証し、保存量の level set と位相平面を結び付けられる
+  - 非双曲型平衡点では線形化だけで安定性を判定できないことを、同じ Jacobian を持つ反例で説明できる
+  - Hartman--Grobman・中心多様体・一般分岐理論が本章の証明境界外であることを区別できる
+definitions:
+  - { id: ODE4-DEF-01, name: 非線形自律系・平衡点 }
+  - { id: ODE4-DEF-02, name: 軌道・位相平面・nullcline }
+  - { id: ODE4-DEF-03, name: 線形化・線形化行列 }
+  - { id: ODE4-DEF-04, name: 双曲型・非双曲型平衡点 }
+  - { id: ODE4-DEF-05, name: 保存量 }
+theorems:
+  - { id: ODE4-THM-01, name: Fréchet 微分による平衡点まわりの線形化 }
+  - { id: ODE4-THM-02, name: Hurwitz 線形化による局所指数安定性 }
+  - { id: ODE4-THM-03, name: 保存量の微分判定 }
+canonical_examples: [三次非線形系, nullclineによる位相平面, Hurwitz線形化, Duffing型保存系, 非双曲型で線形化が判定不能な対]
+problem_patterns: [ODE-NONLINEAR-EQUILIBRIA-1, ODE-NULLCLINE-1, ODE-LINEARIZATION-1, ODE-NONLINEAR-STABILITY-1, ODE-FIRST-INTEGRAL-1, ODE-NONHYPERBOLIC-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 3.5, review: 0.5 }
