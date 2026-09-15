@@ -15,7 +15,7 @@ Bessel 方程式と Legendre 方程式は特殊関数の名前を増やすため
 
 ## 1. 級数を代入する前に、項別微分を正当化する
 
-<a id="def-ode6-real-analytic"></a>
+<a id="def-ode6-local-power-series"></a>
 <!-- formal-statement-start -->
 > **定義（局所収束冪級数表示）**  
 > 関数 $f$ が点 $x_0$ で局所収束冪級数表示をもつとは、ある $R>0$ と実数列 $(c_n)$ が存在して、$|x-x_0|<R$ で
@@ -27,7 +27,7 @@ $$
 > と表されることをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ode6-real-analytic -->
+<!-- definition-example-start: def-ode6-local-power-series -->
 **定義の確認**：幾何級数
 
 $|x|<1$ では

@@ -9,7 +9,7 @@ prerequisites:
 # 必要な冪級数の項別微分はRA5のM-test・微分極限交換から本章内で局所的に確認する。
 
 concepts:
-  - id: ode.ode6-real-analytic
+  - id: ode.ode6-local-power-series
     name: 局所収束冪級数表示
     kind: definition
     aliases: [局所収束冪級数表示, 収束冪級数表示, local convergent power-series representation]
@@ -21,7 +21,7 @@ concepts:
     aliases: [冪級数の項別微分, 級数の項別微分]
     introduction: formal
     requires:
-      - ode.ode6-real-analytic
+      - ode.ode6-local-power-series
       - analysis.weierstrass-m-test
       - analysis.derivative-limit-interchange
 
@@ -31,7 +31,7 @@ concepts:
     aliases: [常点, ordinary point, 特異点, singular point, 正則特異点, regular singular point, 非正則特異点, irregular singular point]
     introduction: formal
     requires:
-      - ode.ode6-real-analytic
+      - ode.ode6-local-power-series
       - ode.ode2-linear-higher-order
 
   - id: ode.ode6-ordinary-power-series
