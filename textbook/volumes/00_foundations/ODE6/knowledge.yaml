@@ -10,9 +10,9 @@ prerequisites:
 
 concepts:
   - id: ode.ode6-local-power-series
-    name: 局所収束冪級数表示
+    name: 収束冪級数表示
     kind: definition
-    aliases: [局所収束冪級数表示, 収束冪級数表示, local convergent power-series representation]
+    aliases: [収束冪級数表示, local convergent power-series representation]
     introduction: formal
 
   - id: ode.ode6-power-series-legitimacy
