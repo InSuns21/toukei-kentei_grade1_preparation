@@ -1,0 +1,103 @@
+chapter: ODE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE2
+  - RA5
+
+# 複素解析的なFrobenius理論や特殊関数の一般論は前提にしない。
+# 必要な冪級数の項別微分はRA5のM-test・微分極限交換から本章内で局所的に確認する。
+
+concepts:
+  - id: ode.ode6-real-analytic
+    name: 実解析的関数
+    kind: definition
+    aliases: [実解析的関数, 実解析的, real analytic]
+    introduction: formal
+
+  - id: ode.ode6-power-series-legitimacy
+    name: 冪級数の項別微分の局所正当化
+    kind: lemma
+    aliases: [冪級数の項別微分, 級数の項別微分]
+    introduction: formal
+    requires:
+      - ode.ode6-real-analytic
+      - analysis.weierstrass-m-test
+      - analysis.derivative-limit-interchange
+
+  - id: ode.ode6-ordinary-singular-point
+    name: 常点・特異点・正則特異点
+    kind: definition
+    aliases: [常点, ordinary point, 特異点, singular point, 正則特異点, regular singular point, 非正則特異点, irregular singular point]
+    introduction: formal
+    requires:
+      - ode.ode6-real-analytic
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode6-ordinary-power-series
+    name: 常点における冪級数解の存在・係数漸化式
+    kind: theorem
+    aliases: [常点での冪級数解, 冪級数解, power-series solution]
+    introduction: formal
+    requires:
+      - ode.ode6-power-series-legitimacy
+      - ode.ode6-ordinary-singular-point
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode6-frobenius-series
+    name: Frobenius級数
+    kind: definition
+    aliases: [Frobenius級数, Frobenius法, Frobenius series]
+    introduction: formal
+    requires:
+      - ode.ode6-ordinary-singular-point
+
+  - id: ode.ode6-indicial-equation
+    name: 指標方程式
+    kind: definition
+    aliases: [指標方程式, indicial equation]
+    introduction: formal
+    requires:
+      - ode.ode6-frobenius-series
+
+  - id: ode.ode6-frobenius-recurrence
+    name: 正則特異点におけるFrobenius係数漸化式
+    kind: theorem
+    aliases: [Frobenius係数漸化式, Frobenius recurrence]
+    introduction: formal
+    requires:
+      - ode.ode6-indicial-equation
+
+  - id: ode.ode6-frobenius-convergence
+    name: 非共鳴Frobenius級数の収束
+    kind: theorem
+    aliases: [Frobenius級数の収束, Frobenius convergence]
+    introduction: formal
+    requires:
+      - ode.ode6-frobenius-recurrence
+      - analysis.weierstrass-m-test
+
+  - id: ode.ode6-root-cases
+    name: 指標根の差とFrobenius解の分岐
+    kind: proposition
+    aliases: [指標根の差, Frobenius共鳴, 共鳴]
+    introduction: formal
+    requires:
+      - ode.ode6-frobenius-recurrence
+      - ode.ode6-frobenius-convergence
+
+  - id: ode.ode6-bessel-series
+    name: Bessel方程式のFrobenius級数
+    kind: method
+    aliases: [Bessel方程式, Bessel級数, J0級数, Bessel function]
+    introduction: inline
+    requires:
+      - ode.ode6-root-cases
+
+  - id: ode.ode6-legendre-series
+    name: Legendre方程式の冪級数と多項式解
+    kind: method
+    aliases: [Legendre方程式, Legendre多項式, Legendre polynomial]
+    introduction: inline
+    requires:
+      - ode.ode6-ordinary-power-series
