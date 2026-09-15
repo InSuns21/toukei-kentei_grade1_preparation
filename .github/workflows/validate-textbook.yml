@@ -80,7 +80,7 @@ jobs:
           marker = '<!-- definition-example-start: def-ode6-indicial-equation -->'
           if marker not in text:
               needle = '> を指標方程式という。\n<!-- formal-statement-end -->\n\n指標方程式は暗記式ではありません。'
-              example = '> を指標方程式という。\n<!-- formal-statement-end -->\n\n<!-- definition-example-start: def-ode6-indicial-equation -->\n**定義の確認**：Cauchy--Euler 方程式から指標方程式を作る\n\n例えば $x^2y\\x27\\x27-2y=0$ を考えます。このとき $A(x)=0$, $B(x)=-2$ なので $\\alpha_0=0$, $\\beta_0=-2$ です。$y=x^r(a_0+a_1x+\\cdots)$, $a_0\\ne0$ を代入すると、最低次数 $x^r$ の係数は $\\{r(r-1)-2\\}a_0$ です。したがって最低次数を消す条件は $F(r)=r(r-1)-2=(r-2)(r+1)=0$ で、指標根は $r=2,-1$ です。定義式へ $\\alpha_0=0$, $\\beta_0=-2$ を代入した結果と一致します。\n<!-- definition-example-end -->\n\n指標方程式は暗記式ではありません。'
+              example = "> を指標方程式という。\n<!-- formal-statement-end -->\n\n<!-- definition-example-start: def-ode6-indicial-equation -->\n**定義の確認**：Cauchy--Euler 方程式から指標方程式を作る\n\n例えば $x^2y''-2y=0$ を考えます。このとき $A(x)=0$, $B(x)=-2$ なので $\\alpha_0=0$, $\\beta_0=-2$ です。$y=x^r(a_0+a_1x+\\cdots)$, $a_0\\ne0$ を代入すると、最低次数 $x^r$ の係数は $\\{r(r-1)-2\\}a_0$ です。したがって最低次数を消す条件は $F(r)=r(r-1)-2=(r-2)(r+1)=0$ で、指標根は $r=2,-1$ です。定義式へ $\\alpha_0=0$, $\\beta_0=-2$ を代入した結果と一致します。\n<!-- definition-example-end -->\n\n指標方程式は暗記式ではありません。"
               if needle not in text:
                   raise SystemExit('indicial equation insertion point not found')
               text = text.replace(needle, example, 1)
@@ -94,7 +94,6 @@ jobs:
           ktext = knowledge.read_text(encoding='utf-8').replace('name: 局所収束冪級数表示', 'name: 収束冪級数表示').replace('aliases: [局所収束冪級数表示, 収束冪級数表示, local convergent power-series representation]', 'aliases: [収束冪級数表示, local convergent power-series representation]')
           knowledge.write_text(ktext, encoding='utf-8')
           PY
-          git diff --check
           if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
