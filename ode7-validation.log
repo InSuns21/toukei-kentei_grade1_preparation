@@ -27,39 +27,42 @@
 > toukei-kentei-grade1-preparation@0.1.0 validate:prose-math
 > node scripts/validate-prose-math.mjs
 
-Prose/math-rendering validation failed:
-- textbook/volumes/00_foundations/ODE7/index.md:68: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:70: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:74: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:76: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:127: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:131: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:135: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:137: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:139: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:141: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:181: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:184: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:217: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:219: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:251: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:253: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:257: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:263: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:322: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:326: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:330: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:332: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:434: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:439: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:745: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:748: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:752: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:758: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:850: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:852: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:856: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
-- textbook/volumes/00_foundations/ODE7/index.md:860: Do not put $$ display math inside a Markdown blockquote; the leading > can leak into rendered TeX.
+Prose/math-rendering validation passed: 581 Markdown files scanned.
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:proof-folding
+> node scripts/validate-proof-folding.mjs
+
+Proof folding validation passed: 682 proof block(s) across 129 textbook page(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:formal-statements
+> node scripts/validate-formal-statement-panels.mjs
+
+Formal statement panel validation passed: 1408 panel(s), 1408 anchored panel(s), 1423 stable anchor(s), 1408 declaration(s), 186 page(s), standard blue rule verified.
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:implicit-formals
+> node scripts/validate-implicit-formal-statements.mjs
+
+Implicit formal validation passed: 0 legacy candidate(s) remain; 0 baseline candidate(s) have been retired. New implicit definitions/formal quotes are forbidden.
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:named-formals
+> node scripts/audit-named-formal-results.mjs
+
+Named-result heading audit: 110 result-name heading(s), 0 incomplete formal candidate(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
+> node scripts/validate-formal-reference-links.mjs
+
+Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
+> node scripts/validate-definition-example-checks.mjs
+
+Definition-example validation failed with 5 issue(s):
+- textbook/volumes/00_foundations/ODE7/index.md:29: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:97: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:148: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:189: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:224: definition-example block must contain **定義の確認**.
 [exit=1]
 ===== npm run validate:pages =====
 
@@ -95,12 +98,17 @@ Named-result heading audit: 110 result-name heading(s), 0 incomplete formal cand
 > toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
 > node scripts/validate-formal-reference-links.mjs
 
-Formal reference validation failed with 5 issue(s):
-- textbook/volumes/00_foundations/ODE7/index.md:399: prior formal result is referenced in prose but is not linked to a stable anchor: を満たすとします。Lagrange 恒等式で $u=v=y$ と置くと、前節の定理により境界項は 0 です。従って
-- textbook/volumes/00_foundations/ODE7/index.md:455: named proof dependency 分離型境界条件による境界形式の消滅 (ode.ode7-boundary-form-vanishing) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-boundary-form
-- textbook/volumes/00_foundations/ODE7/index.md:1023: named proof dependency Dirichlet問題のRayleigh商 (ode.ode7-rayleigh-quotient) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-rayleigh
-- textbook/volumes/00_foundations/ODE7/index.md:1358: named proof dependency Dirichlet問題のRayleigh商 (ode.ode7-rayleigh-quotient) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-rayleigh
-- textbook/volumes/00_foundations/ODE7/index.md:1423: named proof dependency Lagrange恒等式 (ode.ode7-lagrange-identity) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-lagrange-identity
+Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
+> node scripts/validate-definition-example-checks.mjs
+
+Definition-example validation failed with 5 issue(s):
+- textbook/volumes/00_foundations/ODE7/index.md:29: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:97: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:148: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:189: definition-example block must contain **定義の確認**.
+- textbook/volumes/00_foundations/ODE7/index.md:224: definition-example block must contain **定義の確認**.
 [exit=1]
 ===== npm run validate:dream-theater-exercise-counts =====
 
@@ -120,7 +128,7 @@ DREAM THEATER 概念依存検証（strict）
 対象ページ: 171 / knowledge移行済み: 138 / 未移行: 33
 変更ファイル: 8
 概念登録数: 1175
-ERROR: 13 / WARN: 22 / AUDIT: 0
+ERROR: 3 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「ac」を共有しています: set.choice-axiom, analysis.mt4-absolute-continuous-function
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「点列コンパクト性」を共有しています: topology.sequentially-compact, topology.sequentially-compact-space
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「下極限」を共有しています: analysis.limsup-liminf, measure.limit-inferior
@@ -143,17 +151,7 @@ ERROR: 13 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「初期値問題」を共有しています: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「変数分離」を共有しています: ode.ode1-separable-equation, pde.separation-of-variables
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「平衡点」を共有しています: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:59 未登録の定義・定理・補題・命題・系の宣言候補: > **定義（正則 Sturm--Liouville 問題）**
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:248 未登録の定義・定理・補題・命題・系の宣言候補: > **定理（Lagrange 恒等式）**
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:742 未登録の定義・定理・補題・命題・系の宣言候補: > **定理（Dirichlet 問題の Rayleigh 商）**
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1 definition「正則Sturm--Liouville問題」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1 theorem「Lagrange恒等式」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1 method「Dirichlet・Neumann・混合境界条件の標準スペクトル」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1 theorem「Dirichlet問題のRayleigh商」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:178 概念「L2内積」(functional.l2-inner-product) を使用していますが、導入ページ F0-00D2E は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:677 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:980 概念「熱方程式」(pde.heat-equation) を使用していますが、導入ページ F0-00PDE1 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:974 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:1 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:30 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
@@ -164,17 +162,7 @@ fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but 
 main版の同じページにも同じknowledge conceptのaliasが存在した場合、リンク化や言い換えで行が変わっても新規依存とはみなしません。
 
 変更内容に起因する DREAM THEATER 概念依存違反が残っています:
-  textbook/volumes/00_foundations/ODE7/index.md:59 未登録の定義・定理・補題・命題・系の宣言候補: > **定義（正則 Sturm--Liouville 問題）**
-  textbook/volumes/00_foundations/ODE7/index.md:248 未登録の定義・定理・補題・命題・系の宣言候補: > **定理（Lagrange 恒等式）**
-  textbook/volumes/00_foundations/ODE7/index.md:742 未登録の定義・定理・補題・命題・系の宣言候補: > **定理（Dirichlet 問題の Rayleigh 商）**
-  textbook/volumes/00_foundations/ODE7/index.md:1 definition「正則Sturm--Liouville問題」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-  textbook/volumes/00_foundations/ODE7/index.md:1 theorem「Lagrange恒等式」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-  textbook/volumes/00_foundations/ODE7/index.md:1 method「Dirichlet・Neumann・混合境界条件の標準スペクトル」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-  textbook/volumes/00_foundations/ODE7/index.md:1 theorem「Dirichlet問題のRayleigh商」は knowledge.yaml に登録されていますが、本文中の導入を確認できません。
-  textbook/volumes/00_foundations/ODE7/index.md:178 概念「L2内積」(functional.l2-inner-product) を使用していますが、導入ページ F0-00D2E は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-  textbook/volumes/00_foundations/ODE7/index.md:677 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-  textbook/volumes/00_foundations/ODE7/index.md:980 概念「熱方程式」(pde.heat-equation) を使用していますが、導入ページ F0-00PDE1 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-  textbook/volumes/00_foundations/ODE7/index.md:974 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+  textbook/volumes/00_foundations/ODE7/index.md:968 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 [exit=1]
 ===== npm run validate:textbook-knowledge:changed =====
 
@@ -463,7 +451,7 @@ DREAM THEATER standard math core OK: 54 nodes (0 planned / 47 implemented / 7 ex
 | P2 | [F0-00D4 補講：Lebesgue測度・Borel集合・Carathéodory拡張定理](volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md) | 15 | 5 | 0 | 1 | 10 | 0 | 11 | 23% | 定理・命題等15件、直感・意味・見取り図見出し0 |
 | P2 | [F0-00G 凸集合・凸関数・凸最適化の基礎](volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md) | 3 | 5 | 0 | 4 | 3 | 0 | 11 | 32% | 定理・命題等3件、直感・意味・見取り図見出し0 |
 | P2 | [ODE5 標準 ODE V：Laplace変換と初期データ](volumes/00_foundations/ODE5/index.md) | 8 | 9 | 6 | 1 | 8 | 0 | 11 | 31% | 定理・命題等8件 |
-| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 5 | 7 | 7 | 0 | 11 | 24% | 定理・命題等7件、例1件 |
+| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 5 | 7 | 7 | 0 | 11 | 29% | 定理・命題等7件、例1件 |
 | P2 | [F0-00D0 Cauchy完備化：有理数から実数を作る](volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md) | 7 | 2 | 7 | 1 | 7 | 0 | 10 | 24% | 定理・命題等7件、例2件 |
 | P2 | [F0-00P3D：pushforward積分・LOTUS・Doob--Dynkin](volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md) | 4 | 3 | 0 | 3 | 2 | 0 | 10 | 35% | 定理・命題等4件、直感・意味・見取り図見出し0 |
 | P2 | [F0-00P2 密度・Radon–Nikodym：確率質量関数と確率密度関数を同じ式で読む](volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md) | 3 | 3 | 0 | 1 | 2 | 0 | 9 | 38% | 定理・命題等3件、直感・意味・見取り図見出し0 |

@@ -58,23 +58,23 @@ $$
 <!-- formal-statement-start -->
 > **定義（正則 Sturm--Liouville 問題）**  
 > 有限閉区間 $[a,b]$ で
->
+
 > - $p\in C^1([a,b])$,
 > - $q,w\in C([a,b])$ は実数値,
 > - $p(x)>0$, $w(x)>0$ がすべての $x\in[a,b]$ で成り立つ
->
+
 > とする。微分式
->
-> $$
-> L[y]:=-(p y')'+qy
-> $$
->
+
+$$
+L[y]:=-(p y')'+qy
+$$
+
 > と固有値方程式
->
-> $$
-> L[y]=\lambda w y
-> $$
->
+
+$$
+L[y]=\lambda w y
+$$
+
 > に、端点の斉次線形境界条件を組み合わせた問題を **正則 Sturm--Liouville 問題** という。
 <!-- formal-statement-end -->
 
@@ -123,23 +123,23 @@ $p\in C^1$, $q,w\in C$ であり、$p>0,w>0$ です。したがってこれは�
 <!-- formal-statement-start -->
 > **定義（分離型自己共役境界条件）**  
 > 実数 $\alpha_1,\alpha_2,\beta_1,\beta_2$ が
->
-> $$
-> (\alpha_1,\alpha_2)\ne(0,0),
-> \qquad
-> (\beta_1,\beta_2)\ne(0,0)
-> $$
->
+
+$$
+(\alpha_1,\alpha_2)\ne(0,0),
+\qquad
+(\beta_1,\beta_2)\ne(0,0)
+$$
+
 > を満たすとする。境界条件
->
-> $$
-> \alpha_1y(a)+\alpha_2p(a)y'(a)=0,
-> $$
->
-> $$
-> \beta_1y(b)+\beta_2p(b)y'(b)=0
-> $$
->
+
+$$
+\alpha_1y(a)+\alpha_2p(a)y'(a)=0,
+$$
+
+$$
+\beta_1y(b)+\beta_2p(b)y'(b)=0
+$$
+
 > を **分離型自己共役境界条件** と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -171,18 +171,18 @@ $$
 
 ---
 
-## 4. 重み付き積分内積と固有関数
+## 4. 重み付き内積と固有関数
 
 <a id="def-ode7-weighted-inner-product"></a>
 <!-- formal-statement-start -->
-> **定義（重み付き積分内積）**  
+> **定義（重み付き内積の記号）**  
 > $w>0$ を連続関数とする。連続な複素数値関数 $f,g$ に対して
->
-> $$
-> \langle f,g\rangle_w
-> :=\int_a^b f(x)\overline{g(x)}w(x)\,dx
-> $$
->
+
+$$
+\langle f,g\rangle_w
+:=\int_a^b f(x)\overline{g(x)}w(x)\,dx
+$$
+
 > と定める。
 <!-- formal-statement-end -->
 
@@ -213,11 +213,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Sturm--Liouville 固有値・固有関数）**  
 > 正則 Sturm--Liouville 問題で、ある $\lambda\in\mathbb C$ に対して境界条件を満たす非零関数 $y$ が
->
-> $$
-> L[y]=\lambda w y
-> $$
->
+
+$$
+L[y]=\lambda w y
+$$
+
 > を満たすとき、$\lambda$ を **固有値**、$y$ をその **固有関数** という。
 <!-- formal-statement-end -->
 
@@ -247,21 +247,21 @@ $$
 <!-- formal-statement-start -->
 > **定理（Lagrange 恒等式）**  
 > $p\in C^1([a,b])$, $q\in C([a,b])$ を実数値とし、
->
-> $$
-> L[y]=-(py')'+qy
-> $$
->
+
+$$
+L[y]=-(py')'+qy
+$$
+
 > とする。$u,v\in C^2([a,b];\mathbb C)$ に対して
->
-> $$
-> \boxed{
-> \int_a^b\left\{L[u]\overline v-u\overline{L[v]}\right\}\,dx
-> =
-> \left[p\left(u\overline{v'}-u'\overline v\right)\right]_a^b
-> }
-> $$
->
+
+$$
+\boxed{
+\int_a^b\left\{L[u]\overline v-u\overline{L[v]}\right\}\,dx
+=
+\left[p\left(u\overline{v'}-u'\overline v\right)\right]_a^b
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -318,19 +318,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（分離型境界条件による境界形式の消滅）**  
 > $u,v$ が同じ実係数の分離型境界条件
->
-> $$
-> \alpha_1y(a)+\alpha_2p(a)y'(a)=0,
-> \qquad
-> \beta_1y(b)+\beta_2p(b)y'(b)=0
-> $$
->
+
+$$
+\alpha_1y(a)+\alpha_2p(a)y'(a)=0,
+\qquad
+\beta_1y(b)+\beta_2p(b)y'(b)=0
+$$
+
 > を満たすとする。このとき
->
-> $$
-> B[u,v](a)=B[u,v](b)=0
-> $$
->
+
+$$
+B[u,v](a)=B[u,v](b)=0
+$$
+
 > であり、従って Lagrange 恒等式の右辺は 0 になる。
 <!-- formal-statement-end -->
 
@@ -396,7 +396,7 @@ $$
 L[y]=\lambda wy
 $$
 
-を満たすとします。Lagrange 恒等式で $u=v=y$ と置くと、前節の定理により境界項は 0 です。従って
+を満たすとします。[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u=v=y$ と置くと、[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)により境界項は 0 です。従って
 
 $$
 0
@@ -430,14 +430,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（異なる固有値に属する固有関数の直交性）**  
 > 同じ正則 Sturm--Liouville 問題と同じ分離型自己共役境界条件に対し、$u,v$ がそれぞれ異なる固有値 $\lambda\ne\mu$ の固有関数なら
->
-> $$
-> \boxed{
-> \langle u,v\rangle_w
-> =\int_a^bu(x)\overline{v(x)}w(x)\,dx=0
-> }
-> $$
->
+
+$$
+\boxed{
+\langle u,v\rangle_w
+=\int_a^bu(x)\overline{v(x)}w(x)\,dx=0
+}
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -452,7 +452,7 @@ L[u]=\lambda wu,
 L[v]=\mu wv.
 $$
 
-Lagrange 恒等式と境界形式の消滅から
+[Lagrange 恒等式](#thm-ode7-lagrange-identity)と[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)から
 
 $$
 0
@@ -548,6 +548,8 @@ $p(a)>0$ だから $z'(a)=0$ です。$z$ も同じ二階線形 ODE を満たす
 ---
 
 ## 10. Dirichlet 条件：正弦系を最初から導く
+
+ここから **三つの標準境界条件の固有値列** を、固有値の符号を省略せず順に導きます。
 
 $[0,L]$ で
 
@@ -674,7 +676,7 @@ $$
 }
 $$
 
-となります。Dirichlet では 0 固有値が消え、Neumann では定数モードとして残ります。境界条件がスペクトルを変えています。
+となります。Dirichlet では 0 固有値が消え、Neumann では定数モードとして残ります。境界条件が固有値列を変えています。
 
 ---
 
@@ -741,22 +743,22 @@ Dirichlet 条件では固有値を積分比として表せます。
 <!-- formal-statement-start -->
 > **定理（Dirichlet 問題の Rayleigh 商）**  
 > 正則 Sturm--Liouville 固有値問題
->
-> $$
-> -(py')'+qy=\lambda wy,
-> \qquad y(a)=y(b)=0
-> $$
->
+
+$$
+-(py')'+qy=\lambda wy,
+\qquad y(a)=y(b)=0
+$$
+
 > の固有関数 $y\not\equiv0$ に対して
->
-> $$
-> \boxed{
-> \lambda=
-> \frac{\displaystyle\int_a^b\left(p|y'|^2+q|y|^2\right)dx}
-> {\displaystyle\int_a^bw|y|^2dx}
-> }
-> $$
->
+
+$$
+\boxed{
+\lambda=
+\frac{\displaystyle\int_a^b\left(p|y'|^2+q|y|^2\right)dx}
+{\displaystyle\int_a^bw|y|^2dx}
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -846,19 +848,19 @@ $$
 <!-- formal-statement-start -->
 > **定理（共鳴時の必要可解条件）**  
 > $\lambda$ を分離型自己共役 Sturm--Liouville 問題の固有値、$\phi$ をその固有関数とする。同じ境界条件の下で
->
-> $$
-> (L-\lambda w)u=f
-> $$
->
+
+$$
+(L-\lambda w)u=f
+$$
+
 > が解 $u$ をもつなら、必ず
->
-> $$
-> \boxed{
-> \int_a^bf(x)\overline{\phi(x)}\,dx=0
-> }
-> $$
->
+
+$$
+\boxed{
+\int_a^bf(x)\overline{\phi(x)}\,dx=0
+}
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -1017,10 +1019,10 @@ $$
 2. $p\in C^1$, $q,w\in C$, $p>0,w>0$ を確認する。
 3. 境界条件を端点ごとの $\alpha_1y+\alpha_2py'=0$ の形へ書く。
 4. 固有値を具体的に求めるときは $\lambda<0$, $\lambda=0$, $\lambda>0$ を分ける。
-5. 一般論では Lagrange 恒等式を出発点にし、境界形式が本当に 0 になることを確認する。
+5. 一般論では [Lagrange 恒等式](#thm-ode7-lagrange-identity)を出発点にし、境界形式が本当に 0 になることを確認する。
 6. 実固有値には $u=v=y$、直交性には異なる固有関数 $u,v$ を代入する。
 7. 同じ固有値の単純性には、端点初期データの一次元性と ODE2 の初期値一意性を使う。
-8. Dirichlet 固有値の符号や下界には Rayleigh 商を使う。
+8. Dirichlet 固有値の符号や下界には [Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)を使う。
 9. 非斉次問題が固有値で共鳴したら、まず外力と固有関数の直交条件を確認する。
 10. 「直交」と「完全」を分ける。一般完全性は本章では黒箱境界を越えない。
 
@@ -1355,7 +1357,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Rayleigh 商から
+[Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)から
 
 $$
 \lambda
@@ -1420,7 +1422,7 @@ $$
 
 を考える。
 
-1. 解が存在するなら $\int_0^\pi f(x)\sin x\,dx=0$ が必要であることを、本章の Lagrange 恒等式から導け。
+1. 解が存在するなら $\int_0^\pi f(x)\sin x\,dx=0$ が必要であることを、本章の [Lagrange 恒等式](#thm-ode7-lagrange-identity)から導け。
 2. $f(x)=\sin x$ には解がないことを示せ。
 3. $f(x)=\sin2x$ には解が存在することを確認し、すべての解を求めよ。
 4. 3 で一意性が失われる理由を、斉次問題の固有関数と結び付けて説明せよ。
@@ -1440,7 +1442,7 @@ $$
 
 を満たす固有関数です。
 
-解 $u$ が存在すると仮定します。Lagrange 恒等式で $u$ と $\phi$ を使うと、Dirichlet 条件により境界項は 0 です。
+解 $u$ が存在すると仮定します。[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u$ と $\phi$ を使うと、Dirichlet 条件により境界項は 0 です。
 
 $$
 0
