@@ -8,7 +8,7 @@ official_scope: []
 learning_objectives:
   - 初期値問題と二点境界値問題の違いを説明し、境界条件により解の存在・一意性が失敗し得ることを具体例で確認できる
   - 正則Sturm--Liouville問題と分離型自己共役境界条件を定義し、各仮定がLagrange恒等式と固有値問題で果たす役割を説明できる
-  - 重み付き積分内積とLagrange恒等式を使い、境界形式が消えることを端点ごとに検証できる
+  - 重み付き内積とLagrange恒等式を使い、境界形式が消えることを端点ごとに検証できる
   - 正則Sturm--Liouville問題の固有値が実数であること、異なる固有値の固有関数が重み付き内積で直交することを証明できる
   - 分離型境界条件の下で各固有値の固有空間が1次元になることをODEの初期値一意性から証明できる
   - Dirichlet・Neumann・混合境界条件について -y''=lambda y の固有値と固有関数を lambda<0, lambda=0, lambda>0 に分けて導ける
@@ -18,7 +18,7 @@ definitions:
   - { id: ODE7-DEF-01, name: 二点境界値問題 }
   - { id: ODE7-DEF-02, name: 正則Sturm--Liouville問題 }
   - { id: ODE7-DEF-03, name: 分離型自己共役境界条件 }
-  - { id: ODE7-DEF-04, name: 重み付き積分内積 }
+  - { id: ODE7-DEF-04, name: 重み付き内積 }
   - { id: ODE7-DEF-05, name: Sturm--Liouville固有値・固有関数 }
 theorems:
   - { id: ODE7-THM-01, name: Lagrange恒等式 }

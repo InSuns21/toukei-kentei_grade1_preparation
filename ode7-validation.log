@@ -119,22 +119,26 @@ Textbook navigation titles normalized from chapter source: 46
 Published shared guidelines to GitHub Pages artifact: CONTENT_GUIDELINES.md, EXERCISE_GUIDELINES.md
 Exercise Markdown Pages links prepared: 225 Markdown files, 358 local links validated, 1 file(s) redirected to canonical textbook pages.
 Normalized 8 explicit Docsify route link(s) across 4 generated Markdown file(s).
-GitHub Pages link validation failed:
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/x
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/x
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
-- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
-[exit=1]
+GitHub Pages link validation passed: 242 sidebar links, 104 exercise-index links, 192 tiered exercises.
+Textbook validation passed: 0 chapter pages, 1891 checked Markdown links.
+Anki validation passed: 10 HTML pages, 2 CSS files, 223 local links/assets checked.
+Docsify route safety passed: relativePath is not enabled and generated Markdown navigation is site-root oriented.
+Formal Pages reference validation passed: 1384 generated stable formal link(s) across 240 textbook Markdown file(s).
+Textbook image paths fixed for Docsify: 16 root-oriented image reference(s) rewritten, 16 local image reference(s) validated.
+Pages image validation passed: 477 Markdown files scanned, 21 image reference(s), 21 local image reference(s).
+GitHub Pages math-renderer validation passed: 58 formulas protected on the conditional-normal regression page.
+Service Worker assets validated and published: service-worker.js, sw-config.js
+Service Worker cache revision stamped: bb6d6ead54a8f9c2dd80aa52113c624a37b16314
+Site metadata published: bb6d6ead @ 2026-09-16T04:40:20+09:00
+Offline manifests published: 1215 files with SHA-256 hashes
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:pages:offline
+> node scripts/validate-pages-offline.mjs
+
+Offline manifests validated: 1215 files (21 images), all SHA-256 hashes match.
+DREAM THEATER offline links validated: 174.
+Service Worker runtime fallback, legacy migration, differential updates, query-string assets, and range tests passed.
+[exit=0]
 ===== npm run validate:dream-theater-exercise-counts =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:dream-theater-exercise-counts
@@ -153,7 +157,7 @@ DREAM THEATER 概念依存検証（strict）
 対象ページ: 171 / knowledge移行済み: 138 / 未移行: 33
 変更ファイル: 8
 概念登録数: 1175
-ERROR: 3 / WARN: 22 / AUDIT: 0
+ERROR: 2 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「ac」を共有しています: set.choice-axiom, analysis.mt4-absolute-continuous-function
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「点列コンパクト性」を共有しています: topology.sequentially-compact, topology.sequentially-compact-space
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「下極限」を共有しています: analysis.limsup-liminf, measure.limit-inferior
@@ -176,18 +180,134 @@ ERROR: 3 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「初期値問題」を共有しています: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「変数分離」を共有しています: ode.ode1-separable-equation, pde.separation-of-variables
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「平衡点」を共有しています: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1234 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:1 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:30 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 
 既存本文に由来する概念依存違反は今回のPRでは audit 扱いにします:
   textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:1 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
   textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:30 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 main版の同じページにも同じknowledge conceptのaliasが存在した場合、リンク化や言い換えで行が変わっても新規依存とはみなしません。
-
-変更内容に起因する DREAM THEATER 概念依存違反が残っています:
-  textbook/volumes/00_foundations/ODE7/index.md:1234 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+fatal: path 'textbook/volumes/00_foundations/F0_00_統計検定1級のための数学速習/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00R_基礎論ロードマップ/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00P_確率論_測度論から統計理論へ/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/knowledge.yaml' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00DS1_Schwartz超関数_テスト関数/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00DS2_超関数微分_弱微分/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SOB1_Sobolev空間_Wkp_Hk/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SOB2_H01_Poincare_trace/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00WK1_弱形式_変分形式/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00WK3_楕円型PDE_Galerkin_FEM/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SP1_確率過程_filtration_stopping/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SP2_martingale_optional_stopping/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SP3_Brown運動_Gaussian過程_二次変分/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SP5_generator_Kolmogorov_Fokker_Planck/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00TS1_定常過程_Hilbert予測_Wold/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00TS2A_spectral_representation_theorem/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00NA1_浮動小数点_誤差_条件数_安定性/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00NA2_数値線形代数_疎行列_CG_前処理/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00NA3_補間_数値微分_数値積分/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00NA4_ODE数値解法_Runge_Kutta_安定性/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00FEM1_メッシュ_基底_assembly_Poisson/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00MC1_Monte_Carlo積分_LLN_CLT_誤差/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00MC2_分散削減_importance_control_variate/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_weak/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
+DREAM THEATER 未定義語・first-use・alias衝突検証（strict）
+対象ページ: 171 / 登録概念: 1175 / alias: 2310
+変更ファイル: 13 / 変更本文行を未定義語・曖昧aliasのblocking対象に限定
+ERROR: 43 / WARN: 34 / AUDIT: 0
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「ac」: set.choice-axiom, analysis.mt4-absolute-continuous-function。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「点列コンパクト性」: topology.sequentially-compact, topology.sequentially-compact-space。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「下極限」: analysis.limsup-liminf, measure.limit-inferior。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「liminf」: analysis.limsup-liminf, measure.limit-inferior。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「lipschitz連続」: analysis.lipschitz-continuity, ode.ode1-lipschitz-y。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「ノルム」: analysis.ck-uniform-norm, functional.norm。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「pointwiseboundedfamily」: analysis.pointwise-bounded-family, functional.pointwise-bounded-operator-family。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「固有値・固有ベクトル・固有空間」: linear.eigenvalue, linear.eigenvector, linear.eigenspace, linear.eigen-data-recap-f1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「特性多項式」: linear.characteristic-polynomial, ode.ode2-characteristic-polynomial。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [ERROR] textbook/dream-theater-knowledge.yaml:1 新しい alias衝突「rayleigh商」: linear.rayleigh-quotient, ode.ode7-rayleigh-quotient。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「特異値・右特異ベクトル」: linear.singular-value, linear.right-singular-vector。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「banach空間」: functional.banach-space, functional.banach-space-recap-d2e, functional.banach-space-recap-c1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「命題（単調性）」: measure.measure-monotonicity, measure.lebesgue-integral-monotonicity。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「outermeasure」: measure.outer-measure, measure.riesz-outer-measure-theorem。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「測度の絶対連続性」: measure.signed-absolute-continuity, measure.absolute-continuity。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「banach空間の再掲」: functional.banach-space-recap-d2e, functional.banach-space-recap-c1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「hilbert空間」: functional.hilbert-space, functional.hilbert-space-recap-c1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「ノルム・ノルム空間」: functional.norm-recap-c1, functional.normed-space-recap-c1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「凸集合」: functional.convex-set-basic-c1a, convex.convex-set。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「弱位相」: functional.weak-topology, functional.weak-star-topology。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「weaktopology」: functional.weak-topology, functional.weak-star-topology。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「定義（弱位相）」: functional.weak-topology, functional.weak-star-topology。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「調和関数」: complex-analysis.harmonic-function, pde.harmonic-function。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「laplace方程式」: complex-analysis.harmonic-function, pde.laplace-equation。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「劣勾配・劣微分」: convex.subgradient, convex.subdifferential。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「主問題・双対問題」: optimization.primal-problem, optimization.dual-problem。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「弱双対性・強双対性」: optimization.weak-duality, optimization.strong-duality。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「凸結合・凸集合・凸包」: convex.convex-combination-recap-f0-02b, convex.convex-set-recap-f0-02b, convex.convex-hull-recap-f0-02b。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「錐・凸錐・有限生成凸錐」: convex.cone, convex.convex-cone, convex.finitely-generated-cone。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「activeset・線形化cone」: optimization.active-set-recap-c5a, optimization.linearized-cone-recap-c5a。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「常微分方程式」: ode.ode1-ordinary-differential-equation, ode.ode2-linear-higher-order。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「初期値問題」: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「変数分離」: ode.ode1-separable-equation, pde.separation-of-variables。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「平衡点」: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「補題（の平行移動連続性）」: fourier.translation-continuity-l1, fourier.translation-continuity-l2-r。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:53 概念「正則Sturm--Liouville問題」(ode.ode7-regular-sturm-liouville) を 53 行目で先に使用していますが、導入は 59 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:174 概念「重み付き内積」(ode.ode7-weighted-inner-product) を 174 行目で先に使用していますが、導入は 178 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:113 概念「Sturm--Liouville固有値・固有関数」(ode.ode7-eigenpair) を 113 行目で先に使用していますが、導入は 214 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:244 概念「Lagrange恒等式」(ode.ode7-lagrange-identity) を 244 行目で先に使用していますが、導入は 248 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:95 概念「固有値の実数性」(ode.ode7-real-eigenvalues) を 95 行目で先に使用していますが、導入は 382 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:738 概念「Dirichlet問題のRayleigh商」(ode.ode7-rayleigh-quotient) を 738 行目で先に使用していますが、導入は 744 行目です。定義・導入を先行させてください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:24 alias「常微分方程式」を複数概念へ解決できます: ode.ode1-ordinary-differential-equation, ode.ode2-linear-higher-order。語を修飾するか alias を分離してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:3 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:5 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:19 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:27 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:13 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:24 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:78 未定義の専門語候補「端点の斉次線形境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:118 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:149 未定義の専門語候補「Robin 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:315 未定義の専門語候補「なぜ分離型境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:427 未定義の専門語候補「異なる固有値の固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:431 未定義の専門語候補「属する固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:497 未定義の専門語候補「属する任意の二つの固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:497 未定義の専門語候補「従って各固有値の固有空間」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:550 未定義の専門語候補「Dirichlet 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:552 未定義の専門語候補「三つの標準境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:625 未定義の専門語候補「Neumann 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:683 未定義の専門語候補「混合境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:843 未定義の専門語候補「も直交条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:963 未定義の専門語候補「異なる固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:964 未定義の専門語候補「必要な関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:966 未定義の専門語候補「適切な関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「分離型条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「共鳴の必要条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「解析側のコンパクト自己共役作用素」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1043 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1082 未定義の専門語候補「ODE7-A02 Robin 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1181 未定義の専門語候補「ODE7-A04 正弦固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1234 未定義の専門語候補「混合境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1246 未定義の専門語候補「Neumann 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1270 未定義の専門語候補「混合条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1433 未定義の専門語候補「必要条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1513 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1513 未定義の専門語候補「逆作用素」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+- [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:3 alias「常微分方程式」を複数概念へ解決できます: ode.ode1-ordinary-differential-equation, ode.ode2-linear-higher-order。語を修飾するか alias を分離してください。
 [exit=1]
 ===== npm run validate:textbook-knowledge:changed =====
 

@@ -305,7 +305,7 @@ $$
 この端点量
 
 $$
-B[u,v](x):=p(x)\left(u(x)\overline{v'(x)}-u'(x)\overline{v(x)}\right)
+B_x(u,v):=p(x)\left(u(x)\overline{v'(x)}-u'(x)\overline{v(x)}\right)
 $$
 
 を境界形式と呼ぶことにします。
@@ -328,7 +328,7 @@ $$
 > を満たすとする。このとき
 
 $$
-B[u,v](a)=B[u,v](b)=0
+B_a(u,v)=B_b(u,v)=0
 $$
 
 > であり、従って Lagrange 恒等式の右辺は 0 になる。
@@ -364,11 +364,11 @@ $$
 0
 &=u(a)\overline{p(a)v'(a)}-p(a)u'(a)\overline{v(a)}\\
 &=p(a)\left(u(a)\overline{v'(a)}-u'(a)\overline{v(a)}\right)\\
-&=B[u,v](a).
+&=B_a(u,v).
 \end{aligned}
 $$
 
-境界係数と $p$ は実数なので複素共役を取っても同じ境界条件が保たれることを使いました。右端でも $(\beta_1,\beta_2)\ne(0,0)$ に対して同じ議論を行えば $B[u,v](b)=0$ です。$\square$
+境界係数と $p$ は実数なので複素共役を取っても同じ境界条件が保たれることを使いました。右端でも $(\beta_1,\beta_2)\ne(0,0)$ に対して同じ議論を行えば $B_b(u,v)=0$ です。$\square$
 <!-- proof-end -->
 
 Dirichlet や Neumann だけが特別なのではありません。「同じ一次元の端点条件に $u,v$ が入る」ことが本質です。
@@ -1091,7 +1091,7 @@ $$
 をともに満たすとする。
 
 $$
-B[u,v](0)=u(0)\overline{v'(0)}-u'(0)\overline{v(0)}
+B_0(u,v)=u(0)\overline{v'(0)}-u'(0)\overline{v(0)}
 $$
 
 が 0 になることを、境界条件を直接代入して示せ。
@@ -1117,7 +1117,7 @@ $$
 
 $$
 \begin{aligned}
-B[u,v](0)
+B_0(u,v)
 &=(-2u'(0))\overline{v'(0)}
 -u'(0)(-2\overline{v'(0)})\\
 &=0.
@@ -1231,7 +1231,7 @@ $$
 ## Level B
 
 <a id="ex-ode7-b01"></a>
-### ODE7-B01 Neumann と混合境界条件のスペクトル
+### ODE7-B01 Neumann と混合境界条件の固有値列
 - Level: B
 
 $[0,L]$ で $-y''=\lambda y$ を考える。

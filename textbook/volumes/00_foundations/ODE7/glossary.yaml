@@ -15,8 +15,8 @@ terms:
   - term: 自己共役境界条件
     english: self-adjoint boundary conditions
     meaning: Lagrange境界形式 [p(u conjugate(v)' - u' conjugate(v))]_a^b を許容関数どうしで0にする境界条件。本章では実係数の分離型条件を扱う。
-  - term: 重み付き積分内積
-    english: weighted integral inner product
+  - term: 重み付き内積
+    english: weighted inner product
     meaning: 正の重み w に対して <f,g>_w=int_a^b f(x) conjugate(g(x)) w(x) dx と定める内積。
   - term: Lagrange恒等式
     english: Lagrange identity
