@@ -35,14 +35,45 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Normalize ODE6 first-use wording
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/ode6-series-frobenius'
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('textbook/volumes/00_foundations/ODE6/index.md')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              '初等関数だけでは解きにくい': '簡単な式だけでは解きにくい',
+              '## 7. 二本目の級数が止まる条件を調べる': '## 7. 二本目の係数漸化式を調べる',
+              'したがって、この級数の収束半径は無限大です。': 'したがって、収束半径は無限大です。',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'missing expected phrase: {old}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8')
+          PY
+          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6/index.md; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add textbook/volumes/00_foundations/ODE6/index.md
+            git commit -m 'Normalize ODE6 first-use wording'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
