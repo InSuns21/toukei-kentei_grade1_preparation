@@ -10,9 +10,9 @@ prerequisites:
 
 concepts:
   - id: ode.ode6-real-analytic
-    name: 実解析性
+    name: 局所収束冪級数表示
     kind: definition
-    aliases: [実解析性, 実解析的, real analytic]
+    aliases: [局所収束冪級数表示, 収束冪級数表示, local convergent power-series representation]
     introduction: formal
 
   - id: ode.ode6-power-series-legitimacy
