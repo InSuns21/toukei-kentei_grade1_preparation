@@ -10,9 +10,9 @@ prerequisites:
 
 concepts:
   - id: ode.ode6-real-analytic
-    name: 実解析的関数
+    name: 実解析性
     kind: definition
-    aliases: [実解析的関数, 実解析的, real analytic]
+    aliases: [実解析性, 実解析的, real analytic]
     introduction: formal
 
   - id: ode.ode6-power-series-legitimacy
