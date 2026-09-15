@@ -15,7 +15,7 @@ learning_objectives:
   - 指標根が非整数差・重根・正整数差を持つ場合を区別し、純Frobenius級数が二本得られる場合と対数項が必要になり得る場合を説明できる
   - Bessel方程式でJ_0型級数と整数差共鳴を計算し、Legendre方程式で係数漸化式と多項式解の打ち切りを導ける
 definitions:
-  - { id: ODE6-DEF-01, name: 実解析的関数 }
+  - { id: ODE6-DEF-01, name: 実解析性 }
   - { id: ODE6-DEF-02, name: 常点・特異点・正則特異点 }
   - { id: ODE6-DEF-03, name: Frobenius級数 }
   - { id: ODE6-DEF-04, name: 指標方程式 }
