@@ -48,30 +48,62 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
 
-      - name: Rename stale ODE6 analytic identifiers
+      - name: Add ODE6 indicial-equation verification example
         if: github.event_name == 'pull_request' && github.head_ref == 'feat/ode6-series-frobenius'
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
 
-          index = Path('textbook/volumes/00_foundations/ODE6/index.md')
-          text = index.read_text(encoding='utf-8')
-          text = text.replace('def-ode6-real-analytic', 'def-ode6-local-power-series')
-          if 'analytic' in text.lower() or '実解析' in text:
-              raise SystemExit('ODE6 index still contains stale analytic terminology')
-          index.write_text(text, encoding='utf-8')
+          path = Path('textbook/volumes/00_foundations/ODE6/index.md')
+          text = path.read_text(encoding='utf-8')
+          marker = '<!-- definition-example-start: def-ode6-indicial-equation -->'
+          if marker not in text:
+              needle = '''> を指標方程式という。\n<!-- formal-statement-end -->\n\n指標方程式は暗記式ではありません。'''
+              replacement = r'''> を指標方程式という。
+<!-- formal-statement-end -->
 
-          knowledge = Path('textbook/volumes/00_foundations/ODE6/knowledge.yaml')
-          text = knowledge.read_text(encoding='utf-8')
-          text = text.replace('ode.ode6-real-analytic', 'ode.ode6-local-power-series')
-          knowledge.write_text(text, encoding='utf-8')
+<!-- definition-example-start: def-ode6-indicial-equation -->
+**定義の確認**：Cauchy--Euler 方程式から指標方程式を作る
+
+例えば
+
+$$
+x^2y''-2y=0
+$$
+
+を考えます。このとき $A(x)=0$, $B(x)=-2$ なので
+
+$$
+\alpha_0=0,\qquad \beta_0=-2.
+$$
+
+Frobenius 級数 $y=x^r(a_0+a_1x+\cdots)$, $a_0\ne0$ を代入すると、最低次数 $x^r$ の係数は
+
+$$
+\{r(r-1)-2\}a_0
+$$
+
+です。$a_0\ne0$ だから最低次数を消す条件は
+
+$$
+F(r)=r(r-1)-2=(r-2)(r+1)=0.
+$$
+
+したがって指標根は $r=2,-1$ です。これは定義式 $F(r)=r(r-1)+\alpha_0r+\beta_0$ へ $\alpha_0=0$, $\beta_0=-2$ を代入した結果と一致します。
+<!-- definition-example-end -->
+
+指標方程式は暗記式ではありません。'''
+              if needle not in text:
+                  raise SystemExit('could not locate indicial-equation insertion point')
+              text = text.replace(needle, replacement, 1)
+              path.write_text(text, encoding='utf-8')
           PY
-          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6; then
+          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6/index.md; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/ODE6
-            git commit -m 'Rename ODE6 local power-series identifiers'
+            git add textbook/volumes/00_foundations/ODE6/index.md
+            git commit -m 'Add ODE6 indicial-equation verification example'
             git push origin HEAD:${{ github.head_ref }}
           fi
 
