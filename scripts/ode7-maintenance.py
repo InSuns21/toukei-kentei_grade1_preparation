@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 import sys
 
 
@@ -52,13 +53,15 @@ def pre() -> None:
     p = Path("textbook/volumes/00_foundations/ODE7/index.md")
     s = p.read_text()
 
-    # Accidental TeX Greek nu introduced where the unknown function u was intended.
-    count = s.count("\\nu")
-    s = s.replace("\\nu", "u")
+    # Fix accidental Greek-nu TeX commands where the unknown function u was intended.
+    s, count = re.subn(r"\\nu(?=[_(])", "u", s)
     print(f"ODE7: replaced {count} accidental \\nu occurrences")
 
-    # Formal-statement panels use the marker for layout; display math itself must not be quoted.
+    # Formal-statement panels use blockquote text only; display math itself stays outside the quote.
     s = normalize_formal_display_math(s)
+
+    # Definition-example validator requires the exact bold marker, followed by the example title.
+    s = re.sub(r"\*\*定義の確認：([^*\n]+)\*\*", r"**定義の確認**：\1", s)
 
     # Avoid collision with the later L2-specific formal alias while defining the local weighted pairing.
     s = s.replace("## 4. 重み付き積分内積と固有関数", "## 4. 重み付き内積と固有関数")
@@ -94,8 +97,9 @@ def pre() -> None:
         "解 $u$ が存在すると仮定します。[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u$ と $\\phi$ を使うと、",
     )
 
-    # This occurrence uses “spectrum” only informally; keep the chapter independent of later operator spectrum.
+    # Keep later operator theory as an explicit proof boundary without importing FA5 vocabulary as a dependency.
     s = s.replace("境界条件がスペクトルを変えています。", "境界条件が固有値列を変えています。")
+    s = s.replace("関数解析側のスペクトル理論で厳密化します。", "関数解析側のコンパクト自己共役作用素論で厳密化します。")
 
     intro = "## 10. Dirichlet 条件：正弦系を最初から導く\n\n"
     if "三つの標準境界条件の固有値列" not in s:
@@ -106,6 +110,17 @@ def pre() -> None:
             "standard boundary spectra introduction",
         )
 
+    p.write_text(s)
+
+    # Keep chapter/glossary naming consistent with the local concept and avoid the global L2 alias collision.
+    p = Path("textbook/volumes/00_foundations/ODE7/chapter.yaml")
+    s = p.read_text().replace("重み付き積分内積", "重み付き内積")
+    p.write_text(s)
+
+    p = Path("textbook/volumes/00_foundations/ODE7/glossary.yaml")
+    s = p.read_text()
+    s = s.replace("term: 重み付き積分内積", "term: 重み付き内積")
+    s = s.replace("english: weighted integral inner product", "english: weighted inner product")
     p.write_text(s)
 
     p = Path("textbook/dream-theater.md")
