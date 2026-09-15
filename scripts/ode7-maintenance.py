@@ -9,14 +9,104 @@ def replace_once(text: str, old: str, new: str, label: str) -> str:
     return text.replace(old, new, 1)
 
 
+def normalize_formal_display_math(text: str) -> str:
+    lines = text.splitlines()
+    out = []
+    in_formal = False
+    in_display = False
+    for line in lines:
+        if "<!-- formal-statement-start -->" in line:
+            in_formal = True
+            out.append(line)
+            continue
+        if "<!-- formal-statement-end -->" in line:
+            in_formal = False
+            in_display = False
+            out.append(line)
+            continue
+        if in_formal:
+            stripped = line.strip()
+            if stripped == ">":
+                out.append("")
+                continue
+            candidate = line.lstrip()
+            prefix = line[: len(line) - len(candidate)]
+            if candidate.startswith("> "):
+                content = candidate[2:]
+            elif candidate == ">":
+                content = ""
+            else:
+                content = None
+            if content == "$$":
+                out.append(prefix + "$$")
+                in_display = not in_display
+                continue
+            if in_display and content is not None:
+                out.append(prefix + content)
+                continue
+        out.append(line)
+    return "\n".join(out) + ("\n" if text.endswith("\n") else "")
+
+
 def pre() -> None:
     p = Path("textbook/volumes/00_foundations/ODE7/index.md")
     s = p.read_text()
-    count = s.count(r"\nu")
-    if count:
-        s = s.replace(r"\nu", "u")
-    p.write_text(s)
+
+    # Accidental TeX Greek nu introduced where the unknown function u was intended.
+    count = s.count("\\nu")
+    s = s.replace("\\nu", "u")
     print(f"ODE7: replaced {count} accidental \\nu occurrences")
+
+    # Formal-statement panels use the marker for layout; display math itself must not be quoted.
+    s = normalize_formal_display_math(s)
+
+    # Avoid collision with the later L2-specific formal alias while defining the local weighted pairing.
+    s = s.replace("## 4. 重み付き積分内積と固有関数", "## 4. 重み付き内積と固有関数")
+    s = s.replace("**定義（重み付き積分内積）**", "**定義（重み付き内積の記号）**")
+
+    # Stable-anchor references for proof dependencies.
+    s = s.replace(
+        "Lagrange 恒等式で $u=v=y$ と置くと、前節の定理により境界項は 0 です。",
+        "[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u=v=y$ と置くと、[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)により境界項は 0 です。",
+    )
+    s = s.replace(
+        "Lagrange 恒等式と境界形式の消滅から",
+        "[Lagrange 恒等式](#thm-ode7-lagrange-identity)と[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)から",
+    )
+    s = s.replace(
+        "5. 一般論では Lagrange 恒等式を出発点にし、",
+        "5. 一般論では [Lagrange 恒等式](#thm-ode7-lagrange-identity)を出発点にし、",
+    )
+    s = s.replace(
+        "8. Dirichlet 固有値の符号や下界には Rayleigh 商を使う。",
+        "8. Dirichlet 固有値の符号や下界には [Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)を使う。",
+    )
+    s = s.replace(
+        "Rayleigh 商から\n\n$$",
+        "[Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)から\n\n$$",
+    )
+    s = s.replace(
+        "本章の Lagrange 恒等式から導け。",
+        "本章の [Lagrange 恒等式](#thm-ode7-lagrange-identity)から導け。",
+    )
+    s = s.replace(
+        "解 $u$ が存在すると仮定します。Lagrange 恒等式で $u$ と $\\phi$ を使うと、",
+        "解 $u$ が存在すると仮定します。[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u$ と $\\phi$ を使うと、",
+    )
+
+    # This occurrence uses “spectrum” only informally; keep the chapter independent of later operator spectrum.
+    s = s.replace("境界条件がスペクトルを変えています。", "境界条件が固有値列を変えています。")
+
+    intro = "## 10. Dirichlet 条件：正弦系を最初から導く\n\n"
+    if "三つの標準境界条件の固有値列" not in s:
+        s = replace_once(
+            s,
+            intro,
+            intro + "ここから **三つの標準境界条件の固有値列** を、固有値の符号を省略せず順に導きます。\n\n",
+            "standard boundary spectra introduction",
+        )
+
+    p.write_text(s)
 
     p = Path("textbook/dream-theater.md")
     s = p.read_text()
@@ -39,7 +129,7 @@ def pre() -> None:
     p = Path("textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md")
     s = p.read_text()
     old_row = "| ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |"
-    in_progress = "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | CI確認中 |"
+    in_progress = "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | CI確認中 |"
     if old_row in s:
         s = replace_once(s, old_row, in_progress, "ODE7 progress row")
     p.write_text(s)
@@ -48,9 +138,15 @@ def pre() -> None:
 def post() -> None:
     p = Path("textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md")
     s = p.read_text()
-    old = "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | CI確認中 |"
-    new = "| ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |"
-    s = replace_once(s, old, new, "final ODE7 row")
+    old_candidates = [
+        "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | CI確認中 |",
+        "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | CI確認中 |",
+    ]
+    old = next((candidate for candidate in old_candidates if candidate in s), None)
+    if old is None:
+        raise SystemExit("final ODE7 row not found")
+    new = "| ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |"
+    s = s.replace(old, new, 1)
 
     old_tail = "次の実装単位は **ODE7「境界値問題・Sturm--Liouville」**。PDE3 に残る Sturm--Liouville 部分を再利用候補として監査し、境界条件、自己共役形、固有値・固有関数、直交性、Fourier 系列への接続を ODE 側の正本として閉じる。後続 PDE の理論を現在章へ逆輸入しない。"
     new_tail = """## 11.8 ODE7 で今回閉じた品質論点と検証記録
@@ -62,7 +158,7 @@ def post() -> None:
 - Dirichlet問題のRayleigh商を部分積分から導き、係数の下限・上限とCauchy--Schwarzから粗い固有値下界まで計算した。共鳴する非斉次問題では、外力が固有関数に直交しなければ解けない必要条件をLagrange恒等式から導いた。
 - 一般正則Sturm--Liouville問題の固有値列の存在・離散性・完全性は、直交性だけから飛躍させず意図的黒箱として証明境界を明示した。後続Fourier解析・コンパクト自己共役作用素論へ送り、未実装のFOUを現在章のprerequisiteへ逆輸入していない。
 - 旧 F0-00PDE3 は内容正本から互換ハブへ退役させ、Sturm--Liouville のconcept ownershipをODE7へ一本化した。
-- 演習は A4 / B3 / C1 を実装し、境界値問題の解個数、Robin境界形式、Dirichlet / Neumann / 混合スペクトル、直交性、単純性、Rayleigh商、共鳴可解条件を実際に使わせ、全問に詳細解答を付した。
+- 演習は A4 / B3 / C1 を実装し、境界値問題の解個数、Robin境界形式、Dirichlet / Neumann / 混合固有値列、直交性、単純性、Rayleigh商、共鳴可解条件を実際に使わせ、全問に詳細解答を付した。
 - `npm run validate`、`npm run validate:pages`、`npm run validate:dream-theater-exercise-counts`、changed-only concept / knowledge / terminology、standard math core 検証を通し、`npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` も実行した。
 
 次の実装単位は **FOU1「Fourier級数・直交性・係数計算」**。旧 `F0_00FA1_Fourier級数_直交展開` を主要再利用元として、初学者向けの係数計算・偶奇性・半区間展開・Bessel不等式を前段に整理し、測度論・Hilbert空間を入口の必須前提にしない。"""
