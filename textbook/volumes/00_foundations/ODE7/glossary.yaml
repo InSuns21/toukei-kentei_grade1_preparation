@@ -1,0 +1,38 @@
+chapter: "ODE7"
+terms:
+  - term: 二点境界値問題
+    english: two-point boundary value problem
+    meaning: 区間の両端で条件を指定する常微分方程式問題。初期値問題と異なり、解が存在しない場合や一意でない場合がある。
+  - term: Sturm--Liouville問題
+    english: Sturm--Liouville problem
+    meaning: -(p y')'+q y=lambda w y と端点の線形境界条件からなる固有値境界値問題。
+  - term: 正則Sturm--Liouville問題
+    english: regular Sturm--Liouville problem
+    meaning: 有限閉区間上で p がC1級、q,wが連続、p>0,w>0 を満たすSturm--Liouville問題。
+  - term: 分離型境界条件
+    english: separated boundary conditions
+    meaning: 左端と右端でそれぞれ独立に alpha1 y(a)+alpha2 p(a)y'(a)=0、beta1 y(b)+beta2 p(b)y'(b)=0 の形に課す境界条件。
+  - term: 自己共役境界条件
+    english: self-adjoint boundary conditions
+    meaning: Lagrange境界形式 [p(u conjugate(v)' - u' conjugate(v))]_a^b を許容関数どうしで0にする境界条件。本章では実係数の分離型条件を扱う。
+  - term: 重み付き積分内積
+    english: weighted integral inner product
+    meaning: 正の重み w に対して <f,g>_w=int_a^b f(x) conjugate(g(x)) w(x) dx と定める内積。
+  - term: Lagrange恒等式
+    english: Lagrange identity
+    meaning: Sturm--Liouville微分式 L[y]=-(p y')'+q y に対し、積分した差 <Lu,v>-<u,Lv> を端点の境界形式へ変換する恒等式。
+  - term: 固有値
+    english: eigenvalue
+    meaning: Sturm--Liouville境界値問題に非零解が存在するようなパラメータ lambda。
+  - term: 固有関数
+    english: eigenfunction
+    meaning: 固有値 lambda に対して境界条件を満たし L[y]=lambda w y を満たす非零解。
+  - term: Rayleigh商
+    english: Rayleigh quotient
+    meaning: Dirichlet型Sturm--Liouville問題で int(p|y'|^2+q|y|^2)/int w|y|^2 により固有値を表す比。
+  - term: 共鳴
+    english: resonance
+    meaning: 非斉次境界値問題のパラメータが斉次問題の固有値に一致し、斉次解が残るため一意性や可解性に直交条件が必要になる状況。
+  - term: 固有関数展開
+    english: eigenfunction expansion
+    meaning: 関数をSturm--Liouville固有関数の級数として表す考え方。一般正則問題での完全性は本章では証明境界を明示して外部定理として扱う。
