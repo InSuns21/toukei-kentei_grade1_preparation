@@ -80,7 +80,7 @@ concepts:
   - id: ode.ode6-root-cases
     name: 指標根の差とFrobenius解の分岐
     kind: proposition
-    aliases: [指標根の差, Frobenius共鳴, 共鳴]
+    aliases: [指標根の差, Frobenius共鳴]
     introduction: formal
     requires:
       - ode.ode6-frobenius-recurrence
