@@ -664,7 +664,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE4 | **実装・検証完了（PR #282）** | 非線形自律系、平衡点・nullcline、Fréchet/Jacobian 線形化、双曲型・非双曲型を実装。Hurwitz 線形化から局所指数安定性を定数変化公式・剰余評価・退出時刻・解延長まで閉じ、保存量判定と非双曲型の反例も示した | A4 / B3 / C1。全問に詳細解答あり | ODE3 + F0-02C3。一般の Hartman--Grobman、中心多様体、Poincaré--Bendixson、Hopf 分岐は停止線外とし逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit 実行済み。ODE4 は両監査で機械 P2、人手再査読で OK |
 | ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |
 | ODE6 | **実装・検証完了（PR #287）** | 収束冪級数表示と項別微分の正当化、常点の冪級数解と係数漸化式・収束、正則特異点の Frobenius 級数・指標方程式・非共鳴収束、指標根の差と共鳴、Bessel / Legendre の代表計算まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + RA5。複素解析 CA3 や一般特殊関数論を逆輸入せず、Weierstrass M-test / 微分と極限交換は RA5 正本を参照 | textbook 検証一式と proof / formalism pedagogy audit を green 確認。Pages / exercises / concepts / standard math core / terminology は final head で再確認して merge |
-| ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |
+| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | CI確認中 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
