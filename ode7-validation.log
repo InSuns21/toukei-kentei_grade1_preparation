@@ -57,13 +57,8 @@ Formal reference validation passed: 507 precise dependency link(s), 1408 stable 
 > toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
 > node scripts/validate-definition-example-checks.mjs
 
-Definition-example validation failed with 5 issue(s):
-- textbook/volumes/00_foundations/ODE7/index.md:29: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:97: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:148: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:189: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:224: definition-example block must contain **定義の確認**.
-[exit=1]
+Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
+[exit=0]
 ===== npm run validate:pages =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:pages
@@ -103,12 +98,42 @@ Formal reference validation passed: 507 precise dependency link(s), 1408 stable 
 > toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
 > node scripts/validate-definition-example-checks.mjs
 
-Definition-example validation failed with 5 issue(s):
-- textbook/volumes/00_foundations/ODE7/index.md:29: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:97: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:148: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:189: definition-example block must contain **定義の確認**.
-- textbook/volumes/00_foundations/ODE7/index.md:224: definition-example block must contain **定義の確認**.
+Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 anki:build
+> node anki/scripts/curated_build.mjs
+
+built 762 cards in 7 category page(s), max 200 per page
+Prepared 60 KaTeX font files for GitHub Pages.
+statistical-mathematics: 105 tiered Markdown files published
+applied-rikou-80: 87 tiered Markdown files published
+GitHub Pages site assembled at _site/
+Tiered Markdown links in sidebar: 192
+Textbook: 46 chapters, 111 chapter Markdown files published
+Anki: curated static HTML site published at anki/index.html
+Formal statement panel validation passed for generated Pages: 1156 panel(s), 1156 anchored panel(s), 1170 stable anchor(s), 1156 declaration(s), 147 page(s), standard blue rule verified.
+Local KaTeX fallback published: JS, CSS, 60 font files.
+Textbook single-page rendering: canonical 218, legacy-composed 0, inlined appendices 8, auxiliary Markdown removed 111
+Linear algebra calculation drills merged into canonical index.md: A8/B10/C4.
+Textbook navigation titles normalized from chapter source: 46
+Published shared guidelines to GitHub Pages artifact: CONTENT_GUIDELINES.md, EXERCISE_GUIDELINES.md
+Exercise Markdown Pages links prepared: 225 Markdown files, 358 local links validated, 1 file(s) redirected to canonical textbook pages.
+Normalized 8 explicit Docsify route link(s) across 4 generated Markdown file(s).
+GitHub Pages link validation failed:
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/x
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/x
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/a
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/b
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
+- textbook/volumes/00_foundations/ODE7/index.md: link does not resolve to a generated file: textbook/volumes/00_foundations/ODE7/0
 [exit=1]
 ===== npm run validate:dream-theater-exercise-counts =====
 
@@ -151,7 +176,7 @@ ERROR: 3 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「初期値問題」を共有しています: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「変数分離」を共有しています: ode.ode1-separable-equation, pde.separation-of-variables
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「平衡点」を共有しています: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1234 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:1 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 - [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:30 概念「変数分離法」(pde.separation-of-variables) を使用していますが、導入ページ F0-00PDE2 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
@@ -162,7 +187,7 @@ fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but 
 main版の同じページにも同じknowledge conceptのaliasが存在した場合、リンク化や言い換えで行が変わっても新規依存とはみなしません。
 
 変更内容に起因する DREAM THEATER 概念依存違反が残っています:
-  textbook/volumes/00_foundations/ODE7/index.md:968 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
+  textbook/volumes/00_foundations/ODE7/index.md:1234 概念「resolvent集合・spectrum」(functional.resolvent-spectrum) を使用していますが、導入ページ FA5 は prerequisite から到達できません。明示的な予告なら forward_references に登録してください。
 [exit=1]
 ===== npm run validate:textbook-knowledge:changed =====
 
