@@ -42,68 +42,64 @@ jobs:
   validate-textbook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref || github.ref_name }}
+          ref: ${{ github.head_ref }}
 
-      - name: Add ODE6 indicial-equation verification example
+      - name: Apply ODE6 reader-facing fixes
         if: github.event_name == 'pull_request' && github.head_ref == 'feat/ode6-series-frobenius'
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-
           path = Path('textbook/volumes/00_foundations/ODE6/index.md')
           text = path.read_text(encoding='utf-8')
+          replacements = {
+              '# ODE6 標準常微分方程式 VI：級数解・正則特異点': '# ODE6 級数解の局所構成',
+              'ODE2 では連続係数の線形初期値問題が一意に解けることを証明し、定係数方程式や Cauchy--Euler 方程式を解きました。本章では、係数が変数に依存して初等関数だけでは解きにくいとき、**解そのものを級数として構成する**方法へ進みます。': 'ODE2 では連続係数の線形方程式について、与えた初期値から解が一意に定まることを証明し、定係数方程式や Cauchy--Euler 方程式を解きました。本章では、係数が変数によって変わり、初等関数だけでは解きにくいとき、**解そのものを級数として構成する**方法へ進みます。',
+              '1. 係数が収束冪級数で表せる常点では、なぜ $y=\\sum a_n(x-x_0)^n$ と置いてよいのか。': '1. 係数が収束冪級数で表せる点では、なぜ $y=\\sum a_n(x-x_0)^n$ と置いてよいのか。',
+              '2. 最高階係数が消える特異点では、なぜ $y=(x-x_0)^r\\sum a_n(x-x_0)^n$ と先頭指数をずらすと解が見つかるのか。': '2. 最高階係数が消える点では、なぜ $y=(x-x_0)^r\\sum a_n(x-x_0)^n$ と先頭指数をずらすと解が見つかるのか。',
+              'Bessel 方程式と Legendre 方程式は特殊関数の名前を増やすためではなく、常点・正則特異点・指標方程式・係数漸化式・共鳴・級数の打ち切りを手で確認する代表例として使います。': 'Bessel 方程式と Legendre 方程式は特殊関数の名前を増やすためではなく、本章で導く判定と係数漸化式がどのように働くかを手で確認する代表例として使います。',
+              '## 2. 常点・正則特異点・非正則特異点': '## 2. 展開点を係数のふるまいで分類する',
+              'ここでは $q$ の極が二次より強く、Frobenius 法を支える後述の係数評価が作れません。': 'ここでは $q$ の極が二次より強く、後述する特異点用の係数評価が作れません。',
+              '[ODE2 の線形初期値問題の存在・一意性]': '[ODE2 の線形方程式の存在・一意性]',
+              '## 4. 正則特異点では Frobenius 級数を使う': '## 4. 正則特異点では先頭指数をずらす',
+              '## 7. 指標根の差が二本目の解を左右する': '## 7. 二本目の級数が止まる条件を調べる',
+              'その段の整合条件が成立すれば純 Frobenius 級数が続く場合もあるが、成立しなければ第二解には対数項が必要になる。': 'その段で、それまでの係数だけからなる条件式が成立すれば純 Frobenius 級数が続く場合もあるが、成立しなければ第二解には対数項が必要になる。',
+              '$m$ 段目は $a_m$ を決める式ではなく過去の係数だけへの整合条件になります。': '$m$ 段目は $a_m$ を決める式ではなく、過去の係数だけを含む条件式になります。',
+              '**小さい根の漸化式が共鳴し、整合条件しだいで対数項が必要になり得る**': '**小さい根の漸化式が共鳴し、その条件式しだいで対数項が必要になり得る**',
+              '任意の $0<\\delta<\\sigma<R$ では $x^r$ とその導関数は有界で、': '任意の $0<\\delta<\\sigma<R$ では $x^r$, $rx^{r-1}$, $r(r-1)x^{r-2}$ は有界で、',
+              '別の漸近法や変数変換は後続理論へ委ねます。': '別の方法が必要になる場合がありますが、本章では扱いません。',
+              '従って収束半径は無限大です。': 'したがって、この級数の収束半径は無限大です。',
+              '局所収束冪級数表示': '収束冪級数表示',
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
           marker = '<!-- definition-example-start: def-ode6-indicial-equation -->'
           if marker not in text:
-              needle = '''> を指標方程式という。\n<!-- formal-statement-end -->\n\n指標方程式は暗記式ではありません。'''
-              replacement = r'''> を指標方程式という。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-ode6-indicial-equation -->
-**定義の確認**：Cauchy--Euler 方程式から指標方程式を作る
-
-例えば
-
-$$
-x^2y''-2y=0
-$$
-
-を考えます。このとき $A(x)=0$, $B(x)=-2$ なので
-
-$$
-\alpha_0=0,\qquad \beta_0=-2.
-$$
-
-Frobenius 級数 $y=x^r(a_0+a_1x+\cdots)$, $a_0\ne0$ を代入すると、最低次数 $x^r$ の係数は
-
-$$
-\{r(r-1)-2\}a_0
-$$
-
-です。$a_0\ne0$ だから最低次数を消す条件は
-
-$$
-F(r)=r(r-1)-2=(r-2)(r+1)=0.
-$$
-
-したがって指標根は $r=2,-1$ です。これは定義式 $F(r)=r(r-1)+\alpha_0r+\beta_0$ へ $\alpha_0=0$, $\beta_0=-2$ を代入した結果と一致します。
-<!-- definition-example-end -->
-
-指標方程式は暗記式ではありません。'''
+              needle = '> を指標方程式という。\n<!-- formal-statement-end -->\n\n指標方程式は暗記式ではありません。'
+              example = '> を指標方程式という。\n<!-- formal-statement-end -->\n\n<!-- definition-example-start: def-ode6-indicial-equation -->\n**定義の確認**：Cauchy--Euler 方程式から指標方程式を作る\n\n例えば $x^2y\\x27\\x27-2y=0$ を考えます。このとき $A(x)=0$, $B(x)=-2$ なので $\\alpha_0=0$, $\\beta_0=-2$ です。$y=x^r(a_0+a_1x+\\cdots)$, $a_0\\ne0$ を代入すると、最低次数 $x^r$ の係数は $\\{r(r-1)-2\\}a_0$ です。したがって最低次数を消す条件は $F(r)=r(r-1)-2=(r-2)(r+1)=0$ で、指標根は $r=2,-1$ です。定義式へ $\\alpha_0=0$, $\\beta_0=-2$ を代入した結果と一致します。\n<!-- definition-example-end -->\n\n指標方程式は暗記式ではありません。'
               if needle not in text:
-                  raise SystemExit('could not locate indicial-equation insertion point')
-              text = text.replace(needle, replacement, 1)
-              path.write_text(text, encoding='utf-8')
+                  raise SystemExit('indicial equation insertion point not found')
+              text = text.replace(needle, example, 1)
+          path.write_text(text, encoding='utf-8')
+
+          chapter = Path('textbook/volumes/00_foundations/ODE6/chapter.yaml')
+          ctext = chapter.read_text(encoding='utf-8').replace('局所収束冪級数表示', '収束冪級数表示')
+          chapter.write_text(ctext, encoding='utf-8')
+
+          knowledge = Path('textbook/volumes/00_foundations/ODE6/knowledge.yaml')
+          ktext = knowledge.read_text(encoding='utf-8').replace('name: 局所収束冪級数表示', 'name: 収束冪級数表示').replace('aliases: [局所収束冪級数表示, 収束冪級数表示, local convergent power-series representation]', 'aliases: [収束冪級数表示, local convergent power-series representation]')
+          knowledge.write_text(ktext, encoding='utf-8')
           PY
-          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6/index.md; then
+          git diff --check
+          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/ODE6/index.md
-            git commit -m 'Add ODE6 indicial-equation verification example'
+            git add textbook/volumes/00_foundations/ODE6
+            git commit -m 'Resolve ODE6 concept first-use issues'
             git push origin HEAD:${{ github.head_ref }}
           fi
 
