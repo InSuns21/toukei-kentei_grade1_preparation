@@ -17,7 +17,7 @@ Bessel 方程式と Legendre 方程式は特殊関数の名前を増やすため
 
 <a id="def-ode6-real-analytic"></a>
 <!-- formal-statement-start -->
-> **定義（実解析的関数）**  
+> **定義（実解析性）**  
 > 関数 $f$ が点 $x_0$ で実解析的であるとは、ある $R>0$ と実数列 $(c_n)$ が存在して、$|x-x_0|<R$ で
 
 $$
@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode6-real-analytic -->
-**定義の確認：幾何級数**
+**定義の確認**：幾何級数
 
 $|x|<1$ では
 
@@ -117,7 +117,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode6-point-classification -->
-**定義の確認：極の強さを調べる**
+**定義の確認**：極の強さを調べる
 
 - $y''+xy'+(1+x^2)y=0$ では $p=x$, $q=1+x^2$ が $0$ で実解析的なので、$0$ は常点です。
 - Bessel 方程式
@@ -336,7 +336,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ode6-frobenius-series -->
-**定義の確認：Cauchy--Euler の冪解**
+**定義の確認**：Cauchy--Euler の冪解
 
 $y=x^r$ は
 
