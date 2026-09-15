@@ -28,7 +28,16 @@ jobs:
           cache: npm
 
       - name: Patch ODE7 integration
-        run: python scripts/ode7-maintenance.py pre
+        shell: bash
+        run: |
+          python scripts/ode7-maintenance.py pre
+          sed -i \
+            -e 's/B\[u,v\](x)/B_x(u,v)/g' \
+            -e 's/B\[u,v\](a)/B_a(u,v)/g' \
+            -e 's/B\[u,v\](b)/B_b(u,v)/g' \
+            -e 's/B\[u,v\](0)/B_0(u,v)/g' \
+            -e 's/ODE7-B01 Neumann と混合境界条件のスペクトル/ODE7-B01 Neumann と混合境界条件の固有値列/g' \
+            textbook/volumes/00_foundations/ODE7/index.md
 
       - name: Install dependencies
         run: npm ci
@@ -64,7 +73,7 @@ jobs:
         if: steps.validation.outputs.status == '0'
         run: |
           python scripts/ode7-maintenance.py post
-          rm -f ode7-validation.log
+          git rm -f ode7-validation.log || true
           git rm .github/workflows/ode7-maintenance.yml scripts/ode7-maintenance.py
 
       - name: Commit maintenance result
@@ -77,7 +86,12 @@ jobs:
           else
             msg='Patch ODE7 integration and record validation failures'
           fi
-          git add textbook/volumes/00_foundations/ODE7/index.md textbook/dream-theater.md textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md
+          git add \
+            textbook/volumes/00_foundations/ODE7/index.md \
+            textbook/volumes/00_foundations/ODE7/chapter.yaml \
+            textbook/volumes/00_foundations/ODE7/glossary.yaml \
+            textbook/dream-theater.md \
+            textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md
           if [ -f ode7-validation.log ]; then git add ode7-validation.log; fi
           git diff --cached --quiet || git commit -m "$msg"
           git push origin HEAD:feat/ode7-sturm-liouville
