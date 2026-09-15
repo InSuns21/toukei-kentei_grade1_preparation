@@ -1,0 +1,38 @@
+chapter: "ODE6"
+terms:
+  - term: 実解析的関数
+    english: real analytic function
+    meaning: 各点の近傍で、その点を中心とする収束冪級数と一致する実数値関数。
+  - term: 冪級数解
+    english: power-series solution
+    meaning: 常点 x0 の近くで y(x)=sum_{n>=0} a_n (x-x0)^n の形に表されるODEの解。
+  - term: 常点
+    english: ordinary point
+    meaning: 二階線形ODEを y''+p(x)y'+q(x)y=0 と正規化したとき、p と q がその点で実解析的になる点。
+  - term: 特異点
+    english: singular point
+    meaning: 正規化後の係数 p または q がその点で実解析的でなく、常点でない点。
+  - term: 正則特異点
+    english: regular singular point
+    meaning: x0 が特異点でありながら、(x-x0)p(x) と (x-x0)^2 q(x) が x0 で実解析的になる点。
+  - term: 非正則特異点
+    english: irregular singular point
+    meaning: 特異点のうち、正則特異点の条件を満たさない点。Frobenius法による局所級数解が一般には保証されない。
+  - term: Frobenius級数
+    english: Frobenius series
+    meaning: 正則特異点の近くで y=(x-x0)^r sum_{n>=0} a_n (x-x0)^n, a_0!=0 と置く局所解の形。
+  - term: 指標方程式
+    english: indicial equation
+    meaning: Frobenius級数を正則特異点のODEへ代入したとき、最低次数の係数を0と置いて得られる r の二次方程式。
+  - term: 共鳴
+    english: resonance in the Frobenius method
+    meaning: 二つの指標根の差が正整数となり、小さい根に対する係数漸化式の分母が途中で0になり得る状況。第二解に対数項が現れることがある。
+  - term: Bessel方程式
+    english: Bessel equation
+    meaning: x^2 y''+x y'+(x^2-nu^2)y=0 の形の二階線形ODE。x=0 は正則特異点で、Frobenius法の代表例になる。
+  - term: Legendre方程式
+    english: Legendre equation
+    meaning: (1-x^2)y''-2xy'+ell(ell+1)y=0 の形の二階線形ODE。x=0 は常点で、非負整数 ell では一方の冪級数が有限項で打ち切られる。
+  - term: Legendre多項式
+    english: Legendre polynomial
+    meaning: 非負整数 ell に対するLegendre方程式の多項式解を P_ell(1)=1 で正規化したもの。

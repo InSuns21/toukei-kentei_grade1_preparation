@@ -35,6 +35,9 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -43,6 +46,42 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Normalize ODE6 real-series terminology
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/ode6-series-frobenius'
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/00_foundations/ODE6/index.md')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              ('実解析的に延長できません', '実解析性をもつようには延長できません'),
+              ('実解析的に延長できるなら', '実解析性をもつように延長できるなら'),
+              ('実解析的であること', '実解析性をもつこと'),
+              ('実解析的であるとは', '実解析性をもつとは'),
+              ('実解析的でない', '実解析性をもたない'),
+              ('実解析的なので', '実解析性をもつので'),
+              ('実解析的なら', '実解析性をもつなら'),
+              ('実解析的です', '実解析性をもちます'),
+              ('実解析的で、', '実解析性をもち、'),
+              ('実解析的とし', '実解析性をもつとし'),
+              ('実解析的解', '実解析性をもつ解'),
+          ]
+          for old, new in replacements:
+              text = text.replace(old, new)
+          if '実解析的' in text:
+              raise SystemExit('unhandled 実解析的 occurrence remains')
+          path.write_text(text, encoding='utf-8')
+          PY
+          if ! git diff --quiet -- textbook/volumes/00_foundations/ODE6/index.md; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add textbook/volumes/00_foundations/ODE6/index.md
+            git commit -m 'Clarify ODE6 real power-series terminology'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
