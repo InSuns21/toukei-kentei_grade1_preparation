@@ -637,7 +637,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 
 # 11. 実装進捗
 
-最終更新: 2026-09-14
+最終更新: 2026-09-16
 
 この節を再編作業の進捗正本とし、本文・演習・監査・CIの状態を章単位で更新する。`implemented` や CI green だけを教材完成とはみなさず、Section 7 の品質基準を満たしたかを併記する。
 
@@ -663,7 +663,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE3 | **実装・検証完了（PR #280）** | 線形連立系、行列指数の級数構成と微分、基本行列、Jordan block、複素固有対、定数変化公式、2次元位相図、Lyapunov・漸近・指数安定性と境界 Jordan 条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + LA4。H1 §8–11 を移送・補強し、旧H1を ODE1–ODE3 への互換ハブ化。FA2 / PDE1 / PDE2 の旧ODE concept依存も現行IDへ移管 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も green |
 | ODE4 | **実装・検証完了（PR #282）** | 非線形自律系、平衡点・nullcline、Fréchet/Jacobian 線形化、双曲型・非双曲型を実装。Hurwitz 線形化から局所指数安定性を定数変化公式・剰余評価・退出時刻・解延長まで閉じ、保存量判定と非双曲型の反例も示した | A4 / B3 / C1。全問に詳細解答あり | ODE3 + F0-02C3。一般の Hartman--Grobman、中心多様体、Poincaré--Bendixson、Hopf 分岐は停止線外とし逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit 実行済み。ODE4 は両監査で機械 P2、人手再査読で OK |
 | ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |
-| ODE6 | 未着手 | - | - | ODE2 + RA5 | 未実施 |
+| ODE6 | **実装・検証完了（PR #287）** | 収束冪級数表示と項別微分の正当化、常点の冪級数解と係数漸化式・収束、正則特異点の Frobenius 級数・指標方程式・非共鳴収束、指標根の差と共鳴、Bessel / Legendre の代表計算まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + RA5。複素解析 CA3 や一般特殊関数論を逆輸入せず、Weierstrass M-test / 微分と極限交換は RA5 正本を参照 | textbook 検証一式と proof / formalism pedagogy audit を green 確認。Pages / exercises / concepts / standard math core / terminology は final head で再確認して merge |
 | ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
@@ -702,4 +702,14 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - **Validate textbook / Validate Pages assembly / Validate DREAM THEATER exercises / Validate DREAM THEATER concepts / Validate DREAM THEATER standard math core / Validate terminology** の6系統を green 確認した。さらに `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` を実行し、ODE4 はいずれも機械 P2。前者は「証明4本・直接例5件・証明比15%・省略語候補0」、後者は「proof block 4・隠れ証明0・直接例5件」で、P2 の主因は「直感/意味」という名前の見出しがないことだった。本文の導入、線形化の限界説明、実践フロー、各例を人手で再査読し、見出し追加だけでスコアを下げる修正は不要と判断して **OK** とした。
 - 二監査を実行するため一時的に追加した Actions の監査ステップは、結果確認後に元の workflow へ完全に戻した。
 
-次の実装単位は **ODE6 級数解・正則特異点**。常点での冪級数解、係数漸化式、正則特異点、Frobenius 法の基本、Bessel / Legendre 方程式を代表例として標準コアを閉じる。特殊関数の百科事典化は避け、ODE2 + RA5 の前提境界を守る。
+## 11.7 ODE6 で今回閉じた品質論点と検証記録
+
+- 係数の収束冪級数表示を局所概念として定義し、冪級数の項別微分を RA5 の Weierstrass M-test と微分・極限交換から正当化した。複素解析の「解析的関数」と語彙・依存を混同しない。
+- 常点では係数漸化式を積の Cauchy 型係数比較から導き、重み付き係数評価で局所収束を示したうえで、ODE2 の存在一意性と接続して初期値から定まる局所冪級数解を閉じた。
+- 正則特異点では Frobenius 級数、指標方程式、一般係数漸化式を最低次数から導出し、非共鳴時の収束を分母の二次成長と係数評価から示した。指標根の差が正整数の場合も「必ず対数項」とはせず、共鳴段の条件式が成立するかで分岐することを明示した。
+- 指標方程式には Cauchy--Euler 方程式から最低次数を実際に計算する直接例を追加し、Bessel 方程式では整数差共鳴、Legendre 方程式では級数の打ち切りを手計算で確認した。
+- 演習は A4 / B3 / C1 を実装し、常点・特異点分類、係数漸化式、重根、Bessel、非整数差、共鳴、Legendre 多項式を実際に使わせ、全問に詳細解答を付した。
+- 前提は ODE2 + RA5 に保ち、CI の語彙衝突を理由に CA3 を追加しなかった。一般特殊関数論や複素解析的延長も現在章へ逆輸入していない。
+- `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` を含む textbook 検証一式を green 確認した。監査のため一時追加した Actions 処理は最終 head では撤去する。
+
+次の実装単位は **ODE7「境界値問題・Sturm--Liouville」**。PDE3 に残る Sturm--Liouville 部分を再利用候補として監査し、境界条件、自己共役形、固有値・固有関数、直交性、Fourier 系列への接続を ODE 側の正本として閉じる。後続 PDE の理論を現在章へ逆輸入しない。
