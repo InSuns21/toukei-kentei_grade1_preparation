@@ -3,8 +3,11 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - ODE2
+forward_references:
+  - pde.separation-of-variables
+  - pde.heat-equation
 
-# 一般正則Sturm--Liouville問題の完全性・離散スペクトルの一般証明は、
+# 一般正則Sturm--Liouville問題の完全性・離散固有値列の一般証明は、
 # Fourier解析再編およびコンパクト自己共役作用素論へ送る。
 # 本章ではODE2の初期値一意性と1次元のLagrange恒等式だけで閉じる結果を正本化する。
 
@@ -21,6 +24,7 @@ concepts:
     name: 正則Sturm--Liouville問題
     kind: definition
     aliases: [Sturm--Liouville問題, 正則Sturm--Liouville問題, Sturm--Liouville problem]
+    introduction_aliases: [正則 Sturm--Liouville 問題]
     introduction: formal
     requires:
       - ode.ode7-two-point-bvp
@@ -34,9 +38,10 @@ concepts:
       - ode.ode7-regular-sturm-liouville
 
   - id: ode.ode7-weighted-inner-product
-    name: 重み付き積分内積
+    name: 重み付き内積
     kind: definition
-    aliases: [重み付き積分内積, weighted integral inner product]
+    aliases: [重み付き内積, weighted inner product]
+    introduction_aliases: [重み付き内積の記号]
     introduction: formal
     requires:
       - ode.ode7-regular-sturm-liouville
@@ -53,6 +58,7 @@ concepts:
     name: Lagrange恒等式
     kind: theorem
     aliases: [Lagrange恒等式, Lagrange identity, Green型恒等式]
+    introduction_aliases: [Lagrange 恒等式]
     introduction: formal
     requires:
       - ode.ode7-regular-sturm-liouville
@@ -94,9 +100,10 @@ concepts:
       - ode.ode2-linear-ivp-wellposedness
 
   - id: ode.ode7-dirichlet-neumann-spectrum
-    name: Dirichlet・Neumann・混合境界条件の標準スペクトル
+    name: Dirichlet・Neumann・混合境界条件の標準固有値列
     kind: method
     aliases: [Dirichlet固有値, Neumann固有値, 混合境界条件の固有値]
+    introduction_aliases: [三つの標準境界条件の固有値列]
     introduction: inline
     requires:
       - ode.ode7-eigenpair
@@ -105,6 +112,7 @@ concepts:
     name: Dirichlet問題のRayleigh商
     kind: theorem
     aliases: [Rayleigh商, Rayleigh quotient]
+    introduction_aliases: [Dirichlet 問題の Rayleigh 商]
     introduction: formal
     requires:
       - ode.ode7-boundary-form-vanishing
