@@ -1,0 +1,36 @@
+id: "ODE7"
+title: "標準常微分方程式 VII：境界値問題・Sturm--Liouville"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE2
+official_scope: []
+learning_objectives:
+  - 初期値問題と二点境界値問題の違いを説明し、境界条件により解の存在・一意性が失敗し得ることを具体例で確認できる
+  - 正則Sturm--Liouville問題と分離型自己共役境界条件を定義し、各仮定がLagrange恒等式と固有値問題で果たす役割を説明できる
+  - 重み付き積分内積とLagrange恒等式を使い、境界形式が消えることを端点ごとに検証できる
+  - 正則Sturm--Liouville問題の固有値が実数であること、異なる固有値の固有関数が重み付き内積で直交することを証明できる
+  - 分離型境界条件の下で各固有値の固有空間が1次元になることをODEの初期値一意性から証明できる
+  - Dirichlet・Neumann・混合境界条件について -y''=lambda y の固有値と固有関数を lambda<0, lambda=0, lambda>0 に分けて導ける
+  - Dirichlet問題のRayleigh商を導き、係数の符号仮定から固有値の下界を評価できる
+  - 固有関数展開と共鳴時の可解条件の意味を説明し、一般完全性の証明境界をFourier解析・コンパクト自己共役作用素論と混同せず位置付けられる
+definitions:
+  - { id: ODE7-DEF-01, name: 二点境界値問題 }
+  - { id: ODE7-DEF-02, name: 正則Sturm--Liouville問題 }
+  - { id: ODE7-DEF-03, name: 分離型自己共役境界条件 }
+  - { id: ODE7-DEF-04, name: 重み付き積分内積 }
+  - { id: ODE7-DEF-05, name: Sturm--Liouville固有値・固有関数 }
+theorems:
+  - { id: ODE7-THM-01, name: Lagrange恒等式 }
+  - { id: ODE7-THM-02, name: 分離型境界条件による境界形式の消滅 }
+  - { id: ODE7-THM-03, name: 固有値の実数性 }
+  - { id: ODE7-THM-04, name: 異なる固有値に属する固有関数の直交性 }
+  - { id: ODE7-THM-05, name: 分離型問題の固有値の単純性 }
+  - { id: ODE7-THM-06, name: Dirichlet問題のRayleigh商 }
+  - { id: ODE7-THM-07, name: 共鳴時の必要可解条件 }
+canonical_examples: [Dirichlet境界条件と正弦固有関数, Neumann境界条件と余弦固有関数, Dirichlet-Neumann混合境界条件, Robin境界条件の境界形式, 共鳴する非斉次境界値問題]
+problem_patterns: [ODE-BVP-EXISTENCE-1, ODE-STURM-LIOUVILLE-IDENTITY-1, ODE-STURM-LIOUVILLE-ORTHOGONALITY-1, ODE-STURM-LIOUVILLE-SPECTRUM-1, ODE-STURM-LIOUVILLE-RAYLEIGH-1, ODE-BVP-RESONANCE-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 3.5, review: 0.5 }
