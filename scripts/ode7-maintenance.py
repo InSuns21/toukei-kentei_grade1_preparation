@@ -1,184 +1,276 @@
 from pathlib import Path
-import re
 import sys
 
-
-def replace_once(text: str, old: str, new: str, label: str) -> str:
-    count = text.count(old)
-    if count != 1:
-        raise SystemExit(f"{label}: expected exactly one match, got {count}")
-    return text.replace(old, new, 1)
+ODE7 = Path("textbook/volumes/00_foundations/ODE7/index.md")
+ODE7_KNOWLEDGE = Path("textbook/volumes/00_foundations/ODE7/knowledge.yaml")
+OLD_PDE3 = Path("textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md")
+PLAN = Path("textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md")
 
 
-def normalize_formal_display_math(text: str) -> str:
-    lines = text.splitlines()
-    out = []
-    in_formal = False
-    in_display = False
-    for line in lines:
-        if "<!-- formal-statement-start -->" in line:
-            in_formal = True
-            out.append(line)
-            continue
-        if "<!-- formal-statement-end -->" in line:
-            in_formal = False
-            in_display = False
-            out.append(line)
-            continue
-        if in_formal:
-            stripped = line.strip()
-            if stripped == ">":
-                out.append("")
-                continue
-            candidate = line.lstrip()
-            prefix = line[: len(line) - len(candidate)]
-            if candidate.startswith("> "):
-                content = candidate[2:]
-            elif candidate == ">":
-                content = ""
-            else:
-                content = None
-            if content == "$$":
-                out.append(prefix + "$$")
-                in_display = not in_display
-                continue
-            if in_display and content is not None:
-                out.append(prefix + content)
-                continue
-        out.append(line)
-    return "\n".join(out) + ("\n" if text.endswith("\n") else "")
+def patch_ode7() -> None:
+    s = ODE7.read_text()
+
+    # ODE1/ODE2 both own a legacy alias "初期値問題".  In ODE7, state the
+    # prescribed data explicitly rather than creating a third ambiguous owner.
+    s = s.replace("初期値問題", "一点初期データ問題")
+    s = s.replace("二階常微分方程式", "二階 ODE")
+    s = s.replace("常微分方程式", "ODE")
+
+    # Formal concepts are introduced by their formal panels, not by headings.
+    s = s.replace("## 2. 正則 Sturm--Liouville 問題", "## 2. 正則性の仮定を固定する")
+    s = s.replace("## 4. 重み付き内積と固有関数", "## 4. 固有値問題を比べる積分と非零解")
+    s = s.replace("## 5. Lagrange 恒等式：直交性を生む一行の出発点", "## 5. 直交性を生む積分恒等式")
+    s = s.replace("## 13. Rayleigh 商：固有値をエネルギー比として読む", "## 13. 固有値をエネルギー比として読む")
+
+    # Avoid concept names before their formal declarations.
+    s = s.replace("固有値の実数性や直交性を取り出すときに働きます。", "固有値が実数になることや直交性を取り出すときに働きます。")
+    s = s.replace("後でこの問題の固有関数が $\\sin(n\\pi x/L)$ になることを、", "後でこの問題から $\\sin(n\\pi x/L)$ が現れることを、")
+
+    # Keep headings reader-facing while terminology ownership lives in knowledge.yaml.
+    s = s.replace("## 6. なぜ分離型境界条件で境界形式が消えるのか", "## 6. 分離型条件で境界形式が消える理由")
+    s = s.replace("## 14. 共鳴すると、外力にも直交条件が現れる", "## 14. 共鳴すると外力に直交性が課される")
+    s = s.replace("### ODE7-A02 Robin 条件で境界形式を消す", "### ODE7-A02 Robin 型で境界形式を消す")
+    s = s.replace("### ODE7-A04 正弦固有関数の直交性を積分で確認する", "### ODE7-A04 正弦モードの直交性を積分で確認する")
+
+    s = s.replace(
+        "固定した固有値 $\\lambda$ に属する任意の二つの固有関数 $u,v$ は比例する。従って各固有値の固有空間は一次元である。",
+        "固定した固有値 $\\lambda$ に属する任意の二つの固有関数 $u,v$ は比例する。これが本章でいう固有値の単純性である。",
+    )
+
+    # Completeness is deliberately deferred.  Describe the stopping point without
+    # importing later operator-theory terminology into the ODE prerequisite graph.
+    s = s.replace("**完全性**：必要な関数を固有関数列で近似・展開できる。", "**完全性**：展開対象を固有関数列で近似・展開できる。")
+    s = s.replace("適切な関数空間では固有関数が完全系をなし、", "適切な関数クラスでは固有関数が完全系をなし、")
+    s = s.replace("Rayleigh 商、共鳴の必要条件までは本文で閉じました。一般問題の固有値列の存在・離散性・完全性は、後続の Fourier 解析と関数解析側のコンパクト自己共役作用素論で厳密化します。", "Rayleigh 商、共鳴時の可解性制約までは本文で閉じました。一般問題の固有値列の存在・離散性・完全性は、後続の Fourier 解析と関数解析で厳密化します。")
+
+    s = s.replace("したがって共鳴点では逆作用素に相当する一意な解写像を作れません。", "したがって共鳴点では右辺から解を一意に決めることができません。")
+
+    ODE7.write_text(s)
+
+
+def write_knowledge() -> None:
+    ODE7_KNOWLEDGE.write_text("""chapter: ODE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE2
+forward_references:
+  - pde.separation-of-variables
+  - pde.heat-equation
+
+# 一般正則Sturm--Liouville問題の完全性・離散固有値列の一般証明は、
+# Fourier解析再編および後続の関数解析へ送る。
+# 本章ではODE2の一意性と1次元のLagrange恒等式だけで閉じる結果を正本化する。
+
+concepts:
+  - id: ode.ode7-boundary-condition-language
+    name: 境界条件
+    kind: term
+    aliases:
+      - 境界条件
+      - 端点の斉次線形境界条件
+      - Dirichlet 条件
+      - Neumann 条件
+      - Robin 条件
+      - 混合境界条件
+      - 混合条件
+      - 三つの標準境界条件
+      - 分離型条件
+    introduction: inline
+    requires:
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode7-two-point-bvp
+    name: 二点境界値問題
+    kind: definition
+    aliases: [二点境界値問題, two-point boundary value problem]
+    introduction: formal
+    requires:
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode7-regular-sturm-liouville
+    name: 正則Sturm--Liouville問題
+    kind: definition
+    aliases: [Sturm--Liouville問題, 正則Sturm--Liouville問題, Sturm--Liouville problem]
+    introduction_aliases: [正則 Sturm--Liouville 問題]
+    introduction: formal
+    requires:
+      - ode.ode7-two-point-bvp
+
+  - id: ode.ode7-separated-boundary-condition
+    name: 分離型自己共役境界条件
+    kind: definition
+    aliases: [分離型境界条件, 自己共役境界条件, separated boundary conditions]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-weighted-inner-product
+    name: 重み付き内積
+    kind: definition
+    aliases: [重み付き内積, weighted inner product]
+    introduction_aliases: [重み付き内積の記号]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-eigenpair
+    name: Sturm--Liouville固有値・固有関数
+    kind: definition
+    aliases: [Sturm--Liouville固有値, Sturm--Liouville固有関数, 固有関数]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-eigenfunction-family-language
+    name: 固有関数族
+    kind: term
+    aliases:
+      - 異なる固有値の固有関数
+      - 属する固有関数
+      - 属する任意の二つの固有関数
+      - 異なる固有関数
+    introduction: inline
+    requires:
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-lagrange-identity
+    name: Lagrange恒等式
+    kind: theorem
+    aliases: [Lagrange恒等式, Lagrange identity, Green型恒等式]
+    introduction_aliases: [Lagrange 恒等式]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-boundary-form-vanishing
+    name: 分離型境界条件による境界形式の消滅
+    kind: theorem
+    aliases: [境界形式の消滅, boundary form vanishing]
+    introduction: formal
+    requires:
+      - ode.ode7-separated-boundary-condition
+      - ode.ode7-lagrange-identity
+
+  - id: ode.ode7-real-eigenvalues
+    name: 固有値の実数性
+    kind: theorem
+    aliases: [Sturm--Liouville固有値の実数性]
+    introduction: formal
+    requires:
+      - ode.ode7-eigenpair
+      - ode.ode7-weighted-inner-product
+      - ode.ode7-boundary-form-vanishing
+
+  - id: ode.ode7-orthogonality
+    name: 異なる固有値に属する固有関数の直交性
+    kind: theorem
+    aliases: [固有関数の直交性, Sturm--Liouville直交性]
+    introduction: formal
+    requires:
+      - ode.ode7-real-eigenvalues
+
+  - id: ode.ode7-simple-eigenvalue
+    name: 分離型問題の固有値の単純性
+    kind: theorem
+    aliases: [固有値の単純性, simple eigenvalue]
+    introduction: formal
+    requires:
+      - ode.ode7-separated-boundary-condition
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode7-dirichlet-neumann-spectrum
+    name: Dirichlet・Neumann・混合境界条件の標準固有値列
+    kind: method
+    aliases: [Dirichlet固有値, Neumann固有値, 混合境界条件の固有値]
+    introduction_aliases: [三つの標準境界条件の固有値列]
+    introduction: inline
+    requires:
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-rayleigh-quotient
+    name: Dirichlet問題のRayleigh商
+    kind: theorem
+    aliases: [Rayleigh quotient]
+    introduction_aliases: [Dirichlet 問題の Rayleigh 商]
+    introduction: formal
+    requires:
+      - ode.ode7-boundary-form-vanishing
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-resonance-compatibility
+    name: 共鳴時の必要可解条件
+    kind: theorem
+    aliases: [共鳴時の可解条件, resonance compatibility condition, 必要条件]
+    introduction: formal
+    requires:
+      - ode.ode7-orthogonality
+
+  - id: ode.ode7-eigenfunction-expansion
+    name: 固有関数展開の意味
+    kind: method
+    aliases: [固有関数展開, eigenfunction expansion]
+    introduction: inline
+    requires:
+      - ode.ode7-orthogonality
+      - ode.ode7-dirichlet-neumann-spectrum
+""")
+
+
+def patch_old_hub() -> None:
+    s = OLD_PDE3.read_text()
+    s = s.replace("標準常微分方程式コアへ移しました。", "標準 ODE コアへ移しました。")
+    OLD_PDE3.write_text(s)
+
+
+def set_progress(status: str) -> None:
+    s = PLAN.read_text()
+    lines = s.splitlines()
+    if status == "in-progress":
+        row = "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | CI確認中 |"
+    else:
+        row = "| ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |"
+    for i, line in enumerate(lines):
+        if line.startswith("| ODE7 |"):
+            lines[i] = row
+            break
+    else:
+        raise SystemExit("ODE7 progress row not found")
+    s = "\n".join(lines) + "\n"
+
+    if status == "complete":
+        marker = "次の実装単位は **ODE7「境界値問題・Sturm--Liouville」**。"
+        summary = """## 11.8 ODE7 で今回閉じた品質論点と検証記録
+
+- 二点境界値問題では、同じ二階線形 ODE でも端点条件により解が0個・1個・無数個になり得ることを最小例で直接確認した。
+- 正則 Sturm--Liouville 問題では $p\\in C^1$, $q,w\\in C$, $p>0$, $w>0$ の役割を局所的に説明し、Lagrange恒等式と分離型境界条件による境界形式の消滅を省略せず証明した。
+- 固有値の実数性、重み付き直交性、分離型条件での固有値の単純性を、Lagrange恒等式と ODE2 の一意性だけで閉じた。
+- $-y''=\\lambda y$ の Dirichlet / Neumann / 混合境界条件を $\\lambda<0$, $\\lambda=0$, $\\lambda>0$ に分け、正弦・余弦・半整数周波数と Neumann の定数モードを手計算で導いた。
+- Dirichlet 問題の Rayleigh 商と粗い固有値下界、共鳴する非斉次問題の必要可解条件まで導出した。
+- 一般正則 Sturm--Liouville 問題の固有値列の存在・離散性・完全性は意図的な証明境界として後続 Fourier 解析・関数解析へ送り、後続理論を prerequisite へ逆輸入していない。
+- 旧 F0-00PDE3 は互換ハブへ退役させ、Sturm--Liouville の concept ownership を ODE7 へ一本化した。
+- 演習は A4 / B3 / C1、全問詳細解答付き。textbook / Pages / exercises / concepts / standard math core / terminology の検証と proof / formalism pedagogy audit を実行した。
+
+次の実装単位は **FOU1「Fourier級数・直交性・係数計算」**。旧 `F0_00FA1_Fourier級数_直交展開` を主要再利用元として、初学者向けの係数計算・偶奇性・半区間展開・Bessel不等式を前段に整理し、測度論・Hilbert空間を入口の必須前提にしない。"""
+        if marker in s:
+            start = s.index(marker)
+            end = s.find("\n", start)
+            s = s[:start] + summary + (s[end:] if end >= 0 else "\n")
+        elif "## 11.8 ODE7 で今回閉じた品質論点" not in s:
+            s = s.rstrip() + "\n\n" + summary + "\n"
+
+    PLAN.write_text(s)
 
 
 def pre() -> None:
-    p = Path("textbook/volumes/00_foundations/ODE7/index.md")
-    s = p.read_text()
-
-    # Fix accidental Greek-nu TeX commands where the unknown function u was intended.
-    s, count = re.subn(r"\\nu(?=[_(])", "u", s)
-    print(f"ODE7: replaced {count} accidental \\nu occurrences")
-
-    # Formal-statement panels use blockquote text only; display math itself stays outside the quote.
-    s = normalize_formal_display_math(s)
-
-    # Definition-example validator requires the exact bold marker, followed by the example title.
-    s = re.sub(r"\*\*定義の確認：([^*\n]+)\*\*", r"**定義の確認**：\1", s)
-
-    # Avoid collision with the later L2-specific formal alias while defining the local weighted pairing.
-    s = s.replace("## 4. 重み付き積分内積と固有関数", "## 4. 重み付き内積と固有関数")
-    s = s.replace("**定義（重み付き積分内積）**", "**定義（重み付き内積の記号）**")
-
-    # Stable-anchor references for proof dependencies.
-    s = s.replace(
-        "Lagrange 恒等式で $u=v=y$ と置くと、前節の定理により境界項は 0 です。",
-        "[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u=v=y$ と置くと、[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)により境界項は 0 です。",
-    )
-    s = s.replace(
-        "Lagrange 恒等式と境界形式の消滅から",
-        "[Lagrange 恒等式](#thm-ode7-lagrange-identity)と[分離型境界条件による境界形式の消滅](#thm-ode7-boundary-form)から",
-    )
-    s = s.replace(
-        "5. 一般論では Lagrange 恒等式を出発点にし、",
-        "5. 一般論では [Lagrange 恒等式](#thm-ode7-lagrange-identity)を出発点にし、",
-    )
-    s = s.replace(
-        "8. Dirichlet 固有値の符号や下界には Rayleigh 商を使う。",
-        "8. Dirichlet 固有値の符号や下界には [Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)を使う。",
-    )
-    s = s.replace(
-        "Rayleigh 商から\n\n$$",
-        "[Dirichlet 問題の Rayleigh 商](#thm-ode7-rayleigh)から\n\n$$",
-    )
-    s = s.replace(
-        "本章の Lagrange 恒等式から導け。",
-        "本章の [Lagrange 恒等式](#thm-ode7-lagrange-identity)から導け。",
-    )
-    s = s.replace(
-        "解 $u$ が存在すると仮定します。Lagrange 恒等式で $u$ と $\\phi$ を使うと、",
-        "解 $u$ が存在すると仮定します。[Lagrange 恒等式](#thm-ode7-lagrange-identity)で $u$ と $\\phi$ を使うと、",
-    )
-
-    # Keep later operator theory as an explicit proof boundary without importing FA5 vocabulary as a dependency.
-    s = s.replace("境界条件がスペクトルを変えています。", "境界条件が固有値列を変えています。")
-    s = s.replace("関数解析側のスペクトル理論で厳密化します。", "関数解析側のコンパクト自己共役作用素論で厳密化します。")
-
-    intro = "## 10. Dirichlet 条件：正弦系を最初から導く\n\n"
-    if "三つの標準境界条件の固有値列" not in s:
-        s = replace_once(
-            s,
-            intro,
-            intro + "ここから **三つの標準境界条件の固有値列** を、固有値の符号を省略せず順に導きます。\n\n",
-            "standard boundary spectra introduction",
-        )
-
-    p.write_text(s)
-
-    # Keep chapter/glossary naming consistent with the local concept and avoid the global L2 alias collision.
-    p = Path("textbook/volumes/00_foundations/ODE7/chapter.yaml")
-    s = p.read_text().replace("重み付き積分内積", "重み付き内積")
-    p.write_text(s)
-
-    p = Path("textbook/volumes/00_foundations/ODE7/glossary.yaml")
-    s = p.read_text()
-    s = s.replace("term: 重み付き積分内積", "term: 重み付き内積")
-    s = s.replace("english: weighted integral inner product", "english: weighted inner product")
-    p.write_text(s)
-
-    p = Path("textbook/dream-theater.md")
-    s = p.read_text()
-    ode6 = "8. [ODE6 級数解・正則特異点](textbook/volumes/00_foundations/ODE6/index.md)\n"
-    ode7 = "9. [ODE7 境界値問題・Sturm--Liouville](textbook/volumes/00_foundations/ODE7/index.md)\n"
-    if ode7 not in s:
-        s = replace_once(s, ode6, ode6 + ode7, "dream-theater ODE7 insertion")
-        replacements = [
-            ("9. [FA1 Fourier級数・直交展開]", "10. [FA1 Fourier級数・直交展開]", "FA1 renumber"),
-            ("10. [FA2 Fourier変換・畳み込み・反転]", "11. [FA2 Fourier変換・畳み込み・反転]", "FA2 renumber"),
-            ("11. [FA3 Plancherel・L2・特性関数]", "12. [FA3 Plancherel・L2・特性関数]", "FA3 renumber"),
-            ("12. [PDE1 熱方程式・Fourier変換]", "13. [PDE1 熱方程式・Fourier変換]", "PDE1 renumber"),
-            ("13. [PDE2 波動方程式・Laplace方程式]", "14. [PDE2 波動方程式・Laplace方程式]", "PDE2 renumber"),
-            ("14. [PDE3 Sturm–Liouville・スペクトル展開]", "15. [PDE3 旧URL互換：Sturm–Liouville・スペクトル展開]", "PDE3 renumber"),
-        ]
-        for old, new, label in replacements:
-            s = replace_once(s, old, new, label)
-    p.write_text(s)
-
-    p = Path("textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md")
-    s = p.read_text()
-    old_row = "| ODE7 | 未着手 | PDE3 の Sturm--Liouville 部分を移送予定 | 未着手 | ODE2 + FOU | 未実施 |"
-    in_progress = "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | CI確認中 |"
-    if old_row in s:
-        s = replace_once(s, old_row, in_progress, "ODE7 progress row")
-    p.write_text(s)
+    patch_ode7()
+    write_knowledge()
+    patch_old_hub()
+    set_progress("in-progress")
 
 
 def post() -> None:
-    p = Path("textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md")
-    s = p.read_text()
-    old_candidates = [
-        "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | CI確認中 |",
-        "| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合スペクトル、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / スペクトル論へ送り逆輸入しない | CI確認中 |",
-    ]
-    old = next((candidate for candidate in old_candidates if candidate in s), None)
-    if old is None:
-        raise SystemExit("final ODE7 row not found")
-    new = "| ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 作用素論へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |"
-    s = s.replace(old, new, 1)
-
-    old_tail = "次の実装単位は **ODE7「境界値問題・Sturm--Liouville」**。PDE3 に残る Sturm--Liouville 部分を再利用候補として監査し、境界条件、自己共役形、固有値・固有関数、直交性、Fourier 系列への接続を ODE 側の正本として閉じる。後続 PDE の理論を現在章へ逆輸入しない。"
-    new_tail = """## 11.8 ODE7 で今回閉じた品質論点と検証記録
-
-- 二点境界値問題では、同じ二階線形ODEでも端点条件により解が0個・1個・無数個になり得ることを最小例で直接確認し、初期値問題との違いを先に可視化した。
-- 正則Sturm--Liouville問題では $p\\in C^1$, $q,w\\in C$, $p>0$, $w>0$ の役割を局所的に説明し、分離型境界条件を端点データの一次元部分空間として扱った。Lagrange恒等式と境界形式の消滅は省略せず証明した。
-- 固有値の実数性、異なる固有値の固有関数の重み付き直交性、分離型条件での固有値の単純性を、Lagrange恒等式とODE2の初期値一意性だけで閉じた。
-- $-y''=\\lambda y$ について Dirichlet / Neumann / 混合境界条件を $\\lambda<0$, $\\lambda=0$, $\\lambda>0$ に分け、正弦・余弦・半整数周波数とNeumannの定数モードを手計算で導いた。
-- Dirichlet問題のRayleigh商を部分積分から導き、係数の下限・上限とCauchy--Schwarzから粗い固有値下界まで計算した。共鳴する非斉次問題では、外力が固有関数に直交しなければ解けない必要条件をLagrange恒等式から導いた。
-- 一般正則Sturm--Liouville問題の固有値列の存在・離散性・完全性は、直交性だけから飛躍させず意図的黒箱として証明境界を明示した。後続Fourier解析・コンパクト自己共役作用素論へ送り、未実装のFOUを現在章のprerequisiteへ逆輸入していない。
-- 旧 F0-00PDE3 は内容正本から互換ハブへ退役させ、Sturm--Liouville のconcept ownershipをODE7へ一本化した。
-- 演習は A4 / B3 / C1 を実装し、境界値問題の解個数、Robin境界形式、Dirichlet / Neumann / 混合固有値列、直交性、単純性、Rayleigh商、共鳴可解条件を実際に使わせ、全問に詳細解答を付した。
-- `npm run validate`、`npm run validate:pages`、`npm run validate:dream-theater-exercise-counts`、changed-only concept / knowledge / terminology、standard math core 検証を通し、`npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` も実行した。
-
-次の実装単位は **FOU1「Fourier級数・直交性・係数計算」**。旧 `F0_00FA1_Fourier級数_直交展開` を主要再利用元として、初学者向けの係数計算・偶奇性・半区間展開・Bessel不等式を前段に整理し、測度論・Hilbert空間を入口の必須前提にしない。"""
-    s = replace_once(s, old_tail, new_tail, "ODE7 next-work tail")
-    p.write_text(s)
+    set_progress("complete")
 
 
 if __name__ == "__main__":
