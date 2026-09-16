@@ -52,13 +52,9 @@ Named-result heading audit: 110 result-name heading(s), 0 incomplete formal cand
 > toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
 > node scripts/validate-formal-reference-links.mjs
 
-Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
-
-> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
-> node scripts/validate-definition-example-checks.mjs
-
-Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
-[exit=0]
+Formal reference validation failed with 1 issue(s):
+- textbook/volumes/00_foundations/RA1A/index.md:695: named proof dependency 共鳴時の必要可解条件 (ode.ode7-resonance-compatibility) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-resonance-compatibility
+[exit=1]
 ===== npm run validate:pages =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:pages
@@ -93,52 +89,9 @@ Named-result heading audit: 110 result-name heading(s), 0 incomplete formal cand
 > toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
 > node scripts/validate-formal-reference-links.mjs
 
-Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
-
-> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
-> node scripts/validate-definition-example-checks.mjs
-
-Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
-
-> toukei-kentei-grade1-preparation@0.1.0 anki:build
-> node anki/scripts/curated_build.mjs
-
-built 762 cards in 7 category page(s), max 200 per page
-Prepared 60 KaTeX font files for GitHub Pages.
-statistical-mathematics: 105 tiered Markdown files published
-applied-rikou-80: 87 tiered Markdown files published
-GitHub Pages site assembled at _site/
-Tiered Markdown links in sidebar: 192
-Textbook: 46 chapters, 111 chapter Markdown files published
-Anki: curated static HTML site published at anki/index.html
-Formal statement panel validation passed for generated Pages: 1156 panel(s), 1156 anchored panel(s), 1170 stable anchor(s), 1156 declaration(s), 147 page(s), standard blue rule verified.
-Local KaTeX fallback published: JS, CSS, 60 font files.
-Textbook single-page rendering: canonical 218, legacy-composed 0, inlined appendices 8, auxiliary Markdown removed 111
-Linear algebra calculation drills merged into canonical index.md: A8/B10/C4.
-Textbook navigation titles normalized from chapter source: 46
-Published shared guidelines to GitHub Pages artifact: CONTENT_GUIDELINES.md, EXERCISE_GUIDELINES.md
-Exercise Markdown Pages links prepared: 225 Markdown files, 358 local links validated, 1 file(s) redirected to canonical textbook pages.
-Normalized 8 explicit Docsify route link(s) across 4 generated Markdown file(s).
-GitHub Pages link validation passed: 242 sidebar links, 104 exercise-index links, 192 tiered exercises.
-Textbook validation passed: 0 chapter pages, 1891 checked Markdown links.
-Anki validation passed: 10 HTML pages, 2 CSS files, 223 local links/assets checked.
-Docsify route safety passed: relativePath is not enabled and generated Markdown navigation is site-root oriented.
-Formal Pages reference validation passed: 1384 generated stable formal link(s) across 240 textbook Markdown file(s).
-Textbook image paths fixed for Docsify: 16 root-oriented image reference(s) rewritten, 16 local image reference(s) validated.
-Pages image validation passed: 477 Markdown files scanned, 21 image reference(s), 21 local image reference(s).
-GitHub Pages math-renderer validation passed: 58 formulas protected on the conditional-normal regression page.
-Service Worker assets validated and published: service-worker.js, sw-config.js
-Service Worker cache revision stamped: bb6d6ead54a8f9c2dd80aa52113c624a37b16314
-Site metadata published: bb6d6ead @ 2026-09-16T04:40:20+09:00
-Offline manifests published: 1215 files with SHA-256 hashes
-
-> toukei-kentei-grade1-preparation@0.1.0 validate:pages:offline
-> node scripts/validate-pages-offline.mjs
-
-Offline manifests validated: 1215 files (21 images), all SHA-256 hashes match.
-DREAM THEATER offline links validated: 174.
-Service Worker runtime fallback, legacy migration, differential updates, query-string assets, and range tests passed.
-[exit=0]
+Formal reference validation failed with 1 issue(s):
+- textbook/volumes/00_foundations/RA1A/index.md:695: named proof dependency 共鳴時の必要可解条件 (ode.ode7-resonance-compatibility) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-resonance-compatibility
+[exit=1]
 ===== npm run validate:dream-theater-exercise-counts =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:dream-theater-exercise-counts
@@ -156,8 +109,8 @@ DREAM THEATER 演習量の明示例外:
 DREAM THEATER 概念依存検証（strict）
 対象ページ: 171 / knowledge移行済み: 138 / 未移行: 33
 変更ファイル: 8
-概念登録数: 1175
-ERROR: 2 / WARN: 22 / AUDIT: 0
+概念登録数: 1177
+ERROR: 2 / WARN: 21 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「ac」を共有しています: set.choice-axiom, analysis.mt4-absolute-continuous-function
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「点列コンパクト性」を共有しています: topology.sequentially-compact, topology.sequentially-compact-space
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「下極限」を共有しています: analysis.limsup-liminf, measure.limit-inferior
@@ -167,7 +120,6 @@ ERROR: 2 / WARN: 22 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「pointwise bounded family」を共有しています: analysis.pointwise-bounded-family, functional.pointwise-bounded-operator-family
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「固有値・固有ベクトル・固有空間」を共有しています: linear.eigenvalue, linear.eigenvector, linear.eigenspace, linear.eigen-data-recap-f1
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「特性多項式」を共有しています: linear.characteristic-polynomial, ode.ode2-characteristic-polynomial
-- [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「rayleigh商」を共有しています: linear.rayleigh-quotient, ode.ode7-rayleigh-quotient
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「banach空間」を共有しています: functional.banach-space, functional.banach-space-recap-d2e, functional.banach-space-recap-c1
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「outer measure」を共有しています: measure.outer-measure, measure.riesz-outer-measure-theorem
 - [WARN] textbook/dream-theater-knowledge.yaml:1 別ページの概念が同じ別名「測度の絶対連続性」を共有しています: measure.signed-absolute-continuity, measure.absolute-continuity
@@ -221,16 +173,10 @@ fatal: path 'textbook/volumes/00_foundations/F0_00SDE1_Euler_Maruyama_strong_wea
 fatal: path 'textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_order_proof/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 fatal: path 'textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 fatal: path 'textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
-fatal: path 'textbook/volumes/00_foundations/ODE7/index.md' exists on disk, but not in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 DREAM THEATER 未定義語・first-use・alias衝突検証（strict）
-対象ページ: 171 / 登録概念: 1175 / alias: 2310
+対象ページ: 171 / 登録概念: 1177 / alias: 2325
 変更ファイル: 13 / 変更本文行を未定義語・曖昧aliasのblocking対象に限定
-ERROR: 43 / WARN: 34 / AUDIT: 0
+ERROR: 1 / WARN: 34 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「ac」: set.choice-axiom, analysis.mt4-absolute-continuous-function。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「点列コンパクト性」: topology.sequentially-compact, topology.sequentially-compact-space。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「下極限」: analysis.limsup-liminf, measure.limit-inferior。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
@@ -240,7 +186,6 @@ ERROR: 43 / WARN: 34 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「pointwiseboundedfamily」: analysis.pointwise-bounded-family, functional.pointwise-bounded-operator-family。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「固有値・固有ベクトル・固有空間」: linear.eigenvalue, linear.eigenvector, linear.eigenspace, linear.eigen-data-recap-f1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「特性多項式」: linear.characteristic-polynomial, ode.ode2-characteristic-polynomial。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
-- [ERROR] textbook/dream-theater-knowledge.yaml:1 新しい alias衝突「rayleigh商」: linear.rayleigh-quotient, ode.ode7-rayleigh-quotient。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「特異値・右特異ベクトル」: linear.singular-value, linear.right-singular-vector。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「banach空間」: functional.banach-space, functional.banach-space-recap-d2e, functional.banach-space-recap-c1。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「命題（単調性）」: measure.measure-monotonicity, measure.lebesgue-integral-monotonicity。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
@@ -266,48 +211,7 @@ ERROR: 43 / WARN: 34 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「変数分離」: ode.ode1-separable-equation, pde.separation-of-variables。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「平衡点」: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「補題（の平行移動連続性）」: fourier.translation-continuity-l1, fourier.translation-continuity-l2-r。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:53 概念「正則Sturm--Liouville問題」(ode.ode7-regular-sturm-liouville) を 53 行目で先に使用していますが、導入は 59 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:174 概念「重み付き内積」(ode.ode7-weighted-inner-product) を 174 行目で先に使用していますが、導入は 178 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:113 概念「Sturm--Liouville固有値・固有関数」(ode.ode7-eigenpair) を 113 行目で先に使用していますが、導入は 214 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:244 概念「Lagrange恒等式」(ode.ode7-lagrange-identity) を 244 行目で先に使用していますが、導入は 248 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:95 概念「固有値の実数性」(ode.ode7-real-eigenvalues) を 95 行目で先に使用していますが、導入は 382 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:738 概念「Dirichlet問題のRayleigh商」(ode.ode7-rayleigh-quotient) を 738 行目で先に使用していますが、導入は 744 行目です。定義・導入を先行させてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:24 alias「常微分方程式」を複数概念へ解決できます: ode.ode1-ordinary-differential-equation, ode.ode2-linear-higher-order。語を修飾するか alias を分離してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:3 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:5 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:19 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:27 alias「初期値問題」を複数概念へ解決できます: ode.ode1-initial-boundary-value-problem, ode.ode2-linear-ivp-wellposedness。語を修飾するか alias を分離してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:13 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:24 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:78 未定義の専門語候補「端点の斉次線形境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:118 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:149 未定義の専門語候補「Robin 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:315 未定義の専門語候補「なぜ分離型境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:427 未定義の専門語候補「異なる固有値の固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:431 未定義の専門語候補「属する固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:497 未定義の専門語候補「属する任意の二つの固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:497 未定義の専門語候補「従って各固有値の固有空間」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:550 未定義の専門語候補「Dirichlet 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:552 未定義の専門語候補「三つの標準境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:625 未定義の専門語候補「Neumann 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:683 未定義の専門語候補「混合境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:843 未定義の専門語候補「も直交条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:963 未定義の専門語候補「異なる固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:964 未定義の専門語候補「必要な関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
 - [ERROR] textbook/volumes/00_foundations/ODE7/index.md:966 未定義の専門語候補「適切な関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「分離型条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「共鳴の必要条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:968 未定義の専門語候補「解析側のコンパクト自己共役作用素」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1043 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1082 未定義の専門語候補「ODE7-A02 Robin 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1181 未定義の専門語候補「ODE7-A04 正弦固有関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1234 未定義の専門語候補「混合境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1246 未定義の専門語候補「Neumann 条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1270 未定義の専門語候補「混合条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1433 未定義の専門語候補「必要条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1513 未定義の専門語候補「境界条件」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:1513 未定義の専門語候補「逆作用素」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
-- [ERROR] textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md:3 alias「常微分方程式」を複数概念へ解決できます: ode.ode1-ordinary-differential-equation, ode.ode2-linear-higher-order。語を修飾するか alias を分離してください。
 [exit=1]
 ===== npm run validate:textbook-knowledge:changed =====
 
@@ -451,7 +355,7 @@ DREAM THEATER standard math core OK: 54 nodes (0 planned / 47 implemented / 7 ex
 | P2 | [F0-00TS2 Encore IV：Herglotz定理・spectral measure・spectral density](volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md) | 8 | 5 | 0 | 1 | 28% | - | 証明8本、直感・意味見出し0 |
 | P2 | [F0-00D0 Cauchy完備化：有理数から実数を作る](volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md) | 7 | 1 | 7 | 1 | 22% | - | 証明7本、例1件 |
 | P2 | [F0-02C5A 関数解析V-A：制約想定・LICQ・MFCQ・Robinson CQ](volumes/00_foundations/F0_02C5A_制約想定_LICQ_MFCQ_Robinson/index.md) | 7 | 4 | 7 | 1 | 29% | 同様に:1 | 証明7本、証明内の省略語1件 |
-| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 5 | 7 | 14% | - | 証明7本、例1件 |
+| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 4 | 7 | 14% | - | 証明7本、例1件 |
 | P2 | [F0-00C1 補講：コンパクト性・点列コンパクト性・Heine--Borel](volumes/00_foundations/F0_00C1_コンパクト性_点列コンパクト性_Heine_Borel/index.md) | 6 | 4 | 3 | 1 | 31% | - | 証明6本、証明ブロック約31% |
 | P2 | [F0-00FA3 Encore II：Plancherel・$L^2$ Fourier変換・特性関数](volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md) | 6 | 1 | 1 | 1 | 24% | - | 証明6本、例1件 |
 | P2 | [F0-00SP2 Encore IV：martingale・optional sampling・Doob分解](volumes/00_foundations/F0_00SP2_martingale_optional_stopping/index.md) | 6 | 3 | 1 | 1 | 26% | 明らか:1 | 証明6本、証明内の省略語1件 |
@@ -596,9 +500,9 @@ DREAM THEATER standard math core OK: 54 nodes (0 planned / 47 implemented / 7 ex
 | P2 | [F0-00D4 補講：Lebesgue測度・Borel集合・Carathéodory拡張定理](volumes/00_foundations/F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md) | 15 | 5 | 0 | 1 | 10 | 0 | 11 | 23% | 定理・命題等15件、直感・意味・見取り図見出し0 |
 | P2 | [F0-00G 凸集合・凸関数・凸最適化の基礎](volumes/00_foundations/F0_00G_凸集合_凸関数_凸最適化/index.md) | 3 | 5 | 0 | 4 | 3 | 0 | 11 | 32% | 定理・命題等3件、直感・意味・見取り図見出し0 |
 | P2 | [ODE5 標準 ODE V：Laplace変換と初期データ](volumes/00_foundations/ODE5/index.md) | 8 | 9 | 6 | 1 | 8 | 0 | 11 | 31% | 定理・命題等8件 |
-| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 5 | 7 | 7 | 0 | 11 | 29% | 定理・命題等7件、例1件 |
 | P2 | [F0-00D0 Cauchy完備化：有理数から実数を作る](volumes/00_foundations/F0_00D0_Cauchy完備化_有理数から実数/index.md) | 7 | 2 | 7 | 1 | 7 | 0 | 10 | 24% | 定理・命題等7件、例2件 |
 | P2 | [F0-00P3D：pushforward積分・LOTUS・Doob--Dynkin](volumes/00_foundations/F0_00P3D_pushforward_LOTUS_Doob_Dynkin/index.md) | 4 | 3 | 0 | 3 | 2 | 0 | 10 | 35% | 定理・命題等4件、直感・意味・見取り図見出し0 |
+| P2 | [ODE7 境界値問題と Sturm--Liouville 理論](volumes/00_foundations/ODE7/index.md) | 7 | 1 | 4 | 7 | 7 | 0 | 10 | 29% | 定理・命題等7件、例1件 |
 | P2 | [F0-00P2 密度・Radon–Nikodym：確率質量関数と確率密度関数を同じ式で読む](volumes/00_foundations/F0_00P2_密度_期待値_Radon_Nikodym/index.md) | 3 | 3 | 0 | 1 | 2 | 0 | 9 | 38% | 定理・命題等3件、直感・意味・見取り図見出し0 |
 | P2 | [CA6 Möbius変換・Schwarz補題・調和関数・Poisson核](volumes/00_foundations/CA6/index.md) | 16 | 5 | 2 | 4 | 12 | 0 | 8 | 28% | 定理・命題等16件、例5件 |
 | P2 | [F0-00F1 固有空間・実対称行列・スペクトル定理・PSD](volumes/00_foundations/F0_00F1_固有空間_スペクトル定理_PSD/index.md) | 4 | 3 | 0 | 1 | 1 | 0 | 8 | 32% | 定理・命題等4件、直感・意味・見取り図見出し0 |
