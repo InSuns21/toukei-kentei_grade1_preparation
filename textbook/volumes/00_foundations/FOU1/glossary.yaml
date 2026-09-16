@@ -1,0 +1,35 @@
+chapter: "FOU1"
+terms:
+  - term: 三角多項式
+    english: trigonometric polynomial
+    meaning: 有限個の1、cos(nx)、sin(nx)の線形結合で表される2pi周期関数。
+  - term: 実Fourier係数
+    english: real Fourier coefficients
+    meaning: 2pi周期関数fに対し、1、cos(nx)、sin(nx)との積分で定めるa0、an、bn。直交性により各周波数成分を抽出する。
+  - term: Fourier部分和
+    english: Fourier partial sum
+    meaning: 実Fourier係数をN次まで用いた三角多項式。有限次数の三角多項式の中で平均二乗誤差を最小にする。
+  - term: 複素Fourier係数
+    english: complex Fourier coefficient
+    meaning: cn=(1/(2pi)) int_{-pi}^{pi} f(x)e^{-inx} dx で定める係数。実係数とはcn=(an-i bn)/2で対応する。
+  - term: 直交性
+    english: orthogonality
+    meaning: 異なる周波数のsin、cosの積を一周期積分すると0になる性質。Fourier係数を独立に取り出せる理由になる。
+  - term: 偶関数
+    english: even function
+    meaning: f(-x)=f(x)を満たす関数。対称区間ではsinとの積が奇関数になるため正弦係数が0になる。
+  - term: 奇関数
+    english: odd function
+    meaning: f(-x)=-f(x)を満たす関数。対称区間では1やcosとの積が奇関数になるため定数項と余弦係数が0になる。
+  - term: 半区間余弦級数
+    english: half-range cosine series
+    meaning: [0,L]上の関数を[-L,L]へ偶延長して得るFourier余弦係数による展開候補。
+  - term: 半区間正弦級数
+    english: half-range sine series
+    meaning: [0,L]上の関数を[-L,L]へ奇延長して得るFourier正弦係数による展開候補。
+  - term: Bessel不等式
+    english: Bessel inequality
+    meaning: Fourier部分和が持つ有限個の係数エネルギーが元の関数の二乗積分を超えないことを表す不等式。完全性やParseval等式を仮定せずに成り立つ。
+  - term: 高調波
+    english: harmonic
+    meaning: 基本周波数の整数倍の周波数成分。矩形波では対称性により偶数次高調波が消え、奇数次高調波だけが残る。
