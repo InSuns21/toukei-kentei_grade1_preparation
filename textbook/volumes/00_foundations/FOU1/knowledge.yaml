@@ -5,20 +5,20 @@ prerequisites:
   - RA4
 forward_references: []
 
-# 本章は Fourier 級数の係数計算を Riemann 積分と有限和だけで閉じる。
-# 無限級数の収束論は後続 FOU2 の責務とし、FOU1 の概念・証明は旧 Fourier 教材を参照しない。
+# FOU1 は RA4 の Riemann 積分だけを前提に、有限次数の Fourier 係数計算を閉じる。
+# 旧 FA1・旧 Fourier 本文・未実装 FOU2 の結果を concept dependency / proof dependency にしない。
 
 concepts:
   - id: fourier.fou1-trigonometric-polynomial
     name: 三角多項式
     kind: definition
-    aliases: [三角多項式, trigonometric polynomial]
+    aliases: [trigonometric polynomial]
     introduction: formal
 
   - id: fourier.fou1-frequency-cancellation
     name: 正弦・余弦の一周期積分消去則
     kind: theorem
-    aliases: [正弦・余弦の一周期積分消去則, 一周期積分消去則]
+    aliases: [one-period sine-cosine cancellation]
     introduction: formal
     requires:
       - fourier.fou1-trigonometric-polynomial
@@ -26,7 +26,7 @@ concepts:
   - id: fourier.fou1-real-coefficient
     name: 実 Fourier 係数
     kind: definition
-    aliases: [実 Fourier 係数, 実Fourier係数]
+    aliases: [real Fourier coefficient]
     introduction: formal
     requires:
       - fourier.fou1-frequency-cancellation
@@ -34,7 +34,7 @@ concepts:
   - id: fourier.fou1-finite-sum
     name: N次 Fourier 有限和
     kind: definition
-    aliases: [N次 Fourier 有限和, Fourier 有限和]
+    aliases: [finite Fourier sum of order N]
     introduction: formal
     requires:
       - fourier.fou1-real-coefficient
@@ -42,7 +42,7 @@ concepts:
   - id: fourier.fou1-coefficient-extraction
     name: 一周期積分による Fourier 係数の抽出
     kind: theorem
-    aliases: [一周期積分による Fourier 係数の抽出, Fourier係数の抽出, 係数公式の導出]
+    aliases: [Fourier coefficient extraction by one-period integration]
     introduction: formal
     requires:
       - fourier.fou1-frequency-cancellation
@@ -51,24 +51,24 @@ concepts:
   - id: fourier.fou1-least-squares
     name: Fourier有限和の固定次数最小二乗性
     kind: theorem
-    aliases: [Fourier有限和の固定次数最小二乗性, 固定次数最小二乗性, 平均二乗誤差の最小化]
+    aliases: [fixed-order least-squares property of finite Fourier sums]
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
       - fourier.fou1-frequency-cancellation
 
-  - id: fourier.fou1-complex-exponential-coefficient
-    name: 複素指数係数
-    kind: definition
-    aliases: [複素指数係数, complex exponential coefficient]
+  - id: fourier.fou1-parity
+    name: 偶奇対称性による Fourier 係数の消失則
+    kind: theorem
+    aliases: [Fourier coefficient cancellation by parity symmetry]
     introduction: formal
     requires:
       - fourier.fou1-real-coefficient
 
-  - id: fourier.fou1-parity
-    name: 偶奇性による Fourier 係数の消失則
-    kind: theorem
-    aliases: [偶奇性による Fourier 係数の消失則, 偶関数の係数消失則, 奇関数の係数消失則]
+  - id: fourier.fou1-complex-exponential-coefficient
+    name: 複素指数係数
+    kind: definition
+    aliases: [complex exponential coefficient]
     introduction: formal
     requires:
       - fourier.fou1-real-coefficient
@@ -76,7 +76,7 @@ concepts:
   - id: fourier.fou1-half-range
     name: 半区間正弦・余弦係数
     kind: definition
-    aliases: [半区間正弦・余弦係数, half-range sine coefficient, half-range cosine coefficient]
+    aliases: [half-range sine and cosine coefficients]
     introduction: formal
     requires:
       - fourier.fou1-parity
@@ -84,7 +84,7 @@ concepts:
   - id: fourier.fou1-finite-energy-bound
     name: Fourier係数の有限エネルギー不等式
     kind: theorem
-    aliases: [Fourier係数の有限エネルギー不等式, 有限エネルギー不等式]
+    aliases: [finite energy inequality for Fourier coefficients]
     introduction: formal
     requires:
       - fourier.fou1-least-squares
