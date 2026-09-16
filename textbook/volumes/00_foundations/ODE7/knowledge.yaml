@@ -150,7 +150,7 @@ concepts:
   - id: ode.ode7-resonance-compatibility
     name: 共鳴時の必要可解条件
     kind: theorem
-    aliases: [共鳴時の可解条件, resonance compatibility condition, 必要条件]
+    aliases: [共鳴時の可解条件, resonance compatibility condition]
     introduction: formal
     requires:
       - ode.ode7-orthogonality

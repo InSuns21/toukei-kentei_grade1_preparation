@@ -52,9 +52,13 @@ Named-result heading audit: 110 result-name heading(s), 0 incomplete formal cand
 > toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
 > node scripts/validate-formal-reference-links.mjs
 
-Formal reference validation failed with 1 issue(s):
-- textbook/volumes/00_foundations/RA1A/index.md:695: named proof dependency 共鳴時の必要可解条件 (ode.ode7-resonance-compatibility) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-resonance-compatibility
-[exit=1]
+Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
+> node scripts/validate-definition-example-checks.mjs
+
+Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
+[exit=0]
 ===== npm run validate:pages =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:pages
@@ -89,9 +93,52 @@ Named-result heading audit: 110 result-name heading(s), 0 incomplete formal cand
 > toukei-kentei-grade1-preparation@0.1.0 validate:formal-references
 > node scripts/validate-formal-reference-links.mjs
 
-Formal reference validation failed with 1 issue(s):
-- textbook/volumes/00_foundations/RA1A/index.md:695: named proof dependency 共鳴時の必要可解条件 (ode.ode7-resonance-compatibility) must be a clickable link to textbook/volumes/00_foundations/ODE7/index.md#thm-ode7-resonance-compatibility
-[exit=1]
+Formal reference validation passed: 507 precise dependency link(s), 1408 stable formal anchor(s), 819/819 knowledge-DAG proof dependency link(s), 218 user-facing textbook page(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:definition-examples
+> node scripts/validate-definition-example-checks.mjs
+
+Definition-example validation passed: 167 strict page(s), 5 explicit-loose page(s), 46 unchanged legacy page(s), 594 checked definition(s), 492 verification block(s).
+
+> toukei-kentei-grade1-preparation@0.1.0 anki:build
+> node anki/scripts/curated_build.mjs
+
+built 762 cards in 7 category page(s), max 200 per page
+Prepared 60 KaTeX font files for GitHub Pages.
+statistical-mathematics: 105 tiered Markdown files published
+applied-rikou-80: 87 tiered Markdown files published
+GitHub Pages site assembled at _site/
+Tiered Markdown links in sidebar: 192
+Textbook: 46 chapters, 111 chapter Markdown files published
+Anki: curated static HTML site published at anki/index.html
+Formal statement panel validation passed for generated Pages: 1156 panel(s), 1156 anchored panel(s), 1170 stable anchor(s), 1156 declaration(s), 147 page(s), standard blue rule verified.
+Local KaTeX fallback published: JS, CSS, 60 font files.
+Textbook single-page rendering: canonical 218, legacy-composed 0, inlined appendices 8, auxiliary Markdown removed 111
+Linear algebra calculation drills merged into canonical index.md: A8/B10/C4.
+Textbook navigation titles normalized from chapter source: 46
+Published shared guidelines to GitHub Pages artifact: CONTENT_GUIDELINES.md, EXERCISE_GUIDELINES.md
+Exercise Markdown Pages links prepared: 225 Markdown files, 358 local links validated, 1 file(s) redirected to canonical textbook pages.
+Normalized 8 explicit Docsify route link(s) across 4 generated Markdown file(s).
+GitHub Pages link validation passed: 242 sidebar links, 104 exercise-index links, 192 tiered exercises.
+Textbook validation passed: 0 chapter pages, 1891 checked Markdown links.
+Anki validation passed: 10 HTML pages, 2 CSS files, 223 local links/assets checked.
+Docsify route safety passed: relativePath is not enabled and generated Markdown navigation is site-root oriented.
+Formal Pages reference validation passed: 1384 generated stable formal link(s) across 240 textbook Markdown file(s).
+Textbook image paths fixed for Docsify: 16 root-oriented image reference(s) rewritten, 16 local image reference(s) validated.
+Pages image validation passed: 477 Markdown files scanned, 21 image reference(s), 21 local image reference(s).
+GitHub Pages math-renderer validation passed: 58 formulas protected on the conditional-normal regression page.
+Service Worker assets validated and published: service-worker.js, sw-config.js
+Service Worker cache revision stamped: f45de9ed662f40553b7e43bba05df6f686fbcd61
+Site metadata published: f45de9ed @ 2026-09-16T09:18:49+09:00
+Offline manifests published: 1215 files with SHA-256 hashes
+
+> toukei-kentei-grade1-preparation@0.1.0 validate:pages:offline
+> node scripts/validate-pages-offline.mjs
+
+Offline manifests validated: 1215 files (21 images), all SHA-256 hashes match.
+DREAM THEATER offline links validated: 174.
+Service Worker runtime fallback, legacy migration, differential updates, query-string assets, and range tests passed.
+[exit=0]
 ===== npm run validate:dream-theater-exercise-counts =====
 
 > toukei-kentei-grade1-preparation@0.1.0 validate:dream-theater-exercise-counts
@@ -174,9 +221,9 @@ fatal: path 'textbook/volumes/00_foundations/F0_00SDE1A_Euler_Maruyama_weak_orde
 fatal: path 'textbook/volumes/00_foundations/F0_00UQ1_random_PDE_Monte_Carlo_FEM/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 fatal: path 'textbook/volumes/00_foundations/F0_00MLMC_Multilevel_Monte_Carlo/knowledge.yaml' does not exist in 'd1b25ce7f80f8171ecb1255c5fb35ca92cda8aa5'
 DREAM THEATER 未定義語・first-use・alias衝突検証（strict）
-対象ページ: 171 / 登録概念: 1177 / alias: 2325
+対象ページ: 171 / 登録概念: 1177 / alias: 2324
 変更ファイル: 13 / 変更本文行を未定義語・曖昧aliasのblocking対象に限定
-ERROR: 1 / WARN: 34 / AUDIT: 0
+ERROR: 0 / WARN: 34 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「ac」: set.choice-axiom, analysis.mt4-absolute-continuous-function。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「点列コンパクト性」: topology.sequentially-compact, topology.sequentially-compact-space。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「下極限」: analysis.limsup-liminf, measure.limit-inferior。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
@@ -211,7 +258,15 @@ ERROR: 1 / WARN: 34 / AUDIT: 0
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「変数分離」: ode.ode1-separable-equation, pde.separation-of-variables。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「平衡点」: ode.ode1-equilibrium-phase-line, ode.ode4-nonlinear-autonomous-system。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
 - [WARN] textbook/dream-theater-knowledge.yaml:1 既存の alias衝突「補題（の平行移動連続性）」: fourier.translation-continuity-l1, fourier.translation-continuity-l2-r。同名を維持するなら使用箇所で一意に解決できる設計にしてください。
-- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:966 未定義の専門語候補「適切な関数」を検出しました。prerequisiteで導入済みなら knowledge alias を登録し、この章の新概念なら先に定義・導入してください。
+DREAM THEATER raw formal/導入順検証（strict）
+raw formal 対象ページ: 138
+変更ファイル: 8
+ERROR: 0 / WARN: 0 / AUDIT: 0
+DREAM THEATER 明示的論証依存検証（strict）
+対象ページ: 171 / 登録概念: 1177
+変更ファイル: 8 / 本文変更行をblocking対象に限定
+ERROR: 1 / WARN: 0 / AUDIT: 0
+- [ERROR] textbook/volumes/00_foundations/ODE7/index.md:302 明示的な論証依存「で積分して微積分の基本定理」を検出しましたが、knowledge.yaml の概念aliasへ解決できません。定理・補題・公式等を概念登録してください。
 [exit=1]
 ===== npm run validate:textbook-knowledge:changed =====
 
