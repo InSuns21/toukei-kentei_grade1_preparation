@@ -664,7 +664,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE4 | **実装・検証完了（PR #282）** | 非線形自律系、平衡点・nullcline、Fréchet/Jacobian 線形化、双曲型・非双曲型を実装。Hurwitz 線形化から局所指数安定性を定数変化公式・剰余評価・退出時刻・解延長まで閉じ、保存量判定と非双曲型の反例も示した | A4 / B3 / C1。全問に詳細解答あり | ODE3 + F0-02C3。一般の Hartman--Grobman、中心多様体、Poincaré--Bendixson、Hopf 分岐は停止線外とし逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit 実行済み。ODE4 は両監査で機械 P2、人手再査読で OK |
 | ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |
 | ODE6 | **実装・検証完了（PR #287）** | 収束冪級数表示と項別微分の正当化、常点の冪級数解と係数漸化式・収束、正則特異点の Frobenius 級数・指標方程式・非共鳴収束、指標根の差と共鳴、Bessel / Legendre の代表計算まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + RA5。複素解析 CA3 や一般特殊関数論を逆輸入せず、Weierstrass M-test / 微分と極限交換は RA5 正本を参照 | textbook 検証一式と proof / formalism pedagogy audit を green 確認。Pages / exercises / concepts / standard math core / terminology は final head で再確認して merge |
-| ODE7 | **実装中（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | CI確認中 |
+| ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
@@ -712,4 +712,15 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 前提は ODE2 + RA5 に保ち、CI の語彙衝突を理由に CA3 を追加しなかった。一般特殊関数論や複素解析的延長も現在章へ逆輸入していない。
 - `npm run audit:proof-pedagogy` と `npm run audit:formalism-pedagogy` を含む textbook 検証一式を green 確認した。監査のため一時追加した Actions 処理は最終 head では撤去する。
 
-次の実装単位は **ODE7「境界値問題・Sturm--Liouville」**。PDE3 に残る Sturm--Liouville 部分を再利用候補として監査し、境界条件、自己共役形、固有値・固有関数、直交性、Fourier 系列への接続を ODE 側の正本として閉じる。後続 PDE の理論を現在章へ逆輸入しない。
+## 11.8 ODE7 で今回閉じた品質論点と検証記録
+
+- 二点境界値問題では、同じ二階線形 ODE でも端点条件により解が0個・1個・無数個になり得ることを最小例で直接確認した。
+- 正則 Sturm--Liouville 問題では $p\in C^1$, $q,w\in C$, $p>0$, $w>0$ の役割を局所的に説明し、Lagrange恒等式と分離型境界条件による境界形式の消滅を省略せず証明した。
+- 固有値の実数性、重み付き直交性、分離型条件での固有値の単純性を、Lagrange恒等式と ODE2 の一意性だけで閉じた。
+- $-y''=\lambda y$ の Dirichlet / Neumann / 混合境界条件を $\lambda<0$, $\lambda=0$, $\lambda>0$ に分け、正弦・余弦・半整数周波数と Neumann の定数モードを手計算で導いた。
+- Dirichlet 問題の Rayleigh 商と粗い固有値下界、共鳴する非斉次問題の必要可解条件まで導出した。
+- 一般正則 Sturm--Liouville 問題の固有値列の存在・離散性・完全性は意図的な証明境界として後続 Fourier 解析・関数解析へ送り、後続理論を prerequisite へ逆輸入していない。
+- 旧 F0-00PDE3 は互換ハブへ退役させ、Sturm--Liouville の concept ownership を ODE7 へ一本化した。
+- 演習は A4 / B3 / C1、全問詳細解答付き。textbook / Pages / exercises / concepts / standard math core / terminology の検証と proof / formalism pedagogy audit を実行した。
+
+次の実装単位は **FOU1「Fourier級数・直交性・係数計算」**。旧 `F0_00FA1_Fourier級数_直交展開` を主要再利用元として、初学者向けの係数計算・偶奇性・半区間展開・Bessel不等式を前段に整理し、測度論・Hilbert空間を入口の必須前提にしない。
