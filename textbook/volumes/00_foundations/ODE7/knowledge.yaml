@@ -1,0 +1,165 @@
+chapter: ODE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE2
+forward_references:
+  - pde.separation-of-variables
+  - pde.heat-equation
+
+# 一般正則Sturm--Liouville問題の完全性・離散固有値列の一般証明は、
+# Fourier解析再編および後続の関数解析へ送る。
+# 本章ではODE2の一意性と1次元のLagrange恒等式だけで閉じる結果を正本化する。
+
+concepts:
+  - id: ode.ode7-boundary-condition-language
+    name: 境界条件
+    kind: term
+    aliases:
+      - 境界条件
+      - 端点の斉次線形境界条件
+      - Dirichlet 条件
+      - Neumann 条件
+      - Robin 条件
+      - 混合境界条件
+      - 混合条件
+      - 三つの標準境界条件
+      - 分離型条件
+    introduction: inline
+    requires:
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode7-two-point-bvp
+    name: 二点境界値問題
+    kind: definition
+    aliases: [二点境界値問題, two-point boundary value problem]
+    introduction: formal
+    requires:
+      - ode.ode2-linear-higher-order
+
+  - id: ode.ode7-regular-sturm-liouville
+    name: 正則Sturm--Liouville問題
+    kind: definition
+    aliases: [Sturm--Liouville問題, 正則Sturm--Liouville問題, Sturm--Liouville problem]
+    introduction_aliases: [正則 Sturm--Liouville 問題]
+    introduction: formal
+    requires:
+      - ode.ode7-two-point-bvp
+
+  - id: ode.ode7-separated-boundary-condition
+    name: 分離型自己共役境界条件
+    kind: definition
+    aliases: [分離型境界条件, 自己共役境界条件, separated boundary conditions]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-weighted-inner-product
+    name: 重み付き内積
+    kind: definition
+    aliases: [重み付き内積, weighted inner product]
+    introduction_aliases: [重み付き内積の記号]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-eigenpair
+    name: Sturm--Liouville固有値・固有関数
+    kind: definition
+    aliases: [Sturm--Liouville固有値, Sturm--Liouville固有関数, 固有関数]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-eigenfunction-family-language
+    name: 固有関数族
+    kind: term
+    aliases:
+      - 異なる固有値の固有関数
+      - 属する固有関数
+      - 属する任意の二つの固有関数
+      - 異なる固有関数
+    introduction: inline
+    requires:
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-lagrange-identity
+    name: Lagrange恒等式
+    kind: theorem
+    aliases: [Lagrange恒等式, Lagrange identity, Green型恒等式]
+    introduction_aliases: [Lagrange 恒等式]
+    introduction: formal
+    requires:
+      - ode.ode7-regular-sturm-liouville
+
+  - id: ode.ode7-boundary-form-vanishing
+    name: 分離型境界条件による境界形式の消滅
+    kind: theorem
+    aliases: [境界形式の消滅, boundary form vanishing]
+    introduction: formal
+    requires:
+      - ode.ode7-separated-boundary-condition
+      - ode.ode7-lagrange-identity
+
+  - id: ode.ode7-real-eigenvalues
+    name: 固有値の実数性
+    kind: theorem
+    aliases: [Sturm--Liouville固有値の実数性]
+    introduction: formal
+    requires:
+      - ode.ode7-eigenpair
+      - ode.ode7-weighted-inner-product
+      - ode.ode7-boundary-form-vanishing
+
+  - id: ode.ode7-orthogonality
+    name: 異なる固有値に属する固有関数の直交性
+    kind: theorem
+    aliases: [固有関数の直交性, Sturm--Liouville直交性]
+    introduction: formal
+    requires:
+      - ode.ode7-real-eigenvalues
+
+  - id: ode.ode7-simple-eigenvalue
+    name: 分離型問題の固有値の単純性
+    kind: theorem
+    aliases: [固有値の単純性, simple eigenvalue]
+    introduction: formal
+    requires:
+      - ode.ode7-separated-boundary-condition
+      - ode.ode2-linear-ivp-wellposedness
+
+  - id: ode.ode7-dirichlet-neumann-spectrum
+    name: Dirichlet・Neumann・混合境界条件の標準固有値列
+    kind: method
+    aliases: [Dirichlet固有値, Neumann固有値, 混合境界条件の固有値]
+    introduction_aliases: [三つの標準境界条件の固有値列]
+    introduction: inline
+    requires:
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-rayleigh-quotient
+    name: Dirichlet問題のRayleigh商
+    kind: theorem
+    aliases: [Rayleigh quotient]
+    introduction_aliases: [Dirichlet 問題の Rayleigh 商]
+    introduction: formal
+    requires:
+      - ode.ode7-boundary-form-vanishing
+      - ode.ode7-eigenpair
+
+  - id: ode.ode7-resonance-compatibility
+    name: 共鳴時の必要可解条件
+    kind: theorem
+    aliases: [共鳴時の可解条件, resonance compatibility condition]
+    introduction: formal
+    requires:
+      - ode.ode7-orthogonality
+
+  - id: ode.ode7-eigenfunction-expansion
+    name: 固有関数展開の意味
+    kind: method
+    aliases: [固有関数展開, eigenfunction expansion]
+    introduction: inline
+    requires:
+      - ode.ode7-orthogonality
+      - ode.ode7-dirichlet-neumann-spectrum
