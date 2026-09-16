@@ -24,82 +24,47 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Apply deterministic FOU2 fixes
+      - name: Apply remaining FOU2 terminology fixes
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          def replace_exact(path, old, new, expected=1):
-              p = Path(path)
-              s = p.read_text(encoding='utf-8')
+          p = Path('textbook/volumes/00_foundations/FOU2/index.md')
+          s = p.read_text(encoding='utf-8')
+          replacements = [
+              (
+                  '最後は Riemann--Lebesgue 型補題で高周波を消します。',
+                  '最後は [高周波振動積分の消去補題](#thm-fou2-riemann-lebesgue) で高周波を消します。',
+              ),
+              (
+                  'したがって Dirichlet 部分和のように $1$ を越える Gibbs 超過は起こりません。',
+                  'したがって通常の Fourier有限和のように $1$ を越える Gibbs 超過は起こりません。',
+              ),
+              (
+                  'さらに FOU1 の直交性計算から',
+                  'さらに FOU1 の一周期積分消去則による計算から',
+              ),
+          ]
+          changed = False
+          for old, new in replacements:
               count = s.count(old)
-              if count != expected:
-                  raise SystemExit(f'{path}: expected {expected} occurrence(s), found {count}: {old!r}')
-              p.write_text(s.replace(old, new), encoding='utf-8')
-
-          index = 'textbook/volumes/00_foundations/FOU2/index.md'
-          replace_exact(index, '\x0crac1', r'\frac1', expected=2)
-          replace_exact(index,
-              'この三つを同じ「収束」で済ませると、跳躍点・Gibbs 現象・Parseval 等式の役割が見えなくなります。',
-              'この三つを同じ「収束」で済ませると、跳躍点・Gibbs 現象・係数の二乗和と元の二乗積分を結ぶ等式の役割が見えなくなります。')
-          replace_exact(index,
-              '## 4. Dirichletの定理：跳びでは左右の平均へ行く',
-              '## 4. 跳びでは左右の平均へ行く')
-          replace_exact(index,
-              '> **定理（Riemann--Lebesgue型補題）**  ',
-              '> **定理（高周波振動積分の消去補題）**  ')
-          replace_exact(index,
-              '## 6. 部分和そのものではなく、部分和を平均する',
-              '## 6. Fourier有限和そのものではなく、有限和を平均する')
-          replace_exact(index,
-              '最後に Fejér 平均の定義へ各 $S_kf$ の Dirichlet 核表示を代入し、有限和と積分を交換すると',
-              '最後に上で定義した平均 $\\sigma_Nf$ へ各 $S_kf$ の Dirichlet 核表示を代入し、有限和と積分を交換すると')
-          replace_exact(index,
-              '## 7. Fejérの定理：連続なら平均は一様に戻る',
-              '## 7. 連続ならFejér平均は一様に戻る')
-          replace_exact(index,
-              'FOU1 の有限次元事実から出ています。',
-              'FOU1 の有限次数の事実から出ています。')
-          replace_exact(index,
-              'FOU1 の直交性により、元の二乗積分は',
-              'FOU1 の一周期積分消去則により、元の二乗積分は')
-          replace_exact(index,
-              'Dirichlet の定理から $x=\\pi$ での Fourier 部分和の極限を求め、',
-              'Dirichlet の各点収束定理から $x=\\pi$ での Fourier有限和の極限を求め、')
-          replace_exact(index,
-              '区分的 $C^1$ 関数の Fourier 部分和が、跳躍点では左右極限の平均へ収束することを証明した。',
-              '区分的 $C^1$ 関数の Fourier有限和が、跳躍点では左右極限の平均へ収束することを証明した。')
-          replace_exact(index,
-              '次の FOU3 では、周期離散周波数から実直線上の連続周波数へ移り、Fourier 変換・畳み込み・反転を扱います。',
-              '次の FOU3 では、周期離散周波数から実直線上の連続周波数へ移り、Fourier 変換・関数をずらして積分する合成演算・反転を扱います。')
-
-          chapter = 'textbook/volumes/00_foundations/FOU2/chapter.yaml'
-          replace_exact(chapter,
-              'Riemann--Lebesgue型補題をRiemann積分の階段関数近似から証明し、区分的C1関数のDirichlet収束定理へ適用できる',
-              '高周波振動積分の消去補題をRiemann積分の階段関数近似から証明し、区分的C1関数のDirichlet収束定理へ適用できる')
-          replace_exact(chapter,
-              '- { id: FOU2-THM-02, name: Riemann--Lebesgue型補題 }',
-              '- { id: FOU2-THM-02, name: 高周波振動積分の消去補題 }')
-
-          knowledge = 'textbook/volumes/00_foundations/FOU2/knowledge.yaml'
-          replace_exact(knowledge,
-              '    name: Riemann--Lebesgue型補題\n    kind: theorem\n    aliases: [Riemann--Lebesgue型補題, Riemann-Lebesgue lemma for Riemann integrable functions]',
-              '    name: 高周波振動積分の消去補題\n    kind: theorem\n    aliases: [高周波振動積分の消去補題, oscillatory integral cancellation lemma]')
-
-          glossary = 'textbook/volumes/00_foundations/FOU2/glossary.yaml'
-          replace_exact(glossary,
-              '跳躍を持つ関数のFourier部分和で、跳躍近傍の振動幅が次数を増やしても一定割合残る現象。',
-              '跳躍を持つ関数のFourier有限和で、跳躍近傍の振動幅が次数を増やしても一定割合残る現象。')
+              if count > 1:
+                  raise SystemExit(f'expected at most one occurrence, found {count}: {old!r}')
+              if count == 1:
+                  s = s.replace(old, new)
+                  changed = True
+          p.write_text(s, encoding='utf-8')
+          print('changed=', changed)
           PY
 
           if git diff --quiet; then
-            echo 'No deterministic fixes left to apply.'
+            echo 'No remaining deterministic fixes left to apply.'
           else
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/FOU2
-            git commit -m 'Fix FOU2 validation aliases and formulas'
+            git add textbook/volumes/00_foundations/FOU2/index.md
+            git commit -m 'Resolve remaining FOU2 local terminology'
             git push origin HEAD:${{ github.head_ref }}
           fi
       - name: Validate focused FOU2 checks
