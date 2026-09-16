@@ -14,6 +14,12 @@ def pre() -> None:
     # Keep the resonance wording local instead of claiming the generic term
     # "必要条件", which is used across many unrelated chapters.
     s = s.replace("**1. 必要条件**", "**1. 可解性の制約**")
+    # The Lagrange identity uses the FTC direction F'=f => integral = endpoint
+    # difference, i.e. RA4's FTC II.  Link the exact canonical result.
+    s = s.replace(
+        "よって被積分関数はこの全微分に等しい。$[a,b]$ で積分して微積分の基本定理を使えば主張を得ます。$\\square$",
+        "よって被積分関数はこの全微分に等しい。$[a,b]$ で積分して [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使えば主張を得ます。$\\square$",
+    )
     ODE7.write_text(s)
 
     k = KNOWLEDGE.read_text()
