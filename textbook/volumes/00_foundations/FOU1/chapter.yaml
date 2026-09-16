@@ -8,25 +8,25 @@ official_scope: []
 learning_objectives:
   - 2pi周期関数と三角多項式を区別し、三角関数系の直交関係を積分から証明できる
   - 実Fourier係数を直交性から導出し、有限次数の平均二乗誤差を最小にする係数であることを証明できる
-  - 複素Fourier係数を定義し、実係数との対応をEulerの公式から導ける
+  - 複素表示の係数を定義し、実係数との対応をEulerの公式から導ける
   - 偶奇性から消えるFourier係数を判定し、積分区間を半分へ縮約できる
-  - 半区間正弦級数と半区間余弦級数がそれぞれ奇延長・偶延長に対応することを説明し、係数を計算できる
-  - Bessel不等式を有限三角多項式への平方誤差展開から証明し、完全性やParseval等式を使わずに有限部分和のエネルギーを評価できる
+  - 半区間正弦係数と半区間余弦係数が二種類の対称延長に対応することを説明し、係数を計算できる
+  - Bessel型の有限エネルギー評価を平方誤差展開から証明し、完全性やParseval等式を使わずに有限次数の係数を評価できる
   - x、矩形波、絶対値関数などの区分的な波形についてFourier係数を手計算し、どの周波数が残るか説明できる
   - Fourier係数の計算と級数の収束を区別し、各点収束・L2収束・Parseval等式を後続FOU2の論点として位置付けられる
 definitions:
   - { id: FOU1-DEF-01, name: 三角多項式 }
   - { id: FOU1-DEF-02, name: 実Fourier係数 }
-  - { id: FOU1-DEF-03, name: Fourier部分和 }
-  - { id: FOU1-DEF-04, name: 複素Fourier係数 }
+  - { id: FOU1-DEF-03, name: N次Fourier有限和 }
+  - { id: FOU1-DEF-04, name: 複素指数係数 }
   - { id: FOU1-DEF-05, name: 半区間正弦・余弦係数 }
 theorems:
-  - { id: FOU1-THM-01, name: 三角関数系の直交性 }
-  - { id: FOU1-THM-02, name: 直交性によるFourier係数の抽出 }
-  - { id: FOU1-THM-03, name: Fourier部分和の有限次数最小二乗性 }
-  - { id: FOU1-THM-04, name: 偶奇性とFourier係数 }
-  - { id: FOU1-THM-05, name: Fourier係数に対するBessel不等式 }
-canonical_examples: [xの正弦係数, 矩形波の奇数高調波, 絶対値関数の余弦係数, 区間0からpi上のxの半区間正弦級数と余弦級数]
+  - { id: FOU1-THM-01, name: 三角関数系の一周期積分消去則 }
+  - { id: FOU1-THM-02, name: 一周期積分によるFourier係数の抽出 }
+  - { id: FOU1-THM-03, name: Fourier有限和の固定次数最小二乗性 }
+  - { id: FOU1-THM-04, name: 偶奇性によるFourier係数の消失則 }
+  - { id: FOU1-THM-05, name: Fourier係数の有限エネルギー不等式 }
+canonical_examples: [xの正弦係数, 矩形波の奇数次周波数, 絶対値関数の余弦係数, 区間0からpi上のxの半区間正弦係数と余弦係数]
 problem_patterns: [FOURIER-ORTHOGONALITY-1, FOURIER-COEFFICIENT-1, FOURIER-SYMMETRY-1, FOURIER-HALF-RANGE-1, FOURIER-BESSEL-1, FOURIER-WAVEFORM-1]
 past_exam_alignment: []
 integrated_exam_problems: []
