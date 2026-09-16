@@ -10,7 +10,7 @@ forward_references:
   - fourier.parseval-identity
   - fourier.partial-sum-l2-convergence
 
-# 本章はFourier級数の係数計算をRiemann積分と有限和の積分直交性だけで閉じる。
+# 本章はFourier級数の係数計算をRiemann積分と有限和だけで閉じる。
 # 三角関数系の完全性、Parseval等式、各点収束、Fejer平均はFOU2側の責務とする。
 # 旧FA1の概念正本はFOU2実装まで維持するため、FOU1では衝突しない章ローカル名を用いる。
 
@@ -21,10 +21,10 @@ concepts:
     aliases: [三角多項式, trigonometric polynomial]
     introduction: formal
 
-  - id: fourier.fou1-trigonometric-orthogonality
-    name: 三角関数系の一周期積分直交性
+  - id: fourier.fou1-frequency-cancellation
+    name: 三角関数系の一周期積分消去則
     kind: theorem
-    aliases: [三角関数系の一周期積分直交性, 一周期積分直交性]
+    aliases: [三角関数系の一周期積分消去則, 一周期積分消去則]
     introduction: formal
     requires:
       - fourier.fou1-trigonometric-polynomial
@@ -35,7 +35,7 @@ concepts:
     aliases: [実 Fourier 係数, 実Fourier係数]
     introduction: formal
     requires:
-      - fourier.fou1-trigonometric-orthogonality
+      - fourier.fou1-frequency-cancellation
 
   - id: fourier.fou1-finite-sum
     name: N次 Fourier 有限和
@@ -51,7 +51,7 @@ concepts:
     aliases: [一周期積分による Fourier 係数の抽出, Fourier係数の抽出, 係数公式の導出]
     introduction: formal
     requires:
-      - fourier.fou1-trigonometric-orthogonality
+      - fourier.fou1-frequency-cancellation
       - fourier.fou1-real-coefficient
 
   - id: fourier.fou1-least-squares
@@ -61,7 +61,7 @@ concepts:
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
-      - fourier.fou1-trigonometric-orthogonality
+      - fourier.fou1-frequency-cancellation
 
   - id: fourier.fou1-complex-exponential-coefficient
     name: 複素指数係数
