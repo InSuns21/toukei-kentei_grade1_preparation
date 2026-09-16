@@ -12,7 +12,7 @@ concepts:
   - id: fourier.fou2-convergence-modes
     name: 各点収束・一様収束・二乗平均収束
     kind: definition
-    aliases: [pointwise uniform mean-square convergence]
+    aliases: [各点収束, 一様収束, 二乗平均収束, pointwise convergence, uniform convergence, mean-square convergence]
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
@@ -37,7 +37,7 @@ concepts:
   - id: fourier.fou2-riemann-lebesgue
     name: Riemann--Lebesgue型補題
     kind: theorem
-    aliases: [Riemann-Lebesgue lemma for Riemann integrable functions]
+    aliases: [Riemann--Lebesgue型補題, Riemann-Lebesgue lemma for Riemann integrable functions]
     introduction: formal
     requires:
       - fourier.fou2-dirichlet-integral
@@ -62,7 +62,7 @@ concepts:
   - id: fourier.fou2-fejer-mean
     name: Fejér平均
     kind: definition
-    aliases: [Fejer mean, Cesaro mean of Fourier sums]
+    aliases: [Fejér 平均, Fejer mean, Cesaro mean of Fourier sums]
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
@@ -103,7 +103,7 @@ concepts:
   - id: fourier.fou2-mean-square-convergence
     name: Fourier有限和の二乗平均収束
     kind: theorem
-    aliases: [mean-square convergence of Fourier partial sums]
+    aliases: [mean-square convergence of Fourier finite sums]
     introduction: formal
     requires:
       - fourier.fou2-trig-density
@@ -112,7 +112,7 @@ concepts:
   - id: fourier.fou2-parseval
     name: Parseval等式と三角系の完全性
     kind: theorem
-    aliases: [Parseval identity, completeness of the trigonometric system]
+    aliases: [Parseval 等式, Parseval等式, 三角系の完全性, Parseval identity, completeness of the trigonometric system]
     introduction: formal
     requires:
       - fourier.fou2-mean-square-convergence
