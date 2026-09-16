@@ -1,0 +1,119 @@
+chapter: FOU2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU1
+forward_references: []
+
+# FOU2 は FOU1 の有限次数 Fourier 理論だけを前提に、無限段階の収束論を Riemann 積分の範囲で閉じる。
+# 旧 F0-00FA1・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
+
+concepts:
+  - id: fourier.fou2-convergence-modes
+    name: 各点収束・一様収束・二乗平均収束
+    kind: definition
+    aliases: [pointwise uniform mean-square convergence]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-dirichlet-kernel
+    name: Dirichlet核
+    kind: definition
+    aliases: [Dirichlet kernel]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-dirichlet-integral
+    name: Dirichlet核の閉形式とFourier有限和の積分表示
+    kind: theorem
+    aliases: [Dirichlet kernel closed form and convolution formula]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-kernel
+      - fourier.fou1-real-coefficient
+
+  - id: fourier.fou2-riemann-lebesgue
+    name: Riemann--Lebesgue型補題
+    kind: theorem
+    aliases: [Riemann-Lebesgue lemma for Riemann integrable functions]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-integral
+
+  - id: fourier.fou2-dirichlet-convergence
+    name: Dirichletの各点収束定理
+    kind: theorem
+    aliases: [Dirichlet pointwise convergence theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-riemann-lebesgue
+      - fourier.fou2-dirichlet-integral
+
+  - id: fourier.fou2-gibbs
+    name: Gibbs現象
+    kind: proposition
+    aliases: [Gibbs phenomenon]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-convergence
+
+  - id: fourier.fou2-fejer-mean
+    name: Fejér平均
+    kind: definition
+    aliases: [Fejer mean, Cesaro mean of Fourier sums]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-fejer-kernel
+    name: Fejér核
+    kind: definition
+    aliases: [Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-mean
+      - fourier.fou2-dirichlet-kernel
+
+  - id: fourier.fou2-fejer-kernel-properties
+    name: Fejér核の基本性質
+    kind: theorem
+    aliases: [basic properties of the Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel
+
+  - id: fourier.fou2-fejer-uniform
+    name: Fejérの一様収束定理
+    kind: theorem
+    aliases: [Fejer uniform convergence theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel-properties
+
+  - id: fourier.fou2-trig-density
+    name: 連続周期関数に対する三角多項式の一様稠密性
+    kind: theorem
+    aliases: [uniform density of trigonometric polynomials]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-uniform
+
+  - id: fourier.fou2-mean-square-convergence
+    name: Fourier有限和の二乗平均収束
+    kind: theorem
+    aliases: [mean-square convergence of Fourier partial sums]
+    introduction: formal
+    requires:
+      - fourier.fou2-trig-density
+      - fourier.fou1-least-squares
+
+  - id: fourier.fou2-parseval
+    name: Parseval等式と三角系の完全性
+    kind: theorem
+    aliases: [Parseval identity, completeness of the trigonometric system]
+    introduction: formal
+    requires:
+      - fourier.fou2-mean-square-convergence
+      - fourier.fou1-finite-energy-bound
