@@ -90,6 +90,8 @@ jobs:
             textbook/volumes/00_foundations/ODE7/index.md \
             textbook/volumes/00_foundations/ODE7/chapter.yaml \
             textbook/volumes/00_foundations/ODE7/glossary.yaml \
+            textbook/volumes/00_foundations/ODE7/knowledge.yaml \
+            textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md \
             textbook/dream-theater.md \
             textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md
           if [ -f ode7-validation.log ]; then git add ode7-validation.log; fi
