@@ -1,4 +1,4 @@
-name: Fix and validate FOU2
+name: Finalize and validate FOU2
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  fix-and-validate:
+  finalize-and-validate:
     if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
     runs-on: ubuntu-latest
     steps:
@@ -24,53 +24,80 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
-      - name: Apply remaining FOU2 terminology fixes
+      - name: Apply final FOU2 wording and progress-ledger fixes
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          p = Path('textbook/volumes/00_foundations/FOU2/index.md')
-          s = p.read_text(encoding='utf-8')
+          index = Path('textbook/volumes/00_foundations/FOU2/index.md')
+          s = index.read_text(encoding='utf-8')
           replacements = [
               (
-                  '最後は Riemann--Lebesgue 型補題で高周波を消します。',
-                  '最後は [高周波振動積分の消去補題](#thm-fou2-riemann-lebesgue) で高周波を消します。',
+                  '[Riemann--Lebesgue型補題](#thm-fou2-riemann-lebesgue)を',
+                  '[高周波振動積分の消去補題](#thm-fou2-riemann-lebesgue)を',
               ),
               (
-                  'したがって Dirichlet 部分和のように $1$ を越える Gibbs 超過は起こりません。',
-                  'したがって通常の Fourier有限和のように $1$ を越える Gibbs 超過は起こりません。',
+                  'さらに Fejér 平均は正の核による平均なので $|\\sigma_Nq|\\le1$ です。普通の部分和と平均化した部分和では、同じ Fourier 係数を使っていても挙動が変わります。',
+                  'さらに Fejér 平均は正の核による平均なので $|\\sigma_Nq|\\le1$ です。通常の Fourier有限和と、それらを平均した Fejér 平均では、同じ Fourier 係数を使っていても挙動が変わります。',
               ),
               (
-                  'さらに FOU1 の直交性計算から',
-                  'さらに FOU1 の一周期積分消去則による計算から',
+                  '本章では ordinary partial sum $S_Nf$ が連続関数に対して常に一様収束するとは主張していません。',
+                  '本章では元の Fourier有限和 $S_Nf$ が連続関数に対して常に一様収束するとは主張していません。',
               ),
           ]
-          changed = False
           for old, new in replacements:
               count = s.count(old)
               if count > 1:
-                  raise SystemExit(f'expected at most one occurrence, found {count}: {old!r}')
+                  raise SystemExit(f'FOU2 index: expected at most one occurrence, found {count}: {old!r}')
               if count == 1:
                   s = s.replace(old, new)
-                  changed = True
-          p.write_text(s, encoding='utf-8')
-          print('changed=', changed)
-          PY
+          index.write_text(s, encoding='utf-8')
 
+          plan = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
+          p = plan.read_text(encoding='utf-8')
+          if '| FOU2 |' not in p:
+              lines = p.splitlines()
+              pos = next((i for i, line in enumerate(lines) if line.startswith('| FOU1 |')), None)
+              if pos is None:
+                  raise SystemExit('FOU1 status row not found in restructure plan')
+              fou2 = ('| FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、Parseval等式と三角系の完全性まで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |')
+              lines.insert(pos + 1, fou2)
+              p = '\n'.join(lines) + ('\n' if p.endswith('\n') else '')
+
+          old_tail = ('FOU1 は **実装・検証完了（PR #289）**。RA4 の Riemann 積分だけを前提に有限次数の Fourier 理論を自立実装し、旧 `F0_00FA1_Fourier級数_直交展開`・旧 Fourier 本文には依存しない。次の実装単位は **FOU2「Fourier級数の収束・Fejér・Parseval」**。FOU2 も旧教材を証明依存先にせず、無限段階の収束理論を現行 canonical prerequisite と章内論証で閉じる。')
+          new_tail = ('FOU2 は **実装・検証完了（PR #290）**。FOU1 の有限次数理論だけを直接前提に、Dirichlet核による各点収束、Gibbs現象、Fejér平均による一様近似、三角多項式の稠密性、二乗平均収束、Parseval等式までを Riemann 積分側で閉じた。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしていない。次の実装単位は **FOU3「Fourier変換・畳み込み・反転」**。')
+          if old_tail in p:
+              p = p.replace(old_tail, new_tail)
+          elif new_tail not in p:
+              raise SystemExit('restructure plan tail marker not found')
+          plan.write_text(p, encoding='utf-8')
+          PY
+      - name: Run required DREAM THEATER validation suite
+        env:
+          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TERMINOLOGY_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          TEXTBOOK_KNOWLEDGE_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -e
+          npm run validate
+          npm run validate:dream-theater-concepts:changed
+          npm run validate:dream-theater-exercise-counts
+          npm run validate:dream-theater-standard-math-core
+          npm run validate:textbook-knowledge:changed
+          npm run validate:terminology:changed
+          npm run validate:pages
+          npm run audit:proof-pedagogy
+          npm run audit:formalism-pedagogy
+      - name: Commit validated FOU2 fixes
+        shell: bash
+        run: |
           if git diff --quiet; then
-            echo 'No remaining deterministic fixes left to apply.'
+            echo 'No final FOU2 changes left to commit.'
           else
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/FOU2/index.md
-            git commit -m 'Resolve remaining FOU2 local terminology'
+            git add textbook/volumes/00_foundations/FOU2/index.md textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md
+            git commit -m 'Finalize FOU2 validation and progress ledger'
             git push origin HEAD:${{ github.head_ref }}
           fi
-      - name: Validate focused FOU2 checks
-        env:
-          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          npm run validate:math
-          npm run validate:dream-theater-concepts:changed
-          npm run validate:pages
