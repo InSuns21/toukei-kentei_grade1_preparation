@@ -16,9 +16,9 @@ concepts:
     introduction: formal
 
   - id: fourier.fou1-frequency-cancellation
-    name: 三角関数系の一周期積分消去則
+    name: 正弦・余弦の一周期積分消去則
     kind: theorem
-    aliases: [三角関数系の一周期積分消去則, 一周期積分消去則]
+    aliases: [正弦・余弦の一周期積分消去則, 一周期積分消去則]
     introduction: formal
     requires:
       - fourier.fou1-trigonometric-polynomial
