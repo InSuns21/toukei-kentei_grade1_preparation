@@ -40,7 +40,7 @@ ODE → Fourier解析 → PDE
 
 各系列は、典型的な数学・理工系学部の1学期～2学期の教科書で扱われる範囲を `core` とする。測度論・関数解析を使った厳密化や、大学院PDEへ接続する話は `advanced-standard` / `bridge` として明示し、基本ルートへ逆流させない。
 
-特に Fourier解析の最初から Lebesgue 積分・Hilbert 空間を必須にはしない。既存 `F0-00FA1`～`FA3` の強い $L^2$ 理論は捨てず、後半の厳密化として再利用する。
+特に Fourier解析の最初から Lebesgue 積分・Hilbert 空間を必須にはしない。新しい `FOU*` 系列は旧 `F0-00FA1`～`FA3` を prerequisite・concept owner・proof dependency・forward reference にせず、自立した標準コアとして実装する。旧ページは URL 互換と旧導線のためだけに残す。
 
 ### 1.2 正本の所有者を一つにする
 
@@ -230,7 +230,7 @@ Dirac delta の厳密な超関数論はここでは行わず、必要なら Enco
 - Bessel 不等式
 - 具体的な区分的関数の展開
 
-現行 `F0-00FA1` の定義・直交性を再利用するが、初学者が Lebesgue/Hilbert 理論を完走しないと入れない構成にはしない。
+旧 `F0-00FA1` には依存しない。FOU1 自身で Riemann 積分と有限和から係数公式・有限次数最小二乗性・有限エネルギー評価まで閉じ、旧ページは互換導線に限定する。
 
 ### FOU2 Fourier級数の収束・Fejér・Parseval
 
@@ -246,7 +246,7 @@ Dirac delta の厳密な超関数論はここでは行わず、必要なら Enco
 - Parseval 等式
 - 点wise / 一様 / $L^2$ 収束の比較
 
-現行 `F0-00FA1` の Fejér kernel・完全性証明を主な再利用元とする。既存の強い証明を削るのではなく、計算的な Fourier 級数の導入と収束概念の整理を前段に追加する。
+FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet / Fejér kernel、収束定理、完全性、Parseval の論証は FOU2 自身または現行 canonical prerequisite だけで閉じ、旧ページは互換導線に限定する。
 
 ### FOU3 Fourier変換・畳み込み・反転
 
@@ -665,6 +665,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE5 | **実装・検証完了（PR #286）** | 指数位数とLaplace変換の収束、線形性・微分則・2種の移動則、逆変換候補の検証、三角領域の積分交換からLaplace変換の積公式、定係数線形IVP、階段入力、Green核・応答核まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2。一般の逆Laplace一意性・Fourier反転・Dirac delta超関数論を逆輸入せず、Green核はODE2正本を参照。片側合成積はFA2の一般畳み込みを先取りしないローカル概念として管理 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統を検証。proof / formalism pedagogy audit も実行 |
 | ODE6 | **実装・検証完了（PR #287）** | 収束冪級数表示と項別微分の正当化、常点の冪級数解と係数漸化式・収束、正則特異点の Frobenius 級数・指標方程式・非共鳴収束、指標根の差と共鳴、Bessel / Legendre の代表計算まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + RA5。複素解析 CA3 や一般特殊関数論を逆輸入せず、Weierstrass M-test / 微分と極限交換は RA5 正本を参照 | textbook 検証一式と proof / formalism pedagogy audit を green 確認。Pages / exercises / concepts / standard math core / terminology は final head で再確認して merge |
 | ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
+| FOU1 | **実装・検証完了（PR #289）** | 周期波形・三角多項式、一周期積分消去則、実 Fourier 係数、N次 Fourier 有限和、固定次数最小二乗性、偶奇対称性、複素指数係数、半区間係数、有限エネルギー不等式を実装。$x$・矩形波・$|x|$・$x^2$・三角形波を手計算し、無限段階の収束論は FOU2 へ分離 | A4 / B3 / C1。全問に詳細解答あり | RA4 のみ。旧 `F0-00FA1`・旧 Fourier 本文を prerequisite / concept owner / proof dependency / forward reference にせず、FOU1 内で有限次数理論を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
@@ -723,4 +724,4 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 旧 F0-00PDE3 は互換ハブへ退役させ、Sturm--Liouville の concept ownership を ODE7 へ一本化した。
 - 演習は A4 / B3 / C1、全問詳細解答付き。textbook / Pages / exercises / concepts / standard math core / terminology の検証と proof / formalism pedagogy audit を実行した。
 
-次の実装単位は **FOU1「Fourier級数・直交性・係数計算」**。旧 `F0_00FA1_Fourier級数_直交展開` を主要再利用元として、初学者向けの係数計算・偶奇性・半区間展開・Bessel不等式を前段に整理し、測度論・Hilbert空間を入口の必須前提にしない。
+FOU1 は **実装・検証完了（PR #289）**。RA4 の Riemann 積分だけを前提に有限次数の Fourier 理論を自立実装し、旧 `F0_00FA1_Fourier級数_直交展開`・旧 Fourier 本文には依存しない。次の実装単位は **FOU2「Fourier級数の収束・Fejér・Parseval」**。FOU2 も旧教材を証明依存先にせず、無限段階の収束理論を現行 canonical prerequisite と章内論証で閉じる。

@@ -1,0 +1,35 @@
+chapter: "FOU1"
+terms:
+  - term: 三角多項式
+    english: trigonometric polynomial
+    meaning: 有限個の1、cos(nx)、sin(nx)の線形結合で表される2pi周期関数。
+  - term: 実Fourier係数
+    english: real Fourier coefficients
+    meaning: 2pi周期関数fに対し、1、cos(nx)、sin(nx)との積分で定めるa0、an、bn。一周期積分消去則により各周波数成分を抽出する。
+  - term: N次Fourier有限和
+    english: finite Fourier sum of order N
+    meaning: 実Fourier係数をN次まで用いた三角多項式。固定次数の三角多項式の中で平均二乗誤差を最小にする。
+  - term: 複素指数係数
+    english: complex exponential coefficient
+    meaning: cn=(1/(2pi)) int_{-pi}^{pi} f(x)e^{-inx} dx で定める係数。実係数とはcn=(an-i bn)/2で対応する。
+  - term: 一周期積分消去則
+    english: one-period cancellation rule
+    meaning: 異なる整数周波数のsin、cosの積を一周期積分すると0になる性質。Fourier係数を独立に取り出せる理由になる。
+  - term: 偶関数
+    english: even function
+    meaning: f(-x)=f(x)を満たす関数。対称区間ではsinとの積が奇関数になるため正弦係数が0になる。
+  - term: 奇関数
+    english: odd function
+    meaning: f(-x)=-f(x)を満たす関数。対称区間では1やcosとの積が奇関数になるため定数項と余弦係数が0になる。
+  - term: 半区間余弦係数
+    english: half-range cosine coefficient
+    meaning: [0,L]上の関数を[-L,L]へ同符号で延ばして得る余弦側の係数。
+  - term: 半区間正弦係数
+    english: half-range sine coefficient
+    meaning: [0,L]上の関数を[-L,L]へ反対符号で延ばして得る正弦側の係数。
+  - term: Fourier係数の有限エネルギー不等式
+    english: finite energy inequality for Fourier coefficients
+    meaning: N次までの係数二乗和が元の関数の二乗積分を超えないことを表す有限次数の不等式。無限級数の収束論を仮定しない。
+  - term: 高調波
+    english: harmonic
+    meaning: 基本周波数の整数倍の周波数成分。矩形波では対称性により偶数次高調波が消え、奇数次高調波だけが残る。

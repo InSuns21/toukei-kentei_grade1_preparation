@@ -1,0 +1,90 @@
+chapter: FOU1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+forward_references: []
+
+# FOU1 は RA4 の Riemann 積分だけを前提に、有限次数の Fourier 係数計算を閉じる。
+# 旧 FA1・旧 Fourier 本文・未実装 FOU2 の結果を concept dependency / proof dependency にしない。
+
+concepts:
+  - id: fourier.fou1-trigonometric-polynomial
+    name: 三角多項式
+    kind: definition
+    aliases: [trigonometric polynomial]
+    introduction: formal
+
+  - id: fourier.fou1-frequency-cancellation
+    name: 正弦・余弦の一周期積分消去則
+    kind: theorem
+    aliases: [one-period sine-cosine cancellation]
+    introduction: formal
+    requires:
+      - fourier.fou1-trigonometric-polynomial
+
+  - id: fourier.fou1-real-coefficient
+    name: 実 Fourier 係数
+    kind: definition
+    aliases: [real Fourier coefficient]
+    introduction: formal
+    requires:
+      - fourier.fou1-frequency-cancellation
+
+  - id: fourier.fou1-finite-sum
+    name: N次 Fourier 有限和
+    kind: definition
+    aliases: [finite Fourier sum of order N]
+    introduction: formal
+    requires:
+      - fourier.fou1-real-coefficient
+
+  - id: fourier.fou1-coefficient-extraction
+    name: 一周期積分による Fourier 係数の抽出
+    kind: theorem
+    aliases: [Fourier coefficient extraction by one-period integration]
+    introduction: formal
+    requires:
+      - fourier.fou1-frequency-cancellation
+      - fourier.fou1-real-coefficient
+
+  - id: fourier.fou1-least-squares
+    name: Fourier有限和の固定次数最小二乗性
+    kind: theorem
+    aliases: [fixed-order least-squares property of finite Fourier sums]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+      - fourier.fou1-frequency-cancellation
+
+  - id: fourier.fou1-parity
+    name: 偶奇対称性による Fourier 係数の消失則
+    kind: theorem
+    aliases: [Fourier coefficient cancellation by parity symmetry]
+    introduction: formal
+    requires:
+      - fourier.fou1-real-coefficient
+
+  - id: fourier.fou1-complex-exponential-coefficient
+    name: 複素指数係数
+    kind: definition
+    aliases: [complex exponential coefficient]
+    introduction: formal
+    requires:
+      - fourier.fou1-real-coefficient
+
+  - id: fourier.fou1-half-range
+    name: 半区間正弦・余弦係数
+    kind: definition
+    aliases: [half-range sine and cosine coefficients]
+    introduction: formal
+    requires:
+      - fourier.fou1-parity
+
+  - id: fourier.fou1-finite-energy-bound
+    name: Fourier係数の有限エネルギー不等式
+    kind: theorem
+    aliases: [finite energy inequality for Fourier coefficients]
+    introduction: formal
+    requires:
+      - fourier.fou1-least-squares
