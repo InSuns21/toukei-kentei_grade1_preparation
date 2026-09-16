@@ -3,16 +3,10 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RA4
-forward_references:
-  - analysis.pointwise-convergence
-  - fourier.fejer-kernel
-  - fourier.trig-system-l2-completeness
-  - fourier.parseval-identity
-  - fourier.partial-sum-l2-convergence
+forward_references: []
 
-# 本章はFourier級数の係数計算をRiemann積分と有限和だけで閉じる。
-# 三角関数系の完全性、Parseval等式、各点収束、Fejer平均はFOU2側の責務とする。
-# 旧FA1の概念正本はFOU2実装まで維持するため、FOU1では衝突しない章ローカル名を用いる。
+# 本章は Fourier 級数の係数計算を Riemann 積分と有限和だけで閉じる。
+# 無限級数の収束論は後続 FOU2 の責務とし、FOU1 の概念・証明は旧 Fourier 教材を参照しない。
 
 concepts:
   - id: fourier.fou1-trigonometric-polynomial
