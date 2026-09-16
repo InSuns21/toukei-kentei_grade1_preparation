@@ -8,7 +8,7 @@ official_scope: []
 learning_objectives:
   - 各点収束・一様収束・二乗平均収束の定義と強弱を区別し、Fourier級数で混同してはいけない理由を説明できる
   - Dirichlet核の有限和公式とFourier有限和の積分表示を導出できる
-  - Riemann--Lebesgue型補題をRiemann積分の階段関数近似から証明し、区分的C1関数のDirichlet収束定理へ適用できる
+  - 高周波振動積分の消去補題をRiemann積分の階段関数近似から証明し、区分的C1関数のDirichlet収束定理へ適用できる
   - 跳躍点では左右極限の平均へ収束することを証明し、矩形波でGibbs現象の持続する超過量を説明できる
   - Fejér核の非負性・正規化・原点への集中を証明し、連続周期関数に対するFejér平均の一様収束を導ける
   - Fejér平均から連続周期関数に対する三角多項式の一様稠密性を導ける
@@ -21,7 +21,7 @@ definitions:
   - { id: FOU2-DEF-04, name: Fejér核 }
 theorems:
   - { id: FOU2-THM-01, name: Dirichlet核の閉形式とFourier有限和の積分表示 }
-  - { id: FOU2-THM-02, name: Riemann--Lebesgue型補題 }
+  - { id: FOU2-THM-02, name: 高周波振動積分の消去補題 }
   - { id: FOU2-THM-03, name: Dirichletの各点収束定理 }
   - { id: FOU2-THM-04, name: Fejér核の基本性質 }
   - { id: FOU2-THM-05, name: Fejérの一様収束定理 }

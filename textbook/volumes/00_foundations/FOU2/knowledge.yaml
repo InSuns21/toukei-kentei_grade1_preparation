@@ -35,9 +35,9 @@ concepts:
       - fourier.fou1-real-coefficient
 
   - id: fourier.fou2-riemann-lebesgue
-    name: Riemann--Lebesgue型補題
+    name: 高周波振動積分の消去補題
     kind: theorem
-    aliases: [Riemann--Lebesgue型補題, Riemann-Lebesgue lemma for Riemann integrable functions]
+    aliases: [高周波振動積分の消去補題, oscillatory integral cancellation lemma]
     introduction: formal
     requires:
       - fourier.fou2-dirichlet-integral
