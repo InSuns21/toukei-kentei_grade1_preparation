@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - FOU1
+# FOU2 は FOU1 のみを直接前提とし、旧 Fourier 章は互換導線に限定する。
 official_scope: []
 learning_objectives:
   - 各点収束・一様収束・二乗平均収束の定義と強弱を区別し、Fourier級数で混同してはいけない理由を説明できる
