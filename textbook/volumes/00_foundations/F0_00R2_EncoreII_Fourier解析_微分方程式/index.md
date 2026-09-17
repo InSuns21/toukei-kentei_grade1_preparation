@@ -48,7 +48,7 @@ Sturm--Liouville 理論の正本は ODE7 です。PDE 側では重複証明せ�
 1. [FOU1 Fourier級数・直交性・係数計算](../FOU1/index.md)
 2. [FOU2 Fourier級数の収束・Fejér・Parseval](../FOU2/index.md)
 3. [FOU3 Fourier変換・畳み込み・反転](../FOU3/index.md)
-4. FOU4 Plancherel・$L^2$ Fourier解析（後続）
+4. [FOU4 Plancherel・$L^2$ Fourier解析](../FOU4/index.md)
 5. FOU5 確率・信号処理への接続（後続）
 
 FOU1–FOU2 では周期関数を離散周波数へ分解し、FOU3 で実数全体上の連続周波数へ進みます。
@@ -63,7 +63,7 @@ Fourier級数              Fourier変換
                          Plancherel
 ```
 
-FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。$L^2$ 全体への拡張と Hilbert 空間上のユニタリ性は FOU4 に分離します。
+FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。FOU4 では $L^2$ 全体への拡張を行い、Hilbert 空間上の正規化 Fourier 変換をユニタリ作用素として構成します。
 
 ---
 
@@ -156,6 +156,7 @@ Encore II の標準 PDE コアは古典解までで一度閉じます。
 - `textbook/dream-theater.md` の現行目次には掲載しない。
 - 現行章から旧章を prerequisite / concept owner / proof dependency にしない。
 - 内容を移送した後は、新旧両方を並行して育てない。
+- 旧URLを残す場合も、表示するのは移行案内と新正本へのリンクだけとし、旧本文そのものは通常表示しない。
 - 読者が通常導線を辿ったときは新 ODE / FOU / PDE 系列だけを見る。
 
 つまり旧教材は **削除ではなく隔離** です。
