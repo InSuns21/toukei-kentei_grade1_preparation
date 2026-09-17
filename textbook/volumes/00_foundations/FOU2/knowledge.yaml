@@ -15,8 +15,6 @@ concepts:
     kind: term
     aliases: [real-valued periodic function]
     introduction: inline
-    requires:
-      - fourier.fou1-finite-sum
 
   - id: fourier.fou2-mean-square-convergence-definition
     name: 二乗平均収束
@@ -24,7 +22,6 @@ concepts:
     aliases: [mean-square convergence]
     introduction: formal
     requires:
-      - analysis.uniform-convergence
       - fourier.fou2-real-periodic-function
 
   - id: fourier.fou2-dirichlet-kernel
@@ -50,8 +47,6 @@ concepts:
     kind: term
     aliases: [step function]
     introduction: inline
-    requires:
-      - analysis.riemann-integrable
 
   - id: fourier.fou2-riemann-lebesgue
     name: 高周波振動積分の消去補題
