@@ -34,13 +34,16 @@ assert needle in s
 s = s.replace(needle, replacement, 1)
 write(p, s)
 
-# 2) FOU3: keep formal introduction before first reader-facing use and use canonical theorem names.
+# 2) FOU3: keep formal introduction before first reader-facing use and use canonical theorem names/links.
 p = 'textbook/volumes/00_foundations/FOU3/index.md'
 s = read(p)
 s = s.replace('## 3. $L^1$ 平行移動連続性と Riemann--Lebesgue', '## 3. $L^1$ の平行移動と Riemann--Lebesgue', 1)
 s = s.replace('## 4. 畳み込み：空間側の混合が周波数側の積になる', '## 4. 空間側の混合が周波数側の積になる', 1)
 s = s.replace('また Gaussian の変換公式から', 'また [GaussianのFourier変換](#lem-fou3-gaussian-transform)から', 1)
 s = s.replace('積分順序を交換し、Gaussian 変換公式から', '積分順序を交換し、[GaussianのFourier変換](#lem-fou3-gaussian-transform)から', 1)
+s = s.replace('$L^1$ 平行移動連続性から右辺は $0$ へ収束します。', '[L1の平行移動連続性](#lem-fou3-l1-translation)から右辺は $0$ へ収束します。', 1)
+s = s.replace('任意の $\\eta>0$ に対し、平行移動連続性から $|y|<\\delta$ なら', '任意の $\\eta>0$ に対し、[L1の平行移動連続性](#lem-fou3-l1-translation)から $|y|<\\delta$ なら', 1)
+s = s.replace('$|\\xi|\\to\\infty$ なら $|h|=\\pi/|\\xi|\\to0$ です。したがって $L^1$ 平行移動連続性により右辺は0へ行き、', '$|\\xi|\\to\\infty$ なら $|h|=\\pi/|\\xi|\\to0$ です。したがって [L1の平行移動連続性](#lem-fou3-l1-translation)により右辺は0へ行き、', 1)
 write(p, s)
 
 # 3) FOU3: register the natural post-definition shorthand actually used in prose.
