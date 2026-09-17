@@ -21,6 +21,8 @@ definitions:
   - { id: FOU2-DEF-02, name: Dirichlet核 }
   - { id: FOU2-DEF-03, name: Fejér平均 }
   - { id: FOU2-DEF-04, name: Fejér核 }
+  - { id: FOU2-DEF-05, name: 階段関数 }
+  - { id: FOU2-DEF-06, name: 連続周期関数 }
 theorems:
   - { id: FOU2-THM-01, name: Dirichlet核の閉形式とFourier有限和の積分表示 }
   - { id: FOU2-THM-02, name: 高周波振動積分の消去補題 }
