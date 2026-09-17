@@ -14,87 +14,12 @@ on:
       - '.github/workflows/validate-pages.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
-      - name: Finalize FOU2 branch
-        if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          def replace_all(text, old, new):
-              return text.replace(old, new)
-
-          index = Path('textbook/volumes/00_foundations/FOU2/index.md')
-          s = index.read_text(encoding='utf-8')
-          replacements = [
-              ('[Riemann--Lebesgue型補題](#thm-fou2-riemann-lebesgue)を', '[高周波振動積分の消去補題](#thm-fou2-riemann-lebesgue)を'),
-              ('次に全 Fourier 係数が0とします。Parseval 等式から', '次に全 Fourier 係数が0とします。[係数エネルギー等式](#thm-fou2-parseval)から'),
-              ('さらに Fejér 平均は正の核による平均なので $|\\sigma_Nq|\\le1$ です。普通の部分和と平均化した部分和では、同じ Fourier 係数を使っていても挙動が変わります。', 'さらに Fejér 平均は正の核による平均なので $|\\sigma_Nq|\\le1$ です。通常の Fourier有限和と、それらを平均した Fejér 平均では、同じ Fourier 係数を使っていても挙動が変わります。'),
-              ('本章では ordinary partial sum $S_Nf$ が連続関数に対して常に一様収束するとは主張していません。', '本章では元の Fourier有限和 $S_Nf$ が連続関数に対して常に一様収束するとは主張していません。'),
-              ('しかし Gibbs 現象により跳躍点近くの最大超過量は消えないので、一様収束はしません。', 'しかし [Gibbs現象](#prop-fou2-gibbs-square-wave) により跳躍点近くの最大超過量は消えないので、一様収束はしません。'),
-              ('を $2\\pi$ 周期に延長します。Dirichlet の各点収束定理を使い、次の極限を求めてください。', 'を $2\\pi$ 周期に延長します。[Dirichletの各点収束定理](#thm-fou2-dirichlet-convergence)を使い、次の極限を求めてください。'),
-              ('1. Parseval 等式の左辺を計算してください。', '1. [係数エネルギー等式](#thm-fou2-parseval)の左辺を計算してください。'),
-              ('4. Dirichlet の各点収束定理から $x=\\pi$ での Fourier有限和の極限を求め、Parseval の結論と各点値の結論が別物であることを説明してください。', '4. [Dirichletの各点収束定理](#thm-fou2-dirichlet-convergence)から $x=\\pi$ での Fourier有限和の極限を求め、係数エネルギー等式の結論と各点値の結論が別物であることを説明してください。'),
-              ('5. Parseval 等式から', '5. [係数エネルギー等式](#thm-fou2-parseval)から'),
-              ('Parseval 等式の右辺は奇数次の正弦係数だけなので', '[係数エネルギー等式](#thm-fou2-parseval)の右辺は奇数次の正弦係数だけなので'),
-              ('Dirichlet 部分和では核が符号を変えるため', '通常の Fourier有限和では Dirichlet 核が符号を変えるため'),
-              ('> **定理（Parseval等式と三角系の完全性）**  ', '> **定理（Fourier係数のエネルギー等式と三角系の完全性）**  '),
-          ]
-          for old, new in replacements:
-              s = replace_all(s, old, new)
-          index.write_text(s, encoding='utf-8')
-
-          kpath = Path('textbook/volumes/00_foundations/FOU2/knowledge.yaml')
-          k = kpath.read_text(encoding='utf-8')
-          k = k.replace('''  - id: fourier.fou2-convergence-modes\n    name: 各点収束・一様収束・二乗平均収束\n    kind: definition\n    aliases: [各点収束, 一様収束, 二乗平均収束, pointwise convergence, uniform convergence, mean-square convergence]\n    introduction: formal\n    requires:\n      - fourier.fou1-finite-sum\n''', '''  - id: fourier.fou2-pointwise-convergence\n    name: 各点収束\n    kind: definition\n    aliases: [各点収束, pointwise convergence]\n    introduction: formal\n    requires:\n      - fourier.fou1-finite-sum\n\n  - id: fourier.fou2-uniform-convergence\n    name: 一様収束\n    kind: definition\n    aliases: [一様収束, uniform convergence]\n    introduction: formal\n    requires:\n      - fourier.fou1-finite-sum\n\n  - id: fourier.fou2-mean-square-convergence-definition\n    name: 二乗平均収束\n    kind: definition\n    aliases: [二乗平均収束, mean-square convergence]\n    introduction: formal\n    requires:\n      - fourier.fou1-finite-sum\n''')
-          k = k.replace('''  - id: fourier.fou2-riemann-lebesgue\n    name: 高周波振動積分の消去補題\n    kind: theorem\n    aliases: [高周波振動積分の消去補題, oscillatory integral cancellation lemma]\n''', '''  - id: fourier.fou2-riemann-lebesgue\n    name: 高周波振動積分の消去補題\n    kind: theorem\n    aliases: [高周波振動積分の消去補題, Riemann--Lebesgue型補題, Riemann--Lebesgue, oscillatory integral cancellation lemma]\n''')
-          k = k.replace('''  - id: fourier.fou2-parseval\n    name: Parseval等式と三角系の完全性\n    kind: theorem\n    aliases: [Parseval 等式, Parseval等式, 三角系の完全性, Parseval identity, completeness of the trigonometric system]\n''', '''  - id: fourier.fou2-parseval\n    name: Fourier係数のエネルギー等式と三角系の完全性\n    kind: theorem\n    aliases: [係数エネルギー等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]\n''')
-          kpath.write_text(k, encoding='utf-8')
-
-          oldp = Path('textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md')
-          o = oldp.read_text(encoding='utf-8')
-          o = o.replace('[Parseval等式](#cor-f0-00fa1-parseval)', '[FOU2 の係数エネルギー等式](../FOU2/index.md#thm-fou2-parseval)')
-          oldp.write_text(o, encoding='utf-8')
-
-          chapter = Path('textbook/volumes/00_foundations/FOU2/chapter.yaml')
-          c = chapter.read_text(encoding='utf-8').replace('\n# validation trigger for FOU2 finalization\n', '\n')
-          chapter.write_text(c, encoding='utf-8')
-
-          plan = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
-          p = plan.read_text(encoding='utf-8')
-          if '| FOU2 | **実装・検証完了（PR #290）** |' not in p:
-              lines = p.splitlines()
-              pos = next((i for i, line in enumerate(lines) if line.startswith('| FOU1 |')), None)
-              if pos is not None:
-                  lines.insert(pos + 1, '| FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |')
-                  p = '\n'.join(lines) + ('\n' if p.endswith('\n') else '')
-          old_tail = 'FOU1 は **実装・検証完了（PR #289）**。RA4 の Riemann 積分だけを前提に有限次数の Fourier 理論を自立実装し、旧 `F0_00FA1_Fourier級数_直交展開`・旧 Fourier 本文には依存しない。次の実装単位は **FOU2「Fourier級数の収束・Fejér・Parseval」**。FOU2 も旧教材を証明依存先にせず、無限段階の収束理論を現行 canonical prerequisite と章内論証で閉じる。'
-          new_tail = 'FOU2 は **実装・検証完了（PR #290）**。FOU1 の有限次数理論だけを直接前提に、Dirichlet核による各点収束、Gibbs現象、Fejér平均による一様近似、三角多項式の稠密性、二乗平均収束、係数エネルギー等式（Parseval等式）までを Riemann 積分側で閉じた。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしていない。次の実装単位は **FOU3「Fourier変換・畳み込み・反転」**。'
-          if old_tail in p:
-              p = p.replace(old_tail, new_tail)
-          plan.write_text(p, encoding='utf-8')
-          PY
-
-          if ! git diff --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook
-            git commit -m 'Finalize FOU2 references and dependencies'
-            git push origin HEAD:${{ github.head_ref }}
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
