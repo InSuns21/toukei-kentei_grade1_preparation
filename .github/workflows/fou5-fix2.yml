@@ -1,0 +1,49 @@
+name: Apply remaining FOU5 fixes
+
+on:
+  push:
+    branches:
+      - dream-theater/fou5-probability-dft-sampling
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply remaining targeted fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('textbook/volumes/00_foundations/FOU5/index.md')
+          s = p.read_text()
+          s = s.replace(
+              '平均0・分散1へ標準化した iid 変数 $Y_j$',
+              '平均0・分散1へ標準化した独立同分布（independent and identically distributed; iid）変数 $Y_j$'
+          )
+          s = s.replace('従って $X=(1,1,1,1)$ です。逆変換は', '従って $X=(1,1,1,1)$ です。反転公式の右辺は')
+          s = re.sub(r'\*\*定義の確認：([^*]+)\*\*', r'**定義の確認**\n\n**\1**', s)
+          p.write_text(s)
+
+          k = Path('textbook/volumes/00_foundations/FOU5/knowledge.yaml')
+          ks = k.read_text()
+          ks = ks.replace(
+              'introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）"]',
+              'introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）", "補題（ の 乗根の直交性）"]'
+          )
+          k.write_text(ks)
+          PY
+
+          git rm .github/workflows/fou5-fix2.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FOU5/index.md textbook/volumes/00_foundations/FOU5/knowledge.yaml
+          git commit -m 'fix: FOU5 の定義例と監査表記を整合'
+          git push origin HEAD:dream-theater/fou5-probability-dft-sampling
