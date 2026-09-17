@@ -56,4 +56,4 @@ jobs:
           git commit -m 'fix: finalize FOU3 FOU4 validation alignment'
           git push origin HEAD:dream-theater-fou3-fourier-transform
 
-# rerun after final first-use cleanup
+# rerun after canonical theorem-reference cleanup
