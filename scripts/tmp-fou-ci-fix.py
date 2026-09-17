@@ -92,7 +92,7 @@ s = s[:m.start()] + 'ほとんど至る所（almost everywhere; a.e.）' + s[m.e
 lines = s.splitlines()
 refs = {
     356: ('Gaussian approximate identity', '[Gaussian approximate identity](../FOU3/index.md#thm-fou3-gaussian-approximation)'),
-    1366: ('Minkowskiの不等式', '[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)'),
+    1366: ('Minkowski を使うと', '[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使うと'),
 }
 for n, (label, link) in refs.items():
     assert label in lines[n - 1], (n, lines[n - 1])
