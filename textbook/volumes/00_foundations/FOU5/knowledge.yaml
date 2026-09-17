@@ -9,7 +9,7 @@ prerequisites:
 # FOU5 は Fourier 解析を確率論と有限離散信号へ接続する bridge。
 # 特性関数・Lévy連続性定理・独立同分布 CLT は確率論側の既存正本を再利用し、重複所有しない。
 # Shannon標本化定理、Poisson和公式、緩増加超関数は本章の証明依存へ入れない。
-# formal-order 監査では見出し中の数式が除去されるため、1のN乗根の補題だけ正規化後の導入別名も登録する。
+# formal-order 監査と人間可読性を揃えるため、1のN乗根の補題名は見出しでもプレーンテキスト表記にする。
 
 concepts:
   - id: fourier.fou5-measure-transform
@@ -56,7 +56,7 @@ concepts:
     kind: lemma
     aliases: [roots of unity orthogonality]
     introduction: formal
-    introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）", "補題（ の 乗根の直交性）"]
+    introduction_aliases: ["補題（1のN乗根の直交性）"]
     requires: [fourier.fou5-dft]
 
   - id: fourier.fou5-dft-inversion
