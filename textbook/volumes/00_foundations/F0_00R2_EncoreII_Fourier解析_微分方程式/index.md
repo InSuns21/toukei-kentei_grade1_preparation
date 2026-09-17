@@ -63,7 +63,7 @@ Fourier級数              Fourier変換
                          Plancherel
 ```
 
-FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。FOU4 では $L^2$ 全体への拡張を行い、Hilbert 空間上の正規化 Fourier 変換をユニタリ作用素として構成します。
+FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。FOU4 では $L^2$ 全体への拡張を行い、完備内積空間上の正規化 Fourier 変換をユニタリ作用素として構成します。
 
 ---
 

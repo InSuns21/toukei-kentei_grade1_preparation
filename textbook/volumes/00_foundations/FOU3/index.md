@@ -1,4 +1,4 @@
-# FOU3 Fourier変換：連続周波数・畳み込み・反転
+# FOU3 連続周波数解析：変換・積・反転
 
 FOU1–FOU2 では、$2\pi$ 周期関数を整数周波数 $n\in\mathbb Z$ に分解しました。実数全体上の非周期関数では、周波数は離散列ではなく連続変数 $\xi\in\mathbb R$ になります。本章ではその対応を
 
@@ -22,7 +22,7 @@ Fourier反転
 
 の順に構成します。
 
-直接の Fourier 理論の前提は [FOU2](../FOU2/index.md) です。ただし実数全体上の $L^1$ 関数を扱うため、積分論については [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)、[$C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)を既知とします。$L^2$ の完備性、Hilbert 空間、Plancherel は本章では使わず FOU4 へ送ります。
+直接の Fourier 理論の前提は [FOU2](../FOU2/index.md) です。ただし実数全体上の $L^1$ 関数を扱うため、積分論については [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)、[$C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)を既知とします。$L^2$ の完備性、完備内積空間の構造、Plancherel は本章では使わず FOU4 へ送ります。
 
 本章の規約は
 
@@ -77,7 +77,7 @@ $$
 
 ### 証明の見取り図
 
-有界性は $|e^{-i\xi x}|=1$ だけです。連続性では $\xi_n\to\xi$ とし、被積分関数の各点収束を $|f|$ で支配して優収束定理を使います。
+有界性は $|e^{-i\xi x}|=1$ だけです。連続性では $\xi_n\to\xi$ とし、被積分関数の各点収束を $|f|$ で支配して[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -102,7 +102,7 @@ $$
 |f(x)e^{-i\xi_nx}|=|f(x)|\in L^1.
 $$
 
-したがって優収束定理により
+したがって[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$
 \widehat f(\xi_n)\to\widehat f(\xi).
@@ -453,7 +453,7 @@ $$
 I(\xi)=\int_{\mathbb R}e^{-x^2}e^{-i\xi x}\,dx
 $$
 
-と置きます。$|x|e^{-x^2}\in L^1$ なので優収束定理により積分記号下で微分でき、
+と置きます。$|x|e^{-x^2}\in L^1$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により積分記号下で微分でき、
 
 $$
 I'(\xi)=-i\int xe^{-x^2}e^{-i\xi x}\,dx.
@@ -486,7 +486,7 @@ Gaussian が特別なのは、変換後も同じ型に留まることです。�
 
 ---
 
-## 7. approximate identity：狭い核で関数を平均する
+## 7. 原点へ集中する核で関数を平均する
 
 <a id="def-fou3-approximate-identity"></a>
 <!-- formal-statement-start -->
@@ -645,7 +645,7 @@ I_\varepsilon(x)
 \int_{\mathbb R}\widehat f(\xi)e^{i\xi x}e^{-\varepsilon\xi^2}d\xi
 $$
 
-と置きます。$\widehat f\in L^1$ なので優収束定理により
+と置きます。$\widehat f\in L^1$ なので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$
 I_\varepsilon(x)
@@ -683,7 +683,7 @@ I_\varepsilon(x)
 =(f*k_\varepsilon)(x).
 $$
 
-$f$ は $x$ で連続なので Gaussian approximate identity から
+$f$ は $x$ で連続なので [Gaussian approximate identity](#thm-fou3-gaussian-approximation) から
 
 $$
 I_\varepsilon(x)\to f(x).
@@ -1082,7 +1082,7 @@ $$
 - 平行移動・変調・尺度変換の三公式を変数変換から導けるか。
 - $C_c$ 稠密性から $L^1$ 平行移動連続性を再構成できるか。
 - 半周期シフトが Riemann--Lebesgue の補題を生む理由を説明できるか。
-- 畳み込み定理で Fubini を使う前に絶対可積分性を確認できるか。
+- 畳み込み定理で [Fubini](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使う前に絶対可積分性を確認できるか。
 - 微分公式で境界項が消える仮定を言えるか。
 - Gaussian の変換を一階 ODE へ落として計算できるか。
 - approximate identity の三条件を Gaussian 核で確認できるか。

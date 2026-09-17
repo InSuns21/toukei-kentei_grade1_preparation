@@ -20,7 +20,7 @@ concepts:
   - id: fourier.fou3-fourier-transform
     name: L1 Fourier変換
     kind: definition
-    aliases: [Fourier transform on L1]
+    aliases: [Fourier transform on L1, Fourier変換]
     introduction: formal
 
   - id: fourier.fou3-bounded-continuous

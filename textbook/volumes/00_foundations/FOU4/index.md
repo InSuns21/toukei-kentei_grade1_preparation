@@ -50,9 +50,9 @@ L2 の平行移動・変調・L1-L2 畳み込み
 
 です。
 
-直接の Fourier 理論の前提は [FOU3](../FOU3/index.md) です。解析基盤として [$C_c$ の $L^p$ 稠密性と $L^p$ 完備性](../MT7/index.md)、関数解析の言葉として [ノルム空間・Banach空間・Hilbert空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md) を使います。
+直接の Fourier 理論の前提は [FOU3](../FOU3/index.md) です。解析基盤として [$C_c$ の $L^p$ 稠密性と $L^p$ 完備性](../MT7/index.md)、関数解析の言葉として [ノルム空間・完備ノルム空間・完備内積空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md) を使います。
 
-> **この章で使う関数解析は限定的です。** 使うのは $L^2$ の完備性、Hilbert 空間の内積、稠密部分空間、連続延長です。Hahn--Banach、Riesz 表現定理、スペクトル定理は使いません。
+> **この章で使う関数解析は限定的です。** 使うのは $L^2$ の完備性、完備内積空間の内積、稠密部分空間、連続延長です。Hahn--Banach、Riesz 表現定理、スペクトル定理は使いません。
 >
 > **複素解析は前提ではありません。** 留数定理は特定の Fourier 積分を計算する便利な別ルートですが、Plancherel、$L^2$ 延長、反転、unitary 性の証明には使いません。
 
@@ -68,7 +68,7 @@ $$
 
 ---
 
-## 1. 複素 $L^2$ を Hilbert 空間として使う
+## 1. 複素 $L^2$ を 完備内積空間として使う
 
 Fourier 変換は複素数値になるので、実数値 $L^2$ だけでは足りません。
 
@@ -243,7 +243,7 @@ $$
 \end{aligned}
 $$
 
-任意の $\eta>0$ に対し、前節の平行移動連続性から、ある $\delta>0$ が存在して
+任意の $\eta>0$ に対し、前節の $L^2$ 平行移動補題から、ある $\delta>0$ が存在して
 
 $$
 |y|<\delta
@@ -353,7 +353,7 @@ $$
 \|f-h\|_2<\frac\eta2
 $$
 
-となるように取れます。前節の $L^2$ Gaussian approximate identity により、十分小さい $\varepsilon>0$ で
+となるように取れます。前節の $L^2$ [Gaussian approximate identity](../FOU3/index.md#thm-fou3-gaussian-approximation) により、十分小さい $\varepsilon>0$ で
 
 $$
 \|h*k_\varepsilon-h\|_2<\frac\eta2.
@@ -633,7 +633,7 @@ $$
 \quad\text{in }L^2.
 $$
 
-$L^2$ 収束列から a.e. 収束する部分列を取れます。その部分列は一様収束によって各点で $\widehat f$ へも収束するため、
+$L^2$ 収束列から ほとんど至る所（almost everywhere; a.e.） 収束する部分列を取れます。その部分列は一様収束によって各点で $\widehat f$ へも収束するため、
 
 $$
 \mathcal F_2f=\widehat f
@@ -1016,7 +1016,7 @@ $$
 
 ### 13.2 関数解析は FOU4 から本質的に現れる
 
-FOU1–FOU3 では、Hilbert 空間という一般語を知らなくても各証明を実解析として閉じられます。しかし FOU4 では
+FOU1–FOU3 では、完備内積空間という一般語を知らなくても各証明を実解析として閉じられます。しかし FOU4 では
 
 - $L^2$ が完備である
 - 稠密な線形部分空間で写像を定義する
@@ -1363,7 +1363,7 @@ $$
 (k*f)(x)=\int k(y)f(x-y)dy
 $$
 
-と書き、Minkowski を使うと
+と書き、[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)を使うと
 
 $$
 \begin{aligned}
