@@ -1,4 +1,4 @@
-name: Temporary FOU3 FOU4 final fixer
+name: Temporary FOU3 FOU4 final validation
 
 on:
   push:
@@ -9,21 +9,46 @@ permissions:
   contents: write
 
 jobs:
-  fix:
+  validate-and-clean:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: dream-theater-fou3-fourier-transform
           fetch-depth: 0
-      - name: Apply fixes
-        run: python3 scripts/tmp-fou-ci-fix.py
-      - name: Commit fixes
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Self-test concept audits
+        run: npm run test:dream-theater-concept-audits
+      - name: Validate changed DREAM THEATER concepts
+        env:
+          DREAM_THEATER_BASE_SHA: c6e5b7d75fb32327a23e0e3cda4c9e195abf737c
+        run: npm run validate:dream-theater-concepts:changed
+      - name: Validate formal references
+        run: npm run validate:formal-references
+      - name: Validate acronym first use
+        env:
+          TERMINOLOGY_BASE_SHA: c6e5b7d75fb32327a23e0e3cda4c9e195abf737c
+        run: npm run validate:acronym-first-use:changed
+      - name: Validate DREAM THEATER exercise counts
+        run: npm run validate:dream-theater-exercise-counts
+      - name: Audit proof pedagogy
+        run: npm run audit:proof-pedagogy
+      - name: Audit formalism pedagogy
+        run: npm run audit:formalism-pedagogy
+      - name: Validate textbook
+        run: npm run validate
+      - name: Validate Pages
+        run: npm run validate:pages
+      - name: Remove temporary files and push
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/audit-dream-theater-undefined-terms.mjs textbook/volumes/00_foundations
-          git commit -m 'fix: close FOU3 FOU4 validation gaps'
+          git rm .github/workflows/tmp-fou-ci-fix.yml scripts/tmp-fou-ci-fix.py
+          git commit -m 'chore: remove temporary FOU validation helpers'
           git push origin HEAD:dream-theater-fou3-fourier-transform
-# rerun 2
