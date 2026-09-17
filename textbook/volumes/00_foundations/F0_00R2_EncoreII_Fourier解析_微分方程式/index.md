@@ -49,7 +49,7 @@ Sturm--Liouville 理論の正本は ODE7 です。PDE 側では重複証明せ�
 2. [FOU2 Fourier級数の収束・Fejér・Parseval](../FOU2/index.md)
 3. [FOU3 Fourier変換・畳み込み・反転](../FOU3/index.md)
 4. [FOU4 Plancherel・$L^2$ Fourier解析](../FOU4/index.md)
-5. FOU5 確率・信号処理への接続（後続）
+5. [FOU5 確率・離散Fourier変換・サンプリング](../FOU5/index.md)
 
 FOU1–FOU2 では周期関数を離散周波数へ分解し、FOU3 で実数全体上の連続周波数へ進みます。
 
@@ -63,7 +63,7 @@ Fourier級数              Fourier変換
                          Plancherel
 ```
 
-FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。FOU4 では $L^2$ 全体への拡張を行い、完備内積空間上の正規化 Fourier 変換をユニタリ作用素として構成します。
+FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、反転までを扱います。FOU4 では $L^2$ 全体への拡張を行い、完備内積空間上の正規化 Fourier 変換をユニタリ作用素として構成します。FOU5 では確率測度の Fourier 変換・独立和と畳み込みを既存の確率論正本へ接続し、さらに DFT・離散反転・Parseval・巡回畳み込み・FFT・エイリアシングまで有限次元側の理論を閉じます。
 
 ---
 
@@ -128,7 +128,7 @@ $$
 \varphi_X(t)=E[e^{itX}]
 $$
 
-は確率測度の Fourier 変換です。独立和と畳み込み、CLT、Gaussian は Fourier 解析と自然につながります。この横断整理は FOU5 でまとめます。
+は確率測度の Fourier 変換です。独立和と畳み込み、CLT、Gaussian は Fourier 解析と自然につながります。この横断整理は [FOU5](../FOU5/index.md) でまとめます。
 
 ---
 
