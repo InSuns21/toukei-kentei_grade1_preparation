@@ -30,5 +30,10 @@ forward_references:
   - ode.ode7-eigenpair
   - fourier.fou3-fourier-transform
   - fourier.fou3-convolution
+  - fourier.fou5-independent-sum-convolution
+  - fourier.fou5-dft
+  - fourier.fou5-circular-convolution
+  - fourier.fou5-aliasing
+  - fourier.fou5-sampling-aliasing
 
 concepts: []

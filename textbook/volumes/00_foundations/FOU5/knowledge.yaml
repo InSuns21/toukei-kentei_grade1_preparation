@@ -7,7 +7,7 @@ prerequisites:
   - F0-00P6A
 
 # FOU5 は Fourier 解析を確率論と有限離散信号へ接続する bridge。
-# 特性関数・Lévy連続性定理・iid CLT は確率論側の既存正本を再利用し、重複所有しない。
+# 特性関数・Lévy連続性定理・独立同分布 CLT は確率論側の既存正本を再利用し、重複所有しない。
 # Shannon標本化定理、Poisson和公式、緩増加超関数は本章の証明依存へ入れない。
 
 concepts:
@@ -16,6 +16,7 @@ concepts:
     kind: definition
     aliases: [有限Borel測度のFourier変換, Fourier transform of a finite measure]
     introduction: formal
+    introduction_aliases: ["定義（有限測度の Fourier 変換）"]
     requires: [measure.lebesgue-integral]
 
   - id: fourier.fou5-probability-transform
@@ -23,6 +24,7 @@ concepts:
     kind: proposition
     aliases: [probability Fourier transform, 特性関数とFourier変換の対応]
     introduction: formal
+    introduction_aliases: ["命題（確率分布の Fourier 変換と特性関数の対応）"]
     requires: [fourier.fou5-measure-transform, prob.characteristic-function]
 
   - id: fourier.fou5-probability-convolution
@@ -30,6 +32,7 @@ concepts:
     kind: definition
     aliases: [convolution of probability measures, 確率分布の畳み込み]
     introduction: formal
+    introduction_aliases: ["定義（確率測度の畳み込み）"]
     requires: [measure.product-measure, measure.pushforward-measure]
 
   - id: fourier.fou5-independent-sum-convolution
@@ -37,6 +40,7 @@ concepts:
     kind: proposition
     aliases: [独立和と畳み込み, Fourier transform of convolution measures]
     introduction: formal
+    introduction_aliases: ["命題（独立和・畳み込み・Fourier積）"]
     requires: [fourier.fou5-measure-transform, fourier.fou5-probability-convolution, prob.independence-joint-factorization, measure.pushforward-integration-theorem, measure.fubini-theorem]
 
   - id: fourier.fou5-dft
@@ -44,12 +48,14 @@ concepts:
     kind: definition
     aliases: [DFT, discrete Fourier transform]
     introduction: formal
+    introduction_aliases: ["定義（離散 Fourier 変換）"]
 
   - id: fourier.fou5-root-orthogonality
     name: 1のN乗根の直交性
     kind: lemma
     aliases: [roots of unity orthogonality]
     introduction: formal
+    introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）"]
     requires: [fourier.fou5-dft]
 
   - id: fourier.fou5-dft-inversion
@@ -57,6 +63,7 @@ concepts:
     kind: theorem
     aliases: [DFT inversion]
     introduction: formal
+    introduction_aliases: ["定理（離散 Fourier 反転公式）"]
     requires: [fourier.fou5-dft, fourier.fou5-root-orthogonality]
 
   - id: fourier.fou5-dft-parseval
@@ -64,6 +71,7 @@ concepts:
     kind: theorem
     aliases: [discrete Parseval identity]
     introduction: formal
+    introduction_aliases: ["定理（離散 Parseval 等式）"]
     requires: [fourier.fou5-dft, fourier.fou5-root-orthogonality]
 
   - id: fourier.fou5-circular-convolution
@@ -71,12 +79,14 @@ concepts:
     kind: definition
     aliases: [circular convolution]
     introduction: formal
+    introduction_aliases: ["定義（巡回畳み込み）"]
 
   - id: fourier.fou5-circular-convolution-theorem
     name: 巡回畳み込み定理
     kind: theorem
     aliases: [circular convolution theorem]
     introduction: formal
+    introduction_aliases: ["定理（巡回畳み込み定理）"]
     requires: [fourier.fou5-dft, fourier.fou5-circular-convolution]
 
   - id: fourier.fou5-aliasing
@@ -84,10 +94,12 @@ concepts:
     kind: definition
     aliases: [aliasing, エイリアシング]
     introduction: formal
+    introduction_aliases: ["定義（等間隔標本化におけるエイリアシング同値）"]
 
   - id: fourier.fou5-sampling-aliasing
     name: 等間隔標本化のエイリアシング
     kind: proposition
     aliases: [sampling aliasing, 標本化エイリアシング]
     introduction: formal
+    introduction_aliases: ["命題（等間隔標本化のエイリアシング）"]
     requires: [fourier.fou5-aliasing]

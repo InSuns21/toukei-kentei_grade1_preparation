@@ -10,12 +10,12 @@ FOU1～FOU4 では、周期関数の Fourier 級数から始めて、実数直�
       └── 標本列 ── 離散Fourier変換 ── 巡回畳み込み・高速計算・エイリアシング
 ```
 
-確率側では、すでに [特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) と [iid中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) が正本として証明済みです。本章ではそれらを重複証明せず、特性関数を確率測度の Fourier 変換として読み直し、独立和・畳み込み・Fourier 積の対応を閉じます。
+確率側では、すでに [特性関数](../F0_00P6_特性関数_中心極限定理/index.md#def-f0-00p6-characteristic-function) と [独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) が正本として証明済みです。本章ではそれらを重複証明せず、特性関数を確率測度の Fourier 変換として読み直し、独立和・畳み込み・Fourier 積の対応を閉じます。
 
 信号処理側では、離散 Fourier 変換を定義だけで済ませません。$1$ の $N$ 乗根の直交性から反転公式と Parseval 等式を導き、巡回畳み込みが周波数ごとの積へ変わることを証明します。そのうえで高速 Fourier 変換が「別の変換」ではなく同じ変換を速く計算するアルゴリズムであること、等間隔標本化では異なる連続周波数が同じ標本列へ潰れることを式で確認します。
 
 > **証明境界**  
-> Shannon の標本化定理、Poisson 和公式、Schwartz 空間、緩増加超関数は本章の証明依存には入れません。エイリアシングは「純粋な複素正弦波を等間隔で標本化すると何が区別不能になるか」という有限計算で閉じます。
+> Shannon の標本化定理、Poisson 和公式、Schwartz 空間、緩増加超関数は本章の証明依存には入れません。エイリアシングは「純粋な複素指数波を等間隔で標本化すると何が区別不能になるか」という有限計算で閉じます。
 
 ---
 
@@ -34,10 +34,10 @@ $$
 > **定義（有限測度の Fourier 変換）**  
 > $\mu$ を $\mathbb R$ 上の有限 Borel 測度、すなわち $\mu(\mathbb R)<\infty$ とする。$\mu$ の Fourier 変換を
 >
-> $$
-> \boxed{\widehat\mu(\xi):=\int_{\mathbb R}e^{-i\xi x}\,d\mu(x)}
-> \qquad(\xi\in\mathbb R)
-> $$
+$$
+\boxed{\widehat\mu(\xi):=\int_{\mathbb R}e^{-i\xi x}\,d\mu(x)}
+\qquad(\xi\in\mathbb R)
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -79,9 +79,9 @@ $$
 > **命題（確率分布の Fourier 変換と特性関数の対応）**  
 > 実確率変数 $X$ の分布を $\mu_X$ とする。このとき全ての $t\in\mathbb R$ について
 >
-> $$
-> \boxed{\varphi_X(t)=\widehat{\mu_X}(-t)}
-> $$
+$$
+\boxed{\varphi_X(t)=\widehat{\mu_X}(-t)}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -139,13 +139,13 @@ $$
 > **定義（確率測度の畳み込み）**  
 > $\mu,\nu$ を $\mathbb R$ 上の確率測度とする。Borel 集合 $A\subset\mathbb R$ に対して
 >
-> $$
-> \boxed{
-> (\mu*\nu)(A)
-> :=
-> (\mu\otimes\nu)\bigl(\{(x,y)\in\mathbb R^2:x+y\in A\}\bigr)
-> }
-> $$
+$$
+\boxed{
+(\mu*\nu)(A)
+:=
+(\mu\otimes\nu)\bigl(\{(x,y)\in\mathbb R^2:x+y\in A\}\bigr)
+}
+$$
 >
 > と定め、この確率測度 $\mu*\nu$ を $\mu$ と $\nu$ の **畳み込み** という。これは積測度 $\mu\otimes\nu$ を加法写像 $S(x,y)=x+y$ で押し出した測度である。
 <!-- formal-statement-end -->
@@ -177,18 +177,18 @@ $$
 > **命題（独立和・畳み込み・Fourier積）**  
 > 実確率変数 $X,Y$ が独立で、その分布を $\mu_X,\mu_Y$ とする。このとき
 >
-> $$
-> \boxed{\mu_{X+Y}=\mu_X*\mu_Y}
-> $$
+$$
+\boxed{\mu_{X+Y}=\mu_X*\mu_Y}
+$$
 >
 > であり、全ての $\xi\in\mathbb R$ について
 >
-> $$
-> \boxed{
-> \widehat{\mu_{X+Y}}(\xi)
-> =\widehat{\mu_X}(\xi)\widehat{\mu_Y}(\xi)
-> }
-> $$
+$$
+\boxed{
+\widehat{\mu_{X+Y}}(\xi)
+=\widehat{\mu_X}(\xi)\widehat{\mu_Y}(\xi)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -253,7 +253,7 @@ $$
 
 ### 3.1 中心極限定理では何が起きていたか
 
-[iid中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で、平均0・分散1へ標準化した iid 変数 $Y_j$ と
+[独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で、平均0・分散1へ標準化した iid 変数 $Y_j$ と
 
 $$
 Z_n=\frac1{\sqrt n}\sum_{j=1}^nY_j
@@ -284,12 +284,12 @@ $N$ 個の複素数列 $x=(x_0,\dots,x_{N-1})$ を考えます。
 > **定義（離散 Fourier 変換）**  
 > 整数 $N\ge1$ と $x\in\mathbb C^N$ に対し
 >
-> $$
-> \boxed{
-> X_k:=\sum_{n=0}^{N-1}x_ne^{-2\pi i kn/N}
-> }
-> \qquad(k=0,\dots,N-1)
-> $$
+$$
+\boxed{
+X_k:=\sum_{n=0}^{N-1}x_ne^{-2\pi i kn/N}
+}
+\qquad(k=0,\dots,N-1)
+$$
 >
 > を $x$ の離散 Fourier 変換という。
 <!-- formal-statement-end -->
@@ -321,16 +321,16 @@ $$
 > **補題（$1$ の $N$ 乗根の直交性）**  
 > 整数 $N\ge1$ と整数 $r$ に対し
 >
-> $$
-> \boxed{
-> \sum_{k=0}^{N-1}e^{2\pi i kr/N}
-> =
-> \begin{cases}
-> N,&N\mid r,\\
-> 0,&N\nmid r
-> \end{cases}
-> }
-> $$
+$$
+\boxed{
+\sum_{k=0}^{N-1}e^{2\pi i kr/N}
+=
+\begin{cases}
+N,&N\mid r,\\
+0,&N\nmid r
+\end{cases}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -364,12 +364,12 @@ $$
 > **定理（離散 Fourier 反転公式）**  
 > $x\in\mathbb C^N$ の離散 Fourier 変換を $X_k$ とする。このとき
 >
-> $$
-> \boxed{
-> x_n=\frac1N\sum_{k=0}^{N-1}X_ke^{2\pi i kn/N}
-> }
-> \qquad(n=0,\dots,N-1)
-> $$
+$$
+\boxed{
+x_n=\frac1N\sum_{k=0}^{N-1}X_ke^{2\pi i kn/N}
+}
+\qquad(n=0,\dots,N-1)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -419,13 +419,13 @@ $$
 > **定理（離散 Parseval 等式）**  
 > $x\in\mathbb C^N$ の離散 Fourier 変換を $X_k$ とする。このとき
 >
-> $$
-> \boxed{
-> \sum_{n=0}^{N-1}|x_n|^2
-> =
-> \frac1N\sum_{k=0}^{N-1}|X_k|^2
-> }
-> $$
+$$
+\boxed{
+\sum_{n=0}^{N-1}|x_n|^2
+=
+\frac1N\sum_{k=0}^{N-1}|X_k|^2
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -470,12 +470,12 @@ $$
 > **定義（巡回畳み込み）**  
 > $x,y\in\mathbb C^N$ に対し、巡回畳み込み $z=x*_Ny$ を
 >
-> $$
-> \boxed{
-> z_n:=\sum_{m=0}^{N-1}x_my_{(n-m)\bmod N}
-> }
-> \qquad(n=0,\dots,N-1)
-> $$
+$$
+\boxed{
+z_n:=\sum_{m=0}^{N-1}x_my_{(n-m)\bmod N}
+}
+\qquad(n=0,\dots,N-1)
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -512,10 +512,10 @@ $$
 > **定理（巡回畳み込み定理）**  
 > $x,y\in\mathbb C^N$、$z=x*_Ny$ とし、$X_k,Y_k,Z_k$ をそれぞれの離散 Fourier 変換とする。このとき
 >
-> $$
-> \boxed{Z_k=X_kY_k}
-> \qquad(k=0,\dots,N-1)
-> $$
+$$
+\boxed{Z_k=X_kY_k}
+\qquad(k=0,\dots,N-1)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -606,7 +606,7 @@ $$
 
 ## 10. 標本化すると、周波数は完全には区別できない
 
-連続時間の複素正弦波 $f_\omega(t)=e^{i\omega t}$ を、間隔 $\Delta>0$ の時刻 $t_n=n\Delta$ で観測すると
+連続時間の複素指数波 $f_\omega(t)=e^{i\omega t}$ を、間隔 $\Delta>0$ の時刻 $t_n=n\Delta$ で観測すると
 
 $$
 x_n=e^{i\omega n\Delta}
@@ -619,9 +619,9 @@ $$
 > **定義（等間隔標本化におけるエイリアシング同値）**  
 > 標本間隔 $\Delta>0$ を固定する。二つの角周波数 $\omega,\omega'$ が
 >
-> $$
-> \omega'-\omega\in\frac{2\pi}{\Delta}\mathbb Z
-> $$
+$$
+\omega'-\omega\in\frac{2\pi}{\Delta}\mathbb Z
+$$
 >
 > を満たすとき、$\omega$ と $\omega'$ はこの標本化に関してエイリアシングで同値であるという。
 <!-- formal-statement-end -->
@@ -651,15 +651,15 @@ $$
 > **命題（等間隔標本化のエイリアシング）**  
 > $\Delta>0$、$\omega\in\mathbb R$、$\ell\in\mathbb Z$ とし
 >
-> $$
-> \omega'=\omega+\frac{2\pi\ell}{\Delta}
-> $$
+$$
+\omega'=\omega+\frac{2\pi\ell}{\Delta}
+$$
 >
 > と置く。このとき全ての整数 $n$ について
 >
-> $$
-> \boxed{e^{i\omega'n\Delta}=e^{i\omega n\Delta}}
-> $$
+$$
+\boxed{e^{i\omega'n\Delta}=e^{i\omega n\Delta}}
+$$
 >
 > が成り立つ。従って間隔 $\Delta$ の等間隔標本だけから $\omega$ と $\omega'$ を区別できない。
 <!-- formal-statement-end -->
@@ -744,7 +744,7 @@ $$
 
 ## 11. 三つの Fourier 変換を一枚に置く
 
-| 対象 | 変換 | 周波数側 | 逆変換・一意性の機構 |
+| 対象 | 変換 | 周波数側 | 復元・一意性の機構 |
 |---|---|---|---|
 | $f\in L^1(\mathbb R)$ や $L^2(\mathbb R)$ | 連続 Fourier 変換 | 連続変数 $\xi$ | FOU3 の反転、FOU4 の Plancherel |
 | 確率分布 $\mu$ | 有限測度の Fourier 変換 / 特性関数 | 連続変数 $t$ | 特性関数一意性・Lévy連続性定理 |
@@ -760,7 +760,7 @@ $$
 }
 $$
 
-です。一方、$L^1$ では点ごとの反転に追加条件が要り、$L^2$ ではノルム極限として反転し、確率測度では特性関数の一意性が分布を識別し、有限列では有限次元の直交性だけで反転します。標本化前の連続信号まで復元するには、さらにエイリアシングを防ぐ仮定が必要です。
+です。一方、$L^1$ では点ごとの反転に追加条件が要り、$L^2$ では $L^2$ 収束として反転し、確率測度では特性関数の一意性が分布を識別し、有限列では有限次元の直交性だけで反転します。標本化前の連続信号まで復元するには、さらにエイリアシングを防ぐ仮定が必要です。
 
 ---
 
@@ -876,7 +876,7 @@ $$
 
 毎秒 $800$ 回、すなわち $\Delta=1/800$ 秒で標本化する。
 
-1. $100$ Hz と $900$ Hz の複素正弦波が同じ標本列を生むことを示せ。
+1. $100$ Hz と $900$ Hz の複素指数波が同じ標本列を生むことを示せ。
 2. $100$ Hz と $700$ Hz の実余弦波が同じ標本列を生むことを示せ。
 
 <!-- solution-start -->
@@ -1161,7 +1161,7 @@ $$
 - 有限 Borel 測度の Fourier 変換が密度の有無に関係なく定義できる理由を説明できる。
 - 本教材の符号規約で $\varphi_X(t)=\widehat{\mu_X}(-t)$ になることを導ける。
 - 確率測度の畳み込みを押し出しとして定義し、独立和の分布と Fourier 積の対応を証明できる。
-- iid 中心極限定理の特性関数証明を「畳み込み・尺度変換・原点近傍の二次展開」として説明できる。
+- 独立同分布中心極限定理の特性関数証明を「畳み込み・尺度変換・原点近傍の二次展開」として説明できる。
 - $1$ の $N$ 乗根の直交性から DFT 反転公式と Parseval 等式を証明できる。
 - 巡回畳み込み定理を添字変換から証明できる。
 - 高速 Fourier 変換が DFT の計算アルゴリズムであり、偶奇分割から $O(N\log N)$ が現れることを説明できる。
