@@ -3,21 +3,21 @@ title: "標準Fourier解析 II：Fourier級数の収束・Fejér・Parseval"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - RA5
   - FOU1
-# FOU2 は FOU1 のみを直接前提とし、旧 Fourier 章は互換導線に限定する。
-# temporary finalization trigger
+# 一般の各点収束・一様収束は RA5 を正本とし、FOU1 から有限次数 Fourier 理論を受け取る。旧 Fourier 章は互換導線に限定する。
 official_scope: []
 learning_objectives:
-  - 各点収束・一様収束・二乗平均収束の定義と強弱を区別し、Fourier級数で混同してはいけない理由を説明できる
+  - RA5 の各点収束・一様収束と本章の二乗平均収束を区別し、Fourier級数で混同してはいけない理由を説明できる
   - Dirichlet核の有限和公式とFourier有限和の積分表示を導出できる
   - 高周波振動積分の消去補題をRiemann積分の階段関数近似から証明し、区分的C1関数のDirichlet収束定理へ適用できる
   - 跳躍点では左右極限の平均へ収束することを証明し、矩形波でGibbs現象の持続する超過量を説明できる
-  - Fejér核の非負性・正規化・原点への集中を証明し、連続周期関数に対するFejér平均の一様収束を導ける
-  - Fejér平均から連続周期関数に対する三角多項式の一様稠密性を導ける
+  - Fejér核の非負性・正規化・原点への集中を証明し、連続周期関数に対するFejér平均の一様近似を導ける
+  - Fejér平均から連続周期関数に対する三角多項式の一様近似を導ける
   - 区分的連続周期関数を二乗平均で三角多項式近似し、FOU1の固定次数最小二乗性からFourier有限和の二乗平均収束を証明できる
   - 二乗平均収束から係数エネルギー等式（Parseval等式）と三角系の完全性を導き、具体的な級数和を計算できる
 definitions:
-  - { id: FOU2-DEF-01, name: 各点収束・一様収束・二乗平均収束 }
+  - { id: FOU2-DEF-01, name: 二乗平均収束 }
   - { id: FOU2-DEF-02, name: Dirichlet核 }
   - { id: FOU2-DEF-03, name: Fejér平均 }
   - { id: FOU2-DEF-04, name: Fejér核 }
@@ -26,8 +26,8 @@ theorems:
   - { id: FOU2-THM-02, name: 高周波振動積分の消去補題 }
   - { id: FOU2-THM-03, name: Dirichletの各点収束定理 }
   - { id: FOU2-THM-04, name: Fejér核の基本性質 }
-  - { id: FOU2-THM-05, name: Fejérの一様収束定理 }
-  - { id: FOU2-THM-06, name: 連続周期関数に対する三角多項式の一様稠密性 }
+  - { id: FOU2-THM-05, name: Fejér平均の一様近似定理 }
+  - { id: FOU2-THM-06, name: 三角多項式による連続周期関数の一様近似定理 }
   - { id: FOU2-THM-07, name: Fourier有限和の二乗平均収束 }
   - { id: FOU2-THM-08, name: Fourier係数のエネルギー等式と三角系の完全性 }
 canonical_examples: [矩形波の跳躍点収束とGibbs現象, Fejér平均による矩形波の振動抑制, 周期鋸歯状波xの端点平均, 係数エネルギー等式による逆二乗和]
