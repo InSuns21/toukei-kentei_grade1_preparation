@@ -2,39 +2,30 @@ chapter: FOU2
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - RA5
   - FOU1
 forward_references: []
 
-# FOU2 は FOU1 の有限次数 Fourier 理論だけを前提に、無限段階の収束論を Riemann 積分の範囲で閉じる。
+# 一般の各点収束・一様収束は RA5 を正本とし、FOU2 では再定義しない。
 # 旧 F0-00FA1・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
 
 concepts:
-  - id: fourier.fou2-pointwise-convergence
-    name: 各点収束
-    kind: definition
-    aliases: [各点収束, pointwise convergence]
-    introduction: formal
-    introduction_aliases: [三種類の収束]
-    requires:
-      - fourier.fou1-finite-sum
-
-  - id: fourier.fou2-uniform-convergence
-    name: 一様収束
-    kind: definition
-    aliases: [一様収束, uniform convergence]
-    introduction: formal
-    introduction_aliases: [三種類の収束]
+  - id: fourier.fou2-real-periodic-function
+    name: 実数値周期関数
+    kind: term
+    aliases: [real-valued periodic function]
+    introduction: inline
     requires:
       - fourier.fou1-finite-sum
 
   - id: fourier.fou2-mean-square-convergence-definition
     name: 二乗平均収束
     kind: definition
-    aliases: [二乗平均収束, mean-square convergence]
+    aliases: [mean-square convergence]
     introduction: formal
-    introduction_aliases: [三種類の収束]
     requires:
-      - fourier.fou1-finite-sum
+      - analysis.uniform-convergence
+      - fourier.fou2-real-periodic-function
 
   - id: fourier.fou2-dirichlet-kernel
     name: Dirichlet核
@@ -52,23 +43,34 @@ concepts:
     requires:
       - fourier.fou2-dirichlet-kernel
       - fourier.fou1-real-coefficient
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-step-function
+    name: 階段関数
+    kind: term
+    aliases: [step function]
+    introduction: inline
+    requires:
+      - analysis.riemann-integrable
 
   - id: fourier.fou2-riemann-lebesgue
     name: 高周波振動積分の消去補題
     kind: theorem
-    aliases: [高周波振動積分の消去補題, Riemann--Lebesgue型補題, Riemann--Lebesgue, oscillatory integral cancellation lemma]
+    aliases: [oscillatory integral cancellation lemma]
     introduction: formal
     requires:
       - fourier.fou2-dirichlet-integral
+      - fourier.fou2-step-function
 
   - id: fourier.fou2-dirichlet-convergence
     name: Dirichletの各点収束定理
     kind: theorem
-    aliases: [Dirichlet pointwise convergence theorem]
+    aliases: [Dirichletの各点収束, Dirichlet pointwise convergence theorem]
     introduction: formal
     requires:
       - fourier.fou2-riemann-lebesgue
       - fourier.fou2-dirichlet-integral
+      - analysis.pointwise-convergence
 
   - id: fourier.fou2-gibbs
     name: Gibbs現象
@@ -81,7 +83,7 @@ concepts:
   - id: fourier.fou2-fejer-mean
     name: Fejér平均
     kind: definition
-    aliases: [Fejér 平均, Fejer mean, Cesaro mean of Fourier sums]
+    aliases: [Fejer mean, Cesaro mean of Fourier sums]
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
@@ -103,21 +105,32 @@ concepts:
     requires:
       - fourier.fou2-fejer-kernel
 
+  - id: fourier.fou2-continuous-periodic-function
+    name: 連続周期関数
+    kind: term
+    aliases: [continuous periodic function]
+    introduction: inline
+    requires:
+      - fourier.fou2-real-periodic-function
+
   - id: fourier.fou2-fejer-uniform
-    name: Fejérの一様収束定理
+    name: Fejér平均の一様近似定理
     kind: theorem
     aliases: [Fejer uniform convergence theorem]
     introduction: formal
     requires:
       - fourier.fou2-fejer-kernel-properties
+      - fourier.fou2-continuous-periodic-function
+      - analysis.uniform-convergence
 
   - id: fourier.fou2-trig-density
-    name: 連続周期関数に対する三角多項式の一様稠密性
+    name: 三角多項式による連続周期関数の一様近似定理
     kind: theorem
     aliases: [uniform density of trigonometric polynomials]
     introduction: formal
     requires:
       - fourier.fou2-fejer-uniform
+      - fourier.fou2-continuous-periodic-function
 
   - id: fourier.fou2-mean-square-convergence
     name: Fourier有限和の二乗平均収束
@@ -127,6 +140,7 @@ concepts:
     requires:
       - fourier.fou2-trig-density
       - fourier.fou1-least-squares
+      - fourier.fou2-mean-square-convergence-definition
 
   - id: fourier.fou2-parseval
     name: Fourier係数のエネルギー等式と三角系の完全性
