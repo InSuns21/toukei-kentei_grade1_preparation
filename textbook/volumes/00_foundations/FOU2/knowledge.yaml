@@ -128,7 +128,7 @@ concepts:
   - id: fourier.fou2-parseval
     name: Fourier係数のエネルギー等式と三角系の完全性
     kind: theorem
-    aliases: [係数エネルギー等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]
+    aliases: [係数エネルギー等式, Parseval 等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]
     introduction: formal
     requires:
       - fourier.fou2-mean-square-convergence
