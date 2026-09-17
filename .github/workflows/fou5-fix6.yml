@@ -1,0 +1,57 @@
+name: Fix FOU5 first-use audit
+
+on:
+  push:
+    branches:
+      - dream-theater/fou5-probability-dft-sampling
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Fix first-use wording and validate concepts before push
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/FOU5/index.md')
+          s = p.read_text()
+          replacements = {
+            '      ├── 確率分布 ── 特性関数 ── 独立和・中心極限定理': '      ├── 確率分布 ── 特性関数 ── 和の分布・中心極限定理',
+            '      └── 標本列 ── 離散Fourier変換 ── 巡回畳み込み・高速計算・エイリアシング': '      └── 標本列 ── 有限周波数表示 ── 周期的な畳み込み・高速計算・周波数の重なり',
+            '特性関数を確率測度の Fourier 変換として読み直し、独立和・畳み込み・Fourier 積の対応を閉じます。': '特性関数を確率測度の Fourier 変換として読み直し、和の分布を周波数領域の積へ移す対応を閉じます。',
+            '信号処理側では、離散 Fourier 変換を定義だけで済ませません。$1$ の $N$ 乗根の直交性から反転公式と Parseval 等式を導き、巡回畳み込みが周波数ごとの積へ変わることを証明します。そのうえで高速 Fourier 変換が「別の変換」ではなく同じ変換を速く計算するアルゴリズムであること、等間隔標本化では異なる連続周波数が同じ標本列へ潰れることを式で確認します。': '信号処理側では、有限標本列の周波数表示を定義だけで済ませません。有限指数和の消去則から復元公式とエネルギー等式を導き、周期境界での畳み込みが周波数ごとの積へ変わることを証明します。そのうえで同じ周波数変換を高速に計算する仕組みと、等間隔標本化で異なる連続周波数が同じ標本列へ潰れる現象を式で確認します。',
+            'エイリアシングは「純粋な複素指数波を等間隔で標本化すると何が区別不能になるか」という有限計算で閉じます。': 'この周波数の取り違え現象は「純粋な複素指数波を等間隔で標本化すると何が区別不能になるか」という有限計算で閉じます。',
+            '**二点分布**': '**二点にだけ質量を置く例**',
+            '### Bernoulli 分布で符号を確かめる': '### 0 と 1 にだけ値をとる例で符号を確かめる',
+            '## 3. 独立和・畳み込み・中心極限定理を Fourier の言葉で読む': '## 3. 確率変数の和を Fourier の言葉で読む',
+            '**二つの Bernoulli 分布**': '**0 と 1 にだけ質量を置く二つの分布**',
+            '三つの和は1で、独立な Bernoulli 変数の和の分布そのものです。': '三つの和は1で、独立で 0 と 1 にだけ値をとる二つの確率変数の和の分布そのものです。',
+            '## 4. 有限個の標本を周波数へ分解する：離散 Fourier 変換': '## 4. 有限個の標本を周波数へ分解する',
+            '## 5. 核心は $1$ の $N$ 乗根の直交性': '## 5. 有限指数和が消える仕組み',
+            '## 6. 離散 Fourier 反転公式': '## 6. 有限周波数表示から元の列を復元する',
+            '## 7. 離散 Parseval 等式': '## 7. 有限列のエネルギー保存',
+            '## 8. 巡回畳み込みは離散 Fourier 変換で積になる': '## 8. 周期境界で畳み込みを計算する',
+          }
+          for a,b in replacements.items():
+              s = s.replace(a,b)
+          p.write_text(s)
+          PY
+          git rm .github/workflows/fou5-fix6.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FOU5/index.md
+          git commit -m 'fix: FOU5 の first-use 導入順を整合'
+          DREAM_THEATER_BASE_SHA=54d75c0f3229e03115a9f4e6f6679cdf40bf9a08 npm run validate:dream-theater-concepts:changed
+          git push origin HEAD:dream-theater/fou5-probability-dft-sampling
