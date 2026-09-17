@@ -35,6 +35,9 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -43,6 +46,33 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Apply final FOU2 cleanup
+        if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
+        shell: bash
+        run: |
+          git checkout origin/main -- 'textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md' 'textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/chapter.yaml'
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('textbook/volumes/00_foundations/FOU2/index.md')
+          text = path.read_text(encoding='utf-8')
+          old = 'と求めました。Parseval 等式の左辺は'
+          new = 'と求めました。[係数エネルギー等式](#thm-fou2-parseval)の左辺は'
+          count = text.count(old)
+          if count > 1:
+              raise SystemExit(f'expected at most one target, found {count}')
+          if count == 1:
+              text = text.replace(old, new)
+              path.write_text(text, encoding='utf-8')
+          PY
+          if ! git diff --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add textbook
+            git commit -m 'Resolve final FOU2 concept dependencies'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
