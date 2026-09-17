@@ -12,6 +12,9 @@ terms:
   - term: Dirichlet核
     english: Dirichlet kernel
     meaning: D_N(t)=1+2 sum_{n=1}^N cos(nt) で定まる三角多項式。Fourier有限和を元の関数との積分として表す核になる。
+  - term: 階段関数
+    english: step function
+    meaning: 有限分割の各小区間で一定値を取る関数。FOU2ではRiemann積分可能関数の高周波振動積分を近似するために使う。
   - term: Gibbs現象
     english: Gibbs phenomenon
     meaning: 跳躍を持つ関数のFourier有限和で、跳躍近傍の振動幅が次数を増やしても一定割合残る現象。振動領域は狭くなるが最大超過量は0にならない。
@@ -21,6 +24,9 @@ terms:
   - term: Fejér核
     english: Fejer kernel
     meaning: K_N(t)=(1/(N+1))(sin((N+1)t/2)/sin(t/2))^2 で表される非負の核。積分は2piで、Nを増やすと質量が原点近くへ集中する。
+  - term: 連続周期関数
+    english: continuous periodic function
+    meaning: 実数値2pi周期関数で実数全体上連続なもの。Fejér平均による一様近似の対象になる。
   - term: 三角多項式の一様稠密性
     english: uniform density of trigonometric polynomials
     meaning: 任意の連続2pi周期関数を三角多項式で一様に任意精度まで近似できる性質。Fejér平均が具体的な近似列を与える。
