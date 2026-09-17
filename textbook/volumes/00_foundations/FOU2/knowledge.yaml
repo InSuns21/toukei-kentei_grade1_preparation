@@ -9,10 +9,26 @@ forward_references: []
 # 旧 F0-00FA1・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
 
 concepts:
-  - id: fourier.fou2-convergence-modes
-    name: 各点収束・一様収束・二乗平均収束
+  - id: fourier.fou2-pointwise-convergence
+    name: 各点収束
     kind: definition
-    aliases: [各点収束, 一様収束, 二乗平均収束, pointwise convergence, uniform convergence, mean-square convergence]
+    aliases: [各点収束, pointwise convergence]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-uniform-convergence
+    name: 一様収束
+    kind: definition
+    aliases: [一様収束, uniform convergence]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-mean-square-convergence-definition
+    name: 二乗平均収束
+    kind: definition
+    aliases: [二乗平均収束, mean-square convergence]
     introduction: formal
     requires:
       - fourier.fou1-finite-sum
@@ -37,7 +53,7 @@ concepts:
   - id: fourier.fou2-riemann-lebesgue
     name: 高周波振動積分の消去補題
     kind: theorem
-    aliases: [高周波振動積分の消去補題, oscillatory integral cancellation lemma]
+    aliases: [高周波振動積分の消去補題, Riemann--Lebesgue型補題, Riemann--Lebesgue, oscillatory integral cancellation lemma]
     introduction: formal
     requires:
       - fourier.fou2-dirichlet-integral
@@ -110,9 +126,9 @@ concepts:
       - fourier.fou1-least-squares
 
   - id: fourier.fou2-parseval
-    name: Parseval等式と三角系の完全性
+    name: Fourier係数のエネルギー等式と三角系の完全性
     kind: theorem
-    aliases: [Parseval 等式, Parseval等式, 三角系の完全性, Parseval identity, completeness of the trigonometric system]
+    aliases: [係数エネルギー等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]
     introduction: formal
     requires:
       - fourier.fou2-mean-square-convergence
