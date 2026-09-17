@@ -55,3 +55,5 @@ jobs:
           git rm .github/workflows/tmp-fou-ci-fix.yml scripts/tmp-fou-ci-fix.py scripts/tmp-fou-ci-fix2.py
           git commit -m 'fix: finalize FOU3 FOU4 validation alignment'
           git push origin HEAD:dream-theater-fou3-fourier-transform
+
+# rerun after final first-use cleanup
