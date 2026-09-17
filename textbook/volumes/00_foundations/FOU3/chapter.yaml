@@ -1,0 +1,40 @@
+id: "FOU3"
+title: "標準Fourier解析 III：Fourier変換・畳み込み・反転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FOU2
+  - F0-00D2B
+  - F0-00D2C
+# FOU1/FOU2 の離散周波数論から実数全体上の連続周波数へ進む。
+# L1 Fourier変換で必要な DCT / Fubini は既存のLebesgue積分正本を参照するが、L2/Hilbert 理論は FOU4 まで先取りしない。
+official_scope: []
+learning_objectives:
+  - L1(R) 上のFourier変換を定義し、有界性と連続性を積分評価から証明できる
+  - 平行移動・尺度変換・変調の各変換則を変数変換から導出できる
+  - L1平行移動連続性からRiemann--Lebesgueの補題を証明できる
+  - L1畳み込みの絶対可積分性を確認し、Fubiniの定理から畳み込み定理を証明できる
+  - 十分な微分可能性と可積分性の下で微分が周波数側の乗算へ移ることを部分積分から導ける
+  - GaussianのFourier変換を微分方程式として計算し、Gaussian核がapproximate identityになる機構を説明できる
+  - fとf-hatがL1でfが連続ならFourier反転公式が成立することをGaussian正則化から証明できる
+  - 空間側の局在と周波数側の広がり、畳み込みと積、微分と周波数乗算という対応を具体例で使える
+definitions:
+  - { id: FOU3-DEF-01, name: L1 Fourier変換 }
+  - { id: FOU3-DEF-02, name: 畳み込み }
+  - { id: FOU3-DEF-03, name: approximate identity }
+theorems:
+  - { id: FOU3-THM-01, name: Fourier変換の有界性と連続性 }
+  - { id: FOU3-THM-02, name: Fourier変換の平行移動・尺度変換・変調則 }
+  - { id: FOU3-LEM-01, name: L1の平行移動連続性 }
+  - { id: FOU3-THM-03, name: Riemann--Lebesgueの補題 }
+  - { id: FOU3-THM-04, name: L1畳み込みと畳み込み定理 }
+  - { id: FOU3-THM-05, name: Fourier変換と微分 }
+  - { id: FOU3-LEM-02, name: GaussianのFourier変換 }
+  - { id: FOU3-THM-06, name: Gaussian approximate identity }
+  - { id: FOU3-THM-07, name: Fourier反転定理 }
+canonical_examples: [区間指示関数のsinc型変換, 区間指示関数同士の三角形畳み込み, eの絶対値減衰関数の変換, Gaussianの自己相似的変換, Gaussian正則化による反転]
+problem_patterns: [FOURIER-TRANSFORM-BASIC-1, FOURIER-SCALING-MODULATION-1, FOURIER-RIEMANN-LEBESGUE-1, FOURIER-CONVOLUTION-1, FOURIER-DERIVATIVE-1, FOURIER-GAUSSIAN-1, FOURIER-INVERSION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.0, review: 1.0 }
