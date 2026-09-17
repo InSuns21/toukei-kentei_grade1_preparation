@@ -246,7 +246,31 @@ Dirichlet 核の積分は常に $2\pi$ ですが、$D_N$ は正負に激しく�
 
 Dirichlet 核の閉形式を使うと、$S_Nf(x)$ の誤差は高周波の正弦との積分へ変形できます。その最後の一押しを先に証明します。
 
-有限分割の各小区間で一定値を取る関数を、ここでは **階段関数** と呼びます。
+<a id="def-fou2-step-function"></a>
+<!-- formal-statement-start -->
+> **定義（階段関数）**  
+> 有限区間 $[a,b]$ 上の実数値関数 $s$ が **階段関数** であるとは、ある有限分割
+>
+> $$
+> a=x_0<x_1<\cdots<x_m=b
+> $$
+>
+> と実数 $c_1,\ldots,c_m$ が存在し、各 $j=1,\ldots,m$ について $x_{j-1}<t<x_j$ なら $s(t)=c_j$ となることをいう。分割点 $x_j$ での値は任意でよい。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fou2-step-function -->
+**定義の確認**：$[0,2]$ 上で
+
+$$
+s(t)=
+\begin{cases}
+1,&0<t<1,\\
+-2,&1<t<2
+\end{cases}
+$$
+
+とし、$s(0),s(1),s(2)$ は任意に定めます。分割 $0<1<2$ と定数 $c_1=1,c_2=-2$ を取れば、各小区間の内部で一定なので階段関数です。分割点の有限個の値は Riemann 積分を変えません。
+<!-- definition-example-end -->
 
 <a id="thm-fou2-riemann-lebesgue"></a>
 <!-- formal-statement-start -->
@@ -813,7 +837,27 @@ $$
 
 ## 7. 連続ならFejér平均は一様に戻る
 
-以下、実数値周期関数のうち連続なものを **連続周期関数** と呼びます。
+<a id="def-fou2-continuous-periodic-function"></a>
+<!-- formal-statement-start -->
+> **定義（連続周期関数）**  
+> 実数値周期関数 $f$ が **連続周期関数** であるとは、$f:\mathbb R\to\mathbb R$ が全ての実数上で連続であることをいう。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fou2-continuous-periodic-function -->
+**定義の確認**：
+
+$$
+f(x)=\cos x+\frac12\sin2x
+$$
+
+は三角関数の有限和なので連続であり、
+
+$$
+f(x+2\pi)=f(x)
+$$
+
+も成り立ちます。したがって連続周期関数です。
+<!-- definition-example-end -->
 
 <a id="thm-fou2-fejer-uniform"></a>
 <!-- formal-statement-start -->
