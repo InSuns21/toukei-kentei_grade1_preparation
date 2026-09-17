@@ -1,0 +1,38 @@
+chapter: "FOU2"
+terms:
+  - term: 各点収束
+    english: pointwise convergence
+    meaning: 各点xを固定したときに関数列f_N(x)が極限f(x)へ収束すること。点ごとに必要なNが異なってよい。
+  - term: 一様収束
+    english: uniform convergence
+    meaning: 全ての点で同じN以降に誤差を一様に小さくできる収束。一様収束なら有限区間上の二乗平均収束も従う。
+  - term: 二乗平均収束
+    english: mean-square convergence
+    meaning: 一周期上の二乗誤差の積分が0へ収束すること。有限個の点で値を変えても二乗平均収束やFourier係数は変わらない。
+  - term: Dirichlet核
+    english: Dirichlet kernel
+    meaning: D_N(t)=1+2 sum_{n=1}^N cos(nt) で定まる三角多項式。Fourier有限和を元の関数との積分として表す核になる。
+  - term: 階段関数
+    english: step function
+    meaning: 有限分割の各小区間で一定値を取る関数。FOU2ではRiemann積分可能関数の高周波振動積分を近似するために使う。
+  - term: Gibbs現象
+    english: Gibbs phenomenon
+    meaning: 跳躍を持つ関数のFourier有限和で、跳躍近傍の振動幅が次数を増やしても一定割合残る現象。振動領域は狭くなるが最大超過量は0にならない。
+  - term: Fejér平均
+    english: Fejer mean
+    meaning: 0次からN次までのFourier有限和を算術平均したもの。Cesàro平均とも呼ばれ、Fejér核との積分表示を持つ。
+  - term: Fejér核
+    english: Fejer kernel
+    meaning: K_N(t)=(1/(N+1))(sin((N+1)t/2)/sin(t/2))^2 で表される非負の核。積分は2piで、Nを増やすと質量が原点近くへ集中する。
+  - term: 連続周期関数
+    english: continuous periodic function
+    meaning: 実数値2pi周期関数で実数全体上連続なもの。Fejér平均による一様近似の対象になる。
+  - term: 三角多項式の一様稠密性
+    english: uniform density of trigonometric polynomials
+    meaning: 任意の連続2pi周期関数を三角多項式で一様に任意精度まで近似できる性質。Fejér平均が具体的な近似列を与える。
+  - term: Parseval等式
+    english: Parseval identity
+    meaning: 関数の一周期二乗積分と全Fourier係数の二乗和が等しいことを表す等式。FOU2ではRiemann積分可能な区分的連続関数について二乗平均収束から導く。
+  - term: 三角系の完全性
+    english: completeness of the trigonometric system
+    meaning: 全Fourier係数が0なら二乗平均の意味で関数が0になる性質。連続関数なら全点で0になる。

@@ -1,0 +1,143 @@
+chapter: FOU2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU1
+forward_references: []
+
+# FOU1 の有限次数 Fourier 理論だけを直接前提にし、無限段階で必要な収束条件は FOU2 本文内の式で固定する。
+# 旧 F0-00FA1・RA5・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
+
+concepts:
+  - id: fourier.fou2-real-periodic-function
+    name: 実数値周期関数
+    kind: term
+    aliases: [real-valued periodic function]
+    introduction: inline
+
+  - id: fourier.fou2-mean-square-convergence-definition
+    name: 二乗平均収束
+    kind: definition
+    aliases: [mean-square convergence]
+    introduction: formal
+    requires:
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-dirichlet-kernel
+    name: Dirichlet核
+    kind: definition
+    aliases: [Dirichlet kernel]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-dirichlet-integral
+    name: Dirichlet核の閉形式とFourier有限和の積分表示
+    kind: theorem
+    aliases: [Dirichlet kernel closed form and convolution formula]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-kernel
+      - fourier.fou1-real-coefficient
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-step-function
+    name: 階段関数
+    kind: definition
+    aliases: [step function]
+    introduction: formal
+
+  - id: fourier.fou2-riemann-lebesgue
+    name: 高周波振動積分の消去補題
+    kind: theorem
+    aliases: [oscillatory integral cancellation lemma]
+    introduction: formal
+    requires:
+      - fourier.fou2-step-function
+
+  - id: fourier.fou2-dirichlet-convergence
+    name: Dirichletの点ごとの極限定理
+    kind: theorem
+    aliases: [Dirichlet pointwise limit theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-riemann-lebesgue
+      - fourier.fou2-dirichlet-integral
+
+  - id: fourier.fou2-gibbs
+    name: Gibbs現象
+    kind: proposition
+    aliases: [Gibbs phenomenon]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-convergence
+
+  - id: fourier.fou2-fejer-mean
+    name: Fejér平均
+    kind: definition
+    aliases: [Fejer mean, Cesaro mean of Fourier sums]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-fejer-kernel
+    name: Fejér核
+    kind: definition
+    aliases: [Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-mean
+      - fourier.fou2-dirichlet-kernel
+
+  - id: fourier.fou2-fejer-kernel-properties
+    name: Fejér核の基本性質
+    kind: theorem
+    aliases: [basic properties of the Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel
+
+  - id: fourier.fou2-continuous-periodic-function
+    name: 連続周期関数
+    kind: definition
+    aliases: [continuous periodic function]
+    introduction: formal
+    requires:
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-fejer-uniform
+    name: Fejér平均の一様近似定理
+    kind: theorem
+    aliases: [Fejer uniform approximation theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel-properties
+      - fourier.fou2-continuous-periodic-function
+
+  - id: fourier.fou2-trig-density
+    name: 三角多項式の一様稠密性
+    kind: theorem
+    aliases: [uniform density of trigonometric polynomials]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-uniform
+      - fourier.fou2-continuous-periodic-function
+
+  - id: fourier.fou2-mean-square-convergence
+    name: Fourier有限和の二乗平均収束
+    kind: theorem
+    aliases: [mean-square convergence of Fourier finite sums]
+    introduction: formal
+    requires:
+      - fourier.fou2-trig-density
+      - fourier.fou1-least-squares
+      - fourier.fou2-mean-square-convergence-definition
+
+  - id: fourier.fou2-parseval
+    name: Fourier係数のエネルギー等式と三角系の完全性
+    kind: theorem
+    aliases: [係数エネルギー等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]
+    introduction: formal
+    requires:
+      - fourier.fou2-mean-square-convergence
+      - fourier.fou1-finite-energy-bound

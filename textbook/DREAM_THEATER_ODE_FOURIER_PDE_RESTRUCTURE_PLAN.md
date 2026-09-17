@@ -666,6 +666,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE6 | **実装・検証完了（PR #287）** | 収束冪級数表示と項別微分の正当化、常点の冪級数解と係数漸化式・収束、正則特異点の Frobenius 級数・指標方程式・非共鳴収束、指標根の差と共鳴、Bessel / Legendre の代表計算まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE2 + RA5。複素解析 CA3 や一般特殊関数論を逆輸入せず、Weierstrass M-test / 微分と極限交換は RA5 正本を参照 | textbook 検証一式と proof / formalism pedagogy audit を green 確認。Pages / exercises / concepts / standard math core / terminology は final head で再確認して merge |
 | ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
 | FOU1 | **実装・検証完了（PR #289）** | 周期波形・三角多項式、一周期積分消去則、実 Fourier 係数、N次 Fourier 有限和、固定次数最小二乗性、偶奇対称性、複素指数係数、半区間係数、有限エネルギー不等式を実装。$x$・矩形波・$|x|$・$x^2$・三角形波を手計算し、無限段階の収束論は FOU2 へ分離 | A4 / B3 / C1。全問に詳細解答あり | RA4 のみ。旧 `F0-00FA1`・旧 Fourier 本文を prerequisite / concept owner / proof dependency / forward reference にせず、FOU1 内で有限次数理論を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行 |
+| FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B4 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
@@ -724,4 +725,14 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 旧 F0-00PDE3 は互換ハブへ退役させ、Sturm--Liouville の concept ownership を ODE7 へ一本化した。
 - 演習は A4 / B3 / C1、全問詳細解答付き。textbook / Pages / exercises / concepts / standard math core / terminology の検証と proof / formalism pedagogy audit を実行した。
 
-FOU1 は **実装・検証完了（PR #289）**。RA4 の Riemann 積分だけを前提に有限次数の Fourier 理論を自立実装し、旧 `F0_00FA1_Fourier級数_直交展開`・旧 Fourier 本文には依存しない。次の実装単位は **FOU2「Fourier級数の収束・Fejér・Parseval」**。FOU2 も旧教材を証明依存先にせず、無限段階の収束理論を現行 canonical prerequisite と章内論証で閉じる。
+FOU2 は **実装・検証完了（PR #290）**。FOU1 の有限次数理論だけを直接前提に、Dirichlet核による各点収束、Gibbs現象、Fejér平均による一様近似、三角多項式の稠密性、二乗平均収束、係数エネルギー等式（Parseval等式）までを Riemann 積分側で閉じた。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしていない。次の実装単位は **FOU3「Fourier変換・畳み込み・反転」**。
+
+
+## 11.7 FOU2 最終査読（PR #290、2026-09-17）
+
+- 独立数理査読と読者粒度・依存査読を実施し、修正後はいずれも fatal: 0 / major: 0 / minor: 0。
+- 二乗平均収束の定義を各関数自身の Riemann 積分可能性で固定し、跳躍点で用いる導関数の左右極限と平均値の定理による展開を明示した。Gibbs・Fejér のステートメントも対象・仮定を単独で確定できる形へ補完した。
+- Heine–Cantor と FOU1 の一周期積分消去則へ stable anchor で接続し、周期境界を越える一様連続性の適用を説明した。振動積分の消去補題から未使用の Dirichlet 積分表示への依存辺を除いた。
+- B4 を追加し、局所線形補間、Fejér 近似、最小二乗性、二乗平均収束、完全性・係数一意性を詳細解答付きで再構成する演習とした。演習は A4 / B4 / C1。
+- 全履歴を取得したローカル環境で通常検証、Pages、演習数、concept strict、standard math core、用語、通常教材 knowledge DAG を検証。proof / formalism pedagogy の候補は本文・証明を読み、誤った仮定や未解消の核心省略がないことを確認した。
+- 旧 head `7e449db` の GitHub Actions は検証失敗ではなく maintainer approval 待ちだった。ローカル検証結果と GitHub Actions の実行状態は区別する。
