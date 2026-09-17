@@ -1,0 +1,97 @@
+name: Temporary FOU2 finalizer
+
+on:
+  push:
+    branches:
+      - dream-theater-fou2-fourier-convergence
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: dream-theater-fou2-fourier-convergence
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fix final FOU2 audit wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('textbook/volumes/00_foundations/FOU2/index.md')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              (
+                  '本章では **実数値周期関数** という語を、実数値で $2\\pi$ 周期の関数の略称として使います。',
+                  '以後、実数値で $2\\pi$ 周期の関数を「実数値周期関数」と略記します。',
+              ),
+              (
+                  '> 有限区間 $[a,b]$ 上の実数値関数 $s$ が **階段関数** であるとは、ある有限分割',
+                  '> 実数値写像 $s:[a,b]\\to\\mathbb R$ が **階段関数** であるとは、ある有限分割',
+              ),
+              (
+                  '#### A1. 3種類の誤差条件を計算で確認する',
+                  '#### A1. 3種類の誤差を計算で確認する',
+              ),
+          ]
+          for old, new in replacements:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one occurrence, got {count}: {old}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Remove temporary workflow from final tree
+        run: rm .github/workflows/fou2-finalize-temp.yml
+
+      - name: Validate textbook
+        run: npm run validate
+
+      - name: Validate Pages
+        run: npm run validate:pages
+
+      - name: Validate DREAM THEATER exercise counts
+        env:
+          DREAM_THEATER_BASE_SHA: ${{ github.event.before }}
+        run: |
+          BASE=$(git merge-base origin/main HEAD)
+          DREAM_THEATER_BASE_SHA="$BASE" npm run validate:dream-theater-exercise-counts
+
+      - name: Validate DREAM THEATER concepts changed
+        run: |
+          BASE=$(git merge-base origin/main HEAD)
+          DREAM_THEATER_BASE_SHA="$BASE" npm run validate:dream-theater-concepts:changed
+
+      - name: Validate DREAM THEATER standard math core
+        run: npm run validate:dream-theater-standard-math-core
+
+      - name: Audit proof pedagogy
+        run: npm run audit:proof-pedagogy
+
+      - name: Audit formalism pedagogy
+        run: npm run audit:formalism-pedagogy
+
+      - name: Commit validated FOU2 cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add textbook/volumes/00_foundations/FOU2/index.md
+          git add -u .github/workflows/fou2-finalize-temp.yml
+          git diff --cached --check
+          git commit -m "fix(FOU2): clear final concept audit findings"
+          git push origin HEAD:dream-theater-fou2-fourier-convergence
