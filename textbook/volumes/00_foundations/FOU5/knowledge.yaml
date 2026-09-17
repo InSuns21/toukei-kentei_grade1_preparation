@@ -10,7 +10,7 @@ prerequisites:
 # 特性関数・Lévy連続性定理・独立同分布 CLT は確率論側の既存正本を再利用し、重複所有しない。
 # Shannon標本化定理、Poisson和公式、緩増加超関数は本章の証明依存へ入れない。
 # formal-order 監査と人間可読性を揃えるため、1のN乗根の補題名は見出しでもプレーンテキスト表記にする。
-# 演習のDFT復元も「反転公式による復元」と表記し、ODE5 の逆Laplace変換概念と語を分離する。
+# 章内のDFT復元は「反転公式による復元」と表記し、ODE5 の逆Laplace変換概念と語を分離する。
 
 concepts:
   - id: fourier.fou5-measure-transform
