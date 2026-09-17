@@ -28,18 +28,19 @@ assert old in s
 s = s.replace(old, new, 1)
 s = s.replace('前節の|一般の|良い|使う|なる|得られる|持つ|必要な', '前節の|一般の|元の|良い|使う|なる|得られる|持つ|必要な', 1)
 s = s.replace("'連続性', '完備性', '稠密性', '絶対収束', '各点収束',", "'連続性', '完備性', '稠密性', '絶対収束', '各点収束', '被積分関数', '平行移動・尺度変換',", 1)
-# HTML anchor ids are metadata, not reader-visible first use.
 needle = "  const readerLines = stripNonReaderContent(page.source).split(/\\r?\\n/u);"
 replacement = "  const readerLines = stripNonReaderContent(page.source).split(/\\r?\\n/u).map((line) => line.replace(/<a\\s+id=[^>]+><\\/a>/gu, ''));"
 assert needle in s
 s = s.replace(needle, replacement, 1)
 write(p, s)
 
-# 2) FOU3: do not name concepts in headings immediately before their formal introduction.
+# 2) FOU3: keep formal introduction before first reader-facing use and use canonical theorem names.
 p = 'textbook/volumes/00_foundations/FOU3/index.md'
 s = read(p)
 s = s.replace('## 3. $L^1$ 平行移動連続性と Riemann--Lebesgue', '## 3. $L^1$ の平行移動と Riemann--Lebesgue', 1)
 s = s.replace('## 4. 畳み込み：空間側の混合が周波数側の積になる', '## 4. 空間側の混合が周波数側の積になる', 1)
+s = s.replace('また Gaussian の変換公式から', 'また [GaussianのFourier変換](#lem-fou3-gaussian-transform)から', 1)
+s = s.replace('積分順序を交換し、Gaussian 変換公式から', '積分順序を交換し、[GaussianのFourier変換](#lem-fou3-gaussian-transform)から', 1)
 write(p, s)
 
 # 3) FOU3: register the natural post-definition shorthand actually used in prose.
@@ -54,7 +55,7 @@ s = read(p)
 s = s.replace('aliases: [Hilbert空間の再掲, Hilbert空間]', 'aliases: [Hilbert空間の再掲, Hilbert空間, 完備内積空間]', 1)
 write(p, s)
 
-# 5) FOU4: remove grammatical fragments that the conservative audit could mistake for terms.
+# 5) FOU4: remove grammatical false positives and point every named dependency at its canonical result.
 p = 'textbook/volumes/00_foundations/FOU4/index.md'
 s = read(p)
 s = s.replace(
@@ -64,6 +65,21 @@ s = s.replace(
 )
 s = s.replace('古典 Fourier 積分の絶対収束は保証されません。', '古典 Fourier 積分に必要な絶対可積分性は保証されません。', 1)
 s = s.replace('- 稠密な線形部分空間で写像を定義する', '- 稠密部分で写像を定義する', 1)
+s = s.replace('Minkowski の積分不等式から', '[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から', 1)
+s = s.replace('前節の $L^2$ 平行移動補題から', '[L2平行移動連続性](#lem-fou4-l2-translation)から', 1)
+s = s.replace('FOU3 の畳み込み定理から', '[L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)から')
+s = s.replace('従って FOU3 の畳み込み定理により', '従って [L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)により')
+s = s.replace(
+    '- $g\\in L^1$：FOU3 の古典 Fourier 変換と畳み込み定理を使うため。',
+    '- $g\\in L^1$：[L1 Fourier変換](../FOU3/index.md#def-fou3-fourier-transform)と[L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)を使うため。',
+    1,
+)
+s = s.replace('あとは FOU3 の Fourier 反転を $r$ の $x=0$ に適用します。', 'あとは [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $r$ の $x=0$ に適用します。', 1)
+s = s.replace('[FOU3 の Fourier 反転](../FOU3/index.md#thm-fou3-inversion)', '[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)', 1)
+s = s.replace('Plancherel はここでは「神託」ではなく、FOU3 の反転定理を $g*g^\\sharp$ に当てることで出てきました。', 'Plancherel はここでは「神託」ではなく、[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\\sharp$ に当てることで出てきました。', 1)
+s = s.replace('まず core で FOU3 の反転定理を使って二回 Fourier 変換します。', '[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)をまず core 上で使って二回 Fourier 変換します。', 1)
+s = s.replace('FOU3 の反転公式を $-x$ に適用すると', '[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $-x$ に適用すると', 1)
+s = s.replace('- $g*g^\\sharp$ に FOU3 の反転定理を適用して core 上の Plancherel を再構成できるか。', '- [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\\sharp$ に適用して core 上の Plancherel を再構成できるか。', 1)
 write(p, s)
 
 # 6) Roadmap explicitly previews FOU3's L1 Fourier transform.
