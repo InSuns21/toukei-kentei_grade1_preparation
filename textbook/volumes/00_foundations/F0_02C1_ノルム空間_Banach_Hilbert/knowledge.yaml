@@ -58,7 +58,7 @@ concepts:
     name: Hilbert空間の再掲
     kind: definition
     introduction_aliases: [Hilbert空間]
-    aliases: [Hilbert空間の再掲, Hilbert空間]
+    aliases: [Hilbert空間の再掲, Hilbert空間, 完備内積空間]
     requires:
       - functional.hilbert-space
       - linear.inner-product-recap-c1

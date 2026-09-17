@@ -88,7 +88,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou4-complex-l2 -->
-**定義の確認。** $f=1_{[0,1]}$、$g=e^{ix}1_{[0,1]}$ なら
+**定義の確認**
+
+$f=1_{[0,1]}$、$g=e^{ix}1_{[0,1]}$ なら
 
 $$
 \langle f,g\rangle
@@ -231,7 +233,7 @@ FOU3 の $L^1$ 証明と同じ形ですが、平行移動差を $L^2$ ノルム�
 <!-- proof-start -->
 ### 証明
 
-Minkowski の積分不等式から
+[Minkowskiの不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-02)から
 
 $$
 \begin{aligned}
@@ -243,7 +245,7 @@ $$
 \end{aligned}
 $$
 
-任意の $\eta>0$ に対し、前節の $L^2$ 平行移動補題から、ある $\delta>0$ が存在して
+任意の $\eta>0$ に対し、[L2平行移動連続性](#lem-fou4-l2-translation)から、ある $\delta>0$ が存在して
 
 $$
 |y|<\delta
@@ -275,7 +277,7 @@ Gaussian 核は原点へ質量集中するので、$\varepsilon\downarrow0$ で�
 
 ## 4. Plancherel を証明できる稠密な線形 core を作る
 
-$L^2$ 全体へ線形作用素を延長するため、近似に使う core 自身が和と差に閉じていることが重要です。単に $h*k_\varepsilon$ という形の関数だけを集めると、異なる $\varepsilon$ を持つ二つの関数の和・差が同じ形に戻るとは限りません。そこで有限線形結合まで含めます。
+$L^2$ 全体へ線形な写像を延長するため、近似に使う core 自身が和と差に閉じていることが重要です。単に $h*k_\varepsilon$ の形だけを集めると、異なる $\varepsilon$ を持つ二要素の和・差が同じ形に戻るとは限りません。そこで有限線形結合まで含めます。
 
 <a id="def-fou4-gaussian-core"></a>
 <!-- formal-statement-start -->
@@ -294,13 +296,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou4-gaussian-core -->
-**定義の確認。** $h=1_{[-1,1]}$ とすると
+**定義の確認**
+
+$h=1_{[-1,1]}$ とすると
 
 $$
 g_\varepsilon=h*k_\varepsilon\in\mathcal G.
 $$
 
-FOU3 の畳み込み定理から
+[L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)から
 
 $$
 \widehat g_\varepsilon(\xi)
@@ -388,7 +392,7 @@ $$
 \widehat{g^\sharp}(\xi)=\overline{\widehat g(\xi)}.
 $$
 
-従って FOU3 の畳み込み定理により
+従って [L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)により
 
 $$
 r:=g*g^\sharp
@@ -425,7 +429,7 @@ $$
 
 ### 証明の見取り図
 
-$r=g*g^\sharp$ を作ると $r(0)=\|g\|_2^2$、周波数側は $\widehat r=|\widehat g|^2$ になります。あとは FOU3 の Fourier 反転を $r$ の $x=0$ に適用します。
+$r=g*g^\sharp$ を作ると $r(0)=\|g\|_2^2$、周波数側は $\widehat r=|\widehat g|^2$ になります。あとは [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $r$ の $x=0$ に適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -436,7 +440,7 @@ $$
 \widehat r=|\widehat g|^2\in L^1
 $$
 
-です。したがって [FOU3 の Fourier 反転](../FOU3/index.md#thm-fou3-inversion)を $r$ に適用でき、$x=0$ で
+です。したがって [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $r$ に適用でき、$x=0$ で
 
 $$
 r(0)
@@ -463,13 +467,13 @@ $$
 
 仮定の役割を確認します。
 
-- $g\in L^1$：FOU3 の古典 Fourier 変換と畳み込み定理を使うため。
+- $g\in L^1$：[L1 Fourier変換](../FOU3/index.md#def-fou3-fourier-transform)と[L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)を使うため。
 - $\widehat g\in L^1$：$r$ に Fourier 反転を適用する入口を作るため。
 - $\widehat g\in L^2$：$|\widehat g|^2\in L^1$ とするため。
 - $\mathcal G$ の線形閉性：近似列の差にも同じ等式を適用するため。
 - Gaussian 正則化：上の三つの可積分性を同時に満たす稠密な生成族を作るため。
 
-Plancherel はここでは「神託」ではなく、FOU3 の反転定理を $g*g^\sharp$ に当てることで出てきました。
+Plancherel はここでは「神託」ではなく、[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\sharp$ に当てることで出てきました。
 
 ---
 
@@ -499,13 +503,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou4-l2-transform -->
+**定義の確認**
+
+まず $f\in\mathcal G$ なら、近似列として定数列 $g_n=f$ を取れます。このとき $\|g_n-f\|_2=0$ なので、定義から
+
+$$
+\mathcal F_2 f
+=L^2\!\operatorname{-lim}_{n\to\infty}\widehat g_n
+=\widehat f.
+$$
+
+したがって新しい $L^2$ Fourier 変換は、core 上では FOU3 の古典 Fourier 変換と一致します。
+
 **なぜ「各 $\xi$ で積分」と定義しないのか。** 冒頭の
 
 $$
 f(x)=(1+|x|)^{-3/4}
 $$
 
-は $L^2$ ですが $L^1$ ではありません。古典 Fourier 積分の絶対収束は保証されません。一方、上の定義は $f$ を $L^2$ で近似できればよく、各周波数での絶対収束を要求しません。
+は $L^2$ ですが $L^1$ ではありません。古典 Fourier 積分に必要な絶対可積分性は保証されません。一方、上の定義は $f$ を $L^2$ で近似できればよく、各周波数での絶対収束を要求しません。
 <!-- definition-example-end -->
 
 <a id="thm-fou4-l2-extension"></a>
@@ -702,6 +718,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou4-unitary-transform -->
+**定義の確認**
+
+$f(x)=e^{-x^2/2}$ とします。[GaussianのFourier変換](../FOU3/index.md#lem-fou3-gaussian-transform)から
+
+$$
+\mathcal F_2 f(\xi)=\sqrt{2\pi}\,e^{-\xi^2/2},
+$$
+
+したがって定義へ代入すると
+
+$$
+Uf(\xi)=\frac1{\sqrt{2\pi}}\mathcal F_2f(\xi)
+=e^{-\xi^2/2}=f(\xi).
+$$
+
+係数 $1/\sqrt{2\pi}$ が、この規約で Gaussian を固定する正規化になっていることを直接確認できました。
+
 Parseval から
 
 $$
@@ -758,12 +791,12 @@ $$
 
 ### 証明の見取り図
 
-まず core で FOU3 の反転定理を使って二回 Fourier 変換します。その恒等式を稠密性と連続性で全 $L^2$ へ延長します。
+[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)をまず core 上で使って二回 Fourier 変換します。その恒等式を稠密性と連続性で全 $L^2$ へ延長します。
 
 <!-- proof-start -->
 ### 証明
 
-$g\in\mathcal G$ とします。前節で確認した通り $g$ は連続で、$g\in L^1$、$\widehat g\in L^1$ です。FOU3 の反転公式を $-x$ に適用すると
+$g\in\mathcal G$ とします。前節で確認した通り $g$ は連続で、$g\in L^1$、$\widehat g\in L^1$ です。[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $-x$ に適用すると
 
 $$
 g(-x)
@@ -1019,7 +1052,7 @@ $$
 FOU1–FOU3 では、完備内積空間という一般語を知らなくても各証明を実解析として閉じられます。しかし FOU4 では
 
 - $L^2$ が完備である
-- 稠密な線形部分空間で写像を定義する
+- 稠密部分で写像を定義する
 - ノルム評価から Cauchy 性を得る
 - 完備性で像の極限を作る
 - 内積保存・unitary 作用素として読む
@@ -1516,7 +1549,7 @@ $$
 - Gaussian approximate identity の $L^2$ 収束で、近傍と遠方をどう分けるか説明できるか。
 - $\mathcal G$ を単なる Gaussian 正則化の集合ではなく、その有限線形結合全体として取る理由を説明できるか。
 - Gaussian 正則化が $g,\widehat g$ の双方に必要な可積分性を与える理由を説明できるか。
-- $g*g^\sharp$ に FOU3 の反転定理を適用して core 上の Plancherel を再構成できるか。
+- [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\sharp$ に適用して core 上の Plancherel を再構成できるか。
 - Plancherel が近似列の Fourier 側を Cauchy にする仕組みを説明できるか。
 - $L^2$ の完備性がどの一行で必要になるか指摘できるか。
 - $L^1\cap L^2$ 上で古典 Fourier 変換と $L^2$ Fourier 変換が一致する理由を説明できるか。

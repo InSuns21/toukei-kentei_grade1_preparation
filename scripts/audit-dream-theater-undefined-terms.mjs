@@ -99,7 +99,7 @@ for (const page of pages.values()) {
   const pageTouched = !changedOnly || changed.files.has(page.path) || changed.files.has(page.knowledgeRel);
   if (changedOnly && !pageTouched) continue;
 
-  const readerLines = stripNonReaderContent(page.source).split(/\r?\n/u);
+  const readerLines = stripNonReaderContent(page.source).split(/\r?\n/u).map((line) => line.replace(/<a\s+id=[^>]+><\/a>/gu, ''));
 
   for (const concept of page.concepts) {
     const firstUse = firstAliasUse(readerLines, concept.aliases);
@@ -197,7 +197,7 @@ function extractTechnicalCandidates(line) {
   // In ordinary prose, bold spans are intentional technical labels. Scanning the
   // entire sentence turns phrases such as 「使う関数」「一般の関数」 into false terms.
   const sources = isHeading || isFormalTitle ? [text, ...boldSpans] : boldSpans.length ? boldSpans : [text];
-  const suffix = '(?:関数|連続性|収束|条件|空間|位相|測度|作用素|不等式|原理|法則|変換|分布|確率変数|可測性|コンパクト性|完備性|独立性|正則性|稠密性)';
+  const suffix = '(?:関数(?!解析)|連続性|収束|条件|空間|位相|測度|作用素|不等式|原理|法則|変換|分布|確率変数|可測性|コンパクト性|完備性|独立性|正則性|稠密性)';
   const re = new RegExp(`[A-Za-z0-9一-龯ぁ-んァ-ヶ・^+\\-\\s]{2,48}?${suffix}`, 'gu');
   for (const source of sources) {
     for (const match of source.matchAll(re)) {
@@ -210,12 +210,13 @@ function extractTechnicalCandidates(line) {
 
 function cleanCandidate(value) {
   let candidate = String(value)
+    .replace(/^[-*+]\s*/u, '')
     .replace(/^(?:任意の|各|すべての|ある|この|その|上の|次の|ここで|さらに|また|まず|実|複素)+/u, '')
     .trim();
   const particle = candidate.match(/(?:^|.*(?:は|を|が|に|で|と|へ|から|より|なら|として|について))([^はをがにでとへ]{2,48})$/u);
   if (particle) candidate = particle[1].trim();
   candidate = candidate
-    .replace(/^(?:の|も|ただし|つまり|前節の|一般の|良い|使う|なる|得られる|持つ|必要な|代表的な|従来の|古典|一意性も|支配して|積分可能だから|周波数から)+/u, '')
+    .replace(/^(?:の|も|ただし|つまり|前節の|一般の|元の|良い|使う|なる|得られる|持つ|必要な|代表的な|従来の|古典|一意性も|支配して|積分可能だから|周波数から)+/u, '')
     .trim();
   return candidate;
 }
@@ -224,7 +225,7 @@ function isIgnoredCandidate(value) {
   return new Set([
     '関数', '条件', '空間', '位相', '測度', '変換', '分布', '収束', '確率変数',
     '連続関数', '実関数', '複素関数', '分布関数', '定数関数', '一次関数',
-    '連続性', '完備性', '稠密性', '絶対収束', '各点収束',
+    '連続性', '完備性', '稠密性', '絶対収束', '各点収束', '被積分関数', '平行移動・尺度変換',
   ]).has(value);
 }
 

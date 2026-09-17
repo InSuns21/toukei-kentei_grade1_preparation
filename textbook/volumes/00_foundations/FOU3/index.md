@@ -52,7 +52,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou3-fourier-transform -->
-**定義の確認：区間指示関数。** $a>0$ として $f=1_{[-a,a]}$ とすると、$\xi\ne0$ で
+**定義の確認**
+
+区間指示関数を使います。$a>0$ として $f=1_{[-a,a]}$ とすると、$\xi\ne0$ で
 
 $$
 \widehat f(\xi)
@@ -177,7 +179,7 @@ $$
 
 ---
 
-## 3. $L^1$ 平行移動連続性と Riemann--Lebesgue
+## 3. $L^1$ の平行移動と Riemann--Lebesgue
 
 <a id="lem-fou3-l1-translation"></a>
 <!-- formal-statement-start -->
@@ -274,14 +276,14 @@ $$
 \le\|f-\tau_{-h}f\|_1.
 $$
 
-$|\xi|\to\infty$ なら $h\to0$ なので、$L^1$ 平行移動連続性から右辺は $0$ へ収束します。
+$|\xi|\to\infty$ なら $h\to0$ なので、[L1の平行移動連続性](#lem-fou3-l1-translation)から右辺は $0$ へ収束します。
 <!-- proof-end -->
 
 つまり $L^1$ Fourier 変換は「有界・連続・無限遠で0」です。ただし、その逆に任意の連続で無限遠で0となる関数が Fourier 変換になるわけではありません。
 
 ---
 
-## 4. 畳み込み：空間側の混合が周波数側の積になる
+## 4. 空間側の混合が周波数側の積になる
 
 <a id="def-fou3-convolution"></a>
 <!-- formal-statement-start -->
@@ -296,7 +298,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou3-convolution -->
-**定義の確認：区間の重なり。** $f=g=1_{[-1/2,1/2]}$ とします。このとき $(f*g)(x)$ は
+**定義の確認**
+
+区間の重なりを直接計算します。$f=g=1_{[-1/2,1/2]}$ とします。このとき $(f*g)(x)$ は
 
 $$
 [-1/2,1/2]\cap[x-1/2,x+1/2]
@@ -506,7 +510,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou3-approximate-identity -->
-**定義の確認：Gaussian 核。**
+**定義の確認**
+
+Gaussian 核について三条件を順に確認します。
 
 $$
 k_\varepsilon(x)
@@ -529,7 +535,7 @@ $$
 \int_{|u|\ge\delta/(2\sqrt\varepsilon)}e^{-u^2}du\to0.
 $$
 
-したがって三条件を全て満たします。また Gaussian の変換公式から
+したがって三条件を全て満たします。また [GaussianのFourier変換](#lem-fou3-gaussian-transform)から
 
 $$
 \widehat{k_\varepsilon}(\xi)=e^{-\varepsilon\xi^2}.
@@ -573,7 +579,7 @@ $$
 \le\int k_\varepsilon(y)\|\tau_yf-f\|_1dy.
 $$
 
-任意の $\eta>0$ に対し、平行移動連続性から $|y|<\delta$ なら $\|\tau_yf-f\|_1<\eta$ となる $\delta>0$ を取れます。一方常に
+任意の $\eta>0$ に対し、[L1の平行移動連続性](#lem-fou3-l1-translation)から $|y|<\delta$ なら $\|\tau_yf-f\|_1<\eta$ となる $\delta>0$ を取れます。一方常に
 
 $$
 \|\tau_yf-f\|_1\le2\|f\|_1.
@@ -947,7 +953,7 @@ $$
 \le\|f-\tau_{-h}f\|_1.
 $$
 
-$|\xi|\to\infty$ なら $|h|=\pi/|\xi|\to0$ です。したがって $L^1$ 平行移動連続性により右辺は0へ行き、$\widehat f(\xi)\to0$ を得ます。
+$|\xi|\to\infty$ なら $|h|=\pi/|\xi|\to0$ です。したがって [L1の平行移動連続性](#lem-fou3-l1-translation)により右辺は0へ行き、$\widehat f(\xi)\to0$ を得ます。
 <!-- solution-end -->
 
 ## FOU3-B03 Gaussian正則化を空間側へ戻す
@@ -982,7 +988,7 @@ $$
 =\|f\|_1\sqrt{\frac\pi\varepsilon}<\infty
 $$
 
-なので Fubini が使えます。積分順序を交換し、Gaussian 変換公式から
+なので Fubini が使えます。積分順序を交換し、[GaussianのFourier変換](#lem-fou3-gaussian-transform)から
 
 $$
 \int e^{-\varepsilon\xi^2}e^{i\xi(x-y)}d\xi

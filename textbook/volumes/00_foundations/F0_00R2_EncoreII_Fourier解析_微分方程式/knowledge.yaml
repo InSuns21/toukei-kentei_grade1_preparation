@@ -28,6 +28,7 @@ forward_references:
   - ode.ode5-laplace-transform
   - ode.ode6-ordinary-singular-point
   - ode.ode7-eigenpair
+  - fourier.fou3-fourier-transform
   - fourier.fou3-convolution
 
 concepts: []

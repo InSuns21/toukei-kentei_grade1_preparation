@@ -40,7 +40,7 @@ concepts:
   - id: fourier.fou3-l1-translation
     name: L1の平行移動連続性
     kind: theorem
-    aliases: [translation continuity in L1]
+    aliases: [translation continuity in L1, 平行移動連続性]
     introduction: formal
 
   - id: fourier.fou3-riemann-lebesgue
