@@ -44,9 +44,9 @@ concepts:
 
   - id: fourier.fou2-step-function
     name: 階段関数
-    kind: term
+    kind: definition
     aliases: [step function]
-    introduction: inline
+    introduction: formal
 
   - id: fourier.fou2-riemann-lebesgue
     name: 高周波振動積分の消去補題
@@ -102,9 +102,9 @@ concepts:
 
   - id: fourier.fou2-continuous-periodic-function
     name: 連続周期関数
-    kind: term
+    kind: definition
     aliases: [continuous periodic function]
-    introduction: inline
+    introduction: formal
     requires:
       - fourier.fou2-real-periodic-function
 
