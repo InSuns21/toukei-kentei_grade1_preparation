@@ -14,6 +14,7 @@ concepts:
     kind: definition
     aliases: [各点収束, pointwise convergence]
     introduction: formal
+    introduction_aliases: [三種類の収束]
     requires:
       - fourier.fou1-finite-sum
 
@@ -22,6 +23,7 @@ concepts:
     kind: definition
     aliases: [一様収束, uniform convergence]
     introduction: formal
+    introduction_aliases: [三種類の収束]
     requires:
       - fourier.fou1-finite-sum
 
@@ -30,6 +32,7 @@ concepts:
     kind: definition
     aliases: [二乗平均収束, mean-square convergence]
     introduction: formal
+    introduction_aliases: [三種類の収束]
     requires:
       - fourier.fou1-finite-sum
 
