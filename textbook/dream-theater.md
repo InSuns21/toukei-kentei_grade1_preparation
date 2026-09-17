@@ -192,25 +192,21 @@
 
 ---
 
-## 3. Encore II：Fourier解析・微分方程式
+## 3. Encore II：ODE・Fourier解析・PDE
+
+旧 `F0_00H1`、`F0_00FA1`～`F0_00FA3`、`F0_00PDE1`～`F0_00PDE3` は再編前教材としてリポジトリ内には保持しますが、**現行の読者向け目次・通常導線には表示しません**。現行正本は ODE / FOU / PDE の新系列です。
 
 1. [Encore II ロードマップ](textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/index.md)
-2. [H1 常微分方程式・行列指数](textbook/volumes/00_foundations/F0_00H1_常微分方程式_線形系_行列指数/index.md)
-3. [ODE1 一階常微分方程式・初期値問題](textbook/volumes/00_foundations/ODE1/index.md)
-4. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
-5. [ODE3 線形連立系・行列指数・安定性](textbook/volumes/00_foundations/ODE3/index.md)
-6. [ODE4 非線形系・位相平面・線形化](textbook/volumes/00_foundations/ODE4/index.md)
-7. [ODE5 Laplace変換と初期値問題](textbook/volumes/00_foundations/ODE5/index.md)
-8. [ODE6 級数解・正則特異点](textbook/volumes/00_foundations/ODE6/index.md)
-9. [ODE7 境界値問題・Sturm--Liouville](textbook/volumes/00_foundations/ODE7/index.md)
-10. [FOU1 Fourier級数・直交性・係数計算](textbook/volumes/00_foundations/FOU1/index.md)
-11. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
-12. [FA1 Fourier級数・直交展開](textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md)
-13. [FA2 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md)
-14. [FA3 Plancherel・L2・特性関数](textbook/volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md)
-15. [PDE1 熱方程式・Fourier変換](textbook/volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md)
-16. [PDE2 波動方程式・Laplace方程式](textbook/volumes/00_foundations/F0_00PDE2_波動方程式_Laplace方程式_変数分離/index.md)
-17. [PDE3 旧URL互換：Sturm–Liouville・スペクトル展開](textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md)
+2. [ODE1 一階常微分方程式・初期値問題](textbook/volumes/00_foundations/ODE1/index.md)
+3. [ODE2 高階線形微分方程式](textbook/volumes/00_foundations/ODE2/index.md)
+4. [ODE3 線形連立系・行列指数・安定性](textbook/volumes/00_foundations/ODE3/index.md)
+5. [ODE4 非線形系・位相平面・線形化](textbook/volumes/00_foundations/ODE4/index.md)
+6. [ODE5 Laplace変換と初期値問題](textbook/volumes/00_foundations/ODE5/index.md)
+7. [ODE6 級数解・正則特異点](textbook/volumes/00_foundations/ODE6/index.md)
+8. [ODE7 境界値問題・Sturm--Liouville](textbook/volumes/00_foundations/ODE7/index.md)
+9. [FOU1 Fourier級数・直交性・係数計算](textbook/volumes/00_foundations/FOU1/index.md)
+10. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
+11. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
 
 ---
 
