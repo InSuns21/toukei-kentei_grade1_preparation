@@ -16,6 +16,8 @@ jobs:
         with:
           ref: dream-theater-fou3-fourier-transform
           fetch-depth: 0
+      - name: Apply final fixes
+        run: python3 scripts/tmp-fou-ci-fix2.py
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -44,11 +46,12 @@ jobs:
         run: npm run validate
       - name: Validate Pages
         run: npm run validate:pages
-      - name: Remove temporary files and push
+      - name: Commit fixes, remove temporary files, and push
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm .github/workflows/tmp-fou-ci-fix.yml scripts/tmp-fou-ci-fix.py
-          git commit -m 'chore: remove temporary FOU validation helpers'
+          git add scripts/audit-dream-theater-undefined-terms.mjs textbook/volumes/00_foundations
+          git rm .github/workflows/tmp-fou-ci-fix.yml scripts/tmp-fou-ci-fix.py scripts/tmp-fou-ci-fix2.py
+          git commit -m 'fix: finalize FOU3 FOU4 validation alignment'
           git push origin HEAD:dream-theater-fou3-fourier-transform
