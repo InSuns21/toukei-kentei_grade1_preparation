@@ -35,5 +35,5 @@ canonical_examples: [矩形波の跳躍点収束とGibbs現象, Fejér平均に�
 problem_patterns: [FOURIER-DIRICHLET-KERNEL-1, FOURIER-POINTWISE-CONVERGENCE-1, FOURIER-GIBBS-1, FOURIER-FEJER-1, FOURIER-L2-CONVERGENCE-1, FOURIER-PARSEVAL-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 7.0, exercises: 4.0, review: 1.0 }

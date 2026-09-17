@@ -53,7 +53,6 @@ concepts:
     aliases: [oscillatory integral cancellation lemma]
     introduction: formal
     requires:
-      - fourier.fou2-dirichlet-integral
       - fourier.fou2-step-function
 
   - id: fourier.fou2-dirichlet-convergence
