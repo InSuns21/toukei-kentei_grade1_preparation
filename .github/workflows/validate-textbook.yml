@@ -35,9 +35,6 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -46,37 +43,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
-      - name: Normalize final FOU2 terminology
-        if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('textbook/volumes/00_foundations/FOU2/index.md')
-          text = path.read_text(encoding='utf-8')
-          replacements = [
-              ('#### B1. Riemann--Lebesgue型補題を階段関数で再構成する',
-               '#### B1. 高周波振動積分の消去補題を階段関数で再構成する'),
-              ('Parseval 等式は一周期全体の二乗積分と係数二乗和の等式であり、',
-               '[係数エネルギー等式](#thm-fou2-parseval)は一周期全体の二乗積分と係数二乗和の等式であり、'),
-          ]
-          for old, new in replacements:
-              count = text.count(old)
-              if count > 1:
-                  raise SystemExit(f'expected at most one target, found {count}: {old!r}')
-              if count == 1:
-                  text = text.replace(old, new)
-          path.write_text(text, encoding='utf-8')
-          PY
-          if ! git diff --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/FOU2/index.md
-            git commit -m 'Normalize FOU2 legacy theorem names'
-            git push origin HEAD:${{ github.head_ref }}
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
