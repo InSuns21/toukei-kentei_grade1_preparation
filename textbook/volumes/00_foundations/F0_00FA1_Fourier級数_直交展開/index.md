@@ -625,7 +625,7 @@ $f(x)=x$ の Fourier 係数を使って $\sum_{n\ge1}n^{-2}=\pi^2/6$ を導け�
 <!-- solution-start -->
 ### 詳細解答
 
-$b_n=2(-1)^{n+1}/n$、$a_n=0$。[FOU2 の係数エネルギー等式](../FOU2/index.md#thm-fou2-parseval)より
+$b_n=2(-1)^{n+1}/n$、$a_n=0$。[Parseval等式](#cor-f0-00fa1-parseval)より
 
 $$
 \frac1\pi\int_{-\pi}^{\pi}x^2dx
@@ -666,7 +666,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-[FOU2 の係数エネルギー等式](../FOU2/index.md#thm-fou2-parseval)から
+[Parseval等式](#cor-f0-00fa1-parseval)から
 
 $$
 \|f\|_2^2=2\pi\sum_{n\in\mathbb Z}|c_n|^2.

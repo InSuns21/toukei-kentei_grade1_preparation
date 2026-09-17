@@ -1174,7 +1174,7 @@ a_0=a_n=0,
 b_n=\frac{2(-1)^{n+1}}n
 $$
 
-と求めました。Parseval 等式の左辺は
+と求めました。[係数エネルギー等式](#thm-fou2-parseval)の左辺は
 
 $$
 \frac1\pi\int_{-\pi}^{\pi}x^2\,dx

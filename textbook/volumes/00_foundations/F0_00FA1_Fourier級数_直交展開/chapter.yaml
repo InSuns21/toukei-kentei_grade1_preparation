@@ -35,5 +35,4 @@ problem_patterns: [FOURIER-SERIES-COEFF-1, FOURIER-PARSEVAL-1, FOURIER-COMPLETEN
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 2, level_b: 3, level_c: 0, level_d: 0 }
-dream_theater_exercise_count_exception: "FOU1/FOU2 を現行の標準Fourier解析正本とし、本章は旧URL互換とL2版への既存導線を維持する互換ページであるため、演習最低数の水増しは行わない。"
 estimated_hours: { reading: 5.5, exercises: 1.5, review: 0.75 }
