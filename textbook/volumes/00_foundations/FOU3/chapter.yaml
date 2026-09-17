@@ -6,8 +6,9 @@ prerequisites:
   - FOU2
   - F0-00D2B
   - F0-00D2C
+  - MT7
 # FOU1/FOU2 の離散周波数論から実数全体上の連続周波数へ進む。
-# L1 Fourier変換で必要な DCT / Fubini は既存のLebesgue積分正本を参照するが、L2/Hilbert 理論は FOU4 まで先取りしない。
+# L1 Fourier変換で必要な DCT / Fubini / C_c 稠密性は既存のLebesgue積分正本を参照するが、L2/Hilbert 理論は FOU4 まで先取りしない。
 official_scope: []
 learning_objectives:
   - L1(R) 上のFourier変換を定義し、有界性と連続性を積分評価から証明できる
