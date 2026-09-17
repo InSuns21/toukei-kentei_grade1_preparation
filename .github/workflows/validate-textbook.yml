@@ -35,9 +35,6 @@ on:
       - '.github/workflows/validate-textbook.yml'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   validate-textbook:
     runs-on: ubuntu-latest
@@ -46,62 +43,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
-      - name: Resolve final FOU2 concept introduction
-        if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          index = Path('textbook/volumes/00_foundations/FOU2/index.md')
-          text = index.read_text(encoding='utf-8')
-          replacements = [
-              ('> **定義（各点収束・一様収束・二乗平均収束）**  ',
-               '> **定義（三種類の収束）**  '),
-              ('- 二乗平均収束から Parseval 等式と三角系の完全性を導いた。',
-               '- 二乗平均収束から係数エネルギー等式と三角系の完全性を導いた。'),
-              ('- Parseval 等式を $x$ と矩形波へ適用し、逆二乗和を具体的に計算した。',
-               '- 係数エネルギー等式を $x$ と矩形波へ適用し、逆二乗和を具体的に計算した。'),
-          ]
-          for old, new in replacements:
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f'expected exactly one target, found {count}: {old!r}')
-              text = text.replace(old, new)
-          index.write_text(text, encoding='utf-8')
-
-          knowledge = Path('textbook/volumes/00_foundations/FOU2/knowledge.yaml')
-          k = knowledge.read_text(encoding='utf-8')
-          for concept_id in [
-              'fourier.fou2-pointwise-convergence',
-              'fourier.fou2-uniform-convergence',
-              'fourier.fou2-mean-square-convergence-definition',
-          ]:
-              marker = f'  - id: {concept_id}\n'
-              start = k.find(marker)
-              if start < 0:
-                  raise SystemExit(f'concept not found: {concept_id}')
-              next_start = k.find('\n  - id: ', start + len(marker))
-              end = len(k) if next_start < 0 else next_start
-              block = k[start:end]
-              if '    introduction_aliases:' not in block:
-                  needle = '    introduction: formal\n'
-                  if needle not in block:
-                      raise SystemExit(f'formal introduction marker not found: {concept_id}')
-                  block = block.replace(needle, '    introduction: formal\n    introduction_aliases: [三種類の収束]\n', 1)
-                  k = k[:start] + block + k[end:]
-          knowledge.write_text(k, encoding='utf-8')
-          PY
-
-          if ! git diff --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add textbook/volumes/00_foundations/FOU2/index.md textbook/volumes/00_foundations/FOU2/knowledge.yaml
-            git commit -m 'Resolve FOU2 local convergence concept introduction'
-            git push origin HEAD:${{ github.head_ref }}
-          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
