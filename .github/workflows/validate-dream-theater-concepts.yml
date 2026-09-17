@@ -39,19 +39,23 @@ on:
       - '.github/workflows/validate-dream-theater-concepts.yml'
   workflow_dispatch:
 
+concurrency:
+  group: dream-theater-concepts-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-dream-theater-concepts:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
@@ -60,10 +64,29 @@ jobs:
       - name: Self-test DREAM THEATER concept audits
         run: npm run test:dream-theater-concept-audits
 
-      - name: Validate changed DREAM THEATER pages
+      - name: Detect full-audit scope
+        id: audit-scope
+        if: github.event_name == 'pull_request'
         env:
-          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          changed="$(git -c core.quotepath=false diff --name-only "$BASE_SHA"...HEAD)"
+          printf '%s\n' "$changed"
+          if printf '%s\n' "$changed" | grep -Eq '^(\.github/workflows/validate-dream-theater-concepts\.yml|package\.json|package-lock\.json|textbook/dream-theater-(index\.json|knowledge\.yaml|inference-rules\.yaml)|scripts/(audit-dream-theater-(concepts|formal-order|explicit-dependencies|implicit-dependencies|undefined-terms|undefined-terms-filtered)\.mjs|validate-dream-theater-concepts-changed\.mjs|lib/dream-theater-concept-resolution\.mjs))$'; then
+            echo 'full=true' >> "$GITHUB_OUTPUT"
+            echo '監査エンジンまたは全体レジストリ変更を検出: full audit を実行します。'
+          else
+            echo 'full=false' >> "$GITHUB_OUTPUT"
+            echo '通常の教材差分: PR では changed-only audit のみ実行します。'
+          fi
+
+      - name: Validate changed DREAM THEATER pages
+        if: github.event_name == 'pull_request'
+        env:
+          DREAM_THEATER_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: npm run validate:dream-theater-concepts:changed
 
       - name: Audit full DREAM THEATER concept coverage
+        if: github.event_name != 'pull_request' || steps.audit-scope.outputs.full == 'true'
         run: npm run audit:dream-theater-concepts
