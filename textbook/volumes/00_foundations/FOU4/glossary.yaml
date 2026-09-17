@@ -1,0 +1,26 @@
+chapter: "FOU4"
+terms:
+  - term: Plancherel等式
+    english: Plancherel identity
+    meaning: FOU3の規約ではFourier変換がL2ノルムを sqrt(2pi) 倍するという等式。正規化作用素ではL2ノルムが保存される。
+  - term: Parseval等式
+    english: Parseval identity
+    meaning: Fourier変換がL2内積を定数倍まで保存する等式。正規化Fourier作用素では内積そのものを保存する。
+  - term: L2 Fourier変換
+    english: L2 Fourier transform
+    meaning: 稠密な良い関数族上の古典Fourier変換をPlancherel等式とL2完備性で全L2へ連続延長したもの。一般のL2関数では積分が各周波数で絶対収束するとは限らない。
+  - term: Gaussian Fourier core
+    english: Gaussian Fourier core
+    meaning: L1かつL2の関数をGaussian核で平滑化して得る関数族。関数自身とFourier変換の可積分性が確保され、FOU3の反転定理とFOU4のPlancherel証明を橋渡しする。
+  - term: unitary operator
+    english: unitary operator
+    meaning: Hilbert空間上で内積を保ち、全射である線形作用素。本章では (2pi)^(-1/2) 倍したFourier変換がL2上のユニタリ作用素になる。
+  - term: isometric extension
+    english: isometric extension
+    meaning: 稠密部分空間上でノルムを保つ線形写像を、完備性を使って空間全体へ一意に延長すること。本章のL2 Fourier変換の構成機構。
+  - term: L2反転
+    english: L2 Fourier inversion
+    meaning: 逆Fourier積分を点wiseの絶対収束としてではなく、L2ノルムでの極限として解釈して元の関数を復元すること。
+  - term: L1-L2畳み込み
+    english: L1-L2 convolution
+    meaning: kがL1、fがL2ならk*fがL2に属し、ノルムが ||k||1||f||2 以下になるという畳み込み。Fourier側では k-hat とL2 Fourier変換の積に対応する。
