@@ -34,7 +34,8 @@ assert needle in s
 s = s.replace(needle, replacement, 1)
 write(p, s)
 
-# 2) FOU3: keep formal introduction before first reader-facing use and use canonical theorem names/links.
+# 2) FOU3: keep formal introduction before first reader-facing use, canonicalize links,
+# and make every direct definition example use the standard verification heading.
 p = 'textbook/volumes/00_foundations/FOU3/index.md'
 s = read(p)
 s = s.replace('## 3. $L^1$ 平行移動連続性と Riemann--Lebesgue', '## 3. $L^1$ の平行移動と Riemann--Lebesgue', 1)
@@ -44,6 +45,9 @@ s = s.replace('積分順序を交換し、Gaussian 変換公式から', '積分�
 s = s.replace('$L^1$ 平行移動連続性から右辺は $0$ へ収束します。', '[L1の平行移動連続性](#lem-fou3-l1-translation)から右辺は $0$ へ収束します。', 1)
 s = s.replace('任意の $\\eta>0$ に対し、平行移動連続性から $|y|<\\delta$ なら', '任意の $\\eta>0$ に対し、[L1の平行移動連続性](#lem-fou3-l1-translation)から $|y|<\\delta$ なら', 1)
 s = s.replace('$|\\xi|\\to\\infty$ なら $|h|=\\pi/|\\xi|\\to0$ です。したがって $L^1$ 平行移動連続性により右辺は0へ行き、', '$|\\xi|\\to\\infty$ なら $|h|=\\pi/|\\xi|\\to0$ です。したがって [L1の平行移動連続性](#lem-fou3-l1-translation)により右辺は0へ行き、', 1)
+s = s.replace('**定義の確認：区間指示関数。** $a>0$ として', '**定義の確認**\n\n区間指示関数を使います。$a>0$ として', 1)
+s = s.replace('**定義の確認：区間の重なり。** $f=g=', '**定義の確認**\n\n区間の重なりを直接計算します。$f=g=', 1)
+s = s.replace('**定義の確認：Gaussian 核。**\n', '**定義の確認**\n\nGaussian 核について三条件を順に確認します。\n', 1)
 write(p, s)
 
 # 3) FOU3: register the natural post-definition shorthand actually used in prose.
@@ -58,7 +62,8 @@ s = read(p)
 s = s.replace('aliases: [Hilbert空間の再掲, Hilbert空間]', 'aliases: [Hilbert空間の再掲, Hilbert空間, 完備内積空間]', 1)
 write(p, s)
 
-# 5) FOU4: remove grammatical false positives and point every named dependency at its canonical result.
+# 5) FOU4: remove grammatical false positives, canonicalize named dependencies,
+# and make all definition examples verify the definition directly.
 p = 'textbook/volumes/00_foundations/FOU4/index.md'
 s = read(p)
 s = s.replace(
@@ -83,6 +88,54 @@ s = s.replace('Plancherel はここでは「神託」ではなく、FOU3 の反�
 s = s.replace('まず core で FOU3 の反転定理を使って二回 Fourier 変換します。', '[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)をまず core 上で使って二回 Fourier 変換します。', 1)
 s = s.replace('FOU3 の反転公式を $-x$ に適用すると', '[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $-x$ に適用すると', 1)
 s = s.replace('- $g*g^\\sharp$ に FOU3 の反転定理を適用して core 上の Plancherel を再構成できるか。', '- [Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を $g*g^\\sharp$ に適用して core 上の Plancherel を再構成できるか。', 1)
+# Existing examples already calculate the defining quantities; normalize their heading.
+s = s.replace('**定義の確認。** $f=1_{[0,1]}$、', '**定義の確認**\n\n$f=1_{[0,1]}$、', 1)
+s = s.replace('**定義の確認。** $h=1_{[-1,1]}$ とすると', '**定義の確認**\n\n$h=1_{[-1,1]}$ とすると', 1)
+# The L2-transform block previously only motivated the definition. Verify that it really
+# extends the classical transform on the dense core by choosing a constant approximating sequence.
+old = '''<!-- definition-example-start: def-fou4-l2-transform -->
+**なぜ「各 $\\xi$ で積分」と定義しないのか。** 冒頭の'''
+new = '''<!-- definition-example-start: def-fou4-l2-transform -->
+**定義の確認**
+
+まず $f\\in\\mathcal G$ なら、近似列として定数列 $g_n=f$ を取れます。このとき $\\|g_n-f\\|_2=0$ なので、定義から
+
+$$
+\\mathcal F_2 f
+=L^2\\!\\operatorname{-lim}_{n\\to\\infty}\\widehat g_n
+=\\widehat f.
+$$
+
+したがって新しい $L^2$ Fourier 変換は、core 上では FOU3 の古典 Fourier 変換と一致します。
+
+**なぜ「各 $\\xi$ で積分」と定義しないのか。** 冒頭の'''
+assert old in s
+s = s.replace(old, new, 1)
+# For the normalized operator, the standard Gaussian is a direct low-complexity check:
+# under this convention its Fourier transform gains exactly sqrt(2pi), so normalization fixes it.
+old = '''<!-- definition-example-start: def-fou4-unitary-transform -->
+Parseval から'''
+new = '''<!-- definition-example-start: def-fou4-unitary-transform -->
+**定義の確認**
+
+$f(x)=e^{-x^2/2}$ とします。[GaussianのFourier変換](../FOU3/index.md#lem-fou3-gaussian-transform)から
+
+$$
+\\mathcal F_2 f(\\xi)=\\sqrt{2\\pi}\,e^{-\\xi^2/2},
+$$
+
+したがって定義へ代入すると
+
+$$
+Uf(\\xi)=\\frac1{\\sqrt{2\\pi}}\\mathcal F_2f(\\xi)
+=e^{-\\xi^2/2}=f(\\xi).
+$$
+
+係数 $1/\\sqrt{2\\pi}$ が、この規約で Gaussian を固定する正規化になっていることを直接確認できました。
+
+Parseval から'''
+assert old in s
+s = s.replace(old, new, 1)
 write(p, s)
 
 # 6) Roadmap explicitly previews FOU3's L1 Fourier transform.
