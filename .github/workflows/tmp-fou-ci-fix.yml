@@ -56,4 +56,4 @@ jobs:
           git commit -m 'fix: finalize FOU3 FOU4 validation alignment'
           git push origin HEAD:dream-theater-fou3-fourier-transform
 
-# rerun after final local proof-dependency links
+# rerun after direct definition-example verification fixes
