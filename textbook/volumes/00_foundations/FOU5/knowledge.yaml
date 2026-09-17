@@ -55,7 +55,7 @@ concepts:
     kind: lemma
     aliases: [roots of unity orthogonality]
     introduction: formal
-    introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）"]
+    introduction_aliases: ["補題（$1$ の $N$ 乗根の直交性）", "補題（ の 乗根の直交性）"]
     requires: [fourier.fou5-dft]
 
   - id: fourier.fou5-dft-inversion

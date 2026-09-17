@@ -51,7 +51,9 @@ $$
 したがって全ての $\xi$ で積分が存在します。確率測度なら全質量は1です。
 
 <!-- definition-example-start: def-fou5-measure-transform -->
-**定義の確認：二点分布**
+**定義の確認**
+
+**二点分布**
 
 $a,b\in\mathbb R$、$0\le p\le1$ とし、$\mu(\{a\})=p$、$\mu(\{b\})=1-p$、それ以外に質量を持たないとします。有限和として
 
@@ -157,7 +159,9 @@ $$
 $$
 
 <!-- definition-example-start: def-fou5-probability-convolution -->
-**定義の確認：二つの Bernoulli 分布**
+**定義の確認**
+
+**二つの Bernoulli 分布**
 
 $\mu$ が $0,1$ に質量 $1-p,p$、$\nu$ が $0,1$ に質量 $1-q,q$ を持つとします。積測度で和の値ごとの質量を数えると
 
@@ -253,7 +257,7 @@ $$
 
 ### 3.1 中心極限定理では何が起きていたか
 
-[独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で、平均0・分散1へ標準化した iid 変数 $Y_j$ と
+[独立同分布中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt) で、平均0・分散1へ標準化した独立同分布（independent and identically distributed; iid）変数 $Y_j$ と
 
 $$
 Z_n=\frac1{\sqrt n}\sum_{j=1}^nY_j
@@ -297,7 +301,9 @@ $$
 ここで $X_k$ は確率変数ではなく周波数係数です。
 
 <!-- definition-example-start: def-fou5-dft -->
-**定義の確認：一点だけ1の列**
+**定義の確認**
+
+**一点だけ1の列**
 
 $$
 x=(1,0,\dots,0)
@@ -481,7 +487,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou5-circular-convolution -->
-**定義の確認：$N=4$**
+**定義の確認**
+
+**$N=4$**
 
 $$
 x=(1,2,0,0),\qquad y=(1,1,0,0)
@@ -820,7 +828,7 @@ $$
 X_k=1,
 $$
 
-従って $X=(1,1,1,1)$ です。逆変換は
+従って $X=(1,1,1,1)$ です。反転公式の右辺は
 
 $$
 x_n=\frac14\sum_{k=0}^3e^{2\pi ikn/4}.
