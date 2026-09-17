@@ -1,0 +1,38 @@
+id: "FOU5"
+title: "標準Fourier解析 V：確率・離散Fourier変換・サンプリング"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FOU4
+  - F0-00P3D
+  - F0-00P6A
+official_scope: []
+learning_objectives:
+  - 有限Borel測度のFourier変換を定義し、確率変数の特性関数との符号規約を説明できる
+  - 確率測度の畳み込みを押し出し測度として定義し、独立和の分布とFourier積の対応を証明できる
+  - iid中心極限定理をFourier解析の観点から読み直し、独立和・尺度変換・局所二次展開の役割を説明できる
+  - 離散Fourier変換を定義し、1のN乗根の直交性から反転公式とParseval等式を証明できる
+  - 巡回畳み込みが離散Fourier変換で成分ごとの積へ変わることを証明できる
+  - Cooley--Tukey型の偶奇分割が計算量をO(N log N)へ下げる機構を説明できる
+  - 等間隔標本化で周波数が2pi/Delta周期で同一視されるエイリアシングを式から導ける
+  - 連続Fourier変換・特性関数・離散Fourier変換の共通構造と相違点を整理できる
+definitions:
+  - { id: FOU5-DEF-01, name: 有限測度のFourier変換 }
+  - { id: FOU5-DEF-02, name: 確率測度の畳み込み }
+  - { id: FOU5-DEF-03, name: 離散Fourier変換 }
+  - { id: FOU5-DEF-04, name: 巡回畳み込み }
+  - { id: FOU5-DEF-05, name: エイリアシング同値関係 }
+theorems:
+  - { id: FOU5-PROP-01, name: 確率分布のFourier変換と特性関数の対応 }
+  - { id: FOU5-PROP-02, name: 独立和・畳み込み・Fourier積 }
+  - { id: FOU5-LEM-01, name: 1のN乗根の直交性 }
+  - { id: FOU5-THM-01, name: 離散Fourier反転公式 }
+  - { id: FOU5-THM-02, name: 離散Parseval等式 }
+  - { id: FOU5-THM-03, name: 巡回畳み込み定理 }
+  - { id: FOU5-PROP-03, name: 等間隔標本化のエイリアシング }
+canonical_examples: [Bernoulli分布のFourier変換, 4点DFT, 巡回畳み込み, 900Hzと100Hzのエイリアシング, 有限巡回群上のランダムウォーク]
+problem_patterns: [FOURIER-PROBABILITY-BRIDGE-1, DFT-INVERSION-1, DFT-PARSEVAL-1, CIRCULAR-CONVOLUTION-1, FFT-EVEN-ODD-1, SAMPLING-ALIASING-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.0, review: 1.0 }
