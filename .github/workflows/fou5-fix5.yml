@@ -1,0 +1,35 @@
+name: Normalize FOU5 inversion wording
+
+on:
+  push:
+    branches:
+      - dream-theater/fou5-probability-dft-sampling
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize inversion wording
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('textbook/volumes/00_foundations/FOU5/index.md')
+          s = p.read_text()
+          s = s.replace('逆変換し', '反転公式で復元し')
+          s = s.replace('逆変換を', '反転公式による復元を')
+          s = s.replace('逆変換は', '反転公式による復元は')
+          s = s.replace('逆変換で', '反転公式による復元で')
+          s = s.replace('逆変換', '反転公式による復元')
+          p.write_text(s)
+          PY
+          git rm .github/workflows/fou5-fix5.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add textbook/volumes/00_foundations/FOU5/index.md
+          git commit -m 'fix: FOU5 の反転表記を統一'
+          git push origin HEAD:dream-theater/fou5-probability-dft-sampling
