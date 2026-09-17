@@ -2,12 +2,11 @@ chapter: FOU2
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - RA5
   - FOU1
 forward_references: []
 
-# 一般の各点収束・一様収束は RA5 を正本とし、FOU2 では再定義しない。
-# 旧 F0-00FA1・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
+# FOU1 の有限次数 Fourier 理論だけを直接前提にし、無限段階で必要な収束条件は FOU2 本文内の式で固定する。
+# 旧 F0-00FA1・RA5・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
 
 concepts:
   - id: fourier.fou2-real-periodic-function
@@ -58,14 +57,13 @@ concepts:
       - fourier.fou2-step-function
 
   - id: fourier.fou2-dirichlet-convergence
-    name: Dirichletの各点収束定理
+    name: Dirichletの点ごとの極限定理
     kind: theorem
-    aliases: [Dirichletの各点収束, Dirichlet pointwise convergence theorem]
+    aliases: [Dirichlet pointwise limit theorem]
     introduction: formal
     requires:
       - fourier.fou2-riemann-lebesgue
       - fourier.fou2-dirichlet-integral
-      - analysis.pointwise-convergence
 
   - id: fourier.fou2-gibbs
     name: Gibbs現象
@@ -111,15 +109,14 @@ concepts:
   - id: fourier.fou2-fejer-uniform
     name: Fejér平均の一様近似定理
     kind: theorem
-    aliases: [Fejer uniform convergence theorem]
+    aliases: [Fejer uniform approximation theorem]
     introduction: formal
     requires:
       - fourier.fou2-fejer-kernel-properties
       - fourier.fou2-continuous-periodic-function
-      - analysis.uniform-convergence
 
   - id: fourier.fou2-trig-density
-    name: 三角多項式による連続周期関数の一様近似定理
+    name: 三角多項式の一様稠密性
     kind: theorem
     aliases: [uniform density of trigonometric polynomials]
     introduction: formal
