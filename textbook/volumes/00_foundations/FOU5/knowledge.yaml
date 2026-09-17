@@ -1,0 +1,93 @@
+chapter: FOU5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU4
+  - F0-00P3D
+  - F0-00P6A
+
+# FOU5 は Fourier 解析を確率論と有限離散信号へ接続する bridge。
+# 特性関数・Lévy連続性定理・iid CLT は確率論側の既存正本を再利用し、重複所有しない。
+# Shannon標本化定理、Poisson和公式、緩増加超関数は本章の証明依存へ入れない。
+
+concepts:
+  - id: fourier.fou5-measure-transform
+    name: 有限測度のFourier変換
+    kind: definition
+    aliases: [有限Borel測度のFourier変換, Fourier transform of a finite measure]
+    introduction: formal
+    requires: [measure.lebesgue-integral]
+
+  - id: fourier.fou5-probability-transform
+    name: 確率分布のFourier変換と特性関数の対応
+    kind: proposition
+    aliases: [probability Fourier transform, 特性関数とFourier変換の対応]
+    introduction: formal
+    requires: [fourier.fou5-measure-transform, prob.characteristic-function]
+
+  - id: fourier.fou5-probability-convolution
+    name: 確率測度の畳み込み
+    kind: definition
+    aliases: [convolution of probability measures, 確率分布の畳み込み]
+    introduction: formal
+    requires: [measure.product-measure, measure.pushforward-measure]
+
+  - id: fourier.fou5-independent-sum-convolution
+    name: 独立和・畳み込み・Fourier積
+    kind: proposition
+    aliases: [独立和と畳み込み, Fourier transform of convolution measures]
+    introduction: formal
+    requires: [fourier.fou5-measure-transform, fourier.fou5-probability-convolution, prob.independence-joint-factorization, measure.pushforward-integration-theorem, measure.fubini-theorem]
+
+  - id: fourier.fou5-dft
+    name: 離散Fourier変換
+    kind: definition
+    aliases: [DFT, discrete Fourier transform]
+    introduction: formal
+
+  - id: fourier.fou5-root-orthogonality
+    name: 1のN乗根の直交性
+    kind: lemma
+    aliases: [roots of unity orthogonality]
+    introduction: formal
+    requires: [fourier.fou5-dft]
+
+  - id: fourier.fou5-dft-inversion
+    name: 離散Fourier反転公式
+    kind: theorem
+    aliases: [DFT inversion]
+    introduction: formal
+    requires: [fourier.fou5-dft, fourier.fou5-root-orthogonality]
+
+  - id: fourier.fou5-dft-parseval
+    name: 離散Parseval等式
+    kind: theorem
+    aliases: [discrete Parseval identity]
+    introduction: formal
+    requires: [fourier.fou5-dft, fourier.fou5-root-orthogonality]
+
+  - id: fourier.fou5-circular-convolution
+    name: 巡回畳み込み
+    kind: definition
+    aliases: [circular convolution]
+    introduction: formal
+
+  - id: fourier.fou5-circular-convolution-theorem
+    name: 巡回畳み込み定理
+    kind: theorem
+    aliases: [circular convolution theorem]
+    introduction: formal
+    requires: [fourier.fou5-dft, fourier.fou5-circular-convolution]
+
+  - id: fourier.fou5-aliasing
+    name: エイリアシング同値関係
+    kind: definition
+    aliases: [aliasing, エイリアシング]
+    introduction: formal
+
+  - id: fourier.fou5-sampling-aliasing
+    name: 等間隔標本化のエイリアシング
+    kind: proposition
+    aliases: [sampling aliasing, 標本化エイリアシング]
+    introduction: formal
+    requires: [fourier.fou5-aliasing]
