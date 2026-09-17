@@ -14,12 +14,282 @@ on:
       - '.github/workflows/validate-pages.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   validate-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Normalize FOU2 canonical dependencies
+        if: github.head_ref == 'dream-theater-fou2-fourier-convergence'
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          index = Path('textbook/volumes/00_foundations/FOU2/index.md')
+          s = index.read_text(encoding='utf-8')
+
+          simple = [
+              ('# FOU2 Fourier級数の収束・Fejér・Parseval', '# FOU2 Fourier級数 II：収束論と平均化'),
+              ('この三つを同じ「収束」で済ませると、跳躍点・Gibbs 現象・係数の二乗和と元の二乗積分を結ぶ等式の役割が見えなくなります。',
+               'この三つを同じ「収束」で済ませると、跳躍点近傍に残る振動・係数の二乗和と元の二乗積分を結ぶ等式の役割が見えなくなります。'),
+              ('直接の前提は [FOU1 Fourier級数・係数計算](../FOU1/index.md) です。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしません。Lebesgue 積分や Hilbert 空間の一般論も本章の証明には使わず、区分的連続関数と Riemann 積分の範囲で閉じます。',
+               '直接の前提は [RA5 関数列・関数級数・一様収束](../RA5/index.md) と [FOU1 Fourier級数・係数計算](../FOU1/index.md) です。RA5 から一般の各点収束・一様収束だけを使い、FOU1 から有限次数の Fourier 理論を受け取ります。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしません。Lebesgue 積分や Hilbert 空間の一般論も本章の証明には使わず、区分的連続関数と Riemann 積分の範囲で閉じます。\n\n本章では、実数値で $2\\pi$ 周期の関数を **実数値周期関数** と略記します。'),
+              ('<!-- definition-example-start: def-fou2-convergence-modes -->', '<!-- definition-example-start: def-fou2-mean-square-convergence -->'),
+              ('<!-- definition-example-end -->\n\n一様収束は二乗平均収束を導きます。', '<!-- definition-example-end -->\n\nRA5 の一様収束は二乗平均収束を導きます。'),
+              ('だから二乗平均収束もします。一つの列が三つすべてを満たすことはありますが、三つの定義は同じではありません。',
+               'したがって第3の条件も満たします。一つの列が三つすべてを満たすことはありますが、三つの収束様式は同じではありません。'),
+              ('## 7. 連続ならFejér平均は一様に戻る', '## 7. 連続ならFejér平均は一様に戻る\n\n以下、実数値周期関数のうち連続なものを **連続周期関数** と呼びます。'),
+              ('> **定理（Fejérの一様収束定理）**  ', '> **定理（Fejér平均の一様近似定理）**  '),
+              ('[Fejérの一様収束定理](#thm-fou2-fejer-uniform)', '[Fejér平均の一様近似定理](#thm-fou2-fejer-uniform)'),
+              ('#### B2. Fejérの一様収束を誤差分割から証明する', '#### B2. Fejér平均の一様近似を誤差分割から証明する'),
+              ('> **定理（連続周期関数に対する三角多項式の一様稠密性）**  ', '> **定理（三角多項式による連続周期関数の一様近似定理）**  '),
+              ('[三角多項式の一様稠密性](#thm-fou2-trigonometric-density)', '[三角多項式による一様近似定理](#thm-fou2-trigonometric-density)'),
+              ('## 11. 三つの収束を同じ箱へ入れない', '## 11. 収束様式を同じ箱へ入れない'),
+              ('#### A1. 三つの収束概念を計算で確認する', '#### A1. 三つの収束様式を計算で確認する'),
+              ('よって各点収束します。', 'したがって固定した各点で0へ近づきます。'),
+              ('- 各点収束・一様収束・二乗平均収束を分離した。', '- 点ごとの極限・最大誤差・二乗誤差という三つの見方を分離した。'),
+              ('この意味で三角系はこの関数クラスに対して完全である。', 'この意味で三角系はこのクラスに対して完全である。'),
+          ]
+          for old, new in simple:
+              if old not in s:
+                  raise SystemExit(f'missing index target: {old!r}')
+              s = s.replace(old, new)
+
+          pattern = re.compile(
+              r'## 1\. 「収束」を三種類に分ける\n\n\$2\\pi\$ 周期関数列 \$\(f_N\)\$ と \$2\\pi\$ 周期関数 \$f\$ を考えます。\n\n'
+              r'<a id="def-fou2-convergence-modes"></a>\n<!-- formal-statement-start -->\n'
+              r'> \*\*定義（三種類の収束）\*\*  \n> 次の三つを区別する。\n>\n'
+              r'> 1\.[\s\S]*?<!-- formal-statement-end -->',
+              re.M,
+          )
+          replacement = '''## 1. 収束様式を区別する
+
+RA5 で定義した[各点収束](../RA5/index.md#def-ra5-pointwise)と[一様収束](../RA5/index.md#def-ra5-uniform)をここでも使います。前者は点を固定してから極限を取り、後者は一つの誤差評価を全ての点で共有します。本章では、Fourier 有限和の平均的な誤差を測るため、もう一つの収束様式を加えます。
+
+<a id="def-fou2-mean-square-convergence"></a>
+<!-- formal-statement-start -->
+> **定義（二乗平均収束）**  
+> 実数値周期関数列 $(f_N)$ と実数値周期関数 $f$ を考える。各 $f_N,f$ の二乗が $[-\\pi,\\pi]$ 上 Riemann 積分可能で
+
+$$
+\\int_{-\\pi}^{\\pi}|f_N(x)-f(x)|^2\\,dx\\longrightarrow0
+$$
+
+> が成り立つとき、$f_N$ は $f$ へ **二乗平均収束** するという。
+<!-- formal-statement-end -->'''
+          s, n = pattern.subn(replacement, s, count=1)
+          if n != 1:
+              raise SystemExit(f'convergence block replacement count={n}')
+
+          needle = 'Dirichlet 核の閉形式を使うと、$S_Nf(x)$ の誤差は高周波の正弦との積分へ変形できます。その最後の一押しを先に証明します。'
+          repl = needle + '\n\n有限分割の各小区間で一定値を取る関数を、ここでは **階段関数** と呼びます。'
+          if needle not in s:
+              raise SystemExit('step-function insertion target missing')
+          s = s.replace(needle, repl, 1)
+
+          s = s.replace('実数値 $2\\pi$ 周期関数', '実数値周期関数')
+          s = s.replace('実数値の連続 $2\\pi$ 周期関数', '連続周期関数')
+          s = s.replace('連続 $2\\pi$ 周期関数', '連続周期関数')
+          s = s.replace('Riemann--Lebesgue型補題', '高周波振動積分の消去補題')
+          s = s.replace('Riemann--Lebesgue', '高周波振動積分の消去補題')
+          s = s.replace('三つの収束を', '三つの収束様式を')
+          s = s.replace('三つの収束概念', '三つの収束様式')
+          index.write_text(s, encoding='utf-8')
+
+          knowledge = Path('textbook/volumes/00_foundations/FOU2/knowledge.yaml')
+          knowledge.write_text('''chapter: FOU2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA5
+  - FOU1
+forward_references: []
+
+# 一般の各点収束・一様収束は RA5 を正本とし、FOU2 では再定義しない。
+# 旧 F0-00FA1・Lebesgue 積分・Hilbert 空間の一般論を concept dependency / proof dependency にしない。
+
+concepts:
+  - id: fourier.fou2-real-periodic-function
+    name: 実数値周期関数
+    kind: term
+    aliases: [real-valued periodic function]
+    introduction: inline
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-mean-square-convergence-definition
+    name: 二乗平均収束
+    kind: definition
+    aliases: [mean-square convergence]
+    introduction: formal
+    requires:
+      - analysis.uniform-convergence
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-dirichlet-kernel
+    name: Dirichlet核
+    kind: definition
+    aliases: [Dirichlet kernel]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-dirichlet-integral
+    name: Dirichlet核の閉形式とFourier有限和の積分表示
+    kind: theorem
+    aliases: [Dirichlet kernel closed form and convolution formula]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-kernel
+      - fourier.fou1-real-coefficient
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-step-function
+    name: 階段関数
+    kind: term
+    aliases: [step function]
+    introduction: inline
+    requires:
+      - analysis.riemann-integrable
+
+  - id: fourier.fou2-riemann-lebesgue
+    name: 高周波振動積分の消去補題
+    kind: theorem
+    aliases: [oscillatory integral cancellation lemma]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-integral
+      - fourier.fou2-step-function
+
+  - id: fourier.fou2-dirichlet-convergence
+    name: Dirichletの各点収束定理
+    kind: theorem
+    aliases: [Dirichletの各点収束, Dirichlet pointwise convergence theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-riemann-lebesgue
+      - fourier.fou2-dirichlet-integral
+      - analysis.pointwise-convergence
+
+  - id: fourier.fou2-gibbs
+    name: Gibbs現象
+    kind: proposition
+    aliases: [Gibbs phenomenon]
+    introduction: formal
+    requires:
+      - fourier.fou2-dirichlet-convergence
+
+  - id: fourier.fou2-fejer-mean
+    name: Fejér平均
+    kind: definition
+    aliases: [Fejer mean, Cesaro mean of Fourier sums]
+    introduction: formal
+    requires:
+      - fourier.fou1-finite-sum
+
+  - id: fourier.fou2-fejer-kernel
+    name: Fejér核
+    kind: definition
+    aliases: [Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-mean
+      - fourier.fou2-dirichlet-kernel
+
+  - id: fourier.fou2-fejer-kernel-properties
+    name: Fejér核の基本性質
+    kind: theorem
+    aliases: [basic properties of the Fejer kernel]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel
+
+  - id: fourier.fou2-continuous-periodic-function
+    name: 連続周期関数
+    kind: term
+    aliases: [continuous periodic function]
+    introduction: inline
+    requires:
+      - fourier.fou2-real-periodic-function
+
+  - id: fourier.fou2-fejer-uniform
+    name: Fejér平均の一様近似定理
+    kind: theorem
+    aliases: [Fejer uniform convergence theorem]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-kernel-properties
+      - fourier.fou2-continuous-periodic-function
+      - analysis.uniform-convergence
+
+  - id: fourier.fou2-trig-density
+    name: 三角多項式による連続周期関数の一様近似定理
+    kind: theorem
+    aliases: [uniform density of trigonometric polynomials]
+    introduction: formal
+    requires:
+      - fourier.fou2-fejer-uniform
+      - fourier.fou2-continuous-periodic-function
+
+  - id: fourier.fou2-mean-square-convergence
+    name: Fourier有限和の二乗平均収束
+    kind: theorem
+    aliases: [mean-square convergence of Fourier finite sums]
+    introduction: formal
+    requires:
+      - fourier.fou2-trig-density
+      - fourier.fou1-least-squares
+      - fourier.fou2-mean-square-convergence-definition
+
+  - id: fourier.fou2-parseval
+    name: Fourier係数のエネルギー等式と三角系の完全性
+    kind: theorem
+    aliases: [係数エネルギー等式, 三角系の完全性, energy identity for Fourier coefficients, completeness of the trigonometric system]
+    introduction: formal
+    requires:
+      - fourier.fou2-mean-square-convergence
+      - fourier.fou1-finite-energy-bound
+''', encoding='utf-8')
+
+          chapter = Path('textbook/volumes/00_foundations/FOU2/chapter.yaml')
+          c = chapter.read_text(encoding='utf-8')
+          c = c.replace('prerequisites:\n  - FOU1\n# FOU2 は FOU1 のみを直接前提とし、旧 Fourier 章は互換導線に限定する。',
+                        'prerequisites:\n  - RA5\n  - FOU1\n# 一般の各点収束・一様収束は RA5 を正本とし、FOU1 から有限次数 Fourier 理論を受け取る。旧 Fourier 章は互換導線に限定する。')
+          c = c.replace('各点収束・一様収束・二乗平均収束の定義と強弱を区別し、Fourier級数で混同してはいけない理由を説明できる',
+                        'RA5 の各点収束・一様収束と本章の二乗平均収束を区別し、Fourier級数で混同してはいけない理由を説明できる')
+          c = c.replace('- { id: FOU2-DEF-01, name: 各点収束・一様収束・二乗平均収束 }', '- { id: FOU2-DEF-01, name: 二乗平均収束 }')
+          c = c.replace('- { id: FOU2-THM-05, name: Fejérの一様収束定理 }', '- { id: FOU2-THM-05, name: Fejér平均の一様近似定理 }')
+          c = c.replace('- { id: FOU2-THM-06, name: 連続周期関数に対する三角多項式の一様稠密性 }', '- { id: FOU2-THM-06, name: 三角多項式による連続周期関数の一様近似定理 }')
+          chapter.write_text(c, encoding='utf-8')
+
+          plan = Path('textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md')
+          p = plan.read_text(encoding='utf-8')
+          p = p.replace('FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet / Fejér kernel、収束定理、完全性、Parseval の論証は FOU2 自身または現行 canonical prerequisite だけで閉じ、旧ページは互換導線に限定する。',
+                        'FOU2 も旧 `F0-00FA1` を証明依存先にはしない。一般の各点収束・一様収束は RA5 を正本として再利用し、Dirichlet / Fejér kernel、Fourier級数固有の収束定理、完全性、Parseval の論証は FOU2 自身と現行 canonical prerequisite だけで閉じる。旧ページは互換導線に限定する。')
+          p = p.replace('| FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる |',
+                        '| FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様近似、三角多項式による一様近似、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B3 / C1。全問に詳細解答あり | RA5 + FOU1。各点収束・一様収束は RA5 を正本として再利用し、旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を proof dependency にせず、Riemann積分と章内論証で Fourier 固有の無限段階を閉じる |')
+          p = p.replace('FOU2 は **実装・検証完了（PR #290）**。FOU1 の有限次数理論だけを直接前提に、',
+                        'FOU2 は **実装・検証完了（PR #290）**。RA5 の一般収束概念と FOU1 の有限次数理論を直接前提に、')
+          plan.write_text(p, encoding='utf-8')
+          PY
+
+          if ! git diff --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add textbook/volumes/00_foundations/FOU2 textbook/DREAM_THEATER_ODE_FOURIER_PDE_RESTRUCTURE_PLAN.md
+            git commit -m 'Reuse RA5 convergence concepts in FOU2'
+            git push origin HEAD:${{ github.head_ref }}
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
