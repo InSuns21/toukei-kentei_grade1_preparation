@@ -9,9 +9,25 @@ prerequisites:
 
 # ロードマップ本文で後続章と別系列の既登録概念を先取りする。
 forward_references:
-  - ode.matrix-exponential
+  - analysis.series
+  - complex-analysis.maximum-modulus-principle
+  - complex-analysis.harmonic-function
+  - prob.random-variable
   - prob.characteristic-function
   - functional.hilbert-space
   - functional.l2-inner-product
+  - ode.matrix-exponential
+  - ode.ode1-ordinary-differential-equation
+  - ode.ode1-initial-boundary-value-problem
+  - ode.ode2-linear-higher-order
+  - ode.ode2-linear-ivp-wellposedness
+  - ode.ode2-green-kernel
+  - ode.ode3-linear-system
+  - ode.ode4-phase-plane-nullcline
+  - ode.ode4-linearization
+  - ode.ode5-laplace-transform
+  - ode.ode6-ordinary-singular-point
+  - ode.ode7-eigenpair
+  - fourier.fou3-convolution
 
 concepts: []

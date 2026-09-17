@@ -7,7 +7,16 @@ const manifestPath = path.join(repoRoot, 'textbook', 'dream-theater-index.json')
 const foundationsDir = path.join(repoRoot, 'textbook', 'volumes', '00_foundations');
 const calculationReaderSupportPrefix = 'F0_00CALC_';
 const calculationReaderSupportMarker = `/00_foundations/${calculationReaderSupportPrefix}`;
-const deprecatedCompatibilityDirs = new Set(['F0_01_統計のための微積分_線形代数_答案記法']);
+const deprecatedCompatibilityDirs = new Set([
+  'F0_01_統計のための微積分_線形代数_答案記法',
+  'F0_00H1_常微分方程式_線形系_行列指数',
+  'F0_00FA1_Fourier級数_直交展開',
+  'F0_00FA2_Fourier変換_畳み込み_反転',
+  'F0_00FA3_Plancherel_L2_特性関数',
+  'F0_00PDE1_熱方程式_Fourier変換',
+  'F0_00PDE2_波動方程式_Laplace方程式_変数分離',
+  'F0_00PDE3_Sturm_Liouville_スペクトル展開',
+]);
 
 const toPosix = (p) => p.split(path.sep).join('/');
 const fail = (messages) => {

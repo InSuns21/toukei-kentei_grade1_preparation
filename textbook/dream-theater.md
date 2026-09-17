@@ -207,6 +207,7 @@
 9. [FOU1 Fourier級数・直交性・係数計算](textbook/volumes/00_foundations/FOU1/index.md)
 10. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
 11. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
+12. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
 
 ---
 

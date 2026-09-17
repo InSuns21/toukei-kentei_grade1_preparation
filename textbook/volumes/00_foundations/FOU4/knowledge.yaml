@@ -6,8 +6,14 @@ prerequisites:
   - MT7
   - F0-02C1
 forward_references:
-  - FOU5
-  - PDE3
+  - analysis.uniform-convergence
+  - analysis.ck-uniform-norm
+  - linear.complex-inner-product
+  - functional.resolvent-spectrum
+  - complex-analysis.residue
+  - complex-analysis.residue-theorem-simple-curve
+  - prob.characteristic-function
+  - ode.ode5-inverse-method
 
 # FOU4 は L2 Fourier 理論の正本。旧 F0-00FA3 を concept owner / proof dependency にしない。
 # 複素解析は prerequisite にせず、L2 完備性・Hilbert 構造・稠密性・連続延長だけを関数解析的機構として使う。

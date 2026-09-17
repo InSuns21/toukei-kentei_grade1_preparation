@@ -7,7 +7,11 @@ prerequisites:
   - F0-00D2C
   - MT7
 forward_references:
-  - FOU4
+  - analysis.pointwise-convergence
+  - analysis.ck-uniform-norm
+  - prob.independent-random-variables
+  - prob.characteristic-function
+  - ode.ode1-ordinary-differential-equation
 
 # FOU3 は旧 F0-00FA2 を concept owner / proof dependency にしない。
 # L1 積分・DCT・Fubini・C_c 稠密性は既存測度論正本を prerequisite として使い、L2/Hilbert の一般論は FOU4 へ送る。

@@ -74,15 +74,15 @@ Fourier 変換は複素数値になるので、実数値 $L^2$ だけでは足�
 
 <a id="def-fou4-complex-l2"></a>
 <!-- formal-statement-start -->
-> **定義（複素 $L^2$ 内積）**  
+> **定義（複素L2内積）**  
 > 複素数値可測関数 $f,g\in L^2(\mathbb R;\mathbb C)$ に対し
 >
-> $$
-> \langle f,g\rangle
-> :=\int_{\mathbb R}f(x)\overline{g(x)}\,dx,
-> \qquad
-> \|f\|_2=\sqrt{\langle f,f\rangle}
-> $$
+$$
+\langle f,g\rangle
+:=\int_{\mathbb R}f(x)\overline{g(x)}\,dx,
+\qquad
+\|f\|_2=\sqrt{\langle f,f\rangle}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -139,13 +139,13 @@ $$
 
 <a id="lem-fou4-l2-translation"></a>
 <!-- formal-statement-start -->
-> **補題（$L^2$ 平行移動連続性）**  
+> **補題（L2平行移動連続性）**  
 > 任意の $f\in L^2(\mathbb R)$ に対して
 >
-> $$
-> \|\tau_af-f\|_2\to0
-> \qquad(a\to0)
-> $$
+$$
+\|\tau_af-f\|_2\to0
+\qquad(a\to0)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -213,13 +213,13 @@ $$
 
 <a id="thm-fou4-l2-gaussian-approximation"></a>
 <!-- formal-statement-start -->
-> **定理（Gaussian approximate identity の $L^2$ 収束）**  
+> **定理（Gaussian approximate identity のL2収束）**  
 > $f\in L^2(\mathbb R)$ なら $f*k_\varepsilon$ は $L^2$ の元として定義でき、
 >
-> $$
-> \|f*k_\varepsilon-f\|_2\to0
-> \qquad(\varepsilon\downarrow0)
-> $$
+$$
+\|f*k_\varepsilon-f\|_2\to0
+\qquad(\varepsilon\downarrow0)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -282,13 +282,13 @@ $L^2$ 全体へ線形作用素を延長するため、近似に使う core 自�
 > **定義（Gaussian Fourier core）**  
 > 次の生成族の有限線形結合全体を $\mathcal G$ と書く。
 >
-> $$
-> \boxed{
-> \mathcal G
-> :=\operatorname{span}\{h*k_\varepsilon:
-> h\in L^1(\mathbb R)\cap L^2(\mathbb R),\ \varepsilon>0\}
-> }
-> $$
+$$
+\boxed{
+\mathcal G
+:=\operatorname{span}\{h*k_\varepsilon:
+h\in L^1(\mathbb R)\cap L^2(\mathbb R),\ \varepsilon>0\}
+}
+$$
 >
 > 特に $\mathcal G$ は線形空間である。
 <!-- formal-statement-end -->
@@ -340,7 +340,7 @@ $$
 
 <a id="thm-fou4-core-density"></a>
 <!-- formal-statement-start -->
-> **定理（$\mathcal G$ の $L^2$ 稠密性）**  
+> **定理（Gaussian Fourier core のL2稠密性）**  
 > Gaussian Fourier core $\mathcal G$ は $L^2(\mathbb R)$ に稠密である。
 <!-- formal-statement-end -->
 
@@ -410,15 +410,15 @@ $$
 
 <a id="thm-fou4-plancherel-core"></a>
 <!-- formal-statement-start -->
-> **定理（core 上の Plancherel 等式）**  
+> **定理（core上のPlancherel等式）**  
 > $g\in\mathcal G$ なら
 >
-> $$
-> \boxed{
-> \|\widehat g\|_2^2
-> =2\pi\|g\|_2^2
-> }
-> $$
+$$
+\boxed{
+\|\widehat g\|_2^2
+=2\pi\|g\|_2^2
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -479,21 +479,21 @@ Plancherel はここでは「神託」ではなく、FOU3 の反転定理を $g*
 
 <a id="def-fou4-l2-transform"></a>
 <!-- formal-statement-start -->
-> **定義（$L^2$ Fourier 変換）**  
+> **定義（L2 Fourier変換）**  
 > $f\in L^2(\mathbb R)$ とする。$\mathcal G$ の稠密性により $g_n\in\mathcal G$ で
 >
-> $$
-> g_n\to f\quad\text{in }L^2
-> $$
+$$
+g_n\to f\quad\text{in }L^2
+$$
 >
 > となる列を取る。$L^2$ Fourier 変換 $\mathcal F_2f$ を
 >
-> $$
-> \boxed{
-> \mathcal F_2f
-> :=L^2\!\!\operatorname{-lim}_{n\to\infty}\widehat g_n
-> }
-> $$
+$$
+\boxed{
+\mathcal F_2f
+:=L^2\!\!\operatorname{-lim}_{n\to\infty}\widehat g_n
+}
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -510,21 +510,21 @@ $$
 
 <a id="thm-fou4-l2-extension"></a>
 <!-- formal-statement-start -->
-> **定理（$L^2$ Fourier 変換の一意な拡張）**  
+> **定理（L2 Fourier変換の一意な拡張）**  
 > 上の定義は近似列の選び方に依存せず、線形写像
 >
-> $$
-> \mathcal F_2:L^2(\mathbb R)\to L^2(\mathbb R)
-> $$
+$$
+\mathcal F_2:L^2(\mathbb R)\to L^2(\mathbb R)
+$$
 >
 > を与える。さらに任意の $f\in L^2$ で
 >
-> $$
-> \boxed{
-> \|\mathcal F_2f\|_2
-> =\sqrt{2\pi}\,\|f\|_2
-> }
-> $$
+$$
+\boxed{
+\|\mathcal F_2f\|_2
+=\sqrt{2\pi}\,\|f\|_2
+}
+$$
 >
 > が成り立つ。この性質を持ち、$\mathcal G$ 上で古典 Fourier 変換と一致する連続線形拡張は一意である。
 <!-- formal-statement-end -->
@@ -591,13 +591,13 @@ $$
 
 <a id="thm-fou4-l1-l2-compatibility"></a>
 <!-- formal-statement-start -->
-> **定理（$L^1$ Fourier 変換との整合性）**  
+> **定理（L1 Fourier変換との整合性）**  
 > $f\in L^1(\mathbb R)\cap L^2(\mathbb R)$ とする。このとき FOU3 の積分で定義した $\widehat f$ は $L^2$ に属し、
 >
-> $$
-> \mathcal F_2f=\widehat f
-> \qquad\text{a.e.}
-> $$
+$$
+\mathcal F_2f=\widehat f
+\qquad\text{ほとんど至る所（almost everywhere; a.e.）}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -651,15 +651,15 @@ $$
 
 <a id="thm-fou4-parseval"></a>
 <!-- formal-statement-start -->
-> **定理（Parseval 内積等式）**  
+> **定理（Parseval内積等式）**  
 > 任意の $f,g\in L^2(\mathbb R)$ に対して
 >
-> $$
-> \boxed{
-> \langle\mathcal F_2f,\mathcal F_2g\rangle
-> =2\pi\langle f,g\rangle
-> }
-> $$
+$$
+\boxed{
+\langle\mathcal F_2f,\mathcal F_2g\rangle
+=2\pi\langle f,g\rangle
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -691,12 +691,12 @@ $$
 
 <a id="def-fou4-unitary-transform"></a>
 <!-- formal-statement-start -->
-> **定義（正規化 Fourier 作用素）**  
+> **定義（正規化Fourier作用素）**  
 > $L^2(\mathbb R)$ 上で
 >
-> $$
-> U:=\frac1{\sqrt{2\pi}}\mathcal F_2
-> $$
+$$
+U:=\frac1{\sqrt{2\pi}}\mathcal F_2
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -727,31 +727,31 @@ $$
 
 <a id="thm-fou4-l2-inversion"></a>
 <!-- formal-statement-start -->
-> **定理（$L^2$ Fourier 反転と unitary 性）**  
+> **定理（L2 Fourier反転とユニタリ性）**  
 > $L^2(\mathbb R)$ 上で
 >
-> $$
-> \boxed{
-> \mathcal F_2^2=2\pi J
-> }
-> $$
+$$
+\boxed{
+\mathcal F_2^2=2\pi J
+}
+$$
 >
 > が成り立つ。従って
 >
-> $$
-> U^2=J,
-> \qquad
-> U^4=I.
-> $$
+$$
+U^2=J,
+\qquad
+U^4=I.
+$$
 >
 > 特に $U$ は全射な等長作用素、すなわち unitary 作用素である。また
 >
-> $$
-> \boxed{
-> \mathcal F_2^{-1}
-> =\frac1{2\pi}J\mathcal F_2
-> }
-> $$
+$$
+\boxed{
+\mathcal F_2^{-1}
+=\frac1{2\pi}J\mathcal F_2
+}
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -827,18 +827,18 @@ $$
 
 <a id="thm-fou4-l2-transform-rules"></a>
 <!-- formal-statement-start -->
-> **定理（$L^2$ での平行移動・変調則）**  
+> **定理（L2での平行移動・変調則）**  
 > $f\in L^2(\mathbb R)$、$a,b\in\mathbb R$ とする。このとき $L^2$ の等式として
 >
-> $$
-> \mathcal F_2(\tau_af)(\xi)
-> =e^{-ia\xi}\mathcal F_2f(\xi),
-> $$
+$$
+\mathcal F_2(\tau_af)(\xi)
+=e^{-ia\xi}\mathcal F_2f(\xi),
+$$
 >
-> $$
-> \mathcal F_2(e^{ibx}f(x))(\xi)
-> =(\mathcal F_2f)(\xi-b)
-> $$
+$$
+\mathcal F_2(e^{ibx}f(x))(\xi)
+=(\mathcal F_2f)(\xi-b)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -879,23 +879,23 @@ PDE や信号処理では、核 $k$ は $L^1$、信号 $f$ は $L^2$ という�
 
 <a id="thm-fou4-l1-l2-convolution"></a>
 <!-- formal-statement-start -->
-> **定理（$L^1$--$L^2$ 畳み込みと Fourier 乗算）**  
+> **定理（L1-L2畳み込みとFourier乗算）**  
 > $k\in L^1(\mathbb R)$、$f\in L^2(\mathbb R)$ とする。このとき $k*f\in L^2$ で
 >
-> $$
-> \boxed{
-> \|k*f\|_2\le\|k\|_1\|f\|_2
-> }
-> $$
+$$
+\boxed{
+\|k*f\|_2\le\|k\|_1\|f\|_2
+}
+$$
 >
 > が成り立つ。また
 >
-> $$
-> \boxed{
-> \mathcal F_2(k*f)
-> =\widehat k\,\mathcal F_2f
-> }
-> $$
+$$
+\boxed{
+\mathcal F_2(k*f)
+=\widehat k\,\mathcal F_2f
+}
+$$
 >
 > が $L^2$ の等式として成り立つ。
 <!-- formal-statement-end -->

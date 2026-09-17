@@ -40,7 +40,7 @@ $$
 
 <a id="def-fou3-fourier-transform"></a>
 <!-- formal-statement-start -->
-> **定義（$L^1$ Fourier変換）**  
+> **定義（L1 Fourier変換）**  
 > $f\in L^1(\mathbb R)$ に対し
 
 $$
@@ -119,7 +119,7 @@ $$
 
 <a id="thm-fou3-transform-rules"></a>
 <!-- formal-statement-start -->
-> **定理（平行移動・変調・尺度変換）**  
+> **定理（Fourier変換の平行移動・尺度変換・変調則）**  
 > $f\in L^1(\mathbb R)$ とする。
 >
 > 1. $g(x)=f(x-a)$ なら
@@ -181,7 +181,7 @@ $$
 
 <a id="lem-fou3-l1-translation"></a>
 <!-- formal-statement-start -->
-> **補題（$L^1$ の平行移動連続性）**  
+> **補題（L1の平行移動連続性）**  
 > $f\in L^1(\mathbb R)$ に対し $(\tau_hf)(x)=f(x-h)$ と置くと
 
 $$
@@ -229,7 +229,7 @@ $$
 
 <a id="thm-fou3-riemann-lebesgue"></a>
 <!-- formal-statement-start -->
-> **定理（Riemann--Lebesgue の補題）**  
+> **定理（Riemann--Lebesgueの補題）**  
 > $f\in L^1(\mathbb R)$ なら
 
 $$
@@ -292,7 +292,7 @@ $$
 (f*g)(x):=\int_{\mathbb R}f(x-y)g(y)\,dy
 $$
 
-> と置く。右辺は a.e. $x$ で有限であり、得られる関数を $f$ と $g$ の **畳み込み** という。
+> と置く。右辺は ほとんど至る所（almost everywhere; a.e.） $x$ で有限であり、得られる関数を $f$ と $g$ の **畳み込み** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou3-convolution -->
@@ -317,7 +317,7 @@ $$
 
 <a id="thm-fou3-convolution"></a>
 <!-- formal-statement-start -->
-> **定理（$L^1$ 畳み込みと畳み込み定理）**  
+> **定理（L1畳み込みと畳み込み定理）**  
 > $f,g\in L^1(\mathbb R)$ なら $f*g\in L^1(\mathbb R)$ で
 
 $$
@@ -431,7 +431,7 @@ $$
 
 <a id="lem-fou3-gaussian-transform"></a>
 <!-- formal-statement-start -->
-> **補題（Gaussian の Fourier 変換）**  
+> **補題（GaussianのFourier変換）**  
 > $a>0$ とし $g_a(x)=e^{-ax^2}$ とする。このとき
 
 $$
@@ -621,7 +621,7 @@ Gaussian では固定した $\delta>0$ に対する遠方の上限も $0$ へ行
 
 <a id="thm-fou3-inversion"></a>
 <!-- formal-statement-start -->
-> **定理（Fourier反転）**  
+> **定理（Fourier反転定理）**  
 > $f\in L^1(\mathbb R)$ が連続で、さらに $\widehat f\in L^1(\mathbb R)$ とする。このとき全ての $x\in\mathbb R$ について
 
 $$

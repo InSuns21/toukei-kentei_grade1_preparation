@@ -4,8 +4,6 @@ coverage: complete
 prerequisites:
   - ODE2
 forward_references:
-  - pde.separation-of-variables
-  - pde.heat-equation
 
 # 一般正則Sturm--Liouville問題の完全性・離散固有値列の一般証明は、
 # Fourier解析再編および後続の関数解析へ送る。
