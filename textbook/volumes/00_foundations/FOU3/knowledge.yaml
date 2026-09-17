@@ -5,11 +5,12 @@ prerequisites:
   - FOU2
   - F0-00D2B
   - F0-00D2C
+  - MT7
 forward_references:
   - FOU4
 
 # FOU3 は旧 F0-00FA2 を concept owner / proof dependency にしない。
-# L1 積分・DCT・Fubini は既存測度論正本を prerequisite として使い、L2/Hilbert の一般論は FOU4 へ送る。
+# L1 積分・DCT・Fubini・C_c 稠密性は既存測度論正本を prerequisite として使い、L2/Hilbert の一般論は FOU4 へ送る。
 
 concepts:
   - id: fourier.fou3-fourier-transform
@@ -23,16 +24,14 @@ concepts:
     kind: theorem
     aliases: [boundedness and continuity of Fourier transform]
     introduction: formal
-    requires:
-      - fourier.fou3-fourier-transform
+    requires: [fourier.fou3-fourier-transform]
 
   - id: fourier.fou3-transform-rules
     name: Fourier変換の平行移動・尺度変換・変調則
     kind: theorem
     aliases: [translation scaling modulation rules]
     introduction: formal
-    requires:
-      - fourier.fou3-fourier-transform
+    requires: [fourier.fou3-fourier-transform]
 
   - id: fourier.fou3-l1-translation
     name: L1の平行移動連続性
@@ -45,9 +44,7 @@ concepts:
     kind: theorem
     aliases: [Riemann-Lebesgue lemma]
     introduction: formal
-    requires:
-      - fourier.fou3-fourier-transform
-      - fourier.fou3-l1-translation
+    requires: [fourier.fou3-fourier-transform, fourier.fou3-l1-translation]
 
   - id: fourier.fou3-convolution
     name: 畳み込み
@@ -60,26 +57,21 @@ concepts:
     kind: theorem
     aliases: [convolution theorem]
     introduction: formal
-    requires:
-      - fourier.fou3-convolution
-      - fourier.fou3-fourier-transform
+    requires: [fourier.fou3-convolution, fourier.fou3-fourier-transform]
 
   - id: fourier.fou3-derivative-rule
     name: Fourier変換と微分
     kind: theorem
     aliases: [differentiation rule for Fourier transform]
     introduction: formal
-    requires:
-      - fourier.fou3-fourier-transform
+    requires: [fourier.fou3-fourier-transform]
 
   - id: fourier.fou3-gaussian-transform
     name: GaussianのFourier変換
     kind: theorem
     aliases: [Fourier transform of Gaussian]
     introduction: formal
-    requires:
-      - fourier.fou3-fourier-transform
-      - fourier.fou3-derivative-rule
+    requires: [fourier.fou3-fourier-transform]
 
   - id: fourier.fou3-approximate-identity
     name: approximate identity
@@ -92,16 +84,11 @@ concepts:
     kind: theorem
     aliases: [Gaussian approximate identity theorem]
     introduction: formal
-    requires:
-      - fourier.fou3-approximate-identity
-      - fourier.fou3-gaussian-transform
+    requires: [fourier.fou3-approximate-identity, fourier.fou3-l1-translation, fourier.fou3-gaussian-transform]
 
   - id: fourier.fou3-inversion
     name: Fourier反転定理
     kind: theorem
     aliases: [Fourier inversion theorem]
     introduction: formal
-    requires:
-      - fourier.fou3-gaussian-approximation
-      - fourier.fou3-gaussian-transform
-      - fourier.fou3-fourier-transform
+    requires: [fourier.fou3-gaussian-approximation, fourier.fou3-gaussian-transform, fourier.fou3-fourier-transform]
