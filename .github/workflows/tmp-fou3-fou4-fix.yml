@@ -1,0 +1,154 @@
+name: Temporary FOU3 FOU4 validation fixes
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-fou3-fou4-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dream-theater-fou3-fourier-transform
+          fetch-depth: 0
+      - name: Apply fixes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          def read(p): return Path(p).read_text(encoding='utf-8')
+          def write(p, s): Path(p).write_text(s, encoding='utf-8')
+
+          # 1) Legacy Encore II chapters are repository archives, like retired F0-01.
+          p='scripts/validate-dream-theater-index.mjs'
+          s=read(p)
+          old="const deprecatedCompatibilityDirs = new Set(['F0_01_統計のための微積分_線形代数_答案記法']);"
+          new="""const deprecatedCompatibilityDirs = new Set([\n  'F0_01_統計のための微積分_線形代数_答案記法',\n  'F0_00H1_常微分方程式_線形系_行列指数',\n  'F0_00FA1_Fourier級数_直交展開',\n  'F0_00FA2_Fourier変換_畳み込み_反転',\n  'F0_00FA3_Plancherel_L2_特性関数',\n  'F0_00PDE1_熱方程式_Fourier変換',\n  'F0_00PDE2_波動方程式_Laplace方程式_変数分離',\n  'F0_00PDE3_Sturm_Liouville_スペクトル展開',\n]);"""
+          assert old in s
+          write(p, s.replace(old,new))
+
+          # 2) Reader-facing facade gets the current FOU4 chapter, not legacy pages.
+          p='textbook/dream-theater.md'
+          s=read(p)
+          anchor='11. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)'
+          repl=anchor+'\n12. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)'
+          assert anchor in s and 'FOU4/index.md)' not in s
+          write(p,s.replace(anchor,repl,1))
+
+          # 3) Roadmap/hub is intentionally exercise-free.
+          p='textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/chapter.yaml'
+          s=read(p)
+          marker='exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }'
+          assert marker in s
+          if 'dream_theater_exercise_count_exception:' not in s:
+              s=s.replace(marker, marker+'\ndream_theater_exercise_count_exception: "Encore II の統合ロードマップ兼互換ハブであり、演習章ではない。演習は ODE / FOU / PDE の各正本章に置く。"')
+          write(p,s)
+
+          # 4) Roadmap explicitly previews concepts owned by downstream chapters.
+          p='textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/knowledge.yaml'
+          s=read(p)
+          refs=[
+            'analysis.series',
+            'complex-analysis.maximum-modulus-principle','complex-analysis.harmonic-function',
+            'prob.random-variable','prob.characteristic-function',
+            'functional.hilbert-space','functional.l2-inner-product',
+            'ode.matrix-exponential','ode.ode1-ordinary-differential-equation','ode.ode1-initial-boundary-value-problem',
+            'ode.ode2-linear-higher-order','ode.ode2-linear-ivp-wellposedness','ode.ode2-green-kernel',
+            'ode.ode3-linear-system','ode.ode4-phase-plane-nullcline','ode.ode4-linearization',
+            'ode.ode5-laplace-transform','ode.ode6-ordinary-singular-point','ode.ode7-eigenpair',
+            'fourier.fou3-convolution'
+          ]
+          block='forward_references:\n' + ''.join(f'  - {x}\n' for x in refs) + '\n'
+          s=re.sub(r'forward_references:\n(?:  - .*\n)+\n?', block, s, count=1)
+          write(p,s)
+
+          # 5) Remove stale unknown forward refs from ODE7.
+          p='textbook/volumes/00_foundations/ODE7/knowledge.yaml'
+          s=read(p)
+          s=s.replace('  - pde.separation-of-variables\n','').replace('  - pde.heat-equation\n','')
+          write(p,s)
+
+          # 6) FOU3: formal labels must match knowledge names; downstream mentions are explicit forward refs.
+          p='textbook/volumes/00_foundations/FOU3/index.md'
+          s=read(p)
+          replacements={
+            '**定義（$L^1$ Fourier変換）**':'**定義（L1 Fourier変換）**',
+            '**定理（平行移動・変調・尺度変換）**':'**定理（Fourier変換の平行移動・尺度変換・変調則）**',
+            '**補題（$L^1$ の平行移動連続性）**':'**補題（L1の平行移動連続性）**',
+            '**定理（Riemann--Lebesgue の補題）**':'**定理（Riemann--Lebesgueの補題）**',
+            '**定理（$L^1$ 畳み込みと畳み込み定理）**':'**定理（L1畳み込みと畳み込み定理）**',
+            '**補題（Gaussian の Fourier 変換）**':'**補題（GaussianのFourier変換）**',
+            '**定理（Fourier反転）**':'**定理（Fourier反転定理）**',
+          }
+          for a,b in replacements.items(): s=s.replace(a,b)
+          if 'a.e.' in s and 'almost everywhere; a.e.' not in s:
+              s=s.replace('a.e.','ほとんど至る所（almost everywhere; a.e.）',1)
+          write(p,s)
+
+          p='textbook/volumes/00_foundations/FOU3/knowledge.yaml'
+          s=read(p)
+          refs=['analysis.pointwise-convergence','analysis.ck-uniform-norm','prob.independent-random-variables','prob.characteristic-function','ode.ode1-ordinary-differential-equation']
+          block='forward_references:\n' + ''.join(f'  - {x}\n' for x in refs) + '\n'
+          s=re.sub(r'forward_references:\n(?:  - .*\n)+\n?', block, s, count=1)
+          write(p,s)
+
+          # 7) FOU4: house-style formal statements keep display math outside blockquotes.
+          p='textbook/volumes/00_foundations/FOU4/index.md'
+          s=read(p)
+          replacements={
+            '**定義（複素 $L^2$ 内積）**':'**定義（複素L2内積）**',
+            '**補題（$L^2$ 平行移動連続性）**':'**補題（L2平行移動連続性）**',
+            '**定理（Gaussian approximate identity の $L^2$ 収束）**':'**定理（Gaussian approximate identity のL2収束）**',
+            '**定理（$\\mathcal G$ の $L^2$ 稠密性）**':'**定理（Gaussian Fourier core のL2稠密性）**',
+            '**定理（core 上の Plancherel 等式）**':'**定理（core上のPlancherel等式）**',
+            '**定義（$L^2$ Fourier 変換）**':'**定義（L2 Fourier変換）**',
+            '**定理（$L^2$ Fourier 変換の一意な拡張）**':'**定理（L2 Fourier変換の一意な拡張）**',
+            '**定理（$L^1$ Fourier 変換との整合性）**':'**定理（L1 Fourier変換との整合性）**',
+            '**定理（Parseval 内積等式）**':'**定理（Parseval内積等式）**',
+            '**定義（正規化 Fourier 作用素）**':'**定義（正規化Fourier作用素）**',
+            '**定理（$L^2$ Fourier 反転と unitary 性）**':'**定理（L2 Fourier反転とユニタリ性）**',
+            '**定理（$L^2$ での平行移動・変調則）**':'**定理（L2での平行移動・変調則）**',
+            '**定理（$L^1$--$L^2$ 畳み込みと Fourier 乗算）**':'**定理（L1-L2畳み込みとFourier乗算）**',
+          }
+          for a,b in replacements.items(): s=s.replace(a,b)
+          if 'a.e.' in s and 'almost everywhere; a.e.' not in s:
+              s=s.replace('a.e.','ほとんど至る所（almost everywhere; a.e.）',1)
+
+          lines=s.splitlines()
+          out=[]; in_display=False
+          for line in lines:
+              stripped=line[2:] if line.startswith('> ') else (line[1:] if line.startswith('>') else line)
+              if not in_display and line.startswith('>') and stripped.strip()=='$$':
+                  out.append('$$'); in_display=True; continue
+              if in_display:
+                  clean=stripped if line.startswith('>') else line
+                  out.append(clean)
+                  if clean.strip()=='$$': in_display=False
+                  continue
+              out.append(line)
+          s='\n'.join(out)+'\n'
+          write(p,s)
+
+          p='textbook/volumes/00_foundations/FOU4/knowledge.yaml'
+          s=read(p)
+          refs=['analysis.uniform-convergence','analysis.ck-uniform-norm','linear.complex-inner-product','functional.resolvent-spectrum','complex-analysis.residue','complex-analysis.residue-theorem-simple-curve','prob.characteristic-function','ode.ode5-inverse-method']
+          block='forward_references:\n' + ''.join(f'  - {x}\n' for x in refs) + '\n'
+          s=re.sub(r'forward_references:\n(?:  - .*\n)+\n?', block, s, count=1)
+          write(p,s)
+          PY
+
+      - name: Commit fixes
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/validate-dream-theater-index.mjs textbook/dream-theater.md textbook/volumes/00_foundations
+          git commit -m 'fix: align FOU3 FOU4 with DREAM THEATER validators'
+          git push origin HEAD:dream-theater-fou3-fourier-transform
