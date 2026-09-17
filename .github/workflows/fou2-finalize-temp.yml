@@ -47,6 +47,14 @@ jobs:
                   '#### A1. 3種類の誤差条件を計算で確認する',
                   '#### A1. 3種類の誤差を計算で確認する',
               ),
+              (
+                  '有限等比級数または積和公式から',
+                  '各項に $2\\sin x\\cos y=\\sin(y+x)-\\sin(y-x)$ を適用して足し合わせると、途中項が相殺され',
+              ),
+              (
+                  '矩形波 $q$ では、Dirichlet の定理により固定した連続点で',
+                  '矩形波 $q$ では、[Dirichletの点ごとの極限定理](#thm-fou2-dirichlet-convergence)により固定した連続点で',
+              ),
           ]
           for old, new in replacements:
               count = text.count(old)
@@ -66,8 +74,6 @@ jobs:
         run: npm run validate:pages
 
       - name: Validate DREAM THEATER exercise counts
-        env:
-          DREAM_THEATER_BASE_SHA: ${{ github.event.before }}
         run: |
           BASE=$(git merge-base origin/main HEAD)
           DREAM_THEATER_BASE_SHA="$BASE" npm run validate:dream-theater-exercise-counts
