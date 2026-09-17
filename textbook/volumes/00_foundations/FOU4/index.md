@@ -273,18 +273,24 @@ Gaussian 核は原点へ質量集中するので、$\varepsilon\downarrow0$ で�
 
 ---
 
-## 4. Plancherel を証明できる稠密な core を作る
+## 4. Plancherel を証明できる稠密な線形 core を作る
+
+$L^2$ 全体へ線形作用素を延長するため、近似に使う core 自身が和と差に閉じていることが重要です。単に $h*k_\varepsilon$ という形の関数だけを集めると、異なる $\varepsilon$ を持つ二つの関数の和・差が同じ形に戻るとは限りません。そこで有限線形結合まで含めます。
 
 <a id="def-fou4-gaussian-core"></a>
 <!-- formal-statement-start -->
 > **定義（Gaussian Fourier core）**  
-> 次の形の関数全体を $\mathcal G$ と書く。
+> 次の生成族の有限線形結合全体を $\mathcal G$ と書く。
 >
 > $$
+> \boxed{
 > \mathcal G
-> :=\{h*k_\varepsilon:
-> h\in L^1(\mathbb R)\cap L^2(\mathbb R),\ \varepsilon>0\}.
+> :=\operatorname{span}\{h*k_\varepsilon:
+> h\in L^1(\mathbb R)\cap L^2(\mathbb R),\ \varepsilon>0\}
+> }
 > $$
+>
+> 特に $\mathcal G$ は線形空間である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fou4-gaussian-core -->
@@ -301,10 +307,10 @@ $$
 =\frac{2\sin\xi}{\xi}e^{-\varepsilon\xi^2}.
 $$
 
-$sinc$ 型の $1/|\xi|$ 尾部だけでは $L^1$ になりませんが、Gaussian 因子を掛けると絶対可積分になります。これが正則化を挟む理由です。
+$sinc$ 型の $1/|\xi|$ 尾部だけでは $L^1$ になりませんが、Gaussian 因子を掛けると絶対可積分になります。これが正則化を挟む理由です。さらに $g_{\varepsilon_1}-2g_{\varepsilon_2}$ も $\mathcal G$ に属します。後で近似列の差へ Plancherel を適用できるのは、この線形閉性のおかげです。
 <!-- definition-example-end -->
 
-$g=h*k_\varepsilon\in\mathcal G$ なら Young 型評価から
+生成元 $g=h*k_\varepsilon$ なら Young 型評価から
 
 $$
 \|g\|_1\le\|h\|_1\|k_\varepsilon\|_1=\|h\|_1,
@@ -322,13 +328,15 @@ $$
 \le\|h\|_1e^{-\varepsilon\xi^2}.
 $$
 
-よって
+よって生成元について
 
 $$
 g\in L^1\cap L^2,
 \qquad
 \widehat g\in L^1\cap L^2.
 $$
+
+有限和でもこれらの性質は保たれるので、任意の $g\in\mathcal G$ について同じ結論が成り立ちます。また各生成元は $L^1$ 関数と連続な Gaussian 核の畳み込みなので連続であり、従って $\mathcal G$ の各元も連続です。
 
 <a id="thm-fou4-core-density"></a>
 <!-- formal-statement-start -->
@@ -458,7 +466,8 @@ $$
 - $g\in L^1$：FOU3 の古典 Fourier 変換と畳み込み定理を使うため。
 - $\widehat g\in L^1$：$r$ に Fourier 反転を適用する入口を作るため。
 - $\widehat g\in L^2$：$|\widehat g|^2\in L^1$ とするため。
-- Gaussian 正則化：上の三条件を同時に満たす稠密な関数族を作るため。
+- $\mathcal G$ の線形閉性：近似列の差にも同じ等式を適用するため。
+- Gaussian 正則化：上の三つの可積分性を同時に満たす稠密な生成族を作るため。
 
 Plancherel はここでは「神託」ではなく、FOU3 の反転定理を $g*g^\sharp$ に当てることで出てきました。
 
@@ -523,7 +532,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_n\to f$ in $L^2$ とします。core 上の Plancherel から
+$g_n\to f$ in $L^2$ とします。$\mathcal G$ は線形空間なので $g_n-g_m\in\mathcal G$ です。従って core 上の Plancherel を差へ適用でき、
 
 $$
 \|\widehat g_n-\widehat g_m\|_2
@@ -532,7 +541,7 @@ $$
 
 従って $(\widehat g_n)$ は $L^2$ Cauchy 列です。$L^2$ の完備性によりある $G\in L^2$ へ収束します。これが存在です。
 
-別の列 $h_n\in\mathcal G$ も $h_n\to f$ とします。このとき
+別の列 $h_n\in\mathcal G$ も $h_n\to f$ とします。このとき $g_n-h_n\in\mathcal G$ なので再び Plancherel を使えて、
 
 $$
 \|\widehat g_n-\widehat h_n\|_2
@@ -544,7 +553,7 @@ $$
 
 よって二つの Fourier 側の極限は同じです。従って定義は近似列に依存しません。
 
-線形性は $g_n\to f$、$h_n\to h$ に対して $ag_n+bh_n\to af+bh$ を用い、core 上の線形性を極限へ移せば従います。
+線形性は $g_n\to f$、$h_n\to h$ に対して、$\mathcal G$ の線形性から $ag_n+bh_n\in\mathcal G$ かつ $ag_n+bh_n\to af+bh$ であることを使い、core 上の Fourier 変換の線形性を極限へ移せば従います。
 
 最後に Plancherel とノルムの連続性から
 
@@ -563,9 +572,9 @@ $$
 この節が「関数解析をある程度前提にする」部分の本体です。使った一般原理は
 
 ```text
-稠密部分空間で等長型の評価
+稠密な線形部分空間で等長型の評価
           ↓
-像が Cauchy
+差にも評価を適用して像が Cauchy
           ↓
 値域 L2 の完備性で極限を作る
           ↓
@@ -596,7 +605,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g_\varepsilon=f*k_\varepsilon$ とします。$f\in L^1\cap L^2$ なので $g_\varepsilon\in\mathcal G$ です。
+$g_\varepsilon=f*k_\varepsilon$ とします。$f\in L^1\cap L^2$ なので $g_\varepsilon$ は $\mathcal G$ の生成元、従って $g_\varepsilon\in\mathcal G$ です。
 
 FOU3 の $L^1$ Gaussian approximate identity と本章の $L^2$ 版から
 
@@ -754,7 +763,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g\in\mathcal G$ とします。$g$ は連続で、$g\in L^1$、$\widehat g\in L^1$ です。FOU3 の反転公式を $-x$ に適用すると
+$g\in\mathcal G$ とします。前節で確認した通り $g$ は連続で、$g\in L^1$、$\widehat g\in L^1$ です。FOU3 の反転公式を $-x$ に適用すると
 
 $$
 g(-x)
@@ -783,25 +792,34 @@ $$
 h=U(U^3h)
 $$
 
-と書けるので $U$ は全射です。既に内積を保つことを示したため $U$ は unitary です。
+と書けるので $U$ は全射です。等長性から単射でもあり、既に内積を保つことを示したため $U$ は unitary です。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
 $$
-\mathcal F_2^2=2\pi J
+A:=\frac1{2\pi}J\mathcal F_2
 $$
 
-の左から $(2\pi)^{-1}J\mathcal F_2$ を確認すれば
+と置くと、$\mathcal F_2^2=2\pi J$ と $J^2=I$ から
 
 $$
+A\mathcal F_2
+=\frac1{2\pi}J\mathcal F_2^2
+=J^2
+=I.
+$$
+
+すでに $\mathcal F_2$ は全単射なので、その左逆 $A$ は逆作用素そのものです。従って
+
+$$
+\boxed{
 \mathcal F_2^{-1}
 =\frac1{2\pi}J\mathcal F_2
+}.
 $$
-
-を得ます。
 <!-- proof-end -->
 
-一般の $L^2$ 関数について、逆変換は点wiseに絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
+一般の $L^2$ 関数について、逆変換は pointwise に絶対収束する積分とは限りません。反転は $L^2$ ノルムで成立する等式です。ここを FOU3 の反転定理と混同しないことが重要です。
 
 ---
 
@@ -898,7 +916,7 @@ $$
 
 従って $f\mapsto k*f$ は $L^2$ 上の連続線形作用素です。
 
-次に $g_n\in\mathcal G$、$g_n\to f$ in $L^2$ とします。$g_n\in L^1$ なので FOU3 の畳み込み定理から
+次に $g_n\in\mathcal G$、$g_n\to f$ in $L^2$ とします。$g_n\in L^1$ なので $k*g_n\in L^1\cap L^2$ であり、FOU3 の畳み込み定理と本章の $L^1\cap L^2$ 整合性から
 
 $$
 \mathcal F_2(k*g_n)
@@ -1001,7 +1019,7 @@ $$
 FOU1–FOU3 では、Hilbert 空間という一般語を知らなくても各証明を実解析として閉じられます。しかし FOU4 では
 
 - $L^2$ が完備である
-- 稠密部分空間で写像を定義する
+- 稠密な線形部分空間で写像を定義する
 - ノルム評価から Cauchy 性を得る
 - 完備性で像の極限を作る
 - 内積保存・unitary 作用素として読む
@@ -1247,7 +1265,7 @@ $$
 =|\widehat g(\xi)|^2.
 $$
 
-core の定義から $g\in L^1$、$\widehat g\in L^1\cap L^2$ です。従って $r=g*g^\sharp\in L^1$、畳み込みは連続、さらに
+core の構成から $g\in L^1$、$\widehat g\in L^1\cap L^2$ です。従って $r=g*g^\sharp\in L^1$、畳み込みは連続、さらに
 
 $$
 \widehat r=|\widehat g|^2\in L^1.
@@ -1364,7 +1382,7 @@ $$
 \le\|k\|_1\|g_n-f\|_2\to0.
 $$
 
-$g_n\in L^1$ なので FOU3 の畳み込み定理により
+$g_n\in L^1$ なので $k*g_n\in L^1\cap L^2$ です。FOU3 の畳み込み定理と本章の整合性により
 
 $$
 \mathcal F_2(k*g_n)
@@ -1460,22 +1478,24 @@ $$
 h=U(U^3h)
 $$
 
-と書けるため、$U$ は全射です。Parseval から $U$ は内積を保つので、全射等長線形作用素として unitary です。
+と書けるため、$U$ は全射です。等長性から単射でもあります。Parseval から $U$ は内積を保つので、全射等長線形作用素として unitary です。従って $\mathcal F_2$ も全単射です。
 
 最後に
 
 $$
-\mathcal F_2^2=2\pi J
+A:=\frac1{2\pi}J\mathcal F_2
 $$
 
-から
+と置くと
 
 $$
-\frac1{2\pi}J\mathcal F_2\mathcal F_2
-=J^2=I.
+A\mathcal F_2
+=\frac1{2\pi}J\mathcal F_2^2
+=J^2
+=I.
 $$
 
-同様に反対側の合成も恒等作用素になるため
+$\mathcal F_2$ はすでに全単射なので、左逆 $A$ は逆作用素に一致します。従って
 
 $$
 \boxed{
@@ -1484,7 +1504,7 @@ $$
 }.
 $$
 
-この証明の核心は、FOU3 の点wise反転を稠密 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
+この証明の核心は、FOU3 の pointwise 反転を稠密な線形 core 上だけで使い、最後は $L^2$ 連続性で全空間へ運ぶことです。
 <!-- solution-end -->
 
 ---
@@ -1494,13 +1514,14 @@ $$
 - 一般の $L^2$ 関数で Fourier 積分を各 $\xi$ ごとの絶対収束として定義してはいけない理由を説明できるか。
 - $C_c$ 稠密性から $L^2$ 平行移動連続性を証明できるか。
 - Gaussian approximate identity の $L^2$ 収束で、近傍と遠方をどう分けるか説明できるか。
+- $\mathcal G$ を単なる Gaussian 正則化の集合ではなく、その有限線形結合全体として取る理由を説明できるか。
 - Gaussian 正則化が $g,\widehat g$ の双方に必要な可積分性を与える理由を説明できるか。
 - $g*g^\sharp$ に FOU3 の反転定理を適用して core 上の Plancherel を再構成できるか。
 - Plancherel が近似列の Fourier 側を Cauchy にする仕組みを説明できるか。
 - $L^2$ の完備性がどの一行で必要になるか指摘できるか。
 - $L^1\cap L^2$ 上で古典 Fourier 変換と $L^2$ Fourier 変換が一致する理由を説明できるか。
 - Parseval と正規化 $U=(2\pi)^{-1/2}\mathcal F_2$ の関係を説明できるか。
-- $U^2=J$ から反転と全射性を導けるか。
+- $U^2=J$ から全射性と反転公式を導けるか。
 - $L^1$--$L^2$ 畳み込みを密度で Fourier 側へ移せるか。
 - 複素解析が Fourier 解析の全面的 prerequisite ではなく、関数解析が FOU4 から部分的に本質化する理由を説明できるか。
 
