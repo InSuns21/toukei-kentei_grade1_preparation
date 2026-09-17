@@ -28,11 +28,17 @@ assert old in s
 s = s.replace(old, new, 1)
 s = s.replace('前節の|一般の|良い|使う|なる|得られる|持つ|必要な', '前節の|一般の|元の|良い|使う|なる|得られる|持つ|必要な', 1)
 s = s.replace("'連続性', '完備性', '稠密性', '絶対収束', '各点収束',", "'連続性', '完備性', '稠密性', '絶対収束', '各点収束', '被積分関数', '平行移動・尺度変換',", 1)
+# HTML anchor ids are metadata, not reader-visible first use.
+needle = "  const readerLines = stripNonReaderContent(page.source).split(/\\r?\\n/u);"
+replacement = "  const readerLines = stripNonReaderContent(page.source).split(/\\r?\\n/u).map((line) => line.replace(/<a\\s+id=[^>]+><\\/a>/gu, ''));"
+assert needle in s
+s = s.replace(needle, replacement, 1)
 write(p, s)
 
-# 2) FOU3: do not name convolution in a heading four lines before its definition.
+# 2) FOU3: do not name concepts in headings immediately before their formal introduction.
 p = 'textbook/volumes/00_foundations/FOU3/index.md'
 s = read(p)
+s = s.replace('## 3. $L^1$ 平行移動連続性と Riemann--Lebesgue', '## 3. $L^1$ の平行移動と Riemann--Lebesgue', 1)
 s = s.replace('## 4. 畳み込み：空間側の混合が周波数側の積になる', '## 4. 空間側の混合が周波数側の積になる', 1)
 write(p, s)
 
