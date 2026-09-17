@@ -208,6 +208,7 @@
 10. [FOU2 Fourier級数の収束・Fejér・Parseval](textbook/volumes/00_foundations/FOU2/index.md)
 11. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
 12. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
+13. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
 
 ---
 

@@ -1,0 +1,23 @@
+chapter: "FOU5"
+terms:
+  - term: 有限測度のFourier変換
+    english: Fourier transform of a finite measure
+    meaning: 有限Borel測度 mu に対して integral exp(-i xi x) dmu(x) で定める変換。確率分布は全質量1の有限測度なので常に定義できる。
+  - term: 確率測度の畳み込み
+    english: convolution of probability measures
+    meaning: 二つの確率測度の積測度を加法写像 (x,y) -> x+y で押し出して得る確率測度。独立な確率変数の和の分布を表し、Fourier変換では積へ移る。
+  - term: 特性関数
+    english: characteristic function
+    meaning: 確率変数 X に対する E[exp(itX)]。FOU3の exp(-i xi x) 規約で測度のFourier変換を書くと phi_X(t)=mu_X-hat(-t) となる。
+  - term: 離散Fourier変換
+    english: discrete Fourier transform
+    meaning: N個の複素数列をN個の離散周波数係数へ移す有限次元Fourier変換。1のN乗根の直交性により明示的な逆変換を持つ。
+  - term: 巡回畳み込み
+    english: circular convolution
+    meaning: 添字をNを法として回り込ませる有限列の畳み込み。離散Fourier変換では成分ごとの積へ移る。
+  - term: 高速Fourier変換
+    english: fast Fourier transform
+    meaning: 離散Fourier変換そのものではなく、その計算を分割統治で高速化するアルゴリズム群。2の冪長では偶数番・奇数番への分割が代表的。
+  - term: エイリアシング
+    english: aliasing
+    meaning: 等間隔標本化後に異なる連続時間周波数が同じ標本列を生む現象。標本間隔Deltaでは角周波数が2pi/Deltaだけ違う周波数は区別できない。

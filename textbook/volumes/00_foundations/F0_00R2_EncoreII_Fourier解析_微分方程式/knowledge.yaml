@@ -8,6 +8,7 @@ prerequisites:
   - F0-02C1
 
 # ロードマップ本文で後続章と別系列の既登録概念を先取りする。
+# FOU5 の語は、Encore II の到達点を示す後続予告としてのみ参照する。
 forward_references:
   - analysis.series
   - complex-analysis.maximum-modulus-principle
@@ -30,5 +31,10 @@ forward_references:
   - ode.ode7-eigenpair
   - fourier.fou3-fourier-transform
   - fourier.fou3-convolution
+  - fourier.fou5-independent-sum-convolution
+  - fourier.fou5-dft
+  - fourier.fou5-circular-convolution
+  - fourier.fou5-aliasing
+  - fourier.fou5-sampling-aliasing
 
 concepts: []
