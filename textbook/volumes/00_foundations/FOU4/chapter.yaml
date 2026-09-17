@@ -1,0 +1,42 @@
+id: "FOU4"
+title: "標準Fourier解析 IV：Plancherel・L2 Fourier解析"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FOU3
+  - MT7
+  - F0-02C1
+# FOU4 で初めて L2 完備性・Hilbert 空間を明示的に使う。
+# 複素解析は prerequisite にしない。留数計算等は変換対を求める別ルートであり、本章の Plancherel / L2 拡張の論理基盤ではない。
+official_scope: []
+learning_objectives:
+  - 複素L2の内積・完備性とFourier規約の正規化定数を区別して扱える
+  - L2平行移動連続性をCc稠密性から証明し、Gaussian approximate identity がL2でも収束することを示せる
+  - Gaussian正則化で得られる稠密な良い関数族上でPlancherel等式をFourier反転から証明できる
+  - 稠密部分空間上のFourier変換をL2完備性により全L2へ一意に延長できる
+  - L1かつL2の関数ではL2 Fourier変換が従来のL1 Fourier変換と一致することを示せる
+  - Parseval内積等式を導き、正規化Fourier変換をユニタリ作用素として理解できる
+  - L2での反転、平行移動・変調、L1-L2畳み込みの公式を密度と連続性から延長できる
+  - 本章で必要な関数解析と、複素解析・Sobolev理論へ送る事項の境界を説明できる
+definitions:
+  - { id: FOU4-DEF-01, name: 複素L2内積 }
+  - { id: FOU4-DEF-02, name: Gaussian Fourier core }
+  - { id: FOU4-DEF-03, name: L2 Fourier変換 }
+  - { id: FOU4-DEF-04, name: 正規化Fourier作用素 }
+theorems:
+  - { id: FOU4-LEM-01, name: L2平行移動連続性 }
+  - { id: FOU4-THM-01, name: Gaussian approximate identity のL2収束 }
+  - { id: FOU4-THM-02, name: Gaussian Fourier core のL2稠密性 }
+  - { id: FOU4-THM-03, name: core上のPlancherel等式 }
+  - { id: FOU4-THM-04, name: L2 Fourier変換の一意な拡張 }
+  - { id: FOU4-THM-05, name: L1 Fourier変換との整合性 }
+  - { id: FOU4-THM-06, name: Parseval内積等式 }
+  - { id: FOU4-THM-07, name: L2 Fourier反転とユニタリ性 }
+  - { id: FOU4-THM-08, name: L2での平行移動・変調則 }
+  - { id: FOU4-THM-09, name: L1-L2畳み込みとFourier乗算 }
+canonical_examples: [Gaussian正則化されたコンパクト台関数, 区間指示関数とsinc二乗積分, L2だがL1でない関数, 正規化Fourier作用素の二乗と反転]
+problem_patterns: [FOURIER-L2-TRANSLATION-1, FOURIER-PLANCHEREL-CORE-1, FOURIER-L2-EXTENSION-1, FOURIER-PARSEVAL-1, FOURIER-L2-INVERSION-1, FOURIER-L1-L2-CONVOLUTION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 4.5, review: 1.0 }

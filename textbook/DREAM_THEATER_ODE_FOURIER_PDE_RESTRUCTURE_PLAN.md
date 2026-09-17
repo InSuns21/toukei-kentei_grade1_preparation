@@ -40,7 +40,9 @@ ODE → Fourier解析 → PDE
 
 各系列は、典型的な数学・理工系学部の1学期～2学期の教科書で扱われる範囲を `core` とする。測度論・関数解析を使った厳密化や、大学院PDEへ接続する話は `advanced-standard` / `bridge` として明示し、基本ルートへ逆流させない。
 
-特に Fourier解析の最初から Lebesgue 積分・Hilbert 空間を必須にはしない。新しい `FOU*` 系列は旧 `F0-00FA1`～`FA3` を prerequisite・concept owner・proof dependency・forward reference にせず、自立した標準コアとして実装する。旧ページは URL 互換と旧導線のためだけに残す。
+特に Fourier解析の最初から Lebesgue 積分・Hilbert 空間を必須にはしない。新しい `FOU*` 系列は旧 `F0-00FA1`～`FA3` を prerequisite・concept owner・proof dependency・forward reference にせず、自立した標準コアとして実装する。
+
+再編前の旧教材は **移植元・履歴確認用の archive としてリポジトリには残すが、現行教材としては隔離し、通常の読者向け表示・目次・導線には出さない**。古い URL を維持する必要がある場合も、旧本文をそのまま表示せず、移行案内と新正本へのリンクだけを置く。
 
 ### 1.2 正本の所有者を一つにする
 
@@ -56,19 +58,21 @@ ODE → Fourier解析 → PDE
 
 現行の `F0_00FA1`～`F0_00FA3` は Fourier Analysis の略として FA を使っているが、標準数学コアではすでに `FA1` 以降が **Functional Analysis** の正規IDである。
 
-新しい標準Fourier解析系列は **`FOU1`, `FOU2`, ...** を採用し、`FA*` を新規IDには使わない。旧 `F0_00FA*` ファイルは互換リンク・再利用元として扱う。
+新しい標準Fourier解析系列は **`FOU1`, `FOU2`, ...** を採用し、`FA*` を新規IDには使わない。旧 `F0_00FA*` ファイルは archive / 移植元として扱う。
 
-### 1.4 古いURLを壊さない
+### 1.4 古いURLを壊さず、旧本文を隔離する
 
-既存 `F0_00H1`, `F0_00FA1`～`FA3`, `F0_00PDE1`～`PDE3`, `F0_00R2` は削除しない。
+既存 `F0_00H1`, `F0_00FA1`～`FA3`, `F0_00PDE1`～`PDE3`, `F0_00R2` は、過去リンクや移送履歴を壊さないためファイル自体は削除しない。ただし **旧本文を現行教材として表示し続けることはしない**。
 
-再編後は、必要に応じて
+再編後は次を原則とする。
 
-- 旧ページを互換ハブへ変更する
-- 旧内容を新章へ移した場合は新しい正本へのリンクを明示する
-- 同じ証明を旧新両方で維持しない
+- 旧ページは `textbook/dream-theater-index.json` と `textbook/dream-theater.md` の現行目次から外す。
+- 旧URLを残す場合は、旧本文を表示せず、移行案内と新しい canonical chapter へのリンクだけを置く互換ハブへ変更する。
+- 現行章から旧ページを prerequisite / concept owner / proof dependency / forward reference にしない。
+- 旧内容から必要な数学を新章へ移植した後は、新旧両方の本文を並行保守しない。
+- 移植元を調べる必要がある編集者は Git 履歴または隔離された旧ファイルを参照する。読者の通常導線は新 ODE / FOU / PDE 系列だけにする。
 
-という方針にする。
+この方針では「古いURLを残すこと」と「古い教材を表示し続けること」を分離する。
 
 ---
 
@@ -123,7 +127,7 @@ ODE → Fourier解析 → PDE
 
 **core**
 
-現行 `F0-00H1` の行列指数部分を中核として再利用する。
+現行 `F0-00H1` の行列指数部分を移植元として参照する。
 
 - $x'=Ax$ と基本行列
 - 行列指数の定義と微分
@@ -176,7 +180,7 @@ Dirac delta の厳密な超関数論はここでは行わず、必要なら Enco
 
 **core-advanced-standard / PDE bridge**
 
-現行 `F0-00PDE3` を主要な再利用元とする。
+旧 `F0-00PDE3` を移植元として参照する。
 
 - 二点境界値問題
 - 正則 Sturm--Liouville 問題
@@ -230,7 +234,7 @@ Dirac delta の厳密な超関数論はここでは行わず、必要なら Enco
 - Bessel 不等式
 - 具体的な区分的関数の展開
 
-旧 `F0-00FA1` には依存しない。FOU1 自身で Riemann 積分と有限和から係数公式・有限次数最小二乗性・有限エネルギー評価まで閉じ、旧ページは互換導線に限定する。
+旧 `F0-00FA1` には依存しない。FOU1 自身で Riemann 積分と有限和から係数公式・有限次数最小二乗性・有限エネルギー評価まで閉じ、旧ページは移植元としてのみ残し通常表示しない。
 
 ### FOU2 Fourier級数の収束・Fejér・Parseval
 
@@ -246,13 +250,13 @@ Dirac delta の厳密な超関数論はここでは行わず、必要なら Enco
 - Parseval 等式
 - 点wise / 一様 / $L^2$ 収束の比較
 
-FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet / Fejér kernel、収束定理、完全性、Parseval の論証は FOU2 自身または現行 canonical prerequisite だけで閉じ、旧ページは互換導線に限定する。
+FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet / Fejér kernel、収束定理、完全性、Parseval の論証は FOU2 自身または現行 canonical prerequisite だけで閉じ、旧ページは移植元としてのみ残し通常表示しない。
 
 ### FOU3 Fourier変換・畳み込み・反転
 
 **core**
 
-現行 `F0-00FA2` を主要な再利用元とする。
+旧 `F0-00FA2` の数学的内容は移植時に参照してよいが、現行 FOU3 は旧ページを prerequisite / proof dependency にせず自立させる。
 
 - $L^1(\mathbb R)$ 上の Fourier変換
 - 平行移動、尺度変換、変調
@@ -268,16 +272,22 @@ FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet /
 
 **advanced-standard**
 
-現行 `F0-00FA3` を主要な再利用元とする。
+旧 `F0-00FA3` は移植元としてのみ参照し、現行 FOU4 の正本依存にはしない。
 
-- $L^1\cap L^2$ 上の Parseval / Plancherel
-- $L^2$ 稠密性
-- 全 $L^2$ への拡張
-- unitary operator としての Fourier変換
-- 畳み込み・微分公式の $L^2$ 的読み方
-- 不確定性原理の標準形を追加候補とする
+- 複素 $L^2$ 内積と $L^2$ 完備性
+- $L^2$ 平行移動連続性と Gaussian approximate identity
+- 稠密な Fourier core 上の Parseval / Plancherel
+- 全 $L^2$ への連続・等長型拡張
+- $L^1\cap L^2$ 上での古典 Fourier 変換との整合性
+- unitary operator としての正規化 Fourier変換
+- $L^2$ Fourier反転
+- 平行移動・変調・$L^1$--$L^2$ 畳み込みの $L^2$ 延長
+- 微分公式を一般 $L^2$ へ延ばすには Sobolev / 弱微分が必要であることを停止線として明示する
+- 不確定性原理の標準形は追加候補とする
 
-この章だけは測度論・Hilbert 空間を明示的な前提にしてよい。FOU1～FOU3 の基本ルートを巻き込まない。
+FOU4 では測度論と関数解析を部分的に明示前提へ追加する。実装上の直接 prerequisite は **FOU3 + MT7 + `F0-02C1`** とし、関数解析から使うのは $L^2$ 完備性・Hilbert 内積・稠密部分空間・連続延長までに限定する。Hahn--Banach、Riesz 表現、スペクトル定理を前提にしない。
+
+**複素解析は FOU1～FOU4 の全面的 prerequisite にしない。** 留数定理などは具体的な Fourier 積分を計算する有力な別ルートだが、Fourier級数、$L^1$ 反転、Plancherel、$L^2$ 延長・反転の論理基盤には置かない。複素解析は計算技法・発展接続として横から合流させる。
 
 ### FOU5 確率・信号処理への接続
 
@@ -290,7 +300,7 @@ FOU2 も旧 `F0-00FA1` を証明依存先にはしない。必要な Dirichlet /
 - FFT はアルゴリズムの位置付けまで
 - sampling / aliasing は標準的な応用として扱う場合のみ追加
 
-現行 `F0-00FA3` の特性関数部分はここへ移すか参照する。
+旧 `F0-00FA3` の特性関数部分から必要な内容は FOU5 へ移植するか、既存の現行確率論正本を参照する。旧本文そのものは表示しない。
 
 **停止線**：Schwartz空間・tempered distribution は Encore III 側の正本を使い、FOUコアへ逆流させない。
 
@@ -342,7 +352,7 @@ Burgers 方程式は shock の動機付けまでとし、弱解・entropy soluti
 
 **core**
 
-現行 `F0-00PDE1` を主要な再利用元とする。
+旧 `F0-00PDE1` は移植元として参照する。
 
 - 実数全体上の Fourier変換解法
 - Gaussian heat kernel
@@ -360,7 +370,7 @@ Brown運動・semigroup は bridge 欄へ残す。
 
 **core**
 
-現行 `F0-00PDE2` の波動部分を主要な再利用元とする。
+旧 `F0-00PDE2` の波動部分は移植元として参照する。
 
 - 一次元 d'Alembert 公式
 - 初期変位・初速度からの解
@@ -375,7 +385,7 @@ Brown運動・semigroup は bridge 欄へ残す。
 
 **core**
 
-現行 `F0-00PDE2` の Laplace 部分を拡張する。
+旧 `F0-00PDE2` の Laplace 部分を移植元として参照し、現行章側で拡張する。
 
 - Laplace / Poisson 方程式
 - Dirichlet / Neumann 問題
@@ -432,14 +442,14 @@ Fourier変換         Sturm--Liouville
 
 | 現行ページ | 主な移送先 | 方針 |
 |---|---|---|
-| `F0_00R2_EncoreII_Fourier解析_微分方程式` | 三系列の互換ハブ | 旧URL維持。新 ODE / FOU / PDE 入口を案内する |
-| `F0_00H1_常微分方程式_線形系_行列指数` | ODE1～ODE3 | 内容を捨てず、基礎解法・高階ODE・連立系へ分割再利用 |
-| `F0_00FA1_Fourier級数_直交展開` | FOU1～FOU2 | 計算・点wise収束を前段追加し、既存 Fejér/$L^2$ 証明を後段へ |
-| `F0_00FA2_Fourier変換_畳み込み_反転` | FOU3 | ほぼ正本として再利用 |
-| `F0_00FA3_Plancherel_L2_特性関数` | FOU4～FOU5 | Plancherel と確率 bridge を分離 |
-| `F0_00PDE1_熱方程式_Fourier変換` | PDE3 | 最大値原理・有限区間・一意性を補強 |
-| `F0_00PDE2_波動方程式_Laplace方程式_変数分離` | PDE4～PDE5 | 波動と楕円型を分離し、それぞれ標準定理を補強 |
-| `F0_00PDE3_Sturm_Liouville_スペクトル展開` | ODE7 + PDE7 | Sturm--Liouville の正本を ODE へ移し、PDE は応用参照にする |
+| `F0_00R2_EncoreII_Fourier解析_微分方程式` | 三系列の互換ハブ | 旧URL維持。新 ODE / FOU / PDE 入口だけを案内する |
+| `F0_00H1_常微分方程式_線形系_行列指数` | ODE1～ODE3 | 必要内容を分割移植後、旧本文は隔離・通常非表示 |
+| `F0_00FA1_Fourier級数_直交展開` | FOU1～FOU2 | 必要内容を新正本へ移植し、旧本文は隔離・通常非表示 |
+| `F0_00FA2_Fourier変換_畳み込み_反転` | FOU3 | 必要内容を新正本へ移植し、旧本文は隔離・通常非表示 |
+| `F0_00FA3_Plancherel_L2_特性関数` | FOU4～FOU5 | Plancherel と確率 bridge を分離移植し、旧本文は隔離・通常非表示 |
+| `F0_00PDE1_熱方程式_Fourier変換` | PDE3 | 最大値原理・有限区間・一意性を補強して移植後、旧本文は隔離 |
+| `F0_00PDE2_波動方程式_Laplace方程式_変数分離` | PDE4～PDE5 | 波動と楕円型を分離移植後、旧本文は隔離 |
+| `F0_00PDE3_Sturm_Liouville_スペクトル展開` | ODE7 + PDE7 | Sturm--Liouville 正本を ODE7 へ移し、旧本文は隔離 |
 
 ---
 
@@ -458,7 +468,7 @@ RA3/RA4/RA4A/RA5 + 線形代数
         ↓               ↓
       ODE3            FOU3
         ↓               │
-   ODE4/5/6             ├────→ FOU4  [MT/L2/Hilbert を追加前提]
+   ODE4/5/6             ├────→ FOU4  [MT7 + L2/Hilbert の最小限]
         ↓               ↓
       ODE7 ──────────→ PDE1/PDE2
           \             /
@@ -472,8 +482,9 @@ RA3/RA4/RA4A/RA5 + 線形代数
 
 - ODE3 は線形代数の固有値・Jordan構造を参照する。
 - ODE7 は積分・線形代数・境界値問題を前提とする。
-- FOU1～FOU3 は実解析中心で読めるようにする。
-- FOU4 だけが Lebesgue積分・$L^2$ 完備性・Hilbert空間を追加前提とする。
+- FOU1～FOU3 は実解析中心で読めるようにし、複素解析を prerequisite にしない。
+- FOU4 は FOU3 + MT7 + `F0-02C1` を直接前提とし、$L^2$ 完備性・Hilbert 内積・稠密性・連続延長だけを追加する。
+- 複素解析は FOU4 までの論理的 prerequisite にせず、留数計算等の計算技法として横接続する。
 - PDE1～PDE5 は古典解析・ODE・FOU の標準コアから読めるようにする。
 - PDE6 では多変数積分・発散定理等の正本を明示する。
 
@@ -538,7 +549,7 @@ DREAM THEATER の既存規約をそのまま適用する。
 ODE1 → ODE2 → ODE3 → ODE4 → ODE5 → ODE6 → ODE7
 ```
 
-まず現行 H1 を分解・再利用し、その後に不足している存在一意性、非斉次高階方程式、非線形系、Laplace変換、級数解、Sturm--Liouvilleを補う。
+まず旧 H1 を分解・移植し、その後に不足している存在一意性、非斉次高階方程式、非線形系、Laplace変換、級数解、Sturm--Liouvilleを補う。移植後の旧本文は互換案内だけを残して隔離する。
 
 ## Phase 2：Fourier解析を再編
 
@@ -548,7 +559,7 @@ ODE1 → ODE2 → ODE3 → ODE4 → ODE5 → ODE6 → ODE7
 FOU1 → FOU2 → FOU3 → FOU4 → FOU5
 ```
 
-既存 FA1～FA3 は数学的内容を極力保存し、初学者向けの標準 Fourier 級数論と、測度論的な厳密化を層分けする。
+旧 `F0_00FA1`～`F0_00FA3` から必要な数学的内容は新 FOU 系列へ移植してよいが、**旧本文を現行教材として並行表示・並行保守しない**。FOU1～FOU3 は実解析中心の基本ルート、FOU4 で $L^2$/Hilbert の最小限を追加し、FOU5 で確率・信号処理へ橋を架ける。
 
 ## Phase 3：PDE を標準教科書レベルへ拡張
 
@@ -558,14 +569,15 @@ FOU1 → FOU2 → FOU3 → FOU4 → FOU5
 PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7
 ```
 
-一次方程式・分類を先に入れ、その後で熱・波動・Laplace/Poissonを「三つの例」ではなく三類型の代表として扱う。
+一次方程式・分類を先に入れ、その後で熱・波動・Laplace/Poissonを「三つの例」ではなく三類型の代表として扱う。旧 PDE 本文は必要内容の移植後に隔離する。
 
 ## Phase 4：互換・横断整備
 
 - `F0_00R2` を三系列の互換ハブへ変更
 - `textbook/dream-theater.md` の Encore II 目次を三系列へ変更
-- `dream-theater-standard-math-core.yaml` と読者向けDAGを同期
-- 旧URLから新正本への導線を確認
+- `dream-theater-standard-math-core.yaml` と読者向けDAGを、FOU 系列全体の章ノード追加時にまとめて同期
+- 旧URLは移行案内と新正本リンクだけを表示し、旧本文を通常表示しないことを確認
+- 旧ページが `dream-theater-index.json` / `dream-theater.md` の通常導線へ残っていないことを確認
 - 用語・記号・canonical anchor の重複監査
 - definition-example / formal-reference / exercise-count / Pages / textbook 等の横断CIを通す
 
@@ -584,7 +596,8 @@ PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7
 
 - Fourier級数の計算だけでなく、収束・Gibbs・Fejér・Parsevalを持つ。
 - Fourier変換・反転・畳み込み・Plancherelまで一本につながる。
-- 基本ルートと測度論的厳密化の前提が分離されている。
+- FOU1～FOU3 の基本ルートと FOU4 の測度論・Hilbert 的厳密化の前提が分離されている。
+- 複素解析を必須 prerequisite にせずとも Plancherel・$L^2$ 反転まで閉じ、留数計算等を任意の横接続として位置付けられている。
 
 ### PDE
 
@@ -603,6 +616,7 @@ PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7
 - Gaussian、特性関数、Brown運動など統計・確率への横接続
 - Fejér / Plancherel まで踏み込む既存 Fourier 章の強さ
 - Sturm--Liouville を線形代数のスペクトル論と結び付ける見方
+- 過去URLと移送履歴を追跡できる repository-level archive
 
 ## 捨てるもの
 
@@ -611,6 +625,7 @@ PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7
 - 熱・波動・Laplaceを並べただけで PDE 標準コア完了とみなす構成
 - Sturm--Liouville の同内容を ODE / Fourier / PDE の各系列で重複保持すること
 - `FA` が Fourier Analysis と Functional Analysis の両方を意味するID運用
+- 再編前の旧本文を、現行教材と並べて通常表示・並行保守する運用
 
 ---
 
@@ -631,28 +646,31 @@ PDE1 → PDE2 → PDE3 → PDE4 → PDE5 → PDE6 → PDE7
  Encore III：distribution / Sobolev / 弱解
 ```
 
-Encore II という名称は過去URL互換と三系列への入口として残してよいが、**教材の正本構造は ODE / FOU / PDE の三系列へ分解する**。
+Encore II という名称は過去URL互換と三系列への入口として残してよいが、**教材の正本構造は ODE / FOU / PDE の三系列へ分解する**。再編前本文は archive として隔離し、通常の読者向け表示には出さない。
 
 ---
 
 # 11. 実装進捗
 
-最終更新: 2026-09-16
+最終更新: 2026-09-17
 
 この節を再編作業の進捗正本とし、本文・演習・監査・CIの状態を章単位で更新する。`implemented` や CI green だけを教材完成とはみなさず、Section 7 の品質基準を満たしたかを併記する。
 
 ## 11.1 Phase 0 棚卸しの進捗
 
-現時点では ODE1 着手に必要な `F0_00H1_常微分方程式_線形系_行列指数` を本文まで監査済み。残りの Fourier/PDE 旧章のブロック単位棚卸しは後続 Phase 2/3 着手前に継続する。
+現時点では ODE1 着手に必要な `F0_00H1_常微分方程式_線形系_行列指数` を本文まで監査済み。Fourier では FOU1～FOU4 の実装に伴い旧 FA1～FA3 の必要内容を照合しているが、旧ページを正本依存へ戻さない。PDE 旧章のブロック単位棚卸しは Phase 3 着手前に継続する。
 
 | 既存ブロック | 判定 | 新正本 / 扱い |
 |---|---|---|
 | H1 §1–4 ODE定義・初期値/境界値・変数分離・一階線形 | `move + rewrite` | ODE1。定義例、解落とし、積分因子の導出を補強 |
-| H1 §5–7 二階定係数・調和振動子・重ね合わせ | `move + rewrite` | ODE2。高階線形系として再構成予定 |
-| H1 §8–11 連立線形系・行列指数・固有値安定性 | `move + rewrite` | ODE3。行列指数部分を主要再利用元とする |
-| H1 §12 Fourier解析への接続 | `move / compatibility-only` | PDE7 の統合説明へ移送し、旧H1は互換導線を残す |
+| H1 §5–7 二階定係数・調和振動子・重ね合わせ | `move + rewrite` | ODE2。高階線形系として再構成 |
+| H1 §8–11 連立線形系・行列指数・固有値安定性 | `move + rewrite` | ODE3。行列指数部分を主要移植元とする |
+| H1 §12 Fourier解析への接続 | `move / compatibility-only` | PDE7 の統合説明へ移送し、旧H1は互換導線のみ残す |
+| 旧FA1 Fourier級数 | `move + rewrite` | FOU1～FOU2へ移植済み。旧本文は隔離 |
+| 旧FA2 Fourier変換 | `move + rewrite` | FOU3へ必要内容を移植。旧本文は正本依存にしない |
+| 旧FA3 Plancherel・特性関数 | `split + rewrite` | Plancherel/$L^2$ はFOU4、確率・信号処理はFOU5。旧本文は隔離 |
 
-旧 H1 の内容を新旧両ページで並行に育てない。ODE2/ODE3への移送が進んだ段階で旧 H1 を互換ハブ化する。
+旧教材の内容を新旧両ページで並行に育てない。移植済み旧URLは順次、本文を表示しない互換ハブへ退役させる。
 
 ## 11.2 章別ステータス
 
@@ -667,6 +685,8 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
 | FOU1 | **実装・検証完了（PR #289）** | 周期波形・三角多項式、一周期積分消去則、実 Fourier 係数、N次 Fourier 有限和、固定次数最小二乗性、偶奇対称性、複素指数係数、半区間係数、有限エネルギー不等式を実装。$x$・矩形波・$|x|$・$x^2$・三角形波を手計算し、無限段階の収束論は FOU2 へ分離 | A4 / B3 / C1。全問に詳細解答あり | RA4 のみ。旧 `F0-00FA1`・旧 Fourier 本文を prerequisite / concept owner / proof dependency / forward reference にせず、FOU1 内で有限次数理論を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行 |
 | FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B4 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
+| FOU3 | **実装済み・現ブランチで検証待ち** | $L^1$ Fourier変換、基本法則、$L^1$ 平行移動連続性、Riemann--Lebesgue、畳み込み、微分、Gaussian、approximate identity、Fourier反転までを旧FA2へ証明依存せず実装 | A4 / B3 / C1。全問に詳細解答あり | FOU2 + Lebesgue積分/Fubini + MT7。複素解析・Hilbert空間を prerequisite にしない | 現 head では GitHub status / PR workflow run 未付与。greenとは未判定 |
+| FOU4 | **初回実装済み・査読/検証中** | 複素$L^2$、$L^2$平行移動、Gaussian core、core上のPlancherel、全$L^2$への延長、$L^1\cap L^2$整合性、Parseval、unitary、$L^2$反転、$L^1$--$L^2$畳み込みまで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU3 + MT7 + F0-02C1。関数解析は完備性・Hilbert内積・稠密性・連続延長だけ。複素解析は prerequisite にしない | 現 head では GitHub status / PR workflow run 未付与。本文の数理・依存自己査読を継続し、通常CI/監査は未確認 |
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
@@ -725,14 +745,11 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 旧 F0-00PDE3 は互換ハブへ退役させ、Sturm--Liouville の concept ownership を ODE7 へ一本化した。
 - 演習は A4 / B3 / C1、全問詳細解答付き。textbook / Pages / exercises / concepts / standard math core / terminology の検証と proof / formalism pedagogy audit を実行した。
 
-FOU2 は **実装・検証完了（PR #290）**。FOU1 の有限次数理論だけを直接前提に、Dirichlet核による各点収束、Gibbs現象、Fejér平均による一様近似、三角多項式の稠密性、二乗平均収束、係数エネルギー等式（Parseval等式）までを Riemann 積分側で閉じた。旧 `F0_00FA1_Fourier級数_直交展開` は証明依存先にしていない。次の実装単位は **FOU3「Fourier変換・畳み込み・反転」**。
+## 11.9 Fourier 再編の現在地（2026-09-17）
 
-
-## 11.7 FOU2 最終査読（PR #290、2026-09-17）
-
-- 独立数理査読と読者粒度・依存査読を実施し、修正後はいずれも fatal: 0 / major: 0 / minor: 0。
-- 二乗平均収束の定義を各関数自身の Riemann 積分可能性で固定し、跳躍点で用いる導関数の左右極限と平均値の定理による展開を明示した。Gibbs・Fejér のステートメントも対象・仮定を単独で確定できる形へ補完した。
-- Heine–Cantor と FOU1 の一周期積分消去則へ stable anchor で接続し、周期境界を越える一様連続性の適用を説明した。振動積分の消去補題から未使用の Dirichlet 積分表示への依存辺を除いた。
-- B4 を追加し、局所線形補間、Fejér 近似、最小二乗性、二乗平均収束、完全性・係数一意性を詳細解答付きで再構成する演習とした。演習は A4 / B4 / C1。
-- 全履歴を取得したローカル環境で通常検証、Pages、演習数、concept strict、standard math core、用語、通常教材 knowledge DAG を検証。proof / formalism pedagogy の候補は本文・証明を読み、誤った仮定や未解消の核心省略がないことを確認した。
-- 旧 head `7e449db` の GitHub Actions は検証失敗ではなく maintainer approval 待ちだった。ローカル検証結果と GitHub Actions の実行状態は区別する。
+- FOU1 は有限次数の Fourier 級数論を Riemann 積分側で閉じ、FOU2 は Dirichlet / Fejér kernel、各点収束、Gibbs、Fejér一様近似、$L^2$ 的収束、Parseval までを旧教材へ証明依存せず閉じた。
+- FOU3 は $L^1$ Fourier変換から Gaussian 正則化による反転までを実装済み。複素解析・Hilbert 空間を prerequisite にしていない。
+- FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
+- FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
+- 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
+- 次の理論実装単位は FOU5「確率・信号処理への接続」。ただし FOU4 の通常 validation / Pages / exercises / concepts / proof / formalism 監査を確認してから完成扱いにする。

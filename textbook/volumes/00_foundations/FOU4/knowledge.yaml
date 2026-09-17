@@ -1,0 +1,116 @@
+chapter: FOU4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FOU3
+  - MT7
+  - F0-02C1
+forward_references:
+  - analysis.uniform-convergence
+  - analysis.ck-uniform-norm
+  - linear.complex-inner-product
+  - functional.resolvent-spectrum
+  - complex-analysis.residue
+  - complex-analysis.residue-theorem-simple-curve
+  - prob.characteristic-function
+  - ode.ode5-inverse-method
+
+# FOU4 は L2 Fourier 理論の正本。旧 F0-00FA3 を concept owner / proof dependency にしない。
+# 複素解析は prerequisite にせず、L2 完備性・Hilbert 構造・稠密性・連続延長だけを関数解析的機構として使う。
+
+concepts:
+  - id: fourier.fou4-complex-l2
+    name: 複素L2内積
+    kind: definition
+    aliases: [complex L2 inner product]
+    introduction: formal
+
+  - id: fourier.fou4-gaussian-core
+    name: Gaussian Fourier core
+    kind: definition
+    aliases: [Gaussian regularized Fourier core]
+    introduction: formal
+    requires: [fourier.fou3-gaussian-transform, fourier.fou3-convolution]
+
+  - id: fourier.fou4-l2-translation
+    name: L2平行移動連続性
+    kind: theorem
+    aliases: [translation continuity in L2]
+    introduction: formal
+
+  - id: fourier.fou4-l2-gaussian-approximation
+    name: Gaussian approximate identity のL2収束
+    kind: theorem
+    aliases: [Gaussian approximate identity in L2]
+    introduction: formal
+    requires: [fourier.fou4-l2-translation, fourier.fou3-gaussian-approximation]
+
+  - id: fourier.fou4-core-density
+    name: Gaussian Fourier core のL2稠密性
+    kind: theorem
+    aliases: [density of Gaussian Fourier core]
+    introduction: formal
+    requires: [fourier.fou4-l2-gaussian-approximation, fourier.fou4-gaussian-core]
+
+  - id: fourier.fou4-plancherel-core
+    name: core上のPlancherel等式
+    kind: theorem
+    aliases: [Plancherel identity on Fourier core]
+    introduction: formal
+    requires: [fourier.fou4-gaussian-core, fourier.fou3-inversion, fourier.fou3-convolution-theorem]
+
+  - id: fourier.fou4-l2-transform
+    name: L2 Fourier変換
+    kind: definition
+    aliases: [L2 Fourier transform]
+    introduction: formal
+    requires: [fourier.fou4-core-density, fourier.fou4-plancherel-core]
+
+  - id: fourier.fou4-l2-extension
+    name: L2 Fourier変換の一意な拡張
+    kind: theorem
+    aliases: [L2 extension of Fourier transform]
+    introduction: formal
+    requires: [fourier.fou4-l2-transform, fourier.fou4-core-density, fourier.fou4-plancherel-core]
+
+  - id: fourier.fou4-l1-l2-compatibility
+    name: L1 Fourier変換との整合性
+    kind: theorem
+    aliases: [compatibility of L1 and L2 Fourier transforms]
+    introduction: formal
+    requires: [fourier.fou4-l2-extension, fourier.fou4-l2-gaussian-approximation]
+
+  - id: fourier.fou4-parseval
+    name: Parseval内積等式
+    kind: theorem
+    aliases: [Parseval identity on L2]
+    introduction: formal
+    requires: [fourier.fou4-l2-extension, fourier.fou4-complex-l2]
+
+  - id: fourier.fou4-unitary-transform
+    name: 正規化Fourier作用素
+    kind: definition
+    aliases: [unitary normalized Fourier transform]
+    introduction: formal
+    requires: [fourier.fou4-l2-transform]
+
+  - id: fourier.fou4-l2-inversion
+    name: L2 Fourier反転とユニタリ性
+    kind: theorem
+    aliases: [L2 Fourier inversion, unitarity of Fourier transform]
+    introduction: formal
+    requires: [fourier.fou4-unitary-transform, fourier.fou4-l1-l2-compatibility, fourier.fou3-inversion]
+
+  - id: fourier.fou4-l2-transform-rules
+    name: L2での平行移動・変調則
+    kind: theorem
+    aliases: [translation and modulation on L2]
+    introduction: formal
+    requires: [fourier.fou4-l2-extension, fourier.fou3-transform-rules]
+
+  - id: fourier.fou4-l1-l2-convolution
+    name: L1-L2畳み込みとFourier乗算
+    kind: theorem
+    aliases: [L1 L2 convolution theorem]
+    introduction: formal
+    requires: [fourier.fou4-l2-extension, fourier.fou3-convolution-theorem]

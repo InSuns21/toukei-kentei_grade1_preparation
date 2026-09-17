@@ -1,0 +1,29 @@
+chapter: "FOU3"
+terms:
+  - term: Fourier変換
+    english: Fourier transform
+    meaning: 実数全体上の関数fを連続周波数xiごとの係数f-hat(xi)=integral f(x)e^{-ixi x}dxへ写す変換。FOU3ではL1(R)上で定義する。
+  - term: Riemann--Lebesgueの補題
+    english: Riemann--Lebesgue lemma
+    meaning: fがL1(R)ならFourier変換f-hat(xi)は|xi|→infinityで0へ収束するという性質。高周波振動による打ち消しを表す。
+  - term: 畳み込み
+    english: convolution
+    meaning: (f*g)(x)=integral f(x-y)g(y)dyで定まる二関数の合成。Fourier変換すると積f-hat g-hatへ移る。
+  - term: 畳み込み定理
+    english: convolution theorem
+    meaning: f,gがL1(R)ならwidehat(f*g)=f-hat g-hatとなる定理。絶対可積分性を確認してFubiniを適用することが核心になる。
+  - term: approximate identity
+    english: approximate identity
+    meaning: 質量1を保ちながら原点近くへ集中する核族。fとの畳み込みがfへ近づき、Fourier反転の正則化に使える。
+  - term: Gaussian核
+    english: Gaussian kernel
+    meaning: 正規化したexp(-x^2/(4epsilon))型の核。Fourier変換もGaussianであり、空間側でapproximate identity、周波数側で滑らかなカットオフになる。
+  - term: Fourier反転
+    english: Fourier inversion
+    meaning: 適切な可積分性条件の下でf-hatからfをf(x)=(1/(2pi)) integral f-hat(xi)e^{ixi x}dxとして復元すること。
+  - term: 変調
+    english: modulation
+    meaning: f(x)へe^{iax}を掛ける操作。周波数側ではf-hat(xi-a)への平行移動になる。
+  - term: 尺度変換
+    english: scaling
+    meaning: f(ax)のように空間側の幅を変える操作。Fourier変換では1/|a|倍と周波数引数xi/aが現れ、空間と周波数の幅が逆向きに変化する。

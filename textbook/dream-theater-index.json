@@ -145,7 +145,6 @@
       "name": "Encore II",
       "paths": [
         "textbook/volumes/00_foundations/F0_00R2_EncoreII_Fourier解析_微分方程式/index.md",
-        "textbook/volumes/00_foundations/F0_00H1_常微分方程式_線形系_行列指数/index.md",
         "textbook/volumes/00_foundations/ODE1/index.md",
         "textbook/volumes/00_foundations/ODE2/index.md",
         "textbook/volumes/00_foundations/ODE3/index.md",
@@ -155,12 +154,8 @@
         "textbook/volumes/00_foundations/ODE7/index.md",
         "textbook/volumes/00_foundations/FOU1/index.md",
         "textbook/volumes/00_foundations/FOU2/index.md",
-        "textbook/volumes/00_foundations/F0_00FA1_Fourier級数_直交展開/index.md",
-        "textbook/volumes/00_foundations/F0_00FA2_Fourier変換_畳み込み_反転/index.md",
-        "textbook/volumes/00_foundations/F0_00FA3_Plancherel_L2_特性関数/index.md",
-        "textbook/volumes/00_foundations/F0_00PDE1_熱方程式_Fourier変換/index.md",
-        "textbook/volumes/00_foundations/F0_00PDE2_波動方程式_Laplace方程式_変数分離/index.md",
-        "textbook/volumes/00_foundations/F0_00PDE3_Sturm_Liouville_スペクトル展開/index.md"
+        "textbook/volumes/00_foundations/FOU3/index.md",
+        "textbook/volumes/00_foundations/FOU4/index.md"
       ]
     },
     {

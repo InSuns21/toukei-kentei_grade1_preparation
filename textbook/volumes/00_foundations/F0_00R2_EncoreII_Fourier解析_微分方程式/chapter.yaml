@@ -17,4 +17,5 @@ problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "Encore II の統合ロードマップ兼互換ハブであり、演習章ではない。演習は ODE / FOU / PDE の各正本章に置く。"
 estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
