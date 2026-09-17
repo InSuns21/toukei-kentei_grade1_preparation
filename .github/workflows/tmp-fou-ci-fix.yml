@@ -26,3 +26,4 @@ jobs:
           git add scripts/audit-dream-theater-undefined-terms.mjs textbook/volumes/00_foundations
           git commit -m 'fix: close FOU3 FOU4 validation gaps'
           git push origin HEAD:dream-theater-fou3-fourier-transform
+# rerun 2
