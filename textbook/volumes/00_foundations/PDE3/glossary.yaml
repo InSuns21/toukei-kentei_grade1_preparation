@@ -1,0 +1,35 @@
+chapter: "PDE3"
+terms:
+  - term: 熱方程式
+    english: heat equation
+    meaning: 拡散係数κ>0に対してu_t=κu_xxと書かれる代表的な放物型偏微分方程式。
+  - term: 拡散係数
+    english: diffusivity
+    meaning: 熱方程式u_t=κu_xxのκ。正で、空間的な凹凸が時間とともに平滑化される速さを決める。
+  - term: 放物型境界
+    english: parabolic boundary
+    meaning: 時間区間[0,T]上の初期境界値問題で、初期時刻の底面と空間境界を合わせた部分。最大値原理で値を比較する境界。
+  - term: 古典解
+    english: classical solution
+    meaning: 熱方程式を点ごとに満たすのに必要な時間1階・空間2階の連続微分を持ち、初期境界条件も連続的に満たす解。
+  - term: 最大値原理
+    english: maximum principle
+    meaning: 熱方程式の劣解の最大値が内部で新たに増幅せず、放物型境界上の最大値で支配される原理。
+  - term: 比較原理
+    english: comparison principle
+    meaning: 二つの解または劣解・優解の境界上の大小関係が時間発展後も保存されること。
+  - term: エネルギー散逸
+    english: energy dissipation
+    meaning: 齊次Dirichlet熱方程式でL2エネルギーの時間微分が-κ∫|u_x|^2となり非増加になること。
+  - term: 固有モード
+    english: eigenmode
+    meaning: 空間固有関数と時間減衰因子の積で表され、熱方程式の時間発展で形を保ったまま振幅だけが減衰する成分。
+  - term: 熱核
+    english: heat kernel
+    meaning: 実数全体上の熱方程式の基本的なGaussian核G_t(x)=(4πκt)^(-1/2)exp(-x^2/(4κt))。
+  - term: 平滑化
+    english: smoothing
+    meaning: t>0では熱核との畳み込みにより初期値より高い微分可能性が直ちに得られる現象。
+  - term: 無限伝播
+    english: infinite propagation speed
+    meaning: 非負で非零の初期値に対し、熱核が全空間で正であるため任意のt>0に解が全ての点で正になる現象。
