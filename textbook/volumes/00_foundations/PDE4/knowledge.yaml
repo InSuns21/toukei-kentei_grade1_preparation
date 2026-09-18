@@ -96,4 +96,5 @@ concepts:
       - fourier.fou3-fourier-transform
       - fourier.fou3-derivative-rule
       - fourier.fou3-transform-rules
-      - fourier.fou3-convolution
+      - fourier.fou3-convolution-theorem
+      - fourier.fou3-inversion
