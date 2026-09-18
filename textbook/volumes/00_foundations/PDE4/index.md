@@ -10,7 +10,7 @@ PDE2 では二階線形 PDE を楕円型・放物型・双曲型へ分類し、P
 - エネルギー法から保存則と一意性を示す。
 - 有限区間では固有モードと Fourier 正弦級数、実数全体では Fourier 変換で同じ振動機構を見る。
 
-直接の前提は [PDE2 二階線形PDEの分類](../PDE2/index.md)、[ODE7 境界値問題と Sturm--Liouville 理論](../ODE7/index.md)、[FOU2 Fourier級数の収束論](../FOU2/index.md)、[FOU3 Fourier変換](../FOU3/index.md) です。
+直接の前提は [PDE3 熱方程式](../PDE3/index.md) です。PDE3 の prerequisite として学んだ [PDE2 二階線形PDEの分類](../PDE2/index.md)、[ODE7 境界値問題と Sturm--Liouville 理論](../ODE7/index.md)、[FOU2 Fourier級数の収束論](../FOU2/index.md)、[FOU3 Fourier変換](../FOU3/index.md) の結果を、本章でも再利用します。
 
 > **証明境界**  
 > 本章は一次元波動方程式の古典解を扱います。d'Alembert 公式、有限伝播速度、固定端でのエネルギー保存と一意性、十分滑らかな初期値に対する Fourier 正弦級数解、Fourier 変換による全空間表示との一致までを本文で閉じます。弱解、エネルギー空間 $H^1\times L^2$、高次元の Kirchhoff / Poisson 公式、一般双曲型作用素は Encore III 以降へ送り、本章の証明へ逆輸入しません。
@@ -1054,7 +1054,7 @@ k_n^2\frac{|g_n|}{ck_n}
 O(n^{-2}).
 $$
 
-よって Weierstrass の判定法により、元の級数だけでなく $u_t,u_x,u_{tt},u_{xx}$ を与える級数も $[0,T]\times[0,L]$ 上で一様収束します。したがって項別微分でき、有限モードの場合と同じ計算から
+混合微分 $u_{tx}$ では、$a_n$ 側に $k_n^2$、$g_n/(ck_n)$ 側に定数倍の $k_n^2$ が掛かるので、ここでも係数は $O(n^{-2})$ です。よって Weierstrass の判定法により、元の級数だけでなく $u_t,u_x,u_{tt},u_{tx},u_{xx}$ を与える級数も $[0,T]\times[0,L]$ 上で一様収束します。したがって項別微分でき、有限モードの場合と同じ計算から
 
 $$
 u_{tt}=c^2u_{xx}
@@ -1211,6 +1211,8 @@ $$
 $$
 
 $\xi=0$ では両辺とも極限値 $t$ です。
+
+$f,g\in C_c^\infty(\mathbb R)$ なので、部分積分を繰り返せば $\widehat f,\widehat g$ は任意の多項式次数より速く減衰し、特に $L^1(\mathbb R)$ に属します。また $\sin(ct\xi)/(c\xi)$ は有界です。従って以下の周波数側の積も $L^1$ であり、[FOU3 の Fourier 反転定理](../FOU3/index.md#thm-fou3-inversion)を適用できます。
 
 [FOU3 の畳み込み定理](../FOU3/index.md#thm-fou3-convolution)から
 
@@ -1757,15 +1759,19 @@ $$
 
 $f\in C^2([0,L])$、$g\in C^1([0,L])$ が
 
-$$
+$
 f(0)=f(L)=0,
 \qquad
+f''(0)=f''(L)=0,
+$
+
+$
 g(0)=g(L)=0
-$$
+$
 
 を満たすとする。
 
-$f,g$ をまず $(-L,L)$ へ奇関数として延長し、さらに周期 $2L$ で実数全体へ延長したものを $F,G$ とする。端点で古典解に必要な滑らかさが保たれる場合を考える。
+$f,g$ をまず $(-L,L)$ へ奇関数として延長し、さらに周期 $2L$ で実数全体へ延長したものを $F,G$ とする。この端点条件により $F\in C^2(\mathbb R)$、$G\in C^1(\mathbb R)$ となる。
 
 $$
 u(t,x)
