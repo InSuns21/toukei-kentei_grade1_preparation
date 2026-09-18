@@ -22,7 +22,7 @@
 | 旧 F0-00PDE2 の話題 | 現在の扱い |
 |---|---|
 | 波動方程式 | [PDE4](../PDE4/index.md#def-pde4-wave-equation) |
-| Fourier変換による波動モード | [PDE4 の全空間 Fourier 表示](../PDE4/index.md#prop-pde4-fourier-representation) |
+| Fourier変換による波動モード | [PDE4 の全空間 Fourier 表示](../PDE4/index.md#prop-pde4-fourier-dalembert) |
 | d'Alembert 解 | [PDE4 の d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert) |
 | 固定端・変数分離・固有モード | [PDE4 の有限正弦モード解](../PDE4/index.md#prop-pde4-finite-sine) |
 | Laplace 方程式・調和関数 | [PDE5](../PDE5/index.md#def-pde5-laplace-poisson) |
