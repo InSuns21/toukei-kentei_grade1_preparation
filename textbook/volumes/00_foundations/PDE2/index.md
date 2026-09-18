@@ -96,7 +96,7 @@ PDE の型は、低階項を全部眺めて決めるのではありません。�
 
 <a id="def-pde2-principal-part"></a>
 <!-- formal-statement-start -->
-> **定義（主部と主係数行列）**  
+> **定義（PDEの最高階二階項と係数行列）**  
 > 二階線形 PDE
 >
 > $$
@@ -196,7 +196,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde2-type -->
-**定義の確認：三つの代表方程式**
+**定義の確認**
+
+三つの代表方程式を実際に分類します。
 
 ### Laplace 型代表式 $u_{xx}+u_{yy}=0$
 
