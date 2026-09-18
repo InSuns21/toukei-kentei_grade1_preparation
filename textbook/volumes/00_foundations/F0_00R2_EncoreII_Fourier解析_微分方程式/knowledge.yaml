@@ -44,5 +44,15 @@ forward_references:
   - pde.pde1-characteristic-curve
   - pde.pde1-burgers-characteristics
   - pde.pde1-burgers-breakdown
+  - pde.pde2-second-order-linear
+  - pde.pde2-principal-part
+  - pde.pde2-type-classification
+  - pde.pde2-principal-quadratic-form
+  - pde.pde2-characteristic-direction
+  - pde.pde2-characteristic-count
+  - pde.pde2-coordinate-invariance
+  - pde.pde2-standard-form
+  - pde.pde2-tricomi-type-change
+  - pde.pde2-laplace-cauchy-instability
 
 concepts: []
