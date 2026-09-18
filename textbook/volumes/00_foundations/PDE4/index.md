@@ -1171,7 +1171,7 @@ e^{ic\xi t}+e^{-ic\xi t}
 \right).
 $$
 
-[FOU3 の平行移動則](../FOU3/index.md#thm-fou3-transform-rules)により
+[Fourier変換の平行移動・尺度変換・変調則](../FOU3/index.md#thm-fou3-transform-rules)により
 
 $$
 \frac12
@@ -1212,9 +1212,9 @@ $$
 
 $\xi=0$ では両辺とも極限値 $t$ です。
 
-$f,g\in C_c^\infty(\mathbb R)$ なので、部分積分を繰り返せば $\widehat f,\widehat g$ は任意の多項式次数より速く減衰し、特に $L^1(\mathbb R)$ に属します。また $\sin(ct\xi)/(c\xi)$ は有界です。従って以下の周波数側の積も $L^1$ であり、[FOU3 の Fourier 反転定理](../FOU3/index.md#thm-fou3-inversion)を適用できます。
+$f,g\in C_c^\infty(\mathbb R)$ なので、部分積分を繰り返せば $\widehat f,\widehat g$ は任意の多項式次数より速く減衰し、特に $L^1(\mathbb R)$ に属します。また $\sin(ct\xi)/(c\xi)$ は有界です。従って以下の周波数側の積も $L^1$ であり、[Fourier反転定理](../FOU3/index.md#thm-fou3-inversion)を適用できます。
 
-[FOU3 の畳み込み定理](../FOU3/index.md#thm-fou3-convolution)から
+[L1畳み込みと畳み込み定理](../FOU3/index.md#thm-fou3-convolution)から
 
 $$
 \widehat{H_t*g}(\xi)
