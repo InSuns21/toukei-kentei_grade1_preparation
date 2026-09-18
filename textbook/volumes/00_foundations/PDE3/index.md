@@ -994,7 +994,7 @@ $$
 
 を考えます。
 
-空間変数 $x$ について Fourier 変換すると、[FOU3 の微分則](../FOU3/index.md)により形式的に
+空間変数 $x$ について Fourier 変換すると、[FOU3 の微分則](../FOU3/index.md#thm-fou3-derivative-rule)により形式的に
 
 $$
 \widehat{u_{xx}}(t,\xi)
@@ -1194,7 +1194,7 @@ G_t
 \partial_tG_t.
 $$
 
-固定した $t_0>0$ の近傍では、$G_t$、$\partial_tG_t$、$\partial_{xx}G_t$ は「多項式 × Gaussian」で一様に可積分な関数に支配されます。従って [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を用いて積分記号下で微分でき、
+固定した $t_0>0$ に対し、たとえば $t\in[t_0/2,3t_0/2]$ に制限すると、$G_t(z)$、$\partial_tG_t(z)$、$\partial_{xx}G_t(z)$ は $z$ について一様に有界です。したがって被積分関数は定数倍の $|f(y)|$ で支配されます。従って [優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) を用いて積分記号下で微分でき、
 
 $$
 u_t(t,x)
@@ -1784,29 +1784,22 @@ $$
 \int_{\mathbb R}z^2e^{-z^2}dz.
 $$
 
-Gaussian 積分
+$(e^{-z^2})'=-2ze^{-z^2}$ を使って部分積分すると
 
-$$
-\int_{\mathbb R}e^{-az^2}dz
-=
-\sqrt{\frac\pi a}
-$$
-
-を $a$ で微分すると
-
-$$
--\int_{\mathbb R}z^2e^{-az^2}dz
-=
--\frac{\sqrt\pi}{2}a^{-3/2}.
-$$
-
-$a=1$ より
-
-$$
+$
+\begin{aligned}
 \int_{\mathbb R}z^2e^{-z^2}dz
-=
+&=
+-\frac12\int_{\mathbb R}z\,(e^{-z^2})'dz\\
+&=
+-\frac12\left[ze^{-z^2}\right]_{-\infty}^{\infty}
++\frac12\int_{\mathbb R}e^{-z^2}dz\\
+&=
 \frac{\sqrt\pi}{2}.
-$$
+\end{aligned}
+$
+
+境界項が 0 になるのは $|z|e^{-z^2}\to0$ によります。
 
 従って
 
