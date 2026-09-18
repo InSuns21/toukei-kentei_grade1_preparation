@@ -21,7 +21,7 @@ concepts:
   - id: ode.ode2-linear-ivp-wellposedness
     name: 連続係数線形高階初期値問題の存在・一意性
     kind: theorem
-    aliases: [線形高階初期値問題, 高階線形初期値問題の存在・一意性, 初期値問題]
+    aliases: [線形高階初期値問題, 高階線形初期値問題の存在・一意性]
     introduction: formal
     requires:
       - ode.ode2-linear-higher-order
