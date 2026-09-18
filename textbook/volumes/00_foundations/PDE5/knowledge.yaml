@@ -6,7 +6,11 @@ prerequisites:
 
 # 楕円型代表方程式を古典解の範囲で閉じる。
 # Green恒等式・基本解・Green関数はPDE6、弱解・Sobolev・Lax--MilgramはEncore IIIへ送る。
-forward_references: []
+forward_references:
+  # CA6 と同じ語彙・対象であることを明示するための横参照。
+  # PDE5 の証明はこれらを prerequisite / proof dependency として使わない。
+  - complex-analysis.harmonic-function
+  - complex-analysis.poisson-kernel
 
 concepts:
   - id: pde.pde5-laplace-poisson
@@ -18,11 +22,11 @@ concepts:
     requires: [pde.pde2-type-classification]
 
   - id: pde.pde5-harmonic-function
-    name: 調和関数
+    name: Laplace方程式の解としての調和関数
     kind: definition
-    aliases: [harmonic function]
+    aliases: [PDE5 harmonic-function reintroduction]
     introduction: formal
-    introduction_aliases: ["定義（調和関数）"]
+    introduction_aliases: ["定義（Laplace 方程式の解としての調和関数）"]
     requires: [pde.pde5-laplace-poisson]
 
   - id: pde.pde5-boundary-problems
@@ -52,7 +56,7 @@ concepts:
   - id: pde.pde5-maximum-principle
     name: 調和関数の強最大原理
     kind: theorem
-    aliases: [strong maximum principle]
+    aliases: [strong maximum principle, 強最大原理]
     introduction: formal
     introduction_aliases: ["定理（強最大原理）"]
     requires: [pde.pde5-circle-mean-value]
@@ -76,11 +80,11 @@ concepts:
       - ode.ode7-dirichlet-neumann-spectrum
 
   - id: pde.pde5-poisson-kernel
-    name: 単位円板のPoisson kernel
+    name: 円板境界値問題のPoisson kernel
     kind: definition
-    aliases: [Poisson kernel]
+    aliases: [PDE5 Poisson kernel for the disk]
     introduction: formal
-    introduction_aliases: ["定義（単位円板の Poisson kernel）"]
+    introduction_aliases: ["定義（円板境界値問題の Poisson kernel）"]
     requires: [pde.pde5-harmonic-function]
 
   - id: pde.pde5-poisson-integral
