@@ -78,7 +78,7 @@ concepts:
   - id: pde.pde4-sine-series-solution
     name: Fourier正弦級数による固定端波動方程式解
     kind: theorem
-    aliases: [wave equation sine series solution, Fourier正弦級数解]
+    aliases: [wave equation sine series solution, 固定端波動方程式のFourier正弦級数解]
     introduction: formal
     introduction_aliases: ["定理（滑らかな初期値に対する固定端 Fourier 正弦級数解）"]
     requires:
