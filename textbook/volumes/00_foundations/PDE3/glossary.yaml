@@ -8,11 +8,11 @@ terms:
     meaning: 熱方程式u_t=κu_xxのκ。正で、空間的な凹凸が時間とともに平滑化される速さを決める。
   - term: 放物型境界
     english: parabolic boundary
-    meaning: 時間区間[0,T]上の初期境界値問題で、初期時刻の底面と空間境界を合わせた部分。最大値原理で値を比較する境界。
+    meaning: 時間区間[0,T]上の初期境界値問題で、初期時刻の底面と空間境界を合わせた部分。最大原理で値を比較する境界。
   - term: 古典解
     english: classical solution
     meaning: 熱方程式を点ごとに満たすのに必要な時間1階・空間2階の連続微分を持ち、初期境界条件も連続的に満たす解。
-  - term: 最大値原理
+  - term: 最大原理
     english: maximum principle
     meaning: 熱方程式の劣解の最大値が内部で新たに増幅せず、放物型境界上の最大値で支配される原理。
   - term: 比較原理
