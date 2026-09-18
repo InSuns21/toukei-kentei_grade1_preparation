@@ -19,9 +19,9 @@ concepts:
     requires: [pde.pde1-partial-differential-equation]
 
   - id: pde.pde2-principal-part
-    name: 主部・主係数行列
+    name: PDEの主要部・主係数行列
     kind: definition
-    aliases: [主部, principal part, 主係数行列, principal coefficient matrix]
+    aliases: [PDEの主要部, 主要部, 主係数行列, principal coefficient matrix]
     introduction: formal
     introduction_aliases: ["定義（PDEの最高階二階項と係数行列）"]
     requires: [pde.pde2-second-order-linear]
