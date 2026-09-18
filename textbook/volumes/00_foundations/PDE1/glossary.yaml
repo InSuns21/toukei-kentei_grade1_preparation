@@ -1,0 +1,32 @@
+chapter: "PDE1"
+terms:
+  - term: 偏微分方程式
+    english: partial differential equation
+    meaning: 複数の独立変数をもつ未知関数と、その偏導関数の関係を表す方程式。
+  - term: 半線形PDE
+    english: semilinear PDE
+    meaning: 最高階偏導関数には線形で、その係数が未知関数には依存せず、低階項では非線形性を許す偏微分方程式。
+  - term: 準線形PDE
+    english: quasilinear PDE
+    meaning: 最高階偏導関数には線形だが、その係数が独立変数や未知関数に依存してよい偏微分方程式。
+  - term: 初期値問題
+    english: initial value problem
+    meaning: ある初期時刻の関数値を与えて、その後の偏微分方程式の解を求める問題。
+  - term: 境界値問題
+    english: boundary value problem
+    meaning: 空間領域の境界上で関数値や法線方向微分などを指定して解を求める問題。
+  - term: well-posedness
+    english: well-posedness
+    meaning: 指定した関数空間とノルムのもとで、解の存在・一意性・データへの連続依存がそろうこと。
+  - term: 特性曲線
+    english: characteristic curve
+    meaning: 一次PDEを曲線に沿ってたどると未知関数が常微分方程式を満たすように選んだ曲線。
+  - term: 輸送方程式
+    english: transport equation
+    meaning: ある速度場に沿って量が運ばれる一次偏微分方程式。定係数では u_t+c u_x=0 が基本形。
+  - term: Burgers方程式
+    english: inviscid Burgers equation
+    meaning: u_t+u u_x=0 で表される代表的な一次準線形方程式。特性速度が未知関数自身に依存する。
+  - term: 特性線の交差
+    english: crossing of characteristics
+    meaning: 異なる初期点から出た特性曲線が同じ時空点へ到達すること。古典解を単一値関数として保てなくなる主要な機構。

@@ -1,0 +1,35 @@
+id: "PDE1"
+title: "標準偏微分方程式 I：PDEの基本・一次方程式・特性曲線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE1
+official_scope: []
+learning_objectives:
+  - 偏微分方程式を階数と線形性の観点から分類し、線形・半線形・準線形を具体例で判別できる
+  - 初期値問題・境界値問題とHadamardの意味でのwell-posednessを説明できる
+  - 曲線に沿う連鎖律を用いて一次輸送方程式の特性曲線を導出できる
+  - 定係数輸送方程式を特性曲線で解き、解の一意性と初期値への連続依存を確認できる
+  - 非斉次輸送方程式を特性曲線に沿う積分へ還元して解ける
+  - 変数係数の一次輸送方程式で特性ODEを立てられる
+  - 簡単な準線形方程式としてBurgers方程式の特性表示を導出できる
+  - 特性線の交差と空間勾配の発散から古典解が破綻する機構を説明できる
+definitions:
+  - { id: PDE1-DEF-01, name: 偏微分方程式・階数 }
+  - { id: PDE1-DEF-02, name: 線形・半線形・準線形 }
+  - { id: PDE1-DEF-03, name: 初期値問題・境界値問題 }
+  - { id: PDE1-DEF-04, name: well-posedness }
+  - { id: PDE1-DEF-05, name: 特性曲線 }
+theorems:
+  - { id: PDE1-PROP-01, name: 曲線に沿う連鎖律 }
+  - { id: PDE1-THM-01, name: 定係数輸送方程式の特性表示 }
+  - { id: PDE1-THM-02, name: 非斉次輸送方程式の特性表示 }
+  - { id: PDE1-PROP-02, name: 変数係数輸送方程式の特性還元 }
+  - { id: PDE1-THM-03, name: Burgers方程式の特性表示 }
+  - { id: PDE1-PROP-03, name: Burgers方程式の勾配公式と古典解破綻 }
+canonical_examples: [定係数移流, 変数係数移流, 非斉次輸送, Burgers方程式, 特性線交差]
+problem_patterns: [PDE-CLASSIFY-1, PDE-TRANSPORT-1, PDE-INHOM-TRANSPORT-1, PDE-VARIABLE-CHAR-1, PDE-BURGERS-CHAR-1, PDE-BREAKDOWN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }

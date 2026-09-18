@@ -1,0 +1,105 @@
+chapter: PDE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ODE1
+
+# PDE1 は Encore II の標準PDE系列の入口。
+# 多変数のFréchet微分を新たな prerequisite にせず、特性曲線法に必要な
+# 「C1関数をC1曲線へ制限したときの連鎖律」を本文で直接証明する。
+# 弱解・entropy solution は停止線としてのみ触れ、後続の Encore III へ送る。
+forward_references: []
+
+concepts:
+  - id: pde.pde1-partial-differential-equation
+    name: 偏微分方程式・階数
+    kind: definition
+    aliases: [偏微分方程式, PDE, PDEの階数]
+    introduction: inline
+    introduction_aliases: ["定義（偏微分方程式と階数）"]
+
+  - id: pde.pde1-linearity-classification
+    name: 線形・半線形・準線形
+    kind: definition
+    aliases: [線形PDE, 半線形PDE, 準線形PDE, semilinear, quasilinear]
+    introduction: formal
+    introduction_aliases: ["定義（一次PDEの線形・半線形・準線形）"]
+    requires: [pde.pde1-partial-differential-equation]
+
+  - id: pde.pde1-initial-boundary-value-problem
+    name: PDEにおける初期値問題・境界値問題
+    kind: definition
+    aliases: [PDEの初期値問題, PDEの境界値問題, PDE initial-value problem, PDE boundary-value problem]
+    introduction: formal
+    introduction_aliases: ["定義（PDEの初期データ問題と境界データ問題）"]
+    requires: [pde.pde1-partial-differential-equation]
+
+  - id: pde.pde1-well-posedness
+    name: well-posedness
+    kind: definition
+    aliases: [well-posed, 適切性, Hadamardの意味での適切性]
+    introduction: formal
+    introduction_aliases: ["定義（well-posedness）"]
+    requires: [pde.pde1-initial-boundary-value-problem]
+
+  - id: pde.pde1-curve-chain-rule
+    name: 曲線に沿う連鎖律
+    kind: proposition
+    aliases: [曲線に沿う連鎖律, chain rule along curves]
+    introduction: formal
+    introduction_aliases: ["命題（曲線に沿う連鎖律）"]
+
+  - id: pde.pde1-characteristic-curve
+    name: 特性曲線
+    kind: definition
+    aliases: [特性曲線, characteristic curve, characteristics]
+    introduction: inline
+    introduction_aliases: ["定義（特性曲線）"]
+    requires:
+      - ode.ode1-ordinary-differential-equation
+
+  - id: pde.pde1-constant-transport
+    name: 定係数輸送方程式の特性表示
+    kind: theorem
+    aliases: [定係数輸送方程式の特性表示]
+    introduction: formal
+    introduction_aliases: ["定理（定係数輸送方程式の特性表示）"]
+    requires:
+      - pde.pde1-characteristic-curve
+      - pde.pde1-initial-boundary-value-problem
+
+  - id: pde.pde1-inhomogeneous-transport
+    name: 非斉次輸送方程式の特性表示
+    kind: theorem
+    aliases: [非斉次輸送方程式の特性表示]
+    introduction: formal
+    introduction_aliases: ["定理（非斉次輸送方程式の特性表示）"]
+    requires: [pde.pde1-characteristic-curve]
+
+  - id: pde.pde1-variable-transport-reduction
+    name: 変数係数輸送方程式の特性還元
+    kind: proposition
+    aliases: [変数係数輸送方程式, variable-coefficient transport]
+    introduction: formal
+    introduction_aliases: ["命題（変数係数輸送方程式の特性還元）"]
+    requires:
+      - pde.pde1-characteristic-curve
+      - ode.ode1-ordinary-differential-equation
+
+  - id: pde.pde1-burgers-characteristics
+    name: Burgers方程式の特性表示
+    kind: theorem
+    aliases: [Burgers方程式の特性表示, Burgers characteristic representation]
+    introduction: formal
+    introduction_aliases: ["定理（Burgers方程式の特性表示）"]
+    requires:
+      - pde.pde1-characteristic-curve
+      - pde.pde1-linearity-classification
+
+  - id: pde.pde1-burgers-breakdown
+    name: Burgers方程式の勾配公式と古典解破綻
+    kind: proposition
+    aliases: [特性線の交差, gradient blow-up, 古典解の破綻]
+    introduction: formal
+    introduction_aliases: ["命題（Burgers方程式の勾配公式と古典解破綻）"]
+    requires: [pde.pde1-burgers-characteristics]
