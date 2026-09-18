@@ -1178,25 +1178,25 @@ $$
 
 と置きます。$x=r\cos\theta$、$y=r\sin\theta$ と
 
-$
+$$
 \cos((n+1)\theta)
 =
 \cos\theta\cos(n\theta)-\sin\theta\sin(n\theta),
-$
+$$
 
-$
+$$
 \sin((n+1)\theta)
 =
 \sin\theta\cos(n\theta)+\cos\theta\sin(n\theta)
-$
+$$
 
 を代入すると
 
-$
+$$
 H_{n+1}^c=xH_n^c-yH_n^s,
 \qquad
 H_{n+1}^s=yH_n^c+xH_n^s.
-$
+$$
 
 $H_0^c=1$、$H_1^c=x$、$H_1^s=y$ から帰納的に、これらは $(x,y)$ の多項式です。$r>0$ では極座標表示を直接微分して
 
