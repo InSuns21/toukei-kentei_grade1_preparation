@@ -23,11 +23,11 @@ PDE2 では二階線形 PDE を楕円型・放物型・双曲型へ分類し、P
 <!-- formal-statement-start -->
 > **定義（一次元波動方程式）**  
 > 定数 $c>0$ に対して
->
-> $$
-> u_{tt}=c^2u_{xx}
-> $$
->
+
+$$
+u_{tt}=c^2u_{xx}
+$$
+
 > を一次元波動方程式という。定数 $c$ を波の伝播速度という。
 <!-- formal-statement-end -->
 
@@ -105,17 +105,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（波動方程式の古典 Cauchy 解）**  
 > $f\in C^2(\mathbb R)$、$g\in C^1(\mathbb R)$ とする。$u\in C^2([0,\infty)\times\mathbb R)$ が
->
-> $$
-> u_{tt}=c^2u_{xx}
-> $$
->
+
+$$
+u_{tt}=c^2u_{xx}
+$$
+
 > を点ごとに満たし、
->
-> $$
-> u(0,x)=f(x),\qquad u_t(0,x)=g(x)
-> $$
->
+
+$$
+u(0,x)=f(x),\qquad u_t(0,x)=g(x)
+$$
+
 > を全ての $x\in\mathbb R$ で満たすとき、$u$ をこの Cauchy 問題の古典解という。
 <!-- formal-statement-end -->
 
@@ -162,7 +162,7 @@ $$
 v(\xi,\eta)=u(t,x)
 $$
 
-と書きます。逆変換は
+と書きます。元の座標は
 
 $$
 x=\frac{\xi+\eta}{2},
@@ -278,28 +278,28 @@ $$
 <!-- formal-statement-start -->
 > **定理（d'Alembert 公式）**  
 > $c>0$、$f\in C^2(\mathbb R)$、$g\in C^1(\mathbb R)$ とする。このとき Cauchy 問題
->
-> $$
-> u_{tt}=c^2u_{xx},
-> $$
->
-> $$
-> u(0,x)=f(x),\qquad u_t(0,x)=g(x)
-> $$
->
+
+$$
+u_{tt}=c^2u_{xx},
+$$
+
+$$
+u(0,x)=f(x),\qquad u_t(0,x)=g(x)
+$$
+
 > は古典解
->
-> $$
-> \boxed{
-> u(t,x)
-> =
-> \frac{f(x-ct)+f(x+ct)}2
-> +
-> \frac1{2c}
-> \int_{x-ct}^{x+ct}g(s)\,ds
-> }
-> $$
->
+
+$$
+\boxed{
+u(t,x)
+=
+\frac{f(x-ct)+f(x+ct)}2
++
+\frac1{2c}
+\int_{x-ct}^{x+ct}g(s)\,ds
+}
+$$
+
 > を持つ。
 <!-- formal-statement-end -->
 
@@ -429,7 +429,7 @@ $$
 が決まり、従って $F',G'$ は一意です。$F,G$ 自体には互いに打ち消す定数の自由度しかなく、その和 $u$ は一意です。
 <!-- proof-end -->
 
-d'Alembert 公式は単なる解公式ではありません。「時刻 $t$、位置 $x$ の値が、初期時刻のどの範囲だけを見ているか」をそのまま示しています。
+[d'Alembert 公式](#thm-pde4-dalembert)は単なる解公式ではありません。「時刻 $t$、位置 $x$ の値が、初期時刻のどの範囲だけを見ているか」をそのまま示しています。
 
 ---
 
@@ -439,13 +439,13 @@ d'Alembert 公式は単なる解公式ではありません。「時刻 $t$、�
 <!-- formal-statement-start -->
 > **定義（一次元波動方程式の後方依存区間）**  
 > 点 $(t_0,x_0)$、$t_0>0$ に対し
->
-> $$
-> I_0(t_0,x_0)
-> =
-> [x_0-ct_0,\ x_0+ct_0]
-> $$
->
+
+$$
+I_0(t_0,x_0)
+=
+[x_0-ct_0,\ x_0+ct_0]
+$$
+
 > を、その点の初期時刻上の後方依存区間という。
 <!-- formal-statement-end -->
 
@@ -462,20 +462,20 @@ I_0(3,5)
 [-1,11].
 $$
 
-d'Alembert 公式で $u(3,5)$ を計算するために必要なのは、$f$ の端点値 $f(-1),f(11)$ と、$g$ の $[-1,11]$ 上の値だけです。初期時刻の $x=20$ にある情報はまだ $(3,5)$ へ届きません。
+[d'Alembert 公式](#thm-pde4-dalembert)で $u(3,5)$ を計算するために必要なのは、$f$ の端点値 $f(-1),f(11)$ と、$g$ の $[-1,11]$ 上の値だけです。初期時刻の $x=20$ にある情報はまだ $(3,5)$ へ届きません。
 <!-- definition-example-end -->
 
 <a id="cor-pde4-finite-propagation"></a>
 <!-- formal-statement-start -->
 > **系（有限伝播速度）**  
-> d'Alembert 公式の仮定の下で、初期データ $f,g$ が区間 $[a,b]$ の外で 0 とする。このとき任意の $t\ge0$ について
->
-> $$
-> u(t,x)=0
-> \qquad
-> (x<a-ct\ \text{または}\ x>b+ct)
-> $$
->
+> [d'Alembert 公式](#thm-pde4-dalembert)の仮定の下で、初期データ $f,g$ が区間 $[a,b]$ の外で 0 とする。このとき任意の $t\ge0$ について
+
+$$
+u(t,x)=0
+\qquad
+(x<a-ct\ \text{または}\ x>b+ct)
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -502,7 +502,7 @@ $$
 \int_{x-ct}^{x+ct}g(s)\,ds=0.
 $$
 
-d'Alembert 公式から $u(t,x)=0$ です。
+[d'Alembert 公式](#thm-pde4-dalembert)から $u(t,x)=0$ です。
 
 次に $x<a-ct$ とします。このとき $x-ct<a$ かつ $x+ct<a$ であり、積分区間 $[x-ct,x+ct]$ 全体も $(-\infty,a)$ に含まれます。従って二つの $f$ の項と $g$ の積分項が全て 0 となり、やはり $u(t,x)=0$ です。
 <!-- proof-end -->
@@ -529,33 +529,33 @@ $$
 <!-- formal-statement-start -->
 > **定理（固定端波動方程式のエネルギー保存）**  
 > $u\in C^2([0,T]\times[0,L])$ が
->
-> $$
-> u_{tt}=c^2u_{xx}
-> $$
->
+
+$$
+u_{tt}=c^2u_{xx}
+$$
+
 > を $0<t<T,\ 0<x<L$ で満たし、
->
-> $$
-> u(t,0)=u(t,L)=0
-> $$
->
+
+$$
+u(t,0)=u(t,L)=0
+$$
+
 > を全ての $t\in[0,T]$ で満たすとする。このとき
->
-> $$
-> E(t)
-> :=
-> \frac12
-> \int_0^L
-> \{u_t(t,x)^2+c^2u_x(t,x)^2\}\,dx
-> $$
->
+
+$$
+E(t)
+:=
+\frac12
+\int_0^L
+\{u_t(t,x)^2+c^2u_x(t,x)^2\}\,dx
+$$
+
 > は $t$ に依存せず、
->
-> $$
-> E'(t)=0
-> $$
->
+
+$$
+E'(t)=0
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -650,17 +650,17 @@ $$
 <!-- formal-statement-start -->
 > **系（固定端初期境界値問題の一意性）**  
 > 同じ初期変位 $f$、初速度 $g$、斉次 Dirichlet 境界条件
->
-> $$
-> u(t,0)=u(t,L)=0
-> $$
->
+
+$$
+u(t,0)=u(t,L)=0
+$$
+
 > を持つ二つの $C^2$ 古典解 $u,v$ が存在するなら
->
-> $$
-> u=v
-> $$
->
+
+$$
+u=v
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -805,15 +805,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（固定端の有限 Fourier 正弦モード解）**  
 > $k_n=n\pi/L$、$\omega_n=ck_n$ とする。任意の $N\in\mathbb N$ と実数 $a_n,b_n$ に対し
->
-> $$
-> u_N(t,x)
-> =
-> \sum_{n=1}^N
-> \{a_n\cos(\omega_nt)+b_n\sin(\omega_nt)\}
-> \sin(k_nx)
-> $$
->
+
+$$
+u_N(t,x)
+=
+\sum_{n=1}^N
+\{a_n\cos(\omega_nt)+b_n\sin(\omega_nt)\}
+\sin(k_nx)
+$$
+
 > は固定端波動方程式の古典解である。
 <!-- formal-statement-end -->
 
@@ -918,55 +918,55 @@ $$
 <!-- formal-statement-start -->
 > **定理（滑らかな初期値に対する固定端 Fourier 正弦級数解）**  
 > $f\in C^4([0,L])$、$g\in C^3([0,L])$ が
->
-> $$
-> f(0)=f(L)=0,
-> \qquad
-> f''(0)=f''(L)=0,
-> $$
->
-> $$
-> g(0)=g(L)=0
-> $$
->
+
+$$
+f(0)=f(L)=0,
+\qquad
+f''(0)=f''(L)=0,
+$$
+
+$$
+g(0)=g(L)=0
+$$
+
 > を満たすとする。$k_n=n\pi/L$ とし
->
-> $$
-> a_n
-> =
-> \frac2L\int_0^Lf(x)\sin(k_nx)\,dx,
-> $$
->
-> $$
-> g_n
-> =
-> \frac2L\int_0^Lg(x)\sin(k_nx)\,dx
-> $$
->
+
+$$
+a_n
+=
+\frac2L\int_0^Lf(x)\sin(k_nx)\,dx,
+$$
+
+$$
+g_n
+=
+\frac2L\int_0^Lg(x)\sin(k_nx)\,dx
+$$
+
 > と置く。このとき
->
-> $$
-> \boxed{
-> u(t,x)
-> =
-> \sum_{n=1}^{\infty}
-> \left\{
-> a_n\cos(ck_nt)
-> +
-> \frac{g_n}{ck_n}\sin(ck_nt)
-> \right\}
-> \sin(k_nx)
-> }
-> $$
->
+
+$$
+\boxed{
+u(t,x)
+=
+\sum_{n=1}^{\infty}
+\left\{
+a_n\cos(ck_nt)
++
+\frac{g_n}{ck_n}\sin(ck_nt)
+\right\}
+\sin(k_nx)
+}
+$$
+
 > は任意の有限 $T>0$ に対して $[0,T]\times[0,L]$ 上で必要な微分を項別に行える固定端波動方程式の古典解であり、
->
-> $$
-> u(0,x)=f(x),
-> \qquad
-> u_t(0,x)=g(x)
-> $$
->
+
+$$
+u(0,x)=f(x),
+\qquad
+u_t(0,x)=g(x)
+$$
+
 > を満たす。
 <!-- formal-statement-end -->
 
@@ -1132,29 +1132,29 @@ $$
 
 ここで $\xi=0$ では第二因子を極限値 $t$ と解釈します。
 
-この表示が d'Alembert 公式と本当に同じであることを確認します。
+この表示が [d'Alembert 公式](#thm-pde4-dalembert)と本当に同じであることを確認します。
 
 <a id="prop-pde4-fourier-dalembert"></a>
 <!-- formal-statement-start -->
 > **命題（Fourier 表示と d'Alembert 公式の一致）**  
-> $f,g\in C_c^\infty(\mathbb R)$ とし、$u$ を d'Alembert 公式で定める。このとき
->
-> $$
-> \widehat u(t,\xi)
-> =
-> \widehat f(\xi)\cos(c\xi t)
-> +
-> \widehat g(\xi)
-> \frac{\sin(c\xi t)}{c\xi}.
-> $$
->
+> $f,g\in C_c^\infty(\mathbb R)$ とし、$u$ を [d'Alembert 公式](#thm-pde4-dalembert)で定める。このとき
+
+$$
+\widehat u(t,\xi)
+=
+\widehat f(\xi)\cos(c\xi t)
++
+\widehat g(\xi)
+\frac{\sin(c\xi t)}{c\xi}.
+$$
+
 > またこの周波数表示を FOU3 の反転規約
->
-> $$
-> h(x)=\frac1{2\pi}\int_{\mathbb R}\widehat h(\xi)e^{i\xi x}\,d\xi
-> $$
->
-> で空間へ戻すと d'Alembert 公式を得る。
+
+$$
+h(x)=\frac1{2\pi}\int_{\mathbb R}\widehat h(\xi)e^{i\xi x}\,d\xi
+$$
+
+> で空間へ戻すと [d'Alembert 公式](#thm-pde4-dalembert)を得る。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1241,7 +1241,7 @@ u(t,x)
 \int_{x-ct}^{x+ct}g(s)\,ds,
 $$
 
-すなわち d'Alembert 公式です。
+すなわち [d'Alembert 公式](#thm-pde4-dalembert)です。
 <!-- proof-end -->
 
 ここで二つの見方が完全に一致しました。
@@ -1343,7 +1343,7 @@ f(x)=\cos(kx),
 g(x)=0
 $$
 
-とする。d'Alembert 公式から解を求め、
+とする。[d'Alembert 公式](#thm-pde4-dalembert)から解を求め、
 
 $$
 u(t,x)=\cos(kx)\cos(ckt)
@@ -1410,7 +1410,7 @@ I_0(2,10)
 [4,16].
 $$
 
-2. d'Alembert 公式から
+2. [d'Alembert 公式](#thm-pde4-dalembert)から
 
 $$
 u_j(2,10)
@@ -1536,7 +1536,7 @@ $f,g$ が $[-1,1]$ の外で 0 とし、伝播速度を $c=2$ とする。
 <!-- solution-start -->
 **解答**
 
-1. 有限伝播速度から
+1. [有限伝播速度](#cor-pde4-finite-propagation)から
 
 $$
 \operatorname{supp}u(t,\cdot)
@@ -1558,7 +1558,7 @@ $$
 
 従って $t<3$ では $u(t,7)=0$ が保証されます。$t=3$ 以降は初期データの形によって非零になり得ます。
 
-3. 熱方程式では Gaussian 熱核が全空間で正なので、非負・非零のコンパクト台初期値は任意の $t>0$ で全ての点へ影響します。波動方程式では特性円錐の外へ情報が出ず、到達前は厳密に 0 のままです。
+3. 熱方程式では Gaussian 熱核が全空間で正なので、非負・非零のコンパクト台初期値は任意の $t>0$ で全ての点へ影響します。波動方程式では有限伝播領域の外へ情報が出ず、到達前は厳密に 0 のままです。
 <!-- solution-end -->
 
 <a id="ex-pde4-b02"></a>
@@ -1795,7 +1795,7 @@ $$
 <!-- solution-start -->
 **解答**
 
-1. $F,G$ は実数全体上の初期変位・初速度です。与えられた式はその d'Alembert 公式なので、滑らかさの仮定の下で
+1. $F,G$ は実数全体上の初期変位・初速度です。与えられた式はその [d'Alembert 公式](#thm-pde4-dalembert)なので、滑らかさの仮定の下で
 
 $$
 u_{tt}=c^2u_{xx}
@@ -1857,7 +1857,7 @@ $$
 u(0,x)=F(x)=f(x)
 $$
 
-が $0\le x\le L$ で成り立ちます。d'Alembert 公式の微分計算から
+が $0\le x\le L$ で成り立ちます。[d'Alembert 公式](#thm-pde4-dalembert)の微分計算から
 
 $$
 u_t(0,x)=G(x)=g(x).
@@ -1893,7 +1893,7 @@ u(t,x)
 \cos\left(\frac{c\pi t}{L}\right).
 $$
 
-6. 奇周期延長では、端点を越えた波を符号反転させて周期的に配置します。d'Alembert 公式で直線上を進む波を追うと、この符号反転が固定端での反射として見えます。一方、同じ奇 $2L$ 周期関数を Fourier 展開すると正弦級数だけが残ります。従って
+6. 奇周期延長では、端点を越えた波を符号反転させて周期的に配置します。[d'Alembert 公式](#thm-pde4-dalembert)で直線上を進む波を追うと、この符号反転が固定端での反射として見えます。一方、同じ奇 $2L$ 周期関数を Fourier 展開すると正弦級数だけが残ります。従って
 
 $$
 \text{固定端での反射}
@@ -1913,12 +1913,12 @@ $$
 - 波動方程式が双曲型であることを判別式から確認できるか。
 - $F(x-ct)$、$G(x+ct)$ が進行波になることを直接微分して確認できるか。
 - 特性座標 $\xi=x-ct,\eta=x+ct$ から $u=F(\xi)+G(\eta)$ を導けるか。
-- d'Alembert 公式を初期変位・初速度から導き、直接検証できるか。
-- 点 $(t,x)$ の後方依存区間を読み、有限伝播速度を証明できるか。
+- [d'Alembert 公式](#thm-pde4-dalembert)を初期変位・初速度から導き、直接検証できるか。
+- 点 $(t,x)$ の後方依存区間を読み、[有限伝播速度](#cor-pde4-finite-propagation)を証明できるか。
 - 固定端のエネルギー保存で、境界項がなぜ消えるか説明できるか。
 - エネルギーが 0 であることから一意性を再構成できるか。
 - 変数分離から Dirichlet 固有値問題と調和振動子を導けるか。
 - Fourier 正弦級数解で、熱方程式と違って初期データの滑らかさが必要になる理由を説明できるか。
-- Fourier 変換表示を d'Alembert 公式へ戻し、特性空間と周波数空間の二つの見方を対応させられるか。
+- Fourier 変換表示を [d'Alembert 公式](#thm-pde4-dalembert)へ戻し、特性空間と周波数空間の二つの見方を対応させられるか。
 
-次章 PDE5 では、時間発展を持たない楕円型の代表として Laplace・Poisson 方程式へ進みます。最大原理、平均値性質、調和関数、Dirichlet 問題を通じて、熱・波動とは異なる「境界から内部が決まる」構造を調べます。
+次章 PDE5 では、時間発展を持たない楕円型の代表として Laplace・Poisson 方程式へ進みます。最大原理、平均値性質、Dirichlet 問題を通じて、Laplace 方程式の解が持つ「境界から内部が決まる」構造を調べます。
