@@ -2,10 +2,7 @@ chapter: PDE4
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - PDE2
-  - ODE7
-  - FOU2
-  - FOU3
+  - PDE3
 
 # 双曲型代表方程式を一次元古典解の範囲で閉じる。
 # 弱解・エネルギー空間・高次元の波動公式・一般双曲型作用素はEncore III以降へ送る。
