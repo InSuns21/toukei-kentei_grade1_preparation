@@ -90,11 +90,11 @@ concepts:
     requires: [pde.pde2-type-classification]
 
   - id: pde.pde2-laplace-cauchy-instability
-    name: Laplace方程式のCauchyデータに対する不安定性
+    name: Laplace型代表式のCauchyデータに対する不安定性
     kind: proposition
-    aliases: [Laplace方程式のCauchy問題, elliptic Cauchy instability]
+    aliases: [楕円型Cauchy問題の不安定性, elliptic Cauchy instability]
     introduction: formal
-    introduction_aliases: ["命題（Laplace方程式のCauchyデータに対する不安定性の例）"]
+    introduction_aliases: ["命題（Laplace 型代表式のCauchyデータに対する不安定性の例）"]
     requires:
       - pde.pde2-type-classification
       - pde.pde1-well-posedness
