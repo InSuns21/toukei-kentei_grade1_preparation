@@ -209,6 +209,7 @@
 11. [FOU3 Fourier変換・畳み込み・反転](textbook/volumes/00_foundations/FOU3/index.md)
 12. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
 13. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
+14. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
 
 ---
 
