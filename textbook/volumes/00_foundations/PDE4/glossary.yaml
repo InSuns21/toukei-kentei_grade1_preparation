@@ -1,0 +1,26 @@
+chapter: "PDE4"
+terms:
+  - term: 波動方程式
+    english: wave equation
+    meaning: 伝播速度c>0に対してu_tt=c^2u_xxと書かれる代表的な双曲型偏微分方程式。
+  - term: 進行波
+    english: traveling wave
+    meaning: F(x-ct)またはG(x+ct)の形で、波形を保ったまま速度cで右または左へ移動する解。
+  - term: d'Alembert公式
+    english: d'Alembert formula
+    meaning: 一次元波動方程式のCauchy問題を、初期変位の左右平行移動と初速度の区間積分で表す解公式。
+  - term: 後方依存区間
+    english: domain of dependence
+    meaning: 点(t,x)の値を決める初期時刻上の区間[x-ct,x+ct]。この区間外の初期データはその点へまだ影響しない。
+  - term: 有限伝播速度
+    english: finite propagation speed
+    meaning: コンパクトに局在した初期擾乱の影響が速度cを超えて広がらない性質。
+  - term: 波動エネルギー
+    english: wave energy
+    meaning: 固定端問題でE(t)=1/2∫(u_t^2+c^2u_x^2)dxと定義される量。滑らかな解では時間に依らず保存される。
+  - term: 固有モード
+    english: eigenmode
+    meaning: 固定端境界条件の空間固有関数sin(nπx/L)と、対応する時間調和振動の積で表される成分。
+  - term: 端点反射
+    english: reflection at a fixed endpoint
+    meaning: 固定端条件を保つため、端点を越える進行波が符号反転して戻る現象。奇周期延長で表現できる。
