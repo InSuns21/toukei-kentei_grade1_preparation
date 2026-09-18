@@ -1,0 +1,102 @@
+chapter: PDE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE2
+  - ODE7
+  - FOU2
+  - FOU3
+
+# 双曲型代表方程式を一次元古典解の範囲で閉じる。
+# 弱解・エネルギー空間・高次元の波動公式・一般双曲型作用素はEncore III以降へ送る。
+forward_references: []
+
+concepts:
+  - id: pde.pde4-wave-equation
+    name: 一次元波動方程式
+    kind: definition
+    aliases: [wave equation, 波動方程式]
+    introduction: formal
+    introduction_aliases: ["定義（一次元波動方程式）"]
+    requires: [pde.pde2-type-classification]
+
+  - id: pde.pde4-classical-solution
+    name: 波動方程式の古典Cauchy解
+    kind: definition
+    aliases: [classical solution of wave equation, 古典Cauchy解]
+    introduction: formal
+    introduction_aliases: ["定義（波動方程式の古典 Cauchy 解）"]
+    requires: [pde.pde4-wave-equation]
+
+  - id: pde.pde4-dalembert
+    name: d'Alembert公式
+    kind: theorem
+    aliases: [d'Alembert formula, ダランベール公式]
+    introduction: formal
+    introduction_aliases: ["定理（d'Alembert 公式）"]
+    requires: [pde.pde4-classical-solution]
+
+  - id: pde.pde4-domain-dependence
+    name: 後方依存区間
+    kind: definition
+    aliases: [domain of dependence, 依存領域]
+    introduction: formal
+    introduction_aliases: ["定義（一次元波動方程式の後方依存区間）"]
+    requires: [pde.pde4-dalembert]
+
+  - id: pde.pde4-finite-propagation
+    name: 有限伝播速度
+    kind: corollary
+    aliases: [finite propagation speed]
+    introduction: formal
+    introduction_aliases: ["系（有限伝播速度）"]
+    requires: [pde.pde4-domain-dependence, pde.pde4-dalembert]
+
+  - id: pde.pde4-energy-conservation
+    name: 固定端波動方程式のエネルギー保存
+    kind: theorem
+    aliases: [wave energy conservation, エネルギー保存則]
+    introduction: formal
+    introduction_aliases: ["定理（固定端波動方程式のエネルギー保存）"]
+    requires: [pde.pde4-wave-equation]
+
+  - id: pde.pde4-uniqueness
+    name: 固定端初期境界値問題の一意性
+    kind: corollary
+    aliases: [波動方程式の一意性]
+    introduction: formal
+    introduction_aliases: ["系（固定端初期境界値問題の一意性）"]
+    requires: [pde.pde4-energy-conservation]
+
+  - id: pde.pde4-finite-sine-solution
+    name: 固定端の有限Fourier正弦モード解
+    kind: proposition
+    aliases: [固定端固有モード, 波動方程式の有限モード解]
+    introduction: formal
+    introduction_aliases: ["命題（固定端の有限 Fourier 正弦モード解）"]
+    requires:
+      - pde.pde4-wave-equation
+      - ode.ode7-dirichlet-neumann-spectrum
+
+  - id: pde.pde4-sine-series-solution
+    name: Fourier正弦級数による固定端波動方程式解
+    kind: theorem
+    aliases: [wave equation sine series solution, Fourier正弦級数解]
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな初期値に対する固定端 Fourier 正弦級数解）"]
+    requires:
+      - pde.pde4-finite-sine-solution
+      - fourier.fou2-dirichlet-convergence
+
+  - id: pde.pde4-fourier-representation
+    name: 波動方程式のFourier表示とd'Alembert公式の一致
+    kind: proposition
+    aliases: [wave Fourier representation]
+    introduction: formal
+    introduction_aliases: ["命題（Fourier 表示と d'Alembert 公式の一致）"]
+    requires:
+      - pde.pde4-dalembert
+      - fourier.fou3-fourier-transform
+      - fourier.fou3-derivative-rule
+      - fourier.fou3-transform-rules
+      - fourier.fou3-convolution
