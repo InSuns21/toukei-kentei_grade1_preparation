@@ -72,7 +72,7 @@ FOU3 は $L^1$ Fourier 変換、Riemann--Lebesgue、畳み込み、Gaussian、�
 PDE 系列は次の順で実装します。
 
 1. [PDE1 PDEの基本・一次方程式・特性曲線](../PDE1/index.md)
-2. PDE2 二階線形PDEの分類
+2. [PDE2 二階線形PDEの分類](../PDE2/index.md)
 3. PDE3 熱方程式
 4. PDE4 波動方程式
 5. PDE5 Laplace・Poisson方程式と調和関数
@@ -80,6 +80,8 @@ PDE 系列は次の順で実装します。
 7. PDE7 Fourier法・固有関数法の統合
 
 PDE1 では一次方程式を入口に、[曲線に沿う連鎖律](../PDE1/index.md#prop-pde1-curve-composition)と特性曲線法を順に導入し、定係数・非斉次・変数係数の輸送方程式を解きます。さらに Burgers 方程式で、特性写像の一対一性が失われると空間勾配が発散し、古典解が破綻し得る機構まで確認します。弱解・entropy solution は Encore III 以降へ送り、PDE1 の証明には逆輸入しません。
+
+PDE2 では[二階線形PDEの型](../PDE2/index.md#def-pde2-type)を最高階二階項と判別式から定義し、主二次形式・特性方向・座標変換不変性・三つの標準形まで導出します。elliptic / parabolic / hyperbolic の代表式を比較し、楕円型の代表式に Cauchy データを置くと不安定になり得る具体列から、型と自然なデータ配置の関係まで確認します。
 
 熱・波動・Laplace 方程式を単なる三つの計算例として並べず、parabolic / hyperbolic / elliptic の代表として位置付けます。最大値原理・エネルギー法など、一意性を支える論証まで標準コアに含めます。
 

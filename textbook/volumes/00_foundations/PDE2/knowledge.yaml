@@ -1,0 +1,100 @@
+chapter: PDE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE1
+
+# 二階線形PDEの分類を二変数で閉じる。
+# 2x2主係数行列と判別式、線形座標変換は章内で導出し、
+# LA6の一般Sylvester慣性則やEncore IIIの弱解理論を前提にしない。
+forward_references: []
+
+concepts:
+  - id: pde.pde2-second-order-linear
+    name: 二変数の二階線形PDE
+    kind: definition
+    aliases: [二階線形PDE, second-order linear PDE]
+    introduction: formal
+    introduction_aliases: ["定義（二変数の二階線形PDE）"]
+    requires: [pde.pde1-partial-differential-equation]
+
+  - id: pde.pde2-principal-part
+    name: PDEの主要部・主係数行列
+    kind: definition
+    aliases: [PDEの主要部, 主要部, 主係数行列, principal coefficient matrix]
+    introduction: formal
+    introduction_aliases: ["定義（PDEの最高階二階項と係数行列）"]
+    requires: [pde.pde2-second-order-linear]
+
+  - id: pde.pde2-type-classification
+    name: 二階線形PDEの型
+    kind: definition
+    aliases: [楕円型PDE, 放物型PDE, 双曲型PDE, elliptic PDE, parabolic PDE, hyperbolic PDE, PDEの判別式]
+    introduction: formal
+    introduction_aliases: ["定義（二階線形PDEの型）"]
+    requires: [pde.pde2-principal-part]
+
+  - id: pde.pde2-principal-quadratic-form
+    name: 主二次形式
+    kind: definition
+    aliases: [主二次形式, principal quadratic form]
+    introduction: formal
+    introduction_aliases: ["定義（主二次形式）"]
+    requires: [pde.pde2-principal-part]
+
+  - id: pde.pde2-characteristic-direction
+    name: 二階PDEの特性方向
+    kind: definition
+    aliases: [二階PDEの特性方向, characteristic direction]
+    introduction: formal
+    introduction_aliases: ["定義（二階PDEの特性方向）"]
+    requires: [pde.pde2-principal-quadratic-form]
+
+  - id: pde.pde2-characteristic-count
+    name: 型と実特性方向の本数
+    kind: proposition
+    aliases: [型と実特性方向の本数]
+    introduction: formal
+    introduction_aliases: ["命題（型と実特性方向の本数）"]
+    requires:
+      - pde.pde2-characteristic-direction
+      - pde.pde2-type-classification
+
+  - id: pde.pde2-coordinate-invariance
+    name: 可逆線形座標変換による型の不変性
+    kind: theorem
+    aliases: [PDE型の座標不変性, 可逆線形座標変換による型の不変性]
+    introduction: formal
+    introduction_aliases: ["定理（可逆線形座標変換による型の不変性）"]
+    requires:
+      - pde.pde2-principal-part
+      - pde.pde2-type-classification
+
+  - id: pde.pde2-standard-form
+    name: 二変数定係数主要部の標準形
+    kind: theorem
+    aliases: [二階PDEの標準形, canonical form of second-order PDE]
+    introduction: formal
+    introduction_aliases: ["定理（二変数定係数主要部の標準形）"]
+    requires:
+      - pde.pde2-coordinate-invariance
+      - pde.pde2-principal-quadratic-form
+      - pde.pde2-type-classification
+
+  - id: pde.pde2-tricomi-type-change
+    name: Tricomi型方程式の型変化
+    kind: proposition
+    aliases: [Tricomi型方程式, mixed-type PDE]
+    introduction: formal
+    introduction_aliases: ["命題（Tricomi型方程式の型変化）"]
+    requires: [pde.pde2-type-classification]
+
+  - id: pde.pde2-laplace-cauchy-instability
+    name: Laplace型代表式のCauchyデータに対する不安定性
+    kind: proposition
+    aliases: [楕円型Cauchy問題の不安定性, elliptic Cauchy instability]
+    introduction: formal
+    introduction_aliases: ["命題（Laplace 型代表式のCauchyデータに対する不安定性の例）"]
+    requires:
+      - pde.pde2-type-classification
+      - pde.pde1-well-posedness
