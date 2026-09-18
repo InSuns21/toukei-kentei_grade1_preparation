@@ -14,8 +14,8 @@ concepts:
   - id: pde.pde1-partial-differential-equation
     name: 偏微分方程式・階数
     kind: definition
-    aliases: [偏微分方程式, PDE, 階数]
-    introduction: formal
+    aliases: [偏微分方程式, PDE, PDEの階数]
+    introduction: inline
     introduction_aliases: ["定義（偏微分方程式と階数）"]
 
   - id: pde.pde1-linearity-classification
@@ -27,9 +27,9 @@ concepts:
     requires: [pde.pde1-partial-differential-equation]
 
   - id: pde.pde1-initial-boundary-value-problem
-    name: 初期値問題・境界値問題
+    name: PDEにおける初期値問題・境界値問題
     kind: definition
-    aliases: [PDEの初期値問題, PDEの境界値問題, 初期値問題, 境界値問題, 初期条件, 境界条件]
+    aliases: [PDEの初期値問題, PDEの境界値問題, PDE initial-value problem, PDE boundary-value problem]
     introduction: formal
     introduction_aliases: ["定義（PDEの初期値問題と境界値問題）"]
     requires: [pde.pde1-partial-differential-equation]
@@ -53,17 +53,15 @@ concepts:
     name: 特性曲線
     kind: definition
     aliases: [特性曲線, characteristic curve, characteristics]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（特性曲線）"]
     requires:
-      - pde.pde1-linearity-classification
-      - pde.pde1-curve-chain-rule
       - ode.ode1-ordinary-differential-equation
 
   - id: pde.pde1-constant-transport
     name: 定係数輸送方程式の特性表示
     kind: theorem
-    aliases: [定係数輸送方程式, 移流方程式, transport equation]
+    aliases: [定係数輸送方程式の特性表示]
     introduction: formal
     introduction_aliases: ["定理（定係数輸送方程式の特性表示）"]
     requires:
@@ -73,7 +71,7 @@ concepts:
   - id: pde.pde1-inhomogeneous-transport
     name: 非斉次輸送方程式の特性表示
     kind: theorem
-    aliases: [非斉次輸送方程式]
+    aliases: [非斉次輸送方程式の特性表示]
     introduction: formal
     introduction_aliases: ["定理（非斉次輸送方程式の特性表示）"]
     requires: [pde.pde1-characteristic-curve]
@@ -91,7 +89,7 @@ concepts:
   - id: pde.pde1-burgers-characteristics
     name: Burgers方程式の特性表示
     kind: theorem
-    aliases: [Burgers方程式, inviscid Burgers equation]
+    aliases: [Burgers方程式の特性表示, Burgers characteristic representation]
     introduction: formal
     introduction_aliases: ["定理（Burgers方程式の特性表示）"]
     requires:
