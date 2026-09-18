@@ -26,8 +26,8 @@ theorems:
   - { id: PDE2-THM-01, name: 可逆線形座標変換による型の不変性 }
   - { id: PDE2-THM-02, name: 二変数定係数主部の標準形 }
   - { id: PDE2-PROP-02, name: Tricomi型方程式の型変化 }
-  - { id: PDE2-PROP-03, name: Laplace方程式のCauchyデータに対する不安定性 }
-canonical_examples: [Laplace方程式, 熱方程式, 波動方程式, 混合微分の回転消去, Tricomi型方程式, Laplace方程式のCauchy不安定性]
+  - { id: PDE2-PROP-03, name: Laplace型代表式のCauchyデータに対する不安定性 }
+canonical_examples: [楕円型代表式, 熱方程式, 波動方程式, 混合微分の回転消去, Tricomi型方程式, 楕円型Cauchy不安定性]
 problem_patterns: [PDE2-CLASSIFY-1, PDE2-STANDARD-FORM-1, PDE2-MIXED-TYPE-1, PDE2-DATA-TYPE-1, PDE2-ILLPOSED-1]
 past_exam_alignment: []
 integrated_exam_problems: []
