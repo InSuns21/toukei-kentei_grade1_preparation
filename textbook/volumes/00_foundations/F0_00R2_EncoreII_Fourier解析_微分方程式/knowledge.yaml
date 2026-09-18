@@ -77,5 +77,15 @@ forward_references:
   - pde.pde4-finite-sine-solution
   - pde.pde4-sine-series-solution
   - pde.pde4-fourier-representation
+  - pde.pde5-laplace-poisson
+  - pde.pde5-harmonic-function
+  - pde.pde5-boundary-problems
+  - pde.pde5-circle-mean-value
+  - pde.pde5-disk-mean-value
+  - pde.pde5-maximum-principle
+  - pde.pde5-dirichlet-uniqueness
+  - pde.pde5-rectangle-finite-mode
+  - pde.pde5-poisson-kernel
+  - pde.pde5-poisson-integral
 
 concepts: []
