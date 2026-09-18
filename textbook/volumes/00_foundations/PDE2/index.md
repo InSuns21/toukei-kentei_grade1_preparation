@@ -688,88 +688,137 @@ $$
 
 ### 証明の見取り図
 
-主二次形式
+$A\ne0$ の場合は、混合項を消すせん断変換
 
-$$
-q(p,q)=Ap^2+2Bpq+Cq^2
-$$
+$
+\xi=x,
+\qquad
+\eta=y-\frac BAx
+$
 
-を平方完成します。$A\ne0$ なら
-
-$$
-q(p,q)
-=
-A\left(p+\frac BAq\right)^2
-+
-\frac{AC-B^2}{A}q^2.
-$$
-
-第二項の符号が $\mathcal D=B^2-AC$ によって決まるため、二つの平方が「同符号・一つ消える・異符号」に分かれます。
+を一つ具体的に選びます。前節の係数変換公式へ代入すると、新しい混合微分係数が 0 になり、残る二つの二階項の符号が $\mathcal D=B^2-AC$ だけで決まります。
 
 <!-- proof-start -->
 ### 証明
 
 まず $A\ne0$ とします。
 
-$$
-\begin{aligned}
-q(p,q)
-&=
-Ap^2+2Bpq+Cq^2\\
-&=
-A\left(p+\frac BAq\right)^2
-+
-\left(C-\frac{B^2}{A}\right)q^2\\
-&=
-A\left(p+\frac BAq\right)^2
-+
-\frac{AC-B^2}{A}q^2\\
-&=
-A\left(p+\frac BAq\right)^2
--
-\frac{\mathcal D}{A}q^2.
-\end{aligned}
-$$
-
-新しい一次形式
-
-$$
-r=p+\frac BAq,
+$
+\xi=x,
 \qquad
-s=q
-$$
+\eta=y-\frac BAx
+$
 
-は可逆な線形変換です。従って、これを新座標の勾配方向として選べます。
+と置きます。この変換では
 
-- $\mathcal D<0$ なら $A$ と $-\mathcal D/A$ は同符号なので、二つの平方は同じ符号を持ちます。座標を定数倍すれば $r^2+s^2$ 型になります。
-- $\mathcal D=0$ なら第二項が消え、一つの平方 $r^2$ だけが残ります。
-- $\mathcal D>0$ なら二つの平方は異符号なので、定数倍により $r^2-s^2$ 型になります。
+$
+a=1,\qquad b=0,\qquad c=-\frac BA,\qquad d=1,
+$
 
-$A=0$ のとき、$C\ne0$ なら $x,y$ を交換して同じ議論を使えます。
+なので
 
-$A=C=0$ なら主部が非零であることから $B\ne0$ です。この場合
+$
+ad-bc=1\ne0.
+$
 
-$$
-q(p,q)=2Bpq
-$$
+従って可逆です。前節の公式
 
-であり、すでに双曲型の混合積の形です。
+$
+\begin{aligned}
+A'&=Aa^2+2Bab+Cb^2,\\
+B'&=Aac+B(ad+bc)+Cbd,\\
+C'&=Ac^2+2Bcd+Cd^2
+\end{aligned}
+$
 
-最後に双曲型の
+へ代入すると
 
-$$
-U_{\xi\xi}-U_{\eta\eta}
-$$
+$
+A'=A,
+$
 
-へ
+$
+B'
+=
+A\left(-\frac BA\right)+B
+=
+0,
+$
 
-$$
+さらに
+
+$
+\begin{aligned}
+C'
+&=
+A\frac{B^2}{A^2}
++2B\left(-\frac BA\right)
++C\\
+&=
+C-\frac{B^2}{A}\\
+&=
+-\frac{\mathcal D}{A}.
+\end{aligned}
+$
+
+したがって変換後の主部は
+
+$
+\boxed{
+A\,U_{\xi\xi}
+-\frac{\mathcal D}{A}U_{\eta\eta}
+}.
+$
+
+ここから型ごとに読みます。
+
+- $\mathcal D<0$ なら $A$ と $-\mathcal D/A$ は同符号です。二つの座標を定数倍し、方程式全体を非零定数倍すれば
+  $
+  U_{\xi\xi}+U_{\eta\eta}
+  $
+  型になります。
+- $\mathcal D=0$ なら第二項が消え、
+  $
+  U_{\xi\xi}
+  $
+  型になります。
+- $\mathcal D>0$ なら二つの係数は異符号なので、同じく尺度を調整すれば
+  $
+  U_{\xi\xi}-U_{\eta\eta}
+  $
+  型になります。
+
+$A=0$ で $C\ne0$ なら、最初に $x,y$ を交換すれば上の議論へ戻れます。
+
+$A=C=0$ なら、主部が非零であることから $B\ne0$ です。この場合は
+
+$
+2B\,u_{xy}
+$
+
+だけが残り、すでに双曲型の混合微分形です。
+
+最後に
+
+$
 \alpha=\xi+\eta,
 \qquad
 \beta=\xi-\eta
-$$
+$
 
-を入れると、定数倍を除いて $U_{\alpha\beta}$ になります。
+を使えば
+
+$
+U_{\xi\xi}-U_{\eta\eta}
+$
+
+と
+
+$
+V_{\alpha\beta}
+$
+
+は非零定数倍を除いて互いに移り合います。
 <!-- proof-end -->
 
 この定理は「どの方程式も Laplace / heat / wave そのものになる」と言っているのではありません。低階項や変数係数は残ります。**主部の局所的な骨格**が三種類に整理される、という主張です。
