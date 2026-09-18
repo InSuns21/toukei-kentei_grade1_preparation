@@ -52,6 +52,14 @@ concepts:
     introduction_aliases: ["系（初期境界値問題の一意性）"]
     requires: [pde.pde3-maximum-principle]
 
+  - id: pde.pde3-comparison
+    name: 熱方程式の比較原理
+    kind: corollary
+    aliases: [比較原理, comparison principle for heat equation]
+    introduction: formal
+    introduction_aliases: ["系（比較原理）"]
+    requires: [pde.pde3-maximum-principle]
+
   - id: pde.pde3-energy-dissipation
     name: Dirichlet熱方程式のエネルギー散逸
     kind: proposition
@@ -59,6 +67,16 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（Dirichlet熱方程式のエネルギー散逸恒等式）"]
     requires: [pde.pde3-classical-solution]
+
+  - id: pde.pde3-finite-sine-solution
+    name: 有限Fourier正弦モード解
+    kind: proposition
+    aliases: [有限Fourier正弦モード解]
+    introduction: formal
+    introduction_aliases: ["命題（有限Fourier正弦モード解）"]
+    requires:
+      - pde.pde3-heat-equation
+      - ode.ode7-dirichlet-neumann-spectrum
 
   - id: pde.pde3-sine-series-solution
     name: Fourier正弦級数による熱方程式解
@@ -69,7 +87,7 @@ concepts:
     requires:
       - pde.pde3-heat-equation
       - fourier.fou2-dirichlet-convergence
-      - ode.ode7-eigenpair
+      - ode.ode7-dirichlet-neumann-spectrum
 
   - id: pde.pde3-heat-kernel
     name: 熱核
@@ -89,3 +107,11 @@ concepts:
       - pde.pde3-heat-kernel
       - fourier.fou3-gaussian-transform
       - fourier.fou3-gaussian-approximation
+
+  - id: pde.pde3-kernel-consequences
+    name: 熱核解の質量保存・正値性・平滑化・無限伝播
+    kind: proposition
+    aliases: [熱核の質量保存, 熱核の平滑化, 熱方程式の無限伝播]
+    introduction: formal
+    introduction_aliases: ["命題（熱核解の質量保存・正値性・平滑化・無限伝播）"]
+    requires: [pde.pde3-whole-line-solution]
