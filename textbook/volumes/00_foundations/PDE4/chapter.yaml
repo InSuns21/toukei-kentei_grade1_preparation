@@ -3,10 +3,7 @@ title: "標準偏微分方程式 IV：波動方程式"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - PDE2
-  - ODE7
-  - FOU2
-  - FOU3
+  - PDE3
 official_scope: []
 learning_objectives:
   - 一次元波動方程式を双曲型PDEとして位置付け、進行波を直接検証できる
