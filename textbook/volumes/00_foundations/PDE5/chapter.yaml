@@ -1,0 +1,34 @@
+id: "PDE5"
+title: "標準偏微分方程式 V：Laplace・Poisson方程式と調和関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE4
+official_scope: []
+learning_objectives:
+  - Laplace方程式・Poisson方程式・調和関数を定義し、具体的な多項式で直接検証できる
+  - Dirichlet問題とNeumann問題の違いを説明し、Neumann問題の定数不定性を確認できる
+  - 極座標表示から調和関数の円周平均値性質を証明し、円板平均値性質へ導ける
+  - 平均値性質から強最大原理を証明し、Dirichlet問題の一意性を導ける
+  - 長方形のLaplace方程式を変数分離し、Fourier正弦係数から境界値を内部へ延長できる
+  - 単位円板のPoisson kernelをFourier級数から導出し、連続境界データのPoisson積分を構成できる
+  - Poisson方程式の簡単な特解を構成し、同じ右辺を持つ解の差が調和関数になることを利用できる
+  - Laplace/Poissonを楕円型の代表として、熱・波動方程式との解法と一意性機構の違いを説明できる
+definitions:
+  - { id: PDE5-DEF-01, name: Laplace方程式・Poisson方程式 }
+  - { id: PDE5-DEF-02, name: 調和関数 }
+  - { id: PDE5-DEF-03, name: Dirichlet問題・Neumann問題 }
+  - { id: PDE5-DEF-04, name: Poisson kernel }
+theorems:
+  - { id: PDE5-THM-01, name: 調和関数の円周平均値性質 }
+  - { id: PDE5-COR-01, name: 調和関数の円板平均値性質 }
+  - { id: PDE5-THM-02, name: 強最大原理 }
+  - { id: PDE5-COR-02, name: Dirichlet問題の一意性 }
+  - { id: PDE5-PROP-01, name: 長方形の有限正弦モード解 }
+  - { id: PDE5-THM-03, name: 単位円板のPoisson積分公式 }
+canonical_examples: [x^2-y^2の調和性, 単位円板の定数源Poisson問題, 長方形の単一正弦境界モード, 円板境界cos(mθ)のPoisson延長]
+problem_patterns: [PDE5-HARMONIC-1, PDE5-MEAN-1, PDE5-MAXIMUM-1, PDE5-RECTANGLE-1, PDE5-POISSON-KERNEL-1, PDE5-NEUMANN-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 5.0, review: 1.0 }
