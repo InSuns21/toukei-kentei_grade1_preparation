@@ -16,8 +16,8 @@ concepts:
     name: 熱方程式
     kind: definition
     aliases: [heat equation, 拡散方程式]
-    introduction: formal
-    introduction_aliases: ["定義（一次元熱方程式）"]
+    introduction: inline
+    introduction_aliases: ["PDE3 熱方程式"]
     requires: [pde.pde2-type-classification]
 
   - id: pde.pde3-parabolic-boundary
