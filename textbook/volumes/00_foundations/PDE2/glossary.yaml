@@ -11,7 +11,7 @@ terms:
     meaning: 二変数二階線形PDEの型を判定するB^2-AC。負・零・正により楕円型・放物型・双曲型へ分かれる。
   - term: 楕円型PDE
     english: elliptic PDE
-    meaning: 二変数の主部でB^2-AC<0となる型。Laplace方程式が代表例。
+    meaning: 二変数の主部でB^2-AC<0となる型。u_xx+u_yy=0が代表例。
   - term: 放物型PDE
     english: parabolic PDE
     meaning: 二変数の主部でB^2-AC=0となる型。熱方程式が代表例。
