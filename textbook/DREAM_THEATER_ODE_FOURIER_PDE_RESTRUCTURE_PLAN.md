@@ -690,7 +690,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | FOU5 | **実装・検証完了（PR #294）** | 特性関数と独立和、DFT、FFTの位置付け、sampling / aliasing を確率・信号処理への bridge として実装 | A4 / B3 / C1。全問に詳細解答あり | FOU4 と現行確率論正本を接続。Schwartz空間・tempered distribution は Encore III 側へ停止 | textbook / Pages / exercises / concepts / standard math core / terminology を確認して merge |
 | PDE1 | **実装・検証完了（PR #295）** | PDEの階数・線形性・データ問題・well-posedness、一次輸送方程式の特性曲線、非斉次・変数係数、Burgersでの古典解破綻まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE の現行正本のみを利用。弱解・entropy solution は Encore III へ送り逆輸入しない | 6系統CIと proof / formalism pedagogy audit を確認して merge |
 | PDE2 | **実装・検証完了（PR #296）** | 二階線形PDEの主要部・主係数行列、判別式による三分類、特性方向、可逆線形座標変換での型不変性、三標準形、Tricomi型、楕円型Cauchy問題の不安定性まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE1 のみ。2変数の座標変換は章内で閉じ、Sylvester慣性則・弱解・Sobolev理論を prerequisite にしない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit を人手確認し merge-ready |
-| PDE3 | **初回実装済み・検証待ち** | 放物型代表として熱方程式、放物型境界、最大原理、比較原理・一意性、Dirichletエネルギー散逸、変数分離、Fourier正弦級数解、全空間のGaussian熱核、質量保存・平滑化・無限伝播まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE2 + ODE7 + FOU2 + FOU3。弱解・Sobolev空間・一般放物型作用素・半群論はEncore III以降へ送り逆輸入しない | 現ブランチで通常CI・Pages・DREAM THEATER exercises/concepts/standard math core/terminology・proof/formalism pedagogy audit を確認予定 |
+| PDE3 | **実装・検証完了（PR #297）** | 放物型代表として熱方程式、放物型境界、最大原理、比較原理・一意性、Dirichletエネルギー散逸、変数分離、Fourier正弦級数解、全空間のGaussian熱核、質量保存・平滑化・無限伝播まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE2 + ODE7 + FOU2 + FOU3。弱解・Sobolev空間・一般放物型作用素・半群論はEncore III以降へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit を実行し人手確認済み |
 
 
 ## 11.3 ODE1 で今回閉じた品質論点
@@ -757,7 +757,7 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
 - FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
 - 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
-- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1・PDE2 も実装と検証を完了し、PDE3「熱方程式」は初回実装済みで検証中。
+- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE3 まで実装・検証を完了し、次の理論実装単位は PDE4「波動方程式」。
 
 
 ## 11.10 PDE 再編の現在地（2026-09-18）
@@ -771,5 +771,6 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - PDE3 は熱方程式を放物型の代表として正本化し、放物型境界、最大原理、比較原理・一意性、Dirichletエネルギー散逸、変数分離とFourier正弦級数解、全空間のGaussian熱核まで初回実装した。
 - 熱核表示から質量保存・正値性・平滑化・無限伝播を導き、有限区間の離散固有モードと全空間の連続周波数を同じ減衰機構として接続した。
 - PDE3 の prerequisite は PDE2 + ODE7 + FOU2 + FOU3。弱解・Sobolev空間・一般放物型作用素・半群論は Encore III 以降へ停止している。
-- 演習は A4 / B3 / C1、全問詳細解答付き。現在は通常 validation / Pages / DREAM THEATER 専用 validation / proof・formalism pedagogy audit の確認待ち。
-- 検証完了後の次の理論実装単位は PDE4「波動方程式」。
+- 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
+- proof pedagogy は proof block 8本・省略語候補0、formalism pedagogy は折りたたみ外の証明完了表現0。機械監査の「例見出し0」は見出し形式だけを数えるためで、definition-example marker 4件と本文中の直接検証例を人手確認し、実質的な欠落ではないと判定した。
+- PDE3 は PR #297 で merge-ready。次の理論実装単位は PDE4「波動方程式」。
