@@ -448,7 +448,7 @@ Fourier変換         Sturm--Liouville
 | `F0_00FA2_Fourier変換_畳み込み_反転` | FOU3 | 必要内容を新正本へ移植し、旧本文は隔離・通常非表示 |
 | `F0_00FA3_Plancherel_L2_特性関数` | FOU4～FOU5 | Plancherel と確率 bridge を分離移植し、旧本文は隔離・通常非表示 |
 | `F0_00PDE1_熱方程式_Fourier変換` | PDE3 | 最大原理・有限区間・一意性を補強して移植後、旧本文は隔離 |
-| `F0_00PDE2_波動方程式_Laplace方程式_変数分離` | PDE4～PDE5 | 波動と楕円型を分離移植後、旧本文は隔離 |
+| `F0_00PDE2_波動方程式_Laplace方程式_変数分離` | PDE4～PDE5 | 波動と楕円型を分離移植済み。旧URLはPDE4 / PDE5への互換ハブとして保持し、旧本文は通常表示しない |
 | `F0_00PDE3_Sturm_Liouville_スペクトル展開` | ODE7 + PDE7 | Sturm--Liouville 正本を ODE7 へ移し、旧本文は隔離 |
 
 ---
@@ -691,7 +691,8 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | PDE1 | **実装・検証完了（PR #295）** | PDEの階数・線形性・データ問題・well-posedness、一次輸送方程式の特性曲線、非斉次・変数係数、Burgersでの古典解破綻まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE の現行正本のみを利用。弱解・entropy solution は Encore III へ送り逆輸入しない | 6系統CIと proof / formalism pedagogy audit を確認して merge |
 | PDE2 | **実装・検証完了（PR #296）** | 二階線形PDEの主要部・主係数行列、判別式による三分類、特性方向、可逆線形座標変換での型不変性、三標準形、Tricomi型、楕円型Cauchy問題の不安定性まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE1 のみ。2変数の座標変換は章内で閉じ、Sylvester慣性則・弱解・Sobolev理論を prerequisite にしない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit を人手確認し merge-ready |
 | PDE3 | **実装・検証完了（PR #297）** | 放物型代表として熱方程式、放物型境界、最大原理、比較原理・一意性、Dirichletエネルギー散逸、変数分離、Fourier正弦級数解、全空間のGaussian熱核、質量保存・平滑化・無限伝播まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE2 + ODE7 + FOU2 + FOU3。弱解・Sobolev空間・一般放物型作用素・半群論はEncore III以降へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit を実行し人手確認済み |
-| PDE4 | **実装・検証完了（PR #298）** | 双曲型代表として一次元波動方程式、特性座標、d'Alembert公式、後方依存区間・有限伝播速度、固定端エネルギー保存と一意性、変数分離、固有モード、Fourier正弦級数解、全空間Fourier表示との一致まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE3。PDE3経由でPDE2 + ODE7 + FOU2 + FOU3を再利用。弱解・エネルギー空間・高次元波動公式・一般双曲型作用素はEncore III以降へ送り逆輸入しない。旧F0-00PDE2はPDE5のLaplace移植元も兼ねるため現時点では互換ハブ化しない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行し人手確認済み |
+| PDE4 | **実装・検証完了（PR #298）** | 双曲型代表として一次元波動方程式、特性座標、d'Alembert公式、後方依存区間・有限伝播速度、固定端エネルギー保存と一意性、変数分離、固有モード、Fourier正弦級数解、全空間Fourier表示との一致まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE3。PDE3経由でPDE2 + ODE7 + FOU2 + FOU3を再利用。弱解・エネルギー空間・高次元波動公式・一般双曲型作用素はEncore III以降へ送り逆輸入しない。旧F0-00PDE2の波動部分はPDE4へ移送済み | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行し人手確認済み |
+| PDE5 | **実装・検証完了（PR #299）** | 楕円型代表としてLaplace / Poisson方程式、Dirichlet / Neumann問題、極座標Laplacian、円周・円板平均値性質、強最大原理、Dirichlet一意性、Poissonの特解+調和補正、長方形の正弦モード、円板Poisson kernel / Poisson積分、Neumann整合条件まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE4。CA6の「調和関数」「Poisson kernel」と同じ対象であることは横参照するが、複素解析をprerequisite / proof dependencyにせずPDE側で独立に証明。旧F0-00PDE2をPDE4 / PDE5への互換ハブへ退役 | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit はともに機械P1、人手再査読でOK |
 
 
 ## 11.3 ODE1 で今回閉じた品質論点
@@ -758,10 +759,10 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
 - FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
 - 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
-- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE4 まで実装・検証を完了し、次の理論実装単位は PDE5「Laplace・Poisson 方程式」。
+- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE5 まで実装・検証を完了し、次の理論実装単位は PDE6「Greenの恒等式・基本解・Green関数」。
 
 
-## 11.10 PDE 再編の現在地（2026-09-18）
+## 11.10 PDE 再編の現在地（2026-09-19）
 
 - PDE1 は一次輸送方程式・特性曲線・well-posedness を正本化し、Burgers 方程式で古典解が壊れる機構まで閉じた。弱解・entropy solution は Encore III へ停止している。
 - PDE2 は二階線形 PDE の主要部、判別式、楕円型・放物型・双曲型、特性方向、座標変換による型不変性、標準形、Tricomi 型の型変化までを二変数で閉じた。
@@ -782,4 +783,14 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
 - proof pedagogy は proof block 7本・省略語候補0、formalism pedagogy は折りたたみ外の証明完了表現0。機械監査の「例見出し0」は見出し形式だけを数えるためで、主役3定義の definition-example marker と本文中の直接検証例を人手確認し、実質的な欠落ではないと判定した。
 - proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残さない。
-- PDE4 は PR #298 で実装・検証完了。次の理論実装単位は PDE5「Laplace・Poisson 方程式」。
+- PDE4 は PR #298 で実装・検証完了。
+- PDE5 は Laplace / Poisson 方程式を楕円型の代表として正本化し、Dirichlet / Neumann 問題、調和関数、極座標 Laplacian を導入した。極座標の連鎖律計算は途中式まで展開し、複素解析を使わず円周平均値性質・円板平均値性質を証明した。
+- 平均値性質から強最大原理を開閉集合の議論で閉じ、同じ右辺と同じ Dirichlet 境界値を持つ Poisson 解の差が調和関数になることから一意性を導いた。Poisson 方程式は「特解 + 調和補正」として扱い、一定源の円板問題で直接確認した。
+- 長方形では変数分離から正弦固有モードと双曲線関数を組み合わせ、有限モード解を完全証明した。滑らかな境界データでは係数減衰から二階項別微分を正当化し、Fourier収束論へ接続した。
+- 円板では境界 Fourier モードを $r^n\cos n\theta$, $r^n\sin n\theta$ へ延長し、Poisson kernel を実Fourier級数として導いた。Poisson積分について、内部の二階項別微分・各モードの調和性・近似恒等核による境界への一様収束を示し、Dirichlet一意性で解を確定した。
+- Neumann 問題では定数不定性に加え、長方形で微積分学の基本定理IIを使って境界法線微分の積分整合条件を導いた。一般の発散定理・Green恒等式は PDE6 へ停止している。
+- CA6 が既に所有する「調和関数」「Poisson kernel」と同じ対象であることは stable anchor への横参照で明示した。一方、CA6 の平均値性質・Poisson表示を PDE5 の証明依存へせず、複素解析を prerequisite に追加していない。
+- 旧 F0-00PDE2 は波動部分を PDE4、Laplace 部分を PDE5 へ移送し終えたため、PDE4 / PDE5 への旧URL互換ハブへ退役した。
+- 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
+- proof pedagogy は機械 P1（証明6本、証明比22%、省略語候補「同様に」1件）、formalism pedagogy も機械 P1（主要結果6件、proof block 6件、隠れ証明0）。「同様に」は最小値主張を $-u$ の最大値主張へ帰着する箇所で、帰着理由を本文に明記しているため人手再査読で実質的欠落なしと判定した。
+- PDE5 は PR #299 で実装・検証完了。次の理論実装単位は PDE6「Greenの恒等式・基本解・Green関数」。
