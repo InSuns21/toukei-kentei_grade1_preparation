@@ -1,17 +1,17 @@
-# PDE5 Laplace・Poisson 方程式：調和関数・最大原理・Poisson kernel
+# PDE5 Laplace・Poisson 方程式：平均値性質・最大原理・境界値問題
 
 PDE3 では放物型の代表として熱方程式、PDE4 では双曲型の代表として波動方程式を調べました。本章では、時間発展を持たず、境界から内部の平衡状態を決める **楕円型** の代表として Laplace 方程式と Poisson 方程式を扱います。
 
 この章の中心問いは次の三つです。
 
-- 調和関数は、なぜ「中心の値が周囲の平均で決まる」のか。
+- Laplace 方程式の解は、なぜ「中心の値が周囲の平均で決まる」のか。
 - その平均値性質から、なぜ最大原理と Dirichlet 問題の一意性が出るのか。
-- 長方形では Fourier 正弦級数、円板では Poisson kernel が、境界データを内部へどう運ぶのか。
+- 長方形では Fourier 正弦級数、円板では境界積分核が、境界データを内部へどう運ぶのか。
 
 直接の前提は [PDE4 波動方程式](../PDE4/index.md) です。PDE4 までで導入した PDE の型、境界値問題、Fourier 級数、変数分離、Sturm--Liouville の基本結果を再利用します。
 
 > **証明境界**  
-> 本章は二次元の古典解を中心に、平均値性質、最大原理、Dirichlet 一意性、長方形の変数分離、単位円板の Poisson kernel を複素解析なしで閉じます。Green の第一・第二恒等式、基本解、Green 関数は PDE6 へ送ります。弱微分、Sobolev 空間、Lax--Milgram、一般楕円型方程式の弱解は Encore III の正本で扱い、本章へ逆輸入しません。
+> 本章は二次元の古典解を中心に、平均値性質、最大原理、Dirichlet 一意性、長方形の変数分離、単位円板の境界積分表示を複素解析なしで閉じます。Green の第一・第二恒等式、基本解、Green 関数は PDE6 へ送ります。弱微分、Sobolev 空間、Lax--Milgram、一般楕円型方程式の弱解は Encore III の正本で扱い、本章へ逆輸入しません。
 
 ---
 
@@ -101,7 +101,7 @@ $$
 
 ---
 
-## 2. 調和関数は「内部に山や谷を作りにくい」
+## 2. Laplace 方程式の解に名前を付ける
 
 <a id="def-pde5-harmonic"></a>
 <!-- formal-statement-start -->
@@ -220,21 +220,21 @@ $$
 
 まず一階微分は
 
-$
+$$
 v_r
 =
 u_x\cos\theta+u_y\sin\theta,
-$
+$$
 
-$
+$$
 v_\theta
 =
 -r u_x\sin\theta+r u_y\cos\theta
-$
+$$
 
 です。さらに $r$ で微分すると
 
-$
+$$
 v_{rr}
 =
 u_{xx}\cos^2\theta
@@ -242,11 +242,11 @@ u_{xx}\cos^2\theta
 2u_{xy}\sin\theta\cos\theta
 +
 u_{yy}\sin^2\theta.
-$
+$$
 
 一方、$\theta$ で二回微分すると
 
-$
+$$
 v_{\theta\theta}
 =
 -r u_x\cos\theta
@@ -255,30 +255,30 @@ v_{\theta\theta}
 r^2u_{xx}\sin^2\theta
 -2r^2u_{xy}\sin\theta\cos\theta
 +r^2u_{yy}\cos^2\theta.
-$
+$$
 
 ここで
 
-$
+$$
 \frac1r v_r
 =
 \frac1r
 \{u_x\cos\theta+u_y\sin\theta\}
-$
+$$
 
 を加えると、$v_{\theta\theta}/r^2$ に含まれる一階微分項がちょうど打ち消されます。また $u_{xy}$ の項も $v_{rr}$ と $v_{\theta\theta}/r^2$ の間で打ち消し合います。残るのは
 
-$
+$$
 u_{xx}(\cos^2\theta+\sin^2\theta)
 +
 u_{yy}(\sin^2\theta+\cos^2\theta)
 =
 u_{xx}+u_{yy}.
-$
+$$
 
 従って $r>0$ で
 
-$
+$$
 \boxed{
 \Delta u
 =
@@ -286,7 +286,7 @@ v_{rr}
 +\frac1r v_r
 +\frac1{r^2}v_{\theta\theta}
 }
-$
+$$
 
 です。
 
@@ -1166,62 +1166,62 @@ $$
 
 連続な $g$ は有界なので係数 $a_n,b_n$ も一様に有界です。ここで
 
-$
+$$
 H_n^c(x,y):=r^n\cos(n\theta),
 \qquad
 H_n^s(x,y):=r^n\sin(n\theta)
-$
+$$
 
 と置きます。三角関数の加法定理から
 
-$
+$$
 H_{n+1}^c=xH_n^c-yH_n^s,
 \qquad
 H_{n+1}^s=yH_n^c+xH_n^s.
-$
+$$
 
 $H_0^c=1$、$H_1^c=x$、$H_1^s=y$ から帰納的に、これらは $(x,y)$ の多項式です。$r>0$ では極座標表示を直接微分して
 
-$
+$$
 \partial_x H_n^c=nH_{n-1}^c,
 \qquad
 \partial_y H_n^c=-nH_{n-1}^s,
-$
+$$
 
-$
+$$
 \partial_x H_n^s=nH_{n-1}^s,
 \qquad
 \partial_y H_n^s=nH_{n-1}^c
-$
+$$
 
 を得ます。両辺は多項式なので、この恒等式は原点にも連続的に延長されます。従って二階偏微分の絶対値は、$x^2+y^2\le\rho^2$ 上で定数倍の
 
-$
+$$
 n(n-1)\rho^{n-2}
-$
+$$
 
 以下です。
 
 したがって任意の $\rho<1$ について
 
-$
+$$
 \sum_{n=2}^{\infty}
 n(n-1)\rho^{n-2}<\infty
-$
+$$
 
 より、$u$ の級数は Cartesian 座標で二階まで項別微分できます。
 
 さらに $r>0$ では極座標 Laplacian へ代入して
 
-$
+$$
 \Delta H_n^c=\Delta H_n^s=0
-$
+$$
 
 です。左辺は多項式なので原点でも 0 です。よって各モードは円板全体で調和し、項別微分した級数について
 
-$
+$$
 \Delta u=0
-$
+$$
 
 が成り立ちます。
 
