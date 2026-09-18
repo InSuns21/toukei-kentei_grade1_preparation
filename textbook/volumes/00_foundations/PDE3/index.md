@@ -333,11 +333,11 @@ $$
 
 放物型境界は $\overline{Q_T}$ の部分集合なので
 
-$
+$$
 \max_{\overline{Q_T}}u
 \ge
 \max_{\partial_pQ_T}u.
-$
+$$
 
 従って二つの不等式を合わせると
 
