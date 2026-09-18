@@ -1,0 +1,99 @@
+chapter: PDE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE4
+
+# 楕円型代表方程式を古典解の範囲で閉じる。
+# Green恒等式・基本解・Green関数はPDE6、弱解・Sobolev・Lax--MilgramはEncore IIIへ送る。
+forward_references:
+  # CA6 と同じ語彙・対象であることを明示するための横参照。
+  # PDE5 の証明はこれらを prerequisite / proof dependency として使わない。
+  - complex-analysis.harmonic-function
+  - complex-analysis.poisson-kernel
+
+concepts:
+  - id: pde.pde5-laplace-poisson
+    name: Laplace方程式とPoisson方程式
+    kind: definition
+    aliases: [Laplace equation, Poisson equation]
+    introduction: formal
+    introduction_aliases: ["定義（Laplace 方程式と Poisson 方程式）"]
+    requires: [pde.pde2-type-classification]
+
+  - id: pde.pde5-harmonic-function
+    name: Laplace方程式の解としての調和関数
+    kind: definition
+    aliases: [PDE5 harmonic-function reintroduction]
+    introduction: formal
+    introduction_aliases: ["定義（Laplace 方程式の解としての調和関数）"]
+    requires: [pde.pde5-laplace-poisson]
+
+  - id: pde.pde5-boundary-problems
+    name: Dirichlet問題とNeumann問題
+    kind: definition
+    aliases: [Dirichlet problem, Neumann problem]
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet 問題と Neumann 問題）"]
+    requires: [pde.pde5-laplace-poisson]
+
+  - id: pde.pde5-circle-mean-value
+    name: 調和関数の円周平均値性質
+    kind: theorem
+    aliases: [circle mean value property]
+    introduction: formal
+    introduction_aliases: ["定理（円周平均値性質）"]
+    requires: [pde.pde5-harmonic-function]
+
+  - id: pde.pde5-disk-mean-value
+    name: 調和関数の円板平均値性質
+    kind: corollary
+    aliases: [disk mean value property]
+    introduction: formal
+    introduction_aliases: ["系（円板平均値性質）"]
+    requires: [pde.pde5-circle-mean-value]
+
+  - id: pde.pde5-maximum-principle
+    name: 調和関数の強最大原理
+    kind: theorem
+    aliases: [strong maximum principle, 強最大原理]
+    introduction: formal
+    introduction_aliases: ["定理（強最大原理）"]
+    requires: [pde.pde5-circle-mean-value]
+
+  - id: pde.pde5-dirichlet-uniqueness
+    name: Laplace方程式のDirichlet問題の一意性
+    kind: corollary
+    aliases: [Dirichlet uniqueness]
+    introduction: formal
+    introduction_aliases: ["系（Dirichlet 問題の一意性）"]
+    requires: [pde.pde5-maximum-principle, pde.pde5-boundary-problems]
+
+  - id: pde.pde5-rectangle-finite-mode
+    name: 長方形Laplace問題の有限正弦モード解
+    kind: proposition
+    aliases: [rectangle harmonic sine modes]
+    introduction: formal
+    introduction_aliases: ["命題（長方形の有限正弦モード解）"]
+    requires:
+      - pde.pde5-harmonic-function
+      - ode.ode7-dirichlet-neumann-spectrum
+
+  - id: pde.pde5-poisson-kernel
+    name: 円板境界値問題のPoisson kernel
+    kind: definition
+    aliases: [PDE5 Poisson kernel for the disk]
+    introduction: formal
+    introduction_aliases: ["定義（円板境界値問題の Poisson kernel）"]
+    requires: [pde.pde5-harmonic-function]
+
+  - id: pde.pde5-poisson-integral
+    name: 単位円板のPoisson積分公式
+    kind: theorem
+    aliases: [Poisson integral formula]
+    introduction: formal
+    introduction_aliases: ["定理（単位円板の Poisson 積分）"]
+    requires:
+      - pde.pde5-poisson-kernel
+      - fourier.fou1-real-coefficient
+      - pde.pde5-dirichlet-uniqueness

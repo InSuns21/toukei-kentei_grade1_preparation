@@ -2,69 +2,9 @@ chapter: F0-00PDE2
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00PDE1
-  - F0-00FA1
+  - PDE4
+  - PDE5
 
-concepts:
-  - id: pde.wave-equation
-    name: 波動方程式
-    kind: definition
-    aliases: [一次元波動方程式]
-    introduction: inline
-    requires:
-      - pde.partial-differential-equation
-
-  - id: pde.laplace-equation
-    name: Laplace方程式
-    kind: definition
-    aliases: [Laplace方程式]
-    introduction: inline
-    requires:
-      - pde.partial-differential-equation
-
-  - id: pde.separation-of-variables
-    name: 変数分離法
-    kind: definition
-    aliases: [変数分離]
-    introduction: inline
-    requires:
-      - pde.partial-differential-equation
-      - ode.ode1-ordinary-differential-equation
-
-  - id: pde.eigenmode
-    name: 固有モード
-    kind: definition
-    aliases: [固有モード]
-    introduction: inline
-    requires:
-      - pde.separation-of-variables
-
-  - id: pde.wave-fourier-mode-representation
-    name: 波動方程式のFourierモード表示
-    kind: theorem
-    aliases: [Fourier変換すると調和振動子になる]
-    introduction: inline
-    requires:
-      - pde.wave-equation
-      - fourier.transform-l1
-      - fourier.derivative-rule
-      - ode.ode2-constant-coefficient-basis
-
-  - id: pde.fixed-end-wave-sine-expansion
-    name: 固定端波動方程式の正弦級数表示
-    kind: theorem
-    aliases: [固有モード展開が得られます]
-    introduction: inline
-    requires:
-      - pde.wave-equation
-      - pde.separation-of-variables
-      - pde.eigenmode
-      - fourier.trig-system-l2-completeness
-
-  - id: pde.harmonic-function
-    name: 調和関数
-    kind: term
-    aliases: [調和関数]
-    introduction: inline
-    requires:
-      - pde.laplace-equation
+# 旧URL互換ハブ。波動方程式の概念正本はPDE4、
+# Laplace・Poisson方程式と調和関数の概念正本はPDE5へ移送済み。
+concepts: []
