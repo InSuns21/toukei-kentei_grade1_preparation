@@ -652,7 +652,7 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 
 # 11. 実装進捗
 
-最終更新: 2026-09-17
+最終更新: 2026-09-18
 
 この節を再編作業の進捗正本とし、本文・演習・監査・CIの状態を章単位で更新する。`implemented` や CI green だけを教材完成とはみなさず、Section 7 の品質基準を満たしたかを併記する。
 
@@ -685,8 +685,12 @@ Encore II という名称は過去URL互換と三系列への入口として残�
 | ODE7 | **実装・検証完了（PR #288）** | 二点境界値問題、正則Sturm--Liouville、Lagrange恒等式、分離型自己共役境界条件、実固有値、重み付き直交性、単純性、Dirichlet / Neumann / 混合固有値列、Rayleigh商、共鳴可解条件まで実装。一般完全性は証明境界を明示 | A4 / B3 / C1。全問に詳細解答あり | ODE2。旧PDE3を互換ハブ化し、Sturm--Liouville正本をODE7へ集約。一般固有関数完全性は後続FOU / 関数解析へ送り逆輸入しない | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
 | FOU1 | **実装・検証完了（PR #289）** | 周期波形・三角多項式、一周期積分消去則、実 Fourier 係数、N次 Fourier 有限和、固定次数最小二乗性、偶奇対称性、複素指数係数、半区間係数、有限エネルギー不等式を実装。$x$・矩形波・$|x|$・$x^2$・三角形波を手計算し、無限段階の収束論は FOU2 へ分離 | A4 / B3 / C1。全問に詳細解答あり | RA4 のみ。旧 `F0-00FA1`・旧 Fourier 本文を prerequisite / concept owner / proof dependency / forward reference にせず、FOU1 内で有限次数理論を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit も実行 |
 | FOU2 | **実装・検証完了（PR #290）** | Dirichlet核と積分表示、高周波振動積分の消去補題、区分的C1関数の各点収束、Gibbs現象、Fejér核・Fejér平均、連続周期関数への一様収束、三角多項式の一様稠密性、区分的連続関数の二乗平均収束、係数エネルギー等式（Parseval等式）と三角系の完全性まで実装 | A4 / B4 / C1。全問に詳細解答あり | FOU1のみ。旧 `F0-00FA1`、Lebesgue積分、Hilbert空間を prerequisite / proof dependency にせず、Riemann積分と章内論証で無限段階を閉じる | textbook / Pages / exercises / concepts / standard math core / terminology を検証。proof / formalism pedagogy audit も実行 |
-| FOU3 | **実装済み・現ブランチで検証待ち** | $L^1$ Fourier変換、基本法則、$L^1$ 平行移動連続性、Riemann--Lebesgue、畳み込み、微分、Gaussian、approximate identity、Fourier反転までを旧FA2へ証明依存せず実装 | A4 / B3 / C1。全問に詳細解答あり | FOU2 + Lebesgue積分/Fubini + MT7。複素解析・Hilbert空間を prerequisite にしない | 現 head では GitHub status / PR workflow run 未付与。greenとは未判定 |
-| FOU4 | **初回実装済み・査読/検証中** | 複素$L^2$、$L^2$平行移動、Gaussian core、core上のPlancherel、全$L^2$への延長、$L^1\cap L^2$整合性、Parseval、unitary、$L^2$反転、$L^1$--$L^2$畳み込みまで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU3 + MT7 + F0-02C1。関数解析は完備性・Hilbert内積・稠密性・連続延長だけ。複素解析は prerequisite にしない | 現 head では GitHub status / PR workflow run 未付与。本文の数理・依存自己査読を継続し、通常CI/監査は未確認 |
+| FOU3 | **実装・検証完了（PR #291）** | $L^1$ Fourier変換、基本法則、$L^1$ 平行移動連続性、Riemann--Lebesgue、畳み込み、微分、Gaussian、approximate identity、Fourier反転までを旧FA2へ証明依存せず実装 | A4 / B3 / C1。全問に詳細解答あり | FOU2 + Lebesgue積分/Fubini + MT7。複素解析・Hilbert空間を prerequisite にしない | PR #291 で FOU4 と合わせて通常CI・監査を確認して merge |
+| FOU4 | **実装・検証完了（PR #291）** | 複素$L^2$、$L^2$平行移動、Gaussian core、core上のPlancherel、全$L^2$への延長、$L^1\cap L^2$整合性、Parseval、unitary、$L^2$反転、$L^1$--$L^2$畳み込みまで実装 | A4 / B3 / C1。全問に詳細解答あり | FOU3 + MT7 + F0-02C1。関数解析は完備性・Hilbert内積・稠密性・連続延長だけ。複素解析は prerequisite にしない | PR #291 で FOU3 と合わせて通常CI・監査を確認して merge |
+| FOU5 | **実装・検証完了（PR #294）** | 特性関数と独立和、DFT、FFTの位置付け、sampling / aliasing を確率・信号処理への bridge として実装 | A4 / B3 / C1。全問に詳細解答あり | FOU4 と現行確率論正本を接続。Schwartz空間・tempered distribution は Encore III 側へ停止 | textbook / Pages / exercises / concepts / standard math core / terminology を確認して merge |
+| PDE1 | **実装・検証完了（PR #295）** | PDEの階数・線形性・データ問題・well-posedness、一次輸送方程式の特性曲線、非斉次・変数係数、Burgersでの古典解破綻まで実装 | A4 / B3 / C1。全問に詳細解答あり | ODE の現行正本のみを利用。弱解・entropy solution は Encore III へ送り逆輸入しない | 6系統CIと proof / formalism pedagogy audit を確認して merge |
+| PDE2 | **実装・検証完了（PR #296）** | 二階線形PDEの主要部・主係数行列、判別式による三分類、特性方向、可逆線形座標変換での型不変性、三標準形、Tricomi型、楕円型Cauchy問題の不安定性まで実装 | A4 / B3 / C1。全問に詳細解答あり | PDE1 のみ。2変数の座標変換は章内で閉じ、Sylvester慣性則・弱解・Sobolev理論を prerequisite にしない | textbook / Pages / exercises / concepts / standard math core / terminology の6系統 green。proof / formalism pedagogy audit を人手確認し merge-ready |
+
 
 ## 11.3 ODE1 で今回閉じた品質論点
 
@@ -752,4 +756,15 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
 - FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
 - 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
-- 次の理論実装単位は FOU5「確率・信号処理への接続」。ただし FOU4 の通常 validation / Pages / exercises / concepts / proof / formalism 監査を確認してから完成扱いにする。
+- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1・PDE2 も実装と検証を完了し、次の理論実装単位は PDE3「熱方程式」。
+
+
+## 11.10 PDE 再編の現在地（2026-09-18）
+
+- PDE1 は一次輸送方程式・特性曲線・well-posedness を正本化し、Burgers 方程式で古典解が壊れる機構まで閉じた。弱解・entropy solution は Encore III へ停止している。
+- PDE2 は二階線形 PDE の主要部、判別式、楕円型・放物型・双曲型、特性方向、座標変換による型不変性、標準形、Tricomi 型の型変化までを二変数で閉じた。
+- 楕円型では、Cauchy データが小さくても内部解が大きくなり得る具体列を置き、分類と自然なデータ配置の違いを well-posedness の観点から接続した。
+- PDE2 の prerequisite は PDE1 のみに保った。一般の Sylvester 慣性則、弱微分、Sobolev 空間、Lax--Milgram、一般楕円型理論は現在章へ逆輸入していない。
+- 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
+- proof pedagogy の機械スクリーニングでは proof block 5本・省略語候補0、formalism pedagogy では折りたたみ外の証明完了表現0。定義直後の確認例は definition-example marker で5件あり、監査が見出し形式の例だけを数えることによる「例見出し0」は人手確認で問題なしとした。
+- 次の理論実装単位は PDE3「熱方程式」。
