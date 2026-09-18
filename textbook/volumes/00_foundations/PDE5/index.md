@@ -1176,13 +1176,27 @@ H_n^c(x,y):=r^n\cos(n\theta),
 H_n^s(x,y):=r^n\sin(n\theta)
 $$
 
-と置きます。三角関数の加法定理から
+と置きます。$x=r\cos\theta$、$y=r\sin\theta$ と
 
-$$
+$
+\cos((n+1)\theta)
+=
+\cos\theta\cos(n\theta)-\sin\theta\sin(n\theta),
+$
+
+$
+\sin((n+1)\theta)
+=
+\sin\theta\cos(n\theta)+\cos\theta\sin(n\theta)
+$
+
+を代入すると
+
+$
 H_{n+1}^c=xH_n^c-yH_n^s,
 \qquad
 H_{n+1}^s=yH_n^c+xH_n^s.
-$$
+$
 
 $H_0^c=1$、$H_1^c=x$、$H_1^s=y$ から帰納的に、これらは $(x,y)$ の多項式です。$r>0$ では極座標表示を直接微分して
 
@@ -1508,7 +1522,7 @@ $$
 よって円周平均値性質がこの具体例で直接確認できました。
 <!-- solution-end -->
 
-## PDE5-A03 最大原理から零境界の解を決める
+## PDE5-A03 零境界の調和関数を決める
 
 - Level: A
 - 目安時間: 8分
@@ -1653,7 +1667,7 @@ $$
 \int_0^L\{u_y(x,H)-u_y(x,0)\}\,dx.
 $$
 
-微積分学の基本定理から
+[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)から
 
 $$
 u_x(L,y)-u_x(0,y)
