@@ -1,10 +1,10 @@
 # PDE5 Laplace・Poisson 方程式：平均値性質・最大原理・境界値問題
 
-PDE3 では放物型の代表として熱方程式、PDE4 では双曲型の代表として波動方程式を調べました。本章では、時間発展を持たず、境界から内部の平衡状態を決める **楕円型** の代表として Laplace 方程式と Poisson 方程式を扱います。
+PDE3 では放物型の代表として熱方程式、PDE4 では双曲型の代表として波動方程式を調べました。本章では、時間発展を持たず、境界から内部の平衡状態を決める **楕円型** の代表へ進みます。代表方程式の名前と符号規約は最初の定義で固定します。
 
 この章の中心問いは次の三つです。
 
-- Laplace 方程式の解は、なぜ「中心の値が周囲の平均で決まる」のか。
+- この楕円型方程式の解は、なぜ「中心の値が周囲の平均で決まる」のか。
 - その平均値性質から、なぜ最大原理と Dirichlet 問題の一意性が出るのか。
 - 長方形では Fourier 正弦級数、円板では境界積分核が、境界データを内部へどう運ぶのか。
 
@@ -15,7 +15,7 @@ PDE3 では放物型の代表として熱方程式、PDE4 では双曲型の代�
 
 ---
 
-## 1. 平衡を表す Laplace 方程式と、源を持つ Poisson 方程式
+## 1. 平衡を表す方程式と、源を持つ方程式
 
 二変数関数 $u=u(x,y)$ に対し、Laplacian を
 
@@ -105,7 +105,7 @@ $$
 
 <a id="def-pde5-harmonic"></a>
 <!-- formal-statement-start -->
-> **定義（調和関数）**  
+> **定義（Laplace 方程式の解としての調和関数）**  
 > 開集合 $\Omega\subset\mathbb R^2$ 上の $u\in C^2(\Omega)$ が
 
 $$
@@ -114,6 +114,8 @@ $$
 
 > を全ての点で満たすとき、$u$ を $\Omega$ 上の **調和関数**という。
 <!-- formal-statement-end -->
+
+この対象は [CA6 の調和関数](../CA6/index.md#def-ca6-harmonic-function) と同じものです。ただし本章では CA6 の平均値性質や複素解析の結果を証明に使わず、Laplacian の極座標表示から独立に導きます。
 
 <!-- definition-example-start: def-pde5-harmonic -->
 **定義の確認**
@@ -1025,7 +1027,7 @@ $$
 
 <a id="def-pde5-poisson-kernel"></a>
 <!-- formal-statement-start -->
-> **定義（単位円板の Poisson kernel）**  
+> **定義（円板境界値問題の Poisson kernel）**  
 > $0\le r<1$、$\phi\in\mathbb R$ に対して
 
 $$
@@ -1038,6 +1040,8 @@ $$
 
 > を単位円板の **Poisson kernel** という。
 <!-- formal-statement-end -->
+
+これは [CA6 の Poisson kernel](../CA6/index.md#def-ca6-poisson-kernel) と同じ核です。ただし本章では複素解析の表示公式を前提にせず、Fourier モードを半径方向へ延長した総和として導きます。
 
 分母は
 
