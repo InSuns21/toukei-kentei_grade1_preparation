@@ -12,7 +12,7 @@ concepts:
   - id: pde.pde4-wave-equation
     name: 一次元波動方程式
     kind: definition
-    aliases: [wave equation, 波動方程式]
+    aliases: [wave equation]
     introduction: formal
     introduction_aliases: ["定義（一次元波動方程式）"]
     requires: [pde.pde2-type-classification]
