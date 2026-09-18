@@ -29,9 +29,9 @@ concepts:
   - id: pde.pde1-initial-boundary-value-problem
     name: PDEにおける初期値問題・境界値問題
     kind: definition
-    aliases: [初期値問題, 境界値問題, PDEの初期値問題, PDEの境界値問題, PDE initial-value problem, PDE boundary-value problem]
+    aliases: [PDEの初期値問題, PDEの境界値問題, PDE initial-value problem, PDE boundary-value problem]
     introduction: formal
-    introduction_aliases: ["定義（PDEの初期値問題と境界値問題）"]
+    introduction_aliases: ["定義（PDEの初期データ問題と境界データ問題）"]
     requires: [pde.pde1-partial-differential-equation]
 
   - id: pde.pde1-well-posedness
