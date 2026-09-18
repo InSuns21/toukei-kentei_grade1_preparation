@@ -1295,7 +1295,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-1. Fubini の定理を使うと
+1. [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使うと
 
 $$
 \begin{aligned}
@@ -1934,13 +1934,13 @@ $$
 w\le\varepsilon.
 $$
 
-比較原理から
+[比較原理](#cor-pde3-comparison)から
 
 $$
 w\le\varepsilon.
 $$
 
-下側については $-\varepsilon$ を比較対象にします。放物型境界上で $-\varepsilon\le w$ であり、$w$ と定数関数 $-\varepsilon$ はともに熱方程式を満たすので、比較原理から
+下側については $-\varepsilon$ を比較対象にします。放物型境界上で $-\varepsilon\le w$ であり、$w$ と定数関数 $-\varepsilon$ はともに熱方程式を満たすので、[比較原理](#cor-pde3-comparison)から
 
 $$
 -\varepsilon\le w.
