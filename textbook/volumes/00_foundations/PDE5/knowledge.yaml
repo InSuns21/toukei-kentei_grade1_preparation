@@ -91,6 +91,5 @@ concepts:
     introduction_aliases: ["定理（単位円板の Poisson 積分）"]
     requires:
       - pde.pde5-poisson-kernel
-      - fourier.fou2-fejer-uniform
-      - fourier.fou2-dirichlet-convergence
+      - fourier.fou1-real-coefficient
       - pde.pde5-dirichlet-uniqueness
