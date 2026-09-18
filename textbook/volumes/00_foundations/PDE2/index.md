@@ -385,6 +385,38 @@ PDE1 では一次方程式の特性曲線を扱いました。二階 PDE でも�
 > を満たすとき、その方向を主部の特性方向と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-pde2-characteristic-direction -->
+**定義の確認**
+
+波動方程式の主部
+
+$
+-c^2u_{xx}+u_{tt}
+$
+
+では
+
+$
+q(p,q)=-c^2p^2+q^2.
+$
+
+特性条件 $q(p,q)=0$ は
+
+$
+q=pm cp
+$
+
+となり、異なる二つの実方向を持ちます。
+
+一方、Laplace 方程式では
+
+$
+q(p,q)=p^2+q^2
+$
+
+なので、非零の実ベクトルで 0 になる方向はありません。
+<!-- definition-example-end -->
+
 $(p,q)=(1,m)$ と置ける場合には
 
 $$
