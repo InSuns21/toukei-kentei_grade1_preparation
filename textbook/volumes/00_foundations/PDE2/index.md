@@ -42,16 +42,16 @@ PDE1 では、一次方程式を特性曲線に沿って ODE へ落としまし�
 > **定義（二変数の二階線形PDE）**  
 > 領域 $\Omega\subset\mathbb R^2$ 上で
 >
-> $$
-> A(x,y)u_{xx}
-> +2B(x,y)u_{xy}
-> +C(x,y)u_{yy}
-> +D(x,y)u_x
-> +E(x,y)u_y
-> +F(x,y)u
-> =
-> G(x,y)
-> $$
+$
+A(x,y)u_{xx}
++2B(x,y)u_{xy}
++C(x,y)u_{yy}
++D(x,y)u_x
++E(x,y)u_y
++F(x,y)u
+=
+G(x,y)
+$
 >
 > の形で書け、各点で $A,B,C$ が同時に 0 ではない方程式を、二変数の二階線形 PDE とする。
 <!-- formal-statement-end -->
@@ -99,32 +99,32 @@ PDE の型は、低階項を全部眺めて決めるのではありません。�
 > **定義（PDEの最高階二階項と係数行列）**  
 > 二階線形 PDE
 >
-> $$
-> A u_{xx}+2B u_{xy}+C u_{yy}
-> +D u_x+E u_y+F u=G
-> $$
+$
+A u_{xx}+2B u_{xy}+C u_{yy}
++D u_x+E u_y+F u=G
+$
 >
 > の二階微分を含む部分
 >
-> $$
-> \boxed{
-> A u_{xx}+2B u_{xy}+C u_{yy}
-> }
-> $$
+$
+\boxed{
+A u_{xx}+2B u_{xy}+C u_{yy}
+}
+$
 >
 > を **主要部** とする。
 >
 > 主要部の係数から作る対称行列
 >
-> $$
-> \boxed{
-> M=
-> \begin{pmatrix}
-> A & B\\
-> B & C
-> \end{pmatrix}
-> }
-> $$
+$
+\boxed{
+M=
+\begin{pmatrix}
+A & B\\
+B & C
+\end{pmatrix}
+}
+$
 >
 > を **主係数行列** とする。
 <!-- formal-statement-end -->
@@ -172,17 +172,17 @@ $$
 > **定義（二階線形PDEの型）**  
 > 主要部
 >
-> $$
-> A u_{xx}+2B u_{xy}+C u_{yy}
-> $$
+$
+A u_{xx}+2B u_{xy}+C u_{yy}
+$
 >
 > に対して
 >
-> $$
-> \boxed{
-> \mathcal D:=B^2-AC
-> }
-> $$
+$
+\boxed{
+\mathcal D:=B^2-AC
+}
+$
 >
 > を判別式とする。主要部が 0 でない点で、
 >
@@ -278,21 +278,21 @@ $$
 > **定義（主二次形式）**  
 > 主係数行列
 >
-> $$
-> M=
-> \begin{pmatrix}
-> A&B\\
-> B&C
-> \end{pmatrix}
-> $$
+$
+M=
+\begin{pmatrix}
+A&B\\
+B&C
+\end{pmatrix}
+$
 >
 > に対し、
 >
-> $$
-> \boxed{
-> q(p,q)=Ap^2+2Bpq+Cq^2
-> }
-> $$
+$
+\boxed{
+q(p,q)=Ap^2+2Bpq+Cq^2
+}
+$
 >
 > を主二次形式とする。
 <!-- formal-statement-end -->
@@ -358,17 +358,17 @@ PDE1 では一次方程式の特性曲線を扱いました。二階 PDE でも�
 > **定義（二階PDEの特性方向）**  
 > 定係数の主要部
 >
-> $$
-> A u_{xx}+2B u_{xy}+C u_{yy}
-> $$
+$
+A u_{xx}+2B u_{xy}+C u_{yy}
+$
 >
 > に対し、非零ベクトル $(p,q)$ が
 >
-> $$
-> \boxed{
-> Ap^2+2Bpq+Cq^2=0
-> }
-> $$
+$
+\boxed{
+Ap^2+2Bpq+Cq^2=0
+}
+$
 >
 > を満たすとき、その方向を主要部の特性方向と呼ぶ。
 <!-- formal-statement-end -->
@@ -486,45 +486,45 @@ $$
 > **定理（可逆線形座標変換による型の不変性）**  
 > 二階線形 PDE の主係数行列を
 >
-> $$
-> M=
-> \begin{pmatrix}
-> A&B\\
-> B&C
-> \end{pmatrix}
-> $$
+$
+M=
+\begin{pmatrix}
+A&B\\
+B&C
+\end{pmatrix}
+$
 >
 > とする。可逆線形座標変換
 >
-> $$
-> \xi=ax+by,
-> \qquad
-> \eta=cx+dy,
-> \qquad
-> ad-bc\ne0
-> $$
+$
+\xi=ax+by,
+\qquad
+\eta=cx+dy,
+\qquad
+ad-bc\ne0
+$
 >
 > のもとで、新しい主係数を $A',B',C'$ とすると
 >
-> $$
-> \boxed{
-> \begin{aligned}
-> A'&=Aa^2+2Bab+Cb^2,\\
-> B'&=Aac+B(ad+bc)+Cbd,\\
-> C'&=Ac^2+2Bcd+Cd^2.
-> \end{aligned}
-> }
-> $$
+$
+\boxed{
+\begin{aligned}
+A'&=Aa^2+2Bab+Cb^2,\\
+B'&=Aac+B(ad+bc)+Cbd,\\
+C'&=Ac^2+2Bcd+Cd^2.
+\end{aligned}
+}
+$
 >
 > さらに新しい判別式 $\mathcal D'=B'^2-A'C'$ は
 >
-> $$
-> \boxed{
-> \mathcal D'
-> =
-> (ad-bc)^2\mathcal D
-> }
-> $$
+$
+\boxed{
+\mathcal D'
+=
+(ad-bc)^2\mathcal D
+}
+$
 >
 > を満たす。よって楕円型・放物型・双曲型の別は可逆線形座標変換で変わらない。
 <!-- formal-statement-end -->
@@ -653,35 +653,35 @@ $$
 > **定理（二変数定係数主要部の標準形）**  
 > 非零の定係数主要部
 >
-> $$
-> A u_{xx}+2B u_{xy}+C u_{yy}
-> $$
+$
+A u_{xx}+2B u_{xy}+C u_{yy}
+$
 >
 > に対し、適当な可逆線形座標変換と座標の定数倍を行えば、主要部は非零定数倍を除いて次のいずれかへ変形できる。
 >
 > - 楕円型：
 >
-> $$
-> U_{\xi\xi}+U_{\eta\eta}
-> $$
+$
+U_{\xi\xi}+U_{\eta\eta}
+$
 >
 > - 放物型：
 >
-> $$
-> U_{\xi\xi}
-> $$
+$
+U_{\xi\xi}
+$
 >
 > - 双曲型：
 >
-> $$
-> U_{\xi\xi}-U_{\eta\eta}
-> $$
+$
+U_{\xi\xi}-U_{\eta\eta}
+$
 >
 > 双曲型はさらに線形座標変換して
 >
-> $$
-> U_{\alpha\beta}
-> $$
+$
+U_{\alpha\beta}
+$
 >
 > の形にしてもよい。
 <!-- formal-statement-end -->
@@ -1012,9 +1012,9 @@ $$
 > **命題（Tricomi型方程式の型変化）**  
 > 方程式
 >
-> $$
-> y\,u_{xx}+u_{yy}=0
-> $$
+$
+y\,u_{xx}+u_{yy}=0
+$
 >
 > は $y>0$ で楕円型、$y=0$ で放物型、$y<0$ で双曲型である。
 <!-- formal-statement-end -->
@@ -1136,36 +1136,36 @@ $$
 > **命題（Laplace 型代表式のCauchyデータに対する不安定性の例）**  
 > $y_0>0$ を固定し、
 >
-> $$
-> u_n(x,y)
-> =
-> \frac1{n^2}\sin(nx)\sinh(ny)
-> $$
+$
+u_n(x,y)
+=
+\frac1{n^2}\sin(nx)\sinh(ny)
+$
 >
 > と置く。
 >
 > 各 $u_n$ は
 >
-> $$
-> (u_n)_{xx}+(u_n)_{yy}=0
-> $$
+$
+(u_n)_{xx}+(u_n)_{yy}=0
+$
 >
 > を満たし、境界 $y=0$ では
 >
-> $$
-> u_n(x,0)=0,
-> \qquad
-> (u_n)_y(x,0)=\frac1n\sin(nx).
-> $$
+$
+u_n(x,0)=0,
+\qquad
+(u_n)_y(x,0)=\frac1n\sin(nx).
+$
 >
 > 従って Cauchy データは最大誤差が 0 へ近づくが、任意の固定した $y_0>0$ で
 >
-> $$
-> \sup_x|u_n(x,y_0)|
-> =
-> \frac{\sinh(ny_0)}{n^2}
-> \to\infty.
-> $$
+$
+\sup_x|u_n(x,y_0)|
+=
+\frac{\sinh(ny_0)}{n^2}
+\to\infty.
+$
 >
 > したがって、このデータの測り方と内部の最大誤差に関して、Laplace 型代表式 $u_{xx}+u_{yy}=0$の Cauchy 問題はデータへ連続依存しない。
 <!-- formal-statement-end -->
