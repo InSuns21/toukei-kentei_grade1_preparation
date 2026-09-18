@@ -1,23 +1,23 @@
 chapter: "PDE2"
 terms:
-  - term: 主部
+  - term: 主要部
     english: principal part
     meaning: 偏微分方程式の最高階微分だけを集めた部分。二階線形PDEでは二階偏導関数を含む項からなる。
   - term: 主係数行列
     english: principal coefficient matrix
-    meaning: 二変数二階線形PDEの主部Au_xx+2Bu_xy+Cu_yyを対称行列[[A,B],[B,C]]で表したもの。
+    meaning: 二変数二階線形PDEの主要部Au_xx+2Bu_xy+Cu_yyを対称行列[[A,B],[B,C]]で表したもの。
   - term: 判別式
     english: discriminant
     meaning: 二変数二階線形PDEの型を判定するB^2-AC。負・零・正により楕円型・放物型・双曲型へ分かれる。
   - term: 楕円型PDE
     english: elliptic PDE
-    meaning: 二変数の主部でB^2-AC<0となる型。u_xx+u_yy=0が代表例。
+    meaning: 二変数の主要部でB^2-AC<0となる型。u_xx+u_yy=0が代表例。
   - term: 放物型PDE
     english: parabolic PDE
-    meaning: 二変数の主部でB^2-AC=0となる型。熱方程式が代表例。
+    meaning: 二変数の主要部でB^2-AC=0となる型。熱方程式が代表例。
   - term: 双曲型PDE
     english: hyperbolic PDE
-    meaning: 二変数の主部でB^2-AC>0となる型。波動方程式が代表例。
+    meaning: 二変数の主要部でB^2-AC>0となる型。波動方程式が代表例。
   - term: 主二次形式
     english: principal quadratic form
     meaning: 主係数行列に対応する二次形式Ap^2+2Bpq+Cq^2。
@@ -26,7 +26,7 @@ terms:
     meaning: 主二次形式が0になる非零方向。二変数では型に応じて実方向が0本・1本・2本に分かれる。
   - term: 標準形
     english: canonical form
-    meaning: 可逆な座標変換と尺度変更によって整理した主部の代表形。二変数では楕円・放物・双曲の三形に対応する。
+    meaning: 可逆な座標変換と尺度変更によって整理した主要部の代表形。二変数では楕円・放物・双曲の三形に対応する。
   - term: Tricomi型方程式
     english: Tricomi-type equation
     meaning: 係数の符号変化によって領域内で楕円型・放物型・双曲型が切り替わる混合型PDEの代表例。
