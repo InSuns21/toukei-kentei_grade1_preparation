@@ -6,7 +6,7 @@ prerequisites:
   - PDE1
 official_scope: []
 learning_objectives:
-  - 二階線形PDEから主部と主係数行列を取り出せる
+  - 二階線形PDEから主要部と主係数行列を取り出せる
   - 二変数の判別式B^2-ACから楕円型・放物型・双曲型を分類できる
   - 主二次形式と実特性方向の本数から三分類の意味を説明できる
   - 可逆線形座標変換で型が保存されることを主係数行列から証明できる
@@ -17,14 +17,14 @@ learning_objectives:
   - Laplace方程式のCauchy問題が不安定になり得る具体列を検証できる
 definitions:
   - { id: PDE2-DEF-01, name: 二変数の二階線形PDE }
-  - { id: PDE2-DEF-02, name: 主部・主係数行列 }
+  - { id: PDE2-DEF-02, name: 主要部・主係数行列 }
   - { id: PDE2-DEF-03, name: 二階線形PDEの型 }
   - { id: PDE2-DEF-04, name: 主二次形式 }
   - { id: PDE2-DEF-05, name: 二階PDEの特性方向 }
 theorems:
   - { id: PDE2-PROP-01, name: 型と実特性方向の本数 }
   - { id: PDE2-THM-01, name: 可逆線形座標変換による型の不変性 }
-  - { id: PDE2-THM-02, name: 二変数定係数主部の標準形 }
+  - { id: PDE2-THM-02, name: 二変数定係数主要部の標準形 }
   - { id: PDE2-PROP-02, name: Tricomi型方程式の型変化 }
   - { id: PDE2-PROP-03, name: Laplace型代表式のCauchyデータに対する不安定性 }
 canonical_examples: [楕円型代表式, 熱方程式, 波動方程式, 混合微分の回転消去, Tricomi型方程式, 楕円型Cauchy不安定性]
