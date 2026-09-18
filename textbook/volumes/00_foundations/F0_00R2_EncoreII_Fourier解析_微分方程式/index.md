@@ -74,7 +74,7 @@ PDE 系列は次の順で実装します。
 1. [PDE1 PDEの基本・一次方程式・特性曲線](../PDE1/index.md)
 2. [PDE2 二階線形PDEの分類](../PDE2/index.md)
 3. [PDE3 熱方程式](../PDE3/index.md)
-4. PDE4 波動方程式
+4. [PDE4 波動方程式](../PDE4/index.md)
 5. PDE5 Laplace・Poisson方程式と調和関数
 6. PDE6 Greenの恒等式・基本解・Green関数
 7. PDE7 Fourier法・固有関数法の統合
@@ -84,6 +84,7 @@ PDE1 では一次方程式を入口に、[曲線に沿う連鎖律](../PDE1/inde
 PDE2 では[二階線形PDEの型](../PDE2/index.md#def-pde2-type)を最高階二階項と判別式から定義し、主二次形式・特性方向・座標変換不変性・三つの標準形まで導出します。elliptic / parabolic / hyperbolic の代表式を比較し、楕円型の代表式に Cauchy データを置くと不安定になり得る具体列から、型と自然なデータ配置の関係まで確認します。
 
 PDE3 では[一次元熱方程式](../PDE3/index.md#def-pde3-heat-equation)を放物型の代表として扱い、[最大原理](../PDE3/index.md#thm-pde3-maximum-principle)から比較原理・一意性を導きます。さらに Dirichlet 問題を固有モードへ分解して Fourier 正弦級数解を構成し、実数全体では [熱核](../PDE3/index.md#def-pde3-heat-kernel)による Gaussian 畳み込み表示から質量保存・平滑化・無限伝播まで確認します。
+PDE4 では[一次元波動方程式](../PDE4/index.md#def-pde4-wave-equation)を双曲型の代表として扱い、特性座標から [d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert)を導いて有限伝播速度を示します。固定端ではエネルギー保存から一意性を証明し、変数分離・Fourier 正弦級数・全空間 Fourier 変換を通じて、進行波・固有モード・周波数ごとの調和振動子が同じ構造を表すことを確認します。
 
 熱・波動・Laplace 方程式を単なる三つの計算例として並べず、parabolic / hyperbolic / elliptic の代表として位置付けます。最大原理・エネルギー法など、一意性を支える論証まで標準コアに含めます。
 
