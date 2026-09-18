@@ -37,6 +37,8 @@ forward_references:
   - fourier.fou5-aliasing
   - fourier.fou5-sampling-aliasing
   - pde.pde1-partial-differential-equation
+  - pde.pde1-linearity-classification
+  - pde.pde1-curve-chain-rule
   - pde.pde1-characteristic-curve
   - pde.pde1-burgers-characteristics
   - pde.pde1-burgers-breakdown
