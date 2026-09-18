@@ -19,6 +19,7 @@ forward_references:
   - functional.l2-inner-product
   - ode.matrix-exponential
   - ode.ode1-ordinary-differential-equation
+  - ode.ode1-separable-equation
   - ode.ode1-initial-boundary-value-problem
   - ode.ode2-linear-higher-order
   - ode.ode2-linear-ivp-wellposedness
