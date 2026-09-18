@@ -11,7 +11,7 @@ official_scope: []
 learning_objectives:
   - 熱方程式を放物型PDEとして位置付け、初期境界値問題のデータ配置を説明できる
   - 古典解と放物型境界を定義し、具体的な単一モード解を直接検証できる
-  - 最大値原理を証明し、比較原理・一意性・正値性を導ける
+  - 最大原理を証明し、比較原理・一意性・正値性を導ける
   - 斉次Dirichlet境界条件の下でエネルギー散逸恒等式を導ける
   - 変数分離から空間固有値問題と時間減衰ODEを導き、有限モード解を構成できる
   - 十分滑らかな初期値に対するFourier正弦級数解を構成し、項別微分の正当化を説明できる
@@ -23,7 +23,7 @@ definitions:
   - { id: PDE3-DEF-03, name: 熱方程式の古典解 }
   - { id: PDE3-DEF-04, name: 熱核 }
 theorems:
-  - { id: PDE3-THM-01, name: 熱方程式の最大値原理 }
+  - { id: PDE3-THM-01, name: 熱方程式の最大原理 }
   - { id: PDE3-COR-01, name: 初期境界値問題の一意性 }
   - { id: PDE3-COR-02, name: 比較原理 }
   - { id: PDE3-PROP-01, name: Dirichlet熱方程式のエネルギー散逸恒等式 }
@@ -31,7 +31,7 @@ theorems:
   - { id: PDE3-THM-02, name: 滑らかな初期値に対するFourier正弦級数解 }
   - { id: PDE3-THM-03, name: 実数全体上の熱核表示 }
   - { id: PDE3-PROP-03, name: 熱核解の質量保存・正値性・無限伝播 }
-canonical_examples: [単一正弦モード, 二モードの温度減衰, 最大値原理, エネルギー散逸, Fourier正弦級数解, Gaussian熱核, 非零境界値の定常化]
+canonical_examples: [単一正弦モード, 二モードの温度減衰, 最大原理, エネルギー散逸, Fourier正弦級数解, Gaussian熱核, 非零境界値の定常化]
 problem_patterns: [PDE3-MODE-1, PDE3-MAXIMUM-1, PDE3-ENERGY-1, PDE3-SERIES-1, PDE3-HEAT-KERNEL-1, PDE3-BOUNDARY-HOMOGENIZE-1]
 past_exam_alignment: []
 integrated_exam_problems: []
