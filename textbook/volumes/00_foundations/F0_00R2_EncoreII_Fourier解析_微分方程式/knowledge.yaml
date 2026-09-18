@@ -19,6 +19,7 @@ forward_references:
   - functional.l2-inner-product
   - ode.matrix-exponential
   - ode.ode1-ordinary-differential-equation
+  - ode.ode1-separable-equation
   - ode.ode1-initial-boundary-value-problem
   - ode.ode2-linear-higher-order
   - ode.ode2-linear-ivp-wellposedness
@@ -66,5 +67,15 @@ forward_references:
   - pde.pde3-heat-kernel
   - pde.pde3-whole-line-solution
   - pde.pde3-kernel-consequences
+  - pde.pde4-wave-equation
+  - pde.pde4-classical-solution
+  - pde.pde4-dalembert
+  - pde.pde4-domain-dependence
+  - pde.pde4-finite-propagation
+  - pde.pde4-energy-conservation
+  - pde.pde4-uniqueness
+  - pde.pde4-finite-sine-solution
+  - pde.pde4-sine-series-solution
+  - pde.pde4-fourier-representation
 
 concepts: []

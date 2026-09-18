@@ -212,6 +212,7 @@
 14. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
 15. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
 16. [PDE3 熱方程式](textbook/volumes/00_foundations/PDE3/index.md)
+17. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
 
 ---
 
