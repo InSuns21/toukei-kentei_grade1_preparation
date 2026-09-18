@@ -1,0 +1,26 @@
+chapter: "PDE5"
+terms:
+  - term: Laplace方程式
+    english: Laplace equation
+    meaning: Laplacianに対してDelta u=0と書かれる代表的な楕円型偏微分方程式。
+  - term: Poisson方程式
+    english: Poisson equation
+    meaning: 本章では符号規約-Delta u=fで書く非斉次Laplace方程式。
+  - term: 調和関数
+    english: harmonic function
+    meaning: 領域内でC^2級かつDelta u=0を満たす関数。
+  - term: Dirichlet問題
+    english: Dirichlet problem
+    meaning: 領域内部でPDEを満たし、境界上で関数値uを指定する境界値問題。
+  - term: Neumann問題
+    english: Neumann problem
+    meaning: 領域内部でPDEを満たし、境界上で外向き法線微分を指定する境界値問題。Laplace方程式では定数加算の自由度が残る。
+  - term: 平均値性質
+    english: mean value property
+    meaning: 調和関数の中心値が、その中心を持つ任意の閉包内円の円周平均および円板平均に等しい性質。
+  - term: 最大原理
+    english: maximum principle
+    meaning: 非定数調和関数は領域内部で最大値・最小値を取れず、連続な有界領域問題では極値が境界で決まるという原理。
+  - term: Poisson kernel
+    english: Poisson kernel
+    meaning: 単位円板でP_r(phi)=(1-r^2)/(1-2r cos(phi)+r^2)と書かれ、境界データを調和関数へ延長する核。
