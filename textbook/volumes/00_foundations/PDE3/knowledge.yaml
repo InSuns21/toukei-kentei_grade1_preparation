@@ -37,11 +37,11 @@ concepts:
     requires: [pde.pde3-heat-equation, pde.pde3-parabolic-boundary]
 
   - id: pde.pde3-maximum-principle
-    name: 熱方程式の最大値原理
+    name: 熱方程式の最大原理
     kind: theorem
-    aliases: [parabolic maximum principle, 熱方程式の最大値原理]
+    aliases: [parabolic maximum principle, 熱方程式の最大原理]
     introduction: formal
-    introduction_aliases: ["定理（熱方程式の最大値原理）"]
+    introduction_aliases: ["定理（熱方程式の最大原理）"]
     requires: [pde.pde3-classical-solution]
 
   - id: pde.pde3-uniqueness
