@@ -55,7 +55,7 @@ $$
 熱方程式は放物型です。
 
 <!-- definition-example-start: def-pde3-heat-equation -->
-**定義の確認：正弦波は形を保ったまま減衰する**
+**定義の確認**：正弦波は形を保ったまま減衰する
 
 $\mu>0$ とし
 
@@ -1047,7 +1047,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pde3-heat-kernel -->
-**定義の確認：質量は 1**
+**定義の確認**：質量は 1
 
 $$
 x=2\sqrt{\kappa t}\,z
