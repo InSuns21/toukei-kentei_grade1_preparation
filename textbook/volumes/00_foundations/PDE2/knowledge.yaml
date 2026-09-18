@@ -23,7 +23,7 @@ concepts:
     kind: definition
     aliases: [主部, principal part, 主係数行列, principal coefficient matrix]
     introduction: formal
-    introduction_aliases: ["定義（主部と主係数行列）"]
+    introduction_aliases: ["定義（PDEの最高階二階項と係数行列）"]
     requires: [pde.pde2-second-order-linear]
 
   - id: pde.pde2-type-classification
