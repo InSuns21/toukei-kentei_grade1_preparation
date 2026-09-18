@@ -210,6 +210,7 @@
 12. [FOU4 Plancherel・L2 Fourier解析](textbook/volumes/00_foundations/FOU4/index.md)
 13. [FOU5 確率・離散Fourier変換・サンプリング](textbook/volumes/00_foundations/FOU5/index.md)
 14. [PDE1 PDEの基本・一次方程式・特性曲線](textbook/volumes/00_foundations/PDE1/index.md)
+15. [PDE2 二階線形PDEの分類](textbook/volumes/00_foundations/PDE2/index.md)
 
 ---
 
