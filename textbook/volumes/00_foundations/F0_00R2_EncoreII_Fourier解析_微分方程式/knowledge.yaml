@@ -54,5 +54,17 @@ forward_references:
   - pde.pde2-standard-form
   - pde.pde2-tricomi-type-change
   - pde.pde2-laplace-cauchy-instability
+  - pde.pde3-heat-equation
+  - pde.pde3-parabolic-boundary
+  - pde.pde3-classical-solution
+  - pde.pde3-maximum-principle
+  - pde.pde3-uniqueness
+  - pde.pde3-comparison
+  - pde.pde3-energy-dissipation
+  - pde.pde3-finite-sine-solution
+  - pde.pde3-sine-series-solution
+  - pde.pde3-heat-kernel
+  - pde.pde3-whole-line-solution
+  - pde.pde3-kernel-consequences
 
 concepts: []
