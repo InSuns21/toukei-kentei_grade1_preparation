@@ -1,0 +1,37 @@
+id: "PDE4"
+title: "標準偏微分方程式 IV：波動方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE2
+  - ODE7
+  - FOU2
+  - FOU3
+official_scope: []
+learning_objectives:
+  - 一次元波動方程式を双曲型PDEとして位置付け、進行波を直接検証できる
+  - 特性座標から一般形F(x-ct)+G(x+ct)を導き、d'Alembert公式を証明できる
+  - d'Alembert公式から後方依存区間と有限伝播速度を説明できる
+  - 固定端波動方程式のエネルギー保存則を導き、エネルギー法から一意性を証明できる
+  - 変数分離からDirichlet固有値問題と時間調和振動子を導き、有限モード解を構成できる
+  - 十分滑らかな初期値に対するFourier正弦級数解を構成し、項別二階微分の正当化を説明できる
+  - 実数全体上でFourier変換により周波数ごとの調和振動子へ落とし、d'Alembert公式との一致を示せる
+  - 熱方程式と波動方程式のエネルギー・正則化・情報伝播の違いを説明できる
+definitions:
+  - { id: PDE4-DEF-01, name: 波動方程式 }
+  - { id: PDE4-DEF-02, name: 波動方程式の古典Cauchy解 }
+  - { id: PDE4-DEF-03, name: 後方依存区間 }
+theorems:
+  - { id: PDE4-THM-01, name: d'Alembert公式 }
+  - { id: PDE4-COR-01, name: 有限伝播速度 }
+  - { id: PDE4-THM-02, name: 固定端波動方程式のエネルギー保存 }
+  - { id: PDE4-COR-02, name: 固定端初期境界値問題の一意性 }
+  - { id: PDE4-PROP-01, name: 固定端の有限Fourier正弦モード解 }
+  - { id: PDE4-THM-03, name: 滑らかな初期値に対する固定端Fourier正弦級数解 }
+  - { id: PDE4-PROP-02, name: Fourier表示とd'Alembert公式の一致 }
+canonical_examples: [右向き進行波, 余弦波のd'Alembert解, 有限伝播するコンパクト擾乱, 固定端単一モード, 奇周期延長による端点反射]
+problem_patterns: [PDE4-DALAMBERT-1, PDE4-DOMAIN-1, PDE4-ENERGY-1, PDE4-MODE-1, PDE4-SERIES-1, PDE4-REFLECTION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }
