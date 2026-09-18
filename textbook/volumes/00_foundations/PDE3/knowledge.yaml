@@ -1,0 +1,117 @@
+chapter: PDE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE2
+  - ODE7
+  - FOU2
+  - FOU3
+
+# 放物型代表方程式を古典解の範囲で閉じる。
+# 弱解・Sobolev空間・一般放物型作用素の半群論はEncore III以降へ送る。
+forward_references: []
+
+concepts:
+  - id: pde.pde3-heat-equation
+    name: 熱方程式
+    kind: definition
+    aliases: [heat equation, 拡散方程式]
+    introduction: inline
+    introduction_aliases: ["PDE3 熱方程式"]
+    requires: [pde.pde2-type-classification]
+
+  - id: pde.pde3-parabolic-boundary
+    name: 放物型境界
+    kind: definition
+    aliases: [parabolic boundary]
+    introduction: formal
+    introduction_aliases: ["定義（放物型境界）"]
+    requires: [pde.pde3-heat-equation]
+
+  - id: pde.pde3-classical-solution
+    name: 熱方程式の古典解
+    kind: definition
+    aliases: [classical solution of heat equation, 熱方程式の古典解]
+    introduction: formal
+    introduction_aliases: ["定義（熱方程式の古典解）"]
+    requires: [pde.pde3-heat-equation, pde.pde3-parabolic-boundary]
+
+  - id: pde.pde3-maximum-principle
+    name: 熱方程式の最大原理
+    kind: theorem
+    aliases: [parabolic maximum principle, 熱方程式の最大原理]
+    introduction: formal
+    introduction_aliases: ["定理（熱方程式の最大原理）"]
+    requires: [pde.pde3-classical-solution]
+
+  - id: pde.pde3-uniqueness
+    name: 熱方程式初期境界値問題の一意性
+    kind: corollary
+    aliases: [熱方程式の一意性]
+    introduction: formal
+    introduction_aliases: ["系（初期境界値問題の一意性）"]
+    requires: [pde.pde3-maximum-principle]
+
+  - id: pde.pde3-comparison
+    name: 熱方程式の比較原理
+    kind: corollary
+    aliases: [比較原理, comparison principle for heat equation]
+    introduction: formal
+    introduction_aliases: ["系（比較原理）"]
+    requires: [pde.pde3-maximum-principle]
+
+  - id: pde.pde3-energy-dissipation
+    name: Dirichlet熱方程式のエネルギー散逸
+    kind: proposition
+    aliases: [heat energy identity, エネルギー散逸恒等式]
+    introduction: formal
+    introduction_aliases: ["命題（Dirichlet熱方程式のエネルギー散逸恒等式）"]
+    requires: [pde.pde3-classical-solution]
+
+  - id: pde.pde3-finite-sine-solution
+    name: 有限Fourier正弦モード解
+    kind: proposition
+    aliases: [有限Fourier正弦モード解]
+    introduction: formal
+    introduction_aliases: ["命題（有限Fourier正弦モード解）"]
+    requires:
+      - pde.pde3-heat-equation
+      - ode.ode7-dirichlet-neumann-spectrum
+
+  - id: pde.pde3-sine-series-solution
+    name: Fourier正弦級数による熱方程式解
+    kind: theorem
+    aliases: [heat equation sine series solution, Fourier正弦級数解]
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな初期値に対するFourier正弦級数解）"]
+    requires:
+      - pde.pde3-heat-equation
+      - fourier.fou2-dirichlet-convergence
+      - ode.ode7-dirichlet-neumann-spectrum
+
+  - id: pde.pde3-heat-kernel
+    name: 熱核
+    kind: definition
+    aliases: [heat kernel, Gaussian heat kernel]
+    introduction: formal
+    introduction_aliases: ["定義（一次元熱核）"]
+    requires: [fourier.fou3-fourier-transform]
+
+  - id: pde.pde3-whole-line-solution
+    name: 実数全体上の熱核表示
+    kind: theorem
+    aliases: [heat kernel representation]
+    introduction: formal
+    introduction_aliases: ["定理（実数全体上の熱核表示）"]
+    requires:
+      - pde.pde3-heat-kernel
+      - fourier.fou3-gaussian-transform
+      - fourier.fou3-gaussian-approximation
+
+  - id: pde.pde3-kernel-consequences
+    name: 熱核解の質量保存・正値性・平滑化・無限伝播
+    kind: proposition
+    aliases: [熱核の質量保存, 熱核の平滑化, 熱方程式の無限伝播]
+    introduction: formal
+    introduction_aliases: ["命題（熱核解の質量保存・正値性・平滑化・無限伝播）"]
+    requires: [pde.pde3-whole-line-solution]
