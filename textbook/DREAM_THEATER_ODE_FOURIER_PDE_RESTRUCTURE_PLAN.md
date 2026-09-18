@@ -774,4 +774,4 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
 - proof pedagogy は proof block 8本・省略語候補0、formalism pedagogy は折りたたみ外の証明完了表現0。機械監査の「例見出し0」は見出し形式だけを数えるためで、definition-example marker 4件と本文中の直接検証例を人手確認し、実質的な欠落ではないと判定した。
 - proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残していない。
-- PDE3 は PR #297 で merge-ready。次の理論実装単位は PDE4「波動方程式」。
+- PDE3 は PR #297 で squash merge 済み。次の理論実装単位は PDE4「波動方程式」。
