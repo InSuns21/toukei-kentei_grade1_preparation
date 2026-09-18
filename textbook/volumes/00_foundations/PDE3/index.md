@@ -1940,11 +1940,11 @@ $$
 w\le\varepsilon.
 $$
 
-同様に定数関数 $-\varepsilon$ と比較して
+下側については $-\varepsilon$ を比較対象にします。放物型境界上で $-\varepsilon\le w$ であり、$w$ と定数関数 $-\varepsilon$ はともに熱方程式を満たすので、比較原理から
 
-$$
+$
 -\varepsilon\le w.
-$$
+$
 
 従って
 
