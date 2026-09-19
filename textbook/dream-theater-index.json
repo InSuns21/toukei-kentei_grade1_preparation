@@ -167,16 +167,9 @@
       ]
     },
     {
-      "name": "Encore III",
+      "name": "Encore III：Graduate PDE",
       "paths": [
-        "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md",
-        "textbook/volumes/00_foundations/F0_00DS1_Schwartz超関数_テスト関数/index.md",
-        "textbook/volumes/00_foundations/F0_00DS2_超関数微分_弱微分/index.md",
-        "textbook/volumes/00_foundations/F0_00SOB1_Sobolev空間_Wkp_Hk/index.md",
-        "textbook/volumes/00_foundations/F0_00SOB2_H01_Poincare_trace/index.md",
-        "textbook/volumes/00_foundations/F0_00WK1_弱形式_変分形式/index.md",
-        "textbook/volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/index.md",
-        "textbook/volumes/00_foundations/F0_00WK3_楕円型PDE_Galerkin_FEM/index.md"
+        "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md"
       ]
     },
     {
