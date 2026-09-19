@@ -1,0 +1,32 @@
+chapter: "GPDE5"
+terms:
+  - term: Sobolev共役指数
+    english: Sobolev conjugate exponent
+    meaning: 1<=p<dに対して1/p*=1/p-1/dで定まる指数p*=dp/(d-p)。一次微分のLp制御から得られる尺度不変な積分可能性の上限を表す。
+  - term: 連続埋め込み
+    english: continuous embedding
+    meaning: 関数空間XがYに含まれ、定数Cで||u||_Y<=C||u||_Xと制御できること。XからYへの包含写像が連続であることと同値。
+  - term: compact embedding
+    english: compact embedding
+    meaning: Xの任意の有界列からYで強収束する部分列を取り出せる埋め込み。連続埋め込みより強い有限次元的性質。
+  - term: Sobolev不等式
+    english: Sobolev inequality
+    meaning: 1<=p<dでW^{1,p}関数のL^{p*} normを勾配のLp normなどで制御する不等式。
+  - term: Morrey型連続性
+    english: Morrey-type continuity
+    meaning: p>dではW^{1,p}の積分可能性向上が点値のHolder連続性へ変わる現象。代表的指数は1-d/p。
+  - term: 弱収束
+    english: weak convergence
+    meaning: 全ての連続線形汎関数で評価した値が収束すること。Hilbert空間では全ての内積評価の収束で判定できる。
+  - term: 強収束
+    english: strong convergence
+    meaning: norm差が0へ収束すること。弱収束より強く、積や非線形量の極限操作に必要になることが多い。
+  - term: Rellich--Kondrachov compactness
+    english: Rellich--Kondrachov compactness theorem
+    meaning: Sobolev空間の有界列から低いnormで強収束部分列を取り出せる定理。本章ではbounded open set上のH_0^1からL2への標準形を完全証明する。
+  - term: translation estimate
+    english: translation estimate
+    meaning: 零延長したH_0^1関数に対し||u(.+h)-u||_2<=|h|||grad u||_2とする評価。compactnessの局所振動制御に使う。
+  - term: concentration
+    english: concentration
+    meaning: supportを一点へ縮めつつcritical normを保つ尺度変換。critical Sobolev embeddingが一般にcompactでないことを示す標準反例。
