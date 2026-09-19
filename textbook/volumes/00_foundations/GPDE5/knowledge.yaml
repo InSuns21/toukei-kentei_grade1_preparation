@@ -129,7 +129,7 @@ concepts:
   - id: sobolev.w01p
     name: "W_0^{1,p}(Omega)"
     kind: definition
-    aliases: ["W01p", "W0 1p", "zero-boundary W1p"]
+    aliases: ["W01p", "zero-boundary W1p"]
     introduction: formal
     introduction_aliases: ["定義（W01p）"]
     requires:
