@@ -17,7 +17,7 @@ learning_objectives:
   - Green恒等式が古典解の一意性・表現・境界条件を同じ積分構造で結ぶことを説明できる
 definitions:
   - { id: PDE6-DEF-01, name: 外向き単位法線・法線微分 }
-  - { id: PDE6-DEF-02, name: 二次元Laplacianの基本解 }
+  - { id: PDE6-DEF-02, name: 二次元負Laplacianの基本解 }
   - { id: PDE6-DEF-03, name: Dirichlet Green関数 }
   - { id: PDE6-DEF-04, name: Green関数から得るPoisson kernel }
 theorems:
