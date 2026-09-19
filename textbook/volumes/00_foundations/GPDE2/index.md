@@ -429,7 +429,7 @@ $$
 
 従って結論が得られます。
 
-この「極限を取ってから微分してもよい」という安定性は、mollifier や近似解を使う議論の土台になります。
+この「極限を取ってから微分してもよい」という安定性は、後で導入する滑らかな平均核や近似解を使う議論の土台になります。
 
 ---
 
@@ -708,7 +708,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde2-weak-derivative -->
-**定義の確認：$|x|$ は原点で古典微分できないが弱微分できる**
+**定義の確認**
+
+$|x|$ は原点で古典微分できませんが、上の意味では微分できます。
 
 $\mathbb R$ 上で
 
@@ -856,7 +858,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde2-mollifier -->
-**定義の確認：尺度変換で全質量は 1 のまま**
+**定義の確認**
+
+尺度変換をしても全質量が 1 のまま保たれることを確認します。
 
 変数変換 $x=\varepsilon z$ を使うと
 
@@ -1101,23 +1105,23 @@ $$
 <!-- formal-statement-start -->
 > **補題（Rd の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、
->
-> $$
-> (\tau_h w)(x)=w(x-h),
-> \qquad h\in\mathbb R^d
-> $$
->
+
+$
+(\tau_h w)(x)=w(x-h),
+\qquad h\in\mathbb R^d
+$
+
 > と置く。このとき
->
-> $$
-> \boxed{
-> \|\tau_h w-w\|_{L^1(\mathbb R^d)}
-> \to0
-> \qquad
-> (h\to0)
-> }
-> $$
->
+
+$
+\boxed{
+\|\tau_h w-w\|_{L^1(\mathbb R^d)}
+\to0
+\qquad
+(h\to0)
+}
+$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
