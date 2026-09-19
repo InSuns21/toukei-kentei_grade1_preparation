@@ -66,7 +66,7 @@ concepts:
   - id: sobolev.smooth-multiplier-product
     name: smooth multiplierとの積の弱微分
     kind: proposition
-    aliases: [Sobolev Leibniz rule, smooth multiplier product rule]
+    aliases: ["smooth multiplier の積公式", "Sobolev Leibniz rule", "smooth multiplier product rule"]
     introduction: formal
     introduction_aliases: ["命題（smooth multiplier との積の弱微分）"]
     requires:
@@ -76,7 +76,7 @@ concepts:
   - id: analysis.lp-translation-continuity-rd
     name: Lp平行移動連続性
     kind: lemma
-    aliases: [Lp translation continuity, continuity of translations in Lp]
+    aliases: ["Lp 平行移動連続性", "Lp translation continuity", "continuity of translations in Lp"]
     introduction: formal
     introduction_aliases: ["補題（Lp 平行移動連続性）"]
     requires:
@@ -97,7 +97,7 @@ concepts:
   - id: sobolev.ccinf-dense-rd
     name: R^d上のC_c^infinity密度
     kind: theorem
-    aliases: [Ccinfinity density in Sobolev space, smooth compactly supported density]
+    aliases: ["全空間上の滑らかなコンパクト台関数の密度", "Ccinfinity density in Sobolev space", "smooth compactly supported density"]
     introduction: formal
     introduction_aliases: ["定理（全空間上の滑らかなコンパクト台関数の密度）"]
     requires:
