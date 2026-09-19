@@ -128,21 +128,21 @@ $W^{k,p}$、$H^k$、弱微分作用素の閉性、完備性、Hilbert 構造、S
 
 Sobolev 共役指数を scaling から導き、$\mathbb R^d$ 上の Sobolev 不等式を $W^{1,1}$ の座標積分・Loomis--Whitney 型評価・power trick から証明します。さらに $H_0^1$ の零延長に対する translation estimate と有限次元近似から
 
-$
+$$
 H_0^1(\Omega)
 \hookrightarrow\!\hookrightarrow
 L^2(\Omega)
-$
+$$
 
 を bounded open set 上で完全証明し、
 
-$
+$$
 \text{boundedness}
 \to
 \text{weak }H_0^1\text{ subsequence}
 \to
 \text{strong }L^2\text{ subsequence}
-$
+$$
 
 という大学院 PDE の基本技法を正本化します。critical exponent では concentration により compactness が壊れることも尺度計算から確認します。
 
