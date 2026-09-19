@@ -290,7 +290,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-この証明で使った解析的入力は、反復積分と一変数の微積分学の基本定理です。曲線境界では「法線ベクトル × 弧長」の組がグラフ微分を吸収するため、最終式には境界の傾きが露出しません。
+この証明で使った解析上の道具は、反復積分と一変数の微積分学の基本定理です。曲線境界では「法線ベクトル × 弧長」の組がグラフ微分を吸収するため、最終式には境界の傾きが露出しません。
 
 ---
 
@@ -690,8 +690,8 @@ $$
 
 <a id="def-pde6-fundamental-solution"></a>
 <!-- formal-statement-start -->
-> **定義（二次元 $-\Delta$ の基本解）**  
-> $\Phi\in C^2(\mathbb R^2\setminus\{0\})$ が二次元の $-\Delta$ の基本解であるとは、
+> **定義（二次元負Laplacianの基本解）**  
+> $\Phi\in C^2(\mathbb R^2\setminus\{0\})$ が二次元負Laplacianの基本解であるとは、
 >
 > 1. 原点以外で
 
@@ -825,7 +825,7 @@ $$
 
 と置きます。
 
-$y\ne x$ では $\Phi_x$ は調和関数です。特異点は $y=x$ にあります。
+$y\ne x$ では $\Delta_y\Phi_x=0$ です。式が滑らかでない点は $y=x$ だけです。
 
 Green の第二恒等式へそのまま入れることはできません。$y=x$ で $C^2$ でないからです。そこで半径 $\varepsilon$ の小円板をくり抜いた
 
@@ -884,7 +884,7 @@ $$
 
 ### 証明の見取り図
 
-$\Omega_\varepsilon=\Omega\setminus\overline{B_\varepsilon(x)}$ 上で $v(y)=\Phi(x-y)$ として Green の第二恒等式を使います。外側境界 $\partial\Omega$ に加え、小円 $\partial B_\varepsilon(x)$ が新しい境界として現れます。
+$\Omega_\varepsilon=\Omega\setminus\overline{B_\varepsilon(x)}$ 上で $v(y)=\Phi(x-y)$ として [Green の第二恒等式](#thm-pde6-green-second)を使います。外側境界 $\partial\Omega$ に加え、小円 $\partial B_\varepsilon(x)$ が新しい境界として現れます。
 
 重要なのは、小円に対する $\Omega_\varepsilon$ の外向き法線は **穴の中心 $x$ の方を向く**ことです。その向きが
 
@@ -2722,9 +2722,9 @@ $$
 
 を満たします。
 
-Green の第一恒等式から
+[Green の第一恒等式](#thm-pde6-green-first)から
 
-$$
+$
 \iint_D|\nabla w|^2\,dA=0.
 $$
 
