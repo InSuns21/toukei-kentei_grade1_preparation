@@ -1,0 +1,26 @@
+chapter: "GPDE2"
+terms:
+  - term: 多重指数
+    english: multi-index
+    meaning: 複数座標方向の偏微分回数を一つの組alphaで表す記法。|alpha|は総微分階数を表す。
+  - term: distributional derivative
+    english: distributional derivative
+    meaning: テスト関数側へ微分を移し、<partial^alpha T,phi>=(-1)^|alpha|<T,partial^alpha phi>で定めるdistributionの微分。
+  - term: jump
+    english: jump
+    meaning: 一変数関数の点aにおける右極限と左極限の差f(a+)-f(a-)。distribution微分ではjumpの大きさがDirac deltaの係数として現れる。
+  - term: weak derivative
+    english: weak derivative
+    meaning: distribution微分が局所可積分関数vによる正則distributionとして表せるときのv。a.e.の意味で一意である。
+  - term: mollifier
+    english: mollifier
+    meaning: 非負で滑らかかつコンパクト台を持ち、全積分が1の関数。縮小族rho_epsilonを畳み込んで粗い関数を平滑化する。
+  - term: approximate identity
+    english: approximate identity
+    meaning: rho_epsilon(x)=epsilon^{-d}rho(x/epsilon)のように全質量1を保ったまま原点へ集中するmollifier族。
+  - term: 局所mollification
+    english: local mollification
+    meaning: 境界からepsilon以上離れた点でu_epsilon=rho_epsilon*uと定める平滑化。uが局所可積分ならC-infinityになる。
+  - term: L1平行移動連続性
+    english: continuity of translations in L1
+    meaning: w in L1(R^d)に対しh->0で||w(.-h)-w||_1->0となる性質。mollifierの局所L1近似の核心に使う。
