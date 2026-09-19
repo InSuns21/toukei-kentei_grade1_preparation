@@ -3312,7 +3312,7 @@ $$
 
 [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
-$
+$$
 \boxed{
 \|u|_\Gamma\|_{L^2(\Gamma)}^2
 \le
