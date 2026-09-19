@@ -76,7 +76,7 @@ concepts:
   - id: analysis.lp-translation-continuity-rd
     name: Lp平行移動連続性
     kind: lemma
-    aliases: ["Lp 平行移動連続性", "Lp translation continuity", "continuity of translations in Lp"]
+    aliases: ["Lp translation continuity", "continuity of translations in Lp"]
     introduction: formal
     introduction_aliases: ["補題（Lp 平行移動連続性）"]
     requires:
