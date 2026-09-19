@@ -31,6 +31,7 @@ forward_references:
   - ode.ode5-laplace-transform
   - ode.ode6-ordinary-singular-point
   - ode.ode7-eigenpair
+  - ode.ode7-eigenfunction-expansion
   - fourier.fou3-fourier-transform
   - fourier.fou3-convolution
   - fourier.fou5-independent-sum-convolution
