@@ -1104,24 +1104,10 @@ $$
 <a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
 > **補題（Rd の平行移動補題）**  
-> $w\in L^1(\mathbb R^d)$ とし、
-
-$
-(\tau_h w)(x)=w(x-h),
-\qquad h\in\mathbb R^d
-$
-
-> と置く。このとき
-
-$
-\boxed{
-\|\tau_h w-w\|_{L^1(\mathbb R^d)}
-\to0
-\qquad
-(h\to0)
-}
-$
-
+> $w\in L^1(\mathbb R^d)$ とし、$(\tau_h w)(x)=w(x-h)$（$h\in\mathbb R^d$）と置く。このとき
+>
+> $\|\tau_h w-w\|_{L^1(\mathbb R^d)}\to0\quad(h\to0)$
+>
 > が成り立つ。
 <!-- formal-statement-end -->
 
