@@ -959,7 +959,18 @@ v_\varepsilon\to v
 \quad\text{in }L^1(J).
 $$
 
-定数関数列 $c_\varepsilon$ が $L^1(J)$ で $v$ へ収束するので、$v$ は $J$ 上 a.e. 定数です。
+定数関数列 $c_\varepsilon$ が $L^1(J)$ で $v$ へ収束します。したがって
+$
+|J|\,|c_\varepsilon-c_\delta|
+=
+\|c_\varepsilon-c_\delta\|_{L^1(J)}
+\le
+\|c_\varepsilon-v\|_{L^1(J)}
++
+\|v-c_\delta\|_{L^1(J)}
+\to0.
+$
+よって $(c_\varepsilon)$ は実数として Cauchy で、ある定数 $c_J$ へ収束します。従って $v=c_J$ が $J$ 上 a.e. 成り立ちます。
 
 $J$ を大きくして互いに重なる区間で覆うと、重なり上で定数値が一致するため、$I$ 全体である一つの定数 $c$ が存在して
 
@@ -1121,7 +1132,17 @@ $$
 
 前節で $u$ は一意な絶対連続代表元 $\widetilde u$ を持つことを示しました。
 
-線形性は積分表示から明らかです。
+$u,v\in H^1(0,L)$ と $a,b\in\mathbb R$ に対し、絶対連続代表元の一意性と
+$
+a\widetilde u+b\widetilde v
+$
+が $au+bv$ の絶対連続代表元であることから
+$
+\operatorname{Tr}(au+bv)
+=
+a\operatorname{Tr}u+b\operatorname{Tr}v
+$
+です。従って $\operatorname{Tr}$ は線形です。
 
 有界性を示します。
 
@@ -1691,7 +1712,7 @@ $$
 
 高次元では $\partial\Omega$ は $(d-1)$ 次元の集合であり、局所的な形が trace の構成に影響します。
 
-境界が十分に良いと、境界近くを
+境界を局所的に一様な Lipschitz graph として表せると、境界近くを
 
 $$
 \text{横方向 }x'
@@ -1868,15 +1889,13 @@ $$
 
 これを $x'$ で積分します。
 
-Lipschitz 関数 $\gamma$ は a.e. 微分可能で、その勾配は本質的に有界です。したがって graph 上の面積要素は
-
-$$
+Lipschitz boundary package の面積公式により、graph 上の表面測度は chart 座標で
+$
 dS
 =
 \sqrt{1+|\nabla\gamma(x')|^2}\,dx'
-$$
-
-で制御されます。
+$
+と表され、その係数は $\gamma$ の Lipschitz 定数だけで一様に制御されます。
 
 よって局所的に
 
@@ -1895,18 +1914,24 @@ $$
 
 有限個の境界 patch を足せば全境界の評価になります。
 
-### この章での黒箱境界
+### この章での意図的黒箱
 
-一般 Lipschitz domain について最後まで厳密に構成するには、次の幾何的補題が必要です。
+一般 Lipschitz domain について chart の貼り合わせまで完全に構成するには、次の補助理論が必要です。
 
-- 有限個の Lipschitz chart と partition of unity による局所化。
-- $H^1(\Omega)$ の元を境界まで滑らかな関数で近似する Lipschitz domain 上の density / extension machinery。
+- compact な境界を有限個の Lipschitz graph chart で覆い、smooth partition of unity で局所化すること。
+- Lipschitz graph 上の表面測度を chart 座標で積分し、その Jacobian を Lipschitz 定数で制御する面積公式。
+- bounded Lipschitz domain に対する $H^1$ extension と、それを用いた「境界まで滑らかな関数」の $H^1$ density。
+- zero trace の関数を境界層 cutoff / inward shift で内部支持関数へ近似できること。
 
-これらは「trace の値が何か」を理解するための解析核心ではなく、境界 chart をつなぐ幾何技術です。
+これらを本章では **Lipschitz boundary package** と呼び、幾何測度論と extension operator の構成部分だけを意図的黒箱とします。
 
-本章ではこの **Lipschitz extension / density package だけを意図的黒箱**とします。
-
-一方、trace estimate 自体の核心である「法線方向の一変数評価を境界に沿って積分する」機構は上で明示しました。
+黒箱にしているのは「どの局所 chart をどう貼るか」という技術部分です。trace estimate の解析核心である
+$
+\text{一変数の端点評価}
+\to
+\text{境界 graph に沿った積分}
+$
+は本文で計算し、区間上の $H_0^1=\ker\operatorname{Tr}$ は完全証明しています。
 
 <!-- proof-start -->
 ### 証明
@@ -2032,7 +2057,7 @@ $$
 
 が滑らかな $u$ に対して成り立ちます。
 
-ここで bounded Lipschitz domain 上の density / extension package により、任意の $u\in H^1(\Omega)$ に対して境界まで滑らかな $u_n$ を
+ここで上で明示した Lipschitz boundary package の extension / density 部分により、任意の $u\in H^1(\Omega)$ に対して境界まで滑らかな $u_n$ を
 
 $$
 u_n\to u
@@ -2308,7 +2333,7 @@ H_0^1(\Omega)
 \ker\operatorname{Tr}.
 $$
 
-逆包含の chart の貼り合わせと境界層近似の一般形は、本章で明示した Lipschitz extension / density package の範囲とします。区間での完全な cutoff 計算がその解析核心です。
+逆包含の chart の貼り合わせと境界層近似の一般形は、本章で明示した Lipschitz boundary package の範囲とします。とくに「zero trace なら境界層 cutoff の $H^1$ 誤差が消える」という高次元化を黒箱補題として使っています。区間での完全な cutoff 計算がその解析核心です。
 <!-- proof-end -->
 
 これで
