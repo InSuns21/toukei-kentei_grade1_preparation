@@ -9,7 +9,7 @@ concepts:
   - id: sobolev.conjugate-exponent
     name: Sobolev共役指数
     kind: definition
-    aliases: ["Sobolev conjugate exponent", "p star", "p*"]
+    aliases: ["Sobolev conjugate exponent"]
     introduction: formal
     introduction_aliases: ["定義（Sobolev 共役指数）"]
     requires:
@@ -129,7 +129,7 @@ concepts:
   - id: sobolev.w01p
     name: "W_0^{1,p}(Omega)"
     kind: definition
-    aliases: ["W01p", "W0 1p", "zero-boundary W1p", "W_0^{1,p}"]
+    aliases: ["W01p", "W0 1p", "zero-boundary W1p"]
     introduction: formal
     introduction_aliases: ["定義（W01p）"]
     requires:
