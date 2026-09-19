@@ -1,0 +1,165 @@
+chapter: GPDE2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE1
+  - MT7
+
+concepts:
+  - id: distribution.multi-index
+    name: 多重指数
+    kind: definition
+    aliases: [multi-index, 多重指標]
+    introduction: formal
+    introduction_aliases: ["定義（多重指数）"]
+
+  - id: distribution.distributional-derivative
+    name: distributional derivative
+    kind: definition
+    aliases: [distribution微分, 超関数微分, distribution derivative]
+    introduction: formal
+    introduction_aliases: ["定義（distributional derivative）"]
+    requires:
+      - distribution.schwartz-distribution
+      - distribution.test-function
+      - distribution.multi-index
+
+  - id: distribution.derivative-stability
+    name: distribution微分の安定性
+    kind: proposition
+    aliases: [distributionは何回微分してもdistribution, distribution derivative stability]
+    introduction: formal
+    introduction_aliases: ["命題（distribution は何回微分しても distribution である）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.local-finite-order-estimate
+
+  - id: distribution.classical-derivative-compatibility
+    name: 古典微分との整合性
+    kind: proposition
+    aliases: [classical derivative compatibility]
+    introduction: formal
+    introduction_aliases: ["命題（古典微分との整合性）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.regular-distribution
+
+  - id: distribution.derivative-continuity
+    name: distribution微分作用素の連続性
+    kind: proposition
+    aliases: [continuity of distributional differentiation]
+    introduction: formal
+    introduction_aliases: ["命題（distribution 微分作用素の連続性）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.distributional-convergence
+
+  - id: distribution.heaviside-derivative
+    name: Heavisideのdistribution微分
+    kind: proposition
+    aliases: [Heaviside derivative, H'=delta]
+    introduction: formal
+    introduction_aliases: ["命題（Heaviside の distribution 微分）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.dirac-delta
+      - distribution.regular-distribution
+
+  - id: distribution.jump-derivative
+    name: jumpを持つ関数のdistribution微分
+    kind: proposition
+    aliases: [jump formula, jump derivative]
+    introduction: formal
+    introduction_aliases: ["命題（有限個の jump を持つ関数の distribution 微分）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.dirac-delta
+      - distribution.regular-distribution
+
+  - id: distribution.weak-derivative
+    name: weak derivative
+    kind: definition
+    aliases: [弱微分, weak derivative]
+    introduction: formal
+    introduction_aliases: ["定義（weak derivative）"]
+    requires:
+      - distribution.distributional-derivative
+      - distribution.regular-distribution
+
+  - id: distribution.mollifier
+    name: mollifier
+    kind: definition
+    aliases: [軟化子, Friedrichs mollifier]
+    introduction: formal
+    introduction_aliases: ["定義（mollifier）"]
+    requires:
+      - distribution.test-function
+
+  - id: distribution.local-mollification
+    name: 局所mollification
+    kind: definition
+    aliases: [local mollification, convolution smoothing]
+    introduction: formal
+    introduction_aliases: ["定義（局所 mollification）"]
+    requires:
+      - distribution.mollifier
+      - distribution.regular-distribution
+
+  - id: distribution.mollification-smoothing
+    name: mollificationの平滑化
+    kind: theorem
+    aliases: [mollifier smoothing, smoothing by convolution]
+    introduction: formal
+    introduction_aliases: ["定理（mollification の平滑化）"]
+    requires:
+      - distribution.local-mollification
+
+  - id: analysis.l1-translation-continuity-rd
+    name: Rdの平行移動補題
+    kind: lemma
+    aliases: [Rd translation lemma]
+    introduction: formal
+    introduction_aliases: ["補題（Rd の平行移動補題）"]
+    requires:
+      - measure.cc-dense-in-lp
+
+  - id: distribution.mollifier-l1loc-approximation
+    name: mollifierの局所L1近似
+    kind: theorem
+    aliases: [local L1 mollifier approximation, approximate identity in L1loc]
+    introduction: formal
+    introduction_aliases: ["定理（mollifier の局所 L1 近似）"]
+    requires:
+      - distribution.local-mollification
+      - analysis.l1-translation-continuity-rd
+
+  - id: distribution.regular-embedding-injective
+    name: 正則distribution埋め込みの単射性
+    kind: proposition
+    aliases: [regular distribution embedding injectivity]
+    introduction: formal
+    introduction_aliases: ["命題（正則 distribution 埋め込みの単射性）"]
+    requires:
+      - distribution.regular-distribution
+      - distribution.mollifier-l1loc-approximation
+
+  - id: distribution.weak-derivative-uniqueness
+    name: weak derivativeの一意性
+    kind: proposition
+    aliases: [weak derivative uniqueness, 弱微分の一意性]
+    introduction: formal
+    introduction_aliases: ["命題（weak derivative の一意性）"]
+    requires:
+      - distribution.weak-derivative
+      - distribution.regular-embedding-injective
+
+  - id: distribution.weak-derivative-mollifier-commutation
+    name: weak derivativeとmollificationの交換
+    kind: theorem
+    aliases: [weak derivative mollifier commutation, derivative commutes with mollification]
+    introduction: formal
+    introduction_aliases: ["定理（弱微分と mollification の交換）"]
+    requires:
+      - distribution.weak-derivative
+      - distribution.mollification-smoothing
+      - distribution.local-mollification

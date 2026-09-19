@@ -170,7 +170,8 @@
       "name": "Encore III：Graduate PDE",
       "paths": [
         "textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md",
-        "textbook/volumes/00_foundations/GPDE1/index.md"
+        "textbook/volumes/00_foundations/GPDE1/index.md",
+        "textbook/volumes/00_foundations/GPDE2/index.md"
       ]
     },
     {

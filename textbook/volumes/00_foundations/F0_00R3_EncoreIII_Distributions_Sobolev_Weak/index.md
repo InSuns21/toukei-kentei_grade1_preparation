@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE1「テスト関数・distribution」](../GPDE1/index.md) まで公開済みで、次は GPDE2「distribution 微分・mollifier・弱微分」です。
+現在は [GPDE2「distribution 微分・mollifier・弱微分」](../GPDE2/index.md) まで公開済みで、次は GPDE3「Sobolev 空間」です。
 
 ---
 
@@ -112,9 +112,9 @@ Encore III 本線では次を正本化します。
 
 $\mathcal D(\Omega)=C_c^\infty(\Omega)$、テスト関数列の収束、distribution の連続性、正則 distribution、Dirac delta、distribution の収束、distributional solution を導入します。
 
-### GPDE2 distribution 微分・mollifier・弱微分
+### [GPDE2 distribution 微分・mollifier・弱微分](../GPDE2/index.md)
 
-部分積分の双対化として微分を定義し、Heaviside、jump、mollifier、smooth approximation を扱います。
+部分積分の双対化として distribution 微分を定義し、Heaviside と jump の delta 項、weak derivative、mollifier の尺度変換、局所 $L^1$ 近似、弱微分と mollification の交換までを証明します。
 
 ### GPDE3 Sobolev 空間
 
