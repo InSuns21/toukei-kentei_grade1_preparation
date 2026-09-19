@@ -1,20 +1,23 @@
 id: "F0-00R3"
-title: "Encore III：Distributions, Sobolev Spaces & Weak Solutions"
+title: "Encore III：Graduate PDE — Distributions, Sobolev Spaces & Weak Solutions"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - F0-00PDE3
+  - PDE7
+  - F0-00D2
   - F0-02C2
 official_scope: []
 learning_objectives:
-  - Encore IIIの標準通読順を説明できる
-  - Schwartz超関数から弱解・Lax--Milgramまでの依存関係を説明できる
-  - Encore IIとの接続とEncore IIIの停止線を説明できる
+  - Encore II の古典 PDE から Encore III の弱解理論へ移る理由を説明できる
+  - GPDE1--GPDE10 の標準通読順と各章の役割を説明できる
+  - distributional・variational・energy solution の役割を区別できる
+  - Encore III の停止線と後続 PDE 拡張の分離方針を説明できる
 definitions: []
 theorems: []
-canonical_examples: [Encore III通読ロードマップ]
+canonical_examples: [Encore III Graduate PDE 通読ロードマップ]
 problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
+dream_theater_exercise_count_exception: "Encore III の統合ロードマップ兼移行ハブであり、演習章ではない。演習は実装完了した GPDE 各正本章に置く。"
 estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
