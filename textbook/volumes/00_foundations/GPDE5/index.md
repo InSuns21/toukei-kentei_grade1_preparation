@@ -288,7 +288,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde5-compact-embedding -->
-**定義の確認：有限次元では何が起きるか**
+**定義の確認**
+
+有限次元では何が起きるかを確認します。
 
 $X=Y=\mathbb R^m$ とします。
 
