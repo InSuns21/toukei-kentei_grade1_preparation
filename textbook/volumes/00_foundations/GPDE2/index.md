@@ -390,7 +390,7 @@ distribution 微分は古典微分を捨てたのではなく、古典微分を�
 
 <a id="prop-gpde2-derivative-continuous"></a>
 <!-- formal-statement-start -->
-> **命題（distribution 収束と微分の交換）**  
+> **命題（distribution 微分作用素の連続性）**  
 > $T_n,T\in\mathcal D'(\Omega)$ とし、
 
 $$
@@ -1095,11 +1095,11 @@ $$
 
 を局所 $L^1$ で示します。
 
-その前に、後の証明で必要になる多次元版の平行移動連続性を確認します。一変数版は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
+その前に、後の証明で必要になる多次元の translation estimate を確認します。一変数での対応する結果は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
 
 <a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
-> **補題（Rd 上の L1 平行移動連続性）**  
+> **補題（Rd の平行移動補題）**  
 > $w\in L^1(\mathbb R^d)$ とし、
 >
 > $$
@@ -1307,7 +1307,7 @@ $$
 
 以下です。
 
-$\int\rho=1$ であり、[Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)から
+$\int\rho=1$ であり、[Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -2217,7 +2217,7 @@ $$
 $$
 
 を示せ。
-3. [本章の Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
+3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2281,7 +2281,7 @@ $$
 \|w(\cdot-\varepsilon z)-w\|_1\,dz.
 $$
 
-3. [本章の Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
+3. [本章の Rd の平行移動補題](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
 
 $
 \|w(\cdot-h)-w\|_1\to0
