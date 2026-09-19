@@ -26,7 +26,7 @@ $$
 
 を Sobolev 関数に対してどう読むかが問題になります。
 
-$H^1(\Omega)$ の元は a.e. 同値類です。しかも $\Omega$ は開集合なので、そもそも境界 $\partial\Omega$ は定義域の外側です。したがって一般の $u\in H^1(\Omega)$ に対して、古典解のように「境界点 $x$ へ代入して $u(x)=0$」と書くことはできません。
+$H^1(\Omega)$ の元は、ほとんど至る所（almost everywhere; a.e.）で一致する関数を同一視した同値類です。しかも $\Omega$ は開集合なので、そもそも境界 $\partial\Omega$ は定義域の外側です。したがって一般の $u\in H^1(\Omega)$ に対して、古典解のように「境界点 $x$ へ代入して $u(x)=0$」と書くことはできません。
 
 本章の中心は、この境界条件を二つの方向から作り直すことです。
 
@@ -117,7 +117,7 @@ $$
 <a id="def-gpde4-h01"></a>
 
 <!-- formal-statement-start -->
-> **定義（$H_0^1$）**  
+> **定義（H_0^1）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。
 >
 > $C_c^\infty(\Omega)$ の $H^1(\Omega)$ norm による閉包を
@@ -205,7 +205,7 @@ $$
 <a id="prop-gpde4-h01-closed"></a>
 
 <!-- formal-statement-start -->
-> **命題（$H_0^1$ は閉部分空間）**  
+> **命題（H_0^1 は閉部分空間）**  
 > 任意の開集合 $\Omega\subset\mathbb R^d$ に対し、$H_0^1(\Omega)$ は $H^1(\Omega)$ の閉線形部分空間である。
 >
 > 特に $H^1(\Omega)$ の内積を制限すると、$H_0^1(\Omega)$ は Hilbert 空間である。
@@ -339,7 +339,7 @@ $H_0^1$ は零境界条件によって、その定数方向を除きます。
 <a id="thm-gpde4-poincare"></a>
 
 <!-- formal-statement-start -->
-> **定理（$H_0^1$ の Poincaré 不等式）**  
+> **定理（H_0^1 の Poincaré 不等式）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。
 >
 > このとき定数 $C_P>0$ が存在し、任意の $u\in H_0^1(\Omega)$ に対して
@@ -439,7 +439,7 @@ u(x_1,x')
 \partial_1u(s,x')\,ds.
 $$
 
-Cauchy--Schwarz 不等式より
+[Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |u(x_1,x')|^2
@@ -488,7 +488,7 @@ $$
 
 さらに $x'\in\mathbb R^{d-1}$ で積分します。
 
-Fubini の定理により
+[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
 $$
 \|u\|_{L^2(\mathbb R^d)}^2
@@ -632,7 +632,7 @@ $$
 <a id="cor-gpde4-gradient-norm"></a>
 
 <!-- formal-statement-start -->
-> **系（勾配 norm と $H^1$ norm の同値性）**  
+> **系（勾配 norm と H^1 norm の同値性）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。
 >
 > $u\in H_0^1(\Omega)$ に対して
@@ -706,7 +706,7 @@ $$
 \|u\|_{H^1}.
 $$
 
-一方 Poincaré 不等式から
+一方 [Poincaré 不等式](#thm-gpde4-poincare)から
 
 $$
 \|u\|_2^2
@@ -796,7 +796,7 @@ $$
 <a id="thm-gpde4-w11-ac"></a>
 
 <!-- formal-statement-start -->
-> **定理（一変数 $W^{1,1}$ の基本定理）**  
+> **定理（一変数 W^{1,1} の基本定理）**  
 > $I=(a,b)$ を有界開区間とし、$u\in W^{1,1}(I)$ とする。
 >
 > $g=Du\in L^1(I)$ を弱微分とする。
@@ -960,6 +960,7 @@ v_\varepsilon\to v
 $$
 
 定数関数列 $c_\varepsilon$ が $L^1(J)$ で $v$ へ収束します。したがって
+
 $
 |J|\,|c_\varepsilon-c_\delta|
 =
@@ -970,6 +971,7 @@ $
 \|v-c_\delta\|_{L^1(J)}
 \to0.
 $
+
 よって $(c_\varepsilon)$ は実数として Cauchy で、ある定数 $c_J$ へ収束します。従って $v=c_J$ が $J$ 上 a.e. 成り立ちます。
 
 $J$ を大きくして互いに重なる区間で覆うと、重なり上で定数値が一致するため、$I$ 全体である一つの定数 $c$ が存在して
@@ -1133,15 +1135,19 @@ $$
 前節で $u$ は一意な絶対連続代表元 $\widetilde u$ を持つことを示しました。
 
 $u,v\in H^1(0,L)$ と $a,b\in\mathbb R$ に対し、絶対連続代表元の一意性と
+
 $
 a\widetilde u+b\widetilde v
 $
+
 が $au+bv$ の絶対連続代表元であることから
+
 $
 \operatorname{Tr}(au+bv)
 =
 a\operatorname{Tr}u+b\operatorname{Tr}v
 $
+
 です。従って $\operatorname{Tr}$ は線形です。
 
 有界性を示します。
@@ -1318,7 +1324,7 @@ $$
 <a id="thm-gpde4-h01-trace-kernel-interval"></a>
 
 <!-- formal-statement-start -->
-> **定理（区間上の $H_0^1$ と zero trace）**  
+> **定理（区間上の H_0^1 と zero trace）**  
 > $L>0$ とする。
 >
 > このとき
@@ -1672,7 +1678,7 @@ $$
 (0,0).
 $$
 
-前節の定理から
+前節の[区間上の H_0^1 と zero trace の同一視](#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 \boxed{
@@ -1890,11 +1896,13 @@ $$
 これを $x'$ で積分します。
 
 Lipschitz boundary package の面積公式により、graph 上の表面測度は chart 座標で
+
 $
 dS
 =
 \sqrt{1+|\nabla\gamma(x')|^2}\,dx'
 $
+
 と表され、その係数は $\gamma$ の Lipschitz 定数だけで一様に制御されます。
 
 よって局所的に
@@ -1926,11 +1934,13 @@ $$
 これらを本章では **Lipschitz boundary package** と呼び、幾何測度論と extension operator の構成部分だけを意図的黒箱とします。
 
 黒箱にしているのは「どの局所 chart をどう貼るか」という技術部分です。trace estimate の解析核心である
+
 $
 \text{一変数の端点評価}
 \to
 \text{境界 graph に沿った積分}
 $
+
 は本文で計算し、区間上の $H_0^1=\ker\operatorname{Tr}$ は完全証明しています。
 
 <!-- proof-start -->
@@ -2128,7 +2138,7 @@ Lipschitz 仮定が働いた場所は二つです。
 <a id="thm-gpde4-h01-trace-kernel"></a>
 
 <!-- formal-statement-start -->
-> **定理（$H_0^1$ と zero trace の同一視）**  
+> **定理（H_0^1 と zero trace の同一視）**  
 > $\Omega\subset\mathbb R^d$ を bounded Lipschitz domain とする。
 >
 > このとき
@@ -2939,7 +2949,7 @@ $(u_n)$ が通常の $H^1$ norm でも Cauchy であり、ある $u\in H_0^1(\Om
 <!-- solution-start -->
 ### 詳細解答
 
-Poincaré 不等式により、任意の $v\in H_0^1(\Omega)$ に対して
+[Poincaré 不等式](#thm-gpde4-poincare)により、任意の $v\in H_0^1(\Omega)$ に対して
 
 $$
 \|v\|_{H^1}
@@ -3300,9 +3310,9 @@ $$
 \int_D\int_0^h|\partial_du|^2ds\,dx'.
 $$
 
-Fubini により
+[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
-$$
+$
 \boxed{
 \|u|_\Gamma\|_{L^2(\Gamma)}^2
 \le
