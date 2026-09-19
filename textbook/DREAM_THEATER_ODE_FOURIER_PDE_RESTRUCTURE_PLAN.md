@@ -802,4 +802,13 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
 - proof pedagogy は機械 P1（proof block 9本、証明比約28%、省略語候補「相殺する」1件）、formalism pedagogy も機械 P1（主要結果10件、proof block 9件、隠れ証明0）。「相殺する」は内部境界で $F\cdot n+F\cdot(-n)=0$ を直後に明示しており、核心論証の省略ではない。定義直後の直接例は definition-example marker 4件を人手確認した。
 - proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残さない。
-- PDE6 は PR #300 で実装・検証完了。次の理論実装単位は PDE7。
+- PDE6 は PR #300 で実装・検証完了。
+- PDE7 は PDE6 を直接 prerequisite とし、ODE7 の Sturm--Liouville 固有関数と FOU3 の Fourier 変換を、PDE3--PDE6 から推移的に再利用する統合章として実装した。一般スペクトル定理を新しい前提には置いていない。
+- 有限固有モードでは空間作用素の対角化を線形性から完全に導き、熱では $a_n'+\kappa\lambda_na_n=0$、波動では $a_n''+c^2\lambda_na_n=0$、Poisson 型では $\lambda_na_n=f_n$ となることを同一の命題から整理した。
+- 有界区間の離散固有値 $\lambda_n$ と全空間 Fourier 変換の連続パラメータ $\xi^2$ を対応させ、PDE3/PDE4 で既に正当化した古典解の範囲だけで離散・連続の二つの対角化を比較した。
+- Green 表現は有限モード Green kernel
+  $
+  G_N(x,y)=\sum_{n=1}^N\frac{\phi_n(x)\phi_n(y)}{\lambda_n\|\phi_n\|^2}
+  $
+  を直交性から導き、各モードを $1/\lambda_n$ 倍する逆作用と PDE6 の Green 関数を照合した。Neumann 問題では零固有値が整合条件と定数不定性を生むことも PDE6 の境界積分法と対応させた。
+- 演習は A4 / B3 / C1、全問詳細解答付き。一般自己共役作用素のスペクトル定理、弱微分、Sobolev 空間、弱解は Encore III へ停止している。
