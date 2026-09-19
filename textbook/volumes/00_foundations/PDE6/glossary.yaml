@@ -1,0 +1,26 @@
+chapter: "PDE6"
+terms:
+  - term: 法線微分
+    english: normal derivative
+    meaning: 境界上の外向き単位法線nに沿う方向微分で、partial u/partial n = grad u dot n と定義する。
+  - term: 発散定理
+    english: divergence theorem
+    meaning: 領域内部のdivergenceの積分を境界を横切る外向きfluxの積分へ変換する積分定理。
+  - term: Greenの第一恒等式
+    english: Green's first identity
+    meaning: div(u grad v)へ発散定理を適用して、内部のgrad u dot grad vとu Delta vを境界のu partial_n vへ結ぶ恒等式。
+  - term: Greenの第二恒等式
+    english: Green's second identity
+    meaning: 第一恒等式をu,vで入れ替えて差を取り、u Delta v-v Delta uを境界項へ変換する恒等式。
+  - term: 基本解
+    english: fundamental solution
+    meaning: 本章では二次元の-Laplacianについて、原点以外で調和的かつ原点を囲む任意の円で単位の総fluxを持つ対数関数。
+  - term: Green関数
+    english: Green function
+    meaning: 基本解の特異性を保ったまま、指定した領域の境界条件を満たすよう調和補正した二変数関数。
+  - term: Green表現公式
+    english: Green representation formula
+    meaning: Poisson方程式の解の一点値を、内部の源と境界上の関数値・法線微分の積分で表す公式。
+  - term: Poisson kernel
+    english: Poisson kernel
+    meaning: Dirichlet Green関数の境界変数に関する外向き法線微分の負号で得られ、境界データを内部へ延長する核。
