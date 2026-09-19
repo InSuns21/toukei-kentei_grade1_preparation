@@ -126,6 +126,15 @@ concepts:
       - sobolev.rellich-h01-l2
       - sobolev.inequality-rd
 
+  - id: sobolev.w01p
+    name: "W_0^{1,p}(Omega)"
+    kind: definition
+    aliases: ["W0 1p", "zero-boundary W1p", "W_0^{1,p}"]
+    introduction: formal
+    introduction_aliases: ["定義（$W_0^{1,p}$）"]
+    requires:
+      - sobolev.wkp
+
   - id: sobolev.critical-noncompactness
     name: critical Sobolev embeddingの非compact性
     kind: proposition
@@ -135,3 +144,4 @@ concepts:
     requires:
       - sobolev.conjugate-exponent
       - sobolev.inequality-rd
+      - sobolev.w01p
