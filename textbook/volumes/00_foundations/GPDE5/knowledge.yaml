@@ -41,7 +41,7 @@ concepts:
   - id: sobolev.w11-inequality-rd
     name: R^d上のW^{1,1} Sobolev不等式
     kind: theorem
-    aliases: ["W11 Sobolev inequality", "endpoint Sobolev inequality"]
+    aliases: ["W11 Sobolev inequality", "W11 Sobolev 不等式", "endpoint Sobolev inequality"]
     introduction: formal
     introduction_aliases: ["定理（W11 Sobolev 不等式）"]
     requires:
@@ -83,7 +83,7 @@ concepts:
     kind: theorem
     aliases: ["weak subsequence theorem in Hilbert space", "bounded sequence weakly convergent subsequence"]
     introduction: formal
-    introduction_aliases: ["定理（Hilbert 空間の有界列から弱収束部分列）"]
+    introduction_aliases: ["定理（完備内積空間の有界列から弱収束部分列）"]
     requires:
       - sobolev.h01-closed-hilbert
 
