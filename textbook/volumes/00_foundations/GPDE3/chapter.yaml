@@ -20,11 +20,11 @@ learning_objectives:
 definitions:
   - { id: GPDE3-DEF-01, name: "Sobolev空間 W^{k,p}" }
   - { id: GPDE3-DEF-02, name: "Sobolev norm" }
-  - { id: GPDE3-DEF-03, name: "Hilbert Sobolev空間" }
+  - { id: GPDE3-DEF-03, name: "二乗可積分型Sobolev空間" }
 theorems:
   - { id: GPDE3-PROP-01, name: "弱微分作用素の閉性" }
   - { id: GPDE3-THM-01, name: "Sobolev空間の完備性" }
-  - { id: GPDE3-THM-02, name: "Hilbert Sobolev空間の完備内積構造" }
+  - { id: GPDE3-THM-02, name: "二乗可積分型Sobolev空間の完備内積構造" }
   - { id: GPDE3-PROP-02, name: "smooth multiplierとの積の弱微分" }
   - { id: GPDE3-LEM-01, name: "Lp平行移動連続性" }
   - { id: GPDE3-THM-03, name: "Sobolev関数の局所mollification" }
