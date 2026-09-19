@@ -29,7 +29,7 @@ concepts:
     kind: definition
     aliases: ["Hk", "W^{k,2}"]
     introduction: formal
-    introduction_aliases: ["定義（H^k）"]
+    introduction_aliases: ["定義（Hilbert Sobolev 空間）"]
     requires:
       - sobolev.wkp
 
@@ -48,7 +48,7 @@ concepts:
     kind: theorem
     aliases: [completeness of Sobolev spaces, Sobolev completeness]
     introduction: formal
-    introduction_aliases: ["定理（W^{k,p} の完備性）"]
+    introduction_aliases: ["定理（Sobolev 空間の完備性）"]
     requires:
       - sobolev.norm
       - sobolev.weak-derivative-closed
@@ -58,7 +58,7 @@ concepts:
     kind: theorem
     aliases: [Hilbert structure of Hk]
     introduction: formal
-    introduction_aliases: ["定理（H^k の Hilbert 構造）"]
+    introduction_aliases: ["定理（Hilbert Sobolev 空間の完備内積構造）"]
     requires:
       - sobolev.hk
       - sobolev.wkp-complete
@@ -99,7 +99,7 @@ concepts:
     kind: theorem
     aliases: [Ccinfinity density in Sobolev space, smooth compactly supported density]
     introduction: formal
-    introduction_aliases: ["定理（R^d 上の C_c^infinity 密度）"]
+    introduction_aliases: ["定理（全空間上の滑らかなコンパクト台関数の密度）"]
     requires:
       - sobolev.smooth-multiplier-product
       - sobolev.local-mollification
