@@ -2261,7 +2261,7 @@ u_\varepsilon(x)-u(x)
 \{w(x-\varepsilon z)-w(x)\}\,dz.
 $$
 
-三角不等式を取り、$x\in K$ で積分します。$\rho\ge0$ なので Tonelli の定理を使えて、
+三角不等式を取り、$x\in K$ で積分します。$\rho\ge0$ なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使えて、
 
 $$
 \|u_\varepsilon-u\|_{L^1(K)}
@@ -2691,7 +2691,7 @@ $$
 
 - 多重指数 $\alpha$ と $\partial^\alpha$ の意味を説明できる。
 - distribution 微分を部分積分の双対化として定義できる。
-- $\partial^\alpha T$ が再び distribution であることを局所有限階評価から証明できる。
+- $\partial^\alpha T$ が再び distribution であることを [GPDE1 の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)から証明できる。
 - 古典微分できる関数では distribution 微分が古典微分と一致することを示せる。
 - distribution 収束と微分が交換することを定義から証明できる。
 - $DH=\delta_0$ を直接計算できる。
