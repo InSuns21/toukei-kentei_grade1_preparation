@@ -402,45 +402,23 @@ $$
 
 したがって $\overline x>1$ なら
 
-$
-g(\lambda)=\overline x
-$
+$g(\lambda)=\overline x$
 
 を満たす正の $\lambda$ はただ1つ存在する。
 
 さらに第3問のスコアは
 
-$
-\ell'(\lambda)
-=
-\frac{n}{\lambda}
-\{\overline x-g(\lambda)\}
-$
+$\ell'(\lambda)=\dfrac{n}{\lambda}\{\overline x-g(\lambda)\}$
 
 と書ける。$g$ は狭義単調増加なので、一意な解を $\widehat\lambda$ とすると
 
-$
-0<\lambda<\widehat\lambda
-\quad\Longrightarrow\quad
-\ell'(\lambda)>0,
-$
+$0<\lambda<\widehat\lambda\Longrightarrow\ell'(\lambda)>0,$
 
-$
-\lambda>\widehat\lambda
-\quad\Longrightarrow\quad
-\ell'(\lambda)<0.
-$
+$\lambda>\widehat\lambda\Longrightarrow\ell'(\lambda)<0.$
 
 従って対数尤度は $\widehat\lambda$ まで増加し、その後減少する。よってこの一意な停留点が最尤推定量である。
 
-$
-\boxed{
-\overline x>1
-\Longrightarrow
-\widehat\lambda_{\mathrm{ML}}
-\text{ は一意な正の解}
-}.
-$
+$\boxed{\overline x>1\Longrightarrow\widehat\lambda_{\mathrm{ML}}\text{ は一意な正の解}}.$
 
 一方、$X_i\ge1$ なので $\overline x=1$ が起こるのは
 
