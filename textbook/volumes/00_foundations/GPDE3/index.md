@@ -556,7 +556,7 @@ $$
 > W^{k,p}(\Omega)
 > $$
 >
-> は完備なノルム空間である。
+> は上の Sobolev norm に関して完備である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
