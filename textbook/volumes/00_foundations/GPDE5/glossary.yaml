@@ -21,6 +21,9 @@ terms:
   - term: 強収束
     english: strong convergence
     meaning: norm差が0へ収束すること。弱収束より強く、積や非線形量の極限操作に必要になることが多い。
+  - term: W_0^{1,p}
+    english: zero-boundary Sobolev space W_0^{1,p}
+    meaning: C_c^infinity(Omega)をW^{1,p}(Omega) normで閉包した空間。p=2ではH_0^1(Omega)に一致する。
   - term: Rellich--Kondrachov compactness
     english: Rellich--Kondrachov compactness theorem
     meaning: Sobolev空間の有界列から低いnormで強収束部分列を取り出せる定理。本章ではbounded open set上のH_0^1からL2への標準形を完全証明する。
