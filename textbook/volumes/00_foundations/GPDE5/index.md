@@ -940,7 +940,7 @@ $$
 
 ## 5. 領域上では extension が境界を処理する
 
-$\Omega\subset\mathbb R^d$ 上の $W^{1,p}$ 関数を、全空間 Sobolev inequality へそのまま入れることはできません。
+$\Omega\subset\mathbb R^d$ 上の $W^{1,p}$ 関数を、[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)へそのまま入れることはできません。
 
 一般の $u\in W^{1,p}(\Omega)$ を 0 で延長すると、境界に jump が生じて弱微分へ境界 measure が現れることがあるからです。
 
@@ -1944,7 +1944,7 @@ $$
 \frac{2d}{d-2}.
 $$
 
-$H_0^1$ 有界列は Sobolev inequality により $L^{2^*}$ でも一様有界です。
+$H_0^1$ 有界列は [R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)により $L^{2^*}$ でも一様有界です。
 
 Rellich により部分列が $L^2$ で強収束すれば、$2<q<2^*$ に対して interpolation で $L^q$ 強収束へ上げられます。
 
