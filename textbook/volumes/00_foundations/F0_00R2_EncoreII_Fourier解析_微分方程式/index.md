@@ -87,7 +87,7 @@ PDE3 では[一次元熱方程式](../PDE3/index.md#def-pde3-heat-equation)を�
 PDE4 では[一次元波動方程式](../PDE4/index.md#def-pde4-wave-equation)を双曲型の代表として扱い、特性座標から [d'Alembert 公式](../PDE4/index.md#thm-pde4-dalembert)を導いて有限伝播速度を示します。固定端ではエネルギー保存から一意性を証明し、変数分離・Fourier 正弦級数・全空間 Fourier 変換を通じて、進行波・固有モード・周波数ごとの調和振動子が同じ構造を表すことを確認します。
 PDE5 では[Laplace・Poisson 方程式](../PDE5/index.md#def-pde5-laplace-poisson)を楕円型の代表として扱い、[円周平均値性質](../PDE5/index.md#thm-pde5-circle-mean-value)から[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)と Dirichlet 一意性を導きます。さらに長方形の変数分離と[円板の境界積分核](../PDE5/index.md#def-pde5-poisson-kernel)による Dirichlet 解を構成し、Neumann 問題の定数不定性・整合条件まで古典解の範囲で確認します。
 PDE6 では[平面版発散定理](../PDE6/index.md#thm-pde6-divergence)、[Green の第一恒等式](../PDE6/index.md#thm-pde6-green-first)・[第二恒等式](../PDE6/index.md#thm-pde6-green-second)、エネルギーによる Dirichlet 一意性、Neumann 問題の整合条件を一続きの境界積分法として扱います。さらに二次元の対数基本解、Green 表現公式、[Dirichlet Green 関数](../PDE6/index.md#def-pde6-green-function)、PDE5 と一致する Poisson kernel を収録します。弱微分・超関数・Sobolev 空間は Encore III へ送ります。
-PDE7 では[有限固有モードによる対角化](../PDE7/index.md#prop-pde7-modal-diagonalization)を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。有界区間の離散固有モードと全空間 Fourier 変換の連続周波数を対応させ、[有限モード Green kernel](../PDE7/index.md#prop-pde7-green-spectral-kernel)から Green 表現の係数 $1/\lambda_n$ を逆作用として読み直します。Neumann 零モードと整合条件まで照合し、Encore II の古典 PDE コアを閉じます。
+PDE7 では、空間固有モードへ分ける見方を出発点に、熱・波動・Poisson の三類型をモードごとの ODE / 代数方程式として統合します。有界区間の離散モードと全空間 Fourier 変換の連続周波数を対応させ、Green 表現を固有関数側から読み直して係数 $1/\lambda_n$ と逆作用の関係を確認します。Neumann の定数モードと整合条件まで照合し、Encore II の古典 PDE コアを閉じます。
 
 熱・波動・Laplace 方程式を単なる三つの計算例として並べず、parabolic / hyperbolic / elliptic の代表として位置付けます。最大原理・エネルギー法など、一意性を支える論証まで標準コアに含めます。
 
