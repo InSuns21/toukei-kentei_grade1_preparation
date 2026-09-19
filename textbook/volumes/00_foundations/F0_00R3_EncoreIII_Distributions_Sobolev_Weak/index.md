@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE2「distribution 微分・mollifier・弱微分」](../GPDE2/index.md) まで公開済みで、次は GPDE3「Sobolev 空間」です。
+現在は [GPDE3「Sobolev 空間」](../GPDE3/index.md) まで公開済みで、次は GPDE4「H0^1・Poincare・trace」です。
 
 ---
 
@@ -116,9 +116,9 @@ $\mathcal D(\Omega)=C_c^\infty(\Omega)$、テスト関数列の収束、distribu
 
 部分積分の双対化として distribution 微分を定義し、Heaviside と jump の delta 項、weak derivative、mollifier の尺度変換、局所 $L^1$ 近似、弱微分と mollification の交換までを証明します。
 
-### GPDE3 Sobolev 空間
+### [GPDE3 Sobolev 空間](../GPDE3/index.md)
 
-$W^{k,p}$、$H^k$、完備性、Hilbert 構造、Sobolev membership / non-membership を扱います。
+$W^{k,p}$、$H^k$、弱微分作用素の閉性、完備性、Hilbert 構造、Sobolev membership / non-membership、局所 mollification、全空間での smooth density までを証明します。
 
 ### GPDE4 $H_0^1$・Poincare・trace
 
