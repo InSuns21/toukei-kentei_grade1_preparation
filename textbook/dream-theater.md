@@ -224,8 +224,9 @@
 Encore II が **古典 PDE** を閉じた後、Encore III では distribution・Sobolev 空間・compactness・変分法を使う **大学院 PDE の基礎理論**へ進みます。
 
 1. [Encore III Graduate PDE ロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
+2. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
 
-新しい正本系列は次の順で実装します。
+GPDE1 は本文・証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。以降は次の順で実装します。
 
 ```text
 GPDE1  テスト関数・distribution
