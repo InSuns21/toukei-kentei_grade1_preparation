@@ -1,0 +1,105 @@
+chapter: GPDE3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE2
+  - MT7
+
+concepts:
+  - id: sobolev.wkp
+    name: Sobolev空間 W^{k,p}
+    kind: definition
+    aliases: [Sobolev space, Wkp, W^{k,p}]
+    introduction: formal
+    introduction_aliases: ["定義（Sobolev 空間）"]
+    requires:
+      - distribution.weak-derivative
+
+  - id: sobolev.norm
+    name: Sobolev norm
+    kind: definition
+    aliases: [Sobolevノルム, Wkp norm]
+    introduction: formal
+    introduction_aliases: ["定義（Sobolev norm）"]
+    requires:
+      - sobolev.wkp
+
+  - id: sobolev.hk
+    name: H^k
+    kind: definition
+    aliases: [Hk, W^{k,2}]
+    introduction: formal
+    introduction_aliases: ["定義（H^k）"]
+    requires:
+      - sobolev.wkp
+
+  - id: sobolev.weak-derivative-closed
+    name: 弱微分作用素の閉性
+    kind: proposition
+    aliases: [closedness of weak differentiation, closed weak derivative]
+    introduction: formal
+    introduction_aliases: ["命題（弱微分作用素の閉性）"]
+    requires:
+      - distribution.weak-derivative
+      - sobolev.wkp
+
+  - id: sobolev.wkp-complete
+    name: W^{k,p}の完備性
+    kind: theorem
+    aliases: [completeness of Sobolev spaces, Sobolev completeness]
+    introduction: formal
+    introduction_aliases: ["定理（W^{k,p} の完備性）"]
+    requires:
+      - sobolev.norm
+      - sobolev.weak-derivative-closed
+
+  - id: sobolev.hk-hilbert
+    name: H^kのHilbert構造
+    kind: theorem
+    aliases: [Hilbert structure of Hk]
+    introduction: formal
+    introduction_aliases: ["定理（H^k の Hilbert 構造）"]
+    requires:
+      - sobolev.hk
+      - sobolev.wkp-complete
+
+  - id: sobolev.smooth-multiplier-product
+    name: smooth multiplierとの積の弱微分
+    kind: proposition
+    aliases: [Sobolev Leibniz rule, smooth multiplier product rule]
+    introduction: formal
+    introduction_aliases: ["命題（smooth multiplier との積の弱微分）"]
+    requires:
+      - distribution.weak-derivative
+      - sobolev.wkp
+
+  - id: analysis.lp-translation-continuity-rd
+    name: Lp平行移動連続性
+    kind: lemma
+    aliases: [Lp translation continuity, continuity of translations in Lp]
+    introduction: formal
+    introduction_aliases: ["補題（Lp 平行移動連続性）"]
+    requires:
+      - measure.cc-dense-in-lp
+
+  - id: sobolev.local-mollification
+    name: Sobolev関数の局所mollification
+    kind: theorem
+    aliases: [local Sobolev mollification, local smooth approximation in Sobolev spaces]
+    introduction: formal
+    introduction_aliases: ["定理（Sobolev 関数の局所 mollification）"]
+    requires:
+      - distribution.local-mollification
+      - distribution.weak-derivative-mollifier-commutation
+      - analysis.lp-translation-continuity-rd
+      - sobolev.wkp
+
+  - id: sobolev.ccinf-dense-rd
+    name: R^d上のC_c^infinity密度
+    kind: theorem
+    aliases: [Ccinfinity density in Sobolev space, smooth compactly supported density]
+    introduction: formal
+    introduction_aliases: ["定理（R^d 上の C_c^infinity 密度）"]
+    requires:
+      - sobolev.smooth-multiplier-product
+      - sobolev.local-mollification
