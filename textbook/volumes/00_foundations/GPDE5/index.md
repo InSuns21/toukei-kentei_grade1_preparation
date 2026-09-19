@@ -66,6 +66,8 @@ weak H_0^1 + strong L2 subsequence
 
 そして最後に、critical exponent では concentration によって compactness が壊れることまで確認します。
 
+以下、**ほとんど至る所（almost everywhere; a.e.）** と略記します。
+
 ---
 
 ## 1. まず「どの指数へ埋め込めるか」は尺度変換が決める
@@ -375,11 +377,11 @@ $$
 
 $d=2$ では変数が分離して積分がそのまま積になります。
 
-一般の $d$ では、最後の変数 $x_d$ を先に積分して Hölder を使います。
+一般の $d$ では、最後の変数 $x_d$ を先に積分して [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を使います。
 
 すると $d-1$ 次元の同じ形が現れます。
 
-最後にもう一度 Hölder を使うと、帰納法が閉じます。
+最後にもう一度 [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を使うと、帰納法が閉じます。
 
 <!-- proof-start -->
 ### 証明
@@ -392,7 +394,7 @@ g_1(\widehat x_1)=g_1(x_2),
 g_2(\widehat x_2)=g_2(x_1)
 $$
 
-なので Fubini により
+なので [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
 $$
 \int_{\mathbb R^2}
@@ -411,7 +413,7 @@ $x_d$ について先に積分します。
 
 $g_d(\widehat x_d)=g_d(x')$ は $x_d$ に依存しません。
 
-残る $d-1$ 個の因子に Hölder の不等式を指数 $d-1$ で適用すると
+残る $d-1$ 個の因子に [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を指数 $d-1$ で適用すると
 
 $$
 \int_{\mathbb R}
@@ -451,7 +453,7 @@ $$
 
 以下です。
 
-ここで Hölder を指数
+ここで [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を指数
 
 $$
 d-1,
@@ -503,7 +505,7 @@ g_i(\widehat x_i)^{1/(d-1)}
 \|G_i\|_1^{1/(d-1)}.
 $$
 
-Fubini により
+[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
 $$
 \|G_i\|_{L^1(\mathbb R^{d-2})}
@@ -592,7 +594,7 @@ $$
 \|g_i\|_1^{1/(d-1)}.
 $$
 
-Fubini により
+[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)により
 
 $$
 \|g_i\|_1
@@ -693,7 +695,7 @@ $
 
 同じ部分列からさらに部分列を取り、$L^{d/(d-1)}$ 収束から a.e. で $u_n\to v$ とできます。
 
-a.e. 極限の一意性により $u=v$ です。
+[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)により $u=v$ です。
 
 最後に極限を取って
 
@@ -713,7 +715,7 @@ $
 <a id="thm-gpde5-sobolev-rd"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\mathbb R^d$ 上の Sobolev 不等式）**  
+> **定理（R^d 上の Sobolev 不等式）**  
 > $d\ge2$、$1\le p<d$ とし
 
 $$
@@ -799,7 +801,7 @@ $$
 
 が a.e. 成り立ちます。
 
-前節の $W^{1,1}$ Sobolev 不等式から
+前節の [$W^{1,1}$ Sobolev 不等式](#thm-gpde5-w11-sobolev)から
 
 $$
 \|v\|_{d/(d-1)}
@@ -827,7 +829,7 @@ C_d\alpha
 |u|^{\alpha-1}|\nabla u|.
 $$
 
-$p'=p/(p-1)$ とし Hölder を使うと
+$p'=p/(p-1)$ とし [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を使うと
 
 $$
 \int
@@ -908,7 +910,7 @@ $$
 
 同じ部分列は $L^{p^*}$ 収束からさらに部分列を取れば a.e. で $v$ へ収束します。
 
-a.e. 極限の一意性から $u=v$ a.e. です。
+[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)から $u=v$ a.e. です。
 
 最後に極限を取って
 
@@ -1227,7 +1229,7 @@ $$
 
 に対して対角線部分列を取ります。
 
-座標極限が本当に $H$ の元を作ることは Bessel の不等式で確認します。
+座標極限が本当に $H$ の元を作ることは [Bessel の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-bessel-inequality)で確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -1279,7 +1281,7 @@ $$
 
 となるスカラー $a_j$ が存在します。
 
-任意の $N$ に対し Bessel の不等式から
+任意の $N$ に対し [Bessel の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-bessel-inequality)から
 
 $$
 \sum_{j=1}^N
@@ -1515,7 +1517,7 @@ $$
 |\nabla\varphi(x+th)|^2\,dt.
 $$
 
-$x$ で積分し Fubini を使うと
+$x$ で積分し [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使うと
 
 $
 \|\varphi(\cdot+h)-\varphi\|_2^2
@@ -2011,7 +2013,7 @@ $$
 
 となる $\theta$ を取ります。
 
-Hölder interpolation により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)から得られる interpolation により
 
 $$
 \|w_k\|_q
@@ -2052,7 +2054,7 @@ $$
 
 とできます。
 
-$\Omega$ は有限測度なので Hölder により
+$\Omega$ は有限測度なので [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $
 \|f\|_{L^r(\Omega)}
@@ -2161,7 +2163,7 @@ $$
 \|(u_n-u)(u_n+u)\|_1
 $$
 
-に Hölder を使って
+に [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を使って
 
 $$
 \|u_n^2-u^2\|_1
@@ -2710,7 +2712,7 @@ $$
 |\nabla\varphi(x+th)|^2\,dt.
 $$
 
-$x$ で積分し Fubini を使うと
+$x$ で積分し [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使うと
 
 $$
 \|\varphi(\cdot+h)-\varphi\|_2^2
@@ -3037,7 +3039,7 @@ $$
 <!-- solution-start -->
 **解答・解説**
 
-まず Poincaré 不等式により包含写像
+まず [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)により包含写像
 
 $$
 H_0^1(\Omega)\to L^2(\Omega)
@@ -3085,7 +3087,7 @@ u_n^2-u^2
 (u_n-u)(u_n+u).
 $$
 
-Hölder により
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
 $$
 \|u_n^2-u^2\|_1
