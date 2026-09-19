@@ -7,9 +7,9 @@ prerequisites:
 
 concepts:
   - id: sobolev.wkp
-    name: Sobolev空間 W^{k,p}
+    name: "Sobolev空間 W^{k,p}"
     kind: definition
-    aliases: [Sobolev space, Wkp, W^{k,p}]
+    aliases: ["Sobolev space", "Wkp", "W^{k,p}"]
     introduction: formal
     introduction_aliases: ["定義（Sobolev 空間）"]
     requires:
@@ -27,7 +27,7 @@ concepts:
   - id: sobolev.hk
     name: H^k
     kind: definition
-    aliases: [Hk, W^{k,2}]
+    aliases: ["Hk", "W^{k,2}"]
     introduction: formal
     introduction_aliases: ["定義（H^k）"]
     requires:
@@ -44,7 +44,7 @@ concepts:
       - sobolev.wkp
 
   - id: sobolev.wkp-complete
-    name: W^{k,p}の完備性
+    name: "W^{k,p}の完備性"
     kind: theorem
     aliases: [completeness of Sobolev spaces, Sobolev completeness]
     introduction: formal
