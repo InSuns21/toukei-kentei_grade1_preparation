@@ -1,0 +1,41 @@
+id: "GPDE2"
+title: "Encore III Graduate PDE II：distribution 微分・mollifier・弱微分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE1
+official_scope: []
+learning_objectives:
+  - 多重指数を使って高階偏微分を表し、distribution微分を部分積分の双対化として定義できる
+  - distribution微分が常にdistributionであり、高階微分とdistribution収束が安定に交換することを証明できる
+  - 滑らかな関数ではdistribution微分が古典微分と一致することを証明できる
+  - Heavisideや区分的C1関数のjumpからDirac delta項が生じることを直接計算できる
+  - weak derivativeをdistribution微分が正則distributionで表せる場合として定義し、cuspとjumpの違いを説明できる
+  - mollifierの尺度変換・台・全質量を確認し、局所mollificationがC∞になることを証明できる
+  - L1平行移動連続性からmollifierの局所L1近似を証明できる
+  - 正則distribution埋め込みの単射性とweak derivativeのa.e.一意性をmollifierで証明できる
+  - weak derivativeとmollificationの交換をテスト関数の適用条件まで確認して証明できる
+definitions:
+  - { id: GPDE2-DEF-01, name: 多重指数 }
+  - { id: GPDE2-DEF-02, name: distributional derivative }
+  - { id: GPDE2-DEF-03, name: weak derivative }
+  - { id: GPDE2-DEF-04, name: mollifierとapproximate identity }
+  - { id: GPDE2-DEF-05, name: 局所mollification }
+theorems:
+  - { id: GPDE2-PROP-01, name: distributionは何回微分してもdistributionである }
+  - { id: GPDE2-PROP-02, name: 古典微分との整合性 }
+  - { id: GPDE2-PROP-03, name: distribution収束と微分の交換 }
+  - { id: GPDE2-PROP-04, name: Heavisideのdistribution微分 }
+  - { id: GPDE2-PROP-05, name: 有限個のjumpを持つ関数のdistribution微分 }
+  - { id: GPDE2-THM-01, name: mollificationの平滑化 }
+  - { id: GPDE2-LEM-01, name: L1関数の平行移動連続性 }
+  - { id: GPDE2-THM-02, name: mollifierの局所L1近似 }
+  - { id: GPDE2-PROP-06, name: 正則distribution埋め込みの単射性 }
+  - { id: GPDE2-PROP-07, name: weak derivativeの一意性 }
+  - { id: GPDE2-THM-03, name: weak derivativeとmollificationの交換 }
+canonical_examples: [Heaviside関数, 絶対値関数, 区間の指示関数, 標準mollifier, tent関数]
+problem_patterns: [GPDE2-CLASSICAL-COMPATIBILITY-1, GPDE2-HEAVISIDE-1, GPDE2-MOLLIFIER-SCALING-1, GPDE2-WEAK-DERIVATIVE-1, GPDE2-JUMP-1, GPDE2-L1-APPROXIMATION-1, GPDE2-MOLLIFIER-COMMUTE-1, GPDE2-TENT-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 1.0 }
