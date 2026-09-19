@@ -90,7 +90,7 @@ concepts:
   - id: sobolev.h01-translation-estimate
     name: H_0^1零延長のtranslation estimate
     kind: lemma
-    aliases: ["H01 translation estimate", "translation estimate for zero extension"]
+    aliases: ["H01 translation estimate", "H01 零延長の translation estimate", "translation estimate for zero extension"]
     introduction: formal
     introduction_aliases: ["補題（H01 零延長の translation estimate）"]
     requires:
@@ -99,7 +99,7 @@ concepts:
   - id: analysis.l2-translation-compactness
     name: L2 translation compactness lemma
     kind: lemma
-    aliases: ["L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
+    aliases: ["L2 translation compactness", "L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
     introduction: formal
     introduction_aliases: ["補題（L2 translation compactness）"]
     requires:
@@ -108,7 +108,7 @@ concepts:
   - id: sobolev.rellich-h01-l2
     name: Rellich--Kondrachov H_0^1 to L2
     kind: theorem
-    aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "H01 compactly embeds into L2"]
+    aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "Rellich--Kondrachov：H01 から L2", "H01 compactly embeds into L2"]
     introduction: formal
     introduction_aliases: ["定理（Rellich--Kondrachov：H01 から L2）"]
     requires:
@@ -119,7 +119,7 @@ concepts:
   - id: sobolev.subcritical-compact-embedding-h01
     name: H_0^1のsubcritical compact embedding
     kind: corollary
-    aliases: ["subcritical Rellich compactness", "H01 subcritical compact embedding"]
+    aliases: ["subcritical Rellich compactness", "H01 subcritical compact embedding", "H01 の subcritical compact embedding"]
     introduction: formal
     introduction_aliases: ["系（H01 の subcritical compact embedding）"]
     requires:
@@ -129,7 +129,7 @@ concepts:
   - id: sobolev.w01p
     name: "W_0^{1,p}(Omega)"
     kind: definition
-    aliases: ["W0 1p", "zero-boundary W1p", "W_0^{1,p}"]
+    aliases: ["W01p", "W0 1p", "zero-boundary W1p", "W_0^{1,p}"]
     introduction: formal
     introduction_aliases: ["定義（W01p）"]
     requires:
@@ -138,7 +138,7 @@ concepts:
   - id: sobolev.critical-noncompactness
     name: critical Sobolev embeddingの非compact性
     kind: proposition
-    aliases: ["critical Sobolev noncompactness", "concentration sequence"]
+    aliases: ["critical Sobolev noncompactness", "critical exponent では compactness が壊れる", "concentration sequence"]
     introduction: formal
     introduction_aliases: ["命題（critical exponent では compactness が壊れる）"]
     requires:
