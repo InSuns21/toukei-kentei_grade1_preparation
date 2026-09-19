@@ -15,7 +15,7 @@ learning_objectives:
 definitions:
   - { id: F000DS2-DEF-01, name: 超関数微分 }
   - { id: F000DS2-DEF-02, name: 弱微分 }
-  - { id: F000DS2-DEF-03, name: 多重指数による弱偏微分 }
+  - { id: F000DS2-DEF-03, name: 多重指数による超関数微分 }
 theorems:
   - { id: F000DS2-THM-01, name: 古典微分と弱微分の一致 }
 canonical_examples:
