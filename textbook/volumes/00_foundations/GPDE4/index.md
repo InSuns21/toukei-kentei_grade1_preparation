@@ -1222,26 +1222,42 @@ $$
 2L\|u'\|_2^2.
 $$
 
-同様に
+右端については、任意の $x\in(0,L)$ に対して
 
-$$
+$
 \widetilde u(L)
 =
 \widetilde u(x)
 +
 \int_x^L
-u'(s)\,ds
-$$
+u'(s)\,ds.
+$
 
-から
+したがって Cauchy--Schwarz により
 
-$$
+$
+|\widetilde u(L)|^2
+\le
+2|\widetilde u(x)|^2
++
+2(L-x)
+\int_x^L
+|u'(s)|^2\,ds
+\le
+2|\widetilde u(x)|^2
++
+2L\|u'\|_2^2.
+$
+
+これを $x\in(0,L)$ で積分して $L$ で割ると
+
+$
 |\widetilde u(L)|^2
 \le
 \frac{2}{L}\|u\|_2^2
 +
 2L\|u'\|_2^2.
-$$
+$
 
 二つを足すと
 
