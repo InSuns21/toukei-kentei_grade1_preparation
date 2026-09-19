@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - GPDE1
+  - MT7
 
 concepts:
   - id: distribution.multi-index
@@ -88,9 +89,9 @@ concepts:
   - id: distribution.mollifier
     name: mollifier
     kind: definition
-    aliases: [軟化子, Friedrichs mollifier, approximate identity]
+    aliases: [軟化子, Friedrichs mollifier]
     introduction: formal
-    introduction_aliases: ["定義（mollifier と approximate identity）"]
+    introduction_aliases: ["定義（mollifier）"]
     requires:
       - distribution.test-function
 
@@ -113,12 +114,14 @@ concepts:
     requires:
       - distribution.local-mollification
 
-  - id: analysis.l1-translation-continuity
-    name: L1関数の平行移動連続性
+  - id: analysis.l1-translation-continuity-rd
+    name: Rd 上の L1 平行移動連続性
     kind: lemma
-    aliases: [L1 translation continuity, continuity of translations in L1]
+    aliases: [translation continuity in L1(Rd), 多次元平行移動連続性]
     introduction: formal
-    introduction_aliases: ["補題（L1 関数の平行移動連続性）"]
+    introduction_aliases: ["補題（Rd 上の L1 平行移動連続性）"]
+    requires:
+      - measure.cc-dense-in-lp
 
   - id: distribution.mollifier-l1loc-approximation
     name: mollifierの局所L1近似
@@ -128,7 +131,7 @@ concepts:
     introduction_aliases: ["定理（mollifier の局所 L1 近似）"]
     requires:
       - distribution.local-mollification
-      - analysis.l1-translation-continuity
+      - analysis.l1-translation-continuity-rd
 
   - id: distribution.regular-embedding-injective
     name: 正則distribution埋め込みの単射性
