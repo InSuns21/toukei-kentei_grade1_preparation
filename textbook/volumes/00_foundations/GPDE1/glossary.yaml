@@ -1,0 +1,23 @@
+chapter: "GPDE1"
+terms:
+  - term: テスト関数
+    english: test function
+    meaning: 開集合Omega上の無限回連続微分可能でコンパクトな台を持つ関数。distributionを局所的に観測するprobeとして使う。
+  - term: テスト関数空間
+    english: test-function space
+    meaning: D(Omega)=C_c^infty(Omega)。共通コンパクト台の内部で全階偏微分まで制御する収束を備える。
+  - term: distribution
+    english: distribution
+    meaning: テスト関数空間上の連続線形汎関数。関数の点値ではなく、全テスト関数への作用で対象を記述する。
+  - term: 正則distribution
+    english: regular distribution
+    meaning: 局所可積分関数fから、phiをf phiの積分へ送る作用として得られるdistribution。
+  - term: Dirac delta
+    english: Dirac delta
+    meaning: 点aでのテスト関数の値phi(a)を返す点評価distribution。局所可積分関数では表せない。
+  - term: distributionの収束
+    english: distributional convergence
+    meaning: 全ての固定したテスト関数phiに対する作用値が極限の作用値へ収束すること。
+  - term: distributional solution
+    english: distributional solution
+    meaning: PDEの微分をテスト関数側へ移し、全テスト関数に対する積分恒等式として方程式を満たす解概念。
