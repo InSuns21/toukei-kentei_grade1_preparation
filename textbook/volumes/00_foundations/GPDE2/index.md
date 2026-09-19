@@ -180,7 +180,7 @@ $$
 
 ### 証明の見取り図
 
-GPDE1 の局所有限階評価を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
+[GPDE1 の distribution の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使います。$T$ が固定コンパクト集合 $K$ 上で $m$ 階までのテスト関数微分で抑えられるなら、$\partial^\alpha T$ は $m+|\alpha|$ 階まで見れば抑えられます。
 
 したがって distribution の微分では「元の対象が滑らかか」を確認する必要はありません。必要な微分は全てテスト関数へ移せます。
 
@@ -223,7 +223,7 @@ $$
 C\,p_{K,m+|\alpha|}(\varphi).
 $$
 
-再び GPDE1 の局所有限階評価を使えば、$\partial^\alpha T$ は distribution です。
+再び [GPDE1 の distribution の局所有限階評価](../GPDE1/index.md#prop-gpde1-local-finite-order)を使えば、$\partial^\alpha T$ は distribution です。
 
 次に任意の $\varphi\in\mathcal D(\Omega)$ に対し、
 
@@ -347,7 +347,7 @@ f(x',t)\,\partial_j\varphi(x',t)\,dt
 \partial_jf(x',t)\,\varphi(x',t)\,dt.
 $
 
-$\varphi$ と $\partial_j\varphi$ の台は $K$ に含まれ、$f$ と $\partial_jf$ は $K$ 上で有界です。したがって両辺は絶対可積分であり、Fubini の定理を使って $x'$ について積分できます。その結果、
+$\varphi$ と $\partial_j\varphi$ の台は $K$ に含まれ、$f$ と $\partial_jf$ は $K$ 上で有界です。したがって両辺は絶対可積分であり、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使って $x'$ について積分できます。その結果、
 
 $
 -\int_\Omega f\,\partial_j\varphi
@@ -824,7 +824,7 @@ $$
 
 <a id="def-gpde2-mollifier"></a>
 <!-- formal-statement-start -->
-> **定義（mollifier と approximate identity）**  
+> **定義（mollifier）**  
 > 非負関数
 
 $$
@@ -850,7 +850,9 @@ $$
 }
 $$
 
-> と定める。この族 $(\rho_\varepsilon)_{\varepsilon>0}$ を approximate identity として用いる。
+> と定める。
+
+この縮小族は、[FOU3 の approximate identity](../FOU3/index.md#def-fou3-approximate-identity)と同じ「全質量を保ったまま原点へ集中する」機構の多次元・コンパクト台版です。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde2-mollifier -->
@@ -887,7 +889,7 @@ $$
 高さはおよそ $\varepsilon^{-d}$ に増えますが、台の体積がおよそ $\varepsilon^d$ に縮むので全質量は 1 に保たれます。
 <!-- definition-example-end -->
 
-多重指数 $\alpha$ に対して chain rule から
+多重指数 $\alpha$ に対して合成関数の微分公式から
 
 $$
 \partial^\alpha\rho_\varepsilon(x)
@@ -1058,7 +1060,7 @@ $$
 \partial_j\rho_\varepsilon(x-y)
 $$
 
-へ収束するので、優収束定理により
+へ収束するので、[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)により
 
 $$
 \partial_j u_\varepsilon(x)
@@ -1093,35 +1095,66 @@ $$
 
 を局所 $L^1$ で示します。
 
-その前に一つだけ解析上の基本事実を確認します。
+その前に、後の証明で必要になる多次元版の平行移動連続性を確認します。一変数版は [FOU3](../FOU3/index.md#lem-fou3-l1-translation) にありますが、ここでは PDE で使う $\mathbb R^d$ 版を閉じます。
 
-<a id="lem-gpde2-l1-translation"></a>
+<a id="lem-gpde2-l1-translation-rd"></a>
 <!-- formal-statement-start -->
-> **補題（$L^1$ 関数の平行移動連続性）**  
-> $w\in L^1(\mathbb R^d)$ とする。このとき
-
-$$
-\boxed{
-\|w(\,\cdot-h)-w\|_{L^1(\mathbb R^d)}
-\to0
-\qquad
-(h\to0)
-}
-$$
-
+> **補題（Rd 上の L1 平行移動連続性）**  
+> $w\in L^1(\mathbb R^d)$ とし、
+>
+> $$
+> (\tau_h w)(x)=w(x-h),
+> \qquad h\in\mathbb R^d
+> $$
+>
+> と置く。このとき
+>
+> $$
+> \boxed{
+> \|\tau_h w-w\|_{L^1(\mathbb R^d)}
+> \to0
+> \qquad
+> (h\to0)
+> }
+> $$
+>
 > が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-まず $g\in C_c(\mathbb R^d)$ なら、一様連続性と「十分小さい平行移動では台が一つの固定コンパクト集合に収まること」から $L^1$ 差を 0 へ落とせます。
-
-一般の $L^1$ 関数については、$C_c(\mathbb R^d)$ の $L^1$ 稠密性を使います。この稠密性も後続の Sobolev density には依存せず、切断・有限単関数近似・Lebesgue 測度の内外正則性から直接作れます。その近似と、平行移動が $L^1$ norm を変えないことを組み合わせます。
+[MT7 の $C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)で $w$ を連続コンパクト台関数へ近似します。その関数では一様連続性が点ごとの差を一様に小さくし、平行移動が $L^1$ norm を保つことが近似誤差を元の $w$ へ戻します。
 
 <!-- proof-start -->
 ### 証明
 
-まず $g\in C_c(\mathbb R^d)$ とします。$g$ は一様連続なので
+任意の $\eta>0$ を取ります。[MT7 の $C_c$ の $L^1$ 稠密性](../MT7/index.md#thm-mt7-cc-dense)により、ある $g\in C_c(\mathbb R^d)$ を
+
+$$
+\|w-g\|_1<\eta
+$$
+
+となるように取れます。
+
+平行移動は Lebesgue 測度を保つので、
+
+$$
+\|\tau_h(w-g)\|_1
+=
+\|w-g\|_1.
+$$
+
+従って三角不等式から
+
+$$
+\|\tau_h w-w\|_1
+\le
+2\|w-g\|_1
++
+\|\tau_h g-g\|_1.
+$$
+
+$\operatorname{supp}g$ は compact です。$|h|\le1$ の範囲では $\tau_hg-g$ の台はある固定 compact 集合 $K$ に含まれます。また $g$ は一様連続なので
 
 $$
 \sup_x|g(x-h)-g(x)|
@@ -1130,140 +1163,33 @@ $$
 (h\to0).
 $$
 
-十分小さい $h$ では $g(\cdot-h)$ と $g$ の台はある一つのコンパクト集合 $K$ に含まれます。従って
+よって
 
 $$
-\|g(\cdot-h)-g\|_1
+\|\tau_hg-g\|_1
 \le
 |K|
 \sup_x|g(x-h)-g(x)|
 \to0.
 $$
 
-次に一般の $w\in L^1(\mathbb R^d)$ を取ります。まず実数値の場合を示します。複素数値の場合は実部・虚部へ同じ議論を適用すれば十分です。ここで必要な $C_c(\mathbb R^d)$ の $L^1$ 稠密性を、使う分だけ確認します。
-
-任意の $\eta>0$ を固定します。まず十分大きい $M,R$ に対して
-
-$
-u(x)
-=
-\max(-M,\min(w(x),M))1_{B(0,R)}(x)
-$
-
-と置けば、切断と優収束定理により
-
-$
-\|w-u\|_1<\frac\eta3
-$
-
-とできます。
-
-$u$ は有界で有限測度の集合に台を持つので、有限値単関数
-
-$
-s=\sum_{k=1}^m a_k1_{E_k}
-$
-
-を
-
-$
-\|u-s\|_1<\frac\eta3
-$
-
-となるように取れます。各 $E_k$ は有限測度です。
-
-Lebesgue 測度の内外正則性により、各 $k$ について compact 集合 $F_k$ と有界 open 集合 $O_k$ を
-
-$
-F_k\subset E_k\subset O_k
-$
-
-かつ $|O_k\setminus F_k|$ が任意に小さくなるように取れます。$F_k\ne\varnothing$ のとき
-
-$
-\theta_k(x)
-=
-\frac{
-\operatorname{dist}(x,O_k^c)
-}{
-\operatorname{dist}(x,O_k^c)
-+
-\operatorname{dist}(x,F_k)
-}
-$
-
-と置き、$F_k=\varnothing$ のとき $\theta_k=0$ とします。すると
-
-$
-0\le\theta_k\le1,
-\qquad
-\theta_k=1\text{ on }F_k,
-\qquad
-\theta_k=0\text{ on }O_k^c,
-$
-
-なので $\theta_k\in C_c(\mathbb R^d)$ です。また
-
-$
-|1_{E_k}-\theta_k|
-\le
-1_{O_k\setminus F_k}.
-$
-
-従って $|O_k\setminus F_k|$ を十分小さく選べば、
-
-$
-g=\sum_{k=1}^m a_k\theta_k
-\in C_c(\mathbb R^d)
-$
-
-に対して
-
-$
-\|s-g\|_1<\frac\eta3
-$
-
-とできます。三角不等式から
-
-$
-\|w-g\|_1<\eta.
-$
-
-これで、任意の $\eta>0$ に対して必要な $g\in C_c(\mathbb R^d)$ が実際に構成できました。
-
-Lebesgue 測度の平行移動不変性から
+したがって
 
 $$
-\|w(\cdot-h)-g(\cdot-h)\|_1
-=
-\|w-g\|_1.
+\limsup_{h\to0}\|\tau_hw-w\|_1
+\le2\eta.
 $$
 
-三角不等式より
+$\eta>0$ は任意なので
 
 $$
-\|w(\cdot-h)-w\|_1
-\le
-2\|w-g\|_1
-+
-\|g(\cdot-h)-g\|_1.
+\|\tau_hw-w\|_1\to0.
 $$
-
-$h\to0$ とすると最後の項は 0 へ行くため、
-
-$$
-\limsup_{h\to0}
-\|w(\cdot-h)-w\|_1
-\le
-2\eta.
-$$
-
-$\eta>0$ は任意なので極限は 0 です。
 <!-- proof-end -->
 
 <a id="thm-gpde2-mollifier-l1loc"></a>
 <!-- formal-statement-start -->
-> **定理（mollifier の局所 $L^1$ 近似）**  
+> **定理（mollifier の局所 L1 近似）**  
 > $u\in L^1_{\mathrm{loc}}(\Omega)$ とする。任意のコンパクト集合 $K\subset\Omega$ に対して、十分小さい $\varepsilon>0$ では $K\subset\Omega_\varepsilon$ であり、
 
 $$
@@ -1360,7 +1286,7 @@ $$
 \,dz.
 $$
 
-$K$ 上で積分し、Tonelli の定理を使うと
+$K$ 上で積分し、[Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
 $$
 \|u_\varepsilon-u\|_{L^1(K)}
@@ -1381,7 +1307,7 @@ $$
 
 以下です。
 
-$\int\rho=1$ であり、前の補題から
+$\int\rho=1$ であり、[Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -1413,7 +1339,7 @@ f\in L^1_{\mathrm{loc}}(\Omega)
 T_f\in\mathcal D'(\Omega)
 $$
 
-を示しました。ここで逆に、$T_f$ が 0 なら $f$ 自身も a.e. で 0 であることを示せます。
+を示しました。ここで逆に、$T_f$ が 0 なら $f$ 自身も ほとんど至る所（almost everywhere; a.e.）で 0 であることを示せます。
 
 <a id="prop-gpde2-regular-injective"></a>
 <!-- formal-statement-start -->
@@ -2291,7 +2217,7 @@ $$
 $$
 
 を示せ。
-3. $L^1$ 平行移動連続性から局所 $L^1$ 収束を導け。
+3. [本章の Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)から局所 $L^1$ 収束を導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2355,9 +2281,9 @@ $$
 \|w(\cdot-\varepsilon z)-w\|_1\,dz.
 $$
 
-3. $w\in L^1(\mathbb R^d)$ なので、
+3. [本章の Rd 上の L1 平行移動連続性](#lem-gpde2-l1-translation-rd)を $w$ に適用すると、
 
-$$
+$
 \|w(\cdot-h)-w\|_1\to0
 \qquad(h\to0).
 $$
