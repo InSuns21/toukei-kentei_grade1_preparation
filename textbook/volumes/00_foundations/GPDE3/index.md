@@ -1086,7 +1086,7 @@ $$
 
 について mollifier が $L^p$ 近似になることです。
 
-そのために[直前の補題](#lem-gpde3-lp-translation)を使います。
+そのために[Lp 平行移動連続性](#lem-gpde3-lp-translation)を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -1141,31 +1141,45 @@ w(x-\varepsilon z)-w(x)
 \,dz.
 $$
 
-Minkowski の積分不等式から
+$\rho(z)\,dz$ は全質量 1 の測度です。$p=1$ では三角不等式を使い、$1<p<\infty$ では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)をこの測度に対して使うと、各 $x\in K$ で
 
-$$
-\|f_\varepsilon-f\|_{L^p(K)}
+$
+|f_\varepsilon(x)-f(x)|^p
 \le
 \int
 \rho(z)
-\|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}
+|w(x-\varepsilon z)-w(x)|^p
 \,dz.
-$$
+$
 
-$\rho$ の台では $|z|\le1$ なので、[直前の補題](#lem-gpde3-lp-translation)から
+両辺を $x\in K$ で積分し、[Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
-$$
+$
+\|f_\varepsilon-f\|_{L^p(K)}^p
+\le
+\int
+\rho(z)
+\|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}^p
+\,dz.
+$
+
+$\rho$ の台では $|z|\le1$ なので、[Lp 平行移動連続性](#lem-gpde3-lp-translation)から
+
+$
 \sup_{|h|\le\varepsilon}
 \|\tau_hw-w\|_p
 \to0.
-$$
+$
 
 また $\int\rho=1$ なので
 
-$$
-\|f_\varepsilon-f\|_{L^p(K)}
+$
+\|f_\varepsilon-f\|_{L^p(K)}^p
+\le
+\sup_{|h|\le\varepsilon}
+\|\tau_hw-w\|_p^p
 \to0.
-$$
+$
 
 これは全ての $|\alpha|\le k$ に対して成り立ちます。
 
@@ -1401,7 +1415,7 @@ D^\alpha\varphi_{R,\varepsilon}
 D^\alpha u_R.
 $$
 
-$D^\alpha u_R\in L^p(\mathbb R^d)$ であり、$p<\infty$ なので[本章の平行移動補題](#lem-gpde3-lp-translation)から
+$D^\alpha u_R\in L^p(\mathbb R^d)$ であり、$p<\infty$ なので[Lp 平行移動連続性](#lem-gpde3-lp-translation)から
 
 $$
 \rho_\varepsilon*
@@ -1688,7 +1702,7 @@ u_\varepsilon'
 \rho_\varepsilon*Du.
 $$
 
-$1\le p<\infty$ では[前節の密度定理](#thm-gpde3-ccinf-density-rd)から
+$1\le p<\infty$ では[全空間上の滑らかなコンパクト台関数の密度](#thm-gpde3-ccinf-density-rd)から
 
 $$
 u_\varepsilon\to u
@@ -2480,18 +2494,26 @@ w(x-\varepsilon z)-w(x)
 \,dz.
 $$
 
-Minkowski の積分不等式から
+$p=1$ では三角不等式、$1<p<\infty$ では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を $\rho(z)\,dz$ に対して使い、その後 [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
-$$
-\|u_\varepsilon-u\|_{L^p(K)}
+$
+\|u_\varepsilon-u\|_{L^p(K)}^p
 \le
 \int
 \rho(z)
-\|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}
+\|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}^p
 \,dz.
-$$
+$
 
-[本章の平行移動補題](#lem-gpde3-lp-translation)より右辺は 0 へ収束します。
+[Lp 平行移動連続性](#lem-gpde3-lp-translation)と $\int\rho=1$ から
+
+$
+\|u_\varepsilon-u\|_{L^p(K)}^p
+\le
+\sup_{|h|\le\varepsilon}
+\|\tau_hw-w\|_p^p
+\to0.
+$
 
 従って
 
