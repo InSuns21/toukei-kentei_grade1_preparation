@@ -10,7 +10,7 @@ Encore II は **古典解・Fourier / 固有関数 / Green 表現を中心とす
 
 新しい主線は次の一本に統一する。
 
-```text
+~~~text
 distribution
   ↓
 distributional derivative / mollifier / weak derivative
@@ -30,43 +30,43 @@ linear elliptic PDE
 elliptic regularity
   ↓
 Galerkin / evolution weak solutions
-```
+~~~
 
 ## 1. 旧 Encore III の扱い
 
 再編前の次の7章は削除しない。
 
-- `F0-00DS1`
-- `F0-00DS2`
-- `F0-00SOB1`
-- `F0-00SOB2`
-- `F0-00WK1`
-- `F0-00WK2`
-- `F0-00WK3`
+- F0-00DS1
+- F0-00DS2
+- F0-00SOB1
+- F0-00SOB2
+- F0-00WK1
+- F0-00WK2
+- F0-00WK3
 
 ただし、これらは **archive / migration source** とする。
 
-- `textbook/dream-theater-index.json` の現行主線から外す。
-- `textbook/dream-theater.md` の現行通読順から外す。
+- textbook/dream-theater-index.json の現行主線から外す。
+- textbook/dream-theater.md の現行通読順から外す。
 - 新 GPDE 章から prerequisite / concept owner / proof dependency / forward reference にしない。
 - 旧本文の有用な証明・例・演習は、新正本へ必要なものだけ移植する。
 - 新旧両方の本文を並行保守しない。
 - 旧 URL を維持する場合も、将来は移行案内と新正本へのリンクだけを表示する互換ハブ化を検討する。
 
-`F0-00R3` は Encore III の入口 ID として維持し、内容を新 GPDE 系列のロードマップへ更新する。
+F0-00R3 は Encore III の入口 ID として維持し、内容を新 GPDE 系列のロードマップへ更新する。
 
 ## 2. 新系列の ID と役割
 
-新規の主線 ID は `GPDE1`--`GPDE10` とする。
+新規の主線 ID は GPDE1--GPDE10 とする。
 
 ### GPDE1 テスト関数・distribution
 
 **役割**：古典関数を超えて PDE を等式として読むための入口。
 
-- (mathcal D(Omega)=C_c^infty(Omega))
+- $\mathcal D(\Omega)=C_c^\infty(\Omega)$
 - テスト関数の収束を使う理由
-- distribution (mathcal D'(Omega))
-- (L^1_{mathrm{loc}}) 関数による正則 distribution
+- distribution $\mathcal D'(\Omega)$
+- $L^1_{\mathrm{loc}}$ 関数による正則 distribution
 - Dirac delta
 - distribution の収束
 - distributional solution の定義
@@ -83,30 +83,30 @@ Galerkin / evolution weak solutions
 - weak derivative
 - 古典微分との一致
 - mollifier / approximate identity
-- (u_arepsilon=ho_arepsilon*u) による平滑化
+- $u_\varepsilon=\rho_\varepsilon*u$ による平滑化
 - 局所近似と弱微分の交換
 
 ここで「粗い対象を平滑化して証明し、極限へ戻る」という後続 PDE の標準技法を導入する。
 
 ### GPDE3 Sobolev 空間
 
-- (W^{k,p}(Omega))
-- (H^k=W^{k,2})
+- $W^{k,p}(\Omega)$
+- $H^k=W^{k,2}$
 - Sobolev norm
 - a.e. 同値類
 - 完備性
-- (H^k) の Hilbert 構造
+- $H^k$ の Hilbert 構造
 - 絶対値関数、区分線形関数、jump 関数
 - smooth approximation / density の基本形
 
-定義を置くだけでなく、弱微分と (L^p) 完備性から Sobolev 空間が解析の舞台になる機構を説明する。
+定義を置くだけでなく、弱微分と $L^p$ 完備性から Sobolev 空間が解析の舞台になる機構を説明する。
 
-### GPDE4 (H_0^1)・境界値・Poincare・trace
+### GPDE4 $H_0^1$・境界値・Poincare・trace
 
-- (H_0^1(Omega)=overline{C_c^infty(Omega)}^{H^1})
+- $H_0^1(\Omega)=\overline{C_c^\infty(\Omega)}^{H^1}$
 - zero Dirichlet condition の意味
 - Poincare inequality
-- gradient norm と (H^1) norm の同値性
+- gradient norm と $H^1$ norm の同値性
 - trace operator
 - bounded Lipschitz domain など、trace を述べるための領域仮定
 - 境界値の a.e. 同値類問題
@@ -125,15 +125,15 @@ Galerkin / evolution weak solutions
 
 **教育上の中心**：
 
-[
-u_nightharpoonup u
-]
+$$
+u_n\rightharpoonup u
+$$
 
 だけでは十分でない極限操作と、
 
-[
-u_{n_k}	o u
-]
+$$
+u_{n_k}\to u
+$$
 
 という強収束を compactness が回収する機構を理解する。
 
@@ -143,36 +143,34 @@ u_{n_k}	o u
 
 Poisson の零 Dirichlet 問題
 
-[
--Delta u=f
-]
+$$
+-\Delta u=f
+$$
 
 を
 
-[
-int_Omega 
-abla ucdot
-abla v
+$$
+\int_\Omega \nabla u\cdot\nabla v
 =
-langle f,vangle
-]
+\langle f,v\rangle
+$$
 
 へ変換する。
 
 - classical solution / distributional solution / variational weak solution の比較
 - integration by parts により階数が下がる機構
-- (a(u,v)=F(v))
+- $a(u,v)=F(v)$
 - bounded bilinear form
 - coercivity
 - symmetric problem と energy minimization
-- Dirichlet 条件を空間 (H_0^1) に組み込む意味
+- Dirichlet 条件を空間 $H_0^1$ に組み込む意味
 
 Encore II の接続元は **PDE5 Laplace / Poisson** を正本とする。
 
 ### GPDE7 Lax--Milgram
 
 - bounded coercive bilinear form
-- Riesz representation から作用素 (A) を構成
+- Riesz representation から作用素 $A$ を構成
 - coercivity から下からの評価
 - injectivity
 - closed range
@@ -188,13 +186,11 @@ Encore II の接続元は **PDE5 Laplace / Poisson** を正本とする。
 
 代表形
 
-[
--operatorname{div}(A(x)
-abla u)
-+b(x)cdot
-abla u
+$$
+-\operatorname{div}(A(x)\nabla u)
++b(x)\cdot\nabla u
 +c(x)u=f
-]
+$$
 
 を扱う。
 
@@ -218,7 +214,7 @@ abla u
 - difference quotient
 - cutoff function
 - Caccioppoli 型 energy estimate
-- Poisson 方程式の局所 (H^2) 正則性
+- Poisson 方程式の局所 $H^2$ 正則性
 - data / coefficient / boundary regularity と解の regularity の関係
 - weak solution から classical solution へ戻れる条件
 
@@ -232,7 +228,7 @@ Galerkin を FEM 専用技法としてではなく、有限次元近似から無
 - a priori energy estimate
 - weak compactness
 - limit passage
-- (H_0^1subset L^2subset H^{-1}) の Gelfand triple
+- $H_0^1\subset L^2\subset H^{-1}$ の Gelfand triple
 - heat equation の evolution weak / energy solution
 - wave equation の energy space の位置付け
 - uniqueness via energy estimate
@@ -258,13 +254,13 @@ Encore III 本線で正本化する解概念は次とする。
 - measure-valued solution
 - Leray--Hopf 型 Navier--Stokes weak solution の本格理論
 
-これらは `DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md` の別系列で計画する。
+これらは DREAM_THEATER_POST_GPDE_PDE_EXTENSIONS_PLAN.md の別系列で計画する。
 
 ## 4. 依存 DAG
 
 基本骨格は次とする。
 
-```text
+~~~text
 Encore II: PDE7
    │
    ├──────────────┐
@@ -298,9 +294,9 @@ PDE3/PDE4 → GPDE10
 Encore V       後続 PDE 拡張
 FEM/数値       semigroup / nonlinear /
                entropy / viscosity / geometry
-```
+~~~
 
-実装時の `chapter.yaml` では「読順」と「証明に本当に必要な直接 prerequisite」を混同せず、必要最小限の direct prerequisite を設定する。
+実装時の chapter.yaml では「読順」と「証明に本当に必要な直接 prerequisite」を混同せず、必要最小限の direct prerequisite を設定する。
 
 ## 5. Encore II との責務分担
 
@@ -349,39 +345,39 @@ FEM/数値       semigroup / nonlinear /
 ### Phase 0：ルーティングと設計台帳
 
 - 本再編計画を正本化する。
-- `F0-00R3` を新 GPDE ロードマップへ更新する。
-- `dream-theater-index.json` から旧7章を外す。
-- `dream-theater.md` から旧7章の現行導線を外す。
+- F0-00R3 を新 GPDE ロードマップへ更新する。
+- dream-theater-index.json から旧7章を外す。
+- dream-theater.md から旧7章の現行導線を外す。
 - 新 GPDE DAG と停止線を固定する。
 - 後続 PDE 拡張は別計画へ分離する。
 
 ### Phase 1：distribution / Sobolev 基盤
 
-```text
+~~~text
 GPDE1 → GPDE2 → GPDE3 → GPDE4 → GPDE5
-```
+~~~
 
 各章を1章ずつ本文・証明・例・演習・詳細解答まで閉じ、完成した章だけ reader-facing index に追加する。
 
 ### Phase 2：変分法・楕円型 PDE
 
-```text
+~~~text
 GPDE6 → GPDE7 → GPDE8
-```
+~~~
 
 Poisson の weak formulation から一般線形楕円型の存在一意性まで閉じる。
 
 ### Phase 3：正則性・時間発展
 
-```text
+~~~text
 GPDE9 → GPDE10
-```
+~~~
 
 弱解の regularity 回復と、Galerkin / energy method による時間発展 PDE への接続を閉じる。
 
 ## 8. 公開ルール
 
-未完成 GPDE 章は `dream-theater-index.json` に先行登録しない。
+未完成 GPDE 章は dream-theater-index.json に先行登録しない。
 
 - 設計上は本計画に ID・役割・依存を固定する。
 - 実装完了・検証完了した章から順に reader-facing index へ追加する。
@@ -393,19 +389,19 @@ GPDE9 → GPDE10
 
 各章の実装では変更内容に応じて少なくとも次を実行する。
 
-```bash
+~~~bash
 npm run validate
 npm run validate:pages
 npm run validate:dream-theater-exercise-counts
 npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
-```
+~~~
 
 concept / knowledge / standard math core を変更した場合は対応する strict validation も実行する。
 
 ## 10. 完成時の位置付け
 
-```text
+~~~text
 Encore II
 古典 PDE
 Fourier / eigenfunction / Green representation
@@ -420,6 +416,6 @@ elliptic PDE / regularity / evolution weak solution
         ├── conservation law / entropy solution
         ├── Hamilton--Jacobi / viscosity solution
         └── geometry 完成後：geometric analysis
-```
+~~~
 
 Encore III は「弱解という用語集」ではなく、**低正則な PDE に対して、適切な関数空間を選び、a priori estimate と compactness を使って存在・一意性・正則性を論じる方法を身につける系列**とする。
