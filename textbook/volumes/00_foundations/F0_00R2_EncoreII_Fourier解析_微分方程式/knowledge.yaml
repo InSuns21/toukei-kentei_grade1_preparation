@@ -89,5 +89,6 @@ forward_references:
   - pde.pde5-poisson-kernel
   - pde.pde5-poisson-integral
   - pde.pde6-divergence-theorem
+  - pde.pde6-neumann-compatibility
 
 concepts: []
