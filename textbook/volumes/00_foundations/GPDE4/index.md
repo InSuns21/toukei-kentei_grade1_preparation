@@ -961,7 +961,7 @@ $$
 
 定数関数列 $c_\varepsilon$ が $L^1(J)$ で $v$ へ収束します。したがって
 
-$
+$$
 |J|\,|c_\varepsilon-c_\delta|
 =
 \|c_\varepsilon-c_\delta\|_{L^1(J)}
@@ -970,7 +970,7 @@ $
 +
 \|v-c_\delta\|_{L^1(J)}
 \to0.
-$
+$$
 
 よって $(c_\varepsilon)$ は実数として Cauchy で、ある定数 $c_J$ へ収束します。従って $v=c_J$ が $J$ 上 a.e. 成り立ちます。
 
@@ -1136,17 +1136,17 @@ $$
 
 $u,v\in H^1(0,L)$ と $a,b\in\mathbb R$ に対し、絶対連続代表元の一意性と
 
-$
+$$
 a\widetilde u+b\widetilde v
-$
+$$
 
 が $au+bv$ の絶対連続代表元であることから
 
-$
+$$
 \operatorname{Tr}(au+bv)
 =
 a\operatorname{Tr}u+b\operatorname{Tr}v
-$
+$$
 
 です。従って $\operatorname{Tr}$ は線形です。
 
@@ -1897,11 +1897,11 @@ $$
 
 ここで Lipschitz graph の parametrization に対する標準的な表面測度表示を black-box package の一部として使い、graph 上では
 
-$
+$$
 dS
 =
 \sqrt{1+|\nabla\gamma(x')|^2}\,dx'
-$
+$$
 
 と表され、その係数は $\gamma$ の Lipschitz 定数だけで一様に制御されます。
 
@@ -1935,11 +1935,11 @@ $$
 
 黒箱にしているのは「どの局所 chart をどう貼るか」という技術部分です。trace estimate の解析核心である
 
-$
+$$
 \text{一変数の端点評価}
 \to
 \text{境界 graph に沿った積分}
-$
+$$
 
 は本文で計算し、区間上の zero-trace characterization は完全証明しています。
 
