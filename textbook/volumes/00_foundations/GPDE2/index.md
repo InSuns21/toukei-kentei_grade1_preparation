@@ -1114,9 +1114,9 @@ $$
 
 ### 証明の見取り図
 
-まず $g\in C_c(\mathbb R^d)$ なら一様連続性から明らかです。一般の $L^1$ 関数は $C_c$ 関数で $L^1$ 近似し、平行移動が $L^1$ norm を変えないことを使って誤差を挟みます。
+まず $g\in C_c(\mathbb R^d)$ なら、一様連続性と「十分小さい平行移動では台が一つの固定コンパクト集合に収まること」から $L^1$ 差を 0 へ落とせます。
 
-$C_c(\mathbb R^d)$ の $L^1$ 稠密性は、MT4 の一変数版と同じく、可積分関数を有限台・有界な単関数へ近似し、Lebesgue 測度の内外正則性で各指示関数を連続コンパクト台関数へ近似することで得られます。ここでは Sobolev 空間の density は使っていません。
+一般の $L^1$ 関数については、$C_c(\mathbb R^d)$ の $L^1$ 稠密性を使います。この稠密性も後続の Sobolev density には依存せず、切断・有限単関数近似・Lebesgue 測度の内外正則性から直接作れます。その近似と、平行移動が $L^1$ norm を変えないことを組み合わせます。
 
 <!-- proof-start -->
 ### 証明
@@ -1140,13 +1140,96 @@ $$
 \to0.
 $$
 
-次に一般の $w\in L^1(\mathbb R^d)$ を取ります。任意の $\eta>0$ に対し、$g\in C_c(\mathbb R^d)$ を
+次に一般の $w\in L^1(\mathbb R^d)$ を取ります。ここで必要な $C_c(\mathbb R^d)$ の $L^1$ 稠密性を、使う分だけ確認します。
 
-$$
-\|w-g\|_1<\eta
-$$
+任意の $\eta>0$ を固定します。まず十分大きい $M,R$ に対して
 
-となるように取ります。
+$
+u(x)
+=
+\max(-M,\min(w(x),M))1_{B(0,R)}(x)
+$
+
+と置けば、切断と優収束定理により
+
+$
+\|w-u\|_1<\frac\eta3
+$
+
+とできます。
+
+$u$ は有界で有限測度の集合に台を持つので、有限値単関数
+
+$
+s=\sum_{k=1}^m a_k1_{E_k}
+$
+
+を
+
+$
+\|u-s\|_1<\frac\eta3
+$
+
+となるように取れます。各 $E_k$ は有限測度です。
+
+Lebesgue 測度の内外正則性により、各 $k$ について compact 集合 $F_k$ と有界 open 集合 $O_k$ を
+
+$
+F_k\subset E_k\subset O_k
+$
+
+かつ $|O_k\setminus F_k|$ が任意に小さくなるように取れます。$F_k\ne\varnothing$ のとき
+
+$
+\theta_k(x)
+=
+\frac{
+\operatorname{dist}(x,O_k^c)
+}{
+\operatorname{dist}(x,O_k^c)
++
+\operatorname{dist}(x,F_k)
+}
+$
+
+と置き、$F_k=\varnothing$ のとき $\theta_k=0$ とします。すると
+
+$
+0\le\theta_k\le1,
+\qquad
+\theta_k=1\text{ on }F_k,
+\qquad
+\theta_k=0\text{ on }O_k^c,
+$
+
+なので $\theta_k\in C_c(\mathbb R^d)$ です。また
+
+$
+|1_{E_k}-\theta_k|
+\le
+1_{O_k\setminus F_k}.
+$
+
+従って $|O_k\setminus F_k|$ を十分小さく選べば、
+
+$
+g=\sum_{k=1}^m a_k\theta_k
+\in C_c(\mathbb R^d)
+$
+
+に対して
+
+$
+\|s-g\|_1<\frac\eta3
+$
+
+とできます。三角不等式から
+
+$
+\|w-g\|_1<\eta.
+$
+
+これで、任意の $\eta>0$ に対して必要な $g\in C_c(\mathbb R^d)$ が実際に構成できました。
 
 Lebesgue 測度の平行移動不変性から
 
