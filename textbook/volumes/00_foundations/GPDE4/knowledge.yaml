@@ -1,0 +1,91 @@
+chapter: GPDE4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE3
+
+concepts:
+  - id: sobolev.h01
+    name: "H_0^1(Omega)"
+    kind: definition
+    aliases: ["H0^1", "H_0^1", "zero-boundary Sobolev space"]
+    introduction: formal
+    introduction_aliases: ["定義（H_0^1）"]
+    requires:
+      - sobolev.hk
+
+  - id: sobolev.h01-closed-hilbert
+    name: H_0^1の閉部分空間構造
+    kind: proposition
+    aliases: ["H_0^1 is closed in H^1", "Hilbert structure of H_0^1"]
+    introduction: formal
+    introduction_aliases: ["命題（H_0^1は閉部分空間）"]
+    requires:
+      - sobolev.h01
+      - sobolev.hk-hilbert
+
+  - id: sobolev.poincare-h01
+    name: H_0^1のPoincare不等式
+    kind: theorem
+    aliases: ["Poincare inequality on H_0^1", "Poincare inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（H_0^1のPoincare不等式）"]
+    requires:
+      - sobolev.h01
+
+  - id: sobolev.gradient-norm-equivalence
+    name: H_0^1上の勾配norm同値性
+    kind: corollary
+    aliases: ["gradient norm equivalence", "equivalent gradient norm on H_0^1"]
+    introduction: formal
+    introduction_aliases: ["系（勾配normとH^1 normの同値性）"]
+    requires:
+      - sobolev.poincare-h01
+
+  - id: sobolev.w11-ac-representative-1d
+    name: 一変数W^{1,1}の絶対連続代表元
+    kind: theorem
+    aliases: ["one-dimensional Sobolev fundamental theorem", "absolutely continuous representative"]
+    introduction: formal
+    introduction_aliases: ["定理（一変数W^{1,1}の基本定理）"]
+    requires:
+      - distribution.weak-derivative
+      - distribution.local-mollification
+
+  - id: sobolev.trace-interval
+    name: 区間上のH^1 trace
+    kind: theorem
+    aliases: ["interval trace theorem", "endpoint trace"]
+    introduction: formal
+    introduction_aliases: ["定理（区間上のtrace定理）"]
+    requires:
+      - sobolev.w11-ac-representative-1d
+      - sobolev.hk
+
+  - id: sobolev.lipschitz-domain
+    name: bounded Lipschitz domain
+    kind: definition
+    aliases: ["Lipschitz domain", "有界Lipschitz領域"]
+    introduction: formal
+    introduction_aliases: ["定義（bounded Lipschitz domain）"]
+
+  - id: sobolev.trace-lipschitz
+    name: bounded Lipschitz domain上のtrace定理
+    kind: theorem
+    aliases: ["trace theorem", "Sobolev trace theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（bounded Lipschitz domain上のtrace）"]
+    requires:
+      - sobolev.hk
+      - sobolev.lipschitz-domain
+      - sobolev.trace-interval
+
+  - id: sobolev.h01-trace-kernel
+    name: H_0^1とzero traceの同一視
+    kind: theorem
+    aliases: ["H_0^1 equals kernel of trace", "zero trace characterization"]
+    introduction: formal
+    introduction_aliases: ["定理（H_0^1とzero traceの同一視）"]
+    requires:
+      - sobolev.h01
+      - sobolev.trace-lipschitz
