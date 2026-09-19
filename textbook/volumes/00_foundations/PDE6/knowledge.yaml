@@ -63,7 +63,7 @@ concepts:
   - id: pde.pde6-neumann-compatibility
     name: Neumann問題の整合条件と定数を除く一意性
     kind: corollary
-    aliases: [Neumann compatibility and uniqueness modulo constants]
+    aliases: [Neumann compatibility and uniqueness modulo constants, Neumann 整合条件, Neumann 問題の整合条件]
     introduction: formal
     introduction_aliases: ["系（Neumann 問題の整合条件と定数を除く一意性）"]
     requires:
