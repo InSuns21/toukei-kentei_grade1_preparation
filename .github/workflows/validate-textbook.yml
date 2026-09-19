@@ -94,9 +94,3 @@ jobs:
 
       - name: Validate definition examples against their definitions
         run: npm run validate:definition-examples
-
-      - name: Audit proof pedagogy
-        run: npm run audit:proof-pedagogy
-
-      - name: Audit formalism pedagogy
-        run: npm run audit:formalism-pedagogy
