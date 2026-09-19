@@ -461,14 +461,12 @@ $$
 
 で適用すると
 
-$$
-\begin{aligned}
-&\int_{\mathbb R^{d-1}}
+$
+\int_{\mathbb R^{d-1}}
 g_d^{1/(d-1)}
 \prod_{i=1}^{d-1}
 G_i^{1/(d-1)}
-\\
-&\le
+\le
 \|g_d\|_1^{1/(d-1)}
 \left[
 \int_{\mathbb R^{d-1}}
@@ -476,8 +474,7 @@ G_i^{1/(d-1)}
 G_i(\widehat x_i')^{1/(d-2)}
 \,dx'
 \right]^{(d-2)/(d-1)}.
-\end{aligned}
-$$
+$
 
 角括弧の中は $d-1$ 次元の Loomis--Whitney 型です。
 
@@ -1204,11 +1201,13 @@ $M_0$ を $\{u_n:n\ge1\}$ の線形包の閉包とします。
 
 $M_0$ は可算集合から生成された可分 Hilbert 空間です。
 
-$M_0$ の正規直交基底を
+$M_0$ が有限次元なら Bolzano--Weierstrass を各座標に使えば結論は直ちに従うので、以下では $M_0$ が無限次元の場合を書きます。
 
-$$
+$M_0$ の可算正規直交基底を
+
+$
 (e_1,e_2,\dots)
-$$
+$
 
 とします。
 
@@ -1475,21 +1474,23 @@ $$
 
 $x$ で積分し Fubini を使うと
 
-$$
-\begin{aligned}
+$
 \|\varphi(\cdot+h)-\varphi\|_2^2
-&\le
+\le
 |h|^2
 \int_0^1
 \int_{\mathbb R^d}
 |\nabla\varphi(x+th)|^2
-\,dx\,dt
-\\
-&=
-|h|^2
-\|\nabla\varphi\|_2^2.
-\end{aligned}
-$$
+\,dx\,dt.
+$
+
+平行移動不変性により右辺は
+
+$
+|h|^2\|\nabla\varphi\|_2^2
+$
+
+に等しい。
 
 従って
 
@@ -1638,21 +1639,24 @@ $$
 
 全 cube について和を取ると
 
-$$
-\begin{aligned}
+$
 \|u-P_\delta u\|_2^2
-&\le
+\le
 \frac1{2\delta^d}
 \int_{[-\delta,\delta]^d}
 \|u(\cdot+h)-u\|_2^2
-\,dh
-\\
-&\le
+\,dh.
+$
+
+さらに $[-\delta,\delta]^d$ の体積は $(2\delta)^d$ なので
+
+$
+\|u-P_\delta u\|_2^2
+\le
 2^{d-1}
 \sup_{|h|_\infty\le\delta}
 \|u(\cdot+h)-u\|_2^2.
-\end{aligned}
-$$
+$
 
 仮定 3 から、任意の $\varepsilon>0$ に対し $\delta$ を十分小さく取れば
 
@@ -2121,6 +2125,45 @@ compactness は、非線形項や積の極限へ進むための「強収束回�
 
 ## 13. critical exponent で compactness が壊れる
 
+ここでは $H_0^1$ の一般 $p$ 版を一度だけ使います。
+
+<a id="def-gpde5-w01p"></a>
+
+<!-- formal-statement-start -->
+> **定義（$W_0^{1,p}$）**  
+> $\Omega\subset\mathbb R^d$ を open set、$1\le p<\infty$ とする。
+>
+> $C_c^\infty(\Omega)$ の $W^{1,p}(\Omega)$ norm による閉包を
+
+$
+\boxed{
+W_0^{1,p}(\Omega)
+:=
+\overline{C_c^\infty(\Omega)}^{\,W^{1,p}(\Omega)}
+}
+$
+
+> と定める。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gpde5-w01p -->
+**定義の確認**
+
+$\varphi\in C_c^\infty(\Omega)$ なら一定列 $\varphi_n=\varphi$ が $W^{1,p}$ で $\varphi$ へ収束するので
+
+$
+\varphi\in W_0^{1,p}(\Omega).
+$
+
+$p=2$ では GPDE4 の
+
+$
+W_0^{1,2}(\Omega)=H_0^1(\Omega)
+$
+
+です。
+<!-- definition-example-end -->
+
 Sobolev inequality は critical exponent $p^*$ まで連続埋め込みを与えます。
 
 しかし critical exponent では一般に compact ではありません。
@@ -2220,24 +2263,26 @@ $$
 
 まず $L^p$ norm は、$y=n(x-x_0)$ と変数変換して
 
-$$
-\begin{aligned}
+$
 \|u_n\|_p^p
-&=
+=
 \int
 n^{d-p}
 |\varphi(n(x-x_0))|^p
-\,dx
-\\
-&=
+\,dx.
+$
+
+変数変換後は
+
+$
+\|u_n\|_p^p
+=
 n^{d-p}n^{-d}
 \|\varphi\|_p^p
-\\
-&=
+=
 n^{-p}
 \|\varphi\|_p^p.
-\end{aligned}
-$$
+$
 
 従って
 
@@ -2288,17 +2333,14 @@ $$
 
 従って
 
-$$
-\begin{aligned}
+$
 \|u_n\|_q^q
-&=
+=
 n^d n^{-d}
 \|\varphi\|_q^q
-\\
-&=
+=
 \|\varphi\|_q^q.
-\end{aligned}
-$$
+$
 
 すなわち
 
