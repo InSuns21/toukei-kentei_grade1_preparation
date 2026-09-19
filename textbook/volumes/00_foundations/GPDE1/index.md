@@ -155,7 +155,9 @@ $$
 2. **関数だけでなく全階の偏微分が一様に近づく。**
 
 <!-- definition-example-start: def-gpde1-test-function-convergence -->
-**なぜ「共通コンパクト台」が必要か**
+**定義の確認**
+
+共通コンパクト台の条件が必要な理由を、平行移動する bump 関数で確認します。
 
 非零の $\eta\in\mathcal D(\mathbb R)$ を一つ固定し、
 
@@ -235,22 +237,22 @@ $$
 
 最も単純な例として
 
-$
+$$
 \langle T_1,\varphi\rangle
 =
 \int_\Omega\varphi(x)\,dx
-$
+$$
 
 を考えます。積分の線形性から $T_1$ は線形です。
 
-$arphi_n\to0$ in $\mathcal D(\Omega)$ とし、全ての台を含む共通コンパクト集合を $K$ とすると、
+$\varphi_n\to0$ in $\mathcal D(\Omega)$ とし、全ての台を含む共通コンパクト集合を $K$ とすると、
 
-$
+$$
 |\langle T_1,\varphi_n\rangle|
 \le
 |K|\,p_{K,0}(\varphi_n)
 \to0.
-$
+$$
 
 ここで $|K|$ は $K$ の Lebesgue 測度です。従って $T_1$ はテスト関数列に対して連続であり、distribution です。
 
@@ -462,7 +464,9 @@ $f\in L^1_{\mathrm{loc}}(\Omega)$ より括弧内は有限です。従って [�
 <!-- proof-end -->
 
 <!-- definition-example-start: def-gpde1-regular-distribution -->
-**特異でも局所可積分ならよい**
+**定義の確認**
+
+点で値が発散しても局所可積分となる例を確認します。
 
 $\Omega=(-1,1)$ で
 
@@ -514,7 +518,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde1-dirac -->
-**distribution 条件を直接確認する**
+**定義の確認**
+
+点評価が distribution の二条件を満たすことを直接確認します。
 
 線形性は
 
@@ -618,7 +624,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde1-distribution-convergence -->
-**移動する delta**
+**定義の確認**
+
+点 $a_n$ が $a$ へ近づくときの Dirac delta の収束を確認します。
 
 $a_n\to a$ in $\Omega$ とします。任意のテスト関数 $\varphi$ は連続なので
 
@@ -757,7 +765,9 @@ $$
 この定義では $u$ を二回微分していません。二階微分は全て滑らかな $\varphi$ が引き受けています。
 
 <!-- definition-example-start: def-gpde1-distributional-poisson -->
-**一次元で直接読む**
+**定義の確認**
+
+滑らかな一次元 Poisson 解で積分恒等式を直接確認します。
 
 $\Omega=(0,1)$ で
 
@@ -866,7 +876,7 @@ $$
 
 ## 11. PDE6 の基本解を distribution の等式として読み直す
 
-PDE6 では基本解を「特異点の外で調和的で、特異点を囲む flux が 1」という古典的な形で扱いました。
+PDE6 では基本解を「原点を除いて調和的で、原点を囲む flux が 1」という古典的な形で扱いました。
 
 distribution を使うと、その意味を一つの式にまとめられます。
 
@@ -1058,7 +1068,7 @@ $$
 従って $\eta(x-3)\in\mathcal D(\mathbb R)$ です。
 <!-- solution-end -->
 
-## GPDE1-A02 局所可積分な特異関数が distribution を定める
+## GPDE1-A02 値が発散する局所可積分関数が distribution を定める
 
 - Level: A
 - 目安時間: 12分
