@@ -16,6 +16,13 @@ const deprecatedCompatibilityDirs = new Set([
   'F0_00PDE1_熱方程式_Fourier変換',
   'F0_00PDE2_波動方程式_Laplace方程式_変数分離',
   'F0_00PDE3_Sturm_Liouville_スペクトル展開',
+  'F0_00DS1_Schwartz超関数_テスト関数',
+  'F0_00DS2_超関数微分_弱微分',
+  'F0_00SOB1_Sobolev空間_Wkp_Hk',
+  'F0_00SOB2_H01_Poincare_trace',
+  'F0_00WK1_弱形式_変分形式',
+  'F0_00WK2_Lax_Milgram_存在一意性',
+  'F0_00WK3_楕円型PDE_Galerkin_FEM',
 ]);
 
 const toPosix = (p) => p.split(path.sep).join('/');
