@@ -806,9 +806,5 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - PDE7 は PDE6 を直接 prerequisite とし、ODE7 の Sturm--Liouville 固有関数と FOU3 の Fourier 変換を、PDE3--PDE6 から推移的に再利用する統合章として実装した。一般スペクトル定理を新しい前提には置いていない。
 - 有限固有モードでは空間作用素の対角化を線形性から完全に導き、熱では $a_n'+\kappa\lambda_na_n=0$、波動では $a_n''+c^2\lambda_na_n=0$、Poisson 型では $\lambda_na_n=f_n$ となることを同一の命題から整理した。
 - 有界区間の離散固有値 $\lambda_n$ と全空間 Fourier 変換の連続パラメータ $\xi^2$ を対応させ、PDE3/PDE4 で既に正当化した古典解の範囲だけで離散・連続の二つの対角化を比較した。
-- Green 表現は有限モード Green kernel
-  $
-  G_N(x,y)=\sum_{n=1}^N\frac{\phi_n(x)\phi_n(y)}{\lambda_n\|\phi_n\|^2}
-  $
-  を直交性から導き、各モードを $1/\lambda_n$ 倍する逆作用と PDE6 の Green 関数を照合した。Neumann 問題では零固有値が整合条件と定数不定性を生むことも PDE6 の境界積分法と対応させた。
+- Green 表現は有限モード Green kernel $G_N(x,y)=\sum_{n=1}^N\phi_n(x)\phi_n(y)/(\lambda_n\|\phi_n\|^2)$ を直交性から導き、各モードを $1/\lambda_n$ 倍する逆作用と PDE6 の Green 関数を照合した。Neumann 問題では零固有値が整合条件と定数不定性を生むことも PDE6 の境界積分法と対応させた。
 - 演習は A4 / B3 / C1、全問詳細解答付き。一般自己共役作用素のスペクトル定理、弱微分、Sobolev 空間、弱解は Encore III へ停止している。
