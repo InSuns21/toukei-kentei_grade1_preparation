@@ -8,9 +8,10 @@ prerequisites:
 # PDE5で停止していた一般の境界積分構造を、古典解の範囲で閉じる。
 # 弱微分・分布としての -Delta Phi = delta_0・Sobolev空間はEncore IIIへ送る。
 forward_references:
-  - distribution.test-function
-  - distribution.distributional-derivative
-  - sobolev.sobolev-space
+  # PDE5 と同じ対象を複素解析側でも扱っていることを語彙監査へ明示する。
+  # 本章の証明依存には使わない。
+  - complex-analysis.harmonic-function
+  - complex-analysis.poisson-kernel
 
 concepts:
   - id: pde.pde6-normal-derivative
@@ -71,11 +72,11 @@ concepts:
       - pde.pde5-boundary-problems
 
   - id: pde.pde6-fundamental-solution
-    name: 二次元Laplacianの基本解
+    name: 二次元負Laplacianの基本解
     kind: definition
     aliases: [two-dimensional Laplace fundamental solution]
     introduction: formal
-    introduction_aliases: ["定義（二次元 -Delta の基本解）"]
+    introduction_aliases: ["定義（二次元負Laplacianの基本解）"]
     requires:
       - pde.pde5-harmonic-function
 
