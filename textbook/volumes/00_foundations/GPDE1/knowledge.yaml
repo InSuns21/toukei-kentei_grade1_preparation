@@ -1,0 +1,101 @@
+chapter: GPDE1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2
+  - F0-02C2
+
+forward_references:
+  - distribution.distributional-derivative
+  - distribution.weak-derivative
+
+concepts:
+  - id: distribution.test-function
+    name: テスト関数
+    kind: definition
+    aliases: [test function, C_c^infty]
+    introduction: formal
+    introduction_aliases: ["定義（テスト関数とテスト関数空間）"]
+
+  - id: distribution.test-function-convergence
+    name: テスト関数列の収束
+    kind: definition
+    aliases: [D収束, test-function convergence]
+    introduction: formal
+    introduction_aliases: ["定義（テスト関数列の収束）"]
+    requires:
+      - distribution.test-function
+
+  - id: distribution.schwartz-distribution
+    name: distribution
+    kind: definition
+    aliases: [Schwartz超関数, 超関数, Schwartz distribution]
+    introduction: formal
+    introduction_aliases: ["定義（distribution）"]
+    requires:
+      - distribution.test-function-convergence
+
+  - id: distribution.local-finite-order-estimate
+    name: distributionの局所有限階評価
+    kind: proposition
+    aliases: [局所有限階評価, local finite-order estimate]
+    introduction: formal
+    introduction_aliases: ["命題（distribution の局所有限階評価）"]
+    requires:
+      - distribution.schwartz-distribution
+
+  - id: distribution.regular-distribution
+    name: 正則distribution
+    kind: definition
+    aliases: [正則超関数, regular distribution]
+    introduction: formal
+    introduction_aliases: ["定義（正則 distribution）"]
+    requires:
+      - distribution.schwartz-distribution
+
+  - id: distribution.locally-integrable-gives-distribution
+    name: 局所可積分関数が定めるdistribution
+    kind: proposition
+    aliases: [L1locからdistribution, regular distribution construction]
+    introduction: formal
+    introduction_aliases: ["命題（局所可積分関数は distribution を定める）"]
+    requires:
+      - distribution.regular-distribution
+      - distribution.local-finite-order-estimate
+
+  - id: distribution.dirac-delta
+    name: Dirac delta
+    kind: definition
+    aliases: [delta distribution, Dirac delta distribution]
+    introduction: formal
+    introduction_aliases: ["定義（Dirac delta）"]
+    requires:
+      - distribution.schwartz-distribution
+
+  - id: distribution.distributional-convergence
+    name: distributionの収束
+    kind: definition
+    aliases: [超関数収束, distributional convergence]
+    introduction: formal
+    introduction_aliases: ["定義（distribution の収束）"]
+    requires:
+      - distribution.schwartz-distribution
+
+  - id: distribution.distributional-solution
+    name: distributional solution
+    kind: definition
+    aliases: [超関数解, distribution solution]
+    introduction: formal
+    introduction_aliases: ["定義（Poisson 方程式の distributional solution）"]
+    requires:
+      - distribution.regular-distribution
+      - distribution.test-function
+
+  - id: distribution.classical-poisson-implies-distributional
+    name: 古典Poisson解はdistributional solution
+    kind: proposition
+    aliases: [classical implies distributional]
+    introduction: formal
+    introduction_aliases: ["命題（古典 Poisson 解は distributional solution である）"]
+    requires:
+      - distribution.distributional-solution
