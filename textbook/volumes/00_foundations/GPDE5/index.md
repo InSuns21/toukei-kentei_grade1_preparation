@@ -533,7 +533,7 @@ $$
 <a id="thm-gpde5-w11-sobolev"></a>
 
 <!-- formal-statement-start -->
-> **定理（$W^{1,1}$ Sobolev 不等式）**  
+> **定理（W11 Sobolev 不等式）**  
 > $d\ge2$ とする。
 >
 > 定数 $C_d>0$ が存在して、任意の $u\in W^{1,1}(\mathbb R^d)$ に対し
@@ -1046,7 +1046,7 @@ $$
 C_E\|u\|_{W^{1,p}(\Omega)}.
 $$
 
-全空間 Sobolev inequality から
+[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)から
 
 $$
 \|Eu\|_{L^{p^*}(\mathbb R^d)}
@@ -1459,7 +1459,7 @@ $$
 <a id="lem-gpde5-h01-translation"></a>
 
 <!-- formal-statement-start -->
-> **補題（$H_0^1$ 零延長の translation estimate）**  
+> **補題（H01 零延長の translation estimate）**  
 > $\Omega\subset\mathbb R^d$ を open set とし、$u\in H_0^1(\Omega)$ とする。
 >
 > $u$ を $\mathbb R^d$ へ 0 延長したものを $\widetilde u$ とする。
@@ -1604,7 +1604,7 @@ $$
 <a id="lem-gpde5-l2-translation-compactness"></a>
 
 <!-- formal-statement-start -->
-> **補題（$L^2$ translation compactness）**  
+> **補題（L2 translation compactness）**  
 > $\mathcal F\subset L^2(\mathbb R^d)$ とする。
 >
 > 次を仮定する。
@@ -1663,7 +1663,7 @@ $$
 
 と定めます。
 
-各 cube で分散恒等式
+各 cube で平均からの二乗偏差恒等式
 
 $$
 \int_Q|u-u_Q|^2
@@ -1778,7 +1778,7 @@ translation 制御が有限次元近似を作るところまで展開しまし�
 <a id="thm-gpde5-rellich-h01-l2"></a>
 
 <!-- formal-statement-start -->
-> **定理（Rellich--Kondrachov：$H_0^1$ から $L^2$）**  
+> **定理（Rellich--Kondrachov：H01 から L2）**  
 > $\Omega\subset\mathbb R^d$ を bounded open set とする。
 >
 > このとき
@@ -1951,7 +1951,7 @@ Rellich により部分列が $L^2$ で強収束すれば、$2<q<2^*$ に対し�
 <a id="cor-gpde5-subcritical-compact"></a>
 
 <!-- formal-statement-start -->
-> **系（$H_0^1$ の subcritical compact embedding）**  
+> **系（H01 の subcritical compact embedding）**  
 > $\Omega\subset\mathbb R^d$ を bounded open set とする。
 >
 > $d\ge3$ なら任意の
@@ -1989,9 +1989,19 @@ $$
 
 となる部分列を取ります。
 
-Sobolev inequality により $(u_{n_k})$ は $L^{2^*}$ で一様有界です。
+[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)により $(u_{n_k})$ は $L^{2^*}$ で一様有界です。
 
-$u$ も Fatou または弱下半連続性から $L^{2^*}$ に属し、従って差
+さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ norm の一様有界性と Fatou の補題から
+
+$
+\int_\Omega |u|^{2^*}
+\le
+\liminf_{k\to\infty}
+\int_\Omega |u_{n_k}|^{2^*}
+<\infty.
+$
+
+従って $u\in L^{2^*}(\Omega)$ であり、差
 
 $$
 w_k=u_{n_k}-u
@@ -2069,7 +2079,7 @@ $
 
 さらに $H_0^1$ の $C_c^\infty$ 近似列は同じ評価により $W^{1,r}$ でも収束するので、各 $u_n$ は $W_0^{1,r}(\Omega)$ に属します。
 
-$r<d=2$ なので零延長と全空間 Sobolev inequality から $L^{r^*}$、従って $L^s$ で一様有界です。
+$r<d=2$ なので零延長と[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)から $L^{r^*}$、従って $L^s$ で一様有界です。
 
 Rellich の $L^2$ 強収束と $L^s$ 有界性を interpolation すれば $L^q$ 強収束を得ます。
 
@@ -2188,7 +2198,7 @@ compactness は、非線形項や積の極限へ進むための「強収束回�
 <a id="def-gpde5-w01p"></a>
 
 <!-- formal-statement-start -->
-> **定義（$W_0^{1,p}$）**  
+> **定義（W01p）**  
 > $\Omega\subset\mathbb R^d$ を open set、$1\le p<\infty$ とする。
 >
 > $C_c^\infty(\Omega)$ の $W^{1,p}(\Omega)$ norm による閉包を
@@ -2893,7 +2903,7 @@ $$
 
 従って零延長列は $H^1(\mathbb R^d)$ Cauchy で、極限は $u$ の零延長 $\widetilde u$ です。
 
-全空間 Sobolev inequality を $p=2$ で使うと
+[R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)を $p=2$ で使うと
 
 $$
 \|\widetilde u\|_{L^{2^*}(\mathbb R^d)}
