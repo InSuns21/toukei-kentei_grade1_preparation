@@ -319,51 +319,63 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\alpha=e_j$ の場合を示します。任意の $\varphi\in\mathcal D(\Omega)$ を取ります。
+まず $\alpha=e_j$ の場合を示します。任意の $\varphi\in\mathcal D(\Omega)$ を取り、
 
-$\operatorname{supp}\varphi$ を内部に含む直方体 $Q$ を
+$
+K=\operatorname{supp}\varphi
+$
 
-$$
-\overline Q\subset\Omega
-$$
+と置きます。$K$ は $\Omega$ の内部にあるコンパクト集合なので、$K$ と $\Omega^c$ の距離は正です。
 
-となるように取れます。$\varphi$ は $\partial Q$ の近くで 0 なので、$x_j$ 方向の部分積分に境界項は残りません。
+$x_j$ 以外の座標を $x'$、$x_j$ を $t$ と書きます。固定した $x'$ に対し、
+
+$
+\Omega_{x'}
+=
+\{t:(x',t)\in\Omega\}
+$
+
+は $\mathbb R$ の開集合なので、互いに素な開区間の合併です。
+
+$K$ と $\Omega^c$ の間には正の距離があるため、$t\mapsto\varphi(x',t)$ の台は $\Omega_{x'}$ の内部にコンパクトに収まります。従って各区間成分上で通常の一変数部分積分を行え、端点近くでは $\varphi(x',t)=0$ なので境界項は消えます。よって
+
+$
+-\int_{\Omega_{x'}}
+f(x',t)\,\partial_j\varphi(x',t)\,dt
+=
+\int_{\Omega_{x'}}
+\partial_jf(x',t)\,\varphi(x',t)\,dt.
+$
+
+$\varphi$ と $\partial_j\varphi$ の台は $K$ に含まれ、$f$ と $\partial_jf$ は $K$ 上で有界です。したがって両辺は絶対可積分であり、Fubini の定理を使って $x'$ について積分できます。その結果、
+
+$
+-\int_\Omega f\,\partial_j\varphi
+=
+\int_\Omega(\partial_jf)\varphi.
+$
 
 従って
 
-$$
+$
 \langle\partial_jT_f,\varphi\rangle
 =
--\int_\Omega f\,\partial_j\varphi
-=
--\int_Q f\,\partial_j\varphi
-=
-\int_Q(\partial_jf)\varphi.
-$$
-
-$\varphi$ は $Q$ の外で 0 なので、
-
-$$
-\int_Q(\partial_jf)\varphi
-=
-\int_\Omega(\partial_jf)\varphi
-=
 \langle T_{\partial_jf},\varphi\rangle.
-$$
+$
 
-よって
+任意のテスト関数で作用が一致するので
 
-$$
+$
 \partial_jT_f=T_{\partial_jf}.
-$$
+$
 
 一般の多重指数 $\alpha$ については、この一階の等式を $|\alpha|$ 回繰り返せば
 
-$$
+$
 \partial^\alpha T_f
 =
 T_{\partial^\alpha f}
-$$
+$
 
 を得ます。
 <!-- proof-end -->
