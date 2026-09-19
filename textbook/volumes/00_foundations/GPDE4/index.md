@@ -42,7 +42,7 @@ $$
 
 左側が $H_0^1(\Omega)$、右側が trace による境界値です。
 
-さらに、この零境界条件を入れると Poincaré 不等式
+さらに、この零境界条件を入れると、関数自身の $L^2$ norm を勾配で制御する評価
 
 $$
 \|u\|_{L^2(\Omega)}
@@ -63,7 +63,7 @@ $$
 $$
 H_0^1
 \longrightarrow
-\text{Poincaré}
+\text{$L^2$ と勾配の制御}
 \longrightarrow
 \text{勾配 norm}
 \longrightarrow
@@ -190,7 +190,7 @@ $$
 
 を $H^1$ 極限で閉じた空間です。
 
-後で bounded Lipschitz domain では、これがちょうど
+後で定義する標準的な境界正則性を持つ有界領域では、これがちょうど
 
 $$
 \operatorname{Tr}u=0
@@ -208,7 +208,7 @@ $$
 > **命題（H_0^1 は閉部分空間）**  
 > 任意の開集合 $\Omega\subset\mathbb R^d$ に対し、$H_0^1(\Omega)$ は $H^1(\Omega)$ の閉線形部分空間である。
 >
-> 特に $H^1(\Omega)$ の内積を制限すると、$H_0^1(\Omega)$ は Hilbert 空間である。
+> 特に $H^1(\Omega)$ の内積を制限すると、$H_0^1(\Omega)$ は完備な内積空間である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -274,7 +274,7 @@ $$
 
 また定義から $H_0^1(\Omega)$ は $H^1(\Omega)$ で閉じています。
 
-GPDE3 で $H^1(\Omega)$ が Hilbert 空間であることを示しました。Hilbert 空間の閉部分空間は完備なので、
+GPDE3 で $H^1(\Omega)$ が完備な内積空間であることを示しました。完備な内積空間の閉部分空間は再び完備なので、
 
 $$
 \boxed{
@@ -292,7 +292,7 @@ $H_0^1$ の定義自体は、任意の開集合で意味を持ちます。
 
 ---
 
-## 4. Poincaré 不等式：零境界条件が定数方向を消す
+## 4. 零境界条件が定数方向を消す
 
 全 $H^1(\Omega)$ で
 
@@ -1678,7 +1678,7 @@ $$
 (0,0).
 $$
 
-前節の[区間上の H_0^1 と zero trace の同一視](#thm-gpde4-h01-trace-kernel-interval)から
+前節の[区間版 kernel 特徴付け](#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 \boxed{
@@ -1790,7 +1790,7 @@ Lipschitz とは「微分可能」を要求していません。
 
 ---
 
-## 12. bounded Lipschitz domain 上の trace 定理
+## 12. 高次元の trace を構成する
 
 <a id="thm-gpde4-trace-lipschitz"></a>
 
@@ -1941,7 +1941,7 @@ $
 \text{境界 graph に沿った積分}
 $
 
-は本文で計算し、区間上の $H_0^1=\ker\operatorname{Tr}$ は完全証明しています。
+は本文で計算し、区間上の zero-trace characterization は完全証明しています。
 
 <!-- proof-start -->
 ### 証明
@@ -2133,7 +2133,7 @@ Lipschitz 仮定が働いた場所は二つです。
 
 ---
 
-## 13. 一般の bounded Lipschitz domain でも $H_0^1=\ker\operatorname{Tr}$
+## 13. 一般領域で零境界条件を trace で特徴付ける
 
 <a id="thm-gpde4-h01-trace-kernel"></a>
 
@@ -2971,7 +2971,7 @@ $$
 
 従って $(u_n)$ は $H^1$ norm でも Cauchy です。
 
-$H_0^1(\Omega)$ は $H^1(\Omega)$ の閉部分空間で Hilbert 空間なので、ある
+$H_0^1(\Omega)$ は $H^1(\Omega)$ の閉部分空間で完備なので、ある
 
 $$
 u\in H_0^1(\Omega)
@@ -3551,7 +3551,7 @@ $$
 ## 章末チェック
 
 - $H_0^1(\Omega)$ を $C_c^\infty(\Omega)$ の $H^1$ 閉包として定義できる。
-- $H_0^1$ が $H^1$ の閉部分空間で Hilbert 空間になる理由を説明できる。
+- $H_0^1$ が $H^1$ の閉部分空間として完備になる理由を説明できる。
 - 任意の有界開集合で $H_0^1$ 版 Poincaré 不等式を断面積分から証明できる。
 - 定数関数が全 $H^1$ 版 Poincaré を壊す理由を説明できる。
 - $H_0^1$ 上では $\|\nabla u\|_2$ が norm になり、$H^1$ norm と同値になることを証明できる。
@@ -3560,9 +3560,9 @@ $$
 - 区間上で $H_0^1=\ker\operatorname{Tr}$ を境界層 cutoff と mollification から証明できる。
 - bounded Lipschitz domain の仮定が trace のどこで働くか説明できる。
 - 一般 trace 定理で $H^1(\Omega)\to L^2(\partial\Omega)$ の連続性を正確に使える。
-- bounded Lipschitz domain で $H_0^1=\ker\operatorname{Tr}$ を使える。
+- bounded Lipschitz domain で zero trace による零境界条件の特徴付けを使える。
 - pointwise zero、zero trace、平均 zero を区別できる。
-- 非零 Dirichlet 条件を $w+H_0^1$ という affine space として読める。
+- 非零 Dirichlet 条件を零境界 Sobolev 空間の affine translate として読める。
 
 次の GPDE5 では、Sobolev norm の制御から
 
