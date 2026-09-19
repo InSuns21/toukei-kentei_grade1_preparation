@@ -62,6 +62,17 @@ concepts:
       - sobolev.w11-ac-representative-1d
       - sobolev.hk
 
+  - id: sobolev.h01-trace-kernel-interval
+    name: 区間上のH_0^1とzero traceの同一視
+    kind: theorem
+    aliases: ["interval H_0^1 equals kernel of trace", "zero endpoint trace characterization"]
+    introduction: formal
+    introduction_aliases: ["定理（区間上のH_0^1とzero trace）"]
+    requires:
+      - sobolev.h01
+      - sobolev.trace-interval
+      - sobolev.local-mollification
+
   - id: sobolev.lipschitz-domain
     name: bounded Lipschitz domain
     kind: definition
