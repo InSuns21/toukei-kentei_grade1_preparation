@@ -1,6 +1,6 @@
-# PDE6 Greenの恒等式・基本解・Green関数
+# PDE6 Laplace・Poisson 方程式の境界積分法
 
-PDE5 では、Laplace・Poisson 方程式を平均値性質、最大原理、変数分離、Poisson kernel から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
+PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson kernel から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
 
 中心となる流れは
 
@@ -143,7 +143,7 @@ $$
 
 ---
 
-## 3. 平面版発散定理
+## 3. 内部の発散を境界 flux へ移す
 
 <a id="thm-pde6-divergence"></a>
 <!-- formal-statement-start -->
@@ -294,7 +294,7 @@ $$
 
 ---
 
-## 4. Green の第一恒等式
+## 4. 積の微分から第一の積分恒等式へ
 
 $u,v$ を二回微分可能とします。積の微分から
 
@@ -378,7 +378,7 @@ $$
 
 ---
 
-## 5. 最大原理とは別の Dirichlet 一意性
+## 5. エネルギーから Dirichlet 一意性を出す
 
 <a id="cor-pde6-dirichlet-energy"></a>
 <!-- formal-statement-start -->
@@ -460,7 +460,7 @@ $$
 
 ---
 
-## 6. Green の第二恒等式
+## 6. 二つの第一恒等式の差を取る
 
 第一恒等式を $(u,v)$ と $(v,u)$ の二通りで書くと
 
@@ -841,7 +841,7 @@ $$
 
 ---
 
-## 10. 基本解による Green 表現公式
+## 10. 基本解から一点値を取り出す
 
 <a id="thm-pde6-green-representation"></a>
 <!-- formal-statement-start -->
@@ -1105,33 +1105,33 @@ $$
 > 1. $y\mapsto G(x,y)$ は $\Omega\setminus\{x\}$ で調和的であり、
 > 2. 差
 
-$
+$$
 h_x(y)
 =
 G(x,y)-\Phi(x-y)
-$
+$$
 
 > が $\Omega$ 全体の調和関数として $C^2(\Omega)\cap C^1(\overline\Omega)$ に延長でき、
 > 3. $G(x,\cdot)$ 自身も $\partial\Omega$ の近くでは $C^1$ に延長でき、その境界値が
 
-$
+$$
 G(x,y)=0
 \qquad
 (y\in\partial\Omega)
-$
+$$
 
 > となることをいう。
 <!-- formal-statement-end -->
 
 つまり
 
-$
+$$
 G(x,y)
 =
 \Phi(x-y)
 +
 h_x(y)
-$
+$$
 
 と書き、$h_x$ を $y$ について調和関数に選んで、境界で基本解の値をちょうど打ち消します。境界近くで $G$ が $C^1$ まで延長することを仮定したのは、後で $\partial_{n_y}G$ を境界上で使うためです。
 
@@ -1691,7 +1691,7 @@ $$
 \int_\Omega|\nabla w|^2=0.
 $$
 
-### Neumann 整合条件
+### Neumann 問題の必要条件
 
 $$
 -\Delta u=f,
@@ -2726,7 +2726,7 @@ $$
 
 [Green の第一恒等式](#thm-pde6-green-first)から
 
-$
+$$
 \iint_D|\nabla w|^2\,dA=0.
 $$
 
@@ -2798,7 +2798,7 @@ $$
 - Neumann 問題の整合条件の符号を $-\Delta u=f$ の規約から導ける。
 - 二次元基本解 $-(2\pi)^{-1}\log|x|$ の調和性と単位 flux を確認できる。
 - Green 表現公式で小円の法線向きと $u(x)$ の出現を説明できる。
-- Dirichlet Green 関数が「基本解 - 調和補正」であることを説明できる。
+- Dirichlet Green 関数が「基本解 + 調和補正」で境界条件を埋め込むことを説明できる。
 - 単位円板の Green 関数を境界条件まで検証できる。
 - $-\partial_{n_y}G$ から Poisson kernel を導ける。
 - PDE5 の Fourier 由来の Poisson kernel と PDE6 の Green 関数由来の核が一致することを示せる。
