@@ -1,0 +1,137 @@
+chapter: GPDE5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE4
+  - FA3
+
+concepts:
+  - id: sobolev.conjugate-exponent
+    name: Sobolev共役指数
+    kind: definition
+    aliases: ["Sobolev conjugate exponent", "p star", "p*"]
+    introduction: formal
+    introduction_aliases: ["定義（Sobolev 共役指数）"]
+    requires:
+      - sobolev.wkp
+
+  - id: analysis.continuous-embedding
+    name: 連続埋め込み
+    kind: definition
+    aliases: ["continuous embedding", "continuous inclusion"]
+    introduction: formal
+    introduction_aliases: ["定義（連続埋め込み）"]
+
+  - id: analysis.compact-embedding
+    name: compact embedding
+    kind: definition
+    aliases: ["compact embedding", "compact inclusion"]
+    introduction: formal
+    introduction_aliases: ["定義（compact embedding）"]
+    requires:
+      - analysis.continuous-embedding
+
+  - id: analysis.functional-loomis-whitney
+    name: 関数型Loomis--Whitney不等式
+    kind: lemma
+    aliases: ["functional Loomis--Whitney inequality"]
+    introduction: formal
+    introduction_aliases: ["補題（関数型 Loomis--Whitney 不等式）"]
+
+  - id: sobolev.w11-inequality-rd
+    name: R^d上のW^{1,1} Sobolev不等式
+    kind: theorem
+    aliases: ["W11 Sobolev inequality", "endpoint Sobolev inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（W^{1,1} Sobolev 不等式）"]
+    requires:
+      - analysis.functional-loomis-whitney
+
+  - id: sobolev.inequality-rd
+    name: R^d上のSobolev不等式
+    kind: theorem
+    aliases: ["Sobolev inequality", "Gagliardo--Nirenberg--Sobolev inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（R^d 上の Sobolev 不等式）"]
+    requires:
+      - sobolev.conjugate-exponent
+      - sobolev.w11-inequality-rd
+      - sobolev.ccinf-dense-rd
+
+  - id: sobolev.extension-lipschitz
+    name: bounded Lipschitz domainのextension theorem
+    kind: theorem
+    aliases: ["Sobolev extension theorem", "Lipschitz extension theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（bounded Lipschitz domain の Sobolev extension）"]
+    requires:
+      - sobolev.lipschitz-domain
+      - sobolev.wkp
+
+  - id: sobolev.embedding-lipschitz
+    name: bounded Lipschitz domain上のSobolev embedding
+    kind: corollary
+    aliases: ["Sobolev embedding on bounded Lipschitz domains"]
+    introduction: formal
+    introduction_aliases: ["系（bounded Lipschitz domain 上の Sobolev embedding）"]
+    requires:
+      - sobolev.inequality-rd
+      - sobolev.extension-lipschitz
+
+  - id: functional-analysis.bounded-hilbert-sequence-weak-subsequence
+    name: Hilbert空間の有界列からの弱収束部分列
+    kind: theorem
+    aliases: ["weak subsequence theorem in Hilbert space", "bounded sequence weakly convergent subsequence"]
+    introduction: formal
+    introduction_aliases: ["定理（Hilbert 空間の有界列から弱収束部分列）"]
+    requires:
+      - sobolev.h01-closed-hilbert
+
+  - id: sobolev.h01-translation-estimate
+    name: H_0^1零延長のtranslation estimate
+    kind: lemma
+    aliases: ["H01 translation estimate", "translation estimate for zero extension"]
+    introduction: formal
+    introduction_aliases: ["補題（H_0^1 零延長の translation estimate）"]
+    requires:
+      - sobolev.h01
+
+  - id: analysis.l2-translation-compactness
+    name: L2 translation compactness lemma
+    kind: lemma
+    aliases: ["L2 Kolmogorov--Riesz criterion", "translation compactness criterion"]
+    introduction: formal
+    introduction_aliases: ["補題（L2 translation compactness）"]
+    requires:
+      - sobolev.h01-translation-estimate
+
+  - id: sobolev.rellich-h01-l2
+    name: Rellich--Kondrachov H_0^1 to L2
+    kind: theorem
+    aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "H01 compactly embeds into L2"]
+    introduction: formal
+    introduction_aliases: ["定理（Rellich--Kondrachov：H_0^1 から L2）"]
+    requires:
+      - analysis.compact-embedding
+      - analysis.l2-translation-compactness
+      - sobolev.h01-translation-estimate
+
+  - id: sobolev.subcritical-compact-embedding-h01
+    name: H_0^1のsubcritical compact embedding
+    kind: corollary
+    aliases: ["subcritical Rellich compactness", "H01 subcritical compact embedding"]
+    introduction: formal
+    introduction_aliases: ["系（H_0^1 の subcritical compact embedding）"]
+    requires:
+      - sobolev.rellich-h01-l2
+      - sobolev.inequality-rd
+
+  - id: sobolev.critical-noncompactness
+    name: critical Sobolev embeddingの非compact性
+    kind: proposition
+    aliases: ["critical Sobolev noncompactness", "concentration sequence"]
+    introduction: formal
+    introduction_aliases: ["命題（critical exponent では compactness が壊れる）"]
+    requires:
+      - sobolev.conjugate-exponent
+      - sobolev.inequality-rd
