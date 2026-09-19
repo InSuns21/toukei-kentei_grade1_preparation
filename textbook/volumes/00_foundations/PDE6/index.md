@@ -1691,7 +1691,7 @@ $$
 \int_\Omega|\nabla w|^2=0.
 $$
 
-### Neumann 問題の必要条件
+### Neumann 問題の整合条件と定数を除く一意性
 
 $$
 -\Delta u=f,
