@@ -215,6 +215,7 @@
 17. [PDE4 波動方程式](textbook/volumes/00_foundations/PDE4/index.md)
 18. [PDE5 Laplace・Poisson方程式と調和関数](textbook/volumes/00_foundations/PDE5/index.md)
 19. [PDE6 Greenの恒等式・基本解・Green関数](textbook/volumes/00_foundations/PDE6/index.md)
+20. [PDE7 固有関数展開・Green表現・三類型の統合](textbook/volumes/00_foundations/PDE7/index.md)
 
 ---
 

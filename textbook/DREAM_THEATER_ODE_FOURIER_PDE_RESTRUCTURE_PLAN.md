@@ -759,7 +759,7 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
 - FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
 - 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
-- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE6 まで実装・検証を完了し、次の理論実装単位は PDE7「固有関数展開・Green表現・三類型の統合」。
+- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE 系列も PDE1～PDE7 まで実装・検証を完了し、Encore II の新 ODE / FOU / PDE 系列は一巡した。次は Encore III の distribution・Sobolev・弱形式系列へ接続する。
 
 
 ## 11.10 PDE 再編の現在地（2026-09-19）
@@ -802,4 +802,13 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
 - proof pedagogy は機械 P1（proof block 9本、証明比約28%、省略語候補「相殺する」1件）、formalism pedagogy も機械 P1（主要結果10件、proof block 9件、隠れ証明0）。「相殺する」は内部境界で $F\cdot n+F\cdot(-n)=0$ を直後に明示しており、核心論証の省略ではない。定義直後の直接例は definition-example marker 4件を人手確認した。
 - proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残さない。
-- PDE6 は PR #300 で実装・検証完了。次の理論実装単位は PDE7。
+- PDE6 は PR #300 で実装・検証完了。
+- PDE7 は PDE6 を直接 prerequisite とし、ODE7 の Sturm--Liouville 固有関数と FOU3 の Fourier 変換を、PDE3--PDE6 から推移的に再利用する統合章として実装した。一般スペクトル定理を新しい前提には置いていない。
+- 有限固有モードでは空間作用素の対角化を線形性から完全に導き、熱では $a_n'+\kappa\lambda_na_n=0$、波動では $a_n''+c^2\lambda_na_n=0$、Poisson 型では $\lambda_na_n=f_n$ となることを同一の命題から整理した。
+- 有界区間の離散固有値 $\lambda_n$ と全空間 Fourier 変換の連続パラメータ $\xi^2$ を対応させ、PDE3/PDE4 で既に正当化した古典解の範囲だけで離散・連続の二つの対角化を比較した。
+- Green 表現は有限モード Green kernel $G_N(x,y)=\sum_{n=1}^N\phi_n(x)\phi_n(y)/(\lambda_n\|\phi_n\|^2)$ を直交性から導き、各モードを $1/\lambda_n$ 倍する逆作用と PDE6 の Green 関数を照合した。Neumann 問題では零固有値が整合条件と定数不定性を生むことも PDE6 の境界積分法と対応させた。
+- 演習は A4 / B3 / C1、全問詳細解答付き。一般自己共役作用素のスペクトル定理、弱微分、Sobolev 空間、弱解は Encore III へ停止している。
+- Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。概念監査は変更ページに加えて、index 更新に伴う全 DREAM THEATER 再走査も green。
+- proof pedagogy は機械 P2（proof block 4本、証明比10%、省略語候補0）、formalism pedagogy も機械 P2（主要結果4件、proof block 4件、折りたたみ外の証明完了表現0）。「例見出し0」は、章の役割が新定義の導入ではなく既存理論の統合であり、本文の単一・複数モード計算と A4 / B3 / C1 の詳細解答で直接検証を置いていることを人手確認した。
+- proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残さない。
+- PDE7 は PR #301 で実装・検証完了。これで Encore II 再編の PDE1～PDE7 は完了。

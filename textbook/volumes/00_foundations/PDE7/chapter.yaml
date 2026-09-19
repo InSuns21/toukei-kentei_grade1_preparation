@@ -1,0 +1,28 @@
+id: "PDE7"
+title: "標準偏微分方程式 VII：固有関数展開・Green表現・三類型の統合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE6
+official_scope: []
+learning_objectives:
+  - 空間作用素の固有関数展開がPDEをモードごとのODEへ変える機構を、有限モードで直接導ける
+  - 熱方程式では各固有モードが指数減衰し、高固有値ほど速く減衰することを説明できる
+  - 波動方程式では各固有モードが調和振動し、固有値が固有角振動数を決めることを説明できる
+  - Poisson型の定常問題では固有値で割る操作が逆作用素となり、零固有値が可解条件を生むことを説明できる
+  - 有界領域の離散固有モードと全空間Fourier変換の連続周波数を同じ対角化の二つの姿として比較できる
+  - 有限モードGreen kernelを構成し、Green表現の係数1/lambda_nが固有モードごとの逆作用を表すことを検証できる
+  - PDE3からPDE6の熱・波動・Laplace/Poisson・Green表現を、型・データ・一意性機構・モード応答の観点から統合できる
+  - 弱解・Sobolev空間・一般スペクトル定理を使わずに古典解で閉じる範囲と、Encore IIIへ進む停止線を説明できる
+definitions: []
+theorems:
+  - { id: PDE7-PROP-01, name: 有限固有モードによるPDEの対角化 }
+  - { id: PDE7-PROP-02, name: 三類型のモード方程式 }
+  - { id: PDE7-PROP-03, name: 有限モードGreen kernel }
+  - { id: PDE7-PROP-04, name: Neumann零モードと可解条件 }
+canonical_examples: [Dirichlet正弦モード, 熱モードの指数減衰, 波動モードの調和振動, Poissonモードの固有値除算, Neumann零モード, 有限モードGreen kernel]
+problem_patterns: [PDE7-HEAT-MODE-1, PDE7-WAVE-MODE-1, PDE7-POISSON-MODE-1, PDE7-FOURIER-CONTINUOUS-1, PDE7-GREEN-SPECTRAL-1, PDE7-ZERO-MODE-1, PDE7-SYNTHESIS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
