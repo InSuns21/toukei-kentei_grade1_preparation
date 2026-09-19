@@ -19,7 +19,7 @@ concepts:
     kind: proposition
     aliases: ["H_0^1 is closed in H^1", "Hilbert structure of H_0^1"]
     introduction: formal
-    introduction_aliases: ["命題（H_0^1は閉部分空間）"]
+    introduction_aliases: ["命題（H_0^1 は閉部分空間）"]
     requires:
       - sobolev.h01
       - sobolev.hk-hilbert
@@ -29,7 +29,7 @@ concepts:
     kind: theorem
     aliases: ["Poincaré不等式", "Poincare inequality on H_0^1", "Poincare inequality"]
     introduction: formal
-    introduction_aliases: ["定理（H_0^1のPoincaré不等式）"]
+    introduction_aliases: ["定理（H_0^1 の Poincaré 不等式）"]
     requires:
       - sobolev.h01
 
@@ -38,7 +38,7 @@ concepts:
     kind: corollary
     aliases: ["gradient norm equivalence", "equivalent gradient norm on H_0^1"]
     introduction: formal
-    introduction_aliases: ["系（勾配normとH^1 normの同値性）"]
+    introduction_aliases: ["系（勾配 norm と H^1 norm の同値性）"]
     requires:
       - sobolev.poincare-h01
 
@@ -47,7 +47,7 @@ concepts:
     kind: theorem
     aliases: ["one-dimensional Sobolev fundamental theorem", "absolutely continuous representative"]
     introduction: formal
-    introduction_aliases: ["定理（一変数W^{1,1}の基本定理）"]
+    introduction_aliases: ["定理（一変数 W^{1,1} の基本定理）"]
     requires:
       - distribution.weak-derivative
       - distribution.local-mollification
@@ -57,7 +57,7 @@ concepts:
     kind: theorem
     aliases: ["interval trace theorem", "endpoint trace"]
     introduction: formal
-    introduction_aliases: ["定理（区間上のtrace定理）"]
+    introduction_aliases: ["定理（区間上の trace 定理）"]
     requires:
       - sobolev.w11-ac-representative-1d
       - sobolev.hk
@@ -67,7 +67,7 @@ concepts:
     kind: theorem
     aliases: ["interval H_0^1 equals kernel of trace", "zero endpoint trace characterization"]
     introduction: formal
-    introduction_aliases: ["定理（区間上のH_0^1とzero trace）"]
+    introduction_aliases: ["定理（区間上の H_0^1 と zero trace）"]
     requires:
       - sobolev.h01
       - sobolev.trace-interval
@@ -85,7 +85,7 @@ concepts:
     kind: theorem
     aliases: ["trace theorem", "Sobolev trace theorem"]
     introduction: formal
-    introduction_aliases: ["定理（bounded Lipschitz domain上のtrace）"]
+    introduction_aliases: ["定理（bounded Lipschitz domain 上の trace）"]
     requires:
       - sobolev.hk
       - sobolev.lipschitz-domain
@@ -96,7 +96,7 @@ concepts:
     kind: theorem
     aliases: ["H_0^1 equals kernel of trace", "zero trace characterization"]
     introduction: formal
-    introduction_aliases: ["定理（H_0^1とzero traceの同一視）"]
+    introduction_aliases: ["定理（H_0^1 と zero trace の同一視）"]
     requires:
       - sobolev.h01
       - sobolev.trace-lipschitz
