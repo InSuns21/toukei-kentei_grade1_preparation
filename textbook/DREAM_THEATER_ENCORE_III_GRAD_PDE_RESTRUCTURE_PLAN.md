@@ -419,3 +419,13 @@ elliptic PDE / regularity / evolution weak solution
 ~~~
 
 Encore III は「弱解という用語集」ではなく、**低正則な PDE に対して、適切な関数空間を選び、a priori estimate と compactness を使って存在・一意性・正則性を論じる方法を身につける系列**とする。
+
+
+## 11. 実装進捗
+
+最終更新: 2026-09-19
+
+- Phase 0「ルーティングと設計台帳」: 完了（PR #302）。
+- GPDE1「テスト関数・distribution」: 本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary を実装（PR #303）。
+- reader-facing index には完成済みの GPDE1 までを公開し、旧 Encore III 7章は引き続き隔離する。
+- 現在地: **GPDE1 完了 → 次は GPDE2「distribution 微分・mollifier・弱微分」**。

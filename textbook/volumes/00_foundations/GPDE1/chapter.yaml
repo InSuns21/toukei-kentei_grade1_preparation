@@ -1,0 +1,35 @@
+id: "GPDE1"
+title: "Encore III Graduate PDE I：テスト関数・distribution"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE7
+  - MT4
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - テスト関数とその収束を、共通コンパクト台と全階偏微分の一様収束から説明できる
+  - distributionをテスト関数空間上の連続線形汎関数として定義し、局所的な有限階評価で連続性を検証できる
+  - 局所可積分関数から正則distributionを構成し、連続性を直接証明できる
+  - Dirac deltaを点評価distributionとして定義・検証し、正則distributionとの違いを説明できる
+  - distributionの収束を作用の収束として扱い、Gaussian近似からdeltaへの収束を証明できる
+  - Poisson方程式のdistributional solutionをテスト関数恒等式で定義し、古典解がdistributional solutionになることを証明できる
+  - PDE6の基本解やPDE1のBurgers shockがdistributionの言葉を必要とする地点を説明できる
+definitions:
+  - { id: GPDE1-DEF-01, name: テスト関数とテスト関数空間 }
+  - { id: GPDE1-DEF-02, name: テスト関数列の収束 }
+  - { id: GPDE1-DEF-03, name: distribution }
+  - { id: GPDE1-DEF-04, name: 正則distribution }
+  - { id: GPDE1-DEF-05, name: Dirac delta }
+  - { id: GPDE1-DEF-06, name: distributionの収束 }
+  - { id: GPDE1-DEF-07, name: Poisson方程式のdistributional solution }
+theorems:
+  - { id: GPDE1-PROP-01, name: distributionの局所有限階評価 }
+  - { id: GPDE1-PROP-02, name: 局所可積分関数はdistributionを定める }
+  - { id: GPDE1-PROP-03, name: 古典Poisson解はdistributional solutionである }
+canonical_examples: [標準bump関数, 局所可積分特異関数, Dirac delta, GaussianからDirac deltaへのdistribution収束, 一次元基本解]
+problem_patterns: [GPDE1-TEST-CONVERGENCE-1, GPDE1-REGULAR-DISTRIBUTION-1, GPDE1-DIRAC-1, GPDE1-DISTRIBUTIONAL-POISSON-1, GPDE1-GAUSSIAN-DELTA-1, GPDE1-FUNDAMENTAL-SOLUTION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
