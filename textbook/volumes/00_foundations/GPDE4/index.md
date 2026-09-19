@@ -392,7 +392,7 @@ $$
 
 $u$ を $\Omega$ の外で 0 と延長すると、境界近くでもすでに 0 なので、零延長は滑らかなままです。
 
-固定した横座標 $x'\in\mathbb R^{d-1}$ に対して一変数の基本定理を使い、
+固定した横座標 $x'\in\mathbb R^{d-1}$ に対して左端 $x_1=a$ から微分を積分し、
 
 $$
 u(x_1,x')
@@ -1895,7 +1895,7 @@ $$
 
 これを $x'$ で積分します。
 
-Lipschitz boundary package の面積公式により、graph 上の表面測度は chart 座標で
+ここで Lipschitz graph の parametrization に対する標準的な表面測度表示を black-box package の一部として使い、graph 上では
 
 $
 dS
