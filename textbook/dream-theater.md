@@ -219,16 +219,41 @@
 
 ---
 
-## 4. Encore III：超関数・Sobolev・弱形式
+## 4. Encore III：Graduate PDE
 
-1. [Encore III ロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
-2. [DS1 Schwartz超関数・テスト関数](textbook/volumes/00_foundations/F0_00DS1_Schwartz超関数_テスト関数/index.md)
-3. [DS2 超関数微分・弱微分](textbook/volumes/00_foundations/F0_00DS2_超関数微分_弱微分/index.md)
-4. [SOB1 Sobolev空間](textbook/volumes/00_foundations/F0_00SOB1_Sobolev空間_Wkp_Hk/index.md)
-5. [SOB2 H01・Poincaré・trace](textbook/volumes/00_foundations/F0_00SOB2_H01_Poincare_trace/index.md)
-6. [WK1 弱形式・変分形式](textbook/volumes/00_foundations/F0_00WK1_弱形式_変分形式/index.md)
-7. [WK2 Lax–Milgram](textbook/volumes/00_foundations/F0_00WK2_Lax_Milgram_存在一意性/index.md)
-8. [WK3 楕円型PDE・Galerkin・FEM](textbook/volumes/00_foundations/F0_00WK3_楕円型PDE_Galerkin_FEM/index.md)
+Encore II が **古典 PDE** を閉じた後、Encore III では distribution・Sobolev 空間・compactness・変分法を使う **大学院 PDE の基礎理論**へ進みます。
+
+1. [Encore III Graduate PDE ロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
+
+新しい正本系列は次の順で実装します。
+
+```text
+GPDE1  テスト関数・distribution
+  ↓
+GPDE2  distribution微分・mollifier・弱微分
+  ↓
+GPDE3  Sobolev空間
+  ↓
+GPDE4  H0^1・Poincare・trace
+  ↓
+GPDE5  Sobolev embedding・compactness
+  ↓
+GPDE6  弱形式・変分形式
+  ↓
+GPDE7  Lax--Milgram
+  ↓
+GPDE8  二階線形楕円型PDE
+  ↓
+GPDE9  楕円型正則性
+  ↓
+GPDE10 Galerkin・時間発展PDEの弱解
+```
+
+各 GPDE 章は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答・依存検証まで完了したものから順にこの目次へ追加します。
+
+再編前の `F0-00DS1`、`F0-00DS2`、`F0-00SOB1`、`F0-00SOB2`、`F0-00WK1`、`F0-00WK2`、`F0-00WK3` は移植元・履歴確認用として保持しますが、**現行の主線・通常導線には表示しません**。新 GPDE 系列から prerequisite / concept owner / proof dependency にもしません。
+
+Encore III 本線では distributional solution、variational weak solution、energy solution を扱い、mild solution は bridge に留めます。entropy / viscosity / renormalized / measure-valued solution、Navier--Stokes の本格弱解理論、geometric analysis は別系列として扱います。
 
 ---
 
