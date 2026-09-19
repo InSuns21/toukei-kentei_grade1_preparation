@@ -70,7 +70,7 @@ entropy solution / uniqueness
 - entropy pair
 - Lax / Oleinik 型条件
 - Kruzhkov entropy solution
-- (L^1) contraction と uniqueness
+- $L^1$ contraction と uniqueness
 
 **重要**：entropy condition は「より弱い解」ではなく、distributional weak solution の中から物理的・数学的に適切な解を選別する追加条件として説明する。
 
@@ -111,7 +111,7 @@ Lax--Milgram の線形理論を非線形へ拡張する。
 - weak lower semicontinuity
 - monotone operator
 - Browder--Minty
-- (p)-Laplacian
+- $p$-Laplacian
 - nonlinear elliptic weak solution
 - compactness と nonlinear limit passage
 
@@ -141,7 +141,7 @@ Navier--Stokes は「弱解一般」の例として軽く消費せず、独立�
 
 候補論点：
 
-- (L^1) data
+- $L^1$ data
 - renormalized solution
 - truncation methods
 - measure data
