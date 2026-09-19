@@ -1,6 +1,7 @@
 name: GPDE2 temporary pedagogy audits
 
 on:
+  pull_request:
   push:
     branches:
       - gpde2-distribution-derivative-mollifier
