@@ -463,7 +463,7 @@ $$
 
 で適用すると
 
-$
+$$
 \int_{\mathbb R^{d-1}}
 g_d^{1/(d-1)}
 \prod_{i=1}^{d-1}
@@ -476,7 +476,7 @@ G_i^{1/(d-1)}
 G_i(\widehat x_i')^{1/(d-2)}
 \,dx'
 \right]^{(d-2)/(d-1)}.
-$
+$$
 
 角括弧の中は $d-1$ 次元の Loomis--Whitney 型です。
 
@@ -538,14 +538,14 @@ $$
 >
 > 定数 $C_d>0$ が存在して、任意の $u\in W^{1,1}(\mathbb R^d)$ に対し
 
-$
+$$
 \boxed{
 \|u\|_{L^{d/(d-1)}(\mathbb R^d)}
 \le
 C_d
 \|\nabla u\|_{L^1(\mathbb R^d)}
 }
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -656,11 +656,11 @@ $$
 
 従って定数をまとめれば、まず全ての $u\in C_c^\infty(\mathbb R^d)$ について
 
-$
+$$
 \|u\|_{d/(d-1)}
 \le
 C_d\|\nabla u\|_1
-$
+$$
 
 を得ます。
 
@@ -668,24 +668,24 @@ $
 
 GPDE3 の全空間密度定理により
 
-$
+$$
 u_n\in C_c^\infty(\mathbb R^d),
 \qquad
 u_n\to u
 \quad\text{in }W^{1,1}
-$
+$$
 
 と取れます。
 
 差 $u_n-u_m$ に今示した評価を適用すると
 
-$
+$$
 \|u_n-u_m\|_{d/(d-1)}
 \le
 C_d
 \|\nabla u_n-\nabla u_m\|_1
 \to0.
-$
+$$
 
 従って $(u_n)$ は $L^{d/(d-1)}$ で Cauchy です。
 
@@ -699,11 +699,11 @@ $
 
 最後に極限を取って
 
-$
+$$
 \|u\|_{d/(d-1)}
 \le
 C_d\|\nabla u\|_1.
-$
+$$
 <!-- proof-end -->
 
 定数の最良値ではなく、指数と証明機構が本章の主役です。
@@ -1250,9 +1250,9 @@ $M_0$ が有限次元なら Bolzano--Weierstrass を各座標に使えば結論�
 
 $M_0$ の可算正規直交基底を
 
-$
+$$
 (e_1,e_2,\dots)
-$
+$$
 
 とします。
 
@@ -1418,7 +1418,7 @@ $$
 
 完備内積空間では
 
-$
+$$
 u_n\rightharpoonup u,
 \qquad
 \|u_n\|\to\|u\|
@@ -1519,7 +1519,7 @@ $$
 
 $x$ で積分し [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02)を使うと
 
-$
+$$
 \|\varphi(\cdot+h)-\varphi\|_2^2
 \le
 |h|^2
@@ -1527,13 +1527,13 @@ $
 \int_{\mathbb R^d}
 |\nabla\varphi(x+th)|^2
 \,dx\,dt.
-$
+$$
 
 平行移動不変性により右辺は
 
-$
+$$
 |h|^2\|\nabla\varphi\|_2^2
-$
+$$
 
 に等しい。
 
@@ -1684,24 +1684,24 @@ $$
 
 全 cube について和を取ると
 
-$
+$$
 \|u-P_\delta u\|_2^2
 \le
 \frac1{2\delta^d}
 \int_{[-\delta,\delta]^d}
 \|u(\cdot+h)-u\|_2^2
 \,dh.
-$
+$$
 
 さらに $[-\delta,\delta]^d$ の体積は $(2\delta)^d$ なので
 
-$
+$$
 \|u-P_\delta u\|_2^2
 \le
 2^{d-1}
 \sup_{|h|_\infty\le\delta}
 \|u(\cdot+h)-u\|_2^2.
-$
+$$
 
 仮定 3 から、任意の $\varepsilon>0$ に対し $\delta$ を十分小さく取れば
 
@@ -1993,13 +1993,13 @@ $$
 
 さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ norm の一様有界性と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
-$
+$$
 \int_\Omega |u|^{2^*}
 \le
 \liminf_{k\to\infty}
 \int_\Omega |u_{n_k}|^{2^*}
 <\infty.
-$
+$$
 
 従って $u\in L^{2^*}(\Omega)$ であり、差
 
@@ -2066,12 +2066,12 @@ $$
 
 $\Omega$ は有限測度なので [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により
 
-$
+$$
 \|f\|_{L^r(\Omega)}
 \le
 |\Omega|^{1/r-1/2}
 \|f\|_{L^2(\Omega)}
-$
+$$
 
 が $f$ と各一次弱微分に使えます。
 
@@ -2203,13 +2203,13 @@ compactness は、非線形項や積の極限へ進むための「強収束回�
 >
 > $C_c^\infty(\Omega)$ の $W^{1,p}(\Omega)$ norm による閉包を
 
-$
+$$
 \boxed{
 W_0^{1,p}(\Omega)
 :=
 \overline{C_c^\infty(\Omega)}^{\,W^{1,p}(\Omega)}
 }
-$
+$$
 
 > と定める。
 <!-- formal-statement-end -->
@@ -2219,15 +2219,15 @@ $
 
 $\varphi\in C_c^\infty(\Omega)$ なら一定列 $\varphi_n=\varphi$ が $W^{1,p}$ で $\varphi$ へ収束するので
 
-$
+$$
 \varphi\in W_0^{1,p}(\Omega).
-$
+$$
 
 $p=2$ では GPDE4 の
 
-$
+$$
 W_0^{1,2}(\Omega)=H_0^1(\Omega)
-$
+$$
 
 です。
 <!-- definition-example-end -->
@@ -2331,18 +2331,18 @@ $$
 
 まず $L^p$ norm は、$y=n(x-x_0)$ と変数変換して
 
-$
+$$
 \|u_n\|_p^p
 =
 \int
 n^{d-p}
 |\varphi(n(x-x_0))|^p
 \,dx.
-$
+$$
 
 変数変換後は
 
-$
+$$
 \|u_n\|_p^p
 =
 n^{d-p}n^{-d}
@@ -2350,7 +2350,7 @@ n^{d-p}n^{-d}
 =
 n^{-p}
 \|\varphi\|_p^p.
-$
+$$
 
 従って
 
@@ -2401,14 +2401,14 @@ $$
 
 従って
 
-$
+$$
 \|u_n\|_q^q
 =
 n^d n^{-d}
 \|\varphi\|_q^q
 =
 \|\varphi\|_q^q.
-$
+$$
 
 すなわち
 
