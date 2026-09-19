@@ -264,7 +264,7 @@ $$
 
 を $(-1,1)$ 上で考えます。
 
-$x=0$ に jump があるため、GPDE2 の jump formula から
+$x=0$ に jump があるため、[GPDE2 の jump を持つ関数の distribution 微分](../GPDE2/index.md#prop-gpde2-jump-formula)から
 
 $$
 Du=\delta_0
@@ -1076,7 +1076,7 @@ $$
 
 ### 証明の見取り図
 
-GPDE2 ですでに「弱微分と mollification は交換する」ことを示しました。
+GPDE2 ですでに[弱微分と mollification の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)を示しました。
 
 残るのは各
 
@@ -1086,7 +1086,7 @@ $$
 
 について mollifier が $L^p$ 近似になることです。
 
-そのために前節の $L^p$ 平行移動連続性を使います。
+そのために[直前の補題](#lem-gpde3-lp-translation)を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -1152,7 +1152,7 @@ $$
 \,dz.
 $$
 
-$\rho$ の台では $|z|\le1$ なので、前節の平行移動連続性から
+$\rho$ の台では $|z|\le1$ なので、[直前の補題](#lem-gpde3-lp-translation)から
 
 $$
 \sup_{|h|\le\varepsilon}
@@ -1392,7 +1392,7 @@ $$
 C_c^\infty(\mathbb R^d).
 $$
 
-また弱微分との交換から
+また[GPDE2 の弱微分と mollification の交換](../GPDE2/index.md#thm-gpde2-weak-mollifier-commute)から
 
 $$
 D^\alpha\varphi_{R,\varepsilon}
@@ -1401,7 +1401,7 @@ D^\alpha\varphi_{R,\varepsilon}
 D^\alpha u_R.
 $$
 
-$D^\alpha u_R\in L^p(\mathbb R^d)$ であり、$p<\infty$ なので $L^p$ 平行移動連続性から
+$D^\alpha u_R\in L^p(\mathbb R^d)$ であり、$p<\infty$ なので[本章の平行移動補題](#lem-gpde3-lp-translation)から
 
 $$
 \rho_\varepsilon*
@@ -1688,7 +1688,7 @@ u_\varepsilon'
 \rho_\varepsilon*Du.
 $$
 
-$1\le p<\infty$ では前節の密度定理から
+$1\le p<\infty$ では[前節の密度定理](#thm-gpde3-ccinf-density-rd)から
 
 $$
 u_\varepsilon\to u
@@ -2341,7 +2341,7 @@ $$
 
 左辺では $u_n\to u$ in $L^p$、右辺では $D_ju_n\to v_j$ in $L^p$ です。
 
-Hölder 不等式により極限を取れて、
+[Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)により極限を取れて、
 
 $$
 \int_\Omega
@@ -2491,7 +2491,7 @@ $$
 \,dz.
 $$
 
-$L^p$ 平行移動連続性より右辺は 0 へ収束します。
+[本章の平行移動補題](#lem-gpde3-lp-translation)より右辺は 0 へ収束します。
 
 従って
 
