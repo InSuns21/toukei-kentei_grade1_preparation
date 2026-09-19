@@ -493,7 +493,7 @@ $$
 は正則 distribution を定めます。distribution は「滑らかな関数だけを含む拡張」ではなく、まず局所可積分な粗い関数を全て受け入れます。
 <!-- definition-example-end -->
 
-この段階では、$f$ を a.e. 同値類として $T_f$ に対応させる写像の単射性までは証明しません。GPDE2 の mollifier を使うと、正則 distribution が 0 なら $f=0$ a.e. まで自然に閉じられます。
+Lebesgue 積分では、測度 0 の集合上でだけ異なる関数を同じものとして扱います。この通常の約束のもとで、$f\mapsto T_f$ が異なる $L^1_{\mathrm{loc}}$ の元を異なる distribution へ送ることまでは本章で証明しません。GPDE2 の mollifier を使うと、$T_f=0$ なら $f=0$ がほとんど至る所で成り立つことまで自然に閉じられます。
 
 ---
 
@@ -585,7 +585,7 @@ $$
 \int_{B(a,\varepsilon)}|f(x)|\,dx.
 $$
 
-$f$ は $a$ の近くで可積分なので、Lebesgue 積分の絶対連続性から右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
+$f$ は $a$ の近くで可積分なので、[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)から右辺は $\varepsilon\downarrow0$ で 0 へ行きます。左辺は常に 1 なので矛盾です。
 
 したがって Dirac delta は正則 distribution ではありません。
 
@@ -689,7 +689,7 @@ e^{-|y|^2/2}
 e^{-|y|^2/2},
 $$
 
-右辺は可積分です。F0-00D2 の優収束定理から
+右辺は可積分です。[Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)から
 
 $$
 \langle T_{\rho_\varepsilon},\varphi\rangle
@@ -1094,7 +1094,7 @@ $$
 2\int_0^r x^{-1/2}\,dx.
 $$
 
-原始関数は $2\sqrt x$ なので
+直接積分すると
 
 $$
 2\int_0^r x^{-1/2}\,dx
@@ -1104,7 +1104,7 @@ $$
 4\sqrt r.
 $$
 
-有限なので $x=0$ の特異点は局所可積分です。
+有限なので、$x=0$ で値が発散していても局所可積分です。
 
 2. 台が $[-r,r]$ に入るため
 
@@ -1419,7 +1419,7 @@ e^{-|y|^2/2}
 e^{-|y|^2/2}.
 $$
 
-右辺は $\mathbb R^d$ 上で可積分です。優収束定理より
+右辺は $\mathbb R^d$ 上で可積分です。[Lebesgue の優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01)より
 
 $$
 \int\rho_\varepsilon(x)\varphi(x)\,dx
@@ -1517,7 +1517,7 @@ $$
 \int_{B(a,\varepsilon)}|f(x)|\,dx.
 $$
 
-$f\in L^1_{\mathrm{loc}}(\Omega)$ なので $f$ は $B(a,r)$ 上で可積分です。Lebesgue 積分の絶対連続性により、測度が 0 へ行く集合 $B(a,\varepsilon)$ について
+$f\in L^1_{\mathrm{loc}}(\Omega)$ なので $f$ は $B(a,r)$ 上で可積分です。[Lebesgue 積分の絶対連続性](../MT4/index.md#thm-mt4-integral-absolute-continuity)により、測度が 0 へ行く集合 $B(a,\varepsilon)$ について
 
 $$
 \int_{B(a,\varepsilon)}|f(x)|\,dx
@@ -1722,7 +1722,7 @@ $$
 ## 章末チェック
 
 - $\mathcal D(\Omega)=C_c^\infty(\Omega)$ の二条件を説明できる。
-- テスト関数列の収束で「共通コンパクト台」と「全階偏微分の一様収束」が必要な理由を説明できる。
+- テスト関数列の収束で「共通コンパクト台」と「各 $p_{K,m}$ が 0 へ収束すること」が必要な理由を説明できる。
 - distribution をテスト関数空間上の連続線形汎関数として定義できる。
 - 局所有限階評価とテスト関数列に対する連続性の同値性を証明できる。
 - $f\in L^1_{\mathrm{loc}}$ から $T_f$ を作り、その連続性を $m=0$ の評価で検証できる。
