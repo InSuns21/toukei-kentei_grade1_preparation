@@ -1,0 +1,37 @@
+id: "GPDE3"
+title: "Encore III Graduate PDE III：Sobolev 空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE2
+  - MT7
+official_scope: []
+learning_objectives:
+  - a.e.同値類としてのLp空間を踏まえ、Sobolev空間でも点値ではなく同値類を扱う理由を説明できる
+  - W^{k,p}(Omega)をLp関数とLp弱微分によって定義し、Sobolev normを具体的に計算できる
+  - 弱微分作用素の閉性をテスト関数との双対性から証明できる
+  - Lpの完備性と弱微分の閉性からW^{k,p}(Omega)の完備性を証明できる
+  - H^k=W^{k,2}の内積を定義し、H^kがHilbert空間であることを説明できる
+  - 絶対値関数・べき関数・区分線形関数・jump関数についてSobolev membership / non-membershipを判定できる
+  - smooth multiplierとの積の弱微分公式を証明し、cutoffでSobolev関数を局所化できる
+  - 1<=p<infinityでLp平行移動連続性とmollifier近似を使い、局所W^{k,p}近似を証明できる
+  - R^d上でC_c^infinityがW^{k,p}に稠密である標準形をcutoffとmollificationから証明できる
+  - p=infinityや境界付き領域では同じ密度主張を無条件に使えない理由を具体例から説明できる
+definitions:
+  - { id: GPDE3-DEF-01, name: Sobolev空間 W^{k,p} }
+  - { id: GPDE3-DEF-02, name: Sobolev norm }
+  - { id: GPDE3-DEF-03, name: H^k空間 }
+theorems:
+  - { id: GPDE3-PROP-01, name: 弱微分作用素の閉性 }
+  - { id: GPDE3-THM-01, name: W^{k,p}の完備性 }
+  - { id: GPDE3-THM-02, name: H^kのHilbert構造 }
+  - { id: GPDE3-PROP-02, name: smooth multiplierとの積の弱微分 }
+  - { id: GPDE3-LEM-01, name: Lp平行移動連続性 }
+  - { id: GPDE3-THM-03, name: Sobolev関数の局所mollification }
+  - { id: GPDE3-THM-04, name: R^d上のC_c^infinity密度 }
+canonical_examples: [絶対値関数, べき関数, jump関数, tent関数, smooth cutoff]
+problem_patterns: [GPDE3-NORM-1, GPDE3-ABSOLUTE-VALUE-1, GPDE3-JUMP-NONMEMBERSHIP-1, GPDE3-POWER-THRESHOLD-1, GPDE3-COMPLETENESS-1, GPDE3-LOCAL-MOLLIFICATION-1, GPDE3-SMOOTH-MULTIPLIER-1, GPDE3-TENT-DENSITY-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 1.0 }
