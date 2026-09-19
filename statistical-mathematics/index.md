@@ -92,6 +92,13 @@
 | 31 | 91 | A | A | [Box–Muller変換](standard/91_box_muller.md) | ◎・修正済（$\log,\sin,\cos$ の数値評価不要） |
 | 32 | 96 | A | A | [ワイブル・生存関数・ハザード](standard/96_weibull_survival_hazard.md) | ◎ |
 
+
+## Standard 補充問題（100大問外）
+
+| ID | 演習価値 | 難度 | 主題 | 手計算監査 |
+| --- | :---: | :---: | --- | --- |
+| S-SUP-01 | A | A | [ゼロ切断ポアソン分布・観測尤度・母数推定](standard/supplement_zero_truncated_poisson_mle.md) | ◎・数値方程式は記号式まで |
+
 ## Advanced 20
 
 | 実装順 | 100 No. | 演習価値 | 難度 | 主題 | 手計算監査 |
