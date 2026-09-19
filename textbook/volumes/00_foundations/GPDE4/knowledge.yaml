@@ -25,11 +25,11 @@ concepts:
       - sobolev.hk-hilbert
 
   - id: sobolev.poincare-h01
-    name: H_0^1のPoincare不等式
+    name: H_0^1のPoincaré不等式
     kind: theorem
-    aliases: ["Poincare inequality on H_0^1", "Poincare inequality"]
+    aliases: ["Poincaré不等式", "Poincare inequality on H_0^1", "Poincare inequality"]
     introduction: formal
-    introduction_aliases: ["定理（H_0^1のPoincare不等式）"]
+    introduction_aliases: ["定理（H_0^1のPoincaré不等式）"]
     requires:
       - sobolev.h01
 
