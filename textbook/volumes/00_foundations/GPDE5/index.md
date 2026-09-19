@@ -42,16 +42,16 @@ $$
 \text{強収束部分列を回収する}
 $$
 
-機構が compact embedding、中心定理が Rellich--Kondrachov です。
+この収束部分列回収の機構が本章の中心で、後半では Rellich--Kondrachov 定理として具体化します。
 
 本章では次の流れを完全に追います。
 
 ~~~text
 微分を Lp で制御する
   ↓
-Sobolev inequality
+微分制御から高い Lq integrability へ
   ↓
-より高い Lq integrability
+より高い積分可能性
   ↓
 translation を小さくする
   ↓
@@ -136,7 +136,7 @@ $$
 \frac1p-\frac1d.
 $$
 
-この $q$ が Sobolev 共役指数です。
+この $q$ を次で正式に定義します。
 
 <a id="def-gpde5-sobolev-conjugate"></a>
 
@@ -205,7 +205,7 @@ $$
 
 ---
 
-## 2. 連続埋め込みと compact embedding は別物
+## 2. 二種類の埋め込みを区別する
 
 <a id="def-gpde5-continuous-embedding"></a>
 
@@ -309,9 +309,9 @@ compact embedding なら連続埋め込みも成り立つのが標準ですが�
 
 ---
 
-## 3. Sobolev 不等式の核心：まず $W^{1,1}$
+## 3. まず $W^{1,1}$ で微分から積分可能性を得る
 
-高次元 Sobolev inequality の最初の核心は、各座標方向について基本定理を使うことです。
+高次元で微分制御を積分可能性へ変える最初の核心は、各座標方向について基本定理を使うことです。
 
 $u\in C_c^\infty(\mathbb R^d)$ とし、$x=(x_1,\dots,x_d)$ と書きます。
 
@@ -528,7 +528,7 @@ $$
 帰納法により全ての $d\ge2$ で成立します。
 <!-- proof-end -->
 
-これで $W^{1,1}$ の Sobolev inequality を閉じられます。
+これで $W^{1,1}$ の基本評価を閉じられます。
 
 <a id="thm-gpde5-w11-sobolev"></a>
 
@@ -1165,7 +1165,7 @@ $$
 
 [弱収束の正本](../FA3/index.md#def-fa3-weak-convergence)を再定義はしません。
 
-Hilbert 空間では Riesz 表現により
+[Hilbert 空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-hilbert-space)では Riesz 表現により
 
 $$
 u_n\rightharpoonup u
@@ -1199,13 +1199,13 @@ $$
 
 なので強収束しません。
 
-この「弱い代わりに部分列が取りやすい」性質を、Hilbert 空間について点列レベルで直接証明します。
+この「弱い代わりに部分列が取りやすい」性質を、完備な内積空間について点列レベルで直接証明します。
 
 <a id="thm-gpde5-hilbert-weak-subsequence"></a>
 
 <!-- formal-statement-start -->
-> **定理（Hilbert 空間の有界列から弱収束部分列）**  
-> Hilbert 空間 $H$ の有界列 $(u_n)$ に対し、ある部分列 $(u_{n_k})$ と $u\in H$ が存在して
+> **定理（完備内積空間の有界列から弱収束部分列）**  
+> 完備な内積空間 $H$ の有界列 $(u_n)$ に対し、ある部分列 $(u_{n_k})$ と $u\in H$ が存在して
 
 $$
 \boxed{
@@ -1244,7 +1244,7 @@ $$
 
 $M_0$ を $\{u_n:n\ge1\}$ の線形包の閉包とします。
 
-$M_0$ は可算集合から生成された可分 Hilbert 空間です。
+$M_0$ は可算集合から生成された可分な完備内積空間です。
 
 $M_0$ が有限次元なら Bolzano--Weierstrass を各座標に使えば結論は直ちに従うので、以下では $M_0$ が無限次元の場合を書きます。
 
@@ -1308,7 +1308,7 @@ $$
 M^2.
 $$
 
-従って Hilbert 空間の正規直交展開により
+従って完備内積空間の正規直交展開により
 
 $$
 u
@@ -1412,13 +1412,13 @@ $$
 
 ここでは Banach--Alaoglu や Eberlein--Šmulian を点列抽出の黒箱として使っていません。
 
-Hilbert 空間で必要な点列版を直接閉じました。
+完備内積空間で必要な点列版を直接閉じました。
 
 ### 弱収束 + norm 収束なら強収束
 
-Hilbert 空間では
+完備内積空間では
 
-$$
+$
 u_n\rightharpoonup u,
 \qquad
 \|u_n\|\to\|u\|
@@ -1991,7 +1991,7 @@ $$
 
 [R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)により $(u_{n_k})$ は $L^{2^*}$ で一様有界です。
 
-さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ norm の一様有界性と Fatou の補題から
+さらに $L^2$ 強収束から部分列を取り、a.e. に $u_{n_k}\to u$ としてよいです。$L^{2^*}$ norm の一様有界性と [Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01)から
 
 $
 \int_\Omega |u|^{2^*}
@@ -2134,7 +2134,7 @@ u_n\rightharpoonup v
 \quad\text{in }L^2.
 $$
 
-Hilbert 空間の弱極限は一意だから
+$L^2$ の弱極限は一意だから
 
 $$
 u=v.
@@ -2500,7 +2500,7 @@ $$
 
 ### Step 1：弱収束部分列
 
-$H_0^1(\Omega)$ は GPDE4 で Hilbert 空間だと示しました。
+$H_0^1(\Omega)$ は GPDE4 で完備な内積空間だと示しました。
 
 従って本章の弱部分列定理から
 
@@ -2951,7 +2951,7 @@ $$
 #### GPDE5-B02 weak + norm convergence から strong convergence
 - Level: B
 
-Hilbert 空間 $H$ で
+完備な内積空間 $H$ で
 
 $$
 u_n\rightharpoonup u,
