@@ -25,11 +25,11 @@ definitions:
 theorems:
   - { id: GPDE2-PROP-01, name: distributionは何回微分してもdistributionである }
   - { id: GPDE2-PROP-02, name: 古典微分との整合性 }
-  - { id: GPDE2-PROP-03, name: distribution収束と微分の交換 }
+  - { id: GPDE2-PROP-03, name: distribution微分作用素の連続性 }
   - { id: GPDE2-PROP-04, name: Heavisideのdistribution微分 }
   - { id: GPDE2-PROP-05, name: 有限個のjumpを持つ関数のdistribution微分 }
   - { id: GPDE2-THM-01, name: mollificationの平滑化 }
-  - { id: GPDE2-LEM-01, name: Rd上のL1平行移動連続性 }
+  - { id: GPDE2-LEM-01, name: Rdの平行移動補題 }
   - { id: GPDE2-THM-02, name: mollifierの局所L1近似 }
   - { id: GPDE2-PROP-06, name: 正則distribution埋め込みの単射性 }
   - { id: GPDE2-PROP-07, name: weak derivativeの一意性 }
