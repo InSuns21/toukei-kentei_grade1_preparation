@@ -73,15 +73,15 @@ $$
 > **定義（Sobolev 空間）**  
 > $u\in L^p(\Omega)$ が
 >
-> $
+> $$
 > D^\alpha u\in L^p(\Omega)
-> $
+> $$
 >
 > をすべての多重指数 $\alpha$ で $|\alpha|\le k$ を満たすものに対して満たすとき、
 >
-> $
+> $$
 > u\in W^{k,p}(\Omega)
-> $
+> $$
 >
 > と書く。ここで $D^\alpha u$ は distribution の意味での微分が $L^p$ 関数として表された弱微分を表す。
 <!-- formal-statement-end -->
@@ -131,7 +131,7 @@ $$
 > **定義（Sobolev norm）**  
 > $1\le p<\infty$ に対し、
 >
-> $
+> $$
 > \boxed{
 > \|u\|_{W^{k,p}(\Omega)}
 > =
@@ -140,20 +140,20 @@ $$
 > \|D^\alpha u\|_{L^p(\Omega)}^p
 > \right)^{1/p}
 > }
-> $
+> $$
 >
 > と定める。ただし $\alpha=0$ では $D^0u=u$ とする。
 >
 > $p=\infty$ では
 >
-> $
+> $$
 > \boxed{
 > \|u\|_{W^{k,\infty}(\Omega)}
 > =
 > \max_{|\alpha|\le k}
 > \|D^\alpha u\|_{L^\infty(\Omega)}
 > }
-> $
+> $$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -410,21 +410,21 @@ $$
 > **命題（弱微分作用素の閉性）**  
 > $1\le p\le\infty$ とする。$u_n,u,v\in L^p(\Omega)$ とし、ある多重指数 $\alpha$ について
 >
-> $
+> $$
 > u_n\to u
 > \quad\text{in }L^p(\Omega),
-> $
+> $$
 >
-> $
+> $$
 > D^\alpha u_n\to v
 > \quad\text{in }L^p(\Omega)
-> $
+> $$
 >
 > とする。このとき
 >
-> $
+> $$
 > D^\alpha u=v
-> $
+> $$
 >
 > が弱微分の意味で成り立つ。
 <!-- formal-statement-end -->
@@ -547,14 +547,14 @@ $$
 
 <a id="thm-gpde3-wkp-complete"></a>
 <!-- formal-statement-start -->
-> **定理（$W^{k,p}$ の完備性）**  
+> **定理（Sobolev 空間の完備性）**  
 > $\Omega\subset\mathbb R^d$ を開集合、$k\in\mathbb N_0$、$1\le p\le\infty$ とする。
 >
 > Sobolev norm を入れた
 >
-> $
+> $$
 > W^{k,p}(\Omega)
-> $
+> $$
 >
 > は Banach 空間である。
 <!-- formal-statement-end -->
@@ -686,17 +686,17 @@ $p=2$ は特別です。
 
 <a id="def-gpde3-hk"></a>
 <!-- formal-statement-start -->
-> **定義（$H^k$）**  
-> $
+> **定義（Hilbert Sobolev 空間）**  
+> $$
 > H^k(\Omega)
 > =
 > W^{k,2}(\Omega)
-> $
+> $$
 > と書く。
 >
 > $u,v\in H^k(\Omega)$ に対し
 >
-> $
+> $$
 > (u,v)_{H^k}
 > =
 > \sum_{|\alpha|\le k}
@@ -704,7 +704,7 @@ $p=2$ は特別です。
 > D^\alpha u(x)
 > D^\alpha v(x)
 > \,dx
-> $
+> $$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -737,7 +737,7 @@ $$
 
 <a id="thm-gpde3-hk-hilbert"></a>
 <!-- formal-statement-start -->
-> **定理（$H^k$ の Hilbert 構造）**  
+> **定理（Hilbert Sobolev 空間の完備内積構造）**  
 > 上の内積により $H^k(\Omega)$ は Hilbert 空間である。
 <!-- formal-statement-end -->
 
@@ -793,13 +793,13 @@ PDE では、関数全体ではなくある領域の内部だけを調べたい�
 >
 > このとき
 >
-> $
+> $$
 > \chi u\in W^{k,p}(\Omega)
-> $
+> $$
 >
 > であり、
 >
-> $
+> $$
 > \boxed{
 > D^\alpha(\chi u)
 > =
@@ -808,7 +808,7 @@ PDE では、関数全体ではなくある領域の内部だけを調べたい�
 > D^\beta\chi
 > D^{\alpha-\beta}u
 > }
-> $
+> $$
 >
 > が $|\alpha|\le k$ に対して a.e. 成り立つ。
 <!-- formal-statement-end -->
@@ -941,22 +941,22 @@ mollifier による近似を Sobolev norm へ持ち上げるには、GPDE2 の $
 
 <a id="lem-gpde3-lp-translation"></a>
 <!-- formal-statement-start -->
-> **補題（$L^p$ 平行移動連続性）**  
+> **補題（Lp 平行移動連続性）**  
 > $1\le p<\infty$、$f\in L^p(\mathbb R^d)$ とする。
 >
-> $
+> $$
 > \tau_h f(x)=f(x-h)
-> $
+> $$
 >
 > と置くと
 >
-> $
+> $$
 > \boxed{
 > \|\tau_hf-f\|_{L^p(\mathbb R^d)}
 > \to0
 > \qquad(h\to0)
 > }.
-> $
+> $$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1048,28 +1048,28 @@ $$
 >
 > 十分小さい $\varepsilon>0$ に対し局所 mollification
 >
-> $
+> $$
 > u_\varepsilon=\rho_\varepsilon*u
-> $
+> $$
 >
 > は $K$ の近傍で $C^\infty$ であり、$|\alpha|\le k$ に対して
 >
-> $
+> $$
 > D^\alpha u_\varepsilon
 > =
 > \rho_\varepsilon*D^\alpha u
-> $
+> $$
 >
 > が成り立つ。
 >
 > さらに
 >
-> $
+> $$
 > \boxed{
 > \|u_\varepsilon-u\|_{W^{k,p}(K)}
 > \to0
 > }
-> $
+> $$
 >
 > が $\varepsilon\downarrow0$ で成り立つ。
 <!-- formal-statement-end -->
@@ -1197,29 +1197,29 @@ $$
 
 <a id="thm-gpde3-ccinf-density-rd"></a>
 <!-- formal-statement-start -->
-> **定理（$\mathbb R^d$ 上の $C_c^\infty$ 密度）**  
+> **定理（全空間上の滑らかなコンパクト台関数の密度）**  
 > $k\in\mathbb N_0$、$1\le p<\infty$ とする。
 >
 > 任意の
 >
-> $
+> $$
 > u\in W^{k,p}(\mathbb R^d)
-> $
+> $$
 >
 > に対し、ある列
 >
-> $
+> $$
 > \varphi_n\in C_c^\infty(\mathbb R^d)
-> $
+> $$
 >
 > が存在して
 >
-> $
+> $$
 > \boxed{
 > \varphi_n\to u
 > \quad\text{in }W^{k,p}(\mathbb R^d)
 > }
-> $
+> $$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
