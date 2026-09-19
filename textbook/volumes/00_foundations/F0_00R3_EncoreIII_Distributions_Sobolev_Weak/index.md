@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE3「Sobolev 空間」](../GPDE3/index.md) まで公開済みで、次は GPDE4「H0^1・Poincare・trace」です。
+現在は [GPDE4「$H_0^1$・Poincare・trace」](../GPDE4/index.md) まで公開済みで、次は GPDE5「Sobolev embedding・compactness」です。
 
 ---
 
@@ -120,9 +120,9 @@ $\mathcal D(\Omega)=C_c^\infty(\Omega)$、テスト関数列の収束、distribu
 
 $W^{k,p}$、$H^k$、弱微分作用素の閉性、完備性、Hilbert 構造、Sobolev membership / non-membership、局所 mollification、全空間での smooth density までを証明します。
 
-### GPDE4 $H_0^1$・Poincare・trace
+### [GPDE4 $H_0^1$・Poincare・trace](../GPDE4/index.md)
 
-零 Dirichlet 境界条件を関数空間へ組み込み、Poincare 不等式・trace・境界値の意味を整理します。
+零 Dirichlet 境界条件を $H_0^1$ と zero trace で定式化し、任意の有界開集合での Poincare 不等式、区間上の trace の完全構成、bounded Lipschitz domain 上の trace と $H_0^1=\ker\operatorname{Tr}$ までを整理します。
 
 ### GPDE5 Sobolev embedding・compactness
 

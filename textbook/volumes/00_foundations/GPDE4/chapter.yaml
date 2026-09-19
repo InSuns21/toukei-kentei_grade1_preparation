@@ -1,0 +1,36 @@
+id: "GPDE4"
+title: "Encore III Graduate PDE IV：H_0^1・境界値・Poincaré・trace"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - H_0^1(Omega)をC_c^infinity(Omega)のH^1閉包として定義し、零Dirichlet境界条件を点値ではなく近似可能性で表す意味を説明できる
+  - H_0^1(Omega)がH^1(Omega)の閉部分空間でありHilbert空間になることを説明できる
+  - 任意の有界開集合でH_0^1版Poincare不等式を断面積分から証明できる
+  - Poincare不等式から勾配seminormがH_0^1上のnormとなりH^1 normと同値になることを証明できる
+  - 一変数W^{1,1}関数が絶対連続代表元を持つことを弱微分とdistributionの議論から証明できる
+  - 区間上のH^1 traceを端点値として構成し、その連続性評価を証明できる
+  - 区間上でH_0^1がtrace zeroのH^1関数と一致することを証明できる
+  - bounded Lipschitz domainの定義と、一般trace定理に領域仮定が必要な理由を説明できる
+  - bounded Lipschitz domain上のtrace作用素とH_0^1=ker Trを正確な仮定付きで使用できる
+  - trace zero、pointwise zero、平均zeroの違いを区別し、Poincare不等式の適用条件を確認できる
+definitions:
+  - { id: GPDE4-DEF-01, name: "H_0^1(Omega)" }
+  - { id: GPDE4-DEF-02, name: "bounded Lipschitz domain" }
+theorems:
+  - { id: GPDE4-PROP-01, name: "H_0^1の閉部分空間構造" }
+  - { id: GPDE4-THM-01, name: "H_0^1のPoincare不等式" }
+  - { id: GPDE4-COR-01, name: "勾配normとH^1 normの同値性" }
+  - { id: GPDE4-THM-02, name: "一変数W^{1,1}の絶対連続代表元" }
+  - { id: GPDE4-THM-03, name: "区間上のtrace定理" }
+  - { id: GPDE4-THM-04, name: "区間上のH_0^1とzero traceの同一視" }
+  - { id: GPDE4-THM-05, name: "bounded Lipschitz domain上のtrace定理" }
+  - { id: GPDE4-THM-06, name: "H_0^1とzero traceの同一視" }
+canonical_examples: [区間上のx(1-x), 定数関数によるPoincare失敗, 区間上の端点trace, affine関数のtrace, 直方体のtrace評価]
+problem_patterns: [GPDE4-H01-1, GPDE4-POINCARE-1, GPDE4-GRADIENT-NORM-1, GPDE4-TRACE-INTERVAL-1, GPDE4-TRACE-KERNEL-1, GPDE4-LIPSCHITZ-ASSUMPTION-1, GPDE4-BOUNDARY-DATA-1, GPDE4-SYNTHESIS-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.5, review: 1.0 }

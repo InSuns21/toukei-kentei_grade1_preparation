@@ -1,0 +1,26 @@
+chapter: "GPDE4"
+terms:
+  - term: H_0^1
+    english: H_0^1
+    meaning: C_c^infinity(Omega)をH^1(Omega) normで閉包して得る空間。零Dirichlet境界条件をSobolev空間の中へ組み込む。
+  - term: Poincare不等式
+    english: Poincare inequality
+    meaning: 適切な境界条件や平均zero条件の下で関数自身のL2 normを勾配のL2 normで制御する不等式。
+  - term: 勾配norm
+    english: gradient norm
+    meaning: H_0^1上でuを||grad u||_2によって測るnorm。Poincare不等式により通常のH^1 normと同値になる。
+  - term: trace
+    english: trace operator
+    meaning: Sobolev関数の内部のa.e.同値類から、境界上の適切な意味の値を連続作用素として取り出す仕組み。
+  - term: bounded Lipschitz domain
+    english: bounded Lipschitz domain
+    meaning: 有界な開集合で、境界が各点の近傍で座標回転後にLipschitz関数のグラフとして表せる領域。
+  - term: zero trace
+    english: zero trace
+    meaning: trace作用素Trに対してTr u=0となること。bounded Lipschitz domainではH_0^1の特徴付けになる。
+  - term: 絶対連続代表元
+    english: absolutely continuous representative
+    meaning: 一変数W^{1,1}関数のa.e.同値類を代表し、弱微分を積分すると点値差を再構成できる絶対連続関数。
+  - term: 零Dirichlet境界条件
+    english: homogeneous Dirichlet boundary condition
+    meaning: 古典的には境界上でu=0とする条件。Sobolev設定では通常u in H_0^1またはTr u=0として表す。
