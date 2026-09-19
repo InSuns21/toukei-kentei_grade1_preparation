@@ -1502,7 +1502,7 @@ Jensen と平行移動不変性で $L^2$ 評価を出し、最後に $H_0^1$ の
 
 [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)から
 
-$
+$$
 \varphi(x+h)-\varphi(x)
 =
 \int_0^1
