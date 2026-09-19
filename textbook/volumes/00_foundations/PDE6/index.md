@@ -18,7 +18,7 @@ $$
 
 です。
 
-本章では PDE5 と同じく二次元の古典解を主対象にします。多重積分・反復積分・変数変換は [RA7](../RA7/index.md) の正本を使います。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は Encore III へ送り、ここでは逆輸入しません。
+本章では PDE5 と同じく二次元の古典解を主対象にします。多重積分は RA7 を正本とし、反復積分を使う箇所では [矩形上の反復積分定理](../RA7/index.md#thm-ra7-iterated-integral) と、その直後の Jordan 領域への拡張を使います。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は Encore III へ送り、ここでは逆輸入しません。
 
 本章で使う領域は、長方形・円板・円孔を有限個あけた領域など、境界が有限本の $C^1$ 曲線弧からなり、有限分割によって $x$-simple / $y$-simple な部分領域へ落とせるものとします。この範囲なら、発散定理を一変数の微積分学の基本定理と反復積分から直接証明できます。
 
@@ -110,7 +110,7 @@ $$
 R=[a,b]\times[c,d]
 $$
 
-で $P,Q\in C^1(R)$ とすると、[RA7 の反復積分](../RA7/index.md)と一変数の微積分学の基本定理から
+で $P,Q\in C^1(R)$ とすると、[RA7 の反復積分](../RA7/index.md)と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
 
 $$
 \begin{aligned}
@@ -180,7 +180,7 @@ $$
 
 を考えます。ここで $\alpha,\beta$ は区分的に $C^1$ とします。
 
-反復積分と一変数の微積分学の基本定理から
+反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
 
 $$
 \iint_E P_x\,dA
@@ -290,7 +290,7 @@ $$
 これで示されました。
 <!-- proof-end -->
 
-この証明で使った解析上の道具は、反復積分と一変数の微積分学の基本定理です。曲線境界では「法線ベクトル × 弧長」の組がグラフ微分を吸収するため、最終式には境界の傾きが露出しません。
+この証明で使った解析上の道具は、反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) です。曲線境界では「法線ベクトル × 弧長」の組がグラフ微分を吸収するため、最終式には境界の傾きが露出しません。
 
 ---
 
@@ -311,7 +311,7 @@ $$
 <a id="thm-pde6-green-first"></a>
 <!-- formal-statement-start -->
 > **定理（Green の第一恒等式）**  
-> $\Omega$ を前節の発散定理を適用できる有界連結領域とし、$u,v\in C^2(\Omega)\cap C^1(\overline\Omega)$ とする。このとき
+> $\Omega$ を前節の発散定理を適用できる有界連結領域とし、$u,v\in C^2(\overline\Omega)$ とする。このとき
 
 $$
 \boxed{
@@ -383,7 +383,7 @@ $$
 <a id="cor-pde6-dirichlet-energy"></a>
 <!-- formal-statement-start -->
 > **系（Green の第一恒等式による Dirichlet 一意性）**  
-> $\Omega$ を前節の仮定を満たす連結領域とする。$u_1,u_2\in C^2(\Omega)\cap C^1(\overline\Omega)$ が
+> $\Omega$ を前節の仮定を満たす連結領域とする。$u_1,u_2\in C^2(\overline\Omega)$ が
 
 $$
 \Delta u_1=\Delta u_2=0
@@ -846,7 +846,7 @@ $$
 <a id="thm-pde6-green-representation"></a>
 <!-- formal-statement-start -->
 > **定理（基本解による Green 表現公式）**  
-> $\Omega$ を本章の発散定理を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\Omega)\cap C^1(\overline\Omega)$ が
+> $\Omega$ を本章の発散定理を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\overline\Omega)$ が
 
 $$
 -\Delta u=f
@@ -1100,38 +1100,40 @@ $$
 <!-- formal-statement-start -->
 > **定義（Dirichlet Green 関数）**  
 > $\Omega\subset\mathbb R^2$ を有界領域とし、二次元基本解を $\Phi$ とする。  
-> $G:\Omega\times\Omega\to\mathbb R$ が Dirichlet Green 関数であるとは、各固定 $x\in\Omega$ に対し $y\mapsto G(x,y)$ が
+> $G:\Omega\times\Omega\setminus\{(x,x):x\in\Omega\}\to\mathbb R$ が Dirichlet Green 関数であるとは、各固定 $x\in\Omega$ に対し、
 >
-> 1. $y\ne x$ で調和的、
-> 2. $y=x$ の近くで
+> 1. $y\mapsto G(x,y)$ は $\Omega\setminus\{x\}$ で調和的であり、
+> 2. 差
 
-$$
+$
+h_x(y)
+=
 G(x,y)-\Phi(x-y)
-$$
+$
 
-> が調和的に延長でき、
-> 3. 境界上で
+> が $\Omega$ 全体の調和関数として $C^2(\Omega)\cap C^1(\overline\Omega)$ に延長でき、
+> 3. $G(x,\cdot)$ 自身も $\partial\Omega$ の近くでは $C^1$ に延長でき、その境界値が
 
-$$
+$
 G(x,y)=0
 \qquad
 (y\in\partial\Omega)
-$$
+$
 
-> を満たすことをいう。
+> となることをいう。
 <!-- formal-statement-end -->
 
 つまり
 
-$$
+$
 G(x,y)
 =
 \Phi(x-y)
--
-H_x(y)
-$$
++
+h_x(y)
+$
 
-と書き、$H_x$ を $y$ について調和関数に選んで、境界で基本解の値をちょうど打ち消します。
+と書き、$h_x$ を $y$ について調和関数に選んで、境界で基本解の値をちょうど打ち消します。境界近くで $G$ が $C^1$ まで延長することを仮定したのは、後で $\partial_{n_y}G$ を境界上で使うためです。
 
 <!-- definition-example-start: def-pde6-green-function -->
 **定義の確認**
@@ -1340,7 +1342,7 @@ $$
 <a id="thm-pde6-green-poisson"></a>
 <!-- formal-statement-start -->
 > **定理（Dirichlet Green 関数による Poisson 表現）**  
-> $\Omega$ に Dirichlet Green 関数 $G$ が存在するとする。$u\in C^2(\Omega)\cap C^1(\overline\Omega)$ が
+> $\Omega$ に Dirichlet Green 関数 $G$ が存在するとする。$u\in C^2(\overline\Omega)$ が
 
 $$
 -\Delta u=f
@@ -2789,7 +2791,7 @@ $$
 ## 17. 章末チェック
 
 - 外向き単位法線と法線微分を円・長方形で計算できる。
-- 発散定理を反復積分と一変数の微積分学の基本定理から追える。
+- 発散定理を反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から追える。
 - Green の第一恒等式を $\operatorname{div}(u\nabla v)$ から導ける。
 - Green の第二恒等式を第一恒等式の差として導ける。
 - Dirichlet 一意性を最大原理ではなくエネルギーから証明できる。
