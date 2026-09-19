@@ -1143,43 +1143,43 @@ $$
 
 $\rho(z)\,dz$ は全質量 1 の測度です。$p=1$ では三角不等式を使い、$1<p<\infty$ では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)をこの測度に対して使うと、各 $x\in K$ で
 
-$
+$$
 |f_\varepsilon(x)-f(x)|^p
 \le
 \int
 \rho(z)
 |w(x-\varepsilon z)-w(x)|^p
 \,dz.
-$
+$$
 
 両辺を $x\in K$ で積分し、[Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
-$
+$$
 \|f_\varepsilon-f\|_{L^p(K)}^p
 \le
 \int
 \rho(z)
 \|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}^p
 \,dz.
-$
+$$
 
 $\rho$ の台では $|z|\le1$ なので、[Lp 平行移動連続性](#lem-gpde3-lp-translation)から
 
-$
+$$
 \sup_{|h|\le\varepsilon}
 \|\tau_hw-w\|_p
 \to0.
-$
+$$
 
 また $\int\rho=1$ なので
 
-$
+$$
 \|f_\varepsilon-f\|_{L^p(K)}^p
 \le
 \sup_{|h|\le\varepsilon}
 \|\tau_hw-w\|_p^p
 \to0.
-$
+$$
 
 これは全ての $|\alpha|\le k$ に対して成り立ちます。
 
@@ -2496,24 +2496,24 @@ $$
 
 $p=1$ では三角不等式、$1<p<\infty$ では [Hölder の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)を $\rho(z)\,dz$ に対して使い、その後 [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli)を使うと
 
-$
+$$
 \|u_\varepsilon-u\|_{L^p(K)}^p
 \le
 \int
 \rho(z)
 \|\tau_{\varepsilon z}w-w\|_{L^p(\mathbb R^d)}^p
 \,dz.
-$
+$$
 
 [Lp 平行移動連続性](#lem-gpde3-lp-translation)と $\int\rho=1$ から
 
-$
+$$
 \|u_\varepsilon-u\|_{L^p(K)}^p
 \le
 \sup_{|h|\le\varepsilon}
 \|\tau_hw-w\|_p^p
 \to0.
-$
+$$
 
 従って
 
