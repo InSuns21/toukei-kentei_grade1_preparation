@@ -1,0 +1,63 @@
+chapter: PDE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE6
+
+# PDE1--PDE6で構築した古典解の三類型を、固有関数展開・Fourier変換・Green表現で統合する。
+# 一般の自己共役作用素のスペクトル定理、弱微分、Sobolev空間、弱解はEncore III以降へ送る。
+forward_references:
+  - functional.resolvent-spectrum
+
+concepts:
+  - id: pde.pde7-modal-diagonalization
+    name: 有限固有モードによるPDEの対角化
+    kind: proposition
+    aliases: [固有モード分解, モード分解, modal diagonalization]
+    introduction: formal
+    introduction_aliases: ["命題（有限固有モードによる PDE の対角化）"]
+    requires:
+      - ode.ode7-eigenpair
+      - ode.ode7-orthogonality
+
+  - id: pde.pde7-three-type-mode-laws
+    name: 三類型のモード方程式
+    kind: proposition
+    aliases: [モード方程式, heat wave elliptic mode laws]
+    introduction: formal
+    introduction_aliases: ["命題（三類型のモード方程式）"]
+    requires:
+      - pde.pde7-modal-diagonalization
+      - pde.pde3-heat-equation
+      - pde.pde4-wave-equation
+      - pde.pde5-laplace-poisson
+
+  - id: pde.pde7-continuous-discrete-dictionary
+    name: 離散固有モードと連続Fourier周波数の対応
+    kind: term
+    aliases: [離散スペクトルと連続周波数, continuous and discrete frequencies]
+    introduction: inline
+    requires:
+      - pde.pde7-modal-diagonalization
+      - fourier.fou3-fourier-transform
+
+  - id: pde.pde7-green-spectral-kernel
+    name: 有限モードGreen kernel
+    kind: proposition
+    aliases: [spectral Green kernel, Green kernelの固有関数展開]
+    introduction: formal
+    introduction_aliases: ["命題（有限モード Green kernel）"]
+    requires:
+      - pde.pde7-modal-diagonalization
+      - pde.pde6-green-representation
+
+  - id: pde.pde7-neumann-zero-mode
+    name: Neumann零モードと可解条件
+    kind: proposition
+    aliases: [Neumann zero mode, 零固有値による整合条件]
+    introduction: formal
+    introduction_aliases: ["命題（Neumann 零モードと可解条件）"]
+    requires:
+      - pde.pde6-neumann-compatibility
+      - ode.ode7-dirichlet-neumann-spectrum
+      - pde.pde7-three-type-mode-laws
