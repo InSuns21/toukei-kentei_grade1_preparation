@@ -419,7 +419,7 @@ $$
 \langle T_n,\partial^\alpha\varphi\rangle.
 $$
 
-$\partial^\alpha\varphi$ も固定されたテスト関数なので、distribution 収束の定義から
+$\partial^\alpha\varphi$ も固定されたテスト関数なので、[GPDE1 の distribution の収束](../GPDE1/index.md#def-gpde1-distribution-convergence)の定義から
 
 $$
 \langle T_n,\partial^\alpha\varphi\rangle
@@ -893,7 +893,7 @@ $$
 高さはおよそ $\varepsilon^{-d}$ に増えますが、台の体積がおよそ $\varepsilon^d$ に縮むので全質量は 1 に保たれます。
 <!-- definition-example-end -->
 
-多重指数 $\alpha$ に対して合成関数の微分公式から
+多重指数 $\alpha$ に対して $x\mapsto x/\varepsilon$ を各座標で直接微分すると、1 回の微分ごとに $\varepsilon^{-1}$ が一つ現れるので
 
 $$
 \partial^\alpha\rho_\varepsilon(x)
@@ -1560,7 +1560,7 @@ $$
 u(y)\partial_{x_j}\rho_\varepsilon(x-y)\,dy.
 $$
 
-合成関数の微分公式 により
+引数が $x-y$ なので、$x_j$ での微分と $y_j$ での微分は符号だけが反転し
 
 $$
 \partial_{x_j}\rho_\varepsilon(x-y)
@@ -2143,7 +2143,7 @@ $$
 -\int_a^b\varphi'(x)\,dx.
 $$
 
-微積分学の基本定理から
+積分を端点値で評価すると
 
 $$
 -\int_a^b\varphi'
@@ -2533,7 +2533,7 @@ $$
 [v]_1=0-(-1)=1.
 $$
 
-各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。jump 公式から
+各区間で $v$ は定数なので $v'_{\mathrm{pw}}=0$ です。[有限個の jump を持つ関数の distribution 微分](#prop-gpde2-jump-formula)から
 
 $$
 Dv
@@ -2561,7 +2561,7 @@ D^2u
 }.
 $$
 
-3. $v$ は $u$ の弱微分なので、本章の交換定理から
+3. $v$ は $u$ の弱微分なので、[弱微分と mollification の交換](#thm-gpde2-weak-mollifier-commute)から
 
 $$
 \boxed{
