@@ -23,6 +23,7 @@ definitions:
   - { id: GPDE5-DEF-01, name: "Sobolev共役指数 p*" }
   - { id: GPDE5-DEF-02, name: "連続埋め込み" }
   - { id: GPDE5-DEF-03, name: "compact embedding" }
+  - { id: GPDE5-DEF-04, name: "W_0^{1,p}(Omega)" }
 theorems:
   - { id: GPDE5-LEM-01, name: "関数型Loomis--Whitney不等式" }
   - { id: GPDE5-THM-01, name: "R^d上のW^{1,1} Sobolev不等式" }
