@@ -428,6 +428,6 @@ Encore III は「弱解という用語集」ではなく、**低正則な PDE �
 - Phase 0「ルーティングと設計台帳」: 完了（PR #302）。
 - GPDE1「テスト関数・distribution」: 本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary を実装（PR #303）。
 - GPDE2「distribution 微分・mollifier・弱微分」: distribution 微分、jump の delta 項、弱微分、mollifier、局所 $L^1$ 近似、弱微分との交換を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #304）。
-- GPDE3「Sobolev 空間」: $W^{k,p}$、$H^k$、弱微分作用素の閉性、Banach / Hilbert 構造、絶対値・べき・jump・tent の membership 判定、smooth multiplier、局所 mollification、$\mathbb R^d$ 上の $C_c^\infty$ 密度を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装。
+- GPDE3「Sobolev 空間」: $W^{k,p}$、$H^k$、弱微分作用素の閉性、Banach / Hilbert 構造、絶対値・べき・jump・tent の membership 判定、smooth multiplier、局所 mollification、$\mathbb R^d$ 上の $C_c^\infty$ 密度を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #306）。
 - reader-facing index には完成済みの GPDE3 までを公開し、旧 Encore III 7章は引き続き隔離する。
 - 現在地: **GPDE1 → GPDE2 → GPDE3 完了 → 次は GPDE4「$H_0^1$・境界値・Poincare・trace」**。
