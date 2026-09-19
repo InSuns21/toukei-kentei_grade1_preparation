@@ -230,6 +230,33 @@ $$
 
 となることです。distribution の世界では、各点の値ではなく **全ての probe に対する応答** が対象を決めます。
 
+<!-- definition-example-start: def-gpde1-distribution -->
+**定義の確認**
+
+最も単純な例として
+
+$
+\langle T_1,\varphi\rangle
+=
+\int_\Omega\varphi(x)\,dx
+$
+
+を考えます。積分の線形性から $T_1$ は線形です。
+
+$arphi_n\to0$ in $\mathcal D(\Omega)$ とし、全ての台を含む共通コンパクト集合を $K$ とすると、
+
+$
+|\langle T_1,\varphi_n\rangle|
+\le
+|K|\,p_{K,0}(\varphi_n)
+\to0.
+$
+
+ここで $|K|$ は $K$ の Lebesgue 測度です。従って $T_1$ はテスト関数列に対して連続であり、distribution です。
+
+この例では distribution の作用は普通の積分ですが、Dirac delta のように積分可能関数では表せない作用も同じ定義に入ります。
+<!-- definition-example-end -->
+
 ---
 
 ## 4. 連続性を手で確認できる形にする
