@@ -1,0 +1,26 @@
+chapter: "GPDE3"
+terms:
+  - term: Sobolev空間
+    english: Sobolev space
+    meaning: 関数自身と指定階数までの弱微分がLpに属するa.e.同値類からなる関数空間。
+  - term: Sobolev norm
+    english: Sobolev norm
+    meaning: uと|alpha|<=kの全弱微分D^alpha uのLp normをまとめて測るnorm。p<infinityではp乗和、p=infinityでは最大値で定める。
+  - term: H^k
+    english: H^k
+    meaning: W^{k,2}の略記。弱微分まで含むL2内積を入れるとHilbert空間になる。
+  - term: a.e.同値類
+    english: almost-everywhere equivalence class
+    meaning: 測度0の集合上でだけ異なる関数を同じ元とみなすこと。LpとSobolev空間の点値は代表元に依存する。
+  - term: 弱微分作用素の閉性
+    english: closedness of weak differentiation
+    meaning: u_n->uとD^alpha u_n->vがLpで成り立つときD^alpha u=vとなる性質。Sobolev空間の完備性の核心。
+  - term: smooth multiplier
+    english: smooth multiplier
+    meaning: C^infinity関数chiをSobolev関数uへ掛ける操作。弱微分はLeibniz則に従い、cutoffによる局所化に使う。
+  - term: Sobolev membership
+    english: Sobolev membership
+    meaning: 関数自身と必要な弱微分が指定Lpに属するかを判定してW^{k,p}への所属を決めること。
+  - term: smooth density
+    english: density of smooth functions
+    meaning: Sobolev関数をSobolev normで滑らかな関数に近似できる性質。全空間ではcutoffとmollifierが標準構成になる。
