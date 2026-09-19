@@ -1,0 +1,139 @@
+chapter: PDE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PDE5
+  - RA7
+
+# PDE5で停止していた一般の境界積分構造を、古典解の範囲で閉じる。
+# 弱微分・分布としての -Delta Phi = delta_0・Sobolev空間はEncore IIIへ送る。
+forward_references:
+  - distribution.test-function
+  - distribution.distributional-derivative
+  - sobolev.sobolev-space
+
+concepts:
+  - id: pde.pde6-normal-derivative
+    name: 外向き単位法線と法線微分
+    kind: definition
+    aliases: [normal derivative, outward unit normal]
+    introduction: formal
+    introduction_aliases: ["定義（外向き単位法線と法線微分）"]
+    requires:
+      - pde.pde5-boundary-problems
+
+  - id: pde.pde6-divergence-theorem
+    name: 平面版発散定理
+    kind: theorem
+    aliases: [planar divergence theorem]
+    introduction: formal
+    introduction_aliases: ["定理（平面版発散定理）"]
+    requires:
+      - pde.pde6-normal-derivative
+
+  - id: pde.pde6-green-first
+    name: Greenの第一恒等式
+    kind: theorem
+    aliases: [Green first identity]
+    introduction: formal
+    introduction_aliases: ["定理（Green の第一恒等式）"]
+    requires:
+      - pde.pde6-divergence-theorem
+
+  - id: pde.pde6-green-second
+    name: Greenの第二恒等式
+    kind: theorem
+    aliases: [Green second identity]
+    introduction: formal
+    introduction_aliases: ["定理（Green の第二恒等式）"]
+    requires:
+      - pde.pde6-green-first
+
+  - id: pde.pde6-dirichlet-energy-uniqueness
+    name: GreenエネルギーによるDirichlet一意性
+    kind: corollary
+    aliases: [Dirichlet energy uniqueness]
+    introduction: formal
+    introduction_aliases: ["系（Green の第一恒等式による Dirichlet 一意性）"]
+    requires:
+      - pde.pde6-green-first
+      - pde.pde5-boundary-problems
+
+  - id: pde.pde6-neumann-compatibility
+    name: Neumann問題の整合条件と定数を除く一意性
+    kind: corollary
+    aliases: [Neumann compatibility and uniqueness modulo constants]
+    introduction: formal
+    introduction_aliases: ["系（Neumann 問題の整合条件と定数を除く一意性）"]
+    requires:
+      - pde.pde6-green-first
+      - pde.pde6-divergence-theorem
+      - pde.pde5-boundary-problems
+
+  - id: pde.pde6-fundamental-solution
+    name: 二次元Laplacianの基本解
+    kind: definition
+    aliases: [two-dimensional Laplace fundamental solution]
+    introduction: formal
+    introduction_aliases: ["定義（二次元 -Delta の基本解）"]
+    requires:
+      - pde.pde5-harmonic-function
+
+  - id: pde.pde6-green-representation
+    name: 基本解によるGreen表現公式
+    kind: theorem
+    aliases: [Green representation formula]
+    introduction: formal
+    introduction_aliases: ["定理（基本解による Green 表現公式）"]
+    requires:
+      - pde.pde6-green-second
+      - pde.pde6-fundamental-solution
+
+  - id: pde.pde6-dirichlet-green-function
+    name: Dirichlet Green関数
+    kind: definition
+    aliases: [Dirichlet Green function]
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet Green 関数）"]
+    requires:
+      - pde.pde6-fundamental-solution
+      - pde.pde5-boundary-problems
+
+  - id: pde.pde6-disk-green-function
+    name: 単位円板のDirichlet Green関数
+    kind: proposition
+    aliases: [unit disk Green function]
+    introduction: formal
+    introduction_aliases: ["命題（単位円板の Dirichlet Green 関数）"]
+    requires:
+      - pde.pde6-dirichlet-green-function
+
+  - id: pde.pde6-green-poisson-representation
+    name: Dirichlet Green関数によるPoisson表現
+    kind: theorem
+    aliases: [Green function Poisson representation]
+    introduction: formal
+    introduction_aliases: ["定理（Dirichlet Green 関数による Poisson 表現）"]
+    requires:
+      - pde.pde6-green-representation
+      - pde.pde6-dirichlet-green-function
+
+  - id: pde.pde6-poisson-kernel
+    name: Green関数から得るPoisson kernel
+    kind: definition
+    aliases: [Poisson kernel from Green function]
+    introduction: formal
+    introduction_aliases: ["定義（Green 関数から得る Poisson kernel）"]
+    requires:
+      - pde.pde6-dirichlet-green-function
+
+  - id: pde.pde6-disk-poisson-kernel
+    name: 単位円板のPoisson kernel再導出
+    kind: proposition
+    aliases: [unit disk Poisson kernel from Green function]
+    introduction: formal
+    introduction_aliases: ["命題（単位円板の Poisson kernel）"]
+    requires:
+      - pde.pde6-disk-green-function
+      - pde.pde6-poisson-kernel
+      - pde.pde5-poisson-kernel
