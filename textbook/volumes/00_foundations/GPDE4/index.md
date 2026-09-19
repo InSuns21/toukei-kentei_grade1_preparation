@@ -133,18 +133,18 @@ $$
 > と定める。
 >
 > すなわち $u\in H_0^1(\Omega)$ であるとは、ある列
->
-> $$
-> \varphi_n\in C_c^\infty(\Omega)
-> $$
->
+
+$
+\varphi_n\in C_c^\infty(\Omega)
+$
+
 > が存在し、
->
-> $$
-> \|\varphi_n-u\|_{H^1(\Omega)}
-> \to0
-> $$
->
+
+$
+\|\varphi_n-u\|_{H^1(\Omega)}
+\to0
+$
+
 > となることである。
 <!-- formal-statement-end -->
 
@@ -1735,17 +1735,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（bounded Lipschitz domain）**  
 > 有界開集合 $\Omega\subset\mathbb R^d$ が bounded Lipschitz domain であるとは、各境界点 $x_0\in\partial\Omega$ に対して近傍 $U$ と剛体変換後の座標
->
-> $$
-> x=(x',x_d)
-> $$
->
+
+$
+x=(x',x_d)
+$
+
 > を取り、ある Lipschitz 関数
->
-> $$
-> \gamma:\mathbb R^{d-1}\to\mathbb R
-> $$
->
+
+$
+\gamma:\mathbb R^{d-1}\to\mathbb R
+$
+
 > を用いて $U$ 内で
 
 $$
