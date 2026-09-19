@@ -1,0 +1,31 @@
+name: Temporary GPDE1 pedagogy audit
+
+on:
+  pull_request:
+    paths:
+      - 'textbook/**'
+      - '.github/workflows/tmp-gpde1-pedagogy.yml'
+
+jobs:
+  audit-gpde1-pedagogy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit proof pedagogy
+        run: npm run audit:proof-pedagogy
+
+      - name: Audit formalism pedagogy
+        run: npm run audit:formalism-pedagogy
