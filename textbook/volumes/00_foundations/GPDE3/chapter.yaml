@@ -18,17 +18,17 @@ learning_objectives:
   - R^d上でC_c^infinityがW^{k,p}に稠密である標準形をcutoffとmollificationから証明できる
   - p=infinityや境界付き領域では同じ密度主張を無条件に使えない理由を具体例から説明できる
 definitions:
-  - { id: GPDE3-DEF-01, name: Sobolev空間 W^{k,p} }
-  - { id: GPDE3-DEF-02, name: Sobolev norm }
-  - { id: GPDE3-DEF-03, name: H^k空間 }
+  - { id: GPDE3-DEF-01, name: "Sobolev空間 W^{k,p}" }
+  - { id: GPDE3-DEF-02, name: "Sobolev norm" }
+  - { id: GPDE3-DEF-03, name: "H^k空間" }
 theorems:
-  - { id: GPDE3-PROP-01, name: 弱微分作用素の閉性 }
-  - { id: GPDE3-THM-01, name: W^{k,p}の完備性 }
-  - { id: GPDE3-THM-02, name: H^kのHilbert構造 }
-  - { id: GPDE3-PROP-02, name: smooth multiplierとの積の弱微分 }
-  - { id: GPDE3-LEM-01, name: Lp平行移動連続性 }
-  - { id: GPDE3-THM-03, name: Sobolev関数の局所mollification }
-  - { id: GPDE3-THM-04, name: R^d上のC_c^infinity密度 }
+  - { id: GPDE3-PROP-01, name: "弱微分作用素の閉性" }
+  - { id: GPDE3-THM-01, name: "W^{k,p}の完備性" }
+  - { id: GPDE3-THM-02, name: "H^kのHilbert構造" }
+  - { id: GPDE3-PROP-02, name: "smooth multiplierとの積の弱微分" }
+  - { id: GPDE3-LEM-01, name: "Lp平行移動連続性" }
+  - { id: GPDE3-THM-03, name: "Sobolev関数の局所mollification" }
+  - { id: GPDE3-THM-04, name: "R^d上のC_c^infinity密度" }
 canonical_examples: [絶対値関数, べき関数, jump関数, tent関数, smooth cutoff]
 problem_patterns: [GPDE3-NORM-1, GPDE3-ABSOLUTE-VALUE-1, GPDE3-JUMP-NONMEMBERSHIP-1, GPDE3-POWER-THRESHOLD-1, GPDE3-COMPLETENESS-1, GPDE3-LOCAL-MOLLIFICATION-1, GPDE3-SMOOTH-MULTIPLIER-1, GPDE3-TENT-DENSITY-1]
 past_exam_alignment: []
