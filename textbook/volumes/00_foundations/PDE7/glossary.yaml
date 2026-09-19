@@ -1,0 +1,17 @@
+chapter: "PDE7"
+terms:
+  - term: 固有モード
+    english: eigenmode
+    meaning: 空間作用素の固有関数をPDEの空間方向の基本成分として見たもの。固有値が時間発展や定常応答の係数を決める。
+  - term: モード方程式
+    english: modal equation
+    meaning: 解を固有関数で展開してPDEへ代入したとき、各展開係数が満たす常微分方程式または代数方程式。
+  - term: 連続周波数
+    english: continuous frequency
+    meaning: 実数全体上のFourier変換で現れる実数パラメータxi。有限区間の離散固有値の連続版として作用する。
+  - term: Green kernelの固有関数展開
+    english: spectral Green kernel
+    meaning: 逆作用素を固有モードごとに1/lambda_n倍する操作として表し、その係数を二変数kernelへまとめた表現。
+  - term: 零モード
+    english: zero mode
+    meaning: 固有値0に属する固有関数。Neumann Laplacianでは定数関数が零モードとなり、Poisson問題の可解条件と定数不定性を生む。
