@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - ODE7
+  - PDE7
 
-# 旧URL互換ハブ。Sturm--Liouville の概念正本は ODE7 へ移送済み。
+# 旧URL互換ハブ。Sturm--Liouville の概念正本は ODE7、PDE への統合正本は PDE7 へ移送済み。
 concepts: []
