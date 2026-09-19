@@ -759,7 +759,7 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - FOU4 は Gaussian Fourier core → core 上 Plancherel → $L^2$ 完備性による延長 → Parseval / unitary / $L^2$ 反転、という証明ルートで初回実装した。ここで初めて MT7 と `F0-02C1` を明示的に追加前提とする。
 - FOU4 の関数解析依存は $L^2$ 完備性・Hilbert 内積・稠密性・連続延長へ限定し、Hahn--Banach・Riesz 表現・スペクトル定理を逆輸入しない。
 - 複素解析は FOU4 までの全面 prerequisite にせず、留数定理等による変換積分の計算技法として横接続する。
-- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE5 まで実装・検証を完了し、次の理論実装単位は PDE6「Greenの恒等式・基本解・Green関数」。
+- Fourier 系列は FOU1～FOU5 まで正本化・merge 済み。PDE1～PDE6 まで実装・検証を完了し、次の理論実装単位は PDE7「固有関数展開・Green表現・三類型の統合」。
 
 
 ## 11.10 PDE 再編の現在地（2026-09-19）
@@ -793,4 +793,13 @@ PR #276 では、最初の validation で露出した `glossary.yaml` 欠落、D
 - 旧 F0-00PDE2 は波動部分を PDE4、Laplace 部分を PDE5 へ移送し終えたため、PDE4 / PDE5 への旧URL互換ハブへ退役した。
 - 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
 - proof pedagogy は機械 P1（証明6本、証明比22%、省略語候補「同様に」1件）、formalism pedagogy も機械 P1（主要結果6件、proof block 6件、隠れ証明0）。「同様に」は最小値主張を $-u$ の最大値主張へ帰着する箇所で、帰着理由を本文に明記しているため人手再査読で実質的欠落なしと判定した。
-- PDE5 は PR #299 で実装・検証完了。次の理論実装単位は PDE6「Greenの恒等式・基本解・Green関数」。
+- PDE5 は PR #299 で実装・検証完了。
+- PDE6 は PDE5 + RA7 を直接 prerequisite とし、平面版発散定理を RA7 の反復積分と RA4 の微積分学の基本定理IIから古典的に導出した。一般の発散定理を未証明の前提として置かず、人工的な内部境界の flux が反対向き法線で相殺するところまで閉じた。
+- Green の第一・第二恒等式を発散定理から導き、第一恒等式のエネルギー評価から Dirichlet 一意性、発散定理と第一恒等式から Neumann 問題の整合条件と定数を除く一意性を導いた。
+- 二次元負Laplacianの基本解は、超関数の $-\Delta\Phi=\delta_0$ を逆輸入せず、「原点外で調和的 + 原点を囲む円で単位 flux」という古典的条件から $\Phi(x)=-(2\pi)^{-1}\log|x|$ を構成した。弱微分・超関数・Sobolev 空間は Encore III へ停止している。
+- Green 表現公式は punctured domain $\Omega\setminus\overline{B_\varepsilon(x)}$ 上の第二恒等式から証明し、穴側の外向き法線が中心方向を向く符号、$u\,\partial_n\Phi$ の平均値極限、$\Phi\,\partial_nu$ の $\varepsilon|\log\varepsilon|\to0$ まで展開した。
+- Dirichlet Green 関数を「基本解 + 調和補正」として導入し、単位円板の明示式を鏡像点から検証した。境界変数の外向き法線微分 $-\partial_{n_y}G$ から Poisson kernel を導き、PDE5 で実Fourier級数から得た kernel と一致することを示した。
+- 演習は A4 / B3 / C1、全問詳細解答付き。Validate textbook / Pages / DREAM THEATER exercises / concepts / standard math core / terminology の6系統を green 確認した。
+- proof pedagogy は機械 P1（proof block 9本、証明比約28%、省略語候補「相殺する」1件）、formalism pedagogy も機械 P1（主要結果10件、proof block 9件、隠れ証明0）。「相殺する」は内部境界で $F\cdot n+F\cdot(-n)=0$ を直後に明示しており、核心論証の省略ではない。定義直後の直接例は definition-example marker 4件を人手確認した。
+- proof / formalism pedagogy の実行確認に用いた一時 Actions workflow は検証後に撤去し、最終差分へ残さない。
+- PDE6 は PR #300 で実装・検証完了。次の理論実装単位は PDE7。
