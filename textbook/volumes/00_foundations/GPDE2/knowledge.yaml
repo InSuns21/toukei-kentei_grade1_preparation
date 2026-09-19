@@ -45,11 +45,11 @@ concepts:
       - distribution.regular-distribution
 
   - id: distribution.derivative-continuity
-    name: distribution収束と微分の交換
+    name: distribution微分作用素の連続性
     kind: proposition
-    aliases: [distributional convergence and differentiation, 微分の連続性]
+    aliases: [continuity of distributional differentiation]
     introduction: formal
-    introduction_aliases: ["命題（distribution 収束と微分の交換）"]
+    introduction_aliases: ["命題（distribution 微分作用素の連続性）"]
     requires:
       - distribution.distributional-derivative
       - distribution.distributional-convergence
@@ -115,11 +115,11 @@ concepts:
       - distribution.local-mollification
 
   - id: analysis.l1-translation-continuity-rd
-    name: Rd 上の L1 平行移動連続性
+    name: Rdの平行移動補題
     kind: lemma
-    aliases: [translation continuity in L1(Rd), 多次元平行移動連続性]
+    aliases: [Rd translation lemma]
     introduction: formal
-    introduction_aliases: ["補題（Rd 上の L1 平行移動連続性）"]
+    introduction_aliases: ["補題（Rd の平行移動補題）"]
     requires:
       - measure.cc-dense-in-lp
 
