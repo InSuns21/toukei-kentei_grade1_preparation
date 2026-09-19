@@ -2,12 +2,9 @@ chapter: GPDE1
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - F0-00D2
+  - PDE7
+  - MT4
   - F0-02C2
-
-forward_references:
-  - distribution.distributional-derivative
-  - distribution.weak-derivative
 
 concepts:
   - id: distribution.test-function
