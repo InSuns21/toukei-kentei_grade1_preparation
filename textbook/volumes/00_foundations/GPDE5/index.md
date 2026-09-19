@@ -668,7 +668,7 @@ $$
 
 次に一般の $u\in W^{1,1}(\mathbb R^d)$ を取ります。
 
-GPDE3 の全空間密度定理により
+GPDE3 の [全空間上の滑らかなコンパクト台関数の密度](../GPDE3/index.md#thm-gpde3-ccinf-density-rd)により
 
 $$
 u_n\in C_c^\infty(\mathbb R^d),
@@ -803,7 +803,7 @@ $$
 
 が a.e. 成り立ちます。
 
-前節の [$W^{1,1}$ Sobolev 不等式](#thm-gpde5-w11-sobolev)から
+[W11 Sobolev 不等式](#thm-gpde5-w11-sobolev)から
 
 $$
 \|v\|_{d/(d-1)}
@@ -896,7 +896,7 @@ $$
 
 と取れます。
 
-差 $u_n-u_m$ に既に示した不等式を使うと
+差 $u_n-u_m$ に [R^d 上の Sobolev 不等式](#thm-gpde5-sobolev-rd)を使うと
 
 $$
 \|u_n-u_m\|_{p^*}
@@ -1482,7 +1482,7 @@ $$
 
 ### 証明の見取り図
 
-まず $C_c^\infty(\Omega)$ で線分上の基本定理を使います。
+まず $C_c^\infty(\Omega)$ で、$t\mapsto u(x+th)$ に [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使います。
 
 $$
 u(x+h)-u(x)
@@ -1500,9 +1500,9 @@ Jensen と平行移動不変性で $L^2$ 評価を出し、最後に $H_0^1$ の
 
 この零延長も $C_c^\infty(\mathbb R^d)$ です。
 
-基本定理から
+[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2)から
 
-$$
+$
 \varphi(x+h)-\varphi(x)
 =
 \int_0^1
@@ -2504,7 +2504,7 @@ $$
 
 $H_0^1(\Omega)$ は GPDE4 で完備な内積空間だと示しました。
 
-従って本章の弱部分列定理から
+従って [完備内積空間の有界列から弱収束部分列](#thm-gpde5-hilbert-weak-subsequence)から
 
 $$
 u_{n_k}\rightharpoonup u
