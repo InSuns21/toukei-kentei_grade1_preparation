@@ -225,8 +225,9 @@ Encore II が **古典 PDE** を閉じた後、Encore III では distribution・
 
 1. [Encore III Graduate PDE ロードマップ](textbook/volumes/00_foundations/F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md)
 2. [GPDE1 テスト関数・distribution](textbook/volumes/00_foundations/GPDE1/index.md)
+3. [GPDE2 distribution 微分・mollifier・弱微分](textbook/volumes/00_foundations/GPDE2/index.md)
 
-GPDE1 は本文・証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。以降は次の順で実装します。
+GPDE1--GPDE2 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE3「Sobolev 空間」です。以降は次の順で実装します。
 
 ```text
 GPDE1  テスト関数・distribution
