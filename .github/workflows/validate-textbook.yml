@@ -94,3 +94,9 @@ jobs:
 
       - name: Validate definition examples against their definitions
         run: npm run validate:definition-examples
+
+      - name: Audit DREAM THEATER proof pedagogy (temporary PDE6 check)
+        run: npm run audit:proof-pedagogy
+
+      - name: Audit DREAM THEATER formalism pedagogy (temporary PDE6 check)
+        run: npm run audit:formalism-pedagogy
