@@ -1,0 +1,38 @@
+id: "PDE6"
+title: "標準偏微分方程式 VI：Greenの恒等式・基本解・Green関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PDE5
+  - RA7
+official_scope: []
+learning_objectives:
+  - 平面の外向き単位法線と法線微分を定義し、円・長方形で直接計算できる
+  - 多重Riemann積分と一変数の微積分学の基本定理から平面版の発散定理を導ける
+  - 発散定理からGreenの第一・第二恒等式を証明し、Dirichlet一意性とNeumann整合条件・定数不定性を導ける
+  - 二次元Laplacianの基本解を調和性と単位fluxで特徴付け、対数特異性の意味を説明できる
+  - 基本解を用いたGreen表現公式を、特異点の小円を除く極限計算から導ける
+  - Dirichlet Green関数を定義し、単位円板の明示式を検証できる
+  - Green関数の境界法線微分からPoisson kernelを導き、PDE5のPoisson積分と一致することを示せる
+  - Green恒等式が古典解の一意性・表現・境界条件を同じ積分構造で結ぶことを説明できる
+definitions:
+  - { id: PDE6-DEF-01, name: 外向き単位法線・法線微分 }
+  - { id: PDE6-DEF-02, name: 二次元Laplacianの基本解 }
+  - { id: PDE6-DEF-03, name: Dirichlet Green関数 }
+  - { id: PDE6-DEF-04, name: Green関数から得るPoisson kernel }
+theorems:
+  - { id: PDE6-THM-01, name: 平面版発散定理 }
+  - { id: PDE6-THM-02, name: Greenの第一恒等式 }
+  - { id: PDE6-THM-03, name: Greenの第二恒等式 }
+  - { id: PDE6-COR-01, name: GreenエネルギーによるDirichlet一意性 }
+  - { id: PDE6-COR-02, name: Neumann問題の整合条件と定数を除く一意性 }
+  - { id: PDE6-THM-04, name: 基本解によるGreen表現公式 }
+  - { id: PDE6-PROP-01, name: 単位円板のDirichlet Green関数 }
+  - { id: PDE6-THM-05, name: Dirichlet Green関数によるPoisson表現 }
+  - { id: PDE6-PROP-02, name: 単位円板のPoisson kernel再導出 }
+canonical_examples: [単位円の法線微分, 対数基本解の単位flux, 単位円板中心のGreen関数, 単位円板Poisson kernel]
+problem_patterns: [PDE6-DIVERGENCE-1, PDE6-GREEN-IDENTITY-1, PDE6-FUNDAMENTAL-1, PDE6-NEUMANN-1, PDE6-REPRESENTATION-1, PDE6-GREEN-DISK-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }
