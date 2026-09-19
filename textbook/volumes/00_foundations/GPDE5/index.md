@@ -1167,7 +1167,7 @@ $$
 
 [弱収束の正本](../FA3/index.md#def-fa3-weak-convergence)を再定義はしません。
 
-[Hilbert 空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-hilbert-space)では Riesz 表現により
+[完備な内積空間](../F0_02C1_ノルム空間_Banach_Hilbert/index.md#def-f0-02c1-hilbert-space)では Riesz 表現により
 
 $$
 u_n\rightharpoonup u
