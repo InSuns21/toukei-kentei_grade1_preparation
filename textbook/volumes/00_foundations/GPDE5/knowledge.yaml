@@ -43,7 +43,7 @@ concepts:
     kind: theorem
     aliases: ["W11 Sobolev inequality", "endpoint Sobolev inequality"]
     introduction: formal
-    introduction_aliases: ["定理（W^{1,1} Sobolev 不等式）"]
+    introduction_aliases: ["定理（W11 Sobolev 不等式）"]
     requires:
       - analysis.functional-loomis-whitney
 
@@ -92,7 +92,7 @@ concepts:
     kind: lemma
     aliases: ["H01 translation estimate", "translation estimate for zero extension"]
     introduction: formal
-    introduction_aliases: ["補題（H_0^1 零延長の translation estimate）"]
+    introduction_aliases: ["補題（H01 零延長の translation estimate）"]
     requires:
       - sobolev.h01
 
@@ -110,7 +110,7 @@ concepts:
     kind: theorem
     aliases: ["Rellich compactness", "Rellich--Kondrachov theorem", "H01 compactly embeds into L2"]
     introduction: formal
-    introduction_aliases: ["定理（Rellich--Kondrachov：H_0^1 から L2）"]
+    introduction_aliases: ["定理（Rellich--Kondrachov：H01 から L2）"]
     requires:
       - analysis.compact-embedding
       - analysis.l2-translation-compactness
@@ -121,7 +121,7 @@ concepts:
     kind: corollary
     aliases: ["subcritical Rellich compactness", "H01 subcritical compact embedding"]
     introduction: formal
-    introduction_aliases: ["系（H_0^1 の subcritical compact embedding）"]
+    introduction_aliases: ["系（H01 の subcritical compact embedding）"]
     requires:
       - sobolev.rellich-h01-l2
       - sobolev.inequality-rd
@@ -131,7 +131,7 @@ concepts:
     kind: definition
     aliases: ["W0 1p", "zero-boundary W1p", "W_0^{1,p}"]
     introduction: formal
-    introduction_aliases: ["定義（$W_0^{1,p}$）"]
+    introduction_aliases: ["定義（W01p）"]
     requires:
       - sobolev.wkp
 
