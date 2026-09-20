@@ -64,7 +64,7 @@ energy minimization
 minimizing sequence
   ↓ weak compactness
 weak limit
-  ↓ weak liminf estimate
+  ↓ weak-limit norm estimate
 minimizer
   ↓
 Poisson weak solution
