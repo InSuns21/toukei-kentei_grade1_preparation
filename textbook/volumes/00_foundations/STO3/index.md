@@ -718,7 +718,7 @@ $$
 
 と置きます。
 
-$A_n\subset A_j$ for $j\le n$ なので
+$j\le n$ なら $A_n\subset A_j$ なので
 
 $$
 A_n\setminus D_n
@@ -765,21 +765,33 @@ $$
 
 $I_\infty$ は可算なので、$K$ の compact 性は対角部分列で確認できます。実際、任意の点列から第1座標で収束する部分列、第2座標でも収束するその部分列、という抽出を繰り返し、対角部分列を取れば全座標で収束します。
 
-各 $D_n$ が課す条件は有限個の座標だけに依存し、compact 集合 $K_j$ への所属条件なので、$K$ 内では closed 条件です。
+各 $D_n$ が課す条件は有限個の座標だけに依存し、compact 集合 $K_j$ への所属条件なので、
 
-$D_n$ は非空で、しかも
+$
+E_n:=K\cap D_n
+$
 
-$$
-D_1\supset D_2\supset\cdots
-$$
+は $K$ の closed subset です。
 
-です。
+さらに $E_n$ が非空であることも確認します。$D_n$ の点を一つ取ると、その $I_n$ 座標は $H_1,\ldots,H_n$ の全条件を満たします。特に $t\in I_n$ なら $n(t)\le n$ なので、その $t$ 座標は $K_{n(t)}$ の射影 $L_t$ に入ります。$t\in I_\infty\setminus I_n$ の座標は $D_n$ の条件に現れないので、各 $L_t$ から任意に値を選んで補えば $K\cap D_n$ の点が得られます。
 
-従って compact 空間 $K$ の nested closed sets として
+従って各 $E_n$ は非空です。また
 
-$$
+$
+E_1\supset E_2\supset\cdots.
+$
+
+compact 空間 $K$ の非空 closed sets の減少列なので
+
+$
+\bigcap_{n=1}^\infty E_n\ne\varnothing.
+$
+
+特に
+
+$
 \bigcap_{n=1}^\infty D_n\ne\varnothing.
-$$
+$
 
 この点を $I_\infty$ 以外の座標へ任意に延長すれば
 
@@ -2142,7 +2154,7 @@ $$
 
 とします。
 
-$A_n\subset A_j$ for $j\le n$ なので
+$j\le n$ なら $A_n\subset A_j$ なので
 
 $$
 A_n\setminus D_n
