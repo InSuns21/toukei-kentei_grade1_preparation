@@ -267,18 +267,13 @@ Encore III 本線では distributional solution、variational weak solution、en
 
 ---
 
-## 5. Encore IV：確率過程・スペクトル・時系列
+## 5. Encore IV：確率解析・時系列
 
 1. [Encore IV ロードマップ](textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
-2. [SP1 確率過程・filtration・stopping](textbook/volumes/00_foundations/F0_00SP1_確率過程_filtration_stopping/index.md)
-3. [SP2 martingale・optional stopping](textbook/volumes/00_foundations/F0_00SP2_martingale_optional_stopping/index.md)
-4. [SP3 Brown運動・Gaussian過程・二次変分](textbook/volumes/00_foundations/F0_00SP3_Brown運動_Gaussian過程_二次変分/index.md)
-5. [SP4 Itô積分・Itô公式・SDE](textbook/volumes/00_foundations/F0_00SP4_Ito積分_Ito公式_SDE/index.md)
-6. [SP5 generator・Kolmogorov・Fokker–Planck](textbook/volumes/00_foundations/F0_00SP5_generator_Kolmogorov_Fokker_Planck/index.md)
-7. [TS1 定常過程・Hilbert予測・Wold](textbook/volumes/00_foundations/F0_00TS1_定常過程_Hilbert予測_Wold/index.md)
-8. [TS2 Herglotz・spectral measure](textbook/volumes/00_foundations/F0_00TS2_Herglotz_spectral_measure_density/index.md)
-9. [TS2A spectral representation theorem](textbook/volumes/00_foundations/F0_00TS2A_spectral_representation_theorem/index.md)
-10. [TS3 ARMA・transfer filter・spectrum](textbook/volumes/00_foundations/F0_00TS3_ARMA_transfer_filter_spectrum/index.md)
+
+旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
+
+再編後は、STO 系列で martingale・Brown 運動・quadratic variation・確率積分・SDE・Girsanov・Markov / generator・martingale representation・Poisson / Lévy / jump calculus まで、TSA 系列で定常過程・予測・Wold・spectral representation・ARMA・ergodicity・Kalman filter までを扱います。
 
 ---
 
