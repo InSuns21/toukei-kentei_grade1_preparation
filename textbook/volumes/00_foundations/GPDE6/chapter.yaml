@@ -33,7 +33,11 @@ theorems:
   - { id: GPDE6-LEM-01, name: "Hilbert normの弱下半連続性" }
   - { id: GPDE6-THM-04, name: "Poisson変分問題の直接法による存在一意性" }
   - { id: GPDE6-COR-01, name: "Poisson弱解の安定性" }
-canonical_examples: [区間上のu=x(1-x)/2, L2 forcingからH^{-1} functional, Poisson energy, Neumann問題で定数方向が残る例]
+canonical_examples:
+  - "区間上の u=x(1-x)/2"
+  - "L2 forcing から H^{-1} functional"
+  - "Poisson energy"
+  - "Neumann 問題で定数方向が残る例"
 problem_patterns: [GPDE6-WEAKFORM-1, GPDE6-HMINUS1-1, GPDE6-DIRECT-CHECK-1, GPDE6-COERCIVITY-1, GPDE6-DISTRIBUTIONAL-EQUIV-1, GPDE6-ENERGY-1, GPDE6-STABILITY-1, GPDE6-DIRECT-METHOD-1]
 past_exam_alignment: []
 integrated_exam_problems: []
