@@ -30,7 +30,7 @@ $$
 \to
 \text{consistency}
 \to
-\text{canonical path space}
+\text{canonical 経路空間}
 \to
 \text{Kolmogorov extension}
 \to
@@ -151,14 +151,14 @@ $$
 
 ---
 
-## 2. canonical path space は「全ての候補経路」を標本点にする
+## 2. canonical 経路空間は「全ての候補経路」を標本点にする
 
 有限次元分布を一つの過程へまとめるため、標本空間そのものを「全ての経路」にします。
 
 <a id="def-sto3-canonical-path-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（canonical path space と cylinder set）**  
+> **定義（canonical 経路空間と cylinder set）**  
 > 時間集合 $T$ に対し
 >
 $$
@@ -249,7 +249,7 @@ $$
 >
 > を満たすとする。
 >
-> このとき canonical path space
+> このとき canonical 経路空間
 >
 $$
 \Omega^\ast=\mathbb R^T,
@@ -371,7 +371,7 @@ $$
 
 であり、十分大きい $n$ では $\|x\|\le n$ かつ $\operatorname{dist}(x,G^c)\ge1/n$ です。
 
-測度の下からの連続性により
+[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)により
 
 $$
 \mu(G\setminus F_n)\to0.
@@ -508,7 +508,7 @@ $$
 [-N,N]^m\uparrow\mathbb R^m
 $$
 
-なので、有限性と下からの連続性から十分大きい $N$ で
+なので、有限性と[測度の下からの連続性](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#thm-f0-00d2-01)から十分大きい $N$ で
 
 $$
 \mu(\mathbb R^m\setminus[-N,N]^m)
@@ -953,7 +953,7 @@ $$
 
 ---
 
-## 4. extension theorem は path regularity を何も保証しない
+## 4. extension theorem は標本路の正則性を何も保証しない
 
 Kolmogorov 拡張定理が作る canonical process の標本点は
 
@@ -1130,7 +1130,7 @@ $$
 1. dyadic grid 上の隣接増分を一斉に抑える。
 2. 悪い level の確率和が有限であることを示す。
 3. [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)で、十分細かい level では全隣接増分が小さい状態にする。
-4. dyadic 近似列を pathwise に Cauchy にして $\widetilde X_t$ を定義する。
+4. dyadic 近似列を各標本点ごとに Cauchy にして $\widetilde X_t$ を定義する。
 5. 元の $X_t$ への確率収束と比較して modification であることを示す。
 6. 同じ dyadic chaining で Hölder bound を得る。
 
@@ -1186,7 +1186,7 @@ $$
 
 とします。
 
-union bound と Markov 不等式から
+union bound と [Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)から
 
 $$
 \begin{aligned}
@@ -1327,7 +1327,7 @@ C|q_n(t)-t|^{1+\beta}
 \to0.
 $$
 
-Markov 不等式により
+[Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)により
 
 $$
 X_{q_n(t)}
@@ -1653,7 +1653,7 @@ STO3 で continuous modification を一つ構成できれば、その後は「�
 
 この二つを混ぜないことが重要です。
 
-有限次元分布だけから path regularity は出ません。
+有限次元分布だけから標本路の正則性は出ません。
 
 逆に moment bound は、そもそも過程が存在しなければ適用対象がありません。
 
@@ -1852,7 +1852,7 @@ $$
 
 を満たすとする。
 
-Kolmogorov--Chentsov continuity theorem を使って保証できる Hölder 指数の範囲を求めよ。
+[Kolmogorov--Chentsov continuity theorem](#thm-sto3-kolmogorov-chentsov) を使って保証できる Hölder 指数の範囲を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2032,7 +2032,7 @@ $$
    $$
    を示せ。
 2. 従って $\Sigma$ が半正定値であることを示せ。
-3. $I\subset J$ で座標を減らしたとき、この covariance 行列が対応する主部分行列へ移ることを確認せよ。
+3. $I\subset J$ で座標を減らしたとき、この covariance 行列が対応する添字の行・列だけを残した部分行列へ移ることを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2110,12 +2110,12 @@ $$
 
 だけを残します。
 
-従って covariance 行列は $\Sigma_J$ の対応する主部分行列となり、それは $\Sigma_I$ そのものです。
+従って covariance 行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
 
 STO4 ではこの整合性と Gaussian 周辺分布の安定性を組み合わせ、Brownian finite-dimensional laws を作ります。
 <!-- solution-end -->
 
-#### STO3-B02 cylinder premeasure の continuity from above
+#### STO3-B02 cylinder premeasure の「空集合への減少列で確率が0へ下がる性質」
 - Level: B
 
 Kolmogorov 拡張定理の証明で、cylinder sets
@@ -2433,7 +2433,7 @@ $$
 
 次を示せ。
 
-1. canonical path space 上に有限次元分布 $(\mu_I)$ を持つ過程 $X^\ast$ が存在する。
+1. canonical 経路空間上に有限次元分布 $(\mu_I)$ を持つ過程 $X^\ast$ が存在する。
 2. $X^\ast$ は連続 modification $\widetilde X$ を持つ。
 3. 任意の $0<\gamma<\beta/\alpha$ に対し、$\widetilde X$ は $\gamma$-Hölder continuous な標本路を a.s. 持つように選べる。
 4. 同じ有限次元分布を持つ別の連続過程 $Y$ が同じ確率空間上で $X^\ast$ の modification になっているなら、$Y$ と $\widetilde X$ は indistinguishable である。
@@ -2569,14 +2569,14 @@ $$
 
 この章を終えた時点で、次を本文だけから再構成できることを目標にします。
 
-- finite-dimensional distribution を有限座標集合上の確率測度として書ける。
+- 有限次元分布を有限座標集合上の確率測度として書ける。
 - consistency を座標射影による周辺化として確認できる。
-- canonical path space $\mathbb R^T$ と coordinate process を構成できる。
+- canonical 経路空間 $\mathbb R^T$ と coordinate process を構成できる。
 - cylinder set が有限個の時刻だけを見る事象であることを説明できる。
 - Kolmogorov extension theorem で consistency が well-definedness に使われる箇所を示せる。
-- cylinder premeasure の continuity from above を finite-dimensional compact approximation と countable compactness から証明できる。
+- cylinder premeasure の「空集合への減少列で確率が0へ下がる性質」 を finite-dimensional compact approximation と countable compactness から証明できる。
 - Carathéodory extension theorem を使って canonical process を完成できる。
-- extension theorem が path continuity を保証しない理由を説明できる。
+- extension theorem が標本路連続性を保証しない理由を説明できる。
 - Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ を moment estimate から計算できる。
 - dyadic grid、Markov inequality、union bound、Borel--Cantelli、chaining の順で continuity theorem の核心証明を再構成できる。
 - continuous modification が indistinguishable まで一意になる理由を、有理数の可算稠密性から証明できる。
