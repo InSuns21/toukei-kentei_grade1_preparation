@@ -49,7 +49,7 @@ TSA1--TSA6
 3. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
 4. [STO4：Brown 運動・hitting time・strong Markov property](../STO4/index.md) — 実装済み
 5. [STO5：continuous local martingale・quadratic variation・semimartingale](../STO5/index.md) — 実装済み
-6. STO6：stochastic integral
+6. [STO6：stochastic integral](../STO6/index.md) — 実装済み
 7. STO7：multidimensional Itô calculus・Stratonovich
 8. STO8：local time・Tanaka formula
 9. STO9：SDE の strong solution・存在一意性・局所化
@@ -159,4 +159,6 @@ Phase 2 の [STO5「continuous local martingale・quadratic variation・semimart
 
 STO5 では STO2 の bounded optional sampling を dyadic approximation で連続時間へ持ち上げ、localization を閉じました。finite variation と quadratic variation を対比し、Brownian quadratic variation $[B]_t=t$、continuous local martingale の bracket、covariation、continuous semimartingale 分解の一意性、Lévy characterization まで接続しています。quadratic variation 一般存在の技術的入力だけは continuous-time Doob--Meyer theorem として境界を明示し、STO6 の stochastic integral は逆輸入していません。
 
-現在地は **Phase 2：STO5 完了 → 次は STO6「stochastic integral」** です。
+[STO6「stochastic integral」](../STO6/index.md#thm-sto6-l2-construction) も実装済みです。simple predictable integrand から増分和を定義し、Itô isometry と L2 completion で一般 predictable integrand へ拡張しました。continuous-time Doob L2 inequality、積分の bracket、stopping との交換、localization まで閉じ、一般 p の BDG inequality は標準形と用途を示したうえで、p=2 を章内証明し、一般 p の完全証明は意図的 black box として境界を明記しています。
+
+現在地は **Phase 2：STO5 → STO6 完了 → 次は STO7「multidimensional Itô calculus・Stratonovich」** です。

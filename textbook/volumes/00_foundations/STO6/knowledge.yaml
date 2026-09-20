@@ -1,0 +1,150 @@
+chapter: STO6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - STO5
+  - F0-00D2E
+  - F0-00D3A
+
+concepts:
+  - id: stochastic.simple-predictable-integrand
+    name: simple predictable integrand
+    kind: definition
+    aliases: ["elementary predictable process", "simple predictable process"]
+    introduction: formal
+    introduction_aliases: ["定義（simple predictable integrand）"]
+    requires:
+      - stochastic.predictable-process
+      - stochastic.filtration
+
+  - id: stochastic.simple-stochastic-integral
+    name: simple stochastic integral
+    kind: definition
+    aliases: ["elementary stochastic integral", "simple martingale integral"]
+    introduction: formal
+    introduction_aliases: ["定義（simple stochastic integral）"]
+    requires:
+      - stochastic.simple-predictable-integrand
+      - stochastic.continuous-local-martingale
+
+  - id: stochastic.square-integrable-bracket-compensation
+    name: square-integrable martingaleのbracket compensation
+    kind: lemma
+    aliases: ["square-integrable martingale bracket compensation", "M^2-[M] martingale"]
+    introduction: formal
+    introduction_aliases: ["補題（square-integrable martingale の bracket compensation）"]
+    requires:
+      - stochastic.continuous-local-martingale-qv
+      - stochastic.continuous-bounded-optional-sampling
+
+  - id: stochastic.ito-isometry-simple
+    name: Itô isometry for simple predictable integrands
+    kind: theorem
+    aliases: ["Ito isometry", "Itô isometry", "martingale integral isometry"]
+    introduction: formal
+    introduction_aliases: ["定理（Itô isometry：simple predictable integrand）"]
+    requires:
+      - stochastic.simple-stochastic-integral
+      - stochastic.square-integrable-bracket-compensation
+
+  - id: stochastic.l2-m-integrand
+    name: L2(M) integrand
+    kind: definition
+    aliases: ["square-integrable predictable integrand", "L2 integrand"]
+    introduction: formal
+    introduction_aliases: ["定義（L2(M) integrand）"]
+    requires:
+      - stochastic.simple-predictable-integrand
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.simple-predictable-density
+    name: simple predictable integrandsのL2 density
+    kind: lemma
+    aliases: ["density of simple predictable processes"]
+    introduction: formal
+    introduction_aliases: ["補題（simple predictable integrands の L2 density）"]
+    requires:
+      - stochastic.l2-m-integrand
+
+  - id: stochastic.stochastic-integral-l2
+    name: L2 completionによるstochastic integralの構成
+    kind: theorem
+    aliases: ["L2 stochastic integral", "construction of stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["定理（L2 completion による stochastic integral の構成）"]
+    requires:
+      - stochastic.ito-isometry-simple
+      - stochastic.simple-predictable-density
+
+  - id: stochastic.continuous-doob-l2
+    name: continuous-time Doob L2 maximal inequality
+    kind: theorem
+    aliases: ["continuous Doob L2 inequality", "Doob maximal L2 inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（continuous-time Doob L2 maximal inequality）"]
+    requires:
+      - stochastic.doob-maximal-inequality
+      - stochastic.continuous-local-martingale
+
+  - id: stochastic.stochastic-integral-bracket
+    name: quadratic variation of stochastic integral
+    kind: theorem
+    aliases: ["bracket of stochastic integral", "[H dot M]"]
+    introduction: formal
+    introduction_aliases: ["定理（stochastic integral の quadratic variation）"]
+    requires:
+      - stochastic.stochastic-integral-l2
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.stochastic-integral-stopping
+    name: stoppingとstochastic integralの交換
+    kind: proposition
+    aliases: ["stopping a stochastic integral", "stopped stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["命題（stopping と stochastic integral の交換）"]
+    requires:
+      - stochastic.stochastic-integral-l2
+      - stochastic.stopping-time
+
+  - id: stochastic.locally-square-integrable-integrand
+    name: locally square-integrable integrand
+    kind: definition
+    aliases: ["local L2 integrand", "locally square integrable predictable process"]
+    introduction: formal
+    introduction_aliases: ["定義（locally square-integrable integrand）"]
+    requires:
+      - stochastic.l2-m-integrand
+      - stochastic.stopping-time
+
+  - id: stochastic.local-stochastic-integral
+    name: local stochastic integral
+    kind: theorem
+    aliases: ["localized stochastic integral", "stochastic integral for local L2 integrands"]
+    introduction: formal
+    introduction_aliases: ["定理（local stochastic integral）"]
+    requires:
+      - stochastic.locally-square-integrable-integrand
+      - stochastic.stochastic-integral-stopping
+      - stochastic.stochastic-integral-bracket
+
+  - id: stochastic.bdg-inequality
+    name: Burkholder--Davis--Gundy inequality
+    kind: theorem
+    aliases: ["BDG inequality", "Burkholder-Davis-Gundy"]
+    introduction: formal
+    introduction_aliases: ["定理（Burkholder--Davis--Gundy inequality）"]
+    requires:
+      - stochastic.continuous-local-martingale-qv
+      - stochastic.continuous-doob-l2
+
+  - id: stochastic.deterministic-brownian-integral-gaussian
+    name: deterministic Brownian integralはGaussian
+    kind: proposition
+    aliases: ["Gaussian Wiener integral", "deterministic Brownian stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["命題（deterministic Brownian integral は Gaussian）"]
+    requires:
+      - stochastic.stochastic-integral-l2
+      - stochastic.brownian-motion
+      - stochastic.brownian-quadratic-variation

@@ -1,0 +1,26 @@
+chapter: "STO6"
+terms:
+  - term: simple predictable integrand
+    english: simple predictable integrand
+    meaning: deterministicな時間分割ごとに一定で、各区間の係数がその左端までの情報に関して可測なprocess。
+  - term: stochastic integral
+    english: stochastic integral
+    meaning: simple predictable integrandの増分和から始め、Itô isometryによるL2 completionとlocalizationで構成するmartingale積分。
+  - term: Itô isometry
+    english: Itô isometry
+    meaning: stochastic integralの終端時刻でのL2 normをintegrandのL2(d[M]dP) normへ一致させる等長性。
+  - term: L2(M)
+    english: square-integrable integrands with respect to M
+    meaning: predictable process HでE[int H^2 d[M]]が有限となる同値類。
+  - term: local square integrability
+    english: local square integrability
+    meaning: stopping time列で局所化すると各有限時間区間でE[int H^2 d[M]]が有限になる性質。
+  - term: stochastic integral bracket
+    english: quadratic variation of a stochastic integral
+    meaning: I=H dot Mに対して[I]_t=int_0^t H_s^2 d[M]_sとなる恒等式。
+  - term: Doob L2 inequality
+    english: Doob L2 maximal inequality
+    meaning: square-integrable martingaleのpath supremumの二乗平均を終端値の二乗平均の4倍で抑える不等式。
+  - term: BDG inequality
+    english: Burkholder--Davis--Gundy inequality
+    meaning: continuous local martingaleの最大過程とquadratic variationのp/2乗モーメントを定数倍の範囲で同値に比較する不等式。
