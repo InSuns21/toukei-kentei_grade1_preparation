@@ -1,252 +1,152 @@
-# F0-00R4 Encore IV：Stochastic Processes & Spectral Time Series
+# F0-00R4 Encore IV：Stochastic Analysis & Time Series
 
-この系列は、確率論「それどこから来た？」とEncore IIのFourier解析を、確率過程・時系列解析へ延長する任意の発展補講です。
+このページは、再編後の **Encore IV：確率解析・時系列** の入口です。
 
-通常カリキュラムE2の必須前提にはしません。E2-01〜E2-03は試験向け本編として独立に読めます。
+旧 Encore IV の個別章は backup / migration source として残しますが、現行主線では参照しません。新系列は旧章への prerequisite・proof dependency・forward reference を持たず、現行 DREAM THEATER 規約に従って独立に正本化します。
 
----
-
-## 1. 推奨通読ルート
-
-```text
-F0-00P3  条件付き期待値
-F0-00P4  確率収束・一様可積分性
-F0-00P6  特性関数・中心極限定理
-F0-02C1  Hilbert空間
-F0-00FA2 Fourier変換
-   ↓
-F0-00SP1 filtration・adapted process・stopping time
-   ↓
-F0-00SP2 martingale・optional stopping
-   ↓
-F0-00SP3 Brown運動・Gaussian過程・二次変分
-   ↓
-F0-00SP4 Ito積分・Ito公式・SDE
-   ↓
-F0-00SP5 generator・Kolmogorov・Fokker--Planck
-   ↓
-F0-00TS1 定常過程・Hilbert予測・innovation・Wold
-   ↓
-F0-00TS2 Herglotz・spectral measure・spectral density
-   ↓
-E2-03 AR・MA・ARIMA本編
-   ↓
-F0-00TS3 線形filter・ARMA transfer function・周波数領域
-```
+通常カリキュラムの統計検定1級本編は、この Encore IV を必須前提にはしません。
 
 ---
 
-## 2. filtrationとmartingale
+## 1. 新しい全体像
 
-filtration
+Encore IV は二本立てです。
 
-$$
-\mathcal F_s\subset\mathcal F_t\qquad(s\le t)
-$$
+~~~text
+確率論
+  ↓
+STO1--STO14
+確率過程 → martingale → Brown 運動
+→ quadratic variation → stochastic integral
+→ Itô / Stratonovich → local time
+→ SDE → Girsanov
+→ Markov / generator / martingale problem
+→ martingale representation
+→ Poisson / CTMC → Lévy / jump calculus
 
-を時刻ごとの情報として導入し、adapted process・stopping timeを定義します。
+Hilbert / Fourier / 確率論
+  ↓
+TSA1--TSA6
+定常過程 → Hilbert 予測 → Wold
+→ Herglotz / spectral representation
+→ ARMA / filter
+→ ergodicity / dependent limit
+→ state-space / Kalman filter
+~~~
 
-martingaleは
-
-$$
-E[M_t\mid\mathcal F_s]=M_s
-$$
-
-という条件付き期待値の時間整合性として扱い、optional stoppingでは一様可積分性などの条件がなぜ必要かを確認します。
-
----
-
-## 3. Brown運動からItoへ
-
-Brown運動を連続path・独立定常Gaussian増分で定義し
-
-$$
-\operatorname{Cov}(B_s,B_t)=\min(s,t),
-\qquad
-[B]_t=t
-$$
-
-を導きます。
-
-二次変分が0でないため通常のchain ruleでは足りず、Ito積分・Ito公式が必要になります。
-
-$$
-\begin{aligned}
-df(t,X_t)
-={}&
-\left(
-\partial_tf+b\partial_xf+\frac12\sigma^2\partial_{xx}f
-\right)dt\\
-&+\sigma\partial_xf\,dB_t.
-\end{aligned}
-$$
+新章は完成したものから順にこのページと DREAM THEATER 目次へ公開します。未完成章への空リンクは置きません。
 
 ---
 
-## 4. SDEからPDEへ
+## 2. 確率解析主線 STO
 
-SDEのgenerator
+新主線では、多様体を使わない標準的な大学院確率解析をかなり深く扱います。
 
-$$
-Lf=bf'+\frac12\sigma^2f''
-$$
+予定している中心論点は次です。
 
-からbackward/forward Kolmogorov equation、Fokker--Planck equationへ進みます。
-
-Brown運動では
-
-$$
-L=\frac12\Delta
-$$
-
-となり熱方程式を回収します。
-
-低正則性PDEはEncore IIIのSobolev弱解へ接続します。
-
----
-
-## 5. 時系列をHilbert空間で読む
-
-二次定常過程を $L^2(\Omega)$ のベクトル列として扱い、過去が張る閉部分空間への射影を最良線形予測とします。
-
-$$
-\widehat X_t=P_{\mathcal H_{t-1}}X_t.
-$$
-
-innovationからWold decompositionへ進みます。
+1. STO1：確率過程・filtration・stopping time
+2. STO2：離散時間 martingale・不等式・収束
+3. STO3：Kolmogorov extension・continuity
+4. STO4：Brown 運動・hitting time・strong Markov property
+5. STO5：continuous local martingale・quadratic variation・semimartingale
+6. STO6：stochastic integral
+7. STO7：multidimensional Itô calculus・Stratonovich
+8. STO8：local time・Tanaka formula
+9. STO9：SDE の strong solution・存在一意性・局所化
+10. STO10：weak solution・Girsanov
+11. STO11：Markov process・semigroup・generator・martingale problem
+12. STO12：Brownian martingale representation
+13. STO13：Poisson process・continuous-time Markov chain・random measure
+14. STO14：Lévy process・jump stochastic calculus
 
 ---
 
-## 6. spectral representation
+## 3. 多様体の直前で止める
 
-Herglotz定理から
+Euclidean space 上では Stratonovich calculus まで扱います。
 
-$$
-\gamma(h)
-=
-\int_{-\pi}^{\pi}e^{ih\lambda}\,dF(\lambda)
-$$
+~~~text
+Itô integral
+  ↓
+Itô formula
+  ↓
+Stratonovich integral
+  ↓
+Itô--Stratonovich conversion
+  ↓
+ここまでは Encore IV
 
-というspectral measureを導入します。
+manifold / tangent bundle / connection
+  ↓
+manifold-valued SDE / stochastic development
+  ↓
+幾何学系列完成後の別系列
+~~~
 
-絶対連続な場合だけ
-
-$$
-dF(\lambda)=f(\lambda)d\lambda
-$$
-
-としてspectral densityを持ちます。
-
-white noiseのflat spectrumとdeterministic sinusoidのline spectrumを比較します。
-
----
-
-## 7. ARMAをfilterとして読む
-
-E2-03の
-
-$$
-\phi(B)X_t=\theta(B)\varepsilon_t
-$$
-
-を周波数領域へ移すと
-
-$$
-H(\lambda)
-=
-\frac{\theta(e^{-i\lambda})}{\phi(e^{-i\lambda})}
-$$
-
-で
-
-$$
-\boxed{
-f_X(\lambda)
-=
-\frac{\sigma^2}{2\pi}
-\frac{|\theta(e^{-i\lambda})|^2}
-{|\phi(e^{-i\lambda})|^2}}
-$$
-
-となります。
-
-一階差分のfrequency responseは
-
-$$
-|1-e^{-i\lambda}|^2=4\sin^2(\lambda/2)
-$$
-
-なので、0周波数を除くhigh-pass filterとして読めます。
+したがって「Stratonovich は名前だけ紹介して終了」にはしませんが、座標不変性を本格的に使う stochastic differential geometry は先取りしません。
 
 ---
 
-## 8. Encore IIIとの交点
+## 4. 時系列枝 TSA
 
-```text
-Brown運動 → white noise → Schwartz超関数
-    │
-    └→ SDE → generator → PDE → Sobolev弱解
-```
+時系列は STO 全章完了を必須にはせず、別枝として進めます。
 
-Encore IIIはIVの必須前提ではありませんが、低正則性を掘る場合の受け皿です。
+1. TSA1：定常過程・Hilbert 予測
+2. TSA2：Wold decomposition
+3. TSA3：Herglotz・spectral representation
+4. TSA4：linear filter・ARMA / ARIMA・周波数領域
+5. TSA5：ergodicity・mixing・dependent limit theory
+6. TSA6：state-space・Kalman filter・innovations
 
----
-
-## 9. E2本編との役割分担
-
-E2-01〜E2-03は試験対策本編としてMarkov連鎖、Poisson過程・ランダムウォーク、AR・MA・ARIMAを直接扱います。
-
-- E2：解けるようにする
-- Encore IV：なぜその構造が自然なのかを地下から理解する
-
-という役割分担です。
+統計検定1級本編の AR / MA / ARIMA は試験向け正本として独立に維持し、TSA はその数学的地下構造を扱います。
 
 ---
 
-## 10. 停止線
+## 5. 確率制御・HJB への橋
 
-Encore IVはfiltration、martingale、Brown運動、Ito積分・SDE、generator・Kolmogorov/Fokker--Planck、Hilbert空間予測、Wold、spectral measure、ARMA frequency-domain analysisまでで閉じます。
+Encore IV の STO9 と STO11 まで進むと、
 
-semimartingale一般論、Girsanov、local time、stochastic PDE、一般ergodic theorem、fractional Brownian motion等は必須にしません。
+~~~text
+controlled SDE
+  ↓
+Markov property / generator
+  ↓
+dynamic programming principle
+  ↓
+Hamilton--Jacobi--Bellman equation
+  ↓
+viscosity solution
+~~~
 
-目安は約40時間です。
+へ進む前提が揃います。
 
----
-
-## 11. 次のEncore：SDEを実際に計算する
-
-SP4でSDEまで到達した後、sample path・期待値を計算機上で近似したい場合は
-
-[Encore V：Numerical Analysis, FEM & Monte Carlo](../F0_00R5_EncoreV_Numerical_FEM_MonteCarlo/index.md)
-
-へ進みます。
-
-Encore VではBrown増分からEuler--Maruyamaを構成し、strong/weak convergenceを区別してMonte Carloへ接続します。
-
-Encore IVのスペクトル時系列枝だけが目的なら、Encore Vは読む必要はありません。
+確率制御・HJB・viscosity solution は Encore IV 本体へ詰め込まず、後続の独立系列として構成します。
 
 ---
 
-## 12. 最終的な景色
+## 6. PDE・数値解析との交点
 
-```text
-条件付き期待値
-      ↓
- filtration → martingale → Brown運動 → Ito → SDE → generator → PDE
-                                          │
-                                          └→ Encore V 数値SDE / Monte Carlo
+- SDE の generator から Kolmogorov equation / Fokker--Planck / Feynman--Kac へ進む。
+- Encore III の弱 PDE と「確率表現」の側から再会する。
+- Encore V の Euler--Maruyama / Monte Carlo / MLMC は STO9 以降の数値枝として読む。
+- jump process まで進めば、将来 jump SDE の数値計算へも接続できる。
 
-L2 Hilbert空間
-      ↓
-定常過程の予測 → innovation → Wold → spectral measure → ARMA filter
-```
+---
 
-**Encore IV: Stochastic Processes & Spectral Time Series** はここまでです。
+## 7. 停止線
 
+Encore IV の必須主線では、Malliavin calculus、rough paths、regularity structures、stochastic PDE の本格理論、large deviations の一般論までは要求しません。
 
-### Probabilityからの二つの入口
+これらは多様体を必要としないものもありますが、それぞれ独立した大規模理論だからです。
 
-- martingale・stopping time枝は **P3A 条件付き期待値** から入る。
-- Hilbert予測・Wold枝は **P3B L2射影・最良予測** から入る。
+一方で、local martingale、quadratic variation、local time、Girsanov、martingale representation、Poisson random measure、Lévy process までは主線の射程に入れます。
 
-標準通読では両方読めるが、machine-readable prerequisiteは各枝で必要な方だけにする。
+---
+
+## 8. 現在地
+
+再編計画の正本は **textbook/DREAM_THEATER_ENCORE_IV_STOCHASTIC_ANALYSIS_RESTRUCTURE_PLAN.md** です。
+
+Phase 0 では旧個別章を主線から外し、新 STO / TSA 系列の DAG と公開ルールを固定します。
+
+Phase 0 完了後の最初の実装対象は **STO1「確率過程・filtration・stopping time」** です。
