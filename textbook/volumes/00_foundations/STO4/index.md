@@ -4,7 +4,7 @@
 
 STO3 では、整合的な有限次元分布から確率過程を作り、moment estimate から連続な modification を得るところまで閉じました。
 
-この章では、その二つを最初に本格的に使います。目標は「Brown 運動があると仮定して公式を使う」ことではありません。
+この章では、その二つを最初に本格的に使います。目標は Brown 運動を既知として計算だけを進めることではありません。
 
 $$
 \boxed{
@@ -672,7 +672,7 @@ A_k
 A\cap\{\sigma=k\delta\}
 $$
 
-と置くと、stopping-time sigma-field の定義から
+と置くと、[stopping time までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{k\delta}^B.
@@ -1764,7 +1764,7 @@ $$
 
 と置きます。
 
-stopping-time sigma-field の定義から
+[stopping time までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{s_k}^B.
