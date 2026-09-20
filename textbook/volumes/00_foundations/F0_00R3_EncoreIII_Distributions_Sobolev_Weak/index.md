@@ -154,9 +154,9 @@ $$
 
 PDE5 の Poisson 問題を $H_0^1$ 上の
 
-$
+$$
 a(u,v)=F(v)
-$
+$$
 
 へ移し、$H^{-1}$、bounded / coercive bilinear form、distributional solution と variational weak solution の関係、energy minimization を正本化します。さらに minimizing sequence と GPDE5 の弱コンパクト性、Hilbert norm の弱収束時の norm 評価を用いて、Lax--Milgram を先取りせず Poisson 弱解の存在一意性と安定性まで直接法で閉じます。
 
