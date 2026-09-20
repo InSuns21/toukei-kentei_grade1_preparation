@@ -650,17 +650,39 @@ $$
 
 と置きます。
 
-$\mathcal C$ は $\mathcal A$ を含み、補集合と互いに素な可算和に対して閉じます。例えば $C_n\uparrow C$ なら
+$\mathcal A$-simple functions の $L^2(\mu_M)$ closure を $V$ と書くと、$V$ は vector space です。$\Omega\times(0,T]\in\mathcal A$ なので定数関数 $1$ は $V$ に属します。
 
-$$
-\|1_C-1_{C_n}\|_{L^2(\mu_M)}^2
+$C\in\mathcal C$ なら $1_C\in V$ なので
+
+$
+1_{C^c}=1-1_C\in V.
+$
+
+従って $C^c\in\mathcal C$ です。
+
+次に $C_1,C_2,\ldots\in\mathcal C$ が互いに素とします。有限和
+
+$
+U_m=\bigcup_{j=1}^mC_j
+$
+
+について
+
+$
+1_{U_m}=\sum_{j=1}^m1_{C_j}\in V,
+$
+
+よって $U_m\in\mathcal C$ です。$U=\bigcup_{j\ge1}C_j$ と置くと、有限測度性と continuity from below から
+
+$
+\|1_U-1_{U_m}\|_{L^2(\mu_M)}^2
 =
-\mu_M(C\setminus C_n)\to0
-$$
+\mu_M(U\setminus U_m)\to0.
+$
 
-です。
+$V$ は閉空間なので $1_U\in V$、従って $U\in\mathcal C$ です。
 
-$\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じるので Dynkin 族です。一方 $\mathcal A$ は algebra なので π-system でもあり、
+以上より $\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じる Dynkin 族です。一方 $\mathcal A$ は algebra なので π-system でもあり、
 
 $
 \sigma(\mathcal A)=\mathcal P.
@@ -1349,15 +1371,36 @@ global $L^2$ 条件は便利ですが、SDE では係数が bounded でないこ
 > $$
 >
 > が成り立つとき、$H$ を $M$ に関して **locally square-integrable** という。
->
-> 同値に、stopping time 列 $\tau_n\uparrow\infty$ を選び、各 $n,T$ について
->
-> $$
-> E\int_0^{T\wedge\tau_n}H_s^2\,d[M]_s<\infty
-> $$
->
-> とできる。
 <!-- formal-statement-end -->
+
+この pathwise 条件から、積分構成に必要な $L^2$ stopping sequence は作れます。実際
+
+$
+A_t:=\int_0^tH_s^2\,d[M]_s
+$
+
+は continuous increasing process なので、
+
+$
+\beta_n
+=
+\inf\{t\ge0:A_t\ge n\}\wedge n
+$
+
+と置けば $\beta_n\uparrow\infty$ almost surely かつ
+
+$
+A_{T\wedge\beta_n}\le n
+$
+
+です。従って
+
+$
+E\int_0^{T\wedge\beta_n}H_s^2\,d[M]_s
+\le n.
+$
+
+逆に increasing stopping times $\beta_n\uparrow\infty$ があり、各 $n,T$ で stopped energy の期待値が有限なら、stopped energy 自体は almost surely 有限です。固定した $T$ では almost surely 十分大きい $n$ で $\beta_n>T$ となるので、元の $A_T$ も almost surely 有限です。
 
 <!-- definition-example-start: def-sto6-local-l2 -->
 ### 直接例：$H_t=e^{B_t^2}$ は局所化すれば積分できる
