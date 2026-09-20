@@ -352,7 +352,7 @@ $$
 - $B_0=0$ almost surely,
 - disjoint increments が jointly Gaussian かつ covariance 0 なので独立,
 - $B_t-B_s\sim N(0,t-s)$,
-- continuous modification を選んだので path が almost surely 連続,
+- continuous modification を選んだので標本路が almost surely 連続,
 
 を全て満たします。
 
@@ -1205,15 +1205,9 @@ $$
 
 従って各 $n\in\mathbb N$ に対して level $n$ と $-n$ を hit する event は確率 1 です。
 
-可算交叉を取れば、almost surely 全ての整数 $\pm n$ を hit します。従って
+可算交叉を取れば、almost surely 全ての整数 $\pm n$ を hit します。従って標本路は上にも下にも有界ではありません。
 
-$$
-\limsup_{t\to\infty}B_t=+\infty,
-\qquad
-\liminf_{t\to\infty}B_t=-\infty.
-$$
-
-連続な標本路 は $-n$ から $n$ へ移る途中で任意の $x\in[-n,n]$ を通るので、almost surely 全ての実数 level を hit します。
+任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、almost surely 全ての実数 level を hit します。
 
 次に return を示します。
 
