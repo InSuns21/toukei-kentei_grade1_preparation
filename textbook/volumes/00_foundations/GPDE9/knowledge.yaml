@@ -41,7 +41,7 @@ concepts:
     introduction_aliases: ["補題（difference quotient criterion）"]
     requires:
       - sobolev.discrete-integration-by-parts
-      - analysis.hilbert-bounded-weak-subsequence
+      - functional-analysis.bounded-hilbert-sequence-weak-subsequence
       - distribution.weak-derivative
 
   - id: pde.poisson-caccioppoli
