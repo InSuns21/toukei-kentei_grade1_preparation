@@ -230,15 +230,7 @@ $$
 E[M_\tau\mid\mathcal F_\sigma]=M_\sigma.
 $$
 
-次に fixed $0\le s\le t$ と $A\in\mathcal F_s$ を取ります。
-
-$$
-\sigma=s\wedge\tau,
-\qquad
-\rho=t\wedge\tau
-$$
-
-とすると $\sigma\le\rho$ です。
+次に fixed $0\le s\le t$ と $A\in\mathcal F_s$ を取ります。事象を
 
 $$
 A_1=A\cap\{\tau\le s\},
@@ -246,11 +238,39 @@ A_1=A\cap\{\tau\le s\},
 A_2=A\cap\{\tau>s\}
 $$
 
-はいずれも $\mathcal F_\sigma$ に属します。例えば $A_2$ について、$u<s$ なら
-$A_2\cap\{\sigma\le u\}=\varnothing$、$u\ge s$ なら
-$A_2\cap\{\sigma\le u\}=A_2\in\mathcal F_s\subset\mathcal F_u$ です。$A_1$ も同様に stopping-time sigma-field の定義から確認できます。
+へ分けます。
 
-bounded optional sampling を $(\sigma,\rho)$ に適用し、$A_1,A_2$ 上の等式を足すと
+$A_1$ 上では
+
+$$
+t\wedge\tau=s\wedge\tau=\tau
+$$
+
+なので、対応する期待値は最初から一致します。
+
+$A_2$ については
+
+$$
+\rho=(t\wedge\tau)\vee s
+$$
+
+と置きます。$\rho$ は bounded stopping time で $s\le\rho$ ですから、今証明した bounded optional sampling を deterministic stopping time $s$ と $\rho$ に適用して
+
+$$
+E[M_\rho\mid\mathcal F_s]=M_s
+$$
+
+を得ます。
+
+$A_2\in\mathcal F_s$ であり、$A_2$ 上では $\rho=t\wedge\tau$ かつ $s\wedge\tau=s$ なので
+
+$$
+E[1_{A_2}M_{t\wedge\tau}]
+=
+E[1_{A_2}M_{s\wedge\tau}].
+$$
+
+$A_1$ 上の自明な等式と足し合わせると
 
 $$
 E[1_A M_{t\wedge\tau}]
@@ -258,7 +278,7 @@ E[1_A M_{t\wedge\tau}]
 E[1_A M_{s\wedge\tau}].
 $$
 
-$A\in\mathcal F_s$ は任意なので
+$A\in\mathcal F_s$ は任意だから
 
 $$
 E[M_{t\wedge\tau}\mid\mathcal F_s]
@@ -1102,15 +1122,47 @@ $$
 <!-- proof-start -->
 ### 証明
 
-もし正の確率で Brownian path が $[0,T]$ 上 finite variation なら、その event 上で二次変分は 0 でなければなりません。
-
-しかし [Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
+dyadic partition $\pi_n$ を取り、
 
 $$
-[B]_T=T>0
+Q_n=Q_T^{\pi_n}(B)
 $$
 
-almost surely です。矛盾です。
+と置きます。[Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
+
+$$
+Q_n\to T
+$$
+
+in probability です。従って subsequence $(n_j)$ を選べば
+
+$$
+Q_{n_j}\to T
+$$
+
+almost surely とできます。
+
+一方、event
+
+$$
+E=\{V_T(B)<\infty\}
+$$
+
+上では、[finite-variation process の quadratic variation は 0](#prop-sto5-finite-variation-zero-qv) の pathwise estimate により、mesh が 0 へ行く任意の partition 列について
+
+$$
+Q_n\to0
+$$
+
+です。従って $E$ 上では同じ subsequence $Q_{n_j}$ が 0 と $T>0$ の両方へ収束することになります。
+
+これは $Q_{n_j}\to T$ が成り立つ probability-one event 上では不可能なので
+
+$$
+P(E)=0.
+$$
+
+従って Brownian path は almost surely $[0,T]$ 上 finite variation ではありません。
 <!-- proof-end -->
 
 連続なのに finite variation ではない。ここが通常の Riemann--Stieltjes calculus だけでは Brownian motion を扱えない理由です。
@@ -1341,7 +1393,56 @@ $$
 
 ここで $\eta_\pi\to0$ in probability です。括弧内は quadratic variation convergence により bounded in probability なので、remainder は 0 へ行きます。
 
-$X^{(n)}$ は bounded で $A_T^{(n)}\le T$ です。上の和を必要なら二乗和が所定の level を超える時刻でさらに止めると一様可積分な族になり、まず停止した等式で期待値へ極限を移し、その level を $\infty$ へ送れます。従って
+ここで「in probability だから期待値へそのまま移す」とはしません。$L^1$ 制御を確認します。
+
+$X^{(n)}$ は bounded で $A_T^{(n)}\le T$ です。また
+
+$$
+(X_t^{(n)})^2-A_t^{(n)}
+$$
+
+は [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により local martingale で、$[0,T]$ 上 bounded なので真の martingale です。
+
+従って deterministic partition $u=t_0<\cdots<t_m=v$ に対して martingale increments の直交性を使うと
+
+$$
+\begin{aligned}
+E\left[
+\sum_{k=1}^m(\Delta_kX)^2
+\right]
+&=
+E[(X_v^{(n)})^2-(X_u^{(n)})^2]\\
+&=
+E[A_v^{(n)}-A_u^{(n)}].
+\end{aligned}
+$$
+
+一方、quadratic variation theorem から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+
+したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は bounded なので、先ほどの finite-block approximation をそのまま $L^1$ で行えて
+
+$$
+E\left|
+\sum_kF_{xx}(\cdots)
+\{(\Delta_kX)^2-\Delta_kA\}
+\right|
+\to0.
+$$
+
+さらに full interval の realized quadratic variation sum は bounded random variable $A_t^{(n)}-A_s^{(n)}\le T$ へ $L^1$ 収束するので、一様可積分です。Taylor remainder の評価
+
+$$
+\left|\sum_kr_k\right|
+\le
+\eta_\pi
+\left(
+\sum_k(\Delta_kX)^2+A_T^{(n)}
+\right)
+$$
+
+で $\eta_\pi\to0$ in probability、かつ $\eta_\pi$ は compact set 上の導関数の modulus of continuity で一様に bounded です。従って右辺も $L^1$ で 0 へ行きます。
+
+以上を各 partition の Taylor identity の期待値へ入れます。第一和の期待値は各段階でちょうど 0、残り二項は $L^1$ で 0 へ行くため
 
 $$
 E[1_C Z_t^{(n)}]
@@ -1870,91 +1971,111 @@ $$
 従って
 
 $$
-F_t+\frac12F_{xx}
+F_t+\frac12F_{xx}=0.
+$$
+
+2. ここで $M$ は local martingale なので、いきなり increment の conditional mean を 0 としてはいけません。まず localizing sequence $(\rho_n)$ と exit time を合わせて
+
+$$
+\sigma_n
 =
-\frac12\theta^2F
--
-\frac12\theta^2F
-=
-0.
+\rho_n
+\wedge
+\inf\{r\ge0:|M_r|\ge n\}
+\wedge n
 $$
 
-2. $[s,t]$ を $t_0<\cdots<t_m$ に分割し、
+と置き、
 
 $$
-\Delta_kM=M_{t_k}-M_{t_{k-1}}
+X_r=M_{r\wedge\sigma_n},
+\qquad
+A_r=r\wedge\sigma_n
 $$
 
-とします。Taylor 展開を足すと主項は
+とします。すると $X$ は bounded martingale で、
 
 $$
-\sum_kF_x(t_{k-1},M_{t_{k-1}})\Delta_kM
-$$
-
-と
-
-$$
-\sum_kF_t(t_{k-1},M_{t_{k-1}})\Delta_kt
-+
-\frac12
-\sum_kF_{xx}(t_{k-1},M_{t_{k-1}})(\Delta_kM)^2
+[X]_r=A_r
 $$
 
 です。
 
-第一和の係数は過去情報 $\mathcal F_{t_{k-1}}$ で決まり、$M$ は martingale なので各 increment の conditional mean は 0。従って conditional expectation では第一和が消えます。
-
-quadratic variation から
+$F(a,x)=\exp(i\theta x+\theta^2a/2)$ と見て、$[s,t]$ の deterministic partition 上で Taylor 展開すると
 
 $$
-\sum_k(\Delta_kM)^2
-\to t-s.
+\begin{aligned}
+F(A_t,X_t)-F(A_s,X_s)
+&=
+\sum_kF_x(A_{t_{k-1}},X_{t_{k-1}})\Delta_kX\\
+&\quad+
+\frac12
+\sum_kF_{xx}(A_{t_{k-1}},X_{t_{k-1}})
+\{(\Delta_kX)^2-\Delta_kA\}
++
+R_\pi.
+\end{aligned}
 $$
 
-連続な係数を付けても Riemann sum 型に
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で bounded なので、conditional expectation では各 martingale increment が消えます。
+
+また
 
 $$
-\sum_kF_{xx}(t_{k-1},M_{t_{k-1}})(\Delta_kM)^2
+\sum_k(\Delta_kX)^2
 \to
-\int_s^tF_{xx}(r,M_r)\,dr.
+A_t-A_s
 $$
 
-一方
+は quadratic variation の定義です。係数 $F_{xx}$ を有限個の coarse blocks 上でほぼ一定に固定すれば、weighted quadratic-variation error も 0 へ行きます。
+
+remainder $R_\pi$ は、最大 increment が 0 へ行き、二乗増分和が有限極限を持つことから 0 へ行きます。bounded localization の下では本文と同じ $L^1$ argument で期待値へ極限を移せます。
+
+したがって
 
 $$
-\sum_kF_t(t_{k-1},M_{t_{k-1}})\Delta_kt
-\to
-\int_s^tF_t(r,M_r)\,dr.
-$$
-
-1. の恒等式により二つは相殺します。remainder は最大 increment が 0 へ行き、二乗増分和が有限極限を持つため消えます。
-
-3. よって
-
-$$
-E[F(t,M_t)\mid\mathcal F_s]
+Z_r^{(n)}
 =
-F(s,M_s).
+\exp\left(
+i\theta M_{r\wedge\sigma_n}
++
+\frac12\theta^2(r\wedge\sigma_n)
+\right)
 $$
 
-定義を代入すると
+は martingale です。
+
+3. $\sigma_n\uparrow\infty$ almost surely で、固定 $T$ 上
 
 $$
-e^{\theta^2t/2}
-E[e^{i\theta M_t}\mid\mathcal F_s]
+|Z_r^{(n)}|
+\le e^{\theta^2T/2}
+$$
+
+です。dominated convergence で localization を外すと
+
+$$
+Z_r
+=
+\exp\left(
+i\theta M_r+\frac12\theta^2r
+\right)
+$$
+
+も martingale です。
+
+従って $0\le s<t$ について
+
+$$
+E\left[
+e^{i\theta M_t+\theta^2t/2}
+\mid\mathcal F_s
+\right]
 =
 e^{i\theta M_s+\theta^2s/2}.
 $$
 
-従って
-
-$$
-E[e^{i\theta M_t}\mid\mathcal F_s]
-=
-e^{-\theta^2(t-s)/2}e^{i\theta M_s},
-$$
-
-両辺に $e^{-i\theta M_s}$ を掛けて
+整理して
 
 $$
 E[e^{i\theta(M_t-M_s)}\mid\mathcal F_s]
@@ -1962,7 +2083,7 @@ E[e^{i\theta(M_t-M_s)}\mid\mathcal F_s]
 e^{-\theta^2(t-s)/2}.
 $$
 
-右辺は $N(0,t-s)$ の characteristic function で、$\mathcal F_s$ に依存しません。従って increment は $N(0,t-s)$ に従い、$\mathcal F_s$ と独立です。
+右辺は $N(0,t-s)$ の characteristic function で、$\mathcal F_s$ に依存しません。従って $M_t-M_s$ は $N(0,t-s)$ に従い、$\mathcal F_s$ と独立です。
 
 $M_0=0$ と標本路の連続性も仮定されているので、$M$ は standard Brownian motion です。
 <!-- solution-end -->
