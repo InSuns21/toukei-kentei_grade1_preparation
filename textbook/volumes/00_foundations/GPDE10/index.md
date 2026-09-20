@@ -156,7 +156,7 @@ $$
 
 と書きます。
 
-$V$ の norm は GPDE4 の Poincare 不等式を使って
+$V$ の norm は [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使って
 
 $$
 \|v\|_V:=\|\nabla v\|_{L^2(\Omega)}
@@ -1046,7 +1046,7 @@ a(u_m,u_m)
 \alpha\|u_m\|_V^2.
 $$
 
-また双対 norm の定義から
+また[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
@@ -2486,7 +2486,7 @@ $$
 
 を入れます。
 
-GPDE4 の Poincare 不等式から
+[Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 \|v\|_2
@@ -2526,7 +2526,7 @@ $$
 
 よって $F_h$ は $V$ 上の連続線形汎関数です。
 
-双対 norm の定義から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \begin{aligned}
@@ -2993,7 +2993,7 @@ $$
 |\langle f,u_m\rangle|.
 $$
 
-双対 norm の定義から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |\langle f,u_m\rangle|
