@@ -10,7 +10,7 @@ $$
 
 を数学的対象として構成します。
 
-普通の Riemann 積分のように「各標本路について微小量を足す」と考えるのではありません。Brown 運動の標本路は almost surely finite variation ではないため、pathwise な Riemann--Stieltjes 積分を主役にはできないからです。
+普通の Riemann 積分のように「各標本路について微小量を足す」と考えるのではありません。Brown 運動の標本路は almost surely finite variation ではないため、標本路ごとの な Riemann--Stieltjes 積分を主役にはできないからです。
 
 代わりに、
 
@@ -33,7 +33,7 @@ $$
 この構成で最も大切なのは二点です。
 
 1. 係数は未来の increment を見ないこと。
-2. 積分の誤差を pathwise variation ではなく二乗平均と bracket で測ること。
+2. 積分の誤差を 標本路ごとの variation ではなく二乗平均と bracket で測ること。
 
 STO7 の Itô formula は、この章で積分が完成して初めて厳密に書けるようになります。
 
@@ -1298,7 +1298,7 @@ E\int_0^T
 \end{aligned}
 $$
 
-bounded simple $H$ なので、右辺は $[M]$ の continuous path と $\tau_n\downarrow\tau$ から 0 へ行きます。必要なら $[M]_T$ を level で止めて dominated convergence を使い、その後 monotone convergence で停止を外せます。
+bounded simple $H$ なので、右辺は $[M]$ の 連続標本路 と $\tau_n\downarrow\tau$ から 0 へ行きます。必要なら $[M]_T$ を level で止めて dominated convergence を使い、その後 monotone convergence で停止を外せます。
 
 従って simple $H$ について
 
@@ -1379,7 +1379,7 @@ global $L^2$ 条件は便利ですが、SDE では係数が bounded でないこ
 > が成り立つとき、$H$ を $M$ に関して **locally square-integrable** という。
 <!-- formal-statement-end -->
 
-この pathwise 条件から、積分構成に必要な $L^2$ stopping sequence は作れます。実際
+この 標本路ごとの 条件から、積分構成に必要な $L^2$ stopping sequence は作れます。実際
 
 $$
 A_t:=\int_0^tH_s^2\,d[M]_s
@@ -1748,7 +1748,7 @@ random integrand のとき、積分は一般には Gaussian ではありませ�
 
 ---
 
-## 13. BDG inequality：path の大きさと bracket の大きさ
+## 13. BDG inequality：標本路の大きさと bracket の大きさ
 
 Doob $L^2$ inequality は終端値を通して 標本路 supremum を抑えました。BDG inequality はさらに直接 bracket と比較します。
 
@@ -1876,7 +1876,7 @@ $$
 \sum_k|B_{t_{k+1}}-B_{t_k}|.
 $$
 
-右辺は非負で、平均 0 の martingale increment sum ではありません。さらに partition を細かくすると Brownian path の infinite variation が顔を出します。
+右辺は非負で、平均 0 の martingale increment sum ではありません。さらに partition を細かくすると Brownian 標本路 の infinite variation が顔を出します。
 
 つまり predictability は単なる technical convention ではなく、
 
@@ -2525,7 +2525,7 @@ $$
 - bracket は $\int H^2\,d[M]$
 - stopping と integral が交換できる
 - localization で local martingale まで拡張できる
-- BDG により higher moment の path estimate へ進める
+- BDG により higher moment の 標本路 estimate へ進める
 
 という構造が一本につながりました。
 
