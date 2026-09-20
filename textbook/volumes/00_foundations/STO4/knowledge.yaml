@@ -17,7 +17,7 @@ concepts:
   - id: stochastic.brownian-motion
     name: standard Brownian motion
     kind: definition
-    aliases: ["Brownian motion", "standard Brownian motion", "Brown運動", "標準Brown運動"]
+    aliases: ["標準Brown運動"]
     introduction: formal
     introduction_aliases: ["定義（standard Brownian motion）"]
     requires:
@@ -78,7 +78,7 @@ concepts:
   - id: stochastic.brownian-hitting-time
     name: Brownian hitting time
     kind: definition
-    aliases: ["Brownian hitting time", "first hitting time", "Brown運動の到達時刻"]
+    aliases: ["Brownian hitting time", "Brown運動の到達時刻"]
     introduction: formal
     introduction_aliases: ["定義（Brownian hitting time）"]
     requires:
