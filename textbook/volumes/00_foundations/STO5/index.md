@@ -138,6 +138,115 @@ $$
 から従います。usual augmentation で追加される null set は条件付き期待値の almost-sure identity を変えません。
 <!-- proof-end -->
 
+<a id="thm-sto5-bounded-optional-sampling"></a>
+
+<!-- formal-statement-start -->
+> **定理（bounded stopping による continuous martingale の停止）**  
+> $M$ を連続標本路を持つ continuous-time martingale とし、$\sigma\le\tau$ を有界な stopping time とする。このとき
+
+$
+E[M_\tau\mid\mathcal F_\sigma]=M_\sigma
+$
+
+> が almost surely 成り立つ。特に任意の有界 stopping time $\tau$ に対し、stopped process $M^\tau$ は continuous-time martingale である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+STO2 の bounded optional sampling は離散時間の定理でした。ここでは stopping time を右側 dyadic grid へ丸め、各 grid 上で STO2 を適用し、最後に path continuity と一様可積分性で極限へ戻します。
+
+<!-- proof-start -->
+### 証明
+
+$\sigma,\tau\le T$ almost surely とします。$\delta_n=2^{-n}$ と置き、
+
+$
+\sigma_n=\delta_n\left\lceil\frac{\sigma}{\delta_n}\right\rceil,
+\qquad
+\tau_n=\delta_n\left\lceil\frac{\tau}{\delta_n}\right\rceil
+$
+
+と定めます。すると $\sigma_n,\tau_n$ は dyadic grid に値を取る stopping time で、
+
+$
+\sigma_n\le\tau_n,
+\qquad
+\sigma_n\downarrow\sigma,
+\qquad
+\tau_n\downarrow\tau.
+$
+
+整数 $R>T+1$ を固定します。離散時間 process
+
+$
+M^{(n)}_k=M_{k\delta_n}
+$
+
+を $0\le k\le R/\delta_n$ で見ると、これは martingale です。STO2 の bounded optional sampling を grid-valued stopping times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
+
+$
+E[1_A M_{\tau_n}]
+=
+E[1_A M_{\sigma_n}]
+$
+
+を得ます。
+
+path continuity から
+
+$
+M_{\tau_n}\to M_\tau,
+\qquad
+M_{\sigma_n}\to M_\sigma
+$
+
+almost surely です。
+
+さらに同じ離散時間 optional sampling を terminal time $R$ まで使えば
+
+$
+M_{\tau_n}
+=
+E[M_R\mid\mathcal F_{\tau_n}],
+\qquad
+M_{\sigma_n}
+=
+E[M_R\mid\mathcal F_{\sigma_n}].
+$
+
+固定した integrable random variable $M_R$ の conditional expectations の族は一様可積分なので、上の almost-sure convergence は $L^1$ convergence へ強化されます。従って $n\to\infty$ として
+
+$
+E[1_A M_\tau]
+=
+E[1_A M_\sigma].
+$
+
+$A\in\mathcal F_\sigma$ は任意だから
+
+$
+E[M_\tau\mid\mathcal F_\sigma]=M_\sigma.
+$
+
+最後に固定 $0\le s\le t$ に対して
+
+$
+\sigma=s\wedge\tau,
+\qquad
+\rho=t\wedge\tau
+$
+
+を適用すれば
+
+$
+E[M_{t\wedge\tau}\mid\mathcal F_s]
+=
+M_{s\wedge\tau},
+$
+
+すなわち $M^\tau$ は martingale です。
+<!-- proof-end -->
+
 ---
 
 ## 2. process の極限を「有限時間区間上で一様に」見る
@@ -257,18 +366,19 @@ $$
 
 と書きます。
 
-process $X$ に対する二次変分和を時刻 $t$ まで
+process $X$ に対する二次変分和を、分割点まで完成した increment の step process として
 
-$$
+$
 Q_t^{\pi}(X)
 =
-\sum_k
+\sum_{k:\,t_k\le t}
 \left(
-X_{t_k\wedge t}-X_{t_{k-1}\wedge t}
-\right)^2
-$$
+X_{t_k}-X_{t_{k-1}}
+\right)^2,
+\qquad 0\le t\le T
+$
 
-とします。
+とします。$t$ が分割点の間にあるとき最後の未完成区間は足しません。この定義なら $Q^\pi(X)$ は $t$ について増加します。continuous $X$ では、最後の未完成 increment を含める流儀との差は mesh $\to0$ で一様に消えます。
 
 <a id="def-sto5-quadratic-variation"></a>
 
@@ -1023,156 +1133,238 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず localizing sequence により有限時間区間 $[0,T]$ で $M$ を bounded martingale に止め、最後に localization を外します。以下ではその stopped process を再び $M$ と書きます。
+$\theta\in\mathbb R$ を固定します。local martingale を直接 bounded martingale と呼び替えるのではなく、停止後の bracket も同時に追います。
 
-$\theta\in\mathbb R$ を固定し
+#### Step 1：bounded martingale へ localization する
+
+元の localizing sequence と exit time を minimum で合わせ、
 
 $$
-F(t,x)
+\sigma_n
+=
+\rho_n
+\wedge
+\inf\{t\ge0:|M_t|\ge n\}
+\wedge n
+$$
+
+と取ります。ここで $(\rho_n)$ は $M^{\rho_n}$ を真の martingale にする localizing sequence です。[bounded stopping theorem](#thm-sto5-bounded-optional-sampling) により $M^{\sigma_n}$ も bounded martingale です。
+
+quadratic variation の stopping property と仮定 $[M]_t=t$ から
+
+$$
+[M^{\sigma_n}]_t
+=
+[M]_{t\wedge\sigma_n}
+=
+t\wedge\sigma_n.
+$$
+
+ここで
+
+$$
+A_t^{(n)}=t\wedge\sigma_n,
+\qquad
+X_t^{(n)}=M_{t\wedge\sigma_n}
+$$
+
+と書きます。
+
+#### Step 2：停止した exponential process を作る
+
+$$
+F(a,x)
 =
 \exp\left(
-i\theta x+\frac12\theta^2 t
+i\theta x+\frac12\theta^2a
 \right)
 $$
 
-と置きます。
+と置き、
 
-$0\le s<t\le T$ の分割
+$$
+Z_t^{(n)}
+=
+F(A_t^{(n)},X_t^{(n)})
+$$
+
+を考えます。$0\le t\le T$ なら
+
+$$
+|Z_t^{(n)}|
+=
+\exp\left(\frac12\theta^2A_t^{(n)}\right)
+\le
+\exp\left(\frac12\theta^2T\right),
+$$
+
+なので $Z^{(n)}$ は一様に bounded です。
+
+$0\le s<t\le T$ を deterministic partition
 
 $$
 s=t_0<t_1<\cdots<t_m=t
 $$
 
-を取り、
+で細分し、
 
 $$
-\Delta_kM=M_{t_k}-M_{t_{k-1}},
+\Delta_kX=X_{t_k}^{(n)}-X_{t_{k-1}}^{(n)},
 \qquad
-\Delta_kt=t_k-t_{k-1}
+\Delta_kA=A_{t_k}^{(n)}-A_{t_{k-1}}^{(n)}
 $$
 
-とします。
+と書きます。
 
-二変数 Taylor 展開から
+二変数 Taylor 展開を各区間へ適用すると
 
 $$
 \begin{aligned}
-F(t_k,M_{t_k})-F(t_{k-1},M_{t_{k-1}})
+\Delta_kF
 &=
-F_t(t_{k-1},M_{t_{k-1}})\Delta_kt\\
+F_a(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})\Delta_kA\\
 &\quad+
-F_x(t_{k-1},M_{t_{k-1}})\Delta_kM\\
+F_x(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})\Delta_kX\\
 &\quad+
 \frac12
-F_{xx}(t_{k-1},M_{t_{k-1}})
-(\Delta_kM)^2
+F_{xx}(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})
+(\Delta_kX)^2
 +r_k.
 \end{aligned}
 $$
 
-$F$ の導関数は compact time interval 上、$x$ 方向には絶対値が $e^{\theta^2T/2}$ 倍の定数で抑えられます。
-
-さらに
+ここで
 
 $$
-F_t=\frac12\theta^2F,
+F_a=\frac12\theta^2F,
 \qquad
-F_{xx}=-\theta^2F
+F_{xx}=-\theta^2F,
 $$
 
-なので
+したがって
 
 $$
-F_t+\frac12F_{xx}=0.
+F_a+\frac12F_{xx}=0.
 $$
 
-従って全区間で足すと
+全区間を足すと
 
 $$
 \begin{aligned}
-F(t,M_t)-F(s,M_s)
+Z_t^{(n)}-Z_s^{(n)}
 &=
-\sum_k F_x(t_{k-1},M_{t_{k-1}})\Delta_kM\\
+\sum_kF_x(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})\Delta_kX\\
 &\quad+
 \frac12
-\sum_k
-F_{xx}(t_{k-1},M_{t_{k-1}})
-\{(\Delta_kM)^2-\Delta_kt\}\\
+\sum_kF_{xx}(A_{t_{k-1}}^{(n)},X_{t_{k-1}}^{(n)})
+\{(\Delta_kX)^2-\Delta_kA\}\\
 &\quad+
 \sum_kr_k.
 \end{aligned}
 $$
 
-第一項は各係数が $\mathcal F_{t_{k-1}}$-可測で bounded なので、$A\in\mathcal F_s$ に対し
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で bounded です。$X^{(n)}$ は martingale なので、任意の $C\in\mathcal F_s$ に対し
 
 $$
 E\left[
-1_A
-\sum_k
-F_x(t_{k-1},M_{t_{k-1}})\Delta_kM
-\right]
-=
-0.
+1_C
+\sum_kF_x(\cdots)\Delta_kX
+\right]=0.
 $$
 
-次に $[M]_u=u$ と quadratic variation theorem から
+一方、
 
 $$
-\sum_k(\Delta_kM)^2
-\to t-s
+[X^{(n)}]=A^{(n)}
 $$
 
-in probability です。係数
-$F_{xx}(r,M_r)$ は連続なので、時間をさらに粗い有限 block に分けて係数を block 左端で固定し、各 block の quadratic variation を使った後、一様連続性で block 幅を 0 へ送ると
+なので quadratic variation theorem により、各 coarse block $[u,v]$ で
 
 $$
-\sum_k
-F_{xx}(t_{k-1},M_{t_{k-1}})
-\{(\Delta_kM)^2-\Delta_kt\}
+\sum_{u<t_k\le v}(\Delta_kX)^2
+\longrightarrow
+A_v^{(n)}-A_u^{(n)}
+$$
+
+in probability です。係数 $F_{xx}$ は $[0,T]\times[-n,n]$ 上一様連続かつ bounded なので、時間区間を先に有限個の coarse blocks へ分け、各 block の左端で係数を固定して上の収束を使い、その後 coarse mesh を 0 へ送ることで
+
+$$
+\sum_kF_{xx}(\cdots)
+\{(\Delta_kX)^2-\Delta_kA\}
 \to0
 $$
 
 in probability を得ます。
 
-Taylor remainder は、compact 上の導関数の一様連続性から
+Taylor remainder についても、$F$ の二階導関数の一様連続性と $X^{(n)},A^{(n)}$ の連続性から
 
 $$
 \left|\sum_kr_k\right|
 \le
 \eta_\pi
 \left(
-\sum_k(\Delta_kM)^2+(t-s)
+\sum_k(\Delta_kX)^2+A_T^{(n)}
+\right),
+$$
+
+ここで $\eta_\pi\to0$ in probability です。括弧内は quadratic variation convergence により bounded in probability なので、remainder は 0 へ行きます。
+
+$X^{(n)}$ は bounded で $A_T^{(n)}\le T$ です。上の和を必要なら二乗和が所定の level を超える時刻でさらに止めると一様可積分な族になり、まず停止した等式で期待値へ極限を移し、その level を $\infty$ へ送れます。従って
+
+$$
+E[1_C Z_t^{(n)}]
+=
+E[1_C Z_s^{(n)}]
+$$
+
+が全ての $C\in\mathcal F_s$ で成り立ち、$Z^{(n)}$ は martingale です。
+
+#### Step 3：localization を外す
+
+$\sigma_n\uparrow\infty$ almost surely なので、各固定 $t$ について
+
+$$
+A_t^{(n)}=t\wedge\sigma_n\to t,
+\qquad
+X_t^{(n)}=M_{t\wedge\sigma_n}\to M_t
+$$
+
+almost surely です。従って
+
+$$
+Z_t^{(n)}
+\to
+Z_t
+:=
+\exp\left(
+i\theta M_t+\frac12\theta^2t
 \right)
 $$
 
-と評価でき、$\eta_\pi\to0$ in probability です。quadratic variation sum は $t-s$ へ収束するので remainder も 0 へ行きます。
+almost surely。
 
-bounded localization の下ではこれらの量を $L^1$ でも極限へ移せるため、
+また $0\le t\le T$ では
 
 $$
-E[1_AF(t,M_t)]
+|Z_t^{(n)}|
+\le
+e^{\theta^2T/2},
+$$
+
+なので dominated convergence により martingale identity を極限へ移せます。従って $Z$ も martingale です。
+
+よって $0\le s<t$ に対し
+
+$$
+E\left[
+e^{i\theta M_t+\theta^2t/2}
+\mid\mathcal F_s
+\right]
 =
-E[1_AF(s,M_s)]
+e^{i\theta M_s+\theta^2s/2}.
 $$
 
-を得ます。従って
-
-$$
-E[F(t,M_t)\mid\mathcal F_s]
-=
-F(s,M_s).
-$$
-
-$F$ を代入し整理すると
-
-$$
-E[e^{i\theta M_t}\mid\mathcal F_s]
-=
-e^{-\theta^2(t-s)/2}
-e^{i\theta M_s},
-$$
-
-従って
+整理すると
 
 $$
 E\left[
@@ -1183,7 +1375,7 @@ e^{i\theta(M_t-M_s)}
 e^{-\theta^2(t-s)/2}.
 $$
 
-右辺は deterministic で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ について conditional characteristic function が deterministic なので、uniqueness of characteristic functions と monotone class argument により
+右辺は deterministic で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの identity が成り立つので、characteristic function の一意性と monotone class argument により
 
 $$
 M_t-M_s\sim N(0,t-s)
@@ -1191,9 +1383,7 @@ $$
 
 かつ $M_t-M_s$ は $\mathcal F_s$ と独立です。
 
-$M_0=0$、標本路の連続性は仮定済みです。従って Brown 運動の定義を全て満たします。
-
-最後に localization を外します。任意の固定 $T$ で localizing stopping time が $T$ を超える event の確率は $n\to\infty$ で 1 へ行くため、上の conditional characteristic identity は元の $M$ に戻ります。
+$M_0=0$、標本路の連続性は仮定済みです。従って $M$ は $(\mathcal F_t)$ に関する standard Brownian motion です。
 <!-- proof-end -->
 
 Lévy characterization は重要です。「Brown 運動らしい increment law」を最初から仮定せず、**martingale 性 + 二次変分が時間**だけから Brown 運動を回収できます。
@@ -1276,13 +1466,13 @@ $$
 
 1. $B$ は continuous adapted process です。closed set $(-\infty,-n]\cup[n,\infty)$ への hitting time は STO1 の closed-set hitting-time theorem から stopping time です。定数 $n$ との minimum も stopping time です。
 
-2. $B$ は continuous martingale です。bounded stopping time による停止なので、optional sampling を各固定 $s<t$ へ適用して
+2. $B$ は continuous martingale です。[bounded stopping theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
 
-$$
+$
 E[B_{t\wedge\tau_n}\mid\mathcal F_s]
 =
 B_{s\wedge\tau_n}
-$$
+$
 
 を得ます。また definition から
 
