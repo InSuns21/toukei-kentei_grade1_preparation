@@ -233,8 +233,9 @@ Encore II が **古典 PDE** を閉じた後、Encore III では distribution・
 8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
 9. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
 10. [GPDE9 楕円型正則性](textbook/volumes/00_foundations/GPDE9/index.md)
+11. [GPDE10 Galerkin・時間発展PDEの弱解](textbook/volumes/00_foundations/GPDE10/index.md)
 
-GPDE1--GPDE9 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE10「Galerkin・時間発展PDEの弱解」です。
+GPDE1--GPDE10 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みで、Encore III の Graduate PDE 主線は完結しています。
 
 ```text
 GPDE1  テスト関数・distribution

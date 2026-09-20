@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE9「楕円型正則性」](../GPDE9/index.md) まで公開済みで、次は GPDE10「Galerkin・時間発展 PDE の弱解」です。
+現在は [GPDE10「Galerkin・時間発展 PDE の弱解」](../GPDE10/index.md) まで公開済みで、Encore III の GPDE1--GPDE10 主線は完結しています。
 
 ---
 
@@ -190,15 +190,15 @@ divergence form の一般係数作用素に対し、一様楕円性と係数の 
 
 difference quotient の (H^1) estimate・discrete integration by parts・一様差分 bound から弱微分を作る criterion を整備し、cutoff と Caccioppoli 型評価を組み合わせて Poisson 弱解の interior (H^2) regularity を完全証明します。さらに一般 divergence form では局所 Lipschitz 係数の下で同じ差分商法を閉じ、jump coefficient と reentrant corner により coefficient regularity / boundary regularity が本当に必要であることを確認します。
 
-### GPDE10 Galerkin・時間発展 PDE の弱解
+### [GPDE10 Galerkin・時間発展 PDE の弱解](../GPDE10/index.md)
 
-Galerkin 法を有限要素法専用の計算法ではなく、有限次元近似から無限次元解を構成する方法として扱います。
+Galerkin 法を有限要素法専用の計算法ではなく、有限次元近似から無限次元解を構成する方法として扱います。Gelfand triple の energy identity を時間 mollification で証明し、有限次元 ODE・次元一様 energy estimate・弱 compactness・time-integrated weak form の極限通過から coercive evolution problem の存在一意性まで閉じます。
 
 $$
 H_0^1\subset L^2\subset H^{-1}
 $$
 
-という Gelfand triple を導入し、Encore II の熱方程式・波動方程式を energy solution の立場から再訪します。
+という Gelfand triple を導入し、Encore II の熱方程式を energy weak solution の立場から再構成します。波動方程式は $H_0^1\times L^2$ の energy space と保存則を確認し、mild / semigroup formulation は bridge に留めます。
 
 数値 FEM の mesh・basis・assembly・solver は Encore V へ送ります。
 
