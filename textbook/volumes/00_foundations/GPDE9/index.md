@@ -236,9 +236,9 @@ D_h^k u(x)
 \end{aligned}
 $$
 
-Jensen の不等式から
+したがって
 
-$$
+$
 |D_h^k u(x)|^2
 \le
 \int_0^1
@@ -515,7 +515,7 @@ $$
 \le M.
 $$
 
-$L^2(U)$ は完備な内積空間なので、[有界列からの弱収束部分列定理](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により部分列を取り直して、ある $g\in L^2(U)$ に対し
+$L^2(U)$ は完備な内積空間なので、[完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により部分列を取り直して、ある $g\in L^2(U)$ に対し
 
 $$
 D_{h_n}^k u
