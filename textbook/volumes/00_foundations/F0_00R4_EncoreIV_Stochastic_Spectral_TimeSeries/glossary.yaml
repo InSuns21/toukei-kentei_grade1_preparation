@@ -2,4 +2,10 @@ chapter: "F0-00R4"
 terms:
   - term: Encore IV
     english: Encore IV
-    meaning: filtration・martingale・Brown運動・Ito・SDEと、定常過程・Wold分解・spectral measure・ARMA周波数解析を接続する任意の発展補講系列。
+    meaning: martingale・Brown 運動・確率積分・SDE・Markov過程・jump processまでの確率解析主線と、定常過程・spectral theory・時系列解析枝を接続するDREAM THEATER発展系列。
+  - term: STO
+    english: Stochastic Analysis
+    meaning: 新Encore IVの確率解析主線。STO1からSTO14までを予定する。
+  - term: TSA
+    english: Time Series Analysis
+    meaning: 新Encore IVの時系列解析枝。TSA1からTSA6までを予定する。
