@@ -4,7 +4,7 @@
 
 STO5 で quadratic variation / covariation を作り、STO6 で predictable integrand の stochastic integral を構成しました。ここで二つが合流します。
 
-通常の微積分では、細かい増分 \(h\) に対して二次項は一次項より速く消えます。しかし Brownian increment は典型的に \(\sqrt{\Delta t}\) の大きさなので、
+通常の微積分では、細かい増分 $h$ に対して二次項は一次項より速く消えます。しかし Brownian increment は典型的に $\sqrt{\Delta t}$ の大きさなので、
 
 $$
 (\Delta B)^2
@@ -32,7 +32,7 @@ $$
 
 です。
 
-最後まで舞台は \(\mathbb R^d\) です。多様体上の Brown 運動や connection は持ち込みません。一方、Euclidean Stratonovich calculus は「なぜ通常の chain rule が戻るのか」まで閉じます。
+最後まで舞台は $\mathbb R^d$ です。多様体上の Brown 運動や connection は持ち込みません。一方、Euclidean Stratonovich calculus は「なぜ通常の chain rule が戻るのか」まで閉じます。
 
 ---
 
@@ -42,13 +42,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（d 次元 Brown 運動）**  
-> filtration \((\mathcal F_t)_{t\ge0}\) 上の \(\mathbb R^d\)-値 continuous adapted process
+> filtration $(\mathcal F_t)_{t\ge0}$ 上の $\mathbb R^d$-値 continuous adapted process
 >
 > $$
 > B_t=(B_t^1,\ldots,B_t^d)
 > $$
 >
-> が **\(d\) 次元 standard Brownian motion** であるとは、成分
+> が **$d$ 次元 standard Brownian motion** であるとは、成分
 >
 > $$
 > B^1,\ldots,B^d
@@ -57,7 +57,7 @@ $$
 > が互いに独立な 1 次元 standard Brownian motion であることをいう。
 <!-- formal-statement-end -->
 
-この定義から、任意の \(0\le s<t\) について
+この定義から、任意の $0\le s<t$ について
 
 $$
 B_t-B_s
@@ -70,7 +70,7 @@ $$
 <!-- definition-example-start: def-sto7-vector-brownian -->
 ### 直接例：2 次元 Brown 運動
 
-独立な Brown 運動 \(B^1,B^2\) を取り
+独立な Brown 運動 $B^1,B^2$ を取り
 
 $$
 B_t=(B_t^1,B_t^2)
@@ -84,7 +84,7 @@ $$
 (B_t^1-B_s^1,\ B_t^2-B_s^2)
 $$
 
-の二成分は独立、各分散は \(t-s\) です。したがって covariance matrix は
+の二成分は独立、各分散は $t-s$ です。したがって covariance matrix は
 
 $$
 (t-s)I_2
@@ -99,7 +99,7 @@ Brown 運動を多次元化したとき、Itô calculus に必要なのは covar
 
 <!-- formal-statement-start -->
 > **命題（vector Brownian motion の covariation）**  
-> \(B=(B^1,\ldots,B^d)\) を \(d\) 次元 standard Brownian motion とする。このとき
+> $B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion とする。このとき
 >
 > $$
 > [B^i,B^j]_t
@@ -118,7 +118,7 @@ Brown 運動を多次元化したとき、Itô calculus に必要なのは covar
 
 ### 証明の見取り図
 
-\(i=j\) は STO5 の Brownian quadratic variation
+$i=j$ は STO5 の Brownian quadratic variation
 
 $$
 [B^i]_t=t
@@ -126,7 +126,7 @@ $$
 
 です。
 
-\(i\ne j\) では、分割上の cross sum
+$i\ne j$ では、分割上の cross sum
 
 $$
 \sum_k
@@ -144,9 +144,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-\(i=j\) は [Brown 運動の quadratic variation](../STO5/index.md#thm-sto5-brownian-qv) から従います。
+$i=j$ は [Brown 運動の quadratic variation](../STO5/index.md#thm-sto5-brownian-qv) から従います。
 
-\(i\ne j\) とし、\([0,t]\) の deterministic partition
+$i\ne j$ とし、$[0,t]$ の deterministic partition
 
 $$
 \pi=\{0=t_0<t_1<\cdots<t_n=t\}
@@ -187,7 +187,7 @@ t|\pi|.
 \end{aligned}
 $$
 
-従って \(|\pi|\to0\) なら
+従って $|\pi|\to0$ なら
 
 $$
 S_\pi\to0
@@ -236,15 +236,15 @@ STO6 の stochastic integral は continuous local martingale に対して構成�
 
 <!-- formal-statement-start -->
 > **定義（continuous semimartingale に対する積分）**  
-> \(X\) を continuous semimartingale とし、STO5 の一意な分解
+> $X$ を continuous semimartingale とし、STO5 の一意な分解
 >
 > $$
 > X=X_0+M+A
 > $$
 >
-> を取る。ここで \(M_0=A_0=0\)、\(M\) は continuous local martingale、\(A\) は continuous finite-variation process とする。
+> を取る。ここで $M_0=A_0=0$、$M$ は continuous local martingale、$A$ は continuous finite-variation process とする。
 >
-> predictable process \(H\) が \(M\) に関して locally square-integrable であり、かつ各有限時間区間で
+> predictable process $H$ が $M$ に関して locally square-integrable であり、かつ各有限時間区間で
 >
 > $$
 > \int_0^t|H_s|\,d|A|_s<\infty
@@ -276,7 +276,7 @@ $$
 
 とします。
 
-local martingale part は \(B\)、finite-variation part は \(t\) なので
+local martingale part は $B$、finite-variation part は $t$ なので
 
 $$
 \int_0^t1\,dX_s
@@ -290,10 +290,10 @@ B_t+t
 X_t-X_0.
 $$
 
-確率積分と通常の有限変動積分が、一つの \(dX\) 記法の中で共存します。
+確率積分と通常の有限変動積分が、一つの $dX$ 記法の中で共存します。
 <!-- definition-example-end -->
 
-continuous semimartingale \(X=M+A\)、\(Y=N+C\) の covariation は
+continuous semimartingale $X=M+A$、$Y=N+C$ の covariation は
 
 $$
 [X,Y]:=[M,N]
@@ -325,9 +325,9 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（weighted covariation sum）**  
-> \(X,Y\) を continuous semimartingale、\(H\) を continuous adapted process とする。固定 \(T>0\) に対し、必要なら stopping により \(H\) を bounded に局所化する。
+> $X,Y$ を continuous semimartingale、$H$ を continuous adapted process とする。固定 $T>0$ に対し、必要なら stopping により $H$ を bounded に局所化する。
 >
-> deterministic partition \(\pi_n\) の mesh が 0 へ行くとき
+> deterministic partition $\pi_n$ の mesh が 0 へ行くとき
 >
 > $$
 > \sum_{t_k\in\pi_n,\ t_k\le t}
@@ -347,7 +347,7 @@ $$
 
 ### 証明の見取り図
 
-まず \(H\) を粗い時間分割ごとに左端値へ固定します。各粗区間では定数倍の covariation sum なので STO5 の covariation へ収束します。
+まず $H$ を粗い時間分割ごとに左端値へ固定します。各粗区間では定数倍の covariation sum なので STO5 の covariation へ収束します。
 
 残る誤差は
 
@@ -365,12 +365,12 @@ $$
 \left(\sum(\Delta Y)^2\right)^{1/2},
 $$
 
-右辺は quadratic variation の収束から bounded in probability です。一方 \(H\) は停止後の compact 時間区間で一様連続なので、粗分割を細かくすれば前の supremum は小さくなります。
+右辺は quadratic variation の収束から bounded in probability です。一方 $H$ は停止後の compact 時間区間で一様連続なので、粗分割を細かくすれば前の supremum は小さくなります。
 
 <!-- proof-start -->
 ### 証明
 
-固定 \(T\) で議論します。exit time により \(X,Y,H\) と各 quadratic variation を必要な範囲で bounded にしてよく、最後に localization を外します。
+固定 $T$ で議論します。exit time により $X,Y,H$ と各 quadratic variation を必要な範囲で bounded にしてよく、最後に localization を外します。
 
 まず coarse partition
 
@@ -389,7 +389,7 @@ $$
 
 とします。
 
-fine partition \(\pi_n\) を coarse partition の点を含むよう細分しても一般性を失いません。このとき
+fine partition $\pi_n$ を coarse partition の点を含むよう細分しても一般性を失いません。このとき
 
 $$
 \sum H^{(m)}_{t_{k-1}}\Delta_kX\Delta_kY
@@ -406,7 +406,7 @@ $$
 [X,Y]_{s_r}-[X,Y]_{s_{r-1}}
 $$
 
-へ in probability で収束します。\(m\) は有限なので全体は
+へ in probability で収束します。$m$ は有限なので全体は
 
 $$
 \sum_{r=1}^m
@@ -416,7 +416,7 @@ $$
 
 へ収束します。
 
-次に \(H-H^{(m)}\) の誤差を評価します。
+次に $H-H^{(m)}$ の誤差を評価します。
 
 $$
 \begin{aligned}
@@ -433,7 +433,7 @@ $$
 \end{aligned}
 $$
 
-ここで \(|s|=\max_r(s_r-s_{r-1})\)、\(\omega_H(\delta)\) は \([0,T]\) 上の modulus of continuity です。
+ここで $|s|=\max_r(s_r-s_{r-1})$、$\omega_H(\delta)$ は $[0,T]$ 上の modulus of continuity です。
 
 continuity から
 
@@ -442,9 +442,9 @@ $$
 \quad\text{almost surely}.
 $$
 
-一方、二つの二乗増分和はそれぞれ \([X]_T,[Y]_T\) へ in probability で収束するので、その積の平方根は bounded in probability です。従って coarse mesh を 0 へ送れば誤差は in probability で 0 へ行きます。
+一方、二つの二乗増分和はそれぞれ $[X]_T,[Y]_T$ へ in probability で収束するので、その積の平方根は bounded in probability です。従って coarse mesh を 0 へ送れば誤差は in probability で 0 へ行きます。
 
-最後に \([X,Y]\) は finite variation process なので、coarse Riemann--Stieltjes sum は
+最後に $[X,Y]$ は finite variation process なので、coarse Riemann--Stieltjes sum は
 
 $$
 \int_0^tH_s\,d[X,Y]_s
@@ -452,10 +452,10 @@ $$
 
 へ一様に収束します。
 
-固定 \(t\) だけでなく \(t\le T\) の supremum に同じ評価を使えるため ucp 収束が得られます。
+固定 $t$ だけでなく $t\le T$ の supremum に同じ評価を使えるため ucp 収束が得られます。
 <!-- proof-end -->
 
-この補題が「\((dX)(dY)=d[X,Y]\)」という記号計算の厳密な中身です。
+この補題が「$(dX)(dY)=d[X,Y]$」という記号計算の厳密な中身です。
 
 ---
 
@@ -467,7 +467,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（multidimensional Itô formula）**  
-> \(X=(X^1,\ldots,X^d)\) を \(\mathbb R^d\)-値 continuous semimartingale とし、\(f\in C^2(\mathbb R^d)\) とする。このとき任意の \(t\ge0\) で
+> $X=(X^1,\ldots,X^d)$ を $\mathbb R^d$-値 continuous semimartingale とし、$f\in C^2(\mathbb R^d)$ とする。このとき任意の $t\ge0$ で
 >
 > $$
 > \boxed{
@@ -491,7 +491,7 @@ $$
 
 ### 何が通常の chain rule と違うか
 
-通常の \(C^1\) 曲線 \(x(t)\) なら quadratic variation は 0 なので二階項は消えます。
+通常の $C^1$ 曲線 $x(t)$ なら quadratic variation は 0 なので二階項は消えます。
 
 Brown 運動では
 
@@ -530,16 +530,16 @@ $$
 
 三つの部分を別々に極限へ送ります。
 
-1. 一次和 \(\to \int \partial_i f(X)\,dX^i\)。
-2. 二次和 \(\to \int \partial_{ij}f(X)\,d[X^i,X^j]\)。
-3. remainder \(\to0\)。
+1. 一次和 $\to \int \partial_i f(X)\,dX^i$。
+2. 二次和 $\to \int \partial_{ij}f(X)\,d[X^i,X^j]$。
+3. remainder $\to0$。
 
 2 は [weighted covariation sum](#lem-sto7-weighted-covariation) です。3 では Hessian の一様連続性と、二乗増分和が bounded in probability であることを使います。
 
 <!-- proof-start -->
 ### 証明
 
-固定 \(T>0\) とします。
+固定 $T>0$ とします。
 
 #### Step 1：compact へ localization する
 
@@ -549,13 +549,13 @@ $$
 \inf\{t\ge0:|X_t|\ge R\}\wedge R
 $$
 
-で停止します。\(X^{\tau_R}\) は compact ball 内にあり、\(f\) の一階・二階偏導関数はそこで bounded、Hessian は一様連続です。
+で停止します。$X^{\tau_R}$ は compact ball 内にあり、$f$ の一階・二階偏導関数はそこで bounded、Hessian は一様連続です。
 
-以下停止後で示し、最後に \(R\uparrow\infty\) とします。
+以下停止後で示し、最後に $R\uparrow\infty$ とします。
 
 #### Step 2：多変数 Taylor 展開を 1 変数 Taylor から作る
 
-\(x,h\in\mathbb R^d\) に対して
+$x,h\in\mathbb R^d$ に対して
 
 $$
 g(u)=f(x+uh),
@@ -564,7 +564,7 @@ $$
 
 と置きます。
 
-RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を \(g\) に適用すると
+RA3 の [Taylor の定理](../RA3/index.md#thm-ra3-taylor) を $g$ に適用すると
 
 $$
 f(x+h)-f(x)
@@ -586,7 +586,7 @@ $$
 \omega_R(|h|)|h|^2,
 $$
 
-ここで \(\omega_R(\delta)\to0\) as \(\delta\downarrow0\) です。
+ここで $\omega_R(\delta)\to0$ as $\delta\downarrow0$ です。
 
 #### Step 3：分割上で足す
 
@@ -596,7 +596,7 @@ $$
 0=t_0<t_1<\cdots<t_n=t
 $$
 
-について \(\Delta_kX=X_{t_k}-X_{t_{k-1}}\) と書くと
+について $\Delta_kX=X_{t_k}-X_{t_{k-1}}$ と書くと
 
 $$
 \begin{aligned}
@@ -617,7 +617,7 @@ $$
 
 #### Step 4：一次和
 
-\(X^i=M^i+A^i\) と分解します。
+$X^i=M^i+A^i$ と分解します。
 
 martingale part について、continuous adapted process
 
@@ -677,14 +677,14 @@ ucp です。
 
 #### Step 6：remainder
 
-continuity of \(X\) から
+continuity of $X$ から
 
 $$
 \max_k|\Delta_kX|
 \to0
 $$
 
-almost surely as mesh \(\to0\) です。
+almost surely as mesh $\to0$ です。
 
 従って
 
@@ -705,7 +705,7 @@ $$
 \sum_k(\Delta_kX^i)^2
 $$
 
-は \(\sum_i[X^i]_t\) へ in probability で収束するので bounded in probability です。前の modulus factor は almost surely 0 へ行くため
+は $\sum_i[X^i]_t$ へ in probability で収束するので bounded in probability です。前の modulus factor は almost surely 0 へ行くため
 
 $$
 \sum_kr_k\to0
@@ -716,13 +716,13 @@ $$
 
 #### Step 7：localization を外す
 
-任意の固定 \(T\) について
+任意の固定 $T$ について
 
 $$
 P(\tau_R\le T)\to0.
 $$
 
-停止後の等式は \(\{\tau_R>T\}\) 上で元の process の等式そのものです。従って \(R\uparrow\infty\) とすれば元の \(X\) に対する公式が得られます。
+停止後の等式は $\{\tau_R>T\}$ 上で元の process の等式そのものです。従って $R\uparrow\infty$ とすれば元の $X$ に対する公式が得られます。
 <!-- proof-end -->
 
 この証明で重要なのは、二次項を「微分記号の暗算」で入れたのではなく、**Taylor 二次項を weighted covariation limit へ送った**ことです。
@@ -735,7 +735,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（product rule / integration by parts）**  
-> \(X,Y\) を continuous semimartingale とする。このとき
+> $X,Y$ を continuous semimartingale とする。このとき
 >
 > $$
 > \boxed{
@@ -760,7 +760,7 @@ $$
 
 ### 証明の見取り図
 
-\(f(x,y)=xy\) と置くと
+$f(x,y)=xy$ と置くと
 
 $$
 f_x=y,\qquad
@@ -807,11 +807,11 @@ X_tY_t-X_0Y_0
 $$
 <!-- proof-end -->
 
-finite-variation calculus なら \([X,Y]=0\) なので通常の積の微分則へ戻ります。Brownian calculus ではこの 1 項が残ります。
+finite-variation calculus なら $[X,Y]=0$ なので通常の積の微分則へ戻ります。Brownian calculus ではこの 1 項が残ります。
 
-### 例：\(\int B\,dB\)
+### 例：$\int B\,dB$
 
-\(X=Y=B\) とすると
+$X=Y=B$ とすると
 
 $$
 B_t^2
@@ -829,7 +829,7 @@ $$
 }
 $$
 
-ここにある \(-t/2\) が Itô correction の最小例です。
+ここにある $-t/2$ が Itô correction の最小例です。
 
 ---
 
@@ -841,9 +841,9 @@ STO9 では SDE の解を構成します。その前に、本章ではすでに�
 
 <!-- formal-statement-start -->
 > **定義（Itô process）**  
-> \(B=(B^1,\ldots,B^m)\) を \(m\) 次元 Brown 運動とする。
+> $B=(B^1,\ldots,B^m)$ を $m$ 次元 Brown 運動とする。
 >
-> \(\mathbb R^d\)-値 adapted continuous process \(X\) が
+> $\mathbb R^d$-値 adapted continuous process $X$ が
 >
 > $$
 > X_t^i
@@ -858,25 +858,25 @@ STO9 では SDE の解を構成します。その前に、本章ではすでに�
 > \qquad i=1,\ldots,d,
 > $$
 >
-> と書けるとする。ここで \(b\) は progressively measurable で
+> と書けるとする。ここで $b$ は progressively measurable で
 >
 > $$
 > \int_0^T|b_s|\,ds<\infty,
 > $$
 >
-> \(\sigma\) は predictable で
+> $\sigma$ は predictable で
 >
 > $$
 > \int_0^T\|\sigma_s\|_F^2\,ds<\infty
 > $$
 >
-> が各 \(T<\infty\) で almost surely 成り立つとき、\(X\) を **Itô process** という。
+> が各 $T<\infty$ で almost surely 成り立つとき、$X$ を **Itô process** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto7-ito-process -->
 ### 直接例：constant coefficients
 
-定数 vector \(b\in\mathbb R^d\)、定数 matrix \(\Sigma\in\mathbb R^{d\times m}\) に対し
+定数 vector $b\in\mathbb R^d$、定数 matrix $\Sigma\in\mathbb R^{d\times m}$ に対し
 
 $$
 X_t=x+bt+\Sigma B_t
@@ -939,13 +939,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Itô process 版の時間依存 Itô formula）**  
-> \(X\) を前節の \(\mathbb R^d\)-値 Itô process とし、
+> $X$ を前節の $\mathbb R^d$-値 Itô process とし、
 >
 > $$
 > a_t=\sigma_t\sigma_t^\top
 > $$
 >
-> とする。\(F\in C^{1,2}([0,\infty)\times\mathbb R^d)\) なら
+> とする。$F\in C^{1,2}([0,\infty)\times\mathbb R^d)$ なら
 >
 > $$
 > \boxed{
@@ -972,9 +972,9 @@ $$
 > $$
 <!-- formal-statement-end -->
 
-### なぜ \(C^{1,2}\) なのか
+### なぜ $C^{1,2}$ なのか
 
-時間 \(t\) は finite variation なので
+時間 $t$ は finite variation なので
 
 $$
 [\,t,t\,]=0,
@@ -1062,7 +1062,7 @@ d[X^i,X^j]_t
 a_t^{ij}\,dt
 $$
 
-を代入し、\(dt\) 項と \(dB^\alpha\) 項をまとめれば主張の式になります。
+を代入し、$dt$ 項と $dB^\alpha$ 項をまとめれば主張の式になります。
 <!-- proof-end -->
 
 drift 部分に現れる
@@ -1076,9 +1076,9 @@ $$
 
 は STO11 で generator として再登場します。
 
-### 例：\(d\) 次元 Brown 運動の二乗ノルム
+### 例：$d$ 次元 Brown 運動の二乗ノルム
 
-\(X=B\)、\(F(x)=|x|^2\) とします。
+$X=B$、$F(x)=|x|^2$ とします。
 
 $$
 \nabla F(x)=2x,
@@ -1112,7 +1112,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（stochastic exponential）**  
-> \(M\) を continuous local martingale とする。
+> $M$ を continuous local martingale とする。
 >
 > $$
 > \mathcal E(M)_t
@@ -1122,13 +1122,13 @@ $$
 > \right)
 > $$
 >
-> を \(M\) の **stochastic exponential** と呼ぶ。
+> を $M$ の **stochastic exponential** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto7-stochastic-exponential -->
 ### 直接例：Brownian motion
 
-\(M_t=\theta B_t\)、\(M_0=0\) なら
+$M_t=\theta B_t$、$M_0=0$ なら
 
 $$
 [M]_t=\theta^2t
@@ -1144,20 +1144,20 @@ $$
 \right).
 $$
 
-ordinary exponential \(e^{\theta B_t}\) ではなく、\(-\theta^2t/2\) を引いた形が自然に現れます。
+ordinary exponential $e^{\theta B_t}$ ではなく、$-\theta^2t/2$ を引いた形が自然に現れます。
 <!-- definition-example-end -->
 
 <a id="prop-sto7-stochastic-exponential-equation"></a>
 
 <!-- formal-statement-start -->
-> **命題（stochastic exponential は \(dZ=Z\,dM\) を満たす）**  
-> \(M\) を continuous local martingale とし
+> **命題（stochastic exponential は $dZ=Z\,dM$ を満たす）**  
+> $M$ を continuous local martingale とし
 >
 > $$
 > Z_t=\mathcal E(M)_t
 > $$
 >
-> とする。このとき \(Z\) は正の continuous local martingale で
+> とする。このとき $Z$ は正の continuous local martingale で
 >
 > $$
 > Z_t
@@ -1175,9 +1175,9 @@ $$
 F(x,v)=e^{x-v/2}
 $$
 
-を \((M-M_0,[M]-[M]_0)\) に適用します。
+を $(M-M_0,[M]-[M]_0)$ に適用します。
 
-\(v=[M]\) は finite variation なので
+$v=[M]$ は finite variation なので
 
 $$
 [v]=[M,v]=0.
@@ -1191,7 +1191,7 @@ F_v=-\frac12F,
 F_{xx}=F
 $$
 
-なので、\(d[M]\) に掛かる二つの項が正確に打ち消し合います。
+なので、$d[M]$ に掛かる二つの項が正確に打ち消し合います。
 
 <!-- proof-start -->
 ### 証明
@@ -1212,7 +1212,7 @@ $$
 
 へ適用します。
 
-\(V\) は finite variation なので
+$V$ は finite variation なので
 
 $$
 [V]=0,
@@ -1250,7 +1250,7 @@ Z_t\,dM_t.
 \end{aligned}
 $$
 
-\(Z\) は正で continuous、停止すれば \(Z\) は bounded integrand による stochastic integral の和として martingale になるため continuous local martingale です。
+$Z$ は正で continuous、停止すれば $Z$ は bounded integrand による stochastic integral の和として martingale になるため continuous local martingale です。
 <!-- proof-end -->
 
 stochastic exponential は **local martingale であること**と **真の martingale であること**を区別する必要があります。一般の条件は STO10 の Girsanov で扱います。
@@ -1259,7 +1259,7 @@ stochastic exponential は **local martingale であること**と **真の mart
 
 <!-- formal-statement-start -->
 > **命題（Brownian exponential martingale）**  
-> \(B\) を \(d\) 次元 standard Brownian motion、\(\theta\in\mathbb R^d\) を定数 vector とする。このとき
+> $B$ を $d$ 次元 standard Brownian motion、$\theta\in\mathbb R^d$ を定数 vector とする。このとき
 >
 > $$
 > Z_t
@@ -1283,7 +1283,7 @@ stochastic exponential は **local martingale であること**と **真の mart
 <!-- proof-start -->
 ### 証明
 
-\(0\le s<t\) とします。
+$0\le s<t$ とします。
 
 $$
 Z_t
@@ -1296,7 +1296,7 @@ Z_s
 \right).
 $$
 
-increment \(B_t-B_s\) は \(\mathcal F_s\) と独立で
+increment $B_t-B_s$ は $\mathcal F_s$ と独立で
 
 $$
 N_d(0,(t-s)I_d)
@@ -1332,7 +1332,7 @@ Z_s.
 \end{aligned}
 $$
 
-よって \(Z\) は martingale です。\(Z_0=1\) なので
+よって $Z$ は martingale です。$Z_0=1$ なので
 
 $$
 E[Z_t]=1.
@@ -1363,7 +1363,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Stratonovich integral）**  
-> \(H,X\) を continuous semimartingale とする。partition
+> $H,X$ を continuous semimartingale とする。partition
 >
 > $$
 > \pi=\{0=t_0<t_1<\cdots<t_n=t\}
@@ -1379,7 +1379,7 @@ $$
 > (X_{t_k}-X_{t_{k-1}})
 > $$
 >
-> が mesh \(|\pi|\to0\) で ucp limit を持つとき、その極限を
+> が mesh $|\pi|\to0$ で ucp limit を持つとき、その極限を
 >
 > $$
 > \int_0^tH_s\circ dX_s
@@ -1391,7 +1391,7 @@ $$
 <!-- definition-example-start: def-sto7-stratonovich-integral -->
 ### 直接例：定数 integrand
 
-\(H\equiv c\) なら任意の partition で
+$H\equiv c$ なら任意の partition で
 
 $$
 S_\pi^\circ(c,X)
@@ -1409,7 +1409,7 @@ $$
 c(X_t-X_0).
 $$
 
-定数係数では Itô と Stratonovich の差はありません。差が出るのは integrand 自身も \(X\) と一緒に揺れるときです。
+定数係数では Itô と Stratonovich の差はありません。差が出るのは integrand 自身も $X$ と一緒に揺れるときです。
 <!-- definition-example-end -->
 
 ---
@@ -1420,7 +1420,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Stratonovich integral と Itô integral の変換）**  
-> \(H,X\) を continuous semimartingale とする。このとき Stratonovich integral は存在し
+> $H,X$ を continuous semimartingale とする。このとき Stratonovich integral は存在し
 >
 > $$
 > \boxed{
@@ -1498,7 +1498,7 @@ $$
 $$
 <!-- proof-end -->
 
-### 最小例：\(\int B\circ dB\)
+### 最小例：$\int B\circ dB$
 
 Itô integral は
 
@@ -1548,7 +1548,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（covariation chain rule）**  
-> \(X=(X^1,\ldots,X^d)\) を continuous semimartingale、\(Y\) を continuous semimartingale、\(g\in C^1(\mathbb R^d)\) とする。このとき
+> $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$Y$ を continuous semimartingale、$g\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
 > \boxed{
@@ -1573,7 +1573,7 @@ $$
 o(|\Delta X|)
 $$
 
-を \(\Delta Y\) と掛けます。
+を $\Delta Y$ と掛けます。
 
 main term は weighted covariation sum へ行きます。remainder は
 
@@ -1586,9 +1586,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-固定 \(T\) で stopping により \(X,Y\) を compact range に局所化します。
+固定 $T$ で stopping により $X,Y$ を compact range に局所化します。
 
-\(g\in C^1\) なので一階 Taylor remainder は
+$g\in C^1$ なので一階 Taylor remainder は
 
 $$
 g(x+h)-g(x)
@@ -1649,7 +1649,7 @@ $$
 
 continuity から最初の factor は almost surely 0 へ行き、残りは quadratic variation convergence により bounded in probability です。従って remainder は in probability で 0 へ行きます。
 
-左辺は covariation \([g(X),Y]_t\) へ収束するので主張が従います。
+左辺は covariation $[g(X),Y]_t$ へ収束するので主張が従います。
 <!-- proof-end -->
 
 ---
@@ -1660,7 +1660,7 @@ continuity から最初の factor は almost surely 0 へ行き、残りは quad
 
 <!-- formal-statement-start -->
 > **定理（Euclidean Stratonovich chain rule）**  
-> \(X=(X^1,\ldots,X^d)\) を continuous semimartingale、\(f\in C^2(\mathbb R^d)\) とする。このとき
+> $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$f\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
 > \boxed{
@@ -1719,7 +1719,7 @@ $$
 \partial_{ij}f(X_s)\,d[X^j,X^i]_s.
 $$
 
-従って \(i\) について足すと
+従って $i$ について足すと
 
 $$
 \begin{aligned}
@@ -1759,7 +1759,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（Itô process に対する Itô--Stratonovich conversion）**  
-> \(X\) を \(\mathbb R^d\)-値 Itô process
+> $X$ を $\mathbb R^d$-値 Itô process
 >
 > $$
 > dX_t=b_t\,dt+\sigma_t\,dB_t,
@@ -1767,7 +1767,7 @@ $$
 > a_t=\sigma_t\sigma_t^\top
 > $$
 >
-> とし、\(h=(h_1,\ldots,h_d)\in C^1(\mathbb R^d;\mathbb R^d)\) とする。このとき
+> とし、$h=(h_1,\ldots,h_d)\in C^2(\mathbb R^d;\mathbb R^d)$ とする。このとき
 >
 > $$
 > \boxed{
@@ -1837,7 +1837,7 @@ $$
 
 ### Brownian integrator に対する形
 
-\(G_\alpha:\mathbb R^d\to\mathbb R\) を \(C^1\) とすると
+$G_\alpha:\mathbb R^d\to\mathbb R$ を $C^1$ とすると
 
 $$
 \int_0^tG_\alpha(X_s)\circ dB_s^\alpha
@@ -1928,7 +1928,7 @@ $$
 - Level: A
 - 目安時間: 12分
 
-\(B\) を \(d\) 次元 standard Brownian motion、\(a,c\in\mathbb R^d\) を定数 vector とする。
+$B$ を $d$ 次元 standard Brownian motion、$a,c\in\mathbb R^d$ を定数 vector とする。
 
 $$
 M_t=a^\top B_t,
@@ -1938,9 +1938,9 @@ $$
 
 と置く。
 
-1. \([M,N]_t\) を求めよ。
-2. \([M]_t\) を求めよ。
-3. \(a\perp c\) のとき何が起きるか説明せよ。
+1. $[M,N]_t$ を求めよ。
+2. $[M]_t$ を求めよ。
+3. $a\perp c$ のとき何が起きるか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1966,7 +1966,7 @@ a_ic_j\delta_{ij}t\\
 \end{aligned}
 $$
 
-2. \(N=M\)、すなわち \(c=a\) とすれば
+2. $N=M$、すなわち $c=a$ とすれば
 
 $$
 [M]_t
@@ -1974,7 +1974,7 @@ $$
 |a|^2t.
 $$
 
-3. \(a^\top c=0\) なら
+3. $a^\top c=0$ なら
 
 $$
 [M,N]_t=0.
@@ -1993,14 +1993,14 @@ $$
 であり、joint Gaussian 性から各固定時刻では独立になります。
 <!-- solution-end -->
 
-## STO7-A02 product rule で \(B^1B^2\) を調べる
+## STO7-A02 product rule で $B^1B^2$ を調べる
 
 - Level: A
 - 目安時間: 12分
 
-\(B=(B^1,B^2)\) を 2 次元 standard Brownian motion とする。
+$B=(B^1,B^2)$ を 2 次元 standard Brownian motion とする。
 
-product rule を使って \(B_t^1B_t^2\) を stochastic integrals で表し、martingale であることを説明せよ。
+product rule を使って $B_t^1B_t^2$ を stochastic integrals で表し、martingale であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2042,7 +2042,7 @@ E\int_0^T(B_s^1)^2ds
 <\infty
 $$
 
-であり \(B^2\) 側も同様です。よって両 stochastic integrals は square-integrable martingales で、その和 \(B^1B^2\) も martingale です。
+であり $B^2$ 側も同様です。よって両 stochastic integrals は square-integrable martingales で、その和 $B^1B^2$ も martingale です。
 <!-- solution-end -->
 
 ## STO7-A03 Brownian exponential martingale
@@ -2050,7 +2050,7 @@ $$
 - Level: A
 - 目安時間: 15分
 
-1 次元 Brownian motion \(B\) と \(\theta\in\mathbb R\) に対し
+1 次元 Brownian motion $B$ と $\theta\in\mathbb R$ に対し
 
 $$
 Z_t
@@ -2062,14 +2062,14 @@ $$
 
 を考える。
 
-1. Itô formula から \(dZ_t\) を求めよ。
-2. \(E[Z_t]\) を求めよ。
-3. \(\theta B_t\) の stochastic exponential と一致することを確認せよ。
+1. Itô formula から $dZ_t$ を求めよ。
+2. $E[Z_t]$ を求めよ。
+3. $\theta B_t$ の stochastic exponential と一致することを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. \(F(t,x)=e^{\theta x-\theta^2t/2}\) とします。
+1. $F(t,x)=e^{\theta x-\theta^2t/2}$ とします。
 
 $$
 F_t=-\frac12\theta^2F,
@@ -2099,13 +2099,13 @@ $$
 
 drift が正確に相殺されます。
 
-2. [Brownian exponential martingale](#prop-sto7-brownian-exponential-martingale) より \(Z\) は martingale で \(Z_0=1\) です。従って
+2. [Brownian exponential martingale](#prop-sto7-brownian-exponential-martingale) より $Z$ は martingale で $Z_0=1$ です。従って
 
 $$
 E[Z_t]=E[Z_0]=1.
 $$
 
-直接計算しても \(B_t\sim N(0,t)\) なので
+直接計算しても $B_t\sim N(0,t)$ なので
 
 $$
 E[e^{\theta B_t}]
@@ -2115,7 +2115,7 @@ $$
 
 より同じ結論です。
 
-3. \(M_t=\theta B_t\) とすると
+3. $M_t=\theta B_t$ とすると
 
 $$
 [M]_t=\theta^2t.
@@ -2132,12 +2132,12 @@ Z_t.
 $$
 <!-- solution-end -->
 
-## STO7-A04 Itô と Stratonovich の \(\int B\,dB\)
+## STO7-A04 Itô と Stratonovich の $\int B\,dB$
 
 - Level: A
 - 目安時間: 12分
 
-Brownian motion \(B\) に対し
+Brownian motion $B$ に対し
 
 $$
 \int_0^tB_s\,dB_s
@@ -2145,12 +2145,12 @@ $$
 \int_0^tB_s\circ dB_s
 $$
 
-をそれぞれ \(B_t,t\) で表せ。
+をそれぞれ $B_t,t$ で表せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-product rule または \(f(x)=x^2\) の Itô formula から
+product rule または $f(x)=x^2$ の Itô formula から
 
 $$
 B_t^2
@@ -2178,7 +2178,7 @@ $$
 \frac12[B]_t.
 $$
 
-\([B]_t=t\) なので
+$[B]_t=t$ なので
 
 $$
 \begin{aligned}
@@ -2199,25 +2199,25 @@ $$
 で、これは covariation correction の半分です。
 <!-- solution-end -->
 
-## STO7-B01 \(d\) 次元 Brown 運動の二乗ノルム
+## STO7-B01 $d$ 次元 Brown 運動の二乗ノルム
 
 - Level: B
 - 目安時間: 20分
 
-\(B\) を \(d\) 次元 standard Brownian motion とする。
+$B$ を $d$ 次元 standard Brownian motion とする。
 
-1. \(|B_t|^2\) に多次元 Itô formula を適用せよ。
+1. $|B_t|^2$ に多次元 Itô formula を適用せよ。
 2.
    $$
    M_t=|B_t|^2-dt
    $$
    が martingale であることを示せ。
-3. \(E|B_t|^2\) を求めよ。
+3. $E|B_t|^2$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. \(f(x)=|x|^2=\sum_i x_i^2\) とすると
+1. $f(x)=|x|^2=\sum_i x_i^2$ とすると
 
 $$
 \partial_if(x)=2x_i,
@@ -2253,7 +2253,7 @@ M_t
 2\int_0^tB_s^\top dB_s.
 $$
 
-各有限 \(T\) について
+各有限 $T$ について
 
 $$
 E\int_0^T|B_s|^2ds
@@ -2265,7 +2265,7 @@ $$
 
 従って右辺は square-integrable martingale です。
 
-3. martingale の平均は初期値 \(M_0=0\) に等しいので
+3. martingale の平均は初期値 $M_0=0$ に等しいので
 
 $$
 E|B_t|^2-dt=0.
@@ -2285,18 +2285,18 @@ $$
 - Level: B
 - 目安時間: 25分
 
-\(X_t=x+bt+\Sigma B_t\) を \(\mathbb R^d\)-値 Itô process とし、\(Q\) を対称 \(d\times d\) matrix とする。
+$X_t=x+bt+\Sigma B_t$ を $\mathbb R^d$-値 Itô process とし、$Q$ を対称 $d\times d$ matrix とする。
 
 $$
 f(x)=x^\top Qx
 $$
 
-に Itô formula を適用し、\(df(X_t)\) を求めよ。
+に Itô formula を適用し、$df(X_t)$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-対称性 \(Q^\top=Q\) から
+対称性 $Q^\top=Q$ から
 
 $$
 \nabla f(x)=2Qx,
@@ -2365,7 +2365,7 @@ d(X_t^\top QX_t)
 }
 $$
 
-二階補正は scalar では \(\sigma^2f''/2\) でしたが、多次元では covariance matrix と Hessian の trace pairing
+二階補正は scalar では $\sigma^2f''/2$ でしたが、多次元では covariance matrix と Hessian の trace pairing
 
 $$
 \frac12\operatorname{tr}(aD^2f)
@@ -2379,7 +2379,7 @@ $$
 - Level: B
 - 目安時間: 22分
 
-\(B\) を \(d\) 次元 standard Brownian motion、\(C=(C_{ij})\) を定数 \(d\times d\) matrix とする。
+$B$ を $d$ 次元 standard Brownian motion、$C=(C_{ij})$ を定数 $d\times d$ matrix とする。
 
 $$
 h(x)=Cx
@@ -2415,7 +2415,7 @@ h_i(B_s)\,dB_s^i
 \partial_jh_i(B_s)\delta_{ji}\,ds.
 $$
 
-\(h_i(x)=\sum_jC_{ij}x_j\) なので
+$h_i(x)=\sum_jC_{ij}x_j$ なので
 
 $$
 \partial_jh_i=C_{ij}.
@@ -2452,7 +2452,7 @@ I_t^\circ
 }
 $$
 
-特に \(C\) が skew-symmetric なら \(\operatorname{tr}(C)=0\) なので Itô と Stratonovich は一致します。
+特に $C$ が skew-symmetric なら $\operatorname{tr}(C)=0$ なので Itô と Stratonovich は一致します。
 <!-- solution-end -->
 
 ## STO7-C01 vector field 形式の Itô--Stratonovich drift correction
@@ -2460,9 +2460,9 @@ $$
 - Level: C
 - 目安時間: 45分
 
-\(B=(B^1,\ldots,B^m)\) を \(m\) 次元 Brown 運動とし、\(V_0,V_1,\ldots,V_m:\mathbb R^d\to\mathbb R^d\) を \(C^1\) vector fields とする。
+$B=(B^1,\ldots,B^m)$ を $m$ 次元 Brown 運動とし、$V_0,V_1,\ldots,V_m:\mathbb R^d\to\mathbb R^d$ を $C^1$ vector fields とする。
 
-continuous semimartingale \(X\) が積分恒等式
+continuous semimartingale $X$ が積分恒等式
 
 $$
 X_t
@@ -2477,7 +2477,7 @@ $$
 
 を満たすと仮定する。
 
-1. 各 \(\alpha\) について
+1. 各 $\alpha$ について
    $$
    [X^j,B^\alpha]_t
    =
@@ -2503,14 +2503,14 @@ $$
    \int_0^tV_\alpha(X_s)\,dB_s^\alpha
    $$
    を導け。
-3. correction がなぜ \(DV_\alpha V_\alpha\) で、\(DV_\alpha V_\beta\) の \(\alpha\ne\beta\) 項を含まないか説明せよ。
+3. correction がなぜ $DV_\alpha V_\alpha$ で、$DV_\alpha V_\beta$ の $\alpha\ne\beta$ 項を含まないか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-この問題では SDE の存在一意性は仮定していません。与えられた continuous semimartingale \(X\) が満たす二つの積分表示の同値性だけを、現在章の calculus で示します。
+この問題では SDE の存在一意性は仮定していません。与えられた continuous semimartingale $X$ が満たす二つの積分表示の同値性だけを、現在章の calculus で示します。
 
-#### 1. \([X^j,B^\alpha]\) を求める
+#### 1. $[X^j,B^\alpha]$ を求める
 
 まず Stratonovich 表示を見ても、finite-variation part
 
@@ -2520,7 +2520,7 @@ $$
 
 は covariation へ寄与しません。
 
-また Stratonovich integral と Itô integral の差は finite-variation correction です。したがって \(X^j\) の local martingale part は
+また Stratonovich integral と Itô integral の差は finite-variation correction です。したがって $X^j$ の local martingale part は
 
 $$
 \sum_{\beta=1}^m
@@ -2559,7 +2559,7 @@ $$
 
 #### 2. 各 noise term を変換する
 
-component \(i\) を固定します。
+component $i$ を固定します。
 
 conversion formula から
 
@@ -2622,7 +2622,7 @@ V_\alpha(X_s)\,dB_s^\alpha
 DV_\alpha(X_s)V_\alpha(X_s)\,ds.
 $$
 
-\(\alpha=1,\ldots,m\) について足すと
+$\alpha=1,\ldots,m$ について足すと
 
 $$
 \boxed{
@@ -2647,7 +2647,7 @@ V_\alpha(X_s)\,dB_s^\alpha.
 }
 $$
 
-#### 3. なぜ \(\alpha=\beta\) だけ残るか
+#### 3. なぜ $\alpha=\beta$ だけ残るか
 
 根本は vector Brownian covariation
 
@@ -2674,7 +2674,7 @@ $$
 [B^\alpha]_t=t
 $$
 
-が残るため、その方向の vector field \(V_\alpha\) を自分自身の方向へ微分した
+が残るため、その方向の vector field $V_\alpha$ を自分自身の方向へ微分した
 
 $$
 DV_\alpha\,V_\alpha
@@ -2753,4 +2753,4 @@ $$
 
 という通常形の chain rule が戻ります。
 
-次は STO8 で、\(C^2\) でない \(f(x)=|x|\) に Itô calculus を押し広げます。そこで二階微分の代わりに **local time** が現れ、Tanaka formula と occupation time formula へ進みます。
+次は STO8 で、$C^2$ でない $f(x)=|x|$ に Itô calculus を押し広げます。そこで二階微分の代わりに **local time** が現れ、Tanaka formula と occupation time formula へ進みます。
