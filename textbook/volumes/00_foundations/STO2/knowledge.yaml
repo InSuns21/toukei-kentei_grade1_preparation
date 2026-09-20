@@ -30,7 +30,7 @@ concepts:
   - id: stochastic.predictable-transform-theorem
     name: predictable transform theorem
     kind: proposition
-    aliases: ["predictable transform of a martingale", "predictable transform of a submartingale"]
+    aliases: ["predictable transform of a martingale", "predictable transform of a submartingale", "predictable transform の命題"]
     introduction: formal
     introduction_aliases: ["命題（predictable transform）"]
     requires:
