@@ -153,4 +153,6 @@ Phase 1 の [STO1「確率過程・filtration・stopping time」](../STO1/index.
 
 STO3 では整合的 finite-dimensional laws から canonical process を構成し、cylinder premeasure の可算加法性を compact 近似から閉じたうえで、Kolmogorov--Chentsov continuity theorem を dyadic chaining まで証明しました。
 
-STO4 では covariance $\\min(s,t)$ から Brown 運動を構成し、stopping time の dyadic approximation から strong Markov property を証明したうえで、reflection principle、hitting time distribution、1 次元 recurrence、time inversion まで閉じました。\n\nPhase 1 は完了し、次の実装対象は **STO5「continuous local martingale・quadratic variation・semimartingale」** です.
+STO4 では covariance $\min(s,t)$ から Brown 運動を構成し、stopping time の dyadic approximation から strong Markov property を証明したうえで、reflection principle、hitting time distribution、1 次元 recurrence、time inversion まで閉じました。
+
+Phase 1 は完了し、次の実装対象は **STO5「continuous local martingale・quadratic variation・semimartingale」** です.
