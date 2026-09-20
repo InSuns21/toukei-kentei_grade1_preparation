@@ -425,35 +425,35 @@ $$
 
 最後に、作用素表示へ $v=Au$ を代入すると
 
-$
+$$
 \|Au\|_V^2
 =
 \langle Au,Au\rangle_V
 =
 a(u,Au).
-$
+$$
 
 boundedness から
 
-$
+$$
 \|Au\|_V^2
 \le
 |a(u,Au)|
 \le
 M\|u\|_V\|Au\|_V.
-$
+$$
 
 $Au=0$ のときは求める評価が成立します。
 
 $Au\ne0$ のときは $\|Au\|_V$ で割って
 
-$
+$$
 \boxed{
 \|Au\|_V
 \le
 M\|u\|_V
 }.
-$
+$$
 
 従って $A$ は有界線形作用素です。
 <!-- proof-end -->
@@ -1144,44 +1144,44 @@ $$
 >
 > $a:V\times V\to\mathbb R$ を双線形形式とし、ある $M,\alpha>0$ が存在して任意の $u,v\in V$ に対し
 
-$
+$$
 |a(u,v)|
 \le
 M\|u\|_V\|v\|_V
-$
+$$
 
 > および
 
-$
+$$
 a(v,v)
 \ge
 \alpha\|v\|_V^2
-$
+$$
 
 > が成り立つとする。
 >
 > このとき任意の $F\in V^*$ に対し、一意な $u\in V$ が存在して
 
-$
+$$
 \boxed{
 a(u,v)=F(v)
 \qquad
 (\forall v\in V)
 }
-$
+$$
 
 > を満たす。
 >
 > さらに解は
 
-$
+$$
 \boxed{
 \|u\|_V
 \le
 \frac1\alpha
 \|F\|_{V^*}
 }
-$
+$$
 
 > を満たす。
 <!-- formal-statement-end -->
@@ -2423,35 +2423,35 @@ $$
 
 次に作用素表示へ $v=Au$ を代入すると
 
-$
+$$
 \|Au\|_V^2
 =
 \langle Au,Au\rangle_V
 =
 a(u,Au).
-$
+$$
 
 boundedness から
 
-$
+$$
 \|Au\|_V^2
 \le
 |a(u,Au)|
 \le
 M\|u\|_V\|Au\|_V.
-$
+$$
 
 $Au=0$ なら求める評価は成立します。
 
 $Au\ne0$ なら $\|Au\|_V$ で割って
 
-$
+$$
 \boxed{
 \|Au\|_V
 \le
 M\|u\|_V
 }.
-$
+$$
 <!-- solution-end -->
 
 <a id="ex-gpde7-a03"></a>
