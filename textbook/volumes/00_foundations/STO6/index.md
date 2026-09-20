@@ -665,7 +665,7 @@ $
 \int_0^\infty1_{\{X_n^*\ge\lambda\}}\,d\lambda=X_n^*
 $
 
-としました。Cauchy--Schwarz より
+としました。Hölder inequality（指数 $2,2$）より
 
 $
 E[(X_n^*)^2]
@@ -756,7 +756,7 @@ $$
 
 となるよう選べます。
 
-Cauchy--Schwarz により
+Hölder inequality（指数 $2,2$）により
 
 $$
 E\left[
@@ -1991,7 +1991,7 @@ E\sum_j
 <\infty.
 $$
 
-ゆえに almost surely この級数は有限で、subsequence は一様収束します。各 $I^{(n_j)}$ は continuous なので極限 $I$ も continuous です。
+ゆえに almost surely この級数は有限で、subsequence は sup 距離で収束します。各 $I^{(n_j)}$ は continuous なので極限 $I$ も continuous です。
 
 元の列は supremum $L^2$ で Cauchy だったため、この $I$ へ列全体が supremum $L^2$ 収束します。
 
