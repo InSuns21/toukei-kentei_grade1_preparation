@@ -145,6 +145,40 @@ $$
 > を本章の二階線形作用素と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-gpde8-divergence-operator -->
+**定義の確認**
+
+$A=I$、$b=0$、$c=0$ なら
+
+$
+Lu=-\operatorname{div}(\nabla u)=-\Delta u.
+$
+
+また二次元で
+
+$
+A=
+\begin{pmatrix}
+4&0\\
+0&1
+\end{pmatrix},
+\qquad
+b=0,
+\qquad
+c=0
+$
+
+が定数行列なら
+
+$
+Lu
+=
+-4\partial_{11}u-\partial_{22}u.
+$
+
+したがってこの定義は Poisson 作用素を含みつつ、方向ごとに異なる拡散も表せます。
+<!-- definition-example-end -->
+
 本章の零 Dirichlet 問題は
 
 $$
@@ -190,29 +224,31 @@ PDE では係数 $A=A(x)$ が場所ごとに変わるので、各点で正であ
 > が成り立つことをいう。
 <!-- formal-statement-end -->
 
-### 最小例：異方的でも楕円的
+<!-- definition-example-start: def-gpde8-uniform-ellipticity -->
+**定義の確認：異方的でも楕円的**
 
-$$
+$
 A=
 \begin{pmatrix}
 4&0\\
 0&1
 \end{pmatrix}
-$$
+$
 
 なら
 
-$$
+$
 \xi^{\mathsf T}A\xi
 =
 4\xi_1^2+\xi_2^2
 \ge
 |\xi|^2.
-$$
+$
 
 したがって $\lambda=1$ で一様楕円的です。
 
 方向によって拡散の強さが違っても、どの方向にも正の拡散が残っています。
+<!-- definition-example-end -->
 
 ### 非対称でもよい
 
@@ -341,6 +377,54 @@ $$
 >
 > をすべての $v\in H_0^1(\Omega)$ について満たすとき、$u$ を $Lu=F$ の零 Dirichlet 変分弱解と呼ぶ。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gpde8-dirichlet-weak-solution -->
+**定義の確認**
+
+$\Omega=(0,1)$、$A=1$、$b=c=0$ とし
+
+$
+u(x)=\frac{x(1-x)}2,
+\qquad
+F(v)=\int_0^1v(x)\,dx
+$
+
+と置きます。
+
+GPDE4 の区間版 zero-trace characterization から
+
+$
+u\in H_0^1(0,1).
+$
+
+また
+
+$
+u'(x)=\frac12-x,
+\qquad
+-u''(x)=1.
+$
+
+まず $\varphi\in C_c^\infty(0,1)$ なら部分積分により
+
+$
+\int_0^1u'\varphi'\,dx
+=
+\int_0^1\varphi\,dx.
+$
+
+$C_c^\infty(0,1)$ は $H_0^1(0,1)$ で稠密なので、両辺の連続性から任意の $v\in H_0^1(0,1)$ へ延長して
+
+$
+\int_0^1u'v'\,dx
+=
+F(v)
+$
+
+を得ます。
+
+したがって $u$ はこの定義における零 Dirichlet 変分弱解です。
+<!-- definition-example-end -->
 
 境界条件は式の右端に追加されるのではなく、
 
