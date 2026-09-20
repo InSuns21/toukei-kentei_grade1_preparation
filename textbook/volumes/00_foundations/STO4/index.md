@@ -356,7 +356,7 @@ $$
 
 を全て満たします。
 
-ここで「Gaussian process を作れた」と「連続 path を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
+ここで「Gaussian process を作れた」と「連続な標本路 を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
 <!-- definition-example-end -->
 
 ---
@@ -554,7 +554,7 @@ $$
 B_{\tau+t}-B_\tau
 $$
 
-を「未来の増分だから独立」と言うだけでは証明になりません。$\tau$ 自体が過去の path から選ばれているからです。
+を「未来の増分だから独立」と言うだけでは証明になりません。$\tau$ 自体が過去の標本路 から選ばれているからです。
 
 ここで STO1 の stopping time と $\mathcal F_\tau$ が働きます。
 
@@ -608,7 +608,7 @@ $$
 
 各 $\tau_n$ は countably many deterministic times しか取らないので、その値ごとに ordinary independent increments を使えます。
 
-最後に Brownian path の連続性で
+最後に Brownian 標本路 の連続性で
 
 $$
 B_{\tau_n+t}-B_{\tau_n}
@@ -734,7 +734,7 @@ $$
 
 です。
 
-従って shifted finite-dimensional vector は $\mathcal F_\sigma^B$ と独立で、元の Brown 運動と同じ finite-dimensional distribution を持ちます。
+従って shifted finite-dimensional vector は $\mathcal F_\sigma^B$ と独立で、元の Brown 運動と同じ finite-dimensional law を持ちます。
 
 #### Step 3：$\tau_n\downarrow\tau$ の極限を取る
 
@@ -770,7 +770,7 @@ $$
 
 まず $g$ を bounded continuous とします。
 
-Brownian path の連続性と $\tau_n\downarrow\tau$ から各 $j$ について
+Brownian 標本路 の連続性と $\tau_n\downarrow\tau$ から各 $j$ について
 
 $$
 B_{\tau_n+t_j}-B_{\tau_n}
@@ -808,11 +808,11 @@ $$
 t\mapsto B_{\tau+t}-B_\tau
 $$
 
-は元の path の連続性から連続です。
+は元の標本路 の連続性から連続です。
 
 よって $W_t=B_{\tau+t}-B_\tau$ は standard Brownian motion です。
 
-連続 path は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
+連続な標本路 は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
 
 usual augmentation を使う場合も、null set の completion 後に同じ conditional identity を almost-sure equality として読むのが標準です。後続 STO5 以降では usual conditions を備えた filtration を基本環境にします。
@@ -837,7 +837,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto4-hitting-time -->
-### 直接例：連続 path から stopping-time 性を確認する
+### 直接例：連続な標本路 から stopping-time 性を確認する
 
 **定義の確認**
 
@@ -914,7 +914,7 @@ P(M_T\ge a)
 \right),
 $$
 >
-> ただし $\Phi$ は $N(0,1)$ の cumulative distribution function である。
+> ただし $\Phi$ は $N(0,1)$ の 累積分布関数 である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -977,7 +977,7 @@ $$
 2a-b.
 $$
 
-逆に reflected path の終点が $2a-b\ge a$ なら continuity によりその path は時刻 $T$ までに level $a$ を通ります。反射操作は同じ hitting time で再度行うと元の path に戻る involution です。
+逆に 反射後の標本路 の終点が $2a-b\ge a$ なら continuity によりその標本路 は時刻 $T$ までに level $a$ を通ります。反射操作は同じ hitting time で再度行うと元の標本路 に戻る involution です。
 
 したがって reflection は
 
@@ -1071,7 +1071,7 @@ $$
 \{M_t\ge a\}.
 $$
 
-reflection principle より
+[reflection principle](#thm-sto4-reflection-principle) より
 
 $$
 P(\tau_a\le t)
@@ -1173,13 +1173,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（1 次元 Brown 運動の基本的 recurrence）**  
-> 1 次元 standard Brownian motion $B$ について、almost surely
->
-$$
-\limsup_{t\to\infty}B_t=+\infty,
-\qquad
-\liminf_{t\to\infty}B_t=-\infty.
-$$
+> 1 次元 standard Brownian motion $B$ の標本路は、almost surely 上にも下にも有界ではない。
 >
 > 従って almost surely 全ての $x\in\mathbb R$ を少なくとも一度通る。
 >
@@ -1190,7 +1184,7 @@ $$
 
 各固定 level の hitting probability が 1 であることは前節で分かっています。
 
-整数 level $\pm1,\pm2,\ldots$ は可算個なので、それら全てを hit する確率も 1 です。これで limsup / liminf が出ます。
+整数 level $\pm1,\pm2,\ldots$ は可算個なので、それら全てを hit する確率も 1 です。従って標本路は上にも下にも有界ではありません。
 
 無限回の return は strong Markov property を使って $+1,-1,+1,-1,\ldots$ と交互に hit させます。
 
@@ -1219,7 +1213,7 @@ $$
 \liminf_{t\to\infty}B_t=-\infty.
 $$
 
-continuous path は $-n$ から $n$ へ移る途中で任意の $x\in[-n,n]$ を通るので、almost surely 全ての実数 level を hit します。
+連続な標本路 は $-n$ から $n$ へ移る途中で任意の $x\in[-n,n]$ を通るので、almost surely 全ての実数 level を hit します。
 
 次に return を示します。
 
@@ -1257,11 +1251,19 @@ $$
 
 各 $+1$ から $-1$、または $-1$ から $+1$ への移動の途中で continuity により level 0 を通ります。
 
-さらに連続関数は compact interval 上で一様連続なので、有限時間内に $+1$ と $-1$ を無限回交互に往復することはできません。従って
+もし $(\sigma_k)$ が有限値 $T$ へ収束したなら、偶数番目と奇数番目の双方で $\sigma_k\to T$ なのに
 
-$$
+$
+B_{\sigma_{2j}}\in\{-1,1\},
+\qquad
+B_{\sigma_{2j+1}}=-B_{\sigma_{2j}}
+$
+
+と値が交互に $-1$ と $1$ を取ります。これは $B$ の $T$ における連続性に反します。従って
+
+$
 \sigma_k\to\infty.
-$$
+$
 
 よって level 0 への return は無限回起こります。
 <!-- proof-end -->
@@ -1307,7 +1309,7 @@ $$
 
 と同値です。
 
-integer times は第4 moment と Borel--Cantelli、integer 間は reflection principle で抑えます。
+integer times は第4 moment と Borel--Cantelli、integer 間は [reflection principle](#thm-sto4-reflection-principle) で抑えます。
 
 <!-- proof-start -->
 ### 証明
@@ -1367,7 +1369,7 @@ $$
 
 とします。
 
-stationary increments と reflection principle から
+stationary increments と [reflection principle](#thm-sto4-reflection-principle) から
 
 $$
 P(D_n>x)
@@ -1434,7 +1436,7 @@ $$
 \to
 \text{existence}
 \to
-\text{continuous path}
+\text{連続な標本路}
 \to
 \text{Markov}
 \to
@@ -1461,7 +1463,7 @@ $$
 
 から出てくることを確認しました。
 
-次の STO5 では、Brownian path が連続なのに通常の意味では極端に rough であることを quadratic variation で測ります。
+次の STO5 では、Brownian 標本路 が連続なのに通常の意味では極端に rough であることを quadratic variation で測ります。
 
 ---
 
@@ -1585,7 +1587,7 @@ $$
 
 また disjoint intervals は $t\mapsto ct$ でも disjoint のままなので、対応する $B$ の増分が独立であることから $X$ の増分も独立です。
 
-最後に $t\mapsto ct$ と定数倍は連続性を保つので、$B$ の continuous path から $X$ も continuous path を持ちます。
+最後に $t\mapsto ct$ と定数倍は連続性を保つので、$B$ の 連続な標本路 から $X$ も 連続な標本路 を持ちます。
 
 よって $X$ は standard Brownian motion です。
 <!-- solution-end -->
@@ -1615,7 +1617,7 @@ $$
 
 を示せば十分です。
 
-continuous path では level $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
+連続な標本路 では level $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
 
 $$
 \{\tau_a\le t\}
@@ -1652,7 +1654,7 @@ $$
 
 $a>0$ とします。
 
-reflection principle を用いて
+[reflection principle](#thm-sto4-reflection-principle) を用いて
 
 $$
 P(\tau_a\le t)
@@ -1679,7 +1681,7 @@ $$
 \right\}.
 $$
 
-reflection principle から
+[reflection principle](#thm-sto4-reflection-principle) から
 
 $$
 P\left(
@@ -1827,7 +1829,7 @@ $$
 
 ### B2. time inversion の $t=0$ continuity
 
-reflection principle と Borel--Cantelli lemma を用いて
+[reflection principle](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
 
 $$
 \frac{B_t}{t}\to0
@@ -1877,7 +1879,7 @@ $$
 
 と置きます。
 
-stationary increments と reflection principle から
+stationary increments と [reflection principle](#thm-sto4-reflection-principle) から
 
 $$
 P(D_n>x)
@@ -1985,9 +1987,9 @@ $$
 
 同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ hitting time、以後交互に定義すると、帰納的に全ての $\sigma_n$ が finite almost surely です。
 
-continuous path が $+1$ と $-1$ の間を移るたびに intermediate value theorem により level 0 を通ります。
+連続な標本路が $+1$ と $-1$ の間を移るたびに、値 0 を飛び越えられないので level 0 を通ります。
 
-もし $\sigma_n$ が有限時刻 $T$ に集積すれば、continuous function $B$ は compact interval $[0,T]$ 上で一様連続なのに、任意に短い時間間隔で値を 2 だけ変え続けることになり矛盾します。
+もし $\sigma_n$ が有限時刻 $T$ に集積すれば、単調性から $\sigma_n\to T$ です。しかし $B_{\sigma_n}$ は $1,-1,1,-1,\ldots$ と交互に値を取るため、$B$ の $T$ における連続性に反します。
 
 従って
 
