@@ -1304,7 +1304,7 @@ $$
 
 一意性は $A$ の単射性から従います。
 
-最後に解 $u$ に対して coercivity と [双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
+最後に解 $u$ に対して coercivity と [既習の双対評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
 
 $$
 \alpha\|u\|_V^2
@@ -2403,7 +2403,7 @@ $$
 
 が全ての $v$ で成り立ちます。
 
-$v$ に差そのものを選べば差のノルム二乗が 0 なので
+$v$ に差そのものを選べば、差ベクトルと自身との内積が 0 です。内積の正定値性から差ベクトルは 0 なので
 
 $$
 A(c_1u_1+c_2u_2)
@@ -2413,49 +2413,37 @@ $$
 
 よって $A$ は線形です。
 
-次に Riesz 表現定理のノルム等式から
+次に作用素表示へ $v=Au$ を代入すると
 
-$$
-\|Au\|_V
+$
+\|Au\|_V^2
 =
-\sup_{\|v\|_V\le1}
-|\langle Au,v\rangle_V|.
-$$
-
-作用素表示を代入すると
-
-$$
-\|Au\|_V
+\langle Au,Au\rangle_V
 =
-\sup_{\|v\|_V\le1}
-|a(u,v)|.
-$$
+a(u,Au).
+$
 
 boundedness から
 
-$$
-|a(u,v)|
+$
+\|Au\|_V^2
 \le
-M\|u\|_V\|v\|_V.
-$$
-
-$\|v\|_V\le1$ なら
-
-$$
-|a(u,v)|
+|a(u,Au)|
 \le
-M\|u\|_V.
-$$
+M\|u\|_V\|Au\|_V.
+$
 
-supremum を取って
+$Au=0$ なら求める評価は成立します。
 
-$$
+$Au\ne0$ なら $\|Au\|_V$ で割って
+
+$
 \boxed{
 \|Au\|_V
 \le
 M\|u\|_V
 }.
-$$
+$
 <!-- solution-end -->
 
 <a id="ex-gpde7-a03"></a>
