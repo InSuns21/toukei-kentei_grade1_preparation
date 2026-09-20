@@ -1,0 +1,55 @@
+id: "GPDE10"
+title: "Encore III Graduate PDE X：Galerkin・時間発展 PDE の弱解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE9
+  - PDE3
+  - PDE4
+official_scope: []
+learning_objectives:
+  - H_0^1(Omega) subset L^2(Omega) subset H^{-1}(Omega) の Gelfand triple を埋め込み評価とともに説明できる
+  - 時間依存 L^2 空間と energy weak solution を定義し、古典解が弱形式を満たすことを直接確認できる
+  - u in L^2(0,T;V), u_t in L^2(0,T;V*) から energy identity と C([0,T];H) continuity を時間 mollification で導出できる
+  - finite-dimensional Galerkin approximation を連立 ODE として構成できる
+  - coercivity と Young inequality から次元に依らない a priori energy estimate を導出できる
+  - L^2(0,T;V) の weak compactness から Galerkin 列の弱収束部分列を取り出せる
+  - time-integrated weak form で弱収束の極限を通し、u_t=f-Au in L^2(0,T;V*) を同定できる
+  - coercive evolution problem の存在・一意性・安定性を Galerkin と energy method で証明できる
+  - 零 Dirichlet 熱方程式へ抽象定理を適用し、energy weak solution の存在一意性を導ける
+  - weak convergence だけでは一般の nonlinear term の極限を通せない反例を検証できる
+  - 波動方程式の natural energy space H_0^1 x L^2 と energy 保存を説明できる
+  - mild solution / semigroup formulation の役割と本章の停止線を説明できる
+definitions:
+  - { id: GPDE10-DEF-01, name: "time-dependent L2 space" }
+  - { id: GPDE10-DEF-02, name: "Gelfand triple" }
+  - { id: GPDE10-DEF-03, name: "energy weak solution" }
+  - { id: GPDE10-DEF-04, name: "Galerkin approximation" }
+  - { id: GPDE10-DEF-05, name: "wave equation energy space" }
+  - { id: GPDE10-DEF-06, name: "mild solution" }
+theorems:
+  - { id: GPDE10-LEM-01, name: "Gelfand triple energy identity" }
+  - { id: GPDE10-PROP-01, name: "Galerkin uniform energy estimate" }
+  - { id: GPDE10-THM-01, name: "Galerkin existence and uniqueness for coercive evolution problem" }
+  - { id: GPDE10-COR-01, name: "Dirichlet heat equation energy weak solution" }
+  - { id: GPDE10-PROP-02, name: "continuous dependence on initial data and forcing" }
+  - { id: GPDE10-PROP-03, name: "wave energy conservation" }
+canonical_examples:
+  - "H_0^1 subset L^2 subset H^{-1}"
+  - "single heat mode e^{-t} sin x"
+  - "two-mode sine Galerkin system"
+  - "sin(nx) weak convergence and square-limit failure"
+  - "single wave mode energy conservation"
+problem_patterns:
+  - GPDE10-GELFAND-1
+  - GPDE10-HEAT-MODE-1
+  - GPDE10-GALERKIN-ODE-1
+  - GPDE10-GALERKIN-ENERGY-1
+  - GPDE10-LIMIT-PASSAGE-1
+  - GPDE10-STABILITY-1
+  - GPDE10-WAVE-ENERGY-1
+  - GPDE10-GALERKIN-EXISTENCE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.5, review: 1.5 }
