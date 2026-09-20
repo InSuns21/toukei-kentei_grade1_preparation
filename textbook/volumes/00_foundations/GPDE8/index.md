@@ -1493,12 +1493,12 @@ $$
 > **系（外力・係数摂動に対する安定性）**  
 > $a_1,a_2$ を $V$ 上の bounded bilinear form とし、$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。差形式の作用素 norm を
 >
-> $
+> $$
 > \|a_2-a_1\|_{\mathrm{op}}
 > :=
 > \sup_{\substack{u\ne0\\v\ne0}}
 > \frac{|(a_2-a_1)(u,v)|}{\|u\|_V\|v\|_V}
-> $
+> $$
 >
 > と書く。$u_i$ が
 >
@@ -1559,12 +1559,12 @@ $$
 
 $v=w$ とします。$a_1$ の [coercivity](../GPDE6/index.md#def-gpde6-coercive) と
 
-$
+$$
 |(a_2-a_1)(u_2,w)|
 \le
 \|a_2-a_1\|_{\mathrm{op}}
 \|u_2\|_V\|w\|_V
-$
+$$
 
 を使えば
 
