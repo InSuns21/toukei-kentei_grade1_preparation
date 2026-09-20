@@ -364,19 +364,19 @@ $$
 > **定義（零 Dirichlet 問題の変分弱解）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。可測係数 $A:\Omega\to\mathbb R^{d\times d}$、$b:\Omega\to\mathbb R^d$、$c:\Omega\to\mathbb R$ は、ある $\Lambda<\infty$ に対して
 >
-> $
+> $$
 > |A(x)\xi|\le\Lambda|\xi|
 > \qquad
 > \text{for a.e. }x\in\Omega,\ \forall\xi\in\mathbb R^d,
-> $
+> $$
 >
 > かつ
 >
-> $
+> $$
 > b\in L^\infty(\Omega;\mathbb R^d),
 > \qquad
 > c\in L^\infty(\Omega)
-> $
+> $$
 >
 > を満たすとする。$F\in H^{-1}(\Omega)=(H_0^1(\Omega))^*$ に対し、$u\in H_0^1(\Omega)$ が
 >
