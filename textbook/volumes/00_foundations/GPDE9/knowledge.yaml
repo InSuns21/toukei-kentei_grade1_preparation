@@ -19,7 +19,7 @@ concepts:
     kind: lemma
     aliases: ["H1 difference quotient estimate"]
     introduction: formal
-    introduction_aliases: ["補題（H^1 difference quotient estimate）"]
+    introduction_aliases: ["補題（H1 difference quotient estimate）"]
     requires:
       - sobolev.difference-quotient
       - sobolev.local-mollification
@@ -59,7 +59,7 @@ concepts:
     kind: theorem
     aliases: ["interior H2 regularity for Poisson equation"]
     introduction: formal
-    introduction_aliases: ["定理（Poisson 方程式の interior H^2 regularity）"]
+    introduction_aliases: ["定理（Poisson 方程式の interior H2 regularity）"]
     requires:
       - sobolev.difference-quotient-h1-bound
       - sobolev.discrete-integration-by-parts
@@ -82,7 +82,7 @@ concepts:
     kind: theorem
     aliases: ["interior H2 regularity with Lipschitz coefficients"]
     introduction: formal
-    introduction_aliases: ["定理（局所 Lipschitz 係数の interior H^2 regularity）"]
+    introduction_aliases: ["定理（局所 Lipschitz 係数の interior H2 regularity）"]
     requires:
       - pde.uniform-ellipticity
       - sobolev.difference-quotient-h1-bound
