@@ -40,11 +40,11 @@ $$
 
 までを一つの論理線として追います。
 
-反射原理を strong Markov property より先に置くと、停止時刻で経路を反射した後の独立増分を暗黙に仮定してしまいます。本章ではその循環を避け、**停止時刻を右側の dyadic grid で近似して strong Markov property を先に証明**してから反射原理へ進みます。
+停止時刻での反射公式を strong Markov property より先に証明しようとすると、反射後の独立増分を暗黙に仮定してしまいます。本章ではその循環を避け、**停止時刻を右側の dyadic grid で近似して strong Markov property を先に証明**してから反射公式へ進みます。
 
 ---
 
-## 1. Gaussian process は有限個の時刻を同時に Gaussian とする
+## 1. 有限個の時刻を同時に Gaussian とする過程
 
 <a id="def-sto4-gaussian-process"></a>
 
@@ -882,7 +882,7 @@ $$
 
 ---
 
-## 7. strong Markov から reflection principle を得る
+## 7. strong Markov から反射公式を得る
 
 <a id="thm-sto4-reflection-principle"></a>
 
@@ -1264,7 +1264,7 @@ $
 
 ---
 
-## 10. time inversion：短時間と長時間を入れ替える
+## 10. 短時間と長時間を入れ替える
 
 time inversion は後続計算の direct prerequisite ではありませんが、Brownian covariance の自己相似性がどれほど強いかを見る代表例です。
 
