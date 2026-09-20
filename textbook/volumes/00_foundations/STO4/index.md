@@ -618,7 +618,7 @@ $$
 
 とし、極限へ移します。
 
-この「**離散化して deterministic-time の独立性を使い、path continuity で random time へ戻す**」のが strong Markov property の核心です。
+この「**離散化して deterministic-time の独立性を使い、標本路の連続性 で random time へ戻す**」のが strong Markov property の核心です。
 
 <!-- proof-start -->
 ### 証明
@@ -802,7 +802,7 @@ bounded continuous functions から bounded Borel functions への拡張は mono
 
 従って全ての shifted finite-dimensional vectors は $\mathcal F_\tau^B$ と独立で、Brownian finite-dimensional laws を持ちます。
 
-さらに shifted path
+さらに shift 後の標本路
 
 $$
 t\mapsto B_{\tau+t}-B_\tau
@@ -849,7 +849,7 @@ $$
 
 と置きます。
 
-path continuity により
+標本路の連続性 により
 
 $$
 \{\tau_a\le t\}
@@ -1063,7 +1063,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-path continuity から
+標本路の連続性 から
 
 $$
 \{\tau_a\le t\}
@@ -1451,7 +1451,7 @@ $$
 +
 \text{deterministic-time independent increments}
 +
-\text{path continuity}
+\text{標本路の連続性}
 }
 $$
 
@@ -1596,7 +1596,7 @@ $$
 
 とします。
 
-path continuity を用いて $\tau_a$ が natural filtration $(\mathcal F_t^B)$ に関する stopping time であることを示してください。
+標本路の連続性 を用いて $\tau_a$ が natural filtration $(\mathcal F_t^B)$ に関する stopping time であることを示してください。
 
 - Level: A
 
@@ -1665,7 +1665,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-path continuity により
+標本路の連続性 により
 
 $$
 \{\tau_a\le t\}
@@ -2108,7 +2108,7 @@ P(\tau_b\le t).
 \end{aligned}
 $$
 
-hitting time distribution を代入すると
+hitting time の分布 を代入すると
 
 $$
 P(\tau_a\le s)
