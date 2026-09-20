@@ -64,7 +64,7 @@ energy minimization
 minimizing sequence
   ↓ weak compactness
 weak limit
-  ↓ weak lower semicontinuity
+  ↓ weak liminf estimate
 minimizer
   ↓
 Poisson weak solution
@@ -407,7 +407,7 @@ $$
 
 従って $F_f$ は $V$ 上の連続線形汎関数です。
 
-[双対ノルムの定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
+[dual norm の定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
 
 $$
 \|F_f\|_{H^{-1}}
@@ -1557,7 +1557,7 @@ $w$ は任意だったので 1 が成立します。
 <a id="lem-gpde6-weak-lsc"></a>
 
 <!-- formal-statement-start -->
-> **補題（Hilbert norm の弱下半連続性）**  
+> **補題（Hilbert norm の弱 liminf 評価）**  
 > 実 Hilbert 空間 $H$ で
 
 $$
@@ -1720,7 +1720,7 @@ $$
 1. J は下に有界
 2. minimizing sequence は V で有界
 3. GPDE5 から弱収束部分列を取る
-4. norm の弱下半連続性と F の弱連続性で極限が最小点
+4. norm の弱 liminf 評価と F の弱連続性で極限が最小点
 5. 変分原理から最小点が弱解
 ~~~
 
@@ -1758,7 +1758,7 @@ $$
 
 とします。
 
-[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -1866,7 +1866,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱下半連続性](#lem-gpde6-weak-lsc)から
+また [Hilbert norm の弱 liminf 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -1927,7 +1927,7 @@ $$
 F(u).
 $$
 
-[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 F(u)
@@ -1971,7 +1971,7 @@ $$
 
 強収束は使っていません。
 
-Poisson energy は凸な quadratic functional なので、弱収束と弱下半連続性だけで最小点を作れます。
+Poisson energy は凸な quadratic functional なので、弱収束と弱 liminf 評価だけで最小点を作れます。
 
 非線形 PDE では、この先さらに compactness による強収束が必要になる場合があります。
 
@@ -2043,7 +2043,7 @@ $$
 (F_1-F_2)(w).
 $$
 
-[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \|\nabla w\|_2^2
@@ -3018,7 +3018,7 @@ $$
 (F_n-F)(u_n-u).
 $$
 
-[双対ノルムの定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
+[dual norm の定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
 
 $$
 |(F_n-F)(u_n-u)|
@@ -3097,7 +3097,7 @@ $c=\|F\|_{H^{-1}}$ と置きます。
 
 ### 1. 下からの評価
 
-[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
+[dual norm の基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -3218,7 +3218,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱下半連続性](#lem-gpde6-weak-lsc)から
+また [Hilbert norm の弱 liminf 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -3383,7 +3383,7 @@ $$
 - distributional equation と variational equation は $u\in H_0^1$, $f\in L^2$ の下で同値になる。
 - Poisson form は bounded かつ coercive である。
 - 対称性により weak equation は energy minimization と同値になる。
-- GPDE5 の弱コンパクト性と norm の弱下半連続性から minimizer を構成できる。
+- GPDE5 の弱コンパクト性と norm の弱 liminf 評価から minimizer を構成できる。
 - coercivity から一意性と stability estimate が得られる。
 
 という一本の構造が得られました。
