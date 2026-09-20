@@ -1,0 +1,38 @@
+chapter: "STO2"
+terms:
+  - term: martingale
+    english: martingale
+    meaning: adaptedかつ各時刻で可積分で、次時刻の条件付き期待値が現在値に等しい離散時間過程。
+  - term: submartingale
+    english: submartingale
+    meaning: adaptedかつ可積分で、次時刻の条件付き期待値が現在値以上となる過程。
+  - term: supermartingale
+    english: supermartingale
+    meaning: adaptedかつ可積分で、次時刻の条件付き期待値が現在値以下となる過程。
+  - term: predictable process
+    english: predictable process
+    meaning: 離散時間ではH_nがF_{n-1}可測である過程。第n増分を見る前に係数が決まる。
+  - term: martingale transform
+    english: martingale transform
+    meaning: predictable係数H_kでmartingale差分Delta M_kを重み付けして累積したsum H_k Delta M_k。
+  - term: optional sampling
+    english: optional sampling theorem
+    meaning: 適切な条件下でstopping timeで観測してもmartingaleの条件付き平均保存、submartingaleの条件付き平均増加が保たれる定理。
+  - term: Doob decomposition
+    english: Doob decomposition
+    meaning: 離散時間submartingaleをmartingale部分とpredictableな非減少compensatorの和へ一意に分解すること。
+  - term: Doob maximal inequality
+    english: Doob maximal inequality
+    meaning: submartingaleが有限時間内に高いlevelへ到達する確率を終端時刻の正部分期待値で抑える不等式。
+  - term: upcrossing
+    english: upcrossing
+    meaning: 標本路がlevel a以下からlevel b以上へ移動して区間[a,b]を下から上へ横切ること。
+  - term: upcrossing inequality
+    english: Doob upcrossing inequality
+    meaning: submartingaleの有限時間upcrossing回数の期待値を終端正部分の期待値で抑える不等式。
+  - term: uniformly integrable martingale
+    english: uniformly integrable martingale
+    meaning: 時刻全体の確率変数族が一様可積分であるmartingale。a.s.収束に加えてL1収束とterminal representationが得られる。
+  - term: compensator
+    english: compensator
+    meaning: Doob分解でsubmartingaleの予測可能な平均増加を累積したpredictable nondecreasing process。
