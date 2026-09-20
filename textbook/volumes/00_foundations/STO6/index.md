@@ -70,9 +70,11 @@ STO7 の Itô formula は、この章で積分が完成して初めて厳密に�
 <!-- definition-example-start: def-sto6-simple-predictable -->
 ### 直接例：過去の Brownian 値を次の区間の係数にする
 
+**定義の確認**
+
 $0<s<T$ を固定し、
 
-$
+$$
 \xi_s:=1_{\{B_s\ge0\}},
 \qquad
 H_t
@@ -80,7 +82,7 @@ H_t
 1_{(0,s]}(t)
 +
 \xi_s\,1_{(s,T]}(t)
-$
+$$
 
 とします。
 
@@ -134,41 +136,43 @@ continuous martingale $M$ に対して、simple integrand の積分は増分和�
 <!-- definition-example-start: def-sto6-simple-integral -->
 ### 直接例：二段階の Brownian stochastic integral
 
+**定義の確認**
+
 前節の
 
-$
+$$
 H_t
 =
 1_{(0,s]}(t)+1_{\{B_s\ge0\}}1_{(s,T]}(t)
-$
+$$
 
 を Brown 運動 $B$ に対して積分すると、
 
-$
+$$
 (H\cdot B)_t
 =
 B_{t\wedge s}
 +
 1_{\{B_s\ge0\}}
 \left(B_t-B_s\right)1_{\{t>s\}}.
-$
+$$
 
 特に $t=T$ では
 
-$
+$$
 \int_0^T H_u\,dB_u
 =
 B_s+1_{\{B_s\ge0\}}(B_T-B_s).
-$
+$$
 
 第二項の条件付き期待値は
 
-$
+$$
 E[1_{\{B_s\ge0\}}(B_T-B_s)\mid\mathcal F_s]
 =
 1_{\{B_s\ge0\}}E[B_T-B_s\mid\mathcal F_s]
 =0.
-$
+$$
 
 predictability が martingale cancellation を保っていることが見えます。
 <!-- definition-example-end -->
@@ -178,9 +182,9 @@ predictability が martingale cancellation を保っていることが見えま�
 ## 3. bracket を測度として読む
 
 stochastic integral は $M$ の増分だけで定義されるため、$M_0\neq0$ でも
-$
+$$
 \widetilde M_t:=M_t-M_0
-$
+$$
 へ置き換えれば積分は変わりません。また $[\widetilde M]=[M]$ です。したがって $L^2$ 構成では、必要な箇所で $M_0=0$ と正規化しても一般性を失いません。
 
 STO5 で continuous local martingale $M$ に対する increasing process $[M]$ を構成しました。
@@ -289,7 +293,7 @@ $$
 
 [bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
 
-$
+$$
 M_{t\wedge\tau_n}
 =
 E[M_t\mid\mathcal F_{t\wedge\tau_n}],
@@ -544,6 +548,8 @@ $$
 <!-- definition-example-start: def-sto6-l2m -->
 ### 直接例：Brown 運動と deterministic integrand
 
+**定義の確認**
+
 $h\in L^2([0,T])$ を deterministic とします。deterministic Borel process は predictable なので
 
 $$
@@ -654,45 +660,45 @@ $\mathcal A$-simple functions の $L^2(\mu_M)$ closure を $V$ と書くと、$V
 
 $C\in\mathcal C$ なら $1_C\in V$ なので
 
-$
+$$
 1_{C^c}=1-1_C\in V.
-$
+$$
 
 従って $C^c\in\mathcal C$ です。
 
 次に $C_1,C_2,\ldots\in\mathcal C$ が互いに素とします。有限和
 
-$
+$$
 U_m=\bigcup_{j=1}^mC_j
-$
+$$
 
 について
 
-$
+$$
 1_{U_m}=\sum_{j=1}^m1_{C_j}\in V,
-$
+$$
 
 よって $U_m\in\mathcal C$ です。$U=\bigcup_{j\ge1}C_j$ と置くと、有限測度性と continuity from below から
 
-$
+$$
 \|1_U-1_{U_m}\|_{L^2(\mu_M)}^2
 =
 \mu_M(U\setminus U_m)\to0.
-$
+$$
 
 $V$ は閉空間なので $1_U\in V$、従って $U\in\mathcal C$ です。
 
 以上より $\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じる Dynkin 族です。一方 $\mathcal A$ は algebra なので π-system でもあり、
 
-$
+$$
 \sigma(\mathcal A)=\mathcal P.
-$
+$$
 
 従って [π--λ theorem](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
 
-$
+$$
 \mathcal P=\sigma(\mathcal A)\subset\mathcal C.
-$
+$$
 
 逆包含は定義から明らかなので $\mathcal C=\mathcal P$。よって predictable simple functions、さらに simple predictable integrands が $L^2(\mu_M)$ に稠密です。
 <!-- proof-end -->
@@ -784,31 +790,31 @@ $$
 
 離散時間 martingale
 
-$
+$$
 N_{kT2^{-n}}
-$
+$$
 
 を考え、その最大値を
 
-$
+$$
 X_n^*
 =
 \max_{t\in D_n}|N_t|
-$
+$$
 
 と書きます。$|N|$ は submartingale なので、STO2 の [Doob maximal inequality](../STO2/index.md#thm-sto2-doob-maximal) の stopping-time proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
 
-$
+$$
 \lambda P(X_n^*\ge\lambda)
 \le
 E\left[
 |N_T|1_{\{X_n^*\ge\lambda\}}
 \right].
-$
+$$
 
 tail integral formula を使えば
 
-$
+$$
 \begin{aligned}
 E[(X_n^*)^2]
 &=
@@ -822,37 +828,37 @@ E\left[
 &=
 2E[|N_T|X_n^*].
 \end{aligned}
-$
+$$
 
 [Tonelli theorem](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) を使った最後の等式では
 
-$
+$$
 \int_0^\infty1_{\{X_n^*\ge\lambda\}}\,d\lambda=X_n^*
-$
+$$
 
 としました。[Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)（指数 $2,2$）より
 
-$
+$$
 E[(X_n^*)^2]
 \le
 2\|N_T\|_2\|X_n^*\|_2.
-$
+$$
 
 $\|X_n^*\|_2=0$ なら結論は自明で、それ以外なら両辺を $\|X_n^*\|_2$ で割って
 
-$
+$$
 \|X_n^*\|_2
 \le
 2\|N_T\|_2.
-$
+$$
 
 従って
 
-$
+$$
 E[(X_n^*)^2]
 \le
 4E[|N_T|^2].
-$
+$$
 
 $D_n\subset D_{n+1}$ なので左辺の random variables は単調増加します。連続標本路では dyadic points が dense なので
 
@@ -1375,35 +1381,37 @@ global $L^2$ 条件は便利ですが、SDE では係数が bounded でないこ
 
 この pathwise 条件から、積分構成に必要な $L^2$ stopping sequence は作れます。実際
 
-$
+$$
 A_t:=\int_0^tH_s^2\,d[M]_s
-$
+$$
 
 は continuous increasing process なので、
 
-$
+$$
 \beta_n
 =
 \inf\{t\ge0:A_t\ge n\}\wedge n
-$
+$$
 
 と置けば $\beta_n\uparrow\infty$ almost surely かつ
 
-$
+$$
 A_{T\wedge\beta_n}\le n
-$
+$$
 
 です。従って
 
-$
+$$
 E\int_0^{T\wedge\beta_n}H_s^2\,d[M]_s
 \le n.
-$
+$$
 
 逆に increasing stopping times $\beta_n\uparrow\infty$ があり、各 $n,T$ で stopped energy の期待値が有限なら、stopped energy 自体は almost surely 有限です。固定した $T$ では almost surely 十分大きい $n$ で $\beta_n>T$ となるので、元の $A_T$ も almost surely 有限です。
 
 <!-- definition-example-start: def-sto6-local-l2 -->
 ### 直接例：$H_t=e^{B_t^2}$ は局所化すれば積分できる
+
+**定義の確認**
 
 Brown 運動 $B$ に対し
 
@@ -1543,17 +1551,17 @@ $$
 
 従って global $L^2$ theory を square-integrable martingale $M^{\tau_n}$ に適用し、
 
-$
+$$
 I^{(n)}
 :=
 (1_{(0,\tau_n]}H)\cdot M^{\tau_n}
-$
+$$
 
 と定義します。$M^{\tau_n}$ は $\tau_n$ 以後一定なので、$I^{(n)}$ も $\tau_n$ 以後一定です。
 
 $m\ge n$ なら $\tau_n\le\tau_m$ であり、stopping identity から
 
-$
+$$
 \begin{aligned}
 (I^{(m)})^{\tau_n}
 &=
@@ -1565,7 +1573,7 @@ $
 &=
 I^{(n)}.
 \end{aligned}
-$
+$$
 
 従って $t\le\tau_n$ では $I^{(m)}_t=I^{(n)}_t$。この compatibility により
 
@@ -1692,15 +1700,15 @@ $$
 
 $h_n\to h$ in $L^2[0,T]$ とすると [Itô isometry](#thm-sto6-ito-isometry-simple) により
 
-$
+$$
 X_n:=\int h_n\,dB
 \to
 X:=\int h\,dB
-$
+$$
 
 in $L^2$ です。従って [Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)（指数 $2,2$）により $E|X_n-X|\to0$ でもあります。任意の $\theta\in\mathbb R$ について
 
-$
+$$
 \left|
 E[e^{i\theta X_n}]
 -
@@ -1709,29 +1717,29 @@ E[e^{i\theta X}]
 \le
 |\theta|E|X_n-X|
 \to0.
-$
+$$
 
 一方
 
-$
+$$
 \int h_n^2\to\int h^2
-$
+$$
 
 なので、$X_n$ の Gaussian characteristic function
 
-$
+$$
 \exp\left(
 -\frac12\theta^2\int h_n^2
 \right)
-$
+$$
 
 の極限は
 
-$
+$$
 \exp\left(
 -\frac12\theta^2\int h^2
 \right).
-$
+$$
 
 従って characteristic function の一意性から $X$ は主張した centered Gaussian law を持ちます。
 <!-- proof-end -->
