@@ -2,13 +2,13 @@ chapter: "GPDE8"
 terms:
   - term: divergence form
     english: divergence form
-    meaning: 二階主部を-div(A∇u)の形で書く形式。弱形式では部分積分によりuの二階微分を要求せず、A∇uと∇vの積へ移せる。
+    meaning: 二階主要項を-div(A∇u)の形で書く形式。弱形式では部分積分によりuの二階微分を要求せず、A∇uと∇vの積へ移せる。
   - term: uniform ellipticity
     english: uniform ellipticity
-    meaning: あるlambda>0がxに依存せず存在し、xi^T A(x) xi>=lambda|xi|^2がa.e. xと全xiで成り立つ性質。主部のenergyを下から支える。
+    meaning: あるlambda>0がxに依存せず存在し、xi^T A(x) xi>=lambda|xi|^2がa.e. xと全xiで成り立つ性質。二階主要項のenergyを下から支える。
   - term: lower-order term
     english: lower-order term
-    meaning: 二階主部に対するb·∇uやcuのような一次・零次項。boundednessだけでなくcoercivityを弱めたり破壊したりし得る。
+    meaning: 二階主要項に対するb·∇uやcuのような一次・零次項。boundednessだけでなくcoercivityを弱めたり破壊したりし得る。
   - term: energy estimate
     english: energy estimate
     meaning: 弱形式に解自身をtestしてcoercivityと双対評価から得るa priori bound。存在後の安定性だけでなく近似・正則性・Galerkinの基礎になる。
