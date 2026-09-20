@@ -592,4 +592,8 @@ ARMA / ergodicity / Kalman
 - STO1 の direct prerequisite は F0-00P1 と F0-00P3C に限定し、旧 SP1 は参照しない。
 - Phase 1：STO2「離散時間 martingale・不等式・収束」を実装。martingale / submartingale / predictable transform / stopped process / bounded optional sampling / Doob decomposition / maximal inequality / upcrossing inequality / a.s. convergence / UI・L1 convergence を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
 - STO2 の direct prerequisite は STO1・F0-00P3C・F0-00P4A とし、旧 SP2 は migration source に留めて prerequisite / proof dependency にしない。
-- 現在地：次の実装対象は STO3「確率過程の構成・Kolmogorov continuity」。
+- Phase 1：STO3「確率過程の構成・Kolmogorov continuity」を実装。finite-dimensional distributions / consistency / canonical path space / Kolmogorov extension theorem / Hölder continuity / Kolmogorov--Chentsov continuity theorem / continuous modifications の一意性を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO3 の direct prerequisite は STO1・F0-00D4・F0-00P4 とし、読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
+- Kolmogorov extension theorem は cylinder algebra 上の well-definedness・有限加法性だけで済ませず、有限次元 Borel 測度の compact 内部近似、continuity from above、premeasure 性、Carathéodory extension まで本文で核心証明を閉じた。
+- Kolmogorov--Chentsov continuity theorem は dyadic grid・Markov inequality・union bound・Borel--Cantelli・chaining から continuous modification と Hölder exponent を構成するところまで証明した。
+- 現在地：次の実装対象は STO4「Brown 運動・hitting time・strong Markov property」。
