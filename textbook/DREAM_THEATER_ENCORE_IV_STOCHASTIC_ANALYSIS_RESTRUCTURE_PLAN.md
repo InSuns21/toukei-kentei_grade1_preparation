@@ -607,6 +607,6 @@ ARMA / ergodicity / Kalman
 - continuous local martingale の quadratic variation 一般存在については、continuous-time Doob--Meyer theorem の一般証明が class D / regularization / predictable compensator を含む独立した大規模理論になるため、その存在部分だけを技術的入力として境界明示した。STO6 の stochastic integral は証明へ逆輸入していない。
 - Lévy characterization は localization 後の bracket が $t\wedge\sigma_n$ になることを追跡し、停止した exponential process の二次 Taylor 展開から conditional characteristic function を導く形で閉じた。
 - Phase 2：STO6「stochastic integral」を実装。simple predictable integrand の増分和から始め、Itô isometry、predictable simple process の L2 density、Doob L2 maximal inequality、L2 completion、quadratic variation、stopping との交換、local square integrability と localization までを、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
-- STO6 の direct prerequisite は STO2・STO5・F0-00D2E とした。STO2 の Doob maximal inequalityを dyadic grid で連続時間へ持ち上げ、F0-00D2E の L2 completion を stochastic integral construction に実際に使う。旧 SP 系列は prerequisite / proof dependency にしない。
+- STO6 の direct prerequisite は STO2・STO5・F0-00D2E・F0-00D3A とした。STO2 の Doob maximal inequalityを dyadic grid で連続時間へ持ち上げ、F0-00D2E の L2 completion を stochastic integral construction に実際に使う。predictable simple process の稠密性では F0-00D3A の π--λ 定理を生成 σ 代数への拡張に使う。旧 SP 系列は prerequisite / proof dependency にしない。
 - 一般 p の Burkholder--Davis--Gundy inequality は、good-lambda / stopping decomposition を要する独立した大きな証明であるため標準定理として境界明示し、p=2 の比較は Itô isometry と Doob L2 inequality から章内で完全証明した。
 - 現在地：Phase 2 は STO5 → STO6 完了。次の実装対象は STO7「multidimensional Itô calculus・Stratonovich」。
