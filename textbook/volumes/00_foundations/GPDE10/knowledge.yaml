@@ -1,0 +1,134 @@
+chapter: GPDE10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE9
+  - PDE3
+  - PDE4
+
+concepts:
+  - id: evolution.time-dependent-l2
+    name: 時間依存L2空間
+    kind: definition
+    aliases: ["Bochner L2 space", "L2(0,T;X)"]
+    introduction: formal
+    introduction_aliases: ["定義（本章で使う時間依存 L2 空間）"]
+    requires:
+      - functional.hilbert-space
+
+  - id: evolution.gelfand-triple
+    name: Gelfand triple
+    kind: definition
+    aliases: ["Hilbert triple", "V subset H subset V star"]
+    introduction: formal
+    introduction_aliases: ["定義（Gelfand triple）"]
+    requires:
+      - functional.hilbert-space
+      - sobolev.h01
+      - sobolev.hminus1
+
+  - id: evolution.energy-weak-solution
+    name: coercive evolution problemのenergy weak solution
+    kind: definition
+    aliases: ["energy solution", "evolution weak solution"]
+    introduction: formal
+    introduction_aliases: ["定義（coercive evolution problem の energy weak solution）"]
+    requires:
+      - evolution.time-dependent-l2
+      - evolution.gelfand-triple
+      - variational.bounded-bilinear-form
+
+  - id: evolution.gelfand-energy-identity
+    name: Gelfand tripleのenergy identity
+    kind: lemma
+    aliases: ["Lions energy identity", "Hilbert triple energy identity"]
+    introduction: formal
+    introduction_aliases: ["補題（Gelfand triple の energy identity）"]
+    requires:
+      - evolution.time-dependent-l2
+      - evolution.gelfand-triple
+
+  - id: evolution.galerkin-approximation
+    name: 時間発展PDEのGalerkin approximation
+    kind: definition
+    aliases: ["Galerkin approximation", "finite-dimensional Galerkin method"]
+    introduction: formal
+    introduction_aliases: ["定義（Galerkin approximation）"]
+    requires:
+      - evolution.gelfand-triple
+      - variational.bounded-bilinear-form
+
+  - id: evolution.galerkin-uniform-energy
+    name: Galerkin解の一様energy estimate
+    kind: proposition
+    aliases: ["uniform Galerkin energy estimate", "Galerkin a priori estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（Galerkin 解の一様 energy estimate）"]
+    requires:
+      - evolution.galerkin-approximation
+      - variational.coercive-bilinear-form
+
+  - id: evolution.coercive-galerkin-existence
+    name: coercive evolution problemのGalerkin存在一意性
+    kind: theorem
+    aliases: ["Galerkin existence theorem for coercive evolution equations", "linear parabolic Galerkin existence"]
+    introduction: formal
+    introduction_aliases: ["定理（Galerkin 法による coercive evolution problem の存在一意性）"]
+    requires:
+      - evolution.galerkin-uniform-energy
+      - evolution.gelfand-energy-identity
+      - functional-analysis.bounded-hilbert-sequence-weak-subsequence
+      - variational.bounded-bilinear-form
+      - variational.coercive-bilinear-form
+
+  - id: evolution.dirichlet-heat-energy-solution
+    name: 零Dirichlet熱方程式のenergy weak solution
+    kind: corollary
+    aliases: ["Dirichlet heat equation energy solution", "weak heat equation existence"]
+    introduction: formal
+    introduction_aliases: ["系（零 Dirichlet 熱方程式の energy weak solution）"]
+    requires:
+      - evolution.coercive-galerkin-existence
+      - pde.pde3-heat-equation
+      - sobolev.h01
+      - sobolev.hminus1
+
+  - id: evolution.data-stability
+    name: 時間発展弱解の初期値・外力連続依存
+    kind: proposition
+    aliases: ["continuous dependence for evolution weak solutions", "evolution data stability"]
+    introduction: formal
+    introduction_aliases: ["命題（初期値・外力に対する連続依存）"]
+    requires:
+      - evolution.energy-weak-solution
+      - evolution.gelfand-energy-identity
+      - variational.coercive-bilinear-form
+
+  - id: evolution.wave-energy-space
+    name: 波動方程式のenergy space
+    kind: definition
+    aliases: ["wave energy space", "H01 x L2 energy space"]
+    introduction: formal
+    introduction_aliases: ["定義（波動方程式の energy space）"]
+    requires:
+      - pde.pde4-wave-equation
+      - sobolev.h01
+
+  - id: evolution.wave-energy-conservation
+    name: 滑らかな零Dirichlet波動解のenergy保存
+    kind: proposition
+    aliases: ["wave energy conservation in energy space"]
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな零 Dirichlet 波動解の energy 保存）"]
+    requires:
+      - evolution.wave-energy-space
+      - pde.pde4-wave-equation
+
+  - id: evolution.mild-solution
+    name: mild solution
+    kind: definition
+    aliases: ["semigroup mild solution", "Duhamel semigroup solution"]
+    introduction: formal
+    introduction_aliases: ["定義（mild solution：semigroup bridge）"]
+    requires:
+      - functional.hilbert-space
