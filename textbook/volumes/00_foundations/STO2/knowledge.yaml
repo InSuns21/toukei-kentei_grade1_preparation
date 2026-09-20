@@ -22,7 +22,7 @@ concepts:
     kind: definition
     aliases: ["predictable transform", "martingale transform", "離散時間predictable process"]
     introduction: formal
-    introduction_aliases: ["定義（離散時間predictable processとpredictable transform）"]
+    introduction_aliases: ["定義（離散時間 predictable process と predictable transform）"]
     requires:
       - stochastic.predictable-process
       - stochastic.discrete-martingale
@@ -62,7 +62,7 @@ concepts:
     kind: theorem
     aliases: ["Doob decomposition", "predictable compensator"]
     introduction: formal
-    introduction_aliases: ["定理（離散時間Doob decomposition）"]
+    introduction_aliases: ["定理（離散時間 Doob decomposition）"]
     requires:
       - stochastic.discrete-martingale
       - stochastic.predictable-transform
@@ -112,3 +112,13 @@ concepts:
     introduction_aliases: ["定理（UI martingale convergence）"]
     requires:
       - stochastic.submartingale-as-convergence
+
+  - id: stochastic.ui-optional-stopping
+    name: UIを仮定したoptional stopping
+    kind: corollary
+    aliases: ["UI optional stopping", "uniformly integrable optional stopping"]
+    introduction: formal
+    introduction_aliases: ["系（UI を仮定した optional stopping）"]
+    requires:
+      - stochastic.bounded-optional-sampling
+      - stochastic.ui-martingale-convergence
