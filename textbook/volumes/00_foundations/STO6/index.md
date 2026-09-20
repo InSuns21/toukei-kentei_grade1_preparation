@@ -631,7 +631,7 @@ X_n^*
 \max_{t\in D_n}|N_t|
 $
 
-と書きます。$|N|$ は submartingale なので、STO2 の Doob maximal inequality の stopping-time proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
+と書きます。$|N|$ は submartingale なので、STO2 の [Doob maximal inequality](../STO2/index.md#thm-sto2-doob-maximal) の stopping-time proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
 
 $
 \lambda P(X_n^*\ge\lambda)
@@ -659,7 +659,7 @@ E\left[
 \end{aligned}
 $
 
-Tonelli を使った最後の等式では
+[Tonelli theorem](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) を使った最後の等式では
 
 $
 \int_0^\infty1_{\{X_n^*\ge\lambda\}}\,d\lambda=X_n^*
