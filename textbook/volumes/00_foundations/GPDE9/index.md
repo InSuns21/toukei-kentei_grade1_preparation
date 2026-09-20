@@ -8,13 +8,13 @@
 > **定義（difference quotient）**  
 > $u$ を $x$ と $x+he_k$ で定義された関数、$h\ne0$ とする。第 $k$ 方向の前進 difference quotient を
 >
-> $
+$$
 > \boxed{
 > D_h^k u(x)
 > :=
 > \frac{u(x+he_k)-u(x)}{h}
 > }
-> $
+$$
 >
 > と定める。
 <!-- formal-statement-end -->
@@ -261,13 +261,13 @@ $$
 > **補題（H1 difference quotient estimate）**  
 > $U\Subset V\subset\mathbb R^d$ とし、$u\in H^1(V)$ とする。十分小さい $|h|>0$ に対して
 >
-> $$
+$$
 > \boxed{
 > \|D_h^k u\|_{L^2(U)}
 > \le
 > \|\partial_k u\|_{L^2(V)}
 > }
-> $$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -372,7 +372,7 @@ difference quotient にも完全に対応する恒等式があります。
 > **補題（difference quotient の部分積分）**  
 > $u,v\in L^2(\mathbb R^d)$ とし、少なくとも一方が compact support を持つとする。$h\ne0$ に対して
 >
-> $$
+$$
 > \boxed{
 > \int_{\mathbb R^d}
 > (D_h^k u)v\,dx
@@ -381,7 +381,7 @@ difference quotient にも完全に対応する恒等式があります。
 > \int_{\mathbb R^d}
 > u(D_{-h}^k v)\,dx
 > }
-> $$
+$$
 >
 > が成り立つ。局所領域では、必要な平行移動が領域内部に収まる場合に同じ恒等式を使える。
 <!-- formal-statement-end -->
@@ -458,29 +458,29 @@ $$
 > **補題（difference quotient criterion）**  
 > $U\Subset V\subset\mathbb R^d$、$u\in L^2(V)$ とする。ある $M<\infty$、$h_0>0$ が存在して
 >
-> $$
+$$
 > \|D_h^k u\|_{L^2(U)}
 > \le M
 > \qquad
 > (0<|h|<h_0)
-> $$
+$$
 >
 > が成り立つとする。
 >
 > このとき任意の $U'\Subset U$ に対して
 >
-> $$
+$$
 > \partial_k u\in L^2(U')
-> $$
+$$
 >
 > であり、
 >
-> $$
+$$
 > \boxed{
 > \|\partial_k u\|_{L^2(U')}
 > \le M
 > }
-> $$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -722,14 +722,14 @@ $$
 > **命題（Poisson 方程式の Caccioppoli 型 estimate）**  
 > $u\in H^1(V)$、$f\in L^2(V)$ が
 >
-> $$
+$$
 > -\Delta u=f
 > \quad\text{weakly in }V
-> $$
+$$
 >
 > を満たすとする。任意の $\eta\in C_c^\infty(V)$、$0\le\eta\le1$ に対して
 >
-> $$
+$$
 > \boxed{
 > \int_V
 > \eta^2|\nabla u|^2
@@ -740,7 +740,7 @@ $$
 > \int_V
 > \eta^2(f^2+u^2)
 > }
-> $$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -921,40 +921,40 @@ $$
 > **定理（Poisson 方程式の interior H2 regularity）**  
 > $\Omega\subset\mathbb R^d$ を開集合とし、
 >
-> $$
+$$
 > u\in H^1_{\mathrm{loc}}(\Omega),
 > \qquad
 > f\in L^2_{\mathrm{loc}}(\Omega)
-> $$
+$$
 >
 > が
 >
-> $$
+$$
 > -\Delta u=f
 > \quad\text{in }\mathcal D'(\Omega)
-> $$
+$$
 >
 > を満たすとする。
 >
 > このとき
 >
-> $$
+$$
 > \boxed{
 > u\in H^2_{\mathrm{loc}}(\Omega)
 > }
-> $$
+$$
 >
 > である。
 >
 > さらに任意の
 >
-> $$
+$$
 > U\Subset V\Subset\Omega
-> $$
+$$
 >
 > に対し、$U,V,d$ のみに依存する定数 $C$ が存在して
 >
-> $$
+$$
 > \boxed{
 > \|u\|_{H^2(U)}
 > \le
@@ -965,7 +965,7 @@ $$
 > \|u\|_{L^2(V)}
 > \right)
 > }
-> $$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1379,7 +1379,7 @@ $$
 > **命題（一般係数の Caccioppoli 型 estimate）**  
 > $V\Subset\Omega$ とし、$A$ が
 >
-> $$
+$$
 > |A(x)\xi|
 > \le
 > \Lambda|\xi|,
@@ -1387,19 +1387,19 @@ $$
 > \xi^{\mathsf T}A(x)\xi
 > \ge
 > \lambda|\xi|^2
-> $$
+$$
 >
 > を満たすとする。
 >
 > $u\in H^1(V)$、$f\in L^2(V)$ が
 >
-> $$
+$$
 > -\operatorname{div}(A\nabla u)=f
-> $$
+$$
 >
 > の弱解なら、任意の $\eta\in C_c^\infty(V)$、$0\le\eta\le1$ に対し
 >
-> $$
+$$
 > \boxed{
 > \int
 > \eta^2|\nabla u|^2
@@ -1413,7 +1413,7 @@ $$
 > \eta^2(f^2+u^2)
 > \right]
 > }
-> $$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1508,24 +1508,24 @@ $$
 >
 > $u\in H^1_{\mathrm{loc}}(\Omega)$、$f\in L^2_{\mathrm{loc}}(\Omega)$ が
 >
-> $$
+$$
 > -\operatorname{div}(A\nabla u)=f
 > \quad\text{weakly in }\Omega
-> $$
+$$
 >
 > を満たすとする。
 >
 > このとき
 >
-> $$
+$$
 > \boxed{
 > u\in H^2_{\mathrm{loc}}(\Omega)
 > }.
-> $$
+$$
 >
 > さらに $U\Subset V\Subset\Omega$ に対し
 >
-> $$
+$$
 > \boxed{
 > \|u\|_{H^2(U)}
 > \le
@@ -1536,7 +1536,7 @@ $$
 > \|u\|_{L^2(V)}
 > \right)
 > }
-> $$
+$$
 >
 > が成り立つ。定数 $C$ は $U,V,d,\lambda,\Lambda$ と $V$ 上の $A$ の Lipschitz 定数に依存する。
 <!-- formal-statement-end -->
