@@ -10,7 +10,7 @@ concepts:
   - id: stochastic.finite-dimensional-distribution-consistency
     name: 有限次元分布と整合性
     kind: definition
-    aliases: ["finite-dimensional distribution", "finite-dimensional distributions", "有限次元分布", "有限次元分布の整合性", "整合的有限次元分布"]
+    aliases: ["finite-dimensional distribution", "finite-dimensional distributions", "有限次元分布の整合性", "整合的有限次元分布"]
     introduction: formal
     introduction_aliases: ["定義（有限次元分布と整合性）"]
     requires:
@@ -28,7 +28,7 @@ concepts:
   - id: stochastic.finite-borel-compact-approximation
     name: 有限Borel測度のcompact内部近似
     kind: lemma
-    aliases: ["有限 Borel 測度の compact 内部近似", "finite Borel measure compact approximation"]
+    aliases: ["finite Borel measure compact approximation"]
     introduction: formal
     introduction_aliases: ["補題（有限 Borel 測度の compact 内部近似）"]
     requires:
@@ -37,7 +37,7 @@ concepts:
   - id: stochastic.kolmogorov-extension
     name: Kolmogorov拡張定理
     kind: theorem
-    aliases: ["Kolmogorov 拡張定理", "Kolmogorov extension theorem"]
+    aliases: ["Kolmogorov extension theorem"]
     introduction: formal
     introduction_aliases: ["定理（Kolmogorov 拡張定理：実数値版）"]
     requires:
