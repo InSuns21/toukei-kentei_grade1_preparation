@@ -2016,16 +2016,16 @@ $$
    $\tau_{a+b}-\tau_a$ が $\mathcal F_{\tau_a}^B$ と独立であることを示してください。
 2. $\tau_{a+b}-\tau_a$ の law が $\tau_b$ の law と同じであることを示してください。
 3. 任意の $s,t>0$ に対し
->
-$$
+
+$
 P(
 \tau_a\le s,\tau_{a+b}-\tau_a\le t
 )
 =
 P(\tau_a\le s)P(\tau_b\le t)
-$$
->
-> を示し、右辺を $\Phi$ で明示してください。
+$
+
+を示し、右辺を $\Phi$ で明示してください。
 
 - Level: C
 
@@ -2086,7 +2086,15 @@ $$
 
 **3. joint probability を分解する。**
 
-event $\{\tau_a\le s\}$ は $\mathcal F_{\tau_a}^B$ に属します。
+event $\{\tau_a\le s\}$ は $\mathcal F_{\tau_a}^B$ に属します。実際、任意の $u\ge0$ について
+
+$
+\{\tau_a\le s\}\cap\{\tau_a\le u\}
+=
+\{\tau_a\le \min(s,u)\}
+\in
+\mathcal F_u^B.
+$
 
 従って独立性から
 
