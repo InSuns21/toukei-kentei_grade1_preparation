@@ -1,0 +1,125 @@
+chapter: STO4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO3
+
+concepts:
+  - id: stochastic.gaussian-process
+    name: Gaussian process
+    kind: definition
+    aliases: ["Gaussian process", "Gaussian過程"]
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian process）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.brownian-motion
+    name: standard Brownian motion
+    kind: definition
+    aliases: ["Brownian motion", "standard Brownian motion", "Brown運動", "標準Brown運動"]
+    introduction: formal
+    introduction_aliases: ["定義（standard Brownian motion）"]
+    requires:
+      - stochastic.stochastic-process
+      - stochastic.gaussian-process
+
+  - id: stochastic.brownian-construction
+    name: Brown運動の構成
+    kind: theorem
+    aliases: ["construction of Brownian motion", "Brownian motion existence"]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 運動の構成）"]
+    requires:
+      - stochastic.gaussian-process
+      - stochastic.kolmogorov-extension
+      - stochastic.kolmogorov-chentsov-continuity
+
+  - id: stochastic.brownian-scaling
+    name: Brownian scaling
+    kind: proposition
+    aliases: ["Brownian scaling", "Brown運動のscaling"]
+    introduction: formal
+    introduction_aliases: ["命題（Brownian scaling）"]
+    requires:
+      - stochastic.brownian-motion
+
+  - id: stochastic.brownian-natural-filtration
+    name: Brownian natural filtration
+    kind: definition
+    aliases: ["Brownian natural filtration", "Brown運動の自然filtration", "usual augmentation"]
+    introduction: formal
+    introduction_aliases: ["定義（Brownian natural filtration）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.filtration
+
+  - id: stochastic.brownian-markov-property
+    name: Brown運動のMarkov property
+    kind: theorem
+    aliases: ["Brownian Markov property", "Markov property of Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 運動の Markov property）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.brownian-natural-filtration
+
+  - id: stochastic.brownian-strong-markov-property
+    name: Brown運動のstrong Markov property
+    kind: theorem
+    aliases: ["Brownian strong Markov property", "strong Markov property of Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 運動の strong Markov property）"]
+    requires:
+      - stochastic.brownian-markov-property
+      - stochastic.stopping-time
+      - stochastic.stopping-sigma-field
+
+  - id: stochastic.brownian-hitting-time
+    name: Brownian hitting time
+    kind: definition
+    aliases: ["Brownian hitting time", "first hitting time", "Brown運動の到達時刻"]
+    introduction: formal
+    introduction_aliases: ["定義（Brownian hitting time）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.stopping-time
+
+  - id: stochastic.brownian-reflection-principle
+    name: reflection principle
+    kind: theorem
+    aliases: ["reflection principle", "Brownian reflection principle", "反射原理"]
+    introduction: formal
+    introduction_aliases: ["定理（reflection principle）"]
+    requires:
+      - stochastic.brownian-strong-markov-property
+      - stochastic.brownian-hitting-time
+
+  - id: stochastic.brownian-hitting-time-distribution
+    name: Brownian hitting timeの分布
+    kind: theorem
+    aliases: ["Brownian hitting time distribution", "first passage time distribution"]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian hitting time の分布）"]
+    requires:
+      - stochastic.brownian-reflection-principle
+
+  - id: stochastic.brownian-one-dimensional-recurrence
+    name: 1次元Brown運動の基本的recurrence
+    kind: theorem
+    aliases: ["one-dimensional Brownian recurrence", "Brownian recurrence", "point recurrence"]
+    introduction: formal
+    introduction_aliases: ["定理（1 次元 Brown 運動の基本的 recurrence）"]
+    requires:
+      - stochastic.brownian-hitting-time-distribution
+      - stochastic.brownian-strong-markov-property
+
+  - id: stochastic.brownian-time-inversion
+    name: Brownian time inversion
+    kind: proposition
+    aliases: ["Brownian time inversion", "time inversion"]
+    introduction: formal
+    introduction_aliases: ["命題（Brownian time inversion）"]
+    requires:
+      - stochastic.brownian-reflection-principle
+      - prob.borel-cantelli-1
