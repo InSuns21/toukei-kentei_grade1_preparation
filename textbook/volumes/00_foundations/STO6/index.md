@@ -225,6 +225,148 @@ $$
 
 逆向きは almost-sure convergence と Fatou から得られます。従って等号です。
 
+この議論は期待値だけでなく、補償 process が真の martingale であることまで与えます。
+
+<a id="lem-sto6-bracket-compensation"></a>
+
+<!-- formal-statement-start -->
+> **補題（square-integrable martingale の bracket compensation）**  
+> $M$ を $M_0=0$ の continuous square-integrable martingale とする。このとき
+>
+> $$
+> E[M]_T=E[M_T^2]<\infty
+> $$
+>
+> であり、
+>
+> $$
+> M_t^2-[M]_t
+> $$
+>
+> は $[0,T]$ 上の真の martingale である。従って $0\le s\le t\le T$ に対し
+>
+> $$
+> E\left[
+> (M_t-M_s)^2-([M]_t-[M]_s)
+> \mid\mathcal F_s
+> \right]=0.
+> $$
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+STO5 から $L:=M^2-[M]$ は continuous local martingale です。
+
+$|M|$ と $[M]$ を同時に止める increasing stopping time $\tau_n\uparrow\infty$ を取り、$L^{\tau_n}$ を真の martingale にします。すると
+
+$$
+E[M_{T\wedge\tau_n}^2]
+=
+E[M]_{T\wedge\tau_n}.
+$$
+
+一方、STO5 の [bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) と square-integrability から
+
+$$
+M_{T\wedge\tau_n}
+=
+E[M_T\mid\mathcal F_{T\wedge\tau_n}],
+$$
+
+よって conditional Jensen により
+
+$$
+E[M_{T\wedge\tau_n}^2]\le E[M_T^2].
+$$
+
+$[M]_{T\wedge\tau_n}\uparrow[M]_T$ なので monotone convergence により
+
+$$
+E[M]_T
+=
+\lim_nE[M]_{T\wedge\tau_n}
+\le E[M_T^2].
+$$
+
+逆に $M_{T\wedge\tau_n}\to M_T$ almost surely なので Fatou から
+
+$$
+E[M_T^2]
+\le
+\liminf_nE[M_{T\wedge\tau_n}^2]
+=
+E[M]_T.
+$$
+
+従って
+
+$$
+E[M]_T=E[M_T^2]<\infty.
+$$
+
+次に任意の stopping time $\sigma\le T$ に同じ議論を適用すると
+
+$$
+E[M_\sigma^2]=E[M]_\sigma\le E[M_T^2].
+$$
+
+また
+
+$$
+M_\sigma=E[M_T\mid\mathcal F_\sigma]
+$$
+
+なので conditional Jensen から
+
+$$
+M_\sigma^2
+\le
+E[M_T^2\mid\mathcal F_\sigma].
+$$
+
+固定した integrable random variable $M_T^2$ の conditional expectations の族は uniformly integrable です。従って $\{M_\sigma^2:\sigma\le T\}$ も uniformly integrable です。
+
+さらに
+
+$$
+0\le[M]_\sigma\le[M]_T,
+\qquad
+E[M]_T<\infty,
+$$
+
+なので $\{[M]_\sigma:\sigma\le T\}$ も uniformly integrable です。よって
+
+$$
+\{L_\sigma:\sigma\le T\}
+$$
+
+は uniformly integrable、すなわち $L$ は class D local martingale です。従って $L=M^2-[M]$ は真の martingale です。
+
+最後に
+
+$$
+M_t^2-M_s^2
+=
+2M_s(M_t-M_s)+(M_t-M_s)^2.
+$$
+
+$M$ の martingale 性から
+
+$$
+E[M_t-M_s\mid\mathcal F_s]=0.
+$$
+
+$L$ の martingale identity と上式を組み合わせれば
+
+$$
+E\left[
+(M_t-M_s)^2-([M]_t-[M]_s)
+\mid\mathcal F_s
+\right]=0.
+$$
+<!-- proof-end -->
+
 このため
 
 $$
@@ -342,13 +484,7 @@ E[\Delta_jM\mid\mathcal F_{t_j}]
 \end{aligned}
 $$
 
-次に STO5 の [quadratic variation theorem](../STO5/index.md#thm-sto5-local-martingale-qv) により
-
-$$
-M_t^2-[M]_t
-$$
-
-は local martingale です。$[0,T]$ 上で必要な停止を施して integrability を確保し、最後に localization を外せば
+[square-integrable martingale の bracket compensation](#lem-sto6-bracket-compensation) から
 
 $$
 E\left[
@@ -357,6 +493,7 @@ E\left[
 \right]
 =0.
 $$
+
 
 従って $\xi_k^2$ が $\mathcal F_{t_k}$-measurable であることから
 
@@ -1059,7 +1196,13 @@ simple integrand では stopped increment を書き下すだけです。一般 i
 <!-- proof-start -->
 ### 証明
 
-simple $H=\sum_k\xi_k1_{(t_k,t_{k+1}]}$ なら
+まず simple
+
+$$
+H=\sum_k\xi_k1_{(t_k,t_{k+1}]}
+$$
+
+を考えます。定義から
 
 $$
 \begin{aligned}
@@ -1082,31 +1225,88 @@ $$
 H\cdot M^\tau=(H\cdot M)^\tau.
 $$
 
-次に
+また $1_{(0,\tau]}$ は adapted かつ $(0,\infty)$ 上 left-continuous なので predictable です。
+
+右側 dyadic approximation $\tau_n\downarrow\tau$ を取ります。$\tau_n$ は grid-valued なので、simple $H$ に対して
 
 $$
-1_{(0,\tau]}(s)
+1_{(0,\tau_n]}H
 $$
 
-は adapted left-continuous process なので predictable です。
-
-$\tau$ を右側 dyadic stopping times $\tau_n\downarrow\tau$ で近似すると $1_{(0,\tau_n]}H$ は deterministic grid 上の simple predictable process で近似できます。Itô isometry と dominated convergence for the bracket measure から
+は時間 grid を共通 refinement に取れば simple predictable integrand です。従って simple integral の定義から
 
 $$
 (1_{(0,\tau_n]}H)\cdot M
-\to
-(1_{(0,\tau]}H)\cdot M
+=
+(H\cdot M)^{\tau_n}.
 $$
 
-in $L^2$ on each bounded localization。
+右辺は continuous path により、各 bounded horizon 上
 
-simple case の identity を極限へ移すと
+$$
+(H\cdot M)^{\tau_n}
+\to
+(H\cdot M)^\tau
+$$
+
+uniformly almost surely です。
+
+左辺は Itô isometry から
+
+$$
+\begin{aligned}
+&E\left|
+\bigl((1_{(0,\tau_n]}-1_{(0,\tau]})H\bigr)\cdot M_T
+\right|^2\\
+&\qquad=
+E\int_0^T
+1_{(\tau,\tau_n]}(s)H_s^2\,d[M]_s.
+\end{aligned}
+$$
+
+bounded simple $H$ なので、右辺は $[M]$ の continuous path と $\tau_n\downarrow\tau$ から 0 へ行きます。必要なら $[M]_T$ を level で止めて dominated convergence を使い、その後 monotone convergence で停止を外せます。
+
+従って simple $H$ について
 
 $$
 (H\cdot M)^\tau
 =
-(1_{(0,\tau]}H)\cdot M.
+(1_{(0,\tau]}H)\cdot M
+=
+H\cdot M^\tau.
 $$
+
+一般の $H\in L^2(M)$ では simple $H^{(n)}\to H$ in $L^2(\mu_M)$ を取ります。Itô isometry と
+
+$$
+[M^\tau]_t=[M]_{t\wedge\tau}
+$$
+
+から、各 bounded horizon で
+
+$$
+H^{(n)}\cdot M^\tau\to H\cdot M^\tau,
+$$
+
+$$
+(1_{(0,\tau]}H^{(n)})\cdot M
+\to
+(1_{(0,\tau]}H)\cdot M
+$$
+
+in $L^2$。Doob $L^2$ inequality で process supremum の $L^2$ convergence にも持ち上がります。
+
+simple case の等式を極限へ移して
+
+$$
+(H\cdot M)^\tau
+=
+H\cdot M^\tau
+=
+(1_{(0,\tau]}H)\cdot M
+$$
+
+を得ます。
 
 bracket formula は [stochastic integral の quadratic variation](#thm-sto6-integral-bracket) と STO5 の stopping property から
 
@@ -1286,25 +1486,31 @@ $$
 
 です。
 
-従って global $L^2$ theory により
+従って global $L^2$ theory を square-integrable martingale $M^{\tau_n}$ に適用し、
 
-$$
+$
 I^{(n)}
-=
-(1_{(0,\tau_n]}H)\cdot M
-$$
+:=
+(1_{(0,\tau_n]}H)\cdot M^{\tau_n}
+$
 
-が定義できます。
+と定義します。$M^{\tau_n}$ は $\tau_n$ 以後一定なので、$I^{(n)}$ も $\tau_n$ 以後一定です。
 
-$m\ge n$ なら stopping identity から
+$m\ge n$ なら $\tau_n\le\tau_m$ であり、stopping identity から
 
-$$
+$
+\begin{aligned}
 (I^{(m)})^{\tau_n}
-=
-(1_{(0,\tau_n]}H)\cdot M
-=
+&=
+\left(
+(1_{(0,\tau_m]}H)\cdot M^{\tau_m}
+\right)^{\tau_n}\\
+&=
+(1_{(0,\tau_n]}H)\cdot M^{\tau_n}\\
+&=
 I^{(n)}.
-$$
+\end{aligned}
+$
 
 従って $t\le\tau_n$ では $I^{(m)}_t=I^{(n)}_t$。この compatibility により
 
