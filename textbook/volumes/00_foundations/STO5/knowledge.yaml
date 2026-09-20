@@ -159,11 +159,11 @@ concepts:
       - stochastic.brownian-motion
 
   - id: stochastic.brownian-infinite-variation
-    name: Brownian pathは有限変動ではない
+    name: Brownian標本路は有限変動ではない
     kind: corollary
     aliases: ["Brownian motion has infinite variation"]
     introduction: formal
-    introduction_aliases: ["系（Brownian path は有限変動ではない）"]
+    introduction_aliases: ["系（Brownian 標本路は有限変動ではない）"]
     requires:
       - stochastic.brownian-quadratic-variation
       - stochastic.finite-variation-zero-qv
