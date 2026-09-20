@@ -1,0 +1,57 @@
+id: "STO5"
+title: "Encore IV Stochastic Analysis V：continuous local martingale・quadratic variation・semimartingale"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - STO4
+official_scope: []
+learning_objectives:
+  - continuous-time martingaleとcontinuous local martingaleを定義し、localizing sequenceが何を有限化するかを説明できる
+  - Brown運動がcontinuous martingaleであることをindependent incrementsから証明し、stoppingによるlocalizationを構成できる
+  - ucp convergenceを定義し、quadratic variationをpartition-independentなucp limitとして読める
+  - continuous finite-variation pathのquadratic variationが0になることをtotal variationから証明できる
+  - Brown運動のquadratic variationが[B]_t=tになることを一般のdeterministic partitionでL2計算できる
+  - continuous local martingaleのquadratic variation theoremの主張・技術的入力・characterization M^2-[M]を区別して説明できる
+  - covariationをpolarizationで構成し、MN-[M,N]がlocal martingaleになることを導ける
+  - continuous semimartingale X=M+Aのquadratic variationがlocal martingale partだけを見ることを証明できる
+  - continuous local martingaleかつfinite variationなら定数であることからsemimartingale分解の一意性を証明できる
+  - Levy characterizationをquadratic Taylor expansionとconditional characteristic functionから再構成できる
+  - Brownian quadratic variationが通常のchain ruleで二階項を捨てられない理由を説明できる
+definitions:
+  - { id: STO5-DEF-01, name: "continuous-time martingaleとcontinuous local martingale" }
+  - { id: STO5-DEF-02, name: "ucp convergence" }
+  - { id: STO5-DEF-03, name: "continuous finite-variation process" }
+  - { id: STO5-DEF-04, name: "quadratic variation" }
+  - { id: STO5-DEF-05, name: "covariation" }
+  - { id: STO5-DEF-06, name: "continuous semimartingale" }
+theorems:
+  - { id: STO5-PROP-01, name: "Brown運動はcontinuous martingale" }
+  - { id: STO5-PROP-02, name: "continuous finite-variation processのquadratic variationは0" }
+  - { id: STO5-THM-01, name: "Brown運動のquadratic variation" }
+  - { id: STO5-THM-02, name: "continuous local martingaleのquadratic variation theorem" }
+  - { id: STO5-PROP-03, name: "covariationとproduct local martingale" }
+  - { id: STO5-PROP-04, name: "finite variation partはquadratic variationへ寄与しない" }
+  - { id: STO5-THM-03, name: "continuous semimartingale分解の一意性" }
+  - { id: STO5-THM-04, name: "Levy characterization of Brownian motion" }
+  - { id: STO5-COR-01, name: "Brownian pathは有限変動ではない" }
+canonical_examples:
+  - "Brownian motion as a continuous martingale"
+  - "exit-time localization tau_n=inf{|M_t|>=n} wedge n"
+  - "C1 path has zero quadratic variation"
+  - "Brownian quadratic variation along nonuniform partitions"
+  - "covariation [B,cB]=ct"
+  - "drifted Brownian motion X_t=B_t+integral_0^t b_s ds"
+problem_patterns:
+  - STO5-LOCALIZATION-1
+  - STO5-FINITE-VARIATION-QV-1
+  - STO5-BROWNIAN-QV-1
+  - STO5-COVARIATION-1
+  - STO5-FV-LOCAL-MARTINGALE-1
+  - STO5-SEMIMARTINGALE-QV-1
+  - STO5-SEMIMARTINGALE-UNIQUENESS-1
+  - STO5-LEVY-CHARACTERIZATION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.5, review: 1.5 }
