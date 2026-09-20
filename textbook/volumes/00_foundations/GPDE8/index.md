@@ -130,19 +130,19 @@ $$
 > **定義（本章で扱う divergence form 二階線形作用素）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。行列値係数
 >
-> $$
-> A(x)=(a_{ij}(x))_{i,j=1}^d,
-> $$
+$$
+A(x)=(a_{ij}(x))_{i,j=1}^d,
+$$
 >
 > ベクトル値係数 $b(x)\in\mathbb R^d$、スカラー係数 $c(x)\in\mathbb R$ に対し
 >
-> $$
-> Lu
-> =
-> -\operatorname{div}(A\nabla u)
-> +b\cdot\nabla u
-> +cu
-> $$
+$$
+Lu
+=
+-\operatorname{div}(A\nabla u)
++b\cdot\nabla u
++cu
+$$
 >
 > を本章で扱う作用素 $L$ と呼ぶ。
 <!-- formal-statement-end -->
@@ -215,13 +215,13 @@ PDE では係数 $A=A(x)$ が場所ごとに変わるので、各点で正であ
 > **定義（一様楕円性）**  
 > 可測な行列値関数 $A:\Omega\to\mathbb R^{d\times d}$ が一様楕円的であるとは、ある定数 $\lambda>0$ が存在して、ほとんどすべての $x\in\Omega$ とすべての $\xi\in\mathbb R^d$ に対して
 >
-> $$
-> \boxed{
-> \xi^{\mathsf T}A(x)\xi
-> \ge
-> \lambda|\xi|^2
-> }
-> $$
+$$
+\boxed{
+\xi^{\mathsf T}A(x)\xi
+\ge
+\lambda|\xi|^2
+}
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -364,36 +364,36 @@ $$
 > **定義（零 Dirichlet 問題の変分弱解）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とする。可測係数 $A:\Omega\to\mathbb R^{d\times d}$、$b:\Omega\to\mathbb R^d$、$c:\Omega\to\mathbb R$ は、ある $\Lambda<\infty$ に対して
 >
-> $$
-> |A(x)\xi|\le\Lambda|\xi|
-> \qquad
-> \text{for a.e. }x\in\Omega,\ \forall\xi\in\mathbb R^d,
-> $$
+$$
+|A(x)\xi|\le\Lambda|\xi|
+\qquad
+\text{for a.e. }x\in\Omega,\ \forall\xi\in\mathbb R^d,
+$$
 >
 > かつ
 >
-> $$
-> b\in L^\infty(\Omega;\mathbb R^d),
-> \qquad
-> c\in L^\infty(\Omega)
-> $$
+$$
+b\in L^\infty(\Omega;\mathbb R^d),
+\qquad
+c\in L^\infty(\Omega)
+$$
 >
 > を満たすとする。$F\in H^{-1}(\Omega)=(H_0^1(\Omega))^*$ に対し、$u\in H_0^1(\Omega)$ が
 >
-> $$
-> \boxed{
-> \int_\Omega
-> A\nabla u\cdot\nabla v\,dx
-> +
-> \int_\Omega
-> (b\cdot\nabla u)v\,dx
-> +
-> \int_\Omega
-> cuv\,dx
-> =
-> F(v)
-> }
-> $$
+$$
+\boxed{
+\int_\Omega
+A\nabla u\cdot\nabla v\,dx
++
+\int_\Omega
+(b\cdot\nabla u)v\,dx
++
+\int_\Omega
+cuv\,dx
+=
+F(v)
+}
+$$
 >
 > をすべての $v\in H_0^1(\Omega)$ について満たすとき、$u$ を $Lu=F$ の零 Dirichlet 変分弱解と呼ぶ。
 <!-- formal-statement-end -->
@@ -500,55 +500,55 @@ $$
 > **命題（係数有界性から双線形形式の boundedness）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし、Poincare 定数を $C_P$ とする。ほとんどすべての $x\in\Omega$ で
 >
-> $$
-> |A(x)\xi|
-> \le
-> \Lambda|\xi|
-> \qquad
-> (\forall \xi\in\mathbb R^d)
-> $$
+$$
+|A(x)\xi|
+\le
+\Lambda|\xi|
+\qquad
+(\forall \xi\in\mathbb R^d)
+$$
 >
 > を満たし、
 >
-> $$
-> b\in L^\infty(\Omega;\mathbb R^d),
-> \qquad
-> c\in L^\infty(\Omega)
-> $$
+$$
+b\in L^\infty(\Omega;\mathbb R^d),
+\qquad
+c\in L^\infty(\Omega)
+$$
 >
 > とする。このとき
 >
-> $$
-> a(u,v)
-> =
-> \int_\Omega A\nabla u\cdot\nabla v
-> +
-> \int_\Omega (b\cdot\nabla u)v
-> +
-> \int_\Omega cuv
-> $$
+$$
+a(u,v)
+=
+\int_\Omega A\nabla u\cdot\nabla v
++
+\int_\Omega (b\cdot\nabla u)v
++
+\int_\Omega cuv
+$$
 >
 > は $V=H_0^1(\Omega)$ 上の bounded bilinear form であり、
 >
-> $$
-> \boxed{
-> |a(u,v)|
-> \le
-> M\|u\|_V\|v\|_V
-> }
-> $$
+$$
+\boxed{
+|a(u,v)|
+\le
+M\|u\|_V\|v\|_V
+}
+$$
 >
 > ただし
 >
-> $$
-> M
-> =
-> \Lambda
-> +
-> C_P\|b\|_\infty
-> +
-> C_P^2\|c\|_\infty
-> $$
+$$
+M
+=
+\Lambda
++
+C_P\|b\|_\infty
++
+C_P^2\|c\|_\infty
+$$
 >
 > と取れる。
 <!-- formal-statement-end -->
@@ -763,37 +763,37 @@ $$
 > **命題（下位項の小ささによる coercivity）**  
 > 上の boundedness の仮定に加え、$A$ が一様楕円的で
 >
-> $$
-> \xi^{\mathsf T}A(x)\xi
-> \ge
-> \lambda|\xi|^2
-> $$
+$$
+\xi^{\mathsf T}A(x)\xi
+\ge
+\lambda|\xi|^2
+$$
 >
 > を満たすとする。さらに
 >
-> $$
-> \boxed{
-> \alpha
-> :=
-> \lambda
-> -
-> C_P\|b\|_\infty
-> -
-> C_P^2\|c_-\|_\infty
-> >
-> 0
-> }
-> $$
+$$
+\boxed{
+\alpha
+:=
+\lambda
+-
+C_P\|b\|_\infty
+-
+C_P^2\|c_-\|_\infty
+>
+0
+}
+$$
 >
 > と仮定する。このとき
 >
-> $$
-> \boxed{
-> a(v,v)
-> \ge
-> \alpha\|v\|_V^2
-> }
-> $$
+$$
+\boxed{
+a(v,v)
+\ge
+\alpha\|v\|_V^2
+}
+$$
 >
 > がすべての $v\in H_0^1(\Omega)$ について成り立つ。
 <!-- formal-statement-end -->
@@ -980,22 +980,22 @@ $$
 > **補題（一次項の対角恒等式）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし、
 >
-> $$
-> b\in W^{1,\infty}(\Omega;\mathbb R^d).
-> $$
+$$
+b\in W^{1,\infty}(\Omega;\mathbb R^d).
+$$
 >
 > このとき任意の $v\in H_0^1(\Omega)$ に対して
 >
-> $$
-> \boxed{
-> \int_\Omega
-> (b\cdot\nabla v)v\,dx
-> =
-> -\frac12
-> \int_\Omega
-> (\operatorname{div}b)v^2\,dx
-> }
-> $$
+$$
+\boxed{
+\int_\Omega
+(b\cdot\nabla v)v\,dx
+=
+-\frac12
+\int_\Omega
+(\operatorname{div}b)v^2\,dx
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1117,23 +1117,23 @@ $$
 > **系（一次項の構造を使う coercivity）**  
 > $A$ が楕円定数 $\lambda>0$ で一様楕円的、$b\in W^{1,\infty}(\Omega;\mathbb R^d)$、$c\in L^\infty(\Omega)$ とする。さらに
 >
-> $$
-> \boxed{
-> c-\frac12\operatorname{div}b
-> \ge0
-> \quad\text{a.e. in }\Omega
-> }
-> $$
+$$
+\boxed{
+c-\frac12\operatorname{div}b
+\ge0
+\quad\text{a.e. in }\Omega
+}
+$$
 >
 > と仮定する。このとき
 >
-> $$
-> \boxed{
-> a(v,v)
-> \ge
-> \lambda\|\nabla v\|_2^2
-> }
-> $$
+$$
+\boxed{
+a(v,v)
+\ge
+\lambda\|\nabla v\|_2^2
+}
+$$
 >
 > が任意の $v\in H_0^1(\Omega)$ について成り立つ。
 <!-- formal-statement-end -->
@@ -1152,85 +1152,85 @@ $$
 > **定理（二階線形楕円型零 Dirichlet 問題の弱解）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合、$V=H_0^1(\Omega)$ とし
 >
-> $$
-> \|v\|_V=\|\nabla v\|_2
-> $$
+$$
+\|v\|_V=\|\nabla v\|_2
+$$
 >
 > を入れる。係数 $A,b,c$ は
 >
-> $$
-> |A(x)\xi|
-> \le
-> \Lambda|\xi|,
-> \qquad
-> \xi^{\mathsf T}A(x)\xi
-> \ge
-> \lambda|\xi|^2
-> $$
+$$
+|A(x)\xi|
+\le
+\Lambda|\xi|,
+\qquad
+\xi^{\mathsf T}A(x)\xi
+\ge
+\lambda|\xi|^2
+$$
 >
 > をほとんどすべての $x$ とすべての $\xi$ について満たし、
 >
-> $$
-> b\in L^\infty(\Omega;\mathbb R^d),
-> \qquad
-> c\in L^\infty(\Omega)
-> $$
+$$
+b\in L^\infty(\Omega;\mathbb R^d),
+\qquad
+c\in L^\infty(\Omega)
+$$
 >
 > とする。
 >
 > さらに双線形形式
 >
-> $$
-> a(u,v)
-> =
-> \int_\Omega A\nabla u\cdot\nabla v
-> +
-> \int_\Omega (b\cdot\nabla u)v
-> +
-> \int_\Omega cuv
-> $$
+$$
+a(u,v)
+=
+\int_\Omega A\nabla u\cdot\nabla v
++
+\int_\Omega (b\cdot\nabla u)v
++
+\int_\Omega cuv
+$$
 >
 > が、ある $\alpha>0$ に対して
 >
-> $$
-> a(v,v)\ge\alpha\|v\|_V^2
-> \qquad
-> (\forall v\in V)
-> $$
+$$
+a(v,v)\ge\alpha\|v\|_V^2
+\qquad
+(\forall v\in V)
+$$
 >
 > を満たすとする。たとえば
 >
-> $$
-> \lambda
-> -
-> C_P\|b\|_\infty
-> -
-> C_P^2\|c_-\|_\infty
-> >0
-> $$
+$$
+\lambda
+-
+C_P\|b\|_\infty
+-
+C_P^2\|c_-\|_\infty
+>0
+$$
 >
 > はその十分条件である。
 >
 > このとき任意の $F\in H^{-1}(\Omega)$ に対して一意な $u\in H_0^1(\Omega)$ が存在し
 >
-> $$
-> \boxed{
-> a(u,v)=F(v)
-> \qquad
-> (\forall v\in H_0^1(\Omega))
-> }
-> $$
+$$
+\boxed{
+a(u,v)=F(v)
+\qquad
+(\forall v\in H_0^1(\Omega))
+}
+$$
 >
 > を満たす。さらに
 >
-> $$
-> \boxed{
-> \|u\|_V
-> \le
-> \frac1\alpha
-> \|F\|_{H^{-1}(\Omega)}
-> }
-> $$
+$$
+\boxed{
+\|u\|_V
+\le
+\frac1\alpha
+\|F\|_{H^{-1}(\Omega)}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1493,35 +1493,35 @@ $$
 > **系（外力・係数摂動に対する安定性）**  
 > $a_1,a_2$ を $V$ 上の bounded bilinear form とし、$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。差形式の作用素 norm を
 >
-> $$
-> \|a_2-a_1\|_{\mathrm{op}}
-> :=
-> \sup_{\substack{u\ne0\\v\ne0}}
-> \frac{|(a_2-a_1)(u,v)|}{\|u\|_V\|v\|_V}
-> $$
+$$
+\|a_2-a_1\|_{\mathrm{op}}
+:=
+\sup_{\substack{u\ne0\\v\ne0}}
+\frac{|(a_2-a_1)(u,v)|}{\|u\|_V\|v\|_V}
+$$
 >
 > と書く。$u_i$ が
 >
-> $$
-> a_i(u_i,v)=F_i(v)
-> \qquad
-> (\forall v\in V)
-> $$
+$$
+a_i(u_i,v)=F_i(v)
+\qquad
+(\forall v\in V)
+$$
 >
 > を満たすとき
 >
-> $$
-> \boxed{
-> \|u_1-u_2\|_V
-> \le
-> \frac1{\alpha_1}
-> \left(
-> \|F_1-F_2\|_{V^*}
-> +
-> \|a_2-a_1\|_{\mathrm{op}}\|u_2\|_V
-> \right)
-> }
-> $$
+$$
+\boxed{
+\|u_1-u_2\|_V
+\le
+\frac1{\alpha_1}
+\left(
+\|F_1-F_2\|_{V^*}
++
+\|a_2-a_1\|_{\mathrm{op}}\|u_2\|_V
+\right)
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1756,17 +1756,17 @@ $$
 > **補題（弱勾配 0 の関数は定数）**  
 > $\Omega\subset\mathbb R^d$ を connected open set とする。$v\in H^1(\Omega)$ が
 >
-> $$
-> \nabla v=0
-> \quad\text{a.e. in }\Omega
-> $$
+$$
+\nabla v=0
+\quad\text{a.e. in }\Omega
+$$
 >
 > を満たすなら、ある定数 $C$ が存在して
 >
-> $$
-> v=C
-> \quad\text{a.e. in }\Omega
-> $$
+$$
+v=C
+\quad\text{a.e. in }\Omega
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1835,19 +1835,19 @@ $\Omega$ は open かつ connected なので、任意の二点を有限個の重
 > **補題（Poincare--Wirtinger）**  
 > $\Omega\subset\mathbb R^d$ を bounded connected Lipschitz domain とする。このときある $C_W>0$ が存在して
 >
-> $$
-> \boxed{
-> \|v\|_{L^2(\Omega)}
-> \le
-> C_W\|\nabla v\|_{L^2(\Omega)}
-> }
-> $$
+$$
+\boxed{
+\|v\|_{L^2(\Omega)}
+\le
+C_W\|\nabla v\|_{L^2(\Omega)}
+}
+$$
 >
 > が、平均ゼロ
 >
-> $$
-> \int_\Omega v\,dx=0
-> $$
+$$
+\int_\Omega v\,dx=0
+$$
 >
 > を満たすすべての $v\in H^1(\Omega)$ に対して成り立つ。
 <!-- formal-statement-end -->
@@ -2066,42 +2066,42 @@ Poincare--Wirtinger により $\|\nabla v\|_2$ は $V_0$ 上で $H^1$ norm と�
 > **定理（純 Neumann 問題の弱解）**  
 > $\Omega\subset\mathbb R^d$ を bounded connected Lipschitz domain とし、$A$ は
 >
-> $$
-> |A(x)\xi|\le\Lambda|\xi|,
-> \qquad
-> \xi^{\mathsf T}A(x)\xi\ge\lambda|\xi|^2
-> $$
+$$
+|A(x)\xi|\le\Lambda|\xi|,
+\qquad
+\xi^{\mathsf T}A(x)\xi\ge\lambda|\xi|^2
+$$
 >
 > を満たすとする。
 >
 > $F\in(H^1(\Omega))^*$ が compatibility condition
 >
-> $$
-> \boxed{
-> F(1)=0
-> }
-> $$
+$$
+\boxed{
+F(1)=0
+}
+$$
 >
 > を満たすとする。
 >
 > このとき平均ゼロ条件
 >
-> $$
-> \int_\Omega u\,dx=0
-> $$
+$$
+\int_\Omega u\,dx=0
+$$
 >
 > を満たす一意な $u\in H^1(\Omega)$ が存在して
 >
-> $$
-> \boxed{
-> \int_\Omega
-> A\nabla u\cdot\nabla v\,dx
-> =
-> F(v)
-> \qquad
-> (\forall v\in H^1(\Omega))
-> }
-> $$
+$$
+\boxed{
+\int_\Omega
+A\nabla u\cdot\nabla v\,dx
+=
+F(v)
+\qquad
+(\forall v\in H^1(\Omega))
+}
+$$
 >
 > を満たす。
 >
