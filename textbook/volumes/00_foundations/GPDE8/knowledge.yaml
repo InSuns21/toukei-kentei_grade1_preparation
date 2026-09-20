@@ -33,11 +33,11 @@ concepts:
       - sobolev.hminus1
 
   - id: pde.linear-elliptic-form-bounded
-    name: 一般係数楕円型formのboundedness
+    name: 係数有界性からの楕円型formのboundedness
     kind: proposition
     aliases: ["boundedness of elliptic bilinear form"]
     introduction: formal
-    introduction_aliases: ["命題（係数の L∞ 有界性から双線形形式の boundedness）"]
+    introduction_aliases: ["命題（係数有界性から双線形形式の boundedness）"]
     requires:
       - pde.linear-elliptic-dirichlet-weak-solution
       - sobolev.poincare-h01
