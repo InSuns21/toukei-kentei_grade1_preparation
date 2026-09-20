@@ -1022,7 +1022,7 @@ $$
 
 ## 8. hitting time の分布と無限平均
 
-<a id="thm-sto4-hitting-time-distribution"></a>
+<a id="thm-sto4-hitting-time-law"></a>
 
 <!-- formal-statement-start -->
 > **定理（Brownian hitting time の分布）**  
