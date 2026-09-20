@@ -2310,7 +2310,9 @@ GPDE8 の energy estimate は、その入口になります。
 
 ### Level A
 
+<a id="ex-gpde8-a01"></a>
 #### GPDE8-A01 非対称行列の一様楕円性
+- Level: A
 
 $$
 A=
@@ -2408,7 +2410,9 @@ $$
 従って一様楕円性は $A$ の対称部分で決まります。
 <!-- solution-end -->
 
+<a id="ex-gpde8-a02"></a>
 #### GPDE8-A02 双線形形式の boundedness 定数
+- Level: A
 
 $V=H_0^1(\Omega)$、$\|v\|_V=\|\nabla v\|_2$ とし、Poincare 定数を $C_P$ とする。
 
@@ -2514,7 +2518,9 @@ $$
 二階主要項では Poincare を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
 <!-- solution-end -->
 
+<a id="ex-gpde8-a03"></a>
 #### GPDE8-A03 lower-order term の小ささ
+- Level: A
 
 一様楕円性定数を $\lambda$、Poincare 定数を $C_P$ とする。
 
@@ -2623,7 +2629,9 @@ $$
 が従います。
 <!-- solution-end -->
 
+<a id="ex-gpde8-a04"></a>
 #### GPDE8-A04 負の reaction term の閾値
+- Level: A
 
 $\Omega=(0,\pi)$ で
 
@@ -2721,7 +2729,9 @@ $$
 
 ### Level B
 
+<a id="ex-gpde8-b01"></a>
 #### GPDE8-B01 $\operatorname{div}b$ を使って coercivity を示す
+- Level: B
 
 $\Omega$ を有界開集合とし、
 
@@ -2835,7 +2845,9 @@ $$
 一次項の構造を利用したためです。
 <!-- solution-end -->
 
+<a id="ex-gpde8-b02"></a>
 #### GPDE8-B02 外力と係数の摂動評価
+- Level: B
 
 $V$ 上の $a_1,a_2$ と $F_1,F_2$ に対し
 
@@ -2981,7 +2993,9 @@ $$
 $$
 <!-- solution-end -->
 
+<a id="ex-gpde8-b03"></a>
 #### GPDE8-B03 Neumann compatibility と平均ゼロ解
+- Level: B
 
 $\Omega$ を bounded connected Lipschitz domain とし、
 
@@ -3130,7 +3144,9 @@ connected domain 上では $w$ は a.e. 定数です。
 
 ### Level C
 
+<a id="ex-gpde8-c01"></a>
 #### GPDE8-C01 一般係数 Dirichlet 問題を仮定確認から閉じる
+- Level: C
 
 $\Omega\subset\mathbb R^2$ を bounded Lipschitz domain とし、
 
