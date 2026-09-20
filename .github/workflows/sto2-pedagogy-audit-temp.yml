@@ -1,0 +1,22 @@
+name: STO2 temporary pedagogy audit
+
+on:
+  push:
+    branches:
+      - dream-theater-sto2
+
+permissions:
+  contents: read
+
+jobs:
+  pedagogy-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run audit:proof-pedagogy
+      - run: npm run audit:formalism-pedagogy
