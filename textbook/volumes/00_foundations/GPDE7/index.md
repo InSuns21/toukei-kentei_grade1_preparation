@@ -35,7 +35,7 @@ $$
 
 を一つの定理として証明します。
 
-それが **Lax--Milgram 定理**です。
+この一般原理を、次節で正式な定理として述べます。
 
 本章の核心は「定理名を覚える」ことではありません。
 
@@ -145,7 +145,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lax--Milgram）**  
-> $V$ を実 Hilbert 空間とする。
+> $V$ を実数体上の完備な内積空間とする。
 >
 > $a:V\times V\to\mathbb R$ を双線形形式とし、ある $M,\alpha>0$ が存在して任意の $u,v\in V$ に対し
 
@@ -275,7 +275,7 @@ $$
 
 となり、この場合は等号です。
 
-Lax--Milgram は、この「係数 $c$ が 0 から離れているから割れる」という構造を Hilbert 空間へ持ち上げた定理だと読めます。
+Lax--Milgram は、この「係数 $c$ が 0 から離れているから割れる」という構造を 完備な内積空間へ持ち上げた定理だと読めます。
 
 ---
 
@@ -295,7 +295,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（双線形形式の Riesz 作用素表示）**  
-> $V$ を実 Hilbert 空間とし、$a:V\times V\to\mathbb R$ がある $M>0$ に対して
+> $V$ を実数体上の完備な内積空間とし、$a:V\times V\to\mathbb R$ がある $M>0$ に対して
 
 $$
 |a(u,v)|
@@ -595,7 +595,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（coercivity から作用素を下から評価する）**  
-> $V$ を実 Hilbert 空間とし、$a$ を bounded bilinear form とする。
+> $V$ を実数体上の完備な内積空間とし、$a$ を bounded bilinear form とする。
 >
 > [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)で得た $A:V\to V$ に対し、さらにある $\alpha>0$ が存在して
 
@@ -752,7 +752,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（下から有界なら range は閉）**  
-> $V$ を Hilbert 空間とし、$A:V\to V$ を有界線形作用素とする。
+> $V$ を 完備な内積空間とし、$A:V\to V$ を有界線形作用素とする。
 >
 > ある $\alpha>0$ が存在して
 
@@ -813,7 +813,7 @@ $$
 V\text{ は完備}
 $$
 
-という Hilbert 空間の仮定を使います。
+という 完備な内積空間の仮定を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -866,7 +866,7 @@ $$
 
 よって $(u_n)$ は $V$ の Cauchy 列です。
 
-$V$ は Hilbert 空間なので完備です。
+$V$ は 完備な内積空間なので完備です。
 
 したがってある $u\in V$ が存在して
 
@@ -939,7 +939,7 @@ $$
 
 そこで次に稠密性を示します。
 
-Hilbert 空間では部分空間 $M$ に対し
+完備な内積空間では部分空間 $M$ に対し
 
 $$
 \overline M=V
@@ -965,7 +965,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Lax--Milgram 作用素の range は稠密）**  
-> $V$ を実 Hilbert 空間、$a:V\times V\to\mathbb R$ を bounded かつ coercive な双線形形式とする。
+> $V$ を実数体上の完備な内積空間、$a:V\times V\to\mathbb R$ を bounded かつ coercive な双線形形式とする。
 >
 > [双線形形式の Riesz 作用素表示](#prop-gpde7-riesz-operator)で定まる $A:V\to V$ に対し
 
@@ -1095,7 +1095,7 @@ $$
 \{0\}.
 $$
 
-[Hilbert 空間の直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)から
+[完備な内積空間の直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)から
 
 $$
 \overline{\operatorname{Ran}A}
@@ -2182,7 +2182,7 @@ Lax--Milgram を使うとき、仮定をセット暗記すると応用で迷い�
 
 | 仮定 | 使う場所 | 失うと何が壊れるか |
 |---|---|---|
-| $V$ が実 Hilbert 空間 | Riesz 表現、直交補空間、完備性 | $a(u,\cdot)$ を同じ空間のベクトル $Au$ に戻す証明が使えない |
+| $V$ が実数体上の完備な内積空間 | Riesz 表現、直交補空間、完備性 | $a(u,\cdot)$ を同じ空間のベクトル $Au$ に戻す証明が使えない |
 | boundedness | $A$ の構成と連続性 | $v\mapsto a(u,v)$ が $V^*$ に入る保証がない |
 | coercivity | $\|Au\|\ge\alpha\|u\|$、単射、dense range、安定性 | kernel や到達不能方向が残り得る |
 | $\alpha>0$ | 下からの一様評価 | $\alpha=0$ では norm を制御できない |
@@ -2208,7 +2208,7 @@ Lax--Milgram はその制約を外しています。
 #### GPDE7-A01 coercivity から下からの評価
 - Level: A
 
-$V$ を実 Hilbert 空間、$a$ を bounded bilinear form とし
+$V$ を実数体上の完備な内積空間、$a$ を bounded bilinear form とし
 
 $$
 a(u,v)
@@ -2346,7 +2346,7 @@ $$
 #### GPDE7-A02 Riesz 作用素の線形性と有界性
 - Level: A
 
-$V$ を実 Hilbert 空間とし、双線形形式 $a$ が
+$V$ を実数体上の完備な内積空間とし、双線形形式 $a$ が
 
 $$
 |a(u,v)|
@@ -2735,7 +2735,7 @@ $$
 #### GPDE7-B01 下からの評価から closed range を証明する
 - Level: B
 
-$V$ を Hilbert 空間、$A:V\to V$ を有界線形作用素とし
+$V$ を 完備な内積空間、$A:V\to V$ を有界線形作用素とし
 
 $$
 \|Au\|_V
@@ -2794,7 +2794,7 @@ $$
 
 つまり $(u_n)$ は Cauchy 列です。
 
-ここで $V$ が Hilbert 空間、従って完備であることを使い、ある $u\in V$ が存在して
+ここで $V$ が 完備な内積空間、従って完備であることを使い、ある $u\in V$ が存在して
 
 $$
 u_n\to u
@@ -2842,7 +2842,7 @@ $$
 #### GPDE7-B02 dense range の証明と対称性不要の確認
 - Level: B
 
-$V$ を実 Hilbert 空間、$a$ を bounded かつ coercive な双線形形式とし
+$V$ を実数体上の完備な内積空間、$a$ を bounded かつ coercive な双線形形式とし
 
 $$
 a(u,v)=\langle Au,v\rangle
@@ -2917,7 +2917,7 @@ $$
 \{0\}.
 $$
 
-Hilbert 空間の直交補空間の性質から
+完備な内積空間の直交補空間の性質から
 
 $$
 \overline{\operatorname{Ran}A}
@@ -3262,7 +3262,7 @@ $$
 
 ### 5. 存在一意性
 
-$V=H_0^1(0,1)$ は Hilbert 空間です。
+$V=H_0^1(0,1)$ は 完備な内積空間です。
 
 ここまでで
 
@@ -3430,7 +3430,7 @@ $$
 a(u,v)=F(v)
 $$
 
-を一般の Hilbert 空間上へ抽象化し、Lax--Milgram 定理を完全証明しました。
+を一般の 完備な内積空間上へ抽象化し、Lax--Milgram 定理を完全証明しました。
 
 証明の本体は
 
