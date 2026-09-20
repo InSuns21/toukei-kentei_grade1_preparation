@@ -149,6 +149,6 @@ Encore IV の必須主線では、Malliavin calculus、rough paths、regularity 
 
 Phase 0 は完了し、旧個別章は archive / migration source として現行主線から外しました。
 
-Phase 1 の [STO1「確率過程・filtration・stopping time」](../STO1/index.md) と [STO2「離散時間 martingale・不等式・収束」](../STO2/index.md) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+Phase 1 の [STO1「確率過程・filtration・stopping time」](../STO1/index.md) と [STO2「離散時間 martingale・不等式・収束」](../STO2/index.md#def-sto2-martingale) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 
 次の実装対象は **STO3「確率過程の構成・Kolmogorov continuity」** です。
