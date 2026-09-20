@@ -233,7 +233,7 @@ $$
 
 ---
 
-## 3. Kolmogorov 拡張定理
+## 3. 整合的な有限時刻分布を全時刻へ拡張する
 
 <a id="thm-sto3-kolmogorov-extension"></a>
 
