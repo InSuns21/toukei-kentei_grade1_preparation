@@ -21,7 +21,7 @@ terms:
   - term: direct method
     english: direct method in the calculus of variations
     meaning: minimizing sequenceの有界性、弱収束部分列、弱下半連続性を使って最小点を構成する方法。
-  - term: weak liminf estimate
+  - term: weak-limit norm estimate
     english: weak lower semicontinuity of the norm
     meaning: x_n weakly converges to xなら||x||<=liminf ||x_n||となる性質。直接法で極限がenergyを増やさないことを保証する。
   - term: stability estimate
