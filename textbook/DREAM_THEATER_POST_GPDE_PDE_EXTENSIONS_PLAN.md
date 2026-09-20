@@ -98,7 +98,7 @@ classical derivative を要求しない
 viscosity solution
 ```
 
-確率制御・HJB へ接続する場合は確率過程側との依存を別途確認する。
+確率制御・HJB へ接続する場合は、新 Encore IV の STO9（SDE）と STO11（Markov process・generator・martingale problem）を主要な接続候補とし、実装時に direct prerequisite を確定する。旧 Encore IV の SP / TS 章へは依存しない。
 
 ## 4. Track D：非線形変分 PDE・monotone operator
 
