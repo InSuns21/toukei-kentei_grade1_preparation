@@ -138,28 +138,37 @@ Fourier級数をHilbert空間の直交展開として導入し、Fourier変換�
 
 ---
 
-## Encore III：Distributions, Sobolev Spaces & Weak Solutions
+## Encore III：Graduate PDE — Distributions, Sobolev Spaces & Weak Solutions
 
-```text
-F0-00D2 / F0-02C1 / F0-02C2 / F0-00PDE3
-  ↓
-F0-00DS1 Schwartz超関数・Dirac delta
-  ↓
-F0-00DS2 超関数微分・弱微分
-  ↓
-F0-00SOB1 Sobolev W^{k,p}・H^k
-  ↓
-F0-00SOB2 H_0^1・Poincare・trace
-  ↓
-F0-00WK1 弱形式・Poisson
-  ↓
-F0-00WK2 Lax--Milgram
-  ↓
-F0-00WK3 楕円型PDE・Galerkin・FEMへの橋
-```
+現行主線は GPDE1--GPDE10 とする。再編前の F0-00DS1、F0-00DS2、F0-00SOB1、F0-00SOB2、F0-00WK1、F0-00WK2、F0-00WK3 は archive / migration source であり、現行主線の prerequisite / concept owner / proof dependency にしない。
 
-WK2ではRiesz表現からLax--Milgramの存在一意性を証明し、WK3ではGalerkin直交性・Ceaの補題からFEMへ接続する。読者向け入口は `F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md`。
+~~~text
+PDE7 / F0-00D2 / F0-02C1 / F0-02C2
+  ↓
+GPDE1 テスト関数・distribution
+  ↓
+GPDE2 distribution微分・mollifier・弱微分
+  ↓
+GPDE3 Sobolev空間
+  ↓
+GPDE4 H_0^1・Poincare・trace
+  ↓
+GPDE5 Sobolev embedding・compactness
+  ↓
+GPDE6 弱形式・変分形式
+  ↓
+GPDE7 Lax--Milgram
+  ↓
+GPDE8 二階線形楕円型PDE
+  ↓
+GPDE9 楕円型正則性
+  ↓
+GPDE10 Galerkin・時間発展PDEの弱解
+~~~
 
+補助依存として、GPDE5 の weak convergence は FA3 を canonical reference とする。GPDE6 は Encore II の PDE5（Laplace / Poisson）を古典側の接続元とし、GPDE10 は PDE3 / PDE4（熱・波動）を弱解の立場から再訪する。
+
+読者向け入口は `F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md`。未完成 GPDE 章は reader-facing index に先行登録しない。
 ---
 
 ## Encore IV：Stochastic Processes & Spectral Time Series

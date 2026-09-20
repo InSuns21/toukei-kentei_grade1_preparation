@@ -1,0 +1,44 @@
+id: "GPDE5"
+title: "Encore III Graduate PDE V：Sobolev embedding・compactness"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE4
+  - FA3
+official_scope: []
+learning_objectives:
+  - 連続埋め込みとcompact embeddingを定義し、両者の違いを列の収束性で説明できる
+  - 1<=p<dでSobolev共役指数p*=dp/(d-p)が尺度変換から必然になることを導出できる
+  - R^d上のW^{1,1} Sobolev不等式を座標方向の微分積分と関数型Loomis--Whitney不等式から証明できる
+  - power trickとHolder不等式から1<p<dのSobolev不等式を証明し、W^{1,p}(R^d)へ密度で延長できる
+  - bounded Lipschitz domain上のextension theoremがSobolev embeddingに使われる位置と領域仮定を説明できる
+  - p>dでMorrey型連続性が現れ、p<dの積分可能性向上と役割が変わることを説明できる
+  - Hilbert空間の有界列から弱収束部分列を抽出する対角線論法を再構成できる
+  - H_0^1の零延長に対するtranslation estimateを証明できる
+  - L2のtranslation compactness lemmaを有限次元近似から証明できる
+  - bounded open set上でH_0^1がL2へcompactに埋め込まれるRellich--Kondrachovの標準形を証明できる
+  - H_0^1での弱収束部分列とL2での強収束部分列の極限が一致することを証明できる
+  - critical Sobolev exponentでcompactnessが壊れるconcentration sequenceを尺度計算から構成できる
+definitions:
+  - { id: GPDE5-DEF-01, name: "Sobolev共役指数 p*" }
+  - { id: GPDE5-DEF-02, name: "連続埋め込み" }
+  - { id: GPDE5-DEF-03, name: "compact embedding" }
+  - { id: GPDE5-DEF-04, name: "W_0^{1,p}(Omega)" }
+theorems:
+  - { id: GPDE5-LEM-01, name: "関数型Loomis--Whitney不等式" }
+  - { id: GPDE5-THM-01, name: "R^d上のW^{1,1} Sobolev不等式" }
+  - { id: GPDE5-THM-02, name: "R^d上のSobolev不等式" }
+  - { id: GPDE5-THM-03, name: "bounded Lipschitz domainのextension theorem" }
+  - { id: GPDE5-COR-01, name: "bounded Lipschitz domain上のSobolev embedding" }
+  - { id: GPDE5-THM-04, name: "Hilbert空間の有界列からの弱収束部分列" }
+  - { id: GPDE5-LEM-02, name: "H_0^1零延長のtranslation estimate" }
+  - { id: GPDE5-LEM-03, name: "L2 translation compactness lemma" }
+  - { id: GPDE5-THM-05, name: "Rellich--Kondrachov H_0^1 to L2" }
+  - { id: GPDE5-COR-02, name: "H_0^1のsubcritical compact embedding" }
+  - { id: GPDE5-PROP-01, name: "critical exponentでのcompactness失敗" }
+canonical_examples: [Sobolev指数のscaling, 区間上の高周波列sin(n pi x)/(n pi), bounded H_0^1列のL2強収束部分列, concentration sequence]
+problem_patterns: [GPDE5-SCALING-1, GPDE5-WEAK-STRONG-1, GPDE5-TRANSLATION-1, GPDE5-HIGH-FREQUENCY-1, GPDE5-SOBOLEV-H01-1, GPDE5-HILBERT-WEAK-1, GPDE5-RELlich-LIMIT-1, GPDE5-CRITICAL-CONCENTRATION-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
