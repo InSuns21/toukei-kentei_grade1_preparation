@@ -93,7 +93,7 @@ Encore V の FEM はこの考えを「計算可能な有限次元空間」に具
 <a id="def-gpde10-bochner-l2"></a>
 
 <!-- formal-statement-start -->
-> **定義（本章で使う時間依存 $L^2$ 空間）**  
+> **定義（時間依存 L2 空間）**  
 > $X$ を実 Hilbert 空間、$T>0$ とする。本章では
 >
 $$
@@ -2356,7 +2356,7 @@ $$
 
 - どの作用素が強連続 semigroup を生成するか
 - Hille--Yosida 型生成定理
-- analytic semigroup
+- semigroup のより強い正則化理論
 - maximal regularity
 
 は本章の射程外です。
