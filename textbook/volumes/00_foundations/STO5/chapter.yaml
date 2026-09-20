@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - continuous-time martingaleとcontinuous local martingaleを定義し、localizing sequenceが何を有限化するかを説明できる
-  - Brown運動がcontinuous martingaleであることをindependent incrementsから証明し、stoppingによるlocalizationを構成できる
+  - Brown運動がcontinuous martingaleであることをindependent incrementsから証明し、離散時間optional samplingのdyadic近似からbounded stopping theoremを導いてlocalizationを構成できる
   - ucp convergenceを定義し、quadratic variationをpartition-independentなucp limitとして読める
   - continuous finite-variation pathのquadratic variationが0になることをtotal variationから証明できる
   - Brown運動のquadratic variationが[B]_t=tになることを一般のdeterministic partitionでL2計算できる
@@ -27,6 +27,7 @@ definitions:
   - { id: STO5-DEF-06, name: "continuous semimartingale" }
 theorems:
   - { id: STO5-PROP-01, name: "Brown運動はcontinuous martingale" }
+  - { id: STO5-THM-00, name: "bounded stoppingによるcontinuous martingaleの停止" }
   - { id: STO5-PROP-02, name: "continuous finite-variation processのquadratic variationは0" }
   - { id: STO5-THM-01, name: "Brown運動のquadratic variation" }
   - { id: STO5-THM-02, name: "continuous local martingaleのquadratic variation theorem" }
