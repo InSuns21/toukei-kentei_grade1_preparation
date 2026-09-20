@@ -1,4 +1,4 @@
-# STO5：continuous local martingale・quadratic variation・semimartingale
+# STO5：連続時間確率解析の局所化・二次変分・分解
 
 <!-- definition-example-audit: strict -->
 
@@ -18,11 +18,11 @@ $$
 \boxed{
 \text{localization}
 \to
-\text{quadratic variation}
+\text{二乗増分の極限}
 \to
-\text{covariation}
+\text{交差変分}
 \to
-\text{semimartingale}
+\text{martingale + finite variation}
 \to
 \text{Lévy characterization}
 }
@@ -86,7 +86,7 @@ $$
 のように、値が大きくなる前に止めます。
 
 <!-- definition-example-start: def-sto5-continuous-local-martingale -->
-### 直接例：Brown 運動は continuous martingale
+### 直接例：Brown 運動で martingale 条件を確認する
 
 **定義の確認**
 
@@ -396,7 +396,7 @@ smooth drift は一次変分を持ちます。Brownian noise は後で見るよ�
 
 ---
 
-## 4. quadratic variation
+## 4. 二乗増分和の極限
 
 $[0,T]$ の分割
 
@@ -539,7 +539,7 @@ almost surely。従って ucp 収束し、$[A]\equiv0$ です。
 
 ---
 
-## 5. Brown 運動の quadratic variation は時間
+## 5. Brown 運動の二乗増分和は時間へ収束する
 
 <a id="thm-sto5-brownian-qv"></a>
 
@@ -669,7 +669,7 @@ $$
 
 ---
 
-## 6. continuous local martingale の quadratic variation theorem
+## 6. 一般の連続局所 martingale へ
 
 Brown 運動では独立 Gaussian increments を直接使えました。一般の continuous local martingale には独立増分はありません。それでも quadratic variation は存在します。
 
@@ -707,7 +707,7 @@ $$
 
 Brownian proof で使った「二乗増分が独立」という武器は一般 martingale では消えます。存在証明では、$M^2$ が submartingale であることから増加部分を抽出する **continuous-time Doob--Meyer theorem** と、離散分割上の martingale difference estimate を使います。
 
-continuous-time Doob--Meyer theorem の一般証明は class D、regularization、predictable compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・stopping・covariation・semimartingale への帰結は以下で閉じます。
+continuous-time Doob--Meyer theorem の一般証明は class D、regularization、predictable compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・stopping・交差変分・有限変動分解への帰結は以下で閉じます。
 
 ### 存在証明の構造
 
@@ -813,7 +813,7 @@ $$
 
 ---
 
-## 8. covariation は polarization で作る
+## 8. polarization で交差変分を作る
 
 <a id="def-sto5-covariation"></a>
 
@@ -950,7 +950,7 @@ $$
 
 ---
 
-## 9. continuous semimartingale
+## 9. local martingale と finite variation の和
 
 <a id="def-sto5-continuous-semimartingale"></a>
 
