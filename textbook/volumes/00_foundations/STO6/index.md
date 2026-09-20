@@ -1267,7 +1267,7 @@ $$
 1_{(0,\tau_n]}H
 $$
 
-は時間 grid を共通 refinement に取れば simple predictable integrand です。従って simple integral の定義から
+は時間 grid を共通 refinement に取れば simple predictable integrand です。従って [simple stochastic integral](#def-sto6-simple-integral) の定義から
 
 $$
 (1_{(0,\tau_n]}H)\cdot M
@@ -1964,7 +1964,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. simple integral の定義から
+1. [simple stochastic integral](#def-sto6-simple-integral) の定義から
 
 $$
 \int_0^T H_t\,dB_t
@@ -2137,7 +2137,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-simple integral の定義から
+[simple stochastic integral](#def-sto6-simple-integral) の定義から
 
 $$
 (H\cdot M)_{t\wedge\tau}
