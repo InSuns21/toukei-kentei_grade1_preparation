@@ -23,7 +23,7 @@ definitions:
   - { id: GPDE8-DEF-02, name: "一様楕円性" }
   - { id: GPDE8-DEF-03, name: "零Dirichlet問題の変分弱解" }
 theorems:
-  - { id: GPDE8-PROP-01, name: "係数のL∞有界性から双線形形式のboundedness" }
+  - { id: GPDE8-PROP-01, name: "係数有界性から双線形形式のboundedness" }
   - { id: GPDE8-PROP-02, name: "下位項の小ささによるcoercivity" }
   - { id: GPDE8-LEM-01, name: "一次項の対角恒等式" }
   - { id: GPDE8-COR-01, name: "一次項の構造を使うcoercivity" }
