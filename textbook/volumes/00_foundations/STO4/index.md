@@ -1247,17 +1247,17 @@ $$
 
 もし $(\sigma_k)$ が有限値 $T$ へ収束したなら、偶数番目と奇数番目の双方で $\sigma_k\to T$ なのに
 
-$
+$$
 B_{\sigma_{2j}}\in\{-1,1\},
 \qquad
 B_{\sigma_{2j+1}}=-B_{\sigma_{2j}}
-$
+$$
 
 と値が交互に $-1$ と $1$ を取ります。これは $B$ の $T$ における連続性に反します。従って
 
-$
+$$
 \sigma_k\to\infty.
-$
+$$
 
 よって level 0 への return は無限回起こります。
 <!-- proof-end -->
@@ -2013,13 +2013,13 @@ $$
 2. $\tau_{a+b}-\tau_a$ の law が $\tau_b$ の law と同じであることを示してください。
 3. 任意の $s,t>0$ に対し
 
-$
+$$
 P(
 \tau_a\le s,\tau_{a+b}-\tau_a\le t
 )
 =
 P(\tau_a\le s)P(\tau_b\le t)
-$
+$$
 
 を示し、右辺を $\Phi$ で明示してください。
 
@@ -2084,13 +2084,13 @@ $$
 
 event $\{\tau_a\le s\}$ は $\mathcal F_{\tau_a}^B$ に属します。実際、任意の $u\ge0$ について
 
-$
+$$
 \{\tau_a\le s\}\cap\{\tau_a\le u\}
 =
 \{\tau_a\le \min(s,u)\}
 \in
 \mathcal F_u^B.
-$
+$$
 
 従って独立性から
 
