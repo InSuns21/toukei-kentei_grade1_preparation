@@ -922,17 +922,61 @@ $$
 
 よって $Y$ は非負 submartingale です。
 
+$Y_k\le |X_k|+|a|$ なので各 $Y_k$ は可積分です。
+
 $c:=b-a>0$ と置きます。
 
-$Y$ が 0 にいる時刻で 1 単位買い、その後初めて $c$ 以上になった時刻で売る、という操作を繰り返します。各時刻 $k$ の直前に「現在 1 単位保有中か」を表す $H_k\in\{0,1\}$ を取れば、$H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負 bounded predictable process です。
+売買時刻を明示します。空集合の infimum は $\infty$ として
 
-一回の完了 upcrossing では買値が 0、売値が少なくとも $c$ なので $c$ 以上の利益を得ます。時刻 $n$ に未決済なら、買値は 0 で $Y_n\ge0$ なので、その未決済部分も損失にはなりません。したがって pathwise に
+$
+S_1:=\inf\{k\ge0:Y_k=0\},
+\qquad
+T_1:=\inf\{k>S_1:Y_k\ge c\},
+$
 
-$$
+さらに $j\ge1$ に対し
+
+$
+S_{j+1}:=\inf\{k>T_j:Y_k=0\},
+\qquad
+T_{j+1}:=\inf\{k>S_{j+1}:Y_k\ge c\}
+$
+
+と定めます。
+
+第 $k$ 増分を保有するかを
+
+$
+H_k
+=
+\sum_{j\ge1}
+1_{\{S_j<k\le T_j\}}
+$
+
+で定めます。区間は互いに重ならないので $H_k\in\{0,1\}$ です。
+
+また
+
+$
+\{S_j<k\le T_j\}
+=
+\{S_j\le k-1\}
+\cap
+\{T_j>k-1\}
+\in\mathcal F_{k-1},
+$
+
+なので $H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負 bounded predictable process です。
+
+$S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従って一回の完了 upcrossing ごとに少なくとも $c$ の利益を得ます。
+
+時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって pathwise に
+
+$
 (H\cdot Y)_n
 \ge
 cU_n[a,b].
-$$
+$
 
 次に $K_k:=1-H_k$ と置きます。$K$ も非負 bounded predictable です。predictable transform の命題から $K\cdot Y$ は submartingale で、初期値 0 なので
 
