@@ -382,7 +382,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\widetilde B_0=0$ で、path の連続性は $B$ から従います。
+$\widetilde B_0=0$ で、標本路の連続性は $B$ から従います。
 
 $0\le s<t$ に対し
 
@@ -1020,7 +1020,7 @@ $$
 
 ---
 
-## 8. hitting time distribution と無限平均
+## 8. hitting time の分布と無限平均
 
 <a id="thm-sto4-hitting-time-distribution"></a>
 
