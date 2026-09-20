@@ -354,11 +354,11 @@ $$
 
 [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により
 
-$
+$$
 L^2\times L^2
 \longrightarrow
 \mathbb R
-$
+$$
 
 で積分を制御し、さらに [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)によって
 
