@@ -64,7 +64,7 @@ energy minimization
 minimizing sequence
   ↓ weak compactness
 weak limit
-  ↓ weak-limit norm estimate
+  ↓ control the quadratic term under weak convergence
 minimizer
   ↓
 Poisson weak solution
