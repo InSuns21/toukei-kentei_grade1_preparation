@@ -1,4 +1,4 @@
-# STO3：有限次元分布から過程を作り、連続な標本路を得る
+# STO3：確率過程を構成し、連続な標本路を得る
 
 <!-- definition-example-audit: strict -->
 
@@ -101,7 +101,7 @@ $$
 
 > 整合的な有限次元分布族を先に指定したとき、それを本当に一つの確率過程として実現できるか。
 
-これが Kolmogorov 拡張定理の問いです。
+これが本章前半で解く「整合的な有限時刻の分布から過程を構成できるか」という問いです。
 
 <!-- definition-example-start: def-sto3-fdd-consistency -->
 ### 直接例：全ての有限集合で独立な公平符号を指定する
@@ -288,7 +288,7 @@ $$
 
 1. cylinder set に有限次元分布から確率を入れる。
 2. その確率が premeasure であることを示す。
-3. [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
+3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
 
 最も非自明なのは 2 です。
 
@@ -911,7 +911,7 @@ $$
 
 #### Step 5：Carathéodory 拡張
 
-[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
+[D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
 
 $$
 \sigma(\mathcal C)=\mathcal F^\ast
@@ -973,7 +973,7 @@ $$
 
 ---
 
-## 5. Hölder continuity は連続性を定量化する
+## 5. 連続性を指数で定量化する
 
 <a id="def-sto3-holder-continuity"></a>
 
