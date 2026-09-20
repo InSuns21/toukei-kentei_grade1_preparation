@@ -1,0 +1,29 @@
+chapter: "GPDE6"
+terms:
+  - term: H^{-1}(Omega)
+    english: H minus one space
+    meaning: H_0^1(Omega)の連続双対。GPDE6では勾配normをH_0^1のnormとして用い、その双対normで外力データを測る。
+  - term: variational weak solution
+    english: variational weak solution
+    meaning: PDEを点wiseに満たす代わりに、全てのtest functionに対する積分恒等式a(u,v)=F(v)を満たすSobolev関数。
+  - term: weak formulation
+    english: weak formulation
+    meaning: PDEにtest functionを掛け、部分積分で微分階数を下げて得る積分方程式。
+  - term: bounded bilinear form
+    english: bounded bilinear form
+    meaning: |a(u,v)|<=M||u||||v||を満たす双線形形式。二つの変数に関して連続であることを表す。
+  - term: coercivity
+    english: coercivity
+    meaning: a(v,v)>=alpha||v||^2を満たす下からの評価。Poisson formではH_0^1の勾配normに対しalpha=1となる。
+  - term: energy functional
+    english: energy functional
+    meaning: 対称双線形形式aと線形汎関数FからJ(v)=1/2 a(v,v)-F(v)で作る汎関数。coerciveな場合、変分弱解はその一意な最小点として読める。
+  - term: direct method
+    english: direct method in the calculus of variations
+    meaning: minimizing sequenceの有界性、弱収束部分列、弱下半連続性を使って最小点を構成する方法。
+  - term: weak lower semicontinuity
+    english: weak lower semicontinuity
+    meaning: x_n weakly converges to xなら||x||<=liminf ||x_n||となる性質。直接法で極限がenergyを増やさないことを保証する。
+  - term: stability estimate
+    english: stability estimate
+    meaning: データの差を解の差で制御する評価。Poisson問題では||u_1-u_2||_{H_0^1}<=||F_1-F_2||_{H^{-1}}の形になる。
