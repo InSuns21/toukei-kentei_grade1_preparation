@@ -1893,7 +1893,7 @@ $$
 
 従って $(w_n)$ は $H^1(\Omega)$ で有界です。
 
-GPDE5 の [bounded Lipschitz domain の Sobolev extension](../GPDE5/index.md#thm-gpde5-extension-lipschitz) により、有界線形作用素
+GPDE5 の [bounded Lipschitz domainのextension theorem](../GPDE5/index.md#thm-gpde5-extension-lipschitz) により、有界線形作用素
 
 $$
 E:H^1(\Omega)\to H^1(\mathbb R^d)
