@@ -287,9 +287,9 @@ $$
 M_{t\wedge\tau_n}^2+[M]_{t\wedge\tau_n}.
 $$
 
-bounded stopping theorem から
+[bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
 
-$$
+$
 M_{t\wedge\tau_n}
 =
 E[M_t\mid\mathcal F_{t\wedge\tau_n}],
@@ -1247,7 +1247,7 @@ $$
 (H\cdot M)^{\tau_n}.
 $$
 
-右辺は continuous path により、各 bounded horizon 上
+右辺は標本路の連続性により、各 bounded horizon 上
 
 $$
 (H\cdot M)^{\tau_n}
@@ -1257,7 +1257,7 @@ $$
 
 uniformly almost surely です。
 
-左辺は Itô isometry から
+左辺は [Itô isometry](#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
