@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE8「二階線形楕円型 PDE」](../GPDE8/index.md) まで公開済みで、次は GPDE9「楕円型正則性」です。
+現在は [GPDE9「楕円型正則性」](../GPDE9/index.md) まで公開済みで、次は GPDE10「Galerkin・時間発展 PDE の弱解」です。
 
 ---
 
@@ -186,9 +186,9 @@ divergence form の一般係数作用素に対し、一様楕円性と係数の 
 
 ## 6. GPDE9--GPDE10：正則性と時間発展
 
-### GPDE9 楕円型正則性
+### [GPDE9 楕円型正則性](../GPDE9/index.md)
 
-difference quotient・cutoff・Caccioppoli 型評価を使い、弱解が追加仮定の下でどこまで滑らかさを回復するかを扱います。
+difference quotient の (H^1) estimate・discrete integration by parts・一様差分 bound から弱微分を作る criterion を整備し、cutoff と Caccioppoli 型評価を組み合わせて Poisson 弱解の interior (H^2) regularity を完全証明します。さらに一般 divergence form では局所 Lipschitz 係数の下で同じ差分商法を閉じ、jump coefficient と reentrant corner により coefficient regularity / boundary regularity が本当に必要であることを確認します。
 
 ### GPDE10 Galerkin・時間発展 PDE の弱解
 
