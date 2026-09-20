@@ -9,9 +9,9 @@ concepts:
   - id: stochastic.stochastic-process
     name: 確率過程
     kind: definition
-    aliases: ["stochastic process", "sample path", "確率過程とsample path"]
+    aliases: ["stochastic process", "標本路", "確率過程と標本路"]
     introduction: formal
-    introduction_aliases: ["定義（確率過程と sample path）"]
+    introduction_aliases: ["定義（確率過程と標本路）"]
     requires:
       - prob.probability-space
       - measure.measurable-function
@@ -129,7 +129,7 @@ concepts:
     kind: proposition
     aliases: ["F_tau is a sigma-field", "stopping sigma-field monotonicity"]
     introduction: formal
-    introduction_aliases: ["命題（$\\mathcal F_\\tau$ は sigma-field で stopping time に単調）"]
+    introduction_aliases: ["命題（stopping sigma-field の sigma-field 性と単調性）"]
     requires:
       - stochastic.stopping-sigma-field
 
