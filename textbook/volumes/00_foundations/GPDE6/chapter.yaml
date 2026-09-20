@@ -1,0 +1,41 @@
+id: "GPDE6"
+title: "Encore III Graduate PDE VI：弱形式・変分形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE5
+  - PDE5
+official_scope: []
+learning_objectives:
+  - Poisson零Dirichlet問題の古典形からテスト関数を用いて弱形式を座標ごとの部分積分で導出できる
+  - H_0^1(Omega)の双対としてH^{-1}(Omega)を定義し、L2データがH^{-1} functionalを定めることをPoincare不等式から示せる
+  - Poisson方程式のvariational weak solutionを定義し、H_0^1が零Dirichlet境界条件を担う意味を説明できる
+  - classical solution・distributional solution・variational weak solutionの関係を仮定付きで証明できる
+  - bounded bilinear formとcoercive bilinear formを定義し、Poisson formのboundednessとcoercivityを確認できる
+  - gradient normと通常のH1 normでcoercivity定数がどう変わるかをPoincare不等式から導出できる
+  - 対称coercive問題のenergy functionalを定義し、variational equationとenergy minimizationの同値を証明できる
+  - Hilbert空間のnormが弱収束に関して下半連続であることを内積展開から証明できる
+  - minimizing sequence・弱収束部分列・弱下半連続性を用いてPoisson変分問題の存在を直接法で証明できる
+  - coercivityからPoisson弱解の一意性とH^{-1}データに対する安定性評価を導出できる
+  - 非零Dirichlet条件とNeumann条件では試行空間を変える必要がある理由を説明できる
+definitions:
+  - { id: GPDE6-DEF-01, name: "H^{-1}(Omega)" }
+  - { id: GPDE6-DEF-02, name: "Poissonのvariational weak solution" }
+  - { id: GPDE6-DEF-03, name: "bounded bilinear form" }
+  - { id: GPDE6-DEF-04, name: "coercive bilinear form" }
+  - { id: GPDE6-DEF-05, name: "energy functional" }
+theorems:
+  - { id: GPDE6-PROP-01, name: "L2データがH^{-1} functionalを定める" }
+  - { id: GPDE6-THM-01, name: "古典Poisson解からvariational weak solution" }
+  - { id: GPDE6-THM-02, name: "distributional solutionとvariational weak solutionの同値" }
+  - { id: GPDE6-PROP-02, name: "Poisson formのboundednessとcoercivity" }
+  - { id: GPDE6-THM-03, name: "対称coercive問題の変分原理" }
+  - { id: GPDE6-LEM-01, name: "Hilbert normの弱下半連続性" }
+  - { id: GPDE6-THM-04, name: "Poisson変分問題の直接法による存在一意性" }
+  - { id: GPDE6-COR-01, name: "Poisson弱解の安定性" }
+canonical_examples: [区間上のu=x(1-x)/2, L2 forcingからH^{-1} functional, Poisson energy, Neumann問題で定数方向が残る例]
+problem_patterns: [GPDE6-WEAKFORM-1, GPDE6-HMINUS1-1, GPDE6-DIRECT-CHECK-1, GPDE6-COERCIVITY-1, GPDE6-DISTRIBUTIONAL-EQUIV-1, GPDE6-ENERGY-1, GPDE6-STABILITY-1, GPDE6-DIRECT-METHOD-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
