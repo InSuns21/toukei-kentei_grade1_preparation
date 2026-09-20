@@ -407,9 +407,9 @@ $$
 
 従って $F_f$ は $V$ 上の連続線形汎関数です。
 
-[dual norm の定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
+したがって $\|v\|_V\le1$ の範囲で supremum を取ると
 
-$$
+$
 \|F_f\|_{H^{-1}}
 \le
 C_P\|f\|_2.
@@ -649,9 +649,9 @@ $$
 
 次に $v\in H_0^1(\Omega)$ を取ります。
 
-[H_0^1 の閉包定義](../GPDE4/index.md#def-gpde4-h01)から
+[H0^1](../GPDE4/index.md#def-gpde4-h01) の近似可能性から
 
-$$
+$
 \varphi_n\in C_c^\infty(\Omega),
 \qquad
 \varphi_n\to v
@@ -3018,9 +3018,9 @@ $$
 (F_n-F)(u_n-u).
 $$
 
-[dual norm の定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
+$H^{-1}$ norm の supremum 表示から
 
-$$
+$
 |(F_n-F)(u_n-u)|
 \le
 \|F_n-F\|_{H^{-1}}
