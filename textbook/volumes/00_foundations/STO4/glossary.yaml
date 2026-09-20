@@ -1,0 +1,32 @@
+chapter: "STO4"
+terms:
+  - term: Gaussian process
+    english: Gaussian process
+    meaning: 任意の有限個の時刻で取り出した確率ベクトルが多変量Gaussian分布を持つ確率過程。
+  - term: Brownian motion
+    english: Brownian motion
+    meaning: 0から出発し、stationary independent Gaussian incrementsとalmost surely continuous pathsを持つ確率過程。
+  - term: Brownian scaling
+    english: Brownian scaling
+    meaning: B_ctをsqrt(c)で割ると再びstandard Brownian motionになる自己相似性。
+  - term: Brownian natural filtration
+    english: Brownian natural filtration
+    meaning: 時刻tまでのBrownian pathが生成するsigma-field F_t^B=sigma(B_s:s<=t)からなるfiltration。
+  - term: Markov property
+    english: Markov property
+    meaning: deterministicな現在時刻より後のBrownian incrementが現在までの情報と独立で、将来分布が現在値だけで決まる性質。
+  - term: strong Markov property
+    english: strong Markov property
+    meaning: deterministic timeをalmost surely finiteなstopping timeへ置き換えても、停止後のshifted processが過去と独立なBrownian motionになる性質。
+  - term: hitting time
+    english: hitting time
+    meaning: Brownian pathが指定levelへ初めて到達する時刻。
+  - term: reflection principle
+    english: reflection principle
+    meaning: 指定levelへの最初の到達後のBrownian incrementを符号反転してもBrownian lawが保たれることからmaximumと終点の確率を結ぶ原理。
+  - term: recurrence
+    english: recurrence
+    meaning: 1次元Brownian motionが任意のlevelをhitし、特に0へ無限回戻る性質。
+  - term: time inversion
+    english: time inversion
+    meaning: tB_(1/t)をt>0で定め0へ連続延長すると再びBrownian motionになる時間反転型の対称性。
