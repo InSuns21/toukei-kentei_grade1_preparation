@@ -596,4 +596,9 @@ ARMA / ergodicity / Kalman
 - STO3 の direct prerequisite は STO1・F0-00D4・F0-00P4 とし、読順上は STO2 の後に置くが、martingale 理論を不要な direct prerequisite として追加しない。
 - Kolmogorov extension theorem は cylinder algebra 上の well-definedness・有限加法性だけで済ませず、有限次元 Borel 測度の compact 内部近似、continuity from above、premeasure 性、Carathéodory extension まで本文で核心証明を閉じた。
 - Kolmogorov--Chentsov continuity theorem は dyadic grid・Markov inequality・union bound・Borel--Cantelli・chaining から continuous modification と Hölder exponent を構成するところまで証明した。
-- 現在地：次の実装対象は STO4「Brown 運動・hitting time・strong Markov property」。
+- Phase 1：STO4「Brown 運動・hitting time・strong Markov property」を実装。covariance $\min(s,t)$ の Gaussian finite-dimensional laws から Kolmogorov extension / continuity を用いて Brown 運動を構成し、Markov property / strong Markov property / reflection principle / hitting time distribution / 1 次元 recurrence / time inversion を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- strong Markov property は stopping time を右側 dyadic grid へ近似し、countably-valued stopping time で deterministic-time independent increments を使った後、path continuity と bounded convergence で極限へ戻す核心証明を本文で閉じた。
+- reflection principle は strong Markov property の後に配置し、停止時刻での反射に必要な独立性を先取りしない証明依存にした。
+- STO4 の direct prerequisite は STO3 のみに限定し、旧 SP 系列は migration source に留めて prerequisite / proof dependency にしない。
+- Phase 1「確率解析の床」STO1--STO4 は完了。
+- 現在地：次の実装対象は STO5「continuous local martingale・quadratic variation・semimartingale」。

@@ -47,7 +47,7 @@ TSA1--TSA6
 1. [STO1：確率過程・filtration・stopping time](../STO1/index.md) — 実装済み
 2. [STO2：離散時間 martingale・不等式・収束](../STO2/index.md) — 実装済み
 3. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
-4. STO4：Brown 運動・hitting time・strong Markov property
+4. [STO4：Brown 運動・hitting time・strong Markov property](../STO4/index.md) — 実装済み
 5. STO5：continuous local martingale・quadratic variation・semimartingale
 6. STO6：stochastic integral
 7. STO7：multidimensional Itô calculus・Stratonovich
@@ -149,8 +149,10 @@ Encore IV の必須主線では、Malliavin calculus、rough paths、regularity 
 
 Phase 0 は完了し、旧個別章は archive / migration source として現行主線から外しました。
 
-Phase 1 の [STO1「確率過程・filtration・stopping time」](../STO1/index.md)、[STO2「離散時間 martingale・不等式・収束」](../STO2/index.md#def-sto2-martingale)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+Phase 1 の [STO1「確率過程・filtration・stopping time」](../STO1/index.md)、[STO2「離散時間 martingale・不等式・収束」](../STO2/index.md#def-sto2-martingale)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension)、[STO4「Brown 運動・hitting time・strong Markov property」](../STO4/index.md#thm-sto4-brownian-strong-markov) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 
 STO3 では整合的 finite-dimensional laws から canonical process を構成し、cylinder premeasure の可算加法性を compact 近似から閉じたうえで、Kolmogorov--Chentsov continuity theorem を dyadic chaining まで証明しました。
 
-次の実装対象は **STO4「Brown 運動・hitting time・strong Markov property」** です.
+STO4 では covariance $\min(s,t)$ から Brown 運動を構成し、stopping time の dyadic approximation から strong Markov property を証明したうえで、reflection principle、hitting time distribution、1 次元 recurrence、time inversion まで閉じました。
+
+Phase 1 は完了し、次の実装対象は **STO5「continuous local martingale・quadratic variation・semimartingale」** です.
