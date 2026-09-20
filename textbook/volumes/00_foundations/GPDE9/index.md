@@ -175,7 +175,7 @@ $e_k$ を第 $k$ 座標方向の単位ベクトルとします。
 
 
 <!-- definition-example-start: def-gpde9-difference-quotient -->
-**定義の確認**
+### 最小例：$u(x)=x^2$
 
 一変数で $u(x)=x^2$ なら
 
@@ -1005,19 +1005,51 @@ $$
 
 と置きます。
 
-distributional equation と $f\in L^2$、$u\in H^1$ から弱形式は $H_0^1(V)$ test function まで連続に延長できます。
+まず distributional equation は $C_c^\infty(V)$ 上で
 
-したがって
+$
+\int_V \nabla u\cdot\nabla\psi\,dx
+=
+\int_V f\psi\,dx
+$
 
-$$
+を意味します。
+
+左辺は Cauchy--Schwarz により
+
+$
+\left|
+\int_V \nabla u\cdot\nabla\psi
+\right|
+\le
+\|\nabla u\|_{L^2(V)}
+\|\nabla\psi\|_{L^2(V)},
+$
+
+右辺も
+
+$
+\left|
+\int_V f\psi
+\right|
+\le
+\|f\|_{L^2(V)}
+\|\psi\|_{L^2(V)}
+$
+
+と評価できます。$H_0^1(V)$ は $C_c^\infty(V)$ の $H^1$-closure なので、この等式は密度と両辺の連続性により $H_0^1(V)$ の test function へ一意に拡張されます。
+
+さらに $|h|$ を上で選んだ範囲に取れば $\eta^2w_h$ と必要な平行移動の support は $V$ 内にあり、
+
+$
 \varphi
 =
 -
 D_{-h}^k(\eta^2w_h)
 \in H_0^1(V)
-$$
+$
 
-を test できます。
+です。したがってこの $\varphi$ を test できます。
 
 弱形式は
 
@@ -1725,16 +1757,46 @@ L\|\nabla u\|_{L^2(W)}
 \end{aligned}
 $$
 
-右辺は Poisson の場合と同様に
+右辺には Cauchy--Schwarz を使い、
 
-$$
+$
+\left|
+\int
+fD_{-h}^k(\eta^2w_h)
+\right|
+\le
+\|f\|_2
+\|D_{-h}^k(\eta^2w_h)\|_2.
+$
+
+さらに [H1 difference quotient estimate](#lem-gpde9-dq-bound) と積の弱微分則から
+
+$
+\begin{aligned}
+\|D_{-h}^k(\eta^2w_h)\|_2
+&\le
+\|\partial_k(\eta^2w_h)\|_2
+\\
+&\le
+\|\eta^2\partial_kw_h\|_2
++
+2\|\eta(\partial_k\eta)w_h\|_2
+\\
+&\le
+X+2Y.
+\end{aligned}
+$
+
+したがって
+
+$
 \left|
 \int
 fD_{-h}^k(\eta^2w_h)
 \right|
 \le
 \|f\|_2(X+2Y).
-$$
+$
 
 従って
 
@@ -1837,7 +1899,7 @@ $$
 
 ---
 
-## 10. なぜ $L^\infty$ 係数だけでは $H^2$ に上がらないのか
+## 10. 反例：なぜ $L^\infty$ 係数だけでは $H^2$ に上がらないのか
 
 GPDE8 の存在定理では $A\in L^\infty$ で十分でした。
 
@@ -1947,7 +2009,7 @@ $$
 
 ---
 
-## 11. interior $H^2$ があっても boundary $H^2$ は自動ではない
+## 11. 境界反例：interior $H^2$ があっても boundary $H^2$ は自動ではない
 
 境界の角でも regularity は壊れます。
 
