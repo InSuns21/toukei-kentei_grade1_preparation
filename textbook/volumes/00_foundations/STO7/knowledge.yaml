@@ -1,0 +1,172 @@
+chapter: STO7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO5
+  - STO6
+  - RA3
+
+concepts:
+  - id: stochastic.vector-brownian-motion
+    name: d次元Brown運動
+    kind: definition
+    aliases: ["vector Brownian motion", "multidimensional Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["定義（d 次元 Brown 運動）"]
+    requires:
+      - stochastic.brownian-motion
+
+  - id: stochastic.vector-brownian-covariation
+    name: vector Brownian motionのcovariation
+    kind: proposition
+    aliases: ["Brownian cross variation", "[B^i,B^j]=delta_ij t"]
+    introduction: formal
+    introduction_aliases: ["命題（vector Brownian motion の covariation）"]
+    requires:
+      - stochastic.vector-brownian-motion
+      - stochastic.covariation
+      - stochastic.brownian-quadratic-variation
+
+  - id: stochastic.semimartingale-integral
+    name: continuous semimartingaleに対する積分
+    kind: definition
+    aliases: ["continuous semimartingale integral", "semimartingale stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["定義（continuous semimartingale に対する積分）"]
+    requires:
+      - stochastic.continuous-semimartingale
+      - stochastic.local-stochastic-integral
+      - stochastic.semimartingale-decomposition-uniqueness
+
+  - id: stochastic.weighted-covariation-sum
+    name: weighted covariation sum
+    kind: lemma
+    aliases: ["weighted quadratic covariation sum"]
+    introduction: formal
+    introduction_aliases: ["補題（weighted covariation sum）"]
+    requires:
+      - stochastic.covariation
+      - stochastic.semimartingale-integral
+
+  - id: stochastic.multidimensional-ito-formula
+    name: multidimensional Itô formula
+    kind: theorem
+    aliases: ["multidimensional Ito formula", "Itô formula in R^d"]
+    introduction: formal
+    introduction_aliases: ["定理（multidimensional Itô formula）"]
+    requires:
+      - stochastic.weighted-covariation-sum
+      - stochastic.semimartingale-integral
+      - analysis.taylor-theorem
+
+  - id: stochastic.ito-product-rule
+    name: product rule / integration by parts
+    kind: corollary
+    aliases: ["Itô product rule", "stochastic integration by parts"]
+    introduction: formal
+    introduction_aliases: ["系（product rule / integration by parts）"]
+    requires:
+      - stochastic.multidimensional-ito-formula
+      - stochastic.covariation
+
+  - id: stochastic.ito-process
+    name: Itô process
+    kind: definition
+    aliases: ["Ito process", "Brownian Itô process"]
+    introduction: formal
+    introduction_aliases: ["定義（Itô process）"]
+    requires:
+      - stochastic.vector-brownian-motion
+      - stochastic.local-stochastic-integral
+
+  - id: stochastic.ito-process-formula
+    name: Itô process版の時間依存Itô formula
+    kind: theorem
+    aliases: ["time-dependent Ito formula", "Itô formula for Itô processes"]
+    introduction: formal
+    introduction_aliases: ["定理（Itô process 版の時間依存 Itô formula）"]
+    requires:
+      - stochastic.multidimensional-ito-formula
+      - stochastic.ito-process
+      - stochastic.vector-brownian-covariation
+
+  - id: stochastic.stochastic-exponential
+    name: stochastic exponential
+    kind: definition
+    aliases: ["Doleans exponential", "stochastic exponential of a continuous local martingale"]
+    introduction: formal
+    introduction_aliases: ["定義（stochastic exponential）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.stochastic-exponential-equation
+    name: stochastic exponential solves dZ=Z dM
+    kind: proposition
+    aliases: ["stochastic exponential equation"]
+    introduction: formal
+    introduction_aliases: ["命題（stochastic exponential は dZ=Z dM を満たす）"]
+    requires:
+      - stochastic.stochastic-exponential
+      - stochastic.multidimensional-ito-formula
+
+  - id: stochastic.brownian-exponential-martingale
+    name: Brownian exponential martingale
+    kind: proposition
+    aliases: ["exponential martingale", "Brownian exponential"]
+    introduction: formal
+    introduction_aliases: ["命題（Brownian exponential martingale）"]
+    requires:
+      - stochastic.stochastic-exponential-equation
+      - stochastic.vector-brownian-motion
+
+  - id: stochastic.stratonovich-integral
+    name: Stratonovich integral
+    kind: definition
+    aliases: ["Stratonovich integral", "symmetric stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["定義（Stratonovich integral）"]
+    requires:
+      - stochastic.semimartingale-integral
+      - stochastic.covariation
+
+  - id: stochastic.ito-stratonovich-basic-conversion
+    name: Stratonovich integralとItô integralの変換
+    kind: theorem
+    aliases: ["Itô-Stratonovich conversion", "Ito Stratonovich conversion"]
+    introduction: formal
+    introduction_aliases: ["定理（Stratonovich integral と Itô integral の変換）"]
+    requires:
+      - stochastic.stratonovich-integral
+      - stochastic.covariation
+
+  - id: stochastic.covariation-chain-rule
+    name: covariation chain rule
+    kind: lemma
+    aliases: ["chain rule for covariation"]
+    introduction: formal
+    introduction_aliases: ["補題（covariation chain rule）"]
+    requires:
+      - stochastic.multidimensional-ito-formula
+      - stochastic.covariation
+
+  - id: stochastic.stratonovich-chain-rule
+    name: Euclidean Stratonovich chain rule
+    kind: theorem
+    aliases: ["Stratonovich chain rule", "ordinary chain rule for Stratonovich calculus"]
+    introduction: formal
+    introduction_aliases: ["定理（Euclidean Stratonovich chain rule）"]
+    requires:
+      - stochastic.ito-stratonovich-basic-conversion
+      - stochastic.covariation-chain-rule
+      - stochastic.multidimensional-ito-formula
+
+  - id: stochastic.ito-process-stratonovich-conversion
+    name: Itô processに対するItô--Stratonovich conversion
+    kind: corollary
+    aliases: ["Euclidean Ito-Stratonovich correction", "Stratonovich drift correction"]
+    introduction: formal
+    introduction_aliases: ["系（Itô process に対する Itô--Stratonovich conversion）"]
+    requires:
+      - stochastic.stratonovich-chain-rule
+      - stochastic.ito-process-formula
