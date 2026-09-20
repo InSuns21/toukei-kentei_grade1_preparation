@@ -1,0 +1,26 @@
+chapter: "STO3"
+terms:
+  - term: finite-dimensional distribution
+    english: finite-dimensional distribution
+    meaning: 確率過程から有限個の時刻だけを取り出した確率ベクトルの同時分布。
+  - term: consistency
+    english: consistency
+    meaning: 大きい有限時刻集合の分布を座標射影で周辺化すると、小さい時刻集合の分布に一致する性質。
+  - term: canonical path space
+    english: canonical path space
+    meaning: 全候補経路を標本点とする空間R^T。座標写像X_t(omega)=omega(t)をcanonical processとする。
+  - term: cylinder set
+    english: cylinder set
+    meaning: 有限個の時刻の座標だけで所属が決まるcanonical path space上の事象。
+  - term: Kolmogorov extension theorem
+    english: Kolmogorov extension theorem
+    meaning: 整合的な有限次元分布族からcanonical path space上の確率測度と確率過程を構成する定理。
+  - term: Hölder continuity
+    english: Hölder continuity
+    meaning: あるgamma>0について|f(t)-f(s)|が定数倍の|t-s|^gammaで一様に抑えられる正則性。
+  - term: Kolmogorov--Chentsov continuity theorem
+    english: Kolmogorov--Chentsov continuity theorem
+    meaning: incrementの高次momentが時間差の1+beta乗で抑えられるとき、beta/alpha未満のHölder指数を持つcontinuous modificationを構成できる定理。
+  - term: continuous modification
+    english: continuous modification
+    meaning: 各固定時刻では元の過程とほとんど確実に一致し、標本路がほとんど確実に連続となるversion。
