@@ -15,7 +15,9 @@ learning_objectives:
   - 一般divergence formでD_h(A∇u)=A_h D_h∇u+(D_hA)∇uと展開し、係数regularityの役割を説明できる
   - 局所Lipschitz係数の一様楕円型方程式に対してinterior H^2 estimateを導出できる
   - jump coefficientが弱解のH^2 regularityを壊す一次元反例を検証できる
-  - reentrant cornerでboundary H^2 regularityが失敗する尺度計算を説明できる
+  - reentrant cornerでboundary H^2 regularityが失敗する尺度計算と、interior difference quotient法が境界でそのまま使えない理由を説明できる
+  - bounded C^{1,1} domain上のPoisson零Dirichlet問題ではglobal H^2 regularityが期待できることと、その証明がboundary flatteningを要する別理論であることを説明できる
+  - H^2 regularityだけでは一般次元でclassical solutionとは限らず、高階regularityとSobolev embeddingを経てC^2へ戻る十分条件を説明できる
   - interior regularityとboundary regularityの違いを区別できる
 definitions:
   - { id: GPDE9-DEF-01, name: "difference quotient" }
