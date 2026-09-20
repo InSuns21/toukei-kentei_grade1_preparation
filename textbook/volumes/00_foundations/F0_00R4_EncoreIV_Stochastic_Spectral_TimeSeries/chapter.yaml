@@ -1,23 +1,25 @@
 id: "F0-00R4"
-title: "Encore IV：Stochastic Processes & Spectral Time Series"
+title: "Encore IV：Stochastic Analysis & Time Series"
 volume: "foundations"
 status: supplementary
 prerequisites:
   - F0-00P3A
-  - F0-00P4
+  - F0-00P4A
+  - F0-00P6
   - F0-02C1
-  - F0-00FA2
 official_scope: []
 learning_objectives:
-  - Encore IVの確率過程側とスペクトル時系列側の通読順を説明できる
-  - 条件付き期待値からmartingale・Brown運動・Ito・SDEへ進む依存関係を説明できる
-  - Hilbert空間予測からWold・spectral measure・ARMA spectrumへ進む依存関係を説明できる
-  - Encore III・E2本編との接続と停止線を説明できる
+  - 新 Encore IV の STO1--STO14 と TSA1--TSA6 の役割を説明できる
+  - martingale・Brown 運動・quadratic variation・stochastic integral・SDE・Markov・jump process の依存関係を説明できる
+  - 定常過程・Hilbert 予測・Wold・spectral representation・ARMA・ergodicity・Kalman filter の依存関係を説明できる
+  - Euclidean Stratonovich calculus と manifold 上の確率解析の境界を説明できる
+  - 確率制御・HJB・PDE・Encore V への接続を説明できる
 definitions: []
 theorems: []
-canonical_examples: [Encore IV通読ロードマップ]
+canonical_examples: [Encore IV 確率解析・時系列ロードマップ]
 problem_patterns: []
 past_exam_alignment: []
 integrated_exam_problems: []
 exercise_counts: { level_a: 0, level_b: 0, level_c: 0, level_d: 0 }
-estimated_hours: { reading: 0.5, exercises: 0, review: 0 }
+dream_theater_exercise_count_exception: "Encore IV の統合ロードマップ兼移行ハブであり、演習章ではない。演習は実装完了した STO / TSA 各正本章に置く。"
+estimated_hours: { reading: 0.75, exercises: 0, review: 0 }

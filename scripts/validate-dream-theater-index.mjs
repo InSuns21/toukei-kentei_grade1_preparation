@@ -23,6 +23,15 @@ const deprecatedCompatibilityDirs = new Set([
   'F0_00WK1_弱形式_変分形式',
   'F0_00WK2_Lax_Milgram_存在一意性',
   'F0_00WK3_楕円型PDE_Galerkin_FEM',
+  'F0_00SP1_確率過程_filtration_stopping',
+  'F0_00SP2_martingale_optional_stopping',
+  'F0_00SP3_Brown運動_Gaussian過程_二次変分',
+  'F0_00SP4_Ito積分_Ito公式_SDE',
+  'F0_00SP5_generator_Kolmogorov_Fokker_Planck',
+  'F0_00TS1_定常過程_Hilbert予測_Wold',
+  'F0_00TS2_Herglotz_spectral_measure_density',
+  'F0_00TS2A_spectral_representation_theorem',
+  'F0_00TS3_ARMA_transfer_filter_spectrum',
 ]);
 
 const toPosix = (p) => p.split(path.sep).join('/');
