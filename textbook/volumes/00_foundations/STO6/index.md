@@ -398,7 +398,7 @@ $$
 <a id="def-sto6-l2m"></a>
 
 <!-- formal-statement-start -->
-> **定義（$L^2(M)$ integrand）**  
+> **定義（L2(M) integrand）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale とする。predictable process $H$ が
 >
 > $$
@@ -436,7 +436,7 @@ $$
 <a id="lem-sto6-simple-density"></a>
 
 <!-- formal-statement-start -->
-> **補題（simple predictable integrands の $L^2$ density）**  
+> **補題（simple predictable integrands の L2 density）**  
 > 固定した $T$ で、bounded simple predictable integrands は
 >
 > $$
@@ -474,7 +474,7 @@ $$
 
 $\mu_M$ は有限測度なので、一般の $L^2(\mu_M)$ predictable function は
 
-1. truncation で bounded にし、
+1. 値を $[-r,r]$ に切り詰めて bounded にし、
 2. bounded measurable function を simple function で近似し、
 3. measurable set の indicator を生成 algebra の有限和で近似する
 
@@ -491,7 +491,7 @@ H^{(r)}
 (-r)\vee H\wedge r
 $$
 
-と truncation すると
+と値を $[-r,r]$ に切り詰めると
 
 $$
 \|H^{(r)}-H\|_{L^2(\mu_M)}\to0
@@ -539,7 +539,7 @@ $$
 <a id="thm-sto6-l2-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（$L^2$ completion による stochastic integral の構成）**  
+> **定理（L2 completion による stochastic integral の構成）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale、$H\in L^2(M)$ とする。
 >
 > simple predictable $H^{(n)}$ で
@@ -558,7 +558,7 @@ $$
 > \int_0^tH_s^{(n)}\,dM_s
 > $$
 >
-> は $[0,T]$ 上一様に probability で収束し、適切な subsequence では almost surely 一様収束する。
+> は $[0,T]$ 上一様に probability で収束し、適切な subsequence では almost surely sup 距離で収束する。
 >
 > 極限 $I$ は近似列に依存せず、continuous square-integrable martingale となる。この $I$ を
 >
@@ -586,7 +586,7 @@ $$
 <a id="thm-sto6-doob-l2"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous-time Doob $L^2$ maximal inequality）**  
+> **定理（continuous-time Doob L2 maximal inequality）**  
 > $N=(N_t)_{0\le t\le T}$ を continuous square-integrable martingale とする。このとき
 >
 > $$
@@ -600,7 +600,7 @@ $$
 
 ### 証明の見取り図
 
-STO2 の離散時間 Doob maximal inequality を dyadic time grid に適用し、grid を細かくします。連続性があるため grid 上最大値は path supremum へ増加します。
+STO2 の離散時間 Doob maximal inequality を dyadic time grid に適用し、grid を細かくします。連続性があるため grid 上最大値は 標本路 supremum へ増加します。
 
 <!-- proof-start -->
 ### 証明
@@ -712,7 +712,7 @@ $$
 
 ---
 
-## 8. completion theorem の証明
+## 8. completion theorem の論証
 
 <!-- proof-start -->
 ### 証明
@@ -742,7 +742,7 @@ E\left[
 \end{aligned}
 $$
 
-右辺は 0 へ行くので、$I^{(n)}$ は path supremum の $L^2$ 距離で Cauchy です。
+右辺は 0 へ行くので、$I^{(n)}$ は 標本路 supremum の $L^2$ 距離で Cauchy です。
 
 subsequence $(n_j)$ を
 
@@ -777,7 +777,7 @@ $$
 <\infty.
 $$
 
-ゆえに subsequence は almost surely 一様 Cauchy で、continuous limit $I$ を持ちます。
+ゆえに subsequence は almost surely sup 距離で Cauchy で、continuous limit $I$ を持ちます。
 
 元の列全体についても先ほどの $L^2$ Cauchy estimate と subsequence limit を使えば
 
@@ -966,7 +966,7 @@ $$
 |(H_s^{(n)})^2-H_s^2|\,d[M]_s.
 $$
 
-Cauchy--Schwarz を measure $\mu_M$ に対して使うと
+Hölder inequality を指数 $2,2$ で measure $\mu_M$ に対して使うと
 
 $$
 E\sup_{t\le T}|A_t^{(n)}-A_t|
@@ -1431,29 +1431,48 @@ $$
 
 $h_n\to h$ in $L^2[0,T]$ とすると Itô isometry により
 
-$$
-\int h_n\,dB
+$
+X_n:=\int h_n\,dB
 \to
-\int h\,dB
-$$
+X:=\int h\,dB
+$
 
-in $L^2$、従って in distribution。
+in $L^2$ です。従って Hölder inequality（指数 $2,2$）により $E|X_n-X|\to0$ でもあります。任意の $\theta\in\mathbb R$ について
 
-分散も
+$
+\left|
+E[e^{i\theta X_n}]
+-
+E[e^{i\theta X}]
+\right|
+\le
+|\theta|E|X_n-X|
+\to0.
+$
 
-$$
-\int h_n^2\to\int h^2.
-$$
+一方
 
-Gaussian characteristic function
+$
+\int h_n^2\to\int h^2
+$
 
-$$
+なので、$X_n$ の Gaussian characteristic function
+
+$
 \exp\left(
 -\frac12\theta^2\int h_n^2
 \right)
-$$
+$
 
-を極限へ送れば結論を得ます。
+の極限は
+
+$
+\exp\left(
+-\frac12\theta^2\int h^2
+\right).
+$
+
+従って characteristic function の一意性から $X$ は主張した centered Gaussian law を持ちます。
 <!-- proof-end -->
 
 random integrand のとき、積分は一般には Gaussian ではありません。この区別は重要です。
@@ -1462,7 +1481,7 @@ random integrand のとき、積分は一般には Gaussian ではありませ�
 
 ## 13. BDG inequality：path の大きさと bracket の大きさ
 
-Doob $L^2$ inequality は終端値を通して path supremum を抑えました。BDG inequality はさらに直接 bracket と比較します。
+Doob $L^2$ inequality は終端値を通して 標本路 supremum を抑えました。BDG inequality はさらに直接 bracket と比較します。
 
 <a id="thm-sto6-bdg"></a>
 
@@ -1554,7 +1573,7 @@ E\left[
 \right].
 $$
 
-STO9 の SDE で Picard iteration や解の moment estimate を path supremum まで持ち上げるとき、この形を使います。
+STO9 の SDE で Picard iteration や解の moment estimate を 標本路 supremum まで持ち上げるとき、この形を使います。
 
 ---
 
@@ -1901,7 +1920,7 @@ $$
 従って両者は等しいです。
 <!-- solution-end -->
 
-## STO6-B01 $L^2$ approximation から pathwise uniform approximation へ
+## STO6-B01 $L^2$ approximation から 標本路の sup 距離による approximation へ
 
 - Level: B
 - 目安時間: 20分
@@ -2233,7 +2252,7 @@ $$
 
 - simple process の積分が $L^2$ completion できる
 - continuous martingale limit が得られる
-- path supremum は Doob inequality で制御できる
+- 標本路 supremum は Doob inequality で制御できる
 - bracket は $\int H^2\,d[M]$
 - stopping と integral が交換できる
 - localization で local martingale まで拡張できる
