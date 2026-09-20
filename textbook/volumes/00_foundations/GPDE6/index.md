@@ -649,7 +649,7 @@ $$
 
 次に $v\in H_0^1(\Omega)$ を取ります。
 
-[H0^1](../GPDE4/index.md#def-gpde4-h01) の近似可能性から
+[零境界 Sobolev 空間](../GPDE4/index.md#def-gpde4-h01)の近似可能性から
 
 $$
 \varphi_n\in C_c^\infty(\Omega),
