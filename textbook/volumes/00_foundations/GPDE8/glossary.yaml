@@ -1,0 +1,29 @@
+chapter: "GPDE8"
+terms:
+  - term: divergence form
+    english: divergence form
+    meaning: 二階主要項を-div(A∇u)の形で書く形式。弱形式では部分積分によりuの二階微分を要求せず、A∇uと∇vの積へ移せる。
+  - term: uniform ellipticity
+    english: uniform ellipticity
+    meaning: あるlambda>0がxに依存せず存在し、xi^T A(x) xi>=lambda|xi|^2がa.e. xと全xiで成り立つ性質。二階主要項のenergyを下から支える。
+  - term: lower-order term
+    english: lower-order term
+    meaning: 二階主要項に対するb·∇uやcuのような一次・零次項。boundednessだけでなくcoercivityを弱めたり破壊したりし得る。
+  - term: energy estimate
+    english: energy estimate
+    meaning: 弱形式に解自身をtestしてcoercivityと双対評価から得るa priori bound。存在後の安定性だけでなく近似・正則性・Galerkinの基礎になる。
+  - term: drift diagonal identity
+    english: drift diagonal identity
+    meaning: 零Dirichlet条件の下で∫(b·∇v)v=-(1/2)∫(div b)v^2とする恒等式。一次項の大きさではなくdiv bの符号でcoercivityを判定できる。
+  - term: coefficient perturbation stability
+    english: coefficient perturbation stability
+    meaning: 双線形形式や右辺を変えたとき、解の差をcoercivity定数とform差の作用素normで評価する連続依存性。
+  - term: compatibility condition
+    english: Neumann compatibility condition
+    meaning: 純Neumann問題で定数test functionを入れたとき必要になるF(1)=0。滑らかなf,gでは∫Omega f+∫boundary g=0に対応する。
+  - term: Poincare--Wirtinger inequality
+    english: Poincare--Wirtinger inequality
+    meaning: connected domain上の平均ゼロH^1関数に対しL2 normを勾配L2 normで制御する不等式。Neumann問題で定数方向を除いたcoercivityを回復する。
+  - term: mean-zero normalization
+    english: mean-zero normalization
+    meaning: 純Neumann問題で解の定数加算自由度を固定するため∫Omega u=0を課すこと。平均ゼロ部分空間では勾配seminormがnormになる。

@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE7「Lax--Milgram」](../GPDE7/index.md) まで公開済みで、次は GPDE8「二階線形楕円型 PDE」です。
+現在は [GPDE8「二階線形楕円型 PDE」](../GPDE8/index.md) まで公開済みで、次は GPDE9「楕円型正則性」です。
 
 ---
 
@@ -178,9 +178,9 @@ dense range
 
 までを核心証明として閉じます。対称性を仮定しないことを非対称 coercive form で直接確認し、coercivity を失うと kernel と到達不能方向が残る反例も置きます。Poisson と reaction--diffusion では、定理名を当てるだけでなく boundedness・coercivity・右辺の連続性を局所的に確認して適用します。
 
-### GPDE8 二階線形楕円型 PDE
+### [GPDE8 二階線形楕円型 PDE](../GPDE8/index.md)
 
-一様楕円性、一般係数、lower-order term、energy estimate、弱解の存在一意性を扱います。
+divergence form の一般係数作用素に対し、一様楕円性と係数の $L^\infty$ 条件を boundedness / coercivity へ翻訳します。lower-order term は粗い小ささ条件と $c-\frac12\operatorname{div}b$ の構造条件の両方から評価し、Lax--Milgram による零 Dirichlet 弱解の存在一意性・energy estimate・係数摂動安定性まで閉じます。さらに純 Neumann 問題では定数 kernel、compatibility condition $F(1)=0$、Poincare--Wirtinger、平均ゼロ部分空間による存在と定数を除いた一意性を証明します。
 
 ---
 

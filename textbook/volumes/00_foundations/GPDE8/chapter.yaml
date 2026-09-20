@@ -1,0 +1,45 @@
+id: "GPDE8"
+title: "Encore III Graduate PDE VIII：二階線形楕円型PDE"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE7
+official_scope: []
+learning_objectives:
+  - divergence form二階線形作用素と零Dirichlet変分弱解を定義できる
+  - 行列係数Aの一様楕円性を仮定込みで述べ、非対称部分が対角二次形式に寄与しないことを説明できる
+  - A,b,cのL∞評価とPoincare不等式から双線形形式のboundedness定数を導出できる
+  - 一様楕円性とlower-order termの小ささからcoercivity定数alpha=lambda-C_P||b||∞-C_P^2||c_-||∞を導出できる
+  - b∈W^{1,∞}のとき一次項の対角恒等式をC_c^∞近似から証明し、c-(1/2)div bの符号からcoercivityを示せる
+  - Lax--Milgramを用いて一般係数零Dirichlet問題の弱解の存在一意性とenergy estimateを導出できる
+  - 負の零次項がcoercivityを破壊する機構を区間上の固有関数例で確認できる
+  - 外力と係数の摂動に対するH_0^1安定性評価を導出できる
+  - 弱勾配0のH^1関数がconnected domain上で定数になることをlocal mollificationから証明できる
+  - bounded connected Lipschitz domain上のPoincare--Wirtinger不等式をextensionとtranslation compactnessから証明できる
+  - 純Neumann問題で定数kernelとcompatibility condition F(1)=0が生じる理由を説明できる
+  - 平均ゼロ部分空間でLax--Milgramを適用し、Neumann弱解の存在と定数を除いた一意性を証明できる
+definitions:
+  - { id: GPDE8-DEF-01, name: "divergence form二階線形作用素" }
+  - { id: GPDE8-DEF-02, name: "一様楕円性" }
+  - { id: GPDE8-DEF-03, name: "零Dirichlet問題の変分弱解" }
+theorems:
+  - { id: GPDE8-PROP-01, name: "係数有界性から双線形形式のboundedness" }
+  - { id: GPDE8-PROP-02, name: "下位項の小ささによるcoercivity" }
+  - { id: GPDE8-LEM-01, name: "一次項の対角恒等式" }
+  - { id: GPDE8-COR-01, name: "一次項の構造を使うcoercivity" }
+  - { id: GPDE8-THM-01, name: "二階線形楕円型零Dirichlet問題の弱解" }
+  - { id: GPDE8-COR-02, name: "外力・係数摂動に対する安定性" }
+  - { id: GPDE8-LEM-02, name: "弱勾配0の関数は定数" }
+  - { id: GPDE8-LEM-03, name: "Poincare--Wirtinger不等式" }
+  - { id: GPDE8-THM-02, name: "純Neumann問題の弱解" }
+canonical_examples:
+  - "異方的かつ一様楕円的な対角行列"
+  - "非対称だが一様楕円的な行列"
+  - "大きな定数driftが対角上で消えるDirichlet問題"
+  - "区間(0,pi)上の負reaction項と第一固有値閾値"
+  - "純Neumann問題の定数kernelとcompatibility"
+problem_patterns: [GPDE8-ELLIPTICITY-1, GPDE8-BOUNDEDNESS-1, GPDE8-LOWER-ORDER-COERCIVITY-1, GPDE8-NEGATIVE-REACTION-1, GPDE8-DIVERGENCE-DRIFT-1, GPDE8-PERTURBATION-1, GPDE8-NEUMANN-1, GPDE8-FULL-DIRICHLET-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 1.5 }

@@ -433,5 +433,6 @@ Encore III は「弱解という用語集」ではなく、**低正則な PDE �
 - GPDE5「Sobolev embedding・compactness」: Sobolev 共役指数の scaling、$W^{1,1}$ Sobolev 不等式、power trick による $W^{1,p}$ embedding、bounded Lipschitz extension の依存境界、Hilbert 有界列の弱部分列、$H_0^1$ translation estimate、有限次元近似による Rellich--Kondrachov、subcritical compact embedding、critical concentration による非compact性を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #308）。
 - GPDE6「弱形式・変分形式」: Poisson 零 Dirichlet 問題の弱形式、$H^{-1}=(H_0^1)^*$、$L^2$ forcing の双対評価、distributional / variational weak solution の同値、bounded / coercive bilinear form、energy minimization、Hilbert norm の弱収束時の norm 評価、minimizing sequence と弱コンパクト性による Poisson 弱解の直接法、安定性評価を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #309）。
 - GPDE7「Lax--Milgram」: bounded bilinear form の Riesz 作用素表示、coercivity からの下側評価、単射性、closed range、直交補空間を用いた dense range、全射性、存在一意性・安定性までを完全証明し、非対称 coercive form、coercivity 欠落時の失敗例、Poisson / reaction--diffusion への適用を本文・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #310）。
-- reader-facing index には完成済みの GPDE7 までを公開し、旧 Encore III 7章は引き続き隔離する。
-- 現在地: **GPDE1 → GPDE2 → GPDE3 → GPDE4 → GPDE5 → GPDE6 → GPDE7 完了 → 次は GPDE8「二階線形楕円型 PDE」**。
+- GPDE8「二階線形楕円型 PDE」: divergence form、uniform ellipticity、一般係数 form の boundedness、lower-order term の小ささ・divergence 構造による coercivity、Lax--Milgram による零 Dirichlet 弱解、energy estimate、係数・外力摂動安定性、負 reaction 項の失敗例、Poincare--Wirtinger、純 Neumann 問題の compatibility / 定数 kernel / 平均ゼロ正規化を本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装（PR #311）。
+- reader-facing index には完成済みの GPDE8 までを公開し、旧 Encore III 7章は引き続き隔離する。
+- 現在地: **GPDE1 → GPDE2 → GPDE3 → GPDE4 → GPDE5 → GPDE6 → GPDE7 → GPDE8 完了 → 次は GPDE9「楕円型正則性」**。

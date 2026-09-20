@@ -1,0 +1,131 @@
+chapter: GPDE8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE7
+
+concepts:
+  - id: pde.divergence-form-linear-elliptic-operator
+    name: divergence form二階線形作用素
+    kind: definition
+    aliases: ["divergence form elliptic operator", "divergence form二階線形PDE"]
+    introduction: formal
+    introduction_aliases: ["定義（本章で扱う divergence form 二階線形作用素）"]
+    requires:
+      - distribution.weak-derivative
+
+  - id: pde.uniform-ellipticity
+    name: 一様楕円性
+    kind: definition
+    aliases: ["uniform ellipticity", "uniformly elliptic matrix field"]
+    introduction: formal
+    introduction_aliases: ["定義（一様楕円性）"]
+
+  - id: pde.linear-elliptic-dirichlet-weak-solution
+    name: 一般係数楕円型零Dirichlet変分弱解
+    kind: definition
+    aliases: ["elliptic Dirichlet variational weak solution"]
+    introduction: formal
+    introduction_aliases: ["定義（零 Dirichlet 問題の変分弱解）"]
+    requires:
+      - pde.divergence-form-linear-elliptic-operator
+      - sobolev.h01
+      - sobolev.hminus1
+
+  - id: pde.linear-elliptic-form-bounded
+    name: 係数有界性からの楕円型formのboundedness
+    kind: proposition
+    aliases: ["boundedness of elliptic bilinear form"]
+    introduction: formal
+    introduction_aliases: ["命題（係数有界性から双線形形式の boundedness）"]
+    requires:
+      - pde.linear-elliptic-dirichlet-weak-solution
+      - sobolev.poincare-h01
+      - variational.bounded-bilinear-form
+
+  - id: pde.linear-elliptic-small-lower-order-coercivity
+    name: 下位項の小ささによる楕円型formのcoercivity
+    kind: proposition
+    aliases: ["small lower-order coercivity criterion"]
+    introduction: formal
+    introduction_aliases: ["命題（下位項の小ささによる coercivity）"]
+    requires:
+      - pde.uniform-ellipticity
+      - pde.linear-elliptic-form-bounded
+      - sobolev.poincare-h01
+      - variational.coercive-bilinear-form
+
+  - id: pde.drift-diagonal-identity
+    name: 一次項の対角恒等式
+    kind: lemma
+    aliases: ["drift diagonal identity", "transport diagonal identity"]
+    introduction: formal
+    introduction_aliases: ["補題（一次項の対角恒等式）"]
+    requires:
+      - sobolev.h01
+      - sobolev.smooth-multiplier-product
+
+  - id: pde.linear-elliptic-structural-coercivity
+    name: div b構造による楕円型formのcoercivity
+    kind: corollary
+    aliases: ["structural coercivity criterion"]
+    introduction: formal
+    introduction_aliases: ["系（一次項の構造を使う coercivity）"]
+    requires:
+      - pde.uniform-ellipticity
+      - pde.drift-diagonal-identity
+      - variational.coercive-bilinear-form
+
+  - id: pde.linear-elliptic-dirichlet-existence
+    name: 二階線形楕円型零Dirichlet問題の弱解
+    kind: theorem
+    aliases: ["weak existence for linear elliptic Dirichlet problem"]
+    introduction: formal
+    introduction_aliases: ["定理（二階線形楕円型零 Dirichlet 問題の弱解）"]
+    requires:
+      - pde.linear-elliptic-form-bounded
+      - functional-analysis.lax-milgram
+      - variational.coercive-bilinear-form
+      - pde.linear-elliptic-dirichlet-weak-solution
+
+  - id: pde.linear-elliptic-data-stability
+    name: 楕円型弱解の外力・係数摂動安定性
+    kind: corollary
+    aliases: ["elliptic coefficient perturbation stability", "elliptic data stability"]
+    introduction: formal
+    introduction_aliases: ["系（外力・係数摂動に対する安定性）"]
+    requires:
+      - pde.linear-elliptic-dirichlet-existence
+      - functional-analysis.lax-milgram-stability
+
+  - id: sobolev.zero-gradient-constant
+    name: connected domain上の弱勾配0関数の定数性
+    kind: lemma
+    aliases: ["zero weak gradient implies constant"]
+    introduction: formal
+    introduction_aliases: ["補題（弱勾配 0 の関数は定数）"]
+    requires:
+      - sobolev.local-mollification
+
+  - id: sobolev.poincare-wirtinger
+    name: Poincare--Wirtinger不等式
+    kind: lemma
+    aliases: ["Poincare-Wirtinger inequality", "mean-zero Poincare inequality"]
+    introduction: formal
+    introduction_aliases: ["補題（Poincare--Wirtinger）"]
+    requires:
+      - sobolev.zero-gradient-constant
+      - sobolev.extension-lipschitz
+      - analysis.l2-translation-compactness
+      - sobolev.weak-derivative-closed
+
+  - id: pde.neumann-compatibility-weak-existence
+    name: 純Neumann問題のcompatibilityと弱解
+    kind: theorem
+    aliases: ["Neumann compatibility condition", "weak Neumann existence modulo constants"]
+    introduction: formal
+    introduction_aliases: ["定理（純 Neumann 問題の弱解）"]
+    requires:
+      - pde.uniform-ellipticity
+      - sobolev.poincare-wirtinger
+      - functional-analysis.lax-milgram
