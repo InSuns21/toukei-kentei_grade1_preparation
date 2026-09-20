@@ -153,7 +153,7 @@ $$
 
 ### 証明の見取り図
 
-STO2 の bounded optional sampling は離散時間の定理でした。ここでは stopping time を右側 dyadic grid へ丸め、各 grid 上で STO2 を適用し、最後に path continuity と一様可積分性で極限へ戻します。
+STO2 の bounded optional sampling は離散時間の定理でした。ここでは stopping time を右側 dyadic grid へ丸め、各 grid 上で STO2 を適用し、最後に標本路の連続性と一様可積分性で極限へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -192,7 +192,7 @@ $$
 
 を得ます。
 
-path continuity から
+標本路の連続性から
 
 $$
 M_{\tau_n}\to M_\tau,
@@ -293,7 +293,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto5-ucp -->
-### 直接例：決定論的一様収束は ucp 収束を含む
+### 直接例：$X_t^{(n)}=t/n$ は 0 へ ucp 収束する
 
 $X_t^{(n)}=t/n$、$X_t=0$ とします。各 $T>0$ について
 
@@ -497,7 +497,7 @@ $$
 
 almost surely です。
 
-同じ評価を各 $t\le T$ までの部分和へ適用すると
+同じ評価を各 $t\le T$ までに完成した increment の和へ適用すると
 
 $$
 \sup_{0\le t\le T}Q_t^\pi(A)
@@ -746,7 +746,7 @@ $$
 [L]\equiv0.
 $$
 
-quadratic variation theorem により
+[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L_t^2-[L]_t=L_t^2
@@ -875,7 +875,7 @@ $$
 Q^\pi(M+N)-Q^\pi(M-N).
 $$
 
-quadratic variation theorem で右辺は ucp で
+[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
 
 $$
 [M+N]-[M-N]
@@ -1092,7 +1092,7 @@ $$
 
 もし正の確率で Brownian path が $[0,T]$ 上 finite variation なら、その event 上で二次変分は 0 でなければなりません。
 
-しかし Brownian quadratic variation theorem から
+しかし [Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
 
 $$
 [B]_T=T>0
@@ -1298,7 +1298,7 @@ $$
 [X^{(n)}]=A^{(n)}
 $$
 
-なので quadratic variation theorem により、各 coarse block $[u,v]$ で
+なので [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
 
 $$
 \sum_{u<t_k\le v}(\Delta_kX)^2
@@ -1410,7 +1410,7 @@ Lévy characterization は重要です。「Brown 運動らしい increment law�
 
 ---
 
-## 12. なぜ通常の chain rule が壊れるのか
+## 12. なぜ通常の連鎖律が壊れるのか
 
 smooth path $x$ なら Taylor 展開
 
@@ -1682,7 +1682,7 @@ $$
 [L]\equiv0.
 $$
 
-continuous local martingale の quadratic variation theorem により
+continuous local martingale の [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L^2-[L]=L^2
@@ -1749,7 +1749,7 @@ $$
 [X]=[B].
 $$
 
-Brownian quadratic variation から
+[Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
 
 $$
 [X]_t=t.
@@ -1952,7 +1952,7 @@ $$
 
 右辺は $N(0,t-s)$ の characteristic function で、$\mathcal F_s$ に依存しません。従って increment は $N(0,t-s)$ に従い、$\mathcal F_s$ と独立です。
 
-$M_0=0$ と path continuity も仮定されているので、$M$ は standard Brownian motion です。
+$M_0=0$ と標本路の連続性も仮定されているので、$M$ は standard Brownian motion です。
 <!-- solution-end -->
 
 ---
