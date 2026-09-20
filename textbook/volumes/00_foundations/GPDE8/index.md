@@ -47,10 +47,12 @@ $$
 
 へ翻訳します。
 
+以下、**ほとんど至る所（almost everywhere; a.e.）**を a.e. と略記します。
+
 特に役割は次のように分かれます。
 
-- $A$ の有界性：主部の boundedness を与える。
-- $A$ の一様楕円性：主部の正の energy を与える。
+- $A$ の有界性：二階主要項の boundedness を与える。
+- $A$ の一様楕円性：二階主要項の正の energy を与える。
 - $b,c$ の有界性：下位項を $H_0^1$ norm で評価できるようにする。
 - $b,c$ の符号・大きさ・微分構造：coercivity が残るかを決める。
 - Poincare 不等式：$L^2$ norm を勾配 norm へ戻す。
@@ -150,13 +152,13 @@ $$
 
 $A=I$、$b=0$、$c=0$ なら
 
-$
+$$
 Lu=-\operatorname{div}(\nabla u)=-\Delta u.
-$
+$$
 
 また二次元で
 
-$
+$$
 A=
 \begin{pmatrix}
 4&0\\
@@ -166,15 +168,15 @@ A=
 b=0,
 \qquad
 c=0
-$
+$$
 
 が定数行列なら
 
-$
+$$
 Lu
 =
 -4\partial_{11}u-\partial_{22}u.
-$
+$$
 
 したがってこの定義は Poisson 作用素を含みつつ、方向ごとに異なる拡散も表せます。
 <!-- definition-example-end -->
@@ -193,7 +195,7 @@ $$
 
 ---
 
-## 2. 一様楕円性は「全方向で主部が正」という条件
+## 2. 一様楕円性は「全方向で二階主要項が正」という条件
 
 有限次元の二次形式
 
@@ -227,23 +229,23 @@ PDE では係数 $A=A(x)$ が場所ごとに変わるので、各点で正であ
 <!-- definition-example-start: def-gpde8-uniform-ellipticity -->
 **定義の確認：異方的でも楕円的**
 
-$
+$$
 A=
 \begin{pmatrix}
 4&0\\
 0&1
 \end{pmatrix}
-$
+$$
 
 なら
 
-$
+$$
 \xi^{\mathsf T}A\xi
 =
 4\xi_1^2+\xi_2^2
 \ge
 |\xi|^2.
-$
+$$
 
 したがって $\lambda=1$ で一様楕円的です。
 
@@ -321,7 +323,7 @@ cuv\,dx
 fv\,dx.
 $$
 
-主部だけ部分積分して
+二階主要項だけ部分積分して
 
 $$
 \int_\Omega
@@ -399,43 +401,43 @@ $$
 
 $\Omega=(0,1)$、$A=1$、$b=c=0$ とし
 
-$
+$$
 u(x)=\frac{x(1-x)}2,
 \qquad
 F(v)=\int_0^1v(x)\,dx
-$
+$$
 
 と置きます。
 
 GPDE4 の区間版 zero-trace characterization から
 
-$
+$$
 u\in H_0^1(0,1).
-$
+$$
 
 また
 
-$
+$$
 u'(x)=\frac12-x,
 \qquad
 -u''(x)=1.
-$
+$$
 
 まず $\varphi\in C_c^\infty(0,1)$ なら部分積分により
 
-$
+$$
 \int_0^1u'\varphi'\,dx
 =
 \int_0^1\varphi\,dx.
-$
+$$
 
 $C_c^\infty(0,1)$ は $H_0^1(0,1)$ で稠密なので、両辺の連続性から任意の $v\in H_0^1(0,1)$ へ延長して
 
-$
+$$
 \int_0^1u'v'\,dx
 =
 F(v)
-$
+$$
 
 を得ます。
 
@@ -493,7 +495,7 @@ $$
 <a id="prop-gpde8-boundedness"></a>
 
 <!-- formal-statement-start -->
-> **命題（係数の $L^\infty$ 有界性から双線形形式の boundedness）**  
+> **命題（係数有界性から双線形形式の boundedness）**  
 > $\Omega\subset\mathbb R^d$ を有界開集合とし、Poincare 定数を $C_P$ とする。ほとんどすべての $x\in\Omega$ で
 >
 > $$
@@ -553,14 +555,14 @@ $$
 
 三つの項をそれぞれ Cauchy--Schwarz と Poincare で評価します。
 
-主部は勾配同士なので Poincare は不要です。
+二階主要項は勾配同士なので Poincare は不要です。
 
 一次項では $v$ の $L^2$ norm を一回、零次項では $u,v$ の $L^2$ norm を二回 Poincare で勾配へ戻します。
 
 <!-- proof-start -->
 ### 証明
 
-主部について
+二階主要項について
 
 $$
 \begin{aligned}
@@ -667,7 +669,7 @@ A\nabla v\cdot\nabla v
 cv^2.
 $$
 
-主部は一様楕円性から
+二階主要項は一様楕円性から
 
 $$
 \int_\Omega
@@ -1138,7 +1140,7 @@ $$
 
 ---
 
-## 8. 主定理：一般係数の零 Dirichlet 問題
+## 8. 一般係数の零 Dirichlet 問題を閉じる
 
 ここまでで Lax--Milgram の仮定を係数条件へ翻訳できました。
 
@@ -1423,7 +1425,7 @@ $$
 
 $$
 \boxed{
-\text{負の reaction term が主部の energy を食い潰す}
+\text{負の reaction term が二階主要項の energy を食い潰す}
 }
 $$
 
@@ -1598,7 +1600,7 @@ $$
 
 に Neumann 条件を課すとします。
 
-弱形式の主部は
+弱形式の二階主要項は
 
 $$
 a(u,v)
@@ -1891,7 +1893,7 @@ $$
 
 従って $(w_n)$ は $H^1(\Omega)$ で有界です。
 
-GPDE5 の bounded Lipschitz extension theorem により、有界線形作用素
+GPDE5 の [bounded Lipschitz domain の Sobolev extension](../GPDE5/index.md#thm-gpde5-extension-lipschitz) により、有界線形作用素
 
 $$
 E:H^1(\Omega)\to H^1(\mathbb R^d)
@@ -1977,7 +1979,7 @@ $$
 \quad\text{strongly in }L^2(\Omega).
 $$
 
-弱微分作用素の閉性から
+[弱微分作用素の閉性](../GPDE3/index.md#prop-gpde3-weak-derivative-closed)から
 
 $$
 \nabla w=0.
@@ -2121,7 +2123,7 @@ $$
 
 は $V_0$ 上で $H^1$ norm と同値です。
 
-主部の boundedness から
+二階主要項の boundedness から
 
 $$
 |a(u,v)|
@@ -2242,8 +2244,8 @@ $$
 
 | 仮定 | 使う場所 | 失うと何が起きるか |
 |---|---|---|
-| $A$ の有界性 | 主部の boundedness | $a(u,v)$ を $H^1$ norm で制御できない |
-| 一様楕円性 | 主部の正の energy | 勾配方向の kernel が残り得る |
+| $A$ の有界性 | 二階主要項の boundedness | $a(u,v)$ を $H^1$ norm で制御できない |
+| 一様楕円性 | 二階主要項の正の energy | 勾配方向の kernel が残り得る |
 | $b,c\in L^\infty$ | lower-order term の boundedness | 弱形式自体の連続性が壊れ得る |
 | lower-order term の小ささ・符号・構造 | coercivity | 一意性・Lax--Milgram が壊れ得る |
 | $\Omega$ 有界 | Poincare | $L^2$ 項を勾配で制御できない |
@@ -2444,7 +2446,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-主部は
+二階主要項は
 
 $$
 \begin{aligned}
@@ -2509,7 +2511,7 @@ $$
 \|u\|_V\|v\|_V.
 $$
 
-主部では Poincare を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
+二階主要項では Poincare を使わず、一次項で一回、零次項で二回使っていることが係数の形に反映されています。
 <!-- solution-end -->
 
 #### GPDE8-A03 lower-order term の小ささ
@@ -2714,7 +2716,7 @@ $$
 a_\mu(v,v)<0.
 $$
 
-主部 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと full form の正値性が壊れることが分かります。
+二階主要項 $-\partial_{xx}$ 自体は楕円的でも、負の零次項が十分大きいと full form の正値性が壊れることが分かります。
 <!-- solution-end -->
 
 ### Level B
