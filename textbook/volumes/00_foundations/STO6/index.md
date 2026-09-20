@@ -185,47 +185,13 @@ $
 
 STO5 で continuous local martingale $M$ に対する increasing process $[M]$ を構成しました。
 
-固定した $T$ で $M$ が square-integrable martingale、$M_0=0$ なら
-
-$$
-E[M]_T=E[M_T^2].
-$$
-
-この等式を一度確認しておきます。
-
-$M$ と $[M]$ を同時に bounded にする stopping time $\tau_n$ を取り、STO5 の
+ただし Itô isometry では、STO5 の
 
 $$
 M^2-[M]
 $$
 
-が local martingale であることを停止後に使うと
-
-$$
-E[M]_{T\wedge\tau_n}
-=
-E[M_{T\wedge\tau_n}^2].
-$$
-
-左辺は monotone convergence で $E[M]_T$ へ行きます。
-
-一方、STO5 の [bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
-
-$$
-M_{T\wedge\tau_n}
-=
-E[M_T\mid\mathcal F_{T\wedge\tau_n}],
-$$
-
-なので Jensen により
-
-$$
-E[M_{T\wedge\tau_n}^2]\le E[M_T^2].
-$$
-
-逆向きは almost-sure convergence と Fatou から得られます。従って等号です。
-
-この議論は期待値だけでなく、補償 process が真の martingale であることまで与えます。
+が **local** martingale であるだけでは足りません。square-integrable $M$ ではこれが真の martingale になり、bracket increment の条件付き平均を使えることを先に確認します。
 
 <a id="lem-sto6-bracket-compensation"></a>
 
@@ -305,43 +271,71 @@ $$
 E[M]_T=E[M_T^2]<\infty.
 $$
 
-次に任意の stopping time $\sigma\le T$ に同じ議論を適用すると
+次に $L=M^2-[M]$ が真の martingale であることを示します。
+
+上で使った localizing sequence $\tau_n$ に対し、各固定 $t\le T$ で
 
 $$
-E[M_\sigma^2]=E[M]_\sigma\le E[M_T^2].
+L_{t\wedge\tau_n}\to L_t
 $$
+
+almost surely です。しかも
+
+$$
+|L_{t\wedge\tau_n}|
+\le
+M_{t\wedge\tau_n}^2+[M]_{t\wedge\tau_n}.
+$$
+
+bounded stopping theorem から
+
+$$
+M_{t\wedge\tau_n}
+=
+E[M_t\mid\mathcal F_{t\wedge\tau_n}],
+$$
+
+したがって conditional Jensen により
+
+$$
+M_{t\wedge\tau_n}^2
+\le
+E[M_t^2\mid\mathcal F_{t\wedge\tau_n}].
+$$
+
+固定した integrable variable $M_t^2$ の conditional expectations は uniformly integrable なので、$\{M_{t\wedge\tau_n}^2\}_n$ も uniformly integrable です。
 
 また
 
 $$
-M_\sigma=E[M_T\mid\mathcal F_\sigma]
-$$
-
-なので conditional Jensen から
-
-$$
-M_\sigma^2
-\le
-E[M_T^2\mid\mathcal F_\sigma].
-$$
-
-固定した integrable random variable $M_T^2$ の conditional expectations の族は uniformly integrable です。従って $\{M_\sigma^2:\sigma\le T\}$ も uniformly integrable です。
-
-さらに
-
-$$
-0\le[M]_\sigma\le[M]_T,
+0\le[M]_{t\wedge\tau_n}\le[M]_t,
 \qquad
-E[M]_T<\infty,
+E[M]_t=E[M_t^2]<\infty,
 $$
 
-なので $\{[M]_\sigma:\sigma\le T\}$ も uniformly integrable です。よって
+なので $\{[M]_{t\wedge\tau_n}\}_n$ も uniformly integrable です。従って $\{L_{t\wedge\tau_n}\}_n$ は uniformly integrable で、
 
 $$
-\{L_\sigma:\sigma\le T\}
+L_{t\wedge\tau_n}\to L_t
+\qquad\text{in }L^1.
 $$
 
-は uniformly integrable、すなわち $L$ は class D local martingale です。従って $L=M^2-[M]$ は真の martingale です。
+$0\le s\le t\le T$ と $A\in\mathcal F_s$ を固定します。$L^{\tau_n}$ は martingale なので
+
+$$
+E[1_A L_{t\wedge\tau_n}]
+=
+E[1_A L_{s\wedge\tau_n}].
+$$
+
+両辺を $L^1$ 極限へ送ると
+
+$$
+E[1_A L_t]=E[1_A L_s].
+$$
+
+任意の $A\in\mathcal F_s$ について成り立つため、$L$ は真の martingale です。
+
 
 最後に
 
@@ -666,7 +660,19 @@ $$
 
 です。
 
-従って monotone class theorem により $\mathcal C=\mathcal P$。よって predictable simple functions、さらに simple predictable integrands が $L^2(\mu_M)$ に稠密です。
+$\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じるので Dynkin 族です。一方 $\mathcal A$ は algebra なので π-system でもあり、
+
+$
+\sigma(\mathcal A)=\mathcal P.
+$
+
+従って [π--λ theorem](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
+
+$
+\mathcal P=\sigma(\mathcal A)\subset\mathcal C.
+$
+
+逆包含は定義から明らかなので $\mathcal C=\mathcal P$。よって predictable simple functions、さらに simple predictable integrands が $L^2(\mu_M)$ に稠密です。
 <!-- proof-end -->
 
 ---
@@ -1415,15 +1421,21 @@ localization は単なる形式ではなく、global moment が壊れる integra
 > H\cdot M
 > $$
 >
-> が存在し、任意の $L^2$ localizing sequence $\tau_n$ 上で
+> が存在する。さらに $M^{\tau_n}$ が square-integrable martingale となり
 >
-> $$
+> $
+> E\int_0^T1_{\{s\le\tau_n\}}H_s^2\,d[M]_s<\infty
+> $
+>
+> を各 $n,T$ で満たす increasing stopping time 列 $\tau_n\uparrow\infty$ を取れば、
+>
+> $
 > (H\cdot M)^{\tau_n}
 > =
-> (1_{(0,\tau_n]}H)\cdot M
-> $$
+> (1_{(0,\tau_n]}H)\cdot M^{\tau_n}
+> $
 >
-> となる。
+> が成り立つ。
 >
 > さらに
 >
