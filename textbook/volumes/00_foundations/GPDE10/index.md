@@ -2279,18 +2279,18 @@ $$
 > **定義（mild solution：semigroup bridge）**  
 > Hilbert 空間 $H$ 上の bounded linear operator の族 $(S(t))_{t\ge0}$ が
 >
-> $$
-> S(0)=I,
-> \qquad
-> S(t+s)=S(t)S(s)
-> $$
+$$
+S(0)=I,
+\qquad
+S(t+s)=S(t)S(s)
+$$
 >
 > を満たし、さらに任意の $x\in H$ について
 >
-> $$
-> \|S(t)x-x\|_H\to0
-> \qquad(t\downarrow0)
-> $$
+$$
+\|S(t)x-x\|_H\to0
+\qquad(t\downarrow0)
+$$
 >
 > を満たすとする。このような族が与えられ、形式的に $S(t)=e^{-tA}$ と書ける状況を考える。$u_0\in H$、$f\in L^1(0,T;H)$ とし、以下の Bochner integral が意味を持つとする。形式的な evolution equation
 >
