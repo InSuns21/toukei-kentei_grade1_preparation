@@ -1,0 +1,32 @@
+chapter: "GPDE10"
+terms:
+  - term: time-dependent L2 space
+    english: Bochner L2 space
+    meaning: Hilbert空間X値関数u(t)で integral_0^T ||u(t)||_X^2 dt < infinity を満たす空間。本章では時間と空間のregularityを分離して記述するために使う。
+  - term: Gelfand triple
+    english: Gelfand triple
+    meaning: VがHへ連続かつ稠密に埋め込まれ、HをH*と同一視してV subset H subset V*とみなす三つ組。熱方程式ではH_0^1 subset L^2 subset H^{-1}が典型例。
+  - term: energy weak solution
+    english: energy weak solution
+    meaning: uをL^2(0,T;V)、時間微分u_tをL^2(0,T;V*)に置き、duality pairingで時間発展方程式を満たす弱解。energy identityによりH値連続代表元を持つ。
+  - term: Galerkin approximation
+    english: Galerkin approximation
+    meaning: 無限次元の試行空間Vを有限次元部分空間V_mへ制限し、すべてのtest function v_m in V_mに弱形式を課す近似。時間発展PDEでは有限次元ODEになる。
+  - term: a priori energy estimate
+    english: a priori energy estimate
+    meaning: 解の存在をまだ極限で確定する前に方程式から導く一様bound。Galerkin次元mに依存しないことが弱compactnessへ進む鍵になる。
+  - term: weak compactness
+    english: weak compactness
+    meaning: Hilbert空間の有界列から弱収束部分列を取り出す機構。本章ではL^2(0,T;V)の一様boundから無限次元の候補解を作る。
+  - term: time-integrated weak form
+    english: time-integrated weak formulation
+    meaning: Galerkin方程式へ時間test functionを掛けて時間部分積分した形式。u_m'の直接boundを先に要求せず、u_mの弱収束から極限を通すために使う。
+  - term: limit passage
+    english: passage to the limit
+    meaning: 有限次元近似の弱形式をm to infinityで無限次元の弱形式へ移す操作。線形項では弱収束と連続線形性が核心になる。
+  - term: wave energy space
+    english: wave energy space
+    meaning: 零Dirichlet波動方程式で位置uをH_0^1、速度u_tをL^2に置く積空間H_0^1 x L^2。自然な保存energyを有限にする。
+  - term: mild solution
+    english: mild solution
+    meaning: semigroup S(t)を用いてu(t)=S(t)u_0+integral_0^t S(t-s)f(s)dsと表す時間発展方程式の解概念。本章ではsemigroup生成理論を証明せずbridgeに留める。
