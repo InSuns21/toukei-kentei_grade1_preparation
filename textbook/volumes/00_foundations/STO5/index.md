@@ -745,7 +745,7 @@ $$
 
 [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) の
 
-$
+$$
 M^2-[M]
 $$
 
