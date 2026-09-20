@@ -36,7 +36,7 @@ theorems:
   - { id: STO5-PROP-04, name: "finite variation partはquadratic variationへ寄与しない" }
   - { id: STO5-THM-03, name: "continuous semimartingale分解の一意性" }
   - { id: STO5-THM-04, name: "Levy characterization of Brownian motion" }
-  - { id: STO5-COR-01, name: "Brownian pathは有限変動ではない" }
+  - { id: STO5-COR-01, name: "Brownian標本路は有限変動ではない" }
 canonical_examples:
   - "Brownian motion as a continuous martingale"
   - "exit-time localization tau_n=inf{|M_t|>=n} wedge n"
