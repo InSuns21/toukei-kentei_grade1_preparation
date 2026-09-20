@@ -1,52 +1,30 @@
-# STO2：離散時間 martingale — 公平性から経路収束まで
+# STO2：公平性・停止・経路収束
 
 <!-- definition-example-audit: strict -->
 
 STO1 では、時間とともに情報が増える filtration と、未来を見ずに停止する stopping time を作りました。
 
-離散時間 martingale は、その情報構造の上で
+この章では、その情報構造の上で「現在までの情報を使って次の平均を読む」という考えを定式化します。
 
-$$
-oxed{
-	ext{「次の値の条件付き平均 = 現在値」}
-}
-$$
+中心となる問いは三つです。
 
-を満たす過程です。
+1. 過去の情報だけで賭け方や停止規則を変えても、条件付き平均の構造はどう保たれるか。
+2. 終端時刻の情報から、途中の最大偏差や上下往復の回数をどう抑えるか。
+3. その評価から、標本路がほとんど確実に一つの極限へ落ち着くことをどう導くか。
 
-しかし martingale 理論の本体は「公平ゲーム」という比喩だけではありません。この章では
+最後には、一様可積分性がある場合に概収束を $L^1$ 収束へ上げ、非有界 stopping time で期待値を極限へ通す条件まで整理します。
 
-$$
-	ext{martingale}
-	o
-	ext{predictable transform}
-	o
-	ext{stopping}
-	o
-	ext{optional sampling}
-	o
-	ext{Doob decomposition}
-	o
-	ext{maximal / upcrossing inequality}
-	o
-	ext{a.s. convergence}
-	o
-	ext{UI + }L^1	ext{ convergence}
-$$
+特に収束論では、「期待値が bounded だから収束する」と飛ばさず、
 
-という一本の証明鎖を閉じます。
+- 二つの高さの間を無限回往復する標本路を排除する、
+- extended real 値の極限を得る、
+- 一様 $L^1$ 評価から無限大への発散を排除する、
 
-特に、収束定理では「期待値が bounded だから収束する」のではなく、
-
-1. upcrossing が無限回起きないことを示す、
-2. その結果、標本路が二つの異なる高さの間を永久に往復できないことを示す、
-3. 最後に極限が有限・可積分であることを示す、
-
-という機構を追います。
+という機構を順に追います。
 
 ---
 
-## 1. martingale・submartingale・supermartingale
+## 1. 条件付き平均で公平性を定義する
 
 以後、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ を filtration とします。
 
@@ -164,7 +142,7 @@ $$
 S_n^2-n
 $$
 
-は martingale になります。二乗の平均増加分 $1$ を差し引く発想は、後の Doob decomposition の最小例です。
+は martingale になります。二乗の平均増加分 $1$ を差し引く発想は、後で扱う「平均増加を予測可能部分として分離する」定理の最小例です。
 
 また $-S_n^2$ は supermartingale です。
 <!-- definition-example-end -->
@@ -371,7 +349,7 @@ $$
 
 ---
 
-## 4. bounded optional sampling：random time でも条件付き平均を比較する
+## 4. random time でも条件付き平均を比較する
 
 決定論的時刻 $m\le n$ なら submartingale は
 
@@ -516,7 +494,7 @@ $$
 
 ---
 
-## 5. Doob decomposition：submartingale の平均増加を分離する
+## 5. submartingale の平均増加を分離する
 
 submartingale は「martingale + 予測可能な上向き drift」と考えられます。
 
@@ -656,7 +634,7 @@ $A$ は後の連続時間理論で compensator と呼ばれる構造の原型で
 
 ---
 
-## 6. Doob maximal inequality：終端分布から途中最大値を抑える
+## 6. 終端分布から途中最大値を抑える
 
 確率過程では「時刻 $n$ の値」だけでなく
 
@@ -778,7 +756,7 @@ $$
 
 ---
 
-## 7. upcrossing：無限振動を数える
+## 7. 無限振動を回数で捉える
 
 a.s.収束を示すには、「値が上下に揺れ続ける可能性」を消す必要があります。
 
@@ -837,7 +815,7 @@ upcrossing は単なる符号変化ではなく、「下側 level まで戻っ�
 
 ---
 
-## 8. Doob upcrossing inequality
+## 8. 横断回数を期待値で抑える
 
 <a id="thm-sto2-upcrossing"></a>
 
@@ -1222,7 +1200,7 @@ $L^1$ 収束には tail を一様に制御する一様可積分性が必要に�
 
 ---
 
-## 10. UI martingale convergence：a.s.収束を $L^1$ へ上げる
+## 10. 一様可積分性で a.s.収束を $L^1$ へ上げる
 
 一様可積分性と Vitali は [F0-00P4A](../F0_00P4A_一様可積分性_Vitali/index.md) の canonical result を使います。
 
