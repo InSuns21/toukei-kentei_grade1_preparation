@@ -94,7 +94,7 @@ Encore V の FEM はこの考えを「計算可能な有限次元空間」に具
 
 <!-- formal-statement-start -->
 > **定義（時間依存 L2 空間）**  
-> $X$ を実 Hilbert 空間、$T>0$ とする。本章では
+> $X$ を実完備内積空間、$T>0$ とする。本章では
 >
 $$
 L^2(0,T;X)
@@ -166,7 +166,7 @@ $$
 
 ---
 
-## 2. Gelfand triple：空間の強さを三段階に分ける
+## 2. 空間の強さを三段階に分ける
 
 時間微分を $L^2$ に要求すると、弱解の存在範囲を不必要に狭めます。
 
@@ -184,7 +184,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Gelfand triple）**  
-> 実 Hilbert 空間 $V,H$ について、$V$ が $H$ に連続かつ稠密に埋め込まれているとする。Riesz 同型で $H$ と $H^*$ を同一視し、
+> 実完備内積空間 $V,H$ について、$V$ が $H$ に連続かつ稠密に埋め込まれているとする。Riesz 同型で $H$ と $H^*$ を同一視し、
 >
 $$
 h\in H
@@ -392,7 +392,7 @@ u(0)=u_0
 \quad\text{in }H
 $$
 >
-> を満たすとき、$u$ をこの初期値問題の energy weak solution と呼ぶ。
+> を満たすとき、$u$ をこの evolution problem の energy weak solution と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde10-energy-solution -->
@@ -731,7 +731,7 @@ $$
 
 は $E(t)$ の連続性から連続です。
 
-Hilbert 空間では
+完備内積空間では
 
 $$
 u(t_n)\rightharpoonup u(t)
@@ -780,7 +780,7 @@ $$
 
 ---
 
-## 5. Galerkin approximation を定義する
+## 5. 有限次元近似を組み立てる
 
 無限次元空間 $V$ 上で直接解を探す代わりに、
 
@@ -1161,7 +1161,7 @@ $$
 <\infty.
 $$
 
-$L^2(0,T;V)$ は Hilbert 空間なので、GPDE5 の [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って部分列を取り
+$L^2(0,T;V)$ は 完備内積空間なので、GPDE5 の [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って部分列を取り
 
 $$
 u_m
@@ -1398,7 +1398,7 @@ $$
 
 #### Step 3：弱収束部分列
 
-$L^2(0,T;V)$ は Hilbert 空間なので、部分列を取り直して
+$L^2(0,T;V)$ は 完備内積空間なので、部分列を取り直して
 
 $$
 u_m
@@ -1757,7 +1757,7 @@ $$
 従って解は一意です。
 <!-- proof-end -->
 
-ここで使った「compactness」は強収束を作る compact embedding ではなく、Hilbert 空間の有界列から **弱収束部分列を取り出す弱 compactness** です。
+ここで使った「compactness」は強収束を作る compact embedding ではなく、完備内積空間の有界列から **弱収束部分列を取り出す弱 compactness** です。
 
 線形問題ではこれで極限通過できます。
 
@@ -2269,7 +2269,7 @@ $$
 
 ---
 
-## 13. mild solution / semigroup は別の入口で同じ解へ向かう
+## 13. semigroup から時間発展を見る
 
 時間発展問題には、弱形式以外にも semigroup を使う入口があります。
 
@@ -2277,7 +2277,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（mild solution：semigroup bridge）**  
-> Hilbert 空間 $H$ 上の bounded linear operator の族 $(S(t))_{t\ge0}$ が
+> 完備内積空間 $H$ 上の bounded linear operator の族 $(S(t))_{t\ge0}$ が
 >
 $$
 S(0)=I,
@@ -3591,7 +3591,7 @@ $$
 
 したがって $(u_m)$ は $L^2(0,T;V)$ で有界です。
 
-Hilbert 空間の弱 compactness から部分列を取り
+完備内積空間の弱 compactness から部分列を取り
 
 $$
 u_m\rightharpoonup u
