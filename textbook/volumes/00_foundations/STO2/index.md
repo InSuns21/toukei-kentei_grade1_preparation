@@ -85,6 +85,8 @@ $$
 <!-- definition-example-start: def-sto2-martingale -->
 ### 直接例：公平ランダムウォークとその二乗
 
+**定義の確認**
+
 独立な確率変数 $\xi_1,\xi_2,\ldots$ が
 
 $$
@@ -189,6 +191,8 @@ $$
 
 <!-- definition-example-start: def-sto2-predictable-transform -->
 ### 直接例：前時刻の符号で次の賭け額を決める
+
+**定義の確認**
 
 公平ランダムウォーク $S_n$ に対して
 
@@ -790,7 +794,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto2-upcrossing -->
-### 直接例：一本の 標本路 で数える
+### 直接例：一本の標本路で数える
+
+**定義の確認**
 
 標本路
 
