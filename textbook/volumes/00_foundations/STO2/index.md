@@ -39,7 +39,7 @@ $$
 特に、収束定理では「期待値が bounded だから収束する」のではなく、
 
 1. upcrossing が無限回起きないことを示す、
-2. その結果 liminf と limsup を一致させる、
+2. その結果、標本路が二つの異なる高さの間を永久に往復できないことを示す、
 3. 最後に極限が有限・可積分であることを示す、
 
 という機構を追います。
@@ -664,7 +664,7 @@ $$
 \max_{0\le k\le n}X_k
 $$
 
-のような path 全体の最大値を制御したくなります。
+のような 標本路全体の最大値を制御したくなります。
 
 <a id="thm-sto2-doob-maximal"></a>
 
@@ -812,9 +812,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto2-upcrossing -->
-### 直接例：一本の path で数える
+### 直接例：一本の 標本路 で数える
 
-path
+標本路
 
 $$
 0,2,1,3,0,2
@@ -970,7 +970,7 @@ $
 
 $S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従って一回の完了 upcrossing ごとに少なくとも $c$ の利益を得ます。
 
-時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって pathwise に
+時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって 標本路ごとに
 
 $
 (H\cdot Y)_n
@@ -1029,7 +1029,7 @@ $$
 より第二の評価も従います。
 <!-- proof-end -->
 
-この不等式が、path の無限振動を確率 0 へ追い込む主役です。
+この不等式が、標本路 の無限振動を確率 0 へ追い込む主役です。
 
 ---
 
@@ -1141,21 +1141,33 @@ $$
 
 有理数対 $(a,b)$ は可算個なので、確率 1 の一つの事象上で全ての有理数 $a<b$ について upcrossing 回数が有限です。
 
-その事象上で、もし
+その事象上で、標本路を一つ固定し
 
-$$
-\liminf_{n\to\infty}X_n
-<
-\limsup_{n\to\infty}X_n
-$$
+$
+\ell
+:=
+\sup_{N\ge0}\inf_{n\ge N}X_n,
+\qquad
+u
+:=
+\inf_{N\ge0}\sup_{n\ge N}X_n
+$
 
-なら、その二つの間に有理数 $a<b$ を選べます。その場合 $X_n$ は $a$ 以下と $b$ 以上を無限回行き来するため、$[a,b]$ の upcrossing が無限回起きます。矛盾です。
+と置きます。常に $\ell\le u$ です。
 
-従って extended real 値で
+もし $\ell<u$ なら、その間に有理数
 
-$$
+$
+\ell<a<b<u
+$
+
+を選べます。$a>\ell$ なので任意の十分先にも $a$ 以下の項が現れ、$b<u$ なので任意の十分先にも $b$ 以上の項が現れます。従って「$a$ 以下へ戻る → その後 $b$ 以上へ上がる」を何度でも繰り返せて、$[a,b]$ の upcrossing が無限回になります。これは矛盾です。
+
+よって $\ell=u$ であり、extended real 値で
+
+$
 X_n\to X_\infty
-$$
+$
 
 が a.s. に存在します。
 
@@ -1595,7 +1607,7 @@ $$
 E[G_{\tau\wedge n}]\to E[G_\tau]
 $$
 
-へ移る極限交換です。まれな長い連敗 path が巨大な負値を持ち、各有限 $n$ の期待値 0 を支え続けています。
+へ移る極限交換です。まれな長い連敗 標本路 が巨大な負値を持ち、各有限 $n$ の期待値 0 を支え続けています。
 
 ---
 
@@ -1963,7 +1975,13 @@ $$
 次の三段階を示せ。
 
 1. 任意の有理数 $a<b$ について $U_\infty[a,b]<\infty$ a.s.
-2. これから $\liminf X_n=\limsup X_n$ a.s. を導け。
+2. 各標本路で
+   $
+   \ell=\sup_N\inf_{n\ge N}X_n,
+   \qquad
+   u=\inf_N\sup_{n\ge N}X_n
+   $
+   と置き、$\ell=u$ a.s. を導け。
 3. 極限が有限で $L^1$ に属することを示せ。
 
 <!-- solution-start -->
@@ -2002,19 +2020,29 @@ $$
 
 従って $U_\infty[a,b]=\infty$ となる確率は 0 です。
 
-**2. liminf と limsup。**
+**2. 二つの漸近境界を一致させる。**
 
 有理数対 $(a,b)$ は可算個なので、確率 1 の事象上で全ての有理数 $a<b$ の upcrossing 回数が有限です。
 
-もしその事象上で
+その事象上で
 
-$$
-\liminf X_n<\limsup X_n
-$$
+$
+\ell=\sup_N\inf_{n\ge N}X_n,
+\qquad
+u=\inf_N\sup_{n\ge N}X_n
+$
 
-なら、その間に有理数 $a<b$ を選べます。すると $X_n$ は $a$ 以下と $b$ 以上を無限回訪れるので $[a,b]$ の upcrossing が無限回起き、矛盾です。
+と置きます。
 
-従って extended real 値で極限 $X_\infty$ が存在します。
+もし $\ell<u$ なら
+
+$
+\ell<a<b<u
+$
+
+となる有理数 $a<b$ を選べます。すると任意の十分先にも $a$ 以下の項と $b$ 以上の項が現れるため、$[a,b]$ を無限回 upcrossing できます。矛盾です。
+
+従って $\ell=u$ であり、extended real 値で極限 $X_\infty$ が存在します。
 
 **3. 有限性と可積分性。**
 
@@ -2346,9 +2374,9 @@ $$
 - stopped process の差分表示から martingale 性を証明できる。
 - bounded optional sampling を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
 - Doob decomposition の compensator を条件付き平均増分から構成し、一意性を示せる。
-- Doob maximal inequality で path 最大値の確率を終端分布から評価できる。
-- upcrossing number を path 上で数え、predictable strategy から upcrossing inequality を証明できる。
-- 有理数区間の upcrossing が有限であることから $\liminf=\limsup$ を導ける。
+- Doob maximal inequality で 標本路 最大値の確率を終端分布から評価できる。
+- upcrossing number を 標本路上で数え、predictable strategy から upcrossing inequality を証明できる。
+- 有理数区間の upcrossing が有限であることから、十分先の下側境界と上側境界が一致して標本路の極限が存在することを導ける。
 - submartingale convergence theorem で極限の有限性・可積分性まで閉じられる。
 - UI が a.s.収束を $L^1$ 収束へ上げる役割を Vitali と結びつけられる。
 - 条件付き期待値 martingale の極限を Lévy上昇定理と接続できる。
