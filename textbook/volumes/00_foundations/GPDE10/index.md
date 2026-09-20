@@ -116,11 +116,13 @@ $$
 <!-- definition-example-start: def-gpde10-bochner-l2 -->
 ### 最小例：時間関数と空間関数を分離する
 
+**定義の確認**
+
 $w\in X$、$\phi\in L^2(0,T)$ として
 
-$
+$$
 u(t)=\phi(t)w
-$
+$$
 
 と置きます。$\phi$ を可測代表元で取れば、$u$ は実数値単関数による $\phi$ の点ごとの近似へ $w$ を掛けることで強可測です。また
 
@@ -208,6 +210,8 @@ $$
 <!-- definition-example-start: def-gpde10-gelfand-triple -->
 ### 直接例：$H_0^1\subset L^2\subset H^{-1}$
 
+**定義の確認**
+
 $\Omega$ を GPDE4 の [Poincare 不等式](../GPDE4/index.md#thm-gpde4-poincare)が成り立つ有界領域とします。
 
 $v\in H_0^1(\Omega)$ に対して
@@ -250,40 +254,40 @@ $$
 
 したがって
 
-$
+$$
 L^2(\Omega)\hookrightarrow H^{-1}(\Omega)
-$
+$$
 
 も連続です。
 
 残る「稠密性」も確認しておきます。$g\in L^2(\Omega)$ を $\mathbb R^d$ へ 0 延長し、compact exhaustion
 
-$
+$$
 K_1\subset K_2\subset\cdots\Subset\Omega,
 \qquad
 \bigcup_nK_n=\Omega
-$
+$$
 
 を取ります。まず
 
-$
+$$
 g1_{K_n}\to g
 \quad\text{in }L^2(\Omega)
-$
+$$
 
 であり、各 $n$ について十分小さい mollifier で $g1_{K_n}$ を平滑化すれば、support を $\Omega$ 内に保った
 
-$
+$$
 \varphi_{n,\varepsilon}\in C_c^\infty(\Omega)
-$
+$$
 
 で $L^2$ 近似できます。従って $C_c^\infty(\Omega)$ は $L^2(\Omega)$ に稠密です。
 
 定義から
 
-$
+$$
 C_c^\infty(\Omega)\subset H_0^1(\Omega),
-$
+$$
 
 なので $H_0^1(\Omega)$ も $L^2(\Omega)$ に稠密です。これで Gelfand triple の「連続かつ稠密な埋め込み」まで実際に確認できました。
 
@@ -393,6 +397,8 @@ $$
 
 <!-- definition-example-start: def-gpde10-energy-solution -->
 ### 直接例：熱方程式の単一モード
+
+**定義の確認**
 
 $\Omega=(0,\pi)$ とし
 
@@ -833,6 +839,8 @@ $$
 
 <!-- definition-example-start: def-gpde10-galerkin -->
 ### 直接例：二つの正弦モード
+
+**定義の確認**
 
 $\Omega=(0,\pi)$ で
 
@@ -1971,31 +1979,31 @@ $$
 
 実際、
 
-$
+$$
 e_n(x)=\frac1{\sqrt\pi}\sin(nx)
-$
+$$
 
 は正規直交系です。[Bessel 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-bessel-inequality)を任意の $\phi\in L^2(0,2\pi)$ と有限個の $e_n$ に適用すると
 
-$
+$$
 \sum_{n=1}^{N}
 |(\phi,e_n)_{L^2}|^2
 \le
 \|\phi\|_{L^2}^2
-$
+$$
 
 なので、各係数は
 
-$
+$$
 (\phi,e_n)_{L^2}\to0.
-$
+$$
 
 従って
 
-$
+$$
 z_n\rightharpoonup0
 \quad\text{weakly in }L^2(0,2\pi).
-$
+$$
 
 しかし
 
@@ -2009,18 +2017,18 @@ $$
 
 同じ Bessel の議論を正規直交系 $\cos(2nx)/\sqrt\pi$ に適用すると
 
-$
+$$
 \cos(2nx)\rightharpoonup0
 \quad\text{weakly in }L^2(0,2\pi).
-$
+$$
 
 従って
 
-$
+$$
 z_n^2
 \rightharpoonup
 \frac12
-$
+$$
 
 であり、
 
@@ -2109,6 +2117,8 @@ $$
 
 <!-- definition-example-start: def-gpde10-wave-energy-space -->
 ### 単一モードで確認する
+
+**定義の確認**
 
 $\Omega=(0,\pi)$ で
 
@@ -2267,7 +2277,22 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（mild solution：semigroup bridge）**  
-> Hilbert 空間 $H$ 上で $-A$ が強連続 semigroup $(S(t))_{t\ge0}$ を生成すると仮定する。$u_0\in H$、$f\in L^1(0,T;H)$ とし、以下の Bochner integral が意味を持つとする。形式的な evolution equation
+> Hilbert 空間 $H$ 上の bounded linear operator の族 $(S(t))_{t\ge0}$ が
+>
+> $$
+> S(0)=I,
+> \qquad
+> S(t+s)=S(t)S(s)
+> $$
+>
+> を満たし、さらに任意の $x\in H$ について
+>
+> $$
+> \|S(t)x-x\|_H\to0
+> \qquad(t\downarrow0)
+> $$
+>
+> を満たすとする。このような族が与えられ、形式的に $S(t)=e^{-tA}$ と書ける状況を考える。$u_0\in H$、$f\in L^1(0,T;H)$ とし、以下の Bochner integral が意味を持つとする。形式的な evolution equation
 >
 $$
 u_t+Au=f,
@@ -2293,6 +2318,8 @@ $$
 
 <!-- definition-example-start: def-gpde10-mild-solution -->
 ### 直接例：固有モード上の semigroup
+
+**定義の確認**
 
 この表示は Duhamel principle の無限次元版です。
 
