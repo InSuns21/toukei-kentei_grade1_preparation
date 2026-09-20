@@ -1180,7 +1180,7 @@ $$
 
 ---
 
-## 9. Lax--Milgram 定理の完全証明
+## 9. Lax--Milgram 定理を一本につなぐ
 
 ### 証明の見取り図
 
@@ -1943,7 +1943,7 @@ $$
 
 ### coercivity の確認
 
-$c\ge0$ a.e. なので
+$c\ge0$ がほとんど至る所（almost everywhere; a.e.）で成り立つので
 
 $$
 \int_\Omega
