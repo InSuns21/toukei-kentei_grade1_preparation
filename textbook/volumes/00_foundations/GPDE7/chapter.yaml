@@ -1,0 +1,39 @@
+id: "GPDE7"
+title: "Encore III Graduate PDE VII：Lax--Milgram定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE6
+  - F0-02C2
+official_scope: []
+learning_objectives:
+  - 実Hilbert空間上のbounded coercive bilinear formと連続線形汎関数に対するLax--Milgram定理を仮定込みで述べられる
+  - Riesz表現定理を用いてv↦a(u,v)から有界線形作用素A:V→Vを構成し、a(u,v)=<Au,v>を示せる
+  - coercivityから||Au||>=alpha||u||を導き、Aの単射性と逆写像の下側評価を説明できる
+  - 下からの評価とHilbert空間の完備性からRan Aが閉であることをCauchy列を用いて証明できる
+  - (Ran A)^perp={0}をcoercivityから示し、Ran Aの稠密性を導ける
+  - closed rangeとdense rangeを組み合わせてAの全射性を証明し、Lax--Milgramの存在一意性を閉じられる
+  - 解uに対する||u||<=alpha^{-1}||F||の安定性評価を導出できる
+  - Lax--Milgramに対称性が不要であることを非対称coercive formの具体例で確認できる
+  - boundednessだけでは存在一意性が保証されないことを退化双線形形式の反例から説明できる
+  - Poisson問題とreaction-diffusion問題でboundedness・coercivity・Fの連続性を局所的に確認して定理を適用できる
+definitions: []
+theorems:
+  - { id: GPDE7-PROP-01, name: "双線形形式のRiesz作用素表示" }
+  - { id: GPDE7-LEM-01, name: "coercivityによる作用素の下からの評価" }
+  - { id: GPDE7-LEM-02, name: "下から有界な作用素のrange閉性" }
+  - { id: GPDE7-LEM-03, name: "Lax--Milgram作用素のrange稠密性" }
+  - { id: GPDE7-THM-01, name: "Lax--Milgram定理" }
+  - { id: GPDE7-COR-01, name: "Lax--Milgram解の安定性" }
+  - { id: GPDE7-COR-02, name: "Poisson零Dirichlet問題への適用" }
+  - { id: GPDE7-COR-03, name: "reaction-diffusion問題への適用" }
+canonical_examples:
+  - "R^2上の非対称coercive行列"
+  - "coercivityを失った退化双線形形式"
+  - "Poisson零Dirichlet問題"
+  - "非負reaction項を持つreaction-diffusion問題"
+problem_patterns: [GPDE7-RIESZ-OPERATOR-1, GPDE7-LOWER-BOUND-1, GPDE7-CLOSED-RANGE-1, GPDE7-DENSE-RANGE-1, GPDE7-NONSYMMETRIC-1, GPDE7-POISSON-1, GPDE7-REACTION-DIFFUSION-1, GPDE7-FULL-PROOF-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }
