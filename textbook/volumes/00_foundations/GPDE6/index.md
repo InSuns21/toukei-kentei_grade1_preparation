@@ -277,7 +277,7 @@ $$
 
 と置きます。
 
-Cauchy--Schwarz により
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 |F(v)|
@@ -352,13 +352,15 @@ $$
 
 必要なのは二段だけです。
 
-$$
-L^2\times L^2
-\overset{\text{Cauchy--Schwarz}}{\longrightarrow}
-\mathbb R
-$$
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により
 
-で積分を制御し、さらに Poincaré によって
+$
+L^2\times L^2
+\longrightarrow
+\mathbb R
+$
+
+で積分を制御し、さらに [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)によって
 
 $$
 \|v\|_2
@@ -371,7 +373,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $v\in H_0^1(\Omega)$ に対し Cauchy--Schwarz から
+任意の $v\in H_0^1(\Omega)$ に対し [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |F_f(v)|
@@ -405,7 +407,7 @@ $$
 
 従って $F_f$ は $V$ 上の連続線形汎関数です。
 
-dual norm の定義から
+[双対ノルムの定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
 
 $$
 \|F_f\|_{H^{-1}}
@@ -658,7 +660,7 @@ $$
 
 となる列を取れます。
 
-左辺について Cauchy--Schwarz から
+左辺について [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left|
@@ -727,7 +729,7 @@ $$
 
 ## 6. distributional solution と変分弱解はどこが違うか
 
-GPDE1 では [Poisson 方程式の distributional solution](../GPDE1/index.md#def-gpde1-distributional-solution)を定義しました。
+GPDE1 では [Poisson 方程式の distributional solution](../GPDE1/index.md#def-gpde1-distributional-poisson)を定義しました。
 
 そこでは test function は
 
@@ -884,7 +886,7 @@ $$
 
 逆に 1 を仮定します。
 
-distributional equation と weak derivative の積分公式から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
+distributional equation と [weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から、任意の $\varphi\in C_c^\infty(\Omega)$ に対して
 
 $$
 \int_\Omega
@@ -907,7 +909,7 @@ $$
 
 とします。
 
-Cauchy--Schwarz により
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 \left|
@@ -1155,16 +1157,16 @@ $$
 
 ### 証明の見取り図
 
-boundedness は Cauchy--Schwarz そのものです。
+boundedness は [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)そのものです。
 
 coercivity は勾配 norm なら等号です。
 
-通常の $H^1$ norm を使う場合だけ Poincaré が必要になります。
+通常の $H^1$ norm を使う場合だけ [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)が必要になります。
 
 <!-- proof-start -->
 ### 証明
 
-Cauchy--Schwarz から
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |a(u,v)|
@@ -1756,7 +1758,7 @@ $$
 
 とします。
 
-dual norm の基本評価から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
@@ -1925,7 +1927,7 @@ $$
 F(u).
 $$
 
-dual norm の評価から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 F(u)
@@ -2041,7 +2043,7 @@ $$
 (F_1-F_2)(w).
 $$
 
-dual norm の評価から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 \|\nabla w\|_2^2
@@ -2438,7 +2440,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-任意の $v\in H_0^1(\Omega)$ に対して Cauchy--Schwarz から
+任意の $v\in H_0^1(\Omega)$ に対して [Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |F(v)|
@@ -2446,7 +2448,7 @@ $$
 \|f\|_2\|v\|_2.
 $$
 
-Poincaré 不等式から
+[Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 \|v\|_2
@@ -2527,7 +2529,7 @@ $$
 u(0)=u(1)=0.
 $$
 
-区間上では zero trace と $H_0^1$ が一致するので
+[区間上の H_0^1 と zero trace](../GPDE4/index.md#thm-gpde4-h01-trace-kernel-interval)から
 
 $$
 u\in H_0^1(0,1).
@@ -2566,7 +2568,7 @@ $$
 
 と近似します。
 
-Cauchy--Schwarz により両辺は $H^1$ 収束に対して連続なので
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)により両辺は $H^1$ 収束に対して連続なので
 
 $$
 \int_0^1
@@ -2615,7 +2617,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-Cauchy--Schwarz から
+[Cauchy--Schwarz 不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |a(u,v)|
@@ -2652,7 +2654,7 @@ $$
 
 と取れます。
 
-通常の $H^1$ norm については Poincaré から
+通常の $H^1$ norm については [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)から
 
 $$
 \|v\|_2^2
@@ -2738,7 +2740,7 @@ $$
 
 が成り立ちます。
 
-$u\in H^1$ なので、weak derivative の定義から
+$u\in H^1$ なので、[weak derivative の定義](../GPDE2/index.md#def-gpde2-weak-derivative)から
 
 $$
 -\int_\Omega
@@ -3016,7 +3018,7 @@ $$
 (F_n-F)(u_n-u).
 $$
 
-dual norm の定義から
+[双対ノルムの定義](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#def-f0-02c2-dual-norm)から
 
 $$
 |(F_n-F)(u_n-u)|
@@ -3095,7 +3097,7 @@ $c=\|F\|_{H^{-1}}$ と置きます。
 
 ### 1. 下からの評価
 
-dual norm の基本評価から
+[双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)から
 
 $$
 |F(v)|
