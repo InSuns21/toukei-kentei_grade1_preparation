@@ -88,6 +88,8 @@ $$
 <!-- definition-example-start: def-sto5-continuous-local-martingale -->
 ### 直接例：Brown 運動は continuous martingale
 
+**定義の確認**
+
 STO4 の Brown 運動 $B$ を、その usual augmented natural filtration で考えます。
 
 $0\le s<t$ なら
@@ -295,6 +297,8 @@ $$
 <!-- definition-example-start: def-sto5-ucp -->
 ### 直接例：$X_t^{(n)}=t/n$ は 0 へ ucp 収束する
 
+**定義の確認**
+
 $X_t^{(n)}=t/n$、$X_t=0$ とします。各 $T>0$ について
 
 $$
@@ -338,6 +342,8 @@ $$
 
 <!-- definition-example-start: def-sto5-finite-variation -->
 ### 直接例：絶対連続な drift
+
+**定義の確認**
 
 $A_t=\int_0^t a_s\,ds$ とし、各有限 $T$ で
 
@@ -422,6 +428,8 @@ $$
 
 <!-- definition-example-start: def-sto5-quadratic-variation -->
 ### 直接例：$C^1$ path の quadratic variation は 0
+
+**定義の確認**
 
 $f\in C^1([0,T])$ を決定論的 process とみなします。平均値の定理から
 
@@ -807,6 +815,8 @@ $$
 <!-- definition-example-start: def-sto5-covariation -->
 ### 直接例：$N=cB$ のとき
 
+**定義の確認**
+
 $M=B$、$N=cB$ とすると
 
 $$
@@ -947,6 +957,8 @@ $$
 
 <!-- definition-example-start: def-sto5-continuous-semimartingale -->
 ### 直接例：Brownian motion + drift
+
+**定義の確認**
 
 $B$ を Brown 運動、
 
