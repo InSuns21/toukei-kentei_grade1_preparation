@@ -106,7 +106,7 @@ Encore III 本線では次を正本化します。
 
 ---
 
-## 4. GPDE1--GPDE5：解析基盤
+## 4. GPDE1--GPDE6：解析基盤から変分法へ
 
 ### [GPDE1 テスト関数・distribution](../GPDE1/index.md)
 
@@ -148,7 +148,7 @@ $$
 
 ---
 
-## 5. GPDE6--GPDE8：変分法と楕円型 PDE
+## 5. GPDE7--GPDE8：Lax--Milgram と楕円型 PDE
 
 ### [GPDE6 弱形式・変分形式](../GPDE6/index.md)
 
