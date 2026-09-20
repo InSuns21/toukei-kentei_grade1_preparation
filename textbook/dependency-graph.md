@@ -171,32 +171,53 @@ GPDE10 Galerkin・時間発展PDEの弱解
 読者向け入口は `F0_00R3_EncoreIII_Distributions_Sobolev_Weak/index.md`。未完成 GPDE 章は reader-facing index に先行登録しない。
 ---
 
-## Encore IV：Stochastic Processes & Spectral Time Series
+## Encore IV：Stochastic Analysis & Time Series
 
-```text
-F0-00P3A / P4 / P6 / F0-02C1 / F0-00FA2
-  ↓
-F0-00SP1 filtration・adapted process・stopping time
-  ↓
-F0-00SP2 martingale・optional stopping
-  ↓
-F0-00SP3 Brown運動・二次変分
-  ↓
-F0-00SP4 Ito積分・Ito公式・SDE
-  ↓
-F0-00SP5 generator・Kolmogorov・Fokker--Planck
-  ↓
-F0-00TS1 Hilbert予測・innovation・Wold
-  ↓
-F0-00TS2 Herglotz・spectral measure/density
-  ↓
-E2-03 AR・MA・ARIMA本編
-  ↓
-F0-00TS3 linear filter・ARMA周波数領域
-```
+現行主線は STO1--STO14 と TSA1--TSA6 とする。再編前の F0-00SP1--F0-00SP5、F0-00TS1、F0-00TS2、F0-00TS2A、F0-00TS3 は archive / migration source であり、現行主線の prerequisite / concept owner / proof dependency にしない。
 
-Brown運動からSDE・generator・PDEへ進む連続時間枝と、定常過程を $L^2$ 射影として読みWold・spectral representation・ARMA filterへ進む離散時間枝を持つ。読者向け入口は `F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md`。
+~~~text
+F0-00P1 + F0-00P3C
+  ↓
+STO1 確率過程・filtration・stopping time
+  ↓
+STO2 離散時間 martingale・不等式・収束
+  ↓
+STO3 Kolmogorov extension・continuity
+  ↓
+STO4 Brown 運動・hitting time・strong Markov
+  ↓
+STO5 local martingale・quadratic variation・semimartingale
+  ↓
+STO6 stochastic integral
+  ↓
+STO7 multidimensional Ito calculus・Stratonovich
+  ↓
+STO8 local time・Tanaka
 
+STO7 → STO9 SDE → STO10 Girsanov
+                 ├→ STO11 Markov・generator・martingale problem
+                 └→ STO12 Brownian martingale representation
+
+STO2 → STO13 Poisson・CTMC・random measure → STO14 Levy・jump calculus
+
+F0-00P3B + Hilbert / Fourier
+  ↓
+TSA1 定常過程・Hilbert予測
+  ↓
+TSA2 Wold
+  ↓
+TSA3 Herglotz・spectral representation
+  ↓
+TSA4 linear filter・ARMA / ARIMA
+  ↓
+TSA5 ergodicity・mixing・dependent limit
+
+TSA1 + linear Gaussian theory
+  ↓
+TSA6 state-space・Kalman filter
+~~~
+
+STO1 の direct prerequisite は F0-00P1 と F0-00P3C とし、後続章では証明に実際に必要な直接依存だけを各 chapter.yaml に置く。読者向け入口は `F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md`。未完成 STO / TSA 章は reader-facing index に先行登録しない。
 ---
 
 ## Encore V：Numerical Analysis, FEM & Monte Carlo
@@ -238,7 +259,7 @@ F0-00MC1 Monte Carlo積分・LLN/CLT・標準誤差
   ↓
 F0-00MC2 variance reduction・importance sampling・control variate
 
-Encore IV SP4 + MC1 + NA4
+STO9 + MC1 + NA4
   ↓
 F0-00SDE1 Euler--Maruyama・strong/weak convergence
 ```
