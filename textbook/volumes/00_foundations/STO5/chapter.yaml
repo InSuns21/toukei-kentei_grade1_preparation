@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - STO2
   - STO4
+  - RA3
 official_scope: []
 learning_objectives:
   - continuous-time martingaleとcontinuous local martingaleを定義し、localizing sequenceが何を有限化するかを説明できる
