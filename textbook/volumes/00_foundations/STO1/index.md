@@ -696,7 +696,7 @@ $T>0$ は任意だったので $X$ は progressively measurable です。
 
 ## 6. 「現在」ではなく「直前まで」で決める
 
-STO2 の predictable transform、STO6 の stochastic integral では、integrand が未来の増分を見てから賭け方を決めてはいけません。
+STO2 の離散時間変換、STO6 の stochastic integral では、integrand が未来の増分を見てから賭け方を決めてはいけません。
 
 この「先読み禁止」を measurable structure にします。
 
