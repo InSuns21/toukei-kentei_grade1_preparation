@@ -33,6 +33,7 @@ theorems:
   - { id: STO6-PROP-01, name: "stoppingとstochastic integralの交換" }
   - { id: STO6-THM-05, name: "local stochastic integral" }
   - { id: STO6-THM-06, name: "Burkholder--Davis--Gundy inequality" }
+  - { id: STO6-PROP-02, name: "deterministic Brownian integralはGaussian" }
 canonical_examples:
   - "piecewise predictable Brownian integrand"
   - "deterministic step function integrated against Brownian motion"
