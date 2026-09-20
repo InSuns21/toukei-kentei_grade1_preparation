@@ -715,9 +715,9 @@ $$
 
 ## 7. bracket の一意性と finite variation local martingale
 
-quadratic variation theorem の
+[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) の
 
-$$
+$
 M^2-[M]
 $$
 
@@ -1682,7 +1682,7 @@ $$
 [L]\equiv0.
 $$
 
-continuous local martingale の [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
+[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L^2-[L]=L^2
