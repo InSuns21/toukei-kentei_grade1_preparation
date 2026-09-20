@@ -117,7 +117,7 @@ concepts:
   - id: stochastic.stopping-sigma-field
     name: stopping timeまでのsigma-field
     kind: definition
-    aliases: ["stopping time までの sigma-field", "stopping sigma-field", "F_tau"]
+    aliases: ["stopping sigma-field", "F_tau"]
     introduction: formal
     introduction_aliases: ["定義（stopping time までの sigma-field）"]
     requires:
