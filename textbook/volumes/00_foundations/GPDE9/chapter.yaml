@@ -30,7 +30,7 @@ theorems:
 canonical_examples:
   - "多項式x^2,x^3のdifference quotient"
   - "Poisson方程式の局所H^2 regularity"
-  - "jump coefficient a=1/2 によるH^2 failure"
+  - "piecewise constant jump coefficientによるH^2 failure"
   - "reentrant cornerのharmonic singularity"
 problem_patterns: [GPDE9-DQ-1, GPDE9-DISCRETE-IBP-1, GPDE9-DQ-CRITERION-1, GPDE9-CACCIOPPOLI-1, GPDE9-POISSON-H2-1, GPDE9-COEFFICIENT-DQ-1, GPDE9-REGULARITY-FAILURE-1, GPDE9-VARIABLE-H2-1]
 past_exam_alignment: []
