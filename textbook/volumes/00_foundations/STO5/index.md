@@ -474,7 +474,7 @@ T|\pi|
 \end{aligned}
 $$
 
-smooth path では二次の増分は消えます。
+smooth function では二次の増分は消えます。
 <!-- definition-example-end -->
 
 <a id="prop-sto5-finite-variation-zero-qv"></a>
