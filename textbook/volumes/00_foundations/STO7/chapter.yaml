@@ -1,0 +1,57 @@
+id: "STO7"
+title: "Encore IV Stochastic Analysis VII：multidimensional Itô calculus・Stratonovich"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO5
+  - STO6
+  - RA3
+official_scope: []
+learning_objectives:
+  - d次元Brown運動を独立な1次元Brown運動の組として定義し、成分間covariationがKronecker deltaで決まることを証明できる
+  - continuous semimartingaleに対する積分をlocal martingale partとfinite-variation partへ分解して定義し、分解一意性によりwell-definedであることを説明できる
+  - weighted covariation sumの収束を使い、continuous semimartingaleに対する多次元Itô公式を二次Taylor展開から証明できる
+  - 多次元Itô公式からproduct ruleとintegration by partsを導き、quadratic covariationが通常の積の微分則を補正する理由を説明できる
+  - Itô processをdriftとBrownian stochastic integralの和として定義し、generator型のdrift補正を含む時間依存Itô公式を計算できる
+  - continuous local martingaleのstochastic exponentialをItô公式から導き、Brownian exponential martingaleが真のmartingaleになることを独立増分から証明できる
+  - Stratonovich integralを対称Riemann和から構成し、Itô integralとの差がcovariationの半分になることを証明できる
+  - Euclidean Stratonovich chain ruleをcovariation chain ruleとItô公式から導き、通常の連鎖律が回復する機構を説明できる
+  - Itô--Stratonovich conversionをItô processの共分散行列で明示し、後続SDEで現れるdrift correctionを計算できる
+  - manifold上の確率解析を本章へ逆輸入せず、Euclidean calculusがその入口になる位置付けを説明できる
+definitions:
+  - { id: STO7-DEF-01, name: "d次元Brown運動" }
+  - { id: STO7-DEF-02, name: "continuous semimartingaleに対する積分" }
+  - { id: STO7-DEF-03, name: "Itô process" }
+  - { id: STO7-DEF-04, name: "stochastic exponential" }
+  - { id: STO7-DEF-05, name: "Stratonovich integral" }
+theorems:
+  - { id: STO7-PROP-01, name: "vector Brownian motionのcovariation" }
+  - { id: STO7-LEM-01, name: "weighted covariation sum" }
+  - { id: STO7-THM-01, name: "multidimensional Itô formula" }
+  - { id: STO7-COR-01, name: "product rule / integration by parts" }
+  - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
+  - { id: STO7-PROP-02, name: "stochastic exponential solves dZ=Z dM" }
+  - { id: STO7-PROP-03, name: "Brownian exponential martingale" }
+  - { id: STO7-THM-03, name: "Stratonovich integralとItô integralの変換" }
+  - { id: STO7-LEM-02, name: "covariation chain rule" }
+  - { id: STO7-THM-04, name: "Euclidean Stratonovich chain rule" }
+  - { id: STO7-COR-02, name: "Itô processに対するItô--Stratonovich conversion" }
+canonical_examples:
+  - "2次元Brown運動とcross variation [B1,B2]=0"
+  - "f(x,y)=xyからproduct ruleを導く"
+  - "d次元Brown運動の二乗ノルム |B_t|^2-dt"
+  - "Brownian exponential exp(theta dot B_t-|theta|^2 t/2)"
+  - "integral B circ dB = B_T^2/2 と integral B dB=(B_T^2-T)/2"
+  - "constant-coefficient multidimensional Itô process"
+problem_patterns:
+  - STO7-VECTOR-BROWNIAN-1
+  - STO7-MULTIDIM-ITO-1
+  - STO7-PRODUCT-RULE-1
+  - STO7-ITO-PROCESS-1
+  - STO7-STOCHASTIC-EXPONENTIAL-1
+  - STO7-STRATONOVICH-CONVERSION-1
+  - STO7-STRATONOVICH-CHAIN-RULE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11.0, exercises: 7.0, review: 1.5 }
