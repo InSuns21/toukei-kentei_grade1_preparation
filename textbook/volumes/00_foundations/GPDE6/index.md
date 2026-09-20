@@ -70,7 +70,7 @@ minimizer
 Poisson weak solution
 ~~~
 
-GPDE7 では、この特殊な Poisson 構造を一般の bounded coercive bilinear form へ抽象化し、Lax--Milgram 定理として閉じます。
+GPDE7 では、この特殊な Poisson 構造を一般の双線形形式へ抽象化し、必要な下からの評価を定式化して Lax--Milgram 定理として閉じます。
 
 ---
 
@@ -181,7 +181,7 @@ $$
 H_0^1(\Omega)
 $$
 
-となり、PDE が Hilbert 空間上の方程式として見えるようになります。
+となり、PDE が 完備内積空間上の方程式として見えるようになります。
 
 そのためには右辺
 
@@ -1557,8 +1557,8 @@ $w$ は任意だったので 1 が成立します。
 <a id="lem-gpde6-weak-lsc"></a>
 
 <!-- formal-statement-start -->
-> **補題（Hilbert norm の弱 liminf 評価）**  
-> 実 Hilbert 空間 $H$ で
+> **補題（Hilbert norm の弱収束時の norm 評価）**  
+> 実 完備内積空間 $H$ で
 
 $$
 x_n\rightharpoonup x
@@ -1594,7 +1594,7 @@ $$
 
 までは言えません。
 
-しかし極限の norm が列の下極限を上回ることはありません。
+しかし弱極限の norm が右辺の $\liminf$ を上回ることはありません。
 
 energy の二次項に必要なのは、この片方向だけです。
 
@@ -1720,7 +1720,7 @@ $$
 1. J は下に有界
 2. minimizing sequence は V で有界
 3. GPDE5 から弱収束部分列を取る
-4. norm の弱 liminf 評価と F の弱連続性で極限が最小点
+4. norm の弱収束時の norm 評価と F の弱連続性で極限が最小点
 5. 変分原理から最小点が弱解
 ~~~
 
@@ -1746,7 +1746,7 @@ $$
 \nabla u\cdot\nabla v\,dx
 $$
 
-に関する Hilbert 空間です。
+に関する 完備内積空間です。
 
 energy を
 
@@ -1866,7 +1866,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱 liminf 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert norm の弱収束時の norm 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -1971,7 +1971,7 @@ $$
 
 強収束は使っていません。
 
-Poisson energy は凸な quadratic functional なので、弱収束と弱 liminf 評価だけで最小点を作れます。
+Poisson energy は凸な quadratic functional なので、弱収束と弱収束時の norm 評価だけで最小点を作れます。
 
 非線形 PDE では、この先さらに compactness による強収束が必要になる場合があります。
 
@@ -3197,7 +3197,7 @@ $$
 \int_\Omega\nabla u\cdot\nabla v\,dx
 $$
 
-について Hilbert 空間です。
+について 完備内積空間です。
 
 [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使い、部分列を取り直して
 
@@ -3218,7 +3218,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また [Hilbert norm の弱 liminf 評価](#lem-gpde6-weak-lsc)から
+また [Hilbert norm の弱収束時の norm 評価](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
@@ -3383,7 +3383,7 @@ $$
 - distributional equation と variational equation は $u\in H_0^1$, $f\in L^2$ の下で同値になる。
 - Poisson form は bounded かつ coercive である。
 - 対称性により weak equation は energy minimization と同値になる。
-- GPDE5 の弱コンパクト性と norm の弱 liminf 評価から minimizer を構成できる。
+- GPDE5 の弱コンパクト性と norm の弱収束時の norm 評価から minimizer を構成できる。
 - coercivity から一意性と stability estimate が得られる。
 
 という一本の構造が得られました。
