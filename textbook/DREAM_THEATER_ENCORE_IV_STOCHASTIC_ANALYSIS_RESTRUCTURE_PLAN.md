@@ -583,7 +583,7 @@ ARMA / ergodicity / Kalman
 
 ## 13. 実装進捗
 
-最終更新: 2026-09-20
+最終更新: 2026-09-21
 
 - Phase 0「ルーティングと設計台帳」：完了。
 - 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替え、reader-facing index と目次から除外した。
@@ -601,4 +601,9 @@ ARMA / ergodicity / Kalman
 - reflection principle は strong Markov property の後に配置し、停止時刻での反射に必要な独立性を先取りしない証明依存にした。
 - STO4 の direct prerequisite は STO3 のみに限定し、旧 SP 系列は migration source に留めて prerequisite / proof dependency にしない。
 - Phase 1「確率解析の床」STO1--STO4 は完了。
-- 現在地：次の実装対象は STO5「continuous local martingale・quadratic variation・semimartingale」。
+- Phase 2：STO5「continuous local martingale・quadratic variation・semimartingale」を実装。continuous-time martingale / local martingale / localization / ucp / finite variation / quadratic variation / covariation / continuous semimartingale / Lévy characterization を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO5 の direct prerequisite は STO2・STO4・RA3 とした。STO2 の離散時間 bounded optional sampling を dyadic stopping-time approximation で連続時間へ持ち上げ、bounded stopping による martingale の停止を章内証明した。RA3 は Lévy characterization の二次 Taylor 展開と compact 上の微分評価に実際に使う標準解析依存として明示した。
+- Brownian quadratic variation は一般の deterministic partition に対して平均・分散を直接計算し、$[B]_t=t$ を process-level の ucp limit まで接続した。finite-variation part の二次変分と cross term が消えることを total variation で評価し、continuous semimartingale の quadratic variation と分解一意性を閉じた。
+- continuous local martingale の quadratic variation 一般存在については、continuous-time Doob--Meyer theorem の一般証明が class D / regularization / predictable compensator を含む独立した大規模理論になるため、その存在部分だけを技術的入力として境界明示した。STO6 の stochastic integral は証明へ逆輸入していない。
+- Lévy characterization は localization 後の bracket が $t\wedge\sigma_n$ になることを追跡し、停止した exponential process の二次 Taylor 展開から conditional characteristic function を導く形で閉じた。
+- 現在地：Phase 2 の次の実装対象は STO6「stochastic integral」。

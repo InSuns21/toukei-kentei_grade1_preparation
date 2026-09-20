@@ -1,0 +1,180 @@
+chapter: STO5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - STO4
+  - RA3
+
+concepts:
+  - id: stochastic.continuous-local-martingale
+    name: continuous-time martingaleとcontinuous local martingale
+    kind: definition
+    aliases: ["continuous local martingale", "local martingale", "localizing sequence"]
+    introduction: formal
+    introduction_aliases: ["定義（continuous-time martingale と continuous local martingale）"]
+    requires:
+      - stochastic.filtration
+      - stochastic.adapted-process
+      - stochastic.stopping-time
+      - stochastic.stopped-process
+      - stochastic.discrete-martingale
+
+  - id: stochastic.brownian-continuous-martingale
+    name: Brown運動はcontinuous martingale
+    kind: proposition
+    aliases: ["Brownian motion is a martingale", "Brownian martingale"]
+    introduction: formal
+    introduction_aliases: ["命題（Brown 運動は continuous martingale）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.brownian-motion
+      - stochastic.brownian-natural-filtration
+
+  - id: stochastic.continuous-bounded-optional-sampling
+    name: bounded stoppingによるcontinuous martingaleの停止
+    kind: theorem
+    aliases: ["continuous bounded optional sampling", "bounded stopping theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（bounded stopping による continuous martingale の停止）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.bounded-optional-sampling
+      - stochastic.stopping-sigma-field
+
+  - id: stochastic.ucp-convergence
+    name: ucp convergence
+    kind: definition
+    aliases: ["ucp convergence", "uniform convergence on compacts in probability"]
+    introduction: formal
+    introduction_aliases: ["定義（ucp convergence）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.continuous-finite-variation
+    name: continuous finite-variation process
+    kind: definition
+    aliases: ["finite variation process", "continuous finite variation", "total variation process"]
+    introduction: formal
+    introduction_aliases: ["定義（continuous finite-variation process）"]
+    requires:
+      - stochastic.adapted-process
+
+  - id: stochastic.quadratic-variation
+    name: quadratic variation
+    kind: definition
+    aliases: ["quadratic variation", "quadratic variation process", "bracket [M]"]
+    introduction: formal
+    introduction_aliases: ["定義（quadratic variation）"]
+    requires:
+      - stochastic.ucp-convergence
+
+  - id: stochastic.finite-variation-zero-qv
+    name: continuous finite-variation processのquadratic variationは0
+    kind: proposition
+    aliases: ["finite variation has zero quadratic variation"]
+    introduction: formal
+    introduction_aliases: ["命題（continuous finite-variation process の quadratic variation は 0）"]
+    requires:
+      - stochastic.continuous-finite-variation
+      - stochastic.quadratic-variation
+
+  - id: stochastic.brownian-quadratic-variation
+    name: Brown運動のquadratic variation
+    kind: theorem
+    aliases: ["Brownian quadratic variation", "[B]_t=t"]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 運動の quadratic variation）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.quadratic-variation
+
+  - id: stochastic.continuous-local-martingale-qv
+    name: continuous local martingaleのquadratic variation theorem
+    kind: theorem
+    aliases: ["quadratic variation theorem", "quadratic variation of continuous local martingales"]
+    introduction: formal
+    introduction_aliases: ["定理（continuous local martingale の quadratic variation theorem）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.quadratic-variation
+
+  - id: stochastic.finite-variation-local-martingale-constant
+    name: continuous local martingaleかつfinite variationなら定数
+    kind: lemma
+    aliases: ["finite variation local martingale is constant", "continuous local martingale of finite variation is constant"]
+    introduction: formal
+    introduction_aliases: ["補題（continuous local martingale かつ finite variation なら定数）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.finite-variation-zero-qv
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.covariation
+    name: covariation
+    kind: definition
+    aliases: ["covariation", "quadratic covariation", "cross variation", "[M,N]"]
+    introduction: formal
+    introduction_aliases: ["定義（covariation）"]
+    requires:
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.covariation-product-local-martingale
+    name: covariationとproduct local martingale
+    kind: proposition
+    aliases: ["MN-[M,N] local martingale", "polarization identity for covariation"]
+    introduction: formal
+    introduction_aliases: ["命題（covariation と product local martingale）"]
+    requires:
+      - stochastic.covariation
+
+  - id: stochastic.continuous-semimartingale
+    name: continuous semimartingale
+    kind: definition
+    aliases: ["continuous semimartingale", "semimartingale decomposition"]
+    introduction: formal
+    introduction_aliases: ["定義（continuous semimartingale）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.continuous-finite-variation
+
+  - id: stochastic.semimartingale-qv-local-part
+    name: finite variation partはquadratic variationへ寄与しない
+    kind: proposition
+    aliases: ["quadratic variation of a continuous semimartingale"]
+    introduction: formal
+    introduction_aliases: ["命題（finite variation part は quadratic variation へ寄与しない）"]
+    requires:
+      - stochastic.continuous-semimartingale
+      - stochastic.covariation
+
+  - id: stochastic.semimartingale-decomposition-uniqueness
+    name: continuous semimartingale分解の一意性
+    kind: theorem
+    aliases: ["uniqueness of continuous semimartingale decomposition"]
+    introduction: formal
+    introduction_aliases: ["定理（continuous semimartingale 分解の一意性）"]
+    requires:
+      - stochastic.continuous-semimartingale
+      - stochastic.finite-variation-zero-qv
+      - stochastic.continuous-local-martingale-qv
+
+  - id: stochastic.levy-characterization
+    name: Levy characterization of Brownian motion
+    kind: theorem
+    aliases: ["Levy characterization", "Levy theorem for Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["定理（Lévy characterization of Brownian motion）"]
+    requires:
+      - stochastic.continuous-local-martingale-qv
+      - stochastic.brownian-motion
+
+  - id: stochastic.brownian-infinite-variation
+    name: Brownian標本路は有限変動ではない
+    kind: corollary
+    aliases: ["Brownian motion has infinite variation"]
+    introduction: formal
+    introduction_aliases: ["系（Brownian 標本路は有限変動ではない）"]
+    requires:
+      - stochastic.brownian-quadratic-variation
+      - stochastic.finite-variation-zero-qv

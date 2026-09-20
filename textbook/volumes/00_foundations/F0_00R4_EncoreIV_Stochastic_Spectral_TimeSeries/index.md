@@ -48,7 +48,7 @@ TSA1--TSA6
 2. [STO2：離散時間 martingale・不等式・収束](../STO2/index.md) — 実装済み
 3. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
 4. [STO4：Brown 運動・hitting time・strong Markov property](../STO4/index.md) — 実装済み
-5. STO5：continuous local martingale・quadratic variation・semimartingale
+5. [STO5：continuous local martingale・quadratic variation・semimartingale](../STO5/index.md) — 実装済み
 6. STO6：stochastic integral
 7. STO7：multidimensional Itô calculus・Stratonovich
 8. STO8：local time・Tanaka formula
@@ -155,4 +155,8 @@ STO3 では整合的 finite-dimensional laws から canonical process を構成�
 
 STO4 では covariance $\min(s,t)$ から Brown 運動を構成し、stopping time の dyadic approximation から strong Markov property を証明したうえで、reflection principle、hitting time distribution、1 次元 recurrence、time inversion まで閉じました。
 
-Phase 1 は完了し、次の実装対象は **STO5「continuous local martingale・quadratic variation・semimartingale」** です.
+Phase 2 の [STO5「continuous local martingale・quadratic variation・semimartingale」](../STO5/index.md#thm-sto5-local-martingale-qv) も、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+
+STO5 では STO2 の bounded optional sampling を dyadic approximation で連続時間へ持ち上げ、localization を閉じました。finite variation と quadratic variation を対比し、Brownian quadratic variation $[B]_t=t$、continuous local martingale の bracket、covariation、continuous semimartingale 分解の一意性、Lévy characterization まで接続しています。quadratic variation 一般存在の技術的入力だけは continuous-time Doob--Meyer theorem として境界を明示し、STO6 の stochastic integral は逆輸入していません。
+
+現在地は **Phase 2：STO5 完了 → 次は STO6「stochastic integral」** です。

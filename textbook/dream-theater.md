@@ -275,6 +275,7 @@ Encore III 本線では distributional solution、variational weak solution、en
 3. [STO2 離散時間 martingale・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
 4. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
 5. [STO4 Brown 運動・hitting time・strong Markov property](textbook/volumes/00_foundations/STO4/index.md)
+6. [STO5 continuous local martingale・quadratic variation・semimartingale](textbook/volumes/00_foundations/STO5/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 

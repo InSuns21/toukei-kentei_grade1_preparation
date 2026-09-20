@@ -1,0 +1,29 @@
+chapter: "STO5"
+terms:
+  - term: continuous local martingale
+    english: continuous local martingale
+    meaning: 連続adapted過程で、stopping time列により各停止過程を真のmartingaleへ局所化できるもの。
+  - term: localizing sequence
+    english: localizing sequence
+    meaning: tau_nが増加してinfinityへ向かい、M^{tau_n}を真のmartingaleにするstopping time列。
+  - term: ucp convergence
+    english: uniform convergence on compacts in probability
+    meaning: 各有限Tでsup_{t<=T}|X_t^n-X_t|が確率収束で0へ行く収束様式。
+  - term: finite variation
+    english: finite variation
+    meaning: 各有限時間区間で標本路のtotal variationが有限である性質。
+  - term: quadratic variation
+    english: quadratic variation
+    meaning: 細分割上のsquared increment sumのucp極限として得られる連続増加過程[M]。
+  - term: covariation
+    english: covariation
+    meaning: cross increment sumのucp極限で、polarizationにより[M,N]として構成される有限変動過程。
+  - term: bracket
+    english: bracket
+    meaning: 本章では[M]と[M,N]を指す記法。predictable bracket <M>とは区別する。
+  - term: continuous semimartingale
+    english: continuous semimartingale
+    meaning: continuous local martingale Mとcontinuous finite-variation process Aの和X=M+Aで表される連続過程。
+  - term: Levy characterization
+    english: Levy characterization of Brownian motion
+    meaning: M_0=0かつ[M]_t=tを満たすcontinuous local martingaleはBrown運動であるという特徴付け。
