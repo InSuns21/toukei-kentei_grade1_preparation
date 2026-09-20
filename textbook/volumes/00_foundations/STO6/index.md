@@ -72,19 +72,21 @@ STO7 の Itô formula は、この章で積分が完成して初めて厳密に�
 
 $0<s<T$ を固定し、
 
-$$
+$
+\xi_s:=1_{\{B_s\ge0\}},
+\qquad
 H_t
 =
 1_{(0,s]}(t)
 +
-B_s\,1_{(s,T]}(t)
-$$
+\xi_s\,1_{(s,T]}(t)
+$
 
 とします。
 
-最初の係数 $1$ は $\mathcal F_0$-measurable、二つ目の係数 $B_s$ は $\mathcal F_s$-measurable です。従って $H$ は simple predictable です。
+最初の係数 $1$ は $\mathcal F_0$-measurable、二つ目の係数 $\xi_s$ は bounded かつ $\mathcal F_s$-measurable です。従って定義どおり $H$ は simple predictable です。
 
-重要なのは、二つ目の区間で $B_T-B_s$ を積分するとき、その係数 $B_s$ は increment が始まる時点ですでに分かっていることです。
+重要なのは、二つ目の区間で $B_T-B_s$ を積分するとき、その係数 $\xi_s$ は increment が始まる時点ですでに分かっていることです。
 <!-- definition-example-end -->
 
 ---
@@ -134,38 +136,39 @@ continuous martingale $M$ に対して、simple integrand の積分は増分和�
 
 前節の
 
-$$
+$
 H_t
 =
-1_{(0,s]}(t)+B_s1_{(s,T]}(t)
-$$
+1_{(0,s]}(t)+1_{\{B_s\ge0\}}1_{(s,T]}(t)
+$
 
 を Brown 運動 $B$ に対して積分すると、
 
-$$
+$
 (H\cdot B)_t
 =
 B_{t\wedge s}
 +
-B_s\left(B_t-B_s\right)1_{\{t>s\}}.
-$$
+1_{\{B_s\ge0\}}
+\left(B_t-B_s\right)1_{\{t>s\}}.
+$
 
 特に $t=T$ では
 
-$$
+$
 \int_0^T H_u\,dB_u
 =
-B_s+B_s(B_T-B_s).
-$$
+B_s+1_{\{B_s\ge0\}}(B_T-B_s).
+$
 
 第二項の条件付き期待値は
 
-$$
-E[B_s(B_T-B_s)\mid\mathcal F_s]
+$
+E[1_{\{B_s\ge0\}}(B_T-B_s)\mid\mathcal F_s]
 =
-B_sE[B_T-B_s\mid\mathcal F_s]
+1_{\{B_s\ge0\}}E[B_T-B_s\mid\mathcal F_s]
 =0.
-$$
+$
 
 predictability が martingale cancellation を保っていることが見えます。
 <!-- definition-example-end -->
@@ -173,6 +176,12 @@ predictability が martingale cancellation を保っていることが見えま�
 ---
 
 ## 3. bracket を測度として読む
+
+stochastic integral は $M$ の増分だけで定義されるため、$M_0\neq0$ でも
+$
+\widetilde M_t:=M_t-M_0
+$
+へ置き換えれば積分は変わりません。また $[\widetilde M]=[M]$ です。したがって $L^2$ 構成では、必要な箇所で $M_0=0$ と正規化しても一般性を失いません。
 
 STO5 で continuous local martingale $M$ に対する increasing process $[M]$ を構成しました。
 
@@ -1153,7 +1162,7 @@ $$
 H_t=e^{B_t^2}
 $$
 
-とします。continuous adapted process なので predictable です。
+とします。continuous adapted process は left-continuous adapted process でもあるため、predictable sigma-field の定義から predictable です。
 
 exit time
 
@@ -1716,7 +1725,7 @@ $$
 $0<s<T$ とし、
 
 $$
-H_t=B_s1_{(s,T]}(t)
+H_t=1_{\{B_s\ge0\}}1_{(s,T]}(t)
 $$
 
 とする。
@@ -1728,55 +1737,47 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. 係数 $B_s$ は $\mathcal F_s$-measurable なので、$(s,T]$ 上の simple predictable coefficient です。
+1. 係数 $1_{\{B_s\ge0\}}$ は bounded かつ $\mathcal F_s$-measurable なので、定義どおり $(s,T]$ 上の simple predictable coefficient です。
 
 2.
 
 $$
 \int_0^T H_t\,dB_t
 =
-B_s(B_T-B_s).
+1_{\{B_s\ge0\}}(B_T-B_s).
 $$
 
 3. Itô isometry から
 
 $$
 E\left[
-B_s^2(B_T-B_s)^2
+1_{\{B_s\ge0\}}(B_T-B_s)^2
 \right]
 =
-E\int_s^T B_s^2\,dt.
+E\int_s^T1_{\{B_s\ge0\}}\,dt.
 $$
 
 右辺は
 
 $$
-(T-s)E[B_s^2]
+(T-s)P(B_s\ge0)
 =
-(T-s)s.
+\frac{T-s}{2},
 $$
 
-従って
+です。$s>0$ なら $B_s$ は centered nondegenerate Gaussian なので対称性から
+$P(B_s\ge0)=1/2$ です。
+
+独立増分を使って直接計算しても
 
 $$
-E\left[
-\left(
-\int_0^T H_t\,dB_t
-\right)^2
-\right]
+E[1_{\{B_s\ge0\}}]\,
+E[(B_T-B_s)^2]
 =
-s(T-s).
+\frac12(T-s)
 $$
 
-独立性から直接計算しても
-
-$$
-E[B_s^2]E[(B_T-B_s)^2]
-=
-s(T-s)
-$$
-
-です。
+となります。
 <!-- solution-end -->
 
 ## STO6-A03 Doob $L^2$ estimate を積分へ適用する
@@ -2078,7 +2079,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. $B$ は continuous adapted process です。continuous adapted process は progressive、従って predictable です。連続写像 $x\mapsto e^{x^2}$ を合成しても predictability は保たれるので $H$ は predictable です。
+1. $B$ は continuous adapted process です。continuous adapted process は left-continuous adapted process でもあるので predictable です。連続写像 $x\mapsto e^{x^2}$ を合成しても predictability は保たれるので $H$ は predictable です。
 
 2. $t\le\tau_n$ なら $|B_t|\le n$ です。従って
 
