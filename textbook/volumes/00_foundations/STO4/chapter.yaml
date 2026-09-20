@@ -1,0 +1,52 @@
+id: "STO4"
+title: "Encore IV Stochastic Analysis IV：Brown 運動・hitting time・strong Markov property"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO3
+official_scope: []
+learning_objectives:
+  - Gaussian processを有限次元Gaussian vectorとして定義し、covariance kernelが有限次元分布を決めることを説明できる
+  - covariance min(s,t)のpositive semidefinitenessを確認し、Kolmogorov extension theoremからGaussian processを構成できる
+  - Gaussian incrementの第4momentとKolmogorov--Chentsov continuity theoremからcontinuous Brownian motionを構成できる
+  - covariance計算からstationary independent incrementsを導き、Brownian scalingを証明できる
+  - Brownian natural filtrationに対するdeterministic-time Markov propertyを条件付き期待値の形で導ける
+  - stopping timeのdyadic approximationからstrong Markov propertyの核心証明を再構成できる
+  - Brownian hitting timeがstopping timeであることをpath continuityから確認できる
+  - strong Markov propertyからreflection principleを証明し、hitting timeの累積分布関数とdensityを導ける
+  - hitting probability 1とinfinite meanを区別し、1次元Brownian motionの基本的recurrenceを証明できる
+  - scalingとreflection principleを使ってBrownian time inversionを確認できる
+definitions:
+  - { id: STO4-DEF-01, name: "Gaussian process" }
+  - { id: STO4-DEF-02, name: "standard Brownian motion" }
+  - { id: STO4-DEF-03, name: "Brownian natural filtration" }
+  - { id: STO4-DEF-04, name: "Brownian hitting time" }
+theorems:
+  - { id: STO4-THM-01, name: "Brown 運動の構成" }
+  - { id: STO4-PROP-01, name: "Brownian scaling" }
+  - { id: STO4-THM-02, name: "Brown 運動のMarkov property" }
+  - { id: STO4-THM-03, name: "Brown 運動のstrong Markov property" }
+  - { id: STO4-THM-04, name: "reflection principle" }
+  - { id: STO4-THM-05, name: "Brownian hitting timeの分布" }
+  - { id: STO4-THM-06, name: "1次元Brown運動の基本的recurrence" }
+  - { id: STO4-PROP-02, name: "Brownian time inversion" }
+canonical_examples:
+  - "degenerate Gaussian process X_t=tZ"
+  - "covariance min(s,t) and disjoint Gaussian increments"
+  - "past event in Brownian natural filtration"
+  - "level hitting time as a stopping time"
+  - "dyadic approximation of a stopping time"
+  - "reflection at a Brownian hitting time"
+problem_patterns:
+  - STO4-BROWNIAN-CONSTRUCTION-1
+  - STO4-GAUSSIAN-COVARIANCE-1
+  - STO4-BROWNIAN-SCALING-1
+  - STO4-STRONG-MARKOV-DYADIC-1
+  - STO4-REFLECTION-PRINCIPLE-1
+  - STO4-HITTING-TIME-1
+  - STO4-RECURRENCE-1
+  - STO4-TIME-INVERSION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 5.5, review: 1.5 }
