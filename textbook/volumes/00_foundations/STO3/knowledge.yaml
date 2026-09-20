@@ -10,13 +10,13 @@ concepts:
   - id: stochastic.finite-dimensional-distribution-consistency
     name: 有限次元分布と整合性
     kind: definition
-    aliases: ["finite-dimensional distribution", "finite-dimensional distributions", "有限次元分布", "consistency", "整合性"]
+    aliases: ["finite-dimensional distribution", "finite-dimensional distributions", "有限次元分布", "有限次元分布の整合性", "整合的有限次元分布"]
     introduction: formal
     introduction_aliases: ["定義（有限次元分布と整合性）"]
     requires:
       - stochastic.stochastic-process
 
-  - id: stochastic.canonical-path-space
+  - id: stochastic.canonical-trajectory-space
     name: canonical path spaceとcylinder set
     kind: definition
     aliases: ["canonical path space", "coordinate process", "cylinder set", "canonical process"]
@@ -42,7 +42,7 @@ concepts:
     introduction_aliases: ["定理（Kolmogorov 拡張定理：実数値版）"]
     requires:
       - stochastic.finite-dimensional-distribution-consistency
-      - stochastic.canonical-path-space
+      - stochastic.canonical-trajectory-space
       - stochastic.finite-borel-compact-approximation
       - measure.caratheodory-extension-theorem
 
