@@ -409,7 +409,7 @@ $$
 
 したがって $\|v\|_V\le1$ の範囲で supremum を取ると
 
-$
+$$
 \|F_f\|_{H^{-1}}
 \le
 C_P\|f\|_2.
@@ -651,7 +651,7 @@ $$
 
 [H0^1](../GPDE4/index.md#def-gpde4-h01) の近似可能性から
 
-$
+$$
 \varphi_n\in C_c^\infty(\Omega),
 \qquad
 \varphi_n\to v
@@ -3020,7 +3020,7 @@ $$
 
 $H^{-1}$ norm の supremum 表示から
 
-$
+$$
 |(F_n-F)(u_n-u)|
 \le
 \|F_n-F\|_{H^{-1}}
