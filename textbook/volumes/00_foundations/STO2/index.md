@@ -1090,7 +1090,7 @@ $$
 1. 任意の有理数 $a<b$ に対し、upcrossing inequality から
    $E[U_\infty[a,b]]<\infty$ を得る。
 2. よって $U_\infty[a,b]<\infty$ a.s.
-3. もし $\liminf X_n<\limsup X_n$ なら、その間に有理数 $a<b$ を選べて無限回 upcrossing が起きる。矛盾。
+3. 標本路の十分先での下側境界 $\ell$ と上側境界 $u$ が異なれば、その間に有理数 $a<b$ を選べて無限回 upcrossing が起きる。矛盾。
 4. 従って extended real 値の極限は存在する。
 5. 一様 $L^1$ bound と Fatou により $\pm\infty$ を排除し、極限を $L^1$ に入れる。
 
@@ -1196,14 +1196,14 @@ $$
 <\infty.
 $$
 
-Fatou の補題を $|X_n|$ に適用すると
+Fatou の補題を $|X_n|$ に適用し、上の一様 $L^1$ bound を使うと
 
-$$
+$
 E|X_\infty|
 \le
-\liminf_{n\to\infty}E|X_n|
+\sup_nE|X_n|
 <\infty.
-$$
+$
 
 もし $|X_\infty|=\infty$ が正の確率で起これば左辺は無限大になるため、これは不可能です。
 
@@ -2068,14 +2068,14 @@ $$
 \sup_nE|X_n|<\infty.
 $$
 
-Fatou の補題から
+Fatou の補題と一様 $L^1$ bound から
 
-$$
+$
 E|X_\infty|
 \le
-\liminf_nE|X_n|
+\sup_nE|X_n|
 <\infty.
-$$
+$
 
 従って $X_\infty$ は有限 a.s. で $L^1$ に属します。
 <!-- solution-end -->
