@@ -1634,6 +1634,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
+この証明では固定した $V\Subset\Omega$ 上の定数を
+
+$
+\lambda:=\lambda_V,
+\qquad
+\Lambda:=\Lambda_V,
+\qquad
+L:=L_V
+$
+
+と略記します。
+
 $U\Subset W\Subset V$ を取り、
 
 $$
