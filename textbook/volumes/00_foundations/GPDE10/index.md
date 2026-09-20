@@ -116,11 +116,11 @@ $$
 
 $w\in X$、$\phi\in L^2(0,T)$ として
 
-$$
+$
 u(t)=\phi(t)w
-$$
+$
 
-と置けば
+と置きます。$\phi$ を可測代表元で取れば、$u$ は実数値単関数による $\phi$ の点ごとの近似へ $w$ を掛けることで強可測です。また
 
 $$
 \|u(t)\|_X^2
@@ -2289,6 +2289,9 @@ $$
 > を満たす $u\in C([0,T];H)$ を mild solution と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-gpde10-mild-solution -->
+### 直接例：固有モード上の semigroup
+
 この表示は Duhamel principle の無限次元版です。
 
 熱方程式の一つの固有モード
@@ -2318,6 +2321,7 @@ u(t)=ce^{-\lambda t}w.
 $$
 
 これは前に確認した熱方程式の単一モードと一致します。
+<!-- definition-example-end -->
 
 ただし、
 
