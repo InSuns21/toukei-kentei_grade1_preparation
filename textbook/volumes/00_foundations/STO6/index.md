@@ -610,19 +610,75 @@ $$
 
 離散時間 martingale
 
-$$
+$
 N_{kT2^{-n}}
-$$
+$
 
-へ STO2 の Doob maximal inequality を $p=2$ の標準積分形で適用すると
+を考え、その最大値を
 
-$$
+$
+X_n^*
+=
+\max_{t\in D_n}|N_t|
+$
+
+と書きます。$|N|$ は submartingale なので、STO2 の Doob maximal inequality の stopping-time proof を事象 $\{X_n^*\ge\lambda\}$ まで保持すると
+
+$
+\lambda P(X_n^*\ge\lambda)
+\le
 E\left[
-\max_{t\in D_n}|N_t|^2
-\right]
+|N_T|1_{\{X_n^*\ge\lambda\}}
+\right].
+$
+
+tail integral formula を使えば
+
+$
+\begin{aligned}
+E[(X_n^*)^2]
+&=
+2\int_0^\infty
+\lambda P(X_n^*\ge\lambda)\,d\lambda\\
+&\le
+2\int_0^\infty
+E\left[
+|N_T|1_{\{X_n^*\ge\lambda\}}
+\right]d\lambda\\
+&=
+2E[|N_T|X_n^*].
+\end{aligned}
+$
+
+Tonelli を使った最後の等式では
+
+$
+\int_0^\infty1_{\{X_n^*\ge\lambda\}}\,d\lambda=X_n^*
+$
+
+としました。Cauchy--Schwarz より
+
+$
+E[(X_n^*)^2]
+\le
+2\|N_T\|_2\|X_n^*\|_2.
+$
+
+$\|X_n^*\|_2=0$ なら結論は自明で、それ以外なら両辺を $\|X_n^*\|_2$ で割って
+
+$
+\|X_n^*\|_2
+\le
+2\|N_T\|_2.
+$
+
+従って
+
+$
+E[(X_n^*)^2]
 \le
 4E[|N_T|^2].
-$$
+$
 
 $D_n\subset D_{n+1}$ なので左辺の random variables は単調増加します。continuous path では dyadic points が dense なので
 
@@ -643,15 +699,7 @@ E\left[
 $$
 <!-- proof-end -->
 
-ここで STO2 から使った $p=2$ 形は、STO2 の tail inequality を
-
-$$
-P(N^*\ge\lambda)
-\le
-\frac{E[|N_T|1_{\{N^*\ge\lambda\}}]}{\lambda}
-$$
-
-として積分する標準帰結です。必要なら truncation して bounded martingale から始めればよく、後続理論は使いません。
+この証明では STO2 の stopping-time argument から得られる tail inequality を実際に積分して $p=2$ 形まで導いたので、未証明の連続時間 maximal theorem は使っていません。
 
 ---
 
