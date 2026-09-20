@@ -1,0 +1,130 @@
+chapter: GPDE6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE5
+  - PDE5
+
+concepts:
+  - id: sobolev.hminus1
+    name: "H^{-1}(Omega)"
+    kind: definition
+    aliases: ["Hminus1", "Hminus1 空間", "H minus one space", "dual of H_0^1"]
+    introduction: formal
+    introduction_aliases: ["定義（Hminus1 空間）"]
+    requires:
+      - sobolev.h01
+
+  - id: pde.l2-data-hminus1
+    name: L2データがH^{-1} functionalを定める
+    kind: proposition
+    aliases: ["L2 forcing defines Hminus1 functional", "L2 to Hminus1"]
+    introduction: formal
+    introduction_aliases: ["命題（L2 data は Hminus1 functional を定める）"]
+    requires:
+      - sobolev.hminus1
+      - sobolev.poincare-h01
+
+  - id: pde.poisson-variational-weak-solution
+    name: Poissonのvariational weak solution
+    kind: definition
+    aliases: ["Poisson variational weak solution", "Poisson変分弱解"]
+    introduction: formal
+    introduction_aliases: ["定義（Poisson の変分弱解）"]
+    requires:
+      - sobolev.hminus1
+      - sobolev.h01
+
+  - id: pde.classical-poisson-to-variational
+    name: 古典Poisson解から変分弱解
+    kind: theorem
+    aliases: ["classical Poisson implies variational weak solution"]
+    introduction: formal
+    introduction_aliases: ["定理（古典 Poisson 解から変分弱解）"]
+    requires:
+      - pde.poisson-variational-weak-solution
+
+  - id: pde.distributional-variational-equivalence
+    name: distributional solutionと変分弱解の同値
+    kind: theorem
+    aliases: ["distributional variational equivalence", "distributional and variational weak solution equivalence"]
+    introduction: formal
+    introduction_aliases: ["定理（distributional solution と変分弱解の同値）"]
+    requires:
+      - pde.poisson-variational-weak-solution
+      - distribution.distributional-solution
+      - distribution.weak-derivative
+
+  - id: variational.bounded-bilinear-form
+    name: bounded bilinear form
+    kind: definition
+    aliases: ["有界双線形形式", "continuous bilinear form"]
+    introduction: formal
+    introduction_aliases: ["定義（bounded bilinear form）"]
+
+  - id: variational.coercive-bilinear-form
+    name: coercive bilinear form
+    kind: definition
+    aliases: ["coercivity", "強圧的双線形形式", "V-elliptic form"]
+    introduction: formal
+    introduction_aliases: ["定義（coercive bilinear form）"]
+
+  - id: pde.poisson-form-bounded-coercive
+    name: Poisson formのboundednessとcoercivity
+    kind: proposition
+    aliases: ["Poisson bilinear form", "Poisson form bounded coercive"]
+    introduction: formal
+    introduction_aliases: ["命題（Poisson form の boundedness と coercivity）"]
+    requires:
+      - variational.bounded-bilinear-form
+      - variational.coercive-bilinear-form
+      - sobolev.poincare-h01
+      - sobolev.gradient-norm-equivalence
+
+  - id: variational.energy-functional
+    name: energy functional
+    kind: definition
+    aliases: ["エネルギー汎関数", "quadratic energy functional"]
+    introduction: formal
+    introduction_aliases: ["定義（energy functional）"]
+    requires:
+      - variational.bounded-bilinear-form
+
+  - id: variational.symmetric-coercive-principle
+    name: 対称coercive問題の変分原理
+    kind: theorem
+    aliases: ["symmetric coercive variational principle", "energy minimization principle"]
+    introduction: formal
+    introduction_aliases: ["定理（対称 coercive 問題の変分原理）"]
+    requires:
+      - variational.energy-functional
+      - variational.coercive-bilinear-form
+
+  - id: functional.weak-lsc-hilbert-norm
+    name: Hilbert normの弱収束時評価
+    kind: lemma
+    aliases: ["weak-limit norm estimate"]
+    introduction: formal
+    introduction_aliases: ["補題（Hilbert norm の弱収束時の norm 評価）"]
+
+  - id: pde.poisson-direct-method
+    name: Poisson変分問題の直接法による存在一意性
+    kind: theorem
+    aliases: ["direct method for Poisson", "Poisson variational existence uniqueness"]
+    introduction: formal
+    introduction_aliases: ["定理（Poisson 変分問題の直接法）"]
+    requires:
+      - pde.poisson-variational-weak-solution
+      - variational.symmetric-coercive-principle
+      - functional.weak-lsc-hilbert-norm
+      - functional-analysis.bounded-hilbert-sequence-weak-subsequence
+
+  - id: pde.poisson-stability
+    name: Poisson弱解の安定性
+    kind: corollary
+    aliases: ["Poisson stability estimate", "continuous dependence for Poisson weak solution"]
+    introduction: formal
+    introduction_aliases: ["系（Poisson 弱解の安定性）"]
+    requires:
+      - pde.poisson-direct-method
+      - variational.coercive-bilinear-form

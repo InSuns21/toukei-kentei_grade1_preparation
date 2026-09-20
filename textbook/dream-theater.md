@@ -229,8 +229,9 @@ Encore II が **古典 PDE** を閉じた後、Encore III では distribution・
 4. [GPDE3 Sobolev空間](textbook/volumes/00_foundations/GPDE3/index.md)
 5. [GPDE4 H0^1・Poincare・trace](textbook/volumes/00_foundations/GPDE4/index.md)
 6. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
+7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
 
-GPDE1--GPDE5 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE6「弱形式・変分形式」です。以降は次の順で実装します。
+GPDE1--GPDE6 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE7「Lax--Milgram」です。以降は次の順で実装します。
 
 ```text
 GPDE1  テスト関数・distribution

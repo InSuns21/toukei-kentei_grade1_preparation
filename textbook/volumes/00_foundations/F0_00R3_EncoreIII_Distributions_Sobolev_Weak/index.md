@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE5「Sobolev embedding・compactness」](../GPDE5/index.md) まで公開済みで、次は GPDE6「弱形式・変分形式」です。
+現在は [GPDE6「弱形式・変分形式」](../GPDE6/index.md) まで公開済みで、次は GPDE7「Lax--Milgram」です。
 
 ---
 
@@ -106,7 +106,7 @@ Encore III 本線では次を正本化します。
 
 ---
 
-## 4. GPDE1--GPDE5：解析基盤
+## 4. GPDE1--GPDE6：解析基盤から変分法へ
 
 ### [GPDE1 テスト関数・distribution](../GPDE1/index.md)
 
@@ -148,11 +148,17 @@ $$
 
 ---
 
-## 5. GPDE6--GPDE8：変分法と楕円型 PDE
+## 5. GPDE7--GPDE8：Lax--Milgram と楕円型 PDE
 
-### GPDE6 弱形式・変分形式
+### [GPDE6 弱形式・変分形式](../GPDE6/index.md)
 
-PDE5 の Laplace / Poisson を再訪し、古典解・distributional solution・variational weak solution の関係を整理します。
+PDE5 の Poisson 問題を $H_0^1$ 上の
+
+$$
+a(u,v)=F(v)
+$$
+
+へ移し、$H^{-1}$、bounded / coercive bilinear form、distributional solution と variational weak solution の関係、energy minimization を正本化します。さらに minimizing sequence と GPDE5 の弱コンパクト性、Hilbert norm の弱収束時の norm 評価を用いて、Lax--Milgram を先取りせず Poisson 弱解の存在一意性と安定性まで直接法で閉じます。
 
 ### GPDE7 Lax--Milgram
 
