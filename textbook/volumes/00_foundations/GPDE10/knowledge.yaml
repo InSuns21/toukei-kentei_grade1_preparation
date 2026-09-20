@@ -12,7 +12,7 @@ concepts:
     kind: definition
     aliases: ["Bochner L2 space", "L2(0,T;X)"]
     introduction: formal
-    introduction_aliases: ["定義（本章で使う時間依存 空間）", "定義（本章で使う時間依存 L2 空間）"]
+    introduction_aliases: ["定義（時間依存 L2 空間）"]
     requires:
       - functional.hilbert-space
 
