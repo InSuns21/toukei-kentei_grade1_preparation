@@ -209,7 +209,7 @@ $$
 
 左辺は monotone convergence で $E[M]_T$ へ行きます。
 
-一方、STO5 の bounded stopping theorem から
+一方、STO5 の [bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) から
 
 $$
 M_{T\wedge\tau_n}
@@ -342,7 +342,7 @@ E[\Delta_jM\mid\mathcal F_{t_j}]
 \end{aligned}
 $$
 
-次に STO5 の quadratic variation theorem により
+次に STO5 の [quadratic variation theorem](../STO5/index.md#thm-sto5-local-martingale-qv) により
 
 $$
 M_t^2-[M]_t
@@ -697,7 +697,7 @@ $$
 \sup_{0\le t\le T}|N_t|^2.
 $$
 
-monotone convergence theorem により
+[monotone convergence theorem](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) により
 
 $$
 E\left[
@@ -1244,7 +1244,7 @@ $$
 
 の exit timeを同時に止めます。停止後は square-integrable theory が使えます。
 
-異なる $n$ の積分は stopping identity により重なる区間で一致するので、path を貼り合わせられます。
+異なる $n$ の積分は stopping identity により重なる区間で一致するので、標本路を貼り合わせられます。
 
 <!-- proof-start -->
 ### 証明
@@ -1429,7 +1429,7 @@ $$
 \int_0^T h_n^2\,ds.
 $$
 
-$h_n\to h$ in $L^2[0,T]$ とすると Itô isometry により
+$h_n\to h$ in $L^2[0,T]$ とすると [Itô isometry](#thm-sto6-ito-isometry-simple) により
 
 $
 X_n:=\int h_n\,dB
@@ -1751,7 +1751,7 @@ $$
 
 1. $H$ が simple predictable であることを確認せよ。
 2. 積分を明示せよ。
-3. Itô isometry によりその二乗平均を求めよ。
+3. [Itô isometry](#thm-sto6-ito-isometry-simple) によりその二乗平均を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1766,7 +1766,7 @@ $$
 1_{\{B_s\ge0\}}(B_T-B_s).
 $$
 
-3. Itô isometry から
+3. [Itô isometry](#thm-sto6-ito-isometry-simple) から
 
 $$
 E\left[
@@ -1833,7 +1833,7 @@ E\sup_{t\le T}|I_t|^2
 4E|I_T|^2.
 $$
 
-Itô isometry により
+[Itô isometry](#thm-sto6-ito-isometry-simple) により
 
 $$
 E|I_T|^2
@@ -1939,7 +1939,7 @@ $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2\to0
 $$
 
-となる continuous martingale $I$ を持つことを、Doob $L^2$ inequality と Itô isometry から説明せよ。
+となる continuous martingale $I$ を持つことを、[Doob $L^2$ inequality](#thm-sto6-doob-l2) と [Itô isometry](#thm-sto6-ito-isometry-simple) から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2136,7 +2136,7 @@ $$
 
 は $t<1/4$ で有限、$t>1/4$ では無限です。
 
-Tonelli により
+[Tonelli theorem](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により
 
 $$
 E\int_0^T H_t^2\,dt
