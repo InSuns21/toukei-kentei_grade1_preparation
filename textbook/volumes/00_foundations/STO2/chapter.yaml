@@ -31,6 +31,7 @@ theorems:
   - { id: STO2-THM-05, name: "Doob upcrossing inequality" }
   - { id: STO2-THM-06, name: "submartingale almost-sure convergence theorem" }
   - { id: STO2-THM-07, name: "uniformly integrable martingale convergence theorem" }
+  - { id: STO2-COR-01, name: "UIを仮定したoptional stopping" }
 canonical_examples:
   - "centered random walk martingale"
   - "squared martingale as submartingale"
