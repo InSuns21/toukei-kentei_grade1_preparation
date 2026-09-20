@@ -177,6 +177,8 @@ $e_k$ を第 $k$ 座標方向の単位ベクトルとします。
 <!-- definition-example-start: def-gpde9-difference-quotient -->
 ### 最小例：$u(x)=x^2$
 
+**定義の確認**
+
 一変数で $u(x)=x^2$ なら
 
 $$
