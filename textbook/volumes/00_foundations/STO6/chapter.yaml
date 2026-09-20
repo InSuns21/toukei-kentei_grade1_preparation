@@ -37,7 +37,7 @@ theorems:
 canonical_examples:
   - "piecewise predictable Brownian integrand"
   - "deterministic step function integrated against Brownian motion"
-  - "random coefficient B_s on a future interval (s,t]"
+  - "bounded F_s-measurable coefficient on a future interval (s,t]"
   - "Brownian integral stopped at an exit time"
   - "H_t=exp(B_t^2) as a locally square-integrable integrand after exit-time localization"
 problem_patterns:
