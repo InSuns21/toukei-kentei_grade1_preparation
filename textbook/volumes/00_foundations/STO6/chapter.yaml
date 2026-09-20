@@ -1,0 +1,54 @@
+id: "STO6"
+title: "Encore IV Stochastic Analysis VI：stochastic integral"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - STO5
+  - F0-00D2E
+official_scope: []
+learning_objectives:
+  - simple predictable integrandを定義し、係数が各区間の左端情報で決まることを具体例で確認できる
+  - simple predictable integrandに対するcontinuous martingale積分を増分和として定義し、adaptednessと連続性を確認できる
+  - Itô isometryをmartingale incrementの直交性とbracketのcharacterizationから証明できる
+  - simple predictable integrandがL2(d[M]dP)で稠密である理由を説明し、L2 completionによりstochastic integralを構成できる
+  - Doob L2 inequalityを連続時間へ持ち上げ、積分近似がsupremum normでも収束することを示せる
+  - stochastic integralがcontinuous square-integrable martingaleになり、そのquadratic variationがintegrandの二乗をbracketで積分したものになることを証明できる
+  - stoppingとstochastic integralの交換をsimple integrandから一般L2 integrandへ延長できる
+  - locally square-integrable integrandに対する積分をlocalizationで貼り合わせ、continuous local martingaleを得られる
+  - Brownian stochastic integralでbracketがLebesgue時間に退化することを用い、平均二乗評価を具体計算できる
+  - BDG inequalityの標準形とp=2の場合の意味を説明し、path supremumとquadratic variationの対応を使える
+  - predictabilityが未来のincrementを使わせない条件であり、adaptednessだけでは積分構成の直交性を保証しない理由を説明できる
+definitions:
+  - { id: STO6-DEF-01, name: "simple predictable integrand" }
+  - { id: STO6-DEF-02, name: "simple stochastic integral" }
+  - { id: STO6-DEF-03, name: "L2(M) integrand" }
+  - { id: STO6-DEF-04, name: "locally square-integrable integrand" }
+theorems:
+  - { id: STO6-THM-01, name: "Itô isometry for simple predictable integrands" }
+  - { id: STO6-LEM-01, name: "simple predictable integrandsのL2 density" }
+  - { id: STO6-THM-02, name: "L2 completionによるstochastic integralの構成" }
+  - { id: STO6-THM-03, name: "continuous-time Doob L2 maximal inequality" }
+  - { id: STO6-THM-04, name: "quadratic variation of stochastic integral" }
+  - { id: STO6-PROP-01, name: "stoppingとstochastic integralの交換" }
+  - { id: STO6-THM-05, name: "local stochastic integral" }
+  - { id: STO6-THM-06, name: "Burkholder--Davis--Gundy inequality" }
+canonical_examples:
+  - "piecewise predictable Brownian integrand"
+  - "deterministic step function integrated against Brownian motion"
+  - "random coefficient B_s on a future interval (s,t]"
+  - "Brownian integral stopped at an exit time"
+  - "H_t=exp(B_t^2) as a locally square-integrable integrand after exit-time localization"
+problem_patterns:
+  - STO6-SIMPLE-INTEGRAL-1
+  - STO6-ITO-ISOMETRY-1
+  - STO6-L2-COMPLETION-1
+  - STO6-DOOB-L2-1
+  - STO6-BRACKET-1
+  - STO6-STOPPING-1
+  - STO6-LOCALIZATION-1
+  - STO6-BDG-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.5, exercises: 7.0, review: 1.5 }
