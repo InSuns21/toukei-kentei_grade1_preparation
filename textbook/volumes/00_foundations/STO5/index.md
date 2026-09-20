@@ -293,7 +293,7 @@ $$
 
 ## 2. process の極限を「有限時間区間上で一様に」見る
 
-quadratic variation は各固定時刻だけでなく、process 全体として収束させます。
+二乗増分の極限は各固定時刻だけでなく、process 全体として収束させます。
 
 <a id="def-sto5-ucp"></a>
 
