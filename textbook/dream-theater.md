@@ -231,8 +231,9 @@ Encore II が **古典 PDE** を閉じた後、Encore III では distribution・
 6. [GPDE5 Sobolev embedding・compactness](textbook/volumes/00_foundations/GPDE5/index.md)
 7. [GPDE6 弱形式・変分形式](textbook/volumes/00_foundations/GPDE6/index.md)
 8. [GPDE7 Lax--Milgram](textbook/volumes/00_foundations/GPDE7/index.md)
+9. [GPDE8 二階線形楕円型PDE](textbook/volumes/00_foundations/GPDE8/index.md)
 
-GPDE1--GPDE7 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE8「二階線形楕円型 PDE」です。以降は次の順で実装します.
+GPDE1--GPDE8 は本文・主要証明・直接例・A4/B3/C1 演習・詳細解答まで正本化済みです。次は GPDE9「楕円型正則性」です。以降は次の順で実装します.
 
 ```text
 GPDE1  テスト関数・distribution
