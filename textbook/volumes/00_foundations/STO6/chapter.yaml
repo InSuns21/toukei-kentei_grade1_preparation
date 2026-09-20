@@ -6,6 +6,7 @@ prerequisites:
   - STO2
   - STO5
   - F0-00D2E
+  - F0-00D3A
 official_scope: []
 learning_objectives:
   - simple predictable integrandを定義し、係数が各区間の左端情報で決まることを具体例で確認できる
@@ -25,6 +26,7 @@ definitions:
   - { id: STO6-DEF-03, name: "L2(M) integrand" }
   - { id: STO6-DEF-04, name: "locally square-integrable integrand" }
 theorems:
+  - { id: STO6-LEM-00, name: "square-integrable martingaleのbracket compensation" }
   - { id: STO6-THM-01, name: "Itô isometry for simple predictable integrands" }
   - { id: STO6-LEM-01, name: "simple predictable integrandsのL2 density" }
   - { id: STO6-THM-02, name: "L2 completionによるstochastic integralの構成" }
