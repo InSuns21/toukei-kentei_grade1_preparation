@@ -447,7 +447,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto5-quadratic-variation -->
-### 直接例：$C^1$ path の quadratic variation は 0
+### 直接例：$C^1$ 関数の quadratic variation は 0
 
 **定義の確認**
 
@@ -1417,7 +1417,7 @@ E[A_v^{(n)}-A_u^{(n)}].
 \end{aligned}
 $$
 
-一方、quadratic variation theorem から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+一方、[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
 
 したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は bounded なので、先ほどの finite-block approximation をそのまま $L^1$ で行えて
 
