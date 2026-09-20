@@ -1,0 +1,75 @@
+chapter: STO3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO1
+  - F0-00D4
+  - F0-00P4
+
+concepts:
+  - id: stochastic.finite-dimensional-distribution-consistency
+    name: 有限次元分布と整合性
+    kind: definition
+    aliases: ["finite-dimensional distribution", "finite-dimensional distributions", "有限次元分布", "consistency", "整合性"]
+    introduction: formal
+    introduction_aliases: ["定義（有限次元分布と整合性）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.canonical-path-space
+    name: canonical path spaceとcylinder set
+    kind: definition
+    aliases: ["canonical path space", "coordinate process", "cylinder set", "canonical process"]
+    introduction: formal
+    introduction_aliases: ["定義（canonical path space と cylinder set）"]
+    requires:
+      - stochastic.finite-dimensional-distribution-consistency
+
+  - id: stochastic.finite-borel-compact-approximation
+    name: 有限Borel測度のcompact内部近似
+    kind: lemma
+    aliases: ["有限 Borel 測度の compact 内部近似", "finite Borel measure compact approximation"]
+    introduction: formal
+    introduction_aliases: ["補題（有限 Borel 測度の compact 内部近似）"]
+    requires: []
+
+  - id: stochastic.kolmogorov-extension
+    name: Kolmogorov拡張定理
+    kind: theorem
+    aliases: ["Kolmogorov 拡張定理", "Kolmogorov extension theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Kolmogorov 拡張定理：実数値版）"]
+    requires:
+      - stochastic.finite-dimensional-distribution-consistency
+      - stochastic.canonical-path-space
+      - stochastic.finite-borel-compact-approximation
+      - measure.caratheodory-extension-theorem
+
+  - id: stochastic.holder-continuity
+    name: Hölder continuity
+    kind: definition
+    aliases: ["Hölder continuity", "Hölder continuous", "Hölder連続", "Hölder 指数"]
+    introduction: formal
+    introduction_aliases: ["定義（Hölder continuity）"]
+    requires: []
+
+  - id: stochastic.kolmogorov-chentsov-continuity
+    name: Kolmogorov--Chentsov continuity theorem
+    kind: theorem
+    aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Kolmogorov--Chentsov continuity theorem：1 パラメータ版）"]
+    requires:
+      - stochastic.stochastic-process
+      - stochastic.modification-indistinguishability
+      - stochastic.holder-continuity
+      - prob.borel-cantelli-1
+
+  - id: stochastic.continuous-modifications-indistinguishable
+    name: 連続なmodificationsのindistinguishability
+    kind: proposition
+    aliases: ["連続な modifications は indistinguishable", "continuous modifications are indistinguishable"]
+    introduction: formal
+    introduction_aliases: ["命題（連続な modifications は indistinguishable）"]
+    requires:
+      - stochastic.modification-indistinguishability
