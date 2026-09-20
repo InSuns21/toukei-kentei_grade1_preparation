@@ -106,6 +106,8 @@ $$
 <!-- definition-example-start: def-sto3-fdd-consistency -->
 ### 直接例：全ての有限集合で独立な公平符号を指定する
 
+**定義の確認**
+
 各有限集合 $I\subset T$ に対し
 
 $$
@@ -201,6 +203,8 @@ $\mathcal F^\ast$ は cylinder set 全体が生成する $\sigma$ 代数です�
 
 <!-- definition-example-start: def-sto3-canonical-path-space -->
 ### 直接例：二時刻だけを観測する cylinder
+
+**定義の確認**
 
 $T=[0,\infty)$ とし、
 
@@ -1000,6 +1004,8 @@ $$
 
 <!-- definition-example-start: def-sto3-holder-continuity -->
 ### 直接例：$f(t)=\sqrt t$ は $1/2$-Hölder
+
+**定義の確認**
 
 $s,t\ge0$ とします。
 
