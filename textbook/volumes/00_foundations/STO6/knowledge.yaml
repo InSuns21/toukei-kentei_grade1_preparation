@@ -5,6 +5,7 @@ prerequisites:
   - STO2
   - STO5
   - F0-00D2E
+  - F0-00D3A
 
 concepts:
   - id: stochastic.simple-predictable-integrand
@@ -27,6 +28,16 @@ concepts:
       - stochastic.simple-predictable-integrand
       - stochastic.continuous-local-martingale
 
+  - id: stochastic.square-integrable-bracket-compensation
+    name: square-integrable martingaleのbracket compensation
+    kind: lemma
+    aliases: ["square-integrable martingale bracket compensation", "M^2-[M] martingale"]
+    introduction: formal
+    introduction_aliases: ["補題（square-integrable martingale の bracket compensation）"]
+    requires:
+      - stochastic.continuous-local-martingale-qv
+      - stochastic.continuous-bounded-optional-sampling
+
   - id: stochastic.ito-isometry-simple
     name: Itô isometry for simple predictable integrands
     kind: theorem
@@ -35,7 +46,7 @@ concepts:
     introduction_aliases: ["定理（Itô isometry：simple predictable integrand）"]
     requires:
       - stochastic.simple-stochastic-integral
-      - stochastic.continuous-local-martingale-qv
+      - stochastic.square-integrable-bracket-compensation
 
   - id: stochastic.l2-m-integrand
     name: L2(M) integrand
