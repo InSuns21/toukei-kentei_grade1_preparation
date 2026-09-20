@@ -80,7 +80,7 @@ $$
 
 という、PDE の存在証明そのものです。
 
-Encore V の FEM はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある解析的な骨格を閉じます。
+Encore V の FEM はこの考えを「計算可能な有限次元空間」に具体化します。本章では、その前段にある理論的な骨格を閉じます。
 
 以下、**ほとんど至る所（almost everywhere; a.e.）**を a.e. と略記します。
 
@@ -1013,7 +1013,7 @@ $$
 \frac12\frac{d}{dt}\|u_m\|_H^2.
 $$
 
-coercivity で空間 energy を下から支え、右辺は Young の不等式で半分を吸収します。
+coercivity で空間 energy を下から支え、右辺は [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)で半分を吸収します。
 
 重要なのは、右辺の定数に
 
@@ -1054,7 +1054,7 @@ $$
 \|f\|_{V^*}\|u_m\|_V.
 $$
 
-Young の不等式
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)
 
 $$
 ab
@@ -1184,7 +1184,7 @@ Galerkin 法では、まず **時間積分した弱形式**へ移してから極
 
 ---
 
-## 8. 主定理：coercive evolution problem の存在一意性
+## 8. coercive evolution problem を Galerkin で解く
 
 <a id="thm-gpde10-galerkin-existence"></a>
 
@@ -1664,7 +1664,7 @@ a(u,u)
 \langle f,u\rangle.
 $$
 
-Galerkin 解と同じ coercivity と Young の不等式から
+Galerkin 解と同じ coercivity と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -1926,7 +1926,7 @@ a(w,w)
 \langle g,w\rangle.
 $$
 
-coercivity と Young の不等式から
+coercivity と [Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)から
 
 $$
 \frac12
@@ -3001,7 +3001,7 @@ $$
 \|f\|_{V^*}\|u_m\|_V.
 $$
 
-Young の不等式に
+[Young の不等式](../F0_00D2D_Lp_Holder_Minkowski/index.md#lem-f0-00d2d-01)に
 
 $$
 a=\|f\|_{V^*},
