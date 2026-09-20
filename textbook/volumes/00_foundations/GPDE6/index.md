@@ -3199,7 +3199,7 @@ $$
 
 について Hilbert 空間です。
 
-Hilbert 空間の有界列から弱収束部分列を取れるので、部分列を取り直して
+[完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使い、部分列を取り直して
 
 $$
 v_{n_k}\rightharpoonup u
@@ -3218,7 +3218,7 @@ $$
 F(v_n)\to F(u).
 $$
 
-また Hilbert norm の弱下半連続性から
+また [Hilbert norm の弱下半連続性](#lem-gpde6-weak-lsc)から
 
 $$
 \|u\|_V^2
