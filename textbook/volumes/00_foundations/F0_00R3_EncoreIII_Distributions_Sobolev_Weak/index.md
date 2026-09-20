@@ -37,7 +37,7 @@ GPDE10 Galerkin・時間発展PDEの弱解
 
 未完成章を reader-facing index に先行登録しません。各章は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・依存検証まで完了した時点で、このロードマップからリンク化します。
 
-現在は [GPDE6「弱形式・変分形式」](../GPDE6/index.md) まで公開済みで、次は GPDE7「Lax--Milgram」です。
+現在は [GPDE7「Lax--Milgram」](../GPDE7/index.md) まで公開済みで、次は GPDE8「二階線形楕円型 PDE」です。
 
 ---
 
@@ -160,13 +160,11 @@ $$
 
 へ移し、$H^{-1}$、bounded / coercive bilinear form、distributional solution と variational weak solution の関係、energy minimization を正本化します。さらに minimizing sequence と GPDE5 の弱コンパクト性、Hilbert norm の弱収束時の norm 評価を用いて、Lax--Milgram を先取りせず Poisson 弱解の存在一意性と安定性まで直接法で閉じます。
 
-### GPDE7 Lax--Milgram
+### [GPDE7 Lax--Milgram](../GPDE7/index.md)
 
-Riesz 表現から作用素を構成し、
+Riesz 表現から bounded bilinear form を作用素 $A$ に変換し、coercivity から
 
 ~~~text
-coercivity
-  ↓
 下からの評価
   ↓
 単射 + closed range
@@ -174,9 +172,11 @@ coercivity
 dense range
   ↓
 全射
+  ↓
+存在一意性 + stability
 ~~~
 
-までを核心証明として閉じます。
+までを核心証明として閉じます。対称性を仮定しないことを非対称 coercive form で直接確認し、coercivity を失うと kernel と到達不能方向が残る反例も置きます。Poisson と reaction--diffusion では、定理名を当てるだけでなく boundedness・coercivity・右辺の連続性を局所的に確認して適用します。
 
 ### GPDE8 二階線形楕円型 PDE
 
