@@ -1,0 +1,91 @@
+chapter: GPDE9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE8
+
+concepts:
+  - id: sobolev.difference-quotient
+    name: difference quotient
+    kind: definition
+    aliases: ["差分商", "finite difference quotient"]
+    introduction: formal
+    introduction_aliases: ["定義（difference quotient）"]
+    requires:
+      - distribution.weak-derivative
+
+  - id: sobolev.difference-quotient-h1-bound
+    name: H^1関数のdifference quotient estimate
+    kind: lemma
+    aliases: ["H1 difference quotient estimate"]
+    introduction: formal
+    introduction_aliases: ["補題（H1 difference quotient estimate）"]
+    requires:
+      - sobolev.difference-quotient
+      - sobolev.local-mollification
+
+  - id: sobolev.discrete-integration-by-parts
+    name: difference quotientの部分積分
+    kind: lemma
+    aliases: ["discrete integration by parts"]
+    introduction: formal
+    introduction_aliases: ["補題（difference quotient の部分積分）"]
+    requires:
+      - sobolev.difference-quotient
+
+  - id: sobolev.difference-quotient-criterion
+    name: difference quotient criterion
+    kind: lemma
+    aliases: ["difference quotient characterization of weak derivative"]
+    introduction: formal
+    introduction_aliases: ["補題（difference quotient criterion）"]
+    requires:
+      - sobolev.discrete-integration-by-parts
+      - functional-analysis.bounded-hilbert-sequence-weak-subsequence
+      - distribution.weak-derivative
+
+  - id: pde.poisson-caccioppoli
+    name: Poisson方程式のCaccioppoli型estimate
+    kind: proposition
+    aliases: ["Caccioppoli estimate for Poisson equation", "local energy estimate"]
+    introduction: formal
+    introduction_aliases: ["命題（Poisson 方程式の Caccioppoli 型 estimate）"]
+    requires:
+      - pde.poisson-variational-weak-solution
+      - sobolev.smooth-multiplier-product
+
+  - id: pde.poisson-interior-h2
+    name: Poisson方程式のinterior H^2 regularity
+    kind: theorem
+    aliases: ["interior H2 regularity for Poisson equation"]
+    introduction: formal
+    introduction_aliases: ["定理（Poisson 方程式の interior H2 regularity）"]
+    requires:
+      - sobolev.difference-quotient-h1-bound
+      - sobolev.discrete-integration-by-parts
+      - sobolev.difference-quotient-criterion
+      - pde.poisson-caccioppoli
+
+  - id: pde.elliptic-variable-caccioppoli
+    name: 一般係数楕円型方程式のCaccioppoli型estimate
+    kind: proposition
+    aliases: ["Caccioppoli estimate for divergence form elliptic equation"]
+    introduction: formal
+    introduction_aliases: ["命題（一般係数の Caccioppoli 型 estimate）"]
+    requires:
+      - pde.uniform-ellipticity
+      - pde.linear-elliptic-dirichlet-weak-solution
+      - sobolev.smooth-multiplier-product
+
+  - id: pde.lipschitz-coefficient-interior-h2
+    name: 局所Lipschitz係数のinterior H^2 regularity
+    kind: theorem
+    aliases: ["interior H2 regularity with Lipschitz coefficients"]
+    introduction: formal
+    introduction_aliases: ["定理（局所 Lipschitz 係数の interior H2 regularity）"]
+    requires:
+      - pde.uniform-ellipticity
+      - sobolev.difference-quotient-h1-bound
+      - sobolev.discrete-integration-by-parts
+      - sobolev.difference-quotient-criterion
+      - pde.elliptic-variable-caccioppoli

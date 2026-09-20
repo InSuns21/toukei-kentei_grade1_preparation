@@ -1,0 +1,39 @@
+id: "GPDE9"
+title: "Encore III Graduate PDE IX：楕円型正則性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GPDE8
+official_scope: []
+learning_objectives:
+  - difference quotientを定義し、H^1関数に対するL^2一様評価を導出できる
+  - difference quotient版の部分積分公式を変数変換から証明できる
+  - difference quotientの一様L^2 boundから弱微分の存在を導くcriterionを証明できる
+  - cutoffを用いてPoisson方程式のCaccioppoli型局所energy estimateを導出できる
+  - test function -D_{-h}^k(eta^2 D_h^k u) を用いてPoisson弱解のinterior H^2 regularityを証明できる
+  - f∈L^2_locからu∈H^2_locを得る際にfの微分を要求しない理由を説明できる
+  - 一般divergence formでD_h(A∇u)=A_h D_h∇u+(D_hA)∇uと展開し、係数regularityの役割を説明できる
+  - 局所Lipschitz係数の一様楕円型方程式に対してinterior H^2 estimateを導出できる
+  - jump coefficientが弱解のH^2 regularityを壊す一次元反例を検証できる
+  - reentrant cornerでboundary H^2 regularityが失敗する尺度計算を説明できる
+  - interior regularityとboundary regularityの違いを区別できる
+definitions:
+  - { id: GPDE9-DEF-01, name: "difference quotient" }
+theorems:
+  - { id: GPDE9-LEM-01, name: "H^1 difference quotient estimate" }
+  - { id: GPDE9-LEM-02, name: "difference quotientの部分積分" }
+  - { id: GPDE9-LEM-03, name: "difference quotient criterion" }
+  - { id: GPDE9-PROP-01, name: "Poisson方程式のCaccioppoli型estimate" }
+  - { id: GPDE9-THM-01, name: "Poisson方程式のinterior H^2 regularity" }
+  - { id: GPDE9-PROP-02, name: "一般係数のCaccioppoli型estimate" }
+  - { id: GPDE9-THM-02, name: "局所Lipschitz係数のinterior H^2 regularity" }
+canonical_examples:
+  - "多項式x^2,x^3のdifference quotient"
+  - "Poisson方程式の局所H^2 regularity"
+  - "piecewise constant jump coefficientによるH^2 failure"
+  - "reentrant cornerのharmonic singularity"
+problem_patterns: [GPDE9-DQ-1, GPDE9-DISCRETE-IBP-1, GPDE9-DQ-CRITERION-1, GPDE9-CACCIOPPOLI-1, GPDE9-POISSON-H2-1, GPDE9-COEFFICIENT-DQ-1, GPDE9-REGULARITY-FAILURE-1, GPDE9-VARIABLE-H2-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 1.5 }

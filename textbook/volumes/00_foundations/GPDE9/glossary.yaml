@@ -1,0 +1,29 @@
+chapter: "GPDE9"
+terms:
+  - term: difference quotient
+    english: difference quotient
+    meaning: D_h^k u(x)=(u(x+he_k)-u(x))/hで定める有限差分。微分の存在を仮定せず平行移動だけで作れ、Sobolev正則性の回収に使う。
+  - term: discrete integration by parts
+    english: discrete integration by parts
+    meaning: ∫(D_h^k u)v=-∫u(D_{-h}^k v)というdifference quotient版の部分積分。差分をtest function側と解側の間で移す。
+  - term: difference quotient criterion
+    english: difference quotient criterion
+    meaning: D_h^k uがhに一様にL2有界なら、弱極限を通して∂_k u∈L2を得る判定法。高階弱微分の存在証明の出口になる。
+  - term: Caccioppoli estimate
+    english: Caccioppoli estimate
+    meaning: cutoffを掛けた解自身をtestして、内部の勾配energyをより広い領域の解・外力で評価する局所energy estimate。
+  - term: interior regularity
+    english: interior regularity
+    meaning: U compactly contained in Omega のように境界から離れた部分領域で得る正則性。boundary regularityとは別に扱う。
+  - term: interior H2 estimate
+    english: interior H2 estimate
+    meaning: Poisson型方程式の弱解について ||u||_{H2(U)} を ||f||_{L2(V)}+||u||_{L2(V)} で評価する局所正則性評価。
+  - term: locally Lipschitz coefficient
+    english: locally Lipschitz coefficient
+    meaning: 各V compactly contained in Omega 上で |A(x)-A(y)|<=L_V|x-y| を満たす係数。これによりD_h Aをhに一様に制御できる。
+  - term: coefficient regularity obstruction
+    english: coefficient regularity obstruction
+    meaning: 一様楕円的でも係数がjumpするとfluxは滑らかでも勾配がjumpし、弱解がH2へ上がらない現象。
+  - term: reentrant corner
+    english: reentrant corner
+    meaning: 内角がpiより大きい境界角。harmonic functionでも二階微分がL2に入らず、global H2 regularityが壊れる典型的な境界特異点。
