@@ -49,18 +49,18 @@ STO7 の Itô formula は、この章で積分が完成して初めて厳密に�
 > **定義（simple predictable integrand）**  
 > deterministic partition
 >
-> $$
-> 0=t_0<t_1<\cdots<t_n=T
-> $$
+$$
+0=t_0<t_1<\cdots<t_n=T
+$$
 >
 > と、各 $k=0,\ldots,n-1$ について bounded な $\mathcal F_{t_k}$-measurable random variable $\xi_k$ を取る。
 >
-> $$
-> H_t
-> =
-> \sum_{k=0}^{n-1}
-> \xi_k\,1_{(t_k,t_{k+1}]}(t)
-> $$
+$$
+H_t
+=
+\sum_{k=0}^{n-1}
+\xi_k\,1_{(t_k,t_{k+1}]}(t)
+$$
 >
 > と表される process $H$ を、$[0,T]$ 上の **simple predictable integrand** という。
 <!-- formal-statement-end -->
@@ -103,28 +103,28 @@ continuous martingale $M$ に対して、simple integrand の積分は増分和�
 > **定義（simple stochastic integral）**  
 > $M=(M_t)_{0\le t\le T}$ を continuous martingale、$H$ を
 >
-> $$
-> H_t=\sum_{k=0}^{n-1}\xi_k1_{(t_k,t_{k+1}]}(t)
-> $$
+$$
+H_t=\sum_{k=0}^{n-1}\xi_k1_{(t_k,t_{k+1}]}(t)
+$$
 >
 > と表される simple predictable integrand とする。
 >
-> $$
-> (H\cdot M)_t
-> :=
-> \sum_{k=0}^{n-1}
-> \xi_k
-> \left(
-> M_{t\wedge t_{k+1}}-M_{t\wedge t_k}
-> \right),
-> \qquad 0\le t\le T
-> $$
+$$
+(H\cdot M)_t
+:=
+\sum_{k=0}^{n-1}
+\xi_k
+\left(
+M_{t\wedge t_{k+1}}-M_{t\wedge t_k}
+\right),
+\qquad 0\le t\le T
+$$
 >
 > を $H$ の $M$ に関する **simple stochastic integral** といい、
 >
-> $$
-> \int_0^t H_s\,dM_s
-> $$
+$$
+\int_0^t H_s\,dM_s
+$$
 >
 > とも書く。
 <!-- formal-statement-end -->
@@ -203,24 +203,24 @@ $$
 > **補題（square-integrable martingale の bracket compensation）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale とする。このとき
 >
-> $$
-> E[M]_T=E[M_T^2]<\infty
-> $$
+$$
+E[M]_T=E[M_T^2]<\infty
+$$
 >
 > であり、
 >
-> $$
-> M_t^2-[M]_t
-> $$
+$$
+M_t^2-[M]_t
+$$
 >
 > は $[0,T]$ 上の真の martingale である。従って $0\le s\le t\le T$ に対し
 >
-> $$
-> E\left[
-> (M_t-M_s)^2-([M]_t-[M]_s)
-> \mid\mathcal F_s
-> \right]=0.
-> $$
+$$
+E\left[
+(M_t-M_s)^2-([M]_t-[M]_s)
+\mid\mathcal F_s
+\right]=0.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -387,31 +387,31 @@ $$
 > **定理（Itô isometry：simple predictable integrand）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale とし、$H$ を bounded simple predictable integrand とする。このとき
 >
-> $$
-> E\left[
-> \left(
-> \int_0^T H_s\,dM_s
-> \right)^2
-> \right]
-> =
-> E\left[
-> \int_0^T H_s^2\,d[M]_s
-> \right].
-> $$
+$$
+E\left[
+\left(
+\int_0^T H_s\,dM_s
+\right)^2
+\right]
+=
+E\left[
+\int_0^T H_s^2\,d[M]_s
+\right].
+$$
 >
 > 特に Brown 運動 $B$ では $[B]_t=t$ なので
 >
-> $$
-> E\left[
-> \left(
-> \int_0^T H_s\,dB_s
-> \right)^2
-> \right]
-> =
-> E\left[
-> \int_0^T H_s^2\,ds
-> \right].
-> $$
+$$
+E\left[
+\left(
+\int_0^T H_s\,dB_s
+\right)^2
+\right]
+=
+E\left[
+\int_0^T H_s^2\,ds
+\right].
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -536,9 +536,9 @@ $$
 > **定義（L2(M) integrand）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale とする。predictable process $H$ が
 >
-> $$
-> E\int_0^T H_s^2\,d[M]_s<\infty
-> $$
+$$
+E\int_0^T H_s^2\,d[M]_s<\infty
+$$
 >
 > を満たすとき、$H$ を $[0,T]$ 上の **$L^2(M)$ integrand** という。
 >
@@ -576,15 +576,15 @@ $$
 > **補題（simple predictable integrands の L2 density）**  
 > 固定した $T$ で、bounded simple predictable integrands は
 >
-> $$
-> L^2(\Omega\times(0,T],\mathcal P,\mu_M)
-> $$
+$$
+L^2(\Omega\times(0,T],\mathcal P,\mu_M)
+$$
 >
 > に稠密である。ここで $\mathcal P$ は predictable sigma-field、
 >
-> $$
-> \mu_M(A)=E\int_0^T1_A\,d[M]
-> $$
+$$
+\mu_M(A)=E\int_0^T1_A\,d[M]
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -715,37 +715,37 @@ $$
 >
 > simple predictable $H^{(n)}$ で
 >
-> $$
-> E\int_0^T|H_s^{(n)}-H_s|^2\,d[M]_s\to0
-> $$
+$$
+E\int_0^T|H_s^{(n)}-H_s|^2\,d[M]_s\to0
+$$
 >
 > となるものを取る。
 >
 > このとき simple stochastic integrals
 >
-> $$
-> I_t^{(n)}
-> =
-> \int_0^tH_s^{(n)}\,dM_s
-> $$
+$$
+I_t^{(n)}
+=
+\int_0^tH_s^{(n)}\,dM_s
+$$
 >
 > は $[0,T]$ 上一様に probability で収束し、適切な subsequence では almost surely sup 距離で収束する。
 >
 > 極限 $I$ は近似列に依存せず、continuous square-integrable martingale となる。この $I$ を
 >
-> $$
-> I_t=\int_0^tH_s\,dM_s
-> $$
+$$
+I_t=\int_0^tH_s\,dM_s
+$$
 >
 > と定義する。
 >
 > さらに各 $t\le T$ で
 >
-> $$
-> E[I_t^2]
-> =
-> E\int_0^tH_s^2\,d[M]_s.
-> $$
+$$
+E[I_t^2]
+=
+E\int_0^tH_s^2\,d[M]_s.
+$$
 <!-- formal-statement-end -->
 
 この定理には「なぜ終端値だけでなく process 全体が収束するのか」という一点があります。そこを埋めるのが continuous-time Doob $L^2$ inequality です。
@@ -760,13 +760,13 @@ $$
 > **定理（continuous-time Doob L2 maximal inequality）**  
 > $N=(N_t)_{0\le t\le T}$ を continuous square-integrable martingale とする。このとき
 >
-> $$
-> E\left[
-> \sup_{0\le t\le T}|N_t|^2
-> \right]
-> \le
-> 4E[|N_T|^2].
-> $$
+$$
+E\left[
+\sup_{0\le t\le T}|N_t|^2
+\right]
+\le
+4E[|N_T|^2].
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -999,19 +999,19 @@ stochastic integral が単に martingale になるだけではありません。
 > **定理（stochastic integral の quadratic variation）**  
 > $M$ を $M_0=0$ の continuous square-integrable martingale、$H\in L^2(M)$ とし、
 >
-> $$
-> I_t=\int_0^tH_s\,dM_s
-> $$
+$$
+I_t=\int_0^tH_s\,dM_s
+$$
 >
 > とする。このとき
 >
-> $$
-> [I]_t
-> =
-> \int_0^tH_s^2\,d[M]_s,
-> \qquad
-> 0\le t\le T.
-> $$
+$$
+[I]_t
+=
+\int_0^tH_s^2\,d[M]_s,
+\qquad
+0\le t\le T.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1206,21 +1206,21 @@ $$
 > **命題（stopping と stochastic integral の交換）**  
 > $\tau$ を stopping time とする。積分が定義される範囲で
 >
-> $$
-> (H\cdot M)^\tau
-> =
-> H\cdot M^\tau
-> =
-> (1_{(0,\tau]}H)\cdot M.
-> $$
+$$
+(H\cdot M)^\tau
+=
+H\cdot M^\tau
+=
+(1_{(0,\tau]}H)\cdot M.
+$$
 >
 > また
 >
-> $$
-> [(H\cdot M)^\tau]_t
-> =
-> \int_0^{t\wedge\tau}H_s^2\,d[M]_s.
-> $$
+$$
+[(H\cdot M)^\tau]_t
+=
+\int_0^{t\wedge\tau}H_s^2\,d[M]_s.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1371,10 +1371,10 @@ global $L^2$ 条件は便利ですが、SDE では係数が bounded でないこ
 >
 > 各 $t<\infty$ について
 >
-> $$
-> \int_0^tH_s^2\,d[M]_s<\infty
-> \qquad\text{almost surely}
-> $$
+$$
+\int_0^tH_s^2\,d[M]_s<\infty
+\qquad\text{almost surely}
+$$
 >
 > が成り立つとき、$H$ を $M$ に関して **locally square-integrable** という。
 <!-- formal-statement-end -->
@@ -1468,9 +1468,9 @@ localization は単なる形式ではなく、global moment が壊れる integra
 >
 > このとき一意な continuous local martingale
 >
-> $$
-> H\cdot M
-> $$
+$$
+H\cdot M
+$$
 >
 > が存在する。さらに $M^{\tau_n}$ が square-integrable martingale となり
 >
@@ -1490,11 +1490,11 @@ $$
 >
 > さらに
 >
-> $$
-> [H\cdot M]_t
-> =
-> \int_0^tH_s^2\,d[M]_s.
-> $$
+$$
+[H\cdot M]_t
+=
+\int_0^tH_s^2\,d[M]_s.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1663,14 +1663,14 @@ $L^2$ 極限の characteristic function を取れば
 > **命題（deterministic Brownian integral は Gaussian）**  
 > deterministic $h\in L^2([0,T])$ に対し
 >
-> $$
-> \int_0^T h(s)\,dB_s
-> \sim
-> N\left(
-> 0,
-> \int_0^T h(s)^2\,ds
-> \right).
-> $$
+$$
+\int_0^T h(s)\,dB_s
+\sim
+N\left(
+0,
+\int_0^T h(s)^2\,ds
+\right).
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1758,17 +1758,17 @@ Doob $L^2$ inequality は終端値を通して標本路 supremum を抑えまし
 > **定理（Burkholder--Davis--Gundy inequality）**  
 > $p>0$ とする。$p$ のみに依存する定数 $0<c_p\le C_p<\infty$ が存在し、$N_0=0$ の任意の continuous local martingale $N$ と任意の stopping time $\tau$ に対し
 >
-> $$
-> c_p\,
-> E\left([N]_\tau^{p/2}\right)
-> \le
-> E\left[
-> \sup_{0\le t\le\tau}|N_t|^p
-> \right]
-> \le
-> C_p\,
-> E\left([N]_\tau^{p/2}\right)
-> $$
+$$
+c_p\,
+E\left([N]_\tau^{p/2}\right)
+\le
+E\left[
+\sup_{0\le t\le\tau}|N_t|^p
+\right]
+\le
+C_p\,
+E\left([N]_\tau^{p/2}\right)
+$$
 >
 > が extended-real sense で成り立つ。
 <!-- formal-statement-end -->
