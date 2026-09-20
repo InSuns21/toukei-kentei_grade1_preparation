@@ -1,0 +1,114 @@
+chapter: STO2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO1
+  - F0-00P3C
+  - F0-00P4A
+
+concepts:
+  - id: stochastic.discrete-martingale
+    name: 離散時間martingale・submartingale・supermartingale
+    kind: definition
+    aliases: ["martingale", "submartingale", "supermartingale"]
+    introduction: formal
+    introduction_aliases: ["定義（martingale・submartingale・supermartingale）"]
+    requires:
+      - stochastic.filtration
+      - stochastic.adapted-process
+
+  - id: stochastic.predictable-transform
+    name: 離散時間predictable processとpredictable transform
+    kind: definition
+    aliases: ["predictable transform", "martingale transform", "離散時間predictable process"]
+    introduction: formal
+    introduction_aliases: ["定義（離散時間predictable processとpredictable transform）"]
+    requires:
+      - stochastic.predictable-process
+      - stochastic.discrete-martingale
+
+  - id: stochastic.predictable-transform-theorem
+    name: predictable transform theorem
+    kind: proposition
+    aliases: ["predictable transform of a martingale", "predictable transform of a submartingale"]
+    introduction: formal
+    introduction_aliases: ["命題（predictable transform）"]
+    requires:
+      - stochastic.predictable-transform
+
+  - id: stochastic.stopped-martingale
+    name: stopped martingale theorem
+    kind: theorem
+    aliases: ["stopped martingale", "stopped submartingale"]
+    introduction: formal
+    introduction_aliases: ["定理（stopped martingale / submartingale）"]
+    requires:
+      - stochastic.discrete-martingale
+      - stochastic.stopping-time
+      - stochastic.stopped-process
+
+  - id: stochastic.bounded-optional-sampling
+    name: bounded optional sampling theorem
+    kind: theorem
+    aliases: ["bounded optional sampling", "optional sampling theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（bounded optional sampling）"]
+    requires:
+      - stochastic.stopped-martingale
+      - stochastic.stopping-sigma-field
+
+  - id: stochastic.doob-decomposition
+    name: 離散時間Doob decomposition
+    kind: theorem
+    aliases: ["Doob decomposition", "predictable compensator"]
+    introduction: formal
+    introduction_aliases: ["定理（離散時間Doob decomposition）"]
+    requires:
+      - stochastic.discrete-martingale
+      - stochastic.predictable-transform
+
+  - id: stochastic.doob-maximal-inequality
+    name: Doob maximal inequality
+    kind: theorem
+    aliases: ["Doob maximal inequality", "Doobの最大不等式"]
+    introduction: formal
+    introduction_aliases: ["定理（Doob maximal inequality）"]
+    requires:
+      - stochastic.bounded-optional-sampling
+
+  - id: stochastic.upcrossing-number
+    name: upcrossing number
+    kind: definition
+    aliases: ["upcrossing", "upcrossing number"]
+    introduction: formal
+    introduction_aliases: ["定義（upcrossing number）"]
+    requires:
+      - stochastic.discrete-martingale
+
+  - id: stochastic.doob-upcrossing-inequality
+    name: Doob upcrossing inequality
+    kind: theorem
+    aliases: ["Doob upcrossing inequality", "upcrossing inequality"]
+    introduction: formal
+    introduction_aliases: ["定理（Doob upcrossing inequality）"]
+    requires:
+      - stochastic.upcrossing-number
+      - stochastic.predictable-transform-theorem
+
+  - id: stochastic.submartingale-as-convergence
+    name: submartingale almost-sure convergence theorem
+    kind: theorem
+    aliases: ["submartingale convergence theorem", "martingale a.s. convergence"]
+    introduction: formal
+    introduction_aliases: ["定理（submartingale a.s. convergence）"]
+    requires:
+      - stochastic.doob-upcrossing-inequality
+
+  - id: stochastic.ui-martingale-convergence
+    name: uniformly integrable martingale convergence theorem
+    kind: theorem
+    aliases: ["UI martingale convergence", "uniformly integrable martingale convergence theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（UI martingale convergence）"]
+    requires:
+      - stochastic.submartingale-as-convergence
