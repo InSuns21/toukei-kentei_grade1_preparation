@@ -533,7 +533,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（right-continuous adapted process は progressive）**  
-> $(\mathcal F_t)_{t\ge0}$ を filtration とし、$X=(X_t)_{t\ge0}$ を実数値 adapted process とする。ほとんど全ての $\omega$ ではなく、各 $\omega$ について path
+> $(\mathcal F_t)_{t\ge0}$ を filtration とし、$X=(X_t)_{t\ge0}$ を実数値 adapted process とする。ほとんど全ての $\omega$ ではなく、各 $\omega$ について標本路
 >
 > $$
 > t\longmapsto X_t(\omega)
