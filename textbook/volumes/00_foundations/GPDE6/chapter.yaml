@@ -15,7 +15,7 @@ learning_objectives:
   - gradient normと通常のH1 normでcoercivity定数がどう変わるかをPoincare不等式から導出できる
   - 対称coercive問題のenergy functionalを定義し、variational equationとenergy minimizationの同値を証明できる
   - Hilbert空間のnormが弱収束に関して下半連続であることを内積展開から証明できる
-  - minimizing sequence・弱収束部分列・弱liminf性を用いてPoisson変分問題の存在を直接法で証明できる
+  - minimizing sequence・弱収束部分列・弱収束時norm性を用いてPoisson変分問題の存在を直接法で証明できる
   - coercivityからPoisson弱解の一意性とH^{-1}データに対する安定性評価を導出できる
   - 非零Dirichlet条件とNeumann条件では試行空間を変える必要がある理由を説明できる
 definitions:
@@ -30,7 +30,7 @@ theorems:
   - { id: GPDE6-THM-02, name: "distributional solutionとvariational weak solutionの同値" }
   - { id: GPDE6-PROP-02, name: "Poisson formのboundednessとcoercivity" }
   - { id: GPDE6-THM-03, name: "対称coercive問題の変分原理" }
-  - { id: GPDE6-LEM-01, name: "Hilbert normの弱liminf性" }
+  - { id: GPDE6-LEM-01, name: "Hilbert normの弱収束時norm性" }
   - { id: GPDE6-THM-04, name: "Poisson変分問題の直接法による存在一意性" }
   - { id: GPDE6-COR-01, name: "Poisson弱解の安定性" }
 canonical_examples:
