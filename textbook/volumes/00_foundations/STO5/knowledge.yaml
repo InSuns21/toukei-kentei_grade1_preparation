@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - STO2
   - STO4
+  - RA3
 
 concepts:
   - id: stochastic.continuous-local-martingale
