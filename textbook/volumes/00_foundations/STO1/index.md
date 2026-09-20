@@ -71,7 +71,7 @@ $$
 <a id="def-sto1-stochastic-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（確率過程と sample path）**  
+> **定義（確率過程と標本路）**  
 > 状態空間を可測空間 $(E,\mathcal E)$ とする。時間集合 $T$ に対し、各 $t\in T$ について
 >
 > $$
@@ -91,7 +91,7 @@ $$
 > t\longmapsto X_t(\omega)
 > $$
 >
-> を $\omega$ に対応する **sample path** という。
+> を $\omega$ に対応する **標本路** という。
 <!-- formal-statement-end -->
 
 この定義で要求しているのは、**各固定時刻 $t$ ごとの可測性**です。
@@ -146,7 +146,7 @@ $$
 
 は離散時間確率過程です。
 
-例えば $\omega=HT$ を固定すれば sample path は
+例えば $\omega=HT$ を固定すれば 標本路 は
 
 $$
 0\to1\to0
@@ -373,7 +373,7 @@ $$
 有限標本空間では全ての零集合は空集合だけなので complete です。また上の filtration は各ジャンプ時刻の値を右側の情報に合わせて定義しているため right-continuous です。従って usual conditions を満たします。
 <!-- definition-example-end -->
 
-usual conditions は STO4 以降で stopping time と path regularity を安定に組み合わせるために使います。本章では、どの定理に right-continuity が本当に必要かを区別し、無条件には仮定しません。
+usual conditions は STO4 以降で stopping time と 標本路の正則性 を安定に組み合わせるために使います。本章では、どの定理に right-continuity が本当に必要かを区別し、無条件には仮定しません。
 
 ---
 
@@ -525,9 +525,9 @@ $$
 有限和も可測なので $X$ は $[0,T]$ 上で積可測です。この確認を任意の終端時刻に対して行えば progressive です。
 <!-- definition-example-end -->
 
-### adapted だけではなく path regularity を足す
+### adapted だけではなく 標本路の正則性 を足す
 
-確率積分では progressive な過程を大量に作る必要があります。毎回積可測性を直接証明する代わりに、path の右連続性を使います。
+確率積分では progressive な過程を大量に作る必要があります。毎回積可測性を直接証明する代わりに、標本路の右連続性を使います。
 
 <a id="thm-sto1-adapted-right-cont-progressive"></a>
 
@@ -547,7 +547,7 @@ $$
 
 $[0,T]$ を細かい区間へ切り、各区間で **右端の値**を使う step process を作ります。
 
-右端時刻の値は $\mathcal F_T$ 可測です。分割幅を 0 へ送ると、右端時刻が $t$ へ右から近づくため、path の右連続性によって step process が $X_t$ へ点ごと収束します。
+右端時刻の値は $\mathcal F_T$ 可測です。分割幅を 0 へ送ると、右端時刻が $t$ へ右から近づくため、標本路の右連続性によって step process が $X_t$ へ点ごと収束します。
 
 <!-- proof-start -->
 ### 証明
@@ -652,7 +652,7 @@ $$
 
 です。
 
-path の右連続性から各 $\omega$ について
+標本路の右連続性から各 $\omega$ について
 
 $$
 X_{r_n(t)}(\omega)
@@ -690,7 +690,7 @@ $T>0$ は任意だったので $X$ は progressively measurable です。
 - adaptedness：grid の右端値を $\mathcal F_T$ 可測にする。
 - 右連続性：step approximation を $X_t$ へ戻す。
 
-path regularity が joint measurability を生みます。
+標本路の正則性 が joint measurability を生みます。
 
 ---
 
@@ -956,7 +956,7 @@ $$
 
 ---
 
-## 8. continuous path の hitting time は stopping time になる
+## 8. 連続な標本路 の hitting time は stopping time になる
 
 確率解析では
 
@@ -968,13 +968,13 @@ $$
 
 という first hitting time が頻出します。
 
-「初めて入った時刻」は未来の情報を使っているように見えますが、連続 path と closed set の組合せでは現在までの観測から判定できます。
+「初めて入った時刻」は未来の情報を使っているように見えますが、連続な標本路 と closed set の組合せでは現在までの観測から判定できます。
 
 <a id="thm-sto1-closed-hitting-time"></a>
 
 <!-- formal-statement-start -->
 > **定理（continuous adapted process の closed-set hitting time）**  
-> $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値 adapted process とし、各 sample path が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
+> $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値 adapted process とし、各 標本路 が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
 >
 > $$
 > \tau_C
@@ -996,7 +996,7 @@ $$
 
 を使います。
 
-path が連続なので
+標本路が連続なので
 
 $$
 \tau_C\le t
@@ -1023,7 +1023,7 @@ $$
 
 を考えます。
 
-$\rho$ は 1-Lipschitz なので連続です。各 sample path $s\mapsto X_s(\omega)$ も連続だから
+$\rho$ は 1-Lipschitz なので連続です。各 標本路 $s\mapsto X_s(\omega)$ も連続だから
 
 $$
 s\longmapsto
@@ -1102,7 +1102,7 @@ $$
 $t$ は任意なので $\tau_C$ は stopping time です。
 <!-- proof-end -->
 
-ここで continuous path は、非可算個の時刻を有理時刻へ圧縮するために使いました。closedness は
+ここで 連続な標本路 は、非可算個の時刻を有理時刻へ圧縮するために使いました。closedness は
 
 $$
 d(x,C)=0\Rightarrow x\in C
@@ -1146,7 +1146,7 @@ $$
 
 とします。
 
-例えば sample path が
+例えば 標本路 が
 
 $$
 0,1,0,1,2,1,\ldots
@@ -1262,7 +1262,7 @@ $$
 <a id="prop-sto1-stopping-sigma-field"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathcal F_\tau$ は sigma-field で stopping time に単調）**  
+> **命題（stopping sigma-field の sigma-field 性と単調性）**  
 > $\tau$ を stopping time とする。このとき $\mathcal F_\tau$ は $\mathcal F$ の部分 $\sigma$ 代数である。  
 > さらに stopping time $\sigma,\tau$ が
 >
@@ -2053,7 +2053,7 @@ $$
 #### STO1-B01 right-continuous adapted process の progressive 性を再構成する
 - Level: B
 
-$X$ を実数値 adapted process とし、全ての sample path が右連続であるとする。
+$X$ を実数値 adapted process とし、全ての 標本路 が右連続であるとする。
 
 固定した $T>0$ に対し
 
@@ -2211,7 +2211,7 @@ $$
    $$
    を示せ。
 3. 右辺を可算和・可算共通部分で表し、$\mathcal F_t$ 可測性を示せ。
-4. closedness と path continuity がそれぞれどこで必要か説明せよ。
+4. closedness と 標本路の連続性 がそれぞれどこで必要か説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -2325,7 +2325,7 @@ $$
 d(x,C)=0\Rightarrow x\in C
 $$
 
-に使い、path continuity は全時刻の infimum を有理時刻の infimumへ落とす箇所に使いました。
+に使い、標本路の連続性 は全時刻の infimum を有理時刻の infimumへ落とす箇所に使いました。
 <!-- solution-end -->
 
 <a id="ex-sto1-b03"></a>
@@ -2609,7 +2609,7 @@ $$
 
 #### 4. stopped random walk の predictable transform 表現
 
-固定した sample path を一つ取ります。
+固定した 標本路 を一つ取ります。
 
 $\tau>n$ なら $H_k=1$ が $k=1,\ldots,n$ で成り立つので
 
@@ -2746,7 +2746,7 @@ $$
 }
 $$
 
-とし、右連続 path を加えることで progressive measurability を導きました。
+とし、右連続な標本路 を加えることで progressive measurability を導きました。
 
 predictable process はさらに強く、
 
