@@ -144,9 +144,9 @@ $$
 > **定理（bounded stopping による continuous martingale の停止）**  
 > $M$ を連続標本路を持つ continuous-time martingale とし、$\sigma\le\tau$ を有界な stopping time とする。このとき
 
-$
+$$
 E[M_\tau\mid\mathcal F_\sigma]=M_\sigma
-$
+$$
 
 > が almost surely 成り立つ。特に任意の有界 stopping time $\tau$ に対し、stopped process $M^\tau$ は continuous-time martingale である。
 <!-- formal-statement-end -->
@@ -160,51 +160,51 @@ STO2 の bounded optional sampling は離散時間の定理でした。ここで
 
 $\sigma,\tau\le T$ almost surely とします。$\delta_n=2^{-n}$ と置き、
 
-$
+$$
 \sigma_n=\delta_n\left\lceil\frac{\sigma}{\delta_n}\right\rceil,
 \qquad
 \tau_n=\delta_n\left\lceil\frac{\tau}{\delta_n}\right\rceil
-$
+$$
 
 と定めます。すると $\sigma_n,\tau_n$ は dyadic grid に値を取る stopping time で、
 
-$
+$$
 \sigma_n\le\tau_n,
 \qquad
 \sigma_n\downarrow\sigma,
 \qquad
 \tau_n\downarrow\tau.
-$
+$$
 
 整数 $R>T+1$ を固定します。離散時間 process
 
-$
+$$
 M^{(n)}_k=M_{k\delta_n}
-$
+$$
 
 を $0\le k\le R/\delta_n$ で見ると、これは martingale です。STO2 の bounded optional sampling を grid-valued stopping times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
 
-$
+$$
 E[1_A M_{\tau_n}]
 =
 E[1_A M_{\sigma_n}]
-$
+$$
 
 を得ます。
 
 path continuity から
 
-$
+$$
 M_{\tau_n}\to M_\tau,
 \qquad
 M_{\sigma_n}\to M_\sigma
-$
+$$
 
 almost surely です。
 
 さらに同じ離散時間 optional sampling を terminal time $R$ まで使えば
 
-$
+$$
 M_{\tau_n}
 =
 E[M_R\mid\mathcal F_{\tau_n}],
@@ -212,39 +212,59 @@ E[M_R\mid\mathcal F_{\tau_n}],
 M_{\sigma_n}
 =
 E[M_R\mid\mathcal F_{\sigma_n}].
-$
+$$
 
 固定した integrable random variable $M_R$ の conditional expectations の族は一様可積分なので、上の almost-sure convergence は $L^1$ convergence へ強化されます。従って $n\to\infty$ として
 
-$
+$$
 E[1_A M_\tau]
 =
 E[1_A M_\sigma].
-$
+$$
 
 $A\in\mathcal F_\sigma$ は任意だから
 
-$
+$$
 E[M_\tau\mid\mathcal F_\sigma]=M_\sigma.
-$
+$$
 
-最後に固定 $0\le s\le t$ に対して
+次に fixed $0\le s\le t$ と $A\in\mathcal F_s$ を取ります。
 
-$
+$$
 \sigma=s\wedge\tau,
 \qquad
 \rho=t\wedge\tau
-$
+$$
 
-を適用すれば
+とすると $\sigma\le\rho$ です。
 
-$
+$$
+A_1=A\cap\{\tau\le s\},
+\qquad
+A_2=A\cap\{\tau>s\}
+$$
+
+はいずれも $\mathcal F_\sigma$ に属します。例えば $A_2$ について、$u<s$ なら
+$A_2\cap\{\sigma\le u\}=\varnothing$、$u\ge s$ なら
+$A_2\cap\{\sigma\le u\}=A_2\in\mathcal F_s\subset\mathcal F_u$ です。$A_1$ も同様に stopping-time sigma-field の定義から確認できます。
+
+bounded optional sampling を $(\sigma,\rho)$ に適用し、$A_1,A_2$ 上の等式を足すと
+
+$$
+E[1_A M_{t\wedge\tau}]
+=
+E[1_A M_{s\wedge\tau}].
+$$
+
+$A\in\mathcal F_s$ は任意なので
+
+$$
 E[M_{t\wedge\tau}\mid\mathcal F_s]
 =
-M_{s\wedge\tau},
-$
+M_{s\wedge\tau}.
+$$
 
-すなわち $M^\tau$ は martingale です。
+従って $M^\tau$ は martingale です。
 <!-- proof-end -->
 
 ---
@@ -368,7 +388,7 @@ $$
 
 process $X$ に対する二次変分和を、分割点まで完成した increment の step process として
 
-$
+$$
 Q_t^{\pi}(X)
 =
 \sum_{k:\,t_k\le t}
@@ -376,7 +396,7 @@ Q_t^{\pi}(X)
 X_{t_k}-X_{t_{k-1}}
 \right)^2,
 \qquad 0\le t\le T
-$
+$$
 
 とします。$t$ が分割点の間にあるとき最後の未完成区間は足しません。この定義なら $Q^\pi(X)$ は $t$ について増加します。continuous $X$ では、最後の未完成 increment を含める流儀との差は mesh $\to0$ で一様に消えます。
 
@@ -1468,13 +1488,15 @@ $$
 
 2. $B$ は continuous martingale です。[bounded stopping theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
 
-$
+$$
 E[B_{t\wedge\tau_n}\mid\mathcal F_s]
 =
 B_{s\wedge\tau_n}
-$
+$$
 
-を得ます。また definition から
+を得ます。
+
+また definition から
 
 $$
 |B_{t\wedge\tau_n}|\le n
