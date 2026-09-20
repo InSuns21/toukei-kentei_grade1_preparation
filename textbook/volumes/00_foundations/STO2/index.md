@@ -906,43 +906,43 @@ $c:=b-a>0$ と置きます。
 
 売買時刻を明示します。空集合の infimum は $\infty$ として
 
-$
+$$
 S_1:=\inf\{k\ge0:Y_k=0\},
 \qquad
 T_1:=\inf\{k>S_1:Y_k\ge c\},
-$
+$$
 
 さらに $j\ge1$ に対し
 
-$
+$$
 S_{j+1}:=\inf\{k>T_j:Y_k=0\},
 \qquad
 T_{j+1}:=\inf\{k>S_{j+1}:Y_k\ge c\}
-$
+$$
 
 と定めます。
 
 第 $k$ 増分を保有するかを
 
-$
+$$
 H_k
 =
 \sum_{j\ge1}
 1_{\{S_j<k\le T_j\}}
-$
+$$
 
 で定めます。区間は互いに重ならないので $H_k\in\{0,1\}$ です。
 
 また
 
-$
+$$
 \{S_j<k\le T_j\}
 =
 \{S_j\le k-1\}
 \cap
 \{T_j>k-1\}
 \in\mathcal F_{k-1},
-$
+$$
 
 なので $H_k$ は $\mathcal F_{k-1}$ 可測です。従って $H$ は非負 bounded predictable process です。
 
@@ -950,11 +950,11 @@ $S_j$ では $Y_{S_j}=0$、完了した $T_j$ では $Y_{T_j}\ge c$ です。従
 
 時刻 $n$ に最後の取引が未決済なら、その買値も 0 で現在値 $Y_n\ge0$ なので、その未決済部分は負の寄与を持ちません。したがって 標本路ごとに
 
-$
+$$
 (H\cdot Y)_n
 \ge
 cU_n[a,b].
-$
+$$
 
 次に $K_k:=1-H_k$ と置きます。$K$ も非負 bounded predictable です。[predictable transform の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は submartingale で、初期値 0 なので
 
@@ -1065,7 +1065,7 @@ $$
 
 ### 証明の見取り図
 
-1. 任意の有理数 $a<b$ に対し、upcrossing inequality から
+1. 任意の有理数 $a<b$ に対し、[Doob upcrossing inequality](#thm-sto2-upcrossing) から
    $E[U_\infty[a,b]]<\infty$ を得る。
 2. よって $U_\infty[a,b]<\infty$ a.s.
 3. 標本路の十分先での下側境界 $\ell$ と上側境界 $u$ が異なれば、その間に有理数 $a<b$ を選べて無限回 upcrossing が起きる。矛盾。
@@ -1092,7 +1092,7 @@ $$
 
 が存在します。
 
-upcrossing inequality から
+[Doob upcrossing inequality](#thm-sto2-upcrossing) から
 
 $$
 (b-a)E[U_n[a,b]]
@@ -1121,7 +1121,7 @@ $$
 
 その事象上で、標本路を一つ固定し
 
-$
+$$
 \ell
 :=
 \sup_{N\ge0}\inf_{n\ge N}X_n,
@@ -1129,23 +1129,23 @@ $
 u
 :=
 \inf_{N\ge0}\sup_{n\ge N}X_n
-$
+$$
 
 と置きます。常に $\ell\le u$ です。
 
 もし $\ell<u$ なら、その間に有理数
 
-$
+$$
 \ell<a<b<u
-$
+$$
 
 を選べます。$a>\ell$ なので任意の十分先にも $a$ 以下の項が現れ、$b<u$ なので任意の十分先にも $b$ 以上の項が現れます。従って「$a$ 以下へ戻る → その後 $b$ 以上へ上がる」を何度でも繰り返せて、$[a,b]$ の upcrossing が無限回になります。これは矛盾です。
 
 よって $\ell=u$ であり、extended real 値で
 
-$
+$$
 X_n\to X_\infty
-$
+$$
 
 が a.s. に存在します。
 
@@ -1176,12 +1176,12 @@ $$
 
 Fatou の補題を $|X_n|$ に適用し、上の一様 $L^1$ bound を使うと
 
-$
+$$
 E|X_\infty|
 \le
 \sup_nE|X_n|
 <\infty.
-$
+$$
 
 もし $|X_\infty|=\infty$ が正の確率で起これば左辺は無限大になるため、これは不可能です。
 
@@ -1960,11 +1960,11 @@ $$
 
 1. 任意の有理数 $a<b$ について $U_\infty[a,b]<\infty$ a.s.
 2. 各標本路で
-   $
+$$
    \ell=\sup_N\inf_{n\ge N}X_n,
    \qquad
    u=\inf_N\sup_{n\ge N}X_n
-   $
+$$
    と置き、$\ell=u$ a.s. を導け。
 3. 極限が有限で $L^1$ に属することを示せ。
 
@@ -2010,19 +2010,19 @@ $$
 
 その事象上で
 
-$
+$$
 \ell=\sup_N\inf_{n\ge N}X_n,
 \qquad
 u=\inf_N\sup_{n\ge N}X_n
-$
+$$
 
 と置きます。
 
 もし $\ell<u$ なら
 
-$
+$$
 \ell<a<b<u
-$
+$$
 
 となる有理数 $a<b$ を選べます。すると任意の十分先にも $a$ 以下の項と $b$ 以上の項が現れるため、$[a,b]$ を無限回 upcrossing できます。矛盾です。
 
@@ -2054,12 +2054,12 @@ $$
 
 Fatou の補題と一様 $L^1$ bound から
 
-$
+$$
 E|X_\infty|
 \le
 \sup_nE|X_n|
 <\infty.
-$
+$$
 
 従って $X_\infty$ は有限 a.s. で $L^1$ に属します。
 <!-- solution-end -->
@@ -2361,7 +2361,7 @@ $$
 - [bounded optional sampling](#thm-sto2-bounded-optional-sampling) を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
 - Doob decomposition の compensator を条件付き平均増分から構成し、一意性を示せる。
 - Doob maximal inequality で 標本路 最大値の確率を終端分布から評価できる。
-- upcrossing number を 標本路上で数え、predictable strategy から upcrossing inequality を証明できる。
+- upcrossing number を 標本路上で数え、predictable strategy から [Doob upcrossing inequality](#thm-sto2-upcrossing) を証明できる。
 - 有理数区間の upcrossing が有限であることから、十分先の下側境界と上側境界が一致して標本路の極限が存在することを導ける。
 - submartingale convergence theorem で極限の有限性・可積分性まで閉じられる。
 - UI が a.s.収束を $L^1$ 収束へ上げる役割を Vitali と結びつけられる。
