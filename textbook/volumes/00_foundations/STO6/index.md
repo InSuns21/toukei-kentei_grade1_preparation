@@ -665,7 +665,7 @@ $
 \int_0^\infty1_{\{X_n^*\ge\lambda\}}\,d\lambda=X_n^*
 $
 
-としました。Hölder inequality（指数 $2,2$）より
+としました。[Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)（指数 $2,2$）より
 
 $
 E[(X_n^*)^2]
@@ -756,7 +756,7 @@ $$
 
 となるよう選べます。
 
-Hölder inequality（指数 $2,2$）により
+[Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)（指数 $2,2$）により
 
 $$
 E\left[
@@ -966,7 +966,7 @@ $$
 |(H_s^{(n)})^2-H_s^2|\,d[M]_s.
 $$
 
-Hölder inequality を指数 $2,2$ で measure $\mu_M$ に対して使うと
+[Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01) を指数 $2,2$ で measure $\mu_M$ に対して使うと
 
 $$
 E\sup_{t\le T}|A_t^{(n)}-A_t|
@@ -1437,7 +1437,7 @@ X_n:=\int h_n\,dB
 X:=\int h\,dB
 $
 
-in $L^2$ です。従って Hölder inequality（指数 $2,2$）により $E|X_n-X|\to0$ でもあります。任意の $\theta\in\mathbb R$ について
+in $L^2$ です。従って [Hölder inequality](../F0_00D2D_Lp_Holder_Minkowski/index.md#thm-f0-00d2d-01)（指数 $2,2$）により $E|X_n-X|\to0$ でもあります。任意の $\theta\in\mathbb R$ について
 
 $
 \left|
