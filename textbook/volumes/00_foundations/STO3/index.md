@@ -292,7 +292,7 @@ $$
 
 最も非自明なのは 2 です。
 
-有限加法性だけでは Carathéodory 拡張定理を使えません。cylinder set の減少列
+有限加法性だけでは D4 の測度拡張定理を使えません。cylinder set の減少列
 
 $$
 A_n\downarrow\varnothing
@@ -947,7 +947,7 @@ $$
 - **整合性**：同じ cylinder を異なる座標集合で表しても同じ確率になる。
 - **有限次元空間が $\mathbb R^m$**：Borel 確率測度を compact 集合で内側から近似できる。
 - **compact 性**：有限個ずつ矛盾しない制約が、可算個同時にも矛盾しないことを保証する。
-- **Carathéodory 拡張定理**：algebra 上の premeasure を生成 $\sigma$ 代数へ運ぶ。
+- **D4 の測度拡張定理**：algebra 上の premeasure を生成 $\sigma$ 代数へ運ぶ。
 
 「整合的だから何となく無限次元分布がある」のではなく、有限次元の tightness と測度拡張がその橋になっています。
 
