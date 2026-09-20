@@ -44,7 +44,7 @@ TSA1--TSA6
 
 予定している中心論点は次です。
 
-1. STO1：確率過程・filtration・stopping time
+1. [STO1：確率過程・filtration・stopping time](../STO1/index.md) — 実装済み
 2. STO2：離散時間 martingale・不等式・収束
 3. STO3：Kolmogorov extension・continuity
 4. STO4：Brown 運動・hitting time・strong Markov property
@@ -147,6 +147,8 @@ Encore IV の必須主線では、Malliavin calculus、rough paths、regularity 
 
 再編計画の正本は **textbook/DREAM_THEATER_ENCORE_IV_STOCHASTIC_ANALYSIS_RESTRUCTURE_PLAN.md** です。
 
-Phase 0 では旧個別章を主線から外し、新 STO / TSA 系列の DAG と公開ルールを固定します。
+Phase 0 は完了し、旧個別章は archive / migration source として現行主線から外しました。
 
-Phase 0 完了後の最初の実装対象は **STO1「確率過程・filtration・stopping time」** です。
+Phase 1 の最初の章 [STO1「確率過程・filtration・stopping time」](../STO1/index.md) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+
+次の実装対象は **STO2「離散時間 martingale・不等式・収束」** です。

@@ -185,7 +185,8 @@
     {
       "name": "Encore IV：Stochastic Analysis & Time Series",
       "paths": [
-        "textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md"
+        "textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md",
+        "textbook/volumes/00_foundations/STO1/index.md"
       ]
     },
     {

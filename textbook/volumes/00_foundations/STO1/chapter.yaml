@@ -1,0 +1,54 @@
+id: "STO1"
+title: "Encore IV Stochastic Analysis I：確率過程・filtration・stopping time"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P1
+  - F0-00P3C
+official_scope: []
+learning_objectives:
+  - 確率過程を確率変数族として定義し、sample path・modification・indistinguishabilityを区別できる
+  - filtrationとusual conditionsを定義し、有限情報モデルで各sigma代数を直接確認できる
+  - adapted processとnatural filtrationを定義し、時刻ごとの可測性を検証できる
+  - progressive measurabilityを定義し、right-continuous adapted processがprogressiveであることを証明できる
+  - predictable sigma-fieldとpredictable processを定義し、simple predictable processの可測性を生成集合から確認できる
+  - stopping timeを定義し、離散時間の初到達時刻と連続pathのclosed-set hitting timeがstopping timeになることを証明できる
+  - stopped processと停止時刻までのsigma代数 F_tau を定義し、F_tauがsigma代数であることと S<=T なら F_S subset F_T を証明できる
+  - progressive processをstopping timeで評価した X_tau のF_tau可測性と stopped processのadaptednessを証明できる
+  - future informationを使うrandom timeがstopping timeでない理由を情報構造から判定できる
+definitions:
+  - { id: STO1-DEF-01, name: "stochastic process と sample path" }
+  - { id: STO1-DEF-02, name: "modification と indistinguishability" }
+  - { id: STO1-DEF-03, name: "filtration と usual conditions" }
+  - { id: STO1-DEF-04, name: "adapted process と natural filtration" }
+  - { id: STO1-DEF-05, name: "progressively measurable process" }
+  - { id: STO1-DEF-06, name: "predictable sigma-field と predictable process" }
+  - { id: STO1-DEF-07, name: "stopping time" }
+  - { id: STO1-DEF-08, name: "stopped process" }
+  - { id: STO1-DEF-09, name: "stopping time までの sigma-field" }
+theorems:
+  - { id: STO1-THM-01, name: "right-continuous adapted process is progressive" }
+  - { id: STO1-PROP-01, name: "predictable process is progressive" }
+  - { id: STO1-THM-02, name: "continuous adapted process closed-set hitting time" }
+  - { id: STO1-PROP-02, name: "F_tau is a sigma-field and monotone in stopping times" }
+  - { id: STO1-THM-03, name: "evaluation of a progressive process at a stopping time" }
+canonical_examples:
+  - "two-coin filtration"
+  - "random walk natural filtration"
+  - "modification but not indistinguishable process"
+  - "simple predictable process"
+  - "first hitting time"
+  - "future-dependent non-stopping time"
+problem_patterns:
+  - STO1-FILTRATION-1
+  - STO1-MODIFICATION-1
+  - STO1-PROGRESSIVE-1
+  - STO1-PREDICTABLE-1
+  - STO1-STOPPING-TIME-1
+  - STO1-HITTING-TIME-1
+  - STO1-STOPPED-PROCESS-1
+  - STO1-STOPPING-SIGMA-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.25 }

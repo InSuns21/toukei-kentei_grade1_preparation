@@ -1,0 +1,38 @@
+chapter: "STO1"
+terms:
+  - term: stochastic process
+    english: stochastic process
+    meaning: 時間で添字付けされた確率変数の族。固定した標本omegaに対するt mapsto X_t(omega)をsample pathと呼ぶ。
+  - term: modification
+    english: modification
+    meaning: 各固定時刻tごとには確率1で一致する二つの過程の関係。連続時間では全時刻同時一致を意味しない。
+  - term: indistinguishability
+    english: indistinguishability
+    meaning: 一つの確率1の事象上で全時刻について二つの過程が同時に一致する関係。modificationより強い。
+  - term: filtration
+    english: filtration
+    meaning: F_s subset F_t (s<=t)を満たす部分sigma代数族。時刻tまでに利用できる情報を表す。
+  - term: usual conditions
+    english: usual conditions
+    meaning: filtrationがright-continuousで、各F_tが確率測度に関してcompleteであるという標準的な正則性条件。
+  - term: adapted process
+    english: adapted process
+    meaning: 各時刻tでX_tがF_t可測な過程。その時刻の値をその時刻までの情報で読めることを表す。
+  - term: progressively measurable process
+    english: progressively measurable process
+    meaning: 任意のTについて[0,T] x Omega上の制限がB([0,T]) tensor F_T可測な過程。stopping timeを時間変数へ代入する可測性を支える。
+  - term: predictable process
+    english: predictable process
+    meaning: (s,t] x A, A in F_sなどから生成されるpredictable sigma-fieldに関して可測な過程。未来の増分を見る前に係数を決める構造を表す。
+  - term: stopping time
+    english: stopping time
+    meaning: すべてのtで{tau<=t} in F_tを満たすrandom time。時刻tまでに既に停止したかを現在の情報だけで判定できる。
+  - term: stopped process
+    english: stopped process
+    meaning: X_t^tau=X_{t wedge tau}で定める過程。tau以後は停止時の値に固定される。
+  - term: stopping sigma-field
+    english: stopping-time sigma-field
+    meaning: A cap {tau<=t} in F_tをすべてのtで満たすAからなるF_tau。random time tauまでに判定可能な情報を表す。
+  - term: hitting time
+    english: hitting time
+    meaning: 過程が指定集合へ初めて入る時刻。continuous adapted processがclosed setへ入るfirst hitting timeはstopping timeになる。

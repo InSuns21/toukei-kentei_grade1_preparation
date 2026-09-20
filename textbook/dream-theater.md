@@ -271,6 +271,8 @@ Encore III 本線では distributional solution、variational weak solution、en
 
 1. [Encore IV ロードマップ](textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
 
+2. [STO1 確率過程・filtration・stopping time](textbook/volumes/00_foundations/STO1/index.md)
+
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 
 再編後は、STO 系列で martingale・Brown 運動・quadratic variation・確率積分・SDE・Girsanov・Markov / generator・martingale representation・Poisson / Lévy / jump calculus まで、TSA 系列で定常過程・予測・Wold・spectral representation・ARMA・ergodicity・Kalman filter までを扱います。
