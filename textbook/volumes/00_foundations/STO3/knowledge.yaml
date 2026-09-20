@@ -21,7 +21,7 @@ concepts:
     kind: definition
     aliases: ["canonical path space", "coordinate process", "cylinder set", "canonical process"]
     introduction: formal
-    introduction_aliases: ["定義（canonical path space と cylinder set）"]
+    introduction_aliases: ["定義（canonical 経路空間と cylinder set）"]
     requires:
       - stochastic.finite-dimensional-distribution-consistency
 
@@ -31,7 +31,8 @@ concepts:
     aliases: ["有限 Borel 測度の compact 内部近似", "finite Borel measure compact approximation"]
     introduction: formal
     introduction_aliases: ["補題（有限 Borel 測度の compact 内部近似）"]
-    requires: []
+    requires:
+      - measure.continuity-from-below
 
   - id: stochastic.kolmogorov-extension
     name: Kolmogorov拡張定理
@@ -63,6 +64,7 @@ concepts:
       - stochastic.stochastic-process
       - stochastic.modification-indistinguishability
       - stochastic.holder-continuity
+      - prob.markov-inequality
       - prob.borel-cantelli-1
 
   - id: stochastic.continuous-modifications-indistinguishable
