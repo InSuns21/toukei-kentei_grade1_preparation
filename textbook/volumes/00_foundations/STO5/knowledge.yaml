@@ -30,6 +30,17 @@ concepts:
       - stochastic.brownian-motion
       - stochastic.brownian-natural-filtration
 
+  - id: stochastic.continuous-bounded-optional-sampling
+    name: bounded stoppingによるcontinuous martingaleの停止
+    kind: theorem
+    aliases: ["continuous bounded optional sampling", "bounded stopping theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（bounded stopping による continuous martingale の停止）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.bounded-optional-sampling
+      - stochastic.stopping-sigma-field
+
   - id: stochastic.ucp-convergence
     name: ucp convergence
     kind: definition
