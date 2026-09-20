@@ -1,0 +1,89 @@
+chapter: GPDE7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GPDE6
+  - F0-02C2
+
+concepts:
+  - id: functional-analysis.bilinear-riesz-operator
+    name: 双線形形式のRiesz作用素表示
+    kind: proposition
+    aliases: ["Riesz operator representation of a bilinear form", "Lax--Milgram operator"]
+    introduction: formal
+    introduction_aliases: ["命題（双線形形式の Riesz 作用素表示）"]
+    requires:
+      - variational.bounded-bilinear-form
+      - functional.riesz-representation-theorem
+
+  - id: functional-analysis.coercive-operator-lower-bound
+    name: coercivityによる作用素の下からの評価
+    kind: lemma
+    aliases: ["coercive operator lower bound", "bounded below estimate"]
+    introduction: formal
+    introduction_aliases: ["補題（coercivity から作用素を下から評価する）"]
+    requires:
+      - functional-analysis.bilinear-riesz-operator
+      - variational.coercive-bilinear-form
+
+  - id: functional-analysis.bounded-below-closed-range
+    name: 下から有界な作用素のrange閉性
+    kind: lemma
+    aliases: ["bounded below implies closed range"]
+    introduction: formal
+    introduction_aliases: ["補題（下から有界なら range は閉）"]
+    requires:
+      - functional-analysis.coercive-operator-lower-bound
+      - functional.hilbert-space
+
+  - id: functional-analysis.lax-milgram-dense-range
+    name: Lax--Milgram作用素のrange稠密性
+    kind: lemma
+    aliases: ["dense range in Lax--Milgram proof"]
+    introduction: formal
+    introduction_aliases: ["補題（Lax--Milgram 作用素の range は稠密）"]
+    requires:
+      - functional-analysis.bilinear-riesz-operator
+      - variational.coercive-bilinear-form
+
+  - id: functional-analysis.lax-milgram
+    name: Lax--Milgram定理
+    kind: theorem
+    aliases: ["Lax-Milgram theorem", "Lax Milgram theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（Lax--Milgram）"]
+    requires:
+      - functional-analysis.bounded-below-closed-range
+      - functional-analysis.lax-milgram-dense-range
+      - functional.riesz-representation-theorem
+
+  - id: functional-analysis.lax-milgram-stability
+    name: Lax--Milgram解の安定性
+    kind: corollary
+    aliases: ["Lax--Milgram stability estimate", "continuous dependence in Lax--Milgram"]
+    introduction: formal
+    introduction_aliases: ["系（Lax--Milgram 解の安定性）"]
+    requires:
+      - functional-analysis.lax-milgram
+      - functional.dual-norm-basic-estimate
+
+  - id: pde.poisson-lax-milgram
+    name: Poisson零Dirichlet問題へのLax--Milgram適用
+    kind: corollary
+    aliases: ["Poisson by Lax--Milgram"]
+    introduction: formal
+    introduction_aliases: ["系（Poisson 零 Dirichlet 問題への適用）"]
+    requires:
+      - functional-analysis.lax-milgram
+      - pde.poisson-form-bounded-coercive
+      - pde.poisson-variational-weak-solution
+
+  - id: pde.reaction-diffusion-lax-milgram
+    name: reaction-diffusion問題へのLax--Milgram適用
+    kind: corollary
+    aliases: ["reaction diffusion by Lax--Milgram"]
+    introduction: formal
+    introduction_aliases: ["系（reaction--diffusion 問題への適用）"]
+    requires:
+      - functional-analysis.lax-milgram
+      - sobolev.poincare-h01
