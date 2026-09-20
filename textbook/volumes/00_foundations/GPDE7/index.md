@@ -893,7 +893,7 @@ $$
 Au_n\to y.
 $$
 
-極限の一意性により
+[極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)により
 
 $$
 y=Au.
@@ -1099,7 +1099,7 @@ $$
 \{0\}.
 $$
 
-Hilbert 空間の直交分解から
+[Hilbert 空間の直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)から
 
 $$
 \overline{\operatorname{Ran}A}
@@ -1308,7 +1308,7 @@ $$
 
 一意性は $A$ の単射性から従います。
 
-最後に解 $u$ に対して coercivity と双対ノルムの基本評価を用いると
+最後に解 $u$ に対して coercivity と [双対ノルムの基本評価](../F0_02C2_線形汎関数_双対空間_Riesz/index.md#prop-f0-02c2-dual-norm-basic-estimate)を用いると
 
 $$
 \alpha\|u\|_V^2
@@ -2674,7 +2674,7 @@ cuv\,dx
 \|v\|_2.
 $$
 
-Poincaré 不等式より
+[Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)より
 
 $$
 \|u\|_2
@@ -3072,7 +3072,7 @@ $F\in V^*$ を任意に取る。
 次を順に示せ。
 
 1. $a$ は双線形である。
-2. Poincaré 不等式を使い
+2. [Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)を使い
 
 $$
 |a(u,v)|
@@ -3164,7 +3164,7 @@ u v'\,dx
 \|v'\|_2.
 $$
 
-Poincaré 不等式より
+[Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)より
 
 $$
 \|u\|_2
