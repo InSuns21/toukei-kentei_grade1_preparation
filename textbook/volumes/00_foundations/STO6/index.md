@@ -1474,17 +1474,17 @@ localization は単なる形式ではなく、global moment が壊れる integra
 >
 > が存在する。さらに $M^{\tau_n}$ が square-integrable martingale となり
 >
-$
+$$
 E\int_0^T1_{\{s\le\tau_n\}}H_s^2\,d[M]_s<\infty
-$
+$$
 >
 > を各 $n,T$ で満たす increasing stopping time 列 $\tau_n\uparrow\infty$ を取れば、
 >
-$
+$$
 (H\cdot M)^{\tau_n}
 =
 (1_{(0,\tau_n]}H)\cdot M^{\tau_n}
-$
+$$
 >
 > が成り立つ。
 >
