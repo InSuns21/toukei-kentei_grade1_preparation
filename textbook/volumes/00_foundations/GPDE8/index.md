@@ -1624,7 +1624,88 @@ $$
 
 この空間では定数方向を除いているので、勾配 norm が再び norm になります。
 
-必要なのが Poincare--Wirtinger 不等式です。
+そのために二つの事実を確認します。
+
+### 弱勾配が 0 なら connected domain 上で定数
+
+<a id="lem-gpde8-zero-gradient-constant"></a>
+
+<!-- formal-statement-start -->
+> **補題（弱勾配 0 の関数は定数）**  
+> $\Omega\subset\mathbb R^d$ を connected open set とする。$v\in H^1(\Omega)$ が
+>
+> $$
+> \nabla v=0
+> \quad\text{a.e. in }\Omega
+> $$
+>
+> を満たすなら、ある定数 $C$ が存在して
+>
+> $$
+> v=C
+> \quad\text{a.e. in }\Omega
+> $$
+>
+> である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+GPDE2 の局所 mollification を使います。
+
+$\Omega$ の内部で $v$ を mollify すると、弱微分との交換から mollified function の古典勾配も 0 になります。
+
+従って各小球では定数です。
+
+重なり合う小球では定数値が一致し、connected open set は重なり合う小球の鎖で結べるので、領域全体で同じ定数になります。
+
+<!-- proof-start -->
+### 証明
+
+任意の球
+
+$$
+\overline{B_{2r}(x_0)}
+\subset\Omega
+$$
+
+を取ります。
+
+$0<\varepsilon<r$ とし、$v_\varepsilon=\rho_\varepsilon*v$ を $B_r(x_0)$ 上で考えます。
+
+GPDE2 の「mollification と弱微分の交換」により
+
+$$
+\nabla v_\varepsilon
+=
+\rho_\varepsilon*\nabla v
+=
+0
+$$
+
+です。
+
+$v_\varepsilon$ は滑らかなので、古典微分が 0 であることから $B_r(x_0)$ 上で定数です。
+
+$\varepsilon\downarrow0$ とすると
+
+$$
+v_\varepsilon\to v
+\quad\text{in }L^2(B_r(x_0))
+$$
+
+なので、$v$ 自身も $B_r(x_0)$ 上で a.e. 定数です。
+
+したがって $v$ は局所的に a.e. 定数です。
+
+$\Omega$ は open かつ connected なので、任意の二点を有限個の重なり合う内部球の鎖で結べます。
+
+二つの球が正の測度を持つ部分で重なれば、その重なり上で両方の定数表示が $v$ と一致するため、定数値は同じです。
+
+鎖に沿って定数値が一致し、領域全体で一つの定数 $C$ が得られます。
+<!-- proof-end -->
+
+### Poincare--Wirtinger
 
 <a id="lem-gpde8-poincare-wirtinger"></a>
 
@@ -1651,7 +1732,7 @@ $$
 
 ### 証明の見取り図
 
-GPDE5 の compactness を使います。
+背理法です。
 
 もし不等式が壊れるなら、
 
@@ -1665,11 +1746,23 @@ $$
 
 という列が作れます。
 
-Rellich--Kondrachov により $L^2$ 強収束する部分列を取り、極限 $v$ は $\nabla v=0$ なので connected domain 上で定数です。
+問題は $v_n\in H^1(\Omega)$ であって $H_0^1(\Omega)$ ではないことです。
 
-平均ゼロなので $v=0$。
+そこで GPDE5 の bounded Lipschitz extension theorem で $\mathbb R^d$ へ延長し、$\overline\Omega$ の近くで 1 になる cutoff を掛けます。
 
-しかし強収束から $\|v\|_2=1$ でもあり矛盾します。
+すると
+
+- $L^2$ で一様有界
+- support が固定 bounded set に入る
+- translation が一様に小さい
+
+という GPDE5 の $L^2$ translation compactness の三条件が揃います。
+
+よって $\Omega$ 上で $L^2$ 強収束する部分列を得ます。
+
+極限の弱勾配は 0、平均も 0 なので前補題から極限は 0。
+
+しかし norm は 1 のままで矛盾します。
 
 <!-- proof-start -->
 ### 証明
@@ -1698,31 +1791,101 @@ $$
 
 従って $(w_n)$ は $H^1(\Omega)$ で有界です。
 
-bounded Lipschitz domain 上の Rellich--Kondrachov により、部分列を取り直して
+GPDE5 の bounded Lipschitz extension theorem により、有界線形作用素
 
 $$
-w_n\to w
-\quad\text{strongly in }L^2(\Omega)
+E:H^1(\Omega)\to H^1(\mathbb R^d)
+$$
+
+が存在します。
+
+したがって
+
+$$
+\|Ew_n\|_{H^1(\mathbb R^d)}
+\le C
+$$
+
+です。
+
+$\Omega$ は bounded なので、ある $\chi\in C_c^\infty(\mathbb R^d)$ を
+
+$$
+\chi=1
+\quad\text{on a neighborhood of }\overline\Omega
+$$
+
+となるように取れます。
+
+$$
+z_n=\chi Ew_n
+$$
+
+と置きます。
+
+smooth multiplier の積の弱微分則から
+
+$$
+\nabla z_n
+=
+(\nabla\chi)Ew_n
++
+\chi\nabla(Ew_n).
+$$
+
+よって $(z_n)$ は $H^1(\mathbb R^d)$ で一様有界であり、support は固定集合 $\operatorname{supp}\chi$ に含まれます。
+
+さらに GPDE5 の translation estimate と同じ計算から
+
+$$
+\|z_n(\cdot+h)-z_n\|_2
+\le
+|h|\|\nabla z_n\|_2
+\le
+C|h|
+$$
+
+です。
+
+従って GPDE5 の $L^2$ translation compactness 補題を適用でき、部分列を取り直して
+
+$$
+z_n\to z
+\quad\text{strongly in }L^2(\mathbb R^d)
 $$
 
 とできます。
 
-さらに $\nabla w_n\to0$ strongly in $L^2$ なので、弱微分の閉性から
+$\chi=1$ on $\Omega$ なので
+
+$$
+w_n=z_n
+\quad\text{a.e. on }\Omega.
+$$
+
+従って
+
+$$
+w_n\to w:=z|_\Omega
+\quad\text{strongly in }L^2(\Omega).
+$$
+
+一方
+
+$$
+\nabla w_n\to0
+\quad\text{strongly in }L^2(\Omega).
+$$
+
+弱微分作用素の閉性から
 
 $$
 \nabla w=0.
 $$
 
-connected domain 上で弱勾配が 0 の $H^1$ 関数は a.e. 定数なので
+前補題により $w$ は a.e. 定数です。
 
-$$
-w=C
-\quad\text{a.e.}
-$$
-
-です。
-
-一方、$L^2$ 強収束から $L^1$ 収束も従うため
+また $L^2$ 強収束は bounded domain 上で $L^1$ 収束を与えるので
 
 $$
 \int_\Omega w\,dx
@@ -1733,9 +1896,9 @@ $$
 0.
 $$
 
-従って $C=0$、すなわち $w=0$ です。
+従って $w=0$ a.e. です。
 
-しかし $L^2$ 強収束から
+しかし強収束から
 
 $$
 \|w\|_2
@@ -1747,10 +1910,8 @@ $$
 
 であり矛盾です。
 
-従って補題が成り立ちます。
+従って Poincare--Wirtinger 不等式が成り立ちます。
 <!-- proof-end -->
-
----
 
 ## 14. Neumann 問題の存在と「定数を除いた一意性」
 
