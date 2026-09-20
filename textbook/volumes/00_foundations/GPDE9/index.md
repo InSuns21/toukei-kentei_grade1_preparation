@@ -1,6 +1,23 @@
-# GPDE9：楕円型正則性 — difference quotient で弱解から二階微分を回収する
+# GPDE9：楕円型正則性 — 弱解から二階微分を回収する
 
 <!-- definition-example-audit: strict -->
+
+<a id="def-gpde9-difference-quotient"></a>
+
+<!-- formal-statement-start -->
+> **定義（difference quotient）**  
+> $u$ を $x$ と $x+he_k$ で定義された関数、$h\ne0$ とする。第 $k$ 方向の前進 difference quotient を
+>
+> $
+> \boxed{
+> D_h^k u(x)
+> :=
+> \frac{u(x+he_k)-u(x)}{h}
+> }
+> $
+>
+> と定める。
+<!-- formal-statement-end -->
 
 GPDE8 では、二階線形楕円型 PDE を弱形式へ落とし、
 
@@ -155,22 +172,7 @@ $$
 
 $e_k$ を第 $k$ 座標方向の単位ベクトルとします。
 
-<a id="def-gpde9-difference-quotient"></a>
 
-<!-- formal-statement-start -->
-> **定義（difference quotient）**  
-> $u$ を $x$ と $x+he_k$ で定義された関数、$h\ne0$ とする。第 $k$ 方向の前進 difference quotient を
->
-> $$
-> \boxed{
-> D_h^k u(x)
-> :=
-> \frac{u(x+he_k)-u(x)}{h}
-> }
-> $$
->
-> と定める。
-<!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gpde9-difference-quotient -->
 **定義の確認**
@@ -493,7 +495,7 @@ $$
 
 を $L^2(U)$ の有界列として扱います。
 
-GPDE5 で使った Hilbert 空間の弱コンパクト性から弱収束部分列を取り、その弱極限が distributional derivative $\partial_k u$ であることを [difference quotient の部分積分](#lem-gpde9-discrete-ibp)から確認します。
+GPDE5 の [完備内積空間の有界列から弱収束部分列](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)を使って弱収束部分列を取り、その弱極限が distributional derivative $\partial_k u$ であることを [difference quotient の部分積分](#lem-gpde9-discrete-ibp)から確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -513,7 +515,7 @@ $$
 \le M.
 $$
 
-$L^2(U)$ は Hilbert 空間なので、部分列を取り直して、ある $g\in L^2(U)$ に対し
+$L^2(U)$ は完備な内積空間なので、[有界列からの弱収束部分列定理](../GPDE5/index.md#thm-gpde5-hilbert-weak-subsequence)により部分列を取り直して、ある $g\in L^2(U)$ に対し
 
 $$
 D_{h_n}^k u
@@ -1561,7 +1563,7 @@ $$
 
 という余分な項だけです。
 
-Lipschitz 条件から
+係数 $A$ の局所 Lipschitz 性から
 
 $$
 \|D_h^kA\|_\infty
@@ -3097,7 +3099,7 @@ $$
 2\Lambda XY.
 $$
 
-Lipschitz 条件から
+係数 $A$ の局所 Lipschitz 性から
 
 $$
 \|D_h^kA\|_\infty\le L
