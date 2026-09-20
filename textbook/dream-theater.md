@@ -272,6 +272,7 @@ Encore III 本線では distributional solution、variational weak solution、en
 1. [Encore IV ロードマップ](textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md)
 
 2. [STO1 確率過程・filtration・stopping time](textbook/volumes/00_foundations/STO1/index.md)
+3. [STO2 離散時間 martingale・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 

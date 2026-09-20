@@ -1,0 +1,55 @@
+id: "STO2"
+title: "Encore IV Stochastic Analysis II：離散時間 martingale・不等式・収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO1
+  - F0-00P3C
+  - F0-00P4A
+official_scope: []
+learning_objectives:
+  - martingale・submartingale・supermartingaleを条件付き期待値で定義し、有限状態例で三条件を直接検証できる
+  - 離散時間predictable processとpredictable transformを定義し、martingale差分へ掛ける係数が一時刻前の情報で決まる意味を説明できる
+  - stopped martingale/submartingale theoremを差分表示から証明できる
+  - bounded optional sampling theoremを停止時刻sigma-fieldに関する条件付き不等式・等式まで証明できる
+  - 離散時間Doob decompositionを構成し、predictable compensatorの非減少性と分解の一意性を証明できる
+  - Doob maximal inequalityを初到達時刻とoptional samplingから導き、最大偏差確率を評価できる
+  - upcrossing numberを定義し、Doob upcrossing inequalityをpredictable trading strategyから証明できる
+  - upcrossing inequalityからsubmartingaleのa.s. convergence theoremを導き、極限が有限かつ可積分になる理由を追える
+  - UI martingale convergence theoremをVitaliとLévy上昇定理へ接続し、a.s.収束・L1収束・terminal representationを区別できる
+  - optional stoppingの条件を外すと結論が壊れることを倍賭け反例でUIの失敗まで計算できる
+definitions:
+  - { id: STO2-DEF-01, name: "martingale・submartingale・supermartingale" }
+  - { id: STO2-DEF-02, name: "離散時間predictable processとpredictable transform" }
+  - { id: STO2-DEF-03, name: "upcrossing number" }
+theorems:
+  - { id: STO2-PROP-01, name: "predictable transform of a martingale/submartingale" }
+  - { id: STO2-THM-01, name: "stopped martingale/submartingale theorem" }
+  - { id: STO2-THM-02, name: "bounded optional sampling theorem" }
+  - { id: STO2-THM-03, name: "discrete Doob decomposition" }
+  - { id: STO2-THM-04, name: "Doob maximal inequality" }
+  - { id: STO2-THM-05, name: "Doob upcrossing inequality" }
+  - { id: STO2-THM-06, name: "submartingale almost-sure convergence theorem" }
+  - { id: STO2-THM-07, name: "uniformly integrable martingale convergence theorem" }
+  - { id: STO2-COR-01, name: "UIを仮定したoptional stopping" }
+canonical_examples:
+  - "centered random walk martingale"
+  - "squared martingale as submartingale"
+  - "predictable betting strategy"
+  - "stopped random walk"
+  - "Doob decomposition of squared random walk"
+  - "finite-path upcrossing count"
+  - "doubling strategy failure of optional stopping"
+problem_patterns:
+  - STO2-MARTINGALE-CHECK-1
+  - STO2-PREDICTABLE-TRANSFORM-1
+  - STO2-OPTIONAL-SAMPLING-1
+  - STO2-DOOB-DECOMPOSITION-1
+  - STO2-MAXIMAL-INEQUALITY-1
+  - STO2-UPCROSSING-1
+  - STO2-MARTINGALE-CONVERGENCE-1
+  - STO2-OPTIONAL-STOPPING-COUNTEREXAMPLE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }
