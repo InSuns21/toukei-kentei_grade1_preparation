@@ -588,4 +588,6 @@ ARMA / ergodicity / Kalman
 - Phase 0「ルーティングと設計台帳」：完了。
 - 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替え、reader-facing index と目次から除外した。
 - 新系列 ID を STO1--STO14 / TSA1--TSA6 として固定。
-- 現在地：Phase 0 完了後、最初の実装対象は STO1「確率過程・filtration・stopping time」。
+- Phase 1：STO1「確率過程・filtration・stopping time」を実装。filtration / adapted / progressive / predictable / stopping time / stopped process / $\mathcal F_\tau$ を、直接例・主要証明・A4/B3/C1・全問詳細解答まで閉じた。
+- STO1 の direct prerequisite は F0-00P1 と F0-00P3C に限定し、旧 SP1 は参照しない。
+- 現在地：次の実装対象は STO2「離散時間 martingale・不等式・収束」。
