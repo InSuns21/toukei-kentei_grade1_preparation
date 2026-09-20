@@ -175,6 +175,8 @@ $e_k$ を第 $k$ 座標方向の単位ベクトルとします。
 
 
 <!-- definition-example-start: def-gpde9-difference-quotient -->
+### 最小例：$u(x)=x^2$
+
 **定義の確認**
 
 一変数で $u(x)=x^2$ なら
@@ -1005,9 +1007,41 @@ $$
 
 と置きます。
 
-distributional equation と $f\in L^2$、$u\in H^1$ から弱形式は $H_0^1(V)$ test function まで連続に延長できます。
+まず distributional equation は $C_c^\infty(V)$ 上で
 
-したがって
+$$
+\int_V \nabla u\cdot\nabla\psi\,dx
+=
+\int_V f\psi\,dx
+$$
+
+を意味します。
+
+左辺は Cauchy--Schwarz により
+
+$$
+\left|
+\int_V \nabla u\cdot\nabla\psi
+\right|
+\le
+\|\nabla u\|_{L^2(V)}
+\|\nabla\psi\|_{L^2(V)},
+$$
+
+右辺も
+
+$$
+\left|
+\int_V f\psi
+\right|
+\le
+\|f\|_{L^2(V)}
+\|\psi\|_{L^2(V)}
+$$
+
+と評価できます。$H_0^1(V)$ は $C_c^\infty(V)$ の $H^1$-closure なので、この等式は密度と両辺の連続性により $H_0^1(V)$ の test function へ一意に拡張されます。
+
+さらに $|h|$ を上で選んだ範囲に取れば $\eta^2w_h$ と必要な平行移動の support は $V$ 内にあり、
 
 $$
 \varphi
@@ -1017,7 +1051,7 @@ D_{-h}^k(\eta^2w_h)
 \in H_0^1(V)
 $$
 
-を test できます。
+です。したがってこの $\varphi$ を test できます。
 
 弱形式は
 
@@ -1504,7 +1538,33 @@ $$
 > **定理（局所 Lipschitz 係数の interior H2 regularity）**  
 > $\Omega\subset\mathbb R^d$ を開集合とする。
 >
-> $A:\Omega\to\mathbb R^{d\times d}$ は局所的に bounded かつ uniformly elliptic で、さらに各 $V\Subset\Omega$ 上で Lipschitz とする。
+> $A:\Omega\to\mathbb R^{d\times d}$ とする。任意の $V\Subset\Omega$ に対し、ある定数
+>
+$$
+0<\lambda_V\le \Lambda_V<\infty,
+\qquad
+L_V<\infty
+$$
+>
+> が存在し、$V$ 上の代表元について任意の $x,y\in V$、$\xi\in\mathbb R^d$ に対して
+>
+$$
+|A(x)\xi|
+\le
+\Lambda_V|\xi|,
+\qquad
+\xi^{\mathsf T}A(x)\xi
+\ge
+\lambda_V|\xi|^2,
+$$
+>
+$$
+|A(x)-A(y)|
+\le
+L_V|x-y|
+$$
+>
+> が成り立つとする。
 >
 > $u\in H^1_{\mathrm{loc}}(\Omega)$、$f\in L^2_{\mathrm{loc}}(\Omega)$ が
 >
@@ -1538,7 +1598,7 @@ C
 }
 $$
 >
-> が成り立つ。定数 $C$ は $U,V,d,\lambda,\Lambda$ と $V$ 上の $A$ の Lipschitz 定数に依存する。
+> が成り立つ。定数 $C$ は $U,V,d,\lambda_V,\Lambda_V,L_V$ に依存する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1575,6 +1635,18 @@ $$
 
 <!-- proof-start -->
 ### 証明
+
+この証明では固定した $V\Subset\Omega$ 上の定数を
+
+$$
+\lambda:=\lambda_V,
+\qquad
+\Lambda:=\Lambda_V,
+\qquad
+L:=L_V
+$$
+
+と略記します。
 
 $U\Subset W\Subset V$ を取り、
 
@@ -1699,7 +1771,37 @@ L\|\nabla u\|_{L^2(W)}
 \end{aligned}
 $$
 
-右辺は Poisson の場合と同様に
+右辺には Cauchy--Schwarz を使い、
+
+$$
+\left|
+\int
+fD_{-h}^k(\eta^2w_h)
+\right|
+\le
+\|f\|_2
+\|D_{-h}^k(\eta^2w_h)\|_2.
+$$
+
+さらに [H1 difference quotient estimate](#lem-gpde9-dq-bound) と積の弱微分則から
+
+$$
+\begin{aligned}
+\|D_{-h}^k(\eta^2w_h)\|_2
+&\le
+\|\partial_k(\eta^2w_h)\|_2
+\\
+&\le
+\|\eta^2\partial_kw_h\|_2
++
+2\|\eta(\partial_k\eta)w_h\|_2
+\\
+&\le
+X+2Y.
+\end{aligned}
+$$
+
+したがって
 
 $$
 \left|
@@ -1811,7 +1913,7 @@ $$
 
 ---
 
-## 10. なぜ $L^\infty$ 係数だけでは $H^2$ に上がらないのか
+## 10. 反例：なぜ $L^\infty$ 係数だけでは $H^2$ に上がらないのか
 
 GPDE8 の存在定理では $A\in L^\infty$ で十分でした。
 
@@ -1921,7 +2023,7 @@ $$
 
 ---
 
-## 11. interior $H^2$ があっても boundary $H^2$ は自動ではない
+## 11. 境界反例：interior $H^2$ があっても boundary $H^2$ は自動ではない
 
 境界の角でも regularity は壊れます。
 
@@ -2050,6 +2152,16 @@ near the reentrant corner です。
 
 原点は domain の interior ではなく boundary point だからです。
 
+さらに、interior difference quotient 法の証明機構そのものが角で壊れます。本章の主証明では
+
+$$
+U\Subset V
+$$
+
+を取り、cutoff の support とその $\pm he_k$ 平行移動がすべて $V$ の内部に残るように $h$ を選びました。ところが boundary point を含む近傍では、任意方向の平行移動が領域外へ出る可能性があり、この interior 用 test function をそのまま使えません。
+
+滑らかな境界なら局所座標で境界を平坦化し、接線方向の difference quotient と方程式から法線方向の二階微分を回収する、という別の機構を使えます。しかし reentrant corner では頂点近傍を一枚の滑らかな graph として平坦化できません。したがって、ここで失われているのは単なる「境界からの距離」だけでなく、**boundary regularity を支える局所座標機構**です。
+
 $$
 \boxed{
 \text{interior regularity}
@@ -2061,9 +2173,47 @@ $$
 
 です。
 
+### boundary regularity の正側はどこまで言えるか
+
+失敗例だけで終わらせず、正側の標準形も位置付けます。
+
+Poisson の零 Dirichlet 問題では、例えば $\Omega$ が bounded $C^{1,1}$ domain で
+
+$$
+f\in L^2(\Omega),
+\qquad
+u\in H_0^1(\Omega),
+\qquad
+-\Delta u=f
+$$
+
+を弱く満たすなら、標準的な global elliptic regularity theorem により
+
+$$
+u\in H^2(\Omega)
+$$
+
+が得られます。さらに
+
+$$
+\|u\|_{H^2(\Omega)}
+\le
+C\|f\|_{L^2(\Omega)}
+$$
+
+という global estimate が成立します。
+
+ただし、この global theorem の完全証明には boundary flattening、局所座標変換、境界近傍での tangential difference quotient、法線方向の回収を組み合わせる必要があります。本章の中心技法である **interior difference quotient 法だけでは閉じない**ため、ここでは intentional black box とします。
+
+本章で確定する境界は次です。
+
+- interior $H^2$: 本章で完全証明する。
+- reentrant corner での failure: 本章で直接検証する。
+- $C^{1,1}$ boundary での global $H^2$: 標準結果として位置付けるが、証明は boundary regularity の後続拡張へ送る。
+
 ---
 
-## 12. regularity の bootstrap
+## 12. regularity の bootstrap と classical solution への戻り道
 
 Poisson 方程式では
 
@@ -2073,7 +2223,7 @@ $$
 
 です。
 
-本章で
+本章で完全証明したのは
 
 $$
 f\in L^2_{\mathrm{loc}}
@@ -2081,9 +2231,9 @@ f\in L^2_{\mathrm{loc}}
 u\in H^2_{\mathrm{loc}}
 $$
 
-を示しました。
+までです。ここで重要なのは、**$H^2$ になっただけでは一般次元で直ちに classical solution とは言えない**ことです。
 
-さらに $f$ がより滑らかなら、同じ考えを反復して
+さらに $f$ がより滑らかなら、difference quotient を高階微分へ反復する higher-order regularity により
 
 $$
 f\in H^m_{\mathrm{loc}}
@@ -2091,9 +2241,77 @@ f\in H^m_{\mathrm{loc}}
 u\in H^{m+2}_{\mathrm{loc}}
 $$
 
-という higher regularity へ進めます。
+へ進めます。この反復の完全証明は multi-index bookkeeping を伴い、本章の主目的を越えるため intentional black box とします。追加前提は $f$ の高階 Sobolev regularity であり、証明機構は本章で行った差分商 estimate の反復です。
 
-ただし本章では bootstrap の完全な一般論までは展開しません。
+では、どの段階で classical solution に戻れるのでしょうか。
+
+十分条件として、整数 $m$ が
+
+$$
+m>\frac d2
+$$
+
+を満たし、
+
+$$
+f\in H^m_{\mathrm{loc}}(\Omega)
+$$
+
+とします。higher-order regularity により
+
+$$
+u\in H^{m+2}_{\mathrm{loc}}(\Omega)
+$$
+
+まで上がったと仮定します。
+
+このとき higher-order Sobolev embedding
+
+$$
+H^m_{\mathrm{loc}}
+\hookrightarrow
+C^0_{\mathrm{loc}},
+\qquad
+H^{m+2}_{\mathrm{loc}}
+\hookrightarrow
+C^2_{\mathrm{loc}}
+$$
+
+を使えば
+
+$$
+f\in C^0_{\mathrm{loc}},
+\qquad
+u\in C^2_{\mathrm{loc}}
+$$
+
+です。distribution の意味で
+
+$$
+-\Delta u=f
+$$
+
+だった等式の両辺は連続関数になったので、等式は各点で成り立ちます。したがって $u$ は classical solution です。
+
+ここで使った higher-order Sobolev embedding は GPDE5 で扱った一次の embedding より先の一般形であり、本系列ではまだ完全証明を正本化していません。そのため、この段落は **weak solution から classical solution へ戻るために何が追加で必要かを示す bridge** であり、GPDE9 の証明依存にはしません。
+
+流れをまとめると
+
+$$
+\boxed{
+\text{weak solution}
+\to
+H^2_{\mathrm{loc}}
+\to
+\text{higher Sobolev regularity}
+\to
+C^2_{\mathrm{loc}}
+\to
+\text{classical solution}
+}
+$$
+
+です。
 
 ここで身につけるべき核は
 
