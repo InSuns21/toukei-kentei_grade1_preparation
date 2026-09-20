@@ -141,55 +141,13 @@ $$
 
 ## 2. Lax--Milgram の主張
 
-<a id="thm-gpde7-lax-milgram"></a>
+本章で最終的に示したいのは、次の三点です。
 
-<!-- formal-statement-start -->
-> **定理（Lax--Milgram）**  
-> $V$ を実数体上の完備な内積空間とする。
->
-> $a:V\times V\to\mathbb R$ を双線形形式とし、ある $M,\alpha>0$ が存在して任意の $u,v\in V$ に対し
+- boundedness と coercivity があれば、任意の $F\in V^*$ に対して変分方程式 $a(u,v)=F(v)$ の解が存在する。
+- その解は一意である。
+- coercivity 定数 $\alpha$ が解の安定性 $\|u\|_V\le \alpha^{-1}\|F\|_{V^*}$ を支配する。
 
-$$
-|a(u,v)|
-\le
-M\|u\|_V\|v\|_V
-$$
-
-> および
-
-$$
-a(v,v)
-\ge
-\alpha\|v\|_V^2
-$$
-
-> が成り立つとする。
->
-> このとき任意の $F\in V^*$ に対し、一意な $u\in V$ が存在して
-
-$$
-\boxed{
-a(u,v)=F(v)
-\qquad
-(\forall v\in V)
-}
-$$
-
-> を満たす。
->
-> さらに解は
-
-$$
-\boxed{
-\|u\|_V
-\le
-\frac1\alpha
-\|F\|_{V^*}
-}
-$$
-
-> を満たす。
-<!-- formal-statement-end -->
+正式な定理文は、closed range と dense range の補題を準備した後に置きます。
 
 定理の形だけ見ると、GPDE6 の Poisson 問題とほとんど同じです。
 
@@ -1177,6 +1135,56 @@ $$
 ---
 
 ## 9. Lax--Milgram 定理を一本につなぐ
+
+<a id="thm-gpde7-lax-milgram"></a>
+
+<!-- formal-statement-start -->
+> **定理（Lax--Milgram）**  
+> $V$ を実数体上の完備な内積空間とする。
+>
+> $a:V\times V\to\mathbb R$ を双線形形式とし、ある $M,\alpha>0$ が存在して任意の $u,v\in V$ に対し
+
+$
+|a(u,v)|
+\le
+M\|u\|_V\|v\|_V
+$
+
+> および
+
+$
+a(v,v)
+\ge
+\alpha\|v\|_V^2
+$
+
+> が成り立つとする。
+>
+> このとき任意の $F\in V^*$ に対し、一意な $u\in V$ が存在して
+
+$
+\boxed{
+a(u,v)=F(v)
+\qquad
+(\forall v\in V)
+}
+$
+
+> を満たす。
+>
+> さらに解は
+
+$
+\boxed{
+\|u\|_V
+\le
+\frac1\alpha
+\|F\|_{V^*}
+}
+$
+
+> を満たす。
+<!-- formal-statement-end -->
 
 ### 証明の見取り図
 
