@@ -356,7 +356,7 @@ $$
 
 を全て満たします。
 
-ここで「Gaussian process を作れた」と「連続な標本路 を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
+ここで「Gaussian process を作れた」と「連続な標本路を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
 <!-- definition-example-end -->
 
 ---
@@ -1266,7 +1266,7 @@ $
 
 ## 10. 短時間と長時間を入れ替える
 
-time inversion は後続計算の direct prerequisite ではありませんが、Brownian covariance の自己相似性がどれほど強いかを見る代表例です。
+この時間反転は後続計算の direct prerequisite ではありませんが、Brownian covariance の自己相似性がどれほど強いかを見る代表例です。
 
 <a id="prop-sto4-time-inversion"></a>
 
