@@ -1007,47 +1007,47 @@ $$
 
 まず distributional equation は $C_c^\infty(V)$ 上で
 
-$
+$$
 \int_V \nabla u\cdot\nabla\psi\,dx
 =
 \int_V f\psi\,dx
-$
+$$
 
 を意味します。
 
 左辺は Cauchy--Schwarz により
 
-$
+$$
 \left|
 \int_V \nabla u\cdot\nabla\psi
 \right|
 \le
 \|\nabla u\|_{L^2(V)}
 \|\nabla\psi\|_{L^2(V)},
-$
+$$
 
 右辺も
 
-$
+$$
 \left|
 \int_V f\psi
 \right|
 \le
 \|f\|_{L^2(V)}
 \|\psi\|_{L^2(V)}
-$
+$$
 
 と評価できます。$H_0^1(V)$ は $C_c^\infty(V)$ の $H^1$-closure なので、この等式は密度と両辺の連続性により $H_0^1(V)$ の test function へ一意に拡張されます。
 
 さらに $|h|$ を上で選んだ範囲に取れば $\eta^2w_h$ と必要な平行移動の support は $V$ 内にあり、
 
-$
+$$
 \varphi
 =
 -
 D_{-h}^k(\eta^2w_h)
 \in H_0^1(V)
-$
+$$
 
 です。したがってこの $\varphi$ を test できます。
 
@@ -1538,15 +1538,15 @@ $$
 >
 > $A:\Omega\to\mathbb R^{d\times d}$ とする。任意の $V\Subset\Omega$ に対し、ある定数
 >
-$
+$$
 0<\lambda_V\le \Lambda_V<\infty,
 \qquad
 L_V<\infty
-$
+$$
 >
 > が存在し、$V$ 上の代表元について任意の $x,y\in V$、$\xi\in\mathbb R^d$ に対して
 >
-$
+$$
 |A(x)\xi|
 \le
 \Lambda_V|\xi|,
@@ -1554,13 +1554,13 @@ $
 \xi^{\mathsf T}A(x)\xi
 \ge
 \lambda_V|\xi|^2,
-$
+$$
 >
-$
+$$
 |A(x)-A(y)|
 \le
 L_V|x-y|
-$
+$$
 >
 > が成り立つとする。
 >
@@ -1636,13 +1636,13 @@ $$
 
 この証明では固定した $V\Subset\Omega$ 上の定数を
 
-$
+$$
 \lambda:=\lambda_V,
 \qquad
 \Lambda:=\Lambda_V,
 \qquad
 L:=L_V
-$
+$$
 
 と略記します。
 
@@ -1771,7 +1771,7 @@ $$
 
 右辺には Cauchy--Schwarz を使い、
 
-$
+$$
 \left|
 \int
 fD_{-h}^k(\eta^2w_h)
@@ -1779,11 +1779,11 @@ fD_{-h}^k(\eta^2w_h)
 \le
 \|f\|_2
 \|D_{-h}^k(\eta^2w_h)\|_2.
-$
+$$
 
 さらに [H1 difference quotient estimate](#lem-gpde9-dq-bound) と積の弱微分則から
 
-$
+$$
 \begin{aligned}
 \|D_{-h}^k(\eta^2w_h)\|_2
 &\le
@@ -1797,18 +1797,18 @@ $
 &\le
 X+2Y.
 \end{aligned}
-$
+$$
 
 したがって
 
-$
+$$
 \left|
 \int
 fD_{-h}^k(\eta^2w_h)
 \right|
 \le
 \|f\|_2(X+2Y).
-$
+$$
 
 従って
 
@@ -2152,22 +2152,22 @@ near the reentrant corner です。
 
 さらに、interior difference quotient 法の証明機構そのものが角で壊れます。本章の主証明では
 
-$
+$$
 U\Subset V
-$
+$$
 
 を取り、cutoff の support とその $\pm he_k$ 平行移動がすべて $V$ の内部に残るように $h$ を選びました。ところが boundary point を含む近傍では、任意方向の平行移動が領域外へ出る可能性があり、この interior 用 test function をそのまま使えません。
 
 滑らかな境界なら局所座標で境界を平坦化し、接線方向の difference quotient と方程式から法線方向の二階微分を回収する、という別の機構を使えます。しかし reentrant corner では頂点近傍を一枚の滑らかな graph として平坦化できません。したがって、ここで失われているのは単なる「境界からの距離」だけでなく、**boundary regularity を支える局所座標機構**です。
 
-$
+$$
 \boxed{
 \text{interior regularity}
 \text{ と }
 \text{boundary regularity}
 \text{ は別問題}
 }
-$
+$$
 
 です。
 
@@ -2177,27 +2177,27 @@ $
 
 Poisson の零 Dirichlet 問題では、例えば $\Omega$ が bounded $C^{1,1}$ domain で
 
-$
+$$
 f\in L^2(\Omega),
 \qquad
 u\in H_0^1(\Omega),
 \qquad
 -\Delta u=f
-$
+$$
 
 を弱く満たすなら、標準的な global elliptic regularity theorem により
 
-$
+$$
 u\in H^2(\Omega)
-$
+$$
 
 が得られます。さらに
 
-$
+$$
 \|u\|_{H^2(\Omega)}
 \le
 C\|f\|_{L^2(\Omega)}
-$
+$$
 
 という global estimate が成立します。
 
@@ -2215,29 +2215,29 @@ $
 
 Poisson 方程式では
 
-$
+$$
 -\Delta u=f
-$
+$$
 
 です。
 
 本章で完全証明したのは
 
-$
+$$
 f\in L^2_{\mathrm{loc}}
 \Longrightarrow
 u\in H^2_{\mathrm{loc}}
-$
+$$
 
 までです。ここで重要なのは、**$H^2$ になっただけでは一般次元で直ちに classical solution とは言えない**ことです。
 
 さらに $f$ がより滑らかなら、difference quotient を高階微分へ反復する higher-order regularity により
 
-$
+$$
 f\in H^m_{\mathrm{loc}}
 \Longrightarrow
 u\in H^{m+2}_{\mathrm{loc}}
-$
+$$
 
 へ進めます。この反復の完全証明は multi-index bookkeeping を伴い、本章の主目的を越えるため intentional black box とします。追加前提は $f$ の高階 Sobolev regularity であり、証明機構は本章で行った差分商 estimate の反復です。
 
@@ -2245,27 +2245,27 @@ $
 
 十分条件として、整数 $m$ が
 
-$
+$$
 m>\frac d2
-$
+$$
 
 を満たし、
 
-$
+$$
 f\in H^m_{\mathrm{loc}}(\Omega)
-$
+$$
 
 とします。higher-order regularity により
 
-$
+$$
 u\in H^{m+2}_{\mathrm{loc}}(\Omega)
-$
+$$
 
 まで上がったと仮定します。
 
 このとき higher-order Sobolev embedding
 
-$
+$$
 H^m_{\mathrm{loc}}
 \hookrightarrow
 C^0_{\mathrm{loc}},
@@ -2273,21 +2273,21 @@ C^0_{\mathrm{loc}},
 H^{m+2}_{\mathrm{loc}}
 \hookrightarrow
 C^2_{\mathrm{loc}}
-$
+$$
 
 を使えば
 
-$
+$$
 f\in C^0_{\mathrm{loc}},
 \qquad
 u\in C^2_{\mathrm{loc}}
-$
+$$
 
 です。distribution の意味で
 
-$
+$$
 -\Delta u=f
-$
+$$
 
 だった等式の両辺は連続関数になったので、等式は各点で成り立ちます。したがって $u$ は classical solution です。
 
@@ -2295,7 +2295,7 @@ $
 
 流れをまとめると
 
-$
+$$
 \boxed{
 \text{weak solution}
 \to
@@ -2307,19 +2307,19 @@ C^2_{\mathrm{loc}}
 \to
 \text{classical solution}
 }
-$
+$$
 
 です。
 
 ここで身につけるべき核は
 
-$
+$$
 \boxed{
 \text{PDE を difference quotient した近似 energy estimate}
 \Longrightarrow
 \text{一段高い Sobolev regularity}
 }
-$
+$$
 
 です。
 
