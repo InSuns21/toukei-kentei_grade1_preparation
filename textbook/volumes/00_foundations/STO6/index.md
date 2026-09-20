@@ -689,7 +689,7 @@ E[(X_n^*)^2]
 4E[|N_T|^2].
 $
 
-$D_n\subset D_{n+1}$ なので左辺の random variables は単調増加します。continuous path では dyadic points が dense なので
+$D_n\subset D_{n+1}$ なので左辺の random variables は単調増加します。連続標本路では dyadic points が dense なので
 
 $$
 \max_{t\in D_n}|N_t|^2
@@ -779,7 +779,7 @@ $$
 
 ゆえに subsequence は almost surely sup 距離で Cauchy で、continuous limit $I$ を持ちます。
 
-元の列全体についても先ほどの $L^2$ Cauchy estimate と subsequence limit を使えば
+元の列全体についても先ほどの $L^2$ estimate と subsequence limit を使えば
 
 $$
 E\sup_{t\le T}|I_t^{(n)}-I_t|^2\to0.
