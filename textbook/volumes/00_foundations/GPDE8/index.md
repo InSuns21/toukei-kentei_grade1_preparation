@@ -470,7 +470,7 @@ $$
 
 とします。
 
-GPDE4 の Poincare 不等式により、ある $C_P>0$ が存在して
+GPDE4 の [H_0^1 の Poincaré 不等式](../GPDE4/index.md#thm-gpde4-poincare)により、ある $C_P>0$ が存在して
 
 $$
 \|v\|_2
@@ -1313,7 +1313,7 @@ a(u,u)
 F(u).
 $$
 
-coercivity と双対 norm の定義から
+[coercivity](../GPDE6/index.md#def-gpde6-coercive) と [Hminus1 の双対 norm](../GPDE6/index.md#def-gpde6-hminus1) から
 
 $$
 \alpha\|u\|_V^2
@@ -1491,7 +1491,16 @@ $$
 
 <!-- formal-statement-start -->
 > **系（外力・係数摂動に対する安定性）**  
-> $a_1,a_2$ を $V$ 上の bounded bilinear form とし、$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。$u_i$ が
+> $a_1,a_2$ を $V$ 上の bounded bilinear form とし、$a_1$ は coercivity 定数 $\alpha_1>0$ を持つとする。差形式の作用素 norm を
+>
+> $
+> \|a_2-a_1\|_{\mathrm{op}}
+> :=
+> \sup_{\substack{u\ne0\\v\ne0}}
+> \frac{|(a_2-a_1)(u,v)|}{\|u\|_V\|v\|_V}
+> $
+>
+> と書く。$u_i$ が
 >
 > $$
 > a_i(u_i,v)=F_i(v)
@@ -1548,7 +1557,16 @@ a_1(w,v)
 (a_2-a_1)(u_2,v).
 $$
 
-$v=w$ とし、coercivity と作用素 norm の定義を使えば
+$v=w$ とします。$a_1$ の [coercivity](../GPDE6/index.md#def-gpde6-coercive) と
+
+$
+|(a_2-a_1)(u_2,w)|
+\le
+\|a_2-a_1\|_{\mathrm{op}}
+\|u_2\|_V\|w\|_V
+$
+
+を使えば
 
 $$
 \alpha_1\|w\|_V^2
@@ -3260,7 +3278,7 @@ $$
 \|c\|_\infty=1.
 $$
 
-従って本章の boundedness 命題から
+従って [係数有界性から双線形形式の boundedness](#prop-gpde8-boundedness) から
 
 $$
 |a(u,v)|
