@@ -590,4 +590,6 @@ ARMA / ergodicity / Kalman
 - 新系列 ID を STO1--STO14 / TSA1--TSA6 として固定。
 - Phase 1：STO1「確率過程・filtration・stopping time」を実装。filtration / adapted / progressive / predictable / stopping time / stopped process / $\mathcal F_\tau$ を、直接例・主要証明・A4/B3/C1・全問詳細解答まで閉じた。
 - STO1 の direct prerequisite は F0-00P1 と F0-00P3C に限定し、旧 SP1 は参照しない。
-- 現在地：次の実装対象は STO2「離散時間 martingale・不等式・収束」。
+- Phase 1：STO2「離散時間 martingale・不等式・収束」を実装。martingale / submartingale / predictable transform / stopped process / bounded optional sampling / Doob decomposition / maximal inequality / upcrossing inequality / a.s. convergence / UI・L1 convergence を、主要証明・直接例・A4/B3/C1・全問詳細解答まで閉じた。
+- STO2 の direct prerequisite は STO1・F0-00P3C・F0-00P4A とし、旧 SP2 は migration source に留めて prerequisite / proof dependency にしない。
+- 現在地：次の実装対象は STO3「確率過程の構成・Kolmogorov continuity」。
