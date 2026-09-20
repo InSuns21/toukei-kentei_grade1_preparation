@@ -39,7 +39,7 @@ STO7 の Itô formula は、この章で積分が完成して初めて厳密に�
 
 ---
 
-## 1. simple predictable integrand
+## 1. 係数を過去情報で固定する
 
 まず有限個の時間区間だけで値が変わる process から始めます。
 
@@ -93,7 +93,7 @@ $$
 
 ---
 
-## 2. simple stochastic integral
+## 2. martingale 増分の有限和で積分を定める
 
 continuous martingale $M$ に対して、simple integrand の積分は増分和で定義できます。
 
@@ -189,7 +189,7 @@ $$
 
 STO5 で continuous local martingale $M$ に対する increasing process $[M]$ を構成しました。
 
-ただし Itô isometry では、STO5 の
+ただし次節の二乗平均の等長性では、STO5 の
 
 $$
 M^2-[M]
@@ -379,7 +379,7 @@ $$
 
 ---
 
-## 4. Itô isometry
+## 4. 二乗平均を保存する等長性
 
 <a id="thm-sto6-ito-isometry-simple"></a>
 
@@ -688,7 +688,7 @@ $$
 
 $V$ は閉空間なので $1_U\in V$、従って $U\in\mathcal C$ です。
 
-以上より $\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じる Dynkin 族です。一方 $\mathcal A$ は algebra なので π-system でもあり、
+以上より $\mathcal C$ は全体集合を含み、補集合と互いに素な可算和に閉じます。一方 $\mathcal A$ は algebra なので π-system でもあり、
 
 $$
 \sigma(\mathcal A)=\mathcal P.
@@ -1359,7 +1359,7 @@ $$
 
 ---
 
-## 11. locally square-integrable integrand
+## 11. global $L^2$ 条件を localization で外す
 
 global $L^2$ 条件は便利ですが、SDE では係数が bounded でないことが普通です。そこで stopping で有限化します。
 
@@ -1748,9 +1748,9 @@ random integrand のとき、積分は一般には Gaussian ではありませ�
 
 ---
 
-## 13. BDG inequality：標本路の大きさと bracket の大きさ
+## 13. 最大過程と bracket の高次 moment を比較する
 
-Doob $L^2$ inequality は終端値を通して 標本路 supremum を抑えました。BDG inequality はさらに直接 bracket と比較します。
+Doob $L^2$ inequality は終端値を通して標本路 supremum を抑えました。次の定理はさらに最大過程を bracket と直接比較します。
 
 <a id="thm-sto6-bdg"></a>
 
