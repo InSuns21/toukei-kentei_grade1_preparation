@@ -539,7 +539,7 @@ $$
 
 を示し、可算加法性まで上げる必要があります。
 
-節冒頭の compact 内部近似補題を使って、cylinder premeasure の可算加法性を閉じます。
+[有限 Borel 測度の compact 内部近似](#lem-sto3-finite-borel-compact-approximation)を使って、cylinder premeasure の可算加法性を閉じます。
 
 <!-- proof-start -->
 ### Kolmogorov 拡張定理の証明
@@ -690,7 +690,7 @@ $$
 
 となるように取ります。
 
-有限次元 compact 近似補題から、各 $n$ に compact 集合
+[有限 Borel 測度の compact 内部近似](#lem-sto3-finite-borel-compact-approximation)から、各 $n$ に compact 集合
 
 $$
 K_n\subset B_n
@@ -911,7 +911,7 @@ $$
 
 #### Step 5：Carathéodory 拡張
 
-[D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
+[D4 の拡張結果](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
 
 $$
 \sigma(\mathcal C)=\mathcal F^\ast
