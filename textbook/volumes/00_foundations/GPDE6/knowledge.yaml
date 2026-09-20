@@ -9,7 +9,7 @@ concepts:
   - id: sobolev.hminus1
     name: "H^{-1}(Omega)"
     kind: definition
-    aliases: ["Hminus1", "H minus one space", "dual of H_0^1"]
+    aliases: ["Hminus1", "Hminus1 空間", "H minus one space", "dual of H_0^1"]
     introduction: formal
     introduction_aliases: ["定義（Hminus1 空間）"]
     requires:
@@ -101,11 +101,11 @@ concepts:
       - variational.coercive-bilinear-form
 
   - id: functional.weak-lsc-hilbert-norm
-    name: Hilbert normの弱liminf評価
+    name: Hilbert normの弱収束時評価
     kind: lemma
-    aliases: ["weak liminf estimate for Hilbert norm"]
+    aliases: ["weak-limit norm estimate"]
     introduction: formal
-    introduction_aliases: ["補題（Hilbert norm の弱 liminf 評価）"]
+    introduction_aliases: ["補題（Hilbert norm の弱収束時の norm 評価）"]
 
   - id: pde.poisson-direct-method
     name: Poisson変分問題の直接法による存在一意性
