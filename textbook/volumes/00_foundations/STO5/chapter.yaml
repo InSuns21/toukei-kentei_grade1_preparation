@@ -32,6 +32,7 @@ theorems:
   - { id: STO5-PROP-02, name: "continuous finite-variation processのquadratic variationは0" }
   - { id: STO5-THM-01, name: "Brown運動のquadratic variation" }
   - { id: STO5-THM-02, name: "continuous local martingaleのquadratic variation theorem" }
+  - { id: STO5-LEM-01, name: "continuous local martingaleかつfinite variationなら定数" }
   - { id: STO5-PROP-03, name: "covariationとproduct local martingale" }
   - { id: STO5-PROP-04, name: "finite variation partはquadratic variationへ寄与しない" }
   - { id: STO5-THM-03, name: "continuous semimartingale分解の一意性" }
