@@ -99,6 +99,17 @@ concepts:
       - stochastic.continuous-local-martingale
       - stochastic.quadratic-variation
 
+  - id: stochastic.finite-variation-local-martingale-constant
+    name: continuous local martingaleかつfinite variationなら定数
+    kind: lemma
+    aliases: ["finite variation local martingale is constant", "continuous local martingale of finite variation is constant"]
+    introduction: formal
+    introduction_aliases: ["補題（continuous local martingale かつ finite variation なら定数）"]
+    requires:
+      - stochastic.continuous-local-martingale
+      - stochastic.finite-variation-zero-qv
+      - stochastic.continuous-local-martingale-qv
+
   - id: stochastic.covariation
     name: covariation
     kind: definition
