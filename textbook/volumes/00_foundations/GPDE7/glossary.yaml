@@ -1,0 +1,26 @@
+chapter: "GPDE7"
+terms:
+  - term: Lax--Milgram theorem
+    english: Lax--Milgram theorem
+    meaning: 実Hilbert空間上のboundedかつcoerciveな双線形形式aとF∈V*に対し、a(u,v)=F(v)を全てのvで満たすuの存在一意性と安定性を保証する定理。
+  - term: Riesz operator representation
+    english: Riesz operator representation
+    meaning: 各uに対する連続線形汎関数v↦a(u,v)をRiesz表現し、a(u,v)=<Au,v>となる有界線形作用素Aを作ること。
+  - term: lower bound
+    english: operator lower bound
+    meaning: ||Au||>=alpha||u||の形の評価。coercivityから得られ、単射性・range閉性・逆作用素の安定性を同時に支える。
+  - term: range
+    english: range
+    meaning: 作用素Aが実際に到達する値全体Ran A={Au:u∈V}。Lax--MilgramではclosedかつdenseであることからRan A=Vを示す。
+  - term: closed range
+    english: closed range
+    meaning: Ran A内の収束列の極限が再びRan Aに属する性質。下からの評価とVの完備性から導く。
+  - term: dense range
+    english: dense range
+    meaning: Ran Aの閉包がV全体になる性質。Lax--Milgramでは(Ran A)^perp={0}をcoercivityから示して導く。
+  - term: nonsymmetric coercive form
+    english: nonsymmetric coercive bilinear form
+    meaning: a(u,v)=a(v,u)を満たさなくてもa(v,v)>=alpha||v||^2を満たす双線形形式。Lax--Milgramには対称性は不要。
+  - term: solution operator
+    english: solution operator
+    meaning: F∈V*をLax--Milgram解u∈Vへ送る写像。安定性評価からV*からVへの有界線形作用素になる。
