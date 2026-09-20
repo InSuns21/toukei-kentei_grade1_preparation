@@ -101,11 +101,11 @@ concepts:
       - variational.coercive-bilinear-form
 
   - id: functional.weak-lsc-hilbert-norm
-    name: Hilbert normの弱下半連続性
+    name: Hilbert normの弱liminf評価
     kind: lemma
-    aliases: ["weak lower semicontinuity of Hilbert norm", "weak lsc of norm"]
+    aliases: ["weak liminf estimate for Hilbert norm"]
     introduction: formal
-    introduction_aliases: ["補題（Hilbert norm の弱下半連続性）"]
+    introduction_aliases: ["補題（Hilbert norm の弱 liminf 評価）"]
 
   - id: pde.poisson-direct-method
     name: Poisson変分問題の直接法による存在一意性
