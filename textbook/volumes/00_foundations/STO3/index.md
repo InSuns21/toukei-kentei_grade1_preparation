@@ -155,7 +155,7 @@ $$
 
 有限次元分布を一つの過程へまとめるため、標本空間そのものを「全ての経路」にします。
 
-<a id="def-sto3-canonical-path-space"></a>
+<a id="def-sto3-canonical-trajectory-space"></a>
 
 <!-- formal-statement-start -->
 > **定義（canonical 経路空間と cylinder set）**  
@@ -201,7 +201,7 @@ $\mathcal F^\ast$ は cylinder set 全体が生成する $\sigma$ 代数です�
 
 ここで大切なのは、$\Omega^\ast$ に入る経路の大半が連続でなくても構わないことです。まず「有限次元分布を持つ過程を存在させる」仕事だけを行います。連続性は後半で別に回収します。
 
-<!-- definition-example-start: def-sto3-canonical-path-space -->
+<!-- definition-example-start: def-sto3-canonical-trajectory-space -->
 ### 直接例：二時刻だけを観測する cylinder
 
 **定義の確認**
