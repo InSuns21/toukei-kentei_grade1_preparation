@@ -126,3 +126,14 @@ concepts:
     requires:
       - stochastic.continuous-local-martingale-qv
       - stochastic.continuous-doob-l2
+
+  - id: stochastic.deterministic-brownian-integral-gaussian
+    name: deterministic Brownian integralはGaussian
+    kind: proposition
+    aliases: ["Gaussian Wiener integral", "deterministic Brownian stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["命題（deterministic Brownian integral は Gaussian）"]
+    requires:
+      - stochastic.stochastic-integral-l2
+      - stochastic.brownian-motion
+      - stochastic.brownian-quadratic-variation
