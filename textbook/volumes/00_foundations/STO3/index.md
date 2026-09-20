@@ -235,78 +235,7 @@ $$
 
 ## 3. 整合的な有限時刻分布を全時刻へ拡張する
 
-<a id="thm-sto3-kolmogorov-extension"></a>
-
-<!-- formal-statement-start -->
-> **定理（Kolmogorov 拡張定理：実数値版）**  
-> $T$ を任意の集合とする。各有限集合 $I\subset T$ に対して $\mathbb R^I$ 上の確率測度 $\mu_I$ が与えられ、族 $(\mu_I)$ が
->
-$$
-\mu_I=\mu_J\circ\pi_{J,I}^{-1}
-\qquad
-(I\subset J,\ I,J\text{ finite})
-$$
->
-> を満たすとする。
->
-> このとき canonical 経路空間
->
-$$
-\Omega^\ast=\mathbb R^T,
-\qquad
-\mathcal F^\ast=\sigma(X_t^\ast:t\in T)
-$$
->
-> 上に一意な確率測度 $P^\ast$ が存在し、全ての有限集合 $I\subset T$ について
->
-$$
-P^\ast\circ (X_t^\ast)_{t\in I}^{-1}
-=
-\mu_I
-$$
->
-> が成り立つ。
-<!-- formal-statement-end -->
-
-この定理の意味は強力です。
-
-有限個の時刻を選ぶたびに矛盾なく同時分布を指定できれば、**全時刻を同時に持つ確率過程が存在する**ことが分かります。
-
-ただし、定理が作るのは
-
-$$
-(\Omega^\ast,\mathcal F^\ast,P^\ast),
-\qquad
-X_t^\ast(\omega)=\omega(t)
-$$
-
-という過程までです。標本路が連続であるとは一言も言っていません。
-
-### 証明の見取り図
-
-証明は三段階です。
-
-1. cylinder set に有限次元分布から確率を入れる。
-2. その確率が premeasure であることを示す。
-3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
-
-最も非自明なのは 2 です。
-
-有限加法性だけでは D4 の測度拡張定理を使えません。cylinder set の減少列
-
-$$
-A_n\downarrow\varnothing
-$$
-
-に対し
-
-$$
-\mu_0(A_n)\downarrow0
-$$
-
-を示し、可算加法性まで上げる必要があります。
-
-そのために、有限次元の Borel 確率測度を compact 集合で内側から近似します。
+無限個の時刻へ進む前に、有限次元の Borel 確率測度を compact 集合で内側から近似できることを先に閉じます。これは後で cylinder 上の有限加法性を可算加法性へ上げる核心です。
 
 <a id="lem-sto3-finite-borel-compact-approximation"></a>
 
@@ -539,7 +468,78 @@ $$
 これで補題を得ます。
 <!-- proof-end -->
 
-この補題を使って cylinder premeasure の可算加法性を閉じます。
+<a id="thm-sto3-kolmogorov-extension"></a>
+
+<!-- formal-statement-start -->
+> **定理（Kolmogorov 拡張定理：実数値版）**  
+> $T$ を任意の集合とする。各有限集合 $I\subset T$ に対して $\mathbb R^I$ 上の確率測度 $\mu_I$ が与えられ、族 $(\mu_I)$ が
+>
+$$
+\mu_I=\mu_J\circ\pi_{J,I}^{-1}
+\qquad
+(I\subset J,\ I,J\text{ finite})
+$$
+>
+> を満たすとする。
+>
+> このとき canonical 経路空間
+>
+$$
+\Omega^\ast=\mathbb R^T,
+\qquad
+\mathcal F^\ast=\sigma(X_t^\ast:t\in T)
+$$
+>
+> 上に一意な確率測度 $P^\ast$ が存在し、全ての有限集合 $I\subset T$ について
+>
+$$
+P^\ast\circ (X_t^\ast)_{t\in I}^{-1}
+=
+\mu_I
+$$
+>
+> が成り立つ。
+<!-- formal-statement-end -->
+
+この定理の意味は強力です。
+
+有限個の時刻を選ぶたびに矛盾なく同時分布を指定できれば、**全時刻を同時に持つ確率過程が存在する**ことが分かります。
+
+ただし、定理が作るのは
+
+$$
+(\Omega^\ast,\mathcal F^\ast,P^\ast),
+\qquad
+X_t^\ast(\omega)=\omega(t)
+$$
+
+という過程までです。標本路が連続であるとは一言も言っていません。
+
+### 証明の見取り図
+
+証明は三段階です。
+
+1. cylinder set に有限次元分布から確率を入れる。
+2. その確率が premeasure であることを示す。
+3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
+
+最も非自明なのは 2 です。
+
+有限加法性だけでは D4 の測度拡張定理を使えません。cylinder set の減少列
+
+$$
+A_n\downarrow\varnothing
+$$
+
+に対し
+
+$$
+\mu_0(A_n)\downarrow0
+$$
+
+を示し、可算加法性まで上げる必要があります。
+
+節冒頭の compact 内部近似補題を使って、cylinder premeasure の可算加法性を閉じます。
 
 <!-- proof-start -->
 ### Kolmogorov 拡張定理の証明
