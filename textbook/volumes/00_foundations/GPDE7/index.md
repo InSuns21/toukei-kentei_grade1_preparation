@@ -1134,7 +1134,7 @@ $$
 
 ---
 
-## 9. Lax--Milgram 定理を一本につなぐ
+## 9. 主定理を一本につなぐ
 
 <a id="thm-gpde7-lax-milgram"></a>
 
