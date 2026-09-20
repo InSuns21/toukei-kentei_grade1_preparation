@@ -1110,13 +1110,13 @@ $$
 
 ---
 
-## 10. Brownian path は finite variation ではない
+## 10. Brownian 標本路は finite variation ではない
 
 <a id="cor-sto5-brownian-infinite-variation"></a>
 
 <!-- formal-statement-start -->
-> **系（Brownian path は有限変動ではない）**  
-> 任意の $T>0$ に対し、standard Brownian motion の path は almost surely $[0,T]$ 上 finite variation ではない。
+> **系（Brownian 標本路は有限変動ではない）**  
+> 任意の $T>0$ に対し、standard Brownian motion の標本路は almost surely $[0,T]$ 上 finite variation ではない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1162,7 +1162,7 @@ $$
 P(E)=0.
 $$
 
-従って Brownian path は almost surely $[0,T]$ 上 finite variation ではありません。
+従って Brownian 標本路は almost surely $[0,T]$ 上 finite variation ではありません。
 <!-- proof-end -->
 
 連続なのに finite variation ではない。ここが通常の Riemann--Stieltjes calculus だけでは Brownian motion を扱えない理由です。
@@ -1525,7 +1525,7 @@ Lévy characterization は重要です。「Brown 運動らしい increment law�
 
 ## 12. なぜ通常の連鎖律が壊れるのか
 
-smooth path $x$ なら Taylor 展開
+smooth function $x$ なら Taylor 展開
 
 $$
 f(x+\Delta x)-f(x)
@@ -1631,7 +1631,7 @@ $$
 - Level: A
 - 目安時間: 10分
 
-continuous finite-variation path $a:[0,T]\to\mathbb R$ と分割 $\pi$ に対し
+continuous finite-variation function $a:[0,T]\to\mathbb R$ と分割 $\pi$ に対し
 
 $$
 \sum_k(\Delta_ka)^2
@@ -2094,7 +2094,7 @@ $M_0=0$ と標本路の連続性も仮定されているので、$M$ は standar
 
 - continuous martingale と local martingale の違いを stopping で説明できる。
 - ucp convergence が固定時刻収束より強い process-level の収束であると説明できる。
-- finite variation path の quadratic variation が 0 になる評価を書ける。
+- finite variation function の quadratic variation が 0 になる評価を書ける。
 - Brownian quadratic variation $[B]_t=t$ を一般分割で $L^2$ 計算できる。
 - continuous local martingale の quadratic variation theorem で、技術的入力と本章内で閉じた帰結を区別できる。
 - polarization から covariation を構成し、$MN-[M,N]$ の local martingale 性を導ける。
