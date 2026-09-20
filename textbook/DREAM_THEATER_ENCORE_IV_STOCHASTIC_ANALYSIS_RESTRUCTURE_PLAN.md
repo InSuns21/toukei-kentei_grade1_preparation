@@ -585,7 +585,7 @@ ARMA / ergodicity / Kalman
 
 最終更新: 2026-09-20
 
-- Phase 0：着手。
-- 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替える。
+- Phase 0「ルーティングと設計台帳」：完了。
+- 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替え、reader-facing index と目次から除外した。
 - 新系列 ID を STO1--STO14 / TSA1--TSA6 として固定。
 - 現在地：Phase 0 完了後、最初の実装対象は STO1「確率過程・filtration・stopping time」。
