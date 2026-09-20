@@ -68,7 +68,7 @@ $$
 adaptedness と integrability は飾りではありません。条件付き期待値
 $E[X_{n+1}\mid\mathcal F_n]$ を現在値 $X_n$ と比較するために必要です。
 
-martingale なら tower property により、$m\ge n$ に対して
+martingale なら [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) により、$m\ge n$ に対して
 
 $$
 E[M_m\mid\mathcal F_n]=M_n.
@@ -406,7 +406,7 @@ $$
 
 を、$\sigma$ から $\tau$ の間だけ増分を足す telescoping sum にします。
 
-次に $A\in\mathcal F_\sigma$ を固定します。STO1 の stopping-time sigma-field の定義により
+次に $A\in\mathcal F_\sigma$ を固定します。STO1 の [stopping time までの sigma-field](../STO1/index.md#def-sto1-stopping-sigma-field) により
 
 $$
 A\cap\{\sigma\le k\}\in\mathcal F_k.
@@ -688,7 +688,7 @@ $$
 
 とし、$\sigma=\tau\wedge n$ とします。
 
-$A=\{\tau\le n\}$ 上では $X_\sigma\ge\lambda$ です。bounded optional sampling を $\sigma\le n$ に使い、$A$ 上で積分します。
+$A=\{\tau\le n\}$ 上では $X_\sigma\ge\lambda$ です。[bounded optional sampling](#thm-sto2-bounded-optional-sampling) を $\sigma\le n$ に使い、$A$ 上で積分します。
 
 <!-- proof-start -->
 ### 証明
@@ -715,7 +715,7 @@ $$
 
 $k\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_k$ です。
 
-bounded optional sampling より
+[bounded optional sampling](#thm-sto2-bounded-optional-sampling) より
 
 $$
 E[X_n\mid\mathcal F_\sigma]\ge X_\sigma.
@@ -956,7 +956,7 @@ $
 cU_n[a,b].
 $
 
-次に $K_k:=1-H_k$ と置きます。$K$ も非負 bounded predictable です。predictable transform の命題から $K\cdot Y$ は submartingale で、初期値 0 なので
+次に $K_k:=1-H_k$ と置きます。$K$ も非負 bounded predictable です。[predictable transform の命題](#prop-sto2-predictable-transform) から $K\cdot Y$ は submartingale で、初期値 0 なので
 
 $$
 E[(K\cdot Y)_n]\ge0.
@@ -1360,7 +1360,7 @@ $$
 \tau_n:=\tau\wedge n
 $$
 
-へ bounded optional sampling を使って
+へ [bounded optional sampling](#thm-sto2-bounded-optional-sampling) を使って
 
 $$
 E[M_{\tau_n}]=E[M_0]
@@ -1591,7 +1591,8 @@ $$
 
 # 12. 演習 A
 
-## STO2-A01 二乗補正 martingale
+#### STO2-A01 二乗補正 martingale
+- Level: A
 
 独立な確率変数 $\xi_k$ が
 
@@ -1664,7 +1665,8 @@ $$
 したがって $M$ は martingale です。
 <!-- solution-end -->
 
-## STO2-A02 stopped martingale の差分
+#### STO2-A02 stopped martingale の差分
+- Level: A
 
 $M$ を martingale、$\tau$ を stopping time とする。
 
@@ -1714,7 +1716,8 @@ $$
 従って $M^\tau$ は martingale です。
 <!-- solution-end -->
 
-## STO2-A03 $S_n^2$ の Doob decomposition
+#### STO2-A03 $S_n^2$ の Doob decomposition
+- Level: A
 
 公平単純ランダムウォーク $S_n$ に対し
 
@@ -1792,7 +1795,8 @@ $$
 が Doob decomposition です。
 <!-- solution-end -->
 
-## STO2-A04 Doob maximal inequalityで random walk の最大偏差を抑える
+#### STO2-A04 Doob maximal inequalityで random walk の最大偏差を抑える
+- Level: A
 
 公平単純ランダムウォーク $S_n$ について、任意の $r>0$ に対し
 
@@ -1861,7 +1865,8 @@ $$
 
 # 13. 演習 B
 
-## STO2-B01 gambler's ruin と bounded optional sampling
+#### STO2-B01 gambler's ruin と bounded optional sampling
+- Level: B
 
 $S_0=i$、$0<i<a$ とし、$S_n$ を $\pm1$ の公平単純ランダムウォークとする。
 
@@ -1877,7 +1882,7 @@ $$
 P_i(S_\tau=a)=\frac{i}{a}
 $$
 
-を bounded optional sampling から導け。
+を [bounded optional sampling](#thm-sto2-bounded-optional-sampling) から導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1911,7 +1916,7 @@ $$
 
 です。
 
-一様な bound $a$ があるので優収束定理により
+一様な bound $a$ があるので[優収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#thm-f0-00d2b-01) により
 
 $$
 E_i[S_\tau]
@@ -1940,7 +1945,8 @@ $$
 ここでは非有界 $\tau$ へ直接 optional stopping を適用したのではなく、$\tau\wedge N$ へ適用した後、$0\le S_{\tau_N}\le a$ という支配で極限交換を正当化しています。
 <!-- solution-end -->
 
-## STO2-B02 upcrossing から a.s.収束へ
+#### STO2-B02 upcrossing から a.s.収束へ
+- Level: B
 
 $X_n$ を submartingale とし
 
@@ -1973,7 +1979,7 @@ $$
 
 **1. upcrossing 回数。**
 
-Doob upcrossing inequality から
+[Doob upcrossing inequality](#thm-sto2-upcrossing) から
 
 $$
 (b-a)E[U_n[a,b]]
@@ -1987,7 +1993,7 @@ $$
 U_n[a,b]\uparrow U_\infty[a,b].
 $$
 
-単調収束定理より
+[単調収束定理](../F0_00D2B_単調収束_Fatou_優収束/index.md#ref-limit-integral-exchange) より
 
 $$
 E[U_\infty[a,b]]
@@ -2058,7 +2064,8 @@ $
 従って $X_\infty$ は有限 a.s. で $L^1$ に属します。
 <!-- solution-end -->
 
-## STO2-B03 条件付き期待値 martingale の UI と極限
+#### STO2-B03 条件付き期待値 martingale の UI と極限
+- Level: B
 
 $Z\in L^1$、$\mathcal F_0\subseteq\mathcal F_1\subseteq\cdots$ とし
 
@@ -2090,7 +2097,7 @@ E|Z|
 <\infty.
 $$
 
-また tower property より
+また [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) より
 
 $$
 \begin{aligned}
@@ -2143,7 +2150,8 @@ $$
 
 # 14. 演習 C
 
-## STO2-C01 倍賭け反例を最後まで監査する
+#### STO2-C01 倍賭け反例を最後まで監査する
+- Level: C
 
 公平コイン $\xi_k\in\{-1,1\}$ に対し
 
@@ -2350,7 +2358,7 @@ $$
 - martingale / submartingale / supermartingale の三条件を有限例で直接確認できる。
 - predictable が「次増分を見る前に係数が決まる」ことを数式で説明できる。
 - stopped process の差分表示から martingale 性を証明できる。
-- bounded optional sampling を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
+- [bounded optional sampling](#thm-sto2-bounded-optional-sampling) を $\mathcal F_\sigma$ に関する条件付き等式・不等式まで証明できる。
 - Doob decomposition の compensator を条件付き平均増分から構成し、一意性を示せる。
 - Doob maximal inequality で 標本路 最大値の確率を終端分布から評価できる。
 - upcrossing number を 標本路上で数え、predictable strategy から upcrossing inequality を証明できる。
