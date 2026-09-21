@@ -65,19 +65,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（特異値・右特異ベクトル）**  
 > $A\in\mathbb R^{m\times n}$ とし、$v_i$ を $A^{\mathsf T}A$ の単位固有ベクトル、
->
-> $$
-> A^{\mathsf T}Av_i=\lambda_i v_i,
-> \qquad
-> \lambda_i\ge0
-> $$
->
+
+$$
+A^{\mathsf T}Av_i=\lambda_i v_i,
+\qquad
+\lambda_i\ge0
+$$
+
 > とする。このとき
->
-> $$
-> \sigma_i=\sqrt{\lambda_i}
-> $$
->
+
+$$
+\sigma_i=\sqrt{\lambda_i}
+$$
+
 > を $A$ の **特異値**、$v_i$ を対応する **右特異ベクトル** といいます。
 <!-- formal-statement-end -->
 
@@ -153,11 +153,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（左特異ベクトル）**  
 > $\sigma_i>0$ に対応する右特異ベクトル $v_i$ に対して
->
-> $$
-> u_i=\frac{Av_i}{\sigma_i}
-> $$
->
+
+$$
+u_i=\frac{Av_i}{\sigma_i}
+$$
+
 > と定めた単位ベクトル $u_i$ を、$\sigma_i$ に対応する **左特異ベクトル** といいます。
 <!-- formal-statement-end -->
 
@@ -208,11 +208,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（特異値分解）**  
 > 任意の実行列 $A\in\mathbb R^{m\times n}$ は、正の特異値の個数を $r$ とすると
->
-> $$
-> A=U_r\Sigma_rV_r^{\mathsf T}
-> $$
->
+
+$$
+A=U_r\Sigma_rV_r^{\mathsf T}
+$$
+
 > と表せる。$U_r,V_r$ の列はそれぞれ正規直交し、$\Sigma_r$ は正の特異値を並べた対角行列である。
 <!-- formal-statement-end -->
 
@@ -335,25 +335,25 @@ $$
 <!-- formal-statement-start -->
 > **命題（rank と非零特異値）**  
 > $A\in\mathbb R^{m\times n}$ の正の特異値の個数を $r$ とする。このとき
->
-> $$
-> \operatorname{rank}(A)=r,
-> $$
->
+
+$$
+\operatorname{rank}(A)=r,
+$$
+
 > また
->
-> $$
-> \operatorname{Im}A
-> =
-> \operatorname{span}(u_1,\dots,u_r),
-> $$
->
-> $$
-> \ker A
-> =
-> \operatorname{span}(v_{r+1},\dots,v_n)
-> $$
->
+
+$$
+\operatorname{Im}A
+=
+\operatorname{span}(u_1,\dots,u_r),
+$$
+
+$$
+\ker A
+=
+\operatorname{span}(v_{r+1},\dots,v_n)
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -393,15 +393,15 @@ $$
 <!-- formal-statement-start -->
 > **定義（作用素ノルム）**  
 > 線形写像 $A:\mathbb R^n\to\mathbb R^m$ のEuclidノルムに関する **作用素ノルム** を
->
-> $$
-> \|A\|_{\mathrm{op}}
-> =
-> \sup_{x\ne0}\frac{\|Ax\|}{\|x\|}
-> =
-> \sup_{\|x\|=1}\|Ax\|
-> $$
->
+
+$$
+\|A\|_{\mathrm{op}}
+=
+\sup_{x\ne0}\frac{\|Ax\|}{\|x\|}
+=
+\sup_{\|x\|=1}\|Ax\|
+$$
+
 > と定めます。
 <!-- formal-statement-end -->
 
@@ -427,10 +427,10 @@ $$
 <!-- formal-statement-start -->
 > **定理（2-作用素ノルムと最大特異値）**  
 > 実行列 $A$ の最大特異値を $\sigma_1$ とすると
->
-> $$
-> \|A\|_{\mathrm{op}}=\sigma_1.
-> $$
+
+$$
+\|A\|_{\mathrm{op}}=\sigma_1.
+$$
 <!-- formal-statement-end -->
 
 任意の $x$ を右特異ベクトル基底で
