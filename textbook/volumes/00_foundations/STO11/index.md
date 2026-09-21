@@ -434,7 +434,7 @@ $$
 
 ブラウン運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立なブラウン運動です。
 
-STO9 の Picard 構成は各反復を初期値とブラウン標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに大域 Lipschitz 存在・経路ごとの一意性定理により、固定した初期値 $y$ とブラウン運動 $\widetilde W$ に対する solution は一意です。
+STO9 の Picard 構成は各反復を初期値とブラウン標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに[大域 Lipschitz SDE の強解の存在・経路ごとの一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness)により、固定した初期値 $y$ とブラウン運動 $\widetilde W$ に対する solution は一意です。
 
 したがって $\mathcal F_s$ を条件にしたとき、未来の標本路 $(Y_r)_{r\ge0}$ の条件付き法則は現在値 $X_s^x$ と独立な future 雑音 $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution 法則に一致します。
 
@@ -598,7 +598,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 \begin{aligned}
@@ -722,7 +722,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 f(X_t)
@@ -1198,7 +1198,7 @@ $$
 
 $D$ は有限 variation なので $[D,u(\cdot,X)]=0$ です。
 
-時間依存 Itô 公式から
+[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)から
 
 $$
 du(s,X_s)
@@ -1361,7 +1361,7 @@ $$
 
 とします。
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 f(B_t)-f(B_0)
@@ -1427,14 +1427,14 @@ $$
 
 これは拡散生成作用素の計算を標本路法則の言葉へ移したものです。
 
-Itô 公式からドリフト部分を左辺へ移せば確率積分だけが残ります。
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)からドリフト部分を左辺へ移せば確率積分だけが残ります。
 
 <!-- proof-start -->
 ### 証明
 
 $f\in C_c^\infty$ を固定します。
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 f(X_t)-f(X_0)
