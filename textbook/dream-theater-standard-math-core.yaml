@@ -539,6 +539,14 @@ nodes:
     implemented_at: 2026-09-09
     implementation_path: textbook/volumes/00_foundations/CA6/index.md
     prerequisites: [CA5, LA3B]
+  - id: CA7
+    title: 正則関数列・正規族・Riemann 写像定理
+    area: complex-analysis
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/CA7/index.md
+    prerequisites: [CA6, TOP5]
   - id: FA5
     title: spectrum・resolvent
     area: functional-analysis
@@ -582,7 +590,7 @@ implementation_batches:
     nodes: [FA1, FA2, FA3, FA4]
   - order: 6
     id: complex-analysis-core
-    nodes: [CA1, CA2, CA3, CA4, CA5, CA6]
+    nodes: [CA1, CA2, CA3, CA4, CA5, CA6, CA7]
   - order: 7
     id: functional-analysis-spectral
     nodes: [FA5, FA6, FA7]
