@@ -169,15 +169,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（実対称行列の異なる固有空間は直交する）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ の固有ベクトル $u,v\ne0$ が
->
-> $$
-> Au=\lambda u,
-> \qquad
-> Av=\mu v,
-> \qquad
-> \lambda\ne\mu
-> $$
->
+
+$$
+Au=\lambda u,
+\qquad
+Av=\mu v,
+\qquad
+\lambda\ne\mu
+$$
+
 > を満たすなら、$\langle u,v\rangle=0$ である。
 <!-- formal-statement-end -->
 
@@ -421,11 +421,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（実対称行列のスペクトル定理）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。従って、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
->
-> $$
-> A=Q\Lambda Q^{\mathsf T}
-> $$
->
+
+$$
+A=Q\Lambda Q^{\mathsf T}
+$$
+
 > と表せる。
 <!-- formal-statement-end -->
 
@@ -565,19 +565,19 @@ $$
 <!-- formal-statement-start -->
 > **定義（正定値・半正定値）**  
 > 実対称行列 $A\in\mathbb R^{n\times n}$ について
->
-> $$
-> x^{\mathsf T}Ax>0
-> \qquad(x\ne0)
-> $$
->
+
+$$
+x^{\mathsf T}Ax>0
+\qquad(x\ne0)
+$$
+
 > が成り立つとき $A$ は **正定値**、また
->
-> $$
-> x^{\mathsf T}Ax\ge0
-> \qquad(\forall x\in\mathbb R^n)
-> $$
->
+
+$$
+x^{\mathsf T}Ax\ge0
+\qquad(\forall x\in\mathbb R^n)
+$$
+
 > が成り立つとき $A$ は **半正定値** であるといいます。
 <!-- formal-statement-end -->
 
@@ -606,18 +606,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（正定値・半正定値の固有値判定）**  
 > 実対称行列 $A$ の固有値を $\lambda_1,\dots,\lambda_n$ とする。このとき
->
-> $$
-> A\succ0
-> \Longleftrightarrow
-> \lambda_i>0\quad(\forall i),
-> $$
->
-> $$
-> A\succeq0
-> \Longleftrightarrow
-> \lambda_i\ge0\quad(\forall i).
-> $$
+
+$$
+A\succ0
+\Longleftrightarrow
+\lambda_i>0\quad(\forall i),
+$$
+
+$$
+A\succeq0
+\Longleftrightarrow
+\lambda_i\ge0\quad(\forall i).
+$$
 <!-- formal-statement-end -->
 
 スペクトル分解 $A=Q\Lambda Q^{\mathsf T}$ と $z=Q^{\mathsf T}x$ を使うと
@@ -645,27 +645,27 @@ $$
 <!-- formal-statement-start -->
 > **定理（半正定値行列の平方根）**  
 > 実対称半正定値行列 $A\in\mathbb R^{n\times n}$ に対して、実対称半正定値行列 $B$ で
->
-> $$
-> B^2=A
-> $$
->
+
+$$
+B^2=A
+$$
+
 > を満たすものが存在する。スペクトル分解
->
-> $$
-> A=Q\Lambda Q^{\mathsf T},
-> \qquad
-> \Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
-> $$
->
+
+$$
+A=Q\Lambda Q^{\mathsf T},
+\qquad
+\Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+$$
+
 > に対して
->
-> $$
-> B=Q\Lambda^{1/2}Q^{\mathsf T},
-> \qquad
-> \Lambda^{1/2}=\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})
-> $$
->
+
+$$
+B=Q\Lambda^{1/2}Q^{\mathsf T},
+\qquad
+\Lambda^{1/2}=\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})
+$$
+
 > と取れる。
 <!-- formal-statement-end -->
 
