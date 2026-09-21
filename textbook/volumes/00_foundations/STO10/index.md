@@ -93,44 +93,44 @@ $$
 >
 > 1. filtered probability space
 >
-> $$
-> (\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P),
-> $$
+$$
+(\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P),
+$$
 >
 > 2. この filtration に関する $m$ 次元 Brown 運動 $W$,
 > 3. continuous adapted $\mathbb R^d$-値 process $X$
 >
 > の組であって、
 >
-> $$
-> \mathcal L_P(X_0)=\mu,
-> $$
+$$
+\mathcal L_P(X_0)=\mu,
+$$
 >
 > 各 $t\le T$ について
 >
-> $$
-> \int_0^t
-> \left(
-> |b(X_s)|
-> +
-> \|\sigma(X_s)\|_{\mathrm F}^2
-> \right)ds
-> <
-> \infty
-> \qquad P\text{-a.s.},
-> $$
+$$
+\int_0^t
+\left(
+|b(X_s)|
++
+\|\sigma(X_s)\|_{\mathrm F}^2
+\right)ds
+<
+\infty
+\qquad P\text{-a.s.},
+$$
 >
 > かつ
 >
-> $$
-> X_t
-> =
-> X_0
-> +
-> \int_0^t b(X_s)\,ds
-> +
-> \int_0^t\sigma(X_s)\,dW_s
-> $$
+$$
+X_t
+=
+X_0
++
+\int_0^t b(X_s)\,ds
++
+\int_0^t\sigma(X_s)\,dW_s
+$$
 >
 > が全ての $t\in[0,T]$ で $P$-a.s. 成り立つものをいう。
 <!-- formal-statement-end -->
@@ -215,9 +215,9 @@ SDE の積分表示は同じように $P$-a.s. 満たします。違うのは **
 >
 > このとき、その同じ
 >
-> $$
-> (\Omega,\mathcal F,(\mathcal F_t),P,W,X)
-> $$
+$$
+(\Omega,\mathcal F,(\mathcal F_t),P,W,X)
+$$
 >
 > を用いれば $X$ は weak solution でもある。
 <!-- formal-statement-end -->
@@ -267,17 +267,17 @@ weak solution では、解を作るために都合のよい確率空間や Brown
 > **定義（同値な確率測度）**  
 > $(\Omega,\mathcal F_T)$ 上の確率測度 $P,Q$ が
 >
-> $$
-> P\ll Q
-> \qquad\text{かつ}\qquad
-> Q\ll P
-> $$
+$$
+P\ll Q
+\qquad\text{かつ}\qquad
+Q\ll P
+$$
 >
 > を満たすとき、$P,Q$ は **equivalent** であるといい
 >
-> $$
-> P\sim Q
-> $$
+$$
+P\sim Q
+$$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -288,19 +288,19 @@ weak solution では、解を作るために都合のよい確率空間や Brown
 > **定義（density process）**  
 > $Q\ll P$ とし、
 >
-> $$
-> Z_T
-> :=
-> \frac{dQ}{dP}
-> $$
+$$
+Z_T
+:=
+\frac{dQ}{dP}
+$$
 >
 > とする。filtration $(\mathcal F_t)_{0\le t\le T}$ に対して
 >
-> $$
-> Z_t
-> :=
-> E_P[Z_T\mid\mathcal F_t]
-> $$
+$$
+Z_t
+:=
+E_P[Z_T\mid\mathcal F_t]
+$$
 >
 > を **density process** と呼ぶ。
 <!-- formal-statement-end -->
@@ -448,27 +448,27 @@ $$
 > **命題（density process の martingale 性）**  
 > $Q\ll P$ とし
 >
-> $$
-> Z_T=\frac{dQ}{dP},
-> \qquad
-> Z_t=E_P[Z_T\mid\mathcal F_t]
-> $$
+$$
+Z_T=\frac{dQ}{dP},
+\qquad
+Z_t=E_P[Z_T\mid\mathcal F_t]
+$$
 >
 > とする。このとき $(Z_t)_{0\le t\le T}$ は非負 $P$-martingale で
 >
-> $$
-> E_P[Z_t]=1
-> $$
+$$
+E_P[Z_t]=1
+$$
 >
 > を満たす。
 >
 > さらに $Y$ が $\mathcal F_t$-可測で $Q$-可積分なら
 >
-> $$
-> E_Q[Y]
-> =
-> E_P[Z_tY].
-> $$
+$$
+E_Q[Y]
+=
+E_P[Z_tY].
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -656,24 +656,24 @@ $$
 > **補題（bounded quadratic energy なら stochastic exponential は真の martingale）**  
 > $M$ を $M_0=0$ の continuous local martingale とし、ある定数 $C<\infty$ に対して
 >
-> $$
-> [M]_T\le C
-> \qquad P\text{-a.s.}
-> $$
+$$
+[M]_T\le C
+\qquad P\text{-a.s.}
+$$
 >
 > とする。
 >
 > このとき
 >
-> $$
-> Z_t=\mathcal E(M)_t
-> $$
+$$
+Z_t=\mathcal E(M)_t
+$$
 >
 > は $[0,T]$ 上の真の martingale で、
 >
-> $$
-> E_P[Z_t]=1
-> $$
+$$
+E_P[Z_t]=1
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -854,47 +854,47 @@ $$
 > **定理（Novikov condition）**  
 > $W$ を $P$-Brownian motion とし、progressively measurable $\theta$ が
 >
-> $$
-> \int_0^T|\theta_s|^2ds<\infty
-> \qquad P\text{-a.s.}
-> $$
+$$
+\int_0^T|\theta_s|^2ds<\infty
+\qquad P\text{-a.s.}
+$$
 >
 > を満たすとする。
 >
 > さらに
 >
-> $$
-> \boxed{
-> E_P\left[
-> \exp\left(
-> \frac12
-> \int_0^T|\theta_s|^2ds
-> \right)
-> \right]
-> <
-> \infty
-> }
-> $$
+$$
+\boxed{
+E_P\left[
+\exp\left(
+\frac12
+\int_0^T|\theta_s|^2ds
+\right)
+\right]
+<
+\infty
+}
+$$
 >
 > と仮定する。
 >
 > このとき
 >
-> $$
-> Z_t
-> =
-> \exp\left(
-> -\int_0^t\theta_s^\top dW_s
-> -
-> \frac12\int_0^t|\theta_s|^2ds
-> \right)
-> $$
+$$
+Z_t
+=
+\exp\left(
+-\int_0^t\theta_s^\top dW_s
+-
+\frac12\int_0^t|\theta_s|^2ds
+\right)
+$$
 >
 > は $[0,T]$ 上の一様可積分な $P$-martingale であり
 >
-> $$
-> E_P[Z_T]=1.
-> $$
+$$
+E_P[Z_T]=1.
+$$
 <!-- formal-statement-end -->
 
 この条件は stochastic exponential の martingale 性を保証しますが、必要条件ではありません。
@@ -1027,11 +1027,11 @@ $$
 >
 > このとき
 >
-> $$
-> \widetilde N_t
-> :=
-> N_t-[N,M]_t
-> $$
+$$
+\widetilde N_t
+:=
+N_t-[N,M]_t
+$$
 >
 > は continuous $Q$-local martingale である。
 <!-- formal-statement-end -->
@@ -1182,54 +1182,54 @@ $$
 > **定理（Girsanov theorem：Brownian drift shift）**  
 > $W=(W^1,\ldots,W^m)$ を filtered probability space
 >
-> $$
-> (\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P)
-> $$
+$$
+(\Omega,\mathcal F,(\mathcal F_t)_{0\le t\le T},P)
+$$
 >
 > 上の $m$ 次元 Brown 運動とする。
 >
 > progressively measurable $\mathbb R^m$-値 process $\theta$ が Novikov condition
 >
-> $$
-> E_P\left[
-> \exp\left(
-> \frac12\int_0^T|\theta_s|^2ds
-> \right)
-> \right]
-> <\infty
-> $$
+$$
+E_P\left[
+\exp\left(
+\frac12\int_0^T|\theta_s|^2ds
+\right)
+\right]
+<\infty
+$$
 >
 > を満たすとする。
 >
-> $$
-> Z_T
-> =
-> \exp\left(
-> -\int_0^T\theta_s^\top dW_s
-> -
-> \frac12\int_0^T|\theta_s|^2ds
-> \right)
-> $$
+$$
+Z_T
+=
+\exp\left(
+-\int_0^T\theta_s^\top dW_s
+-
+\frac12\int_0^T|\theta_s|^2ds
+\right)
+$$
 >
 > とし
 >
-> $$
-> Q(A)=E_P[Z_T\mathbf1_A],
-> \qquad
-> A\in\mathcal F_T
-> $$
+$$
+Q(A)=E_P[Z_T\mathbf1_A],
+\qquad
+A\in\mathcal F_T
+$$
 >
 > で $Q$ を定める。
 >
 > このとき $P\sim Q$ であり
 >
-> $$
-> \boxed{
-> W_t^Q
-> :=
-> W_t+\int_0^t\theta_s\,ds
-> }
-> $$
+$$
+\boxed{
+W_t^Q
+:=
+W_t+\int_0^t\theta_s\,ds
+}
+$$
 >
 > は $Q$ の下で $m$ 次元 Brown 運動である。
 <!-- formal-statement-end -->
@@ -1518,55 +1518,55 @@ Girsanov は Brownian motion の drift shift ですが、SDE へ代入すると 
 > **系（Girsanov による drift removal）**  
 > $P$ の下で
 >
-> $$
-> dX_t
-> =
-> b_t\,dt+\sigma_t\,dW_t
-> $$
+$$
+dX_t
+=
+b_t\,dt+\sigma_t\,dW_t
+$$
 >
 > が成り立つとする。ここで $W$ は $m$ 次元 Brown 運動、
 >
-> $$
-> b_t\in\mathbb R^d,
-> \qquad
-> \sigma_t\in\mathbb R^{d\times m}
-> $$
+$$
+b_t\in\mathbb R^d,
+\qquad
+\sigma_t\in\mathbb R^{d\times m}
+$$
 >
 > とする。
 >
 > progressively measurable $\theta_t\in\mathbb R^m$ が
 >
-> $$
-> b_t=\sigma_t\theta_t
-> $$
+$$
+b_t=\sigma_t\theta_t
+$$
 >
 > を満たし、$\theta$ が $[0,T]$ 上で Novikov condition を満たすとする。
 >
-> $$
-> \frac{dQ}{dP}
-> =
-> \exp\left(
-> -\int_0^T\theta_s^\top dW_s
-> -
-> \frac12\int_0^T|\theta_s|^2ds
-> \right)
-> $$
+$$
+\frac{dQ}{dP}
+=
+\exp\left(
+-\int_0^T\theta_s^\top dW_s
+-
+\frac12\int_0^T|\theta_s|^2ds
+\right)
+$$
 >
 > と置けば
 >
-> $$
-> W_t^Q
-> =
-> W_t+\int_0^t\theta_sds
-> $$
+$$
+W_t^Q
+=
+W_t+\int_0^t\theta_sds
+$$
 >
 > は $Q$-Brownian motion であり、$Q$ の下で
 >
-> $$
-> \boxed{
-> dX_t=\sigma_t\,dW_t^Q
-> }
-> $$
+$$
+\boxed{
+dX_t=\sigma_t\,dW_t^Q
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -1654,13 +1654,13 @@ Girsanov は「任意の drift を魔法のように消す」のではなく、*
 >
 > このとき
 >
-> $$
-> dX_t=b(X_t)\,dt+dB_t,
-> \qquad
-> X_0=x,
-> \qquad
-> 0\le t\le T
-> $$
+$$
+dX_t=b(X_t)\,dt+dB_t,
+\qquad
+X_0=x,
+\qquad
+0\le t\le T
+$$
 >
 > は weak solution を持つ。
 <!-- formal-statement-end -->
@@ -1991,41 +1991,41 @@ $$
 >
 > 同じ Brownian SDE に対する任意の二つの weak solutions
 >
-> $$
-> (\Omega,\mathcal F,(\mathcal F_t),P,W,X),
-> $$
+$$
+(\Omega,\mathcal F,(\mathcal F_t),P,W,X),
+$$
 >
-> $$
-> (\widetilde\Omega,\widetilde{\mathcal F},
-> (\widetilde{\mathcal F}_t),\widetilde P,
-> \widetilde W,\widetilde X)
-> $$
+$$
+(\widetilde\Omega,\widetilde{\mathcal F},
+(\widetilde{\mathcal F}_t),\widetilde P,
+\widetilde W,\widetilde X)
+$$
 >
 > が
 >
-> $$
-> \mathcal L_P(X_0)
-> =
-> \mathcal L_{\widetilde P}(\widetilde X_0)
-> =
-> \mu
-> $$
+$$
+\mathcal L_P(X_0)
+=
+\mathcal L_{\widetilde P}(\widetilde X_0)
+=
+\mu
+$$
 >
 > を満たすとき、連続関数空間
 >
-> $$
-> C([0,T],\mathbb R^d)
-> $$
+$$
+C([0,T],\mathbb R^d)
+$$
 >
 > 上で
 >
-> $$
-> \boxed{
-> \mathcal L_P(X)
-> =
-> \mathcal L_{\widetilde P}(\widetilde X)
-> }
-> $$
+$$
+\boxed{
+\mathcal L_P(X)
+=
+\mathcal L_{\widetilde P}(\widetilde X)
+}
+$$
 >
 > が必ず成り立つなら、その SDE は **uniqueness in law** を持つという。
 <!-- formal-statement-end -->
@@ -2107,9 +2107,9 @@ $$
 > **定理（Yamada--Watanabe theorem の位置付け）**  
 > Euclidean Brownian SDE
 >
-> $$
-> dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
-> $$
+$$
+dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
+$$
 >
 > を通常の filtered probability space の枠組みで考え、係数は drift / diffusion の各積分が well-defined となる Borel 可測係数とする。
 >
