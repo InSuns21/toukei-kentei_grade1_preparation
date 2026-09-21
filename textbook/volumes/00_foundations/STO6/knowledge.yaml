@@ -13,7 +13,7 @@ concepts:
     kind: definition
     aliases: ["elementary predictable process", "simple predictable process"]
     introduction: formal
-    introduction_aliases: ["定義（simple predictable integrand）"]
+    introduction_aliases: ["定義（単純予測可能被積分過程）"]
     requires:
       - stochastic.predictable-process
       - stochastic.filtration
@@ -23,7 +23,7 @@ concepts:
     kind: definition
     aliases: ["elementary stochastic integral", "simple martingale integral"]
     introduction: formal
-    introduction_aliases: ["定義（simple stochastic integral）"]
+    introduction_aliases: ["定義（単純確率積分）"]
     requires:
       - stochastic.simple-predictable-integrand
       - stochastic.continuous-local-martingale
@@ -33,7 +33,7 @@ concepts:
     kind: lemma
     aliases: ["square-integrable martingale bracket compensation", "M^2-[M] martingale"]
     introduction: formal
-    introduction_aliases: ["補題（square-integrable martingale の bracket compensation）"]
+    introduction_aliases: ["補題（square-integrable マルチンゲールのブラケット compensation）"]
     requires:
       - stochastic.continuous-local-martingale-qv
       - stochastic.continuous-bounded-optional-sampling
@@ -43,7 +43,7 @@ concepts:
     kind: theorem
     aliases: ["Ito isometry", "Itô isometry", "martingale integral isometry"]
     introduction: formal
-    introduction_aliases: ["定理（Itô isometry：simple predictable integrand）"]
+    introduction_aliases: ["定理（Itô 等長性：単純予測可能被積分過程）"]
     requires:
       - stochastic.simple-stochastic-integral
       - stochastic.square-integrable-bracket-compensation
@@ -53,7 +53,7 @@ concepts:
     kind: definition
     aliases: ["square-integrable predictable integrand", "L2 integrand"]
     introduction: formal
-    introduction_aliases: ["定義（L2(M) integrand）"]
+    introduction_aliases: ["定義（L2(M) 被積分過程）"]
     requires:
       - stochastic.simple-predictable-integrand
       - stochastic.continuous-local-martingale-qv
@@ -63,7 +63,7 @@ concepts:
     kind: lemma
     aliases: ["density of simple predictable processes"]
     introduction: formal
-    introduction_aliases: ["補題（simple predictable integrands の L2 density）"]
+    introduction_aliases: ["補題（単純予測可能 integrands の L2 density）"]
     requires:
       - stochastic.l2-m-integrand
 
@@ -72,7 +72,7 @@ concepts:
     kind: theorem
     aliases: ["L2 stochastic integral", "construction of stochastic integral"]
     introduction: formal
-    introduction_aliases: ["定理（L2 completion による stochastic integral の構成）"]
+    introduction_aliases: ["定理（L2 完備化による確率積分の構成）"]
     requires:
       - stochastic.ito-isometry-simple
       - stochastic.simple-predictable-density
@@ -92,7 +92,7 @@ concepts:
     kind: theorem
     aliases: ["bracket of stochastic integral", "[H dot M]"]
     introduction: formal
-    introduction_aliases: ["定理（stochastic integral の quadratic variation）"]
+    introduction_aliases: ["定理（確率積分の二次変分）"]
     requires:
       - stochastic.stochastic-integral-l2
       - stochastic.continuous-local-martingale-qv
@@ -102,7 +102,7 @@ concepts:
     kind: proposition
     aliases: ["stopping a stochastic integral", "stopped stochastic integral"]
     introduction: formal
-    introduction_aliases: ["命題（stopping と stochastic integral の交換）"]
+    introduction_aliases: ["命題（停止操作と確率積分の交換）"]
     requires:
       - stochastic.stochastic-integral-l2
       - stochastic.stopping-time
@@ -112,7 +112,7 @@ concepts:
     kind: definition
     aliases: ["local L2 integrand", "locally square integrable predictable process"]
     introduction: formal
-    introduction_aliases: ["定義（locally square-integrable integrand）"]
+    introduction_aliases: ["定義（locally square-integrable 被積分過程）"]
     requires:
       - stochastic.l2-m-integrand
       - stochastic.stopping-time
@@ -122,7 +122,7 @@ concepts:
     kind: theorem
     aliases: ["localized stochastic integral", "stochastic integral for local L2 integrands"]
     introduction: formal
-    introduction_aliases: ["定理（local stochastic integral）"]
+    introduction_aliases: ["定理（局所確率積分）"]
     requires:
       - stochastic.locally-square-integrable-integrand
       - stochastic.stochastic-integral-stopping
@@ -143,7 +143,7 @@ concepts:
     kind: proposition
     aliases: ["Gaussian Wiener integral", "deterministic Brownian stochastic integral"]
     introduction: formal
-    introduction_aliases: ["命題（deterministic Brownian integral は Gaussian）"]
+    introduction_aliases: ["命題（決定論的ブラウン integral はガウス）"]
     requires:
       - stochastic.stochastic-integral-l2
       - stochastic.brownian-motion
