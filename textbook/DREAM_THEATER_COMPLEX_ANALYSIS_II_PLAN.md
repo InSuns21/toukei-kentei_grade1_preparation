@@ -22,7 +22,7 @@
 
 新系列の主線は
 
-```text
+~~~text
 CA6
  ↓
 CA7 正則関数列・正規族・Riemann 写像
@@ -33,7 +33,7 @@ CA8 Riemann 面   CA10 無限積・Weierstrass・Mittag--Leffler
 CA9 楕円関数     CA11 Gamma 関数
                  ↓
                CA12 Riemann ζ 関数
-```
+~~~
 
 とする。
 
@@ -108,7 +108,7 @@ CA1--CA6 の「一つの正則関数」の理論から、「正則関数族の�
 
 Riemann 写像定理を名前だけ紹介せず、
 
-```text
+~~~text
 コンパクト集合上一様収束
   ↓ Cauchy積分公式・Cauchy評価
 極限の正則性・導関数列の収束
@@ -120,7 +120,7 @@ Montel の定理
 Hurwitz の定理
   ↓ 極値問題 + Schwarz の補題
 Riemann 写像定理
-```
+~~~
 
 を一つの論理鎖として閉じる。
 
@@ -152,7 +152,7 @@ Riemann 写像定理
 4. **Montel の定理**：領域上局所有界な正則関数族は正規族。
 5. **Hurwitz の定理**。
 6. 単射正則関数列の非定数局所一様極限は単射。
-7. **Riemann 写像定理**：空でない単連結真部分領域 (Omegasubsetneqmathbb C) は単位円板と双正則。
+7. **Riemann 写像定理**：空でない単連結真部分領域 \(\Omega\subsetneq\mathbb C\) は単位円板と双正則。
 8. 基点と微分の向きを固定した Riemann 写像の一意性。
 9. **Schwarz の鏡像原理**の標準形。
 
@@ -162,7 +162,7 @@ Montel の定理で一般 Arzelà--Ascoli 定理を未導入のまま黒箱に�
 
 - 閉円板上の一様有界性
 - Cauchy 評価による同程度連続性
-- 有限 (arepsilon)-net
+- 有限 \(\varepsilon\)-net
 - 点列部分列抽出
 - exhaustion と対角化
 
@@ -171,14 +171,14 @@ Montel の定理で一般 Arzelà--Ascoli 定理を未導入のまま黒箱に�
 Riemann 写像定理は「既知」とせず、標準的な extremal argument を核心まで証明する。
 
 - まず単連結真領域から単位円板への単射正則写像が少なくとも一つ存在することを、正則平方根／Möbius 変換を使って構成する。
-- 基点 (ainOmega) を固定し、(f(a)=0) の単射正則写像族で (|f'(a)|) を最大化する。
+- 基点 \(a\in\Omega\) を固定し、\(f(a)=0\) の単射正則写像族で \(|f'(a)|\) を最大化する。
 - Montel で極値写像を得る。
 - Hurwitz で単射性を極限へ移す。
-- 像が円板全体でないと仮定し、平方根を使う変形で (|f'(a)|) を改善して矛盾する。
+- 像が円板全体でないと仮定し、平方根を使う変形で \(|f'(a)|\) を改善して矛盾する。
 
 ### 3.5 直接例
 
-- (f_n(z)=z^n) の単位円板内と閉単位円板上での収束差。
+- \(f_n(z)=z^n\) の単位円板内と閉単位円板上での収束差。
 - 幾何級数を正規収束する正則関数級数として扱う例。
 - 円板自己同型族で Montel を確認する例。
 - 零点が極限でどう振る舞うかを見る Hurwitz の直接例。
@@ -225,14 +225,14 @@ CA5 で「平面領域上の解析接続」として扱った monodromy を、�
 - Riemann 球面の座標による再解釈
 - Riemann 面上の有理型関数
 - 零点・極・位数の座標不変性
-- 正則微分 (f(z),dz) の入口と座標変換
+- 正則微分 \(f(z)\,dz\) の入口と座標変換
 - 被覆写像
 - path lifting / homotopy lifting の必要な範囲
 - 正則被覆
 - 対数の Riemann 面
 - 平方根の Riemann 面
 - 解析接続と被覆の関係
-- 複素トーラス (mathbb C/Lambda)
+- 複素トーラス \(\mathbb C/\Lambda\)
 - 商位相から Riemann 面 atlas を作る手順
 - compact Riemann surface 上の正則関数の剛性
 
@@ -244,8 +244,8 @@ CA5 で「平面領域上の解析接続」として扱った monodromy を、�
 4. path lifting の一意性。
 5. 被覆に沿う解析接続の一意性。
 6. 対数・平方根の標準 Riemann 面の構成。
-7. 格子 (Lambdasubsetmathbb C) に対する (mathbb C/Lambda) がコンパクト Riemann 面になる。
-8. 連結コンパクト Riemann 面から (mathbb C) への正則関数は定数。
+7. 格子 \(\Lambda\subset\mathbb C\) に対する \(\mathbb C/\Lambda\) がコンパクト Riemann 面になる。
+8. 連結コンパクト Riemann 面から \(\mathbb C\) への正則関数は定数。
 
 ### 4.4 証明境界
 
@@ -255,7 +255,7 @@ Riemann 面は
 
 - Hausdorff
 - 第二可算
-- 各点が (mathbb C) の開集合と同相な近傍を持つ
+- 各点が \(\mathbb C\) の開集合と同相な近傍を持つ
 - 座標遷移が正則
 
 という定義から始める。
@@ -265,9 +265,9 @@ Riemann 面は
 ### 4.5 直接例
 
 - Riemann 球面の二枚の標準 chart。
-- (log z) の Riemann 面。
-- (w^2=z) の平方根曲面。
-- (mathbb C/(mathbb Z+	aumathbb Z)) の基本平行四辺形。
+- \(\log z\) の Riemann 面。
+- \(w^2=z\) の平方根曲面。
+- \(\mathbb C/(\mathbb Z+\tau\mathbb Z)\) の基本平行四辺形。
 - compact Riemann surface 上の最大値原理。
 
 ### 4.6 停止線
@@ -284,9 +284,9 @@ Riemann 面は
 
 ---
 
-## 5. CA9 楕円関数・Weierstrass (wp) 関数
+## 5. CA9 楕円関数・Weierstrass \(\wp\) 関数
 
-**仮タイトル**：標準複素解析 IX：楕円関数・複素トーラス・Weierstrass (wp)
+**仮タイトル**：標準複素解析 IX：楕円関数・複素トーラス・Weierstrass \(\wp\)
 
 **tier**：advanced-standard
 
@@ -297,11 +297,11 @@ Riemann 面は
 
 ### 5.1 役割
 
-「周期が一つ」の三角関数から「独立な二周期」を持つ有理型関数へ進み、コンパクト Riemann 面 (mathbb C/Lambda) 上の有理型関数として楕円関数を理解する。
+「周期が一つ」の三角関数から「独立な二周期」を持つ有理型関数へ進み、コンパクト Riemann 面 \(\mathbb C/\Lambda\) 上の有理型関数として楕円関数を理解する。
 
 ### 5.2 主な内容
 
-- 格子 (Lambda=mathbb Zomega_1+mathbb Zomega_2)
+- 格子 \(\Lambda=\mathbb Z\omega_1+\mathbb Z\omega_2\)
 - 基本平行四辺形
 - 楕円関数
 - 基本領域上の極・零点の有限性
@@ -309,33 +309,33 @@ Riemann 面は
 - 楕円関数の留数和は0
 - 零点数と極数の一致
 - 非定数楕円関数は極を持つ
-- Weierstrass の (wp) 級数
+- Weierstrass の \(\wp\) 級数
 - 級数の正規収束
-- (wp) の偶性・二重極・周期性
-- (wp') の奇性
+- \(\wp\) の偶性・二重極・周期性
+- \(\wp'\) の奇性
 - 半周期点
-- invariants (g_2,g_3)
+- invariants \(g_2,g_3\)
 - 微分方程式
-  [
-  (wp')^2=4wp^3-g_2wp-g_3
-  ]
+  \[
+  (\wp')^2=4\wp^3-g_2\wp-g_3
+  \]
 - 加法公式
-- (mathbb C/Lambda) と平面三次曲線の対応の入口
+- \(\mathbb C/\Lambda\) と平面三次曲線の対応の入口
 
 ### 5.3 主要 formal statements
 
 1. 非定数楕円関数は基本平行四辺形内に極を持つ。
 2. 基本平行四辺形内の留数和は0。
 3. 零点と極の総重複度は一致する。
-4. Weierstrass (wp) 級数は格子点を除いて正規収束する。
-5. (wp) は (Lambda)-周期を持つ偶な有理型関数で、格子点に二重極を持つ。
-6. ((wp')^2=4wp^3-g_2wp-g_3)。
-7. (wp) の標準加法公式。
-8. 適切な非退化条件の下で (zmapsto(wp(z),wp'(z))) が複素トーラスと cubic の関係を与える。
+4. Weierstrass \(\wp\) 級数は格子点を除いて正規収束する。
+5. \(\wp\) は \(\Lambda\)-周期を持つ偶な有理型関数で、格子点に二重極を持つ。
+6. \((\wp')^2=4\wp^3-g_2\wp-g_3\)。
+7. \(\wp\) の標準加法公式。
+8. 適切な非退化条件の下で \(z\mapsto(\wp(z),\wp'(z))\) が複素トーラスと cubic の関係を与える。
 
 ### 5.4 証明境界
 
-(wp) の定義で級数を「収束することにする」としない。格子点の個数評価と (1/|omega|^3) 型 majorant を用いて、コンパクト集合上の一様収束を確認する。
+\(\wp\) の定義で級数を「収束することにする」としない。格子点の個数評価と \(1/|\omega|^3\) 型 majorant を用いて、コンパクト集合上の一様収束を確認する。
 
 微分方程式は Laurent 展開と楕円関数の極消去から「差が entire elliptic なので定数」という機構まで示す。
 
@@ -343,9 +343,9 @@ Riemann 面は
 
 - 正方格子と六方格子。
 - 基本平行四辺形の境界積分相殺。
-- (wp) の原点近傍 Laurent 展開。
-- 半周期での (wp') の零点。
-- (g_2,g_3) と cubic の具体形。
+- \(\wp\) の原点近傍 Laurent 展開。
+- 半周期での \(\wp'\) の零点。
+- \(g_2,g_3\) と cubic の具体形。
 
 ### 5.6 停止線
 
@@ -381,17 +381,17 @@ Taylor / Laurent 展開が「与えられた関数を展開する」理論だっ
 - コンパクト集合上一様収束
 - 無限積と零点
 - elementary factor
-  [
-  E_p(w)=(1-w)expleft(w+rac{w^2}{2}+cdots+rac{w^p}{p}ight)
-  ]
+  \[
+  E_p(w)=(1-w)\exp\left(w+\frac{w^2}{2}+\cdots+\frac{w^p}{p}\right)
+  \]
 - canonical product
 - 離散零点集合と重複度
 - Weierstrass 因数分解定理
 - 零点を持たない整関数の指数表示
 - 指定した principal part
 - Mittag--Leffler の定理
-- (picotpi z) の部分分数展開
-- (sin pi z) の Euler 積
+- \(\pi\cot\pi z\) の部分分数展開
+- \(\sin \pi z\) の Euler 積
 - 整関数・有理型関数を零点／極データから読む方法
 
 ### 6.3 主要 formal statements
@@ -400,16 +400,16 @@ Taylor / Laurent 展開が「与えられた関数を展開する」理論だっ
 2. elementary factor の誤差評価。
 3. 任意の離散零点集合と重複度を持つ整関数の存在。
 4. **Weierstrass 因数分解定理**。
-5. 零点を持たない整関数は (e^{g}) と書ける。
+5. 零点を持たない整関数は \(e^{g}\) と書ける。
 6. **Mittag--Leffler の定理**。
-7. (picotpi z) の標準部分分数展開。
+7. \(\pi\cot\pi z\) の標準部分分数展開。
 8. Euler の積
-   [
-   rac{sinpi z}{pi z}
+   \[
+   \frac{\sin\pi z}{\pi z}
    =
-   prod_{n=1}^{infty}
-   left(1-rac{z^2}{n^2}ight).
-   ]
+   \prod_{n=1}^{\infty}
+   \left(1-\frac{z^2}{n^2}\right).
+   \]
 
 ### 6.4 証明境界
 
@@ -422,10 +422,10 @@ Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal pa
 ### 6.5 直接例
 
 - 零点が整数全体の整関数。
-- (sin pi z) の零点構造。
+- \(\sin \pi z\) の零点構造。
 - 所与の単純極列を持つ有理型関数。
-- (picotpi z) の留数。
-- Euler 積から (sum 1/n^2) が現れる入口。
+- \(\pi\cot\pi z\) の留数。
+- Euler 積から \(\sum 1/n^2\) が現れる入口。
 
 ### 6.6 停止線
 
@@ -457,18 +457,18 @@ Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal pa
 ### 7.2 主な内容
 
 - Euler 積分
-  [
-  Gamma(z)=int_0^infty t^{z-1}e^{-t},dt
-  qquad(Re z>0)
-  ]
+  \[
+  \Gamma(z)=\int_0^\infty t^{z-1}e^{-t}\,dt
+  \qquad(\Re z>0)
+  \]
 - 右半平面での正則性
-- 関数等式 (Gamma(z+1)=zGamma(z))
+- 関数等式 \(\Gamma(z+1)=z\Gamma(z)\)
 - 階乗との対応
-- (Gamma(1/2)=sqrtpi)
+- \(\Gamma(1/2)=\sqrt\pi\)
 - 有理型解析接続
 - 非正整数での単純極と留数
 - Gamma 関数の零点不存在
-- (1/Gamma) の Weierstrass 積
+- \(1/\Gamma\) の Weierstrass 積
 - Euler 定数
 - Beta 関数との関係
 - Euler の反射公式
@@ -478,31 +478,31 @@ Mittag--Leffler では、極が外側へ逃げる順に並べ、各 principal pa
 
 ### 7.3 主要 formal statements
 
-1. Euler 積分は (Re z>0) で正則。
-2. (Gamma(z+1)=zGamma(z))。
-3. Gamma 関数は全平面へ有理型に延長され、(0,-1,-2,ldots) に単純極を持つ。
-4. (1/Gamma) の Weierstrass 積。
+1. Euler 積分は \(\Re z>0\) で正則。
+2. \(\Gamma(z+1)=z\Gamma(z)\)。
+3. Gamma 関数は全平面へ有理型に延長され、\(0,-1,-2,\ldots\) に単純極を持つ。
+4. \(1/\Gamma\) の Weierstrass 積。
 5. Gamma 関数は零点を持たない。
 6. **Euler の反射公式**
-   [
-   Gamma(z)Gamma(1-z)=rac{pi}{sinpi z}.
-   ]
+   \[
+   \Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin\pi z}.
+   \]
 7. **Legendre の倍角公式**。
 8. **Stirling 公式**。少なくとも正の実軸上の形を核心証明し、複素 sector 版の適用範囲も明示する。
 
 ### 7.4 証明境界
 
-反射公式は「既知の特殊関数公式」としない。CA10 の (sin) の積または留数を使い、どの積表示を比較しているかを示す。
+反射公式は「既知の特殊関数公式」としない。CA10 の \(\sin\) の積または留数を使い、どの積表示を比較しているかを示す。
 
-Stirling 公式は係数 (sqrt{2pi}) を未決定のまま終えない。
+Stirling 公式は係数 \(\sqrt{2\pi}\) を未決定のまま終えない。
 
 ### 7.5 直接例
 
-- (Gamma(n+1)=n!)。
-- Gaussian 積分から (Gamma(1/2)=sqrtpi)。
-- (operatorname{Res}(Gamma,-n)=(-1)^n/n!)。
+- \(\Gamma(n+1)=n!\)。
+- Gaussian 積分から \(\Gamma(1/2)=\sqrt\pi\)。
+- \(\operatorname{Res}(\Gamma,-n)=(-1)^n/n!\)。
 - 反射公式から半整数値を計算。
-- Stirling 公式による (n!) の近似。
+- Stirling 公式による \(n!\) の近似。
 
 ### 7.6 補遺候補
 
@@ -527,7 +527,7 @@ Bohr--Mollerup theorem は実解析的特徴付けとして教育価値がある
 
 複素解析 II の終点として、
 
-```text
+~~~text
 Dirichlet級数
   ↓ 絶対収束
 Euler積
@@ -541,56 +541,56 @@ theta変換
 ζの解析接続
   ↓
 関数等式
-```
+~~~
 
 を閉じる。
 
 ### 8.2 主な内容
 
 - Dirichlet 級数
-  [
-  zeta(s)=sum_{n=1}^{infty}n^{-s},
-  qquad Re s>1
-  ]
+  \[
+  \zeta(s)=\sum_{n=1}^{\infty}n^{-s},
+  \qquad \Re s>1
+  \]
 - 絶対・局所一様収束
 - 正則性
 - Euler 積
-- (Re s>1) での零点不存在
-- 交代級数 (eta(s)) による (Re s>0) への入口
+- \(\Re s>1\) での零点不存在
+- 交代級数 \(\eta(s)\) による \(\Re s>0\) への入口
 - Jacobi theta 関数
-  [
-  	heta(t)=sum_{ninmathbb Z}e^{-pi n^2 t}
-  ]
+  \[
+  \theta(t)=\sum_{n\in\mathbb Z}e^{-\pi n^2 t}
+  \]
 - Gaussian の周期化
 - Gaussian に対する Poisson 型和公式
 - theta 変換
-  [
-  	heta(t)=t^{-1/2}	heta(1/t)
-  ]
+  \[
+  \theta(t)=t^{-1/2}\theta(1/t)
+  \]
 - Mellin 表現
 - ζ の有理型解析接続
-- (s=1) の単純極と留数1
+- \(s=1\) の単純極と留数1
 - completed zeta
 - 関数等式
 - trivial zeros
-- (zeta(0),zeta(-1),zeta(2)) 等の標準値
+- \(\zeta(0),\zeta(-1),\zeta(2)\) 等の標準値
 - 非自明零点と critical strip の位置付け
 - Riemann hypothesis は定義と背景のみ
 
 ### 8.3 主要 formal statements
 
-1. (Re s>1) で ζ の Dirichlet 級数は局所一様絶対収束し正則。
+1. \(\Re s>1\) で ζ の Dirichlet 級数は局所一様絶対収束し正則。
 2. **Euler 積**
-   [
-   zeta(s)=prod_p(1-p^{-s})^{-1}.
-   ]
-3. (Re s>1) で ζ は零点を持たない。
+   \[
+   \zeta(s)=\prod_p(1-p^{-s})^{-1}.
+   \]
+3. \(\Re s>1\) で ζ は零点を持たない。
 4. Gaussian 周期化から theta 変換を導ける。
-5. theta の Mellin 表現から ζ は (mathbb Csetminus{1}) へ正則に延長し、(s=1) に留数1の単純極を持つ。
+5. theta の Mellin 表現から ζ は \(\mathbb C\setminus\{1\}\) へ正則に延長し、\(s=1\) に留数1の単純極を持つ。
 6. **Riemann ζ 関数の関数等式**。
 7. 負の偶数が trivial zero である。
 8. completed zeta の対称性。
-9. (zeta(2)=pi^2/6) を CA10 の Euler 積または Fourier 正本へ接続して導く。
+9. \(\zeta(2)=\pi^2/6\) を CA10 の Euler 積または Fourier 正本へ接続して導く。
 
 ### 8.4 証明境界
 
@@ -601,19 +601,19 @@ CA12 では FOU3 の Gaussian Fourier 変換を使い、
 - Gaussian を周期化する。
 - FOU2 の Fourier 係数計算を適用する。
 - 係数が再び Gaussian になることを確認する。
-- (x=0) で評価して theta 変換を得る。
+- \(x=0\) で評価して theta 変換を得る。
 
 という特殊形を本文で閉じる。
 
-Mellin 表現では和と積分の交換条件を F0-00D2C の Tonelli / Fubini へ直接リンクし、(t	o0) と (t	oinfty) の積分を theta 変換で分けて解析接続する。
+Mellin 表現では和と積分の交換条件を F0-00D2C の Tonelli / Fubini へ直接リンクし、\(t\to0\) と \(t\to\infty\) の積分を theta 変換で分けて解析接続する。
 
 ### 8.5 直接例
 
-- (zeta(2)) の数値・厳密値。
+- \(\zeta(2)\) の数値・厳密値。
 - Euler 積を有限素数で打ち切った近似。
-- theta 変換の (t=1) における自己双対性。
-- (s=0,-1,-2) の値・零点。
-- 関数等式で (s) と (1-s) を対応させる例。
+- theta 変換の \(t=1\) における自己双対性。
+- \(s=0,-1,-2\) の値・零点。
+- 関数等式で \(s\) と \(1-s\) を対応させる例。
 
 ### 8.6 停止線
 
@@ -633,7 +633,7 @@ Mellin 表現では和と積分の交換条件を F0-00D2C の Tonelli / Fubini 
 
 実装時の直接 prerequisite は原則次とする。
 
-```text
+~~~text
 CA7:  CA6, TOP5
 
 CA8:  CA7, TOP1, TOP2, TOP4, TOP5
@@ -645,19 +645,19 @@ CA10: CA7, CA4
 CA11: CA10, CA7
 
 CA12: CA11, FOU2, FOU3, F0-00D2C
-```
+~~~
 
 既に推移的に到達できる prerequisite を機械的に大量列挙しない。ただし、章内で theorem-level dependency を直接使う場合は stable anchor link を置く。
 
 CA10 を CA9 の後に実装するが、CA9 を prerequisite にしない。これにより、
 
-```text
+~~~text
 Riemann面・楕円関数 branch
 CA7 → CA8 → CA9
 
 整関数・特殊関数 branch
 CA7 → CA10 → CA11 → CA12
-```
+~~~
 
 という二本の自然な読書経路も保つ。
 
@@ -682,8 +682,8 @@ CA7 → CA10 → CA11 → CA12
 ### CA9
 
 - A：格子・基本平行四辺形・周期性
-- B：(wp) の収束、零点・極・留数
-- C：(wp) の微分方程式または加法公式
+- B：\(\wp\) の収束、零点・極・留数
+- C：\(\wp\) の微分方程式または加法公式
 
 ### CA10
 
@@ -715,7 +715,7 @@ CA7 → CA10 → CA11 → CA12
 
 この時点では未実装の CA7--CA12 を
 
-- `textbook/dream-theater-index.json`
+- textbook/dream-theater-index.json
 - reader-facing 目次
 - knowledge DAG の implemented concept
 - 「完成済み」一覧
@@ -740,7 +740,7 @@ Riemann 面・被覆・複素トーラスを実装し、TOP1/TOP2/TOP4 への th
 
 ### Phase 3：CA9
 
-楕円関数と Weierstrass (wp) を実装する。CA8 の複素トーラスを「説明だけの前章」にせず実際に使う。
+楕円関数と Weierstrass \(\wp\) を実装する。CA8 の複素トーラスを「説明だけの前章」にせず実際に使う。
 
 ### Phase 4：CA10
 
@@ -772,19 +772,19 @@ Riemann ζ 関数を実装し、FOU2/FOU3 との横断リンクを完成させ�
 
 各変更章について最低限
 
-```bash
+~~~bash
 npm run validate
 npm run validate:pages
 npm run validate:dream-theater-exercise-counts
 npm run audit:proof-pedagogy
 npm run audit:formalism-pedagogy
-```
+~~~
 
 を通す。
 
 knowledge / standard math core / dependency を変更した場合は対応する strict validation も実行する。
 
-CI green は必要条件であり、完成の十分条件ではない。特に CA7 の Riemann 写像定理、CA9 の (wp) の収束と微分方程式、CA10 の二大存在定理、CA12 の解析接続と関数等式は、本文を人手で追って核心証明が閉じているかを確認する。
+CI green は必要条件であり、完成の十分条件ではない。特に CA7 の Riemann 写像定理、CA9 の \(\wp\) の収束と微分方程式、CA10 の二大存在定理、CA12 の解析接続と関数等式は、本文を人手で追って核心証明が閉じているかを確認する。
 
 ---
 
@@ -796,7 +796,7 @@ CA1--CA12 を通読した学習者が、少なくとも次を自力で再構成�
 2. 正則関数列の compact convergence が Cauchy 理論によって強く制御されることを説明できる。
 3. Montel / Hurwitz を使って Riemann 写像定理を証明できる。
 4. 多価関数を Riemann 面上の一価正則関数として読み替えられる。
-5. 複素トーラス上の有理型関数として楕円関数を扱い、Weierstrass (wp) の微分方程式を導ける。
+5. 複素トーラス上の有理型関数として楕円関数を扱い、Weierstrass \(\wp\) の微分方程式を導ける。
 6. 零点・極を指定して整関数・有理型関数を構成できる。
 7. Gamma 関数の解析接続・積表示・反射公式を複素解析から導ける。
 8. Riemann ζ 関数の Euler 積・解析接続・関数等式を、Gaussian Fourier 変換と theta 変換を含めて追える。
