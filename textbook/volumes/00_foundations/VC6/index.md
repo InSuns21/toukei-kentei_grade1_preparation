@@ -1,4 +1,4 @@
-# VC6 直交曲線座標
+# VC6 曲線座標の幾何と微分演算子
 
 Cartesian coordinates では basis vectors $e_x,e_y,e_z$ がどこでも同じ向きを向くため、grad・div・curl の公式は簡単です。
 
@@ -25,7 +25,7 @@ $$
 
 ---
 
-## 1. 直交曲線座標と coordinate tangent
+## 1. 曲線座標と coordinate tangent
 
 開領域 $Q\subset\mathbb R^3$ から Euclidean 空間への $C^1$ 座標写像
 
@@ -79,7 +79,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc6-orthogonal-curvilinear -->
-**定義の確認：cylindrical coordinates**
+**定義の確認**
+
+例：cylindrical coordinates
 
 $\rho>0$ で
 
@@ -116,7 +118,7 @@ $$
 
 ---
 
-## 2. scale factor と位置依存 orthonormal basis
+## 2. 座標方向の長さ補正と位置依存 orthonormal basis
 
 <a id="def-vc6-scale-factor"></a>
 
@@ -149,7 +151,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc6-scale-factor -->
-**定義の確認：cylindrical coordinates**
+**定義の確認**
+
+例：cylindrical coordinates
 
 $$
 r(\rho,\phi,z)
