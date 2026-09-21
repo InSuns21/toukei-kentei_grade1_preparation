@@ -6,6 +6,9 @@ prerequisites:
   - F0-00E2
   - F0-00C2
 
+forward_references:
+  - vector-calculus.gradient
+
 concepts:
   - id: linear.eigen-data-recap-f1
     name: 固有値・固有ベクトル・固有空間の再掲
