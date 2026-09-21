@@ -63,6 +63,16 @@ concepts:
       - vector-calculus.cartesian-second-order-tensor
       - linear.inner-product
 
+  - id: vector-calculus.contraction-trace
+    name: 縮約・跡・二重縮約
+    kind: definition
+    aliases: [contraction, trace, double contraction, 縮約, 跡, 二重縮約]
+    introduction: formal
+    introduction_aliases: ["定義（縮約・跡・二重縮約）"]
+    requires:
+      - vector-calculus.einstein-summation
+      - vector-calculus.cartesian-second-order-tensor
+
   - id: vector-calculus.symmetric-skew-decomposition
     name: 二階テンソルの対称・反対称分解
     kind: proposition
@@ -70,6 +80,16 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（二階テンソルの対称・反対称分解）"]
     requires:
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.axial-vector
+    name: 軸性ベクトル
+    kind: definition
+    aliases: [axial vector, pseudovector, 軸性ベクトル]
+    introduction: formal
+    introduction_aliases: ["定義（軸性ベクトル）"]
+    requires:
+      - vector-calculus.levi-civita-symbol
       - vector-calculus.cartesian-second-order-tensor
 
   - id: vector-calculus.vector-gradient-tensor
