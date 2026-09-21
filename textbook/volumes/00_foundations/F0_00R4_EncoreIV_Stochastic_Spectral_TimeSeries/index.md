@@ -149,13 +149,13 @@ Encore IV の必須主線では、Malliavin calculus、rough paths、regularity 
 
 Phase 0 は完了し、旧個別章は archive / migration source として現行主線から外しました。
 
-Phase 1 の [STO1「確率過程・フィルトレーション・停止時刻」](../STO1/index.md)、[STO2「離散時間マルチンゲール・不等式・収束」](../STO2/index.md#def-sto2-マルチンゲール)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension)、[STO4「ブラウン運動・到達時刻・強マルコフ性」](../STO4/index.md#thm-sto4-brownian-strong-markov) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+Phase 1 の [STO1「確率過程・フィルトレーション・停止時刻」](../STO1/index.md)、[STO2「離散時間マルチンゲール・不等式・収束」](../STO2/index.md#def-sto2-martingale)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension)、[STO4「ブラウン運動・到達時刻・強マルコフ性」](../STO4/index.md#thm-sto4-brownian-strong-markov) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 
 STO3 では整合的 finite-dimensional laws から canonical process を構成し、cylinder premeasure の可算加法性を compact 近似から閉じたうえで、Kolmogorov--Chentsov continuity theorem を dyadic chaining まで証明しました。
 
 STO4 では covariance $\min(s,t)$ からブラウン運動を構成し、停止時刻の dyadic approximation から強マルコフ性を証明したうえで、reflection principle、到達時刻 distribution、1 次元 recurrence、time inversion まで閉じました。
 
-Phase 2 の [STO5「連続局所マルチンゲール・二次変分・セミマルチンゲール」](../STO5/index.md#thm-sto5-local-マルチンゲール-qv) も、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
+Phase 2 の [STO5「連続局所マルチンゲール・二次変分・セミマルチンゲール」](../STO5/index.md#thm-sto5-local-martingale-qv) も、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 
 STO5 では STO2 の bounded optional sampling を dyadic approximation で連続時間へ持ち上げ、localization を閉じました。finite variation と二次変分を対比し、ブラウン二次変分 $[B]_t=t$、連続局所マルチンゲールの bracket、covariation、continuous セミマルチンゲール分解の一意性、Lévy characterization まで接続しています。二次変分一般存在の技術的入力だけは continuous-time Doob--Meyer theorem として境界を明示し、STO6 の確率積分は逆輸入していません。
 
@@ -171,4 +171,4 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO11「マルコフ過程・半群・生成作用素・マルチンゲール問題」](../STO11/index.md#def-sto11-markov-process) も実装済みです。遷移核と Markov 半群から生成作用素を定義し、global Lipschitz SDE の Markov 性、拡散生成作用素、Dynkin formula、backward / forward Kolmogorov equation、Fokker--Planck、Feynman--Kac verification formula まで接続しました。さらに SDE からマルチンゲール問題への移行と、nondegenerate 拡散でのブラウン運動復元による逆向きを証明し、well-posed マルチンゲール問題から強マルコフ性が生じる一般定理は canonical-space regularity を要する技術的入力として境界を明示しています。
 
-[STO12「ブラウン運動のマルチンゲール表現」](../STO12/index.md#thm-sto12-マルチンゲール-representation) も実装済みです。ブラウン natural フィルトレーション上で terminal 確率積分の closed range を Itô isometry から示し、deterministic exponential マルチンゲールの Gaussian totalityを一次元特性関数の一意性・有限独立 Gaussian product・dyadic information・Lévy 上昇定理から証明しました。その稠密性を closed range へ回収して任意の $L^2(\mathcal F_T^B)$ terminal variable の一意な確率積分 representation を得て、conditional expectation process と predictable representation property まで閉じています。独立ブラウン雑音でフィルトレーションを拡大すると PRP が壊れる反例と、Ornstein--Uhlenbeck terminal payoff の explicit integrand まで演習で確認します。\n\n現在地は **Phase 3：STO12 完了。次は STO13「ポアソン process・continuous-time Markov chain・random measure」** です。
+[STO12「ブラウン運動のマルチンゲール表現」](../STO12/index.md#thm-sto12-martingale-representation) も実装済みです。ブラウン natural フィルトレーション上で terminal 確率積分の closed range を Itô isometry から示し、deterministic exponential マルチンゲールの Gaussian totalityを一次元特性関数の一意性・有限独立 Gaussian product・dyadic information・Lévy 上昇定理から証明しました。その稠密性を closed range へ回収して任意の $L^2(\mathcal F_T^B)$ terminal variable の一意な確率積分 representation を得て、conditional expectation process と predictable representation property まで閉じています。独立ブラウン雑音でフィルトレーションを拡大すると PRP が壊れる反例と、Ornstein--Uhlenbeck terminal payoff の explicit integrand まで演習で確認します。\n\n現在地は **Phase 3：STO12 完了。次は STO13「ポアソン process・continuous-time Markov chain・random measure」** です。
