@@ -309,6 +309,7 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 18. [STO14 Lévy 過程・跳躍型確率解析](textbook/volumes/00_foundations/STO14/index.md)
 19. [TSA1 定常過程・Hilbert 予測](textbook/volumes/00_foundations/TSA1/index.md)
 20. [TSA2 Wold 分解](textbook/volumes/00_foundations/TSA2/index.md)
+21. [TSA3 Herglotz の定理・スペクトル表現](textbook/volumes/00_foundations/TSA3/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 
