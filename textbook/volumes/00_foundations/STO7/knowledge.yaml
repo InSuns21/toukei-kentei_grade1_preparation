@@ -109,7 +109,7 @@ concepts:
   - id: stochastic.stochastic-exponential
     name: stochastic exponential
     kind: definition
-    aliases: ["Doleans exponential", "stochastic exponential of a continuous local martingale"]
+    aliases: ["Doleans exponential", "stochastic exponential of a continuous local martingale", "確率指数関数"]
     introduction: formal
     introduction_aliases: ["定義（確率指数関数）"]
     requires:
