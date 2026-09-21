@@ -1,5 +1,5 @@
 id: "STO12"
-title: "Encore IV Stochastic Analysis XII：Brownian martingale representation"
+title: "Encore IV 確率解析 XII：ブラウンマルチンゲール表現"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -13,31 +13,31 @@ prerequisites:
   - F0-00P6
 official_scope: []
 learning_objectives:
-  - Brownian natural filtration上のsquare-integrable martingaleとBrownian stochastic integralの関係を説明できる
-  - Brownian square-integrable integrand spaceを定義し、Itô isometryからterminal stochastic integralの値域がclosedであることを証明できる
-  - predictable representation propertyを定義し、Brownian filtrationに限定する理由を直接例と反例で説明できる
-  - deterministic integrandからexponential martingaleを構成し、そのL2評価とstochastic integral representationを導ける
+  - ブラウン natural フィルトレーション上の二乗可積分マルチンゲールとブラウン確率積分の関係を説明できる
+  - ブラウン square-integrable 被積分過程 spaceを定義し、Itô isometryからterminal 確率積分の値域がclosedであることを証明できる
+  - 予測可能表現性を定義し、ブラウン運動のフィルトレーションに限定する理由を直接例と反例で説明できる
+  - deterministic 被積分過程からexponential マルチンゲールを構成し、そのL2評価と確率積分表現を導ける
   - 一次元Gaussian exponentialのtotalityを特性関数の一意性から証明し、独立Gaussian積へ拡張できる
-  - dyadic Brownian informationとLévy上昇定理を用いてexponential martingale族がL2(F_T^B)でtotalであることを証明できる
-  - Brownian martingale representation theoremをclosed rangeとGaussian exponentialのtotalityから証明できる
-  - terminal variable representationからconditional expectation processとsquare-integrable martingaleのpredictable representationを導ける
-  - strong SDEのterminal payoffへrepresentation theoremを適用し、stochastic control・mathematical financeへの橋を説明できる
+  - dyadic ブラウン informationとLévy上昇定理を用いてexponential マルチンゲール族がL2(F_T^B)でtotalであることを証明できる
+  - ブラウン運動のマルチンゲール表現定理をclosed rangeとGaussian exponentialのtotalityから証明できる
+  - 終端確率変数の表現から条件付き期待値過程と二乗可積分マルチンゲールの予測可能表現を導ける
+  - strong SDEの終端ペイオフへ表現 theoremを適用し、stochastic control・数理ファイナンスへの橋を説明できる
 definitions:
-  - { id: STO12-DEF-01, name: "Brownian square-integrable integrand space" }
-  - { id: STO12-DEF-02, name: "predictable representation property" }
+  - { id: STO12-DEF-01, name: "ブラウン square-integrable 被積分過程 space" }
+  - { id: STO12-DEF-02, name: "予測可能表現性" }
 theorems:
-  - { id: STO12-LEM-01, name: "Brownian terminal stochastic integralの値域はclosed" }
-  - { id: STO12-LEM-02, name: "deterministic integrandのexponential martingale" }
+  - { id: STO12-LEM-01, name: "ブラウン terminal 確率積分の値域はclosed" }
+  - { id: STO12-LEM-02, name: "deterministic 被積分過程のexponential マルチンゲール" }
   - { id: STO12-LEM-03, name: "Gaussian exponential vectorsのtotality" }
-  - { id: STO12-THM-01, name: "Brownian martingale representation theorem" }
-  - { id: STO12-COR-01, name: "conditional expectation processのrepresentation" }
-  - { id: STO12-COR-02, name: "Brownian filtrationのpredictable representation property" }
+  - { id: STO12-THM-01, name: "ブラウン運動のマルチンゲール表現定理" }
+  - { id: STO12-COR-01, name: "条件付き期待値過程の表現" }
+  - { id: STO12-COR-02, name: "ブラウン運動のフィルトレーションの予測可能表現性" }
 canonical_examples:
   - "B_T^2-T=2∫_0^T B_t dB_t"
-  - "deterministic hに対するCameron--Martin型exponential martingale"
-  - "digital terminal payoff 1_{B_T>a}のBrownian representation"
-  - "Brownian filtrationを独立Brownian motionで拡大するとPRPが壊れる反例"
-  - "Ornstein--Uhlenbeck terminal square payoffのexplicit representation"
+  - "deterministic hに対するCameron--Martin型exponential マルチンゲール"
+  - "digital 終端ペイオフ 1_{B_T>a}のブラウン表現"
+  - "ブラウン運動のフィルトレーションを独立ブラウン運動で拡大するとPRPが壊れる反例"
+  - "Ornstein--Uhlenbeck terminal square payoffのexplicit 表現"
 problem_patterns:
   - STO12-ITO-REPRESENTATION-1
   - STO12-EXPONENTIAL-1
