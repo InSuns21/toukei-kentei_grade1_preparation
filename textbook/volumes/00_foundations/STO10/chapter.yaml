@@ -23,8 +23,9 @@ learning_objectives:
   - Yamada--Watanabe theoremの位置付けと、完全証明を本章で黒箱化する理由を説明できる
 definitions:
   - { id: STO10-DEF-01, name: "weak solution" }
-  - { id: STO10-DEF-02, name: "equivalent probability measures・density process" }
-  - { id: STO10-DEF-03, name: "uniqueness in law" }
+  - { id: STO10-DEF-02, name: "equivalent probability measures" }
+  - { id: STO10-DEF-03, name: "density process" }
+  - { id: STO10-DEF-04, name: "uniqueness in law" }
 theorems:
   - { id: STO10-PROP-01, name: "strong solutionはweak solutionを与える" }
   - { id: STO10-PROP-02, name: "density processのmartingale性" }
