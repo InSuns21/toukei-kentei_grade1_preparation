@@ -131,7 +131,7 @@ $$
 B\in\mathcal H_B^2([0,T]).
 $$
 
-特に Itô 公式から
+特に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 |B_T|^2-dT
@@ -204,7 +204,7 @@ $$
 
 **定義の確認**
 
-Itô 公式により
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)により
 
 $$
 d|B_t|^2
@@ -238,7 +238,7 @@ $$
 
 を確認できるため、$H_s=2B_s$ は admissible な被積分過程です。
 
-本章の定理は、このように Itô 公式から目で見えるマルチンゲールだけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
+本章の定理は、このように [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から目で見えるマルチンゲールだけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
 <!-- definition-example-end -->
 
 ---
@@ -1456,7 +1456,7 @@ $$
 
 です。$\varphi$ は standard normal 密度です。
 
-任意の $\varepsilon>0$ に対し $[0,T-\varepsilon]$ 上で Itô 公式を使うと
+任意の $\varepsilon>0$ に対し $[0,T-\varepsilon]$ 上で [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使うと
 
 $$
 M_t
@@ -1647,7 +1647,7 @@ $$
 u(t,x)=E[g(X_T^{t,x})]
 $$
 
-が存在すれば Itô 公式から形式的には
+が存在すれば [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から形式的には
 
 $$
 H_t
@@ -1774,7 +1774,7 @@ $$
 1 次元ブラウン運動 $B$ について次を行え。
 
 1. $B_T$ の終端表現を書け。
-2. Itô 公式から $B_T^2-T$ の終端表現を求めよ。
+2. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から $B_T^2-T$ の終端表現を求めよ。
 3. 2 の被積分過程が $\mathcal H_B^2([0,T])$ に入ることを確認せよ。
 
 <!-- solution-start -->
@@ -1794,7 +1794,7 @@ $$
 \boxed{H_t=1}.
 $$
 
-2. $f(x)=x^2$ に Itô 公式を適用すると
+2. $f(x)=x^2$ に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を適用すると
 
 $$
 d(B_t^2)=2B_t\,dB_t+dt.
@@ -1891,7 +1891,7 @@ e^{\lambda B_t-\lambda^2t/2}
 \end{aligned}
 $$
 
-3. $M_t=e^{\lambda B_t-\lambda^2t/2}$ へ Itô 公式を適用するとドリフトが相殺され、
+3. $M_t=e^{\lambda B_t-\lambda^2t/2}$ へ [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を適用するとドリフトが相殺され、
 
 $$
 dM_t=\lambda M_t\,dB_t.
@@ -2085,7 +2085,7 @@ $$
 
 1. $M_t=E[\xi\mid\mathcal F_t^B]$ を $t<T$ で求めよ。
 2. $M_t=u(t,B_t)$ と書き、$u$ が前節と同じ cancellation identity を満たすことを確認せよ。
-3. Itô 公式から表現被積分過程を求めよ。
+3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から表現被積分過程を求めよ。
 4. 被積分過程は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
 
 <!-- solution-start -->
@@ -2157,7 +2157,7 @@ $$
 u_t+\frac12u_{xx}=0.
 $$
 
-3. 任意の $\varepsilon>0$ に対し $t\le T-\varepsilon$ で Itô 公式を使うと
+3. 任意の $\varepsilon>0$ に対し $t\le T-\varepsilon$ で [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使うと
 
 $$
 dM_t
@@ -2443,7 +2443,7 @@ $$
    M_t=E[X_T^2\mid\mathcal F_t^B]
    $$
    を $X_t$ の関数として求めよ。
-3. Itô 公式を使って
+3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使って
    $$
    M_t=M_0+\int_0^tH_s\,dB_s
    $$
@@ -2554,7 +2554,7 @@ $$
 dA_t=2\alpha A_tdt.
 $$
 
-また Itô 公式から
+また [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 d(X_t^2)
@@ -2668,7 +2668,7 @@ E\int_0^T H_s^2ds
 \end{aligned}
 $$
 
-この問題では abstract 存在定理の被積分過程が、Markov structure と Itô 公式により explicit に同定できました。
+この問題では abstract 存在定理の被積分過程が、Markov structure と [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)により explicit に同定できました。
 <!-- solution-end -->
 
 ---
