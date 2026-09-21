@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness) を直接参照します。
+> **既出概念への参照**：[ブラウン運動のフィルトレーション](../STO4/index.md#def-sto4-brownian-フィルトレーション)、[予測可能過程](../STO1/index.md#def-sto1-予測可能)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-大域的-existence-uniqueness) を直接参照します。
 
 STO6 ではブラウン運動に関する確率積分を
 
@@ -18,7 +18,7 @@ $$
 \boxed{
 H\text{ を与える}
 \Longrightarrow
-\text{martingale を作る}
+\text{マルチンゲールを作る}
 }
 $$
 
@@ -40,7 +40,7 @@ $$
 0\le t\le T
 $$
 
-を使います。これは [STO4 のブラウン運動の自然なフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration) を零集合による完備化したフィルトレーションです。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
+を使います。これは [STO4 のブラウン運動の自然なフィルトレーション](../STO4/index.md#def-sto4-brownian-フィルトレーション) を零集合による完備化したフィルトレーションです。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
 
 本章の中心線は
 
@@ -50,11 +50,11 @@ $$
 \to
 \text{閉値域}
 \to
-\text{指数型 martingale の全体性}
+\text{指数型マルチンゲールの全体性}
 \to
 \text{終端確率変数表現}
 \to
-\text{martingale 表現 / 予測可能表現性}
+\text{マルチンゲール表現 / 予測可能表現性}
 }
 $$
 
@@ -174,7 +174,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（予測可能表現性）**  
-> フィルトレーション付き確率空間上の $d$ 次元ブラウン運動 $B$ がフィルトレーション $(\mathcal F_t)$ に関して **予測可能表現性** を持つとは、任意の二乗可積分 $(\mathcal F_t)$-martingale $M$ に対し、予測可能過程 $H$ が存在して
+> フィルトレーション付き確率空間上の $d$ 次元ブラウン運動 $B$ がフィルトレーション $(\mathcal F_t)$ に関して **予測可能表現性** を持つとは、任意の二乗可積分 $(\mathcal F_t)$-マルチンゲール $M$ に対し、予測可能過程 $H$ が存在して
 >
 $$
 E\int_0^T|H_t|^2dt<\infty
@@ -238,7 +238,7 @@ $$
 
 を確認できるため、$H_s=2B_s$ は admissible な被積分過程です。
 
-本章の定理は、このように Itô 公式から目で見える martingale だけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
+本章の定理は、このように Itô 公式から目で見えるマルチンゲールだけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
 <!-- definition-example-end -->
 
 ---
@@ -290,7 +290,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-線形性は確率積分の線形性から従います。また各 $I_T(H)$ は二乗可積分 martingale の終値で初期値 0 なので
+線形性は確率積分の線形性から従います。また各 $I_T(H)$ は二乗可積分マルチンゲールの終値で初期値 0 なので
 
 $$
 E[I_T(H)]=0.
@@ -375,7 +375,7 @@ $$
 <a id="lem-sto12-exponential-vector"></a>
 
 <!-- formal-statement-start -->
-> **補題（deterministic 被積分過程の指数型 martingale）**  
+> **補題（deterministic 被積分過程の指数型マルチンゲール）**  
 > deterministic $h\in L^2([0,T];\mathbb R^d)$ に対し
 >
 $$
@@ -387,7 +387,7 @@ Z_t^h
 \right)
 $$
 >
-> と置く。このとき $(Z_t^h)_{0\le t\le T}$ は二乗可積分 martingale で
+> と置く。このとき $(Z_t^h)_{0\le t\le T}$ は二乗可積分マルチンゲールで
 >
 $$
 E[(Z_t^h)^2]=e^{q_t},
@@ -419,12 +419,12 @@ $$
 dZ_t^h=Z_t^h h_t\cdot dB_t.
 $$
 
-残る問題は局所マルチンゲールで終わらず、本当に $L^2$ martingale であることです。これは deterministic $h$ ならガウス計算で直接閉じます。
+残る問題は局所マルチンゲールで終わらず、本当に $L^2$ マルチンゲールであることです。これは deterministic $h$ ならガウス計算で直接閉じます。
 
 <!-- proof-start -->
 ### 証明
 
-[STO7 の確率指数関数 identity](../STO7/index.md#prop-sto7-stochastic-exponential-identity) を
+[STO7 の確率指数関数 identity](../STO7/index.md#prop-sto7-stochastic-指数型-identity) を
 
 $$
 M_t=M_t^h
@@ -512,7 +512,7 @@ $$
 E[Z_t^h\mid\mathcal F_s^B]=Z_s^h
 $$
 
-a.s. で、$Z^h$ は真の martingale です。
+a.s. で、$Z^h$ は真のマルチンゲールです。
 
 さらに
 
@@ -1034,7 +1034,7 @@ $$
 
 と置きます。
 
-[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
+[ガウス指数族 vectors の全体性](#lem-sto12-指数型-全体性) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
 
 $$
 Y_n
@@ -1091,7 +1091,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[deterministic 被積分過程の指数型 martingale](#lem-sto12-exponential-vector) から各
+[deterministic 被積分過程の指数型マルチンゲール](#lem-sto12-指数型-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
@@ -1190,7 +1190,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（conditional expectation 過程の表現）**  
-> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) の被積分過程を $H$ とする。
+> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-マルチンゲール-表現) の被積分過程を $H$ とする。
 >
 > このとき全ての $0\le t\le T$ について
 >
@@ -1244,7 +1244,7 @@ $$
 N_u=\int_0^uH_s\cdot dB_s
 $$
 
-は [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により二乗可積分 martingale なので
+は [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により二乗可積分マルチンゲールなので
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -1263,7 +1263,7 @@ $$
 右辺は continuous 確率積分なので、conditional expectation 過程の continuous version になっています。
 <!-- proof-end -->
 
-ブラウン運動のフィルトレーション上では「終端ペイオフの条件付き期待値」という抽象的な martingale が、実際にブラウン雑音の逐次積分へ変換されます。
+ブラウン運動のフィルトレーション上では「終端ペイオフの条件付き期待値」という抽象的なマルチンゲールが、実際にブラウン雑音の逐次積分へ変換されます。
 
 ---
 
@@ -1275,7 +1275,7 @@ $$
 > **系（ブラウン運動のフィルトレーションの予測可能表現性）**  
 > $B$ の completed natural フィルトレーション $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
 >
-> すなわち任意の二乗可積分 $(\mathcal F_t^B)$-martingale $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
+> すなわち任意の二乗可積分 $(\mathcal F_t^B)$-マルチンゲール $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
 >
 $$
 \boxed{
@@ -1295,7 +1295,7 @@ $$
 
 $\xi=M_T$ と置きます。
 
-martingale property と [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
+マルチンゲール property と [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
 
 $$
 M_t
@@ -1305,7 +1305,7 @@ E[M_T\mid\mathcal F_t^B]
 E[\xi\mid\mathcal F_t^B].
 $$
 
-[conditional expectation 過程の表現](#cor-sto12-conditional-representation) より
+[conditional expectation 過程の表現](#cor-sto12-conditional-表現) より
 
 $$
 M_t
@@ -1364,7 +1364,7 @@ Z_t
 \right)
 $$
 
-は martingale で
+はマルチンゲールで
 
 $$
 dZ_t
@@ -1528,7 +1528,7 @@ $$
 
 とします。
 
-$C$ はこのフィルトレーションに関する二乗可積分 martingale です。
+$C$ はこのフィルトレーションに関する二乗可積分マルチンゲールです。
 
 もし $B$ がこのフィルトレーションでも PRP を持つなら、ある予測可能 $H$ が存在して
 
@@ -1597,9 +1597,9 @@ $$
 
 ---
 
-## 14. strong SDE の終端ペイオフへの橋
+## 14. 強解を持つ SDE の終端ペイオフへの橋
 
-[STO9 の大域 Lipschitz SDE](../STO9/index.md#thm-sto9-global-existence-uniqueness) をブラウン運動の自然なフィルトレーション上で解き、
+[STO9 の大域 Lipschitz SDE](../STO9/index.md#thm-sto9-大域的-existence-uniqueness) をブラウン運動の自然なフィルトレーション上で解き、
 
 $$
 dX_t=b(X_t)dt+\sigma(X_t)dB_t
@@ -1667,7 +1667,7 @@ $$
 
 ### 確率制御
 
-value 過程や adjoint 過程がブラウン運動のフィルトレーションの martingale part を持つとき、その martingale part は
+value 過程や adjoint 過程がブラウン運動のフィルトレーションのマルチンゲール part を持つとき、そのマルチンゲール part は
 
 $$
 \int H_t\cdot dB_t
@@ -1689,7 +1689,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-市場価格過程の martingale part がブラウン雑音を十分な rank で張るなら、$H$ を portfolio exposure へ変換できます。
+市場価格過程のマルチンゲール part がブラウン雑音を十分な rank で張るなら、$H$ を portfolio exposure へ変換できます。
 
 逆に雑音の次元に対して traded risk factors が足りなければ、表現が存在しても portfolio で再現できるとは限りません。
 
@@ -1767,7 +1767,7 @@ $$
 
 ## 17. 演習
 
-#### STO12-A01 二次 martingale の表現
+#### STO12-A01 二次マルチンゲールの表現
 - Level: A
 - 目安時間: 15分
 
@@ -1831,7 +1831,7 @@ $$
 よって $2B\in\mathcal H_B^2([0,T])$ です。
 <!-- solution-end -->
 
-#### STO12-A02 指数型 martingale の被積分過程
+#### STO12-A02 指数型マルチンゲールの被積分過程
 - Level: A
 - 目安時間: 18分
 
@@ -1943,7 +1943,7 @@ $$
 
 と表されているとする。
 
-1. $N_t=\int_0^tH_s\cdot dB_s$ が二乗可積分 martingale である理由を述べよ。
+1. $N_t=\int_0^tH_s\cdot dB_s$ が二乗可積分マルチンゲールである理由を述べよ。
 2. $E[\xi\mid\mathcal F_t^B]$ を求めよ。
 3. 終端確率変数が同じなら conditional expectation 過程も一意であることを説明せよ。
 
@@ -1962,7 +1962,7 @@ $$
 N_t=\int_0^tH_s\cdot dB_s
 $$
 
-は二乗可積分 martingale です。
+は二乗可積分マルチンゲールです。
 
 2.
 
@@ -1972,7 +1972,7 @@ $$
 E[\xi]+N_t+(N_T-N_t).
 $$
 
-martingale property から
+マルチンゲール property から
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -2349,14 +2349,14 @@ $$
 
 とする。
 
-$B$ がこのフィルトレーションに関して PRP を持たないことを、martingale $C$ を使って証明せよ。
+$B$ がこのフィルトレーションに関して PRP を持たないことを、マルチンゲール $C$ を使って証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
 $C$ は $(\mathcal F_t)$-適合で、未来 increment は $B,C$ の過去全体と独立です。
 
-従って $C$ は二乗可積分 $(\mathcal F_t)$-martingale です。
+従って $C$ は二乗可積分 $(\mathcal F_t)$-マルチンゲールです。
 
 もし $B$ が PRP を持つなら、ある予測可能 $H$ が存在して
 
@@ -2695,7 +2695,7 @@ $$
 核心は
 
 1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による確率積分の閉値域
-2. deterministic 指数型 martingale
+2. deterministic 指数型マルチンゲール
 3. 一次元ガウス指数族の全体性
 4. 独立ガウス product への拡張
 5. dyadic ブラウン information と Lévy 上昇定理
