@@ -89,7 +89,7 @@ forward_references:
   - pde.pde5-rectangle-finite-mode
   - pde.pde5-poisson-kernel
   - pde.pde5-poisson-integral
-  - pde.pde6-divergence-theorem
+  - vector-calculus.green-flux
   - pde.pde6-neumann-compatibility
   - pde.pde7-modal-diagonalization
   - pde.pde7-three-type-mode-laws
