@@ -1261,7 +1261,7 @@ $$
 E[H_n]=\frac1{n^2}.
 $$
 
-従って 爆発 time
+従って 爆発時刻
 
 $$
 T_\infty
@@ -1269,7 +1269,7 @@ T_\infty
 \sum_{n=1}^\infty H_n
 $$
 
-について Tonelli により
+について [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により
 
 $$
 E[T_\infty]
