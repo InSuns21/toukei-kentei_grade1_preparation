@@ -264,38 +264,43 @@ weak solution では、解を作るために都合のよい確率空間や Brown
 <a id="def-sto10-equivalent-measures"></a>
 
 <!-- formal-statement-start -->
-> **定義（同値な確率測度・density process）**  
+> **定義（同値な確率測度）**  
 > $(\Omega,\mathcal F_T)$ 上の確率測度 $P,Q$ が
 >
-> $$
+> $
 > P\ll Q
 > \qquad\text{かつ}\qquad
 > Q\ll P
-> $$
+> $
 >
 > を満たすとき、$P,Q$ は **equivalent** であるといい
 >
-> $$
+> $
 > P\sim Q
-> $$
+> $
 >
 > と書く。
->
+<!-- formal-statement-end -->
+
+<a id="def-sto10-density-process"></a>
+
+<!-- formal-statement-start -->
+> **定義（density process）**  
 > $Q\ll P$ とし、
 >
-> $$
+> $
 > Z_T
 > :=
 > \frac{dQ}{dP}
-> $$
+> $
 >
 > とする。filtration $(\mathcal F_t)_{0\le t\le T}$ に対して
 >
-> $$
+> $
 > Z_t
 > :=
 > E_P[Z_T\mid\mathcal F_t]
-> $$
+> $
 >
 > を **density process** と呼ぶ。
 <!-- formal-statement-end -->
@@ -319,7 +324,7 @@ $$
 
 は測度を変えると変わり得ます。
 
-<!-- definition-example-start: def-sto10-equivalent-measures -->
+<!-- definition-example-start: def-sto10-equivalent-measures, def-sto10-density-process -->
 ### 直接例：二点空間で密度を直接計算する
 
 $$
@@ -730,7 +735,7 @@ $$
 \{Z_{t\wedge\tau_n}:n\ge1\}
 $$
 
-は $L^2$ bounded であり、[F0-00P4A の $L^p$ boundedness から UI](../F0_00P4A_一様可積分性_Vitali/index.md) により一様可積分です。
+は $L^2$ bounded であり、[F0-00P4A の $L^p$ boundedness から UI](../F0_00P4A_一様可積分性_Vitali/index.md#thm-f0-00p4a-lp-ui) により一様可積分です。
 
 $n\to\infty$ で
 
