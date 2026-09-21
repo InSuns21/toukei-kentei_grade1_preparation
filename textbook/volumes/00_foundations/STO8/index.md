@@ -218,7 +218,7 @@ $$
 <a id="thm-sto8-tanaka"></a>
 
 <!-- formal-statement-start -->
-> **定理（ブラウン局所時間の存在・Tanaka formula）**  
+> **定理（ブラウン局所時間の存在・Tanaka 公式）**  
 > $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。
 >
 > このとき水準 $a$ のブラウン局所時間 $L^a$ が存在し、選んだ smoothing kernel $\rho$ に依存しない。
@@ -442,7 +442,7 @@ $$
 
 従って $L^a$ は定義を満たすブラウン局所時間です。
 
-表示した等式を移項すれば Tanaka formula を得ます。
+表示した等式を移項すれば Tanaka 公式 を得ます。
 
 最後に、別の smoothing kernel を選んでも、極限は同じ Tanaka residual
 
@@ -516,7 +516,7 @@ $x^+=(|x|+x)/2$、$x^-= (|x|-x)/2$ を使うと、絶対値版から片側版が
 <a id="cor-sto8-positive-negative-tanaka"></a>
 
 <!-- formal-statement-start -->
-> **系（positive / 負部分の Tanaka formula）**  
+> **系（正部分・負部分の Tanaka 公式）**  
 > $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。このとき
 >
 $$
@@ -553,7 +553,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Tanaka formula と
+Tanaka 公式 と
 
 $$
 B_t-a
@@ -778,7 +778,7 @@ $$
 <a id="lem-sto8-interval-occupation-moment"></a>
 
 <!-- formal-statement-start -->
-> **補題（区間滞在時間モーメント bound）**  
+> **補題（区間滞在時間のモーメント評価）**  
 > $B$ を standard ブラウン運動、$I\subset\mathbb R$ を長さ $h$ の区間とし
 >
 $$
@@ -963,7 +963,7 @@ $$
 
 ### 証明の見取り図
 
-Tanaka formula を水準 $a,b$ で引き算します。
+Tanaka 公式 を水準 $a,b$ で引き算します。
 
 martingale difference が動くのは $B_s$ が $a$ と $b$ の間にいるときだけです。
 
@@ -991,7 +991,7 @@ $$
 
 と置きます。
 
-Tanaka formula の差から
+Tanaka 公式 の差から
 
 $$
 \begin{aligned}
@@ -1045,7 +1045,7 @@ E\left(
 \right)^2.
 $$
 
-区間滞在時間モーメント bound の $m=2$ を使うと
+区間滞在時間のモーメント評価 の $m=2$ を使うと
 
 $$
 E|M_t^{a,b}|^4
@@ -1101,7 +1101,7 @@ $R=1,2,\ldots$ について rational levels 上で一致する version を選び
 <a id="thm-sto8-occupation-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（滞在時間 formula）**  
+> **定理（滞在時間公式）**  
 > $B$ を standard ブラウン運動とし、固定した $t\ge0$ について空間連続な version $a\mapsto L_t^a$ を取る。
 >
 > 任意の非負 Borel measurable function $g:\mathbb R\to[0,\infty]$ に対し
@@ -1239,7 +1239,7 @@ E|B_t-B_0|
 E|B_t|.
 $$
 
-Tanaka formula で確率積分の平均が 0 であることを使うと
+Tanaka 公式 で確率積分の平均が 0 であることを使うと
 
 $$
 0\le E[L_t^a]\le E|B_t|.
@@ -1414,7 +1414,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-滞在時間 formula を
+滞在時間公式 を
 
 $$
 g(x)
@@ -1621,12 +1621,12 @@ $$
 
 ---
 
-## 10. Levy transform と局所時間は反射ブラウン運動を作る
+## 10. Lévy 変換 と局所時間は反射ブラウン運動を作る
 
 <a id="prop-sto8-levy-transform"></a>
 
 <!-- formal-statement-start -->
-> **命題（Levy transform はブラウン運動）**  
+> **命題（Lévy 変換 はブラウン運動）**  
 > $B$ を standard ブラウン運動とし
 >
 $$
@@ -1724,7 +1724,7 @@ $$
 
 ### 証明の見取り図
 
-Tanaka formula が
+Tanaka 公式 が
 
 $$
 |B|=\beta+L^0
@@ -1739,7 +1739,7 @@ $L^0$ は increasing で、しかも $B=0$、すなわち $|B|=0$ のときだ�
 <!-- proof-start -->
 ### 証明
 
-Tanaka formula を $a=0$ に適用すると
+Tanaka 公式 を $a=0$ に適用すると
 
 $$
 |B_t|
@@ -1894,7 +1894,7 @@ $$
 
 です。
 
-この二つの見方が Tanaka formula と滞在時間 formula をつないでいます。
+この二つの見方が Tanaka 公式 と滞在時間公式 をつないでいます。
 
 ---
 
@@ -2005,11 +2005,11 @@ $$
 です。
 <!-- solution-end -->
 
-#### STO8-A02 正部分の Tanaka formula
+#### STO8-A02 正部分の Tanaka 公式
 - Level: A
 - 目安時間: 15分
 
-Tanaka formula と
+Tanaka 公式 と
 
 $$
 x^+=\frac{|x|+x}{2}
@@ -2032,7 +2032,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Tanaka formula は
+Tanaka 公式 は
 
 $$
 |B_t-a|
@@ -2170,7 +2170,7 @@ $$
 - Level: A
 - 目安時間: 15分
 
-滞在時間 formula と $a\mapsto L_t^a$ の連続性を用いて
+滞在時間公式 と $a\mapsto L_t^a$ の連続性を用いて
 
 $$
 \frac1{2\varepsilon}
@@ -2184,7 +2184,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-滞在時間 formula に
+滞在時間公式 に
 
 $$
 g(x)=1_{(a-\varepsilon,a+\varepsilon)}(x)
@@ -2238,7 +2238,7 @@ $$
 - Level: B
 - 目安時間: 30分
 
-固定 $t>0$ と $a<b$ に対し、本文の [Tanaka formula](#thm-sto8-tanaka) と [Burkholder--Davis--Gundy inequality](../STO6/index.md#thm-sto6-bdg) を使って
+固定 $t>0$ と $a<b$ に対し、本文の [Tanaka 公式](#thm-sto8-tanaka) と [Burkholder--Davis--Gundy inequality](../STO6/index.md#thm-sto6-bdg) を使って
 
 $$
 E|L_t^a-L_t^b|^4
@@ -2255,7 +2255,7 @@ $$
 
 $h=b-a$ と置きます。
 
-Tanaka formula を levels $a,b$ で引くと
+Tanaka 公式 を levels $a,b$ で引くと
 
 $$
 L_t^a-L_t^b
@@ -2325,7 +2325,7 @@ E\left(
 \right)^2.
 $$
 
-本文の区間滞在時間モーメント bound の $m=2$ より
+本文の区間滞在時間のモーメント評価 の $m=2$ より
 
 $$
 E\left(
@@ -2416,7 +2416,7 @@ $$
 
 また $\beta_0=0$ なので [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $\beta$ はブラウン運動です。
 
-2. [Tanaka formula](#thm-sto8-tanaka) から
+2. [Tanaka 公式](#thm-sto8-tanaka) から
 
 $$
 |B_t|=\beta_t+L_t^0.
@@ -2463,7 +2463,7 @@ L_t^0\overset d=|B_t|.
 $$
 <!-- solution-end -->
 
-#### STO8-B03 区分線形凸関数の Itô--Tanaka formula
+#### STO8-B03 区分線形凸関数の Itô--Tanaka 公式
 - Level: B
 - 目安時間: 30分
 
@@ -2485,7 +2485,7 @@ $f(B_t)$ を確率積分と局所 times $L_t^{a_j}$ で表せ。
 <!-- solution-start -->
 ### 詳細解答
 
-各正部分に [Tanaka formula](#thm-sto8-tanaka) を使います。
+各正部分に [Tanaka 公式](#thm-sto8-tanaka) を使います。
 
 $$
 (B_t-a_j)^+
@@ -2608,7 +2608,7 @@ $$
 
 を使います。
 
-[Tanaka formula](#thm-sto8-tanaka) から
+[Tanaka 公式](#thm-sto8-tanaka) から
 
 $$
 |B_{\tau_b\wedge n}-a|
