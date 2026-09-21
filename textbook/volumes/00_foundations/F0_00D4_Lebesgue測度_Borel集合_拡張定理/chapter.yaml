@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - F0-00D3
   - F0-00D3A
+  - F0-00C
 official_scope: []
 learning_objectives:
   - 区間のLebesgue外測度が通常の長さに一致することを有限被覆補題とcompact性から証明できる
