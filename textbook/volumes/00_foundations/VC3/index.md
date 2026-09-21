@@ -291,7 +291,7 @@ $$
 \psi:\widetilde U\to U
 $$
 >
-> を $C^1$ 微分同相とする。$\widetilde r=r\circ\psi$ と置くと
+> を $C^1$ 級の全単射で、逆写像も $C^1$ 級である写像とする。$\widetilde r=r\circ\psi$ と置くと
 >
 $$
 |\widetilde r_s\times\widetilde r_t|
