@@ -2,9 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
+> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-停止時刻)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
-STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な modification を得るところまで閉じました。
+STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な修正を得るところまで閉じました。
 
 この章では、その二つを最初に本格的に使います。目標はブラウン運動を既知として計算だけを進めることではありません。
 
@@ -16,7 +16,7 @@ $$
 \to
 \text{Kolmogorov extension}
 \to
-\text{continuous modification}
+\text{continuous 修正}
 \to
 \text{ブラウン運動}
 }
@@ -30,7 +30,7 @@ $$
 \to
 \text{Markov}
 \to
-\text{strong Markov}
+\text{強マルコフ}
 \to
 \text{reflection}
 \to
@@ -166,7 +166,7 @@ $$
 E[B_sB_t]=\min(s,t)
 $$
 >
-> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な modification を取れば、その modification は standard ブラウン運動である。
+> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な修正を取れば、その修正は standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -177,7 +177,7 @@ $$
 2. ガウスでは **無相関な成分が独立**なので、disjoint increments の共分散が 0 なら独立増分が出る。
 3. ガウス増分の第4 モーメント
    $E|B_t-B_s|^4=3|t-s|^2$
-   を STO3 の continuity theorem に入れる。
+   を STO3 の連続定理に入れる。
 
 <!-- proof-start -->
 ### 証明
@@ -293,7 +293,7 @@ $$
 
 従って $X$ は独立増分を持ちます。
 
-**Step 5：連続な modification を取る。**
+**Step 5：連続な修正を取る。**
 
 $Z\sim N(0,\sigma^2)$ なら
 
@@ -309,7 +309,7 @@ E|X_t-X_s|^4
 3|t-s|^2.
 $$
 
-これは STO3 の continuity theorem で
+これは STO3 の連続定理で
 
 $$
 \alpha=4,
@@ -329,9 +329,9 @@ $$
 \frac14
 $$
 
-について compact 時間区間上で $\gamma$-Hölder continuous な modification $B$ が存在します。
+について compact 時間区間上で $\gamma$-Hölder continuous な修正 $B$ が存在します。
 
-modification は各固定時刻で元の過程とほとんど確実に一致するため、有限次元分布は変わりません。したがって $B$ も centered ガウス過程で共分散 $\min(s,t)$ を持ち、Step 3, 4 の増分法則と independence を保ちます。
+修正は各固定時刻で元の過程とほとんど確実に一致するため、有限次元分布は変わりません。したがって $B$ も centered ガウス過程で共分散 $\min(s,t)$ を持ち、Step 3, 4 の増分法則と independence を保ちます。
 
 最後に
 
@@ -354,7 +354,7 @@ $$
 - $B_0=0$ ほとんど確実に,
 - disjoint increments が jointly ガウスかつ共分散 0 なので独立,
 - $B_t-B_s\sim N(0,t-s)$,
-- continuous modification を選んだので標本路がほとんど確実に連続,
+- continuous 修正を選んだので標本路がほとんど確実に連続,
 
 を全て満たします。
 
@@ -493,7 +493,7 @@ $$
 
 と分けます。
 
-$B_s$ は現在情報 $\mathcal F_s^B$ に含まれ、未来増分だけが独立な新しいガウス noise です。
+$B_s$ は現在情報 $\mathcal F_s^B$ に含まれ、未来増分だけが独立な新しいガウス雑音です。
 
 <!-- proof-start -->
 ### 証明
@@ -674,7 +674,7 @@ A_k
 A\cap\{\sigma=k\delta\}
 $$
 
-と置くと、[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
+と置くと、[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-停止操作-sigma-field)から
 
 $$
 A_k\in\mathcal F_{k\delta}^B.
@@ -817,7 +817,7 @@ $$
 連続な標本路は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
 
-usual augmentation を使う場合も、null set の完備化後に同じ conditional identity を almost-sure equality として読むのが標準です。後続 STO5 以降では usual conditions を備えたフィルトレーションを基本環境にします。
+usual augmentation を使う場合も、null set の完備化後に同じ conditional 恒等式を almost-sure equality として読むのが標準です。後続 STO5 以降では usual conditions を備えたフィルトレーションを基本環境にします。
 
 ---
 
@@ -835,7 +835,7 @@ $$
 \inf\{t\ge0:B_t=a\}
 $$
 >
-> を level $a$ の **到達時刻** とする。集合が空なら $\tau_a=\infty$ とする。
+> を水準 $a$ の **到達時刻** とする。集合が空なら $\tau_a=\infty$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto4-hitting-time -->
@@ -884,7 +884,7 @@ $$
 
 ---
 
-## 7. strong Markov から反射公式を得る
+## 7. 強マルコフから反射公式を得る
 
 <a id="thm-sto4-reflection-principle"></a>
 
@@ -921,14 +921,14 @@ $$
 
 ### 証明の見取り図
 
-level $a$ へ初めて到達した時点で、その後の増分の符号を反転します。
+水準 $a$ へ初めて到達した時点で、その後の増分の符号を反転します。
 
 強マルコフ性により、停止時刻の後ろは過去と独立なブラウン運動です。ブラウン運動は $W$ と $-W$ が同じ法則を持つので、反射後の過程全体もブラウン法則を持ちます。
 
 <!-- proof-start -->
 ### 証明
 
-$\tau_a$ を level $a$ の到達時刻とし、
+$\tau_a$ を水準 $a$ の到達時刻とし、
 
 $$
 \sigma=\tau_a\wedge T
@@ -979,7 +979,7 @@ $$
 2a-b.
 $$
 
-逆に反射後の標本路の終点が $2a-b\ge a$ なら continuity によりその標本路は時刻 $T$ までに level $a$ を通ります。反射操作は同じ到達時刻で再度行うと元の標本路に戻る involution です。
+逆に反射後の標本路の終点が $2a-b\ge a$ なら連続性によりその標本路は時刻 $T$ までに水準 $a$ を通ります。反射操作は同じ到達時刻で再度行うと元の標本路に戻る involution です。
 
 したがって reflection は
 
@@ -1028,7 +1028,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン到達時刻の分布）**  
-> $a>0$ とする。level $a$ の到達時刻
+> $a>0$ とする。水準 $a$ の到達時刻
 >
 $$
 \tau_a=\inf\{t\ge0:B_t=a\}
@@ -1179,14 +1179,14 @@ $$
 >
 > 従ってほとんど確実に全ての $x\in\mathbb R$ を少なくとも一度通る。
 >
-> さらに level $0$ へ無限回戻る。
+> さらに水準 $0$ へ無限回戻る。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-各固定 level の hitting probability が 1 であることは前節で分かっています。
+各固定水準の hitting probability が 1 であることは前節で分かっています。
 
-整数 level $\pm1,\pm2,\ldots$ は可算個なので、それら全てを hit する確率も 1 です。従って標本路は上にも下にも有界ではありません。
+整数水準 $\pm1,\pm2,\ldots$ は可算個なので、それら全てを hit する確率も 1 です。従って標本路は上にも下にも有界ではありません。
 
 無限回の return は強マルコフ性を使って $+1,-1,+1,-1,\ldots$ と交互に hit させます。
 
@@ -1205,11 +1205,11 @@ $$
 P(\tau_{-a}<\infty)=1.
 $$
 
-従って各 $n\in\mathbb N$ に対して level $n$ と $-n$ を hit する event は確率 1 です。
+従って各 $n\in\mathbb N$ に対して水準 $n$ と $-n$ を hit する event は確率 1 です。
 
 可算交叉を取れば、ほとんど確実に全ての整数 $\pm n$ を hit します。従って標本路は上にも下にも有界ではありません。
 
-任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、ほとんど確実に全ての実数 level を hit します。
+任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、ほとんど確実に全ての実数水準を hit します。
 
 次に return を示します。
 
@@ -1237,7 +1237,7 @@ $$
 
 $\sigma_k<\infty$ が成立したとします。強マルコフ性により、$\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
 
-現在値から次の目標 level までの距離は 2 なので、前節の hitting probability 1 から
+現在値から次の目標水準までの距離は 2 なので、前節の hitting probability 1 から
 
 $$
 P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^B)=1.
@@ -1245,7 +1245,7 @@ $$
 
 帰納的に全ての $\sigma_k$ は finite ほとんど確実にです。
 
-各 $+1$ から $-1$、または $-1$ から $+1$ への移動の途中で continuity により level 0 を通ります。
+各 $+1$ から $-1$、または $-1$ から $+1$ への移動の途中で連続性により水準 0 を通ります。
 
 もし $(\sigma_k)$ が有限値 $T$ へ収束したなら、偶数番目と奇数番目の双方で $\sigma_k\to T$ なのに
 
@@ -1261,7 +1261,7 @@ $$
 \sigma_k\to\infty.
 $$
 
-よって level 0 への return は無限回起こります。
+よって水準 0 への return は無限回起こります。
 <!-- proof-end -->
 
 ---
@@ -1331,7 +1331,7 @@ $$
 
 従って $(0,\infty)$ 上の finite-dimensional laws はブラウン運動と一致します。
 
-残るのは $0$ での continuity です。
+残るのは $0$ での連続性です。
 
 まず $B_n\sim N(0,n)$ なので
 
@@ -1436,7 +1436,7 @@ $$
 \to
 \text{Markov}
 \to
-\text{strong Markov}
+\text{強マルコフ}
 \to
 \text{reflection}
 \to
@@ -1588,7 +1588,7 @@ $$
 よって $X$ は standard ブラウン運動です。
 <!-- solution-end -->
 
-### A3. level 到達時刻は停止時刻
+### A3. 水準到達時刻は停止時刻
 
 $a>0$ とし
 
@@ -1613,7 +1613,7 @@ $$
 
 を示せば十分です。
 
-連続な標本路では level $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
+連続な標本路では水準 $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
 
 $$
 \{\tau_a\le t\}
@@ -1722,7 +1722,7 @@ $$
 
 ## Level B
 
-### B1. 有限値停止時刻で strong Markov の核心を証明する
+### B1. 有限値停止時刻で強マルコフの核心を証明する
 
 $\sigma$ が
 
@@ -1766,7 +1766,7 @@ $$
 
 と置きます。
 
-[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
+[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-停止操作-sigma-field)から
 
 $$
 A_k\in\mathcal F_{s_k}^B.
@@ -1823,7 +1823,7 @@ $$
 これは shifted vector と $\mathcal F_\sigma^B$ の独立性を表す積分等式です。
 <!-- solution-end -->
 
-### B2. 時間反転の $t=0$ continuity
+### B2. 時間反転の $t=0$ での連続性
 
 [反射原理](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
 
@@ -1934,9 +1934,9 @@ $$
 ほとんど確実にです。
 <!-- solution-end -->
 
-### B3. 0 へ無限回戻ることを strong Markov から示す
+### B3. 0 へ無限回戻ることを強マルコフから示す
 
-$+1,-1,+1,-1,\ldots$ を交互に hit する stopping times を構成し、ブラウン運動が level 0 へほとんど確実に無限回戻ることを示してください。
+$+1,-1,+1,-1,\ldots$ を交互に hit する停止操作 times を構成し、ブラウン運動が水準 0 へほとんど確実に無限回戻ることを示してください。
 
 - Level: B
 
@@ -1975,7 +1975,7 @@ $$
 
 $B_{\sigma_1}=1$ なので、$B$ が $-1$ へ到達することは $W$ が $-2$ へ到達することと同値です。
 
-$-W$ もブラウン運動であり level 2 の hitting probability は 1 なので
+$-W$ もブラウン運動であり水準 2 の hitting probability は 1 なので
 
 $$
 P(\sigma_2<\infty\mid\mathcal F_{\sigma_1}^B)=1.
@@ -1983,7 +1983,7 @@ $$
 
 同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ 到達時刻、以後交互に定義すると、帰納的に全ての $\sigma_n$ が finite ほとんど確実にです。
 
-連続な標本路が $+1$ と $-1$ の間を移るたびに、値 0 を飛び越えられないので level 0 を通ります。
+連続な標本路が $+1$ と $-1$ の間を移るたびに、値 0 を飛び越えられないので水準 0 を通ります。
 
 もし $\sigma_n$ が有限時刻 $T$ に集積すれば、単調性から $\sigma_n\to T$ です。しかし $B_{\sigma_n}$ は $1,-1,1,-1,\ldots$ と交互に値を取るため、$B$ の $T$ における連続性に反します。
 
@@ -1993,12 +1993,12 @@ $$
 \sigma_n\to\infty
 $$
 
-であり、その途中に level 0 への return が無限個存在します。
+であり、その途中に水準 0 への return が無限個存在します。
 <!-- solution-end -->
 
 ## Level C
 
-### C1. level hitting times の strong Markov 分解
+### C1. 水準到達時刻の強マルコフ分解
 
 $a,b>0$ とし
 
@@ -2049,7 +2049,7 @@ $$
 
 は standard ブラウン運動で、$\mathcal F_{\tau_a}^B$ と独立です。
 
-**2. 次の level までの待ち時間を書き換える。**
+**2. 次の水準までの待ち時間を書き換える。**
 
 $B_{\tau_a}=a$ ほとんど確実になので
 
@@ -2065,7 +2065,7 @@ $$
 \end{aligned}
 $$
 
-右辺はブラウン運動 $W$ の level $b$ 到達時刻です。
+右辺はブラウン運動 $W$ の水準 $b$ 到達時刻です。
 
 したがって
 
