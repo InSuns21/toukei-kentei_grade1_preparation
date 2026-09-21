@@ -94,7 +94,7 @@ manifold-valued SDE / stochastic development
 
 時系列は STO 全章完了を必須にはせず、別枝として進めます。
 
-1. TSA1：定常過程・Hilbert 予測
+1. [TSA1：定常過程・Hilbert 予測](../TSA1/index.md) — 実装済み
 2. TSA2：Wold decomposition
 3. TSA3：Herglotz・スペクトル表現
 4. TSA4：linear フィルタ・ARMA / ARIMA・周波数領域
@@ -180,4 +180,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO14「Lévy 過程・跳躍型確率解析」](../STO14/index.md#def-sto14-levy-process) も実装済みです。複合 Poisson 過程から Lévy 過程・無限分解可能分布・Lévy 指数・Lévy 測度へ進み、補償 Poisson ランダム測度に対するランダムな予測可能被積分過程の $L^2$ 積分を単純過程から完備化で構成しました。小跳躍は閾値付き近似と補償から sup ノルムの二乗平均極限として作り、Lévy--Itô 分解の構成方向と跳躍 Itô 公式、Lévy 生成作用素まで閉じています。一般 Lévy--Khintchine 分類の逆向きだけは、無限分解可能分布の一般構造論を要するため意図的な技術的入力として境界を明示しています。
 
-現在地は **Phase 4：STO13 → STO14 完了。確率解析主線 STO1--STO14 が完了し、次は Phase 5：TSA1「定常過程・Hilbert 予測」** です。
+[TSA1「定常過程・Hilbert 予測」](../TSA1/index.md#thm-tsa1-best-linear-prediction) も実装済みです。狭義定常性と二次定常性を分離し、自己共分散関数の正定値性、有限過去の正規方程式、無限過去への Hilbert 射影、有限過去予測の $L^2$ 収束、時間移動作用素のユニタリ性、イノベーションの直交性・定常分散まで閉じました。ランダム正弦波を線形決定論的な極端例として置き、MA(1) では有限過去予測と無限過去予測の差を演習で直接計算します。remote past・純非決定論性・Wold 分解は TSA2 の canonical content として先取りしていません。
+
+現在地は **Phase 5：TSA1 完了。次は TSA2「Wold decomposition」** です。

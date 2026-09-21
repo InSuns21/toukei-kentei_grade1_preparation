@@ -660,4 +660,6 @@ ARMA / ergodicity / Kalman
 - 跳躍 Itô 公式は $\varepsilon$-切断した有限活動度過程へ連続 Itô 公式を区間ごとに適用し、跳躍有限差分を足した後、補償 Poisson 等長性と Taylor 二次剰余で $\varepsilon\downarrow0$ へ送る核心証明を閉じた。生成作用素の Lévy--Khintchine 形と Fourier 記号もそこから導いた。
 - STO14 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
 - Phase 4「jump process」STO13--STO14 は完了。
-- 現在地：確率解析主線 STO1--STO14 は完了。次の実装対象は Phase 5：TSA1「定常過程・Hilbert 予測」。
+- Phase 5：TSA1「定常過程・Hilbert 予測」を実装。狭義定常性 / 二次定常性 / 自己共分散関数の正定値性 / 過去の閉線形包 / 有限過去の正規方程式 / 無限過去の Hilbert 射影 / 有限過去予測の $L^2$ 収束 / 時間移動作用素 / イノベーション / 線形決定論的過程を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- TSA1 の direct prerequisite は F0-00P3B・F0-02C1A とし、条件付き期待値の最良予測と Hilbert 射影定理を canonical dependency として再利用する。旧 F0-00TS1 は migration source に留め、prerequisite / proof dependency にしない。remote past・純非決定論性・Wold 分解は TSA2 の canonical content として先取りしない。
+- 現在地：Phase 5 は TSA1 完了。次の実装対象は TSA2「Wold decomposition」。

@@ -1,0 +1,29 @@
+chapter: "TSA1"
+terms:
+  - term: 狭義定常性
+    english: strict stationarity
+    meaning: 任意の有限次元分布が時間の平行移動で変化しない性質。
+  - term: 二次定常性
+    english: second-order stationarity
+    meaning: 二乗可積分で、平均が一定かつ共分散が時刻差だけで決まる性質。
+  - term: 自己共分散関数
+    english: autocovariance function
+    meaning: 二次定常過程で gamma(h)=Cov(X_{t+h},X_t) と表される lag の関数。
+  - term: 弱ホワイトノイズ
+    english: weak white noise
+    meaning: 平均0・一定分散で、異なる時刻同士が無相関な時系列。独立性までは要求しない。
+  - term: 過去の線形予測空間
+    english: past linear prediction space
+    meaning: 過去観測の有限線形結合を L2 で閉じて得る Hilbert 部分空間。
+  - term: 最良線形予測
+    english: best linear prediction
+    meaning: 過去の線形予測空間への直交射影として得られる最小二乗予測。
+  - term: イノベーション
+    english: innovation
+    meaning: 現在値から過去に基づく最良線形予測を引いた直交予測誤差。
+  - term: 線形決定論的過程
+    english: linearly deterministic process
+    meaning: 各時点の中心化値が過去の線形予測空間に属し、一段先イノベーションが常に0となる過程。
+  - term: 時間移動作用素
+    english: shift operator
+    meaning: 二次定常過程の閉線形包上で Y_t を Y_{t+1} へ送るユニタリ作用素。
