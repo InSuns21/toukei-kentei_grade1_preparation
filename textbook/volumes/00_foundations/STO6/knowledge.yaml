@@ -64,7 +64,7 @@ concepts:
   - id: stochastic.simple-predictable-density
     name: simple predictable integrandsのL2 density
     kind: lemma
-    aliases: ["density of simple predictable processes"]
+    aliases: ["density of simple predictable processes", "単純予測可能被積分過程の L2 稠密性"]
     introduction: formal
     introduction_aliases: ["補題（単純予測可能被積分過程の L2 稠密性）"]
     requires:
