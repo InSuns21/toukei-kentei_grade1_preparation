@@ -42,19 +42,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（d 次元 Brown 運動）**  
-> filtration $(\mathcal F_t)_{t\ge0}$ 上の $\mathbb R^d$-値 continuous adapted process
+> filtration $(\mathcal F_t)_{t\ge0}$ 上の $\mathbb R^d$-値 adapted process $B=(B_t)_{t\ge0}$ が **$d$ 次元 standard Brownian motion** であるとは、次を満たすことをいう。
 >
+> 1. $B_0=0$ almost surely.
+> 2. 任意の $0\le s<t$ について、増分 $B_t-B_s$ は $\mathcal F_s$ と独立である。
+> 3. 任意の $0\le s<t$ について
+
 $$
-B_t=(B_t^1,\ldots,B_t^d)
+B_t-B_s\sim N_d(0,(t-s)I_d).
 $$
->
-> が **$d$ 次元 standard Brownian motion** であるとは、成分
->
-$$
-B^1,\ldots,B^d
-$$
->
-> が互いに独立な 1 次元 standard Brownian motion であることをいう。
+
+> 4. ほとんど全ての $\omega$ について $t\mapsto B_t(\omega)$ は連続である。
 <!-- formal-statement-end -->
 
 この定義から、任意の $0\le s<t$ について
@@ -70,29 +68,43 @@ $$
 <!-- definition-example-start: def-sto7-vector-brownian -->
 **定義の確認**
 
-### 直接例：2 次元 Brown 運動
+### 直接例：独立な 1 次元 Brown 運動から 2 次元 Brown 運動を作る
 
-独立な Brown 運動 $B^1,B^2$ を取り
+独立な Brown 運動 $B^1,B^2$ を取り、
 
 $$
 B_t=(B_t^1,B_t^2)
 $$
 
-とします。
-
-各成分は continuous adapted process で、増分
+とします。filtration は二成分を合わせた usual augmented natural filtration
 
 $$
+\mathcal F_t
+=
+\sigma(B_u^1,B_u^2:0\le u\le t)^{\mathrm{aug}}
+$$
+
+とします。
+
+まず $B_0=(0,0)$ almost surely で、各成分が連続なので $B$ も連続です。
+
+さらに $0\le s<t$ では、各成分の未来増分は対応する過去と独立で、二つの Brown 運動自体も独立です。したがって
+
+$$
+B_t-B_s
+=
 (B_t^1-B_s^1,\ B_t^2-B_s^2)
 $$
 
-の二成分は独立、各分散は $t-s$ です。したがって covariance matrix は
+は $\mathcal F_s$ と独立です。
+
+二成分は互いに独立な $N(0,t-s)$ に従うので
 
 $$
-(t-s)I_2
+B_t-B_s\sim N_2(0,(t-s)I_2).
 $$
 
-となり、定義を直接満たします。
+以上で定義の四条件を直接確認できました。
 <!-- definition-example-end -->
 
 Brown 運動を多次元化したとき、Itô calculus に必要なのは covariance だけではありません。標本路上で残る **covariation** を確認する必要があります。
