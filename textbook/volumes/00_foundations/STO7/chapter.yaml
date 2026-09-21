@@ -3,6 +3,7 @@ title: "Encore IV Stochastic Analysis VII：multidimensional Itô calculus・Str
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - VC1
   - STO5
   - STO6
   - RA3
