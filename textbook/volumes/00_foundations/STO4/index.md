@@ -1,22 +1,24 @@
-# STO4：Brown 運動・到達時刻・strong Markov property
+# STO4：ブラウン運動・到達時刻・強マルコフ性
 
 <!-- definition-example-audit: strict -->
 
-STO3 では、整合的な有限次元分布から確率過程を作り、moment estimate から連続な modification を得るところまで閉じました。
+> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
-この章では、その二つを最初に本格的に使います。目標は Brown 運動を既知として計算だけを進めることではありません。
+STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な modification を得るところまで閉じました。
+
+この章では、その二つを最初に本格的に使います。目標はブラウン運動を既知として計算だけを進めることではありません。
 
 $$
 \boxed{
-\text{covariance }\min(s,t)
+\text{共分散 }\min(s,t)
 \to
-\text{Gaussian finite-dimensional laws}
+\text{ガウス finite-dimensional laws}
 \to
 \text{Kolmogorov extension}
 \to
 \text{continuous modification}
 \to
-\text{Brownian motion}
+\text{ブラウン運動}
 }
 $$
 
@@ -24,7 +26,7 @@ $$
 
 $$
 \boxed{
-\text{independent increments}
+\text{独立増分}
 \to
 \text{Markov}
 \to
@@ -32,25 +34,25 @@ $$
 \to
 \text{reflection}
 \to
-\text{hitting time}
+\text{到達時刻}
 \to
-\text{1 次元 recurrence}
+\text{1 次元再帰性}
 }
 $$
 
 までを一つの論理線として追います。
 
-停止時刻での反射公式を strong Markov property より先に証明しようとすると、反射後の独立増分を暗黙に仮定してしまいます。本章ではその循環を避け、**停止時刻を右側の dyadic grid で近似して strong Markov property を先に証明**してから反射公式へ進みます。
+停止時刻での反射公式を強マルコフ性より先に証明しようとすると、反射後の独立増分を暗黙に仮定してしまいます。本章ではその循環を避け、**停止時刻を右側の二進格子で近似して強マルコフ性を先に証明**してから反射公式へ進みます。
 
 ---
 
-## 1. 有限個の時刻を同時に Gaussian とする過程
+## 1. 有限個の時刻を同時にガウスとする過程
 
 <a id="def-sto4-gaussian-process"></a>
 
 <!-- formal-statement-start -->
-> **定義（Gaussian process）**  
-> 実数値確率過程 $X=(X_t)_{t\in T}$ が **Gaussian process** であるとは、任意の有限個の時刻
+> **定義（ガウス過程）**  
+> 実数値確率過程 $X=(X_t)_{t\in T}$ が **ガウス過程** であるとは、任意の有限個の時刻
 >
 $$
 t_1,\ldots,t_m\in T
@@ -62,16 +64,16 @@ $$
 (X_{t_1},\ldots,X_{t_m})
 $$
 >
-> が多変量 Gaussian 分布を持つことをいう。退化した Gaussian 分布も許す。
+> が多変量ガウス分布を持つことをいう。退化したガウス分布も許す。
 <!-- formal-statement-end -->
 
-Gaussian process では、平均関数
+ガウス過程では、平均関数
 
 $$
 m(t)=E[X_t]
 $$
 
-と covariance kernel
+と共分散 kernel
 
 $$
 K(s,t)
@@ -81,8 +83,8 @@ $$
 
 が有限次元分布を決めます。
 
-<!-- definition-example-start: def-sto4-gaussian-process -->
-### 直接例：$X_t=tZ$ は Gaussian だが Brown 運動ではない
+<!-- definition-example-start: def-sto4-gaussian-過程 -->
+### 直接例：$X_t=tZ$ はガウスだがブラウン運動ではない
 
 **定義の確認**
 
@@ -100,9 +102,9 @@ $$
 Z(t_1,\ldots,t_m)
 $$
 
-は一つの Gaussian 変数の線形像なので、多変量 Gaussian です。
+は一つのガウス変数の線形像なので、多変量ガウスです。
 
-従って $X$ は Gaussian process です。
+従って $X$ はガウス過程です。
 
 一方、
 
@@ -112,16 +114,16 @@ $$
 
 なので、異なる時間区間の増分は同じ $Z$ を共有しており独立ではありません。
 
-Gaussian であることだけでは Brown 運動には足りません。
+ガウスであることだけではブラウン運動には足りません。
 <!-- definition-example-end -->
 
 <a id="def-sto4-brownian-motion"></a>
 
 <!-- formal-statement-start -->
-> **定義（standard Brownian motion）**  
-> 実数値過程 $B=(B_t)_{t\ge0}$ が standard Brownian motion であるとは、次を満たすことをいう。
+> **定義（standard ブラウン運動）**  
+> 実数値過程 $B=(B_t)_{t\ge0}$ が standard ブラウン運動であるとは、次を満たすことをいう。
 >
-> 1. $B_0=0$ almost surely.
+> 1. $B_0=0$ ほとんど確実に.
 > 2. $0\le t_0<t_1<\cdots<t_m$ に対し、
 >
 $$
@@ -138,42 +140,42 @@ $$
 > 4. ほとんど全ての $\omega$ について $t\mapsto B_t(\omega)$ は連続である。
 <!-- formal-statement-end -->
 
-2 と 3 はそれぞれ independent increments と stationary Gaussian increments を表します。
+2 と 3 はそれぞれ独立増分と stationary ガウス increments を表します。
 
 ---
 
-## 2. covariance $\min(s,t)$ から Brown 運動を構成する
+## 2. 共分散 $\min(s,t)$ からブラウン運動を構成する
 
-Brown 運動の covariance は、定義から形式的に計算すると
+ブラウン運動の共分散は、定義から形式的に計算すると
 
 $$
 E[B_sB_t]=\min(s,t)
 $$
 
-になるはずです。逆に、この covariance を持つ centered Gaussian process を作れば Brown 運動になります。
+になるはずです。逆に、この共分散を持つ centered ガウス過程を作ればブラウン運動になります。
 
 <a id="thm-sto4-brownian-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brown 運動の構成）**  
-> 連続な standard Brownian motion は存在する。
+> **定理（ブラウン運動の構成）**  
+> 連続な standard ブラウン運動は存在する。
 >
-> より具体的には、centered Gaussian process $B=(B_t)_{t\ge0}$ で
+> より具体的には、centered ガウス過程 $B=(B_t)_{t\ge0}$ で
 >
 $$
 E[B_sB_t]=\min(s,t)
 $$
 >
-> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な modification を取れば、その modification は standard Brownian motion である。
+> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な modification を取れば、その modification は standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
 核心は三点です。
 
-1. $K(s,t)=\min(s,t)$ が本当に covariance matrix を作れることを確認する。
-2. Gaussian では **無相関な成分が独立**なので、disjoint increments の covariance が 0 なら independent increments が出る。
-3. Gaussian increment の第4 moment
+1. $K(s,t)=\min(s,t)$ が本当に共分散 matrix を作れることを確認する。
+2. ガウスでは **無相関な成分が独立**なので、disjoint increments の共分散が 0 なら独立増分が出る。
+3. ガウス増分の第4 モーメント
    $E|B_t-B_s|^4=3|t-s|^2$
    を STO3 の continuity theorem に入れる。
 
@@ -225,19 +227,19 @@ $$
 \Sigma_{ij}=\min(t_i,t_j)
 $$
 
-は covariance matrix になれます。
+は共分散 matrix になれます。
 
-**Step 2：整合的 Gaussian finite-dimensional laws を作る。**
+**Step 2：整合的ガウス finite-dimensional laws を作る。**
 
-各有限集合 $I=\{t_1,\ldots,t_m\}$ に対し、平均 0、covariance matrix
+各有限集合 $I=\{t_1,\ldots,t_m\}$ に対し、平均 0、共分散 matrix
 
 $$
 \Sigma_I=(\min(t_i,t_j))_{i,j}
 $$
 
-の Gaussian 分布 $\mu_I$ を取ります。
+のガウス分布 $\mu_I$ を取ります。
 
-Gaussian vector の座標を一部捨てた周辺分布は、対応する平均ベクトルと covariance の部分行列を持つ Gaussian 分布です。
+ガウス vector の座標を一部捨てた周辺分布は、対応する平均ベクトルと共分散の部分行列を持つガウス分布です。
 
 従って $I\subset J$ なら
 
@@ -249,7 +251,7 @@ $$
 
 よって finite-dimensional laws は整合的です。
 
-[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)から、これらを持つ centered Gaussian process $X=(X_t)_{t\ge0}$ が存在します。
+[Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)から、これらを持つ centered ガウス過程 $X=(X_t)_{t\ge0}$ が存在します。
 
 **Step 3：増分の分布を計算する。**
 
@@ -265,7 +267,7 @@ t-s.
 \end{aligned}
 $$
 
-Gaussian vector の線形結合も Gaussian なので
+ガウス vector の線形結合もガウスなので
 
 $$
 X_t-X_s\sim N(0,t-s).
@@ -287,9 +289,9 @@ s-s-r+r\\
 \end{aligned}
 $$
 
-複数の互いに交わらない区間の増分を同時に並べても Gaussian vector です。その covariance matrix は対角なので、成分は独立です。
+複数の互いに交わらない区間の増分を同時に並べてもガウス vector です。その共分散 matrix は対角なので、成分は独立です。
 
-従って $X$ は independent increments を持ちます。
+従って $X$ は独立増分を持ちます。
 
 **Step 5：連続な modification を取る。**
 
@@ -329,7 +331,7 @@ $$
 
 について compact 時間区間上で $\gamma$-Hölder continuous な modification $B$ が存在します。
 
-modification は各固定時刻で元の過程と almost surely 一致するため、有限次元分布は変わりません。したがって $B$ も centered Gaussian process で covariance $\min(s,t)$ を持ち、Step 3, 4 の increment law と independence を保ちます。
+modification は各固定時刻で元の過程とほとんど確実に一致するため、有限次元分布は変わりません。したがって $B$ も centered ガウス過程で共分散 $\min(s,t)$ を持ち、Step 3, 4 の増分法則と independence を保ちます。
 
 最後に
 
@@ -337,37 +339,37 @@ $$
 \operatorname{Var}(B_0)=0
 $$
 
-なので $B_0=0$ almost surely です。
+なので $B_0=0$ ほとんど確実にです。
 
-以上より $B$ は standard Brownian motion です。
+以上より $B$ は standard ブラウン運動です。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-sto4-brownian-motion -->
-### 直接例：構成した過程で Brown 運動の4条件を照合する
+### 直接例：構成した過程でブラウン運動の4条件を照合する
 
 **定義の確認**
 
 上の定理で得た $B$ は
 
-- $B_0=0$ almost surely,
-- disjoint increments が jointly Gaussian かつ covariance 0 なので独立,
+- $B_0=0$ ほとんど確実に,
+- disjoint increments が jointly ガウスかつ共分散 0 なので独立,
 - $B_t-B_s\sim N(0,t-s)$,
-- continuous modification を選んだので標本路が almost surely 連続,
+- continuous modification を選んだので標本路がほとんど確実に連続,
 
 を全て満たします。
 
-ここで「Gaussian process を作れた」と「連続な標本路を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
+ここで「ガウス過程を作れた」と「連続な標本路を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
 <!-- definition-example-end -->
 
 ---
 
-## 3. scaling と Brownian filtration
+## 3. スケーリングとブラウンフィルトレーション
 
 <a id="prop-sto4-brownian-scaling"></a>
 
 <!-- formal-statement-start -->
-> **命題（Brownian scaling）**  
-> $B$ を standard Brownian motion、$c>0$ とする。このとき
+> **命題（ブラウンスケーリング）**  
+> $B$ を standard ブラウン運動、$c>0$ とする。このとき
 >
 $$
 \widetilde B_t
@@ -376,7 +378,7 @@ $$
 \qquad t\ge0
 $$
 >
-> も standard Brownian motion である。
+> も standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -408,8 +410,8 @@ $$
 <a id="def-sto4-brownian-filtration"></a>
 
 <!-- formal-statement-start -->
-> **定義（Brownian natural filtration）**  
-> Brown 運動 $B$ に対し
+> **定義（ブラウン natural フィルトレーション）**  
+> ブラウン運動 $B$ に対し
 >
 $$
 \mathcal F_t^B
@@ -417,12 +419,12 @@ $$
 \sigma(B_s:0\le s\le t)
 $$
 >
-> を **natural filtration** という。
+> を **natural フィルトレーション** という。
 >
-> null set を補い、必要に応じて右連続化した filtration を stochastic calculus では usual augmentation として用いる。本章の strong Markov property の核心証明では、情報の出所を明示するためまず raw natural filtration $(\mathcal F_t^B)$ で議論する。
+> null set を補い、必要に応じて右連続化したフィルトレーションを stochastic calculus では usual augmentation として用いる。本章の強マルコフ性の核心証明では、情報の出所を明示するためまず raw natural フィルトレーション $(\mathcal F_t^B)$ で議論する。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto4-brownian-filtration -->
+<!-- definition-example-start: def-sto4-brownian-フィルトレーション -->
 ### 直接例：過去の事象と未来増分を分ける
 
 **定義の確認**
@@ -445,20 +447,20 @@ $$
 B_2-B_1
 $$
 
-は interval $(1,2]$ の increment であり、Brown 運動の independent increments から $\mathcal F_1^B$ と独立です。
+は interval $(1,2]$ の増分であり、ブラウン運動の独立増分から $\mathcal F_1^B$ と独立です。
 
-実際、$\mathcal F_1^B$ は $B$ の $[0,1]$ 上の rational time values で生成でき、各有限個の過去値と $B_2-B_1$ は jointly Gaussian かつ covariance 0 です。
+実際、$\mathcal F_1^B$ は $B$ の $[0,1]$ 上の rational time values で生成でき、各有限個の過去値と $B_2-B_1$ は jointly ガウスかつ共分散 0 です。
 <!-- definition-example-end -->
 
 ---
 
-## 4. deterministic time では Markov property は independent increments そのもの
+## 4. 決定論的時刻ではマルコフ性は独立増分そのもの
 
 <a id="thm-sto4-brownian-markov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brown 運動の Markov property）**  
-> $B$ を standard Brownian motion、$(\mathcal F_t^B)$ を natural filtration とする。
+> **定理（ブラウン運動のマルコフ性）**  
+> $B$ を standard ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとする。
 >
 > 任意の $s,t\ge0$ に対し
 >
@@ -468,7 +470,7 @@ $$
 >
 > は $\mathcal F_s^B$ と独立で、$N(0,t)$ に従う。
 >
-> 従って任意の bounded Borel function $f:\mathbb R\to\mathbb R$ について
+> 従って任意の有界 Borel function $f:\mathbb R\to\mathbb R$ について
 >
 $$
 E[f(B_{s+t})\mid\mathcal F_s^B]
@@ -478,7 +480,7 @@ f(B_s+y)
 \frac{e^{-y^2/(2t)}}{\sqrt{2\pi t}}\,dy
 $$
 >
-> が almost surely 成り立つ。ただし $t=0$ では右辺を $f(B_s)$ と読む。
+> がほとんど確実に成り立つ。ただし $t=0$ では右辺を $f(B_s)$ と読む。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -491,7 +493,7 @@ $$
 
 と分けます。
 
-$B_s$ は現在情報 $\mathcal F_s^B$ に含まれ、未来増分だけが独立な新しい Gaussian noise です。
+$B_s$ は現在情報 $\mathcal F_s^B$ に含まれ、未来増分だけが独立な新しいガウス noise です。
 
 <!-- proof-start -->
 ### 証明
@@ -504,7 +506,7 @@ $$
 (B_{r_1},\ldots,B_{r_m},B_{s+t}-B_s)
 $$
 
-は Gaussian です。
+はガウスです。
 
 各 $r_j\le s$ について
 
@@ -521,7 +523,7 @@ $$
 
 従って $B_{s+t}-B_s$ は任意の有限個の過去値と独立です。
 
-natural filtration は rational time の過去値で生成できるので、monotone class argument により $\mathcal F_s^B$ 全体と独立です。
+natural フィルトレーションは rational time の過去値で生成できるので、monotone class argument により $\mathcal F_s^B$ 全体と独立です。
 
 あとは $Y=B_{s+t}-B_s\sim N(0,t)$ と置けば、$Y$ は $\mathcal F_s^B$ と独立なので
 
@@ -537,16 +539,16 @@ $$
 g(x)=E[f(x+Y)]
 $$
 
-です。Gaussian density を書けば主張の積分表示になります。
+です。ガウス density を書けば主張の積分表示になります。
 <!-- proof-end -->
 
 ---
 
-## 5. stopping time へ時刻を置き換える：strong Markov property
+## 5. 停止時刻へ時刻を置き換える：強マルコフ性
 
-deterministic time $s$ なら、未来増分は「$s$ より前」と disjoint だから独立でした。
+決定論的時刻 $s$ なら、未来増分は「$s$ より前」と disjoint だから独立でした。
 
-しかし stopping time $\tau$ は random です。
+しかし停止時刻 $\tau$ は random です。
 
 単に
 
@@ -554,15 +556,15 @@ $$
 B_{\tau+t}-B_\tau
 $$
 
-を「未来の増分だから独立」と言うだけでは証明になりません。$\tau$ 自体が過去の標本路 から選ばれているからです。
+を「未来の増分だから独立」と言うだけでは証明になりません。$\tau$ 自体が過去の標本路から選ばれているからです。
 
-ここで STO1 の stopping time と $\mathcal F_\tau$ が働きます。
+ここで STO1 の停止時刻と $\mathcal F_\tau$ が働きます。
 
 <a id="thm-sto4-brownian-strong-markov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brown 運動の strong Markov property）**  
-> $B$ を standard Brownian motion、$(\mathcal F_t^B)$ を natural filtration とし、$\tau$ を almost surely finite な stopping time とする。
+> **定理（ブラウン運動の強マルコフ性）**  
+> $B$ を standard ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとし、$\tau$ をほとんど確実に finite な停止時刻とする。
 >
 > このとき
 >
@@ -573,9 +575,9 @@ B_{\tau+t}-B_\tau,
 \qquad t\ge0
 $$
 >
-> は standard Brownian motion であり、$\mathcal F_\tau^B$ と独立である。
+> は standard ブラウン運動であり、$\mathcal F_\tau^B$ と独立である。
 >
-> 特に bounded Borel function $f$ に対し
+> 特に有界 Borel function $f$ に対し
 >
 $$
 E[f(B_{\tau+t})\mid\mathcal F_\tau^B]
@@ -585,7 +587,7 @@ f(B_\tau+y)
 \frac{e^{-y^2/(2t)}}{\sqrt{2\pi t}}\,dy
 $$
 >
-> almost surely.
+> ほとんど確実に.
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -598,7 +600,7 @@ $$
 2^{-n}\left\lceil2^n\tau\right\rceil
 $$
 
-で右側の dyadic grid へ丸めます。
+で右側の二進格子へ丸めます。
 
 すると
 
@@ -606,9 +608,9 @@ $$
 \tau_n\downarrow\tau.
 $$
 
-各 $\tau_n$ は countably many deterministic times しか取らないので、その値ごとに ordinary independent increments を使えます。
+各 $\tau_n$ は countably many 決定論的 times しか取らないので、その値ごとに ordinary 独立増分を使えます。
 
-最後に Brownian 標本路 の連続性で
+最後にブラウン標本路の連続性で
 
 $$
 B_{\tau_n+t}-B_{\tau_n}
@@ -618,12 +620,12 @@ $$
 
 とし、極限へ移します。
 
-この「**離散化して deterministic-time の独立性を使い、標本路の連続性 で random time へ戻す**」のが strong Markov property の核心です。
+この「**離散化して決定論的-time の独立性を使い、標本路の連続性で random time へ戻す**」のが強マルコフ性の核心です。
 
 <!-- proof-start -->
 ### 証明
 
-#### Step 1：dyadic approximation は stopping time
+#### Step 1：二進近似は停止時刻
 
 $\delta_n=2^{-n}$ と書き
 
@@ -651,11 +653,11 @@ $$
 \{(k-1)\delta_n<\tau\le k\delta_n\}
 $$
 
-は $\mathcal F_{k\delta_n}^B$ に属します。従って $\tau_n$ は stopping time です。
+は $\mathcal F_{k\delta_n}^B$ に属します。従って $\tau_n$ は停止時刻です。
 
-#### Step 2：countably-valued stopping time では主張が成り立つ
+#### Step 2：可算値停止時刻では主張が成り立つ
 
-$\sigma$ が $0,\delta,2\delta,\ldots$ のみに値を取る stopping time とします。
+$\sigma$ が $0,\delta,2\delta,\ldots$ のみに値を取る停止時刻とします。
 
 任意の
 
@@ -663,7 +665,7 @@ $$
 A\in\mathcal F_\sigma^B
 $$
 
-と、$0\le t_1<\cdots<t_m$、bounded Borel function
+と、$0\le t_1<\cdots<t_m$、有界 Borel function
 $g:\mathbb R^m\to\mathbb R$ を取ります。
 
 $$
@@ -672,13 +674,13 @@ A_k
 A\cap\{\sigma=k\delta\}
 $$
 
-と置くと、[stopping time までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
+と置くと、[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{k\delta}^B.
 $$
 
-deterministic-time independent increments により
+決定論的-time 独立増分により
 
 $$
 \left(
@@ -688,7 +690,7 @@ B_{k\delta+t_m}-B_{k\delta}
 \right)
 $$
 
-は $\mathcal F_{k\delta}^B$ と独立で、law は
+は $\mathcal F_{k\delta}^B$ と独立で、法則は
 
 $$
 (B_{t_1},\ldots,B_{t_m})
@@ -734,13 +736,13 @@ $$
 
 です。
 
-従って shifted finite-dimensional vector は $\mathcal F_\sigma^B$ と独立で、元の Brown 運動と同じ finite-dimensional law を持ちます。
+従って shifted finite-dimensional vector は $\mathcal F_\sigma^B$ と独立で、元のブラウン運動と同じ finite-dimensional 法則を持ちます。
 
 #### Step 3：$\tau_n\downarrow\tau$ の極限を取る
 
 $A\in\mathcal F_\tau^B$ とします。
 
-$\tau\le\tau_n$ なので STO1 の stopping-time sigma-field の単調性から
+$\tau\le\tau_n$ なので STO1 の停止時刻 sigma-field の単調性から
 
 $$
 \mathcal F_\tau^B
@@ -768,9 +770,9 @@ $$
 
 を得ます。
 
-まず $g$ を bounded continuous とします。
+まず $g$ を有界 continuous とします。
 
-Brownian 標本路 の連続性と $\tau_n\downarrow\tau$ から各 $j$ について
+ブラウン標本路の連続性と $\tau_n\downarrow\tau$ から各 $j$ について
 
 $$
 B_{\tau_n+t_j}-B_{\tau_n}
@@ -778,9 +780,9 @@ B_{\tau_n+t_j}-B_{\tau_n}
 B_{\tau+t_j}-B_\tau
 $$
 
-almost surely.
+ほとんど確実に.
 
-bounded convergence theorem により
+有界 convergence theorem により
 
 $$
 \begin{aligned}
@@ -798,9 +800,9 @@ E[g(B_{t_1},\ldots,B_{t_m})].
 \end{aligned}
 $$
 
-bounded continuous functions から bounded Borel functions への拡張は monotone class theorem で行えます。
+有界 continuous functions から有界 Borel functions への拡張は monotone class theorem で行えます。
 
-従って全ての shifted finite-dimensional vectors は $\mathcal F_\tau^B$ と独立で、Brownian finite-dimensional laws を持ちます。
+従って全ての shifted finite-dimensional vectors は $\mathcal F_\tau^B$ と独立で、ブラウン finite-dimensional laws を持ちます。
 
 さらに shift 後の標本路
 
@@ -808,23 +810,23 @@ $$
 t\mapsto B_{\tau+t}-B_\tau
 $$
 
-は元の標本路 の連続性から連続です。
+は元の標本路の連続性から連続です。
 
-よって $W_t=B_{\tau+t}-B_\tau$ は standard Brownian motion です。
+よって $W_t=B_{\tau+t}-B_\tau$ は standard ブラウン運動です。
 
-連続な標本路 は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
+連続な標本路は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
 
-usual augmentation を使う場合も、null set の completion 後に同じ conditional identity を almost-sure equality として読むのが標準です。後続 STO5 以降では usual conditions を備えた filtration を基本環境にします。
+usual augmentation を使う場合も、null set の完備化後に同じ conditional identity を almost-sure equality として読むのが標準です。後続 STO5 以降では usual conditions を備えたフィルトレーションを基本環境にします。
 
 ---
 
-## 6. hitting time は stopping time である
+## 6. 到達時刻は停止時刻である
 
 <a id="def-sto4-hitting-time"></a>
 
 <!-- formal-statement-start -->
-> **定義（Brownian hitting time）**  
+> **定義（ブラウン到達時刻）**  
 > $a\in\mathbb R$ に対し
 >
 $$
@@ -833,11 +835,11 @@ $$
 \inf\{t\ge0:B_t=a\}
 $$
 >
-> を level $a$ の **hitting time** とする。集合が空なら $\tau_a=\infty$ とする。
+> を level $a$ の **到達時刻** とする。集合が空なら $\tau_a=\infty$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto4-hitting-time -->
-### 直接例：連続な標本路 から stopping-time 性を確認する
+### 直接例：連続な標本路から停止時刻性を確認する
 
 **定義の確認**
 
@@ -849,7 +851,7 @@ $$
 
 と置きます。
 
-標本路の連続性 により
+標本路の連続性により
 
 $$
 \{\tau_a\le t\}
@@ -877,7 +879,7 @@ $$
 \mathcal F_t^B.
 $$
 
-よって $\tau_a$ は stopping time です。
+よって $\tau_a$ は停止時刻です。
 <!-- definition-example-end -->
 
 ---
@@ -887,8 +889,8 @@ $$
 <a id="thm-sto4-reflection-principle"></a>
 
 <!-- formal-statement-start -->
-> **定理（reflection principle）**  
-> $B$ を standard Brownian motion、
+> **定理（反射原理）**  
+> $B$ を standard ブラウン運動、
 >
 $$
 M_T=\sup_{0\le s\le T}B_s
@@ -914,27 +916,27 @@ P(M_T\ge a)
 \right),
 $$
 >
-> ただし $\Phi$ は $N(0,1)$ の 累積分布関数 である。
+> ただし $\Phi$ は $N(0,1)$ の累積分布関数である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-level $a$ へ初めて到達した時点で、その後の increment の符号を反転します。
+level $a$ へ初めて到達した時点で、その後の増分の符号を反転します。
 
-strong Markov property により、停止時刻の後ろは過去と独立な Brownian motion です。Brown 運動は $W$ と $-W$ が同じ law を持つので、反射後の process 全体も Brownian law を持ちます。
+強マルコフ性により、停止時刻の後ろは過去と独立なブラウン運動です。ブラウン運動は $W$ と $-W$ が同じ法則を持つので、反射後の過程全体もブラウン法則を持ちます。
 
 <!-- proof-start -->
 ### 証明
 
-$\tau_a$ を level $a$ の hitting time とし、
+$\tau_a$ を level $a$ の到達時刻とし、
 
 $$
 \sigma=\tau_a\wedge T
 $$
 
-と置きます。$\sigma\le T$ なので bounded stopping time です。
+と置きます。$\sigma\le T$ なので有界停止時刻です。
 
-次の reflected process を考えます。
+次の reflected 過程を考えます。
 
 $$
 \widetilde B_t
@@ -945,13 +947,13 @@ B_t, & t\le\sigma,\\
 \end{cases}
 $$
 
-strong Markov property から
+強マルコフ性から
 
 $$
 B_{\sigma+t}-B_\sigma
 $$
 
-は $\mathcal F_\sigma^B$ と独立な Brownian motion です。
+は $\mathcal F_\sigma^B$ と独立なブラウン運動です。
 
 その符号を反転した
 
@@ -959,7 +961,7 @@ $$
 -(B_{\sigma+t}-B_\sigma)
 $$
 
-も同じ law の Brownian motion なので、$\widetilde B$ も standard Brownian motion と同じ law を持ちます。
+も同じ法則のブラウン運動なので、$\widetilde B$ も standard ブラウン運動と同じ法則を持ちます。
 
 event
 
@@ -977,7 +979,7 @@ $$
 2a-b.
 $$
 
-逆に 反射後の標本路 の終点が $2a-b\ge a$ なら continuity によりその標本路 は時刻 $T$ までに level $a$ を通ります。反射操作は同じ hitting time で再度行うと元の標本路 に戻る involution です。
+逆に反射後の標本路の終点が $2a-b\ge a$ なら continuity によりその標本路は時刻 $T$ までに level $a$ を通ります。反射操作は同じ到達時刻で再度行うと元の標本路に戻る involution です。
 
 したがって reflection は
 
@@ -1020,13 +1022,13 @@ $$
 
 ---
 
-## 8. hitting time の分布と無限平均
+## 8. 到達時刻の分布と無限平均
 
 <a id="thm-sto4-hitting-time-law"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brownian hitting time の分布）**  
-> $a>0$ とする。level $a$ の hitting time
+> **定理（ブラウン到達時刻の分布）**  
+> $a>0$ とする。level $a$ の到達時刻
 >
 $$
 \tau_a=\inf\{t\ge0:B_t=a\}
@@ -1063,7 +1065,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-標本路の連続性 から
+標本路の連続性から
 
 $$
 \{\tau_a\le t\}
@@ -1071,7 +1073,7 @@ $$
 \{M_t\ge a\}.
 $$
 
-[reflection principle](#thm-sto4-reflection-principle) より
+[反射原理](#thm-sto4-reflection-principle) より
 
 $$
 P(\tau_a\le t)
@@ -1162,20 +1164,20 @@ t^{-1/2}\,dt
 \infty.
 $$
 
-「almost surely 到達する」と「平均到達時間が有限」は全く別です。
+「ほとんど確実に到達する」と「平均到達時間が有限」は全く別です。
 <!-- proof-end -->
 
 ---
 
-## 9. 1 次元 Brown 運動は point recurrent
+## 9. 1 次元ブラウン運動は一点再帰的
 
 <a id="thm-sto4-one-dimensional-recurrence"></a>
 
 <!-- formal-statement-start -->
-> **定理（1 次元 Brown 運動の基本的 recurrence）**  
-> 1 次元 standard Brownian motion $B$ の標本路は、almost surely 上にも下にも有界ではない。
+> **定理（1 次元ブラウン運動の基本的再帰性）**  
+> 1 次元 standard ブラウン運動 $B$ の標本路は、ほとんど確実に上にも下にも有界ではない。
 >
-> 従って almost surely 全ての $x\in\mathbb R$ を少なくとも一度通る。
+> 従ってほとんど確実に全ての $x\in\mathbb R$ を少なくとも一度通る。
 >
 > さらに level $0$ へ無限回戻る。
 <!-- formal-statement-end -->
@@ -1186,7 +1188,7 @@ $$
 
 整数 level $\pm1,\pm2,\ldots$ は可算個なので、それら全てを hit する確率も 1 です。従って標本路は上にも下にも有界ではありません。
 
-無限回の return は strong Markov property を使って $+1,-1,+1,-1,\ldots$ と交互に hit させます。
+無限回の return は強マルコフ性を使って $+1,-1,+1,-1,\ldots$ と交互に hit させます。
 
 <!-- proof-start -->
 ### 証明
@@ -1197,7 +1199,7 @@ $$
 P(\tau_a<\infty)=1.
 $$
 
-$-B$ も Brownian motion なので
+$-B$ もブラウン運動なので
 
 $$
 P(\tau_{-a}<\infty)=1.
@@ -1205,9 +1207,9 @@ $$
 
 従って各 $n\in\mathbb N$ に対して level $n$ と $-n$ を hit する event は確率 1 です。
 
-可算交叉を取れば、almost surely 全ての整数 $\pm n$ を hit します。従って標本路は上にも下にも有界ではありません。
+可算交叉を取れば、ほとんど確実に全ての整数 $\pm n$ を hit します。従って標本路は上にも下にも有界ではありません。
 
-任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、almost surely 全ての実数 level を hit します。
+任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、ほとんど確実に全ての実数 level を hit します。
 
 次に return を示します。
 
@@ -1233,7 +1235,7 @@ $$
 
 と交互に定めます。
 
-$\sigma_k<\infty$ が成立したとします。strong Markov property により、$\sigma_k$ 後の shifted process は新しい Brownian motion です。
+$\sigma_k<\infty$ が成立したとします。強マルコフ性により、$\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
 
 現在値から次の目標 level までの距離は 2 なので、前節の hitting probability 1 から
 
@@ -1241,7 +1243,7 @@ $$
 P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^B)=1.
 $$
 
-帰納的に全ての $\sigma_k$ は finite almost surely です。
+帰納的に全ての $\sigma_k$ は finite ほとんど確実にです。
 
 各 $+1$ から $-1$、または $-1$ から $+1$ への移動の途中で continuity により level 0 を通ります。
 
@@ -1266,13 +1268,13 @@ $$
 
 ## 10. 短時間と長時間を入れ替える
 
-この時間反転は後続計算の direct prerequisite ではありませんが、Brownian covariance の自己相似性がどれほど強いかを見る代表例です。
+この時間反転は後続計算の direct prerequisite ではありませんが、ブラウン共分散の自己相似性がどれほど強いかを見る代表例です。
 
 <a id="prop-sto4-time-inversion"></a>
 
 <!-- formal-statement-start -->
-> **命題（Brownian time inversion）**  
-> $B$ を standard Brownian motion とし
+> **命題（ブラウン時間反転）**  
+> $B$ を standard ブラウン運動とし
 >
 $$
 \widehat B_0=0,
@@ -1281,12 +1283,12 @@ $$
 \quad(t>0)
 $$
 >
-> と置く。このとき $\widehat B$ も standard Brownian motion である。
+> と置く。このとき $\widehat B$ も standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-$t>0$ だけなら Gaussian covariance を計算するだけです。
+$t>0$ だけならガウス共分散を計算するだけです。
 
 唯一の問題は $t\downarrow0$ で
 
@@ -1303,14 +1305,14 @@ $$
 
 と同値です。
 
-integer times は第4 moment と Borel--Cantelli、integer 間は [reflection principle](#thm-sto4-reflection-principle) で抑えます。
+integer times は第4 モーメントと Borel--Cantelli、integer 間は [反射原理](#thm-sto4-reflection-principle) で抑えます。
 
 <!-- proof-start -->
 ### 証明
 
 まず $s,t>0$ とします。
 
-$\widehat B$ は $B$ の有限個の値の線形変換なので Gaussian process です。
+$\widehat B$ は $B$ の有限個の値の線形変換なのでガウス過程です。
 
 また centered で、
 
@@ -1327,7 +1329,7 @@ st\min(1/s,1/t)\\
 \end{aligned}
 $$
 
-従って $(0,\infty)$ 上の finite-dimensional laws は Brownian motion と一致します。
+従って $(0,\infty)$ 上の finite-dimensional laws はブラウン運動と一致します。
 
 残るのは $0$ での continuity です。
 
@@ -1351,7 +1353,7 @@ $$
 \frac{B_n}{n}\to0
 $$
 
-almost surely.
+ほとんど確実に.
 
 次に
 
@@ -1363,7 +1365,7 @@ $$
 
 とします。
 
-stationary increments と [reflection principle](#thm-sto4-reflection-principle) から
+stationary increments と [反射原理](#thm-sto4-reflection-principle) から
 
 $$
 P(D_n>x)
@@ -1371,7 +1373,7 @@ P(D_n>x)
 4P(B_1>x).
 $$
 
-さらに第4 moment を使えば
+さらに第4 モーメントを使えば
 
 $$
 P(D_n>\varepsilon n)
@@ -1385,7 +1387,7 @@ $$
 \frac{D_n}{n}\to0
 $$
 
-almost surely.
+ほとんど確実に.
 
 $t\in[n,n+1]$ なら
 
@@ -1402,7 +1404,7 @@ $$
 \qquad(t\to\infty)
 $$
 
-almost surely.
+ほとんど確実に.
 
 $u=1/t$ と置けば
 
@@ -1416,17 +1418,17 @@ $$
 
 よって $\widehat B$ は $0$ でも連続です。
 
-したがって $\widehat B$ は covariance $\min(s,t)$ を持つ continuous centered Gaussian process であり、Brownian motion です。
+したがって $\widehat B$ は共分散 $\min(s,t)$ を持つ continuous centered ガウス過程であり、ブラウン運動です。
 <!-- proof-end -->
 
 ---
 
 ## 11. この章で何が閉じたか
 
-Brown 運動について、次を同じ章の中で接続しました。
+ブラウン運動について、次を同じ章の中で接続しました。
 
 $$
-\text{finite-dimensional Gaussian law}
+\text{finite-dimensional ガウス法則}
 \to
 \text{existence}
 \to
@@ -1440,16 +1442,16 @@ $$
 \to
 \text{first passage}
 \to
-\text{recurrence}.
+\text{再帰性}.
 $$
 
-特に strong Markov property は「Brown 運動だから成り立つ」という名前だけの事実ではなく、
+特に強マルコフ性は「ブラウン運動だから成り立つ」という名前だけの事実ではなく、
 
 $$
 \boxed{
-\text{stopping time を dyadic grid へ丸める}
+\text{停止時刻を二進格子へ丸める}
 +
-\text{deterministic-time independent increments}
+\text{決定論的-time 独立増分}
 +
 \text{標本路の連続性}
 }
@@ -1457,7 +1459,7 @@ $$
 
 から出てくることを確認しました。
 
-次の STO5 では、Brownian 標本路 が連続なのに通常の意味では極端に rough であることを quadratic variation で測ります。
+次の STO5 では、ブラウン標本路が連続なのに通常の意味では極端に rough であることを二次変分で測ります。
 
 ---
 
@@ -1465,9 +1467,9 @@ $$
 
 ## Level A
 
-### A1. covariance $\min(s,t)$ と独立増分
+### A1. 共分散 $\min(s,t)$ と独立増分
 
-centered Gaussian process $X$ が
+centered ガウス過程 $X$ が
 
 $$
 E[X_sX_t]=\min(s,t)
@@ -1490,9 +1492,9 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$(Y_1,Y_2)$ は Gaussian vector の線形変換なので jointly Gaussian です。
+$(Y_1,Y_2)$ はガウス vector の線形変換なので jointly ガウスです。
 
-従って covariance が 0 であることを示せば独立性が従います。
+従って共分散が 0 であることを示せば独立性が従います。
 
 $$
 \begin{aligned}
@@ -1529,18 +1531,18 @@ t_1-t_1-t_0+t_0
 0.
 $$
 
-jointly Gaussian な二変量が無相関なので、$Y_1,Y_2$ は独立です。
+jointly ガウスな二変量が無相関なので、$Y_1,Y_2$ は独立です。
 <!-- solution-end -->
 
-### A2. Brownian scaling
+### A2. ブラウンスケーリング
 
-$B$ を standard Brownian motion、$c>0$ とします。
+$B$ を standard ブラウン運動、$c>0$ とします。
 
 $$
 X_t=c^{-1/2}B_{ct}
 $$
 
-が standard Brownian motion であることを、定義の4条件を順に確認して示してください。
+が standard ブラウン運動であることを、定義の4条件を順に確認して示してください。
 
 - Level: A
 
@@ -1553,7 +1555,7 @@ $$
 X_0=c^{-1/2}B_0=0
 $$
 
-almost surely.
+ほとんど確実に.
 
 次に $0\le s<t$ に対し
 
@@ -1563,7 +1565,7 @@ X_t-X_s
 c^{-1/2}(B_{ct}-B_{cs}).
 $$
 
-Brownian increment の分布から
+ブラウン運動の増分の分布から
 
 $$
 B_{ct}-B_{cs}
@@ -1571,7 +1573,7 @@ B_{ct}-B_{cs}
 N(0,c(t-s)).
 $$
 
-従って定数倍の Gaussian 分布の分散を計算すると
+従って定数倍のガウス分布の分散を計算すると
 
 $$
 X_t-X_s
@@ -1581,12 +1583,12 @@ $$
 
 また disjoint intervals は $t\mapsto ct$ でも disjoint のままなので、対応する $B$ の増分が独立であることから $X$ の増分も独立です。
 
-最後に $t\mapsto ct$ と定数倍は連続性を保つので、$B$ の 連続な標本路 から $X$ も 連続な標本路 を持ちます。
+最後に $t\mapsto ct$ と定数倍は連続性を保つので、$B$ の連続な標本路から $X$ も連続な標本路を持ちます。
 
-よって $X$ は standard Brownian motion です。
+よって $X$ は standard ブラウン運動です。
 <!-- solution-end -->
 
-### A3. level hitting time は stopping time
+### A3. level 到達時刻は停止時刻
 
 $a>0$ とし
 
@@ -1596,14 +1598,14 @@ $$
 
 とします。
 
-標本路の連続性 を用いて $\tau_a$ が natural filtration $(\mathcal F_t^B)$ に関する stopping time であることを示してください。
+標本路の連続性を用いて $\tau_a$ が natural フィルトレーション $(\mathcal F_t^B)$ に関する停止時刻であることを示してください。
 
 - Level: A
 
 <!-- solution-start -->
 ### 詳細解答
 
-stopping time であることを示すには、任意の $t\ge0$ に対し
+停止時刻であることを示すには、任意の $t\ge0$ に対し
 
 $$
 \{\tau_a\le t\}\in\mathcal F_t^B
@@ -1611,7 +1613,7 @@ $$
 
 を示せば十分です。
 
-連続な標本路 では level $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
+連続な標本路では level $a$ に時刻 $t$ までに到達することと、時刻 $t$ までの最大値が $a$ 以上になることは同値なので
 
 $$
 \{\tau_a\le t\}
@@ -1641,14 +1643,14 @@ $$
 
 各 $q\le t$ について $B_q$ は $\mathcal F_t^B$ 可測なので、右辺は $\mathcal F_t^B$ に属します。
 
-従って $\tau_a$ は stopping time です。
+従って $\tau_a$ は停止時刻です。
 <!-- solution-end -->
 
-### A4. hitting time の累積分布関数
+### A4. 到達時刻の累積分布関数
 
 $a>0$ とします。
 
-[reflection principle](#thm-sto4-reflection-principle) を用いて
+[反射原理](#thm-sto4-reflection-principle) を用いて
 
 $$
 P(\tau_a\le t)
@@ -1665,7 +1667,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-標本路の連続性 により
+標本路の連続性により
 
 $$
 \{\tau_a\le t\}
@@ -1675,7 +1677,7 @@ $$
 \right\}.
 $$
 
-[reflection principle](#thm-sto4-reflection-principle) から
+[反射原理](#thm-sto4-reflection-principle) から
 
 $$
 P\left(
@@ -1720,7 +1722,7 @@ $$
 
 ## Level B
 
-### B1. finite-valued stopping time で strong Markov の核心を証明する
+### B1. 有限値停止時刻で strong Markov の核心を証明する
 
 $\sigma$ が
 
@@ -1728,9 +1730,9 @@ $$
 s_1<\cdots<s_r
 $$
 
-の有限個の値だけを取る stopping time とします。
+の有限個の値だけを取る停止時刻とします。
 
-$0\le t_1<\cdots<t_m$ と bounded Borel function
+$0\le t_1<\cdots<t_m$ と有界 Borel function
 $g:\mathbb R^m\to\mathbb R$ に対し、
 
 $$
@@ -1764,13 +1766,13 @@ $$
 
 と置きます。
 
-[stopping time までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
+[停止時刻までの sigma-field の定義](../STO1/index.md#def-sto1-stopping-sigma-field)から
 
 $$
 A_k\in\mathcal F_{s_k}^B.
 $$
 
-deterministic time $s_k$ の後の increments
+決定論的時刻 $s_k$ の後の increments
 
 $$
 (B_{s_k+t_1}-B_{s_k},\ldots,B_{s_k+t_m}-B_{s_k})
@@ -1782,7 +1784,7 @@ $$
 (B_{t_1},\ldots,B_{t_m})
 $$
 
-と同じ law を持ちます。
+と同じ法則を持ちます。
 
 従って
 
@@ -1821,16 +1823,16 @@ $$
 これは shifted vector と $\mathcal F_\sigma^B$ の独立性を表す積分等式です。
 <!-- solution-end -->
 
-### B2. time inversion の $t=0$ continuity
+### B2. 時間反転の $t=0$ continuity
 
-[reflection principle](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
+[反射原理](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
 
 $$
 \frac{B_t}{t}\to0
 \qquad(t\to\infty)
 $$
 
-almost surely を示し、
+ほとんど確実にを示し、
 
 $$
 \widehat B_t=tB_{1/t}
@@ -1863,7 +1865,7 @@ $$
 \frac{B_n}{n}\to0
 $$
 
-almost surely.
+ほとんど確実に.
 
 次に
 
@@ -1873,7 +1875,7 @@ $$
 
 と置きます。
 
-stationary increments と [reflection principle](#thm-sto4-reflection-principle) から
+stationary increments と [反射原理](#thm-sto4-reflection-principle) から
 
 $$
 P(D_n>x)
@@ -1885,7 +1887,7 @@ P\left(\inf_{0\le u\le1}B_u<-x\right)
 4P(B_1>x).
 $$
 
-従って第4 moment による Markov inequality で
+従って第4 モーメントによる Markov inequality で
 
 $$
 P(D_n>\varepsilon n)
@@ -1899,7 +1901,7 @@ $$
 \frac{D_n}{n}\to0
 $$
 
-almost surely.
+ほとんど確実に.
 
 $t\in[n,n+1]$ なら
 
@@ -1929,12 +1931,12 @@ $$
 tB_{1/t}\to0
 $$
 
-almost surely です。
+ほとんど確実にです。
 <!-- solution-end -->
 
 ### B3. 0 へ無限回戻ることを strong Markov から示す
 
-$+1,-1,+1,-1,\ldots$ を交互に hit する stopping times を構成し、Brownian motion が level 0 へ almost surely 無限回戻ることを示してください。
+$+1,-1,+1,-1,\ldots$ を交互に hit する stopping times を構成し、ブラウン運動が level 0 へほとんど確実に無限回戻ることを示してください。
 
 - Level: B
 
@@ -1949,7 +1951,7 @@ $$
 
 と置きます。
 
-hitting time theorem から
+到達時刻 theorem から
 
 $$
 P(\sigma_1<\infty)=1.
@@ -1963,23 +1965,23 @@ $$
 \inf\{t\ge\sigma_1:B_t=-1\}.
 $$
 
-$\sigma_1<\infty$ 上で strong Markov property を使うと
+$\sigma_1<\infty$ 上で強マルコフ性を使うと
 
 $$
 W_t=B_{\sigma_1+t}-B_{\sigma_1}
 $$
 
-は新しい Brownian motion です。
+は新しいブラウン運動です。
 
 $B_{\sigma_1}=1$ なので、$B$ が $-1$ へ到達することは $W$ が $-2$ へ到達することと同値です。
 
-$-W$ も Brownian motion であり level 2 の hitting probability は 1 なので
+$-W$ もブラウン運動であり level 2 の hitting probability は 1 なので
 
 $$
 P(\sigma_2<\infty\mid\mathcal F_{\sigma_1}^B)=1.
 $$
 
-同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ hitting time、以後交互に定義すると、帰納的に全ての $\sigma_n$ が finite almost surely です。
+同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ 到達時刻、以後交互に定義すると、帰納的に全ての $\sigma_n$ が finite ほとんど確実にです。
 
 連続な標本路が $+1$ と $-1$ の間を移るたびに、値 0 を飛び越えられないので level 0 を通ります。
 
@@ -2008,9 +2010,9 @@ $$
 
 とします。
 
-1. $\tau_a<\infty$ almost surely を用いて、
+1. $\tau_a<\infty$ ほとんど確実にを用いて、
    $\tau_{a+b}-\tau_a$ が $\mathcal F_{\tau_a}^B$ と独立であることを示してください。
-2. $\tau_{a+b}-\tau_a$ の law が $\tau_b$ の law と同じであることを示してください。
+2. $\tau_{a+b}-\tau_a$ の法則が $\tau_b$ の法則と同じであることを示してください。
 3. 任意の $s,t>0$ に対し
 
 $$
@@ -2028,15 +2030,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**1. strong Markov property を適用する。**
+**1. 強マルコフ性を適用する。**
 
-hitting time theorem から
+到達時刻 theorem から
 
 $$
 P(\tau_a<\infty)=1.
 $$
 
-従って strong Markov property を $\tau_a$ に適用できます。
+従って強マルコフ性を $\tau_a$ に適用できます。
 
 $$
 W_u
@@ -2045,11 +2047,11 @@ B_{\tau_a+u}-B_{\tau_a},
 \qquad u\ge0
 $$
 
-は standard Brownian motion で、$\mathcal F_{\tau_a}^B$ と独立です。
+は standard ブラウン運動で、$\mathcal F_{\tau_a}^B$ と独立です。
 
 **2. 次の level までの待ち時間を書き換える。**
 
-$B_{\tau_a}=a$ almost surely なので
+$B_{\tau_a}=a$ ほとんど確実になので
 
 $$
 \begin{aligned}
@@ -2063,7 +2065,7 @@ $$
 \end{aligned}
 $$
 
-右辺は Brownian motion $W$ の level $b$ hitting time です。
+右辺はブラウン運動 $W$ の level $b$ 到達時刻です。
 
 したがって
 
@@ -2072,7 +2074,7 @@ $$
 \overset{d}=\tau_b.
 $$
 
-しかも右辺を決める shifted process $W$ 全体が $\mathcal F_{\tau_a}^B$ と独立なので、
+しかも右辺を決める shifted 過程 $W$ 全体が $\mathcal F_{\tau_a}^B$ と独立なので、
 
 $$
 \tau_{a+b}-\tau_a
@@ -2108,7 +2110,7 @@ P(\tau_b\le t).
 \end{aligned}
 $$
 
-hitting time の分布 を代入すると
+到達時刻の分布を代入すると
 
 $$
 P(\tau_a\le s)
@@ -2144,5 +2146,5 @@ P(
 }.
 $$
 
-これは strong Markov property が「停止時刻の後ろを新しい独立な Brown 運動として再スタートできる」ことの具体的な計算例です。
+これは強マルコフ性が「停止時刻の後ろを新しい独立なブラウン運動として再スタートできる」ことの具体的な計算例です。
 <!-- solution-end -->
