@@ -32,7 +32,7 @@ $$
 
 です。
 
-最後まで舞台は $\mathbb R^d$ です。多様体上の Brown 運動や connection は持ち込みません。一方、Euclidean Stratonovich calculus は「なぜ通常の chain rule が戻るのか」まで閉じます。
+最後まで舞台は $\mathbb R^d$ です。多様体上の Brown 運動や connection は持ち込みません。一方、Euclidean Stratonovich calculus は「なぜ通常の 連鎖律 が戻るのか」まで閉じます。
 
 ---
 
@@ -224,7 +224,7 @@ $$
 (a^\top c)t.
 $$
 
-「共分散行列」と「covariation matrix」が同じ係数を持つことが、多次元 Itô formula の二階項を行列で書ける理由です。
+「分散共分散行列」と「covariation matrix」が同じ係数を持つことが、多次元 Itô formula の二階項を行列で書ける理由です。
 
 ---
 
@@ -303,7 +303,7 @@ $$
 
 ---
 
-## 3. weighted covariation：二次 Taylor 項を積分へ変える補題
+## 3. weighted covariation：二次 Taylor 項を積分へ変える
 
 多次元 Itô formula の核心は
 
@@ -489,7 +489,7 @@ $$
 > 各積分は前節の semimartingale integral と finite-variation integral の意味で読む。
 <!-- formal-statement-end -->
 
-### 何が通常の chain rule と違うか
+### 何が通常の 連鎖律 と違うか
 
 通常の $C^1$ 曲線 $x(t)$ なら quadratic variation は 0 なので二階項は消えます。
 
@@ -1098,7 +1098,7 @@ a^2[U]_t+2ab[U,V]_t+b^2[V]_t
 \ge0
 $$
 
-だからです。従って determinant は非負で
+だからです。この二次式が任意の $a,b$ で非負なので、$b=1$ として $a$ に関する二次式の判別式が正にならないことから
 
 $$
 |[U,V]_t|
@@ -1354,7 +1354,7 @@ $$
 
 は STO11 で generator として再登場します。
 
-### 例：$d$ 次元 Brown 運動の二乗ノルム
+### 例：$d$ 次元 Brown 運動の二乗長さ
 
 $X=B$、$F(x)=|x|^2$ とします。
 
@@ -1623,7 +1623,7 @@ $$
 
 ## 9. なぜ Stratonovich integral を作るのか
 
-Itô formula は正しい。しかし chain rule に二階補正が付きます。
+Itô formula は正しい。しかし 連鎖律 に二階補正が付きます。
 
 $$
 df(X)
@@ -1633,7 +1633,7 @@ df(X)
 \frac12D^2f(X):d[X].
 $$
 
-幾何学的な変数変換を考えると、「普通の chain rule と同じ形で書ける積分」が欲しくなります。
+幾何学的な変数変換を考えると、「普通の 連鎖律 と同じ形で書ける積分」が欲しくなります。
 
 そこで left endpoint だけでなく、区間の両端を対称に使います。
 
@@ -1812,9 +1812,9 @@ $$
 
 ---
 
-## 11. covariation chain rule
+## 11. covariation 連鎖律
 
-Stratonovich chain rule を示すには
+Stratonovich 連鎖律 を示すには
 
 $$
 [\partial_i f(X),X^i]
@@ -1825,7 +1825,7 @@ $$
 <a id="lem-sto7-covariation-chain-rule"></a>
 
 <!-- formal-statement-start -->
-> **補題（covariation chain rule）**  
+> **補題（covariation 連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$Y$ を continuous semimartingale、$g\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
@@ -1932,12 +1932,12 @@ continuity から最初の factor は almost surely 0 へ行き、残りは quad
 
 ---
 
-## 12. Euclidean Stratonovich chain rule：通常の形が戻る
+## 12. Euclidean Stratonovich 連鎖律：通常の形が戻る
 
 <a id="thm-sto7-stratonovich-chain-rule"></a>
 
 <!-- formal-statement-start -->
-> **定理（Euclidean Stratonovich chain rule）**  
+> **定理（Euclidean Stratonovich 連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$f\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
@@ -1979,7 +1979,7 @@ $$
 [\partial_i f(X),X^i]_t.
 $$
 
-[covariation chain rule](#lem-sto7-covariation-chain-rule) を
+[covariation 連鎖律](#lem-sto7-covariation-chain-rule) を
 
 $$
 g=\partial_i f,
@@ -2082,7 +2082,7 @@ $$
 [h_i(X),X^i].
 $$
 
-covariation chain rule により
+covariation 連鎖律 により
 
 $$
 d[h_i(X),X^i]_s
@@ -2477,7 +2477,7 @@ $$
 で、これは covariation correction の半分です。
 <!-- solution-end -->
 
-## STO7-B01 $d$ 次元 Brown 運動の二乗ノルム
+## STO7-B01 $d$ 次元 Brown 運動の二乗長さ
 
 - Level: B
 - 目安時間: 20分
@@ -2858,7 +2858,7 @@ V_\alpha^i(X_s)\,dB_s^\alpha
 [V_\alpha^i(X),B^\alpha]_t.
 $$
 
-covariation chain rule を使うと
+covariation 連鎖律 を使うと
 
 $$
 [V_\alpha^i(X),B^\alpha]_t
@@ -3035,6 +3035,6 @@ df(X)
 \nabla f(X)^\top\circ dX
 $$
 
-という通常形の chain rule が戻ります。
+という通常形の 連鎖律 が戻ります。
 
 次は STO8 で、$C^2$ でない $f(x)=|x|$ に Itô calculus を押し広げます。そこで二階微分の代わりに **local time** が現れ、Tanaka formula と occupation time formula へ進みます。
