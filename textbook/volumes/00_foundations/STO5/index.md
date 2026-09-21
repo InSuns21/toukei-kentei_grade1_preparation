@@ -2,9 +2,11 @@
 
 <!-- definition-example-audit: strict -->
 
-STO4 までで Brown 運動を構成し、strong Markov property と hitting time まで閉じました。ここから連続時間の確率解析へ入ります。
+> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ブラウン運動](../STO4/index.md#def-sto4-brownian-motion) を既知として使います。
 
-Brown 運動の標本路は連続ですが、通常の微積分で扱う滑らかな曲線とは決定的に違います。時間幅を $\Delta t$ とすると Brownian increment は典型的に $\sqrt{\Delta t}$ の大きさなので、
+STO4 まででブラウン運動を構成し、強マルコフ性と到達時刻まで閉じました。ここから連続時間の確率解析へ入ります。
+
+ブラウン運動の標本路は連続ですが、通常の微積分で扱う滑らかな曲線とは決定的に違います。時間幅を $\Delta t$ とするとブラウン運動の増分は典型的に $\sqrt{\Delta t}$ の大きさなので、
 
 $$
 (\Delta B)^2
@@ -16,13 +18,13 @@ $$
 
 $$
 \boxed{
-\text{localization}
+\text{局所化}
 \to
 \text{二乗増分の極限}
 \to
 \text{交差変分}
 \to
-\text{martingale + finite variation}
+\text{martingale + 有限変動}
 \to
 \text{Lévy characterization}
 }
@@ -30,11 +32,11 @@ $$
 
 です。
 
-STO6 では stochastic integral を単純過程から構成します。その前に、積分される側の process がどのような二次変分を持つかを先に固定します。後続理論を使って本章を証明することはしません。
+STO6 では確率積分を単純過程から構成します。その前に、積分される側の過程がどのような二次変分を持つかを先に固定します。後続理論を使って本章を証明することはしません。
 
 ---
 
-## 1. continuous-time martingale と localization
+## 1. 連続時間マルチンゲールと局所化
 
 離散時間 martingale の条件
 
@@ -48,32 +50,32 @@ $$
 <a id="def-sto5-continuous-local-martingale"></a>
 
 <!-- formal-statement-start -->
-> **定義（continuous-time martingale と continuous local martingale）**  
-> usual conditions を満たす filtration $(\mathcal F_t)_{t\ge0}$ 上の adapted process $M=(M_t)_{t\ge0}$ が **continuous-time martingale** であるとは、各 $t\ge0$ で $E|M_t|<\infty$ かつ、全ての $0\le s\le t$ について
+> **定義（連続時間マルチンゲールと連続局所マルチンゲール）**  
+> usual conditions を満たすフィルトレーション $(\mathcal F_t)_{t\ge0}$ 上の適合過程 $M=(M_t)_{t\ge0}$ が **連続時間マルチンゲール** であるとは、各 $t\ge0$ で $E|M_t|<\infty$ かつ、全ての $0\le s\le t$ について
 
 $$
 E[M_t\mid\mathcal F_s]=M_s
 $$
 
-> が almost surely 成り立つことをいう。
+> がほとんど確実に成り立つことをいう。
 >
-> さらに $M$ の標本路が almost surely 連続であり、stopping time 列 $(\tau_n)$ が存在して
+> さらに $M$ の標本路がほとんど確実に連続であり、停止時刻列 $(\tau_n)$ が存在して
 
 $$
 \tau_n\uparrow\infty
-\quad\text{almost surely},
+\quad\text{ほとんど確実に},
 $$
 
-> かつ各 stopped process
+> かつ各停止過程
 
 $$
 M^{\tau_n}_t:=M_{t\wedge\tau_n}
 $$
 
-> が continuous-time martingale になるとき、$M$ を **continuous local martingale** という。この $(\tau_n)$ を localizing sequence という。
+> が連続時間マルチンゲールになるとき、$M$ を **連続局所マルチンゲール** という。この $(\tau_n)$ を局所化列という。
 <!-- formal-statement-end -->
 
-local martingale の “local” は、時間の短い区間という意味ではありません。stopping により暴走する領域を切り落とすと、各段階では真の martingale になるという意味です。
+局所マルチンゲールの “局所” は、時間の短い区間という意味ではありません。stopping により暴走する領域を切り落とすと、各段階では真の martingale になるという意味です。
 
 典型的には
 
@@ -85,12 +87,12 @@ $$
 
 のように、値が大きくなる前に止めます。
 
-<!-- definition-example-start: def-sto5-continuous-local-martingale -->
-### 直接例：Brown 運動で martingale 条件を確認する
+<!-- definition-example-start: def-sto5-continuous-局所-martingale -->
+### 直接例：ブラウン運動で martingale 条件を確認する
 
 **定義の確認**
 
-STO4 の Brown 運動 $B$ を、その usual augmented natural filtration で考えます。
+STO4 のブラウン運動 $B$ を、その通常条件を満たす自然なフィルトレーションで考えます。
 
 $0\le s<t$ なら
 
@@ -118,14 +120,14 @@ E|B_t|
 \sqrt t<\infty.
 $$
 
-標本路は連続なので、$B$ は continuous martingale、従って continuous local martingale です。localizing sequence として単に $\tau_n=n$ を取れます。
+標本路は連続なので、$B$ は continuous martingale、従って連続局所マルチンゲールです。局所化列として単に $\tau_n=n$ を取れます。
 <!-- definition-example-end -->
 
 <a id="prop-sto5-brownian-martingale"></a>
 
 <!-- formal-statement-start -->
-> **命題（Brown 運動は continuous martingale）**  
-> standard Brownian motion $B$ は、その usual augmented natural filtration に関して平方可積分な continuous martingale である。
+> **命題（ブラウン運動は continuous martingale）**  
+> standard ブラウン運動 $B$ は、その通常条件を満たす自然なフィルトレーションに関して平方可積分な continuous martingale である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -143,24 +145,24 @@ $$
 <a id="thm-sto5-bounded-optional-sampling"></a>
 
 <!-- formal-statement-start -->
-> **定理（bounded stopping による continuous martingale の停止）**  
-> $M$ を連続標本路を持つ continuous-time martingale とし、$\sigma\le\tau$ を有界な stopping time とする。このとき
+> **定理（有界 stopping による continuous martingale の停止）**  
+> $M$ を連続標本路を持つ連続時間マルチンゲールとし、$\sigma\le\tau$ を有界な停止時刻とする。このとき
 
 $$
 E[M_\tau\mid\mathcal F_\sigma]=M_\sigma
 $$
 
-> が almost surely 成り立つ。特に任意の有界 stopping time $\tau$ に対し、stopped process $M^\tau$ は continuous-time martingale である。
+> がほとんど確実に成り立つ。特に任意の有界停止時刻 $\tau$ に対し、停止過程 $M^\tau$ は連続時間マルチンゲールである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-STO2 の bounded optional sampling は離散時間の定理でした。ここでは stopping time を右側 dyadic grid へ丸め、各 grid 上で STO2 を適用し、最後に標本路の連続性と一様可積分性で極限へ戻します。
+STO2 の有界任意抽出は離散時間の定理でした。ここでは停止時刻を右側二進格子へ丸め、各 grid 上で STO2 を適用し、最後に標本路の連続性と一様可積分性で極限へ戻します。
 
 <!-- proof-start -->
 ### 証明
 
-$\sigma,\tau\le T$ almost surely とします。$\delta_n=2^{-n}$ と置き、
+$\sigma,\tau\le T$ ほとんど確実にとします。$\delta_n=2^{-n}$ と置き、
 
 $$
 \sigma_n=\delta_n\left\lceil\frac{\sigma}{\delta_n}\right\rceil,
@@ -168,7 +170,7 @@ $$
 \tau_n=\delta_n\left\lceil\frac{\tau}{\delta_n}\right\rceil
 $$
 
-と定めます。すると $\sigma_n,\tau_n$ は dyadic grid に値を取る stopping time で、
+と定めます。すると $\sigma_n,\tau_n$ は二進格子に値を取る停止時刻で、
 
 $$
 \sigma_n\le\tau_n,
@@ -178,13 +180,13 @@ $$
 \tau_n\downarrow\tau.
 $$
 
-整数 $R>T+1$ を固定します。離散時間 process
+整数 $R>T+1$ を固定します。離散時間過程
 
 $$
 M^{(n)}_k=M_{k\delta_n}
 $$
 
-を $0\le k\le R/\delta_n$ で見ると、これは martingale です。STO2 の bounded optional sampling を grid-valued stopping times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
+を $0\le k\le R/\delta_n$ で見ると、これは martingale です。STO2 の有界任意抽出を grid-valued stopping times $\sigma_n/\delta_n$、$\tau_n/\delta_n$ に適用すると、任意の $A\in\mathcal F_\sigma\subset\mathcal F_{\sigma_n}$ について
 
 $$
 E[1_A M_{\tau_n}]
@@ -202,9 +204,9 @@ M_{\tau_n}\to M_\tau,
 M_{\sigma_n}\to M_\sigma
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-さらに同じ離散時間 optional sampling を terminal time $R$ まで使えば
+さらに同じ離散時間任意抽出を terminal time $R$ まで使えば
 
 $$
 M_{\tau_n}
@@ -254,7 +256,7 @@ $$
 \rho=(t\wedge\tau)\vee s
 $$
 
-と置きます。$\rho$ は bounded stopping time で $s\le\rho$ ですから、今証明した bounded optional sampling を deterministic stopping time $s$ と $\rho$ に適用して
+と置きます。$\rho$ は有界停止時刻で $s\le\rho$ ですから、今証明した有界任意抽出を決定論的停止時刻 $s$ と $\rho$ に適用して
 
 $$
 E[M_\rho\mid\mathcal F_s]=M_s
@@ -291,15 +293,15 @@ $$
 
 ---
 
-## 2. process の極限を「有限時間区間上で一様に」見る
+## 2. 過程の極限を「有限時間区間上で一様に」見る
 
-二乗増分の極限は各固定時刻だけでなく、process 全体として収束させます。
+二乗増分の極限は各固定時刻だけでなく、過程全体として収束させます。
 
 <a id="def-sto5-ucp"></a>
 
 <!-- formal-statement-start -->
 > **定義（ucp convergence）**  
-> process 列 $X^{(n)}$ が process $X$ へ **ucp**（uniformly on compacts in probability）で収束するとは、任意の $T>0$ と $\varepsilon>0$ に対し
+> 過程列 $X^{(n)}$ が過程 $X$ へ **ucp**（uniformly on compacts in probability）で収束するとは、任意の $T>0$ と $\varepsilon>0$ に対し
 
 $$
 P\left(
@@ -331,17 +333,17 @@ $$
 従って任意の $\varepsilon>0$ について十分大きい $n$ では問題の確率は 0 であり、$X^{(n)}\to0$ ucp です。
 <!-- definition-example-end -->
 
-固定時刻ごとの確率収束だけでは、途中の時刻で大きく外れる可能性を抑えられません。STO6 以降では停止・積分と process 極限を交換するため、ucp が自然な収束様式になります。
+固定時刻ごとの確率収束だけでは、途中の時刻で大きく外れる可能性を抑えられません。STO6 以降では停止・積分と過程極限を交換するため、ucp が自然な収束様式になります。
 
 ---
 
-## 3. finite variation は「一次変分」で測る
+## 3. 有限変動は「一次変分」で測る
 
 <a id="def-sto5-finite-variation"></a>
 
 <!-- formal-statement-start -->
-> **定義（continuous finite-variation process）**  
-> continuous adapted process $A=(A_t)_{t\ge0}$ が **finite variation** であるとは、almost surely 全ての $T>0$ について
+> **定義（continuous finite-variation 過程）**  
+> continuous 適合過程 $A=(A_t)_{t\ge0}$ が **有限変動** であるとは、ほとんど確実に全ての $T>0$ について
 
 $$
 V_T(A)
@@ -389,10 +391,10 @@ $$
 \end{aligned}
 $$
 
-従って $A$ は finite variation です。
+従って $A$ は有限変動です。
 <!-- definition-example-end -->
 
-smooth drift は一次変分を持ちます。Brownian noise は後で見るように二次変分を持ち、この違いが semimartingale 分解の意味になります。
+smooth drift は一次変分を持ちます。ブラウン noise は後で見るように二次変分を持ち、この違いが semimartingale 分解の意味になります。
 
 ---
 
@@ -412,7 +414,7 @@ $$
 
 と書きます。
 
-process $X$ に対する二次変分和を、分割点まで完成した increment の step process として
+過程 $X$ に対する二次変分和を、分割点まで完成した増分の step 過程として
 
 $$
 Q_t^{\pi}(X)
@@ -424,13 +426,13 @@ X_{t_k}-X_{t_{k-1}}
 \qquad 0\le t\le T
 $$
 
-とします。$t$ が分割点の間にあるとき最後の未完成区間は足しません。この定義なら $Q^\pi(X)$ は $t$ について増加します。continuous $X$ では、最後の未完成 increment を含める流儀との差は mesh $\to0$ で一様に消えます。
+とします。$t$ が分割点の間にあるとき最後の未完成区間は足しません。この定義なら $Q^\pi(X)$ は $t$ について増加します。continuous $X$ では、最後の未完成増分を含める流儀との差は mesh $\to0$ で一様に消えます。
 
 <a id="def-sto5-quadratic-variation"></a>
 
 <!-- formal-statement-start -->
-> **定義（quadratic variation）**  
-> continuous process $X$ に対し、continuous increasing adapted process $[X]=([X]_t)_{t\ge0}$、$[X]_0=0$ が存在し、任意の deterministic partition 列 $(\pi_n)$ で各 compact interval 上
+> **定義（二次変分）**  
+> continuous 過程 $X$ に対し、continuous increasing 適合過程 $[X]=([X]_t)_{t\ge0}$、$[X]_0=0$ が存在し、任意の決定論的 partition 列 $(\pi_n)$ で各 compact interval 上
 >
 > $|\pi_n|\to0$
 >
@@ -443,15 +445,15 @@ Q^{\pi_n}(X)
 \qquad\text{ucp}
 $$
 
-> が成り立つとき、$[X]$ を $X$ の **quadratic variation** という。
+> が成り立つとき、$[X]$ を $X$ の **二次変分** という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto5-quadratic-variation -->
-### 直接例：$C^1$ 関数の quadratic variation は 0
+### 直接例：$C^1$ 関数の二次変分は 0
 
 **定義の確認**
 
-$f\in C^1([0,T])$ を決定論的 process とみなします。平均値の定理から
+$f\in C^1([0,T])$ を決定論的過程とみなします。平均値の定理から
 
 $$
 |f(t_k)-f(t_{k-1})|
@@ -480,8 +482,8 @@ smooth function では二次の増分は消えます。
 <a id="prop-sto5-finite-variation-zero-qv"></a>
 
 <!-- formal-statement-start -->
-> **命題（continuous finite-variation process の quadratic variation は 0）**  
-> $A$ を continuous finite-variation process とする。このとき
+> **命題（continuous finite-variation 過程の二次変分は 0）**  
+> $A$ を continuous finite-variation 過程とする。このとき
 
 $$
 [A]_t=0
@@ -517,15 +519,15 @@ $$
 \max_k|\Delta_kA|\to0
 $$
 
-almost surely。一方 $V_T(A)<\infty$ almost surely なので
+ほとんど確実に。一方 $V_T(A)<\infty$ ほとんど確実になので
 
 $$
 Q_T^\pi(A)\to0
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-同じ評価を各 $t\le T$ までに完成した increment の和へ適用すると
+同じ評価を各 $t\le T$ までに完成した増分の和へ適用すると
 
 $$
 \sup_{0\le t\le T}Q_t^\pi(A)
@@ -534,18 +536,18 @@ $$
 \to0
 $$
 
-almost surely。従って ucp 収束し、$[A]\equiv0$ です。
+ほとんど確実に。従って ucp 収束し、$[A]\equiv0$ です。
 <!-- proof-end -->
 
 ---
 
-## 5. Brown 運動の二乗増分和は時間へ収束する
+## 5. ブラウン運動の二乗増分和は時間へ収束する
 
 <a id="thm-sto5-brownian-qv"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brown 運動の quadratic variation）**  
-> $B$ を standard Brownian motion とする。任意の $T>0$ と deterministic partition
+> **定理（ブラウン運動の二次変分）**  
+> $B$ を standard ブラウン運動とする。任意の $T>0$ と決定論的 partition
 >
 > $\pi=\{0=t_0<\cdots<t_m=T\}$
 >
@@ -564,7 +566,7 @@ Q_T^\pi(B)
 \longrightarrow T
 $$
 
-> が $L^2$ で成り立つ。さらに process として
+> が $L^2$ で成り立つ。さらに過程として
 
 $$
 [B]_t=t
@@ -575,7 +577,7 @@ $$
 
 ### 証明の見取り図
 
-各増分は独立な Gaussian です。二乗和の平均は時間幅の総和 $T$、分散は mesh に比例して 0 へ行きます。
+各増分は独立なガウスです。二乗和の平均は時間幅の総和 $T$、分散は mesh に比例して 0 へ行きます。
 
 <!-- proof-start -->
 ### 証明
@@ -588,7 +590,7 @@ $$
 
 と置きます。
 
-Brownian increments から
+ブラウン increments から
 
 $$
 \Delta_kB\sim N(0,\Delta_kt)
@@ -671,30 +673,30 @@ $$
 
 ## 6. 一般の連続局所 martingale へ
 
-Brown 運動では独立 Gaussian increments を直接使えました。一般の continuous local martingale には独立増分はありません。それでも quadratic variation は存在します。
+ブラウン運動では独立ガウス increments を直接使えました。一般の連続局所マルチンゲールには独立増分はありません。それでも二次変分は存在します。
 
 <a id="thm-sto5-local-martingale-qv"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous local martingale の quadratic variation theorem）**  
-> $M$ を continuous local martingale とする。このとき一意な continuous increasing adapted process $[M]$、$[M]_0=0$ が存在し、
+> **定理（連続局所マルチンゲールの二次変分 theorem）**  
+> $M$ を連続局所マルチンゲールとする。このとき一意な continuous increasing 適合過程 $[M]$、$[M]_0=0$ が存在し、
 >
-> 1. 任意の deterministic partition 列で mesh が compact interval 上 0 へ行くとき
+> 1. 任意の決定論的 partition 列で mesh が compact interval 上 0 へ行くとき
 
 $$
 Q^{\pi_n}(M)\to[M]
 \qquad\text{ucp},
 $$
 
-> 2. process
+> 2. 過程
 
 $$
 M_t^2-[M]_t
 $$
 
-> は continuous local martingale、
+> は連続局所マルチンゲール、
 >
-> 3. stopping time $\tau$ に対し
+> 3. 停止時刻 $\tau$ に対し
 
 $$
 [M^\tau]_t=[M]_{t\wedge\tau}
@@ -705,19 +707,19 @@ $$
 
 ### 何が難しいのか
 
-Brownian proof で使った「二乗増分が独立」という武器は一般 martingale では消えます。存在証明では、$M^2$ が submartingale であることから増加部分を抽出する **continuous-time Doob--Meyer theorem** と、離散分割上の martingale difference estimate を使います。
+ブラウン proof で使った「二乗増分が独立」という武器は一般 martingale では消えます。存在証明では、$M^2$ が submartingale であることから増加部分を抽出する **continuous-time Doob--Meyer theorem** と、離散分割上の martingale difference 評価を使います。
 
-continuous-time Doob--Meyer theorem の一般証明は class D、regularization、predictable compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・stopping・交差変分・有限変動分解への帰結は以下で閉じます。
+continuous-time Doob--Meyer theorem の一般証明は class D、regularization、予測可能 compensator を独立に展開する大きな理論です。この Encore IV 主線ではそれ自体を別章化していないため、**本定理の存在部分だけはその定理を技術的入力として使います**。一方、本章で必要な特徴付け・一意性・stopping・交差変分・有限変動分解への帰結は以下で閉じます。
 
 ### 存在証明の構造
 
-localizing sequence でまず bounded continuous martingale へ落とします。continuous-time Doob--Meyer theorem を $M^2$ に適用すると
+局所化列でまず有界 continuous martingale へ落とします。continuous-time Doob--Meyer theorem を $M^2$ に適用すると
 
 $$
 M_t^2=M_0^2+N_t+A_t
 $$
 
-と分解でき、$N$ は continuous martingale、$A$ は continuous predictable increasing process、$A_0=0$ です。
+と分解でき、$N$ は continuous martingale、$A$ は continuous 予測可能 increasing 過程、$A_0=0$ です。
 
 細分割上では
 
@@ -727,7 +729,7 @@ $$
 \Delta(M^2)-2M_{\mathrm{left}}\Delta M.
 $$
 
-右辺の martingale difference 部分を離散時間の二乗平均評価で制御すると、二乗増分和は $A$ へ ucp 収束します。この $A$ を $[M]$ と置きます。stopping した process では同じ構成が停止前だけ残るため
+右辺の martingale difference 部分を離散時間の二乗平均評価で制御すると、二乗増分和は $A$ へ ucp 収束します。この $A$ を $[M]$ と置きます。stopping した過程では同じ構成が停止前だけ残るため
 
 $$
 [M^\tau]=[M]^\tau
@@ -735,56 +737,56 @@ $$
 
 です。
 
-異なる localizing sequence で構成しても、共通停止時刻 $\tau_n\wedge\sigma_m$ 上では bounded martingale の一意性により一致します。$n,m\to\infty$ として global process が貼り合わさります。
+異なる局所化列で構成しても、共通停止時刻 $\tau_n\wedge\sigma_m$ 上では有界 martingale の一意性により一致します。$n,m\to\infty$ として大域的過程が貼り合わさります。
 
-この技術的入力は STO6 の stochastic integral を仮定していません。むしろ STO6 が本定理を使います。
+この技術的入力は STO6 の確率積分を仮定していません。むしろ STO6 が本定理を使います。
 
 ---
 
-## 7. bracket の一意性と finite variation local martingale
+## 7. ブラケットの一意性と有限変動局所マルチンゲール
 
-[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) の
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) の
 
 $$
 M^2-[M]
 $$
 
-が local martingale という特徴付けは非常に強力です。
+が局所マルチンゲールという特徴付けは非常に強力です。
 
 <a id="lem-sto5-fv-local-martingale-constant"></a>
 
 <!-- formal-statement-start -->
-> **補題（continuous local martingale かつ finite variation なら定数）**  
-> $L$ が continuous local martingale かつ continuous finite-variation process なら
+> **補題（連続局所マルチンゲールかつ有限変動なら定数）**  
+> $L$ が連続局所マルチンゲールかつ continuous finite-variation 過程なら
 
 $$
 L_t=L_0
 \qquad\text{for all }t\ge0
 $$
 
-> almost surely.
+> ほとんど確実に.
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-finite variation なので [前節](#prop-sto5-finite-variation-zero-qv) から
+有限変動なので [前節](#prop-sto5-finite-variation-zero-qv) から
 
 $$
 [L]\equiv0.
 $$
 
-[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L_t^2-[L]_t=L_t^2
 $$
 
-は local martingale です。
+は局所マルチンゲールです。
 
-$\widetilde L=L-L_0$ と置けば $\widetilde L_0=0$ で、$\widetilde L$ と $\widetilde L^2$ は local martingale です。
+$\widetilde L=L-L_0$ と置けば $\widetilde L_0=0$ で、$\widetilde L$ と $\widetilde L^2$ は局所マルチンゲールです。
 
-localizing sequence $(\tau_n)$ を、$|\widetilde L|$ も $\widetilde L^2$ も bounded になるようさらに止めて取ります。すると各 $t$ で
+局所化列 $(\tau_n)$ を、$|\widetilde L|$ も $\widetilde L^2$ も有界になるようさらに止めて取ります。すると各 $t$ で
 
 $$
 E[(\widetilde L_{t\wedge\tau_n})^2]
@@ -800,26 +802,26 @@ $$
 \widetilde L_{t\wedge\tau_n}=0
 $$
 
-almost surely。$\tau_n\uparrow\infty$ と連続性から $\widetilde L_t=0$ です。
+ほとんど確実に。$\tau_n\uparrow\infty$ と連続性から $\widetilde L_t=0$ です。
 <!-- proof-end -->
 
-この補題により bracket の特徴付けから一意性も出ます。もし increasing continuous process $A,C$ がともに $M^2-A$、$M^2-C$ を local martingale にするなら
+この補題によりブラケットの特徴付けから一意性も出ます。もし increasing continuous 過程 $A,C$ がともに $M^2-A$、$M^2-C$ を局所マルチンゲールにするなら
 
 $$
 A-C
 $$
 
-は local martingale かつ finite variation です。従って定数で、$A_0=C_0=0$ なら $A=C$ です。
+は局所マルチンゲールかつ有限変動です。従って定数で、$A_0=C_0=0$ なら $A=C$ です。
 
 ---
 
-## 8. polarization で交差変分を作る
+## 8. 偏極恒等式で交差変分を作る
 
 <a id="def-sto5-covariation"></a>
 
 <!-- formal-statement-start -->
-> **定義（covariation）**  
-> continuous local martingales $M,N$ に対し
+> **定義（共変分）**  
+> continuous 局所 martingales $M,N$ に対し
 
 $$
 [M,N]
@@ -827,12 +829,12 @@ $$
 \frac14\left([M+N]-[M-N]\right)
 $$
 
-> を **covariation** または quadratic covariation という。
+> を **共変分** または quadratic 共変分という。
 <!-- formal-statement-end -->
 
-これは内積を norm から復元する polarization と同じ形です。
+これは内積を norm から復元する偏極恒等式と同じ形です。
 
-<!-- definition-example-start: def-sto5-covariation -->
+<!-- definition-example-start: def-sto5-共変分 -->
 ### 直接例：$N=cB$ のとき
 
 **定義の確認**
@@ -865,12 +867,12 @@ $$
 <a id="prop-sto5-covariation-product"></a>
 
 <!-- formal-statement-start -->
-> **命題（covariation と product local martingale）**  
-> continuous local martingales $M,N$ に対し、
+> **命題（共変分と product 局所マルチンゲール）**  
+> continuous 局所 martingales $M,N$ に対し、
 >
 > 1. $[M,N]=[N,M]$,
 > 2. $[aM+bN,L]=a[M,L]+b[N,L]$,
-> 3. partition 上の cross increment sum
+> 3. partition 上の cross 増分 sum
 
 $$
 \sum_k
@@ -885,7 +887,7 @@ $$
 MN-[M,N]
 $$
 
-> は continuous local martingale である。
+> は連続局所マルチンゲールである。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -897,7 +899,7 @@ $$
 4xy=(x+y)^2-(x-y)^2
 $$
 
-を各 increment に適用すると
+を各増分に適用すると
 
 $$
 4\sum_k\Delta_kM\Delta_kN
@@ -905,7 +907,7 @@ $$
 Q^\pi(M+N)-Q^\pi(M-N).
 $$
 
-[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
 
 $$
 [M+N]-[M-N]
@@ -913,7 +915,7 @@ $$
 
 へ収束するため、cross sum は $[M,N]$ へ収束します。
 
-対称性・双線形性は polarization と quadratic variation の二次性から従います。
+対称性・双線形性は偏極恒等式と二次変分の二次性から従います。
 
 最後に
 
@@ -925,13 +927,13 @@ M^2-[M],
 N^2-[N]
 $$
 
-はいずれも local martingale です。最初から後二つを引くと
+はいずれも局所マルチンゲールです。最初から後二つを引くと
 
 $$
 2MN-\{[M+N]-[M]-[N]\}
 $$
 
-が local martingale です。
+が局所マルチンゲールです。
 
 $$
 [M+N]-[M]-[N]
@@ -945,24 +947,24 @@ $$
 MN-[M,N]
 $$
 
-も local martingale です。
+も局所マルチンゲールです。
 <!-- proof-end -->
 
 ---
 
-## 9. local martingale と finite variation の和
+## 9. 局所マルチンゲールと有限変動の和
 
 <a id="def-sto5-continuous-semimartingale"></a>
 
 <!-- formal-statement-start -->
-> **定義（continuous semimartingale）**  
-> continuous adapted process $X$ が **continuous semimartingale** であるとは
+> **定義（連続セミマルチンゲール）**  
+> continuous 適合過程 $X$ が **連続セミマルチンゲール** であるとは
 
 $$
 X_t=M_t+A_t
 $$
 
-> と表せ、$M$ が continuous local martingale、$A$ が continuous finite-variation process であることをいう。
+> と表せ、$M$ が連続局所マルチンゲール、$A$ が continuous finite-variation 過程であることをいう。
 >
 > 分解を正規化するときは
 
@@ -976,38 +978,38 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto5-continuous-semimartingale -->
-### 直接例：Brownian motion + drift
+### 直接例：ブラウン運動 + drift
 
 **定義の確認**
 
-$B$ を Brown 運動、
+$B$ をブラウン運動、
 
 $$
 A_t=\int_0^t b_s\,ds
 $$
 
-を continuous finite-variation process とします。このとき
+を continuous finite-variation 過程とします。このとき
 
 $$
 X_t=B_t+A_t
 $$
 
-は continuous semimartingale です。
+は連続セミマルチンゲールです。
 
-noise $B$ と drift $A$ を同じ process の中で分離して扱えることが semimartingale の強みです。
+noise $B$ と drift $A$ を同じ過程の中で分離して扱えることが semimartingale の強みです。
 <!-- definition-example-end -->
 
 <a id="prop-sto5-fv-no-qv"></a>
 
 <!-- formal-statement-start -->
-> **命題（finite variation part は quadratic variation へ寄与しない）**  
-> $X=M+A$ を continuous semimartingale decomposition とする。このとき
+> **命題（有限変動 part は二次変分へ寄与しない）**  
+> $X=M+A$ を連続セミマルチンゲール decomposition とする。このとき
 
 $$
 [X]=[M].
 $$
 
-> さらに continuous local martingale $N$ に対し
+> さらに連続局所マルチンゲール $N$ に対し
 
 $$
 [X,N]=[M,N].
@@ -1016,7 +1018,7 @@ $$
 
 ### 証明の見取り図
 
-$A$ 自身の二乗増分は 0 へ行き、$M$ と $A$ の cross increment も「$M$ の最大増分 × $A$ の total variation」で消えます。
+$A$ 自身の二乗増分は 0 へ行き、$M$ と $A$ の cross 増分も「$M$ の最大増分 × $A$ の total variation」で消えます。
 
 <!-- proof-start -->
 ### 証明
@@ -1033,7 +1035,7 @@ Q_T^\pi(M)
 Q_T^\pi(A).
 $$
 
-最後の項は finite variation から 0 へ行きます。
+最後の項は有限変動から 0 へ行きます。
 
 cross term は
 
@@ -1048,7 +1050,7 @@ $$
 \left(\max_k|\Delta_kM|\right)V_T(A).
 $$
 
-$M$ は連続なので mesh が 0 へ行けば最大増分は almost surely 0 へ行きます。$V_T(A)<\infty$ なので cross term も almost surely 0 へ行きます。
+$M$ は連続なので mesh が 0 へ行けば最大増分はほとんど確実に 0 へ行きます。$V_T(A)<\infty$ なので cross term もほとんど確実に 0 へ行きます。
 
 従って
 
@@ -1058,20 +1060,20 @@ $$
 
 ucp で、$[X]=[M]$ です。
 
-$[X,N]$ も cross increment sum を展開し、$\sum\Delta A\Delta N$ を同じ評価で消せば $[M,N]$ が残ります。
+$[X,N]$ も cross 増分 sum を展開し、$\sum\Delta A\Delta N$ を同じ評価で消せば $[M,N]$ が残ります。
 <!-- proof-end -->
 
 <a id="thm-sto5-semimartingale-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous semimartingale 分解の一意性）**  
+> **定理（連続セミマルチンゲール分解の一意性）**  
 > 正規化された二つの分解
 
 $$
 X=M+A=M'+A',
 $$
 
-> で $M,M'$ が continuous local martingale、$A,A'$ が continuous finite variation、かつ
+> で $M,M'$ が連続局所マルチンゲール、$A,A'$ が continuous 有限変動、かつ
 >
 > $M_0=M'_0=X_0$, $A_0=A'_0=0$
 >
@@ -1095,9 +1097,9 @@ $$
 M-M'=A'-A.
 $$
 
-左辺は continuous local martingale、右辺は continuous finite variation です。
+左辺は連続局所マルチンゲール、右辺は continuous 有限変動です。
 
-従って共通の process は [finite variation local martingale は定数](#lem-sto5-fv-local-martingale-constant) という補題から定数です。初期値は
+従って共通の過程は [有限変動局所マルチンゲールは定数](#lem-sto5-fv-local-martingale-constant) という補題から定数です。初期値は
 
 $$
 (M_0-M'_0)=0
@@ -1106,17 +1108,17 @@ $$
 なのでその定数は 0。従って $M=M'$、さらに $A=A'$ です。
 <!-- proof-end -->
 
-この一意性により「quadratic variation は semimartingale の noise part だけを見る」という言い方が分解の選び方に依存しません。
+この一意性により「二次変分は semimartingale の noise part だけを見る」という言い方が分解の選び方に依存しません。
 
 ---
 
-## 10. Brownian 標本路は finite variation ではない
+## 10. ブラウン標本路は有限変動ではない
 
 <a id="cor-sto5-brownian-infinite-variation"></a>
 
 <!-- formal-statement-start -->
-> **系（Brownian 標本路は有限変動ではない）**  
-> 任意の $T>0$ に対し、standard Brownian motion の標本路は almost surely $[0,T]$ 上 finite variation ではない。
+> **系（ブラウン標本路は有限変動ではない）**  
+> 任意の $T>0$ に対し、standard ブラウン運動の標本路はほとんど確実に $[0,T]$ 上有限変動ではない。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1128,7 +1130,7 @@ $$
 Q_n=Q_T^{\pi_n}(B)
 $$
 
-と置きます。[Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
+と置きます。[ブラウン運動の二次変分](#thm-sto5-brownian-qv) から
 
 $$
 Q_n\to T
@@ -1140,7 +1142,7 @@ $$
 Q_{n_j}\to T
 $$
 
-almost surely とできます。
+ほとんど確実にとできます。
 
 一方、event
 
@@ -1148,7 +1150,7 @@ $$
 E=\{V_T(B)<\infty\}
 $$
 
-上では、[finite-variation process の quadratic variation は 0](#prop-sto5-finite-variation-zero-qv) の pathwise estimate により、mesh が 0 へ行く任意の partition 列について
+上では、[finite-variation 過程の二次変分は 0](#prop-sto5-finite-variation-zero-qv) の pathwise 評価により、mesh が 0 へ行く任意の partition 列について
 
 $$
 Q_n\to0
@@ -1162,22 +1164,22 @@ $$
 P(E)=0.
 $$
 
-従って Brownian 標本路は almost surely $[0,T]$ 上 finite variation ではありません。
+従ってブラウン標本路はほとんど確実に $[0,T]$ 上有限変動ではありません。
 <!-- proof-end -->
 
-連続なのに finite variation ではない。ここが通常の Riemann--Stieltjes calculus だけでは Brownian motion を扱えない理由です。
+連続なのに有限変動ではない。ここが通常の Riemann--Stieltjes calculus だけではブラウン運動を扱えない理由です。
 
 ---
 
-## 11. Lévy characterization：bracket が時間なら Brown 運動
+## 11. Lévy characterization：ブラケットが時間ならブラウン運動
 
-quadratic variation は Brown 運動の結果であるだけでなく、Brown 運動を特徴付けます。
+二次変分はブラウン運動の結果であるだけでなく、ブラウン運動を特徴付けます。
 
 <a id="thm-sto5-levy-characterization"></a>
 
 <!-- formal-statement-start -->
-> **定理（Lévy characterization of Brownian motion）**  
-> usual conditions を満たす filtration $(\mathcal F_t)$ 上で、$M$ を continuous local martingale とする。
+> **定理（Lévy characterization of ブラウン運動）**  
+> usual conditions を満たすフィルトレーション $(\mathcal F_t)$ 上で、$M$ を連続局所マルチンゲールとする。
 >
 > 仮定
 
@@ -1188,12 +1190,12 @@ M_0=0,
 \quad(t\ge0)
 $$
 
-> が成り立つなら、$M$ は $(\mathcal F_t)$ に関する standard Brownian motion である。
+> が成り立つなら、$M$ は $(\mathcal F_t)$ に関する standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-目標は increment の conditional characteristic function を求めることです。
+目標は増分の conditional characteristic function を求めることです。
 
 $$
 E\left[
@@ -1204,9 +1206,9 @@ e^{i\theta(M_t-M_s)}
 e^{-\theta^2(t-s)/2}
 $$
 
-を示せれば、右辺は $N(0,t-s)$ の characteristic function で、しかも過去情報に依存しません。従って increment は Gaussian かつ $\mathcal F_s$ と独立です。
+を示せれば、右辺は $N(0,t-s)$ の characteristic function で、しかも過去情報に依存しません。従って増分はガウスかつ $\mathcal F_s$ と独立です。
 
-この式を出すため、二次 Taylor 展開を細分割上で足します。一次項は martingale difference なので conditional expectation で消え、二次項だけが quadratic variation
+この式を出すため、二次 Taylor 展開を細分割上で足します。一次項は martingale difference なので conditional expectation で消え、二次項だけが二次変分
 
 $$
 [M]_t-[M]_s=t-s
@@ -1217,11 +1219,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\theta\in\mathbb R$ を固定します。local martingale を直接 bounded martingale と呼び替えるのではなく、停止後の bracket も同時に追います。
+$\theta\in\mathbb R$ を固定します。局所マルチンゲールを直接有界 martingale と呼び替えるのではなく、停止後のブラケットも同時に追います。
 
-#### Step 1：bounded martingale へ localization する
+#### Step 1：有界 martingale へ局所化する
 
-元の localizing sequence と exit time を minimum で合わせ、
+元の局所化列と exit time を minimum で合わせ、
 
 $$
 \sigma_n
@@ -1232,9 +1234,9 @@ $$
 \wedge n
 $$
 
-と取ります。ここで $(\rho_n)$ は $M^{\rho_n}$ を真の martingale にする localizing sequence です。[bounded stopping theorem](#thm-sto5-bounded-optional-sampling) により $M^{\sigma_n}$ も bounded martingale です。
+と取ります。ここで $(\rho_n)$ は $M^{\rho_n}$ を真の martingale にする局所化列です。[有界 stopping theorem](#thm-sto5-bounded-optional-sampling) により $M^{\sigma_n}$ も有界 martingale です。
 
-quadratic variation の stopping property と仮定 $[M]_t=t$ から
+二次変分の stopping property と仮定 $[M]_t=t$ から
 
 $$
 [M^{\sigma_n}]_t
@@ -1254,7 +1256,7 @@ $$
 
 と書きます。
 
-#### Step 2：停止した exponential process を作る
+#### Step 2：停止した exponential 過程を作る
 
 $$
 F(a,x)
@@ -1282,9 +1284,9 @@ $$
 \exp\left(\frac12\theta^2T\right),
 $$
 
-なので $Z^{(n)}$ は一様に bounded です。
+なので $Z^{(n)}$ は一様に有界です。
 
-$0\le s<t\le T$ を deterministic partition
+$0\le s<t\le T$ を決定論的 partition
 
 $$
 s=t_0<t_1<\cdots<t_m=t
@@ -1347,7 +1349,7 @@ Z_t^{(n)}-Z_s^{(n)}
 \end{aligned}
 $$
 
-第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で bounded です。$X^{(n)}$ は martingale なので、任意の $C\in\mathcal F_s$ に対し
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界です。$X^{(n)}$ は martingale なので、任意の $C\in\mathcal F_s$ に対し
 
 $$
 E\left[
@@ -1362,7 +1364,7 @@ $$
 [X^{(n)}]=A^{(n)}
 $$
 
-なので [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
+なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
 
 $$
 \sum_{u<t_k\le v}(\Delta_kX)^2
@@ -1370,7 +1372,7 @@ $$
 A_v^{(n)}-A_u^{(n)}
 $$
 
-in probability です。係数 $F_{xx}$ は $[0,T]\times[-n,n]$ 上一様連続かつ bounded なので、時間区間を先に有限個の coarse blocks へ分け、各 block の左端で係数を固定して上の収束を使い、その後 coarse mesh を 0 へ送ることで
+in probability です。係数 $F_{xx}$ は $[0,T]\times[-n,n]$ 上一様連続かつ有界なので、時間区間を先に有限個の coarse blocks へ分け、各 block の左端で係数を固定して上の収束を使い、その後 coarse mesh を 0 へ送ることで
 
 $$
 \sum_kF_{xx}(\cdots)
@@ -1391,19 +1393,19 @@ $$
 \right),
 $$
 
-ここで $\eta_\pi\to0$ in probability です。括弧内は quadratic variation convergence により bounded in probability なので、remainder は 0 へ行きます。
+ここで $\eta_\pi\to0$ in probability です。括弧内は二次変分 convergence により有界 in probability なので、remainder は 0 へ行きます。
 
 ここで「in probability だから期待値へそのまま移す」とはしません。$L^1$ 制御を確認します。
 
-$X^{(n)}$ は bounded で $A_T^{(n)}\le T$ です。また
+$X^{(n)}$ は有界で $A_T^{(n)}\le T$ です。また
 
 $$
 (X_t^{(n)})^2-A_t^{(n)}
 $$
 
-は [continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により local martingale で、$[0,T]$ 上 bounded なので真の martingale です。
+は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真の martingale です。
 
-従って deterministic partition $u=t_0<\cdots<t_m=v$ に対して martingale increments の直交性を使うと
+従って決定論的 partition $u=t_0<\cdots<t_m=v$ に対して martingale increments の直交性を使うと
 
 $$
 \begin{aligned}
@@ -1417,9 +1419,9 @@ E[A_v^{(n)}-A_u^{(n)}].
 \end{aligned}
 $$
 
-一方、[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
 
-したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は bounded なので、先ほどの finite-block approximation をそのまま $L^1$ で行えて
+したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は有界なので、先ほどの finite-block 近似をそのまま $L^1$ で行えて
 
 $$
 E\left|
@@ -1429,7 +1431,7 @@ E\left|
 \to0.
 $$
 
-さらに full interval の realized quadratic variation sum は bounded random variable $A_t^{(n)}-A_s^{(n)}\le T$ へ $L^1$ 収束するので、一様可積分です。Taylor remainder の評価
+さらに full interval の realized 二次変分 sum は有界 random variable $A_t^{(n)}-A_s^{(n)}\le T$ へ $L^1$ 収束するので、一様可積分です。Taylor remainder の評価
 
 $$
 \left|\sum_kr_k\right|
@@ -1440,7 +1442,7 @@ $$
 \right)
 $$
 
-で $\eta_\pi\to0$ in probability、かつ $\eta_\pi$ は compact set 上の導関数の modulus of continuity で一様に bounded です。従って右辺も $L^1$ で 0 へ行きます。
+で $\eta_\pi\to0$ in probability、かつ $\eta_\pi$ は compact set 上の導関数の modulus of continuity で一様に有界です。従って右辺も $L^1$ で 0 へ行きます。
 
 以上を各 partition の Taylor identity の期待値へ入れます。第一和の期待値は各段階でちょうど 0、残り二項は $L^1$ で 0 へ行くため
 
@@ -1452,9 +1454,9 @@ $$
 
 が全ての $C\in\mathcal F_s$ で成り立ち、$Z^{(n)}$ は martingale です。
 
-#### Step 3：localization を外す
+#### Step 3：局所化を外す
 
-$\sigma_n\uparrow\infty$ almost surely なので、各固定 $t$ について
+$\sigma_n\uparrow\infty$ ほとんど確実になので、各固定 $t$ について
 
 $$
 A_t^{(n)}=t\wedge\sigma_n\to t,
@@ -1462,7 +1464,7 @@ A_t^{(n)}=t\wedge\sigma_n\to t,
 X_t^{(n)}=M_{t\wedge\sigma_n}\to M_t
 $$
 
-almost surely です。従って
+ほとんど確実にです。従って
 
 $$
 Z_t^{(n)}
@@ -1474,7 +1476,7 @@ i\theta M_t+\frac12\theta^2t
 \right)
 $$
 
-almost surely。
+ほとんど確実に。
 
 また $0\le t\le T$ では
 
@@ -1508,7 +1510,7 @@ e^{i\theta(M_t-M_s)}
 e^{-\theta^2(t-s)/2}.
 $$
 
-右辺は deterministic で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの identity が成り立つので、characteristic function の一意性と monotone class argument により
+右辺は決定論的で、$N(0,t-s)$ の characteristic function です。全ての $\theta$ についてこの identity が成り立つので、characteristic function の一意性と monotone class argument により
 
 $$
 M_t-M_s\sim N(0,t-s)
@@ -1516,10 +1518,10 @@ $$
 
 かつ $M_t-M_s$ は $\mathcal F_s$ と独立です。
 
-$M_0=0$、標本路の連続性は仮定済みです。従って $M$ は $(\mathcal F_t)$ に関する standard Brownian motion です。
+$M_0=0$、標本路の連続性は仮定済みです。従って $M$ は $(\mathcal F_t)$ に関する standard ブラウン運動です。
 <!-- proof-end -->
 
-Lévy characterization は重要です。「Brown 運動らしい increment law」を最初から仮定せず、**martingale 性 + 二次変分が時間**だけから Brown 運動を回収できます。
+Lévy characterization は重要です。「ブラウン運動らしい増分法則」を最初から仮定せず、**martingale 性 + 二次変分が時間**だけからブラウン運動を回収できます。
 
 ---
 
@@ -1537,7 +1539,7 @@ f'(x)\Delta x
 o((\Delta x)^2)
 $$
 
-を足したとき、finite variation なら
+を足したとき、有限変動なら
 
 $$
 \sum(\Delta x)^2\to0
@@ -1545,7 +1547,7 @@ $$
 
 なので二階項は消えます。
 
-Brown 運動では
+ブラウン運動では
 
 $$
 \sum(\Delta B)^2\to t.
@@ -1557,7 +1559,7 @@ $$
 \boxed{
 \text{smooth calculus: }(dx)^2=0
 \qquad
-\text{Brownian calculus: }(dB)^2=dt
+\text{ブラウン calculus: }(dB)^2=dt
 }
 $$
 
@@ -1569,18 +1571,18 @@ $$
 
 を生みます。
 
-ただし、まだ $\int H\,dM$ は定義していません。次の STO6 で simple predictable integrand から stochastic integral を構成し、そこで初めてこの differential notation を積分の等式へ変換します。
+ただし、まだ $\int H\,dM$ は定義していません。次の STO6 で単純予測可能被積分過程から確率積分を構成し、そこで初めてこの differential notation を積分の等式へ変換します。
 
 ---
 
 # 13. 演習
 
-## STO5-A01 Brown 運動を exit time で localization する
+## STO5-A01 ブラウン運動を exit time で局所化する
 
 - Level: A
 - 目安時間: 12分
 
-Brown 運動 $B$ に対し
+ブラウン運動 $B$ に対し
 
 $$
 \tau_n
@@ -1590,16 +1592,16 @@ $$
 
 とする。
 
-1. $\tau_n$ が stopping time であることを説明せよ。
-2. $B^{\tau_n}$ が bounded continuous martingale であることを示せ。
-3. $\tau_n\uparrow\infty$ almost surely を説明せよ。
+1. $\tau_n$ が停止時刻であることを説明せよ。
+2. $B^{\tau_n}$ が有界 continuous martingale であることを示せ。
+3. $\tau_n\uparrow\infty$ ほとんど確実にを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. $B$ は continuous adapted process です。closed set $(-\infty,-n]\cup[n,\infty)$ への hitting time は STO1 の closed-set hitting-time theorem から stopping time です。定数 $n$ との minimum も stopping time です。
+1. $B$ は continuous 適合過程です。closed set $(-\infty,-n]\cup[n,\infty)$ への到達時刻は [STO1 の閉集合への初到達時刻定理](../STO1/index.md#thm-sto1-closed-hitting-time) から停止時刻です。定数 $n$ との minimum も停止時刻です。
 
-2. $B$ は continuous martingale です。[bounded stopping theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
+2. $B$ は continuous martingale です。[有界 stopping theorem](#thm-sto5-bounded-optional-sampling) を $\tau_n$ に適用すると
 
 $$
 E[B_{t\wedge\tau_n}\mid\mathcal F_s]
@@ -1617,7 +1619,7 @@ $$
 
 です。標本路の連続性も停止で保たれます。
 
-3. 各標本路は compact interval $[0,T]$ 上 bounded です。従ってほとんど全ての標本路について、十分大きい $n$ では $n>T$ かつ
+3. 各標本路は compact interval $[0,T]$ 上有界です。従ってほとんど全ての標本路について、十分大きい $n$ では $n>T$ かつ
 
 $$
 \sup_{0\le t\le T}|B_t|<n.
@@ -1626,7 +1628,7 @@ $$
 そのとき $\tau_n>T$ です。任意の $T$ で最終的に $\tau_n>T$ になるため、$\tau_n\uparrow\infty$ です。
 <!-- solution-end -->
 
-## STO5-A02 finite variation の quadratic variation
+## STO5-A02 有限変動の二次変分
 
 - Level: A
 - 目安時間: 10分
@@ -1666,12 +1668,12 @@ $$
 $a$ は compact interval 上 continuous なので一様連続です。従って mesh $\to0$ なら最大増分は 0 へ行きます。$V_T(a)<\infty$ なので積も 0 へ行きます。
 <!-- solution-end -->
 
-## STO5-A03 Brownian quadratic variation の平均と分散
+## STO5-A03 ブラウン二次変分の平均と分散
 
 - Level: A
 - 目安時間: 15分
 
-$[0,T]$ の任意の deterministic partition $\pi$ に対し
+$[0,T]$ の任意の決定論的 partition $\pi$ に対し
 
 $$
 Q_T^\pi(B)=\sum_k(\Delta_kB)^2
@@ -1691,7 +1693,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-各 increment は独立で
+各増分は独立で
 
 $$
 \Delta_kB\sim N(0,\Delta_kt).
@@ -1711,7 +1713,7 @@ E[Q_T^\pi(B)]
 \sum_k\Delta_kt=T.
 $$
 
-また Gaussian fourth moment から
+またガウス fourth モーメントから
 
 $$
 \operatorname{Var}((\Delta_kB)^2)
@@ -1732,12 +1734,12 @@ $$
 $$
 <!-- solution-end -->
 
-## STO5-A04 covariation の polarization
+## STO5-A04 共変分の偏極恒等式
 
 - Level: A
 - 目安時間: 12分
 
-Brown 運動 $B$ と定数 $a,b\in\mathbb R$ に対し
+ブラウン運動 $B$ と定数 $a,b\in\mathbb R$ に対し
 
 $$
 M=aB,
@@ -1750,7 +1752,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-quadratic variation の二次性から
+二次変分の二次性から
 
 $$
 [M]_t=a^2[B]_t=a^2t,
@@ -1766,7 +1768,7 @@ $$
 [M-N]_t=(a-b)^2t.
 $$
 
-従って polarization から
+従って偏極恒等式から
 
 $$
 \begin{aligned}
@@ -1779,31 +1781,31 @@ ab\,t.
 $$
 <!-- solution-end -->
 
-## STO5-B01 finite variation local martingale は定数
+## STO5-B01 有限変動局所マルチンゲールは定数
 
 - Level: B
 - 目安時間: 20分
 
-$L_0=0$ とし、$L$ が continuous local martingale かつ finite variation であるとする。$L\equiv0$ を証明せよ。
+$L_0=0$ とし、$L$ が連続局所マルチンゲールかつ有限変動であるとする。$L\equiv0$ を証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-finite variation から
+有限変動から
 
 $$
 [L]\equiv0.
 $$
 
-[continuous local martingale の quadratic variation theorem](#thm-sto5-local-martingale-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L^2-[L]=L^2
 $$
 
-も local martingale です。
+も局所マルチンゲールです。
 
-$L$ と $L^2$ を同時に bounded にする localizing sequence $(\tau_n)$ を取ります。すると $L^{\tau_n}$ と $(L^{\tau_n})^2$ は真の martingale なので
+$L$ と $L^2$ を同時に有界にする局所化列 $(\tau_n)$ を取ります。すると $L^{\tau_n}$ と $(L^{\tau_n})^2$ は真の martingale なので
 
 $$
 E[(L_{t\wedge\tau_n})^2]
@@ -1819,10 +1821,10 @@ $$
 L_{t\wedge\tau_n}=0
 $$
 
-almost surely。$n\to\infty$ として $L_t=0$。有理時刻で同時に成立させ、標本路の連続性を使えば全ての $t$ で $L_t=0$ です。
+ほとんど確実に。$n\to\infty$ として $L_t=0$。有理時刻で同時に成立させ、標本路の連続性を使えば全ての $t$ で $L_t=0$ です。
 <!-- solution-end -->
 
-## STO5-B02 drifted Brownian motion の quadratic variation
+## STO5-B02 drifted ブラウン運動の二次変分
 
 - Level: B
 - 目安時間: 18分
@@ -1831,16 +1833,16 @@ $$
 X_t=B_t+\int_0^t b_s\,ds
 $$
 
-とする。各 $T$ で $\int_0^T|b_s|ds<\infty$ almost surely と仮定する。
+とする。各 $T$ で $\int_0^T|b_s|ds<\infty$ ほとんど確実にと仮定する。
 
-1. $X$ が continuous semimartingale であることを示せ。
+1. $X$ が連続セミマルチンゲールであることを示せ。
 2. $[X]_t=t$ を示せ。
-3. なぜ drift の大きさが quadratic variation に現れないか説明せよ。
+3. なぜ drift の大きさが二次変分に現れないか説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. $B$ は continuous local martingale です。
+1. $B$ は連続局所マルチンゲールです。
 
 $$
 A_t=\int_0^tb_s\,ds
@@ -1854,27 +1856,27 @@ V_T(A)
 \int_0^T|b_s|ds<\infty.
 $$
 
-従って $A$ は continuous finite variation で、$X=B+A$ は continuous semimartingale です。
+従って $A$ は continuous 有限変動で、$X=B+A$ は連続セミマルチンゲールです。
 
-2. finite variation part は quadratic variation へ寄与しないので
+2. 有限変動 part は二次変分へ寄与しないので
 
 $$
 [X]=[B].
 $$
 
-[Brown 運動の quadratic variation](#thm-sto5-brownian-qv) から
+[ブラウン運動の二次変分](#thm-sto5-brownian-qv) から
 
 $$
 [X]_t=t.
 $$
 
-3. 細分割上で drift increment は典型的に時間幅と同じ一次の大きさです。その二乗を足すと
+3. 細分割上で drift 増分は典型的に時間幅と同じ一次の大きさです。その二乗を足すと
 
 $$
 \sum O((\Delta t)^2)
 $$
 
-となり 0 へ消えます。Brownian increment は $O(\!\sqrt{\Delta t})$ なので二乗が $O(\Delta t)$ となり、和が有限に残ります。
+となり 0 へ消えます。ブラウン運動の増分は $O(\!\sqrt{\Delta t})$ なので二乗が $O(\Delta t)$ となり、和が有限に残ります。
 <!-- solution-end -->
 
 ## STO5-B03 semimartingale 分解の一意性
@@ -1888,7 +1890,7 @@ $$
 X=M+A=M'+A'
 $$
 
-があるとする。$M,M'$ は continuous local martingale、$A,A'$ は continuous finite variation、$A_0=A'_0=0$ とする。
+があるとする。$M,M'$ は連続局所マルチンゲール、$A,A'$ は continuous 有限変動、$A_0=A'_0=0$ とする。
 
 分解が一意であることを証明し、この一意性が $[X]=[M]$ という記述を well-defined にする理由を説明せよ。
 
@@ -1903,9 +1905,9 @@ $$
 
 と置きます。
 
-$M-M'$ は continuous local martingale の差なので continuous local martingale です。一方 $A'-A$ は continuous finite variation です。
+$M-M'$ は連続局所マルチンゲールの差なので連続局所マルチンゲールです。一方 $A'-A$ は continuous 有限変動です。
 
-従って $L$ は local martingale かつ finite variation なので定数です。初期値は
+従って $L$ は局所マルチンゲールかつ有限変動なので定数です。初期値は
 
 $$
 L_0=M_0-M'_0=0
@@ -1913,7 +1915,7 @@ $$
 
 だから $L\equiv0$。従って $M=M'$ で、元の等式から $A=A'$ です。
 
-したがって $X$ の local martingale part は正規化後一意です。よって
+したがって $X$ の局所マルチンゲール part は正規化後一意です。よって
 
 $$
 [X]:=[M]
@@ -1927,7 +1929,7 @@ $$
 - Level: C
 - 目安時間: 35分
 
-$M$ を continuous local martingale とし
+$M$ を連続局所マルチンゲールとし
 
 $$
 M_0=0,
@@ -1953,7 +1955,7 @@ E[e^{i\theta(M_t-M_s)}\mid\mathcal F_s]
 e^{-\theta^2(t-s)/2}
 $$
 
-を導き、$M$ が Brown 運動であることを結論せよ。
+を導き、$M$ がブラウン運動であることを結論せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1974,7 +1976,7 @@ $$
 F_t+\frac12F_{xx}=0.
 $$
 
-2. ここで $M$ は local martingale なので、いきなり increment の conditional mean を 0 としてはいけません。まず localizing sequence $(\rho_n)$ と exit time を合わせて
+2. ここで $M$ は局所マルチンゲールなので、いきなり増分の conditional mean を 0 としてはいけません。まず局所化列 $(\rho_n)$ と exit time を合わせて
 
 $$
 \sigma_n
@@ -1993,7 +1995,7 @@ X_r=M_{r\wedge\sigma_n},
 A_r=r\wedge\sigma_n
 $$
 
-とします。すると $X$ は bounded martingale で、
+とします。すると $X$ は有界 martingale で、
 
 $$
 [X]_r=A_r
@@ -2001,7 +2003,7 @@ $$
 
 です。
 
-$F(a,x)=\exp(i\theta x+\theta^2a/2)$ と見て、$[s,t]$ の deterministic partition 上で Taylor 展開すると
+$F(a,x)=\exp(i\theta x+\theta^2a/2)$ と見て、$[s,t]$ の決定論的 partition 上で Taylor 展開すると
 
 $$
 \begin{aligned}
@@ -2017,7 +2019,7 @@ R_\pi.
 \end{aligned}
 $$
 
-第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で bounded なので、conditional expectation では各 martingale increment が消えます。
+第一和の係数は $\mathcal F_{t_{k-1}}$-measurable で有界なので、conditional expectation では各 martingale 増分が消えます。
 
 また
 
@@ -2027,9 +2029,9 @@ $$
 A_t-A_s
 $$
 
-は quadratic variation の定義です。係数 $F_{xx}$ を有限個の coarse blocks 上でほぼ一定に固定すれば、weighted quadratic-variation error も 0 へ行きます。
+は二次変分の定義です。係数 $F_{xx}$ を有限個の coarse blocks 上でほぼ一定に固定すれば、weighted quadratic-variation error も 0 へ行きます。
 
-remainder $R_\pi$ は、最大 increment が 0 へ行き、二乗増分和が有限極限を持つことから 0 へ行きます。bounded localization の下では本文と同じ $L^1$ argument で期待値へ極限を移せます。
+remainder $R_\pi$ は、最大増分が 0 へ行き、二乗増分和が有限極限を持つことから 0 へ行きます。有界局所化の下では本文と同じ $L^1$ argument で期待値へ極限を移せます。
 
 したがって
 
@@ -2045,14 +2047,14 @@ $$
 
 は martingale です。
 
-3. $\sigma_n\uparrow\infty$ almost surely で、固定 $T$ 上
+3. $\sigma_n\uparrow\infty$ ほとんど確実にで、固定 $T$ 上
 
 $$
 |Z_r^{(n)}|
 \le e^{\theta^2T/2}
 $$
 
-です。dominated convergence で localization を外すと
+です。dominated convergence で局所化を外すと
 
 $$
 Z_r
@@ -2085,20 +2087,20 @@ $$
 
 右辺は $N(0,t-s)$ の characteristic function で、$\mathcal F_s$ に依存しません。従って $M_t-M_s$ は $N(0,t-s)$ に従い、$\mathcal F_s$ と独立です。
 
-$M_0=0$ と標本路の連続性も仮定されているので、$M$ は standard Brownian motion です。
+$M_0=0$ と標本路の連続性も仮定されているので、$M$ は standard ブラウン運動です。
 <!-- solution-end -->
 
 ---
 
 ## 章末チェック
 
-- continuous martingale と local martingale の違いを stopping で説明できる。
-- ucp convergence が固定時刻収束より強い process-level の収束であると説明できる。
-- finite variation function の quadratic variation が 0 になる評価を書ける。
-- Brownian quadratic variation $[B]_t=t$ を一般分割で $L^2$ 計算できる。
-- continuous local martingale の quadratic variation theorem で、技術的入力と本章内で閉じた帰結を区別できる。
-- polarization から covariation を構成し、$MN-[M,N]$ の local martingale 性を導ける。
-- semimartingale の finite variation part が quadratic variation から消えることを証明できる。
-- local martingale かつ finite variation なら定数、という事実から分解一意性を示せる。
+- continuous martingale と局所マルチンゲールの違いを stopping で説明できる。
+- ucp convergence が固定時刻収束より強い過程-level の収束であると説明できる。
+- 有限変動 function の二次変分が 0 になる評価を書ける。
+- ブラウン二次変分 $[B]_t=t$ を一般分割で $L^2$ 計算できる。
+- 連続局所マルチンゲールの二次変分 theorem で、技術的入力と本章内で閉じた帰結を区別できる。
+- 偏極恒等式から共変分を構成し、$MN-[M,N]$ の局所マルチンゲール性を導ける。
+- semimartingale の有限変動 part が二次変分から消えることを証明できる。
+- 局所マルチンゲールかつ有限変動なら定数、という事実から分解一意性を示せる。
 - Lévy characterization の conditional characteristic function 証明を再構成できる。
-- $(dB)^2=dt$ が differential の代数則ではなく quadratic variation の極限を表す記憶法だと説明できる。
+- $(dB)^2=dt$ が differential の代数則ではなく二次変分の極限を表す記憶法だと説明できる。
