@@ -535,7 +535,7 @@ $$
 <a id="lem-sto9-picard-estimate"></a>
 
 <!-- formal-statement-start -->
-> **補題（Picard 差分の factorial estimate）**  
+> **補題（Picard 差分の階乗評価）**  
 > $b,\sigma$ が大域 Lipschitz で、$E|\xi|^2<\infty$ とする。
 >
 > 任意の $T<\infty$ に対し、$T$ と Lipschitz 定数のみに依存する $C_T<\infty$ が存在して
@@ -740,7 +740,7 @@ $$
 <a id="thm-sto9-global-existence-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定理（大域 Lipschitz SDE の strong 存在・経路ごとの一意性）**  
+> **定理（大域 Lipschitz SDE の強解の存在・経路ごとの一意性）**  
 > $\xi$ を $E|\xi|^2<\infty$ を満たす $\mathcal F_0$-可測 $\mathbb R^d$-値確率変数、$W$ を $m$ 次元ブラウン運動とし、$W$ は joint フィルトレーション $(\mathcal F_t^{\xi,W})$ に関してブラウン運動であるとする。
 >
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が大域 Lipschitz であるとする。
@@ -1013,7 +1013,7 @@ $T=1,2,\ldots$ の可算共通部分を取れば、全 $t\ge0$ について indi
 <a id="prop-sto9-moment-estimate"></a>
 
 <!-- formal-statement-start -->
-> **命題（finite-horizon L2 supremum モーメント評価）**  
+> **命題（有限時間区間の L2 上限モーメント評価）**  
 > 前定理の仮定の下で、各 $T<\infty$ に対して $C_T<\infty$ が存在し
 >
 $$
@@ -1179,7 +1179,7 @@ SDE をモデルとして使うなら、一意性だけでは足りません。
 <a id="thm-sto9-stability"></a>
 
 <!-- formal-statement-start -->
-> **定理（初期値・係数に対する stability estimate）**  
+> **定理（初期値・係数に対する安定性評価）**  
 > $(b,\sigma)$ と $(\widetilde b,\widetilde\sigma)$ は共通の定数 $L$ で大域 Lipschitz とする。
 >
 > 同じブラウン運動 $W$ 上で
@@ -1367,7 +1367,7 @@ $$
 <a id="def-sto9-maximal-solution"></a>
 
 <!-- formal-statement-start -->
-> **定義（maximal 強解・爆発時刻）**  
+> **定義（極大強解・爆発時刻）**  
 > $b,\sigma$ を局所 Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > stopping time $\tau_{\mathrm e}\in(0,\infty]$ と continuous 適合過程
@@ -1376,7 +1376,7 @@ $$
 X=(X_t)_{0\le t<\tau_{\mathrm e}}
 $$
 >
-> の組が **maximal 強解** であるとは、任意の整数 $n>|x|$ に対し
+> の組が **極大強解** であるとは、任意の整数 $n>|x|$ に対し
 >
 $$
 \tau_n
@@ -1422,7 +1422,7 @@ $$
 P(\tau_{\mathrm e}=\infty)=1
 $$
 >
-> のとき、この maximal 強解は **non-explosive** であるという。
+> のとき、この 極大強解は **non-explosive** であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto9-maximal-solution -->
@@ -1544,7 +1544,7 @@ $$
 <a id="thm-sto9-local-maximal-solution"></a>
 
 <!-- formal-statement-start -->
-> **定理（局所 Lipschitz SDE の maximal 強解）**  
+> **定理（局所 Lipschitz SDE の 極大強解）**  
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が局所 Lipschitz であり、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > このとき SDE
@@ -1555,7 +1555,7 @@ dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 X_0=x
 $$
 >
-> は maximal 強解 $(X,\tau_{\mathrm e})$ を持つ。
+> は 極大強解 $(X,\tau_{\mathrm e})$ を持つ。
 >
 > また爆発前の経路ごとの一意性が成り立つ。すなわち二つの maximal solutions $X,Y$ が同じ $W,x$ で駆動されるなら
 >
@@ -1778,7 +1778,7 @@ $$
 >
 > が全ての $x$ で成り立つとする。
 >
-> 初期状態 $x\in\mathbb R^d$ から出発する maximal 強解の爆発時刻 $\tau_{\mathrm e}$ は
+> 初期状態 $x\in\mathbb R^d$ から出発する 極大強解の爆発時刻 $\tau_{\mathrm e}$ は
 >
 $$
 P(\tau_{\mathrm e}=\infty)=1
@@ -1924,7 +1924,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Lyapunov 型非爆発 criterion）**  
-> $b,\sigma$ は局所 Lipschitz とし、初期状態 $x_0\in\mathbb R^d$ から出発する $(X,\tau_{\mathrm e})$ を maximal 強解とする。
+> $b,\sigma$ は局所 Lipschitz とし、初期状態 $x_0\in\mathbb R^d$ から出発する $(X,\tau_{\mathrm e})$ を 極大強解とする。
 >
 > $V\in C^2(\mathbb R^d;[0,\infty))$ が
 >
@@ -3518,7 +3518,7 @@ $$
 
 従って [Lyapunov 型非爆発 criterion](#thm-sto9-lyapunov-nonexplosion) の条件を全て満たします。
 
-局所 Lipschitz theorem により maximal 強解は存在し、Lyapunov criterion によりその爆発時刻は
+局所 Lipschitz theorem により 極大強解は存在し、Lyapunov criterion によりその爆発時刻は
 
 $$
 \tau_{\mathrm e}=\infty
