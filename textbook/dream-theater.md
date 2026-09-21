@@ -91,8 +91,10 @@
 2. [VC2 曲線・線積分・保存場](textbook/volumes/00_foundations/VC2/index.md)
 3. [VC3 曲面・向き・曲面積分・flux](textbook/volumes/00_foundations/VC3/index.md)
 4. [VC4 Green・Gauss--Ostrogradsky と保存則](textbook/volumes/00_foundations/VC4/index.md)
+5. [VC5 Stokes theorem・curl・topology](textbook/volumes/00_foundations/VC5/index.md)
+6. [VC6 直交曲線座標](textbook/volumes/00_foundations/VC6/index.md)
 
-VC4 までで PDE6 が必要とする法線・flux・発散定理を正本化します。Stokes、直交曲線座標、Cartesian tensor、Helmholtz decomposition、数理物理 bridge は後続 VC5--VC9 で整備します。
+VC4 までで PDE6 が必要とする法線・flux・発散定理を正本化し、VC5--VC6 で Stokes theorem と円柱・球座標まで古典ベクトル解析の標準線を閉じます。Cartesian tensor、Helmholtz decomposition、数理物理 bridge は後続 VC7--VC9 で整備します。
 
 ### ノルム空間・測度・Lebesgue積分
 
