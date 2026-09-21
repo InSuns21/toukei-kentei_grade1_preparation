@@ -19,6 +19,7 @@ definitions:
   - { id: VC1-DEF-03, name: 発散 }
   - { id: VC1-DEF-04, name: 回転 }
   - { id: VC1-DEF-05, name: スカラー・ラプラシアン }
+  - { id: VC1-DEF-06, name: レベル集合・レベル曲面 }
 theorems:
   - { id: VC1-THM-01, name: 正則レベル曲面と勾配の直交 }
   - { id: VC1-THM-02, name: 勾配の回転は 0 }
