@@ -98,7 +98,7 @@ concepts:
   - id: stochastic.brownian-increment-high-moment
     name: Brown incrementの高次moment
     kind: proposition
-    aliases: [Brown incrementの高次moment, Brown increment の高次 moment]
+    aliases: [Brown incrementの高次moment]
     introduction: formal
     introduction_aliases: ["命題（Brown increment の高次 moment）"]
     requires:
@@ -107,7 +107,7 @@ concepts:
   - id: stochastic.brownian-variation-scale
     name: Brown標本路のvariation scale
     kind: proposition
-    aliases: [Brown標本路のvariation scale, Brown標本路 の variation scale]
+    aliases: [Brown標本路のvariation scale]
     introduction: formal
     introduction_aliases: ["命題（Brown 標本路 の variation scale）"]
     requires:
@@ -116,7 +116,7 @@ concepts:
   - id: prob.gaussian-tail-simple-bound
     name: Gaussian tailの簡単な上界
     kind: lemma
-    aliases: [Gaussian tailの簡単な上界, Gaussian tail の簡単な上界]
+    aliases: [Gaussian tailの簡単な上界]
     introduction: formal
     introduction_aliases: ["補題（Gaussian tail の簡単な上界）"]
     requires:
