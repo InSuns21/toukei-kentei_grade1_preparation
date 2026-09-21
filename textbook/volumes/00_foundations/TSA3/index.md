@@ -26,7 +26,7 @@ $$
 \mathbb T:=\mathbb R/(2\pi\mathbb Z)
 $$
 
-上で扱い、積分表示では代表区間 $[-\pi,\pi)$ を使います。Herglotz の存在証明では [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)、一意性と $L^2(F)$ の稠密性では [FOU2 の三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)、密度の定義では [Radon--Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を正本として使います。
+上で扱い、積分表示では代表区間 $[-\pi,\pi)$ を使います。Herglotz の存在証明では [MT5 の Riesz--Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)、一意性と $L^2(F)$ の稠密性では [FOU2 の三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)、密度の定義では [Radon--Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を正本として使います。
 
 TSA2 の Wold 分解とは補完関係にありますが、Herglotz の定理もスペクトル表現定理も Wold 分解を証明入力にはしません。時間領域と周波数領域を循環依存にしないためです。
 
@@ -42,7 +42,7 @@ $$
 
 です。
 
-<a id="def-tsa3-正定値"></a>
+<a id="def-tsa3-positive-definite"></a>
 
 <!-- formal-statement-start -->
 > **定義（正定値列）**  
@@ -66,7 +66,7 @@ $$
 \gamma(h)=\sigma^2\mathbf1_{\{h=0\}}.
 $$
 
-<!-- definition-example-start: def-tsa3-正定値 -->
+<!-- definition-example-start: def-tsa3-positive-definite -->
 **定義の確認**  
 同じ時刻を持つ添字をまとめると
 
@@ -166,7 +166,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Herglotz の定理）**  
-> 列 $\gamma:\mathbb Z\to\mathbb C$ が正定値であることと、円周 $\mathbb T$ 上の有限非負Borel 測度 $F$ が一意に存在して
+> 列 $\gamma:\mathbb Z\to\mathbb C$ が正定値であることと、円周 $\mathbb T$ 上の有限非負 Borel 測度 $F$ が一意に存在して
 
 $$
 \boxed{
@@ -270,7 +270,7 @@ $$
 
 従って $f_n\ge0$ です。
 
-またFourier直交性
+また Fourier 直交性
 
 $$
 \frac1{2\pi}
@@ -305,102 +305,136 @@ $\square$
 
 ### 3.3 有限測度列から弱収束部分列を抜く
 
-次の補題を章内で証明しておきます。これがRiesz--Markovを丸ごとブラックボックスにしないための部分です。
+近似測度 $F_n$ は全て同じ有限質量を持ちます。ここで「有限測度列はコンパクト区間上で弱収束部分列を持つ」という部分を、Riesz--Markov を使って必要な形まで証明します。
 
 <a id="lem-tsa3-compact-measures"></a>
 
 <!-- formal-statement-start -->
 > **補題（コンパクト区間上の有限測度列の部分列選択）**  
-> $[-\pi,\pi]$ 上の有限非負Borel 測度 $\mu_n$ が
-
+> コンパクト区間 $K=[-\pi,\pi]$ 上の有限非負 Borel 測度 $\mu_n$ が
+>
 $$
-\sup_n\mu_n([-\pi,\pi])\le M<\infty
+\sup_n\mu_n(K)\le M<\infty
 $$
-
-> を満たすとします。このとき部分列 $\mu_{n_r}$ と有限非負Borel 測度 $\mu$ が存在し、任意の連続関数 $g$ に対して
-
+>
+> を満たすとする。このとき部分列 $\mu_{n_r}$ と有限非負 Borel 測度 $\mu$ が存在し、任意の複素数値連続関数 $g\in C(K;\mathbb C)$ に対して
+>
 $$
 \boxed{
-\int g\,d\mu_{n_r}
+\int_K g\,d\mu_{n_r}
 \longrightarrow
-\int g\,d\mu
+\int_K g\,d\mu
 }
 $$
-
-> が成り立ちます。
+>
+> が成り立つ。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+$C(K)$ 全体でいきなり部分列を選ぶのではなく、まず可算稠密集合だけで対角部分列を取ります。全測度の質量が $M$ 以下なので積分汎関数は一様ノルムについて同じ定数 $M$ で抑えられ、稠密集合上の収束が $C(K)$ 全体へ延長されます。最後に、その極限を正線形汎関数として Riesz--Markov で測度へ戻します。
+
 <!-- proof-start -->
-### 証明：分布関数の対角選択
+### 証明
+
+まず実数値連続関数空間 $C(K;\mathbb R)$ を考えます。$K$ 上の折れ線関数で、内部の節点を有理数、節点での値を有理数に取るもの全体を $\mathcal D$ とします。$\mathcal D$ は可算です。
+
+任意の $g\in C(K;\mathbb R)$ と $\varepsilon>0$ を取ります。$g$ はコンパクト区間上で一様連続なので、十分細かい有限分割を取り、各分割点と関数値を有理数で十分近く近似して折れ線補間すれば、ある $p\in\mathcal D$ が
 
 $$
-G_n(x):=\mu_n([-\pi,x])
+\|g-p\|_\infty<\varepsilon
 $$
 
-と置きます。各 $G_n$ は単調非減少で $0\le G_n\le M$ です。
+を満たします。従って $\mathcal D$ は $C(K;\mathbb R)$ に一様ノルムで稠密です。
 
-$[-\pi,\pi]$ の有理点と両端点を可算列 $q_1,q_2,\dots$ と並べます。$(G_n(q_1))_n$ は有界なので収束部分列を持ちます。その部分列から $q_2$ で収束する部分列を抜き、これを繰り返して対角部分列を取ると、全ての $q$ で
-
-$$
-G_{n_r}(q)
-$$
-
-が $r\to\infty$ で収束するようにできます。
-
-有理点での極限値を $L(q)$ とし、これから右連続な単調関数 $G$ を
+$\mathcal D=\{p_1,p_2,\dots\}$ と番号付けます。各 $m$ について
 
 $$
-G(x):=\inf_{q>x,\ q\in\mathbb Q}L(q)
+\left|
+\int_K p_m\,d\mu_n
+\right|
+\le
+M\|p_m\|_\infty
 $$
 
-で作ります。端点では左右極限を使います。単調関数の不連続点は高々可算個です。
-
-$G$ の連続点 $x$ を固定します。$x$ の左右から有理数 $q^-<x<q^+$ を十分近く取れば、単調性により
+なので、$(\int p_m\,d\mu_n)_n$ は有界実数列です。$p_1$ について収束部分列を取り、その中から $p_2$ について収束する部分列を取り、以下同様に進めます。対角部分列を $\mu_{n_r}$ とすれば、全ての $m$ について
 
 $$
-G_{n_r}(q^-)
-\le G_{n_r}(x)
-\le G_{n_r}(q^+)
+\int p_m\,d\mu_{n_r}
 $$
 
-です。$r\to\infty$ の後に $q^-,q^+\to x$ とすれば $G$ の連続性から
+が $r\to\infty$ で収束します。
+
+次に任意の $g\in C(K;\mathbb R)$ を固定します。$p_m\in\mathcal D$ を $\|g-p_m\|_\infty$ が任意に小さくなるように選べます。また全ての $r$ について
 
 $$
-G_{n_r}(x)\to G(x).
+\left|
+\int(g-p_m)\,d\mu_{n_r}
+\right|
+\le
+M\|g-p_m\|_\infty.
 $$
 
-$G$ の増分
-
-$$
-\mu_0((a,b]):=G(b)-G(a)
-$$
-
-を半開区間の有限互いに素和へ加法的に延長するとpremeasureになります。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により、これを持つ有限Borel 測度 $\mu$ が存在します。
-
-最後に連続関数 $g$ を取ります。$G$ の不連続点を避けて、分割幅が十分細かい分割
-
-$$
--\pi=x_0<x_1<\cdots<x_m=\pi
-$$
-
-を取ります。各区間から一点 $\xi_j$ を選ぶと、一様連続性より
+従って、まず $m$ を大きくして右辺を小さくし、その $p_m$ に対して $r,s$ を大きくすれば
 
 $$
 \left|
 \int g\,d\mu_{n_r}
 -
-\sum_{j=1}^m g(\xi_j)\mu_{n_r}((x_{j-1},x_j])
+\int g\,d\mu_{n_s}
 \right|
-\le M\,\omega_g(\text{分割幅}),
 $$
 
-ここで $\omega_g$ は一様連続性の連続度です。分割点は $G$ の連続点なので各区間質量は $\mu_{n_r}$ から $\mu$ のものへ収束します。同じ評価を $\mu$ にも使い、まず $r\to\infty$、次に分割幅を0へ送れば
+を任意に小さくできます。よって極限
 
 $$
-\int g\,d\mu_{n_r}\to\int g\,d\mu.
+L(g):=
+\lim_{r\to\infty}\int_K g\,d\mu_{n_r}
 $$
 
-$\square$
+が全ての $g\in C(K;\mathbb R)$ に対して存在します。
+
+極限を取る前の積分が線形なので $L$ も線形です。また $g\ge0$ なら各 $r$ で $\int g\,d\mu_{n_r}\ge0$ だから
+
+$$
+L(g)\ge0.
+$$
+
+さらに
+
+$$
+|L(g)|
+\le
+M\|g\|_\infty.
+$$
+
+従って $L:C(K;\mathbb R)\to\mathbb R$ は正線形汎関数です。
+
+$K$ はコンパクト Hausdorff 空間なので $C_c(K)=C(K)$ です。[MT5 の Riesz--Markov 正汎関数版](../MT5/index.md#thm-mt5-riesz-markov-positive)を適用すると、一意な有限 Radon 測度 $\mu$ が存在して
+
+$$
+L(g)=\int_K g\,d\mu
+\qquad
+(g\in C(K;\mathbb R))
+$$
+
+となります。コンパクト距離空間上の Radon 測度は有限 Borel 測度です。
+
+最後に複素数値 $g$ について
+
+$$
+g=\operatorname{Re}g+i\operatorname{Im}g
+$$
+
+と分ければ、実部・虚部それぞれの収束から
+
+$$
+\int g\,d\mu_{n_r}
+\to
+\int g\,d\mu
+$$
+
+が従います。$\square$
 <!-- proof-end -->
 
 ### 3.4 存在証明を完成する
@@ -410,7 +444,7 @@ $\square$
 
 $\gamma(0)=0$ なら[正定値列の基本補題](#lem-tsa3-pd-basic)から $\gamma\equiv0$ なので $F=0$ でよいです。
 
-$\gamma(0)>0$ とします。$F_n$ は全て質量 $\gamma(0)$ を持ち、Lebesgue密度を持つので端点に原子を持ちません。従って $[-\pi,\pi]$ 上の測度とみなし、[部分列選択補題](#lem-tsa3-compact-measures)から弱収束部分列
+$\gamma(0)>0$ とします。$F_n$ は全て質量 $\gamma(0)$ を持ち、Lebesgue 密度を持つので端点に原子を持ちません。従って $[-\pi,\pi]$ 上の測度とみなし、[部分列選択補題](#lem-tsa3-compact-measures)から弱収束部分列
 
 $$
 F_{n_r}\Longrightarrow \widetilde F
@@ -453,7 +487,7 @@ $$
 <!-- proof-start -->
 ### 証明：Fourier 係数が測度を一意に決める
 
-$F,G$ が同じFourier 係数
+$F,G$ が同じ Fourier 係数
 
 $$
 \int e^{ih\lambda}F(d\lambda)
@@ -468,19 +502,19 @@ $$
 \int p\,dF=\int p\,dG.
 $$
 
-任意の連続周期関数 $g$ に対し、[三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)から三角多項式 $\sigma_Ng$ が一様に $g$ へ収束します。$F,G$ は有限測度なので
+任意の連続周期関数 $g$ に対し、[三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)から三角多項式 $p_N$ が一様に $g$ へ収束します。$F,G$ は有限測度なので
 
 $$
 \int g\,dF
 =
-\lim_N\int\sigma_Ng\,dF
+\lim_N\int p_N\,dF
 =
-\lim_N\int\sigma_Ng\,dG
+\lim_N\int p_N\,dG
 =
 \int g\,dG.
 $$
 
-連続関数の積分が全て一致すれば有限Borel 測度は一致します。実際、開集合 $O\subset\mathbb T$ に対して
+連続関数の積分が全て一致すれば有限 Borel 測度は一致します。実際、開集合 $O\subset\mathbb T$ に対して
 
 $$
 g_m(x):=\min\{1,m\,d(x,O^c)\}
@@ -488,10 +522,10 @@ $$
 
 と置けば $g_m\uparrow\mathbf1_O$ です。単調収束定理から $F(O)=G(O)$。開集合全体は有限共通部分で閉じ Borel $\sigma$ 代数を生成します。[π–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を有限測度の一致する集合族へ適用すれば $F=G$ です。
 
-これでHerglotz定理の一意性まで証明できました。
+これでHerglotz の定理の一意性まで証明できました。
 <!-- proof-end -->
 
-実数値自己共分散なら $\gamma(-h)=\gamma(h)$ です。$F$ を反転した測度 $F^-(A)=F(-A)$ も同じFourier 係数を持つため、一意性から $F^-=F$、すなわち対称性も従います。
+実数値自己共分散なら $\gamma(-h)=\gamma(h)$ です。$F$ を反転した測度 $F^-(A)=F(-A)$ も同じ Fourier 係数を持つため、一意性から $F^-=F$、すなわち対称性も従います。
 
 ---
 
@@ -501,7 +535,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（スペクトル測度）**  
-> 二次定常過程の自己共分散列 $\gamma(h)$ に対し、Herglotz定理で一意に定まる有限非負測度 $F$、すなわち
+> 二次定常過程の自己共分散列 $\gamma(h)$ に対し、Herglotz の定理で一意に定まる有限非負測度 $F$、すなわち
 
 $$
 \gamma(h)=\int_{\mathbb T}e^{ih\lambda}F(d\lambda)
@@ -841,7 +875,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（連続関数の $L^2(F)$ 稠密性）**  
-> 円周 $\mathbb T$ 上の有限Borel 測度 $F$ に対し、$C(\mathbb T)$ は $L^2(F)$ に稠密である。
+> 円周 $\mathbb T$ 上の有限 Borel 測度 $F$ に対し、$C(\mathbb T)$ は $L^2(F)$ に稠密である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -904,13 +938,13 @@ F\left(\bigcup_{k>n}A_k\right)
 \to0.
 $$
 
-従って $\mathcal D$ はDynkin族です。開集合全体は有限共通部分で閉じる $\pi$-systemなので、$\pi$--$\lambda$ 定理から
+従って $\mathcal D$ は Dynkin 族です。開集合全体は有限共通部分で閉じる $\pi$-system なので、[π–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)から
 
 $$
 \mathcal D=\mathcal B(\mathbb T).
 $$
 
-よって全Borel集合の指示関数、したがって全単関数が $C(\mathbb T)$ の $L^2(F)$ 閉包に属します。単関数は $L^2(F)$ に稠密なので、$C(\mathbb T)$ も稠密です。$\square$
+よって全Borel 集合の指示関数、したがって全単関数が $C(\mathbb T)$ の $L^2(F)$ 閉包に属します。単関数は $L^2(F)$ に稠密なので、$C(\mathbb T)$ も稠密です。$\square$
 <!-- proof-end -->
 
 ---
@@ -923,7 +957,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（三角多項式の $L^2(F)$ 稠密性）**  
-> 円周上の有限Borel 測度 $F$ に対し、次の三角多項式全体は $L^2(F)$ に稠密である。
+> 円周上の有限 Borel 測度 $F$ に対し、次の三角多項式全体は $L^2(F)$ に稠密である。
 
 $$
 \mathcal P
@@ -1013,7 +1047,7 @@ $$
 }.
 $$
 
-特に、同じ $L^2(F)$ 元を別の三角多項式表示で書いても像は同じ $L^2(\Omega)$ 元になるため、$U_0$ は矛盾なく定義です。
+特に、同じ $L^2(F)$ 元を別の三角多項式表示で書いても像は同じ $L^2(\Omega)$ 元になるため、$U_0$ は矛盾なく定義されています。
 
 ---
 
@@ -1034,7 +1068,7 @@ $$
 \|p_n-p_m\|_{L^2(F)},
 $$
 
-したがって $(U_0p_n)$ はCauchy列です。[L^2 の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)から極限が存在します。
+したがって $(U_0p_n)$ はCauchy 列です。[L^2 の完備性](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#thm-f0-00d2e-01)から極限が存在します。
 
 $$
 Uf:=\lim_{n\to\infty}U_0p_n
@@ -1082,7 +1116,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（直交増分ランダム測度）**  
-> 有限測度 $F$ に対する写像 $Z:\mathcal B(\mathbb T)\to L^2(\Omega)$ が、互いに素なBorel集合に対する直交性、互いに素な列に対する $L^2$ 可算加法性、および次の二次モーメント関係を満たすとき、$Z$ を制御測度 $F$ を持つ **直交増分ランダム測度** という。
+> 有限測度 $F$ に対する写像 $Z:\mathcal B(\mathbb T)\to L^2(\Omega)$ が、互いに素なBorel 集合に対する直交性、互いに素な列に対する $L^2$ 可算加法性、および次の二次モーメント関係を満たすとき、$Z$ を制御測度 $F$ を持つ **直交増分ランダム測度** という。
 
 $$
 E[Z(A)\overline{Z(B)}]=F(A\cap B)
@@ -1099,7 +1133,7 @@ $$
 
 <!-- definition-example-start: def-tsa3-orthogonal-random-measure -->
 **定義の確認**  
-任意のBorel集合 $A,B$ に対して
+任意のBorel 集合 $A,B$ に対して
 
 $$
 \begin{aligned}
@@ -1141,7 +1175,7 @@ $$
 
 ## 15. スペクトル確率積分
 
-<a id="def-tsa3-スペクトル-integral"></a>
+<a id="def-tsa3-spectral-integral"></a>
 
 <!-- formal-statement-start -->
 > **定義（スペクトル確率積分）**  
@@ -1154,7 +1188,7 @@ $$
 $$
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-tsa3-スペクトル-integral -->
+<!-- definition-example-start: def-tsa3-spectral-integral -->
 **定義の確認**：単関数  
 $g=\sum_{j=1}^m a_j\mathbf1_{A_j}$ なら
 
@@ -1193,7 +1227,7 @@ $$
 
 ## 16. スペクトル表現定理
 
-<a id="thm-tsa3-スペクトル-representation"></a>
+<a id="thm-tsa3-spectral-representation"></a>
 
 <!-- formal-statement-start -->
 > **定理（定常過程の スペクトル表現定理）**  
@@ -1237,7 +1271,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-Herglotz定理が
+Herglotz の定理が
 
 $$
 \gamma(h)=\int e^{ih\lambda}F(d\lambda)
@@ -1261,7 +1295,7 @@ $$
 F(d\lambda)=\frac{\sigma^2}{2\pi}d\lambda.
 $$
 
-従ってBorel集合 $A$ に対し
+従ってBorel 集合 $A$ に対し
 
 $$
 E|Z(A)|^2
@@ -1275,7 +1309,7 @@ $$
 E[Z(A)\overline{Z(B)}]=0.
 $$
 
-平坦なスペクトルとは、周波数帯へ割り当てられる $L^2$ エネルギーがLebesgue長に比例することです。
+平坦なスペクトルとは、周波数帯へ割り当てられる $L^2$ エネルギーがLebesgue 長に比例することです。
 
 ---
 
