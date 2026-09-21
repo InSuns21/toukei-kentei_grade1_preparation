@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[強解](../STO9/index.md#def-sto9-strong-solution)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-局所-マルチンゲール)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を直接参照します。
+> **既出概念への参照**：[強解](../STO9/index.md#def-sto9-strong-solution)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を直接参照します。
 
 STO9 では
 
@@ -344,7 +344,7 @@ $$
 
 とします。
 
-<!-- definition-example-start: def-sto10-同値-measures -->
+<!-- definition-example-start: def-sto10-equivalent-measures -->
 **定義の確認**
 
 両測度は $a,b$ に正の質量を持つので、零確率になるのは空集合だけです。従って
@@ -388,7 +388,7 @@ E_P[Z_T]
 1.
 $$
 
-<!-- definition-example-start: def-sto10-密度-過程 -->
+<!-- definition-example-start: def-sto10-density-process -->
 **定義の確認**
 
 フィルトレーションを
@@ -577,7 +577,7 @@ $$
 \int_0^t|\theta_s|^2\,ds.
 $$
 
-[STO7 の確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型) は
+[STO7 の確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential) は
 
 $$
 \begin{aligned}
@@ -594,7 +594,7 @@ $$
 
 です。
 
-[基本恒等式](../STO7/index.md#prop-sto7-stochastic-指数型-identity) から
+[基本恒等式](../STO7/index.md#prop-sto7-stochastic-exponential-identity) から
 
 $$
 dZ_t
@@ -952,7 +952,7 @@ $$
 [M]_{T\wedge\rho_n}\le n
 $$
 
-なので、[有界-energy lemma](#lem-sto10-有界-energy-指数型) から
+なので、[有界-energy lemma](#lem-sto10-bounded-energy-exponential) から
 
 $$
 Z^{\rho_n}=\mathcal E(M^{\rho_n})
@@ -1135,7 +1135,7 @@ E_P[Z_tH\widetilde N_t]
 E_P[Z_sH\widetilde N_s].
 $$
 
-[密度過程のマルチンゲール性](#prop-sto10-密度-マルチンゲール) から
+[密度過程のマルチンゲール性](#prop-sto10-density-martingale) から
 
 $$
 E_Q[H\widetilde N_t]
@@ -1356,7 +1356,7 @@ W^i,
 \end{aligned}
 $$
 
-したがって [Girsanov 局所-マルチンゲール transform](#lem-sto10-girsanov-局所-マルチンゲール) により
+したがって [Girsanov 局所-マルチンゲール transform](#lem-sto10-girsanov-local-martingale) により
 
 $$
 \begin{aligned}
@@ -1474,7 +1474,7 @@ Z_T
 \end{aligned}
 $$
 
-これは [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) そのものです。
+これは [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-exponential-martingale) そのものです。
 
 [Girsanov 定理](#thm-sto10-girsanov) から
 
@@ -1667,7 +1667,7 @@ $$
 > は弱解を持つ。
 <!-- formal-statement-end -->
 
-これは [STO9 の大域的存在一意性定理](../STO9/index.md#thm-sto9-大域的-existence-uniqueness)より仮定が弱いです。
+これは [STO9 の大域的存在一意性定理](../STO9/index.md#thm-sto9-global-existence-uniqueness)より仮定が弱いです。
 
 $b$ に Lipschitz continuity を要求していません。
 
@@ -2032,7 +2032,7 @@ $$
 > が必ず成り立つなら、その SDE は **法則の一意性** を持つという。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto10-一意性-in-法則 -->
+<!-- definition-example-start: def-sto10-uniqueness-in-law -->
 **定義の確認**
 
 ### 直接例：定数係数 SDE は法則が一意
@@ -2402,7 +2402,7 @@ $$
 
 1. Novikov condition を確認せよ。
 2. 密度 $Z_T$ を明示せよ。
-3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) を使って $E_P[Z_T]=1$ を確認せよ。
+3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を使って $E_P[Z_T]=1$ を確認せよ。
 4. $Q$ の下でブラウン運動になる過程を書け。
 
 <!-- solution-start -->
@@ -2454,7 +2454,7 @@ Z_T
 \end{aligned}
 $$
 
-3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-指数型-マルチンゲール) を parameter $\mu$ で使えます。
+3. [STO7 のブラウン指数型マルチンゲール](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を parameter $\mu$ で使えます。
 
 その命題の仮定は $W$ が standard ブラウン運動、$\mu$ が定数であることです。本問では両方を満たします。
 
