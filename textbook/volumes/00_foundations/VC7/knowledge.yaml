@@ -63,14 +63,23 @@ concepts:
       - vector-calculus.cartesian-second-order-tensor
       - linear.inner-product
 
-  - id: vector-calculus.contraction-trace
-    name: 縮約・跡・二重縮約
+  - id: vector-calculus.contraction
+    name: 縮約
     kind: definition
-    aliases: [contraction, trace, double contraction, 縮約, 跡, 二重縮約]
+    aliases: [contraction, 縮約]
     introduction: formal
-    introduction_aliases: ["定義（縮約・跡・二重縮約）"]
+    introduction_aliases: ["定義（縮約）"]
     requires:
       - vector-calculus.einstein-summation
+
+  - id: vector-calculus.trace-double-contraction
+    name: 跡・二重縮約
+    kind: definition
+    aliases: [trace, double contraction, 跡, 二重縮約]
+    introduction: formal
+    introduction_aliases: ["定義（跡・二重縮約）"]
+    requires:
+      - vector-calculus.contraction
       - vector-calculus.cartesian-second-order-tensor
 
   - id: vector-calculus.symmetric-skew-decomposition
