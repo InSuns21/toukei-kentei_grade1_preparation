@@ -96,8 +96,9 @@
 6. [VC6 直交曲線座標](textbook/volumes/00_foundations/VC6/index.md)
 7. [VC7 添字記法・直交基底・成分変換](textbook/volumes/00_foundations/VC7/index.md)
 8. [VC8 Newton ポテンシャル・Helmholtz 分解](textbook/volumes/00_foundations/VC8/index.md)
+9. [VC9 保存則・流体・Maxwell 方程式](textbook/volumes/00_foundations/VC9/index.md)
 
-VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化し、VC5--VC6 で Kelvin--Stokes の定理と円柱・球座標まで古典ベクトル解析の標準線を閉じます。VC7 では Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階デカルトテンソル、応力・慣性テンソルまでを整備し、VC8 では Newton 核から Helmholtz 分解、ゲージ自由度、Biot--Savart 型再構成までを閉じました。数理物理への橋渡しは後続 VC9 で扱います。
+VC4 までで PDE6 が必要とする法線・流束・発散定理を正本化し、VC5--VC6 で Kelvin--Stokes の定理と円柱・球座標まで古典ベクトル解析の標準線を閉じます。VC7 では Einstein の総和規約、Kronecker のデルタ、Levi--Civita 記号、二階デカルトテンソル、応力・慣性テンソル、VC8 では Newton 核から Helmholtz 分解、ゲージ自由度、Biot--Savart 型再構成、VC9 では保存則・物質微分・非圧縮流・運動量収支・Maxwell 方程式までを整備しました。これで標準ベクトル解析 VC1--VC9 の主線は完結しています。
 
 ### ノルム空間・測度・Lebesgue積分
 

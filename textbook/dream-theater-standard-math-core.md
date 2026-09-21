@@ -430,7 +430,21 @@ flowchart TD
 
 実装: [VC8](volumes/00_foundations/VC8/index.md)
 
-VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 でデカルト座標の添字計算、VC8 で potential theory と Helmholtz 分解まで整備しました。数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC9 で後続実装します。
+## VC9 保存則・流体・Maxwell 方程式 `advanced-standard-bridge`
+
+- VC4 の一般保存則から質量保存・連続の式へ特殊化
+- 物質微分、非圧縮条件、渦度、二次元流れ関数
+- Kelvin--Stokes の定理による循環と渦度の対応
+- 二項積・応力テンソル・テンソル発散による運動量収支
+- 角運動量保存からの応力テンソルの対称性
+- Newton 流体から非圧縮 Navier--Stokes 方程式の形を導出
+- Maxwell 方程式の積分形・微分形の同値
+- Maxwell 方程式からの電荷保存
+- 薄い箱・細いループによる界面跳躍条件
+
+実装: [VC9](volumes/00_foundations/VC9/index.md)
+
+VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標、VC7 でデカルト座標の添字計算、VC8 で potential theory と Helmholtz 分解、VC9 で保存則・流体・Maxwell 方程式への橋まで整備しました。これで標準ベクトル解析 VC1--VC9 の主線は完結しています。
 
 ---
 

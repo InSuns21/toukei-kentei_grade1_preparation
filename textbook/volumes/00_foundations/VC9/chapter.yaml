@@ -1,0 +1,63 @@
+id: "VC9"
+title: "標準ベクトル解析 IX：保存則・流体・Maxwell 方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC7
+  - VC8
+official_scope: []
+learning_objectives:
+  - VC4 の局所保存則を質量保存へ特殊化し、連続の式の積分形・微分形を対応付けられる
+  - 物質微分を粒子軌道に沿う微分として導出し、連続の式を物質微分形へ変形できる
+  - 非圧縮条件 div u=0 と密度保存の関係を区別して説明できる
+  - 渦度を局所循環密度として解釈し、Kelvin--Stokes の定理で循環と結べる
+  - 二次元非圧縮流に流れ関数を構成し、渦度と Poisson 方程式で結べる
+  - 二項積・テンソル発散・応力テンソルを用いて積分運動量収支から局所運動量式を導ける
+  - 角運動量保存と古典連続体の仮定から応力テンソルの対称性を導ける
+  - Newton 流体の構成則から非圧縮 Navier--Stokes 方程式の標準形を導ける
+  - Maxwell 方程式の積分形と微分形を Gauss--Ostrogradsky・Kelvin--Stokes の定理で相互変換できる
+  - Maxwell 方程式から電荷保存の連続の式を導ける
+  - 薄い箱と細いループから Maxwell 方程式の基本的な界面跳躍条件を導ける
+definitions:
+  - { id: VC9-DEF-01, name: 質量流束 }
+  - { id: VC9-DEF-02, name: 物質微分 }
+  - { id: VC9-DEF-03, name: 非圧縮速度場 }
+  - { id: VC9-DEF-04, name: 渦度 }
+  - { id: VC9-DEF-05, name: 二次元の流れ関数 }
+  - { id: VC9-DEF-06, name: 変形速度テンソルと Newton 流体の応力 }
+theorems:
+  - { id: VC9-PROP-01, name: 質量保存の連続の式 }
+  - { id: VC9-PROP-02, name: 連続の式の物質微分形 }
+  - { id: VC9-COR-01, name: 循環と渦度 }
+  - { id: VC9-THM-01, name: 非圧縮平面流の流れ関数 }
+  - { id: VC9-PRINCIPLE-01, name: 固定検査体積の運動量収支 }
+  - { id: VC9-THM-02, name: 局所運動量収支 }
+  - { id: VC9-PROP-03, name: 古典連続体における応力テンソルの対称性 }
+  - { id: VC9-PROP-04, name: 非圧縮 Navier--Stokes 方程式への橋 }
+  - { id: VC9-PRINCIPLE-02, name: Maxwell 方程式の積分形 }
+  - { id: VC9-THM-03, name: Maxwell 方程式の積分形と微分形 }
+  - { id: VC9-THM-04, name: Maxwell 方程式から電荷保存 }
+  - { id: VC9-PROP-05, name: 真空 Maxwell 方程式の界面跳躍条件 }
+canonical_examples:
+  - 一様膨張速度場と指数的に減衰する密度の質量保存
+  - 剛体回転で保存される半径の物質微分
+  - 流れ関数からの非圧縮速度場と渦度
+  - 単純せん断流の Newton 応力と表面力
+  - 剛体回転流の渦度・循環・圧力勾配
+  - 時間変化する一様磁束と Faraday の法則
+  - Maxwell 方程式から電荷保存を導く計算
+  - 薄い箱・細いループによる界面跳躍条件
+problem_patterns:
+  - VC9-CONTINUITY-1
+  - VC9-MATERIAL-DERIVATIVE-1
+  - VC9-STREAM-FUNCTION-1
+  - VC9-VORTICITY-CIRCULATION-1
+  - VC9-MOMENTUM-BALANCE-1
+  - VC9-NEWTONIAN-STRESS-1
+  - VC9-MAXWELL-INTEGRAL-DIFFERENTIAL-1
+  - VC9-CHARGE-CONSERVATION-1
+  - VC9-INTERFACE-JUMP-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

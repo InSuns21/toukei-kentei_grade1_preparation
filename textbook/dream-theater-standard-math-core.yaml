@@ -339,6 +339,14 @@ nodes:
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/VC8/index.md
     prerequisites: [VC5]
+  - id: VC9
+    title: 保存則・流体・Maxwell 方程式
+    area: vector-calculus
+    tier: advanced-standard-bridge
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC9/index.md
+    prerequisites: [VC7, VC8]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
@@ -583,7 +591,7 @@ implementation_batches:
     nodes: [RA6A, RA7, RA8]
   - order: 9
     id: vector-calculus-core
-    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8]
+    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8, VC9]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
