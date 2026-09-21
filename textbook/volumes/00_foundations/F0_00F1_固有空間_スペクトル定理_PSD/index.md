@@ -587,19 +587,19 @@ $$
 **定義の確認**：上の定義条件をこの具体例で直接確認します。
 
 
-$
+$$
 A=
 \begin{pmatrix}
 2&0\\
 0&0
 \end{pmatrix}
-$
+$$
 
 なら
 
-$
+$$
 x^{\mathsf T}Ax=2x_1^2\ge0
-$
+$$
 
 なので半正定値です。一方 $x=(0,1)^{\mathsf T}\ne0$ では $x^{\mathsf T}Ax=0$ なので正定値ではありません。
 <!-- definition-example-end -->
