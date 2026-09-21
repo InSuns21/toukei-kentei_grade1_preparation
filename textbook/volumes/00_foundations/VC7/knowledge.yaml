@@ -2,9 +2,8 @@ chapter: VC7
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - VC1
+  - VC4
   - F0-00E1
-  - LA3C
 
 concepts:
   - id: vector-calculus.einstein-summation
