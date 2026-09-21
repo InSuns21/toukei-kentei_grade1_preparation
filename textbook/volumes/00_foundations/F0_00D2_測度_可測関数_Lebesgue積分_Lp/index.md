@@ -431,29 +431,6 @@ $$
 
 ## 6. 可測関数
 
-可測性は実数値関数だけの概念ではありません。確率過程では一般の状態空間 $(E,\mathcal E)$ を使うため、まず可測写像の一般形を固定します。
-
-<a id="def-f0-00d2-measurable-map"></a>
-
-<!-- formal-statement-start -->
-> **定義（可測写像）**  
-> 可測空間 $(\Omega,\mathcal F)$ と $(E,\mathcal E)$ の間の写像
->
-$$
-f:\Omega\to E
-$$
->
-> が、任意の $B\in\mathcal E$ に対して
->
-$$
-f^{-1}(B)\in\mathcal F
-$$
->
-> を満たすとき、$f$ を **可測写像** という。本教材では、この条件を「$f$ は $\mathcal F/\mathcal E$ 可測である」と表す。
-<!-- formal-statement-end -->
-
-特に $(E,\mathcal E)=(\mathbb R,\mathcal B(\mathbb R))$ としたものが、以下の実数値可測関数です。
-
 ### 6.1 直感：可測関数は「値の条件を事象へ戻せる関数」
 
 確率変数 $X$ について
