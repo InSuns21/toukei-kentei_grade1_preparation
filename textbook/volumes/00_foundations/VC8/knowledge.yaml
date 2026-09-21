@@ -72,7 +72,7 @@ concepts:
   - id: vector-calculus.gauge-coulomb
     name: ゲージ同値と Coulomb ゲージ
     kind: definition
-    aliases: [gauge equivalence, gauge freedom, Coulomb gauge, ゲージ自由度]
+    aliases: [gauge equivalence, Coulomb gauge, Coulomb ゲージ]
     introduction: formal
     introduction_aliases: ["定義（ゲージ同値と Coulomb ゲージ）"]
     requires:
