@@ -983,7 +983,7 @@ $$
 
 [Dynkin formula](#thm-sto11-dynkin) から
 
-$
+$$
 E[f(X_t)]
 =
 E[f(X_0)]
@@ -1598,7 +1598,7 @@ $X^i=M^i+\int b_i ds$ で finite-variation part は quadratic covariation に寄
 
 coordinate decomposition と product rule から
 
-$
+$$
 X_t^iX_t^j-X_0^iX_0^j
 -
 \int_0^t
@@ -1607,38 +1607,38 @@ b_i(X_s)X_s^j+b_j(X_s)X_s^i
 \right)ds
 -
 [M^i,M^j]_t
-$
+$$
 
 は local martingale です。
 
 一方、$x_ix_j$ を局所化して martingale problem に入れると
 
-$
+$$
 X_t^iX_t^j-X_0^iX_0^j
 -
 \int_0^t
 \left(
 b_i(X_s)X_s^j+b_j(X_s)X_s^i+a_{ij}(X_s)
 \right)ds
-$
+$$
 
 も local martingale です。
 
 両者の差
 
-$
+$$
 [M^i,M^j]_t
 -
 \int_0^ta_{ij}(X_s)ds
-$
+$$
 
 は continuous finite-variation process かつ local martingale です。[STO5 の finite-variation local martingale の定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
 
-$
+$$
 [M^i,M^j]_t
 =
 \int_0^ta_{ij}(X_s)ds.
-$
+$$
 
 ここで $P$ の下で canonical filtration を usual augmentation し、vector local martingale $M=(M^1,\ldots,M^d)$ に対し
 
@@ -1727,11 +1727,11 @@ Brown 運動がこの martingale problem の solution を与えることは [直
 
 逆に任意の solution law $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化して martingale problem へ入れると、各座標 $X^i-X_0^i$ は continuous local martingale で
 
-$
+$$
 [X^i-X_0^i,X^j-X_0^j]_t
 =
 \delta_{ij}t
-$
+$$
 
 を得ます。
 
@@ -1750,12 +1750,12 @@ $
 >
 > $P_tf(x):=E_x[f(X_t)]$ と置く。このとき、任意の a.s. finite stopping time $\tau$、$t\ge0$、bounded Borel $f$ に対して
 >
-$
+$$
 E_x[f(X_{\tau+t})\mid\mathcal F_\tau]
 =
 P_tf(X_\tau)
 \qquad P_x\text{-a.s.}
-$
+$$
 >
 > が成り立つ。従って coordinate process は strong Markov process である。
 <!-- formal-statement-end -->
@@ -1848,52 +1848,52 @@ $$
 
 $f\in C_0(\mathbb R^d)$ は一様連続です。$x_n\to x$ なら
 
-$
+$$
 |P_tf(x_n)-P_tf(x)|
 \le
 E\left[
 |f(x_n+B_t)-f(x+B_t)|
 \right]
-$
+$$
 
 であり、一様連続性から右辺は 0 へ収束します。従って $P_tf$ は連続です。
 
 次に $\varepsilon>0$ を固定し、$|y|>R$ なら $|f(y)|<\varepsilon$ となる $R$ を取ります。$|x|>2R$ のとき、$|B_t|\le |x|-R$ なら $|x+B_t|>R$ なので
 
-$
+$$
 |P_tf(x)|
 \le
 \varepsilon
 +
 \|f\|_\infty
 P(|B_t|>|x|-R).
-$
+$$
 
 $|x|\to\infty$ で右辺の第二項は 0 へ行くため $P_tf(x)\to0$ です。
 
 最後に一様連続性から、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し
 
-$
+$$
 |z|<\delta
 \Longrightarrow
 \sup_x|f(x+z)-f(x)|<\varepsilon.
-$
+$$
 
 したがって
 
-$
+$$
 \sup_x|P_tf(x)-f(x)|
 \le
 \varepsilon
 +
 2\|f\|_\infty P(|B_t|\ge\delta).
-$
+$$
 
 $t\downarrow0$ で $B_t\to0$ in probability なので右辺の第二項は 0 へ行きます。$\varepsilon$ は任意だから
 
-$
+$$
 \|P_tf-f\|_\infty\to0.
-$
+$$
 
 従って Brownian heat semigroup は Feller semigroup の標準例です。
 <!-- definition-example-end -->
@@ -2120,7 +2120,7 @@ $$
 
 [Dynkin formula](#thm-sto11-dynkin) から
 
-$
+$$
 E[B_{\tau_n}^2]
 =
 E\left[
