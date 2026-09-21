@@ -81,7 +81,7 @@ concepts:
       - stochastic.integral-gronwall
 
   - id: stochastic.sde-stability
-    name: 初期値・係数に対するstability estimate
+    name: 初期値・係数に対する stability estimate
     kind: theorem
     aliases: ["SDE stability estimate", "continuous dependence of SDE solutions"]
     introduction: formal
@@ -133,7 +133,7 @@ concepts:
       - stochastic.integral-gronwall
 
   - id: stochastic.one-dimensional-sde-comparison
-    name: 一次元SDEのcomparison theorem
+    name: 一次元 SDE の comparison theorem
     kind: theorem
     aliases: ["one-dimensional SDE comparison theorem", "SDE comparison principle"]
     introduction: formal
