@@ -34,7 +34,7 @@ definitions:
 theorems:
   - { id: STO1-THM-01, name: "right-continuous adapted process is progressive" }
   - { id: STO1-PROP-01, name: "predictable process is progressive" }
-  - { id: STO1-PROP-03, name: "stopping timeの最小・最大と切断時刻の可測性" }
+  - { id: STO1-PROP-03, name: "stopping timeの最小・最大と固定時刻minの可測性" }
   - { id: STO1-THM-02, name: "continuous adapted process closed-set hitting time" }
   - { id: STO1-PROP-02, name: "F_tau is a sigma-field and monotone in stopping times" }
   - { id: STO1-THM-03, name: "evaluation of a progressive process at a stopping time" }
