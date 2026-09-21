@@ -338,7 +338,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/VC8/index.md
-    prerequisites: [VC5, PDE6]
+    prerequisites: [VC5]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
@@ -583,7 +583,7 @@ implementation_batches:
     nodes: [RA6A, RA7, RA8]
   - order: 9
     id: vector-calculus-core
-    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7]
+    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7, VC8]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
