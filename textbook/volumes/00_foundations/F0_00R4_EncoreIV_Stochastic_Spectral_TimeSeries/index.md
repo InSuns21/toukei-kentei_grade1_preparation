@@ -52,7 +52,7 @@ TSA1--TSA6
 6. [STO6：stochastic integral](../STO6/index.md) — 実装済み
 7. [STO7：multidimensional Itô calculus・Stratonovich](../STO7/index.md) — 実装済み
 8. [STO8：local time・Tanaka formula](../STO8/index.md) — 実装済み
-9. STO9：SDE の strong solution・存在一意性・局所化
+9. [STO9：SDE の strong solution・存在一意性・局所化](../STO9/index.md) — 実装済み
 10. STO10：weak solution・Girsanov
 11. STO11：Markov process・semigroup・generator・martingale problem
 12. STO12：Brownian martingale representation
@@ -165,4 +165,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO8「local time・Tanaka formula」](../STO8/index.md#thm-sto8-tanaka) も実装済みです。絶対値の smooth approximation から Brownian local time を構成し、Tanaka formula、positive / negative part、level-set support、空間連続性、occupation time formula、interval occupation approximation、Skorokhod reflection、Levy transform まで閉じています。
 
-現在地は **Phase 2：STO5 → STO6 → STO7 → STO8 完了。次は Phase 3 の STO9「SDE：strong solution・存在一意性・局所化」** です。
+[STO9「SDE：strong solution・存在一意性・局所化」](../STO9/index.md#thm-sto9-global-existence-uniqueness) も実装済みです。Brownian SDE を積分方程式として定式化し、Picard iteration から global Lipschitz 係数下の strong existence・pathwise uniqueness を証明しました。さらに finite-horizon moment / stability estimate、local Lipschitz 係数の cutoff による maximal strong solution と explosion time、linear growth と Lyapunov 条件による non-explosion、一次元 comparison theorem まで閉じています。
+
+現在地は **Phase 3：STO9 完了。次は STO10「weak solution・Girsanov」** です。
