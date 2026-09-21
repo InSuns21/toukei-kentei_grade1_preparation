@@ -17,7 +17,7 @@ learning_objectives:
   - 放射状場・逆二乗場・軸対称場を円柱・球座標で計算し、VC4のGauss--Ostrogradsky の発散定理と照合できる
 definitions:
   - { id: VC6-DEF-01, name: 直交曲線座標 }
-  - { id: VC6-DEF-02, name: 尺度因子・位置依存正規直交基底 }
+  - { id: VC6-DEF-02, name: 尺度因子と位置依存正規直交基底 }
 theorems:
   - { id: VC6-PROP-01, name: 線素・面素・体積要素 }
   - { id: VC6-PROP-02, name: 直交曲線座標の勾配 }
