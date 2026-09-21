@@ -12,6 +12,9 @@ forward_references:
   # 本章の証明依存には使わない。
   - complex-analysis.harmonic-function
   - complex-analysis.poisson-kernel
+  - distribution.schwartz-distribution
+  - distribution.weak-derivative
+  - sobolev.wkp
 
 concepts:
   - id: pde.pde6-normal-derivative
