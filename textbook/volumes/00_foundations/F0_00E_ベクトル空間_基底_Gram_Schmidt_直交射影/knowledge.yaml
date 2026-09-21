@@ -9,6 +9,14 @@ forward_references:
   - linear.orthogonality
   - linear.gram-schmidt
   - linear.orthogonal-projection
+  - linear.linear-map
+  - linear.rank-nullity-theorem
+  - linear.representation-matrix
+  - linear.similarity
+  - linear.eigenvalue
+  - linear.eigenspace
+  - linear.matrix-determinant
+  - functional.orthogonal-decomposition
 
 concepts:
   - id: linear.vector-space
@@ -72,9 +80,10 @@ concepts:
       - linear.linear-independence
 
   - id: linear.dimension
-    name: 次元
+    name: 線形空間の次元
     kind: definition
-    aliases: [次元]
+    aliases: [線形空間の次元, ベクトル空間の次元, vector space dimension]
+    introduction_aliases: [定義（次元）]
     requires:
       - linear.basis
       - linear.steinitz-exchange-lemma

@@ -1,0 +1,52 @@
+id: "TOP7"
+title: "標準位相 VII：一様構造・一様連続・Cauchy構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP6
+  - RA5
+official_scope: []
+learning_objectives:
+  - entourage と uniformity の公理を距離の epsilon-neighborhood の抽象化として説明できる
+  - 距離から一様構造を構成し、その誘導位相が元の距離位相と一致することを証明できる
+  - 同じ位相を誘導する二つの距離が異なる一様構造を持ち得ることを具体例で示せる
+  - 一様連続写像を entourage で定義し、距離空間の epsilon-delta 定義との同値を説明できる
+  - Cauchy filter を定義し、距離 Cauchy 列との対応を証明できる
+  - separated uniform space を定義し、誘導位相が Hausdorff になることを証明できる
+  - uniform-space total boundedness を定義し、距離空間の全有界性との一致を説明できる
+  - compact separated uniform space が complete かつ totally bounded であることを証明できる
+  - 同じ topology でも completeness が変わり得ることを arctan metric で説明できる
+definitions:
+  - { id: TOP7-DEF-01, name: 一様構造・近縁 }
+  - { id: TOP7-DEF-02, name: 一様構造が誘導する位相 }
+  - { id: TOP7-DEF-03, name: 一様連続写像 }
+  - { id: TOP7-DEF-04, name: Cauchy filter }
+  - { id: TOP7-DEF-05, name: 分離一様空間 }
+  - { id: TOP7-DEF-06, name: 完備一様空間 }
+  - { id: TOP7-DEF-07, name: 一様空間の全有界性 }
+theorems:
+  - { id: TOP7-THM-01, name: 距離が定める一様構造 }
+  - { id: TOP7-THM-02, name: 一様構造が誘導する位相 }
+  - { id: TOP7-PROP-01, name: 同じ位相を誘導する異なる一様構造 }
+  - { id: TOP7-PROP-02, name: 距離空間での一様連続性との一致 }
+  - { id: TOP7-PROP-03, name: 一様連続写像の合成 }
+  - { id: TOP7-PROP-04, name: 距離Cauchy列とCauchy filterの同値 }
+  - { id: TOP7-PROP-05, name: 分離一様空間のHausdorff性 }
+  - { id: TOP7-THM-03, name: compact separated uniform spaceはcompleteかつtotally bounded }
+  - { id: TOP7-PROP-06, name: 一様連続写像はCauchy filterを保つ }
+canonical_examples:
+  - metric entourage
+  - usual metric and arctan metric on R
+  - Cauchy tail filter
+  - compact uniform space
+  - sup metric and uniform convergence
+problem_patterns:
+  - TOP7-METRIC-UNIFORMITY-1
+  - TOP7-SAME-TOPOLOGY-DIFFERENT-UNIFORMITY-1
+  - TOP7-UNIFORM-CONTINUITY-1
+  - TOP7-CAUCHY-FILTER-1
+  - TOP7-COMPACT-UNIFORM-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.0 }

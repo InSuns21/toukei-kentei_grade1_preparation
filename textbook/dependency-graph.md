@@ -175,29 +175,46 @@ GPDE10 Galerkin・時間発展PDEの弱解
 現行主線は STO1--STO14 と TSA1--TSA6 とする。再編前の F0-00SP1--F0-00SP5、F0-00TS1、F0-00TS2、F0-00TS2A、F0-00TS3 は archive / migration source であり、現行主線の prerequisite / concept owner / proof dependency にしない。
 
 ~~~text
-F0-00P1 + F0-00P3C
+TOP6 → TOP7 一様構造
+
+F0-00D4 + F0-00C1
   ↓
-STO1 確率過程・filtration・stopping time
+MT8 Hausdorff measure / dimension
+  │
+  └────────────────────────────────────┐
+                                       ↓
+F0-00P1 + F0-00P3C               STO4 + STO5 + STO8
+  ↓                                    ↓
+STO1 確率過程・filtration・stopping time  STO4A Brownian path geometry
+  ├──────────────→ STO2A 可算状態 Markov chain
   ↓
 STO2 離散時間 martingale・不等式・収束
   ↓
 STO3 Kolmogorov extension・continuity
   ↓
 STO4 Brown 運動・hitting time・strong Markov
-  ↓
-STO5 local martingale・quadratic variation・semimartingale
-  ↓
+  ├──────────────→ STO3A Donsker
+  ↓                  ↑
+STO5 local martingale│
+・quadratic variation│
+・semimartingale     │
+  ↓                  │
 STO6 stochastic integral
-  ↓
+  ↓                  │
 STO7 multidimensional Ito calculus・Stratonovich
   ↓
 STO8 local time・Tanaka
+
+F0-00P6A + STO2 ─────────────────→ STO3A
 
 STO7 → STO9 SDE → STO10 Girsanov
                  ├→ STO11 Markov・generator・martingale problem
                  └→ STO12 Brownian martingale representation
 
-STO2 → STO13 Poisson・CTMC・random measure → STO14 Levy・jump calculus
+F0-00P6 → F0-00P6B Poisson少数法則 ┐
+STO2 ────────────────────────────────┴→ STO13 Poisson・CTMC・random measure
+                                       ↓
+                                    STO14 Levy・jump calculus
 
 F0-00P3B + Hilbert / Fourier
   ↓

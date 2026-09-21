@@ -1,0 +1,123 @@
+chapter: STO4A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO4
+  - STO5
+  - STO8
+  - MT8
+
+forward_references: []
+
+concepts:
+  - id: stochastic.brownian-holder-below-half
+    name: Brown標本路のHolder正則性：指数1/2未満
+    kind: theorem
+    aliases: [Brown標本路のHolder正則性：指数1/2未満, Brownian Holder regularity]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 標本路の Hölder 正則性：指数 1/2 未満）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.kolmogorov-chentsov-continuity
+
+  - id: stochastic.brownian-no-holder-above-half
+    name: Brown標本路のHolder臨界指数：1/2より大きい指数は不可
+    kind: theorem
+    aliases: [Brown標本路のHolder臨界指数：1/2より大きい指数は不可, Brownian Holder threshold]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 標本路の Hölder 臨界指数：1/2 より大きい指数は不可）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.brownian-quadratic-variation
+
+  - id: stochastic.brownian-nowhere-differentiable
+    name: Brown標本路はnowhere differentiable
+    kind: theorem
+    aliases: [Brown標本路はnowhere differentiable, Brownian nowhere differentiability]
+    introduction: formal
+    introduction_aliases: ["定理（Brown 標本路 は nowhere differentiable）"]
+    requires:
+      - stochastic.brownian-motion
+      - prob.borel-cantelli-1
+
+  - id: stochastic.brownian-zero-set-basic
+    name: Brownian zero setの基本性質
+    kind: proposition
+    aliases: [Brownian zero set, Brownian zero setの基本性質]
+    introduction: formal
+    introduction_aliases: ["命題（Brownian zero set の基本性質）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.brownian-strong-markov-property
+      - stochastic.brownian-level-set-zero-time
+
+  - id: stochastic.brownian-zero-set-upper-dimension
+    name: Brownian zero setのdimension上界
+    kind: theorem
+    aliases: [Brownian zero setのdimension上界]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian zero set の dimension 上界）"]
+    requires:
+      - stochastic.brownian-hitting-time-distribution
+      - measure.hausdorff-dimension
+
+  - id: stochastic.brownian-local-time-temporal-holder
+    name: Brownian local timeの時間Holder regularity
+    kind: theorem
+    aliases: [Brownian local timeの時間Holder regularity, temporal Holder regularity of Brownian local time]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian local time の時間 Hölder regularity）"]
+    requires:
+      - stochastic.tanaka-formula
+      - stochastic.bdg-inequality
+      - stochastic.brownian-level-set-zero-time
+      - stochastic.kolmogorov-chentsov-continuity
+
+  - id: stochastic.brownian-zero-set-lower-dimension
+    name: Brownian zero setのdimension下界
+    kind: theorem
+    aliases: [Brownian zero setのdimension下界]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian zero set の dimension 下界）"]
+    requires:
+      - stochastic.brownian-local-time-temporal-holder
+      - stochastic.local-time-level-support
+      - stochastic.brownian-local-time-reflection
+      - measure.mass-distribution-principle
+
+  - id: stochastic.brownian-zero-set-hausdorff-dimension
+    name: Brownian zero setのHausdorff dimension
+    kind: theorem
+    aliases: [Brownian zero setのHausdorff dimension, Brownian zero set dimension one half]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian zero set の Hausdorff dimension）"]
+    requires:
+      - stochastic.brownian-zero-set-upper-dimension
+      - stochastic.brownian-zero-set-lower-dimension
+
+  - id: stochastic.brownian-increment-high-moment
+    name: Brown incrementの高次moment
+    kind: proposition
+    aliases: [Brown incrementの高次moment]
+    introduction: formal
+    introduction_aliases: ["命題（Brown increment の高次 moment）"]
+    requires:
+      - stochastic.brownian-motion
+
+  - id: stochastic.brownian-variation-scale
+    name: Brown標本路のvariation scale
+    kind: proposition
+    aliases: [Brown標本路のvariation scale]
+    introduction: formal
+    introduction_aliases: ["命題（Brown 標本路 の variation scale）"]
+    requires:
+      - stochastic.brownian-quadratic-variation
+
+  - id: prob.gaussian-tail-simple-bound
+    name: Gaussian tailの簡単な上界
+    kind: lemma
+    aliases: [Gaussian tailの簡単な上界]
+    introduction: formal
+    introduction_aliases: ["補題（Gaussian tail の簡単な上界）"]
+    requires:
+      - stochastic.brownian-motion

@@ -1,0 +1,20 @@
+chapter: "STO4A"
+terms:
+  - term: Brownian path geometry
+    english: Brownian path geometry
+    meaning: Brownian sample pathのHolder regularity、variation、zero set、Hausdorff dimensionなどの幾何学的性質。
+  - term: nowhere differentiable
+    english: nowhere differentiable
+    meaning: 定義域のどの点でも有限な微分係数を持たない性質。
+  - term: temporal Holder regularity of local time
+    english: temporal Holder regularity of local time
+    meaning: 時間変数tに関してlocal time incrementが|t-s|^alphaで抑えられる正則性。
+  - term: Brownian zero set
+    english: Brownian zero set
+    meaning: Brownian motionが0を取る時刻全体の集合。
+  - term: local-time Stieltjes measure
+    english: local-time Stieltjes measure
+    meaning: increasing continuous function t maps to L_t^0が定めるmeasure。zero setに集中しdimensionの下界評価に使える。
+  - term: critical Holder exponent
+    english: critical Holder exponent
+    meaning: Brownian motionでは1/2。1/2未満のHolder regularityは持つが1/2より大きい指数では持たない。

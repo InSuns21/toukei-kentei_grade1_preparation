@@ -1,0 +1,145 @@
+chapter: STO3A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - STO4
+  - F0-00P6A
+  - RA5
+
+forward_references: []
+
+concepts:
+  - id: stochastic.continuous-path-space
+    name: 連続経路空間
+    kind: definition
+    aliases: ["C([0,1])", 連続経路空間, continuous path space, sup metric]
+    introduction: formal
+    introduction_aliases: ["定義（連続経路空間）"]
+    requires:
+      - topology.metric-space
+
+  - id: stochastic.path-space-weak-convergence
+    name: 経路空間上の弱収束
+    kind: definition
+    aliases: [経路空間上の弱収束, path-space weak convergence, functional weak convergence]
+    introduction: formal
+    introduction_aliases: ["定義（経路空間上の弱収束）"]
+    requires:
+      - stochastic.continuous-path-space
+
+  - id: stochastic.tightness
+    name: tightness
+    kind: definition
+    aliases: [tightness, タイトネス]
+    introduction: formal
+    introduction_aliases: ["定義（tightness）"]
+    requires:
+      - stochastic.continuous-path-space
+
+  - id: stochastic.path-compactness-modulus
+    name: 連続経路空間のcompactness criterion
+    kind: theorem
+    aliases: [連続経路空間のcompactness criterion, "Arzela-Ascoli criterion on C([0,1])"]
+    introduction: formal
+    introduction_aliases: ["定理（連続経路空間の compactness criterion）"]
+    requires:
+      - stochastic.continuous-path-space
+
+  - id: stochastic.continuous-process-tightness
+    name: 連続過程のtightness criterion
+    kind: theorem
+    aliases: [連続過程のtightness criterion, modulus tightness criterion]
+    introduction: formal
+    introduction_aliases: ["定理（連続過程の tightness criterion）"]
+    requires:
+      - stochastic.tightness
+      - stochastic.path-compactness-modulus
+
+  - id: stochastic.kolmogorov-tightness
+    name: Kolmogorov型tightness criterion
+    kind: theorem
+    aliases: [Kolmogorov型tightness criterion, Kolmogorov tightness criterion]
+    introduction: formal
+    introduction_aliases: ["定理（Kolmogorov 型 tightness criterion）"]
+    requires:
+      - stochastic.continuous-process-tightness
+      - prob.markov-inequality
+
+  - id: stochastic.polygonal-random-walk
+    name: polygonal random-walk 経路
+    kind: definition
+    aliases: [polygonal random-walk 経路, polygonal interpolation]
+    introduction: formal
+    introduction_aliases: ["定義（polygonal random-walk 経路）"]
+    requires:
+      - stochastic.continuous-path-space
+
+  - id: stochastic.random-walk-fdd-brownian
+    name: polygonal random walkの有限次元収束
+    kind: proposition
+    aliases: [polygonal random walkの有限次元収束]
+    introduction: formal
+    introduction_aliases: ["命題（polygonal random walk の有限次元収束）"]
+    requires:
+      - stochastic.polygonal-random-walk
+      - prob.iid-clt
+      - stochastic.brownian-motion
+
+  - id: stochastic.random-walk-bounded-tightness
+    name: bounded incrementsのtightness
+    kind: corollary
+    aliases: [bounded incrementsのtightness]
+    introduction: formal
+    introduction_aliases: ["系（bounded increments の tightness）"]
+    requires:
+      - stochastic.kolmogorov-tightness
+
+  - id: stochastic.random-walk-truncation-uniform
+    name: 有界化の一様近似
+    kind: lemma
+    aliases: [有界化の一様近似, bounded approximation uniform approximation]
+    introduction: formal
+    introduction_aliases: ["補題（有界化の一様近似）"]
+    requires:
+      - stochastic.discrete-martingale
+      - stochastic.doob-maximal-inequality
+
+  - id: stochastic.random-walk-finite-variance-tightness
+    name: 有限分散 random walk 経路のtightness
+    kind: theorem
+    aliases: [有限分散 random walk 経路のtightness]
+    introduction: formal
+    introduction_aliases: ["定理（有限分散 random walk 経路の tightness）"]
+    requires:
+      - stochastic.random-walk-bounded-tightness
+      - stochastic.random-walk-truncation-uniform
+      - stochastic.continuous-process-tightness
+
+  - id: stochastic.donsker-invariance-principle
+    name: Donsker不変原理
+    kind: theorem
+    aliases: [Donsker不変原理, Donsker theorem, functional central limit theorem, functional CLT]
+    introduction: formal
+    introduction_aliases: ["定理（Donsker 不変原理：独立同分布 有限分散版）"]
+    requires:
+      - stochastic.random-walk-fdd-brownian
+      - stochastic.random-walk-finite-variance-tightness
+
+  - id: stochastic.random-walk-bounded-fourth-increment
+    name: bounded incrementsの四次増分評価
+    kind: lemma
+    aliases: [bounded incrementsの四次増分評価]
+    introduction: formal
+    introduction_aliases: ["補題（bounded increments の四次増分評価）"]
+    requires:
+      - stochastic.polygonal-random-walk
+
+  - id: stochastic.truncation-tail-variance
+    name: 有界化残差の分散収束
+    kind: lemma
+    aliases: [有界化残差の分散収束, 有界化残差の分散は0へ行く]
+    introduction: formal
+    introduction_aliases: ["補題（有界化残差の分散は0へ行く）"]
+    requires:
+      - measure.dominated-convergence-theorem

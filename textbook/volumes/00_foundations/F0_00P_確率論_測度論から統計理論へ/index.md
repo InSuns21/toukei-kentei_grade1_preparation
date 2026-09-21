@@ -33,6 +33,8 @@ P6 特性関数・Lévy
  ↓
 P6A iid CLT
  ↓
+P6B Poisson少数法則・希少Bernoulli三角配列
+ ↓
 P7 dominated model・score・Fisher・正則性
  ↓
 P7A MLE一致性・漸近正規性
@@ -49,6 +51,7 @@ P7B QMD・LAN
 - P4は末尾事象に対する Kolmogorov の 0--1 則を本文で証明する。独立な有限円筒事象から生成 sigma 代数全体へ独立性を拡張する箇所では [π--λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) を使うため、F0-00D3Aを局所的な必須前提にする。
 - P6「特性関数・Lévy」は強大数則を必要としない。標準通読ではP5の後だが、必須前提にはしない。
 - [P6Aの独立同分布 中心極限定理](../F0_00P6A_iid_中心極限定理/index.md#thm-iid-clt)も強大数則を証明に使わない。
+- [P6B Poisson少数法則](../F0_00P6B_Poisson少数法則_希少事象列/index.md#thm-p6b-law-small-numbers) は P6 の特性関数・Lévy連続性定理を直接使い、P4-02 の二項Poisson近似を非同分布Bernoulli三角配列へ一般化する。
 - P5Aの一般強大数則はheavy-tailまで追う読者向けで、中心極限定理へ進むための必須駅ではない。
 - P7B QMD/LANはP7Aの最尤推定量論を必須にせず、P7 + P6A + L2基礎から読める。
 - P3BはEncore IVの時系列予測に重要だが、確率過程のfiltrationへ進むだけならP3Aまででよい。条件付き期待値列の収束まで先に押さえるならP3Cまで進む。
@@ -62,6 +65,7 @@ P7B QMD・LAN
 - **有限分散強大数則**：P5まで。
 - **一般独立同分布有限平均強大数則の証明**：P5Aまで。
 - **中心極限定理**：P6→P6A。
+- **希少事象のPoisson極限**：P6→P6B。二項近似だけなら通常教材P4-02で十分。
 - **正則統計モデル**：P7。
 - **最尤推定量漸近論**：P7A。
 - **Le Cam方向の入口**：P7B。

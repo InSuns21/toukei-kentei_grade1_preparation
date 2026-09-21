@@ -1,0 +1,29 @@
+chapter: "TOP7"
+terms:
+  - term: 一様構造
+    english: uniformity
+    meaning: 二点が一様に近いことを表す近縁の族。距離の epsilon-neighborhood of the diagonal を抽象化する。
+  - term: 近縁
+    english: entourage
+    meaning: 一様空間の X times X 上で、十分近い二点の組を含む集合。
+  - term: 一様空間
+    english: uniform space
+    meaning: 一様構造を備えた集合。位相に加えて一様連続性・Cauchy性・全有界性を定義できる。
+  - term: 一様連続
+    english: uniformly continuous
+    meaning: 出力側で要求した一様な近さに対し、入力位置に依存しない一つの近縁で入力側の近さを指定できる連続性。
+  - term: Cauchy filter
+    english: Cauchy filter
+    meaning: 任意の近縁 U に対し、A times A が U に入る filter 要素 A を持つ filter。
+  - term: 分離一様空間
+    english: separated uniform space
+    meaning: 全ての近縁の共通部分が対角集合だけになる一様空間。誘導位相はHausdorffになる。
+  - term: 完備一様空間
+    english: complete uniform space
+    meaning: 任意のCauchy filterが空間内の点へ収束する一様空間。
+  - term: 一様空間の全有界性
+    english: total boundedness in a uniform space
+    meaning: 任意の近縁 U に対し、有限個の U[x] で空間全体を覆える性質。
+  - term: 一様収束
+    english: uniform convergence
+    meaning: 全ての点に対して同じ段階以後に同じ精度を満たす関数列の収束。sup metricによる収束として表せる。
