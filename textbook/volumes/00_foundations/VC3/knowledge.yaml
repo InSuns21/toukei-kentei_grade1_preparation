@@ -6,6 +6,10 @@ prerequisites:
   - RA7
   - LA3C
 
+forward_references:
+  - vector-calculus.green-circulation
+  - vector-calculus.gauss-divergence
+
 concepts:
   - id: vector-calculus.regular-parametrized-surface
     name: 正則パラメータ曲面
