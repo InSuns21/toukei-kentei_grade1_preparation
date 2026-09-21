@@ -58,9 +58,7 @@ flowchart TD
   VC2 --> VC4["ベクトル解析 IV<br/>Green・Gauss・保存則<br/>VC4"]
   VC3 --> VC4
   VC4 --> VC5["ベクトル解析 V<br/>Stokes・curl・topology<br/>VC5"]
-  VC1 --> VC6["ベクトル解析 VI<br/>直交曲線座標<br/>VC6"]
-  VC3 --> VC6
-  RA7 --> VC6
+  VC5 --> VC6["ベクトル解析 VI<br/>直交曲線座標<br/>VC6"]
 
   TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
   TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
