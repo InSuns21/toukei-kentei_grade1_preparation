@@ -2,6 +2,7 @@ chapter: STO7
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - VC1
   - STO5
   - STO6
   - RA3
