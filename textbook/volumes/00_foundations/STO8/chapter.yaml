@@ -9,6 +9,7 @@ prerequisites:
   - STO6
   - STO7
   - F0-00D2C
+  - F0-00D3A
 official_scope: []
 learning_objectives:
   - 絶対値のkinkで通常のC2 Itô formulaが止まる理由を説明し、平滑化で欠けた二階項を局所時間として取り出せる
