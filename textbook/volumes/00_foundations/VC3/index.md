@@ -136,6 +136,32 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc3-tangent-normal -->
+**定義の確認**
+
+平面
+
+$$
+r(u,v)=(u,v,u+v)
+$$
+
+では
+
+$$
+r_u=(1,0,1),
+\qquad
+r_v=(0,1,1),
+$$
+
+なので
+
+$$
+r_u\times r_v=(-1,-1,1).
+$$
+
+この vector は $r_u,r_v$ の双方との内積が 0 で、接平面に直交する法線を実際に与えます。
+<!-- definition-example-end -->
+
 順序を入れ替えると
 
 $$
