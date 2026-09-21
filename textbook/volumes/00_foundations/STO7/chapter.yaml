@@ -8,7 +8,7 @@ prerequisites:
   - RA3
 official_scope: []
 learning_objectives:
-  - d次元Brown運動を独立な1次元Brown運動の組として定義し、成分間covariationがKronecker deltaで決まることを証明できる
+  - d次元Brown運動をfiltrationに対する独立Gaussian増分と連続性で定義し、成分間covariationがKronecker deltaで決まることを証明できる
   - continuous semimartingaleに対する積分をlocal martingale partとfinite-variation partへ分解して定義し、分解一意性によりwell-definedであることを説明できる
   - weighted covariation sumの収束を使い、continuous semimartingaleに対する多次元Itô公式を二次Taylor展開から証明できる
   - 多次元Itô公式からproduct ruleとintegration by partsを導き、quadratic covariationが通常の積の微分則を補正する理由を説明できる
