@@ -26,15 +26,15 @@ $$
 > **定義（正則曲線）**  
 > 区間 $[a,b]$ 上の $C^1$ 写像
 >
-> $$
-> \gamma:[a,b]\to\mathbb R^n
-> $$
+$$
+\gamma:[a,b]\to\mathbb R^n
+$$
 >
 > をパラメータ表示された曲線とする。すべての $t\in[a,b]$ で
 >
-> $$
-> \gamma'(t)\neq0
-> $$
+$$
+\gamma'(t)\neq0
+$$
 >
 > なら $\gamma$ を正則曲線と呼ぶ。
 <!-- formal-statement-end -->
@@ -76,17 +76,17 @@ $$
 > **定義（弧長と単位接ベクトル）**  
 > 正則曲線 $\gamma:[a,b]\to\mathbb R^n$ の弧長を
 >
-> $$
-> L(\gamma)
-> =
-> \int_a^b|\gamma'(t)|\,dt
-> $$
+$$
+L(\gamma)
+=
+\int_a^b|\gamma'(t)|\,dt
+$$
 >
 > と定義する。単位接ベクトルは
 >
-> $$
-> T(t)=\frac{\gamma'(t)}{|\gamma'(t)|}
-> $$
+$$
+T(t)=\frac{\gamma'(t)}{|\gamma'(t)|}
+$$
 >
 > とする。
 <!-- formal-statement-end -->
@@ -123,11 +123,11 @@ $$
 > **定義（scalar line integral）**  
 > scalar field $f$ と正則曲線 $\gamma:[a,b]\to\Omega$ に対し
 >
-> $$
-> \int_\gamma f\,ds
-> :=
-> \int_a^b f(\gamma(t))|\gamma'(t)|\,dt
-> $$
+$$
+\int_\gamma f\,ds
+:=
+\int_a^b f(\gamma(t))|\gamma'(t)|\,dt
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -170,12 +170,12 @@ $$
 > **定義（vector line integral）**  
 > $F:\Omega\to\mathbb R^n$ を連続 vector field、$\gamma:[a,b]\to\Omega$ を区分的 $C^1$ 曲線とする。
 >
-> $$
-> \int_\gamma F\cdot dr
-> :=
-> \int_a^b
-> F(\gamma(t))\cdot\gamma'(t)\,dt
-> $$
+$$
+\int_\gamma F\cdot dr
+:=
+\int_a^b
+F(\gamma(t))\cdot\gamma'(t)\,dt
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -221,13 +221,13 @@ $$
 > **定理（線積分の基本定理）**  
 > $\Omega\subset\mathbb R^n$ を開集合、$\phi\in C^1(\Omega)$ とする。区分的 $C^1$ 曲線 $\gamma:[a,b]\to\Omega$ に対し
 >
-> $$
-> \boxed{
-> \int_\gamma\nabla\phi\cdot dr
-> =
-> \phi(\gamma(b))-\phi(\gamma(a))
-> }
-> $$
+$$
+\boxed{
+\int_\gamma\nabla\phi\cdot dr
+=
+\phi(\gamma(b))-\phi(\gamma(a))
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -280,9 +280,9 @@ $$
 > **定義（保存場・potential）**  
 > 開集合 $\Omega\subset\mathbb R^n$ 上の連続 vector field $F$ が、ある $\phi\in C^1(\Omega)$ により
 >
-> $$
-> F=\nabla\phi
-> $$
+$$
+F=\nabla\phi
+$$
 >
 > と書けるとき、$F$ を保存場、$\phi$ を $F$ の scalar potential と呼ぶ。
 <!-- formal-statement-end -->
@@ -293,11 +293,11 @@ $$
 > **定義（経路独立）**  
 > path-connected な $\Omega$ 上の vector field $F$ について、同じ始点 $p$ と終点 $q$ を持つ任意の区分的 $C^1$ 曲線 $\gamma_1,\gamma_2$ に対し
 >
-> $$
-> \int_{\gamma_1}F\cdot dr
-> =
-> \int_{\gamma_2}F\cdot dr
-> $$
+$$
+\int_{\gamma_1}F\cdot dr
+=
+\int_{\gamma_2}F\cdot dr
+$$
 >
 > が成り立つとき、線積分は経路独立であるという。
 <!-- formal-statement-end -->
@@ -311,7 +311,7 @@ $$
 F=\nabla\phi=(2x,2y)
 $$
 
-とします。$(0,0)$ から $(1,1)$ までの任意の区分的 $C^1$ 曲線 $\gamma$ に対し、線積分の基本定理から
+とします。$(0,0)$ から $(1,1)$ までの任意の区分的 $C^1$ 曲線 $\gamma$ に対し、[線積分の基本定理](#thm-vc2-line-ftc)から
 
 $$
 \int_\gamma F\cdot dr
@@ -334,9 +334,9 @@ $$
 > 2. $F$ の線積分は経路独立である。
 > 3. 任意の閉じた区分的 $C^1$ 曲線 $\gamma$ について
 >
-> $$
-> \oint_\gamma F\cdot dr=0.
-> $$
+$$
+\oint_\gamma F\cdot dr=0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -421,9 +421,9 @@ $$
 > **定義（star-shaped domain）**  
 > 開集合 $\Omega\subset\mathbb R^n$ が点 $a\in\Omega$ に関して star-shaped であるとは、任意の $x\in\Omega$ と $0\le t\le1$ に対して
 >
-> $$
-> a+t(x-a)\in\Omega
-> $$
+$$
+a+t(x-a)\in\Omega
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -454,9 +454,9 @@ $$
 > **定理（star-shaped domain 上の初等 Poincaré lemma）**  
 > $\Omega\subset\mathbb R^3$ を $a$ に関して star-shaped とし、$F\in C^1(\Omega;\mathbb R^3)$ が
 >
-> $$
-> \nabla\times F=0
-> $$
+$$
+\nabla\times F=0
+$$
 >
 > を満たすとする。このとき $F$ は保存場である。
 <!-- formal-statement-end -->
@@ -811,7 +811,7 @@ $$
 \phi=x^2+xy+y^2+C_0.
 $$
 
-線積分の基本定理から
+[線積分の基本定理](#thm-vc2-line-ftc)から
 
 $$
 \int F\cdot dr
