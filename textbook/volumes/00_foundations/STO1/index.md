@@ -874,7 +874,7 @@ $$
 区間 $(s,t]$ で使う係数を $\mathcal F_s$ で決める、という形がそのまま定義に入っています。
 
 <!-- definition-example-start: def-sto1-predictable -->
-### 直接例：simple predictable process
+### 直接例：一区間だけで非零な predictable process
 
 **定義の確認**
 
@@ -1181,7 +1181,7 @@ $$
 <a id="prop-sto1-stopping-time-min-max"></a>
 
 <!-- formal-statement-start -->
-> **命題（stopping time の最小・最大と切断時刻の可測性）**  
+> **命題（stopping time の最小・最大と固定時刻 min の可測性）**  
 > $(\mathcal F_t)_{t\ge0}$ を filtration とし、$\sigma,\tau$ を stopping time とする。このとき
 >
 $$
@@ -1877,7 +1877,7 @@ $$
 
 と置きます。
 
-[stopping time の最小・最大と切断時刻の可測性](#prop-sto1-stopping-time-min-max)から、$\rho$ は $\mathcal F_t$ 可測な $[0,t]$ 値確率変数です。
+[stopping time の最小・最大と固定時刻 min の可測性](#prop-sto1-stopping-time-min-max)から、$\rho$ は $\mathcal F_t$ 可測な $[0,t]$ 値確率変数です。
 
 次に写像
 
@@ -2349,7 +2349,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-第一項の support は
+第一項が非零になる集合は
 
 $$
 (s,t]\times A
