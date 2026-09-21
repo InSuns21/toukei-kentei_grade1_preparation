@@ -54,7 +54,7 @@ TSA1--TSA6
 8. [STO8：local time・Tanaka formula](../STO8/index.md) — 実装済み
 9. [STO9：SDE の strong solution・存在一意性・局所化](../STO9/index.md) — 実装済み
 10. [STO10：weak solution・Girsanov](../STO10/index.md) — 実装済み
-11. STO11：Markov process・semigroup・generator・martingale problem
+11. [STO11：Markov process・semigroup・generator・martingale problem](../STO11/index.md) — 実装済み
 12. STO12：Brownian martingale representation
 13. STO13：Poisson process・continuous-time Markov chain・random measure
 14. STO14：Lévy process・jump stochastic calculus
@@ -169,4 +169,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO10「weak solution・Girsanov」](../STO10/index.md#thm-sto10-girsanov) も実装済みです。weak solution と uniqueness in law を strong / pathwise の概念から分離し、Radon--Nikodym density process、stochastic exponential、bounded-energy criterion、Novikov condition を整理した上で、Girsanov local-martingale transform と Lévy characterization から Brownian Girsanov theorem の核心証明を閉じました。さらに drift removal と bounded Borel drift SDE の finite-horizon weak existence を構成し、Yamada--Watanabe theorem は strong / weak theory を結ぶ位置付けを明示して技術的黒箱の境界を示しています。
 
-現在地は **Phase 3：STO10 完了。次は STO11「Markov process・semigroup・generator・martingale problem」** です。
+[STO11「Markov process・semigroup・generator・martingale problem」](../STO11/index.md#def-sto11-markov-process) も実装済みです。transition kernel と Markov semigroup から generator を定義し、global Lipschitz SDE の Markov 性、diffusion generator、Dynkin formula、backward / forward Kolmogorov equation、Fokker--Planck、Feynman--Kac verification formula まで接続しました。さらに SDE から martingale problem への移行と、nondegenerate diffusion での Brown 運動復元による逆向きを証明し、well-posed martingale problem から strong Markov property が生じる一般定理は canonical-space regularity を要する技術的入力として境界を明示しています。
+
+現在地は **Phase 3：STO11 完了。次は STO12「Brownian martingale representation」** です。

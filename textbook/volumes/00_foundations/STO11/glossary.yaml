@@ -1,0 +1,35 @@
+chapter: "STO11"
+terms:
+  - term: transition kernel
+    english: transition kernel
+    meaning: 現在状態xと経過時間tから将来状態の確率分布P_t(x,・)を返す確率kernel。Markov processの条件付き未来分布を状態だけで表す。
+  - term: Markov process
+    english: time-homogeneous Markov process
+    meaning: 時刻sまでの全履歴を条件にしても、s+tでの未来分布が現在状態X_sだけで決まり、経過時間tだけに依存する確率過程。
+  - term: Markov semigroup
+    english: Markov semigroup
+    meaning: transition kernelを関数へ作用させたP_t f(x)=E_x[f(X_t)]の族。Markov性からP_{s+t}=P_sP_tを満たす。
+  - term: generator
+    english: infinitesimal generator
+    meaning: semigroupのt=0での右微分Lf=lim_{t↓0}(P_t f-f)/t。diffusionではdriftとquadratic variationを局所的に符号化する二階微分作用素になる。
+  - term: Dynkin formula
+    english: Dynkin formula
+    meaning: generatorを時間積分した期待値が観測量f(X_t)の期待変化を与える公式。Itô formulaのmartingale項を期待値で消すことから得られる。
+  - term: backward Kolmogorov equation
+    english: backward Kolmogorov equation
+    meaning: u(t,x)=P_t f(x)の時間発展をgeneratorで∂_t u=Luと表す方程式。初期状態x側へgeneratorが作用する。
+  - term: Fokker--Planck equation
+    english: Fokker--Planck equation
+    meaning: diffusionの時刻tの分布を前向きに進めるforward equation。密度pが十分滑らかなとき∂_t p=L^*pとなる。
+  - term: Feynman--Kac formula
+    english: Feynman--Kac formula
+    meaning: generatorを含む線形parabolic PDEのclassical solutionをdiffusionの期待値で表す公式。potentialはpath上の指数重みとして現れる。
+  - term: martingale problem
+    english: martingale problem
+    meaning: operatorLに対しf(X_t)-f(X_0)-∫_0^tLf(X_s)dsが指定されたtest functions全てでmartingaleになるようなpath lawを求める定式化。
+  - term: well-posed martingale problem
+    english: well-posed martingale problem
+    meaning: 各初期状態からmartingale problemのsolution lawが存在し一意であること。適切なcanonical-space条件の下でMarkov性とstrong Markov性へつながる。
+  - term: Feller semigroup
+    english: Feller semigroup
+    meaning: C_0上でC_0を保ち、正値性・収縮性・semigroup law・t↓0での強連続性を満たすMarkov semigroup。generator理論とstrong Markov processを結ぶ標準的な橋。

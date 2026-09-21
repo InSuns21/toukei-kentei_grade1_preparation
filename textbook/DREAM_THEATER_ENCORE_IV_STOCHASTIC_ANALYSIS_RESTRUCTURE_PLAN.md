@@ -626,4 +626,10 @@ ARMA / ergodicity / Kalman
 - bounded Borel drift $dX=b(X)dt+dB$ は driftless Brownian motion から measure change で finite-horizon weak solution を構成し、STO9 の Lipschitz Picard construction より weak existence が柔軟であることを直接例と演習で確認した。
 - Yamada--Watanabe theorem は weak existence + pathwise uniqueness から strong existence + uniqueness in law を結ぶ定理として位置付け、regular conditional distribution / coupling / measurable selection を要する完全証明は独立した大規模論証として本章では技術的黒箱にした。
 - STO10 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
-- 現在地：Phase 3 は STO10 完了。次の実装対象は STO11「Markov process・semigroup・generator・martingale problem」。
+- Phase 3：STO11「Markov process・semigroup・generator・martingale problem」を実装。transition kernel / time-homogeneous Markov process / Markov semigroup / generator / Dynkin formula / backward Kolmogorov / forward Kolmogorov・Fokker--Planck / Feynman--Kac / martingale problem / Feller bridge を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO11 の direct prerequisite は STO4・STO5・STO7・STO9・F0-00P3A とした。STO4 の Markov / strong Markov、STO5 の local martingale・optional sampling・Lévy characterization、STO7 の時間依存 Itô formula、STO9 の SDE existence / pathwise uniqueness、P3A の conditional expectation / tower property を実際に使う。
+- global Lipschitz SDE の Markov 性を shifted Brownian motion と pathwise uniqueness から章内証明し、diffusion generator から Dynkin formula、backward / forward equations、Feynman--Kac verification まで PDE 側への橋を閉じた。
+- martingale problem については SDE からの導出に加え、nondegenerate diffusion では coordinate / product test functions から drift と quadratic covariation を復元し、Lévy characterization により Brown 運動を構成して weak SDE へ戻すところまで証明した。
+- well-posed martingale problem から strong Markov property を得る一般 canonical-space theorem は、regular conditional probability・path shift・stopped martingale problem の可測性を要する独立した大規模論証のため、その機構を本文で説明した上で技術的入力として境界を明示した。
+- STO11 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
+- 現在地：Phase 3 は STO11 完了。次の実装対象は STO12「Brownian martingale representation」。
