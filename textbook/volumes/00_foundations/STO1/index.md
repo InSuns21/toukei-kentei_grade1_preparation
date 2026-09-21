@@ -1112,7 +1112,7 @@ $$
 <a id="thm-sto1-closed-hitting-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（連続適合過程の closed-set 到達時刻）**  
+> **定理（連続適合過程の閉集合への到達時刻）**  
 > $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値適合過程とし、各標本路が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
 >
 $$
@@ -2820,7 +2820,7 @@ $$
 
 この「係数を先に決め、その後で増分が来る」という順序が STO2 の予測可能変換とマルチンゲール gain の基本形になります。
 
-#### 6. last visit time が停止時刻でない理由
+#### 6. 最終訪問時刻が停止時刻でない理由
 
 $$
 \sigma
