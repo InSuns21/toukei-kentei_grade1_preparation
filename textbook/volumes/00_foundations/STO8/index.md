@@ -24,7 +24,7 @@ $$
 
 しかしこれは一項足りません。
 
-Brownian path は level $a$ を通過するとき、通常の時間ではほとんど滞在していないのに、二次変分の尺度では無視できない「接触量」を残します。その量が **local time** です。
+Brown 運動の標本路 は level $a$ を通過するとき、通常の時間ではほとんど滞在していないのに、二次変分の尺度では無視できない「接触量」を残します。その量が **local time** です。
 
 本章の中心線は
 
@@ -1010,7 +1010,7 @@ $$
 
 最初の二つの差はそれぞれ絶対値で $h$ 以下です。
 
-Brownian level set の Lebesgue 時間が $0$ であることから、stochastic integral の integrand は $ds$-a.e. で
+Brownian level set の Lebesgue 時間が $0$ であることから、stochastic integral の integrand は $ds$ に関してほとんど至る所（almost everywhere）で
 
 $$
 \operatorname{sgn}(B_s-a)
@@ -1198,7 +1198,7 @@ $$
 \to0.
 $$
 
-よって pathwise に
+よって 標本路ごと に
 
 $$
 \int_0^t
@@ -1275,7 +1275,7 @@ $$
 
 in $L^1$ です。
 
-同じ左辺が pathwise に $\int_0^tg(B_s)ds$ へ収束しているため、確率極限の一意性から
+同じ左辺が 標本路ごと に $\int_0^tg(B_s)ds$ へ収束しているため、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)を確率収束へ適用すると
 
 $$
 \int_0^tg(B_s)ds
@@ -1383,7 +1383,7 @@ $$
 L_t^a\,da
 $$
 
-は Brownian path が $[0,t]$ の間に空間上で作る occupation measure の密度です。
+は Brown 運動の標本路 が $[0,t]$ の間に空間上で作る occupation measure の密度です。
 
 ---
 
@@ -1461,7 +1461,7 @@ local time の「滞在密度」という意味が、これで式として完成
 
 ## 9. deterministic reflection：押し戻す最小量
 
-local time と reflection の関係を見る前に、確率を使わない pathwise lemma を一つ証明します。
+local time と reflection の関係を見る前に、確率を使わない 標本路ごと lemma を一つ証明します。
 
 <a id="lem-sto8-skorokhod-reflection"></a>
 
@@ -2054,7 +2054,7 @@ $$
 \int_0^t1_{\{B_s=a\}}\,ds=0
 $$
 
-a.s. なので、Itô isometry によりその差の stochastic integral は $0$ です。
+a.s. なので、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) によりその差の stochastic integral は $0$ です。
 
 従って
 
@@ -2203,7 +2203,7 @@ $$
 - Level: B
 - 目安時間: 30分
 
-固定 $t>0$ と $a<b$ に対し、本文の Tanaka formula と BDG inequality を使って
+固定 $t>0$ と $a<b$ に対し、本文の [Tanaka formula](#thm-sto8-tanaka) と [Burkholder--Davis--Gundy inequality](../STO6/index.md#thm-sto6-bdg) を使って
 
 $$
 E|L_t^a-L_t^b|^4
@@ -2399,7 +2399,7 @@ L_t^0
 -\min_{s\le t}\beta_s.
 $$
 
-3. $\beta$ は Brown 運動なので symmetry と reflection principle から
+3. $\beta$ は Brown 運動なので symmetry と [reflection principle](../STO4/index.md#thm-sto4-reflection-principle) から
 
 $$
 \begin{aligned}
@@ -2450,7 +2450,7 @@ $f(B_t)$ を stochastic integral と local times $L_t^{a_j}$ で表せ。
 <!-- solution-start -->
 ### 詳細解答
 
-各 positive part に Tanaka formula を使います。
+各 positive part に [Tanaka formula](#thm-sto8-tanaka) を使います。
 
 $$
 (B_t-a_j)^+
@@ -2573,9 +2573,9 @@ $$
 
 を使います。
 
-Tanaka formula から
+[Tanaka formula](#thm-sto8-tanaka) から
 
-$$
+$
 |B_{\tau_b\wedge n}-a|
 =
 |a|
@@ -2697,7 +2697,7 @@ L_{\sigma_n}^{a,\varepsilon}
 \rho_\varepsilon(B_s-a)\,ds
 $$
 
-として Tonelli / Fubini を使うと
+として [Tonelli](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) / [Fubini](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使うと
 
 $$
 \begin{aligned}
@@ -2709,7 +2709,7 @@ g(a)L_{\sigma_n}^{a,\varepsilon}\,da
 \end{aligned}
 $$
 
-右辺は $g$ の一様連続性から pathwise に
+右辺は $g$ の一様連続性から 標本路ごと に
 
 $$
 \int_0^{\sigma_n}g(B_s)\,ds
@@ -2735,7 +2735,7 @@ $$
 
 in $L^1$ です。
 
-従って確率極限の一意性から
+従って[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)を確率収束へ適用すると
 
 $$
 \int_0^{\sigma_n}g(B_s)\,ds
@@ -2778,7 +2778,7 @@ $$
 g(a)L_{\tau_b}^a\,da.
 $$
 
-両辺は非負なので Tonelli により期待値と $a$ 積分を交換でき、
+両辺は非負なので [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) により期待値と $a$ 積分を交換でき、
 
 $$
 \begin{aligned}
@@ -2841,7 +2841,7 @@ $$
 そこで必要になるのは、
 
 - strong solution
-- pathwise uniqueness
+- 標本路ごと uniqueness
 - Picard iteration
 - global / local Lipschitz
 - linear growth
@@ -2850,4 +2850,4 @@ $$
 
 です。
 
-STO7 の Itô calculus と STO8 の pathwise correction を持った状態で、いよいよ「与えられた stochastic differential equation に process が存在するか」という問題へ進みます。
+STO7 の Itô calculus と STO8 の 標本路ごと correction を持った状態で、いよいよ「与えられた stochastic differential equation に process が存在するか」という問題へ進みます。
