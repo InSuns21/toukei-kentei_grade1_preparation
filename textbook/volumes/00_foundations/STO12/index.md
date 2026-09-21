@@ -30,13 +30,13 @@ $$
 
 有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion とします。$\mathcal N$ を $P$-null sets の全部分集合からなる族とし、本章では
 
-$
+$$
 \mathcal F_t^B
 =
 \sigma(B_s:0\le s\le t)\vee\mathcal N,
 \qquad
 0\le t\le T
-$
+$$
 
 を使います。これは [STO4 の Brownian natural filtration](../STO4/index.md#def-sto4-brownian-filtration) を null completion した filtration です。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
 
@@ -762,11 +762,11 @@ $$
 > **補題（Gaussian exponential vectors の totality）**  
 > $B$ を $d$ 次元 Brown 運動とし、
 >
-$
+$$
 \mathcal F_t^B
 =
 \sigma(B_s:0\le s\le t)\vee\mathcal N
-$
+$$
 >
 > をその completed natural filtration とする。
 >
