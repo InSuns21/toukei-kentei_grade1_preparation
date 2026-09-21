@@ -111,7 +111,7 @@ $$
 P_t(x,\mathbb R^d)=1.
 $$
 
-また固定した Borel 集合 $A$ について、integrand は $(x,y)$ の Borel 可測関数です。Tonelli の定理から $x\mapsto P_t(x,A)$ は Borel 可測です。
+また固定した Borel 集合 $A$ について、$(x,y)\mapsto\mathbf1_A(y)e^{-|y-x|^2/(2t)}$ は非負 Borel 可測です。非負 Borel 関数の一変数積分は残りの変数について Borel 可測なので、$x\mapsto P_t(x,A)$ も Borel 可測です。
 
 $t=0$ では
 
@@ -189,7 +189,7 @@ P_tf(X_s).
 \end{aligned}
 $$
 
-過去の path 全体ではなく、$X_s$ だけが残っています。
+過去の標本路全体ではなく、$X_s$ だけが残っています。
 <!-- definition-example-end -->
 
 ---
@@ -426,9 +426,9 @@ $$
 
 Brown 運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立な Brown 運動です。
 
-STO9 の Picard construction は各反復を初期値と Brownian path の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに global Lipschitz existence・pathwise uniqueness theorem により、固定した初期値 $y$ と Brown 運動 $\widetilde W$ に対する solution は一意です。
+STO9 の Picard construction は各反復を初期値と Brownian 標本路の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに global Lipschitz existence・pathwise uniqueness theorem により、固定した初期値 $y$ と Brown 運動 $\widetilde W$ に対する solution は一意です。
 
-したがって $\mathcal F_s$ を条件にしたとき、future path $(Y_r)_{r\ge0}$ の条件付き law は現在値 $X_s^x$ と独立な future noise $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution law に一致します。
+したがって $\mathcal F_s$ を条件にしたとき、未来の標本路 $(Y_r)_{r\ge0}$ の条件付き law は現在値 $X_s^x$ と独立な future noise $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution law に一致します。
 
 まず bounded continuous $f$ に対してこの条件付き期待値公式が得られます。公式を満たす bounded Borel 関数の族は bounded monotone pointwise limit で閉じ、bounded continuous functions は $\mathcal B(\mathbb R^d)$ を生成するので、monotone class argument により bounded Borel $f$ 全体へ拡張できます。
 
@@ -484,7 +484,7 @@ $$
 です。
 
 <!-- definition-example-start: def-sto11-generator -->
-### 直接例：deterministic flow の generator は方向微分
+### 直接例：deterministic flow の generator は一次微分になる
 
 前節の
 
@@ -651,7 +651,7 @@ L=\frac12\Delta
 }.
 $$
 
-確率過程 Brown 運動と PDE の heat operator がここで直接つながります。
+確率過程 Brown 運動と heat equation の作用素がここで直接つながります。
 
 ---
 
@@ -738,7 +738,7 @@ $$
 
 従って $M$ は $[0,T]$ 上の square-integrable martingale です。
 
-bounded optional sampling により
+[STO5 の bounded stopping theorem](../STO5/index.md#thm-sto5-bounded-optional-sampling) により
 
 $$
 E_x[M_\tau]=E_x[M_0]=0.
@@ -910,7 +910,7 @@ $$
 
 ## 9. forward equation と Fokker--Planck
 
-backward equation は test function を時間発展させます。
+backward equation は観測関数 $f$ を時間発展させます。
 
 forward equation は確率分布そのものを時間発展させます。
 
@@ -981,9 +981,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Dynkin formula から
+[Dynkin formula](#thm-sto11-dynkin) から
 
-$$
+$
 E[f(X_t)]
 =
 E[f(X_0)]
@@ -1144,7 +1144,7 @@ $$
 D_su(s,X_s)
 $$
 
-へ Itô product rule を適用すると drift は
+へ [STO7 の product rule](../STO7/index.md#cor-sto7-product-rule) を適用すると drift は
 
 $$
 D_s(\partial_su+Lu-Vu)ds
@@ -1373,7 +1373,7 @@ $$
 dX_t=b(X_t)dt+\sigma(X_t)dW_t
 $$
 
-> の non-explosive weak solution であるとする。
+> を、ある filtered probability space 上の Brown 運動 $W$ と continuous adapted process $X$ が積分方程式として満たし、$X$ は non-explosive であるとする。
 >
 > $a=\sigma\sigma^\top$ とし
 
@@ -1436,14 +1436,14 @@ $$
 
 ---
 
-## 13. nondegenerate なら martingale problem から Brown 運動を復元できる
+## 13. nondegenerate なら martingale problem から Brown 運動と SDE 表現を復元できる
 
 $a=\sigma\sigma^\top$ が正定値で $\sigma$ が可逆なら、martingale problem に埋め込まれた drift と quadratic variation を取り出し、Brown 運動を再構成できます。
 
 <a id="thm-sto11-mp-to-sde"></a>
 
 <!-- formal-statement-start -->
-> **定理（nondegenerate martingale problem から weak SDE）**  
+> **定理（nondegenerate martingale problem から SDE 表現）**  
 > $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times d}$ を continuous とし、局所有界とする。
 >
 > 各 $x$ で $\sigma(x)$ は可逆で、$\sigma^{-1}$ も局所有界とする。
@@ -1485,7 +1485,7 @@ $$
 \tau_n=\inf\{t:|X_t|\ge n\}
 $$
 
-を入れ、ball $B_{n+1}$ 上で $x_i$ や $x_ix_j$ と一致する smooth compact-support functions を使います。
+を入れ、ball $B_{n+1}$ 上で $x_i$ や $x_ix_j$ と一致する smooth cutoff functions を使います。
 
 これにより局所的に
 
@@ -1704,7 +1704,7 @@ $$
 
 ---
 
-## 14. well-posed martingale problem
+## 14. martingale problem の存在と law の一意性
 
 <a id="def-sto11-well-posed-mp"></a>
 
@@ -1719,19 +1719,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto11-well-posed-mp -->
-### 直接例：global Lipschitz かつ nondegenerate な SDE から well-posedness を読む
+### 直接例：Brown 運動の martingale problem は well-posed
 
-STO9 の global Lipschitz SDE では各初期値 $x$ から strong solution が存在し、pathwise uniqueness が成り立ちます。
+$L=\frac12\Delta$、$D(L)=C_c^\infty(\mathbb R^d)$ とします。
 
-STO10 の [Yamada--Watanabe theorem](../STO10/index.md#thm-sto10-yamada-watanabe) の位置付けにより uniqueness in law も得られます。
+Brown 運動がこの martingale problem の solution を与えることは [直接例](#def-sto11-martingale-problem) で確認しました。
 
-[本章の SDE から martingale problem](#thm-sto11-sde-to-mp) により、SDE law は対応する martingale problem を解きます。
+逆に任意の solution law $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化して martingale problem へ入れると、各座標 $X^i-X_0^i$ は continuous local martingale で
 
-さらに $\sigma$ が各点で可逆かつ $\sigma^{-1}$ が局所有界なら、[martingale problem から weak SDE](#thm-sto11-mp-to-sde) により任意の martingale-problem solution は weak SDE へ戻ります。
+$
+[X^i-X_0^i,X^j-X_0^j]_t
+=
+\delta_{ij}t
+$
 
-そこで uniqueness in law を使えば solution law は一意です。
+を得ます。
 
-存在と一意性の両方が閉じるため、この条件下では martingale problem は well-posed です。
+[STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $X-X_0$ は standard Brownian motion です。
+
+したがって初期点 $x$ を固定すれば solution law は Brownian law 以外にありえません。存在と law の一意性がともに確認できるので、この martingale problem は well-posed です。
 <!-- definition-example-end -->
 
 <a id="thm-sto11-well-posed-strong-markov"></a>
@@ -1740,7 +1746,7 @@ STO10 の [Yamada--Watanabe theorem](../STO10/index.md#thm-sto10-yamada-watanabe
 > **定理（well-posed martingale problem から strong Markov property）**  
 > $\Omega=C([0,\infty),\mathbb R^d)$ を canonical path space とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について well-posed で、その一意な solution law を $P_x$ とする。
 >
-> さらに $x\mapsto P_x$ が path-space の弱位相に関して Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
+> さらに各標本路空間の Borel 集合 $A$ に対して $x\mapsto P_x(A)$ が Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
 >
 > $P_tf(x):=E_x[f(X_t)]$ と置く。このとき、任意の a.s. finite stopping time $\tau$、$t\ge0$、bounded Borel $f$ に対して
 >
@@ -1840,19 +1846,54 @@ f(x+z)
 \frac{e^{-|z|^2/(2t)}}{(2\pi t)^{d/2}}dz.
 $$
 
-$f\in C_0$ なら Gaussian kernel との convolution により $P_tf$ は連続です。
+$f\in C_0(\mathbb R^d)$ は一様連続です。$x_n\to x$ なら
 
-また $|x|\to\infty$ で、Gaussian mass の大部分が $x$ の近くにあり、その領域では $f$ が小さいことから
+$
+|P_tf(x_n)-P_tf(x)|
+\le
+E\left[
+|f(x_n+B_t)-f(x+B_t)|
+\right]
+$
 
-$$
-P_tf(x)\to0.
-$$
+であり、一様連続性から右辺は 0 へ収束します。従って $P_tf$ は連続です。
 
-さらに $C_0(\mathbb R^d)$ の関数は一様連続なので、Gaussian approximate identity から
+次に $\varepsilon>0$ を固定し、$|y|>R$ なら $|f(y)|<\varepsilon$ となる $R$ を取ります。$|x|>2R$ のとき、$|B_t|\le |x|-R$ なら $|x+B_t|>R$ なので
 
-$$
+$
+|P_tf(x)|
+\le
+\varepsilon
++
+\|f\|_\infty
+P(|B_t|>|x|-R).
+$
+
+$|x|\to\infty$ で右辺の第二項は 0 へ行くため $P_tf(x)\to0$ です。
+
+最後に一様連続性から、任意の $\varepsilon>0$ に対してある $\delta>0$ が存在し
+
+$
+|z|<\delta
+\Longrightarrow
+\sup_x|f(x+z)-f(x)|<\varepsilon.
+$
+
+したがって
+
+$
+\sup_x|P_tf(x)-f(x)|
+\le
+\varepsilon
++
+2\|f\|_\infty P(|B_t|\ge\delta).
+$
+
+$t\downarrow0$ で $B_t\to0$ in probability なので右辺の第二項は 0 へ行きます。$\varepsilon$ は任意だから
+
+$
 \|P_tf-f\|_\infty\to0.
-$$
+$
 
 従って Brownian heat semigroup は Feller semigroup の標準例です。
 <!-- definition-example-end -->
@@ -2077,9 +2118,9 @@ $$
 
 を入れ、$[-n,n]$ 上で $x^2$ と一致する $C_c^2$ 関数へ置き換えます。
 
-Dynkin formula から
+[Dynkin formula](#thm-sto11-dynkin) から
 
-$$
+$
 E[B_{\tau_n}^2]
 =
 E\left[
@@ -2398,7 +2439,7 @@ $$
 }
 $$
 
-初期値問題の semigroup 時間 $t$ と、終端値問題の calendar time $s$ では符号が反転することが確認できます。
+semigroup を前向きに進める時間 $t$ と、終端時刻から逆向きに測る calendar time $s$ では符号が反転することが確認できます。
 <!-- solution-end -->
 
 #### STO11-B02 Feynman--Kac の discount と running term
@@ -2423,7 +2464,7 @@ $$
 
 を考える。
 
-1. Feynman--Kac formula から $u(t,x)$ を積分表示せよ。
+1. [Feynman--Kac verification formula](#thm-sto11-feynman-kac) から $u(t,x)$ を積分表示せよ。
 2. $\lambda>0$ の場合に閉形式を求めよ。
 3. $\lambda=0$ の場合を別に求めよ。
 4. 得た式を PDE へ代入して確認せよ。
@@ -2666,7 +2707,7 @@ b(X_t)dt
 }
 $$
 
-確率空間と Brown 運動を martingale problem の solution から構成したので、これは weak solution です。
+Brown 運動を martingale problem の solution から構成し、元の SDE の積分表示を同じ空間上で復元できました。
 <!-- solution-end -->
 
 #### STO11-C01 Ornstein--Uhlenbeck diffusion を generator から統合して読む
