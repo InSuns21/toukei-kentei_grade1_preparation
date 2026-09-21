@@ -165,10 +165,20 @@ function conceptUseIsShadowedByLocalAlias(file, lineNumber, conceptId, sourceCac
   if (source == null) return false;
 
   const sourceLine = source.split(/\r?\n/)[lineNumber - 1] ?? '';
+  const normalizedSourceLine = normalizeResolvedAlias(sourceLine);
+
   return remoteAliases.some((alias) => {
-    const entries = localAliases.get(normalizeResolvedAlias(alias)) ?? [];
-    const introduced = entries.some((entry) => entry.line != null && entry.line <= lineNumber);
-    return introduced && aliasAppears(sourceLine, alias);
+    if (!aliasAppears(sourceLine, alias)) return false;
+    const remoteKey = normalizeResolvedAlias(alias);
+    if (!remoteKey) return false;
+
+    for (const [localKey, entries] of localAliases.entries()) {
+      if (!localKey || !localKey.includes(remoteKey)) continue;
+      if (!normalizedSourceLine.includes(localKey)) continue;
+      const introduced = entries.some((entry) => entry.line != null && entry.line <= lineNumber);
+      if (introduced) return true;
+    }
+    return false;
   });
 }
 
