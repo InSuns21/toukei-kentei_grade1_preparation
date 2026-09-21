@@ -1024,7 +1024,7 @@ $$
 <a id="lem-sto10-girsanov-local-martingale"></a>
 
 <!-- formal-statement-start -->
-> **補題（Girsanov 局所-マルチンゲール transform）**  
+> **補題（Girsanov 局所マルチンゲール変換）**  
 > 上の設定で $N$ を continuous $P$-局所マルチンゲールとする。
 >
 > このとき
@@ -1181,7 +1181,7 @@ $$
 <a id="thm-sto10-girsanov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Girsanov 定理：ブラウンドリフト shift）**  
+> **定理（Girsanov 定理：ブラウン運動のドリフト変換）**  
 > $W=(W^1,\ldots,W^m)$ をフィルトレーション付き確率空間
 >
 $$
@@ -1356,7 +1356,7 @@ W^i,
 \end{aligned}
 $$
 
-したがって [Girsanov 局所-マルチンゲール transform](#lem-sto10-girsanov-local-martingale) により
+したがって [Girsanov 局所マルチンゲール変換](#lem-sto10-girsanov-local-martingale) により
 
 $$
 \begin{aligned}
