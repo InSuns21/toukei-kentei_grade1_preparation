@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - PDE5
-  - RA7
+  - VC4
 
 # PDE5で停止していた一般の境界積分構造を、古典解の範囲で閉じる。
 # 弱微分・分布としての -Delta Phi = delta_0・Sobolev空間はEncore IIIへ送る。
@@ -15,22 +15,14 @@ forward_references:
 
 concepts:
   - id: pde.pde6-normal-derivative
-    name: 外向き単位法線と法線微分
+    name: 法線微分
     kind: definition
-    aliases: [normal derivative, outward unit normal]
+    aliases: [normal derivative, 外向き法線微分]
     introduction: formal
-    introduction_aliases: ["定義（外向き単位法線と法線微分）"]
+    introduction_aliases: ["定義（法線微分）"]
     requires:
       - pde.pde5-boundary-problems
-
-  - id: pde.pde6-divergence-theorem
-    name: 平面版発散定理
-    kind: theorem
-    aliases: [planar divergence theorem]
-    introduction: formal
-    introduction_aliases: ["定理（平面版発散定理）"]
-    requires:
-      - pde.pde6-normal-derivative
+      - vector-calculus.green-flux
 
   - id: pde.pde6-green-first
     name: Greenの第一恒等式
@@ -39,7 +31,9 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（Green の第一恒等式）"]
     requires:
-      - pde.pde6-divergence-theorem
+      - pde.pde6-normal-derivative
+      - vector-calculus.product-rules
+      - vector-calculus.green-flux
 
   - id: pde.pde6-green-second
     name: Greenの第二恒等式
@@ -68,7 +62,7 @@ concepts:
     introduction_aliases: ["系（Neumann 問題の整合条件と定数を除く一意性）"]
     requires:
       - pde.pde6-green-first
-      - pde.pde6-divergence-theorem
+      - vector-calculus.green-flux
       - pde.pde5-boundary-problems
 
   - id: pde.pde6-fundamental-solution
