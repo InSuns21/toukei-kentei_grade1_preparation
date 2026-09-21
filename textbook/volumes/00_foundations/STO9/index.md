@@ -2,9 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[多次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale) を既知として使います。
+> **既出概念への参照**：[多次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-局所-martingale) を既知として使います。
 
-STO7 までで、ブラウン運動に沿った確率積分と Itô formula を使えるようになりました。
+STO7 までで、ブラウン運動に沿った確率積分と Itô 公式を使えるようになりました。
 
 次の問いは自然です。
 
@@ -246,7 +246,7 @@ $$
 は $W_t$ の連続関数なので $\mathcal F_t^{W}$-適合かつ continuous です。各有限区間では標本関数が有界なので、$|\mu X_s|$ と $|\alpha X_s|^2$ の時間積分もほとんど確実に有限です。
 
 $f(t,w)=x\exp((\mu-\alpha^2/2)t+\alpha w)$ に
-[Itô 過程版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
+[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)
 を使うと
 
 $$
@@ -1500,7 +1500,7 @@ $$
 
 ---
 
-## 12. cutoff した大域問題を貼り合わせる
+## 12. 切断した大域問題を貼り合わせる
 
 半径 $n$ の閉球への metric projection を
 
@@ -1574,10 +1574,10 @@ $$
 
 ### 証明の見取り図
 
-1. cutoff coefficients $(b_n,\sigma_n)$ の大域的 solution $X^{(n)}$ を作る。
+1. 切断 coefficients $(b_n,\sigma_n)$ の大域的 solution $X^{(n)}$ を作る。
 2. ball $n$ を出るまでは $b_n=b_m=b$ なので $X^{(n)}$ と $X^{(m)}$ は一致する。
 3. exit times を増大列にして、その前まで過程を貼り合わせる。
-4. 有限爆発時刻まで解の値が有界なら、もっと大きい cutoff solution で延長できて maximality に反する。
+4. 有限爆発時刻まで解の値が有界なら、もっと大きい切断 solution で延長できて maximality に反する。
 
 <!-- proof-start -->
 ### 証明
@@ -1741,9 +1741,9 @@ $n\uparrow\infty$ とすれば爆発前の経路ごとの一意性を得ます�
 $$
 \boxed{
 \text{局所問題}
-\overset{\text{cutoff}}{\longrightarrow}
+\overset{\text{切断}}{\longrightarrow}
 \text{大域 Lipschitz 問題}
-\overset{\text{stop before cutoff}}{\longrightarrow}
+\overset{\text{stop before 切断}}{\longrightarrow}
 \text{元の問題}
 }
 $$
@@ -1958,11 +1958,11 @@ P(\tau_{\mathrm e}=\infty)=1.
 $$
 <!-- formal-statement-end -->
 
-この theorem は STO11 の generator を先取りせず、Itô formula に現れるドリフト combination をそのまま書いています。
+この theorem は STO11 の generator を先取りせず、Itô 公式に現れるドリフト combination をそのまま書いています。
 
 ### 証明の見取り図
 
-$V(X_{t\wedge\tau_n})$ に Itô formula を使います。
+$V(X_{t\wedge\tau_n})$ に Itô 公式を使います。
 
 確率積分の期待値を $0$ にしてドリフト inequality を入れると
 
@@ -1990,7 +1990,7 @@ $$
 
 とします。
 
-[Itô 過程版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
+[Itô 過程版の時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-過程-formula)
 を時間に依存しない $V$ へ適用すると
 
 $$
@@ -2174,7 +2174,7 @@ superlinear という見た目だけでは爆発は決まりません。
 
 最後に経路ごとの一意性より少し強い「順序の保存」を見ます。
 
-ここでは局所時間 theory を逆輸入せず、正部分の smooth approximation と Itô formula だけで証明します。
+ここでは局所時間 theory を逆輸入せず、正部分の smooth approximation と Itô 公式だけで証明します。
 
 <a id="thm-sto9-comparison"></a>
 
@@ -2288,10 +2288,10 @@ $$
 
 ### 証明の見取り図
 
-$Z=X-Y$ と置いて $\phi_\varepsilon(Z_t)$ に Itô formula を使います。
+$Z=X-Y$ と置いて $\phi_\varepsilon(Z_t)$ に Itô 公式を使います。
 
 - ドリフト項は $Z>0$ のときだけ問題になり、ドリフト order と Lipschitz から $LZ^+$ で抑えられる。
-- 二次変分 term は $0<Z<\varepsilon$ の狭い領域だけで現れ、Lipschitz 拡散によって $O(\varepsilon)$ へ落ちる。
+- 二次変分項は $0<Z<\varepsilon$ の狭い領域だけで現れ、Lipschitz 拡散によって $O(\varepsilon)$ へ落ちる。
 - $\varepsilon\downarrow0$ で $E[Z_t^+]$ の Gronwall inequality が残る。
 
 <!-- proof-start -->
@@ -2313,7 +2313,7 @@ dZ_t
 \{\sigma(X_t)-\sigma(Y_t)\}\,dW_t.
 $$
 
-Itô formula から
+Itô 公式から
 
 $$
 \begin{aligned}
@@ -2371,7 +2371,7 @@ $$
 LZ_s^+.
 $$
 
-#### Step 2：second-order term
+#### Step 2：二階項
 
 $\sigma$ の Lipschitz 定数も $L$ と書きます。
 
@@ -2616,7 +2616,7 @@ $$
 
 ### 16.3 比較では同一拡散が重要
 
-比較 proof の second-order term は
+比較 proof の二階項は
 
 $$
 |\sigma(X)-\sigma(Y)|^2
@@ -2634,7 +2634,7 @@ $$
 
 は $X=Y$ でも $0$ とは限りません。
 
-すると second-order term が $\varepsilon^{-1}$ scale で残り、同じ proof mechanism は閉じません。
+すると二階項が $\varepsilon^{-1}$ scale で残り、同じ proof mechanism は閉じません。
 
 ---
 
@@ -2756,7 +2756,7 @@ x\exp\left\{
 \right\}
 $$
 
-が solution であることを Itô formula から示せ。
+が solution であることを Itô 公式から示せ。
 
 さらに $x>0$ なら $X_t>0$ for all $t$ ほとんど確実にを示せ。
 
@@ -2789,7 +2789,7 @@ $$
 \partial_{ww}f=\alpha^2f.
 $$
 
-Itô formula から
+Itô 公式から
 
 $$
 \begin{aligned}
@@ -3376,7 +3376,7 @@ $$
 
 1. coefficients が局所 Lipschitz であることを示せ。
 2. $b(x)=-x^3+\beta x$ は一般に大域的線形成長を満たさないことを確認せよ。
-3. $V(x)=1+x^2$ に対し、Itô formula のドリフト combination
+3. $V(x)=1+x^2$ に対し、Itô 公式のドリフト combination
    $V'(x)b(x)+\frac12V''(x)\gamma^2$
    を計算せよ。
 4. ある $C<\infty$ が存在して
@@ -3462,7 +3462,7 @@ V'(x)b(x)
 \end{aligned}
 $$
 
-4. quartic term は nonpositive なので
+4. quartic 項は nonpositive なので
 
 $$
 -2x^4+2\beta x^2+\gamma^2
@@ -3528,7 +3528,7 @@ $$
 
 したがってこの SDE は全時刻で unique 強解を持ちます。
 
-この例ではドリフトの大きさ自体は cubic ですが、leading term $-x^3$ が原点方向へ強く戻すため爆発を防いでいます。
+この例ではドリフトの大きさ自体は cubic ですが、leading 項 $-x^3$ が原点方向へ強く戻すため爆発を防いでいます。
 <!-- solution-end -->
 
 ---
