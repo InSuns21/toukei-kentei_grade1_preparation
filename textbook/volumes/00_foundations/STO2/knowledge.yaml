@@ -8,6 +8,7 @@ prerequisites:
 
 forward_references:
   - stochastic.finite-dimensional-distribution-consistency
+  - stochastic.kolmogorov-chentsov-continuity
 
 concepts:
   - id: stochastic.discrete-martingale
