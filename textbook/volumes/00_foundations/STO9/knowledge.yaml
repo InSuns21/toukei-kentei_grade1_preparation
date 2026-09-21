@@ -13,7 +13,7 @@ concepts:
     kind: definition
     aliases: ["Brownian stochastic differential equation", "Itô SDE"]
     introduction: formal
-    introduction_aliases: ["定義（Brownian SDE）"]
+    introduction_aliases: ["定義（ブラウン SDE）"]
     requires:
       - stochastic.vector-brownian-motion
       - stochastic.local-stochastic-integral
@@ -23,7 +23,7 @@ concepts:
     kind: definition
     aliases: ["strong solution of an SDE", "SDEの強解"]
     introduction: formal
-    introduction_aliases: ["定義（strong solution）"]
+    introduction_aliases: ["定義（強解）"]
     requires:
       - stochastic.brownian-sde
       - stochastic.filtration
@@ -34,7 +34,7 @@ concepts:
     kind: definition
     aliases: ["pathwise uniqueness for SDE", "標本路ごとの一意性"]
     introduction: formal
-    introduction_aliases: ["定義（pathwise uniqueness）"]
+    introduction_aliases: ["定義（経路ごとの一意性）"]
     requires:
       - stochastic.strong-solution
 
@@ -61,7 +61,7 @@ concepts:
     kind: theorem
     aliases: ["global existence and uniqueness theorem for Lipschitz SDE", "Lipschitz SDE existence uniqueness"]
     introduction: formal
-    introduction_aliases: ["定理（global Lipschitz SDE の strong existence・pathwise uniqueness）"]
+    introduction_aliases: ["定理（大域 Lipschitz SDE の strong 存在・経路ごとの一意性）"]
     requires:
       - stochastic.strong-solution
       - stochastic.pathwise-uniqueness
@@ -74,7 +74,7 @@ concepts:
     kind: proposition
     aliases: ["SDE moment estimate", "finite-horizon SDE second moment estimate"]
     introduction: formal
-    introduction_aliases: ["命題（finite-horizon L2 supremum moment estimate）"]
+    introduction_aliases: ["命題（finite-horizon L2 supremum モーメント評価）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.continuous-doob-l2
@@ -95,7 +95,7 @@ concepts:
     kind: definition
     aliases: ["maximal solution of an SDE", "explosion time", "SDE maximal strong solution"]
     introduction: formal
-    introduction_aliases: ["定義（maximal strong solution・explosion time）"]
+    introduction_aliases: ["定義（maximal 強解・爆発時刻）"]
     requires:
       - stochastic.strong-solution
       - stochastic.stopping-time
@@ -105,7 +105,7 @@ concepts:
     kind: theorem
     aliases: ["local existence and uniqueness for SDE", "maximal solution under local Lipschitz coefficients"]
     introduction: formal
-    introduction_aliases: ["定理（local Lipschitz SDE の maximal strong solution）"]
+    introduction_aliases: ["定理（局所 Lipschitz SDE の maximal 強解）"]
     requires:
       - stochastic.maximal-strong-solution
       - stochastic.global-lipschitz-sde-existence-uniqueness
@@ -116,7 +116,7 @@ concepts:
     kind: theorem
     aliases: ["non-explosion under linear growth", "linear growth nonexplosion theorem"]
     introduction: formal
-    introduction_aliases: ["定理（linear growth による non-explosion）"]
+    introduction_aliases: ["定理（線形成長による非爆発）"]
     requires:
       - stochastic.local-lipschitz-maximal-solution
       - stochastic.sde-l2-supremum-moment
@@ -126,7 +126,7 @@ concepts:
     kind: theorem
     aliases: ["Lyapunov non-explosion criterion", "Lyapunov criterion for SDE nonexplosion"]
     introduction: formal
-    introduction_aliases: ["定理（Lyapunov 型 non-explosion criterion）"]
+    introduction_aliases: ["定理（Lyapunov 型非爆発 criterion）"]
     requires:
       - stochastic.local-lipschitz-maximal-solution
       - stochastic.ito-process-formula
@@ -137,7 +137,7 @@ concepts:
     kind: theorem
     aliases: ["one-dimensional SDE comparison theorem", "SDE comparison principle"]
     introduction: formal
-    introduction_aliases: ["定理（一次元 SDE の comparison theorem）"]
+    introduction_aliases: ["定理（一次元 SDE の比較定理）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.ito-process-formula
