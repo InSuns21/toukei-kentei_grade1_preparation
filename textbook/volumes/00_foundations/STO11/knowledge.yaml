@@ -7,6 +7,8 @@ prerequisites:
   - STO7
   - STO9
   - F0-00P3A
+forward_references:
+  - pde.pde1-partial-differential-equation
 
 concepts:
   - id: stochastic.transition-kernel
@@ -151,11 +153,11 @@ concepts:
       - stochastic.ito-process-formula
 
   - id: stochastic.martingale-problem-to-sde-nondegenerate
-    name: nondegenerate martingale problemからweak SDE
+    name: nondegenerate martingale problemからSDE表現
     kind: theorem
     aliases: ["martingale problem implies weak SDE", "nondegenerate diffusion representation"]
     introduction: formal
-    introduction_aliases: ["定理（nondegenerate martingale problem から weak SDE）"]
+    introduction_aliases: ["定理（nondegenerate martingale problem から SDE 表現）"]
     requires:
       - stochastic.martingale-problem
       - stochastic.levy-characterization
