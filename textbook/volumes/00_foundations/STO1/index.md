@@ -257,7 +257,7 @@ $$
 
 識別不能なら修正ですが、逆は連続時間では壊れます。
 
-<!-- definition-example-start: def-sto1-修正-識別不能 -->
+<!-- definition-example-start: def-sto1-modification-indistinguishable -->
 ### 直接例：修正だが識別不能ではない
 
 **定義の確認**
@@ -442,7 +442,7 @@ $$
 
 と増えていきます。
 
-<!-- definition-example-start: def-sto1-フィルトレーション-usual -->
+<!-- definition-example-start: def-sto1-filtration-usual -->
 ### 直接例：二回のコイントスを一枚ずつ開封する
 
 **定義の確認**
@@ -543,7 +543,7 @@ $$
 
 自然なフィルトレーションは「$X$ の過去だけを観測して得られる最小の情報」です。
 
-<!-- definition-example-start: def-sto1-適合-natural-フィルトレーション -->
+<!-- definition-example-start: def-sto1-adapted-natural-filtration -->
 ### 直接例：ランダムウォークは自分の自然なフィルトレーションに適合
 
 **定義の確認**
@@ -627,7 +627,7 @@ $$
 
 上で、時間の Borel 情報と $\mathcal F_T$ の情報だけを使って $X$ を読めます。
 
-<!-- definition-example-start: def-sto1-発展的可測 -->
+<!-- definition-example-start: def-sto1-progressive -->
 ### 直接例：有限個の時刻で値が切り替わる適合過程
 
 **定義の確認**
@@ -873,7 +873,7 @@ $$
 
 区間 $(s,t]$ で使う係数を $\mathcal F_s$ で決める、という形がそのまま定義に入っています。
 
-<!-- definition-example-start: def-sto1-予測可能 -->
+<!-- definition-example-start: def-sto1-predictable -->
 ### 直接例：単純予測可能過程
 
 **定義の確認**
@@ -1024,7 +1024,7 @@ $\{\tau\le t\}$ は「時刻 $t$ までにもう停止したか」という yes/
 
 停止時刻の定義は、停止する正確な未来時刻を時刻 0 で知ることを要求していません。各 $t$ まで進んだ時点で「もう止まったか」を判定できればよいのです。
 
-<!-- definition-example-start: def-sto1-停止操作-time -->
+<!-- definition-example-start: def-sto1-stopping-time -->
 ### 直接例：最初の表が出る時刻
 
 **定義の確認**
@@ -1270,7 +1270,7 @@ $$
 > を $\tau$ で **停止過程** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto1-停止した-process -->
+<!-- definition-example-start: def-sto1-stopped-process -->
 ### 直接例：ランダムウォークを初到達時刻で止める
 
 **定義の確認**
@@ -1335,7 +1335,7 @@ $$
 
 意味は、「時刻 $t$ までに停止していた場合には、$A$ が起きたかどうかも時刻 $t$ までの情報で判定できる」です。
 
-<!-- definition-example-start: def-sto1-停止操作-sigma-field -->
+<!-- definition-example-start: def-sto1-stopping-sigma-field -->
 ### 直接例：定数停止時刻では元のフィルトレーションに戻る
 
 **定義の確認**
