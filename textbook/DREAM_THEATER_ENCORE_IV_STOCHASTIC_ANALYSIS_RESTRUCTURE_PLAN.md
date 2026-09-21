@@ -662,4 +662,7 @@ ARMA / ergodicity / Kalman
 - Phase 4「jump process」STO13--STO14 は完了。
 - Phase 5：TSA1「定常過程・Hilbert 予測」を実装。狭義定常性 / 二次定常性 / 自己共分散関数の正定値性 / 過去の閉線形包 / 有限過去の正規方程式 / 無限過去の Hilbert 射影 / 有限過去予測の $L^2$ 収束 / 時間移動作用素 / イノベーション / 線形決定論的過程を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
 - TSA1 の direct prerequisite は F0-00P3B・F0-02C1A とし、条件付き期待値の最良予測と Hilbert 射影定理を canonical dependency として再利用する。旧 F0-00TS1 は migration source に留め、prerequisite / proof dependency にしない。remote past・純非決定論性・Wold 分解は TSA2 の canonical content として先取りしない。
-- 現在地：Phase 5 は TSA1 完了。次の実装対象は TSA2「Wold decomposition」。
+- Phase 5：TSA2「Wold decomposition」を実装。イノベーション部分空間 / remote past / 純非決定論性 / 減少閉部分空間への射影収束 / 過去空間の直交分解 / Wold の決定論成分 / Wold 分解 / 一意性を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- TSA2 の direct prerequisite は TSA1 のみとし、過去の閉線形包・Hilbert 射影によるイノベーション・時間移動作用素・イノベーション列の直交性を canonical dependency として再利用する。Herglotz・スペクトル測度・スペクトル表現は TSA3 の canonical content として先取りしない。
+- 安定 AR(1) と可逆 MA(1) では駆動ホワイトノイズが標準イノベーションになること、remote past が消えること、Wold 係数を観測過去から直接検証した。ランダム正弦波は remote past が全過去空間に残る完全決定論側の直接例として対比した。
+- 現在地：Phase 5 は TSA1 → TSA2 完了。次の実装対象は TSA3「Herglotz・spectral representation」。
