@@ -1,0 +1,192 @@
+chapter: VC9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC7
+  - VC8
+
+concepts:
+  - id: vector-calculus.mass-flux
+    name: 質量流束
+    kind: definition
+    aliases: [mass flux, 質量流束]
+    introduction: formal
+    introduction_aliases: ["定義（質量流束）"]
+    requires:
+      - vector-calculus.local-conservation-law
+
+  - id: vector-calculus.mass-continuity
+    name: 質量保存の連続の式
+    kind: proposition
+    aliases: [continuity equation, mass continuity equation, 連続の式]
+    introduction: formal
+    introduction_aliases: ["命題（質量保存の連続の式）"]
+    requires:
+      - vector-calculus.mass-flux
+      - vector-calculus.local-conservation-law
+
+  - id: vector-calculus.material-derivative
+    name: 物質微分
+    kind: definition
+    aliases: [material derivative, substantial derivative, 物質微分]
+    introduction: formal
+    introduction_aliases: ["定義（物質微分）"]
+    requires:
+      - vector-calculus.gradient
+
+  - id: vector-calculus.continuity-material-form
+    name: 連続の式の物質微分形
+    kind: proposition
+    aliases: [material form of continuity equation]
+    introduction: formal
+    introduction_aliases: ["命題（連続の式の物質微分形）"]
+    requires:
+      - vector-calculus.mass-continuity
+      - vector-calculus.material-derivative
+      - vector-calculus.product-rules
+
+  - id: vector-calculus.incompressible-flow
+    name: 非圧縮速度場
+    kind: definition
+    aliases: [incompressible flow, incompressibility, 非圧縮条件]
+    introduction: formal
+    introduction_aliases: ["定義（非圧縮速度場）"]
+    requires:
+      - vector-calculus.divergence
+      - vector-calculus.continuity-material-form
+
+  - id: vector-calculus.vorticity
+    name: 渦度
+    kind: definition
+    aliases: [vorticity, 渦度]
+    introduction: formal
+    introduction_aliases: ["定義（渦度）"]
+    requires:
+      - vector-calculus.curl
+
+  - id: vector-calculus.circulation-vorticity
+    name: 循環と渦度
+    kind: corollary
+    aliases: [circulation vorticity relation]
+    introduction: formal
+    introduction_aliases: ["系（循環と渦度）"]
+    requires:
+      - vector-calculus.vorticity
+      - vector-calculus.stokes-theorem
+
+  - id: vector-calculus.stream-function
+    name: 二次元の流れ関数
+    kind: definition
+    aliases: [stream function, 流れ関数]
+    introduction: formal
+    introduction_aliases: ["定義（二次元の流れ関数）"]
+    requires:
+      - vector-calculus.incompressible-flow
+
+  - id: vector-calculus.stream-function-vorticity
+    name: 非圧縮平面流の流れ関数
+    kind: theorem
+    aliases: [stream function existence, vorticity stream function Poisson relation]
+    introduction: formal
+    introduction_aliases: ["定理（非圧縮平面流の流れ関数）"]
+    requires:
+      - vector-calculus.stream-function
+      - vector-calculus.vorticity
+      - vector-calculus.conservative-equivalence
+      - vector-calculus.scalar-laplacian
+
+  - id: vector-calculus.momentum-balance-integral
+    name: 固定検査体積の運動量収支
+    kind: principle
+    aliases: [integral momentum balance, control-volume momentum balance]
+    introduction: formal
+    introduction_aliases: ["原理（固定検査体積の運動量収支）"]
+    requires:
+      - vector-calculus.dyadic-product
+      - vector-calculus.stress-tensor
+
+  - id: vector-calculus.momentum-balance-local
+    name: 局所運動量収支
+    kind: theorem
+    aliases: [local momentum balance, Cauchy momentum equation]
+    introduction: formal
+    introduction_aliases: ["定理（局所運動量収支）"]
+    requires:
+      - vector-calculus.momentum-balance-integral
+      - vector-calculus.tensor-divergence-theorem
+      - vector-calculus.mass-continuity
+      - vector-calculus.material-derivative
+
+  - id: vector-calculus.stress-symmetry
+    name: 古典連続体における応力テンソルの対称性
+    kind: proposition
+    aliases: [symmetry of Cauchy stress, symmetric stress tensor]
+    introduction: formal
+    introduction_aliases: ["命題（古典連続体における応力テンソルの対称性）"]
+    requires:
+      - vector-calculus.stress-tensor
+      - vector-calculus.momentum-balance-local
+      - vector-calculus.levi-civita-symbol
+
+  - id: vector-calculus.newtonian-stress
+    name: 変形速度テンソルと Newton 流体の応力
+    kind: definition
+    aliases: [rate-of-deformation tensor, Newtonian stress, Newtonian fluid]
+    introduction: formal
+    introduction_aliases: ["定義（変形速度テンソルと Newton 流体の応力）"]
+    requires:
+      - vector-calculus.vector-gradient-tensor
+      - vector-calculus.stress-symmetry
+
+  - id: vector-calculus.incompressible-navier-stokes-bridge
+    name: 非圧縮 Navier--Stokes 方程式への橋
+    kind: proposition
+    aliases: [incompressible Navier-Stokes equation]
+    introduction: formal
+    introduction_aliases: ["命題（非圧縮 Navier--Stokes 方程式への橋）"]
+    requires:
+      - vector-calculus.momentum-balance-local
+      - vector-calculus.newtonian-stress
+      - vector-calculus.incompressible-flow
+
+  - id: vector-calculus.maxwell-integral
+    name: Maxwell 方程式の積分形
+    kind: principle
+    aliases: [integral Maxwell equations, Maxwell integral form]
+    introduction: formal
+    introduction_aliases: ["原理（Maxwell 方程式の積分形）"]
+    requires:
+      - vector-calculus.gauss-divergence
+      - vector-calculus.stokes-theorem
+
+  - id: vector-calculus.maxwell-differential
+    name: Maxwell 方程式の積分形と微分形
+    kind: theorem
+    aliases: [differential Maxwell equations, Maxwell differential form]
+    introduction: formal
+    introduction_aliases: ["定理（Maxwell 方程式の積分形と微分形）"]
+    requires:
+      - vector-calculus.maxwell-integral
+      - vector-calculus.gauss-divergence
+      - vector-calculus.stokes-theorem
+      - vector-calculus.integral-to-local-conservation
+
+  - id: vector-calculus.maxwell-charge-continuity
+    name: Maxwell 方程式から電荷保存
+    kind: theorem
+    aliases: [charge conservation from Maxwell equations, charge continuity equation]
+    introduction: formal
+    introduction_aliases: ["定理（Maxwell 方程式から電荷保存）"]
+    requires:
+      - vector-calculus.maxwell-differential
+      - vector-calculus.divergence-curl-zero
+      - vector-calculus.local-to-integral-conservation
+
+  - id: vector-calculus.maxwell-interface-jump
+    name: 真空 Maxwell 方程式の界面跳躍条件
+    kind: proposition
+    aliases: [Maxwell interface jump conditions, electromagnetic boundary conditions]
+    introduction: formal
+    introduction_aliases: ["命題（真空 Maxwell 方程式の界面跳躍条件）"]
+    requires:
+      - vector-calculus.maxwell-integral
