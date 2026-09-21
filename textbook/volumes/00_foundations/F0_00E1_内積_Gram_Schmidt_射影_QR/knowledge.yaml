@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - F0-00E
 
+# 直交補空間は、後続 LA2 の一般の補空間概念の有限次元・内積付きでの先行例。
+forward_references:
+  - linear.complementary-subspace
+
 concepts:
   - id: linear.inner-product
     name: 内積
