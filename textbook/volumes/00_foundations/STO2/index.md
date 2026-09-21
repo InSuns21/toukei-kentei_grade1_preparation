@@ -1019,12 +1019,12 @@ $$
 
 ---
 
-## 9. 劣マルチンゲール概収束定理
+## 9. 劣マルチンゲールの概収束
 
 <a id="thm-sto2-submartingale-convergence"></a>
 
 <!-- formal-statement-start -->
-> **定理（劣マルチンゲール a.s. convergence）**  
+> **定理（劣マルチンゲールの概収束）**  
 > $X=(X_n)_{n\ge0}$ を劣マルチンゲールとし
 >
 $$
