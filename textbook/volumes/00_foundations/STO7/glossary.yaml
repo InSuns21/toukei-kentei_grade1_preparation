@@ -2,7 +2,7 @@ chapter: "STO7"
 terms:
   - term: vector Brownian motion
     english: vector Brownian motion
-    meaning: 各成分が独立なstandard Brownian motionであるR^d値process。成分間covariationはdelta_ij tになる。
+    meaning: filtrationに対して過去から独立なN_d(0,(t-s)I_d)増分と連続標本路を持つR^d値process。成分間covariationはdelta_ij tになる。
   - term: semimartingale integral
     english: semimartingale integral
     meaning: X=M+Aという一意なcontinuous semimartingale分解に対し、local martingale partはstochastic integral、finite-variation partはLebesgue--Stieltjes integralで積分するもの。
