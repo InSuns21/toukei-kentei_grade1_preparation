@@ -388,7 +388,7 @@ $$
 x_n\to y.
 $$
 
-固定した $k$ に対して $n\ge k$ なら $x_n\in M_n\subseteq M_k$ です。$M_k$ は閉なので $y\in M_k$。$k$ は任意だから
+固定した $k$ に対して $n\ge k$ なら $x_n\in M_n\subseteq M_k$ です。$M_k$ は閉であり、[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)を適用すると、$x_n\to y$ から $y\in M_k$ です。$k$ は任意だから
 
 $$
 y\in\bigcap_{k\ge1}M_k=M.
@@ -1735,7 +1735,7 @@ $$
 x_n\to y.
 $$
 
-固定した $k$ に対し $n\ge k$ なら $x_n\in M_k$。$M_k$ は閉なので $y\in M_k$。全ての $k$ について成り立つから $y\in M$ です。
+固定した $k$ に対し $n\ge k$ なら $x_n\in M_k$ です。$M_k$ は閉であり、[閉集合の点列特徴付け](../F0_00B_距離空間_開集合_閉集合_収束/index.md#thm-f0-00b-01)を適用すると、$x_n\to y$ から $y\in M_k$ です。全ての $k$ について成り立つから $y\in M$ です。
 
 さらに $z\in M$ なら $z\in M_n$ なので
 
