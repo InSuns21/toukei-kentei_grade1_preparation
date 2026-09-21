@@ -1,0 +1,57 @@
+chapter: F0-00P6B
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P6
+
+forward_references: []
+
+concepts:
+  - id: prob.rare-bernoulli-triangular-array
+    name: 希少Bernoulli三角配列
+    kind: definition
+    aliases: [希少Bernoulli三角配列, rare Bernoulli triangular array]
+    introduction: formal
+    introduction_aliases: ["定義（希少 Bernoulli 三角配列）"]
+    requires:
+      - prob.independent-random-variables
+
+  - id: prob.poisson-characteristic-function
+    name: Poisson分布の特性関数
+    kind: proposition
+    aliases: [Poisson分布の特性関数, Poisson characteristic function]
+    introduction: formal
+    introduction_aliases: ["命題（Poisson 分布の特性関数）"]
+    requires:
+      - prob.characteristic-function
+
+  - id: prob.poisson-log-remainder
+    name: 対数の二次剰余評価
+    kind: lemma
+    aliases: [対数の二次剰余評価, logarithm quadratic remainder]
+    introduction: formal
+    introduction_aliases: ["補題（対数の二次剰余評価）"]
+    requires: []
+
+  - id: prob.poisson-law-small-numbers
+    name: Bernoulli三角配列のPoisson少数法則
+    kind: theorem
+    aliases: [Poisson少数法則, Bernoulli三角配列のPoisson少数法則, law of small numbers]
+    introduction: formal
+    introduction_aliases: ["定理（Bernoulli 三角配列の Poisson 少数法則）"]
+    requires:
+      - prob.rare-bernoulli-triangular-array
+      - prob.poisson-characteristic-function
+      - prob.poisson-log-remainder
+      - prob.characteristic-function-properties
+      - prob.levy-continuity-theorem
+
+  - id: prob.poisson-vector-limit
+    name: 希少カテゴリの独立Poisson極限
+    kind: theorem
+    aliases: [希少カテゴリの独立Poisson極限, independent Poisson vector limit]
+    introduction: formal
+    introduction_aliases: ["定理（希少カテゴリの独立 Poisson 極限）"]
+    requires:
+      - prob.poisson-log-remainder
+      - prob.characteristic-function-properties

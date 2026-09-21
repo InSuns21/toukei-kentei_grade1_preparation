@@ -44,6 +44,7 @@
 24. [F0-00D0B Dedekind切断：順序の穴から実数](textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md)
 25. [F0-00D0C Cauchy構成とDedekind構成の同値](textbook/volumes/00_foundations/F0_00D0C_Cauchy構成_Dedekind構成_同値/index.md)
 26. [TOP6 全有界性・Baire・net/フィルタ](textbook/volumes/00_foundations/TOP6/index.md)
+27. [TOP7 一様構造・一様連続・Cauchy構造](textbook/volumes/00_foundations/TOP7/index.md)
 
 ### 標準実解析コア
 
@@ -118,6 +119,7 @@ VC4 までで PDE6 が必要とする法線・flux・発散定理を正本化し
 18. [F0-00D2D Lp・Hölder・Minkowski](textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md)
 19. [F0-00D2E L2完備性・Riesz–Fischer](textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md)
 20. [MT7 Lp完備性・稠密性・双対](textbook/volumes/00_foundations/MT7/index.md)
+21. [MT8 Hausdorff測度・Hausdorff次元](textbook/volumes/00_foundations/MT8/index.md)
 
 ### 関数解析
 
@@ -200,9 +202,10 @@ VC4 までで PDE6 が必要とする法線・flux・発散定理を正本化し
 13. [P5A truncation・Kronecker・一般SLLN](textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md)
 14. [P6 特性関数・Lévy連続性定理](textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md)
 15. [P6A iid中心極限定理](textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md)
-16. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
-17. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
-18. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
+16. [P6B Poisson少数法則・希少事象三角配列](textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md)
+17. [P7 統計モデル・尤度・正則性](textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md)
+18. [P7A MLE一致性・漸近正規性](textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md)
+19. [P7B QMD・LAN](textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md)
 
 ---
 
@@ -287,17 +290,20 @@ Encore III 本線では distributional solution、variational 弱解、energy so
 
 2. [STO1 確率過程・フィルトレーション・停止時刻](textbook/volumes/00_foundations/STO1/index.md)
 3. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/00_foundations/STO2/index.md)
-4. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
-5. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
-6. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
-7. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
-8. [STO7 多次元 Itô 解析・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
-9. [STO8 局所時間・Tanaka 公式](textbook/volumes/00_foundations/STO8/index.md)
-10. [STO9 SDE・強解・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
-11. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
-12. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
-13. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
-14. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
+4. [STO2A 離散時間Markov連鎖・再帰・Green核・不変測度](textbook/volumes/00_foundations/STO2A/index.md)
+5. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/00_foundations/STO3/index.md)
+6. [STO4 ブラウン運動・到達時刻・強マルコフ性](textbook/volumes/00_foundations/STO4/index.md)
+7. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/00_foundations/STO3A/index.md)
+8. [STO5 連続局所マルチンゲール・二次変分・セミマルチンゲール](textbook/volumes/00_foundations/STO5/index.md)
+9. [STO6 確率積分](textbook/volumes/00_foundations/STO6/index.md)
+10. [STO7 多次元 Itô 解析・Stratonovich](textbook/volumes/00_foundations/STO7/index.md)
+11. [STO8 局所時間・Tanaka 公式](textbook/volumes/00_foundations/STO8/index.md)
+12. [STO4A Brown運動の標本路幾何](textbook/volumes/00_foundations/STO4A/index.md)
+13. [STO9 SDE・強解・存在一意性・局所化](textbook/volumes/00_foundations/STO9/index.md)
+14. [STO10 弱解・Girsanov](textbook/volumes/00_foundations/STO10/index.md)
+15. [STO11 マルコフ過程・半群・生成作用素・マルチンゲール問題](textbook/volumes/00_foundations/STO11/index.md)
+16. [STO12 ブラウン運動のマルチンゲール表現](textbook/volumes/00_foundations/STO12/index.md)
+17. [STO13 ポアソン過程・連続時間マルコフ連鎖・ランダム測度](textbook/volumes/00_foundations/STO13/index.md)
 
 旧 Encore IV の SP / TS 個別章は backup / migration source として残しますが、現行主線からは外しています。新 STO / TSA 章は、本文・証明・直接例・演習・詳細解答・検証まで完成した章だけ順次ここへ追加します。
 

@@ -1,0 +1,23 @@
+chapter: "MT8"
+terms:
+  - term: 直径
+    english: diameter
+    meaning: 集合内の二点間距離の上限。Hausdorff measureではcover一個あたりの尺度として使う。
+  - term: delta-Hausdorff content
+    english: delta-Hausdorff content
+    meaning: 直径delta以下の可算coverについてdiameterのs乗和のinfimumを取った量。
+  - term: Hausdorff outer measure
+    english: Hausdorff outer measure
+    meaning: delta-Hausdorff contentをdeltaから0へ送った極限として得られる外測度。
+  - term: metric outer measure
+    english: metric outer measure
+    meaning: 正距離で離れた二集合に対して加法的になる距離空間上の外測度。
+  - term: Hausdorff次元
+    english: Hausdorff dimension
+    meaning: Hausdorff s-measureがinfinityから0へ切り替わる臨界指数。
+  - term: mass distribution principle
+    english: mass distribution principle
+    meaning: E上の有限測度が小集合UにC times diameter(U)^s以下の外測度しか置かないなら、EのHausdorff s-measureが正であることを導く原理。
+  - term: Cantor測度
+    english: Cantor measure
+    meaning: middle-thirds Cantor setのlevel-n基本集合へ2^{-n}の質量を割り当て、Caratheodory拡張で得る確率測度。

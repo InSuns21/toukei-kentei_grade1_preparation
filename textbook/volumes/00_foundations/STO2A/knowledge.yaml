@@ -1,0 +1,146 @@
+chapter: STO2A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO1
+  - F0-00P3A
+
+forward_references: []
+
+concepts:
+  - id: stochastic.discrete-markov-chain
+    name: 時間一様Markov連鎖
+    kind: definition
+    aliases: [時間一様Markov連鎖, 離散時間Markov連鎖, discrete-time Markov chain]
+    introduction: formal
+    introduction_aliases: ["定義（時間一様 Markov 連鎖）"]
+    requires:
+      - stochastic.stochastic-process
+      - stochastic.filtration
+      - prob.conditional-expectation
+
+  - id: stochastic.markov-hitting-return-time
+    name: Markov連鎖の到達時刻・正の帰還時刻
+    kind: definition
+    aliases: [Markov連鎖の到達時刻, Markov連鎖の正の帰還時刻, discrete Markov hitting time, discrete Markov return time]
+    introduction: formal
+    introduction_aliases: ["定義（到達時刻・正の帰還時刻）"]
+    requires:
+      - stochastic.discrete-markov-chain
+      - stochastic.stopping-time
+
+  - id: stochastic.discrete-strong-markov
+    name: 離散時間Markov連鎖のstrong Markov性
+    kind: theorem
+    aliases: [離散時間strong Markov性, discrete strong Markov property]
+    introduction: formal
+    introduction_aliases: ["定理（可算状態離散時間 Markov 連鎖の強 Markov 性）"]
+    requires:
+      - stochastic.discrete-markov-chain
+      - stochastic.markov-hitting-return-time
+      - stochastic.stopping-sigma-field
+
+  - id: stochastic.markov-recurrence
+    name: 再帰状態・過渡状態
+    kind: definition
+    aliases: [再帰状態, 過渡状態, recurrence, transience]
+    introduction: formal
+    introduction_aliases: ["定義（再帰状態・過渡状態）"]
+    requires:
+      - stochastic.markov-hitting-return-time
+
+  - id: stochastic.markov-green-kernel
+    name: Green核
+    kind: definition
+    aliases: [Green核, Green kernel]
+    introduction: formal
+    introduction_aliases: ["定義（Green 核）"]
+    requires:
+      - stochastic.discrete-markov-chain
+
+  - id: stochastic.recurrence-green-criterion
+    name: 再帰性のGreen核判定
+    kind: theorem
+    aliases: [再帰性のGreen核判定, recurrence Green criterion]
+    introduction: formal
+    introduction_aliases: ["定理（再帰性の Green 核判定）"]
+    requires:
+      - stochastic.markov-recurrence
+      - stochastic.markov-green-kernel
+      - stochastic.discrete-strong-markov
+
+  - id: stochastic.positive-null-recurrence
+    name: 正再帰・零再帰
+    kind: definition
+    aliases: [正再帰, 零再帰, positive recurrence, null recurrence]
+    introduction: formal
+    introduction_aliases: ["定義（正再帰・零再帰）"]
+    requires:
+      - stochastic.markov-recurrence
+
+  - id: stochastic.return-cycle-invariant-measure
+    name: 帰還cycleのoccupation measure
+    kind: theorem
+    aliases: [帰還cycleのoccupation measure, Kac帰還時間公式, Kac return-time formula]
+    introduction: formal
+    introduction_aliases: ["定理（帰還 cycle の occupation measure）"]
+    requires:
+      - stochastic.positive-null-recurrence
+      - prob.conditional-expectation
+      - measure.tonelli-theorem
+
+  - id: stochastic.markov-reversibility
+    name: detailed balance・可逆性
+    kind: definition
+    aliases: [detailed balance, 可逆性, reversibility]
+    introduction: formal
+    introduction_aliases: ["定義（detailed balance・可逆性）"]
+    requires:
+      - stochastic.discrete-markov-chain
+
+  - id: stochastic.markov-hitting-is-stopping-time
+    name: 離散時間の到達時刻は停止時刻
+    kind: proposition
+    aliases: [離散時間の到達時刻は停止時刻]
+    introduction: formal
+    introduction_aliases: ["命題（離散時間の到達時刻は停止時刻）"]
+    requires:
+      - stochastic.markov-hitting-return-time
+      - stochastic.stopping-time
+
+  - id: stochastic.recurrent-state-infinite-returns
+    name: 再帰状態には無限回帰還する
+    kind: proposition
+    aliases: [再帰状態には無限回帰還する]
+    introduction: formal
+    introduction_aliases: ["命題（再帰状態には無限回帰還する）"]
+    requires:
+      - stochastic.markov-recurrence
+      - stochastic.discrete-strong-markov
+
+  - id: stochastic.green-kernel-expected-visits
+    name: Green核と期待総訪問回数
+    kind: proposition
+    aliases: [Green核と期待総訪問回数, Green 核と期待総訪問回数]
+    introduction: formal
+    introduction_aliases: ["命題（Green 核と期待総訪問回数）"]
+    requires:
+      - stochastic.markov-green-kernel
+
+  - id: stochastic.recurrence-class-invariant
+    name: 再帰性は通信クラスで共通
+    kind: theorem
+    aliases: [再帰性は通信クラスで共通]
+    introduction: formal
+    introduction_aliases: ["定理（再帰性は通信クラスで共通）"]
+    requires:
+      - stochastic.recurrence-green-criterion
+
+  - id: stochastic.detailed-balance-invariance
+    name: detailed balanceは不変性を導く
+    kind: proposition
+    aliases: [detailed balanceは不変性を導く, detailed balance は不変性を導く]
+    introduction: formal
+    introduction_aliases: ["命題（detailed balance は不変性を導く）"]
+    requires:
+      - stochastic.markov-reversibility

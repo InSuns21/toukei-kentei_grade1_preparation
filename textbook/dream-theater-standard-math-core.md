@@ -67,6 +67,8 @@ flowchart TD
   TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
+  BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
+  RA5 --> UNIFORM
 
   LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
   LA2 --> LA3A["代数的双対・双対基底<br/>LA3A"]
@@ -116,6 +118,7 @@ flowchart TD
   FA5 --> FA6["compact operator<br/>FA6"]
   FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
   MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
+  MT0 --> MT8["Hausdorff測度・Hausdorff次元<br/>MT8"]
   MT6 --> HB
 ```
 
@@ -470,6 +473,17 @@ VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクト�
 
 Baire は関数解析の標準三大定理へ直接つなぎます。
 
+## TOP7 一様構造・一様連続・Cauchy構造 `advanced-standard`
+
+- entourage / uniformity と metric uniformity
+- 一様構造が誘導する位相
+- uniformly continuous map
+- Cauchy filter、complete / separated uniform space
+- total boundedness の uniform-space 版
+- 同じ位相でも異なる一様構造・異なる完備性を持ち得る具体例
+
+TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってきた「二点の一様な近さ」を抽象化します。
+
 ---
 
 # 6. 測度論：標準教科書の第2段階
@@ -539,6 +553,17 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 - 適切な仮定下での `C_c` の稠密性
 - Lp duality
 - `L2` のHilbert空間構造
+
+## MT8 Hausdorff測度・Hausdorff次元 `advanced-standard`
+
+- Hausdorff content / outer measure
+- metric outer measure と Borel 可測性
+- Hausdorff dimension の threshold property
+- Lipschitz map による dimension の単調性
+- mass distribution principle
+- middle-thirds Cantor set の dimension `log 2 / log 3`
+
+Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の Brownian path geometry へ接続します。
 
 ---
 
@@ -645,7 +670,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 通常行列式 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。LA3D の抽象行列式は LA3C から分岐する発展読順。
-4. **TOP1–TOP6（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire。
+4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
 7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。

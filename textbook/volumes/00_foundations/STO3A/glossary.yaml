@@ -1,0 +1,26 @@
+chapter: "STO3A"
+terms:
+  - term: path space
+    english: path space
+    meaning: 確率過程の標本路そのものを点として扱う関数空間。本章ではC([0,1])を使う。
+  - term: sup metric
+    english: supremum metric
+    meaning: 二つの連続関数の最大偏差sup_t |f(t)-g(t)|で定める距離。
+  - term: path-space weak convergence
+    english: weak convergence on path space
+    meaning: bounded continuous path functionalの期待値が収束するという意味での確率測度の弱収束。
+  - term: tightness
+    english: tightness
+    meaning: 任意の小さいepsilonに対し、全てのlawの確率質量を1-epsilon以上含む共通compact setを取れる性質。
+  - term: modulus of continuity
+    english: modulus of continuity
+    meaning: 距離delta以下の二時刻間での関数値差の最大値。
+  - term: polygonal interpolation
+    english: polygonal interpolation
+    meaning: random walkの格子点を直線で結んで連続経路へしたもの。
+  - term: Donsker不変原理
+    english: Donsker invariance principle
+    meaning: iid mean-zero finite-variance random walkをdiffusive scalingした連続経路がBrownian motionへ弱収束するfunctional CLT。
+  - term: Prokhorov theorem
+    english: Prokhorov theorem
+    meaning: Polish space上でtightな確率測度族がrelative weak compactnessを持つことを述べる一般定理。本章では意図的黒箱。

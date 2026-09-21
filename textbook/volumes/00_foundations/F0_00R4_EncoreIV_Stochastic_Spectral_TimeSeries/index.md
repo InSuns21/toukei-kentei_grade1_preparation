@@ -46,18 +46,21 @@ TSA1--TSA6
 
 1. [STO1：確率過程・フィルトレーション・停止時刻](../STO1/index.md) — 実装済み
 2. [STO2：離散時間マルチンゲール・不等式・収束](../STO2/index.md) — 実装済み
-3. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
-4. [STO4：ブラウン運動・到達時刻・強マルコフ性](../STO4/index.md) — 実装済み
-5. [STO5：連続局所マルチンゲール・二次変分・セミマルチンゲール](../STO5/index.md) — 実装済み
-6. [STO6：確率積分](../STO6/index.md) — 実装済み
-7. [STO7：多次元 Itô 解析・Stratonovich](../STO7/index.md) — 実装済み
-8. [STO8：局所時間・Tanaka 公式](../STO8/index.md) — 実装済み
-9. [STO9：SDE の強解・存在一意性・局所化](../STO9/index.md) — 実装済み
-10. [STO10：弱解・Girsanov](../STO10/index.md) — 実装済み
-11. [STO11：マルコフ過程・半群・生成作用素・マルチンゲール問題](../STO11/index.md) — 実装済み
-12. [STO12：ブラウン運動のマルチンゲール表現](../STO12/index.md) — 実装済み
-13. [STO13：ポアソン過程・連続時間マルコフ連鎖・ランダム測度](../STO13/index.md) — 実装済み
-14. STO14：Lévy process・jump stochastic calculus
+3. [STO2A：離散時間Markov連鎖・再帰・Green核・不変測度](../STO2A/index.md) — 実装済み add-on
+4. [STO3：確率過程の構成・Kolmogorov continuity](../STO3/index.md) — 実装済み
+5. [STO4：ブラウン運動・到達時刻・強マルコフ性](../STO4/index.md) — 実装済み
+6. [STO3A：経路空間の弱収束・tightness・Donsker](../STO3A/index.md) — 実装済み add-on
+7. [STO5：連続局所マルチンゲール・二次変分・セミマルチンゲール](../STO5/index.md) — 実装済み
+8. [STO6：確率積分](../STO6/index.md) — 実装済み
+9. [STO7：多次元 Itô 解析・Stratonovich](../STO7/index.md) — 実装済み
+10. [STO8：局所時間・Tanaka 公式](../STO8/index.md) — 実装済み
+11. [STO4A：Brown運動の標本路幾何](../STO4A/index.md) — 実装済み add-on
+12. [STO9：SDE の強解・存在一意性・局所化](../STO9/index.md) — 実装済み
+13. [STO10：弱解・Girsanov](../STO10/index.md) — 実装済み
+14. [STO11：マルコフ過程・半群・生成作用素・マルチンゲール問題](../STO11/index.md) — 実装済み
+15. [STO12：ブラウン運動のマルチンゲール表現](../STO12/index.md) — 実装済み
+16. [STO13：ポアソン過程・連続時間マルコフ連鎖・ランダム測度](../STO13/index.md) — 実装済み
+17. STO14：Lévy process・jump stochastic calculus
 
 ---
 
@@ -148,6 +151,8 @@ Encore IV の必須主線では、Malliavin calculus、rough paths、regularity 
 再編計画の正本は **textbook/DREAM_THEATER_ENCORE_IV_STOCHASTIC_ANALYSIS_RESTRUCTURE_PLAN.md** です。
 
 Phase 0 は完了し、旧個別章は archive / migration source として現行主線から外しました。
+
+追加補完として [STO2A「離散時間Markov連鎖・再帰・Green核・不変測度」](../STO2A/index.md)、[STO3A「経路空間の弱収束・tightness・Donsker」](../STO3A/index.md)、[STO4A「Brown運動の標本路幾何」](../STO4A/index.md) も実装済みです。有限状態計算を越えた可算状態Markov連鎖、random walkからBrown運動へのfunctional 中心極限定理、Brownian zero setのHausdorff dimension 1/2までを既存正本へ接続しました。
 
 Phase 1 の [STO1「確率過程・フィルトレーション・停止時刻」](../STO1/index.md)、[STO2「離散時間マルチンゲール・不等式・収束」](../STO2/index.md#def-sto2-martingale)、[STO3「確率過程の構成・Kolmogorov continuity」](../STO3/index.md#thm-sto3-kolmogorov-extension)、[STO4「ブラウン運動・到達時刻・強マルコフ性」](../STO4/index.md#thm-sto4-brownian-strong-markov) は、本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済みです。
 

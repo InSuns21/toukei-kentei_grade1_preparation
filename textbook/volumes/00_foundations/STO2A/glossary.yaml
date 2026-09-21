@@ -1,0 +1,26 @@
+chapter: "STO2A"
+terms:
+  - term: 再帰状態
+    english: recurrent state
+    meaning: その状態から出発したとき正の時刻で同じ状態へ戻る確率が1である状態。
+  - term: 過渡状態
+    english: transient state
+    meaning: 正の時刻で同じ状態へ戻らない確率が正である状態。
+  - term: Green核
+    english: Green kernel
+    meaning: n-step transition probabilityを全時刻について足した量。期待総訪問回数に等しい。
+  - term: 正再帰
+    english: positive recurrence
+    meaning: recurrentであり、正の帰還時刻の期待値が有限であること。
+  - term: 零再帰
+    english: null recurrence
+    meaning: recurrentだが、正の帰還時刻の期待値が無限であること。
+  - term: occupation measure
+    english: occupation measure
+    meaning: 一つのreturn cycleの間に各状態を訪れる回数の期待値から作る測度。
+  - term: detailed balance
+    english: detailed balance
+    meaning: pi_i p_ij = pi_j p_jiを満たす流量の釣り合い条件。不変性より強い。
+  - term: 可逆性
+    english: reversibility
+    meaning: detailed balanceを満たす不変分布のもとで時間反転しても同じ遷移構造を持つ性質。

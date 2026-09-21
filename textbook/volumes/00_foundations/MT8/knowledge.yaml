@@ -1,0 +1,124 @@
+chapter: MT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D4
+  - F0-00C1
+
+forward_references: []
+
+concepts:
+  - id: measure.hausdorff-content
+    name: delta-Hausdorff content
+    kind: definition
+    aliases: [delta-Hausdorff content, Hausdorff content]
+    introduction: formal
+    introduction_aliases: ["定義（delta-Hausdorff content）"]
+    requires:
+      - topology.metric-space
+
+  - id: measure.hausdorff-measure
+    name: Hausdorff外測度
+    kind: definition
+    aliases: [Hausdorff外測度, Hausdorff測度, Hausdorff measure]
+    introduction: formal
+    introduction_aliases: ["定義（Hausdorff 外測度）"]
+    requires:
+      - measure.hausdorff-content
+      - measure.outer-measure
+
+  - id: measure.metric-outer-measure
+    name: 距離外測度
+    kind: definition
+    aliases: [距離外測度]
+    introduction: formal
+    introduction_aliases: ["定義（距離外測度）"]
+    requires:
+      - measure.outer-measure
+      - topology.metric-space
+
+  - id: measure.hausdorff-metric-outer
+    name: Hausdorff外測度は距離外測度
+    kind: proposition
+    aliases: [Hausdorff外測度は距離外測度]
+    introduction: formal
+    introduction_aliases: ["命題（Hausdorff 外測度 は 距離外測度）"]
+    requires:
+      - measure.hausdorff-measure
+      - measure.metric-outer-measure
+
+  - id: measure.metric-outer-borel
+    name: 距離外測度のBorel可測性
+    kind: theorem
+    aliases: [距離外測度のBorel可測性, 距離外測度 Borel measurability]
+    introduction: formal
+    introduction_aliases: ["定理（距離外測度 の Borel 可測性）"]
+    requires:
+      - measure.metric-outer-measure
+      - measure.caratheodory-measurability
+
+  - id: measure.hausdorff-dimension
+    name: Hausdorff次元
+    kind: definition
+    aliases: [Hausdorff次元, Hausdorff 次元, Hausdorff dimension]
+    introduction: formal
+    introduction_aliases: ["定義（Hausdorff 次元）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: measure.hausdorff-threshold
+    name: Hausdorff measureのthreshold property
+    kind: theorem
+    aliases: [Hausdorff measureのthreshold property, Hausdorff measure threshold]
+    introduction: formal
+    introduction_aliases: ["定理（Hausdorff measure の threshold property）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: measure.hausdorff-lipschitz
+    name: Lipschitz写像によるHausdorff measure評価
+    kind: theorem
+    aliases: [Lipschitz写像によるHausdorff measure評価]
+    introduction: formal
+    introduction_aliases: ["定理（Lipschitz 写像による Hausdorff measure の評価）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: measure.mass-distribution-principle
+    name: 質量分布原理
+    kind: theorem
+    aliases: [質量分布原理, mass distribution原理]
+    introduction: formal
+    introduction_aliases: ["定理（質量分布原理）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: measure.cantor-hausdorff-dimension
+    name: middle-thirds Cantor集合のHausdorff次元
+    kind: theorem
+    aliases: [middle-thirds Cantor集合のHausdorff次元, Cantor set Hausdorff dimension]
+    introduction: formal
+    introduction_aliases: ["定理（middle-thirds Cantor 集合の Hausdorff 次元）"]
+    requires:
+      - measure.hausdorff-dimension
+      - measure.mass-distribution-principle
+      - measure.caratheodory-extension-theorem
+
+  - id: measure.hausdorff-outer-measure-theorem
+    name: Hausdorff外測度の外測度性
+    kind: theorem
+    aliases: [Hausdorff外測度の外測度性]
+    introduction: formal
+    introduction_aliases: ["定理（Hausdorff 外測度 の外測度性）"]
+    requires:
+      - measure.hausdorff-measure
+      - measure.outer-measure
+
+  - id: measure.interval-hausdorff-dimension
+    name: 区間のHausdorff次元
+    kind: theorem
+    aliases: [区間のHausdorff次元, 区間の Hausdorff 次元]
+    introduction: formal
+    introduction_aliases: ["定理（区間の Hausdorff 次元）"]
+    requires:
+      - measure.hausdorff-dimension

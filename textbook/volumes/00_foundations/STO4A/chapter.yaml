@@ -1,0 +1,48 @@
+id: "STO4A"
+title: "Brown運動の標本路幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO4
+  - STO5
+  - STO8
+  - MT8
+official_scope: []
+learning_objectives:
+  - Gaussian incrementの高次momentからBrown標本路が任意のalpha<1/2でHolderであることを導ける
+  - alpha>1/2のHolder標本路ではquadratic variationが0になることを示しBrown motionとの矛盾を説明できる
+  - Brownian total variationが無限でquadratic variationが時間になる意味をregularity scaleとして説明できる
+  - dyadic incrementsとBorel-CantelliからBrown標本路のnowhere differentiabilityを証明できる
+  - Brownian zero setがclosedで孤立点を持たずLebesgue measure zeroであることを証明できる
+  - dyadic hitting intervalsの期待個数をO(sqrt n)で評価しzero-set Hausdorff dimensionの上界1/2を証明できる
+  - Tanaka formulaとBDG inequalityからlocal timeのtemporal Holder regularityを証明できる
+  - local-time Stieltjes measureがzero setに集中することと質量分布原理からdimension下界1/2を証明できる
+  - Brownian zero setのHausdorff dimensionが1/2であることをupper/lower boundから再構成できる
+definitions: []
+theorems:
+  - { id: STO4A-PROP-01, name: Brown incrementの高次moment }
+  - { id: STO4A-THM-01, name: Brown標本路のHolder正則性：指数1/2未満 }
+  - { id: STO4A-THM-02, name: Brown標本路のHolder臨界指数：1/2より大きい指数は不可 }
+  - { id: STO4A-PROP-02, name: Brown標本路のvariation scale }
+  - { id: STO4A-THM-03, name: Brown標本路はnowhere differentiable }
+  - { id: STO4A-PROP-03, name: Brownian zero setの基本性質 }
+  - { id: STO4A-LEM-01, name: Gaussian tailの簡単な上界 }
+  - { id: STO4A-THM-04, name: Brownian zero setのdimension上界 }
+  - { id: STO4A-THM-05, name: Brownian local timeの時間Holder regularity }
+  - { id: STO4A-THM-06, name: Brownian zero setのdimension下界 }
+  - { id: STO4A-THM-07, name: Brownian zero setのHausdorff dimension }
+canonical_examples:
+  - dyadic Brownian increments
+  - quadratic variation versus Holder regularity
+  - Brownian zero set
+  - local-time Stieltjes measure
+problem_patterns:
+  - STO4A-HOLDER-1
+  - STO4A-NOWHERE-DIFFERENTIABLE-1
+  - STO4A-ZERO-SET-1
+  - STO4A-HAUSDORFF-UPPER-1
+  - STO4A-LOCAL-TIME-MEASURE-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 1.5 }

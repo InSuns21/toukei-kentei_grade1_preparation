@@ -1,0 +1,49 @@
+id: "MT8"
+title: "標準測度論 IX：Hausdorff測度・Hausdorff次元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00D4
+  - F0-00C1
+official_scope: []
+learning_objectives:
+  - delta-Hausdorff content と Hausdorff外測度 を定義し delta に関する単調性を説明できる
+  - Hausdorff外測度 の外測度性を近似 cover の結合から証明できる
+  - Hausdorff外測度 が 距離外測度 であることを正距離で離れた集合の cover 分離から証明できる
+  - 距離外測度 が Borel 集合を Caratheodory 可測にする機構を閉集合の距離帯から説明できる
+  - Hausdorff measure の threshold property を証明し Hausdorff次元 を臨界指数として定義できる
+  - Lipschitz map が Hausdorff measure を L^s 倍以下にし dimension を増やさないことを証明できる
+  - 区間の Hausdorff次元 が1であることを Lebesgue outer measure と等分 cover から証明できる
+  - 質量分布原理 を証明し Hausdorff次元 の下界評価に使える
+  - middle-thirds Cantor set の Hausdorff次元 log2/log3 を upper/lower bound の両方から証明できる
+definitions:
+  - { id: MT8-DEF-01, name: delta-Hausdorff content }
+  - { id: MT8-DEF-02, name: Hausdorff外測度 }
+  - { id: MT8-DEF-03, name: 距離外測度 }
+  - { id: MT8-DEF-04, name: Hausdorff次元 }
+theorems:
+  - { id: MT8-THM-01, name: Hausdorff外測度の外測度性 }
+  - { id: MT8-PROP-01, name: Hausdorff外測度は距離外測度 }
+  - { id: MT8-THM-02, name: 距離外測度のBorel可測性 }
+  - { id: MT8-THM-03, name: Hausdorff measureのthreshold property }
+  - { id: MT8-THM-04, name: Lipschitz写像によるHausdorff measure評価 }
+  - { id: MT8-THM-05, name: 区間のHausdorff次元 }
+  - { id: MT8-THM-06, name: 質量分布原理 }
+  - { id: MT8-THM-07, name: middle-thirds Cantor setのHausdorff次元 }
+canonical_examples:
+  - singleton
+  - countable set
+  - closed interval
+  - Lipschitz image
+  - middle-thirds Cantor set
+problem_patterns:
+  - MT8-HAUSDORFF-OUTER-1
+  - MT8-METRIC-OUTER-1
+  - MT8-THRESHOLD-1
+  - MT8-LIPSCHITZ-1
+  - MT8-MASS-DISTRIBUTION-1
+  - MT8-CANTOR-DIMENSION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

@@ -1,0 +1,37 @@
+id: "F0-00P6B"
+title: "Poisson少数法則：希少事象の三角配列"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P6
+official_scope: []
+learning_objectives:
+  - 独立Bernoulli三角配列の希少性条件と総intensity条件を区別できる
+  - Poisson分布の特性関数を確率質量関数から導出できる
+  - log(1+w)-wの二次剰余を局所Taylor評価で抑えられる
+  - max p_nkからsum p_nk^2が0へ行くことを導ける
+  - Bernoulli三角配列の一般Poisson少数法則を特性関数とLevy連続性定理から証明できる
+  - 二項分布のPoisson極限を一般定理の特殊例として回収できる
+  - 最大確率が消えない場合にBernoulli成分が極限へ残る反例を説明できる
+  - 多カテゴリ希少事象から独立Poisson vectorへの極限をjoint characteristic functionで証明できる
+definitions:
+  - { id: F0P6B-DEF-01, name: 希少Bernoulli三角配列 }
+theorems:
+  - { id: F0P6B-PROP-01, name: Poisson分布の特性関数 }
+  - { id: F0P6B-LEM-01, name: 対数の二次剰余評価 }
+  - { id: F0P6B-THM-01, name: Bernoulli三角配列のPoisson少数法則 }
+  - { id: F0P6B-THM-02, name: 希少カテゴリの独立Poisson極限 }
+canonical_examples:
+  - binomial Poisson limit
+  - non-identically distributed rare failures
+  - surviving Bernoulli component
+  - rare categorical events
+problem_patterns:
+  - P6B-TRIANGULAR-ARRAY-1
+  - P6B-LOG-REMAINDER-1
+  - P6B-POISSON-LIMIT-1
+  - P6B-POISSON-VECTOR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }
