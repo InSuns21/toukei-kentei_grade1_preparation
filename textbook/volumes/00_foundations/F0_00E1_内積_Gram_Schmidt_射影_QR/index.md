@@ -78,6 +78,21 @@ $$
 > を満たすとき、$x$ と $y$ は **直交** するといいます。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-f0-00e1-orthogonal -->
+### 1.2 例：2本のベクトルが直交することを確認する
+
+**定義の確認**：$x=(1,1)^{\mathsf T}$、$y=(1,-1)^{\mathsf T}$ とすると
+
+$$
+\langle x,y\rangle
+=
+1\cdot1+1\cdot(-1)
+=0.
+$$
+
+従って、定義により $x\perp y$ です。
+<!-- definition-example-end -->
+
 $x\perp y$ なら
 
 $$
@@ -731,6 +746,49 @@ $$
 
 > $Q\in\mathbb R^{n\times k}$ の列が正規直交し、$R\in\mathbb R^{k\times k}$ が対角成分正の上三角行列であるとき、これを $A$ の **薄いQR分解** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00e1-thin-qr -->
+### 11.1 例：薄いQR分解の条件を直接確認する
+
+**定義の確認**：次の3つの行列を考えます。
+
+$$
+Q=
+\begin{pmatrix}
+1&0\\
+0&1\\
+0&0
+\end{pmatrix},
+\qquad
+R=
+\begin{pmatrix}
+2&1\\
+0&3
+\end{pmatrix},
+\qquad
+A=
+\begin{pmatrix}
+2&1\\
+0&3\\
+0&0
+\end{pmatrix}.
+$$
+
+まず $Q^{\mathsf T}Q=I_2$ なので $Q$ の列は正規直交しています。また $R$ は上三角で、対角成分 $2,3$ は正です。さらに
+
+$$
+QR
+=
+\begin{pmatrix}
+2&1\\
+0&3\\
+0&0
+\end{pmatrix}
+=A.
+$$
+
+従って $A=QR$ は定義どおりの薄いQR分解です。
+<!-- definition-example-end -->
 
 <a id="thm-f0-00e1-qr-existence"></a>
 
