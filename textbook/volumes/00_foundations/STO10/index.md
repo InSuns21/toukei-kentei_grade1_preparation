@@ -326,19 +326,19 @@ $$
 
 ### 直接例：二点空間で測度と density process を直接確認する
 
-$
+$$
 \Omega=\{a,b\}
-$
+$$
 
 とし
 
-$
+$$
 P(a)=P(b)=\frac12,
 \qquad
 Q(a)=\frac13,
 \quad
 Q(b)=\frac23
-$
+$$
 
 とします。
 
@@ -347,94 +347,94 @@ $
 
 両測度は $a,b$ に正の質量を持つので、零確率になるのは空集合だけです。従って
 
-$
+$$
 P\ll Q,
 \qquad
 Q\ll P,
-$
+$$
 
 すなわち
 
-$
+$$
 P\sim Q.
-$
+$$
 <!-- definition-example-end -->
 
 密度 $Z_T=dQ/dP$ は一点集合で
 
-$
+$$
 Q(\{\omega\})
 =
 Z_T(\omega)P(\{\omega\})
-$
+$$
 
 を満たすため
 
-$
+$$
 Z_T(a)=\frac{1/3}{1/2}=\frac23,
 \qquad
 Z_T(b)=\frac{2/3}{1/2}=\frac43.
-$
+$$
 
 実際
 
-$
+$$
 E_P[Z_T]
 =
 \frac12\frac23+\frac12\frac43
 =
 1.
-$
+$$
 
 <!-- definition-example-start: def-sto10-density-process -->
 **density process の確認**
 
 filtration を
 
-$
+$$
 \mathcal F_0=\{\varnothing,\Omega\},
 \qquad
 \mathcal F_T=2^\Omega
-$
+$$
 
 とします。
 
 定義から
 
-$
+$$
 Z_0
 =
 E_P[Z_T]
 =
 1,
-$
+$$
 
 一方、終端時刻では $Z_T$ 自身が $\mathcal F_T$-可測なので
 
-$
+$$
 E_P[Z_T\mid\mathcal F_T]
 =
 Z_T.
-$
+$$
 
 従ってこの二時点 filtration に対する density process は
 
-$
+$$
 Z_0=1,
 \qquad
 Z_T(a)=\frac23,
 \quad
 Z_T(b)=\frac43.
-$
+$$
 <!-- definition-example-end -->
 
 また任意の確率変数 $Y$ について
 
-$
+$$
 E_Q[Y]
 =
 E_P[Z_TY].
-$
+$$
 
 同じ二点でも重みを変えれば平均は変わります。
 
