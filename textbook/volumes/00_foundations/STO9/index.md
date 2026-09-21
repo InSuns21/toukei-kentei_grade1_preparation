@@ -77,10 +77,10 @@ $$
 >
 > process $X=(X_t)_{t\ge0}$ が
 >
-$$
+$
 X_t
 =
-x
+\xi
 +
 \int_0^t b(X_s)\,ds
 +
@@ -1379,7 +1379,7 @@ $$
 $$
 X_t
 =
-\xi
+x
 +
 \int_0^t b(X_s)\,ds
 +
@@ -1499,7 +1499,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（local Lipschitz SDE の maximal strong solution）**  
-> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が local Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が local Lipschitz であり、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > このとき SDE
 >
@@ -1752,13 +1752,13 @@ linear growth は元 coefficients 自体の global bound なので、停止後�
 <!-- proof-start -->
 ### 証明
 
-maximal solution $X$ と exit times
+maximal solution $X$ と、整数 $n>|x|$ に対する exit times
 
-$$
+$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$$
+$
 
 を取ります。
 
@@ -1828,7 +1828,7 @@ $\tau_n\uparrow\tau_{\mathrm e}$ なので
 $$
 \{\tau_{\mathrm e}\le T\}
 =
-\bigcap_{n=1}^{\infty}
+\bigcap_{n>|x|}
 \{\tau_n\le T\}.
 $$
 
@@ -1929,11 +1929,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$$
+整数 $n>|x_0|$ に対して
+
+$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$$
+$
 
 とします。
 
