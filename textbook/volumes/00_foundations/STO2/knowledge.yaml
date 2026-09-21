@@ -12,7 +12,7 @@ concepts:
     kind: definition
     aliases: ["martingale", "submartingale", "supermartingale"]
     introduction: formal
-    introduction_aliases: ["定義（martingale・submartingale・supermartingale）"]
+    introduction_aliases: ["定義（マルチンゲール・劣マルチンゲール・優マルチンゲール）"]
     requires:
       - stochastic.filtration
       - stochastic.adapted-process
@@ -22,7 +22,7 @@ concepts:
     kind: definition
     aliases: ["predictable transform", "martingale transform", "離散時間predictable process"]
     introduction: formal
-    introduction_aliases: ["定義（離散時間 predictable process と predictable transform）"]
+    introduction_aliases: ["定義（離散時間予測可能過程と予測可能変換）"]
     requires:
       - stochastic.predictable-process
       - stochastic.discrete-martingale
@@ -32,7 +32,7 @@ concepts:
     kind: proposition
     aliases: ["predictable transform of a martingale", "predictable transform of a submartingale", "predictable transform の命題"]
     introduction: formal
-    introduction_aliases: ["命題（predictable transform）"]
+    introduction_aliases: ["命題（予測可能変換）"]
     requires:
       - stochastic.predictable-transform
 
@@ -41,7 +41,7 @@ concepts:
     kind: theorem
     aliases: ["stopped martingale", "stopped submartingale"]
     introduction: formal
-    introduction_aliases: ["定理（stopped martingale / submartingale）"]
+    introduction_aliases: ["定理（停止マルチンゲール / 劣マルチンゲール）"]
     requires:
       - stochastic.discrete-martingale
       - stochastic.stopping-time
@@ -52,7 +52,7 @@ concepts:
     kind: theorem
     aliases: ["bounded optional sampling", "optional sampling theorem"]
     introduction: formal
-    introduction_aliases: ["定理（bounded optional sampling）"]
+    introduction_aliases: ["定理（有界任意抽出）"]
     requires:
       - stochastic.stopped-martingale
       - stochastic.stopping-sigma-field
@@ -62,7 +62,7 @@ concepts:
     kind: theorem
     aliases: ["Doob decomposition", "predictable compensator"]
     introduction: formal
-    introduction_aliases: ["定理（離散時間 Doob decomposition）"]
+    introduction_aliases: ["定理（離散時間 Doob 分解）"]
     requires:
       - stochastic.discrete-martingale
       - stochastic.predictable-transform
@@ -72,7 +72,7 @@ concepts:
     kind: theorem
     aliases: ["Doob maximal inequality", "Doobの最大不等式"]
     introduction: formal
-    introduction_aliases: ["定理（Doob maximal inequality）"]
+    introduction_aliases: ["定理（Doob 最大不等式）"]
     requires:
       - stochastic.bounded-optional-sampling
 
@@ -81,7 +81,7 @@ concepts:
     kind: definition
     aliases: ["upcrossing", "upcrossing number"]
     introduction: formal
-    introduction_aliases: ["定義（upcrossing number）"]
+    introduction_aliases: ["定義（上向き横断回数）"]
     requires:
       - stochastic.discrete-martingale
 
@@ -90,7 +90,7 @@ concepts:
     kind: theorem
     aliases: ["Doob upcrossing inequality", "upcrossing inequality"]
     introduction: formal
-    introduction_aliases: ["定理（Doob upcrossing inequality）"]
+    introduction_aliases: ["定理（Doob 上向き横断不等式）"]
     requires:
       - stochastic.upcrossing-number
       - stochastic.predictable-transform-theorem
@@ -100,7 +100,7 @@ concepts:
     kind: theorem
     aliases: ["submartingale convergence theorem", "martingale a.s. convergence"]
     introduction: formal
-    introduction_aliases: ["定理（submartingale a.s. convergence）"]
+    introduction_aliases: ["定理（劣マルチンゲール a.s. convergence）"]
     requires:
       - stochastic.doob-upcrossing-inequality
 
@@ -109,7 +109,7 @@ concepts:
     kind: theorem
     aliases: ["UI martingale convergence", "uniformly integrable martingale convergence theorem"]
     introduction: formal
-    introduction_aliases: ["定理（UI martingale convergence）"]
+    introduction_aliases: ["定理（UI マルチンゲール convergence）"]
     requires:
       - stochastic.submartingale-as-convergence
 
@@ -118,7 +118,7 @@ concepts:
     kind: corollary
     aliases: ["UI optional stopping", "uniformly integrable optional stopping"]
     introduction: formal
-    introduction_aliases: ["系（UI を仮定した optional stopping）"]
+    introduction_aliases: ["系（UI を仮定した任意停止）"]
     requires:
       - stochastic.bounded-optional-sampling
       - stochastic.ui-martingale-convergence
