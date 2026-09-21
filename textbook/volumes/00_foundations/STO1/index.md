@@ -73,7 +73,7 @@ $$
 <a id="def-sto1-measurable-map"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\mathcal F/\mathcal E$ 可測）**  
+> **定義（可測写像）**  
 > 可測空間 $(\Omega,\mathcal F)$ と $(E,\mathcal E)$ の間の写像
 >
 $$
@@ -86,10 +86,40 @@ $$
 f^{-1}(B)\in\mathcal F
 $$
 >
-> を満たすとき、$f$ は **$\mathcal F/\mathcal E$ 可測**であるという。
+> を満たすとき、$f$ を **可測写像**といい、$f$ は **$\mathcal F/\mathcal E$ 可測**であるという。
 <!-- formal-statement-end -->
 
 $(E,\mathcal E)=(\mathbb R,\mathcal B(\mathbb R))$ の場合は、[実数値確率変数の定義](../F0_00P1_確率空間_確率変数_分布/index.md#def-f0-00p1-random-variable)で使った可測性と同じです。
+
+<!-- definition-example-start: def-sto1-measurable-map -->
+### 直接例：有限集合間の可測写像
+
+$$
+\Omega=\{H,T\},
+\qquad
+\mathcal F=2^\Omega,
+\qquad
+E=\{0,1\},
+\qquad
+\mathcal E=2^E
+$$
+
+とし、
+
+$$
+f(H)=1,
+\qquad
+f(T)=0
+$$
+
+とします。任意の $B\in\mathcal E$ に対して $f^{-1}(B)$ は
+
+$$
+\varnothing,\ \{H\},\ \{T\},\ \Omega
+$$
+
+のいずれかで、すべて $\mathcal F$ に属します。したがって $f$ は $\mathcal F/\mathcal E$ 可測です。
+<!-- definition-example-end -->
 
 <a id="def-sto1-stochastic-process"></a>
 
