@@ -569,7 +569,7 @@ $$
 
 を作ります。
 
-STO6 の bracket 公式から
+[確率積分の二次変分公式](../STO6/index.md#thm-sto6-integral-bracket)から
 
 $$
 [M]_t
