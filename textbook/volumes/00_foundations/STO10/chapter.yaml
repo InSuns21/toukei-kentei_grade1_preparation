@@ -1,0 +1,56 @@
+id: "STO10"
+title: "Encore IV Stochastic Analysis X：weak solution・Girsanov"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO5
+  - STO6
+  - STO7
+  - STO9
+  - F0-00P2
+  - F0-00P3A
+  - F0-00P4A
+official_scope: []
+learning_objectives:
+  - Brown運動・確率空間・filtrationも解の一部として選ぶweak solutionを定義し、strong solutionとの量化順序の違いを説明できる
+  - 同値な確率測度とRadon--Nikodym密度を定義し、density processが条件付き期待値によるmartingaleになることを導ける
+  - stochastic exponentialが正のlocal martingaleに留まる場合と真のmartingaleになる場合を区別し、bounded-energy条件とNovikov条件の役割を説明できる
+  - Girsanov theoremをcontinuous local martingaleの変換とLevy characterizationから証明し、測度変換後のBrown運動を同定できる
+  - SDEのdriftがdiffusionの像に入る場合にGirsanovでdriftを除去し、符号を誤らず変換式を書ける
+  - 定数driftのBrown運動でdensity processと変換後のBrown運動を直接計算できる
+  - bounded Borel driftと単位diffusionを持つSDEについてBrown運動から測度を作りweak existenceを構成できる
+  - uniqueness in lawを定義し、pathwise uniqueness・strong existence・weak existenceとの違いを整理できる
+  - Yamada--Watanabe theoremの位置付けと、完全証明を本章で黒箱化する理由を説明できる
+definitions:
+  - { id: STO10-DEF-01, name: "weak solution" }
+  - { id: STO10-DEF-02, name: "equivalent probability measures・density process" }
+  - { id: STO10-DEF-03, name: "uniqueness in law" }
+theorems:
+  - { id: STO10-PROP-01, name: "strong solutionはweak solutionを与える" }
+  - { id: STO10-PROP-02, name: "density processのmartingale性" }
+  - { id: STO10-LEM-01, name: "bounded quadratic energyでstochastic exponentialは真のmartingale" }
+  - { id: STO10-THM-01, name: "Novikov condition" }
+  - { id: STO10-LEM-02, name: "Girsanov local-martingale transform" }
+  - { id: STO10-THM-02, name: "Girsanov theorem" }
+  - { id: STO10-COR-01, name: "Girsanovによるdrift removal" }
+  - { id: STO10-THM-03, name: "bounded Borel drift SDEのfinite-horizon weak existence" }
+  - { id: STO10-THM-04, name: "Yamada--Watanabe theoremの位置付け" }
+canonical_examples:
+  - "有限標本空間での同値測度とRadon--Nikodym密度"
+  - "constant drift Brownian motionとexponential density"
+  - "b=sigma thetaのdrift removal"
+  - "bounded Borel drift dX=b(X)dt+dBのweak construction"
+  - "正のlocal martingaleだけではdensityにならないという失敗機構"
+problem_patterns:
+  - STO10-WEAK-SOLUTION-1
+  - STO10-DENSITY-1
+  - STO10-CONSTANT-DRIFT-1
+  - STO10-GIRSANOV-SIGN-1
+  - STO10-CHANGE-MEASURE-MARTINGALE-1
+  - STO10-WEAK-EXISTENCE-1
+  - STO10-UNIQUENESS-RELATIONS-1
+  - STO10-DISCONTINUOUS-DRIFT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.5, exercises: 7.0, review: 1.5 }
