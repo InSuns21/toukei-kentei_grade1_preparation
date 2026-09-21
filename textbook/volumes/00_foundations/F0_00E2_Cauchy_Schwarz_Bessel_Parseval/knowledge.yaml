@@ -6,6 +6,7 @@ prerequisites:
 
 # 冒頭の Hilbert 空間への言及は後続の無限次元化の予告。
 forward_references:
+  - functional.norm
   - functional.hilbert-space-recap-c1
 
 concepts:
