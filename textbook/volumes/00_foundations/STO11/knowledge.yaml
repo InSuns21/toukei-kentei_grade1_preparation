@@ -47,6 +47,16 @@ concepts:
       - stochastic.markov-semigroup
       - prob.tower-property
 
+  - id: stochastic.lipschitz-sde-markov-family
+    name: global Lipschitz SDEのsolution familyはMarkov
+    kind: proposition
+    aliases: ["Markov property of Lipschitz SDE", "SDE solution family is Markov"]
+    introduction: formal
+    introduction_aliases: ["命題（global Lipschitz SDE の solution family は Markov）"]
+    requires:
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+      - stochastic.brownian-markov-property
+
   - id: stochastic.markov-generator
     name: infinitesimal generator
     kind: definition
@@ -64,6 +74,7 @@ concepts:
     introduction_aliases: ["命題（Itô diffusion の generator）"]
     requires:
       - stochastic.markov-generator
+      - stochastic.lipschitz-sde-markov-family
       - stochastic.brownian-sde
       - stochastic.ito-process-formula
 
