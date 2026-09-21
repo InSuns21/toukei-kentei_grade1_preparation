@@ -36,20 +36,20 @@ concepts:
       - analysis.riemann-integrable
 
   - id: vector-calculus.scalar-line-integral
-    name: scalar line integral
+    name: スカラー線積分
     kind: definition
     aliases: [scalar line integral, 第一種線積分]
     introduction: formal
-    introduction_aliases: ["定義（scalar line integral）"]
+    introduction_aliases: ["定義（スカラー線積分）"]
     requires:
       - vector-calculus.arc-length-unit-tangent
 
   - id: vector-calculus.vector-line-integral
-    name: vector line integral
+    name: ベクトル線積分
     kind: definition
     aliases: [vector line integral, work integral, circulation, 第二種線積分]
     introduction: formal
-    introduction_aliases: ["定義（vector line integral）"]
+    introduction_aliases: ["定義（ベクトル線積分）"]
     requires:
       - vector-calculus.regular-curve
 
@@ -65,7 +65,7 @@ concepts:
       - analysis.ftc-2
 
   - id: vector-calculus.conservative-potential
-    name: 保存場・potential
+    name: 保存場・ポテンシャル
     kind: definition
     aliases: [保存場, conservative field, scalar potential, potential]
     introduction: inline
@@ -92,19 +92,19 @@ concepts:
       - vector-calculus.path-independence
 
   - id: vector-calculus.star-shaped-domain
-    name: ベクトル解析の star-shaped domain
+    name: ベクトル解析の星型領域
     kind: definition
     aliases: [vector-calculus star-shaped domain, ベクトル解析の星型領域]
     introduction: formal
-    introduction_aliases: ["定義（star-shaped domain）"]
+    introduction_aliases: ["定義（星型領域）"]
     requires: []
 
   - id: vector-calculus.poincare-star-shaped
-    name: star-shaped domain上の初等Poincare lemma
+    name: 星型領域上の初等 Poincaré の補題
     kind: theorem
     aliases: [Poincare lemma, Poincaré lemma, 星型領域のPoincare補題]
     introduction: formal
-    introduction_aliases: ["定理（star-shaped domain 上の初等 Poincaré lemma）"]
+    introduction_aliases: ["定理（星型領域上の初等 Poincaré の補題）"]
     requires:
       - vector-calculus.star-shaped-domain
       - vector-calculus.curl
