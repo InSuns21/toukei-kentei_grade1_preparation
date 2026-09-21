@@ -21,11 +21,11 @@ concepts:
       - stochastic.ucp-convergence
 
   - id: stochastic.tanaka-formula
-    name: Brownian local timeの存在・Tanaka formula
+    name: Brownian local timeの存在・Tanaka 公式
     kind: theorem
-    aliases: ["Tanaka formula", "Tanaka's formula"]
+    aliases: ["Tanaka 公式", "Tanaka's formula"]
     introduction: formal
-    introduction_aliases: ["定理（ブラウン局所時間の存在・Tanaka formula）"]
+    introduction_aliases: ["定理（ブラウン局所時間の存在・Tanaka 公式）"]
     requires:
       - stochastic.brownian-local-time
       - stochastic.multidimensional-ito-formula
@@ -33,11 +33,11 @@ concepts:
       - stochastic.continuous-doob-l2
 
   - id: stochastic.tanaka-positive-negative-parts
-    name: positive / negative part Tanaka formula
+    name: positive / negative part Tanaka 公式
     kind: corollary
-    aliases: ["positive part Tanaka formula", "negative part Tanaka formula"]
+    aliases: ["positive part Tanaka 公式", "negative part Tanaka 公式"]
     introduction: formal
-    introduction_aliases: ["系（positive / 負部分の Tanaka formula）"]
+    introduction_aliases: ["系（正部分・負部分の Tanaka 公式）"]
     requires:
       - stochastic.tanaka-formula
 
@@ -65,7 +65,7 @@ concepts:
     kind: lemma
     aliases: ["Brownian interval occupation moment estimate"]
     introduction: formal
-    introduction_aliases: ["補題（区間滞在時間モーメント bound）"]
+    introduction_aliases: ["補題（区間滞在時間のモーメント評価）"]
     requires:
       - stochastic.brownian-motion
       - measure.tonelli-theorem
@@ -87,7 +87,7 @@ concepts:
     kind: theorem
     aliases: ["occupation density formula", "Brownian occupation time formula"]
     introduction: formal
-    introduction_aliases: ["定理（滞在時間 formula）"]
+    introduction_aliases: ["定理（滞在時間公式）"]
     requires:
       - stochastic.brownian-local-time-spatial-continuity
       - measure.tonelli-theorem
@@ -113,11 +113,11 @@ concepts:
     requires: []
 
   - id: stochastic.levy-transform-brownian
-    name: Levy transformはBrown運動
+    name: Lévy 変換はBrown運動
     kind: proposition
-    aliases: ["Levy transform of Brownian motion"]
+    aliases: ["Lévy 変換 of Brownian motion"]
     introduction: formal
-    introduction_aliases: ["命題（Levy transform はブラウン運動）"]
+    introduction_aliases: ["命題（Lévy 変換 はブラウン運動）"]
     requires:
       - stochastic.tanaka-formula
       - stochastic.brownian-level-set-zero-time
