@@ -880,7 +880,7 @@ $$
 $$
 <!-- proof-end -->
 
-逆に「solenoidal なら global vector potential が必ず存在する」とは、領域の topology と境界・減衰条件を無視しては言えません。この存在論は VC8 の Helmholtz decomposition で正本化します。
+逆に「solenoidal なら global vector potential が必ず存在する」とは、領域の topology と境界・減衰条件を無視しては言えません。この逆向きの存在論は後続の分解定理の章で正本化します。
 
 <a id="prop-vc5-vector-potential-gauge"></a>
 
