@@ -1290,7 +1290,7 @@ $$
 - Gauss--Ostrogradsky theorem：三次元で boundary flux と volume divergence を結ぶ。
 - conservation law：divergence theorem を時間発展へ適用したもの。
 
-次の VC5 では、残るもう一つの積分定理 Stokes theorem により
+次の VC5 では、残るもう一つの積分定理 [Kelvin--Stokes theorem](../VC5/index.md#thm-vc5-stokes) により
 
 $$
 \operatorname{curl}
