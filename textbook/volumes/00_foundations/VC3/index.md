@@ -525,7 +525,7 @@ F(r)\cdot(r_u\times r_v)
 \end{aligned}
 $$
 
-[RA7 の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) を適用すると
+[Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) を適用すると
 
 $$
 \iint_U
