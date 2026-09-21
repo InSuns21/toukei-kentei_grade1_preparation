@@ -1,0 +1,20 @@
+chapter: "VC6"
+terms:
+  - term: 直交曲線座標
+    english: orthogonal curvilinear coordinates
+    meaning: 座標写像の三本のcoordinate tangent vectorsが各点で互いに直交する曲線座標。
+  - term: scale factor
+    english: scale factor
+    meaning: coordinate tangent vectorの長さhi=|∂r/∂qi|。Lamé coefficientとも呼ばれ、線素・面素・体積要素と微分演算子を決める。
+  - term: 位置依存基底
+    english: position-dependent orthonormal basis
+    meaning: ei=(1/hi)∂r/∂qiで得られる単位basis。Cartesian basisと異なり座標位置によって向きが変わり得る。
+  - term: 円柱座標
+    english: cylindrical coordinates
+    meaning: x=rho cos phi, y=rho sin phi, z=zで表す直交曲線座標。scale factorsは1,rho,1。
+  - term: 球座標
+    english: spherical coordinates
+    meaning: x=r sin theta cos phi, y=r sin theta sin phi, z=r cos thetaで表す直交曲線座標。scale factorsは1,r,r sin theta。
+  - term: vector Laplacian
+    english: vector Laplacian
+    meaning: Euclidean空間でgrad div A - curl curl Aとして扱えるvector fieldのLaplacian。曲線座標ではbasis variationの項を含む。
