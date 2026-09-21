@@ -1,0 +1,14 @@
+chapter: "ODE11"
+terms:
+  - term: 局所分岐
+    english: local bifurcation
+    meaning: パラメータ通過により平衡点や周期軌道の局所的な個数・安定性が質的に変化する現象。
+  - term: Poincaré 写像
+    english: Poincare return map
+    meaning: 周期軌道に横断する断面から次の帰還点を対応させる局所写像。
+  - term: 周期軌道の乗数
+    english: Floquet multiplier of a periodic orbit
+    meaning: Poincaré 写像の固定点での微分として周期軌道の横断安定性を測る量。
+  - term: Hopf 正規形
+    english: Hopf normal form
+    meaning: 半径方程式と回転を分離して周期軌道の生成を明示する標準モデル。
