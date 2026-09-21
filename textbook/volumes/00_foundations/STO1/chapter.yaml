@@ -1,5 +1,5 @@
 id: "STO1"
-title: "Encore IV Stochastic Analysis I：確率過程・filtration・stopping time"
+title: "Encore IV 確率解析 I：確率過程・フィルトレーション・停止時刻"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -7,44 +7,44 @@ prerequisites:
   - F0-00P3C
 official_scope: []
 learning_objectives:
-  - 確率過程を確率変数族として定義し、sample path・modification・indistinguishabilityを区別できる
-  - filtrationとusual conditionsを定義し、有限情報モデルで各sigma代数を直接確認できる
-  - adapted processとnatural filtrationを定義し、時刻ごとの可測性を検証できる
-  - progressive measurabilityを定義し、right-continuous adapted processがprogressiveであることを証明できる
-  - predictable sigma-fieldとpredictable processを定義し、simple predictable processの可測性を生成集合から確認できる
-  - stopping timeを定義し、離散時間の初到達時刻と連続pathのclosed-set hitting timeがstopping timeになることを証明できる
-  - stopping timeのmin/max演算を扱い、tau∧tのF_t可測性とt∨tauが一般にF_t可測でないことを説明できる
-  - stopped processと停止時刻までのsigma代数 F_tau を定義し、F_tauがsigma代数であることと S<=T なら F_S subset F_T を証明できる
-  - progressive processをstopping timeで評価した X_tau のF_tau可測性と stopped processのadaptednessを証明できる
-  - future informationを使うrandom timeがstopping timeでない理由を情報構造から判定できる
+  - 確率過程を確率変数族として定義し、標本路・修正・識別不能性を区別できる
+  - フィルトレーションと通常条件を定義し、有限情報モデルで各sigma代数を直接確認できる
+  - 適合過程と自然なフィルトレーションを定義し、時刻ごとの可測性を検証できる
+  - 発展的可測性を定義し、right-continuous 適合過程がprogressiveであることを証明できる
+  - 予測可能 σ-代数と予測可能過程を定義し、単純予測可能過程の可測性を生成集合から確認できる
+  - 停止時刻を定義し、離散時間の初到達時刻と連続pathのclosed-set 到達時刻が停止時刻になることを証明できる
+  - 停止時刻の最小・最大演算を扱い、tau∧t の F_t 可測性と t∨tau が一般に F_t 可測でないことを説明できる
+  - 停止過程と停止時刻までのsigma代数 F_tau を定義し、F_tauがsigma代数であることと S<=T なら F_S subset F_T を証明できる
+  - progressive processを停止時刻で評価した X_tau のF_tau可測性と停止過程のadaptednessを証明できる
+  - 未来情報を使うランダム時刻が停止時刻でない理由を情報構造から判定できる
 definitions:
   - { id: STO1-DEF-00, name: "可測写像（F/E 可測）" }
   - { id: STO1-DEF-00A, name: "部分 σ 代数" }
   - { id: STO1-DEF-00B, name: "P に関して complete な部分 σ 代数" }
-  - { id: STO1-DEF-01, name: "stochastic process と sample path" }
-  - { id: STO1-DEF-02, name: "modification と indistinguishability" }
-  - { id: STO1-DEF-03, name: "filtration と usual conditions" }
-  - { id: STO1-DEF-04, name: "adapted process と natural filtration" }
+  - { id: STO1-DEF-01, name: "確率過程と標本路" }
+  - { id: STO1-DEF-02, name: "修正と識別不能性" }
+  - { id: STO1-DEF-03, name: "フィルトレーションと通常条件" }
+  - { id: STO1-DEF-04, name: "適合過程と自然なフィルトレーション" }
   - { id: STO1-DEF-05, name: "progressively measurable process" }
-  - { id: STO1-DEF-06, name: "predictable sigma-field と predictable process" }
-  - { id: STO1-DEF-07, name: "stopping time" }
+  - { id: STO1-DEF-06, name: "予測可能 σ-代数と予測可能過程" }
+  - { id: STO1-DEF-07, name: "停止時刻" }
   - { id: STO1-DEF-07A, name: "ランダム時刻の最小・最大記法" }
-  - { id: STO1-DEF-08, name: "stopped process" }
-  - { id: STO1-DEF-09, name: "stopping time までの sigma-field" }
+  - { id: STO1-DEF-08, name: "停止過程" }
+  - { id: STO1-DEF-09, name: "停止時刻までの sigma-field" }
 theorems:
-  - { id: STO1-THM-01, name: "right-continuous adapted process is progressive" }
-  - { id: STO1-PROP-01, name: "predictable process is progressive" }
-  - { id: STO1-PROP-03, name: "stopping timeの最小・最大と固定時刻minの可測性" }
-  - { id: STO1-THM-02, name: "continuous adapted process closed-set hitting time" }
+  - { id: STO1-THM-01, name: "right-continuous 適合過程 is progressive" }
+  - { id: STO1-PROP-01, name: "予測可能過程 is progressive" }
+  - { id: STO1-PROP-03, name: "停止時刻の最小・最大と固定時刻との最小の可測性" }
+  - { id: STO1-THM-02, name: "continuous 適合過程 closed-set 到達時刻" }
   - { id: STO1-PROP-02, name: "F_tau is a sigma-field and monotone in stopping times" }
-  - { id: STO1-THM-03, name: "evaluation of a progressive process at a stopping time" }
+  - { id: STO1-THM-03, name: "evaluation of a progressive process at a 停止時刻" }
 canonical_examples:
-  - "two-coin filtration"
-  - "random walk natural filtration"
-  - "modification but not indistinguishable process"
-  - "simple predictable process"
-  - "first hitting time"
-  - "future-dependent non-stopping time"
+  - "two-coin フィルトレーション"
+  - "random walk 自然なフィルトレーション"
+  - "修正 but not indistinguishable process"
+  - "単純予測可能過程"
+  - "first 到達時刻"
+  - "future-dependent non-停止時刻"
 problem_patterns:
   - STO1-FILTRATION-1
   - STO1-MODIFICATION-1

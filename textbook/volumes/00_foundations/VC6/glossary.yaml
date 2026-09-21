@@ -1,0 +1,20 @@
+chapter: "VC6"
+terms:
+  - term: 直交曲線座標
+    english: orthogonal curvilinear coordinates
+    meaning: 座標写像の三本の座標接ベクトルが各点で互いに直交する曲線座標。
+  - term: 尺度因子
+    english: scale factor
+    meaning: 座標接ベクトルの長さhi=|∂r/∂qi|。Lamé 係数とも呼ばれ、線素・面素・体積要素と微分演算子を決める。
+  - term: 位置依存基底
+    english: position-dependent orthonormal basis
+    meaning: ei=(1/hi)∂r/∂qiで得られる単位基底。Cartesian 基底と異なり座標位置によって向きが変わり得る。
+  - term: 円柱座標
+    english: cylindrical coordinates
+    meaning: x=rho cos phi, y=rho sin phi, z=zで表す直交曲線座標。尺度因子は1,rho,1。
+  - term: 球座標
+    english: spherical coordinates
+    meaning: x=r sin theta cos phi, y=r sin theta sin phi, z=r cos thetaで表す直交曲線座標。尺度因子は1,r,r sin theta。
+  - term: ベクトル・ラプラシアン
+    english: vector Laplacian
+    meaning: Euclidean 空間で勾配・発散・回転から構成できるベクトル場のラプラシアン。曲線座標では基底の変化による項を含む。

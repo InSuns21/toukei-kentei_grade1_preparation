@@ -1,0 +1,23 @@
+chapter: "VC2"
+terms:
+  - term: 正則曲線
+    english: regular curve
+    meaning: パラメータ微分が消えないC1曲線。局所的に接方向が定まる。
+  - term: スカラー線積分
+    english: scalar line integral
+    meaning: スカラー場を曲線の弧長に沿って積分するもの。曲線の向きを反転しても値は変わらない。
+  - term: ベクトル線積分
+    english: line integral of a vector field
+    meaning: ベクトル場の接方向成分を曲線に沿って積分するもの。仕事や循環を表し、向きを反転すると符号が変わる。
+  - term: 保存場
+    english: conservative field
+    meaning: あるスカラーポテンシャルの勾配として書けるベクトル場。
+  - term: 経路独立
+    english: path independence
+    meaning: 同じ始点と終点を結ぶ曲線ならベクトル線積分が経路によらず同じ値になる性質。
+  - term: 星型領域
+    english: star-shaped domain
+    meaning: ある中心点から領域内の任意の点へ結ぶ線分が全て領域内に残る領域。
+  - term: 単連結
+    english: simply connected
+    meaning: 本系列では任意の閉曲線を領域内で一点へ縮められることを表す。一般位相論の詳細は後続へ送る。

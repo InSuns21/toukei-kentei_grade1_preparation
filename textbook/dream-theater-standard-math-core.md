@@ -49,6 +49,17 @@ flowchart TD
   RA5 --> RA8["Arzela-Ascoli・Stone-Weierstrass<br/>RA8"]
   TOP5 --> RA8
 
+  RA6A --> VC1["ベクトル解析 I<br/>grad・div・curl・Laplacian<br/>VC1"]
+  VC1 --> VC2["ベクトル解析 II<br/>曲線・線積分・保存場<br/>VC2"]
+  TOP3 --> VC2
+  VC1 --> VC3["ベクトル解析 III<br/>曲面・向き・flux<br/>VC3"]
+  RA7 --> VC3
+  LA3C --> VC3
+  VC2 --> VC4["ベクトル解析 IV<br/>Green・Gauss・保存則<br/>VC4"]
+  VC3 --> VC4
+  VC4 --> VC5["ベクトル解析 V<br/>Stokes・curl・topology<br/>VC5"]
+  VC5 --> VC6["ベクトル解析 VI<br/>直交曲線座標<br/>VC6"]
+
   TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
   TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
   TOP2 --> TOP3["連結性<br/>TOP3"]
@@ -56,6 +67,8 @@ flowchart TD
   TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
   TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
+  BAIRE --> UNIFORM["一様構造・一様連続・Cauchy構造<br/>TOP7"]
+  RA5 --> UNIFORM
 
   LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
   LA2 --> LA3A["代数的双対・双対基底<br/>LA3A"]
@@ -105,6 +118,7 @@ flowchart TD
   FA5 --> FA6["compact operator<br/>FA6"]
   FA6 --> FA7["compact self-adjoint spectral theorem<br/>Fredholm alternative<br/>FA7"]
   MT5 --> MT6["C0版Riesz-Markov・有限符号付きRadon測度<br/>MT6"]
+  MT0 --> MT8["Hausdorff測度・Hausdorff次元<br/>MT8"]
   MT6 --> HB
 ```
 
@@ -326,6 +340,87 @@ flowchart TD
 
 ---
 
+
+# 4A. ベクトル解析：Euclidean な場と積分定理
+
+多変数微分・多重積分を、曲線・曲面・場の積分へ接続します。PDE6 内に局所実装されていた法線・flux・発散定理を独立した canonical series へ移し、後続の PDE・流体・電磁気・連続体力学から再利用できる形にします。
+
+## VC1 ベクトル場と微分演算子 `core`
+
+- scalar/vector field、gradient、divergence、curl、Laplacian
+- level surface と gradient の法線性
+- `curl grad = 0`、`div curl = 0`、主要 product rules
+- 微小 flux / circulation による局所的意味
+
+実装: [VC1](volumes/00_foundations/VC1/index.md)
+
+## VC2 曲線・線積分・保存場 `core`
+
+- regular curve、arc length、scalar/vector line integral
+- 線積分の基本定理
+- conservative / potential / path independence
+- star-shaped domain 上の初等 Poincaré lemma
+- punctured plane の irrotational 非 conservative 反例
+
+実装: [VC2](volumes/00_foundations/VC2/index.md)
+
+## VC3 曲面・向き・曲面積分・flux `core`
+
+- regular parametrized surface、接平面、法線、orientation
+- surface area element と再パラメータ表示不変性
+- scalar surface integral、oriented flux
+- graph / sphere / cylinder の具体計算
+
+実装: [VC3](volumes/00_foundations/VC3/index.md)
+
+## VC4 Green・Gauss--Ostrogradsky と保存則 `core`
+
+- Green theorem の circulation / flux form
+- Gauss--Ostrogradsky divergence theorem
+- graph domain と finite decomposition、内部境界 flux の相殺
+- 特異場の punctured-domain 処理
+- 局所保存則と積分保存則
+
+実装: [VC4](volumes/00_foundations/VC4/index.md)
+
+## VC5 Stokes theorem・curl・topology `core-advanced-standard`
+
+- Kelvin--Stokes theoremをGreen theoremから古典的に証明
+- 曲面orientationから誘導されるboundary orientation
+- finite patch decompositionと内部境界の相殺
+- curlの局所循環密度としての意味
+- 穴あき領域でglobal potentialが壊れる機構
+- irrotational / solenoidal / vector potential / gauge freedomの入口
+
+実装: [VC5](volumes/00_foundations/VC5/index.md)
+
+## VC6 直交曲線座標 `core-advanced-standard`
+
+- orthogonal curvilinear coordinatesとscale factors
+- 線素・面素・体積要素とJacobian
+- scale factorからgrad / div / curl / scalar Laplacianを導出
+- cylindrical / spherical coordinates
+- 位置依存basisとvector Laplacianの注意
+- radial / inverse-square / axisymmetric fieldの典型計算
+
+実装: [VC6](volumes/00_foundations/VC6/index.md)
+
+## VC7 添字記法・直交基底・成分変換 `core-advanced-standard`
+
+- Einstein の総和規約、自由添字・ダミー添字
+- Kronecker のデルタ、Levi--Civita 記号、縮約公式
+- 直交デカルト基底変換と二階デカルトテンソル
+- 二項積、縮約、跡、対称・反対称分解
+- ベクトル場の勾配と二階テンソル場の発散
+- 二階テンソル版 Gauss--Ostrogradsky の発散定理
+- 応力テンソル、慣性テンソル、二階等方テンソル
+
+実装: [VC7](volumes/00_foundations/VC7/index.md)
+
+VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 で連続体力学・流体・電磁気へ進むための デカルト座標の添字計算を整備しました。Helmholtz 分解と数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC8--VC9 で後続実装します。
+
+---
+
 # 5. 一般位相：標準教科書コア
 
 現行 B1 には位相空間・部分空間位相・位相的収束・連続写像に加え、Hausdorff性と極限一意性まで入っています。以下を補います。
@@ -389,6 +484,17 @@ flowchart TD
 - net / filter：一般位相における収束の完全な言語
 
 Baire は関数解析の標準三大定理へ直接つなぎます。
+
+## TOP7 一様構造・一様連続・Cauchy構造 `advanced-standard`
+
+- entourage / uniformity と metric uniformity
+- 一様構造が誘導する位相
+- uniformly continuous map
+- Cauchy filter、complete / separated uniform space
+- total boundedness の uniform-space 版
+- 同じ位相でも異なる一様構造・異なる完備性を持ち得る具体例
+
+TOP6 の filter と全有界性を受け、距離空間で暗黙に使ってきた「二点の一様な近さ」を抽象化します。
 
 ---
 
@@ -459,6 +565,17 @@ Baire は関数解析の標準三大定理へ直接つなぎます。
 - 適切な仮定下での `C_c` の稠密性
 - Lp duality
 - `L2` のHilbert空間構造
+
+## MT8 Hausdorff測度・Hausdorff次元 `advanced-standard`
+
+- Hausdorff content / outer measure
+- metric outer measure と Borel 可測性
+- Hausdorff dimension の threshold property
+- Lipschitz map による dimension の単調性
+- mass distribution principle
+- middle-thirds Cantor set の dimension `log 2 / log 3`
+
+Caratheodory 外測度をスケール依存の幾何量へ拡張し、後続の Brownian path geometry へ接続します。
 
 ---
 
@@ -565,7 +682,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 通常行列式 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。LA3D の抽象行列式は LA3C から分岐する発展読順。
-4. **TOP1–TOP6（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire。
+4. **TOP1–TOP7（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire/net/filter → 一様構造。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
 7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。

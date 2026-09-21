@@ -1,0 +1,50 @@
+id: "STO2A"
+title: "離散時間Markov連鎖：再帰・Green核・不変測度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO1
+  - F0-00P3A
+official_scope: []
+learning_objectives:
+  - 可算状態時間一様Markov連鎖を自然なfiltrationに対する条件付き確率で定義できる
+  - hitting timeとpositive return timeがstopping timeであることを証明できる
+  - 離散時間strong Markov propertyを停止時刻の値ごとの分解から証明できる
+  - recurrenceとtransienceをreturn probabilityで定義し recurrent stateへの無限回帰還を説明できる
+  - Green kernelを期待総訪問回数として表現できる
+  - recurrenceとG(i,i)の発散の同値をstrong Markov propertyから証明できる
+  - recurrenceがcommunication classで共通することを証明できる
+  - positive recurrenceとnull recurrenceを平均帰還時間で区別できる
+  - return cycle occupation measureからinvariant measureとKac型公式を導ける
+  - detailed balanceからinvariant distributionを導ける
+  - Z上の単純対称random walkがnull recurrentであることをGreen kernelと不変分布不存在から示せる
+definitions:
+  - { id: STO2A-DEF-01, name: 時間一様Markov連鎖 }
+  - { id: STO2A-DEF-02, name: 到達時刻・正の帰還時刻 }
+  - { id: STO2A-DEF-03, name: 再帰状態・過渡状態 }
+  - { id: STO2A-DEF-04, name: Green核 }
+  - { id: STO2A-DEF-05, name: 正再帰・零再帰 }
+  - { id: STO2A-DEF-06, name: detailed balance・可逆性 }
+theorems:
+  - { id: STO2A-PROP-01, name: 離散時間の到達時刻は停止時刻 }
+  - { id: STO2A-THM-01, name: 可算状態離散時間Markov連鎖のstrong Markov性 }
+  - { id: STO2A-PROP-02, name: 再帰状態には無限回帰還する }
+  - { id: STO2A-PROP-03, name: Green核と期待総訪問回数 }
+  - { id: STO2A-THM-02, name: 再帰性のGreen核判定 }
+  - { id: STO2A-THM-03, name: 再帰性は通信クラスで共通 }
+  - { id: STO2A-THM-04, name: 帰還cycleのoccupation measure }
+  - { id: STO2A-PROP-04, name: detailed balanceは不変性を導く }
+canonical_examples:
+  - simple symmetric random walk on Z
+  - recurrent but null recurrent chain
+  - reflecting birth-death chain with drift to zero
+problem_patterns:
+  - STO2A-HITTING-1
+  - STO2A-GREEN-1
+  - STO2A-RECURRENCE-1
+  - STO2A-KAC-1
+  - STO2A-REVERSIBILITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 6.0, review: 1.5 }

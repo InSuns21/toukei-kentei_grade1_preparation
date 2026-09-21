@@ -1,0 +1,52 @@
+id: "STO3A"
+title: "経路空間の弱収束・tightness・Donsker不変原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - STO4
+  - F0-00P6A
+  - RA5
+official_scope: []
+learning_objectives:
+  - C([0,1])をsup metricを持つ経路空間として定義し経路値 random variableを扱える
+  - 経路空間 weak convergenceをbounded continuous functionalで定義できる
+  - tightnessをcompact setsへの確率質量集中として定義できる
+  - common modulus of continuityからC([0,1])のcompactnessを対角抽出で証明できる
+  - modulus conditionからcontinuous-process lawsのtightness criterionを証明できる
+  - fourth-moment increment boundからKolmogorov型tightness criterionを証明できる
+  - polygonal random walkのfinite-dimensional convergenceを独立 block 中心極限定理から証明できる
+  - bounded incrementsの場合のuniform fourth-moment increment boundを証明できる
+  - 固定有界化とDoob maximal inequalityで有限分散経路のtightnessを証明できる
+  - 独立同分布 finite-variance Donsker invariance principleをfdd+tightness+Prokhorovから再構成できる
+  - continuous mappingでrandom-walk maximumなどの経路 functionalへ極限を移せる
+definitions:
+  - { id: STO3A-DEF-01, name: 連続経路空間 }
+  - { id: STO3A-DEF-02, name: 経路空間上の弱収束 }
+  - { id: STO3A-DEF-03, name: tightness }
+  - { id: STO3A-DEF-04, name: polygonal random-walk 経路 }
+theorems:
+  - { id: STO3A-THM-01, name: 連続経路空間のcompactness criterion }
+  - { id: STO3A-THM-02, name: 連続過程のtightness criterion }
+  - { id: STO3A-THM-03, name: Kolmogorov型tightness criterion }
+  - { id: STO3A-PROP-01, name: polygonal random walkの有限次元収束 }
+  - { id: STO3A-LEM-01, name: bounded incrementsの四次増分評価 }
+  - { id: STO3A-COR-01, name: bounded incrementsのtightness }
+  - { id: STO3A-LEM-02, name: 有界化残差の分散収束 }
+  - { id: STO3A-LEM-03, name: 有界化の一様近似 }
+  - { id: STO3A-THM-04, name: 有限分散 random walk 経路のtightness }
+  - { id: STO3A-THM-05, name: Donsker不変原理 }
+canonical_examples:
+  - polygonal interpolation of simple random walk
+  - maximum 経路 functional
+  - bounded approximation plus tail martingale
+problem_patterns:
+  - STO3A-PATH-WEAK-1
+  - STO3A-TIGHTNESS-1
+  - STO3A-FOURTH-MOMENT-1
+  - STO3A-TRUNCATION-1
+  - STO3A-DONSKER-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 6.0, review: 1.5 }

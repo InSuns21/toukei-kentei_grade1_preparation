@@ -2,10 +2,18 @@
 
 PDE5 では、Laplace・Poisson 方程式を平均値性質、[強最大原理](../PDE5/index.md#thm-pde5-maximum-principle)、変数分離、Poisson kernel から調べました。本章では同じ楕円型方程式を、**領域内部の微分を境界積分へ移す**という別の視点から見直します。
 
+ベクトル解析の一般論は VC 系列へ正本化しました。本章は
+
+- [VC1 の gradient / divergence と積の微分則](../VC1/index.md#prop-vc1-product-rules)
+- [VC3 の法線・向き・flux](../VC3/index.md#def-vc3-oriented-area-flux)
+- [VC4 の Green theorem・Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence)
+
+を既知として使い、発散定理そのものを再実装しません。
+
 中心となる流れは
 
 $$
-\text{発散定理}
+\text{VC4 の積分定理}
 \Longrightarrow
 \text{Green の恒等式}
 \Longrightarrow
@@ -18,26 +26,25 @@ $$
 
 です。
 
-本章では PDE5 と同じく二次元の古典解を主対象にします。多重積分は RA7 を正本とし、反復積分を使う箇所では [矩形上の反復積分定理](../RA7/index.md#thm-ra7-iterated-integral) と、その直後の Jordan 領域への拡張を使います。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は Encore III へ送り、ここでは逆輸入しません。
-
-本章で使う領域は、長方形・円板・円孔を有限個あけた領域など、境界が有限本の $C^1$ 曲線弧からなり、有限分割によって $x$-simple / $y$-simple な部分領域へ落とせるものとします。この範囲なら、発散定理を一変数の微積分学の基本定理と反復積分から直接証明できます。
+本章では PDE5 と同じく二次元の古典解を主対象にします。弱微分、超関数としての $-\Delta\Phi=\delta_0$、Sobolev 空間は Encore III へ送り、ここでは逆輸入しません。
 
 この章の中心問いは次の四つです。
 
-1. なぜ $\Delta$ を含む体積積分が境界上の法線微分へ変わるのか。
+1. なぜ $\Delta$ を含む面積分が境界上の法線微分へ変わるのか。
 2. 原点に集中した「単位源」を、古典解の範囲でどう表現するのか。
 3. 境界条件を満たすよう基本解を補正すると、なぜ Green 関数になるのか。
 4. PDE5 の Poisson kernel は Green 関数からどう再発見できるのか。
 
 ---
 
-## 1. 境界を横切る方向を固定する
+## 1. VC の外向き法線から PDE の法線微分へ
+
+VC3--VC4 では曲面・境界の向きと外向き flux を一般のベクトル解析として扱いました。PDE では、その法線方向へ scalar field を微分した量を境界条件として使います。
 
 <a id="def-pde6-normal-derivative"></a>
 <!-- formal-statement-start -->
-> **定義（外向き単位法線と法線微分）**  
-> $\Omega\subset\mathbb R^2$ を境界が区分的に $C^1$ な有界領域とする。境界の滑らかな点 $y\in\partial\Omega$ で、領域の外側を向く長さ1のベクトルを外向き単位法線 $n(y)$ と書く。  
-> $u$ が境界近くで $C^1$ 級なら、その外向き法線微分を
+> **定義（法線微分）**  
+> $\Omega\subset\mathbb R^2$ を境界が区分的に $C^1$ な有界領域とし、境界の滑らかな点 $y\in\partial\Omega$ で外向き単位法線を $n(y)$ とする。$u$ が境界近くで $C^1$ 級なら、外向き法線微分を
 
 $$
 \frac{\partial u}{\partial n}(y)
@@ -48,7 +55,7 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
-法線微分は「境界に沿って」ではなく「境界を横切って」関数がどれだけ変化するかを測ります。Neumann 問題で指定していた量が、ここで積分公式の自然な境界項として現れます。
+法線微分は「境界に沿う変化」ではなく、「境界を横切る変化」です。Neumann 問題で指定していた量が、Green 恒等式では自然な境界項として現れます。
 
 <!-- definition-example-start: def-pde6-normal-derivative -->
 **定義の確認**
@@ -59,13 +66,7 @@ $$
 D=\{(x,y):x^2+y^2<1\}
 $$
 
-の境界点 $\xi=(\cos\theta,\sin\theta)$ では
-
-$$
-n(\xi)=\xi
-$$
-
-です。$u(x,y)=x^2+y^2$ なら
+の境界点 $\xi=(\cos\theta,\sin\theta)$ では外向き単位法線は $n(\xi)=\xi$ です。$u(x,y)=x^2+y^2$ なら
 
 $$
 \nabla u=(2x,2y),
@@ -75,222 +76,55 @@ $$
 
 $$
 \frac{\partial u}{\partial n}
-=
-(2\cos\theta,2\sin\theta)\cdot(\cos\theta,\sin\theta)
-=
-2.
+=(2\cos\theta,2\sin\theta)\cdot(\cos\theta,\sin\theta)
+=2.
 $$
-
-円の外向き方向へ半径を増やすと $r^2$ は速度 $2r$ で増え、$r=1$ では 2 になるという幾何とも一致します。
 <!-- definition-example-end -->
 
 ---
 
-## 2. まず長方形で「内部の発散 = 境界flux」を見る
+## 2. 発散定理は VC4 を canonical owner とする
 
-ベクトル場
-
-$$
-F=(P,Q)
-$$
-
-の発散を
+二次元で本章が使う形は [VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)
 
 $$
-\operatorname{div}F
+\int_{\partial\Omega}F\cdot n\,ds
 =
-P_x+Q_y
+\iint_\Omega\operatorname{div}F\,dA
 $$
 
-とします。
+です。一般の三次元閉曲面では [Gauss--Ostrogradsky divergence theorem](../VC4/index.md#thm-vc4-gauss-divergence) が対応します。
 
-長方形
-
-$$
-R=[a,b]\times[c,d]
-$$
-
-で $P,Q\in C^1(R)$ とすると、[RA7 の反復積分](../RA7/index.md)と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
+VC4 では、simple region で [微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) を使い、有限分割で生じる内部境界が反対向き法線により相殺するところまで証明済みです。PDE6 ではこの証明を繰り返さず、PDE 固有の選び方
 
 $$
-\begin{aligned}
-\iint_R P_x\,dA
-&=
-\int_c^d
-\left(
-P(b,y)-P(a,y)
-\right)\,dy,\\
-\iint_R Q_y\,dA
-&=
-\int_a^b
-\left(
-Q(x,d)-Q(x,c)
-\right)\,dx.
-\end{aligned}
+F=u\nabla v
 $$
 
-右辺はちょうど四辺から外へ出る flux の和です。
-
-左辺 $x=a$ では $n=(-1,0)$、右辺 $x=b$ では $n=(1,0)$、下辺 $y=c$ では $n=(0,-1)$、上辺 $y=d$ では $n=(0,1)$ なので
-
-$$
-\iint_R \operatorname{div}F\,dA
-=
-\int_{\partial R}F\cdot n\,ds.
-$$
-
-一般の曲線境界でも本質は同じです。違うのは、境界をグラフに分けて法線と弧長を同時に処理する点だけです。
+へ進みます。
 
 ---
 
-## 3. 内部の発散を境界 flux へ移す
+## 3. PDE6 が新しく行うこと
 
-<a id="thm-pde6-divergence"></a>
-<!-- formal-statement-start -->
-> **定理（平面版発散定理）**  
-> $\Omega\subset\mathbb R^2$ を有界連結領域とし、$\partial\Omega$ は有限本の $C^1$ 曲線弧からなるとする。さらに、有限本の補助線分で分割すれば、各部分領域を $x$-simple および $y$-simple な領域として扱えるとする。  
-> $F=(P,Q)\in C^1(\overline\Omega;\mathbb R^2)$ なら
+VC1 の [積の微分則](../VC1/index.md#prop-vc1-product-rules) から
 
 $$
-\boxed{
-\iint_\Omega
-\operatorname{div}F\,dA
+\operatorname{div}(u\nabla v)
 =
-\int_{\partial\Omega}
-F\cdot n\,ds
-}
+\nabla u\cdot\nabla v
++u\Delta v
 $$
 
-> が成り立つ。右辺では各滑らかな境界弧上の外向き単位法線を用いる。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-$P_x$ と $Q_y$ を別々に積分します。$P_x$ には $y$ を固定して左右端を読む $x$-simple 分割を、$Q_y$ には $x$ を固定して上下端を読む $y$-simple 分割を使います。各部分領域の人工的な内部境界は、隣り合う領域から見ると法線が反対向きなので相殺します。
-
-<!-- proof-start -->
-### 証明
-
-まず $x$-simple な一つの部分領域
+です。一方、境界では
 
 $$
-E=
-\{(x,y):c<y<d,\ \alpha(y)<x<\beta(y)\}
-$$
-
-を考えます。ここで $\alpha,\beta$ は区分的に $C^1$ とします。
-
-反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から
-
-$$
-\iint_E P_x\,dA
+(u\nabla v)\cdot n
 =
-\int_c^d
-\left[
-P(\beta(y),y)-P(\alpha(y),y)
-\right]\,dy.
+u\frac{\partial v}{\partial n}.
 $$
 
-右側境界
-
-$$
-\gamma_R(y)=(\beta(y),y)
-$$
-
-では、外向き法線と弧長の積は
-
-$$
-n\,ds
-=
-(1,-\beta'(y))\,dy.
-$$
-
-したがって $P$ が寄与する flux は
-
-$$
-\int_{\gamma_R}P\,n_x\,ds
-=
-\int_c^d P(\beta(y),y)\,dy.
-$$
-
-左側境界
-
-$$
-\gamma_L(y)=(\alpha(y),y)
-$$
-
-では
-
-$$
-n\,ds
-=
-(-1,\alpha'(y))\,dy,
-$$
-
-ゆえに
-
-$$
-\int_{\gamma_L}P\,n_x\,ds
-=
--\int_c^d P(\alpha(y),y)\,dy.
-$$
-
-従って
-
-$$
-\iint_E P_x\,dA
-=
-\int_{\partial E}P\,n_x\,ds.
-$$
-
-水平な補助境界では $n_x=0$ なので、この等式に余分な項は出ません。
-
-同様の計算を、$y$-simple な部分領域
-
-$$
-E'=
-\{(x,y):a<x<b,\ \gamma(x)<y<\delta(x)\}
-$$
-
-に対して行うと
-
-$$
-\iint_{E'}Q_y\,dA
-=
-\int_{\partial E'}Q\,n_y\,ds
-$$
-
-を得ます。ここでは一変数の基本定理を $y$ 方向へ使っており、下側境界の $n_y$ が負、上側境界の $n_y$ が正になることが符号を決めます。
-
-$\Omega$ を有限個のこの種の部分領域へ分割して和を取ります。人工的に挿入した内部境界では、隣接する二領域の外向き法線が互いに逆なので
-
-$$
-F\cdot n + F\cdot(-n)=0
-$$
-
-となり、境界積分は相殺します。残るのは元の $\partial\Omega$ だけです。
-
-最後に
-
-$$
-\operatorname{div}F=P_x+Q_y
-$$
-
-を用いて二つの等式を足せば
-
-$$
-\iint_\Omega\operatorname{div}F\,dA
-=
-\int_{\partial\Omega}
-(Pn_x+Qn_y)\,ds
-=
-\int_{\partial\Omega}F\cdot n\,ds.
-$$
-
-これで示されました。
-<!-- proof-end -->
-
-この証明で使った解析上の道具は、反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) です。曲線境界では「法線ベクトル × 弧長」の組がグラフ微分を吸収するため、最終式には境界の傾きが露出しません。
+つまり VC4 の flux theorem へ $F=u\nabla v$ を入れるだけで、内部の二階微分を境界法線微分へ移せます。ここから先が PDE6 の canonical 内容です。
 
 ---
 
@@ -311,7 +145,7 @@ $$
 <a id="thm-pde6-green-first"></a>
 <!-- formal-statement-start -->
 > **定理（Green の第一恒等式）**  
-> $\Omega$ を前節の発散定理を適用できる有界連結領域とし、$u,v\in C^2(\overline\Omega)$ とする。このとき
+> $\Omega$ をVC4 の Green theorem：flux form を適用できる有界連結領域とし、$u,v\in C^2(\overline\Omega)$ とする。このとき
 
 $$
 \boxed{
@@ -359,7 +193,7 @@ u\nabla v\cdot n
 u\frac{\partial v}{\partial n}.
 $$
 
-したがって[平面版発散定理](#thm-pde6-divergence)を適用すると
+したがって[VC4 の Green theorem：flux form](../VC4/index.md#cor-vc4-green-flux)を適用すると
 
 $$
 \iint_\Omega
@@ -846,7 +680,7 @@ $$
 <a id="thm-pde6-green-representation"></a>
 <!-- formal-statement-start -->
 > **定理（基本解による Green 表現公式）**  
-> $\Omega$ を本章の発散定理を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\overline\Omega)$ が
+> $\Omega$ をVC4 の Green theorem：flux form を適用できる有界領域とし、$x\in\Omega$ とする。$u\in C^2(\overline\Omega)$ が
 
 $$
 -\Delta u=f
@@ -1737,29 +1571,20 @@ $$
 
 # 演習
 
-## PDE6-A01 長方形で発散定理を直接確認する
+## PDE6-A01 法線微分を円と正方形で計算する
 
 - Level: A
-- 目安時間: 12分
-
-単位正方形
+- 目安時間: 15分
 
 $$
-R=[0,1]\times[0,1]
+u(x,y)=x^2+2y^2
 $$
 
-とベクトル場
+とする。
 
-$$
-F(x,y)=(x^2,xy)
-$$
-
-について、
-
-1. $\iint_R\operatorname{div}F\,dA$
-2. $\int_{\partial R}F\cdot n\,ds$
-
-を別々に計算し、一致を確認せよ。
+1. 単位円 $x^2+y^2=1$ 上で $\partial_nu$ を求めよ。
+2. 単位正方形 $[0,1]^2$ の四辺で $\partial_nu$ をそれぞれ求めよ。
+3. 法線の向きを反転すると法線微分の符号も反転する理由を定義から説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1767,110 +1592,58 @@ $$
 まず
 
 $$
-\operatorname{div}F
-=
-\frac{\partial}{\partial x}(x^2)
-+
-\frac{\partial}{\partial y}(xy)
-=
-2x+x
-=
-3x.
+\nabla u=(2x,4y).
 $$
+
+1. 単位円上の外向き単位法線は
+
+$$
+n=(x,y)
+$$
+
+です。したがって
+
+$$
+\partial_nu
+=
+\nabla u\cdot n
+=
+2x^2+4y^2.
+$$
+
+円周上では $x^2+y^2=1$ なので、角度表示 $x=\cos\theta,y=\sin\theta$ を使えば
+
+$$
+\boxed{
+\partial_nu
+=2\cos^2\theta+4\sin^2\theta
+}.
+$$
+
+2. 四辺で外向き単位法線を確認します。
+
+- $x=0$: $n=(-1,0)$ なので $\partial_nu=-2x=0$。
+- $x=1$: $n=(1,0)$ なので $\partial_nu=2x=2$。
+- $y=0$: $n=(0,-1)$ なので $\partial_nu=-4y=0$。
+- $y=1$: $n=(0,1)$ なので $\partial_nu=4y=4$。
 
 従って
 
 $$
-\iint_R\operatorname{div}F\,dA
+\boxed{0, 2, 0, 4}
+$$
+
+です。
+
+3. 法線を $n$ から $-n$ へ変えると
+
+$$
+\nabla u\cdot(-n)
 =
-\int_0^1\int_0^1 3x\,dy\,dx
-=
-\int_0^1 3x\,dx
-=
-\frac32.
+-(\nabla u\cdot n)
 $$
 
-次に四辺を調べます。
-
-左辺 $x=0$ では
-
-$$
-n=(-1,0),
-\qquad
-F=(0,0),
-$$
-
-なので寄与は 0 です。
-
-右辺 $x=1$ では
-
-$$
-n=(1,0),
-\qquad
-F=(1,y),
-$$
-
-だから
-
-$$
-F\cdot n=1.
-$$
-
-従って寄与は
-
-$$
-\int_0^1 1\,dy=1.
-$$
-
-下辺 $y=0$ では
-
-$$
-n=(0,-1),
-\qquad
-F=(x^2,0),
-$$
-
-なので寄与は 0 です。
-
-上辺 $y=1$ では
-
-$$
-n=(0,1),
-\qquad
-F=(x^2,x),
-$$
-
-だから
-
-$$
-F\cdot n=x.
-$$
-
-寄与は
-
-$$
-\int_0^1x\,dx=\frac12.
-$$
-
-全境界を足すと
-
-$$
-1+\frac12
-=
-\frac32.
-$$
-
-従って
-
-$$
-\iint_R\operatorname{div}F\,dA
-=
-\int_{\partial R}F\cdot n\,ds
-=
-\frac32
-$$
-
-が直接確認できました。
+なので、法線微分も符号を反転します。向きは境界項の符号そのものに入っています。
 <!-- solution-end -->
 
 ## PDE6-A02 Green の第一恒等式を単位正方形で確認する
@@ -2790,8 +2563,8 @@ $$
 
 ## 17. 章末チェック
 
-- 外向き単位法線と法線微分を円・長方形で計算できる。
-- 発散定理を反復積分と[微積分学の基本定理II](../RA4/index.md#thm-ra4-ftc2) から追える。
+- VC3--VC4 で正本化された外向き法線・flux・発散定理の仮定を確認して使える。
+- 法線微分を円・長方形で計算できる。
 - Green の第一恒等式を $\operatorname{div}(u\nabla v)$ から導ける。
 - Green の第二恒等式を第一恒等式の差として導ける。
 - Dirichlet 一意性を最大原理ではなくエネルギーから証明できる。

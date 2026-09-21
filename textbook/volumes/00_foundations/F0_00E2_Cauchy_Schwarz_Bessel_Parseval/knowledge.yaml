@@ -6,6 +6,7 @@ prerequisites:
 
 # 冒頭の Hilbert 空間への言及は後続の無限次元化の予告。
 forward_references:
+  - functional.norm
   - functional.hilbert-space-recap-c1
 
 concepts:
@@ -20,7 +21,8 @@ concepts:
   - id: linear.inner-product-induced-norm
     name: 内積から定まるノルム
     kind: term
-    aliases: [内積から定まるノルム]
+    introduction_aliases: [内積から定まるノルム]
+    aliases: [内積から定まるノルム, 内積ノルム]
     requires:
       - linear.inner-product
 
@@ -39,6 +41,22 @@ concepts:
     aliases: [逆三角不等式]
     requires:
       - linear.triangle-inequality-inner-product
+
+  - id: linear.fourier-coefficient
+    name: Fourier係数
+    kind: definition
+    aliases: [Fourier係数]
+    requires:
+      - linear.orthonormal-system
+      - linear.inner-product
+
+  - id: linear.orthonormal-expansion
+    name: 正規直交展開
+    kind: definition
+    aliases: [正規直交展開]
+    requires:
+      - linear.fourier-coefficient
+      - linear.basis
 
   - id: linear.orthogonal-projection-coefficients
     name: 正規直交系への射影係数

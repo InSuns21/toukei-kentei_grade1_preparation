@@ -1,0 +1,44 @@
+id: "VC6"
+title: "標準ベクトル解析 VI：直交曲線座標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC5
+official_scope: []
+learning_objectives:
+  - 直交曲線座標を正則座標写像と直交する座標接ベクトルで定義し、尺度因子と位置依存正規直交基底を構成できる
+  - 尺度因子から線素・座標面素・体積要素を導き、Jacobianの絶対値がh1h2h3になることを説明できる
+  - 全微分と線素から勾配公式を導ける
+  - 微小座標直方体の流束収支から発散公式を導ける
+  - 微小座標長方形の循環から回転公式を導ける
+  - 勾配の発散からスカラー・ラプラシアン公式を導ける
+  - 円柱座標と球座標の尺度因子・基底の変化・勾配・発散・回転・ラプラシアンを再構成できる
+  - ベクトル・ラプラシアンでは位置依存基底の微分が必要であり、物理成分へスカラー・ラプラシアンを機械的に適用できないことを説明できる
+  - 放射状場・逆二乗場・軸対称場を円柱・球座標で計算し、VC4のGauss--Ostrogradsky の発散定理と照合できる
+definitions:
+  - { id: VC6-DEF-01, name: 直交曲線座標 }
+  - { id: VC6-DEF-02, name: 尺度因子と位置依存正規直交基底 }
+theorems:
+  - { id: VC6-PROP-01, name: 線素・面素・体積要素 }
+  - { id: VC6-PROP-02, name: 直交曲線座標の勾配 }
+  - { id: VC6-PROP-03, name: 直交曲線座標の発散 }
+  - { id: VC6-PROP-04, name: 直交曲線座標の回転 }
+  - { id: VC6-PROP-05, name: 直交曲線座標のスカラー・ラプラシアン }
+  - { id: VC6-PROP-06, name: 円柱座標の公式 }
+  - { id: VC6-PROP-07, name: 球座標の公式 }
+canonical_examples:
+  - 円柱座標の尺度因子と基底ベクトルの微分
+  - 球座標の尺度因子と体積要素
+  - 放射対称スカラー場の勾配とラプラシアン
+  - 逆二乗放射状場の発散
+  - 軸対称な方位角方向のベクトル場の回転
+problem_patterns:
+  - VC6-SCALE-FACTOR-1
+  - VC6-GRAD-DIV-CURL-1
+  - VC6-CYLINDRICAL-1
+  - VC6-SPHERICAL-1
+  - VC6-RADIAL-HARMONIC-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }

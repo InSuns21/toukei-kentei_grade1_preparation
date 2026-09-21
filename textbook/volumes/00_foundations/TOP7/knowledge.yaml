@@ -1,0 +1,165 @@
+chapter: TOP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP6
+  - RA5
+
+forward_references: []
+
+concepts:
+  - id: topology.uniformity
+    name: 一様構造
+    kind: definition
+    aliases: [一様構造, uniformity, entourage, 近縁, 一様空間]
+    introduction: formal
+    introduction_aliases: [定義（一様構造・近縁）]
+    requires:
+      - topology.filter
+
+  - id: topology.metric-uniformity
+    name: 距離が定める一様構造
+    kind: theorem
+    aliases: [距離が定める一様構造, metric uniformity]
+    introduction: formal
+    introduction_aliases: [定理（距離が定める一様構造）]
+    requires:
+      - topology.uniformity
+      - topology.metric-space
+
+  - id: topology.uniform-induced-open-set
+    name: 一様空間の開集合
+    kind: definition
+    aliases: [一様空間の開集合, uniform-open set]
+    introduction: formal
+    introduction_aliases: [定義（一様空間の開集合）]
+    requires:
+      - topology.uniformity
+
+  - id: topology.uniform-induced-topology
+    name: 一様構造が誘導する位相
+    kind: theorem
+    aliases: [一様構造が誘導する位相, topology induced by a uniformity]
+    introduction: formal
+    introduction_aliases: [定理（一様構造は位相を誘導する）]
+    requires:
+      - topology.uniformity
+      - topology.topological-space
+
+  - id: topology.uniform-continuity
+    name: 一様連続写像
+    kind: definition
+    aliases: [一様連続写像, uniformly continuous map]
+    introduction: formal
+    introduction_aliases: [定義（一様連続写像）]
+    requires:
+      - topology.uniformity
+
+  - id: topology.cauchy-filter
+    name: Cauchy filter
+    kind: definition
+    aliases: [Cauchy filter, Cauchyフィルター]
+    introduction: formal
+    introduction_aliases: [定義（Cauchy filter）]
+    requires:
+      - topology.filter
+      - topology.uniformity
+
+  - id: topology.separated-uniform-space
+    name: 分離一様空間
+    kind: definition
+    aliases: [分離一様空間, separated uniform space]
+    introduction: formal
+    introduction_aliases: [定義（分離一様空間）]
+    requires:
+      - topology.uniformity
+
+  - id: topology.complete-uniform-space
+    name: 完備一様空間
+    kind: definition
+    aliases: [完備一様空間, complete uniform space]
+    introduction: formal
+    introduction_aliases: [定義（完備一様空間）]
+    requires:
+      - topology.cauchy-filter
+      - topology.filter-convergence
+
+  - id: topology.uniform-total-boundedness
+    name: 一様空間の全有界性
+    kind: definition
+    aliases: [一様空間の全有界性, uniform total boundedness]
+    introduction: formal
+    introduction_aliases: [定義（一様空間の全有界性）]
+    requires:
+      - topology.uniformity
+      - topology.totally-bounded
+
+  - id: topology.compact-uniform-complete-total-bounded
+    name: コンパクト一様空間は完備かつ全有界
+    kind: theorem
+    aliases: [コンパクト一様空間は完備かつ全有界, compact uniform space complete totally bounded]
+    introduction: formal
+    introduction_aliases: [定理（コンパクト一様空間は完備かつ全有界）]
+    requires:
+      - topology.compact-set
+      - topology.cauchy-filter
+      - topology.complete-uniform-space
+      - topology.uniform-total-boundedness
+
+  - id: topology.same-topology-different-uniformity
+    name: 同じ位相を誘導する異なる一様構造
+    kind: proposition
+    aliases: [同じ位相を誘導する異なる一様構造]
+    introduction: formal
+    introduction_aliases: ["命題（同じ位相を誘導する異なる一様構造）"]
+    requires:
+      - topology.metric-uniformity
+      - topology.uniform-induced-topology
+
+  - id: topology.metric-uniform-continuity-equivalence
+    name: 距離空間での一様連続性との一致
+    kind: proposition
+    aliases: [距離空間での一様連続性との一致]
+    introduction: formal
+    introduction_aliases: ["命題（距離空間での一様連続性との一致）"]
+    requires:
+      - topology.uniform-continuity
+      - analysis.uniform-continuity
+
+  - id: topology.uniform-continuity-composition
+    name: 一様連続写像の合成
+    kind: proposition
+    aliases: [一様連続写像の合成]
+    introduction: formal
+    introduction_aliases: ["命題（一様連続写像の合成）"]
+    requires:
+      - topology.uniform-continuity
+
+  - id: topology.metric-cauchy-filter-equivalence
+    name: 距離Cauchy列とCauchy filter
+    kind: proposition
+    aliases: [距離Cauchy列とCauchy filter]
+    introduction: formal
+    introduction_aliases: ["命題（距離 Cauchy 列と Cauchy filter）"]
+    requires:
+      - topology.cauchy-filter
+
+  - id: topology.separated-uniform-hausdorff
+    name: 分離性とHausdorff性
+    kind: proposition
+    aliases: [分離性とHausdorff性]
+    introduction: formal
+    introduction_aliases: ["命題（分離性と Hausdorff 性）"]
+    requires:
+      - topology.separated-uniform-space
+      - topology.uniform-induced-topology
+
+  - id: topology.uniform-continuity-preserves-cauchy-filter
+    name: 一様連続写像はCauchy filterを送る
+    kind: proposition
+    aliases: [一様連続写像はCauchy filterを送る]
+    introduction: formal
+    introduction_aliases: ["命題（一様連続写像は Cauchy filter を送る）"]
+    requires:
+      - topology.uniform-continuity
+      - topology.cauchy-filter

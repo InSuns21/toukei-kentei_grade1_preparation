@@ -1,0 +1,20 @@
+chapter: "VC5"
+terms:
+  - term: 誘導された境界向き
+    english: induced boundary orientation
+    meaning: 向き付けられた曲面の向きと整合するように境界曲線へ入る向き。パラメータ領域の正向き境界を曲面へ写した向きで定義できる。
+  - term: Kelvin--Stokes の定理
+    english: Kelvin--Stokes theorem
+    meaning: 境界上の循環を曲面上の回転の流束へ変換する積分定理。
+  - term: 無回転
+    english: irrotational
+    meaning: 回転が0であるベクトル場。領域の位相構造によっては大域ポテンシャルを持たないことがある。
+  - term: 無発散
+    english: solenoidal
+    meaning: 発散が0であるベクトル場。
+  - term: ベクトルポテンシャル
+    english: vector potential
+    meaning: 与えられた場 F に対して、その回転が F に一致するベクトル場 A。
+  - term: ゲージ自由度
+    english: gauge freedom
+    meaning: ベクトルポテンシャル A に勾配場を加えても回転が変わらない非一意性。

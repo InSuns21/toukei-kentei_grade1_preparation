@@ -1,0 +1,20 @@
+chapter: "VC1"
+terms:
+  - term: scalar field
+    english: scalar field
+    meaning: 各点に実数を割り当てる写像。本章では温度やpotentialのような量を表す。
+  - term: vector field
+    english: vector field
+    meaning: 各点にEuclidean vectorを割り当てる写像。流速場や力場が典型例。
+  - term: gradient
+    english: gradient
+    meaning: scalar fieldの全方向の一次変化を一つのvectorにまとめたもの。単位方向との内積が方向微分になる。
+  - term: divergence
+    english: divergence
+    meaning: vector fieldの局所的な正味流出率を単位体積あたりで測るscalar。
+  - term: curl
+    english: curl
+    meaning: vector fieldの局所的な循環の軸と強さを表すvector。
+  - term: Laplacian
+    english: Laplacian
+    meaning: scalar fieldに対するdiv grad。Cartesian座標では二階純粋偏微分の和になる。

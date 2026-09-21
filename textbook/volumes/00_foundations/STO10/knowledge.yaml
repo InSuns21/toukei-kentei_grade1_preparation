@@ -10,13 +10,25 @@ prerequisites:
   - F0-00P3A
   - F0-00P4A
 
+forward_references:
+  - stochastic.time-homogeneous-markov-process
+  - stochastic.transition-kernel
+  - stochastic.markov-semigroup
+  - stochastic.markov-generator
+  - stochastic.dynkin-formula
+  - stochastic.backward-kolmogorov-equation
+  - stochastic.forward-kolmogorov-weak
+  - stochastic.fokker-planck-equation
+  - stochastic.feynman-kac-verification
+  - stochastic.martingale-problem
+
 concepts:
   - id: stochastic.weak-solution
     name: weak solution
     kind: definition
     aliases: ["weak solution of an SDE", "SDEの弱解"]
     introduction: formal
-    introduction_aliases: ["定義（weak solution）"]
+    introduction_aliases: ["定義（弱解）"]
     requires:
       - stochastic.brownian-sde
       - stochastic.vector-brownian-motion
@@ -27,7 +39,7 @@ concepts:
     kind: proposition
     aliases: ["strong solution implies weak solution"]
     introduction: formal
-    introduction_aliases: ["命題（strong solution は weak solution を与える）"]
+    introduction_aliases: ["命題（強解は弱解を与える）"]
     requires:
       - stochastic.strong-solution
       - stochastic.weak-solution
@@ -47,7 +59,7 @@ concepts:
     kind: definition
     aliases: ["density process", "likelihood-ratio process"]
     introduction: formal
-    introduction_aliases: ["定義（density process）"]
+    introduction_aliases: ["定義（密度過程）"]
     requires:
       - measure.equivalent-probability-measures
       - prob.conditional-expectation
@@ -57,7 +69,7 @@ concepts:
     kind: proposition
     aliases: ["density process is a martingale"]
     introduction: formal
-    introduction_aliases: ["命題（density process の martingale 性）"]
+    introduction_aliases: ["命題（密度過程のマルチンゲール性）"]
     requires:
       - stochastic.change-of-measure-density-process
       - prob.tower-property
@@ -67,7 +79,7 @@ concepts:
     kind: lemma
     aliases: ["bounded energy exponential martingale"]
     introduction: formal
-    introduction_aliases: ["補題（bounded quadratic energy なら stochastic exponential は真の martingale）"]
+    introduction_aliases: ["補題（有界二次エネルギーなら確率指数関数は真のマルチンゲール）"]
     requires:
       - stochastic.stochastic-exponential-equation
       - prob.uniform-integrability
@@ -75,7 +87,7 @@ concepts:
   - id: stochastic.novikov-condition
     name: Novikov condition
     kind: theorem
-    aliases: ["Novikov criterion", "Novikov condition"]
+    aliases: ["Novikov criterion", "Novikov condition", "Novikov 定理"]
     introduction: formal
     introduction_aliases: ["定理（Novikov condition）"]
     requires:
@@ -88,7 +100,7 @@ concepts:
     kind: lemma
     aliases: ["Girsanov transform for continuous local martingales"]
     introduction: formal
-    introduction_aliases: ["補題（Girsanov local-martingale transform）"]
+    introduction_aliases: ["補題（Girsanov 局所マルチンゲール変換）"]
     requires:
       - stochastic.ito-product-rule
       - stochastic.covariation
@@ -97,9 +109,9 @@ concepts:
   - id: stochastic.girsanov-theorem
     name: Girsanov theorem
     kind: theorem
-    aliases: ["Girsanov theorem", "Brownian Girsanov theorem"]
+    aliases: ["Girsanov theorem", "Brownian Girsanov theorem", "Girsanov 定理"]
     introduction: formal
-    introduction_aliases: ["定理（Girsanov theorem：Brownian drift shift）"]
+    introduction_aliases: ["定理（Girsanov 定理：ブラウン運動のドリフト変換）"]
     requires:
       - stochastic.novikov-condition
       - stochastic.girsanov-local-martingale-transform
@@ -111,7 +123,7 @@ concepts:
     kind: corollary
     aliases: ["Girsanov drift removal", "drift removal by change of measure"]
     introduction: formal
-    introduction_aliases: ["系（Girsanov による drift removal）"]
+    introduction_aliases: ["系（Girsanov によるドリフト除去）"]
     requires:
       - stochastic.girsanov-theorem
       - stochastic.brownian-sde
@@ -121,7 +133,7 @@ concepts:
     kind: theorem
     aliases: ["weak existence by Girsanov", "bounded Borel drift weak existence"]
     introduction: formal
-    introduction_aliases: ["定理（bounded Borel drift SDE の finite-horizon weak existence）"]
+    introduction_aliases: ["定理（有界 Borel ドリフト SDE の有限-horizon 弱解の存在）"]
     requires:
       - stochastic.weak-solution
       - stochastic.girsanov-theorem
@@ -131,7 +143,7 @@ concepts:
     kind: definition
     aliases: ["weak uniqueness", "uniqueness in distribution for SDE"]
     introduction: formal
-    introduction_aliases: ["定義（uniqueness in law）"]
+    introduction_aliases: ["定義（法則の一意性）"]
     requires:
       - stochastic.weak-solution
 
@@ -140,7 +152,7 @@ concepts:
     kind: theorem
     aliases: ["Yamada-Watanabe theorem", "Yamada--Watanabe theorem"]
     introduction: formal
-    introduction_aliases: ["定理（Yamada--Watanabe theorem の位置付け）"]
+    introduction_aliases: ["定理（Yamada--Watanabe 定理の位置付け）"]
     requires:
       - stochastic.weak-solution
       - stochastic.pathwise-uniqueness

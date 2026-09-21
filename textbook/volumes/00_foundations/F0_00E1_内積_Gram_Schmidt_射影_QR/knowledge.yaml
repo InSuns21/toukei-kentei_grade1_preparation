@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - F0-00E
 
+# 直交補空間は、後続 LA2 の一般の補空間概念の有限次元・内積付きでの先行例。
+forward_references:
+  - linear.complementary-subspace
+
 concepts:
   - id: linear.inner-product
     name: 内積
@@ -36,9 +40,9 @@ concepts:
 
   - id: linear.gram-schmidt
     name: Gram--Schmidtの直交化
-    kind: term
-    introduction_aliases: [Gram--Schmidt直交化：正規直交基底を実際に作る]
-    aliases: [Gram--Schmidt, Gram–Schmidt]
+    kind: theorem
+    introduction_aliases: [Gram--Schmidt直交化法]
+    aliases: [Gram--Schmidtの直交化, Gram--Schmidt直交化法, Gram--Schmidt, Gram–Schmidt]
     requires:
       - linear.orthonormal-system
       - linear.linear-independence
@@ -59,10 +63,41 @@ concepts:
     requires:
       - linear.orthogonal-complement
 
+  - id: linear.finite-dimensional-projection-decomposition
+    name: 射影による有限次元分解
+    kind: theorem
+    aliases: [射影による有限次元分解, 有限次元の射影分解]
+    requires:
+      - linear.orthogonal-projection
+      - linear.orthogonal-complement
+
+  - id: linear.orthogonal-projection-nearest-point
+    name: 直交射影の最短距離性
+    kind: theorem
+    aliases: [直交射影の最短距離性]
+    requires:
+      - linear.finite-dimensional-projection-decomposition
+
+  - id: linear.normal-equations
+    name: 最小二乗の正規方程式
+    kind: theorem
+    aliases: [最小二乗の正規方程式, 正規方程式]
+    requires:
+      - linear.orthogonal-projection
+
   - id: linear.qr-decomposition
-    name: QR分解
-    kind: term
-    aliases: [QR分解]
+    name: 薄いQR分解
+    kind: definition
+    introduction_aliases: [薄いQR分解]
+    aliases: [薄いQR分解, QR分解]
     requires:
       - linear.gram-schmidt
       - linear.basis
+
+  - id: linear.gram-schmidt-qr
+    name: Gram--SchmidtによるQR分解
+    kind: theorem
+    aliases: [Gram--SchmidtによるQR分解]
+    requires:
+      - linear.qr-decomposition
+      - linear.gram-schmidt

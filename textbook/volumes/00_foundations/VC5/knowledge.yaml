@@ -1,0 +1,93 @@
+chapter: VC5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC2
+  - VC3
+  - VC4
+
+forward_references:
+  - vector-calculus.orthogonal-curvilinear-coordinates
+
+concepts:
+  - id: vector-calculus.boundary-orientation
+    name: 曲面から誘導される境界向き
+    kind: definition
+    aliases: [boundary orientation, induced boundary orientation, 誘導境界向き]
+    introduction: formal
+    introduction_aliases: ["定義（曲面から誘導される境界向き）"]
+    requires:
+      - vector-calculus.orientable-surface
+      - vector-calculus.regular-curve
+
+  - id: vector-calculus.stokes-theorem
+    name: Kelvin--Stokes の定理
+    kind: theorem
+    aliases: [Stokes theorem, Kelvin--Stokes theorem, Stokesの定理]
+    introduction: formal
+    introduction_aliases: ["定理（Kelvin--Stokes の定理）"]
+    requires:
+      - vector-calculus.green-circulation
+      - vector-calculus.boundary-orientation
+      - vector-calculus.vector-line-integral
+      - vector-calculus.flux-integral
+      - vector-calculus.curl
+
+  - id: vector-calculus.curl-circulation-density
+    name: 回転は局所循環密度
+    kind: proposition
+    aliases: [circulation density, curl circulation density]
+    introduction: formal
+    introduction_aliases: ["命題（回転は局所循環密度）"]
+    requires:
+      - vector-calculus.stokes-theorem
+      - vector-calculus.curl
+
+  - id: vector-calculus.irrotational-solenoidal
+    name: 無回転・無発散
+    kind: definition
+    aliases: [irrotational field, solenoidal field, 渦なし場, 無発散場]
+    introduction: formal
+    introduction_aliases: ["定義（無回転・無発散）"]
+    requires:
+      - vector-calculus.curl
+      - vector-calculus.divergence
+
+  - id: vector-calculus.hole-obstruction-circulation
+    name: 穴による大域ポテンシャルの障害
+    kind: proposition
+    aliases: [topological obstruction to potential, 穴あき領域の循環障害]
+    introduction: formal
+    introduction_aliases: ["命題（穴は大域ポテンシャルを壊し得る）"]
+    requires:
+      - vector-calculus.stokes-theorem
+      - vector-calculus.conservative-equivalence
+
+  - id: vector-calculus.vector-potential
+    name: ベクトルポテンシャル
+    kind: definition
+    aliases: [vector potential, ベクトルポテンシャル]
+    introduction: formal
+    introduction_aliases: ["定義（ベクトルポテンシャル）"]
+    requires:
+      - vector-calculus.curl
+
+  - id: vector-calculus.vector-potential-solenoidal
+    name: ベクトルポテンシャルが存在すれば無発散
+    kind: proposition
+    aliases: [curl field is solenoidal]
+    introduction: formal
+    introduction_aliases: ["命題（ベクトルポテンシャルが存在すれば無発散）"]
+    requires:
+      - vector-calculus.vector-potential
+      - vector-calculus.divergence-curl-zero
+
+  - id: vector-calculus.vector-potential-gauge
+    name: ベクトルポテンシャルのゲージ自由度
+    kind: proposition
+    aliases: [gauge freedom, ゲージ自由度]
+    introduction: formal
+    introduction_aliases: ["命題（ベクトルポテンシャルのゲージ自由度）"]
+    requires:
+      - vector-calculus.vector-potential
+      - vector-calculus.curl-gradient-zero

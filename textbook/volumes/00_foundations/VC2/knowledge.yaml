@@ -1,0 +1,111 @@
+chapter: VC2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC1
+  - RA4
+  - TOP3
+
+forward_references:
+  - vector-calculus.surface-tangent-normal
+  - vector-calculus.flux-integral
+  - vector-calculus.gauss-divergence
+  - complex-analysis.complex-line-integral
+  - complex-analysis.path-independence
+  - complex-analysis.star-shaped-domain
+  - complex-analysis.simply-connected-domain
+
+concepts:
+  - id: vector-calculus.regular-curve
+    name: 正則曲線
+    kind: definition
+    aliases: [regular curve, parametrized curve, パラメータ曲線]
+    introduction: formal
+    introduction_aliases: ["定義（正則曲線）"]
+    requires:
+      - vector-calculus.scalar-vector-field
+
+  - id: vector-calculus.arc-length-unit-tangent
+    name: 弧長・単位接ベクトル
+    kind: definition
+    aliases: [弧長, arc length, unit tangent, 単位接ベクトル]
+    introduction: formal
+    introduction_aliases: ["定義（弧長と単位接ベクトル）"]
+    requires:
+      - vector-calculus.regular-curve
+      - analysis.riemann-integrable
+
+  - id: vector-calculus.scalar-line-integral
+    name: スカラー線積分
+    kind: definition
+    aliases: [scalar line integral, 第一種線積分]
+    introduction: formal
+    introduction_aliases: ["定義（スカラー線積分）"]
+    requires:
+      - vector-calculus.arc-length-unit-tangent
+
+  - id: vector-calculus.vector-line-integral
+    name: ベクトル線積分
+    kind: definition
+    aliases: [vector line integral, work integral, circulation, 第二種線積分]
+    introduction: formal
+    introduction_aliases: ["定義（ベクトル線積分）"]
+    requires:
+      - vector-calculus.regular-curve
+
+  - id: vector-calculus.line-integral-ftc
+    name: 線積分の基本定理
+    kind: theorem
+    aliases: [fundamental theorem for line integrals]
+    introduction: formal
+    introduction_aliases: ["定理（線積分の基本定理）"]
+    requires:
+      - vector-calculus.vector-line-integral
+      - vector-calculus.gradient
+      - analysis.ftc-2
+
+  - id: vector-calculus.conservative-potential
+    name: 保存場・ポテンシャル
+    kind: definition
+    aliases: [保存場, conservative field, scalar potential, potential]
+    introduction: inline
+    requires:
+      - vector-calculus.gradient
+
+  - id: vector-calculus.path-independence
+    name: 経路独立
+    kind: definition
+    aliases: [経路独立, ベクトル線積分の経路独立性, vector line integral path independence]
+    introduction: inline
+    requires:
+      - vector-calculus.vector-line-integral
+
+  - id: vector-calculus.conservative-equivalence
+    name: 保存場・経路独立・閉曲線積分の同値
+    kind: theorem
+    aliases: [conservative field equivalence]
+    introduction: formal
+    introduction_aliases: ["定理（保存場・経路独立・閉曲線積分の同値）"]
+    requires:
+      - vector-calculus.line-integral-ftc
+      - vector-calculus.conservative-potential
+      - vector-calculus.path-independence
+
+  - id: vector-calculus.star-shaped-domain
+    name: ベクトル解析の星型領域
+    kind: definition
+    aliases: [vector-calculus star-shaped domain, ベクトル解析の星型領域]
+    introduction: formal
+    introduction_aliases: ["定義（星型領域）"]
+    requires: []
+
+  - id: vector-calculus.poincare-star-shaped
+    name: 星型領域上の初等 Poincaré の補題
+    kind: theorem
+    aliases: [Poincare lemma, Poincaré lemma, 星型領域のPoincare補題]
+    introduction: formal
+    introduction_aliases: ["定理（星型領域上の初等 Poincaré の補題）"]
+    requires:
+      - vector-calculus.star-shaped-domain
+      - vector-calculus.curl
+      - vector-calculus.conservative-potential

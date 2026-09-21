@@ -1,0 +1,20 @@
+chapter: "VC3"
+terms:
+  - term: 正則パラメータ曲面
+    english: regular parametrized surface
+    meaning: 二変数C1パラメータ表示で二つの座標接ベクトルが各点で一次独立な曲面パッチ。
+  - term: 接平面
+    english: tangent plane
+    meaning: パラメータ曲面の二つの座標接ベクトルが張る二次元方向空間。
+  - term: 法線
+    english: normal vector
+    meaning: 接平面に直交するベクトル。パラメータ表示ではru×rvが一つの法線を与える。
+  - term: 向き付け可能
+    english: orientable
+    meaning: 曲面全体で連続な単位法線場を選べる性質。
+  - term: 曲面積要素
+    english: surface area element
+    meaning: パラメータ平面の微小面積が曲面上で受ける面積倍率 |ru×rv| を掛けたもの。
+  - term: 流束
+    english: flux
+    meaning: ベクトル場の選んだ法線方向成分を曲面全体で積分した量。

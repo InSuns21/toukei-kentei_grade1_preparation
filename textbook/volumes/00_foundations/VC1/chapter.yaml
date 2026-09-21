@@ -1,0 +1,42 @@
+id: "VC1"
+title: "標準ベクトル解析 I：ベクトル場と微分演算子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RA6A
+official_scope: []
+learning_objectives:
+  - スカラー場とベクトル場を区別し、方向微分を勾配との内積で表せる
+  - 正則レベル曲面で勾配が接方向に直交することを連鎖律から証明できる
+  - 発散を定義し、微小直方体の正味流束密度として説明できる
+  - 回転を定義し、微小長方形の循環密度として説明できる
+  - スカラー・ラプラシアンを勾配の発散として定義し、調和性を判定できる
+  - C2正則性の下で勾配の回転が0、回転の発散が0となることを成分計算から証明できる
+  - div(fF), curl(fF), div(F×G), curl(F×G) の主要恒等式を成分計算から導出して使える
+definitions:
+  - { id: VC1-DEF-01, name: スカラー場・ベクトル場 }
+  - { id: VC1-DEF-02, name: 勾配 }
+  - { id: VC1-DEF-03, name: 発散 }
+  - { id: VC1-DEF-04, name: 回転 }
+  - { id: VC1-DEF-05, name: スカラー・ラプラシアン }
+  - { id: VC1-DEF-06, name: レベル集合・レベル曲面 }
+theorems:
+  - { id: VC1-THM-01, name: 正則レベル曲面と勾配の直交 }
+  - { id: VC1-THM-02, name: 勾配の回転は 0 }
+  - { id: VC1-THM-03, name: 回転の発散は 0 }
+  - { id: VC1-PROP-01, name: 主要な積の微分則 }
+canonical_examples:
+  - x^2+y^2+z^2の勾配とレベル球面
+  - 放射状ベクトル場 (x,y,z) の発散
+  - 剛体回転場 (-y,x,0) の回転
+  - 調和多項式のラプラシアン
+problem_patterns:
+  - VC1-GRAD-LEVEL-1
+  - VC1-DIV-1
+  - VC1-CURL-1
+  - VC1-LAPLACIAN-1
+  - VC1-IDENTITY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 3.5, review: 1.0 }

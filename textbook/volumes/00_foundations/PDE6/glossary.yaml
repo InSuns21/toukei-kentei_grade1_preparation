@@ -5,7 +5,7 @@ terms:
     meaning: 境界上の外向き単位法線nに沿う方向微分で、partial u/partial n = grad u dot n と定義する。
   - term: 発散定理
     english: divergence theorem
-    meaning: 領域内部のdivergenceの積分を境界を横切る外向きfluxの積分へ変換する積分定理。
+    meaning: 領域内部のdivergenceの積分を境界の外向きfluxへ変換する積分定理。一般論の正本はVC4で、本章ではGreen恒等式への入力として使う。
   - term: Greenの第一恒等式
     english: Green's first identity
     meaning: div(u grad v)へ発散定理を適用して、内部のgrad u dot grad vとu Delta vを境界のu partial_n vへ結ぶ恒等式。

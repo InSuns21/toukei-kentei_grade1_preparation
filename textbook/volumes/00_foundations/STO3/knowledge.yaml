@@ -6,6 +6,11 @@ prerequisites:
   - F0-00D4
   - F0-00P4
 
+forward_references:
+  - stochastic.brownian-reflection-principle
+  - stochastic.brownian-markov-property
+  - stochastic.brownian-strong-markov-property
+
 concepts:
   - id: stochastic.finite-dimensional-distribution-consistency
     name: 有限次元分布と整合性
@@ -21,7 +26,7 @@ concepts:
     kind: definition
     aliases: ["canonical path space", "coordinate process", "cylinder set", "canonical process"]
     introduction: formal
-    introduction_aliases: ["定義（canonical 経路空間と cylinder set）"]
+    introduction_aliases: ["定義（標準経路空間と円筒集合）"]
     requires:
       - stochastic.finite-dimensional-distribution-consistency
 
@@ -51,15 +56,15 @@ concepts:
     kind: definition
     aliases: ["Hölder continuity", "Hölder continuous", "Hölder連続", "Hölder 指数"]
     introduction: formal
-    introduction_aliases: ["定義（Hölder continuity）"]
+    introduction_aliases: ["定義（Hölder 連続性）"]
     requires: []
 
   - id: stochastic.kolmogorov-chentsov-continuity
     name: Kolmogorov--Chentsov continuity theorem
     kind: theorem
-    aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem"]
+    aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem", "Kolmogorov--Chentsov 連続定理"]
     introduction: formal
-    introduction_aliases: ["定理（Kolmogorov--Chentsov continuity theorem：1 パラメータ版）"]
+    introduction_aliases: ["定理（Kolmogorov--Chentsov 連続定理：1 パラメータ版）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.modification-indistinguishability
@@ -72,6 +77,6 @@ concepts:
     kind: proposition
     aliases: ["連続な modifications は indistinguishable", "continuous modifications are indistinguishable"]
     introduction: formal
-    introduction_aliases: ["命題（連続な modifications は indistinguishable）"]
+    introduction_aliases: ["命題（連続な modifications は識別不能）"]
     requires:
       - stochastic.modification-indistinguishability

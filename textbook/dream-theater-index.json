@@ -36,6 +36,7 @@
         "textbook/volumes/00_foundations/F0_00D0B_Dedekind切断_実数の構成/index.md",
         "textbook/volumes/00_foundations/F0_00D0C_Cauchy構成_Dedekind構成_同値/index.md",
         "textbook/volumes/00_foundations/TOP6/index.md",
+        "textbook/volumes/00_foundations/TOP7/index.md",
         "textbook/volumes/00_foundations/RA1/index.md",
         "textbook/volumes/00_foundations/RA1A/index.md",
         "textbook/volumes/00_foundations/RA2/index.md",
@@ -62,6 +63,13 @@
         "textbook/volumes/00_foundations/F0_00F2_SVD_特異値_作用素ノルム/index.md",
         "textbook/volumes/00_foundations/LA6/index.md",
         "textbook/volumes/00_foundations/LA3D/index.md",
+        "textbook/volumes/00_foundations/VC1/index.md",
+        "textbook/volumes/00_foundations/VC2/index.md",
+        "textbook/volumes/00_foundations/VC3/index.md",
+        "textbook/volumes/00_foundations/VC4/index.md",
+        "textbook/volumes/00_foundations/VC5/index.md",
+        "textbook/volumes/00_foundations/VC6/index.md",
+        "textbook/volumes/00_foundations/VC7/index.md",
         "textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md",
         "textbook/volumes/00_foundations/F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md",
         "textbook/volumes/00_foundations/F0_00D3_外測度_Caratheodory可測性/index.md",
@@ -82,6 +90,7 @@
         "textbook/volumes/00_foundations/F0_00D2D_Lp_Holder_Minkowski/index.md",
         "textbook/volumes/00_foundations/F0_00D2E_L2完備性_Riesz_Fischer/index.md",
         "textbook/volumes/00_foundations/MT7/index.md",
+        "textbook/volumes/00_foundations/MT8/index.md",
         "textbook/volumes/00_foundations/F0_02C_関数解析_制約想定_RKHS/index.md",
         "textbook/volumes/00_foundations/F0_02C1_ノルム空間_Banach_Hilbert/index.md",
         "textbook/volumes/00_foundations/F0_02C1A_Hilbert射影定理_直交分解/index.md",
@@ -137,6 +146,7 @@
         "textbook/volumes/00_foundations/F0_00P5A_truncation_Kronecker_一般SLLN/index.md",
         "textbook/volumes/00_foundations/F0_00P6_特性関数_中心極限定理/index.md",
         "textbook/volumes/00_foundations/F0_00P6A_iid_中心極限定理/index.md",
+        "textbook/volumes/00_foundations/F0_00P6B_Poisson少数法則_希少事象列/index.md",
         "textbook/volumes/00_foundations/F0_00P7_統計モデル_尤度_正則性/index.md",
         "textbook/volumes/00_foundations/F0_00P7A_MLE_一致性_漸近正規性/index.md",
         "textbook/volumes/00_foundations/F0_00P7B_QMD_LAN/index.md"
@@ -184,21 +194,26 @@
       ]
     },
     {
-      "name": "Encore IV：Stochastic Analysis & Time Series",
+      "name": "Encore IV：確率解析・時系列",
       "paths": [
         "textbook/volumes/00_foundations/F0_00R4_EncoreIV_Stochastic_Spectral_TimeSeries/index.md",
         "textbook/volumes/00_foundations/STO1/index.md",
         "textbook/volumes/00_foundations/STO2/index.md",
+        "textbook/volumes/00_foundations/STO2A/index.md",
         "textbook/volumes/00_foundations/STO3/index.md",
         "textbook/volumes/00_foundations/STO4/index.md",
+        "textbook/volumes/00_foundations/STO3A/index.md",
         "textbook/volumes/00_foundations/STO5/index.md",
         "textbook/volumes/00_foundations/STO6/index.md",
         "textbook/volumes/00_foundations/STO7/index.md",
         "textbook/volumes/00_foundations/STO8/index.md",
+        "textbook/volumes/00_foundations/STO4A/index.md",
         "textbook/volumes/00_foundations/STO9/index.md",
         "textbook/volumes/00_foundations/STO10/index.md",
         "textbook/volumes/00_foundations/STO11/index.md",
-        "textbook/volumes/00_foundations/STO12/index.md"
+        "textbook/volumes/00_foundations/STO12/index.md",
+        "textbook/volumes/00_foundations/STO13/index.md",
+        "textbook/volumes/00_foundations/STO14/index.md"
       ]
     },
     {

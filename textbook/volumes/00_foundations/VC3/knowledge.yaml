@@ -1,0 +1,100 @@
+chapter: VC3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC1
+  - RA7
+  - LA3C
+
+forward_references:
+  - vector-calculus.green-circulation
+  - vector-calculus.gauss-divergence
+
+concepts:
+  - id: vector-calculus.regular-parametrized-surface
+    name: 正則パラメータ曲面
+    kind: definition
+    aliases: [regular parametrized surface, parametric surface]
+    introduction: formal
+    introduction_aliases: ["定義（正則パラメータ曲面）"]
+    requires:
+      - functional.frechet-derivative
+
+  - id: vector-calculus.surface-tangent-normal
+    name: 接平面・法線
+    kind: definition
+    aliases: [接平面, tangent plane, 法線, normal vector]
+    introduction: formal
+    introduction_aliases: ["定義（接平面・法線）"]
+    requires:
+      - vector-calculus.regular-parametrized-surface
+
+  - id: vector-calculus.orientable-surface
+    name: 向き付け可能な曲面
+    kind: definition
+    aliases: [orientable surface, orientation, 曲面の向き]
+    introduction: formal
+    introduction_aliases: ["定義（向き付け可能な曲面）"]
+    requires:
+      - vector-calculus.surface-tangent-normal
+
+  - id: vector-calculus.surface-area-element
+    name: 曲面積要素
+    kind: definition
+    aliases: [surface area element, dS]
+    introduction: formal
+    introduction_aliases: ["定義（曲面積要素）"]
+    requires:
+      - vector-calculus.regular-parametrized-surface
+      - analysis.multiple-riemann-integral
+
+  - id: vector-calculus.surface-area-reparam-invariance
+    name: 曲面積要素の再パラメータ表示不変性
+    kind: theorem
+    aliases: [surface area reparametrization invariance]
+    introduction: formal
+    introduction_aliases: ["定理（曲面積要素の再パラメータ表示不変性）"]
+    requires:
+      - vector-calculus.surface-area-element
+      - analysis.multivariable-riemann-change-of-variables
+
+
+  - id: vector-calculus.scalar-surface-integral
+    name: スカラー曲面積分
+    kind: definition
+    aliases: [scalar surface integral, 第一種曲面積分]
+    introduction: formal
+    introduction_aliases: ["定義（スカラー曲面積分）"]
+    requires:
+      - vector-calculus.surface-area-element
+
+  - id: vector-calculus.flux-integral
+    name: 向き付き面素・流束
+    kind: definition
+    aliases: [flux, flux integral, 向き付き面素, 流束]
+    introduction: formal
+    introduction_aliases: ["定義（向き付き面素・流束）"]
+    requires:
+      - vector-calculus.orientable-surface
+      - vector-calculus.surface-area-element
+
+  - id: vector-calculus.flux-reparam-invariance
+    name: 向き付き流束の再パラメータ表示不変性
+    kind: proposition
+    aliases: [oriented flux reparametrization invariance]
+    introduction: formal
+    introduction_aliases: ["命題（向き付き流束の再パラメータ表示不変性）"]
+    requires:
+      - vector-calculus.flux-integral
+      - vector-calculus.surface-area-reparam-invariance
+      - analysis.multivariable-riemann-change-of-variables
+
+  - id: vector-calculus.graph-surface-formulas
+    name: グラフ曲面の面積・上向き流束
+    kind: proposition
+    aliases: [graph surface formula]
+    introduction: formal
+    introduction_aliases: ["命題（グラフ曲面の面積・上向き流束）"]
+    requires:
+      - vector-calculus.scalar-surface-integral
+      - vector-calculus.flux-integral

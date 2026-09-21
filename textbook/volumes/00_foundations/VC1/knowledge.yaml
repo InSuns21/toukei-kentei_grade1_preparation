@@ -1,0 +1,108 @@
+chapter: VC1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA6A
+
+forward_references:
+  # 後続 VC 章・PDE/複素解析との接続を本文で予告するだけで、証明依存には使わない。
+  - vector-calculus.vector-line-integral
+  - vector-calculus.surface-tangent-normal
+  - vector-calculus.flux-integral
+  - vector-calculus.gauss-divergence
+  - complex-analysis.harmonic-function
+
+concepts:
+  - id: vector-calculus.scalar-vector-field
+    name: スカラー場・ベクトル場
+    kind: definition
+    aliases: [scalar field, vector field, スカラー場, ベクトル場]
+    introduction: inline
+    requires:
+      - functional.frechet-derivative
+
+  - id: vector-calculus.gradient
+    name: 勾配
+    kind: definition
+    aliases: [gradient, grad, 勾配]
+    introduction: inline
+    requires:
+      - vector-calculus.scalar-vector-field
+      - functional.frechet-derivative
+
+  - id: vector-calculus.level-surface
+    name: レベル集合・レベル曲面
+    kind: definition
+    aliases: [レベル集合, レベル曲面, level set, level surface, 正則点]
+    introduction: formal
+    introduction_aliases: ["定義（レベル集合・レベル曲面）"]
+    requires:
+      - vector-calculus.gradient
+      - analysis.regular-level-set-local-graph
+
+  - id: vector-calculus.level-gradient-normal
+    name: 正則レベル曲面と勾配の直交
+    kind: theorem
+    aliases: [正則level surfaceとgradientの直交, level surfaceの法線, gradientの法線性, 正則レベル曲面と勾配の直交]
+    introduction: formal
+    introduction_aliases: ["定理（正則レベル曲面と勾配の直交）"]
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.level-surface
+      - analysis.regular-level-set-local-graph
+
+  - id: vector-calculus.divergence
+    name: 発散
+    kind: definition
+    aliases: [divergence, div, 発散]
+    introduction: inline
+    requires:
+      - vector-calculus.scalar-vector-field
+
+  - id: vector-calculus.curl
+    name: 回転
+    kind: definition
+    aliases: [curl, rotation, rot, 回転]
+    introduction: inline
+    requires:
+      - vector-calculus.scalar-vector-field
+
+  - id: vector-calculus.scalar-laplacian
+    name: スカラー・ラプラシアン
+    kind: definition
+    aliases: [scalar Laplacian, Laplacian, ラプラシアン]
+    introduction: inline
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.divergence
+
+  - id: vector-calculus.curl-gradient-zero
+    name: 勾配の回転は 0
+    kind: theorem
+    aliases: [curl grad = 0, curl grad zero]
+    introduction: formal
+    introduction_aliases: ["定理（勾配の回転は 0）"]
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.curl
+
+  - id: vector-calculus.divergence-curl-zero
+    name: 回転の発散は 0
+    kind: theorem
+    aliases: [div curl = 0, div curl zero]
+    introduction: formal
+    introduction_aliases: ["定理（回転の発散は 0）"]
+    requires:
+      - vector-calculus.divergence
+      - vector-calculus.curl
+
+  - id: vector-calculus.product-rules
+    name: ベクトル微分演算子の積の微分則
+    kind: proposition
+    aliases: [div(fF), curl(fF), div(F×G)]
+    introduction: formal
+    introduction_aliases: ["命題（主要な積の微分則）"]
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.divergence
+      - vector-calculus.curl

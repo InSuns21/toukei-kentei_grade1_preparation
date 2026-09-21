@@ -1,0 +1,179 @@
+chapter: STO14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO13
+  - STO7
+  - STO2
+  - F0-00D2E
+  - F0-00P6
+
+forward_references:
+  - stochastic.markov-generator
+  - stochastic.dynkin-formula
+
+concepts:
+  - id: stochastic.compound-poisson-process
+    name: 複合 Poisson 過程
+    kind: definition
+    aliases: ["compound Poisson process"]
+    introduction: formal
+    introduction_aliases: ["定義（複合 Poisson 過程）"]
+    requires:
+      - stochastic.poisson-process
+
+  - id: stochastic.compound-poisson-characteristic-function
+    name: 複合 Poisson 過程の Lévy 性と特性関数
+    kind: theorem
+    aliases: ["compound Poisson characteristic function", "compound Poisson Levy exponent"]
+    introduction: formal
+    introduction_aliases: ["定理（複合 Poisson 過程の Lévy 性と特性関数）"]
+    requires:
+      - stochastic.compound-poisson-process
+      - prob.characteristic-function-uniqueness
+
+  - id: stochastic.levy-process
+    name: Lévy 過程
+    kind: definition
+    aliases: ["Lévy process", "Levy process"]
+    introduction: formal
+    introduction_aliases: ["定義（Lévy 過程）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: prob.infinitely-divisible-distribution
+    name: 無限分解可能分布
+    kind: definition
+    aliases: ["infinitely divisible distribution", "infinite divisibility"]
+    introduction: formal
+    introduction_aliases: ["定義（無限分解可能分布）"]
+    requires:
+      - prob.characteristic-function-uniqueness
+
+  - id: stochastic.levy-marginal-infinite-divisibility
+    name: Lévy 過程の周辺分布の無限分解可能性
+    kind: proposition
+    aliases: ["infinite divisibility of Levy marginals"]
+    introduction: formal
+    introduction_aliases: ["命題（Lévy 過程の周辺分布は無限分解可能）"]
+    requires:
+      - stochastic.levy-process
+      - prob.infinitely-divisible-distribution
+
+  - id: stochastic.levy-exponent
+    name: Lévy 指数
+    kind: proposition
+    aliases: ["Lévy exponent", "Levy exponent", "characteristic exponent"]
+    introduction: formal
+    introduction_aliases: ["命題（Lévy 過程の特性関数半群と Lévy 指数）"]
+    requires:
+      - stochastic.levy-process
+      - prob.characteristic-function-uniqueness
+
+  - id: stochastic.levy-measure
+    name: Lévy 測度
+    kind: definition
+    aliases: ["Lévy measure", "Levy measure"]
+    introduction: formal
+    introduction_aliases: ["定義（Lévy 測度）"]
+    requires:
+      - measure.measure-space
+
+  - id: stochastic.levy-activity
+    name: Lévy 過程の有限活動度と無限活動度
+    kind: definition
+    aliases: ["finite activity", "infinite activity"]
+    introduction: formal
+    introduction_aliases: ["定義（有限活動度と無限活動度）"]
+    requires:
+      - stochastic.levy-measure
+
+  - id: stochastic.levy-khintchine-formula
+    name: Lévy--Khintchine の公式
+    kind: theorem
+    aliases: ["Lévy--Khintchine formula", "Levy-Khintchine formula"]
+    introduction: formal
+    introduction_aliases: ["定理（Lévy--Khintchine の公式）"]
+    requires:
+      - stochastic.levy-exponent
+      - stochastic.levy-measure
+
+  - id: stochastic.simple-predictable-poisson-integrand
+    name: 単純予測可能 Poisson 被積分過程
+    kind: definition
+    aliases: ["simple predictable Poisson integrand"]
+    introduction: formal
+    introduction_aliases: ["定義（単純予測可能 Poisson 被積分過程）"]
+    requires:
+      - stochastic.predictable-process
+      - stochastic.compensated-poisson-random-measure
+
+  - id: stochastic.compensated-prm-l2-isometry-extension
+    name: 補償 Poisson ランダム測度の L2 等長性と拡張
+    kind: theorem
+    aliases: ["L2 compensated Poisson random measure isometry and extension"]
+    introduction: formal
+    introduction_aliases: ["定理（補償 Poisson ランダム測度の L2 等長性と拡張）"]
+    requires:
+      - stochastic.simple-predictable-poisson-integrand
+      - stochastic.compensated-prm-simple-isometry
+      - functional.l2-completeness
+
+  - id: stochastic.compensated-prm-l2-integral
+    name: 補償 Poisson ランダム測度に関する L2 確率積分
+    kind: definition
+    aliases: ["L2 compensated Poisson random measure integral", "compensated PRM stochastic integral"]
+    introduction: formal
+    introduction_aliases: ["定義（補償 Poisson ランダム測度に関する L2 確率積分）"]
+    requires:
+      - stochastic.compensated-prm-l2-isometry-extension
+
+  - id: stochastic.cadlag-doob-l2-maximal
+    name: càdlàg マルチンゲールの Doob L2 最大評価
+    kind: lemma
+    aliases: ["cadlag Doob L2 maximal inequality"]
+    introduction: formal
+    introduction_aliases: ["補題（càdlàg マルチンゲールの Doob L2 最大評価）"]
+    requires:
+      - stochastic.doob-maximal-inequality
+
+  - id: stochastic.compensated-small-jump-limit
+    name: 補償小跳躍積分の閾値極限
+    kind: theorem
+    aliases: ["compensated small-jump limit", "small-jump L2 construction"]
+    introduction: formal
+    introduction_aliases: ["定理（補償小跳躍積分の閾値極限）"]
+    requires:
+      - stochastic.compensated-prm-l2-integral
+      - stochastic.compensated-prm-l2-isometry-extension
+      - stochastic.levy-measure
+
+  - id: stochastic.levy-ito-decomposition
+    name: Lévy--Itô 分解
+    kind: theorem
+    aliases: ["Lévy--Itô decomposition", "Levy-Ito decomposition"]
+    introduction: formal
+    introduction_aliases: ["定理（Lévy--Itô 分解）"]
+    requires:
+      - stochastic.compensated-small-jump-limit
+      - stochastic.levy-khintchine-formula
+      - stochastic.brownian-motion
+
+  - id: stochastic.jump-ito-formula
+    name: Lévy 過程に対する跳躍 Itô 公式
+    kind: theorem
+    aliases: ["跳躍 Itô 公式", "Lévy 過程に対する跳躍 Itô 公式", "Itô formula with jumps", "jump Ito formula"]
+    introduction: formal
+    introduction_aliases: ["定理（Lévy 過程に対する跳躍 Itô 公式）"]
+    requires:
+      - stochastic.levy-ito-decomposition
+      - stochastic.multidimensional-ito-formula
+
+  - id: stochastic.levy-generator-martingale
+    name: Lévy 過程の生成作用素マルチンゲール
+    kind: corollary
+    aliases: ["Lévy generator", "Levy generator martingale"]
+    introduction: formal
+    introduction_aliases: ["系（Lévy 過程の生成作用素マルチンゲール）"]
+    requires:
+      - stochastic.jump-ito-formula

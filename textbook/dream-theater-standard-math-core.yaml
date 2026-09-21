@@ -187,6 +187,15 @@ nodes:
     reuses: [F0_00C1, F0_00D]
     prerequisites: [TOP5]
 
+  - id: TOP7
+    title: 一様構造・一様連続・Cauchy構造
+    area: topology
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/TOP7/index.md
+    prerequisites: [TOP6, RA5]
+
   - id: LA1
     title: 実・複素線形空間
     area: linear-algebra
@@ -264,6 +273,64 @@ nodes:
     implementation_path: textbook/volumes/00_foundations/LA6/index.md
     reuses: [F0_00F1, F0_00F2]
     prerequisites: [LA5]
+
+
+  - id: VC1
+    title: ベクトル場と微分演算子
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC1/index.md
+    prerequisites: [RA6A]
+  - id: VC2
+    title: 曲線・線積分・保存場
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC2/index.md
+    prerequisites: [VC1, RA4, TOP3]
+  - id: VC3
+    title: 曲面・向き・曲面積分・flux
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC3/index.md
+    prerequisites: [VC1, RA7, LA3C]
+  - id: VC4
+    title: Green・Gauss--Ostrogradskyと保存則
+    area: vector-calculus
+    tier: core
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/VC4/index.md
+    prerequisites: [VC2, VC3, RA7]
+  - id: VC5
+    title: Stokes theorem・curl・topology
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC5/index.md
+    prerequisites: [VC2, VC3, VC4]
+  - id: VC6
+    title: 直交曲線座標
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC6/index.md
+    prerequisites: [VC5]
+  - id: VC7
+    title: 添字記法・直交基底・成分変換
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC7/index.md
+    prerequisites: [VC4]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
@@ -352,6 +419,15 @@ nodes:
     implemented_at: 2026-09-12
     implementation_path: textbook/volumes/00_foundations/MT7/index.md
     prerequisites: [MTP, MT5]
+
+  - id: MT8
+    title: Hausdorff測度・Hausdorff次元
+    area: measure-theory
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/MT8/index.md
+    prerequisites: [MT0]
 
   - id: FA0
     title: Banach/Hilbert・有界作用素
@@ -481,10 +557,10 @@ implementation_batches:
     nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]
   - order: 3
     id: topology-core
-    nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP5A, TOP6]
+    nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP5A, TOP6, TOP7]
   - order: 4
     id: measure-theory-extension
-    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6, MT7]
+    nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6, MT7, MT8]
   - order: 5
     id: functional-analysis-foundation
     nodes: [FA1, FA2, FA3, FA4]
@@ -497,6 +573,9 @@ implementation_batches:
   - order: 8
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6A, RA7, RA8]
+  - order: 9
+    id: vector-calculus-core
+    nodes: [VC1, VC2, VC3, VC4, VC5, VC6, VC7]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

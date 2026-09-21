@@ -72,6 +72,16 @@ Encore IV の入口 ID F0-00R4 は維持し、内容を新系列ロードマッ�
 - Lévy process / Lévy--Khintchine / Lévy--Itô の位置付け
 - jump を含む Itô formula
 
+### 2.1 表記と既出結果への参照
+
+新 STO / TSA 本文では、英語論文との対応を保ちつつ、読者向けの主表記は次で統一する。
+
+- 日本語で定着している術語は日本語を主表記にする。例：フィルトレーション、停止時刻、適合過程、予測可能過程、マルチンゲール、二次変分、確率積分、局所時間、強解・弱解、法則の一意性、遷移核、半群、生成作用素、マルチンゲール問題。
+- Itô、Stratonovich、Girsanov、Kolmogorov、Feynman--Kac、Lévy などの固有名は維持する。検索上有用な英語名・略語は初出で補助的に併記してよいが、通常の説明語まで英語のまま連結しない。
+- prerequisite で定義済みの概念を再利用する場合、その章での最初の実質的使用箇所から canonical な `def-` / `thm-` / `prop-` / `lem-` / `cor-` anchor へ直接リンクする。章トップへのリンクだけで済ませない。
+- 証明で既出定理・補題を論理的入力として使う箇所も stable anchor へ直接リンクし、現在の対象が仮定を満たすことは局所的に確認する。
+- 必要な定義・定理に stable anchor がない場合は、説明文中の暗黙定義を増やさず、canonical owner 側を formal statement または安定 `ref-` 節へ昇格させてから参照する。
+
 ### 停止線
 
 次は新 Encore IV の必須主線へは入れない。
@@ -583,7 +593,7 @@ ARMA / ergodicity / Kalman
 
 ## 13. 実装進捗
 
-最終更新: 2026-09-21
+最終更新: 2026-09-22
 
 - Phase 0「ルーティングと設計台帳」：完了。
 - 旧 Encore IV の SP / TS 章を archive / migration source 扱いへ切り替え、reader-facing index と目次から除外した。
@@ -637,4 +647,17 @@ ARMA / ergodicity / Kalman
 - representation theorem は terminal stochastic integral の closed range を Itô isometry から証明し、deterministic exponential martingale がその値域に入ることを確認した上で、Gaussian exponential vectors の totality を一次元 Gaussian の signed-measure / characteristic-function argument、有限独立 Gaussian product、dyadic Brownian information、Lévy 上昇定理で閉じた。
 - terminal variable representation から conditional expectation process と Brownian predictable representation property を導き、独立 Brownian noise による enlarged filtration では PRP が失敗する機構を quadratic covariation で示した。stochastic control / mathematical finance への橋は存在・一意性と explicit integrand 同定を分離して記述し、Clark--Ocone formula は停止線の外に保った。
 - STO12 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
-- 現在地：Phase 3 は STO12 完了。次の実装対象は STO13「Poisson process・continuous-time Markov chain・random measure」。
+- Phase 4：STO13「ポアソン過程・連続時間マルコフ連鎖・ランダム測度」を実装。ポアソン過程 / 指数待ち時間 / 補償ポアソンマルチンゲール / 計数過程の補償過程 / 有限状態 CTMC / Q-行列 / 跳躍連鎖・滞在時間 / Kolmogorov 後退・前進方程式 / 生成作用素マルチンゲール / ポアソンランダム測度 / 補償ポアソンランダム測度を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO13 の direct prerequisite は STO2・F0-00D2C とした。連続時間マルチンゲールは STO2 の条件付き期待値による定義を連続時間添字へ直接拡張して逐一検証し、STO5 の連続局所マルチンゲール一般論や STO11 の一般生成作用素理論を theorem 本体の prerequisite にしない。STO11 は有限状態 Q の生成作用素構造を一般論と対応付ける補助参照に留めた。
+- 有限状態 CTMC は Q-行列から跳躍連鎖と指数滞在時間で構成し、最大跳躍率 q_* が 0 の全吸収状態の場合を分離した上で、q_*>0 では exponential 変数の部分和が a.s. 発散することを直接評価して非爆発性を証明した。可算状態では q_n=n^2 の純粋出生過程が a.s. 有限時間で爆発する反例を置き、有限状態仮定が使われる場所を明示した。
+- ポアソンランダム測度では有限強度集合上の Poisson 計数と互いに素な集合の独立性から補償ランダム測度を構成し、決定論的単関数に対する平均0・L2 等長性・マルチンゲール性を証明した。複合ポアソン過程の特性関数、Lévy exponent、一般の予測可能被積分関数に対する確率積分は STO14 の canonical content として先取りしない。
+- STO13 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
+- Phase 4：STO14「Lévy 過程・跳躍型確率解析」を実装。複合 Poisson 過程 / Lévy 過程 / 無限分解可能分布 / Lévy 指数 / Lévy 測度 / 有限・無限活動度 / Lévy--Khintchine の公式 / 補償 Poisson ランダム測度の予測可能 $L^2$ 積分 / 補償小跳躍 / Lévy--Itô 分解 / 跳躍 Itô 公式 / Lévy 生成作用素を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO14 の direct prerequisite は STO13・STO7・STO2・F0-00D2E・F0-00P6 とした。STO13 の Poisson random measure / 補償 measure、STO7 の Itô calculus、STO2 の Doob 最大不等式、D2E の $L^2$ 完備性、P6 の特性関数を実際の構成・証明に使う。STO11 の一般生成作用素は最後の対応関係を示す補助参照に留め、主線の prerequisite へは追加しない。
+- 補償 Poisson ランダム測度の積分は、未来増分と独立な自然フィルトレーション上の単純予測可能被積分過程から始め、条件付き二乗平均で等長性を証明した。予測可能 $\sigma$-field の生成矩形と $\sigma$-有限性から単純過程の $L^2$ 稠密性を確認し、完備化で一般の二乗可積分予測可能被積分過程へ拡張した。
+- 小跳躍は $\varepsilon<|z|\le1$ の有限活動度切断から始め、Lévy 測度条件 $\int_{|z|\le1}z^2\nu(dz)<\infty$ と càdlàg Doob $L^2$ 最大評価を使って、$[0,T]$ 上 sup ノルムの二乗平均で補償積分へ収束させた。これにより無限活動度でも小跳躍を一個ずつ絶対収束させず、補償 + $L^2$ 極限として構成した。
+- Lévy--Khintchine は triplet から Lévy 過程を作る構成方向を Lévy--Itô 分解として章内で閉じた。一方、任意の Lévy 過程から一意な triplet を抽出する一般分類方向は、微小時間分布の構造論を要する独立した大規模理論のため、理由と境界を明示した意図的黒箱とした。
+- 跳躍 Itô 公式は $\varepsilon$-切断した有限活動度過程へ連続 Itô 公式を区間ごとに適用し、跳躍有限差分を足した後、補償 Poisson 等長性と Taylor 二次剰余で $\varepsilon\downarrow0$ へ送る核心証明を閉じた。生成作用素の Lévy--Khintchine 形と Fourier 記号もそこから導いた。
+- STO14 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
+- Phase 4「jump process」STO13--STO14 は完了。
+- 現在地：確率解析主線 STO1--STO14 は完了。次の実装対象は Phase 5：TSA1「定常過程・Hilbert 予測」。

@@ -5,12 +5,27 @@ prerequisites:
   - F0-00F1
   - F0-00E2
 
+# §9 と §11 は、有限次元で得た式が後続の関数解析でどう一般化されるかを明示する予告。
+forward_references:
+  - functional.norm
+  - functional.operator-norm
+  - functional.normed-space
+  - functional.banach-space
+  - functional.banach-space-recap-d2e
+  - functional.banach-space-recap-c1
+  - functional.hilbert-space
+  - functional.hilbert-space-recap-c1
+  - functional.linear-functional
+  - functional.continuous-linear-functional
+  - functional.riesz-representation-theorem
+  - functional.adjoint-operator
+
 concepts:
   - id: linear.singular-value
     name: 特異値
     kind: definition
-    introduction_aliases: [特異値・右特異ベクトル]
-    aliases: [特異値, 特異値・右特異ベクトル]
+    introduction_aliases: [特異値]
+    aliases: [特異値]
     requires:
       - linear.spectral-theorem
       - linear.positive-semidefinite-matrix
@@ -18,8 +33,8 @@ concepts:
   - id: linear.right-singular-vector
     name: 右特異ベクトル
     kind: definition
-    introduction_aliases: [特異値・右特異ベクトル]
-    aliases: [右特異ベクトル, 特異値・右特異ベクトル]
+    introduction_aliases: [右特異ベクトル]
+    aliases: [右特異ベクトル]
     requires:
       - linear.singular-value
       - linear.eigenvector
@@ -43,10 +58,26 @@ concepts:
       - linear.orthogonality
 
   - id: linear.spectral-norm
-    name: 行列の作用素ノルム（スペクトルノルム）
+    name: 行列の2-作用素ノルム
     kind: definition
-    introduction_aliases: [作用素ノルム]
-    aliases: [行列の作用素ノルム（スペクトルノルム）, "定義（作用素ノルム）"]
+    introduction_aliases: [2-作用素ノルム]
+    aliases: [行列の2-作用素ノルム, 2-作用素ノルム, "定義（2-作用素ノルム）"]
     requires:
       - linear.inner-product-induced-norm
+      - linear.singular-value-decomposition
+
+  - id: linear.rank-nonzero-singular-values
+    name: rank と非零特異値
+    kind: proposition
+    introduction_aliases: [rank と非零特異値]
+    aliases: [rank と非零特異値, rank と非零特異値の個数の一致]
+    requires:
+      - linear.singular-value-decomposition
+
+  - id: linear.operator-norm-largest-singular
+    name: 2-作用素ノルムと最大特異値
+    kind: theorem
+    aliases: [2-作用素ノルムと最大特異値, 作用素ノルムと最大特異値]
+    requires:
+      - linear.spectral-norm
       - linear.singular-value-decomposition

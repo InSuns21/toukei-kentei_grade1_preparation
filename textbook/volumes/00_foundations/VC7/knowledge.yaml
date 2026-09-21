@@ -1,0 +1,172 @@
+chapter: VC7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC4
+  - F0-00E1
+
+concepts:
+  - id: vector-calculus.einstein-summation
+    name: Einstein の総和規約と自由添字・ダミー添字
+    kind: definition
+    aliases: [Einstein summation convention, Einstein の総和規約, 自由添字, ダミー添字, free index, dummy index]
+    introduction: formal
+    introduction_aliases: ["定義（Einstein の総和規約と自由添字・ダミー添字）"]
+    requires:
+      - linear.basis
+
+  - id: vector-calculus.kronecker-delta
+    name: Kronecker のデルタ
+    kind: definition
+    aliases: [Kronecker delta, クロネッカーのデルタ, delta_ij]
+    introduction: formal
+    introduction_aliases: ["定義（Kronecker のデルタ）"]
+    requires:
+      - vector-calculus.einstein-summation
+
+  - id: vector-calculus.levi-civita-symbol
+    name: Levi--Civita 記号
+    kind: definition
+    aliases: [Levi-Civita symbol, Levi--Civita symbol, epsilon_ijk, 交代記号]
+    introduction: formal
+    introduction_aliases: ["定義（Levi--Civita 記号）"]
+    requires:
+      - vector-calculus.einstein-summation
+
+  - id: vector-calculus.levi-civita-contraction
+    name: Levi--Civita 記号の縮約公式
+    kind: proposition
+    aliases: [epsilon epsilon contraction, Levi--Civita contraction identity]
+    introduction: formal
+    introduction_aliases: ["命題（Levi--Civita 記号の縮約公式）"]
+    requires:
+      - vector-calculus.kronecker-delta
+      - vector-calculus.levi-civita-symbol
+
+  - id: vector-calculus.cartesian-second-order-tensor
+    name: 二階デカルトテンソル
+    kind: definition
+    aliases: [second-order Cartesian tensor, Cartesian tensor, デカルトテンソル]
+    introduction: formal
+    introduction_aliases: ["定義（二階デカルトテンソル）"]
+    requires:
+      - linear.orthonormal-system
+      - vector-calculus.einstein-summation
+
+  - id: vector-calculus.dyadic-product
+    name: 二項積
+    kind: definition
+    aliases: [dyadic product, tensor product of two vectors, 二項積]
+    introduction: formal
+    introduction_aliases: ["定義（二項積）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+      - linear.inner-product
+
+  - id: vector-calculus.contraction
+    name: 縮約
+    kind: definition
+    aliases: [contraction, 縮約]
+    introduction: formal
+    introduction_aliases: ["定義（縮約）"]
+    requires:
+      - vector-calculus.einstein-summation
+
+  - id: vector-calculus.trace-double-contraction
+    name: 跡・二重縮約
+    kind: definition
+    aliases: [trace, double contraction, 跡, 二重縮約]
+    introduction: formal
+    introduction_aliases: ["定義（跡・二重縮約）"]
+    requires:
+      - vector-calculus.contraction
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.symmetric-skew-decomposition
+    name: 二階テンソルの対称・反対称分解
+    kind: proposition
+    aliases: [symmetric skew decomposition, symmetric antisymmetric decomposition, 対称反対称分解]
+    introduction: formal
+    introduction_aliases: ["命題（二階テンソルの対称・反対称分解）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.axial-vector
+    name: 軸性ベクトル
+    kind: definition
+    aliases: [axial vector, pseudovector, 軸性ベクトル]
+    introduction: formal
+    introduction_aliases: ["定義（軸性ベクトル）"]
+    requires:
+      - vector-calculus.levi-civita-symbol
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.vector-gradient-tensor
+    name: ベクトル場の勾配・発散・回転の添字表示
+    kind: proposition
+    aliases: [vector gradient tensor, velocity gradient, gradient of vector field]
+    introduction: formal
+    introduction_aliases: ["命題（ベクトル場の勾配・発散・回転の添字表示）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+      - vector-calculus.divergence
+      - vector-calculus.curl
+
+  - id: vector-calculus.tensor-divergence
+    name: 二階テンソル場の発散
+    kind: definition
+    aliases: [divergence of a second-order tensor, tensor divergence]
+    introduction: formal
+    introduction_aliases: ["定義（二階テンソル場の発散）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+      - vector-calculus.divergence
+
+  - id: vector-calculus.tensor-divergence-theorem
+    name: 二階テンソル版 Gauss--Ostrogradsky の発散定理
+    kind: theorem
+    aliases: [tensor divergence theorem]
+    introduction: formal
+    introduction_aliases: ["定理（二階テンソル版 Gauss--Ostrogradsky の発散定理）"]
+    requires:
+      - vector-calculus.tensor-divergence
+      - vector-calculus.gauss-divergence
+
+  - id: vector-calculus.stress-tensor
+    name: 応力テンソルと表面力
+    kind: definition
+    aliases: [stress tensor, traction vector, 表面力ベクトル]
+    introduction: formal
+    introduction_aliases: ["定義（応力テンソルと表面力）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.inertia-tensor
+    name: 慣性テンソル
+    kind: definition
+    aliases: [inertia tensor, moment of inertia tensor]
+    introduction: formal
+    introduction_aliases: ["定義（慣性テンソル）"]
+    requires:
+      - vector-calculus.kronecker-delta
+      - vector-calculus.cartesian-second-order-tensor
+
+  - id: vector-calculus.inertia-positive-semidefinite
+    name: 慣性テンソルの半正定値性
+    kind: proposition
+    aliases: [positive semidefinite inertia tensor, 慣性テンソルの半正定値性]
+    introduction: formal
+    introduction_aliases: ["命題（慣性テンソルの半正定値性）"]
+    requires:
+      - vector-calculus.inertia-tensor
+      - vector-calculus.levi-civita-symbol
+
+  - id: vector-calculus.isotropic-second-order-tensor
+    name: 二階等方テンソルの形
+    kind: theorem
+    aliases: [isotropic second-order tensor, isotropic tensor, 等方テンソル]
+    introduction: formal
+    introduction_aliases: ["定理（二階等方テンソルの形）"]
+    requires:
+      - vector-calculus.cartesian-second-order-tensor
+      - linear.orthonormal-system

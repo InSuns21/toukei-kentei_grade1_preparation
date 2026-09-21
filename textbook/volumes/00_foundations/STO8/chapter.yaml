@@ -1,5 +1,5 @@
 id: "STO8"
-title: "Encore IV Stochastic Analysis VIII：local time・Tanaka formula"
+title: "Encore IV 確率解析 VIII：局所時間・Tanaka 公式"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -12,34 +12,34 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 絶対値のkinkで通常のC2 Itô formulaが止まる理由を説明し、平滑化で欠けた二階項を局所時間として取り出せる
-  - Brown運動のlevel aにおけるlocal timeをoccupation kernelの極限として構成し、Tanaka formulaを証明できる
-  - Tanaka formulaからpositive part / negative partの公式を導出できる
-  - local timeの増加測度がlevel set {B=a}に支えられる一方、そのlevel setのLebesgue時間が0であることを証明できる
-  - Brownian local timeの空間変数aに関する連続versionをmoment estimateとKolmogorov--Chentsovで構成できる
-  - occupation time formulaをkernel近似とTonelli/Fubiniから証明し、local timeが滞在時間密度であることを説明できる
+  - ブラウン運動のlevel aにおける局所時間をoccupation kernelの極限として構成し、Tanaka 公式を証明できる
+  - Tanaka 公式からpositive part / negative partの公式を導出できる
+  - 局所時間の増加測度がレベル集合 {B=a}に支えられる一方、そのレベル集合のLebesgue時間が0であることを証明できる
+  - ブラウン局所時間の空間変数aに関する連続versionをモーメント評価とKolmogorov--Chentsovで構成できる
+  - 滞在時間公式をkernel近似とTonelli/Fubiniから証明し、局所時間が滞在時間密度であることを説明できる
   - interval occupationからL_t^aを回収する近似公式を導ける
-  - Skorokhod reflection lemmaとLevy transformを用い、|B|とlocal timeを反射Brown運動として表現できる
-  - reflection principleを使いL_t^0の分布を計算し、局所時間とrunning maximumの関係を説明できる
+  - Skorokhod 反射補題とLevy transformを用い、|B|と局所時間を反射ブラウン運動として表現できる
+  - 反射 principleを使いL_t^0の分布を計算し、局所時間とrunning maximumの関係を説明できる
 definitions:
-  - { id: STO8-DEF-01, name: "Brownian local time at a level" }
+  - { id: STO8-DEF-01, name: "ブラウン局所時間 at a level" }
 theorems:
-  - { id: STO8-THM-01, name: "Brownian local timeの存在・Tanaka formula" }
-  - { id: STO8-COR-01, name: "positive / negative part Tanaka formula" }
-  - { id: STO8-PROP-01, name: "local timeの増加はlevel setに支えられる" }
-  - { id: STO8-PROP-02, name: "Brownian level setのLebesgue時間は0" }
+  - { id: STO8-THM-01, name: "ブラウン局所時間の存在・Tanaka 公式" }
+  - { id: STO8-COR-01, name: "正部分・負部分 Tanaka 公式" }
+  - { id: STO8-PROP-01, name: "局所時間の増加はレベル集合に支えられる" }
+  - { id: STO8-PROP-02, name: "ブラウンレベル集合のLebesgue時間は0" }
   - { id: STO8-LEM-01, name: "interval occupation moment bound" }
-  - { id: STO8-THM-02, name: "Brownian local timeの空間連続性" }
-  - { id: STO8-THM-03, name: "occupation time formula" }
-  - { id: STO8-COR-02, name: "interval occupationによるlocal time近似" }
-  - { id: STO8-LEM-02, name: "Skorokhod reflection lemma" }
-  - { id: STO8-PROP-03, name: "Levy transformはBrown運動" }
-  - { id: STO8-THM-04, name: "Brownian reflection representation by local time" }
+  - { id: STO8-THM-02, name: "ブラウン局所時間の空間連続性" }
+  - { id: STO8-THM-03, name: "滞在時間公式" }
+  - { id: STO8-COR-02, name: "interval occupationによる局所時間近似" }
+  - { id: STO8-LEM-02, name: "Skorokhod 反射補題" }
+  - { id: STO8-PROP-03, name: "Levy transformはブラウン運動" }
+  - { id: STO8-THM-04, name: "ブラウン反射 representation by 局所時間" }
 canonical_examples:
   - "a=0でE[L_t^0]=sqrt(2t/pi)"
-  - "Brownian zero setはLebesgue measure 0だがL^0はそこでのみ増える"
+  - "ブラウン zero setはLebesgue measure 0だがL^0はそこでのみ増える"
   - "1/(2epsilon) integral 1{|B_s-a|<epsilon} ds -> L_t^a"
   - "|B_t|=beta_t+L_t^0 と L_t^0=-min_{s<=t} beta_s"
-  - "L_t^0 has the same law as sup_{s<=t} B_s and |B_t|"
+  - "L_t^0 has the same 法則 as sup_{s<=t} B_s and |B_t|"
 problem_patterns:
   - STO8-SMOOTH-ABS-1
   - STO8-TANAKA-PARTS-1
