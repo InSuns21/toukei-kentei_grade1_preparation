@@ -1644,7 +1644,7 @@ $$
 
 $\beta$ は bounded predictable integrand による Brownian stochastic integral なので continuous local martingale です。
 
-STO6 の stochastic integral [stochastic integral の quadratic variation](../STO6/index.md#thm-sto6-stochastic-integral-bracket) から
+STO6 の stochastic integral [stochastic integral の quadratic variation](../STO6/index.md#thm-sto6-integral-bracket) から
 
 $$
 [\beta]_t
