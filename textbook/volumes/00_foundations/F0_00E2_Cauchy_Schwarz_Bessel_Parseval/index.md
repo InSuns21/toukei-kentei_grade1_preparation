@@ -309,17 +309,17 @@ $$
 
 $\mathbb R^2$ の正規直交基底 $e_1,e_2$ と $x=(3,-1)^{\mathsf T}$ に対して
 
-$
+$$
 \langle x,e_1\rangle=3,
 \qquad
 \langle x,e_2\rangle=-1.
-$
+$$
 
 従ってFourier係数は $3,-1$ で、
 
-$
+$$
 x=3e_1-e_2
-$
+$$
 
 と正規直交展開できます。
 <!-- definition-example-end -->
