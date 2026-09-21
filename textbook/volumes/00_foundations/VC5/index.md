@@ -269,23 +269,38 @@ Q_u-P_v
 (DF(r)r_v)\cdot r_u.
 $$
 
-任意の vector $a,b$ に対して
+任意の vector
+
+$$
+a=(a_1,a_2,a_3),
+\qquad
+b=(b_1,b_2,b_3)
+$$
+
+に対して、左辺を成分ごとに組にすると
+
+$$
+\begin{aligned}
+(DF\,a)\cdot b-(DF\,b)\cdot a
+&=
+(\partial_2F_3-\partial_3F_2)
+(a_2b_3-a_3b_2)\\
+&\quad+
+(\partial_3F_1-\partial_1F_3)
+(a_3b_1-a_1b_3)\\
+&\quad+
+(\partial_1F_2-\partial_2F_1)
+(a_1b_2-a_2b_1).
+\end{aligned}
+$$
+
+右辺の三つの微分係数は $\nabla\times F$ の三成分、括弧は $a\times b$ の三成分です。したがって
 
 $$
 (DF\,a)\cdot b-(DF\,b)\cdot a
 =
-(\nabla\times F)\cdot(a\times b)
+(\nabla\times F)\cdot(a\times b).
 $$
-
-であることは成分展開で確認できます。実際 $a=e_1,b=e_2$ なら両辺は
-
-$$
-\frac{\partial F_2}{\partial x}
--
-\frac{\partial F_1}{\partial y},
-$$
-
-一般の $a,b$ でも双線形性と反対称性から同じ恒等式が従います。
 
 よって
 
@@ -756,7 +771,19 @@ $$
 
 しかしそのためには、閉曲線 $\gamma$ が **field の定義域の中で** 曲面 $S$ の境界になっていなければなりません。
 
-この例では $\gamma$ が $z$ 軸を一周しているため、$\gamma$ を埋める円板は除外された軸を横切ります。つまり必要な spanning surface が定義域内に存在しません。
+この例では $\gamma$ が $z$ 軸を一周しているため、通常の円板は除外された軸を横切ります。
+
+さらに、もし $U$ の内部に Stokes theorem の仮定を満たす oriented spanning surface $S$ が存在したなら、
+
+$$
+\int_\gamma F\cdot dr
+=
+\int_S(\nabla\times F)\cdot n\,dS
+=
+0
+$$
+
+となるはずですが、直接計算では左辺は $2\pi$ でした。したがって、そのような spanning surface は $U$ 内には存在しません。
 
 失われたものは微分可能性ではなく、領域の topology です。
 
