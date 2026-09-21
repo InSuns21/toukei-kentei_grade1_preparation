@@ -1,0 +1,34 @@
+id: "TOP5A"
+title: "標準位相 V-A：Urysohn の補題・局所コンパクト性・cutoff"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TOP4
+  - TOP5
+official_scope: []
+learning_objectives:
+  - 正規性とT4、局所コンパクト性と局所コンパクトHausdorffを本教材の規約に沿って区別できる
+  - コンパクトHausdorff空間が正規であることを、Hausdorff分離と二段階の有限部分被覆から証明できる
+  - 正規空間の縮小補題を、閉集合FとX\\Uの分離から証明できる
+  - Urysohnの補題を二進有理数による開集合族の構成から証明し、正規性が働く箇所を説明できる
+  - 局所コンパクトHausdorff空間で開近傍をコンパクト閉包を持つ開集合へ縮小できる
+  - 関数の台とC_c(X)を定義し、具体例について台を計算できる
+  - コンパクト集合–開集合cutoffをUrysohnの補題・局所コンパクト性・コンパクト性から構成できる
+definitions:
+  - { id: TOP5A-DEF-01, name: 局所コンパクト空間 }
+  - { id: TOP5A-DEF-02, name: 局所コンパクトHausdorff空間 }
+  - { id: TOP5A-DEF-03, name: 関数の台 }
+  - { id: TOP5A-DEF-04, name: コンパクト台とC_c(X) }
+  - { id: TOP5A-DEF-05, name: コンパクト集合–開集合局所化関数 }
+theorems:
+  - { id: TOP5A-THM-01, name: コンパクトHausdorff空間は正規 }
+  - { id: TOP5A-LEM-01, name: 正規空間の縮小 }
+  - { id: TOP5A-THM-02, name: Urysohnの補題 }
+  - { id: TOP5A-THM-03, name: 局所コンパクトHausdorff空間の縮小 }
+  - { id: TOP5A-THM-04, name: 局所コンパクトHausdorff空間での局所化関数の存在 }
+canonical_examples: [実直線の局所コンパクト性, 有限非Hausdorff空間, 実直線上のUrysohn関数, 三角形関数の台, 急速減衰だが非コンパクト台の関数]
+problem_patterns: [COMPACT-HAUSDORFF-NORMAL-1, NORMAL-SHRINKING-1, URYSOHN-LEMMA-1, LCH-SHRINKING-1, SUPPORT-CC-1, LCH-CUTOFF-1]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 1.0 }

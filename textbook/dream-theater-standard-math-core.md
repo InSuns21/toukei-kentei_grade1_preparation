@@ -54,6 +54,7 @@ flowchart TD
   TOP2 --> TOP3["連結性<br/>TOP3"]
   TOP3 --> TOP4["可算性・分離公理<br/>TOP4"]
   TOP4 --> TOP5["コンパクト性の一般論<br/>TOP5"]
+  TOP5 --> TOP5A["Urysohn・局所コンパクト性・cutoff<br/>TOP5A"]
   TOP5 --> BAIRE["全有界性・Baire・net/filter<br/>TOP6"]
 
   LA1 --> LA2["直和・補空間・商空間<br/>LA2"]
@@ -76,7 +77,7 @@ flowchart TD
   MTI --> RLB
 
   MT2 --> MT4["Lebesgue微分定理・絶対連続・Lebesgue版FTC<br/>MT4"]
-  TOP5 --> MT5["Radon測度・Riesz-Markov<br/>MT5"]
+  TOP5A --> MT5["Radon測度・Riesz-Markov<br/>MT5"]
   MT2 --> MT5
 
   RA3 --> CA1["複素解析 I<br/>複素微分・Cauchy-Riemann<br/>CA1"]
@@ -359,15 +360,26 @@ flowchart TD
 - first countable / second countable / separable / Lindelof
 - T0 / T1 / T2 / regular / normal
 - 一般位相では点列だけで閉包・連続性を特徴付けられない理由
-- Urysohn lemma、Tietze extension theorem
 
 ## TOP5 コンパクト性の一般論 `core / advanced-standard`
 
 - finite intersection property
 - TOP2で証明した「Hausdorff空間のコンパクト部分集合は閉集合」を再利用
-- locally compact、one-point compactification、tube lemma
+- コンパクト空間からHausdorff空間への連続全単射は同相写像
+- 距離空間ではコンパクト性と点列コンパクト性が同値
+- one-point compactification、tube lemma
 - 任意積とTychonoff定理、選択公理との関係
 - Urysohn metrization theorem の位置付け
+
+## TOP5A Urysohn の補題・局所コンパクト性・cutoff `advanced-standard / bridge`
+
+- 正規性には $T_1$ を含めないという TOP4 の規約を継承
+- コンパクト Hausdorff $\Rightarrow$ 正規 と正規空間の shrinking
+- Urysohn の補題を正規空間一般で dyadic construction から証明
+- locally compact の定義には Hausdorff 性を含めず、LCH shrinking を証明
+- 関数の台 $\operatorname{supp}f$、$C_c(X)$、compact-open cutoff を明示定義・構成
+- MT5「Radon測度・Riesz–Markov」の位相的前提をここで閉じる
+- Tietze extension theorem は Urysohn の補題より後の拡張候補として残すが、TOP5A の完成範囲には含めない
 
 ## TOP6 全有界性・Baire・net/filter `advanced-standard`
 
@@ -553,7 +565,7 @@ Möbius変換、Schwarz lemma、調和関数、平均値性質、Poisson kernel�
 1. **RA1–RA5**：数列・級数 → 連続 → 微分 → Riemann → 一様収束。
 2. **MT-RL**：Riemann–Lebesgue接続。
 3. **LA1–LA6**：複素 → 商 → 代数的双対 → 通常行列式 → 最小多項式・Jordan構造 → 複素内積・normal → 二次形式・polar・複素SVD。LA3D の抽象行列式は LA3C から分岐する発展読順。
-4. **TOP1–TOP6**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact/Baire。
+4. **TOP1–TOP6（TOP5Aを含む）**：位相の生成・initial/final → 同値関係による商・貼り合わせ → 連結 → 可算性/分離 → compact → Urysohn・局所コンパクト性 → Baire。
 5. **MT0・MT1–MT5**：Lebesgue正則性 → 収束様式 → signed measure → RN → differentiation/Radon。
 6. **FA1–FA4**：Baire系三大定理 → weak/weak* → Banach–Alaoglu・反射性。
 7. **CA1–CA6**：複素微分 → Cauchy理論 → Liouville → Laurent/留数 → 偏角原理 → Poisson核。

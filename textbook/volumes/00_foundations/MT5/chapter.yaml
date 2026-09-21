@@ -3,7 +3,7 @@ title: "標準測度論 VI：Radon測度・Riesz–Markov"
 volume: "foundations"
 status: supplementary
 prerequisites:
-  - TOP5
+  - TOP5A
   - MT3
   - F0-00F
   - F0-02C2
@@ -18,7 +18,6 @@ learning_objectives:
   - cutoffとRadon正則性から表現測度の一意性を証明できる
   - C_c上の正汎関数版とC_0双対・符号付き測度版の証明境界を区別できる
 definitions:
-  - { id: MT5-DEF-01, name: C_c(X)とsupport }
   - { id: MT5-DEF-02, name: Radon測度 }
   - { id: MT5-DEF-03, name: 正線形汎関数 }
   - { id: MT5-DEF-04, name: open content m(U) }

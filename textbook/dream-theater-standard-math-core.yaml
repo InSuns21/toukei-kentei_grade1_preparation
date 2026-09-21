@@ -117,6 +117,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-12
     implementation_path: textbook/volumes/00_foundations/RA8/index.md
+    reuses: [F0_00D1]
     prerequisites: [RA5, TOP5]
 
   - id: TOP0
@@ -168,6 +169,14 @@ nodes:
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/TOP5/index.md
     prerequisites: [TOP4]
+  - id: TOP5A
+    title: Urysohnの補題・局所コンパクト性・cutoff
+    area: topology
+    tier: advanced-standard-bridge
+    status: implemented
+    implemented_at: 2026-09-21
+    implementation_path: textbook/volumes/00_foundations/TOP5A/index.md
+    prerequisites: [TOP4, TOP5]
   - id: TOP6
     title: 全有界性・Baire・net/filter
     area: topology
@@ -326,7 +335,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-07
     implementation_path: textbook/volumes/00_foundations/MT5/index.md
-    prerequisites: [TOP5, MT3]
+    prerequisites: [TOP5A, MT3]
   - id: MT6
     title: C0版Riesz–Markov・有限符号付きRadon測度
     area: measure-theory
@@ -472,7 +481,7 @@ implementation_batches:
     nodes: [LA1, LA2, LA3A, LA3B, LA3C, LA3D, LA4, LA5, LA6]
   - order: 3
     id: topology-core
-    nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP6]
+    nodes: [TOP1, TOP2, TOP3, TOP4, TOP5, TOP5A, TOP6]
   - order: 4
     id: measure-theory-extension
     nodes: [MT0, MT-RL, MT1, MT2, MT3, MT4, MT5, MT6, MT7]

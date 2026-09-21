@@ -1,0 +1,103 @@
+chapter: TOP5A
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - TOP4
+  - TOP5
+
+forward_references: []
+
+concepts:
+  - id: topology.locally-compact-space
+    name: 局所コンパクト空間
+    kind: definition
+    aliases: [局所コンパクト空間, locally compact space]
+    introduction_aliases: [局所コンパクト空間]
+    requires:
+      - topology.neighborhood
+      - topology.compact-set
+
+  - id: topology.locally-compact-hausdorff-space
+    name: 局所コンパクト Hausdorff 空間
+    kind: definition
+    aliases: [locally compact Hausdorff space, LCH space]
+    introduction_aliases: [局所コンパクト Hausdorff 空間]
+    requires:
+      - topology.locally-compact-space
+      - topology.hausdorff-space
+
+  - id: topology.compact-hausdorff-normal
+    name: コンパクト Hausdorff 空間は正規
+    kind: theorem
+    aliases: [compact Hausdorff is normal]
+    introduction_aliases: [コンパクト Hausdorff 空間は正規]
+    requires:
+      - topology.compact-set
+      - topology.hausdorff-space
+      - topology.normality
+      - topology.closed-subset-compact
+
+  - id: topology.normal-shrinking
+    name: 正規空間の縮小
+    kind: lemma
+    aliases: [正規空間のshrinking, normal shrinking]
+    requires:
+      - topology.normality
+      - topology.closure
+      - topology.topological-closed-set
+
+  - id: topology.urysohn-lemma
+    name: Urysohn の補題
+    kind: theorem
+    aliases: [Urysohn lemma]
+    introduction_aliases: [Urysohn の補題]
+    requires:
+      - topology.normal-shrinking
+      - topology.topological-continuous-map
+
+  - id: topology.lch-shrinking
+    name: 局所コンパクト Hausdorff 空間の縮小
+    kind: theorem
+    aliases: [locally compact Hausdorff shrinking]
+    introduction_aliases: [局所コンパクト Hausdorff 空間の縮小]
+    requires:
+      - topology.locally-compact-hausdorff-space
+      - topology.compact-hausdorff-normal
+      - topology.normal-shrinking
+
+  - id: topology.function-support
+    name: 関数の台
+    kind: definition
+    aliases: [関数の台, support, supp]
+    introduction_aliases: [関数の台, support]
+    requires:
+      - topology.closure
+      - set.function
+
+  - id: topology.compact-support-cc
+    name: コンパクト台とC_c(X)
+    kind: definition
+    aliases: [コンパクト台, compact support, C_c(X)]
+    introduction_aliases: [コンパクト台, C_c(X)]
+    requires:
+      - topology.function-support
+      - topology.compact-set
+      - topology.topological-continuous-map
+
+  - id: topology.compact-open-cutoff-function
+    name: コンパクト集合–開集合局所化関数
+    kind: definition
+    aliases: [cutoff 関数, compact-open cutoff, コンパクト集合–開集合 cutoff]
+    introduction_aliases: [コンパクト集合–開集合局所化関数]
+    requires:
+      - topology.compact-support-cc
+
+  - id: topology.lch-compact-open-cutoff
+    name: 局所コンパクト Hausdorff 空間での局所化関数の存在
+    kind: theorem
+    aliases: [LCH cutoff, 局所コンパクト Hausdorff 空間では cutoff 関数が存在する]
+    introduction_aliases: [局所コンパクト Hausdorff 空間での局所化関数の存在]
+    requires:
+      - topology.compact-open-cutoff-function
+      - topology.urysohn-lemma
+      - topology.lch-shrinking

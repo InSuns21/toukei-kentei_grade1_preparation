@@ -4,7 +4,17 @@ coverage: complete
 prerequisites:
   - TOP4
 
-forward_references: []
+forward_references:
+  - topology.urysohn-lemma
+  - topology.locally-compact-space
+  - topology.locally-compact-hausdorff-space
+  - topology.lch-shrinking
+  - topology.function-support
+  - topology.compact-support-cc
+  - topology.compact-open-cutoff-function
+  - topology.net
+  - topology.filter
+  - measure.riesz-markov-positive
 
 concepts:
   - id: topology.open-cover-finite-subcover

@@ -18,7 +18,7 @@ C_0(X)^*
 }
 $$
 
-という対応と、そのノルム等式
+という対応と、さらに成り立つ等式
 
 $$
 \boxed{
@@ -33,7 +33,7 @@ $$
 ```text
 C0(X) を無限遠で 0 になる連続関数として定義
         ↓
-一様ノルムで Banach lattice になることを直接証明
+$\|\cdot\|_\infty$ に関して Banach lattice になることを直接証明
         ↓
 LCH cutoff により Cc(X) が C0(X) で一様稠密
         ↓
@@ -128,7 +128,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（C0 は Banach lattice）
 
-$C_0(X)$ は一様ノルムに関して実 Banach 空間であり、さらに
+$C_0(X)$ は上で定めた $\|\cdot\|_\infty$ に関して完備であり、さらに
 
 $$
 |f|,
@@ -220,7 +220,7 @@ $$
 
 #### 2.3 完備性
 
-$(f_n)$ を一様ノルムの Cauchy 列とします。各 $x\in X$ について $(f_n(x))$ は実数の Cauchy 列なので極限
+$(f_n)$ を $\|\cdot\|_\infty$ に関する Cauchy 列とします。各 $x\in X$ について $(f_n(x))$ は実数の Cauchy 列なので極限
 
 $$
 f(x):=\lim_{n\to\infty}f_n(x)
@@ -277,7 +277,7 @@ $$
 よって $f\in C_0(X)$ かつ $\|f_n-f\|_\infty\to0$ であり、$C_0(X)$ は完備です。$\square$
 <!-- proof-end -->
 
-ここで重要なのは、空間 $X$ 自体の compact 性を仮定していないことです。完備性は「極限との差を一様ノルムで抑えること」と「各 $f_n$ が大きくなる場所は compact」という二つを組み合わせて出ています。
+ここで重要なのは、空間 $X$ 自体の compact 性を仮定していないことです。完備性は「極限との差を $\|\cdot\|_\infty$ で抑えること」と「各 $f_n$ が大きくなる場所は compact」という二つを組み合わせて出ています。
 
 ---
 
@@ -309,7 +309,7 @@ $$
 
 $K=\varnothing$ なら $g=0$ でよいので、以下 $K\ne\varnothing$ とします。
 
-[局所コンパクト Hausdorff 空間の cutoff](../TOP5/index.md#thm-top5-lch-cutoff)を $K\subset X$ に適用し、
+[局所コンパクト Hausdorff 空間の cutoff](../TOP5A/index.md#thm-top5a-lch-cutoff)を $K\subset X$ に適用し、
 
 $$
 \chi\in C_c(X),
@@ -413,7 +413,7 @@ $$
 
 #### 4.2 測度の全質量が有限である
 
-compact $K\subseteq X$ を任意に取ります。[cutoff](../TOP5/index.md#thm-top5-lch-cutoff)により
+compact $K\subseteq X$ を任意に取ります。[cutoff](../TOP5A/index.md#thm-top5a-lch-cutoff)により
 
 $$
 \chi\in C_c(X),
@@ -668,7 +668,7 @@ $$
 
 ---
 
-## 6. 非負関数集合上の加法写像を線形化する
+## 6. 非負関数集合上の加法写像を線形写像へ拡張する
 
 <a id="lem-mt6-cone-extension"></a>
 <!-- formal-statement-start -->
@@ -1176,7 +1176,7 @@ $$
 
 #### 9.3 cutoff で符号を連続関数へ移す
 
-[cutoff](../TOP5/index.md#thm-top5-lch-cutoff)を $K^-\subset G$ に適用し、
+[cutoff](../TOP5A/index.md#thm-top5a-lch-cutoff)を $K^-\subset G$ に適用し、
 
 $$
 0\le\phi^-\le1,
@@ -1497,7 +1497,7 @@ $$
 <!-- definition-example-start: def-mt6-c0, def-mt6-positive-envelope, def-mt6-finite-signed-radon -->
 **定義の確認**：以下では同じ有限離散模型の中で、$C_0(X)$、正部分 envelope、有限符号付き Radon 測度の三定義を順に具体化します。
 
-$X=\{a,b\}$ に離散位相を入れます。有限空間なので全ての実数値関数が $C_0(X)$ に属し、一様ノルムは
+$X=\{a,b\}$ に離散位相を入れます。有限空間なので全ての実数値関数が $C_0(X)$ に属し、$\|\cdot\|_\infty$ は
 
 $$
 \|(x,y)\|_\infty=\max(|x|,|y|)
@@ -1576,7 +1576,7 @@ $$
 K=\{|f|\ge\varepsilon\}
 $$
 
-を取り、LCH cutoff から $g\in C_c(X)$ で $\|f-g\|_\infty<\varepsilon$ を構成せよ。
+を取り、[局所コンパクト Hausdorff 空間での局所化関数の存在](../TOP5A/index.md#thm-top5a-lch-cutoff)から $g\in C_c(X)$ で $\|f-g\|_\infty<\varepsilon$ を構成せよ。
 
 ## B1. 正汎関数の表現測度が有限になる理由
 
