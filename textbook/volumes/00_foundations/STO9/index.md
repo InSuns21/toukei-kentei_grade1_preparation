@@ -1545,7 +1545,7 @@ $$
 1. cutoff coefficients $(b_n,\sigma_n)$ の global solution $X^{(n)}$ を作る。
 2. ball $n$ を出るまでは $b_n=b_m=b$ なので $X^{(n)}$ と $X^{(m)}$ は一致する。
 3. exit times を増大列にして、その前まで process を貼り合わせる。
-4. 有限 explosion time まで path が bounded なら、もっと大きい cutoff solution で延長できて maximality に反する。
+4. 有限 explosion time まで解の値が bounded なら、もっと大きい cutoff solution で延長できて maximality に反する。
 
 <!-- proof-start -->
 ### 証明
