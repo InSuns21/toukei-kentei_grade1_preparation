@@ -1,0 +1,14 @@
+chapter: "ODE10"
+terms:
+  - term: 周期軌道
+    english: periodic orbit
+    meaning: 非定常周期解が平面上に描く閉軌道。
+  - term: 極限周期軌道
+    english: limit cycle
+    meaning: 近傍の他の周期軌道から孤立した周期軌道。
+  - term: trapping region
+    english: trapping region
+    meaning: 将来軌道を内部へ閉じ込めるコンパクトな正方向不変領域。
+  - term: Dulac 関数
+    english: Dulac function
+    meaning: 重み付きベクトル場の発散の符号を作り周期軌道の不存在を示す関数。
