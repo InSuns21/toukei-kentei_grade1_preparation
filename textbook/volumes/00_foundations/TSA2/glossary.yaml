@@ -1,0 +1,23 @@
+chapter: "TSA2"
+terms:
+  - term: イノベーション部分空間
+    english: innovation subspace
+    meaning: 過去空間 H_t のうち一時刻前の H_{t-1} に直交する新規成分 H_t ⊖ H_{t-1}。
+  - term: 無限遠過去
+    english: remote past
+    meaning: 全ての過去空間に共通して残る閉部分空間 H_{-∞}=∩_t H_t。
+  - term: 純非決定論的
+    english: purely nondeterministic
+    meaning: 無限遠過去が {0} であり、遠い過去へ押し戻しても残る線形成分を持たないこと。
+  - term: Wold 分解
+    english: Wold decomposition
+    meaning: 二次定常過程を無限遠過去に属する決定論成分と、標準イノベーションの因果的無限移動平均成分へ直交分解する定理。
+  - term: 決定論成分
+    english: deterministic component
+    meaning: 中心化過程を無限遠過去へ直交射影して得る、過去から完全に線形予測できる成分。
+  - term: 無限移動平均表示
+    english: infinite moving-average representation
+    meaning: N_t=Σ_{j≥0} ψ_j ε_{t-j} の形で純非決定論成分をイノベーションの L2 収束級数として表すこと。
+  - term: Wold 係数
+    english: Wold coefficients
+    meaning: 標準イノベーションに対する一意な係数列 ψ_j。非退化な場合 ψ_0=1 かつ Σ ψ_j^2<∞。
