@@ -17,6 +17,7 @@ learning_objectives:
   - progressive processをstopping timeで評価した X_tau のF_tau可測性と stopped processのadaptednessを証明できる
   - future informationを使うrandom timeがstopping timeでない理由を情報構造から判定できる
 definitions:
+  - { id: STO1-DEF-00, name: "可測写像（F/E 可測）" }
   - { id: STO1-DEF-01, name: "stochastic process と sample path" }
   - { id: STO1-DEF-02, name: "modification と indistinguishability" }
   - { id: STO1-DEF-03, name: "filtration と usual conditions" }
