@@ -760,7 +760,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[gradient公式](#prop-vc6-gradient) から
+[直交曲線座標の gradient](#prop-vc6-gradient) から
 
 $$
 (\nabla f)_i
@@ -768,7 +768,7 @@ $$
 \frac1{h_i}f_{q_i}.
 $$
 
-これを [divergence公式](#prop-vc6-divergence) に代入します。
+これを [直交曲線座標の divergence](#prop-vc6-divergence) に代入します。
 
 第一項は
 
@@ -1483,7 +1483,7 @@ f_\phi=\cos\phi,
 f_z=\rho^2.
 $$
 
-cylindrical gradient 公式から
+[cylindrical coordinates の公式](#prop-vc6-cylindrical) から
 
 $$
 \nabla f
@@ -1981,7 +1981,7 @@ f'(r)
 -\frac{b}{r^2}.
 $$
 
-radial gradient 公式から
+$f=f(r)$ なので、[spherical coordinates の gradient 公式](#prop-vc6-spherical) では角度微分項が消え
 
 $$
 \boxed{
