@@ -1,0 +1,35 @@
+chapter: "VC8"
+terms:
+  - term: Newton 核
+    english: Newton kernel
+    meaning: 三次元で G(x)=1/(4π|x|) と定める負ラプラシアンの全空間基本核。原点以外で調和的で、-∇G は原点を囲む球面から単位流束を出す。
+  - term: Newton ポテンシャル
+    english: Newton potential
+    meaning: 源 f を Newton 核 G と畳み込んだ Nf(x)=∫G(x-y)f(y)dy。適切な正則性の下で -ΔNf=f を満たす。
+  - term: Helmholtz 分解
+    english: Helmholtz decomposition
+    meaning: 適切な正則性・境界条件の下でベクトル場を -∇φ と ∇×A の和、すなわち無回転成分と無発散成分へ分ける表示。
+  - term: スカラーポテンシャル
+    english: scalar potential
+    meaning: 勾配によって無回転成分を生成するスカラー関数。本章では発散を Newton 核で広げて構成する。
+  - term: ベクトルポテンシャル
+    english: vector potential
+    meaning: 回転によって無発散場を生成するベクトル場。本章では回転を Newton 核で広げて構成する。
+  - term: ゲージ自由度
+    english: gauge freedom
+    meaning: A と A+∇χ が同じ回転を与えるため、ベクトルポテンシャルに残る非一意性。
+  - term: Coulomb ゲージ
+    english: Coulomb gauge
+    meaning: div A=0 を満たすベクトルポテンシャルのゲージ。本章の Helmholtz 積分表示はこの条件を満たす。
+  - term: 縦成分
+    english: longitudinal component
+    meaning: Helmholtz 分解の -∇φ 部分。回転が 0 で、発散の情報を担う。
+  - term: 横成分
+    english: transverse component
+    meaning: Helmholtz 分解の ∇×A 部分。発散が 0 で、回転の情報を担う。
+  - term: 調和成分
+    english: harmonic component
+    meaning: 発散と回転がともに 0 で、発散・回転のデータだけからは検出できない成分。境界条件や無限遠条件が一意性を固定する。
+  - term: Biot--Savart 型公式
+    english: Biot--Savart formula
+    meaning: 無発散場をその回転から逆二乗型の積分核で再構成する公式。本章では速度を渦度から戻す形を扱う。

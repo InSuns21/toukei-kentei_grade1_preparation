@@ -417,7 +417,20 @@ flowchart TD
 
 実装: [VC7](volumes/00_foundations/VC7/index.md)
 
-VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 で連続体力学・流体・電磁気へ進むための デカルト座標の添字計算を整備しました。Helmholtz 分解と数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC8--VC9 で後続実装します。
+## VC8 Newton ポテンシャル・Helmholtz 分解 `advanced-standard`
+
+- 三次元 Newton 核の調和性と単位流束
+- Newton ポテンシャルと Poisson 方程式
+- 発散・回転からの Helmholtz ポテンシャル構成
+- コンパクトな台を持つ場の Helmholtz 分解の証明
+- ゲージ自由度と Coulomb ゲージ
+- 縦成分・横成分、調和成分と境界条件
+- 無限遠境界項の消失条件
+- Biot--Savart 型の渦度再構成
+
+実装: [VC8](volumes/00_foundations/VC8/index.md)
+
+VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じ、VC7 でデカルト座標の添字計算、VC8 で potential theory と Helmholtz 分解まで整備しました。数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC9 で後続実装します。
 
 ---
 

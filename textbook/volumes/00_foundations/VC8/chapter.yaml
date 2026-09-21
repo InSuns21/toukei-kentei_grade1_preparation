@@ -1,0 +1,50 @@
+id: "VC8"
+title: "標準ベクトル解析 VIII：Newton ポテンシャル・Helmholtz 分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC5
+  - PDE6
+official_scope: []
+learning_objectives:
+  - 三次元 Newton 核の調和性と単位流束を計算し、点源を表す機構を説明できる
+  - Newton ポテンシャルが Poisson 方程式を解くことを球面平均から証明できる
+  - 発散と回転から Helmholtz のスカラーポテンシャル・ベクトルポテンシャルを積分表示で構成できる
+  - コンパクトな台を持つ C3 級ベクトル場について Helmholtz 分解を証明できる
+  - ベクトルポテンシャルのゲージ自由度と Coulomb ゲージを区別できる
+  - 縦成分・横成分と無回転・無発散の対応を説明できる
+  - 有界領域で生じる調和成分の曖昧さと、境界条件・無限遠条件の役割を説明できる
+  - Helmholtz 分解の証明で必要な無限遠境界項の消失条件を局所的に確認できる
+  - 無発散速度場を渦度から Biot--Savart 型公式で再構成できる
+  - 静電場・重力場・静磁場・非圧縮流に共通するポテンシャル構造を識別できる
+definitions:
+  - { id: VC8-DEF-01, name: Newton 核 }
+  - { id: VC8-DEF-02, name: Newton ポテンシャル }
+  - { id: VC8-DEF-03, name: Helmholtz のスカラーポテンシャル・ベクトルポテンシャル }
+  - { id: VC8-DEF-04, name: ゲージ同値と Coulomb ゲージ }
+  - { id: VC8-DEF-05, name: 縦成分・横成分 }
+theorems:
+  - { id: VC8-PROP-01, name: Newton 核の調和性と単位流束 }
+  - { id: VC8-THM-01, name: Newton ポテンシャルは Poisson 方程式を解く }
+  - { id: VC8-THM-02, name: Helmholtz 分解 }
+  - { id: VC8-PROP-02, name: 調和ベクトル場による曖昧さ }
+  - { id: VC8-COR-01, name: Biot--Savart 型の渦度再構成 }
+canonical_examples:
+  - Newton 核の球面流束
+  - 単位球の指示関数に対する中心 Newton ポテンシャル
+  - コンパクトな台を持つ源・渦からの Helmholtz ポテンシャル
+  - ゲージ変換で回転が不変になる直接計算
+  - 縦成分と横成分の直接計算
+  - 定数ベクトル場による調和成分の曖昧さ
+  - 無発散場の Biot--Savart 型再構成
+problem_patterns:
+  - VC8-NEWTON-KERNEL-1
+  - VC8-NEWTON-POTENTIAL-1
+  - VC8-GAUGE-1
+  - VC8-HELMHOLTZ-PROOF-1
+  - VC8-HARMONIC-AMBIGUITY-1
+  - VC8-BIOT-SAVART-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 1.0 }
