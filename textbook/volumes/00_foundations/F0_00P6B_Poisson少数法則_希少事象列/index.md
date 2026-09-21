@@ -1,4 +1,4 @@
-# F0-00P6B：Poisson 少数法則 — 希少事象の三角配列
+# F0-00P6B：希少 Bernoulli 三角配列の Poisson 極限
 
 通常教材 P4-02 では、二項分布
 
@@ -29,7 +29,7 @@ $$
 
 ---
 
-## 1. 希少 Bernoulli 三角配列
+## 1. 行ごとに成功確率が変わる Bernoulli 配列
 
 <a id="def-p6b-rare-bernoulli-array"></a>
 
@@ -78,7 +78,7 @@ $$
 
 ---
 
-## 2. Poisson 分布の特性関数
+## 2. 極限分布を特性関数で準備する
 
 $Y\sim\operatorname{Poisson}(\lambda)$ なら
 
@@ -207,7 +207,7 @@ $$
 
 ---
 
-## 4. 一般 Poisson 少数法則
+## 4. 一般三角配列の Poisson 極限
 
 <a id="thm-p6b-law-small-numbers"></a>
 
