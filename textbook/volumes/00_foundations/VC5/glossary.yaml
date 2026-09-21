@@ -3,18 +3,18 @@ terms:
   - term: 誘導された境界向き
     english: induced boundary orientation
     meaning: 向き付けられた曲面の向きと整合するように境界曲線へ入る向き。パラメータ領域の正向き境界を曲面へ写した向きで定義できる。
-  - term: Kelvin--Stokesの定理
+  - term: Kelvin--Stokes の定理
     english: Kelvin--Stokes theorem
-    meaning: 境界上の循環を曲面上のcurlのfluxへ変換する積分定理。
-  - term: irrotational
+    meaning: 境界上の循環を曲面上の回転の流束へ変換する積分定理。
+  - term: 無回転
     english: irrotational
-    meaning: curlが0であるベクトル場。領域のtopologyによってはglobal potentialを持たないことがある。
-  - term: solenoidal
+    meaning: 回転が0であるベクトル場。領域の位相構造によっては大域ポテンシャルを持たないことがある。
+  - term: 無発散
     english: solenoidal
-    meaning: divergenceが0であるベクトル場。
-  - term: vector potential
+    meaning: 発散が0であるベクトル場。
+  - term: ベクトルポテンシャル
     english: vector potential
-    meaning: 与えられた場Fに対してcurl A=Fを満たすベクトル場A。
-  - term: gauge freedom
+    meaning: 与えられた場Fに対して回転 A=Fを満たすベクトル場A。
+  - term: ゲージ自由度
     english: gauge freedom
-    meaning: vector potential Aへgradient fieldを加えてもcurlが変わらない非一意性。
+    meaning: ベクトルポテンシャル Aへ勾配場を加えても回転が変わらない非一意性。
