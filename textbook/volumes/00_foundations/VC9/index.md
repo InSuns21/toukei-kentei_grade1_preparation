@@ -1266,7 +1266,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Gauss の法則へ [VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと
+[Gauss の法則](#principle-vc9-maxwell-integral)へ [VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を使うと
 
 $$
 \int_\Omega
@@ -1287,13 +1287,13 @@ $$
 \frac{\rho_e}{\varepsilon_0}.
 $$
 
-同様に磁束に対する Gauss の法則から
+同様に[磁束に対する Gauss の法則](#principle-vc9-maxwell-integral)から
 
 $$
 \operatorname{div}B=0.
 $$
 
-次に Faraday の法則へ [VC5 の Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
+次に [Faraday の法則](#principle-vc9-maxwell-integral)へ [VC5 の Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)を使うと
 
 $$
 \int_S
@@ -1323,7 +1323,7 @@ $$
 -\partial_tB.
 $$
 
-Ampère--Maxwell の法則も同様に
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)も同様に
 
 $$
 \int_S
@@ -1399,7 +1399,7 @@ $$
 
 ### 証明の見取り図
 
-Ampère--Maxwell の式の両辺へ発散を取ります。左辺は「回転の発散は 0」で消えます。右辺の電場の発散を Gauss の法則で電荷密度へ置き換えると、連続の式が残ります。
+Ampère--Maxwell の式の両辺へ発散を取ります。左辺は「回転の発散は 0」で消えます。右辺の電場の発散を [Gauss の法則](#principle-vc9-maxwell-integral)で電荷密度へ置き換えると、連続の式が残ります。
 
 <!-- proof-start -->
 ### 証明
@@ -1534,7 +1534,7 @@ $$
 
 まず底面積 $A$、厚さ $2h$ の薄い箱を界面にまたがせます。$h\to0$ とすると側面流束は 0 へ行き、上下面だけが残ります。
 
-電場について Gauss の法則を使うと
+電場について [Gauss の法則](#principle-vc9-maxwell-integral)を使うと
 
 $$
 A\,E_2\cdot n
@@ -1560,7 +1560,7 @@ $$
 
 次に、接線方向の単位ベクトル $\tau$ と法線 $n$ が張る細い長方形を考えます。界面に平行な辺の長さを $L$、法線方向の幅を $2h$ とし、$h\to0$ とします。
 
-Faraday の法則では、磁束を通る面積が $2hL$ なので、$\partial_tB$ が有界なら右辺は 0 へ行きます。線積分の主要項だけが残り、
+[Faraday の法則](#principle-vc9-maxwell-integral)では、磁束を通る面積が $2hL$ なので、$\partial_tB$ が有界なら右辺は 0 へ行きます。線積分の主要項だけが残り、
 
 $$
 L(E_2-E_1)\cdot\tau=0.
@@ -1572,7 +1572,7 @@ $$
 n\times(E_2-E_1)=0.
 $$
 
-Ampère--Maxwell の法則では、変位電流の面積項は同様に 0 へ行きます。一方、界面に集中する表面電流は細い長方形を横切って $K$ の寄与を残します。その結果
+[Ampère--Maxwell の法則](#principle-vc9-maxwell-integral)では、変位電流の面積項は同様に 0 へ行きます。一方、界面に集中する表面電流は細い長方形を横切って $K$ の寄与を残します。その結果
 
 $$
 L(B_2-B_1)\cdot\tau
@@ -2311,7 +2311,7 @@ $$
 - Level: B
 - 目安時間: 30分
 
-1. Ampère--Maxwell の微分形と Gauss の法則から
+1. Ampère--Maxwell の微分形と [Gauss の法則](#principle-vc9-maxwell-integral)から
    $$
    \partial_t\rho_e+\operatorname{div}j=0
    $$
