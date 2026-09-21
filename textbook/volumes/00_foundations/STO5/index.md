@@ -87,7 +87,7 @@ $$
 
 のように、値が大きくなる前に止めます。
 
-<!-- definition-example-start: def-sto5-continuous-局所-マルチンゲール -->
+<!-- definition-example-start: def-sto5-continuous-local-martingale -->
 ### 直接例：ブラウン運動でマルチンゲール条件を確認する
 
 **定義の確認**
@@ -745,7 +745,7 @@ $$
 
 ## 7. ブラケットの一意性と有限変動局所マルチンゲール
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) の
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) の
 
 $$
 M^2-[M]
@@ -776,7 +776,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L_t^2-[L]_t=L_t^2
@@ -834,7 +834,7 @@ $$
 
 これは内積を norm から復元する偏極恒等式と同じ形です。
 
-<!-- definition-example-start: def-sto5-共変分 -->
+<!-- definition-example-start: def-sto5-covariation -->
 ### 直接例：$N=cB$ のとき
 
 **定義の確認**
@@ -907,7 +907,7 @@ $$
 Q^\pi(M+N)-Q^\pi(M-N).
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) で右辺は ucp で
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) で右辺は ucp で
 
 $$
 [M+N]-[M-N]
@@ -977,7 +977,7 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto5-continuous-セミマルチンゲール -->
+<!-- definition-example-start: def-sto5-continuous-semimartingale -->
 ### 直接例：ブラウン運動 + drift
 
 **定義の確認**
@@ -1099,7 +1099,7 @@ $$
 
 左辺は連続局所マルチンゲール、右辺は continuous 有限変動です。
 
-従って共通の過程は [有限変動局所マルチンゲールは定数](#lem-sto5-fv-局所-マルチンゲール-constant) という補題から定数です。初期値は
+従って共通の過程は [有限変動局所マルチンゲールは定数](#lem-sto5-fv-local-martingale-constant) という補題から定数です。初期値は
 
 $$
 (M_0-M'_0)=0
@@ -1364,7 +1364,7 @@ $$
 [X^{(n)}]=A^{(n)}
 $$
 
-なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により、各 coarse block $[u,v]$ で
+なので [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により、各 coarse block $[u,v]$ で
 
 $$
 \sum_{u<t_k\le v}(\Delta_kX)^2
@@ -1403,7 +1403,7 @@ $$
 (X_t^{(n)})^2-A_t^{(n)}
 $$
 
-は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真のマルチンゲールです。
+は [連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により局所マルチンゲールで、$[0,T]$ 上有界なので真のマルチンゲールです。
 
 従って決定論的 partition $u=t_0<\cdots<t_m=v$ に対してマルチンゲール increments の直交性を使うと
 
@@ -1419,7 +1419,7 @@ E[A_v^{(n)}-A_u^{(n)}].
 \end{aligned}
 $$
 
-一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
+一方、[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) から左辺の random sum 自体は $A_v^{(n)}-A_u^{(n)}$ へ in probability で収束します。両者は非負で期待値も極限の期待値へ一致しているので、この収束は $L^1$ convergence です。
 
 したがって coarse block ごとの二次変分誤差は $L^1$ でも 0 へ行きます。$F_{xx}$ は有界なので、先ほどの finite-block 近似をそのまま $L^1$ で行えて
 
@@ -1797,7 +1797,7 @@ $$
 [L]\equiv0.
 $$
 
-[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-局所-マルチンゲール-qv) により
+[連続局所マルチンゲールの二次変分 theorem](#thm-sto5-local-martingale-qv) により
 
 $$
 L^2-[L]=L^2
