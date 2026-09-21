@@ -33,8 +33,8 @@ theorems:
   - { id: TSA3-LEM-03, name: "コンパクト区間上の有限測度列の部分列選択" }
   - { id: TSA3-THM-01, name: "Herglotz の定理" }
   - { id: TSA3-THM-02, name: "絶対可算和可能な自己共分散のスペクトル密度" }
-  - { id: TSA3-LEM-04, name: "連続関数の L2(F) 稠密性" }
-  - { id: TSA3-THM-03, name: "三角多項式の L2(F) 稠密性" }
+  - { id: TSA3-LEM-04, name: "連続関数の二乗平均稠密性" }
+  - { id: TSA3-THM-03, name: "三角多項式の二乗平均稠密性" }
   - { id: TSA3-THM-04, name: "定常過程のスペクトル表現定理" }
 canonical_examples:
   - "弱ホワイトノイズの平坦なスペクトル"
