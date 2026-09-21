@@ -343,6 +343,32 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc1-laplacian -->
+**定義の確認**
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+では
+
+$$
+\nabla f=(2x,2y,2z)
+$$
+
+なので
+
+$$
+\Delta f
+=
+\operatorname{div}(\nabla f)
+=
+2+2+2
+=
+6.
+$$
+<!-- definition-example-end -->
+
 例えば
 
 $$
