@@ -4,6 +4,14 @@ coverage: complete
 prerequisites:
   - RA6A
 
+forward_references:
+  # 後続 VC 章・PDE/複素解析との接続を本文で予告するだけで、証明依存には使わない。
+  - vector-calculus.vector-line-integral
+  - vector-calculus.surface-tangent-normal
+  - vector-calculus.flux-integral
+  - vector-calculus.gauss-divergence
+  - complex-analysis.harmonic-function
+
 concepts:
   - id: vector-calculus.scalar-vector-field
     name: scalar field・vector field
