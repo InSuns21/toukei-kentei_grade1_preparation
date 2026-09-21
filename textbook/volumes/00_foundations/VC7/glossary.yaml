@@ -1,0 +1,44 @@
+chapter: "VC7"
+terms:
+  - term: 添字記法
+    english: index notation
+    meaning: ベクトル・行列・テンソルの成分を添字で表し、成分ごとの関係を短く記述する記法。
+  - term: Einstein の総和規約
+    english: Einstein summation convention
+    meaning: 一つの項で同じ添字がちょうど2回現れたとき、その添字について総和する規約。
+  - term: 自由添字
+    english: free index
+    meaning: 総和されず、成分式の各項と等号両辺で一致する必要がある添字。
+  - term: ダミー添字
+    english: dummy index
+    meaning: 同じ項で2回現れ総和される添字。衝突しない限り別の文字へ変更できる。
+  - term: Kronecker のデルタ
+    english: Kronecker delta
+    meaning: delta_ij=1 (i=j), 0 (i≠j) で定義される単位テンソルの成分。
+  - term: Levi--Civita 記号
+    english: Levi--Civita symbol
+    meaning: 三つの添字の置換の符号を表す交代記号。外積・回転・行列式を添字で書く際に用いる。
+  - term: 縮約
+    english: contraction
+    meaning: 添字の組について和を取り、階数を下げる操作。跡 T_ii や二重縮約 A_ij B_ij が典型。
+  - term: 二階デカルトテンソル
+    english: second-order Cartesian tensor
+    meaning: Euclidean 空間の直交 Cartesian 基底変換に対し T'=QTQ^T と成分変換する基底非依存の線形写像。
+  - term: 二項積
+    english: dyadic product
+    meaning: 二つのベクトル a,b から (a⊗b)v=a(b・v) で作る二階テンソル。成分は a_i b_j。
+  - term: 二重縮約
+    english: double contraction
+    meaning: 二つの二階テンソルについて A:B=A_ij B_ij と定める縮約。Frobenius 内積に一致する。
+  - term: 軸性ベクトル
+    english: axial vector
+    meaning: 回転では通常のベクトルと同様に変換するが、鏡映では追加の符号を受ける量。三次元の外積や回転が典型。
+  - term: 応力テンソル
+    english: stress tensor
+    meaning: 面の単位法線 n に対して表面力 t(n)=sigma n を与える二階テンソル。
+  - term: 慣性テンソル
+    english: inertia tensor
+    meaning: 質量分布の回転軸まわりの慣性を二次形式としてまとめた対称半正定値テンソル。
+  - term: 等方テンソル
+    english: isotropic tensor
+    meaning: すべての直交基底変換で成分表示が不変なテンソル。二階では lambda I に限られる。
