@@ -40,7 +40,7 @@ $$
 
 です。
 
-この章では、後続のマルチンゲール・Brown 運動・確率積分で毎回使う
+この章では、後続のマルチンゲール・ブラウン運動・確率積分で毎回使う
 
 $$
 \text{growing information}
@@ -49,7 +49,7 @@ $$
 \to
 \text{time--sample measurability}
 \to
-\text{random stopping rules}
+\text{random 停止操作 rules}
 \to
 \text{information at the ランダム時刻}
 $$
@@ -311,7 +311,7 @@ $$
 壊れた機構は「各 $t$ ごとの零集合を一つにまとめる」部分です。可算個なら零集合の可算和は零集合ですが、$t\in[0,1]$ は非可算個なので、その議論は使えません。
 <!-- definition-example-end -->
 
-この区別は STO3 の連続修正、STO4 の Brown 運動で重要になります。
+この区別は STO3 の連続修正、STO4 のブラウン運動で重要になります。
 
 ---
 
@@ -419,7 +419,7 @@ $$
 >
 > を満たすとき、族 $(\mathcal F_t)_{t\ge0}$ を **フィルトレーション** という。
 >
-> フィルトレーションが **right-continuous** であるとは
+> フィルトレーションが **右連続** であるとは
 >
 $$
 \mathcal F_t
@@ -429,7 +429,7 @@ $$
 >
 > が全ての $t\ge0$ で成り立つことをいう。
 >
-> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。フィルトレーションの単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、フィルトレーションは **usual conditions** を満たすという。
+> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。フィルトレーションの単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-連続性とこの completeness の両方を満たすとき、フィルトレーションは **usual conditions** を満たすという。
 <!-- formal-statement-end -->
 
 $\mathcal F_t$ は「時刻 $t$ までに判定できる事象」の集合です。
@@ -509,10 +509,10 @@ $$
 
 は「二枚目が表」という事象で、まだ二枚目を見ていないため $\mathcal F_{1.4}$ には入りません。
 
-有限標本空間では全ての零集合は空集合だけなので complete です。また上のフィルトレーションは各ジャンプ時刻の値を右側の情報に合わせて定義しているため right-continuous です。従って usual conditions を満たします。
+有限標本空間では全ての零集合は空集合だけなので complete です。また上のフィルトレーションは各ジャンプ時刻の値を右側の情報に合わせて定義しているため右連続です。従って usual conditions を満たします。
 <!-- definition-example-end -->
 
-usual conditions は STO4 以降でランダムな停止ルールと標本路の正則性を安定に組み合わせるために使います。本章では、どの定理に right-continuity が本当に必要かを区別し、無条件には仮定しません。
+usual conditions は STO4 以降でランダムな停止ルールと標本路の正則性を安定に組み合わせるために使います。本章では、どの定理に right-連続性が本当に必要かを区別し、無条件には仮定しません。
 
 ---
 
@@ -671,7 +671,7 @@ $$
 <a id="thm-sto1-adapted-right-cont-progressive"></a>
 
 <!-- formal-statement-start -->
-> **定理（right-continuous 適合過程は発展的可測）**  
+> **定理（右連続適合過程は発展的可測）**  
 > $(\mathcal F_t)_{t\ge0}$ をフィルトレーションとし、$X=(X_t)_{t\ge0}$ を実数値適合過程とする。ほとんど全ての $\omega$ ではなく、各 $\omega$ について標本路
 >
 $$
@@ -835,7 +835,7 @@ $T>0$ は任意だったので $X$ は progressively measurable です。
 
 ## 6. 「現在」ではなく「直前まで」で決める
 
-STO2 の離散時間変換、STO6 の stochastic integral では、integrand が未来の増分を見てから賭け方を決めてはいけません。
+STO2 の離散時間変換、STO6 の確率積分では、被積分過程が未来の増分を見てから賭け方を決めてはいけません。
 
 この「先読み禁止」を measurable structure にします。
 
@@ -1024,7 +1024,7 @@ $\{\tau\le t\}$ は「時刻 $t$ までにもう停止したか」という yes/
 
 停止時刻の定義は、停止する正確な未来時刻を時刻 0 で知ることを要求していません。各 $t$ まで進んだ時点で「もう止まったか」を判定できればよいのです。
 
-<!-- definition-example-start: def-sto1-stopping-time -->
+<!-- definition-example-start: def-sto1-停止操作-time -->
 ### 直接例：最初の表が出る時刻
 
 **定義の確認**
@@ -1095,7 +1095,7 @@ $$
 
 ---
 
-## 8. 連続な標本路の hitting time は停止時刻になる
+## 8. 連続な標本路の到達時刻は停止時刻になる
 
 確率解析では
 
@@ -1107,12 +1107,12 @@ $$
 
 という初到達時刻が頻出します。
 
-「初めて入った時刻」は未来の情報を使っているように見えますが、連続な標本路と closed set の組合せでは現在までの観測から判定できます。
+「初めて入った時刻」は未来の情報を使っているように見えますが、連続な標本路と閉集合の組合せでは現在までの観測から判定できます。
 
 <a id="thm-sto1-closed-hitting-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（continuous 適合過程の closed-set hitting time）**  
+> **定理（連続適合過程の closed-set 到達時刻）**  
 > $X=(X_t)_{t\ge0}$ を $\mathbb R^d$ 値適合過程とし、各標本路が連続であるとする。$C\subseteq\mathbb R^d$ を閉集合とし、
 >
 $$
@@ -1270,7 +1270,7 @@ $$
 > を $\tau$ で **停止過程** という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto1-stopped-process -->
+<!-- definition-example-start: def-sto1-停止した-process -->
 ### 直接例：ランダムウォークを初到達時刻で止める
 
 **定義の確認**
@@ -1335,7 +1335,7 @@ $$
 
 意味は、「時刻 $t$ までに停止していた場合には、$A$ が起きたかどうかも時刻 $t$ までの情報で判定できる」です。
 
-<!-- definition-example-start: def-sto1-stopping-sigma-field -->
+<!-- definition-example-start: def-sto1-停止操作-sigma-field -->
 ### 直接例：定数停止時刻では元のフィルトレーションに戻る
 
 **定義の確認**
@@ -1820,8 +1820,8 @@ $$
 | 確率過程 | 各固定時刻の値が確率変数 | 過程を定義する最小条件 |
 | 適合 | $X_t$ を時刻 $t$ の情報で読める | マルチンゲール、SDE |
 | 発展的可測 | $[0,T]\times\Omega$ 上で時間と標本を同時に扱える | 停止時刻評価、確率積分 |
-| 予測可能 | 直前までの情報で integrand / strategy を決める | 予測可能変換、Itô integral |
-| 停止時刻 | 「もう止まったか」を現在までに判定できる | 任意抽出、hitting time |
+| 予測可能 | 直前までの情報で被積分過程 / strategy を決める | 予測可能変換、Itô integral |
+| 停止時刻 | 「もう止まったか」を現在までに判定できる | 任意抽出、到達時刻 |
 | $\mathcal F_\tau$ | ランダム時刻 $\tau$ までの情報 | $X_\tau$、strong Markov property |
 
 この章で重要なのは、これらを単なる用語一覧として覚えないことです。
@@ -2189,7 +2189,7 @@ $$
 ### Level B
 
 <a id="ex-sto1-b01"></a>
-#### STO1-B01 right-continuous 適合過程の発展的可測性を再構成する
+#### STO1-B01 右連続適合過程の発展的可測性を再構成する
 - Level: B
 
 $X$ を実数値適合過程とし、全ての標本路が右連続であるとする。
@@ -2325,10 +2325,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-sto1-b02"></a>
-#### STO1-B02 closed set への first hitting time
+#### STO1-B02 閉集合への初到達時刻
 - Level: B
 
-$X$ を $\mathbb R^d$ 値 continuous 適合過程、$C\subseteq\mathbb R^d$ を closed set とする。
+$X$ を $\mathbb R^d$ 値連続適合過程、$C\subseteq\mathbb R^d$ を閉集合とする。
 
 $$
 \tau_C
@@ -2338,7 +2338,7 @@ $$
 
 と置く。
 
-1. 距離関数 $\rho(x)=d(x,C)$ が continuous であることを示せ。
+1. 距離関数 $\rho(x)=d(x,C)$ が連続であることを示せ。
 2. fixed $t$ に対し
    $$
    \{\tau_C\le t\}
@@ -2379,7 +2379,7 @@ $$
 |x-y|.
 $$
 
-よって $\rho$ は 1-Lipschitz、特に continuous です。
+よって $\rho$ は 1-Lipschitz、特に連続です。
 
 $C$ が closed なので
 
@@ -2403,7 +2403,7 @@ $$
 
 と同値です。
 
-$s\mapsto\rho(X_s)$ は continuous で、$\mathbb Q\cap[0,t]$ は dense だから
+$s\mapsto\rho(X_s)$ は連続で、$\mathbb Q\cap[0,t]$ は dense だから
 
 $$
 \inf_{0\le s\le t}\rho(X_s)
@@ -2448,7 +2448,7 @@ $$
 \mathcal F_q\subseteq\mathcal F_t.
 $$
 
-$\rho$ は continuous だから
+$\rho$ は連続だから
 
 $$
 \{\rho(X_q)<1/m\}\in\mathcal F_t.
@@ -2468,7 +2468,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-sto1-b03"></a>
-#### STO1-B03 停止時刻までの σ-代数と stopped value
+#### STO1-B03 停止時刻までの σ-代数と停止した value
 - Level: B
 
 $\sigma,\tau$ を停止時刻とし
@@ -2683,7 +2683,7 @@ $\xi_1,\ldots,\xi_n$ は全て $\mathcal F_n$ 可測なので、その有限和 
 
 従って $S$ は適合です。
 
-#### 2. first boundary hitting time
+#### 2. 境界への初到達時刻
 
 $n\ge0$ に対し
 
@@ -2746,7 +2746,7 @@ $$
 
 つまり第 $n$ 増分 $\xi_n$ を見る前に $H_n$ を決められます。
 
-#### 4. stopped ランダムウォークの予測可能変換表現
+#### 4. 停止したランダムウォークの予測可能変換表現
 
 固定した標本路を一つ取ります。
 
@@ -2848,7 +2848,7 @@ $$
 
 は $\mathcal F_n$ では判定できず、future information を使います。
 
-first hitting time と last visit time の差は
+初到達時刻と last visit time の差は
 
 $$
 \boxed{
@@ -2913,7 +2913,7 @@ $$
 \mathcal F_\tau
 $$
 
-と発展的可測過程の stopping-time evaluation を通して
+と発展的可測過程の停止操作-time evaluation を通して
 
 $$
 X_\tau
