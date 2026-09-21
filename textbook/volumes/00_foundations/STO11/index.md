@@ -1632,7 +1632,7 @@ $
 \int_0^ta_{ij}(X_s)ds
 $
 
-は continuous finite-variation process かつ local martingale です。[STO5 の finite-variation local martingale の定数性](../STO5/index.md#lem-sto5-finite-variation-local-martingale) から、初期値 0 のこの差は恒等的に 0 です。従って
+は continuous finite-variation process かつ local martingale です。[STO5 の finite-variation local martingale の定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
 
 $
 [M^i,M^j]_t
