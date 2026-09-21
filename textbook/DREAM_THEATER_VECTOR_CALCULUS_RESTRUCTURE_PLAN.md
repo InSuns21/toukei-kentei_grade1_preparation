@@ -644,12 +644,15 @@ Cartesian tensor、Helmholtz decomposition、保存則・流体・Maxwell bridge
 
 実装済み章から順に、
 
+- 各章の `knowledge.yaml`（DREAM THEATER concept owner / requires の正本）
 - `textbook/dream-theater-standard-math-core.yaml`
 - `textbook/dream-theater-standard-math-core.md`
 - `textbook/dream-theater.md`
-- `textbook/knowledge-dag.yaml`
+- `textbook/dream-theater-index.json`
 
 へ反映する。
+
+`textbook/knowledge-dag.yaml` と `textbook/dependency-graph.md` は共通依存関係の正本として継続して照合する。一方、DREAM THEATER 固有 concept の登録は `textbook/dream-theater-knowledge.yaml` のポリシーに従い、各ページ直下の `knowledge.yaml` へ置く。CI を通すためだけに通常教材側の knowledge DAG へ VC concept を重複登録しない。
 
 読者向けには「標準実解析」「標準線形代数」と並ぶ **標準ベクトル解析コア** として配置し、Encore II の下位補助章にはしない。
 
