@@ -123,7 +123,7 @@ $$
 <a id="def-vc6-scale-factor"></a>
 
 <!-- formal-statement-start -->
-> **定義（尺度因子 と位置依存 正規直交基底）**  
+> **定義（尺度因子と位置依存正規直交基底）**  
 > 直交曲線座標に対して
 >
 $$
@@ -371,7 +371,7 @@ $$
 <a id="prop-vc6-gradient"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の 勾配）**  
+> **命題（直交曲線座標の勾配）**  
 > $f$ が $C^1$ なら
 >
 $$
@@ -467,7 +467,7 @@ $$
 <a id="prop-vc6-divergence"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の 発散）**  
+> **命題（直交曲線座標の発散）**  
 > $A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
 >
 $$
@@ -608,7 +608,7 @@ $$
 <a id="prop-vc6-curl"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の 回転）**  
+> **命題（直交曲線座標の回転）**  
 > $A=A_1e_1+A_2e_2+A_3e_3$ が $C^1$ なら
 >
 $$
@@ -737,7 +737,7 @@ $$
 <a id="prop-vc6-scalar-laplacian"></a>
 
 <!-- formal-statement-start -->
-> **命題（直交曲線座標の スカラー・ラプラシアン）**  
+> **命題（直交曲線座標のスカラー・ラプラシアン）**  
 > $f\in C^2$ なら
 >
 $$
@@ -760,7 +760,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[直交曲線座標の 勾配](#prop-vc6-gradient) から
+[直交曲線座標の勾配](#prop-vc6-gradient) から
 
 $$
 (\nabla f)_i
@@ -768,7 +768,7 @@ $$
 \frac1{h_i}f_{q_i}.
 $$
 
-これを [直交曲線座標の 発散](#prop-vc6-divergence) に代入します。
+これを [直交曲線座標の発散](#prop-vc6-divergence) に代入します。
 
 第一項は
 
@@ -816,7 +816,7 @@ $$
 <a id="prop-vc6-円柱座標"></a>
 
 <!-- formal-statement-start -->
-> **命題（円柱座標 の公式）**  
+> **命題（円柱座標の公式）**  
 > $\rho>0$ で
 >
 $$
@@ -1012,7 +1012,7 @@ $$
 <a id="prop-vc6-球座標"></a>
 
 <!-- formal-statement-start -->
-> **命題（球座標 の公式）**  
+> **命題（球座標の公式）**  
 > $r>0$ かつ $0<\theta<\pi$ で
 >
 $$
@@ -1483,7 +1483,7 @@ f_\phi=\cos\phi,
 f_z=\rho^2.
 $$
 
-[円柱座標 の公式](#prop-vc6-円柱座標) から
+[円柱座標の公式](#prop-vc6-円柱座標) から
 
 $$
 \nabla f
