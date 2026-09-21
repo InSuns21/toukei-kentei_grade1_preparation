@@ -20,11 +20,12 @@ learning_objectives:
 definitions:
   - { id: TSA1-DEF-01, name: "狭義定常性" }
   - { id: TSA1-DEF-02, name: "二次定常性" }
-  - { id: TSA1-DEF-03, name: "弱ホワイトノイズ" }
-  - { id: TSA1-DEF-04, name: "過去の線形予測空間" }
-  - { id: TSA1-DEF-05, name: "有限過去予測空間" }
-  - { id: TSA1-DEF-06, name: "イノベーション" }
-  - { id: TSA1-DEF-07, name: "線形決定論的過程" }
+  - { id: TSA1-DEF-03, name: "自己共分散関数" }
+  - { id: TSA1-DEF-04, name: "弱ホワイトノイズ" }
+  - { id: TSA1-DEF-05, name: "過去の線形予測空間" }
+  - { id: TSA1-DEF-06, name: "有限過去予測空間" }
+  - { id: TSA1-DEF-07, name: "イノベーション" }
+  - { id: TSA1-DEF-08, name: "線形決定論的過程" }
 theorems:
   - { id: TSA1-THM-01, name: "狭義定常性から二次定常性" }
   - { id: TSA1-PROP-01, name: "自己共分散関数の正定値性" }
