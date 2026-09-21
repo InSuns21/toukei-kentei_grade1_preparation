@@ -1973,7 +1973,7 @@ C\int_0^t
 \{1+E[V(X_{s\wedge\tau_n})]\}\,ds.
 $$
 
-一方、$\tau_n\le T$ なら $X_{\tau_n}$ は sphere $|x|=n$ 上にいるため、$V(x)\to\infty$ という無限遠での発散性によって $V$ は大きくなります。
+一方、$\tau_n\le T$ なら $X_{\tau_n}$ は sphere $|x|=n$ 上にいるため、$|x|\to\infty$ で $V(x)\to\infty$ となる coercivity によって $V$ は大きくなります。
 
 <!-- proof-start -->
 ### 証明
