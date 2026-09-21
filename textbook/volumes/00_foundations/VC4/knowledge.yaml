@@ -6,6 +6,9 @@ prerequisites:
   - VC3
   - RA7
 
+forward_references:
+  - pde.pde1-partial-differential-equation
+
 concepts:
   - id: vector-calculus.green-circulation
     name: Green theorem circulation form
