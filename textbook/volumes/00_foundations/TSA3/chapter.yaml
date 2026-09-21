@@ -4,7 +4,9 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - TSA1
+  - TSA2
   - FOU2
+  - RA5
   - F0-00D3A
   - MT5
   - F0-00P2
