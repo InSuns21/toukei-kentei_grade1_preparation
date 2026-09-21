@@ -6,6 +6,7 @@ prerequisites:
   - STO5
   - STO6
   - STO7
+  - RA5
 official_scope: []
 learning_objectives:
   - Brown運動で駆動されるSDEを積分方程式として定式化し、strong solutionとpathwise uniquenessを区別して説明できる
