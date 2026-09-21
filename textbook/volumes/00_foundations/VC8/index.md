@@ -1687,7 +1687,7 @@ $$
 C_i=N(F_i)
 $$
 
-に [Newton ポテンシャルの定理](#thm-vc8-newton-poisson) を適用すると
+に [「Newton ポテンシャルは Poisson 方程式を解く」定理](#thm-vc8-newton-poisson)を適用すると
 
 $$
 -\Delta C_i=F_i.
