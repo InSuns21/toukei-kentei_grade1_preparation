@@ -1543,76 +1543,76 @@ $$
 
 右辺を
 
-$
+$$
 k_*(t)
 =
 -\min_{0\le u\le t}(x(u)\wedge0)
-$
+$$
 
 と書きます。
 
 逆向きを示します。固定した $t$ に対し
 
-$
+$$
 c=k_*(t)
-$
+$$
 
 と置きます。
 
 $c$ の定義から、全ての $s\le t$ で
 
-$
+$$
 x(s)\ge-c.
-$
+$$
 
 従って $k(s)>c$ なら
 
-$
+$$
 y(s)=x(s)+k(s)>-c+c=0.
-$
+$$
 
 よって
 
-$
+$$
 \{s\le t:k(s)>c\}
 \subset
 \{s\le t:y(s)>0\}.
-$
+$$
 
 support 条件から
 
-$
+$$
 \int_0^t
 1_{\{k(s)>c\}}\,dk(s)
 =
 0.
-$
+$$
 
 一方 $k$ は continuous nondecreasing なので、左辺は $k$ が level $c$ を越えた後に増えた総量、すなわち
 
-$
+$$
 (k(t)-c)^+
-$
+$$
 
 に等しいです。
 
 従って
 
-$
+$$
 (k(t)-c)^+=0,
-$
+$$
 
 すなわち
 
-$
+$$
 k(t)\le c=k_*(t).
-$
+$$
 
 既に $k(t)\ge k_*(t)$ を示しているので
 
-$
+$$
 k(t)=k_*(t)
-$
+$$
 
 です。$t$ は任意だったため主張が従います。
 <!-- proof-end -->
@@ -2294,7 +2294,7 @@ $$
 \le2h.
 $$
 
-level sets の Lebesgue 時間が $0$ だから、$ds$-a.e.
+level sets の Lebesgue 時間が $0$ だから、$ds$ に関してほとんど至る所（almost everywhere）
 
 $$
 \operatorname{sgn}(B_s-a)
@@ -2608,7 +2608,7 @@ $$
 
 [Tanaka formula](#thm-sto8-tanaka) から
 
-$
+$$
 |B_{\tau_b\wedge n}-a|
 =
 |a|
