@@ -28,13 +28,17 @@ $$
 
 答えは yes です。ただし **filtration が Brown 運動自身の情報だけから作られていること**が本質です。
 
-有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion、その usual augmented natural filtration を
+有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion とします。$\mathcal N$ を $P$-null sets の全部分集合からなる族とし、本章では
 
-$$
-(\mathcal F_t^B)_{0\le t\le T}
-$$
+$
+\mathcal F_t^B
+=
+\sigma(B_s:0\le s\le t)\vee\mathcal N,
+\qquad
+0\le t\le T
+$
 
-とします。Brownian natural filtration 自体は [STO4](../STO4/index.md#def-sto4-brownian-filtration) で定義済みです。
+を使います。これは [STO4 の Brownian natural filtration](../STO4/index.md#def-sto4-brownian-filtration) を null completion した filtration です。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
 
 本章の中心線は
 
@@ -93,6 +97,8 @@ Brown 運動では $[B^i,B^j]_t=\delta_{ij}t$ なので、STO6 の一般の $L^2
 
 <!-- definition-example-start: def-sto12-brownian-h2 -->
 ### 直接例：$H_t=B_t$ は $\mathcal H_B^2$ に入る
+
+**定義の確認**
 
 $B_t$ は continuous adapted process なので predictable です。
 
@@ -193,6 +199,8 @@ $$
 
 <!-- definition-example-start: def-sto12-prp -->
 ### 直接例：$|B_t|^2-dt$ はすでに representation を持つ
+
+**定義の確認**
 
 Itô formula により
 
@@ -746,13 +754,21 @@ $$
 
 ---
 
-## 7. Brownian 標本路 全体へ：dyadic information を増やす
+## 7. Brownian 標本路全体へ：dyadic information を増やす
 
 <a id="lem-sto12-exponential-totality"></a>
 
 <!-- formal-statement-start -->
 > **補題（Gaussian exponential vectors の totality）**  
-> $B$ を $d$ 次元 Brown 運動とし、$(\mathcal F_t^B)$ を usual augmented natural filtration とする。
+> $B$ を $d$ 次元 Brown 運動とし、
+>
+$
+\mathcal F_t^B
+=
+\sigma(B_s:0\le s\le t)\vee\mathcal N
+$
+>
+> をその completed natural filtration とする。
 >
 > deterministic
 >
@@ -786,7 +802,7 @@ $$
 
 有限段階では情報は独立 Gaussian increments の有限個の vector です。前二節の有限次元 totality が使えます。
 
-最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報を Brownian 標本路 全体へ増やします。
+最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報を Brownian 標本路全体へ増やします。
 
 <!-- proof-start -->
 ### 証明
@@ -908,7 +924,7 @@ $$
 
 です。
 
-Brownian 標本路 は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
+Brownian 標本路は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
 
 従って augmentation 前には
 
@@ -918,7 +934,7 @@ $$
 \sigma(B_t:0\le t\le T).
 $$
 
-usual augmentation で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
+null completion で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
 
 $Z\in L^2$ なので $Z\in L^1$ でもあります。
 
@@ -952,7 +968,7 @@ $$
 
 ---
 
-## 8. Brownian martingale representation theorem
+## 8. terminal variable を stochastic integral へ戻す
 
 準備が全部そろいました。
 
@@ -960,7 +976,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Brownian martingale representation theorem）**  
-> $B$ を $d$ 次元 standard Brownian motion、$(\mathcal F_t^B)_{0\le t\le T}$ をその usual augmented natural filtration とする。
+> $B$ を $d$ 次元 standard Brownian motion、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural filtration とする。
 >
 > 任意の
 >
@@ -1255,7 +1271,7 @@ Brownian filtration 上では「terminal payoff の条件付き期待値」と�
 
 <!-- formal-statement-start -->
 > **系（Brownian filtration の predictable representation property）**  
-> $B$ の usual augmented natural filtration $(\mathcal F_t^B)$ は、$B$ に関する predictable representation property を持つ。
+> $B$ の completed natural filtration $(\mathcal F_t^B)$ は、$B$ に関する predictable representation property を持つ。
 >
 > すなわち任意の square-integrable $(\mathcal F_t^B)$-martingale $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
 >
@@ -1297,7 +1313,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-usual augmented Brownian natural filtration の $\mathcal F_0^B$ は trivial modulo null sets なので $M_0$ は a.s. 定数です。
+completed Brownian natural filtration の $\mathcal F_0^B$ は trivial modulo null sets なので $M_0$ は a.s. 定数です。
 
 さらに
 
@@ -1505,7 +1521,7 @@ Brown 運動 $B$ と、それと独立な Brown 運動 $C$ を取り、
 $$
 \mathcal F_t
 =
-\sigma(B_s,C_s:0\le s\le t)^{\mathrm{aug}}
+\sigma(B_s,C_s:0\le s\le t)\vee\mathcal N
 $$
 
 とします。
@@ -1569,7 +1585,7 @@ $$
 \mathcal F_t
 =
 \mathcal F_t^B
-\text{ modulo augmentation}
+\text{ modulo null completion}
 }
 $$
 
@@ -1595,7 +1611,7 @@ $$
 \xi=g(X_T)
 $$
 
-が $L^2$ なら、$X_T$ は Brownian 標本路 の measurable functional なので
+が $L^2$ なら、$X_T$ は Brownian 標本路の measurable functional なので
 
 $$
 \xi\in L^2(\mathcal F_T^B).
@@ -1717,11 +1733,11 @@ exponential vectors $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ の�
 
 壊れる箇所は totality lemma です。
 
-### 16.3 usual augmentation は theorem を壊さない
+### 16.3 null completion は theorem を壊さない
 
-augmentation は $P$-null sets とその部分集合を追加します。
+null completion は $P$-null sets とその部分集合を追加します。
 
-$L^2$ random variables は almost surely 同じもので扱うので、raw Brownian filtration と usual augmentation の違いは representation の a.s. statement を変えません。
+$L^2$ random variables は almost surely 同じもので扱うので、raw Brownian filtration と completed natural filtration の違いは representation の a.s. statement を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
