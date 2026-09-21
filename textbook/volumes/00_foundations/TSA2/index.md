@@ -61,13 +61,13 @@ $$
 > **定義（イノベーション部分空間）**  
 > 中心化二次定常過程 $(Y_t)$ の過去空間を $\mathcal H_t=\overline{\operatorname{span}}\{Y_s:s\le t\}$ とする。各 $t\in\mathbb Z$ に対して
 >
-> $$
-> \mathcal I_t
-> :=
-> \mathcal H_t\ominus \mathcal H_{t-1}
-> =
-> \mathcal H_t\cap \mathcal H_{t-1}^{\perp}
-> $$
+$$
+\mathcal I_t
+:=
+\mathcal H_t\ominus \mathcal H_{t-1}
+=
+\mathcal H_t\cap \mathcal H_{t-1}^{\perp}
+$$
 >
 > を時刻 $t$ のイノベーション部分空間という。
 <!-- formal-statement-end -->
@@ -115,17 +115,17 @@ $$
 > **命題（イノベーション部分空間の一次元性）**  
 > $(Y_t)$ を中心化二次定常過程とし、
 >
-> $$
-> \varepsilon_t
-> :=
-> Y_t-P_{\mathcal H_{t-1}}Y_t
-> $$
+$$
+\varepsilon_t
+:=
+Y_t-P_{\mathcal H_{t-1}}Y_t
+$$
 >
 > を TSA1 の標準イノベーションとする。このとき
 >
-> $$
-> \mathcal I_t=\operatorname{span}\{\varepsilon_t\}.
-> $$
+$$
+\mathcal I_t=\operatorname{span}\{\varepsilon_t\}.
+$$
 >
 > 特に $\varepsilon_t=0$ なら $\mathcal I_t=\{0\}$、$\varepsilon_t\ne0$ なら $\dim\mathcal I_t=1$ である。
 <!-- formal-statement-end -->
@@ -210,11 +210,11 @@ $$
 > **定義（無限遠過去）**  
 > 中心化二次定常過程 $(Y_t)$ の過去空間を $\mathcal H_t$ とする。このとき
 >
-> $$
-> \mathcal H_{-\infty}
-> :=
-> \bigcap_{t\in\mathbb Z}\mathcal H_t
-> $$
+$$
+\mathcal H_{-\infty}
+:=
+\bigcap_{t\in\mathbb Z}\mathcal H_t
+$$
 >
 > を無限遠過去（remote past）という。
 <!-- formal-statement-end -->
@@ -227,9 +227,9 @@ $$
 > **定義（純非決定論性）**  
 > 中心化二次定常過程 $(Y_t)$ が純非決定論的（purely nondeterministic）であるとは、
 >
-> $$
-> \mathcal H_{-\infty}=\{0\}
-> $$
+$$
+\mathcal H_{-\infty}=\{0\}
+$$
 >
 > が成り立つことをいう。
 <!-- formal-statement-end -->
@@ -317,22 +317,22 @@ Wold 分解では $\mathcal H_{t-n}$ を $n\to\infty$ と遠い過去へ送り�
 > **補題（減少閉部分空間への射影収束）**  
 > Hilbert 空間 $H$ の閉部分空間列
 >
-> $$
-> M_1\supseteq M_2\supseteq M_3\supseteq\cdots
-> $$
+$$
+M_1\supseteq M_2\supseteq M_3\supseteq\cdots
+$$
 >
 > と
 >
-> $$
-> M:=\bigcap_{n\ge1}M_n
-> $$
+$$
+M:=\bigcap_{n\ge1}M_n
+$$
 >
 > を考える。任意の $x\in H$ に対して
 >
-> $$
-> P_{M_n}x\longrightarrow P_Mx
-> \qquad\text{in }H
-> $$
+$$
+P_{M_n}x\longrightarrow P_Mx
+\qquad\text{in }H
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -444,13 +444,13 @@ $$
 > **命題（過去空間の直交分解）**  
 > 中心化二次定常過程 $(Y_t)$ の過去空間を $\mathcal H_t$、イノベーション部分空間を $\mathcal I_t$、無限遠過去を $\mathcal H_{-\infty}$ とする。このとき各 $t\in\mathbb Z$ で
 >
-> $$
-> \mathcal H_t
-> =
-> \mathcal H_{-\infty}
-> \oplus
-> \bigoplus_{j=0}^{\infty}\mathcal I_{t-j}.
-> $$
+$$
+\mathcal H_t
+=
+\mathcal H_{-\infty}
+\oplus
+\bigoplus_{j=0}^{\infty}\mathcal I_{t-j}.
+$$
 >
 > ここで無限直交和は有限和の $L^2$ 閉包を意味する。
 <!-- formal-statement-end -->
@@ -557,15 +557,15 @@ $$
 > **定義（Wold の決定論成分）**  
 > 中心化二次定常過程 $(Y_t)$ の無限遠過去を $\mathcal H_{-\infty}$ とする。各 $t$ に対して
 >
-> $$
-> D_t
-> :=
-> P_{\mathcal H_{-\infty}}Y_t,
-> \qquad
-> N_t
-> :=
-> Y_t-D_t
-> $$
+$$
+D_t
+:=
+P_{\mathcal H_{-\infty}}Y_t,
+\qquad
+N_t
+:=
+Y_t-D_t
+$$
 >
 > と定める。$D_t$ を Wold の決定論成分、$N_t$ を純非決定論成分という。
 <!-- formal-statement-end -->
@@ -586,22 +586,22 @@ Wold 分解は、この二つの極端な挙動を同じ定理の中で足し合
 > **定理（Wold 分解）**  
 > $(X_t)_{t\in\mathbb Z}$ を実二次定常過程、$\mu=E[X_t]$、$Y_t=X_t-\mu$ とする。過去空間を $\mathcal H_t$、無限遠過去を $\mathcal H_{-\infty}$ とし、
 >
-> $$
-> \varepsilon_t
-> :=
-> Y_t-P_{\mathcal H_{t-1}}Y_t
-> $$
+$$
+\varepsilon_t
+:=
+Y_t-P_{\mathcal H_{t-1}}Y_t
+$$
 >
 > を標準イノベーションとする。
 >
 > 1. $D_t=P_{\mathcal H_{-\infty}}Y_t$、$N_t=Y_t-D_t$ とすると
 >
-> $$
-> Y_t=D_t+N_t,
-> \qquad
-> D_t\perp N_s
-> \quad(\forall s,t).
-> $$
+$$
+Y_t=D_t+N_t,
+\qquad
+D_t\perp N_s
+\quad(\forall s,t).
+$$
 >
 > 2. $D_t$ は完全に線形予測可能であり、その過去空間は各時刻で $\mathcal H_{-\infty}$ になる。
 >
@@ -609,31 +609,31 @@ Wold 分解は、この二つの極端な挙動を同じ定理の中で足し合
 >
 > 4. $\sigma_\varepsilon^2>0$ なら、一意な実数列 $(\psi_j)_{j\ge0}$ が存在して
 >
-> $$
-> \psi_0=1,
-> \qquad
-> \sum_{j=0}^{\infty}\psi_j^2<\infty,
-> $$
+$$
+\psi_0=1,
+\qquad
+\sum_{j=0}^{\infty}\psi_j^2<\infty,
+$$
 >
 > かつ
 >
-> $$
-> N_t
-> =
-> L^2\text{-}\sum_{j=0}^{\infty}\psi_j\varepsilon_{t-j}.
-> $$
+$$
+N_t
+=
+L^2\text{-}\sum_{j=0}^{\infty}\psi_j\varepsilon_{t-j}.
+$$
 >
 > さらに部分過程 $(N_t)$ 自身の無限遠過去は $\{0\}$ であり、$(N_t)$ は純非決定論的である。
 >
 > 係数は
 >
-> $$
-> \psi_j
-> =
-> \frac{E[Y_t\varepsilon_{t-j}]}{\sigma_\varepsilon^2}
-> =
-> \frac{E[Y_j\varepsilon_0]}{\sigma_\varepsilon^2}
-> $$
+$$
+\psi_j
+=
+\frac{E[Y_t\varepsilon_{t-j}]}{\sigma_\varepsilon^2}
+=
+\frac{E[Y_j\varepsilon_0]}{\sigma_\varepsilon^2}
+$$
 >
 > で与えられる。
 >
@@ -957,15 +957,15 @@ $\sigma_\varepsilon^2=0$ の場合は Step 4 で $N_t=0$ を示しているの�
 > **命題（Wold 分解の一意性）**  
 > Wold 分解において、決定論成分
 >
-> $$
-> D_t=P_{\mathcal H_{-\infty}}Y_t
-> $$
+$$
+D_t=P_{\mathcal H_{-\infty}}Y_t
+$$
 >
 > と標準イノベーション
 >
-> $$
-> \varepsilon_t=Y_t-P_{\mathcal H_{t-1}}Y_t
-> $$
+$$
+\varepsilon_t=Y_t-P_{\mathcal H_{t-1}}Y_t
+$$
 >
 > は過程 $(Y_t)$ から一意に定まる。さらに $\sigma_\varepsilon^2>0$ なら各 Wold 係数 $\psi_j$ も一意である。
 <!-- formal-statement-end -->
