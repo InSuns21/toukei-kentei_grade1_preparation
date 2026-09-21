@@ -96,7 +96,7 @@ $$
 
 ### 何が新しいのか
 
-Gauss theorem は
+[Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) は
 
 $$
 \text{closed surface の flux}
