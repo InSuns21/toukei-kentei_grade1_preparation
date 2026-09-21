@@ -1244,7 +1244,7 @@ $$
 > \frac12
 > \sum_{i,j}
 > a_t^{ij}\partial_{ij}F
-> \right](t,X_t)\,dt\\
+> \right]_{(t,X_t)}\,dt\\
 > &\quad+
 > \sum_{\alpha=1}^m
 > \left[
