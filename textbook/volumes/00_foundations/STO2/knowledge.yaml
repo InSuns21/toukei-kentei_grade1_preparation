@@ -23,7 +23,7 @@ concepts:
   - id: stochastic.predictable-transform
     name: 離散時間predictable processとpredictable transform
     kind: definition
-    aliases: ["predictable transform", "martingale transform", "離散時間predictable process"]
+    aliases: ["predictable transform", "martingale transform", "離散時間predictable process", "予測可能変換", "離散時間予測可能過程"]
     introduction: formal
     introduction_aliases: ["定義（離散時間予測可能過程と予測可能変換）"]
     requires:
@@ -73,7 +73,7 @@ concepts:
   - id: stochastic.doob-maximal-inequality
     name: Doob maximal inequality
     kind: theorem
-    aliases: ["Doob maximal inequality", "Doobの最大不等式"]
+    aliases: ["Doob maximal inequality", "Doobの最大不等式", "Doob 最大不等式"]
     introduction: formal
     introduction_aliases: ["定理（Doob 最大不等式）"]
     requires:
@@ -91,7 +91,7 @@ concepts:
   - id: stochastic.doob-upcrossing-inequality
     name: Doob upcrossing inequality
     kind: theorem
-    aliases: ["Doob upcrossing inequality", "upcrossing inequality"]
+    aliases: ["Doob upcrossing inequality", "upcrossing inequality", "Doob 上向き横断不等式"]
     introduction: formal
     introduction_aliases: ["定理（Doob 上向き横断不等式）"]
     requires:
