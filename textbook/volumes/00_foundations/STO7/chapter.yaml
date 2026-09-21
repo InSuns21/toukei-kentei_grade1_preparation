@@ -31,7 +31,7 @@ theorems:
   - { id: STO7-COR-01, name: "product rule / integration by parts" }
   - { id: STO7-LEM-02, name: "vector Brownian stochastic integralsのcovariation" }
   - { id: STO7-THM-02, name: "Itô process版の時間依存Itô formula" }
-  - { id: STO7-PROP-02, name: "stochastic exponentialの積分方程式" }
+  - { id: STO7-PROP-02, name: "stochastic exponentialの基本恒等式" }
   - { id: STO7-PROP-03, name: "Brownian exponential martingale" }
   - { id: STO7-THM-03, name: "Stratonovich integralとItô integralの変換" }
   - { id: STO7-LEM-03, name: "covariation 連鎖律" }
