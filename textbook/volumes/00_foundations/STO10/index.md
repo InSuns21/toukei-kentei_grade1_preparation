@@ -1133,7 +1133,7 @@ E_P[Z_tH\widetilde N_t]
 E_P[Z_sH\widetilde N_s].
 $$
 
-density process の命題から
+[density process の martingale 性](#prop-sto10-density-martingale) から
 
 $$
 E_Q[H\widetilde N_t]
