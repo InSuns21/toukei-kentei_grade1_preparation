@@ -891,44 +891,44 @@ $$
 
 $n\to\infty$ として
 
-$
+$$
 \sum_{j=0}^{\infty}\psi_j^2<\infty.
-$
+$$
 
 #### Step 8：$(N_t)$ 自身の無限遠過去は0
 
 $\sigma_\varepsilon^2>0$ の場合、上で得た表示から各 $s$ について
 
-$
+$$
 N_s
 \in
 \overline{\operatorname{span}}\{\varepsilon_r:r\le s\}.
-$
+$$
 
 したがって $(N_t)$ 自身の時刻 $s$ までの過去空間を $\mathcal H_s^N$ と書けば
 
-$
+$$
 \mathcal H_s^N
 \subseteq
 \overline{\operatorname{span}}\{\varepsilon_r:r\le s\}.
-$
+$$
 
 標準イノベーション列は異時刻で直交し分散正なので、3.1 の弱ホワイトノイズと同じ議論により
 
-$
+$$
 \bigcap_s
 \overline{\operatorname{span}}\{\varepsilon_r:r\le s\}
 =
 \{0\}.
-$
+$$
 
 従って
 
-$
+$$
 \bigcap_s\mathcal H_s^N
 =
 \{0\}.
-$
+$$
 
 よって $(N_t)$ は純非決定論的です。
 
