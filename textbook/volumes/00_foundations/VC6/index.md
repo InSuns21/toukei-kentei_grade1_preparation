@@ -78,6 +78,40 @@ $$
 > を満たすとき、$(q_1,q_2,q_3)$ をその領域の **直交曲線座標** とする。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc6-orthogonal-curvilinear -->
+**定義の確認：cylindrical coordinates**
+
+$\rho>0$ で
+
+$$
+r(\rho,\phi,z)
+=
+(\rho\cos\phi,\rho\sin\phi,z)
+$$
+
+とします。coordinate tangent vectors は
+
+$$
+r_\rho=(\cos\phi,\sin\phi,0),
+$$
+
+$$
+r_\phi=(-\rho\sin\phi,\rho\cos\phi,0),
+$$
+
+$$
+r_z=(0,0,1).
+$$
+
+三本は互いに直交し、
+
+$$
+\det(r_\rho,r_\phi,r_z)=\rho\ne0.
+$$
+
+したがって $\rho>0$ の領域では、$(\rho,\phi,z)$ は定義の正則性と直交性を実際に満たす直交曲線座標です。
+<!-- definition-example-end -->
+
 直交性は「座標曲線が交わるときに直角」という意味です。ただし各 $a_i$ の長さは 1 とは限りません。
 
 ---
@@ -463,41 +497,83 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q_1$ の二面からの net flux を一次まで取ると
+$q_1$ 方向の面に現れる量を
 
 $$
-\frac{\partial}{\partial q_1}(h_2h_3A_1)
-\,dq_1dq_2dq_3.
+B_1(q_1,q_2,q_3)
+:=
+h_2h_3A_1
 $$
 
-同様に $q_2,q_3$ の二面から
+と置きます。
+
+微小 coordinate box の $q_1$ 正側の面では outward flux が
 
 $$
-\frac{\partial}{\partial q_2}(h_3h_1A_2)
-\,dq_1dq_2dq_3,
+B_1(q_1+dq_1,q_2,q_3)\,dq_2dq_3,
 $$
 
+負側の面では outward normal が逆なので
+
 $$
-\frac{\partial}{\partial q_3}(h_1h_2A_3)
+-B_1(q_1,q_2,q_3)\,dq_2dq_3
+$$
+
+です。
+
+したがってこの二面の和は
+
+$$
+\left[
+B_1(q_1+dq_1,q_2,q_3)-B_1(q_1,q_2,q_3)
+\right]dq_2dq_3.
+$$
+
+一次まで展開すると
+
+$$
+\frac{\partial B_1}{\partial q_1}
 \,dq_1dq_2dq_3
++
+o(dq_1dq_2dq_3).
 $$
 
-を得ます。
+同じ計算を残り二方向へ行うと、net flux は
 
-三方向を足した net flux を coordinate box の体積
+$$
+\left[
+\partial_{q_1}(h_2h_3A_1)
++
+\partial_{q_2}(h_3h_1A_2)
++
+\partial_{q_3}(h_1h_2A_3)
+\right]
+dq_1dq_2dq_3
+$$
+
+に高次の項を加えたものです。
+
+一方、coordinate box の体積は主項として
 
 $$
 h_1h_2h_3\,dq_1dq_2dq_3
 $$
 
-で割り、box を一点へ縮めると
+です。
+
+net flux を体積で割って box を一点へ縮めると高次項が消え、
 
 $$
 \nabla\cdot A
 =
 \frac{1}{h_1h_2h_3}
-\sum_{\text{cyclic}}
-\partial_{q_i}(h_jh_kA_i).
+\left[
+\partial_{q_1}(h_2h_3A_1)
++
+\partial_{q_2}(h_3h_1A_2)
++
+\partial_{q_3}(h_1h_2A_3)
+\right].
 $$
 <!-- proof-end -->
 
@@ -578,19 +654,40 @@ VC5 で curl は単位面積あたりの循環密度でした。各辺の線素�
 
 $q_1$ を固定し、$(q_2,q_3)$ 平面の正向き微小長方形を考えます。
 
-$q_2$ 方向の二辺では線積分要素が
+基点を $(q_2,q_3)$ とすると、四辺の circulation の主項は
 
 $$
-A\cdot dr=A_2h_2\,dq_2,
+h_2A_2(q_2,q_3)\,dq_2
++
+h_3A_3(q_2+dq_2,q_3)\,dq_3
 $$
 
-$q_3$ 方向の二辺では
+$$
+-
+h_2A_2(q_2,q_3+dq_3)\,dq_2
+-
+h_3A_3(q_2,q_3)\,dq_3.
+$$
+
+ここで $h_iA_i$ の他の固定座標は省略して書いています。
+
+第二辺と第四辺の差は
 
 $$
-A\cdot dr=A_3h_3\,dq_3.
+\partial_{q_2}(h_3A_3)\,dq_2dq_3
++
+o(dq_2dq_3),
 $$
 
-向かい合う辺の差を Taylor の一次項まで取ると、全循環は
+第一辺と第三辺の差は
+
+$$
+-\partial_{q_3}(h_2A_2)\,dq_2dq_3
++
+o(dq_2dq_3).
+$$
+
+よって全循環は
 
 $$
 \left[
@@ -598,18 +695,35 @@ $$
 -
 \partial_{q_3}(h_2A_2)
 \right]
-dq_2dq_3.
+dq_2dq_3
++
+o(dq_2dq_3).
 $$
 
-VC5 の curl の循環密度の命題により、これを面積
+一方、この coordinate rectangle の面積は主項として
 
 $$
 h_2h_3\,dq_2dq_3
 $$
 
-で割った極限が $(\nabla\times A)\cdot e_1$ です。
+です。
 
-したがって第一成分の公式を得ます。他の成分は座標を巡回置換して同様です。
+VC5 の [curl の循環密度](../VC5/index.md#prop-vc5-curl-density) により、循環を面積で割って rectangle を一点へ縮めた極限が $(\nabla\times A)\cdot e_1$ です。
+
+したがって
+
+$$
+(\nabla\times A)_1
+=
+\frac1{h_2h_3}
+\left[
+\partial_{q_2}(h_3A_3)
+-
+\partial_{q_3}(h_2A_2)
+\right].
+$$
+
+他の二成分は座標を巡回置換して同様に得られます。
 <!-- proof-end -->
 
 ---
