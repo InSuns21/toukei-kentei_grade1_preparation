@@ -73,7 +73,7 @@ concepts:
       - vector-calculus.curl
 
   - id: vector-calculus.vector-potential-solenoidal
-    name: ベクトルポテンシャルが存在すればsolenoidal
+    name: ベクトルポテンシャルが存在すれば無発散
     kind: proposition
     aliases: [curl field is solenoidal]
     introduction: formal
@@ -83,7 +83,7 @@ concepts:
       - vector-calculus.divergence-curl-zero
 
   - id: vector-calculus.vector-potential-gauge
-    name: ベクトルポテンシャルのgauge freedom
+    name: ベクトルポテンシャルのゲージ自由度
     kind: proposition
     aliases: [gauge freedom, ゲージ自由度]
     introduction: formal
