@@ -100,7 +100,7 @@ concepts:
     kind: theorem
     aliases: ["submartingale convergence theorem", "martingale a.s. convergence"]
     introduction: formal
-    introduction_aliases: ["定理（劣マルチンゲール a.s. convergence）"]
+    introduction_aliases: ["定理（劣マルチンゲールの概収束）"]
     requires:
       - stochastic.doob-upcrossing-inequality
 
