@@ -2,7 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-STO7 までで、Brown 運動に沿った stochastic integral と Itô formula を使えるようになりました。
+> **既出概念への参照**：[多次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[連続局所マルチンゲール](../STO5/index.md#def-sto5-continuous-local-martingale) を既知として使います。
+
+STO7 までで、ブラウン運動に沿った確率積分と Itô formula を使えるようになりました。
 
 次の問いは自然です。
 
@@ -12,13 +14,13 @@ dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 X_0=\xi
 $$
 
-と書いたとき、そもそもこの式を満たす process は存在するのでしょうか。
+と書いたとき、そもそもこの式を満たす過程は存在するのでしょうか。
 
 存在したとして、
 
-- 同じ Brown 運動を入れたら同じ解になるのか
+- 同じブラウン運動を入れたら同じ解になるのか
 - 係数を少し変えたら解も少ししか変わらないのか
-- 係数が global Lipschitz でないとき、どこまで解を延長できるのか
+- 係数が大域 Lipschitz でないとき、どこまで解を延長できるのか
 - 有限時間で $|X_t|$ が無限遠へ逃げることはあるのか
 
 を区別して考える必要があります。
@@ -29,27 +31,27 @@ $$
 \boxed{
 \text{integral equation}
 \to
-\text{strong solution}
+\text{強解}
 \to
-\text{Picard iteration}
+\text{Picard 反復}
 \to
-\text{pathwise uniqueness}
+\text{経路ごとの一意性}
 \to
 \text{localization}
 \to
-\text{non-explosion}
+\text{非爆発}
 }
 $$
 
 です。
 
-weak solution、uniqueness in law、Girsanov theorem は次の STO10 に送ります。本章では **同じ確率空間・同じ Brown 運動を固定した上で解を作る** ことに集中します。
+弱解、法則の一意性、Girsanov theorem は次の STO10 に送ります。本章では **同じ確率空間・同じブラウン運動を固定した上で解を作る** ことに集中します。
 
 ---
 
 ## 1. SDE は積分表示として読む
 
-$W=(W^1,\ldots,W^m)$ を [STO7 の $m$ 次元 Brown 運動](../STO7/index.md#def-sto7-vector-brownian) とします。
+$W=(W^1,\ldots,W^m)$ を [STO7 の $m$ 次元ブラウン運動](../STO7/index.md#def-sto7-vector-brownian) とします。
 
 係数
 
@@ -72,10 +74,10 @@ $$
 <a id="def-sto9-sde"></a>
 
 <!-- formal-statement-start -->
-> **定義（Brownian SDE）**  
-> $W$ を $m$ 次元 Brown 運動、$\xi$ を $\mathbb R^d$-値初期確率変数とする。
+> **定義（ブラウン SDE）**  
+> $W$ を $m$ 次元ブラウン運動、$\xi$ を $\mathbb R^d$-値初期確率変数とする。
 >
-> process $X=(X_t)_{t\ge0}$ が
+> 過程 $X=(X_t)_{t\ge0}$ が
 >
 $$
 X_t
@@ -87,7 +89,7 @@ X_t
 \int_0^t \sigma(X_s)\,dW_s
 $$
 >
-> を全ての $t$ で almost surely 満たすとき、この積分表示を
+> を全ての $t$ でほとんど確実に満たすとき、この積分表示を
 >
 $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
@@ -98,9 +100,9 @@ $$
 > と略記する。
 <!-- formal-statement-end -->
 
-右辺の stochastic integral は STO6 で構成した Itô integral です。
+右辺の確率積分は STO6 で構成した Itô integral です。
 
-したがって SDE を「解く」とは、Brown 運動の標本関数を通常微分することではなく、**積分表示の固定点を探すこと**です。
+したがって SDE を「解く」とは、ブラウン運動の標本関数を通常微分することではなく、**積分表示の固定点を探すこと**です。
 
 <!-- definition-example-start: def-sto9-sde -->
 ### 直接例：定数係数なら積分するだけ
@@ -135,16 +137,16 @@ $$
 
 なので、定義の積分表示をそのまま満たします。
 
-ここでは SDE が「Brown 運動に drift を足したもの」として目で確認できます。
+ここでは SDE が「ブラウン運動にドリフトを足したもの」として目で確認できます。
 <!-- definition-example-end -->
 
 ---
 
 ## 2. 解を作るとき何を固定するのか
 
-weak solution との違いを後続章で明確にするため、本章では確率空間を固定します。
+弱解との違いを後続章で明確にするため、本章では確率空間を固定します。
 
-$\xi$ と $W$ が生成する filtration を usual augmentation したものを
+$\xi$ と $W$ が生成するフィルトレーションを usual augmentation したものを
 
 $$
 \mathcal F_t^{\xi,W}
@@ -157,13 +159,13 @@ $$
 
 と書きます。
 
-本章では $W$ がこの joint filtration $(\mathcal F_t^{\xi,W})$ に関しても Brown 運動であることを仮定します。例えば $\xi$ と Brown 運動 $W$ が independent ならこの条件を満たします。これにより「初期値を最初から知っている」ことが、未来の Brownian increments を先取りすることはありません。
+本章では $W$ がこの joint フィルトレーション $(\mathcal F_t^{\xi,W})$ に関してもブラウン運動であることを仮定します。例えば $\xi$ とブラウン運動 $W$ が independent ならこの条件を満たします。これにより「初期値を最初から知っている」ことが、未来のブラウン increments を先取りすることはありません。
 
 <a id="def-sto9-strong-solution"></a>
 
 <!-- formal-statement-start -->
-> **定義（strong solution）**  
-> 初期値 $\xi$ と $m$ 次元 Brown 運動 $W$ を一つ固定し、
+> **定義（強解）**  
+> 初期値 $\xi$ と $m$ 次元ブラウン運動 $W$ を一つ固定し、
 >
 $$
 \mathcal F_t=\mathcal F_t^{\xi,W}
@@ -171,7 +173,7 @@ $$
 >
 > とする。
 >
-> continuous $\mathbb R^d$-値 process $X$ が $(\mathcal F_t)$-adapted であり、各 $T<\infty$ について
+> continuous $\mathbb R^d$-値過程 $X$ が $(\mathcal F_t)$-適合であり、各 $T<\infty$ について
 >
 $$
 \int_0^T
@@ -184,7 +186,7 @@ $$
 \infty
 $$
 >
-> almost surely で、さらに
+> ほとんど確実にで、さらに
 >
 $$
 X_t
@@ -196,7 +198,7 @@ X_t
 \int_0^t \sigma(X_s)\,dW_s
 $$
 >
-> を全ての $t\ge0$ で almost surely 満たすとき、$X$ をこの SDE の **strong solution** という。
+> を全ての $t\ge0$ でほとんど確実に満たすとき、$X$ をこの SDE の **強解** という。
 <!-- formal-statement-end -->
 
 $\|\cdot\|_{\mathrm F}$ は行列の Frobenius norm です。
@@ -207,7 +209,7 @@ strong という語は「数値誤差の strong convergence」とは別の意味
 
 $$
 \boxed{
-\text{Brownian motion }W
+\text{ブラウン運動 }W
 \text{ と初期値 }\xi
 \text{ を先に固定し、その情報だけから }X\text{ を作る}
 }
@@ -216,7 +218,7 @@ $$
 という意味です。
 
 <!-- definition-example-start: def-sto9-strong-solution -->
-### 直接例：geometric Brownian motion は Brown 運動の明示関数
+### 直接例：幾何ブラウン運動はブラウン運動の明示関数
 
 **定義の確認**
 
@@ -241,10 +243,10 @@ x\exp\left\{
 \right\}
 $$
 
-は $W_t$ の連続関数なので $\mathcal F_t^{W}$-adapted かつ continuous です。各有限区間では標本関数が bounded なので、$|\mu X_s|$ と $|\alpha X_s|^2$ の時間積分も almost surely 有限です。
+は $W_t$ の連続関数なので $\mathcal F_t^{W}$-適合かつ continuous です。各有限区間では標本関数が有界なので、$|\mu X_s|$ と $|\alpha X_s|^2$ の時間積分もほとんど確実に有限です。
 
 $f(t,w)=x\exp((\mu-\alpha^2/2)t+\alpha w)$ に
-[Itô process 版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
+[Itô 過程版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
 を使うと
 
 $$
@@ -279,22 +281,22 @@ dX_t
 \end{aligned}
 $$
 
-よってこの $X$ は strong solution です。
+よってこの $X$ は強解です。
 
-指数の $-\alpha^2/2$ が、[Brownian quadratic variation](../STO5/index.md#thm-sto5-brownian-qv) から来る Itô correction です。
+指数の $-\alpha^2/2$ が、[ブラウン二次変分](../STO5/index.md#thm-sto5-brownian-qv) から来る Itô 補正です。
 <!-- definition-example-end -->
 
 ---
 
 ## 3. 一意性には複数の意味がある
 
-本章で必要なのは、同じ Brown 運動を共有する二つの解を比較する一意性です。
+本章で必要なのは、同じブラウン運動を共有する二つの解を比較する一意性です。
 
 <a id="def-sto9-pathwise-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定義（pathwise uniqueness）**  
-> 同じ filtered probability space 上で、同じ Brown 運動 $W$ と同じ初期値 $\xi$ を使う二つの strong solution $X,Y$ を取る。
+> **定義（経路ごとの一意性）**  
+> 同じ filtered probability space 上で、同じブラウン運動 $W$ と同じ初期値 $\xi$ を使う二つの強解 $X,Y$ を取る。
 >
 > 任意のそのような $X,Y$ に対して
 >
@@ -305,16 +307,16 @@ X_t=Y_t
 \right)=1
 $$
 >
-> が成り立つとき、その SDE は **pathwise uniqueness** を持つという。
+> が成り立つとき、その SDE は **経路ごとの一意性** を持つという。
 <!-- formal-statement-end -->
 
 ここで重要なのは「分布が同じ」だけでは弱いことです。
 
-pathwise uniqueness は
+経路ごとの一意性は
 
 $$
 \boxed{
-\text{same noise}
+\text{same 雑音}
 +
 \text{same initial state}
 \Longrightarrow
@@ -324,7 +326,7 @@ $$
 
 という主張です。
 
-<!-- definition-example-start: def-sto9-pathwise-uniqueness -->
+<!-- definition-example-start: def-sto9-pathwise-一意性 -->
 ### 直接例：定数係数では差を取れば消える
 
 **定義の確認**
@@ -347,16 +349,16 @@ X_0-Y_0
 0.
 $$
 
-同じ Brown 運動を入れているため stochastic terms も完全に相殺します。
+同じブラウン運動を入れているため stochastic terms も完全に相殺します。
 
-後で global Lipschitz 係数について、この「差を取る」を Gronwall estimate へ一般化します。
+後で大域 Lipschitz 係数について、この「差を取る」を Gronwall estimate へ一般化します。
 <!-- definition-example-end -->
 
 ---
 
 ## 4. まず Gronwall の機械を用意する
 
-Picard iteration と uniqueness の両方で同じ積分不等式が現れます。
+Picard 反復と一意性の両方で同じ積分不等式が現れます。
 
 <a id="lem-sto9-gronwall"></a>
 
@@ -452,11 +454,11 @@ $a=0$ なら $f(t)\le0$ なので $f\equiv0$ です。
 
 ---
 
-## 5. global Lipschitz 係数と linear growth
+## 5. 大域 Lipschitz 係数と線形成長
 
 存在一意性を保証する最も標準的な条件を置きます。
 
-係数 $b,\sigma$ が **global Lipschitz** であるとは、ある $L<\infty$ が存在して全ての $x,y\in\mathbb R^d$ について
+係数 $b,\sigma$ が **大域 Lipschitz** であるとは、ある $L<\infty$ が存在して全ての $x,y\in\mathbb R^d$ について
 
 $$
 |b(x)-b(y)|
@@ -468,7 +470,7 @@ $$
 
 が成り立つこととします。
 
-この仮定は自動的に linear growth を与えます。
+この仮定は自動的に線形成長を与えます。
 
 実際、
 
@@ -502,11 +504,11 @@ $$
 
 となります。
 
-この「Lipschitz は差を制御し、linear growth は大きさを制御する」という役割分担を覚えておくと、local theory で何が不足するかが見えやすくなります。
+この「Lipschitz は差を制御し、線形成長は大きさを制御する」という役割分担を覚えておくと、局所 theory で何が不足するかが見えやすくなります。
 
 ---
 
-## 6. Picard iteration を stochastic integral で回す
+## 6. Picard 反復を確率積分で回す
 
 初期値 $\xi\in L^2$ とし、
 
@@ -528,13 +530,13 @@ $$
 
 と定義します。
 
-deterministic equation の Picard iteration と同じ形ですが、stochastic integral の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
+決定論的方程式の Picard 反復と同じ形ですが、確率積分の差を [continuous-time Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) で制御する点が新しいところです。
 
 <a id="lem-sto9-picard-estimate"></a>
 
 <!-- formal-statement-start -->
 > **補題（Picard 差分の factorial estimate）**  
-> $b,\sigma$ が global Lipschitz で、$E|\xi|^2<\infty$ とする。
+> $b,\sigma$ が大域 Lipschitz で、$E|\xi|^2<\infty$ とする。
 >
 > 任意の $T<\infty$ に対し、$T$ と Lipschitz 定数のみに依存する $C_T<\infty$ が存在して
 >
@@ -571,9 +573,9 @@ $$
 X_t^{(n+1)}-X_t^{(n)}
 $$
 
-を drift part と martingale part に分けます。
+をドリフト part と martingale part に分けます。
 
-drift は Cauchy--Schwarz、martingale は Doob $L^2$ inequality と Itô isometry で同じ
+ドリフトは Cauchy--Schwarz、martingale は Doob $L^2$ inequality と Itô isometry で同じ
 
 $$
 \int_0^t D_n(s)\,ds
@@ -626,7 +628,7 @@ E\sup_{u\le t}
 \right|^2.
 $$
 
-drift part について Cauchy--Schwarz から
+ドリフト part について Cauchy--Schwarz から
 
 $$
 \begin{aligned}
@@ -649,7 +651,7 @@ $$
 martingale part は
 [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2)
 と
-[Itô isometry による $L^2$ stochastic integral](../STO6/index.md#thm-sto6-l2-construction)
+[Itô isometry による $L^2$ 確率積分](../STO6/index.md#thm-sto6-l2-construction)
 から
 
 $$
@@ -729,19 +731,19 @@ $$
 \infty.
 $$
 
-これが Picard sequence の一様収束を保証する核心です。
+これが Picard 列の一様収束を保証する核心です。
 
 ---
 
-## 7. global Lipschitz なら strong solution が一意に存在する
+## 7. 大域 Lipschitz なら強解が一意に存在する
 
 <a id="thm-sto9-global-existence-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定理（global Lipschitz SDE の strong existence・pathwise uniqueness）**  
-> $\xi$ を $E|\xi|^2<\infty$ を満たす $\mathcal F_0$-可測 $\mathbb R^d$-値確率変数、$W$ を $m$ 次元 Brown 運動とし、$W$ は joint filtration $(\mathcal F_t^{\xi,W})$ に関して Brown 運動であるとする。
+> **定理（大域 Lipschitz SDE の strong 存在・経路ごとの一意性）**  
+> $\xi$ を $E|\xi|^2<\infty$ を満たす $\mathcal F_0$-可測 $\mathbb R^d$-値確率変数、$W$ を $m$ 次元ブラウン運動とし、$W$ は joint フィルトレーション $(\mathcal F_t^{\xi,W})$ に関してブラウン運動であるとする。
 >
-> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が global Lipschitz であるとする。
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が大域 Lipschitz であるとする。
 >
 > このとき
 >
@@ -751,7 +753,7 @@ dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 X_0=\xi
 $$
 >
-> は全ての有限時間区間上で strong solution を持ち、その solution は pathwise unique である。
+> は全ての有限時間区間上で強解を持ち、その solution は pathwise unique である。
 >
 > さらに任意の $T<\infty$ について
 >
@@ -766,7 +768,7 @@ $$
 
 ### 証明の見取り図
 
-存在は Picard sequence の差の総和を使います。
+存在は Picard 列の差の総和を使います。
 
 $$
 X^{(n)}
@@ -779,7 +781,7 @@ X^{(k+1)}-X^{(k)}
 \right)
 $$
 
-なので、差の supremum norm が almost surely 可算和可能なら uniform limit ができます。
+なので、差の supremum norm がほとんど確実に可算和可能なら uniform limit ができます。
 
 一意性は二つの解の差に対して Picard estimate と同じ計算を行い、[積分形 Gronwall lemma](#lem-sto9-gronwall) を使います。
 
@@ -788,9 +790,9 @@ $$
 
 固定した $T<\infty$ を取ります。
 
-#### Step 1：Picard sequence が finite second moment を持つ
+#### Step 1：Picard 列が有限な二次モーメントを持つ
 
-global Lipschitz から linear growth
+大域 Lipschitz から線形成長
 
 $$
 |b(x)|^2+\|\sigma(x)\|_{\mathrm F}^2
@@ -810,7 +812,7 @@ E|\xi|^2
 \infty.
 $$
 
-$X^{(n)}$ が有限 second moment を持つとすると、定義式、Cauchy--Schwarz、Doob $L^2$ inequality から
+$X^{(n)}$ が有限 second モーメントを持つとすると、定義式、Cauchy--Schwarz、Doob $L^2$ inequality から
 
 $$
 E\sup_{t\le T}|X_t^{(n+1)}|^2
@@ -873,9 +875,9 @@ $$
 \infty
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-したがって $X^{(n)}$ は $[0,T]$ 上 almost surely 一様収束し、その極限を $X$ と書けば $X$ は continuous です。
+したがって $X^{(n)}$ は $[0,T]$ 上ほとんど確実に一様収束し、その極限を $X$ と書けば $X$ は continuous です。
 
 各固定 $t$ で $X_t^{(n)}$ は $\mathcal F_t^{\xi,W}$-可測なので、極限 $X_t$ も $\mathcal F_t^{\xi,W}$-可測です。
 
@@ -890,7 +892,7 @@ $$
 \sqrt{D_{k+1}(T)}.
 $$
 
-右辺は $n,m\to\infty$ で $0$ へ行きます。さらに $m\to\infty$ で $X^{(m)}\to X$ almost surely uniformly なので、[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01) から
+右辺は $n,m\to\infty$ で $0$ へ行きます。さらに $m\to\infty$ で $X^{(m)}\to X$ ほとんど確実に uniformly なので、[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01) から
 
 $$
 \left\|
@@ -902,7 +904,7 @@ $$
 \to0.
 $$
 
-従って Picard sequence は $X$ へ $L^2$ supremum の意味でも収束します。
+従って Picard 列は $X$ へ $L^2$ supremum の意味でも収束します。
 
 #### Step 3：極限は積分表示を満たす
 
@@ -919,7 +921,7 @@ E\sup_{s\le T}|X_s^{(n)}-X_s|^2
 \to0.
 $$
 
-従って drift integrals は $L^2$ supremum で収束します。
+従ってドリフト integrals は $L^2$ supremum で収束します。
 
 同様に Itô isometry と Doob inequality から
 
@@ -956,9 +958,9 @@ X_t
 \int_0^t \sigma(X_s)\,dW_s.
 $$
 
-従って $X$ は strong solution です。
+従って $X$ は強解です。
 
-#### Step 4：pathwise uniqueness
+#### Step 4：経路ごとの一意性
 
 同じ $W,\xi$ で二つの solutions $X,Y$ を取ります。
 
@@ -999,10 +1001,10 @@ $$
 
 $T=1,2,\ldots$ の可算共通部分を取れば、全 $t\ge0$ について indistinguishable です。
 
-以上で strong existence と pathwise uniqueness が示されました。
+以上で strong 存在と経路ごとの一意性が示されました。
 <!-- proof-end -->
 
-global Lipschitz はかなり強い仮定ですが、まずここで「SDE の解が本当に Picard の固定点として作れる」ことを閉じるのが重要です。
+大域 Lipschitz はかなり強い仮定ですが、まずここで「SDE の解が本当に Picard の固定点として作れる」ことを閉じるのが重要です。
 
 ---
 
@@ -1011,7 +1013,7 @@ global Lipschitz はかなり強い仮定ですが、まずここで「SDE の�
 <a id="prop-sto9-moment-estimate"></a>
 
 <!-- formal-statement-start -->
-> **命題（finite-horizon L2 supremum moment estimate）**  
+> **命題（finite-horizon L2 supremum モーメント評価）**  
 > 前定理の仮定の下で、各 $T<\infty$ に対して $C_T<\infty$ が存在し
 >
 $$
@@ -1033,17 +1035,17 @@ $$
 積分表示を
 
 $$
-\xi+\text{drift}+\text{martingale}
+\xi+\text{ドリフト}+\text{martingale}
 $$
 
-の三つに分け、linear growth を入れます。
+の三つに分け、線形成長を入れます。
 
 最後に Gronwall lemma で閉じます。
 
 <!-- proof-start -->
 ### 証明
 
-linear growth 定数 $K$ を
+線形成長定数 $K$ を
 
 $$
 |b(x)|^2+\|\sigma(x)\|_{\mathrm F}^2
@@ -1073,7 +1075,7 @@ E\sup_{u\le t}|X_u|^2
 \end{aligned}
 $$
 
-drift part は
+ドリフト part は
 
 $$
 \begin{aligned}
@@ -1178,9 +1180,9 @@ SDE をモデルとして使うなら、一意性だけでは足りません。
 
 <!-- formal-statement-start -->
 > **定理（初期値・係数に対する stability estimate）**  
-> $(b,\sigma)$ と $(\widetilde b,\widetilde\sigma)$ は共通の定数 $L$ で global Lipschitz とする。
+> $(b,\sigma)$ と $(\widetilde b,\widetilde\sigma)$ は共通の定数 $L$ で大域 Lipschitz とする。
 >
-> 同じ Brown 運動 $W$ 上で
+> 同じブラウン運動 $W$ 上で
 >
 $$
 \begin{aligned}
@@ -1265,7 +1267,7 @@ Z_t
 \end{aligned}
 $$
 
-drift difference は
+ドリフト difference は
 
 $$
 \begin{aligned}
@@ -1330,13 +1332,13 @@ $\delta=0$ とすれば initial data に対する安定性です。
 
 ---
 
-## 10. global Lipschitz を捨てると何が起きるか
+## 10. 大域 Lipschitz を捨てると何が起きるか
 
-現実の nonlinear SDE では global Lipschitz は強すぎることがあります。
+現実の nonlinear SDE では大域 Lipschitz は強すぎることがあります。
 
 そこで条件を局所化します。
 
-**local Lipschitz** とは、任意の $R>0$ に対して $L_R<\infty$ が存在し、
+**局所 Lipschitz** とは、任意の $R>0$ に対して $L_R<\infty$ が存在し、
 
 $$
 |x|,|y|\le R
@@ -1354,7 +1356,7 @@ $$
 
 となることです。
 
-球の中では uniqueness を守れます。
+球の中では一意性を守れます。
 
 しかし無限遠まで同じ定数で制御できないため、solution が finite time に無限遠へ逃げる可能性が残ります。
 
@@ -1365,16 +1367,16 @@ $$
 <a id="def-sto9-maximal-solution"></a>
 
 <!-- formal-statement-start -->
-> **定義（maximal strong solution・explosion time）**  
-> $b,\sigma$ を local Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
+> **定義（maximal 強解・爆発時刻）**  
+> $b,\sigma$ を局所 Lipschitz とし、初期状態 $x\in\mathbb R^d$ を固定する。
 >
-> stopping time $\tau_{\mathrm e}\in(0,\infty]$ と continuous adapted process
+> stopping time $\tau_{\mathrm e}\in(0,\infty]$ と continuous 適合過程
 >
 $$
 X=(X_t)_{0\le t<\tau_{\mathrm e}}
 $$
 >
-> の組が **maximal strong solution** であるとは、任意の整数 $n>|x|$ に対し
+> の組が **maximal 強解** であるとは、任意の整数 $n>|x|$ に対し
 >
 $$
 \tau_n
@@ -1412,7 +1414,7 @@ $$
 >
 > が成り立つことをいう。
 >
-> $\tau_{\mathrm e}$ を **explosion time** という。
+> $\tau_{\mathrm e}$ を **爆発時刻** という。
 >
 > また
 >
@@ -1420,11 +1422,11 @@ $$
 P(\tau_{\mathrm e}=\infty)=1
 $$
 >
-> のとき、この maximal strong solution は **non-explosive** であるという。
+> のとき、この maximal 強解は **non-explosive** であるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto9-maximal-solution -->
-### 直接例：deterministic equation も SDE の特殊例で、実際に爆発する
+### 直接例：決定論的方程式も SDE の特殊例で、実際に爆発する
 
 **定義の確認**
 
@@ -1489,16 +1491,16 @@ $$
 \tau_{\mathrm e}=1
 $$
 
-で、finite explosion 時には $\limsup_{t\uparrow\tau_{\mathrm e}}|X_t|=\infty$ も確認できます。
+で、finite 爆発時には $\limsup_{t\uparrow\tau_{\mathrm e}}|X_t|=\infty$ も確認できます。
 
-係数 $b(x)=x^2$ は各 bounded interval では Lipschitz ですが global Lipschitz ではありません。
+係数 $b(x)=x^2$ は各有界区間では Lipschitz ですが大域 Lipschitz ではありません。
 
-ここで失われたのは「局所的な uniqueness」ではなく、**無限遠へ逃げないための global control** です。
+ここで失われたのは「局所的な一意性」ではなく、**無限遠へ逃げないための大域的 control** です。
 <!-- definition-example-end -->
 
 ---
 
-## 12. cutoff した global problem を貼り合わせる
+## 12. cutoff した大域問題を貼り合わせる
 
 半径 $n$ の閉球への metric projection を
 
@@ -1525,7 +1527,7 @@ $$
 
 と置きます。
 
-$b,\sigma$ が local Lipschitz なら、ball $|x|\le n$ 上の Lipschitz 定数 $L_n$ を使って
+$b,\sigma$ が局所 Lipschitz なら、ball $|x|\le n$ 上の Lipschitz 定数 $L_n$ を使って
 
 $$
 |b_n(x)-b_n(y)|
@@ -1535,15 +1537,15 @@ $$
 L_n|x-y|.
 $$
 
-従って $(b_n,\sigma_n)$ は global Lipschitz です。
+従って $(b_n,\sigma_n)$ は大域 Lipschitz です。
 
-各 $n$ について前定理から global strong solution $X^{(n)}$ が存在します。
+各 $n$ について前定理から大域的強解 $X^{(n)}$ が存在します。
 
 <a id="thm-sto9-local-maximal-solution"></a>
 
 <!-- formal-statement-start -->
-> **定理（local Lipschitz SDE の maximal strong solution）**  
-> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が local Lipschitz であり、初期状態 $x\in\mathbb R^d$ を固定する。
+> **定理（局所 Lipschitz SDE の maximal 強解）**  
+> $b:\mathbb R^d\to\mathbb R^d$、$\sigma:\mathbb R^d\to\mathbb R^{d\times m}$ が局所 Lipschitz であり、初期状態 $x\in\mathbb R^d$ を固定する。
 >
 > このとき SDE
 >
@@ -1553,9 +1555,9 @@ dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 X_0=x
 $$
 >
-> は maximal strong solution $(X,\tau_{\mathrm e})$ を持つ。
+> は maximal 強解 $(X,\tau_{\mathrm e})$ を持つ。
 >
-> また explosion 前の pathwise uniqueness が成り立つ。すなわち二つの maximal solutions $X,Y$ が同じ $W,x$ で駆動されるなら
+> また爆発前の経路ごとの一意性が成り立つ。すなわち二つの maximal solutions $X,Y$ が同じ $W,x$ で駆動されるなら
 >
 $$
 X_t=Y_t
@@ -1567,15 +1569,15 @@ $$
 t<\tau_{\mathrm e}^X\wedge\tau_{\mathrm e}^Y
 $$
 >
-> について almost surely 成り立つ。
+> についてほとんど確実に成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-1. cutoff coefficients $(b_n,\sigma_n)$ の global solution $X^{(n)}$ を作る。
+1. cutoff coefficients $(b_n,\sigma_n)$ の大域的 solution $X^{(n)}$ を作る。
 2. ball $n$ を出るまでは $b_n=b_m=b$ なので $X^{(n)}$ と $X^{(m)}$ は一致する。
-3. exit times を増大列にして、その前まで process を貼り合わせる。
-4. 有限 explosion time まで解の値が bounded なら、もっと大きい cutoff solution で延長できて maximality に反する。
+3. exit times を増大列にして、その前まで過程を貼り合わせる。
+4. 有限爆発時刻まで解の値が有界なら、もっと大きい cutoff solution で延長できて maximality に反する。
 
 <!-- proof-start -->
 ### 証明
@@ -1594,7 +1596,7 @@ b_n(X_t^{(n)})\,dt
 X_0^{(n)}=x
 $$
 
-の unique global strong solution を取ります。
+の unique 大域的強解を取ります。
 
 $X^{(n)}$ の ball $n$ からの exit time を
 
@@ -1608,7 +1610,7 @@ $$
 
 $m>n$ を取ります。
 
-両 process が ball $n$ の中にいる間は
+両過程が ball $n$ の中にいる間は
 
 $$
 b_n=b_m=b,
@@ -1631,7 +1633,7 @@ $$
 
 まで両方を止めます。
 
-$[0,\rho]$ 上では同じ initial value、同じ Brownian motion、同じ coefficients の SDE なので、global Lipschitz theorem の uniqueness estimate を停止した equation へ適用して
+$[0,\rho]$ 上では同じ initial value、同じブラウン運動、同じ coefficients の SDE なので、大域 Lipschitz theorem の一意性 estimate を停止した equation へ適用して
 
 $$
 X_{t\wedge\rho}^{(n)}
@@ -1639,7 +1641,7 @@ X_{t\wedge\rho}^{(n)}
 X_{t\wedge\rho}^{(m)}
 $$
 
-almost surely です。
+ほとんど確実にです。
 
 従って両者の ball $n$ からの exit time は一致します。
 
@@ -1677,7 +1679,7 @@ $$
 
 consistency によりこの定義は $n$ の選び方に依存しません。
 
-各 compact time interval $[0,T]\subset[0,\tau_{\mathrm e})$ ではある $n$ が存在して
+各コンパクト集合 time 区間 $[0,T]\subset[0,\tau_{\mathrm e})$ ではある $n$ が存在して
 
 $$
 X_t=X_t^{(n)}
@@ -1685,7 +1687,7 @@ X_t=X_t^{(n)}
 (0\le t\le T),
 $$
 
-したがって $X$ は continuous adapted で、元の coefficients $b,\sigma$ に対する積分表示を満たします。
+したがって $X$ は continuous 適合で、元の coefficients $b,\sigma$ に対する積分表示を満たします。
 
 もし $\tau_{\mathrm e}<\infty$ なのに
 
@@ -1695,7 +1697,7 @@ $$
 \infty
 $$
 
-なら、ある $R<\infty$ が存在して explosion 直前まで $|X_t|\le R$ です。
+なら、ある $R<\infty$ が存在して爆発直前まで $|X_t|\le R$ です。
 
 $n>R+1$ を取れば $\tau_n>\tau_{\mathrm e}$ となってしまい
 
@@ -1707,7 +1709,7 @@ $$
 
 に反します。
 
-従って有限 explosion time では
+従って有限爆発時刻では
 
 $$
 \limsup_{t\uparrow\tau_{\mathrm e}}|X_t|=\infty.
@@ -1725,13 +1727,13 @@ $$
 
 まで止めれば coefficients は ball $n$ 上で Lipschitz です。
 
-global uniqueness と同じ estimate から
+大域的一意性と同じ estimate から
 
 $$
 X_{t\wedge\rho_n}=Y_{t\wedge\rho_n}.
 $$
 
-$n\uparrow\infty$ とすれば explosion 前の pathwise uniqueness を得ます。
+$n\uparrow\infty$ とすれば爆発前の経路ごとの一意性を得ます。
 <!-- proof-end -->
 
 ここで localization の役割がはっきりします。
@@ -1740,7 +1742,7 @@ $$
 \boxed{
 \text{局所問題}
 \overset{\text{cutoff}}{\longrightarrow}
-\text{global Lipschitz 問題}
+\text{大域 Lipschitz 問題}
 \overset{\text{stop before cutoff}}{\longrightarrow}
 \text{元の問題}
 }
@@ -1750,9 +1752,9 @@ $$
 
 ---
 
-## 13. linear growth があれば explosion は起きない
+## 13. 線形成長があれば爆発は起きない
 
-local Lipschitz だけでは $dX=X^2dt$ のように爆発しました。
+局所 Lipschitz だけでは $dX=X^2dt$ のように爆発しました。
 
 次の条件を追加します。
 
@@ -1765,8 +1767,8 @@ $$
 <a id="thm-sto9-linear-growth-nonexplosion"></a>
 
 <!-- formal-statement-start -->
-> **定理（linear growth による non-explosion）**  
-> $b,\sigma$ が local Lipschitz で、ある $K<\infty$ に対して
+> **定理（線形成長による非爆発）**  
+> $b,\sigma$ が局所 Lipschitz で、ある $K<\infty$ に対して
 >
 $$
 |b(x)|^2+\|\sigma(x)\|_{\mathrm F}^2
@@ -1776,7 +1778,7 @@ $$
 >
 > が全ての $x$ で成り立つとする。
 >
-> 初期状態 $x\in\mathbb R^d$ から出発する maximal strong solution の explosion time $\tau_{\mathrm e}$ は
+> 初期状態 $x\in\mathbb R^d$ から出発する maximal 強解の爆発時刻 $\tau_{\mathrm e}$ は
 >
 $$
 P(\tau_{\mathrm e}=\infty)=1
@@ -1787,11 +1789,11 @@ $$
 
 ### 証明の見取り図
 
-exit time $\tau_n$ まで止めれば、解は bounded domain にいるため全ての計算を安全にできます。
+exit time $\tau_n$ まで止めれば、解は有界 domain にいるため全ての計算を安全にできます。
 
-重要なのは、moment estimate の定数を $n$ に依存させないことです。
+重要なのは、モーメント評価の定数を $n$ に依存させないことです。
 
-linear growth は元 coefficients 自体の global bound なので、停止後の estimate は全て同じ $K$ で閉じます。
+線形成長は元 coefficients 自体の大域的 bound なので、停止後の estimate は全て同じ $K$ で閉じます。
 
 <!-- proof-start -->
 ### 証明
@@ -1806,7 +1808,7 @@ $$
 
 を取ります。
 
-固定 $T<\infty$ について stopped process
+固定 $T<\infty$ について stopped 過程
 
 $$
 X_{t\wedge\tau_n}
@@ -1826,7 +1828,7 @@ x
 \int_0^{t\wedge\tau_n}\sigma(X_s)\,dW_s.
 $$
 
-前の moment estimate と全く同じ計算をすると、linear growth 定数が $n$ に依存しないため
+前のモーメント評価と全く同じ計算をすると、線形成長定数が $n$ に依存しないため
 
 $$
 E\left[
@@ -1898,15 +1900,15 @@ P(\tau_{\mathrm e}<\infty)=0.
 $$
 <!-- proof-end -->
 
-global Lipschitz は non-explosion の十分条件ですが必要条件ではありません。
+大域 Lipschitz は非爆発の十分条件ですが必要条件ではありません。
 
 次の節では、係数の大きさが superlinear でも「外向きに押していない」なら爆発を防げることを見ます。
 
 ---
 
-## 14. Lyapunov function で無限遠への逃走を止める
+## 14. Lyapunov 関数で無限遠への逃走を止める
 
-global linear growth は便利ですが、例えば
+大域的線形成長は便利ですが、例えば
 
 $$
 b(x)=-x^3
@@ -1914,15 +1916,15 @@ $$
 
 は満たしません。
 
-それでも drift は大きな $|x|$ で原点方向を向いています。
+それでもドリフトは大きな $|x|$ で原点方向を向いています。
 
 この幾何を関数 $V$ で測ります。
 
 <a id="thm-sto9-lyapunov-nonexplosion"></a>
 
 <!-- formal-statement-start -->
-> **定理（Lyapunov 型 non-explosion criterion）**  
-> $b,\sigma$ は local Lipschitz とし、初期状態 $x_0\in\mathbb R^d$ から出発する $(X,\tau_{\mathrm e})$ を maximal strong solution とする。
+> **定理（Lyapunov 型非爆発 criterion）**  
+> $b,\sigma$ は局所 Lipschitz とし、初期状態 $x_0\in\mathbb R^d$ から出発する $(X,\tau_{\mathrm e})$ を maximal 強解とする。
 >
 > $V\in C^2(\mathbb R^d;[0,\infty))$ が
 >
@@ -1956,13 +1958,13 @@ P(\tau_{\mathrm e}=\infty)=1.
 $$
 <!-- formal-statement-end -->
 
-この theorem は STO11 の generator を先取りせず、Itô formula に現れる drift combination をそのまま書いています。
+この theorem は STO11 の generator を先取りせず、Itô formula に現れるドリフト combination をそのまま書いています。
 
 ### 証明の見取り図
 
 $V(X_{t\wedge\tau_n})$ に Itô formula を使います。
 
-stochastic integral の期待値を $0$ にして drift inequality を入れると
+確率積分の期待値を $0$ にしてドリフト inequality を入れると
 
 $$
 E[V(X_{t\wedge\tau_n})]
@@ -1988,7 +1990,7 @@ $$
 
 とします。
 
-[Itô process 版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
+[Itô 過程版の時間依存 Itô formula](../STO7/index.md#thm-sto7-ito-process-formula)
 を時間に依存しない $V$ へ適用すると
 
 $$
@@ -2013,9 +2015,9 @@ D^2V(X_s)
 \end{aligned}
 $$
 
-停止前は $|X_s|\le n$ です。$\nabla V$、$\sigma$ は compact ball 上で bounded なので、停止した stochastic integrand は $[0,T]$ 上 square-integrable です。
+停止前は $|X_s|\le n$ です。$\nabla V$、$\sigma$ はコンパクト集合 ball 上で有界なので、停止した stochastic 被積分過程は $[0,T]$ 上 square-integrable です。
 
-従って stochastic integral の期待値は $0$ です。
+従って確率積分の期待値は $0$ です。
 
 仮定を入れると
 
@@ -2114,7 +2116,7 @@ $$
 
 を考えます。
 
-$b(x)=-x^3$ は global linear growth ではありません。
+$b(x)=-x^3$ は大域的線形成長ではありません。
 
 しかし
 
@@ -2130,7 +2132,7 @@ V'(x)=2x,
 V''(x)=2.
 $$
 
-Itô drift combination は
+Itô ドリフト combination は
 
 $$
 V'(x)b(x)
@@ -2162,7 +2164,7 @@ $$
 
 よって Lyapunov criterion から solution は non-explosive です。
 
-superlinear という見た目だけでは explosion は決まりません。
+superlinear という見た目だけでは爆発は決まりません。
 
 **大きな $|x|$ でどちら向きに押すか** が重要です。
 
@@ -2170,15 +2172,15 @@ superlinear という見た目だけでは explosion は決まりません。
 
 ## 15. 一次元では順序も保存できる
 
-最後に pathwise uniqueness より少し強い「順序の保存」を見ます。
+最後に経路ごとの一意性より少し強い「順序の保存」を見ます。
 
-ここでは local time theory を逆輸入せず、positive part の smooth approximation と Itô formula だけで証明します。
+ここでは局所時間 theory を逆輸入せず、正部分の smooth approximation と Itô formula だけで証明します。
 
 <a id="thm-sto9-comparison"></a>
 
 <!-- formal-statement-start -->
-> **定理（一次元 SDE の comparison theorem）**  
-> $b_1,b_2,\sigma:\mathbb R\to\mathbb R$ は global Lipschitz とし、
+> **定理（一次元 SDE の比較定理）**  
+> $b_1,b_2,\sigma:\mathbb R\to\mathbb R$ は大域 Lipschitz とし、
 >
 $$
 b_1(x)\le b_2(x)
@@ -2188,7 +2190,7 @@ $$
 >
 > とする。
 >
-> 同じ 1 次元 Brown 運動 $W$ 上で
+> 同じ 1 次元ブラウン運動 $W$ 上で
 >
 $$
 \begin{aligned}
@@ -2205,7 +2207,7 @@ E|X_0|^2+E|Y_0|^2<\infty,
 X_0\le Y_0
 $$
 >
-> almost surely を満たすとする。
+> ほとんど確実にを満たすとする。
 >
 > このとき
 >
@@ -2217,11 +2219,11 @@ X_t\le Y_t
 $$
 <!-- formal-statement-end -->
 
-同じ diffusion coefficient を要求している点が重要です。
+同じ拡散係数を要求している点が重要です。
 
-noise の振幅自体が別なら、drift の順序だけから標本関数の順序は一般には出ません。
+雑音の振幅自体が別なら、ドリフトの順序だけから標本関数の順序は一般には出ません。
 
-### smooth positive part
+### 正部分の平滑化
 
 非負 $C^\infty$ function $\psi$ を
 
@@ -2288,8 +2290,8 @@ $$
 
 $Z=X-Y$ と置いて $\phi_\varepsilon(Z_t)$ に Itô formula を使います。
 
-- drift term は $Z>0$ のときだけ問題になり、drift order と Lipschitz から $LZ^+$ で抑えられる。
-- quadratic variation term は $0<Z<\varepsilon$ の狭い領域だけで現れ、Lipschitz diffusion によって $O(\varepsilon)$ へ落ちる。
+- ドリフト項は $Z>0$ のときだけ問題になり、ドリフト order と Lipschitz から $LZ^+$ で抑えられる。
+- 二次変分 term は $0<Z<\varepsilon$ の狭い領域だけで現れ、Lipschitz 拡散によって $O(\varepsilon)$ へ落ちる。
 - $\varepsilon\downarrow0$ で $E[Z_t^+]$ の Gronwall inequality が残る。
 
 <!-- proof-start -->
@@ -2340,7 +2342,7 @@ $$
 \phi_\varepsilon(Z_0)=0.
 $$
 
-#### Step 1：drift term
+#### Step 1：ドリフト項
 
 $\phi_\varepsilon'(z)=0$ for $z\le0$ です。
 
@@ -2407,7 +2409,7 @@ $$
 
 #### Step 3：期待値を取る
 
-global Lipschitz solution は finite-horizon second moment estimate を持つので、stochastic integral は localization を外した後も mean zero です。
+大域 Lipschitz solution は finite-horizon second モーメント評価を持つので、確率積分は localization を外した後も mean zero です。
 
 従って
 
@@ -2460,7 +2462,7 @@ $$
 Z_t\le0
 $$
 
-almost surely です。
+ほとんど確実にです。
 
 非負の rational times の可算集合で同時に成り立つ event を取り、$X,Y$ の continuity を使えば全ての $t\ge0$ で
 
@@ -2471,7 +2473,7 @@ $$
 となります。
 <!-- proof-end -->
 
-### 直接例：同じ additive noise なら drift の差が順序を保つ
+### 直接例：同じ加法的雑音ならドリフトの差が順序を保つ
 
 $$
 \begin{aligned}
@@ -2480,7 +2482,7 @@ dY_t&=(1-Y_t)\,dt+dW_t
 \end{aligned}
 $$
 
-を同じ Brown 運動で駆動し、$X_0\le Y_0$ とします。
+を同じブラウン運動で駆動し、$X_0\le Y_0$ とします。
 
 $$
 b_1(x)=-x,
@@ -2496,7 +2498,7 @@ $$
 
 です。
 
-comparison theorem から
+比較定理から
 
 $$
 X_t\le Y_t
@@ -2504,9 +2506,9 @@ X_t\le Y_t
 (\forall t\ge0)
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-実際、差 $D_t=Y_t-X_t$ は noise が消えて
+実際、差 $D_t=Y_t-X_t$ は雑音が消えて
 
 $$
 dD_t=(1-D_t)\,dt
@@ -2527,9 +2529,9 @@ $$
 
 ## 16. 仮定を外すとどこが壊れるか
 
-### 16.1 Lipschitz を失うと uniqueness が壊れ得る
+### 16.1 Lipschitz を失うと一意性が壊れ得る
 
-deterministic special case
+決定論的 special case
 
 $$
 dX_t=\sqrt{|X_t|}\,dt,
@@ -2574,7 +2576,7 @@ $t=c$ でも左右微分は $0$ でつながります。
 
 したがって solution は一意ではありません。
 
-元の uniqueness proof では
+元の一意性 proof では
 
 $$
 |b(x)-b(y)|
@@ -2586,7 +2588,7 @@ $$
 
 この inequality が失われたため、差を $0$ に固定する機構が壊れています。
 
-### 16.2 local Lipschitz だけでは global existence は出ない
+### 16.2 局所 Lipschitz だけでは大域的存在は出ない
 
 前の
 
@@ -2596,25 +2598,25 @@ dX_t=X_t^2dt,
 X_0=1
 $$
 
-では local uniqueness はありますが、$t=1$ で explosion しました。
+では局所一意性はありますが、$t=1$ で爆発しました。
 
 つまり
 
 $$
 \boxed{
-\text{local Lipschitz}
+\text{局所 Lipschitz}
 \Rightarrow
-\text{local uniqueness}
+\text{局所一意性}
 \not\Rightarrow
-\text{non-explosion}
+\text{非爆発}
 }
 $$
 
 です。
 
-### 16.3 comparison では同一 diffusion が重要
+### 16.3 比較では同一拡散が重要
 
-comparison proof の second-order term は
+比較 proof の second-order term は
 
 $$
 |\sigma(X)-\sigma(Y)|^2
@@ -2624,7 +2626,7 @@ $$
 
 だから narrow layer $0<X-Y<\varepsilon$ で $O(\varepsilon)$ にできました。
 
-二つの equations が別々の diffusion coefficients を持つと
+二つの equations が別々の拡散 coefficients を持つと
 
 $$
 |\sigma_1(X)-\sigma_2(Y)|
@@ -2638,11 +2640,11 @@ $$
 
 # 17. 演習 A
 
-#### STO9-A01 定数係数 SDE が strong solution であることを確認する
+#### STO9-A01 定数係数 SDE が強解であることを確認する
 - Level: A
 - 目安時間: 15分
 
-$m$ 次元 Brown 運動 $W$、$\mu\in\mathbb R^d$、$\Sigma\in\mathbb R^{d\times m}$、square-integrable $\xi$ に対し
+$m$ 次元ブラウン運動 $W$、$\mu\in\mathbb R^d$、$\Sigma\in\mathbb R^{d\times m}$、square-integrable $\xi$ に対し
 
 $$
 X_t=\xi+\mu t+\Sigma W_t
@@ -2650,10 +2652,10 @@ $$
 
 とする。
 
-1. $X$ が $\mathcal F_t^{\xi,W}$-adapted continuous process であることを確認せよ。
+1. $X$ が $\mathcal F_t^{\xi,W}$-適合 continuous 過程であることを確認せよ。
 2. $X$ が
    $dX_t=\mu\,dt+\Sigma\,dW_t$
-   の strong solution であることを示せ。
+   の強解であることを示せ。
 3. $E|X_t|^2$ が有限であることを示せ。
 
 <!-- solution-start -->
@@ -2695,7 +2697,7 @@ X_t
 \int_0^t\Sigma\,dW_s.
 $$
 
-よって strong solution の定義を満たします。
+よって強解の定義を満たします。
 
 3. $(a+b+c)^2\le3(a^2+b^2+c^2)$ を vector norm に適用すると
 
@@ -2734,7 +2736,7 @@ E|X_t|^2
 $$
 <!-- solution-end -->
 
-#### STO9-A02 geometric Brownian motion の explicit solution
+#### STO9-A02 幾何ブラウン運動の陽な解
 - Level: A
 - 目安時間: 20分
 
@@ -2756,7 +2758,7 @@ $$
 
 が solution であることを Itô formula から示せ。
 
-さらに $x>0$ なら $X_t>0$ for all $t$ almost surely を示せ。
+さらに $x>0$ なら $X_t>0$ for all $t$ ほとんど確実にを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2830,11 +2832,11 @@ $$
 が全ての $t$ で成り立ちます。
 <!-- solution-end -->
 
-#### STO9-A03 Gronwall による pathwise uniqueness の核心
+#### STO9-A03 Gronwall による経路ごとの一意性の核心
 - Level: A
 - 目安時間: 20分
 
-同じ Brown 運動と同じ初期値で駆動される二つの solutions $X,Y$ が
+同じブラウン運動と同じ初期値で駆動される二つの solutions $X,Y$ が
 
 $$
 E\sup_{u\le t}|X_u-Y_u|^2
@@ -2888,7 +2890,7 @@ $$
 \sup_{u\le T}|X_u-Y_u|=0
 $$
 
-almost surely です。
+ほとんど確実にです。
 
 従って
 
@@ -2898,18 +2900,18 @@ X_u=Y_u
 (0\le u\le T)
 $$
 
-almost surely です。
+ほとんど確実にです。
 
 $T=1,2,\ldots$ の可算共通部分を取れば、全時刻で equality が同時に成り立ちます。
 
 よって $X,Y$ は indistinguishable です。
 <!-- solution-end -->
 
-#### STO9-A04 finite-time explosion を直接計算する
+#### STO9-A04 有限時間爆発を直接計算する
 - Level: A
 - 目安時間: 15分
 
-deterministic SDE
+決定論的 SDE
 
 $$
 dX_t=X_t^2\,dt,
@@ -2920,8 +2922,8 @@ $$
 を考える。
 
 1. maximal solution を求めよ。
-2. explosion time を求めよ。
-3. $b(x)=x^2$ が local Lipschitz だが linear growth を満たさないことを確認せよ。
+2. 爆発時刻を求めよ。
+3. $b(x)=x^2$ が局所 Lipschitz だが線形成長を満たさないことを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2980,9 +2982,9 @@ $$
 2R|x-y|.
 $$
 
-従って local Lipschitz です。
+従って局所 Lipschitz です。
 
-一方 linear growth
+一方線形成長
 
 $$
 |x^2|^2=x^4
@@ -2992,12 +2994,12 @@ $$
 
 を全ての $x$ で満たす有限 $K$ は存在しません。
 
-従って local Lipschitz は local uniqueness を与えても non-explosion までは保証しません。
+従って局所 Lipschitz は局所一意性を与えても非爆発までは保証しません。
 <!-- solution-end -->
 
 # 18. 演習 B
 
-#### STO9-B01 Picard iteration の最初の二段
+#### STO9-B01 Picard 反復の最初の二段
 - Level: B
 - 目安時間: 30分
 
@@ -3011,7 +3013,7 @@ $$
 
 を考える。
 
-Picard iteration を
+Picard 反復を
 
 $$
 X_t^{(0)}=x
@@ -3021,7 +3023,7 @@ $$
 
 1. $X^{(1)}$ を求めよ。
 2. $X^{(2)}$ を積分表示で求めよ。
-3. $X^{(2)}-X^{(1)}$ が deterministic integral と stochastic integral の和としてどのように現れるか書き下し、本文の factorial estimate の構造を確認せよ。
+3. $X^{(2)}-X^{(1)}$ が決定論的 integral と確率積分の和としてどのように現れるか書き下し、本文の factorial estimate の構造を確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -3107,7 +3109,7 @@ b\{X_s^{(n)}-X_s^{(n-1)}\}\,ds\\
 \end{aligned}
 $$
 
-この例では diffusion coefficient が constant なので stochastic difference は $0$ です。
+この例では拡散係数が constant なので stochastic difference は $0$ です。
 
 特に
 
@@ -3118,7 +3120,7 @@ b\int_0^t
 \{X_s^{(1)}-x\}\,ds.
 $$
 
-一般 nonlinear SDE では diffusion difference も残り、それを Doob $L^2$ inequality と Itô isometry で同じ時間積分 estimate に落とします。
+一般 nonlinear SDE では拡散 difference も残り、それを Doob $L^2$ inequality と Itô isometry で同じ時間積分 estimate に落とします。
 
 この「一段進むごとに時間積分が一つ増える」ことが
 
@@ -3129,7 +3131,7 @@ $$
 という simplex volume を生みます。
 <!-- solution-end -->
 
-#### STO9-B02 linear growth から non-explosion を導く
+#### STO9-B02 線形成長から非爆発を導く
 - Level: B
 - 目安時間: 30分
 
@@ -3236,14 +3238,14 @@ $$
 
 は $0$ へ行きません。
 
-linear growth は stopping radius に依存しない global coefficient bound を与えるため、moment estimate の constant を $n$ に依存させずに済みます。
+線形成長は stopping radius に依存しない大域的 coefficient bound を与えるため、モーメント評価の constant を $n$ に依存させずに済みます。
 <!-- solution-end -->
 
-#### STO9-B03 comparison theorem を explicit solution と照合する
+#### STO9-B03 比較定理を陽な解と照合する
 - Level: B
 - 目安時間: 30分
 
-同じ Brown 運動 $W$ に対し
+同じブラウン運動 $W$ に対し
 
 $$
 \begin{aligned}
@@ -3256,14 +3258,14 @@ $$
 
 とする。ここで $c\ge0$、$x\le y$ とする。
 
-1. comparison theorem の仮定を確認せよ。
+1. 比較定理の仮定を確認せよ。
 2. $D_t=Y_t-X_t$ の equation を求めよ。
 3. $D_t$ を明示的に解き、$D_t\ge0$ を直接示せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. drift は
+1. ドリフトは
 
 $$
 b_1(z)=-z,
@@ -3279,9 +3281,9 @@ $$
 
 for all $z$ です。
 
-両 drift は Lipschitz constant $1$ を持ちます。
+両ドリフトは Lipschitz constant $1$ を持ちます。
 
-diffusion coefficient はどちらも
+拡散係数はどちらも
 
 $$
 \sigma(z)=1
@@ -3291,9 +3293,9 @@ $$
 
 初期値も $x\le y$ です。
 
-従って comparison theorem の仮定を満たします。
+従って比較定理の仮定を満たします。
 
-2. 差を取ると Brownian terms が消えて
+2. 差を取るとブラウン terms が消えて
 
 $$
 \begin{aligned}
@@ -3349,12 +3351,12 @@ $$
 
 for all $t$ です。
 
-この例では same diffusion によって noise が差から完全に消えるため、comparison mechanism が特に見えやすくなっています。
+この例では same 拡散によって雑音が差から完全に消えるため、比較 mechanism が特に見えやすくなっています。
 <!-- solution-end -->
 
 # 19. 演習 C
 
-#### STO9-C01 superlinear drift を Lyapunov function で制御する
+#### STO9-C01 超線形ドリフトを Lyapunov 関数で制御する
 - Level: C
 - 目安時間: 50分
 
@@ -3372,22 +3374,22 @@ $$
 
 を考える。$\beta\in\mathbb R$、$\gamma\in\mathbb R$、$x_0\in\mathbb R$ とする。
 
-1. coefficients が local Lipschitz であることを示せ。
-2. $b(x)=-x^3+\beta x$ は一般に global linear growth を満たさないことを確認せよ。
-3. $V(x)=1+x^2$ に対し、Itô formula の drift combination
+1. coefficients が局所 Lipschitz であることを示せ。
+2. $b(x)=-x^3+\beta x$ は一般に大域的線形成長を満たさないことを確認せよ。
+3. $V(x)=1+x^2$ に対し、Itô formula のドリフト combination
    $V'(x)b(x)+\frac12V''(x)\gamma^2$
    を計算せよ。
 4. ある $C<\infty$ が存在して
    $V'(x)b(x)+\frac12V''(x)\gamma^2\le CV(x)$
    を全ての $x$ で満たすことを示せ。
-5. [Lyapunov 型 non-explosion criterion](#thm-sto9-lyapunov-nonexplosion) を使って global strong solution が存在することを結論せよ。
+5. [Lyapunov 型非爆発 criterion](#thm-sto9-lyapunov-nonexplosion) を使って大域的強解が存在することを結論せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-1. diffusion coefficient $\sigma(x)=\gamma$ は constant なので global Lipschitz です。
+1. 拡散係数 $\sigma(x)=\gamma$ は constant なので大域 Lipschitz です。
 
-drift
+ドリフト
 
 $$
 b(x)=-x^3+\beta x
@@ -3410,7 +3412,7 @@ $$
 \end{aligned}
 $$
 
-従って $b$ は local Lipschitz です。
+従って $b$ は局所 Lipschitz です。
 
 2. $|x|\to\infty$ で
 
@@ -3436,7 +3438,7 @@ $$
 
 では全空間上一様に抑えられません。
 
-よって global linear growth は満たしません。
+よって大域的線形成長は満たしません。
 
 3. $V(x)=1+x^2$ なので
 
@@ -3446,7 +3448,7 @@ V'(x)=2x,
 V''(x)=2.
 $$
 
-従って drift combination は
+従ってドリフト combination は
 
 $$
 \begin{aligned}
@@ -3514,19 +3516,19 @@ $$
 V(x_0)=1+x_0^2<\infty.
 $$
 
-従って [Lyapunov 型 non-explosion criterion](#thm-sto9-lyapunov-nonexplosion) の条件を全て満たします。
+従って [Lyapunov 型非爆発 criterion](#thm-sto9-lyapunov-nonexplosion) の条件を全て満たします。
 
-local Lipschitz theorem により maximal strong solution は存在し、Lyapunov criterion によりその explosion time は
+局所 Lipschitz theorem により maximal 強解は存在し、Lyapunov criterion によりその爆発時刻は
 
 $$
 \tau_{\mathrm e}=\infty
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-したがってこの SDE は全時刻で unique strong solution を持ちます。
+したがってこの SDE は全時刻で unique 強解を持ちます。
 
-この例では drift の大きさ自体は cubic ですが、leading term $-x^3$ が原点方向へ強く戻すため explosion を防いでいます。
+この例ではドリフトの大きさ自体は cubic ですが、leading term $-x^3$ が原点方向へ強く戻すため爆発を防いでいます。
 <!-- solution-end -->
 
 ---
@@ -3546,13 +3548,13 @@ $$
 $$
 \boxed{
 \begin{array}{c}
-\text{global Lipschitz}\\
+\text{大域 Lipschitz}\\
 \Downarrow\\
-\text{Picard strong existence}
+\text{Picard strong 存在}
 +
-\text{pathwise uniqueness}\\
+\text{経路ごとの一意性}\\
 \Downarrow\\
-\text{moment / stability estimates}
+\text{モーメント / stability estimates}
 \end{array}
 }
 $$
@@ -3564,11 +3566,11 @@ $$
 $$
 \boxed{
 \begin{array}{c}
-\text{local Lipschitz}\\
+\text{局所 Lipschitz}\\
 \Downarrow\\
 \text{maximal solution up to }\tau_{\mathrm e}\\
 \Downarrow\\
-\text{linear growth or Lyapunov control}\\
+\text{線形成長 or Lyapunov control}\\
 \Downarrow\\
 \tau_{\mathrm e}=\infty
 \end{array}
@@ -3577,37 +3579,37 @@ $$
 
 も証明しました。
 
-comparison theorem では、同じ noise を共有する一次元 SDE が pathwise order まで保持できることも確認しました。
+比較定理では、同じ雑音を共有する一次元 SDE が pathwise order まで保持できることも確認しました。
 
 ---
 
 ## 21. 次章への橋
 
-本章では「同じ Brown 運動を最初から固定して解を作る」問題を扱いました。
+本章では「同じブラウン運動を最初から固定して解を作る」問題を扱いました。
 
 しかし SDE には別の問いがあります。
 
 $$
 \boxed{
-\text{Brownian motion や確率空間そのものも含めて、
+\text{ブラウン運動や確率空間そのものも含めて、
 どこかに解を作れればよいのではないか}
 }
 $$
 
-これが weak solution の発想です。
+これが弱解の発想です。
 
 次の STO10 では
 
-- weak solution
-- strong solution との違い
+- 弱解
+- 強解との違い
 - equivalent change of measure
 - exponential martingale
 - Novikov condition
 - Girsanov theorem
-- drift removal
-- weak existence への応用
-- pathwise uniqueness と uniqueness in law の位置付け
+- ドリフト removal
+- weak 存在への応用
+- 経路ごとの一意性と法則の一意性の位置付け
 
 へ進みます。
 
-STO9 が **同じ noise の上での固定点理論** なら、STO10 は **確率測度を変えて law を作る理論** です。
+STO9 が **同じ雑音の上での固定点理論** なら、STO10 は **確率測度を変えて法則を作る理論** です。
