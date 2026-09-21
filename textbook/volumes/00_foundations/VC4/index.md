@@ -44,18 +44,18 @@ $$
 >
 > $P,Q\in C^1(\overline D)$ なら、正向き境界に沿って
 >
-> $$
-> \boxed{
-> \int_{\partial D}P\,dx+Q\,dy
-> =
-> \iint_D
-> \left(
-> \frac{\partial Q}{\partial x}
-> -
-> \frac{\partial P}{\partial y}
-> \right)dA
-> }
-> $$
+$$
+\boxed{
+\int_{\partial D}P\,dx+Q\,dy
+=
+\iint_D
+\left(
+\frac{\partial Q}{\partial x}
+-
+\frac{\partial P}{\partial y}
+\right)dA
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -193,13 +193,13 @@ $$
 > **系（Green theorem：flux form）**  
 > [Green theorem](#thm-vc4-green-circulation) と同じ仮定の下で
 >
-> $$
-> \boxed{
-> \int_{\partial D}F\cdot n\,ds
-> =
-> \iint_D\operatorname{div}F\,dA
-> }
-> $$
+$$
+\boxed{
+\int_{\partial D}F\cdot n\,ds
+=
+\iint_D\operatorname{div}F\,dA
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -375,13 +375,13 @@ $$
 >
 > $F\in C^1(\overline\Omega;\mathbb R^3)$ なら
 >
-> $$
-> \boxed{
-> \int_{\partial\Omega}F\cdot n\,dS
-> =
-> \iiint_\Omega\operatorname{div}F\,dV
-> }
-> $$
+$$
+\boxed{
+\int_{\partial\Omega}F\cdot n\,dS
+=
+\iiint_\Omega\operatorname{div}F\,dV
+}
+$$
 >
 > が成り立つ。$n$ は外向き単位法線である。
 <!-- formal-statement-end -->
@@ -556,7 +556,7 @@ $$
 
 に theorem を適用すると、外球の flux $4\pi$ と内球境界の外向き flux $-4\pi$ が相殺し、体積積分 0 と一致します。
 
-この「特異点をくり抜いて内側境界を追う」考え方は PDE6 の fundamental solution で再登場します。
+この「field が定義されない点をくり抜いて内側境界を追う」考え方は PDE6 の fundamental solution で再登場します。
 
 ---
 
@@ -586,7 +586,7 @@ $$
 \iiint_\Omega\operatorname{div}F\,dV.
 $$
 
-divergence が正の領域では net outflow、負の領域では net inflow が生じます。
+divergence が正の領域では 正味の流出、負の領域では net inflow が生じます。
 
 ---
 
@@ -600,13 +600,13 @@ divergence が正の領域では net outflow、負の領域では net inflow が
 > **定義（局所保存則）**  
 > 十分滑らかな $\rho,J$ が
 >
-> $$
-> \frac{\partial\rho}{\partial t}
-> +
-> \operatorname{div}J
-> =
-> s
-> $$
+$$
+\frac{\partial\rho}{\partial t}
++
+\operatorname{div}J
+=
+s
+$$
 >
 > を満たすとき、これを source term $s$ を持つ局所保存則と呼ぶ。
 >
@@ -647,21 +647,21 @@ $$
 > **定理（局所保存則から積分保存則）**  
 > 固定された有界領域 $\Omega$ に対して、$\rho$ の時間微分を積分記号の中へ入れられ、$J(t,\cdot)\in C^1(\overline\Omega)$ とする。
 >
-> $$
-> \partial_t\rho+\operatorname{div}J=s
-> $$
+$$
+\partial_t\rho+\operatorname{div}J=s
+$$
 >
 > なら
 >
-> $$
-> \boxed{
-> \frac{d}{dt}\iiint_\Omega\rho\,dV
-> =
-> -\int_{\partial\Omega}J\cdot n\,dS
-> +
-> \iiint_\Omega s\,dV
-> }
-> $$
+$$
+\boxed{
+\frac{d}{dt}\iiint_\Omega\rho\,dV
+=
+-\int_{\partial\Omega}J\cdot n\,dS
++
+\iiint_\Omega s\,dV
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -728,29 +728,29 @@ $$
 > **命題（任意の小領域での積分保存則から局所式）**  
 > 連続関数
 >
-> $$
-> g(t,x)
-> :=
-> \partial_t\rho(t,x)
-> +
-> \operatorname{div}J(t,x)
-> -
-> s(t,x)
-> $$
+$$
+g(t,x)
+:=
+\partial_t\rho(t,x)
++
+\operatorname{div}J(t,x)
+-
+s(t,x)
+$$
 >
 > を考える。
 >
 > ある時刻 $t$ を固定し、任意の十分小さい直方体 $B$ について
 >
-> $$
-> \iiint_Bg(t,x)\,dV=0
-> $$
+$$
+\iiint_Bg(t,x)\,dV=0
+$$
 >
 > が成り立つなら
 >
-> $$
-> g(t,x)=0
-> $$
+$$
+g(t,x)=0
+$$
 >
 > が各点で成り立つ。
 <!-- formal-statement-end -->
@@ -929,7 +929,7 @@ $$
 F=(x,y,z)
 $$
 
-について divergence theorem を使って total flux を求めよ。
+について [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) を使って total flux を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1159,7 +1159,7 @@ $$
 を満たすとする。半径 $R$ の固定球 $B_R$ について次を行え。
 
 1. $\operatorname{div}J$ を求めよ。
-2. divergence theorem から境界 flux を求めよ。
+2. [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) から境界 flux を求めよ。
 3. $\frac{d}{dt}\int_{B_R}\rho\,dV$ を求めよ。
 4. $R$ を小さくしたとき「局所的に密度が減る」ことと $\operatorname{div}J>0$ の関係を説明せよ。
 5. 同じ $J$ を $z=0$ 平面に制限した二次元 field $(x,y)$ について、Green flux form で半径 $R$ の円板から出る flux を求めよ。
@@ -1173,7 +1173,7 @@ $$
 \operatorname{div}J=1+1+1=3.
 $$
 
-2. divergence theorem より
+2. [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) より
 
 $$
 \int_{\partial B_R}J\cdot n\,dS
