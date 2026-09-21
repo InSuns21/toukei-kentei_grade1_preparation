@@ -10,7 +10,7 @@ concepts:
     kind: definition
     aliases: ["Gaussian process", "Gaussian過程"]
     introduction: formal
-    introduction_aliases: ["定義（Gaussian process）"]
+    introduction_aliases: ["定義（ガウス過程）"]
     requires:
       - stochastic.stochastic-process
 
@@ -19,7 +19,7 @@ concepts:
     kind: definition
     aliases: ["標準Brown運動"]
     introduction: formal
-    introduction_aliases: ["定義（standard Brownian motion）"]
+    introduction_aliases: ["定義（standard ブラウン運動）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.gaussian-process
@@ -29,7 +29,7 @@ concepts:
     kind: theorem
     aliases: ["construction of Brownian motion", "Brownian motion existence"]
     introduction: formal
-    introduction_aliases: ["定理（Brown 運動の構成）"]
+    introduction_aliases: ["定理（ブラウン運動の構成）"]
     requires:
       - stochastic.gaussian-process
       - stochastic.kolmogorov-extension
@@ -40,7 +40,7 @@ concepts:
     kind: proposition
     aliases: ["Brownian scaling", "Brown運動のscaling"]
     introduction: formal
-    introduction_aliases: ["命題（Brownian scaling）"]
+    introduction_aliases: ["命題（ブラウンスケーリング）"]
     requires:
       - stochastic.brownian-motion
 
@@ -49,7 +49,7 @@ concepts:
     kind: definition
     aliases: ["Brownian natural filtration", "Brown運動の自然filtration", "usual augmentation"]
     introduction: formal
-    introduction_aliases: ["定義（Brownian natural filtration）"]
+    introduction_aliases: ["定義（ブラウン natural フィルトレーション）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.filtration
@@ -59,7 +59,7 @@ concepts:
     kind: theorem
     aliases: ["Brownian Markov property", "Markov property of Brownian motion"]
     introduction: formal
-    introduction_aliases: ["定理（Brown 運動の Markov property）"]
+    introduction_aliases: ["定理（ブラウン運動のマルコフ性）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.brownian-natural-filtration
@@ -69,7 +69,7 @@ concepts:
     kind: theorem
     aliases: ["Brownian strong Markov property", "strong Markov property of Brownian motion"]
     introduction: formal
-    introduction_aliases: ["定理（Brown 運動の strong Markov property）"]
+    introduction_aliases: ["定理（ブラウン運動の強マルコフ性）"]
     requires:
       - stochastic.brownian-markov-property
       - stochastic.stopping-time
@@ -80,7 +80,7 @@ concepts:
     kind: definition
     aliases: ["Brownian hitting time", "Brown運動の到達時刻"]
     introduction: formal
-    introduction_aliases: ["定義（Brownian hitting time）"]
+    introduction_aliases: ["定義（ブラウン到達時刻）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.stopping-time
@@ -90,7 +90,7 @@ concepts:
     kind: theorem
     aliases: ["reflection principle", "Brownian reflection principle", "反射原理"]
     introduction: formal
-    introduction_aliases: ["定理（reflection principle）"]
+    introduction_aliases: ["定理（反射原理）"]
     requires:
       - stochastic.brownian-strong-markov-property
       - stochastic.brownian-hitting-time
@@ -100,7 +100,7 @@ concepts:
     kind: theorem
     aliases: ["Brownian hitting time distribution", "first passage time distribution"]
     introduction: formal
-    introduction_aliases: ["定理（Brownian hitting time の分布）"]
+    introduction_aliases: ["定理（ブラウン到達時刻の分布）"]
     requires:
       - stochastic.brownian-reflection-principle
 
@@ -109,7 +109,7 @@ concepts:
     kind: theorem
     aliases: ["one-dimensional Brownian recurrence", "Brownian recurrence", "point recurrence"]
     introduction: formal
-    introduction_aliases: ["定理（1 次元 Brown 運動の基本的 recurrence）"]
+    introduction_aliases: ["定理（1 次元ブラウン運動の基本的再帰性）"]
     requires:
       - stochastic.brownian-hitting-time-distribution
       - stochastic.brownian-strong-markov-property
@@ -119,7 +119,7 @@ concepts:
     kind: proposition
     aliases: ["Brownian time inversion", "time inversion"]
     introduction: formal
-    introduction_aliases: ["命題（Brownian time inversion）"]
+    introduction_aliases: ["命題（ブラウン時間反転）"]
     requires:
       - stochastic.brownian-reflection-principle
       - prob.borel-cantelli-1
