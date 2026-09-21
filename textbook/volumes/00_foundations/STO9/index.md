@@ -77,7 +77,7 @@ $$
 >
 > process $X=(X_t)_{t\ge0}$ が
 >
-$
+$$
 X_t
 =
 \xi
@@ -875,20 +875,20 @@ almost surely です。
 
 さらに $m>n$ に対し Minkowski inequality を使うと
 
-$
+$$
 \left\|
 \sup_{t\le T}|X_t^{(m)}-X_t^{(n)}|
 \right\|_{L^2}
 \le
 \sum_{k=n}^{m-1}
 \sqrt{D_{k+1}(T)}.
-$
+$$
 
 右辺は $n,m\to\infty$ で $0$ へ行くので、Picard sequence は supremum norm の $L^2$ でも Cauchy です。almost sure uniform limit と $L^2$ limit は一致するため、
 
-$
+$$
 E\sup_{t\le T}|X_t^{(n)}-X_t|^2\to0.
-$
+$$
 
 #### Step 3：極限は積分方程式を満たす
 
@@ -1362,11 +1362,11 @@ $$
 >
 > の組が **maximal strong solution** であるとは、任意の整数 $n>|x|$ に対し
 >
-$
+$$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$
+$$
 >
 > と置くと
 >
@@ -1503,11 +1503,11 @@ $$
 >
 > このとき SDE
 >
-$
+$$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t,
 \qquad
 X_0=x
-$
+$$
 >
 > は maximal strong solution $(X,\tau_{\mathrm e})$ を持つ。
 >
@@ -1540,7 +1540,7 @@ $$
 
 各 $n$ について
 
-$
+$$
 dX_t^{(n)}
 =
 b_n(X_t^{(n)})\,dt
@@ -1548,7 +1548,7 @@ b_n(X_t^{(n)})\,dt
 \sigma_n(X_t^{(n)})\,dW_t,
 \qquad
 X_0^{(n)}=x
-$
+$$
 
 の unique global strong solution を取ります。
 
@@ -1754,11 +1754,11 @@ linear growth は元 coefficients 自体の global bound なので、停止後�
 
 maximal solution $X$ と、整数 $n>|x|$ に対する exit times
 
-$
+$$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$
+$$
 
 を取ります。
 
@@ -1772,7 +1772,7 @@ $$
 
 積分方程式は
 
-$
+$$
 X_{t\wedge\tau_n}
 =
 x
@@ -1791,7 +1791,7 @@ E\left[
 \right]
 \le
 C_T(1+|x|^2)
-$
+$$
 
 を得ます。
 
@@ -1931,11 +1931,11 @@ $$
 
 整数 $n>|x_0|$ に対して
 
-$
+$$
 \tau_n
 =
 \inf\{t\ge0:|X_t|\ge n\}
-$
+$$
 
 とします。
 
@@ -2150,9 +2150,11 @@ $$
 >
 > を考え、初期値が
 >
-$$
+$
+E|X_0|^2+E|Y_0|^2<\infty,
+\qquad
 X_0\le Y_0
-$$
+$
 >
 > almost surely を満たすとする。
 >
@@ -3316,7 +3318,7 @@ dX_t
 \gamma\,dW_t,
 \qquad
 X_0=x_0
-$
+$$
 
 を考える。$\beta\in\mathbb R$、$\gamma\in\mathbb R$、$x_0\in\mathbb R$ とする。
 
@@ -3458,9 +3460,9 @@ $$
 
 また初期値では
 
-$
+$$
 V(x_0)=1+x_0^2<\infty.
-$
+$$
 
 従って [Lyapunov 型 non-explosion criterion](#thm-sto9-lyapunov-nonexplosion) の条件を全て満たします。
 
