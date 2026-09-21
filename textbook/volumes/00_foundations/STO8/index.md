@@ -455,7 +455,7 @@ $$
 に一致します。したがって局所時間は kernel の選択に依存しません。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-sto8-brownian-局所-time -->
+<!-- definition-example-start: def-sto8-brownian-local-time -->
 ### 直接例：水準 $0$ の局所時間は平均 $\sqrt{2t/\pi}$ を持つ
 
 **定義の確認**
@@ -1754,7 +1754,7 @@ $$
 
 $|B_t|\ge0$、$L^0$ は continuous nondecreasing、$L_0^0=0$ です。
 
-さらに [局所時間の support](#prop-sto8-局所-time-support) から $L^0$ が増加するのは
+さらに [局所時間の support](#prop-sto8-local-time-support) から $L^0$ が増加するのは
 
 $$
 B_t=0
@@ -1770,7 +1770,7 @@ $$
 
 と同値です。
 
-従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-反射) を
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) を
 
 $$
 x=\beta,
@@ -1799,7 +1799,7 @@ $$
 前の命題で $\beta$ はブラウン運動なので、過程法則の等式も従います。
 <!-- proof-end -->
 
-STO4 の [反射 principle](../STO4/index.md#thm-sto4-反射-principle) とブラウン symmetry を使うと、$x\ge0$ に対し
+STO4 の [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) とブラウン symmetry を使うと、$x\ge0$ に対し
 
 $$
 \begin{aligned}
@@ -2426,7 +2426,7 @@ $|B|\ge0$、$L^0$ は continuous increasing、$L_0^0=0$ です。
 
 さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ に支えられます。
 
-従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-反射) の条件を全て満たし
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
 
 $$
 L_t^0
@@ -2434,7 +2434,7 @@ L_t^0
 -\min_{s\le t}\beta_s.
 $$
 
-3. $\beta$ はブラウン運動なので symmetry と [反射 principle](../STO4/index.md#thm-sto4-反射-principle) から
+3. $\beta$ はブラウン運動なので symmetry と [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) から
 
 $$
 \begin{aligned}
