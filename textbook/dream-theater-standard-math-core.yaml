@@ -331,6 +331,14 @@ nodes:
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/VC7/index.md
     prerequisites: [VC4]
+  - id: VC8
+    title: Newton ポテンシャル・Helmholtz 分解
+    area: vector-calculus
+    tier: advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC8/index.md
+    prerequisites: [VC5, PDE6]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
