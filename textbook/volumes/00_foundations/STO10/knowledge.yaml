@@ -87,7 +87,7 @@ concepts:
   - id: stochastic.novikov-condition
     name: Novikov condition
     kind: theorem
-    aliases: ["Novikov criterion", "Novikov condition"]
+    aliases: ["Novikov criterion", "Novikov condition", "Novikov 定理"]
     introduction: formal
     introduction_aliases: ["定理（Novikov condition）"]
     requires:
@@ -109,7 +109,7 @@ concepts:
   - id: stochastic.girsanov-theorem
     name: Girsanov theorem
     kind: theorem
-    aliases: ["Girsanov theorem", "Brownian Girsanov theorem"]
+    aliases: ["Girsanov theorem", "Brownian Girsanov theorem", "Girsanov 定理"]
     introduction: formal
     introduction_aliases: ["定理（Girsanov 定理：ブラウン運動のドリフト変換）"]
     requires:
