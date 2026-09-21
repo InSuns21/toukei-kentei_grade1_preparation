@@ -280,11 +280,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（Fourier係数）**  
 > 実内積空間の正規直交系 $q_1,\dots,q_k$ とベクトル $x$ に対し
->
-> $$
-> c_i=\langle x,q_i\rangle
-> $$
->
+
+$$
+c_i=\langle x,q_i\rangle
+$$
+
 > を $x$ の $q_i$ に関する **Fourier係数** といいます。
 <!-- formal-statement-end -->
 
@@ -293,11 +293,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（正規直交展開）**  
 > $q_1,\dots,q_n$ が有限次元実内積空間 $V$ の正規直交基底であるとき、任意の $x\in V$ を
->
-> $$
-> x=\sum_{i=1}^n\langle x,q_i\rangle q_i
-> $$
->
+
+$$
+x=\sum_{i=1}^n\langle x,q_i\rangle q_i
+$$
+
 > と表すことを、$x$ のこの基底に関する **正規直交展開** といいます。
 <!-- formal-statement-end -->
 
@@ -326,11 +326,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（正規直交系への射影係数）**  
 > $q_1,\dots,q_k$ を正規直交系とし、$p$ を $x$ の $\operatorname{span}(q_1,\dots,q_k)$ への直交射影とする。このとき
->
-> $$
-> p=\sum_{i=1}^k\langle x,q_i\rangle q_i
-> $$
->
+
+$$
+p=\sum_{i=1}^k\langle x,q_i\rangle q_i
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -362,13 +362,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（Bessel不等式）**  
 > $q_1,\dots,q_k$ を実内積空間の正規直交系とする。このとき任意の $x$ に対して
->
-> $$
-> \sum_{i=1}^k|\langle x,q_i\rangle|^2
-> \le
-> \|x\|^2
-> $$
->
+
+$$
+\sum_{i=1}^k|\langle x,q_i\rangle|^2
+\le
+\|x\|^2
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
@@ -456,13 +456,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限次元Parseval等式）**  
 > $q_1,\dots,q_n$ が有限次元実内積空間 $V$ の正規直交基底なら、任意の $x\in V$ に対して
->
-> $$
-> \|x\|^2
-> =
-> \sum_{i=1}^n|\langle x,q_i\rangle|^2
-> $$
->
+
+$$
+\|x\|^2
+=
+\sum_{i=1}^n|\langle x,q_i\rangle|^2
+$$
+
 > が成り立つ。
 <!-- formal-statement-end -->
 
