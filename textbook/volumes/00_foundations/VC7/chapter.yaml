@@ -1,5 +1,5 @@
 id: "VC7"
-title: "標準ベクトル解析 VII：デカルトテンソル・添字記法"
+title: "標準ベクトル解析 VII：添字記法・直交基底・成分変換"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -25,8 +25,9 @@ definitions:
   - { id: VC7-DEF-06, name: 二階テンソル場の発散 }
   - { id: VC7-DEF-07, name: 応力テンソルと表面力 }
   - { id: VC7-DEF-08, name: 慣性テンソル }
-  - { id: VC7-DEF-09, name: 縮約・跡・二重縮約 }
-  - { id: VC7-DEF-10, name: 軸性ベクトル }
+  - { id: VC7-DEF-09, name: 縮約 }
+  - { id: VC7-DEF-10, name: 跡・二重縮約 }
+  - { id: VC7-DEF-11, name: 軸性ベクトル }
 theorems:
   - { id: VC7-PROP-01, name: Levi--Civita 記号の縮約公式 }
   - { id: VC7-PROP-02, name: 二階テンソルの対称・反対称分解 }
