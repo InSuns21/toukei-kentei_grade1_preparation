@@ -300,7 +300,7 @@ $$
 |\det D\psi|.
 $$
 >
-> 従って [RA7 の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) と合わせて曲面積はパラメータ表示に依存しない。
+> 従って [Riemann積分の多変数変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) と合わせて曲面積はパラメータ表示に依存しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -782,7 +782,7 @@ $$
 g_x=2x,\qquad g_y=2y.
 $$
 
-[graph surface の公式](#prop-vc3-graph-formulas) より
+[graph surface の面積・上向きflux](#prop-vc3-graph-formulas) より
 
 $$
 dS
