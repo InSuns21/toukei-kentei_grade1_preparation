@@ -30,6 +30,19 @@ Carathéodory可測性
 
 です。
 
+### 名称について：Hopf の拡張定理はどこにいるか
+
+測度の拡張定理には文献ごとの名称差があります。algebra や ring 上の集合関数を生成 σ 代数上の測度へ延長する結果は、**Carathéodory の拡張定理**、**Hopf の拡張定理**、**Hahn--Kolmogorov の拡張定理**などの名前で現れます。出発点を「premeasure」とするか、「有限加法性と連続性」から始めるかでも定理の見た目が変わります。
+
+本章では混同を避けるため、
+
+- 有限加法性と空集合への連続性から premeasure 性を得る部分を **Hopf 型の premeasure 判定**、
+- premeasure から外測度を作り、生成 σ 代数へ測度を延長する部分を **Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）**
+
+と呼び分けます。
+
+後の STO3 に現れる **Kolmogorov 拡張定理**は、整合的な有限次元分布から確率過程を構成する定理です。その証明で本章の測度拡張定理を使いますが、二つは同じ定理ではありません。
+
 ---
 
 # Part I：Lebesgue測度を完成する
@@ -478,6 +491,176 @@ $$
 
 ---
 
+## 9.5 有限加法性から premeasure へ：Hopf 型の判定
+
+実際の構成では、最初から可算加法性を直接確認するより、まず有限加法性を示し、減少列に対する連続性を確認する方が容易なことがあります。確率測度の候補では全空間の質量が $1$ なので、特にこの形が使いやすくなります。
+
+<a id="lem-f0-00d4-hopf-premeasure"></a>
+
+<!-- formal-statement-start -->
+### 補題（Hopf 型の premeasure 判定）
+
+$X$ 上の algebra $\mathcal A$ と写像
+
+$$
+\mu_0:\mathcal A\to[0,\infty)
+$$
+
+を考える。$\mu_0(\varnothing)=0$、$\mu_0(X)<\infty$ とし、互いに素な $A,B\in\mathcal A$ に対して
+
+$$
+\mu_0(A\cup B)=\mu_0(A)+\mu_0(B)
+$$
+
+が成り立つ、すなわち $\mu_0$ は有限加法的であるとする。
+
+このとき次は同値である。
+
+1. $\mu_0$ は $\mathcal A$ 上の premeasure である。
+2. 任意の減少列 $E_1\supset E_2\supset\cdots$、$E_n\in\mathcal A$ で $\bigcap_nE_n=\varnothing$ となるものについて
+
+$$
+\mu_0(E_n)\downarrow0
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+premeasure から空集合への連続性を出す向きでは、減少列を互いに素な「層」
+
+$$
+E_n\setminus E_{n+1}
+$$
+
+へ分解します。逆向きでは、互いに素な可算和の有限部分和から残った **tail**
+
+$$
+R_N
+=
+E\setminus\bigcup_{n=1}^N E_n
+$$
+
+が空集合へ減少することを使います。有限加法性が有限部分和を処理し、連続性が tail を消します。
+
+<!-- proof-start -->
+### 証明
+
+まず $\mu_0$ が premeasure であるとします。
+
+$$
+E_1\supset E_2\supset\cdots,
+\qquad
+\bigcap_{n=1}^{\infty}E_n=\varnothing
+$$
+
+とし、
+
+$$
+D_n:=E_n\setminus E_{n+1}
+$$
+
+と置きます。各 $D_n\in\mathcal A$ で、$D_n$ は互いに素です。また共通部分が空なので
+
+$$
+E_1
+=
+\bigsqcup_{n=1}^{\infty}D_n.
+$$
+
+premeasure 性から
+
+$$
+\mu_0(E_1)
+=
+\sum_{n=1}^{\infty}\mu_0(D_n).
+$$
+
+左辺は $\mu_0(X)<\infty$ から有限です。さらに各 $N$ について
+
+$$
+E_N
+=
+\bigsqcup_{n=N}^{\infty}D_n
+$$
+
+なので
+
+$$
+\mu_0(E_N)
+=
+\sum_{n=N}^{\infty}\mu_0(D_n).
+$$
+
+収束する非負級数の tail は $0$ へ収束するため
+
+$$
+\mu_0(E_N)\downarrow0.
+$$
+
+逆に、$\mu_0$ が有限加法的で、空集合へ減少する列に対する連続性を満たすとします。互いに素な $A_1,A_2,\ldots\in\mathcal A$ が
+
+$$
+A:=\bigsqcup_{n=1}^{\infty}A_n\in\mathcal A
+$$
+
+を満たすとします。有限部分和の残りを
+
+$$
+R_N
+:=
+A\setminus\bigcup_{n=1}^N A_n
+$$
+
+と置きます。algebra は有限和と差で閉じるので $R_N\in\mathcal A$ です。また
+
+$$
+R_1\supset R_2\supset\cdots,
+\qquad
+\bigcap_{N=1}^{\infty}R_N=\varnothing.
+$$
+
+従って仮定から
+
+$$
+\mu_0(R_N)\to0.
+$$
+
+一方、有限加法性により
+
+$$
+A
+=
+\left(\bigsqcup_{n=1}^N A_n\right)
+\sqcup R_N
+$$
+
+だから
+
+$$
+\mu_0(A)
+=
+\sum_{n=1}^N\mu_0(A_n)
++
+\mu_0(R_N).
+$$
+
+$N\to\infty$ とすると
+
+$$
+\mu_0(A)
+=
+\sum_{n=1}^{\infty}\mu_0(A_n).
+$$
+
+したがって $\mu_0$ は premeasure です。$\square$
+<!-- proof-end -->
+
+この補題は、**「有限加法性は分かるが、可算加法性を直接扱いにくい」**場面を premeasure へ渡す橋です。とくに全質量 $1$ の確率候補では $\mu_0(X)<\infty$ が自動なので、空集合へ減少する列だけを制御すればよくなります。
+
+---
+
 ## 10. premeasure から外測度を作る
 
 任意の $E\subset X$ に対して
@@ -671,17 +854,35 @@ $$
 
 ---
 
-## 13. Carathéodory 拡張定理：存在
+## 13. Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）：存在
 
 <a id="thm-caratheodory-extension"></a>
 
 <!-- formal-statement-start -->
-### 定理（Carathéodory拡張定理）
+### 定理（Carathéodory拡張定理；Hopf / Hahn--Kolmogorov 型）
 
 集合 $X$ 上の algebra $\mathcal A$ と、その上の premeasure $\mu_0$ に対して、$\mu_0$ と $\mathcal A$ 上で一致する測度 $\mu$ が生成σ代数 $\sigma(\mathcal A)$ 上に存在する。
 
 さらに $\mu_0$ がσ有限なら、この拡張は一意である。
 <!-- formal-statement-end -->
+
+この定理の存在部分で必要なのは、premeasure から作った外測度が
+
+1. 元の algebra 上で値を保ち、
+2. algebra の各集合を Carathéodory 可測にし、
+3. したがって生成 σ 代数全体を Carathéodory 可測集合族へ入れる
+
+という三段階です。有限加法的な有限集合関数から出発する場合は、先に [Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)で premeasure 性を確認してからこの定理へ渡せます。
+
+### 証明の見取り図
+
+10節で外測度 $\mu^*$ を作り、11節で $\mu^*=\mu_0$ on $\mathcal A$、12節で $\mathcal A\subset\mathcal M$ を示しました。あとは $\mathcal M$ が σ 代数であることを D3 から使えば
+
+$$
+\sigma(\mathcal A)\subset\mathcal M
+$$
+
+となり、$\mu^*$ を $\sigma(\mathcal A)$ へ制限するだけです。
 
 <!-- proof-start -->
 ### 存在の証明
@@ -752,6 +953,10 @@ $$
 
 従って定義の「全空間を可算個の有限premeasure集合で覆う」という条件を満たし、この premeasure はσ有限です。
 <!-- definition-example-end -->
+
+### 証明の見取り図
+
+全体が有限測度なら、二つの拡張が一致する集合全体を Dynkin 族にして [π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)を適用します。σ有限の場合は、全空間を有限測度部分へ互いに素に分割し、その各部分で有限測度の場合へ帰着します。ここで D3A の π–λ 定理が実際の証明依存として働きます。
 
 <!-- proof-start -->
 ### 一意性の証明
@@ -831,7 +1036,7 @@ $$
 \pi(A\times B):=\mu(A)\nu(B)
 $$
 
-と置き、有限互いに素和へ加法的に延長すると premeasure が得られます。D2C ではこの premeasure 性を一変数 MCT だけで確認しました。
+と置き、有限互いに素和へ加法的に延長します。これが premeasure になることの確認は、後の D2C で一変数 MCT を使って行います。本節ではその確認を前提にし、**premeasure が得られた後の拡張機構**だけを回収します。
 
 [Carathéodory 拡張定理](#thm-caratheodory-extension)から
 
@@ -858,6 +1063,16 @@ $$
 ## 16. 確率論との接続
 
 確率測度は有限測度なのでσ有限です。そのため、簡単な事象の algebra 上で整合的に確率を定め、生成σ代数へ拡張するとき一意性が得やすいという利点があります。
+
+さらに、algebra 上でまず有限加法的な確率候補 $P_0$ を作った場合、
+
+$$
+A_n\downarrow\varnothing
+\quad\Longrightarrow\quad
+P_0(A_n)\downarrow0
+$$
+
+を示せば、[Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)によって $P_0$ は premeasure になります。後の確率過程論で cylinder set 上の確率を全経路空間へ延長するとき、この「有限加法性 → 空集合への連続性 → premeasure → 測度拡張」という流れがそのまま現れます。
 
 また非負可測関数 $f$ が
 
@@ -907,16 +1122,6 @@ $$
 \sum_j|I_j|\ge1.
 $$
 
-### 本番答案
-
-被覆区間の端点で $[0,1]$ を有限個の小区間に分割する。各小区間は少なくとも一つの $I_j$ に含まれるため、被覆区間の長さ総和は小区間長の総和 $1$ 以上である。
-
-### 採点基準（20点）
-
-- 端点による有限分割：6点
-- 各小区間が被覆区間に含まれること：6点
-- 長さを数え上げる議論：5点
-- 結論：3点
 <!-- solution-end -->
 
 ## F0-00D4-A02 Borel集合と測度0
@@ -941,16 +1146,6 @@ $$
 \lambda(A)=0.
 $$
 
-### 本番答案
-
-一点集合は閉集合なので Borel。$A$ は一点集合の可算和だから Borel 集合であり、各一点の測度が0なので $\lambda(A)=0$。
-
-### 採点基準（20点）
-
-- 一点集合が Borel：5点
-- $A$ を可算和で表す：6点
-- 各一点の測度0：4点
-- 可算加法性で $\lambda(A)=0$：5点
 <!-- solution-end -->
 
 ## F0-00D4-A03 premeasureと外測度
@@ -983,22 +1178,99 @@ $$
 
 を抽象化した式である。
 
-### 本番答案
+<!-- solution-end -->
 
-Lebesgue 外測度の
+
+## F0-00D4-A04 tail を消して可算加法性へ進む
+
+- Level: A
+- 目安時間: 12分
+
+$\mathcal A$ を $X$ 上の algebra、$\mu_0:\mathcal A\to[0,\infty)$ を有限加法的な集合関数とする。互いに素な $A_n\in\mathcal A$ について
 
 $$
-\inf\sum_n|I_n|
+A=\bigsqcup_{n=1}^{\infty}A_n\in\mathcal A
 $$
 
-で、区間 $I_n$ を $A_n\in\mathcal A$、長さ $|I_n|$ を premeasure $\mu_0(A_n)$ に置き換えた一般化である。
+とする。さらに
 
-### 採点基準（20点）
+$$
+R_N
+:=
+A\setminus\bigcup_{n=1}^N A_n
+$$
 
-- Lebesgue 外測度の被覆構造を説明：6点
-- 区間 $I_n\leftrightarrow A_n$：5点
-- 長さ $|I_n|\leftrightarrow\mu_0(A_n)$：5点
-- infimum の役割：4点
+と置く。
+
+1. $R_N\downarrow\varnothing$ を示せ。
+2. $\mu_0(R_N)\to0$ が分かれば
+
+$$
+\mu_0(A)=\sum_{n=1}^{\infty}\mu_0(A_n)
+$$
+
+が従うことを示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+まず $N$ を増やすと取り除く集合 $\bigcup_{n=1}^N A_n$ が大きくなるので
+
+$$
+R_{N+1}\subset R_N.
+$$
+
+したがって $(R_N)$ は減少列です。
+
+また $x\in A$ なら
+
+$$
+A=\bigcup_{n=1}^{\infty}A_n
+$$
+
+より、ある $m$ が存在して $x\in A_m$ です。すると $N\ge m$ では
+
+$$
+x\notin R_N.
+$$
+
+よって全ての $R_N$ に属する点は存在せず、
+
+$$
+\bigcap_{N=1}^{\infty}R_N=\varnothing.
+$$
+
+次に、$A_1,\ldots,A_N,R_N$ は互いに素で
+
+$$
+A
+=
+\left(\bigsqcup_{n=1}^N A_n\right)
+\sqcup R_N
+$$
+
+です。有限加法性を繰り返し使うと
+
+$$
+\mu_0(A)
+=
+\sum_{n=1}^N\mu_0(A_n)
++
+\mu_0(R_N).
+$$
+
+仮定 $\mu_0(R_N)\to0$ を使って $N\to\infty$ とすれば
+
+$$
+\mu_0(A)
+=
+\lim_{N\to\infty}
+\sum_{n=1}^N\mu_0(A_n)
+=
+\sum_{n=1}^{\infty}\mu_0(A_n).
+$$
+
+これが Hopf 型判定の「有限加法性と空集合への連続性から premeasure 性を得る」向きの核心です。
 <!-- solution-end -->
 
 ## F0-00D4-B01 元の値を保つこと
@@ -1040,23 +1312,6 @@ $$
 
 両向きを合わせて等号。
 
-### 本番答案
-
-$A$ 自身で覆えば $\mu^*(A)\le\mu_0(A)$。任意の被覆 $A\subset\bigcup A_n$ を $A$ 内で disjoint 化して $A=\bigsqcup B_n$、$B_n\subset A_n$ とすれば
-
-$$
-\mu_0(A)=\sum\mu_0(B_n)\le\sum\mu_0(A_n).
-$$
-
-被覆について infimum を取り逆向きを得る。従って $\mu^*(A)=\mu_0(A)$。
-
-### 採点基準（20点）
-
-- 自明な向き $\mu^*\le\mu_0$：4点
-- 被覆の disjoint 化：6点
-- premeasure の可算加法性：5点
-- $B_n\subset A_n$ から不等式：2点
-- infimum と結論：3点
 <!-- solution-end -->
 
 ## F0-00D4-B02 algebra集合のCarathéodory可測性
@@ -1099,18 +1354,6 @@ $$
 
 逆向きは外測度の劣加法性から自動なので Carathéodory 等式が成立する。
 
-### 本番答案
-
-$E$ の任意の $\mathcal A$-被覆 $A_n$ を $A_n\cap A$ と $A_n\setminus A$ に二分する。premeasure の有限加法性よりコストは保存され、二群はそれぞれ $E\cap A$、$E\setminus A$ を覆う。infimum を取れば Carathéodory 条件の逆向き不等式を得る。順向きは劣加法性より自動。
-
-### 採点基準（20点）
-
-- 任意の被覆を取る：3点
-- $A$ による二分：5点
-- premeasure の有限加法性：4点
-- 二部分の外測度評価：4点
-- infimum と逆向き不等式：2点
-- 劣加法性と結論：2点
 <!-- solution-end -->
 
 ## F0-00D4-B03 拡張の一意性
@@ -1161,63 +1404,226 @@ $$
 
 従って $\mu=\nu$。
 
-### 本番答案
-
-全空間の測度が共通かつ有限なので $\mathcal D$ は補集合で閉じ、可算加法性から互いに素な可算和でも閉じる。従って Dynkin 族。$\mathcal A$ は π-system かつ $\mathcal A\subset\mathcal D$ なので [π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda)より $\sigma(\mathcal A)\subset\mathcal D$。よって拡張は一意。
-
-### 採点基準（20点）
-
-- $\mu(X)=\nu(X)<\infty$：3点
-- 補集合で閉じる：5点
-- 互いに素な可算和で閉じる：5点
-- $\mathcal A$ が π-system、かつ含まれる：3点
-- π–λ 定理：3点
-- 一意性の結論：1点
 <!-- solution-end -->
+
 
 ## F0-00D4-B04 積測度への適用
 
 - Level: B
 - 目安時間: 20分
 
-σ有限な $\mu,\nu$ について、長方形上の
+$(X,\mathcal A,\mu)$、$(Y,\mathcal B,\nu)$ を σ有限測度空間とする。可測長方形の有限互いに素和からなる algebra $\mathcal R$ 上に、長方形では
 
 $$
 \pi(A\times B)=\mu(A)\nu(B)
 $$
 
-から積測度が一意に存在する論理を説明せよ。
+を満たす **σ有限な premeasure $\pi$ が構成済みである**と仮定する。
+
+この仮定から、積 σ 代数 $\mathcal A\otimes\mathcal B$ 上に
+
+$$
+(\mu\times\nu)(A\times B)=\mu(A)\nu(B)
+$$
+
+を満たす測度が一意に存在することを、拡張定理の仮定確認を含めて説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-可測長方形の有限互いに素和からなる algebra $\mathcal R$ を取り、長方形上の
+まず $\mathcal R$ は可測長方形の有限互いに素和からなる algebra であり、問題文の仮定により
 
 $$
-\pi(A\times B)=\mu(A)\nu(B)
+\pi:\mathcal R\to[0,\infty]
 $$
 
-を有限加法的に延長する。D2C の一変数 MCT の議論で $\pi$ が premeasure であることを確認する。
-
-[Carathéodory 拡張定理](#thm-caratheodory-extension)により $\pi$ は
+は premeasure です。したがって [Carathéodory 拡張定理](#thm-caratheodory-extension)の存在部分を適用でき、
 
 $$
-\sigma(\mathcal R)=\mathcal A\otimes\mathcal B
+\sigma(\mathcal R)
 $$
 
-上の測度へ拡張される。$\mu,\nu$ がσ有限なら有限測度の長方形で $X\times Y$ を可算被覆できるので $\pi$ もσ有限。従って拡張は一意。
+上に $\pi$ を延長する測度が存在します。
 
-### 本番答案
+$\mathcal R$ は可測長方形を含み、逆に $\mathcal R$ の各要素は可測長方形の有限和なので
 
-長方形の有限和 algebra 上で $\pi(A\times B)=\mu(A)\nu(B)$ を premeasure として構成する。Carathéodory 拡張定理で $\mathcal A\otimes\mathcal B$ へ拡張し、σ有限性により一意性を得る。これが $\mu\times\nu$。
+$$
+\sigma(\mathcal R)
+=
+\sigma\{A\times B:A\in\mathcal A,\ B\in\mathcal B\}
+=
+\mathcal A\otimes\mathcal B.
+$$
 
-### 採点基準（20点）
+従って得られた測度を $\mu\times\nu$ と書けば、元の algebra 上では $\pi$ と一致するため、特に長方形について
 
-- 長方形 algebra を設定：4点
-- $\pi$ の定義：4点
-- premeasure 性：4点
-- Carathéodory 拡張：4点
-- σ有限性から一意性：4点
+$$
+(\mu\times\nu)(A\times B)
+=
+\pi(A\times B)
+=
+\mu(A)\nu(B).
+$$
+
+さらに問題文で $\pi$ は σ有限と仮定されています。よって拡張定理の一意性部分を適用でき、$\mathcal A\otimes\mathcal B$ 上でこの条件を満たす拡張は一意です。
+
+ここでは rectangle set function が premeasure であること自体は仮定しました。その確認は積測度を本格的に扱う D2C で行い、本問では **premeasure から積測度へ進む拡張部分**だけを切り出しています。
+<!-- solution-end -->
+
+## F0-00D4-C01 Hopf 型判定から一意な測度拡張まで
+
+- Level: C
+- 目安時間: 35分
+
+$X$ 上の algebra $\mathcal A$ と有限加法的な集合関数
+
+$$
+P_0:\mathcal A\to[0,1],
+\qquad
+P_0(X)=1
+$$
+
+を考える。さらに任意の減少列 $E_n\in\mathcal A$ について
+
+$$
+E_n\downarrow\varnothing
+\quad\Longrightarrow\quad
+P_0(E_n)\downarrow0
+$$
+
+が成り立つとする。
+
+次を順に示せ。
+
+1. $P_0$ は premeasure である。
+2. 被覆 infimum から外測度 $P^*$ を作ると、$P^*=P_0$ on $\mathcal A$ であり、$\mathcal A$ の各集合は $P^*$-Carathéodory 可測である。
+3. $P_0$ は $\sigma(\mathcal A)$ 上の確率測度 $P$ へ拡張される。
+4. この拡張は一意である。
+
+<!-- solution-start -->
+### 詳細解答
+
+#### 1. Hopf 型判定で premeasure 性を得る
+
+$P_0(X)=1<\infty$ であり、問題文で有限加法性と空集合への連続性が与えられています。したがって [Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)を適用でき、
+
+$$
+P_0
+$$
+
+は $\mathcal A$ 上の premeasure です。
+
+適用条件を式で確認すると、互いに素な $A_n\in\mathcal A$ で
+
+$$
+A=\bigsqcup_{n=1}^{\infty}A_n\in\mathcal A
+$$
+
+なら
+
+$$
+R_N
+=
+A\setminus\bigcup_{n=1}^N A_n
+\downarrow\varnothing.
+$$
+
+よって $P_0(R_N)\to0$ であり、有限加法性から
+
+$$
+P_0(A)
+=
+\sum_{n=1}^N P_0(A_n)+P_0(R_N)
+$$
+
+なので $N\to\infty$ として
+
+$$
+P_0(A)=\sum_{n=1}^{\infty}P_0(A_n).
+$$
+
+#### 2. 外測度を作り、元の algebra を回収する
+
+任意の $E\subset X$ に対し
+
+$$
+P^*(E)
+=
+\inf\left\{
+\sum_{n=1}^{\infty}P_0(A_n):
+E\subset\bigcup_nA_n,\ A_n\in\mathcal A
+\right\}
+$$
+
+と定めます。1で $P_0$ が premeasure であることを確認したので、10節の補題から $P^*$ は外測度です。
+
+さらに11節の結果から、任意の $A\in\mathcal A$ について
+
+$$
+P^*(A)=P_0(A).
+$$
+
+12節の結果から、各 $A\in\mathcal A$ は $P^*$-Carathéodory 可測です。
+
+#### 3. 生成 σ 代数へ拡張する
+
+$P^*$-Carathéodory 可測集合全体を $\mathcal M$ とすると、D3 の Carathéodory 定理より $\mathcal M$ は σ 代数です。2から
+
+$$
+\mathcal A\subset\mathcal M
+$$
+
+なので
+
+$$
+\sigma(\mathcal A)\subset\mathcal M.
+$$
+
+したがって
+
+$$
+P:=P^*|_{\sigma(\mathcal A)}
+$$
+
+は $\sigma(\mathcal A)$ 上の測度です。また $A\in\mathcal A$ では
+
+$$
+P(A)=P^*(A)=P_0(A),
+$$
+
+よって $P$ は $P_0$ の拡張です。
+
+特に
+
+$$
+P(X)=P_0(X)=1
+$$
+
+なので $P$ は確率測度です。
+
+#### 4. 一意性
+
+$P_0(X)=1<\infty$ なので $P_0$ は σ有限です。したがって [Carathéodory 拡張定理](#thm-caratheodory-extension)の一意性部分を適用でき、$\sigma(\mathcal A)$ 上の拡張は一意です。
+
+この問題では
+
+$$
+\boxed{
+\text{有限加法性}
+\to
+\text{空集合への連続性}
+\to
+\text{premeasure}
+\to
+\text{外測度}
+\to
+\text{Carathéodory可測性}
+\to
+\text{一意な確率測度}
+}
+$$
+
+という本章の拡張機構全体を一度に再構成しました。
 <!-- solution-end -->
 
 ---
@@ -1229,10 +1635,11 @@ $$
 - 半直線・開区間が Carathéodory 可測であることを証明できる。
 - 実数上の開集合が高々可算個の互いに素な開区間へ分解されることを証明できる。
 - Borel σ代数と Lebesgue σ代数、完備化を区別できる。
+- 有限加法的な有限集合関数について、空集合への連続性から premeasure 性を導く Hopf 型判定を証明できる。
 - premeasure から被覆 infimum で外測度を作れる。
 - $\mu^*=\mu_0$ on $\mathcal A$ を証明できる。
 - $\mathcal A$ の集合が Carathéodory 可測であることを証明できる。
-- Carathéodory 拡張定理の存在を証明できる。
+- Carathéodory 拡張定理が Hopf / Hahn--Kolmogorov 型の拡張定理としても現れることを把握し、存在を証明できる。
 - 有限測度での一意性を π–λ 定理で、σ有限版を局所化で証明できる。
 - 積測度の存在・一意性を拡張定理の系として説明できる。
 
