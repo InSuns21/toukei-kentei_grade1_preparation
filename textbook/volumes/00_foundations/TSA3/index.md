@@ -26,7 +26,7 @@ $$
 \mathbb T:=\mathbb R/(2\pi\mathbb Z)
 $$
 
-上で扱い、積分表示では代表区間 $[-\pi,\pi)$ を使います。Herglotz の存在証明では [Carathéodory 拡張定理](../F0_00D4_Lebesgue 測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)、一意性と $L^2(F)$ の稠密性では [FOU2 の三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)、密度の定義では [Radon--Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を正本として使います。
+上で扱い、積分表示では代表区間 $[-\pi,\pi)$ を使います。Herglotz の存在証明では [Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)、一意性と $L^2(F)$ の稠密性では [FOU2 の三角多項式の一様稠密性](../FOU2/index.md#thm-fou2-trigonometric-density)、密度の定義では [Radon--Nikodym 定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)を正本として使います。
 
 TSA2 の Wold 分解とは補完関係にありますが、Herglotz の定理もスペクトル表現定理も Wold 分解を証明入力にはしません。時間領域と周波数領域を循環依存にしないためです。
 
@@ -105,7 +105,7 @@ $$
 <a id="lem-tsa3-pd-basic"></a>
 
 <!-- formal-statement-start -->
-> **補題（正定値列のHermite 対称性と有界性）**  
+> **補題（正定値列の Hermite 対称性と有界性）**  
 > $\gamma$ が正定値なら
 
 $$
@@ -160,12 +160,12 @@ $$
 
 ---
 
-## 3. Herglotz定理
+## 3. Herglotz の定理
 
 <a id="thm-tsa3-herglotz"></a>
 
 <!-- formal-statement-start -->
-> **定理（Herglotz定理）**  
+> **定理（Herglotz の定理）**  
 > 列 $\gamma:\mathbb Z\to\mathbb C$ が正定値であることと、円周 $\mathbb T$ 上の有限非負Borel 測度 $F$ が一意に存在して
 
 $$
@@ -234,7 +234,7 @@ $$
 <a id="lem-tsa3-fejer-positive"></a>
 
 <!-- formal-statement-start -->
-> **補題（Herglotz近似密度）**  
+> **補題（Herglotz 近似密度）**  
 > 各 $n$ について $f_n(\lambda)\ge0$ であり、測度
 
 $$
@@ -375,7 +375,7 @@ $$
 \mu_0((a,b]):=G(b)-G(a)
 $$
 
-を半開区間の有限互いに素和へ加法的に延長するとpremeasureになります。[Carathéodory 拡張定理](../F0_00D4_Lebesgue 測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により、これを持つ有限Borel 測度 $\mu$ が存在します。
+を半開区間の有限互いに素和へ加法的に延長するとpremeasureになります。[Carathéodory 拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)により、これを持つ有限Borel 測度 $\mu$ が存在します。
 
 最後に連続関数 $g$ を取ります。$G$ の不連続点を避けて、分割幅が十分細かい分割
 
@@ -588,7 +588,7 @@ $$
 で一定です。これが平坦なスペクトルです。
 <!-- definition-example-end -->
 
-密度が存在するとHerglotz表示は
+密度が存在するとHerglotz 表示は
 
 $$
 \boxed{
@@ -600,7 +600,7 @@ $$
 
 ---
 
-## 6. 自己共分散が絶対可算和可能なら逆Fourier級数が密度になる
+## 6. 自己共分散が絶対可算和可能なら逆 Fourier 級数が密度になる
 
 <a id="thm-tsa3-absolute-summable-density"></a>
 
@@ -652,7 +652,7 @@ $$
 =\gamma(m).
 $$
 
-従って $f(\lambda)d\lambda$ はHerglotz表示を与える有限非負測度です。Herglotz表現の一意性からこれはスペクトル測度 $F$ そのものなので
+従って $f(\lambda)d\lambda$ はHerglotz 表示を与える有限非負測度です。Herglotz表現の一意性からこれはスペクトル測度 $F$ そのものなので
 
 $$
 F(d\lambda)=f(\lambda)d\lambda.
@@ -661,7 +661,7 @@ $$
 $\square$
 <!-- proof-end -->
 
-「逆Fourier級数を書けばよい」の裏には、絶対収束・非負性・Herglotz一意性が入っています。
+「逆 Fourier 級数を書けばよい」の裏には、絶対収束・非負性・Herglotz一意性が入っています。
 
 ---
 
@@ -700,219 +700,9 @@ f(\lambda)
 }
 $$
 
-TS3ではこれがAR(1)のtransfer functionから同じ形で出ることを確認します。
+TSA4 ではこれが AR(1) の伝達関数から同じ形で出ることを確認します。
 
 ---
-
-## 4. スペクトル測度
-
-<a id="def-tsa3-spectral-measure"></a>
-
-<!-- formal-statement-start -->
-> **定義（スペクトル測度）**  
-> 二次定常過程の自己共分散列 $\gamma(h)$ に対し、Herglotz定理で一意に定まる有限非負測度 $F$、すなわち
-
-$$
-\gamma(h)=\int_{\mathbb T}e^{ih\lambda}F(d\lambda)
-$$
-
-> をその過程のスペクトル測度と呼びます。
-<!-- formal-statement-end -->
-
-### 4.1 例：弱ホワイトノイズ
-
-分散 $\sigma^2$ の弱ホワイトノイズに対して
-
-$$
-F(d\lambda)=\frac{\sigma^2}{2\pi}d\lambda
-$$
-
-と置きます。
-
-<!-- definition-example-start: def-tsa3-spectral-measure -->
-**定義の確認**  
-Fourier直交性から
-
-$$
-\int_{-\pi}^{\pi}e^{ih\lambda}
-\frac{\sigma^2}{2\pi}d\lambda
-=
-\begin{cases}
-\sigma^2,&h=0,\\
-0,&h\ne0,
-\end{cases}
-$$
-
-で、これは弱ホワイトノイズの自己共分散そのものです。従って定義を満たし、この $F$ がスペクトル測度です。
-<!-- definition-example-end -->
-
-全質量は
-
-$$
-\boxed{
-F(\mathbb T)=\gamma(0)=\operatorname{Var}(X_t)
-}
-$$
-
-です。したがって $F(A)$ は周波数領域 $A$ に割り当てられた分散量と読めます。
-
----
-
-## 5. スペクトル密度
-
-<a id="def-tsa3-spectral-density"></a>
-
-<!-- formal-statement-start -->
-> **定義（スペクトル密度）**  
-> スペクトル測度 $F$ が円周上のLebesgue 測度 $\lambda$ に絶対連続、すなわち $F\ll\lambda$ であるとき、Radon--Nikodym 密度
-
-$$
-\boxed{
-f(\lambda):=\frac{dF}{d\lambda}(\lambda)
-}
-$$
-
-> をスペクトル密度と呼びます。
-<!-- formal-statement-end -->
-
-[Radon--Nikodym定理](../F0_00P2_密度_期待値_Radon_Nikodym/index.md#thm-f0-00p2-radon-nikodym)から、この密度はLebesgue 測度に関してほとんど至る所の意味で一意です。
-
-### 5.1 例：弱ホワイトノイズは平坦なスペクトル
-
-<!-- definition-example-start: def-tsa3-spectral-density -->
-**定義の確認**  
-前節で
-
-$$
-F(A)=\int_A\frac{\sigma^2}{2\pi}d\lambda
-$$
-
-と書けたので $F\ll\lambda$ です。従ってRadon--Nikodym 密度は
-
-$$
-\boxed{
-f(\lambda)=\frac{\sigma^2}{2\pi}}
-$$
-
-で一定です。これが平坦なスペクトルです。
-<!-- definition-example-end -->
-
-密度が存在するとHerglotz表示は
-
-$$
-\boxed{
-\gamma(h)=\int_{-\pi}^{\pi}e^{ih\lambda}f(\lambda)d\lambda
-}
-$$
-
-になります。
-
----
-
-## 6. 自己共分散が絶対可算和可能なら逆Fourier級数が密度になる
-
-<a id="thm-tsa3-absolute-summable-density"></a>
-
-<!-- formal-statement-start -->
-> **定理（絶対可算和可能な自己共分散のスペクトル密度）**  
-> 自己共分散列が
-
-$$
-\sum_{h\in\mathbb Z}|\gamma(h)|<\infty
-$$
-
-> を満たすならスペクトル測度はLebesgue 測度に絶対連続で、連続なスペクトル密度
-
-$$
-\boxed{
-f(\lambda)
-=
-\frac1{2\pi}
-\sum_{h\in\mathbb Z}
-\gamma(h)e^{-ih\lambda}
-}
-$$
-
-> を持ちます。
-<!-- formal-statement-end -->
-
-<!-- proof-start -->
-### 証明
-
-絶対可算和可能性からFourier級数はWeierstrassのM-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
-
-Herglotz証明で作った近似密度は
-
-$$
-f_n(\lambda)
-=
-\frac1{2\pi}
-\sum_{|h|<n}
-\left(1-\frac{|h|}{n}\right)
-\gamma(h)e^{-ih\lambda}.
-$$
-
-絶対可算和可能性により $f_n\to f$ は一様収束します。各 $f_n\ge0$ なので $f\ge0$ です。
-
-さらに任意の整数 $m$ に対して項別積分でき
-
-$$
-\int_{-\pi}^{\pi}e^{im\lambda}f(\lambda)d\lambda
-=\gamma(m).
-$$
-
-従って $f(\lambda)d\lambda$ はHerglotz表示を与える有限非負測度です。Herglotz表現の一意性からこれはスペクトル測度 $F$ そのものなので
-
-$$
-F(d\lambda)=f(\lambda)d\lambda.
-$$
-
-$\square$
-<!-- proof-end -->
-
-「逆Fourier級数を書けばよい」の裏には、絶対収束・非負性・Herglotz一意性が入っています。
-
----
-
-## 7. 例：指数型自己共分散
-
-$|\rho|<1$ とし
-
-$$
-\gamma(h)=c\rho^{|h|},
-\qquad c>0
-$$
-
-とします。絶対可算和可能なので前節の定理を使えます。
-
-$$
-\begin{aligned}
-2\pi f(\lambda)
-&=c\left(1+\sum_{h=1}^{\infty}\rho^he^{-ih\lambda}
-+\sum_{h=1}^{\infty}\rho^he^{ih\lambda}\right)\\
-&=c\left(
-1+\frac{\rho e^{-i\lambda}}{1-\rho e^{-i\lambda}}
-+\frac{\rho e^{i\lambda}}{1-\rho e^{i\lambda}}
-\right)\\
-&=c\frac{1-\rho^2}{1-2\rho\cos\lambda+\rho^2}.
-\end{aligned}
-$$
-
-従って
-
-$$
-\boxed{
-f(\lambda)
-=
-\frac{c(1-\rho^2)}
-{2\pi(1-2\rho\cos\lambda+\rho^2)}.
-}
-$$
-
-TSA4 ではこれがAR(1)の伝達関数から同じ形で出ることを確認します。
-
----
-
 
 ## 8. 密度で見えない周波数：線スペクトル
 
