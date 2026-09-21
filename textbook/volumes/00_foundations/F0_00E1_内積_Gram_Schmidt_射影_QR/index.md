@@ -331,7 +331,7 @@ $$
 
 ---
 
-## 5. 直交補空間
+## 5. 直交する方向を集める
 
 <a id="def-f0-00e1-orthogonal-complement"></a>
 
