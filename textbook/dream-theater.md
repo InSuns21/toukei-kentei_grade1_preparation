@@ -83,6 +83,17 @@
 
 **院試・編入の計算演習**：[線形代数・院試／編入 計算演習（A8・B10・C4、計22題）](textbook/volumes/00_foundations/F0_00CALC_線形代数_院試編入計算演習/index.md)。
 
+### 標準ベクトル解析コア
+
+多変数微分と多重積分を、曲線・曲面・場・積分定理へ接続する独立系列です。PDE の補助計算として局所実装せず、流体・電磁気・連続体力学にも共通する canonical core として扱います。
+
+1. [VC1 ベクトル場と微分演算子](textbook/volumes/00_foundations/VC1/index.md)
+2. [VC2 曲線・線積分・保存場](textbook/volumes/00_foundations/VC2/index.md)
+3. [VC3 曲面・向き・曲面積分・flux](textbook/volumes/00_foundations/VC3/index.md)
+4. [VC4 Green・Gauss--Ostrogradsky と保存則](textbook/volumes/00_foundations/VC4/index.md)
+
+VC4 までで PDE6 が必要とする法線・flux・発散定理を正本化します。Stokes、直交曲線座標、Cartesian tensor、Helmholtz decomposition、数理物理 bridge は後続 VC5--VC9 で整備します。
+
 ### ノルム空間・測度・Lebesgue積分
 
 1. [F0-00D1 ノルム・Banach](textbook/volumes/00_foundations/F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)
