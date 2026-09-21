@@ -1095,7 +1095,7 @@ $$
 
 ### 7.1 $\wedge$ と $\vee$：random time の最小・最大
 
-stopped process では $t\wedge\tau$ が頻出します。ここで $\wedge,\vee$ は論理記号ではなく、random time を **標本ごとに最小・最大する記法**として使います。
+後で過程を停止時刻で止めるとき、$t\wedge\tau$ が頻出します。ここで $\wedge,\vee$ は論理記号ではなく、random time を **標本ごとに最小・最大する記法**として使います。
 
 <a id="def-sto1-random-time-min-max"></a>
 
