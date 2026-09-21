@@ -128,7 +128,7 @@ concepts:
     kind: theorem
     aliases: ["closed-set hitting time", "first hitting time"]
     introduction: formal
-    introduction_aliases: ["定理（連続適合過程の closed-set 到達時刻）"]
+    introduction_aliases: ["定理（連続適合過程の閉集合への到達時刻）"]
     requires:
       - stochastic.adapted-process
       - stochastic.stopping-time
