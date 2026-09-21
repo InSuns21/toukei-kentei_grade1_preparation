@@ -22,7 +22,6 @@ concepts:
     kind: definition
     aliases: [normal derivative, 外向き法線微分]
     introduction: inline
-    introduction_aliases: ["定義（法線微分）"]
     requires:
       - pde.pde5-boundary-problems
       - vector-calculus.green-flux
