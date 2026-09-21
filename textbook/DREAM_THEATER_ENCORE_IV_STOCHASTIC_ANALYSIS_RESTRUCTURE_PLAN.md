@@ -616,4 +616,8 @@ ARMA / ergodicity / Kalman
 - Phase 2：STO8「local time・Tanaka formula」を実装。absolute value の smooth approximation から Brownian local time を occupation kernel の ucp limit として構成し、Tanaka formula、positive / negative part、level-set support、Brownian level set の Lebesgue 時間 0、空間連続性、occupation time formula、interval occupation approximation、Skorokhod reflection、Levy transform まで閉じた。
 - STO8 の direct prerequisite は STO3・STO4・STO5・STO6・STO7・F0-00D2C とした。空間連続性で Kolmogorov--Chentsov、reflection law で reflection principle / Levy characterization、高次 moment で BDG、occupation formula で Tonelli / Fubini を使い、π–λ 定理は concept-level dependency として canonical result を直接参照するためであり、旧 SP 系列は prerequisite / proof dependency にしない。
 - Phase 2「連続確率解析」STO5--STO8 は完了。
-- 現在地：次の実装対象は Phase 3 の STO9「SDE：strong solution・存在一意性・局所化」。
+- Phase 3：STO9「SDE：strong solution・存在一意性・局所化」を実装。Brownian SDE / strong solution / pathwise uniqueness を定義し、Picard iteration の factorial estimate から global Lipschitz 係数下の strong existence・pathwise uniqueness、finite-horizon moment estimate、初期値・係数に対する stability estimate まで核心証明を閉じた。
+- STO9 の direct prerequisite は STO5・STO6・STO7 とした。STO6 の Itô integral / Doob L2 estimate と STO7 の multidimensional Itô formula を使い、comparison theorem は smooth positive-part approximation で証明して STO8 を prerequisite にしない。STO10 の weak solution / Girsanov と STO11 の generator も逆輸入しない。
+- local Lipschitz 係数は radial cutoff で global Lipschitz 問題へ落とし、exit time 前の pathwise uniqueness から maximal strong solution を貼り合わせた。finite-time explosion の具体例、linear growth による non-explosion、coercive C2 Lyapunov function による non-explosion まで扱った。
+- STO9 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで実装済み。
+- 現在地：Phase 3 は STO9 完了。次の実装対象は STO10「weak solution・Girsanov」。
