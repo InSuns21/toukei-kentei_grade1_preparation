@@ -6,6 +6,11 @@ prerequisites:
   - F0-00D4
   - F0-00P4
 
+forward_references:
+  - stochastic.brownian-reflection-principle
+  - stochastic.brownian-markov-property
+  - stochastic.brownian-strong-markov-property
+
 concepts:
   - id: stochastic.finite-dimensional-distribution-consistency
     name: 有限次元分布と整合性
