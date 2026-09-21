@@ -610,7 +610,7 @@ $$
 <a id="thm-sto13-ctmc-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（有限状態 CTMC の 跳躍-chain / holding-time 構成）**  
+> **定理（有限状態 CTMC の跳躍連鎖・滞在時間構成）**  
 > 有限状態 Q-matrix $Q$ を与える。
 >
 > 遷移確率 $P=(p_{ij})$ を上の式で定め、離散時間 Markov chain
@@ -1355,7 +1355,7 @@ $$
 
 は $+1$ 跳躍と $-1$ 跳躍の両方を記録します。
 
-単なる 計数 から 印ed 跳躍過程 へ進む最小例です。
+単なる計数過程から印付き跳躍過程へ進む最小例です。
 <!-- definition-example-end -->
 
 任意の $A\in\mathcal E$ で $\nu(A)<\infty$ なら
