@@ -22,17 +22,17 @@ VC2 では 1 次元の曲線に沿う積分を作りました。VC3 では 2 変
 > **定義（正則パラメータ曲面）**  
 > $U\subset\mathbb R^2$ を開集合とし、
 >
-> $$
-> r:U\to\mathbb R^3,
-> \qquad
-> r(u,v)=(x(u,v),y(u,v),z(u,v))
-> $$
+$$
+r:U\to\mathbb R^3,
+\qquad
+r(u,v)=(x(u,v),y(u,v),z(u,v))
+$$
 >
 > を $C^1$ 写像とする。すべての $(u,v)\in U$ で
 >
-> $$
-> r_u(u,v)\times r_v(u,v)\neq0
-> $$
+$$
+r_u(u,v)\times r_v(u,v)\neq0
+$$
 >
 > なら、$r$ を正則パラメータ曲面と呼ぶ。
 <!-- formal-statement-end -->
@@ -113,25 +113,25 @@ $$
 > **定義（接平面・法線）**  
 > 正則パラメータ曲面 $r$ の点 $p=r(u_0,v_0)$ における接平面の方向空間を
 >
-> $$
-> \operatorname{span}\{r_u(u_0,v_0),r_v(u_0,v_0)\}
-> $$
+$$
+\operatorname{span}\{r_u(u_0,v_0),r_v(u_0,v_0)\}
+$$
 >
 > とする。
 >
 > その法線方向は
 >
-> $$
-> r_u\times r_v
-> $$
+$$
+r_u\times r_v
+$$
 >
 > で与えられ、対応する単位法線を
 >
-> $$
-> n
-> =
-> \frac{r_u\times r_v}{|r_u\times r_v|}
-> $$
+$$
+n
+=
+\frac{r_u\times r_v}{|r_u\times r_v|}
+$$
 >
 > とする。
 <!-- formal-statement-end -->
@@ -182,9 +182,9 @@ $$
 > **定義（向き付け可能な曲面）**  
 > 曲面 $S$ が向き付け可能であるとは、曲面全体で連続に選べる単位法線場
 >
-> $$
-> n:S\to\mathbb R^3
-> $$
+$$
+n:S\to\mathbb R^3
+$$
 >
 > が存在することをいう。そのような $n$ の選択を曲面の向きと呼ぶ。
 <!-- formal-statement-end -->
@@ -235,11 +235,11 @@ $$
 > **定義（曲面積要素）**  
 > 正則パラメータ曲面 $r:U\to S$ に対し
 >
-> $$
-> dS
-> =
-> |r_u\times r_v|\,du\,dv
-> $$
+$$
+dS
+=
+|r_u\times r_v|\,du\,dv
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -285,18 +285,18 @@ $$
 > **定理（曲面積要素の再パラメータ表示不変性）**  
 > $r:U\to S$ を正則パラメータ表示とし、
 >
-> $$
-> \psi:\widetilde U\to U
-> $$
+$$
+\psi:\widetilde U\to U
+$$
 >
 > を $C^1$ 微分同相とする。$\widetilde r=r\circ\psi$ と置くと
 >
-> $$
-> |\widetilde r_s\times\widetilde r_t|
-> =
-> |r_u\times r_v|\,
-> |\det D\psi|.
-> $$
+$$
+|\widetilde r_s\times\widetilde r_t|
+=
+|r_u\times r_v|\,
+|\det D\psi|.
+$$
 >
 > 従って [RA7 の変数変換定理](../RA7/index.md#thm-ra7-change-of-variables) と合わせて曲面積はパラメータ表示に依存しない。
 <!-- formal-statement-end -->
@@ -360,13 +360,13 @@ $$
 > **定義（scalar surface integral）**  
 > 連続 scalar field $f$ と正則パラメータ曲面 $r:U\to S$ に対し
 >
-> $$
-> \int_S f\,dS
-> :=
-> \iint_U
-> f(r(u,v))
-> |r_u\times r_v|\,du\,dv
-> $$
+$$
+\int_S f\,dS
+:=
+\iint_U
+f(r(u,v))
+|r_u\times r_v|\,du\,dv
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -406,22 +406,22 @@ $f=1$ なら曲面積そのものです。
 > **定義（向き付き面素・flux）**  
 > 向き付き曲面 $S$ の局所パラメータ表示 $r(u,v)$ が選択した向きと整合しているとする。
 >
-> $$
-> n\,dS
-> =
-> (r_u\times r_v)\,du\,dv
-> $$
+$$
+n\,dS
+=
+(r_u\times r_v)\,du\,dv
+$$
 >
 > と置く。
 >
 > 連続 vector field $F$ の $S$ を通る flux を
 >
-> $$
-> \int_S F\cdot n\,dS
-> :=
-> \iint_U
-> F(r(u,v))\cdot(r_u\times r_v)\,du\,dv
-> $$
+$$
+\int_S F\cdot n\,dS
+:=
+\iint_U
+F(r(u,v))\cdot(r_u\times r_v)\,du\,dv
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -488,29 +488,29 @@ $$
 > **命題（graph surface の面積・上向き flux）**  
 > $g\in C^1(D)$ とする。graph surface $z=g(x,y)$ について
 >
-> $$
-> dS
-> =
-> \sqrt{1+g_x^2+g_y^2}\,dx\,dy.
-> $$
+$$
+dS
+=
+\sqrt{1+g_x^2+g_y^2}\,dx\,dy.
+$$
 >
 > 上向き向きを選ぶと
 >
-> $$
-> n\,dS
-> =
-> (-g_x,-g_y,1)\,dx\,dy,
-> $$
+$$
+n\,dS
+=
+(-g_x,-g_y,1)\,dx\,dy,
+$$
 >
 > 従って
 >
-> $$
-> \int_SF\cdot n\,dS
-> =
-> \iint_D
-> F(x,y,g(x,y))
-> \cdot(-g_x,-g_y,1)\,dx\,dy.
-> $$
+$$
+\int_SF\cdot n\,dS
+=
+\iint_D
+F(x,y,g(x,y))
+\cdot(-g_x,-g_y,1)\,dx\,dy.
+$$
 <!-- formal-statement-end -->
 
 これは VC4 で graph domain 上の発散定理を証明するときの局所計算になります。
@@ -892,7 +892,7 @@ $$
 \boxed{4\pi}.
 $$
 
-半径に依らない点が重要です。原点に特異点があるため、VC4 の divergence theorem を原点を含む球へそのまま適用してはいけません。
+半径に依らない点が重要です。原点でこの field が定義されないため、VC4 の divergence theorem を原点を含む球へそのまま適用してはいけません。
 <!-- solution-end -->
 
 #### VC3-B03 再パラメータ表示と向き
