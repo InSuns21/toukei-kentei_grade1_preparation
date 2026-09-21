@@ -11,7 +11,7 @@ concepts:
     kind: definition
     aliases: ["Poisson process", "Poisson counting process"]
     introduction: formal
-    introduction_aliases: ['定義（率 $\\lambda$ のポアソン過程）']
+    introduction_aliases: ['定義（率 $\lambda$ のポアソン過程）']
     requires:
       - stochastic.stochastic-process
       - stochastic.filtration
