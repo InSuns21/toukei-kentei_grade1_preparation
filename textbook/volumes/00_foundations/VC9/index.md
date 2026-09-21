@@ -884,9 +884,9 @@ $$
 \sigma_{k\ell}n_\ell\,dS.
 $$
 
-発散定理を適用すると
+[Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用すると
 
-$$
+$
 \int_\Omega
 \partial_\ell
 \left(
@@ -2001,9 +2001,9 @@ $$
 }.
 $$
 
-2. Kelvin--Stokes の定理から
+2. [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)から
 
-$$
+$
 \oint_{\partial S_R}E\cdot dr
 =
 \int_{S_R}
@@ -2158,9 +2158,9 @@ $$
 2\Omega.
 $$
 
-したがって Kelvin--Stokes の定理から
+したがって [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)から
 
-$$
+$
 \oint_{C_R}u\cdot dr
 =
 \int_{S_R}2\Omega\,dS
