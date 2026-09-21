@@ -1,5 +1,5 @@
 id: "VC5"
-title: "標準ベクトル解析 V：Stokes theorem・curl・topology"
+title: "標準ベクトル解析 V：Kelvin--Stokes の定理・回転・位相構造"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -9,26 +9,26 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - 向き付けられた曲面から境界曲線の誘導向きを定義し、右手則とパラメータ領域の正向きを対応付けられる
-  - Kelvin--Stokes theoremを仮定込みで述べ、graph surfaceおよび一般の正則surface patchでGreen theoremから証明できる
-  - 有限surface patch分割で内部境界の線積分が逆向きに相殺することを説明できる
-  - Stokes theoremからcurlが単位面積あたりの循環密度であることを導ける
-  - curl grad=0とdiv curl=0の積分的意味をGreen・Gauss・Stokesと結び付けて説明できる
-  - 穴のある領域でcurl F=0でもglobal potentialが存在しない機構を、spanning surfaceが領域内に取れないことまで含めて説明できる
-  - irrotationalとsolenoidalを区別し、vector potentialが存在すればsolenoidalであることとgauge freedomを証明できる
+  - Kelvin--Stokes の定理を仮定込みで述べ、グラフ曲面および一般の正則曲面パッチでGreen の定理から証明できる
+  - 有限曲面パッチ分割で内部境界の線積分が逆向きに相殺することを説明できる
+  - Stokes theoremから回転が単位面積あたりの循環密度であることを導ける
+  - 回転 grad=0とdiv 回転=0の積分的意味をGreen・Gauss・Stokesと結び付けて説明できる
+  - 穴のある領域で回転 F=0でも大域ポテンシャルが存在しない機構を、境界を張る曲面が領域内に取れないことまで含めて説明できる
+  - 無回転と無発散を区別し、ベクトルポテンシャルが存在すれば無発散であることとゲージ自由度を証明できる
 definitions:
   - { id: VC5-DEF-01, name: 誘導された境界向き }
-  - { id: VC5-DEF-02, name: irrotational・solenoidal }
-  - { id: VC5-DEF-03, name: vector potential }
+  - { id: VC5-DEF-02, name: 無回転・無発散 }
+  - { id: VC5-DEF-03, name: ベクトルポテンシャル }
 theorems:
-  - { id: VC5-THM-01, name: Kelvin--Stokes theorem }
-  - { id: VC5-PROP-01, name: curlは局所循環密度 }
-  - { id: VC5-PROP-02, name: vector potentialはsolenoidal }
-  - { id: VC5-PROP-03, name: vector potentialのgauge freedom }
+  - { id: VC5-THM-01, name: Kelvin--Stokes の定理 }
+  - { id: VC5-PROP-01, name: 回転は局所循環密度 }
+  - { id: VC5-PROP-02, name: ベクトルポテンシャルは無発散 }
+  - { id: VC5-PROP-03, name: ベクトルポテンシャルのゲージ自由度 }
 canonical_examples:
-  - 平面disk上の回転場とStokes theorem
-  - hemisphereと同一境界を持つdiskの循環比較
-  - z軸を除いた空間のirrotational非conservative field
-  - 一様磁場型vector fieldのvector potential
+  - 平面円板上の回転場とStokes theorem
+  - 半球面と同一境界を持つ円板の循環比較
+  - z軸を除いた空間の無回転非保存的な場
+  - 一様磁場型ベクトル場のベクトルポテンシャル
 problem_patterns:
   - VC5-STOKES-1
   - VC5-ORIENTATION-1
