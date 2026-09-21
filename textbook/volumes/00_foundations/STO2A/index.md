@@ -191,7 +191,7 @@ $\{\tau=m\}$ ごとに分ければ、ランダム時刻は普通の時刻 $m$ �
 
 まず $r$ を固定します。$A\in\mathcal F_\tau$ を取り、有限時刻で止まる部分に分けます。
 
-停止時刻までの $\sigma$-代数の定義から
+[停止時刻までの $\sigma$-代数](../STO1/index.md#def-sto1-stopping-sigma-field)の定義から
 
 $$
 A\cap\{\tau=m\}\in\mathcal F_m.
