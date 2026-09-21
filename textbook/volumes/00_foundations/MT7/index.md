@@ -291,7 +291,7 @@ $$
 \mu(U\setminus K)<\eta.
 $$
 
-[TOP5A の cutoff 存在定理](../TOP5A/index.md#thm-top5a-lch-cutoff)により
+[局所コンパクト Hausdorff 空間での局所化関数の存在](../TOP5A/index.md#thm-top5a-lch-cutoff)により
 
 $$
 \varphi\in C_c(X),
