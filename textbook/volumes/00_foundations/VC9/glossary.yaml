@@ -11,13 +11,13 @@ terms:
     meaning: partial_t + u dot grad で定まる微分。速度場 u に沿って移動する粒子が観測する時間変化率を表す。
   - term: 非圧縮条件
     english: incompressibility condition
-    meaning: 速度場が div u=0 を満たす条件。生成項なしの質量保存と組み合わせると密度は粒子軌道に沿って一定になる。
+    meaning: 速度場が div u=0 を満たす条件。生成項なしの質量保存と組み合わせると密度は各粒子の経路に沿って一定になる。
   - term: 渦度
     english: vorticity
     meaning: 速度場 u の回転 omega=curl u。Kelvin--Stokes の定理により局所循環密度として解釈できる。
   - term: 流れ関数
     english: stream function
-    meaning: 二次元速度場を u_1=partial_y psi, u_2=-partial_x psi と表すスカラー関数。単連結領域上の非圧縮平面流で構成できる。
+    meaning: 二次元速度場を u_1=partial_y psi, u_2=-partial_x psi と表すスカラー関数。星型領域上の非圧縮平面流で構成できる。
   - term: 変形速度テンソル
     english: rate-of-deformation tensor
     meaning: D(u)=(grad u + grad u^T)/2 で定まる速度勾配の対称部分。
