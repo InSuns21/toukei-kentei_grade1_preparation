@@ -65,7 +65,7 @@ $$
 
 が「二点が $\varepsilon$ より近い」という条件です。
 
-一様構造では、この $U_\varepsilon$ そのものではなく、「十分近い二点の組を含む集合」の族を抽象化します。
+距離を抽象化すると、この $U_\varepsilon$ そのものではなく、「十分近い二点の組を含む集合」の族だけを取り出せます。
 
 <a id="def-top7-uniformity"></a>
 
@@ -207,7 +207,7 @@ $$
 <a id="def-top7-induced-topology"></a>
 
 <!-- formal-statement-start -->
-> **定義（一様構造が誘導する位相）**  
+> **定義（一様空間の開集合）**  
 > 一様空間 $(X,\mathcal U)$ で、$O\subset X$ が開集合であるとは、任意の $x\in O$ に対し、ある $U\in\mathcal U$ が存在して
 >
 $$
