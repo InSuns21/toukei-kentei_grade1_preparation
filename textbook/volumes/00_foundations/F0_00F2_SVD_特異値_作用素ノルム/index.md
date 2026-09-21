@@ -58,32 +58,63 @@ $$
 
 ## 2. 特異値と右特異ベクトル
 
-[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)により
-
-$$
-A^{\mathsf T}A v_i
-=
-\lambda_i v_i,
-$$
-
-$$
-\lambda_i\ge0
-$$
-
-となる正規直交固有基底 $v_1,\dots,v_n$ を取れます。
+[スペクトル定理](../F0_00F1_固有空間_スペクトル定理_PSD/index.md#thm-real-symmetric-spectral)を $A^{\mathsf T}A$ に適用します。$A^{\mathsf T}A$ は実対称半正定値なので、正規直交固有基底 $v_1,\dots,v_n$ と固有値 $\lambda_i\ge0$ を取れます。
 
 <a id="def-f0-00f2-singular-values-right-vectors"></a>
 
 <!-- formal-statement-start -->
 > **定義（特異値・右特異ベクトル）**  
-> $A^{\mathsf T}A$ の固有値 $\lambda_i\ge0$ と対応する単位固有ベクトル $v_i$ に対し、
-
-$$
-\sigma_i=\sqrt{\lambda_i}
-$$
-
+> $A\in\mathbb R^{m\times n}$ とし、$v_i$ を $A^{\mathsf T}A$ の単位固有ベクトル、
+>
+> $$
+> A^{\mathsf T}Av_i=\lambda_i v_i,
+> \qquad
+> \lambda_i\ge0
+> $$
+>
+> とする。このとき
+>
+> $$
+> \sigma_i=\sqrt{\lambda_i}
+> $$
+>
 > を $A$ の **特異値**、$v_i$ を対応する **右特異ベクトル** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f2-singular-values-right-vectors -->
+### 2.1 例：対角行列の特異値
+
+$$
+A=
+\begin{pmatrix}
+3&0\\
+0&2
+\end{pmatrix}
+$$
+
+なら
+
+$$
+A^{\mathsf T}A=
+\begin{pmatrix}
+9&0\\
+0&4
+\end{pmatrix}.
+$$
+
+従って $\lambda_1=9,\lambda_2=4$ で、
+
+$$
+\sigma_1=3,
+\qquad
+\sigma_2=2.
+$$
+
+対応する右特異ベクトルは $v_1=e_1,v_2=e_2$ と取れます。
+<!-- definition-example-end -->
+
+---
+
 
 ---
 
@@ -92,24 +123,17 @@ $$
 $\sigma_i>0$ なら
 
 $$
-\boxed{
-u_i
-=
-\frac{Av_i}{\sigma_i}
-}
+u_i=\frac{Av_i}{\sigma_i}
 $$
 
-と置きます。
-
-すると
+と置きます。すると
 
 $$
 \|u_i\|^2
 =
 \frac{v_i^{\mathsf T}A^{\mathsf T}Av_i}{\sigma_i^2}
 =
-\frac{\lambda_i}{\sigma_i^2}
-=1.
+1.
 $$
 
 また $i\ne j$ なら
@@ -119,31 +143,49 @@ $$
 \langle u_i,u_j\rangle
 &=
 \frac{1}{\sigma_i\sigma_j}
-\langle Av_i,Av_j\rangle\\
-&=
-\frac{1}{\sigma_i\sigma_j}
 v_i^{\mathsf T}A^{\mathsf T}Av_j\\
 &=
 \frac{\lambda_j}{\sigma_i\sigma_j}
-v_i^{\mathsf T}v_j\\
-&=0.
+v_i^{\mathsf T}v_j
+=0.
 \end{aligned}
 $$
-
-したがって $u_i$ も正規直交系です。
 
 <a id="def-f0-00f2-left-singular-vectors"></a>
 
 <!-- formal-statement-start -->
 > **定義（左特異ベクトル）**  
-> $\sigma_i>0$ に対して
-
-$$
-u_i=\frac{Av_i}{\sigma_i}
-$$
-
-> で定めた単位ベクトル $u_i$ を、$\sigma_i$ に対応する **左特異ベクトル** といいます。
+> $\sigma_i>0$ に対応する右特異ベクトル $v_i$ に対して
+>
+> $$
+> u_i=\frac{Av_i}{\sigma_i}
+> $$
+>
+> と定めた単位ベクトル $u_i$ を、$\sigma_i$ に対応する **左特異ベクトル** といいます。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f2-left-singular-vectors -->
+### 3.1 例：左特異ベクトルを作る
+
+前節の
+
+$$
+A=\operatorname{diag}(3,2)
+$$
+
+では
+
+$$
+u_1=\frac{Ae_1}{3}=e_1,
+\qquad
+u_2=\frac{Ae_2}{2}=e_2.
+$$
+
+従って左特異ベクトルも標準基底になります。
+<!-- definition-example-end -->
+
+---
+
 
 ---
 
@@ -155,68 +197,89 @@ $$
 \sigma_1\ge\cdots\ge\sigma_r>0
 $$
 
-とします。
-
-対応する右特異ベクトルを列に並べて
+とし、対応する右・左特異ベクトルを列に並べて
 
 $$
-V_r
-=
-\begin{pmatrix}
-v_1&\cdots&v_r
-\end{pmatrix},
-$$
-
-左特異ベクトルを
-
-$$
-U_r
-=
-\begin{pmatrix}
-u_1&\cdots&u_r
-\end{pmatrix}
+V_r=(v_1\ \cdots\ v_r),
+\qquad
+U_r=(u_1\ \cdots\ u_r),
+\qquad
+\Sigma_r=\operatorname{diag}(\sigma_1,\dots,\sigma_r)
 $$
 
 とします。
-
-また
-
-$$
-\Sigma_r
-=
-\operatorname{diag}(\sigma_1,\dots,\sigma_r).
-$$
-
-すると
-
-$$
-Av_i=\sigma_i u_i
-$$
-
-をまとめて
 
 <a id="thm-f0-00f2-svd"></a>
 
 <!-- formal-statement-start -->
 > **定理（特異値分解）**  
 > 任意の実行列 $A\in\mathbb R^{m\times n}$ は、正の特異値の個数を $r$ とすると
-
-$$
-A=U_r\Sigma_rV_r^{\mathsf T}
-$$
-
-> と表せます。ここで $U_r,V_r$ の列はそれぞれ左・右特異ベクトルからなる正規直交系、$\Sigma_r$ は正の特異値を並べた対角行列です。
+>
+> $$
+> A=U_r\Sigma_rV_r^{\mathsf T}
+> $$
+>
+> と表せる。$U_r,V_r$ の列はそれぞれ正規直交し、$\Sigma_r$ は正の特異値を並べた対角行列である。
 <!-- formal-statement-end -->
 
-これが薄い **特異値分解（SVD）** です。
+### 証明の見取り図
 
-必要なら $U_r,V_r$ を正規直交基底へ補って完全形
+右特異ベクトルは $\mathbb R^n$ の正規直交基底を作ります。正の特異値方向では $Av_i=\sigma_i u_i$、特異値0の方向では $\|Av_i\|^2=0$ なので $Av_i=0$ です。従って任意のベクトルへの作用を正の特異値方向だけで再構成できます。
+
+<!-- proof-start -->
+### 証明
+
+$v_1,\dots,v_n$ を $A^{\mathsf T}A$ の正規直交固有基底とし、$\sigma_1,\dots,\sigma_r>0$、$\sigma_{r+1}=\cdots=\sigma_n=0$ とします。
+
+$i\le r$ では定義から
 
 $$
-A=U\Sigma V^{\mathsf T}
+Av_i=\sigma_i u_i.
 $$
 
-を得ます。
+$i>r$ では
+
+$$
+\|Av_i\|^2
+=
+v_i^{\mathsf T}A^{\mathsf T}Av_i
+=
+\lambda_i
+=
+\sigma_i^2
+=0,
+$$
+
+なので $Av_i=0$ です。
+
+任意の $x\in\mathbb R^n$ を
+
+$$
+x=\sum_{i=1}^n\langle x,v_i\rangle v_i
+$$
+
+と展開すると
+
+$$
+Ax
+=
+\sum_{i=1}^r
+\sigma_i\langle x,v_i\rangle u_i
+=
+U_r\Sigma_rV_r^{\mathsf T}x.
+$$
+
+全ての $x$ に対して作用が一致するので
+
+$$
+A=U_r\Sigma_rV_r^{\mathsf T}.
+$$
+<!-- proof-end -->
+
+必要なら $U_r,V_r$ を正規直交基底へ補って完全形 $A=U\Sigma V^{\mathsf T}$ を得ます。
+
+---
+
 
 ---
 
@@ -276,49 +339,62 @@ $$
 
 ## 7. rank と特異値
 
-非零特異値の本数を $r$ とすると
+<a id="prop-f0-00f2-rank-singular-values"></a>
+
+<!-- formal-statement-start -->
+> **命題（rank と非零特異値）**  
+> $A\in\mathbb R^{m\times n}$ の正の特異値の個数を $r$ とする。このとき
+>
+> $$
+> \operatorname{rank}(A)=r,
+> $$
+>
+> また
+>
+> $$
+> \operatorname{Im}A
+> =
+> \operatorname{span}(u_1,\dots,u_r),
+> $$
+>
+> $$
+> \ker A
+> =
+> \operatorname{span}(v_{r+1},\dots,v_n)
+> $$
+>
+> である。
+<!-- formal-statement-end -->
+
+SVDから
 
 $$
-\boxed{
-\operatorname{rank}(A)=r
-}
-$$
-
-です。
-
-実際
-
-$$
-A=U_r\Sigma_rV_r^{\mathsf T}
-$$
-
-で $\Sigma_r$ は正則な $r\times r$ 対角行列です。
-
-したがって
-
-$$
-\operatorname{Im}A
+Ax
 =
-\operatorname{span}(u_1,\dots,u_r)
+\sum_{i=1}^r
+\sigma_i\langle x,v_i\rangle u_i
 $$
 
-です。
-
-また特異値0に対応する右特異ベクトルは
+なので像は $u_1,\dots,u_r$ の span に含まれます。逆に
 
 $$
-Av_i=0
+Av_i=\sigma_i u_i
 $$
 
-を満たすので
+かつ $\sigma_i>0$ なので各 $u_i$ は像に入り、像はちょうどその span です。従って次元は $r$ です。
+
+また $x=\sum_i c_iv_i$ とすると
 
 $$
-\ker A
+Ax=0
+\Longleftrightarrow
+c_i=0\quad(i=1,\dots,r),
 $$
 
-を張ります。
+なのでkernelは特異値0に対応する右特異ベクトルで張られます。
 
-SVDはF0-00Fの kernel・image・rank を正規直交基底で可視化しています。
+---
+
 
 ---
 
@@ -329,40 +405,56 @@ SVDはF0-00Fの kernel・image・rank を正規直交基底で可視化してい
 <!-- formal-statement-start -->
 > **定義（作用素ノルム）**  
 > 線形写像 $A:\mathbb R^n\to\mathbb R^m$ のEuclidノルムに関する **作用素ノルム** を
-
-$$
-\|A\|_{\mathrm{op}}
-=
-\sup_{x\ne0}\frac{\|Ax\|}{\|x\|}
-=
-\sup_{\|x\|=1}\|Ax\|
-$$
-
+>
+> $$
+> \|A\|_{\mathrm{op}}
+> =
+> \sup_{x\ne0}\frac{\|Ax\|}{\|x\|}
+> =
+> \sup_{\|x\|=1}\|Ax\|
+> $$
+>
 > と定めます。
 <!-- formal-statement-end -->
 
-と定義します。
+<!-- definition-example-start: def-f0-00f2-operator-norm -->
+### 8.1 例：対角行列の最大伸長
 
-これは
-
-> 単位ベクトルを最大で何倍まで伸ばすか
-
-を表します。
-
-[SVD](#thm-f0-00f2-svd)を使うと
+$A=\operatorname{diag}(3,2)$ とし、$\|x\|=1$ とします。すると
 
 $$
-x
+\|Ax\|^2
 =
-\sum_i c_iv_i
+9x_1^2+4x_2^2
+\le
+9(x_1^2+x_2^2)
+=9.
 $$
 
-に対して
+従って $\|Ax\|\le3$ で、$x=e_1$ なら等号です。よって $\|A\|_{\mathrm{op}}=3$ です。
+<!-- definition-example-end -->
+
+<a id="thm-f0-00f2-operator-norm-largest-singular"></a>
+
+<!-- formal-statement-start -->
+> **定理（2-作用素ノルムと最大特異値）**  
+> 実行列 $A$ の最大特異値を $\sigma_1$ とすると
+>
+> $$
+> \|A\|_{\mathrm{op}}=\sigma_1.
+> $$
+<!-- formal-statement-end -->
+
+任意の $x$ を右特異ベクトル基底で
 
 $$
-Ax
-=
-\sum_i c_i\sigma_i u_i.
+x=\sum_i c_iv_i
+$$
+
+と書くと
+
+$$
+Ax=\sum_i c_i\sigma_i u_i.
 $$
 
 正規直交性から
@@ -372,39 +464,21 @@ $$
 =
 \sum_i\sigma_i^2|c_i|^2
 \le
-\sigma_1^2
-\sum_i|c_i|^2
+\sigma_1^2\sum_i|c_i|^2
 =
 \sigma_1^2\|x\|^2.
 $$
 
-したがって
+従って $\|A\|_{\mathrm{op}}\le\sigma_1$ です。一方 $x=v_1$ なら
 
 $$
-\|A\|_{\mathrm{op}}
-\le
-\sigma_1.
+\|Av_1\|=\sigma_1\|v_1\|=\sigma_1,
 $$
 
-$x=v_1$ とすれば
+なので上限が達成され、等号が従います。
 
-$$
-\|Av_1\|=\sigma_1
-$$
+---
 
-なので等号が達成されます。
-
-よって
-
-$$
-\boxed{
-\|A\|_{\mathrm{op}}
-=
-\sigma_{\max}(A)
-}
-$$
-
-です。
 
 ---
 
@@ -524,39 +598,173 @@ $$
 
 ## 12. 演習
 
-### F0-00F2-A01 特異値
+### F0-00F2-A01 特異値と作用素ノルム
 
 - Level: A
 - 目安時間: 10分
 
 $$
-A
-=
-\operatorname{diag}(3,1)
+A=\operatorname{diag}(3,1)
 $$
 
 の特異値と作用素ノルムを求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
+
 $$
 A^{\mathsf T}A
 =
 \operatorname{diag}(9,1)
 $$
-なので特異値は3,1。最大特異値より作用素ノルムは3。
-#### 本番答案
+
+なので固有値は $9,1$。従って特異値は
+
 $$
 \sigma_1=3,
-\quad
-\sigma_2=1,
-\quad
+\qquad
+\sigma_2=1.
+$$
+
+2-作用素ノルムは最大特異値に等しいので
+
+$$
 \|A\|_{\mathrm{op}}=3.
 $$
-#### 採点基準（20点）
-- $A^{\mathsf T}A$: 6点
-- 特異値: 8点
-- 作用素ノルム: 6点
+<!-- solution-end -->
+
+### F0-00F2-A02 右・左特異ベクトル
+
+- Level: A
+- 目安時間: 12分
+
+$$
+A=
+\begin{pmatrix}
+2&0\\
+0&1\\
+0&0
+\end{pmatrix}
+$$
+
+について特異値、右特異ベクトル、左特異ベクトルを求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$$
+A^{\mathsf T}A
+=
+\begin{pmatrix}
+4&0\\
+0&1
+\end{pmatrix}.
+$$
+
+従って特異値は $2,1$、右特異ベクトルは
+
+$$
+v_1=e_1,
+\qquad
+v_2=e_2
+$$
+
+と取れます。
+
+左特異ベクトルは
+
+$$
+u_1=\frac{Av_1}{2}
+=
+\begin{pmatrix}
+1\\0\\0
+\end{pmatrix},
+\qquad
+u_2=Av_2
+=
+\begin{pmatrix}
+0\\1\\0
+\end{pmatrix}.
+$$
+
+どちらも単位ベクトルで互いに直交します。
+<!-- solution-end -->
+
+### F0-00F2-A03 kernel・image と特異値
+
+- Level: A
+- 目安時間: 10分
+
+薄いSVD $A=U_r\Sigma_rV_r^{\mathsf T}$ を持つ行列について、なぜ $\operatorname{Im}A=\operatorname{span}(u_1,\dots,u_r)$ となるか説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+任意の $x$ に対して
+
+$$
+Ax
+=
+\sum_{i=1}^r
+\sigma_i\langle x,v_i\rangle u_i
+$$
+
+なので、像は $u_1,\dots,u_r$ の span に含まれます。
+
+逆に各 $i\le r$ について
+
+$$
+Av_i=\sigma_i u_i
+$$
+
+で、$\sigma_i>0$ だから
+
+$$
+u_i=A\left(\frac1{\sigma_i}v_i\right)
+$$
+
+と書けます。従って各 $u_i$ は像に属し、像はちょうどその span です。
+<!-- solution-end -->
+
+### F0-00F2-A04 線形汎関数の作用素ノルム
+
+- Level: A
+- 目安時間: 10分
+
+固定した $a\in\mathbb R^n$ に対して $\ell_a(x)=a^{\mathsf T}x$ とする。$\|\ell_a\|_{\mathrm{op}}=\|a\|$ を示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+Cauchy--Schwarz不等式より
+
+$$
+|\ell_a(x)|
+=
+|a^{\mathsf T}x|
+\le
+\|a\|\|x\|.
+$$
+
+従って $\|x\|=1$ 上で
+
+$$
+|\ell_a(x)|\le\|a\|,
+$$
+
+なので $\|\ell_a\|_{\mathrm{op}}\le\|a\|$ です。
+
+$a\ne0$ なら $x=a/\|a\|$ と取ると $\|x\|=1$ かつ
+
+$$
+|\ell_a(x)|
+=
+\frac{a^{\mathsf T}a}{\|a\|}
+=
+\|a\|.
+$$
+
+従って等号です。$a=0$ の場合も両辺0です。
 <!-- solution-end -->
 
 ### F0-00F2-B01 SVDとrank
@@ -570,29 +778,273 @@ $$
 A=U_r\Sigma_rV_r^{\mathsf T}
 $$
 
-で $\Sigma_r$ の対角成分が全て正とする。
-
-$$
-\operatorname{rank}(A)=r
-$$
-
-を説明せよ。
+で $\Sigma_r$ の対角成分が全て正とする。$\operatorname{rank}(A)=r$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$V_r$ の列空間上で $V_r^{\mathsf T}$ は座標を取り出し、$\Sigma_r$ は正則なので次元を潰さず、$U_r$ は $r$ 本の正規直交列へ写す。従って像は
+
+SVDから
+
 $$
-\operatorname{span}(u_1,\dots,u_r)
+\operatorname{Im}A
+=
+\operatorname{span}(u_1,\dots,u_r).
 $$
-で次元 $r$。
-#### 本番答案
-$\Sigma_r$ が正則なので、$A$ は右特異部分空間を左特異部分空間へ同型に写す。よってrankは $r$。
-#### 採点基準（20点）
-- $\Sigma_r$ の正則性: 6点
-- 像の同定: 8点
-- rank結論: 6点
+
+$u_1,\dots,u_r$ は正規直交系なので一次独立で、この span の次元は $r$ です。従って
+
+$$
+\operatorname{rank}(A)
+=
+\dim\operatorname{Im}A
+=r.
+$$
 <!-- solution-end -->
 
+### F0-00F2-B02 薄いSVDを構成する
+
+- Level: B
+- 目安時間: 18分
+
+$$
+A=
+\begin{pmatrix}
+2&0\\
+0&1\\
+0&0
+\end{pmatrix}
+$$
+
+の薄いSVD $A=U\Sigma V^{\mathsf T}$ を明示し、行列積で確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+A02より特異値は $2,1$、右特異ベクトルは $e_1,e_2$、左特異ベクトルは $e_1,e_2$ を $\mathbb R^3$ に埋め込んだものです。従って
+
+$$
+U=
+\begin{pmatrix}
+1&0\\
+0&1\\
+0&0
+\end{pmatrix},
+\qquad
+\Sigma=
+\begin{pmatrix}
+2&0\\
+0&1
+\end{pmatrix},
+\qquad
+V=I_2.
+$$
+
+よって
+
+$$
+U\Sigma V^{\mathsf T}
+=
+\begin{pmatrix}
+1&0\\
+0&1\\
+0&0
+\end{pmatrix}
+\begin{pmatrix}
+2&0\\
+0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&0\\
+0&1\\
+0&0
+\end{pmatrix}
+=A.
+$$
+<!-- solution-end -->
+
+### F0-00F2-B03 作用素ノルム＝最大特異値
+
+- Level: B
+- 目安時間: 15分
+
+SVDを用いて
+
+$$
+\|A\|_{\mathrm{op}}=\sigma_1
+$$
+
+を証明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+右特異ベクトル基底で
+
+$$
+x=\sum_i c_iv_i
+$$
+
+と書くと
+
+$$
+Ax=\sum_i\sigma_i c_i u_i.
+$$
+
+左特異ベクトルの正規直交性より
+
+$$
+\|Ax\|^2
+=
+\sum_i\sigma_i^2|c_i|^2
+\le
+\sigma_1^2\sum_i|c_i|^2
+=
+\sigma_1^2\|x\|^2.
+$$
+
+従って $x\ne0$ について
+
+$$
+\frac{\|Ax\|}{\|x\|}
+\le
+\sigma_1,
+$$
+
+なので $\|A\|_{\mathrm{op}}\le\sigma_1$ です。
+
+一方、単位右特異ベクトル $v_1$ に対して
+
+$$
+\|Av_1\|
+=
+\|\sigma_1u_1\|
+=
+\sigma_1.
+$$
+
+従って上限が達成され、$\|A\|_{\mathrm{op}}=\sigma_1$ です。
+<!-- solution-end -->
+
+### F0-00F2-C01 SVD・rank・作用素ノルムの統合
+
+- Level: C
+- 目安時間: 30分
+
+$$
+A=
+\begin{pmatrix}
+1&1\\
+1&-1\\
+1&1
+\end{pmatrix}
+$$
+
+について次を行え。
+
+1. $A^{\mathsf T}A$ の固有値・正規直交固有ベクトルを求め、特異値と右特異ベクトルを得よ。
+2. 左特異ベクトルを構成し、薄いSVDを与えよ。
+3. $\operatorname{rank}(A)$ と $\|A\|_{\mathrm{op}}$ を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+まず
+
+$$
+A^{\mathsf T}A
+=
+\begin{pmatrix}
+3&1\\
+1&3
+\end{pmatrix}.
+$$
+
+この行列の固有値は $4,2$ で、対応する正規直交固有ベクトルを
+
+$$
+v_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
+\qquad
+v_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
+$$
+
+と取れます。従って特異値は
+
+$$
+\sigma_1=2,
+\qquad
+\sigma_2=\sqrt2.
+$$
+
+左特異ベクトルは
+
+$$
+u_1
+=
+\frac{Av_1}{2}
+=
+\frac1{\sqrt2}
+\begin{pmatrix}
+1\\0\\1
+\end{pmatrix},
+$$
+
+また
+
+$$
+u_2
+=
+\frac{Av_2}{\sqrt2}
+=
+\begin{pmatrix}
+0\\1\\0
+\end{pmatrix}.
+$$
+
+従って
+
+$$
+U=
+\begin{pmatrix}
+1/\sqrt2&0\\
+0&1\\
+1/\sqrt2&0
+\end{pmatrix},
+\qquad
+\Sigma=
+\begin{pmatrix}
+2&0\\
+0&\sqrt2
+\end{pmatrix},
+$$
+
+$$
+V=
+\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix},
+$$
+
+で
+
+$$
+A=U\Sigma V^{\mathsf T}.
+$$
+
+正の特異値が2個あるので
+
+$$
+\operatorname{rank}(A)=2.
+$$
+
+また最大特異値は2だから
+
+$$
+\|A\|_{\mathrm{op}}=2.
+$$
+<!-- solution-end -->
 ---
 
 ## 13. 次に進む
@@ -602,37 +1054,3 @@ $\Sigma_r$ が正則なので、$A$ は右特異部分空間を左特異部分�
 次はこの有限次元の常識が、無限次元ではどこまで壊れるかを見ます。
 
 **次：[F0-00D1 ノルム空間・Banach・有限次元と無限次元](../F0_00D1_ノルム_Banach_有限次元_無限次元/index.md)**
-
----
-
-## 定義の確認：対角行列のSVD
-
-<!-- definition-example-start: def-f0-00f2-singular-values-right-vectors, def-f0-00f2-left-singular-vectors, def-f0-00f2-operator-norm -->
-**定義の確認**
-
-$$
-A=\begin{pmatrix}3&0\\0&2\end{pmatrix}
-$$
-
-とすると
-
-$$
-A^{\mathsf T}A=\begin{pmatrix}9&0\\0&4\end{pmatrix}.
-$$
-
-従って特異値は $\sigma_1=3,\sigma_2=2$、右特異ベクトルは $v_1=e_1,v_2=e_2$ です。さらに
-
-$$
-u_i=\frac{Av_i}{\sigma_i}=e_i
-$$
-
-なので左特異ベクトルも $e_1,e_2$ です。
-
-単位ベクトル $x=(x_1,x_2)$ に対して
-
-$$
-\|Ax\|_2^2=9x_1^2+4x_2^2\le9(x_1^2+x_2^2)=9,
-$$
-
-等号は $x=e_1$ で達成されるので $\|A\|_{\mathrm{op}}=3$。最大特異値と作用素ノルムが一致することも定義から直接見えます。
-<!-- definition-example-end -->
