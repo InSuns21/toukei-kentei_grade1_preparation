@@ -1,0 +1,29 @@
+chapter: "CA7"
+terms:
+  - term: 局所一様収束
+    english: locally uniform convergence
+    meaning: 領域の任意のコンパクト部分集合上で一様収束すること。複素解析ではCauchy積分公式と組み合わせることで正則性や導関数の収束を極限へ移せる。
+  - term: 正規収束
+    english: normal convergence
+    meaning: 関数級数について、任意のコンパクト集合K上で各項の絶対値の上限の級数が収束すること。局所一様絶対収束を保証する強い収束条件。
+  - term: 局所有界な正則関数族
+    english: locally bounded family of holomorphic functions
+    meaning: 各点のある近傍上で、族に属する全関数を同じ有限定数で一様に抑えられる正則関数族。
+  - term: 正規族
+    english: normal family
+    meaning: 族から任意に取った関数列が、領域上で局所一様収束する部分列を持ち、その極限も正則関数となるような正則関数族。本章では局所有界族に現れる有限値の極限を扱う。
+  - term: Montel の定理
+    english: Montel theorem
+    meaning: 領域上で局所有界な正則関数族は正規族であるという定理。Cauchy評価による同程度連続性とコンパクト集合上の対角抽出が核心となる。
+  - term: Hurwitz の定理
+    english: Hurwitz theorem
+    meaning: 正則関数列が局所一様に非零関数へ収束するとき、極限の零点の近くには十分後の各関数の零点が同じ重複度だけ現れるという零点安定性の定理。
+  - term: Riemann 写像定理
+    english: Riemann mapping theorem
+    meaning: 空でない単連結な複素平面の真部分領域が単位円板と双正則同値であることを述べる定理。
+  - term: Schwarz の鏡像原理
+    english: Schwarz reflection principle
+    meaning: 実軸の一部で実数値を取る正則関数を、共役対称性によって反対側へ正則に延長する原理。
+  - term: Morera の定理
+    english: Morera theorem
+    meaning: 領域上の連続関数について、全ての三角形境界上の積分が0なら正則であることを述べるCauchy–Goursatの逆向きの判定定理。
