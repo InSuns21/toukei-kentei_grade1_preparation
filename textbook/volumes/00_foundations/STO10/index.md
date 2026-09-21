@@ -1,4 +1,4 @@
-# STO10：weak solution と Girsanov — noise を固定せず law を作る
+# STO10：SDE の law と Girsanov — noise を固定せず law を作る
 
 <!-- definition-example-audit: strict -->
 
@@ -19,7 +19,7 @@ SDE の law は作れるか}
 }
 $$
 
-これが weak solution の発想です。
+これが本章で導入する「確率空間ごと選べる解」の発想です。
 
 本章ではさらに、確率空間そのものを変えずに **同じ標本集合へ別の確率測度を載せる** 方法を使います。
 
@@ -27,7 +27,7 @@ $$
 
 $$
 \boxed{
-\text{weak solution}
+\text{probability space も選べる解}
 \to
 \text{change of measure}
 \to
@@ -45,7 +45,7 @@ $$
 
 です。
 
-最後に pathwise uniqueness と uniqueness in law を整理し、[Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) が strong / weak の二つの世界をどこで結ぶかを明確にします。
+最後に strong / weak それぞれの一意性概念を整理し、両者を結ぶ標準的な接続定理の位置を明確にします。
 
 本章の Girsanov 部分は有限時間区間 $[0,T]$ を固定して扱います。これは単なる書きやすさではありません。有限時間ごとの同値性と無限時間全体での同値性は別問題です。
 
@@ -77,11 +77,11 @@ $$
 
 です。
 
-weak solution ではこの順序を変えます。
+本章で導入する第二の解概念では、この順序を変えます。
 
 ---
 
-## 2. weak solution：確率空間と Brown 運動も解の一部
+## 2. 確率空間と Brown 運動も解の一部
 
 <a id="def-sto10-weak-solution"></a>
 
@@ -249,7 +249,7 @@ strong solution の定義から、
 
 weak solution では、解を作るために都合のよい確率空間や Brown 運動を選べるからです。
 
-この「逆向き」を pathwise uniqueness と結び付けるのが章末の [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) です。
+この「逆向き」を pathwise uniqueness と結び付ける標準的な接続定理を章末で位置付けます。
 
 ---
 
@@ -267,17 +267,17 @@ weak solution では、解を作るために都合のよい確率空間や Brown
 > **定義（同値な確率測度）**  
 > $(\Omega,\mathcal F_T)$ 上の確率測度 $P,Q$ が
 >
-> $
+> $$
 > P\ll Q
 > \qquad\text{かつ}\qquad
 > Q\ll P
-> $
+> $$
 >
 > を満たすとき、$P,Q$ は **equivalent** であるといい
 >
-> $
+> $$
 > P\sim Q
-> $
+> $$
 >
 > と書く。
 <!-- formal-statement-end -->
@@ -288,19 +288,19 @@ weak solution では、解を作るために都合のよい確率空間や Brown
 > **定義（density process）**  
 > $Q\ll P$ とし、
 >
-> $
+> $$
 > Z_T
 > :=
 > \frac{dQ}{dP}
-> $
+> $$
 >
 > とする。filtration $(\mathcal F_t)_{0\le t\le T}$ に対して
 >
-> $
+> $$
 > Z_t
 > :=
 > E_P[Z_T\mid\mathcal F_t]
-> $
+> $$
 >
 > を **density process** と呼ぶ。
 <!-- formal-statement-end -->
@@ -648,7 +648,7 @@ $$
 
 ## 7. まず bounded quadratic energy なら完全に閉じる
 
-一般の Novikov condition の前に、機構が目で追える場合を証明します。
+一般の指数積分 criterion の前に、機構が目で追える場合を証明します。
 
 <a id="lem-sto10-bounded-energy-exponential"></a>
 
@@ -838,7 +838,7 @@ $$
 
 ---
 
-## 8. Novikov condition：random energy でも density を保つ
+## 8. random energy でも density を保つ条件
 
 bounded $\theta$ は便利ですが、Girsanov を使いたい場面では
 
@@ -897,7 +897,7 @@ $$
 > $$
 <!-- formal-statement-end -->
 
-Novikov condition は **十分条件**です。
+この条件は stochastic exponential の martingale 性を保証しますが、必要条件ではありません。
 
 これを満たさないからといって、stochastic exponential が martingale でないとは限りません。
 
@@ -991,7 +991,7 @@ $$
 
 ここで黒箱にしたのは **Novikov の UI criterion の技術部分だけ**です。
 
-次の [Girsanov theorem](#thm-sto10-girsanov) で起きる drift cancellation は章内で完全に証明します。
+次節以降の測度変換で起きる drift cancellation は章内で完全に証明します。
 
 ---
 
@@ -1060,7 +1060,7 @@ $$
 
 が正確に打ち消し合います。
 
-この cancellation が [Girsanov theorem](#thm-sto10-girsanov) の代数的心臓部です。
+この cancellation が後で使う Brownian drift-shift の代数的心臓部です。
 
 <!-- proof-start -->
 ### 証明
@@ -1174,7 +1174,7 @@ $$
 
 ---
 
-## 10. Girsanov theorem：drift を足した Brown 運動が新しい Brown 運動になる
+## 10. change of measure で Brownian drift を移す
 
 <a id="thm-sto10-girsanov"></a>
 
@@ -1971,7 +1971,7 @@ $$
 
 ---
 
-## 15. uniqueness in law：noise を比較せず law を比較する
+## 15. noise を比較せず law を比較する
 
 weak solution は確率空間自体が違ってよいので、二つの weak solutions を pathwise に
 
@@ -2099,7 +2099,7 @@ $$
 
 ---
 
-## 17. Yamada--Watanabe theorem は strong / weak の橋
+## 17. strong / weak の橋
 
 <a id="thm-sto10-yamada-watanabe"></a>
 
@@ -3224,7 +3224,7 @@ $$
 
 が density になるために true martingale 性が必要であることを見ました。
 
-Novikov condition はその代表的十分条件です。
+Novikov condition はその代表的な判定条件です。
 
 [Girsanov theorem](#thm-sto10-girsanov) の核心は
 
@@ -3300,7 +3300,7 @@ $$
 
 Girsanov は「測度を変えると drift がどう動くか」を教えました。
 
-次の STO11 では、今度は process を **時間発展作用素**から読みます。
+次の STO11 では、今度は process を **時刻ごとの写像の族**として読みます。
 
 中心となる問いは
 
