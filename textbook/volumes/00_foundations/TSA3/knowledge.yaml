@@ -11,6 +11,15 @@ prerequisites:
   - F0-00P2
 
 concepts:
+  - id: timeseries.frequency-spectrum
+    name: 時系列のスペクトル
+    kind: term
+    aliases: ["スペクトル", "time-series spectrum", "frequency spectrum"]
+    introduction: inline
+    introduction_aliases: ["用語：時系列のスペクトル"]
+    requires:
+      - timeseries.autocovariance-function
+
   - id: timeseries.positive-definite-sequence
     name: 正定値列
     kind: definition
@@ -98,21 +107,21 @@ concepts:
       - timeseries.spectral-measure
 
   - id: timeseries.continuous-l2-density
-    name: 連続関数の L2(F) 稠密性
+    name: 連続関数の二乗平均稠密性
     kind: lemma
     aliases: ["density of continuous functions in L2(F)"]
     introduction: formal
-    introduction_aliases: ["補題（連続関数の $L^2(F)$ 稠密性）", "補題（連続関数の 稠密性）"]
+    introduction_aliases: ["補題（連続関数の二乗平均稠密性）"]
     requires:
       - measure.pi-lambda-theorem
       - functional.l2-completeness
 
   - id: timeseries.trigonometric-l2-density
-    name: 三角多項式の L2(F) 稠密性
+    name: 三角多項式の二乗平均稠密性
     kind: theorem
     aliases: ["density of trigonometric polynomials in L2(F)"]
     introduction: formal
-    introduction_aliases: ["定理（三角多項式の $L^2(F)$ 稠密性）", "定理（三角多項式の 稠密性）"]
+    introduction_aliases: ["定理（三角多項式の二乗平均稠密性）"]
     requires:
       - timeseries.continuous-l2-density
       - fourier.fou2-trig-density
