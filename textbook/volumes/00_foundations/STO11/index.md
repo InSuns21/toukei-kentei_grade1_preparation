@@ -85,6 +85,8 @@ $$
 <!-- definition-example-start: def-sto11-transition-kernel -->
 ### 直接例：Brown 運動の Gaussian kernel
 
+**定義の確認**
+
 $d$ 次元 Brown 運動を初期点 $x$ から出発させます。
 
 $t>0$ では
@@ -156,6 +158,8 @@ time-homogeneous という語は「未来分布が絶対時刻 $s$ に依存せ�
 
 <!-- definition-example-start: def-sto11-markov-process -->
 ### 直接例：Brown 運動では現在位置を引けば未来が新しい Brown 運動になる
+
+**定義の確認**
 
 $X_t=x+B_t$ とします。
 
@@ -231,6 +235,8 @@ $$
 
 <!-- definition-example-start: def-sto11-markov-semigroup -->
 ### 直接例：deterministic flow は最も単純な semigroup
+
+**定義の確認**
 
 1 次元で
 
@@ -486,6 +492,8 @@ $$
 <!-- definition-example-start: def-sto11-generator -->
 ### 直接例：deterministic flow の generator は一次微分になる
 
+**定義の確認**
+
 前節の
 
 $$
@@ -651,7 +659,7 @@ L=\frac12\Delta
 }.
 $$
 
-確率過程 Brown 運動と heat equation の作用素がここで直接つながります。
+確率過程 Brown 運動の generator が Laplacian の半分になることが分かりました。
 
 ---
 
@@ -1326,6 +1334,8 @@ $$
 <!-- definition-example-start: def-sto11-martingale-problem -->
 ### 直接例：Brown 運動は $\frac12\Delta$ の martingale problem を解く
 
+**定義の確認**
+
 $X=B$ を $d$ 次元 Brown 運動とし
 
 $$
@@ -1367,13 +1377,19 @@ $f$ は 台がコンパクトな smooth 関数なので $\nabla f$ は bounded �
 
 <!-- formal-statement-start -->
 > **定理（SDE から martingale problem）**  
-> $X$ が
+> ある filtered probability space 上に Brown 運動 $W$ と continuous adapted process $X$ が存在し、任意の $t\ge0$ について
 
-$$
-dX_t=b(X_t)dt+\sigma(X_t)dW_t
-$$
+$
+X_t
+=
+X_0
++
+\int_0^t b(X_s)ds
++
+\int_0^t\sigma(X_s)dW_s
+$
 
-> を、ある filtered probability space 上の Brown 運動 $W$ と continuous adapted process $X$ が積分方程式として満たし、$X$ は non-explosive であるとする。
+> が almost surely 成り立つとする。さらに $X$ は non-explosive であるとする。
 >
 > $a=\sigma\sigma^\top$ とし
 
@@ -1394,7 +1410,7 @@ $$
 
 ### 証明の見取り図
 
-これは diffusion generator の計算を path-law の言葉へ移したものです。
+これは diffusion generator の計算を標本路法則の言葉へ移したものです。
 
 Itô formula から drift 部分を左辺へ移せば stochastic integral だけが残ります。
 
@@ -1706,7 +1722,7 @@ $$
 
 ## 14. martingale problem の存在と law の一意性
 
-<a id="def-sto11-well-posed-mp"></a>
+<a id="def-sto11-mp-law-uniqueness"></a>
 
 <!-- formal-statement-start -->
 > **定義（well-posed martingale problem）**  
@@ -1718,8 +1734,10 @@ $$
 > であるとき、その martingale problem は well-posed であるという。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-well-posed-mp -->
-### 直接例：Brown 運動の martingale problem は well-posed
+<!-- definition-example-start: def-sto11-mp-law-uniqueness -->
+### 直接例：Brown 運動では存在と law の一意性を確認できる
+
+**定義の確認**
 
 $L=\frac12\Delta$、$D(L)=C_c^\infty(\mathbb R^d)$ とします。
 
@@ -1737,10 +1755,10 @@ $$
 
 [STO5 の Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $X-X_0$ は standard Brownian motion です。
 
-したがって初期点 $x$ を固定すれば solution law は Brownian law 以外にありえません。存在と law の一意性がともに確認できるので、この martingale problem は well-posed です。
+したがって初期点 $x$ を固定すれば solution law は Brownian law 以外にありえません。存在と law の一意性がともに確認できるので、定義の二条件を満たします。
 <!-- definition-example-end -->
 
-<a id="thm-sto11-well-posed-strong-markov"></a>
+<a id="thm-sto11-mp-strong-markov"></a>
 
 <!-- formal-statement-start -->
 > **定理（well-posed martingale problem から strong Markov property）**  
@@ -1776,7 +1794,7 @@ $$
 
 を取ると、martingale increment の性質から、この conditional law も「初期点 $X_s$ から出発する同じ martingale problem」を解きます。
 
-well-posedness により、その law は
+solution law の一意性により、その law は
 
 $$
 P_{X_s}
@@ -1835,6 +1853,8 @@ $$
 
 <!-- definition-example-start: def-sto11-feller-semigroup -->
 ### 直接例：Brown 運動の heat semigroup
+
+**定義の確認**
 
 Brown 運動では
 
@@ -1974,7 +1994,7 @@ Dynkin / Feynman--Kac では bounded な domain function、bounded stopping、sq
 
 ### 16.4 martingale problem の existence と uniqueness は別問題
 
-solution law が一つ存在しても well-posed とは限りません。
+solution law が一つ存在するだけでは、存在と一意性の二条件はそろいません。
 
 複数の標本路法則 が同じ formal generator を満たすとき、semigroup や Markov selection が一意に決まりません。
 
@@ -3094,7 +3114,7 @@ $$
 
 を Brown 運動の復元まで追えました。
 
-さらに well-posedness があれば、law の一意性から Markov / strong Markov structure が生まれます。
+さらに martingale problem の存在と law の一意性がそろえば、その一意性から Markov / strong Markov structure が生まれます。
 
 これで Encore IV の確率解析は、pathwise calculus から PDE・stochastic control 側へ接続できる位置まで到達しました。
 
