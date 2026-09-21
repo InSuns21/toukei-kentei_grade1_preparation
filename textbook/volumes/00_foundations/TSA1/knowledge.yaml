@@ -13,7 +13,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（狭義定常性）"]
     requires:
-      - stochastic.stochastic-process
+      - prob.random-variable
 
   - id: timeseries.second-order-stationarity
     name: 二次定常性
@@ -22,7 +22,7 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（二次定常性）"]
     requires:
-      - stochastic.stochastic-process
+      - prob.random-variable
       - functional.l2-inner-product
 
   - id: timeseries.strict-implies-second-order
