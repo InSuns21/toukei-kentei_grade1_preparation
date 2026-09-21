@@ -1348,7 +1348,7 @@ $$
 
 と置きます。二つの measure の全質量が等しいため $\mathbb R\in\mathcal D$、また $A\subset C$ で $A,C\in\mathcal D$ なら差集合について等式が保たれ、互いに素な可算和についても measure の可算加法性から等式が保たれます。従って $\mathcal D$ は、全体集合を含み、包含する二集合の差と互いに素な可算和で閉じる集合族です。
 
-[F0-00D3A の集合族拡張定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
+[Dynkinのπ–λ定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
 
 $$
 \mathcal B(\mathbb R)
