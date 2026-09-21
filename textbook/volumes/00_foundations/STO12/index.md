@@ -72,7 +72,7 @@ $$
 E\int_0^T |H_t|^2dt<\infty
 $$
 >
-> を満たすものを、$dt\otimes dP$-a.e. の一致で同一視した空間を
+> を満たすものを、$dt\otimes dP$ についてほとんど至る所（almost everywhere; a.e.）一致するものを同一視した空間を
 >
 $$
 \mathcal H_B^2([0,T])
@@ -533,13 +533,13 @@ Z_T^h-1
 $$
 <!-- proof-end -->
 
-この $Z_T^h$ を本章では **Gaussian exponential vector** と呼びます。新しい確率過程を導入するための名前ではなく、稠密性証明で使う test family の呼称です。
+以下では $Z_T^h$ を **Gaussian exponential vector** と略記します。これは新しい確率過程ではなく、稠密性証明で使う test family の記号です。
 
 ---
 
 ## 5. 一次元 Gaussian で exponential がなぜ十分なのか
 
-Brownian path 全体へ進む前に、有限次元の核心を切り出します。
+Brownian 標本路全体へ進む前に、有限次元の核心を切り出します。
 
 $G\sim N(0,v)$、$v>0$ とし
 
@@ -641,7 +641,7 @@ $$
 \end{aligned}
 $$
 
-$\nu=\nu^+-\nu^-$ を Jordan 分解します。
+$g_+(x)=\max\{g(x),0\}$、$g_-(x)=\max\{-g(x),0\}$ とし、$\nu_\pm(A)=\int_A g_\pm(x)\gamma_v(dx)$ と置きます。すると $\nu=\nu^+-\nu^-$ です。
 
 $t=0$ から
 
@@ -916,7 +916,7 @@ $$
 \sigma(B_t:0\le t\le T).
 $$
 
-usual augmentation で追加されるのは null sets とその部分集合なので、$L^1$ random variables の a.s. 同値類には影響しません。
+usual augmentation で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
 
 $Z\in L^2$ なので $Z\in L^1$ でもあります。
 
@@ -1407,7 +1407,7 @@ P(B_T-B_t>a-B_t\mid\mathcal F_t^B)\\
 \end{aligned}
 $$
 
-ただし $\Phi$ は standard normal cumulative distribution function です。
+ただし $\Phi$ は標準正規分布関数です。
 
 $$
 u(t,x)
@@ -1417,7 +1417,7 @@ u(t,x)
 \right)
 $$
 
-と置くと $u$ は $t<T$ で heat equation
+と置くと $u$ は $t<T$ で次の cancellation identity
 
 $$
 \partial_tu+\frac12\partial_{xx}u=0
@@ -1615,7 +1615,7 @@ $$
 
 $H$ を
 
-- PDE の gradient で書く
+- smooth Markov representation の gradient で書く
 - Malliavin derivative の条件付き期待値で書く
 - control / hedge ratio として解釈する
 
@@ -1637,7 +1637,7 @@ $$
 
 が現れます。
 
-この PDE 側の route は STO11 の Feynman--Kac / backward equation と接続しますが、STO12 の representation theorem 自体の証明には STO11 を使っていません。
+このように追加正則性から integrand を同定する route は、本章の存在・一意性定理とは別の層です。STO12 の representation theorem 自体には後続・並行理論を逆輸入していません。
 
 ---
 
@@ -2364,7 +2364,7 @@ $$
 \int_0^tH_sds=0.
 $$
 
-Lebesgue differentiation、または絶対連続関数の微分から
+$H\in L^1([0,T]\times\Omega)$ であり、全ての区間 $(a,b]$ について $\int_a^bH_sds=0$ です。step functions に対する積分が全て 0 になるので、simple functions の $L^1$ approximation を使うと
 
 $$
 H_s=0
@@ -2695,4 +2695,4 @@ $$
 
 が一本につながりました。
 
-次の STO13 では continuous path の世界から離れ、Poisson process・continuous-time Markov chain・Poisson random measure を導入して jump noise の側へ進みます。
+次の STO13 では continuous 標本路の世界から離れ、Poisson process・random measure を導入して jump noise の側へ進みます。
