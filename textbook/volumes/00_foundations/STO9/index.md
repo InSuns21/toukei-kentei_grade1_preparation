@@ -1399,9 +1399,15 @@ $$
 > が成り立つことをいう。
 >
 > $\tau_{\mathrm e}$ を **explosion time** という。
+>
+> また
+>
+$$
+P(\tau_{\mathrm e}=\infty)=1
+$$
+>
+> のとき、この maximal strong solution は **non-explosive** であるという。
 <!-- formal-statement-end -->
-
-$\tau_{\mathrm e}=\infty$ almost surely なら **non-explosive** といいます。
 
 <!-- definition-example-start: def-sto9-maximal-solution -->
 ### 直接例：deterministic equation も SDE の特殊例で、実際に爆発する
