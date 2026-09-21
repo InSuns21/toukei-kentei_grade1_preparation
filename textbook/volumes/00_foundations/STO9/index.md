@@ -1,4 +1,4 @@
-# STO9：確率微分方程式 — strong solution から explosion control へ
+# STO9：確率微分方程式 — 存在一意性と局所化
 
 <!-- definition-example-audit: strict -->
 
@@ -138,7 +138,7 @@ $$
 
 ---
 
-## 2. strong solution は何を固定しているのか
+## 2. 解を作るとき何を固定するのか
 
 weak solution との違いを後続章で明確にするため、本章では確率空間を固定します。
 
@@ -1354,7 +1354,7 @@ $$
 
 ---
 
-## 11. maximal solution と explosion time
+## 11. 局所解をどこまで延長できるか
 
 <a id="def-sto9-maximal-solution"></a>
 
