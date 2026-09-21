@@ -9,6 +9,14 @@ forward_references:
   - linear.orthogonality
   - linear.gram-schmidt
   - linear.orthogonal-projection
+  - linear.linear-map
+  - linear.rank-nullity-theorem
+  - linear.representation-matrix
+  - linear.similarity
+  - linear.eigenvalue
+  - linear.eigenspace
+  - linear.matrix-determinant
+  - functional.orthogonal-decomposition
 
 concepts:
   - id: linear.vector-space
