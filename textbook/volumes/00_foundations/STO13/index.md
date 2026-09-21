@@ -1892,7 +1892,7 @@ $$
 - Lévy measure
 - finite / in有限活動度
 - Lévy--Itô decomposition
-- 跳躍 semimartingale の Itô formula
+- 跳躍セミマルチンゲール の Itô formula
 
 へ進みます。
 
