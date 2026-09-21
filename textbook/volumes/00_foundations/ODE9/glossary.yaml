@@ -1,0 +1,14 @@
+chapter: "ODE9"
+terms:
+  - term: Lyapunov 関数
+    english: Lyapunov function
+    meaning: 平衡点で正定値で、軌道に沿って非増加となるスカラー関数。
+  - term: 正方向不変集合
+    english: positively invariant set
+    meaning: 集合内から出発した軌道が将来時刻で集合外へ出ない集合。
+  - term: 正の極限集合
+    english: omega-limit set
+    meaning: 時刻を無限大へ送る列に沿って軌道が近づく点全体。
+  - term: LaSalle の不変性原理
+    english: LaSalle invariance principle
+    meaning: Lyapunov 関数が減少しなくなる集合内の最大不変集合へ軌道が近づくことを述べる原理。

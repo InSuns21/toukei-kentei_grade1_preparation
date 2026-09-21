@@ -1,0 +1,33 @@
+id: "ODE9"
+title: "標準常微分方程式 IX：Lyapunov 関数・不変集合・LaSalle"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ODE8
+official_scope: []
+learning_objectives:
+  - Lyapunov 関数と軌道微分を定義し具体例で正定値性と単調性を検証できる
+  - Lyapunov の直接法から安定性・漸近安定性を証明できる
+  - Lyapunov 劣位集合が正方向不変になることを説明できる
+  - 正の極限集合を定義しコンパクト軌道での役割を説明できる
+  - LaSalle の不変性原理を証明し減衰振動子へ適用できる
+definitions:
+  - { id: ODE9-DEF-01, name: "Lyapunov 関数" }
+  - { id: ODE9-DEF-02, name: "正方向不変集合" }
+  - { id: ODE9-DEF-03, name: "正の極限集合" }
+theorems:
+  - { id: ODE9-THM-01, name: "Lyapunov の直接法" }
+  - { id: ODE9-THM-02, name: "LaSalle の不変性原理" }
+canonical_examples:
+  - "x'=-x^3"
+  - "減衰振動子"
+  - "勾配系"
+problem_patterns:
+  - ODE9-LYAPUNOV-1
+  - ODE9-INVARIANT-1
+  - ODE9-LASALLE-1
+  - ODE9-GRADIENT-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }
