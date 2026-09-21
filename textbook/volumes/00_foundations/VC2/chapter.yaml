@@ -26,7 +26,7 @@ definitions:
 theorems:
   - { id: VC2-THM-01, name: 線積分の基本定理 }
   - { id: VC2-THM-02, name: 保存場・経路独立・閉曲線積分の同値 }
-  - { id: VC2-THM-03, name: 星型領域上の初等Poincare の補題 }
+  - { id: VC2-THM-03, name: 星型領域上の初等 Poincaré の補題 }
 canonical_examples:
   - 単位円の弧長と循環
   - 勾配場の端点差
