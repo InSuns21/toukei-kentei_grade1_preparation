@@ -916,7 +916,7 @@ vector Brownian covariation を stochastic integrals へ移すため、次の補
 
 <!-- formal-statement-start -->
 > **補題（vector Brownian stochastic integrals の covariation）**  
-> \(B=(B^1,\ldots,B^m)\) を \(m\) 次元 standard Brownian motion とし、predictable process
+> $B=(B^1,\ldots,B^m)$ を $m$ 次元 standard Brownian motion とし、predictable process
 >
 > $
 > H=(H^1,\ldots,H^m),
@@ -958,71 +958,71 @@ vector Brownian covariation を stochastic integrals へ移すため、次の補
 
 ### 証明の見取り図
 
-simple predictable \(H,K\) なら、各係数が一定の区間では
+simple predictable $H,K$ なら、各係数が一定の区間では
 
-$
+$$
 I=\sum_\alpha H^\alpha B^\alpha,
 \qquad
 J=\sum_\beta K^\beta B^\beta
-$
+$$
 
 の増分になり、bilinearity と
 
-$
+$$
 [B^\alpha,B^\beta]_t
 =
 \delta_{\alpha\beta}t
-$
+$$
 
 から同じ Brownian 成分だけが残ります。
 
-一般の場合は STO6 の \(L^2\) approximation を使います。近似誤差の bracket は Itô isometry / bracket identity により 0 へ行くので、simple case の covariation identity を極限へ移せます。
+一般の場合は STO6 の $L^2$ approximation を使います。近似誤差の bracket は Itô isometry / bracket identity により 0 へ行くので、simple case の covariation identity を極限へ移せます。
 
 <!-- proof-start -->
 ### 証明
 
-まず停止により、固定 \(T\) 上で
+まず停止により、固定 $T$ 上で
 
-$
+$$
 \int_0^T|H_s|^2ds,
 \qquad
 \int_0^T|K_s|^2ds
-$
+$$
 
 が bounded になる場合へ帰着します。
 
 #### Step 1：simple predictable integrands
 
-\(H,K\) が共通の deterministic partition
+$H,K$ が共通の deterministic partition
 
-$
+$$
 0=t_0<t_1<\cdots<t_n=T
-$
+$$
 
 上で simple predictable とします。
 
-区間 \((t_{r-1},t_r]\) 上では係数 \(H_r,K_r\) が \(\mathcal F_{t_{r-1}}\)-measurable で一定です。したがってその区間内で
+区間 $(t_{r-1},t_r]$ 上では係数 $H_r,K_r$ が $\mathcal F_{t_{r-1}}$-measurable で一定です。したがってその区間内で
 
-$
+$$
 I_t-I_{t_{r-1}}
 =
 \sum_\alpha
 H_r^\alpha
 (B_t^\alpha-B_{t_{r-1}}^\alpha),
-$
+$$
 
-$
+$$
 J_t-J_{t_{r-1}}
 =
 \sum_\beta
 K_r^\beta
 (B_t^\beta-B_{t_{r-1}}^\beta).
-$
+$$
 
 covariation の bilinearity と
 [vector Brownian motion の covariation](#prop-sto7-vector-brownian-covariation) から
 
-$
+$$
 \begin{aligned}
 d[I,J]_t
 &=
@@ -1035,110 +1035,113 @@ H_r^\alpha K_r^\alpha\,dt\\
 &=
 H_r^\top K_r\,dt.
 \end{aligned}
-$
+$$
 
 各区間をつなげると
 
-$
+$$
 [I,J]_t
 =
 \int_0^tH_s^\top K_s\,ds.
-$
+$$
 
 #### Step 2：一般 predictable integrands へ近似する
 
-STO6 の simple predictable density と localization により、simple predictable \(H^{(n)},K^{(n)}\) を
+STO6 の simple predictable density と localization により、simple predictable $H^{(n)},K^{(n)}$ を
 
-$
+$$
 E\int_0^T|H_s^{(n)}-H_s|^2ds\to0,
-$
+$$
 
-$
+$$
 E\int_0^T|K_s^{(n)}-K_s|^2ds\to0
-$
+$$
 
 となるよう取れます。
 
-対応する積分を \(I^{(n)},J^{(n)}\) とします。STO6 の bracket identity から
+対応する積分を $I^{(n)},J^{(n)}$ とします。STO6 の bracket identity から
 
-$
+$$
 [I^{(n)}-I]_T
 =
 \int_0^T
 |H_s^{(n)}-H_s|^2ds
 \to0
-$
+$$
 
-in \(L^1\)、同様に
-
-$
-[J^{(n)}-J]_T\to0
-$
-
-in \(L^1\) です。
-
-continuous local martingales \(U,V\) について、固定時刻 \(t\) の bracket matrix
+in $L^1$ です。$K^{(n)}\to K$ にも同じ bracket identity を適用すると
 
 $
+[J^{(n)}-J]_T
+=
+\int_0^T|K_s^{(n)}-K_s|^2ds
+\to0
+$
+
+in $L^1$ です。
+
+continuous local martingales $U,V$ について、固定時刻 $t$ の bracket matrix
+
+$$
 \begin{pmatrix}
 [U]_t &[U,V]_t\\
 [U,V]_t &[V]_t
 \end{pmatrix}
-$
+$$
 
-は positive semidefinite です。実際任意の \(a,b\in\mathbb R\) に対し
+は positive semidefinite です。実際任意の $a,b\in\mathbb R$ に対し
 
-$
+$$
 [aU+bV]_t
 =
 a^2[U]_t+2ab[U,V]_t+b^2[V]_t
 \ge0
-$
+$$
 
 だからです。従って determinant は非負で
 
-$
+$$
 |[U,V]_t|
 \le
 [U]_t^{1/2}[V]_t^{1/2}.
-$
+$$
 
-これを \(U=I^{(n)}-I\), \(V=J^{(n)}\) へ使い、必要なら \([J^{(n)}]_T\) を stopping で bounded にしてから外すと
+これを $U=I^{(n)}-I$, $V=J^{(n)}$ へ使い、必要なら $[J^{(n)}]_T$ を stopping で bounded にしてから外すと
 
-$
+$$
 [I^{(n)}-I,J^{(n)}]_t\to0
-$
+$$
 
 in probability です。
 
-同様に
+今度は $U=I$, $V=J^{(n)}-J$ として同じ bracket matrix の評価を使うと
 
 $
 [I,J^{(n)}-J]_t\to0
 $
 
-in probability なので
+in probability です。したがって
 
-$
+$$
 [I^{(n)},J^{(n)}]_t
 \to
 [I,J]_t
-$
+$$
 
 in probability です。
 
 一方 simple case から
 
-$
+$$
 [I^{(n)},J^{(n)}]_t
 =
 \int_0^t
 (H_s^{(n)})^\top K_s^{(n)}\,ds.
-$
+$$
 
 Cauchy--Schwarz により
 
-$
+$$
 \begin{aligned}
 &\int_0^t
 \left|
@@ -1161,38 +1164,38 @@ H_s^\top K_s
 \int_0^t|K_s^{(n)}-K_s|^2ds
 \right)^{1/2},
 \end{aligned}
-$
+$$
 
-右辺は localization 後 \(L^1\) で 0 へ行きます。したがって
+右辺は localization 後 $L^1$ で 0 へ行きます。したがって
 
-$
+$$
 \int_0^t
 (H_s^{(n)})^\top K_s^{(n)}\,ds
 \to
 \int_0^tH_s^\top K_s\,ds
-$
+$$
 
 in probability です。
 
-両極限を比較して、各 rational \(t\) で
+両極限を比較して、各 rational $t$ で
 
-$
+$$
 [I,J]_t
 =
 \int_0^tH_s^\top K_s\,ds
-$
+$$
 
-almost surely を得ます。両辺は continuous なので、一つの probability-one event 上で全 \(t\ge0\) に拡張できます。最後に localization を外せば主張が従います。
+almost surely を得ます。両辺は continuous なので、一つの probability-one event 上で全 $t\ge0$ に拡張できます。最後に localization を外せば主張が従います。
 <!-- proof-end -->
 
-この補題を \(X\) の martingale part の各成分へ適用すると
+この補題を $X$ の martingale part の各成分へ適用すると
 
-$
+$$
 d[X^i,X^j]_t
 =
 \sum_{\alpha=1}^m
 \sigma_t^{i\alpha}\sigma_t^{j\alpha}\,dt.
-$
+$$
 
 matrix
 
@@ -2528,15 +2531,21 @@ M_t
 2\int_0^tB_s^\top dB_s.
 $$
 
-各有限 $T$ について
+各固定 $s$ で
 
-$$
-E\int_0^T|B_s|^2ds
+$
+E|B_s|^2=d\,s
+$
+
+なので、各有限 $T$ について
+
+$
+E\int_0^T|B_s|^2\,ds
 =
-\int_0^Tds\,ds
+d\int_0^T s\,ds
 =
 \frac d2T^2<\infty.
-$$
+$
 
 従って右辺は square-integrable martingale です。
 
