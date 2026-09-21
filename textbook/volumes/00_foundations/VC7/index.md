@@ -561,27 +561,73 @@ $$
 となり、定義 $a(b\cdot v)$ と一致します。
 <!-- definition-example-end -->
 
-添字を 1 組つぶして和を取る操作を **縮約** と呼びます。
+<a id="def-vc7-contraction"></a>
 
-例えば二階テンソルの跡は
+<!-- formal-statement-start -->
+> **定義（縮約・跡・二重縮約）**  
+> 同じ項に現れる一組の添字について総和し、その添字を消去する操作を **縮約** と呼ぶ。
+>
+> 二階テンソル $T$ の一重縮約
+>
+> $$
+> \operatorname{tr}T
+> :=
+> T_{ii}
+> $$
+>
+> を **跡** と呼ぶ。
+>
+> 二つの二階テンソル $A,B$ の全成分について縮約した
+>
+> $$
+> A:B
+> :=
+> A_{ij}B_{ij}
+> $$
+>
+> を **二重縮約** と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc7-contraction -->
+**定義の確認**
+
+$$
+T=
+\begin{pmatrix}
+1&2&0\\
+0&-1&3\\
+4&0&2
+\end{pmatrix}
+$$
+
+なら
 
 $$
 \operatorname{tr}T
 =
-T_{ii}.
+T_{11}+T_{22}+T_{33}
+=
+1-1+2
+=
+2.
 $$
 
-二つの二階テンソルの二重縮約を
+単位テンソルを $\delta=(\delta_{ij})$ と書けば
 
 $$
-A:B
-:=
-A_{ij}B_{ij}
+\delta:T
+=
+\delta_{ij}T_{ij}
+=
+T_{ii}
+=
+2.
 $$
 
-と書きます。
+Kronecker のデルタとの二重縮約が跡を取り出しています。
+<!-- definition-example-end -->
 
-これは行列表記では Frobenius 内積
+行列表記では二重縮約は Frobenius 内積
 
 $$
 A:B
@@ -589,7 +635,7 @@ A:B
 \operatorname{tr}(A^TB)
 $$
 
-です。
+に一致します。
 
 ---
 
@@ -778,7 +824,68 @@ $$
 (\det Q)\,Q(a\times b)
 $$
 
-と変換します。$\det Q=1$ の回転では普通のベクトルと同じですが、$\det Q=-1$ の鏡映では余分な符号が出ます。このような量を **軸性ベクトル** と呼びます。
+と変換します。
+
+<a id="def-vc7-axial-vector"></a>
+
+<!-- formal-statement-start -->
+> **定義（軸性ベクトル）**  
+> 直交変換 $Q\in O(3)$ の下で成分が
+>
+> $$
+> w'
+> =
+> (\det Q)Qw
+> $$
+>
+> と変換する三成分量 $w$ を **軸性ベクトル** と呼ぶ。これに対し通常のベクトルは $v'=Qv$ と変換する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc7-axial-vector -->
+**定義の確認**
+
+$x$ 軸だけを反転する鏡映
+
+$$
+Q=\operatorname{diag}(-1,1,1),
+\qquad
+\det Q=-1
+$$
+
+を考えます。$a=e_2,\ b=e_3$ なら
+
+$$
+a\times b=e_1.
+$$
+
+鏡映後も
+
+$$
+(Qa)\times(Qb)
+=
+e_2\times e_3
+=
+e_1.
+$$
+
+一方、通常のベクトルとして変換すれば
+
+$$
+Qe_1=-e_1
+$$
+
+ですが、軸性ベクトルの変換則では
+
+$$
+(\det Q)Qe_1
+=
+(-1)(-e_1)
+=
+e_1.
+$$
+
+外積に鏡映時の追加符号が必要なことを直接確認できます。
+<!-- definition-example-end -->
 
 ---
 
