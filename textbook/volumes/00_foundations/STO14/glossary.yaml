@@ -1,0 +1,29 @@
+chapter: "STO14"
+terms:
+  - term: 複合 Poisson 過程
+    english: compound Poisson process
+    meaning: Poisson 過程で跳躍回数を数え、各跳躍に独立同分布の跳躍幅を付けて得る有限活動度の Lévy 過程。
+  - term: Lévy 過程
+    english: Lévy process
+    meaning: 0 から出発し、独立定常増分と確率連続性を持つ過程。標準的には càdlàg 修正版を用いる。
+  - term: 無限分解可能分布
+    english: infinitely divisible distribution
+    meaning: 任意の正整数 n に対して同一分布の n 個の独立確率変数の和として表せる確率分布。
+  - term: Lévy 指数
+    english: Lévy exponent
+    meaning: Lévy 過程の特性関数を E[e^{iuX_t}]=exp(t psi(u)) と書いたときの指数 psi。
+  - term: Lévy 測度
+    english: Lévy measure
+    meaning: 原点以外の跳躍幅を記述する測度で、原点に質量を持たず integral (1 wedge z^2) nu(dz) < infinity を満たす。
+  - term: 有限活動度
+    english: finite activity
+    meaning: 有限時間区間内の跳躍回数がほとんど確実に有限になる場合。Lévy 過程では nu(R minus {0}) < infinity に対応する。
+  - term: 無限活動度
+    english: infinite activity
+    meaning: 任意の有限時間区間でも小跳躍が無限個現れ得る場合。Lévy 測度の全質量は無限でも二乗重み付き積分は有限になり得る。
+  - term: Lévy--Itô 分解
+    english: Lévy--Itô decomposition
+    meaning: Lévy 過程をドリフト、Brown 運動、大跳躍の Poisson 積分、補償された小跳躍積分へ分解する表現。
+  - term: 跳躍 Itô 公式
+    english: Itô formula with jumps
+    meaning: 連続 Itô 公式に各跳躍での有限差分補正を加えた連鎖則。小跳躍では一次項を補償して可積分化する。

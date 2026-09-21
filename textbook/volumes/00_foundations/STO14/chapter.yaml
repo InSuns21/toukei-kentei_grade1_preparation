@@ -1,0 +1,61 @@
+id: "STO14"
+title: "Encore IV 確率解析 XIV：Lévy 過程・跳躍型確率解析"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO13
+  - STO7
+  - STO2
+  - F0-00D2E
+  - F0-00P6
+official_scope: []
+learning_objectives:
+  - 複合 Poisson 過程を Poisson 計数と独立同分布の跳躍幅から構成し、その特性関数を導ける
+  - Lévy 過程を独立定常増分と確率連続性で定義し、各時刻の分布が無限分解可能であることを証明できる
+  - Lévy 指数の半群構造を特性関数から導き、Lévy--Khintchine 公式の各項の意味を説明できる
+  - Lévy 測度の積分条件から大跳躍が有限活動度になることと、小跳躍が無限活動度になり得ることを判定できる
+  - 補償 Poisson ランダム測度に対する予測可能被積分過程の L2 確率積分を単純過程から完備化で構成できる
+  - 小跳躍の補償積分を切断極限として構成し、L2 等長性と最大不等式から収束を証明できる
+  - Lévy--Itô 分解の構成側を Brown 運動・大跳躍・補償小跳躍へ分けて再構成できる
+  - 跳躍を含む Itô 公式を有限活動度近似から導き、連続部分にはない跳躍補正項の役割を説明できる
+  - Lévy 過程の生成作用素を Lévy--Khintchine triplet から導き、生成作用素マルチンゲールへ接続できる
+  - 拡散・跳躍 SDE で左極限 X_{t-} を係数に使う理由を予測可能性から説明できる
+definitions:
+  - { id: STO14-DEF-01, name: "複合 Poisson 過程" }
+  - { id: STO14-DEF-02, name: "Lévy 過程" }
+  - { id: STO14-DEF-03, name: "無限分解可能分布" }
+  - { id: STO14-DEF-04, name: "Lévy 測度" }
+  - { id: STO14-DEF-05, name: "有限活動度と無限活動度" }
+  - { id: STO14-DEF-06, name: "単純予測可能 Poisson 被積分過程" }
+  - { id: STO14-DEF-07, name: "補償 Poisson ランダム測度に関する L2 確率積分" }
+theorems:
+  - { id: STO14-THM-01, name: "複合 Poisson 過程の Lévy 性と特性関数" }
+  - { id: STO14-PROP-01, name: "Lévy 過程の周辺分布は無限分解可能" }
+  - { id: STO14-PROP-02, name: "Lévy 過程の特性関数半群と Lévy 指数" }
+  - { id: STO14-THM-02, name: "Lévy--Khintchine の公式" }
+  - { id: STO14-THM-03, name: "補償 Poisson ランダム測度の L2 等長性と拡張" }
+  - { id: STO14-THM-04, name: "補償小跳躍積分の閾値極限" }
+  - { id: STO14-THM-05, name: "Lévy--Itô 分解" }
+  - { id: STO14-THM-06, name: "Lévy 過程に対する跳躍 Itô 公式" }
+  - { id: STO14-COR-01, name: "Lévy 過程の生成作用素マルチンゲール" }
+canonical_examples:
+  - "固定跳躍幅を持つ複合 Poisson 過程"
+  - "Brown 運動にドリフトを加えた Lévy 過程"
+  - "alpha-stable 型 Lévy 測度の有限・無限活動度判定"
+  - "予測可能なランダム係数を持つ補償 Poisson 積分"
+  - "小跳躍切断 epsilon からの L2 極限"
+  - "複合 Poisson 過程に対する跳躍 Itô 公式"
+  - "Lévy 生成作用素の指数関数に対する作用"
+problem_patterns:
+  - STO14-COMPOUND-POISSON-CF-1
+  - STO14-INFINITE-DIVISIBILITY-1
+  - STO14-LEVY-MEASURE-ACTIVITY-1
+  - STO14-COMPENSATED-PRM-L2-1
+  - STO14-SMALL-JUMP-L2-LIMIT-1
+  - STO14-LEVY-KHINTCHINE-1
+  - STO14-JUMP-ITO-1
+  - STO14-LEVY-GENERATOR-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13.0, exercises: 8.0, review: 2.5 }

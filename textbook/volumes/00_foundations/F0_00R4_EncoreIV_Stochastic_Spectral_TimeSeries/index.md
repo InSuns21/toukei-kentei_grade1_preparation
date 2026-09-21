@@ -60,7 +60,7 @@ TSA1--TSA6
 14. [STO11：マルコフ過程・半群・生成作用素・マルチンゲール問題](../STO11/index.md) — 実装済み
 15. [STO12：ブラウン運動のマルチンゲール表現](../STO12/index.md) — 実装済み
 16. [STO13：ポアソン過程・連続時間マルコフ連鎖・ランダム測度](../STO13/index.md) — 実装済み
-17. STO14：Lévy process・jump stochastic calculus
+17. [STO14：Lévy 過程・跳躍型確率解析](../STO14/index.md) — 実装済み
 
 ---
 
@@ -178,4 +178,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [STO12「ブラウン運動のマルチンゲール表現」](../STO12/index.md#thm-sto12-martingale-representation) も実装済みです。ブラウン natural フィルトレーション上で terminal 確率積分の closed range を Itô isometry から示し、deterministic exponential マルチンゲールの Gaussian totalityを一次元特性関数の一意性・有限独立 Gaussian product・dyadic information・Lévy 上昇定理から証明しました。その稠密性を closed range へ回収して任意の $L^2(\mathcal F_T^B)$ terminal variable の一意な確率積分 representation を得て、conditional expectation process と predictable representation property まで閉じています。独立ブラウン雑音でフィルトレーションを拡大すると PRP が壊れる反例と、Ornstein--Uhlenbeck terminal payoff の explicit integrand まで演習で確認します。\n\n[STO13「ポアソン過程・連続時間マルコフ連鎖・ランダム測度」](../STO13/index.md#def-sto13-poisson-process) も実装済みです。ポアソン過程の指数待ち時間と補償マルチンゲール、有限状態 Q-行列からの跳躍連鎖・滞在時間構成、Kolmogorov 後退・前進方程式、生成作用素マルチンゲールを章内で閉じました。さらにポアソンランダム測度と補償ランダム測度を定義し、決定論的単関数に対する L2 等長性まで証明しています。可算状態では q_n=n^2 の純粋出生過程が有限時間で爆発する反例を置き、有限状態仮定が非爆発性を保証する機構も明示しました。複合ポアソン過程・Lévy 理論・一般の予測可能被積分関数に対する跳躍型確率積分は STO14 の正本として先取りしていません。
 
-現在地は **Phase 4：STO13 完了。次は STO14「Lévy process・jump stochastic calculus」** です。
+[STO14「Lévy 過程・跳躍型確率解析」](../STO14/index.md#def-sto14-levy-process) も実装済みです。複合 Poisson 過程から Lévy 過程・無限分解可能分布・Lévy 指数・Lévy 測度へ進み、補償 Poisson ランダム測度に対するランダムな予測可能被積分過程の $L^2$ 積分を単純過程から完備化で構成しました。小跳躍は閾値付き近似と補償から sup ノルムの二乗平均極限として作り、Lévy--Itô 分解の構成方向と跳躍 Itô 公式、Lévy 生成作用素まで閉じています。一般 Lévy--Khintchine 分類の逆向きだけは、無限分解可能分布の一般構造論を要するため意図的な技術的入力として境界を明示しています。
+
+現在地は **Phase 4：STO13 → STO14 完了。確率解析主線 STO1--STO14 が完了し、次は Phase 5：TSA1「定常過程・Hilbert 予測」** です。

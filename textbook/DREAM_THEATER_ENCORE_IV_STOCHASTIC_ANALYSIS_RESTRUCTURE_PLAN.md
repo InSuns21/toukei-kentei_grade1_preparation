@@ -652,4 +652,12 @@ ARMA / ergodicity / Kalman
 - 有限状態 CTMC は Q-行列から跳躍連鎖と指数滞在時間で構成し、最大跳躍率 q_* が 0 の全吸収状態の場合を分離した上で、q_*>0 では exponential 変数の部分和が a.s. 発散することを直接評価して非爆発性を証明した。可算状態では q_n=n^2 の純粋出生過程が a.s. 有限時間で爆発する反例を置き、有限状態仮定が使われる場所を明示した。
 - ポアソンランダム測度では有限強度集合上の Poisson 計数と互いに素な集合の独立性から補償ランダム測度を構成し、決定論的単関数に対する平均0・L2 等長性・マルチンゲール性を証明した。複合ポアソン過程の特性関数、Lévy exponent、一般の予測可能被積分関数に対する確率積分は STO14 の canonical content として先取りしない。
 - STO13 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
-- 現在地：Phase 4 は STO13 完了。次の実装対象は STO14「jump stochastic calculus・Lévy process」。
+- Phase 4：STO14「Lévy 過程・跳躍型確率解析」を実装。複合 Poisson 過程 / Lévy 過程 / 無限分解可能分布 / Lévy 指数 / Lévy 測度 / 有限・無限活動度 / Lévy--Khintchine の公式 / 補償 Poisson ランダム測度の予測可能 $L^2$ 積分 / 補償小跳躍 / Lévy--Itô 分解 / 跳躍 Itô 公式 / Lévy 生成作用素を、主要証明・直接例・A4/B3/C1 演習・全問詳細解答まで閉じた。
+- STO14 の direct prerequisite は STO13・STO7・STO2・F0-00D2E・F0-00P6 とした。STO13 の Poisson random measure / 補償 measure、STO7 の Itô calculus、STO2 の Doob 最大不等式、D2E の $L^2$ 完備性、P6 の特性関数を実際の構成・証明に使う。STO11 の一般生成作用素は最後の対応関係を示す補助参照に留め、主線の prerequisite へは追加しない。
+- 補償 Poisson ランダム測度の積分は、未来増分と独立な自然フィルトレーション上の単純予測可能被積分過程から始め、条件付き二乗平均で等長性を証明した。予測可能 $\sigma$-field の生成矩形と $\sigma$-有限性から単純過程の $L^2$ 稠密性を確認し、完備化で一般の二乗可積分予測可能被積分過程へ拡張した。
+- 小跳躍は $\varepsilon<|z|\le1$ の有限活動度切断から始め、Lévy 測度条件 $\int_{|z|\le1}z^2\nu(dz)<\infty$ と càdlàg Doob $L^2$ 最大評価を使って、$[0,T]$ 上 sup ノルムの二乗平均で補償積分へ収束させた。これにより無限活動度でも小跳躍を一個ずつ絶対収束させず、補償 + $L^2$ 極限として構成した。
+- Lévy--Khintchine は triplet から Lévy 過程を作る構成方向を Lévy--Itô 分解として章内で閉じた。一方、任意の Lévy 過程から一意な triplet を抽出する一般分類方向は、微小時間分布の構造論を要する独立した大規模理論のため、理由と境界を明示した意図的黒箱とした。
+- 跳躍 Itô 公式は $\varepsilon$-切断した有限活動度過程へ連続 Itô 公式を区間ごとに適用し、跳躍有限差分を足した後、補償 Poisson 等長性と Taylor 二次剰余で $\varepsilon\downarrow0$ へ送る核心証明を閉じた。生成作用素の Lévy--Khintchine 形と Fourier 記号もそこから導いた。
+- STO14 は本文・主要証明・直接例・A4/B3/C1 演習・全問詳細解答・chapter / knowledge / glossary まで実装済み。
+- Phase 4「jump process」STO13--STO14 は完了。
+- 現在地：確率解析主線 STO1--STO14 は完了。次の実装対象は Phase 5：TSA1「定常過程・Hilbert 予測」。
