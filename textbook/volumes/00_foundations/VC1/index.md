@@ -469,6 +469,17 @@ $$
 
 ## 7. 積の微分則
 
+vector field $F=(F_1,F_2,F_3)$ と $G=(G_1,G_2,G_3)$ に対し、
+
+$$
+((G\cdot\nabla)F)_i
+:=
+\sum_{j=1}^3
+G_j\frac{\partial F_i}{\partial x_j}
+$$
+
+と書きます。これは「$G$ 方向へ $F$ の各成分を微分した vector」です。
+
 <a id="prop-vc1-product-rules"></a>
 
 <!-- formal-statement-start -->
@@ -496,13 +507,25 @@ $$
 =
 G\cdot(\nabla\times F)
 -
-F\cdot(\nabla\times G)
+F\cdot(\nabla\times G),
+$$
+>
+$$
+\nabla\times(F\times G)
+=
+F\,\operatorname{div}G
+-
+G\,\operatorname{div}F
++
+(G\cdot\nabla)F
+-
+(F\cdot\nabla)G
 $$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
 
-最初の式は PDE6 の Green 第一恒等式の出発点になります。
+最初の式は PDE6 の Green 第一恒等式の出発点になります。最後の式は流体力学で渦度方程式を展開するときにも現れます。
 
 <!-- proof-start -->
 ### 証明
@@ -519,45 +542,129 @@ $$
 \end{aligned}
 $$
 
-curl の第一成分は
+次に
 
 $$
-\partial_y(fR)-\partial_z(fQ)
+\nabla\times(fF)
 =
-f_yR-f_zQ+f(R_y-Q_z),
+\left(
+\partial_y(fR)-\partial_z(fQ),\,
+\partial_z(fP)-\partial_x(fR),\,
+\partial_x(fQ)-\partial_y(fP)
+\right).
 $$
 
-これは $\nabla f\times F+f\nabla\times F$ の第一成分です。他の成分も同じ積の微分則で一致します。
+積の微分を各成分へ使うと
 
-最後に
+$$
+\begin{aligned}
+\nabla\times(fF)
+&=
+(f_yR-f_zQ,\,
+ f_zP-f_xR,\,
+ f_xQ-f_yP)\\
+&\quad
++
+f(R_y-Q_z,\,
+  P_z-R_x,\,
+  Q_x-P_y)\\
+&=
+\nabla f\times F
++
+f(\nabla\times F).
+\end{aligned}
+$$
+
+続いて $G=(A,B,C)$ と置きます。
 
 $$
 F\times G
 =
-(QG_3-RG_2,\,
-RG_1-PG_3,\,
-PG_2-QG_1)
+(QC-RB,\,
+ RA-PC,\,
+ PB-QA).
 $$
 
-を divergence に代入します。例えば $P$ の微分を含む項は
+したがって
 
 $$
--P_yG_3+P_zG_2
-=
--G\cdot(0,-P_z,P_y)
-$$
-
-の対応成分になり、同様に全項を集めると
-
-$$
+\begin{aligned}
 \operatorname{div}(F\times G)
-=
+&=
+\partial_x(QC-RB)
++\partial_y(RA-PC)
++\partial_z(PB-QA)\\
+&=
+A(R_y-Q_z)
++B(P_z-R_x)
++C(Q_x-P_y)\\
+&\quad
++P(B_z-C_y)
++Q(C_x-A_z)
++R(A_y-B_x)\\
+&=
 G\cdot(\nabla\times F)
 -
-F\cdot(\nabla\times G)
+F\cdot(\nabla\times G).
+\end{aligned}
 $$
 
-を得ます。
+最後に $H=F\times G$ と置きます。curl の第一成分は
+
+$$
+\begin{aligned}
+(\nabla\times H)_1
+&=
+\partial_y(PB-QA)
+-
+\partial_z(RA-PC)\\
+&=
+P_yB+PB_y-Q_yA-QA_y\\
+&\quad
+-R_zA-RA_z+P_zC+PC_z.
+\end{aligned}
+$$
+
+一方、主張する右辺の第一成分は
+
+$$
+\begin{aligned}
+&
+P(A_x+B_y+C_z)
+-A(P_x+Q_y+R_z)\\
+&\quad
++(AP_x+BP_y+CP_z)
+-(PA_x+QA_y+RA_z)\\
+&=
+P_yB+PB_y-Q_yA-QA_y\\
+&\quad
+-R_zA-RA_z+P_zC+PC_z.
+\end{aligned}
+$$
+
+よって第一成分は一致します。第二・第三成分は、上の式で
+
+$$
+(x,y,z),\qquad
+(P,Q,R),\qquad
+(A,B,C)
+$$
+
+を同時に cyclic permutation した同一の展開です。従って三成分すべてで
+
+$$
+\nabla\times(F\times G)
+=
+F\,\operatorname{div}G
+-
+G\,\operatorname{div}F
++
+(G\cdot\nabla)F
+-
+(F\cdot\nabla)G
+$$
+
+が成立します。
 <!-- proof-end -->
 
 ---
