@@ -84,7 +84,7 @@ concepts:
   - id: stochastic.dynkin-formula
     name: Dynkin formula
     kind: theorem
-    aliases: ["Dynkin formula", "Dynkin's formula"]
+    aliases: ["Dynkin formula", "Dynkin's formula", "Dynkin 公式"]
     introduction: formal
     introduction_aliases: ["定理（Dynkin 公式）"]
     requires:
