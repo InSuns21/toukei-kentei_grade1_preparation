@@ -68,7 +68,7 @@ concepts:
     name: 保存場・potential
     kind: definition
     aliases: [保存場, conservative field, scalar potential, potential]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（保存場・potential）"]
     requires:
       - vector-calculus.gradient
@@ -76,8 +76,8 @@ concepts:
   - id: vector-calculus.path-independence
     name: 経路独立
     kind: definition
-    aliases: [経路独立, path independence]
-    introduction: formal
+    aliases: [経路独立, ベクトル線積分の経路独立性, vector line integral path independence]
+    introduction: inline
     introduction_aliases: ["定義（経路独立）"]
     requires:
       - vector-calculus.vector-line-integral
@@ -94,9 +94,9 @@ concepts:
       - vector-calculus.path-independence
 
   - id: vector-calculus.star-shaped-domain
-    name: star-shaped domain
+    name: ベクトル解析の star-shaped domain
     kind: definition
-    aliases: [star-shaped domain, 星型領域]
+    aliases: [vector-calculus star-shaped domain, ベクトル解析の星型領域]
     introduction: formal
     introduction_aliases: ["定義（star-shaped domain）"]
     requires: []
