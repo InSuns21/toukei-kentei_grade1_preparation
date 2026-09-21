@@ -79,7 +79,7 @@ $$
 
 ---
 
-## 2. 接平面と法線
+## 2. 二つの接方向から垂直方向を作る
 
 曲面上の点
 
@@ -352,7 +352,7 @@ $$
 あとは RA7 の変数変換公式を適用すれば、面積積分の値は一致します。
 <!-- proof-end -->
 
-## 6. scalar surface integral
+## 6. scalar field を曲面上で積分する
 
 <a id="def-vc3-scalar-surface-integral"></a>
 
@@ -396,7 +396,7 @@ $f=1$ なら曲面積そのものです。
 
 ---
 
-## 7. 向き付き面素と flux
+## 7. 向きを入れて曲面通過量を測る
 
 向きを選ぶと絶対値を外して vector-valued area element を使えます。
 
