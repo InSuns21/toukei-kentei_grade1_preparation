@@ -25,7 +25,7 @@ concepts:
     kind: proposition
     aliases: ["Brownian motion is a martingale", "Brownian martingale"]
     introduction: formal
-    introduction_aliases: ["命題（ブラウン運動は continuous マルチンゲール）"]
+    introduction_aliases: ["命題（ブラウン運動は連続マルチンゲール）"]
     requires:
       - stochastic.continuous-local-martingale
       - stochastic.brownian-motion
@@ -36,7 +36,7 @@ concepts:
     kind: theorem
     aliases: ["continuous bounded optional sampling", "bounded stopping theorem"]
     introduction: formal
-    introduction_aliases: ["定理（有界停止操作による continuous マルチンゲールの停止）"]
+    introduction_aliases: ["定理（有界停止時刻による連続マルチンゲールの停止）"]
     requires:
       - stochastic.continuous-local-martingale
       - stochastic.bounded-optional-sampling
@@ -56,7 +56,7 @@ concepts:
     kind: definition
     aliases: ["finite variation process", "continuous finite variation", "total variation process"]
     introduction: formal
-    introduction_aliases: ["定義（continuous finite-variation 過程）"]
+    introduction_aliases: ["定義（連続有限変動過程）"]
     requires:
       - stochastic.adapted-process
 
@@ -74,7 +74,7 @@ concepts:
     kind: proposition
     aliases: ["finite variation has zero quadratic variation"]
     introduction: formal
-    introduction_aliases: ["命題（continuous finite-variation 過程の二次変分は 0）"]
+    introduction_aliases: ["命題（連続有限変動過程の二次変分は 0）"]
     requires:
       - stochastic.continuous-finite-variation
       - stochastic.quadratic-variation
@@ -94,7 +94,7 @@ concepts:
     kind: theorem
     aliases: ["quadratic variation theorem", "quadratic variation of continuous local martingales"]
     introduction: formal
-    introduction_aliases: ["定理（連続局所マルチンゲールの二次変分 theorem）"]
+    introduction_aliases: ["定理（連続局所マルチンゲールの二次変分定理）"]
     requires:
       - stochastic.continuous-local-martingale
       - stochastic.quadratic-variation
