@@ -910,14 +910,289 @@ $$
 従って定義を満たします。
 <!-- definition-example-end -->
 
-vector Brownian covariation から
+vector Brownian covariation を stochastic integrals へ移すため、次の補題を先に閉じます。
 
-$$
+<a id="lem-sto7-vector-brownian-integral-covariation"></a>
+
+<!-- formal-statement-start -->
+> **補題（vector Brownian stochastic integrals の covariation）**  
+> \(B=(B^1,\ldots,B^m)\) を \(m\) 次元 standard Brownian motion とし、predictable process
+>
+> $
+> H=(H^1,\ldots,H^m),
+> \qquad
+> K=(K^1,\ldots,K^m)
+> $
+>
+> が各有限時間区間で
+>
+> $
+> \int_0^t|H_s|^2ds<\infty,
+> \qquad
+> \int_0^t|K_s|^2ds<\infty
+> $
+>
+> almost surely を満たすとする。
+>
+> $
+> I_t=\sum_{\alpha=1}^m\int_0^tH_s^\alpha\,dB_s^\alpha,
+> \qquad
+> J_t=\sum_{\alpha=1}^m\int_0^tK_s^\alpha\,dB_s^\alpha
+> $
+>
+> と置くと
+>
+> $
+> \boxed{
+> [I,J]_t
+> =
+> \int_0^t
+> H_s^\top K_s\,ds
+> =
+> \sum_{\alpha=1}^m
+> \int_0^t
+> H_s^\alpha K_s^\alpha\,ds.
+> }
+> $
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+simple predictable \(H,K\) なら、各係数が一定の区間では
+
+$
+I=\sum_\alpha H^\alpha B^\alpha,
+\qquad
+J=\sum_\beta K^\beta B^\beta
+$
+
+の増分になり、bilinearity と
+
+$
+[B^\alpha,B^\beta]_t
+=
+\delta_{\alpha\beta}t
+$
+
+から同じ Brownian 成分だけが残ります。
+
+一般の場合は STO6 の \(L^2\) approximation を使います。近似誤差の bracket は Itô isometry / bracket identity により 0 へ行くので、simple case の covariation identity を極限へ移せます。
+
+<!-- proof-start -->
+### 証明
+
+まず停止により、固定 \(T\) 上で
+
+$
+\int_0^T|H_s|^2ds,
+\qquad
+\int_0^T|K_s|^2ds
+$
+
+が bounded になる場合へ帰着します。
+
+#### Step 1：simple predictable integrands
+
+\(H,K\) が共通の deterministic partition
+
+$
+0=t_0<t_1<\cdots<t_n=T
+$
+
+上で simple predictable とします。
+
+区間 \((t_{r-1},t_r]\) 上では係数 \(H_r,K_r\) が \(\mathcal F_{t_{r-1}}\)-measurable で一定です。したがってその区間内で
+
+$
+I_t-I_{t_{r-1}}
+=
+\sum_\alpha
+H_r^\alpha
+(B_t^\alpha-B_{t_{r-1}}^\alpha),
+$
+
+$
+J_t-J_{t_{r-1}}
+=
+\sum_\beta
+K_r^\beta
+(B_t^\beta-B_{t_{r-1}}^\beta).
+$
+
+covariation の bilinearity と
+[vector Brownian motion の covariation](#prop-sto7-vector-brownian-covariation) から
+
+$
+\begin{aligned}
+d[I,J]_t
+&=
+\sum_{\alpha,\beta}
+H_r^\alpha K_r^\beta
+\,d[B^\alpha,B^\beta]_t\\
+&=
+\sum_\alpha
+H_r^\alpha K_r^\alpha\,dt\\
+&=
+H_r^\top K_r\,dt.
+\end{aligned}
+$
+
+各区間をつなげると
+
+$
+[I,J]_t
+=
+\int_0^tH_s^\top K_s\,ds.
+$
+
+#### Step 2：一般 predictable integrands へ近似する
+
+STO6 の simple predictable density と localization により、simple predictable \(H^{(n)},K^{(n)}\) を
+
+$
+E\int_0^T|H_s^{(n)}-H_s|^2ds\to0,
+$
+
+$
+E\int_0^T|K_s^{(n)}-K_s|^2ds\to0
+$
+
+となるよう取れます。
+
+対応する積分を \(I^{(n)},J^{(n)}\) とします。STO6 の bracket identity から
+
+$
+[I^{(n)}-I]_T
+=
+\int_0^T
+|H_s^{(n)}-H_s|^2ds
+\to0
+$
+
+in \(L^1\)、同様に
+
+$
+[J^{(n)}-J]_T\to0
+$
+
+in \(L^1\) です。
+
+continuous local martingales \(U,V\) について、固定時刻 \(t\) の bracket matrix
+
+$
+\begin{pmatrix}
+[U]_t &[U,V]_t\\
+[U,V]_t &[V]_t
+\end{pmatrix}
+$
+
+は positive semidefinite です。実際任意の \(a,b\in\mathbb R\) に対し
+
+$
+[aU+bV]_t
+=
+a^2[U]_t+2ab[U,V]_t+b^2[V]_t
+\ge0
+$
+
+だからです。従って determinant は非負で
+
+$
+|[U,V]_t|
+\le
+[U]_t^{1/2}[V]_t^{1/2}.
+$
+
+これを \(U=I^{(n)}-I\), \(V=J^{(n)}\) へ使い、必要なら \([J^{(n)}]_T\) を stopping で bounded にしてから外すと
+
+$
+[I^{(n)}-I,J^{(n)}]_t\to0
+$
+
+in probability です。
+
+同様に
+
+$
+[I,J^{(n)}-J]_t\to0
+$
+
+in probability なので
+
+$
+[I^{(n)},J^{(n)}]_t
+\to
+[I,J]_t
+$
+
+in probability です。
+
+一方 simple case から
+
+$
+[I^{(n)},J^{(n)}]_t
+=
+\int_0^t
+(H_s^{(n)})^\top K_s^{(n)}\,ds.
+$
+
+Cauchy--Schwarz により
+
+$
+\begin{aligned}
+&\int_0^t
+\left|
+(H_s^{(n)})^\top K_s^{(n)}
+-
+H_s^\top K_s
+\right|ds\\
+&\le
+\left(
+\int_0^t|H_s^{(n)}-H_s|^2ds
+\right)^{1/2}
+\left(
+\int_0^t|K_s^{(n)}|^2ds
+\right)^{1/2}\\
+&\quad+
+\left(
+\int_0^t|H_s|^2ds
+\right)^{1/2}
+\left(
+\int_0^t|K_s^{(n)}-K_s|^2ds
+\right)^{1/2},
+\end{aligned}
+$
+
+右辺は localization 後 \(L^1\) で 0 へ行きます。したがって
+
+$
+\int_0^t
+(H_s^{(n)})^\top K_s^{(n)}\,ds
+\to
+\int_0^tH_s^\top K_s\,ds
+$
+
+in probability です。
+
+両極限を比較して、各 rational \(t\) で
+
+$
+[I,J]_t
+=
+\int_0^tH_s^\top K_s\,ds
+$
+
+almost surely を得ます。両辺は continuous なので、一つの probability-one event 上で全 \(t\ge0\) に拡張できます。最後に localization を外せば主張が従います。
+<!-- proof-end -->
+
+この補題を \(X\) の martingale part の各成分へ適用すると
+
+$
 d[X^i,X^j]_t
 =
 \sum_{\alpha=1}^m
 \sigma_t^{i\alpha}\sigma_t^{j\alpha}\,dt.
-$$
+$
 
 matrix
 
