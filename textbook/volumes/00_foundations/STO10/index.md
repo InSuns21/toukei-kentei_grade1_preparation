@@ -45,7 +45,7 @@ $$
 
 です。
 
-最後に pathwise uniqueness と uniqueness in law を整理し、Yamada--Watanabe theorem が strong / weak の二つの世界をどこで結ぶかを明確にします。
+最後に pathwise uniqueness と uniqueness in law を整理し、[Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) が strong / weak の二つの世界をどこで結ぶかを明確にします。
 
 本章の Girsanov 部分は有限時間区間 $[0,T]$ を固定して扱います。これは単なる書きやすさではありません。有限時間ごとの同値性と無限時間全体での同値性は別問題です。
 
@@ -201,7 +201,7 @@ $$
 
 weak という語は「近似が粗い」「方程式を近似的にしか満たさない」という意味ではありません。
 
-積分方程式は同じように $P$-a.s. 満たします。違うのは **何を先に固定するか** です。
+SDE の積分表示は同じように $P$-a.s. 満たします。違うのは **何を先に固定するか** です。
 
 ---
 
@@ -249,7 +249,7 @@ strong solution の定義から、
 
 weak solution では、解を作るために都合のよい確率空間や Brown 運動を選べるからです。
 
-この「逆向き」を pathwise uniqueness と結び付けるのが章末の Yamada--Watanabe theorem です。
+この「逆向き」を pathwise uniqueness と結び付けるのが章末の [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) です。
 
 ---
 
@@ -991,7 +991,7 @@ $$
 
 ここで黒箱にしたのは **Novikov の UI criterion の技術部分だけ**です。
 
-次の Girsanov theorem で起きる drift cancellation は章内で完全に証明します。
+次の [Girsanov theorem](#thm-sto10-girsanov) で起きる drift cancellation は章内で完全に証明します。
 
 ---
 
@@ -1060,7 +1060,7 @@ $$
 
 が正確に打ち消し合います。
 
-この cancellation が Girsanov theorem の代数的心臓部です。
+この cancellation が [Girsanov theorem](#thm-sto10-girsanov) の代数的心臓部です。
 
 <!-- proof-start -->
 ### 証明
@@ -1236,7 +1236,7 @@ $$
 
 ### なぜ測度は equivalent なのか
 
-Novikov theorem により
+[Novikov theorem](#thm-sto10-novikov) により
 
 $$
 E_P[Z_T]=1,
@@ -1316,7 +1316,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Novikov theorem から $Z=\mathcal E(M)$ は真の $P$-martingale で
+[Novikov theorem](#thm-sto10-novikov) から $Z=\mathcal E(M)$ は真の $P$-martingale で
 
 $$
 E_P[Z_T]=1.
@@ -1405,7 +1405,7 @@ $$
 Lévy characterization を $Q$ の下で適用すると、$W^Q$ は $m$ 次元 standard Brownian motion です。
 <!-- proof-end -->
 
-ここで重要なのは、同じ path
+ここで重要なのは、同じ coordinate map
 
 $$
 \omega\mapsto W(\omega)
@@ -1474,7 +1474,7 @@ $$
 
 これは [STO7 の Brownian exponential martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) そのものです。
 
-Girsanov theorem から
+[Girsanov theorem](#thm-sto10-girsanov) から
 
 $$
 B_t
@@ -1594,7 +1594,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Girsanov theorem により $W^Q$ は $Q$-Brownian motion です。
+[Girsanov theorem](#thm-sto10-girsanov) により $W^Q$ は $Q$-Brownian motion です。
 
 定義から
 
@@ -1798,7 +1798,7 @@ $$
 
 と置きます。
 
-Girsanov theorem から
+[Girsanov theorem](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -2141,7 +2141,7 @@ $$
 
 異なる確率空間上の weak solutions を共通の空間へ持ち上げ、
 
-- regular conditional distribution
+- regular conditional law
 - path space 上の coupling
 - noise を固定した条件付き law
 - measurable selection / measurable functional representation
@@ -2150,7 +2150,7 @@ $$
 
 これらは STO10 の主題である「Girsanov による measure change」とは別の大きな論証系です。
 
-したがって本章では Yamada--Watanabe theorem を **strong / weak theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
+したがって本章では [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) を **strong / weak theory の接続定理として明示的な技術的入力**とし、完全証明は独立した確率論補講の規模になるため扱いません。
 
 重要なのは、定理の向きを誤らないことです。
 
@@ -2398,7 +2398,7 @@ $$
 
 1. Novikov condition を確認せよ。
 2. density $Z_T$ を明示せよ。
-3. STO7 の Brownian exponential martingale を使って $E_P[Z_T]=1$ を確認せよ。
+3. [STO7 の Brownian exponential martingale](../STO7/index.md#prop-sto7-brownian-exponential-martingale) を使って $E_P[Z_T]=1$ を確認せよ。
 4. $Q$ の下で Brown 運動になる process を書け。
 
 <!-- solution-start -->
@@ -2460,7 +2460,7 @@ $$
 E_P[Z_T]=1.
 $$
 
-4. Girsanov theorem から
+4. [Girsanov theorem](#thm-sto10-girsanov) から
 
 $$
 W_t^Q
@@ -2706,7 +2706,7 @@ E_Q\left[
 \right]
 $$
 
-は Radon--Nikodym 密度の逆変換そのものです。
+は Radon--Nikodym 密度を反転した測度変換そのものです。
 <!-- solution-end -->
 
 #### STO10-B02 bounded Borel drift の weak existence を再構成する
@@ -2808,7 +2808,7 @@ Z_T
 }.
 $$
 
-3. Girsanov theorem から
+3. [Girsanov theorem](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -2870,7 +2870,7 @@ $$
 - weak solution は少なくとも一つ存在する。
 - pathwise uniqueness が成立する。
 
-1. Yamada--Watanabe theorem から何が従うか。
+1. [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) から何が従うか。
 2. uniqueness in law は何を比較する性質か。
 3. 「weak solution が存在するから strong solution も存在する」とだけ言うのが誤りである理由を説明せよ。
 4. STO9 の global Lipschitz theorem では、なぜ Yamada--Watanabe を使わなくても strong existence が得られていたか。
@@ -2878,7 +2878,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. Yamada--Watanabe theorem から
+1. [Yamada--Watanabe theorem](#thm-sto10-yamada-watanabe) から
 
 $$
 \boxed{
@@ -3064,7 +3064,7 @@ $$
 
 指示関数は二乗しても同じなので second term は上の形になります。
 
-Novikov theorem から
+[Novikov theorem](#thm-sto10-novikov) から
 
 $$
 E_P[Z_T]=1.
@@ -3078,7 +3078,7 @@ $$
 
 で確率測度 $Q$ を作れます。
 
-5. Girsanov theorem から
+5. [Girsanov theorem](#thm-sto10-girsanov) から
 
 $$
 \begin{aligned}
@@ -3224,7 +3224,7 @@ $$
 
 Novikov condition はその代表的十分条件です。
 
-Girsanov theorem の核心は
+[Girsanov theorem](#thm-sto10-girsanov) の核心は
 
 $$
 \boxed{
@@ -3326,4 +3326,4 @@ $$
 
 へ進みます。
 
-STO9 の SDE と Encore II / III の PDE が、STO11 で本格的に再合流します。
+STO9 の SDE と Encore II / III の方程式論が、STO11 で本格的に再合流します。
