@@ -251,7 +251,7 @@ $$
 
 ### 証明の見取り図
 
-対称性は共分散の対称性、上界は Cauchy--Schwarz の不等式から出ます。正定値性は有限線形結合 $\sum_i c_iY_{t_i}$ の分散そのものです。
+対称性は共分散の対称性、上界は [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から出ます。正定値性は有限線形結合 $\sum_i c_iY_{t_i}$ の分散そのものです。
 
 <!-- proof-start -->
 ### 証明
@@ -268,7 +268,7 @@ $$
 \gamma(h).
 $$
 
-また Cauchy--Schwarz の不等式より
+また [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |\gamma(h)|
@@ -565,7 +565,7 @@ Y_t-P_{\mathcal H_{t-1}}Y_t
 \mathcal H_{t-1}.
 $$
 
-任意の $Z\in\mathcal H_{t-1}$ に対して直交分解から
+任意の $Z\in\mathcal H_{t-1}$ に対して[直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)から
 
 $$
 \|Y_t-Z\|_2^2
@@ -818,7 +818,7 @@ $$
 \mathcal H_{t-1}.
 $$
 
-また $E[Y_t]=0$ で、$P_{\mathcal H_{t-1}}Y_t$ は平均0の有限線形結合の $L^2$ 極限です。確率測度上では Cauchy--Schwarz の不等式から
+また $E[Y_t]=0$ で、$P_{\mathcal H_{t-1}}Y_t$ は平均0の有限線形結合の $L^2$ 極限です。確率測度上では [Cauchy--Schwarz の不等式](../F0_00E2_Cauchy_Schwarz_Bessel_Parseval/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |E[Z]|
@@ -1777,7 +1777,7 @@ $$
 Z_t\perp\mathcal H_{t-1}.
 $$
 
-従って直交分解の一意性から
+従って[直交分解](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-f0-02c1a-orthogonal-decomposition)の一意性から
 
 $$
 \boxed{
