@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：STO1 の [確率過程](../STO1/index.md#def-sto1-stochastic-process) と [修正・識別不能性](../STO1/index.md#def-sto1-modification-indistinguishable) を既知として使います。
+> **既出概念への参照**：STO1 の [確率過程](../STO1/index.md#def-sto1-stochastic-process) と [修正・識別不能性](../STO1/index.md#def-sto1-修正-識別不能) を既知として使います。
 
 STO1 では、確率過程を「時刻で添字付けされた確率変数族」として定義し、修正と識別不能性を区別しました。
 
@@ -34,7 +34,7 @@ $$
 \to
 \text{標準経路空間}
 \to
-\text{Kolmogorov extension}
+\text{Kolmogorov 拡張}
 \to
 \text{モーメント評価}
 \to
@@ -44,7 +44,7 @@ $$
 
 です。
 
-STO4 では、この仕組みをガウスな有限個の時刻の同時分布へ適用して Brown 運動を構成します。したがって本章では Brown 運動の存在を仮定せず、「過程の存在」と「連続な標本路」を別々の問題として閉じます。
+STO4 では、この仕組みをガウスな有限個の時刻の同時分布へ適用してブラウン運動を構成します。したがって本章ではブラウン運動の存在を仮定せず、「過程の存在」と「連続な標本路」を別々の問題として閉じます。
 
 ---
 
@@ -523,7 +523,7 @@ $$
 
 1. 円筒集合に有限次元分布から確率を入れる。
 2. その確率が前測度であることを示す。
-3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
+3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-拡張)で $\sigma$ 代数へ拡張する。
 
 最も非自明なのは 2 です。
 
@@ -913,7 +913,7 @@ $$
 
 #### Step 5：Carathéodory 拡張
 
-[D4 の拡張結果](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)から、$\mu_0$ は
+[D4 の拡張結果](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-拡張)から、$\mu_0$ は
 
 $$
 \sigma(\mathcal C)=\mathcal F^\ast
@@ -955,7 +955,7 @@ $$
 
 ---
 
-## 4. extension theorem は標本路の正則性を何も保証しない
+## 4. 拡張 theorem は標本路の正則性を何も保証しない
 
 Kolmogorov 拡張定理が作る標準 process の標本点は
 
@@ -967,11 +967,11 @@ $$
 
 従って、連続標本路が欲しいなら追加情報が必要です。
 
-ここで STO1 の [修正の定義](../STO1/index.md#def-sto1-modification-indistinguishable) が効きます。
+ここで STO1 の [修正の定義](../STO1/index.md#def-sto1-修正-識別不能) が効きます。
 
 元の過程 $X$ と各固定時刻でほとんど確実に一致しつつ、よりよい標本路を持つ過程 $\widetilde X$ を作ればよいのです。
 
-「各時刻の分布を変えずに、全時刻を同時に見た経路だけを改善する」というのが continuity theorem の役目です。
+「各時刻の分布を変えずに、全時刻を同時に見た経路だけを改善する」というのが連続性 theorem の役目です。
 
 ---
 
@@ -991,10 +991,10 @@ C_f|t-s|^\gamma
 (s,t\in[0,T])
 $$
 >
-> が成り立つとき、$f$ は指数 $\gamma$ で **Hölder continuous** であるという。
+> が成り立つとき、$f$ は指数 $\gamma$ で **Hölder 連続** であるという。
 <!-- formal-statement-end -->
 
-$\gamma=1$ は Lipschitz continuity です。
+$\gamma=1$ は Lipschitz 連続性です。
 
 $\gamma<1$ では、短い時間差 $h$ に対する変動が
 
@@ -1004,7 +1004,7 @@ $$
 
 で抑えられます。
 
-<!-- definition-example-start: def-sto3-holder-continuity -->
+<!-- definition-example-start: def-sto3-holder-連続性 -->
 ### 直接例：$f(t)=\sqrt t$ は $1/2$-Hölder
 
 **定義の確認**
@@ -1059,7 +1059,7 @@ Hölder 指数は「連続か否か」より細かく、経路の粗さを測り
 <a id="thm-sto3-kolmogorov-chentsov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Kolmogorov--Chentsov continuity theorem：1 パラメータ版）**  
+> **定理（Kolmogorov--Chentsov 連続性 theorem：1 パラメータ版）**  
 > 実数値確率過程 $X=(X_t)_{0\le t\le T}$ に対し、ある定数
 >
 $$
@@ -1086,7 +1086,7 @@ $$
 0<\gamma<\frac{\beta}{\alpha}
 $$
 >
-> に対し、$\widetilde X$ は指数 $\gamma$ で Hölder continuous な標本路を a.s. 持つように選べる。
+> に対し、$\widetilde X$ は指数 $\gamma$ で Hölder 連続な標本路を a.s. 持つように選べる。
 <!-- formal-statement-end -->
 
 ### まず指数を読む
@@ -1130,8 +1130,8 @@ $$
 ### 証明の見取り図
 
 1. 二進格子上の隣接増分を一斉に抑える。
-2. 悪い level の確率和が有限であることを示す。
-3. [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)で、十分細かい level では全隣接増分が小さい状態にする。
+2. 悪い水準の確率和が有限であることを示す。
+3. [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)で、十分細かい水準では全隣接増分が小さい状態にする。
 4. 二進近似列を各標本点ごとに Cauchy にして $\widetilde X_t$ を定義する。
 5. 元の $X_t$ への確率収束と比較して修正であることを示す。
 6. 同じ二進連鎖評価で Hölder 評価を得る。
@@ -1430,7 +1430,7 @@ $$
 
 これは十分小さい $|t-s|$ に対して成立します。有限区間上では、この局所 bound から定数を大きくすれば全ての $s,t$ に対する bound へ拡張できます。
 
-したがって $\widetilde X$ の標本路は a.s. 指数 $\eta$ で Hölder continuous です。
+したがって $\widetilde X$ の標本路は a.s. 指数 $\eta$ で Hölder 連続です。
 
 $\eta>\gamma$ なので、有限区間では
 
@@ -1440,16 +1440,16 @@ $$
 T^{\eta-\gamma}|t-s|^\gamma
 $$
 
-より指数 $\gamma$ でも Hölder continuous です。
+より指数 $\gamma$ でも Hölder 連続です。
 
 $\gamma<\beta/\alpha$ は任意だったので結論を得ます。
 <!-- proof-end -->
 
 ---
 
-## 7. moment の次数を上げると、得られる Hölder 指数も上がる
+## 7. モーメントの次数を上げると、得られる Hölder 指数も上がる
 
-continuity theorem を使うときは
+連続性 theorem を使うときは
 
 $$
 E|X_t-X_s|^\alpha
@@ -1527,7 +1527,7 @@ $$
 
 へ近づけます。
 
-STO4 ではガウス increment の高次 moment がまさにこの形を与えます。
+STO4 ではガウス increment の高次モーメントがまさにこの形を与えます。
 
 ---
 
@@ -1566,7 +1566,7 @@ $$
 
 有理数は可算個なので、各時刻ごとの確率 1 事象を可算共通部分にできます。
 
-最後に continuity で全実数時刻へ広げます。
+最後に連続性で全実数時刻へ広げます。
 
 <!-- proof-start -->
 ### 証明
@@ -1640,17 +1640,17 @@ $t$ は任意なので、$\omega\in\Omega_1\cap\Omega_2$ では全時刻で一�
 よって $X,Y$ は識別不能です。
 <!-- proof-end -->
 
-STO3 で連続な修正を一つ構成できれば、その後は「どの continuous version を採用したか」という曖昧さは識別不能性の範囲まで消えます。
+STO3 で連続な修正を一つ構成できれば、その後は「どの連続 version を採用したか」という曖昧さは識別不能性の範囲まで消えます。
 
 ---
 
-## 9. extension と continuity は別の仕事である
+## 9. 拡張と連続性は別の仕事である
 
 この章の二大定理は役割が違います。
 
 | 定理 | 入力 | 出力 | 解決する問題 |
 |---|---|---|---|
-| Kolmogorov extension | 整合的な有限次元分布 | 標準 process | 過程は存在するか |
+| Kolmogorov 拡張 | 整合的な有限次元分布 | 標準 process | 過程は存在するか |
 | Kolmogorov--Chentsov | increment のモーメント評価 | Hölder 連続な修正 | 良い標本路を選べるか |
 
 この二つを混ぜないことが重要です。
@@ -1663,13 +1663,13 @@ STO4 では
 
 $$
 \text{ガウス有限次元分布}
-\overset{\text{extension}}{\longrightarrow}
+\overset{\text{拡張}}{\longrightarrow}
 \text{ガウス process}
-\overset{\text{continuity}}{\longrightarrow}
-\text{continuous Brownian candidate}
+\overset{\text{連続性}}{\longrightarrow}
+\text{連続ブラウン candidate}
 $$
 
-という順番で Brown 運動を作ります。
+という順番でブラウン運動を作ります。
 
 ---
 
@@ -1854,7 +1854,7 @@ $$
 
 を満たすとする。
 
-[Kolmogorov--Chentsov continuity theorem](#thm-sto3-kolmogorov-chentsov) を使って保証できる Hölder 指数の範囲を求めよ。
+[Kolmogorov--Chentsov 連続性 theorem](#thm-sto3-kolmogorov-chentsov) を使って保証できる Hölder 指数の範囲を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1869,7 +1869,7 @@ $$
 
 と比較します。
 
-左辺の moment 次数から
+左辺のモーメント次数から
 
 $$
 \alpha=4.
@@ -1901,7 +1901,7 @@ $$
 \boxed{0<\gamma<\frac14}
 $$
 
-について $\gamma$-Hölder continuous な標本路を持つ修正を持ちます。
+について $\gamma$-Hölder 連続な標本路を持つ修正を持ちます。
 
 $\gamma=1/4$ 自体は、この定理の結論からは保証されません。strict inequality であることに注意します。
 <!-- solution-end -->
@@ -2114,7 +2114,7 @@ $$
 
 従って共分散行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
 
-STO4 ではこの整合性とガウス周辺分布の安定性を組み合わせ、Brownian 有限次元分布を作ります。
+STO4 ではこの整合性とガウス周辺分布の安定性を組み合わせ、ブラウン有限次元分布を作ります。
 <!-- solution-end -->
 
 #### STO3-B02 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」
@@ -2295,7 +2295,7 @@ $$
 これが finite additivity を前測度の countable additivity へ上げる核心です。
 <!-- solution-end -->
 
-#### STO3-B03 高次 moment から $1/2$ 未満の Hölder 指数へ
+#### STO3-B03 高次モーメントから $1/2$ 未満の Hölder 指数へ
 - Level: B
 
 過程 $X=(X_t)_{0\le t\le T}$ が、各偶数 $p\ge4$ に対し定数 $C_p$ を用いて
@@ -2314,7 +2314,7 @@ $$
 0<\gamma<\frac12
 $$
 
-に対し、$\gamma$-Hölder continuous な修正が存在することを示せ。
+に対し、$\gamma$-Hölder 連続な修正が存在することを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2399,7 +2399,7 @@ $$
 \gamma<\frac{\beta}{\alpha}
 $$
 
-なので continuity theorem を適用でき、指数 $\gamma$ で Hölder continuous な標本路を持つ修正が存在します。
+なので連続性 theorem を適用でき、指数 $\gamma$ で Hölder 連続な標本路を持つ修正が存在します。
 
 $\gamma<1/2$ は任意だったので、任意の $1/2$ 未満の指数を得られます。
 
@@ -2416,7 +2416,7 @@ $$
 
 # 12. 演習 C
 
-#### STO3-C01 有限次元分布から continuous process までを一気に構成する
+#### STO3-C01 有限次元分布から連続過程までを一気に構成する
 - Level: C
 
 時間区間を $[0,T]$ とする。
@@ -2437,7 +2437,7 @@ $$
 
 1. 標準経路空間上に有限次元分布 $(\mu_I)$ を持つ過程 $X^\ast$ が存在する。
 2. $X^\ast$ は連続修正 $\widetilde X$ を持つ。
-3. 任意の $0<\gamma<\beta/\alpha$ に対し、$\widetilde X$ は $\gamma$-Hölder continuous な標本路を a.s. 持つように選べる。
+3. 任意の $0<\gamma<\beta/\alpha$ に対し、$\widetilde X$ は $\gamma$-Hölder 連続な標本路を a.s. 持つように選べる。
 4. 同じ有限次元分布を持つ別の連続過程 $Y$ が同じ確率空間上で $X^\ast$ の修正になっているなら、$Y$ と $\widetilde X$ は識別不能である。
 
 <!-- solution-start -->
@@ -2447,7 +2447,7 @@ $$
 
 **1. 過程の存在。**
 
-$(\mu_I)$ は整合的なので [Kolmogorov 拡張定理](#thm-sto3-kolmogorov-extension)を適用できます。
+$(\mu_I)$ は整合的なので [Kolmogorov 拡張定理](#thm-sto3-kolmogorov-拡張)を適用できます。
 
 従って
 
@@ -2495,9 +2495,9 @@ C|t-s|^{1+\beta}.
 \end{aligned}
 $$
 
-従って標準 process 自身が Kolmogorov--Chentsov の moment 条件を満たします。
+従って標準 process 自身が Kolmogorov--Chentsov のモーメント条件を満たします。
 
-よって [Kolmogorov--Chentsov continuity theorem](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続修正 $\widetilde X$ を持ちます。
+よって [Kolmogorov--Chentsov 連続性 theorem](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続修正 $\widetilde X$ を持ちます。
 
 **3. Hölder exponent。**
 
@@ -2507,7 +2507,7 @@ $$
 0<\gamma<\frac{\beta}{\alpha}
 $$
 
-に対し、$\widetilde X$ は指数 $\gamma$ で Hölder continuous な標本路を a.s. 持つように選べます。
+に対し、$\widetilde X$ は指数 $\gamma$ で Hölder 連続な標本路を a.s. 持つように選べます。
 
 したがって
 
@@ -2517,13 +2517,13 @@ $$
 +
 \text{increment モーメント評価}
 \Longrightarrow
-\text{continuous process realization}
+\text{連続過程 realization}
 }
 $$
 
 が得られました。
 
-**4. continuous version の一意性。**
+**4. 連続 version の一意性。**
 
 $Y$ が同じ確率空間上で $X^\ast$ の修正であるとします。
 
@@ -2545,7 +2545,7 @@ $$
 
 です。
 
-$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は識別不能](#prop-sto3-continuous-modifications-indistinguishable) を適用して
+$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は識別不能](#prop-sto3-連続-modifications-識別不能) を適用して
 
 $$
 P^\ast(
@@ -2562,7 +2562,7 @@ Y\text{ and }\widetilde X\text{ are 識別不能}.
 }
 $$
 
-この結論により、continuous version は「各時刻ごとに同じ」だけでなく、経路全体としてほぼ確実に一意になります。
+この結論により、連続 version は「各時刻ごとに同じ」だけでなく、経路全体としてほぼ確実に一意になります。
 <!-- solution-end -->
 
 ---
@@ -2575,14 +2575,14 @@ $$
 - consistency を座標射影による周辺化として確認できる。
 - 標準経路空間 $\mathbb R^T$ と coordinate process を構成できる。
 - 円筒集合が有限個の時刻だけを見る事象であることを説明できる。
-- Kolmogorov extension theorem で consistency が well-definedness に使われる箇所を示せる。
-- 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」 を finite-dimensional compact approximation と countable compactness から証明できる。
-- Carathéodory extension theorem を使って標準 process を完成できる。
-- extension theorem が標本路連続性を保証しない理由を説明できる。
+- Kolmogorov 拡張 theorem で consistency が well-definedness に使われる箇所を示せる。
+- 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」 を有限次元 compact approximation と countable compactness から証明できる。
+- Carathéodory 拡張 theorem を使って標準 process を完成できる。
+- 拡張 theorem が標本路連続性を保証しない理由を説明できる。
 - Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ をモーメント評価から計算できる。
-- 二進格子、Markov inequality、union bound、Borel--Cantelli、連鎖評価の順で continuity theorem の核心証明を再構成できる。
+- 二進格子、Markov inequality、union bound、Borel--Cantelli、連鎖評価の順で連続性 theorem の核心証明を再構成できる。
 - 連続な修正が識別不能まで一意になる理由を、有理数の可算稠密性から証明できる。
-- consistent 有限次元分布と increment モーメント評価を組み合わせて continuous process realization を作れる。
+- consistent 有限次元分布と increment モーメント評価を組み合わせて連続過程 realization を作れる。
 
 次の STO4 では、この構成を centered ガウス有限次元分布
 
@@ -2590,4 +2590,4 @@ $$
 E[X_sX_t]=\min(s,t)
 $$
 
-へ適用し、Brown 運動を実際に構成します。その後、reflection principle、hitting time、Markov property、strong Markov property へ進みます。
+へ適用し、ブラウン運動を実際に構成します。その後、reflection principle、到達時刻、Markov property、strong Markov property へ進みます。
