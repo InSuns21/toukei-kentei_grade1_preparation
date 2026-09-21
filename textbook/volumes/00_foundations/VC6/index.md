@@ -813,7 +813,7 @@ h_\phi=\rho,
 h_z=1.
 $$
 
-<a id="prop-vc6-円柱座標"></a>
+<a id="prop-vc6-cylindrical"></a>
 
 <!-- formal-statement-start -->
 > **命題（円柱座標の公式）**  
@@ -922,7 +922,7 @@ $$
 
 ---
 
-## 9. 例：軸対称方位角方向場
+## 9. 例：軸対称な方位角方向のベクトル場
 
 $$
 A=A_\phi(\rho)e_\phi
@@ -1009,7 +1009,7 @@ $$
 
 これは RA7 の球座標 Jacobian と一致します。
 
-<a id="prop-vc6-球座標"></a>
+<a id="prop-vc6-spherical"></a>
 
 <!-- formal-statement-start -->
 > **命題（球座標の公式）**  
@@ -1483,7 +1483,7 @@ f_\phi=\cos\phi,
 f_z=\rho^2.
 $$
 
-[円柱座標の公式](#prop-vc6-円柱座標) から
+[円柱座標の公式](#prop-vc6-cylindrical) から
 
 $$
 \nabla f
@@ -1981,7 +1981,7 @@ f'(r)
 -\frac{b}{r^2}.
 $$
 
-$f=f(r)$ なので、[球座標の勾配公式](#prop-vc6-球座標) では角度微分項が消え
+$f=f(r)$ なので、[球座標の勾配公式](#prop-vc6-spherical) では角度微分項が消え
 
 $$
 \boxed{
