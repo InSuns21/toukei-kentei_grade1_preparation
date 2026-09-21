@@ -56,12 +56,12 @@ STO14 では、このランダム測度を使って 跳躍 stochastic 積分、L
 
 [STO2 のマルチンゲール](../STO2/index.md#def-sto2-martingale)は離散時間で定義しました。本章では同じ条件を連続時間添字へそのまま拡張し、
 
-$
+$$
 E|M_t|<\infty,
 \qquad
 E[M_t\mid\mathcal F_s]=M_s
 \quad(0\le s\le t)
-$
+$$
 
 を満たす適合過程をマルチンゲールと呼びます。
 
@@ -487,7 +487,7 @@ $$
 
 ここでは可積分な計数過程に対する基本形だけを扱っています。一般の局所マルチンゲール補償や Doob--Meyer 理論は本章の prerequisite にしません。
 
-一般の point process では $A_t$ は 決定論的 とは限りません。
+一般の 点過程 では $A_t$ は 決定論的 とは限りません。
 
 例えば時刻 $t$ 直前の情報に依存する 強度 $\lambda_t$ を持つ場合、適切な条件下で
 
@@ -616,7 +616,7 @@ $$
 
 と置きます。
 
-$q_i=0$ の 状態 は absorbing とし、
+$q_i=0$ の 状態 は 吸収 とし、
 
 $$
 p_{ii}=1
@@ -627,7 +627,7 @@ $$
 <a id="thm-sto13-ctmc-construction"></a>
 
 <!-- formal-statement-start -->
-> **定理（有限状態 CTMC の 跳躍-chain / holding-time 構成）**  
+> **定理（有限状態 CTMC の 跳躍連鎖 / 滞在時間 構成）**  
 > 有限状態 Q-行列 $Q$ を与える。
 >
 > 遷移確率 $P=(p_{ij})$ を上の式で定め、離散時間 マルコフ連鎖
@@ -694,13 +694,13 @@ $$
 
 まず
 
-$
+$$
 q_*=\max_{i\in S}q_i<\infty
-$
+$$
 
 です。
 
-$q_*=0$ なら全ての状態が absorbing であり、標本路は一定なので非爆発性もマルコフ性も自明です。以下では $q_*>0$ とします。
+$q_*=0$ なら全ての状態が 吸収 であり、標本路は一定なので非爆発性もマルコフ性も自明です。以下では $q_*>0$ とします。
 
 $q_{Y_n}>0$ なら
 
@@ -1085,7 +1085,7 @@ $$
 
 ### 証明の見取り図
 
-有限状態なので $f$ と $Qf$ は bounded です。マルコフ性 と Kolmogorov 前進方程式 を使うと、時刻 $s$ 以後の $f(X)$ の平均変化と $Qf$ の時間積分の平均が同じになります。
+有限状態なので $f$ と $Qf$ は 有界 です。マルコフ性 と Kolmogorov 前進方程式 を使うと、時刻 $s$ 以後の $f(X)$ の平均変化と $Qf$ の時間積分の平均が同じになります。
 
 <!-- proof-start -->
 ### 証明
@@ -1106,7 +1106,7 @@ E[f(X_t)-f(X_s)\mid\mathcal F_s]
 (P_{t-s}f-f)(X_s).
 $$
 
-一方、有限状態なので $Qf$ は bounded です。したがって conditional Fubini が使え、
+一方、有限状態なので $Qf$ は 有界 です。したがって 条件付き Fubini が使え、
 
 $$
 \begin{aligned}
@@ -1150,7 +1150,7 @@ $$
 E[M_t^f-M_s^f\mid\mathcal F_s]=0.
 $$
 
-$f,Qf$ は bounded なので $M_t^f$ は可積分です。従って $M^f$ はマルチンゲールです。
+$f,Qf$ は 有界 なので $M_t^f$ は可積分です。従って $M^f$ はマルチンゲールです。
 <!-- proof-end -->
 
 
@@ -1273,7 +1273,7 @@ $$
 
 したがって 跳躍 count 自身が 率 $\lambda$ のポアソン過程です。
 
-有限状態 CTMC の議論をそのまま countable 状態 へ移すには 爆発 の検討が必要ですが、この例では holding times が iid $\operatorname{Exp}(\lambda)$ なので
+有限状態 CTMC の議論をそのまま 可算状態 へ移すには 爆発 の検討が必要ですが、この例では 滞在時間 が i.i.d. $\operatorname{Exp}(\lambda)$ なので
 
 $$
 T_n=W_1+\cdots+W_n\to\infty
@@ -1287,7 +1287,7 @@ a.s. であり、爆発 は起きません。
 
 有限状態では 率 が一様有界だったため、自動的に non-explosive でした。
 
-countable 状態 では違います。
+可算状態 では違います。
 
 純粋出生 rates
 
@@ -1599,7 +1599,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（補償ポアソンランダム測度の 単関数に対する $L^2$ 等長性）**  
-> 上の 決定論的 simple $f$ に対し
+> 上の 決定論的単関数型 $f$ に対し
 >
 $$
 E\left[
@@ -1771,36 +1771,36 @@ $\nu(E)<\infty$ のとき、ポアソンランダム測度 の各点に 印 を�
 
 ### Poisson count
 
-$
+$$
 (Qf)(n)
 =
 \lambda(f(n+1)-f(n)).
-$
+$$
 
 ### 有限状態 CTMC
 
-$
+$$
 (Qf)(i)
 =
 \sum_{j\ne i}
 q_{ij}(f(j)-f(i)).
-$
+$$
 
 どちらも
 
-$
+$$
 \boxed{
 \text{跳躍 率}
 \times
-\text{跳躍 後と 跳躍 前の function value の差}
+\text{跳躍 後と 跳躍 前の 関数値 の差}
 }
-$
+$$
 
 を足し合わせています。
 
 これは「短時間の条件付き平均変化率」という [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-generator) と同じ見方です。
 
-印-dependent な 跳躍 size を持つ 生成作用素 は STO14 で Lévy process とともに正本化します。
+印に依存する な 跳躍 size を持つ 生成作用素 は STO14 で Lévy process とともに正本化します。
 
 ---
 
@@ -1808,7 +1808,7 @@ $
 
 ### 17.1 独立増分 を外す
 
-各 $N_t$ の marginal distribution が
+各 $N_t$ の 周辺分布 が
 
 $$
 N_t\sim\operatorname{Poisson}(\lambda t)
@@ -1836,7 +1836,7 @@ $$
 
 前節の $q_n=n^2$ 純粋出生 chain では 爆発 が起こります。
 
-したがって countable 状態 で 生成作用素 を与えるときは 非爆発 条件が別に必要です。
+したがって 可算状態 で 生成作用素 を与えるときは 非爆発 条件が別に必要です。
 
 ### 17.3 補償 measure を pointwise に引き算しない
 
@@ -1854,7 +1854,7 @@ $$
 N-dt\,\nu
 $$
 
-を「$\infty-\infty$」の pointwise signed measure と読むのは誤りです。
+を「$\infty-\infty$」の pointwise 符号付き測度 と読むのは誤りです。
 
 integrability 条件を満たす 被積分関数 に対して compensated 積分 を定義する必要があります。
 
@@ -2089,7 +2089,7 @@ $$
 q_2=\beta.
 $$
 
-従って holding times はそれぞれ
+従って 滞在時間 はそれぞれ
 
 $$
 \operatorname{Exp}(\alpha),
@@ -2455,7 +2455,7 @@ $$
 - Level: B
 - 目安時間: 30分
 
-互いに 互いに素 な finite-強度 sets $B_1,B_2$ と
+互いに素 な 有限強度 sets $B_1,B_2$ と
 
 $$
 f=c_1 1_{B_1}+c_2 1_{B_2}
@@ -2572,59 +2572,59 @@ $$
 
 有限状態 CTMC $X$ の 生成作用素 を
 
-$
+$$
 Q=
 \begin{pmatrix}
 -2&2&0\\
 1&-3&2\\
 0&1&-1
 \end{pmatrix}
-$
+$$
 
 とし、
 
-$
+$$
 f(1)=0,
 \qquad
 f(2)=1,
 \qquad
 f(3)=3
-$
+$$
 
 とする。
 
 1. $Qf$ を各 状態 で計算せよ。
 2. マルコフ性 から
-   $
+   $$
    E[f(X_t)\mid\mathcal F_s]
    =
    (P_{t-s}f)(X_s)
-   $
+   $$
    を書け。
 3. Kolmogorov 前進方程式 を使って
-   $
+   $$
    \int_0^uP_rQf\,dr
    =
    P_uf-f
-   $
+   $$
    を導け。
 4.
-   $
+   $$
    M_t
    =
    f(X_t)-f(X_0)
    -
    \int_0^t(Qf)(X_r)\,dr
-   $
+   $$
    が マルチンゲール であることを、条件付き期待値を直接計算して示せ。
 5. $X_0=1$ とし、$E[M_t]=0$ から
-   $
+   $$
    E_1[f(X_t)]
    =
    f(1)
    +
    E_1\int_0^t(Qf)(X_r)\,dr
-   $
+   $$
    を導き、この式が 有限状態 Dynkin formula であることを説明せよ。
 
 <!-- solution-start -->
@@ -2632,44 +2632,44 @@ $
 
 1. vector
 
-$
+$$
 f=
 \begin{pmatrix}
 0\\
 1\\
 3
 \end{pmatrix}
-$
+$$
 
 に $Q$ を掛けます。
 
-$
+$$
 (Qf)(1)
 =
 -2\cdot0+2\cdot1
 =
 2,
-$
+$$
 
-$
+$$
 (Qf)(2)
 =
 1\cdot0-3\cdot1+2\cdot3
 =
 3,
-$
+$$
 
-$
+$$
 (Qf)(3)
 =
 0\cdot0+1\cdot1-1\cdot3
 =
 -2.
-$
+$$
 
 従って
 
-$
+$$
 \boxed{
 Qf=
 \begin{pmatrix}
@@ -2678,21 +2678,21 @@ Qf=
 -2
 \end{pmatrix}.
 }
-$
+$$
 
 跳躍-difference 形式でも
 
-$
+$$
 (Qf)(i)
 =
 \sum_{j\ne i}q_{ij}(f(j)-f(i))
-$
+$$
 
 となることを確認できます。
 
 2. 時刻 $s$ までの履歴を条件にしても、未来の分布は現在 状態 $X_s$ だけで決まります。従って
 
-$
+$$
 \begin{aligned}
 E[f(X_t)\mid\mathcal F_s]
 &=
@@ -2700,55 +2700,55 @@ E_{X_s}[f(X_{t-s})]\\
 &=
 \boxed{(P_{t-s}f)(X_s)}.
 \end{aligned}
-$
+$$
 
 3. Kolmogorov 前進方程式 は
 
-$
+$$
 \frac{d}{dr}P_r=P_rQ
-$
+$$
 
 です。
 
 $f$ を右から掛けると
 
-$
+$$
 \frac{d}{dr}(P_rf)
 =
 P_rQf.
-$
+$$
 
 $0$ から $u$ まで積分して
 
-$
+$$
 P_uf-P_0f
 =
 \int_0^uP_rQf\,dr.
-$
+$$
 
 $P_0=I$ なので
 
-$
+$$
 \boxed{
 \int_0^uP_rQf\,dr
 =
 P_uf-f.
 }
-$
+$$
 
 4. $0\le s<t$ とします。
 
 2 より
 
-$
+$$
 E[f(X_t)-f(X_s)\mid\mathcal F_s]
 =
 (P_{t-s}f-f)(X_s).
-$
+$$
 
-また $S$ は有限なので $Qf$ は bounded です。conditional Fubini と マルコフ性 により
+また $S$ は有限なので $Qf$ は 有界 です。条件付き Fubini と マルコフ性 により
 
-$
+$$
 \begin{aligned}
 &E\left[
 \int_s^t(Qf)(X_r)\,dr
@@ -2762,25 +2762,25 @@ E[(Qf)(X_r)\mid\mathcal F_s]\,dr\\
 \int_0^{t-s}
 (P_uQf)(X_s)\,du.
 \end{aligned}
-$
+$$
 
 3 を $u=t-s$ に適用すると、最後の式は
 
-$
+$$
 (P_{t-s}f-f)(X_s)
-$
+$$
 
 です。
 
 従って二つの条件付き平均が打ち消し合い、
 
-$
+$$
 E[M_t-M_s\mid\mathcal F_s]=0.
-$
+$$
 
 よって
 
-$
+$$
 \boxed{
 M_t
 =
@@ -2788,7 +2788,7 @@ f(X_t)-f(X_0)
 -
 \int_0^t(Qf)(X_r)\,dr
 }
-$
+$$
 
 は マルチンゲール です。
 
@@ -2796,13 +2796,13 @@ $
 
 マルチンゲール property から
 
-$
+$$
 E_1[M_t]=E_1[M_0]=0.
-$
+$$
 
 従って
 
-$
+$$
 E_1[f(X_t)]
 -
 f(1)
@@ -2810,11 +2810,11 @@ f(1)
 E_1\int_0^t(Qf)(X_r)\,dr
 =
 0.
-$
+$$
 
 すなわち
 
-$
+$$
 \boxed{
 E_1[f(X_t)]
 =
@@ -2822,7 +2822,7 @@ f(1)
 +
 E_1\int_0^t(Qf)(X_r)\,dr.
 }
-$
+$$
 
 これは 有限状態 CTMC について、observable $f$ の平均変化を 生成作用素 の時間積分で表す Dynkin formula です。
 
