@@ -304,19 +304,22 @@ $$
 <!-- definition-example-start: def-f0-00e2-fourier-coefficient, def-f0-00e2-orthonormal-expansion -->
 ### 6.1 例：標準基底で係数を直接読む
 
+**定義の確認**：上の定義条件をこの具体例で直接確認します。
+
+
 $\mathbb R^2$ の正規直交基底 $e_1,e_2$ と $x=(3,-1)^{\mathsf T}$ に対して
 
-$$
+$
 \langle x,e_1\rangle=3,
 \qquad
 \langle x,e_2\rangle=-1.
-$$
+$
 
 従ってFourier係数は $3,-1$ で、
 
-$$
+$
 x=3e_1-e_2
-$$
+$
 
 と正規直交展開できます。
 <!-- definition-example-end -->
