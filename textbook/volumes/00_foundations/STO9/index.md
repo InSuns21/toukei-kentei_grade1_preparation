@@ -2189,7 +2189,7 @@ $$
 
 同じ diffusion coefficient を要求している点が重要です。
 
-noise の振幅自体が別なら、drift の順序だけから sample path の順序は一般には出ません。
+noise の振幅自体が別なら、drift の順序だけから標本関数の順序は一般には出ません。
 
 ### smooth positive part
 
