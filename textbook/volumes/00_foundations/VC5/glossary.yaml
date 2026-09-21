@@ -14,7 +14,7 @@ terms:
     meaning: 発散が0であるベクトル場。
   - term: ベクトルポテンシャル
     english: vector potential
-    meaning: 与えられた場Fに対して回転 A=Fを満たすベクトル場A。
+    meaning: 与えられた場 F に対して、その回転が F に一致するベクトル場 A。
   - term: ゲージ自由度
     english: gauge freedom
-    meaning: ベクトルポテンシャル Aへ勾配場を加えても回転が変わらない非一意性。
+    meaning: ベクトルポテンシャル A に勾配場を加えても回転が変わらない非一意性。
