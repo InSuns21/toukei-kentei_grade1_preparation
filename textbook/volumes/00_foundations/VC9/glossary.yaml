@@ -17,7 +17,7 @@ terms:
     meaning: 速度場 u の回転 omega=curl u。Kelvin--Stokes の定理により局所循環密度として解釈できる。
   - term: 流れ関数
     english: stream function
-    meaning: 二次元速度場を u_1=partial_y psi, u_2=-partial_x psi と表すスカラー関数。星型領域上の非圧縮平面流で構成できる。
+    meaning: 二次元速度場を u_1=partial_y psi, u_2=-partial_x psi と表すスカラー関数。ある一点から各点までの線分が領域内に残る領域上の非圧縮平面流で構成できる。
   - term: 変形速度テンソル
     english: rate-of-deformation tensor
     meaning: D(u)=(grad u + grad u^T)/2 で定まる速度勾配の対称部分。
