@@ -2,7 +2,9 @@
 
 <!-- definition-example-audit: strict -->
 
-STO1 では、確率過程を「時刻で添字付けされた確率変数族」として定義し、modification と indistinguishability を区別しました。
+> **既出概念への参照**：STO1 の [確率過程](../STO1/index.md#def-sto1-stochastic-process) と [修正・識別不能性](../STO1/index.md#def-sto1-modification-indistinguishable) を既知として使います。
+
+STO1 では、確率過程を「時刻で添字付けされた確率変数族」として定義し、修正と識別不能性を区別しました。
 
 しかし、確率過程を実際に作る場面では逆向きの問題が現れます。
 
@@ -26,23 +28,23 @@ $$
 
 $$
 \boxed{
-\text{finite-dimensional laws}
+\text{有限次元分布}
 \to
 \text{consistency}
 \to
-\text{canonical 経路空間}
+\text{標準経路空間}
 \to
 \text{Kolmogorov extension}
 \to
-\text{moment bound}
+\text{モーメント評価}
 \to
-\text{continuous modification}
+\text{連続な修正}
 }
 $$
 
 です。
 
-STO4 では、この仕組みを Gaussian な有限個の時刻の同時分布へ適用して Brown 運動を構成します。したがって本章では Brown 運動の存在を仮定せず、「過程の存在」と「連続な標本路」を別々の問題として閉じます。
+STO4 では、この仕組みをガウスな有限個の時刻の同時分布へ適用して Brown 運動を構成します。したがって本章では Brown 運動の存在を仮定せず、「過程の存在」と「連続な標本路」を別々の問題として閉じます。
 
 ---
 
@@ -151,14 +153,14 @@ $$
 
 ---
 
-## 2. canonical 経路空間は「全ての候補経路」を標本点にする
+## 2. 標準経路空間は「全ての候補経路」を標本点にする
 
 有限次元分布を一つの過程へまとめるため、標本空間そのものを「全ての経路」にします。
 
 <a id="def-sto3-canonical-trajectory-space"></a>
 
 <!-- formal-statement-start -->
-> **定義（canonical 経路空間と cylinder set）**  
+> **定義（標準経路空間と円筒集合）**  
 > 時間集合 $T$ に対し
 >
 $$
@@ -194,15 +196,15 @@ C(I,B)
 \right\}
 $$
 >
-> を **cylinder set** という。
+> を **円筒集合** という。
 <!-- formal-statement-end -->
 
-$\mathcal F^\ast$ は cylinder set 全体が生成する $\sigma$ 代数です。
+$\mathcal F^\ast$ は円筒集合全体が生成する $\sigma$ 代数です。
 
 ここで大切なのは、$\Omega^\ast$ に入る経路の大半が連続でなくても構わないことです。まず「有限次元分布を持つ過程を存在させる」仕事だけを行います。連続性は後半で別に回収します。
 
-<!-- definition-example-start: def-sto3-canonical-trajectory-space -->
-### 直接例：二時刻だけを観測する cylinder
+<!-- definition-example-start: def-sto3-標準-trajectory-space -->
+### 直接例：二時刻だけを観測する円筒集合
 
 **定義の確認**
 
@@ -228,14 +230,14 @@ $$
 
 この事象は、経路の時刻 1 と 2 の値だけを見れば判定できます。時刻 $1.5$ や $100$ の値は何であっても構いません。
 
-したがって cylinder set は「有限個の時刻しか見ない事象」です。有限次元分布が直接確率を指定できる事象も、まさにこの形です。
+したがって円筒集合は「有限個の時刻しか見ない事象」です。有限次元分布が直接確率を指定できる事象も、まさにこの形です。
 <!-- definition-example-end -->
 
 ---
 
 ## 3. 整合的な有限時刻分布を全時刻へ拡張する
 
-無限個の時刻へ進む前に、有限次元の Borel 確率測度を compact 集合で内側から近似できることを先に閉じます。これは後で cylinder 上の有限加法性を可算加法性へ上げる核心です。
+無限個の時刻へ進む前に、有限次元の Borel 確率測度を compact 集合で内側から近似できることを先に閉じます。これは後で円筒集合上の有限加法性を可算加法性へ上げる核心です。
 
 <a id="lem-sto3-finite-borel-compact-approximation"></a>
 
@@ -482,7 +484,7 @@ $$
 >
 > を満たすとする。
 >
-> このとき canonical 経路空間
+> このとき標準経路空間
 >
 $$
 \Omega^\ast=\mathbb R^T,
@@ -519,13 +521,13 @@ $$
 
 証明は三段階です。
 
-1. cylinder set に有限次元分布から確率を入れる。
-2. その確率が premeasure であることを示す。
+1. 円筒集合に有限次元分布から確率を入れる。
+2. その確率が前測度であることを示す。
 3. [D4 の測度拡張定理](../F0_00D4_Lebesgue測度_Borel集合_拡張定理/index.md#thm-caratheodory-extension)で $\sigma$ 代数へ拡張する。
 
 最も非自明なのは 2 です。
 
-有限加法性だけでは D4 の測度拡張定理を使えません。cylinder set の減少列
+有限加法性だけでは D4 の測度拡張定理を使えません。円筒集合の減少列
 
 $$
 A_n\downarrow\varnothing
@@ -539,16 +541,16 @@ $$
 
 を示し、可算加法性まで上げる必要があります。
 
-[有限 Borel 測度の compact 内部近似](#lem-sto3-finite-borel-compact-approximation)を使って、cylinder premeasure の可算加法性を閉じます。
+[有限 Borel 測度の compact 内部近似](#lem-sto3-finite-borel-compact-approximation)を使って、円筒集合前測度の可算加法性を閉じます。
 
 <!-- proof-start -->
 ### Kolmogorov 拡張定理の証明
 
-cylinder set 全体を $\mathcal C$ とします。
+円筒集合全体を $\mathcal C$ とします。
 
-#### Step 1：cylinder set 全体は algebra
+#### Step 1：円筒集合全体は algebra
 
-二つの cylinder
+二つの円筒集合
 
 $$
 C(I,B),
@@ -562,7 +564,7 @@ $$
 C(I,B)\cap C(J,D)
 $$
 
-も $K$ に依存する cylinder です。
+も $K$ に依存する円筒集合です。
 
 補集合も
 
@@ -570,7 +572,7 @@ $$
 C(I,B)^c=C(I,B^c)
 $$
 
-なので cylinder です。
+なので円筒集合です。
 
 従って $\mathcal C$ は algebra です。
 
@@ -602,7 +604,7 @@ $$
 
 です。
 
-実際、$\mathbb R^K$ の任意の点は $T\setminus K$ の座標へ例えば 0 を入れれば $\mathbb R^T$ の経路へ延長できるため、cylinder の等しさは $K$ 上の集合の等しさを意味します。
+実際、$\mathbb R^K$ の任意の点は $T\setminus K$ の座標へ例えば 0 を入れれば $\mathbb R^T$ の経路へ延長できるため、円筒集合の等しさは $K$ 上の集合の等しさを意味します。
 
 整合性から
 
@@ -620,7 +622,7 @@ $$
 
 よって $\mu_0$ は well-defined です。
 
-同じく、互いに素な有限個の cylinder を共通の有限座標集合 $K$ へ持ち上げれば、$\mu_K$ の有限加法性から $\mu_0$ の有限加法性が従います。
+同じく、互いに素な有限個の円筒集合を共通の有限座標集合 $K$ へ持ち上げれば、$\mu_K$ の有限加法性から $\mu_0$ の有限加法性が従います。
 
 また
 
@@ -628,7 +630,7 @@ $$
 \mu_0(\Omega^\ast)=1.
 $$
 
-#### Step 3：空集合へ減少する cylinder の確率は 0 へ減少する
+#### Step 3：空集合へ減少する円筒集合の確率は 0 へ減少する
 
 $$
 A_1\supset A_2\supset\cdots,
@@ -704,7 +706,7 @@ $$
 
 となるように選びます。
 
-対応する cylinder を
+対応する円筒集合を
 
 $$
 H_n=C(I_n,K_n)
@@ -869,7 +871,7 @@ A_n\downarrow\varnothing
 \mu_0(A_n)\downarrow0.
 $$
 
-#### Step 4：有限加法性から premeasure へ
+#### Step 4：有限加法性から前測度へ
 
 互いに素な $C_1,C_2,\ldots\in\mathcal C$ があり、
 
@@ -907,7 +909,7 @@ $$
 \sum_{n=1}^\infty\mu_0(C_n).
 $$
 
-従って $\mu_0$ は premeasure です。
+従って $\mu_0$ は前測度です。
 
 #### Step 5：Carathéodory 拡張
 
@@ -925,9 +927,9 @@ $$
 \mu_0(\Omega^\ast)=1
 $$
 
-なので premeasure は有限、従って $\sigma$ 有限です。拡張は一意です。
+なので前測度は有限、従って $\sigma$ 有限です。拡張は一意です。
 
-cylinder set の定義から、全ての有限 $I\subset T$ について
+円筒集合の定義から、全ての有限 $I\subset T$ について
 
 $$
 P^\ast\circ(X_t^\ast)_{t\in I}^{-1}
@@ -944,10 +946,10 @@ $$
 
 この証明で重要だったのは、単なる「有限次元分布がある」ことではありません。
 
-- **整合性**：同じ cylinder を異なる座標集合で表しても同じ確率になる。
+- **整合性**：同じ円筒集合を異なる座標集合で表しても同じ確率になる。
 - **有限次元空間が $\mathbb R^m$**：Borel 確率測度を compact 集合で内側から近似できる。
 - **compact 性**：有限個ずつ矛盾しない制約が、可算個同時にも矛盾しないことを保証する。
-- **D4 の測度拡張定理**：algebra 上の premeasure を生成 $\sigma$ 代数へ運ぶ。
+- **D4 の測度拡張定理**：algebra 上の前測度を生成 $\sigma$ 代数へ運ぶ。
 
 「整合的だから何となく無限次元分布がある」のではなく、有限次元の tightness と測度拡張がその橋になっています。
 
@@ -955,7 +957,7 @@ $$
 
 ## 4. extension theorem は標本路の正則性を何も保証しない
 
-Kolmogorov 拡張定理が作る canonical process の標本点は
+Kolmogorov 拡張定理が作る標準 process の標本点は
 
 $$
 \omega:T\to\mathbb R
@@ -965,7 +967,7 @@ $$
 
 従って、連続標本路が欲しいなら追加情報が必要です。
 
-ここで STO1 の [modification の定義](../STO1/index.md#def-sto1-modification-indistinguishable) が効きます。
+ここで STO1 の [修正の定義](../STO1/index.md#def-sto1-modification-indistinguishable) が効きます。
 
 元の過程 $X$ と各固定時刻でほとんど確実に一致しつつ、よりよい標本路を持つ過程 $\widetilde X$ を作ればよいのです。
 
@@ -978,7 +980,7 @@ $$
 <a id="def-sto3-holder-continuity"></a>
 
 <!-- formal-statement-start -->
-> **定義（Hölder continuity）**  
+> **定義（Hölder 連続性）**  
 > 区間 $[0,T]$ 上の関数 $f$ と指数 $\gamma\in(0,1]$ を考える。ある定数 $C_f<\infty$ が存在して
 >
 $$
@@ -1052,7 +1054,7 @@ Hölder 指数は「連続か否か」より細かく、経路の粗さを測り
 
 ---
 
-## 6. moment estimate から連続 modification を作る
+## 6. モーメント評価から連続修正を作る
 
 <a id="thm-sto3-kolmogorov-chentsov"></a>
 
@@ -1076,7 +1078,7 @@ $$
 >
 > が成り立つとする。
 >
-> このとき $X$ は連続な modification $\widetilde X$ を持つ。
+> このとき $X$ は連続な修正 $\widetilde X$ を持つ。
 >
 > さらに任意の
 >
@@ -1097,7 +1099,7 @@ $$
 
 です。
 
-dyadic 分割の第 $n$ 段には約 $2^n$ 本の隣接区間があります。
+二進分割の第 $n$ 段には約 $2^n$ 本の隣接区間があります。
 
 一つの区間で大きな増分が起こる確率を [Markov の不等式](../F0_00P2A_期待値_LOTUS/index.md#thm-f0-00p2a-markov)で抑えると、全区間の union bound によって $2^n$ が一つ失われます。
 
@@ -1127,12 +1129,12 @@ $$
 
 ### 証明の見取り図
 
-1. dyadic grid 上の隣接増分を一斉に抑える。
+1. 二進格子上の隣接増分を一斉に抑える。
 2. 悪い level の確率和が有限であることを示す。
 3. [Borel--Cantelli 第1補題](../F0_00P4_収束_Borel_Cantelli_一様可積分性/index.md#thm-f0-00p4-borel-cantelli-1)で、十分細かい level では全隣接増分が小さい状態にする。
-4. dyadic 近似列を各標本点ごとに Cauchy にして $\widetilde X_t$ を定義する。
-5. 元の $X_t$ への確率収束と比較して modification であることを示す。
-6. 同じ dyadic chaining で Hölder bound を得る。
+4. 二進近似列を各標本点ごとに Cauchy にして $\widetilde X_t$ を定義する。
+5. 元の $X_t$ への確率収束と比較して修正であることを示す。
+6. 同じ二進連鎖評価で Hölder 評価を得る。
 
 <!-- proof-start -->
 ### 証明
@@ -1153,7 +1155,7 @@ $$
 
 となるように一つ取ります。
 
-#### Step 1：dyadic grid の悪い事象
+#### Step 1：二進格子の悪い事象
 
 第 $n$ 段の grid を
 
@@ -1213,7 +1215,7 @@ X_{kT/2^n}
 \end{aligned}
 $$
 
-moment estimate を代入すると
+モーメント評価を代入すると
 
 $$
 \begin{aligned}
@@ -1251,7 +1253,7 @@ $$
 n\ge N(\omega)
 $$
 
-なら全ての隣接 dyadic 点について
+なら全ての隣接二進点について
 
 $$
 \left|
@@ -1263,7 +1265,7 @@ X_{kT/2^n}(\omega)
 2^{-n\eta}.
 $$
 
-#### Step 2：各 $t$ を左 dyadic 点で近似する
+#### Step 2：各 $t$ を左二進点で近似する
 
 $t\in[0,T]$ に対し
 
@@ -1316,9 +1318,9 @@ $$
 
 各固定 $t$ について $\widetilde X_t$ は可測確率変数です。
 
-#### Step 3：$\widetilde X$ は $X$ の modification
+#### Step 3：$\widetilde X$ は $X$ の修正
 
-固定した $t$ について moment estimate から
+固定した $t$ についてモーメント評価から
 
 $$
 E|X_{q_n(t)}-X_t|^\alpha
@@ -1355,9 +1357,9 @@ $$
 P(\widetilde X_t=X_t)=1.
 $$
 
-これは各固定 $t$ で成立するため、$\widetilde X$ は $X$ の modification です。
+これは各固定 $t$ で成立するため、$\widetilde X$ は $X$ の修正です。
 
-#### Step 4：dyadic chaining で Hölder bound
+#### Step 4：二進連鎖評価で Hölder 評価
 
 $\omega\in\Omega_0$ を固定します。
 
@@ -1487,7 +1489,7 @@ $$
 \gamma<\frac14
 $$
 
-の Hölder 標本路を持つ modification が得られます。
+の Hölder 標本路を持つ修正が得られます。
 
 より一般に、ある $p>2$ について
 
@@ -1525,20 +1527,20 @@ $$
 
 へ近づけます。
 
-STO4 では Gaussian increment の高次 moment がまさにこの形を与えます。
+STO4 ではガウス increment の高次 moment がまさにこの形を与えます。
 
 ---
 
-## 8. continuous modifications は indistinguishable になる
+## 8. 連続な修正は識別不能になる
 
-STO1 では modification と indistinguishability が一般には異なることを見ました。
+STO1 では修正と識別不能性が一般には異なることを見ました。
 
 しかし連続標本路を持つと、可算稠密集合が非可算時刻を支配します。
 
 <a id="prop-sto3-continuous-modifications-indistinguishable"></a>
 
 <!-- formal-statement-start -->
-> **命題（連続な modifications は indistinguishable）**  
+> **命題（連続な modifications は識別不能）**  
 > $X=(X_t)_{0\le t\le T}$ と $Y=(Y_t)_{0\le t\le T}$ を同じ確率空間上の実数値過程とする。
 >
 > 各固定 $t$ について
@@ -1555,7 +1557,7 @@ $$
 P(X_t=Y_t\text{ for all }t\in[0,T])=1.
 $$
 >
-> すなわち $X$ と $Y$ は indistinguishable である。
+> すなわち $X$ と $Y$ は識別不能である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1635,10 +1637,10 @@ $$
 
 $t$ は任意なので、$\omega\in\Omega_1\cap\Omega_2$ では全時刻で一致します。
 
-よって $X,Y$ は indistinguishable です。
+よって $X,Y$ は識別不能です。
 <!-- proof-end -->
 
-STO3 で continuous modification を一つ構成できれば、その後は「どの continuous version を採用したか」という曖昧さは indistinguishability の範囲まで消えます。
+STO3 で連続な修正を一つ構成できれば、その後は「どの continuous version を採用したか」という曖昧さは識別不能性の範囲まで消えます。
 
 ---
 
@@ -1648,21 +1650,21 @@ STO3 で continuous modification を一つ構成できれば、その後は「�
 
 | 定理 | 入力 | 出力 | 解決する問題 |
 |---|---|---|---|
-| Kolmogorov extension | 整合的な有限次元分布 | canonical process | 過程は存在するか |
-| Kolmogorov--Chentsov | increment の moment bound | Hölder continuous modification | 良い標本路を選べるか |
+| Kolmogorov extension | 整合的な有限次元分布 | 標準 process | 過程は存在するか |
+| Kolmogorov--Chentsov | increment のモーメント評価 | Hölder 連続な修正 | 良い標本路を選べるか |
 
 この二つを混ぜないことが重要です。
 
 有限次元分布だけから標本路の正則性は出ません。
 
-逆に moment bound は、そもそも過程が存在しなければ適用対象がありません。
+逆にモーメント評価は、そもそも過程が存在しなければ適用対象がありません。
 
 STO4 では
 
 $$
-\text{Gaussian finite-dimensional laws}
+\text{ガウス有限次元分布}
 \overset{\text{extension}}{\longrightarrow}
-\text{Gaussian process}
+\text{ガウス process}
 \overset{\text{continuity}}{\longrightarrow}
 \text{continuous Brownian candidate}
 $$
@@ -1673,7 +1675,7 @@ $$
 
 # 10. 演習 A
 
-#### STO3-A01 Bernoulli finite-dimensional laws の整合性
+#### STO3-A01 Bernoulli 有限次元分布の整合性
 - Level: A
 
 任意の時間集合 $T$ に対し、各有限集合 $I\subset T$ について
@@ -1763,7 +1765,7 @@ $$
 有限状態空間では点集合上で一致すれば全ての部分集合上で一致するため、整合性が示されました。
 <!-- solution-end -->
 
-#### STO3-A02 canonical coordinate process の有限次元分布
+#### STO3-A02 標準座標過程の有限次元分布
 - Level: A
 
 $T=\{0,1,2\}$、
@@ -1784,7 +1786,7 @@ $$
 
 を満たすとする。
 
-1. 事象 $\{X_0^\ast=0,X_2^\ast=1\}$ を cylinder set として書け。
+1. 事象 $\{X_0^\ast=0,X_2^\ast=1\}$ を円筒集合として書け。
 2. その確率が有限次元分布 $\mu_{\{0,2\}}$ のどの値に等しいかを書け。
 
 <!-- solution-start -->
@@ -1839,7 +1841,7 @@ $$
 この点が「有限次元分布は必要な座標だけを周辺化して得る」という意味です。
 <!-- solution-end -->
 
-#### STO3-A03 Kolmogorov continuity の指数計算
+#### STO3-A03 Kolmogorov--Chentsov 連続定理の指数計算
 - Level: A
 
 過程 $X=(X_t)_{0\le t\le1}$ が
@@ -1899,12 +1901,12 @@ $$
 \boxed{0<\gamma<\frac14}
 $$
 
-について $\gamma$-Hölder continuous な標本路を持つ modification を持ちます。
+について $\gamma$-Hölder continuous な標本路を持つ修正を持ちます。
 
 $\gamma=1/4$ 自体は、この定理の結論からは保証されません。strict inequality であることに注意します。
 <!-- solution-end -->
 
-#### STO3-A04 continuous modifications はなぜ全時刻で一致するか
+#### STO3-A04 連続な修正はなぜ全時刻で一致するか
 - Level: A
 
 $X,Y$ を $[0,1]$ 上の連続標本路を持つ過程とし、各固定 $t$ について
@@ -2009,7 +2011,7 @@ $$
 
 # 11. 演習 B
 
-#### STO3-B01 covariance $\min(s,t)$ が有限次元 covariance として正しい
+#### STO3-B01 共分散 $\min(s,t)$ が有限次元共分散として正しい
 - Level: B
 
 有限個の時刻
@@ -2032,7 +2034,7 @@ $$
    $$
    を示せ。
 2. 従って $\Sigma$ が半正定値であることを示せ。
-3. $I\subset J$ で座標を減らしたとき、この covariance 行列が対応する添字の行・列だけを残した部分行列へ移ることを確認せよ。
+3. $I\subset J$ で座標を減らしたとき、この共分散行列が対応する添字の行・列だけを残した部分行列へ移ることを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2102,7 +2104,7 @@ $$
 
 1 の左辺はまさに $a^\mathsf T\Sigma a$ なので、$\Sigma$ は半正定値です。
 
-3. 時刻集合 $J$ から $I$ の座標だけを残すと、covariance は対応する添字 $i,j\in I$ の成分
+3. 時刻集合 $J$ から $I$ の座標だけを残すと、共分散は対応する添字 $i,j\in I$ の成分
 
 $$
 \min(t_i,t_j)
@@ -2110,15 +2112,15 @@ $$
 
 だけを残します。
 
-従って covariance 行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
+従って共分散行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
 
-STO4 ではこの整合性と Gaussian 周辺分布の安定性を組み合わせ、Brownian finite-dimensional laws を作ります。
+STO4 ではこの整合性とガウス周辺分布の安定性を組み合わせ、Brownian 有限次元分布を作ります。
 <!-- solution-end -->
 
-#### STO3-B02 cylinder premeasure の「空集合への減少列で確率が0へ下がる性質」
+#### STO3-B02 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」
 - Level: B
 
-Kolmogorov 拡張定理の証明で、cylinder sets
+Kolmogorov 拡張定理の証明で、円筒集合 sets
 
 $$
 A_n\downarrow\varnothing
@@ -2142,7 +2144,7 @@ $$
    \sum_n\varepsilon_n<\delta/2
    $$
    と近似する。
-3. 有限個の compact cylinder の共通部分 $D_n$ が全て非空であることを示す。
+3. 有限個の compact 円筒集合の共通部分 $D_n$ が全て非空であることを示す。
 4. 関係する座標が可算個しかないことと compact 性から
    $$
    \bigcap_nD_n\ne\varnothing
@@ -2152,7 +2154,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$A_n$ は有限集合 $I_n$ の座標だけに依存する cylinder です。
+$A_n$ は有限集合 $I_n$ の座標だけに依存する円筒集合です。
 
 座標を累積して
 
@@ -2190,7 +2192,7 @@ $$
 
 とします。
 
-対応する compact cylinder を
+対応する compact 円筒集合を
 
 $$
 H_n=C(I_n,K_n)
@@ -2290,7 +2292,7 @@ $$
 \mu_0(A_n)\downarrow0.
 $$
 
-これが finite additivity を premeasure の countable additivity へ上げる核心です。
+これが finite additivity を前測度の countable additivity へ上げる核心です。
 <!-- solution-end -->
 
 #### STO3-B03 高次 moment から $1/2$ 未満の Hölder 指数へ
@@ -2312,7 +2314,7 @@ $$
 0<\gamma<\frac12
 $$
 
-に対し、$\gamma$-Hölder continuous な modification が存在することを示せ。
+に対し、$\gamma$-Hölder continuous な修正が存在することを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2349,7 +2351,7 @@ $$
 
 と同値です。
 
-この $p$ に対する moment bound
+この $p$ に対するモーメント評価
 
 $$
 E|X_t-X_s|^p
@@ -2397,7 +2399,7 @@ $$
 \gamma<\frac{\beta}{\alpha}
 $$
 
-なので continuity theorem を適用でき、指数 $\gamma$ で Hölder continuous な標本路を持つ modification が存在します。
+なので continuity theorem を適用でき、指数 $\gamma$ で Hölder continuous な標本路を持つ修正が存在します。
 
 $\gamma<1/2$ は任意だったので、任意の $1/2$ 未満の指数を得られます。
 
@@ -2414,7 +2416,7 @@ $$
 
 # 12. 演習 C
 
-#### STO3-C01 finite-dimensional laws から continuous process までを一気に構成する
+#### STO3-C01 有限次元分布から continuous process までを一気に構成する
 - Level: C
 
 時間区間を $[0,T]$ とする。
@@ -2433,10 +2435,10 @@ $$
 
 次を示せ。
 
-1. canonical 経路空間上に有限次元分布 $(\mu_I)$ を持つ過程 $X^\ast$ が存在する。
-2. $X^\ast$ は連続 modification $\widetilde X$ を持つ。
+1. 標準経路空間上に有限次元分布 $(\mu_I)$ を持つ過程 $X^\ast$ が存在する。
+2. $X^\ast$ は連続修正 $\widetilde X$ を持つ。
 3. 任意の $0<\gamma<\beta/\alpha$ に対し、$\widetilde X$ は $\gamma$-Hölder continuous な標本路を a.s. 持つように選べる。
-4. 同じ有限次元分布を持つ別の連続過程 $Y$ が同じ確率空間上で $X^\ast$ の modification になっているなら、$Y$ と $\widetilde X$ は indistinguishable である。
+4. 同じ有限次元分布を持つ別の連続過程 $Y$ が同じ確率空間上で $X^\ast$ の修正になっているなら、$Y$ と $\widetilde X$ は識別不能である。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2475,7 +2477,7 @@ $$
 
 したがって指定された有限次元分布を持つ過程が存在します。
 
-**2. increment moment bound を canonical process へ移す。**
+**2. increment モーメント評価を標準 process へ移す。**
 
 $s,t$ を固定します。
 
@@ -2493,9 +2495,9 @@ C|t-s|^{1+\beta}.
 \end{aligned}
 $$
 
-従って canonical process 自身が Kolmogorov--Chentsov の moment 条件を満たします。
+従って標準 process 自身が Kolmogorov--Chentsov の moment 条件を満たします。
 
-よって [Kolmogorov--Chentsov continuity theorem](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続 modification $\widetilde X$ を持ちます。
+よって [Kolmogorov--Chentsov continuity theorem](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続修正 $\widetilde X$ を持ちます。
 
 **3. Hölder exponent。**
 
@@ -2511,9 +2513,9 @@ $$
 
 $$
 \boxed{
-\text{consistent finite-dimensional laws}
+\text{consistent 有限次元分布}
 +
-\text{increment moment bound}
+\text{increment モーメント評価}
 \Longrightarrow
 \text{continuous process realization}
 }
@@ -2523,9 +2525,9 @@ $$
 
 **4. continuous version の一意性。**
 
-$Y$ が同じ確率空間上で $X^\ast$ の modification であるとします。
+$Y$ が同じ確率空間上で $X^\ast$ の修正であるとします。
 
-$\widetilde X$ も $X^\ast$ の modification なので、各固定 $t$ について
+$\widetilde X$ も $X^\ast$ の修正なので、各固定 $t$ について
 
 $$
 P^\ast(Y_t=X_t^\ast)=1,
@@ -2543,7 +2545,7 @@ $$
 
 です。
 
-$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は indistinguishable](#prop-sto3-continuous-modifications-indistinguishable) を適用して
+$Y$ と $\widetilde X$ はともに連続標本路を持つので、[連続な modifications は識別不能](#prop-sto3-continuous-modifications-indistinguishable) を適用して
 
 $$
 P^\ast(
@@ -2556,7 +2558,7 @@ $$
 
 $$
 \boxed{
-Y\text{ and }\widetilde X\text{ are indistinguishable}.
+Y\text{ and }\widetilde X\text{ are 識別不能}.
 }
 $$
 
@@ -2571,18 +2573,18 @@ $$
 
 - 有限次元分布を有限座標集合上の確率測度として書ける。
 - consistency を座標射影による周辺化として確認できる。
-- canonical 経路空間 $\mathbb R^T$ と coordinate process を構成できる。
-- cylinder set が有限個の時刻だけを見る事象であることを説明できる。
+- 標準経路空間 $\mathbb R^T$ と coordinate process を構成できる。
+- 円筒集合が有限個の時刻だけを見る事象であることを説明できる。
 - Kolmogorov extension theorem で consistency が well-definedness に使われる箇所を示せる。
-- cylinder premeasure の「空集合への減少列で確率が0へ下がる性質」 を finite-dimensional compact approximation と countable compactness から証明できる。
-- Carathéodory extension theorem を使って canonical process を完成できる。
+- 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」 を finite-dimensional compact approximation と countable compactness から証明できる。
+- Carathéodory extension theorem を使って標準 process を完成できる。
 - extension theorem が標本路連続性を保証しない理由を説明できる。
-- Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ を moment estimate から計算できる。
-- dyadic grid、Markov inequality、union bound、Borel--Cantelli、chaining の順で continuity theorem の核心証明を再構成できる。
-- continuous modification が indistinguishable まで一意になる理由を、有理数の可算稠密性から証明できる。
-- consistent finite-dimensional laws と increment moment bound を組み合わせて continuous process realization を作れる。
+- Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ をモーメント評価から計算できる。
+- 二進格子、Markov inequality、union bound、Borel--Cantelli、連鎖評価の順で continuity theorem の核心証明を再構成できる。
+- 連続な修正が識別不能まで一意になる理由を、有理数の可算稠密性から証明できる。
+- consistent 有限次元分布と increment モーメント評価を組み合わせて continuous process realization を作れる。
 
-次の STO4 では、この構成を centered Gaussian finite-dimensional laws
+次の STO4 では、この構成を centered ガウス有限次元分布
 
 $$
 E[X_sX_t]=\min(s,t)
