@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[連続セミマルチンゲール](../STO5/index.md#def-sto5-continuous-semimartingale)、[共変分](../STO5/index.md#def-sto5-covariation)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[予測可能過程](../STO1/index.md#def-sto1-predictable) を直接参照します。
+> **既出概念への参照**：[連続セミマルチンゲール](../STO5/index.md#def-sto5-continuous-セミマルチンゲール)、[共変分](../STO5/index.md#def-sto5-共変分)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[予測可能過程](../STO1/index.md#def-sto1-予測可能) を直接参照します。
 
 STO5 で二次変分 / 共変分を作り、STO6 で予測可能被積分過程の確率積分を構成しました。ここで二つが合流します。
 
@@ -109,7 +109,7 @@ $$
 以上で定義の四条件を直接確認できました。
 <!-- definition-example-end -->
 
-ブラウン運動を多次元化したとき、Itô calculus に必要なのは covariance だけではありません。標本路上で残る **共変分** を確認する必要があります。
+ブラウン運動を多次元化したとき、Itô 解析に必要なのは covariance だけではありません。標本路上で残る **共変分** を確認する必要があります。
 
 <a id="prop-sto7-vector-brownian-covariation"></a>
 
@@ -183,7 +183,7 @@ $$
 E[S_\pi]=0.
 $$
 
-また異なる区間のブラウン increments は独立で centered なので cross term は消え、
+また異なる区間のブラウン increments は独立で centered なので cross 項は消え、
 
 $$
 \begin{aligned}
@@ -240,13 +240,13 @@ $$
 (a^\top c)t.
 $$
 
-「分散共分散行列」と「共変分 matrix」が同じ係数を持つことが、多次元 Itô formula の二階項を行列で書ける理由です。
+「分散共分散行列」と「共変分 matrix」が同じ係数を持つことが、多次元 Itô 公式の二階項を行列で書ける理由です。
 
 ---
 
 ## 2. 連続セミマルチンゲールにも積分する
 
-STO6 の確率積分は continuous 局所マルチンゲールに対して構成しました。Itô formula ではドリフトも同時に現れるため、連続セミマルチンゲール全体へ積分記号を拡張します。
+STO6 の確率積分は continuous 局所マルチンゲールに対して構成しました。Itô 公式ではドリフトも同時に現れるため、連続セミマルチンゲール全体へ積分記号を拡張します。
 
 <a id="def-sto7-semimartingale-integral"></a>
 
@@ -279,7 +279,7 @@ $$
 > と定義する。右辺第1項は STO6 の確率積分、第2項は標本路ごとの Lebesgue--Stieltjes integral である。
 <!-- formal-statement-end -->
 
-[セミマルチンゲール分解の一意性](../STO5/index.md#thm-sto5-semimartingale-uniqueness) により、この定義は分解の選び方に依存しません。
+[セミマルチンゲール分解の一意性](../STO5/index.md#thm-sto5-セミマルチンゲール-一意性) により、この定義は分解の選び方に依存しません。
 
 <!-- definition-example-start: def-sto7-セミマルチンゲール-integral -->
 **定義の確認**
@@ -323,7 +323,7 @@ $$
 
 ## 3. 重み付き共変分：二次 Taylor 項を積分へ変える
 
-多次元 Itô formula の核心は
+多次元 Itô 公式の核心は
 
 $$
 \sum_k
@@ -552,7 +552,7 @@ $$
 2. 二次和 $\to \int \partial_{ij}f(X)\,d[X^i,X^j]$。
 3. 剰余項 $\to0$。
 
-2 は [重み付き共変分 sum](#lem-sto7-weighted-covariation) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
+2 は [重み付き共変分 sum](#lem-sto7-weighted-共変分) です。3 では Hessian の一様連続性と、二乗増分和が有界 in probability であることを使います。
 
 <!-- proof-start -->
 ### 証明
@@ -674,7 +674,7 @@ $$
 
 #### Step 5：二次和
 
-[重み付き共変分 sum](#lem-sto7-weighted-covariation) を
+[重み付き共変分 sum](#lem-sto7-weighted-共変分) を
 
 $$
 H_s=\partial_{ij}f(X_s)
@@ -853,7 +853,7 @@ $$
 
 ## 6. ドリフトと雑音を同じ式で扱う
 
-STO9 では SDE の解を構成します。その前に、本章ではすでに積分表示を持つ過程に Itô formula を適用する準備をします。
+STO9 では SDE の解を構成します。その前に、本章ではすでに積分表示を持つ過程に Itô 公式を適用する準備をします。
 
 <a id="def-sto7-ito-process"></a>
 
@@ -1040,7 +1040,7 @@ K_r^\beta
 $$
 
 共変分の bilinearity と
-[多次元ブラウン運動の共変分](#prop-sto7-vector-brownian-covariation) から
+[多次元ブラウン運動の共変分](#prop-sto7-vector-brownian-共変分) から
 
 $$
 \begin{aligned}
@@ -1231,12 +1231,12 @@ $$
 
 ---
 
-## 7. 時間依存 Itô formula：generator の原型
+## 7. 時間依存 Itô 公式：生成作用素の原型
 
 <a id="thm-sto7-ito-process-formula"></a>
 
 <!-- formal-statement-start -->
-> **定理（Itô 過程版の時間依存 Itô formula）**  
+> **定理（Itô 過程版の時間依存 Itô 公式）**  
 > $X$ を前節の $\mathbb R^d$-値 Itô 過程とし、
 >
 $$
@@ -1645,7 +1645,7 @@ $$
 
 ## 9. 対称和を使う理由
 
-Itô formula は正しい。しかし連鎖律に二階補正が付きます。
+Itô 公式は正しい。しかし連鎖律に二階補正が付きます。
 
 $$
 df(X)
@@ -1877,7 +1877,7 @@ $$
 
 を $\Delta Y$ と掛けます。
 
-main term は重み付き共変分 sum へ行きます。剰余項は
+main 項は重み付き共変分 sum へ行きます。剰余項は
 
 $$
 o(|\Delta X|)\,|\Delta Y|
@@ -1922,7 +1922,7 @@ $$
 \sum_kr_k\Delta_kY.
 $$
 
-第一項は [重み付き共変分 sum](#lem-sto7-weighted-covariation) から
+第一項は [重み付き共変分 sum](#lem-sto7-weighted-共変分) から
 
 $$
 \sum_j
@@ -1985,7 +1985,7 @@ $$
 \frac12[H,X]
 $$
 
-を内部に持っており、その補正が Itô formula の Hessian 項をちょうど吸収しています。
+を内部に持っており、その補正が Itô 公式の Hessian 項をちょうど吸収しています。
 
 <!-- proof-start -->
 ### 証明
@@ -2003,7 +2003,7 @@ $$
 [\partial_i f(X),X^i]_t.
 $$
 
-[共変分連鎖律](#lem-sto7-covariation-composition) を
+[共変分連鎖律](#lem-sto7-共変分-composition) を
 
 $$
 g=\partial_i f,
@@ -2187,7 +2187,7 @@ $$
 
 ## 14. 計算規則を暗記ではなく bracket から読む
 
-Itô calculus でよく使う表をまとめると
+Itô 解析でよく使う表をまとめると
 
 $$
 dB^i\,dB^j
@@ -2247,7 +2247,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. bilinearity と [vector ブラウン共変分](#prop-sto7-vector-brownian-covariation) から
+1. bilinearity と [vector ブラウン共変分](#prop-sto7-vector-brownian-共変分) から
 
 $$
 \begin{aligned}
@@ -2364,7 +2364,7 @@ $$
 
 を考える。
 
-1. Itô formula から $dZ_t$ を求めよ。
+1. Itô 公式から $dZ_t$ を求めよ。
 2. $E[Z_t]$ を求めよ。
 3. $\theta B_t$ の確率指数関数と一致することを確認せよ。
 
@@ -2381,7 +2381,7 @@ F_x=\theta F,
 F_{xx}=\theta^2F.
 $$
 
-時間依存 Itô formula から
+時間依存 Itô 公式から
 
 $$
 \begin{aligned}
@@ -2452,7 +2452,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-積の公式または $f(x)=x^2$ の Itô formula から
+積の公式または $f(x)=x^2$ の Itô 公式から
 
 $$
 B_t^2
@@ -2508,7 +2508,7 @@ $$
 
 $B$ を $d$ 次元 standard ブラウン運動とする。
 
-1. $|B_t|^2$ に多次元 Itô formula を適用せよ。
+1. $|B_t|^2$ に多次元 Itô 公式を適用せよ。
 2.
    $$
    M_t=|B_t|^2-dt
@@ -2588,7 +2588,7 @@ E|B_t|^2=dt.
 $$
 <!-- solution-end -->
 
-## STO7-B02 二次形式に Itô formula を適用する
+## STO7-B02 二次形式に Itô 公式を適用する
 
 - Level: B
 - 目安時間: 25分
@@ -2599,7 +2599,7 @@ $$
 f(x)=x^\top Qx
 $$
 
-に Itô formula を適用し、$df(X_t)$ を求めよ。
+に Itô 公式を適用し、$df(X_t)$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2835,7 +2835,7 @@ $$
 \int_0^tV_\beta^j(X_s)\,dB_s^\beta.
 $$
 
-[vector ブラウン stochastic integrals の共変分](#lem-sto7-vector-brownian-integral-covariation) と
+[vector ブラウン stochastic integrals の共変分](#lem-sto7-vector-brownian-integral-共変分) と
 
 $$
 [B^\beta,B^\alpha]_t
@@ -3061,4 +3061,4 @@ $$
 
 という通常形の連鎖律が戻ります。
 
-次は STO8 で、$C^2$ でない $f(x)=|x|$ に Itô calculus を押し広げます。そこで二階微分の代わりに **局所時間** が現れ、Tanaka formula と滞在時間 formula へ進みます。
+次は STO8 で、$C^2$ でない $f(x)=|x|$ に Itô 解析を押し広げます。そこで二階微分の代わりに **局所時間** が現れ、Tanaka formula と滞在時間 formula へ進みます。
