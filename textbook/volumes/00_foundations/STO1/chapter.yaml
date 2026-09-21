@@ -18,6 +18,8 @@ learning_objectives:
   - future informationを使うrandom timeがstopping timeでない理由を情報構造から判定できる
 definitions:
   - { id: STO1-DEF-00, name: "可測写像（F/E 可測）" }
+  - { id: STO1-DEF-00A, name: "部分 σ 代数" }
+  - { id: STO1-DEF-00B, name: "P に関して complete な部分 σ 代数" }
   - { id: STO1-DEF-01, name: "stochastic process と sample path" }
   - { id: STO1-DEF-02, name: "modification と indistinguishability" }
   - { id: STO1-DEF-03, name: "filtration と usual conditions" }
