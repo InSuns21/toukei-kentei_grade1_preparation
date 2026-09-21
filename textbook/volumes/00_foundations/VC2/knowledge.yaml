@@ -69,7 +69,6 @@ concepts:
     kind: definition
     aliases: [保存場, conservative field, scalar potential, potential]
     introduction: inline
-    introduction_aliases: ["定義（保存場・potential）"]
     requires:
       - vector-calculus.gradient
 
@@ -78,7 +77,6 @@ concepts:
     kind: definition
     aliases: [経路独立, ベクトル線積分の経路独立性, vector line integral path independence]
     introduction: inline
-    introduction_aliases: ["定義（経路独立）"]
     requires:
       - vector-calculus.vector-line-integral
 
