@@ -57,6 +57,8 @@ flowchart TD
   LA3C --> VC3
   VC2 --> VC4["ベクトル解析 IV<br/>Green・Gauss・保存則<br/>VC4"]
   VC3 --> VC4
+  VC4 --> VC5["ベクトル解析 V<br/>Stokes・curl・topology<br/>VC5"]
+  VC5 --> VC6["ベクトル解析 VI<br/>直交曲線座標<br/>VC6"]
 
   TOP0 --> TOP1["位相の生成・initial/final<br/>積・商 TOP1"]
   TOP1 --> TOP2["同値関係による商・貼り合わせ<br/>TOP2"]
@@ -378,7 +380,29 @@ flowchart TD
 
 実装: [VC4](volumes/00_foundations/VC4/index.md)
 
-VC4 までが PDE6 の direct prerequisite です。VC5 以降の Stokes、直交曲線座標、Cartesian tensor、Helmholtz decomposition は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って後続実装します。
+## VC5 Stokes theorem・curl・topology `core-advanced-standard`
+
+- Kelvin--Stokes theoremをGreen theoremから古典的に証明
+- 曲面orientationから誘導されるboundary orientation
+- finite patch decompositionと内部境界の相殺
+- curlの局所循環密度としての意味
+- 穴あき領域でglobal potentialが壊れる機構
+- irrotational / solenoidal / vector potential / gauge freedomの入口
+
+実装: [VC5](volumes/00_foundations/VC5/index.md)
+
+## VC6 直交曲線座標 `core-advanced-standard`
+
+- orthogonal curvilinear coordinatesとscale factors
+- 線素・面素・体積要素とJacobian
+- scale factorからgrad / div / curl / scalar Laplacianを導出
+- cylindrical / spherical coordinates
+- 位置依存basisとvector Laplacianの注意
+- radial / inverse-square / axisymmetric fieldの典型計算
+
+実装: [VC6](volumes/00_foundations/VC6/index.md)
+
+VC4 までが PDE6 の direct prerequisite です。VC5--VC6 で古典ベクトル解析の積分定理と円柱・球座標までを閉じました。Cartesian tensor、Helmholtz decomposition、数理物理 bridge は [再編計画](DREAM_THEATER_VECTOR_CALCULUS_RESTRUCTURE_PLAN.md) に従って VC7--VC9 で後続実装します。
 
 ---
 

@@ -8,6 +8,7 @@ prerequisites:
 
 forward_references:
   - pde.pde1-partial-differential-equation
+  - vector-calculus.stokes-theorem
 
 concepts:
   - id: vector-calculus.green-circulation

@@ -1,0 +1,106 @@
+chapter: VC6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - VC5
+
+forward_references:
+  - pde.pde1-partial-differential-equation
+
+concepts:
+  - id: vector-calculus.orthogonal-curvilinear-coordinates
+    name: 直交曲線座標
+    kind: definition
+    aliases: [orthogonal curvilinear coordinates, 直交座標曲線]
+    introduction: formal
+    introduction_aliases: ["定義（直交曲線座標）"]
+    requires:
+      - functional.frechet-derivative
+      - vector-calculus.surface-tangent-normal
+
+  - id: vector-calculus.curvilinear-scale-factors
+    name: scale factor・位置依存orthonormal basis
+    kind: definition
+    aliases: [scale factor, Lamé coefficient, h1 h2 h3, coordinate basis]
+    introduction: formal
+    introduction_aliases: ["定義（scale factor と位置依存 orthonormal basis）"]
+    requires:
+      - vector-calculus.orthogonal-curvilinear-coordinates
+
+  - id: vector-calculus.curvilinear-elements
+    name: 直交曲線座標の線素・面素・体積要素
+    kind: proposition
+    aliases: [line element, surface element, volume element in curvilinear coordinates]
+    introduction: formal
+    introduction_aliases: ["命題（線素・面素・体積要素）"]
+    requires:
+      - vector-calculus.curvilinear-scale-factors
+      - analysis.multivariable-riemann-change-of-variables
+
+  - id: vector-calculus.curvilinear-gradient
+    name: 直交曲線座標のgradient
+    kind: proposition
+    aliases: [gradient in orthogonal curvilinear coordinates]
+    introduction: formal
+    introduction_aliases: ["命題（直交曲線座標の gradient）"]
+    requires:
+      - vector-calculus.gradient
+      - vector-calculus.curvilinear-scale-factors
+
+  - id: vector-calculus.curvilinear-divergence
+    name: 直交曲線座標のdivergence
+    kind: proposition
+    aliases: [divergence in orthogonal curvilinear coordinates]
+    introduction: formal
+    introduction_aliases: ["命題（直交曲線座標の divergence）"]
+    requires:
+      - vector-calculus.divergence
+      - vector-calculus.curvilinear-elements
+      - vector-calculus.flux-integral
+
+  - id: vector-calculus.curvilinear-curl
+    name: 直交曲線座標のcurl
+    kind: proposition
+    aliases: [curl in orthogonal curvilinear coordinates]
+    introduction: formal
+    introduction_aliases: ["命題（直交曲線座標の curl）"]
+    requires:
+      - vector-calculus.curl
+      - vector-calculus.curvilinear-elements
+      - vector-calculus.vector-line-integral
+
+  - id: vector-calculus.curvilinear-scalar-laplacian
+    name: 直交曲線座標のscalar Laplacian
+    kind: proposition
+    aliases: [Laplacian in orthogonal curvilinear coordinates]
+    introduction: formal
+    introduction_aliases: ["命題（直交曲線座標の scalar Laplacian）"]
+    requires:
+      - vector-calculus.scalar-laplacian
+      - vector-calculus.curvilinear-gradient
+      - vector-calculus.curvilinear-divergence
+
+  - id: vector-calculus.cylindrical-coordinate-formulas
+    name: cylindrical coordinate formulas
+    kind: proposition
+    aliases: [cylindrical coordinate formulas, cylindrical coordinates の公式, 円柱座標の微分演算子公式]
+    introduction: formal
+    introduction_aliases: ["命題（cylindrical coordinates の公式）"]
+    requires:
+      - vector-calculus.curvilinear-gradient
+      - vector-calculus.curvilinear-divergence
+      - vector-calculus.curvilinear-curl
+      - vector-calculus.curvilinear-scalar-laplacian
+
+  - id: vector-calculus.spherical-coordinate-formulas
+    name: spherical coordinate formulas
+    kind: proposition
+    aliases: [spherical coordinate formulas, spherical coordinates の公式, 球座標の微分演算子公式]
+    introduction: formal
+    introduction_aliases: ["命題（spherical coordinates の公式）"]
+    requires:
+      - vector-calculus.curvilinear-gradient
+      - vector-calculus.curvilinear-divergence
+      - vector-calculus.curvilinear-curl
+      - vector-calculus.curvilinear-scalar-laplacian
+      - analysis.polar-spherical-riemann-change-of-variables

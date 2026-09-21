@@ -298,6 +298,22 @@ nodes:
     implemented_at: 2026-09-21
     implementation_path: textbook/volumes/00_foundations/VC4/index.md
     prerequisites: [VC2, VC3, RA7]
+  - id: VC5
+    title: Stokes theorem・curl・topology
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC5/index.md
+    prerequisites: [VC2, VC3, VC4]
+  - id: VC6
+    title: 直交曲線座標
+    area: vector-calculus
+    tier: core-advanced-standard
+    status: implemented
+    implemented_at: 2026-09-22
+    implementation_path: textbook/volumes/00_foundations/VC6/index.md
+    prerequisites: [VC5]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
@@ -533,7 +549,7 @@ implementation_batches:
     nodes: [RA6A, RA7, RA8]
   - order: 9
     id: vector-calculus-core
-    nodes: [VC1, VC2, VC3, VC4]
+    nodes: [VC1, VC2, VC3, VC4, VC5, VC6]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint

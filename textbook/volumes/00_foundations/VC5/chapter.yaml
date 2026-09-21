@@ -1,0 +1,41 @@
+id: "VC5"
+title: "標準ベクトル解析 V：Stokes theorem・curl・topology"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - VC2
+  - VC3
+  - VC4
+official_scope: []
+learning_objectives:
+  - 向き付けられた曲面から境界曲線の誘導向きを定義し、右手則とパラメータ領域の正向きを対応付けられる
+  - Kelvin--Stokes theoremを仮定込みで述べ、graph surfaceおよび一般の正則surface patchでGreen theoremから証明できる
+  - 有限surface patch分割で内部境界の線積分が逆向きに相殺することを説明できる
+  - Stokes theoremからcurlが単位面積あたりの循環密度であることを導ける
+  - curl grad=0とdiv curl=0の積分的意味をGreen・Gauss・Stokesと結び付けて説明できる
+  - 穴のある領域でcurl F=0でもglobal potentialが存在しない機構を、spanning surfaceが領域内に取れないことまで含めて説明できる
+  - irrotationalとsolenoidalを区別し、vector potentialが存在すればsolenoidalであることとgauge freedomを証明できる
+definitions:
+  - { id: VC5-DEF-01, name: 誘導された境界向き }
+  - { id: VC5-DEF-02, name: irrotational・solenoidal }
+  - { id: VC5-DEF-03, name: vector potential }
+theorems:
+  - { id: VC5-THM-01, name: Kelvin--Stokes theorem }
+  - { id: VC5-PROP-01, name: curlは局所循環密度 }
+  - { id: VC5-PROP-02, name: vector potentialはsolenoidal }
+  - { id: VC5-PROP-03, name: vector potentialのgauge freedom }
+canonical_examples:
+  - 平面disk上の回転場とStokes theorem
+  - hemisphereと同一境界を持つdiskの循環比較
+  - z軸を除いた空間のirrotational非conservative field
+  - 一様磁場型vector fieldのvector potential
+problem_patterns:
+  - VC5-STOKES-1
+  - VC5-ORIENTATION-1
+  - VC5-CURL-DENSITY-1
+  - VC5-HOLE-TOPOLOGY-1
+  - VC5-VECTOR-POTENTIAL-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.0 }
