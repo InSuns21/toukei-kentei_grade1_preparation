@@ -955,7 +955,7 @@ $$
 
 ---
 
-## 4. 拡張 theorem は標本路の正則性を何も保証しない
+## 4. 拡張定理 は標本路の正則性を何も保証しない
 
 Kolmogorov 拡張定理が作る標準 process の標本点は
 
@@ -1059,7 +1059,7 @@ Hölder 指数は「連続か否か」より細かく、経路の粗さを測り
 <a id="thm-sto3-kolmogorov-chentsov"></a>
 
 <!-- formal-statement-start -->
-> **定理（Kolmogorov--Chentsov 連続性 theorem：1 パラメータ版）**  
+> **定理（Kolmogorov--Chentsov 連続定理：1 パラメータ版）**  
 > 実数値確率過程 $X=(X_t)_{0\le t\le T}$ に対し、ある定数
 >
 $$
@@ -1854,7 +1854,7 @@ $$
 
 を満たすとする。
 
-[Kolmogorov--Chentsov 連続性 theorem](#thm-sto3-kolmogorov-chentsov) を使って保証できる Hölder 指数の範囲を求めよ。
+[Kolmogorov--Chentsov 連続定理](#thm-sto3-kolmogorov-chentsov) を使って保証できる Hölder 指数の範囲を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2497,7 +2497,7 @@ $$
 
 従って標準 process 自身が Kolmogorov--Chentsov のモーメント条件を満たします。
 
-よって [Kolmogorov--Chentsov 連続性 theorem](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続修正 $\widetilde X$ を持ちます。
+よって [Kolmogorov--Chentsov 連続定理](#thm-sto3-kolmogorov-chentsov)から、$X^\ast$ は連続修正 $\widetilde X$ を持ちます。
 
 **3. Hölder exponent。**
 
@@ -2575,10 +2575,10 @@ $$
 - consistency を座標射影による周辺化として確認できる。
 - 標準経路空間 $\mathbb R^T$ と coordinate process を構成できる。
 - 円筒集合が有限個の時刻だけを見る事象であることを説明できる。
-- Kolmogorov 拡張 theorem で consistency が well-definedness に使われる箇所を示せる。
+- Kolmogorov 拡張定理 で consistency が well-definedness に使われる箇所を示せる。
 - 円筒集合前測度の「空集合への減少列で確率が0へ下がる性質」 を有限次元 compact approximation と countable compactness から証明できる。
-- Carathéodory 拡張 theorem を使って標準 process を完成できる。
-- 拡張 theorem が標本路連続性を保証しない理由を説明できる。
+- Carathéodory 拡張定理 を使って標準 process を完成できる。
+- 拡張定理 が標本路連続性を保証しない理由を説明できる。
 - Kolmogorov--Chentsov theorem の exponent $\beta/\alpha$ をモーメント評価から計算できる。
 - 二進格子、Markov inequality、union bound、Borel--Cantelli、連鎖評価の順で連続性 theorem の核心証明を再構成できる。
 - 連続な修正が識別不能まで一意になる理由を、有理数の可算稠密性から証明できる。
