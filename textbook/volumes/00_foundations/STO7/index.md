@@ -2802,7 +2802,7 @@ $$
 \int_0^tV_\beta^j(X_s)\,dB_s^\beta.
 $$
 
-STO6 の stochastic integral bracket / covariation rule と
+[vector Brownian stochastic integrals の covariation](#lem-sto7-vector-brownian-integral-covariation) と
 
 $$
 [B^\beta,B^\alpha]_t
