@@ -1075,7 +1075,7 @@ $$
 \right).
 $$
 
-$\varepsilon_{ijk}=\varepsilon_{kij}$ なので縮約公式から
+$\varepsilon_{ijk}=\varepsilon_{kij}$ なので [Levi--Civita 記号の縮約公式](#prop-vc7-epsilon-contraction) から
 
 $$
 \varepsilon_{ijk}\varepsilon_{k\ell m}
