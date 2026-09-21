@@ -9,6 +9,23 @@ const validationRoots = ['textbook', 'references', 'agents']
   .map((name) => path.join(root, name))
   .filter(fs.existsSync);
 const files = validationRoots.flatMap(walk).filter((file) => file.endsWith('.md'));
+
+const delimiterValidationRoots = [
+  'textbook',
+  'statistical-mathematics',
+  'applied-rikou-80',
+  'anki',
+  'references',
+  'agents',
+]
+  .map((name) => path.join(root, name))
+  .filter(fs.existsSync);
+const delimiterFiles = [
+  ...delimiterValidationRoots.flatMap(walk).filter((file) => file.endsWith('.md')),
+  ...['AGENTS.md', 'CONTENT_GUIDELINES.md', 'EXERCISE_GUIDELINES.md']
+    .map((name) => path.join(root, name))
+    .filter(fs.existsSync),
+];
 const forbidden = [
   [/\\\(/g, String.raw`\(`], [/\\\)/g, String.raw`\)`],
   [/(?<!\\)\\\[/g, String.raw`\[`], [/(?<!\\)\\\]/g, String.raw`\]`],
@@ -16,7 +33,7 @@ const forbidden = [
   [/\\(?:label|ref|eqref|tag|newcommand|renewcommand|def)\b/g, 'unsupported command'],
 ];
 
-for (const file of files) {
+for (const file of delimiterFiles) {
   const source = fs.readFileSync(file, 'utf8');
   const searchable = stripCode(source);
   for (const [lineIndex, line] of searchable.split(/\r?\n/).entries()) {
@@ -24,6 +41,11 @@ for (const file of files) {
       errors.push(`${relative(file)}:${lineIndex + 1} 単独行 $ を検出しました。表示数式の $$ が機械置換で破損した可能性があります`);
     }
   }
+}
+
+for (const file of files) {
+  const source = fs.readFileSync(file, 'utf8');
+  const searchable = stripCode(source);
   for (const [pattern, label] of forbidden) {
     pattern.lastIndex = 0;
     const match = pattern.exec(searchable);
@@ -45,7 +67,7 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証しました。`);
+console.log(`${files.length} 個の textbook/shared Markdown ファイルを KaTeX strict で検証し、${delimiterFiles.length} 個の教材 Markdown で単独行 $ を検査しました。`);
 
 function extractMath(source, file) {
   const result = [];
