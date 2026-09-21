@@ -32,7 +32,7 @@ Wold 分解、remote past、純非決定論性は次章 TSA2 の主役です。�
 
 <!-- formal-statement-start -->
 > **定義（狭義定常性）**  
-> 実確率過程 $(X_t)_{t\in\mathbb Z}$ が狭義定常（strictly stationary）であるとは、任意の $n\ge1$、任意の時刻 $t_1,\dots,t_n\in\mathbb Z$、任意の整数 $h$ に対して
+> 実確率変数列 $(X_t)_{t\in\mathbb Z}$ が狭義定常（strictly stationary）であるとは、任意の $n\ge1$、任意の時刻 $t_1,\dots,t_n\in\mathbb Z$、任意の整数 $h$ に対して
 >
 > $$
 > (X_{t_1},\dots,X_{t_n})
@@ -64,7 +64,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（二次定常性）**  
-> 実確率過程 $(X_t)_{t\in\mathbb Z}$ が二次定常であるとは、各 $X_t\in L^2$ であり、ある定数 $\mu$ と関数 $\gamma:\mathbb Z\to\mathbb R$ が存在して
+> 実確率変数列 $(X_t)_{t\in\mathbb Z}$ が二次定常であるとは、各 $X_t\in L^2$ であり、ある定数 $\mu$ と関数 $\gamma:\mathbb Z\to\mathbb R$ が存在して
 >
 > $$
 > E[X_t]=\mu,
@@ -172,7 +172,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（弱ホワイトノイズ）**  
-> 各 $\varepsilon_t\in L^2$ である実確率過程 $(\varepsilon_t)_{t\in\mathbb Z}$ が、分散 $\sigma^2>0$ の弱ホワイトノイズであるとは、
+> 各 $\varepsilon_t\in L^2$ である実確率変数列 $(\varepsilon_t)_{t\in\mathbb Z}$ が、分散 $\sigma^2>0$ の弱ホワイトノイズであるとは、
 >
 > $$
 > E[\varepsilon_t]=0,
@@ -309,7 +309,7 @@ $$
 \bigl(\gamma(i-j)\bigr)_{1\le i,j\le n}
 $$
 
-は半正定値です。これは後で有限過去予測の正規方程式にそのまま現れます。TSA3 では、この正定値列をスペクトル測度へ変換する Herglotz の定理へ進みます。
+は半正定値です。これは後で有限過去予測の正規方程式にそのまま現れます。TSA3 では、この正定値列を周波数領域の測度表現へ変換する Herglotz の定理へ進みます。
 
 ---
 
@@ -394,7 +394,7 @@ $$
 
 ## 5. 有限過去予測と正規方程式
 
-まず有限個の lag だけを使う予測を解きます。ここで Toeplitz 型の自己共分散行列が自然に現れます。
+まず有限個の lag だけを使う予測を解きます。ここで自己共分散から作る Toeplitz 型行列が自然に現れます。
 
 <a id="thm-tsa1-finite-normal-equations"></a>
 
@@ -1112,7 +1112,7 @@ $$
 一方、偶数時刻では $P(X_t=0)=0$、奇数時刻では $P(X_t=0)=2/3$ です。一時点分布が時間移動で変わるため、狭義定常ではありません。
 <!-- solution-end -->
 
-## TSA1-A02 自己共分散行列の半正定値性
+## TSA1-A02 自己共分散から作る行列の半正定値性
 
 - Level: A
 - 目安時間: 12分
@@ -1759,7 +1759,7 @@ Z_{t-1}
 L^2\text{-}\sum_{j=0}^\infty(-\theta)^jX_{t-1-j}.
 $$
 
-各有限部分和は $\mathcal H_{t-1}$ に属し、$\mathcal H_{t-1}$ は閉なので
+各有限打切り和は $\mathcal H_{t-1}$ に属し、$\mathcal H_{t-1}$ は閉なので
 
 $$
 Z_{t-1}\in\mathcal H_{t-1}.
