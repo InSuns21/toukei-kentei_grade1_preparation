@@ -7,6 +7,16 @@ prerequisites:
   - STO7
   - RA5
 
+forward_references:
+  - stochastic.weak-solution
+  - stochastic.uniqueness-in-law
+  - stochastic.girsanov-theorem
+  - measure.equivalent-probability-measures
+  - stochastic.novikov-condition
+  - stochastic.girsanov-drift-removal
+  - stochastic.girsanov-weak-existence
+  - stochastic.markov-generator
+
 concepts:
   - id: stochastic.brownian-sde
     name: Brownian SDE
