@@ -12,7 +12,8 @@ learning_objectives:
   - adapted processとnatural filtrationを定義し、時刻ごとの可測性を検証できる
   - progressive measurabilityを定義し、right-continuous adapted processがprogressiveであることを証明できる
   - predictable sigma-fieldとpredictable processを定義し、simple predictable processの可測性を生成集合から確認できる
-  - stopping timeを定義し、min/max演算でstopping timeが保たれること、tau∧tのF_t可測性とt∨tauが一般にF_t可測でないことを説明できる
+  - stopping timeを定義し、離散時間の初到達時刻と連続pathのclosed-set hitting timeがstopping timeになることを証明できる
+  - stopping timeのmin/max演算を扱い、tau∧tのF_t可測性とt∨tauが一般にF_t可測でないことを説明できる
   - stopped processと停止時刻までのsigma代数 F_tau を定義し、F_tauがsigma代数であることと S<=T なら F_S subset F_T を証明できる
   - progressive processをstopping timeで評価した X_tau のF_tau可測性と stopped processのadaptednessを証明できる
   - future informationを使うrandom timeがstopping timeでない理由を情報構造から判定できる
