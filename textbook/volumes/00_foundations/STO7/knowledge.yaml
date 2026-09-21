@@ -56,7 +56,7 @@ concepts:
   - id: stochastic.multidimensional-ito-formula
     name: multidimensional Itô formula
     kind: theorem
-    aliases: ["multidimensional Ito formula", "Itô formula in R^d"]
+    aliases: ["multidimensional Ito formula", "Itô formula in R^d", "Itô 公式", "多次元 Itô 公式"]
     introduction: formal
     introduction_aliases: ["定理（多次元 Itô 公式）"]
     requires:
@@ -87,7 +87,7 @@ concepts:
   - id: stochastic.vector-brownian-integral-covariation
     name: vector Brownian stochastic integralsのcovariation
     kind: lemma
-    aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation"]
+    aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation", "確率積分 covariation 公式", "STO7 の確率積分 covariation 公式"]
     introduction: formal
     introduction_aliases: ["補題（多次元ブラウン確率積分の共変分）"]
     requires:
@@ -98,7 +98,7 @@ concepts:
   - id: stochastic.ito-process-formula
     name: Itô process版の時間依存Itô formula
     kind: theorem
-    aliases: ["time-dependent Ito formula", "Itô formula for Itô processes"]
+    aliases: ["time-dependent Ito formula", "Itô formula for Itô processes", "時間依存 Itô 公式"]
     introduction: formal
     introduction_aliases: ["定理（Itô 過程版の時間依存 Itô 公式）"]
     requires:
