@@ -78,7 +78,7 @@ $$
 X_t:\Omega\to E
 $$
 >
-> が $\mathcal F/\mathcal E$ 可測であるとき、族
+> が [$\mathcal F/\mathcal E$ 可測](../F0_00D2_測度_可測関数_Lebesgue積分_Lp/index.md#def-f0-00d2-measurable-map) であるとき、族
 >
 $$
 X=(X_t)_{t\in T}
