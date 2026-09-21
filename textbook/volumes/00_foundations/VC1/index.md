@@ -184,6 +184,55 @@ $$
 
 となります。つまり **勾配は最も急に増加する単位方向を向き、その最大増加率は $\|\nabla f(x)\|$** です。反対向き $-\nabla f(x)/\|\nabla f(x)\|$ では最も急に減少します。
 
+<a id="def-vc1-level-surface"></a>
+
+<!-- formal-statement-start -->
+> **定義（レベル集合・レベル曲面）**  
+> 関数 $f:\Omega\subset\mathbb R^n\to\mathbb R$ と定数 $c\in\mathbb R$ に対し、
+
+$$
+L_c
+:=
+f^{-1}(c)
+=
+\{x\in\Omega:f(x)=c\}
+$$
+
+> を $f$ の **レベル集合** と呼ぶ。特に $n=3$ のとき $L_c$ を **レベル曲面** と呼ぶ。
+>
+> さらに $f\in C^1(\Omega)$ とし、$p\in L_c$ で
+
+$$
+\nabla f(p)\neq0
+$$
+
+> なら $p$ を正則点と呼ぶ。この条件を満たす点の近くでは、[RA6A の正則レベル集合の局所グラフ表示](../RA6A/index.md#cor-ra6a-regular-level-set)により $L_c$ は $C^1$ 級曲面になる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-vc1-level-surface -->
+**定義の確認**
+
+$$
+f(x,y,z)=x^2+y^2+z^2
+$$
+
+に対し、$c>0$ のレベル集合は
+
+$$
+L_c
+=
+\{(x,y,z):x^2+y^2+z^2=c\},
+$$
+
+すなわち半径 $\sqrt c$ の球面です。球面上では
+
+$$
+\nabla f(x,y,z)=2(x,y,z)\neq0
+$$
+
+なので、すべての点が正則点です。
+<!-- definition-example-end -->
+
 ### 例：球面の法線が勾配になる
 
 $$
@@ -196,7 +245,7 @@ $$
 \nabla f=(2x,2y,2z).
 $$
 
-[レベル曲面](../RA6A/index.md#def-ra6a-level-set) $f=c$ は半径 $\sqrt c$ の球面で、勾配は半径方向を向きます。
+[レベル曲面](#def-vc1-level-surface) $f=c$ は半径 $\sqrt c$ の球面で、勾配は半径方向を向きます。
 
 <a id="thm-vc1-level-normal"></a>
 
@@ -1078,7 +1127,7 @@ $$
 \Delta f=2+2+2=6.
 $$
 
-2. 単位球面は $f=1$ という[レベル曲面](../RA6A/index.md#def-ra6a-level-set)です。[正則レベル曲面と勾配の直交](#thm-vc1-level-normal) より、$\nabla f$ はすべての接方向に直交します。実際
+2. 単位球面は $f=1$ という[レベル曲面](#def-vc1-level-surface)です。[正則レベル曲面と勾配の直交](#thm-vc1-level-normal) より、$\nabla f$ はすべての接方向に直交します。実際
 
 $$
 \nabla f=2(x,y,z)
