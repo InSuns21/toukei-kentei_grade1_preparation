@@ -531,6 +531,9 @@ implementation_batches:
   - order: 8
     id: real-analysis-multivariable-and-compactness
     nodes: [RA6A, RA7, RA8]
+  - order: 9
+    id: vector-calculus-core
+    nodes: [VC1, VC2, VC3, VC4]
 
 deferred_integrations:
   - id: dream-theater-facade-entrypoint
