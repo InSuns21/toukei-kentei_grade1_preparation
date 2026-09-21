@@ -1962,7 +1962,7 @@ $$
 
 ### 証明の見取り図
 
-$V(X_{t\wedge\tau_n})$ に Itô 公式を使います。
+$V(X_{t\wedge\tau_n})$ に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使います。
 
 確率積分の期待値を $0$ にしてドリフト inequality を入れると
 
@@ -2288,7 +2288,7 @@ $$
 
 ### 証明の見取り図
 
-$Z=X-Y$ と置いて $\phi_\varepsilon(Z_t)$ に Itô 公式を使います。
+$Z=X-Y$ と置いて $\phi_\varepsilon(Z_t)$ に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使います。
 
 - ドリフト項は $Z>0$ のときだけ問題になり、ドリフト order と Lipschitz から $LZ^+$ で抑えられる。
 - 二次変分項は $0<Z<\varepsilon$ の狭い領域だけで現れ、Lipschitz 拡散によって $O(\varepsilon)$ へ落ちる。
@@ -2313,7 +2313,7 @@ dZ_t
 \{\sigma(X_t)-\sigma(Y_t)\}\,dW_t.
 $$
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 \begin{aligned}
@@ -2756,7 +2756,7 @@ x\exp\left\{
 \right\}
 $$
 
-が solution であることを Itô 公式から示せ。
+が solution であることを [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から示せ。
 
 さらに $x>0$ なら $X_t>0$ for all $t$ ほとんど確実にを示せ。
 
@@ -2789,7 +2789,7 @@ $$
 \partial_{ww}f=\alpha^2f.
 $$
 
-Itô 公式から
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 \begin{aligned}
