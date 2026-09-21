@@ -2363,7 +2363,7 @@ P_t(1,2)
 \end{aligned}
 $$
 
-3. $t\to\infty$ で exponential term は 0 へ行くので
+3. $t\to\infty$ で 指数項 は 0 へ行くので
 
 $$
 P_t(1,1)\to
@@ -2379,7 +2379,7 @@ P_t(1,2)\to
 \pi_2.
 $$
 
-4. equilibrium からの偏差は
+4. 定常値からの偏差は
 
 $$
 P_t(1,1)-\pi_1
@@ -2388,7 +2388,7 @@ P_t(1,1)-\pi_1
 e^{-(\alpha+\beta)t}.
 $$
 
-従って decay exponent は
+従って 減衰率 は
 
 $$
 \boxed{
