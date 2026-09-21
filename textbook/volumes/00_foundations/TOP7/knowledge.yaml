@@ -27,6 +27,15 @@ concepts:
       - topology.uniformity
       - topology.metric-space
 
+  - id: topology.uniform-induced-open-set
+    name: 一様空間の開集合
+    kind: definition
+    aliases: [一様空間の開集合, uniform-open set]
+    introduction: formal
+    introduction_aliases: [定義（一様空間の開集合）]
+    requires:
+      - topology.uniformity
+
   - id: topology.uniform-induced-topology
     name: 一様構造が誘導する位相
     kind: theorem
