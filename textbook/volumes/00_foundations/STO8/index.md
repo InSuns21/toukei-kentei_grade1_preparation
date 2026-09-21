@@ -4,7 +4,7 @@
 
 > **既出概念への参照**：[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[ブラウン運動の二次変分](../STO5/index.md#thm-sto5-brownian-qv)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を再利用します。
 
-STO7 までの Itô formula は、空間変数について二階微分できる関数を扱いました。
+STO7 までの Itô 公式は、空間変数について二階微分できる関数を扱いました。
 
 ところが最も基本的な凸関数
 
@@ -268,7 +268,7 @@ $$
 
 固定した $T<\infty$ を取ります。
 
-[Itô formula](../STO7/index.md#thm-sto7-multidimensional-ito) を $F_\varepsilon(B_t-a)$ に適用すると
+[Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito) を $F_\varepsilon(B_t-a)$ に適用すると
 
 $$
 \begin{aligned}
@@ -1331,7 +1331,7 @@ $$
 \mu_t^\omega(\mathbb R)=t,
 $$
 
-また $g_n\uparrow1$ となる compactly supported continuous cutoff を $C_c$ の等式へ入れて monotone convergence を使えば
+また $g_n\uparrow1$ となる compactly supported continuous 切断を $C_c$ の等式へ入れて monotone convergence を使えば
 
 $$
 \nu_t^\omega(\mathbb R)=t.
@@ -1754,7 +1754,7 @@ $$
 
 $|B_t|\ge0$、$L^0$ は continuous nondecreasing、$L_0^0=0$ です。
 
-さらに [局所時間の support](#prop-sto8-local-time-support) から $L^0$ が増加するのは
+さらに [局所時間の support](#prop-sto8-局所-time-support) から $L^0$ が増加するのは
 
 $$
 B_t=0
@@ -1770,7 +1770,7 @@ $$
 
 と同値です。
 
-従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) を
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-反射) を
 
 $$
 x=\beta,
@@ -1799,7 +1799,7 @@ $$
 前の命題で $\beta$ はブラウン運動なので、過程法則の等式も従います。
 <!-- proof-end -->
 
-STO4 の [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) とブラウン symmetry を使うと、$x\ge0$ に対し
+STO4 の [反射 principle](../STO4/index.md#thm-sto4-反射-principle) とブラウン symmetry を使うと、$x\ge0$ に対し
 
 $$
 \begin{aligned}
@@ -1841,7 +1841,7 @@ $$
 
 ## 11. 何が起きていたのか
 
-通常の Itô formula は $C^2$ 関数に対し
+通常の Itô 公式は $C^2$ 関数に対し
 
 $$
 df(B_t)
@@ -1880,7 +1880,7 @@ $$
 
 $$
 \boxed{
-\text{折れ点に集中した second-order Itô 補正}
+\text{折れ点に集中した二階 Itô 補正}
 }
 $$
 
@@ -2426,7 +2426,7 @@ $|B|\ge0$、$L^0$ は continuous increasing、$L_0^0=0$ です。
 
 さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ に支えられます。
 
-従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-反射) の条件を全て満たし
 
 $$
 L_t^0
@@ -2434,7 +2434,7 @@ L_t^0
 -\min_{s\le t}\beta_s.
 $$
 
-3. $\beta$ はブラウン運動なので symmetry と [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) から
+3. $\beta$ はブラウン運動なので symmetry と [反射 principle](../STO4/index.md#thm-sto4-反射-principle) から
 
 $$
 \begin{aligned}
@@ -2555,7 +2555,7 @@ $$
 
 です。
 
-通常の $C^2$ Itô formula の二階項に相当するものが、各折れ点 $a_j$ に集中した局所時間の和へ置き換わっています。
+通常の $C^2$ Itô 公式の二階項に相当するものが、各折れ点 $a_j$ に集中した局所時間の和へ置き換わっています。
 <!-- solution-end -->
 
 # 14. 演習 C
@@ -2885,4 +2885,4 @@ $$
 
 です。
 
-STO7 の Itô calculus と STO8 の標本路ごと補正を持った状態で、いよいよ「与えられた stochastic differential equation に過程が存在するか」という問題へ進みます。
+STO7 の Itô 解析と STO8 の標本路ごと補正を持った状態で、いよいよ「与えられた stochastic differential equation に過程が存在するか」という問題へ進みます。
