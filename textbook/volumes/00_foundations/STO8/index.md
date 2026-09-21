@@ -1,4 +1,4 @@
-# STO8：local time・Tanaka formula — kink が作る滞在密度
+# STO8：Brown 運動の接触密度 — kink から reflection へ
 
 <!-- definition-example-audit: strict -->
 
@@ -1092,7 +1092,7 @@ $R=1,2,\ldots$ について rational levels 上で一致する version を選び
 
 ---
 
-## 7. occupation time formula：local time は本当に密度である
+## 7. 滞在時間を空間密度へ変換する
 
 local time の名称を正当化する中心定理です。
 
@@ -1346,9 +1346,9 @@ $$
 \mu_t^\omega(A)=\nu_t^\omega(A)\}
 $$
 
-と置きます。二つの measure の全質量が等しいため $\mathbb R\in\mathcal D$、また $A\subset C$ で $A,C\in\mathcal D$ なら差集合について等式が保たれ、互いに素な可算和についても measure の可算加法性から等式が保たれます。従って $\mathcal D$ は Dynkin 族です。
+と置きます。二つの measure の全質量が等しいため $\mathbb R\in\mathcal D$、また $A\subset C$ で $A,C\in\mathcal D$ なら差集合について等式が保たれ、互いに素な可算和についても measure の可算加法性から等式が保たれます。従って $\mathcal D$ は、全体集合を含み、包含する二集合の差と互いに素な可算和で閉じる集合族です。
 
-[F0-00D3A の π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
+[F0-00D3A の集合族拡張定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
 
 $$
 \mathcal B(\mathbb R)
@@ -1644,7 +1644,7 @@ $$
 
 $\beta$ は bounded predictable integrand による Brownian stochastic integral なので continuous local martingale です。
 
-STO6 の stochastic integral bracket formula から
+STO6 の stochastic integral [stochastic integral の quadratic variation](../STO6/index.md#thm-sto6-stochastic-integral-bracket) から
 
 $$
 [\beta]_t
@@ -2412,9 +2412,9 @@ $$
 [\beta]_t=t.
 $$
 
-また $\beta_0=0$ なので Lévy characterization により $\beta$ は Brown 運動です。
+また $\beta_0=0$ なので [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $\beta$ は Brown 運動です。
 
-2. Tanaka formula から
+2. [Tanaka formula](#thm-sto8-tanaka) から
 
 $$
 |B_t|=\beta_t+L_t^0.
@@ -2424,7 +2424,7 @@ $|B|\ge0$、$L^0$ は continuous increasing、$L_0^0=0$ です。
 
 さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ に支えられます。
 
-従って Skorokhod reflection lemma の条件を全て満たし
+従って [Skorokhod reflection lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
 
 $$
 L_t^0
