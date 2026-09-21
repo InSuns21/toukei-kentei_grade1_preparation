@@ -16,13 +16,13 @@ learning_objectives:
   - 穴のある領域で回転 F=0でも大域ポテンシャルが存在しない機構を、境界を張る曲面が領域内に取れないことまで含めて説明できる
   - 無回転と無発散を区別し、ベクトルポテンシャルが存在すれば無発散であることとゲージ自由度を証明できる
 definitions:
-  - { id: VC5-DEF-01, name: 誘導された境界向き }
+  - { id: VC5-DEF-01, name: 曲面から誘導される境界向き }
   - { id: VC5-DEF-02, name: 無回転・無発散 }
   - { id: VC5-DEF-03, name: ベクトルポテンシャル }
 theorems:
   - { id: VC5-THM-01, name: Kelvin--Stokes の定理 }
   - { id: VC5-PROP-01, name: 回転は局所循環密度 }
-  - { id: VC5-PROP-02, name: ベクトルポテンシャルは無発散 }
+  - { id: VC5-PROP-02, name: ベクトルポテンシャルが存在すれば無発散 }
   - { id: VC5-PROP-03, name: ベクトルポテンシャルのゲージ自由度 }
 canonical_examples:
   - 平面円板上の回転場と Stokes の定理
