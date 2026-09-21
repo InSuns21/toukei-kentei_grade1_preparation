@@ -138,22 +138,38 @@ $$
 
 が従います。
 
+次に $t_1=0,t_2=h$、係数 $c_1=1,c_2=z$ を取ります。すでに示した共役対称性を使うと、正定値性から全ての $z\in\mathbb C$ に対して
+
+$$
+\gamma(0)(1+|z|^2)
++
+2\operatorname{Re}\{z\gamma(h)\}
+\ge0.
+$$
+
+$\gamma(0)=0$ なら $z=-\overline{\gamma(h)}$ と取ることで $-2|\gamma(h)|^2\ge0$ となり、$\gamma(h)=0$ です。
+
+$\gamma(0)>0$ なら
+
+$$
+z=-\frac{\overline{\gamma(h)}}{\gamma(0)}
+$$
+
+と取ると
+
+$$
+0
+\le
+\gamma(0)-\frac{|\gamma(h)|^2}{\gamma(0)}.
+$$
+
 従って
 
 $$
-\begin{pmatrix}
-\gamma(0)&\gamma(-h)\\
-\gamma(h)&\gamma(0)
-\end{pmatrix}
+|\gamma(h)|\le\gamma(0).
 $$
 
-はHermite 半正定値行列です。その行列式も非負だから
-
-$$
-\gamma(0)^2-|\gamma(h)|^2\ge0.
-$$
-
-よって $|\gamma(h)|\le\gamma(0)$ です。$\square$
+$\square$
 <!-- proof-end -->
 
 特に $\gamma(0)=0$ なら全ての $h$ で $\gamma(h)=0$ です。
@@ -336,7 +352,7 @@ $$
 
 ### 証明の見取り図
 
-$C(K)$ 全体でいきなり部分列を選ぶのではなく、まず可算稠密集合だけで対角部分列を取ります。全測度の質量が $M$ 以下なので積分汎関数は一様ノルムについて同じ定数 $M$ で抑えられ、稠密集合上の収束が $C(K)$ 全体へ延長されます。最後に、その極限を正線形汎関数として Riesz--Markov で測度へ戻します。
+$C(K)$ 全体でいきなり部分列を選ぶのではなく、まず可算稠密集合だけで対角部分列を取ります。全測度の質量が $M$ 以下なので $|\int g\,d\mu_n|\le M\sup_K|g|$ と一様に抑えられ、稠密集合上の収束が $C(K)$ 全体へ延長されます。最後に、その極限を正線形汎関数として Riesz--Markov で測度へ戻します。
 
 <!-- proof-start -->
 ### 証明
@@ -349,7 +365,7 @@ $$
 \|g-p\|_\infty<\varepsilon
 $$
 
-を満たします。従って $\mathcal D$ は $C(K;\mathbb R)$ に一様ノルムで稠密です。
+を満たします。従って任意の $g\in C(K;\mathbb R)$ を最大誤差を任意に小さくして $\mathcal D$ の元で近似できます。
 
 $\mathcal D=\{p_1,p_2,\dots\}$ と番号付けます。各 $m$ について
 
@@ -674,7 +690,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-絶対可算和可能性から Fourier 級数はWeierstrassのM-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
+絶対可算和可能性から Fourier 級数は Weierstrass の M-testにより $\lambda$ に一様収束し、連続関数 $f$ を定めます。
 
 Herglotz証明で作った近似密度は
 
@@ -752,7 +768,7 @@ TSA4 ではこれが AR(1) の伝達関数から同じ形で出ることを確�
 
 スペクトル測度は常に存在しますが、スペクトル密度は常に存在するわけではありません。典型例が周期成分に対応する原子です。
 
-<a id="def-tsa3-line-spectrum"></a>
+<a id="def-tsa3-line-frequency-atom"></a>
 
 <!-- formal-statement-start -->
 > **定義（線スペクトル）**  
@@ -775,7 +791,7 @@ $$
 
 とします。
 
-<!-- definition-example-start: def-tsa3-line-spectrum -->
+<!-- definition-example-start: def-tsa3-line-frequency-atom -->
 **定義の確認**  
 積和公式と $\Phi$ の一様性から
 
@@ -1245,7 +1261,7 @@ $$
 
 ---
 
-## 16. スペクトル表現定理
+## 16. 定常過程を周波数積分で表す
 
 <a id="thm-tsa3-spectral-representation"></a>
 
@@ -1463,22 +1479,21 @@ $$
 
 左辺は非負なので正定値性が従います。
 
-次に時刻 $0,h$ に対応する共分散行列
+次に $L^2$ の Cauchy--Schwarz の不等式を $X_{t+h},X_t$ に適用すると
 
 $$
-\begin{pmatrix}
-\gamma(0)&\gamma(-h)\\
-\gamma(h)&\gamma(0)
-\end{pmatrix}
+\begin{aligned}
+|\gamma(h)|
+&=
+|E[X_{t+h}X_t]|\\
+&\le
+\sqrt{E[X_{t+h}^2]E[X_t^2]}\\
+&=
+\gamma(0),
+\end{aligned}
 $$
 
-は半正定値です。実過程では $\gamma(-h)=\gamma(h)$ ですが、複素形のままでも Hermite 半正定値性から行列式が非負で、
-
-$$
-\gamma(0)^2-|\gamma(h)|^2\ge0.
-$$
-
-$\gamma(0)\ge0$ なので
+です。最後の等号では二次定常性により両時刻の分散がともに $\gamma(0)$ であることを使いました。従って
 
 $$
 \boxed{|\gamma(h)|\le\gamma(0)}.
@@ -2083,4 +2098,4 @@ $(X_t)_{t\in\mathbb Z}$ を平均0の二次定常過程、$\gamma$ を自己共�
 
 ## 次に進む
 
-TSA4 では、ここで構成したスペクトル表現へ線形フィルタを作用させます。伝達関数によるスペクトル測度の変換、ARMA / ARIMA の因果性・可逆性、差分と季節差分、時間領域の自己共分散と周波数領域の対応を扱います。
+TSA4 では、ここで構成したスペクトル表現へ線形フィルタを作用させます。伝達関数によるスペクトル測度の変換、ARMA / ARIMA の因果表現と逆フィルタ、差分と季節差分、時間領域の自己共分散と周波数領域の対応を扱います。
