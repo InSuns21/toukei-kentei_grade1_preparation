@@ -19,7 +19,7 @@ concepts:
     kind: definition
     aliases: ["標準Brown運動"]
     introduction: formal
-    introduction_aliases: ["定義（standard ブラウン運動）"]
+    introduction_aliases: ["定義（標準ブラウン運動）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.gaussian-process
@@ -49,7 +49,7 @@ concepts:
     kind: definition
     aliases: ["Brownian natural filtration", "Brown運動の自然filtration", "usual augmentation"]
     introduction: formal
-    introduction_aliases: ["定義（ブラウン natural フィルトレーション）"]
+    introduction_aliases: ["定義（ブラウン運動の自然なフィルトレーション）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.filtration
