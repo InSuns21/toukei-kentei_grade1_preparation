@@ -1057,7 +1057,7 @@ $W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion �
 
 ---
 
-## 11. 関数型中心極限定理
+## 11. 確率変数の極限を経路全体へ持ち上げる
 
 <a id="thm-sto3a-donsker"></a>
 
