@@ -1195,7 +1195,7 @@ $$
 \boxed{-4\pi R^3}.
 $$
 
-4. $\operatorname{div}J=3>0$ は各点の近くで net outward flux density が正であることを表します。source term がないため、その分だけ固定された小領域内部の total density は減少します。小球の体積で割ると平均変化率は
+4. $\operatorname{div}J=3>0$ は各点の近くで 正味の外向き流束密度が正であることを表します。source term がないため、その分だけ固定された小領域内部の total density は減少します。小球の体積で割ると平均変化率は
 
 $$
 \frac{-4\pi R^3}{(4/3)\pi R^3}
