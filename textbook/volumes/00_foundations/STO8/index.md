@@ -553,11 +553,11 @@ $$
 
 Tanaka formula と
 
-$
+$$
 B_t-a
 =
 B_0-a+\int_0^t1\,dB_s
-$
+$$
 
 を加減します。
 
@@ -589,7 +589,7 @@ negative part は
 $(B_t-a)^-=(|B_t-a|-(B_t-a))/2$
 へ同じ二式を代入すると
 
-$
+$$
 (B_t-a)^-
 =
 (B_0-a)^-
@@ -597,7 +597,7 @@ $
 \int_0^t1_{\{B_s<a\}}\,dB_s
 +
 \frac12L_t^a
-$
+$$
 
 となります。
 <!-- proof-end -->
@@ -1289,35 +1289,35 @@ almost surely です。
 
 固定した $t$ と標本路 $\omega$ に対し、二つの Borel measure
 
-$
+$$
 \mu_t^\omega(A)
 =
 \int_0^t
 1_{\{B_s(\omega)\in A\}}\,ds,
-$
+$$
 
-$
+$$
 \nu_t^\omega(A)
 =
 \int_A
 L_t^a(\omega)\,da
-$
+$$
 
 を考えます。
 
 まず、rational endpoints を持つ bounded open interval $I=(p,q)$ を一つ固定します。$1_I$ を下から近似する compactly supported continuous functions $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
 
-$
+$$
 0\le g_n\uparrow1_I.
-$
+$$
 
 既に示した $C_c$ の場合と monotone convergence から
 
-$
+$$
 \mu_t(I)
 =
 \nu_t(I)
-$
+$$
 
 almost surely です。
 
@@ -1325,52 +1325,52 @@ rational bounded intervals は可算なので、一つの probability-one event 
 
 $\omega\in\Omega_t$ を固定します。$\mu_t^\omega$ と $\nu_t^\omega$ はともに有限 measure です。実際
 
-$
+$$
 \mu_t^\omega(\mathbb R)=t,
-$
+$$
 
 また $g_n\uparrow1$ となる compactly supported continuous cutoff を $C_c$ の等式へ入れて monotone convergence を使えば
 
-$
+$$
 \nu_t^\omega(\mathbb R)=t.
-$
+$$
 
 rational bounded intervals は有限交差で閉じる $\pi$-system で Borel $\sigma$-algebraを生成します。
 
 そこで
 
-$
+$$
 \mathcal D
 =
 \{A\in\mathcal B(\mathbb R):
 \mu_t^\omega(A)=\nu_t^\omega(A)\}
-$
+$$
 
 と置きます。二つの measure の全質量が等しいため $\mathbb R\in\mathcal D$、また $A\subset C$ で $A,C\in\mathcal D$ なら差集合について等式が保たれ、互いに素な可算和についても measure の可算加法性から等式が保たれます。従って $\mathcal D$ は Dynkin 族です。
 
 [F0-00D3A の π–λ 定理](../F0_00D3A_pi_lambda_Dynkin/index.md#thm-f0-00d3a-pi-lambda) により
 
-$
+$$
 \mathcal B(\mathbb R)
 \subset
 \mathcal D.
-$
+$$
 
 従って全ての Borel set $A$ について
 
-$
+$$
 \int_0^t1_{\{B_s\in A\}}ds
 =
 \int_A L_t^a\,da.
-$
+$$
 
 非負 simple function へ線形性を使い、さらに非負 Borel $g$ を simple functions で下から近似して monotone convergence を適用すれば
 
-$
+$$
 \int_0^tg(B_s)ds
 =
 \int_{\mathbb R}g(a)L_t^a\,da
-$
+$$
 
 を得ます。
 
