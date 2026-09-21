@@ -141,6 +141,28 @@ $$
 - `\(...\)`, `\[...\]`, `align`, `equation`, 独自マクロ、外部LaTeXパッケージ依存は使わない。
 - 行列、指示関数、添字、転置などはKaTeXで実際に表示できることをvalidationで確認する。
 
+### 4.1 機械編集時の数式区切り保護
+
+GitHub Contents API、JavaScript、置換スクリプトなどで Markdown を編集するとき、`$$` を含む本文を **replacement string としてそのまま渡さない**。
+
+特に JavaScript の `String.prototype.replace` / `replaceAll` では replacement string 内の `$$` は「リテラルの `$` を1個出力する」という特殊記法である。そのため、例えば表示数式の区切り `$$` を含む replacement を通常の文字列引数で渡すと、意図せず単独の `$` に縮むことがある。
+
+数式を含む機械置換では、原則として callback replacer を使う。
+
+```js
+source.replace(oldText, () => replacementText)
+```
+
+同等に replacement string の `$` を特殊解釈しない方法でもよい。
+
+機械編集後は、少なくとも次を確認する。
+
+- 対象 Markdown に、空白を除いて `$` だけの行がない。
+- 変更差分で `$$` が意図せず `$` に縮んでいない。
+- `npm run validate` の数式検証を通す。
+
+単独行 `$` は、このリポジトリの Markdown / KaTeX 規約では正当な表示数式区切りではないため **blocking error** とする。
+
 ## 5. 解説粒度
 
 統計数理100・理工80・通常教材の演習では、`EXERCISE_GUIDELINES.md` を共通基準とする。代表的な詳細解答の粒度は `statistical-mathematics/core/40_fisher_information_delta_mle_efficiency.md` を参照し、文字数ではなく**導出再現性**を合わせる。
