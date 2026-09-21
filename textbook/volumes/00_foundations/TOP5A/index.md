@@ -702,6 +702,8 @@ $$
 ### 7.1 三角形関数の台
 
 <!-- definition-example-start: def-top5a-support, def-top5a-compact-support-cc -->
+**定義の確認**：次の関数について、台とコンパクト台の条件を直接確認します。
+
 $$
 f(x)=\max(1-|x|,0)
 \qquad(x\in\mathbb R)
