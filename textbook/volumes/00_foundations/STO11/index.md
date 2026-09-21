@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-大域的-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
+> **既出概念への参照**：[ブラウン運動のマルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness)、[時間依存 Itô 公式](../STO7/index.md#thm-sto7-ito-process-formula)、[Lévy の特徴付け定理](../STO5/index.md#thm-sto5-levy-characterization) を再利用します。
 
 STO4 ではブラウン運動についてマルコフ性と強マルコフ性を標本路側から学び、STO9 では
 
@@ -84,7 +84,7 @@ $$
 > 3. $P_0(x,A)=\mathbf1_A(x)$ である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-transition-核 -->
+<!-- definition-example-start: def-sto11-transition-kernel -->
 ### 直接例：ブラウン運動のガウス核
 
 **定義の確認**
@@ -158,7 +158,7 @@ $$
 
 time-homogeneous という語は「未来分布が絶対時刻 $s$ に依存せず、経過時間 $t$ だけに依存する」ことを表します。
 
-<!-- definition-example-start: def-sto11-markov-過程 -->
+<!-- definition-example-start: def-sto11-markov-process -->
 ### 直接例：ブラウン運動では現在位置を引けば未来が新しいブラウン運動になる
 
 **定義の確認**
@@ -235,7 +235,7 @@ $$
 > を満たすとき、マルコフ半群という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-markov-半群 -->
+<!-- definition-example-start: def-sto11-markov-semigroup -->
 ### 直接例：deterministic flow は最も単純な半群
 
 **定義の確認**
@@ -504,7 +504,7 @@ $$
 
 です。
 
-<!-- definition-example-start: def-sto11-生成作用素 -->
+<!-- definition-example-start: def-sto11-generator -->
 ### 直接例：deterministic flow の生成作用素は一次微分になる
 
 **定義の確認**
@@ -761,7 +761,7 @@ $$
 
 従って $M$ は $[0,T]$ 上の二乗可積分マルチンゲールです。
 
-[STO5 の有界 stopping 定理](../STO5/index.md#thm-sto5-有界-optional-sampling) により
+[STO5 の有界 stopping 定理](../STO5/index.md#thm-sto5-bounded-optional-sampling) により
 
 $$
 E_x[M_\tau]=E_x[M_0]=0.
@@ -1346,7 +1346,7 @@ $$
 > が $P$ の下で局所マルチンゲールであることをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-マルチンゲール-problem -->
+<!-- definition-example-start: def-sto11-martingale-problem -->
 ### 直接例：ブラウン運動は $\frac12\Delta$ のマルチンゲール問題を解く
 
 **定義の確認**
@@ -1663,7 +1663,7 @@ $$
 \int_0^ta_{ij}(X_s)ds
 $$
 
-は continuous 有限-variation 過程かつ局所マルチンゲールです。[STO5 の有限-variation 局所マルチンゲールの定数性](../STO5/index.md#lem-sto5-fv-局所-マルチンゲール-定数) から、初期値 0 のこの差は恒等的に 0 です。従って
+は continuous 有限-variation 過程かつ局所マルチンゲールです。[STO5 の有限-variation 局所マルチンゲールの定数性](../STO5/index.md#lem-sto5-fv-local-martingale-constant) から、初期値 0 のこの差は恒等的に 0 です。従って
 
 $$
 [M^i,M^j]_t
@@ -1749,14 +1749,14 @@ $$
 > であるとき、そのマルチンゲール問題は **存在・法則一意性を持つ**という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-mp-法則-一意性 -->
+<!-- definition-example-start: def-sto11-mp-law-uniqueness -->
 ### 直接例：ブラウン運動では存在と法則の一意性を確認できる
 
 **定義の確認**
 
 $L=\frac12\Delta$、$D(L)=C_c^\infty(\mathbb R^d)$ とします。
 
-ブラウン運動がこのマルチンゲール問題の solution を与えることは [直接例](#def-sto11-マルチンゲール-problem) で確認しました。
+ブラウン運動がこのマルチンゲール問題の solution を与えることは [直接例](#def-sto11-martingale-problem) で確認しました。
 
 逆に任意の solution 法則 $P$ を取ります。coordinate functions $x_i$ と products $x_ix_j$ を cutoff で局所化してマルチンゲール問題へ入れると、各座標 $X^i-X_0^i$ は continuous 局所マルチンゲールで
 
@@ -1866,7 +1866,7 @@ $$
 > を満たすことをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto11-feller-半群 -->
+<!-- definition-example-start: def-sto11-feller-semigroup -->
 ### 直接例：ブラウン運動の熱半群
 
 **定義の確認**
