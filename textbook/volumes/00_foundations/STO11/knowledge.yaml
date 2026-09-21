@@ -25,7 +25,7 @@ concepts:
     kind: definition
     aliases: ["Markov process", "time homogeneous Markov process"]
     introduction: formal
-    introduction_aliases: ["定義（time-homogeneous Markov 過程）"]
+    introduction_aliases: ["定義（時間一様マルコフ過程）"]
     requires:
       - stochastic.transition-kernel
       - prob.conditional-expectation
@@ -55,7 +55,7 @@ concepts:
     kind: proposition
     aliases: ["Markov property of Lipschitz SDE", "SDE solution family is Markov"]
     introduction: formal
-    introduction_aliases: ["命題（大域 Lipschitz SDE の solution family は Markov）"]
+    introduction_aliases: ["命題（大域 Lipschitz SDE の解族はマルコフ過程）"]
     requires:
       - stochastic.global-lipschitz-sde-existence-uniqueness
       - stochastic.brownian-markov-property
