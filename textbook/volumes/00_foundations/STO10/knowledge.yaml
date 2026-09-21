@@ -37,7 +37,7 @@ concepts:
     kind: definition
     aliases: ["equivalent probability measures", "equivalent change of measure"]
     introduction: formal
-    introduction_aliases: ["定義（同値な確率測度・density process）"]
+    introduction_aliases: ["定義（同値な確率測度）"]
     requires:
       - measure.absolute-continuity
       - measure.radon-nikodym-derivative
@@ -47,7 +47,7 @@ concepts:
     kind: definition
     aliases: ["density process", "likelihood-ratio process"]
     introduction: formal
-    introduction_aliases: ["定義（同値な確率測度・density process）"]
+    introduction_aliases: ["定義（density process）"]
     requires:
       - measure.equivalent-probability-measures
       - prob.conditional-expectation
