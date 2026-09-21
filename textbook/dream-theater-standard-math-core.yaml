@@ -281,7 +281,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-21
     implementation_path: textbook/volumes/00_foundations/VC2/index.md
-    prerequisites: [VC1, RA4]
+    prerequisites: [VC1, RA4, TOP3]
   - id: VC3
     title: 曲面・向き・曲面積分・flux
     area: vector-calculus
