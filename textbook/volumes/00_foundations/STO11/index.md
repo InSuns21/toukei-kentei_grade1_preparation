@@ -426,9 +426,11 @@ $$
 
 Brown 運動の independent increments により $\widetilde W$ は $\mathcal F_s$ と独立な Brown 運動です。
 
-STO9 の global Lipschitz existence・pathwise uniqueness theorem により、固定した初期値 $y$ と Brown 運動 $\widetilde W$ に対する solution は一意です。
+STO9 の Picard construction は各反復を初期値と Brownian path の可測関数として作るため、極限 solution も可測な solution map で表せます。さらに global Lipschitz existence・pathwise uniqueness theorem により、固定した初期値 $y$ と Brown 運動 $\widetilde W$ に対する solution は一意です。
 
-したがって $\mathcal F_s$ を条件にしたとき、future path $(Y_r)_{r\ge0}$ の law は現在値 $X_s^x$ だけに依存し、初期点 $X_s^x$ から同じ係数で再始動した solution law に一致します。
+したがって $\mathcal F_s$ を条件にしたとき、future path $(Y_r)_{r\ge0}$ の条件付き law は現在値 $X_s^x$ と独立な future noise $\widetilde W$ だけで決まり、初期点 $X_s^x$ から同じ係数で再始動した solution law に一致します。
+
+まず bounded continuous $f$ に対してこの条件付き期待値公式が得られます。公式を満たす bounded Borel 関数の族は bounded monotone pointwise limit で閉じ、bounded continuous functions は $\mathcal B(\mathbb R^d)$ を生成するので、monotone class argument により bounded Borel $f$ 全体へ拡張できます。
 
 よって bounded Borel $f$ に対し
 
@@ -1592,15 +1594,53 @@ X_t^j\,dX_t^i
 d[X^i,X^j]_t.
 $$
 
-$X^i=M^i+\int b_i ds$ で finite-variation part は quadratic covariation に寄与しないので、martingale problem から得られる $x_ix_j$ の compensator と比較すると
+$X^i=M^i+\int b_i ds$ で finite-variation part は quadratic covariation に寄与しません。
 
-$$
+coordinate decomposition と product rule から
+
+$
+X_t^iX_t^j-X_0^iX_0^j
+-
+\int_0^t
+\left(
+b_i(X_s)X_s^j+b_j(X_s)X_s^i
+\right)ds
+-
+[M^i,M^j]_t
+$
+
+は local martingale です。
+
+一方、$x_ix_j$ を局所化して martingale problem に入れると
+
+$
+X_t^iX_t^j-X_0^iX_0^j
+-
+\int_0^t
+\left(
+b_i(X_s)X_s^j+b_j(X_s)X_s^i+a_{ij}(X_s)
+\right)ds
+$
+
+も local martingale です。
+
+両者の差
+
+$
+[M^i,M^j]_t
+-
+\int_0^ta_{ij}(X_s)ds
+$
+
+は continuous finite-variation process かつ local martingale です。[STO5 の finite-variation local martingale の定数性](../STO5/index.md#lem-sto5-finite-variation-local-martingale) から、初期値 0 のこの差は恒等的に 0 です。従って
+
+$
 [M^i,M^j]_t
 =
 \int_0^ta_{ij}(X_s)ds.
-$$
+$
 
-ここで vector local martingale $M=(M^1,\ldots,M^d)$ に対し
+ここで $P$ の下で canonical filtration を usual augmentation し、vector local martingale $M=(M^1,\ldots,M^d)$ に対し
 
 $$
 W_t
@@ -1698,9 +1738,20 @@ STO10 の [Yamada--Watanabe theorem](../STO10/index.md#thm-sto10-yamada-watanabe
 
 <!-- formal-statement-start -->
 > **定理（well-posed martingale problem から strong Markov property）**  
-> Polish state space 上の canonical path space で、各初期状態 $x$ に対する martingale problem が well-posed であり、$x\mapsto P_x$ が必要な可測性を持つとする。
+> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical path space とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について well-posed で、その一意な solution law を $P_x$ とする。
 >
-> 標準的な canonical-space regularity 条件の下で、coordinate process は $(P_x)$ に関して strong Markov process になる。
+> さらに $x\mapsto P_x$ が path-space の弱位相に関して Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
+>
+> $P_tf(x):=E_x[f(X_t)]$ と置く。このとき、任意の a.s. finite stopping time $\tau$、$t\ge0$、bounded Borel $f$ に対して
+>
+$
+E_x[f(X_{\tau+t})\mid\mathcal F_\tau]
+=
+P_tf(X_\tau)
+\qquad P_x\text{-a.s.}
+$
+>
+> が成り立つ。従って coordinate process は strong Markov process である。
 <!-- formal-statement-end -->
 
 ### この定理の機構
