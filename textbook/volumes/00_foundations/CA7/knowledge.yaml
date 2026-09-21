@@ -48,7 +48,7 @@ concepts:
     aliases: [正規族, normal family]
     requires: [complex-analysis.locally-uniform-convergence]
 
-  - id: complex-analysis.cauchy-equicontinuity
+  - id: complex-analysis.cauchy-family-continuity
     name: Cauchy 評価による族共通連続性評価
     kind: lemma
     aliases: [Cauchy 評価による族共通連続性評価, Cauchy family continuity estimate]
@@ -58,7 +58,7 @@ concepts:
     name: コンパクト集合上の部分列抽出
     kind: lemma
     aliases: [コンパクト集合上の部分列抽出, compact subsequence extraction]
-    requires: [complex-analysis.cauchy-equicontinuity, topology.compact-space]
+    requires: [complex-analysis.cauchy-family-continuity, topology.compact-space]
 
   - id: complex-analysis.montel-theorem
     name: Montel の定理
