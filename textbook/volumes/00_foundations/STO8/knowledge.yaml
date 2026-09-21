@@ -1,0 +1,136 @@
+chapter: STO8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO3
+  - STO4
+  - STO5
+  - STO6
+  - STO7
+  - F0-00D2C
+
+concepts:
+  - id: stochastic.brownian-local-time
+    name: Brownian local time
+    kind: definition
+    aliases: ["local time of Brownian motion", "Brownian local time at a level"]
+    introduction: formal
+    introduction_aliases: ["定義（Brownian local time at a level）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.ucp-convergence
+
+  - id: stochastic.tanaka-formula
+    name: Brownian local timeの存在・Tanaka formula
+    kind: theorem
+    aliases: ["Tanaka formula", "Tanaka's formula"]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian local time の存在・Tanaka formula）"]
+    requires:
+      - stochastic.brownian-local-time
+      - stochastic.multidimensional-ito-formula
+      - stochastic.stochastic-integral-l2
+      - stochastic.continuous-doob-l2
+
+  - id: stochastic.tanaka-positive-negative-parts
+    name: positive / negative part Tanaka formula
+    kind: corollary
+    aliases: ["positive part Tanaka formula", "negative part Tanaka formula"]
+    introduction: formal
+    introduction_aliases: ["系（positive / negative part の Tanaka formula）"]
+    requires:
+      - stochastic.tanaka-formula
+
+  - id: stochastic.local-time-level-support
+    name: local timeの増加はlevel setに支えられる
+    kind: proposition
+    aliases: ["support of Brownian local time", "local time grows on the level set"]
+    introduction: formal
+    introduction_aliases: ["命題（local time の増加は level set に支えられる）"]
+    requires:
+      - stochastic.tanaka-formula
+
+  - id: stochastic.brownian-level-set-zero-time
+    name: Brownian level setのLebesgue時間は0
+    kind: proposition
+    aliases: ["Brownian level set has zero Lebesgue time"]
+    introduction: formal
+    introduction_aliases: ["命題（Brownian level set の Lebesgue 時間は 0）"]
+    requires:
+      - stochastic.brownian-motion
+      - measure.tonelli-theorem
+
+  - id: stochastic.interval-occupation-moment-bound
+    name: interval occupation moment bound
+    kind: lemma
+    aliases: ["Brownian interval occupation moment estimate"]
+    introduction: formal
+    introduction_aliases: ["補題（interval occupation moment bound）"]
+    requires:
+      - stochastic.brownian-motion
+      - measure.tonelli-theorem
+
+  - id: stochastic.brownian-local-time-spatial-continuity
+    name: Brownian local timeの空間連続性
+    kind: theorem
+    aliases: ["spatial continuity of Brownian local time"]
+    introduction: formal
+    introduction_aliases: ["定理（Brownian local time の空間連続性）"]
+    requires:
+      - stochastic.tanaka-formula
+      - stochastic.interval-occupation-moment-bound
+      - stochastic.bdg-inequality
+      - stochastic.kolmogorov-chentsov-continuity
+
+  - id: stochastic.brownian-occupation-time-formula
+    name: occupation time formula
+    kind: theorem
+    aliases: ["occupation density formula", "Brownian occupation time formula"]
+    introduction: formal
+    introduction_aliases: ["定理（occupation time formula）"]
+    requires:
+      - stochastic.brownian-local-time-spatial-continuity
+      - measure.tonelli-theorem
+      - measure.fubini-theorem
+
+  - id: stochastic.local-time-interval-approximation
+    name: interval occupationによるlocal time近似
+    kind: corollary
+    aliases: ["local time interval approximation", "occupation density approximation"]
+    introduction: formal
+    introduction_aliases: ["系（interval occupation による local time 近似）"]
+    requires:
+      - stochastic.brownian-occupation-time-formula
+      - stochastic.brownian-local-time-spatial-continuity
+
+  - id: stochastic.skorokhod-reflection-lemma
+    name: Skorokhod reflection lemma
+    kind: lemma
+    aliases: ["one-dimensional Skorokhod reflection lemma", "Skorokhod regulator"]
+    introduction: formal
+    introduction_aliases: ["補題（Skorokhod reflection lemma）"]
+    requires: []
+
+  - id: stochastic.levy-transform-brownian
+    name: Levy transformはBrown運動
+    kind: proposition
+    aliases: ["Levy transform of Brownian motion"]
+    introduction: formal
+    introduction_aliases: ["命題（Levy transform は Brown 運動）"]
+    requires:
+      - stochastic.tanaka-formula
+      - stochastic.brownian-level-set-zero-time
+      - stochastic.stochastic-integral-bracket
+      - stochastic.levy-characterization
+
+  - id: stochastic.brownian-local-time-reflection
+    name: Brownian reflection representation by local time
+    kind: theorem
+    aliases: ["Brownian local time reflection representation", "reflected Brownian motion and local time"]
+    introduction: formal
+    introduction_aliases: ["定理（local time による Brownian reflection representation）"]
+    requires:
+      - stochastic.skorokhod-reflection-lemma
+      - stochastic.levy-transform-brownian
+      - stochastic.local-time-level-support
+      - stochastic.brownian-reflection-principle
