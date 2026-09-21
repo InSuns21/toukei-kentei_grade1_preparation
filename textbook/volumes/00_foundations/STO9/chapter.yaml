@@ -1,0 +1,53 @@
+id: "STO9"
+title: "Encore IV Stochastic Analysis IX：SDE・strong solution・存在一意性・局所化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO5
+  - STO6
+  - STO7
+official_scope: []
+learning_objectives:
+  - Brown運動で駆動されるSDEを積分方程式として定式化し、strong solutionとpathwise uniquenessを区別して説明できる
+  - global Lipschitz条件の下でPicard反復を構成し、L2 supremum評価からstrong solutionの存在を証明できる
+  - Gronwall型評価からpathwise uniquenessと有限時間二乗moment評価を導ける
+  - 初期値・係数の摂動に対するSDE解の安定性を同一Brown運動上で評価できる
+  - local Lipschitz係数をcutoffして整合的な停止解を貼り合わせ、maximal strong solutionとexplosion timeを構成できる
+  - linear growth条件から停止解の一様moment評価を作り、explosionが起こらないことを証明できる
+  - coerciveなC2関数を用いるLyapunov型条件から非爆発を証明できる
+  - local Lipschitzだけでは有限時間爆発が起こり得ることを具体例で説明できる
+  - 一次元SDEで同一diffusion係数を持つ二つの解について比較定理を平滑化とItô formulaから証明できる
+definitions:
+  - { id: STO9-DEF-01, name: "Brownian SDE" }
+  - { id: STO9-DEF-02, name: "strong solution" }
+  - { id: STO9-DEF-03, name: "pathwise uniqueness" }
+  - { id: STO9-DEF-04, name: "maximal strong solution・explosion time" }
+theorems:
+  - { id: STO9-LEM-01, name: "積分形Gronwall lemma" }
+  - { id: STO9-LEM-02, name: "Picard差分のfactorial estimate" }
+  - { id: STO9-THM-01, name: "global Lipschitz SDEのstrong existence・pathwise uniqueness" }
+  - { id: STO9-PROP-01, name: "finite-horizon L2 supremum moment estimate" }
+  - { id: STO9-THM-02, name: "初期値・係数に対するstability estimate" }
+  - { id: STO9-THM-03, name: "local Lipschitz SDEのmaximal strong solution" }
+  - { id: STO9-THM-04, name: "linear growthによるnon-explosion" }
+  - { id: STO9-THM-05, name: "Lyapunov型non-explosion criterion" }
+  - { id: STO9-THM-06, name: "一次元SDEのcomparison theorem" }
+canonical_examples:
+  - "constant drift / diffusion: X_t=x+mu t+Sigma W_t"
+  - "geometric Brownian motionのexplicit strong solution"
+  - "deterministic special case dX=X^2 dtのfinite-time explosion"
+  - "dX=-X^3 dt+dWはsuperlinear driftでもLyapunov条件でnon-explosive"
+  - "same diffusionを持つordered driftsの一次元comparison"
+problem_patterns:
+  - STO9-VERIFY-STRONG-SOLUTION-1
+  - STO9-GRONWALL-UNIQUENESS-1
+  - STO9-GBM-1
+  - STO9-EXPLOSION-1
+  - STO9-PICARD-1
+  - STO9-NONEXPLOSION-1
+  - STO9-COMPARISON-1
+  - STO9-LYAPUNOV-INTEGRATED-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 1.5 }
