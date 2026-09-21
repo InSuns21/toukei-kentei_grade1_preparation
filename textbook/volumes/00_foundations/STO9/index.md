@@ -1139,7 +1139,7 @@ $$
 
 [積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$
+$$
 G(T)
 \le
 \left(
@@ -1306,7 +1306,7 @@ $$
 
 [積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$
+$$
 F(T)
 \le
 C_T'
@@ -2013,7 +2013,7 @@ $$
 
 [積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$
+$$
 \sup_n
 \sup_{0\le t\le T}
 E[V(X_{t\wedge\tau_n})]
@@ -2420,7 +2420,7 @@ $$
 
 [積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$
+$$
 E[Z_t^+]=0.
 $$
 
