@@ -1335,7 +1335,7 @@ $$
 \nu_t^\omega(\mathbb R)=t.
 $$
 
-rational bounded intervals は有限交差で閉じる $\pi$-system で Borel $\sigma$-algebraを生成します。
+$\varnothing$ と rational endpoints を持つ bounded open intervals からなる族は有限交差で閉じる $\pi$-system で、Borel $\sigma$-algebra を生成します。
 
 そこで
 
@@ -1543,45 +1543,78 @@ $$
 
 右辺を
 
-$$
+$
 k_*(t)
 =
 -\min_{0\le u\le t}(x(u)\wedge0)
-$$
+$
 
 と書きます。
 
-逆向きを示します。
+逆向きを示します。固定した $t$ に対し
 
-もしある $t$ で
+$
+c=k_*(t)
+$
 
-$$
-k(t)>k_*(t)
-$$
+と置きます。
 
-なら continuity により、ある最初の時刻 $r\le t$ で
+$c$ の定義から、全ての $s\le t$ で
 
-$$
-k(r)>k_*(r)
-$$
+$
+x(s)\ge-c.
+$
 
-となる直前に $k$ が増加しなければなりません。
+従って $k(s)>c$ なら
 
-しかし $k(r)>k_*(r)\ge -x(r)$ なので
+$
+y(s)=x(s)+k(s)>-c+c=0.
+$
 
-$$
-y(r)=x(r)+k(r)>0.
-$$
+よって
 
-$k$ は $y>0$ の場所では増加できないため矛盾です。
+$
+\{s\le t:k(s)>c\}
+\subset
+\{s\le t:y(s)>0\}.
+$
+
+support 条件から
+
+$
+\int_0^t
+1_{\{k(s)>c\}}\,dk(s)
+=
+0.
+$
+
+一方 $k$ は continuous nondecreasing なので、左辺は $k$ が level $c$ を越えた後に増えた総量、すなわち
+
+$
+(k(t)-c)^+
+$
+
+に等しいです。
 
 従って
 
-$$
-k(t)\le k_*(t).
-$$
+$
+(k(t)-c)^+=0,
+$
 
-最初の不等式と合わせて $k=k_*$ を得ます。
+すなわち
+
+$
+k(t)\le c=k_*(t).
+$
+
+既に $k(t)\ge k_*(t)$ を示しているので
+
+$
+k(t)=k_*(t)
+$
+
+です。$t$ は任意だったため主張が従います。
 <!-- proof-end -->
 
 ---
