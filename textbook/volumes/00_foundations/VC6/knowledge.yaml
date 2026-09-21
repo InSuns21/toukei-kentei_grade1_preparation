@@ -83,7 +83,7 @@ concepts:
   - id: vector-calculus.cylindrical-coordinate-formulas
     name: cylindrical coordinate formulas
     kind: proposition
-    aliases: [cylindrical coordinate formulas, 円柱座標の微分演算子公式]
+    aliases: [cylindrical coordinate formulas, cylindrical coordinates の公式, 円柱座標の微分演算子公式]
     introduction: formal
     introduction_aliases: ["命題（cylindrical coordinates の公式）"]
     requires:
@@ -95,7 +95,7 @@ concepts:
   - id: vector-calculus.spherical-coordinate-formulas
     name: spherical coordinate formulas
     kind: proposition
-    aliases: [spherical coordinate formulas, 球座標の微分演算子公式]
+    aliases: [spherical coordinate formulas, spherical coordinates の公式, 球座標の微分演算子公式]
     introduction: formal
     introduction_aliases: ["命題（spherical coordinates の公式）"]
     requires:
