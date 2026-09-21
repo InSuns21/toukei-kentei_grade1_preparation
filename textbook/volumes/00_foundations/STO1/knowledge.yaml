@@ -101,7 +101,7 @@ concepts:
   - id: stochastic.predictable-process
     name: predictable sigma-fieldとpredictable process
     kind: definition
-    aliases: ["predictable sigma-field", "predictable process", "predictable"]
+    aliases: ["predictable sigma-field", "predictable process", "predictable", "予測可能 sigma-field", "予測可能 σ-代数"]
     introduction: formal
     introduction_aliases: ["定義（予測可能 σ-代数と予測可能過程）"]
     requires:
@@ -149,7 +149,7 @@ concepts:
   - id: stochastic.stopping-sigma-field
     name: stopping timeまでのsigma-field
     kind: definition
-    aliases: ["stopping sigma-field", "F_tau"]
+    aliases: ["stopping sigma-field", "F_tau", "停止時刻までの sigma-field", "停止時刻までの σ-代数"]
     introduction: formal
     introduction_aliases: ["定義（停止時刻までの sigma-field）"]
     requires:
