@@ -4,7 +4,7 @@ VC5 では、無回転場・無発散場とベクトルポテンシャルの入�
 
 > ベクトル場の **発散** と **回転** が分かれば、その場をどこまで復元できるのか。
 
-答えが **Helmholtz 分解**です。適切な正則性と無限遠での条件の下で、ベクトル場は
+答えが **[Helmholtz 分解](#thm-vc8-helmholtz)**です。適切な正則性と無限遠での条件の下で、ベクトル場は
 
 $$
 F
@@ -745,7 +745,7 @@ $$
 
 ## 5. ゲージ自由度と Coulomb ゲージ
 
-VC5 では、ベクトルポテンシャルに勾配を足しても回転が変わらないことを見ました。本章では Helmholtz 分解の積分表示と結びます。
+VC5 では、ベクトルポテンシャルに勾配を足しても回転が変わらないことを見ました。本章では [Helmholtz 分解](#thm-vc8-helmholtz)の積分表示と結びます。
 
 <a id="def-vc8-gauge"></a>
 
@@ -1031,7 +1031,7 @@ $$
 \operatorname{div}u=0
 $$
 
-なら、Helmholtz 分解の縦成分は無限遠条件の下で消え、
+なら、[Helmholtz 分解](#thm-vc8-helmholtz)の縦成分は無限遠条件の下で消え、
 
 $$
 u=\nabla\times A
@@ -1090,7 +1090,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Helmholtz 分解で
+[Helmholtz 分解](#thm-vc8-helmholtz)で
 
 $$
 u
@@ -1247,7 +1247,7 @@ $$
 - 三次元ユークリッド空間
 - 古典的な偏微分
 - Newton 核
-- 全空間または境界条件を意識した Helmholtz 分解
+- 全空間または境界条件を意識した [Helmholtz 分解](#thm-vc8-helmholtz)
 
 までを扱いました。
 
@@ -1676,7 +1676,7 @@ $$
 1. $-\Delta C=F$ を示せ。
 2. $\operatorname{div}C=N(\operatorname{div}F)$ を、無限遠境界項に言及して示せ。
 3. $\nabla\times C=N(\nabla\times F)$ を同様に示せ。
-4. 以上から Helmholtz 分解を導け。
+4. 以上から [Helmholtz 分解](#thm-vc8-helmholtz)を導け。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2031,7 +2031,7 @@ u(x)
 }.
 $$
 
-4. コンパクトな台は、Helmholtz 分解の証明で Newton 核との部分積分を行ったとき、十分大きい球面上で $u=0$ として境界項を消すために使われました。また積分の収束も保証します。
+4. コンパクトな台は、[Helmholtz 分解](#thm-vc8-helmholtz)の証明で Newton 核との部分積分を行ったとき、十分大きい球面上で $u=0$ として境界項を消すために使われました。また積分の収束も保証します。
 
 ゲージ変換
 
