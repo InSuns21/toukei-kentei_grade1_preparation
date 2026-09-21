@@ -3607,7 +3607,7 @@ $$
 - [Novikov 条件](../STO10/index.md#thm-sto10-novikov)
 - [Girsanov 定理](../STO10/index.md#thm-sto10-girsanov)
 - [ドリフト除去](../STO10/index.md#cor-sto10-drift-removal)
-- [弱解の存在への応用](../STO10/index.md#thm-sto10-girsanov-weak-existence)
+- [弱解の存在への応用](../STO10/index.md#thm-sto10-bounded-borel-weak-existence)
 - 経路ごとの一意性と[法則の一意性](../STO10/index.md#def-sto10-uniqueness-in-law)の位置付け
 
 へ進みます。
