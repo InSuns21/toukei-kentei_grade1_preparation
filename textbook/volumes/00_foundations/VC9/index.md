@@ -506,15 +506,15 @@ $$
 > **定理（非圧縮平面流の流れ関数）**  
 > $D\subset\mathbb R^2$ を領域とし、ある $a\in D$ が存在して、すべての $x\in D$ と $0\le t\le1$ に対し
 >
-$
+$$
 (1-t)a+tx\in D
-$
+$$
 >
 > が成り立つとする。また
 >
-$
+$$
 u=(u_1,u_2,0)\in C^1(D;\mathbb R^3)
-$
+$$
 >
 > が
 >
@@ -892,7 +892,7 @@ $$
 
 [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence)を適用すると
 
-$
+$$
 \int_\Omega
 \partial_\ell
 \left(
@@ -2009,7 +2009,7 @@ $$
 
 2. [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)から
 
-$
+$$
 \oint_{\partial S_R}E\cdot dr
 =
 \int_{S_R}
@@ -2166,7 +2166,7 @@ $$
 
 したがって [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes)から
 
-$
+$$
 \oint_{C_R}u\cdot dr
 =
 \int_{S_R}2\Omega\,dS
