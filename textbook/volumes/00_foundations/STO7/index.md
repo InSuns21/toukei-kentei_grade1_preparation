@@ -923,43 +923,43 @@ vector Brownian covariation を stochastic integrals へ移すため、次の補
 <!-- formal-statement-start -->
 > **補題（vector Brownian stochastic integrals の covariation）**  
 > $B=(B^1,\ldots,B^m)$ を $m$ 次元 standard Brownian motion とし、predictable process
->
-> $
-> H=(H^1,\ldots,H^m),
-> \qquad
-> K=(K^1,\ldots,K^m)
-> $
->
+
+$$
+H=(H^1,\ldots,H^m),
+\qquad
+K=(K^1,\ldots,K^m)
+$$
+
 > が各有限時間区間で
->
-> $
-> \int_0^t|H_s|^2ds<\infty,
-> \qquad
-> \int_0^t|K_s|^2ds<\infty
-> $
->
+
+$$
+\int_0^t|H_s|^2\,ds<\infty,
+\qquad
+\int_0^t|K_s|^2\,ds<\infty
+$$
+
 > almost surely を満たすとする。
->
-> $
-> I_t=\sum_{\alpha=1}^m\int_0^tH_s^\alpha\,dB_s^\alpha,
-> \qquad
-> J_t=\sum_{\alpha=1}^m\int_0^tK_s^\alpha\,dB_s^\alpha
-> $
->
+
+$$
+I_t=\sum_{\alpha=1}^m\int_0^tH_s^\alpha\,dB_s^\alpha,
+\qquad
+J_t=\sum_{\alpha=1}^m\int_0^tK_s^\alpha\,dB_s^\alpha
+$$
+
 > と置くと
->
-> $
-> \boxed{
-> [I,J]_t
-> =
-> \int_0^t
-> H_s^\top K_s\,ds
-> =
-> \sum_{\alpha=1}^m
-> \int_0^t
-> H_s^\alpha K_s^\alpha\,ds.
-> }
-> $
+
+$$
+\boxed{
+[I,J]_t
+=
+\int_0^t
+H_s^\top K_s\,ds
+=
+\sum_{\alpha=1}^m
+\int_0^t
+H_s^\alpha K_s^\alpha\,ds.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
