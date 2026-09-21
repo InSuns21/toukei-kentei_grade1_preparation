@@ -380,7 +380,7 @@ $$
 
 である。局所情報を有限個へ圧縮したこの一段が、後の Cauchy 評価を族全体で一様にする。
 
-<a id="lem-ca7-cauchy-equicontinuity"></a>
+<a id="lem-ca7-cauchy-family-continuity"></a>
 <!-- formal-statement-start -->
 ### 補題（Cauchy 評価による族共通連続性評価）
 
@@ -617,7 +617,7 @@ $$
 
 さらに任意のコンパクト $K\subset\Omega$ について、$|z|$ は $K$ 上有界であり、$K$ と閉集合 $\mathbb C\setminus\Omega$ の距離は正なので、十分大きい $m$ で $K\subset K_m$ となる。
 
-さて任意の列 $(f_n)\subset\mathcal F$ を取る。局所有界性とコンパクト性から各 $K_m$ 上で $(f_n)$ は一様有界であり、[Cauchy 評価による族共通連続性評価](#lem-ca7-cauchy-equicontinuity)も成り立つ。
+さて任意の列 $(f_n)\subset\mathcal F$ を取る。局所有界性とコンパクト性から各 $K_m$ 上で $(f_n)$ は一様有界であり、[Cauchy 評価による族共通連続性評価](#lem-ca7-cauchy-family-continuity)も成り立つ。
 
 [コンパクト集合上の部分列抽出](#lem-ca7-compact-subsequence-extraction)を $K_1$ に適用して、$K_1$ 上一様収束する部分列を取る。その部分列から $K_2$ 上一様収束する部分列を取り、以下同様にする。
 
@@ -787,7 +787,7 @@ $$
 \frac{h'}h
 $$
 
-は $\Omega$ 上正則である。[単連結領域の Cauchy の定理](../CA2/index.md#thm-ca2-cauchy-simply-connected)と [経路独立性・原始関数の同値](../CA2/index.md#thm-ca2-path-independence-primitive)から、ある正則関数 $G$ が存在して
+は $\Omega$ 上正則である。[単連結領域の Cauchy の定理](../CA2/index.md#thm-ca2-cauchy-simply-connected)により全ての閉曲線積分が0になるので、CA2 の基点積分による原始関数構成から、ある正則関数 $G$ が存在して
 
 $$
 G'=\frac{h'}h
@@ -1290,7 +1290,7 @@ f'(z)\ne0
 \qquad(z\in\Omega).
 $$
 
-次に $f$ は非定数正則関数だから [開写像定理](../CA3/index.md#thm-ca3-open-mapping)により開写像である。全単射な開写像の逆写像は連続なので $f^{-1}:\mathbb D\to\Omega$ は連続である。
+次に $f$ は非定数正則関数だから、[CA3 の非定数正則写像は開集合を開集合へ送るという定理](../CA3/index.md#thm-ca3-open-mapping)により、$f$ は開集合を開集合へ送る。全単射でこの性質を持つ写像の逆写像は連続なので $f^{-1}:\mathbb D\to\Omega$ は連続である。
 
 $w_0=f(z_0)$ とし、$w\to w_0$ のとき $z=f^{-1}(w)$ と置く。逆写像の連続性から $z\to z_0$ であり、
 
@@ -2102,7 +2102,7 @@ $$
 
 これは $M$ の定義に矛盾する。従って $f(\Omega)=\mathbb D$。
 
-$f$ は全単射正則であり、単射正則写像の導関数は消えないから局所逆関数定理により $f^{-1}$ も正則である。従って $\Omega$ と $\mathbb D$ は双正則である。
+$f$ は全単射正則であり、本文の Riemann 写像定理の証明第3段階で示した通り、単射性から $f'\ne0$ を導き、逆写像の差商を直接計算すれば $f^{-1}$ も正則である。従って $\Omega$ と $\mathbb D$ は双正則である。
 
 この証明で各道具の役割は分離されている。単連結性は正則平方根を作り、[Cauchy 評価](../CA3/index.md#thm-ca3-cauchy-estimate)は極値の有限性を与え、[Montel の定理](#thm-ca7-montel)は極値列から極限を取り、[Hurwitz の定理](#thm-ca7-hurwitz)は単射性を極限へ移し、平方根と円板自己同型が極値を改善して全射性を強制する。
 <!-- solution-end -->
