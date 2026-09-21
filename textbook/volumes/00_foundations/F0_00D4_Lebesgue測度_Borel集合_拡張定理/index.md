@@ -41,7 +41,7 @@ Carathéodory可測性
 
 と呼び分けます。
 
-後の STO3 に現れる **Kolmogorov 拡張定理**は、整合的な有限次元分布から確率過程を構成する定理です。その証明で本章の測度拡張定理を使いますが、二つは同じ定理ではありません。
+後の STO3 に現れる **Kolmogorov 拡張定理**は、有限個の時刻ごとに与えた整合的な確率法則を、一つの全体法則へまとめる定理です。その証明で本章の測度拡張定理を使いますが、二つは同じ定理ではありません。
 
 ---
 
@@ -498,7 +498,7 @@ $$
 <a id="lem-f0-00d4-hopf-premeasure"></a>
 
 <!-- formal-statement-start -->
-### 補題（Hopf 型の premeasure 判定）
+### 補題（Hopf型のpremeasure判定）
 
 $X$ 上の algebra $\mathcal A$ と写像
 
@@ -534,7 +534,7 @@ $$
 E_n\setminus E_{n+1}
 $$
 
-へ分解します。逆向きでは、互いに素な可算和の有限部分和から残った **tail**
+へ分解します。逆向きでは、互いに素な列から最初の有限個を取り除いて残る **tail**
 
 $$
 R_N
@@ -542,7 +542,7 @@ R_N
 E\setminus\bigcup_{n=1}^N E_n
 $$
 
-が空集合へ減少することを使います。有限加法性が有限部分和を処理し、連続性が tail を消します。
+が空集合へ減少することを使います。有限加法性が最初の有限個を処理し、連続性が tail を消します。
 
 <!-- proof-start -->
 ### 証明
@@ -593,7 +593,13 @@ $$
 \sum_{n=N}^{\infty}\mu_0(D_n).
 $$
 
-収束する非負級数の tail は $0$ へ収束するため
+上の等式では $\mu_0(E_1)<\infty$ が、非負な項の全体の和になっています。したがって最初の有限個を除いて残る
+
+$$
+\sum_{n=N}^{\infty}\mu_0(D_n)
+$$
+
+は $N\to\infty$ で $0$ へ収束し、
 
 $$
 \mu_0(E_N)\downarrow0.
@@ -605,7 +611,7 @@ $$
 A:=\bigsqcup_{n=1}^{\infty}A_n\in\mathcal A
 $$
 
-を満たすとします。有限部分和の残りを
+を満たすとします。最初の有限個を除いた残りを
 
 $$
 R_N
@@ -1036,7 +1042,7 @@ $$
 \pi(A\times B):=\mu(A)\nu(B)
 $$
 
-と置き、有限互いに素和へ加法的に延長します。これが premeasure になることの確認は、後の D2C で一変数 MCT を使って行います。本節ではその確認を前提にし、**premeasure が得られた後の拡張機構**だけを回収します。
+と置き、有限互いに素和へ加法的に延長します。これが premeasure になることの確認は、後の D2C で行います。本節ではその確認を前提にし、**premeasure が得られた後の拡張機構**だけを回収します。
 
 [Carathéodory 拡張定理](#thm-caratheodory-extension)から
 
@@ -1072,7 +1078,7 @@ A_n\downarrow\varnothing
 P_0(A_n)\downarrow0
 $$
 
-を示せば、[Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)によって $P_0$ は premeasure になります。後の確率過程論で cylinder set 上の確率を全経路空間へ延長するとき、この「有限加法性 → 空集合への連続性 → premeasure → 測度拡張」という流れがそのまま現れます。
+を示せば、[Hopf 型の premeasure 判定](#lem-f0-00d4-hopf-premeasure)によって $P_0$ は premeasure になります。後の STO3 では、有限個の座標だけを見る事象に定めた確率を、より大きな σ 代数へ延長するとき、この「有限加法性 → 空集合への連続性 → premeasure → 測度拡張」という流れがそのまま現れます。
 
 また非負可測関数 $f$ が
 
@@ -1567,7 +1573,7 @@ $$
 
 #### 3. 生成 σ 代数へ拡張する
 
-$P^*$-Carathéodory 可測集合全体を $\mathcal M$ とすると、D3 の Carathéodory 定理より $\mathcal M$ は σ 代数です。2から
+$P^*$-Carathéodory 可測集合全体を $\mathcal M$ とすると、[D3 の Carathéodory 定理](../F0_00D3_外測度_Caratheodory可測性/index.md#thm-f0-00d3-caratheodory)より $\mathcal M$ は σ 代数です。2から
 
 $$
 \mathcal A\subset\mathcal M
