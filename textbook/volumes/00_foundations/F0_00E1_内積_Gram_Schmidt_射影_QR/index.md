@@ -15,34 +15,34 @@ $$\boxed{\text{内積}\to\text{Gram--Schmidt}\to\text{射影}\to\text{最小二�
 <!-- formal-statement-start -->
 > **定義（内積の公理）**  
 > 実ベクトル空間 $V$ 上の写像
->
-> $$
-> \langle\cdot,\cdot\rangle:V\times V\to\mathbb R
-> $$
->
+
+$$
+\langle\cdot,\cdot\rangle:V\times V\to\mathbb R
+$$
+
 > が任意の $x,y,z\in V$、$a,b\in\mathbb R$ に対して
->
-> $$
-> \langle ax+by,z\rangle
-> =a\langle x,z\rangle+b\langle y,z\rangle,
-> $$
->
-> $$
-> \langle x,y\rangle=\langle y,x\rangle,
-> $$
->
-> $$
-> \langle x,x\rangle\ge0,
-> \qquad
-> \langle x,x\rangle=0\Longleftrightarrow x=0
-> $$
->
+
+$$
+\langle ax+by,z\rangle
+=a\langle x,z\rangle+b\langle y,z\rangle,
+$$
+
+$$
+\langle x,y\rangle=\langle y,x\rangle,
+$$
+
+$$
+\langle x,x\rangle\ge0,
+\qquad
+\langle x,x\rangle=0\Longleftrightarrow x=0
+$$
+
 > を満たすとき、これを $V$ の **内積** といいます。内積から
->
-> $$
-> \|x\|=\sqrt{\langle x,x\rangle}
-> $$
->
+
+$$
+\|x\|=\sqrt{\langle x,x\rangle}
+$$
+
 > を長さを表す記号として使います。
 <!-- formal-statement-end -->
 
@@ -67,11 +67,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（直交）**  
 > $x,y\in V$ が
->
-> $$
-> \langle x,y\rangle=0
-> $$
->
+
+$$
+\langle x,y\rangle=0
+$$
+
 > を満たすとき、$x$ と $y$ は **直交** するといいます。
 <!-- formal-statement-end -->
 
@@ -97,16 +97,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（正規直交系）**  
 > ベクトル $q_1,\dots,q_k$ が
->
-> $$
-> \langle q_i,q_j\rangle
-> =
-> \begin{cases}
-> 1&i=j,\\
-> 0&i\ne j
-> \end{cases}
-> $$
->
+
+$$
+\langle q_i,q_j\rangle
+=
+\begin{cases}
+1&i=j,\\
+0&i\ne j
+\end{cases}
+$$
+
 > を満たすとき、$q_1,\dots,q_k$ を **正規直交系** といいます。
 <!-- formal-statement-end -->
 
@@ -158,14 +158,14 @@ $$
 <!-- formal-statement-start -->
 > **定理（Gram--Schmidt直交化法）**  
 > 内積空間で一次独立な $v_1,\dots,v_k$ が与えられたとする。このとき
->
-> $$
-> \operatorname{span}(v_1,\dots,v_j)
-> =
-> \operatorname{span}(q_1,\dots,q_j)
-> \qquad (j=1,\dots,k)
-> $$
->
+
+$$
+\operatorname{span}(v_1,\dots,v_j)
+=
+\operatorname{span}(q_1,\dots,q_j)
+\qquad (j=1,\dots,k)
+$$
+
 > を満たす正規直交系 $q_1,\dots,q_k$ を構成できる。
 <!-- formal-statement-end -->
 
@@ -338,11 +338,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（直交補空間）**  
 > 部分空間 $V\subset\mathbb R^n$ に対して
->
-> $$
-> V^\perp=\{y\in\mathbb R^n:\langle y,v\rangle=0\ \forall v\in V\}
-> $$
->
+
+$$
+V^\perp=\{y\in\mathbb R^n:\langle y,v\rangle=0\ \forall v\in V\}
+$$
+
 > を $V$ の **直交補空間** といいます。
 <!-- formal-statement-end -->
 
@@ -427,15 +427,15 @@ $$
 <!-- formal-statement-start -->
 > **定理（射影による有限次元分解）**  
 > $V\subset\mathbb R^n$ を部分空間とする。このとき任意の $x\in\mathbb R^n$ は一意に
->
-> $$
-> x=p+r,
-> \qquad
-> p\in V,
-> \quad
-> r\in V^\perp
-> $$
->
+
+$$
+x=p+r,
+\qquad
+p\in V,
+\quad
+r\in V^\perp
+$$
+
 > と表せる。$p=P_Vx$ である。
 <!-- formal-statement-end -->
 
@@ -469,13 +469,13 @@ $w\in V\cap V^\perp$ なら $\langle w,w\rangle=0$ だから $w=0$ です。従�
 <!-- formal-statement-start -->
 > **定理（直交射影の最短距離性）**  
 > $V\subset\mathbb R^n$ を部分空間とし、$p=P_Vx$ とする。このとき任意の $v\in V$ に対して
->
-> $$
-> \|x-v\|^2
-> =
-> \|x-p\|^2+\|p-v\|^2
-> $$
->
+
+$$
+\|x-v\|^2
+=
+\|x-p\|^2+\|p-v\|^2
+$$
+
 > が成り立つ。従って $p$ は $V$ 上で $x$ に最も近い唯一の点である。
 <!-- formal-statement-end -->
 
@@ -658,23 +658,23 @@ F0-00で公式として見た回帰の射影行列は、単に **正規直交で
 <!-- formal-statement-start -->
 > **定理（最小二乗の正規方程式）**  
 > $X\in\mathbb R^{n\times k}$ の列が一次独立で、$y\in\mathbb R^n$ とする。このとき
->
-> $$
-> \min_{\beta\in\mathbb R^k}\|y-X\beta\|^2
-> $$
->
+
+$$
+\min_{\beta\in\mathbb R^k}\|y-X\beta\|^2
+$$
+
 > の唯一の最小解 $\hat\beta$ は
->
-> $$
-> X^{\mathsf T}X\hat\beta=X^{\mathsf T}y
-> $$
->
+
+$$
+X^{\mathsf T}X\hat\beta=X^{\mathsf T}y
+$$
+
 > を満たし、
->
-> $$
-> \hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y
-> $$
->
+
+$$
+\hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y
+$$
+
 > で与えられる。
 <!-- formal-statement-end -->
 
@@ -715,11 +715,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（薄いQR分解）**  
 > 列一次独立な $A\in\mathbb R^{n\times k}$（$k\le n$）について
->
-> $$
-> A=QR,
-> $$
->
+
+$$
+A=QR,
+$$
+
 > $Q\in\mathbb R^{n\times k}$ の列が正規直交し、$R\in\mathbb R^{k\times k}$ が対角成分正の上三角行列であるとき、これを $A$ の **薄いQR分解** といいます。
 <!-- formal-statement-end -->
 
