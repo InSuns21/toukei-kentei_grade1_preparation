@@ -1,6 +1,6 @@
-# VC5 Stokes theorem・curl・topology
+# VC5 曲面上の積分定理・curl・topology
 
-VC4 までで、二次元の Green theorem と三次元の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的積分定理である **[Kelvin--Stokes theorem](#thm-vc5-stokes)** を証明し、
+VC4 までで、二次元の Green theorem と三次元の [Gauss--Ostrogradsky theorem](../VC4/index.md#thm-vc4-gauss-divergence) がそろいました。本章では残る古典的な **曲面上の境界積分定理** を証明し、
 
 - 境界の循環
 - 曲面上の curl の flux
@@ -9,13 +9,13 @@ VC4 までで、二次元の Green theorem と三次元の [Gauss--Ostrogradsky 
 
 を一つの構造として結びます。
 
-[Stokes theorem](#thm-vc5-stokes) の核心は、曲面をパラメータ平面へ戻すと Green theorem になることです。一般の微分形式や多様体上の一般定理は使いません。
+この曲面上の積分定理の核心は、曲面をパラメータ平面へ戻すと Green theorem になることです。一般の微分形式や多様体上の一般定理は使いません。
 
 ---
 
 ## 1. 曲面の向きは境界曲線の向きを決める
 
-VC3 では曲面の向きを連続な単位法線場で表しました。[Stokes theorem](#thm-vc5-stokes) では、その向きから境界曲線の向きを一意に決める必要があります。
+VC3 では曲面の向きを連続な単位法線場で表しました。本章の曲面上の積分定理では、その向きから境界曲線の向きを一意に決める必要があります。
 
 <a id="def-vc5-boundary-orientation"></a>
 
@@ -41,7 +41,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc5-boundary-orientation -->
-**定義の確認：水平円板**
+**定義の確認**
+
+例：水平円板
 
 $$
 r(u,v)=(u,v,0),
@@ -71,7 +73,7 @@ $$
 
 ---
 
-## 2. Kelvin--Stokes theorem
+## 2. 境界循環と曲面上の curl
 
 <a id="thm-vc5-stokes"></a>
 
@@ -678,7 +680,7 @@ $$
 二つを混同しないことが重要です。
 
 - irrotational は scalar potential と関係する
-- solenoidal は vector potential と関係する
+- solenoidal は curl による場の表示と関係する
 
 という役割分担があります。
 
@@ -789,7 +791,7 @@ $$
 
 ---
 
-## 9. vector potential と gauge freedom
+## 9. curl による場の表示とその非一意性
 
 <a id="def-vc5-vector-potential"></a>
 
@@ -805,7 +807,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc5-vector-potential -->
-**定義の確認：一定場**
+**定義の確認**
+
+例：一定場
 
 定数 $B\in\mathbb R$ に対し
 
