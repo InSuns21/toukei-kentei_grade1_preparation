@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[積測度](../F0_00D2C_積測度_Tonelli_Fubini/index.md#def-f0-00d2c-01) を直接参照します。一般の [マルコフ半群](../STO11/index.md#def-sto11-markov-semigroup)・[生成作用素](../STO11/index.md#def-sto11-生成作用素) は後で対応関係を確認するための補助参照であり、本章の証明 prerequisite にはしません。
+> **既出概念への参照**：[マルチンゲール](../STO2/index.md#def-sto2-martingale)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[積測度](../F0_00D2C_積測度_Tonelli_Fubini/index.md#def-f0-00d2c-01) を直接参照します。一般の [マルコフ半群](../STO11/index.md#def-sto11-markov-semigroup)・[生成作用素](../STO11/index.md#def-sto11-generator) は後で対応関係を確認するための補助参照であり、本章の証明 prerequisite にはしません。
 
 ブラウン運動では、非常に短い時間でも標本路は連続に揺れ続けます。
 
@@ -444,7 +444,7 @@ $$
 
 ## 4. 計数過程の補償過程
 
-<a id="def-sto13-補償過程"></a>
+<a id="def-sto13-compensator"></a>
 
 <!-- formal-statement-start -->
 > **定義（計数過程の補償過程）**  
@@ -459,7 +459,7 @@ $$
 > を満たすことをいう。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-sto13-補償過程 -->
+<!-- definition-example-start: def-sto13-compensator -->
 ### 直接例：ポアソン過程では $A_t=\lambda t$
 
 $A_t=\lambda t$ は 決定論的 continuous process なので予測可能で、非減少です。
@@ -883,7 +883,7 @@ $$
 
 です。
 
-これは [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-生成作用素) の有限状態版そのものです。
+これは [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-generator) の有限状態版そのものです。
 
 ---
 
@@ -1031,20 +1031,13 @@ $$
 
 の解として、級数
 
-$
-e^{tQ}:=
-\sum_{n=0}^\infty\frac{t^nQ^n}{n!}
-$
-
-を取れます。
-
 $$
 e^{tQ}
-=
+:=
 \sum_{n=0}^\infty\frac{t^nQ^n}{n!}
 $$
 
-です。
+を取れます。
 
 実際 termwise differentiation により
 
@@ -1071,7 +1064,7 @@ $$
 となり、前進方程式 も同じ解で満たされます。
 <!-- proof-end -->
 
-<a id="prop-sto13-ctmc-生成作用素-martingale"></a>
+<a id="prop-sto13-ctmc-generator-martingale"></a>
 
 <!-- formal-statement-start -->
 > **命題（有限状態 CTMC の生成作用素マルチンゲール）**  
@@ -1760,15 +1753,15 @@ $$
 二乗可積分性は 等長性 から従います。
 <!-- proof-end -->
 
-STO14 ではこの 等長性 を 完備化 に使い、random 予測可能 被積分関数 まで拡張します。
+STO14 ではこの等長性を完備化に使い、ランダムな予測可能被積分関数まで拡張します。
 
 ブラウン積分の STO6 と全く同じ設計思想が再登場することに注目してください。
 
 ---
 
-## 15. 有限強度の 印 付き 跳躍 から STO14 へ
+## 15. 有限強度の印付き跳躍から STO14 へ
 
-$\nu(E)<\infty$ のとき、ポアソンランダム測度 の各点に 印 を付けて 跳躍 size を足し合わせると、STO14 で扱う 複合ポアソン過程 が得られます。
+$\nu(E)<\infty$ のとき、ポアソンランダム測度の各点に印を付けて跳躍幅を足し合わせると、STO14 で扱う 複合ポアソン過程 が得られます。
 
 ただし、複合ポアソン過程の詳しい分布論と Lévy 理論での位置付けは **STO14 の正本範囲** とします。本章ではポアソンランダム測度とその中心化までで止めます。
 
@@ -1776,7 +1769,7 @@ $\nu(E)<\infty$ のとき、ポアソンランダム測度 の各点に 印 を�
 
 ## 16. 二つの「生成作用素」を同じ目で見る
 
-### Poisson 計数
+### ポアソン計数
 
 $$
 (Qf)(n)
@@ -1797,17 +1790,17 @@ $$
 
 $$
 \boxed{
-\text{跳躍 率}
+\text{跳躍率}
 \times
-\text{跳躍 後と 跳躍 前の 関数値 の差}
+\text{跳躍後と跳躍前の関数値の差}
 }
 $$
 
 を足し合わせています。
 
-これは「短時間の条件付き平均変化率」という [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-生成作用素) と同じ見方です。
+これは「短時間の条件付き平均変化率」という [STO11 の一般の生成作用素](../STO11/index.md#def-sto11-generator) と同じ見方です。
 
-印に依存する な 跳躍 size を持つ 生成作用素 は STO14 で Lévy 過程 とともに正本化します。
+印に依存する跳躍幅を持つ生成作用素は STO14 で Lévy 過程 とともに正本化します。
 
 ---
 
