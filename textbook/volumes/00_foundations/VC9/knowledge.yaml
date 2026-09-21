@@ -159,6 +159,38 @@ concepts:
       - vector-calculus.gauss-divergence
       - vector-calculus.stokes-theorem
 
+  - id: vector-calculus.maxwell-gauss-electric
+    name: 電場に対する Gauss の法則
+    kind: term
+    aliases: [Gauss の法則, electric Gauss law]
+    introduction: inline
+    requires:
+      - vector-calculus.maxwell-integral
+
+  - id: vector-calculus.maxwell-gauss-magnetic
+    name: 磁束に対する Gauss の法則
+    kind: term
+    aliases: [Gauss law for magnetism]
+    introduction: inline
+    requires:
+      - vector-calculus.maxwell-integral
+
+  - id: vector-calculus.maxwell-faraday
+    name: Faraday の法則
+    kind: term
+    aliases: [Faraday law]
+    introduction: inline
+    requires:
+      - vector-calculus.maxwell-integral
+
+  - id: vector-calculus.maxwell-ampere-maxwell
+    name: Ampère--Maxwell の法則
+    kind: term
+    aliases: [Ampere-Maxwell law]
+    introduction: inline
+    requires:
+      - vector-calculus.maxwell-integral
+
   - id: vector-calculus.maxwell-differential
     name: Maxwell 方程式の積分形と微分形
     kind: theorem
