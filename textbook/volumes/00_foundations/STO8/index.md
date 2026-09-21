@@ -1,6 +1,8 @@
-# STO8：Brown 運動の接触密度 — kink から reflection へ
+# STO8：ブラウン運動の接触密度 — 折れ点から反射へ
 
 <!-- definition-example-audit: strict -->
+
+> **既出概念への参照**：[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[ブラウン運動の二次変分](../STO5/index.md#thm-sto5-brownian-qv)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を再利用します。
 
 STO7 までの Itô formula は、空間変数について二階微分できる関数を扱いました。
 
@@ -12,7 +14,7 @@ $$
 
 は $x=a$ で微分可能ではありません。
 
-Brown 運動 $B$ へ形式的に通常の微分則を当てると
+ブラウン運動 $B$ へ形式的に通常の微分則を当てると
 
 $$
 d|B_t-a|
@@ -24,7 +26,7 @@ $$
 
 しかしこれは一項足りません。
 
-Brown 運動の標本路 は level $a$ を通過するとき、通常の時間ではほとんど滞在していないのに、二次変分の尺度では無視できない「接触量」を残します。その量が **local time** です。
+ブラウン運動の標本路は水準 $a$ を通過するとき、通常の時間ではほとんど滞在していないのに、二次変分の尺度では無視できない「接触量」を残します。その量が **局所時間** です。
 
 本章の中心線は
 
@@ -34,21 +36,21 @@ $$
 \to
 \text{Tanaka}
 \to
-\text{level-set support}
+\text{レベル集合上の支持}
 \to
-\text{occupation density}
+\text{滞在密度}
 \to
-\text{reflection}
+\text{反射}
 }
 $$
 
 です。
 
-最後まで 1 次元 Brown 運動を主対象にします。一般 continuous semimartingale の local time へ拡張できる形を意識しますが、後続理論を逆輸入して証明を短絡させません。
+最後まで 1 次元ブラウン運動を主対象にします。一般連続セミマルチンゲールの局所時間へ拡張できる形を意識しますが、後続理論を逆輸入して証明を短絡させません。
 
 ---
 
-## 1. kink を滑らかにして二階項を観察する
+## 1. 折れ点を滑らかにして二階項を観察する
 
 まず、偶関数 $\rho:\mathbb R\to[0,\infty)$ を一つ固定し、
 
@@ -157,17 +159,17 @@ $$
 F_\varepsilon''=2\rho_\varepsilon
 $$
 
-は kink の近くへ質量を集中させています。
+は折れ点の近くへ質量を集中させています。
 
 ---
 
-## 2. local time を occupation kernel の極限として捉える
+## 2. 局所時間を滞在核の極限として捉える
 
 <a id="def-sto8-brownian-local-time"></a>
 
 <!-- formal-statement-start -->
-> **定義（Brownian local time at a level）**  
-> $B$ を standard Brownian motion、$a\in\mathbb R$ とする。偶・非負・$C^\infty$ で
+> **定義（ブラウン局所時間 at a 水準）**  
+> $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。偶・非負・$C^\infty$ で
 >
 > $\operatorname{supp}\rho\subset[-1,1]$、$\int\rho=1$
 >
@@ -181,7 +183,7 @@ $$
 >
 > とする。
 >
-> continuous adapted increasing process $L^a=(L_t^a)_{t\ge0}$ が $L_0^a=0$ を満たし、任意の $T<\infty$ について
+> continuous 適合 increasing 過程 $L^a=(L_t^a)_{t\ge0}$ が $L_0^a=0$ を満たし、任意の $T<\infty$ について
 >
 $$
 \sup_{0\le t\le T}
@@ -194,7 +196,7 @@ L_t^a
 \to0
 $$
 >
-> in probability as $\varepsilon\downarrow0$ となるとき、$L^a$ を level $a$ における **Brownian local time** という。
+> in probability as $\varepsilon\downarrow0$ となるとき、$L^a$ を水準 $a$ における **ブラウン局所時間** という。
 <!-- formal-statement-end -->
 
 $\rho_\varepsilon(B_s-a)$ は、$B_s$ が $a$ の $\varepsilon$ 近傍にいるときだけ大きくなります。
@@ -205,23 +207,23 @@ $$
 \int_0^t\rho_\varepsilon(B_s-a)\,ds
 $$
 
-は「level $a$ の細い近傍にいた時間を、近傍幅で正規化した量」です。
+は「水準 $a$ の細い近傍にいた時間を、近傍幅で正規化した量」です。
 
-まだ存在は示していません。次の定理が、local time が本当に存在し、しかも絶対値の kink に現れる補正項そのものであることを示します。
+まだ存在は示していません。次の定理が、局所時間が本当に存在し、しかも絶対値の折れ点に現れる補正項そのものであることを示します。
 
 ---
 
-## 3. kink を含む関数の補正公式
+## 3. 折れ点を含む関数の補正公式
 
 <a id="thm-sto8-tanaka"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brownian local time の存在・Tanaka formula）**  
-> $B$ を standard Brownian motion、$a\in\mathbb R$ とする。
+> **定理（ブラウン局所時間の存在・Tanaka formula）**  
+> $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。
 >
-> このとき level $a$ の Brownian local time $L^a$ が存在し、選んだ smoothing kernel $\rho$ に依存しない。
+> このとき水準 $a$ のブラウン局所時間 $L^a$ が存在し、選んだ smoothing kernel $\rho$ に依存しない。
 >
-> さらに全ての $t\ge0$ について almost surely
+> さらに全ての $t\ge0$ についてほとんど確実に
 >
 $$
 \boxed{
@@ -251,14 +253,14 @@ $$
 
 と読めます。
 
-通常の微積分なら絶対値の kink は一点だけなので無視したくなります。しかし Brownian calculus では、その一点へ何度も戻ることが $dL^a$ として残ります。
+通常の微積分なら絶対値の折れ点は一点だけなので無視したくなります。しかしブラウン calculus では、その一点へ何度も戻ることが $dL^a$ として残ります。
 
 ### 証明の見取り図
 
-1. $F_\varepsilon(B_t-a)$ へ [multidimensional Itô formula](../STO7/index.md#thm-sto7-multidimensional-ito) の 1 次元版を適用する。
+1. $F_\varepsilon(B_t-a)$ へ [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito) の 1 次元版を適用する。
 2. 二階項はちょうど $\int\rho_\varepsilon(B_s-a)ds$ になる。
 3. $F_\varepsilon\to|\cdot|$ は一様誤差 $O(\varepsilon)$。
-4. $F_\varepsilon'\to\operatorname{sgn}$ の stochastic integral は STO6 の $L^2$ theory と [continuous-time Doob L2 maximal inequality](../STO6/index.md#thm-sto6-doob-l2) で process 全体として収束する。
+4. $F_\varepsilon'\to\operatorname{sgn}$ の確率積分は STO6 の $L^2$ theory と [continuous-time Doob L2 maximal inequality](../STO6/index.md#thm-sto6-doob-l2) で過程全体として収束する。
 5. 残った増加過程の極限を $L^a$ とする。
 
 <!-- proof-start -->
@@ -328,7 +330,7 @@ $$
 
 初期値も同様です。
 
-#### Step 2：stochastic integral の極限
+#### Step 2：確率積分の極限
 
 $|F_\varepsilon'|\le1$ であり、$|x|>\varepsilon$ では
 
@@ -372,7 +374,7 @@ F_\varepsilon'(B_s-a)
 \to0.
 $$
 
-STO6 の [stochastic integral の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction) と
+STO6 の [確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction) と
 [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) から
 
 $$
@@ -390,7 +392,7 @@ F_\varepsilon'(B_s-a)
 \to0.
 $$
 
-したがって stochastic integral は $L^2$-supremum の意味で
+したがって確率積分は $L^2$-supremum の意味で
 
 $$
 \int_0^tF_\varepsilon'(B_s-a)\,dB_s
@@ -417,7 +419,7 @@ $$
 
 in $L^2$-supremum on $[0,T]$ です。
 
-右辺は continuous adapted process です。
+右辺は continuous 適合過程です。
 
 さらに $L^2$-supremum convergence から subsequence $\varepsilon_n\downarrow0$ を選び
 
@@ -425,7 +427,7 @@ $$
 \sup_{t\le T}
 |A_t^{a,\varepsilon_n}-L_t^a|
 \to0
-\qquad\text{almost surely}
+\qquad\text{ほとんど確実に}
 $$
 
 とできます。
@@ -438,7 +440,7 @@ $$
 L_0^a=0.
 $$
 
-従って $L^a$ は定義を満たす Brownian local time です。
+従って $L^a$ は定義を満たすブラウン局所時間です。
 
 表示した等式を移項すれば Tanaka formula を得ます。
 
@@ -450,11 +452,11 @@ $$
 \int_0^t\operatorname{sgn}(B_s-a)\,dB_s
 $$
 
-に一致します。したがって local time は kernel の選択に依存しません。
+に一致します。したがって局所時間は kernel の選択に依存しません。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-sto8-brownian-local-time -->
-### 直接例：level $0$ の local time は平均 $\sqrt{2t/\pi}$ を持つ
+<!-- definition-example-start: def-sto8-brownian-局所-time -->
+### 直接例：水準 $0$ の局所時間は平均 $\sqrt{2t/\pi}$ を持つ
 
 **定義の確認**
 
@@ -470,9 +472,9 @@ L_t^0
 \int_0^t\operatorname{sgn}(B_s)\,dB_s.
 $$
 
-右辺は continuous adapted process であり、構成証明から increasing、$L_0^0=0$、かつ occupation kernel の ucp limit です。従って定義の条件を実際に満たします。
+右辺は continuous 適合過程であり、構成証明から increasing、$L_0^0=0$、かつ滞在核の ucp limit です。従って定義の条件を実際に満たします。
 
-stochastic integral の平均は $0$ なので
+確率積分の平均は $0$ なので
 
 $$
 E[L_t^0]
@@ -502,20 +504,20 @@ E[L_t^0]
 }
 $$
 
-local time は「一点にいる通常の時間」ではありません。平均が正であること自体が、その違いを示しています。
+局所時間は「一点にいる通常の時間」ではありません。平均が正であること自体が、その違いを示しています。
 <!-- definition-example-end -->
 
 ---
 
-## 4. positive part / negative part は半分の local time を持つ
+## 4. 正部分 / 負部分は半分の局所時間を持つ
 
 $x^+=(|x|+x)/2$、$x^-= (|x|-x)/2$ を使うと、絶対値版から片側版が直ちに出ます。
 
 <a id="cor-sto8-positive-negative-tanaka"></a>
 
 <!-- formal-statement-start -->
-> **系（positive / negative part の Tanaka formula）**  
-> $B$ を standard Brownian motion、$a\in\mathbb R$ とする。このとき
+> **系（positive / 負部分の Tanaka formula）**  
+> $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。このとき
 >
 $$
 \boxed{
@@ -561,7 +563,7 @@ $$
 
 を加減します。
 
-例えば positive part では
+例えば正部分では
 
 $$
 \begin{aligned}
@@ -581,11 +583,11 @@ $$
 \end{aligned}
 $$
 
-$\operatorname{sgn}(0)=0$ のため level 上では integrand が $1/2$ になりますが、後で示すように Brown 運動が固定 level にいる Lebesgue 時間は $0$ です。stochastic integral の二次平均でもその差は消えます。
+$\operatorname{sgn}(0)=0$ のため水準上では被積分過程が $1/2$ になりますが、後で示すようにブラウン運動が固定水準にいる Lebesgue 時間は $0$ です。確率積分の二次平均でもその差は消えます。
 
-従って integrand を $1_{\{B_s>a\}}$ に置き換えられます。
+従って被積分過程を $1_{\{B_s>a\}}$ に置き換えられます。
 
-negative part は
+負部分は
 $(B_t-a)^-=(|B_t-a|-(B_t-a))/2$
 へ同じ二式を代入すると
 
@@ -604,17 +606,17 @@ $$
 
 ---
 
-## 5. local time はどこで増えるのか
+## 5. 局所時間はどこで増えるのか
 
-local time は increasing ですが、Brown 運動が level から離れている時間には増えません。
+局所時間は increasing ですが、ブラウン運動が水準から離れている時間には増えません。
 
 <a id="prop-sto8-local-time-support"></a>
 
 <!-- formal-statement-start -->
-> **命題（local time の増加は level set に支えられる）**  
-> $B$ を standard Brownian motion、$a\in\mathbb R$ とする。
+> **命題（局所時間の増加はレベル集合に支えられる）**  
+> $B$ を standard ブラウン運動、$a\in\mathbb R$ とする。
 >
-> local time $L^a$ の Stieltjes 増加測度 $dL_t^a$ は
+> 局所時間 $L^a$ の Stieltjes 増加測度 $dL_t^a$ は
 >
 $$
 \{t\ge0:B_t=a\}
@@ -622,7 +624,7 @@ $$
 >
 > に支えられる。
 >
-> すなわち compact interval $[u,v]$ 上で $B_t\ne a$ が全ての $t\in[u,v]$ に対して成り立つなら
+> すなわちコンパクト集合区間 $[u,v]$ 上で $B_t\ne a$ が全ての $t\in[u,v]$ に対して成り立つなら
 >
 $$
 L_v^a=L_u^a.
@@ -631,7 +633,7 @@ $$
 
 ### 証明の見取り図
 
-occupation kernel $\rho_\varepsilon(B_s-a)$ は
+滞在核 $\rho_\varepsilon(B_s-a)$ は
 
 $$
 |B_s-a|>\varepsilon
@@ -639,14 +641,14 @@ $$
 
 なら $0$ です。
 
-level set を避ける compact interval では continuity により level から正の距離を持つため、十分小さい $\varepsilon$ では近似 local time 自体が全く増えません。
+レベル集合を避けるコンパクト集合区間では continuity により水準から正の距離を持つため、十分小さい $\varepsilon$ では近似局所時間自体が全く増えません。
 
 <!-- proof-start -->
 ### 証明
 
 $B_t\ne a$ for all $t\in[u,v]$ とします。
 
-$t\mapsto|B_t-a|$ は連続で、compact interval $[u,v]$ 上で正です。
+$t\mapsto|B_t-a|$ は連続で、コンパクト集合区間 $[u,v]$ 上で正です。
 
 従って
 
@@ -678,24 +680,24 @@ A_u^{a,\varepsilon}
 0.
 $$
 
-Tanaka theorem の構成で $A^{a,\varepsilon}\to L^a$ ucp、適切な subsequence では一様 almost surely なので
+Tanaka theorem の構成で $A^{a,\varepsilon}\to L^a$ ucp、適切な subsequence では一様ほとんど確実になので
 
 $$
 L_v^a-L_u^a=0.
 $$
 
-従って $dL^a$ は level set の外では質量を持ちません。
+従って $dL^a$ はレベル集合の外では質量を持ちません。
 <!-- proof-end -->
 
 ここで非常に重要な事実が続きます。
 
-local time は level set 上で増えるのに、その level set は通常の時間尺度では長さ $0$ です。
+局所時間はレベル集合上で増えるのに、そのレベル集合は通常の時間尺度では長さ $0$ です。
 
 <a id="prop-sto8-level-set-zero-time"></a>
 
 <!-- formal-statement-start -->
-> **命題（Brownian level set の Lebesgue 時間は 0）**  
-> $B$ を standard Brownian motion、$a\in\mathbb R$、$T<\infty$ とする。このとき
+> **命題（ブラウンレベル集合の Lebesgue 時間は 0）**  
+> $B$ を standard ブラウン運動、$a\in\mathbb R$、$T<\infty$ とする。このとき
 >
 $$
 \lambda\{s\in[0,T]:B_s=a\}
@@ -703,7 +705,7 @@ $$
 0
 $$
 >
-> almost surely である。
+> ほとんど確実にである。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -752,10 +754,10 @@ $$
 \int_0^T1_{\{B_s=a\}}\,ds=0
 $$
 
-almost surely です。
+ほとんど確実にです。
 <!-- proof-end -->
 
-この二つを並べると local time の意味が見えます。
+この二つを並べると局所時間の意味が見えます。
 
 $$
 \boxed{
@@ -767,17 +769,17 @@ $$
 
 ---
 
-## 6. 空間変数 $a$ に対して local time は連続に選べる
+## 6. 空間変数 $a$ に対して局所時間は連続に選べる
 
-occupation density と呼ぶには、level $a$ を少し動かしたとき local time が暴れないことを確認したいところです。
+滞在密度と呼ぶには、水準 $a$ を少し動かしたとき局所時間が暴れないことを確認したいところです。
 
-そのため、まず狭い区間にいる時間の moment を評価します。
+そのため、まず狭い区間にいる時間のモーメントを評価します。
 
 <a id="lem-sto8-interval-occupation-moment"></a>
 
 <!-- formal-statement-start -->
-> **補題（interval occupation moment bound）**  
-> $B$ を standard Brownian motion、$I\subset\mathbb R$ を長さ $h$ の interval とし
+> **補題（区間滞在時間モーメント bound）**  
+> $B$ を standard ブラウン運動、$I\subset\mathbb R$ を長さ $h$ の区間とし
 >
 $$
 A_T(I)
@@ -808,7 +810,7 @@ $$
 
 に並べます。
 
-Brownian transition density を各時間差ごとに上から抑えると、区間 $I$ からは毎回長さ $h$ が一つ出ます。残る時間積分は
+ブラウン transition density を各時間差ごとに上から抑えると、区間 $I$ からは毎回長さ $h$ が一つ出ます。残る時間積分は
 
 $$
 s_1^{-1/2}
@@ -845,7 +847,7 @@ P(B_{s_1},\ldots,B_{s_m}\in I)
 \,ds_1\cdots ds_m.
 $$
 
-Brownian transition densityを
+ブラウン transition densityを
 
 $$
 p_r(x)
@@ -929,7 +931,7 @@ u_j>0,
 u_1+\cdots+u_m<T
 $$
 
-で、integrand は
+で、被積分過程は
 
 $$
 \prod_{j=1}^m u_j^{-1/2}.
@@ -943,12 +945,12 @@ $$
 <a id="thm-sto8-spatial-continuity"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brownian local time の空間連続性）**  
-> $B$ を standard Brownian motion とする。
+> **定理（ブラウン局所時間の空間連続性）**  
+> $B$ を standard ブラウン運動とする。
 >
 > 各固定 $t\ge0$ について、$a\mapsto L_t^a$ は連続な modification を持つ。
 >
-> さらに compact interval 上で、任意の
+> さらにコンパクト集合区間上で、任意の
 >
 $$
 0<\gamma<\frac14
@@ -957,15 +959,15 @@ $$
 > に対して $\gamma$-Hölder continuous となる version を選べる。
 <!-- formal-statement-end -->
 
-真の最適正則性はこれより良いですが、本章では occupation formula に必要な連続性を、自前の moment estimate から確実に得るところまで進みます。
+真の最適正則性はこれより良いですが、本章では滞在 formula に必要な連続性を、自前のモーメント評価から確実に得るところまで進みます。
 
 ### 証明の見取り図
 
-Tanaka formula を level $a,b$ で引き算します。
+Tanaka formula を水準 $a,b$ で引き算します。
 
 martingale difference が動くのは $B_s$ が $a$ と $b$ の間にいるときだけです。
 
-そこで前の occupation moment bound と
+そこで前の滞在モーメント bound と
 [Burkholder--Davis--Gundy inequality](../STO6/index.md#thm-sto6-bdg) を使い、
 
 $$
@@ -976,7 +978,7 @@ $$
 
 を作ります。
 
-最後に STO3 の [Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を level 変数へ適用します。
+最後に STO3 の [Kolmogorov--Chentsov continuity theorem](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を水準変数へ適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -1010,7 +1012,7 @@ $$
 
 最初の二つの差はそれぞれ絶対値で $h$ 以下です。
 
-Brownian level set の Lebesgue 時間が $0$ であることから、stochastic integral の integrand は $ds$ に関してほとんど至る所（almost everywhere）で
+ブラウンレベル集合の Lebesgue 時間が $0$ であることから、確率積分の被積分過程は $ds$ に関してほとんど至る所（almost everywhere）で
 
 $$
 \operatorname{sgn}(B_s-a)
@@ -1043,7 +1045,7 @@ E\left(
 \right)^2.
 $$
 
-interval occupation moment bound の $m=2$ を使うと
+区間滞在時間モーメント bound の $m=2$ を使うと
 
 $$
 E|M_t^{a,b}|^4
@@ -1051,7 +1053,7 @@ E|M_t^{a,b}|^4
 C_t h^2.
 $$
 
-また deterministic part の絶対値は $2h$ 以下なので
+また決定論的 part の絶対値は $2h$ 以下なので
 
 $$
 E|L_t^a-L_t^b|^4
@@ -1059,7 +1061,7 @@ E|L_t^a-L_t^b|^4
 C_t(h^4+h^2).
 $$
 
-compact interval 上では $h$ が大きい場合を定数へ吸収できるため
+コンパクト集合区間上では $h$ が大きい場合を定数へ吸収できるため
 
 $$
 E|L_t^a-L_t^b|^4
@@ -1094,13 +1096,13 @@ $R=1,2,\ldots$ について rational levels 上で一致する version を選び
 
 ## 7. 滞在時間を空間密度へ変換する
 
-local time の名称を正当化する中心定理です。
+局所時間の名称を正当化する中心定理です。
 
 <a id="thm-sto8-occupation-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（occupation time formula）**  
-> $B$ を standard Brownian motion とし、固定した $t\ge0$ について空間連続な version $a\mapsto L_t^a$ を取る。
+> **定理（滞在時間 formula）**  
+> $B$ を standard ブラウン運動とし、固定した $t\ge0$ について空間連続な version $a\mapsto L_t^a$ を取る。
 >
 > 任意の非負 Borel measurable function $g:\mathbb R\to[0,\infty]$ に対し
 >
@@ -1113,12 +1115,12 @@ g(a)L_t^a\,da
 }
 $$
 >
-> almost surely である。
+> ほとんど確実にである。
 >
 > 両辺が絶対可積分なら符号を持つ $g$ に対しても同じ等式が成り立つ。
 <!-- formal-statement-end -->
 
-左辺は **time 側の occupation measure**、右辺は **space 側の密度 $L_t^a$** です。
+左辺は **time 側の滞在 measure**、右辺は **space 側の密度 $L_t^a$** です。
 
 ### 証明の見取り図
 
@@ -1142,14 +1144,14 @@ $$
 (g*\rho_\varepsilon)(B_s)ds.
 $$
 
-$\varepsilon\downarrow0$ で右辺は $\int g(B_s)ds$ へ行き、左辺は local time へ行きます。
+$\varepsilon\downarrow0$ で右辺は $\int g(B_s)ds$ へ行き、左辺は局所時間へ行きます。
 
 <!-- proof-start -->
 ### 証明
 
 まず $g\in C_c(\mathbb R)$ とします。
 
-近似 local time を
+近似局所時間を
 
 $$
 L_t^{a,\varepsilon}
@@ -1160,7 +1162,7 @@ $$
 
 と書きます。
 
-非負・絶対可積分な integrand なので
+非負・絶対可積分な被積分過程なので
 [Tonelli の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-tonelli) と
 [Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使って
 
@@ -1188,7 +1190,7 @@ $$
 (g*\rho_\varepsilon)(B_s).
 $$
 
-$g$ は compact support 上 continuous なので uniformly continuous です。
+$g$ はコンパクト集合 support 上 continuous なので uniformly continuous です。
 
 従って
 
@@ -1198,7 +1200,7 @@ $$
 \to0.
 $$
 
-よって 標本路ごと に
+よって標本路ごとに
 
 $$
 \int_0^t
@@ -1215,7 +1217,7 @@ $$
 
 in $L^2$、従って in $L^1$ です。
 
-さらに stochastic integral の平均が $0$ なので
+さらに確率積分の平均が $0$ なので
 
 $$
 E[L_t^{a,\varepsilon}]
@@ -1237,7 +1239,7 @@ E|B_t-B_0|
 E|B_t|.
 $$
 
-Tanaka formula で stochastic integral の平均が 0 であることを使うと
+Tanaka formula で確率積分の平均が 0 であることを使うと
 
 $$
 0\le E[L_t^a]\le E|B_t|.
@@ -1275,7 +1277,7 @@ $$
 
 in $L^1$ です。
 
-同じ左辺が 標本路ごと に $\int_0^tg(B_s)ds$ へ収束しているため、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)を確率収束へ適用すると
+同じ左辺が標本路ごとに $\int_0^tg(B_s)ds$ へ収束しているため、[距離空間における極限の一意性](../F0_00B_距離空間_開集合_閉集合_収束/index.md#prop-f0-00b-01)を確率収束へ適用すると
 
 $$
 \int_0^tg(B_s)ds
@@ -1283,9 +1285,9 @@ $$
 \int g(a)L_t^a\,da
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-#### $C_c$ から Borel functions へ
+#### $C_c$ から Borel 可測関数へ
 
 固定した $t$ と標本路 $\omega$ に対し、二つの Borel measure
 
@@ -1305,7 +1307,7 @@ $$
 
 を考えます。
 
-まず、rational endpoints を持つ bounded open interval $I=(p,q)$ を一つ固定します。$1_I$ を下から近似する compactly supported continuous functions $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
+まず、rational endpoints を持つ有界 open 区間 $I=(p,q)$ を一つ固定します。$1_I$ を下から近似する compactly supported continuous functions $g_n$ を選べます。例えば $g_n$ を $I$ の内部で 1、境界から距離 $1/n$ の層で線形に 0 へ落とし、$I$ の外で 0 とすれば
 
 $$
 0\le g_n\uparrow1_I.
@@ -1319,9 +1321,9 @@ $$
 \nu_t(I)
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-rational bounded intervals は可算なので、一つの probability-one event $\Omega_t$ 上で全てのそのような $I$ について同時に等式が成り立つようにできます。
+rational 有界 intervals は可算なので、一つの probability-one event $\Omega_t$ 上で全てのそのような $I$ について同時に等式が成り立つようにできます。
 
 $\omega\in\Omega_t$ を固定します。$\mu_t^\omega$ と $\nu_t^\omega$ はともに有限 measure です。実際
 
@@ -1335,7 +1337,7 @@ $$
 \nu_t^\omega(\mathbb R)=t.
 $$
 
-$\varnothing$ と rational endpoints を持つ bounded open intervals からなる族は有限交差で閉じる $\pi$-system で、Borel $\sigma$-algebra を生成します。
+$\varnothing$ と rational endpoints を持つ有界 open intervals からなる族は有限交差で閉じる $\pi$-system で、Borel $\sigma$-algebra を生成します。
 
 そこで
 
@@ -1383,17 +1385,17 @@ $$
 L_t^a\,da
 $$
 
-は Brown 運動の標本路 が $[0,t]$ の間に空間上で作る occupation measure の密度です。
+はブラウン運動の標本路が $[0,t]$ の間に空間上で作る滞在 measure の密度です。
 
 ---
 
-## 8. 細い interval の滞在時間から local time を回収する
+## 8. 細い区間の滞在時間から局所時間を回収する
 
 <a id="cor-sto8-interval-approximation"></a>
 
 <!-- formal-statement-start -->
-> **系（interval occupation による local time 近似）**  
-> $B$ を standard Brownian motion とし、固定した $t\ge0$ で空間連続な local time version を取る。
+> **系（区間滞在時間による局所時間近似）**  
+> $B$ を standard ブラウン運動とし、固定した $t\ge0$ で空間連続な局所時間 version を取る。
 >
 > 任意の $a\in\mathbb R$ について
 >
@@ -1412,7 +1414,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-occupation time formula を
+滞在時間 formula を
 
 $$
 g(x)
@@ -1455,18 +1457,18 @@ L_t^a.
 $$
 <!-- proof-end -->
 
-local time の「滞在密度」という意味が、これで式として完成しました。
+局所時間の「滞在密度」という意味が、これで式として完成しました。
 
 ---
 
-## 9. deterministic reflection：押し戻す最小量
+## 9. 決定論的反射：押し戻す最小量
 
-local time と reflection の関係を見る前に、確率を使わない 標本路ごと lemma を一つ証明します。
+局所時間と反射の関係を見る前に、確率を使わない標本路ごと lemma を一つ証明します。
 
 <a id="lem-sto8-skorokhod-reflection"></a>
 
 <!-- formal-statement-start -->
-> **補題（Skorokhod reflection lemma）**  
+> **補題（Skorokhod 反射 lemma）**  
 > $x:[0,\infty)\to\mathbb R$ を continuous、$x(0)=0$ とする。
 >
 > continuous nondecreasing function $k$ が
@@ -1588,7 +1590,7 @@ $$
 0.
 $$
 
-一方 $k$ は continuous nondecreasing なので、左辺は $k$ が level $c$ を越えた後に増えた総量、すなわち
+一方 $k$ は continuous nondecreasing なので、左辺は $k$ が水準 $c$ を越えた後に増えた総量、すなわち
 
 $$
 (k(t)-c)^+
@@ -1619,13 +1621,13 @@ $$
 
 ---
 
-## 10. Levy transform と local time は反射 Brown 運動を作る
+## 10. Levy transform と局所時間は反射ブラウン運動を作る
 
 <a id="prop-sto8-levy-transform"></a>
 
 <!-- formal-statement-start -->
-> **命題（Levy transform は Brown 運動）**  
-> $B$ を standard Brownian motion とし
+> **命題（Levy transform はブラウン運動）**  
+> $B$ を standard ブラウン運動とし
 >
 $$
 \beta_t
@@ -1636,15 +1638,15 @@ $$
 >
 > と置く。
 >
-> このとき $\beta$ は同じ filtration に関する standard Brownian motion である。
+> このとき $\beta$ は同じフィルトレーションに関する standard ブラウン運動である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
 ### 証明
 
-$\beta$ は bounded predictable integrand による Brownian stochastic integral なので continuous local martingale です。
+$\beta$ は有界予測可能被積分過程によるブラウン確率積分なので continuous 局所マルチンゲールです。
 
-STO6 の stochastic integral [stochastic integral の quadratic variation](../STO6/index.md#thm-sto6-integral-bracket) から
+STO6 の確率積分 [確率積分の二次変分](../STO6/index.md#thm-sto6-integral-bracket) から
 
 $$
 [\beta]_t
@@ -1662,7 +1664,7 @@ t-
 \int_0^t1_{\{B_s=0\}}\,ds.
 $$
 
-Brownian level set の Lebesgue 時間は $0$ almost surely だから
+ブラウンレベル集合の Lebesgue 時間は $0$ ほとんど確実にだから
 
 $$
 [\beta]_t=t.
@@ -1670,14 +1672,14 @@ $$
 
 また $\beta_0=0$ です。
 
-従って STO5 の [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) から $\beta$ は standard Brownian motion です。
+従って STO5 の [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) から $\beta$ は standard ブラウン運動です。
 <!-- proof-end -->
 
 <a id="thm-sto8-reflection-local-time"></a>
 
 <!-- formal-statement-start -->
-> **定理（local time による Brownian reflection representation）**  
-> $B$ を standard Brownian motion、
+> **定理（局所時間によるブラウン反射 representation）**  
+> $B$ を standard ブラウン運動、
 >
 $$
 \beta_t
@@ -1688,7 +1690,7 @@ $$
 >
 > とする。
 >
-> このとき almost surely 全ての $t\ge0$ について
+> このときほとんど確実に全ての $t\ge0$ について
 >
 $$
 \boxed{
@@ -1708,7 +1710,7 @@ L_t^0
 }
 $$
 >
-> 従って process として
+> 従って過程として
 >
 $$
 (|B_t|,L_t^0)_{t\ge0}
@@ -1732,7 +1734,7 @@ $$
 
 $L^0$ は increasing で、しかも $B=0$、すなわち $|B|=0$ のときだけ増えます。
 
-従って $L^0$ は $\beta$ を非負へ押し戻す最小 regulator です。Skorokhod reflection lemma が running minimum を返します。
+従って $L^0$ は $\beta$ を非負へ押し戻す最小 regulator です。Skorokhod 反射 lemma が running minimum を返します。
 
 <!-- proof-start -->
 ### 証明
@@ -1752,7 +1754,7 @@ $$
 
 $|B_t|\ge0$、$L^0$ は continuous nondecreasing、$L_0^0=0$ です。
 
-さらに [local time の support](#prop-sto8-local-time-support) から $L^0$ が増加するのは
+さらに [局所時間の support](#prop-sto8-local-time-support) から $L^0$ が増加するのは
 
 $$
 B_t=0
@@ -1768,7 +1770,7 @@ $$
 
 と同値です。
 
-従って [Skorokhod reflection lemma](#lem-sto8-skorokhod-reflection) を
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) を
 
 $$
 x=\beta,
@@ -1794,10 +1796,10 @@ L_t^0
 -\min_{0\le s\le t}\beta_s.
 $$
 
-前の命題で $\beta$ は Brownian motion なので、process law の等式も従います。
+前の命題で $\beta$ はブラウン運動なので、過程法則の等式も従います。
 <!-- proof-end -->
 
-STO4 の [reflection principle](../STO4/index.md#thm-sto4-reflection-principle) と Brownian symmetry を使うと、$x\ge0$ に対し
+STO4 の [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) とブラウン symmetry を使うと、$x\ge0$ に対し
 
 $$
 \begin{aligned}
@@ -1861,7 +1863,7 @@ F_\varepsilon''(x)
 2\rho_\varepsilon(x)
 $$
 
-は $0$ へ集中し、その Itô correction
+は $0$ へ集中し、その Itô 補正
 
 $$
 \frac12
@@ -1874,11 +1876,11 @@ $$
 
 が消えずに $L_t^a$ へ残ります。
 
-したがって local time は
+したがって局所時間は
 
 $$
 \boxed{
-\text{kink に集中した second-order Itô correction}
+\text{折れ点に集中した second-order Itô 補正}
 }
 $$
 
@@ -1886,19 +1888,19 @@ $$
 
 $$
 \boxed{
-\text{occupation measure の space density}
+\text{滞在 measure の space density}
 }
 $$
 
 です。
 
-この二つの見方が Tanaka formula と occupation time formula をつないでいます。
+この二つの見方が Tanaka formula と滞在時間 formula をつないでいます。
 
 ---
 
 # 12. 演習 A
 
-#### STO8-A01 smooth absolute value の二階項
+#### STO8-A01 絶対値の平滑化の二階項
 - Level: A
 - 目安時間: 15分
 
@@ -2003,7 +2005,7 @@ $$
 です。
 <!-- solution-end -->
 
-#### STO8-A02 positive part の Tanaka formula
+#### STO8-A02 正部分の Tanaka formula
 - Level: A
 - 目安時間: 15分
 
@@ -2079,15 +2081,15 @@ $$
 1_{\{B_s>a\}}.
 $$
 
-両 integrand の差は $\{B_s=a\}$ 上だけにあります。
+両被積分過程の差は $\{B_s=a\}$ 上だけにあります。
 
-本文の level-set proposition から
+本文の水準-set proposition から
 
 $$
 \int_0^t1_{\{B_s=a\}}\,ds=0
 $$
 
-a.s. なので、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) によりその差の stochastic integral は $0$ です。
+a.s. なので、[Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) によりその差の確率積分は $0$ です。
 
 従って
 
@@ -2104,7 +2106,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### STO8-A03 level set は時間長さ 0
+#### STO8-A03 レベル集合は時間長さ 0
 - Level: A
 - 目安時間: 10分
 
@@ -2118,12 +2120,12 @@ $$
 
 と置く。
 
-$E[Z_T(a)]=0$ を示し、$Z_T(a)=0$ almost surely を結論せよ。
+$E[Z_T(a)]=0$ を示し、$Z_T(a)=0$ ほとんど確実にを結論せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-integrand は非負なので Tonelli の定理を使えます。
+被積分過程は非負なので Tonelli の定理を使えます。
 
 $$
 \begin{aligned}
@@ -2159,16 +2161,16 @@ $$
 Z_T(a)=0
 $$
 
-almost surely です。
+ほとんど確実にです。
 
-したがって Brown 運動が exact level $a$ にいる通常の時間長さは $0$ です。
+したがってブラウン運動が exact 水準 $a$ にいる通常の時間長さは $0$ です。
 <!-- solution-end -->
 
-#### STO8-A04 interval occupation から local time を読む
+#### STO8-A04 区間滞在時間から局所時間を読む
 - Level: A
 - 目安時間: 15分
 
-occupation time formula と $a\mapsto L_t^a$ の連続性を用いて
+滞在時間 formula と $a\mapsto L_t^a$ の連続性を用いて
 
 $$
 \frac1{2\varepsilon}
@@ -2182,7 +2184,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-occupation time formula に
+滞在時間 formula に
 
 $$
 g(x)=1_{(a-\varepsilon,a+\varepsilon)}(x)
@@ -2232,7 +2234,7 @@ $$
 
 # 13. 演習 B
 
-#### STO8-B01 local time の空間 moment estimate
+#### STO8-B01 局所時間の空間モーメント評価
 - Level: B
 - 目安時間: 30分
 
@@ -2294,7 +2296,7 @@ $$
 \le2h.
 $$
 
-level sets の Lebesgue 時間が $0$ だから、$ds$ に関してほとんど至る所（almost everywhere）
+水準 sets の Lebesgue 時間が $0$ だから、$ds$ に関してほとんど至る所（almost everywhere）
 
 $$
 \operatorname{sgn}(B_s-a)
@@ -2323,7 +2325,7 @@ E\left(
 \right)^2.
 $$
 
-本文の interval occupation moment bound の $m=2$ より
+本文の区間滞在時間モーメント bound の $m=2$ より
 
 $$
 E\left(
@@ -2373,7 +2375,7 @@ C_t\left(
 $$
 <!-- solution-end -->
 
-#### STO8-B02 Skorokhod reflection と local time の分布
+#### STO8-B02 Skorokhod 反射と局所時間の分布
 - Level: B
 - 目安時間: 30分
 
@@ -2385,7 +2387,7 @@ $$
 
 とする。
 
-1. $\beta$ が Brown 運動であることを示せ。
+1. $\beta$ がブラウン運動であることを示せ。
 2. $L_t^0=-\min_{s\le t}\beta_s$ を示せ。
 3. $x\ge0$ に対し
    $P(L_t^0\ge x)=2P(B_t\ge x)$ を示せ。
@@ -2393,7 +2395,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-1. $\beta$ は Brownian stochastic integral なので continuous local martingale です。
+1. $\beta$ はブラウン確率積分なので continuous 局所マルチンゲールです。
 
 bracket formula から
 
@@ -2404,7 +2406,7 @@ $$
 \operatorname{sgn}(B_s)^2\,ds.
 $$
 
-$\operatorname{sgn}(B_s)^2=1$ except on $\{B_s=0\}$ であり、その level set の Lebesgue 時間は $0$ です。
+$\operatorname{sgn}(B_s)^2=1$ except on $\{B_s=0\}$ であり、そのレベル集合の Lebesgue 時間は $0$ です。
 
 従って
 
@@ -2412,7 +2414,7 @@ $$
 [\beta]_t=t.
 $$
 
-また $\beta_0=0$ なので [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $\beta$ は Brown 運動です。
+また $\beta_0=0$ なので [Lévy characterization](../STO5/index.md#thm-sto5-levy-characterization) により $\beta$ はブラウン運動です。
 
 2. [Tanaka formula](#thm-sto8-tanaka) から
 
@@ -2424,7 +2426,7 @@ $|B|\ge0$、$L^0$ は continuous increasing、$L_0^0=0$ です。
 
 さらに $dL^0$ は $\{B=0\}=\{|B|=0\}$ に支えられます。
 
-従って [Skorokhod reflection lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
+従って [Skorokhod 反射 lemma](#lem-sto8-skorokhod-reflection) の条件を全て満たし
 
 $$
 L_t^0
@@ -2432,7 +2434,7 @@ L_t^0
 -\min_{s\le t}\beta_s.
 $$
 
-3. $\beta$ は Brown 運動なので symmetry と [reflection principle](../STO4/index.md#thm-sto4-reflection-principle) から
+3. $\beta$ はブラウン運動なので symmetry と [反射 principle](../STO4/index.md#thm-sto4-reflection-principle) から
 
 $$
 \begin{aligned}
@@ -2461,7 +2463,7 @@ L_t^0\overset d=|B_t|.
 $$
 <!-- solution-end -->
 
-#### STO8-B03 piecewise-linear convex function の Itô--Tanaka formula
+#### STO8-B03 区分線形凸関数の Itô--Tanaka formula
 - Level: B
 - 目安時間: 30分
 
@@ -2478,12 +2480,12 @@ $$
 
 とする。
 
-$f(B_t)$ を stochastic integral と local times $L_t^{a_j}$ で表せ。
+$f(B_t)$ を確率積分と局所 times $L_t^{a_j}$ で表せ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-各 positive part に [Tanaka formula](#thm-sto8-tanaka) を使います。
+各正部分に [Tanaka formula](#thm-sto8-tanaka) を使います。
 
 $$
 (B_t-a_j)^+
@@ -2543,7 +2545,7 @@ f(B_0)
 }
 $$
 
-ここで kink 以外では
+ここで折れ点以外では
 
 $$
 f'_-(x)
@@ -2553,12 +2555,12 @@ $$
 
 です。
 
-通常の $C^2$ Itô formula の二階項に相当するものが、各 kink $a_j$ に集中した local time の和へ置き換わっています。
+通常の $C^2$ Itô formula の二階項に相当するものが、各折れ点 $a_j$ に集中した局所時間の和へ置き換わっています。
 <!-- solution-end -->
 
 # 14. 演習 C
 
-#### STO8-C01 interval 内の occupation と Green kernel
+#### STO8-C01 区間内の滞在と Green 核
 - Level: C
 - 目安時間: 45分
 
@@ -2582,7 +2584,7 @@ $$
 
 を示せ。
 
-さらに非負 Borel function $g$ について、occupation formula を停止時刻へ適用できる場合に
+さらに非負 Borel function $g$ について、滞在 formula を停止時刻へ適用できる場合に
 
 $$
 \boxed{
@@ -2598,7 +2600,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-まず deterministic time で止めた
+まず決定論的 time で止めた
 
 $$
 \tau_b\wedge n
@@ -2621,7 +2623,7 @@ $$
 
 ここでは $B_0=0$ なので $|B_0-a|=|a|$ です。
 
-stochastic integral の integrand は絶対値 $1$ 以下で、停止時間も $n$ 以下なので square-integrable martingale です。従って期待値は $0$ です。
+確率積分の被積分過程は絶対値 $1$ 以下で、停止時間も $n$ 以下なので square-integrable martingale です。従って期待値は $0$ です。
 
 よって
 
@@ -2631,7 +2633,7 @@ E[L_{\tau_b\wedge n}^a]
 E|B_{\tau_b\wedge n}-a|-|a|.
 $$
 
-STO4 の hitting time theory により $\tau_b<\infty$ almost surely です。
+STO4 の hitting time theory により $\tau_b<\infty$ ほとんど確実にです。
 
 さらに
 
@@ -2647,7 +2649,7 @@ E|B_{\tau_b\wedge n}-a|
 E|B_{\tau_b}-a|.
 $$
 
-local time は increasing なので monotone convergence から
+局所時間は increasing なので monotone convergence から
 
 $$
 E[L_{\tau_b\wedge n}^a]
@@ -2669,7 +2671,7 @@ $$
 B_{\tau_b}\in\{-b,b\}.
 $$
 
-Brownian symmetry から
+ブラウン symmetry から
 
 $$
 P(B_{\tau_b}=b)
@@ -2711,11 +2713,11 @@ b-|a|.
 }
 $$
 
-$|a|\ge b$ では Brown 運動は停止前に level $a$ へ到達しないので local time は $0$ です。
+$|a|\ge b$ ではブラウン運動は停止前に水準 $a$ へ到達しないので局所時間は $0$ です。
 
-停止時刻版の occupation formula も、本文の kernel approximation と同じ機構で得られます。
+停止時刻版の滞在 formula も、本文の kernel approximation と同じ機構で得られます。
 
-まず bounded stopping time
+まず有界 stopping time
 
 $$
 \sigma_n=\tau_b\wedge n
@@ -2742,7 +2744,7 @@ g(a)L_{\sigma_n}^{a,\varepsilon}\,da
 \end{aligned}
 $$
 
-右辺は $g$ の一様連続性から 標本路ごと に
+右辺は $g$ の一様連続性から標本路ごとに
 
 $$
 \int_0^{\sigma_n}g(B_s)\,ds
@@ -2758,7 +2760,7 @@ L_{\sigma_n}^{a,\varepsilon}
 L_{\sigma_n}^a
 $$
 
-in $L^2$ です。$g$ の compact support 上では本文と同じ一様な $L^1$ bound を使えるので dominated convergence により
+in $L^2$ です。$g$ のコンパクト集合 support 上では本文と同じ一様な $L^1$ bound を使えるので dominated convergence により
 
 $$
 \int g(a)L_{\sigma_n}^{a,\varepsilon}\,da
@@ -2777,7 +2779,7 @@ $$
 g(a)L_{\sigma_n}^a\,da
 $$
 
-almost surely です。
+ほとんど確実にです。
 
 本文と同じ π–λ argument で非負 Borel $g$ へ拡張できます。
 
@@ -2842,7 +2844,7 @@ $$
 b-|a|
 $$
 
-は、Brown 運動が interval $(-b,b)$ を出るまで各位置へ平均的にどれだけ occupation mass を置くかを表しています。
+は、ブラウン運動が区間 $(-b,b)$ を出るまで各位置へ平均的にどれだけ滞在 mass を置くかを表しています。
 <!-- solution-end -->
 
 ---
@@ -2853,13 +2855,13 @@ STO8 までで Phase 2 の連続確率解析が閉じます。
 
 $$
 \boxed{
-\text{quadratic variation}
+\text{二次変分}
 \to
-\text{stochastic integral}
+\text{確率積分}
 \to
 \text{Itô / Stratonovich}
 \to
-\text{local time / Tanaka}
+\text{局所時間 / Tanaka}
 }
 $$
 
@@ -2873,14 +2875,14 @@ $$
 
 そこで必要になるのは、
 
-- strong solution
-- 標本路ごと uniqueness
-- Picard iteration
-- global / local Lipschitz
-- linear growth
-- explosion time
+- 強解
+- 標本路ごと一意性
+- Picard 反復
+- 大域的 / 局所 Lipschitz
+- 線形成長
+- 爆発時刻
 - localization
 
 です。
 
-STO7 の Itô calculus と STO8 の 標本路ごと correction を持った状態で、いよいよ「与えられた stochastic differential equation に process が存在するか」という問題へ進みます。
+STO7 の Itô calculus と STO8 の標本路ごと補正を持った状態で、いよいよ「与えられた stochastic differential equation に過程が存在するか」という問題へ進みます。
