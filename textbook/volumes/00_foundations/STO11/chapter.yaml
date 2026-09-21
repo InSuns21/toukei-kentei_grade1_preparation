@@ -7,6 +7,7 @@ prerequisites:
   - STO5
   - STO7
   - STO9
+  - F0-00P3A
 official_scope: []
 learning_objectives:
   - transition kernelとtime-homogeneous Markov propertyを定義し、Brown運動やdiffusionで条件付き期待値をkernelへ書き換えられる
