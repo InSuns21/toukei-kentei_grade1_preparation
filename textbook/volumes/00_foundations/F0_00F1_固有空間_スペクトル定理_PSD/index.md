@@ -164,17 +164,22 @@ $$
 
 ## 4. 異なる固有値の固有ベクトルは直交する
 
-$A$ を実対称とし、
+<a id="thm-f0-00f1-distinct-eigenspaces-orthogonal"></a>
 
-$$
-Au=\lambda u,
-\qquad
-Av=\mu v,
-\qquad
-\lambda\ne\mu
-$$
-
-とします。
+<!-- formal-statement-start -->
+> **定理（実対称行列の異なる固有空間は直交する）**  
+> 実対称行列 $A\in\mathbb R^{n\times n}$ の固有ベクトル $u,v\ne0$ が
+>
+> $$
+> Au=\lambda u,
+> \qquad
+> Av=\mu v,
+> \qquad
+> \lambda\ne\mu
+> $$
+>
+> を満たすなら、$\langle u,v\rangle=0$ である。
+<!-- formal-statement-end -->
 
 対称性から
 
@@ -184,31 +189,26 @@ $$
 \langle u,Av\rangle.
 $$
 
-したがって
+固有方程式を代入すると
 
 $$
 \lambda\langle u,v\rangle
 =
-\mu\langle u,v\rangle.
+\mu\langle u,v\rangle,
 $$
 
-よって
+従って
 
 $$
 (\lambda-\mu)\langle u,v\rangle=0.
 $$
 
-$\lambda\ne\mu$ なので
-
-$$
-\boxed{
-\langle u,v\rangle=0
-}.
-$$
-
-つまり異なる固有空間は互いに直交します。
+$\lambda\ne\mu$ なので $\langle u,v\rangle=0$ です。
 
 同じ固有値の固有空間の中では、F0-00E1のGram--Schmidtを使えば正規直交基底を作れます。
+
+---
+
 
 ---
 
@@ -419,81 +419,93 @@ $$
 
 ## 8. 実対称行列のスペクトル定理
 
-まず単位固有ベクトル $q_1$ を1本取ります。
-
-その直交補空間
-
-$$
-q_1^\perp
-$$
-
-は $A$ に対して不変です。
-
-この空間の次元は $n-1$ なので、同じ議論を制限写像へ繰り返します。
-
-すると互いに直交する単位固有ベクトル
-
-$$
-q_1,\dots,q_n
-$$
-
-を得ます。
-
-これらは $\mathbb R^n$ の正規直交基底です。
-
-列に並べて
-
-$$
-Q
-=
-\begin{pmatrix}
-q_1&\cdots&q_n
-\end{pmatrix}
-$$
-
-とすると
-
-$$
-Q^{\mathsf T}Q=QQ^{\mathsf T}=I.
-$$
-
-また
-
-$$
-Aq_i=\lambda_iq_i
-$$
-
-なので
-
-$$
-AQ=Q\Lambda,
-$$
-
-$$
-\Lambda
-=\operatorname{diag}(\lambda_1,\dots,\lambda_n).
-$$
-
-右から $Q^{\mathsf T}$ を掛けて
-
-$$
-\boxed{
-A=Q\Lambda Q^{\mathsf T}
-}.
-$$
-
 <a id="thm-real-symmetric-spectral"></a>
 
 <!-- formal-statement-start -->
 > **定理（実対称行列のスペクトル定理）**  
-> 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。したがって、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
-$$
-A=Q\Lambda Q^{\mathsf T}
-$$
+> 実対称行列 $A\in\mathbb R^{n\times n}$ に対して、$\mathbb R^n$ には $A$ の固有ベクトルからなる正規直交基底が存在する。従って、ある直交行列 $Q$ と実対角行列 $\Lambda$ が存在して
+>
+> $$
+> A=Q\Lambda Q^{\mathsf T}
+> $$
+>
 > と表せる。
 <!-- formal-statement-end -->
 
-F0-00で使った「直交対角化できる」は、この定理の結論です。
+### 証明の見取り図
+
+前節までで、単位球面上のRayleigh商最大点から単位固有ベクトルを1本得られ、その直交補空間が $A$ に対して不変になることを示しました。そこで次元を1つ落とした直交補空間に同じ議論を繰り返します。
+
+<!-- proof-start -->
+### 証明
+
+$n=1$ では明らかです。$n\ge2$ とし、次元 $n-1$ まで定理が成り立つと仮定します。
+
+第6節の議論により、$A$ には単位固有ベクトル $q_1$ が存在し、
+
+$$
+Aq_1=\lambda_1q_1
+$$
+
+と書けます。第7節より
+
+$$
+M=q_1^\perp
+$$
+
+は $A$ に対して不変です。
+
+$A|_M:M\to M$ は $M$ 上でも対称です。実際 $x,y\in M$ に対して
+
+$$
+\langle A|_M x,y\rangle
+=
+\langle Ax,y\rangle
+=
+\langle x,Ay\rangle
+=
+\langle x,A|_M y\rangle.
+$$
+
+$\dim M=n-1$ なので帰納法の仮定を $A|_M$ に適用でき、$M$ には $A|_M$ の固有ベクトルからなる正規直交基底
+
+$$
+q_2,\dots,q_n
+$$
+
+が存在します。
+
+$q_1\perp M$ なので $q_1,\dots,q_n$ は $\mathbb R^n$ の正規直交基底です。各 $q_i$ は $A$ の固有ベクトルで、
+
+$$
+Aq_i=\lambda_iq_i.
+$$
+
+列に並べて
+
+$$
+Q=(q_1\ \cdots\ q_n),
+\qquad
+\Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+$$
+
+と置けば
+
+$$
+AQ=Q\Lambda.
+$$
+
+$Q$ は直交行列なので $Q^{-1}=Q^{\mathsf T}$。従って
+
+$$
+A=Q\Lambda Q^{\mathsf T}.
+$$
+<!-- proof-end -->
+
+この定理により、実対称行列の二次形式・正定値性・平方根は全て固有値ごとの1次元問題へ分解できます。
+
+---
+
 
 ---
 
@@ -554,89 +566,154 @@ $$
 
 ## 10. 正定値・半正定値
 
-対称行列 $A$ が **正定値** であるとは
+<a id="def-f0-00f1-positive-semidefinite"></a>
+
+<!-- formal-statement-start -->
+> **定義（正定値・半正定値）**  
+> 実対称行列 $A\in\mathbb R^{n\times n}$ について
+>
+> $$
+> x^{\mathsf T}Ax>0
+> \qquad(x\ne0)
+> $$
+>
+> が成り立つとき $A$ は **正定値**、また
+>
+> $$
+> x^{\mathsf T}Ax\ge0
+> \qquad(\forall x\in\mathbb R^n)
+> $$
+>
+> が成り立つとき $A$ は **半正定値** であるといいます。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-f0-00f1-positive-semidefinite -->
+### 10.1 例：半正定値だが正定値ではない行列
 
 $$
-x^{\mathsf T}Ax>0
-\qquad(x\ne0)
+A=
+\begin{pmatrix}
+2&0\\
+0&0
+\end{pmatrix}
 $$
 
-です。
+なら
 
-スペクトル分解から
+$$
+x^{\mathsf T}Ax=2x_1^2\ge0
+$$
+
+なので半正定値です。一方 $x=(0,1)^{\mathsf T}\ne0$ では $x^{\mathsf T}Ax=0$ なので正定値ではありません。
+<!-- definition-example-end -->
+
+<a id="thm-f0-00f1-psd-eigenvalue-characterization"></a>
+
+<!-- formal-statement-start -->
+> **定理（正定値・半正定値の固有値判定）**  
+> 実対称行列 $A$ の固有値を $\lambda_1,\dots,\lambda_n$ とする。このとき
+>
+> $$
+> A\succ0
+> \Longleftrightarrow
+> \lambda_i>0\quad(\forall i),
+> $$
+>
+> $$
+> A\succeq0
+> \Longleftrightarrow
+> \lambda_i\ge0\quad(\forall i).
+> $$
+<!-- formal-statement-end -->
+
+スペクトル分解 $A=Q\Lambda Q^{\mathsf T}$ と $z=Q^{\mathsf T}x$ を使うと
 
 $$
 x^{\mathsf T}Ax
-=\sum_i\lambda_i z_i^2
+=
+\sum_i\lambda_i z_i^2.
 $$
 
-なので
+全固有値が正または非負なら定義条件が従います。逆に $\lambda_j<0$ なら対応する単位固有ベクトル $q_j$ に対して
 
 $$
-\boxed{
-A\succ0
-\Longleftrightarrow
-\lambda_i>0\quad\forall i
-}.
+q_j^{\mathsf T}Aq_j=\lambda_j<0,
 $$
 
-同様に
+となり半正定値性に反します。正定値の場合も、固有値0があれば同じ $q_j$ で二次形式が0になるため正定値ではありません。
 
-$$
-\boxed{
-A\succeq0
-\Longleftrightarrow
-\lambda_i\ge0\quad\forall i
-}.
-$$
+---
 
-です。
-
-共分散行列、Gram行列、Hessianなどで半正定値性が頻出する理由がここで統一されます。
 
 ---
 
 ## 11. PSD行列の平方根を構成する
 
-$A\succeq0$ なら
+<a id="thm-f0-00f1-psd-square-root"></a>
+
+<!-- formal-statement-start -->
+> **定理（半正定値行列の平方根）**  
+> 実対称半正定値行列 $A\in\mathbb R^{n\times n}$ に対して、実対称半正定値行列 $B$ で
+>
+> $$
+> B^2=A
+> $$
+>
+> を満たすものが存在する。スペクトル分解
+>
+> $$
+> A=Q\Lambda Q^{\mathsf T},
+> \qquad
+> \Lambda=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+> $$
+>
+> に対して
+>
+> $$
+> B=Q\Lambda^{1/2}Q^{\mathsf T},
+> \qquad
+> \Lambda^{1/2}=\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})
+> $$
+>
+> と取れる。
+<!-- formal-statement-end -->
+
+半正定値性から $\lambda_i\ge0$ なので平方根は実数として定義できます。また
 
 $$
-A=Q\Lambda Q^{\mathsf T},
+\begin{aligned}
+B^2
+&=
+Q\Lambda^{1/2}Q^{\mathsf T}
+Q\Lambda^{1/2}Q^{\mathsf T}\\
+&=
+Q\Lambda Q^{\mathsf T}
+=A.
+\end{aligned}
+$$
+
+さらに任意の $x$ に対して
+
+$$
+x^{\mathsf T}Bx
+=
+\sum_i\sqrt{\lambda_i}\,z_i^2\ge0,
 \qquad
-\lambda_i\ge0.
+z=Q^{\mathsf T}x,
 $$
 
-そこで
-
-$$
-\Lambda^{1/2}
-=\operatorname{diag}(\sqrt{\lambda_1},\dots,\sqrt{\lambda_n})
-$$
-
-とし
-
-$$
-\boxed{
-A^{1/2}
-=Q\Lambda^{1/2}Q^{\mathsf T}
-}
-$$
-
-と定めます。
-
-すると
-
-$$
-A^{1/2}A^{1/2}=A.
-$$
+なので $B$ 自身も半正定値です。
 
 多変量正規乱数の構成や共分散作用素の理解では、この平方根が重要です。
 
 ---
 
+
+---
+
 ## 12. 演習
 
-### F0-00F1-A01 対称行列の固有ベクトル直交性
+### F0-00F1-A01 固有ベクトルの直交性
 
 - Level: A
 - 目安時間: 10分
@@ -645,13 +722,132 @@ $$
 
 <!-- solution-start -->
 #### 詳細解答
-$\langle Au,v\rangle=\langle u,Av\rangle$ より $\lambda\langle u,v\rangle=\mu\langle u,v\rangle$。$\lambda\ne\mu$ なので内積は0。
-#### 本番答案
-$(\lambda-\mu)\langle u,v\rangle=0$ から従う。
-#### 採点基準（20点）
-- 対称性: 7点
-- 固有方程式代入: 7点
-- 結論: 6点
+
+対称性から
+
+$$
+\langle Au,v\rangle=\langle u,Av\rangle.
+$$
+
+固有方程式を使うと
+
+$$
+\lambda\langle u,v\rangle
+=
+\mu\langle u,v\rangle.
+$$
+
+従って
+
+$$
+(\lambda-\mu)\langle u,v\rangle=0.
+$$
+
+$\lambda\ne\mu$ なので $\langle u,v\rangle=0$、すなわち $u\perp v$ です。
+<!-- solution-end -->
+
+### F0-00F1-A02 固有空間と不変部分空間
+
+- Level: A
+- 目安時間: 12分
+
+$$
+A=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+$$
+
+について固有値と各固有空間を求め、それぞれが $A$ の不変部分空間であることを確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+固有値方程式は
+
+$$
+\det(A-\lambda I)
+=(2-\lambda)^2-1
+=(\lambda-3)(\lambda-1)=0.
+$$
+
+従って固有値は $3,1$ です。
+
+$\lambda=3$ では
+
+$$
+E_3=\operatorname{span}\{(1,1)^{\mathsf T}\},
+$$
+
+$\lambda=1$ では
+
+$$
+E_1=\operatorname{span}\{(1,-1)^{\mathsf T}\}.
+$$
+
+$z\in E_\lambda$ なら $Az=\lambda z\in E_\lambda$ なので、各固有空間は定義通り不変部分空間です。
+<!-- solution-end -->
+
+### F0-00F1-A03 Rayleigh商
+
+- Level: A
+- 目安時間: 10分
+
+$$
+A=\operatorname{diag}(1,4),
+\qquad
+x=(\cos\theta,\sin\theta)^{\mathsf T}
+$$
+
+とする。$R_A(x)$ を求め、その最小値と最大値を求めよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$\|x\|=1$ なので
+
+$$
+R_A(x)
+=x^{\mathsf T}Ax
+=
+\cos^2\theta+4\sin^2\theta
+=
+1+3\sin^2\theta.
+$$
+
+従って
+
+$$
+1\le R_A(x)\le4.
+$$
+
+最小値1は $\sin\theta=0$、すなわち固有値1の固有方向で達成され、最大値4は $\sin^2\theta=1$、すなわち固有値4の固有方向で達成されます。
+<!-- solution-end -->
+
+### F0-00F1-A04 正定値・半正定値の判定
+
+- Level: A
+- 目安時間: 10分
+
+次の実対称行列を正定値、半正定値だが正定値でない、半正定値でない、のいずれかに分類せよ。
+
+$$
+A_1=\operatorname{diag}(2,3),
+\quad
+A_2=\operatorname{diag}(2,0),
+\quad
+A_3=\operatorname{diag}(2,-1).
+$$
+
+<!-- solution-start -->
+#### 詳細解答
+
+対角行列では対角成分がそのまま固有値です。
+
+- $A_1$ の固有値は $2,3$ で全て正なので正定値です。
+- $A_2$ の固有値は $2,0$ で全て非負ですが0を含むため、半正定値だが正定値ではありません。
+- $A_3$ は固有値 $-1$ を持つため半正定値ではありません。実際 $x=e_2$ とすれば $x^{\mathsf T}A_3x=-1$ です。
 <!-- solution-end -->
 
 ### F0-00F1-B01 PSDと固有値
@@ -659,21 +855,35 @@ $(\lambda-\mu)\langle u,v\rangle=0$ から従う。
 - Level: B
 - 目安時間: 12分
 
-実対称行列 $A=Q\Lambda Q^T$ に対し、$A\succeq0$ と全固有値 $\lambda_i\ge0$ が同値であることを示せ。
+実対称行列 $A=Q\Lambda Q^{\mathsf T}$ に対し、$A\succeq0$ と全固有値 $\lambda_i\ge0$ が同値であることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
-$z=Q^Tx$ とすると $x^TAx=\sum_i\lambda_i z_i^2$。全固有値非負なら右辺非負。逆にある $\lambda_j<0$ なら対応固有ベクトル $q_j$ に対し $q_j^TAq_j=\lambda_j<0$ でPSDに反する。
-#### 本番答案
-スペクトル座標で二次形式を $\sum_i\lambda_i z_i^2$ と書き、両方向を示す。
-#### 採点基準（20点）
-- 座標変換: 6点
-- 十分性: 5点
-- 必要性の反証: 7点
-- 結論: 2点
+
+$z=Q^{\mathsf T}x$ と置くと
+
+$$
+x^{\mathsf T}Ax
+=
+z^{\mathsf T}\Lambda z
+=
+\sum_i\lambda_i z_i^2.
+$$
+
+全固有値が非負なら右辺は任意の $x$ に対して非負なので $A\succeq0$ です。
+
+逆にある $\lambda_j<0$ があるとします。対応する単位固有ベクトルを $q_j$ とすると
+
+$$
+q_j^{\mathsf T}Aq_j
+=
+\lambda_j<0,
+$$
+
+となり半正定値の定義に反します。従って全固有値は非負です。
 <!-- solution-end -->
 
-### F0-00F1-B02 Rayleigh商最大点が固有ベクトルになることを接方向から示す
+### F0-00F1-B02 Rayleigh商最大点から固有ベクトルへ
 
 - Level: B
 - 目安時間: 15分
@@ -684,34 +894,205 @@ $$
 \gamma(t)=\frac{q+tv}{\|q+tv\|}
 $$
 
-を用いて $v^{\mathsf T}Aq=0$ を示し、$Aq=\lambda q$ を導け。
+を用いて $Aq=\lambda q$ を導け。
 
 <!-- solution-start -->
 #### 詳細解答
-$q^{\mathsf T}v=0$ なので $\gamma'(0)=v$。球面上の極大性から
+
+$q^{\mathsf T}v=0$ なので
 
 $$
-0=(f\circ\gamma)'(0)=\nabla f(q)^{\mathsf T}v=2v^{\mathsf T}Aq.
+\|q+tv\|
+=
+\sqrt{1+t^2\|v\|^2},
 $$
 
-従って $Aq$ は全ての $v\in q^\perp$ と直交する。よって
+従って $\gamma'(0)=v$ です。
+
+$q$ は球面上の局所最大点なので
 
 $$
-Aq\in(q^\perp)^\perp=\operatorname{span}\{q\},
+0=(f\circ\gamma)'(0)
+=
+\nabla f(q)^{\mathsf T}v.
 $$
 
-なので $Aq=\lambda q$。
+$A$ は対称だから $\nabla f(q)=2Aq$ で、
 
-#### 本番答案
-$\gamma'(0)=v$ と球面上の極値条件から $0=2v^{\mathsf T}Aq$。全ての $v\perp q$ で成立するから $Aq\in\operatorname{span}\{q\}$、従って $Aq=\lambda q$。
+$$
+v^{\mathsf T}Aq=0
+\qquad
+(\forall v\in q^\perp).
+$$
 
-#### 採点基準（20点）
-- $\gamma'(0)=v$: 5点
-- 接方向微分0: 6点
-- $v^{\mathsf T}Aq=0$: 4点
-- 直交補から固有方程式: 5点
+従って $Aq\in(q^\perp)^\perp=\operatorname{span}\{q\}$。ある $\lambda$ が存在して
+
+$$
+Aq=\lambda q
+$$
+
+となります。
 <!-- solution-end -->
 
+### F0-00F1-B03 スペクトル分解の再構成
+
+- Level: B
+- 目安時間: 18分
+
+$$
+A=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}
+$$
+
+の正規直交固有基底を求め、$A=Q\Lambda Q^{\mathsf T}$ を構成して積を計算し元の $A$ に戻ることを確認せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+固有値は $3,1$、対応する単位固有ベクトルを
+
+$$
+q_1=\frac1{\sqrt2}(1,1)^{\mathsf T},
+\qquad
+q_2=\frac1{\sqrt2}(1,-1)^{\mathsf T}
+$$
+
+と取れます。従って
+
+$$
+Q=\frac1{\sqrt2}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix},
+\qquad
+\Lambda=
+\begin{pmatrix}
+3&0\\
+0&1
+\end{pmatrix}.
+$$
+
+計算すると
+
+$$
+Q\Lambda Q^{\mathsf T}
+=
+\frac12
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+\begin{pmatrix}
+3&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&1\\
+1&-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}.
+$$
+
+従ってスペクトル分解が元の行列を再構成します。
+<!-- solution-end -->
+
+### F0-00F1-C01 スペクトル定理・Rayleigh商・平方根の統合
+
+- Level: C
+- 目安時間: 30分
+
+$$
+A=
+\begin{pmatrix}
+2&1&0\\
+1&2&0\\
+0&0&4
+\end{pmatrix}
+$$
+
+について次を行え。
+
+1. 固有値と正規直交固有基底を求め、スペクトル分解を書け。
+2. 単位ベクトル上のRayleigh商の最小値・最大値を求めよ。
+3. $A$ が正定値であることを示せ。
+4. 半正定値平方根 $A^{1/2}$ を構成せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+左上の $2\times2$ ブロックは固有値 $3,1$ を持ち、対応する単位固有ベクトルは
+
+$$
+q_1=\frac1{\sqrt2}(1,1,0)^{\mathsf T},
+\qquad
+q_2=\frac1{\sqrt2}(1,-1,0)^{\mathsf T}.
+$$
+
+さらに
+
+$$
+q_3=(0,0,1)^{\mathsf T}
+$$
+
+は固有値4の固有ベクトルです。従って、例えば列順を $q_1,q_2,q_3$ として
+
+$$
+Q=
+\begin{pmatrix}
+1/\sqrt2&1/\sqrt2&0\\
+1/\sqrt2&-1/\sqrt2&0\\
+0&0&1
+\end{pmatrix},
+\qquad
+\Lambda=\operatorname{diag}(3,1,4),
+$$
+
+$$
+A=Q\Lambda Q^{\mathsf T}.
+$$
+
+単位ベクトル $x$ に対して $z=Q^{\mathsf T}x$ と置けば $\sum_i z_i^2=1$ で、
+
+$$
+R_A(x)=3z_1^2+z_2^2+4z_3^2.
+$$
+
+従って最小値は1、最大値は4です。
+
+全固有値 $3,1,4$ が正なので $A$ は正定値です。
+
+平方根は
+
+$$
+A^{1/2}
+=
+Q\operatorname{diag}(\sqrt3,1,2)Q^{\mathsf T}.
+$$
+
+左上ブロックまで計算すると
+
+$$
+\boxed{
+A^{1/2}
+=
+\begin{pmatrix}
+(\sqrt3+1)/2&(\sqrt3-1)/2&0\\
+(\sqrt3-1)/2&(\sqrt3+1)/2&0\\
+0&0&2
+\end{pmatrix}
+}.
+$$
+
+固有基底上では各固有値を平方根へ置き換えているので、二乗すれば $A$ に戻ります。
+<!-- solution-end -->
 ---
 
 ## 13. 次に進む
