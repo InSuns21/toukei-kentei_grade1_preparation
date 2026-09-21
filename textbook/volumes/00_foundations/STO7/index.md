@@ -1291,7 +1291,7 @@ $$
 
 と分けます。
 
-第一括弧は時間方向の平均値定理により
+第一括弧は時間方向の [平均値定理](../RA3/index.md#thm-ra3-mvt) により
 
 $$
 \partial_tF(\xi_k,X_{t_k})\Delta t_k
@@ -1428,7 +1428,7 @@ ordinary exponential $e^{\theta B_t}$ ではなく、$-\theta^2t/2$ を引いた
 <a id="prop-sto7-stochastic-exponential-equation"></a>
 
 <!-- formal-statement-start -->
-> **命題（stochastic exponential は $dZ=Z\,dM$ を満たす）**  
+> **命題（stochastic exponential の積分方程式）**  
 > $M$ を continuous local martingale とし
 >
 > $$
@@ -1812,9 +1812,9 @@ $$
 
 ---
 
-## 11. covariation 連鎖律
+## 11. covariation の連鎖律
 
-Stratonovich 連鎖律 を示すには
+Stratonovich の連鎖律を示すには
 
 $$
 [\partial_i f(X),X^i]
@@ -1822,10 +1822,10 @@ $$
 
 を計算する必要があります。
 
-<a id="lem-sto7-covariation-chain-rule"></a>
+<a id="lem-sto7-covariation-composition"></a>
 
 <!-- formal-statement-start -->
-> **補題（covariation 連鎖律）**  
+> **補題（covariation の連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$Y$ を continuous semimartingale、$g\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
@@ -1934,10 +1934,10 @@ continuity から最初の factor は almost surely 0 へ行き、残りは quad
 
 ## 12. Euclidean Stratonovich 連鎖律：通常の形が戻る
 
-<a id="thm-sto7-stratonovich-chain-rule"></a>
+<a id="thm-sto7-stratonovich-composition"></a>
 
 <!-- formal-statement-start -->
-> **定理（Euclidean Stratonovich 連鎖律）**  
+> **定理（Euclidean Stratonovich の連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$f\in C^2(\mathbb R^d)$ とする。このとき
 >
 > $$
@@ -1979,7 +1979,7 @@ $$
 [\partial_i f(X),X^i]_t.
 $$
 
-[covariation 連鎖律](#lem-sto7-covariation-chain-rule) を
+[covariation 連鎖律](#lem-sto7-covariation-composition) を
 
 $$
 g=\partial_i f,
@@ -2446,7 +2446,7 @@ $$
 }
 $$
 
-一方、Itô--Stratonovich conversion から
+一方、[Itô--Stratonovich conversion](#thm-sto7-ito-stratonovich-conversion) から
 
 $$
 \int_0^tB_s\circ dB_s
@@ -2684,7 +2684,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-Itô--Stratonovich conversion から
+[Itô--Stratonovich conversion](#thm-sto7-ito-stratonovich-conversion) から
 
 $$
 I_t^\circ
