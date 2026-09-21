@@ -1738,13 +1738,13 @@ $$
 <a id="def-sto11-mp-law-uniqueness"></a>
 
 <!-- formal-statement-start -->
-> **定義（well-posed martingale problem）**  
+> **定義（martingale problem の存在・law 一意性）**  
 > 各初期状態 $x\in\mathbb R^d$ に対し martingale problem for $(L,\delta_x)$ の solution law $P_x$ が
 >
 > 1. 存在し、
 > 2. 標本路法則として一意
 >
-> であるとき、その martingale problem は well-posed であるという。
+> であるとき、その martingale problem は **存在・law 一意性を持つ**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sto11-mp-law-uniqueness -->
@@ -1774,8 +1774,8 @@ $$
 <a id="thm-sto11-mp-strong-markov"></a>
 
 <!-- formal-statement-start -->
-> **定理（well-posed martingale problem から strong Markov property）**  
-> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical 標本路空間 とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について well-posed で、その一意な solution law を $P_x$ とする。
+> **定理（martingale problem の存在・law 一意性から strong Markov property）**  
+> $\Omega=C([0,\infty),\mathbb R^d)$ を canonical 標本路空間 とし、$X$ を coordinate process とする。線形作用素 $L$ の martingale problem が各初期状態 $x\in\mathbb R^d$ について存在・law 一意性を持ち、その一意な solution law を $P_x$ とする。
 >
 > さらに各標本路空間の Borel 集合 $A$ に対して $x\mapsto P_x(A)$ が Borel 可測であり、$D(L)$ に martingale problem を決定する countable subclass が存在すると仮定する。
 >
