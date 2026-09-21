@@ -95,7 +95,7 @@ manifold-valued SDE / stochastic development
 時系列は STO 全章完了を必須にはせず、別枝として進めます。
 
 1. [TSA1：定常過程・Hilbert 予測](../TSA1/index.md) — 実装済み
-2. TSA2：Wold decomposition
+2. [TSA2：Wold 分解](../TSA2/index.md) — 実装済み
 3. TSA3：Herglotz・スペクトル表現
 4. TSA4：linear フィルタ・ARMA / ARIMA・周波数領域
 5. TSA5：エルゴード性・mixing・従属極限定理 theory
@@ -182,4 +182,6 @@ STO5 では STO2 の bounded optional sampling を dyadic approximation で連�
 
 [TSA1「定常過程・Hilbert 予測」](../TSA1/index.md#thm-tsa1-best-linear-prediction) も実装済みです。狭義定常性と二次定常性を分離し、自己共分散関数の正定値性、有限過去の正規方程式、無限過去への Hilbert 射影、有限過去予測の $L^2$ 収束、時間移動作用素のユニタリ性、イノベーションの直交性・定常分散まで閉じました。ランダム正弦波を線形決定論的な極端例として置き、MA(1) では有限過去予測と無限過去予測の差を演習で直接計算します。remote past・純非決定論性・Wold 分解は TSA2 の canonical content として先取りしていません。
 
-現在地は **Phase 5：TSA1 完了。次は TSA2「Wold decomposition」** です。
+[TSA2「Wold 分解」](../TSA2/index.md#thm-tsa2-wold) も実装済みです。TSA1 の過去空間と標準イノベーションを出発点に、イノベーション部分空間、無限遠過去、純非決定論性、減少閉部分空間への射影収束を導入し、過去空間を remote past と時刻別イノベーション空間の無限直交和へ分解しました。そこから Wold の決定論成分、標準イノベーションによる因果的無限移動平均表示、係数の平方可和性と一意性まで証明しています。安定 AR(1) と可逆 MA(1) を純非決定論側、ランダム正弦波を完全決定論側の直接例として検証しました。
+
+現在地は **Phase 5：TSA1 → TSA2 完了。次は TSA3「Herglotz・spectral representation」** です。
