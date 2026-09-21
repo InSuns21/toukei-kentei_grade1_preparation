@@ -18,6 +18,11 @@ const forbidden = [
 
 for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
+  for (const [lineIndex, line] of source.split(/\r?\n/).entries()) {
+    if (line.trim() === '$') {
+      errors.push(`${relative(file)}:${lineIndex + 1} 単独行 $ を検出しました。表示数式の $$ が機械置換で破損した可能性があります`);
+    }
+  }
   const searchable = stripCode(source);
   for (const [pattern, label] of forbidden) {
     pattern.lastIndex = 0;
