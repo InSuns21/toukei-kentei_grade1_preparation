@@ -92,6 +92,7 @@ concepts:
     kind: lemma
     aliases:
       - Hopf型のpremeasure判定
+      - "Hopf 型の premeasure 判定"
       - 空集合への連続性によるpremeasure判定
       - continuity from above criterion for premeasures
     requires:
