@@ -15,6 +15,15 @@ forward_references:
   - convex.hyperplane
 
 concepts:
+  - id: analysis.level-set-surface
+    name: レベル集合・レベル曲面
+    kind: definition
+    aliases: [レベル集合, レベル曲面, level set, level surface, 正則点, 正則レベル曲面]
+    introduction: formal
+    introduction_aliases: ["定義（レベル集合・レベル曲面）"]
+    requires:
+      - functional.frechet-derivative
+
   - id: analysis.segment-derivative-integral-formula
     name: 線分上の微分の積分表示
     kind: lemma
@@ -57,6 +66,7 @@ concepts:
     kind: corollary
     aliases: [正則レベル集合の局所グラフ表示, 正則レベル集合, 正則レベル集合の接空間公式, 接空間公式]
     requires:
+      - analysis.level-set-surface
       - analysis.implicit-function-theorem
       - linear.determinant-invertibility-criterion
 
