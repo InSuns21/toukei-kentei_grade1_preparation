@@ -1,5 +1,5 @@
 id: "STO11"
-title: "Encore IV Stochastic Analysis XI：Markov process・semigroup・generator・martingale problem"
+title: "Encore IV 確率解析 XI：Markov process・semigroup・生成作用素・マルチンゲール問題"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -10,44 +10,44 @@ prerequisites:
   - F0-00P3A
 official_scope: []
 learning_objectives:
-  - transition kernelとtime-homogeneous Markov propertyを定義し、Brown運動やdiffusionで条件付き期待値をkernelへ書き換えられる
-  - Markov semigroupを定義し、Chapman--Kolmogorov identityからsemigroup lawを導ける
-  - infinitesimal generatorを定義し、Brown運動とItô diffusionのgeneratorをItô formulaから計算できる
-  - Dynkin formulaをmartingale decompositionから証明し、停止時刻版で仮定を確認して使える
-  - backward Kolmogorov equationをsemigroupの微分として導き、diffusion PDEとして書ける
-  - forward equationをmeasureの弱形式として導き、滑らかな密度がある場合にFokker--Planck equationを得られる
-  - Feynman--Kac verification formulaを時間依存Itô formulaから証明し、potentialとrunning termを含む終端値問題へ適用できる
-  - martingale problemを定義し、SDE solutionがgeneratorのmartingale problemを解くことを証明できる
-  - nondegenerate diffusionではmartingale problemからdriftとquadratic covariationを復元し、Lévy characterizationでweak SDEへ戻せる
-  - well-posed martingale problemがMarkov性・strong Markov性を生む機構とFeller processへの接続を説明できる
+  - 遷移核とtime-homogeneous Markov propertyを定義し、ブラウン運動や拡散で条件付き期待値をkernelへ書き換えられる
+  - マルコフ半群を定義し、Chapman--Kolmogorov identityからsemigroup 法則を導ける
+  - infinitesimal 生成作用素を定義し、ブラウン運動とItô 拡散の生成作用素をItô formulaから計算できる
+  - Dynkin formulaをマルチンゲール decompositionから証明し、停止時刻版で仮定を確認して使える
+  - backward Kolmogorov equationをsemigroupの微分として導き、拡散 PDEとして書ける
+  - 前進方程式をmeasureの弱形式として導き、滑らかな密度がある場合にFokker--Planck equationを得られる
+  - Feynman--Kac 検証公式を時間依存Itô formulaから証明し、potentialとrunning termを含む終端値問題へ適用できる
+  - マルチンゲール問題を定義し、SDE solutionが生成作用素のマルチンゲール問題を解くことを証明できる
+  - nondegenerate 拡散ではマルチンゲール問題からドリフトとquadratic covariationを復元し、Lévy characterizationでweak SDEへ戻せる
+  - well-posed マルチンゲール問題がMarkov性・strong Markov性を生む機構とFeller processへの接続を説明できる
 definitions:
-  - { id: STO11-DEF-01, name: "transition kernel" }
-  - { id: STO11-DEF-02, name: "time-homogeneous Markov process" }
-  - { id: STO11-DEF-03, name: "Markov semigroup" }
-  - { id: STO11-DEF-04, name: "generator" }
-  - { id: STO11-DEF-05, name: "martingale problem" }
-  - { id: STO11-DEF-06, name: "well-posed martingale problem" }
+  - { id: STO11-DEF-01, name: "遷移核" }
+  - { id: STO11-DEF-02, name: "時間一様マルコフ過程" }
+  - { id: STO11-DEF-03, name: "マルコフ半群" }
+  - { id: STO11-DEF-04, name: "生成作用素" }
+  - { id: STO11-DEF-05, name: "マルチンゲール問題" }
+  - { id: STO11-DEF-06, name: "well-posed マルチンゲール問題" }
   - { id: STO11-DEF-07, name: "Feller semigroup" }
 theorems:
-  - { id: STO11-PROP-01, name: "Chapman--Kolmogorovとsemigroup law" }
-  - { id: STO11-PROP-02, name: "global Lipschitz SDEのsolution familyはMarkov" }
-  - { id: STO11-PROP-03, name: "Itô diffusionのgenerator" }
+  - { id: STO11-PROP-01, name: "Chapman--Kolmogorovとsemigroup 法則" }
+  - { id: STO11-PROP-02, name: "大域 Lipschitz SDEのsolution familyはMarkov" }
+  - { id: STO11-PROP-03, name: "Itô 拡散の生成作用素" }
   - { id: STO11-THM-01, name: "Dynkin formula" }
   - { id: STO11-THM-02, name: "backward Kolmogorov equation" }
   - { id: STO11-THM-03, name: "forward Kolmogorov equationの弱形式とFokker--Planck" }
-  - { id: STO11-THM-04, name: "Feynman--Kac verification formula" }
-  - { id: STO11-THM-05, name: "SDEからmartingale problem" }
-  - { id: STO11-THM-06, name: "nondegenerate martingale problemからSDE表現" }
-  - { id: STO11-THM-07, name: "well-posed martingale problemからstrong Markov property" }
+  - { id: STO11-THM-04, name: "Feynman--Kac 検証公式" }
+  - { id: STO11-THM-05, name: "SDEからマルチンゲール問題" }
+  - { id: STO11-THM-06, name: "nondegenerate マルチンゲール問題からSDE表現" }
+  - { id: STO11-THM-07, name: "well-posed マルチンゲール問題からstrong Markov property" }
 canonical_examples:
-  - "Brown運動のGaussian transition kernelとheat semigroup"
-  - "deterministic flow X_t=x+ctのsemigroupとgenerator"
-  - "Ornstein--Uhlenbeck diffusionのgenerator"
-  - "Brown運動にDynkin formulaを適用してE[B_t^2]=tを再構成"
-  - "定数係数diffusionのFokker--Planck equation"
+  - "ブラウン運動のGaussian 遷移核とheat semigroup"
+  - "deterministic flow X_t=x+ctのsemigroupと生成作用素"
+  - "Ornstein--Uhlenbeck 拡散の生成作用素"
+  - "ブラウン運動にDynkin formulaを適用してE[B_t^2]=tを再構成"
+  - "定数係数拡散のFokker--Planck equation"
   - "定数potentialに対するFeynman--Kac"
-  - "Brown運動のmartingale problem"
-  - "uniformly nondegenerate diffusionでのmartingale problemからBrown運動の復元"
+  - "ブラウン運動のマルチンゲール問題"
+  - "uniformly nondegenerate 拡散でのマルチンゲール問題からブラウン運動の復元"
 problem_patterns:
   - STO11-KERNEL-SEMIGROUP-1
   - STO11-GENERATOR-1

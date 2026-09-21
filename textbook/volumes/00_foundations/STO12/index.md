@@ -1,8 +1,10 @@
-# STO12：Brownian martingale representation — Brown 運動の情報を stochastic integral で尽くす
+# STO12：ブラウン運動のマルチンゲール表現 — ブラウン運動の情報を確率積分で表し尽くす
 
 <!-- definition-example-audit: strict -->
 
-STO6 では Brown 運動に関する stochastic integral を
+> **既出概念への参照**：[ブラウン運動のフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness) を直接参照します。
+
+STO6 ではブラウン運動に関する確率積分を
 
 $$
 H\longmapsto \int_0^T H_t\cdot dB_t
@@ -16,7 +18,7 @@ $$
 \boxed{
 H\text{ を与える}
 \Longrightarrow
-\text{martingale を作る}
+\text{マルチンゲールを作る}
 }
 $$
 
@@ -24,11 +26,11 @@ $$
 
 本章では逆向きを問います。
 
-> Brown 運動の標本路だけから得られる square-integrable な未来の不確実性は、すべて Brownian stochastic integral として書けるのか。
+> ブラウン運動の標本路だけから得られる二乗可積分な未来の不確実性は、すべてブラウン運動に関する確率積分として書けるのか。
 
-答えは yes です。ただし **filtration が Brown 運動自身の情報だけから作られていること**が本質です。
+答えは yes です。ただし **フィルトレーションがブラウン運動自身の情報だけから作られていること**が本質です。
 
-有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion とします。$\mathcal N$ を $P$-null sets の全部分集合からなる族とし、本章では
+有限時間 $T>0$ を固定し、$B=(B^1,\ldots,B^d)$ を $d$ 次元 standard ブラウン運動とします。$\mathcal N$ を $P$-null sets の全部分集合からなる族とし、本章では
 
 $$
 \mathcal F_t^B
@@ -38,7 +40,7 @@ $$
 0\le t\le T
 $$
 
-を使います。これは [STO4 の Brownian natural filtration](../STO4/index.md#def-sto4-brownian-filtration) を null completion した filtration です。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
+を使います。これは [STO4 のブラウン運動の自然なフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration) を零集合による完備化したフィルトレーションです。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
 
 本章の中心線は
 
@@ -46,31 +48,31 @@ $$
 \boxed{
 \text{Itô isometry}
 \to
-\text{closed range}
+\text{閉値域}
 \to
-\text{exponential martingale の totality}
+\text{指数型マルチンゲールの全体性}
 \to
-\text{terminal variable representation}
+\text{終端確率変数表現}
 \to
-\text{martingale representation / predictable representation property}
+\text{マルチンゲール表現 / 予測可能表現性}
 }
 $$
 
 です。
 
-Clark--Ocone formula は Malliavin calculus を必要とするため、本章には逆輸入しません。本章で証明するのは、integrand の **存在と一意性**です。一般の terminal variable から integrand を微分公式で直接計算する理論は別問題です。
+Clark--Ocone 公式は Malliavin 解析を必要とするため、本章には逆輸入しません。本章で証明するのは、被積分過程の **存在と一意性**です。一般の終端確率変数から被積分過程を微分公式で直接計算する理論は別問題です。
 
 ---
 
-## 1. Brownian stochastic integral の入力空間
+## 1. ブラウン運動に関する確率積分の入力空間
 
-STO6 の $L^2$ stochastic integral を Brown 運動へ特殊化します。
+STO6 の $L^2$ 確率積分をブラウン運動へ特殊化します。
 
 <a id="def-sto12-brownian-h2"></a>
 
 <!-- formal-statement-start -->
-> **定義（Brownian square-integrable integrand space）**  
-> $[0,T]\times\Omega$ 上の $\mathbb R^d$-値 predictable process $H$ で
+> **定義（ブラウン運動に対する二乗可積分被積分過程空間）**  
+> $[0,T]\times\Omega$ 上の $\mathbb R^d$-値予測可能過程 $H$ で
 >
 $$
 E\int_0^T |H_t|^2dt<\infty
@@ -93,14 +95,14 @@ $$
 > とする。
 <!-- formal-statement-end -->
 
-Brown 運動では $[B^i,B^j]_t=\delta_{ij}t$ なので、STO6 の一般の $L^2(M)$ norm が時間積分へ簡約されています。
+ブラウン運動では $[B^i,B^j]_t=\delta_{ij}t$ なので、STO6 の一般の $L^2(M)$ norm が時間積分へ簡約されています。
 
 <!-- definition-example-start: def-sto12-brownian-h2 -->
 ### 直接例：$H_t=B_t$ は $\mathcal H_B^2$ に入る
 
 **定義の確認**
 
-$B_t$ は continuous adapted process なので predictable です。
+$B_t$ は continuous 適合過程なので予測可能です。
 
 さらに
 
@@ -129,7 +131,7 @@ $$
 B\in\mathcal H_B^2([0,T]).
 $$
 
-特に Itô formula から
+特に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 |B_T|^2-dT
@@ -137,7 +139,7 @@ $$
 2\int_0^T B_t\cdot dB_t
 $$
 
-という非自明な terminal variable が stochastic integral の値域に入ります。
+という非自明な終端確率変数が確率積分の値域に入ります。
 <!-- definition-example-end -->
 
 [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により、各 $H\in\mathcal H_B^2$ について
@@ -166,13 +168,13 @@ $$
 
 ---
 
-## 2. representation とは何を要求するのか
+## 2. 表現とは何を要求するのか
 
 <a id="def-sto12-prp"></a>
 
 <!-- formal-statement-start -->
-> **定義（predictable representation property）**  
-> filtered probability space 上の $d$ 次元 Brown 運動 $B$ が filtration $(\mathcal F_t)$ に関して **predictable representation property** を持つとは、任意の square-integrable $(\mathcal F_t)$-martingale $M$ に対し、predictable process $H$ が存在して
+> **定義（予測可能表現性）**  
+> フィルトレーション付き確率空間上の $d$ 次元ブラウン運動 $B$ がフィルトレーション $(\mathcal F_t)$ に関して **予測可能表現性** を持つとは、任意の二乗可積分 $(\mathcal F_t)$-マルチンゲール $M$ に対し、予測可能過程 $H$ が存在して
 >
 $$
 E\int_0^T|H_t|^2dt<\infty
@@ -192,17 +194,17 @@ $$
 >
 > が indistinguishability の意味で成り立つことをいう。
 >
-> integrand は $dt\otimes dP$-a.e. の意味で一意であることも要求する。
+> 被積分過程は $dt\otimes dP$-a.e. の意味で一意であることも要求する。
 <!-- formal-statement-end -->
 
-以下では predictable representation property を **PRP** と略記します。
+以下では予測可能表現性を **PRP** と略記します。
 
 <!-- definition-example-start: def-sto12-prp -->
-### 直接例：$|B_t|^2-dt$ はすでに representation を持つ
+### 直接例：$|B_t|^2-dt$ はすでに表現を持つ
 
 **定義の確認**
 
-Itô formula により
+[多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)により
 
 $$
 d|B_t|^2
@@ -234,14 +236,14 @@ E\int_0^T|2B_s|^2ds
 2dT^2<\infty
 $$
 
-を確認できるため、$H_s=2B_s$ は admissible な integrand です。
+を確認できるため、$H_s=2B_s$ は admissible な被積分過程です。
 
-本章の定理は、このように Itô formula から目で見える martingale だけでなく、**任意の** $L^2(\mathcal F_T^B)$ terminal variable について同じことができると主張します。
+本章の定理は、このように [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から目で見えるマルチンゲールだけでなく、**任意の** $L^2(\mathcal F_T^B)$ 終端確率変数について同じことができると主張します。
 <!-- definition-example-end -->
 
 ---
 
-## 3. 最初の鍵：terminal stochastic integral の値域は閉じている
+## 3. 最初の鍵：終端確率積分の値域は閉じている
 
 まず
 
@@ -259,7 +261,7 @@ $$
 <a id="lem-sto12-closed-range"></a>
 
 <!-- formal-statement-start -->
-> **補題（Brownian terminal stochastic integral の値域は closed）**  
+> **補題（ブラウン運動の終端確率積分の値域は閉じている）**  
 > $\mathcal K_T$ は centered space
 >
 $$
@@ -283,12 +285,12 @@ $$
 
 を与えます。
 
-したがって terminal integrals が $L^2$ で Cauchy なら、integrands 自体も $\mathcal H_B^2$ で Cauchy です。
+したがって終端 integrals が $L^2$ で Cauchy なら、integrands 自体も $\mathcal H_B^2$ で Cauchy です。
 
 <!-- proof-start -->
 ### 証明
 
-線形性は stochastic integral の線形性から従います。また各 $I_T(H)$ は square-integrable martingale の終値で初期値 0 なので
+線形性は確率積分の線形性から従います。また各 $I_T(H)$ は二乗可積分マルチンゲールの終値で初期値 0 なので
 
 $$
 E[I_T(H)]=0.
@@ -317,7 +319,7 @@ $$
 
 よって $(H^{(n)})$ は $\mathcal H_B^2$ で Cauchy です。
 
-predictable $\mathbb R^d$-値 functions の $L^2(dt\otimes dP)$ 空間は complete なので、ある predictable $H\in\mathcal H_B^2$ が存在して
+予測可能 $\mathbb R^d$-値 functions の $L^2(dt\otimes dP)$ 空間は complete なので、ある予測可能 $H\in\mathcal H_B^2$ が存在して
 
 $$
 H^{(n)}\to H
@@ -342,7 +344,7 @@ $Y_n$ の $L^2$ 極限は一意なので、その極限は $I_T(H)\in\mathcal K_
 
 ---
 
-## 4. deterministic integrand から exponential vector を作る
+## 4. 決定論的被積分過程から指数ベクトルを作る
 
 deterministic
 
@@ -364,7 +366,7 @@ $$
 
 と置きます。
 
-STO6 の deterministic Brownian integral の Gaussian 性を各成分へ適用すると
+STO6 の deterministic ブラウン integral のガウス性を各成分へ適用すると
 
 $$
 M_t^h\sim N(0,q_t).
@@ -373,7 +375,7 @@ $$
 <a id="lem-sto12-exponential-vector"></a>
 
 <!-- formal-statement-start -->
-> **補題（deterministic integrand の exponential martingale）**  
+> **補題（決定論的被積分過程の指数型マルチンゲール）**  
 > deterministic $h\in L^2([0,T];\mathbb R^d)$ に対し
 >
 $$
@@ -385,7 +387,7 @@ Z_t^h
 \right)
 $$
 >
-> と置く。このとき $(Z_t^h)_{0\le t\le T}$ は square-integrable martingale で
+> と置く。このとき $(Z_t^h)_{0\le t\le T}$ は二乗可積分マルチンゲールで
 >
 $$
 E[(Z_t^h)^2]=e^{q_t},
@@ -411,18 +413,18 @@ $$
 
 $M^h$ の bracket は $q_t$ です。
 
-従って $Z^h$ は STO7 の stochastic exponential そのものであり、stochastic differential は
+従って $Z^h$ は STO7 の確率指数関数そのものであり、stochastic differential は
 
 $$
 dZ_t^h=Z_t^h h_t\cdot dB_t.
 $$
 
-残る問題は local martingale で終わらず、本当に $L^2$ martingale であることです。これは deterministic $h$ なら Gaussian 計算で直接閉じます。
+残る問題は局所マルチンゲールで終わらず、本当に $L^2$ マルチンゲールであることです。これは deterministic $h$ ならガウス計算で直接閉じます。
 
 <!-- proof-start -->
 ### 証明
 
-[STO7 の stochastic exponential identity](../STO7/index.md#prop-sto7-stochastic-exponential-identity) を
+[STO7 の確率指数関数 identity](../STO7/index.md#prop-sto7-stochastic-exponential-identity) を
 
 $$
 M_t=M_t^h
@@ -430,7 +432,7 @@ $$
 
 へ適用します。
 
-Brownian integral の bracket は
+ブラウン integral の bracket は
 
 $$
 [M^h]_t
@@ -460,7 +462,7 @@ $$
 
 を得ます。
 
-次に $M_t^h\sim N(0,q_t)$ だから Gaussian のモーメント母関数より
+次に $M_t^h\sim N(0,q_t)$ だからガウスのモーメント母関数より
 
 $$
 E[Z_t^h]
@@ -473,7 +475,7 @@ e^{-q_t/2}e^{q_t/2}
 1.
 $$
 
-同じ Gaussian moment formula に係数 $2$ を代入すると
+同じガウス moment 公式に係数 $2$ を代入すると
 
 $$
 \begin{aligned}
@@ -496,7 +498,7 @@ $$
 e^{q_T}<\infty.
 $$
 
-stochastic exponential は nonnegative local martingale なので supermartingale です。一方、全ての $t$ で期待値が $1=E[Z_0^h]$ のままです。
+確率指数関数は nonnegative 局所マルチンゲールなので supermartingale です。一方、全ての $t$ で期待値が $1=E[Z_0^h]$ のままです。
 
 $0\le s<t\le T$ に対して
 
@@ -510,7 +512,7 @@ $$
 E[Z_t^h\mid\mathcal F_s^B]=Z_s^h
 $$
 
-a.s. で、$Z^h$ は真の martingale です。
+a.s. で、$Z^h$ は真のマルチンゲールです。
 
 さらに
 
@@ -533,7 +535,7 @@ $$
 
 から従います。
 
-従って積分は $\mathcal H_B^2$ integrand による terminal stochastic integral であり、
+従って積分は $\mathcal H_B^2$ 被積分過程による終端確率積分であり、
 
 $$
 Z_T^h-1
@@ -543,13 +545,13 @@ Z_T^h-1
 $$
 <!-- proof-end -->
 
-以下では $Z_T^h$ を **Gaussian exponential vector** と略記します。これは新しい確率過程ではなく、稠密性証明で使う test family の記号です。
+以下では $Z_T^h$ を **ガウス指数族 vector** と略記します。これは新しい確率過程ではなく、稠密性証明で使う test family の記号です。
 
 ---
 
-## 5. 一次元 Gaussian で exponential がなぜ十分なのか
+## 5. 一次元ガウスで指数型がなぜ十分なのか
 
-Brownian 標本路全体へ進む前に、有限次元の核心を切り出します。
+ブラウン標本路全体へ進む前に、有限次元の核心を切り出します。
 
 $G\sim N(0,v)$、$v>0$ とし
 
@@ -577,9 +579,9 @@ $$
 
 ここから $g=0$ を示します。
 
-### 5.1 signed measure へ変換する
+### 5.1 符号付き測度へ変換する
 
-Gaussian law を $\gamma_v$ とし、
+ガウス法則を $\gamma_v$ とし、
 
 $$
 \nu(A)
@@ -603,7 +605,7 @@ $$
 \end{aligned}
 $$
 
-Gaussian は全ての線形 exponential moment を持つからです。
+ガウスは全ての線形指数型 moment を持つからです。
 
 仮定は
 
@@ -682,9 +684,9 @@ $$
 
 ---
 
-## 6. 独立 Gaussian vector へ積み上げる
+## 6. 独立ガウスベクトル へ積み上げる
 
-Brownian increments を有限個だけ観測すると、独立な一次元 Gaussian の直積になります。
+ブラウン increments を有限個だけ観測すると、独立な一次元ガウスの直積になります。
 
 一次元で dense な family が分かれば、有限直積でも product family
 
@@ -702,7 +704,7 @@ $$
 u(x_1)v(x_2)
 $$
 
-に直交し、$u,v$ がそれぞれ一次元 exponential span に属するとします。
+に直交し、$u,v$ がそれぞれ一次元指数型 span に属するとします。
 
 固定した $v$ に対し
 
@@ -720,7 +722,7 @@ $$
 \int g_v(x_1)u(x_1)\gamma_1(dx_1)=0
 $$
 
-なので、一次元の totality から
+なので、一次元の全体性から
 
 $$
 g_v=0
@@ -738,7 +740,7 @@ $$
 
 が dense subset の全ての $v$ に対して成り立ちます。
 
-従って一次元 totality をもう一度使うと
+従って一次元全体性をもう一度使うと
 
 $$
 f(x_1,\cdot)=0
@@ -750,17 +752,17 @@ $$
 
 よって $f=0$ a.e.
 
-有限個の独立 Gaussian についてはこの議論を帰納的に繰り返せます。
+有限個の独立ガウスについてはこの議論を帰納的に繰り返せます。
 
 ---
 
-## 7. Brownian 標本路全体へ：dyadic information を増やす
+## 7. ブラウン標本路全体へ：dyadic information を増やす
 
 <a id="lem-sto12-exponential-totality"></a>
 
 <!-- formal-statement-start -->
-> **補題（Gaussian exponential vectors の totality）**  
-> $B$ を $d$ 次元 Brown 運動とし、
+> **補題（ガウス指数族 vectors の全体性）**  
+> $B$ を $d$ 次元ブラウン運動とし、
 >
 $$
 \mathcal F_t^B
@@ -768,7 +770,7 @@ $$
 \sigma(B_s:0\le s\le t)\vee\mathcal N
 $$
 >
-> をその completed natural filtration とする。
+> をその completed natural フィルトレーションとする。
 >
 > deterministic
 >
@@ -800,9 +802,9 @@ $$
 
 時間を dyadic partition で細かくします。
 
-有限段階では情報は独立 Gaussian increments の有限個の vector です。前二節の有限次元 totality が使えます。
+有限段階では情報は独立ガウス increments の有限個の vector です。前二節の有限次元全体性が使えます。
 
-最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報を Brownian 標本路全体へ増やします。
+最後に [Lévy 上昇定理](../F0_00P3C_Levy上昇定理_情報の増加/index.md#thm-f0-00p3c-levy-upward) で有限段階の情報をブラウン標本路全体へ増やします。
 
 <!-- proof-start -->
 ### 証明
@@ -858,7 +860,7 @@ $$
 N\left(0,\frac{T}{2^n}\right).
 $$
 
-従って $\mathcal G_n$ は有限個の独立 Gaussian variables が生成する $\sigma$ 代数です。
+従って $\mathcal G_n$ は有限個の独立ガウス variables が生成する $\sigma$ 代数です。
 
 次に区間ごとに定数な deterministic $h$ を取ります。
 
@@ -889,7 +891,7 @@ $$
 \theta_{k,j}^2\frac{T}{2^n}.
 $$
 
-従って $Z_T^h$ は前節で扱った一次元 Gaussian exponential の有限 product そのものです。
+従って $Z_T^h$ は前節で扱った一次元ガウス指数族の有限 product そのものです。
 
 条件付き期待値
 
@@ -901,7 +903,7 @@ $$
 
 を取ります。
 
-任意の $\mathcal G_n$-measurable exponential product $V$ は、上の形のある $Z_T^h$ と一致するので
+任意の $\mathcal G_n$-measurable 指数型 product $V$ は、上の形のある $Z_T^h$ と一致するので
 
 $$
 \begin{aligned}
@@ -915,7 +917,7 @@ E[ZV]\\
 \end{aligned}
 $$
 
-有限独立 Gaussian における product exponential family の totality から
+有限独立ガウスにおける product 指数型 family の全体性から
 
 $$
 Y_n=0
@@ -924,7 +926,7 @@ $$
 
 です。
 
-Brownian 標本路は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
+ブラウン標本路は continuous なので、dyadic times の値全体から全時刻の値が復元できます。
 
 従って augmentation 前には
 
@@ -934,7 +936,7 @@ $$
 \sigma(B_t:0\le t\le T).
 $$
 
-null completion で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
+零集合による完備化で追加されるのは null sets とその部分集合なので、$L^1$ random variables を almost surely 同じものとして扱う限り結果は変わりません。
 
 $Z\in L^2$ なので $Z\in L^1$ でもあります。
 
@@ -959,24 +961,24 @@ $$
 
 です。
 
-従って exponential vectors の直交補は $\{0\}$ であり、その線形 span は $L^2(\mathcal F_T^B)$ で dense です。
+従って指数型 vectors の直交補は $\{0\}$ であり、その線形 span は $L^2(\mathcal F_T^B)$ で dense です。
 <!-- proof-end -->
 
 ここが本章で最も長い論証です。
 
-重要なのは、「Brownian filtration だから有限段階が独立 Gaussian increments で記述でき、その finite information が dyadic refinement で全情報へ増える」という構造です。
+重要なのは、「ブラウン運動のフィルトレーションだから有限段階が独立ガウス increments で記述でき、その有限 information が dyadic refinement で全情報へ増える」という構造です。
 
 ---
 
-## 8. terminal variable を stochastic integral へ戻す
+## 8. 終端確率変数を確率積分へ戻す
 
 準備が全部そろいました。
 
 <a id="thm-sto12-martingale-representation"></a>
 
 <!-- formal-statement-start -->
-> **定理（Brownian martingale representation theorem）**  
-> $B$ を $d$ 次元 standard Brownian motion、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural filtration とする。
+> **定理（ブラウン運動のマルチンゲール表現定理）**  
+> $B$ を $d$ 次元 standard ブラウン運動、$(\mathcal F_t^B)_{0\le t\le T}$ をその completed natural フィルトレーションとする。
 >
 > 任意の
 >
@@ -1009,13 +1011,13 @@ $$
 
 ### 証明の見取り図
 
-1. terminal stochastic integrals の値域 $\mathcal K_T$ は closed。
-2. exponential vectors の span は $L^2$ で dense。
-3. 各 exponential vector について
+1. 終端 stochastic integrals の値域 $\mathcal K_T$ は closed。
+2. 指数型 vectors の span は $L^2$ で dense。
+3. 各指数ベクトルについて
    $$
    Z_T^h-1\in\mathcal K_T.
    $$
-4. centered variable を exponential vectors で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
+4. centered variable を指数型 vectors で近似し、各近似から平均を引けば $\mathcal K_T$ 内の近似になる。
 5. closedness で極限を $\mathcal K_T$ に戻す。
 6. 一意性は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)。
 
@@ -1032,7 +1034,7 @@ $$
 
 と置きます。
 
-[Gaussian exponential vectors の totality](#lem-sto12-exponential-totality) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
+[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
 
 $$
 Y_n
@@ -1089,7 +1091,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[deterministic integrand の exponential martingale](#lem-sto12-exponential-vector) から各
+[決定論的被積分過程の指数型マルチンゲール](#lem-sto12-exponential-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
@@ -1116,7 +1118,7 @@ $$
 \end{aligned}
 $$
 
-[closed range lemma](#lem-sto12-closed-range) により $\mathcal K_T$ は closed なので
+[閉値域 lemma](#lem-sto12-closed-range) により $\mathcal K_T$ は closed なので
 
 $$
 \xi_0\in\mathcal K_T.
@@ -1134,7 +1136,7 @@ $$
 
 一意性を示します。
 
-$H,K\in\mathcal H_B^2$ がともに同じ representation を与えるなら
+$H,K\in\mathcal H_B^2$ がともに同じ表現を与えるなら
 
 $$
 \int_0^T(H_t-K_t)\cdot dB_t=0
@@ -1166,29 +1168,29 @@ $$
 です。
 <!-- proof-end -->
 
-この証明では「integrand を直接発見する公式」を使っていません。
+この証明では「被積分過程を直接発見する公式」を使っていません。
 
 代わりに
 
 $$
-\text{closed range}
+\text{閉値域}
 +
 \text{explicit dense family}
 $$
 
 で存在を出しています。
 
-これは functional analysis 的ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) と Gaussian exponential の稠密性まで章内で展開しました。
+これは functional analysis 的ですが、必要な部分は [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) とガウス指数族の稠密性まで章内で展開しました。
 
 ---
 
-## 9. terminal representation から process representation へ
+## 9. 終端表現から過程表現へ
 
 <a id="cor-sto12-conditional-representation"></a>
 
 <!-- formal-statement-start -->
-> **系（conditional expectation process の representation）**  
-> $\xi\in L^2(\mathcal F_T^B)$ とし、[Brownian martingale representation theorem](#thm-sto12-martingale-representation) の integrand を $H$ とする。
+> **系（条件付き期待値過程の表現）**  
+> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) の被積分過程を $H$ とする。
 >
 > このとき全ての $0\le t\le T$ について
 >
@@ -1207,7 +1209,7 @@ $$
 
 ### 証明の見取り図
 
-terminal equality
+終端 equality
 
 $$
 \xi=E[\xi]+\int_0^T H_s\cdot dB_s
@@ -1215,12 +1217,12 @@ $$
 
 へ $\mathcal F_t^B$ 条件付き期待値を取ります。
 
-$t$ より後ろの stochastic integral の条件付き平均が 0 になるだけです。
+$t$ より後ろの確率積分の条件付き平均が 0 になるだけです。
 
 <!-- proof-start -->
 ### 証明
 
-terminal representation を
+終端表現を
 
 $$
 \xi
@@ -1236,13 +1238,13 @@ $$
 
 前半は $\mathcal F_t^B$-measurable です。
 
-また stochastic integral process
+また確率積分過程
 
 $$
 N_u=\int_0^uH_s\cdot dB_s
 $$
 
-は [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により square-integrable martingale なので
+は [STO6 の $L^2$ construction](../STO6/index.md#thm-sto6-l2-construction) により二乗可積分マルチンゲールなので
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -1258,22 +1260,22 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-右辺は continuous stochastic integral なので、conditional expectation process の continuous version になっています。
+右辺は continuous 確率積分なので、条件付き期待値過程の continuous version になっています。
 <!-- proof-end -->
 
-Brownian filtration 上では「terminal payoff の条件付き期待値」という抽象的な martingale が、実際に Brownian noise の逐次積分へ変換されます。
+ブラウン運動のフィルトレーション上では「終端ペイオフの条件付き期待値」という抽象的なマルチンゲールが、実際にブラウン雑音の逐次積分へ変換されます。
 
 ---
 
-## 10. Brownian filtration は PRP を持つ
+## 10. ブラウン運動のフィルトレーションは PRP を持つ
 
 <a id="cor-sto12-brownian-prp"></a>
 
 <!-- formal-statement-start -->
-> **系（Brownian filtration の predictable representation property）**  
-> $B$ の completed natural filtration $(\mathcal F_t^B)$ は、$B$ に関する predictable representation property を持つ。
+> **系（ブラウン運動のフィルトレーションの予測可能表現性）**  
+> $B$ の completed natural フィルトレーション $(\mathcal F_t^B)$ は、$B$ に関する予測可能表現性を持つ。
 >
-> すなわち任意の square-integrable $(\mathcal F_t^B)$-martingale $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
+> すなわち任意の二乗可積分 $(\mathcal F_t^B)$-マルチンゲール $M$ に対し、一意な $H\in\mathcal H_B^2([0,T])$ が存在して
 >
 $$
 \boxed{
@@ -1293,7 +1295,7 @@ $$
 
 $\xi=M_T$ と置きます。
 
-martingale property と [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
+マルチンゲール property と [tower property](../F0_00P3A_条件付き期待値_Radon_Nikodym/index.md#thm-f0-00p3a-tower) から
 
 $$
 M_t
@@ -1303,7 +1305,7 @@ E[M_T\mid\mathcal F_t^B]
 E[\xi\mid\mathcal F_t^B].
 $$
 
-[conditional expectation process の representation](#cor-sto12-conditional-representation) より
+[条件付き期待値過程の表現](#cor-sto12-conditional-representation) より
 
 $$
 M_t
@@ -1313,7 +1315,7 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-completed Brownian natural filtration の $\mathcal F_0^B$ は trivial modulo null sets なので $M_0$ は a.s. 定数です。
+completed ブラウン運動の自然なフィルトレーションの $\mathcal F_0^B$ は trivial modulo null sets なので $M_0$ は a.s. 定数です。
 
 さらに
 
@@ -1333,14 +1335,14 @@ M_t
 M_0+\int_0^tH_s\cdot dB_s.
 $$
 
-integrand の一意性は terminal time $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
+被積分過程の一意性は終端 time $T$ での [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から従います。
 <!-- proof-end -->
 
 ---
 
-## 11. 具体例：exponential payoff は integrand まで見える
+## 11. 具体例：指数型ペイオフは被積分過程まで見える
 
-1 次元 Brown 運動と $\lambda\in\mathbb R$ に対し
+1 次元ブラウン運動と $\lambda\in\mathbb R$ に対し
 
 $$
 \xi
@@ -1362,7 +1364,7 @@ Z_t
 \right)
 $$
 
-は martingale で
+はマルチンゲールで
 
 $$
 dZ_t
@@ -1384,7 +1386,7 @@ $$
 
 です。
 
-この例では representation theorem が保証する integrand を明示でき、
+この例では表現定理が保証する被積分過程を明示でき、
 
 $$
 H_t
@@ -1399,9 +1401,9 @@ $$
 
 ---
 
-## 12. 具体例：digital payoff の integrand
+## 12. 具体例：デジタル型ペイオフの被積分過程
 
-1 次元 Brown 運動で
+1 次元ブラウン運動で
 
 $$
 \xi=1_{\{B_T>a\}}
@@ -1452,9 +1454,9 @@ $$
 \right)
 $$
 
-です。$\varphi$ は standard normal density です。
+です。$\varphi$ は standard normal 密度です。
 
-任意の $\varepsilon>0$ に対し $[0,T-\varepsilon]$ 上で Itô formula を使うと
+任意の $\varepsilon>0$ に対し $[0,T-\varepsilon]$ 上で [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使うと
 
 $$
 M_t
@@ -1476,7 +1478,7 @@ $$
 
 a.s. かつ $L^2$ です。$P(B_T=a)=0$ と $0\le M_t\le1$ を使えばよいです。
 
-従って representation integrand は
+従って表現被積分過程は
 
 $$
 \boxed{
@@ -1508,15 +1510,15 @@ E\int_0^T H_t^2dt
 <\infty.
 $$
 
-したがって pointwise な係数が大きくなることだけを見て integrability を否定してはいけません。
+したがって pointwise な係数の発散だけを見て integrability を否定してはいけません。
 
 ---
 
-## 13. filtration を広げると theorem は壊れる
+## 13. フィルトレーションを広げると定理は壊れる
 
-Brownian martingale representation は「確率空間上に Brown 運動がある」だけでは成立しません。
+ブラウン運動のマルチンゲール表現は「確率空間上にブラウン運動がある」だけでは成立しません。
 
-Brown 運動 $B$ と、それと独立な Brown 運動 $C$ を取り、
+ブラウン運動 $B$ と、それと独立なブラウン運動 $C$ を取り、
 
 $$
 \mathcal F_t
@@ -1526,9 +1528,9 @@ $$
 
 とします。
 
-$C$ はこの filtration に関する square-integrable martingale です。
+$C$ はこのフィルトレーションに関する二乗可積分マルチンゲールです。
 
-もし $B$ がこの filtration でも PRP を持つなら、ある predictable $H$ が存在して
+もし $B$ がこのフィルトレーションでも PRP を持つなら、ある予測可能 $H$ が存在して
 
 $$
 C_t
@@ -1538,13 +1540,13 @@ $$
 
 と書けるはずです。
 
-しかし独立 Brownian motions なので
+しかし独立ブラウン motions なので
 
 $$
 [C,B]_t=0.
 $$
 
-一方、[STO7 の stochastic integral covariation formula](../STO7/index.md#lem-sto7-vector-brownian-integral-covariation) から representation が正しければ
+一方、[STO7 の確率積分 covariation 公式](../STO7/index.md#lem-sto7-vector-brownian-integral-covariation) から表現が正しければ
 
 $$
 [C,B]_t
@@ -1585,19 +1587,19 @@ $$
 \mathcal F_t
 =
 \mathcal F_t^B
-\text{ modulo null completion}
+\text{ modulo 零集合による完備化}
 }
 $$
 
 です。
 
-追加 noise $C$ が持つ情報は、$B$ だけの stochastic integral では作れません。
+追加雑音 $C$ が持つ情報は、$B$ だけの確率積分では作れません。
 
 ---
 
-## 14. strong SDE の terminal payoff への橋
+## 14. 強解を持つ SDE の終端ペイオフへの橋
 
-[STO9 の global Lipschitz SDE](../STO9/index.md#thm-sto9-global-existence-uniqueness) を Brownian natural filtration 上で解き、
+[STO9 の大域 Lipschitz SDE](../STO9/index.md#thm-sto9-global-existence-uniqueness) をブラウン運動の自然なフィルトレーション上で解き、
 
 $$
 dX_t=b(X_t)dt+\sigma(X_t)dB_t
@@ -1605,19 +1607,19 @@ $$
 
 とします。
 
-terminal payoff
+終端ペイオフ
 
 $$
 \xi=g(X_T)
 $$
 
-が $L^2$ なら、$X_T$ は Brownian 標本路の measurable functional なので
+が $L^2$ なら、$X_T$ はブラウン標本路の measurable functional なので
 
 $$
 \xi\in L^2(\mathcal F_T^B).
 $$
 
-従って representation theorem から
+従って表現定理から
 
 $$
 g(X_T)
@@ -1629,23 +1631,23 @@ $$
 
 となる一意な $H$ が存在します。
 
-ここで theorem が与えるのは **存在と一意性**です。
+ここで定理が与えるのは **存在と一意性**です。
 
 $H$ を
 
-- smooth Markov representation の gradient で書く
+- smooth Markov 表現の gradient で書く
 - Malliavin derivative の条件付き期待値で書く
 - control / hedge ratio として解釈する
 
 には追加構造が必要です。
 
-例えば Markov diffusion で十分滑らかな
+例えば Markov 拡散で十分滑らかな
 
 $$
 u(t,x)=E[g(X_T^{t,x})]
 $$
 
-が存在すれば Itô formula から形式的には
+が存在すれば [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から形式的には
 
 $$
 H_t
@@ -1655,17 +1657,17 @@ $$
 
 が現れます。
 
-このように追加正則性から integrand を同定する route は、本章の存在・一意性定理とは別の層です。STO12 の representation theorem 自体には後続・並行理論を逆輸入していません。
+このように追加正則性から被積分過程を同定する route は、本章の存在・一意性定理とは別の層です。STO12 の表現定理自体には後続・並行理論を逆輸入していません。
 
 ---
 
-## 15. stochastic control / mathematical finance への橋
+## 15. 確率制御 / 数理ファイナンスへの橋
 
-representation theorem は「Brownian noise で生じる $L^2$ uncertainty は Brownian integral で全部生成できる」という completeness statement です。
+表現定理は「ブラウン雑音で生じる $L^2$ uncertainty はブラウン integral で全部生成できる」という completeness statement です。
 
-### stochastic control
+### 確率制御
 
-value process や adjoint process が Brownian filtration の martingale part を持つとき、その martingale part は
+value 過程や adjoint 過程がブラウン運動のフィルトレーションのマルチンゲール part を持つとき、そのマルチンゲール part は
 
 $$
 \int H_t\cdot dB_t
@@ -1673,11 +1675,11 @@ $$
 
 と書けます。
 
-後続の backward SDE や stochastic maximum principle では、この $H$ に相当する process が unknown の一つになります。
+後続の backward SDE や stochastic maximum principle では、この $H$ に相当する過程が unknown の一つになります。
 
-### mathematical finance
+### 数理ファイナンス
 
-discounted terminal claim $\xi$ が Brownian filtration で $L^2$ なら
+discounted 終端 claim $\xi$ がブラウン運動のフィルトレーションで $L^2$ なら
 
 $$
 E[\xi\mid\mathcal F_t^B]
@@ -1687,15 +1689,15 @@ E[\xi]
 \int_0^tH_s\cdot dB_s.
 $$
 
-市場価格 process の martingale part が Brownian noise を十分な rank で張るなら、$H$ を portfolio exposure へ変換できます。
+市場価格過程のマルチンゲール part がブラウン雑音を十分な rank で張るなら、$H$ を portfolio exposure へ変換できます。
 
-逆に noise の次元に対して traded risk factors が足りなければ、representation が存在しても portfolio で再現できるとは限りません。
+逆に雑音の次元に対して traded risk factors が足りなければ、表現が存在しても portfolio で再現できるとは限りません。
 
 したがって
 
 $$
 \boxed{
-\text{Brownian PRP}
+\text{ブラウン PRP}
 \neq
 \text{任意の市場の complete market}
 }
@@ -1707,7 +1709,7 @@ $$
 
 ## 16. 仮定を外すとどこが壊れるか
 
-### 16.1 $L^2$ を外すと closed-range proof をそのまま使えない
+### 16.1 $L^2$ を外すと閉値域の証明をそのまま使えない
 
 本章では [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple)
 
@@ -1723,25 +1725,25 @@ $$
 
 $\xi\in L^1$ だけなら同じ Hilbert / isometry argument は使えません。
 
-local martingale representation などへ拡張するには localization が必要です。
+局所マルチンゲール表現などへ拡張するには localization が必要です。
 
-### 16.2 filtration を拡大すると hidden noise が残る
+### 16.2 フィルトレーションを拡大すると隠れた雑音が残る
 
-前節の独立 Brownian motion $C$ が具体的な反例です。
+前節の独立ブラウン運動 $C$ が具体的な反例です。
 
-exponential vectors $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ のような追加情報を dense に近似できません。
+指数型 vectors $Z_T^h$ は $B$ の情報しか見ないので、$C_T$ のような追加情報を dense に近似できません。
 
-壊れる箇所は totality lemma です。
+壊れる箇所は全体性 lemma です。
 
-### 16.3 null completion は theorem を壊さない
+### 16.3 零集合による完備化は定理を壊さない
 
-null completion は $P$-null sets とその部分集合を追加します。
+零集合による完備化は $P$-null sets とその部分集合を追加します。
 
-$L^2$ random variables は almost surely 同じもので扱うので、raw Brownian filtration と completed natural filtration の違いは representation の a.s. statement を変えません。
+$L^2$ random variables は almost surely 同じもので扱うので、raw ブラウン運動のフィルトレーションと completed natural フィルトレーションの違いは表現の a.s. statement を変えません。
 
 ### 16.4 Clark--Ocone は存在定理より強い
 
-representation theorem は
+表現定理は
 
 $$
 \exists! H
@@ -1749,7 +1751,7 @@ $$
 
 を与えます。
 
-Clark--Ocone 型 formula は適切な Malliavin differentiability の下で
+Clark--Ocone 型公式は適切な Malliavin differentiability の下で
 
 $$
 H_t
@@ -1757,23 +1759,23 @@ H_t
 E[D_t\xi\mid\mathcal F_t]
 $$
 
-のように integrand を同定します。
+のように被積分過程を同定します。
 
-これは本章の theorem より強い追加理論であり、本章へ前倒ししません。
+これは本章の定理より強い追加理論であり、本章へ前倒ししません。
 
 ---
 
 ## 17. 演習
 
-#### STO12-A01 二次 martingale の representation
+#### STO12-A01 二次マルチンゲールの表現
 - Level: A
 - 目安時間: 15分
 
-1 次元 Brown 運動 $B$ について次を行え。
+1 次元ブラウン運動 $B$ について次を行え。
 
-1. $B_T$ の terminal representation を書け。
-2. Itô formula から $B_T^2-T$ の terminal representation を求めよ。
-3. 2 の integrand が $\mathcal H_B^2([0,T])$ に入ることを確認せよ。
+1. $B_T$ の終端表現を書け。
+2. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から $B_T^2-T$ の終端表現を求めよ。
+3. 2 の被積分過程が $\mathcal H_B^2([0,T])$ に入ることを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1792,7 +1794,7 @@ $$
 \boxed{H_t=1}.
 $$
 
-2. $f(x)=x^2$ に Itô formula を適用すると
+2. $f(x)=x^2$ に [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を適用すると
 
 $$
 d(B_t^2)=2B_t\,dB_t+dt.
@@ -1829,11 +1831,11 @@ $$
 よって $2B\in\mathcal H_B^2([0,T])$ です。
 <!-- solution-end -->
 
-#### STO12-A02 exponential martingale の integrand
+#### STO12-A02 指数型マルチンゲールの被積分過程
 - Level: A
 - 目安時間: 18分
 
-1 次元 Brown 運動 $B$、$\lambda\in\mathbb R$ に対し
+1 次元ブラウン運動 $B$、$\lambda\in\mathbb R$ に対し
 
 $$
 \xi
@@ -1846,7 +1848,7 @@ $$
 とする。
 
 1. $E[\xi]$ を求めよ。
-2. conditional expectation process $M_t=E[\xi\mid\mathcal F_t^B]$ を求めよ。
+2. 条件付き期待値過程 $M_t=E[\xi\mid\mathcal F_t^B]$ を求めよ。
 3. $M_t=M_0+\int_0^tH_s\,dB_s$ の $H$ を求めよ。
 4. $E\int_0^T H_s^2ds<\infty$ を確認せよ。
 
@@ -1871,7 +1873,7 @@ e^{-\lambda^2T/2}e^{\lambda^2T/2}
 \boxed{1}.
 $$
 
-2. Brownian increment $B_T-B_t$ は $\mathcal F_t^B$ と独立で $N(0,T-t)$ に従います。
+2. ブラウン increment $B_T-B_t$ は $\mathcal F_t^B$ と独立で $N(0,T-t)$ に従います。
 
 $$
 \begin{aligned}
@@ -1889,7 +1891,7 @@ e^{\lambda B_t-\lambda^2t/2}
 \end{aligned}
 $$
 
-3. $M_t=e^{\lambda B_t-\lambda^2t/2}$ へ Itô formula を適用すると drift が相殺され、
+3. $M_t=e^{\lambda B_t-\lambda^2t/2}$ へ [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を適用するとドリフトが相殺され、
 
 $$
 dM_t=\lambda M_t\,dB_t.
@@ -1927,7 +1929,7 @@ $$
 $\lambda=0$ のときも左辺は 0 で同じ結論です。
 <!-- solution-end -->
 
-#### STO12-A03 terminal representation から途中時刻へ
+#### STO12-A03 終端表現から途中時刻へ
 - Level: A
 - 目安時間: 15分
 
@@ -1941,9 +1943,9 @@ $$
 
 と表されているとする。
 
-1. $N_t=\int_0^tH_s\cdot dB_s$ が square-integrable martingale である理由を述べよ。
+1. $N_t=\int_0^tH_s\cdot dB_s$ が二乗可積分マルチンゲールである理由を述べよ。
 2. $E[\xi\mid\mathcal F_t^B]$ を求めよ。
-3. terminal variable が同じなら conditional expectation process も一意であることを説明せよ。
+3. 終端確率変数が同じなら 条件付き期待値過程も一意であることを説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1954,13 +1956,13 @@ $$
 E\int_0^T|H_s|^2ds<\infty.
 $$
 
-[STO6 の $L^2$ stochastic integral construction](../STO6/index.md#thm-sto6-l2-construction) により
+[STO6 の $L^2$ 確率積分 construction](../STO6/index.md#thm-sto6-l2-construction) により
 
 $$
 N_t=\int_0^tH_s\cdot dB_s
 $$
 
-は square-integrable martingale です。
+は二乗可積分マルチンゲールです。
 
 2.
 
@@ -1970,7 +1972,7 @@ $$
 E[\xi]+N_t+(N_T-N_t).
 $$
 
-martingale property から
+マルチンゲール property から
 
 $$
 E[N_T-N_t\mid\mathcal F_t^B]=0.
@@ -1986,7 +1988,7 @@ E[\xi]+\int_0^tH_s\cdot dB_s.
 }
 $$
 
-3. 条件付き期待値は a.s. 一意です。従って同じ terminal variable $\xi$ から作る process
+3. 条件付き期待値は a.s. 一意です。従って同じ終端確率変数 $\xi$ から作る過程
 
 $$
 E[\xi\mid\mathcal F_t^B]
@@ -1994,10 +1996,10 @@ $$
 
 は各 $t$ で a.s. 一意です。
 
-さらに右辺は continuous version なので、有理時刻上の a.s. 一致と 標本路の連続性 から全時刻で indistinguishable です。
+さらに右辺は continuous version なので、有理時刻上の a.s. 一致と標本路の連続性から全時刻で indistinguishable です。
 <!-- solution-end -->
 
-#### STO12-A04 integrand の一意性
+#### STO12-A04 被積分過程の一意性
 - Level: A
 - 目安時間: 15分
 
@@ -2069,11 +2071,11 @@ $$
 です。
 <!-- solution-end -->
 
-#### STO12-B01 digital payoff の representation
+#### STO12-B01 デジタル型ペイオフの表現
 - Level: B
 - 目安時間: 30分
 
-1 次元 Brown 運動 $B$ と $a\in\mathbb R$ に対し
+1 次元ブラウン運動 $B$ と $a\in\mathbb R$ に対し
 
 $$
 \xi=1_{\{B_T>a\}}
@@ -2082,9 +2084,9 @@ $$
 とする。
 
 1. $M_t=E[\xi\mid\mathcal F_t^B]$ を $t<T$ で求めよ。
-2. $M_t=u(t,B_t)$ と書き、$u$ が 前節と同じ cancellation identity を満たすことを確認せよ。
-3. Itô formula から representation integrand を求めよ。
-4. integrand は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
+2. $M_t=u(t,B_t)$ と書き、$u$ が前節と同じ cancellation identity を満たすことを確認せよ。
+3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から表現被積分過程を求めよ。
+4. 被積分過程は $t\uparrow T$ で singular に見えるのに、$\mathcal H_B^2$ に属する理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2155,7 +2157,7 @@ $$
 u_t+\frac12u_{xx}=0.
 $$
 
-3. 任意の $\varepsilon>0$ に対し $t\le T-\varepsilon$ で Itô formula を使うと
+3. 任意の $\varepsilon>0$ に対し $t\le T-\varepsilon$ で [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使うと
 
 $$
 dM_t
@@ -2201,7 +2203,7 @@ $$
 pointwise な $(T-t)^{-1/2}$ だけでは $L^2(dt\otimes dP)$ integrability は判定できません。
 <!-- solution-end -->
 
-#### STO12-B02 Gaussian exponential totality の有限次元核心
+#### STO12-B02 ガウス指数族全体性の有限次元核心
 - Level: B
 - 目安時間: 35分
 
@@ -2217,7 +2219,7 @@ $$
 
 を満たすとする。
 
-1. signed measure $\nu(dx)=g(x)\gamma_v(dx)$ が任意の $a>0$ について
+1. 符号付き測度 $\nu(dx)=g(x)\gamma_v(dx)$ が任意の $a>0$ について
    $$
    \int e^{a|x|}|\nu|(dx)<\infty
    $$
@@ -2225,7 +2227,7 @@ $$
 2. 全ての moment $\int x^k\nu(dx)$ が 0 であることを示せ。
 3. $\int e^{itx}\nu(dx)=0$ を示せ。
 4. [特性関数の一意性](../F0_00P6_特性関数_中心極限定理/index.md#thm-f0-00p6-uniqueness) から $g=0$ a.e. を導け。
-5. この結果から独立 Gaussian variables の有限直積でも product exponential family が total になる理由を説明せよ。
+5. この結果から独立ガウス variables の有限直積でも product 指数型 family が total になる理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2241,7 +2243,7 @@ E[e^{2a|G|}]
 \right)^{1/2}.
 $$
 
-Gaussian は両側の exponential moment を持ち、
+ガウスは両側の指数型 moment を持ち、
 
 $$
 e^{2a|G|}
@@ -2263,7 +2265,7 @@ $$
 
 が全実数 $\theta$ で成り立ちます。
 
-1 の exponential integrability により $\theta=0$ の近くで任意回の積分記号下微分が正当化され、
+1 の指数型 integrability により $\theta=0$ の近くで任意回の積分記号下微分が正当化され、
 
 $$
 L^{(k)}(0)
@@ -2314,7 +2316,7 @@ $$
 
 5. 二変数では、product family 全体に直交する $f(x_1,x_2)$ を仮定します。
 
-第二変数の exponential $v(x_2)$ を一つ固定して
+第二変数の指数型 $v(x_2)$ を一つ固定して
 
 $$
 g_v(x_1)
@@ -2324,7 +2326,7 @@ $$
 
 と置きます。
 
-第一変数の全 exponential と直交するので 4 から $g_v=0$ です。
+第一変数の全指数型と直交するので 4 から $g_v=0$ です。
 
 第二変数側で countable dense subset を取り、[Fubini の定理](../F0_00D2C_積測度_Tonelli_Fubini/index.md#thm-f0-00d2c-02) を使えば、a.e. $x_1$ に対し $f(x_1,\cdot)$ が第二変数の dense family 全体に直交すると分かります。
 
@@ -2333,11 +2335,11 @@ $$
 有限個の場合はこれを帰納します。
 <!-- solution-end -->
 
-#### STO12-B03 enlarged filtration では PRP が壊れる
+#### STO12-B03 enlarged フィルトレーションでは PRP が壊れる
 - Level: B
 - 目安時間: 25分
 
-独立な 1 次元 Brown 運動 $B,C$ を取り、
+独立な 1 次元ブラウン運動 $B,C$ を取り、
 
 $$
 \mathcal F_t
@@ -2347,28 +2349,28 @@ $$
 
 とする。
 
-$B$ がこの filtration に関して PRP を持たないことを、martingale $C$ を使って証明せよ。
+$B$ がこのフィルトレーションに関して PRP を持たないことを、マルチンゲール $C$ を使って証明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$C$ は $(\mathcal F_t)$-adapted で、未来 increment は $B,C$ の過去全体と独立です。
+$C$ は $(\mathcal F_t)$-適合で、未来 increment は $B,C$ の過去全体と独立です。
 
-従って $C$ は square-integrable $(\mathcal F_t)$-martingale です。
+従って $C$ は二乗可積分 $(\mathcal F_t)$-マルチンゲールです。
 
-もし $B$ が PRP を持つなら、ある predictable $H$ が存在して
+もし $B$ が PRP を持つなら、ある予測可能 $H$ が存在して
 
 $$
 C_t=\int_0^tH_s\,dB_s.
 $$
 
-独立 Brownian motions の cross variation は
+独立ブラウン motions の cross variation は
 
 $$
 [C,B]_t=0.
 $$
 
-一方、representation と [stochastic integral covariation formula](../STO7/index.md#lem-sto7-vector-brownian-integral-covariation) から
+一方、表現と [確率積分 covariation 公式](../STO7/index.md#lem-sto7-vector-brownian-integral-covariation) から
 
 $$
 [C,B]_t
@@ -2382,7 +2384,7 @@ $$
 \int_0^tH_sds=0.
 $$
 
-各標本路について $t\mapsto\int_0^tH_sds$ は恒等的に 0 です。したがって、この indefinite Lebesgue integral の integrand の一意性から
+各標本路について $t\mapsto\int_0^tH_sds$ は恒等的に 0 です。したがって、この indefinite Lebesgue integral の被積分過程の一意性から
 
 $$
 H_s=0
@@ -2410,14 +2412,14 @@ $$
 
 $$
 \boxed{
-B\text{ は joint filtration }(\mathcal F_t)\text{ では PRP を持たない}.
+B\text{ は joint フィルトレーション }(\mathcal F_t)\text{ では PRP を持たない}.
 }
 $$
 
-Brownian natural filtration という仮定が、追加 noise を排除していました。
+ブラウン運動の自然なフィルトレーションという仮定が、追加雑音を排除していました。
 <!-- solution-end -->
 
-#### STO12-C01 Ornstein--Uhlenbeck terminal square payoff
+#### STO12-C01 Ornstein--Uhlenbeck 終端二乗ペイオフ
 - Level: C
 - 目安時間: 45分
 
@@ -2441,7 +2443,7 @@ $$
    M_t=E[X_T^2\mid\mathcal F_t^B]
    $$
    を $X_t$ の関数として求めよ。
-3. Itô formula を使って
+3. [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)を使って
    $$
    M_t=M_0+\int_0^tH_s\,dB_s
    $$
@@ -2460,7 +2462,7 @@ $$
 
 1. integrating factor $e^{\alpha t}$ を使います。
 
-finite variation process との product rule により
+有限 variation 過程との product rule により
 
 $$
 d(e^{\alpha t}X_t)
@@ -2470,7 +2472,7 @@ d(e^{\alpha t}X_t)
 e^{\alpha t}dX_t.
 $$
 
-SDE を代入すると drift が相殺され、
+SDE を代入するとドリフトが相殺され、
 
 $$
 d(e^{\alpha t}X_t)
@@ -2552,7 +2554,7 @@ $$
 dA_t=2\alpha A_tdt.
 $$
 
-また Itô formula から
+また [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)から
 
 $$
 d(X_t^2)
@@ -2592,7 +2594,7 @@ dC_t
 -\sigma^2A_tdt.
 $$
 
-drift が打ち消し合うので
+ドリフトが打ち消し合うので
 
 $$
 dM_t
@@ -2666,14 +2668,14 @@ E\int_0^T H_s^2ds
 \end{aligned}
 $$
 
-この問題では abstract existence theorem の integrand が、Markov structure と Itô formula により explicit に同定できました。
+この問題では abstract 存在定理の被積分過程が、Markov structure と [多次元 Itô 公式](../STO7/index.md#thm-sto7-multidimensional-ito)により explicit に同定できました。
 <!-- solution-end -->
 
 ---
 
 ## 18. 本章で閉じたこと
 
-本章では Brownian natural filtration 上で
+本章ではブラウン運動の自然なフィルトレーション上で
 
 $$
 \boxed{
@@ -2692,11 +2694,11 @@ $$
 
 核心は
 
-1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による stochastic integral の closed range
-2. deterministic exponential martingale
-3. 一次元 Gaussian exponential の totality
-4. 独立 Gaussian product への拡張
-5. dyadic Brownian information と Lévy 上昇定理
+1. [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) による確率積分の閉値域
+2. deterministic 指数型マルチンゲール
+3. 一次元ガウス指数族の全体性
+4. 独立ガウス product への拡張
+5. dyadic ブラウン information と Lévy 上昇定理
 6. closedness による極限回収
 
 です。
@@ -2713,4 +2715,4 @@ $$
 
 が一本につながりました。
 
-次の STO13 では continuous 標本路の世界から離れ、Poisson process・random measure を導入して jump noise の側へ進みます。
+次の STO13 では continuous 標本路の世界から離れ、Poisson 過程・random measure を導入して jump 雑音の側へ進みます。

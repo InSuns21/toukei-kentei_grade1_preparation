@@ -6,9 +6,6 @@ prerequisites:
   - F0-00E2
   - F0-00C2
 
-forward_references:
-  - vector-calculus.gradient
-
 concepts:
   - id: linear.eigen-data-recap-f1
     name: 固有値・固有ベクトル・固有空間の再掲
@@ -44,10 +41,19 @@ concepts:
       - linear.inner-product
       - topology.extreme-value-theorem
 
+  - id: linear.symmetric-distinct-eigenspaces-orthogonal
+    name: 実対称行列の異なる固有空間は直交する
+    kind: theorem
+    aliases: [実対称行列の異なる固有空間は直交する, 異なる固有値の固有ベクトルは直交する]
+    requires:
+      - linear.eigen-data-recap-f1
+      - linear.inner-product
+
   - id: linear.spectral-theorem
     name: 実対称行列のスペクトル定理
     kind: theorem
-    aliases: [実対称行列のスペクトル定理, スペクトル定理]
+    introduction_aliases: [実対称行列の直交対角化定理]
+    aliases: [実対称行列のスペクトル定理, スペクトル定理, 実対称行列の直交対角化定理]
     requires:
       - linear.invariant-subspace
       - linear.rayleigh-quotient
@@ -73,3 +79,20 @@ concepts:
     requires:
       - linear.spectral-theorem
       - linear.eigenvalue
+
+  - id: linear.pd-psd-eigenvalue-characterization
+    name: 正定値・半正定値の固有値判定
+    kind: theorem
+    aliases: [正定値・半正定値の固有値判定]
+    requires:
+      - linear.positive-definite-matrix
+      - linear.positive-semidefinite-matrix
+      - linear.spectral-theorem
+
+  - id: linear.real-psd-square-root-f1
+    name: 半正定値行列の平方根
+    kind: theorem
+    aliases: [半正定値行列の平方根]
+    requires:
+      - linear.positive-semidefinite-matrix
+      - linear.spectral-theorem

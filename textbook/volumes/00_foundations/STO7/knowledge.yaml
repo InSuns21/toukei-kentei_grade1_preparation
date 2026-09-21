@@ -2,10 +2,13 @@ chapter: STO7
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - VC1
   - STO5
   - STO6
   - RA3
+
+forward_references:
+  - stochastic.markov-generator
+  - stochastic.brownian-sde
 
 concepts:
   - id: stochastic.vector-brownian-motion
@@ -13,7 +16,7 @@ concepts:
     kind: definition
     aliases: ["vector Brownian motion", "multidimensional Brownian motion"]
     introduction: formal
-    introduction_aliases: ["定義（d 次元 Brown 運動）"]
+    introduction_aliases: ["定義（d 次元ブラウン運動）"]
     requires:
       - stochastic.brownian-motion
       - stochastic.filtration
@@ -23,7 +26,7 @@ concepts:
     kind: proposition
     aliases: ["Brownian cross variation", "[B^i,B^j]=delta_ij t"]
     introduction: formal
-    introduction_aliases: ["命題（vector Brownian motion の covariation）"]
+    introduction_aliases: ["命題（多次元ブラウン運動の共変分）"]
     requires:
       - stochastic.vector-brownian-motion
       - stochastic.covariation
@@ -34,7 +37,7 @@ concepts:
     kind: definition
     aliases: ["continuous semimartingale integral", "semimartingale stochastic integral"]
     introduction: formal
-    introduction_aliases: ["定義（continuous semimartingale に対する積分）"]
+    introduction_aliases: ["定義（連続セミマルチンゲールに対する積分）"]
     requires:
       - stochastic.continuous-semimartingale
       - stochastic.local-stochastic-integral
@@ -45,7 +48,7 @@ concepts:
     kind: lemma
     aliases: ["weighted quadratic covariation sum"]
     introduction: formal
-    introduction_aliases: ["補題（weighted covariation sum）"]
+    introduction_aliases: ["補題（重み付き共変分和）"]
     requires:
       - stochastic.covariation
       - stochastic.semimartingale-integral
@@ -53,9 +56,9 @@ concepts:
   - id: stochastic.multidimensional-ito-formula
     name: multidimensional Itô formula
     kind: theorem
-    aliases: ["multidimensional Ito formula", "Itô formula in R^d"]
+    aliases: ["multidimensional Ito formula", "Itô formula in R^d", "Itô 公式", "多次元 Itô 公式"]
     introduction: formal
-    introduction_aliases: ["定理（multidimensional Itô formula）"]
+    introduction_aliases: ["定理（多次元 Itô 公式）"]
     requires:
       - stochastic.weighted-covariation-sum
       - stochastic.semimartingale-integral
@@ -66,7 +69,7 @@ concepts:
     kind: corollary
     aliases: ["Itô product rule", "stochastic integration by parts"]
     introduction: formal
-    introduction_aliases: ["系（product rule / integration by parts）"]
+    introduction_aliases: ["系（積の公式 / 部分積分公式）"]
     requires:
       - stochastic.multidimensional-ito-formula
       - stochastic.covariation
@@ -76,7 +79,7 @@ concepts:
     kind: definition
     aliases: ["Ito process", "Brownian Itô process"]
     introduction: formal
-    introduction_aliases: ["定義（Itô process）"]
+    introduction_aliases: ["定義（Itô 過程）"]
     requires:
       - stochastic.vector-brownian-motion
       - stochastic.local-stochastic-integral
@@ -84,9 +87,9 @@ concepts:
   - id: stochastic.vector-brownian-integral-covariation
     name: vector Brownian stochastic integralsのcovariation
     kind: lemma
-    aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation"]
+    aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation", "確率積分 covariation 公式", "STO7 の確率積分 covariation 公式", "確率積分の covariation 公式", "確率積分の共変分公式"]
     introduction: formal
-    introduction_aliases: ["補題（vector Brownian stochastic integrals の covariation）"]
+    introduction_aliases: ["補題（多次元ブラウン確率積分の共変分）"]
     requires:
       - stochastic.vector-brownian-covariation
       - stochastic.local-stochastic-integral
@@ -95,9 +98,9 @@ concepts:
   - id: stochastic.ito-process-formula
     name: Itô process版の時間依存Itô formula
     kind: theorem
-    aliases: ["time-dependent Ito formula", "Itô formula for Itô processes"]
+    aliases: ["time-dependent Ito formula", "Itô formula for Itô processes", "時間依存 Itô 公式"]
     introduction: formal
-    introduction_aliases: ["定理（Itô process 版の時間依存 Itô formula）"]
+    introduction_aliases: ["定理（Itô 過程版の時間依存 Itô 公式）"]
     requires:
       - stochastic.multidimensional-ito-formula
       - stochastic.ito-process
@@ -106,9 +109,9 @@ concepts:
   - id: stochastic.stochastic-exponential
     name: stochastic exponential
     kind: definition
-    aliases: ["Doleans exponential", "stochastic exponential of a continuous local martingale"]
+    aliases: ["Doleans exponential", "stochastic exponential of a continuous local martingale", "確率指数関数"]
     introduction: formal
-    introduction_aliases: ["定義（stochastic exponential）"]
+    introduction_aliases: ["定義（確率指数関数）"]
     requires:
       - stochastic.continuous-local-martingale
       - stochastic.continuous-local-martingale-qv
@@ -118,7 +121,7 @@ concepts:
     kind: proposition
     aliases: ["stochastic exponential equation", "stochastic exponential solves dZ=Z dM"]
     introduction: formal
-    introduction_aliases: ["命題（stochastic exponential の基本恒等式）"]
+    introduction_aliases: ["命題（確率指数関数の基本恒等式）"]
     requires:
       - stochastic.stochastic-exponential
       - stochastic.multidimensional-ito-formula
@@ -128,7 +131,7 @@ concepts:
     kind: proposition
     aliases: ["exponential martingale", "Brownian exponential"]
     introduction: formal
-    introduction_aliases: ["命題（Brownian exponential martingale）"]
+    introduction_aliases: ["命題（ブラウン指数マルチンゲール）"]
     requires:
       - stochastic.stochastic-exponential-equation
       - stochastic.vector-brownian-motion
@@ -158,7 +161,7 @@ concepts:
     kind: lemma
     aliases: ["chain rule for covariation"]
     introduction: formal
-    introduction_aliases: ["補題（covariation の連鎖律）"]
+    introduction_aliases: ["補題（共変分の連鎖律）"]
     requires:
       - stochastic.multidimensional-ito-formula
       - stochastic.covariation
@@ -168,7 +171,7 @@ concepts:
     kind: theorem
     aliases: ["Stratonovich chain rule", "ordinary chain rule for Stratonovich calculus"]
     introduction: formal
-    introduction_aliases: ["定理（Euclidean Stratonovich の連鎖律）"]
+    introduction_aliases: ["定理（ユークリッド空間の Stratonovich の連鎖律）"]
     requires:
       - stochastic.ito-stratonovich-basic-conversion
       - stochastic.covariation-chain-rule
@@ -179,7 +182,7 @@ concepts:
     kind: corollary
     aliases: ["Euclidean Ito-Stratonovich correction", "Stratonovich drift correction"]
     introduction: formal
-    introduction_aliases: ["系（Itô process に対する Itô--Stratonovich conversion）"]
+    introduction_aliases: ["系（Itô 過程に対する Itô--Stratonovich 変換）"]
     requires:
       - stochastic.stratonovich-chain-rule
       - stochastic.ito-process-formula

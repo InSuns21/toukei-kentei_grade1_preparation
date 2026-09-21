@@ -26,5 +26,5 @@ canonical_examples: [Gram--Schmidt, QQT射影, 最小二乗, QR分解]
 problem_patterns: [LA-GS-1, LA-PROJ-1, LA-QR-1]
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 1, level_b: 1, level_c: 0, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 3, exercises: 1, review: 0.5 }
