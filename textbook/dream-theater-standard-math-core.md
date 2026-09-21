@@ -402,7 +402,7 @@ flowchart TD
 
 実装: [VC6](volumes/00_foundations/VC6/index.md)
 
-## VC7 デカルトテンソル・添字記法 `core-advanced-standard`
+## VC7 添字記法・直交基底・成分変換 `core-advanced-standard`
 
 - Einstein の総和規約、自由添字・ダミー添字
 - Kronecker のデルタ、Levi--Civita 記号、縮約公式
