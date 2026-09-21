@@ -120,8 +120,8 @@ $$
 <a id="def-sto4-brownian-motion"></a>
 
 <!-- formal-statement-start -->
-> **定義（standard ブラウン運動）**  
-> 実数値過程 $B=(B_t)_{t\ge0}$ が standard ブラウン運動であるとは、次を満たすことをいう。
+> **定義（標準ブラウン運動）**  
+> 実数値過程 $B=(B_t)_{t\ge0}$ が 標準ブラウン運動であるとは、次を満たすことをいう。
 >
 > 1. $B_0=0$ ほとんど確実に.
 > 2. $0\le t_0<t_1<\cdots<t_m$ に対し、
@@ -158,7 +158,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動の構成）**  
-> 連続な standard ブラウン運動は存在する。
+> 連続な 標準ブラウン運動は存在する。
 >
 > より具体的には、centered ガウス過程 $B=(B_t)_{t\ge0}$ で
 >
@@ -166,7 +166,7 @@ $$
 E[B_sB_t]=\min(s,t)
 $$
 >
-> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な修正を取れば、その修正は standard ブラウン運動である。
+> を満たすものを [Kolmogorov 拡張定理](../STO3/index.md#thm-sto3-kolmogorov-extension)で構成し、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov)で連続な修正を取れば、その修正は 標準ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -341,7 +341,7 @@ $$
 
 なので $B_0=0$ ほとんど確実にです。
 
-以上より $B$ は standard ブラウン運動です。
+以上より $B$ は 標準ブラウン運動です。
 <!-- proof-end -->
 
 <!-- definition-example-start: def-sto4-brownian-motion -->
@@ -369,7 +369,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（ブラウンスケーリング）**  
-> $B$ を standard ブラウン運動、$c>0$ とする。このとき
+> $B$ を 標準ブラウン運動、$c>0$ とする。このとき
 >
 $$
 \widetilde B_t
@@ -378,7 +378,7 @@ $$
 \qquad t\ge0
 $$
 >
-> も standard ブラウン運動である。
+> も 標準ブラウン運動である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -410,7 +410,7 @@ $$
 <a id="def-sto4-brownian-filtration"></a>
 
 <!-- formal-statement-start -->
-> **定義（ブラウン natural フィルトレーション）**  
+> **定義（ブラウン運動の自然なフィルトレーション）**  
 > ブラウン運動 $B$ に対し
 >
 $$
@@ -460,7 +460,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動のマルコフ性）**  
-> $B$ を standard ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとする。
+> $B$ を 標準ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとする。
 >
 > 任意の $s,t\ge0$ に対し
 >
@@ -564,7 +564,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ブラウン運動の強マルコフ性）**  
-> $B$ を standard ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとし、$\tau$ をほとんど確実に finite な停止時刻とする。
+> $B$ を 標準ブラウン運動、$(\mathcal F_t^B)$ を natural フィルトレーションとし、$\tau$ をほとんど確実に finite な停止時刻とする。
 >
 > このとき
 >
@@ -575,7 +575,7 @@ B_{\tau+t}-B_\tau,
 \qquad t\ge0
 $$
 >
-> は standard ブラウン運動であり、$\mathcal F_\tau^B$ と独立である。
+> は 標準ブラウン運動であり、$\mathcal F_\tau^B$ と独立である。
 >
 > 特に有界 Borel function $f$ に対し
 >
@@ -812,7 +812,7 @@ $$
 
 は元の標本路の連続性から連続です。
 
-よって $W_t=B_{\tau+t}-B_\tau$ は standard ブラウン運動です。
+よって $W_t=B_{\tau+t}-B_\tau$ は 標準ブラウン運動です。
 
 連続な標本路は rational time values で決まるので、$W$ が生成する sigma-field 全体も $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
@@ -890,7 +890,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（反射原理）**  
-> $B$ を standard ブラウン運動、
+> $B$ を 標準ブラウン運動、
 >
 $$
 M_T=\sup_{0\le s\le T}B_s
@@ -961,7 +961,7 @@ $$
 -(B_{\sigma+t}-B_\sigma)
 $$
 
-も同じ法則のブラウン運動なので、$\widetilde B$ も standard ブラウン運動と同じ法則を持ちます。
+も同じ法則のブラウン運動なので、$\widetilde B$ も 標準ブラウン運動と同じ法則を持ちます。
 
 event
 
@@ -1175,7 +1175,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（1 次元ブラウン運動の基本的再帰性）**  
-> 1 次元 standard ブラウン運動 $B$ の標本路は、ほとんど確実に上にも下にも有界ではない。
+> 1 次元 標準ブラウン運動 $B$ の標本路は、ほとんど確実に上にも下にも有界ではない。
 >
 > 従ってほとんど確実に全ての $x\in\mathbb R$ を少なくとも一度通る。
 >
@@ -1274,7 +1274,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（ブラウン時間反転）**  
-> $B$ を standard ブラウン運動とし
+> $B$ を 標準ブラウン運動とし
 >
 $$
 \widehat B_0=0,
@@ -1283,7 +1283,7 @@ $$
 \quad(t>0)
 $$
 >
-> と置く。このとき $\widehat B$ も standard ブラウン運動である。
+> と置く。このとき $\widehat B$ も 標準ブラウン運動である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1536,13 +1536,13 @@ jointly ガウスな二変量が無相関なので、$Y_1,Y_2$ は独立です�
 
 ### A2. ブラウンスケーリング
 
-$B$ を standard ブラウン運動、$c>0$ とします。
+$B$ を 標準ブラウン運動、$c>0$ とします。
 
 $$
 X_t=c^{-1/2}B_{ct}
 $$
 
-が standard ブラウン運動であることを、定義の4条件を順に確認して示してください。
+が 標準ブラウン運動であることを、定義の4条件を順に確認して示してください。
 
 - Level: A
 
@@ -1585,7 +1585,7 @@ $$
 
 最後に $t\mapsto ct$ と定数倍は連続性を保つので、$B$ の連続な標本路から $X$ も連続な標本路を持ちます。
 
-よって $X$ は standard ブラウン運動です。
+よって $X$ は 標準ブラウン運動です。
 <!-- solution-end -->
 
 ### A3. 水準到達時刻は停止時刻
@@ -2047,7 +2047,7 @@ B_{\tau_a+u}-B_{\tau_a},
 \qquad u\ge0
 $$
 
-は standard ブラウン運動で、$\mathcal F_{\tau_a}^B$ と独立です。
+は 標準ブラウン運動で、$\mathcal F_{\tau_a}^B$ と独立です。
 
 **2. 次の水準までの待ち時間を書き換える。**
 
