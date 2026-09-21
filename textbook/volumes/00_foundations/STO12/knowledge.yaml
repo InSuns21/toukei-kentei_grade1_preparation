@@ -6,6 +6,7 @@ prerequisites:
   - STO6
   - STO7
   - STO9
+  - F0-00D2C
   - F0-00P3A
   - F0-00P3C
   - F0-00P6
@@ -62,6 +63,7 @@ concepts:
       - prob.characteristic-function-uniqueness
       - prob.conditional-expectation
       - prob.levy-upward-theorem
+      - measure.fubini-theorem
 
   - id: stochastic.brownian-martingale-representation
     name: Brownian martingale representation theorem
