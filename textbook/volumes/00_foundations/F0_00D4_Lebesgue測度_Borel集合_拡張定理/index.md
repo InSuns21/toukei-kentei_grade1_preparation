@@ -860,7 +860,7 @@ $$
 
 ---
 
-## 13. Carathéodory 拡張定理（Hopf / Hahn--Kolmogorov 型）：存在
+## 13. premeasure を生成 σ 代数へ拡張する
 
 <a id="thm-caratheodory-extension"></a>
 
