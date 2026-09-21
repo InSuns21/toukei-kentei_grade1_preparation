@@ -67,7 +67,7 @@ $$
 dX_t=b(X_t)\,dt+\sigma(X_t)\,dW_t
 $$
 
-は、通常の微分方程式の意味で微分可能な path を要求しているわけではありません。
+は、通常の微分方程式の意味で微分可能な標本関数を要求しているわけではありません。
 
 <a id="def-sto9-sde"></a>
 
@@ -100,7 +100,7 @@ $$
 
 右辺の stochastic integral は STO6 で構成した Itô integral です。
 
-したがって SDE を「解く」とは、Brown 運動の標本軌道を通常微分することではなく、**積分表示の固定点を探すこと**です。
+したがって SDE を「解く」とは、Brown 運動の標本関数を通常微分することではなく、**積分表示の固定点を探すこと**です。
 
 <!-- definition-example-start: def-sto9-sde -->
 ### 直接例：定数係数なら積分するだけ
@@ -277,7 +277,7 @@ $$
 
 よってこの $X$ は strong solution です。
 
-指数の $-\alpha^2/2$ が、Brownian quadratic variation から来る Itô correction です。
+指数の $-\alpha^2/2$ が、[Brownian quadratic variation](../STO5/index.md#thm-sto5-brownian-qv) から来る Itô correction です。
 <!-- definition-example-end -->
 
 ---
@@ -775,7 +775,7 @@ $$
 
 なので、差の supremum norm が almost surely 可算和可能なら uniform limit ができます。
 
-一意性は二つの解の差に対して Picard estimate と同じ計算を行い、Gronwall lemma を使います。
+一意性は二つの解の差に対して Picard estimate と同じ計算を行い、[積分形 Gronwall lemma](#lem-sto9-gronwall) を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -884,7 +884,7 @@ $$
 \sqrt{D_{k+1}(T)}.
 $$
 
-右辺は $n,m\to\infty$ で $0$ へ行きます。さらに $m\to\infty$ で $X^{(m)}\to X$ almost surely uniformly なので、Fatou の補題から
+右辺は $n,m\to\infty$ で $0$ へ行きます。さらに $m\to\infty$ で $X^{(m)}\to X$ almost surely uniformly なので、[Fatou の補題](../F0_00D2B_単調収束_Fatou_優収束/index.md#lem-f0-00d2b-01) から
 
 $$
 \left\|
@@ -1086,7 +1086,7 @@ E\sup_{r\le s}|X_r|^2
 \end{aligned}
 $$
 
-martingale part は Doob $L^2$ inequality と Itô isometry から
+martingale part は [Doob $L^2$ inequality](../STO6/index.md#thm-sto6-doob-l2) と [Itô isometry](../STO6/index.md#thm-sto6-ito-isometry-simple) から
 
 $$
 \begin{aligned}
@@ -1137,9 +1137,9 @@ G(t)
 C_T\int_0^tG(s)\,ds.
 $$
 
-Gronwall lemma から
+[積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$$
+$
 G(T)
 \le
 \left(
@@ -1304,9 +1304,9 @@ $$
 
 を満たします。
 
-Gronwall lemma から
+[積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$$
+$
 F(T)
 \le
 C_T'
@@ -2011,9 +2011,9 @@ C
 \{1+E[V(X_{s\wedge\tau_n})]\}\,ds.
 $$
 
-Gronwall lemma から
+[積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$$
+$
 \sup_n
 \sup_{0\le t\le T}
 E[V(X_{t\wedge\tau_n})]
@@ -2418,9 +2418,9 @@ E[Z_t^+]
 L\int_0^tE[Z_s^+]\,ds.
 $$
 
-Gronwall lemma から
+[積分形 Gronwall lemma](#lem-sto9-gronwall) から
 
-$$
+$
 E[Z_t^+]=0.
 $$
 
@@ -3350,7 +3350,7 @@ $$
 4. ある $C<\infty$ が存在して
    $V'(x)b(x)+\frac12V''(x)\gamma^2\le CV(x)$
    を全ての $x$ で満たすことを示せ。
-5. Lyapunov 型 non-explosion criterion を使って global strong solution が存在することを結論せよ。
+5. [Lyapunov 型 non-explosion criterion](#thm-sto9-lyapunov-nonexplosion) を使って global strong solution が存在することを結論せよ。
 
 <!-- solution-start -->
 ### 詳細解答
