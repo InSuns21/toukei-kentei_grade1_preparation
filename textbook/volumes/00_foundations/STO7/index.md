@@ -44,15 +44,15 @@ $$
 > **定義（d 次元 Brown 運動）**  
 > filtration $(\mathcal F_t)_{t\ge0}$ 上の $\mathbb R^d$-値 continuous adapted process
 >
-> $$
-> B_t=(B_t^1,\ldots,B_t^d)
-> $$
+$$
+B_t=(B_t^1,\ldots,B_t^d)
+$$
 >
 > が **$d$ 次元 standard Brownian motion** であるとは、成分
 >
-> $$
-> B^1,\ldots,B^d
-> $$
+$$
+B^1,\ldots,B^d
+$$
 >
 > が互いに独立な 1 次元 standard Brownian motion であることをいう。
 <!-- formal-statement-end -->
@@ -103,19 +103,19 @@ Brown 運動を多次元化したとき、Itô calculus に必要なのは covar
 > **命題（vector Brownian motion の covariation）**  
 > $B=(B^1,\ldots,B^d)$ を $d$ 次元 standard Brownian motion とする。このとき
 >
-> $$
-> [B^i,B^j]_t
-> =
-> \delta_{ij}t,
-> $$
+$$
+[B^i,B^j]_t
+=
+\delta_{ij}t,
+$$
 >
 > すなわち
 >
-> $$
-> d[B^i,B^j]_t
-> =
-> \delta_{ij}\,dt.
-> $$
+$$
+d[B^i,B^j]_t
+=
+\delta_{ij}\,dt.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -240,27 +240,27 @@ STO6 の stochastic integral は continuous local martingale に対して構成�
 > **定義（continuous semimartingale に対する積分）**  
 > $X$ を continuous semimartingale とし、STO5 の一意な分解
 >
-> $$
-> X=X_0+M+A
-> $$
+$$
+X=X_0+M+A
+$$
 >
 > を取る。ここで $M_0=A_0=0$、$M$ は continuous local martingale、$A$ は continuous finite-variation process とする。
 >
 > predictable process $H$ が $M$ に関して locally square-integrable であり、かつ各有限時間区間で
 >
-> $$
-> \int_0^t|H_s|\,d|A|_s<\infty
-> $$
+$$
+\int_0^t|H_s|\,d|A|_s<\infty
+$$
 >
 > almost surely を満たすとき
 >
-> $$
-> \int_0^tH_s\,dX_s
-> :=
-> \int_0^tH_s\,dM_s
-> +
-> \int_0^tH_s\,dA_s
-> $$
+$$
+\int_0^tH_s\,dX_s
+:=
+\int_0^tH_s\,dM_s
++
+\int_0^tH_s\,dA_s
+$$
 >
 > と定義する。右辺第1項は STO6 の stochastic integral、第2項は標本路ごとの Lebesgue--Stieltjes integral である。
 <!-- formal-statement-end -->
@@ -333,18 +333,18 @@ $$
 >
 > deterministic partition $\pi_n$ の mesh が 0 へ行くとき
 >
-> $$
-> \sum_{t_k\in\pi_n,\ t_k\le t}
-> H_{t_{k-1}}
-> (X_{t_k}-X_{t_{k-1}})
-> (Y_{t_k}-Y_{t_{k-1}})
-> $$
+$$
+\sum_{t_k\in\pi_n,\ t_k\le t}
+H_{t_{k-1}}
+(X_{t_k}-X_{t_{k-1}})
+(Y_{t_k}-Y_{t_{k-1}})
+$$
 >
 > は
 >
-> $$
-> \int_0^tH_s\,d[X,Y]_s
-> $$
+$$
+\int_0^tH_s\,d[X,Y]_s
+$$
 >
 > へ ucp 収束する。
 <!-- formal-statement-end -->
@@ -473,22 +473,22 @@ $$
 > **定理（multidimensional Itô formula）**  
 > $X=(X^1,\ldots,X^d)$ を $\mathbb R^d$-値 continuous semimartingale とし、$f\in C^2(\mathbb R^d)$ とする。このとき任意の $t\ge0$ で
 >
-> $$
-> \boxed{
-> \begin{aligned}
-> f(X_t)-f(X_0)
-> &=
-> \sum_{i=1}^d
-> \int_0^t
-> \partial_i f(X_s)\,dX_s^i\\
-> &\quad+
-> \frac12
-> \sum_{i,j=1}^d
-> \int_0^t
-> \partial_{ij}f(X_s)\,d[X^i,X^j]_s.
-> \end{aligned}
-> }
-> $$
+$$
+\boxed{
+\begin{aligned}
+f(X_t)-f(X_0)
+&=
+\sum_{i=1}^d
+\int_0^t
+\partial_i f(X_s)\,dX_s^i\\
+&\quad+
+\frac12
+\sum_{i,j=1}^d
+\int_0^t
+\partial_{ij}f(X_s)\,d[X^i,X^j]_s.
+\end{aligned}
+}
+$$
 >
 > 各積分は前節の semimartingale integral と finite-variation integral の意味で読む。
 <!-- formal-statement-end -->
@@ -741,25 +741,25 @@ $$
 > **系（product rule / integration by parts）**  
 > $X,Y$ を continuous semimartingale とする。このとき
 >
-> $$
-> \boxed{
-> X_tY_t
-> =
-> X_0Y_0
-> +
-> \int_0^tX_s\,dY_s
-> +
-> \int_0^tY_s\,dX_s
-> +
-> [X,Y]_t.
-> }
-> $$
+$$
+\boxed{
+X_tY_t
+=
+X_0Y_0
++
+\int_0^tX_s\,dY_s
++
+\int_0^tY_s\,dX_s
++
+[X,Y]_t.
+}
+$$
 >
 > 微分記法では
 >
-> $$
-> d(XY)=X\,dY+Y\,dX+d[X,Y].
-> $$
+$$
+d(XY)=X\,dY+Y\,dX+d[X,Y].
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -849,30 +849,30 @@ STO9 では SDE の解を構成します。その前に、本章ではすでに�
 >
 > $\mathbb R^d$-値 adapted continuous process $X$ が
 >
-> $$
-> X_t^i
-> =
-> X_0^i
-> +
-> \int_0^tb_s^i\,ds
-> +
-> \sum_{\alpha=1}^m
-> \int_0^t
-> \sigma_s^{i\alpha}\,dB_s^\alpha,
-> \qquad i=1,\ldots,d,
-> $$
+$$
+X_t^i
+=
+X_0^i
++
+\int_0^tb_s^i\,ds
++
+\sum_{\alpha=1}^m
+\int_0^t
+\sigma_s^{i\alpha}\,dB_s^\alpha,
+\qquad i=1,\ldots,d,
+$$
 >
 > と書けるとする。ここで $b$ は progressively measurable で
 >
-> $$
-> \int_0^T|b_s|\,ds<\infty,
-> $$
+$$
+\int_0^T|b_s|\,ds<\infty,
+$$
 >
 > $\sigma$ は predictable で
 >
-> $$
-> \int_0^T\|\sigma_s\|_F^2\,ds<\infty
-> $$
+$$
+\int_0^T\|\sigma_s\|_F^2\,ds<\infty
+$$
 >
 > が各 $T<\infty$ で almost surely 成り立つとき、$X$ を **Itô process** という。
 <!-- formal-statement-end -->
@@ -1225,35 +1225,35 @@ $$
 > **定理（Itô process 版の時間依存 Itô formula）**  
 > $X$ を前節の $\mathbb R^d$-値 Itô process とし、
 >
-> $$
-> a_t=\sigma_t\sigma_t^\top
-> $$
+$$
+a_t=\sigma_t\sigma_t^\top
+$$
 >
 > とする。$F\in C^{1,2}([0,\infty)\times\mathbb R^d)$ なら
 >
-> $$
-> \boxed{
-> \begin{aligned}
-> dF(t,X_t)
-> &=
-> \left[
-> \partial_tF
-> +
-> \sum_i b_t^i\partial_iF
-> +
-> \frac12
-> \sum_{i,j}
-> a_t^{ij}\partial_{ij}F
-> \right]_{(t,X_t)}\,dt\\
-> &\quad+
-> \sum_{\alpha=1}^m
-> \left[
-> \sum_i
-> \sigma_t^{i\alpha}\partial_iF(t,X_t)
-> \right]dB_t^\alpha.
-> \end{aligned}
-> }
-> $$
+$$
+\boxed{
+\begin{aligned}
+dF(t,X_t)
+&=
+\left[
+\partial_tF
++
+\sum_i b_t^i\partial_iF
++
+\frac12
+\sum_{i,j}
+a_t^{ij}\partial_{ij}F
+\right]_{(t,X_t)}\,dt\\
+&\quad+
+\sum_{\alpha=1}^m
+\left[
+\sum_i
+\sigma_t^{i\alpha}\partial_iF(t,X_t)
+\right]dB_t^\alpha.
+\end{aligned}
+}
+$$
 <!-- formal-statement-end -->
 
 ### なぜ $C^{1,2}$ なのか
@@ -1398,13 +1398,13 @@ $$
 > **定義（stochastic exponential）**  
 > $M$ を continuous local martingale とする。
 >
-> $$
-> \mathcal E(M)_t
-> :=
-> \exp\left(
-> M_t-M_0-\frac12([M]_t-[M]_0)
-> \right)
-> $$
+$$
+\mathcal E(M)_t
+:=
+\exp\left(
+M_t-M_0-\frac12([M]_t-[M]_0)
+\right)
+$$
 >
 > を $M$ の **stochastic exponential** と呼ぶ。
 <!-- formal-statement-end -->
@@ -1439,18 +1439,18 @@ ordinary exponential $e^{\theta B_t}$ ではなく、$-\theta^2t/2$ を引いた
 > **命題（stochastic exponential の基本恒等式）**  
 > $M$ を continuous local martingale とし
 >
-> $$
-> Z_t=\mathcal E(M)_t
-> $$
+$$
+Z_t=\mathcal E(M)_t
+$$
 >
 > とする。このとき $Z$ は正の continuous local martingale で
 >
-> $$
-> Z_t
-> =
-> 1+
-> \int_0^tZ_s\,d(M_s-M_0)
-> $$
+$$
+Z_t
+=
+1+
+\int_0^tZ_s\,d(M_s-M_0)
+$$
 >
 > を満たす。
 <!-- formal-statement-end -->
@@ -1547,21 +1547,21 @@ stochastic exponential は **local martingale であること**と **真の mart
 > **命題（Brownian exponential martingale）**  
 > $B$ を $d$ 次元 standard Brownian motion、$\theta\in\mathbb R^d$ を定数 vector とする。このとき
 >
-> $$
-> Z_t
-> =
-> \exp\left(
-> \theta^\top B_t
-> -
-> \frac12|\theta|^2t
-> \right)
-> $$
+$$
+Z_t
+=
+\exp\left(
+\theta^\top B_t
+-
+\frac12|\theta|^2t
+\right)
+$$
 >
 > は正の martingale であり
 >
-> $$
-> E[Z_t]=1
-> $$
+$$
+E[Z_t]=1
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -1651,25 +1651,25 @@ $$
 > **定義（Stratonovich integral）**  
 > $H,X$ を continuous semimartingale とする。partition
 >
-> $$
-> \pi=\{0=t_0<t_1<\cdots<t_n=t\}
-> $$
+$$
+\pi=\{0=t_0<t_1<\cdots<t_n=t\}
+$$
 >
 > に対する symmetric sum
 >
-> $$
-> S_\pi^\circ(H,X)
-> =
-> \sum_{k=1}^n
-> \frac{H_{t_{k-1}}+H_{t_k}}2
-> (X_{t_k}-X_{t_{k-1}})
-> $$
+$$
+S_\pi^\circ(H,X)
+=
+\sum_{k=1}^n
+\frac{H_{t_{k-1}}+H_{t_k}}2
+(X_{t_k}-X_{t_{k-1}})
+$$
 >
 > が mesh $|\pi|\to0$ で ucp limit を持つとき、その極限を
 >
-> $$
-> \int_0^tH_s\circ dX_s
-> $$
+$$
+\int_0^tH_s\circ dX_s
+$$
 >
 > と書き、**Stratonovich integral** と呼ぶ。
 <!-- formal-statement-end -->
@@ -1710,15 +1710,15 @@ $$
 > **定理（Stratonovich integral と Itô integral の変換）**  
 > $H,X$ を continuous semimartingale とする。このとき Stratonovich integral は存在し
 >
-> $$
-> \boxed{
-> \int_0^tH_s\circ dX_s
-> =
-> \int_0^tH_s\,dX_s
-> +
-> \frac12[H,X]_t.
-> }
-> $$
+$$
+\boxed{
+\int_0^tH_s\circ dX_s
+=
+\int_0^tH_s\,dX_s
++
+\frac12[H,X]_t.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1838,15 +1838,15 @@ $$
 > **補題（covariation の連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$Y$ を continuous semimartingale、$g\in C^2(\mathbb R^d)$ とする。このとき
 >
-> $$
-> \boxed{
-> [g(X),Y]_t
-> =
-> \sum_{j=1}^d
-> \int_0^t
-> \partial_jg(X_s)\,d[X^j,Y]_s.
-> }
-> $$
+$$
+\boxed{
+[g(X),Y]_t
+=
+\sum_{j=1}^d
+\int_0^t
+\partial_jg(X_s)\,d[X^j,Y]_s.
+}
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1950,15 +1950,15 @@ continuity から最初の factor は almost surely 0 へ行き、残りは quad
 > **定理（Euclidean Stratonovich の連鎖律）**  
 > $X=(X^1,\ldots,X^d)$ を continuous semimartingale、$f\in C^2(\mathbb R^d)$ とする。このとき
 >
-> $$
-> \boxed{
-> f(X_t)-f(X_0)
-> =
-> \sum_{i=1}^d
-> \int_0^t
-> \partial_i f(X_s)\circ dX_s^i.
-> }
-> $$
+$$
+\boxed{
+f(X_t)-f(X_0)
+=
+\sum_{i=1}^d
+\int_0^t
+\partial_i f(X_s)\circ dX_s^i.
+}
+$$
 <!-- formal-statement-end -->
 
 ### なぜ二階項が消えたのか
@@ -2049,30 +2049,30 @@ $$
 > **系（Itô process に対する Itô--Stratonovich conversion）**  
 > $X$ を $\mathbb R^d$-値 Itô process
 >
-> $$
-> dX_t=b_t\,dt+\sigma_t\,dB_t,
-> \qquad
-> a_t=\sigma_t\sigma_t^\top
-> $$
+$$
+dX_t=b_t\,dt+\sigma_t\,dB_t,
+\qquad
+a_t=\sigma_t\sigma_t^\top
+$$
 >
 > とし、$h=(h_1,\ldots,h_d)\in C^2(\mathbb R^d;\mathbb R^d)$ とする。このとき
 >
-> $$
-> \boxed{
-> \sum_i
-> \int_0^t
-> h_i(X_s)\circ dX_s^i
-> =
-> \sum_i
-> \int_0^t
-> h_i(X_s)\,dX_s^i
-> +
-> \frac12
-> \int_0^t
-> \sum_{i,j}
-> \partial_jh_i(X_s)a_s^{ji}\,ds.
-> }
-> $$
+$$
+\boxed{
+\sum_i
+\int_0^t
+h_i(X_s)\circ dX_s^i
+=
+\sum_i
+\int_0^t
+h_i(X_s)\,dX_s^i
++
+\frac12
+\int_0^t
+\sum_{i,j}
+\partial_jh_i(X_s)a_s^{ji}\,ds.
+}
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
