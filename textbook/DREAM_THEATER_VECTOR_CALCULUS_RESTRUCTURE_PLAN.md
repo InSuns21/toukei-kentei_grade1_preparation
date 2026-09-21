@@ -16,15 +16,18 @@
 - **Phase 4 の PDE6 再監査：完了**
   - PDE6 の prerequisite を VC4 へ接続。
   - 発散定理の重複証明を除去し、Green 恒等式・基本解・Green 関数中心へ再編集。
-- **公開導線：VC1--VC4 のみ反映済み**
+- **Phase 2：VC5--VC6 実装完了（2026-09-22）**
+  - VC5 Stokes theorem・curl・topology
+  - VC6 直交曲線座標
+  - 各章に `knowledge.yaml` / `glossary.yaml`、A4/B3/C1 演習、全問詳細解答を実装。
+- **公開導線：VC1--VC6 を反映済み**
   - `dream-theater-index.json`
   - `dream-theater-standard-math-core.yaml` / `.md`
   - `dream-theater.md`
 - **未実装**
-  - Phase 2：VC5 Stokes theorem、VC6 直交曲線座標
   - Phase 3：VC7 Cartesian tensor、VC8 Helmholtz decomposition、VC9 数理物理 bridge
 
-未実装の VC5--VC9 は reader index / concept owner として先行公開しない。
+未実装の VC7--VC9 は reader index / concept owner として先行公開しない。
 
 ## 0. 位置付け
 
@@ -613,7 +616,7 @@ VC1 → VC2 → VC3 → VC4
 
 ここまでを完成させた時点で PDE6 の prerequisite を VC4 へ接続できる。
 
-### Phase 2：Stokes と曲線座標
+### Phase 2：Stokes と曲線座標（実装完了 2026-09-22）
 
 ```text
 VC5 → VC6
