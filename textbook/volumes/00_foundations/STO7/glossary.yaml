@@ -8,7 +8,7 @@ terms:
     meaning: X=M+Aという一意なcontinuous semimartingale分解に対し、local martingale partはstochastic integral、finite-variation partはLebesgue--Stieltjes integralで積分するもの。
   - term: multidimensional Itô formula
     english: multidimensional Ito formula
-    meaning: C2関数f(X)の増分を一次積分と1/2倍のHessian-covariation項に分解するchain rule。
+    meaning: C2関数f(X)の増分を一次積分と1/2倍のHessian-covariation項に分解する連鎖律。
   - term: Itô process
     english: Ito process
     meaning: driftの時間積分とBrownian stochastic integralの和で表されるEuclidean semimartingale。
@@ -23,4 +23,4 @@ terms:
     meaning: 対称Riemann和の極限として得られる積分。continuous semimartingaleではItô integralにcovariationの半分を加えたものに等しい。
   - term: Itô--Stratonovich conversion
     english: Ito--Stratonovich conversion
-    meaning: Itô積分とStratonovich積分の差をquadratic covariation、Itô processでは共分散行列によるdrift correctionとして書く公式。
+    meaning: Itô積分とStratonovich積分の差をquadratic covariation、Itô processでは分散共分散行列によるdrift correctionとして書く公式。
