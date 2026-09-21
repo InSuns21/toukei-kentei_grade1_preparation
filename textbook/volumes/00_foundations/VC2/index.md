@@ -302,6 +302,28 @@ $$
 > が成り立つとき、線積分は経路独立であるという。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc2-conservative, def-vc2-path-independent -->
+**定義の確認**
+
+$$
+\phi(x,y)=x^2+y^2,
+\qquad
+F=\nabla\phi=(2x,2y)
+$$
+
+とします。$(0,0)$ から $(1,1)$ までの任意の区分的 $C^1$ 曲線 $\gamma$ に対し、線積分の基本定理から
+
+$$
+\int_\gamma F\cdot dr
+=
+\phi(1,1)-\phi(0,0)
+=
+2.
+$$
+
+したがって $F$ は実際に potential $\phi$ を持つ保存場であり、積分値は経路に依存しません。
+<!-- definition-example-end -->
+
 <a id="thm-vc2-conservative-equivalence"></a>
 
 <!-- formal-statement-start -->
