@@ -60,7 +60,7 @@ concepts:
   - id: measure.hausdorff-dimension
     name: Hausdorff次元
     kind: definition
-    aliases: [Hausdorff次元, Hausdorff 次元, Hausdorff dimension]
+    aliases: [Hausdorff次元, Hausdorff dimension]
     introduction: formal
     introduction_aliases: ["定義（Hausdorff 次元）"]
     requires:
@@ -117,7 +117,7 @@ concepts:
   - id: measure.interval-hausdorff-dimension
     name: 区間のHausdorff次元
     kind: theorem
-    aliases: [区間のHausdorff次元, 区間の Hausdorff 次元]
+    aliases: [区間のHausdorff次元]
     introduction: formal
     introduction_aliases: ["定理（区間の Hausdorff 次元）"]
     requires:
