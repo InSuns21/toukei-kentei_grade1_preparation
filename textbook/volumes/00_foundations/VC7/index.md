@@ -1,4 +1,4 @@
-# VC7 添字記法・直交基底・成分変換
+# VC7 添字で直交基底変換を追う
 
 VC1 では勾配・発散・回転を デカルト座標の成分で定義しました。本章では、その成分計算を **添字記法**で組み直し、基底を回しても意味が変わらない量と、基底に応じて成分だけが変わる量を区別します。
 
@@ -181,14 +181,14 @@ $$
 > **定義（Kronecker のデルタ）**  
 > $i,j\in\{1,2,3\}$ に対し
 >
-> $$
-> \delta_{ij}
-> =
-> \begin{cases}
-> 1,&i=j,\\
-> 0,&i\ne j
-> \end{cases}
-> $$
+$$
+\delta_{ij}
+=
+\begin{cases}
+1,&i=j,\\
+0,&i\ne j
+\end{cases}
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -245,15 +245,15 @@ $\delta_{ij}$ は「添字をつなぎ替える恒等写像」として働きま
 > **定義（Levi--Civita 記号）**  
 > $\varepsilon_{ijk}$ を
 >
-> $$
-> \varepsilon_{ijk}
-> =
-> \begin{cases}
-> +1,&(i,j,k)\text{ が }(1,2,3)\text{ の偶置換},\\
-> -1,&(i,j,k)\text{ が }(1,2,3)\text{ の奇置換},\\
-> 0,&i,j,k\text{ のどれか二つが等しい}
-> \end{cases}
-> $$
+$$
+\varepsilon_{ijk}
+=
+\begin{cases}
++1,&(i,j,k)\text{ が }(1,2,3)\text{ の偶置換},\\
+-1,&(i,j,k)\text{ が }(1,2,3)\text{ の奇置換},\\
+0,&i,j,k\text{ のどれか二つが等しい}
+\end{cases}
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -318,15 +318,15 @@ $$
 > **命題（Levi--Civita 記号の縮約公式）**  
 > 三次元で
 >
-> $$
-> \boxed{
-> \varepsilon_{ijk}\varepsilon_{imn}
-> =
-> \delta_{jm}\delta_{kn}
-> -
-> \delta_{jn}\delta_{km}
-> }
-> $$
+$$
+\boxed{
+\varepsilon_{ijk}\varepsilon_{imn}
+=
+\delta_{jm}\delta_{kn}
+-
+\delta_{jn}\delta_{km}
+}
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -451,27 +451,27 @@ $$
 > **定義（二階デカルトテンソル）**  
 > 三次元 ユークリッド空間上の線形写像 $T:\mathbb R^3\to\mathbb R^3$ を考える。正規直交デカルト基底での成分を $T_{ij}$ とし、
 >
-> $$
-> T(v)_i=T_{ij}v_j
-> $$
+$$
+T(v)_i=T_{ij}v_j
+$$
 >
 > と書く。
 >
 > 直交基底変換 $e'_i=Q_{ij}e_j$ の下で成分が
 >
-> $$
-> \boxed{
-> T'_{ij}
-> =
-> Q_{ip}Q_{jq}T_{pq}
-> }
-> $$
+$$
+\boxed{
+T'_{ij}
+=
+Q_{ip}Q_{jq}T_{pq}
+}
+$$
 >
 > と変換する量を、本章では **二階デカルトテンソル**と呼ぶ。行列表記では
 >
-> $$
-> T'=QTQ^T.
-> $$
+$$
+T'=QTQ^T.
+$$
 <!-- formal-statement-end -->
 
 これは「行列がテンソル」という意味ではありません。**テンソルは基底に依存しない線形写像であり、行列 $[T_{ij}]$ はその基底表示**です。
@@ -550,19 +550,19 @@ $$
 > **定義（二項積）**  
 > ベクトル $a,b\in\mathbb R^3$ に対し、線形写像
 >
-> $$
-> (a\otimes b)v
-> :=
-> a(b\cdot v)
-> $$
+$$
+(a\otimes b)v
+:=
+a(b\cdot v)
+$$
 >
 > を **二項積（dyadic product）** と呼ぶ。その成分は
 >
-> $$
-> (a\otimes b)_{ij}
-> =
-> a_i b_j.
-> $$
+$$
+(a\otimes b)_{ij}
+=
+a_i b_j.
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc7-dyadic -->
@@ -603,21 +603,21 @@ $$
 > **定義（跡・二重縮約）**  
 > 二階テンソル $T$ の一重縮約
 >
-> $$
-> \operatorname{tr}T
-> :=
-> T_{ii}
-> $$
+$$
+\operatorname{tr}T
+:=
+T_{ii}
+$$
 >
 > を **跡** と呼ぶ。
 >
 > 二つの二階テンソル $A,B$ の全成分について縮約した
 >
-> $$
-> A:B
-> :=
-> A_{ij}B_{ij}
-> $$
+$$
+A:B
+:=
+A_{ij}B_{ij}
+$$
 >
 > を **二重縮約** と呼ぶ。
 <!-- formal-statement-end -->
@@ -693,23 +693,23 @@ $$
 > **命題（二階テンソルの対称・反対称分解）**  
 > 任意の実二階テンソル $T$ は
 >
-> $$
-> T=S+W
-> $$
+$$
+T=S+W
+$$
 >
 > と一意に分解できる。ここで
 >
-> $$
-> S^T=S,
-> \qquad
-> W^T=-W.
-> $$
+$$
+S^T=S,
+\qquad
+W^T=-W.
+$$
 >
 > さらに対称テンソルと反対称テンソルは二重縮約に関して直交し、
 >
-> $$
-> S:W=0
-> $$
+$$
+S:W=0
+$$
 >
 > である。
 <!-- formal-statement-end -->
@@ -866,11 +866,11 @@ $$
 > **定義（軸性ベクトル）**  
 > 直交変換 $Q\in O(3)$ の下で成分が
 >
-> $$
-> w'
-> =
-> (\det Q)Qw
-> $$
+$$
+w'
+=
+(\det Q)Qw
+$$
 >
 > と変換する三成分量 $w$ を **軸性ベクトル** と呼ぶ。これに対し通常のベクトルは $v'=Qv$ と変換する。
 <!-- formal-statement-end -->
@@ -947,33 +947,33 @@ $$
 > **命題（ベクトル場の勾配・発散・回転の添字表示）**  
 > $u\in C^1(\Omega;\mathbb R^3)$ に対し
 >
-> $$
-> (\nabla u)_{ij}
-> =
-> \partial_j u_i,
-> $$
+$$
+(\nabla u)_{ij}
+=
+\partial_j u_i,
+$$
 >
-> $$
-> \operatorname{div}u
-> =
-> \partial_i u_i
-> =
-> \operatorname{tr}(\nabla u),
-> $$
+$$
+\operatorname{div}u
+=
+\partial_i u_i
+=
+\operatorname{tr}(\nabla u),
+$$
 >
-> $$
-> (\operatorname{curl}u)_i
-> =
-> \varepsilon_{ijk}\partial_j u_k.
-> $$
+$$
+(\operatorname{curl}u)_i
+=
+\varepsilon_{ijk}\partial_j u_k.
+$$
 >
 > 直交座標変換 $x'=Qx,\ u'=Qu$ の下で
 >
-> $$
-> \nabla' u'
-> =
-> Q(\nabla u)Q^T.
-> $$
+$$
+\nabla' u'
+=
+Q(\nabla u)Q^T.
+$$
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -1127,13 +1127,13 @@ VC6 で見たように、曲線座標で物理成分へこの式をそのまま�
 > **定義（二階テンソル場の発散）**  
 > $T=(T_{ij})\in C^1(\Omega;\mathbb R^{3\times3})$ に対し、
 >
-> $$
-> \boxed{
-> (\operatorname{div}T)_i
-> :=
-> \partial_jT_{ij}
-> }
-> $$
+$$
+\boxed{
+(\operatorname{div}T)_i
+:=
+\partial_jT_{ij}
+}
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -1227,13 +1227,13 @@ $$
 > **定理（二階テンソル版 Gauss--Ostrogradsky の発散定理）**  
 > $\Omega\subset\mathbb R^3$ を VC4 の [Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) を適用できる有界領域とし、$T\in C^1(\overline\Omega;\mathbb R^{3\times3})$ とする。外向き単位法線を $n$ とすると
 >
-> $$
-> \boxed{
-> \int_{\partial\Omega}Tn\,dS
-> =
-> \int_\Omega\operatorname{div}T\,dV
-> }.
-> $$
+$$
+\boxed{
+\int_{\partial\Omega}Tn\,dS
+=
+\int_\Omega\operatorname{div}T\,dV
+}.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -1300,19 +1300,19 @@ $$
 > **定義（応力テンソルと表面力）**  
 > 各点 $x$ に二階テンソル $\sigma(x)$ が与えられているとする。単位法線 $n$ を持つ微小面に作用する単位面積あたりの表面力を
 >
-> $$
-> t(n)
-> =
-> \sigma n,
-> $$
+$$
+t(n)
+=
+\sigma n,
+$$
 >
 > すなわち
 >
-> $$
-> t_i(n)
-> =
-> \sigma_{ij}n_j
-> $$
+$$
+t_i(n)
+=
+\sigma_{ij}n_j
+$$
 >
 > と表すとき、$\sigma$ を **応力テンソル**、$t(n)$ をその面に作用する **表面力ベクトル**と呼ぶ。
 <!-- formal-statement-end -->
@@ -1381,18 +1381,18 @@ $$
 > **定義（慣性テンソル）**  
 > $x=(x_1,x_2,x_3)$、$r^2=x_ix_i$ とする。原点まわりの **慣性テンソル**を
 >
-> $$
-> I_{ij}
-> =
-> \int_\Omega
-> \rho(x)
-> \left(
-> r^2\delta_{ij}
-> -
-> x_i x_j
-> \right)
-> dV
-> $$
+$$
+I_{ij}
+=
+\int_\Omega
+\rho(x)
+\left(
+r^2\delta_{ij}
+-
+x_i x_j
+\right)
+dV
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -1476,13 +1476,13 @@ $$
 > **命題（慣性テンソルの半正定値性）**  
 > $\rho\ge0$ とする。任意の $a\in\mathbb R^3$ に対し
 >
-> $$
-> a_iI_{ij}a_j
-> =
-> \int_\Omega
-> \rho(x)|x\times a|^2\,dV
-> \ge0.
-> $$
+$$
+a_iI_{ij}a_j
+=
+\int_\Omega
+\rho(x)|x\times a|^2\,dV
+\ge0.
+$$
 >
 > 従って慣性テンソルは半正定値である。
 <!-- formal-statement-end -->
@@ -1561,17 +1561,17 @@ $\rho\ge0$ なので右辺は非負です。
 > **定理（二階等方テンソルの形）**  
 > 実二階テンソル $T$ が、すべての直交行列 $Q\in O(3)$ に対して
 >
-> $$
-> QTQ^T=T
-> $$
+$$
+QTQ^T=T
+$$
 >
 > を満たすとする。このとき、ある実数 $\lambda$ が存在して
 >
-> $$
-> \boxed{
-> T=\lambda I
-> }
-> $$
+$$
+\boxed{
+T=\lambda I
+}
+$$
 >
 > である。逆に $\lambda I$ はすべての直交変換で不変である。
 <!-- formal-statement-end -->
