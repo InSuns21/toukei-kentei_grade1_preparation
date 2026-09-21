@@ -52,15 +52,15 @@ $$
 **定義の確認**：上の定義条件をこの具体例で直接確認します。
 
 
-$
+$$
 \langle x,y\rangle=x^{\mathsf T}y=\sum_{i=1}^n x_i y_i
-$
+$$
 
 と置きます。和の分配法則から線形性、積 $x_i y_i$ の対称性から対称性が成り立ちます。また
 
-$
+$$
 \langle x,x\rangle=\sum_{i=1}^n x_i^2\ge0
-$
+$$
 
 で、等号は全ての $x_i=0$、すなわち $x=0$ のときだけです。従って標準内積は定義の条件を実際に満たします。
 <!-- definition-example-end -->
@@ -121,14 +121,14 @@ $$
 
 $\mathbb R^3$ の標準基底 $e_1,e_2,e_3$ では
 
-$
+$$
 \langle e_i,e_j\rangle
 =
 \begin{cases}
 1&i=j,\\
 0&i\ne j
 \end{cases}
-$
+$$
 
 なので、定義の条件を全て満たします。
 <!-- definition-example-end -->
@@ -358,25 +358,25 @@ $$
 **定義の確認**：上の定義条件をこの具体例で直接確認します。
 
 
-$
+$$
 V=\operatorname{span}((1,1,0),(1,0,1))
-$
+$$
 
 とします。$y=(a,b,c)$ が $V^\perp$ に属するには生成元の双方に直交すればよいので
 
-$
+$$
 a+b=0,
 \qquad
 a+c=0.
-$
+$$
 
 従って $b=c=-a$ で、
 
-$
+$$
 V^\perp
 =
 \operatorname{span}((1,-1,-1)).
-$
+$$
 
 生成元 $(1,-1,-1)$ と $V$ の2つの生成元との内積は実際に0です。
 <!-- definition-example-end -->
