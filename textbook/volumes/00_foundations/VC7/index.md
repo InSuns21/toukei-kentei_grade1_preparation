@@ -4,7 +4,7 @@ VC1 では勾配・発散・回転を デカルト座標の成分で定義しま
 
 主役は三次元 ユークリッド空間の **デカルトテンソル（Cartesian tensor）** です。一般の多様体上のテンソル、共変・反変成分、Christoffel 記号、共変微分は扱いません。直交デカルト基底の間の変換に限定することで、連続体力学・流体・電磁気で使う計算言語を、線形代数とベクトル解析だけから構成します。
 
-前提として [VC1 の勾配・発散・回転](../VC1/index.md#def-vc1-gradient)、[正規直交系](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md)、[行列式の乗法性と可逆性](../LA3C/index.md) を使います。
+直接の前提は [VC4 の Gauss--Ostrogradsky の発散定理](../VC4/index.md#thm-vc4-gauss-divergence) と [正規直交系](../F0_00E1_内積_Gram_Schmidt_射影_QR/index.md) です。VC4 までの prerequisite 経路に VC1 の勾配・発散・回転、VC3 の曲面・法線、LA3C の行列式が含まれるため、それらを重複して direct prerequisite にはしません。
 
 ---
 
@@ -1216,7 +1216,7 @@ t(e_3)
 $$
 <!-- definition-example-end -->
 
-テンソル版発散定理から
+上の二階テンソル版 Gauss--Ostrogradsky の発散定理から
 
 $$
 \int_{\partial\Omega}\sigma n\,dS
@@ -2040,7 +2040,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC7-B02 テンソル版発散定理
+#### VC7-B02 二階テンソル場の発散を積分で照合
 - Level: B
 - 目安時間: 30分
 
@@ -2264,7 +2264,7 @@ I
 }.
 $$
 
-$x,y$ 方向の慣性モーメントが等しいのは配置が $x$ 軸と $y$ 軸の交換で不変だからです。
+$x,y$ 方向の回転慣性が等しいのは配置が $x$ 軸と $y$ 軸の交換で不変だからです。
 <!-- solution-end -->
 
 #### VC7-C01 速度勾配・応力・表面力・発散の統合
