@@ -8,7 +8,7 @@ prerequisites:
 official_scope: []
 learning_objectives:
   - Einstein の総和規約を用い、自由添字とダミー添字を混同せず成分式を展開・縮約できる
-  - Kronecker のデルタと Levi--Civita 記号を使い、外積と epsilon--epsilon 縮約公式を再構成できる
+  - Kronecker のデルタと Levi--Civita 記号を使い、外積と epsilon--epsilon 縮約公式を再構成し、軸性ベクトルの鏡映時の変換を説明できる
   - 直交デカルト基底変換の下でのスカラー・ベクトル・二階デカルトテンソルの変換則を説明できる
   - 二項積・縮約・跡・二重縮約・対称部分・反対称部分を計算し、基底不変量を識別できる
   - ベクトル場の勾配を二階テンソルとして扱い、発散・回転・回転の回転恒等式を添字記法で導ける
@@ -25,6 +25,8 @@ definitions:
   - { id: VC7-DEF-06, name: 二階テンソル場の発散 }
   - { id: VC7-DEF-07, name: 応力テンソルと表面力 }
   - { id: VC7-DEF-08, name: 慣性テンソル }
+  - { id: VC7-DEF-09, name: 縮約・跡・二重縮約 }
+  - { id: VC7-DEF-10, name: 軸性ベクトル }
 theorems:
   - { id: VC7-PROP-01, name: Levi--Civita 記号の縮約公式 }
   - { id: VC7-PROP-02, name: 二階テンソルの対称・反対称分解 }
