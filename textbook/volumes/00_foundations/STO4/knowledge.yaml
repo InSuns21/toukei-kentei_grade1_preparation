@@ -98,7 +98,7 @@ concepts:
   - id: stochastic.brownian-hitting-time-distribution
     name: Brownian hitting timeの分布
     kind: theorem
-    aliases: ["Brownian hitting time distribution", "first passage time distribution"]
+    aliases: ["Brownian hitting time distribution", "first passage time distribution", "ブラウン到達時刻の分布"]
     introduction: formal
     introduction_aliases: ["定理（ブラウン到達時刻の分布）"]
     requires:
