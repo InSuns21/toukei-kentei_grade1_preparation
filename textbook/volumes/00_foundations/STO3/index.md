@@ -2590,4 +2590,4 @@ $$
 E[X_sX_t]=\min(s,t)
 $$
 
-へ適用し、ブラウン運動を実際に構成します。その後、reflection principle、到達時刻、Markov property、strong Markov property へ進みます。
+へ適用し、ブラウン運動を実際に構成します。その後、[反射原理](../STO4/index.md#thm-sto4-reflection-principle)、到達時刻、[マルコフ性](../STO4/index.md#thm-sto4-brownian-markov)、[強マルコフ性](../STO4/index.md#thm-sto4-brownian-strong-markov)へ進みます。
