@@ -44,7 +44,7 @@ concepts:
     kind: lemma
     aliases: ["weighted quadratic covariation sum"]
     introduction: formal
-    introduction_aliases: ["補題（重み付き共変分 sum）"]
+    introduction_aliases: ["補題（重み付き共変分和）"]
     requires:
       - stochastic.covariation
       - stochastic.semimartingale-integral
@@ -85,7 +85,7 @@ concepts:
     kind: lemma
     aliases: ["covariation of vector Brownian integrals", "Brownian stochastic integral cross variation"]
     introduction: formal
-    introduction_aliases: ["補題（vector ブラウン stochastic integrals の共変分）"]
+    introduction_aliases: ["補題（多次元ブラウン確率積分の共変分）"]
     requires:
       - stochastic.vector-brownian-covariation
       - stochastic.local-stochastic-integral
