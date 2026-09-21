@@ -853,7 +853,7 @@ $$
 
 ## 6. ドリフトと雑音を同じ式で扱う
 
-STO9 では SDE の解を構成します。その前に、本章ではすでに積分表示を持つ過程に Itô 公式を適用する準備をします。
+STO9 では SDE の解を構成します。その前に、本章ではすでに積分表示を持つ過程に [多次元 Itô 公式](#thm-sto7-multidimensional-ito)を適用する準備をします。
 
 <a id="def-sto7-ito-process"></a>
 
@@ -2364,7 +2364,7 @@ $$
 
 を考える。
 
-1. Itô 公式から $dZ_t$ を求めよ。
+1. [多次元 Itô 公式](#thm-sto7-multidimensional-ito)から $dZ_t$ を求めよ。
 2. $E[Z_t]$ を求めよ。
 3. $\theta B_t$ の確率指数関数と一致することを確認せよ。
 
@@ -2381,7 +2381,7 @@ F_x=\theta F,
 F_{xx}=\theta^2F.
 $$
 
-時間依存 Itô 公式から
+[時間依存 Itô 公式](#thm-sto7-ito-process-formula)から
 
 $$
 \begin{aligned}
@@ -2452,7 +2452,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-積の公式または $f(x)=x^2$ の Itô 公式から
+積の公式または $f(x)=x^2$ の [多次元 Itô 公式](#thm-sto7-multidimensional-ito)から
 
 $$
 B_t^2
