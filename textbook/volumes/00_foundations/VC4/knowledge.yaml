@@ -14,7 +14,7 @@ concepts:
     name: Green theorem circulation form
     kind: theorem
     aliases: [Green theorem, Greenの定理, circulation form]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定理（Green theorem：circulation form）"]
     requires:
       - vector-calculus.vector-line-integral
@@ -35,7 +35,7 @@ concepts:
     name: Gauss--Ostrogradsky divergence theorem
     kind: theorem
     aliases: [Gauss theorem, divergence theorem, 発散定理, Gauss--Ostrogradsky]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定理（Gauss--Ostrogradsky divergence theorem）"]
     requires:
       - vector-calculus.flux-integral
@@ -47,7 +47,7 @@ concepts:
     name: 局所保存則
     kind: definition
     aliases: [local conservation law, continuity equation, 保存則]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定義（局所保存則）"]
     requires:
       - vector-calculus.divergence
@@ -56,7 +56,7 @@ concepts:
     name: 局所保存則から積分保存則
     kind: theorem
     aliases: [integral conservation law]
-    introduction: formal
+    introduction: inline
     introduction_aliases: ["定理（局所保存則から積分保存則）"]
     requires:
       - vector-calculus.local-conservation-law
