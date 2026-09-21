@@ -132,6 +132,22 @@ $$
 > と定義する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-vc2-scalar-line-integral -->
+**定義の確認**
+
+単位円 $\gamma(t)=(\cos t,\sin t)$ と $f(x,y)=1$ では $|\gamma'(t)|=1$ なので
+
+$$
+\int_\gamma f\,ds
+=
+\int_0^{2\pi}1\,dt
+=
+2\pi.
+$$
+
+一定密度 1 の scalar line integral が曲線の長さそのものになることを確認できます。
+<!-- definition-example-end -->
+
 これは曲線に沿った「密度 × 長さ」の総和です。向きを反転しても $ds$ は正なので値は変わりません。
 
 例えば単位円上で $f(x,y)=x^2$ を積分すると
