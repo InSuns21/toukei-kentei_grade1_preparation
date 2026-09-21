@@ -8,7 +8,6 @@ prerequisites:
 
 forward_references:
   - vector-calculus.orthogonal-curvilinear-coordinates
-  - vector-calculus.helmholtz-decomposition
 
 concepts:
   - id: vector-calculus.boundary-orientation
