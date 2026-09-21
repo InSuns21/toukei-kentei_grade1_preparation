@@ -59,7 +59,7 @@ concepts:
     kind: theorem
     aliases: ["Kolmogorov--Chentsov continuity theorem", "Kolmogorov-Chentsov continuity theorem", "Kolmogorov continuity theorem"]
     introduction: formal
-    introduction_aliases: ["定理（Kolmogorov--Chentsov 連続性 theorem：1 パラメータ版）"]
+    introduction_aliases: ["定理（Kolmogorov--Chentsov 連続定理：1 パラメータ版）"]
     requires:
       - stochastic.stochastic-process
       - stochastic.modification-indistinguishability
