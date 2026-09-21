@@ -1292,10 +1292,10 @@ $$
 
 次の VC5 では、残るもう一つの積分定理 [Kelvin--Stokes theorem](../VC5/index.md#thm-vc5-stokes) を扱います。そこで
 
-$
+$$
 \operatorname{curl}
 \quad\longleftrightarrow\quad
 \text{boundary circulation}
-$
+$$
 
 という対応を曲面上で正本化します。
