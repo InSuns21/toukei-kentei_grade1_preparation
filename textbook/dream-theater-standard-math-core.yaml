@@ -313,7 +313,7 @@ nodes:
     status: implemented
     implemented_at: 2026-09-22
     implementation_path: textbook/volumes/00_foundations/VC6/index.md
-    prerequisites: [VC1, VC3, RA7]
+    prerequisites: [VC5]
 
   - id: MT0
     title: Borel・測度・Caratheodory・Lebesgue正則性
