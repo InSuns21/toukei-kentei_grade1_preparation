@@ -60,41 +60,41 @@ concepts:
 
 
   - id: vector-calculus.scalar-surface-integral
-    name: scalar surface integral
+    name: スカラー曲面積分
     kind: definition
     aliases: [scalar surface integral, 第一種曲面積分]
     introduction: formal
-    introduction_aliases: ["定義（scalar surface integral）"]
+    introduction_aliases: ["定義（スカラー曲面積分）"]
     requires:
       - vector-calculus.surface-area-element
 
   - id: vector-calculus.flux-integral
-    name: 向き付き面素・flux
+    name: 向き付き面素・流束
     kind: definition
     aliases: [flux, flux integral, 向き付き面素, 流束]
     introduction: formal
-    introduction_aliases: ["定義（向き付き面素・flux）"]
+    introduction_aliases: ["定義（向き付き面素・流束）"]
     requires:
       - vector-calculus.orientable-surface
       - vector-calculus.surface-area-element
 
   - id: vector-calculus.flux-reparam-invariance
-    name: 向き付きfluxの再パラメータ表示不変性
+    name: 向き付き流束の再パラメータ表示不変性
     kind: proposition
     aliases: [oriented flux reparametrization invariance]
     introduction: formal
-    introduction_aliases: ["命題（向き付き flux の再パラメータ表示不変性）"]
+    introduction_aliases: ["命題（向き付き流束の再パラメータ表示不変性）"]
     requires:
       - vector-calculus.flux-integral
       - vector-calculus.surface-area-reparam-invariance
       - analysis.multivariable-riemann-change-of-variables
 
   - id: vector-calculus.graph-surface-formulas
-    name: graph surfaceの面積・上向きflux
+    name: グラフ曲面の面積・上向き流束
     kind: proposition
     aliases: [graph surface formula]
     introduction: formal
-    introduction_aliases: ["命題（graph surface の面積・上向き flux）"]
+    introduction_aliases: ["命題（グラフ曲面の面積・上向き流束）"]
     requires:
       - vector-calculus.scalar-surface-integral
       - vector-calculus.flux-integral
