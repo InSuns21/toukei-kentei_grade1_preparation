@@ -157,11 +157,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（三角不等式）**  
-> 内積空間で
->
-> $\|x\|:=\sqrt{\langle x,x\rangle}$
->
-> と置く。この量は任意の $x,y$ に対して
+> 内積空間で内積から定まるノルム $\|x\|=\sqrt{\langle x,x\rangle}$ は、任意の $x,y$ に対して
 
 $$
 \boxed{
@@ -208,28 +204,7 @@ $$
 
 です。
 
-ここまでで、$\|x\|=\sqrt{\langle x,x\rangle}$ が三角不等式を満たすことまで確認できました。
-
-<a id="cor-f0-00e2-inner-product-norm"></a>
-
-<!-- formal-statement-start -->
-> **系（内積が定めるノルム）**  
-> 内積空間 $V$ に対して
-
-$$
-\|x\|:=\sqrt{\langle x,x\rangle}
-$$
-
-> と置くと、$\|\cdot\|$ は $V$ 上のノルムである。
-<!-- formal-statement-end -->
-
-実際、非負性と $\|x\|=0\Longleftrightarrow x=0$ は内積の正定値性から従い、
-
-$$
-\|ax\|=|a|\,\|x\|
-$$
-
-は内積の斉次性から従います。残る三角不等式が、いまCauchy--Schwarzから証明した内容です。
+内積の非負性・正定値性・斉次性と、いま示した三角不等式を合わせると、$\|x\|=\sqrt{\langle x,x\rangle}$ は確かにノルムの公理を満たします。
 
 ---
 
