@@ -490,7 +490,7 @@ VC1 では 回転 を成分公式で定義しました。[Stokes の定理](#thm
 <a id="prop-vc5-curl-density"></a>
 
 <!-- formal-statement-start -->
-> **命題（回転 は局所循環密度）**  
+> **命題（回転は局所循環密度）**  
 > $F$ を点 $p$ の近傍で $C^1$ 級とし、単位 ベクトル $n$ を固定する。
 >
 > $p$ を中心とし法線 $n$ を持つ半径 $\varepsilon$ の平面円板を $S_\varepsilon$、その境界を誘導向きで $\partial S_\varepsilon$ とする。
@@ -749,7 +749,7 @@ $$
 <a id="prop-vc5-hole-obstruction"></a>
 
 <!-- formal-statement-start -->
-> **命題（穴は 大域ポテンシャル を壊し得る）**  
+> **命題（穴は大域ポテンシャルを壊し得る）**  
 > 上の領域
 >
 $$
@@ -852,7 +852,7 @@ $$
 <a id="prop-vc5-vector-potential-solenoidal"></a>
 
 <!-- formal-statement-start -->
-> **命題（ベクトルポテンシャル が存在すれば 無発散）**  
+> **命題（ベクトルポテンシャルが存在すれば無発散）**  
 > $A\in C^2$ とし
 >
 $$
@@ -885,7 +885,7 @@ $$
 <a id="prop-vc5-vector-potential-gauge"></a>
 
 <!-- formal-statement-start -->
-> **命題（ベクトルポテンシャル の ゲージ自由度）**  
+> **命題（ベクトルポテンシャルのゲージ自由度）**  
 > $A$ が $F$ の ベクトルポテンシャル で、$\phi\in C^2$ なら
 >
 $$
