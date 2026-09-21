@@ -379,7 +379,7 @@ $$
 > が成り立つとき、$\mathcal G$ は **$P$ に関して complete** であるという。
 <!-- formal-statement-end -->
 
-ここでは「$A$ 自身が $\mathcal G$ に入っている場合だけ」ではなく、ambient な $\mathcal F$ の $P$-零集合の部分集合をすべて $\mathcal G$ に入れる、という強い条件を使っています。これは usual conditions で必要になる意味です。
+ここでは「$A$ 自身が $\mathcal G$ に入っている場合だけ」ではなく、全体側の $\mathcal F$ の $P$-零集合の部分集合をすべて $\mathcal G$ に入れる、という強い条件を使っています。これは usual conditions で必要になる意味です。
 
 <!-- definition-example-start: def-sto1-p-complete-sub-sigma-algebra -->
 ### 直接例：零集合をすべて含む場合
@@ -429,7 +429,7 @@ $$
 >
 > が全ての $t\ge0$ で成り立つことをいう。
 >
-> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち ambient な $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
+> また $\mathcal F_0$ が [$P$ に関して complete](#def-sto1-p-complete-sub-sigma-algebra)、すなわち 全体側の $\mathcal F$ の $P$-零集合の任意の部分集合をすべて含むとする。filtration の単調性から、このとき全ての $\mathcal F_t$ もそれらを含む。right-continuity とこの completeness の両方を満たすとき、filtration は **usual conditions** を満たすという。
 <!-- formal-statement-end -->
 
 $\mathcal F_t$ は「時刻 $t$ までに判定できる事象」の集合です。
