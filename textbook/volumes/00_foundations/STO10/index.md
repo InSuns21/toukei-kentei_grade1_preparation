@@ -1089,7 +1089,7 @@ $$
 [Z,\widetilde N]=[Z,N].
 $$
 
-さらに $Z$ の局所マルチンゲール part は $\int Z\,dM$ なので確率積分の covariation 公式から
+さらに $Z$ の局所マルチンゲール部分は $\int Z\,dM$ なので [確率積分の共変分公式](../STO7/index.md#lem-sto7-vector-brownian-integral-covariation) から
 
 $$
 d[Z,N]_t
