@@ -2,10 +2,9 @@ chapter: F0-00D4
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - F0-00D3
   - F0-00D3A
-  - F0-00D2B
   - F0-00C
-  - F0-00A1
 
 # 積測度の回収と D5 の非可測集合・選択公理は、ここでは後続章への接続として言及する。
 forward_references:
@@ -88,6 +87,17 @@ concepts:
     requires:
       - measure.set-algebra
 
+  - id: measure.hopf-premeasure-criterion
+    name: Hopf型のpremeasure判定
+    kind: lemma
+    aliases:
+      - Hopf型のpremeasure判定
+      - 空集合への連続性によるpremeasure判定
+      - continuity from above criterion for premeasures
+    requires:
+      - measure.premeasure
+      - measure.set-algebra
+
   - id: measure.premeasure-induced-outer-measure
     name: premeasureから作る外測度
     kind: lemma
@@ -125,7 +135,13 @@ concepts:
   - id: measure.caratheodory-extension-theorem
     name: Carathéodory拡張定理
     kind: theorem
-    aliases: [Carathéodory拡張定理, "Carathéodory 拡張定理"]
+    aliases:
+      - Carathéodory拡張定理
+      - "Carathéodory 拡張定理"
+      - Hopfの拡張定理
+      - Hopf extension theorem
+      - Hahn--Kolmogorov拡張定理
+      - Hahn--Kolmogorov extension theorem
     requires:
       - measure.premeasure
       - measure.premeasure-induced-outer-measure
