@@ -302,31 +302,31 @@ $$
 
 $y$ 方向の二面については
 
-$
+$$
 \int_{y=d}F\cdot n\,dS
 +
 \int_{y=c}F\cdot n\,dS
 =
 \iiint_B Q_y\,dV,
-$
+$$
 
 $z$ 方向の二面については
 
-$
+$$
 \int_{z=f}F\cdot n\,dS
 +
 \int_{z=e}F\cdot n\,dS
 =
 \iiint_B R_z\,dV.
-$
+$$
 
 三方向の六面を足すと
 
-$
+$$
 \int_{\partial B}F\cdot n\,dS
 =
 \iiint_B(P_x+Q_y+R_z)\,dV.
-$
+$$
 
 つまり box では一変数 FTC の三方向の和にすぎません。
 
@@ -381,19 +381,19 @@ $$
 
 従って $R_z$ の体積積分が上下境界からの $R n_z$ の flux になります。$x$-simple 表示では左右面の outward vector area element の $x$ 成分がそれぞれ $+1,-1$ となるため
 
-$
+$$
 \iiint_\Omega P_x\,dV
 =
 \int_{\partial\Omega}P n_x\,dS,
-$
+$$
 
 $y$-simple 表示でも前後面の $y$ 成分を使って
 
-$
+$$
 \iiint_\Omega Q_y\,dV
 =
 \int_{\partial\Omega}Q n_y\,dS
-$
+$$
 
 を得ます。三式を足すことが divergence theorem の局所計算です。
 
