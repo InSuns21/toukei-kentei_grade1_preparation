@@ -490,7 +490,7 @@ Stokes            mechanics
 | VC3 | VC1 + RA7 + LA3C |
 | VC4 | VC2 + VC3 + RA7 |
 | VC5 | VC2 + VC3 + VC4 |
-| VC6 | VC1 + VC3 + RA7 |
+| VC6 | VC5 |
 | VC7 | VC1 + LA1 + LA3C |
 | VC8 | VC5 + PDE6 |
 | VC9 | VC7 + VC8 |
