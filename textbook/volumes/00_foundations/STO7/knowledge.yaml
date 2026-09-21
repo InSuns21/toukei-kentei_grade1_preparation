@@ -15,6 +15,7 @@ concepts:
     introduction_aliases: ["定義（d 次元 Brown 運動）"]
     requires:
       - stochastic.brownian-motion
+      - stochastic.filtration
 
   - id: stochastic.vector-brownian-covariation
     name: vector Brownian motionのcovariation
