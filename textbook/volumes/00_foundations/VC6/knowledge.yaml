@@ -2,13 +2,10 @@ chapter: VC6
 scope: dream-theater
 coverage: complete
 prerequisites:
-  - VC1
-  - VC3
-  - RA7
+  - VC5
 
 forward_references:
-  - vector-calculus.cartesian-tensor
-  - vector-calculus.helmholtz-decomposition
+  - pde.pde1-partial-differential-equation
 
 concepts:
   - id: vector-calculus.orthogonal-curvilinear-coordinates
