@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[ブラウン運動のフィルトレーション](../STO4/index.md#def-sto4-brownian-フィルトレーション)、[予測可能過程](../STO1/index.md#def-sto1-予測可能)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-指数型)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-大域的-existence-uniqueness) を直接参照します。
+> **既出概念への参照**：[ブラウン運動のフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration)、[予測可能過程](../STO1/index.md#def-sto1-predictable)、[確率積分の $L^2$ 構成](../STO6/index.md#thm-sto6-l2-construction)、[確率指数関数](../STO7/index.md#def-sto7-stochastic-exponential)、[SDE の大域的存在一意性](../STO9/index.md#thm-sto9-global-existence-uniqueness) を直接参照します。
 
 STO6 ではブラウン運動に関する確率積分を
 
@@ -40,7 +40,7 @@ $$
 0\le t\le T
 $$
 
-を使います。これは [STO4 のブラウン運動の自然なフィルトレーション](../STO4/index.md#def-sto4-brownian-フィルトレーション) を零集合による完備化したフィルトレーションです。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
+を使います。これは [STO4 のブラウン運動の自然なフィルトレーション](../STO4/index.md#def-sto4-brownian-filtration) を零集合による完備化したフィルトレーションです。本章の稠密性証明では、右連続化を追加した版を暗黙には使いません。
 
 本章の中心線は
 
@@ -424,7 +424,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[STO7 の確率指数関数 identity](../STO7/index.md#prop-sto7-stochastic-指数型-identity) を
+[STO7 の確率指数関数 identity](../STO7/index.md#prop-sto7-stochastic-exponential-identity) を
 
 $$
 M_t=M_t^h
@@ -1034,7 +1034,7 @@ $$
 
 と置きます。
 
-[ガウス指数族 vectors の全体性](#lem-sto12-指数型-全体性) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
+[ガウス指数族 vectors の全体性](#lem-sto12-exponential-totality) により、各 $n$ について有限個の deterministic integrands $h_{n,1},\ldots,h_{n,m_n}$ と実数係数 $a_{n,1},\ldots,a_{n,m_n}$ を選んで
 
 $$
 Y_n
@@ -1091,7 +1091,7 @@ Z_T^{h_{n,j}}-1
 \end{aligned}
 $$
 
-[deterministic 被積分過程の指数型マルチンゲール](#lem-sto12-指数型-vector) から各
+[deterministic 被積分過程の指数型マルチンゲール](#lem-sto12-exponential-vector) から各
 
 $$
 Z_T^{h_{n,j}}-1
@@ -1190,7 +1190,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（conditional expectation 過程の表現）**  
-> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-マルチンゲール-表現) の被積分過程を $H$ とする。
+> $\xi\in L^2(\mathcal F_T^B)$ とし、[ブラウン運動のマルチンゲール表現定理](#thm-sto12-martingale-representation) の被積分過程を $H$ とする。
 >
 > このとき全ての $0\le t\le T$ について
 >
@@ -1305,7 +1305,7 @@ E[M_T\mid\mathcal F_t^B]
 E[\xi\mid\mathcal F_t^B].
 $$
 
-[conditional expectation 過程の表現](#cor-sto12-conditional-表現) より
+[conditional expectation 過程の表現](#cor-sto12-conditional-representation) より
 
 $$
 M_t
@@ -1599,7 +1599,7 @@ $$
 
 ## 14. 強解を持つ SDE の終端ペイオフへの橋
 
-[STO9 の大域 Lipschitz SDE](../STO9/index.md#thm-sto9-大域的-existence-uniqueness) をブラウン運動の自然なフィルトレーション上で解き、
+[STO9 の大域 Lipschitz SDE](../STO9/index.md#thm-sto9-global-existence-uniqueness) をブラウン運動の自然なフィルトレーション上で解き、
 
 $$
 dX_t=b(X_t)dt+\sigma(X_t)dB_t
