@@ -94,6 +94,8 @@ $(E,\mathcal E)=(\mathbb R,\mathcal B(\mathbb R))$ の場合は、[実数値確�
 <!-- definition-example-start: def-sto1-measurable-map -->
 ### 直接例：有限集合間の可測写像
 
+**定義の確認**
+
 $$
 \Omega=\{H,T\},
 \qquad
