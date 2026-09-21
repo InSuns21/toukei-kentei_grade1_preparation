@@ -4,7 +4,7 @@
 
 時系列解析では、未来予測を始める前に「時間をずらしても二次の構造が変わらない」とは何かを固定する必要があります。
 
-この章の中心は、平均を引いた時系列を [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)のベクトルとして見て、
+この章の中心は、平均を引いた時系列を $L^2$ の内積幾何のベクトルとして見て、
 
 $$
 \text{過去の閉線形包}
@@ -566,7 +566,7 @@ $\mathcal H_{t-1}$ は定義により閉線形部分空間です。従って Hil
 <!-- proof-start -->
 ### 証明
 
-$L^2$ は [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)であり、$\mathcal H_{t-1}$ は閉線形部分空間です。[Hilbert 射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)より
+$L^2$ は完備な内積空間であり、$\mathcal H_{t-1}$ は閉線形部分空間です。[Hilbert 射影定理](../F0_02C1A_Hilbert射影定理_直交分解/index.md#thm-hilbert-projection)より
 
 $$
 P_{\mathcal H_{t-1}}Y_t
@@ -662,7 +662,7 @@ $$
 
 ## 7. 定常性は時間移動をユニタリ作用素にする
 
-「同じ予測問題が全時刻で同じ形を持つ」ことを [Hilbert 空間](../F0_00D2E_L2完備性_Riesz_Fischer/index.md#def-f0-00d2e-04)上で表します。
+「同じ予測問題が全時刻で同じ形を持つ」ことを $L^2$ の内積幾何として表します。
 
 全時刻の中心化変数が張る閉部分空間を
 
