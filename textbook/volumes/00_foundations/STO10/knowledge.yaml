@@ -88,7 +88,7 @@ concepts:
     kind: lemma
     aliases: ["Girsanov transform for continuous local martingales"]
     introduction: formal
-    introduction_aliases: ["補題（Girsanov 局所-マルチンゲール transform）"]
+    introduction_aliases: ["補題（Girsanov 局所マルチンゲール変換）"]
     requires:
       - stochastic.ito-product-rule
       - stochastic.covariation
@@ -99,7 +99,7 @@ concepts:
     kind: theorem
     aliases: ["Girsanov theorem", "Brownian Girsanov theorem"]
     introduction: formal
-    introduction_aliases: ["定理（Girsanov 定理：ブラウンドリフト shift）"]
+    introduction_aliases: ["定理（Girsanov 定理：ブラウン運動のドリフト変換）"]
     requires:
       - stochastic.novikov-condition
       - stochastic.girsanov-local-martingale-transform
