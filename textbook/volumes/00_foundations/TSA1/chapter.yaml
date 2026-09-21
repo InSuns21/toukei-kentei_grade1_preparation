@@ -1,0 +1,54 @@
+id: "TSA1"
+title: "Encore IV 時系列解析 I：定常過程・Hilbert 予測"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P3B
+  - F0-02C1A
+official_scope: []
+learning_objectives:
+  - 狭義定常性と二次定常性を区別し、狭義定常かつ二乗可積分なら二次定常となることを証明できる
+  - 自己共分散関数の対称性・Cauchy--Schwarz 上界・正定値性を証明できる
+  - 過去の閉線形包と有限過去予測空間を構成できる
+  - 有限過去最良線形予測の正規方程式を自己共分散から導ける
+  - Hilbert 射影として無限過去の最良線形予測を特徴付けられる
+  - 有限過去予測が無限過去予測へ L2 収束することを証明できる
+  - 二次定常性から時間移動作用素のユニタリ性を証明できる
+  - イノベーションの直交性・定常分散を証明し、弱ホワイトノイズとの関係を説明できる
+  - 線形決定論的過程を識別し、ランダム正弦波が完全に線形予測できることを示せる
+  - 条件付き期待値による最良予測と最良線形予測の射影先の違いを説明できる
+definitions:
+  - { id: TSA1-DEF-01, name: "狭義定常性" }
+  - { id: TSA1-DEF-02, name: "二次定常性" }
+  - { id: TSA1-DEF-03, name: "弱ホワイトノイズ" }
+  - { id: TSA1-DEF-04, name: "過去の線形予測空間" }
+  - { id: TSA1-DEF-05, name: "有限過去予測空間" }
+  - { id: TSA1-DEF-06, name: "イノベーション" }
+  - { id: TSA1-DEF-07, name: "線形決定論的過程" }
+theorems:
+  - { id: TSA1-THM-01, name: "狭義定常性から二次定常性" }
+  - { id: TSA1-PROP-01, name: "自己共分散関数の正定値性" }
+  - { id: TSA1-THM-02, name: "有限過去線形予測の正規方程式" }
+  - { id: TSA1-THM-03, name: "無限過去に基づく最良線形予測" }
+  - { id: TSA1-PROP-02, name: "有限過去予測から無限過去予測への収束" }
+  - { id: TSA1-LEM-01, name: "二次定常過程の時間移動作用素" }
+  - { id: TSA1-PROP-03, name: "イノベーション列の直交性と定常分散" }
+canonical_examples:
+  - "独立同分布列の狭義定常性"
+  - "二次定常だが狭義定常でない独立列"
+  - "弱ホワイトノイズ"
+  - "有限過去 p=1,2 の最良線形予測"
+  - "ランダム正弦波の線形決定論性"
+  - "MA(1) の有限過去予測と無限過去予測"
+problem_patterns:
+  - TSA1-STATIONARITY-1
+  - TSA1-COVARIANCE-PSD-1
+  - TSA1-FINITE-PREDICTION-1
+  - TSA1-HILBERT-PREDICTION-1
+  - TSA1-INNOVATION-1
+  - TSA1-DETERMINISTIC-1
+  - TSA1-MA1-INFINITE-PAST-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 4.5, review: 1.5 }
