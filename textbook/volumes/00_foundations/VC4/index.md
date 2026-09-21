@@ -1,8 +1,8 @@
 # VC4 Green・Gauss--Ostrogradsky と保存則
 
-VC3 までで、曲線積分・曲面積分・flux の定義がそろいました。本章では、内部の微分量を境界積分へ移す二つの基本定理を証明します。
+VC3 までで、曲線積分・曲面積分・流束 の定義がそろいました。本章では、内部の微分量を境界積分へ移す二つの基本定理を証明します。
 
-二次元では Green theorem、
+二次元では Green の定理、
 
 $$
 \int_{\partial D}P\,dx+Q\,dy
@@ -10,7 +10,7 @@ $$
 \iint_D(Q_x-P_y)\,dA,
 $$
 
-三次元では Gauss--Ostrogradsky divergence theorem、
+三次元では Gauss--Ostrogradsky の発散定理、
 
 $$
 \int_{\partial\Omega}F\cdot n\,dS
@@ -20,11 +20,11 @@ $$
 
 です。
 
-この二つは単なる積分計算の裏技ではありません。source density、flux、局所保存則、PDE の Green 恒等式をつなぐ共通骨格です。
+この二つは単なる積分計算の裏技ではありません。湧き出し密度、流束、局所保存則、PDE の Green 恒等式をつなぐ共通骨格です。
 
 ---
 
-## 1. Green theorem：まず x-simple / y-simple で証明する
+## 1. Green の定理：まず x-simple / y-simple で証明する
 
 平面領域
 
@@ -39,7 +39,7 @@ $$
 <a id="thm-vc4-green-circulation"></a>
 
 <!-- formal-statement-start -->
-> **定理（Green theorem：circulation form）**  
+> **定理（Green の定理：循環形）**  
 > $D\subset\mathbb R^2$ を有界領域とし、境界 $\partial D$ が有限本の区分的 $C^1$ 曲線からなり、有限分割により $x$-simple かつ $y$-simple な部分領域へ分解できるとする。
 >
 > $P,Q\in C^1(\overline D)$ なら、正向き境界に沿って
@@ -62,7 +62,7 @@ $$
 
 ### 証明の見取り図
 
-$-P_y$ は上下の境界の $P\,dx$ を作り、$Q_x$ は左右の境界の $Q\,dy$ を作ります。一般領域は simple region に有限分割し、人工的な内部境界が逆向きに二度現れて相殺することを使います。
+$-P_y$ は上下の境界の $P\,dx$ を作り、$Q_x$ は左右の境界の $Q\,dy$ を作ります。一般領域は 単純領域 に有限分割し、人工的な内部境界が逆向きに二度現れて相殺することを使います。
 
 <!-- proof-start -->
 ### 証明
@@ -93,7 +93,7 @@ P(x,\beta(x))\,dx.
 \end{aligned}
 $$
 
-正向き境界では下側 graph は $x=a$ から $b$ へ、上側 graph は $x=b$ から $a$ へ進みます。従って右辺はちょうど
+正向き境界では下側 グラフ は $x=a$ から $b$ へ、上側 グラフ は $x=b$ から $a$ へ進みます。従って右辺はちょうど
 
 $$
 \int_{\partial D}P\,dx
@@ -124,7 +124,7 @@ Q(\delta(y),y)-Q(\gamma(y),y)
 \end{aligned}
 $$
 
-二式を足せば simple region で
+二式を足せば 単純領域 で
 
 $$
 \int_{\partial D}P\,dx+Q\,dy
@@ -147,19 +147,19 @@ $$
 従って部分領域の公式を全部足すと内部境界は消え、元の $\partial D$ だけが残ります。
 <!-- proof-end -->
 
-この「内部境界の相殺」は、Gauss theorem でも同じ構造で現れます。
+この「内部境界の相殺」は、Gauss 定理 でも同じ構造で現れます。
 
 ---
 
-## 2. Green theorem の flux form
+## 2. Green の定理 の 流束形
 
-二次元 vector field
+二次元 ベクトル場
 
 $$
 F=(P,Q)
 $$
 
-の外向き flux を考えます。
+の外向き 流束 を考えます。
 
 正向き境界曲線を
 
@@ -190,8 +190,8 @@ $$
 <a id="cor-vc4-green-flux"></a>
 
 <!-- formal-statement-start -->
-> **系（Green theorem：flux form）**  
-> [Green theorem](#thm-vc4-green-circulation) と同じ仮定の下で
+> **系（Green の定理：流束形）**  
+> [Green の定理](#thm-vc4-green-circulation) と同じ仮定の下で
 >
 $$
 \boxed{
@@ -207,7 +207,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-circulation form に
+循環形 に
 
 $$
 \widetilde P=-Q,\qquad
@@ -243,7 +243,7 @@ $$
 
 でした。
 
-Green theorem では
+Green の定理 では
 
 $$
 Q_x-P_y
@@ -263,11 +263,11 @@ $$
 2\pi.
 $$
 
-境界を細かく積分する代わりに、内部の一定 curl density を積分しただけです。
+境界を細かく積分する代わりに、内部の一定 回転密度 を積分しただけです。
 
 ---
 
-## 4. 三次元：まず直方体で divergence theorem を見る
+## 4. 三次元：まず直方体で 発散定理 を見る
 
 直方体
 
@@ -328,11 +328,11 @@ $$
 \iiint_B(P_x+Q_y+R_z)\,dV.
 $$
 
-つまり box では一変数 FTC の三方向の和にすぎません。
+つまり 直方体 では一変数 微積分学の基本定理 の三方向の和にすぎません。
 
 ---
 
-## 5. graph domain へ拡張する
+## 5. グラフ領域 へ拡張する
 
 例えば
 
@@ -361,7 +361,7 @@ $$
 z=\beta(x,y)
 $$
 
-の外向き vector area element は VC3 の graph formula から
+の外向き ベクトル面積要素 は VC3 の グラフ formula から
 
 $$
 n\,dS
@@ -379,7 +379,7 @@ $$
 
 では外向き向きが逆なので $z$ 成分は $-1$ です。
 
-従って $R_z$ の体積積分が上下境界からの $R n_z$ の flux になります。$x$-simple 表示では左右面の outward vector area element の $x$ 成分がそれぞれ $+1,-1$ となるため
+従って $R_z$ の体積積分が上下境界からの $R n_z$ の 流束 になります。$x$-simple 表示では左右面の 外向きベクトル面積要素 の $x$ 成分がそれぞれ $+1,-1$ となるため
 
 $$
 \iiint_\Omega P_x\,dV
@@ -395,19 +395,19 @@ $$
 \int_{\partial\Omega}Q n_y\,dS
 $$
 
-を得ます。三式を足すことが divergence theorem の局所計算です。
+を得ます。三式を足すことが 発散定理 の局所計算です。
 
 ---
 
-## 6. Gauss--Ostrogradsky divergence theorem
+## 6. Gauss--Ostrogradsky の発散定理
 
 <a id="thm-vc4-gauss-divergence"></a>
 
 <!-- formal-statement-start -->
-> **定理（Gauss--Ostrogradsky divergence theorem）**  
-> $\Omega\subset\mathbb R^3$ を有界領域とし、$\partial\Omega$ が有限個の $C^1$ surface patches からなる区分的に滑らかな閉曲面であるとする。
+> **定理（Gauss--Ostrogradsky の発散定理）**  
+> $\Omega\subset\mathbb R^3$ を有界領域とし、$\partial\Omega$ が有限個の $C^1$ 曲面パッチ からなる区分的に滑らかな閉曲面であるとする。
 >
-> さらに $\Omega$ が有限分割により、各座標方向について graph domain として扱える有限個の部分領域へ分解できるとする。
+> さらに $\Omega$ が有限分割により、各座標方向について グラフ領域 として扱える有限個の部分領域へ分解できるとする。
 >
 > $F\in C^1(\overline\Omega;\mathbb R^3)$ なら
 >
@@ -424,12 +424,12 @@ $$
 
 ### 証明の見取り図
 
-box の証明を各座標方向に graph domain へ伸ばし、最後に有限分割を足します。人工的な内部面では法線が互いに逆向きなので flux が完全に相殺します。
+直方体 の証明を各座標方向に グラフ領域 へ伸ばし、最後に有限分割を足します。人工的な内部面では法線が互いに逆向きなので 流束 が完全に相殺します。
 
 <!-- proof-start -->
 ### 証明
 
-まず一つの部分領域 $\Omega_j$ が $x$-simple、$y$-simple、$z$-simple な graph domain として扱えるとします。
+まず一つの部分領域 $\Omega_j$ が $x$-simple、$y$-simple、$z$-simple な グラフ領域 として扱えるとします。
 
 前節の $z$-simple 計算から
 
@@ -504,7 +504,7 @@ $$
 F\cdot n_i+F\cdot n_j=0
 $$
 
-で、共有面の flux は相殺します。
+で、共有面の 流束 は相殺します。
 
 すべての内部面を消した後に残るのは元の外部境界 $\partial\Omega$ だけなので、
 
@@ -518,11 +518,11 @@ $$
 よって主張が従います。
 <!-- proof-end -->
 
-この証明で domain 仮定が必要なのは、「graph domain で一変数 FTC を使えること」と「有限分割で内部境界を相殺できること」です。一般の非常に粗い境界まで拡張するのは測度論的 Gauss--Green theorem の仕事であり、本章では扱いません。
+この証明で 領域 仮定が必要なのは、「グラフ領域 で一変数 微積分学の基本定理 を使えること」と「有限分割で内部境界を相殺できること」です。一般の非常に粗い境界まで拡張するのは測度論的 Gauss--Green の定理 の仕事であり、本章では扱いません。
 
 ---
 
-## 7. 例：球の flux を一行で計算する
+## 7. 例：球の 流束 を一行で計算する
 
 $$
 F(x,y,z)=(x,y,z)
@@ -550,7 +550,7 @@ VC3 で球面を直接パラメータ表示して得た値と一致します。
 
 ---
 
-## 8. field が未定義の点を含むと theorem はそのまま使えない
+## 8. 場 が未定義の点を含むと 定理 はそのまま使えない
 
 $$
 F(x)
@@ -574,9 +574,9 @@ $$
 4\pi.
 $$
 
-「divergence が 0 なのに flux が 0 でない」ように見えますが、矛盾ではありません。
+「発散 が 0 なのに 流束 が 0 でない」ように見えますが、矛盾ではありません。
 
-[Gauss--Ostrogradsky theorem](#thm-vc4-gauss-divergence) の仮定
+[Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) の仮定
 
 $$
 F\in C^1(\overline\Omega)
@@ -584,27 +584,27 @@ $$
 
 が原点で壊れています。
 
-原点を小球 $B_\varepsilon$ でくり抜いた annulus domain
+原点を小球 $B_\varepsilon$ でくり抜いた 球殻領域
 
 $$
 B_R\setminus\overline{B_\varepsilon}
 $$
 
-に theorem を適用すると、外球の flux $4\pi$ と内球境界の外向き flux $-4\pi$ が相殺し、体積積分 0 と一致します。
+に 定理 を適用すると、外球の 流束 $4\pi$ と内球境界の外向き 流束 $-4\pi$ が相殺し、体積積分 0 と一致します。
 
-この「field が定義されない点をくり抜いて内側境界を追う」考え方は PDE6 の fundamental solution で再登場します。
+この「場 が定義されない点をくり抜いて内側境界を追う」考え方は PDE6 の 基本解 で再登場します。
 
 ---
 
-## 9. source density と total source
+## 9. 湧き出し密度 と total 湧き出し
 
-divergence theorem は
+発散定理 は
 
 $$
 \operatorname{div}F
 $$
 
-を局所 source density と呼ぶ理由を正確にします。
+を局所 湧き出し密度 と呼ぶ理由を正確にします。
 
 任意の適切な領域 $\Omega$ について
 
@@ -622,13 +622,13 @@ $$
 \iiint_\Omega\operatorname{div}F\,dV.
 $$
 
-divergence が正の領域では 正味の流出、負の領域では正味の流入が生じます。
+発散 が正の領域では 正味の流出、負の領域では正味の流入が生じます。
 
 ---
 
 ## 10. 局所保存則から積分保存則へ
 
-時間依存する密度 $\rho(t,x)$ と flux $J(t,x)$ を考えます。
+時間依存する密度 $\rho(t,x)$ と 流束 $J(t,x)$ を考えます。
 
 <a id="def-vc4-local-conservation"></a>
 
@@ -644,9 +644,9 @@ $$
 s
 $$
 >
-> を満たすとき、これを source term $s$ を持つ局所保存則と呼ぶ。
+> を満たすとき、これを 生成項 $s$ を持つ局所保存則と呼ぶ。
 >
-> $s=0$ のとき source-free conservation law である。
+> $s=0$ のとき 生成項のない保存則 である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-vc4-local-conservation -->
@@ -674,7 +674,7 @@ $$
 \partial_t\rho+\operatorname{div}J=0=s.
 $$
 
-したがってこの組は source-free の局所保存則を実際に満たします。
+したがってこの組は 生成項なし の局所保存則を実際に満たします。
 <!-- definition-example-end -->
 
 <a id="thm-vc4-local-to-integral"></a>
@@ -704,7 +704,7 @@ $$
 
 ### 証明の見取り図
 
-局所式を $\Omega$ 全体で積分し、divergence の体積積分だけを Gauss theorem で境界 flux に移します。
+局所式を $\Omega$ 全体で積分し、発散 の体積積分だけを Gauss 定理 で境界 流束 に移します。
 
 <!-- proof-start -->
 ### 証明
@@ -731,7 +731,7 @@ $$
 \frac{d}{dt}\iiint_\Omega\rho\,dV.
 $$
 
-また [Gauss--Ostrogradsky theorem](#thm-vc4-gauss-divergence) より
+また [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) より
 
 $$
 \iiint_\Omega\operatorname{div}J\,dV
@@ -750,7 +750,7 @@ $$
 $$
 <!-- proof-end -->
 
-符号の意味は明快です。外向き flux が正なら、固定領域の内部に残る量は減ります。
+符号の意味は明快です。外向き 流束 が正なら、固定領域の内部に残る量は減ります。
 
 ---
 
@@ -793,7 +793,7 @@ $$
 
 ### 証明の見取り図
 
-もし $g(x_0)>0$ なら連続性により $x_0$ の十分小さい近傍で $g>0$ が続き、その小 box の積分は正になってしまいます。負の場合も同様です。
+もし $g(x_0)>0$ なら連続性により $x_0$ の十分小さい近傍で $g>0$ が続き、その小 直方体 の積分は正になってしまいます。負の場合も同様です。
 
 <!-- proof-start -->
 ### 証明
@@ -831,11 +831,11 @@ g(t,x)=0.
 $$
 <!-- proof-end -->
 
-ここで重要なのは **任意の領域** で積分形が成立することです。一つの固定領域について total balance が成立するだけでは、点ごとの局所式は導けません。
+ここで重要なのは **任意の領域** で積分形が成立することです。一つの固定領域について 総収支 が成立するだけでは、点ごとの局所式は導けません。
 
 ---
 
-## 12. PDE6 への canonical bridge
+## 12. PDE6 への 標準的な接続
 
 [PDE6](../PDE6/index.md) では Green 第一恒等式を
 
@@ -849,7 +849,7 @@ $$
 
 から導きます。
 
-VC1 の [積の微分則](../VC1/index.md#prop-vc1-product-rules) と、本章の [Gauss--Ostrogradsky theorem](#thm-vc4-gauss-divergence) を使えば
+VC1 の [積の微分則](../VC1/index.md#prop-vc1-product-rules) と、本章の [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) を使えば
 
 $$
 \iiint_\Omega
@@ -865,13 +865,13 @@ $$
 
 へ直行できます。
 
-したがって PDE6 が発散定理そのものを再証明する必要はありません。PDE6 の主役は Green identities、fundamental solution、Green function です。
+したがって PDE6 が発散定理そのものを再証明する必要はありません。PDE6 の主役は Green の恒等式、基本解、Green 関数 です。
 
 ---
 
 ## 13. 演習
 
-#### VC4-A01 Green theorem で循環を求める
+#### VC4-A01 Green の定理 で循環を求める
 - Level: A
 - 目安時間: 15分
 
@@ -887,7 +887,7 @@ $$
 \int_{\partial D}P\,dx+Q\,dy
 $$
 
-を Green theorem で求めよ。
+を Green の定理 で求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -913,7 +913,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC4-A02 Green flux form
+#### VC4-A02 Green 流束形
 - Level: A
 - 目安時間: 15分
 
@@ -929,7 +929,7 @@ $$
 F=(x,y)
 $$
 
-について total outward flux を求めよ。
+について 総外向き流束 を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -938,7 +938,7 @@ $$
 \operatorname{div}F=1+1=2.
 $$
 
-Green theorem の flux form から
+Green の定理 の 流束形 から
 
 $$
 \int_{\partial D}F\cdot n\,ds
@@ -955,7 +955,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC4-A03 box の divergence theorem
+#### VC4-A03 直方体 の 発散定理
 - Level: A
 - 目安時間: 18分
 
@@ -965,7 +965,7 @@ $$
 F=(x,y,z)
 $$
 
-について [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) を使って total flux を求めよ。
+について [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) を使って 総流束 を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -974,7 +974,7 @@ $$
 \operatorname{div}F=3.
 $$
 
-box の体積は $abc$ なので
+直方体 の体積は $abc$ なので
 
 $$
 \int_{\partial\Omega}F\cdot n\,dS
@@ -985,7 +985,7 @@ $$
 $$
 <!-- solution-end -->
 
-#### VC4-A04 source-free conservation
+#### VC4-A04 生成項のない保存
 - Level: A
 - 目安時間: 15分
 
@@ -1022,10 +1022,10 @@ $$
 }
 $$
 
-であり、total amount は保存されます。
+であり、総量 は保存されます。
 <!-- solution-end -->
 
-#### VC4-B01 球対称 field の flux
+#### VC4-B01 球対称 場 の 流束
 - Level: B
 - 目安時間: 22分
 
@@ -1033,10 +1033,10 @@ $$
 F(x)=x
 $$
 
-について、半径 $R$ の球で total outward flux を
+について、半径 $R$ の球で 総外向き流束 を
 
 1. VC3 の直接計算
-2. divergence theorem
+2. 発散定理
 
 の二通りで求めて一致を確認せよ。
 
@@ -1096,7 +1096,7 @@ $$
 F(x)=\frac{x}{|x|^3}
 $$
 
-について、annulus domain
+について、球殻領域
 
 $$
 \Omega_{\varepsilon,R}
@@ -1104,7 +1104,7 @@ $$
 \{x:\varepsilon<|x|<R\}
 $$
 
-で divergence theorem を適用し、外球と内球の flux が相殺することを確認せよ。
+で 発散定理 を適用し、外球と内球の 流束 が相殺することを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1121,15 +1121,15 @@ $$
 \int_{\partial\Omega_{\varepsilon,R}}F\cdot n\,dS=0.
 $$
 
-外球 $|x|=R$ では外向き法線が radial outward なので flux は
+外球 $|x|=R$ では外向き法線が 放射方向外向き なので 流束 は
 
 $$
 4\pi.
 $$
 
-内球 $|x|=\varepsilon$ は annulus domain から見た外向き法線が **原点方向**、すなわち通常の球の外向き法線の逆です。
+内球 $|x|=\varepsilon$ は 球殻領域 から見た外向き法線が **原点方向**、すなわち通常の球の外向き法線の逆です。
 
-通常の radial outward flux は $4\pi$ なので、annulus の内側境界としては
+通常の radial 外向き流束 は $4\pi$ なので、annulus の内側境界としては
 
 $$
 -4\pi.
@@ -1144,7 +1144,7 @@ $$
 体積積分と一致します。
 <!-- solution-end -->
 
-#### VC4-B03 保存則の source term
+#### VC4-B03 保存則の 生成項
 - Level: B
 - 目安時間: 25分
 
@@ -1160,7 +1160,7 @@ $$
 \iiint_\Omega s\,dV=8
 $$
 
-なら、領域内 total amount の時間変化率を求め、その意味を説明せよ。
+なら、領域内 総量 の時間変化率を求め、その意味を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1175,7 +1175,7 @@ $$
 \boxed{3}.
 $$
 
-境界から毎単位時間 5 が流出しますが、内部 source が毎単位時間 8 を生成するため、差し引き 3 だけ total amount が増加します。
+境界から毎単位時間 5 が流出しますが、内部 湧き出し が毎単位時間 8 を生成するため、差し引き 3 だけ 総量 が増加します。
 <!-- solution-end -->
 
 #### VC4-C01 Green・Gauss・保存則を一つにつなぐ
@@ -1195,10 +1195,10 @@ $$
 を満たすとする。半径 $R$ の固定球 $B_R$ について次を行え。
 
 1. $\operatorname{div}J$ を求めよ。
-2. [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) から境界 flux を求めよ。
+2. [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) から境界 流束 を求めよ。
 3. $\frac{d}{dt}\int_{B_R}\rho\,dV$ を求めよ。
 4. $R$ を小さくしたとき「局所的に密度が減る」ことと $\operatorname{div}J>0$ の関係を説明せよ。
-5. 同じ $J$ を $z=0$ 平面に制限した二次元 field $(x,y)$ について、Green flux form で半径 $R$ の円板から出る flux を求めよ。
+5. 同じ $J$ を $z=0$ 平面に制限した二次元 場 $(x,y)$ について、Green 流束形 で半径 $R$ の円板から出る 流束 を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1209,7 +1209,7 @@ $$
 \operatorname{div}J=1+1+1=3.
 $$
 
-2. [Gauss--Ostrogradsky divergence theorem](#thm-vc4-gauss-divergence) より
+2. [Gauss--Ostrogradsky の発散定理](#thm-vc4-gauss-divergence) より
 
 $$
 \int_{\partial B_R}J\cdot n\,dS
@@ -1221,7 +1221,7 @@ $$
 \boxed{4\pi R^3}.
 $$
 
-3. source-free conservation law なので
+3. 生成項のない保存則 なので
 
 $$
 \frac{d}{dt}\iiint_{B_R}\rho\,dV
@@ -1231,7 +1231,7 @@ $$
 \boxed{-4\pi R^3}.
 $$
 
-4. $\operatorname{div}J=3>0$ は各点の近くで 正味の外向き流束密度が正であることを表します。source term がないため、その分だけ固定された小領域内部の total density は減少します。小球の体積で割ると平均変化率は
+4. $\operatorname{div}J=3>0$ は各点の近くで 正味の外向き流束密度が正であることを表します。生成項 がないため、その分だけ固定された小領域内部の 総量 は減少します。小球の体積で割ると平均変化率は
 
 $$
 \frac{-4\pi R^3}{(4/3)\pi R^3}
@@ -1247,13 +1247,13 @@ $$
 
 と一致します。
 
-5. 二次元 field $F=(x,y)$ では
+5. 二次元 場 $F=(x,y)$ では
 
 $$
 \operatorname{div}F=2.
 $$
 
-Green flux form から
+Green 流束形 から
 
 $$
 \int_{\partial D_R}F\cdot n\,ds
@@ -1269,7 +1269,7 @@ $$
 \boxed{2\pi R^2}.
 $$
 
-二次元でも三次元でも「内部 divergence の総和 = 境界 outward flux」という同じ構造が働いています。
+二次元でも三次元でも「内部 発散 の総和 = 境界 外向き流束」という同じ構造が働いています。
 <!-- solution-end -->
 
 ---
@@ -1286,11 +1286,11 @@ $$
 
 という同じ原理です。
 
-- Green theorem：二次元で circulation / flux と内部 curl / divergence を結ぶ。
-- Gauss--Ostrogradsky theorem：三次元で boundary flux と volume divergence を結ぶ。
-- conservation law：divergence theorem を時間発展へ適用したもの。
+- Green の定理：二次元で 循環 / 流束 と内部 curl / 発散 を結ぶ。
+- Gauss--Ostrogradsky の発散定理：三次元で 境界流束 と volume 発散 を結ぶ。
+- conservation law：発散定理 を時間発展へ適用したもの。
 
-次の VC5 では、残るもう一つの積分定理 [Kelvin--Stokes theorem](../VC5/index.md#thm-vc5-stokes) を扱います。そこで
+次の VC5 では、残るもう一つの積分定理 [Kelvin--Stokes の定理](../VC5/index.md#thm-vc5-stokes) を扱います。そこで
 
 $$
 \operatorname{curl}
